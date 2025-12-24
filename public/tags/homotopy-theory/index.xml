@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>My Math Notes</title>
-    <link>http://localhost:1313/</link>
-    <description>Recent content on My Math Notes</description>
+    <title>Homotopy Theory on My Math Notes</title>
+    <link>http://localhost:1313/tags/homotopy-theory/</link>
+    <description>Recent content in Homotopy Theory on My Math Notes</description>
     <generator>Hugo -- 0.152.2</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 22 Nov 2023 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tags/homotopy-theory/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Homotopy Limits and Colimits</title>
       <link>http://localhost:1313/notes/homotopy-test/</link>

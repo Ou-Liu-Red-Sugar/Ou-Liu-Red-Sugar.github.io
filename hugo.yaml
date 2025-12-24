@@ -16,6 +16,13 @@ menu:
       url: /papers/
       weight: 20
 
+# --- 关键修正：开启 HTML 支持 ---
+markup:
+  goldmark:
+    renderer:
+      unsafe: true
+# -----------------------------
+
 params:
   defaultTheme: auto
   math: true
@@ -26,4 +33,3 @@ params:
     buttons:
       - name: GitHub
         url: "https://github.com/Ou-Liu-Red-Sugar"
-  unsafe: true

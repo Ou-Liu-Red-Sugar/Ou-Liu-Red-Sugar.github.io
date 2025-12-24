@@ -8,13 +8,28 @@ summary: "A test note with Commutative Diagrams."
 
 ## Introduction
 
-Here is a standard diagram in the category of Schemes:
+Let's try again with pure ASCII characters inside the block.
 
-<script type="text/tikz">
-  \begin{tikzcd}
-    A \arrow[r, "\phi"] \arrow[d, "f"] & B \arrow[d, "g"] \\
-    C \arrow[r, "\psi"] & D
-  \end{tikzcd}
-</script>
+{{< tikz >}}
+  % Load packages (English comments only)
+  \usepackage{amsfonts}
+  \usepackage{amssymb}
+  \usepackage{tikz-cd}
 
-And a math formula: $\Hom(A, B)$.
+  \begin{document}
+    \begin{tikzcd}
+      A \arrow[r, "\phi"] \arrow[d, "f"] & B \arrow[d, "g"] \\
+      C \arrow[r, "\psi"] & D
+    \end{tikzcd}
+  \end{document}
+{{< /tikz >}}
+
+## Pure TikZ Test
+
+{{< tikz >}}
+  \begin{tikzpicture}
+    \draw[help lines] (0,0) grid (2,2);
+    \draw[red, thick] (0,0) -- (2,2);
+    \draw[blue] (1,0) circle (1);
+  \end{tikzpicture}
+{{< /tikz >}}
