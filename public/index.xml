@@ -1,19 +1,64 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>My Math Notes</title>
+    <title>Ou Liu&#39;s Homepage</title>
     <link>http://localhost:1313/</link>
-    <description>Recent content on My Math Notes</description>
+    <description>Recent content on Ou Liu&#39;s Homepage</description>
     <generator>Hugo -- 0.152.2</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 22 Nov 2023 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 24 Dec 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Homotopy Limits and Colimits</title>
-      <link>http://localhost:1313/notes/homotopy-test/</link>
-      <pubDate>Wed, 22 Nov 2023 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/notes/homotopy-test/</guid>
-      <description>A test note with Commutative Diagrams.</description>
+      <title>About me</title>
+      <link>http://localhost:1313/about/</link>
+      <pubDate>Wed, 24 Dec 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/about/</guid>
+      <description>&lt;h1 id=&#34;hello-im-ou-liu-刘欧&#34;&gt;Hello, I&amp;rsquo;m Ou Liu (刘欧).&lt;/h1&gt;
+&lt;p&gt;I am a master&amp;rsquo;s student in Mathematics at the &lt;em&gt;University of Regensburg&lt;/em&gt;, enjoying the life in Bavaria.&lt;/p&gt;
+&lt;p&gt;My primary interest lies in the intersection of &lt;em&gt;Homotopy Theory&lt;/em&gt; and &lt;em&gt;Algebraic Geometry&lt;/em&gt;.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;education&#34;&gt;Education&lt;/h2&gt;
+&lt;dl&gt;
+&lt;dt&gt;2025 &amp;ndash; Present&lt;/dt&gt;
+&lt;dd&gt;&lt;strong&gt;M.Sc. Mathematics&lt;/strong&gt;
+&lt;em&gt;University of Regensburg&lt;/em&gt;
+&lt;ul&gt;
+&lt;li&gt;Focus: &lt;em&gt;Homotopy Theory&lt;/em&gt;, &lt;em&gt;Algebraic Geometry&lt;/em&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/dd&gt;
+&lt;dt&gt;2021 &amp;ndash; 2025&lt;/dt&gt;
+&lt;dd&gt;&lt;strong&gt;B.Sc. Mathematics&lt;/strong&gt;
+&lt;em&gt;Shanxi University&lt;/em&gt;
+&lt;ul&gt;
+&lt;li&gt;Thesis: ``Application of six functor formalisms to smooth representation theory&#39;&#39;&lt;/li&gt;
+&lt;li&gt;Publication: Lili Liu, Xi Wang, &lt;em&gt;Ou Liu&lt;/em&gt;, et al. ``Valuation and comparison of the actual and optimal control strategy in an emerging infectious disease&amp;rsquo;&amp;rsquo;. &lt;em&gt;Infectious Disease Modelling&lt;/em&gt; (2024). &lt;a href=&#34;https://www.sciencedirect.com/science/article/pii/S2468042724000149&#34;&gt;[Link]&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/dd&gt;
+&lt;/dl&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;research-interests&#34;&gt;Research Interests&lt;/h2&gt;
+&lt;p&gt;I am broadly interested in:&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Six Functor Formalisms: smoothness and suaveness</title>
+      <link>http://localhost:1313/notes/sixfunctor/</link>
+      <pubDate>Wed, 24 Dec 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/notes/sixfunctor/</guid>
+      <description>We reinterpret D-smooth morphisms in a six functor formalism via the 2-category of kernel associated to a slice geometry. Using Fourier–Mukai kernels to encode functors, smoothness is characterized by left adjointness at the kernel level, yielding automatic base change compatibility. Suaveness is then obtained by imposing invertibility of the dualizing complex as an additional, independent condition.</description>
+    </item>
+    <item>
+      <title>Synthetic category theory and type theory</title>
+      <link>http://localhost:1313/notes/type/</link>
+      <pubDate>Wed, 24 Dec 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/notes/type/</guid>
+      <description>&lt;p&gt;This page aims to explain how &lt;strong&gt;type theory&lt;/strong&gt; can be understood within the framework of &lt;strong&gt;synthetic category theory&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;The content of this page is derived from my questions to Tashi during the second exercise class and Tashi’s responses. I would like to express my gratitude to Tashi here.&lt;/p&gt;
+&lt;p&gt;We focus on the following two questions:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Question I.&lt;/strong&gt; How should we understand the notion of &lt;strong&gt;isofibration&lt;/strong&gt; (hereafter referred to as a &lt;em&gt;fibration&lt;/em&gt;) in synthetic category theory?&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Question II.&lt;/strong&gt; Do we still have a &lt;strong&gt;weak factorization system&lt;/strong&gt; in this context?&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Next, we will answer these questions through the lens of type theory and the categorical perspective of synthetic category theory.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

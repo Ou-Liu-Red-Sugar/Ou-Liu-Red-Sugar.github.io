@@ -1,0 +1,15 @@
+<details class="math-env proof">
+    <summary class="env-title">
+        <em>
+            {{ if .Get "title" }}
+                {{ .Get "title" }}.
+            {{ else }}
+                Proof.
+            {{ end }}
+        </em>
+    </summary>
+    <div class="env-content">
+        {{ .Inner | markdownify }}
+        <span style="float:right;">$\square$</span> 
+    </div>
+</details>

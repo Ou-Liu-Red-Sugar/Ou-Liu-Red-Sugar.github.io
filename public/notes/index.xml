@@ -1,19 +1,33 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>Notes on My Math Notes</title>
+    <title>Notes on Ou Liu&#39;s Homepage</title>
     <link>http://localhost:1313/notes/</link>
-    <description>Recent content in Notes on My Math Notes</description>
+    <description>Recent content in Notes on Ou Liu&#39;s Homepage</description>
     <generator>Hugo -- 0.152.2</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 22 Nov 2023 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 24 Dec 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/notes/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Homotopy Limits and Colimits</title>
-      <link>http://localhost:1313/notes/homotopy-test/</link>
-      <pubDate>Wed, 22 Nov 2023 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/notes/homotopy-test/</guid>
-      <description>A test note with Commutative Diagrams.</description>
+      <title>Six Functor Formalisms: smoothness and suaveness</title>
+      <link>http://localhost:1313/notes/sixfunctor/</link>
+      <pubDate>Wed, 24 Dec 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/notes/sixfunctor/</guid>
+      <description>We reinterpret D-smooth morphisms in a six functor formalism via the 2-category of kernel associated to a slice geometry. Using Fourier–Mukai kernels to encode functors, smoothness is characterized by left adjointness at the kernel level, yielding automatic base change compatibility. Suaveness is then obtained by imposing invertibility of the dualizing complex as an additional, independent condition.</description>
+    </item>
+    <item>
+      <title>Synthetic category theory and type theory</title>
+      <link>http://localhost:1313/notes/type/</link>
+      <pubDate>Wed, 24 Dec 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/notes/type/</guid>
+      <description>&lt;p&gt;This page aims to explain how &lt;strong&gt;type theory&lt;/strong&gt; can be understood within the framework of &lt;strong&gt;synthetic category theory&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;The content of this page is derived from my questions to Tashi during the second exercise class and Tashi’s responses. I would like to express my gratitude to Tashi here.&lt;/p&gt;
+&lt;p&gt;We focus on the following two questions:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Question I.&lt;/strong&gt; How should we understand the notion of &lt;strong&gt;isofibration&lt;/strong&gt; (hereafter referred to as a &lt;em&gt;fibration&lt;/em&gt;) in synthetic category theory?&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Question II.&lt;/strong&gt; Do we still have a &lt;strong&gt;weak factorization system&lt;/strong&gt; in this context?&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Next, we will answer these questions through the lens of type theory and the categorical perspective of synthetic category theory.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

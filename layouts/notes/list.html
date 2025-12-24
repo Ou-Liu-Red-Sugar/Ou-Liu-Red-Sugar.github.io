@@ -1,0 +1,14 @@
+{{- define "main" -}}
+  <header class="page-header">
+    <h1>{{ .Title }}</h1>
+    {{- with .Params.description -}}
+      <div class="post-description">{{ . }}</div>
+    {{- end -}}
+  </header>
+
+  <div class="post-content">
+    {{ .Content }}
+  </div>
+
+  {{/* 注意：不要在这里 range .Pages，否则就会出现主题默认文章列表 */}}
+{{- end -}}

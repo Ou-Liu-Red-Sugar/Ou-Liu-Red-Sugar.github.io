@@ -1,0 +1,96 @@
+/* static/css/custom.css */
+
+/* 数学环境通用容器 */
+.math-env {
+    margin: 1.5em 0;
+    padding: 0.8em 1.2em;
+    border-left: 3px solid #ccc; 
+    background-color: #fcfcfc;   /* 极淡的灰白色，接近纸张感 */
+    border-radius: 0 4px 4px 0;
+    line-height: 1.6;            /* 增加行高，阅读更舒适 */
+}
+
+/* 定理环境 (Theorem) */
+.math-env.theorem {
+    border-left-color: #4a4a4a;  /* 深灰色竖线 */
+    background-color: #f7f7f7;   /* 稍微深一点的背景区分 */
+}
+
+.math-env.corollary{
+    border-left-color: #4a4a4a;  /* 深灰色竖线 */
+    background-color: #f7f7f7;   /* 稍微深一点的背景区分 */
+}
+
+
+/* 证明环境 (Proof) */
+.math-env.proof {
+    border-left-color: #a0a0a0;  /* 浅灰色竖线 */
+    background-color: transparent; 
+    padding-left: 1em;
+    font-style: normal;
+}
+
+/* 标题样式：斜体，无粗体 */
+.env-title {
+    font-family: serif;          /* 确保使用衬线体 */
+    font-style: italic;
+    font-weight: normal;         /* 严格禁止粗体 */
+    margin-bottom: 0.5em;
+    color: #222;
+    display: block;              /* 确保独占一行 */
+}
+
+/* 让 summary (可折叠标题) 鼠标放上去变小手 */
+summary.env-title {
+    cursor: pointer;
+    outline: none;
+}
+
+/* 去掉 details 默认的小三角，换成我们自己的样式 (可选) */
+/* 如果你想保留小三角，删掉下面这几行 */
+details > summary {
+  list-style: none;
+}
+details > summary::-webkit-details-marker {
+  display: none;
+}
+/* 在标题前加一个小箭头提示可折叠 */
+details > summary::before {
+  content: "▶ ";
+  font-size: 0.8em;
+  color: #888;
+  margin-right: 0.3em;
+}
+details[open] > summary::before {
+  content: "▼ ";
+}
+
+/* 定义 (Definition) - 使用蓝绿色/Teal，给人一种"基础定义"的感觉 */
+.math-env.definition {
+    border-left-color: #008080; /* Teal color */
+    background-color: #f4fcfc;  /* 极淡的青色背景 */
+}
+
+.math-env.remark {
+    border-left-color: #008080; /* Teal color */
+    background-color: #f4fcfc;  /* 极淡的青色背景 */
+}
+
+/* 命题 (Proposition) - 介于定理和引理之间，使用深蓝色 */
+.math-env.proposition {
+    border-left-color: #2b5d8a;
+    background-color: #f0f7fb;
+}
+
+/* 引理 (Lemma) - 辅助性的，使用浅灰色或淡蓝灰色 */
+.math-env.lemma {
+    border-left-color: #2b5d8a;
+    background-color: #f0f7fb;
+}
+
+
+/* 想法 (Idea) - 比较随意的，可以使用紫色或橙色来活跃气氛 */
+.math-env.idea {
+    border-left-color: #9b59b6; /* 紫色 */
+    background-color: #fbf6fd;
+}

@@ -1,0 +1,36 @@
+{{- $sec := site.GetPage "section" "notes" -}}
+{{- if not $sec -}}
+  <p>No notes section found.</p>
+{{- else -}}
+  {{- $pages := where $sec.RegularPages "Draft" "ne" true -}}
+  {{- $pages = where $pages "Params.hidden" "ne" true -}} {{/* 可选：支持 hidden:true */}}
+
+  {{- if eq (len $pages) 0 -}}
+    <p>No notes found.</p>
+  {{- else -}}
+    <ul>
+      {{- range $pages.ByDate.Reverse -}}
+        <li style="margin-bottom: .9rem;">
+          <div>
+            <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+            {{- with .Date -}}
+              <span style="opacity:.6;"> — {{ .Format "2006-01-02" }}</span>
+            {{- end -}}
+          </div>
+
+          {{- with .Params.description -}}
+            <div style="opacity:.8; font-size: 0.95em; margin-top: .2rem;">
+              {{ . }}
+            </div>
+          {{- else -}}
+            {{- with .Summary -}}
+              <div style="opacity:.8; font-size: 0.95em; margin-top: .2rem;">
+                {{ . | plainify | truncate 160 }}
+              </div>
+            {{- end -}}
+          {{- end -}}
+        </li>
+      {{- end -}}
+    </ul>
+  {{- end -}}
+{{- end -}}

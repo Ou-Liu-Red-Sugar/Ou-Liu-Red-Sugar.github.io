@@ -1,9 +1,11 @@
 baseURL: "https://Ou-Liu-Red-Sugar.github.io/"
-title: "My Math Notes"
+title: "Ou Liu's Homepage"
 theme: "PaperMod"
 languageCode: "en-us"
 defaultContentLanguage: "en"
 enableInlineShortcodes: true
+
+sectionPagesMenu: ""
 
 menu:
   main:
@@ -15,21 +17,39 @@ menu:
       name: Papers
       url: /papers/
       weight: 20
-
-# --- 关键修正：开启 HTML 支持 ---
-markup:
-  goldmark:
-    renderer:
-      unsafe: true
-# -----------------------------
+    - identifier: about
+      name: About me
+      url: /about/
+      weight: 30
 
 params:
   defaultTheme: auto
   math: true
   profileMode:
     enabled: true
-    title: "M.Sc. Mathematics @ UR"
-    subtitle: "Homotopy Theory & Algebraic Geometry"
+    title: "Ou Liu(刘欧)"
+    subtitle: "M.sc Students in University of Regensburg"
     buttons:
-      - name: GitHub
-        url: "https://github.com/Ou-Liu-Red-Sugar"
+      - name: My Chinese Homepage in Banana Space
+        url: "https://www.bananaspace.org/wiki/%E7%94%A8%E6%88%B7:%E9%81%97%E5%BF%98%E7%9A%84%E5%B7%A6%E4%BC%B4%E9%9A%8F"
+      - name: ORCID
+        url: "https://orcid.org/0009-0006-5593-4339"
+  custom_css: ["css/custom.css"]
+markup:
+  goldmark:
+    renderer: 
+      unsafe: true  # 之前开启的，允许 HTML
+    extensions:
+      passthrough:
+        enable: true
+        delimiters:
+          block:
+          - - \[
+            - \]
+          - - $$
+            - $$
+          inline:
+          - - $
+            - $
+          - - \(
+            - \)

@@ -3,12 +3,10 @@ title: "My Papers"
 hidemeta: true
 ---
 
-### Preprints
+### Publication
 
-1.  **On the Model Structure of Simplicial Sets**
-    *Ou Liu*, 2024.
-    [PDF](https://arxiv.org) | [ArXiv](https://arxiv.org)
+1.  Lili Liu, Xi Wang, **Ou Liu**, et al. ``Valuation and comparison of the actual and optimal control strategy in an emerging infectious disease''. *Infectious Disease Modelling* (2024). [[Link]](https://www.sciencedirect.com/science/article/pii/S2468042724000149)
 
-2.  **Derived Functors in Algebraic Geometry**
-    *Ou Liu*, 2023.
-    [PDF](#)
+### Preprint
+
+1. I don't have preprint.

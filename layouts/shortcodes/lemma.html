@@ -1,0 +1,16 @@
+<div class="math-env lemma">
+  <div class="env-title">
+    <em>
+      Lemma
+      {{- with .Get "title" -}}
+        ({{ . }}).
+      {{- else -}}
+        .
+      {{- end -}}
+    </em>
+  </div>
+
+  <div class="env-content">
+    {{- .Inner | .Page.RenderString -}}
+  </div>
+</div>

@@ -1,0 +1,16 @@
+<div class="math-env remark">
+  <div class="env-title">
+    <em>
+      Remark
+      {{- with .Get "title" -}}
+        ({{ . }}).
+      {{- else -}}
+        .
+      {{- end -}}
+    </em>
+  </div>
+
+  <div class="env-content">
+    {{- .Inner | .Page.RenderString -}}
+  </div>
+</div>

@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="noindex, nofollow">
-<title>My Math Notes</title>
+<title>Ou Liu&#39;s Homepage</title>
 
 <meta name="description" content="">
 <meta name="author" content="">
@@ -73,30 +73,47 @@
     }
 
 </script><link rel="stylesheet" type="text/css" href="https://tikzjax.com/v1/fonts.css">
-<script src="https://tikzjax.com/v1/tikzjax.js"></script>
+<script defer src="https://tikzjax.com/v1/tikzjax.js"></script>
+
+<link rel="stylesheet" href="/css/custom.css">
 
 <script>
-  MathJax = {
+  window.MathJax = {
     tex: {
       inlineMath: [['$', '$'], ['\\(', '\\)']],
-      displayMath: [['layouts\partials', 'layouts\partials'], ['\\[', '\\]']],
+      displayMath: [['$$', '$$'], ['\\[', '\\]']],
       processEscapes: true,
+      tags: 'ams',
       macros: {
+        Z: "\\mathbb{Z}",
+        R: "\\mathbb{R}",
+        Q: "\\mathbb{Q}",
+        C: "\\mathbb{C}",
+        N: "\\mathbb{N}",
+        coloneqq: "\\mathrel{:=}",
         Hom: "\\operatorname{Hom}",
         Spec: "\\operatorname{Spec}",
         colim: "\\operatorname{colim}"
       }
+    },
+    options: {
+      ignoreHtmlClass: 'tex2jax_ignore',
+      processHtmlClass: 'tex2jax_process'
+    },
+    startup: {
+      typeset: true
     }
   };
 </script>
-<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" id="MathJax-script"></script>
 
 </head>
 <body class="list" id="top">
     <header class="header">
     <nav class="nav">
         <div class="logo">
-            <a href="http://localhost:1313/" accesskey="h" title="My Math Notes (Alt + H)">My Math Notes</a>
+            <a href="http://localhost:1313/" accesskey="h" title="Ou Liu&#39;s Homepage (Alt + H)">Ou Liu&#39;s Homepage</a>
             <div class="logo-switches">
                 <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
                     <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
@@ -131,19 +148,35 @@
                     <span>Papers</span>
                 </a>
             </li>
+            <li>
+                <a href="http://localhost:1313/about/" title="About me">
+                    <span>About me</span>
+                </a>
+            </li>
         </ul>
     </nav>
 </header>
 <main class="main"><div class="profile">
     <div class="profile_inner">
-        <h1>M.Sc. Mathematics @ UR</h1>
-        <span>Homotopy Theory &amp; Algebraic Geometry</span><div class="social-icons" >
+        <h1>Ou Liu(刘欧)</h1>
+        <span>M.sc Students in University of Regensburg</span><div class="social-icons" >
 </div>
 
         <div class="buttons">
-            <a class="button" href="https://github.com/Ou-Liu-Red-Sugar" rel="noopener" title="GitHub">
+            <a class="button" href="https://www.bananaspace.org/wiki/%E7%94%A8%E6%88%B7:%E9%81%97%E5%BF%98%E7%9A%84%E5%B7%A6%E4%BC%B4%E9%9A%8F" rel="noopener" title="My Chinese Homepage in Banana Space">
                 <span class="button-inner">
-                    GitHub&nbsp;
+                    My Chinese Homepage in Banana Space&nbsp;
+                    <svg fill="none" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round"
+                        stroke-linejoin="round" stroke-width="2.5" viewBox="0 0 24 24" height="14" width="14">
+                        <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"></path>
+                        <path d="M15 3h6v6"></path>
+                        <path d="M10 14L21 3"></path>
+                    </svg>
+                </span>
+            </a>
+            <a class="button" href="https://orcid.org/0009-0006-5593-4339" rel="noopener" title="ORCID">
+                <span class="button-inner">
+                    ORCID&nbsp;
                     <svg fill="none" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round"
                         stroke-linejoin="round" stroke-width="2.5" viewBox="0 0 24 24" height="14" width="14">
                         <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"></path>
@@ -159,7 +192,7 @@
     </main>
     
 <footer class="footer">
-        <span>&copy; 2025 <a href="http://localhost:1313/">My Math Notes</a></span> · 
+        <span>&copy; 2025 <a href="http://localhost:1313/">Ou Liu&#39;s Homepage</a></span> · 
 
     <span>
         Powered by

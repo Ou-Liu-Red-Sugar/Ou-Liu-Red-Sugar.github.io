@@ -1,0 +1,14 @@
+<div class="math-env idea">
+    <div class="env-title">
+        <em>
+            Idea
+            {{ if .Get "title" }}
+                ({{ .Get "title" }}).
+            {{ else }}.
+            {{ end }}
+        </em>
+    </div>
+    <div class="env-content">
+        {{ .Inner | markdownify }}
+    </div>
+</div>
