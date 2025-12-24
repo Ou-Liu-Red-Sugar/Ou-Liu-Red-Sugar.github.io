@@ -21,7 +21,7 @@ My primary interest lies in the intersection of *Homotopy Theory* and *Algebraic
     * Focus: *Homotopy Theory*, *Algebraic Geometry*
 
 2021 -- 2025
-:   **B.Sc. Mathematics**
+:   **B.Sc. Mathematics and applied mathematics**
     *Shanxi University*
     * Thesis: ``Application of six functor formalisms to smooth representation theory''
     * Publication: Lili Liu, Xi Wang, *Ou Liu*, et al. ``Valuation and comparison of the actual and optimal control strategy in an emerging infectious disease''. *Infectious Disease Modelling* (2024). [[Link]](https://www.sciencedirect.com/science/article/pii/S2468042724000149)
