@@ -1,0 +1,29 @@
+baseURL: "https://Ou-Liu-Red-Sugar.github.io/"
+title: "My Math Notes"
+theme: "PaperMod"
+languageCode: "en-us"
+defaultContentLanguage: "en"
+enableInlineShortcodes: true
+
+menu:
+  main:
+    - identifier: notes
+      name: Notes
+      url: /notes/
+      weight: 10
+    - identifier: papers
+      name: Papers
+      url: /papers/
+      weight: 20
+
+params:
+  defaultTheme: auto
+  math: true
+  profileMode:
+    enabled: true
+    title: "M.Sc. Mathematics @ UR"
+    subtitle: "Homotopy Theory & Algebraic Geometry"
+    buttons:
+      - name: GitHub
+        url: "https://github.com/Ou-Liu-Red-Sugar"
+  unsafe: true
