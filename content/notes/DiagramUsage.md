@@ -17,23 +17,23 @@ This site renders TikZ-CD diagrams by compiling LaTeX to SVG ahead of time. Use 
 **Single diagram (`tikzcd`)**
 
 {{< tikzcd >}}
-A \\arrow[r, "f"] \\arrow[d, "g"'] & B \\arrow[d, "h"] \\
-C \\arrow[r, "k"'] & D
+A \ar[r, "f"] \ar[d, "g"'] & B \ar[d, "h"] \\
+C \ar[r, "k"'] & D
 {{< /tikzcd >}}
 
 **Side-by-side or equivalence layout (`cdrow`)**
 
 {{< cdrow >}}
 {{< tikzcd >}}
-X \\arrow[r, "f"] \\arrow[d, "g"'] & Y \\arrow[d, "h"] \\
-Z \\arrow[r, "k"'] & W
+X \ar[r, "f"] \ar[d, "g"'] & Y \ar[d, "h"] \\
+Z \ar[r, "k"'] & W
 {{< /tikzcd >}}
 
 <span class="cdsep">\(\Leftrightarrow\)</span>
 
 {{< tikzcd >}}
-X' \\arrow[r, "f'"] \\arrow[d, "g'"'] & Y' \\arrow[d, "h'"] \\
-Z' \\arrow[r, "k'"'] & W'
+X' \ar[r, "f'"] \ar[d, "g'"'] & Y' \ar[d, "h'"] \\
+Z' \ar[r, "k'"'] & W'
 {{< /tikzcd >}}
 {{< /cdrow >}}
 
