@@ -118,6 +118,43 @@ pre {
     display: block;
 }
 
+.thm-block {
+    margin: 1.5em 0;
+    padding: 0.8em 1.2em;
+    border-left: 3px solid #ccc;
+    background-color: #fcfcfc;
+    border-radius: 0 4px 4px 0;
+    line-height: 1.6;
+}
+
+.thm-block.kind-theorem,
+.thm-block.kind-corollary {
+    border-left-color: #4a4a4a;
+    background-color: #f7f7f7;
+}
+
+.thm-block.kind-definition {
+    border-left-color: #008080;
+    background-color: #f4fcfc;
+}
+
+.thm-block.kind-proposition,
+.thm-block.kind-lemma {
+    border-left-color: #2b5d8a;
+    background-color: #f0f7fb;
+}
+
+/* Title line */
+.thm-header { margin-bottom: 0.5em; }
+
+.thm-title {
+    font-family: serif;
+    font-style: italic;
+    font-weight: normal;
+    color: #222;
+    display: inline;
+}
+
 
 /* =========================================================
    TikZ-CD / commutative diagrams (SVG)

@@ -46,14 +46,12 @@
 
   <div class="thm-block kind-{{ lower $kind }}{{ if $star }} thm-star{{ end }}{{ if $title }} has-title{{ end }}"{{ if $anchor }} id="{{ $anchor }}"{{ end }}>
     <div class="thm-header">
-      <span class="thm-kind">{{ $kind }}</span>
-      {{- if and (not $star) $number -}}
-        <span class="thm-number">{{ $number }}</span>
-      {{- end -}}
-      {{- with $title -}}
-        <span class="thm-title">({{ . }})</span>
-      {{- end -}}
-    </div>
+  <span class="thm-title">
+    {{ $kind }}
+    {{- if and (not $star) $number }} {{ $number }}{{ end -}}
+    {{- with $title }} ({{ . }}){{ end -}}.
+  </span>
+   </div>
     <div class="thm-body">
       {{- $ctx.Inner | $ctx.Page.RenderString -}}
     </div>
