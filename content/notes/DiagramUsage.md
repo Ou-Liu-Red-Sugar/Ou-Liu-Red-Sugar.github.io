@@ -23,7 +23,7 @@ C \ar[r, "k"'] & D
 
 **Side-by-side or equivalence layout (`cdrow`)**
 
-{{< cdrow >}}
+{{% cdrow %}}
 {{< tikzcd >}}
 X \ar[r, "f"] \ar[d, "g"'] & Y \ar[d, "h"] \\
 Z \ar[r, "k"'] & W
@@ -35,7 +35,7 @@ Z \ar[r, "k"'] & W
 X' \ar[r, "f'"] \ar[d, "g'"'] & Y' \ar[d, "h'"] \\
 Z' \ar[r, "k'"'] & W'
 {{< /tikzcd >}}
-{{< /cdrow >}}
+{{% /cdrow %}}
 
 ## Pitfalls to avoid
 
