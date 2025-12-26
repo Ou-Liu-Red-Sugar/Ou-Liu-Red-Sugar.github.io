@@ -5,11 +5,15 @@
 
 <script>
   window.MathJax = {
+    loader: {
+      load: ['[tex]/amscd', '[tex]/newcommand']
+    },
     tex: {
       inlineMath: [['$', '$'], ['\\(', '\\)']],
       displayMath: [['$$', '$$'], ['\\[', '\\]']],
       processEscapes: true,
       tags: 'ams',
+      packages: {'[+]': ['amscd', 'newcommand']},
       macros: {
         Z: "\\mathbb{Z}",
         R: "\\mathbb{R}",
@@ -19,7 +23,13 @@
         coloneqq: "\\mathrel{:=}",
         Hom: "\\operatorname{Hom}",
         Spec: "\\operatorname{Spec}",
-        colim: "\\operatorname{colim}"
+        colim: "\\operatorname{colim}",
+        id: "\\operatorname{id}",
+        ker: "\\operatorname{ker}",
+        im: "\\operatorname{im}",
+        hofib: "\\operatorname{hofib}",
+        cofib: "\\operatorname{cofib}",
+        To: "\\longrightarrow"
       }
     },
     options: {

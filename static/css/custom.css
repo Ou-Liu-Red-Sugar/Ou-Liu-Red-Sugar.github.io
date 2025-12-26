@@ -1,10 +1,69 @@
+/* Typography tuned for a TeX-like reading experience */
+:root {
+    --paper-bg: #f7f5ee;
+    --ink: #141210;
+    --muted-ink: #3c3a38;
+    --math-bg: #fdfcf8;
+}
+
+body {
+    background: var(--paper-bg);
+    color: var(--ink);
+    font-family: "Latin Modern Roman", "CMU Serif", "STIX Two Text", "Times New Roman", serif;
+    line-height: 1.7;
+    text-rendering: optimizeLegibility;
+}
+
+main, .content {
+    background: transparent;
+}
+
+.post-content p,
+.post-content li {
+    font-size: 1.02rem;
+    color: var(--muted-ink);
+}
+
+.post-content h1,
+.post-content h2,
+.post-content h3,
+.post-content h4 {
+    font-family: "Latin Modern Roman", "CMU Serif", "STIX Two Text", serif;
+    font-weight: 600;
+    color: var(--ink);
+    margin-top: 1.4em;
+}
+
+pre, code {
+    font-family: "Fira Code", "JetBrains Mono", "CMU Typewriter Text", monospace;
+}
+
+pre {
+    background: #f2efe6;
+    border: 1px solid #e0dbcf;
+}
+
+.mjx-chtml {
+    font-family: "Latin Modern Math", "CMU Serif", serif !important;
+}
+
+/* Math blocks sit on a light sheet, like in printed notes */
+.mjx-chtml.MathJax_Display {
+    padding: 0.75em 1em;
+    background: var(--math-bg);
+    border: 1px solid #e6e1d5;
+    border-radius: 6px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.03);
+    margin: 1.2em 0;
+}
+
 /* static/css/custom.css */
 
 /* 数学环境通用容器 */
 .math-env {
     margin: 1.5em 0;
     padding: 0.8em 1.2em;
-    border-left: 3px solid #ccc; 
+    border-left: 3px solid #ccc;
     background-color: #fcfcfc;   /* 极淡的灰白色，接近纸张感 */
     border-radius: 0 4px 4px 0;
     line-height: 1.6;            /* 增加行高，阅读更舒适 */
@@ -25,7 +84,7 @@
 /* 证明环境 (Proof) */
 .math-env.proof {
     border-left-color: #a0a0a0;  /* 浅灰色竖线 */
-    background-color: transparent; 
+    background-color: transparent;
     padding-left: 1em;
     font-style: normal;
 }
@@ -92,5 +151,33 @@ details[open] > summary::before {
 /* 想法 (Idea) - 比较随意的，可以使用紫色或橙色来活跃气氛 */
 .math-env.idea {
     border-left-color: #9b59b6; /* 紫色 */
-    background-color: #fbf6fd;
+    background-color: #fbf6fd;  /* 更柔和的浅紫背景 */
+}
+
+/* Commutative diagram wrapper so MathJax CDs sit on their own line */
+.commutative-diagram {
+    margin: 1.2em 0;
+    text-align: center;
+}
+
+.commutative-diagram .mjx-chtml.MathJax_Display {
+    display: inline-block;
+}
+
+/* TikZCD diagrams rendered to SVG */
+.tikzcd-wrapper {
+    margin: 1.4em 0;
+    text-align: center;
+}
+
+.tikzcd-wrapper svg {
+    max-width: 100%;
+    height: auto;
+    filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.08));
+}
+
+.tikzcd-wrapper .loading-note {
+    color: var(--muted-ink);
+    font-size: 0.9rem;
+    font-style: italic;
 }
