@@ -28,7 +28,9 @@ C \\arrow[r, "k"'] & D
 X \\arrow[r, "f"] \\arrow[d, "g"'] & Y \\arrow[d, "h"] \\
 Z \\arrow[r, "k"'] & W
 {{< /tikzcd >}}
-<span class="cdsep">\\Leftrightarrow</span>
+
+<span class="cdsep">\(\Leftrightarrow\)</span>
+
 {{< tikzcd >}}
 X' \\arrow[r, "f'"] \\arrow[d, "g'"'] & Y' \\arrow[d, "h'"] \\
 Z' \\arrow[r, "k'"'] & W'
