@@ -7,6 +7,7 @@
   window.MathJax = {
     loader: {
       load: ['[tex]/amscd', '[tex]/newcommand', '[tex]/html']
+      load: ['[tex]/amscd', '[tex]/newcommand']
     },
     tex: {
       inlineMath: [['$', '$'], ['\\(', '\\)']],
@@ -14,6 +15,7 @@
       processEscapes: true,
       tags: 'ams',
       packages: {'[+]': ['amscd', 'newcommand', 'html']},
+      packages: {'[+]': ['amscd', 'newcommand']},
       macros: {
         Z: "\\mathbb{Z}",
         R: "\\mathbb{R}",
@@ -32,6 +34,7 @@
         To: "\\longrightarrow",
         cite: ["\\class{citation}{\\href{#ref-#1}{[\\,#1\\,]}}", 1],
         citet: ["\\class{citation}{\\href{#ref-#1}{(#1)}}", 1]
+        To: "\\longrightarrow"
       }
     },
     options: {

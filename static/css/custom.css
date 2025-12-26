@@ -235,6 +235,7 @@ details[open] > summary::before {
 
 /* Commutative diagram wrapper so MathJax CDs sit on their own line */
 .commutative-diagram {
+    margin: 1.2em 0;
     text-align: center;
 }
 
@@ -245,6 +246,7 @@ details[open] > summary::before {
 
 /* TikZCD diagrams rendered to SVG */
 .tikzcd-wrapper {
+    margin: 1.4em 0;
     text-align: center;
 }
 
