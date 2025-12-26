@@ -1,21 +1,16 @@
-<link rel="stylesheet" type="text/css" href="https://tikzjax.com/v1/fonts.css">
-<script defer src="https://tikzjax.com/v1/tikzjax.js"></script>
-
 <link rel="stylesheet" href="/css/custom.css">
 
 <script>
   window.MathJax = {
     loader: {
       load: ['[tex]/amscd', '[tex]/newcommand', '[tex]/html']
-      load: ['[tex]/amscd', '[tex]/newcommand']
     },
     tex: {
       inlineMath: [['$', '$'], ['\\(', '\\)']],
       displayMath: [['$$', '$$'], ['\\[', '\\]']],
       processEscapes: true,
       tags: 'ams',
-      packages: {'[+]': ['amscd', 'newcommand', 'html']},
-      packages: {'[+]': ['amscd', 'newcommand']},
+      packages: { '[+]': ['amscd', 'newcommand', 'html'] },
       macros: {
         Z: "\\mathbb{Z}",
         R: "\\mathbb{R}",
@@ -34,7 +29,6 @@
         To: "\\longrightarrow",
         cite: ["\\class{citation}{\\href{#ref-#1}{[\\,#1\\,]}}", 1],
         citet: ["\\class{citation}{\\href{#ref-#1}{(#1)}}", 1]
-        To: "\\longrightarrow"
       }
     },
     options: {

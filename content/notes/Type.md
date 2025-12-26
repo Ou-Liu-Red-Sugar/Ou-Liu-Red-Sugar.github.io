@@ -186,19 +186,20 @@ A \twoheadrightarrow B \quad\Longleftrightarrow\quad \sum_{b:B} A(b) \to B.
 
 Given any morphism $f : B' \to B$, substitution in type theory corresponds to pullback in synthetic category theory. Explicitly, the following diagrams describe the same construction:
 
+{{< cdrow >}}
 {{< tikzcd >}}
-\exists A' \ar[r,dashed] \ar[d,dashed,two heads] \ar[dr,phantom,"PB"]
-& A \ar[d,two heads] \\
-B' \ar[r,"f"] & B
+    \exists A' \ar[r,dashed]\ar[d,dashed,two heads] \ar[dr,pos = 0.3,phantom,"\lrcorner"] & A \ar[d,two heads]\\
+    B' \ar[r,"f"] & B
 {{< /tikzcd >}}
 
-and
+<span class="cdsep">\(\Leftrightarrow\)</span>
 
 {{< tikzcd >}}
-\sum_{b':B'} A(f(b')) \ar[r] \ar[d]
-& \sum_{b:B} A(b) \ar[d] \\
-B' \ar[r,"f"] & B
+    \sum_{b' \colon B'} A(f(b')) \ar[r] \ar[d] & \sum_{b \colon B} A(b) \ar[d]\\
+    B' \ar[r,"f"] & B
 {{< /tikzcd >}}
+{{< /cdrow >}}
+
 
 Thus, **pullback corresponds to substitution**, and the object $A'$ is precisely the total space of the substituted dependent type.
 
@@ -245,9 +246,8 @@ In type-theoretic terms:
 For any morphism $f : A \to B$, we obtain a factorization
 
 {{< tikzcd >}}
-A \ar[rr,"f"] \ar[dr]
-&& B \\
-& \sum_{b:B} \sum_{a:A} (f(a) \simeq b) \ar[ur,two heads,"p"']
+A \ar[rr,"f"] \ar[dr,"\simeq"] && B\\
+    & A'= \sum_{b \colon B} \sum_{a \colon A}(f(a) \simeq b) \ar[ur,two heads]
 {{< /tikzcd >}}
 
 The intermediate object carries the type-theoretic meaning

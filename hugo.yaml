@@ -1,5 +1,5 @@
 baseURL: "https://Ou-Liu-Red-Sugar.github.io/"
-title: "Ou Liu's Homepage"
+title: "Ou Liu"
 theme: "PaperMod"
 languageCode: "en-us"
 defaultContentLanguage: "en"
@@ -27,7 +27,7 @@ params:
   math: true
   profileMode:
     enabled: true
-    title: "Ou Liu(刘欧)"
+    title: "Ou Liu(刘欧)'s Homepage'"
     subtitle: "M.sc Students in University of Regensburg"
     buttons:
       - name: My Chinese Homepage in Banana Space

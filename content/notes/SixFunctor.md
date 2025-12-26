@@ -41,8 +41,8 @@ Therefore, it is easy to see that to characterize such an $f$, we need to achiev
 However, these two points alone are insufficient. For example, consider the pullback diagram:
 
 {{< tikzcd >}}
-    X' \arrow[r,"f'"] \arrow[dr,phantom,pos = 0.3, "PB"] \arrow[d,"g'"] & Y' \arrow[d,"g"]\\
-    X \arrow[r,"f"] & Y
+    X' \ar[r,"f'"] \ar[dr,phantom,pos = 0.3,"\lrcorner"] \ar[d,"g'"] & Y' \ar[d,"g"]\\
+    X \ar[r,"f"] & Y
 {{< /tikzcd >}}
 First, we certainly hope that the pullback of a $\mathsf{D}$-smooth morphism remains a $\mathsf{D}$-smooth morphism.
 Secondly, notice that $f^!(\mathbb{1}_{Y})$ can be pulled back along $g' \colon X' \to X$ to obtain $g'^*f^!(\mathbb{1}_Y)$. Loosely speaking, this is $f^!(\mathbb{1}_{Y}) \mid_{X'} = \omega_f \mid_{X'}$.
@@ -83,8 +83,8 @@ if it satisfies the following properties:
     For any morphism $g : Y' \to Y$ in $E$, consider the pullback diagram.
 
    {{< tikzcd >}}
-  X' \arrow[r,"f'"] \arrow[dr,phantom,"PB"] \arrow[d,"g'"] & Y' \arrow[d,"g"]\\
-  X \arrow[r,"f"] & Y
+        X' \ar[r,"f'"] \ar[dr,phantom,pos = 0.3,"\lrcorner"] \ar[d,"g'"] & Y' \ar[d,"g"]\\
+        X \ar[r,"f"] & Y
    {{< /tikzcd >}}
 
    Then $f'$ satisfies the first two conditions, and the natural morphism
@@ -632,8 +632,8 @@ Let $\mathsf{D}$ be a six functor formalism on the geometric setup $(\mathcal{C}
 Consider the pullback diagram in $\mathcal{C}_E$:
 
 {{< tikzcd >}}
-    X' \arrow[r,"f'"] \arrow[dr,phantom, "PB"] \arrow[d,"g'"] & Y' \arrow[d,"g"]\\
-    X \arrow[r,"f"] & Y
+    X' \ar[r,"f'"] \ar[dr,phantom,pos = 0.3,"\lrcorner"] \ar[d,"g'"] & Y' \ar[d,"g"]\\
+        X \ar[r,"f"] & Y
 {{< /tikzcd >}}
 
 1.  If $f$ is a $\mathsf{D}$-suave morphism.
@@ -676,7 +676,7 @@ Consider the following diagonal diagram:
   & X \times_Y X
       \arrow[r, "\pi_2"]
       \arrow[d, "\pi_1"']
-      \arrow[dr, phantom, "PB"]
+      \arrow[dr, phantom, pos = 0.3,"\lrcorner", from=2-2, to=3-3]
   & X \arrow[d, "f"] \\
   & X \arrow[r, "f"']
   & Y
