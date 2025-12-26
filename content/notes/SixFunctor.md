@@ -491,10 +491,11 @@ Then the following conditions are equivalent:
         $$
         has a right adjoint $G_Z$. And for all 1-morphisms $h \colon Z \to Z'$ in $\mathbb{C}$, there exists a 2-morphism making the diagram
         
-        {{< tikzcd >}}
-            \mathsf{Fun}_{\mathbb{C}}(Z',X) \ar[d,"h^*"] & \mathsf{Fun}_{\mathbb{C}}(Z',Y) \ar[l,"G_{Z'}"'] \ar[d,"h^*"]\\
-            \mathsf{Fun}_{\mathbb{C}}(Z,X) & \mathsf{Fun}_{\mathbb{C}}(Z,Y) \ar[l,"G_Z"]
-        {{< /tikzcd >}}
+{{< tikzcd >}}
+  \mathsf{Fun}_{\mathbb{C}}(Z',X) \ar[d,"h^*"] & \mathsf{Fun}_{\mathbb{C}}(Z',Y) \ar[l,"G_{Z'}"'] \ar[d,"h^*"]\\
+  \mathsf{Fun}_{\mathbb{C}}(Z,X) & \mathsf{Fun}_{\mathbb{C}}(Z,Y) \ar[l,"G_Z"]
+{{< /tikzcd >}}
+
 
 commute. In other words, $h^* G_{Z'} \xrightarrow{\sim} G_Z h^*$ is an isomorphism of functors.
 
