@@ -1,0 +1,10 @@
+{{- /* Render TikZ commutative diagrams as SVG via TikZJax */ -}}
+{{- $id := printf "tikzcd-%d" (now.UnixNano) -}}
+{{- $inline := eq (.Get "inline") "true" -}}
+<div class="tikzcd-wrapper{{ if not $inline }} math-block{{ end }}" id="{{$id}}">
+  <script type="text/tikz">
+\begin{tikzcd}
+{{ .Inner | safeHTML }}
+\end{tikzcd}
+  </script>
+</div>

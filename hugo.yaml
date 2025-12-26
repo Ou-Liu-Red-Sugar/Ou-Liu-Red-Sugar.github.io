@@ -35,21 +35,18 @@ params:
       - name: ORCID
         url: "https://orcid.org/0009-0006-5593-4339"
   custom_css: ["css/custom.css"]
+
 markup:
   goldmark:
-    renderer: 
-      unsafe: true  # 之前开启的，允许 HTML
+    renderer:
+      unsafe: true
     extensions:
       passthrough:
         enable: true
         delimiters:
           block:
-          - - \[
-            - \]
-          - - $$
-            - $$
+            - ["\\[", "\\]"]
+            - ["$$", "$$"]
           inline:
-          - - $
-            - $
-          - - \(
-            - \)
+            - ["$", "$"]
+            - ["\\(", "\\)"]
