@@ -24,29 +24,29 @@ Diagrams must be written using the shortcodes described below, rather than raw L
 
 ### Single diagram (`tikzcd`)
 
-```tex
-{{< tikzcd >}}
+```markdown
+{{ "{{" }}< tikzcd >{{ "}}" }}
 A \ar[r,"f"] \ar[d,"g"'] & B \ar[d,"h"] \\
 C \ar[r,"k"']            & D
-{{< /tikzcd >}}
+{{ "{{" }}< /tikzcd >{{ "}}" }}
 ```
 
 ### Side-by-side or equivalence layout (`cdrow`)
 
-```tex
-{{% cdrow %}}
-{{< tikzcd >}}
+```markdown
+{{ "{{" }}% cdrow %{{ "}}" }}
+{{ "{{" }}< tikzcd >{{ "}}" }}
 X \ar[r,"f"] \ar[d,"g"'] & Y \ar[d,"h"] \\
 Z \ar[r,"k"']            & W
-{{< /tikzcd >}}
+{{ "{{" }}< /tikzcd >{{ "}}" }}
 
 <span class="cdsep">\( \Leftrightarrow \)</span>
 
-{{< tikzcd >}}
+{{ "{{" }}< tikzcd >{{ "}}" }}
 X' \ar[r,"f'"] \ar[d,"g'"'] & Y' \ar[d,"h'"] \\
 Z'  \ar[r,"k'"']            & W'
-{{< /tikzcd >}}
-{{% /cdrow %}}
+{{ "{{" }}< /tikzcd >{{ "}}" }}
+{{ "{{" }}% /cdrow %{{ "}}" }}
 ```
 
 ## Pitfalls to avoid
