@@ -1,14 +1,29 @@
-baseURL: "https://Ou-Liu-Red-Sugar.github.io/"
+baseURL: "https://ou-liu-red-sugar.github.io/"
 title: "Ou Liu"
 theme: "PaperMod"
 languageCode: "en-us"
-defaultContentLanguage: "en"
+defaultContentLanguage: en
+
 enableInlineShortcodes: true
 
-sectionPagesMenu: ""
+# 1) Search needs JSON output on home
+outputs:
+  home:
+    - HTML
+    - RSS
+    - JSON
+
+# 4) Clean permalinks for sections
+permalinks:
+  notes: /notes/:slug/
+  papers: /papers/:slug/
 
 menu:
   main:
+    - identifier: search
+      name: Search
+      url: /search/
+      weight: 5
     - identifier: notes
       name: Notes
       url: /notes/
@@ -23,18 +38,32 @@ menu:
       weight: 30
 
 params:
+  # 2) Basic SEO/meta
+  env: production
+  description: "Academic homepage and notes."
+  author: "Ou Liu"
+
   defaultTheme: auto
   math: true
+
+  # 3) Reading experience
+  showToc: true
+  tocOpen: false
+  showReadingTime: true
+  showCodeCopyButtons: true
+
   profileMode:
     enabled: true
-    title: "Ou Liu(刘欧)'s Homepage'"
-    subtitle: "M.sc Students in University of Regensburg"
+    title: "Ou Liu (刘欧)"
+    subtitle: "M.Sc. student in Mathematics, University of Regensburg"
     buttons:
-      - name: My Chinese Homepage in Banana Space
+      - name: My Chinese Homepage (Banana Space)
         url: "https://www.bananaspace.org/wiki/%E7%94%A8%E6%88%B7:%E9%81%97%E5%BF%98%E7%9A%84%E5%B7%A6%E4%BC%B4%E9%9A%8F"
       - name: ORCID
         url: "https://orcid.org/0009-0006-5593-4339"
-  custom_css: ["css/custom.css"]
+
+  customCSS:
+    - css/custom.css
 
 markup:
   goldmark:
