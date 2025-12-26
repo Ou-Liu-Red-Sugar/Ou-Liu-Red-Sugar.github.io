@@ -3,6 +3,10 @@
   {{- $ctx := .ctx -}}
   {{- $kind := .kind -}}
   {{- $page := $ctx.Page -}}
+  {{- $pageKey := $page.RelPermalink -}}
+  {{- $counterKey := printf "thm_counter:%s:%s" $pageKey (lower $kind) -}}
+  {{- $registryKey := printf "thm_registry:%s" $pageKey -}}
+
   {{- $title := $ctx.Get "title" -}}
   {{- $idParam := $ctx.Get "id" -}}
   {{- $star := false -}}
@@ -16,9 +20,9 @@
 
   {{- $number := "" -}}
   {{- if not $star -}}
-    {{- $current := default 0 ($page.Store.Get "thm_counter") -}}
+    {{- $current := default 0 ($page.Store.Get $counterKey) -}}
     {{- $next := add $current 1 -}}
-    {{- $page.Store.Set "thm_counter" $next -}}
+    {{- $page.Store.Set $counterKey $next -}}
     {{- $number = $next -}}
   {{- end -}}
 
@@ -33,14 +37,12 @@
     {{- $anchor = anchorize $anchorBase -}}
   {{- end -}}
 
-  {{- $registry := default (dict) ($page.Store.Get "thm_registry") -}}
+  {{- $registry := default (dict) ($page.Store.Get $registryKey) -}}
   {{- if $idParam -}}
     {{- $entry := dict "kind" $kind "number" $number "star" $star "anchor" $anchor -}}
     {{- $registry = merge $registry (dict $idParam $entry) -}}
-    {{- $page.Store.Set "thm_registry" $registry -}}
-  {{- else -}}
-    {{- $page.Store.Set "thm_registry" $registry -}}
   {{- end -}}
+  {{- $page.Store.Set $registryKey $registry -}}
 
   <div class="thm-block kind-{{ lower $kind }}{{ if $star }} thm-star{{ end }}{{ if $title }} has-title{{ end }}"{{ if $anchor }} id="{{ $anchor }}"{{ end }}>
     <div class="thm-header">
@@ -53,7 +55,8 @@
       {{- end -}}
     </div>
     <div class="thm-body">
-      {{- $ctx.Inner | $page.RenderString -}}
+      {{- $ctx.Inner | $ctx.Page.RenderString -}}
     </div>
   </div>
+
 {{- end -}}

@@ -1,11 +1,38 @@
-{{- /* Render TikZ commutative diagrams as SVG via TikZJax */ -}}
-{{- $id := printf "tikzcd-%d" (now.UnixNano) -}}
-{{- $inline := eq (.Get "inline") "true" -}}
-<div class="tikzcd-wrapper{{ if not $inline }} math-block{{ end }}" id="{{$id}}">
-<div class="tikzcd-wrapper" id="{{$id}}">
-  <script type="text/tikz">
-\begin{tikzcd}
-{{ .Inner | safeHTML }}
-\end{tikzcd}
-  </script>
-</div>
+{{- /* tikzcd shortcode (compatible)
+Usage A (hash):
+  {{< tikzcd hash="fca88a3a..." >}}
+
+Usage B (inner source):
+  {{< tikzcd >}}
+  \begin{tikzcd}
+    ...
+  \end{tikzcd}
+  {{< /tikzcd >}}
+
+Optional params: alt, class, width, caption
+*/ -}}
+
+{{- $hash := .Get "hash" -}}
+{{- $alt := .Get "alt" | default "tikzcd diagram" -}}
+{{- $class := .Get "class" | default "tikzcd" -}}
+{{- $width := .Get "width" -}}
+{{- $caption := .Get "caption" -}}
+
+{{- if not $hash -}}
+  {{- $raw := .Inner | default "" -}}
+  {{- $body := $raw | strings.TrimSpace -}}
+  {{- if eq $body "" -}}
+    {{- errorf "tikzcd shortcode: missing param 'hash' AND empty body at %s" .Position -}}
+  {{- end -}}
+
+  {{- /* Normalization: keep aligned with gen_tikzcd.py */ -}}
+  {{- $norm := $body | replaceRE "\r\n" "\n" -}}
+  {{- $hash = sha1 $norm -}}
+{{- end -}}
+
+{{- $src := (printf "generated/tikzcd/%s.svg" $hash) | relURL -}}
+
+<figure class="tikzcd-fig {{ $class }}" data-tikzcd-hash="{{ $hash }}">
+  <img class="tikzcd-img" src="{{ $src }}" alt="{{ $alt }}" {{ with $width }}width="{{ . }}"{{ end }} loading="lazy" decoding="async">
+  {{- with $caption -}}<figcaption>{{ . | markdownify }}</figcaption>{{- end -}}
+</figure>
