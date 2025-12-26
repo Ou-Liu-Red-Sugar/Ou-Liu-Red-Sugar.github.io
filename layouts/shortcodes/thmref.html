@@ -2,9 +2,9 @@
 {{- $registry := .Page.Store.Get "thm_registry" -}}
 {{- if and $registry (index $registry $target) -}}
   {{- $entry := index $registry $target -}}
-  {{- $kind := $entry.kind -}}
-  {{- $number := $entry.number -}}
-  {{- $anchor := $entry.anchor -}}
+  {{- $kind := index $entry "kind" -}}
+  {{- $number := index $entry "number" -}}
+  {{- $anchor := index $entry "anchor" -}}
   {{- $label := $kind -}}
   {{- if $number -}}
     {{- $label = printf "%s %v" $kind $number -}}
