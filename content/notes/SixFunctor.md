@@ -326,7 +326,7 @@ In this case, $g \colon Y \to X$ is called the *right adjoint* of $f$, and $\eta
 {{< /definition >}}
 
 Here are some facts about adjunctions (proofs omitted):
-* Any 2-functor $F \colon \mathbb{C} \to \mathbb{D}$ preserves adjunctions (see \cite[\href{https://arxiv.org/pdf/2410.13038#page=169}{D.2.7}]{HeyerMann}; Heyer-Mann proved a stronger version, i.e., preserving mate correspondence).
+* Any 2-functor $F \colon \mathbb{C} \to \mathbb{D}$ preserves adjunctions By [Heyer–Mann, Prop. D.2.7](https://arxiv.org/pdf/2410.13038#page=169).; (Heyer-Mann proved a stronger version, i.e., preserving mate correspondence).
 * Adjunctions are unique up to isomorphism. That is, if $(g,\eta,\varepsilon)$ and $(g',\eta',\varepsilon')$ both constitute a right adjoint of $f$, then there exists a (in the sense of contractible space) unique isomorphism $(g,\eta,\varepsilon) \simeq (g',\eta',\varepsilon')$.
 * When considering the 2-category $\mathsf{Cat}_2$, adjoint morphisms in it are exactly the well-known adjoint functors.
 * For a 2-category $\mathbb{C}$, if $f \colon X \to Y$ and $g \colon Y \to X$ are equipped with 2-morphisms $\eta \colon \operatorname{id}_X \to gf$ and $\varepsilon \colon fg \to \operatorname{id}_Y$, and the composite morphisms
@@ -382,7 +382,9 @@ We discuss the two directions separately:
     Combined with Condition 2, this verifies the first two conditions in the definition of smoothness.
 
     Finally, we need to verify Condition 3 in Definition 1.
-    This is automatically guaranteed by the functoriality of the 2-category of kernel (see \cite[\href{https://arxiv.org/pdf/2410.13038#page=60}{4.2.4}]{HeyerMann} for a detailed proof).
+    This is automatically guaranteed by the functoriality of the $2$-category of kernels
+    (see [Heyer–Mann, Prop. 4.2.4](https://arxiv.org/pdf/2410.13038#page=60) for a detailed proof).
+ 
     Specifically, the mapping $S \mapsto \mathbb{K}_{\mathsf{D},S}$ constitutes a 2-functor:
     $$
         \mathbb{K}_{\mathsf{D},(-)} \colon \mathsf{Corr}(\mathcal{C},E)^{\otimes} \to \mathsf{Cat}_2^{\times}.
@@ -502,7 +504,7 @@ commute. In other words, $h^* G_{Z'} \xrightarrow{\sim} G_Z h^*$ is an isomorphi
 In this scenario, the right adjoint of $f$ is given by $g \mathrel{:=} G_Y(\operatorname{id}_Y) \colon Y \to X$.
 {{< /lemma >}}
 {{< proofc >}}
-See \cite[\href{https://arxiv.org/pdf/2410.13038#page=170}{D.2.8}]{HeyerMann}.
+By [Heyer–Mann, Prop. D.2.8](https://arxiv.org/pdf/2410.13038#page=170).
 {{< /proofc >}}
 
 {{< proposition title="Explicit Characterization of Suave and Prim" >}}
@@ -650,7 +652,7 @@ Consider the pullback diagram in $\mathcal{C}_E$:
 
 {{< /lemma >}}
 {{< proofc >}}
-\cite[\href{https://arxiv.org/pdf/2410.13038#page=72}{4.5.13}]{HeyerMann}.
+[Heyer–Mann, Prop. 4.5.13](https://arxiv.org/pdf/2410.13038#page=72).
 {{< /proofc >}}
 
 ## Étale and Proper
@@ -802,6 +804,18 @@ This completes the proof.
 
 I am too lazy to write this.
 
-## References
-* Claudius Heyer and Lucas Mann. **6-Functor Formalisms and Smooth Representations**. 2024. [arXiv:2410.13038](https://arxiv.org/abs/2410.13038)
-* Peter Scholze. **Six-Functor Formalisms**. 2025. [arXiv:2510.26269](https://arxiv.org/abs/2510.26269)
+### References
+
+<span id="ref-HeyerMann"></span>
+**[Heyer–Mann]**  
+Claudius Heyer and Lucas Mann.  
+*6-Functor Formalisms and Smooth Representations*.  
+arXiv:2410.13038 (2024).  
+<https://arxiv.org/abs/2410.13038>
+
+<span id="ref-ScholzeSixFunctor"></span>
+**[SixFunctors]**  
+Peter Scholze.  
+*Six-Functor Formalisms*.  
+arXiv:2510.26269 (2025).  
+<https://arxiv.org/abs/2510.26269>

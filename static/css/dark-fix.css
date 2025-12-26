@@ -1,0 +1,21 @@
+/* Improve readability in dark mode */
+.dark {
+  --content: #e6e6e6;          /* main text */
+  --secondary: #b8b8b8;        /* secondary text */
+  --tertiary: #9a9a9a;
+}
+
+/* Make links more visible in dark mode */
+.dark a {
+  color: #9cc7ff;
+}
+
+/* Emphasize section headings */
+.dark h2, .dark h3 {
+  color: #ffffff;
+}
+
+/* Slightly brighten list items */
+.dark li {
+  color: #e6e6e6;
+}

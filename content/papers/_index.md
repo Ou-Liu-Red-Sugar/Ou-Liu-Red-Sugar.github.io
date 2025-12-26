@@ -3,10 +3,13 @@ title: "My Papers"
 hidemeta: true
 ---
 
-### Publication
+## Publications
 
-1.  Lili Liu, Xi Wang, **Ou Liu**, et al. ``Valuation and comparison of the actual and optimal control strategy in an emerging infectious disease''. *Infectious Disease Modelling* (2024). [[Link]](https://www.sciencedirect.com/science/article/pii/S2468042724000149)
+1. **Lili Liu**, Xi Wang, **Ou Liu**, et al.  
+   *Valuation and Comparison of the Actual and Optimal Control Strategy in an Emerging Infectious Disease*.  
+   **Infectious Disease Modelling**, 2024.  
+   [Link to journal](https://www.sciencedirect.com/science/article/pii/S2468042724000149)
 
-### Preprint
+## Preprints
 
-1. I don't have preprint.
+No publicly available preprints at this time.

@@ -1,0 +1,15 @@
+# Hugo build output
+/public/
+
+# TikZ-CD build cache
+/.tikzcd-build/
+
+# Generated SVGs (optional: see note below)
+/static/generated/tikzcd/
+
+# Editor / OS
+/.vscode/
+.DS_Store
+
+# Temporary files
+out.svg
