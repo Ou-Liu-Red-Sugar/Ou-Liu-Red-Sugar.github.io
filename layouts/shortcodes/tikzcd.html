@@ -1,0 +1,9 @@
+{{- /* Render TikZ commutative diagrams as SVG via TikZJax */ -}}
+{{- $id := printf "tikzcd-%d" (now.UnixNano) -}}
+<div class="tikzcd-wrapper" id="{{$id}}">
+  <script type="text/tikz">
+\begin{tikzcd}
+{{ .Inner | safeHTML }}
+\end{tikzcd}
+  </script>
+</div>
