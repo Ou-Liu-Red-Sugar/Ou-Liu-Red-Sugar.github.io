@@ -1,0 +1,59 @@
+{{- /* Shared renderer for theorem-like environments with numbering and references */ -}}
+{{- define "thm-block" -}}
+  {{- $ctx := .ctx -}}
+  {{- $kind := .kind -}}
+  {{- $page := $ctx.Page -}}
+  {{- $title := $ctx.Get "title" -}}
+  {{- $idParam := $ctx.Get "id" -}}
+  {{- $star := false -}}
+  {{- range $key := slice "star" "starred" "unnumbered" -}}
+    {{- with $ctx.Get $key -}}
+      {{- if or (eq . true) (eq (printf "%v" .) "true") -}}
+        {{- $star = true -}}
+      {{- end -}}
+    {{- end -}}
+  {{- end -}}
+
+  {{- $number := "" -}}
+  {{- if not $star -}}
+    {{- $current := default 0 ($page.Store.Get "thm_counter") -}}
+    {{- $next := add $current 1 -}}
+    {{- $page.Store.Set "thm_counter" $next -}}
+    {{- $number = $next -}}
+  {{- end -}}
+
+  {{- $anchorBase := "" -}}
+  {{- if $idParam -}}
+    {{- $anchorBase = $idParam -}}
+  {{- else if and (not $star) $number -}}
+    {{- $anchorBase = printf "%s-%v" (lower $kind) $number -}}
+  {{- end -}}
+  {{- $anchor := "" -}}
+  {{- if $anchorBase -}}
+    {{- $anchor = anchorize $anchorBase -}}
+  {{- end -}}
+
+  {{- $registry := default (dict) ($page.Store.Get "thm_registry") -}}
+  {{- if $idParam -}}
+    {{- $entry := dict "kind" $kind "number" $number "star" $star "anchor" $anchor -}}
+    {{- $registry = merge $registry (dict $idParam $entry) -}}
+    {{- $page.Store.Set "thm_registry" $registry -}}
+  {{- else -}}
+    {{- $page.Store.Set "thm_registry" $registry -}}
+  {{- end -}}
+
+  <div class="thm-block kind-{{ lower $kind }}{{ if $star }} thm-star{{ end }}{{ if $title }} has-title{{ end }}"{{ if $anchor }} id="{{ $anchor }}"{{ end }}>
+    <div class="thm-header">
+      <span class="thm-kind">{{ $kind }}</span>
+      {{- if and (not $star) $number -}}
+        <span class="thm-number">{{ $number }}</span>
+      {{- end -}}
+      {{- with $title -}}
+        <span class="thm-title">({{ . }})</span>
+      {{- end -}}
+    </div>
+    <div class="thm-body">
+      {{- $ctx.Inner | $page.RenderString -}}
+    </div>
+  </div>
+{{- end -}}

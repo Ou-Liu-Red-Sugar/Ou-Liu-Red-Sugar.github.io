@@ -39,12 +39,11 @@ Therefore, it is easy to see that to characterize such an $f$, we need to achiev
 * $\omega_f = f^!(\mathbb{1}_{Y})$ is an invertible object.
 
 However, these two points alone are insufficient. For example, consider the pullback diagram:
-{{< tikz >}}
-\begin{tikzcd}
+
+{{< tikzcd >}}
     X' \arrow[r,"f'"] \arrow[dr,phantom,pos = 0.3, "PB"] \arrow[d,"g'"] & Y' \arrow[d,"g"]\\
     X \arrow[r,"f"] & Y
-\end{tikzcd}
-{{< /tikz >}}
+{{< /tikzcd >}}
 First, we certainly hope that the pullback of a $\mathsf{D}$-smooth morphism remains a $\mathsf{D}$-smooth morphism.
 Secondly, notice that $f^!(\mathbb{1}_{Y})$ can be pulled back along $g' \colon X' \to X$ to obtain $g'^*f^!(\mathbb{1}_Y)$. Loosely speaking, this is $f^!(\mathbb{1}_{Y}) \mid_{X'} = \omega_f \mid_{X'}$.
 Since we also hope that $f'$ is a $\mathsf{D}$-smooth morphism, we can consider $\omega_{X'/Y'} = f'^{!}(\mathbb{1}_{Y'})$. We naturally expect compatibility between the local and global structures, i.e.,
@@ -83,12 +82,10 @@ if it satisfies the following properties:
   <li>
     For any morphism $g : Y' \to Y$ in $E$, consider the pullback diagram.
 
-   {{< tikz >}}
-\begin{tikzcd}
+   {{< tikzcd >}}
   X' \arrow[r,"f'"] \arrow[dr,phantom,"PB"] \arrow[d,"g'"] & Y' \arrow[d,"g"]\\
   X \arrow[r,"f"] & Y
-\end{tikzcd}
-   {{< /tikz >}}
+   {{< /tikzcd >}}
 
    Then $f'$ satisfies the first two conditions, and the natural morphism
    \[
@@ -128,8 +125,8 @@ Consider a correspondence in $\mathsf{Corr}((\mathcal{C}_{E})_{/Y}, \text{all})$
 given by $[X_1 \xleftarrow{h} Z \xrightarrow{k} X_2]$.
 Here $X_1, Z, X_2$ are all objects over $Y$.
 By the universal property of pullback, we have the following commutative diagram:
-{{< tikz >}}
-\begin{tikzcd}
+
+{{< tikzcd >}}
     & Z \arrow[ddl, "h"', bend right]
         \arrow[ddr, "k", bend left]
         \arrow[d, "{(h,k)}", dashed] & \\
@@ -139,8 +136,7 @@ By the universal property of pullback, we have the following commutative diagram
     X_1 \arrow[dr, "\in E"'] & &
     X_2 \arrow[dl, "\in E"] \\
     & Y &
-\end{tikzcd}
-{{< /tikz >}}
+{{< /tikzcd >}}
 
 In this context, objects in $\mathsf{D}(X_i)$ can be analogized as
 "generalized function spaces" on $X_i$.
@@ -314,21 +310,17 @@ Now, let's discuss the concept of adjunction in general 2-categories.
 Let $\mathbb{C}$ be a $2$-category, and $X,Y \in \mathbb{C}$ be objects therein.
 We say $f \colon X \to Y$ is a *left adjoint* in $\mathbb{C}$ if there exists a morphism $g \colon Y \to X$ and $2$-morphisms $\eta \colon \operatorname{id}_X \to gf$, $\varepsilon \colon fg \to \operatorname{id}_Y$ such that the following diagrams commute:
 
-{{< tikz >}}
-\begin{tikzcd}
+{{< tikzcd >}}
     f \ar[dr,"\operatorname{id}_f"']\ar[r,"f\eta"] & fgf \ar[d,"\varepsilon f"]\\
     & f
-\end{tikzcd}
-{{< /tikz >}}
+{{< /tikzcd >}}
 
 and
 
-{{< tikz >}}
-\begin{tikzcd}
+{{< tikzcd >}}
     g \ar[dr,"\operatorname{id}_g"']\ar[r,"\eta g"] & gfg \ar[d,"g\varepsilon"]\\
     & g
-\end{tikzcd}
-{{< /tikz >}}
+{{< /tikzcd >}}
 
 In this case, $g \colon Y \to X$ is called the *right adjoint* of $f$, and $\eta$ is called the *unit*, $\varepsilon$ is called the *counit*.
 {{< /definition >}}
@@ -493,17 +485,16 @@ Then the following conditions are equivalent:
         G_Y(\operatorname{id}_Y) \circ f \to G_X(f)
     $$
     becomes an isomorphism after applying $\operatorname{Hom}_{\mathsf{Fun}(X,X}(\operatorname{id}_X, -)$ (i.e., it is an isomorphism on the fiber at the identity morphism $\operatorname{id}_X$).
-3.  For all $Z \in \mathbb{C}$, the post-composition functor
-    $$
-        f_* \colon \mathsf{Fun}_{\mathbb{C}}(Z,X) \to \mathsf{Fun}_{\mathbb{C}}(Z,Y), \quad h \mapsto f \circ h
-    $$
-    has a right adjoint $G_Z$. And for all 1-morphisms $h \colon Z \to Z'$ in $\mathbb{C}$, there exists a 2-morphism making the diagram
-    {{< tikz >}}
-    \begin{tikzcd}
-        \mathsf{Fun}_{\mathbb{C}}(Z',X) \ar[d,"h^*"] & \mathsf{Fun}_{\mathbb{C}}(Z',Y) \ar[l,"G_{Z'}"'] \ar[d,"h^*"]\\
-        \mathsf{Fun}_{\mathbb{C}}(Z,X) & \mathsf{Fun}_{\mathbb{C}}(Z,Y) \ar[l,"G_Z"]
-    \end{tikzcd}
-    {{< /tikz >}}
+    3.  For all $Z \in \mathbb{C}$, the post-composition functor
+        $$
+            f_* \colon \mathsf{Fun}_{\mathbb{C}}(Z,X) \to \mathsf{Fun}_{\mathbb{C}}(Z,Y), \quad h \mapsto f \circ h
+        $$
+        has a right adjoint $G_Z$. And for all 1-morphisms $h \colon Z \to Z'$ in $\mathbb{C}$, there exists a 2-morphism making the diagram
+        
+        {{< tikzcd >}}
+            \mathsf{Fun}_{\mathbb{C}}(Z',X) \ar[d,"h^*"] & \mathsf{Fun}_{\mathbb{C}}(Z',Y) \ar[l,"G_{Z'}"'] \ar[d,"h^*"]\\
+            \mathsf{Fun}_{\mathbb{C}}(Z,X) & \mathsf{Fun}_{\mathbb{C}}(Z,Y) \ar[l,"G_Z"]
+        {{< /tikzcd >}}
 
 commute. In other words, $h^* G_{Z'} \xrightarrow{\sim} G_Z h^*$ is an isomorphism of functors.
 
@@ -639,12 +630,11 @@ Finally, we give an important property, which will inspire us to define $\mathsf
 {{< lemma >}}
 Let $\mathsf{D}$ be a six functor formalism on the geometric setup $(\mathcal{C},E)$.
 Consider the pullback diagram in $\mathcal{C}_E$:
-{{< tikz >}}
-\begin{tikzcd}
+
+{{< tikzcd >}}
     X' \arrow[r,"f'"] \arrow[dr,phantom, "PB"] \arrow[d,"g'"] & Y' \arrow[d,"g"]\\
     X \arrow[r,"f"] & Y
-\end{tikzcd}
-{{< /tikz >}}
+{{< /tikzcd >}}
 
 1.  If $f$ is a $\mathsf{D}$-suave morphism.
     Then the following natural transformations are all isomorphisms:
@@ -678,21 +668,19 @@ object (i.e. $\omega_f \simeq \mathbb{1}$ or $\delta_f \simeq \mathbb{1}$).
 We explain how to construct a canonical morphism $f^! \to f^*$ using the diagonal.
 Consider the following diagonal diagram:
 
-{{< tikz >}}
-  \begin{tikzcd}
-    X \arrow[dr, "\Delta_f"]
-      \arrow[drr, "\operatorname{id}_X", bend left]
-      \arrow[ddr, "\operatorname{id}_X"', bend right]
-    & & \\
-    & X \times_Y X
-        \arrow[r, "\pi_2"]
-        \arrow[d, "\pi_1"']
-        \arrow[dr, phantom, "PB"]
-    & X \arrow[d, "f"] \\
-    & X \arrow[r, "f"']
-    & Y
-  \end{tikzcd}
-{{< /tikz >}}
+{{< tikzcd >}}
+  X \arrow[dr, "\Delta_f"]
+    \arrow[drr, "\operatorname{id}_X", bend left]
+    \arrow[ddr, "\operatorname{id}_X"', bend right]
+  & & \\
+  & X \times_Y X
+      \arrow[r, "\pi_2"]
+      \arrow[d, "\pi_1"']
+      \arrow[dr, phantom, "PB"]
+  & X \arrow[d, "f"] \\
+  & X \arrow[r, "f"']
+  & Y
+{{< /tikzcd >}}
 We have the identities
 \[
   f \circ \pi_1 = f \circ \pi_2,
