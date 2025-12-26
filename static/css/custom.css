@@ -57,6 +57,85 @@ pre {
     margin: 1.2em 0;
 }
 
+.math-block {
+    margin: 1.2em 0;
+    padding: 0.75em 1em;
+    background: var(--math-bg);
+    border: 1px solid #e6e1d5;
+    border-radius: 6px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.03);
+    text-align: center;
+}
+
+/* Theorem-style environments */
+.thm-block {
+    margin: 1.4em 0;
+    padding: 1em 1.25em;
+    background: var(--math-bg);
+    border: 1px solid #e0dbcf;
+    border-left: 4px solid #4a4a4a;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+    scroll-margin-top: 80px;
+}
+
+.thm-header {
+    display: flex;
+    align-items: baseline;
+    gap: 0.35em;
+    font-family: "Latin Modern Roman", "CMU Serif", serif;
+    font-weight: 600;
+    color: var(--ink);
+    letter-spacing: 0.01em;
+}
+
+.thm-number {
+    font-variant-numeric: tabular-nums;
+}
+
+.thm-title {
+    font-style: italic;
+    font-weight: 500;
+    color: #444;
+}
+
+.thm-body {
+    margin-top: 0.65em;
+    color: var(--muted-ink);
+}
+
+.kind-theorem {
+    border-left-color: #4a4a4a;
+}
+
+.kind-lemma,
+.kind-proposition {
+    border-left-color: #2b5d8a;
+}
+
+.kind-definition {
+    border-left-color: #008080;
+}
+
+.kind-corollary {
+    border-left-color: #6b4ca0;
+}
+
+.thm-star .thm-number {
+    display: none;
+}
+
+.thm-ref {
+    color: inherit;
+    text-decoration: none;
+    border-bottom: 1px dotted #555;
+}
+
+.thm-ref:hover {
+    color: #000;
+    border-bottom-color: #000;
+}
+
 /* static/css/custom.css */
 
 /* 数学环境通用容器 */
@@ -162,6 +241,7 @@ details[open] > summary::before {
 
 .commutative-diagram .mjx-chtml.MathJax_Display {
     display: inline-block;
+    margin: 0;
 }
 
 /* TikZCD diagrams rendered to SVG */
@@ -176,8 +256,40 @@ details[open] > summary::before {
     filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.08));
 }
 
+.tikzcd-wrapper.math-block {
+    display: block;
+}
+
 .tikzcd-wrapper .loading-note {
     color: var(--muted-ink);
     font-size: 0.9rem;
     font-style: italic;
+}
+
+.citation a {
+    color: inherit;
+    text-decoration: none;
+    border-bottom: 1px dotted #666;
+}
+
+.citation a:hover {
+    color: #000;
+    border-bottom-color: #000;
+}
+
+.reference-entry {
+    display: flex;
+    gap: 0.6em;
+    margin: 0.45em 0;
+    line-height: 1.5;
+}
+
+.reference-label {
+    min-width: 4.5em;
+    font-family: "Latin Modern Roman", "CMU Serif", serif;
+    font-weight: 600;
+}
+
+.reference-body {
+    color: var(--muted-ink);
 }

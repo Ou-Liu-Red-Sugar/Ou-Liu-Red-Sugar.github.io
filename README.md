@@ -14,6 +14,21 @@ This site is configured for TeX-heavy writing with Hugo + PaperMod and ships reu
 - Goldmark passthrough is enabled so these delimiters are preserved for MathJax.
 - Common macros are preloaded (see `layouts/partials/extend_head.html`): `\Z, \R, \Q, \C, \N`, `\Hom`, `\Spec`, `\colim`, `\ker`, `\im`, `\hofib`, `\cofib`, `\To`, `\coloneqq`, `\operatorname{id}`.
 
+### Citations
+- Use `\cite{key}` (bracketed) or `\citet{key}` (parentheses) anywhere in math/markdown; both link to the matching reference entry.
+- Add references with the `reference` shortcode, typically under a **References** heading:
+
+```markdown
+## References
+{{< reference key="EGA" >}}
+Grothendieck, *Éléments de géométrie algébrique*, 1960–1967.
+{{< /reference >}}
+
+{{< reference key="HTT" >}}
+Lurie, *Higher Topos Theory*, Annals of Mathematics Studies 170, 2009.
+{{< /reference >}}
+```
+
 ## Theorem-style shortcodes
 Wrap text in the matching shortcode to get styled math environments defined in `layouts/shortcodes/` and `static/css/custom.css`.
 
@@ -59,6 +74,8 @@ C @>>k> D
 
 ### 2) TikZ commutative diagrams rendered to SVG
 Use `tikzcd` when you need curved arrows, labels, or more elaborate layouts. The content is wrapped in a `tikzcd` environment and rendered by TikZJax to SVG.
+
+Diagrams are centered and set on a math-style sheet by default; pass `inline=true` if you need them to sit inside a paragraph without the block wrapper.
 
 ```markdown
 {{< tikzcd >}}

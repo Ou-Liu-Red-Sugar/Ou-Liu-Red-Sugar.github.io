@@ -1,0 +1,19 @@
+{{- $target := .Get 0 -}}
+{{- $registry := .Page.Store.Get "thm_registry" -}}
+{{- if and $registry (index $registry $target) -}}
+  {{- $entry := index $registry $target -}}
+  {{- $kind := index $entry "kind" -}}
+  {{- $number := index $entry "number" -}}
+  {{- $anchor := index $entry "anchor" -}}
+  {{- $label := $kind -}}
+  {{- if $number -}}
+    {{- $label = printf "%s %v" $kind $number -}}
+  {{- end -}}
+  {{- if $anchor -}}
+    <a class="thm-ref" href="#{{ $anchor }}">{{ $label }}</a>
+  {{- else -}}
+    {{- $label -}}
+  {{- end -}}
+{{- else -}}
+  [unknown:{{ $target }}]
+{{- end -}}

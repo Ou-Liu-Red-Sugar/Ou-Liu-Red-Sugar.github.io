@@ -1,0 +1,5 @@
+{{- $key := .Get "key" -}}
+<div id="ref-{{$key}}" class="reference-entry">
+  <span class="reference-label">[{{$key}}]</span>
+  <span class="reference-body">{{ .Inner | markdownify }}</span>
+</div>

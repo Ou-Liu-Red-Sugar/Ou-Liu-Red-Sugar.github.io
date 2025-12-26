@@ -1,14 +1,1 @@
-<div class="math-env corollary">
-    <div class="env-title">
-        <em>
-            Corollary
-            {{ if .Get "title" }}
-                ({{ .Get "title" }}).
-            {{ else }}.
-            {{ end }}
-        </em>
-    </div>
-    <div class="env-content">
-        {{ .Inner | markdownify }}
-    </div>
-</div>
+{{ template "thm-block" (dict "ctx" . "kind" "Corollary") }}

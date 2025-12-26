@@ -185,21 +185,20 @@ A \twoheadrightarrow B \quad\Longleftrightarrow\quad \sum_{b:B} A(b) \to B.
 \]
 
 Given any morphism $f : B' \to B$, substitution in type theory corresponds to pullback in synthetic category theory. Explicitly, the following diagrams describe the same construction:
-{{< tikz >}}
-\begin{tikzcd}
+
+{{< tikzcd >}}
 \exists A' \ar[r,dashed] \ar[d,dashed,two heads] \ar[dr,phantom,"PB"]
 & A \ar[d,two heads] \\
 B' \ar[r,"f"] & B
-\end{tikzcd}
-{{< /tikz >}}
+{{< /tikzcd >}}
+
 and
-{{< tikz >}}
-\begin{tikzcd}
+
+{{< tikzcd >}}
 \sum_{b':B'} A(f(b')) \ar[r] \ar[d]
 & \sum_{b:B} A(b) \ar[d] \\
 B' \ar[r,"f"] & B
-\end{tikzcd}
-{{< /tikz >}}
+{{< /tikzcd >}}
 
 Thus, **pullback corresponds to substitution**, and the object $A'$ is precisely the total space of the substituted dependent type.
 
@@ -208,12 +207,11 @@ Thus, **pullback corresponds to substitution**, and the object $A'$ is precisely
 ## Path Objects
 
 For any object $A$, consider the diagonal morphism $\Delta : A \to A \times A$. This admits a factorization
-{{< tikz >}}
-\begin{tikzcd}[column sep=large]
+
+{{< tikzcd >}}
 A \ar[rr,"\Delta"] \ar[dr,"r"] && A \times A \\
 & \operatorname{Iso}(A) \ar[ur,two heads,"p"']
-\end{tikzcd}
-{{< /tikz >}}
+{{< /tikzcd >}}
 
 Here:
 - $p : \operatorname{Iso}(A) \twoheadrightarrow A \times A$ is an isofibration;
@@ -245,13 +243,12 @@ In type-theoretic terms:
 ## Mapping Path Spaces and Weak Factorization
 
 For any morphism $f : A \to B$, we obtain a factorization
-{{< tikz >}}
-\begin{tikzcd}[column sep=huge]
+
+{{< tikzcd >}}
 A \ar[rr,"f"] \ar[dr]
 && B \\
 & \sum_{b:B} \sum_{a:A} (f(a) \simeq b) \ar[ur,two heads,"p"']
-\end{tikzcd}
-{{< /tikz >}}
+{{< /tikzcd >}}
 
 The intermediate object carries the type-theoretic meaning
 \[
