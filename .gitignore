@@ -4,9 +4,6 @@
 # TikZ-CD build cache
 /.tikzcd-build/
 
-# Generated SVGs (optional: see note below)
-/static/generated/tikzcd/
-
 # Editor / OS
 /.vscode/
 .DS_Store
