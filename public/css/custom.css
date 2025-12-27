@@ -252,15 +252,3 @@ pre {
 .reference-body {
     color: var(--muted-ink);
 }
-/* 添加到你的 custom.css 末尾 */
-.env-content {
-    display: flow-root; /* 现代浏览器清除浮动的最佳方案，确保 QED 符号包含在框内 */
-}
-
-/* 这是一个可选优化：如果在手机端，Proof 缩进太深可能不好看，可以微调 */
-@media (max-width: 600px) {
-    .math-env.proof {
-        padding-left: 0.5em;
-        border-left-width: 2px;
-    }
-}
