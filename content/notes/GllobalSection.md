@@ -171,7 +171,7 @@ for all $j \in J$.
 Such a refinement induces a morphism of Čech complexes
 
 $$
-\check{C}^*(\mathcal{U},\mathcal{F}) \longrightarrow \check{C}^*(\mathcal{V},\mathcal{F}),
+\check{C}^*(\bigsqcup_{i \in I}U_i,\mathcal{F}) \longrightarrow \check{C}^*(\bigsqcup_{j \in J}V_j,\mathcal{F}),
 $$
 
 and hence a map on Čech cohomology groups. Let $\mathsf{Cov}(X)$ denote the category whose objects are open covers of $X$ and whose morphisms are refinements. We may then define the Čech complex and Čech cohomology of $X$ itself by taking colimits over all covers:
