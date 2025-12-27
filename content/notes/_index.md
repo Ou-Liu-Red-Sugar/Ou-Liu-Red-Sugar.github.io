@@ -3,6 +3,7 @@ title: "Notes"
 description: "An index of my mathematical notes."
 draft: false
 layout: notes
+categories: ["Notes"]
 ---
 
 This page collects a selection of my mathematical notes.

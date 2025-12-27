@@ -1,6 +1,7 @@
 ---
 title: "My Papers"
 hidemeta: true
+categories: ["Papers"]
 ---
 
 ## Publications

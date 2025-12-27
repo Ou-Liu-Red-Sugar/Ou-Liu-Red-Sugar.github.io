@@ -4,8 +4,8 @@ date: 2025-12-24
 math: true
 draft: false
 description: "We reinterpret D-smooth morphisms in a six functor formalism via the 2-category of kernel associated to a slice geometry. Using Fourier–Mukai kernels to encode functors, smoothness is characterized by left adjointness at the kernel level, yielding automatic base change compatibility. Suaveness is then obtained by imposing invertibility of the dualizing complex as an additional, independent condition."
-
-
+tags: ["algebraic geometry", "higher category theory", "six functor formalisms"]
+categories: ["Mathematics"]
 ---
 
 
