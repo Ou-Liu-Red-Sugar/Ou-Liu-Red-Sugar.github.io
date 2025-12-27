@@ -4,7 +4,7 @@ date: 2025-12-27
 math: true
 draft: false
 description: "The main point of this note is the following: The classical notion of sheaf cohomology can, in fact, be completely avoided. Here `avoided' does not mean that we deny the mathematical objects or results that sheaf cohomology is meant to capture. Rather, it means that once we work in a derived setting, we no longer need to introduce these objects via classical derived functors or spectral sequences. Instead, they can be understood directly from the perspective of descent."
-tags: ["algebraic geometry", "infinite category theory", "spectral sequence"]
+tags: ["algebraic geometry", "higher category theory", "spectral sequence"]
 categories: ["Mathematics"]
 ---
 
