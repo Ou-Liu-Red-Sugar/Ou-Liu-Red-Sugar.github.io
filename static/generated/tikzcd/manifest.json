@@ -1,241 +1,135 @@
 {
-  "019649bb1e4ffcef2966ad6900a6dc3581147339": {
-    "kind": "shortcode",
-    "origin": "C:\\Users\\23980\\Documents\\Ou-Liu-Red-Sugar.github.io\\content\\notes\\SixFunctor.md",
-    "source": "X \\arrow[dr, \"\\Delta_f\"]\n    \\arrow[drr, \"\\operatorname{id}_X\", bend left]\n    \\arrow[ddr, \"\\operatorname{id}_X\"', bend right]\n  & & \\\\\n  & X \\times_Y X\n      \\arrow[r, \"\\pi_2\"]\n      \\arrow[d, \"\\pi_1\"']\n      \\arrow[dr, phantom, \"PB\"]\n  & X \\arrow[d, \"f\"] \\\\\n  & X \\arrow[r, \"f\"']\n  & Y",
-    "svg": "generated/tikzcd/019649bb1e4ffcef2966ad6900a6dc3581147339.svg",
-    "updated": "2025-12-26T16:49:06+01:00"
+  "03a6a99890283798f29aa1a2e07327ff1a336d87": {
+    "kind": "env",
+    "origin": "C:\\Users\\23980\\Documents\\Ou-Liu-Red-Sugar.github.io\\content\\notes\\GllobalSection.md",
+    "source": "\\mathsf{Mod}_{\\mathcal{C}}(A) \\ar[r,shift left]\\ar[r,shift right] & \\mathsf{Mod}_{\\mathcal{C}}(A \\otimes A) \\ar[r,shift left = 2] \\ar[r] \\ar[r,shift right = 2] &\\cdots",
+    "svg": "generated/tikzcd/03a6a99890283798f29aa1a2e07327ff1a336d87.svg",
+    "updated": "2025-12-27T15:09:21+01:00"
   },
-  "178bb15f62122858715656e564f99e7618056f30": {
+  "0449900767f8d32fb2f861df1b3e5e2419065a45": {
+    "kind": "shortcode",
+    "origin": "C:\\Users\\23980\\Documents\\Ou-Liu-Red-Sugar.github.io\\content\\notes\\GllobalSection.md",
+    "source": "\\begin{tikzcd}\n\\mathcal{C} \\ar[r,shift left = 2.5,\"-\\otimes A\"] \\ar[r,phantom,\"\\bot\"] & \\mathsf{Mod}_{\\mathcal{C}}(A) \\ar[l,shift left = 2.5,\"F\"]\n\\end{tikzcd}",
+    "svg": "generated/tikzcd/0449900767f8d32fb2f861df1b3e5e2419065a45.svg",
+    "updated": "2025-12-27T15:08:46+01:00"
+  },
+  "0be8a4b606c4477616ad8790fc8ae05a8ef535ba": {
     "kind": "shortcode",
     "origin": "C:\\Users\\23980\\Documents\\Ou-Liu-Red-Sugar.github.io\\content\\notes\\SixFunctor.md",
-    "source": "\\mathsf{Fun}_{\\mathbb{C}}(Z',X) \\ar[d,\"h^*\"] & \\mathsf{Fun}_{\\mathbb{C}}(Z',Y) \\ar[l,\"G_{Z'}\"'] \\ar[d,\"h^*\"]\\\\\n            \\mathsf{Fun}_{\\mathbb{C}}(Z,X) & \\mathsf{Fun}_{\\mathbb{C}}(Z,Y) \\ar[l,\"G_Z\"]",
-    "svg": "generated/tikzcd/178bb15f62122858715656e564f99e7618056f30.svg",
-    "updated": "2025-12-26T16:56:18+01:00"
+    "source": "\\mathsf{Fun}_{\\mathbb{C}}(Z',X) \\ar[d,\"h^*\"] & \\mathsf{Fun}_{\\mathbb{C}}(Z',Y) \\ar[l,\"G_{Z'}\"'] \\ar[d,\"h^*\"]\\\\\n  \\mathsf{Fun}_{\\mathbb{C}}(Z,X) & \\mathsf{Fun}_{\\mathbb{C}}(Z,Y) \\ar[l,\"G_Z\"]",
+    "svg": "generated/tikzcd/0be8a4b606c4477616ad8790fc8ae05a8ef535ba.svg",
+    "updated": "2025-12-27T15:16:42+01:00"
   },
   "2214dad6d5f2acfaa65761929c5cfc44bc2be8ae": {
     "kind": "shortcode",
     "origin": "C:\\Users\\23980\\Documents\\Ou-Liu-Red-Sugar.github.io\\content\\notes\\SixFunctor.md",
     "source": "X' \\ar[r,\"f'\"] \\ar[dr,phantom,pos = 0.3,\"\\lrcorner\"] \\ar[d,\"g'\"] & Y' \\ar[d,\"g\"]\\\\\n    X \\ar[r,\"f\"] & Y",
     "svg": "generated/tikzcd/2214dad6d5f2acfaa65761929c5cfc44bc2be8ae.svg",
-    "updated": "2025-12-26T16:56:19+01:00"
+    "updated": "2025-12-27T15:16:43+01:00"
   },
-  "2512b1d2cc226c97dc94884b5a3781724abf4110": {
+  "2f6375e8d874c9da359dfc428c3f48bf945cedbb": {
     "kind": "shortcode",
-    "origin": "C:\\Users\\23980\\Documents\\Ou-Liu-Red-Sugar.github.io\\content\\notes\\SixFunctor.md",
-    "source": "X' \\arrow[r,\"f'\"] \\arrow[dr,phantom,pos = 0.3, \"PB\"] \\arrow[d,\"g'\"] & Y' \\arrow[d,\"g\"]\\\\\n    X \\arrow[r,\"f\"] & Y",
-    "svg": "generated/tikzcd/2512b1d2cc226c97dc94884b5a3781724abf4110.svg",
-    "updated": "2025-12-26T16:49:08+01:00"
+    "origin": "C:\\Users\\23980\\Documents\\Ou-Liu-Red-Sugar.github.io\\content\\notes\\GllobalSection.md",
+    "source": "{\\cdots} &\nU \\times_X U \\times_X U\n\\ar[r, shift left=4] \\ar[r] \\ar[r, shift right=4]\n& U \\times_X U\n\\ar[r, shift left=2] \\ar[r, shift right=2]\n\\ar[l, shift left=2] \\ar[l, shift right=2]\n& U\n\\ar[l]",
+    "svg": "generated/tikzcd/2f6375e8d874c9da359dfc428c3f48bf945cedbb.svg",
+    "updated": "2025-12-27T15:16:44+01:00"
   },
   "3295eda477f6418b0e55619f7d239153dc342ba8": {
     "kind": "shortcode",
     "origin": "C:\\Users\\23980\\Documents\\Ou-Liu-Red-Sugar.github.io\\content\\notes\\SixFunctor.md",
     "source": "X' \\ar[r,\"f'\"] \\ar[dr,phantom,pos = 0.3,\"\\lrcorner\"] \\ar[d,\"g'\"] & Y' \\ar[d,\"g\"]\\\\\n        X \\ar[r,\"f\"] & Y",
     "svg": "generated/tikzcd/3295eda477f6418b0e55619f7d239153dc342ba8.svg",
-    "updated": "2025-12-26T16:56:20+01:00"
+    "updated": "2025-12-27T15:16:44+01:00"
   },
-  "4fc9c84f7e3fd48996f919fea3e5140d870e9e18": {
+  "41ae21b100bd844b25ddef85b6473b77a377f4f3": {
     "kind": "shortcode",
-    "origin": "C:\\Users\\23980\\Documents\\Ou-Liu-Red-Sugar.github.io\\content\\notes\\SixFunctor.md",
-    "source": "X' \\arrow[r,\"f'\"] \\arrow[dr,phantom,\"PB\"] \\arrow[d,\"g'\"] & Y' \\arrow[d,\"g\"]\\\\\n  X \\arrow[r,\"f\"] & Y",
-    "svg": "generated/tikzcd/4fc9c84f7e3fd48996f919fea3e5140d870e9e18.svg",
-    "updated": "2025-12-26T16:49:08+01:00"
+    "origin": "C:\\Users\\23980\\Documents\\Ou-Liu-Red-Sugar.github.io\\content\\notes\\GllobalSection.md",
+    "source": "\\begin{tikzcd}\n\\cdots &\nU \\times_X U \\times_X U\n\\ar[r, shift left=4] \\ar[r] \\ar[r, shift right=4]\n& U \\times_X U\n\\ar[r, shift left=2] \\ar[r, shift right=2]\n\\ar[l, shift left=2] \\ar[l, shift right=2]\n& U\n\\ar[l]\n\\end{tikzcd}",
+    "svg": "generated/tikzcd/41ae21b100bd844b25ddef85b6473b77a377f4f3.svg",
+    "updated": "2025-12-27T15:08:46+01:00"
   },
   "5a4502a178abf3e311ac3667d8591fc8c6d5e2a8": {
     "kind": "shortcode",
     "origin": "C:\\Users\\23980\\Documents\\Ou-Liu-Red-Sugar.github.io\\content\\notes\\SixFunctor.md",
     "source": "& Z \\arrow[ddl, \"h\"', bend right]\n        \\arrow[ddr, \"k\", bend left]\n        \\arrow[d, \"{(h,k)}\", dashed] & \\\\\n    & X_1 \\times_Y X_2\n        \\arrow[dl, \"\\pi_1\"']\n        \\arrow[dr, \"\\pi_2\"] & \\\\\n    X_1 \\arrow[dr, \"\\in E\"'] & &\n    X_2 \\arrow[dl, \"\\in E\"] \\\\\n    & Y &",
     "svg": "generated/tikzcd/5a4502a178abf3e311ac3667d8591fc8c6d5e2a8.svg",
-    "updated": "2025-12-26T16:56:21+01:00"
+    "updated": "2025-12-27T15:16:46+01:00"
+  },
+  "5a4b5f595d76a04630ac7ef52621cbfd09b10c3d": {
+    "kind": "shortcode",
+    "origin": "C:\\Users\\23980\\Documents\\Ou-Liu-Red-Sugar.github.io\\content\\notes\\GllobalSection.md",
+    "source": "\\cdots\n        U \\times_X U \\times_X U\n        \\ar[r, shift left=4] \\ar[r] \\ar[r, shift right=4]\n        & U\\times_X U\n        \\ar[r, shift left=2] \\ar[r, shift right=2]\n        \\ar[l, shift left=2] \\ar[l, shift right=2]\n        & U\n        \\ar[l]",
+    "svg": "generated/tikzcd/5a4b5f595d76a04630ac7ef52621cbfd09b10c3d.svg",
+    "updated": "2025-12-27T14:06:02+01:00"
   },
   "60653dd225444ff121b2f3e3ba30aa6869f34345": {
     "kind": "shortcode",
     "origin": "C:\\Users\\23980\\Documents\\Ou-Liu-Red-Sugar.github.io\\content\\notes\\Type.md",
     "source": "\\exists A' \\ar[r,dashed]\\ar[d,dashed,two heads] \\ar[dr,pos = 0.3,phantom,\"\\lrcorner\"] & A \\ar[d,two heads]\\\\\n    B' \\ar[r,\"f\"] & B",
     "svg": "generated/tikzcd/60653dd225444ff121b2f3e3ba30aa6869f34345.svg",
-    "updated": "2025-12-26T16:56:22+01:00"
+    "updated": "2025-12-27T15:16:46+01:00"
   },
-  "659e34242e3b52caffbcce95ca0e8c94476d95ef": {
+  "6287bc691546cdbb27ae5c990a040e33c59d9e88": {
     "kind": "shortcode",
-    "origin": "C:\\Users\\23980\\Documents\\Ou-Liu-Red-Sugar.github.io\\content\\notes\\Type.md",
-    "source": "\\sum_{b':B'} A(f(b')) \\ar[r] \\ar[d]\n& \\sum_{b:B} A(b) \\ar[d] \\\\\nB' \\ar[r,\"f\"] & B",
-    "svg": "generated/tikzcd/659e34242e3b52caffbcce95ca0e8c94476d95ef.svg",
-    "updated": "2025-12-26T16:49:10+01:00"
+    "origin": "C:\\Users\\23980\\Documents\\Ou-Liu-Red-Sugar.github.io\\content\\notes\\GllobalSection.md",
+    "source": "\\begin{tikzcd}\n{\\cdots} &\nU \\times_X U \\times_X U\n\\ar[r, shift left=4] \\ar[r] \\ar[r, shift right=4]\n& U \\times_X U\n\\ar[r, shift left=2] \\ar[r, shift right=2]\n\\ar[l, shift left=2] \\ar[l, shift right=2]\n& U\n\\ar[l]\n\\end{tikzcd}",
+    "svg": "generated/tikzcd/6287bc691546cdbb27ae5c990a040e33c59d9e88.svg",
+    "updated": "2025-12-27T15:15:57+01:00"
+  },
+  "6a533f35e29a4d50239ccf63229ff73f7664f9ec": {
+    "kind": "env",
+    "origin": "C:\\Users\\23980\\Documents\\Ou-Liu-Red-Sugar.github.io\\content\\notes\\GllobalSection.md",
+    "source": "\\cdots &\nU \\times_X U \\times_X U\n\\ar[r, shift left=4] \\ar[r] \\ar[r, shift right=4]\n& U \\times_X U\n\\ar[r, shift left=2] \\ar[r, shift right=2]\n\\ar[l, shift left=2] \\ar[l, shift right=2]\n& U\n\\ar[l]",
+    "svg": "generated/tikzcd/6a533f35e29a4d50239ccf63229ff73f7664f9ec.svg",
+    "updated": "2025-12-27T14:11:34+01:00"
   },
   "7687357bb55f3900301bb5f50d9cb36238f2d156": {
     "kind": "shortcode",
     "origin": "C:\\Users\\23980\\Documents\\Ou-Liu-Red-Sugar.github.io\\content\\notes\\SixFunctor.md",
     "source": "X \\arrow[dr, \"\\Delta_f\"]\n    \\arrow[drr, \"\\operatorname{id}_X\", bend left]\n    \\arrow[ddr, \"\\operatorname{id}_X\"', bend right]\n  & & \\\\\n  & X \\times_Y X\n      \\arrow[r, \"\\pi_2\"]\n      \\arrow[d, \"\\pi_1\"']\n      \\arrow[dr, phantom, pos = 0.3,\"\\lrcorner\", from=2-2, to=3-3]\n  & X \\arrow[d, \"f\"] \\\\\n  & X \\arrow[r, \"f\"']\n  & Y",
     "svg": "generated/tikzcd/7687357bb55f3900301bb5f50d9cb36238f2d156.svg",
-    "updated": "2025-12-26T16:56:23+01:00"
+    "updated": "2025-12-27T15:16:48+01:00"
   },
   "779877d9339385962ccd138455c8475e34e100c4": {
     "kind": "shortcode",
     "origin": "C:\\Users\\23980\\Documents\\Ou-Liu-Red-Sugar.github.io\\content\\notes\\Type.md",
     "source": "A \\ar[rr,\"\\Delta\"] \\ar[dr,\"r\"] && A \\times A \\\\\n& \\operatorname{Iso}(A) \\ar[ur,two heads,\"p\"']",
     "svg": "generated/tikzcd/779877d9339385962ccd138455c8475e34e100c4.svg",
-    "updated": "2025-12-26T16:56:24+01:00"
+    "updated": "2025-12-27T15:16:48+01:00"
+  },
+  "86ca2caec73927b7627ed0183c178b0dde0bb5fe": {
+    "kind": "shortcode",
+    "origin": "C:\\Users\\23980\\Documents\\Ou-Liu-Red-Sugar.github.io\\content\\notes\\GllobalSection.md",
+    "source": "\\mathcal{C} \\ar[r,shift left = 2.5,\"-\\otimes A\"] \\ar[r,phantom,\"\\bot\"] & \\mathsf{Mod}_{\\mathcal{C}}(A) \\ar[l,shift left = 2.5,\"F\"]",
+    "svg": "generated/tikzcd/86ca2caec73927b7627ed0183c178b0dde0bb5fe.svg",
+    "updated": "2025-12-27T15:16:49+01:00"
   },
   "8da63a8a2ae8506ffc931fd284654f508cf180e4": {
     "kind": "shortcode",
     "origin": "C:\\Users\\23980\\Documents\\Ou-Liu-Red-Sugar.github.io\\content\\notes\\SixFunctor.md",
     "source": "g \\ar[dr,\"\\operatorname{id}_g\"']\\ar[r,\"\\eta g\"] & gfg \\ar[d,\"g\\varepsilon\"]\\\\\n    & g",
     "svg": "generated/tikzcd/8da63a8a2ae8506ffc931fd284654f508cf180e4.svg",
-    "updated": "2025-12-26T16:56:25+01:00"
+    "updated": "2025-12-27T15:16:50+01:00"
   },
   "8e4d8ac8d740d53d1dae8895e954f05474c8db65": {
     "kind": "shortcode",
     "origin": "C:\\Users\\23980\\Documents\\Ou-Liu-Red-Sugar.github.io\\content\\notes\\Type.md",
     "source": "A \\ar[rr,\"f\"] \\ar[dr,\"\\simeq\"] && B\\\\\n    & A'= \\sum_{b \\colon B} \\sum_{a \\colon A}(f(a) \\simeq b) \\ar[ur,two heads]",
     "svg": "generated/tikzcd/8e4d8ac8d740d53d1dae8895e954f05474c8db65.svg",
-    "updated": "2025-12-26T16:56:26+01:00"
+    "updated": "2025-12-27T15:16:51+01:00"
   },
   "b1cca8739380ccd27b48b3f2efc89fafbb9282c5": {
     "kind": "shortcode",
     "origin": "C:\\Users\\23980\\Documents\\Ou-Liu-Red-Sugar.github.io\\content\\notes\\SixFunctor.md",
     "source": "f \\ar[dr,\"\\operatorname{id}_f\"']\\ar[r,\"f\\eta\"] & fgf \\ar[d,\"\\varepsilon f\"]\\\\\n    & f",
     "svg": "generated/tikzcd/b1cca8739380ccd27b48b3f2efc89fafbb9282c5.svg",
-    "updated": "2025-12-26T16:56:27+01:00"
-  },
-  "by_hash": {
-    "0a5d5f7a3195de5c96bfccf43692884454b728f5": {
-      "raw_previews": [
-        "\\mathsf{Fun}_{\\mathbb{C}}(Z',X) \\ar[d,\"h^*\"] & \\mathsf{Fun}_{\\mathbb{C}}(Z',Y) \\ar[l,\"G_{Z'}\"'] \\ar[d,\"h^*\"]\\\\\n            \\mathsf{Fun}_{\\mathbb{C}}(Z,X) & \\mathsf{Fun}_{\\mathbb{C}}(Z,Y) \\ar[l,\"G_Z\"]"
-      ],
-      "sources": [
-        "content\\notes\\SixFunctor.md"
-      ]
-    },
-    "13e30cb18bc26364b7b06fac001371d0c40d6757": {
-      "raw_previews": [
-        "X' \\arrow[r,\"f'\"] \\arrow[dr,phantom, \"PB\"] \\arrow[d,\"g'\"] & Y' \\arrow[d,\"g\"]\\\\\n    X \\arrow[r,\"f\"] & Y"
-      ],
-      "sources": [
-        "content\\notes\\SixFunctor.md"
-      ]
-    },
-    "2f575e2f83f6594ea1a5b7484960db96a7c2a63e": {
-      "raw_previews": [
-        "X \\arrow[dr, \"\\Delta_f\"]\n    \\arrow[drr, \"\\operatorname{id}_X\", bend left]\n    \\arrow[ddr, \"\\operatorname{id}_X\"', bend right]\n  & & \\\\"
-      ],
-      "sources": [
-        "content\\notes\\SixFunctor.md"
-      ]
-    },
-    "62a3cd7034850fd4705f50d6e195267562da85c3": {
-      "raw_previews": [
-        "g \\ar[dr,\"\\operatorname{id}_g\"']\\ar[r,\"\\eta g\"] & gfg \\ar[d,\"g\\varepsilon\"]\\\\\n    & g"
-      ],
-      "sources": [
-        "content\\notes\\SixFunctor.md"
-      ]
-    },
-    "659e34242e3b52caffbcce95ca0e8c94476d95ef": {
-      "raw_previews": [
-        "\\sum_{b':B'} A(f(b')) \\ar[r] \\ar[d]\n& \\sum_{b:B} A(b) \\ar[d] \\\\\nB' \\ar[r,\"f\"] & B"
-      ],
-      "sources": [
-        "content\\notes\\Type.md"
-      ]
-    },
-    "75ec41046388d52af2fd0773980b296980882b09": {
-      "raw_previews": [
-        "f \\ar[dr,\"\\operatorname{id}_f\"']\\ar[r,\"f\\eta\"] & fgf \\ar[d,\"\\varepsilon f\"]\\\\\n    & f"
-      ],
-      "sources": [
-        "content\\notes\\SixFunctor.md"
-      ]
-    },
-    "779877d9339385962ccd138455c8475e34e100c4": {
-      "raw_previews": [
-        "A \\ar[rr,\"\\Delta\"] \\ar[dr,\"r\"] && A \\times A \\\\\n& \\operatorname{Iso}(A) \\ar[ur,two heads,\"p\"']"
-      ],
-      "sources": [
-        "content\\notes\\Type.md"
-      ]
-    },
-    "873b11128a604ab206dae76700cba51d8d312802": {
-      "raw_previews": [
-        "X' \\arrow[r,\"f'\"] \\arrow[dr,phantom,pos = 0.3, \"PB\"] \\arrow[d,\"g'\"] & Y' \\arrow[d,\"g\"]\\\\\n    X \\arrow[r,\"f\"] & Y"
-      ],
-      "sources": [
-        "content\\notes\\SixFunctor.md"
-      ]
-    },
-    "ae4c73e018a1aed504d8e0e0dd793e7637bac7d8": {
-      "raw_previews": [
-        "& Z \\arrow[ddl, \"h\"', bend right]\n        \\arrow[ddr, \"k\", bend left]\n        \\arrow[d, \"{(h,k)}\", dashed] & \\\\\n    & X_1 \\times_Y X_2"
-      ],
-      "sources": [
-        "content\\notes\\SixFunctor.md"
-      ]
-    },
-    "c2afbe217cfbf7205289fe4fb06f48c42de71231": {
-      "raw_previews": [
-        "X' \\arrow[r,\"f'\"] \\arrow[dr,phantom,\"PB\"] \\arrow[d,\"g'\"] & Y' \\arrow[d,\"g\"]\\\\\n  X \\arrow[r,\"f\"] & Y"
-      ],
-      "sources": [
-        "content\\notes\\SixFunctor.md"
-      ]
-    },
-    "ed06bd1886496aa9cfd1b45d04701ada6c639077": {
-      "raw_previews": [
-        "A \\ar[rr,\"f\"] \\ar[dr]\n&& B \\\\\n& \\sum_{b:B} \\sum_{a:A} (f(a) \\simeq b) \\ar[ur,two heads,\"p\"']"
-      ],
-      "sources": [
-        "content\\notes\\Type.md"
-      ]
-    },
-    "fe4af78a5c5837f5123777f08173e615a615f8ef": {
-      "raw_previews": [
-        "\\exists A' \\ar[r,dashed] \\ar[d,dashed,two heads] \\ar[dr,phantom,\"PB\"]\n& A \\ar[d,two heads] \\\\\nB' \\ar[r,\"f\"] & B"
-      ],
-      "sources": [
-        "content\\notes\\Type.md"
-      ]
-    }
-  },
-  "by_raw": {
-    "& Z \\arrow[ddl, \"h\"', bend right]\n        \\arrow[ddr, \"k\", bend left]\n        \\arrow[d, \"{(h,k)}\", dashed] & \\\\\n    & X_1 \\times_Y X_2\n        \\arrow[dl, \"\\pi_1\"']\n        \\arrow[dr, \"\\pi_2\"] & \\\\\n    X_1 \\arrow[dr, \"\\in E\"'] & &\n    X_2 \\arrow[dl, \"\\in E\"] \\\\\n    & Y &": "ae4c73e018a1aed504d8e0e0dd793e7637bac7d8",
-    "A \\ar[rr,\"\\Delta\"] \\ar[dr,\"r\"] && A \\times A \\\\\n& \\operatorname{Iso}(A) \\ar[ur,two heads,\"p\"']": "779877d9339385962ccd138455c8475e34e100c4",
-    "A \\ar[rr,\"f\"] \\ar[dr]\n&& B \\\\\n& \\sum_{b:B} \\sum_{a:A} (f(a) \\simeq b) \\ar[ur,two heads,\"p\"']": "ed06bd1886496aa9cfd1b45d04701ada6c639077",
-    "X \\arrow[dr, \"\\Delta_f\"]\n    \\arrow[drr, \"\\operatorname{id}_X\", bend left]\n    \\arrow[ddr, \"\\operatorname{id}_X\"', bend right]\n  & & \\\\\n  & X \\times_Y X\n      \\arrow[r, \"\\pi_2\"]\n      \\arrow[d, \"\\pi_1\"']\n      \\arrow[dr, phantom, \"PB\"]\n  & X \\arrow[d, \"f\"] \\\\\n  & X \\arrow[r, \"f\"']\n  & Y": "2f575e2f83f6594ea1a5b7484960db96a7c2a63e",
-    "X' \\arrow[r,\"f'\"] \\arrow[dr,phantom, \"PB\"] \\arrow[d,\"g'\"] & Y' \\arrow[d,\"g\"]\\\\\n    X \\arrow[r,\"f\"] & Y": "13e30cb18bc26364b7b06fac001371d0c40d6757",
-    "X' \\arrow[r,\"f'\"] \\arrow[dr,phantom,\"PB\"] \\arrow[d,\"g'\"] & Y' \\arrow[d,\"g\"]\\\\\n  X \\arrow[r,\"f\"] & Y": "c2afbe217cfbf7205289fe4fb06f48c42de71231",
-    "X' \\arrow[r,\"f'\"] \\arrow[dr,phantom,pos = 0.3, \"PB\"] \\arrow[d,\"g'\"] & Y' \\arrow[d,\"g\"]\\\\\n    X \\arrow[r,\"f\"] & Y": "873b11128a604ab206dae76700cba51d8d312802",
-    "\\exists A' \\ar[r,dashed] \\ar[d,dashed,two heads] \\ar[dr,phantom,\"PB\"]\n& A \\ar[d,two heads] \\\\\nB' \\ar[r,\"f\"] & B": "fe4af78a5c5837f5123777f08173e615a615f8ef",
-    "\\mathsf{Fun}_{\\mathbb{C}}(Z',X) \\ar[d,\"h^*\"] & \\mathsf{Fun}_{\\mathbb{C}}(Z',Y) \\ar[l,\"G_{Z'}\"'] \\ar[d,\"h^*\"]\\\\\n            \\mathsf{Fun}_{\\mathbb{C}}(Z,X) & \\mathsf{Fun}_{\\mathbb{C}}(Z,Y) \\ar[l,\"G_Z\"]": "0a5d5f7a3195de5c96bfccf43692884454b728f5",
-    "\\sum_{b':B'} A(f(b')) \\ar[r] \\ar[d]\n& \\sum_{b:B} A(b) \\ar[d] \\\\\nB' \\ar[r,\"f\"] & B": "659e34242e3b52caffbcce95ca0e8c94476d95ef",
-    "f \\ar[dr,\"\\operatorname{id}_f\"']\\ar[r,\"f\\eta\"] & fgf \\ar[d,\"\\varepsilon f\"]\\\\\n    & f": "75ec41046388d52af2fd0773980b296980882b09",
-    "g \\ar[dr,\"\\operatorname{id}_g\"']\\ar[r,\"\\eta g\"] & gfg \\ar[d,\"g\\varepsilon\"]\\\\\n    & g": "62a3cd7034850fd4705f50d6e195267562da85c3"
-  },
-  "c57f5bbcc47e66213f68f7a6d4ae898cd2573e64": {
-    "kind": "shortcode",
-    "origin": "C:\\Users\\23980\\Documents\\Ou-Liu-Red-Sugar.github.io\\content\\notes\\SixFunctor.md",
-    "source": "X' \\arrow[r,\"f'\"] \\arrow[dr,phantom, \"PB\"] \\arrow[d,\"g'\"] & Y' \\arrow[d,\"g\"]\\\\\n    X \\arrow[r,\"f\"] & Y",
-    "svg": "generated/tikzcd/c57f5bbcc47e66213f68f7a6d4ae898cd2573e64.svg",
-    "updated": "2025-12-26T16:49:14+01:00"
+    "updated": "2025-12-27T15:16:52+01:00"
   },
   "dd6ed5ad9feb11fa2939fbd0d5fedd6c047c7b10": {
     "kind": "shortcode",
     "origin": "C:\\Users\\23980\\Documents\\Ou-Liu-Red-Sugar.github.io\\content\\notes\\Type.md",
     "source": "\\sum_{b' \\colon B'} A(f(b')) \\ar[r] \\ar[d] & \\sum_{b \\colon B} A(b) \\ar[d]\\\\\n    B' \\ar[r,\"f\"] & B",
     "svg": "generated/tikzcd/dd6ed5ad9feb11fa2939fbd0d5fedd6c047c7b10.svg",
-    "updated": "2025-12-26T16:56:28+01:00"
-  },
-  "ed06bd1886496aa9cfd1b45d04701ada6c639077": {
-    "kind": "shortcode",
-    "origin": "C:\\Users\\23980\\Documents\\Ou-Liu-Red-Sugar.github.io\\content\\notes\\Type.md",
-    "source": "A \\ar[rr,\"f\"] \\ar[dr]\n&& B \\\\\n& \\sum_{b:B} \\sum_{a:A} (f(a) \\simeq b) \\ar[ur,two heads,\"p\"']",
-    "svg": "generated/tikzcd/ed06bd1886496aa9cfd1b45d04701ada6c639077.svg",
-    "updated": "2025-12-26T16:49:15+01:00"
-  },
-  "fe4af78a5c5837f5123777f08173e615a615f8ef": {
-    "kind": "shortcode",
-    "origin": "C:\\Users\\23980\\Documents\\Ou-Liu-Red-Sugar.github.io\\content\\notes\\Type.md",
-    "source": "\\exists A' \\ar[r,dashed] \\ar[d,dashed,two heads] \\ar[dr,phantom,\"PB\"]\n& A \\ar[d,two heads] \\\\\nB' \\ar[r,\"f\"] & B",
-    "svg": "generated/tikzcd/fe4af78a5c5837f5123777f08173e615a615f8ef.svg",
-    "updated": "2025-12-26T16:49:16+01:00"
-  },
-  "version": 1
+    "updated": "2025-12-27T15:16:53+01:00"
+  }
 }

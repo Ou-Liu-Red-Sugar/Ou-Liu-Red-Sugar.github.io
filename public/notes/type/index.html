@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="noindex, nofollow">
-<title>Synthetic category theory and type theory | Ou Liu&#39;s Homepage</title>
+<title>Synthetic category theory and type theory | Ou Liu</title>
 <meta name="keywords" content="">
 <meta name="description" content="This page aims to explain how type theory can be understood within the framework of synthetic category theory.
 The content of this page is derived from my questions to Tashi during the second exercise class and Tashi’s responses. I would like to express my gratitude to Tashi here.
@@ -77,18 +77,19 @@ Next, we will answer these questions through the lens of type theory and the cat
         document.querySelector("html").dataset.theme = 'light';
     }
 
-</script><link rel="stylesheet" type="text/css" href="https://tikzjax.com/v1/fonts.css">
-<script defer src="https://tikzjax.com/v1/tikzjax.js"></script>
-
-<link rel="stylesheet" href="/css/custom.css">
+</script><link rel="stylesheet" href="/css/custom.css">
 
 <script>
   window.MathJax = {
+    loader: {
+      load: ['[tex]/amscd', '[tex]/newcommand', '[tex]/html']
+    },
     tex: {
       inlineMath: [['$', '$'], ['\\(', '\\)']],
       displayMath: [['$$', '$$'], ['\\[', '\\]']],
       processEscapes: true,
       tags: 'ams',
+      packages: { '[+]': ['amscd', 'newcommand', 'html'] },
       macros: {
         Z: "\\mathbb{Z}",
         R: "\\mathbb{R}",
@@ -98,7 +99,15 @@ Next, we will answer these questions through the lens of type theory and the cat
         coloneqq: "\\mathrel{:=}",
         Hom: "\\operatorname{Hom}",
         Spec: "\\operatorname{Spec}",
-        colim: "\\operatorname{colim}"
+        colim: "\\operatorname{colim}",
+        id: "\\operatorname{id}",
+        ker: "\\operatorname{ker}",
+        im: "\\operatorname{im}",
+        hofib: "\\operatorname{hofib}",
+        cofib: "\\operatorname{cofib}",
+        To: "\\longrightarrow",
+        cite: ["\\class{citation}{\\href{#ref-#1}{[\\,#1\\,]}}", 1],
+        citet: ["\\class{citation}{\\href{#ref-#1}{(#1)}}", 1]
       }
     },
     options: {
@@ -118,7 +127,7 @@ Next, we will answer these questions through the lens of type theory and the cat
     <header class="header">
     <nav class="nav">
         <div class="logo">
-            <a href="http://localhost:1313/" accesskey="h" title="Ou Liu&#39;s Homepage (Alt + H)">Ou Liu&#39;s Homepage</a>
+            <a href="http://localhost:1313/" accesskey="h" title="Ou Liu (Alt + H)">Ou Liu</a>
             <div class="logo-switches">
                 <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
                     <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
@@ -314,41 +323,28 @@ In synthetic category theory, such maps are called <strong>isofibrations</strong
 </p>
 \[
 A \twoheadrightarrow B \quad\Longleftrightarrow\quad \sum_{b:B} A(b) \to B.
-\]<p>Given any morphism $f : B' \to B$, substitution in type theory corresponds to pullback in synthetic category theory. Explicitly, the following diagrams describe the same construction:
-<div class="tex2jax_ignore" style="text-align: center;">
-  <script type="text/tikz">
-\begin{tikzcd}
-\exists A' \ar[r,dashed] \ar[d,dashed,two heads] \ar[dr,phantom,"PB"]
-& A \ar[d,two heads] \\
-B' \ar[r,"f"] & B
-\end{tikzcd}
-</script>
+\]<p>Given any morphism $f : B' \to B$, substitution in type theory corresponds to pullback in synthetic category theory. Explicitly, the following diagrams describe the same construction:</p>
+<div class="cdrow">
+  
+<figure class="tikzcd-fig tikzcd" data-tikzcd-hash="60653dd225444ff121b2f3e3ba30aa6869f34345">
+  <img class="tikzcd-img" src="/generated/tikzcd/60653dd225444ff121b2f3e3ba30aa6869f34345.svg" alt="tikzcd diagram"  loading="lazy" decoding="async"></figure>
+
+
+<span class="cdsep">\(\Leftrightarrow\)</span>
+
+<figure class="tikzcd-fig tikzcd" data-tikzcd-hash="dd6ed5ad9feb11fa2939fbd0d5fedd6c047c7b10">
+  <img class="tikzcd-img" src="/generated/tikzcd/dd6ed5ad9feb11fa2939fbd0d5fedd6c047c7b10.svg" alt="tikzcd diagram"  loading="lazy" decoding="async"></figure>
+
+
 </div>
 
-and
-<div class="tex2jax_ignore" style="text-align: center;">
-  <script type="text/tikz">
-\begin{tikzcd}
-\sum_{b':B'} A(f(b')) \ar[r] \ar[d]
-& \sum_{b:B} A(b) \ar[d] \\
-B' \ar[r,"f"] & B
-\end{tikzcd}
-</script>
-</div>
-</p>
 <p>Thus, <strong>pullback corresponds to substitution</strong>, and the object $A'$ is precisely the total space of the substituted dependent type.</p>
 <hr>
 <h2 id="path-objects">Path Objects<a hidden class="anchor" aria-hidden="true" href="#path-objects">#</a></h2>
-<p>For any object $A$, consider the diagonal morphism $\Delta : A \to A \times A$. This admits a factorization
-<div class="tex2jax_ignore" style="text-align: center;">
-  <script type="text/tikz">
-\begin{tikzcd}[column sep=large]
-A \ar[rr,"\Delta"] \ar[dr,"r"] && A \times A \\
-& \operatorname{Iso}(A) \ar[ur,two heads,"p"']
-\end{tikzcd}
-</script>
-</div>
-</p>
+<p>For any object $A$, consider the diagonal morphism $\Delta : A \to A \times A$. This admits a factorization</p>
+<figure class="tikzcd-fig tikzcd" data-tikzcd-hash="779877d9339385962ccd138455c8475e34e100c4">
+  <img class="tikzcd-img" src="/generated/tikzcd/779877d9339385962ccd138455c8475e34e100c4.svg" alt="tikzcd diagram"  loading="lazy" decoding="async"></figure>
+
 <p>Here:</p>
 <ul>
 <li>$p : \operatorname{Iso}(A) \twoheadrightarrow A \times A$ is an isofibration;</li>
@@ -374,17 +370,10 @@ A \ar[rr,"\Delta"] \ar[dr,"r"] && A \times A \\
 </ol>
 <hr>
 <h2 id="mapping-path-spaces-and-weak-factorization">Mapping Path Spaces and Weak Factorization<a hidden class="anchor" aria-hidden="true" href="#mapping-path-spaces-and-weak-factorization">#</a></h2>
-<p>For any morphism $f : A \to B$, we obtain a factorization
-<div class="tex2jax_ignore" style="text-align: center;">
-  <script type="text/tikz">
-\begin{tikzcd}[column sep=huge]
-A \ar[rr,"f"] \ar[dr]
-&& B \\
-& \sum_{b:B} \sum_{a:A} (f(a) \simeq b) \ar[ur,two heads,"p"']
-\end{tikzcd}
-</script>
-</div>
-</p>
+<p>For any morphism $f : A \to B$, we obtain a factorization</p>
+<figure class="tikzcd-fig tikzcd" data-tikzcd-hash="8e4d8ac8d740d53d1dae8895e954f05474c8db65">
+  <img class="tikzcd-img" src="/generated/tikzcd/8e4d8ac8d740d53d1dae8895e954f05474c8db65.svg" alt="tikzcd diagram"  loading="lazy" decoding="async"></figure>
+
 <p>The intermediate object carries the type-theoretic meaning
 </p>
 \[
@@ -404,7 +393,7 @@ which is precisely the <strong>homotopy fiber</strong> of $f$ over $b$.</p>
     </main>
     
 <footer class="footer">
-        <span>&copy; 2025 <a href="http://localhost:1313/">Ou Liu&#39;s Homepage</a></span> · 
+        <span>&copy; 2025 <a href="http://localhost:1313/">Ou Liu</a></span> · 
 
     <span>
         Powered by

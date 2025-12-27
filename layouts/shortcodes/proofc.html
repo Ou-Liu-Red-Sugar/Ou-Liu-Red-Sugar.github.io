@@ -1,15 +1,18 @@
 <details class="math-env proof">
     <summary class="env-title">
         <em>
-            {{ if .Get "title" }}
-                {{ .Get "title" }}.
-            {{ else }}
+            {{- with .Get "title" -}}
+                {{/* 如果有标题，先去掉用户可能手滑写上的句号，再统一补一个句号 */}}
+                {{- . | strings.TrimSuffix "." -}}.
+            {{- else -}}
+                {{/* 默认标题 */}}
                 Proof.
-            {{ end }}
+            {{- end -}}
         </em>
     </summary>
     <div class="env-content">
-        {{ .Inner | markdownify }}
-        <span style="float:right;">$\square$</span> 
+        {{- .Inner | markdownify -}}
+        {{/* QED 符号：使用 float:right 放在右下角 */}}
+        <span style="float:right;">$\square$</span>
     </div>
 </details>

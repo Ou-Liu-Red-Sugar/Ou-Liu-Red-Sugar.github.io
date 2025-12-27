@@ -1,96 +1,266 @@
-/* static/css/custom.css */
+/* =========================================================
+   TeX-like typography & page tone
+   ========================================================= */
 
-/* 数学环境通用容器 */
+:root {
+    --paper-bg: #f7f5ee;
+    --ink: #141210;
+    --muted-ink: #3c3a38;
+    --math-bg: #fdfcf8;
+}
+
+body {
+    background: var(--paper-bg);
+    color: var(--ink);
+    font-family: "Latin Modern Roman", "CMU Serif", "STIX Two Text", "Times New Roman", serif;
+    line-height: 1.7;
+    text-rendering: optimizeLegibility;
+}
+
+main,
+.content {
+    background: transparent;
+}
+
+.post-content p,
+.post-content li {
+    font-size: 1.02rem;
+    color: var(--muted-ink);
+}
+
+.post-content h1,
+.post-content h2,
+.post-content h3,
+.post-content h4 {
+    font-family: "Latin Modern Roman", "CMU Serif", "STIX Two Text", serif;
+    font-weight: 600;
+    color: var(--ink);
+    margin-top: 1.4em;
+}
+
+pre,
+code {
+    font-family: "Fira Code", "JetBrains Mono", "CMU Typewriter Text", monospace;
+}
+
+pre {
+    background: #f2efe6;
+    border: 1px solid #e0dbcf;
+}
+
+
+/* =========================================================
+   MathJax / KaTeX
+   ========================================================= */
+
+.mjx-chtml {
+    font-family: "Latin Modern Math", "CMU Serif", serif !important;
+}
+
+.mjx-chtml.MathJax_Display {
+    padding: 0.75em 1em;
+    background: var(--math-bg);
+    border: 1px solid #e6e1d5;
+    border-radius: 6px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.03);
+    margin: 1.2em 0;
+}
+
+
+/* =========================================================
+   Theorem / math environments
+   ========================================================= */
+
 .math-env {
     margin: 1.5em 0;
     padding: 0.8em 1.2em;
-    border-left: 3px solid #ccc; 
-    background-color: #fcfcfc;   /* 极淡的灰白色，接近纸张感 */
+    border-left: 3px solid #ccc;
+    background-color: #fcfcfc;
     border-radius: 0 4px 4px 0;
-    line-height: 1.6;            /* 增加行高，阅读更舒适 */
+    line-height: 1.6;
 }
 
-/* 定理环境 (Theorem) */
-.math-env.theorem {
-    border-left-color: #4a4a4a;  /* 深灰色竖线 */
-    background-color: #f7f7f7;   /* 稍微深一点的背景区分 */
+.math-env.theorem,
+.math-env.corollary {
+    border-left-color: #4a4a4a;
+    background-color: #f7f7f7;
 }
 
-.math-env.corollary{
-    border-left-color: #4a4a4a;  /* 深灰色竖线 */
-    background-color: #f7f7f7;   /* 稍微深一点的背景区分 */
-}
-
-
-/* 证明环境 (Proof) */
-.math-env.proof {
-    border-left-color: #a0a0a0;  /* 浅灰色竖线 */
-    background-color: transparent; 
-    padding-left: 1em;
-    font-style: normal;
-}
-
-/* 标题样式：斜体，无粗体 */
-.env-title {
-    font-family: serif;          /* 确保使用衬线体 */
-    font-style: italic;
-    font-weight: normal;         /* 严格禁止粗体 */
-    margin-bottom: 0.5em;
-    color: #222;
-    display: block;              /* 确保独占一行 */
-}
-
-/* 让 summary (可折叠标题) 鼠标放上去变小手 */
-summary.env-title {
-    cursor: pointer;
-    outline: none;
-}
-
-/* 去掉 details 默认的小三角，换成我们自己的样式 (可选) */
-/* 如果你想保留小三角，删掉下面这几行 */
-details > summary {
-  list-style: none;
-}
-details > summary::-webkit-details-marker {
-  display: none;
-}
-/* 在标题前加一个小箭头提示可折叠 */
-details > summary::before {
-  content: "▶ ";
-  font-size: 0.8em;
-  color: #888;
-  margin-right: 0.3em;
-}
-details[open] > summary::before {
-  content: "▼ ";
-}
-
-/* 定义 (Definition) - 使用蓝绿色/Teal，给人一种"基础定义"的感觉 */
-.math-env.definition {
-    border-left-color: #008080; /* Teal color */
-    background-color: #f4fcfc;  /* 极淡的青色背景 */
-}
-
+.math-env.definition,
 .math-env.remark {
-    border-left-color: #008080; /* Teal color */
-    background-color: #f4fcfc;  /* 极淡的青色背景 */
+    border-left-color: #008080;
+    background-color: #f4fcfc;
 }
 
-/* 命题 (Proposition) - 介于定理和引理之间，使用深蓝色 */
-.math-env.proposition {
-    border-left-color: #2b5d8a;
-    background-color: #f0f7fb;
-}
-
-/* 引理 (Lemma) - 辅助性的，使用浅灰色或淡蓝灰色 */
+.math-env.proposition,
 .math-env.lemma {
     border-left-color: #2b5d8a;
     background-color: #f0f7fb;
 }
 
-
-/* 想法 (Idea) - 比较随意的，可以使用紫色或橙色来活跃气氛 */
 .math-env.idea {
-    border-left-color: #9b59b6; /* 紫色 */
+    border-left-color: #9b59b6;
     background-color: #fbf6fd;
+}
+
+.math-env.proof {
+    border-left-color: #a0a0a0;
+    background-color: transparent;
+    padding-left: 1em;
+}
+
+.env-title {
+    font-family: serif;
+    font-style: italic;
+    font-weight: normal;
+    margin-bottom: 0.5em;
+    color: #222;
+    display: block;
+}
+
+.thm-block {
+    margin: 1.5em 0;
+    padding: 0.8em 1.2em;
+    border-left: 3px solid #ccc;
+    background-color: #fcfcfc;
+    border-radius: 0 4px 4px 0;
+    line-height: 1.6;
+}
+
+.thm-block.kind-theorem,
+.thm-block.kind-corollary {
+    border-left-color: #4a4a4a;
+    background-color: #f7f7f7;
+}
+
+.thm-block.kind-definition {
+    border-left-color: #008080;
+    background-color: #f4fcfc;
+}
+
+.thm-block.kind-proposition,
+.thm-block.kind-lemma {
+    border-left-color: #2b5d8a;
+    background-color: #f0f7fb;
+}
+
+/* Title line */
+.thm-header { margin-bottom: 0.5em; }
+
+.thm-title {
+    font-family: serif;
+    font-style: italic;
+    font-weight: normal;
+    color: #222;
+    display: inline;
+}
+
+
+/* =========================================================
+   TikZ-CD / commutative diagrams (SVG)
+   ========================================================= */
+
+/* Every tikzcd diagram: centered by default */
+.tikzcd-fig {
+    display: block;
+    width: fit-content;
+    max-width: 100%;
+    margin: 1.2em auto;
+    text-align: center;
+}
+
+/* The SVG image itself */
+.tikzcd-fig .tikzcd-img {
+    display: block;
+    margin: 0 auto;
+    max-width: 100%;
+    height: auto;
+    filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.08));
+}
+
+/* Caption stays centered */
+.tikzcd-fig figcaption {
+    margin-top: 0.4em;
+    font-size: 0.95rem;
+    color: var(--muted-ink);
+}
+
+
+/* =========================================================
+   Side-by-side diagrams (⇔, ≃, etc.)
+   ========================================================= */
+
+.cdrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.2rem;
+    flex-wrap: nowrap;
+    margin: 1.2em 0;
+}
+
+/* Allow wrap only on narrow screens */
+@media (max-width: 900px) {
+    .cdrow {
+        flex-wrap: wrap;
+    }
+}
+
+/* Let flex control spacing */
+.cdrow .tikzcd-fig {
+    margin: 0;
+    width: auto;
+}
+
+/* Separator between diagrams */
+.cdrow .cdsep {
+    font-size: 1.3em;
+    line-height: 1;
+    padding: 0 0.25rem;
+    white-space: nowrap;
+}
+
+
+/* =========================================================
+   Citations / references
+   ========================================================= */
+
+.citation a {
+    color: inherit;
+    text-decoration: none;
+    border-bottom: 1px dotted #666;
+}
+
+.citation a:hover {
+    color: #000;
+    border-bottom-color: #000;
+}
+
+.reference-entry {
+    display: flex;
+    gap: 0.6em;
+    margin: 0.45em 0;
+    line-height: 1.5;
+}
+
+.reference-label {
+    min-width: 4.5em;
+    font-family: "Latin Modern Roman", "CMU Serif", serif;
+    font-weight: 600;
+}
+
+.reference-body {
+    color: var(--muted-ink);
+}
+/* 添加到你的 custom.css 末尾 */
+.env-content {
+    display: flow-root; /* 现代浏览器清除浮动的最佳方案，确保 QED 符号包含在框内 */
+}
+
+/* 这是一个可选优化：如果在手机端，Proof 缩进太深可能不好看，可以微调 */
+@media (max-width: 600px) {
+    .math-env.proof {
+        padding-left: 0.5em;
+        border-left-width: 2px;
+    }
 }

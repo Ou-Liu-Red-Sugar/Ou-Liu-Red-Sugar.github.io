@@ -1,25 +1,32 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>Notes on Ou Liu&#39;s Homepage</title>
+    <title>Notes on Ou Liu</title>
     <link>http://localhost:1313/notes/</link>
-    <description>Recent content in Notes on Ou Liu&#39;s Homepage</description>
+    <description>Recent content in Notes on Ou Liu</description>
     <generator>Hugo -- 0.152.2</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 24 Dec 2025 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 27 Dec 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/notes/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>Are Spectral Sequences Useful in Theoretical Arguments?</title>
+      <link>http://localhost:1313/notes/are-spectral-sequences-useful-in-theoretical-arguments/</link>
+      <pubDate>Sat, 27 Dec 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/notes/are-spectral-sequences-useful-in-theoretical-arguments/</guid>
+      <description>The main point of this note is the following: The classical notion of sheaf cohomology can, in fact, be completely avoided. Here `avoided&amp;#39; does not mean that we deny the mathematical objects or results that sheaf cohomology is meant to capture. Rather, it means that once we work in a derived setting, we no longer need to introduce these objects via classical derived functors or spectral sequences. Instead, they can be understood directly from the perspective of descent.</description>
+    </item>
+    <item>
       <title>Six Functor Formalisms: smoothness and suaveness</title>
-      <link>http://localhost:1313/notes/sixfunctor/</link>
+      <link>http://localhost:1313/notes/six-functor-formalisms-smoothness-and-suaveness/</link>
       <pubDate>Wed, 24 Dec 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/notes/sixfunctor/</guid>
+      <guid>http://localhost:1313/notes/six-functor-formalisms-smoothness-and-suaveness/</guid>
       <description>We reinterpret D-smooth morphisms in a six functor formalism via the 2-category of kernel associated to a slice geometry. Using Fourier–Mukai kernels to encode functors, smoothness is characterized by left adjointness at the kernel level, yielding automatic base change compatibility. Suaveness is then obtained by imposing invertibility of the dualizing complex as an additional, independent condition.</description>
     </item>
     <item>
       <title>Synthetic category theory and type theory</title>
-      <link>http://localhost:1313/notes/type/</link>
+      <link>http://localhost:1313/notes/synthetic-category-theory-and-type-theory/</link>
       <pubDate>Wed, 24 Dec 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/notes/type/</guid>
+      <guid>http://localhost:1313/notes/synthetic-category-theory-and-type-theory/</guid>
       <description>&lt;p&gt;This page aims to explain how &lt;strong&gt;type theory&lt;/strong&gt; can be understood within the framework of &lt;strong&gt;synthetic category theory&lt;/strong&gt;.&lt;/p&gt;
 &lt;p&gt;The content of this page is derived from my questions to Tashi during the second exercise class and Tashi’s responses. I would like to express my gratitude to Tashi here.&lt;/p&gt;
 &lt;p&gt;We focus on the following two questions:&lt;/p&gt;

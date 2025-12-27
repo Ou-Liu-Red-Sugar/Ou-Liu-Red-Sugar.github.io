@@ -1,56 +1,61 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>Ou Liu&#39;s Homepage</title>
+    <title>Ou Liu</title>
     <link>http://localhost:1313/</link>
-    <description>Recent content on Ou Liu&#39;s Homepage</description>
+    <description>Recent content on Ou Liu</description>
     <generator>Hugo -- 0.152.2</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 24 Dec 2025 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 27 Dec 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Are Spectral Sequences Useful in Theoretical Arguments?</title>
+      <link>http://localhost:1313/notes/are-spectral-sequences-useful-in-theoretical-arguments/</link>
+      <pubDate>Sat, 27 Dec 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/notes/are-spectral-sequences-useful-in-theoretical-arguments/</guid>
+      <description>The main point of this note is the following: The classical notion of sheaf cohomology can, in fact, be completely avoided. Here `avoided&amp;#39; does not mean that we deny the mathematical objects or results that sheaf cohomology is meant to capture. Rather, it means that once we work in a derived setting, we no longer need to introduce these objects via classical derived functors or spectral sequences. Instead, they can be understood directly from the perspective of descent.</description>
+    </item>
     <item>
       <title>About me</title>
       <link>http://localhost:1313/about/</link>
       <pubDate>Wed, 24 Dec 2025 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/about/</guid>
-      <description>&lt;h1 id=&#34;hello-im-ou-liu-刘欧&#34;&gt;Hello, I&amp;rsquo;m Ou Liu (刘欧).&lt;/h1&gt;
-&lt;p&gt;I am a master&amp;rsquo;s student in Mathematics at the &lt;em&gt;University of Regensburg&lt;/em&gt;, enjoying the life in Bavaria.&lt;/p&gt;
-&lt;p&gt;My primary interest lies in the intersection of &lt;em&gt;Homotopy Theory&lt;/em&gt; and &lt;em&gt;Algebraic Geometry&lt;/em&gt;.&lt;/p&gt;
+      <description>&lt;h1 id=&#34;ou-liu-刘欧&#34;&gt;Ou Liu (刘欧)&lt;/h1&gt;
+&lt;p&gt;I am a master&amp;rsquo;s student in Mathematics at the &lt;em&gt;University of Regensburg&lt;/em&gt;.
+My primary research interests lie at the intersection of &lt;em&gt;Homotopy Theory&lt;/em&gt; and &lt;em&gt;Algebraic Geometry&lt;/em&gt;.&lt;/p&gt;
 &lt;hr&gt;
 &lt;h2 id=&#34;education&#34;&gt;Education&lt;/h2&gt;
-&lt;dl&gt;
-&lt;dt&gt;2025 &amp;ndash; Present&lt;/dt&gt;
-&lt;dd&gt;&lt;strong&gt;M.Sc. Mathematics&lt;/strong&gt;
-&lt;em&gt;University of Regensburg&lt;/em&gt;
+&lt;p&gt;&lt;strong&gt;2025 &amp;ndash; Present&lt;/strong&gt;&lt;br&gt;
+&lt;strong&gt;M.Sc. in Mathematics&lt;/strong&gt;, &lt;em&gt;University of Regensburg&lt;/em&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Focus: &lt;em&gt;Homotopy Theory&lt;/em&gt;, &lt;em&gt;Algebraic Geometry&lt;/em&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;/dd&gt;
-&lt;dt&gt;2021 &amp;ndash; 2025&lt;/dt&gt;
-&lt;dd&gt;&lt;strong&gt;B.Sc. Mathematics&lt;/strong&gt;
-&lt;em&gt;Shanxi University&lt;/em&gt;
+&lt;p&gt;&lt;strong&gt;2021 &amp;ndash; 2025&lt;/strong&gt;&lt;br&gt;
+&lt;strong&gt;B.Sc. in Mathematics and Applied Mathematics&lt;/strong&gt;, &lt;em&gt;Shanxi University&lt;/em&gt;&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;Thesis: ``Application of six functor formalisms to smooth representation theory&#39;&#39;&lt;/li&gt;
-&lt;li&gt;Publication: Lili Liu, Xi Wang, &lt;em&gt;Ou Liu&lt;/em&gt;, et al. ``Valuation and comparison of the actual and optimal control strategy in an emerging infectious disease&amp;rsquo;&amp;rsquo;. &lt;em&gt;Infectious Disease Modelling&lt;/em&gt; (2024). &lt;a href=&#34;https://www.sciencedirect.com/science/article/pii/S2468042724000149&#34;&gt;[Link]&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Thesis: &lt;em&gt;Applications of the six-functor formalism to smooth representation theory&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;Publication:&lt;br&gt;
+Lili Liu, Xi Wang, &lt;strong&gt;Ou Liu&lt;/strong&gt;, et al.&lt;br&gt;
+&lt;em&gt;Valuation and Comparison of the Actual and Optimal Control Strategy in an Emerging Infectious Disease&lt;/em&gt;.&lt;br&gt;
+&lt;em&gt;Infectious Disease Modelling&lt;/em&gt; (2024).&lt;br&gt;
+&lt;a href=&#34;https://www.sciencedirect.com/science/article/pii/S2468042724000149&#34;&gt;[Journal link]&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;/dd&gt;
-&lt;/dl&gt;
 &lt;hr&gt;
 &lt;h2 id=&#34;research-interests&#34;&gt;Research Interests&lt;/h2&gt;
-&lt;p&gt;I am broadly interested in:&lt;/p&gt;</description>
+&lt;p&gt;My research interests include:&lt;/p&gt;</description>
     </item>
     <item>
       <title>Six Functor Formalisms: smoothness and suaveness</title>
-      <link>http://localhost:1313/notes/sixfunctor/</link>
+      <link>http://localhost:1313/notes/six-functor-formalisms-smoothness-and-suaveness/</link>
       <pubDate>Wed, 24 Dec 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/notes/sixfunctor/</guid>
+      <guid>http://localhost:1313/notes/six-functor-formalisms-smoothness-and-suaveness/</guid>
       <description>We reinterpret D-smooth morphisms in a six functor formalism via the 2-category of kernel associated to a slice geometry. Using Fourier–Mukai kernels to encode functors, smoothness is characterized by left adjointness at the kernel level, yielding automatic base change compatibility. Suaveness is then obtained by imposing invertibility of the dualizing complex as an additional, independent condition.</description>
     </item>
     <item>
       <title>Synthetic category theory and type theory</title>
-      <link>http://localhost:1313/notes/type/</link>
+      <link>http://localhost:1313/notes/synthetic-category-theory-and-type-theory/</link>
       <pubDate>Wed, 24 Dec 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/notes/type/</guid>
+      <guid>http://localhost:1313/notes/synthetic-category-theory-and-type-theory/</guid>
       <description>&lt;p&gt;This page aims to explain how &lt;strong&gt;type theory&lt;/strong&gt; can be understood within the framework of &lt;strong&gt;synthetic category theory&lt;/strong&gt;.&lt;/p&gt;
 &lt;p&gt;The content of this page is derived from my questions to Tashi during the second exercise class and Tashi’s responses. I would like to express my gratitude to Tashi here.&lt;/p&gt;
 &lt;p&gt;We focus on the following two questions:&lt;/p&gt;

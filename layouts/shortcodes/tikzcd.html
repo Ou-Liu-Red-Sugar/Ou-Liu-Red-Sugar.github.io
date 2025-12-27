@@ -1,6 +1,6 @@
-{{- /* tikzcd shortcode (compatible)
-Usage A (hash):
-  {{< tikzcd hash="fca88a3a..." >}}
+{{- /* tikzcd shortcode (final)
+Usage A (explicit hash):
+  {{< tikzcd hash="fca88a3a..." alt="..." class="..." width="..." caption="..." >}}
 
 Usage B (inner source):
   {{< tikzcd >}}
@@ -9,7 +9,11 @@ Usage B (inner source):
   \end{tikzcd}
   {{< /tikzcd >}}
 
-Optional params: alt, class, width, caption
+Also supports body WITHOUT \begin{tikzcd}...\end{tikzcd} (we will strip if present).
+Hash normalization is aligned with tools/gen_tikzcd.py:
+- normalize newlines (\r\n,\r -> \n)
+- strip whole text
+- rstrip each line (remove trailing whitespace)
 */ -}}
 
 {{- $hash := .Get "hash" -}}
@@ -25,14 +29,33 @@ Optional params: alt, class, width, caption
     {{- errorf "tikzcd shortcode: missing param 'hash' AND empty body at %s" .Position -}}
   {{- end -}}
 
-  {{- /* Normalization: keep aligned with gen_tikzcd.py */ -}}
-  {{- $norm := $body | replaceRE "\r\n" "\n" -}}
+  {{- /* Normalize newlines (match Python) */ -}}
+  {{- $body = $body | replaceRE "\r\n" "\n" | replaceRE "\r" "\n" -}}
+
+  {{- /* If the body contains a tikzcd environment, strip begin/end (Python hashes only the inside) */ -}}
+  {{- if (findRE `\\begin\{tikzcd\}` $body) -}}
+    {{- $body = $body | replaceRE `(?s)^\\begin\{tikzcd\}\s*` "" -}}
+    {{- $body = $body | replaceRE `\s*\\end\{tikzcd\}\s*$` "" -}}
+  {{- end -}}
+
+  {{- /* Strip whole text (match Python's s.strip()) */ -}}
+  {{- $body = $body | strings.TrimSpace -}}
+
+  {{- /* Rstrip each line (match Python: "\n".join(line.rstrip() ...)) */ -}}
+  {{- $lines := split $body "\n" -}}
+  {{- $norm := "" -}}
+  {{- range $i, $ln := $lines -}}
+    {{- $ln2 := replaceRE `[ \t]+$` "" $ln -}}
+    {{- if eq $i 0 -}}
+      {{- $norm = $ln2 -}}
+    {{- else -}}
+      {{- $norm = printf "%s\n%s" $norm $ln2 -}}
+    {{- end -}}
+  {{- end -}}
+
   {{- $hash = sha1 $norm -}}
 {{- end -}}
 
 {{- $src := (printf "generated/tikzcd/%s.svg" $hash) | relURL -}}
 
-<figure class="tikzcd-fig {{ $class }}" data-tikzcd-hash="{{ $hash }}">
-  <img class="tikzcd-img" src="{{ $src }}" alt="{{ $alt }}" {{ with $width }}width="{{ . }}"{{ end }} loading="lazy" decoding="async">
-  {{- with $caption -}}<figcaption>{{ . | markdownify }}</figcaption>{{- end -}}
-</figure>
+<figure class="tikzcd-fig {{ $class }}" data-tikzcd-hash="{{ $hash }}"><img class="tikzcd-img" src="{{ $src }}" alt="{{ $alt }}"{{ with $width }} width="{{ . }}"{{ end }} loading="lazy" decoding="async">{{- with $caption -}}<figcaption>{{ . | markdownify }}</figcaption>{{- end -}}</figure>

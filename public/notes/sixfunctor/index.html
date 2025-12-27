@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="noindex, nofollow">
-<title>Six Functor Formalisms: smoothness and suaveness | Ou Liu&#39;s Homepage</title>
+<title>Six Functor Formalisms: smoothness and suaveness | Ou Liu</title>
 <meta name="keywords" content="">
 <meta name="description" content="We reinterpret D-smooth morphisms in a six functor formalism via the 2-category of kernel associated to a slice geometry. Using Fourier–Mukai kernels to encode functors, smoothness is characterized by left adjointness at the kernel level, yielding automatic base change compatibility. Suaveness is then obtained by imposing invertibility of the dualizing complex as an additional, independent condition.">
 <meta name="author" content="">
@@ -70,18 +70,19 @@
         document.querySelector("html").dataset.theme = 'light';
     }
 
-</script><link rel="stylesheet" type="text/css" href="https://tikzjax.com/v1/fonts.css">
-<script defer src="https://tikzjax.com/v1/tikzjax.js"></script>
-
-<link rel="stylesheet" href="/css/custom.css">
+</script><link rel="stylesheet" href="/css/custom.css">
 
 <script>
   window.MathJax = {
+    loader: {
+      load: ['[tex]/amscd', '[tex]/newcommand', '[tex]/html']
+    },
     tex: {
       inlineMath: [['$', '$'], ['\\(', '\\)']],
       displayMath: [['$$', '$$'], ['\\[', '\\]']],
       processEscapes: true,
       tags: 'ams',
+      packages: { '[+]': ['amscd', 'newcommand', 'html'] },
       macros: {
         Z: "\\mathbb{Z}",
         R: "\\mathbb{R}",
@@ -91,7 +92,15 @@
         coloneqq: "\\mathrel{:=}",
         Hom: "\\operatorname{Hom}",
         Spec: "\\operatorname{Spec}",
-        colim: "\\operatorname{colim}"
+        colim: "\\operatorname{colim}",
+        id: "\\operatorname{id}",
+        ker: "\\operatorname{ker}",
+        im: "\\operatorname{im}",
+        hofib: "\\operatorname{hofib}",
+        cofib: "\\operatorname{cofib}",
+        To: "\\longrightarrow",
+        cite: ["\\class{citation}{\\href{#ref-#1}{[\\,#1\\,]}}", 1],
+        citet: ["\\class{citation}{\\href{#ref-#1}{(#1)}}", 1]
       }
     },
     options: {
@@ -111,7 +120,7 @@
     <header class="header">
     <nav class="nav">
         <div class="logo">
-            <a href="http://localhost:1313/" accesskey="h" title="Ou Liu&#39;s Homepage (Alt + H)">Ou Liu&#39;s Homepage</a>
+            <a href="http://localhost:1313/" accesskey="h" title="Ou Liu (Alt + H)">Ou Liu</a>
             <div class="logo-switches">
                 <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
                     <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
@@ -178,19 +187,19 @@
 </blockquote>
 <h2 id="smoothness">Smoothness<a hidden class="anchor" aria-hidden="true" href="#smoothness">#</a></h2>
 <p>Recall that in the six functor formalism, one of our major goals is to recover Poincaré Duality.</p>
-<div class="math-env theorem">
-  <div class="env-title">
-    <em>
-      Theorem(Poincaré Duality).</em>
-  </div>
-
-  <div class="env-content"><p>Let $f \colon X \to Y$ be a &ldquo;manifold bundle&rdquo; of relative dimension $d$ (locally looking like $Y \times D^d \to Y$) which is also a proper map.
+<div class="thm-block kind-theorem has-title" id="theorem-1">
+    <div class="thm-header">
+  <span class="thm-title">
+    Theorem 1 (Poincaré Duality).
+  </span>
+   </div>
+    <div class="thm-body"><p>Let $f \colon X \to Y$ be a &ldquo;manifold bundle&rdquo; of relative dimension $d$ (locally looking like $Y \times D^d \to Y$) which is also a proper map.
 Then the functor $f_* \colon \mathsf{D}(X,\Z) \to \mathsf{D}(Y,\Z)$ has a right adjoint $f^!$. Furthermore, this right adjoint can be explicitly characterized via a sheaf $\omega_f \mathrel{:=} f^!(\mathbb{1}_Y) \in \mathsf{D}(X,\Z)$ (which is locally isomorphic to $\Z[d]$) as:
 </p>
 \[
     f^! \simeq f^* \otimes \omega_f.
 \]</div>
-</div>
+  </div>
 
 <p>In this context, we call $\omega_f$ the <em>dualizing complex</em>.</p>
 <p>Now, let $(\mathcal{C},E)$ be a geometric setup, and $\mathsf{D} \colon \mathsf{Corr}(\mathcal{C},E) \to \mathsf{Cat}$ be a six functor formalism.</p>
@@ -200,15 +209,9 @@ Then the functor $f_* \colon \mathsf{D}(X,\Z) \to \mathsf{D}(Y,\Z)$ has a right 
 <li>We have $f^! \simeq f^* \otimes \omega_f$, or in other words: $f^!$ can be obtained by twisting $f^*$.</li>
 <li>$\omega_f = f^!(\mathbb{1}_{Y})$ is an invertible object.</li>
 </ul>
-<p>However, these two points alone are insufficient. For example, consider the pullback diagram:
-<div class="tex2jax_ignore" style="text-align: center;">
-  <script type="text/tikz">
-\begin{tikzcd}
-    X' \arrow[r,"f'"] \arrow[dr,phantom,pos = 0.3, "PB"] \arrow[d,"g'"] & Y' \arrow[d,"g"]\\
-    X \arrow[r,"f"] & Y
-\end{tikzcd}
-</script>
-</div>
+<p>However, these two points alone are insufficient. For example, consider the pullback diagram:</p>
+<p><figure class="tikzcd-fig tikzcd" data-tikzcd-hash="2214dad6d5f2acfaa65761929c5cfc44bc2be8ae">
+  <img class="tikzcd-img" src="/generated/tikzcd/2214dad6d5f2acfaa65761929c5cfc44bc2be8ae.svg" alt="tikzcd diagram"  loading="lazy" decoding="async"></figure>
 
 First, we certainly hope that the pullback of a $\mathsf{D}$-smooth morphism remains a $\mathsf{D}$-smooth morphism.
 Secondly, notice that $f^!(\mathbb{1}_{Y})$ can be pulled back along $g' \colon X' \to X$ to obtain $g'^*f^!(\mathbb{1}_Y)$. Loosely speaking, this is $f^!(\mathbb{1}_{Y}) \mid_{X'} = \omega_f \mid_{X'}$.
@@ -219,12 +222,13 @@ Since we also hope that $f'$ is a $\mathsf{D}$-smooth morphism, we can consider 
 \]<p>
 This fact is not automatic in pure category theory, so we need to add it as an axiom.
 Thus, we arrive at the following definition:</p>
-<div class="math-env definition">
-  <div class="env-title">
-    <em>
-      Definition.</em>
-  </div>
-  <div class="env-content"><p>Let $f \colon X \to Y$ be a morphism in $E$.
+<div class="thm-block kind-definition" id="definition-1">
+    <div class="thm-header">
+  <span class="thm-title">
+    Definition 1.
+  </span>
+   </div>
+    <div class="thm-body"><p>Let $f \colon X \to Y$ be a morphism in $E$.
 We say that $f$ is <em>cohomologically smooth</em> (or <em>$\mathsf{D}$-smooth</em>)
 if it satisfies the following properties:</p>
 <ol>
@@ -248,14 +252,8 @@ if it satisfies the following properties:</p>
   </li>
   <li>
     For any morphism $g : Y' \to Y$ in $E$, consider the pullback diagram.
-   <div class="tex2jax_ignore" style="text-align: center;">
-  <script type="text/tikz">
-\begin{tikzcd}
-  X' \arrow[r,"f'"] \arrow[dr,phantom,"PB"] \arrow[d,"g'"] & Y' \arrow[d,"g"]\\
-  X \arrow[r,"f"] & Y
-\end{tikzcd}
-   </script>
-</div>
+   <figure class="tikzcd-fig tikzcd" data-tikzcd-hash="3295eda477f6418b0e55619f7d239153dc342ba8">
+  <img class="tikzcd-img" src="/generated/tikzcd/3295eda477f6418b0e55619f7d239153dc342ba8.svg" alt="tikzcd diagram"  loading="lazy" decoding="async"></figure>
 <p>Then $f'$ satisfies the first two conditions, and the natural morphism
 </p>
 \[
@@ -265,7 +263,7 @@ is an isomorphism.</p>
   </li>
 </ol>
 </div>
-</div>
+  </div>
 <div class="math-env idea">
     <div class="env-title">
         <em>
@@ -296,32 +294,20 @@ We can restrict it to $((\mathcal{C}_{E})_{/Y}, \text{all})$ to obtain a functor
 \]<p>Consider a correspondence in $\mathsf{Corr}((\mathcal{C}_{E})_{/Y}, \text{all})$
 given by $[X_1 \xleftarrow{h} Z \xrightarrow{k} X_2]$.
 Here $X_1, Z, X_2$ are all objects over $Y$.
-By the universal property of pullback, we have the following commutative diagram:
-<div class="tex2jax_ignore" style="text-align: center;">
-  <script type="text/tikz">
-\begin{tikzcd}
-    & Z \arrow[ddl, "h"', bend right]
-        \arrow[ddr, "k", bend left]
-        \arrow[d, "{(h,k)}", dashed] & \\
-    & X_1 \times_Y X_2
-        \arrow[dl, "\pi_1"']
-        \arrow[dr, "\pi_2"] & \\
-    X_1 \arrow[dr, "\in E"'] & &
-    X_2 \arrow[dl, "\in E"] \\
-    & Y &
-\end{tikzcd}
-</script>
-</div>
-</p>
+By the universal property of pullback, we have the following commutative diagram:</p>
+<figure class="tikzcd-fig tikzcd" data-tikzcd-hash="5a4502a178abf3e311ac3667d8591fc8c6d5e2a8">
+  <img class="tikzcd-img" src="/generated/tikzcd/5a4502a178abf3e311ac3667d8591fc8c6d5e2a8.svg" alt="tikzcd diagram"  loading="lazy" decoding="async"></figure>
+
 <p>In this context, objects in $\mathsf{D}(X_i)$ can be analogized as
 &ldquo;generalized function spaces&rdquo; on $X_i$.
 We can define the following transform:</p>
-<div class="math-env definition">
-  <div class="env-title">
-    <em>
-      Definition.</em>
-  </div>
-  <div class="env-content"><div>
+<div class="thm-block kind-definition" id="definition-2">
+    <div class="thm-header">
+  <span class="thm-title">
+    Definition 2.
+  </span>
+   </div>
+    <div class="thm-body"><div>
 Let $(\mathcal{C},E)$ be a geometric setup and
 $\mathsf{D}$ a six functor formalism on it.
 Fix a base object $Y \in \mathcal{C}$.
@@ -341,7 +327,7 @@ its kernel is
     K \mathrel{:=} (h,k)_! \mathbb{1}_Z.
 \]</div>
 </div>
-</div>
+  </div>
 <div class="math-env idea">
     <div class="env-title">
         <em>
@@ -457,13 +443,13 @@ to be invertible.
 However, this is a relatively independent condition.
 This leads to the concept of <em>suave</em> discussed later.</p>
 <p>Based on this, we introduce the formal definition of the 2-category of kernel:</p>
-<div class="math-env definition">
-  <div class="env-title">
-    <em>
-      Definition.</em>
-  </div>
-
-  <div class="env-content"><p>Let $\mathsf{D}$ be a three-functor formalism on the geometric setup $(\mathcal{C},E)$, and $Y \in \mathcal{C}$ be an object.
+<div class="thm-block kind-definition" id="definition-4">
+    <div class="thm-header">
+  <span class="thm-title">
+    Definition 4.
+  </span>
+   </div>
+    <div class="thm-body"><p>Let $\mathsf{D}$ be a three-functor formalism on the geometric setup $(\mathcal{C},E)$, and $Y \in \mathcal{C}$ be an object.
 The 2-category formed by kernels of Fourier-Mukai transforms regarding $Y$ in $\mathsf{D}$ (abbreviated as <em>2-category of kernel</em>) is denoted by $\mathbb{K}_{\mathsf{D},Y} \in \mathsf{Cat}^{(2)}$.</p>
 <p>Its specific characterization is as follows:</p>
 <ul>
@@ -479,7 +465,7 @@ $$
 where $\pi_{ij}$ are the projections from $X_1 \times_Y X_2 \times_Y X_3$ to the corresponding factors.</li>
 </ul>
 </div>
-</div>
+  </div>
 
 <div class="math-env idea">
     <div class="env-title">
@@ -510,38 +496,26 @@ specifically characterized as:</p>
 <li>For a morphism $M \in \mathsf{Fun}_Y(X_1,X_2)$, $\Psi_{\mathsf{D},Y}(M) = \pi_{1!}(M \otimes \pi_2^*(-))  \colon \mathsf{D}(Y) \to \mathsf{D}(X)$.</li>
 </ul>
 <p>Now, let&rsquo;s discuss the concept of adjunction in general 2-categories.</p>
-<div class="math-env definition">
-  <div class="env-title">
-    <em>
-      Definition.</em>
-  </div>
-
-  <div class="env-content"><p>Let $\mathbb{C}$ be a $2$-category, and $X,Y \in \mathbb{C}$ be objects therein.
+<div class="thm-block kind-definition" id="definition-5">
+    <div class="thm-header">
+  <span class="thm-title">
+    Definition 5.
+  </span>
+   </div>
+    <div class="thm-body"><p>Let $\mathbb{C}$ be a $2$-category, and $X,Y \in \mathbb{C}$ be objects therein.
 We say $f \colon X \to Y$ is a <em>left adjoint</em> in $\mathbb{C}$ if there exists a morphism $g \colon Y \to X$ and $2$-morphisms $\eta \colon \operatorname{id}_X \to gf$, $\varepsilon \colon fg \to \operatorname{id}_Y$ such that the following diagrams commute:</p>
-<div class="tex2jax_ignore" style="text-align: center;">
-  <script type="text/tikz">
-\begin{tikzcd}
-    f \ar[dr,"\operatorname{id}_f"']\ar[r,"f\eta"] & fgf \ar[d,"\varepsilon f"]\\
-    & f
-\end{tikzcd}
-</script>
-</div>
+<figure class="tikzcd-fig tikzcd" data-tikzcd-hash="b1cca8739380ccd27b48b3f2efc89fafbb9282c5">
+  <img class="tikzcd-img" src="/generated/tikzcd/b1cca8739380ccd27b48b3f2efc89fafbb9282c5.svg" alt="tikzcd diagram"  loading="lazy" decoding="async"></figure>
 <p>and</p>
-<div class="tex2jax_ignore" style="text-align: center;">
-  <script type="text/tikz">
-\begin{tikzcd}
-    g \ar[dr,"\operatorname{id}_g"']\ar[r,"\eta g"] & gfg \ar[d,"g\varepsilon"]\\
-    & g
-\end{tikzcd}
-</script>
-</div>
+<figure class="tikzcd-fig tikzcd" data-tikzcd-hash="8da63a8a2ae8506ffc931fd284654f508cf180e4">
+  <img class="tikzcd-img" src="/generated/tikzcd/8da63a8a2ae8506ffc931fd284654f508cf180e4.svg" alt="tikzcd diagram"  loading="lazy" decoding="async"></figure>
 <p>In this case, $g \colon Y \to X$ is called the <em>right adjoint</em> of $f$, and $\eta$ is called the <em>unit</em>, $\varepsilon$ is called the <em>counit</em>.</p>
 </div>
-</div>
+  </div>
 
 <p>Here are some facts about adjunctions (proofs omitted):</p>
 <ul>
-<li>Any 2-functor $F \colon \mathbb{C} \to \mathbb{D}$ preserves adjunctions (see \cite[\href{https://arxiv.org/pdf/2410.13038#page=169}{D.2.7}]{HeyerMann}; Heyer-Mann proved a stronger version, i.e., preserving mate correspondence).</li>
+<li>Any 2-functor $F \colon \mathbb{C} \to \mathbb{D}$ preserves adjunctions By <a href="https://arxiv.org/pdf/2410.13038#page=169">Heyer–Mann, Prop. D.2.7</a>.; (Heyer-Mann proved a stronger version, i.e., preserving mate correspondence).</li>
 <li>Adjunctions are unique up to isomorphism. That is, if $(g,\eta,\varepsilon)$ and $(g',\eta',\varepsilon')$ both constitute a right adjoint of $f$, then there exists a (in the sense of contractible space) unique isomorphism $(g,\eta,\varepsilon) \simeq (g',\eta',\varepsilon')$.</li>
 <li>When considering the 2-category $\mathsf{Cat}_2$, adjoint morphisms in it are exactly the well-known adjoint functors.</li>
 <li>For a 2-category $\mathbb{C}$, if $f \colon X \to Y$ and $g \colon Y \to X$ are equipped with 2-morphisms $\eta \colon \operatorname{id}_X \to gf$ and $\varepsilon \colon fg \to \operatorname{id}_Y$, and the composite morphisms
@@ -551,13 +525,13 @@ $$
 are both isomorphisms (not necessarily identities), then one can modify $\eta$ to obtain $\eta'$ such that $(f, g, \eta', \varepsilon)$ constitutes a strict adjoint pair.</li>
 </ul>
 <p>Now, we can use the 2-category of kernel to give a concise characterization of $\mathsf{D}$-smoothness.</p>
-<div class="math-env theorem">
-  <div class="env-title">
-    <em>
-      Theorem.</em>
-  </div>
-
-  <div class="env-content"><p>Let $(\mathcal{C},E)$ be a geometric setup, and $f \colon X \to Y$ be a morphism in $E$.
+<div class="thm-block kind-theorem" id="theorem-2">
+    <div class="thm-header">
+  <span class="thm-title">
+    Theorem 2.
+  </span>
+   </div>
+    <div class="thm-body"><p>Let $(\mathcal{C},E)$ be a geometric setup, and $f \colon X \to Y$ be a morphism in $E$.
 Then $f$ is a $\mathsf{D}$-smooth morphism if and only if it satisfies the following two conditions:</p>
 <ol>
 <li>In $\mathbb{K}_{\mathsf{D},Y}$, the morphism $\mathbb{1}_X \in \mathsf{Fun}_Y(X,Y) = \mathsf{D}(X)$ is a left adjoint morphism. (Denote its right adjoint as $\omega_f \in \mathsf{Fun}_Y(Y,X) = \mathsf{D}(X)$).</li>
@@ -565,7 +539,7 @@ Then $f$ is a $\mathsf{D}$-smooth morphism if and only if it satisfies the follo
 </ol>
 <p>(Note: If $f$ satisfies the above conditions, we usually have $\omega_f \simeq f^!(\mathbb{1}_Y)$).</p>
 </div>
-</div>
+  </div>
 
 <details class="math-env proof">
     <summary class="env-title">
@@ -617,8 +591,9 @@ In particular, substituting $\mathbb{1}_Y$ into the above formula (and using the
 Combined with Condition 2, this verifies the first two conditions in the definition of smoothness.</li>
 </ul>
 <p>Finally, we need to verify Condition 3 in Definition 1.
-This is automatically guaranteed by the functoriality of the 2-category of kernel (see \cite[\href{https://arxiv.org/pdf/2410.13038#page=60}{4.2.4}]{HeyerMann} for a detailed proof).
-Specifically, the mapping $S \mapsto \mathbb{K}_{\mathsf{D},S}$ constitutes a 2-functor:
+This is automatically guaranteed by the functoriality of the $2$-category of kernels
+(see <a href="https://arxiv.org/pdf/2410.13038#page=60">Heyer–Mann, Prop. 4.2.4</a> for a detailed proof).</p>
+<p>Specifically, the mapping $S \mapsto \mathbb{K}_{\mathsf{D},S}$ constitutes a 2-functor:
 </p>
 $$
         \mathbb{K}_{\mathsf{D},(-)} \colon \mathsf{Corr}(\mathcal{C},E)^{\otimes} \to \mathsf{Cat}_2^{\times}.
@@ -637,13 +612,13 @@ This directly implies the compatibility of the dualizing complex with base chang
 If we remove this restriction and only retain Condition 1 (i.e., adjunction in the 2-category of kernel), we obtain a broader class of morphisms.
 This line of thought allows us to decompose &ldquo;cohomological smoothness&rdquo; into a superposition of &ldquo;adjunction&rdquo; and &ldquo;invertibility&rdquo;.</p>
 <p>Thus, we can introduce the following two concepts.</p>
-<div class="math-env definition">
-  <div class="env-title">
-    <em>
-      Definition.</em>
-  </div>
-
-  <div class="env-content"><p>Let $\mathsf{D}$ be a three-functor formalism on a geometric setup $(\mathcal{C},E)$, $f \colon X \to Y$ a morphism in $E$, and $A \in \mathsf{D}(X)$ an object.</p>
+<div class="thm-block kind-definition" id="definition-6">
+    <div class="thm-header">
+  <span class="thm-title">
+    Definition 6.
+  </span>
+   </div>
+    <div class="thm-body"><p>Let $\mathsf{D}$ be a three-functor formalism on a geometric setup $(\mathcal{C},E)$, $f \colon X \to Y$ a morphism in $E$, and $A \in \mathsf{D}(X)$ an object.</p>
 <ol>
 <li>We say $A$ is <em>f-suave</em> if, when viewed as a morphism $X \to Y$ in $\mathbb{K}_{\mathsf{D},Y}$, it is a left adjoint morphism.
 We denote its right adjoint as $\mathsf{SD}_f(A)$, called the <em>$f$-suave dual</em> of $A$.
@@ -652,7 +627,7 @@ Let $\mathsf{Suave}_f(X) \subseteq \mathsf{D}(X)$ denote the full subcategory sp
 We denote its left adjoint as $\mathsf{PD}_f(A)$, called the <em>$f$-prim dual</em> of $A$.
 Let $\mathsf{Prim}_f(X) \subseteq \mathsf{D}(X)$ denote the full subcategory spanned by all $f$-prim objects.</li>
 </ol></div>
-</div>
+  </div>
 
 <div class="math-env idea">
     <div class="env-title">
@@ -675,13 +650,13 @@ Therefore, primness is actually discussing the phenomenon where $f_*$ can be cha
     </div>
 </div>
 <p>In fact, saying that an object $A$ is $f$-suave (or $f$-prim) is in some sense equivalent to saying it is a &ldquo;finite-dimensional vector space&rdquo; (i.e., has reflexive duality properties).</p>
-<div class="math-env proposition">
-  <div class="env-title">
-    <em>
-      Proposition(Suave Dual and Prim Dual).</em>
-  </div>
-
-  <div class="env-content"><p>Let $\mathsf{D}$ be a six functor formalism on the geometric setup $(\mathcal{C},E)$, and $f \colon X \to Y$ be a morphism in $E$.</p>
+<div class="thm-block kind-proposition has-title" id="proposition-2">
+    <div class="thm-header">
+  <span class="thm-title">
+    Proposition 2 (Suave Dual and Prim Dual).
+  </span>
+   </div>
+    <div class="thm-body"><p>Let $\mathsf{D}$ be a six functor formalism on the geometric setup $(\mathcal{C},E)$, and $f \colon X \to Y$ be a morphism in $E$.</p>
 <ol>
 <li>
 <p><strong>Suave</strong>: If $A \in \mathsf{D}(X)$ is an $f$-suave object, then:</p>
@@ -719,7 +694,7 @@ $$
 </li>
 </ol>
 </div>
-</div>
+  </div>
 
 <details class="math-env proof">
     <summary class="env-title">
@@ -747,13 +722,13 @@ Using the adjunction of $f_!$ and $f^!$ and the definition of closed monoidal ca
 </details>
 <p>In fact, we can also give concrete characterizations of $f$-suave and $f$-prim properties.
 This characterization does not rely on the global definition of adjunction, but transforms it into adjunction properties in functor categories, which is more operational in actual calculations. This result depends on the following general lemma regarding adjoint morphisms in 2-categories.</p>
-<p><div class="math-env lemma">
-  <div class="env-title">
-    <em>
-      Lemma.</em>
-  </div>
-
-  <div class="env-content"><p>Let $\mathbb{C}$ be a 2-category, and $f \colon X \to Y$ be a 1-morphism in $\mathbb{C}$.
+<p><div class="thm-block kind-lemma" id="lemma-1">
+    <div class="thm-header">
+  <span class="thm-title">
+    Lemma 1.
+  </span>
+   </div>
+    <div class="thm-body"><p>Let $\mathbb{C}$ be a 2-category, and $f \colon X \to Y$ be a 1-morphism in $\mathbb{C}$.
 Then the following conditions are equivalent:</p>
 <ol>
 <li>$f$ is a left adjoint morphism.</li>
@@ -765,26 +740,19 @@ has a right adjoint $G_Z$. Furthermore, the canonical morphism
 $$
         G_Y(\operatorname{id}_Y) \circ f \to G_X(f)
     $$
-becomes an isomorphism after applying $\operatorname{Hom}_{\mathsf{Fun}(X,X}(\operatorname{id}_X, -)$ (i.e., it is an isomorphism on the fiber at the identity morphism $\operatorname{id}_X$).</li>
-<li>For all $Z \in \mathbb{C}$, the post-composition functor
+becomes an isomorphism after applying $\operatorname{Hom}_{\mathsf{Fun}(X,X}(\operatorname{id}_X, -)$ (i.e., it is an isomorphism on the fiber at the identity morphism $\operatorname{id}_X$).
+3.  For all $Z \in \mathbb{C}$, the post-composition functor
 $$
-        f_* \colon \mathsf{Fun}_{\mathbb{C}}(Z,X) \to \mathsf{Fun}_{\mathbb{C}}(Z,Y), \quad h \mapsto f \circ h
-    $$
-has a right adjoint $G_Z$. And for all 1-morphisms $h \colon Z \to Z'$ in $\mathbb{C}$, there exists a 2-morphism making the diagram
-<div class="tex2jax_ignore" style="text-align: center;">
-</li>
+            f_* \colon \mathsf{Fun}_{\mathbb{C}}(Z,X) \to \mathsf{Fun}_{\mathbb{C}}(Z,Y), \quad h \mapsto f \circ h
+        $$
+has a right adjoint $G_Z$. And for all 1-morphisms $h \colon Z \to Z'$ in $\mathbb{C}$, there exists a 2-morphism making the diagram</li>
 </ol>
-  <script type="text/tikz">
-    \begin{tikzcd}
-        \mathsf{Fun}_{\mathbb{C}}(Z',X) \ar[d,"h^*"] & \mathsf{Fun}_{\mathbb{C}}(Z',Y) \ar[l,"G_{Z'}"'] \ar[d,"h^*"]\\
-        \mathsf{Fun}_{\mathbb{C}}(Z,X) & \mathsf{Fun}_{\mathbb{C}}(Z,Y) \ar[l,"G_Z"]
-    \end{tikzcd}
-    </script>
-</div>
+<figure class="tikzcd-fig tikzcd" data-tikzcd-hash="0be8a4b606c4477616ad8790fc8ae05a8ef535ba">
+  <img class="tikzcd-img" src="/generated/tikzcd/0be8a4b606c4477616ad8790fc8ae05a8ef535ba.svg" alt="tikzcd diagram"  loading="lazy" decoding="async"></figure>
 <p>commute. In other words, $h^* G_{Z'} \xrightarrow{\sim} G_Z h^*$ is an isomorphism of functors.</p>
 <p>In this scenario, the right adjoint of $f$ is given by $g \mathrel{:=} G_Y(\operatorname{id}_Y) \colon Y \to X$.</p>
 </div>
-</div>
+  </div>
 
 <details class="math-env proof">
     <summary class="env-title">
@@ -795,17 +763,17 @@ has a right adjoint $G_Z$. And for all 1-morphisms $h \colon Z \to Z'$ in $\math
         </em>
     </summary>
     <div class="env-content">
-        See \cite[\href{https://arxiv.org/pdf/2410.13038#page=170}{D.2.8}]{HeyerMann}.
+        By <a href="https://arxiv.org/pdf/2410.13038#page=170">Heyer–Mann, Prop. D.2.8</a>.
         <span style="float:right;">$\square$</span> 
     </div>
 </details></p>
-<p><div class="math-env proposition">
-  <div class="env-title">
-    <em>
-      Proposition(Explicit Characterization of Suave and Prim).</em>
-  </div>
-
-  <div class="env-content"><p>Let $\mathsf{D}$ be a six functor formalism on the geometric setup $(\mathcal{C},E)$, $f \colon X \to Y$ a morphism in $E$, and $A \in \mathsf{D}(X)$.
+<p><div class="thm-block kind-proposition has-title" id="proposition-3">
+    <div class="thm-header">
+  <span class="thm-title">
+    Proposition 3 (Explicit Characterization of Suave and Prim).
+  </span>
+   </div>
+    <div class="thm-body"><p>Let $\mathsf{D}$ be a six functor formalism on the geometric setup $(\mathcal{C},E)$, $f \colon X \to Y$ a morphism in $E$, and $A \in \mathsf{D}(X)$.
 Let $\pi_i \colon X \times_Y X \to X$ be the projection morphisms.</p>
 <ol>
 <li>
@@ -839,7 +807,7 @@ $$
     $$</li>
 </ol>
 </div>
-</div>
+  </div>
 
 <details class="math-env proof">
     <summary class="env-title">
@@ -855,13 +823,13 @@ $$
     </div>
 </details></p>
 <p>In fact, the $f$-suave dual and $f$-prim dual can form an adjunction in a dual sense.</p>
-<p><div class="math-env lemma">
-  <div class="env-title">
-    <em>
-      Lemma.</em>
-  </div>
-
-  <div class="env-content"><p>Let $\mathsf{D}$ be a six functor formalism on $(\mathcal{C},E)$.
+<p><div class="thm-block kind-lemma" id="lemma-2">
+    <div class="thm-header">
+  <span class="thm-title">
+    Lemma 2.
+  </span>
+   </div>
+    <div class="thm-body"><p>Let $\mathsf{D}$ be a six functor formalism on $(\mathcal{C},E)$.
 Let $f \colon X \to Y$ be a morphism in $E$, $A \in \mathsf{D}(X)$ an $f$-suave object,
 and $B \in \mathsf{D}(X)$ an $f$-prim object.
 Then there is a natural isomorphism
@@ -869,7 +837,7 @@ Then there is a natural isomorphism
 $$
     f_* \underline{\operatorname{Hom}}(B,\mathsf{SD}_f(A)) \simeq f_* \underline{\operatorname{Hom}}(\mathsf{PD}_f(B),A)^{\vee}.
 $$</div>
-</div>
+  </div>
 
 <details class="math-env proof">
     <summary class="env-title">
@@ -885,30 +853,30 @@ $$</div>
     </div>
 </details></p>
 <p>Finally, according to the compatibility of adjunctions with limits, colimits, and retracts in $2$-categories, we can obtain:</p>
-<div class="math-env proposition">
-  <div class="env-title">
-    <em>
-      Proposition.</em>
-  </div>
-
-  <div class="env-content"><p>Let $\mathsf{D}$ be a three-functor formalism on $(\mathcal{C},E)$, and $f \colon X \to Y$ a morphism in $E$.</p>
+<div class="thm-block kind-proposition" id="proposition-4">
+    <div class="thm-header">
+  <span class="thm-title">
+    Proposition 4.
+  </span>
+   </div>
+    <div class="thm-body"><p>Let $\mathsf{D}$ be a three-functor formalism on $(\mathcal{C},E)$, and $f \colon X \to Y$ a morphism in $E$.</p>
 <ul>
 <li><strong>Closure under Retracts</strong>: $f$-suave objects and $f$-prim objects are closed under retracts in $\mathsf{D}(X)$.</li>
 <li><strong>Closure under Limits/Colimits</strong>: Let $\mathcal{I}$ be a small category. If $\mathsf{D}$ is compatible with colimits indexed by $\mathcal{I}$ and limits indexed by $\mathcal{I}^{\operatorname{op}}$, then $f$-suave objects and $f$-prim objects are closed in $\mathsf{D}(X)$ under colimits indexed by $\mathcal{I}$ and limits indexed by $\mathcal{I}^{\operatorname{op}}$.</li>
 </ul></div>
-</div>
-
-<p>In particular, when $\mathsf{D}$ is a stable three-functor formalism, we immediately get the following corollary:</p>
-<div class="math-env theorem">
-  <div class="env-title">
-    <em>
-      Theorem(Corollary).</em>
   </div>
 
-  <div class="env-content">Let $\mathsf{D}$ be a stable three-functor formalism on $(\mathcal{C},E)$, and $f \colon X \to Y$ a morphism in $E$.
+<p>In particular, when $\mathsf{D}$ is a stable three-functor formalism, we immediately get the following corollary:</p>
+<div class="thm-block kind-theorem has-title" id="theorem-3">
+    <div class="thm-header">
+  <span class="thm-title">
+    Theorem 3 (Corollary).
+  </span>
+   </div>
+    <div class="thm-body">Let $\mathsf{D}$ be a stable three-functor formalism on $(\mathcal{C},E)$, and $f \colon X \to Y$ a morphism in $E$.
 Then $\mathsf{Suave}_f(X)$ and $\mathsf{Prim}_f(X)$ are closed under retracts, fibers, and cofibers.
 Therefore, in this case, $\mathsf{Suave}_f(X)$ and $\mathsf{Prim}_f(X)$ are thick subcategories.</div>
-</div>
+  </div>
 
 <h3 id="suave-morphisms-and-prim-morphisms">Suave Morphisms and Prim Morphisms<a hidden class="anchor" aria-hidden="true" href="#suave-morphisms-and-prim-morphisms">#</a></h3>
 <p>Now let us discuss in detail the content mentioned in the remark about Suave and Prim.
@@ -923,13 +891,13 @@ $$
     f_!(\mathsf{PD}_f(\mathbb{1}_X) \otimes -) \simeq f_*\underline{\operatorname{Hom}}(\mathbb{1}_X, -) \simeq f_*(-) \colon \mathsf{D}(X) \to \mathsf{D}(Y).
 $$<p>
 This leads to the following definition:</p>
-<div class="math-env definition">
-  <div class="env-title">
-    <em>
-      Definition.</em>
-  </div>
-
-  <div class="env-content"><p>Let $\mathsf{D}$ be a three-functor formalism on $(\mathcal{C},E)$, and $f \colon X \to Y$ a morphism in $E$.</p>
+<div class="thm-block kind-definition" id="definition-7">
+    <div class="thm-header">
+  <span class="thm-title">
+    Definition 7.
+  </span>
+   </div>
+    <div class="thm-body"><p>Let $\mathsf{D}$ be a three-functor formalism on $(\mathcal{C},E)$, and $f \colon X \to Y$ a morphism in $E$.</p>
 <ol>
 <li>We say $f$ is a <em>$\mathsf{D}$-suave morphism</em>, if $\mathbb{1}_X \in \mathsf{Suave}_f(X)$.
 In this case, we denote
@@ -944,7 +912,7 @@ $$
     $$
 as the corresponding prim dual, and call it the <em>codualizing complex</em> of $f$.</li>
 </ol></div>
-</div>
+  </div>
 
 <div class="math-env idea">
     <div class="env-title">
@@ -988,22 +956,16 @@ $$<p>
 That is to say: for a $\mathsf{D}$-suave object, $\omega_f$ being an invertible object is equivalent to $\omega_f$ being a dualizable object.
 This further simplifies the judgment conditions in Theorem 2.</p>
 <p>Finally, we give an important property, which will inspire us to define $\mathsf{D}$-étale morphisms and $\mathsf{D}$-proper (tight) morphisms.</p>
-<p><div class="math-env lemma">
-  <div class="env-title">
-    <em>
-      Lemma.</em>
-  </div>
-
-  <div class="env-content"><p>Let $\mathsf{D}$ be a six functor formalism on the geometric setup $(\mathcal{C},E)$.
+<p><div class="thm-block kind-lemma" id="lemma-3">
+    <div class="thm-header">
+  <span class="thm-title">
+    Lemma 3.
+  </span>
+   </div>
+    <div class="thm-body"><p>Let $\mathsf{D}$ be a six functor formalism on the geometric setup $(\mathcal{C},E)$.
 Consider the pullback diagram in $\mathcal{C}_E$:</p>
-<div class="tex2jax_ignore" style="text-align: center;">
-  <script type="text/tikz">
-\begin{tikzcd}
-    X' \arrow[r,"f'"] \arrow[dr,phantom, "PB"] \arrow[d,"g'"] & Y' \arrow[d,"g"]\\
-    X \arrow[r,"f"] & Y
-\end{tikzcd}
-</script>
-</div>
+<figure class="tikzcd-fig tikzcd" data-tikzcd-hash="3295eda477f6418b0e55619f7d239153dc342ba8">
+  <img class="tikzcd-img" src="/generated/tikzcd/3295eda477f6418b0e55619f7d239153dc342ba8.svg" alt="tikzcd diagram"  loading="lazy" decoding="async"></figure>
 <ol>
 <li>If $f$ is a $\mathsf{D}$-suave morphism.
 Then the following natural transformations are all isomorphisms:
@@ -1016,7 +978,7 @@ Then the following natural transformations are all isomorphisms:
         g^*f_* \simeq f'_*g'^*, \quad g^!f_! \simeq f'_!g'^!, \quad f_!g'_* \simeq g_* f'_! \quad \text{and} \quad f_*g'_! \simeq g_! f'_*.
     \]</li>
 </ol></div>
-</div>
+  </div>
 
 <details class="math-env proof">
     <summary class="env-title">
@@ -1027,7 +989,7 @@ Then the following natural transformations are all isomorphisms:
         </em>
     </summary>
     <div class="env-content">
-        \cite[\href{https://arxiv.org/pdf/2410.13038#page=72}{4.5.13}]{HeyerMann}.
+        <a href="https://arxiv.org/pdf/2410.13038#page=72">Heyer–Mann, Prop. 4.5.13</a>.
         <span style="float:right;">$\square$</span> 
     </div>
 </details></p>
@@ -1043,23 +1005,8 @@ object (i.e. $\omega_f \simeq \mathbb{1}$ or $\delta_f \simeq \mathbb{1}$).</p>
 <h3 id="construction-of-the-comparison-morphism">Construction of the comparison morphism $f^! \to f^*$<a hidden class="anchor" aria-hidden="true" href="#construction-of-the-comparison-morphism">#</a></h3>
 <p>We explain how to construct a canonical morphism $f^! \to f^*$ using the diagonal.
 Consider the following diagonal diagram:</p>
-<p><div class="tex2jax_ignore" style="text-align: center;">
-  <script type="text/tikz">
-  \begin{tikzcd}
-    X \arrow[dr, "\Delta_f"]
-      \arrow[drr, "\operatorname{id}_X", bend left]
-      \arrow[ddr, "\operatorname{id}_X"', bend right]
-    & & \\
-    & X \times_Y X
-        \arrow[r, "\pi_2"]
-        \arrow[d, "\pi_1"']
-        \arrow[dr, phantom, "PB"]
-    & X \arrow[d, "f"] \\
-    & X \arrow[r, "f"']
-    & Y
-  \end{tikzcd}
-</script>
-</div>
+<p><figure class="tikzcd-fig tikzcd" data-tikzcd-hash="7687357bb55f3900301bb5f50d9cb36238f2d156">
+  <img class="tikzcd-img" src="/generated/tikzcd/7687357bb55f3900301bb5f50d9cb36238f2d156.svg" alt="tikzcd diagram"  loading="lazy" decoding="async"></figure>
 
 We have the identities
 </p>
@@ -1115,12 +1062,13 @@ For isomorphisms, the identities
   f^! \simeq f^*, \qquad f_! \simeq f_*
 \]<p>
 hold tautologically.</p>
-<div class="math-env definition">
-  <div class="env-title">
-    <em>
-      Definition.</em>
-  </div>
-  <div class="env-content"><p>Let $\mathsf{D}$ be a six functor formalism on $(\mathcal{C}, E)$, and let
+<div class="thm-block kind-definition" id="definition-3">
+    <div class="thm-header">
+  <span class="thm-title">
+    Definition 3.
+  </span>
+   </div>
+    <div class="thm-body"><p>Let $\mathsf{D}$ be a six functor formalism on $(\mathcal{C}, E)$, and let
 $f \colon X \to Y$ be a truncated morphism in $E$.</p>
 <ul>
 <li>
@@ -1133,13 +1081,14 @@ $\Delta_f$ is either $\mathsf{D}$-proper or an isomorphism.</p>
 </li>
 </ul>
 </div>
-</div>
-<div class="math-env proposition">
-  <div class="env-title">
-    <em>
-      Proposition.</em>
   </div>
-  <div class="env-content"><p>Let $f \colon X \to Y$ be a morphism in $E$.</p>
+<div class="thm-block kind-proposition" id="proposition-1">
+    <div class="thm-header">
+  <span class="thm-title">
+    Proposition 1.
+  </span>
+   </div>
+    <div class="thm-body"><p>Let $f \colon X \to Y$ be a morphism in $E$.</p>
 <ol>
 <li>
 <p>If $\Delta_f$ is $\mathsf{D}$-étale, the following are equivalent:
@@ -1155,7 +1104,7 @@ $\Delta_f$ is either $\mathsf{D}$-proper or an isomorphism.</p>
 </li>
 </ol>
 </div>
-</div>
+  </div>
 <details class="math-env proof">
     <summary class="env-title">
         <em>
@@ -1190,11 +1139,19 @@ This completes the proof.</p>
 </details>
 <h2 id="suave-descent-and-prim-descent">Suave Descent and Prim Descent<a hidden class="anchor" aria-hidden="true" href="#suave-descent-and-prim-descent">#</a></h2>
 <p>I am too lazy to write this.</p>
-<h2 id="references">References<a hidden class="anchor" aria-hidden="true" href="#references">#</a></h2>
-<ul>
-<li>Claudius Heyer and Lucas Mann. <strong>6-Functor Formalisms and Smooth Representations</strong>. 2024. <a href="https://arxiv.org/abs/2410.13038">arXiv:2410.13038</a></li>
-<li>Peter Scholze. <strong>Six-Functor Formalisms</strong>. 2025. <a href="https://arxiv.org/abs/2510.26269">arXiv:2510.26269</a></li>
-</ul>
+<h3 id="references">References<a hidden class="anchor" aria-hidden="true" href="#references">#</a></h3>
+<p><span id="ref-HeyerMann"></span>
+<strong>[Heyer–Mann]</strong><br>
+Claudius Heyer and Lucas Mann.<br>
+<em>6-Functor Formalisms and Smooth Representations</em>.<br>
+arXiv:2410.13038 (2024).<br>
+<a href="https://arxiv.org/abs/2410.13038">https://arxiv.org/abs/2410.13038</a></p>
+<p><span id="ref-ScholzeSixFunctor"></span>
+<strong>[SixFunctors]</strong><br>
+Peter Scholze.<br>
+<em>Six-Functor Formalisms</em>.<br>
+arXiv:2510.26269 (2025).<br>
+<a href="https://arxiv.org/abs/2510.26269">https://arxiv.org/abs/2510.26269</a></p>
 
 
   </div>
@@ -1207,7 +1164,7 @@ This completes the proof.</p>
     </main>
     
 <footer class="footer">
-        <span>&copy; 2025 <a href="http://localhost:1313/">Ou Liu&#39;s Homepage</a></span> · 
+        <span>&copy; 2025 <a href="http://localhost:1313/">Ou Liu</a></span> · 
 
     <span>
         Powered by
