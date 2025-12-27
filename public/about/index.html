@@ -121,8 +121,17 @@ My research interests include:">
         hofib: "\\operatorname{hofib}",
         cofib: "\\operatorname{cofib}",
         To: "\\longrightarrow",
-        cite: ["\\class{citation}{\\href{#ref-#1}{[\\,#1\\,]}}", 1],
-        citet: ["\\class{citation}{\\href{#ref-#1}{(#1)}}", 1]
+        macros: {
+  cite: [
+    "\\class{citation}{\\href{##ref-#1}{[\\,#1\\,]}}",
+    1
+  ],
+  citet: [
+    "\\class{citation}{\\href{##ref-#1}{(#1)}}",
+    1
+  ]
+}
+
       }
     },
     options: {
@@ -136,6 +145,19 @@ My research interests include:">
 </script>
 
 <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" id="MathJax-script"></script>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  document.querySelectorAll("details.math-env").forEach((d) => {
+    d.addEventListener("toggle", () => {
+      if (!d.open) return;
+      if (window.MathJax && MathJax.typesetPromise) {
+        MathJax.typesetPromise([d]);
+      }
+    });
+  });
+});
+</script>
 <meta property="og:url" content="http://localhost:1313/about/">
   <meta property="og:site_name" content="Ou Liu">
   <meta property="og:title" content="About me">
@@ -204,8 +226,8 @@ My research interests include:">
   "keywords": [
     
   ],
-  "articleBody": "Ou Liu (刘欧) I am a master’s student in Mathematics at the University of Regensburg. My primary research interests lie at the intersection of Homotopy Theory and Algebraic Geometry.\nEducation 2025 – Present\nM.Sc. in Mathematics, University of Regensburg\nFocus: Homotopy Theory, Algebraic Geometry 2021 – 2025\nB.Sc. in Mathematics and Applied Mathematics, Shanxi University\nThesis: Applications of the six-functor formalism to smooth representation theory Publication:\nLili Liu, Xi Wang, Ou Liu, et al.\nValuation and Comparison of the Actual and Optimal Control Strategy in an Emerging Infectious Disease.\nInfectious Disease Modelling (2024).\n[Journal link] Research Interests My research interests include:\nMotivic Homotopy Theory $(\\infty,n)$-Category Theory Derived Algebraic Geometry Talks and Seminars Goodwillie Calculus Seminar, Regensburg\nThe Stable Dold–Kan Correspondence (27 Nov 2025) Functors from Spaces to Spectra (11 Dec 2025) Galois Theory in Algebra and Topology Seminar, Regensburg\nGalois Covers (18 Nov 2025) Languages Chinese (native) English (B2) Contact Email:\nOu.Liu@stud.uni-regensburg.de\n",
-  "wordCount" : "152",
+  "articleBody": "Ou Liu (刘欧) I am a master’s student in Mathematics at the University of Regensburg. My primary research interests lie at the intersection of Homotopy Theory and Algebraic Geometry.\nEducation 2025 – Present\nM.Sc. in Mathematics, University of Regensburg\nFocus: Homotopy Theory, Algebraic Geometry 2021 – 2025\nB.Sc. in Mathematics and Applied Mathematics, Shanxi University\nThesis: Applications of the six-functor formalism to smooth representation theory Publication:\nLili Liu, Xi Wang, Ou Liu, et al.\nValuation and Comparison of the Actual and Optimal Control Strategy in an Emerging Infectious Disease.\nInfectious Disease Modelling (2024).\n[Journal link] Research Interests My research interests include:\nMotivic Homotopy Theory $(\\infty,n)$-Category Theory Derived Algebraic Geometry Talks and Seminars Goodwillie Calculus Seminar, Regensburg\nThe Stable Dold–Kan Correspondence (27 Nov 2025)\nnotes: online notes, [PDF]\nFunctors from Spaces to Spectra (11 Dec 2025)\nGalois Theory in Algebra and Topology Seminar, Regensburg\nGalois Covers (18 Nov 2025)\nnotes: [PDF] Languages Chinese (native) English (B2) Contact Email:\nOu.Liu@stud.uni-regensburg.de\n",
+  "wordCount" : "158",
   "inLanguage": "en",
   "datePublished": "2025-12-24T00:00:00Z",
   "dateModified": "2025-12-24T00:00:00Z",
@@ -291,34 +313,7 @@ My research interests include:">
     <div class="post-meta"><span title='2025-12-24 00:00:00 +0000 UTC'>December 24, 2025</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>Ou Liu</span>
 
 </div>
-  </header> <div class="toc">
-    <details >
-        <summary accesskey="c" title="(Alt + C)">
-            <span class="details">Table of Contents</span>
-        </summary>
-
-        <div class="inner"><ul>
-                <li>
-                    <a href="#ou-liu-%e5%88%98%e6%ac%a7" aria-label="Ou Liu (刘欧)">Ou Liu (刘欧)</a><ul>
-                        
-                <li>
-                    <a href="#education" aria-label="Education">Education</a></li>
-                <li>
-                    <a href="#research-interests" aria-label="Research Interests">Research Interests</a></li>
-                <li>
-                    <a href="#talks-and-seminars" aria-label="Talks and Seminars">Talks and Seminars</a></li>
-                <li>
-                    <a href="#languages" aria-label="Languages">Languages</a></li>
-                <li>
-                    <a href="#contact" aria-label="Contact">Contact</a>
-                </li>
-            </ul>
-            </li>
-            </ul>
-        </div>
-    </details>
-</div>
-
+  </header> 
   <div class="post-content"><h1 id="ou-liu-刘欧">Ou Liu (刘欧)<a hidden class="anchor" aria-hidden="true" href="#ou-liu-刘欧">#</a></h1>
 <p>I am a master&rsquo;s student in Mathematics at the <em>University of Regensburg</em>.
 My primary research interests lie at the intersection of <em>Homotopy Theory</em> and <em>Algebraic Geometry</em>.</p>
@@ -351,12 +346,18 @@ Lili Liu, Xi Wang, <strong>Ou Liu</strong>, et al.<br>
 <h2 id="talks-and-seminars">Talks and Seminars<a hidden class="anchor" aria-hidden="true" href="#talks-and-seminars">#</a></h2>
 <p><strong>Goodwillie Calculus Seminar</strong>, Regensburg</p>
 <ul>
-<li><em>The Stable Dold–Kan Correspondence</em> (27 Nov 2025)</li>
-<li><em>Functors from Spaces to Spectra</em> (11 Dec 2025)</li>
+<li>
+<p><em>The Stable Dold–Kan Correspondence</em> (27 Nov 2025)<br>
+<em><strong>notes</strong></em>: <a class="page-ref" href="/notes/stable-doldkan-and-descent/">online notes</a>, <a href="/papers/notes/StableDoldKan.pdf">[PDF]</a></p>
+</li>
+<li>
+<p><em>Functors from Spaces to Spectra</em> (11 Dec 2025)</p>
+</li>
 </ul>
 <p><strong>Galois Theory in Algebra and Topology Seminar</strong>, Regensburg</p>
 <ul>
-<li><em>Galois Covers</em> (18 Nov 2025)</li>
+<li><em>Galois Covers</em> (18 Nov 2025)<br>
+<em><strong>notes</strong></em>: <a href="/papers/notes/GaloisCovers.pdf">[PDF]</a></li>
 </ul>
 <hr>
 <h2 id="languages">Languages<a hidden class="anchor" aria-hidden="true" href="#languages">#</a></h2>

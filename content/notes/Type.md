@@ -2,8 +2,17 @@
 title: "Synthetic category theory and type theory"
 date: 2025-12-24
 math: true
-tags: ["synthetic category theory","type theory", "higher category theory"]
-categories: ["Mathematics"]
+tags:
+  - Synthetic Category Theory
+  - Type Theory
+  - Higher Category Theory
+categories:
+  - Mathematics
+ShowToc: true
+TocOpen: false
+comments: true
+aliases:
+  - /type
 ---
 
 This page aims to explain how **type theory** can be understood within the framework of **synthetic category theory**.

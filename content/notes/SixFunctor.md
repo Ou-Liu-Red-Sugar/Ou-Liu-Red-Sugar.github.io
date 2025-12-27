@@ -4,8 +4,17 @@ date: 2025-12-24
 math: true
 draft: false
 description: "We reinterpret D-smooth morphisms in a six functor formalism via the 2-category of kernel associated to a slice geometry. Using Fourier–Mukai kernels to encode functors, smoothness is characterized by left adjointness at the kernel level, yielding automatic base change compatibility. Suaveness is then obtained by imposing invertibility of the dualizing complex as an additional, independent condition."
-tags: ["algebraic geometry", "higher category theory", "six functor formalisms"]
-categories: ["Mathematics"]
+tags:
+  - Six Functor Formalism
+  - Higher Category Theory
+  - Poincaré Duality
+categories:
+  - Mathematics
+ShowToc: true
+TocOpen: false
+comments: true
+aliases:
+  - /sixfunctor
 ---
 
 
@@ -346,7 +355,7 @@ Then $f$ is a $\mathsf{D}$-smooth morphism if and only if it satisfies the follo
 (Note: If $f$ satisfies the above conditions, we usually have $\omega_f \simeq f^!(\mathbb{1}_Y)$).
 {{< /theorem >}}
 
-{{< proofc "Sketch of Proof" >}}
+{{< proof "Sketch of Proof" >}}
 We discuss the two directions separately:
 
 * ($\Rightarrow$):
@@ -392,7 +401,7 @@ We discuss the two directions separately:
     For any base change $g \colon Y' \to Y$, it induces a 2-functor $g^* \colon \mathbb{K}_{\mathsf{D},Y} \to \mathbb{K}_{\mathsf{D},Y'}$.
     Again using the fact that "2-functors preserve adjunctions", the adjunction for $f$ (over $Y$) is sent by $g^*$ to the adjunction for $f'$ (over $Y'$).
     This directly implies the compatibility of the dualizing complex with base change.
-{{< /proofc >}}
+{{< /proof >}}
 
 ## Suave and Prim
 
@@ -458,7 +467,7 @@ Let $\mathsf{D}$ be a six functor formalism on the geometric setup $(\mathcal{C}
     $$
 {{< /proposition >}}
 
-{{< proofc >}}
+{{< proof >}}
 The proof is essentially an exercise in the properties of adjunctions in 2-categories.
 
 Taking suave as an example:
@@ -469,7 +478,7 @@ Taking suave as an example:
     $$
     Where $\Psi_{\mathsf{D},Y}(A) \simeq f_!(A \otimes f^*(-))$, and $\Psi_{\mathsf{D},Y}(\mathsf{SD}_f(A)) \simeq f_!(\mathsf{SD}_f(A) \otimes f^*(-))$.
     Using the adjunction of $f_!$ and $f^!$ and the definition of closed monoidal category|Internal Hom, one can solve for the above isomorphism.
-{{< /proofc >}}
+{{< /proof >}}
 
 In fact, we can also give concrete characterizations of $f$-suave and $f$-prim properties.
 This characterization does not rely on the global definition of adjunction, but transforms it into adjunction properties in functor categories, which is more operational in actual calculations. This result depends on the following general lemma regarding adjoint morphisms in 2-categories.
@@ -503,9 +512,9 @@ commute. In other words, $h^* G_{Z'} \xrightarrow{\sim} G_Z h^*$ is an isomorphi
 
 In this scenario, the right adjoint of $f$ is given by $g \mathrel{:=} G_Y(\operatorname{id}_Y) \colon Y \to X$.
 {{< /lemma >}}
-{{< proofc >}}
+{{< proof >}}
 By [Heyer–Mann, Prop. D.2.8](https://arxiv.org/pdf/2410.13038#page=170).
-{{< /proofc >}}
+{{< /proof >}}
 
 {{< proposition title="Explicit Characterization of Suave and Prim" >}}
 Let $\mathsf{D}$ be a six functor formalism on the geometric setup $(\mathcal{C},E)$, $f \colon X \to Y$ a morphism in $E$, and $A \in \mathsf{D}(X)$.
@@ -535,9 +544,9 @@ Let $\pi_i \colon X \times_Y X \to X$ be the projection morphisms.
         \operatorname{pr}_{Z!} (\operatorname{pr}^*_X \mathsf{PD}_f(A) \otimes M) \xrightarrow{\sim} \operatorname{pr}_{Z*} \underline{\operatorname{Hom}}(\operatorname{pr}_X^* A, M).
     $$
 {{< /proposition >}}
-{{< proofc >}}
+{{< proof >}}
 Directly obtained by applying the Lemma.
-{{< /proofc >}}
+{{< /proof >}}
 
 In fact, the $f$-suave dual and $f$-prim dual can form an adjunction in a dual sense.
 
@@ -550,9 +559,9 @@ $$
     f_* \underline{\operatorname{Hom}}(B,\mathsf{SD}_f(A)) \simeq f_* \underline{\operatorname{Hom}}(\mathsf{PD}_f(B),A)^{\vee}.
 $$
 {{< /lemma >}}
-{{< proofc >}}
+{{< proof >}}
 This is a direct corollary of the Proposition on Suave/Prim duals and the Proposition on explicit characterization.
-{{< /proofc >}}
+{{< /proof >}}
 
 Finally, according to the compatibility of adjunctions with limits, colimits, and retracts in $2$-categories, we can obtain:
 
@@ -651,9 +660,9 @@ Consider the pullback diagram in $\mathcal{C}_E$:
     \]
 
 {{< /lemma >}}
-{{< proofc >}}
+{{< proof >}}
 [Heyer–Mann, Prop. 4.5.13](https://arxiv.org/pdf/2410.13038#page=72).
-{{< /proofc >}}
+{{< /proof >}}
 
 ## Étale and Proper
 
@@ -776,7 +785,7 @@ Let $f \colon X \to Y$ be a morphism in $E$.
 
 {{% /proposition %}}
 
-{{< proofc "Sketch of Proof" >}}
+{{< proof "Sketch of Proof" >}}
 
 It suffices to prove (b) ⇒ (a); the proper case is dual.
 
@@ -798,7 +807,7 @@ and using that $\Delta_f$ is $\mathsf{D}$-étale, we obtain
 \end{aligned}
 \]
 This completes the proof.
-{{< /proofc >}}
+{{< /proof >}}
 
 ## Suave Descent and Prim Descent
 

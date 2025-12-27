@@ -1,103 +1,173 @@
-# Math-first writing guide
+# Ou’s Hugo Notes Converter
 
-This site is configured for TeX-heavy writing with Hugo + PaperMod and ships reusable shortcodes for theorem-style blocks and commutative diagrams. Use this guide to add math content quickly.
+A deterministic assistant for converting raw mathematical notes into **Hugo-ready academic Markdown**, designed for a **PaperMod + MathJax** workflow.
 
-## Prerequisites
-- Install **Hugo Extended** (required for SCSS/SVG pipelines). See https://gohugo.io/getting-started/installing/.  
-- Clone the repo and run the usual Hugo commands:
-  - `hugo server -D` to preview locally.
-  - `hugo` to build the static site into `public/`.
+This tool targets **theoretical mathematics notes** and intentionally avoids BibTeX/Pandoc complexity in favor of stable, linkable HTML anchors.
 
-## Writing math
-- Inline math: `$ ... $` or `\( ... \)`
-- Display math: `$$ ... $$` or `\[ ... \]`
-- Goldmark passthrough is enabled so these delimiters are preserved for MathJax.
-- Common macros are preloaded (see `layouts/partials/extend_head.html`): `\Z, \R, \Q, \C, \N`, `\Hom`, `\Spec`, `\colim`, `\ker`, `\im`, `\hofib`, `\cofib`, `\To`, `\coloneqq`, `\operatorname{id}`.
+---
 
-### Citations
-- Use `\cite{key}` (bracketed) or `\citet{key}` (parentheses) anywhere in math/markdown; both link to the matching reference entry.
-- Add references with the `reference` shortcode, typically under a **References** heading:
+## Motivation
 
-```markdown
-## References
-{{< reference key="EGA" >}}
-Grothendieck, *Éléments de géométrie algébrique*, 1960–1967.
-{{< /reference >}}
+When writing mathematics, much of the friction is editorial rather than mathematical:
 
-{{< reference key="HTT" >}}
-Lurie, *Higher Topos Theory*, Annals of Mathematics Studies 170, 2009.
-{{< /reference >}}
+- LaTeX environments do not map cleanly to Hugo.
+- MathJax does not reliably typeset inside collapsible `<details>` blocks.
+- `\cite{...}` + BibTeX is heavy for short notes and fragile on static sites.
+- Formatting inconsistencies accumulate and slow down writing.
+
+This GPT removes that friction by enforcing a small, stable set of formatting rules.
+
+---
+
+## Scope
+
+Designed for:
+
+- short notes / “other notes” / informal research sketches
+- algebraic geometry, homotopy theory, higher category theory
+- Hugo sites using:
+  - PaperMod
+  - MathJax v3
+  - custom shortcodes: `definition`, `lemma`, `theorem`, `proofc`, `tikzcd`, …
+
+Not intended for:
+
+- LaTeX paper/journal workflows
+- BibTeX / CSL citation pipelines
+- Pandoc-based publishing
+
+---
+
+## Core Principles
+
+1. **Determinism over cleverness**  
+   Same input → same structure.
+
+2. **No hidden MathJax magic**  
+   Anything inside `<details>` must not rely on MathJax macros for citations.
+
+3. **Everything linkable**  
+   All citations resolve to stable HTML anchors.
+
+4. **Minimal, academic output**  
+   Clean headings, short paragraphs, stable formatting.
+
+---
+
+## What This GPT Does
+
+### 1) Converts LaTeX-style environments
+
+| LaTeX | Hugo Output |
+|------|-------------|
+| `\begin{definition}` | `{{< definition >}}` |
+| `\begin{lemma}` | `{{< lemma >}}` |
+| `\begin{theorem}` | `{{< theorem >}}` |
+| `\begin{proposition}` | `{{< proposition >}}` |
+| `\begin{remark}` | `{{< remark >}}` |
+| `\begin{proof}` | `{{< proofc >}}` |
+
+Optional titles are preserved via `title="..."`.
+
+---
+
+### 2) Enforces safe citation syntax
+
+Never outputs:
+
+```tex
+\cite{LurieSAG}
 ```
 
-## Theorem-style shortcodes
-Wrap text in the matching shortcode to get styled math environments defined in `layouts/shortcodes/` and `static/css/custom.css`.
-
-Examples:
+Always outputs:
 
 ```markdown
-{{< theorem title="Yoneda" >}}
-Every presheaf is a colimit of representables.
-{{< /theorem >}}
-
-{{< lemma >}}
-A section that is both left- and right-invertible is an isomorphism.
-{{< /lemma >}}
-
-{{< proposition title="Universal property" >}}
-...body...
-{{< /proposition >}}
-
-{{< definition >}}A groupoid is a category whose morphisms are all invertible.{{< /definition >}}
-
-{{< remark >}}Short observations live here.{{< /remark >}}
-
-{{< idea >}}Sketchy ideas or heuristics.{{< /idea >}}
-
-{{< proofc >}}
-Proof text that can be collapsed/expanded; the QED box is added automatically.
-{{< /proofc >}}
+    {{< cite LurieSAG "Lemma D.3.3.6" >}}
 ```
 
-## Commutative diagrams
-Two shortcodes cover different levels of complexity.
+Rendered style:
 
-### 1) Classic `CD` diagrams (MathJax/AMScd)
-Use for simple square/triangle diagrams.
+* ``[LurieSAG]``
+* ``[LurieSAG, Lemma D.3.3.6]``
+Linked to:
+* ``#ref-LurieSAG``
 
-```markdown
-{{< cd >}}
-A @>f>> B \\
-@VgVV   @VVhV \\
-C @>>k> D
-{{< /cd >}}
+This works inside proofs and collapsible blocks without needing MathJax re-typesetting.
+
+### 3) Normalizes References (stable HTML)
+
+References are always emitted as HTML to avoid Markdown parsing edge cases:
+
+```html
+<ul class="refs">
+  <li id="ref-LurieSAG">
+    <strong>Lurie, Jacob</strong>.
+    <em>Spectral Algebraic Geometry</em>.
+    (2018).
+    <a href="...">PDF</a>.
+  </li>
+</ul>
 ```
 
-### 2) TikZ commutative diagrams rendered to SVG
-Use `tikzcd` when you need curved arrows, labels, or more elaborate layouts. The content is wrapped in a `tikzcd` environment and rendered by TikZJax to SVG.
-
-Diagrams are centered and set on a math-style sheet by default; pass `inline=true` if you need them to sit inside a paragraph without the block wrapper.
+### 4) Normalizes References (stable HTML)
+All commutative diagrams are emitted as:
 
 ```markdown
 {{< tikzcd >}}
-X \arrow[r, "f"] \arrow[d, swap, "g"] & Y \arrow[d, "h"] \\
-Z \arrow[r, "k"] & W
+A \ar[r] & B
 {{< /tikzcd >}}
 ```
 
-Tips:
-- Write standard `tikzcd` syntax; TikZJax compiles it in the browser.
-- SVG output is responsive and centered via `static/css/custom.css`.
+No raw ``\begin{tikzcd}`` remains.
 
-## General TikZ pictures
-For non-diagram TikZ snippets, use the `tikz` shortcode. TikZJax handles compilation the same way as above.
+### 5) Produces a single Hugo-ready document
+Output is one Markdown file:
 
-```markdown
-{{< tikz >}}
-\begin{tikzpicture}
-  \draw (0,0) circle (1cm);
-\end{tikzpicture}
-{{< /tikz >}}
-```
+* with front matter (if provided),
+* no commentary,
+* no partial snippets.
 
-## Styling
-Typography, math blocks, and diagram wrappers are customized in `static/css/custom.css`. Adjust colors or spacing there if you want to tweak the TeX-like appearance.
+---
+#### Expected Input
+
+Input may include:
+
+* LaTeX-like environments
+* inline and display math
+* bibliographic hints (e.g. “see Lurie, SAG, Lemma …”)
+* mixed English/Chinese prose
+
+No pre-cleaning required.
+
+---
+#### Output Guarantees
+
+Before returning output, the GPT ensures:
+* no ``\cite`` macros remain
+* all citations use ``{{< cite ... >}}``
+* all references have ``id="ref-KEY"``
+* proofs never rely on MathJax for citations
+* output renders correctly after refresh
+
+---
+#### Typical Usage
+Prompt:
+| Convert the following notes into a Hugo short note.
+Use ``[KEY, LOCATOR]`` citation style.
+Output a single Markdown file.
+
+---
+Recommended Workflow
+1. Write freely (messy LaTeX-like notes are fine).
+2. Paste into this GPT.
+3. Copy output into ``content/notes/...md``.
+4. Run ``hugo server``
+5. Publish.
+
+---
+
+
+#### Maintenance Notes
+* MathJax upgrades: still works (citations are HTML anchors).
+* PaperMod CSS changes: references remain stable.
+* New environments: extend the environment mapping in the GPT instructions.

@@ -1,0 +1,19 @@
+<details class="math-env proof">
+    <summary class="env-title">
+  <em>
+    {{- if .Get 0 -}}
+      {{- (.Get 0) | strings.TrimSuffix "." -}}.
+    {{- else if .Get "title" -}}
+      {{- (.Get "title") | strings.TrimSuffix "." -}}.
+    {{- else -}}
+      Proof.
+    {{- end -}}
+  </em>
+</summary>
+
+    <div class="env-content">
+        {{- .Inner | markdownify -}}
+        {{/* QED 符号：使用 float:right 放在右下角 */}}
+        <span style="float:right;">$\square$</span>
+    </div>
+</details>

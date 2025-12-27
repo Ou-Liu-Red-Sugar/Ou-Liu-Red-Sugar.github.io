@@ -9,11 +9,11 @@
     <lastBuildDate>Sat, 27 Dec 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/notes/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Are Spectral Sequences Useful in Theoretical Arguments?</title>
-      <link>http://localhost:1313/notes/are-spectral-sequences-useful-in-theoretical-arguments/</link>
+      <title>Spectral Sequences as Bookkeeping, Not Structure</title>
+      <link>http://localhost:1313/notes/spectral-sequences-as-bookkeeping-not-structure/</link>
       <pubDate>Sat, 27 Dec 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/notes/are-spectral-sequences-useful-in-theoretical-arguments/</guid>
-      <description>The main point of this note is the following: The classical notion of sheaf cohomology can, in fact, be completely avoided. Here `avoided&amp;#39; does not mean that we deny the mathematical objects or results that sheaf cohomology is meant to capture. Rather, it means that once we work in a derived setting, we no longer need to introduce these objects via classical derived functors or spectral sequences. Instead, they can be understood directly from the perspective of descent.</description>
+      <guid>http://localhost:1313/notes/spectral-sequences-as-bookkeeping-not-structure/</guid>
+      <description>In derived settings, many classical comparisons between Čech and sheaf cohomology are better understood as descent statements. Spectral sequences may organize computations, but they play no structural role in the argument.</description>
     </item>
     <item>
       <title>Six Functor Formalisms: smoothness and suaveness</title>
@@ -35,6 +35,13 @@
 &lt;li&gt;&lt;strong&gt;Question II.&lt;/strong&gt; Do we still have a &lt;strong&gt;weak factorization system&lt;/strong&gt; in this context?&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;Next, we will answer these questions through the lens of type theory and the categorical perspective of synthetic category theory.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Stable Dold–Kan and Descent</title>
+      <link>http://localhost:1313/notes/stable-doldkan-and-descent/</link>
+      <pubDate>Thu, 27 Nov 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/notes/stable-doldkan-and-descent/</guid>
+      <description>Unified exposition of the stable Dold–Kan correspondence and its application to descent theory in stable categories.</description>
     </item>
   </channel>
 </rss>

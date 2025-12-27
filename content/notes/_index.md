@@ -20,10 +20,13 @@ Some shorter or less organized notes are written directly on the homepage.
 
 - **Stable Dold–Kan Correspondence**
 
-  Seminar notes on the stable Dold–Kan correspondence, from the
-  [Goodwillie Calculus Seminar](https://hoyois.app.uni-regensburg.de/WS26/calculus/index.html).
+  Seminar notes on the stable Dold–Kan correspondence, originating from the
+  Goodwillie Calculus Seminar
+  ([University of Regensburg](https://hoyois.app.uni-regensburg.de/WS26/calculus/index.html)).
 
-  [PDF](/papers/notes/StableDoldKan.pdf)
+  Online version: {{< pageref "notes/StableDoldKan.md" "Stable Dold–Kan and Descent" >}}  
+  [[PDF]](/papers/notes/StableDoldKan.pdf)
+
 
 - **Higher Topos Theory**
 

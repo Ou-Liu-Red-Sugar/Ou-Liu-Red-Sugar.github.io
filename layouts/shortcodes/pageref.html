@@ -1,0 +1,17 @@
+{{- /* 
+Usage:
+  {{< pageref "notes/StableDoldKan.md" >}}
+  {{< pageref "notes/StableDoldKan.md" "Stable Dold--Kan correspondence" >}}
+
+Semantics:
+  Page-level cross reference (not a bibliography citation).
+*/ -}}
+
+{{- $path := .Get 0 -}}
+{{- $text := .Get 1 | default "" -}}
+
+{{- if $text -}}
+  <a class="page-ref" href="{{ relref . $path }}">{{ $text }}</a>
+{{- else -}}
+  <a class="page-ref" href="{{ relref . $path }}">{{ $path }}</a>
+{{- end -}}

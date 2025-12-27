@@ -100,8 +100,17 @@
         hofib: "\\operatorname{hofib}",
         cofib: "\\operatorname{cofib}",
         To: "\\longrightarrow",
-        cite: ["\\class{citation}{\\href{#ref-#1}{[\\,#1\\,]}}", 1],
-        citet: ["\\class{citation}{\\href{#ref-#1}{(#1)}}", 1]
+        macros: {
+  cite: [
+    "\\class{citation}{\\href{##ref-#1}{[\\,#1\\,]}}",
+    1
+  ],
+  citet: [
+    "\\class{citation}{\\href{##ref-#1}{(#1)}}",
+    1
+  ]
+}
+
       }
     },
     options: {
@@ -115,6 +124,19 @@
 </script>
 
 <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" id="MathJax-script"></script>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  document.querySelectorAll("details.math-env").forEach((d) => {
+    d.addEventListener("toggle", () => {
+      if (!d.open) return;
+      if (window.MathJax && MathJax.typesetPromise) {
+        MathJax.typesetPromise([d]);
+      }
+    });
+  });
+});
+</script>
 <meta property="og:url" content="http://localhost:1313/notes/">
   <meta property="og:site_name" content="Ou Liu">
   <meta property="og:title" content="Notes">
@@ -209,9 +231,11 @@ Some shorter or less organized notes are written directly on the homepage.</p>
 </li>
 <li>
 <p><strong>Stable Dold–Kan Correspondence</strong></p>
-<p>Seminar notes on the stable Dold–Kan correspondence, from the
-<a href="https://hoyois.app.uni-regensburg.de/WS26/calculus/index.html">Goodwillie Calculus Seminar</a>.</p>
-<p><a href="/papers/notes/StableDoldKan.pdf">PDF</a></p>
+<p>Seminar notes on the stable Dold–Kan correspondence, originating from the
+Goodwillie Calculus Seminar
+(<a href="https://hoyois.app.uni-regensburg.de/WS26/calculus/index.html">University of Regensburg</a>).</p>
+<p>Online version: <a class="page-ref" href="/notes/stable-doldkan-and-descent/">Stable Dold–Kan and Descent</a><br>
+<a href="/papers/notes/StableDoldKan.pdf">[PDF]</a></p>
 </li>
 <li>
 <p><strong>Higher Topos Theory</strong></p>
@@ -235,8 +259,8 @@ theory of descendable objects developed by Akhil Mathew.</p>
 <p>Short or informal notes written directly on the homepage.</p>
 <ul><li style="margin-bottom: .9rem;">
           <div>
-            <a href="/notes/are-spectral-sequences-useful-in-theoretical-arguments/">Are Spectral Sequences Useful in Theoretical Arguments?</a><span style="opacity:.6;"> — 2025-12-27</span></div><div style="opacity:.8; font-size: 0.95em; margin-top: .2rem;">
-              The main point of this note is the following: The classical notion of sheaf cohomology can, in fact, be completely avoided. Here `avoided&#39; does not mean that we deny the mathematical objects or results that sheaf cohomology is meant to capture. Rather, it means that once we work in a derived setting, we no longer need to introduce these objects via classical derived functors or spectral sequences. Instead, they can be understood directly from the perspective of descent.
+            <a href="/notes/spectral-sequences-as-bookkeeping-not-structure/">Spectral Sequences as Bookkeeping, Not Structure</a><span style="opacity:.6;"> — 2025-12-27</span></div><div style="opacity:.8; font-size: 0.95em; margin-top: .2rem;">
+              In derived settings, many classical comparisons between Čech and sheaf cohomology are better understood as descent statements. Spectral sequences may organize computations, but they play no structural role in the argument.
             </div></li><li style="margin-bottom: .9rem;">
           <div>
             <a href="/notes/synthetic-category-theory-and-type-theory/">Synthetic category theory and type theory</a><span style="opacity:.6;"> — 2025-12-24</span></div><div style="opacity:.8; font-size: 0.95em; margin-top: .2rem;">
@@ -246,7 +270,11 @@ The content of this page is derived from my …
           <div>
             <a href="/notes/six-functor-formalisms-smoothness-and-suaveness/">Six Functor Formalisms: smoothness and suaveness</a><span style="opacity:.6;"> — 2025-12-24</span></div><div style="opacity:.8; font-size: 0.95em; margin-top: .2rem;">
               We reinterpret D-smooth morphisms in a six functor formalism via the 2-category of kernel associated to a slice geometry. Using Fourier–Mukai kernels to encode functors, smoothness is characterized by left adjointness at the kernel level, yielding automatic base change compatibility. Suaveness is then obtained by imposing invertibility of the dualizing complex as an additional, independent condition.
-            </div></li></ul>
+            </div></li><li style="margin-bottom: .9rem;">
+          <div>
+            <a href="/notes/stable-doldkan-and-descent/">Stable Dold–Kan and Descent</a><span style="opacity:.6;"> — 2025-11-27</span></div><div style="opacity:.8; font-size: 0.95em; margin-top: .2rem;">
+                Unified exposition of the stable Dold–Kan correspondence and its application to descent theory in stable categories.
+              </div></li></ul>
 
   </div>
 

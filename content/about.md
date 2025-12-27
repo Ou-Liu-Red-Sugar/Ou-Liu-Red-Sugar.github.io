@@ -3,6 +3,7 @@ title: "About me"
 date: 2025-12-24
 draft: false
 math: true
+ShowToc: false
 ---
 
 # Ou Liu (刘欧)
@@ -43,10 +44,13 @@ My research interests include:
 
 **Goodwillie Calculus Seminar**, Regensburg  
 - *The Stable Dold–Kan Correspondence* (27 Nov 2025)  
-- *Functors from Spaces to Spectra* (11 Dec 2025)
+***notes***: {{< pageref "notes/StableDoldKan.md" "online notes" >}}, [[PDF]](/papers/notes/StableDoldKan.pdf)
+
+- *Functors from Spaces to Spectra* (11 Dec 2025)  
 
 **Galois Theory in Algebra and Topology Seminar**, Regensburg  
-- *Galois Covers* (18 Nov 2025)
+- *Galois Covers* (18 Nov 2025)  
+***notes***: [[PDF]](/papers/notes/GaloisCovers.pdf)
 
 ---
 

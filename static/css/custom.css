@@ -252,3 +252,64 @@ pre {
 .reference-body {
     color: var(--muted-ink);
 }
+/* ===== Proof: remove double frames + kill native marker ===== */
+
+/* 1) 不让 details 这一层再画边框/再做缩进（避免外层那条线） */
+details.math-env.proof {
+  border-left: none !important;
+  padding-left: 0 !important;
+  background: transparent !important;
+  margin: 1em 0;
+}
+
+/* 2) summary：彻底干掉浏览器默认三角，并使用自定义箭头 */
+details.math-env.proof > summary.env-title {
+  display: block;
+  cursor: pointer;
+  list-style: none;
+  position: relative;
+  padding-left: 1.1em;   /* 给自定义箭头留空间 */
+  margin: 0;
+}
+
+/* kill native markers */
+details.math-env.proof > summary.env-title::-webkit-details-marker { display: none; }
+details.math-env.proof > summary.env-title::marker { content: ""; }
+
+/* custom arrow */
+details.math-env.proof > summary.env-title::before {
+  content: "▸";
+  position: absolute;
+  left: 0;
+  top: 0.05em;
+  font-size: 0.85em;
+  color: #888;
+  transition: transform 0.15s ease;
+}
+details.math-env.proof[open] > summary.env-title::before {
+  transform: rotate(90deg);
+}
+
+/* 3) 只在内容区画“唯一的那条线”（避免内外两条线并存） */
+details.math-env.proof > .env-content {
+  border-left: 2px solid #c0c0c0;
+  padding-left: 1em;
+  margin-top: 0.5em;
+  background: transparent;
+}
+
+/* 4) QED 位置 */
+details.math-env.proof .qed {
+  float: right;
+  margin-left: 1em;
+  color: #555;
+}
+.citation {
+  color: #1a5fb4;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.citation:hover {
+  text-decoration: underline;
+}

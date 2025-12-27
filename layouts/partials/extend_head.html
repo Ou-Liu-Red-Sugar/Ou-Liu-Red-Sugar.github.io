@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="/css/custom.css">
+<link rel="stylesheet" href="{{ "css/custom.css" | relURL }}">
 
 <script>
   window.MathJax = {
@@ -27,8 +27,17 @@
         hofib: "\\operatorname{hofib}",
         cofib: "\\operatorname{cofib}",
         To: "\\longrightarrow",
-        cite: ["\\class{citation}{\\href{#ref-#1}{[\\,#1\\,]}}", 1],
-        citet: ["\\class{citation}{\\href{#ref-#1}{(#1)}}", 1]
+        macros: {
+  cite: [
+    "\\class{citation}{\\href{##ref-#1}{[\\,#1\\,]}}",
+    1
+  ],
+  citet: [
+    "\\class{citation}{\\href{##ref-#1}{(#1)}}",
+    1
+  ]
+}
+
       }
     },
     options: {
@@ -42,3 +51,16 @@
 </script>
 
 <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" id="MathJax-script"></script>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  document.querySelectorAll("details.math-env").forEach((d) => {
+    d.addEventListener("toggle", () => {
+      if (!d.open) return;
+      if (window.MathJax && MathJax.typesetPromise) {
+        MathJax.typesetPromise([d]);
+      }
+    });
+  });
+});
+</script>

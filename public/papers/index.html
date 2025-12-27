@@ -108,8 +108,17 @@ No publicly available preprints at this time.">
         hofib: "\\operatorname{hofib}",
         cofib: "\\operatorname{cofib}",
         To: "\\longrightarrow",
-        cite: ["\\class{citation}{\\href{#ref-#1}{[\\,#1\\,]}}", 1],
-        citet: ["\\class{citation}{\\href{#ref-#1}{(#1)}}", 1]
+        macros: {
+  cite: [
+    "\\class{citation}{\\href{##ref-#1}{[\\,#1\\,]}}",
+    1
+  ],
+  citet: [
+    "\\class{citation}{\\href{##ref-#1}{(#1)}}",
+    1
+  ]
+}
+
       }
     },
     options: {
@@ -123,6 +132,19 @@ No publicly available preprints at this time.">
 </script>
 
 <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" id="MathJax-script"></script>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  document.querySelectorAll("details.math-env").forEach((d) => {
+    d.addEventListener("toggle", () => {
+      if (!d.open) return;
+      if (window.MathJax && MathJax.typesetPromise) {
+        MathJax.typesetPromise([d]);
+      }
+    });
+  });
+});
+</script>
 <meta property="og:url" content="http://localhost:1313/papers/">
   <meta property="og:site_name" content="Ou Liu">
   <meta property="og:title" content="My Papers">

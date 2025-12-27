@@ -100,8 +100,17 @@
         hofib: "\\operatorname{hofib}",
         cofib: "\\operatorname{cofib}",
         To: "\\longrightarrow",
-        cite: ["\\class{citation}{\\href{#ref-#1}{[\\,#1\\,]}}", 1],
-        citet: ["\\class{citation}{\\href{#ref-#1}{(#1)}}", 1]
+        macros: {
+  cite: [
+    "\\class{citation}{\\href{##ref-#1}{[\\,#1\\,]}}",
+    1
+  ],
+  citet: [
+    "\\class{citation}{\\href{##ref-#1}{(#1)}}",
+    1
+  ]
+}
+
       }
     },
     options: {
@@ -115,6 +124,19 @@
 </script>
 
 <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" id="MathJax-script"></script>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  document.querySelectorAll("details.math-env").forEach((d) => {
+    d.addEventListener("toggle", () => {
+      if (!d.open) return;
+      if (window.MathJax && MathJax.typesetPromise) {
+        MathJax.typesetPromise([d]);
+      }
+    });
+  });
+});
+</script>
 <meta property="og:url" content="http://localhost:1313/tags/">
   <meta property="og:site_name" content="Ou Liu">
   <meta property="og:title" content="Tags">
@@ -185,13 +207,37 @@
 
 <ul class="terms-tags">
     <li>
-        <a href="http://localhost:1313/tags/algebraic-geometry/">algebraic geometry <sup><strong><sup>1</sup></strong></sup> </a>
+        <a href="http://localhost:1313/tags/adams-tower/">Adams Tower <sup><strong><sup>1</sup></strong></sup> </a>
     </li>
     <li>
-        <a href="http://localhost:1313/tags/infinite-category-theory/">infinite category theory <sup><strong><sup>1</sup></strong></sup> </a>
+        <a href="http://localhost:1313/tags/algebraic-geometry/">algebraic geometry <sup><strong><sup>2</sup></strong></sup> </a>
+    </li>
+    <li>
+        <a href="http://localhost:1313/tags/barrbeck/">Barr–Beck <sup><strong><sup>1</sup></strong></sup> </a>
+    </li>
+    <li>
+        <a href="http://localhost:1313/tags/descent/">Descent <sup><strong><sup>1</sup></strong></sup> </a>
+    </li>
+    <li>
+        <a href="http://localhost:1313/tags/higher-algebra/">Higher Algebra <sup><strong><sup>1</sup></strong></sup> </a>
+    </li>
+    <li>
+        <a href="http://localhost:1313/tags/higher-category-theory/">higher category theory <sup><strong><sup>3</sup></strong></sup> </a>
+    </li>
+    <li>
+        <a href="http://localhost:1313/tags/six-functor-formalisms/">six functor formalisms <sup><strong><sup>1</sup></strong></sup> </a>
     </li>
     <li>
         <a href="http://localhost:1313/tags/spectral-sequence/">spectral sequence <sup><strong><sup>1</sup></strong></sup> </a>
+    </li>
+    <li>
+        <a href="http://localhost:1313/tags/stable-doldkan/">Stable Dold–Kan <sup><strong><sup>1</sup></strong></sup> </a>
+    </li>
+    <li>
+        <a href="http://localhost:1313/tags/synthetic-category-theory/">synthetic category theory <sup><strong><sup>1</sup></strong></sup> </a>
+    </li>
+    <li>
+        <a href="http://localhost:1313/tags/type-theory/">type theory <sup><strong><sup>1</sup></strong></sup> </a>
     </li>
 </ul>
     </main>

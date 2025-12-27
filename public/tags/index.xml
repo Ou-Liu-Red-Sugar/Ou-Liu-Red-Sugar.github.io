@@ -16,10 +16,10 @@
       <description></description>
     </item>
     <item>
-      <title>Infinite Category Theory</title>
-      <link>http://localhost:1313/tags/infinite-category-theory/</link>
+      <title>Higher Category Theory</title>
+      <link>http://localhost:1313/tags/higher-category-theory/</link>
       <pubDate>Sat, 27 Dec 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/infinite-category-theory/</guid>
+      <guid>http://localhost:1313/tags/higher-category-theory/</guid>
       <description></description>
     </item>
     <item>
@@ -27,6 +27,62 @@
       <link>http://localhost:1313/tags/spectral-sequence/</link>
       <pubDate>Sat, 27 Dec 2025 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/tags/spectral-sequence/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Six Functor Formalisms</title>
+      <link>http://localhost:1313/tags/six-functor-formalisms/</link>
+      <pubDate>Wed, 24 Dec 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/six-functor-formalisms/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Synthetic Category Theory</title>
+      <link>http://localhost:1313/tags/synthetic-category-theory/</link>
+      <pubDate>Wed, 24 Dec 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/synthetic-category-theory/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Type Theory</title>
+      <link>http://localhost:1313/tags/type-theory/</link>
+      <pubDate>Wed, 24 Dec 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/type-theory/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Adams Tower</title>
+      <link>http://localhost:1313/tags/adams-tower/</link>
+      <pubDate>Thu, 27 Nov 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/adams-tower/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Barr–Beck</title>
+      <link>http://localhost:1313/tags/barrbeck/</link>
+      <pubDate>Thu, 27 Nov 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/barrbeck/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Descent</title>
+      <link>http://localhost:1313/tags/descent/</link>
+      <pubDate>Thu, 27 Nov 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/descent/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Higher Algebra</title>
+      <link>http://localhost:1313/tags/higher-algebra/</link>
+      <pubDate>Thu, 27 Nov 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/higher-algebra/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Stable Dold–Kan</title>
+      <link>http://localhost:1313/tags/stable-doldkan/</link>
+      <pubDate>Thu, 27 Nov 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/stable-doldkan/</guid>
       <description></description>
     </item>
   </channel>

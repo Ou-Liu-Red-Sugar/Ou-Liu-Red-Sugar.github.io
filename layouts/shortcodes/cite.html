@@ -1,0 +1,29 @@
+{{- /* Usage:
+      {{< cite LurieSAG >}}
+      {{< cite LurieSAG "Lemma D.3.3.6" >}}
+      {{< cite key="LurieSAG" loc="Lemma D.3.3.6" >}}
+*/ -}}
+
+{{- $key := "" -}}
+{{- $loc := "" -}}
+
+{{- if .Get 0 -}}
+  {{- $key = .Get 0 -}}
+{{- else if .Get "key" -}}
+  {{- $key = .Get "key" -}}
+{{- end -}}
+
+{{- if .Get 1 -}}
+  {{- $loc = .Get 1 -}}
+{{- else if .Get "loc" -}}
+  {{- $loc = .Get "loc" -}}
+{{- end -}}
+
+{{- $text := "" -}}
+{{- if $loc -}}
+  {{- $text = printf "[%s, %s]" $key $loc -}}
+{{- else -}}
+  {{- $text = printf "[%s]" $key -}}
+{{- end -}}
+
+<a class="citation" href="{{ printf "#ref-%s" $key | safeURL }}">{{ $text }}</a>

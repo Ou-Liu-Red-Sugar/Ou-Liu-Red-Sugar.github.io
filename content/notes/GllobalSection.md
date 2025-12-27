@@ -1,16 +1,35 @@
 ---
-title: "Are Spectral Sequences Useful in Theoretical Arguments?"
+title: "Spectral Sequences as Bookkeeping, Not Structure"
 date: 2025-12-27
 math: true
 draft: false
-description: "The main point of this note is the following: The classical notion of sheaf cohomology can, in fact, be completely avoided. Here `avoided' does not mean that we deny the mathematical objects or results that sheaf cohomology is meant to capture. Rather, it means that once we work in a derived setting, we no longer need to introduce these objects via classical derived functors or spectral sequences. Instead, they can be understood directly from the perspective of descent."
-tags: ["algebraic geometry", "higher category theory", "spectral sequence"]
-categories: ["Mathematics"]
+description: "In derived settings, many classical comparisons between Čech and sheaf cohomology are better understood as descent statements. Spectral sequences may organize computations, but they play no structural role in the argument."
+tags:
+  - Descent
+  - Barr--Beck--Lurie
+  - Higher Category Theory
+  - Higher Algebra
+  - Descent
+categories:
+  - Mathematics
+ShowToc: true
+TocOpen: false
+comments: true
+aliases:
+  - /global-section
 ---
+## Motivation: Structure versus Computation
 
-## Are Spectral Sequences Useful in Theoretical Arguments?
+Spectral sequences are among the most powerful computational tools in homological algebra and algebraic geometry. When explicit calculations are required, they are often indispensable.  
+However, many classical appearances of spectral sequences in the literature arise in a different context: not to compute concrete groups, but to justify *why* certain comparison theorems hold.
 
-This section is not directly related to the functorial algebraic geometry discussed earlier. It is better read as a Christmas note, since it originates from a conversation on Christmas night.
+This note is concerned with that second situation.
+
+A typical example is the comparison between Čech cohomology and sheaf cohomology. Traditionally, this comparison is presented via a Grothendieck spectral sequence, whose convergence and collapse encode the desired isomorphisms. While this method is effective, it tends to obscure the underlying reason the comparison works: namely, that global sections satisfy descent with respect to an appropriate topology.
+
+From a modern, derived point of view, the situation becomes clearer. Once global sections are defined as limits in a descent-compatible manner, the comparison between Čech constructions and sheaf cohomology is no longer a computational statement. It is a formal consequence of descent. Spectral sequences may still appear as a convenient bookkeeping device, but they are not the source of the result.
+
+The purpose of these notes is to emphasize this distinction. When one is not primarily interested in explicit calculations, but rather in the structural mechanism behind cohomological comparisons, spectral sequences are not essential. Descent is.
 
 ## Classical Sheaf Cohomology and Čech Cohomology
 
@@ -92,7 +111,7 @@ Thus $U_n$ may be regarded as the disjoint union of all $(n+1)$-fold intersectio
 Let $\mathcal{C}$ be a category admitting pullbacks, and let $U \to X$ be a morphism in $\mathcal{C}$. The **Čech nerve** of $U \to X$ is the simplicial object
 
 $$
-U_{\bullet} \colon \mathbb{\Delta}^{\mathrm{op}} \to \mathcal{C}
+U_{\bullet} \colon \Delta^{\mathrm{op}} \to \mathcal{C}
 $$
 
 defined in degree $n$ by
@@ -514,14 +533,17 @@ We say that $A$ is a **descendable object** if $\langle A \rangle$ contains the 
 {{< /definition >}}
 
 In general, descendability is not easy to verify directly. However, we can use pro-constant diagrams as a criterion.
+The use of pro-constant objects and the role of the stable Dold--Kan correspondence
+are discussed in more detail in
+{{< pageref "notes/StableDoldKan.md" "the note on the Stable Dold--Kan correspondence" >}}.
 
 {{< definition >}}
 Let $\mathcal{C}$ be a category admitting finite colimits.
 
 1.  A cofiltered diagram $I \to \mathcal{C}$ is called a **pro-constant diagram** if it lies in the essential image of the embedding $y' \colon \mathcal{C} \hookrightarrow \mathsf{Pro}(\mathcal{C})$.
-2.  A cosimplicial object $M^{\bullet} \colon \mathbb{\Delta} \to \mathcal{C}$ is called a **pro-constant object** if, after applying the stable Dold–Kan correspondence, the resulting filtered chain
+2.  A cosimplicial object $M^{\bullet} \colon \Delta \to \mathcal{C}$ is called a **pro-constant object** if, after applying the stable Dold–Kan correspondence, the resulting filtered chain
     $$
-    \mathbb{Z}_{\geq 0}^{\operatorname{op}} \to \mathcal{C}, \quad n \longmapsto \operatorname{lim}_{m \in \mathbb{\Delta}_{\leq n}} M^n
+    \mathbb{Z}_{\geq 0}^{\operatorname{op}} \to \mathcal{C}, \quad n \longmapsto \operatorname{lim}_{m \in \Delta_{\leq n}} M^n
     $$
     is a pro-constant diagram.
 {{< /definition >}}
@@ -538,10 +560,10 @@ $$
 Given $A \in \mathsf{CAlg}(\mathcal{C})$, the algebra $A$ is descendable if and only if the cobar construction $A^{\otimes \bullet}$ is a pro-constant object and its limit is $\mathbb{1}_{\mathcal{C}}$.
 {{< /theorem >}}
 
-{{< proofc "Sketch of Proof" >}}
+{{< proof "Sketch of Proof" >}}
 * If $A$ is descendable, let $\mathcal{X} \subset \mathcal{C}$ be the full subcategory spanned by those objects $M$ such that $M \otimes A^{\otimes \bullet}$ is a pro-constant object with limit $M$. It is not difficult to see that $\mathcal{X}$ is closed under finite (co)limits, retracts, and tensor products. Since $A \in \mathcal{X}$ (as $A \otimes A^{\otimes \bullet}$ is split), it follows that $\langle A \rangle \subset \mathcal{X}$.
-* Conversely, if $A^{\otimes \bullet}$ is a pro-constant object with limit $\mathbb{1}_{\mathcal{C}}$, we can immediately deduce that there exists $n \gg 0$ such that $\mathbb{1}_{\mathcal{C}}$ is a retract of $\operatorname{lim}_{m \in \mathbb{\Delta}_{\leq n}} A^{\otimes \bullet}$. Since $\operatorname{lim}_{m \in \mathbb{\Delta}_{\leq n}} A^{\otimes \bullet} \in \langle A \rangle$, the result follows.
-{{< /proofc >}}
+* Conversely, if $A^{\otimes \bullet}$ is a pro-constant object with limit $\mathbb{1}_{\mathcal{C}}$, we can immediately deduce that there exists $n \gg 0$ such that $\mathbb{1}_{\mathcal{C}}$ is a retract of $\operatorname{lim}_{m \in \Delta_{\leq n}} A^{\otimes \bullet}$. Since $\operatorname{lim}_{m \in \Delta_{\leq n}} A^{\otimes \bullet} \in \langle A \rangle$, the result follows.
+{{< /proof >}}
 
 Using the **Barr–Beck–Lurie Theorem**, we obtain the following result:
 
@@ -552,22 +574,22 @@ Let $\mathcal{C}$ be a stable symmetric monoidal category, and let $A$ be a desc
 {{< /tikzcd >}}
 is **comonadic**. In this case, there is an equivalence of categories
 $$
-    \mathcal{C} \simeq \operatorname{lim}_{\mathbb{\Delta}}\left( \mathsf{Mod}_{\mathcal{C}}(A^{\otimes \bullet}) \right)
+    \mathcal{C} \simeq \operatorname{lim}_{\Delta}\left( \mathsf{Mod}_{\mathcal{C}}(A^{\otimes \bullet}) \right)
 $$
 {{< /theorem >}}
 
-{{< proofc >}}
+{{< proof >}}
 This is essentially a verification of the conditions required for the Barr–Beck–Lurie theorem:
 
 * Since $A$ is a descendable commutative algebra, the functor $-\otimes A$ is conservative. Indeed, if $M \otimes A \simeq 0$, we define $\mathcal{X}$ to be the full subcategory spanned by objects $\{N \mid M \otimes N \simeq 0\}$. It is easy to see that $\mathcal{X}$ is closed under finite (co)limits, retracts, and tensors. Since $A \in \mathcal{X}$, we have $\langle A \rangle \subset \mathcal{X}$, implying $\mathbb{1}_{\mathcal{C}} \in \mathcal{X}$, so $M \simeq 0$.
 
-* Next, fix a cosimplicial object $M^{\bullet} \colon \mathbb{\Delta} \to \mathcal{C}$ such that $M^{\bullet} \otimes A$ is a split simplicial object (i.e., $M^{\bullet}$ is $-\otimes A$-split). We need to show that $\operatorname{lim}_{\mathbb{\Delta}}(M^{\bullet})$ exists and that the canonical map
+* Next, fix a cosimplicial object $M^{\bullet} \colon \Delta \to \mathcal{C}$ such that $M^{\bullet} \otimes A$ is a split simplicial object (i.e., $M^{\bullet}$ is $-\otimes A$-split). We need to show that $\operatorname{lim}_{\Delta}(M^{\bullet})$ exists and that the canonical map
     $$
-    A \otimes \operatorname{lim}_{\mathbb{\Delta}}(M^{\bullet}) \;\longrightarrow\; \operatorname{lim}_{\mathbb{\Delta}}(A \otimes M^{\bullet})
+    A \otimes \operatorname{lim}_{\Delta}(M^{\bullet}) \;\longrightarrow\; \operatorname{lim}_{\Delta}(A \otimes M^{\bullet})
     $$
     is an isomorphism.
     Let $\mathcal{C}' \subset \mathcal{C}$ be the full subcategory spanned by objects $N$ such that $N \otimes M^{\bullet}$ is a pro-constant object. This subcategory is closed under finite (co)limits, retracts, and tensors. Since $M^{\bullet} \otimes A$ is split, $A \in \mathcal{C}'$. It follows that $\mathbb{1}_{\mathcal{C}} \in \mathcal{C}'$, meaning $M^{\bullet}$ itself is a pro-constant object. Using the stable Dold–Kan correspondence to view this as a filtered chain, the result follows from the property of pro-constant diagrams mentioned in the Example above.
-{{< /proofc >}}
+{{< /proof >}}
 
 ## Proof of Faithfully Flat Descent
 
@@ -581,13 +603,13 @@ $$
 $$
 {{< /lemma >}}
 
-{{< proofc >}}
-See Lurie, *Spectral Algebraic Geometry*, Lemma D.3.3.6.
-{{< /proofc >}}
+{{< proof >}}
+See {{< cite LurieSAG "Lemma D.3.3.6" >}}
+{{< /proof >}}
 
 Now, we prove the main theorem.
 
-{{< proofc "Proof of Faithfully Flat Descent" >}}
+{{< proof "Proof of Faithfully Flat Descent" >}}
 Since $\phi \colon A \to B$ is a faithfully flat morphism, $B$ is flat over $A$. Moreover, $B$ can be identified with the image of $\tau_{\geq 0} B$ under the base change functor
 
 $$
@@ -629,12 +651,25 @@ $$
 $$
 
 Note that $K[1]$ is simply $\operatorname{cofib}(\phi)$. It is a flat $A$-module, and by assumption, there exists $n \geq 0$ such that $\pi_0(\operatorname{cofib}(\phi))$ is generated by fewer than $\aleph_n$ generators and relations. Consequently, $(K[1])^{\otimes m}$ is also generated by fewer than $\aleph_n$ generators and relations. By the Lemma above, for large enough $m$, the Ext group vanishes.
-{{< /proofc >}}
+{{< /proof >}}
 
 Therefore, in the derived setting, we do not actually need the Grothendieck spectral sequence to obtain the results we need.
 
 ## References
 
-* **Lurie, Jacob**. *Higher Algebra*. (2017). [PDF](https://www.math.ias.edu/~lurie/papers/HA.pdf)
-* **Lurie, Jacob**. *Spectral Algebraic Geometry (Under Construction!)*. (2018). [PDF](https://www.math.ias.edu/~lurie/papers/SAG-rootfile.pdf)
-* **Mathew, Akhil**. "The Galois group of a stable homotopy theory". *arXiv:1404.2156*. (2016). [arXiv](https://arxiv.org/abs/1404.2156)
+<ul class="refs">
+  <li id="ref-LurieHA">
+    <strong>Lurie, Jacob</strong>. <em>Higher Algebra</em>. (2017).
+    <a href="https://www.math.ias.edu/~lurie/papers/HA.pdf">PDF</a>.
+  </li>
+
+  <li id="ref-LurieSAG">
+    <strong>Lurie, Jacob</strong>. <em>Spectral Algebraic Geometry (Under Construction!)</em>. (2018).
+    <a href="https://www.math.ias.edu/~lurie/papers/SAG-rootfile.pdf">PDF</a>.
+  </li>
+
+  <li id="ref-MathewGalois">
+    <strong>Mathew, Akhil</strong>. “The Galois group of a stable homotopy theory”. <em>arXiv:1404.2156</em>. (2016).
+    <a href="https://arxiv.org/abs/1404.2156">arXiv</a>.
+  </li>
+</ul>
