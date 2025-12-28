@@ -1,0 +1,124 @@
+{{- /*
+Shortcode: section_index
+
+Usage examples:
+  {{< section_index >}}
+  {{< section_index mode="sections" >}}
+  {{< section_index mode="pages" sort="title" >}}
+  {{< section_index recursive="true" sort="date" desc="true" show_summary="true" >}}
+  {{< section_index limit="20" show_date="true" >}}
+
+Params:
+  mode: "both" (default) | "sections" | "pages"
+  recursive: "true" | "false" (default)     (only affects pages)
+  sort: "title" (default) | "date" | "weight"
+  desc: "true" | "false" (default)          (descending order)
+  show_summary: "true" | "false" (default)  (use .Params.description, else .Summary)
+  show_date: "true" | "false" (default)
+  limit: integer as string, e.g. "50" (default: no limit)
+*/ -}}
+
+{{- $mode := .Get "mode" | default "both" -}}
+{{- $recursive := eq (.Get "recursive" | default "false") "true" -}}
+{{- $sortKey := .Get "sort" | default "title" -}}
+{{- $desc := eq (.Get "desc" | default "false") "true" -}}
+{{- $showSummary := eq (.Get "show_summary" | default "false") "true" -}}
+{{- $showDate := eq (.Get "show_date" | default "false") "true" -}}
+{{- $limitStr := .Get "limit" | default "" -}}
+{{- $limit := 0 -}}
+{{- if $limitStr -}}
+  {{- $limit = int $limitStr -}}
+{{- end -}}
+
+{{- $section := .Page -}}
+{{- if not $section.IsSection -}}
+  {{- $section = .Page.CurrentSection -}}
+{{- end -}}
+
+{{- /* -------- Sections (subdirectories) -------- */ -}}
+{{- if or (eq $mode "both") (eq $mode "sections") -}}
+  {{- $secs := $section.Sections -}}
+
+  {{- if eq $sortKey "date" -}}
+    {{- $secs = $secs.ByDate -}}
+  {{- else if eq $sortKey "weight" -}}
+    {{- $secs = $secs.ByWeight -}}
+  {{- else -}}
+    {{- $secs = $secs.ByTitle -}}
+  {{- end -}}
+  {{- if $desc -}}
+    {{- $secs = $secs.Reverse -}}
+  {{- end -}}
+
+  {{- if gt (len $secs) 0 -}}
+    <h3>Subsections</h3>
+    <ul class="notes-index notes-index-sections">
+      {{- $i := 0 -}}
+      {{- range $secs -}}
+        {{- if and (gt $limit 0) (ge $i $limit) -}}{{- break -}}{{- end -}}
+        <li class="notes-index-item notes-index-section">
+          <a class="notes-index-link" href="{{ .RelPermalink }}">{{ .Title }}</a>
+
+          {{- with .Params.description -}}
+            <details class="notes-index-details">
+              <summary class="notes-index-summary">Overview</summary>
+              <div class="notes-index-details-body">{{ . | markdownify }}</div>
+            </details>
+          {{- end -}}
+        </li>
+        {{- $i = add $i 1 -}}
+      {{- end -}}
+    </ul>
+  {{- end -}}
+{{- end -}}
+
+{{- /* -------- Pages (files) -------- */ -}}
+{{- if or (eq $mode "both") (eq $mode "pages") -}}
+  {{- $pages := cond $recursive $section.RegularPagesRecursive $section.RegularPages -}}
+
+  {{- if eq $sortKey "date" -}}
+    {{- $pages = $pages.ByDate -}}
+  {{- else if eq $sortKey "weight" -}}
+    {{- $pages = $pages.ByWeight -}}
+  {{- else -}}
+    {{- $pages = $pages.ByTitle -}}
+  {{- end -}}
+  {{- if $desc -}}
+    {{- $pages = $pages.Reverse -}}
+  {{- end -}}
+
+  {{- if gt (len $pages) 0 -}}
+    <h3>Pages</h3>
+    <ul class="notes-index notes-index-pages">
+      {{- $j := 0 -}}
+      {{- range $pages -}}
+        {{- if and (gt $limit 0) (ge $j $limit) -}}{{- break -}}{{- end -}}
+        <li class="notes-index-item notes-index-page">
+          <a class="notes-index-link" href="{{ .RelPermalink }}">{{ .Title }}</a>
+          {{- if $showDate -}}
+            {{- with .Date -}} <span class="notes-index-date">— {{ .Format "2006-01-02" }}</span>{{- end -}}
+          {{- end -}}
+
+          {{- if $showSummary -}}
+            {{- $summary := "" -}}
+            {{- with .Params.description -}}
+              {{- $summary = . -}}
+            {{- else -}}
+              {{- with .Summary -}}
+                {{- $summary = . -}}
+              {{- end -}}
+            {{- end -}}
+
+            {{- if $summary -}}
+              <details class="notes-index-details">
+                <summary class="notes-index-summary">Abstract</summary>
+                <div class="notes-index-details-body">{{ $summary | markdownify }}</div>
+              </details>
+            {{- end -}}
+          {{- end -}}
+        </li>
+        {{- $j = add $j 1 -}}
+      {{- end -}}
+    </ul>
+  {{- end -}}
+{{- end -}}

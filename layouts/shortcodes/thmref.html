@@ -1,19 +1,57 @@
-{{- $target := .Get 0 -}}
-{{- $registry := .Page.Store.Get "thm_registry" -}}
-{{- if and $registry (index $registry $target) -}}
-  {{- $entry := index $registry $target -}}
-  {{- $kind := index $entry "kind" -}}
-  {{- $number := index $entry "number" -}}
-  {{- $anchor := index $entry "anchor" -}}
-  {{- $label := $kind -}}
-  {{- if $number -}}
-    {{- $label = printf "%s %v" $kind $number -}}
-  {{- end -}}
-  {{- if $anchor -}}
-    <a class="thm-ref" href="#{{ $anchor }}">{{ $label }}</a>
+{{- /* layouts/shortcodes/thmref.html
+Usage:
+  {{< thmref "lem:foo" >}}
+  {{< thmref id="lem:foo" >}}
+  {{< thmref "lem:foo" fmt="kind-number" >}}
+  {{< thmref "lem:foo" fmt="number" >}}
+  {{< thmref "lem:foo" fmt="kind-number-title" >}}
+
+fmt options:
+  - "kind-number" (default): Lemma 3
+  - "number": 3
+  - "kind-number-title": Lemma 3 (Some title)
+*/ -}}
+
+{{- $id := .Get 0 | default (.Get "id") -}}
+{{- if not $id -}}
+  {{- errorf "thmref: missing id" -}}
+{{- end -}}
+
+{{- $fmt := .Get "fmt" | default "kind-number" -}}
+
+{{- $page := .Page -}}
+{{- $registryKey := printf "thm_registry:%s" $page.RelPermalink -}}
+{{- $registry := default (dict) ($page.Store.Get $registryKey) -}}
+{{- $e := index $registry $id -}}
+{{- if not $e -}}
+  {{- errorf "thmref: id '%s' not found on page %s" $id $page.RelPermalink -}}
+{{- end -}}
+
+{{- $kind := index $e "kind" -}}
+{{- $num := index $e "number" -}}
+{{- $star := index $e "star" -}}
+{{- $anchor := index $e "anchor" -}}
+{{- $title := index $e "title" -}}
+
+{{- $text := "" -}}
+{{- if eq $fmt "number" -}}
+  {{- $text = printf "%v" $num -}}
+{{- else if eq $fmt "kind-number-title" -}}
+  {{- if $star -}}
+    {{- $text = $kind -}}
   {{- else -}}
-    {{- $label -}}
+    {{- $text = printf "%s %v" $kind $num -}}
+  {{- end -}}
+  {{- with $title -}}
+    {{- $text = printf "%s (%s)" $text . -}}
   {{- end -}}
 {{- else -}}
-  [unknown:{{ $target }}]
+  {{- /* kind-number */ -}}
+  {{- if $star -}}
+    {{- $text = $kind -}}
+  {{- else -}}
+    {{- $text = printf "%s %v" $kind $num -}}
+  {{- end -}}
 {{- end -}}
+
+<a class="thm-ref" href="{{ $page.RelPermalink }}#{{ $anchor }}">{{ $text }}</a>

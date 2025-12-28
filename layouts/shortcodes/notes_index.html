@@ -1,36 +1,74 @@
-{{- $sec := site.GetPage "section" "notes" -}}
-{{- if not $sec -}}
-  <p>No notes section found.</p>
-{{- else -}}
-  {{- $pages := where $sec.RegularPages "Draft" "ne" true -}}
-  {{- $pages = where $pages "Params.hidden" "ne" true -}} {{/* 可选：支持 hidden:true */}}
+{{- /* layouts/shortcodes/notes_index.html (CSS-only tabs) */ -}}
 
-  {{- if eq (len $pages) 0 -}}
-    <p>No notes found.</p>
-  {{- else -}}
-    <ul>
-      {{- range $pages.ByDate.Reverse -}}
-        <li style="margin-bottom: .9rem;">
-          <div>
-            <a href="{{ .RelPermalink }}">{{ .Title }}</a>
-            {{- with .Date -}}
-              <span style="opacity:.6;"> — {{ .Format "2006-01-02" }}</span>
-            {{- end -}}
-          </div>
+{{- $root := .Site.GetPage "section" "notes" -}}
+{{- if not $root -}}
+  {{- errorf "notes_index: cannot find section 'notes'" -}}
+{{- end -}}
 
-          {{- with .Params.description -}}
-            <div style="opacity:.8; font-size: 0.95em; margin-top: .2rem;">
-              {{ . }}
-            </div>
-          {{- else -}}
-            {{- with .Summary -}}
-              <div style="opacity:.8; font-size: 0.95em; margin-top: .2rem;">
-                {{ . | plainify | truncate 160 }}
-              </div>
-            {{- end -}}
-          {{- end -}}
+{{- $uid := printf "notesidx-%d" now.UnixNano -}}
+
+<div class="notes-index-switch notes-tabs" data-notes-index>
+
+  <!-- Tabs (CSS only) -->
+  <input class="notes-tabs-input" type="radio" name="{{ $uid }}" id="{{ $uid }}-topic" checked>
+  <label class="notes-tabs-btn" for="{{ $uid }}-topic">By topic</label>
+
+  <input class="notes-tabs-input" type="radio" name="{{ $uid }}" id="{{ $uid }}-date">
+  <label class="notes-tabs-btn" for="{{ $uid }}-date">By date</label>
+
+  <!-- View: topic -->
+  <div class="notes-tabs-view notes-tabs-view-topic">
+
+  <h3 class="notes-index-heading">Topics</h3>
+  <ul class="notes-index notes-index-sections">
+    {{- range $root.Sections.ByTitle -}}
+      <li class="notes-index-item notes-index-section">
+        <a class="notes-index-link" href="{{ .RelPermalink }}">{{ .Title }}</a>
+
+        {{- with .Params.description -}}
+          <details class="notes-index-details">
+            <summary class="notes-index-summary">Overview</summary>
+            <div class="notes-index-details-body">{{ . | markdownify }}</div>
+          </details>
+        {{- end -}}
+      </li>
+    {{- end -}}
+  </ul>
+
+  <h3 class="notes-index-heading">Notes</h3>
+  <ul class="notes-index notes-index-pages">
+    {{- range $root.RegularPages.ByDate.Reverse -}}
+      <li class="notes-index-item notes-index-page">
+        <a class="notes-index-link" href="{{ .RelPermalink }}">{{ .Title }}</a>
+        {{- with .Date -}} <span class="notes-index-date">— {{ .Format "2006-01-02" }}</span>{{- end -}}
+
+        {{- $summary := "" -}}
+        {{- with .Params.description -}}{{- $summary = . -}}
+        {{- else -}}{{- with .Summary -}}{{- $summary = . -}}{{- end -}}{{- end -}}
+
+        {{- if $summary -}}
+          <details class="notes-index-details">
+            <summary class="notes-index-summary">Abstract</summary>
+            <div class="notes-index-details-body">{{ $summary | markdownify }}</div>
+          </details>
+        {{- end -}}
+      </li>
+    {{- end -}}
+  </ul>
+
+</div>
+
+
+  <!-- View: date -->
+  <div class="notes-tabs-view notes-tabs-view-date">
+    <ul class="notes-index notes-index-pages">
+      {{- range $root.RegularPages.ByDate.Reverse -}}
+        <li class="notes-index-item notes-index-page">
+          <a class="notes-index-link" href="{{ .RelPermalink }}">{{ .Title }}</a>
+          {{- with .Date -}} <span class="notes-index-date">— {{ .Format "2006-01-02" }}</span>{{- end -}}
         </li>
       {{- end -}}
     </ul>
-  {{- end -}}
-{{- end -}}
+  </div>
+
+</div>
