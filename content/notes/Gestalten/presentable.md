@@ -707,4 +707,4 @@ $F \colon \mathcal C \to \mathcal D$ be a functor.
     and <strong>Christoph&nbsp;Schrade</strong>.
     <em>Adjoint functor theorems for ∞-categories</em>.
     arXiv:1803.01664, 2018.
-    <a href="https://arxiv.org/abs/1803.016
+    <a href="https://arxiv.org/abs/1803.016">
