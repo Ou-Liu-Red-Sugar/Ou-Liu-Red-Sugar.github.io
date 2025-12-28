@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+
+  <defs>
+    <!-- 灰阶渐变：用于衔接处 -->
+    <linearGradient id="softGray" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#3a3a3a"></stop>
+      <stop offset="100%" stop-color="#1c1c1c"></stop>
+    </linearGradient>
+
+    <!-- mask：定义可见结构 -->
+    <mask id="loMask" maskUnits="userSpaceOnUse">
+      <!-- 默认隐藏 -->
+      <rect x="0" y="0" width="100" height="100" fill="#000"></rect>
+
+      <!-- O：主体粗环 -->
+      <circle cx="55" cy="50" r="34" fill="none" stroke="#fff" stroke-width="12" stroke-linecap="round"></circle>
+
+      <!-- L：几何块 -->
+      <rect x="38" y="28" width="12" height="44" fill="#fff" rx="2"></rect>
+      <rect x="38" y="60" width="30" height="12" fill="#fff" rx="2"></rect>
+
+      <!-- 左侧切口 -->
+      <path d="M33 22
+               C27 32, 24 43, 24 50
+               C24 57, 27 68, 33 78
+               L36 74
+               C31 66, 29 57, 29 50
+               C29 43, 31 34, 36 26
+               Z" fill="#000"></path>
+
+      <!-- 底部斜切 -->
+      <path d="M50 77
+               L66 62
+               L77 73
+               L61 88
+               Z" fill="#000"></path>
+    </mask>
+  </defs>
+
+  <!-- 底色：中性深灰（不是纯黑） -->
+  <rect x="0" y="0" width="100" height="100" fill="#2a2a2a" mask="url(#loMask)"></rect>
+
+  <!-- 渐变层：只在衔接处显现 -->
+  <rect x="0" y="0" width="100" height="100" fill="url(#softGray)" mask="url(#loMask)" opacity="0.35"></rect>
+
+</svg>
