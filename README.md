@@ -1,173 +1,45 @@
-# Ou’s Hugo Notes Converter
+# Academic website and long-form mathematical notes
 
-A deterministic assistant for converting raw mathematical notes into **Hugo-ready academic Markdown**, designed for a **PaperMod + MathJax** workflow.
+This repository contains the source for Ou Liu’s academic homepage and long-term mathematical notes. The site is built with Hugo and the PaperMod theme, and it collects research notes, publications, and supporting tooling for rendering commutative diagrams.
 
-This tool targets **theoretical mathematics notes** and intentionally avoids BibTeX/Pandoc complexity in favor of stable, linkable HTML anchors.
+## Repository structure
 
----
+- `content/` — site content in Markdown:
+  - `notes/` — long-form mathematical notes and seminar materials, indexed through `content/notes/_index.md`.
+  - `papers/` — publication list (`content/papers/_index.md`).
+  - `about.md`, `search.md` — standalone pages.
+- `layouts/` — Hugo templates and shortcodes, including theorem-style blocks (`definition`, `lemma`, `theorem`, `proposition`, `corollary`, `remark`, `construction`, `idea`), proof rendering (`proof.html`), references (`cite.html`, `references.html`, `pageref.html`, `thmref.html`), index helpers (`notes_index.html`, `section_index.html`), diagram helpers (`tikz.html`, `tikzcd.html`, `cdrow.html`), and safe HTML passthroughs.
+- `static/` — static assets served as-is, including custom styles in `static/css/custom.css` and precompiled TikZ-CD SVGs under `static/generated/tikzcd/` with a manifest.
+- `assets/` — Hugo asset pipeline inputs (e.g., additional CSS or images, if present).
+- `themes/PaperMod/` — the PaperMod theme used by the site.
+- `tools/` — helper scripts and resources for diagram generation (`gen_tikzcd.py`, `tools/tikzcd-preamble.tex`).
+- `hugo.yaml` — site-wide configuration (base URL, menus, permalinks, MathJax, and other Hugo settings).
 
-## Motivation
+## Mathematical toolchain
 
-When writing mathematics, much of the friction is editorial rather than mathematical:
+- **Hugo + PaperMod**: Site generation is handled by Hugo with the PaperMod theme configured in `hugo.yaml`.
+- **MathJax v3**: Enabled in `layouts/partials/extend_head.html` with common macros for algebraic notation and citation helpers.
+- **TikZ-CD diagrams**: Diagrams are authored via the `tikzcd` shortcode. Precompiled SVGs live in `static/generated/tikzcd/` with metadata in `static/generated/tikzcd/manifest.json`. The shortcode accepts optional parameters such as `hash`, `alt`, `class`, `width`, and `caption`.
+- **TikZ-CD build script**: `tools/gen_tikzcd.py` scans Markdown for `{{< tikzcd >}}...{{< /tikzcd >}}` or raw `\begin{tikzcd}` blocks, compiles them with LaTeX (`lualatex` by default), converts PDFs to SVG via `dvisvgm`, and updates the manifest.
+- **Custom styling**: Additional CSS in `static/css/custom.css` tunes MathJax rendering and layout for diagrams and notes.
 
-- LaTeX environments do not map cleanly to Hugo.
-- MathJax does not reliably typeset inside collapsible `<details>` blocks.
-- `\cite{...}` + BibTeX is heavy for short notes and fragile on static sites.
-- Formatting inconsistencies accumulate and slow down writing.
+## Build and preview
 
-This GPT removes that friction by enforcing a small, stable set of formatting rules.
+1. Install Hugo (extended) locally.
+2. From the repository root, run `hugo server -D` to start a development server with drafts enabled.
+3. Build the production site with `hugo`; outputs will be placed in `public/`.
 
----
+## TikZ-CD generation workflow
 
-## Scope
+- Existing diagrams are already precompiled and served from `static/generated/tikzcd/`.
+- To update or add diagrams, ensure LaTeX with `lualatex` (or `pdflatex`) and `dvisvgm` are available. Then run:
 
-Designed for:
+  ```bash
+  python3 tools/gen_tikzcd.py
+  ```
 
-- short notes / “other notes” / informal research sketches
-- algebraic geometry, homotopy theory, higher category theory
-- Hugo sites using:
-  - PaperMod
-  - MathJax v3
-  - custom shortcodes: `definition`, `lemma`, `theorem`, `proofc`, `tikzcd`, …
+  Use `--force` to rebuild all diagrams or `--dry-run` to scan without rendering. Generated SVGs and `manifest.json` will be updated in `static/generated/tikzcd/`.
 
-Not intended for:
+## Local math rendering
 
-- LaTeX paper/journal workflows
-- BibTeX / CSL citation pipelines
-- Pandoc-based publishing
-
----
-
-## Core Principles
-
-1. **Determinism over cleverness**  
-   Same input → same structure.
-
-2. **No hidden MathJax magic**  
-   Anything inside `<details>` must not rely on MathJax macros for citations.
-
-3. **Everything linkable**  
-   All citations resolve to stable HTML anchors.
-
-4. **Minimal, academic output**  
-   Clean headings, short paragraphs, stable formatting.
-
----
-
-## What This GPT Does
-
-### 1) Converts LaTeX-style environments
-
-| LaTeX | Hugo Output |
-|------|-------------|
-| `\begin{definition}` | `{{< definition >}}` |
-| `\begin{lemma}` | `{{< lemma >}}` |
-| `\begin{theorem}` | `{{< theorem >}}` |
-| `\begin{proposition}` | `{{< proposition >}}` |
-| `\begin{remark}` | `{{< remark >}}` |
-| `\begin{proof}` | `{{< proofc >}}` |
-
-Optional titles are preserved via `title="..."`.
-
----
-
-### 2) Enforces safe citation syntax
-
-Never outputs:
-
-```tex
-\cite{LurieSAG}
-```
-
-Always outputs:
-
-```markdown
-    {{< cite LurieSAG "Lemma D.3.3.6" >}}
-```
-
-Rendered style:
-
-* ``[LurieSAG]``
-* ``[LurieSAG, Lemma D.3.3.6]``
-Linked to:
-* ``#ref-LurieSAG``
-
-This works inside proofs and collapsible blocks without needing MathJax re-typesetting.
-
-### 3) Normalizes References (stable HTML)
-
-References are always emitted as HTML to avoid Markdown parsing edge cases:
-
-```html
-<ul class="refs">
-  <li id="ref-LurieSAG">
-    <strong>Lurie, Jacob</strong>.
-    <em>Spectral Algebraic Geometry</em>.
-    (2018).
-    <a href="...">PDF</a>.
-  </li>
-</ul>
-```
-
-### 4) Normalizes References (stable HTML)
-All commutative diagrams are emitted as:
-
-```markdown
-{{< tikzcd >}}
-A \ar[r] & B
-{{< /tikzcd >}}
-```
-
-No raw ``\begin{tikzcd}`` remains.
-
-### 5) Produces a single Hugo-ready document
-Output is one Markdown file:
-
-* with front matter (if provided),
-* no commentary,
-* no partial snippets.
-
----
-#### Expected Input
-
-Input may include:
-
-* LaTeX-like environments
-* inline and display math
-* bibliographic hints (e.g. “see Lurie, SAG, Lemma …”)
-* mixed English/Chinese prose
-
-No pre-cleaning required.
-
----
-#### Output Guarantees
-
-Before returning output, the GPT ensures:
-* no ``\cite`` macros remain
-* all citations use ``{{< cite ... >}}``
-* all references have ``id="ref-KEY"``
-* proofs never rely on MathJax for citations
-* output renders correctly after refresh
-
----
-#### Typical Usage
-Prompt:
-| Convert the following notes into a Hugo short note.
-Use ``[KEY, LOCATOR]`` citation style.
-Output a single Markdown file.
-
----
-Recommended Workflow
-1. Write freely (messy LaTeX-like notes are fine).
-2. Paste into this GPT.
-3. Copy output into ``content/notes/...md``.
-4. Run ``hugo server``
-5. Publish.
-
----
-
-
-#### Maintenance Notes
-* MathJax upgrades: still works (citations are HTML anchors).
-* PaperMod CSS changes: references remain stable.
-* New environments: extend the environment mapping in the GPT instructions.
+Math is rendered client-side via MathJax. Collapsible math environments rely on the MathJax configuration in `layouts/partials/extend_head.html`, and custom CSS (`static/css/custom.css`) adjusts display styles for inline and display math.
