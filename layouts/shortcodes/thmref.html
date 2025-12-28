@@ -1,57 +1,90 @@
-{{- /* layouts/shortcodes/thmref.html
-Usage:
-  {{< thmref "lem:foo" >}}
-  {{< thmref id="lem:foo" >}}
-  {{< thmref "lem:foo" fmt="kind-number" >}}
-  {{< thmref "lem:foo" fmt="number" >}}
-  {{< thmref "lem:foo" fmt="kind-number-title" >}}
-
-fmt options:
-  - "kind-number" (default): Lemma 3
-  - "number": 3
-  - "kind-number-title": Lemma 3 (Some title)
-*/ -}}
+{{- /* layouts/shortcodes/thmref.html */ -}}
 
 {{- $id := .Get 0 | default (.Get "id") -}}
 {{- if not $id -}}
   {{- errorf "thmref: missing id" -}}
 {{- end -}}
-
 {{- $fmt := .Get "fmt" | default "kind-number" -}}
 
 {{- $page := .Page -}}
+{{- $inSchema := $page.Scratch.Get "IN_SCHEMA_JSON" -}}
+{{- if $inSchema -}}
+  {{- /* schema_json: keep it inert */ -}}
+  <span class="thm-ref">{{ $id }}</span>
+  {{- return -}}
+{{- end -}}
+
 {{- $registryKey := printf "thm_registry:%s" $page.RelPermalink -}}
+{{- $missingKey  := printf "thm_missing:%s"  $page.RelPermalink -}}
+
 {{- $registry := default (dict) ($page.Store.Get $registryKey) -}}
 {{- $e := index $registry $id -}}
-{{- if not $e -}}
-  {{- errorf "thmref: id '%s' not found on page %s" $id $page.RelPermalink -}}
+
+{{- if $e -}}
+  {{- /* resolved immediately */ -}}
+  {{- $kind := printf "%v" (index $e "kind") -}}
+  {{- $num := printf "%v" (index $e "number") -}}
+  {{- $star := printf "%v" (index $e "star") -}}
+  {{- $anchor := printf "%v" (index $e "anchor") -}}
+  {{- $title := printf "%v" (index $e "title") -}}
+
+  {{- if eq $kind "<nil>" -}}{{- $kind = "Theorem" -}}{{- end -}}
+  {{- if eq $num "<nil>" -}}{{- $num = "" -}}{{- end -}}
+  {{- if eq $anchor "<nil>" -}}{{- $anchor = "" -}}{{- end -}}
+  {{- if eq $title "<nil>" -}}{{- $title = "" -}}{{- end -}}
+
+  {{- $isStar := false -}}
+  {{- if or (eq $star "true") (eq $star "1") (eq $star "True") -}}
+    {{- $isStar = true -}}
+  {{- end -}}
+
+  {{- $text := "" -}}
+  {{- if eq $fmt "number" -}}
+    {{- $text = cond (ne $num "") $num $id -}}
+  {{- else if eq $fmt "kind-number-title" -}}
+    {{- if $isStar -}}
+      {{- $text = $kind -}}
+    {{- else if ne $num "" -}}
+      {{- $text = printf "%v %v" $kind $num -}}
+    {{- else -}}
+      {{- $text = $kind -}}
+    {{- end -}}
+    {{- if ne $title "" -}}
+      {{- $text = printf "%v (%v)" $text $title -}}
+    {{- end -}}
+  {{- else -}}
+    {{- /* kind-number */ -}}
+    {{- if $isStar -}}
+      {{- $text = $kind -}}
+    {{- else if ne $num "" -}}
+      {{- $text = printf "%v %v" $kind $num -}}
+    {{- else -}}
+      {{- $text = $kind -}}
+    {{- end -}}
+  {{- end -}}
+
+  {{- if $anchor -}}
+    <a class="thm-ref" href="{{ $page.RelPermalink }}#{{ $anchor }}">{{ $text }}</a>
+  {{- else -}}
+    <span class="thm-ref">{{ $text }}</span>
+  {{- end -}}
+  {{- return -}}
 {{- end -}}
 
-{{- $kind := index $e "kind" -}}
-{{- $num := index $e "number" -}}
-{{- $star := index $e "star" -}}
-{{- $anchor := index $e "anchor" -}}
-{{- $title := index $e "title" -}}
-
-{{- $text := "" -}}
-{{- if eq $fmt "number" -}}
-  {{- $text = printf "%v" $num -}}
-{{- else if eq $fmt "kind-number-title" -}}
-  {{- if $star -}}
-    {{- $text = $kind -}}
+{{- /* unresolved now: record missing (as map) and emit a pending anchor to be filled by footer JS */ -}}
+{{- $raw := $page.Store.Get $missingKey -}}
+{{- $missing := dict -}}  
+{{- if $raw -}}
+  {{- $t := printf "%T" $raw -}}
+  {{- if hasPrefix $t "map[" -}}
+    {{- $missing = $raw -}}
   {{- else -}}
-    {{- $text = printf "%s %v" $kind $num -}}
-  {{- end -}}
-  {{- with $title -}}
-    {{- $text = printf "%s (%s)" $text . -}}
-  {{- end -}}
-{{- else -}}
-  {{- /* kind-number */ -}}
-  {{- if $star -}}
-    {{- $text = $kind -}}
-  {{- else -}}
-    {{- $text = printf "%s %v" $kind $num -}}
+    {{- $missing = dict (printf "%v" $raw) true -}}
   {{- end -}}
 {{- end -}}
+{{- if not (isset $missing $id) -}}
+  {{- $missing = merge $missing (dict $id true) -}}
+  {{- $page.Store.Set $missingKey $missing -}}
+{{- end -}}
 
-<a class="thm-ref" href="{{ $page.RelPermalink }}#{{ $anchor }}">{{ $text }}</a>
+<a class="thm-ref thm-ref-pending" data-thm-id="{{ $id }}" data-thm-fmt="{{ $fmt }}" href="#"></a>

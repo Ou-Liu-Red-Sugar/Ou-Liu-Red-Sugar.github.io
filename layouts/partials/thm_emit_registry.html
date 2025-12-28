@@ -1,0 +1,65 @@
+{{- /* layouts/partials/thm_emit_registry.html */ -}}
+{{- $page := . -}}
+{{- $registryKey := printf "thm_registry:%s" $page.RelPermalink -}}
+{{- $registry := default (dict) ($page.Store.Get $registryKey) -}}
+
+{{- if gt (len $registry) 0 -}}
+  {{- $json := $registry | jsonify -}}
+
+  <script id="thm-registry" type="application/json">
+  {{- $json | safeHTML -}}
+  </script>
+
+<script>
+var __thm_base = {{ $page.RelPermalink | jsonify }};
+var __thm_reg_el = document.getElementById("thm-registry");
+if (__thm_reg_el) {
+  var __thm_reg = {};
+  try {
+    __thm_reg = JSON.parse(__thm_reg_el.textContent || "{}");
+  } catch (e) {
+    console.error("thm registry JSON parse failed:", e);
+    __thm_reg = {};
+  }
+
+  function __thm_isTrue(v){
+    return v === true || v === "true" || v === 1 || v === "1";
+  }
+
+  function __thm_textFor(e, fmt){
+    var kind = (e && e.kind != null) ? String(e.kind) : "Theorem";
+    var num  = (e && e.number != null) ? String(e.number) : "";
+    var star = e ? __thm_isTrue(e.star) : false;
+    var title = (e && e.title != null) ? String(e.title) : "";
+
+    if (fmt === "number") return num || "";
+    if (fmt === "kind-number-title") {
+      var t = star ? kind : (num ? (kind + " " + num) : kind);
+      if (title) t += " (" + title + ")";
+      return t;
+    }
+    return star ? kind : (num ? (kind + " " + num) : kind);
+  }
+
+  document.querySelectorAll("a.thm-ref-pending[data-thm-id]").forEach(function(a){
+    var id = a.getAttribute("data-thm-id");
+    if (!id) return;
+
+    var fmt = a.getAttribute("data-thm-fmt") || "kind-number";
+    var e = __thm_reg[id];
+    if (!e) return;
+
+    var anchor = (e.anchor != null) ? String(e.anchor) : "";
+    var txt = __thm_textFor(e, fmt) || id;
+
+    a.textContent = txt;
+    a.classList.remove("thm-ref-pending");
+    if (anchor) {
+      a.setAttribute("href", __thm_base + "#" + anchor);
+    }
+  });
+}
+</script>
+
+
+{{- end -}}

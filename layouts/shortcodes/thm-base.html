@@ -1,57 +1,100 @@
-{{- /* Shared renderer for theorem-like environments with numbering and references */ -}}
+{{- /* Shared renderer for theorem-like environments with numbering and references (idempotent) */ -}}
 
 {{- define "thm-block" -}}
   {{- $ctx := .ctx -}}
-  {{- $kind := .kind -}}
   {{- $page := $ctx.Page -}}
   {{- $pageKey := $page.RelPermalink -}}
 
-  {{- $registryKey := printf "thm_registry:%s" $pageKey -}}
-
+  {{- /* stable inputs */ -}}
+  {{- $kind := printf "%v" (.kind | default "Theorem") -}}
   {{- $title := $ctx.Get "title" -}}
-  {{- $idParam := $ctx.Get "id" -}}
+  {{- if $title -}}{{- $title = printf "%v" $title -}}{{- end -}}
 
-  {{- /* NEW: numbering group. Envs that should share numbering use the same group. */ -}}
+  {{- $idParam := $ctx.Get "id" -}}
+  {{- if $idParam -}}{{- $idParam = printf "%v" $idParam -}}{{- end -}}
+
   {{- $group := $ctx.Get "group" | default "main" -}}
+  {{- $group = printf "%v" $group -}}
+
+  {{- /* store keys */ -}}
+  {{- $registryKey := printf "thm_registry:%s" $pageKey -}}
+  {{- $cacheKey := printf "thm_cache:%s" $pageKey -}}
   {{- $counterKey := printf "thm_counter:%s:%s" $pageKey (lower $group) -}}
 
+  {{- /* starred/unnumbered */ -}}
   {{- $star := false -}}
   {{- range $key := slice "star" "starred" "unnumbered" -}}
     {{- with $ctx.Get $key -}}
-      {{- if or (eq . true) (eq (printf "%v" .) "true") -}}
+      {{- $v := printf "%v" . -}}
+      {{- if or (eq $v "true") (eq $v "1") (eq $v "True") -}}
         {{- $star = true -}}
       {{- end -}}
     {{- end -}}
   {{- end -}}
 
+  {{- /* -----------------------------
+       1) Build a stable block key
+       ----------------------------- */ -}}
+  {{- $blockKey := "" -}}
+  {{- if $idParam -}}
+    {{- $blockKey = printf "id:%s" $idParam -}}
+  {{- else -}}
+    {{- /* Fallback: hash of kind/group/title/inner to make it stable across double renders */ -}}
+    {{- $innerKey := $ctx.Inner | plainify -}}
+    {{- $blockKey = printf "auto:%s" (sha1 (printf "%s|%s|%s|%s" $kind $group $title $innerKey)) -}}
+  {{- end -}}
+
+  {{- /* -----------------------------
+       2) Reuse cached assignment if present
+       ----------------------------- */ -}}
+  {{- $cache := default (dict) ($page.Store.Get $cacheKey) -}}
+  {{- $assigned := index $cache $blockKey -}}
+
   {{- $number := "" -}}
-  {{- if not $star -}}
-    {{- $current := default 0 ($page.Store.Get $counterKey) -}}
-    {{- $next := add $current 1 -}}
-    {{- $page.Store.Set $counterKey $next -}}
-    {{- $number = $next -}}
-  {{- end -}}
-
-  {{- $anchorBase := "" -}}
-  {{- if $idParam -}}
-    {{- $anchorBase = $idParam -}}
-  {{- else if and (not $star) $number -}}
-    {{- /* NEW: anchor also reflects group, to avoid collisions across groups */ -}}
-    {{- $anchorBase = printf "%s-%v" (lower $group) $number -}}
-  {{- end -}}
-
   {{- $anchor := "" -}}
-  {{- if $anchorBase -}}
-    {{- $anchor = anchorize $anchorBase -}}
+
+  {{- if $assigned -}}
+    {{- $number = index $assigned "number" -}}
+    {{- $anchor = index $assigned "anchor" -}}
+  {{- else -}}
+    {{- if not $star -}}
+      {{- $current := default 0 ($page.Store.Get $counterKey) -}}
+      {{- $next := add $current 1 -}}
+      {{- $page.Store.Set $counterKey $next -}}
+      {{- $number = $next -}}
+    {{- end -}}
+
+    {{- $anchorBase := "" -}}
+    {{- if $idParam -}}
+      {{- $anchorBase = $idParam -}}
+    {{- else if and (not $star) $number -}}
+      {{- $anchorBase = printf "%s-%v" (lower $group) $number -}}
+    {{- end -}}
+    {{- if $anchorBase -}}
+      {{- $anchor = anchorize (printf "%v" $anchorBase) -}}
+    {{- end -}}
+
+    {{- /* cache assignment for idempotency */ -}}
+    {{- $cache = merge $cache (dict $blockKey (dict "number" $number "anchor" $anchor)) -}}
+    {{- $page.Store.Set $cacheKey $cache -}}
   {{- end -}}
 
-  {{- $registry := default (dict) ($page.Store.Get $registryKey) -}}
+  {{- /* -----------------------------
+       3) Registry for thmref: only when explicit id is given
+       ----------------------------- */ -}}
   {{- if $idParam -}}
-    {{- /* NEW: store group in registry entry (useful for ref rendering) */ -}}
-    {{- $entry := dict "kind" $kind "group" $group "number" $number "star" $star "anchor" $anchor -}}
+    {{- $registry := default (dict) ($page.Store.Get $registryKey) -}}
+    {{- $entry := dict
+        "kind"   $kind
+        "group"  $group
+        "number" $number
+        "star"   $star
+        "anchor" $anchor
+        "title"  $title
+      -}}
     {{- $registry = merge $registry (dict $idParam $entry) -}}
+    {{- $page.Store.Set $registryKey $registry -}}
   {{- end -}}
-  {{- $page.Store.Set $registryKey $registry -}}
 
   <div class="thm-block kind-{{ lower $kind }}{{ if $star }} thm-star{{ end }}{{ if $title }} has-title{{ end }}"{{ if $anchor }} id="{{ $anchor }}"{{ end }}>
     <div class="thm-header">

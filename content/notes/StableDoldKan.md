@@ -175,7 +175,7 @@ Let $\mathcal{C}$ be a stable category. Then there exists an equivalence of cate
 ## Acknowledgements
 
 I would like to express my sincere gratitude to the organizer, Prof. [Marc Hoyois](https://hoyois.app.uni-regensburg.de/index.html), for the opportunity to give this talk at the Goodwillie Calculus Seminar.
-I am also indebted to [Yuchen Wu](https://sites.google.com/view/yuchen-wu/research) for providing the key insight regarding the model-independent proof of Lemma `lem-coinitial`, which greatly clarified the combinatorial arguments.
+I am also indebted to [Yuchen Wu](https://sites.google.com/view/yuchen-wu/research) for providing the key insight regarding the model-independent proof of {{< thmref "lem-coinitial" >}}, which greatly clarified the combinatorial arguments.
 Finally, I thank Gemini for assisting with grammatical corrections and polishing the text.
 
 ---
@@ -226,7 +226,7 @@ Now, by the inductive hypothesis, $W_k$ is weakly contractible. The intersection
 
 Now we apply this to the specific geometry of the simplex category.
 
-{{< lemma id="lem-coinitial" title="Coinitiality of the Injective Slice" >}}
+{{< lemma id="lem-coinitial" >}}
 Let $\Delta^{\operatorname{inj}}$ be the subcategory of $\Delta$ consisting of injective maps. The functor
 \[
 \iota \colon \Delta^{\operatorname{inj}}_{/[n]} \to \Delta_{\leq n}

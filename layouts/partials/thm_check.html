@@ -1,0 +1,33 @@
+{{- /* layouts/partials/thm_check.html */ -}}
+
+{{- $page := . -}}
+{{- $registryKey := printf "thm_registry:%s" $page.RelPermalink -}}
+{{- $missingKey  := printf "thm_missing:%s"  $page.RelPermalink -}}
+
+{{- $registry := default (dict) ($page.Store.Get $registryKey) -}}
+
+{{- $raw := $page.Store.Get $missingKey -}}
+{{- $missing := dict -}}
+
+{{- if $raw -}}
+  {{- $t := printf "%T" $raw -}}
+  {{- if hasPrefix $t "map[" -}}
+    {{- $missing = $raw -}}
+  {{- else -}}
+    {{- /* compat: old scalar */ -}}
+    {{- $missing = dict (printf "%v" $raw) true -}}
+  {{- end -}}
+{{- end -}}
+
+{{- if gt (len $missing) 0 -}}
+  {{- $unresolved := slice -}}
+  {{- range $id, $_ := $missing -}}
+    {{- if not (index $registry $id) -}}
+      {{- $unresolved = append $unresolved $id -}}
+    {{- end -}}
+  {{- end -}}
+
+  {{- if gt (len $unresolved) 0 -}}
+    {{- errorf "thmref: unresolved ids on page %s: %s" $page.RelPermalink (delimit $unresolved ", ") -}}
+  {{- end -}}
+{{- end -}}

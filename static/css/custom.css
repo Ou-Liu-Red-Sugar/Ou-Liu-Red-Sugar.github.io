@@ -313,3 +313,17 @@ details.math-env.proof .qed {
 .citation:hover {
   text-decoration: underline;
 }
+.page-ref {
+  text-decoration: none;
+  font-weight: 500;
+  border-bottom: 1px dotted rgba(0,0,0,0.35);
+}
+
+.page-ref:hover {
+  border-bottom-style: solid;
+}
+
+.thm-ref-pending {
+  opacity: 0.65;
+  text-decoration: underline;
+}
