@@ -4,6 +4,7 @@ theme: "PaperMod"
 languageCode: "en-us"
 defaultContentLanguage: en
 
+
 enableInlineShortcodes: true
 
 # 1) Search needs JSON output on home
@@ -43,7 +44,8 @@ params:
   description: "Academic homepage and notes."
   author: "Ou Liu"
 
-  defaultTheme: auto
+  defaultTheme: light
+  disableThemeToggle: true
   math: true
 
   # 3) Reading experience
