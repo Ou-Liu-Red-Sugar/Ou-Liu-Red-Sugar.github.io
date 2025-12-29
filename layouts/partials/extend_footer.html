@@ -1,2 +1,6 @@
 {{ partial "thm_check.html" .Page }}
 {{ partial "thm_emit_registry.html" .Page }}
+{{- if hugo.IsServer -}}
+  {{- $js := resources.Get "js/scroll-restore.js" | minify | fingerprint -}}
+  <script defer src="{{ $js.RelPermalink }}"></script>
+{{- end -}}

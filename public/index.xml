@@ -9,31 +9,61 @@
     <lastBuildDate>Mon, 29 Dec 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Presentable Categories and Ind-Completion</title>
-      <link>http://localhost:1313/notes/presentable-categories-and-ind-completion/</link>
+      <title>Presentable Categories</title>
+      <link>http://localhost:1313/notes/notes/gestalten/presentable-categories/</link>
       <pubDate>Sun, 28 Dec 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/notes/presentable-categories-and-ind-completion/</guid>
+      <guid>http://localhost:1313/notes/notes/gestalten/presentable-categories/</guid>
       <description>This note reviews the basic theory of presentable categories. We focus on κ-compact objects, Ind-completions, accessible categories, and their role in organizing large categories via filtered colimits.</description>
     </item>
     <item>
       <title>Presentable n-Categories</title>
-      <link>http://localhost:1313/notes/presentable-n-categories/</link>
+      <link>http://localhost:1313/notes/notes/gestalten/presentable-n-categories/</link>
       <pubDate>Mon, 29 Dec 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/notes/presentable-n-categories/</guid>
-      <description>This note introduces the notion of presentable n-categories and constructs the six-functor formalisms on them.</description>
+      <guid>http://localhost:1313/notes/notes/gestalten/presentable-n-categories/</guid>
+      <description>This note introduces the notion of presentable n-categories.</description>
     </item>
     <item>
       <title>Basic Concepts on Higher Algebra</title>
-      <link>http://localhost:1313/notes/basic-concepts-on-higher-algebra/</link>
+      <link>http://localhost:1313/notes/notes/basic-concepts-on-higher-algebra/</link>
       <pubDate>Mon, 22 Sep 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/notes/basic-concepts-on-higher-algebra/</guid>
+      <guid>http://localhost:1313/notes/notes/basic-concepts-on-higher-algebra/</guid>
       <description>This note introduces algebraic patterns and Segal objects, develops operads over algebraic patterns, and studies $\mathcal{O}$-monoidal categories together with $\mathcal{O}$-algebras in the Cartesian setting.</description>
     </item>
     <item>
+      <title>Stefanich Rings</title>
+      <link>http://localhost:1313/notes/notes/gestalten/stefanich-rings/</link>
+      <pubDate>Mon, 29 Dec 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/notes/notes/gestalten/stefanich-rings/</guid>
+      <description>
+This note discuss the colimit of the sequence
+\[
+\mathsf{CAlg}(1\mathsf{Pr})
+\hookrightarrow
+\mathsf{CAlg}(2\mathsf{Pr})
+\hookrightarrow
+\cdots
+\hookrightarrow
+\mathsf{CAlg}(n\mathsf{Pr})
+\hookrightarrow
+\cdots .
+\]
+in $1\mathsf{Pr}$, and discuss the $n$-affine, $n$-proper, $n$-suave and $n$-prim maps.
+</description>
+    </item>
+    <item>
+      <title>Everything Becomes Affine Under Sufficient Categorification</title>
+      <link>http://localhost:1313/notes/notes/gestalten/everything-becomes-affine-under-sufficient-categorification/</link>
+      <pubDate>Mon, 29 Dec 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/notes/notes/gestalten/everything-becomes-affine-under-sufficient-categorification/</guid>
+      <description>
+This note constructs the six-functor formalism on \(n\mathsf{Pr}_{(-)}\), shows that it is sheafy with respect to fpqc topology, and then extends the theory from affine schemes of derived rings to stacks.
+</description>
+    </item>
+    <item>
       <title>Spectral Sequences as Bookkeeping, Not Structure</title>
-      <link>http://localhost:1313/notes/spectral-sequences-as-bookkeeping-not-structure/</link>
+      <link>http://localhost:1313/notes/notes/spectral-sequences-as-bookkeeping-not-structure/</link>
       <pubDate>Sat, 27 Dec 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/notes/spectral-sequences-as-bookkeeping-not-structure/</guid>
+      <guid>http://localhost:1313/notes/notes/spectral-sequences-as-bookkeeping-not-structure/</guid>
       <description>In derived settings, many classical comparisons between Čech and sheaf cohomology are better understood as descent statements. Spectral sequences may organize computations, but they play no structural role in the argument.</description>
     </item>
     <item>
@@ -67,16 +97,16 @@ Lili Liu, Xi Wang, &lt;strong&gt;Ou Liu&lt;/strong&gt;, et al.&lt;br&gt;
     </item>
     <item>
       <title>Six Functor Formalisms: smoothness and suaveness</title>
-      <link>http://localhost:1313/notes/six-functor-formalisms-smoothness-and-suaveness/</link>
+      <link>http://localhost:1313/notes/notes/six-functor-formalisms-smoothness-and-suaveness/</link>
       <pubDate>Wed, 24 Dec 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/notes/six-functor-formalisms-smoothness-and-suaveness/</guid>
+      <guid>http://localhost:1313/notes/notes/six-functor-formalisms-smoothness-and-suaveness/</guid>
       <description>We reinterpret D-smooth morphisms in a six functor formalism via the 2-category of kernel associated to a slice geometry. Using Fourier–Mukai kernels to encode functors, smoothness is characterized by left adjointness at the kernel level, yielding automatic base change compatibility. Suaveness is then obtained by imposing invertibility of the dualizing complex as an additional, independent condition.</description>
     </item>
     <item>
       <title>Synthetic category theory and type theory</title>
-      <link>http://localhost:1313/notes/synthetic-category-theory-and-type-theory/</link>
+      <link>http://localhost:1313/notes/notes/synthetic-category-theory-and-type-theory/</link>
       <pubDate>Wed, 24 Dec 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/notes/synthetic-category-theory-and-type-theory/</guid>
+      <guid>http://localhost:1313/notes/notes/synthetic-category-theory-and-type-theory/</guid>
       <description>&lt;p&gt;This page aims to explain how &lt;strong&gt;type theory&lt;/strong&gt; can be understood within the framework of &lt;strong&gt;synthetic category theory&lt;/strong&gt;.&lt;/p&gt;
 &lt;p&gt;The content of this page is derived from my questions to Tashi during the second exercise class and Tashi’s responses. I would like to express my gratitude to Tashi here.&lt;/p&gt;
 &lt;p&gt;We focus on the following two questions:&lt;/p&gt;
@@ -88,9 +118,9 @@ Lili Liu, Xi Wang, &lt;strong&gt;Ou Liu&lt;/strong&gt;, et al.&lt;br&gt;
     </item>
     <item>
       <title>Stable Dold–Kan and Descent</title>
-      <link>http://localhost:1313/notes/stable-doldkan-and-descent/</link>
+      <link>http://localhost:1313/notes/notes/stable-doldkan-and-descent/</link>
       <pubDate>Thu, 27 Nov 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/notes/stable-doldkan-and-descent/</guid>
+      <guid>http://localhost:1313/notes/notes/stable-doldkan-and-descent/</guid>
       <description>Unified exposition of the stable Dold–Kan correspondence and its application to descent theory in stable categories.</description>
     </item>
   </channel>

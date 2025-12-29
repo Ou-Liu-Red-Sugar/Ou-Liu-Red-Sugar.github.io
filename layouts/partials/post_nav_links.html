@@ -1,0 +1,28 @@
+{{- $prev := .NextInSection -}}
+{{- $next := .PrevInSection -}}
+
+{{- /* Skip section nodes like _index.md */ -}}
+{{- if and $prev $prev.IsNode -}}
+  {{- $prev = $prev.PrevInSection -}}
+{{- end -}}
+{{- if and $next $next.IsNode -}}
+  {{- $next = $next.NextInSection -}}
+{{- end -}}
+
+{{- if or $prev $next -}}
+<nav class="paginav">
+  {{- with $prev -}}
+  <a class="prev" href="{{ .RelPermalink }}">
+    <span class="title">← {{ .Title }}</span>
+  </a>
+  {{- end -}}
+
+  <span class="paginav-center">{{ $.CurrentSection.Title }}</span>
+
+  {{- with $next -}}
+  <a class="next" href="{{ .RelPermalink }}">
+    <span class="title">{{ .Title }} →</span>
+  </a>
+  {{- end -}}
+</nav>
+{{- end -}}

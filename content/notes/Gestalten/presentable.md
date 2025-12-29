@@ -1,5 +1,5 @@
 ---
-title: "Presentable Categories and Ind-Completion"
+title: "Presentable Categories"
 date: 2025-12-28
 tags:
   - Presentable Catgeory

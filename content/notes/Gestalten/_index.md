@@ -2,6 +2,10 @@
 title: "Gestalten"
 draft: false
 math: true
+menu:
+  main:
+    parent: "notes"
+    weight: 15
 description: >
   Notes on Gestalten and higher-categorical geometry following Scholze's Geometry and Higher Category Theory.
 ---

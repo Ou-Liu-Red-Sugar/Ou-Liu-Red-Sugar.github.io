@@ -1,0 +1,77 @@
+{{- /* layouts/_default/single.html
+      A minimal PaperMod-compatible single template that:
+      - shows breadcrumbs at the top (if you created partial "breadcrumbs.html")
+      - moves Prev/Next (post_nav_links) to the top (and removes it from bottom)
+      - keeps PaperMod class names so CSS continues to work
+*/ -}}
+
+{{- define "main" -}}
+<article class="post-single">
+
+  {{- /* Breadcrumbs (you add/maintain layouts/partials/breadcrumbs.html) */ -}}
+  {{- partial "breadcrumbs.html" . -}}
+
+  {{- /* Top navigation: Prev / Next within section */ -}}
+  {{- if (.Param "ShowPostNavLinks") -}}
+    {{- partial "post_nav_links.html" . -}}
+  {{- end -}}
+
+  <header class="post-header">
+    <h1 class="post-title">{{ .Title }}</h1>
+
+    {{- with .Description -}}
+      <div class="post-description">{{ . }}</div>
+    {{- end -}}
+
+    {{- /* Use PaperMod's meta partial if it exists; otherwise fall back */ -}}
+    {{- if (templates.Exists "partials/post_meta.html") -}}
+      {{- partial "post_meta.html" . -}}
+    {{- else -}}
+      <div class="post-meta">
+        {{- with .Date -}}{{ .Format "2006-01-02" }}{{- end -}}
+        {{- with .ReadingTime -}} · {{ . }} min{{- end -}}
+      </div>
+    {{- end -}}
+  </header>
+
+  {{- /* Table of contents (PaperMod-style) */ -}}
+  {{- if and (.Param "ShowToc") (not .Params.disableToc) -}}
+    {{- $toc := .TableOfContents -}}
+    {{- if and $toc (ne $toc "<nav id=\"TableOfContents\"></nav>") -}}
+      <details class="toc" {{ if (.Param "TocOpen") }}open{{ end }}>
+        <summary>
+          <span class="details">{{ i18n "toc" | default "Table of Contents" }}</span>
+        </summary>
+        <div class="inner">
+          {{ $toc }}
+        </div>
+      </details>
+    {{- end -}}
+  {{- end -}}
+
+  <div class="post-content">
+    {{ .Content }}
+  </div>
+
+  <footer class="post-footer">
+    {{- /* PaperMod footer (tags, share, etc.) if present */ -}}
+    {{- if (templates.Exists "partials/post_footer.html") -}}
+      {{- partial "post_footer.html" . -}}
+    {{- else -}}
+      {{- with .Params.tags -}}
+        <ul class="post-tags">
+          {{- range . -}}
+            <li><a href="{{ (printf "tags/%s/" (. | urlize)) | relURL }}">{{ . }}</a></li>
+          {{- end -}}
+        </ul>
+      {{- end -}}
+    {{- end -}}
+
+    {{- /* Comments */ -}}
+    {{- if and (.Param "comments") (templates.Exists "partials/comments.html") -}}
+      {{- partial "comments.html" . -}}
+    {{- end -}}
+  </footer>
+
+</article>
+{{- end -}}

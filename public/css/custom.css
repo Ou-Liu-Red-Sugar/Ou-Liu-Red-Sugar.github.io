@@ -1,333 +1,460 @@
 /* =========================================================
-   TeX-like typography & page tone
+   Ou Liu — PaperMod custom.css (TeX-like academic tone)
+   - Single source of truth (deduped)
+   - Stable overrides for PaperMod components
    ========================================================= */
 
-:root {
-    --paper-bg: #f7f5ee;
-    --ink: #141210;
-    --muted-ink: #3c3a38;
-    --math-bg: #fdfcf8;
+/* =========================
+   0) Design tokens
+   ========================= */
+:root{
+  --paper-bg: #f7f5ee;
+  --paper-bg-2: rgba(0,0,0,0.03);
+  --ink: #141210;
+  --muted-ink: #3c3a38;
+
+  --panel-bg: rgba(255,255,255,0.65);
+  --panel-bg-hover: rgba(255,255,255,0.90);
+
+  --math-bg: #fdfcf8;
+
+  --border: rgba(0,0,0,0.14);
+  --border-soft: rgba(0,0,0,0.10);
+  --border-hover: rgba(0,0,0,0.18);
+
+  --accent: #1a5fb4; /* links / citations */
 }
 
-body {
-    background: var(--paper-bg);
-    color: var(--ink);
-    font-family: "Latin Modern Roman", "CMU Serif", "STIX Two Text", "Times New Roman", serif;
-    line-height: 1.7;
-    text-rendering: optimizeLegibility;
+/* =========================
+   1) Page tone & typography
+   ========================= */
+body{
+  background: var(--paper-bg);
+  color: var(--ink);
+  font-family: "Latin Modern Roman","CMU Serif","STIX Two Text","Times New Roman",serif;
+  line-height: 1.7;
+  text-rendering: optimizeLegibility;
 }
 
-main,
-.content {
-    background: transparent;
-}
+main, .content{ background: transparent; }
 
 .post-content p,
-.post-content li {
-    font-size: 1.02rem;
-    color: var(--muted-ink);
+.post-content li{
+  font-size: 1.02rem;
+  color: var(--muted-ink);
 }
 
 .post-content h1,
 .post-content h2,
 .post-content h3,
-.post-content h4 {
-    font-family: "Latin Modern Roman", "CMU Serif", "STIX Two Text", serif;
-    font-weight: 600;
-    color: var(--ink);
-    margin-top: 1.4em;
+.post-content h4{
+  font-family: "Latin Modern Roman","CMU Serif","STIX Two Text",serif;
+  font-weight: 600;
+  color: var(--ink);
+  margin-top: 1.4em;
 }
 
-pre,
-code {
-    font-family: "Fira Code", "JetBrains Mono", "CMU Typewriter Text", monospace;
+/* Code */
+pre, code{
+  font-family: "Fira Code","JetBrains Mono","CMU Typewriter Text",monospace;
+}
+pre{
+  background: #f2efe6;
+  border: 1px solid #e0dbcf;
 }
 
-pre {
-    background: #f2efe6;
-    border: 1px solid #e0dbcf;
+/* Tables (PaperMod uses --border in theme; we provide our own token too) */
+table{
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
 }
 
-
-/* =========================================================
-   MathJax / KaTeX
-   ========================================================= */
-
-.mjx-chtml {
-    font-family: "Latin Modern Math", "CMU Serif", serif !important;
+/* =========================
+   2) MathJax / KaTeX
+   ========================= */
+.mjx-chtml{
+  font-family: "Latin Modern Math","CMU Serif",serif !important;
 }
 
-.mjx-chtml.MathJax_Display {
-    padding: 0.75em 1em;
-    background: var(--math-bg);
-    border: 1px solid #e6e1d5;
-    border-radius: 6px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.03);
-    margin: 1.2em 0;
+.mjx-chtml.MathJax_Display{
+  padding: 0.75em 1em;
+  background: var(--math-bg);
+  border: 1px solid rgba(0,0,0,0.10);
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.03);
+  margin: 1.2em 0;
 }
 
-
-/* =========================================================
-   Theorem / math environments
-   ========================================================= */
-
-.math-env {
-    margin: 1.5em 0;
-    padding: 0.8em 1.2em;
-    border-left: 3px solid #ccc;
-    background-color: #fcfcfc;
-    border-radius: 0 4px 4px 0;
-    line-height: 1.6;
+/* =========================
+   3) Theorem / math environments
+   ========================= */
+.math-env,
+.thm-block{
+  margin: 1.5em 0;
+  padding: 0.8em 1.2em;
+  border-left: 3px solid rgba(0,0,0,0.22);
+  background: rgba(255,255,255,0.55);
+  border-radius: 0 6px 6px 0;
+  line-height: 1.6;
 }
 
+/* Variants */
 .math-env.theorem,
-.math-env.corollary {
-    border-left-color: #4a4a4a;
-    background-color: #f7f7f7;
+.math-env.corollary,
+.thm-block.kind-theorem,
+.thm-block.kind-corollary{
+  border-left-color: rgba(0,0,0,0.55);
+  background: rgba(0,0,0,0.03);
 }
 
 .math-env.definition,
-.math-env.remark {
-    border-left-color: #008080;
-    background-color: #f4fcfc;
+.math-env.remark,
+.thm-block.kind-definition{
+  border-left-color: rgba(0,128,128,0.70);
+  background: rgba(0,128,128,0.06);
 }
 
 .math-env.proposition,
-.math-env.lemma {
-    border-left-color: #2b5d8a;
-    background-color: #f0f7fb;
-}
-
-.math-env.idea {
-    border-left-color: #9b59b6;
-    background-color: #fbf6fd;
-}
-
-.math-env.proof {
-    border-left-color: #a0a0a0;
-    background-color: transparent;
-    padding-left: 1em;
-}
-
-.env-title {
-    font-family: serif;
-    font-style: italic;
-    font-weight: normal;
-    margin-bottom: 0.5em;
-    color: #222;
-    display: block;
-}
-
-.thm-block {
-    margin: 1.5em 0;
-    padding: 0.8em 1.2em;
-    border-left: 3px solid #ccc;
-    background-color: #fcfcfc;
-    border-radius: 0 4px 4px 0;
-    line-height: 1.6;
-}
-
-.thm-block.kind-theorem,
-.thm-block.kind-corollary {
-    border-left-color: #4a4a4a;
-    background-color: #f7f7f7;
-}
-
-.thm-block.kind-definition {
-    border-left-color: #008080;
-    background-color: #f4fcfc;
-}
-
+.math-env.lemma,
 .thm-block.kind-proposition,
-.thm-block.kind-lemma {
-    border-left-color: #2b5d8a;
-    background-color: #f0f7fb;
+.thm-block.kind-lemma{
+  border-left-color: rgba(43,93,138,0.75);
+  background: rgba(43,93,138,0.07);
 }
 
-/* Title line */
-.thm-header { margin-bottom: 0.5em; }
-
-.thm-title {
-    font-family: serif;
-    font-style: italic;
-    font-weight: normal;
-    color: #222;
-    display: inline;
+.math-env.idea{
+  border-left-color: rgba(155,89,182,0.70);
+  background: rgba(155,89,182,0.06);
 }
 
-
-/* =========================================================
-   TikZ-CD / commutative diagrams (SVG)
-   ========================================================= */
-
-/* Every tikzcd diagram: centered by default */
-.tikzcd-fig {
-    display: block;
-    width: fit-content;
-    max-width: 100%;
-    margin: 1.2em auto;
-    text-align: center;
+/* Proof baseline (container) */
+.math-env.proof{
+  border-left-color: rgba(0,0,0,0.22);
+  background: transparent;
+  padding-left: 1em;
 }
 
-/* The SVG image itself */
-.tikzcd-fig .tikzcd-img {
-    display: block;
-    margin: 0 auto;
-    max-width: 100%;
-    height: auto;
-    filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.08));
+/* Titles */
+.env-title,
+.thm-title{
+  font-family: serif;
+  font-style: italic;
+  font-weight: normal;
+  color: rgba(0,0,0,0.85);
 }
 
-/* Caption stays centered */
-.tikzcd-fig figcaption {
-    margin-top: 0.4em;
-    font-size: 0.95rem;
-    color: var(--muted-ink);
-}
+.thm-header{ margin-bottom: 0.5em; }
 
+/* =========================
+   4) Collapsible Proof (details/summary) — single frame only
+   ========================= */
 
-/* =========================================================
-   Side-by-side diagrams (⇔, ≃, etc.)
-   ========================================================= */
-
-.cdrow {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 1.2rem;
-    flex-wrap: nowrap;
-    margin: 1.2em 0;
-}
-
-/* Allow wrap only on narrow screens */
-@media (max-width: 900px) {
-    .cdrow {
-        flex-wrap: wrap;
-    }
-}
-
-/* Let flex control spacing */
-.cdrow .tikzcd-fig {
-    margin: 0;
-    width: auto;
-}
-
-/* Separator between diagrams */
-.cdrow .cdsep {
-    font-size: 1.3em;
-    line-height: 1;
-    padding: 0 0.25rem;
-    white-space: nowrap;
-}
-
-
-/* =========================================================
-   Citations / references
-   ========================================================= */
-
-.citation a {
-    color: inherit;
-    text-decoration: none;
-    border-bottom: 1px dotted #666;
-}
-
-.citation a:hover {
-    color: #000;
-    border-bottom-color: #000;
-}
-
-.reference-entry {
-    display: flex;
-    gap: 0.6em;
-    margin: 0.45em 0;
-    line-height: 1.5;
-}
-
-.reference-label {
-    min-width: 4.5em;
-    font-family: "Latin Modern Roman", "CMU Serif", serif;
-    font-weight: 600;
-}
-
-.reference-body {
-    color: var(--muted-ink);
-}
-/* ===== Proof: remove double frames + kill native marker ===== */
-
-/* 1) 不让 details 这一层再画边框/再做缩进（避免外层那条线） */
-details.math-env.proof {
+/* Do not draw outer frame on the <details> itself */
+details.math-env.proof{
   border-left: none !important;
   padding-left: 0 !important;
   background: transparent !important;
   margin: 1em 0;
 }
 
-/* 2) summary：彻底干掉浏览器默认三角，并使用自定义箭头 */
-details.math-env.proof > summary.env-title {
+/* Summary: kill native marker and use custom arrow */
+details.math-env.proof > summary.env-title{
   display: block;
   cursor: pointer;
   list-style: none;
   position: relative;
-  padding-left: 1.1em;   /* 给自定义箭头留空间 */
+  padding-left: 1.1em;
   margin: 0;
 }
 
-/* kill native markers */
-details.math-env.proof > summary.env-title::-webkit-details-marker { display: none; }
-details.math-env.proof > summary.env-title::marker { content: ""; }
+details.math-env.proof > summary.env-title::-webkit-details-marker{ display:none; }
+details.math-env.proof > summary.env-title::marker{ content:""; }
 
-/* custom arrow */
-details.math-env.proof > summary.env-title::before {
+details.math-env.proof > summary.env-title::before{
   content: "▸";
   position: absolute;
   left: 0;
   top: 0.05em;
   font-size: 0.85em;
-  color: #888;
+  color: rgba(0,0,0,0.45);
   transition: transform 0.15s ease;
 }
-details.math-env.proof[open] > summary.env-title::before {
+details.math-env.proof[open] > summary.env-title::before{
   transform: rotate(90deg);
 }
 
-/* 3) 只在内容区画“唯一的那条线”（避免内外两条线并存） */
-details.math-env.proof > .env-content {
-  border-left: 2px solid #c0c0c0;
+/* Content: draw the only vertical bar */
+details.math-env.proof > .env-content{
+  border-left: 2px solid rgba(0,0,0,0.22);
   padding-left: 1em;
   margin-top: 0.5em;
   background: transparent;
 }
 
-/* 4) QED 位置 */
-details.math-env.proof .qed {
+/* QED */
+details.math-env.proof .qed{
   float: right;
   margin-left: 1em;
-  color: #555;
+  color: rgba(0,0,0,0.65);
 }
-.citation {
-  color: #1a5fb4;
+
+/* =========================
+   5) TikZ-CD / diagrams (SVG)
+   ========================= */
+.tikzcd-fig{
+  display: block;
+  width: fit-content;
+  max-width: 100%;
+  margin: 1.2em auto;
+  text-align: center;
+}
+
+.tikzcd-fig .tikzcd-img{
+  display: block;
+  margin: 0 auto;
+  max-width: 100%;
+  height: auto;
+  filter: drop-shadow(0 1px 2px rgba(0,0,0,0.08));
+}
+
+.tikzcd-fig figcaption{
+  margin-top: 0.4em;
+  font-size: 0.95rem;
+  color: var(--muted-ink);
+}
+
+/* Side-by-side rows */
+.cdrow{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.2rem;
+  flex-wrap: nowrap;
+  margin: 1.2em 0;
+}
+
+@media (max-width: 900px){
+  .cdrow{ flex-wrap: wrap; }
+}
+
+.cdrow .tikzcd-fig{
+  margin: 0;
+  width: auto;
+}
+
+.cdrow .cdsep{
+  font-size: 1.3em;
+  line-height: 1;
+  padding: 0 0.25rem;
+  white-space: nowrap;
+}
+
+/* =========================
+   6) Citations / references
+   ========================= */
+
+/* Inline citations (your shortcode emits .citation) */
+.citation{
+  color: var(--accent);
   text-decoration: none;
   font-weight: 500;
 }
+.citation:hover{ text-decoration: underline; }
 
-.citation:hover {
-  text-decoration: underline;
-}
-.page-ref {
+/* Page references */
+.page-ref{
   text-decoration: none;
   font-weight: 500;
   border-bottom: 1px dotted rgba(0,0,0,0.35);
 }
+.page-ref:hover{ border-bottom-style: solid; }
 
-.page-ref:hover {
-  border-bottom-style: solid;
-}
-
-.thm-ref-pending {
+/* Pending theorem refs */
+.thm-ref-pending{
   opacity: 0.65;
   text-decoration: underline;
 }
-table {
-  border-top: 1px solid var(--border);
-  border-bottom: 1px solid var(--border);
+
+/* If you have list-style references with these classes */
+.reference-entry{
+  display: flex;
+  gap: 0.6em;
+  margin: 0.45em 0;
+  line-height: 1.5;
+}
+.reference-label{
+  min-width: 4.5em;
+  font-family: "Latin Modern Roman","CMU Serif",serif;
+  font-weight: 600;
+}
+.reference-body{ color: var(--muted-ink); }
+
+/* =========================
+   7) Top Prev/Next navigation (PaperMod)
+   ========================= */
+
+/* Robust: supports both nav.paginav and nav.post-nav-links */
+.post-single nav.paginav,
+.post-single nav.post-nav-links{
+  display: flex !important;
+  align-items: stretch;
+  gap: 12px;
+
+  margin: 0 0 1.25rem 0 !important;
+  padding: 10px 12px;
+
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: var(--paper-bg-2);
+}
+
+.post-single nav.paginav a,
+.post-single nav.post-nav-links a{
+  flex: 1 1 0;
+  padding: 10px 12px;
+
+  border-radius: 12px;
+  text-decoration: none;
+
+  border: 1px solid var(--border-soft);
+  background: var(--panel-bg);
+
+  transition: transform 120ms ease, background 120ms ease, border-color 120ms ease;
+}
+
+.post-single nav.paginav a.prev,
+.post-single nav.post-nav-links a.prev{ text-align: left; }
+
+.post-single nav.paginav a.next,
+.post-single nav.post-nav-links a.next{ text-align: right; }
+
+.post-single nav.paginav a .title,
+.post-single nav.post-nav-links a .title{
+  display: inline-block;
+  font-size: 0.92rem;
+  letter-spacing: 0.01em;
+  text-transform: none !important;
+  color: rgba(0,0,0,0.78);
+}
+
+.post-single nav.paginav a:hover,
+.post-single nav.post-nav-links a:hover{
+  background: var(--panel-bg-hover);
+  border-color: var(--border-hover);
+  transform: translateY(-1px);
+}
+
+.post-single nav.paginav a:focus-visible,
+.post-single nav.post-nav-links a:focus-visible{
+  outline: 2px solid rgba(26,95,180,0.45);
+  outline-offset: 2px;
+}
+
+@media (max-width: 560px){
+  .post-single nav.paginav,
+  .post-single nav.post-nav-links{
+    flex-direction: column !important;
+  }
+  .post-single nav.paginav a.next,
+  .post-single nav.post-nav-links a.next{
+    text-align: left;
+  }
+}
+/* =========================================================
+   Top Prev/Next (PaperMod) — compact + centered + label
+   ========================================================= */
+
+.post-single nav.paginav {
+  /* follow text column, not full page */
+  max-width: 640px;
+  margin: 0 auto 1.15rem auto !important;
+
+  display: flex !important;
+  align-items: stretch;
+  gap: 12px;
+
+  padding: 8px 10px;
+  border: 1px solid rgba(0,0,0,0.12);
+  border-radius: 14px;
+  background: rgba(0,0,0,0.02);
+}
+
+.post-single nav.paginav a {
+  flex: 1 1 0;
+  padding: 10px 12px;
+
+  border-radius: 12px;
+  text-decoration: none;
+
+  border: 1px solid rgba(0,0,0,0.10);
+  background: rgba(255,255,255,0.70);
+
+  transition: transform 120ms ease, background 120ms ease, border-color 120ms ease;
+}
+
+.post-single nav.paginav a.prev { text-align: left; }
+.post-single nav.paginav a.next { text-align: right; }
+
+.post-single nav.paginav a .title {
+  display: inline-block;
+  font-size: 0.92rem;
+  letter-spacing: 0.01em;
+  text-transform: none !important;
+  color: rgba(0,0,0,0.78);
+}
+
+/* center label */
+.post-single nav.paginav .paginav-center {
+  align-self: center;
+  flex: 0 0 auto;
+
+  font-size: 0.78rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+
+  color: rgba(0,0,0,0.45);
+  padding: 0 0.7rem;
+  white-space: nowrap;
+}
+
+/* IMPORTANT: vertical centering on ALL screen sizes */
+.post-single nav.paginav {
+  display: flex !important;
+  align-items: center !important;
+  gap: 12px;
+}
+
+/* (optional but recommended) center text inside each button too */
+.post-single nav.paginav a {
+  display: flex;
+  align-items: center;
+}
+
+/* hover/focus */
+.post-single nav.paginav a:hover {
+  background: rgba(255,255,255,0.92);
+  border-color: rgba(0,0,0,0.18);
+  transform: translateY(-1px);
+}
+
+.post-single nav.paginav a:focus-visible {
+  outline: 2px solid rgba(26,95,180,0.45);
+  outline-offset: 2px;
+}
+
+/* mobile: stack; hide center label */
+@media (max-width: 560px) {
+  .post-single nav.paginav {
+    flex-direction: column !important;
+    align-items: stretch !important; /* stack 时更自然 */
+  }
+
+  .post-single nav.paginav a.next,
+  .post-single nav.paginav a.prev {
+    text-align: left;
+  }
+
+  .post-single nav.paginav .paginav-center {
+    display: none;
+  }
 }

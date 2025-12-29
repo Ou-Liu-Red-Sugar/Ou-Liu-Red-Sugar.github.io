@@ -16,8 +16,9 @@ outputs:
 
 # 4) Clean permalinks for sections
 permalinks:
-  notes: /notes/:slug/
+  notes: /notes/:sections/:slug/
   papers: /papers/:slug/
+
 
 menu:
   main:
@@ -43,7 +44,7 @@ params:
   env: production
   description: "Academic homepage and notes."
   author: "Ou Liu"
-
+  ShowPostNavLinks: true
   defaultTheme: light
   disableThemeToggle: true
   math: true
