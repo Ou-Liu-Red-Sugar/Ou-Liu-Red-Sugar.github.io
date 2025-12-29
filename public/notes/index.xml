@@ -9,6 +9,13 @@
     <lastBuildDate>Sat, 27 Dec 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/notes/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>Basic Concepts on Higher Algebra</title>
+      <link>http://localhost:1313/notes/basic-concepts-on-higher-algebra/</link>
+      <pubDate>Mon, 22 Sep 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/notes/basic-concepts-on-higher-algebra/</guid>
+      <description>This note introduces algebraic patterns and Segal objects, develops operads over algebraic patterns, and studies $\mathcal{O}$-monoidal categories together with $\mathcal{O}$-algebras in the Cartesian setting.</description>
+    </item>
+    <item>
       <title>Spectral Sequences as Bookkeeping, Not Structure</title>
       <link>http://localhost:1313/notes/spectral-sequences-as-bookkeeping-not-structure/</link>
       <pubDate>Sat, 27 Dec 2025 00:00:00 +0000</pubDate>

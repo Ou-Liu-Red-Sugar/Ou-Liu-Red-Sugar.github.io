@@ -12,6 +12,11 @@
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
+    <loc>http://localhost:1313/notes/basic-concepts-on-higher-algebra/</loc>
+    <lastmod>2025-09-22T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
     <loc>http://localhost:1313/categories/</loc>
     <lastmod>2025-12-29T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -129,6 +134,21 @@
   </url><url>
     <loc>http://localhost:1313/notes/stable-doldkan-and-descent/</loc>
     <lastmod>2025-11-27T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>http://localhost:1313/tags/algebraic-pattern/</loc>
+    <lastmod>2025-09-22T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>http://localhost:1313/tags/monoidal-category/</loc>
+    <lastmod>2025-09-22T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>http://localhost:1313/tags/operad/</loc>
+    <lastmod>2025-09-22T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>

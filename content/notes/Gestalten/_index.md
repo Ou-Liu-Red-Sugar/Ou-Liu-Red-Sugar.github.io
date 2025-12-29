@@ -20,6 +20,8 @@ This setup aims to unify different flavors of geometry — algebraic, analytic, 
 The material here is developed progressively, beginning with presentable categories and their κ-compact generation, moving through six-functor formalism and Stefanich rings, and culminating in the construction and study of Gestalten.
 
 ---
+For background material from higher algebra that will be used throughout these notes — including algebraic patterns, operads, $\mathcal{O}$-monoidal categories, and $\mathcal{O}$-algebras — see
+{{< pageref "notes/HA.md" "Basic Concepts on Higher Algebra" >}}.
 
 ## Contents
 
