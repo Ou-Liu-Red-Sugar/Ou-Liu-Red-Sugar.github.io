@@ -404,18 +404,23 @@ details.math-env.proof .qed{
 }
 
 /* center label */
-.post-single nav.paginav .paginav-center {
-  align-self: center;
-  flex: 0 0 auto;
+/* ===== Fix ugly center label on desktop: no wrap, ellipsis, compact ===== */
+.post-single nav.paginav .paginav-center{
+  white-space: nowrap !important;
+  overflow: hidden;
+  text-overflow: ellipsis;
 
-  font-size: 0.78rem;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
+  /* do NOT let it steal width */
+  max-width: 10rem;              /* 可调：8rem / 12rem */
+  flex: 0 1 auto;
 
-  color: rgba(0,0,0,0.45);
-  padding: 0 0.7rem;
-  white-space: nowrap;
+  /* visually lighter */
+  border: none;
+  padding: 0 0.6rem;
+  margin: 0;
+  line-height: 1.2;
 }
+
 
 /* IMPORTANT: vertical centering on ALL screen sizes */
 .post-single nav.paginav {
