@@ -444,17 +444,34 @@ details.math-env.proof .qed{
 
 /* mobile: stack; hide center label */
 @media (max-width: 560px) {
-  .post-single nav.paginav {
+  .post-single nav.paginav{
     flex-direction: column !important;
-    align-items: stretch !important; /* stack 时更自然 */
+    align-items: stretch !important;
+    width: 100%;
+    max-width: calc(100% - 1.2rem);
+  }
+
+  .post-single nav.paginav a{
+    width: 100%;
+    justify-content: flex-start;
   }
 
   .post-single nav.paginav a.next,
-  .post-single nav.paginav a.prev {
-    text-align: left;
+  .post-single nav.paginav a.prev{
+    text-align: left !important;
   }
 
-  .post-single nav.paginav .paginav-center {
-    display: none;
+  /* show the section label on its own line */
+  .post-single nav.paginav .paginav-center{
+    order: 2;                     /* prev -> label -> next */
+    display: block;
+    text-align: center;
+    padding: 0.35rem 0;
+    margin: 0.2rem 0;
+    border-top: 1px solid rgba(0,0,0,0.10);
+    border-bottom: 1px solid rgba(0,0,0,0.10);
   }
+
+  .post-single nav.paginav a.prev{ order: 1; }
+  .post-single nav.paginav a.next{ order: 3; }
 }
