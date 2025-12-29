@@ -9,38 +9,10 @@
     <lastBuildDate>Mon, 29 Dec 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Algebraic Pattern</title>
-      <link>http://localhost:1313/tags/algebraic-pattern/</link>
-      <pubDate>Mon, 29 Dec 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/algebraic-pattern/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Higher Algebra</title>
-      <link>http://localhost:1313/tags/higher-algebra/</link>
-      <pubDate>Mon, 29 Dec 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/higher-algebra/</guid>
-      <description></description>
-    </item>
-    <item>
       <title>Higher Category Theory</title>
       <link>http://localhost:1313/tags/higher-category-theory/</link>
       <pubDate>Mon, 29 Dec 2025 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/tags/higher-category-theory/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Monoidal Category</title>
-      <link>http://localhost:1313/tags/monoidal-category/</link>
-      <pubDate>Mon, 29 Dec 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/monoidal-category/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Operad</title>
-      <link>http://localhost:1313/tags/operad/</link>
-      <pubDate>Mon, 29 Dec 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/operad/</guid>
       <description></description>
     </item>
     <item>
@@ -69,6 +41,13 @@
       <link>http://localhost:1313/tags/descent/</link>
       <pubDate>Sat, 27 Dec 2025 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/tags/descent/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Higher Algebra</title>
+      <link>http://localhost:1313/tags/higher-algebra/</link>
+      <pubDate>Sat, 27 Dec 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/higher-algebra/</guid>
       <description></description>
     </item>
     <item>
@@ -111,6 +90,27 @@
       <link>http://localhost:1313/tags/stable-doldkan/</link>
       <pubDate>Thu, 27 Nov 2025 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/tags/stable-doldkan/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Algebraic Pattern</title>
+      <link>http://localhost:1313/tags/algebraic-pattern/</link>
+      <pubDate>Mon, 22 Sep 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/algebraic-pattern/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Monoidal Category</title>
+      <link>http://localhost:1313/tags/monoidal-category/</link>
+      <pubDate>Mon, 22 Sep 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/monoidal-category/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Operad</title>
+      <link>http://localhost:1313/tags/operad/</link>
+      <pubDate>Mon, 22 Sep 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/operad/</guid>
       <description></description>
     </item>
   </channel>

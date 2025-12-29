@@ -402,10 +402,10 @@ For $X \in \mathcal{O}_{P}$, if
 \]
 is a diagram of coCartesian morphisms over the object of $\mathcal{P}_{P/}^{\text{el}}$, then for $Y \in \mathcal{O}_{P'}$, the commutative square
 {{< tikzcd >}}
-\Hom_{\mathcal{O}}(Y,X) \ar[r]\ar[d] &
-\underset{\alpha \colon P \to O \in \mathcal{P}_{P/}^{\text{el}}}{\operatorname{lim}}\, \Hom_{\mathcal{O}}(Y,\xi(\alpha)) \ar[d] \\
-\Hom_{\mathcal{P}}(P',P) \ar[r] &
-\underset{\alpha \colon P \to O \in \mathcal{P}_{P/}^{\text{el}}}{\operatorname{lim}}\, \Hom_{\mathcal{P}}(P',O)
+\operatorname{Hom}_{\mathcal{O}}(Y,X) \ar[r]\ar[d] &
+\underset{\alpha \colon P \to O \in \mathcal{P}_{P/}^{\text{el}}}{\operatorname{lim}}\, \operatorname{Hom}_{\mathcal{O}}(Y,\xi(\alpha)) \ar[d] \\
+\operatorname{Hom}_{\mathcal{P}}(P',P) \ar[r] &
+\underset{\alpha \colon P \to O \in \mathcal{P}_{P/}^{\text{el}}}{\operatorname{lim}}\, \operatorname{Hom}_{\mathcal{P}}(P',O)
 {{< /tikzcd >}}
 is Cartesian.
 3. The functor
@@ -518,8 +518,8 @@ We also denote such a product as an unordered tuple $\{x_i\}_{i \in I}$.
 Given another color $y \in \mathcal{O}^{\simeq}$, we define the *anima of multimorphisms (or anima of operations)* in $\mathcal{O}$ from $\{x_i\}_{i \in I}$ to $y$ as the anima of morphisms in $\mathcal{O}^{\otimes}$ that map to the active morphism $\langle n \rangle \to \langle 1 \rangle$:
 {{< tikzcd >}}
 \mathcal{O}(\{x_i\}_{i \in I}; y) \ar[r]\ar[d]\ar[dr,phantom,pos=.2,"\lrcorner"] &
-\Hom_{\mathcal{O}^{\otimes}}(\{x_i\}_{i \in I}, y)\ar[d,"p"] \\
-* \ar[r] & \Hom_{\mathsf{Fin}_*}(\langle n \rangle,\langle 1 \rangle)
+\operatorname{Hom}_{\mathcal{O}^{\otimes}}(\{x_i\}_{i \in I}, y)\ar[d,"p"] \\
+* \ar[r] & \operatorname{Hom}_{\mathsf{Fin}_*}(\langle n \rangle,\langle 1 \rangle)
 {{< /tikzcd >}}
 
 A multimorphism in an operad $\mathcal{O}$ represents an abstract operation with multiple inputs.
