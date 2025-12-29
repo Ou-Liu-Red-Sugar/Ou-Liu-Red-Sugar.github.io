@@ -404,18 +404,45 @@ details.math-env.proof .qed{
 }
 
 /* center label */
-.post-single nav.paginav .paginav-center {
-  align-self: center;
-  flex: 0 0 auto;
+/* ===== Fix ugly center label on desktop: no wrap, ellipsis, compact ===== */
+/* ===== Artistic section label (mathbb-like) ===== */
+.post-single nav.paginav .paginav-center{
+  /* typography */
+  font-family:
+    "Latin Modern Math",
+    "STIX Two Math",
+    "Cambria Math",
+    "Times New Roman",
+    serif;
 
   font-size: 0.78rem;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
+  font-weight: 500;
+  letter-spacing: 0.18em;
 
-  color: rgba(0,0,0,0.45);
-  padding: 0 0.7rem;
+  /* visual tone */
+  color: rgba(0, 0, 0, 0.42);      /* 冷灰，不是 UI 灰 */
+  text-transform: uppercase;
   white-space: nowrap;
+
+  /* layout discipline */
+  flex: 0 1 auto;
+  max-width: 10rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  /* remove button feel */
+  background: none;
+  border: none;
+  box-shadow: none;
+
+  /* subtle math-style underline */
+  padding: 0 0.6rem 0.15rem;
+  border-bottom: 1px solid rgba(0,0,0,0.18);
+
+  line-height: 1.1;
+  
 }
+
 
 /* IMPORTANT: vertical centering on ALL screen sizes */
 .post-single nav.paginav {
@@ -444,17 +471,34 @@ details.math-env.proof .qed{
 
 /* mobile: stack; hide center label */
 @media (max-width: 560px) {
-  .post-single nav.paginav {
+  .post-single nav.paginav{
     flex-direction: column !important;
-    align-items: stretch !important; /* stack 时更自然 */
+    align-items: stretch !important;
+    width: 100%;
+    max-width: calc(100% - 1.2rem);
+  }
+
+  .post-single nav.paginav a{
+    width: 100%;
+    justify-content: flex-start;
   }
 
   .post-single nav.paginav a.next,
-  .post-single nav.paginav a.prev {
-    text-align: left;
+  .post-single nav.paginav a.prev{
+    text-align: left !important;
   }
 
-  .post-single nav.paginav .paginav-center {
-    display: none;
+  /* show the section label on its own line */
+  .post-single nav.paginav .paginav-center{
+    order: 2;                     /* prev -> label -> next */
+    display: block;
+    text-align: center;
+    padding: 0.35rem 0;
+    margin: 0.2rem 0;
+    border-top: 1px solid rgba(0,0,0,0.10);
+    border-bottom: 1px solid rgba(0,0,0,0.10);
   }
+
+  .post-single nav.paginav a.prev{ order: 1; }
+  .post-single nav.paginav a.next{ order: 3; }
 }

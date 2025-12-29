@@ -405,20 +405,42 @@ details.math-env.proof .qed{
 
 /* center label */
 /* ===== Fix ugly center label on desktop: no wrap, ellipsis, compact ===== */
+/* ===== Artistic section label (mathbb-like) ===== */
 .post-single nav.paginav .paginav-center{
-  white-space: nowrap !important;
+  /* typography */
+  font-family:
+    "Latin Modern Math",
+    "STIX Two Math",
+    "Cambria Math",
+    "Times New Roman",
+    serif;
+
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+
+  /* visual tone */
+  color: rgba(0, 0, 0, 0.42);      /* 冷灰，不是 UI 灰 */
+  text-transform: uppercase;
+  white-space: nowrap;
+
+  /* layout discipline */
+  flex: 0 1 auto;
+  max-width: 10rem;
   overflow: hidden;
   text-overflow: ellipsis;
 
-  /* do NOT let it steal width */
-  max-width: 10rem;              /* 可调：8rem / 12rem */
-  flex: 0 1 auto;
-
-  /* visually lighter */
+  /* remove button feel */
+  background: none;
   border: none;
-  padding: 0 0.6rem;
-  margin: 0;
-  line-height: 1.2;
+  box-shadow: none;
+
+  /* subtle math-style underline */
+  padding: 0 0.6rem 0.15rem;
+  border-bottom: 1px solid rgba(0,0,0,0.18);
+
+  line-height: 1.1;
+  
 }
 
 
