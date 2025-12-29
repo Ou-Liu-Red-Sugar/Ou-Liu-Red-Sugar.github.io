@@ -6,7 +6,7 @@
     <description>Recent content on Ou Liu</description>
     <generator>Hugo -- 0.152.2</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 28 Dec 2025 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 29 Dec 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Presentable Categories and Ind-Completion</title>
@@ -14,6 +14,13 @@
       <pubDate>Sun, 28 Dec 2025 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/notes/presentable-categories-and-ind-completion/</guid>
       <description>This note reviews the basic theory of presentable categories. We focus on κ-compact objects, Ind-completions, accessible categories, and their role in organizing large categories via filtered colimits.</description>
+    </item>
+    <item>
+      <title>Presentable n-Categories</title>
+      <link>http://localhost:1313/notes/presentable-n-categories/</link>
+      <pubDate>Mon, 29 Dec 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/notes/presentable-n-categories/</guid>
+      <description>This note introduces the notion of presentable n-categories and constructs the six-functor formalisms on them.</description>
     </item>
     <item>
       <title>Spectral Sequences as Bookkeeping, Not Structure</title>

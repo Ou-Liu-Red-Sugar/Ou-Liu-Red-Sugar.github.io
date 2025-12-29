@@ -327,3 +327,7 @@ details.math-env.proof .qed {
   opacity: 0.65;
   text-decoration: underline;
 }
+table {
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}

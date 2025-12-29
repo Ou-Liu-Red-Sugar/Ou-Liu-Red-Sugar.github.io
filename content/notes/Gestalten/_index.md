@@ -25,7 +25,7 @@ The material here is developed progressively, beginning with presentable categor
 
 {{< section_index
     mode="both"
-    sort="title"
+    sort="weight"
     show_summary="true"
     show_date="true"
 >}}
