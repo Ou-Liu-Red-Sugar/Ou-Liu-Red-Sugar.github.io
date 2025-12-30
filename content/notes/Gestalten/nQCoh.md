@@ -19,3 +19,5 @@ description: >
 
 Let  $\mathsf{CAlg}$ be the category of derived rings, and let $\mathsf{Aff} \coloneqq \mathsf{CAlg}^{\operatorname{op}}$ be the category of affine schemes.
 
+
+## Quasicoherent Sheaves of Higher Categories

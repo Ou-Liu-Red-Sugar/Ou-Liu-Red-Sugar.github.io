@@ -19,7 +19,7 @@ description : This note reviews the basic theory of presentable categories. We f
 ## Definition
 
 {{< definition >}}
-Let $\kappa$ be a regular cardinal (for example $\kappa = \omega$ or $\kappa = \omega_1$).
+Let $\kappa$ be a regular cardinal (for example $\kappa = \omega$ or $\kappa = \aleph_1$).
 
 1. A category $\mathcal{I}$ is called **$\kappa$-filtered** if for any $\kappa$-small category $\mathcal{K}$ and any functor
    $F\colon \mathcal{K} \to \mathcal{I}$,

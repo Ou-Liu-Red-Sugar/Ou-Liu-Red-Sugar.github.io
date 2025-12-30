@@ -194,9 +194,9 @@ Each of these is itself a symmetric monoidal \(\kappa\)-presentable category. Co
   \cdots .
 \]
 
-From now on, we take \(\kappa = \omega_1\) and abbreviate
+From now on, we take \(\kappa = \aleph_1\) and abbreviate
 \[
-  n\mathsf{Pr} \coloneqq n\mathsf{Pr}_{\omega_1}^L.
+  n\mathsf{Pr} \coloneqq n\mathsf{Pr}_{\aleph_1}^L.
 \]
 Thus, we obtain a sequence
 \[
