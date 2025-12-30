@@ -18,14 +18,14 @@
     "origin": "C:\\Users\\23980\\Documents\\Ou-Liu-Red-Sugar.github.io\\content\\notes\\SixFunctor.md",
     "source": "\\mathsf{Fun}_{\\mathbb{C}}(Z',X) \\ar[d,\"h^*\"] & \\mathsf{Fun}_{\\mathbb{C}}(Z',Y) \\ar[l,\"G_{Z'}\"'] \\ar[d,\"h^*\"]\\\\\n  \\mathsf{Fun}_{\\mathbb{C}}(Z,X) & \\mathsf{Fun}_{\\mathbb{C}}(Z,Y) \\ar[l,\"G_Z\"]",
     "svg": "generated/tikzcd/0be8a4b606c4477616ad8790fc8ae05a8ef535ba.svg",
-    "updated": "2025-12-29T15:48:54+01:00"
+    "updated": "2025-12-30T16:34:57+01:00"
   },
   "1204523d7669db69fb6611e3f3f12c846cdadfb8": {
     "kind": "shortcode",
-    "origin": "C:\\Users\\23980\\Documents\\Ou-Liu-Red-Sugar.github.io\\content\\notes\\Gestalten\\presentable.md",
+    "origin": "C:\\Users\\23980\\Documents\\Ou-Liu-Red-Sugar.github.io\\content\\notes\\gestalten\\presentable.md",
     "source": "\\mathcal{C} \\ar[d,hook,\"y\"] \\ar[dr,\"F\"]\\\\\n\\mathsf{Ind}_{\\kappa}(\\mathcal{C}) \\ar[r,\"\\mathsf{Ind}_{\\kappa}(F)\"'] & \\mathcal{D}.",
     "svg": "generated/tikzcd/1204523d7669db69fb6611e3f3f12c846cdadfb8.svg",
-    "updated": "2025-12-29T15:48:55+01:00"
+    "updated": "2025-12-30T16:34:58+01:00"
   },
   "1771c35500506ddaed600f1e7e46332d1f52568d": {
     "kind": "shortcode",
@@ -39,35 +39,35 @@
     "origin": "C:\\Users\\23980\\Documents\\Ou-Liu-Red-Sugar.github.io\\content\\notes\\StableDoldKan.md",
     "source": "V_{\\phi} \\cap U_{\\phi'} \\ar[r] \\ar[dr,phantom,pos = 0.8,\"\\ulcorner\"] \\ar[d] & U_{\\phi'} \\ar[d] \\\\\n    V_{\\phi} \\ar[r] & V_{\\phi'}.",
     "svg": "generated/tikzcd/182f8e9f607ce78b0d7d7152932e8308b80b69dc.svg",
-    "updated": "2025-12-29T15:48:56+01:00"
+    "updated": "2025-12-30T16:34:59+01:00"
   },
   "185865cf2a4bfa4de443c2c5cc517f92f44d56b0": {
     "kind": "shortcode",
     "origin": "C:\\Users\\23980\\Documents\\Ou-Liu-Red-Sugar.github.io\\content\\notes\\HA.md",
     "source": "\\operatorname{Hom}_{\\mathcal{O}}(Y,X) \\ar[r]\\ar[d] &\n\\underset{\\alpha \\colon P \\to O \\in \\mathcal{P}_{P/}^{\\text{el}}}{\\operatorname{lim}}\\, \\operatorname{Hom}_{\\mathcal{O}}(Y,\\xi(\\alpha)) \\ar[d] \\\\\n\\operatorname{Hom}_{\\mathcal{P}}(P',P) \\ar[r] &\n\\underset{\\alpha \\colon P \\to O \\in \\mathcal{P}_{P/}^{\\text{el}}}{\\operatorname{lim}}\\, \\operatorname{Hom}_{\\mathcal{P}}(P',O)",
     "svg": "generated/tikzcd/185865cf2a4bfa4de443c2c5cc517f92f44d56b0.svg",
-    "updated": "2025-12-29T15:48:57+01:00"
+    "updated": "2025-12-30T16:35:00+01:00"
   },
   "2214dad6d5f2acfaa65761929c5cfc44bc2be8ae": {
     "kind": "shortcode",
     "origin": "C:\\Users\\23980\\Documents\\Ou-Liu-Red-Sugar.github.io\\content\\notes\\SixFunctor.md",
     "source": "X' \\ar[r,\"f'\"] \\ar[dr,phantom,pos = 0.3,\"\\lrcorner\"] \\ar[d,\"g'\"] & Y' \\ar[d,\"g\"]\\\\\n    X \\ar[r,\"f\"] & Y",
     "svg": "generated/tikzcd/2214dad6d5f2acfaa65761929c5cfc44bc2be8ae.svg",
-    "updated": "2025-12-29T15:48:58+01:00"
+    "updated": "2025-12-30T16:35:01+01:00"
   },
   "2a13a7dbad4c965ef1ec46154cd59401a0440065": {
     "kind": "shortcode",
-    "origin": "C:\\Users\\23980\\Documents\\Ou-Liu-Red-Sugar.github.io\\content\\notes\\Gestalten\\presentable.md",
+    "origin": "C:\\Users\\23980\\Documents\\Ou-Liu-Red-Sugar.github.io\\content\\notes\\gestalten\\presentable.md",
     "source": "\\mathsf{El}(F) \\ar[r] \\ar[d] \\ar[dr,phantom,pos = 0.3,\"\\lrcorner\"]\n  & \\mathsf{An}_*^{\\operatorname{op}} \\ar[d]\\\\\n   \\mathcal{C} \\ar[r,\"F^{\\operatorname{op}}\"]\n  & \\mathsf{An}^{\\operatorname{op}}",
     "svg": "generated/tikzcd/2a13a7dbad4c965ef1ec46154cd59401a0440065.svg",
-    "updated": "2025-12-29T15:48:59+01:00"
+    "updated": "2025-12-30T16:35:02+01:00"
   },
   "3295eda477f6418b0e55619f7d239153dc342ba8": {
     "kind": "shortcode",
     "origin": "C:\\Users\\23980\\Documents\\Ou-Liu-Red-Sugar.github.io\\content\\notes\\SixFunctor.md",
     "source": "X' \\ar[r,\"f'\"] \\ar[dr,phantom,pos = 0.3,\"\\lrcorner\"] \\ar[d,\"g'\"] & Y' \\ar[d,\"g\"]\\\\\n        X \\ar[r,\"f\"] & Y",
     "svg": "generated/tikzcd/3295eda477f6418b0e55619f7d239153dc342ba8.svg",
-    "updated": "2025-12-29T15:49:00+01:00"
+    "updated": "2025-12-30T16:35:03+01:00"
   },
   "35c727d3f0821b30df86a50367bebca90909abc0": {
     "kind": "shortcode",
@@ -81,7 +81,7 @@
     "origin": "C:\\Users\\23980\\Documents\\Ou-Liu-Red-Sugar.github.io\\content\\notes\\HA.md",
     "source": "\\mathcal{P} \\ar[rr,\"A\"]\\ar[dr,\"f\"'] && \\mathcal{O}\\ar[dl] \\\\\n& \\mathcal{P}'",
     "svg": "generated/tikzcd/3ddd5d45460cf77f015e72af989e1a097c100572.svg",
-    "updated": "2025-12-29T15:49:01+01:00"
+    "updated": "2025-12-30T16:35:04+01:00"
   },
   "406d2d2bef1e040d0bf69ccf1f55f02d52f5d9ee": {
     "kind": "shortcode",
@@ -95,42 +95,42 @@
     "origin": "C:\\Users\\23980\\Documents\\Ou-Liu-Red-Sugar.github.io\\content\\notes\\HA.md",
     "source": "\\mathsf{LMod}_A(\\mathcal{M})\\ar[r]\\ar[d]\\ar[dr,phantom,pos=.2,\"\\lrcorner\"] &\n\\mathsf{LMod}(\\mathcal{M})\\ar[d] \\\\\n* \\ar[r,\"\\{A\\}\"] & \\mathsf{Alg}(\\mathcal{C})",
     "svg": "generated/tikzcd/465ccf7d3bc184b0c12dc6870ee6183799a3d244.svg",
-    "updated": "2025-12-29T15:49:02+01:00"
+    "updated": "2025-12-30T16:35:04+01:00"
   },
   "474ac1d80572419b008b16a407fd0e53b69dc2bc": {
     "kind": "shortcode",
     "origin": "C:\\Users\\23980\\Documents\\Ou-Liu-Red-Sugar.github.io\\content\\notes\\StableDoldKan.md",
     "source": "\\cdots & {(2,[-1])} & {(1,[-1])} & {(0,[-1])} \\\\\n    \\cdots & {(2,[0])} & {(1,[0])} & {(0,[0])} \\\\\n    \\cdots & {(2,[1])} & {(1,[1])} \\\\\n    \\cdots & {(2,[2])}\n    \\arrow[from=1-2, to=1-1]\n    \\arrow[from=1-3, to=1-2]\n    \\arrow[from=1-4, to=1-3]\n    \\arrow[from=2-2, to=1-2]\n    \\arrow[from=2-2, to=2-1]\n    \\arrow[from=2-2, to=3-2]\n    \\arrow[from=2-3, to=1-3]\n    \\arrow[from=2-3, to=2-2]\n    \\arrow[from=2-3, to=3-3]\n    \\arrow[from=2-4, to=1-4]\n    \\arrow[from=2-4, to=2-3]\n    \\arrow[shift left=3, from=3-2, to=2-2]\n    \\arrow[shift right=3, from=3-2, to=2-2]\n    \\arrow[from=3-2, to=3-1]\n    \\arrow[shift right=2, from=3-2, to=4-2]\n    \\arrow[shift left=2, from=3-2, to=4-2]\n    \\arrow[shift left=3, from=3-3, to=2-3]\n    \\arrow[shift right=3, from=3-3, to=2-3]\n    \\arrow[from=3-3, to=3-2]\n    \\arrow[shift left=4, from=4-2, to=3-2]\n    \\arrow[shift right=4, from=4-2, to=3-2]\n    \\arrow[from=4-2, to=3-2]\n    \\arrow[from=4-2, to=4-1]",
     "svg": "generated/tikzcd/474ac1d80572419b008b16a407fd0e53b69dc2bc.svg",
-    "updated": "2025-12-29T15:49:03+01:00"
+    "updated": "2025-12-30T16:35:06+01:00"
   },
   "5a4502a178abf3e311ac3667d8591fc8c6d5e2a8": {
     "kind": "shortcode",
     "origin": "C:\\Users\\23980\\Documents\\Ou-Liu-Red-Sugar.github.io\\content\\notes\\SixFunctor.md",
     "source": "& Z \\arrow[ddl, \"h\"', bend right]\n        \\arrow[ddr, \"k\", bend left]\n        \\arrow[d, \"{(h,k)}\", dashed] & \\\\\n    & X_1 \\times_Y X_2\n        \\arrow[dl, \"\\pi_1\"']\n        \\arrow[dr, \"\\pi_2\"] & \\\\\n    X_1 \\arrow[dr, \"\\in E\"'] & &\n    X_2 \\arrow[dl, \"\\in E\"] \\\\\n    & Y &",
     "svg": "generated/tikzcd/5a4502a178abf3e311ac3667d8591fc8c6d5e2a8.svg",
-    "updated": "2025-12-29T15:49:04+01:00"
+    "updated": "2025-12-30T16:35:07+01:00"
   },
   "60653dd225444ff121b2f3e3ba30aa6869f34345": {
     "kind": "shortcode",
     "origin": "C:\\Users\\23980\\Documents\\Ou-Liu-Red-Sugar.github.io\\content\\notes\\Type.md",
     "source": "\\exists A' \\ar[r,dashed]\\ar[d,dashed,two heads] \\ar[dr,pos = 0.3,phantom,\"\\lrcorner\"] & A \\ar[d,two heads]\\\\\n    B' \\ar[r,\"f\"] & B",
     "svg": "generated/tikzcd/60653dd225444ff121b2f3e3ba30aa6869f34345.svg",
-    "updated": "2025-12-29T15:49:05+01:00"
+    "updated": "2025-12-30T16:35:08+01:00"
   },
   "641009a1aca4ec5d1e3d6d3007f44fce1db12a4e": {
     "kind": "shortcode",
     "origin": "C:\\Users\\23980\\Documents\\Ou-Liu-Red-Sugar.github.io\\content\\notes\\StableDoldKan.md",
     "source": "\\cdots \\ar[r,shift left=3,\"\\partial\"]\\ar[r,shift left=1]\\ar[r,shift right= 1]\\ar[r,shift right=3] & C_2 \\ar[r, shift left = 2,\"\\partial\"]\\ar[r, shift left = 0]\\ar[r, shift right = 2] & C_1 \\ar[r, shift left = 1,\"\\partial\"] \\ar[r, shift right = 1] & C_0,",
     "svg": "generated/tikzcd/641009a1aca4ec5d1e3d6d3007f44fce1db12a4e.svg",
-    "updated": "2025-12-29T15:49:06+01:00"
+    "updated": "2025-12-30T16:35:09+01:00"
   },
   "642423ce8332e3af36adbbd6a6ea71a08145c95c": {
     "kind": "shortcode",
     "origin": "C:\\Users\\23980\\Documents\\Ou-Liu-Red-Sugar.github.io\\content\\notes\\StableDoldKan.md",
     "source": "{\\mathcal{C}} \\ar[r,shift left=3,\"-\\otimes A\"]\\ar[r,phantom,\"\\bot\"] & \\mathsf{Mod}_A(\\mathcal{C}) \\ar[l,shift left=3,\"\\operatorname{Forget}\"]",
     "svg": "generated/tikzcd/642423ce8332e3af36adbbd6a6ea71a08145c95c.svg",
-    "updated": "2025-12-29T15:49:07+01:00"
+    "updated": "2025-12-30T16:35:10+01:00"
   },
   "677070d843f4fa7dc08906d982d3e2a80151d229": {
     "kind": "shortcode",
@@ -144,35 +144,42 @@
     "origin": "C:\\Users\\23980\\Documents\\Ou-Liu-Red-Sugar.github.io\\content\\notes\\GllobalSection.md",
     "source": "\\cdots &\nU \\times_X U \\times_X U\n\\ar[r, shift left=4] \\ar[r] \\ar[r, shift right=4]\n& U \\times_X U\n\\ar[r, shift left=2] \\ar[r, shift right=2]\n\\ar[l, shift left=2] \\ar[l, shift right=2]\n& U\n\\ar[l]",
     "svg": "generated/tikzcd/6a533f35e29a4d50239ccf63229ff73f7664f9ec.svg",
-    "updated": "2025-12-29T15:49:08+01:00"
+    "updated": "2025-12-30T16:35:11+01:00"
+  },
+  "6dac2ed096f37e8f0d704d9304d22d9dce7f248e": {
+    "kind": "shortcode",
+    "origin": "C:\\Users\\23980\\Documents\\Ou-Liu-Red-Sugar.github.io\\content\\notes\\gestalten\\StRing.md",
+    "source": "\\mathsf{Mod}_{A_n}(1\\mathsf{Pr}) \\ar[r,shift left = 2.5,\"F\"] \\ar[r,phantom,\"\\bot\"] & A_{n+1} \\ar[l,shift left =2.5,\"G\"]",
+    "svg": "generated/tikzcd/6dac2ed096f37e8f0d704d9304d22d9dce7f248e.svg",
+    "updated": "2025-12-30T16:35:12+01:00"
   },
   "71a49eb731c3feb6eb50ddc8a1f80ad03601c895": {
     "kind": "shortcode",
     "origin": "C:\\Users\\23980\\Documents\\Ou-Liu-Red-Sugar.github.io\\content\\notes\\StableDoldKan.md",
     "source": "W_k \\cap U_{k+1} \\ar[r] \\ar[dr,phantom,pos = 0.8,\"\\ulcorner\"] \\ar[d] & U_{k+1} \\ar[d] \\\\\n    W_k \\ar[r] & P.",
     "svg": "generated/tikzcd/71a49eb731c3feb6eb50ddc8a1f80ad03601c895.svg",
-    "updated": "2025-12-29T15:49:08+01:00"
+    "updated": "2025-12-30T16:35:12+01:00"
   },
   "7687357bb55f3900301bb5f50d9cb36238f2d156": {
     "kind": "shortcode",
     "origin": "C:\\Users\\23980\\Documents\\Ou-Liu-Red-Sugar.github.io\\content\\notes\\SixFunctor.md",
     "source": "X \\arrow[dr, \"\\Delta_f\"]\n    \\arrow[drr, \"\\operatorname{id}_X\", bend left]\n    \\arrow[ddr, \"\\operatorname{id}_X\"', bend right]\n  & & \\\\\n  & X \\times_Y X\n      \\arrow[r, \"\\pi_2\"]\n      \\arrow[d, \"\\pi_1\"']\n      \\arrow[dr, phantom, pos = 0.3,\"\\lrcorner\", from=2-2, to=3-3]\n  & X \\arrow[d, \"f\"] \\\\\n  & X \\arrow[r, \"f\"']\n  & Y",
     "svg": "generated/tikzcd/7687357bb55f3900301bb5f50d9cb36238f2d156.svg",
-    "updated": "2025-12-29T15:49:09+01:00"
+    "updated": "2025-12-30T16:35:14+01:00"
   },
   "779877d9339385962ccd138455c8475e34e100c4": {
     "kind": "shortcode",
     "origin": "C:\\Users\\23980\\Documents\\Ou-Liu-Red-Sugar.github.io\\content\\notes\\Type.md",
     "source": "A \\ar[rr,\"\\Delta\"] \\ar[dr,\"r\"] && A \\times A \\\\\n& \\operatorname{Iso}(A) \\ar[ur,two heads,\"p\"']",
     "svg": "generated/tikzcd/779877d9339385962ccd138455c8475e34e100c4.svg",
-    "updated": "2025-12-29T15:49:10+01:00"
+    "updated": "2025-12-30T16:35:14+01:00"
   },
   "7db0404bdaafce4bb15520e8ab9e2dc61d8665ba": {
     "kind": "shortcode",
     "origin": "C:\\Users\\23980\\Documents\\Ou-Liu-Red-Sugar.github.io\\content\\notes\\HA.md",
     "source": "\\mathcal{V}^{\\otimes} \\ar[dr]\\ar[rr,\"F\"] && \\mathcal{W}^{\\otimes}\\ar[dl] \\\\\n& \\mathcal{O}",
     "svg": "generated/tikzcd/7db0404bdaafce4bb15520e8ab9e2dc61d8665ba.svg",
-    "updated": "2025-12-29T15:49:11+01:00"
+    "updated": "2025-12-30T16:35:15+01:00"
   },
   "83a822fbf513f0e520511df593b6838bfb6ce96b": {
     "kind": "shortcode",
@@ -186,7 +193,7 @@
     "origin": "C:\\Users\\23980\\Documents\\Ou-Liu-Red-Sugar.github.io\\content\\notes\\StableDoldKan.md",
     "source": "\\Delta_{\\operatorname{inj}}^{\\operatorname{op}} \\ar[dr,\"C_{\\bullet,\\operatorname{inj}}\"]\\ar[d,hook]\\\\\n    \\Delta^{\\operatorname{op}} \\ar[r,\"\\operatorname{DK}\"] & \\mathcal{A}.",
     "svg": "generated/tikzcd/83cb02d7fa44233990259b93cadefab63f73b3bd.svg",
-    "updated": "2025-12-29T15:49:12+01:00"
+    "updated": "2025-12-30T16:35:16+01:00"
   },
   "86633df609640fab0de673acdb4e5c51a662ceb1": {
     "kind": "shortcode",
@@ -200,49 +207,49 @@
     "origin": "C:\\Users\\23980\\Documents\\Ou-Liu-Red-Sugar.github.io\\content\\notes\\GllobalSection.md",
     "source": "\\mathcal{C} \\ar[r,shift left = 2.5,\"-\\otimes A\"] \\ar[r,phantom,\"\\bot\"] & \\mathsf{Mod}_{\\mathcal{C}}(A) \\ar[l,shift left = 2.5,\"F\"]",
     "svg": "generated/tikzcd/86ca2caec73927b7627ed0183c178b0dde0bb5fe.svg",
-    "updated": "2025-12-29T15:49:13+01:00"
+    "updated": "2025-12-30T16:35:17+01:00"
   },
   "8da63a8a2ae8506ffc931fd284654f508cf180e4": {
     "kind": "shortcode",
     "origin": "C:\\Users\\23980\\Documents\\Ou-Liu-Red-Sugar.github.io\\content\\notes\\SixFunctor.md",
     "source": "g \\ar[dr,\"\\operatorname{id}_g\"']\\ar[r,\"\\eta g\"] & gfg \\ar[d,\"g\\varepsilon\"]\\\\\n    & g",
     "svg": "generated/tikzcd/8da63a8a2ae8506ffc931fd284654f508cf180e4.svg",
-    "updated": "2025-12-29T15:49:14+01:00"
+    "updated": "2025-12-30T16:35:18+01:00"
   },
   "8e4d8ac8d740d53d1dae8895e954f05474c8db65": {
     "kind": "shortcode",
     "origin": "C:\\Users\\23980\\Documents\\Ou-Liu-Red-Sugar.github.io\\content\\notes\\Type.md",
     "source": "A \\ar[rr,\"f\"] \\ar[dr,\"\\simeq\"] && B\\\\\n    & A'= \\sum_{b \\colon B} \\sum_{a \\colon A}(f(a) \\simeq b) \\ar[ur,two heads]",
     "svg": "generated/tikzcd/8e4d8ac8d740d53d1dae8895e954f05474c8db65.svg",
-    "updated": "2025-12-29T15:49:15+01:00"
+    "updated": "2025-12-30T16:35:19+01:00"
   },
   "a609d299645c32c217d5ea35117ad562b93d184e": {
     "kind": "shortcode",
     "origin": "C:\\Users\\23980\\Documents\\Ou-Liu-Red-Sugar.github.io\\content\\notes\\StableDoldKan.md",
     "source": "\\mathcal{J}^{k} \\ar[d,hook,\"\\iota\"'] \\ar[dr,\"H\"]\\\\\n    \\mathcal{J}^{\\leq k} \\ar[r,\"\\operatorname{Ran}_{\\iota} H\"'] & \\mathcal{C}.",
     "svg": "generated/tikzcd/a609d299645c32c217d5ea35117ad562b93d184e.svg",
-    "updated": "2025-12-29T15:49:16+01:00"
+    "updated": "2025-12-30T16:35:20+01:00"
   },
   "a6d1efa9e71733fdeee8874d69a7a0101031b6d0": {
     "kind": "shortcode",
     "origin": "C:\\Users\\23980\\Documents\\Ou-Liu-Red-Sugar.github.io\\content\\notes\\StableDoldKan.md",
     "source": "\\coprod \\partial \\Delta^n \\ar[r] \\ar[dr,phantom,pos = 0.8,\"\\ulcorner\"] \\ar[d] & \\operatorname{sk}_{n-1} X \\ar[d] \\\\\n    \\coprod \\Delta^n \\ar[r] & \\operatorname{sk}_n X.",
     "svg": "generated/tikzcd/a6d1efa9e71733fdeee8874d69a7a0101031b6d0.svg",
-    "updated": "2025-12-29T15:49:17+01:00"
+    "updated": "2025-12-30T16:35:21+01:00"
   },
   "b10bc8f5d36b7bc31d2b1e90fedd835ee99ad495": {
     "kind": "shortcode",
     "origin": "C:\\Users\\23980\\Documents\\Ou-Liu-Red-Sugar.github.io\\content\\notes\\HA.md",
     "source": "\\mathcal{O}(\\{x_i\\}_{i \\in I}; y) \\ar[r]\\ar[d]\\ar[dr,phantom,pos=.2,\"\\lrcorner\"] &\n\\operatorname{Hom}_{\\mathcal{O}^{\\otimes}}(\\{x_i\\}_{i \\in I}, y)\\ar[d,\"p\"] \\\\\n* \\ar[r] & \\operatorname{Hom}_{\\mathsf{Fin}_*}(\\langle n \\rangle,\\langle 1 \\rangle)",
     "svg": "generated/tikzcd/b10bc8f5d36b7bc31d2b1e90fedd835ee99ad495.svg",
-    "updated": "2025-12-29T15:49:18+01:00"
+    "updated": "2025-12-30T16:35:22+01:00"
   },
   "b1cca8739380ccd27b48b3f2efc89fafbb9282c5": {
     "kind": "shortcode",
     "origin": "C:\\Users\\23980\\Documents\\Ou-Liu-Red-Sugar.github.io\\content\\notes\\SixFunctor.md",
     "source": "f \\ar[dr,\"\\operatorname{id}_f\"']\\ar[r,\"f\\eta\"] & fgf \\ar[d,\"\\varepsilon f\"]\\\\\n    & f",
     "svg": "generated/tikzcd/b1cca8739380ccd27b48b3f2efc89fafbb9282c5.svg",
-    "updated": "2025-12-29T15:49:19+01:00"
+    "updated": "2025-12-30T16:35:23+01:00"
   },
   "cacc44e3a15bde19069b8968ed5dcd17ff1b05ac": {
     "kind": "shortcode",
@@ -263,7 +270,7 @@
     "origin": "C:\\Users\\23980\\Documents\\Ou-Liu-Red-Sugar.github.io\\content\\notes\\Type.md",
     "source": "\\sum_{b' \\colon B'} A(f(b')) \\ar[r] \\ar[d] & \\sum_{b \\colon B} A(b) \\ar[d]\\\\\n    B' \\ar[r,\"f\"] & B",
     "svg": "generated/tikzcd/dd6ed5ad9feb11fa2939fbd0d5fedd6c047c7b10.svg",
-    "updated": "2025-12-29T15:49:20+01:00"
+    "updated": "2025-12-30T16:35:24+01:00"
   },
   "e16b616a110bb592f26a42c5c061a65f561112a6": {
     "kind": "shortcode",
@@ -284,13 +291,13 @@
     "origin": "C:\\Users\\23980\\Documents\\Ou-Liu-Red-Sugar.github.io\\content\\notes\\StableDoldKan.md",
     "source": "\\mathsf{Ch}(\\mathcal{A})_{\\geq 0} \\ar[r,\"\\operatorname{DK}\"] \\ar[d,\"y\"] & \\operatorname{Fun}(\\Delta^{\\operatorname{op}},\\mathcal{A}) \\ar[d,\"y\"]\\\\\n    \\mathsf{Ch}(\\mathcal{A}')_{\\geq 0} \\ar[r,\"\\operatorname{DK}\"] & \\operatorname{Fun}(\\Delta^{\\operatorname{op}},\\mathcal{A}').",
     "svg": "generated/tikzcd/e9d211cddb4720ae99bb8b74e865ae75733a9545.svg",
-    "updated": "2025-12-29T15:49:21+01:00"
+    "updated": "2025-12-30T16:35:25+01:00"
   },
   "f168c8bdfecffd6772a4e91fd03706eb99272f9c": {
     "kind": "shortcode",
     "origin": "C:\\Users\\23980\\Documents\\Ou-Liu-Red-Sugar.github.io\\content\\notes\\StableDoldKan.md",
     "source": "\\mathbb{1} \\ar[r] & A \\ar[r,shift left] \\ar[r,shift right] & A \\otimes A \\ar[r,shift left = 2] \\ar[r,shift right = 2]\\ar[r] & \\cdots",
     "svg": "generated/tikzcd/f168c8bdfecffd6772a4e91fd03706eb99272f9c.svg",
-    "updated": "2025-12-29T15:49:22+01:00"
+    "updated": "2025-12-30T16:35:26+01:00"
   }
 }
