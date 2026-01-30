@@ -277,7 +277,7 @@ Thus, the functor is fully faithful on dualizable objects.
 ## Affine map
 
 Since $\mathsf{CAlg}(A_{n+1}) \hookrightarrow \mathsf{StRing}_{A/}$ is fully faithful, one can consider those $B \in \mathsf{StRing}_{A/}$ which lies in the essential image of $\mathsf{CAlg}(A_{n+1})$, which is equivalent to say those $B$ determined by $(B/A)_{n} \in \mathsf{CAlg}(A_{n+1})$.
-{{< definition >}}
+{{< definition id="def-affineness" >}}
 Let $A$ be a Stefanich ring and $n \geq 0$.
 An $A$-Stefanich algebra $B \in \mathsf{StRing}_{A/}$ is called **$n$-affine** if it lies in the essential image of the fully faithful embedding
 $$
@@ -301,7 +301,7 @@ $$
 \end{aligned}
 $$
 {{< /definition >}}
-In next note, we will compare 1-affineness in the sense of 
+In next note, we will compare 1-affineness in the sense of Gaistgory and {{< thmref "def-affineness" >}}.
 
 ## Proper map
 

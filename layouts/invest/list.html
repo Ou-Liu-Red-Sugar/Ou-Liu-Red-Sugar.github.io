@@ -1,0 +1,18 @@
+{{- define "main" -}}
+  <header class="page-header">
+    <h1>{{ .Title }}</h1>
+    {{- with .Params.description -}}
+      <div class="post-description">{{ . }}</div>
+    {{- else -}}
+      {{- with .Description -}}
+        <div class="post-description">{{ . }}</div>
+      {{- end -}}
+    {{- end -}}
+  </header>
+
+  <div class="post-content">
+    {{ .Content }}
+  </div>
+
+  {{/* IMPORTANT: do NOT range .Pages here, otherwise PaperMod will render the default list cards */}}
+{{- end -}}

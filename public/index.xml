@@ -6,7 +6,7 @@
     <description>Recent content on Ou Liu</description>
     <generator>Hugo -- 0.152.2</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 29 Dec 2025 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 30 Jan 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Presentable Categories</title>
@@ -58,6 +58,20 @@ in $1\mathsf{Pr}$, and discuss the $n$-affine, $n$-proper, $n$-suave and $n$-pri
       <description>
 This note constructs the six-functor formalism on \(n\mathsf{Pr}_{(-)}\), shows that it is sheafy with respect to fpqc topology, and then extends the theory from affine schemes of derived rings to stacks.
 </description>
+    </item>
+    <item>
+      <title>Monthly Review — January 2026</title>
+      <link>http://localhost:1313/invest/monthly-review-january-2026/</link>
+      <pubDate>Fri, 30 Jan 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/invest/monthly-review-january-2026/</guid>
+      <description>Core build under a violent gold swing; upgrading execution rules and controlling attention cost.</description>
+    </item>
+    <item>
+      <title>Playbook</title>
+      <link>http://localhost:1313/invest/playbook/</link>
+      <pubDate>Fri, 30 Jan 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/invest/playbook/</guid>
+      <description>Principles, allocation bands, and execution rules for my long-term investing.</description>
     </item>
     <item>
       <title>Spectral Sequences as Bookkeeping, Not Structure</title>

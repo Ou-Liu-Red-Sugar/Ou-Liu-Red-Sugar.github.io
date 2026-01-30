@@ -2,23 +2,28 @@ baseURL: "https://ou-liu-red-sugar.github.io/"
 title: "Ou Liu"
 theme: "PaperMod"
 languageCode: "en-us"
-defaultContentLanguage: en
-
+defaultContentLanguage: "en"
 
 enableInlineShortcodes: true
 
-# 1) Search needs JSON output on home
+# Search needs JSON output on home
 outputs:
   home:
     - HTML
     - RSS
     - JSON
+  section:
+    - HTML
+    - RSS
 
-# 4) Clean permalinks for sections
+# Clean permalinks for sections
 permalinks:
   notes: /notes/:sections/:slug/
   papers: /papers/:slug/
-
+  invest: /invest/:slug/
+  "invest/log": /invest/log/:slug/
+  "invest/lessons": /invest/lessons/:slug/
+  "invest/reviews": /invest/reviews/:slug/
 
 menu:
   main:
@@ -34,26 +39,31 @@ menu:
       name: Papers
       url: /papers/
       weight: 20
+    - identifier: invest
+      name: Investing
+      url: /invest/
+      weight: 25
     - identifier: about
       name: About me
       url: /about/
       weight: 30
 
 params:
-  # 2) Basic SEO/meta
   env: production
   description: "Academic homepage and notes."
   author: "Ou Liu"
+
+  # PaperMod UX
   ShowPostNavLinks: true
   defaultTheme: light
   disableThemeToggle: true
   math: true
 
-  # 3) Reading experience
-  showToc: true
-  tocOpen: false
-  showReadingTime: true
-  showCodeCopyButtons: true
+  # Reading experience (PaperMod keys are case-sensitive)
+  ShowToc: true
+  TocOpen: false
+  ShowReadingTime: true
+  ShowCodeCopyButtons: true
 
   profileMode:
     enabled: true
@@ -82,6 +92,7 @@ markup:
           inline:
             - ["$", "$"]
             - ["\\(", "\\)"]
+
 enableRobotsTXT: true
 
 sitemap:
