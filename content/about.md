@@ -67,7 +67,7 @@ My research interests include:
 
 - **Galois Theory in Algebra and Topology Seminar** (Regensburg)  
   - *Galois Covers* — 18 Nov 2025  
-    - Notes: [[PDF]](/papers/notes/GaloisCovers.pdf)
+    - Notes: [[PDF]](/papers/notes/Galois_cover.pdf)
 
 ---
 
