@@ -42,15 +42,32 @@ My research interests include:
 
 ## Talks and Seminars
 
-**Goodwillie Calculus Seminar**, Regensburg  
-- *The Stable Dold–Kan Correspondence* (27 Nov 2025)  
-***notes***: {{< pageref "notes/StableDoldKan.md" "online notes" >}}, [[PDF]](/papers/notes/StableDoldKan.pdf)
+### SoSe 2026
 
-- *Functors from Spaces to Spectra* (11 Dec 2025)  
+- **Gestalten** (Oberseminar, Regensburg)  
+  - Personal notes (ongoing): {{< pageref "notes/gestalten" "online notes" >}}  
+  - *Six functors and Gestalten* — 01 Jun 2026
 
-**Galois Theory in Algebra and Topology Seminar**, Regensburg  
-- *Galois Covers* (18 Nov 2025)  
-***notes***: [[PDF]](/papers/notes/GaloisCovers.pdf)
+- **Higher Zariski Geometry** (Oberseminar, Regensburg)  
+  - *TBA* — TBA
+
+- **Motivic cohomology of schemes** (Oberseminar, Regensburg)  
+  - *TBA* — TBA
+
+- **Galois Categories and Étale Fundamental Groups Seminar** (Regensburg)  
+  - *Connected and Galois objects* — TBA
+
+
+### WiSe 2025 / 26
+
+- **Goodwillie Calculus Seminar** (Regensburg)  
+  - *The Stable Dold–Kan Correspondence* — 27 Nov 2025  
+    - Notes: {{< pageref "notes/StableDoldKan" "online notes" >}}, [[PDF]](/papers/notes/StableDoldKan.pdf)
+  - *Functors from Spaces to Spectra* — 11 Dec 2025
+
+- **Galois Theory in Algebra and Topology Seminar** (Regensburg)  
+  - *Galois Covers* — 18 Nov 2025  
+    - Notes: [[PDF]](/papers/notes/GaloisCovers.pdf)
 
 ---
 
