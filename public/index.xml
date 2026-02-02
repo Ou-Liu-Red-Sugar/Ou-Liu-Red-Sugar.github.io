@@ -60,13 +60,6 @@ This note constructs the six-functor formalism on \(n\mathsf{Pr}_{(-)}\), shows 
 </description>
     </item>
     <item>
-      <title>Monthly Review — January 2026</title>
-      <link>http://localhost:1313/invest/monthly-review-january-2026/</link>
-      <pubDate>Fri, 30 Jan 2026 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/invest/monthly-review-january-2026/</guid>
-      <description>Core build under a violent gold swing; upgrading execution rules and controlling attention cost.</description>
-    </item>
-    <item>
       <title>Playbook</title>
       <link>http://localhost:1313/invest/playbook/</link>
       <pubDate>Fri, 30 Jan 2026 00:00:00 +0000</pubDate>
@@ -79,35 +72,6 @@ This note constructs the six-functor formalism on \(n\mathsf{Pr}_{(-)}\), shows 
       <pubDate>Sat, 27 Dec 2025 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/notes/notes/spectral-sequences-as-bookkeeping-not-structure/</guid>
       <description>In derived settings, many classical comparisons between Čech and sheaf cohomology are better understood as descent statements. Spectral sequences may organize computations, but they play no structural role in the argument.</description>
-    </item>
-    <item>
-      <title>About me</title>
-      <link>http://localhost:1313/about/</link>
-      <pubDate>Wed, 24 Dec 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/about/</guid>
-      <description>&lt;h1 id=&#34;ou-liu-刘欧&#34;&gt;Ou Liu (刘欧)&lt;/h1&gt;
-&lt;p&gt;I am a master&amp;rsquo;s student in Mathematics at the &lt;em&gt;University of Regensburg&lt;/em&gt;.
-My primary research interests lie at the intersection of &lt;em&gt;Homotopy Theory&lt;/em&gt; and &lt;em&gt;Algebraic Geometry&lt;/em&gt;.&lt;/p&gt;
-&lt;hr&gt;
-&lt;h2 id=&#34;education&#34;&gt;Education&lt;/h2&gt;
-&lt;p&gt;&lt;strong&gt;2025 &amp;ndash; Present&lt;/strong&gt;&lt;br&gt;
-&lt;strong&gt;M.Sc. in Mathematics&lt;/strong&gt;, &lt;em&gt;University of Regensburg&lt;/em&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Focus: &lt;em&gt;Homotopy Theory&lt;/em&gt;, &lt;em&gt;Algebraic Geometry&lt;/em&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&lt;strong&gt;2021 &amp;ndash; 2025&lt;/strong&gt;&lt;br&gt;
-&lt;strong&gt;B.Sc. in Mathematics and Applied Mathematics&lt;/strong&gt;, &lt;em&gt;Shanxi University&lt;/em&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Thesis: &lt;em&gt;Applications of the six-functor formalism to smooth representation theory&lt;/em&gt;&lt;/li&gt;
-&lt;li&gt;Publication:&lt;br&gt;
-Lili Liu, Xi Wang, &lt;strong&gt;Ou Liu&lt;/strong&gt;, et al.&lt;br&gt;
-&lt;em&gt;Valuation and Comparison of the Actual and Optimal Control Strategy in an Emerging Infectious Disease&lt;/em&gt;.&lt;br&gt;
-&lt;em&gt;Infectious Disease Modelling&lt;/em&gt; (2024).&lt;br&gt;
-&lt;a href=&#34;https://www.sciencedirect.com/science/article/pii/S2468042724000149&#34;&gt;[Journal link]&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr&gt;
-&lt;h2 id=&#34;research-interests&#34;&gt;Research Interests&lt;/h2&gt;
-&lt;p&gt;My research interests include:&lt;/p&gt;</description>
     </item>
     <item>
       <title>Six Functor Formalisms: smoothness and suaveness</title>
@@ -136,6 +100,35 @@ Lili Liu, Xi Wang, &lt;strong&gt;Ou Liu&lt;/strong&gt;, et al.&lt;br&gt;
       <pubDate>Thu, 27 Nov 2025 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/notes/notes/stable-doldkan-and-descent/</guid>
       <description>Unified exposition of the stable Dold–Kan correspondence and its application to descent theory in stable categories.</description>
+    </item>
+    <item>
+      <title>About me</title>
+      <link>http://localhost:1313/about/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/about/</guid>
+      <description>&lt;h1 id=&#34;ou-liu-刘欧&#34;&gt;Ou Liu (刘欧)&lt;/h1&gt;
+&lt;p&gt;I am a master&amp;rsquo;s student in Mathematics at the &lt;em&gt;University of Regensburg&lt;/em&gt;.
+My primary research interests lie at the intersection of &lt;em&gt;Homotopy Theory&lt;/em&gt; and &lt;em&gt;Algebraic Geometry&lt;/em&gt;.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;education&#34;&gt;Education&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;2025 &amp;ndash; Present&lt;/strong&gt;&lt;br&gt;
+&lt;strong&gt;M.Sc. in Mathematics&lt;/strong&gt;, &lt;em&gt;University of Regensburg&lt;/em&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Focus: &lt;em&gt;Homotopy Theory&lt;/em&gt;, &lt;em&gt;Algebraic Geometry&lt;/em&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;2021 &amp;ndash; 2025&lt;/strong&gt;&lt;br&gt;
+&lt;strong&gt;B.Sc. in Mathematics and Applied Mathematics&lt;/strong&gt;, &lt;em&gt;Shanxi University&lt;/em&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Thesis: &lt;em&gt;Applications of the six-functor formalism to smooth representation theory&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;Publication:&lt;br&gt;
+Lili Liu, Xi Wang, &lt;strong&gt;Ou Liu&lt;/strong&gt;, et al.&lt;br&gt;
+&lt;em&gt;Valuation and Comparison of the Actual and Optimal Control Strategy in an Emerging Infectious Disease&lt;/em&gt;.&lt;br&gt;
+&lt;em&gt;Infectious Disease Modelling&lt;/em&gt; (2024).&lt;br&gt;
+&lt;a href=&#34;https://www.sciencedirect.com/science/article/pii/S2468042724000149&#34;&gt;[Journal link]&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;research-interests&#34;&gt;Research Interests&lt;/h2&gt;
+&lt;p&gt;My research interests include:&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

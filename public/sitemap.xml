@@ -32,17 +32,17 @@
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
+    <loc>http://localhost:1313/tags/backfilled/</loc>
+    <lastmod>2026-01-30T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
     <loc>http://localhost:1313/tags/behavior/</loc>
     <lastmod>2026-01-30T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>http://localhost:1313/tags/core/</loc>
-    <lastmod>2026-01-30T00:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url><url>
-    <loc>http://localhost:1313/tags/execution/</loc>
+    <loc>http://localhost:1313/invest/lessons/index-investing-is-not-automatically-safe/</loc>
     <lastmod>2026-01-30T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -52,17 +52,17 @@
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
+    <loc>http://localhost:1313/tags/january-2026/</loc>
+    <lastmod>2026-01-30T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
     <loc>http://localhost:1313/tags/lesson/</loc>
     <lastmod>2026-01-30T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>http://localhost:1313/invest/lesson-dont-ignore-valuation-regime-when-building-the-core/</loc>
-    <lastmod>2026-01-30T00:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url><url>
-    <loc>http://localhost:1313/invest/lesson-margin-of-safety-is-not-a-wordits-a-behavior/</loc>
+    <loc>http://localhost:1313/invest/lessons/margin-of-safety-is-a-behavior/</loc>
     <lastmod>2026-01-30T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -77,12 +77,27 @@
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
+    <loc>http://localhost:1313/invest/log/</loc>
+    <lastmod>2026-01-30T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>http://localhost:1313/tags/log/</loc>
+    <lastmod>2026-01-30T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>http://localhost:1313/invest/log/2026-01-30-backfilled/</loc>
+    <lastmod>2026-01-30T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
     <loc>http://localhost:1313/tags/margin-of-safety/</loc>
     <lastmod>2026-01-30T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>http://localhost:1313/invest/monthly-review-january-2026/</loc>
+    <loc>http://localhost:1313/invest/reviews/2026-01/</loc>
     <lastmod>2026-01-30T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -112,12 +127,17 @@
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>http://localhost:1313/tags/</loc>
+    <loc>http://localhost:1313/tags/snapshot/</loc>
     <lastmod>2026-01-30T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>http://localhost:1313/tags/valuation/</loc>
+    <loc>http://localhost:1313/invest/log/2026-01-30-snapshot/</loc>
+    <lastmod>2026-01-30T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>http://localhost:1313/tags/</loc>
     <lastmod>2026-01-30T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -244,10 +264,6 @@
   </url><url>
     <loc>http://localhost:1313/tags/operad/</loc>
     <lastmod>2025-09-22T00:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url><url>
-    <loc>http://localhost:1313/invest/log/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>

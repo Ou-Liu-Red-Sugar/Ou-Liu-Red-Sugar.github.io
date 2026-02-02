@@ -1,6 +1,5 @@
 ---
 title: "About me"
-date: 2025-12-24
 draft: false
 math: true
 ShowToc: false

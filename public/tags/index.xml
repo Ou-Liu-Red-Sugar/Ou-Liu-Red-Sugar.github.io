@@ -16,6 +16,13 @@
       <description></description>
     </item>
     <item>
+      <title>Backfilled</title>
+      <link>http://localhost:1313/tags/backfilled/</link>
+      <pubDate>Fri, 30 Jan 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/backfilled/</guid>
+      <description></description>
+    </item>
+    <item>
       <title>Behavior</title>
       <link>http://localhost:1313/tags/behavior/</link>
       <pubDate>Fri, 30 Jan 2026 00:00:00 +0000</pubDate>
@@ -23,17 +30,10 @@
       <description></description>
     </item>
     <item>
-      <title>Core</title>
-      <link>http://localhost:1313/tags/core/</link>
+      <title>January-2026</title>
+      <link>http://localhost:1313/tags/january-2026/</link>
       <pubDate>Fri, 30 Jan 2026 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/core/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Execution</title>
-      <link>http://localhost:1313/tags/execution/</link>
-      <pubDate>Fri, 30 Jan 2026 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/execution/</guid>
+      <guid>http://localhost:1313/tags/january-2026/</guid>
       <description></description>
     </item>
     <item>
@@ -48,6 +48,13 @@
       <link>http://localhost:1313/tags/lessons/</link>
       <pubDate>Fri, 30 Jan 2026 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/tags/lessons/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Log</title>
+      <link>http://localhost:1313/tags/log/</link>
+      <pubDate>Fri, 30 Jan 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/log/</guid>
       <description></description>
     </item>
     <item>
@@ -72,10 +79,10 @@
       <description></description>
     </item>
     <item>
-      <title>Valuation</title>
-      <link>http://localhost:1313/tags/valuation/</link>
+      <title>Snapshot</title>
+      <link>http://localhost:1313/tags/snapshot/</link>
       <pubDate>Fri, 30 Jan 2026 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/valuation/</guid>
+      <guid>http://localhost:1313/tags/snapshot/</guid>
       <description></description>
     </item>
     <item>
