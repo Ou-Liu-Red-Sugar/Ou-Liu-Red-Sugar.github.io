@@ -45,12 +45,12 @@ My research interests include:
 
 ### SoSe 2026
 
+- **Higher Zariski Geometry** (Oberseminar, Regensburg)  
+  - *Zariski descent for modules* — 30 Jun 2026
+
 - **Gestalten** (Oberseminar, Regensburg)  
   - Personal notes (ongoing): {{< pageref "notes/gestalten" "online notes" >}}  
   - *Six functors and Gestalten* — 01 Jun 2026
-
-- **Higher Zariski Geometry** (Oberseminar, Regensburg)  
-  - *TBA* — TBA
 
 - **Motivic cohomology of schemes** (Oberseminar, Regensburg)  
   - *TBA* — TBA
