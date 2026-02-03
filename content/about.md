@@ -3,6 +3,8 @@ title: "About me"
 draft: false
 math: true
 ShowToc: false
+categories:
+  - About
 ---
 
 # Ou Liu (刘欧)
