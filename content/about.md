@@ -50,7 +50,7 @@ My research interests include:
 
 - **Gestalten** (Oberseminar, Regensburg)  
   - Personal notes (ongoing): {{< pageref "notes/gestalten" "online notes" >}}  
-  - *Six functors and Gestalten* — 01 Jun 2026
+  - *Six functors and Gestalten* — 22 Jun 2026
 
 - **Motivic cohomology of schemes** (Oberseminar, Regensburg)  
   - *TBA* — TBA
