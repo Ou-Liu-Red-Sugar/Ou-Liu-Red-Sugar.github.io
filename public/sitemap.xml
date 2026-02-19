@@ -202,11 +202,6 @@
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>http://localhost:1313/about/</loc>
-    <lastmod>2025-12-24T00:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url><url>
     <loc>http://localhost:1313/tags/poincar%C3%A9-duality/</loc>
     <lastmod>2025-12-24T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -264,6 +259,14 @@
   </url><url>
     <loc>http://localhost:1313/tags/operad/</loc>
     <lastmod>2025-09-22T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>http://localhost:1313/categories/about/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>http://localhost:1313/about/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
