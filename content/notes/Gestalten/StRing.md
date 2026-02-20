@@ -116,192 +116,483 @@ $$
   A_n \in \mathsf{CAlg}(n\mathsf{Pr}) \simeq
   \mathsf{CAlg}\bigl(\mathsf{Mod}_{(n-1)\mathsf{Pr}}(1\mathsf{Pr})\bigr).
 $$
-
-A morphism $f \colon A \to B$ of Stefanich rings consists of a compatible collection of maps $f_{n-1}^* \colon A_n \to B_n$ in $\mathsf{CAlg}(n\mathsf{Pr})$ for all $n \geq 1$. Since $f_{n-1}^*$ is a morphism in $1\mathsf{Pr}$ (a symmetric monoidal left adjoint), it admits a lax symmetric monoidal right adjoint $f_{n-1,*} \colon B_n \to A_n$. This induces a functor on the level of commutative algebras:
+A morphism $f \colon A \to B$ of Stefanich rings consists of compatible maps
+$f_{n-1}^* \colon A_n \to B_n$ in $\mathsf{CAlg}(n\mathsf{Pr})$ for all $n \geq 1$.
+Since $f_{n-1}^*$ is a morphism in $1\mathsf{Pr}$, it admits a lax symmetric
+monoidal right adjoint $f_{n-1,*} \colon B_n \to A_n$, which induces a functor
 $$
   f_{n-1,*} \colon \mathsf{CAlg}(B_n) \to \mathsf{CAlg}(A_n).
 $$
-
-In particular, the unit object $\mathbb{1}_{B_n} \in \mathsf{CAlg}(B_n)$ corresponds to a commutative algebra
+In particular, the unit $\mathbb{1}_{B_n} \in \mathsf{CAlg}(B_n)$ determines a
+commutative algebra
 $$
   (B/A)_{n-1} \coloneqq f_{n-1,*}(\mathbb{1}_{B_n}) \in \mathsf{CAlg}(A_n).
 $$
-Under the forgetful functor $\mathsf{CAlg}(A_n) \to \mathsf{CAlg}((n-1)\mathsf{Pr})$, this object is sent to $B_{n-1} \in \mathsf{CAlg}((n-1)\mathsf{Pr})$. In other words, if $B \in \mathsf{StRing}_{A/}$, then for any $n \geq 0$, the object $B_n \in \mathsf{CAlg}(n\mathsf{Pr})$ refines to an object $(B/A)_n \in \mathsf{CAlg}(A_{n+1})$. Thus, any $A$-Stefanich algebra $B$ can be translated to a sequence $\left((B/A)_0,(B/A)_1,\cdots\right)$, and this construction yields the desired equivalence.
+Under the forgetful functor $\mathsf{CAlg}(A_n) \to \mathsf{CAlg}((n-1)\mathsf{Pr})$,
+this object maps to $B_{n-1} \in \mathsf{CAlg}((n-1)\mathsf{Pr})$. Thus, any
+$A$-Stefanich algebra $B$ determines a sequence
+$\bigl((B/A)_0, (B/A)_1, \ldots\bigr)$.
+
+To make this precise, we introduce the following adjunctions. For each $n \geq 0$,
+there is an adjunction
+
+{{< tikzcd >}}
+\mathsf{Mod}_{A_n}(1\mathsf{Pr}) \ar[r,shift left = 2,"F_n"]\ar[r,phantom,"\bot"] & A_{n+1} \ar[l,shift left = 2,"G_n"]
+{{< /tikzcd >}}
+
+where $G_n(X) \coloneqq \underline{\mathsf{Hom}}_{A_{n+1}}(\mathbb{1}_{A_{n+1}}, X)$.
+By definition of a Stefanich ring, there is a canonical equivalence
+$$
+  A_n \xrightarrow{\sim} G_n(\mathbb{1}_{A_{n+1}}) = \mathsf{End}_{A_{n+1}}(\mathbb{1}_{A_{n+1}}).
+$$
+The right adjoint $G_n$ induces a transition functor
+$$
+  \phi_n \colon \mathsf{CAlg}(A_{n+1}) \to \mathsf{CAlg}(A_n),
+  \qquad
+  B \longmapsto \mathsf{End}_{G_n(B)}(\mathbb{1}_{A_n}),
+$$
+whose left adjoint is
+$$
+  \psi_n \colon \mathsf{CAlg}(A_n) \to \mathsf{CAlg}(A_{n+1}),
+  \qquad
+  R \longmapsto F_n\!\left(\mathsf{Mod}_R(A_n)\right).
+$$
 
 {{< proposition >}}
-Let $A$ be a Stefanich ring. For any $n \geq 1$, there is a fully faithful functor
+Let $A$ be a Stefanich ring. There are equivalences of categories
 $$
-  \mathsf{CAlg}(A_n) \hookrightarrow \mathsf{StRing}_{A/}
+\begin{align*}
+  \mathsf{StRing}_{A/}
+  &\simeq
+  \operatorname{lim}_{\widehat{\mathsf{Cat}}}
+  \Bigl(
+    \mathsf{CAlg}(A_1)
+    \xleftarrow{\phi_1}
+    \mathsf{CAlg}(A_2)
+    \xleftarrow{\phi_2}
+    \cdots
+  \Bigr)\\
+  &\simeq
+  \operatorname{colim}_{1\mathsf{Pr}}
+  \Bigl(
+    \mathsf{CAlg}(A_1)
+    \xrightarrow{\psi_1}
+    \mathsf{CAlg}(A_2)
+    \xrightarrow{\psi_2}
+    \cdots
+  \Bigr),
+\end{align*}
 $$
-which is left adjoint to the projection $B \mapsto (B/A)_{n-1}$.
-This induces an equivalence identifying $\mathsf{StRing}_{A/}$ with the limit of a tower of algebras:
+where the projection $B \mapsto (B/A)_{n-1}$ recovers the $n$-th component of the limit.
+Furthermore, each $\psi_n$ is fully faithful, and there is a fully faithful functor
 $$
-  \mathsf{StRing}_{A/} \simeq \operatorname{lim}_{\widehat{\mathsf{Cat}}} \left( \mathsf{CAlg}(A_1) \xleftarrow{\phi_1} \mathsf{CAlg}(A_2) \xleftarrow{\phi_2} \cdots \right)
+  \mathsf{CAlg}(A_{n+1}) \hookrightarrow \mathsf{StRing}_{A/}
 $$
-taking $B \in \mathsf{StRing}_{A/}$ to  $\left((B/A)_0,(B/A)_1,\cdots\right)$.
-Furthermore, since the transition functors lie in $\mathsf{Pr}_{\aleph_1}^R$, one can describe $\mathsf{StRing}_{A/}$ as a colimit in $1\mathsf{Pr}$:
-$$
-  \mathsf{StRing}_{A/} \simeq \operatorname{colim}_{1\mathsf{Pr}} \left( \mathsf{CAlg}(A_1) \hookrightarrow \mathsf{CAlg}(A_2) \hookrightarrow \cdots \right).
-$$
+left adjoint to the projection $B \mapsto (B/A)_n$.
 {{< /proposition >}}
 
 {{< proof >}}
-*Step 1: Reformulating the Limit*
+*Step 1: Limit description.*
 
-Recall that $\mathsf{StRing}$ is defined as a limit in $\widehat{\mathsf{Cat}}$. Consequently, the under-category $\mathsf{StRing}_{A/}$ is the limit of the under-categories at each level.
-For $n \geq 1$, we utilize the identification of relative algebras with algebras in the module category (via Lurie's result):
+Since $\mathsf{StRing}$ is defined as a limit in $\widehat{\mathsf{Cat}}$, the slice
+$\mathsf{StRing}_{A/}$ is the limit of the corresponding slices at each level.
+Lurie's identification $\mathsf{CAlg}(n\mathsf{Pr})_{A_n/} \simeq
+\mathsf{CAlg}(\mathsf{Mod}_{A_n}(1\mathsf{Pr}))$ gives
 $$
-  \mathsf{CAlg}(n\mathsf{Pr})_{A_n/} \simeq \mathsf{CAlg}(\mathsf{Mod}_{A_n}(1\mathsf{Pr})).
+  \mathsf{StRing}_{A/}
+  \simeq
+  \operatorname{lim}_{\widehat{\mathsf{Cat}}}
+  \Bigl(
+    \cdots \to
+    \mathsf{CAlg}(\mathsf{Mod}_{A_{n+1}}(1\mathsf{Pr}))
+    \xrightarrow{T_n}
+    \mathsf{CAlg}(\mathsf{Mod}_{A_n}(1\mathsf{Pr}))
+    \to \cdots
+  \Bigr).
 $$
-Using this identification, the original definition presents $\mathsf{StRing}_{A/}$ as the limit of the following tower:
+One checks that each $T_n$ factors through $\mathsf{CAlg}(A_{n+1})$ via
 $$
-  \mathsf{StRing}_{A/} \simeq \operatorname{lim}_{\widehat{\mathsf{Cat}}} \left( \cdots \to \mathsf{CAlg}(\mathsf{Mod}_{A_{n+1}}(1\mathsf{Pr})) \xrightarrow{T_n} \mathsf{CAlg}(\mathsf{Mod}_{A_n}(1\mathsf{Pr})) \to \cdots \right).
+  \mathsf{CAlg}(\mathsf{Mod}_{A_{n+1}}(1\mathsf{Pr}))
+  \xrightarrow{\mathsf{End}_{(-)}(\mathbb{1}_{A_{n+1}})}
+  \mathsf{CAlg}(A_{n+1})
+  \xrightarrow{G_n^*}
+  \mathsf{CAlg}(\mathsf{Mod}_{A_n}(1\mathsf{Pr})),
 $$
+so inserting the intermediate terms $\mathsf{CAlg}(A_{n+1})$ does not change the
+limit, yielding the claimed limit description with transition functors $\phi_n$.
 
-To analyze the transition functor $T_n$, we need to unpack the structural relationship between consecutive levels. By the definition of a Stefanich ring, we have the adjunction:
-{{< tikzcd >}}
-\mathsf{Mod}_{A_n}(1\mathsf{Pr}) \ar[r,shift left = 2.5,"F"] \ar[r,phantom,"\bot"] & A_{n+1} \ar[l,shift left =2.5,"G"]
-{{< /tikzcd >}}
-where $G(X) \coloneqq \underline{\mathsf{Hom}}_{A_{n+1}}(\mathbb{1}, X)$ is the geometric forgetful functor.
+*Step 2: Colimit description.*
 
-Crucially, the transition functor $T_n$ **factors** through the category $\mathsf{CAlg}(A_{n+1})$. Specifically, $T_n$ is the composite:
-$$
-  \mathsf{CAlg}(\mathsf{Mod}_{A_{n+1}}(1\mathsf{Pr})) \xrightarrow{\pi_{n+1}} \mathsf{CAlg}(A_{n+1}) \xrightarrow{g} \mathsf{CAlg}(\mathsf{Mod}_{A_n}(1\mathsf{Pr})).
-$$
-Here:
-* $\pi_{n+1}$ is given by taking endomorphisms of the unit: $X \mapsto \mathsf{End}_X(\mathbb{1}_{A_{n+1}})$.
-* $g$ is the functor induced by the right adjoint $G$ on algebras.
+Each $\phi_n$ preserves limits and $\aleph_1$-filtered colimits, hence lies in
+$\mathsf{Pr}^R_{\aleph_1}$. Under the equivalence
+$(\mathsf{Pr}^L_{\aleph_1})^{\mathrm{op}} \simeq \mathsf{Pr}^R_{\aleph_1}$, the
+limit of the $\phi_n$-diagram corresponds to the colimit of their left adjoints
+$\psi_n$ in $1\mathsf{Pr}$.
 
-Since the transition maps at every level factor through the objects $\mathsf{CAlg}(A_{k})$, the limit of the original tower is equivalent to the limit of the tower formed by these intermediate objects.
-The new transition map $\phi_n: \mathsf{CAlg}(A_{n+1}) \to \mathsf{CAlg}(A_n)$ is the composite $\pi_n \circ g$:
-$$
-  \phi_n(B) = \mathsf{End}_{g(B)}(\mathbb{1}_{A_n}) \in \mathsf{CAlg}(A_n).
-$$
-This establishes the limit equivalence. It is clear from this construction that the projection maps $B \in \mathsf{StRing}_{A/}$ to $(B/A)_{n-1} \in \mathsf{CAlg}(A_n)$.
+*Step 3: Full faithfulness of $\psi_n$.*
 
-<br>
-
-*Step 2: Colimit Description*
-
-The transition functors $\phi_n: \mathsf{CAlg}(A_{n+1}) \to \mathsf{CAlg}(A_n)$ constructed above are accessible functors that preserve limits (being right adjoints). Thus, they lie in $\mathsf{Pr}_{\aleph_1}^R$.
-In the duality between $\mathsf{Pr}^R$ (categories with right adjoints) and $\mathsf{Pr}^L$ (categories with left adjoints), the limit of a diagram of right adjoints corresponds to the colimit of the diagram of their left adjoints.
-Therefore, $\mathsf{StRing}_{A/}$ can be described as the colimit in $1\mathsf{Pr}$:
+We show the unit $R \to \phi_n(\psi_n(R))$ is an equivalence. Since
+$\mathsf{Mod}_R(A_n)$ is generated by $A_n$ with $\mathsf{End}_{\mathsf{Mod}_R(A_n)}(A_n) \simeq R$,
+and since $F_n$ is symmetric monoidal and maps $A_n$ to $\mathbb{1}_{A_{n+1}}$, we get
 $$
-  \mathsf{StRing}_{A/} \simeq \operatorname{colim}_{1\mathsf{Pr}} \left( \mathsf{CAlg}(A_1) \to \mathsf{CAlg}(A_2) \to \cdots \right),
+  \phi_n(\psi_n(R))
+  = \mathsf{End}_{G_n(F_n(\mathsf{Mod}_R(A_n)))}(\mathbb{1}_{A_n})
+  \simeq \mathsf{End}_{F_n(\mathsf{Mod}_R(A_n))}(\mathbb{1}_{A_{n+1}})
+  \simeq R. \qquad \square
 $$
-where the transition maps are now the left adjoints $\mathsf{CAlg}(A_n) \to \mathsf{CAlg}(A_{n+1})$.
-
-<br>
-
-*Step 3: Fully Faithfulness*
-
-It remains to show that these left adjoints $\mathsf{CAlg}(A_n) \to \mathsf{CAlg}(A_{n+1})$ are fully faithful.
-Let $F: \mathsf{Mod}_{A_n}(1\mathsf{Pr}) \to A_{n+1}$ be the left adjoint functor described in Step 1. The functor on algebras is induced by $F$.
-To prove fully faithfulness, we verify that for any $R \in \mathsf{CAlg}(A_n)$, the unit of the adjunction $\eta_R: R \to \phi_n(F(R))$ is an equivalence.
-Since we are working in $1\mathsf{Pr}$, it suffices to check this on $\aleph_1$-compact objects. Let $R$ be a countably presented algebra.
-
-Consider $R$ as an object in $\mathsf{CAlg}(\mathsf{Mod}_{A_n}(1\mathsf{Pr}))$ via the embedding $R \mapsto \mathsf{Mod}_R(A_n)$.
-Applying the right adjoint $\phi_n$ to the image $F(\mathsf{Mod}_R(A_n))$, we compute:
-$$
-  \phi_n(F(\mathsf{Mod}_R(A_n))) \simeq \mathsf{End}_{F(\mathsf{Mod}_R(A_n))}(\mathbb{1}_{A_{n+1}}).
-$$
-Note that $\mathsf{Mod}_R(A_n)$ is generated by $A_n$. The endomorphism algebra of this generator is simply $R$ itself:
-$$
-\mathsf{End}_{\mathsf{Mod}_R(A_n)}(A_n) \simeq R.
-$$
-Since $F$ preserves adjunctions and endomorphism algebras, we have:
-$$
-  \mathsf{End}_{F(\mathsf{Mod}_R(A_n))}(F(A_n)) \simeq F(R).
-$$
-Crucially, by the definition of a Stefanich ring, $F$ induces an equivalence on the unit's endomorphisms:
-$$
-  A_n \xrightarrow{\sim} \mathsf{End}_{A_{n+1}}(\mathbb{1}_{A_{n+1}}).
-$$
-This implies that $F$ maps the generator $A_n$ to the unit $\mathbb{1}_{A_{n+1}}$. Consequently, the endomorphism algebra of the unit in the target is exactly the image of $R$:
-$$
-  \mathsf{End}_{F(\mathsf{Mod}_R(A_n))}(\mathbb{1}_{A_{n+1}}) \simeq F(R) \cong R.
-$$
-Thus, $\eta_R$ is an isomorphism.
 {{< /proof >}}
 
-In the above proof, we constructed a functor
-$$
-   \mathsf{Mod}_{A_n}(1\mathsf{Pr}) \xrightarrow{F} A_{n+1}
-$$
-It is not fully faithful globally, but if we focus on dualizable objects, $F$ will be fully faithful.
-
-{{< lemma >}}
-For any Stefanich ring $A$ and $n \geq 0$, the functor
-$$
-  F \colon \mathsf{Mod}_{A_n}(1\mathsf{Pr}) \to A_{n+1}
-$$
-is fully faithful on dualizable objects.
-In fact, it is even fully faithful on $\aleph_1$-filtered colimits of dualizable objects.
+{{< lemma id="lem-Fn-dualizable" >}}
+For any Stefanich ring $A$ and $n \geq 0$, the functor $F_n$ is fully faithful on
+dualizable objects of $\mathsf{Mod}_{A_n}(1\mathsf{Pr})$, and more generally on
+$\aleph_1$-filtered colimits of dualizable objects.
 {{< /lemma >}}
 
 {{< proof >}}
-First, observe that $F$ is a morphism in $1\mathsf{Pr}$. Consequently, $F$ preserves colimits and $\aleph_1$-compact objects. Additionally, the right adjoint $G$ preserves $\aleph_1$-filtered colimits.
-Therefore, to show fully faithfulness on $\aleph_1$-filtered colimits of dualizable objects, it suffices to check it on the dualizable objects themselves.
-
-Since $F$ is a symmetric monoidal functor, the problem reduces to checking the unit of the adjunction.
-Let $X, Y \in \mathsf{Mod}_{A_n}(1\mathsf{Pr})$ be dualizable objects. We have the following chain of natural equivalences using the duality pairings:
+Since $F_n$ preserves colimits and $G_n$ preserves $\aleph_1$-filtered colimits,
+it suffices to treat dualizable objects. For dualizable $X, Y$, we compute
 $$
-\begin{aligned}
-  \operatorname{Hom}_{A_{n+1}}(F(X), F(Y)) &\simeq \operatorname{Hom}_{A_{n+1}}(F(X) \otimes F(Y)^{\vee}, \mathbb{1}_{A_{n+1}}) \\
-  &\simeq \operatorname{Hom}_{A_{n+1}}(F(X \otimes Y^{\vee}), \mathbb{1}_{A_{n+1}}).
-\end{aligned}
+  \operatorname{Hom}_{A_{n+1}}(F_n X, F_n Y)
+  \simeq \operatorname{Hom}_{A_{n+1}}(F_n(X \otimes Y^\vee), \mathbb{1}_{A_{n+1}})
+  \simeq \operatorname{Hom}_{\mathsf{Mod}_{A_n}(1\mathsf{Pr})}(X \otimes Y^\vee, G_n(\mathbb{1}_{A_{n+1}})).
 $$
-Using the adjunction $F \dashv G$, this maps to:
+By the defining equivalence $G_n(\mathbb{1}_{A_{n+1}}) \simeq \mathbb{1}_{A_n}$, this becomes
 $$
-  \operatorname{Hom}_{\mathsf{Mod}_{A_n}(1\mathsf{Pr})}(X \otimes Y^{\vee}, G(\mathbb{1}_{A_{n+1}})).
+  \operatorname{Hom}_{\mathsf{Mod}_{A_n}(1\mathsf{Pr})}(X \otimes Y^\vee, \mathbb{1}_{A_n})
+  \simeq \operatorname{Hom}_{\mathsf{Mod}_{A_n}(1\mathsf{Pr})}(X, Y),
 $$
-If we can show that the natural map $1_{A_n} \to G(\mathbb{1}_{A_{n+1}})$ is an equivalence, then the last term becomes:
-$$
-  \operatorname{Hom}_{\mathsf{Mod}_{A_n}(1\mathsf{Pr})}(X \otimes Y^{\vee}, 1_{A_n}) \simeq \operatorname{Hom}_{\mathsf{Mod}_{A_n}(1\mathsf{Pr})}(X, Y),
-$$
-which proves fully faithfulness.
-
-Recall the definition of the right adjoint $G$:
-$$
-  G(Z) = \underline{\mathsf{Hom}}_{A_{n+1}}(\mathbb{1}_{A_{n+1}}, Z).
-$$
-Applying this to the unit $\mathbb{1}_{A_{n+1}}$, we get:
-$$
-  G(\mathbb{1}_{A_{n+1}}) = \underline{\mathsf{Hom}}_{A_{n+1}}(\mathbb{1}_{A_{n+1}}, \mathbb{1}_{A_{n+1}}) = \mathsf{End}_{A_{n+1}}(\mathbb{1}_{A_{n+1}}).
-$$
-By the fundamental definition of a Stefanich ring, we have the identification $A_n \simeq \mathsf{End}_{A_{n+1}}(\mathbb{1}_{A_{n+1}})$.
-Since $A_n$ is precisely the unit object $\mathbb{1}_{A_n}$ in the category $\mathsf{Mod}_{A_n}(1\mathsf{Pr})$, we conclude that $G(\mathbb{1}_{A_{n+1}}) \simeq \mathbb{1}_{A_{n}}$.
-Thus, the functor is fully faithful on dualizable objects.
+which proves full faithfulness. 
 {{< /proof >}}
 
-## Affine map
+## Shifting
 
-Since $\mathsf{CAlg}(A_{n+1}) \hookrightarrow \mathsf{StRing}_{A/}$ is fully faithful, one can consider those $B \in \mathsf{StRing}_{A/}$ which lies in the essential image of $\mathsf{CAlg}(A_{n+1})$, which is equivalent to say those $B$ determined by $(B/A)_{n} \in \mathsf{CAlg}(A_{n+1})$.
+For any Stefanich ring $A = (A_0, A_1, A_2, \ldots)$, the shifted sequence
+$(A_1, A_2, A_3, \ldots)$ is again a Stefanich ring: the defining equivalences
+$A_n \simeq \mathsf{End}_{A_{n+1}}(\mathbb{1})$ simply shift their indices. This
+gives a *shifting functor* on $\mathsf{StRing}$, which turns out to be an
+equivalence.
+
+{{< proposition id="prop-shifting" >}}
+The shifting functor
+$(A_0, A_1, A_2, \ldots) \mapsto (A_1, A_2, A_3, \ldots)$ induces an equivalence
+
+$$
+  \mathsf{StRing} \xrightarrow{\;\sim\;}
+  \mathsf{StRing}_{(1\mathsf{Pr},\, 2\mathsf{Pr},\, \ldots)/}.
+$$
+
+More generally, shifting $n$ times yields an equivalence
+$\mathsf{StRing} \simeq \mathsf{StRing}_{(n\mathsf{Pr},\, (n+1)\mathsf{Pr},\, \ldots)/}$.
+{{< /proposition >}}
+
+{{< proof >}}
+This follows from the identification
+$$
+  \mathsf{CAlg}((n+1)\mathsf{Pr})
+  = \mathsf{CAlg}\bigl(\mathsf{Mod}_{n\mathsf{Pr}}(1\mathsf{Pr})\bigr)
+  = \mathsf{CAlg}(1\mathsf{Pr})_{n\mathsf{Pr}/}.
+$$
+Since also
+$\mathsf{CAlg}(n\mathsf{Pr}) = \mathsf{CAlg}(1\mathsf{Pr})_{(n-1)\mathsf{Pr}/}$,
+the slice over $n\mathsf{Pr}$ gives
+$$
+  \mathsf{CAlg}(n\mathsf{Pr})_{n\mathsf{Pr}/}
+  = \bigl(\mathsf{CAlg}(1\mathsf{Pr})_{(n-1)\mathsf{Pr}/}\bigr)_{n\mathsf{Pr}/}
+  = \mathsf{CAlg}(1\mathsf{Pr})_{n\mathsf{Pr}/}
+  = \mathsf{CAlg}((n+1)\mathsf{Pr}),
+$$
+which is exactly the transition in the colimit defining $\mathsf{StRing}$, but
+based at $n\mathsf{Pr}$ instead of $0\mathsf{Pr}$.
+{{< /proof >}}
+
+{{< remark >}}
+The shifting operation has no known geometric or intuitive meaning. Its very
+existence is tied to our choice of foundations: it is not a priori clear that a
+functor $2\mathsf{Pr} \to 1\mathsf{Pr}$ should exist, and the construction is not
+compatible with changing the cutoff cardinal $\kappa$ (which we fixed to be
+$\aleph_1$). Had we worked stably, i.e.\ over the base
+$S = (D(\mathbb{S}), 1\mathsf{Pr}_{\mathrm{st}}, \ldots)$, the shifting operation
+would not be available.
+
+Nonetheless, shifting is extremely useful as a technical device: it allows us to
+assume *without loss of generality* that $n = 0$ in most proofs about properties
+of morphisms (such as $n$-affineness, $n$-properness, $n$-suavity), thereby
+simplifying notation considerably.
+{{< /remark >}}
+
+## Tensor products of Stefanich rings
+
+### Limits and spectrification
+
+Limits of Stefanich rings are straightforward: they are computed levelwise.
+Colimits, however, are more subtle. If one forms the colimit at each level
+separately, the result is a sequence $D_n \in \mathsf{CAlg}(n\mathsf{Pr})$
+equipped with maps
+
+$$
+  D_n \to \mathsf{End}_{D_{n+1}}(\mathbb{1}),
+$$
+
+but these usually fail to be equivalences, so $(D_n)_n$ is not yet a Stefanich
+ring. One must *spectrify*: universally enforce that these maps become
+equivalences. The terminology comes from the analogy with spectra in stable
+homotopy theory, where a Stefanich ring plays the role of an infinite loop space
+
+$$
+  X_0 \simeq \Omega X_1 \simeq \Omega^2 X_2 \simeq \cdots
+$$
+
+and one similarly needs to spectrify a sequence of spaces equipped with maps
+$X_n \to \Omega X_{n+1}$ that are not yet equivalences.
+
+Concretely, one replaces the sequence $(D_n)_n$ by
+
+$$
+  D'_n \coloneqq \mathsf{End}_{D_{n+1}}(\mathbb{1}),
+$$
+
+equipped with the induced map $D_n \to D'_n$, and iterates using transfinite
+induction (taking filtered colimits at limit ordinal stages). Since the functor
+$D \mapsto \mathsf{End}_D(\mathbb{1})$ commutes with $\aleph_1$-filtered
+colimits, the process stabilises after $\aleph_1$ steps. By the adjoint functor
+theorem, this spectrification always exists.
+
+### Three perspectives on pushouts
+
+In practice, we are mostly interested in pushouts (i.e.\ relative tensor
+products). Consider a pushout diagram $B \xleftarrow{f} A \xrightarrow{g} C$ of
+Stefanich rings. There are three equivalent ways to describe the levelwise data
+before spectrification.
+
+**Perspective 1 (absolute).** Form the tensor product at each level:
+
+$$
+  (B_0 \otimes_{A_0} C_0,\;
+   B_1 \otimes_{A_1} C_1,\;
+   B_2 \otimes_{A_2} C_2,\; \ldots),
+$$
+
+then spectrify.
+
+**Perspective 2 (relative, symmetric).** Under the equivalence
+$\mathsf{StRing}_{A/} \simeq
+\operatorname{colim}(\mathsf{CAlg}(A_1) \xrightarrow{\psi_1}
+\mathsf{CAlg}(A_2) \xrightarrow{\psi_2} \cdots)$,
+form the tensor product in $\mathsf{StRing}_{A/}$:
+
+$$
+  \bigl((B/A)_0 \otimes_{A_1} (C/A)_0,\;
+        (B/A)_1 \otimes_{A_2} (C/A)_1,\;
+        \ldots\bigr),
+$$
+
+then spectrify.
+
+**Perspective 3 (relative, base change).** Think of $B \otimes_A C$ as the image
+of $B \in \mathsf{StRing}_{A/}$ under the base change functor
+$g^* \colon \mathsf{StRing}_{A/} \to \mathsf{StRing}_{C/}$:
+
+$$
+  \bigl(g^*_0(B/A)_0,\; g^*_1(B/A)_1,\;
+        g^*_2(B/A)_2,\; \ldots\bigr),
+$$
+
+then spectrify.
+
+The third perspective is the most useful for analysing morphisms: it expresses
+base change as a levelwise operation followed by spectrification, and we will
+isolate general classes of maps (the $n$-affine maps, introduced below) for
+which spectrification changes only finitely many terms.
+
+## Affine maps
+
+### Motivation: a hierarchy of affineness
+
+In classical algebraic geometry, an affine morphism $f \colon Y \to X$ is one for
+which $Y$ is completely determined by
+$f_*\mathcal{O}_Y \in \mathsf{CAlg}(\mathsf{QCoh}(X))$; in the language of
+Stefanich rings, the data $(B/A)_0 \in \mathsf{CAlg}(A_1)$ suffices to
+reconstruct $B$. This is the notion of *0-affineness*.
+
+One level up, Gaitsgory's 1-affineness asks that a prestack $\mathcal{Y}$
+satisfy
+
+$$
+  \mathsf{ShvCat}(\mathcal{Y}) \simeq
+  \mathsf{QCoh}(\mathcal{Y})\text{-}\mathsf{mod},
+$$
+
+i.e.\ the category of sheaves of categories on $\mathcal{Y}$ is completely
+recovered from the monoidal DG category $\mathsf{QCoh}(\mathcal{Y})$. In the
+Stefanich framework, $\mathsf{ShvCat}(\mathcal{Y})$ corresponds to
+$1\mathsf{Pr}_\mathcal{Y}$ and the right-hand side to
+$\mathsf{Mod}_{D(\mathcal{Y})}(1\mathsf{Pr})$. Hence 1-affineness means that the
+data $(B/A)_1 \in \mathsf{CAlg}(A_2)$ --- a commutative algebra in
+$1\mathsf{Pr}$-categories --- determines all higher levels by iteratively passing
+to module categories.
+
+The pattern is clear: *$n$-affineness* means that everything from the $n$-th
+categorical level onwards is generated by a single piece of commutative algebra
+data at that level. This is what ``everything becomes affine under sufficient
+categorification'' means precisely. In terms of the tensor product discussion
+above, $n$-affineness of $B$ over $A$ means exactly that *spectrification is
+unnecessary from level $n$ onwards*: the base change recipe of Perspective 3
+already produces a Stefanich ring starting at level $n$, without any further
+correction.
+
+### Definition and formal properties
+
 {{< definition id="def-affineness" >}}
-Let $A$ be a Stefanich ring and $n \geq 0$.
-An $A$-Stefanich algebra $B \in \mathsf{StRing}_{A/}$ is called **$n$-affine** if it lies in the essential image of the fully faithful embedding
+Let $A$ be a Stefanich ring and $n \geq 0$. An $A$-algebra
+$B \in \mathsf{StRing}_{A/}$ is called *$n$-affine* if it lies in the essential
+image of the fully faithful embedding
+
 $$
-  \mathsf{CAlg}(A_{n+1}) \hookrightarrow \mathsf{StRing}_{A/}.
+  \psi_n \colon \mathsf{CAlg}(A_{n+1}) \hookrightarrow \mathsf{StRing}_{A/}.
 $$
-Equivalently, $B$ is $n$-affine if for all $m \geq n$, the structure of $B$ at level $m+1$ is freely generated by its structure at level $m$. Explicitly, consider the left adjoint functor ("free generation"):
-$$
-  F_{m+1} \colon \mathsf{Mod}_{A_{m+1}}(1\mathsf{Pr}) \to A_{m+2}.
-$$
-Then for all $m \geq n$, this functor maps the module category of the relative algebra at level $m$ to the relative algebra at level $m+1$:
-$$
-  F_{m+1}\left( \mathsf{Mod}_{(B/A)_m}(A_{m+1}) \right) \simeq (B/A)_{m+1} \quad \text{in } \mathsf{CAlg}(A_{m+2}).
-$$
-In terms of the sequence of relative algebras, this means the tower for $m \ge n$ is determined by applying the free generation functors iteratively:
-$$
-\begin{aligned}
-  (B/A)_n     &\in \mathsf{CAlg}(A_{n+1}) \\
-  (B/A)_{n+1} &\simeq F_{n+1}\bigl( \mathsf{Mod}_{(B/A)_n}(A_{n+1}) \bigr) \\
-  (B/A)_{n+2} &\simeq F_{n+2}\bigl( \mathsf{Mod}_{(B/A)_{n+1}}(A_{n+2}) \bigr) \\
-              &\vdots
-\end{aligned}
-$$
+
+In other words, $B$ is completely determined by the datum of
+$(B/A)_n \in \mathsf{CAlg}(A_{n+1})$, by iteratively passing to module
+categories (in the $A$-internal sense).
 {{< /definition >}}
-In next note, we will compare 1-affineness in the sense of Gaistgory and {{< thmref "def-affineness" >}}.
+
+{{< proposition id="prop-n-affine" >}}
+Let $A$ be a Stefanich ring and $n \geq 0$. The class of $n$-affine
+$B \in \mathsf{StRing}_{A/}$ is stable under all small colimits. Moreover:
+
+1. If $B$ is $n$-affine over $A$, then for all $m \geq n$ the canonical functor
+
+   $$
+     \mathsf{Mod}_{(B/A)_m}(A_{m+1}) \to B_{m+1}
+   $$
+
+   is an equivalence. Here, the functor is the composite
+   $\mathsf{Mod}_{(B/A)_m}(A_{m+1}) \hookrightarrow \mathsf{Mod}_{A_{m+1}}(1\mathsf{Pr})
+   \xrightarrow{F_{m+1}} A_{m+2}$, which is fully faithful on
+   ($\aleph_1$-filtered colimits of) dualizable objects by
+   {{< thmref "lem-Fn-dualizable" >}}.
+
+2. *(Base change.)* If $g \colon A \to C$ is any map of Stefanich rings and $B$
+   is $n$-affine over $A$, then $g^*B = B \otimes_A C$ is $n$-affine over $C$,
+   and for all $m \geq n$,
+
+   $$
+     g^*_m(B/A)_m \xrightarrow{\;\sim\;} (B \otimes_A C / C)_m.
+   $$
+
+3. *(Composition.)* For composable maps $f \colon A \to B$ and
+   $g \colon B \to C$ with $f$ being $n$-affine, $g$ is $n$-affine if and only
+   if $g \circ f$ is $n$-affine.
+
+In particular, $n$-affine maps are stable under composition, base change, and
+passage to diagonals.
+{{< /proposition >}}
+
+{{< proof >}}
+Stability under small colimits is clear, as
+$\psi_n \colon \mathsf{CAlg}(A_{n+1}) \to \mathsf{StRing}_{A/}$ preserves small
+colimits.
+
+*Part (1).* If $B$ is $n$-affine, then for all $m \geq n$, $(B/A)_{m+1}$ is by
+construction the image of $\mathsf{Mod}_{(B/A)_m}(A_{m+1})$ under
+$F_{m+1} \colon \mathsf{Mod}_{A_{m+1}}(1\mathsf{Pr}) \to A_{m+2}$. By
+{{< thmref "lem-Fn-dualizable" >}}, the functor $F_{m+1}$ is fully faithful on
+the subcategory containing $\mathsf{Mod}_{(B/A)_m}(A_{m+1})$ (which is an
+$\aleph_1$-filtered colimit of dualizables --- indeed,
+$\mathsf{Mod}_R(A_{m+1})$ is dualizable whenever
+$R \in \mathsf{CAlg}(A_{m+1})$ is countably presented). Thus the underlying
+category is unchanged, giving $B_{m+1} \simeq
+\mathsf{Mod}_{(B/A)_m}(A_{m+1})$.
+
+*Part (2).* This follows from the commutative diagram
+
+{{< tikzcd >}}
+\mathsf{CAlg}(A_{n+1}) \ar[r,"\psi_{n+1}"]\ar[d,"g^*_n"'] & \mathsf{CAlg}(A_{n+2}) \ar[r]\ar[d,"g^*_{n+1}"'] & \cdots \ar[r] & \mathsf{StRing}_{A/} \ar[d,"g^*"]\\
+\mathsf{CAlg}(C_{n+1}) \ar[r,"\psi_{n+1}"] & \mathsf{CAlg}(C_{n+2}) \ar[r] & \cdots \ar[r] & \mathsf{StRing}_{C/}
+{{< /tikzcd >}}
+
+which is assembled from two squares: (i) the assertion that module categories
+base change, i.e.\ the square involving $\mathsf{CAlg}(A_{n+1}) \to
+\mathsf{CAlg}(\mathsf{Mod}_{A_{n+1}}(1\mathsf{Pr}))$ and its $C$-analogue; and
+(ii) the square involving $\mathsf{Mod}_{A_{n+1}}(1\mathsf{Pr}) \to A_{n+2}$ and
+its $C$-analogue, whose commutativity follows from the datum of the map $g$ of
+Stefanich rings.
+
+*Part (3).* If $B$ is $n$-affine over $A$, then $\mathsf{StRing}_{B/}$ maps
+isomorphically to
+
+$$
+  \mathsf{StRing}_{A/} \times_{\mathsf{CAlg}(A_{n+1})}
+  \mathsf{CAlg}(A_{n+1})_{(B/A)_n/}.
+$$
+
+In other words, a $B$-algebra $C$ is fully determined by the map $A \to C$ plus
+a map $(B/A)_n \to (C/A)_n$ in $\mathsf{CAlg}(A_{n+1})$. By part (1), the
+category of $n$-affine $C$ over $B$ is $\mathsf{CAlg}(B_{n+1})$, while the
+category of $B$-algebras $C$ that are $n$-affine over $A$ is
+$\mathsf{CAlg}(A_{n+1})_{(B/A)_n/}$, and these are equivalent.
+{{< /proof >}}
+
+### Affineness as a condition on maps
+
+> **Warning.** The converse to (1) is false. Consider the map
+> $f \colon * \to B^2\mathbb{G}_m$ over a field $k$ and the corresponding map
+> $A \to B$ of Stefanich rings. This map is 1-affine, so condition (1) holds for
+> $m \geq 1$. But condition (1) also holds for $m = 0$, since
+> $A_1 = B_1 = D(k)$ and $(B/A)_0 = k$, so that
+> $\mathsf{Mod}_k(D(k)) \simeq D(k) = B_1$. Nevertheless, $f$ is *not*
+> 0-affine: $(B/A)_0 = k$ is the unit in $\mathsf{CAlg}(A_1)$, so applying
+> $\psi_0$ to it gives $A$ itself rather than $B$.
+
+{{< remark id="rem-affineness-enrichment" >}}
+The warning above illustrates a structural point worth emphasising:
+*$n$-affineness is a condition on how the map $A \to B$ assembles the tower
+$(B/A)_0, (B/A)_1, \ldots$, not merely a levelwise matching of categories.*
+
+A Stefanich $A$-algebra $B$ can be viewed as a categorical Postnikov tower: each
+$(B/A)_m \in \mathsf{CAlg}(A_{m+1})$ is the ``$m$-th homotopy group'', and the
+way $(B/A)_{m+1}$ sits inside $A_{m+2}$ --- rather than merely its underlying
+category --- plays the role of a $k$-invariant.
+
+Condition (1) checks that the underlying categories match at every
+level, but it is blind to the $A_{m+2}$-enrichment. Since
+$F_{m+1} \colon \mathsf{Mod}_{A_{m+1}}(1\mathsf{Pr}) \to A_{m+2}$ is fully
+faithful on ($\aleph_1$-filtered colimits of) dualizables by
+{{< thmref "lem-Fn-dualizable" >}}, any object *in its essential image* is
+uniquely determined by its underlying category. But $(B/A)_{m+1}$ need not lie
+in this image: it can be an object of $A_{m+2}$ whose underlying category agrees
+with $F_{m+1}(\mathsf{Mod}_{(B/A)_m}(A_{m+1}))$, yet which carries a different
+enriched structure --- just as two vector bundles can be fibrewise isomorphic
+while differing globally.
+
+The situation is analogous to the Whitehead theorem in homotopy theory: an
+abstract isomorphism $\pi_n(X) \cong \pi_n(Y)$ for all $n$ does not imply
+$X \simeq Y$; one needs the isomorphisms to be *coherently induced* by a single
+map. Here, $n$-affineness asks not just that every level matches, but that the
+entire tower from level $n$ onwards is *coherently generated* by
+$(B/A)_n \in \mathsf{CAlg}(A_{n+1})$ via the canonical module category
+construction.
+
+In the $B^2\mathbb{G}_m$ example, the algebra $(B/A)_0 = k$ is the unit, so
+$\psi_0(k)$ reconstructs $A$ itself. The non-trivial geometry of
+$B^2\mathbb{G}_m$ is invisible at the level of underlying categories; it is
+encoded entirely in how $(B/A)_1$ sits inside $A_2 = 1\mathsf{Pr}$ as an enriched
+object (related to $\mathbb{G}_m$-gerbes).
+{{< /remark >}}
+
+{{< remark id="rem-comparison-gaitsgory" >}}
+This perspective also clarifies the relationship with Gaitsgory's 1-affineness.
+Gaitsgory's condition asks for a single equivalence
+$\mathsf{ShvCat}(\mathcal{Y}) \simeq
+\mathsf{QCoh}(\mathcal{Y})\text{-}\mathsf{mod}$, which in Stefanich language
+amounts to an equivalence of the underlying categories at level
+$m = 1$. {{< thmref "def-affineness" >}} is strictly stronger: it asks that $B$
+lie in the essential image of $\psi_n$, meaning the entire tower from level $n$
+onwards is coherently generated by $(B/A)_n$, including all enrichment data. The
+examples of 1-affine maps in the literature (algebraic stacks with finite-type
+inertia, de Rham prestacks, formal completions, etc.) do satisfy this stronger
+condition.
+{{< /remark >}}
 
 ## Proper map
 
