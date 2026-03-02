@@ -76,6 +76,11 @@ I manage allocation by **bands** rather than exact weights.
 **Neutral baseline (informal):**
 - Core ~50%, Stocks ~40%, Gold ~10%, Cash 0–20% (can go higher temporarily after deposits)
 
+**Band violation protocol:**
+- If bands are violated through **passive drift** (price moves): correct via cash flows; no urgency.
+- If bands are violated through **active rotation**: the rotation must meet the conditions in Section 6.5. If not, it is a process failure — review in the next monthly review.
+- The bands are guardrails, not prison walls. A thoughtful, written exception is allowed; an impulsive breach is not.
+
 ---
 
 ## 5. Decision Protocol (before any action)
@@ -114,12 +119,36 @@ Before any buy/sell/add/reduce decision:
   - Step 2: add if thesis holds and price improves / risk improves
   - Step 3: complete only if evidence strengthens
 - Avoid “revenge trades” after losses.
+- **Minimum gap between steps: 5 trading days.**
+  Same-day or next-day adds count as the same step for discipline purposes.
 
 ### 6.4 Cooling-off rule after large deposits (hard rule)
 After any large deposit:
 - **write the plan first**, then deploy
 - default first buys go to **Core ETFs**
 - any stock entries must be staged (3 steps) and must fit allocation bands
+
+### 6.5 Valuation-based rotation (conditional, not default)
+
+Selling Core ETFs to fund stock purchases is allowed **only** when all five conditions are met:
+
+1. **Written justification** with a specific valuation metric
+   (e.g., "SPX PE ~29x, well above 20-year avg of ~16x").
+2. **Named destination** with a clear risk/reward case at current prices.
+3. **Minimum Core floor:** at least one core ETF must remain ≥10% weight.
+4. **Gradual execution:** spread over at least 2–3 weeks.
+5. **Sector check:** destination must not push any single sector above 25%.
+
+Without all five conditions, the default remains: **use new cash only.**
+
+Related lesson: [Rotation is valid — magnitude is the risk](/invest/lessons/rotation-is-valid-magnitude-is-the-risk/)
+
+### 6.6 Sector concentration cap
+
+No more than **25%** of the portfolio in a single GICS sector.
+Before adding to any position, check total sector exposure:
+- If a sector exceeds 25% through passive drift, correct via cash flows.
+- If a sector exceeds 25% through active buying, stop immediately.
 
 ---
 
@@ -158,3 +187,4 @@ I may break a default rule only if:
 
 - **2026-01-30:** initial version; defined Core ETFs as market tracking, stocks as defense/opportunities; established allocation bands and rebalancing rules.
 - **2026-01-30 (v1.1):** removed baseline snapshots from Playbook (moved to Log); added deposit cooling-off rule, AI tool constraint, and attention budget.
+- **2026-02-28 (v1.2):** Added valuation-based rotation clause (6.5), time-staged minimum gap (6.3), sector concentration cap (6.6), and band violation protocol (4). Driven by February valuation rotation and SPGI entry speed.
