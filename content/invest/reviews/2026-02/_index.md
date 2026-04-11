@@ -10,16 +10,16 @@ TocOpen: false
 
 ## Abstract
 
-February 2026 was dominated by the "software-mageddon" selloff — AI disruption fears hammered the software sector after Microsoft's historic post-earnings plunge and Anthropic's legal AI tool announcement. I responded with a deliberate valuation rotation: the S&P 500 trailing P/E sat at ~29x (historical median ~18x), making cap-weighted VOO expensive beta rather than safe beta. I sold VOO (7→2) and VEU (limited upside), while keeping RSP (equal-weight, more reasonable P/E) and SCHG (small position, not worth disrupting), and rotated proceeds into MSFT and SPGI during the sector selloff. Smaller positions (ASIC, NFLX) were swapped into the higher-conviction SPGI — not cut as losers. PYPL was a genuine capitulation (−$614 realized) from a broken thesis. The result: Core ETFs dropped from 28% to 18% and Stocks rose to 63%, exceeding Playbook bands — but this was a conscious trade-off on valuation grounds, not a panic-driven accident. Time-weighted return was +1.88%. The key question going forward: restore structural balance via cash flows, and trim gold on the Iran spike.
+February 2026 was dominated by the "software-mageddon" selloff — AI disruption fears hammered the software sector after Microsoft's historic post-earnings plunge and Anthropic's legal AI tool announcement. I responded with a deliberate valuation rotation: the S&P 500 trailing P/E sat at ~29x (historical median ~18x), making cap-weighted VOO expensive beta rather than safe beta. I sold VOO (7→2) and VEU (limited upside), while keeping RSP (equal-weight, more reasonable P/E) and SCHG (small position, not worth disrupting), and rotated proceeds into MSFT and SPGI during the sector selloff. Smaller positions (ASIC, NFLX) were swapped into the higher-conviction SPGI — not cut as losers. PYPL was a genuine capitulation (−USD 614 realized) from a broken thesis. The result: Core ETFs dropped from 28% to 18% and Stocks rose to 63%, exceeding Playbook bands — but this was a conscious trade-off on valuation grounds, not a panic-driven accident. Time-weighted return was +1.88%. The key question going forward: restore structural balance via cash flows, and trim gold on the Iran spike.
 
 ## TL;DR
 
 - **TWR: +1.88%** — outperformed SPX (−0.4%) and NDX (−2.5%), driven by gold and defensives.
 - **Deliberate valuation rotation:** sold VOO (SPX PE ~29x, at historical ceiling) and VEU to fund MSFT/SPGI at software-mageddon discounts. Retained RSP (equal-weight PE ~20x, better risk/reward).
 - **Stocks surged to 63%** (band: 20–50%) and Core ETFs dropped to 18% (band: 35–60%). Conscious trade-off, but the magnitude of the band violation needs correction.
-- **Position cleanup:** ASIC and NFLX swapped into SPGI (not "loser cuts"); PYPL capitulated at −$614 (genuine sizing/entry mistake from the past).
-- **GLDM quietly carried the month** (+$569 holding MTM), and is now positioned for further upside from the Iran crisis.
-- **PGR** (+$170 this month) has not reached target price — holding.
+- **Position cleanup:** ASIC and NFLX swapped into SPGI (not "loser cuts"); PYPL capitulated at −USD 614 (genuine sizing/entry mistake from the past).
+- **GLDM quietly carried the month** (+USD 569 holding MTM), and is now positioned for further upside from the Iran crisis.
+- **PGR** (+USD 170 this month) has not reached target price — holding.
 
 ---
 
@@ -27,9 +27,9 @@ February 2026 was dominated by the "software-mageddon" selloff — AI disruption
 
 ### 1.1 The software selloff ("software-mageddon")
 
-The dominant market story in February was the AI-driven software selloff. It began after Microsoft reported strong Q2 FY2026 earnings (revenue +17% to $81.3B) but the stock fell 10% — its worst post-earnings drop in over a decade — on concerns about Azure growth deceleration and massive AI capex ($37.5B in the quarter). The S&P 500 software and services index lost roughly $1 trillion in market value from January 28 through early February.
+The dominant market story in February was the AI-driven software selloff. It began after Microsoft reported strong Q2 FY2026 earnings (revenue +17% to USD 81.3B) but the stock fell 10% — its worst post-earnings drop in over a decade — on concerns about Azure growth deceleration and massive AI capex (USD 37.5B in the quarter). The S&P 500 software and services index lost roughly USD 1 trillion in market value from January 28 through early February.
 
-The selloff deepened after Anthropic released a legal AI tool that spooked the legal-software sector (Thomson Reuters −28% YTD at the trough), and spread to the broader software ecosystem. Stifel downgraded MSFT to Hold with a target cut from $540 to $392. The iShares Expanded Tech-Software ETF fell over 13% from January 28.
+The selloff deepened after Anthropic released a legal AI tool that spooked the legal-software sector (Thomson Reuters −28% YTD at the trough), and spread to the broader software ecosystem. Stifel downgraded MSFT to Hold with a target cut from USD 540 to USD 392. The iShares Expanded Tech-Software ETF fell over 13% from January 28.
 
 Multiple analysts noted the selloff appeared indiscriminate. J.P. Morgan called it "broken logic," and Morningstar's Dan Romanoff said fundamentals remained solid and fears were overblown. Several commentators observed that stocks with strong competitive moats and sticky products were being thrown out with the bathwater.
 
@@ -37,7 +37,7 @@ Multiple analysts noted the selloff appeared indiscriminate. J.P. Morgan called 
 
 The S&P 500 trailing P/E ratio was ~29x at the start of February — the historical median is ~18x, and the 20-year average is only ~16x. This meant cap-weighted VOO was offering expensive beta, not safe beta. RSP (equal-weight, PE ~20x) was more reasonably valued because it avoids the mega-cap tech concentration that inflates the cap-weighted P/E.
 
-This created an unusual situation: the "safe" index was arguably more expensive than individual quality names that were being sold off. MSFT at $400–411 (down from ~$480 pre-earnings) and SPGI at $365–460 offered better risk-adjusted entry points than holding VOO at 29x earnings.
+This created an unusual situation: the "safe" index was arguably more expensive than individual quality names that were being sold off. MSFT at USD 400–411 (down from ~USD 480 pre-earnings) and SPGI at USD 365–460 offered better risk-adjusted entry points than holding VOO at 29x earnings.
 
 ### 1.3 Broader market context
 
@@ -62,52 +62,52 @@ The portfolio outperformed the S&P 500 mainly because of gold and defensive hold
 
 | Item | Amount |
 |------|--------|
-| Start NAV (Feb 1) | $45,456.91 |
-| Deposits | +$1,278.30 |
-| Mark-to-market | +$811.83 |
-| Dividends | +$5.76 |
-| Stock grant (IBKR) | +$7.68 |
-| Accrued dividends | +$34.83 |
-| Commissions | −$7.56 |
-| Other (FX) | +$0.56 |
-| **End NAV (Feb 28)** | **$47,588.31** |
+| Start NAV (Feb 1) | USD 45,456.91 |
+| Deposits | +USD 1,278.30 |
+| Mark-to-market | +USD 811.83 |
+| Dividends | +USD 5.76 |
+| Stock grant (IBKR) | +USD 7.68 |
+| Accrued dividends | +USD 34.83 |
+| Commissions | −USD 7.56 |
+| Other (FX) | +USD 0.56 |
+| **End NAV (Feb 28)** | **USD 47,588.31** |
 
-Deposits were modest ($1,278 vs. $16,791 in January). The mark-to-market gain of $811 is the "real" investment performance.
+Deposits were modest (USD 1,278 vs. USD 16,791 in January). The mark-to-market gain of USD 811 is the "real" investment performance.
 
 ### 2.3 Attribution by ticker (MTM total, Feb)
 
 **Winners:**
-- **GLDM:** +$569 (holding) — gold continued its steady climb; now poised for further gains from Iran crisis
-- **KO:** +$300 (holding +$287, trade +$13) — defensive rotation beneficiary; trimmed 20 shares for +$179 realized
-- **KR:** +$270 — staples winner in the rotation
-- **SPGI:** +$231 (trade +$25, holding +$208) — entered during the selloff; rebounded nicely by month-end
-- **PGR:** +$170 — recovery after months of grinding; not yet at target price
-- **RSP:** +$168 — equal-weight outperformed cap-weight this month (validating the decision to keep RSP over VOO)
-- **TLN:** +$113 — energy/power play continued working
+- **GLDM:** +USD 569 (holding) — gold continued its steady climb; now poised for further gains from Iran crisis
+- **KO:** +USD 300 (holding +USD 287, trade +USD 13) — defensive rotation beneficiary; trimmed 20 shares for +USD 179 realized
+- **KR:** +USD 270 — staples winner in the rotation
+- **SPGI:** +USD 231 (trade +USD 25, holding +USD 208) — entered during the selloff; rebounded nicely by month-end
+- **PGR:** +USD 170 — recovery after months of grinding; not yet at target price
+- **RSP:** +USD 168 — equal-weight outperformed cap-weight this month (validating the decision to keep RSP over VOO)
+- **TLN:** +USD 113 — energy/power play continued working
 
 **Losers:**
-- **MSFT:** −$280 (holding −$247, trade −$32) — the dip kept dipping after my entries
-- **PYPL:** −$196 net (realized −$614, offset by MTM +$79 on day of sale)
-- **AXP:** −$173 — cyclical weakness
-- **ACN:** −$139 — entered at $243.50, caught in the software downdraft
-- **SCHW:** −$108 — financials weak
-- **SCHG:** −$93 — growth ETF suffering from tech rotation
+- **MSFT:** −USD 280 (holding −USD 247, trade −USD 32) — the dip kept dipping after my entries
+- **PYPL:** −USD 196 net (realized −USD 614, offset by MTM +USD 79 on day of sale)
+- **AXP:** −USD 173 — cyclical weakness
+- **ACN:** −USD 139 — entered at USD 243.50, caught in the software downdraft
+- **SCHW:** −USD 108 — financials weak
+- **SCHG:** −USD 93 — growth ETF suffering from tech rotation
 
 ### 2.4 Realized P&L
 
 | Ticker | Action | Realized P&L | Note |
 |--------|--------|-------------|------|
-| KO | Trim 20 shares | +$178.86 | Profitable trim |
-| IBKR | Sell 4 shares | +$87.31 | Trim |
-| ASIC | Close position | +$27.59 | Swap into SPGI |
-| GSY | Round-trip | +$0.27 | Short-term parking |
-| NFLX | Close position | −$1.68 | Swap into SPGI |
-| VEU | Close position | −$15.30 | Rotation out |
-| VOO | Sell 5 shares | −$25.38 | Valuation rotation |
-| PYPL | Close position | **−$614.26** | Capitulation (broken thesis) |
-| **Total** | | **−$362.59** | |
+| KO | Trim 20 shares | +USD 178.86 | Profitable trim |
+| IBKR | Sell 4 shares | +USD 87.31 | Trim |
+| ASIC | Close position | +USD 27.59 | Swap into SPGI |
+| GSY | Round-trip | +USD 0.27 | Short-term parking |
+| NFLX | Close position | −USD 1.68 | Swap into SPGI |
+| VEU | Close position | −USD 15.30 | Rotation out |
+| VOO | Sell 5 shares | −USD 25.38 | Valuation rotation |
+| PYPL | Close position | **−USD 614.26** | Capitulation (broken thesis) |
+| **Total** | | **−USD 362.59** | |
 
-Context matters: excluding PYPL (a genuine past mistake), the other trades netted +$252. ASIC (+$28) and NFLX (−$2) were approximately breakeven swaps — the purpose was to consolidate capital into SPGI, not to "cut losses."
+Context matters: excluding PYPL (a genuine past mistake), the other trades netted +USD 252. ASIC (+USD 28) and NFLX (−USD 2) were approximately breakeven swaps — the purpose was to consolidate capital into SPGI, not to "cut losses."
 
 ---
 
@@ -126,43 +126,43 @@ Context matters: excluding PYPL (a genuine past mistake), the other trades nette
 - SCHG: all 73.7 shares — position too small to justify trading cost/disruption
 
 **Bought:**
-- SPGI: 11 shares across 6 trades ($460→$365, Feb 5–10)
-- MSFT: 5 shares added (6→11, avg ~$404)
-- ACN: 4 shares @ $243.50 — new position
-- AMZN: 10 shares @ $210 — new position
+- SPGI: 11 shares across 6 trades (USD 460→USD 365, Feb 5–10)
+- MSFT: 5 shares added (6→11, avg ~USD 404)
+- ACN: 4 shares @ USD 243.50 — new position
+- AMZN: 10 shares @ USD 210 — new position
 
 ### 3.2 Position swaps: ASIC + NFLX → SPGI
 
 These were not "loser cuts." Both positions were approximately breakeven:
-- ASIC: 50 shares sold @ $18.30 (+$28 realized) — the small-cap experiment had served its purpose
-- NFLX: 10 shares sold @ $84 (−$2 realized) — originally a starter position; I saw better risk/reward in SPGI
+- ASIC: 50 shares sold @ USD 18.30 (+USD 28 realized) — the small-cap experiment had served its purpose
+- NFLX: 10 shares sold @ USD 84 (−USD 2 realized) — originally a starter position; I saw better risk/reward in SPGI
 
-The capital freed (~$1,755) went directly toward SPGI entries.
+The capital freed (~USD 1,755) went directly toward SPGI entries.
 
 ### 3.3 PYPL capitulation: the real mistake (from the past)
 
-PYPL was sold at $44.87, realizing −$614. This was not a February mistake — it was closing a position that should never have been sized that large. The original entry (~$52.69 cost basis) lacked a clear thesis, and the stock ground lower for months. The February exit was the right decision; the original entry was the error.
+PYPL was sold at USD 44.87, realizing −USD 614. This was not a February mistake — it was closing a position that should never have been sized that large. The original entry (~USD 52.69 cost basis) lacked a clear thesis, and the stock ground lower for months. The February exit was the right decision; the original entry was the error.
 
 ### 3.4 Other trims
 
-- KO: 20 shares sold @ $78 (+$179 realized) — profitable trim after strong defensive run
-- IBKR: 4 shares sold @ $73 (+$87 realized) — trim
-- SCHW: 5 shares added @ $95 — modest add
+- KO: 20 shares sold @ USD 78 (+USD 179 realized) — profitable trim after strong defensive run
+- IBKR: 4 shares sold @ USD 73 (+USD 87 realized) — trim
+- SCHW: 5 shares added @ USD 95 — modest add
 
 ### 3.5 SPGI: the centerpiece entry
 
 | Date | Qty | Price | Running Total |
 |------|-----|-------|--------------|
-| Feb 5 | 2 | $460.00 | 2 |
-| Feb 5 | 2 | $445.00 | 4 |
-| Feb 6 | 1 | $438.10 | 5 |
-| Feb 10 | 2 | $432.00 | 7 |
-| Feb 10 | 2 | $393.00 | 9 |
-| Feb 10 | 2 | $365.00 | 11 |
+| Feb 5 | 2 | USD 460.00 | 2 |
+| Feb 5 | 2 | USD 445.00 | 4 |
+| Feb 6 | 1 | USD 438.10 | 5 |
+| Feb 10 | 2 | USD 432.00 | 7 |
+| Feb 10 | 2 | USD 393.00 | 9 |
+| Feb 10 | 2 | USD 365.00 | 11 |
 
-Average cost: ~$421/share. Close at month-end: $441.88 (+5.0%).
+Average cost: ~USD 421/share. Close at month-end: USD 441.88 (+5.0%).
 
-The entry was price-staged across a wide range ($460→$365), which is good execution. The total position size ($4,630, 10.2%) is large for a new position, and the speed (6 trades in 5 days) was faster than ideal — future staged entries should have more time gaps between steps.
+The entry was price-staged across a wide range (USD 460→USD 365), which is good execution. The total position size (USD 4,630, 10.2%) is large for a new position, and the speed (6 trades in 5 days) was faster than ideal — future staged entries should have more time gaps between steps.
 
 ---
 
@@ -217,11 +217,11 @@ The rotation direction was correct (expensive beta → discounted quality), but 
 
 ### 5.2 SPGI entry speed
 
-6 trades in 5 days, including 3 on Feb 10 alone. The price-staging was good ($460→$365), but the time-staging was insufficient. Future staged entries should have a minimum gap of ~5 trading days between steps.
+6 trades in 5 days, including 3 on Feb 10 alone. The price-staging was good (USD 460→USD 365), but the time-staging was insufficient. Future staged entries should have a minimum gap of ~5 trading days between steps.
 
 ### 5.3 PYPL: the original sin
 
-The February exit was correct. The mistake was the original entry: insufficient thesis, too large a position, and holding too long while the thesis deteriorated. The −$614 loss is the cost of that lesson.
+The February exit was correct. The mistake was the original entry: insufficient thesis, too large a position, and holding too long while the thesis deteriorated. The −USD 614 loss is the cost of that lesson.
 
 ---
 
@@ -233,19 +233,19 @@ Selling expensive beta (SPX PE ~29x) to buy discounted quality names during a se
 
 ### 6.2 Keeping RSP over VOO
 
-Equal-weight outperformed cap-weight in February. RSP (+$168) was the best-performing core position. This validates the thesis that cap-weighted SPX is distorted by mega-cap tech valuations.
+Equal-weight outperformed cap-weight in February. RSP (+USD 168) was the best-performing core position. This validates the thesis that cap-weighted SPX is distorted by mega-cap tech valuations.
 
 ### 6.3 Defensive holdings delivered
 
-KO (+$300), KR (+$270), PGR (+$170) all contributed positively. PGR has not reached target price — holding.
+KO (+USD 300), KR (+USD 270), PGR (+USD 170) all contributed positively. PGR has not reached target price — holding.
 
 ### 6.4 GLDM as the anchor
 
-Gold's +$569 contribution was the single largest positive attribution factor. With the Iran crisis escalating, GLDM is positioned for further gains — and provides the opportunity to trim on strength and redirect to Core.
+Gold's +USD 569 contribution was the single largest positive attribution factor. With the Iran crisis escalating, GLDM is positioned for further gains — and provides the opportunity to trim on strength and redirect to Core.
 
 ### 6.5 Willingness to take a loss (PYPL)
 
-Realizing −$614 on PYPL was painful but necessary. Improvement from January: I now cut positions with broken theses instead of holding "because it's already down."
+Realizing −USD 614 on PYPL was painful but necessary. Improvement from January: I now cut positions with broken theses instead of holding "because it's already down."
 
 ---
 
@@ -305,15 +305,15 @@ Before adding to any position, check total GICS sector exposure. Soft cap: **25%
 On February 28, the U.S. and Israel launched coordinated strikes on Iran, killing Supreme Leader Khamenei. Iran retaliated with strikes across the Middle East, including Dubai and other Gulf states. As of March 2, the situation remains highly fluid.
 
 **Immediate market implications:**
-- **Oil:** Brent crude up ~6% to $77 in early Monday trading. If the Strait of Hormuz is disrupted, oil could spike above $100.
-- **Gold:** Spot gold surging above $5,300 (up >1%). J.P. Morgan forecasts $6,300/oz by year-end.
+- **Oil:** Brent crude up ~6% to USD 77 in early Monday trading. If the Strait of Hormuz is disrupted, oil could spike above USD 100.
+- **Gold:** Spot gold surging above USD 5,300 (up >1%). J.P. Morgan forecasts USD 6,300/oz by year-end.
 - **Equities:** Risk-off pressure likely, especially on cyclicals and growth.
 
 ### 9.2 Portfolio implications and planned actions
 
 **GLDM (15.3%) — plan to trim:**
 Gold has spiked on the Iran crisis. This is the opportunity to execute the "partial profit rule" — sell a portion (e.g., 10–15 shares) while gold is elevated. The proceeds go to Core ETFs. This simultaneously:
-- locks in some of the +$1,291 unrealized gain,
+- locks in some of the +USD 1,291 unrealized gain,
 - reduces gold below the 15% band ceiling,
 - and rebuilds Core toward the 35% floor.
 
@@ -341,7 +341,7 @@ Gold has spiked on the Iran crisis. This is the opportunity to execute the "part
 |----------|-------------------|-----------------|--------|
 | Quick de-escalation | Low | Relief rally, tech rebounds, gold gives back gains | Trim gold before the giveback; continue rebalancing |
 | Sustained tension, no Hormuz disruption | Medium | Oil +10-20%, gold +5-10%, equities flat-to-down | Trim gold at elevated levels; rebuild core |
-| Prolonged conflict, Hormuz disrupted | Low-Medium | Oil >$100, gold to $5,500+, equities −10-15% | Gold hedge pays off massively; deploy into core ETFs at lower prices |
+| Prolonged conflict, Hormuz disrupted | Low-Medium | Oil >USD 100, gold to USD 5,500+, equities −10-15% | Gold hedge pays off massively; deploy into core ETFs at lower prices |
 
 In all three scenarios, the action converges: **trim gold, rebuild core, hold stocks.**
 
@@ -349,29 +349,29 @@ In all three scenarios, the action converges: **trim gold, rebuild core, hold st
 
 ## 10) End-of-month portfolio snapshot
 
-**Portfolio value:** $47,588.31
-**Market value:** $45,867.88
-**Cash:** $1,685.59 (3.5%)
-**Unrealized P&L:** +$910.45
-**Realized P&L (Feb):** −$362.59
+**Portfolio value:** USD 47,588.31
+**Market value:** USD 45,867.88
+**Cash:** USD 1,685.59 (3.5%)
+**Unrealized P&L:** +USD 910.45
+**Realized P&L (Feb):** −USD 362.59
 
 ### Holdings
 
 | Ticker | Shares | Close | Value | Weight | Unreal. P&L | Type |
 |--------|--------|-------|-------|--------|-------------|------|
-| GLDM | 70.00 | $104.14 | $7,289.80 | 15.3% | +$1,290.79 | Gold |
-| PGR | 29.95 | $213.66 | $6,399.05 | 13.4% | −$670.80 | Defense |
-| RSP | 24.34 | $204.97 | $4,989.24 | 10.5% | +$151.15 | Core ETF |
-| SPGI | 11.00 | $441.88 | $4,860.68 | 10.2% | +$230.51 | Opportunity |
-| MSFT | 11.00 | $392.74 | $4,320.14 | 9.1% | −$360.80 | Opportunity |
-| KR | 50.00 | $68.24 | $3,412.00 | 7.2% | +$203.53 | Defense |
-| KO | 35.03 | $81.56 | $2,857.21 | 6.0% | +$472.33 | Defense |
-| SCHG | 73.70 | $30.74 | $2,265.49 | 4.8% | Core ETF |
-| AMZN | 10.00 | $210.00 | $2,100.00 | 4.4% | −$0.34 | Opportunity |
-| TLN | 5.00 | $370.97 | $1,854.85 | 3.9% | +$3.01 | Opportunity |
-| SCHW | 18.00 | $95.20 | $1,713.60 | 3.6% | +$28.92 | Opportunity |
-| VOO | 2.00 | $631.04 | $1,262.08 | 2.7% | −$16.26 | Core ETF |
-| AXP | 4.00 | $308.90 | $1,235.60 | 2.6% | −$209.54 | Opportunity |
-| ACN | 4.00 | $208.72 | $834.88 | 1.8% | −$139.46 | Opportunity |
-| IBKR | 6.65 | $71.19 | $473.26 | 1.0% | +$35.38 | Opportunity |
-| Cash | — | — | $1,685.59 | 3.5% | — | Cash |
+| GLDM | 70.00 | USD 104.14 | USD 7,289.80 | 15.3% | +USD 1,290.79 | Gold |
+| PGR | 29.95 | USD 213.66 | USD 6,399.05 | 13.4% | −USD 670.80 | Defense |
+| RSP | 24.34 | USD 204.97 | USD 4,989.24 | 10.5% | +USD 151.15 | Core ETF |
+| SPGI | 11.00 | USD 441.88 | USD 4,860.68 | 10.2% | +USD 230.51 | Opportunity |
+| MSFT | 11.00 | USD 392.74 | USD 4,320.14 | 9.1% | −USD 360.80 | Opportunity |
+| KR | 50.00 | USD 68.24 | USD 3,412.00 | 7.2% | +USD 203.53 | Defense |
+| KO | 35.03 | USD 81.56 | USD 2,857.21 | 6.0% | +USD 472.33 | Defense |
+| SCHG | 73.70 | USD 30.74 | USD 2,265.49 | 4.8% | Core ETF |
+| AMZN | 10.00 | USD 210.00 | USD 2,100.00 | 4.4% | −USD 0.34 | Opportunity |
+| TLN | 5.00 | USD 370.97 | USD 1,854.85 | 3.9% | +USD 3.01 | Opportunity |
+| SCHW | 18.00 | USD 95.20 | USD 1,713.60 | 3.6% | +USD 28.92 | Opportunity |
+| VOO | 2.00 | USD 631.04 | USD 1,262.08 | 2.7% | −USD 16.26 | Core ETF |
+| AXP | 4.00 | USD 308.90 | USD 1,235.60 | 2.6% | −USD 209.54 | Opportunity |
+| ACN | 4.00 | USD 208.72 | USD 834.88 | 1.8% | −USD 139.46 | Opportunity |
+| IBKR | 6.65 | USD 71.19 | USD 473.26 | 1.0% | +USD 35.38 | Opportunity |
+| Cash | — | — | USD 1,685.59 | 3.5% | — | Cash |

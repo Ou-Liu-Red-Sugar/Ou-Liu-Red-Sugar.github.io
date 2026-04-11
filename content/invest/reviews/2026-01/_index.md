@@ -107,10 +107,10 @@ This is NOT a justification to abandon the core. It is a controlled satellite be
 
 ### 4.1 Microsoft (MSFT)
 From the earnings call transcript highlights:
-- Quarterly revenue: **$81.3B**
-- “Cloud revenue”: **$51.5B**
+- Quarterly revenue: **USD 81.3B**
+- “Cloud revenue”: **USD 51.5B**
 - Azure growth: **+39%**
-- Capex: **$37.5B**
+- Capex: **USD 37.5B**
 
 My interpretation (for my own log, not advice):
 - The business is still printing scale + recurring cash flows.
@@ -118,9 +118,9 @@ My interpretation (for my own log, not advice):
 
 ### 4.2 American Express (AXP)
 From transcript highlights:
-- 2025 revenue: **$72B** (record)
-- 2025 EPS: **$14.83**
-- 2026 guide: revenue **+8% to +10%**, EPS **$15.00–$15.50**
+- 2025 revenue: **USD 72B** (record)
+- 2025 EPS: **USD 14.83**
+- 2026 guide: revenue **+8% to +10%**, EPS **USD 15.00–USD 15.50**
 
 My interpretation:
 - I like this as a “quality cyclicality” play: strong brand + high-income customer base, but still sensitive to macro regimes.
@@ -129,8 +129,8 @@ My interpretation:
 ### 4.3 Netflix (NFLX)
 From transcript highlights:
 - 2025 revenue growth: **+16%**
-- 2026 guide: revenue **$51B** (+14%), operating margin **31.5%**, FCF **~$6B**
-- Ads: target **~$3B** in 2026
+- 2026 guide: revenue **USD 51B** (+14%), operating margin **31.5%**, FCF **~USD 6B**
+- Ads: target **~USD 3B** in 2026
 
 My interpretation:
 - This is no longer “just growth”. There is real operating leverage and margin discipline.
@@ -193,14 +193,14 @@ New constraint:
 This is a mechanical ladder to prevent panic and prevent impulsive over-sizing.
 
 **MSFT plan**
-- If **< 420**, add **1 share every $5 down**.
+- If **< 420**, add **1 share every USD 5 down**.
 - Guardrails:
   - Only use **new cash** (no forced selling).
   - Hard cap: max additional shares per month (set explicitly).
   - Pause ladder if thesis breaks (e.g., guidance regime change, structural impairment).
 
 **AXP plan**
-- If **< 330**, add **1 share every $5 down**.
+- If **< 330**, add **1 share every USD 5 down**.
 - Guardrails:
   - Same as above; especially cap total size because cyclicals can stay “cheap” longer than expected.
 
