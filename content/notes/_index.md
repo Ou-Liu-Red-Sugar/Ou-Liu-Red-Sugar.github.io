@@ -26,16 +26,6 @@ separately below.
   Online version: {{< pageref "notes/StableDoldKan.md" "Stable Dold–Kan and Descent" >}}  
   [PDF](/papers/notes/StableDoldKan.pdf)
 
-- **Higher Topos Theory**  
-  Lecture notes for the course  
-  [Higher Topos Theory](https://hoyois.app.uni-regensburg.de/WS26/htt/index.html), taught by Marc Hoyois
-  in Winter Term 2025/26.  
-
-  These notes do not closely follow the lecture schedule. They will be further polished after the
-  course; in the meantime, readers may prefer
-  [Bastiaan’s notes](https://drive.google.com/file/d/1vLD4BlS6zlu1SW4Hmvd2V6tgxV5a96Q0/view).  
-  [PDF](/papers/notes/HTTNote.pdf)
-
 - **A Brief Introduction to Monads and Higher Algebra**  
   Notes on higher algebra, partly rewritten using the language of algebraic patterns, together with an
   exposition of the Lurie–Barr–Beck theorem and the theory of descendable objects developed by Akhil Mathew.  
@@ -50,6 +40,10 @@ separately below.
   exposition.  
   [PDF](/papers/notes/AG.pdf)
 
+- **Motivic Homotopy Theory**  
+  Notes on motivic homotopy theory and motivic cohomology, based on Oberseminar [Motivic cohomology of schemes](https://hoyois.app.uni-regensburg.de/SS26/motiviccoh/index.html).  
+  Work in progress.  
+  [PDF](/papers/notes/Motivic.pdf)
 
 ## Other Notes
 
