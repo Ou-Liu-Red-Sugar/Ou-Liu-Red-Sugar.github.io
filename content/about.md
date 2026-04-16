@@ -53,10 +53,7 @@ My research interests include:
   - *Six functors and Gestalten* — 22 Jun 2026
 
 - **Motivic cohomology of schemes** (Oberseminar, Regensburg)  
-  - *TBA* — TBA
-
-- **Galois Categories and Étale Fundamental Groups Seminar** (Regensburg)  
-  - *Connected and Galois objects* — TBA
+  - *Low weights* — 19 May 2026
 
 
 ### WiSe 2025 / 26
