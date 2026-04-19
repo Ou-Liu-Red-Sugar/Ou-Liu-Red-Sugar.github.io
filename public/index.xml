@@ -107,28 +107,35 @@ This note constructs the six-functor formalism on \(n\mathsf{Pr}_{(-)}\), shows 
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/about/</guid>
       <description>&lt;h1 id=&#34;ou-liu-刘欧&#34;&gt;Ou Liu (刘欧)&lt;/h1&gt;
-&lt;p&gt;I am a master&amp;rsquo;s student in Mathematics at the &lt;em&gt;University of Regensburg&lt;/em&gt;.
-My primary research interests lie at the intersection of &lt;em&gt;Homotopy Theory&lt;/em&gt; and &lt;em&gt;Algebraic Geometry&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;I am a master&amp;rsquo;s student in Mathematics at the &lt;em&gt;University of Regensburg&lt;/em&gt;,
+with interests in &lt;em&gt;motivic homotopy theory&lt;/em&gt;, &lt;em&gt;derived algebraic geometry&lt;/em&gt;, and &lt;em&gt;higher category theory&lt;/em&gt;.
+I expect to begin my master&amp;rsquo;s thesis in the coming semester.&lt;/p&gt;
 &lt;hr&gt;
 &lt;h2 id=&#34;education&#34;&gt;Education&lt;/h2&gt;
 &lt;p&gt;&lt;strong&gt;2025 &amp;ndash; Present&lt;/strong&gt;&lt;br&gt;
 &lt;strong&gt;M.Sc. in Mathematics&lt;/strong&gt;, &lt;em&gt;University of Regensburg&lt;/em&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Focus: &lt;em&gt;Homotopy Theory&lt;/em&gt;, &lt;em&gt;Algebraic Geometry&lt;/em&gt;&lt;/li&gt;
-&lt;/ul&gt;
 &lt;p&gt;&lt;strong&gt;2021 &amp;ndash; 2025&lt;/strong&gt;&lt;br&gt;
 &lt;strong&gt;B.Sc. in Mathematics and Applied Mathematics&lt;/strong&gt;, &lt;em&gt;Shanxi University&lt;/em&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Thesis: &lt;em&gt;Applications of the six-functor formalism to smooth representation theory&lt;/em&gt;&lt;/li&gt;
-&lt;li&gt;Publication:&lt;br&gt;
-Lili Liu, Xi Wang, &lt;strong&gt;Ou Liu&lt;/strong&gt;, et al.&lt;br&gt;
-&lt;em&gt;Valuation and Comparison of the Actual and Optimal Control Strategy in an Emerging Infectious Disease&lt;/em&gt;.&lt;br&gt;
-&lt;em&gt;Infectious Disease Modelling&lt;/em&gt; (2024).&lt;br&gt;
-&lt;a href=&#34;https://www.sciencedirect.com/science/article/pii/S2468042724000149&#34;&gt;[Journal link]&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;hr&gt;
-&lt;h2 id=&#34;research-interests&#34;&gt;Research Interests&lt;/h2&gt;
-&lt;p&gt;My research interests include:&lt;/p&gt;</description>
+&lt;h2 id=&#34;publications&#34;&gt;Publications&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Lili Liu, Xi Wang, &lt;strong&gt;Ou Liu&lt;/strong&gt;, et al.&lt;br&gt;
+&lt;em&gt;Valuation and Comparison of the Actual and Optimal Control Strategy in an Emerging Infectious Disease&lt;/em&gt;.&lt;br&gt;
+&lt;em&gt;Infectious Disease Modelling&lt;/em&gt; &lt;strong&gt;9&lt;/strong&gt; (2024).&lt;br&gt;
+&lt;a href=&#34;https://www.sciencedirect.com/science/article/pii/S2468042724000149&#34;&gt;[Journal]&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;talks-and-seminars&#34;&gt;Talks and Seminars&lt;/h2&gt;
+&lt;h3 id=&#34;upcoming&#34;&gt;Upcoming&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;Low weights&lt;/em&gt; — Motivic cohomology of schemes (Oberseminar, Regensburg), 19 May 2026&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Six functors and Gestalten&lt;/em&gt; — Gestalten (Oberseminar, Regensburg), 22 Jun 2026&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Zariski descent for modules&lt;/em&gt; — Higher Zariski Geometry (Oberseminar, Regensburg), 30 Jun 2026&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;See the &lt;a href=&#34;http://localhost:1313/notes/&#34;&gt;Notes&lt;/a&gt; page for accompanying write-ups.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

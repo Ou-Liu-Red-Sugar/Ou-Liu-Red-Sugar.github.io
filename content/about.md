@@ -9,74 +9,51 @@ categories:
 
 # Ou Liu (刘欧)
 
-I am a master's student in Mathematics at the *University of Regensburg*.
-My primary research interests lie at the intersection of *Homotopy Theory* and *Algebraic Geometry*.
+I am a master's student in Mathematics at the *University of Regensburg*,
+with interests in *motivic homotopy theory*, *derived algebraic geometry*, and *higher category theory*.
 
 ---
 
 ## Education
 
 **2025 -- Present**  
-**M.Sc. in Mathematics**, *University of Regensburg*  
-- Focus: *Homotopy Theory*, *Algebraic Geometry*
+**M.Sc. in Mathematics**, *University of Regensburg*
 
 **2021 -- 2025**  
 **B.Sc. in Mathematics and Applied Mathematics**, *Shanxi University*  
-- Thesis: *Applications of the six-functor formalism to smooth representation theory*  
-- Publication:  
-  Lili Liu, Xi Wang, **Ou Liu**, et al.  
-  *Valuation and Comparison of the Actual and Optimal Control Strategy in an Emerging Infectious Disease*.  
-  *Infectious Disease Modelling* (2024).  
-  [[Journal link]](https://www.sciencedirect.com/science/article/pii/S2468042724000149)
+- Thesis: *Applications of the six-functor formalism to smooth representation theory*
 
 ---
 
-## Research Interests
+## Publications
 
-My research interests include:
-
-- *Motivic Homotopy Theory*
-- *$(\infty,n)$-Category Theory*
-- *Derived Algebraic Geometry*
+- Lili Liu, Xi Wang, **Ou Liu**, et al.  
+  *Valuation and Comparison of the Actual and Optimal Control Strategy in an Emerging Infectious Disease*.  
+  *Infectious Disease Modelling* **9** (2024).  
+  [[Journal]](https://www.sciencedirect.com/science/article/pii/S2468042724000149)
 
 ---
 
 ## Talks and Seminars
 
-### SoSe 2026
+### Upcoming
 
-- **Higher Zariski Geometry** (Oberseminar, Regensburg)  
-  - *Zariski descent for modules* — 30 Jun 2026
+- *Low weights* — Motivic cohomology of schemes (Oberseminar, Regensburg), 19 May 2026  
+- *Six functors and Gestalten* — Gestalten (Oberseminar, Regensburg), 22 Jun 2026  
+- *Zariski descent for modules* — Higher Zariski Geometry (Oberseminar, Regensburg), 30 Jun 2026
 
-- **Gestalten** (Oberseminar, Regensburg)  
-  - Personal notes (ongoing): {{< pageref "notes/gestalten" "online notes" >}}  
-  - *Six functors and Gestalten* — 22 Jun 2026
+See the [Notes](/notes/) page for accompanying write-ups.
 
-- **Motivic cohomology of schemes** (Oberseminar, Regensburg)  
-  - *Low weights* — 19 May 2026
+### Past
 
+**WiSe 2025 / 26**
 
-### WiSe 2025 / 26
-
-- **Goodwillie Calculus Seminar** (Regensburg)  
-  - *The Stable Dold–Kan Correspondence* — 27 Nov 2025  
-    - Notes: {{< pageref "notes/StableDoldKan" "online notes" >}}, [[PDF]](/papers/notes/StableDoldKan.pdf)
-  - *Functors from Spaces to Spectra* — 11 Dec 2025
-
-- **Galois Theory in Algebra and Topology Seminar** (Regensburg)  
-  - *Galois Covers* — 18 Nov 2025  
-    - Notes: [[PDF]](/papers/notes/Galois_cover.pdf)
-
----
-
-## Languages
-
-- Chinese (native)
-- English (B2)
+- *Functors from Spaces to Spectra* — Goodwillie Calculus Seminar (Regensburg), 11 Dec 2025  
+- *The Stable Dold–Kan Correspondence* — Goodwillie Calculus Seminar (Regensburg), 27 Nov 2025  
+- *Galois Covers* — Galois Theory in Algebra and Topology Seminar (Regensburg), 18 Nov 2025
 
 ---
 
 ## Contact
 
-Email:  
 [Ou.Liu@stud.uni-regensburg.de](mailto:Ou.Liu@stud.uni-regensburg.de)
