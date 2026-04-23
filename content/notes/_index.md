@@ -43,7 +43,7 @@ separately below.
 - **Motivic Homotopy Theory**  
   Notes on motivic homotopy theory and motivic cohomology, based on Oberseminar [Motivic cohomology of schemes](https://hoyois.app.uni-regensburg.de/SS26/motiviccoh/index.html).  
   Work in progress.  
-  [PDF](/papers/notes/Motivic.pdf) (update in 21.04.2026)
+  [PDF](/papers/notes/Motivic.pdf) (update in 24.04.2026)
 
 ## Other Notes
 
