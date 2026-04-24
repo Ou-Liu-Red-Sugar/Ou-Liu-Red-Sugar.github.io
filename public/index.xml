@@ -24,6 +24,14 @@
       <description>This note reviews the basic theory of presentable categories. We focus on κ-compact objects, Ind-completions, accessible categories, and their role in organizing large categories via filtered colimits.</description>
     </item>
     <item>
+      <title>Compactly assembled categories</title>
+      <link>http://localhost:1313/notes/notes/continuous-k-theory/compactly-assembled-categories/</link>
+      <pubDate>Fri, 24 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/notes/notes/continuous-k-theory/compactly-assembled-categories/</guid>
+      <description>Dualizable stable categories from the compactly assembled viewpoint: R-linear categories, dualizability in $\mathsf{Pr}_{\mathrm{st}}^L$, compactly exhaustible objects, the Lurie–Clausen characterisation, and the symmetric monoidal structure of $\mathsf{Pr}^L_{\mathrm{ca}}$.
+</description>
+    </item>
+    <item>
       <title>Presentable n-Categories</title>
       <link>http://localhost:1313/notes/notes/gestalten/presentable-n-categories/</link>
       <pubDate>Mon, 29 Dec 2025 00:00:00 +0000</pubDate>
@@ -38,24 +46,19 @@
       <description>This note introduces algebraic patterns and Segal objects, develops operads over algebraic patterns, and studies $\mathcal{O}$-monoidal categories together with $\mathcal{O}$-algebras in the Cartesian setting.</description>
     </item>
     <item>
+      <title>Continuous (Efimov) K-theory</title>
+      <link>http://localhost:1313/notes/notes/continuous-k-theory/continuous-efimov-k-theory/</link>
+      <pubDate>Fri, 24 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/notes/notes/continuous-k-theory/continuous-efimov-k-theory/</guid>
+      <description>Extending algebraic K-theory from $\mathsf{Cat}^{\mathrm{rex}}$ to $\mathsf{Pr}^L_{\mathrm{ca}}$: the continuous Calkin category, Verdier cofibre sequences in the large setting, Efimov&amp;#39;s definition of continuous K-theory, its basic properties, and a sketch of the universal property of $K^{\mathrm{cont}}$.
+</description>
+    </item>
+    <item>
       <title>Stefanich Rings</title>
       <link>http://localhost:1313/notes/notes/gestalten/stefanich-rings/</link>
       <pubDate>Mon, 29 Dec 2025 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/notes/notes/gestalten/stefanich-rings/</guid>
-      <description>
-This note discuss the colimit of the sequence
-\[
-\mathsf{CAlg}(1\mathsf{Pr})
-\hookrightarrow
-\mathsf{CAlg}(2\mathsf{Pr})
-\hookrightarrow
-\cdots
-\hookrightarrow
-\mathsf{CAlg}(n\mathsf{Pr})
-\hookrightarrow
-\cdots .
-\]
-in $1\mathsf{Pr}$, and discuss the $n$-affine, $n$-proper, $n$-suave and $n$-prim maps.
+      <description>This note discusses the colimit of the sequence \[ \mathsf{CAlg}(1\mathsf{Pr}) \hookrightarrow \mathsf{CAlg}(2\mathsf{Pr}) \hookrightarrow \cdots \hookrightarrow \mathsf{CAlg}(n\mathsf{Pr}) \hookrightarrow \cdots . \] in $1\mathsf{Pr}$, and discuss the $n$-affine, $n$-proper, $n$-suave and $n$-prim maps.
 </description>
     </item>
     <item>
@@ -68,6 +71,13 @@ This note constructs the six-functor formalism on \(n\mathsf{Pr}_{(-)}\), shows 
 </description>
     </item>
     <item>
+      <title>A brief introduction to 6-functor formalisms</title>
+      <link>http://localhost:1313/notes/notes/a-brief-introduction-to-6-functor-formalisms/</link>
+      <pubDate>Fri, 24 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/notes/notes/a-brief-introduction-to-6-functor-formalisms/</guid>
+      <description>A coherent pass through six-functor formalisms. Starting from Liu–Zheng / Mann / Scholze&amp;#39;s span-category formulation and the Cnossen–Lenz–Linskens universal property, passing through the construction of $\mathsf{SH}$ and the Drew–Gallauer initiality theorem, we arrive at the organising observation of Scholze&amp;#39;s Lecture V: Poincaré duality for a morphism is *precisely* a dualizability statement in the 2-category of Fourier–Mukai kernels. A functorial reformulation in $\mathsf{D}$-modules then makes transmutation transparent, and the whole apparatus lands naturally inside Gestalten. We close with suave and prim morphisms, the inductive étale/proper picture via diagonals, and Aoki&amp;#39;s one-step rephrasing through open and closed immersions.</description>
+    </item>
+    <item>
       <title>Playbook</title>
       <link>http://localhost:1313/invest/playbook/</link>
       <pubDate>Fri, 30 Jan 2026 00:00:00 +0000</pubDate>
@@ -75,18 +85,11 @@ This note constructs the six-functor formalism on \(n\mathsf{Pr}_{(-)}\), shows 
       <description>Principles, allocation bands, and execution rules for my long-term investing.</description>
     </item>
     <item>
-      <title>Spectral Sequences as Bookkeeping, Not Structure</title>
-      <link>http://localhost:1313/notes/notes/spectral-sequences-as-bookkeeping-not-structure/</link>
+      <title>Sheaf Cohomology as Sheafification</title>
+      <link>http://localhost:1313/notes/notes/sheaf-cohomology-as-sheafification/</link>
       <pubDate>Sat, 27 Dec 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/notes/notes/spectral-sequences-as-bookkeeping-not-structure/</guid>
-      <description>In derived settings, many classical comparisons between Čech and sheaf cohomology are better understood as descent statements. Spectral sequences may organize computations, but they play no structural role in the argument.</description>
-    </item>
-    <item>
-      <title>Six Functor Formalisms: smoothness and suaveness</title>
-      <link>http://localhost:1313/notes/notes/six-functor-formalisms-smoothness-and-suaveness/</link>
-      <pubDate>Wed, 24 Dec 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/notes/notes/six-functor-formalisms-smoothness-and-suaveness/</guid>
-      <description>We reinterpret D-smooth morphisms in a six functor formalism via the 2-category of kernel associated to a slice geometry. Using Fourier–Mukai kernels to encode functors, smoothness is characterized by left adjointness at the kernel level, yielding automatic base change compatibility. Suaveness is then obtained by imposing invertibility of the dualizing complex as an additional, independent condition.</description>
+      <guid>http://localhost:1313/notes/notes/sheaf-cohomology-as-sheafification/</guid>
+      <description>Sheaf cohomology is evaluation of the sheafification: \(\Gamma(X, \mathcal{F}) \coloneqq (L\mathcal{F})(X)\). Reading Mayer–Vietoris, derived Čech, pushforward, base change and the vanishing \(H^i(\mathrm{Spec}\,R, \widetilde{M}) = 0\) directly off the sheaf condition, without spectral sequences or injective resolutions.</description>
     </item>
     <item>
       <title>Synthetic category theory and type theory</title>
@@ -116,33 +119,25 @@ This note constructs the six-functor formalism on \(n\mathsf{Pr}_{(-)}\), shows 
       <guid>http://localhost:1313/about/</guid>
       <description>&lt;h1 id=&#34;ou-liu-刘欧&#34;&gt;Ou Liu (刘欧)&lt;/h1&gt;
 &lt;p&gt;I am a master&amp;rsquo;s student in Mathematics at the &lt;em&gt;University of Regensburg&lt;/em&gt;,
-with interests in &lt;em&gt;motivic homotopy theory&lt;/em&gt;, &lt;em&gt;derived algebraic geometry&lt;/em&gt;, and &lt;em&gt;higher category theory&lt;/em&gt;.&lt;/p&gt;
+with interests in &lt;em&gt;motivic homotopy theory&lt;/em&gt;, &lt;em&gt;derived algebraic geometry&lt;/em&gt;, and
+&lt;em&gt;higher category theory&lt;/em&gt;. Before Regensburg, I studied at &lt;em&gt;Shanxi University&lt;/em&gt;,
+where my undergraduate thesis applied the six-functor formalism to smooth
+representation theory.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;personal&#34;&gt;Personal&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Name.&lt;/strong&gt; Ou Liu (刘欧)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Date of birth.&lt;/strong&gt; 2 February 2004 &lt;em&gt;(as commonly observed; the national ID card records 12 January 2004)&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Age.&lt;/strong&gt; 22&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Nationality.&lt;/strong&gt; Chinese&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Languages.&lt;/strong&gt; Chinese (native), English (working), German (elementary, improving)&lt;/li&gt;
+&lt;/ul&gt;
 &lt;hr&gt;
 &lt;h2 id=&#34;education&#34;&gt;Education&lt;/h2&gt;
-&lt;p&gt;&lt;strong&gt;2025 &amp;ndash; Present&lt;/strong&gt;&lt;br&gt;
-&lt;strong&gt;M.Sc. in Mathematics&lt;/strong&gt;, &lt;em&gt;University of Regensburg&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;2021 &amp;ndash; 2025&lt;/strong&gt;&lt;br&gt;
-&lt;strong&gt;B.Sc. in Mathematics and Applied Mathematics&lt;/strong&gt;, &lt;em&gt;Shanxi University&lt;/em&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Thesis: &lt;em&gt;Applications of the six-functor formalism to smooth representation theory&lt;/em&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr&gt;
-&lt;h2 id=&#34;publications&#34;&gt;Publications&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;Lili Liu, Xi Wang, &lt;strong&gt;Ou Liu&lt;/strong&gt;, et al.&lt;br&gt;
-&lt;em&gt;Valuation and Comparison of the Actual and Optimal Control Strategy in an Emerging Infectious Disease&lt;/em&gt;.&lt;br&gt;
-&lt;em&gt;Infectious Disease Modelling&lt;/em&gt; &lt;strong&gt;9&lt;/strong&gt; (2024).&lt;br&gt;
-&lt;a href=&#34;https://www.sciencedirect.com/science/article/pii/S2468042724000149&#34;&gt;[Journal]&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr&gt;
-&lt;h2 id=&#34;talks-and-seminars&#34;&gt;Talks and Seminars&lt;/h2&gt;
-&lt;h3 id=&#34;upcoming&#34;&gt;Upcoming&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;em&gt;Low weights&lt;/em&gt; — Motivic cohomology of schemes (Oberseminar, Regensburg), 19 May 2026&lt;/li&gt;
-&lt;li&gt;&lt;em&gt;Six functors and Gestalten&lt;/em&gt; — Gestalten (Oberseminar, Regensburg), 22 Jun 2026&lt;/li&gt;
-&lt;li&gt;&lt;em&gt;Zariski descent for modules&lt;/em&gt; — Higher Zariski Geometry (Oberseminar, Regensburg), 30 Jun 2026&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;See the &lt;a href=&#34;http://localhost:1313/notes/&#34;&gt;Notes&lt;/a&gt; page for accompanying write-ups.&lt;/p&gt;</description>
+&lt;p&gt;&lt;strong&gt;2025 &amp;ndash; Present&lt;/strong&gt; · &lt;strong&gt;M.Sc. in Mathematics&lt;/strong&gt;&lt;br&gt;
+&lt;em&gt;University of Regensburg&lt;/em&gt;, Germany.&lt;br&gt;
+Research focus on motivic homotopy theory, derived algebraic geometry and
+higher category theory.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

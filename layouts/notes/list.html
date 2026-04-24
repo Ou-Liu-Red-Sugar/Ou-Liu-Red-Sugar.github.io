@@ -19,26 +19,8 @@
     {{- end }}
   </header>
 
+  {{- /* PDF notes first (only on /notes/ root) */ -}}
   {{- if eq .RelPermalink "/notes/" }}
-    {{- /* Latest updates — recent markdown notes (regular pages under /notes/) */ -}}
-    {{- $latest := first 5 (where .Site.RegularPages "Section" "notes").ByDate.Reverse }}
-    {{- if gt (len $latest) 0 }}
-    <h2>Latest updates</h2>
-    <ul class="ou-entry-list">
-      {{- range $latest }}
-      <li>
-        <div class="row">
-          <a href="{{ .RelPermalink }}">{{ .Title }}</a>
-          {{- with .Date }}<time datetime="{{ .Format "2006-01-02" }}">{{ .Format "Jan 2, 2006" }}</time>{{- end }}
-        </div>
-        {{- with .Params.description }}
-        <p class="desc">{{ . | markdownify }}</p>
-        {{- end }}
-      </li>
-      {{- end }}
-    </ul>
-    {{- end }}
-
     {{- with .Site.Data.notes_pdfs }}
     <h2>PDF notes</h2>
     <ul class="ou-notes-pdfs">
@@ -65,10 +47,32 @@
     {{- end }}
   {{- end }}
 
+  {{- /* Author prose + markdown notes index from _index.md */ -}}
   {{- if .Content }}
   <div class="post-content">
     {{ .Content }}
   </div>
+  {{- end }}
+
+  {{- /* Latest updates — compact, at the very bottom of the page */ -}}
+  {{- if eq .RelPermalink "/notes/" }}
+    {{- $latest := first 5 (where .Site.RegularPages "Section" "notes").ByDate.Reverse }}
+    {{- if gt (len $latest) 0 }}
+    <h2 class="ou-latest-heading">Latest updates</h2>
+    <ul class="ou-entry-list">
+      {{- range $latest }}
+      <li>
+        <div class="row">
+          <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+          {{- with .Date }}<time datetime="{{ .Format "2006-01-02" }}">{{ .Format "Jan 2, 2006" }}</time>{{- end }}
+        </div>
+        {{- with .Params.description }}
+        <p class="desc">{{ . | markdownify }}</p>
+        {{- end }}
+      </li>
+      {{- end }}
+    </ul>
+    {{- end }}
   {{- end }}
 
 </article>

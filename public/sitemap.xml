@@ -12,6 +12,11 @@
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
+    <loc>http://localhost:1313/notes/notes/continuous-k-theory/compactly-assembled-categories/</loc>
+    <lastmod>2026-04-24T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
     <loc>http://localhost:1313/notes/notes/gestalten/presentable-n-categories/</loc>
     <lastmod>2025-12-29T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -27,6 +32,11 @@
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
+    <loc>http://localhost:1313/notes/notes/continuous-k-theory/continuous-efimov-k-theory/</loc>
+    <lastmod>2026-04-24T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
     <loc>http://localhost:1313/notes/notes/gestalten/stefanich-rings/</loc>
     <lastmod>2025-12-29T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -37,7 +47,17 @@
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
+    <loc>http://localhost:1313/notes/notes/a-brief-introduction-to-6-functor-formalisms/</loc>
+    <lastmod>2026-04-24T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
     <loc>http://localhost:1313/tags/algebraic-k-theory/</loc>
+    <lastmod>2026-04-24T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>http://localhost:1313/tags/calkin-category/</loc>
     <lastmod>2026-04-24T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -57,12 +77,32 @@
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
+    <loc>http://localhost:1313/tags/efimov-k-theory/</loc>
+    <lastmod>2026-04-24T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>http://localhost:1313/tags/gestalten/</loc>
+    <lastmod>2026-04-24T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
     <loc>http://localhost:1313/tags/higher-algebra/</loc>
     <lastmod>2026-04-24T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
+    <loc>http://localhost:1313/tags/higher-category-theory/</loc>
+    <lastmod>2026-04-24T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
     <loc>http://localhost:1313/tags/k-theory/</loc>
+    <lastmod>2026-04-24T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>http://localhost:1313/tags/localizing-invariants/</loc>
     <lastmod>2026-04-24T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -83,6 +123,21 @@
     <priority>0.5</priority>
   </url><url>
     <loc>http://localhost:1313/</loc>
+    <lastmod>2026-04-24T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>http://localhost:1313/tags/poincar%C3%A9-duality/</loc>
+    <lastmod>2026-04-24T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>http://localhost:1313/tags/presentable-categories/</loc>
+    <lastmod>2026-04-24T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>http://localhost:1313/tags/six-functor-formalism/</loc>
     <lastmod>2026-04-24T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -242,18 +297,8 @@
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>http://localhost:1313/tags/higher-category-theory/</loc>
-    <lastmod>2025-12-29T00:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url><url>
     <loc>http://localhost:1313/tags/presentable-category/</loc>
     <lastmod>2025-12-29T00:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url><url>
-    <loc>http://localhost:1313/tags/presentable-catgeory/</loc>
-    <lastmod>2025-12-28T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
@@ -267,23 +312,13 @@
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>http://localhost:1313/notes/notes/spectral-sequences-as-bookkeeping-not-structure/</loc>
+    <loc>http://localhost:1313/tags/sheaf-cohomology/</loc>
     <lastmod>2025-12-27T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>http://localhost:1313/tags/poincar%C3%A9-duality/</loc>
-    <lastmod>2025-12-24T00:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url><url>
-    <loc>http://localhost:1313/tags/six-functor-formalism/</loc>
-    <lastmod>2025-12-24T00:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url><url>
-    <loc>http://localhost:1313/notes/notes/six-functor-formalisms-smoothness-and-suaveness/</loc>
-    <lastmod>2025-12-24T00:00:00+00:00</lastmod>
+    <loc>http://localhost:1313/notes/notes/sheaf-cohomology-as-sheafification/</loc>
+    <lastmod>2025-12-27T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>

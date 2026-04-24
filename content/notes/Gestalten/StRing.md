@@ -12,7 +12,7 @@ comments: true
 weight: 30
 draft: false
 description: >
-  This note discuss the colimit of the sequence
+  This note discusses the colimit of the sequence
   \[
   \mathsf{CAlg}(1\mathsf{Pr})
   \hookrightarrow

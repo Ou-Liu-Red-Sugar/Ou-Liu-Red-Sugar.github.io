@@ -202,10 +202,6 @@ When $\mathcal{C}$ is a pointed category with finite colimits, the constructions
 K-theory.
 {{< /proposition >}}
 
-{{< proof >}}
-See the entry on the Quillen Q-construction.
-{{< /proof >}}
-
 We next show that $\mathcal{C}$ and its pointed completion have the same
 algebraic K-theory.
 

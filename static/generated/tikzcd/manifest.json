@@ -1,4 +1,25 @@
 {
+  "005ad8308dfaa728ab9418f2a26cb09a57ae9267": {
+    "kind": "shortcode",
+    "origin": "C:\\Users\\23980\\Documents\\Ou-Liu-Red-Sugar.github.io\\content\\notes\\continuous-k-theory\\compactly-assembled-categories.md",
+    "source": "& Y \\otimes X \\otimes Y \\ar[dr,\"\\mathrm{ev} \\otimes \\operatorname{id}\"] \\\\\nY \\ar[ur,\"\\operatorname{id} \\otimes \\mathrm{coev}\"] \\ar[rr,equal] && Y",
+    "svg": "generated/tikzcd/005ad8308dfaa728ab9418f2a26cb09a57ae9267.svg",
+    "updated": "2026-04-24T23:10:14+02:00"
+  },
+  "00c564d1315a793222a926937a89fe310ce2282e": {
+    "kind": "shortcode",
+    "origin": "C:\\Users\\23980\\Documents\\Ou-Liu-Red-Sugar.github.io\\content\\notes\\SixFunctor.md",
+    "source": "X \\ar[dr, \"\\Delta_{f}\"] \\ar[drr, \"\\mathrm{id}_{X}\", bend left] \\ar[ddr, \"\\mathrm{id}_{X}\"', bend right] & & \\\\\n& X \\times_{Y} X \\ar[r, \"\\pi_{2}\"] \\ar[d, \"\\pi_{1}\"'] \\ar[dr, phantom, pos=0.3, \"\\lrcorner\"] & X \\ar[d, \"f\"] \\\\\n& X \\ar[r, \"f\"'] & Y",
+    "svg": "generated/tikzcd/00c564d1315a793222a926937a89fe310ce2282e.svg",
+    "updated": "2026-04-24T23:10:17+02:00"
+  },
+  "0ba770a5365f5b5c4b14d69a2fb64f8efd239fc4": {
+    "kind": "shortcode",
+    "origin": "C:\\Users\\23980\\Documents\\Ou-Liu-Red-Sugar.github.io\\content\\notes\\SixFunctor.md",
+    "source": "j_{!} j^{*} \\ar[r] \\ar[d] & \\mathrm{id} \\ar[d] \\\\\n   0 \\ar[r] & i_{*} i^{*}",
+    "svg": "generated/tikzcd/0ba770a5365f5b5c4b14d69a2fb64f8efd239fc4.svg",
+    "updated": "2026-04-24T23:10:14+02:00"
+  },
   "0be8a4b606c4477616ad8790fc8ae05a8ef535ba": {
     "kind": "shortcode",
     "origin": "/sessions/laughing-gifted-lovelace/mnt/Ou-Liu-Red-Sugar.github.io/content/notes/SixFunctor.md",
@@ -6,19 +27,40 @@
     "svg": "generated/tikzcd/0be8a4b606c4477616ad8790fc8ae05a8ef535ba.svg",
     "updated": "2026-04-24T16:09:09+00:00"
   },
+  "0f178a9f8b49475bcecefcdf559bc523220011ac": {
+    "kind": "shortcode",
+    "origin": "C:\\Users\\23980\\Documents\\Ou-Liu-Red-Sugar.github.io\\content\\notes\\SixFunctor.md",
+    "source": "{[X]} \\ar[r] \\ar[d] & {[Y]} \\ar[d] \\\\\n{[Y]} \\ar[r] & {[Y]}",
+    "svg": "generated/tikzcd/0f178a9f8b49475bcecefcdf559bc523220011ac.svg",
+    "updated": "2026-04-24T23:10:14+02:00"
+  },
   "10bcd79251c1014a85d13825642efc31d87b3577": {
     "kind": "shortcode",
-    "origin": "/sessions/laughing-gifted-lovelace/mnt/Ou-Liu-Red-Sugar.github.io/content/notes/continuous-k-theory/algebraic-k-theory.md",
+    "origin": "C:\\Users\\23980\\Documents\\Ou-Liu-Red-Sugar.github.io\\content\\notes\\continuous-k-theory\\algebraic-k-theory.md",
     "source": "\\mathsf{Ind}(F)\\mathsf{Ind}(F)^R(d) \\ar[r] \\ar[d] \\ar[dr, phantom, very near end, \"\\ulcorner\"] & d \\ar[d] \\\\\n        \\mathsf{Ind}(F)(*) \\ar[r] & \\mathsf{Ind}(p)^R \\mathsf{Ind}(p)(d)",
     "svg": "generated/tikzcd/10bcd79251c1014a85d13825642efc31d87b3577.svg",
-    "updated": "2026-04-24T16:28:27+00:00"
+    "updated": "2026-04-24T23:10:14+02:00"
   },
   "1204523d7669db69fb6611e3f3f12c846cdadfb8": {
     "kind": "shortcode",
-    "origin": "/sessions/laughing-gifted-lovelace/mnt/Ou-Liu-Red-Sugar.github.io/content/notes/gestalten/presentable.md",
+    "origin": "C:\\Users\\23980\\Documents\\Ou-Liu-Red-Sugar.github.io\\content\\notes\\gestalten\\presentable.md",
     "source": "\\mathcal{C} \\ar[d,hook,\"y\"] \\ar[dr,\"F\"]\\\\\n\\mathsf{Ind}_{\\kappa}(\\mathcal{C}) \\ar[r,\"\\mathsf{Ind}_{\\kappa}(F)\"'] & \\mathcal{D}.",
     "svg": "generated/tikzcd/1204523d7669db69fb6611e3f3f12c846cdadfb8.svg",
-    "updated": "2026-04-24T16:09:09+00:00"
+    "updated": "2026-04-24T23:10:14+02:00"
+  },
+  "14a0859dde9bd4efb632e114278879d444c097e2": {
+    "kind": "shortcode",
+    "origin": "C:\\Users\\23980\\Documents\\Ou-Liu-Red-Sugar.github.io\\content\\notes\\continuous-k-theory\\compactly-assembled-categories.md",
+    "source": "\\operatorname*{colim}_i \\operatorname{Hom}(Y,Z_i) \\ar[r,\"f^*\"]\\ar[d] & \\operatorname*{colim}_i \\operatorname{Hom}(X,Z_i) \\ar[d] \\\\\n   \\operatorname{Hom}(Y,Z) \\ar[r,\"f^*\"] & \\operatorname{Hom}(X,Z)",
+    "svg": "generated/tikzcd/14a0859dde9bd4efb632e114278879d444c097e2.svg",
+    "updated": "2026-04-24T23:10:14+02:00"
+  },
+  "155a9bebc85de7dd28d45c5dcc3c301873f789a1": {
+    "kind": "shortcode",
+    "origin": "C:\\Users\\23980\\Documents\\Ou-Liu-Red-Sugar.github.io\\content\\notes\\SixFunctor.md",
+    "source": "(\\mathsf{Sch}^{\\mathrm{qcqs}})^{\\mathrm{op}} \\ar[r, \"\\mathsf{SH}\"] \\ar[d, hook] & \\mathsf{CAlg}(\\mathsf{Pr}^L_{\\mathrm{st}}) \\\\\n\\mathsf{Span}_2(\\mathsf{Sch}^{\\mathrm{qcqs}}, E)_{I, P}^{\\otimes} \\ar[ur, dashed] &",
+    "svg": "generated/tikzcd/155a9bebc85de7dd28d45c5dcc3c301873f789a1.svg",
+    "updated": "2026-04-24T23:10:14+02:00"
   },
   "166f0e4a667b31ab6a7398c5b222ace4d5473845": {
     "kind": "shortcode",
@@ -29,31 +71,31 @@
   },
   "182f8e9f607ce78b0d7d7152932e8308b80b69dc": {
     "kind": "shortcode",
-    "origin": "/sessions/laughing-gifted-lovelace/mnt/Ou-Liu-Red-Sugar.github.io/content/notes/StableDoldKan.md",
+    "origin": "C:\\Users\\23980\\Documents\\Ou-Liu-Red-Sugar.github.io\\content\\notes\\StableDoldKan.md",
     "source": "V_{\\phi} \\cap U_{\\phi'} \\ar[r] \\ar[dr,phantom,pos = 0.8,\"\\ulcorner\"] \\ar[d] & U_{\\phi'} \\ar[d] \\\\\n    V_{\\phi} \\ar[r] & V_{\\phi'}.",
     "svg": "generated/tikzcd/182f8e9f607ce78b0d7d7152932e8308b80b69dc.svg",
-    "updated": "2026-04-24T16:09:09+00:00"
+    "updated": "2026-04-24T23:10:14+02:00"
   },
   "185865cf2a4bfa4de443c2c5cc517f92f44d56b0": {
     "kind": "shortcode",
-    "origin": "/sessions/laughing-gifted-lovelace/mnt/Ou-Liu-Red-Sugar.github.io/content/notes/HA.md",
+    "origin": "C:\\Users\\23980\\Documents\\Ou-Liu-Red-Sugar.github.io\\content\\notes\\HA.md",
     "source": "\\operatorname{Hom}_{\\mathcal{O}}(Y,X) \\ar[r]\\ar[d] &\n\\underset{\\alpha \\colon P \\to O \\in \\mathcal{P}_{P/}^{\\text{el}}}{\\operatorname{lim}}\\, \\operatorname{Hom}_{\\mathcal{O}}(Y,\\xi(\\alpha)) \\ar[d] \\\\\n\\operatorname{Hom}_{\\mathcal{P}}(P',P) \\ar[r] &\n\\underset{\\alpha \\colon P \\to O \\in \\mathcal{P}_{P/}^{\\text{el}}}{\\operatorname{lim}}\\, \\operatorname{Hom}_{\\mathcal{P}}(P',O)",
     "svg": "generated/tikzcd/185865cf2a4bfa4de443c2c5cc517f92f44d56b0.svg",
-    "updated": "2026-04-24T16:09:09+00:00"
+    "updated": "2026-04-24T23:10:14+02:00"
   },
   "1d22d0f1e70d4bee5783df8f27541843bca9b9f8": {
     "kind": "shortcode",
-    "origin": "/sessions/laughing-gifted-lovelace/mnt/Ou-Liu-Red-Sugar.github.io/content/notes/continuous-k-theory/algebraic-k-theory.md",
+    "origin": "C:\\Users\\23980\\Documents\\Ou-Liu-Red-Sugar.github.io\\content\\notes\\continuous-k-theory\\algebraic-k-theory.md",
     "source": "X \\ar[r] \\ar[d, \"f\"] & X \\sqcup * \\ar[d, \"f \\sqcup \\mathrm{id}_*\"] \\\\\n        Y \\ar[r] & Y \\sqcup *",
     "svg": "generated/tikzcd/1d22d0f1e70d4bee5783df8f27541843bca9b9f8.svg",
-    "updated": "2026-04-24T16:28:27+00:00"
+    "updated": "2026-04-24T23:10:14+02:00"
   },
   "20978e659bd9a766b24f48773111106dee01446e": {
     "kind": "shortcode",
-    "origin": "/sessions/laughing-gifted-lovelace/mnt/Ou-Liu-Red-Sugar.github.io/content/notes/continuous-k-theory/algebraic-k-theory.md",
+    "origin": "C:\\Users\\23980\\Documents\\Ou-Liu-Red-Sugar.github.io\\content\\notes\\continuous-k-theory\\algebraic-k-theory.md",
     "source": "\\mathsf{SW}(\\mathcal{C}) \\ar[r] \\ar[d, equal] & \\mathsf{SW}(\\mathsf{Ind}(\\mathcal{C})^{\\aleph_1}) \\ar[r] \\ar[d] & \\mathsf{SW}(\\mathsf{Calk}(\\mathcal{C})) \\ar[d] \\\\\n        \\mathsf{SW}(\\mathcal{C}) \\ar[r] & \\mathsf{Ind}(\\mathsf{SW}(\\mathcal{C}))^{\\aleph_1} \\ar[r] & \\mathsf{Calk}(\\mathsf{SW}(\\mathcal{C})).",
     "svg": "generated/tikzcd/20978e659bd9a766b24f48773111106dee01446e.svg",
-    "updated": "2026-04-24T16:28:27+00:00"
+    "updated": "2026-04-24T23:10:14+02:00"
   },
   "2214dad6d5f2acfaa65761929c5cfc44bc2be8ae": {
     "kind": "shortcode",
@@ -62,33 +104,61 @@
     "svg": "generated/tikzcd/2214dad6d5f2acfaa65761929c5cfc44bc2be8ae.svg",
     "updated": "2026-04-24T16:09:09+00:00"
   },
+  "241523592c554cfc3666370f75b1cde05ae48395": {
+    "kind": "shortcode",
+    "origin": "C:\\Users\\23980\\Documents\\Ou-Liu-Red-Sugar.github.io\\content\\notes\\continuous-k-theory\\compactly-assembled-categories.md",
+    "source": "\\hat{y}ky \\ar[r,\"\\varepsilon^{\\hat{y}} y\"]\\ar[d,\"\\hat{y} \\varepsilon^{y}\"',\"\\simeq\"] & y \\ar[d,\"y \\eta^{\\hat{y}}\",\"\\simeq\"'] \\\\\n\\hat{y} \\ar[r,\"\\eta^y \\hat{y}\"'] \\ar[ur,dashed] & y k \\hat{y}",
+    "svg": "generated/tikzcd/241523592c554cfc3666370f75b1cde05ae48395.svg",
+    "updated": "2026-04-24T23:10:14+02:00"
+  },
   "241ac8aceaa7fb60606d53e46c3d55227cdf46a8": {
     "kind": "shortcode",
-    "origin": "/sessions/laughing-gifted-lovelace/mnt/Ou-Liu-Red-Sugar.github.io/content/notes/continuous-k-theory/algebraic-k-theory.md",
+    "origin": "C:\\Users\\23980\\Documents\\Ou-Liu-Red-Sugar.github.io\\content\\notes\\continuous-k-theory\\algebraic-k-theory.md",
     "source": "\\mathcal{C} \\ar[r, \"F\"] \\ar[d] \\ar[dr, phantom, very near end, \"\\ulcorner\"] & \\mathcal{D} \\ar[d] \\\\\n        * \\ar[r] & \\mathcal{D}/\\mathcal{C}.",
     "svg": "generated/tikzcd/241ac8aceaa7fb60606d53e46c3d55227cdf46a8.svg",
-    "updated": "2026-04-24T16:28:27+00:00"
+    "updated": "2026-04-24T23:10:14+02:00"
   },
   "25a073bba23f8f32bad2d4dd37f560ad14345b52": {
     "kind": "shortcode",
-    "origin": "/sessions/laughing-gifted-lovelace/mnt/Ou-Liu-Red-Sugar.github.io/content/notes/continuous-k-theory/algebraic-k-theory.md",
+    "origin": "C:\\Users\\23980\\Documents\\Ou-Liu-Red-Sugar.github.io\\content\\notes\\continuous-k-theory\\algebraic-k-theory.md",
     "source": "& W \\\\\n      X \\ar[ur] && Y \\ar[ul]",
     "svg": "generated/tikzcd/25a073bba23f8f32bad2d4dd37f560ad14345b52.svg",
-    "updated": "2026-04-24T16:28:27+00:00"
+    "updated": "2026-04-24T23:10:14+02:00"
   },
   "2a13a7dbad4c965ef1ec46154cd59401a0440065": {
     "kind": "shortcode",
-    "origin": "/sessions/laughing-gifted-lovelace/mnt/Ou-Liu-Red-Sugar.github.io/content/notes/gestalten/presentable.md",
+    "origin": "C:\\Users\\23980\\Documents\\Ou-Liu-Red-Sugar.github.io\\content\\notes\\gestalten\\presentable.md",
     "source": "\\mathsf{El}(F) \\ar[r] \\ar[d] \\ar[dr,phantom,pos = 0.3,\"\\lrcorner\"]\n  & \\mathsf{An}_*^{\\operatorname{op}} \\ar[d]\\\\\n   \\mathcal{C} \\ar[r,\"F^{\\operatorname{op}}\"]\n  & \\mathsf{An}^{\\operatorname{op}}",
     "svg": "generated/tikzcd/2a13a7dbad4c965ef1ec46154cd59401a0440065.svg",
-    "updated": "2026-04-24T16:09:09+00:00"
+    "updated": "2026-04-24T23:10:14+02:00"
+  },
+  "2ab19a5386eb8064c61b27966a0784dd0ebd7c03": {
+    "kind": "shortcode",
+    "origin": "C:\\Users\\23980\\Documents\\Ou-Liu-Red-Sugar.github.io\\content\\notes\\SixFunctor.md",
+    "source": "i_{*} i^{!} p_{*} A \\ar[r] \\ar[d] & p_{*} A \\ar[r] \\ar[d, equal] & j_{*} j^{*} p_{*} A \\ar[d] \\\\\np_{*} k_{*} k^{!} A \\ar[r] & p_{*} A \\ar[r] & p_{*} h_{*} h^{*} A",
+    "svg": "generated/tikzcd/2ab19a5386eb8064c61b27966a0784dd0ebd7c03.svg",
+    "updated": "2026-04-24T23:10:14+02:00"
+  },
+  "2c983b69d56a337c7a7156bca3f921ce75b80b03": {
+    "kind": "shortcode",
+    "origin": "C:\\Users\\23980\\Documents\\Ou-Liu-Red-Sugar.github.io\\content\\notes\\SixFunctor.md",
+    "source": "X \\times Y \\ar[r, \"f_{X}\"] \\ar[d, \"f_{Y}\"'] \\ar[dr, \"p\"] & X \\ar[d, \"p_{X}\"] \\\\\nY \\ar[r, \"p_{Y}\"'] & \\ast.",
+    "svg": "generated/tikzcd/2c983b69d56a337c7a7156bca3f921ce75b80b03.svg",
+    "updated": "2026-04-24T23:27:21+02:00"
+  },
+  "2d104d5fc640cd3e4ecb531d9dcc2a8793fea21b": {
+    "kind": "shortcode",
+    "origin": "C:\\Users\\23980\\Documents\\Ou-Liu-Red-Sugar.github.io\\content\\notes\\SixFunctor.md",
+    "source": "A \\ar[r, \"k\"] \\ar[d, \"h\"'] \\ar[dr, phantom, very near start, \"\\lrcorner\"] & B \\ar[d, \"f\"] \\\\\n  C \\ar[r, \"g\"'] & D",
+    "svg": "generated/tikzcd/2d104d5fc640cd3e4ecb531d9dcc2a8793fea21b.svg",
+    "updated": "2026-04-24T23:10:14+02:00"
   },
   "2eb84be54867a382f9fcafd4a983a768b8cfd051": {
     "kind": "shortcode",
-    "origin": "/sessions/laughing-gifted-lovelace/mnt/Ou-Liu-Red-Sugar.github.io/content/notes/continuous-k-theory/algebraic-k-theory.md",
+    "origin": "C:\\Users\\23980\\Documents\\Ou-Liu-Red-Sugar.github.io\\content\\notes\\continuous-k-theory\\algebraic-k-theory.md",
     "source": "\\mathcal{C} \\ar[r, \"f\"] \\ar[d] & \\mathcal{D} \\ar[d, \"p\"] \\\\\n        \\{0\\} \\ar[r] & \\mathcal{E}.",
     "svg": "generated/tikzcd/2eb84be54867a382f9fcafd4a983a768b8cfd051.svg",
-    "updated": "2026-04-24T16:28:27+00:00"
+    "updated": "2026-04-24T23:10:14+02:00"
   },
   "3295eda477f6418b0e55619f7d239153dc342ba8": {
     "kind": "shortcode",
@@ -99,38 +169,45 @@
   },
   "3d5618a535f611528905821760043ae25588743d": {
     "kind": "shortcode",
-    "origin": "/sessions/laughing-gifted-lovelace/mnt/Ou-Liu-Red-Sugar.github.io/content/notes/gestalten/StRing.md",
+    "origin": "C:\\Users\\23980\\Documents\\Ou-Liu-Red-Sugar.github.io\\content\\notes\\gestalten\\StRing.md",
     "source": "\\mathsf{CAlg}(A_{n+1}) \\ar[r, hook]\\ar[d,\"g^*_n\"'] \\ar[rrr, bend left=20, \"\\operatorname{Spec}_n\"] & \\mathsf{CAlg}(A_{n+2}) \\ar[r, hook]\\ar[d,\"g^*_{n+1}\"'] & \\cdots \\ar[r] & \\mathsf{StRing}_{A/} \\ar[d,\"g^*\"]\\\\\n\\mathsf{CAlg}(C_{n+1}) \\ar[r, hook] \\ar[rrr, bend right=20, \"\\operatorname{Spec}_n\"'] & \\mathsf{CAlg}(C_{n+2}) \\ar[r, hook] & \\cdots \\ar[r] & \\mathsf{StRing}_{C/}",
     "svg": "generated/tikzcd/3d5618a535f611528905821760043ae25588743d.svg",
-    "updated": "2026-04-24T16:09:09+00:00"
+    "updated": "2026-04-24T23:10:14+02:00"
   },
   "3ddd5d45460cf77f015e72af989e1a097c100572": {
     "kind": "shortcode",
-    "origin": "/sessions/laughing-gifted-lovelace/mnt/Ou-Liu-Red-Sugar.github.io/content/notes/HA.md",
+    "origin": "C:\\Users\\23980\\Documents\\Ou-Liu-Red-Sugar.github.io\\content\\notes\\HA.md",
     "source": "\\mathcal{P} \\ar[rr,\"A\"]\\ar[dr,\"f\"'] && \\mathcal{O}\\ar[dl] \\\\\n& \\mathcal{P}'",
     "svg": "generated/tikzcd/3ddd5d45460cf77f015e72af989e1a097c100572.svg",
-    "updated": "2026-04-24T16:09:09+00:00"
+    "updated": "2026-04-24T23:10:14+02:00"
   },
   "465ccf7d3bc184b0c12dc6870ee6183799a3d244": {
     "kind": "shortcode",
-    "origin": "/sessions/laughing-gifted-lovelace/mnt/Ou-Liu-Red-Sugar.github.io/content/notes/HA.md",
+    "origin": "C:\\Users\\23980\\Documents\\Ou-Liu-Red-Sugar.github.io\\content\\notes\\HA.md",
     "source": "\\mathsf{LMod}_A(\\mathcal{M})\\ar[r]\\ar[d]\\ar[dr,phantom,pos=.2,\"\\lrcorner\"] &\n\\mathsf{LMod}(\\mathcal{M})\\ar[d] \\\\\n* \\ar[r,\"\\{A\\}\"] & \\mathsf{Alg}(\\mathcal{C})",
     "svg": "generated/tikzcd/465ccf7d3bc184b0c12dc6870ee6183799a3d244.svg",
-    "updated": "2026-04-24T16:09:09+00:00"
+    "updated": "2026-04-24T23:10:14+02:00"
   },
   "474ac1d80572419b008b16a407fd0e53b69dc2bc": {
     "kind": "shortcode",
-    "origin": "/sessions/laughing-gifted-lovelace/mnt/Ou-Liu-Red-Sugar.github.io/content/notes/StableDoldKan.md",
+    "origin": "C:\\Users\\23980\\Documents\\Ou-Liu-Red-Sugar.github.io\\content\\notes\\StableDoldKan.md",
     "source": "\\cdots & {(2,[-1])} & {(1,[-1])} & {(0,[-1])} \\\\\n    \\cdots & {(2,[0])} & {(1,[0])} & {(0,[0])} \\\\\n    \\cdots & {(2,[1])} & {(1,[1])} \\\\\n    \\cdots & {(2,[2])}\n    \\arrow[from=1-2, to=1-1]\n    \\arrow[from=1-3, to=1-2]\n    \\arrow[from=1-4, to=1-3]\n    \\arrow[from=2-2, to=1-2]\n    \\arrow[from=2-2, to=2-1]\n    \\arrow[from=2-2, to=3-2]\n    \\arrow[from=2-3, to=1-3]\n    \\arrow[from=2-3, to=2-2]\n    \\arrow[from=2-3, to=3-3]\n    \\arrow[from=2-4, to=1-4]\n    \\arrow[from=2-4, to=2-3]\n    \\arrow[shift left=3, from=3-2, to=2-2]\n    \\arrow[shift right=3, from=3-2, to=2-2]\n    \\arrow[from=3-2, to=3-1]\n    \\arrow[shift right=2, from=3-2, to=4-2]\n    \\arrow[shift left=2, from=3-2, to=4-2]\n    \\arrow[shift left=3, from=3-3, to=2-3]\n    \\arrow[shift right=3, from=3-3, to=2-3]\n    \\arrow[from=3-3, to=3-2]\n    \\arrow[shift left=4, from=4-2, to=3-2]\n    \\arrow[shift right=4, from=4-2, to=3-2]\n    \\arrow[from=4-2, to=3-2]\n    \\arrow[from=4-2, to=4-1]",
     "svg": "generated/tikzcd/474ac1d80572419b008b16a407fd0e53b69dc2bc.svg",
-    "updated": "2026-04-24T16:09:09+00:00"
+    "updated": "2026-04-24T23:10:14+02:00"
+  },
+  "4b05ec915151aa78bbdad394637f83f8a14791c4": {
+    "kind": "shortcode",
+    "origin": "C:\\Users\\23980\\Documents\\Ou-Liu-Red-Sugar.github.io\\content\\notes\\continuous-k-theory\\compactly-assembled-categories.md",
+    "source": "\\mathsf{Ind}(\\mathcal{C}^{\\aleph_1}) \\ar[r,\"\\mathsf{Ind}(F)\"] & \\mathsf{Ind}(\\mathcal{D}) \\ar[d,\"k_{\\mathcal{D}}\"] \\\\\n\\mathcal{C} \\ar[u,\"y\"] \\ar[r,\"F\"] & \\mathcal{D}",
+    "svg": "generated/tikzcd/4b05ec915151aa78bbdad394637f83f8a14791c4.svg",
+    "updated": "2026-04-24T23:10:14+02:00"
   },
   "4ec6c266e9c16d22643faad703ac30f5dc8f1c87": {
     "kind": "shortcode",
-    "origin": "/sessions/laughing-gifted-lovelace/mnt/Ou-Liu-Red-Sugar.github.io/content/notes/continuous-k-theory/algebraic-k-theory.md",
+    "origin": "C:\\Users\\23980\\Documents\\Ou-Liu-Red-Sugar.github.io\\content\\notes\\continuous-k-theory\\algebraic-k-theory.md",
     "source": "\\mathcal{C} \\ar[r] \\ar[d] & \\mathcal{D} \\ar[r] \\ar[d] & \\mathcal{E} \\ar[d] \\\\\n        \\mathsf{Ind}(\\mathcal{C})^{\\aleph_1} \\ar[r] \\ar[d] & \\mathsf{Ind}(\\mathcal{D})^{\\aleph_1} \\ar[r] \\ar[d] & \\mathsf{Ind}(\\mathcal{E})^{\\aleph_1} \\ar[d] \\\\\n        \\mathsf{Calk}(\\mathcal{C}) \\ar[r] & \\mathsf{Calk}(\\mathcal{D}) \\ar[r] & \\mathsf{Calk}(\\mathcal{E}).",
     "svg": "generated/tikzcd/4ec6c266e9c16d22643faad703ac30f5dc8f1c87.svg",
-    "updated": "2026-04-24T16:28:27+00:00"
+    "updated": "2026-04-24T23:10:14+02:00"
   },
   "5a4502a178abf3e311ac3667d8591fc8c6d5e2a8": {
     "kind": "shortcode",
@@ -139,26 +216,47 @@
     "svg": "generated/tikzcd/5a4502a178abf3e311ac3667d8591fc8c6d5e2a8.svg",
     "updated": "2026-04-24T16:09:09+00:00"
   },
+  "5cb3783c66590513ecfcb01b18da3b1e8ca34c16": {
+    "kind": "shortcode",
+    "origin": "C:\\Users\\23980\\Documents\\Ou-Liu-Red-Sugar.github.io\\content\\notes\\continuous-k-theory\\compactly-assembled-categories.md",
+    "source": "\\hat{y}(X) \\ar[r] \\ar[d] & \\hat{y}(Y) \\ar[d] \\\\\ny(X) \\ar[r]\\ar[ur,dashed] & y(Y)",
+    "svg": "generated/tikzcd/5cb3783c66590513ecfcb01b18da3b1e8ca34c16.svg",
+    "updated": "2026-04-24T23:10:14+02:00"
+  },
+  "5ed0b0ad31d43c2ab732dba23b1ab6dcb6a6a43a": {
+    "kind": "shortcode",
+    "origin": "C:\\Users\\23980\\Documents\\Ou-Liu-Red-Sugar.github.io\\content\\notes\\continuous-k-theory\\compactly-assembled-categories.md",
+    "source": "& X \\otimes Y \\otimes X \\ar[dr,\"\\operatorname{id} \\otimes \\mathrm{ev}\"] \\\\\nX \\ar[rr,equal]\\ar[ur,\"\\mathrm{coev} \\otimes \\operatorname{id}\"] && X",
+    "svg": "generated/tikzcd/5ed0b0ad31d43c2ab732dba23b1ab6dcb6a6a43a.svg",
+    "updated": "2026-04-24T23:10:14+02:00"
+  },
   "60653dd225444ff121b2f3e3ba30aa6869f34345": {
     "kind": "shortcode",
-    "origin": "/sessions/laughing-gifted-lovelace/mnt/Ou-Liu-Red-Sugar.github.io/content/notes/Type.md",
+    "origin": "C:\\Users\\23980\\Documents\\Ou-Liu-Red-Sugar.github.io\\content\\notes\\Type.md",
     "source": "\\exists A' \\ar[r,dashed]\\ar[d,dashed,two heads] \\ar[dr,pos = 0.3,phantom,\"\\lrcorner\"] & A \\ar[d,two heads]\\\\\n    B' \\ar[r,\"f\"] & B",
     "svg": "generated/tikzcd/60653dd225444ff121b2f3e3ba30aa6869f34345.svg",
-    "updated": "2026-04-24T16:09:09+00:00"
+    "updated": "2026-04-24T23:10:14+02:00"
+  },
+  "622da9d06011e1b21d0b510d8d3cae53eb40ebf0": {
+    "kind": "shortcode",
+    "origin": "/sessions/laughing-gifted-lovelace/mnt/Ou-Liu-Red-Sugar.github.io/content/notes/SixFunctor.md",
+    "source": "& Y \\ar[dl, \"f\"'] \\ar[dr, \"g\"] & \\\\\n  X & & Z",
+    "svg": "generated/tikzcd/622da9d06011e1b21d0b510d8d3cae53eb40ebf0.svg",
+    "updated": "2026-04-24T19:47:54+00:00"
   },
   "641009a1aca4ec5d1e3d6d3007f44fce1db12a4e": {
     "kind": "shortcode",
-    "origin": "/sessions/laughing-gifted-lovelace/mnt/Ou-Liu-Red-Sugar.github.io/content/notes/StableDoldKan.md",
+    "origin": "C:\\Users\\23980\\Documents\\Ou-Liu-Red-Sugar.github.io\\content\\notes\\StableDoldKan.md",
     "source": "\\cdots \\ar[r,shift left=3,\"\\partial\"]\\ar[r,shift left=1]\\ar[r,shift right= 1]\\ar[r,shift right=3] & C_2 \\ar[r, shift left = 2,\"\\partial\"]\\ar[r, shift left = 0]\\ar[r, shift right = 2] & C_1 \\ar[r, shift left = 1,\"\\partial\"] \\ar[r, shift right = 1] & C_0,",
     "svg": "generated/tikzcd/641009a1aca4ec5d1e3d6d3007f44fce1db12a4e.svg",
-    "updated": "2026-04-24T16:09:09+00:00"
+    "updated": "2026-04-24T23:10:14+02:00"
   },
   "642423ce8332e3af36adbbd6a6ea71a08145c95c": {
     "kind": "shortcode",
-    "origin": "/sessions/laughing-gifted-lovelace/mnt/Ou-Liu-Red-Sugar.github.io/content/notes/StableDoldKan.md",
+    "origin": "C:\\Users\\23980\\Documents\\Ou-Liu-Red-Sugar.github.io\\content\\notes\\StableDoldKan.md",
     "source": "{\\mathcal{C}} \\ar[r,shift left=3,\"-\\otimes A\"]\\ar[r,phantom,\"\\bot\"] & \\mathsf{Mod}_A(\\mathcal{C}) \\ar[l,shift left=3,\"\\operatorname{Forget}\"]",
     "svg": "generated/tikzcd/642423ce8332e3af36adbbd6a6ea71a08145c95c.svg",
-    "updated": "2026-04-24T16:09:09+00:00"
+    "updated": "2026-04-24T23:10:14+02:00"
   },
   "6a533f35e29a4d50239ccf63229ff73f7664f9ec": {
     "kind": "shortcode",
@@ -169,17 +267,17 @@
   },
   "71265327568064f649e32082574c1db76778dcd3": {
     "kind": "shortcode",
-    "origin": "/sessions/laughing-gifted-lovelace/mnt/Ou-Liu-Red-Sugar.github.io/content/notes/continuous-k-theory/algebraic-k-theory.md",
+    "origin": "C:\\Users\\23980\\Documents\\Ou-Liu-Red-Sugar.github.io\\content\\notes\\continuous-k-theory\\algebraic-k-theory.md",
     "source": "\\operatorname*{colim}_i \\mathcal{C}_i \\ar[r] \\ar[d, equal] & \\operatorname*{colim}_i \\mathsf{Ind}(\\mathcal{C}_i)^{\\aleph_1} \\ar[r] \\ar[d, \"\\simeq\"] & \\operatorname*{colim}_i \\mathsf{Calk}(\\mathcal{C}_i) \\ar[d] \\\\\n        \\mathcal{C} \\ar[r] & \\mathsf{Ind}(\\mathcal{C})^{\\aleph_1} \\ar[r] & \\mathsf{Calk}(\\mathcal{C}).",
     "svg": "generated/tikzcd/71265327568064f649e32082574c1db76778dcd3.svg",
-    "updated": "2026-04-24T16:28:27+00:00"
+    "updated": "2026-04-24T23:10:14+02:00"
   },
   "71a49eb731c3feb6eb50ddc8a1f80ad03601c895": {
     "kind": "shortcode",
-    "origin": "/sessions/laughing-gifted-lovelace/mnt/Ou-Liu-Red-Sugar.github.io/content/notes/StableDoldKan.md",
+    "origin": "C:\\Users\\23980\\Documents\\Ou-Liu-Red-Sugar.github.io\\content\\notes\\StableDoldKan.md",
     "source": "W_k \\cap U_{k+1} \\ar[r] \\ar[dr,phantom,pos = 0.8,\"\\ulcorner\"] \\ar[d] & U_{k+1} \\ar[d] \\\\\n    W_k \\ar[r] & P.",
     "svg": "generated/tikzcd/71a49eb731c3feb6eb50ddc8a1f80ad03601c895.svg",
-    "updated": "2026-04-24T16:09:09+00:00"
+    "updated": "2026-04-24T23:10:14+02:00"
   },
   "7346fe87e1f527c189eb7833edc561fa8f40754e": {
     "kind": "shortcode",
@@ -197,31 +295,45 @@
   },
   "779877d9339385962ccd138455c8475e34e100c4": {
     "kind": "shortcode",
-    "origin": "/sessions/laughing-gifted-lovelace/mnt/Ou-Liu-Red-Sugar.github.io/content/notes/Type.md",
+    "origin": "C:\\Users\\23980\\Documents\\Ou-Liu-Red-Sugar.github.io\\content\\notes\\Type.md",
     "source": "A \\ar[rr,\"\\Delta\"] \\ar[dr,\"r\"] && A \\times A \\\\\n& \\operatorname{Iso}(A) \\ar[ur,two heads,\"p\"']",
     "svg": "generated/tikzcd/779877d9339385962ccd138455c8475e34e100c4.svg",
-    "updated": "2026-04-24T16:09:09+00:00"
+    "updated": "2026-04-24T23:10:14+02:00"
+  },
+  "77a31c7049b3f5ea95c0fb31974beb68d259c65e": {
+    "kind": "shortcode",
+    "origin": "C:\\Users\\23980\\Documents\\Ou-Liu-Red-Sugar.github.io\\content\\notes\\SixFunctor.md",
+    "source": "X' \\times_{X} Y \\ar[r, \"g'\"] \\ar[d, \"f'\"'] \\ar[dr, phantom, very near start, \"\\lrcorner\"] & Y \\ar[d, \"f\"] \\\\\n   X' \\ar[r, \"g\"'] & X",
+    "svg": "generated/tikzcd/77a31c7049b3f5ea95c0fb31974beb68d259c65e.svg",
+    "updated": "2026-04-24T23:27:22+02:00"
   },
   "7db0404bdaafce4bb15520e8ab9e2dc61d8665ba": {
     "kind": "shortcode",
-    "origin": "/sessions/laughing-gifted-lovelace/mnt/Ou-Liu-Red-Sugar.github.io/content/notes/HA.md",
+    "origin": "C:\\Users\\23980\\Documents\\Ou-Liu-Red-Sugar.github.io\\content\\notes\\HA.md",
     "source": "\\mathcal{V}^{\\otimes} \\ar[dr]\\ar[rr,\"F\"] && \\mathcal{W}^{\\otimes}\\ar[dl] \\\\\n& \\mathcal{O}",
     "svg": "generated/tikzcd/7db0404bdaafce4bb15520e8ab9e2dc61d8665ba.svg",
-    "updated": "2026-04-24T16:09:09+00:00"
+    "updated": "2026-04-24T23:10:14+02:00"
+  },
+  "7ef0327126712335ffa665c25a4fe3c9811618a8": {
+    "kind": "shortcode",
+    "origin": "C:\\Users\\23980\\Documents\\Ou-Liu-Red-Sugar.github.io\\content\\notes\\GllobalSection.md",
+    "source": "\\Gamma(X, \\mathcal{F}) \\ar[r] \\ar[d] \\ar[dr, phantom, very near start, \"\\lrcorner\"] & \\Gamma(U, \\mathcal{F}) \\ar[d] \\\\\n\\Gamma(V, \\mathcal{F}) \\ar[r] & \\Gamma(U \\cap V, \\mathcal{F}).",
+    "svg": "generated/tikzcd/7ef0327126712335ffa665c25a4fe3c9811618a8.svg",
+    "updated": "2026-04-24T23:10:14+02:00"
   },
   "83cb02d7fa44233990259b93cadefab63f73b3bd": {
     "kind": "shortcode",
-    "origin": "/sessions/laughing-gifted-lovelace/mnt/Ou-Liu-Red-Sugar.github.io/content/notes/StableDoldKan.md",
+    "origin": "C:\\Users\\23980\\Documents\\Ou-Liu-Red-Sugar.github.io\\content\\notes\\StableDoldKan.md",
     "source": "\\Delta_{\\operatorname{inj}}^{\\operatorname{op}} \\ar[dr,\"C_{\\bullet,\\operatorname{inj}}\"]\\ar[d,hook]\\\\\n    \\Delta^{\\operatorname{op}} \\ar[r,\"\\operatorname{DK}\"] & \\mathcal{A}.",
     "svg": "generated/tikzcd/83cb02d7fa44233990259b93cadefab63f73b3bd.svg",
-    "updated": "2026-04-24T16:09:09+00:00"
+    "updated": "2026-04-24T23:10:14+02:00"
   },
   "83e7794a4cfd6b691301154ac93ea675d87248ec": {
     "kind": "shortcode",
-    "origin": "/sessions/laughing-gifted-lovelace/mnt/Ou-Liu-Red-Sugar.github.io/content/notes/gestalten/StRing.md",
+    "origin": "C:\\Users\\23980\\Documents\\Ou-Liu-Red-Sugar.github.io\\content\\notes\\gestalten\\StRing.md",
     "source": "\\mathsf{Mod}_{A_n}(1\\mathsf{Pr}) \\ar[r,shift left = 2,\"F_n\"]\\ar[r,phantom,\"\\bot\"] & A_{n+1} \\ar[l,shift left = 2,\"G_n\"]",
     "svg": "generated/tikzcd/83e7794a4cfd6b691301154ac93ea675d87248ec.svg",
-    "updated": "2026-04-24T16:09:09+00:00"
+    "updated": "2026-04-24T23:10:14+02:00"
   },
   "86ca2caec73927b7627ed0183c178b0dde0bb5fe": {
     "kind": "shortcode",
@@ -229,6 +341,13 @@
     "source": "\\mathcal{C} \\ar[r,shift left = 2.5,\"-\\otimes A\"] \\ar[r,phantom,\"\\bot\"] & \\mathsf{Mod}_{\\mathcal{C}}(A) \\ar[l,shift left = 2.5,\"F\"]",
     "svg": "generated/tikzcd/86ca2caec73927b7627ed0183c178b0dde0bb5fe.svg",
     "updated": "2026-04-24T16:09:09+00:00"
+  },
+  "872030e75408d95d59db75c3563b4b6279393064": {
+    "kind": "shortcode",
+    "origin": "C:\\Users\\23980\\Documents\\Ou-Liu-Red-Sugar.github.io\\content\\notes\\continuous-k-theory\\compactly-assembled-categories.md",
+    "source": "& \\mathsf{Sp} \\ar[d,\"\\Omega^{\\infty}\"] \\\\\n\\mathcal{C}^{\\mathrm{op}} \\times \\mathcal{C} \\ar[ur,dashed,\"\\mathrm{hom}_{\\mathcal{C}}\"] \\ar[r,\"\\mathrm{Hom}_{\\mathcal{C}}\"'] & \\mathsf{An}.",
+    "svg": "generated/tikzcd/872030e75408d95d59db75c3563b4b6279393064.svg",
+    "updated": "2026-04-24T23:10:14+02:00"
   },
   "8da63a8a2ae8506ffc931fd284654f508cf180e4": {
     "kind": "shortcode",
@@ -239,38 +358,73 @@
   },
   "8e4d8ac8d740d53d1dae8895e954f05474c8db65": {
     "kind": "shortcode",
-    "origin": "/sessions/laughing-gifted-lovelace/mnt/Ou-Liu-Red-Sugar.github.io/content/notes/Type.md",
+    "origin": "C:\\Users\\23980\\Documents\\Ou-Liu-Red-Sugar.github.io\\content\\notes\\Type.md",
     "source": "A \\ar[rr,\"f\"] \\ar[dr,\"\\simeq\"] && B\\\\\n    & A'= \\sum_{b \\colon B} \\sum_{a \\colon A}(f(a) \\simeq b) \\ar[ur,two heads]",
     "svg": "generated/tikzcd/8e4d8ac8d740d53d1dae8895e954f05474c8db65.svg",
-    "updated": "2026-04-24T16:09:09+00:00"
+    "updated": "2026-04-24T23:10:14+02:00"
+  },
+  "9e416ff9a4a37aa6de8ac139f12bbc4602a6a66f": {
+    "kind": "shortcode",
+    "origin": "/sessions/laughing-gifted-lovelace/mnt/Ou-Liu-Red-Sugar.github.io/content/notes/SixFunctor.md",
+    "source": "E \\ar[r, \"k\"] \\ar[d, \"q\"'] \\ar[dr, phantom, very near start, \"\\lrcorner\"] & \\tilde{X} \\ar[d, \"p\"] \\\\\nZ \\ar[r, hook, \"i\"'] & X",
+    "svg": "generated/tikzcd/9e416ff9a4a37aa6de8ac139f12bbc4602a6a66f.svg",
+    "updated": "2026-04-24T19:55:14+00:00"
+  },
+  "a4b43a85a03fb9a40533151d514507150a71d3e7": {
+    "kind": "shortcode",
+    "origin": "C:\\Users\\23980\\Documents\\Ou-Liu-Red-Sugar.github.io\\content\\notes\\SixFunctor.md",
+    "source": "& W \\ar[dl] \\ar[dr] & \\\\\n  X & W'' \\ar[u, \"a\"] \\ar[d, \"b\"'] & Z \\\\\n  & W' \\ar[ul] \\ar[ur] &",
+    "svg": "generated/tikzcd/a4b43a85a03fb9a40533151d514507150a71d3e7.svg",
+    "updated": "2026-04-24T23:10:17+02:00"
+  },
+  "a4e80fe27e59dc76bf074773322ab01ff3298f3b": {
+    "kind": "shortcode",
+    "origin": "C:\\Users\\23980\\Documents\\Ou-Liu-Red-Sugar.github.io\\content\\notes\\continuous-k-theory\\efimov-k-theory.md",
+    "source": "\\mathsf{Cat}^{\\mathrm{rex}} \\ar[r,\"\\mathsf{Calk}\"] \\ar[d,hook,\"\\mathsf{Ind}\"] & \\mathsf{Cat}^{\\mathrm{rex,idem}} \\\\\n\\mathsf{Pr}^L_{\\mathrm{ca}} \\ar[ur,dashed,\"\\mathsf{Calk}^{\\mathrm{cont}}\"']",
+    "svg": "generated/tikzcd/a4e80fe27e59dc76bf074773322ab01ff3298f3b.svg",
+    "updated": "2026-04-24T23:10:14+02:00"
   },
   "a609d299645c32c217d5ea35117ad562b93d184e": {
     "kind": "shortcode",
-    "origin": "/sessions/laughing-gifted-lovelace/mnt/Ou-Liu-Red-Sugar.github.io/content/notes/StableDoldKan.md",
+    "origin": "C:\\Users\\23980\\Documents\\Ou-Liu-Red-Sugar.github.io\\content\\notes\\StableDoldKan.md",
     "source": "\\mathcal{J}^{k} \\ar[d,hook,\"\\iota\"'] \\ar[dr,\"H\"]\\\\\n    \\mathcal{J}^{\\leq k} \\ar[r,\"\\operatorname{Ran}_{\\iota} H\"'] & \\mathcal{C}.",
     "svg": "generated/tikzcd/a609d299645c32c217d5ea35117ad562b93d184e.svg",
-    "updated": "2026-04-24T16:09:09+00:00"
+    "updated": "2026-04-24T23:10:14+02:00"
   },
   "a6d1efa9e71733fdeee8874d69a7a0101031b6d0": {
     "kind": "shortcode",
-    "origin": "/sessions/laughing-gifted-lovelace/mnt/Ou-Liu-Red-Sugar.github.io/content/notes/StableDoldKan.md",
+    "origin": "C:\\Users\\23980\\Documents\\Ou-Liu-Red-Sugar.github.io\\content\\notes\\StableDoldKan.md",
     "source": "\\coprod \\partial \\Delta^n \\ar[r] \\ar[dr,phantom,pos = 0.8,\"\\ulcorner\"] \\ar[d] & \\operatorname{sk}_{n-1} X \\ar[d] \\\\\n    \\coprod \\Delta^n \\ar[r] & \\operatorname{sk}_n X.",
     "svg": "generated/tikzcd/a6d1efa9e71733fdeee8874d69a7a0101031b6d0.svg",
-    "updated": "2026-04-24T16:09:09+00:00"
+    "updated": "2026-04-24T23:10:14+02:00"
   },
   "a820c0f2e4c21ca07fa579b8d58013c8fd7e986b": {
     "kind": "shortcode",
-    "origin": "/sessions/laughing-gifted-lovelace/mnt/Ou-Liu-Red-Sugar.github.io/content/notes/continuous-k-theory/algebraic-k-theory.md",
+    "origin": "C:\\Users\\23980\\Documents\\Ou-Liu-Red-Sugar.github.io\\content\\notes\\continuous-k-theory\\algebraic-k-theory.md",
     "source": "& W \\ar[dd, \"\\simeq\"] \\\\\n      X \\ar[ur] \\ar[dr] && Y \\ar[ul] \\ar[dl] \\\\\n      & W'",
     "svg": "generated/tikzcd/a820c0f2e4c21ca07fa579b8d58013c8fd7e986b.svg",
-    "updated": "2026-04-24T16:28:27+00:00"
+    "updated": "2026-04-24T23:10:14+02:00"
+  },
+  "ae18ab7045d5dba840e127efb0f357ea55573e56": {
+    "kind": "shortcode",
+    "origin": "/sessions/laughing-gifted-lovelace/mnt/Ou-Liu-Red-Sugar.github.io/content/notes/SixFunctor.md",
+    "source": "X' \\ar[r, \"f'\"] \\ar[dr, phantom, pos=0.3, \"\\lrcorner\"] \\ar[d, \"g'\"] & Y' \\ar[d, \"g\"] \\\\\nX \\ar[r, \"f\"] & Y",
+    "svg": "generated/tikzcd/ae18ab7045d5dba840e127efb0f357ea55573e56.svg",
+    "updated": "2026-04-24T20:07:02+00:00"
+  },
+  "af6b9d72652f427d2035dd845f314eb264a6dc7c": {
+    "kind": "shortcode",
+    "origin": "/sessions/laughing-gifted-lovelace/mnt/Ou-Liu-Red-Sugar.github.io/content/notes/SixFunctor.md",
+    "source": "[X] \\ar[r] \\ar[d] & [Y] \\ar[d] \\\\\n[Y] \\ar[r] & [Y]",
+    "svg": "generated/tikzcd/af6b9d72652f427d2035dd845f314eb264a6dc7c.svg",
+    "updated": "2026-04-24T20:07:01+00:00"
   },
   "b10bc8f5d36b7bc31d2b1e90fedd835ee99ad495": {
     "kind": "shortcode",
-    "origin": "/sessions/laughing-gifted-lovelace/mnt/Ou-Liu-Red-Sugar.github.io/content/notes/HA.md",
+    "origin": "C:\\Users\\23980\\Documents\\Ou-Liu-Red-Sugar.github.io\\content\\notes\\HA.md",
     "source": "\\mathcal{O}(\\{x_i\\}_{i \\in I}; y) \\ar[r]\\ar[d]\\ar[dr,phantom,pos=.2,\"\\lrcorner\"] &\n\\operatorname{Hom}_{\\mathcal{O}^{\\otimes}}(\\{x_i\\}_{i \\in I}, y)\\ar[d,\"p\"] \\\\\n* \\ar[r] & \\operatorname{Hom}_{\\mathsf{Fin}_*}(\\langle n \\rangle,\\langle 1 \\rangle)",
     "svg": "generated/tikzcd/b10bc8f5d36b7bc31d2b1e90fedd835ee99ad495.svg",
-    "updated": "2026-04-24T16:09:09+00:00"
+    "updated": "2026-04-24T23:10:14+02:00"
   },
   "b1cca8739380ccd27b48b3f2efc89fafbb9282c5": {
     "kind": "shortcode",
@@ -281,51 +435,107 @@
   },
   "b70596f417b0623ba85cbff8544714f95f86532f": {
     "kind": "shortcode",
-    "origin": "/sessions/laughing-gifted-lovelace/mnt/Ou-Liu-Red-Sugar.github.io/content/notes/continuous-k-theory/algebraic-k-theory.md",
+    "origin": "C:\\Users\\23980\\Documents\\Ou-Liu-Red-Sugar.github.io\\content\\notes\\continuous-k-theory\\algebraic-k-theory.md",
     "source": "0 \\ar[r] & X \\ar[r] \\ar[d] & Y \\ar[r] \\ar[d] & Z \\ar[d] \\\\\n       & 0 \\ar[r] & Y/X \\ar[r] \\ar[d] & Z/X \\ar[d] \\\\\n       && 0 \\ar[r] & Z/Y \\ar[d] \\\\\n       &&& 0",
     "svg": "generated/tikzcd/b70596f417b0623ba85cbff8544714f95f86532f.svg",
-    "updated": "2026-04-24T16:28:27+00:00"
+    "updated": "2026-04-24T23:10:14+02:00"
+  },
+  "beab128b413de730c8b585712b584e890ef7d05d": {
+    "kind": "shortcode",
+    "origin": "/sessions/laughing-gifted-lovelace/mnt/Ou-Liu-Red-Sugar.github.io/content/notes/SixFunctor.md",
+    "source": "& Y \\ar[dl] \\ar[dr] & \\\\\n  X & Y'' \\ar[u, \"a\"] \\ar[d, \"b\"'] & Z \\\\\n  & Y' \\ar[ul] \\ar[ur] &",
+    "svg": "generated/tikzcd/beab128b413de730c8b585712b584e890ef7d05d.svg",
+    "updated": "2026-04-24T19:47:56+00:00"
+  },
+  "c4ed88c195598c6d2a2de095a8d47e327bd618ba": {
+    "kind": "shortcode",
+    "origin": "C:\\Users\\23980\\Documents\\Ou-Liu-Red-Sugar.github.io\\content\\notes\\SixFunctor.md",
+    "source": "E \\ar[r, \"k\"] \\ar[d, \"q\"'] \\ar[dr, phantom, very near start, \"\\lrcorner\"] & \\tilde X \\ar[d, \"p\"] \\\\\nZ \\ar[r, hook, \"i\"'] & X",
+    "svg": "generated/tikzcd/c4ed88c195598c6d2a2de095a8d47e327bd618ba.svg",
+    "updated": "2026-04-24T23:10:18+02:00"
+  },
+  "c6e799820a5930de032fee87f6e806208309a751": {
+    "kind": "shortcode",
+    "origin": "/sessions/laughing-gifted-lovelace/mnt/Ou-Liu-Red-Sugar.github.io/content/notes/SixFunctor.md",
+    "source": "X \\ar[dr, \"\\Delta_{f}\"] \\ar[drr, \"\\operatorname{id}_{X}\", bend left] \\ar[ddr, \"\\operatorname{id}_{X}\"', bend right] & & \\\\\n& X \\times_{Y} X \\ar[r, \"\\pi_{2}\"] \\ar[d, \"\\pi_{1}\"'] \\ar[dr, phantom, pos=0.3, \"\\lrcorner\"] & X \\ar[d, \"f\"] \\\\\n& X \\ar[r, \"f\"'] & Y",
+    "svg": "generated/tikzcd/c6e799820a5930de032fee87f6e806208309a751.svg",
+    "updated": "2026-04-24T20:08:10+00:00"
   },
   "cded1c289e3a134a9ef742123b9c2b1d5ea75d87": {
     "kind": "shortcode",
-    "origin": "/sessions/laughing-gifted-lovelace/mnt/Ou-Liu-Red-Sugar.github.io/content/notes/continuous-k-theory/algebraic-k-theory.md",
+    "origin": "C:\\Users\\23980\\Documents\\Ou-Liu-Red-Sugar.github.io\\content\\notes\\continuous-k-theory\\algebraic-k-theory.md",
     "source": "x_{i,j} \\ar[r] \\ar[d] & x_{i,j+1} \\ar[d] \\\\\n      x_{i+1,j} \\ar[r] & x_{i+1,j+1}",
     "svg": "generated/tikzcd/cded1c289e3a134a9ef742123b9c2b1d5ea75d87.svg",
-    "updated": "2026-04-24T16:28:27+00:00"
+    "updated": "2026-04-24T23:10:14+02:00"
+  },
+  "d0d26b299c6915e156d0ff8f410828ecc9ee459a": {
+    "kind": "shortcode",
+    "origin": "C:\\Users\\23980\\Documents\\Ou-Liu-Red-Sugar.github.io\\content\\notes\\continuous-k-theory\\efimov-k-theory.md",
+    "source": "k^{-1}(*) \\ar[r]\\ar[d]\\ar[dr,phantom,very near start,\"\\lrcorner\"] & \\mathsf{Ind}(\\mathcal{C}^{\\aleph_1}) \\ar[d,\"k\"] \\\\\n{*} \\ar[r] & \\mathcal{C}",
+    "svg": "generated/tikzcd/d0d26b299c6915e156d0ff8f410828ecc9ee459a.svg",
+    "updated": "2026-04-24T23:10:14+02:00"
+  },
+  "d44051e612a9e0d4fbd78060378a4ea9b845647d": {
+    "kind": "shortcode",
+    "origin": "C:\\Users\\23980\\Documents\\Ou-Liu-Red-Sugar.github.io\\content\\notes\\continuous-k-theory\\efimov-k-theory.md",
+    "source": "\\mathsf{Ind}(\\mathcal{C}^{\\aleph_1}) / \\mathcal{C} \\ar[r] \\ar[d]\\ar[dr,phantom,very near start,\"\\lrcorner\"] & \\mathsf{Ind}(\\mathcal{C}^{\\aleph_1}) \\ar[d,\"k\"] \\\\\n{*} \\ar[r,\"*\"] & \\mathcal{C}",
+    "svg": "generated/tikzcd/d44051e612a9e0d4fbd78060378a4ea9b845647d.svg",
+    "updated": "2026-04-24T23:10:14+02:00"
   },
   "d9bb967be710464b72a0b101849a2ef67b9131eb": {
     "kind": "shortcode",
-    "origin": "/sessions/laughing-gifted-lovelace/mnt/Ou-Liu-Red-Sugar.github.io/content/notes/continuous-k-theory/algebraic-k-theory.md",
+    "origin": "C:\\Users\\23980\\Documents\\Ou-Liu-Red-Sugar.github.io\\content\\notes\\continuous-k-theory\\algebraic-k-theory.md",
     "source": "\\mathcal{C}_i \\ar[r, hook, \"\\hat{y}\"] \\ar[d, \"F_{ij}\"] & \\mathsf{Ind}(\\mathcal{C}_i^{\\aleph_1}) \\ar[r, \"k\"] \\ar[d, \"\\mathsf{Ind}(F_{ij}^{\\aleph_1})\"] & \\mathcal{C}_i \\ar[d, \"F_{ij}\"] \\\\\n        \\mathcal{C}_j \\ar[r, hook, \"\\hat{y}\"] & \\mathsf{Ind}(\\mathcal{C}_j^{\\aleph_1}) \\ar[r, \"k\"] & \\mathcal{C}_j.",
     "svg": "generated/tikzcd/d9bb967be710464b72a0b101849a2ef67b9131eb.svg",
-    "updated": "2026-04-24T16:28:27+00:00"
+    "updated": "2026-04-24T23:10:14+02:00"
   },
   "dd6ed5ad9feb11fa2939fbd0d5fedd6c047c7b10": {
     "kind": "shortcode",
-    "origin": "/sessions/laughing-gifted-lovelace/mnt/Ou-Liu-Red-Sugar.github.io/content/notes/Type.md",
+    "origin": "C:\\Users\\23980\\Documents\\Ou-Liu-Red-Sugar.github.io\\content\\notes\\Type.md",
     "source": "\\sum_{b' \\colon B'} A(f(b')) \\ar[r] \\ar[d] & \\sum_{b \\colon B} A(b) \\ar[d]\\\\\n    B' \\ar[r,\"f\"] & B",
     "svg": "generated/tikzcd/dd6ed5ad9feb11fa2939fbd0d5fedd6c047c7b10.svg",
-    "updated": "2026-04-24T16:09:09+00:00"
+    "updated": "2026-04-24T23:10:14+02:00"
   },
   "e9d211cddb4720ae99bb8b74e865ae75733a9545": {
     "kind": "shortcode",
-    "origin": "/sessions/laughing-gifted-lovelace/mnt/Ou-Liu-Red-Sugar.github.io/content/notes/StableDoldKan.md",
+    "origin": "C:\\Users\\23980\\Documents\\Ou-Liu-Red-Sugar.github.io\\content\\notes\\StableDoldKan.md",
     "source": "\\mathsf{Ch}(\\mathcal{A})_{\\geq 0} \\ar[r,\"\\operatorname{DK}\"] \\ar[d,\"y\"] & \\operatorname{Fun}(\\Delta^{\\operatorname{op}},\\mathcal{A}) \\ar[d,\"y\"]\\\\\n    \\mathsf{Ch}(\\mathcal{A}')_{\\geq 0} \\ar[r,\"\\operatorname{DK}\"] & \\operatorname{Fun}(\\Delta^{\\operatorname{op}},\\mathcal{A}').",
     "svg": "generated/tikzcd/e9d211cddb4720ae99bb8b74e865ae75733a9545.svg",
-    "updated": "2026-04-24T16:09:09+00:00"
+    "updated": "2026-04-24T23:10:14+02:00"
+  },
+  "edece8aaddeca3f80af1aa9348bbf65b6e4def70": {
+    "kind": "shortcode",
+    "origin": "C:\\Users\\23980\\Documents\\Ou-Liu-Red-Sugar.github.io\\content\\notes\\continuous-k-theory\\compactly-assembled-categories.md",
+    "source": "\\mathcal{C} \\ar[r,\"F\"]\\ar[d,\"\\hat{y}\"'] & \\mathcal{D} \\ar[d,\"\\hat{y}\"] \\\\\n   \\mathsf{Ind}(\\mathcal{C}^{\\aleph_1}) \\ar[r,\"\\mathsf{Ind}(F^{\\aleph_1})\"] & \\mathsf{Ind}(\\mathcal{D}^{\\aleph_1})",
+    "svg": "generated/tikzcd/edece8aaddeca3f80af1aa9348bbf65b6e4def70.svg",
+    "updated": "2026-04-24T23:10:14+02:00"
+  },
+  "efbb69056e3c076bdf55a1fcbbf87160390ab451": {
+    "kind": "shortcode",
+    "origin": "C:\\Users\\23980\\Documents\\Ou-Liu-Red-Sugar.github.io\\content\\notes\\continuous-k-theory\\compactly-assembled-categories.md",
+    "source": "\\mathcal{C} \\times \\mathcal{D} \\ar[r,\"\\otimes\"] \\ar[dr,\"F\"'] & \\mathcal{C} \\otimes \\mathcal{D} \\ar[d,dashed,\"\\tilde{F}\"] \\\\\n& \\mathcal{E}",
+    "svg": "generated/tikzcd/efbb69056e3c076bdf55a1fcbbf87160390ab451.svg",
+    "updated": "2026-04-24T23:10:14+02:00"
   },
   "f168c8bdfecffd6772a4e91fd03706eb99272f9c": {
     "kind": "shortcode",
-    "origin": "/sessions/laughing-gifted-lovelace/mnt/Ou-Liu-Red-Sugar.github.io/content/notes/StableDoldKan.md",
+    "origin": "C:\\Users\\23980\\Documents\\Ou-Liu-Red-Sugar.github.io\\content\\notes\\StableDoldKan.md",
     "source": "\\mathbb{1} \\ar[r] & A \\ar[r,shift left] \\ar[r,shift right] & A \\otimes A \\ar[r,shift left = 2] \\ar[r,shift right = 2]\\ar[r] & \\cdots",
     "svg": "generated/tikzcd/f168c8bdfecffd6772a4e91fd03706eb99272f9c.svg",
-    "updated": "2026-04-24T16:09:09+00:00"
+    "updated": "2026-04-24T23:10:14+02:00"
+  },
+  "f2d95d4819050ac1fb958729a1356803715197b9": {
+    "kind": "shortcode",
+    "origin": "C:\\Users\\23980\\Documents\\Ou-Liu-Red-Sugar.github.io\\content\\notes\\SixFunctor.md",
+    "source": "& W \\ar[dl, \"f\"'] \\ar[dr, \"g\"] & \\\\\n  X & & Z",
+    "svg": "generated/tikzcd/f2d95d4819050ac1fb958729a1356803715197b9.svg",
+    "updated": "2026-04-24T23:10:19+02:00"
   },
   "f5acf0960d0d82e3ed5bc53d0642cd0629fe06c8": {
     "kind": "shortcode",
-    "origin": "/sessions/laughing-gifted-lovelace/mnt/Ou-Liu-Red-Sugar.github.io/content/notes/continuous-k-theory/algebraic-k-theory.md",
+    "origin": "C:\\Users\\23980\\Documents\\Ou-Liu-Red-Sugar.github.io\\content\\notes\\continuous-k-theory\\algebraic-k-theory.md",
     "source": "0 \\ar[r] & x_{0,1} \\ar[r] \\ar[d] & \\cdots \\ar[r] & x_{0,n-1} \\ar[r] \\ar[d] & x_{0,n} \\ar[d] \\\\\n    & 0 \\ar[r] & \\cdots \\ar[r] & x_{1,n-1} \\ar[r] \\ar[d] & x_{1,n} \\ar[d] \\\\\n    && \\ddots & \\vdots \\ar[d] & \\vdots \\ar[d] \\\\\n    &&& 0 \\ar[r] & x_{n-1,n} \\ar[d] \\\\\n    &&&& 0",
     "svg": "generated/tikzcd/f5acf0960d0d82e3ed5bc53d0642cd0629fe06c8.svg",
-    "updated": "2026-04-24T16:28:27+00:00"
+    "updated": "2026-04-24T23:10:14+02:00"
   }
 }

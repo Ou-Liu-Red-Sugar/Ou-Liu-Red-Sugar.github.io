@@ -738,6 +738,26 @@ body{
   color: var(--ou-ink);
 }
 
+/* Quieter subheading used for "Latest updates" blocks — forced specificity */
+.ou-section-landing h2.ou-latest-heading,
+h2.ou-latest-heading,
+.main h2.ou-latest-heading{
+  font-family: var(--ou-display) !important;
+  font-style: italic !important;
+  font-weight: 400 !important;
+  font-size: 0.88rem !important;
+  color: var(--ou-ink-muted) !important;
+  letter-spacing: 0.02em !important;
+  margin: 1.8rem 0 0.7rem !important;
+  padding: 0 !important;
+  border: 0 !important;
+  text-transform: none !important;
+}
+h2.ou-latest-heading::before{
+  content: "— ";
+  opacity: 0.75;
+}
+
 /* TOC in longform invest pages */
 .ou-longform .toc{
   margin: 1.4rem 0 2rem;

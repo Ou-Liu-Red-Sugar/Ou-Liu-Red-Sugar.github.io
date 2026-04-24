@@ -6,7 +6,7 @@
     <description>Recent content in Notes on Ou Liu</description>
     <generator>Hugo -- 0.152.2</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 27 Dec 2025 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 24 Apr 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/notes/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Basic Concepts on Higher Algebra</title>
@@ -16,18 +16,18 @@
       <description>This note introduces algebraic patterns and Segal objects, develops operads over algebraic patterns, and studies $\mathcal{O}$-monoidal categories together with $\mathcal{O}$-algebras in the Cartesian setting.</description>
     </item>
     <item>
-      <title>Spectral Sequences as Bookkeeping, Not Structure</title>
-      <link>http://localhost:1313/notes/notes/spectral-sequences-as-bookkeeping-not-structure/</link>
-      <pubDate>Sat, 27 Dec 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/notes/notes/spectral-sequences-as-bookkeeping-not-structure/</guid>
-      <description>In derived settings, many classical comparisons between Čech and sheaf cohomology are better understood as descent statements. Spectral sequences may organize computations, but they play no structural role in the argument.</description>
+      <title>A brief introduction to 6-functor formalisms</title>
+      <link>http://localhost:1313/notes/notes/a-brief-introduction-to-6-functor-formalisms/</link>
+      <pubDate>Fri, 24 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/notes/notes/a-brief-introduction-to-6-functor-formalisms/</guid>
+      <description>A coherent pass through six-functor formalisms. Starting from Liu–Zheng / Mann / Scholze&amp;#39;s span-category formulation and the Cnossen–Lenz–Linskens universal property, passing through the construction of $\mathsf{SH}$ and the Drew–Gallauer initiality theorem, we arrive at the organising observation of Scholze&amp;#39;s Lecture V: Poincaré duality for a morphism is *precisely* a dualizability statement in the 2-category of Fourier–Mukai kernels. A functorial reformulation in $\mathsf{D}$-modules then makes transmutation transparent, and the whole apparatus lands naturally inside Gestalten. We close with suave and prim morphisms, the inductive étale/proper picture via diagonals, and Aoki&amp;#39;s one-step rephrasing through open and closed immersions.</description>
     </item>
     <item>
-      <title>Six Functor Formalisms: smoothness and suaveness</title>
-      <link>http://localhost:1313/notes/notes/six-functor-formalisms-smoothness-and-suaveness/</link>
-      <pubDate>Wed, 24 Dec 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/notes/notes/six-functor-formalisms-smoothness-and-suaveness/</guid>
-      <description>We reinterpret D-smooth morphisms in a six functor formalism via the 2-category of kernel associated to a slice geometry. Using Fourier–Mukai kernels to encode functors, smoothness is characterized by left adjointness at the kernel level, yielding automatic base change compatibility. Suaveness is then obtained by imposing invertibility of the dualizing complex as an additional, independent condition.</description>
+      <title>Sheaf Cohomology as Sheafification</title>
+      <link>http://localhost:1313/notes/notes/sheaf-cohomology-as-sheafification/</link>
+      <pubDate>Sat, 27 Dec 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/notes/notes/sheaf-cohomology-as-sheafification/</guid>
+      <description>Sheaf cohomology is evaluation of the sheafification: \(\Gamma(X, \mathcal{F}) \coloneqq (L\mathcal{F})(X)\). Reading Mayer–Vietoris, derived Čech, pushforward, base change and the vanishing \(H^i(\mathrm{Spec}\,R, \widetilde{M}) = 0\) directly off the sheaf condition, without spectral sequences or injective resolutions.</description>
     </item>
     <item>
       <title>Synthetic category theory and type theory</title>

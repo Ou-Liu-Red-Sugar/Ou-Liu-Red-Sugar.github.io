@@ -10,7 +10,7 @@
 <meta name="description" content="An index of my mathematical notes — seminar notes, lecture notes, and expository material in algebra, topology, and higher category theory.">
 <meta name="author" content="Ou Liu">
 <link rel="canonical" href="http://localhost:1313/notes/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.187ac52ae338ee6dd76d764a59f6e3a78ebdf6f2b9ad36263db292875354066b.css" integrity="sha256-GHrFKuM47m3XbXZKWfbjp4699vK5rTYmPbKSh1NUBms=" rel="preload stylesheet" as="style">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.a7eef8427acff8f773e89bd5e2e8faac367852be09e1cb9353c6e45b757303b7.css" integrity="sha256-p&#43;74QnrP&#43;Pdz6JvV4uj6rDZ4Ur4J4cuTU8bkW3VzA7c=" rel="preload stylesheet" as="style">
 <link rel="icon" href="http://localhost:1313/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
@@ -59,6 +59,9 @@
         hofib: "\\operatorname{hofib}",
         cofib: "\\operatorname{cofib}",
         To: "\\longrightarrow",
+        xhookrightarrow: ["\\overset{\\scriptstyle #1}{\\hookrightarrow}", 1],
+        xhookleftarrow:  ["\\overset{\\scriptstyle #1}{\\hookleftarrow}", 1],
+        xtwoheadrightarrow: ["\\overset{\\scriptstyle #1}{\\twoheadrightarrow}", 1],
         cite:  ["\\class{citation}{\\href{##ref-#1}{[\\,#1\\,]}}", 1],
         citet: ["\\class{citation}{\\href{##ref-#1}{(#1)}}", 1]
       }
@@ -144,53 +147,6 @@ document.addEventListener("DOMContentLoaded", () => {
     <h1>Notes</h1>
       <p class="ou-section-desc">An index of my mathematical notes — seminar notes, lecture notes, and expository material in algebra, topology, and higher category theory.</p>
   </header>
-    <h2>Latest updates</h2>
-    <ul class="ou-entry-list">
-      <li>
-        <div class="row">
-          <a href="/notes/notes/continuous-k-theory/algebraic-k-theory/">Algebraic K-theory</a><time datetime="2026-04-24">Apr 24, 2026</time>
-        </div>
-        <p class="desc">Connective and non-connective algebraic K-theory via cospans and the Waldhausen S-construction; Verdier sequences in stable and non-stable settings; the non-connective extension via iterated Calkin categories.</p>
-      </li>
-      <li>
-        <div class="row">
-          <a href="/notes/notes/gestalten/everything-becomes-affine-under-sufficient-categorification/">Everything Becomes Affine Under Sufficient Categorification</a><time datetime="2025-12-29">Dec 29, 2025</time>
-        </div>
-        <p class="desc">This note constructs the six-functor formalism on \(n\mathsf{Pr}_{(-)}\), shows that it is sheafy with respect to fpqc topology, and then extends the theory from affine schemes of derived rings to stacks.</p>
-      </li>
-      <li>
-        <div class="row">
-          <a href="/notes/notes/gestalten/stefanich-rings/">Stefanich Rings</a><time datetime="2025-12-29">Dec 29, 2025</time>
-        </div>
-        <p class="desc"><p>This note discuss the colimit of the sequence
-</p>
-\[
-\mathsf{CAlg}(1\mathsf{Pr})
-\hookrightarrow
-\mathsf{CAlg}(2\mathsf{Pr})
-\hookrightarrow
-\cdots
-\hookrightarrow
-\mathsf{CAlg}(n\mathsf{Pr})
-\hookrightarrow
-\cdots .
-\]<p>
-in $1\mathsf{Pr}$, and discuss the $n$-affine, $n$-proper, $n$-suave and $n$-prim maps.</p>
-</p>
-      </li>
-      <li>
-        <div class="row">
-          <a href="/notes/notes/gestalten/presentable-n-categories/">Presentable n-Categories</a><time datetime="2025-12-29">Dec 29, 2025</time>
-        </div>
-        <p class="desc">This note introduces the notion of presentable n-categories.</p>
-      </li>
-      <li>
-        <div class="row">
-          <a href="/notes/notes/gestalten/presentable-categories/">Presentable Categories</a><time datetime="2025-12-28">Dec 28, 2025</time>
-        </div>
-        <p class="desc">This note reviews the basic theory of presentable categories. We focus on κ-compact objects, Ind-completions, accessible categories, and their role in organizing large categories via filtered colimits.</p>
-      </li>
-    </ul>
     <h2>PDF notes</h2>
     <ul class="ou-notes-pdfs">
         <li>
@@ -232,10 +188,10 @@ in $1\mathsf{Pr}$, and discuss the $n$-affine, $n$-proper, $n$-suave and $n$-pri
         <li>
           <div class="row">
             <p class="t">Algebraic Geometry</p>
-            <span class="meta">PDF</span>
+            <span class="meta">PDF &middot; updated 2026-04-24 &middot; WIP</span>
           </div>
           <p class="d">
-            Lecture notes for Algebraic Geometry I, taught by Marc Hoyois in Winter Term 2025/26. Marc provides a script, but it omits most proofs; these notes supply detailed proofs and additional exposition.
+            Lecture notes for Algebraic Geometry I (WiSe 2025/26), taught by Marc Hoyois, with detailed proofs supplementing Marc&#39;s script. Content for the second-semester course, Algebraic Geometry II (SoSe 2026), is being added in parallel.
  Based on the <a href="https://hoyois.app.uni-regensburg.de/WS26/alggeo1/index.html" rel="noopener">Algebraic Geometry I</a>.
           </p>
           <p class="l">
@@ -265,11 +221,11 @@ These include ongoing working notes and thematic collections.</p>
 <div class="notes-index-switch notes-tabs" data-notes-index>
 
   
-  <input class="notes-tabs-input" type="radio" name="notesidx-1777048221381616400" id="notesidx-1777048221381616400-topic" checked>
-  <label class="notes-tabs-btn" for="notesidx-1777048221381616400-topic">By topic</label>
+  <input class="notes-tabs-input" type="radio" name="notesidx-1777066045305811600" id="notesidx-1777066045305811600-topic" checked>
+  <label class="notes-tabs-btn" for="notesidx-1777066045305811600-topic">By topic</label>
 
-  <input class="notes-tabs-input" type="radio" name="notesidx-1777048221381616400" id="notesidx-1777048221381616400-date">
-  <label class="notes-tabs-btn" for="notesidx-1777048221381616400-date">By date</label>
+  <input class="notes-tabs-input" type="radio" name="notesidx-1777066045305811600" id="notesidx-1777066045305811600-date">
+  <label class="notes-tabs-btn" for="notesidx-1777066045305811600-date">By date</label>
 
   
   <div class="notes-tabs-view notes-tabs-view-topic">
@@ -287,9 +243,13 @@ These include ongoing working notes and thematic collections.</p>
 
   <h3 class="notes-index-heading">Notes</h3>
   <ul class="notes-index notes-index-pages"><li class="notes-index-item notes-index-page">
-        <a class="notes-index-link" href="/notes/notes/spectral-sequences-as-bookkeeping-not-structure/">Spectral Sequences as Bookkeeping, Not Structure</a><span class="notes-index-date">— 2025-12-27</span><details class="notes-index-details">
+        <a class="notes-index-link" href="/notes/notes/a-brief-introduction-to-6-functor-formalisms/">A brief introduction to 6-functor formalisms</a><span class="notes-index-date">— 2026-04-24</span><details class="notes-index-details">
             <summary class="notes-index-summary">Abstract</summary>
-            <div class="notes-index-details-body">In derived settings, many classical comparisons between Čech and sheaf cohomology are better understood as descent statements. Spectral sequences may organize computations, but they play no structural role in the argument.</div>
+            <div class="notes-index-details-body">A coherent pass through six-functor formalisms. Starting from Liu–Zheng / Mann / Scholze&rsquo;s span-category formulation and the Cnossen–Lenz–Linskens universal property, passing through the construction of $\mathsf{SH}$ and the Drew–Gallauer initiality theorem, we arrive at the organising observation of Scholze&rsquo;s Lecture V: Poincaré duality for a morphism is <em>precisely</em> a dualizability statement in the 2-category of Fourier–Mukai kernels. A functorial reformulation in $\mathsf{D}$-modules then makes transmutation transparent, and the whole apparatus lands naturally inside Gestalten. We close with suave and prim morphisms, the inductive étale/proper picture via diagonals, and Aoki&rsquo;s one-step rephrasing through open and closed immersions.</div>
+          </details></li><li class="notes-index-item notes-index-page">
+        <a class="notes-index-link" href="/notes/notes/sheaf-cohomology-as-sheafification/">Sheaf Cohomology as Sheafification</a><span class="notes-index-date">— 2025-12-27</span><details class="notes-index-details">
+            <summary class="notes-index-summary">Abstract</summary>
+            <div class="notes-index-details-body">Sheaf cohomology is evaluation of the sheafification: \(\Gamma(X, \mathcal{F}) \coloneqq (L\mathcal{F})(X)\). Reading Mayer–Vietoris, derived Čech, pushforward, base change and the vanishing \(H^i(\mathrm{Spec}\,R, \widetilde{M}) = 0\) directly off the sheaf condition, without spectral sequences or injective resolutions.</div>
           </details></li><li class="notes-index-item notes-index-page">
         <a class="notes-index-link" href="/notes/notes/synthetic-category-theory-and-type-theory/">Synthetic category theory and type theory</a><span class="notes-index-date">— 2025-12-24</span><details class="notes-index-details">
             <summary class="notes-index-summary">Abstract</summary>
@@ -301,10 +261,6 @@ These include ongoing working notes and thematic collections.</p>
 <li><strong>Question II.</strong> Do we still have a <strong>weak factorization system</strong> in this context?</li>
 </ul>
 <p>Next, we will answer these questions through the lens of type theory and the categorical perspective of synthetic category theory.</p></div>
-          </details></li><li class="notes-index-item notes-index-page">
-        <a class="notes-index-link" href="/notes/notes/six-functor-formalisms-smoothness-and-suaveness/">Six Functor Formalisms: smoothness and suaveness</a><span class="notes-index-date">— 2025-12-24</span><details class="notes-index-details">
-            <summary class="notes-index-summary">Abstract</summary>
-            <div class="notes-index-details-body">We reinterpret D-smooth morphisms in a six functor formalism via the 2-category of kernel associated to a slice geometry. Using Fourier–Mukai kernels to encode functors, smoothness is characterized by left adjointness at the kernel level, yielding automatic base change compatibility. Suaveness is then obtained by imposing invertibility of the dualizing complex as an additional, independent condition.</div>
           </details></li><li class="notes-index-item notes-index-page">
         <a class="notes-index-link" href="/notes/notes/stable-doldkan-and-descent/">Stable Dold–Kan and Descent</a><span class="notes-index-date">— 2025-11-27</span><details class="notes-index-details">
             <summary class="notes-index-summary">Abstract</summary>
@@ -321,9 +277,9 @@ These include ongoing working notes and thematic collections.</p>
   
   <div class="notes-tabs-view notes-tabs-view-date">
     <ul class="notes-index notes-index-pages"><li class="notes-index-item notes-index-page">
-          <a class="notes-index-link" href="/notes/notes/spectral-sequences-as-bookkeeping-not-structure/">Spectral Sequences as Bookkeeping, Not Structure</a><span class="notes-index-date">— 2025-12-27</span></li><li class="notes-index-item notes-index-page">
+          <a class="notes-index-link" href="/notes/notes/a-brief-introduction-to-6-functor-formalisms/">A brief introduction to 6-functor formalisms</a><span class="notes-index-date">— 2026-04-24</span></li><li class="notes-index-item notes-index-page">
+          <a class="notes-index-link" href="/notes/notes/sheaf-cohomology-as-sheafification/">Sheaf Cohomology as Sheafification</a><span class="notes-index-date">— 2025-12-27</span></li><li class="notes-index-item notes-index-page">
           <a class="notes-index-link" href="/notes/notes/synthetic-category-theory-and-type-theory/">Synthetic category theory and type theory</a><span class="notes-index-date">— 2025-12-24</span></li><li class="notes-index-item notes-index-page">
-          <a class="notes-index-link" href="/notes/notes/six-functor-formalisms-smoothness-and-suaveness/">Six Functor Formalisms: smoothness and suaveness</a><span class="notes-index-date">— 2025-12-24</span></li><li class="notes-index-item notes-index-page">
           <a class="notes-index-link" href="/notes/notes/stable-doldkan-and-descent/">Stable Dold–Kan and Descent</a><span class="notes-index-date">— 2025-11-27</span></li><li class="notes-index-item notes-index-page">
           <a class="notes-index-link" href="/notes/notes/basic-concepts-on-higher-algebra/">Basic Concepts on Higher Algebra</a><span class="notes-index-date">— 2025-09-22</span></li></ul>
   </div>
@@ -332,6 +288,39 @@ These include ongoing working notes and thematic collections.</p>
 
 
   </div>
+    <h2 class="ou-latest-heading">Latest updates</h2>
+    <ul class="ou-entry-list">
+      <li>
+        <div class="row">
+          <a href="/notes/notes/a-brief-introduction-to-6-functor-formalisms/">A brief introduction to 6-functor formalisms</a><time datetime="2026-04-24">Apr 24, 2026</time>
+        </div>
+        <p class="desc">A coherent pass through six-functor formalisms. Starting from Liu–Zheng / Mann / Scholze&rsquo;s span-category formulation and the Cnossen–Lenz–Linskens universal property, passing through the construction of $\mathsf{SH}$ and the Drew–Gallauer initiality theorem, we arrive at the organising observation of Scholze&rsquo;s Lecture V: Poincaré duality for a morphism is <em>precisely</em> a dualizability statement in the 2-category of Fourier–Mukai kernels. A functorial reformulation in $\mathsf{D}$-modules then makes transmutation transparent, and the whole apparatus lands naturally inside Gestalten. We close with suave and prim morphisms, the inductive étale/proper picture via diagonals, and Aoki&rsquo;s one-step rephrasing through open and closed immersions.</p>
+      </li>
+      <li>
+        <div class="row">
+          <a href="/notes/notes/continuous-k-theory/continuous-efimov-k-theory/">Continuous (Efimov) K-theory</a><time datetime="2026-04-24">Apr 24, 2026</time>
+        </div>
+        <p class="desc">Extending algebraic K-theory from $\mathsf{Cat}^{\mathrm{rex}}$ to $\mathsf{Pr}^L_{\mathrm{ca}}$: the continuous Calkin category, Verdier cofibre sequences in the large setting, Efimov&rsquo;s definition of continuous K-theory, its basic properties, and a sketch of the universal property of $K^{\mathrm{cont}}$.</p>
+      </li>
+      <li>
+        <div class="row">
+          <a href="/notes/notes/continuous-k-theory/compactly-assembled-categories/">Compactly assembled categories</a><time datetime="2026-04-24">Apr 24, 2026</time>
+        </div>
+        <p class="desc">Dualizable stable categories from the compactly assembled viewpoint: R-linear categories, dualizability in $\mathsf{Pr}_{\mathrm{st}}^L$, compactly exhaustible objects, the Lurie–Clausen characterisation, and the symmetric monoidal structure of $\mathsf{Pr}^L_{\mathrm{ca}}$.</p>
+      </li>
+      <li>
+        <div class="row">
+          <a href="/notes/notes/continuous-k-theory/algebraic-k-theory/">Algebraic K-theory</a><time datetime="2026-04-24">Apr 24, 2026</time>
+        </div>
+        <p class="desc">Connective and non-connective algebraic K-theory via cospans and the Waldhausen S-construction; Verdier sequences in stable and non-stable settings; the non-connective extension via iterated Calkin categories.</p>
+      </li>
+      <li>
+        <div class="row">
+          <a href="/notes/notes/gestalten/everything-becomes-affine-under-sufficient-categorification/">Everything Becomes Affine Under Sufficient Categorification</a><time datetime="2025-12-29">Dec 29, 2025</time>
+        </div>
+        <p class="desc">This note constructs the six-functor formalism on \(n\mathsf{Pr}_{(-)}\), shows that it is sheafy with respect to fpqc topology, and then extends the theory from affine schemes of derived rings to stacks.</p>
+      </li>
+    </ul>
 
 </article>
     </main>

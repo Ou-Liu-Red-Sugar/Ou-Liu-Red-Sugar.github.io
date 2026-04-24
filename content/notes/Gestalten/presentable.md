@@ -2,7 +2,7 @@
 title: "Presentable Categories"
 date: 2025-12-28
 tags:
-  - Presentable Catgeory
+  - Presentable Category
   - Higher Category Theory
 categories:
   - Mathematics
@@ -11,7 +11,7 @@ TocOpen: false
 comments: true
 weight: 10
 draft: false
-description : This note reviews the basic theory of presentable categories. We focus on κ-compact objects, Ind-completions, accessible categories, and their role in organizing large categories via filtered colimits.
+description: This note reviews the basic theory of presentable categories. We focus on κ-compact objects, Ind-completions, accessible categories, and their role in organizing large categories via filtered colimits.
 ---
 
 

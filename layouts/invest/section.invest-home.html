@@ -36,14 +36,21 @@
     </a>
   </nav>
 
-  {{- /* Latest updates — most recent entries across log / lessons / reviews */ -}}
+  {{- /* Author prose from _index.md */ -}}
+  {{- if .Content }}
+  <div class="post-content">
+    {{ .Content }}
+  </div>
+  {{- end }}
+
+  {{- /* Latest updates — compact, at the very bottom */ -}}
   {{- $entries := slice -}}
   {{- with .Site.GetPage "/invest/log" }}{{ $entries = $entries | append .Pages }}{{ end -}}
   {{- with .Site.GetPage "/invest/lessons" }}{{ $entries = $entries | append .Pages }}{{ end -}}
   {{- with .Site.GetPage "/invest/reviews" }}{{ $entries = $entries | append .Pages }}{{ end -}}
   {{- $latest := first 5 (sort $entries "Date" "desc") }}
   {{- if gt (len $latest) 0 }}
-  <h2>Latest updates</h2>
+  <h2 class="ou-latest-heading">Latest updates</h2>
   <ul class="ou-entry-list">
     {{- range $latest }}
       {{- $kind := "" -}}
@@ -63,12 +70,6 @@
     </li>
     {{- end }}
   </ul>
-  {{- end }}
-
-  {{- if .Content }}
-  <div class="post-content">
-    {{ .Content }}
-  </div>
   {{- end }}
 
 </article>

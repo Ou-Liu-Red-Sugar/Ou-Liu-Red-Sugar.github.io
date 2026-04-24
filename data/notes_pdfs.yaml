@@ -31,13 +31,15 @@
 
 - title: "Algebraic Geometry"
   description: >
-    Lecture notes for Algebraic Geometry I, taught by Marc Hoyois in Winter Term 2025/26.
-    Marc provides a script, but it omits most proofs; these notes supply detailed proofs
-    and additional exposition.
+    Lecture notes for Algebraic Geometry I (WiSe 2025/26), taught by Marc Hoyois,
+    with detailed proofs supplementing Marc's script. Content for the second-semester
+    course, Algebraic Geometry II (SoSe 2026), is being added in parallel.
   seminar:
     name: "Algebraic Geometry I"
     url: "https://hoyois.app.uni-regensburg.de/WS26/alggeo1/index.html"
   pdf: "/papers/notes/AG.pdf"
+  updated: "2026-04-24"
+  wip: true
   weight: 40
 
 - title: "Motivic Homotopy Theory"
