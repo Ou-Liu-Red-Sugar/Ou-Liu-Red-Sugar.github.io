@@ -1,5 +1,10 @@
 <link rel="stylesheet" href="{{ "css/custom.css" | relURL }}">
 
+{{- /* Webfonts: Fraunces (display) + Source Serif 4 (body) + Inter (sans) */ -}}
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Source+Serif+4:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@400;500;600;700&display=swap">
+
 <script>
   window.MathJax = {
     loader: {
@@ -27,17 +32,8 @@
         hofib: "\\operatorname{hofib}",
         cofib: "\\operatorname{cofib}",
         To: "\\longrightarrow",
-        macros: {
-  cite: [
-    "\\class{citation}{\\href{##ref-#1}{[\\,#1\\,]}}",
-    1
-  ],
-  citet: [
-    "\\class{citation}{\\href{##ref-#1}{(#1)}}",
-    1
-  ]
-}
-
+        cite:  ["\\class{citation}{\\href{##ref-#1}{[\\,#1\\,]}}", 1],
+        citet: ["\\class{citation}{\\href{##ref-#1}{(#1)}}", 1]
       }
     },
     options: {
@@ -64,4 +60,5 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 </script>
+
 <link rel="icon" href="/favicon/favicon.svg" type="image/svg+xml">

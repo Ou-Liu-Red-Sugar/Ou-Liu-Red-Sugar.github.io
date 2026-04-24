@@ -9,16 +9,6 @@ ShowToc: false
 > **Note:** This section is primarily for my personal reviews and post-mortems.  
 > If you find it interesting or useful, you’re welcome to read along.
 
-
----
-
-## Start here
-
-- **[Playbook](/invest/playbook/)** — principles, default rules, and an exception clause
-- **[Log](/invest/log/)** — time-stamped notes written close to the decision
-- **[Lessons](/invest/lessons/)** — rules distilled from repeated mistakes
-- **[Monthly Reviews](/invest/reviews/)** — low-frequency calibration of structure & attention cost
-
 ---
 
 ## Why I write this

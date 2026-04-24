@@ -51,7 +51,7 @@ BUILD_DIR = REPO_ROOT / ".tikzcd-build"
 # Choose latex engine
 # - lualatex is typically robust with unicode
 # - if unavailable, switch to pdflatex (but unicode may fail)
-LATEX_ENGINE = "lualatex"  # or "pdflatex"
+LATEX_ENGINE = "pdflatex"  # switched from lualatex (missing luatex85.sty in sandbox)
 
 # Inkscape executable in PATH (you already fixed PATH); if you prefer absolute path, set it here
 INKSCAPE_EXE = "inkscape"

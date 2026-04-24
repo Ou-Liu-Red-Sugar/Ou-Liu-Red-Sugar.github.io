@@ -1,18 +1,80 @@
+{{- /* layouts/invest/list.html
+      Used for /invest/* sub-sections (log, lessons, reviews) AND for leaf-like
+      monthly-review / lesson / snapshot bundles (which happen to be branch bundles
+      with _index.md). Behaviour adapts:
+        - If the page has child sections/pages, render an auto entry list.
+        - Else, render as a long-form article (TOC, prev/next, plain content).
+*/ -}}
+
 {{- define "main" -}}
-  <header class="page-header">
+
+{{- $children := slice -}}
+{{- $children = $children | append .Sections -}}
+{{- $children = $children | append .RegularPages -}}
+{{- $hasChildren := gt (len $children) 0 -}}
+
+<article class="ou-section-landing ou-section--invest{{ if not $hasChildren }} ou-longform{{ end }}">
+
+  <header class="ou-section-head">
+    <div class="ou-section-eyebrow">
+      Investing{{ if not $hasChildren }}{{ with .Parent }} &middot; {{ .Title }}{{ end }}{{ else }} &middot; {{ .Title }}{{ end }}
+    </div>
     <h1>{{ .Title }}</h1>
-    {{- with .Params.description -}}
-      <div class="post-description">{{ . }}</div>
-    {{- else -}}
-      {{- with .Description -}}
-        <div class="post-description">{{ . }}</div>
-      {{- end -}}
-    {{- end -}}
+    {{- with .Params.description }}
+      <p class="ou-section-desc">{{ . | markdownify }}</p>
+    {{- else }}
+      {{- with .Description }}
+      <p class="ou-section-desc">{{ . | markdownify }}</p>
+      {{- end }}
+    {{- end }}
+    {{- if not $hasChildren }}
+      <div class="ou-section-meta">
+        {{- with .Date }}<time datetime="{{ .Format "2006-01-02" }}">{{ .Format "Jan 2, 2006" }}</time>{{- end }}
+        {{- with .ReadingTime }} &middot; {{ . }} min read{{- end }}
+      </div>
+    {{- end }}
   </header>
 
+  {{- if not $hasChildren }}
+    {{- if (.Param "ShowPostNavLinks") }}
+      {{ partial "post_nav_links.html" . }}
+    {{- end }}
+    {{- $toc := .TableOfContents }}
+    {{- $showToc := .Param "ShowToc" }}
+    {{- if and $showToc (gt (len (printf "%s" $toc)) 40) }}
+      <details class="toc"{{ if (.Param "TocOpen") }} open{{ end }}>
+        <summary><span class="details">Table of Contents</span></summary>
+        <div class="inner">{{ $toc }}</div>
+      </details>
+    {{- end }}
+  {{- end }}
+
+  {{- if .Content }}
   <div class="post-content">
     {{ .Content }}
   </div>
+  {{- end }}
 
-  {{/* IMPORTANT: do NOT range .Pages here, otherwise PaperMod will render the default list cards */}}
+  {{- if $hasChildren }}
+    {{- $children = sort $children "Date" "desc" }}
+    <ul class="ou-entry-list">
+      {{- range $children }}
+      <li>
+        <div class="row">
+          <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+          {{- with .Date }}<time datetime="{{ .Format "2006-01-02" }}">{{ .Format "Jan 2, 2006" }}</time>{{- end }}
+        </div>
+        {{- with .Params.description }}
+        <p class="desc">{{ . | markdownify }}</p>
+        {{- else }}
+          {{- with .Summary }}
+          <p class="desc">{{ . | plainify | truncate 220 }}</p>
+          {{- end }}
+        {{- end }}
+      </li>
+      {{- end }}
+    </ul>
+  {{- end }}
+
+</article>
 {{- end -}}

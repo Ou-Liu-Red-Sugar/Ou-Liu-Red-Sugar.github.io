@@ -13,10 +13,3 @@ Once per month, I review:
 - whether investing is consuming too much **attention**.
 
 The goal is to stay in the game, not to “win every month”.
-
-{{< section_index
-    mode="both"
-    sort="weight"
-    show_summary="true"
-    show_date="true"
->}}

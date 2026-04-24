@@ -7,10 +7,10 @@
 <meta name="robots" content="index, follow">
 <title>Notes | Ou Liu</title>
 <meta name="keywords" content="">
-<meta name="description" content="An index of my mathematical notes.">
+<meta name="description" content="An index of my mathematical notes — seminar notes, lecture notes, and expository material in algebra, topology, and higher category theory.">
 <meta name="author" content="Ou Liu">
 <link rel="canonical" href="http://localhost:1313/notes/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.f69dee9780d9dd7924bb81920cb27ecbdf69216db3440905cf3f1b31b905e432.css" integrity="sha256-9p3ul4DZ3Xkku4GSDLJ&#43;y99pIW2zRAkFzz8bMbkF5DI=" rel="preload stylesheet" as="style">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.187ac52ae338ee6dd76d764a59f6e3a78ebdf6f2b9ad36263db292875354066b.css" integrity="sha256-GHrFKuM47m3XbXZKWfbjp4699vK5rTYmPbKSh1NUBms=" rel="preload stylesheet" as="style">
 <link rel="icon" href="http://localhost:1313/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
@@ -28,7 +28,9 @@
         }
 
     </style>
-</noscript><link rel="stylesheet" href="/css/custom.css">
+</noscript><link rel="stylesheet" href="/css/custom.css"><link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Source+Serif+4:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@400;500;600;700&display=swap">
 
 <script>
   window.MathJax = {
@@ -57,17 +59,8 @@
         hofib: "\\operatorname{hofib}",
         cofib: "\\operatorname{cofib}",
         To: "\\longrightarrow",
-        macros: {
-  cite: [
-    "\\class{citation}{\\href{##ref-#1}{[\\,#1\\,]}}",
-    1
-  ],
-  citet: [
-    "\\class{citation}{\\href{##ref-#1}{(#1)}}",
-    1
-  ]
-}
-
+        cite:  ["\\class{citation}{\\href{##ref-#1}{[\\,#1\\,]}}", 1],
+        citet: ["\\class{citation}{\\href{##ref-#1}{(#1)}}", 1]
       }
     },
     options: {
@@ -94,15 +87,17 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 </script>
-<link rel="icon" href="/favicon/favicon.svg" type="image/svg+xml"><meta property="og:url" content="http://localhost:1313/notes/">
+
+<link rel="icon" href="/favicon/favicon.svg" type="image/svg+xml">
+<meta property="og:url" content="http://localhost:1313/notes/">
   <meta property="og:site_name" content="Ou Liu">
   <meta property="og:title" content="Notes">
-  <meta property="og:description" content="An index of my mathematical notes.">
+  <meta property="og:description" content="An index of my mathematical notes — seminar notes, lecture notes, and expository material in algebra, topology, and higher category theory.">
   <meta property="og:locale" content="en-us">
   <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Notes">
-<meta name="twitter:description" content="An index of my mathematical notes.">
+<meta name="twitter:description" content="An index of my mathematical notes — seminar notes, lecture notes, and expository material in algebra, topology, and higher category theory.">
 
 </head>
 <body class="list" id="top">
@@ -142,69 +137,149 @@ document.addEventListener("DOMContentLoaded", () => {
         </ul>
     </nav>
 </header>
-<main class="main"><header class="page-header">
-    <h1>Notes</h1><div class="post-description">An index of my mathematical notes.</div></header>
+<main class="main"><article class="ou-section-landing ou-section--notes">
 
+  <header class="ou-section-head">
+    <div class="ou-section-eyebrow">Mathematics &middot; working notes &amp; seminars</div>
+    <h1>Notes</h1>
+      <p class="ou-section-desc">An index of my mathematical notes — seminar notes, lecture notes, and expository material in algebra, topology, and higher category theory.</p>
+  </header>
+    <h2>Latest updates</h2>
+    <ul class="ou-entry-list">
+      <li>
+        <div class="row">
+          <a href="/notes/notes/continuous-k-theory/algebraic-k-theory/">Algebraic K-theory</a><time datetime="2026-04-24">Apr 24, 2026</time>
+        </div>
+        <p class="desc">Connective and non-connective algebraic K-theory via cospans and the Waldhausen S-construction; Verdier sequences in stable and non-stable settings; the non-connective extension via iterated Calkin categories.</p>
+      </li>
+      <li>
+        <div class="row">
+          <a href="/notes/notes/gestalten/everything-becomes-affine-under-sufficient-categorification/">Everything Becomes Affine Under Sufficient Categorification</a><time datetime="2025-12-29">Dec 29, 2025</time>
+        </div>
+        <p class="desc">This note constructs the six-functor formalism on \(n\mathsf{Pr}_{(-)}\), shows that it is sheafy with respect to fpqc topology, and then extends the theory from affine schemes of derived rings to stacks.</p>
+      </li>
+      <li>
+        <div class="row">
+          <a href="/notes/notes/gestalten/stefanich-rings/">Stefanich Rings</a><time datetime="2025-12-29">Dec 29, 2025</time>
+        </div>
+        <p class="desc"><p>This note discuss the colimit of the sequence
+</p>
+\[
+\mathsf{CAlg}(1\mathsf{Pr})
+\hookrightarrow
+\mathsf{CAlg}(2\mathsf{Pr})
+\hookrightarrow
+\cdots
+\hookrightarrow
+\mathsf{CAlg}(n\mathsf{Pr})
+\hookrightarrow
+\cdots .
+\]<p>
+in $1\mathsf{Pr}$, and discuss the $n$-affine, $n$-proper, $n$-suave and $n$-prim maps.</p>
+</p>
+      </li>
+      <li>
+        <div class="row">
+          <a href="/notes/notes/gestalten/presentable-n-categories/">Presentable n-Categories</a><time datetime="2025-12-29">Dec 29, 2025</time>
+        </div>
+        <p class="desc">This note introduces the notion of presentable n-categories.</p>
+      </li>
+      <li>
+        <div class="row">
+          <a href="/notes/notes/gestalten/presentable-categories/">Presentable Categories</a><time datetime="2025-12-28">Dec 28, 2025</time>
+        </div>
+        <p class="desc">This note reviews the basic theory of presentable categories. We focus on κ-compact objects, Ind-completions, accessible categories, and their role in organizing large categories via filtered colimits.</p>
+      </li>
+    </ul>
+    <h2>PDF notes</h2>
+    <ul class="ou-notes-pdfs">
+        <li>
+          <div class="row">
+            <p class="t">Galois Covers</p>
+            <span class="meta">PDF</span>
+          </div>
+          <p class="d">
+            Seminar notes prepared for the Galois Theory in Algebra and Topology Seminar.
+ Based on the <a href="https://hellus.app.uni-regensburg.de/KVV/abruflink.php?id=1387" rel="noopener">Galois Theory in Algebra and Topology Seminar</a>.
+          </p>
+          <p class="l">
+            <a href="/papers/notes/Galois_cover.pdf" rel="noopener">Download PDF →</a></p>
+        </li>
+        <li>
+          <div class="row">
+            <p class="t">Stable Dold–Kan Correspondence</p>
+            <span class="meta">PDF</span>
+          </div>
+          <p class="d">
+            Seminar notes prepared for the Goodwillie Calculus Seminar.
+ Based on the <a href="https://hoyois.app.uni-regensburg.de/WS26/calculus/index.html" rel="noopener">Goodwillie Calculus Seminar</a>.
+          </p>
+          <p class="l">
+            <a href="/papers/notes/StableDoldKan.pdf" rel="noopener">Download PDF →</a><a href="/notes/StableDoldKan/">Online version →</a></p>
+        </li>
+        <li>
+          <div class="row">
+            <p class="t">A Brief Introduction to Monads and Higher Algebra</p>
+            <span class="meta">PDF</span>
+          </div>
+          <p class="d">
+            Notes on higher algebra, partly rewritten using the language of algebraic patterns, together with an exposition of the Lurie–Barr–Beck theorem and the theory of descendable objects developed by Akhil Mathew.
+
+          </p>
+          <p class="l">
+            <a href="/papers/notes/Monad.pdf" rel="noopener">Download PDF →</a></p>
+        </li>
+        <li>
+          <div class="row">
+            <p class="t">Algebraic Geometry</p>
+            <span class="meta">PDF</span>
+          </div>
+          <p class="d">
+            Lecture notes for Algebraic Geometry I, taught by Marc Hoyois in Winter Term 2025/26. Marc provides a script, but it omits most proofs; these notes supply detailed proofs and additional exposition.
+ Based on the <a href="https://hoyois.app.uni-regensburg.de/WS26/alggeo1/index.html" rel="noopener">Algebraic Geometry I</a>.
+          </p>
+          <p class="l">
+            <a href="/papers/notes/AG.pdf" rel="noopener">Download PDF →</a></p>
+        </li>
+        <li>
+          <div class="row">
+            <p class="t">Motivic Homotopy Theory</p>
+            <span class="meta">PDF &middot; updated 2026-04-24 &middot; WIP</span>
+          </div>
+          <p class="d">
+            Notes on motivic homotopy theory and motivic cohomology, based on the Oberseminar &#34;Motivic cohomology of schemes&#34;. Work in progress.
+ Based on the <a href="https://hoyois.app.uni-regensburg.de/SS26/motiviccoh/index.html" rel="noopener">Motivic cohomology of schemes</a>.
+          </p>
+          <p class="l">
+            <a href="/papers/notes/Motivic.pdf" rel="noopener">Download PDF →</a></p>
+        </li>
+    </ul>
   <div class="post-content">
-    <p>This page collects a selection of my mathematical notes, including seminar notes,
-lecture notes, and expository material in algebra, topology, and higher category
-theory.</p>
-<p>More informal or exploratory notes are maintained on the homepage and are listed
-separately below.</p>
-<h2 id="pdf-notes">PDF Notes</h2>
-<ul>
-<li>
-<p><strong>Galois Covers</strong><br>
-Seminar notes prepared for the<br>
-<a href="https://hellus.app.uni-regensburg.de/KVV/abruflink.php?id=1387">Galois Theory in Algebra and Topology Seminar</a>.<br>
-<a href="/papers/notes/Galois_cover.pdf">PDF</a></p>
-</li>
-<li>
-<p><strong>Stable Dold–Kan Correspondence</strong><br>
-Seminar notes prepared for the<br>
-<a href="https://hoyois.app.uni-regensburg.de/WS26/calculus/index.html">Goodwillie Calculus Seminar</a>.<br>
-Online version: <a class="page-ref" href="/notes/notes/stable-doldkan-and-descent/">Stable Dold–Kan and Descent</a><br>
-<a href="/papers/notes/StableDoldKan.pdf">PDF</a></p>
-</li>
-<li>
-<p><strong>A Brief Introduction to Monads and Higher Algebra</strong><br>
-Notes on higher algebra, partly rewritten using the language of algebraic patterns, together with an
-exposition of the Lurie–Barr–Beck theorem and the theory of descendable objects developed by Akhil Mathew.<br>
-<a href="/papers/notes/Monad.pdf">PDF</a></p>
-</li>
-<li>
-<p><strong>Algebraic Geometry</strong><br>
-Lecture notes for<br>
-<a href="https://hoyois.app.uni-regensburg.de/WS26/alggeo1/index.html">Algebraic Geometry I</a>, taught by Marc Hoyois
-in Winter Term 2025/26.</p>
-<p>Marc provides a script, but it omits most proofs; these notes supply detailed proofs and additional
-exposition.<br>
-<a href="/papers/notes/AG.pdf">PDF</a></p>
-</li>
-<li>
-<p><strong>Motivic Homotopy Theory</strong><br>
-Notes on motivic homotopy theory and motivic cohomology, based on Oberseminar <a href="https://hoyois.app.uni-regensburg.de/SS26/motiviccoh/index.html">Motivic cohomology of schemes</a>.<br>
-Work in progress.<br>
-<a href="/papers/notes/Motivic.pdf">PDF</a> (update in 18.04.2026)</p>
-</li>
-</ul>
+    <p>This page collects a selection of my mathematical notes: seminar notes, lecture
+notes, and expository material in algebra, topology, and higher category theory.</p>
+<p>Longer write-ups are maintained as PDFs; shorter or in-progress material is kept
+in Markdown and indexed below.</p>
 <h2 id="other-notes">Other Notes</h2>
 <p>Shorter or less polished notes maintained in Markdown form on this site.
 These include ongoing working notes and thematic collections.</p>
 <div class="notes-index-switch notes-tabs" data-notes-index>
 
   
-  <input class="notes-tabs-input" type="radio" name="notesidx-1776591578737278600" id="notesidx-1776591578737278600-topic" checked>
-  <label class="notes-tabs-btn" for="notesidx-1776591578737278600-topic">By topic</label>
+  <input class="notes-tabs-input" type="radio" name="notesidx-1777048221381616400" id="notesidx-1777048221381616400-topic" checked>
+  <label class="notes-tabs-btn" for="notesidx-1777048221381616400-topic">By topic</label>
 
-  <input class="notes-tabs-input" type="radio" name="notesidx-1776591578737278600" id="notesidx-1776591578737278600-date">
-  <label class="notes-tabs-btn" for="notesidx-1776591578737278600-date">By date</label>
+  <input class="notes-tabs-input" type="radio" name="notesidx-1777048221381616400" id="notesidx-1777048221381616400-date">
+  <label class="notes-tabs-btn" for="notesidx-1777048221381616400-date">By date</label>
 
   
   <div class="notes-tabs-view notes-tabs-view-topic">
 
   <h3 class="notes-index-heading">Topics</h3>
   <ul class="notes-index notes-index-sections"><li class="notes-index-item notes-index-section">
+        <a class="notes-index-link" href="/notes/continuous-k-theory/">Continuous K-theory</a><details class="notes-index-details">
+            <summary class="notes-index-summary">Overview</summary>
+            <div class="notes-index-details-body">Notes on continuous (Efimov) K-theory: from classical connective and non-connective algebraic K-theory, through compactly assembled categories, to Efimov&rsquo;s universality theorem and the sheaf formula.</div>
+          </details></li><li class="notes-index-item notes-index-section">
         <a class="notes-index-link" href="/notes/gestalten/">Gestalten</a><details class="notes-index-details">
             <summary class="notes-index-summary">Overview</summary>
             <div class="notes-index-details-body">Notes on Gestalten and higher-categorical geometry following Scholze&rsquo;s Geometry and Higher Category Theory.</div>
@@ -258,7 +333,7 @@ These include ongoing working notes and thematic collections.</p>
 
   </div>
 
-  
+</article>
     </main>
     
 <footer class="footer">

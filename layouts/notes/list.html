@@ -1,14 +1,75 @@
 {{- define "main" -}}
-  <header class="page-header">
+<article class="ou-section-landing ou-section--notes">
+
+  <header class="ou-section-head">
+    <div class="ou-section-eyebrow">
+      {{- if eq .RelPermalink "/notes/" -}}
+        Mathematics &middot; working notes &amp; seminars
+      {{- else -}}
+        Notes{{ with .Parent }}{{ if ne .RelPermalink "/notes/" }} &middot; {{ .Title }}{{ end }}{{ end }}
+      {{- end -}}
+    </div>
     <h1>{{ .Title }}</h1>
-    {{- with .Params.description -}}
-      <div class="post-description">{{ . }}</div>
-    {{- end -}}
+    {{- with .Params.description }}
+      <p class="ou-section-desc">{{ . | markdownify }}</p>
+    {{- else }}
+      {{- with .Description }}
+      <p class="ou-section-desc">{{ . | markdownify }}</p>
+      {{- end }}
+    {{- end }}
   </header>
 
+  {{- if eq .RelPermalink "/notes/" }}
+    {{- /* Latest updates — recent markdown notes (regular pages under /notes/) */ -}}
+    {{- $latest := first 5 (where .Site.RegularPages "Section" "notes").ByDate.Reverse }}
+    {{- if gt (len $latest) 0 }}
+    <h2>Latest updates</h2>
+    <ul class="ou-entry-list">
+      {{- range $latest }}
+      <li>
+        <div class="row">
+          <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+          {{- with .Date }}<time datetime="{{ .Format "2006-01-02" }}">{{ .Format "Jan 2, 2006" }}</time>{{- end }}
+        </div>
+        {{- with .Params.description }}
+        <p class="desc">{{ . | markdownify }}</p>
+        {{- end }}
+      </li>
+      {{- end }}
+    </ul>
+    {{- end }}
+
+    {{- with .Site.Data.notes_pdfs }}
+    <h2>PDF notes</h2>
+    <ul class="ou-notes-pdfs">
+      {{- range (sort . "weight") }}
+        <li>
+          <div class="row">
+            <p class="t">{{ .title }}</p>
+            <span class="meta">PDF{{ with .updated }} &middot; updated {{ . }}{{ end }}{{ if .wip }} &middot; WIP{{ end }}</span>
+          </div>
+          <p class="d">
+            {{ .description }}
+            {{- with .seminar }} Based on the <a href="{{ .url }}" rel="noopener">{{ .name }}</a>.{{ end }}
+          </p>
+          <p class="l">
+            <a href="{{ .pdf }}" rel="noopener">Download PDF →</a>
+            {{- with .online_ref -}}
+              {{- $url := print "/" (replace . ".md" "/") -}}
+              <a href="{{ $url }}">Online version →</a>
+            {{- end -}}
+          </p>
+        </li>
+      {{- end }}
+    </ul>
+    {{- end }}
+  {{- end }}
+
+  {{- if .Content }}
   <div class="post-content">
     {{ .Content }}
   </div>
+  {{- end }}
 
-  {{/* 注意：不要在这里 range .Pages，否则就会出现主题默认文章列表 */}}
+</article>
 {{- end -}}

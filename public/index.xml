@@ -6,8 +6,16 @@
     <description>Recent content on Ou Liu</description>
     <generator>Hugo -- 0.152.2</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 30 Jan 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 24 Apr 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Algebraic K-theory</title>
+      <link>http://localhost:1313/notes/notes/continuous-k-theory/algebraic-k-theory/</link>
+      <pubDate>Fri, 24 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/notes/notes/continuous-k-theory/algebraic-k-theory/</guid>
+      <description>Connective and non-connective algebraic K-theory via cospans and the Waldhausen S-construction; Verdier sequences in stable and non-stable settings; the non-connective extension via iterated Calkin categories.
+</description>
+    </item>
     <item>
       <title>Presentable Categories</title>
       <link>http://localhost:1313/notes/notes/gestalten/presentable-categories/</link>
@@ -108,8 +116,7 @@ This note constructs the six-functor formalism on \(n\mathsf{Pr}_{(-)}\), shows 
       <guid>http://localhost:1313/about/</guid>
       <description>&lt;h1 id=&#34;ou-liu-刘欧&#34;&gt;Ou Liu (刘欧)&lt;/h1&gt;
 &lt;p&gt;I am a master&amp;rsquo;s student in Mathematics at the &lt;em&gt;University of Regensburg&lt;/em&gt;,
-with interests in &lt;em&gt;motivic homotopy theory&lt;/em&gt;, &lt;em&gt;derived algebraic geometry&lt;/em&gt;, and &lt;em&gt;higher category theory&lt;/em&gt;.
-I expect to begin my master&amp;rsquo;s thesis in the coming semester.&lt;/p&gt;
+with interests in &lt;em&gt;motivic homotopy theory&lt;/em&gt;, &lt;em&gt;derived algebraic geometry&lt;/em&gt;, and &lt;em&gt;higher category theory&lt;/em&gt;.&lt;/p&gt;
 &lt;hr&gt;
 &lt;h2 id=&#34;education&#34;&gt;Education&lt;/h2&gt;
 &lt;p&gt;&lt;strong&gt;2025 &amp;ndash; Present&lt;/strong&gt;&lt;br&gt;

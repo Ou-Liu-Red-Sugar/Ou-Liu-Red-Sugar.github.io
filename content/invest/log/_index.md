@@ -26,10 +26,3 @@ This log is primarily for my own review. If you’re curious, feel free to read 
 **Cushion:** price + sizing + liquidity + falsification  
 **Plan:** what I do next if right / if wrong  
 **Attention cost:** did this steal time from math?
-
-{{< section_index
-    mode="both"
-    sort="weight"
-    show_summary="true"
-    show_date="true"
->}}

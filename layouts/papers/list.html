@@ -1,0 +1,64 @@
+{{- define "main" -}}
+<article class="ou-section-landing ou-section--papers">
+
+  <header class="ou-section-head">
+    <div class="ou-section-eyebrow">Publications &amp; preprints</div>
+    <h1>{{ .Title }}</h1>
+    {{- with .Params.description }}
+      <p class="ou-section-desc">{{ . | markdownify }}</p>
+    {{- else }}
+      <p class="ou-section-desc">A running list of my published work and preprints.</p>
+    {{- end }}
+  </header>
+
+  {{- if .Content }}
+  <div class="post-content">
+    {{ .Content }}
+  </div>
+  {{- end }}
+
+  {{- with .Site.Data.publications.publications }}
+  <h2>Publications</h2>
+  <ol class="ou-pub-list">
+    {{- range . }}
+    <li>
+      <p class="t">{{ .title }}</p>
+      <p class="a">{{ .authors | markdownify }}</p>
+      <p class="v">
+        <em>{{ .venue }}</em>
+        {{- with .volume }} <strong>{{ . }}</strong>{{ end }}
+        {{- with .year }} ({{ . }}){{ end }}.
+      </p>
+      {{- with .links }}
+      <div class="links">
+        {{- range . }}<a href="{{ .url }}" rel="noopener">{{ .label }} →</a>{{ end }}
+      </div>
+      {{- end }}
+    </li>
+    {{- end }}
+  </ol>
+  {{- end }}
+
+  <h2>Preprints</h2>
+  {{- $preprints := .Site.Data.publications.preprints }}
+  {{- if and $preprints (gt (len $preprints) 0) }}
+  <ol class="ou-pub-list">
+    {{- range $preprints }}
+    <li>
+      <p class="t">{{ .title }}</p>
+      <p class="a">{{ .authors | markdownify }}</p>
+      <p class="v"><em>{{ .venue }}</em>{{ with .year }} ({{ . }}){{ end }}.</p>
+      {{- with .links }}
+      <div class="links">
+        {{- range . }}<a href="{{ .url }}" rel="noopener">{{ .label }} →</a>{{ end }}
+      </div>
+      {{- end }}
+    </li>
+    {{- end }}
+  </ol>
+  {{- else }}
+  <p class="ou-pub-empty">No publicly available preprints at this time.</p>
+  {{- end }}
+
+</article>
+{{- end -}}

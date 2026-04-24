@@ -1,0 +1,14 @@
+# Publications and preprints shown on /papers/.
+# The Papers landing template renders cards from these entries.
+
+publications:
+  - authors: "Lili Liu, Xi Wang, **Ou Liu**, et al."
+    title: "Valuation and Comparison of the Actual and Optimal Control Strategy in an Emerging Infectious Disease"
+    venue: "Infectious Disease Modelling"
+    year: 2024
+    volume: "9"
+    links:
+      - label: "Journal"
+        url: "https://www.sciencedirect.com/science/article/pii/S2468042724000149"
+
+preprints: []

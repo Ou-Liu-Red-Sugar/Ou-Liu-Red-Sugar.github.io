@@ -1,14 +1,75 @@
 {{- define "main" -}}
-  <header class="page-header">
+<article class="ou-section-landing ou-section--invest">
+
+  <header class="ou-section-head">
+    <div class="ou-section-eyebrow">Personal &middot; long-term, low-frequency</div>
     <h1>{{ .Title }}</h1>
-    {{- with .Params.description -}}
-      <div class="post-description">{{ . }}</div>
-    {{- end -}}
+    {{- with .Params.description }}
+      <p class="ou-section-desc">{{ . | markdownify }}</p>
+    {{- else }}
+      {{- with .Description }}
+      <p class="ou-section-desc">{{ . | markdownify }}</p>
+      {{- end }}
+    {{- end }}
   </header>
 
+  <nav class="ou-invest-pillars" aria-label="Investing sections">
+    <a href="/invest/playbook/">
+      <p class="n">01</p>
+      <p class="t">Playbook</p>
+      <p class="d">Principles, allocation bands, and execution rules — the constitution.</p>
+    </a>
+    <a href="/invest/log/">
+      <p class="n">02</p>
+      <p class="t">Log</p>
+      <p class="d">Time-stamped notes written close to each decision. 3–10 minutes per entry.</p>
+    </a>
+    <a href="/invest/lessons/">
+      <p class="n">03</p>
+      <p class="t">Lessons</p>
+      <p class="d">Rules distilled from repeated mistakes, each linked to concrete cases.</p>
+    </a>
+    <a href="/invest/reviews/">
+      <p class="n">04</p>
+      <p class="t">Monthly Reviews</p>
+      <p class="d">Low-frequency calibration of structure drift and attention cost.</p>
+    </a>
+  </nav>
+
+  {{- /* Latest updates — most recent entries across log / lessons / reviews */ -}}
+  {{- $entries := slice -}}
+  {{- with .Site.GetPage "/invest/log" }}{{ $entries = $entries | append .Pages }}{{ end -}}
+  {{- with .Site.GetPage "/invest/lessons" }}{{ $entries = $entries | append .Pages }}{{ end -}}
+  {{- with .Site.GetPage "/invest/reviews" }}{{ $entries = $entries | append .Pages }}{{ end -}}
+  {{- $latest := first 5 (sort $entries "Date" "desc") }}
+  {{- if gt (len $latest) 0 }}
+  <h2>Latest updates</h2>
+  <ul class="ou-entry-list">
+    {{- range $latest }}
+      {{- $kind := "" -}}
+      {{- $parts := split (trim .RelPermalink "/") "/" -}}
+      {{- if ge (len $parts) 2 }}{{ $kind = index $parts 1 }}{{ end -}}
+    <li>
+      <div class="row">
+        <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+        <span style="display:inline-flex;align-items:baseline;gap:0.6rem;white-space:nowrap;">
+          {{- if $kind }}<span class="kind-tag">{{ $kind }}</span>{{ end }}
+          {{- with .Date }}<time datetime="{{ .Format "2006-01-02" }}">{{ .Format "Jan 2, 2006" }}</time>{{- end }}
+        </span>
+      </div>
+      {{- with .Params.description }}
+      <p class="desc">{{ . | markdownify }}</p>
+      {{- end }}
+    </li>
+    {{- end }}
+  </ul>
+  {{- end }}
+
+  {{- if .Content }}
   <div class="post-content">
     {{ .Content }}
   </div>
+  {{- end }}
 
-  {{/* do NOT range .Pages here, otherwise PaperMod will show the default post list */}}
+</article>
 {{- end -}}

@@ -2,6 +2,11 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>http://localhost:1313/notes/notes/continuous-k-theory/algebraic-k-theory/</loc>
+    <lastmod>2026-04-24T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
     <loc>http://localhost:1313/notes/notes/gestalten/presentable-categories/</loc>
     <lastmod>2025-12-28T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -17,6 +22,11 @@
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
+    <loc>http://localhost:1313/notes/continuous-k-theory/</loc>
+    <lastmod>2026-04-24T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
     <loc>http://localhost:1313/notes/notes/gestalten/stefanich-rings/</loc>
     <lastmod>2025-12-29T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -24,6 +34,71 @@
   </url><url>
     <loc>http://localhost:1313/notes/notes/gestalten/everything-becomes-affine-under-sufficient-categorification/</loc>
     <lastmod>2025-12-29T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>http://localhost:1313/tags/algebraic-k-theory/</loc>
+    <lastmod>2026-04-24T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>http://localhost:1313/categories/</loc>
+    <lastmod>2026-04-24T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>http://localhost:1313/tags/compactly-assembled-categories/</loc>
+    <lastmod>2026-04-24T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>http://localhost:1313/tags/dualizable-categories/</loc>
+    <lastmod>2026-04-24T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>http://localhost:1313/tags/higher-algebra/</loc>
+    <lastmod>2026-04-24T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>http://localhost:1313/tags/k-theory/</loc>
+    <lastmod>2026-04-24T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>http://localhost:1313/categories/mathematics/</loc>
+    <lastmod>2026-04-24T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>http://localhost:1313/categories/notes/</loc>
+    <lastmod>2026-04-24T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>http://localhost:1313/notes/</loc>
+    <lastmod>2026-04-24T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>http://localhost:1313/</loc>
+    <lastmod>2026-04-24T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>http://localhost:1313/tags/</loc>
+    <lastmod>2026-04-24T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>http://localhost:1313/tags/verdier-sequence/</loc>
+    <lastmod>2026-04-24T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>http://localhost:1313/tags/waldhausen-construction/</loc>
+    <lastmod>2026-04-24T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
@@ -57,17 +132,7 @@
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>http://localhost:1313/</loc>
-    <lastmod>2026-03-31T00:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url><url>
     <loc>http://localhost:1313/tags/process/</loc>
-    <lastmod>2026-03-31T00:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url><url>
-    <loc>http://localhost:1313/tags/</loc>
     <lastmod>2026-03-31T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -172,32 +237,12 @@
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>http://localhost:1313/categories/</loc>
-    <lastmod>2025-12-29T00:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url><url>
     <loc>http://localhost:1313/notes/gestalten/</loc>
     <lastmod>2025-12-29T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
     <loc>http://localhost:1313/tags/higher-category-theory/</loc>
-    <lastmod>2025-12-29T00:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url><url>
-    <loc>http://localhost:1313/categories/mathematics/</loc>
-    <lastmod>2025-12-29T00:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url><url>
-    <loc>http://localhost:1313/categories/notes/</loc>
-    <lastmod>2025-12-29T00:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url><url>
-    <loc>http://localhost:1313/notes/</loc>
     <lastmod>2025-12-29T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -218,11 +263,6 @@
     <priority>0.5</priority>
   </url><url>
     <loc>http://localhost:1313/tags/descent/</loc>
-    <lastmod>2025-12-27T00:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url><url>
-    <loc>http://localhost:1313/tags/higher-algebra/</loc>
     <lastmod>2025-12-27T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -300,11 +340,11 @@
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>http://localhost:1313/papers/</loc>
+    <loc>http://localhost:1313/categories/papers/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>http://localhost:1313/categories/papers/</loc>
+    <loc>http://localhost:1313/papers/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
