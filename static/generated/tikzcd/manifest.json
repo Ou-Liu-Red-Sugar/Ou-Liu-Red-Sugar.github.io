@@ -258,6 +258,13 @@
     "svg": "generated/tikzcd/642423ce8332e3af36adbbd6a6ea71a08145c95c.svg",
     "updated": "2026-04-24T23:10:14+02:00"
   },
+  "6957cad028b55f27d34d3243a4cda5803092d69c": {
+    "kind": "shortcode",
+    "origin": "C:\\Users\\23980\\Documents\\Ou-Liu-Red-Sugar.github.io\\content\\notes\\SixFunctor.md",
+    "source": "j_{!} j^{\\ast} \\ar[r] \\ar[d] & \\mathrm{id} \\ar[d] \\\\\n0 \\ar[r] & i_{\\ast} i^{\\ast}",
+    "svg": "generated/tikzcd/6957cad028b55f27d34d3243a4cda5803092d69c.svg",
+    "updated": "2026-04-25T12:24:10+02:00"
+  },
   "6a533f35e29a4d50239ccf63229ff73f7664f9ec": {
     "kind": "shortcode",
     "origin": "/sessions/laughing-gifted-lovelace/mnt/Ou-Liu-Red-Sugar.github.io/content/notes/GllobalSection.md",
