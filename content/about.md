@@ -36,7 +36,7 @@ Research focus on motivic homotopy theory, derived algebraic geometry and
 higher category theory.
 
 **2021 -- 2025** · **B.Sc. in Mathematics and Applied Mathematics**  
-*Shanxi University*, Taiyuan.  
+*Shanxi University*, China.  
 Thesis: *Applications of the six-functor formalism to smooth representation
 theory*.
 
