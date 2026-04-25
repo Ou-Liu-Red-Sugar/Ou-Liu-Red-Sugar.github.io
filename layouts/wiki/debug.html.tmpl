@@ -1,0 +1,5 @@
+{{- $neighborhood := partial "wiki/graph-data.html" (dict "scope" "neighborhood" "page" . "depth" 1) -}}
+TYPE: {{ printf "%T" $neighborhood }}
+NODES_INDEX: {{ printf "%T" (index $neighborhood "nodes") }}
+NODES_LEN: {{ len (index $neighborhood "nodes") }}
+JSONIFY: {{ $neighborhood | jsonify | safeHTML }}

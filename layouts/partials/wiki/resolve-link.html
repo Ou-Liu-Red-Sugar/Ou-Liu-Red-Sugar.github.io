@@ -1,0 +1,26 @@
+{{- /*
+  layouts/partials/wiki/resolve-link.html
+
+  Input  : a string title (the text inside [[...]])
+  Output : a Page object whose Title or one of its aliases (case-insensitive)
+           matches the input, or "" (empty string) if no match.
+
+  Usage  : {{ partial "wiki/resolve-link.html" "Presentable category" }}
+*/ -}}
+{{- $target := lower (trim . " ") -}}
+{{- $found := "" -}}
+{{- range where site.RegularPages "Section" "wiki" -}}
+  {{- $page := . -}}
+  {{- if not $found -}}
+    {{- if eq (lower $page.Title) $target -}}
+      {{- $found = $page -}}
+    {{- else -}}
+      {{- range $page.Params.aliases -}}
+        {{- if and (not $found) (eq (lower .) $target) -}}
+          {{- $found = $page -}}
+        {{- end -}}
+      {{- end -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+{{- return $found -}}

@@ -1,0 +1,35 @@
+{{- /* layouts/wiki/wiki-graph.html
+       Full graph page. Same renderer as the per-entry mini-graph, but with
+       mode="full" so it occupies most of the viewport and exposes a
+       category legend.
+*/ -}}
+{{- define "main" -}}
+<article class="post-single wiki-graph-page">
+
+  {{- partial "breadcrumbs.html" . -}}
+
+  <header class="post-header">
+    <div class="ou-section-eyebrow">Wiki &middot; graph view</div>
+    <h1 class="post-title">{{ .Title }}</h1>
+    {{- with .Params.description -}}
+      <p class="post-description">{{ . }}</p>
+    {{- end -}}
+  </header>
+
+  {{- $data := partial "wiki/graph-data.html" (dict "scope" "all") -}}
+
+  <div class="wiki-graph-canvas" data-wiki-graph data-wiki-graph-mode="full">
+    <script type="application/json" class="wiki-graph-source">{{ $data | jsonify | safeJS }}</script>
+  </div>
+
+  <p class="wiki-graph-hint">
+    Drag nodes to rearrange &middot; scroll to zoom &middot; click a node to open the entry.
+    Colour groups by first category.
+  </p>
+
+  <div class="wiki-graph-legend" data-wiki-graph-legend></div>
+
+</article>
+
+{{- partial "wiki/graph-script.html" . -}}
+{{- end -}}

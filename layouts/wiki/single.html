@@ -1,0 +1,92 @@
+{{- /* layouts/wiki/single.html
+       Single wiki entry. Layout:
+         (1) prominent top accent band tinted by category color
+         (2) header with category eyebrow + title + aliases + meta
+         (3) Introduction / Body / ... (author content with [[Title]] resolved)
+         (4) auto-rendered Neighborhood (mini-graph only — connections are
+             visible in the graph and inline in the body text)
+*/ -}}
+{{- define "main" -}}
+{{- $color := partial "wiki/category-color.html" . -}}
+<article class="post-single wiki-entry" style="--entry-accent: {{ $color }};">
+
+  <div class="wiki-entry-band" aria-hidden="true"></div>
+
+  {{- partial "breadcrumbs.html" . -}}
+
+  <header class="post-header wiki-entry-header">
+    <div class="ou-section-eyebrow wiki-entry-eyebrow">
+      <span class="wiki-entry-dot"></span>Wiki{{ with .Params.categories }} &middot; {{ index . 0 }}{{ end }}
+    </div>
+    <h1 class="post-title wiki-entry-title">{{ .Title }}</h1>
+
+    {{- with .Params.aliases }}
+    <p class="wiki-aliases">
+      Also known as:
+      {{- range $i, $a := . -}}
+        {{- if $i }}, {{ end -}}
+        <em>{{ $a }}</em>
+      {{- end -}}
+    </p>
+    {{- end }}
+
+    {{- with .Description -}}
+      <div class="post-description">{{ . }}</div>
+    {{- end -}}
+
+    <div class="post-meta">
+      {{- with .Date -}}{{ .Format "2006-01-02" }}{{- end -}}
+      {{- with .ReadingTime -}} &middot; {{ . }} min{{- end -}}
+    </div>
+  </header>
+
+  {{- if and (.Param "ShowToc") (not .Params.disableToc) -}}
+    {{- $toc := .TableOfContents -}}
+    {{- if and $toc (ne $toc "<nav id=\"TableOfContents\"></nav>") -}}
+      <details class="toc" {{ if (.Param "TocOpen") }}open{{ end }}>
+        <summary><span class="details">Table of Contents</span></summary>
+        <div class="inner">{{ $toc }}</div>
+      </details>
+    {{- end -}}
+  {{- end -}}
+
+  <div class="post-content wiki-content">
+    {{ partial "wiki/render-wikilinks.html" .Content | safeHTML }}
+  </div>
+
+  {{- /* ====== Auto-rendered Neighborhood (graph only) ====== */ -}}
+  {{- $neighborhood := partial "wiki/graph-data.html" (dict "scope" "neighborhood" "page" . "depth" 1) -}}
+  {{- $nodeCount := len (index $neighborhood "nodes") -}}
+  <section class="wiki-neighborhood" aria-label="Neighborhood">
+    <h2 class="wiki-neighborhood-heading">Neighborhood</h2>
+    {{- if gt $nodeCount 1 }}
+    <div class="wiki-neighborhood-graph wiki-mini-graph-canvas"
+         data-wiki-graph data-wiki-graph-mode="mini">
+      <script type="application/json" class="wiki-graph-source">{{ $neighborhood | jsonify | safeJS }}</script>
+    </div>
+    <p class="wiki-neighborhood-hint">
+      Drag to rearrange &middot; click a node to open it &middot;
+      <a href="/wiki/graph/">open the full graph &rarr;</a>
+    </p>
+    {{- else }}
+    <p class="wiki-neighborhood-hint">
+      No neighbouring entries yet. Add a <code>[[Title]]</code> reference,
+      or check the <a href="/wiki/graph/">full graph</a>.
+    </p>
+    {{- end }}
+  </section>
+
+  <footer class="post-footer">
+    {{- with .Params.tags -}}
+      <ul class="post-tags">
+        {{- range . -}}
+          <li><a href="{{ (printf "tags/%s/" (. | urlize)) | relURL }}">{{ . }}</a></li>
+        {{- end -}}
+      </ul>
+    {{- end -}}
+  </footer>
+
+</article>
+
+{{- partial "wiki/graph-script.html" . -}}
+{{- end -}}

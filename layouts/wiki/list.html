@@ -1,0 +1,150 @@
+{{- /* layouts/wiki/list.html
+       Wiki section landing — section prose, conventions banner, search bar,
+       and a two-column layout (latest updates / filterable A-Z entries).
+*/ -}}
+{{- define "main" -}}
+<article class="ou-section-landing ou-section--wiki">
+
+  <header class="ou-section-head">
+    <div class="ou-section-eyebrow">Mathematics &middot; personal wiki</div>
+    <h1>{{ .Title }}</h1>
+    {{- with .Params.description }}
+      <p class="ou-section-desc">{{ . | markdownify }}</p>
+    {{- end }}
+  </header>
+
+  {{- /* Section prose from _index.md (with [[Title]] resolution) */ -}}
+  {{- if .Content }}
+  <div class="post-content wiki-content">
+    {{ partial "wiki/render-wikilinks.html" .Content | safeHTML }}
+  </div>
+  {{- end }}
+
+  {{- /* Collect entries (excluding the graph page) */ -}}
+  {{- $entries := slice -}}
+  {{- range where .Site.RegularPages "Section" "wiki" -}}
+    {{- if ne .RelPermalink "/wiki/graph/" -}}
+      {{- $entries = $entries | append . -}}
+    {{- end -}}
+  {{- end -}}
+
+  {{- /* Convention banner */ -}}
+  {{- with site.GetPage "wiki/conventions" }}
+  <aside class="wiki-conventions-banner">
+    <div class="wiki-conventions-banner-eyebrow">Convention</div>
+    <p class="wiki-conventions-banner-rule">
+      Throughout the wiki, <strong>category</strong> = <strong>1-category</strong> =
+      <strong>(∞,1)-category</strong>; <strong>n-category</strong> =
+      <strong>(∞, n)-category</strong>. The 1-categorical sense is called
+      <em>classical category</em>.
+    </p>
+    <p class="wiki-conventions-banner-link">
+      <a href="{{ .RelPermalink }}">Read the full conventions →</a>
+    </p>
+  </aside>
+  {{- end }}
+
+  <div class="wiki-search-row">
+    <input id="wiki-search-input"
+           class="wiki-search-input"
+           type="search"
+           placeholder="Filter by title, alias or description…"
+           autocomplete="off"
+           aria-label="Search wiki entries"
+           data-wiki-search>
+    <span class="wiki-search-count" data-wiki-search-count></span>
+  </div>
+
+  <div class="wiki-landing-grid">
+
+    {{- /* MAIN: latest updates + topic grid */ -}}
+    <section class="wiki-landing-main">
+      <h2 class="wiki-landing-heading">Latest updates</h2>
+      <ul class="wiki-latest">
+        {{- range first 5 (sort $entries "Date" "desc") }}
+        {{- $color := partial "wiki/category-color.html" . }}
+        <li class="wiki-latest-item" style="--entry-accent: {{ $color }};">
+          <a class="wiki-latest-link" href="{{ .RelPermalink }}">{{ .Title }}</a>
+          <div class="wiki-latest-meta">
+            {{- with .Params.categories }}
+            <span class="wiki-latest-cat">{{ index . 0 }}</span>
+            <span class="wiki-latest-sep">&middot;</span>
+            {{- end }}
+            {{- with .Date }}
+            <time class="wiki-latest-date" datetime="{{ .Format "2006-01-02" }}">{{ .Format "Jan 2, 2006" }}</time>
+            {{- end }}
+          </div>
+          {{- with .Params.description }}
+          <p class="wiki-latest-desc">{{ . | markdownify }}</p>
+          {{- end }}
+        </li>
+        {{- end }}
+      </ul>
+
+      {{- /* Group by first category */ -}}
+      {{- $byCat := dict -}}
+      {{- range $entries -}}
+        {{- $cat := "Uncategorized" -}}
+        {{- with .Params.categories -}}{{- $cat = index . 0 -}}{{- end -}}
+        {{- $existing := index $byCat $cat | default (slice) -}}
+        {{- $byCat = merge $byCat (dict $cat ($existing | append .)) -}}
+      {{- end -}}
+
+      <h2 class="wiki-landing-heading">By topic</h2>
+      <div class="wiki-cat-grid">
+        {{- range $cat, $pages := $byCat }}
+        {{- $palette := site.Data.wiki_palette -}}
+        {{- $color := index $palette.categories $cat | default $palette.default -}}
+        <section class="wiki-cat-card" style="--entry-accent: {{ $color }};">
+          <h3 class="wiki-cat-title">
+            <span class="wiki-cat-dot"></span>{{ $cat }}
+          </h3>
+          <ul class="wiki-cat-list">
+            {{- range sort $pages "Title" "asc" }}
+            <li>
+              <a class="wiki-cat-link" href="{{ .RelPermalink }}">{{ .Title }}</a>
+              {{- with .Params.description }}
+              <span class="wiki-cat-desc">— {{ . | markdownify }}</span>
+              {{- end }}
+            </li>
+            {{- end }}
+          </ul>
+        </section>
+        {{- end }}
+      </div>
+
+      <p class="wiki-graph-link">
+        <a href="/wiki/graph/">Open the graph view →</a>
+      </p>
+    </section>
+
+    {{- /* SIDE: search-filtered A-Z list of every entry */ -}}
+    <aside class="wiki-landing-side" aria-label="All entries">
+      <h2 class="wiki-landing-side-heading">All entries (A–Z)</h2>
+      <ul class="wiki-side-index" data-wiki-search-list>
+        {{- range sort $entries "Title" "asc" }}
+        {{- $color := partial "wiki/category-color.html" . }}
+        {{- $haystack := .Title -}}
+        {{- with .Params.aliases }}{{ $haystack = printf "%s|%s" $haystack (delimit . "|") }}{{ end -}}
+        {{- with .Params.description }}{{ $haystack = printf "%s|%s" $haystack . }}{{ end -}}
+        <li class="wiki-side-item"
+            style="--entry-accent: {{ $color }};"
+            data-wiki-search-item="{{ lower $haystack }}">
+          <a class="wiki-side-link" href="{{ .RelPermalink }}">
+            <span class="wiki-side-dot"></span>{{ .Title }}
+          </a>
+          {{- with .Params.aliases }}
+          <span class="wiki-side-alias">a.k.a. {{ delimit . ", " }}</span>
+          {{- end }}
+        </li>
+        {{- end }}
+      </ul>
+      <p class="wiki-side-empty" data-wiki-search-empty hidden>No matches.</p>
+    </aside>
+
+  </div>
+
+</article>
+
+<script src="{{ "js/wiki-search.js" | relURL }}" defer></script>
+{{- end -}}

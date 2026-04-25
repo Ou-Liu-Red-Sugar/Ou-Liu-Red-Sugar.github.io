@@ -1,0 +1,20 @@
+# Wiki category palette
+# ----------------------
+# Mapping from a wiki entry's first `category` value to the color that
+# tints its accent band, mini-graph node, and graph-view legend swatch.
+#
+# Categorisation here is by mathematical *area*, not by sub-discipline,
+# so that entries from different sub-disciplines but the same area land
+# in the same colour. Add a line whenever a new area appears.
+
+categories:
+  "Category theory":          "#1a5fb4"  # blue
+  "Stable homotopy theory":   "#0f7173"  # teal
+  "Algebraic geometry":       "#b8541d"  # burnt orange
+  "Algebraic topology":       "#7a4eab"  # purple
+  "Number theory":            "#7d3c3c"  # burgundy
+  "Analysis":                 "#5a8b3a"  # green
+  "Foundations":              "#955b00"  # amber
+  "Mathematical physics":     "#2b5d8a"  # navy
+
+default: "#1a5fb4"

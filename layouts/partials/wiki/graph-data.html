@@ -1,0 +1,133 @@
+{{- /*
+  layouts/partials/wiki/graph-data.html
+
+  Input  : a dict with keys
+             - "scope":  "all" | "neighborhood" (default "all")
+             - "page":   the focus Page (required when scope = "neighborhood")
+             - "depth":  integer hop count for neighborhood (default 1)
+  Output : a Go map of the form
+             { "nodes": [ {id, title, url, category, color, focus} ],
+               "edges": [ {source, target} ] }
+           (the caller jsonifies it for embedding in <script>)
+
+  Edges are derived from [[Title]] occurrences in each entry's raw content.
+  The graph page itself (/wiki/graph/) is excluded from nodes and edges.
+*/ -}}
+{{- $scope    := .scope | default "all" -}}
+{{- $focus    := .page -}}
+{{- $depth    := .depth | default 1 -}}
+{{- $palette  := site.Data.wiki_palette -}}
+{{- $catColor := $palette.categories -}}
+{{- $defColor := $palette.default | default "#1a5fb4" -}}
+
+{{- /* Collect candidate pages: regular wiki pages, excluding the graph page */ -}}
+{{- $entries := slice -}}
+{{- range where site.RegularPages "Section" "wiki" -}}
+  {{- if ne .RelPermalink "/wiki/graph/" -}}
+    {{- $entries = $entries | append . -}}
+  {{- end -}}
+{{- end -}}
+
+{{- /* Build a title-and-alias -> page lookup */ -}}
+{{- $byTitle := dict -}}
+{{- range $entries -}}
+  {{- $page := . -}}
+  {{- $byTitle = merge $byTitle (dict (lower $page.Title) $page) -}}
+  {{- range $page.Params.aliases -}}
+    {{- $byTitle = merge $byTitle (dict (lower .) $page) -}}
+  {{- end -}}
+{{- end -}}
+
+{{- /* Build forward-edge map: page URL -> slice of target page URLs */ -}}
+{{- $forward := dict -}}
+{{- range $entries -}}
+  {{- $src := . -}}
+  {{- $srcKey := $src.RelPermalink -}}
+  {{- $targets := slice -}}
+  {{- $matches := findRE `\[\[[^\[\]]+\]\]` $src.RawContent -}}
+  {{- range uniq $matches -}}
+    {{- $title := lower (trim (replaceRE `^\[\[(.+)\]\]$` `$1` .) " ") -}}
+    {{- with index $byTitle $title -}}
+      {{- if ne .RelPermalink $srcKey -}}
+        {{- $targets = $targets | append .RelPermalink -}}
+      {{- end -}}
+    {{- end -}}
+  {{- end -}}
+  {{- $forward = merge $forward (dict $srcKey (uniq $targets)) -}}
+{{- end -}}
+
+{{- /* Filter to neighborhood if requested.
+       BFS up to $depth hops on the undirected version of the link graph. */ -}}
+{{- $includedURLs := slice -}}
+{{- if eq $scope "neighborhood" -}}
+  {{- $frontier := slice $focus.RelPermalink -}}
+  {{- $visited := slice $focus.RelPermalink -}}
+  {{- range seq $depth -}}
+    {{- $next := slice -}}
+    {{- range $frontier -}}
+      {{- $u := . -}}
+      {{- with index $forward $u -}}
+        {{- range . -}}
+          {{- if not (in $visited .) -}}
+            {{- $visited = $visited | append . -}}
+            {{- $next = $next | append . -}}
+          {{- end -}}
+        {{- end -}}
+      {{- end -}}
+      {{- range $src, $tgts := $forward -}}
+        {{- if in $tgts $u -}}
+          {{- if not (in $visited $src) -}}
+            {{- $visited = $visited | append $src -}}
+            {{- $next = $next | append $src -}}
+          {{- end -}}
+        {{- end -}}
+      {{- end -}}
+    {{- end -}}
+    {{- $frontier = $next -}}
+  {{- end -}}
+  {{- $includedURLs = $visited -}}
+{{- else -}}
+  {{- range $entries -}}
+    {{- $includedURLs = $includedURLs | append .RelPermalink -}}
+  {{- end -}}
+{{- end -}}
+
+{{- /* Build nodes */ -}}
+{{- $nodes := slice -}}
+{{- range $entries -}}
+  {{- $page := . -}}
+  {{- if in $includedURLs $page.RelPermalink -}}
+    {{- $cat := "Uncategorized" -}}
+    {{- with $page.Params.categories -}}
+      {{- $cat = index . 0 -}}
+    {{- end -}}
+    {{- $color := index $catColor $cat | default $defColor -}}
+    {{- $isFocus := false -}}
+    {{- if and $focus (eq $page.RelPermalink $focus.RelPermalink) -}}
+      {{- $isFocus = true -}}
+    {{- end -}}
+    {{- $nodes = $nodes | append (dict
+        "id"       $page.RelPermalink
+        "title"    $page.Title
+        "url"      $page.RelPermalink
+        "category" $cat
+        "color"    $color
+        "focus"    $isFocus
+      ) -}}
+  {{- end -}}
+{{- end -}}
+
+{{- /* Build edges (only when both endpoints are in $includedURLs) */ -}}
+{{- $edges := slice -}}
+{{- range $src, $tgts := $forward -}}
+  {{- if in $includedURLs $src -}}
+    {{- range $tgts -}}
+      {{- if in $includedURLs . -}}
+        {{- $edges = $edges | append (dict "source" $src "target" .) -}}
+      {{- end -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+
+{{- $data := dict "nodes" $nodes "edges" $edges -}}
+{{- return $data -}}

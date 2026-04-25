@@ -6,7 +6,7 @@
     <description>Recent content on Ou Liu</description>
     <generator>Hugo -- 0.152.2</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 24 Apr 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 25 Apr 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Algebraic K-theory</title>
@@ -68,6 +68,46 @@
       <guid>http://localhost:1313/notes/notes/gestalten/everything-becomes-affine-under-sufficient-categorification/</guid>
       <description>
 This note constructs the six-functor formalism on \(n\mathsf{Pr}_{(-)}\), shows that it is sheafy with respect to fpqc topology, and then extends the theory from affine schemes of derived rings to stacks.
+</description>
+    </item>
+    <item>
+      <title>Compactly assembled category</title>
+      <link>http://localhost:1313/wiki/compactly-assembled-category/</link>
+      <pubDate>Sat, 25 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/wiki/compactly-assembled-category/</guid>
+      <description>A presentable category that is a retract in Pr^L of a compactly generated one. In the stable setting, equivalent to being dualizable in Pr^L_st.
+</description>
+    </item>
+    <item>
+      <title>Compactly generated category</title>
+      <link>http://localhost:1313/wiki/compactly-generated-category/</link>
+      <pubDate>Sat, 25 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/wiki/compactly-generated-category/</guid>
+      <description>A presentable category that is generated under filtered colimits by its compact (i.e. ℵ₀-compact) objects. Equivalently, the Ind-completion of a small idempotent-complete category with finite colimits.
+</description>
+    </item>
+    <item>
+      <title>Conventions</title>
+      <link>http://localhost:1313/wiki/conventions/</link>
+      <pubDate>Sat, 25 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/wiki/conventions/</guid>
+      <description>House conventions for this wiki — what &amp;#39;category&amp;#39;, &amp;#39;n-category&amp;#39;, and &amp;#39;classical category&amp;#39; mean here, and the suggested entry structure.
+</description>
+    </item>
+    <item>
+      <title>Presentable category</title>
+      <link>http://localhost:1313/wiki/presentable-category/</link>
+      <pubDate>Sat, 25 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/wiki/presentable-category/</guid>
+      <description>An (∞,1)-category that admits all small colimits and is generated under colimits by an essentially small set of κ-compact objects for some regular cardinal κ.
+</description>
+    </item>
+    <item>
+      <title>Stable category</title>
+      <link>http://localhost:1313/wiki/stable-category/</link>
+      <pubDate>Sat, 25 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/wiki/stable-category/</guid>
+      <description>A category in which the suspension functor is an equivalence and finite limits coincide with finite colimits — the natural replacement for triangulated categories.
 </description>
     </item>
     <item>
@@ -138,6 +178,13 @@ representation theory.&lt;/p&gt;
 &lt;em&gt;University of Regensburg&lt;/em&gt;, Germany.&lt;br&gt;
 Research focus on motivic homotopy theory, derived algebraic geometry and
 higher category theory.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Graph view</title>
+      <link>http://localhost:1313/wiki/graph/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/wiki/graph/</guid>
+      <description>A force-directed graph of all wiki entries and their cross-references.</description>
     </item>
   </channel>
 </rss>

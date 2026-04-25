@@ -1,0 +1,16 @@
+{{- /*
+  layouts/partials/wiki/category-color.html
+
+  Input  : a Page (the wiki entry).
+  Output : the hex color string for the entry's first category, falling back
+           to the palette's default. Reads data/wiki_palette.yaml.
+
+  Usage  : {{ partial "wiki/category-color.html" . }}
+*/ -}}
+{{- $palette  := site.Data.wiki_palette -}}
+{{- $catColor := $palette.categories -}}
+{{- $defColor := $palette.default | default "#1a5fb4" -}}
+{{- $cat := "Uncategorized" -}}
+{{- with .Params.categories -}}{{- $cat = index . 0 -}}{{- end -}}
+{{- $color := index $catColor $cat | default $defColor -}}
+{{- return $color -}}

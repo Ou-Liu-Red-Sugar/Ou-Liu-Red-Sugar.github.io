@@ -1,0 +1,57 @@
+{{- /*
+  layouts/partials/wiki/render-wikilinks.html
+
+  Input  : a string of HTML (typically .Content).
+  Output : same string with every [[Title]] replaced by either
+             - <a class="wikilink" href="...">Title</a>            (resolved)
+             - <span class="wikilink wikilink--broken">Title</span> (unresolved)
+
+  Code regions (<pre>...</pre> and inline <code>...</code>) are stashed
+  behind placeholders before the rewrite and restored afterwards, so a
+  literal `[[Title]]` inside a fenced block keeps its brackets verbatim.
+
+  Usage  : {{ partial "wiki/render-wikilinks.html" .Content | safeHTML }}
+*/ -}}
+{{- $content := . -}}
+
+{{- /* (1) Stash <pre>...</pre> blocks (multiline). */ -}}
+{{- $preBlocks := findRE `(?s)<pre[^>]*>.*?</pre>` $content -}}
+{{- range $i, $block := $preBlocks -}}
+  {{- $token := printf "@@WIKILINK_PRE_%d@@" $i -}}
+  {{- $content = replace $content $block $token 1 -}}
+{{- end -}}
+
+{{- /* (2) Stash inline <code>...</code> blocks. Single-line only;
+        these come from `inline code` spans in markdown. */ -}}
+{{- $codeBlocks := findRE `<code[^>]*>[^<]*</code>` $content -}}
+{{- range $i, $block := $codeBlocks -}}
+  {{- $token := printf "@@WIKILINK_CODE_%d@@" $i -}}
+  {{- $content = replace $content $block $token 1 -}}
+{{- end -}}
+
+{{- /* (3) Resolve each [[Title]] to an anchor (or broken-link span). */ -}}
+{{- $matches := findRE `\[\[[^\[\]]+\]\]` $content -}}
+{{- range uniq $matches -}}
+  {{- $whole := . -}}
+  {{- $title := replaceRE `^\[\[(.+)\]\]$` `$1` $whole -}}
+  {{- $target := partial "wiki/resolve-link.html" $title -}}
+  {{- $replacement := "" -}}
+  {{- with $target -}}
+    {{- $replacement = printf `<a class="wikilink" href="%s" title="%s">%s</a>` .RelPermalink .Title $title -}}
+  {{- else -}}
+    {{- $replacement = printf `<span class="wikilink wikilink--broken" title="No wiki entry: %s">%s</span>` $title $title -}}
+  {{- end -}}
+  {{- $content = replace $content $whole $replacement -}}
+{{- end -}}
+
+{{- /* (4) Restore code/pre placeholders. */ -}}
+{{- range $i, $block := $codeBlocks -}}
+  {{- $token := printf "@@WIKILINK_CODE_%d@@" $i -}}
+  {{- $content = replace $content $token $block -}}
+{{- end -}}
+{{- range $i, $block := $preBlocks -}}
+  {{- $token := printf "@@WIKILINK_PRE_%d@@" $i -}}
+  {{- $content = replace $content $token $block -}}
+{{- end -}}
+
+{{- return $content -}}

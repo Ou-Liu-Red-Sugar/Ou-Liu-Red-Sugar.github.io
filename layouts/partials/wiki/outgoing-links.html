@@ -1,0 +1,52 @@
+{{- /*
+  layouts/partials/wiki/outgoing-links.html
+
+  Input  : a Page (the current wiki entry).
+  Output : an HTML block listing the wiki entries this page references via
+           [[Title]] in its raw markdown. Renders nothing if the entry
+           contains no resolvable wikilinks.
+*/ -}}
+{{- $current := . -}}
+{{- $entries := slice -}}
+{{- range where site.RegularPages "Section" "wiki" -}}
+  {{- if and (ne .RelPermalink $current.RelPermalink) (ne .RelPermalink "/wiki/graph/") -}}
+    {{- $entries = $entries | append . -}}
+  {{- end -}}
+{{- end -}}
+
+{{- /* Title-and-alias lookup over the OTHER wiki entries */ -}}
+{{- $byTitle := dict -}}
+{{- range $entries -}}
+  {{- $page := . -}}
+  {{- $byTitle = merge $byTitle (dict (lower $page.Title) $page) -}}
+  {{- range $page.Params.aliases -}}
+    {{- $byTitle = merge $byTitle (dict (lower .) $page) -}}
+  {{- end -}}
+{{- end -}}
+
+{{- /* Resolve [[Title]] references in this page's RawContent */ -}}
+{{- $matches  := findRE `\[\[[^\[\]]+\]\]` $current.RawContent -}}
+{{- $resolved := slice -}}
+{{- range uniq $matches -}}
+  {{- $title := lower (trim (replaceRE `^\[\[(.+)\]\]$` `$1` .) " ") -}}
+  {{- with index $byTitle $title -}}
+    {{- $resolved = $resolved | append . -}}
+  {{- end -}}
+{{- end -}}
+{{- $resolved = sort (uniq $resolved) "Title" "asc" -}}
+
+{{- if gt (len $resolved) 0 -}}
+<div class="wiki-neighborhood-out">
+  <h3 class="wiki-neighborhood-sub">Links to</h3>
+  <ul class="wiki-neighborhood-list">
+    {{- range $resolved }}
+    <li>
+      <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+      {{- with .Params.description }}
+      <span class="wiki-neighborhood-desc">— {{ . | markdownify }}</span>
+      {{- end }}
+    </li>
+    {{- end }}
+  </ul>
+</div>
+{{- end -}}

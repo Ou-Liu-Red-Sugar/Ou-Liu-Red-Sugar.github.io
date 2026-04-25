@@ -24,12 +24,13 @@ permalinks:
   "invest/log": /invest/log/:slug/
   "invest/lessons": /invest/lessons/:slug/
   "invest/reviews": /invest/reviews/:slug/
+  wiki: /wiki/:slug/
 
 menu:
   main:
-    - identifier: search
-      name: Search
-      url: /search/
+    - identifier: wiki
+      name: Wiki
+      url: /wiki/
       weight: 5
     - identifier: notes
       name: Notes

@@ -502,3 +502,438 @@ details.math-env.proof .qed{
   .post-single nav.paginav a.prev{ order: 1; }
   .post-single nav.paginav a.next{ order: 3; }
 }
+
+
+
+/* =========================
+   N) Wiki section
+   ========================= */
+
+.wiki-entry,
+.wiki-cat-card,
+.wiki-latest-item,
+.wiki-side-item,
+.wiki-conventions-banner{
+  --entry-accent: #1a5fb4;
+}
+
+/* --- Inline wiki-links inside content --- */
+.wikilink{
+  color: var(--entry-accent, var(--accent));
+  text-decoration: none;
+  border-bottom: 1px dotted color-mix(in srgb, var(--entry-accent, var(--accent)) 55%, transparent);
+  transition: border-bottom-style 0.1s ease;
+}
+.wikilink:hover{ border-bottom-style: solid; }
+.wikilink--broken{
+  color: rgba(0,0,0,0.45);
+  border-bottom: 1px dashed rgba(0,0,0,0.35);
+  cursor: help;
+}
+
+/* Reset list bullets for every list inside the wiki landing — needed
+   because PaperMod's article styles re-introduce list-style on <ul>. */
+.ou-section--wiki ul.wiki-latest,
+.ou-section--wiki ul.wiki-side-index,
+.ou-section--wiki ul.wiki-cat-list{
+  list-style: none !important;
+  padding-left: 0;
+  margin: 0;
+}
+.ou-section--wiki ul.wiki-latest > li,
+.ou-section--wiki ul.wiki-side-index > li{
+  list-style: none !important;
+  margin-left: 0;
+}
+
+/* --- Conventions banner --- */
+.wiki-conventions-banner{
+  margin: 1.4em 0 1.4em;
+  padding: 0.9em 1.2em 1em;
+  border-left: 4px solid var(--entry-accent);
+  background: rgba(26,95,180,0.05);
+  border-radius: 0 8px 8px 0;
+}
+.wiki-conventions-banner-eyebrow{
+  font-family: "Inter","Helvetica Neue",sans-serif;
+  font-size: 0.74rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--entry-accent);
+  margin-bottom: 0.3em;
+}
+.wiki-conventions-banner-rule{
+  margin: 0;
+  font-size: 0.98rem;
+  color: var(--ink);
+  line-height: 1.55;
+}
+.wiki-conventions-banner-rule strong{ font-weight: 600; }
+.wiki-conventions-banner-link{
+  margin: 0.55em 0 0;
+  font-size: 0.88rem;
+}
+.wiki-conventions-banner-link a{
+  color: var(--entry-accent);
+  text-decoration: none;
+}
+.wiki-conventions-banner-link a:hover{ text-decoration: underline; }
+
+/* --- Search row --- */
+.wiki-search-row{
+  display: flex;
+  align-items: center;
+  gap: 0.6em;
+  margin: 1em 0 1.6em;
+  padding: 0.55em 0.95em;
+  border: 1px solid var(--border);
+  background: var(--panel-bg);
+  border-radius: 999px;
+}
+.wiki-search-input{
+  flex: 1;
+  border: none;
+  background: transparent;
+  font: inherit;
+  font-size: 1rem;
+  color: var(--ink);
+  outline: none;
+}
+.wiki-search-input::placeholder{ color: rgba(0,0,0,0.40); }
+.wiki-search-count{
+  font-size: 0.82rem;
+  color: var(--muted-ink);
+  flex-shrink: 0;
+  font-variant-numeric: tabular-nums;
+}
+
+/* --- Two-column landing layout --- */
+.wiki-landing-grid{
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 320px;
+  gap: 2em;
+  align-items: start;
+  margin-top: 0.5em;
+}
+@media (max-width: 900px){
+  .wiki-landing-grid{ grid-template-columns: 1fr; }
+}
+
+.wiki-landing-heading,
+.wiki-landing-side-heading{
+  font-family: "Latin Modern Roman","CMU Serif",serif;
+  font-weight: 600;
+  margin-top: 1.6em;
+  margin-bottom: 0.6em;
+  border-bottom: 1px solid var(--border-soft);
+  padding-bottom: 0.3em;
+}
+.wiki-landing-side-heading{
+  margin-top: 0;
+  font-size: 1.05rem;
+}
+
+/* --- Latest updates (clean, underline-separated, no flex needed) --- */
+.wiki-latest-item{
+  padding: 0.85em 0.4em 0.95em;
+  border-bottom: 1px solid var(--border-soft);
+}
+.wiki-latest-item:last-child{ border-bottom: none; }
+
+.wiki-latest-link{
+  display: inline-block;
+  color: var(--entry-accent);
+  font-weight: 600;
+  font-size: 1.05rem;
+  text-decoration: none;
+  margin: 0 0 0.18em 0;
+  line-height: 1.3;
+}
+.wiki-latest-link:hover{ text-decoration: underline; }
+
+.wiki-latest-meta{
+  font-size: 0.82rem;
+  color: var(--muted-ink);
+  margin: 0 0 0.35em;
+  line-height: 1.4;
+}
+.wiki-latest-cat{
+  color: var(--entry-accent);
+  font-style: italic;
+}
+.wiki-latest-sep{
+  margin: 0 0.45em;
+  opacity: 0.45;
+}
+.wiki-latest-date{
+  font-variant-numeric: tabular-nums;
+}
+.wiki-latest-desc{
+  margin: 0;
+  font-size: 0.92rem;
+  color: var(--muted-ink);
+  line-height: 1.55;
+}
+
+/* --- Topic / category cards --- */
+.wiki-cat-grid{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1em;
+  margin: 0.6em 0 1em;
+}
+.wiki-cat-card{
+  background: var(--panel-bg);
+  border: 1px solid var(--border);
+  border-top: 4px solid var(--entry-accent);
+  border-radius: 8px;
+  padding: 0.8em 1em 0.95em;
+}
+.wiki-cat-title{
+  display: flex;
+  align-items: center;
+  gap: 0.45em;
+  margin: 0 0 0.4em 0;
+  font-family: "Latin Modern Roman","CMU Serif",serif;
+  font-style: italic;
+  font-weight: 500;
+  font-size: 1.02rem;
+  color: var(--ink);
+}
+.wiki-cat-dot{
+  display: inline-block;
+  width: 0.55em;
+  height: 0.55em;
+  border-radius: 50%;
+  background: var(--entry-accent);
+}
+.wiki-cat-list{
+  list-style: none !important;
+  padding-left: 0;
+  margin: 0;
+}
+.wiki-cat-list li{
+  list-style: none !important;
+  padding: 0.22em 0;
+  border-bottom: 1px dotted var(--border-soft);
+  line-height: 1.45;
+}
+.wiki-cat-list li:last-child{ border-bottom: none; }
+.wiki-cat-link{
+  color: var(--entry-accent);
+  text-decoration: none;
+  font-weight: 500;
+}
+.wiki-cat-link:hover{ text-decoration: underline; }
+.wiki-cat-desc{
+  display: block;
+  font-size: 0.85rem;
+  color: var(--muted-ink);
+}
+
+/* --- Side index --- */
+.wiki-landing-side{
+  position: sticky;
+  top: 1.2em;
+  padding: 0.9em 1em 1em;
+  border: 1px solid var(--border);
+  background: var(--panel-bg);
+  border-radius: 10px;
+  max-height: calc(100vh - 2em);
+  overflow: auto;
+}
+.wiki-side-item{
+  padding: 0.4em 0.5em;
+  border-bottom: 1px dotted var(--border-soft);
+}
+.wiki-side-item:last-child{ border-bottom: none; }
+.wiki-side-item:hover{
+  background: rgba(0,0,0,0.03);
+}
+.wiki-side-link{
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+  color: var(--ink);
+  text-decoration: none;
+  font-size: 0.95rem;
+  line-height: 1.4;
+}
+.wiki-side-link:hover{ color: var(--entry-accent); }
+.wiki-side-dot{
+  display: inline-block;
+  width: 0.6em;
+  height: 0.6em;
+  border-radius: 50%;
+  background: var(--entry-accent);
+  flex-shrink: 0;
+}
+.wiki-side-alias{
+  display: block;
+  margin-left: 1.1em;
+  font-size: 0.78rem;
+  color: var(--muted-ink);
+  font-style: italic;
+}
+.wiki-side-empty{
+  margin: 0.6em 0 0;
+  color: var(--muted-ink);
+  font-style: italic;
+  font-size: 0.92rem;
+}
+
+/* "Open the graph view →" */
+.wiki-graph-link{
+  margin-top: 1.5em;
+  padding: 0.6em 0.9em;
+  background: var(--paper-bg-2);
+  border-left: 3px solid var(--accent);
+  border-radius: 0 6px 6px 0;
+}
+.wiki-graph-link a{
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+/* =========================
+   N.2) Single entry — visible color accent
+   ========================= */
+
+.wiki-entry{ position: relative; }
+
+.wiki-entry-band{
+  height: 6px;
+  margin: -0.6em -0.1em 1em;
+  background: var(--entry-accent);
+  border-radius: 4px 4px 0 0;
+  box-shadow: 0 1px 0 rgba(0,0,0,0.05);
+}
+
+.wiki-entry-header{
+  margin-bottom: 1.4em;
+  padding: 0.4em 0 0.8em 0.9em;
+  border-left: 4px solid var(--entry-accent);
+  background: rgba(0,0,0,0.02);
+  border-radius: 0 6px 6px 0;
+}
+.wiki-entry-eyebrow{
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45em;
+  color: var(--entry-accent);
+  font-weight: 600;
+}
+.wiki-entry-dot{
+  display: inline-block;
+  width: 0.6em;
+  height: 0.6em;
+  border-radius: 50%;
+  background: var(--entry-accent);
+}
+.wiki-entry-title{
+  color: var(--ink);
+  margin-top: 0.25em;
+}
+.wiki-aliases{
+  margin: 0.4em 0 0.2em;
+  font-size: 0.92rem;
+  color: var(--muted-ink);
+}
+.wiki-aliases em{ color: var(--ink); }
+
+/* Section headings (Introduction, Body, etc.) get a colored left bar */
+.wiki-entry .post-content h2,
+.wiki-entry .post-content h3{
+  position: relative;
+  padding-left: 0.55em;
+  border-left: 4px solid var(--entry-accent);
+}
+.wiki-entry .post-content h2{
+  color: var(--ink);
+  margin-top: 1.6em;
+}
+.wiki-entry .post-content h3{
+  color: var(--entry-accent);
+  border-left-width: 3px;
+}
+
+/* Neighborhood (graph only) */
+.wiki-neighborhood{
+  margin: 2.2em 0 0.5em;
+  padding: 1em 1.2em 1.2em;
+  border: 1px solid var(--border);
+  border-top: 4px solid var(--entry-accent);
+  border-radius: 8px;
+  background: var(--panel-bg);
+}
+.wiki-neighborhood-heading{
+  margin: 0 0 0.7em 0;
+  font-family: "Latin Modern Roman","CMU Serif",serif;
+  font-weight: 600;
+  font-size: 1.1rem;
+  color: var(--ink);
+}
+.wiki-neighborhood-graph{
+  position: relative;
+  width: 100%;
+  height: 280px;
+  overflow: hidden;
+  border-radius: 6px;
+  background: var(--paper-bg);
+  border: 1px solid var(--border-soft);
+}
+.wiki-neighborhood-hint{
+  margin: 0.55em 0 0;
+  font-size: 0.85rem;
+  color: var(--muted-ink);
+}
+.wiki-neighborhood-hint a{
+  color: var(--entry-accent);
+  text-decoration: none;
+}
+.wiki-neighborhood-hint a:hover{ text-decoration: underline; }
+.wiki-neighborhood-hint code{
+  font-size: 0.85em;
+  background: rgba(0,0,0,0.05);
+  padding: 0.05em 0.35em;
+  border-radius: 3px;
+}
+
+/* --- Full graph page --- */
+.wiki-graph-page .post-header{ margin-bottom: 1em; }
+
+.wiki-graph-canvas{
+  position: relative;
+  width: 100%;
+  min-height: 480px;
+  background: var(--panel-bg);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  overflow: hidden;
+}
+.wiki-graph-hint{
+  margin: 0.7em 0 0.4em;
+  font-size: 0.9rem;
+  color: var(--muted-ink);
+}
+.wiki-graph-legend{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6em 1.1em;
+  margin: 0.4em 0 1em;
+  font-size: 0.9rem;
+  color: var(--muted-ink);
+}
+.wiki-graph-legend-item{
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35em;
+}
+.wiki-graph-legend-swatch{
+  display: inline-block;
+  width: 0.7em;
+  height: 0.7em;
+  border-radius: 50%;
+  border: 1px solid rgba(0,0,0,0.15);
+}

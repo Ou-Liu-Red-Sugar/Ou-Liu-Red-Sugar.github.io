@@ -1,0 +1,52 @@
+{{- /*
+  layouts/partials/wiki/backlinks.html
+
+  Input  : a Page (the current wiki entry).
+  Output : an HTML block listing wiki entries that link to it via [[Title]]
+           (matching this page's title or any of its aliases). Renders
+           nothing if there are no backlinks. Designed to sit inside the
+           Neighborhood section.
+*/ -}}
+{{- $current := . -}}
+{{- $targets := slice (lower $current.Title) -}}
+{{- range $current.Params.aliases -}}
+  {{- $targets = $targets | append (lower .) -}}
+{{- end -}}
+
+{{- $backlinks := slice -}}
+{{- range where site.RegularPages "Section" "wiki" -}}
+  {{- $other := . -}}
+  {{- if and (ne $other.RelPermalink $current.RelPermalink) (ne $other.RelPermalink "/wiki/graph/") -}}
+    {{- $matches := findRE `\[\[[^\[\]]+\]\]` $other.RawContent -}}
+    {{- $hit := false -}}
+    {{- range uniq $matches -}}
+      {{- if not $hit -}}
+        {{- $title := lower (trim (replaceRE `^\[\[(.+)\]\]$` `$1` .) " ") -}}
+        {{- if in $targets $title -}}
+          {{- $hit = true -}}
+        {{- end -}}
+      {{- end -}}
+    {{- end -}}
+    {{- if $hit -}}
+      {{- $backlinks = $backlinks | append $other -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+
+{{- $backlinks = sort (uniq $backlinks) "Title" "asc" -}}
+
+{{- if gt (len $backlinks) 0 -}}
+<div class="wiki-neighborhood-in">
+  <h3 class="wiki-neighborhood-sub">Linked from</h3>
+  <ul class="wiki-neighborhood-list">
+    {{- range $backlinks }}
+    <li>
+      <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+      {{- with .Params.description }}
+      <span class="wiki-neighborhood-desc">— {{ . | markdownify }}</span>
+      {{- end }}
+    </li>
+    {{- end }}
+  </ul>
+</div>
+{{- end -}}
