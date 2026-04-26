@@ -38,7 +38,7 @@
     name: "Algebraic Geometry I"
     url: "https://hoyois.app.uni-regensburg.de/WS26/alggeo1/index.html"
   pdf: "/papers/notes/AG.pdf"
-  updated: "2026-04-24"
+  updated: "2026-04-26"
   wip: true
   weight: 40
 
@@ -50,6 +50,6 @@
     name: "Motivic cohomology of schemes"
     url: "https://hoyois.app.uni-regensburg.de/SS26/motiviccoh/index.html"
   pdf: "/papers/notes/Motivic.pdf"
-  updated: "2026-04-24"
+  updated: "2026-04-26"
   wip: true
   weight: 50
