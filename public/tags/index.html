@@ -28,7 +28,7 @@
         }
 
     </style>
-</noscript><link rel="stylesheet" href="/css/custom.css"><link rel="preconnect" href="https://fonts.googleapis.com">
+</noscript><link rel="stylesheet" href="/css/custom.css?v=1777233973"><link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Source+Serif+4:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@400;500;600;700&display=swap">
 
@@ -51,6 +51,8 @@
         N: "\\mathbb{N}",
         coloneqq: "\\mathrel{:=}",
         Hom: "\\operatorname{Hom}",
+        Map: "\\operatorname{Map}",
+        Fun: "\\mathsf{Fun}",
         Spec: "\\operatorname{Spec}",
         colim: "\\operatorname{colim}",
         id: "\\operatorname{id}",
@@ -63,7 +65,22 @@
         xhookleftarrow:  ["\\overset{\\scriptstyle #1}{\\hookleftarrow}", 1],
         xtwoheadrightarrow: ["\\overset{\\scriptstyle #1}{\\twoheadrightarrow}", 1],
         cite:  ["\\class{citation}{\\href{##ref-#1}{[\\,#1\\,]}}", 1],
-        citet: ["\\class{citation}{\\href{##ref-#1}{(#1)}}", 1]
+        citet: ["\\class{citation}{\\href{##ref-#1}{(#1)}}", 1],
+        dint:       "\\displaystyle\\int",
+        diint:      "\\displaystyle\\iint",
+        diiint:     "\\displaystyle\\iiint",
+        doint:      "\\displaystyle\\oint",
+        dsum:       "\\displaystyle\\sum",
+        dprod:      "\\displaystyle\\prod",
+        dlim:       "\\displaystyle\\lim",
+        dcolim:     "\\displaystyle\\operatorname{colim}",
+        dbigcup:    "\\displaystyle\\bigcup",
+        dbigcap:    "\\displaystyle\\bigcap",
+        dbigvee:    "\\displaystyle\\bigvee",
+        dbigwedge:  "\\displaystyle\\bigwedge",
+        dbigoplus:  "\\displaystyle\\bigoplus",
+        dbigotimes: "\\displaystyle\\bigotimes",
+        dbigsqcup:  "\\displaystyle\\bigsqcup"
       }
     },
     options: {
@@ -79,9 +96,9 @@
 <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" id="MathJax-script"></script>
 
 <script>
-document.addEventListener("DOMContentLoaded", () => {
-  document.querySelectorAll("details.math-env").forEach((d) => {
-    d.addEventListener("toggle", () => {
+document.addEventListener("DOMContentLoaded", function () {
+  document.querySelectorAll("details.math-env").forEach(function (d) {
+    d.addEventListener("toggle", function () {
       if (!d.open) return;
       if (window.MathJax && MathJax.typesetPromise) {
         MathJax.typesetPromise([d]);
@@ -147,9 +164,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
 <ul class="terms-tags">
     <li>
-        <a href="http://localhost:1313/tags/accessible/">accessible <sup><strong><sup>1</sup></strong></sup> </a>
-    </li>
-    <li>
         <a href="http://localhost:1313/tags/adams-tower/">Adams Tower <sup><strong><sup>1</sup></strong></sup> </a>
     </li>
     <li>
@@ -174,22 +188,10 @@ document.addEventListener("DOMContentLoaded", () => {
         <a href="http://localhost:1313/tags/calkin-category/">Calkin category <sup><strong><sup>1</sup></strong></sup> </a>
     </li>
     <li>
-        <a href="http://localhost:1313/tags/compactly-assembled/">compactly assembled <sup><strong><sup>1</sup></strong></sup> </a>
-    </li>
-    <li>
         <a href="http://localhost:1313/tags/compactly-assembled-categories/">compactly assembled categories <sup><strong><sup>3</sup></strong></sup> </a>
     </li>
     <li>
-        <a href="http://localhost:1313/tags/compactly-generated/">compactly generated <sup><strong><sup>1</sup></strong></sup> </a>
-    </li>
-    <li>
-        <a href="http://localhost:1313/tags/conventions/">conventions <sup><strong><sup>1</sup></strong></sup> </a>
-    </li>
-    <li>
         <a href="http://localhost:1313/tags/descent/">Descent <sup><strong><sup>2</sup></strong></sup> </a>
-    </li>
-    <li>
-        <a href="http://localhost:1313/tags/dualizable/">dualizable <sup><strong><sup>1</sup></strong></sup> </a>
     </li>
     <li>
         <a href="http://localhost:1313/tags/dualizable-categories/">dualizable categories <sup><strong><sup>2</sup></strong></sup> </a>
@@ -198,19 +200,16 @@ document.addEventListener("DOMContentLoaded", () => {
         <a href="http://localhost:1313/tags/efimov-k-theory/">Efimov K-theory <sup><strong><sup>1</sup></strong></sup> </a>
     </li>
     <li>
+        <a href="http://localhost:1313/tags/functor-of-points/">functor of points <sup><strong><sup>1</sup></strong></sup> </a>
+    </li>
+    <li>
         <a href="http://localhost:1313/tags/gestalten/">Gestalten <sup><strong><sup>1</sup></strong></sup> </a>
     </li>
     <li>
         <a href="http://localhost:1313/tags/higher-algebra/">higher algebra <sup><strong><sup>5</sup></strong></sup> </a>
     </li>
     <li>
-        <a href="http://localhost:1313/tags/higher-categories/">higher categories <sup><strong><sup>1</sup></strong></sup> </a>
-    </li>
-    <li>
         <a href="http://localhost:1313/tags/higher-category-theory/">Higher Category Theory <sup><strong><sup>7</sup></strong></sup> </a>
-    </li>
-    <li>
-        <a href="http://localhost:1313/tags/ind-completion/">Ind-completion <sup><strong><sup>1</sup></strong></sup> </a>
     </li>
     <li>
         <a href="http://localhost:1313/tags/january-2026/">january-2026 <sup><strong><sup>1</sup></strong></sup> </a>
@@ -228,13 +227,13 @@ document.addEventListener("DOMContentLoaded", () => {
         <a href="http://localhost:1313/tags/localizing-invariants/">localizing invariants <sup><strong><sup>1</sup></strong></sup> </a>
     </li>
     <li>
-        <a href="http://localhost:1313/tags/locally-presentable/">locally presentable <sup><strong><sup>1</sup></strong></sup> </a>
-    </li>
-    <li>
         <a href="http://localhost:1313/tags/log/">log <sup><strong><sup>4</sup></strong></sup> </a>
     </li>
     <li>
         <a href="http://localhost:1313/tags/margin-of-safety/">margin-of-safety <sup><strong><sup>2</sup></strong></sup> </a>
+    </li>
+    <li>
+        <a href="http://localhost:1313/tags/meta/">meta <sup><strong><sup>1</sup></strong></sup> </a>
     </li>
     <li>
         <a href="http://localhost:1313/tags/monoidal-category/">Monoidal Category <sup><strong><sup>1</sup></strong></sup> </a>
@@ -249,9 +248,6 @@ document.addEventListener("DOMContentLoaded", () => {
         <a href="http://localhost:1313/tags/poincar%C3%A9-duality/">Poincaré Duality <sup><strong><sup>1</sup></strong></sup> </a>
     </li>
     <li>
-        <a href="http://localhost:1313/tags/presentable/">presentable <sup><strong><sup>3</sup></strong></sup> </a>
-    </li>
-    <li>
         <a href="http://localhost:1313/tags/presentable-categories/">presentable categories <sup><strong><sup>1</sup></strong></sup> </a>
     </li>
     <li>
@@ -259,6 +255,9 @@ document.addEventListener("DOMContentLoaded", () => {
     </li>
     <li>
         <a href="http://localhost:1313/tags/process/">process <sup><strong><sup>6</sup></strong></sup> </a>
+    </li>
+    <li>
+        <a href="http://localhost:1313/tags/schemes/">schemes <sup><strong><sup>1</sup></strong></sup> </a>
     </li>
     <li>
         <a href="http://localhost:1313/tags/sheaf-cohomology/">Sheaf Cohomology <sup><strong><sup>1</sup></strong></sup> </a>
@@ -270,12 +269,6 @@ document.addEventListener("DOMContentLoaded", () => {
         <a href="http://localhost:1313/tags/snapshot/">snapshot <sup><strong><sup>2</sup></strong></sup> </a>
     </li>
     <li>
-        <a href="http://localhost:1313/tags/spectrum/">spectrum <sup><strong><sup>1</sup></strong></sup> </a>
-    </li>
-    <li>
-        <a href="http://localhost:1313/tags/stable/">stable <sup><strong><sup>1</sup></strong></sup> </a>
-    </li>
-    <li>
         <a href="http://localhost:1313/tags/stable-doldkan/">Stable Dold–Kan <sup><strong><sup>1</sup></strong></sup> </a>
     </li>
     <li>
@@ -283,9 +276,6 @@ document.addEventListener("DOMContentLoaded", () => {
     </li>
     <li>
         <a href="http://localhost:1313/tags/synthetic-category-theory/">Synthetic Category Theory <sup><strong><sup>1</sup></strong></sup> </a>
-    </li>
-    <li>
-        <a href="http://localhost:1313/tags/triangulated/">triangulated <sup><strong><sup>1</sup></strong></sup> </a>
     </li>
     <li>
         <a href="http://localhost:1313/tags/type-theory/">Type Theory <sup><strong><sup>1</sup></strong></sup> </a>

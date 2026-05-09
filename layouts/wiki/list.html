@@ -36,7 +36,7 @@
       Throughout the wiki, <strong>category</strong> = <strong>1-category</strong> =
       <strong>(∞,1)-category</strong>; <strong>n-category</strong> =
       <strong>(∞, n)-category</strong>. The 1-categorical sense is called
-      <em>classical category</em>.
+      <em>classical category</em> (or <em>1-truncated category</em>).
     </p>
     <p class="wiki-conventions-banner-link">
       <a href="{{ .RelPermalink }}">Read the full conventions →</a>
@@ -57,7 +57,7 @@
 
   <div class="wiki-landing-grid">
 
-    {{- /* MAIN: latest updates + topic grid */ -}}
+    {{- /* MAIN: latest updates (title + date) + topic grid */ -}}
     <section class="wiki-landing-main">
       <h2 class="wiki-landing-heading">Latest updates</h2>
       <ul class="wiki-latest">
@@ -65,29 +65,27 @@
         {{- $color := partial "wiki/category-color.html" . }}
         <li class="wiki-latest-item" style="--entry-accent: {{ $color }};">
           <a class="wiki-latest-link" href="{{ .RelPermalink }}">{{ .Title }}</a>
-          <div class="wiki-latest-meta">
-            {{- with .Params.categories }}
-            <span class="wiki-latest-cat">{{ index . 0 }}</span>
-            <span class="wiki-latest-sep">&middot;</span>
-            {{- end }}
-            {{- with .Date }}
-            <time class="wiki-latest-date" datetime="{{ .Format "2006-01-02" }}">{{ .Format "Jan 2, 2006" }}</time>
-            {{- end }}
-          </div>
-          {{- with .Params.description }}
-          <p class="wiki-latest-desc">{{ . | markdownify }}</p>
+          {{- with .Date }}
+          <time class="wiki-latest-date" datetime="{{ .Format "2006-01-02" }}">{{ .Format "Jan 2, 2006" }}</time>
           {{- end }}
         </li>
         {{- end }}
       </ul>
 
-      {{- /* Group by first category */ -}}
+      {{- /* Group entries by their first `categories` value (the "topic"),
+             remembering for each topic its hub page (the entry whose
+             title equals the topic name, e.g. "Algebraic geometry") and
+             its overall entry count. */ -}}
       {{- $byCat := dict -}}
+      {{- $hubByCat := dict -}}
       {{- range $entries -}}
         {{- $cat := "Uncategorized" -}}
         {{- with .Params.categories -}}{{- $cat = index . 0 -}}{{- end -}}
         {{- $existing := index $byCat $cat | default (slice) -}}
         {{- $byCat = merge $byCat (dict $cat ($existing | append .)) -}}
+        {{- if eq (lower .Title) (lower $cat) -}}
+          {{- $hubByCat = merge $hubByCat (dict $cat .) -}}
+        {{- end -}}
       {{- end -}}
 
       <h2 class="wiki-landing-heading">By topic</h2>
@@ -95,20 +93,33 @@
         {{- range $cat, $pages := $byCat }}
         {{- $palette := site.Data.wiki_palette -}}
         {{- $color := index $palette.categories $cat | default $palette.default -}}
+        {{- $hub := index $hubByCat $cat -}}
+        {{- $count := len $pages -}}
+        {{- $href := "" -}}
+        {{- $desc := "" -}}
+        {{- with $hub -}}
+          {{- $href = .RelPermalink -}}
+          {{- $desc = .Params.description -}}
+        {{- end -}}
         <section class="wiki-cat-card" style="--entry-accent: {{ $color }};">
           <h3 class="wiki-cat-title">
-            <span class="wiki-cat-dot"></span>{{ $cat }}
+            <span class="wiki-cat-dot"></span>
+            {{- if $href -}}
+              <a class="wiki-cat-title-link" href="{{ $href }}">{{ $cat }}</a>
+            {{- else -}}
+              {{ $cat }}
+            {{- end -}}
           </h3>
-          <ul class="wiki-cat-list">
-            {{- range sort $pages "Title" "asc" }}
-            <li>
-              <a class="wiki-cat-link" href="{{ .RelPermalink }}">{{ .Title }}</a>
-              {{- with .Params.description }}
-              <span class="wiki-cat-desc">— {{ . | markdownify }}</span>
-              {{- end }}
-            </li>
-            {{- end }}
-          </ul>
+          {{- with $desc }}
+          <p class="wiki-cat-card-desc">{{ . | markdownify }}</p>
+          {{- end }}
+          <p class="wiki-cat-card-meta">
+            {{- if $href -}}
+              <a class="wiki-cat-card-cta" href="{{ $href }}">{{ $count }} entries →</a>
+            {{- else -}}
+              <span class="wiki-cat-card-count">{{ $count }} entries</span>
+            {{- end -}}
+          </p>
         </section>
         {{- end }}
       </div>
@@ -146,5 +157,6 @@
 
 </article>
 
-<script src="{{ "js/wiki-search.js" | relURL }}" defer></script>
+{{- $v := now.Unix -}}
+<script src="{{ "js/wiki-search.js" | relURL }}?v={{ $v }}" defer></script>
 {{- end -}}

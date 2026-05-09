@@ -28,7 +28,7 @@
         }
 
     </style>
-</noscript><link rel="stylesheet" href="/css/custom.css"><link rel="preconnect" href="https://fonts.googleapis.com">
+</noscript><link rel="stylesheet" href="/css/custom.css?v=1777233973"><link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Source+Serif+4:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@400;500;600;700&display=swap">
 
@@ -51,6 +51,8 @@
         N: "\\mathbb{N}",
         coloneqq: "\\mathrel{:=}",
         Hom: "\\operatorname{Hom}",
+        Map: "\\operatorname{Map}",
+        Fun: "\\mathsf{Fun}",
         Spec: "\\operatorname{Spec}",
         colim: "\\operatorname{colim}",
         id: "\\operatorname{id}",
@@ -63,7 +65,22 @@
         xhookleftarrow:  ["\\overset{\\scriptstyle #1}{\\hookleftarrow}", 1],
         xtwoheadrightarrow: ["\\overset{\\scriptstyle #1}{\\twoheadrightarrow}", 1],
         cite:  ["\\class{citation}{\\href{##ref-#1}{[\\,#1\\,]}}", 1],
-        citet: ["\\class{citation}{\\href{##ref-#1}{(#1)}}", 1]
+        citet: ["\\class{citation}{\\href{##ref-#1}{(#1)}}", 1],
+        dint:       "\\displaystyle\\int",
+        diint:      "\\displaystyle\\iint",
+        diiint:     "\\displaystyle\\iiint",
+        doint:      "\\displaystyle\\oint",
+        dsum:       "\\displaystyle\\sum",
+        dprod:      "\\displaystyle\\prod",
+        dlim:       "\\displaystyle\\lim",
+        dcolim:     "\\displaystyle\\operatorname{colim}",
+        dbigcup:    "\\displaystyle\\bigcup",
+        dbigcap:    "\\displaystyle\\bigcap",
+        dbigvee:    "\\displaystyle\\bigvee",
+        dbigwedge:  "\\displaystyle\\bigwedge",
+        dbigoplus:  "\\displaystyle\\bigoplus",
+        dbigotimes: "\\displaystyle\\bigotimes",
+        dbigsqcup:  "\\displaystyle\\bigsqcup"
       }
     },
     options: {
@@ -79,9 +96,9 @@
 <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" id="MathJax-script"></script>
 
 <script>
-document.addEventListener("DOMContentLoaded", () => {
-  document.querySelectorAll("details.math-env").forEach((d) => {
-    d.addEventListener("toggle", () => {
+document.addEventListener("DOMContentLoaded", function () {
+  document.querySelectorAll("details.math-env").forEach(function (d) {
+    d.addEventListener("toggle", function () {
       if (!d.open) return;
       if (window.MathJax && MathJax.typesetPromise) {
         MathJax.typesetPromise([d]);
@@ -188,7 +205,7 @@ document.addEventListener("DOMContentLoaded", () => {
         <li>
           <div class="row">
             <p class="t">Algebraic Geometry</p>
-            <span class="meta">PDF &middot; updated 2026-04-24 &middot; WIP</span>
+            <span class="meta">PDF &middot; updated 2026-04-26 &middot; WIP</span>
           </div>
           <p class="d">
             Lecture notes for Algebraic Geometry I (WiSe 2025/26), taught by Marc Hoyois, with detailed proofs supplementing Marc&#39;s script. Content for the second-semester course, Algebraic Geometry II (SoSe 2026), is being added in parallel.
@@ -200,7 +217,7 @@ document.addEventListener("DOMContentLoaded", () => {
         <li>
           <div class="row">
             <p class="t">Motivic Homotopy Theory</p>
-            <span class="meta">PDF &middot; updated 2026-04-24 &middot; WIP</span>
+            <span class="meta">PDF &middot; updated 2026-04-26 &middot; WIP</span>
           </div>
           <p class="d">
             Notes on motivic homotopy theory and motivic cohomology, based on the Oberseminar &#34;Motivic cohomology of schemes&#34;. Work in progress.
@@ -221,11 +238,11 @@ These include ongoing working notes and thematic collections.</p>
 <div class="notes-index-switch notes-tabs" data-notes-index>
 
   
-  <input class="notes-tabs-input" type="radio" name="notesidx-1777133761506941800" id="notesidx-1777133761506941800-topic" checked>
-  <label class="notes-tabs-btn" for="notesidx-1777133761506941800-topic">By topic</label>
+  <input class="notes-tabs-input" type="radio" name="notesidx-1777233973951782900" id="notesidx-1777233973951782900-topic" checked>
+  <label class="notes-tabs-btn" for="notesidx-1777233973951782900-topic">By topic</label>
 
-  <input class="notes-tabs-input" type="radio" name="notesidx-1777133761506941800" id="notesidx-1777133761506941800-date">
-  <label class="notes-tabs-btn" for="notesidx-1777133761506941800-date">By date</label>
+  <input class="notes-tabs-input" type="radio" name="notesidx-1777233973951782900" id="notesidx-1777233973951782900-date">
+  <label class="notes-tabs-btn" for="notesidx-1777233973951782900-date">By date</label>
 
   
   <div class="notes-tabs-view notes-tabs-view-topic">
@@ -243,15 +260,15 @@ These include ongoing working notes and thematic collections.</p>
 
   <h3 class="notes-index-heading">Notes</h3>
   <ul class="notes-index notes-index-pages"><li class="notes-index-item notes-index-page">
-        <a class="notes-index-link" href="/notes/notes/a-brief-introduction-to-6-functor-formalisms/">A brief introduction to 6-functor formalisms</a><span class="notes-index-date">— 2026-04-24</span><details class="notes-index-details">
+        <a class="notes-index-link" href="/notes/a-brief-introduction-to-6-functor-formalisms/">A brief introduction to 6-functor formalisms</a><span class="notes-index-date">— 2026-04-24</span><details class="notes-index-details">
             <summary class="notes-index-summary">Abstract</summary>
             <div class="notes-index-details-body">A coherent pass through six-functor formalisms. From the structural properties one wants of cohomology, through the Liu–Zheng / Mann / Scholze span-category packaging and the Cnossen–Lenz–Linskens universal property, to Scholze&rsquo;s organising observation: Poincaré duality for a morphism is <em>precisely</em> a dualizability statement in the $2$-category of kernels. We close with Heyer–Mann&rsquo;s suave/prim weakening, Aoki&rsquo;s one-step étale/proper picture, and transmutation to Gestalten.</div>
           </details></li><li class="notes-index-item notes-index-page">
-        <a class="notes-index-link" href="/notes/notes/sheaf-cohomology-as-sheafification/">Sheaf Cohomology as Sheafification</a><span class="notes-index-date">— 2025-12-27</span><details class="notes-index-details">
+        <a class="notes-index-link" href="/notes/sheaf-cohomology-as-sheafification/">Sheaf Cohomology as Sheafification</a><span class="notes-index-date">— 2025-12-27</span><details class="notes-index-details">
             <summary class="notes-index-summary">Abstract</summary>
             <div class="notes-index-details-body">Sheaf cohomology is evaluation of the sheafification: \(\Gamma(X, \mathcal{F}) \coloneqq (L\mathcal{F})(X)\). Reading Mayer–Vietoris, derived Čech, pushforward, base change and the vanishing \(H^i(\mathrm{Spec}\,R, \widetilde{M}) = 0\) directly off the sheaf condition, without spectral sequences or injective resolutions.</div>
           </details></li><li class="notes-index-item notes-index-page">
-        <a class="notes-index-link" href="/notes/notes/synthetic-category-theory-and-type-theory/">Synthetic category theory and type theory</a><span class="notes-index-date">— 2025-12-24</span><details class="notes-index-details">
+        <a class="notes-index-link" href="/notes/synthetic-category-theory-and-type-theory/">Synthetic category theory and type theory</a><span class="notes-index-date">— 2025-12-24</span><details class="notes-index-details">
             <summary class="notes-index-summary">Abstract</summary>
             <div class="notes-index-details-body"><p>This page aims to explain how <strong>type theory</strong> can be understood within the framework of <strong>synthetic category theory</strong>.</p>
 <p>The content of this page is derived from my questions to Tashi during the second exercise class and Tashi’s responses. I would like to express my gratitude to Tashi here.</p>
@@ -262,11 +279,11 @@ These include ongoing working notes and thematic collections.</p>
 </ul>
 <p>Next, we will answer these questions through the lens of type theory and the categorical perspective of synthetic category theory.</p></div>
           </details></li><li class="notes-index-item notes-index-page">
-        <a class="notes-index-link" href="/notes/notes/stable-doldkan-and-descent/">Stable Dold–Kan and Descent</a><span class="notes-index-date">— 2025-11-27</span><details class="notes-index-details">
+        <a class="notes-index-link" href="/notes/stable-doldkan-and-descent/">Stable Dold–Kan and Descent</a><span class="notes-index-date">— 2025-11-27</span><details class="notes-index-details">
             <summary class="notes-index-summary">Abstract</summary>
             <div class="notes-index-details-body">Unified exposition of the stable Dold–Kan correspondence and its application to descent theory in stable categories.</div>
           </details></li><li class="notes-index-item notes-index-page">
-        <a class="notes-index-link" href="/notes/notes/basic-concepts-on-higher-algebra/">Basic Concepts on Higher Algebra</a><span class="notes-index-date">— 2025-09-22</span><details class="notes-index-details">
+        <a class="notes-index-link" href="/notes/basic-concepts-on-higher-algebra/">Basic Concepts on Higher Algebra</a><span class="notes-index-date">— 2025-09-22</span><details class="notes-index-details">
             <summary class="notes-index-summary">Abstract</summary>
             <div class="notes-index-details-body">This note introduces algebraic patterns and Segal objects, develops operads over algebraic patterns, and studies $\mathcal{O}$-monoidal categories together with $\mathcal{O}$-algebras in the Cartesian setting.</div>
           </details></li></ul>
@@ -277,11 +294,11 @@ These include ongoing working notes and thematic collections.</p>
   
   <div class="notes-tabs-view notes-tabs-view-date">
     <ul class="notes-index notes-index-pages"><li class="notes-index-item notes-index-page">
-          <a class="notes-index-link" href="/notes/notes/a-brief-introduction-to-6-functor-formalisms/">A brief introduction to 6-functor formalisms</a><span class="notes-index-date">— 2026-04-24</span></li><li class="notes-index-item notes-index-page">
-          <a class="notes-index-link" href="/notes/notes/sheaf-cohomology-as-sheafification/">Sheaf Cohomology as Sheafification</a><span class="notes-index-date">— 2025-12-27</span></li><li class="notes-index-item notes-index-page">
-          <a class="notes-index-link" href="/notes/notes/synthetic-category-theory-and-type-theory/">Synthetic category theory and type theory</a><span class="notes-index-date">— 2025-12-24</span></li><li class="notes-index-item notes-index-page">
-          <a class="notes-index-link" href="/notes/notes/stable-doldkan-and-descent/">Stable Dold–Kan and Descent</a><span class="notes-index-date">— 2025-11-27</span></li><li class="notes-index-item notes-index-page">
-          <a class="notes-index-link" href="/notes/notes/basic-concepts-on-higher-algebra/">Basic Concepts on Higher Algebra</a><span class="notes-index-date">— 2025-09-22</span></li></ul>
+          <a class="notes-index-link" href="/notes/a-brief-introduction-to-6-functor-formalisms/">A brief introduction to 6-functor formalisms</a><span class="notes-index-date">— 2026-04-24</span></li><li class="notes-index-item notes-index-page">
+          <a class="notes-index-link" href="/notes/sheaf-cohomology-as-sheafification/">Sheaf Cohomology as Sheafification</a><span class="notes-index-date">— 2025-12-27</span></li><li class="notes-index-item notes-index-page">
+          <a class="notes-index-link" href="/notes/synthetic-category-theory-and-type-theory/">Synthetic category theory and type theory</a><span class="notes-index-date">— 2025-12-24</span></li><li class="notes-index-item notes-index-page">
+          <a class="notes-index-link" href="/notes/stable-doldkan-and-descent/">Stable Dold–Kan and Descent</a><span class="notes-index-date">— 2025-11-27</span></li><li class="notes-index-item notes-index-page">
+          <a class="notes-index-link" href="/notes/basic-concepts-on-higher-algebra/">Basic Concepts on Higher Algebra</a><span class="notes-index-date">— 2025-09-22</span></li></ul>
   </div>
 
 </div>
@@ -292,31 +309,31 @@ These include ongoing working notes and thematic collections.</p>
     <ul class="ou-entry-list">
       <li>
         <div class="row">
-          <a href="/notes/notes/a-brief-introduction-to-6-functor-formalisms/">A brief introduction to 6-functor formalisms</a><time datetime="2026-04-24">Apr 24, 2026</time>
+          <a href="/notes/a-brief-introduction-to-6-functor-formalisms/">A brief introduction to 6-functor formalisms</a><time datetime="2026-04-24">Apr 24, 2026</time>
         </div>
         <p class="desc">A coherent pass through six-functor formalisms. From the structural properties one wants of cohomology, through the Liu–Zheng / Mann / Scholze span-category packaging and the Cnossen–Lenz–Linskens universal property, to Scholze&rsquo;s organising observation: Poincaré duality for a morphism is <em>precisely</em> a dualizability statement in the $2$-category of kernels. We close with Heyer–Mann&rsquo;s suave/prim weakening, Aoki&rsquo;s one-step étale/proper picture, and transmutation to Gestalten.</p>
       </li>
       <li>
         <div class="row">
-          <a href="/notes/notes/continuous-k-theory/continuous-efimov-k-theory/">Continuous (Efimov) K-theory</a><time datetime="2026-04-24">Apr 24, 2026</time>
+          <a href="/notes/continuous-k-theory/continuous-efimov-k-theory/">Continuous (Efimov) K-theory</a><time datetime="2026-04-24">Apr 24, 2026</time>
         </div>
         <p class="desc">Extending algebraic K-theory from $\mathsf{Cat}^{\mathrm{rex}}$ to $\mathsf{Pr}^L_{\mathrm{ca}}$: the continuous Calkin category, Verdier cofibre sequences in the large setting, Efimov&rsquo;s definition of continuous K-theory, its basic properties, and a sketch of the universal property of $K^{\mathrm{cont}}$.</p>
       </li>
       <li>
         <div class="row">
-          <a href="/notes/notes/continuous-k-theory/compactly-assembled-categories/">Compactly assembled categories</a><time datetime="2026-04-24">Apr 24, 2026</time>
+          <a href="/notes/continuous-k-theory/compactly-assembled-categories/">Compactly assembled categories</a><time datetime="2026-04-24">Apr 24, 2026</time>
         </div>
         <p class="desc">Dualizable stable categories from the compactly assembled viewpoint: R-linear categories, dualizability in $\mathsf{Pr}_{\mathrm{st}}^L$, compactly exhaustible objects, the Lurie–Clausen characterisation, and the symmetric monoidal structure of $\mathsf{Pr}^L_{\mathrm{ca}}$.</p>
       </li>
       <li>
         <div class="row">
-          <a href="/notes/notes/continuous-k-theory/algebraic-k-theory/">Algebraic K-theory</a><time datetime="2026-04-24">Apr 24, 2026</time>
+          <a href="/notes/continuous-k-theory/algebraic-k-theory/">Algebraic K-theory</a><time datetime="2026-04-24">Apr 24, 2026</time>
         </div>
         <p class="desc">Connective and non-connective algebraic K-theory via cospans and the Waldhausen S-construction; Verdier sequences in stable and non-stable settings; the non-connective extension via iterated Calkin categories.</p>
       </li>
       <li>
         <div class="row">
-          <a href="/notes/notes/gestalten/everything-becomes-affine-under-sufficient-categorification/">Everything Becomes Affine Under Sufficient Categorification</a><time datetime="2025-12-29">Dec 29, 2025</time>
+          <a href="/notes/gestalten/everything-becomes-affine-under-sufficient-categorification/">Everything Becomes Affine Under Sufficient Categorification</a><time datetime="2025-12-29">Dec 29, 2025</time>
         </div>
         <p class="desc">This note constructs the six-functor formalism on \(n\mathsf{Pr}_{(-)}\), shows that it is sheafy with respect to fpqc topology, and then extends the theory from affine schemes of derived rings to stacks.</p>
       </li>

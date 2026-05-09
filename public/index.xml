@@ -6,115 +6,83 @@
     <description>Recent content on Ou Liu</description>
     <generator>Hugo -- 0.152.2</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 25 Apr 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 26 Apr 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Algebraic K-theory</title>
-      <link>http://localhost:1313/notes/notes/continuous-k-theory/algebraic-k-theory/</link>
+      <link>http://localhost:1313/notes/continuous-k-theory/algebraic-k-theory/</link>
       <pubDate>Fri, 24 Apr 2026 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/notes/notes/continuous-k-theory/algebraic-k-theory/</guid>
+      <guid>http://localhost:1313/notes/continuous-k-theory/algebraic-k-theory/</guid>
       <description>Connective and non-connective algebraic K-theory via cospans and the Waldhausen S-construction; Verdier sequences in stable and non-stable settings; the non-connective extension via iterated Calkin categories.
 </description>
     </item>
     <item>
       <title>Presentable Categories</title>
-      <link>http://localhost:1313/notes/notes/gestalten/presentable-categories/</link>
+      <link>http://localhost:1313/notes/gestalten/presentable-categories/</link>
       <pubDate>Sun, 28 Dec 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/notes/notes/gestalten/presentable-categories/</guid>
+      <guid>http://localhost:1313/notes/gestalten/presentable-categories/</guid>
       <description>This note reviews the basic theory of presentable categories. We focus on κ-compact objects, Ind-completions, accessible categories, and their role in organizing large categories via filtered colimits.</description>
     </item>
     <item>
       <title>Compactly assembled categories</title>
-      <link>http://localhost:1313/notes/notes/continuous-k-theory/compactly-assembled-categories/</link>
+      <link>http://localhost:1313/notes/continuous-k-theory/compactly-assembled-categories/</link>
       <pubDate>Fri, 24 Apr 2026 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/notes/notes/continuous-k-theory/compactly-assembled-categories/</guid>
+      <guid>http://localhost:1313/notes/continuous-k-theory/compactly-assembled-categories/</guid>
       <description>Dualizable stable categories from the compactly assembled viewpoint: R-linear categories, dualizability in $\mathsf{Pr}_{\mathrm{st}}^L$, compactly exhaustible objects, the Lurie–Clausen characterisation, and the symmetric monoidal structure of $\mathsf{Pr}^L_{\mathrm{ca}}$.
 </description>
     </item>
     <item>
       <title>Presentable n-Categories</title>
-      <link>http://localhost:1313/notes/notes/gestalten/presentable-n-categories/</link>
+      <link>http://localhost:1313/notes/gestalten/presentable-n-categories/</link>
       <pubDate>Mon, 29 Dec 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/notes/notes/gestalten/presentable-n-categories/</guid>
+      <guid>http://localhost:1313/notes/gestalten/presentable-n-categories/</guid>
       <description>This note introduces the notion of presentable n-categories.</description>
     </item>
     <item>
       <title>Basic Concepts on Higher Algebra</title>
-      <link>http://localhost:1313/notes/notes/basic-concepts-on-higher-algebra/</link>
+      <link>http://localhost:1313/notes/basic-concepts-on-higher-algebra/</link>
       <pubDate>Mon, 22 Sep 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/notes/notes/basic-concepts-on-higher-algebra/</guid>
+      <guid>http://localhost:1313/notes/basic-concepts-on-higher-algebra/</guid>
       <description>This note introduces algebraic patterns and Segal objects, develops operads over algebraic patterns, and studies $\mathcal{O}$-monoidal categories together with $\mathcal{O}$-algebras in the Cartesian setting.</description>
     </item>
     <item>
       <title>Continuous (Efimov) K-theory</title>
-      <link>http://localhost:1313/notes/notes/continuous-k-theory/continuous-efimov-k-theory/</link>
+      <link>http://localhost:1313/notes/continuous-k-theory/continuous-efimov-k-theory/</link>
       <pubDate>Fri, 24 Apr 2026 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/notes/notes/continuous-k-theory/continuous-efimov-k-theory/</guid>
+      <guid>http://localhost:1313/notes/continuous-k-theory/continuous-efimov-k-theory/</guid>
       <description>Extending algebraic K-theory from $\mathsf{Cat}^{\mathrm{rex}}$ to $\mathsf{Pr}^L_{\mathrm{ca}}$: the continuous Calkin category, Verdier cofibre sequences in the large setting, Efimov&amp;#39;s definition of continuous K-theory, its basic properties, and a sketch of the universal property of $K^{\mathrm{cont}}$.
 </description>
     </item>
     <item>
       <title>Stefanich Rings</title>
-      <link>http://localhost:1313/notes/notes/gestalten/stefanich-rings/</link>
+      <link>http://localhost:1313/notes/gestalten/stefanich-rings/</link>
       <pubDate>Mon, 29 Dec 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/notes/notes/gestalten/stefanich-rings/</guid>
+      <guid>http://localhost:1313/notes/gestalten/stefanich-rings/</guid>
       <description>This note discusses the colimit of the sequence \[ \mathsf{CAlg}(1\mathsf{Pr}) \hookrightarrow \mathsf{CAlg}(2\mathsf{Pr}) \hookrightarrow \cdots \hookrightarrow \mathsf{CAlg}(n\mathsf{Pr}) \hookrightarrow \cdots . \] in $1\mathsf{Pr}$, and discuss the $n$-affine, $n$-proper, $n$-suave and $n$-prim maps.
 </description>
     </item>
     <item>
       <title>Everything Becomes Affine Under Sufficient Categorification</title>
-      <link>http://localhost:1313/notes/notes/gestalten/everything-becomes-affine-under-sufficient-categorification/</link>
+      <link>http://localhost:1313/notes/gestalten/everything-becomes-affine-under-sufficient-categorification/</link>
       <pubDate>Mon, 29 Dec 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/notes/notes/gestalten/everything-becomes-affine-under-sufficient-categorification/</guid>
+      <guid>http://localhost:1313/notes/gestalten/everything-becomes-affine-under-sufficient-categorification/</guid>
       <description>
 This note constructs the six-functor formalism on \(n\mathsf{Pr}_{(-)}\), shows that it is sheafy with respect to fpqc topology, and then extends the theory from affine schemes of derived rings to stacks.
 </description>
     </item>
     <item>
-      <title>Compactly assembled category</title>
-      <link>http://localhost:1313/wiki/compactly-assembled-category/</link>
-      <pubDate>Sat, 25 Apr 2026 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/wiki/compactly-assembled-category/</guid>
-      <description>A presentable category that is a retract in Pr^L of a compactly generated one. In the stable setting, equivalent to being dualizable in Pr^L_st.
-</description>
-    </item>
-    <item>
-      <title>Compactly generated category</title>
-      <link>http://localhost:1313/wiki/compactly-generated-category/</link>
-      <pubDate>Sat, 25 Apr 2026 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/wiki/compactly-generated-category/</guid>
-      <description>A presentable category that is generated under filtered colimits by its compact (i.e. ℵ₀-compact) objects. Equivalently, the Ind-completion of a small idempotent-complete category with finite colimits.
-</description>
-    </item>
-    <item>
-      <title>Conventions</title>
-      <link>http://localhost:1313/wiki/conventions/</link>
-      <pubDate>Sat, 25 Apr 2026 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/wiki/conventions/</guid>
-      <description>House conventions for this wiki — what &amp;#39;category&amp;#39;, &amp;#39;n-category&amp;#39;, and &amp;#39;classical category&amp;#39; mean here, and the suggested entry structure.
-</description>
-    </item>
-    <item>
-      <title>Presentable category</title>
-      <link>http://localhost:1313/wiki/presentable-category/</link>
-      <pubDate>Sat, 25 Apr 2026 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/wiki/presentable-category/</guid>
-      <description>An (∞,1)-category that admits all small colimits and is generated under colimits by an essentially small set of κ-compact objects for some regular cardinal κ.
-</description>
-    </item>
-    <item>
-      <title>Stable category</title>
-      <link>http://localhost:1313/wiki/stable-category/</link>
-      <pubDate>Sat, 25 Apr 2026 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/wiki/stable-category/</guid>
-      <description>A category in which the suspension functor is an equivalence and finite limits coincide with finite colimits — the natural replacement for triangulated categories.
+      <title>Algebraic geometry</title>
+      <link>http://localhost:1313/wiki/algebraic-geometry/</link>
+      <pubDate>Sun, 26 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/wiki/algebraic-geometry/</guid>
+      <description>The study of geometric objects represented as functors from commutative rings to sets (or anima, in the derived variant) — schemes, projective varieties, and elliptic curves are central examples.
 </description>
     </item>
     <item>
       <title>A brief introduction to 6-functor formalisms</title>
-      <link>http://localhost:1313/notes/notes/a-brief-introduction-to-6-functor-formalisms/</link>
+      <link>http://localhost:1313/notes/a-brief-introduction-to-6-functor-formalisms/</link>
       <pubDate>Fri, 24 Apr 2026 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/notes/notes/a-brief-introduction-to-6-functor-formalisms/</guid>
+      <guid>http://localhost:1313/notes/a-brief-introduction-to-6-functor-formalisms/</guid>
       <description>A coherent pass through six-functor formalisms. From the structural properties one wants of cohomology, through the Liu–Zheng / Mann / Scholze span-category packaging and the Cnossen–Lenz–Linskens universal property, to Scholze&amp;#39;s organising observation: Poincaré duality for a morphism is *precisely* a dualizability statement in the $2$-category of kernels. We close with Heyer–Mann&amp;#39;s suave/prim weakening, Aoki&amp;#39;s one-step étale/proper picture, and transmutation to Gestalten.</description>
     </item>
     <item>
@@ -126,16 +94,16 @@ This note constructs the six-functor formalism on \(n\mathsf{Pr}_{(-)}\), shows 
     </item>
     <item>
       <title>Sheaf Cohomology as Sheafification</title>
-      <link>http://localhost:1313/notes/notes/sheaf-cohomology-as-sheafification/</link>
+      <link>http://localhost:1313/notes/sheaf-cohomology-as-sheafification/</link>
       <pubDate>Sat, 27 Dec 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/notes/notes/sheaf-cohomology-as-sheafification/</guid>
+      <guid>http://localhost:1313/notes/sheaf-cohomology-as-sheafification/</guid>
       <description>Sheaf cohomology is evaluation of the sheafification: \(\Gamma(X, \mathcal{F}) \coloneqq (L\mathcal{F})(X)\). Reading Mayer–Vietoris, derived Čech, pushforward, base change and the vanishing \(H^i(\mathrm{Spec}\,R, \widetilde{M}) = 0\) directly off the sheaf condition, without spectral sequences or injective resolutions.</description>
     </item>
     <item>
       <title>Synthetic category theory and type theory</title>
-      <link>http://localhost:1313/notes/notes/synthetic-category-theory-and-type-theory/</link>
+      <link>http://localhost:1313/notes/synthetic-category-theory-and-type-theory/</link>
       <pubDate>Wed, 24 Dec 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/notes/notes/synthetic-category-theory-and-type-theory/</guid>
+      <guid>http://localhost:1313/notes/synthetic-category-theory-and-type-theory/</guid>
       <description>&lt;p&gt;This page aims to explain how &lt;strong&gt;type theory&lt;/strong&gt; can be understood within the framework of &lt;strong&gt;synthetic category theory&lt;/strong&gt;.&lt;/p&gt;
 &lt;p&gt;The content of this page is derived from my questions to Tashi during the second exercise class and Tashi’s responses. I would like to express my gratitude to Tashi here.&lt;/p&gt;
 &lt;p&gt;We focus on the following two questions:&lt;/p&gt;
@@ -147,9 +115,9 @@ This note constructs the six-functor formalism on \(n\mathsf{Pr}_{(-)}\), shows 
     </item>
     <item>
       <title>Stable Dold–Kan and Descent</title>
-      <link>http://localhost:1313/notes/notes/stable-doldkan-and-descent/</link>
+      <link>http://localhost:1313/notes/stable-doldkan-and-descent/</link>
       <pubDate>Thu, 27 Nov 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/notes/notes/stable-doldkan-and-descent/</guid>
+      <guid>http://localhost:1313/notes/stable-doldkan-and-descent/</guid>
       <description>Unified exposition of the stable Dold–Kan correspondence and its application to descent theory in stable categories.</description>
     </item>
     <item>

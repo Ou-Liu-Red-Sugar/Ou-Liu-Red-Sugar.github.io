@@ -2,33 +2,35 @@
   layouts/partials/wiki/graph-data.html
 
   Input  : a dict with keys
-             - "scope":  "all" | "neighborhood" (default "all")
-             - "page":   the focus Page (required when scope = "neighborhood")
-             - "depth":  integer hop count for neighborhood (default 1)
+             - "scope":    "all" | "neighborhood" | "category" (default "all")
+             - "page":     the focus Page (required when scope = "neighborhood")
+             - "depth":    integer hop count for neighborhood (default 1)
+             - "category": category name to restrict to (when scope = "category")
   Output : a Go map of the form
              { "nodes": [ {id, title, url, category, color, focus} ],
                "edges": [ {source, target} ] }
-           (the caller jsonifies it for embedding in <script>)
 
   Edges are derived from [[Title]] occurrences in each entry's raw content.
-  The graph page itself (/wiki/graph/) is excluded from nodes and edges.
+  Pages with `excludeFromGraph: true` and the /wiki/graph/ page itself
+  are always omitted.
 */ -}}
-{{- $scope    := .scope | default "all" -}}
+{{- $scope    := .scope    | default "all" -}}
 {{- $focus    := .page -}}
-{{- $depth    := .depth | default 1 -}}
+{{- $depth    := .depth    | default 1 -}}
+{{- $catFilt  := .category | default "" -}}
 {{- $palette  := site.Data.wiki_palette -}}
 {{- $catColor := $palette.categories -}}
 {{- $defColor := $palette.default | default "#1a5fb4" -}}
 
-{{- /* Collect candidate pages: regular wiki pages, excluding the graph page */ -}}
+{{- /* Collect candidate pages */ -}}
 {{- $entries := slice -}}
 {{- range where site.RegularPages "Section" "wiki" -}}
-  {{- if ne .RelPermalink "/wiki/graph/" -}}
+  {{- if and (ne .RelPermalink "/wiki/graph/") (not .Params.excludeFromGraph) -}}
     {{- $entries = $entries | append . -}}
   {{- end -}}
 {{- end -}}
 
-{{- /* Build a title-and-alias -> page lookup */ -}}
+{{- /* Title-and-alias lookup */ -}}
 {{- $byTitle := dict -}}
 {{- range $entries -}}
   {{- $page := . -}}
@@ -38,7 +40,7 @@
   {{- end -}}
 {{- end -}}
 
-{{- /* Build forward-edge map: page URL -> slice of target page URLs */ -}}
+{{- /* Forward-edge map: src URL -> slice of target URLs */ -}}
 {{- $forward := dict -}}
 {{- range $entries -}}
   {{- $src := . -}}
@@ -56,8 +58,7 @@
   {{- $forward = merge $forward (dict $srcKey (uniq $targets)) -}}
 {{- end -}}
 
-{{- /* Filter to neighborhood if requested.
-       BFS up to $depth hops on the undirected version of the link graph. */ -}}
+{{- /* Decide which entries to include */ -}}
 {{- $includedURLs := slice -}}
 {{- if eq $scope "neighborhood" -}}
   {{- $frontier := slice $focus.RelPermalink -}}
@@ -86,6 +87,14 @@
     {{- $frontier = $next -}}
   {{- end -}}
   {{- $includedURLs = $visited -}}
+{{- else if eq $scope "category" -}}
+  {{- range $entries -}}
+    {{- $cat := "Uncategorized" -}}
+    {{- with .Params.categories -}}{{- $cat = index . 0 -}}{{- end -}}
+    {{- if eq $cat $catFilt -}}
+      {{- $includedURLs = $includedURLs | append .RelPermalink -}}
+    {{- end -}}
+  {{- end -}}
 {{- else -}}
   {{- range $entries -}}
     {{- $includedURLs = $includedURLs | append .RelPermalink -}}
@@ -98,9 +107,7 @@
   {{- $page := . -}}
   {{- if in $includedURLs $page.RelPermalink -}}
     {{- $cat := "Uncategorized" -}}
-    {{- with $page.Params.categories -}}
-      {{- $cat = index . 0 -}}
-    {{- end -}}
+    {{- with $page.Params.categories -}}{{- $cat = index . 0 -}}{{- end -}}
     {{- $color := index $catColor $cat | default $defColor -}}
     {{- $isFocus := false -}}
     {{- if and $focus (eq $page.RelPermalink $focus.RelPermalink) -}}
@@ -117,7 +124,7 @@
   {{- end -}}
 {{- end -}}
 
-{{- /* Build edges (only when both endpoints are in $includedURLs) */ -}}
+{{- /* Build edges (both endpoints in $includedURLs) */ -}}
 {{- $edges := slice -}}
 {{- range $src, $tgts := $forward -}}
   {{- if in $includedURLs $src -}}

@@ -1,5 +1,69 @@
-<div class="tex2jax_ignore" style="text-align: center;">
-  <script type="text/tikz">
-{{- .Inner -}}
-  </script>
-</div>
+{{- /* tikz shortcode (server-compiled SVGs)
+       Mirrors tikzcd: hash the body, render
+       static/generated/tikz/<hash>.svg via tools/gen_tikz.py.
+
+Usage A (explicit hash, after compilation has populated the manifest):
+  {{< tikz hash="..." alt="..." class="..." width="..." caption="..." >}}
+
+Usage B (inline source - hash computed from body):
+  {{< tikz >}}
+  \draw (0,0) circle (1cm);
+  \node at (0,0) {center};
+  {{< /tikz >}}
+
+The body is the *contents* of a tikzpicture environment. If you include
+\begin{tikzpicture} ... \end{tikzpicture} explicitly, the shortcode
+strips the wrapper before hashing, so adding/removing it does not
+invalidate the SVG cache. The compiler in tools/gen_tikz.py adds a
+standalone document preamble with the usual TikZ libraries.
+
+Hash normalization is aligned with tools/gen_tikz.py:
+- normalize newlines (\r\n,\r -> \n)
+- strip whole text
+- rstrip each line (remove trailing whitespace)
+*/ -}}
+
+{{- $hash := .Get "hash" -}}
+{{- $alt := .Get "alt" | default "tikz figure" -}}
+{{- $class := .Get "class" | default "tikz" -}}
+{{- $width := .Get "width" -}}
+{{- $caption := .Get "caption" -}}
+
+{{- if not $hash -}}
+  {{- $raw := .Inner | default "" -}}
+  {{- $body := $raw | strings.TrimSpace -}}
+  {{- if eq $body "" -}}
+    {{- errorf "tikz shortcode: missing param 'hash' AND empty body at %s" .Position -}}
+  {{- end -}}
+
+  {{- /* Normalize newlines (match Python) */ -}}
+  {{- $body = $body | replaceRE "\r\n" "\n" | replaceRE "\r" "\n" -}}
+
+  {{- /* If the body contains a tikzpicture environment, strip begin/end
+         so the hash matches whether the wrapper is present or not. */ -}}
+  {{- if (findRE `\\begin\{tikzpicture\}` $body) -}}
+    {{- $body = $body | replaceRE `(?s)^\\begin\{tikzpicture\}(\[[^\]]*\])?\s*` "" -}}
+    {{- $body = $body | replaceRE `\s*\\end\{tikzpicture\}\s*$` "" -}}
+  {{- end -}}
+
+  {{- /* Strip whole text (match Python's s.strip()) */ -}}
+  {{- $body = $body | strings.TrimSpace -}}
+
+  {{- /* Rstrip each line (match Python: "\n".join(line.rstrip() ...)) */ -}}
+  {{- $lines := split $body "\n" -}}
+  {{- $norm := "" -}}
+  {{- range $i, $ln := $lines -}}
+    {{- $ln2 := replaceRE `[ \t]+$` "" $ln -}}
+    {{- if eq $i 0 -}}
+      {{- $norm = $ln2 -}}
+    {{- else -}}
+      {{- $norm = printf "%s\n%s" $norm $ln2 -}}
+    {{- end -}}
+  {{- end -}}
+
+  {{- $hash = sha1 $norm -}}
+{{- end -}}
+
+{{- $src := (printf "generated/tikz/%s.svg" $hash) | relURL -}}
+
+<figure class="tikz-fig {{ $class }}" data-tikz-hash="{{ $hash }}"><img class="tikz-img" src="{{ $src }}" alt="{{ $alt }}"{{ with $width }} width="{{ . }}"{{ end }} loading="lazy" decoding="async">{{- with $caption -}}<figcaption>{{ . | markdownify }}</figcaption>{{- end -}}</figure>

@@ -1,30 +1,39 @@
 /* =========================================================
    wiki-graph.js
    Renders force-directed graphs for any element with the
-   `data-wiki-graph` attribute. The element must contain a
-   <script type="application/json" class="wiki-graph-source">...</script>
-   block whose payload has the shape:
-     { nodes: [{id, title, url, category, color, focus}],
-       edges: [{source, target}] }
-   Colours come straight from the embedded `node.color` (set by the
-   Hugo template from data/wiki_palette.yaml), so the legend and
-   per-entry colour accents stay in sync with the entry pages.
+   `data-wiki-graph` attribute. Each container holds:
+     <script type="application/json" class="wiki-graph-source">
+       { nodes: [{id, title, url, category, color, focus}],
+         edges: [{source, target}] }
+     </script>
+   Modes: "mini" (280px, no label), "topic" (~340px, labels),
+          "full" (viewport-based, labels). Colours come from node.color.
    ========================================================= */
-
 (function () {
   "use strict";
 
   function escapeHTML(s) {
-    return String(s)
-      .replace(/&/g, "&amp;")
-      .replace(/</g, "&lt;")
-      .replace(/>/g, "&gt;");
+    return String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+  }
+
+  function readData(container) {
+    var src = container.querySelector("script.wiki-graph-source");
+    if (!src) return null;
+    try { return JSON.parse(src.textContent); }
+    catch (e) { console.warn("wiki-graph: invalid JSON", e); return null; }
+  }
+
+  function sizeFor(container, mode) {
+    var rect = container.getBoundingClientRect();
+    var w = rect.width || 600;
+    if (mode === "full")  return { w: w, h: Math.max(window.innerHeight - 220, 480) };
+    if (mode === "topic") return { w: w, h: 340 };
+    return { w: w, h: 280 };  // mini
   }
 
   function buildLegend(target, nodes) {
     if (!target) return;
-    var seen = {};
-    var entries = [];
+    var seen = {}, entries = [];
     nodes.forEach(function (n) {
       var c = n.category || "Uncategorized";
       if (seen[c]) return;
@@ -43,35 +52,21 @@
     });
   }
 
-  function readData(container) {
-    var src = container.querySelector("script.wiki-graph-source");
-    if (!src) return null;
-    try {
-      return JSON.parse(src.textContent);
-    } catch (e) {
-      console.warn("wiki-graph: invalid JSON", e);
-      return null;
-    }
-  }
-
-  function sizeFor(container, mode) {
-    var rect = container.getBoundingClientRect();
-    if (mode === "full") {
-      var h = Math.max(window.innerHeight - 220, 480);
-      return { w: rect.width || 800, h: h };
-    }
-    return { w: rect.width || 600, h: 260 };
-  }
-
   function render(container) {
     var data = readData(container);
-    if (!data || !Array.isArray(data.nodes) || data.nodes.length === 0) return;
+    if (!data || !Array.isArray(data.nodes) || data.nodes.length === 0) {
+      // Empty graph — leave a small hint instead of an empty box.
+      container.classList.add("wiki-graph-empty");
+      container.innerHTML = '<p class="wiki-graph-empty-hint">No entries yet.</p>';
+      return;
+    }
     if (typeof ForceGraph !== "function") {
       window.setTimeout(function () { render(container); }, 100);
       return;
     }
 
     var mode = container.getAttribute("data-wiki-graph-mode") || "mini";
+    var showLabel = (mode !== "mini");
 
     var links = (data.edges || []).map(function (e) {
       return { source: e.source, target: e.target };
@@ -83,6 +78,8 @@
     );
 
     var size = sizeFor(container, mode);
+    var nodeBaseRadius = (mode === "full" ? 5 : (mode === "topic" ? 5 : 4));
+    var labelFontSize  = (mode === "full" ? 11 : 10);
 
     var fg = ForceGraph()(container)
       .width(size.w)
@@ -91,12 +88,12 @@
       .graphData({ nodes: data.nodes, links: links })
       .nodeId("id")
       .nodeLabel(function (n) { return escapeHTML(n.title); })
-      .nodeRelSize(mode === "full" ? 5 : 4)
+      .nodeRelSize(nodeBaseRadius)
       .linkColor(function () { return "rgba(0,0,0,0.22)"; })
-      .linkWidth(function () { return mode === "full" ? 1.1 : 0.9; })
+      .linkWidth(function () { return mode === "mini" ? 0.9 : 1.1; })
       .linkDirectionalParticles(0)
       .nodeCanvasObject(function (node, ctx, globalScale) {
-        var r = (mode === "full" ? 5 : 4) + (node.focus ? 2 : 0);
+        var r = nodeBaseRadius + (node.focus ? 2 : 0);
         ctx.beginPath();
         ctx.arc(node.x, node.y, r, 0, 2 * Math.PI, false);
         ctx.fillStyle = node.color || "#1a5fb4";
@@ -106,8 +103,8 @@
           ctx.lineWidth = 1.6 / globalScale;
           ctx.stroke();
         }
-        if (mode === "full" || node.focus) {
-          var fontSize = (mode === "full" ? 11 : 10) / globalScale;
+        if (showLabel || node.focus) {
+          var fontSize = labelFontSize / globalScale;
           ctx.font = fontSize + 'px "Latin Modern Roman","CMU Serif",serif';
           ctx.fillStyle = "#141210";
           ctx.textAlign = "left";
@@ -116,7 +113,7 @@
         }
       })
       .nodePointerAreaPaint(function (node, color, ctx) {
-        var r = (mode === "full" ? 7 : 6);
+        var r = nodeBaseRadius + 3;
         ctx.fillStyle = color;
         ctx.beginPath();
         ctx.arc(node.x, node.y, r, 0, 2 * Math.PI, false);
@@ -125,10 +122,10 @@
       .onNodeClick(function (node) {
         if (node && node.url) window.location.href = node.url;
       })
-      .cooldownTicks(mode === "full" ? 200 : 80);
+      .cooldownTicks(mode === "mini" ? 80 : 200);
 
-    if (fg.d3Force("charge")) fg.d3Force("charge").strength(mode === "full" ? -120 : -60);
-    if (fg.d3Force("link"))   fg.d3Force("link").distance(mode === "full" ? 50 : 32);
+    if (fg.d3Force("charge")) fg.d3Force("charge").strength(mode === "mini" ? -60 : -120);
+    if (fg.d3Force("link"))   fg.d3Force("link").distance(mode === "mini" ? 32 : 50);
 
     if (mode === "full") {
       var legend = document.querySelector("[data-wiki-graph-legend]");

@@ -1,4 +1,8 @@
-<link rel="stylesheet" href="{{ "css/custom.css" | relURL }}">
+{{- /* Cache-bust local CSS / JS by appending the build timestamp. Each
+       Hugo run gives a fresh timestamp, so the browser re-fetches changed
+       static assets after a deploy instead of serving stale cached copies. */ -}}
+{{- $v := now.Unix -}}
+<link rel="stylesheet" href="{{ "css/custom.css" | relURL }}?v={{ $v }}">
 
 {{- /* Webfonts: Fraunces (display) + Source Serif 4 (body) + Inter (sans) */ -}}
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -24,6 +28,8 @@
         N: "\\mathbb{N}",
         coloneqq: "\\mathrel{:=}",
         Hom: "\\operatorname{Hom}",
+        Map: "\\operatorname{Map}",
+        Fun: "\\mathsf{Fun}",
         Spec: "\\operatorname{Spec}",
         colim: "\\operatorname{colim}",
         id: "\\operatorname{id}",
@@ -36,7 +42,22 @@
         xhookleftarrow:  ["\\overset{\\scriptstyle #1}{\\hookleftarrow}", 1],
         xtwoheadrightarrow: ["\\overset{\\scriptstyle #1}{\\twoheadrightarrow}", 1],
         cite:  ["\\class{citation}{\\href{##ref-#1}{[\\,#1\\,]}}", 1],
-        citet: ["\\class{citation}{\\href{##ref-#1}{(#1)}}", 1]
+        citet: ["\\class{citation}{\\href{##ref-#1}{(#1)}}", 1],
+        dint:       "\\displaystyle\\int",
+        diint:      "\\displaystyle\\iint",
+        diiint:     "\\displaystyle\\iiint",
+        doint:      "\\displaystyle\\oint",
+        dsum:       "\\displaystyle\\sum",
+        dprod:      "\\displaystyle\\prod",
+        dlim:       "\\displaystyle\\lim",
+        dcolim:     "\\displaystyle\\operatorname{colim}",
+        dbigcup:    "\\displaystyle\\bigcup",
+        dbigcap:    "\\displaystyle\\bigcap",
+        dbigvee:    "\\displaystyle\\bigvee",
+        dbigwedge:  "\\displaystyle\\bigwedge",
+        dbigoplus:  "\\displaystyle\\bigoplus",
+        dbigotimes: "\\displaystyle\\bigotimes",
+        dbigsqcup:  "\\displaystyle\\bigsqcup"
       }
     },
     options: {
@@ -52,9 +73,9 @@
 <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" id="MathJax-script"></script>
 
 <script>
-document.addEventListener("DOMContentLoaded", () => {
-  document.querySelectorAll("details.math-env").forEach((d) => {
-    d.addEventListener("toggle", () => {
+document.addEventListener("DOMContentLoaded", function () {
+  document.querySelectorAll("details.math-env").forEach(function (d) {
+    d.addEventListener("toggle", function () {
       if (!d.open) return;
       if (window.MathJax && MathJax.typesetPromise) {
         MathJax.typesetPromise([d]);

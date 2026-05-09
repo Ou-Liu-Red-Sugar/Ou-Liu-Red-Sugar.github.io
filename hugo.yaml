@@ -18,7 +18,7 @@ outputs:
 
 # Clean permalinks for sections
 permalinks:
-  notes: /notes/:sections/:slug/
+  notes: /notes/:sections[1:]/:slug/
   papers: /papers/:slug/
   invest: /invest/:slug/
   "invest/log": /invest/log/:slug/

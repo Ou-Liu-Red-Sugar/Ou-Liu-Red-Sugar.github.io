@@ -10,30 +10,30 @@
     <atom:link href="http://localhost:1313/notes/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Basic Concepts on Higher Algebra</title>
-      <link>http://localhost:1313/notes/notes/basic-concepts-on-higher-algebra/</link>
+      <link>http://localhost:1313/notes/basic-concepts-on-higher-algebra/</link>
       <pubDate>Mon, 22 Sep 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/notes/notes/basic-concepts-on-higher-algebra/</guid>
+      <guid>http://localhost:1313/notes/basic-concepts-on-higher-algebra/</guid>
       <description>This note introduces algebraic patterns and Segal objects, develops operads over algebraic patterns, and studies $\mathcal{O}$-monoidal categories together with $\mathcal{O}$-algebras in the Cartesian setting.</description>
     </item>
     <item>
       <title>A brief introduction to 6-functor formalisms</title>
-      <link>http://localhost:1313/notes/notes/a-brief-introduction-to-6-functor-formalisms/</link>
+      <link>http://localhost:1313/notes/a-brief-introduction-to-6-functor-formalisms/</link>
       <pubDate>Fri, 24 Apr 2026 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/notes/notes/a-brief-introduction-to-6-functor-formalisms/</guid>
+      <guid>http://localhost:1313/notes/a-brief-introduction-to-6-functor-formalisms/</guid>
       <description>A coherent pass through six-functor formalisms. From the structural properties one wants of cohomology, through the Liu–Zheng / Mann / Scholze span-category packaging and the Cnossen–Lenz–Linskens universal property, to Scholze&amp;#39;s organising observation: Poincaré duality for a morphism is *precisely* a dualizability statement in the $2$-category of kernels. We close with Heyer–Mann&amp;#39;s suave/prim weakening, Aoki&amp;#39;s one-step étale/proper picture, and transmutation to Gestalten.</description>
     </item>
     <item>
       <title>Sheaf Cohomology as Sheafification</title>
-      <link>http://localhost:1313/notes/notes/sheaf-cohomology-as-sheafification/</link>
+      <link>http://localhost:1313/notes/sheaf-cohomology-as-sheafification/</link>
       <pubDate>Sat, 27 Dec 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/notes/notes/sheaf-cohomology-as-sheafification/</guid>
+      <guid>http://localhost:1313/notes/sheaf-cohomology-as-sheafification/</guid>
       <description>Sheaf cohomology is evaluation of the sheafification: \(\Gamma(X, \mathcal{F}) \coloneqq (L\mathcal{F})(X)\). Reading Mayer–Vietoris, derived Čech, pushforward, base change and the vanishing \(H^i(\mathrm{Spec}\,R, \widetilde{M}) = 0\) directly off the sheaf condition, without spectral sequences or injective resolutions.</description>
     </item>
     <item>
       <title>Synthetic category theory and type theory</title>
-      <link>http://localhost:1313/notes/notes/synthetic-category-theory-and-type-theory/</link>
+      <link>http://localhost:1313/notes/synthetic-category-theory-and-type-theory/</link>
       <pubDate>Wed, 24 Dec 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/notes/notes/synthetic-category-theory-and-type-theory/</guid>
+      <guid>http://localhost:1313/notes/synthetic-category-theory-and-type-theory/</guid>
       <description>&lt;p&gt;This page aims to explain how &lt;strong&gt;type theory&lt;/strong&gt; can be understood within the framework of &lt;strong&gt;synthetic category theory&lt;/strong&gt;.&lt;/p&gt;
 &lt;p&gt;The content of this page is derived from my questions to Tashi during the second exercise class and Tashi’s responses. I would like to express my gratitude to Tashi here.&lt;/p&gt;
 &lt;p&gt;We focus on the following two questions:&lt;/p&gt;
@@ -45,9 +45,9 @@
     </item>
     <item>
       <title>Stable Dold–Kan and Descent</title>
-      <link>http://localhost:1313/notes/notes/stable-doldkan-and-descent/</link>
+      <link>http://localhost:1313/notes/stable-doldkan-and-descent/</link>
       <pubDate>Thu, 27 Nov 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/notes/notes/stable-doldkan-and-descent/</guid>
+      <guid>http://localhost:1313/notes/stable-doldkan-and-descent/</guid>
       <description>Unified exposition of the stable Dold–Kan correspondence and its application to descent theory in stable categories.</description>
     </item>
   </channel>

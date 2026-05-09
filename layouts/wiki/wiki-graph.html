@@ -1,7 +1,7 @@
 {{- /* layouts/wiki/wiki-graph.html
-       Full graph page. Same renderer as the per-entry mini-graph, but with
-       mode="full" so it occupies most of the viewport and exposes a
-       category legend.
+       Per-topic graph view. Each first-category gets its own
+       force-directed graph, with intra-topic edges only. The Conventions
+       page (and anything else with `excludeFromGraph: true`) is excluded.
 */ -}}
 {{- define "main" -}}
 <article class="post-single wiki-graph-page">
@@ -16,18 +16,55 @@
     {{- end -}}
   </header>
 
-  {{- $data := partial "wiki/graph-data.html" (dict "scope" "all") -}}
-
-  <div class="wiki-graph-canvas" data-wiki-graph data-wiki-graph-mode="full">
-    <script type="application/json" class="wiki-graph-source">{{ $data | jsonify | safeJS }}</script>
-  </div>
-
-  <p class="wiki-graph-hint">
-    Drag nodes to rearrange &middot; scroll to zoom &middot; click a node to open the entry.
-    Colour groups by first category.
+  <p class="wiki-graph-intro">
+    One graph per mathematical area. Drag nodes to rearrange, scroll to zoom,
+    click a node to open the entry. Edges show <code>[[wikilinks]]</code>
+    between entries within the same area.
   </p>
 
-  <div class="wiki-graph-legend" data-wiki-graph-legend></div>
+  {{- /* Collect entries (excluding /wiki/graph/ and excludeFromGraph) */ -}}
+  {{- $entries := slice -}}
+  {{- range where .Site.RegularPages "Section" "wiki" -}}
+    {{- if and (ne .RelPermalink "/wiki/graph/") (not .Params.excludeFromGraph) -}}
+      {{- $entries = $entries | append . -}}
+    {{- end -}}
+  {{- end -}}
+
+  {{- /* Group by first category */ -}}
+  {{- $byCat := dict -}}
+  {{- range $entries -}}
+    {{- $cat := "Uncategorized" -}}
+    {{- with .Params.categories -}}{{- $cat = index . 0 -}}{{- end -}}
+    {{- $existing := index $byCat $cat | default (slice) -}}
+    {{- $byCat = merge $byCat (dict $cat ($existing | append .)) -}}
+  {{- end -}}
+
+  {{- /* Stable order for the topic list: alphabetical by category name */ -}}
+  {{- $catNames := slice -}}
+  {{- range $cat, $_ := $byCat -}}
+    {{- $catNames = $catNames | append $cat -}}
+  {{- end -}}
+  {{- $catNames = sort $catNames -}}
+
+  {{- $palette := site.Data.wiki_palette -}}
+  {{- $defColor := $palette.default | default "#1a5fb4" -}}
+
+  <div class="wiki-graph-stack">
+    {{- range $cat := $catNames -}}
+      {{- $color := index $palette.categories $cat | default $defColor -}}
+      {{- $data  := partial "wiki/graph-data.html" (dict "scope" "category" "category" $cat) -}}
+      {{- $count := len (index $data "nodes") -}}
+      <section class="wiki-graph-topic" style="--entry-accent: {{ $color }};">
+        <h2 class="wiki-graph-topic-title">
+          <span class="wiki-graph-topic-dot"></span>{{ $cat }}
+          <span class="wiki-graph-topic-count">{{ $count }} entr{{ if eq $count 1 }}y{{ else }}ies{{ end }}</span>
+        </h2>
+        <div class="wiki-graph-topic-canvas" data-wiki-graph data-wiki-graph-mode="topic">
+          <script type="application/json" class="wiki-graph-source">{{ $data | jsonify | safeJS }}</script>
+        </div>
+      </section>
+    {{- end -}}
+  </div>
 
 </article>
 

@@ -2,15 +2,27 @@
   layouts/partials/wiki/render-wikilinks.html
 
   Input  : a string of HTML (typically .Content).
-  Output : same string with every [[Title]] replaced by either
-             - <a class="wikilink" href="...">Title</a>            (resolved)
-             - <span class="wikilink wikilink--broken">Title</span> (unresolved)
+  Output : same string with every wikilink replaced by either
+             - <a class="wikilink" href="...">display</a>            (resolved)
+             - <span class="wikilink wikilink--broken">display</span> (unresolved)
 
-  Code regions (<pre>...</pre> and inline <code>...</code>) are stashed
-  behind placeholders before the rewrite and restored afterwards, so a
-  literal `[[Title]]` inside a fenced block keeps its brackets verbatim.
+  Supported wikilink syntaxes:
+    - [[Title]]                  — link to entry "Title", display "Title"
+    - [[Title|display]]          — link to entry "Title", display "display"
+    - [[Title#anchor]]           — link to a section anchor in "Title"
+    - [[Title#anchor|display]]   — link to anchor with custom display text
 
-  Usage  : {{ partial "wiki/render-wikilinks.html" .Content | safeHTML }}
+  Parsing rules: split on the FIRST "|" to separate target from display
+  (the display may itself contain "|"); split the target on the FIRST
+  "#" to separate page-title from anchor. The anchor is normalized via
+  Hugo's anchorize to match heading slugs. Title and aliases are
+  matched case-insensitively (resolve-link.html).
+
+  Code regions (<pre>, inline <code>) AND math regions ($...$, $$...$$,
+  \(...\), \[...\]) are stashed behind placeholders before the rewrite
+  and restored afterwards. This protects literal "[[ ]]" inside code
+  blocks (so the wikilink syntax can be shown as-is) and inside math
+  (e.g. the formal-power-series notation k[[x]]).
 */ -}}
 {{- $content := . -}}
 
@@ -21,30 +33,95 @@
   {{- $content = replace $content $block $token 1 -}}
 {{- end -}}
 
-{{- /* (2) Stash inline <code>...</code> blocks. Single-line only;
-        these come from `inline code` spans in markdown. */ -}}
+{{- /* (2) Stash inline <code>...</code> blocks. */ -}}
 {{- $codeBlocks := findRE `<code[^>]*>[^<]*</code>` $content -}}
 {{- range $i, $block := $codeBlocks -}}
   {{- $token := printf "@@WIKILINK_CODE_%d@@" $i -}}
   {{- $content = replace $content $block $token 1 -}}
 {{- end -}}
 
-{{- /* (3) Resolve each [[Title]] to an anchor (or broken-link span). */ -}}
+{{- /* (3a) Stash display-math \[...\] (multiline). */ -}}
+{{- $mathDisplaySq := findRE `(?s)\\\[.+?\\\]` $content -}}
+{{- range $i, $block := $mathDisplaySq -}}
+  {{- $token := printf "@@WIKILINK_MDSQ_%d@@" $i -}}
+  {{- $content = replace $content $block $token 1 -}}
+{{- end -}}
+
+{{- /* (3b) Stash display-math $$...$$ (multiline). */ -}}
+{{- $mathDisplayDollar := findRE `(?s)\$\$.+?\$\$` $content -}}
+{{- range $i, $block := $mathDisplayDollar -}}
+  {{- $token := printf "@@WIKILINK_MDD_%d@@" $i -}}
+  {{- $content = replace $content $block $token 1 -}}
+{{- end -}}
+
+{{- /* (3c) Stash inline-math \(...\) (single line). */ -}}
+{{- $mathInlinePar := findRE `\\\(.+?\\\)` $content -}}
+{{- range $i, $block := $mathInlinePar -}}
+  {{- $token := printf "@@WIKILINK_MIP_%d@@" $i -}}
+  {{- $content = replace $content $block $token 1 -}}
+{{- end -}}
+
+{{- /* (3d) Stash inline-math $...$ (single line, no embedded $). */ -}}
+{{- $mathInlineDollar := findRE `\$[^$\n]+\$` $content -}}
+{{- range $i, $block := $mathInlineDollar -}}
+  {{- $token := printf "@@WIKILINK_MID_%d@@" $i -}}
+  {{- $content = replace $content $block $token 1 -}}
+{{- end -}}
+
+{{- /* (4) Resolve each [[...]] form. */ -}}
 {{- $matches := findRE `\[\[[^\[\]]+\]\]` $content -}}
 {{- range uniq $matches -}}
   {{- $whole := . -}}
-  {{- $title := replaceRE `^\[\[(.+)\]\]$` `$1` $whole -}}
-  {{- $target := partial "wiki/resolve-link.html" $title -}}
-  {{- $replacement := "" -}}
-  {{- with $target -}}
-    {{- $replacement = printf `<a class="wikilink" href="%s" title="%s">%s</a>` .RelPermalink .Title $title -}}
+  {{- $inner := replaceRE `(?s)^\[\[(.+)\]\]$` `$1` $whole -}}
+
+  {{- $pipeParts := split $inner "|" -}}
+  {{- $target := index $pipeParts 0 -}}
+  {{- $hasDisplay := gt (len $pipeParts) 1 -}}
+  {{- $display := "" -}}
+  {{- if $hasDisplay -}}
+    {{- $display = delimit (after 1 $pipeParts) "|" -}}
   {{- else -}}
-    {{- $replacement = printf `<span class="wikilink wikilink--broken" title="No wiki entry: %s">%s</span>` $title $title -}}
+    {{- $display = trim $target " " -}}
+  {{- end -}}
+
+  {{- $hashParts := split $target "#" -}}
+  {{- $pageTitle := replaceRE `\s+` " " (trim (index $hashParts 0) " ") -}}
+  {{- $anchor := "" -}}
+  {{- if gt (len $hashParts) 1 -}}
+    {{- $anchor = trim (delimit (after 1 $hashParts) "#") " " -}}
+  {{- end -}}
+
+  {{- $resolved := partial "wiki/resolve-link.html" $pageTitle -}}
+  {{- $replacement := "" -}}
+  {{- with $resolved -}}
+    {{- $href := .RelPermalink -}}
+    {{- if $anchor -}}
+      {{- $href = printf "%s#%s" .RelPermalink (anchorize $anchor) -}}
+    {{- end -}}
+    {{- $replacement = printf `<a class="wikilink" href="%s" title="%s">%s</a>` $href .Title $display -}}
+  {{- else -}}
+    {{- $replacement = printf `<span class="wikilink wikilink--broken" title="No wiki entry: %s">%s</span>` $pageTitle $display -}}
   {{- end -}}
   {{- $content = replace $content $whole $replacement -}}
 {{- end -}}
 
-{{- /* (4) Restore code/pre placeholders. */ -}}
+{{- /* (5) Restore stashed blocks in REVERSE order of stashing. */ -}}
+{{- range $i, $block := $mathInlineDollar -}}
+  {{- $token := printf "@@WIKILINK_MID_%d@@" $i -}}
+  {{- $content = replace $content $token $block -}}
+{{- end -}}
+{{- range $i, $block := $mathInlinePar -}}
+  {{- $token := printf "@@WIKILINK_MIP_%d@@" $i -}}
+  {{- $content = replace $content $token $block -}}
+{{- end -}}
+{{- range $i, $block := $mathDisplayDollar -}}
+  {{- $token := printf "@@WIKILINK_MDD_%d@@" $i -}}
+  {{- $content = replace $content $token $block -}}
+{{- end -}}
+{{- range $i, $block := $mathDisplaySq -}}
+  {{- $token := printf "@@WIKILINK_MDSQ_%d@@" $i -}}
+  {{- $content = replace $content $token $block -}}
+{{- end -}}
 {{- range $i, $block := $codeBlocks -}}
   {{- $token := printf "@@WIKILINK_CODE_%d@@" $i -}}
   {{- $content = replace $content $token $block -}}

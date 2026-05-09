@@ -1,0 +1,54 @@
+{{- /*
+  layouts/shortcodes/topic_index.html
+
+  Renders a small "Other entries in <topic>" navbox: links to every other
+  wiki entry whose first `categories:` value matches the current page's
+  first category. Skips the current page itself, the /wiki/graph/ page,
+  and anything with `excludeFromGraph: true`.
+
+  Usage  : place {{< topic_index >}} at the end of an entry, typically
+           inside the "Related concepts" section.
+*/ -}}
+{{- $current := .Page -}}
+{{- $cat := "" -}}
+{{- with $current.Params.categories -}}{{- $cat = index . 0 -}}{{- end -}}
+
+{{- if $cat -}}
+  {{- $palette := site.Data.wiki_palette -}}
+  {{- $color := index $palette.categories $cat | default $palette.default -}}
+
+  {{- $siblings := slice -}}
+  {{- range where site.RegularPages "Section" "wiki" -}}
+    {{- if and
+          (ne .RelPermalink $current.RelPermalink)
+          (ne .RelPermalink "/wiki/graph/")
+          (not .Params.excludeFromGraph) -}}
+      {{- $otherCat := "" -}}
+      {{- with .Params.categories -}}{{- $otherCat = index . 0 -}}{{- end -}}
+      {{- if eq $otherCat $cat -}}
+        {{- $siblings = $siblings | append . -}}
+      {{- end -}}
+    {{- end -}}
+  {{- end -}}
+
+  {{- $siblings = sort $siblings "Title" "asc" -}}
+
+  <aside class="wiki-topic-index" style="--entry-accent: {{ $color }};">
+    <div class="wiki-topic-index-header">
+      <span class="wiki-topic-index-dot"></span>
+      <span class="wiki-topic-index-eyebrow">Other entries in</span>
+      <span class="wiki-topic-index-name">{{ $cat }}</span>
+    </div>
+    {{- if gt (len $siblings) 0 }}
+    <ul class="wiki-topic-index-list">
+      {{- range $siblings }}
+      <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
+      {{- end }}
+    </ul>
+    {{- else }}
+    <p class="wiki-topic-index-empty">
+      <em>This is the only entry in {{ $cat }} so far.</em>
+    </p>
+    {{- end }}
+  </aside>
+{{- end -}}

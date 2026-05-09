@@ -1,0 +1,47 @@
+{{- /*
+  layouts/partials/wiki/parse-wikilink.html
+
+  Input  : a string — the raw inside of a wikilink, e.g. the result
+           of stripping the surrounding "[[" and "]]". May be of the
+           form "Title", "Title|display", "Title#anchor", or
+           "Title#anchor|display". Whitespace around the title and
+           anchor is trimmed. The first "|" separates the target
+           from the display text; everything after is the display
+           (so display text may itself contain "|"). The first "#"
+           inside the target separates page-title from anchor.
+
+  Output : a dict with keys
+             title    — page title to resolve
+             anchor   — section slug to append after "#", or empty
+             display  — text to render for the link
+             raw      — the input string (for fallback)
+
+  Caller invokes via partial and uses the returned dict; see
+  render-wikilinks.html and outgoing-links.html for examples.
+*/ -}}
+{{- $inner := . -}}
+
+{{- /* Split on the FIRST `|` into (target, display). Everything after
+       the first `|` is preserved as the display text. */ -}}
+{{- $pipeParts := split $inner "|" -}}
+{{- $target := index $pipeParts 0 -}}
+{{- $hasDisplay := gt (len $pipeParts) 1 -}}
+{{- $display := "" -}}
+{{- if $hasDisplay -}}
+  {{- $display = delimit (after 1 $pipeParts) "|" -}}
+{{- end -}}
+
+{{- /* Split target on the FIRST `#` into (page-title, anchor). */ -}}
+{{- $hashParts := split $target "#" -}}
+{{- $pageTitle := trim (index $hashParts 0) " " -}}
+{{- $anchor := "" -}}
+{{- if gt (len $hashParts) 1 -}}
+  {{- $anchor = trim (delimit (after 1 $hashParts) "#") " " -}}
+{{- end -}}
+
+{{- /* Default display = target (preserving any `#anchor` for transparency). */ -}}
+{{- if not $hasDisplay -}}
+  {{- $display = trim $target " " -}}
+{{- end -}}
+
+{{- return (dict "title" $pageTitle "anchor" $anchor "display" $display "raw" $inner) -}}

@@ -1,8 +1,10 @@
 {{- /*
   layouts/partials/wiki/graph-script.html
 
-  Loads the force-graph library (CDN) plus the site's wiki-graph initializer,
-  which auto-renders any element marked with `data-wiki-graph` on the page.
+  Loads the force-graph library (CDN) plus the site's wiki-graph initializer.
+  The local script URL is cache-busted with the build timestamp so a fresh
+  deploy never serves stale JS.
 */ -}}
+{{- $v := now.Unix -}}
 <script src="https://cdn.jsdelivr.net/npm/force-graph@1.43.5/dist/force-graph.min.js" defer></script>
-<script src="{{ "js/wiki-graph.js" | relURL }}" defer></script>
+<script src="{{ "js/wiki-graph.js" | relURL }}?v={{ $v }}" defer></script>

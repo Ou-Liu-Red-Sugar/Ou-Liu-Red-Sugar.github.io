@@ -24,11 +24,16 @@
   {{- end -}}
 {{- end -}}
 
-{{- /* Resolve [[Title]] references in this page's RawContent */ -}}
+{{- /* Resolve wikilink references in this page's RawContent. Strip the
+       outer brackets, drop any |display tail (everything after the first
+       |), drop any #anchor tail (everything after the first #), and look
+       up the remaining title. */ -}}
 {{- $matches  := findRE `\[\[[^\[\]]+\]\]` $current.RawContent -}}
 {{- $resolved := slice -}}
 {{- range uniq $matches -}}
-  {{- $title := lower (trim (replaceRE `^\[\[(.+)\]\]$` `$1` .) " ") -}}
+  {{- $inner  := replaceRE `(?s)^\[\[(.+)\]\]$` `$1` . -}}
+  {{- $target := index (split $inner "|") 0 -}}
+  {{- $title  := lower (replaceRE `\s+` " " (trim (index (split $target "#") 0) " ")) -}}
   {{- with index $byTitle $title -}}
     {{- $resolved = $resolved | append . -}}
   {{- end -}}
