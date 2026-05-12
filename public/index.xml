@@ -6,84 +6,14 @@
     <description>Recent content on Ou Liu</description>
     <generator>Hugo -- 0.152.2</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 26 Apr 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 30 Jan 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Algebraic K-theory</title>
-      <link>http://localhost:1313/notes/continuous-k-theory/algebraic-k-theory/</link>
-      <pubDate>Fri, 24 Apr 2026 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/notes/continuous-k-theory/algebraic-k-theory/</guid>
-      <description>Connective and non-connective algebraic K-theory via cospans and the Waldhausen S-construction; Verdier sequences in stable and non-stable settings; the non-connective extension via iterated Calkin categories.
-</description>
-    </item>
-    <item>
-      <title>Presentable Categories</title>
-      <link>http://localhost:1313/notes/gestalten/presentable-categories/</link>
-      <pubDate>Sun, 28 Dec 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/notes/gestalten/presentable-categories/</guid>
-      <description>This note reviews the basic theory of presentable categories. We focus on κ-compact objects, Ind-completions, accessible categories, and their role in organizing large categories via filtered colimits.</description>
-    </item>
-    <item>
-      <title>Compactly assembled categories</title>
-      <link>http://localhost:1313/notes/continuous-k-theory/compactly-assembled-categories/</link>
-      <pubDate>Fri, 24 Apr 2026 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/notes/continuous-k-theory/compactly-assembled-categories/</guid>
-      <description>Dualizable stable categories from the compactly assembled viewpoint: R-linear categories, dualizability in $\mathsf{Pr}_{\mathrm{st}}^L$, compactly exhaustible objects, the Lurie–Clausen characterisation, and the symmetric monoidal structure of $\mathsf{Pr}^L_{\mathrm{ca}}$.
-</description>
-    </item>
-    <item>
-      <title>Presentable n-Categories</title>
-      <link>http://localhost:1313/notes/gestalten/presentable-n-categories/</link>
-      <pubDate>Mon, 29 Dec 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/notes/gestalten/presentable-n-categories/</guid>
-      <description>This note introduces the notion of presentable n-categories.</description>
-    </item>
     <item>
       <title>Basic Concepts on Higher Algebra</title>
       <link>http://localhost:1313/notes/basic-concepts-on-higher-algebra/</link>
       <pubDate>Mon, 22 Sep 2025 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/notes/basic-concepts-on-higher-algebra/</guid>
       <description>This note introduces algebraic patterns and Segal objects, develops operads over algebraic patterns, and studies $\mathcal{O}$-monoidal categories together with $\mathcal{O}$-algebras in the Cartesian setting.</description>
-    </item>
-    <item>
-      <title>Continuous (Efimov) K-theory</title>
-      <link>http://localhost:1313/notes/continuous-k-theory/continuous-efimov-k-theory/</link>
-      <pubDate>Fri, 24 Apr 2026 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/notes/continuous-k-theory/continuous-efimov-k-theory/</guid>
-      <description>Extending algebraic K-theory from $\mathsf{Cat}^{\mathrm{rex}}$ to $\mathsf{Pr}^L_{\mathrm{ca}}$: the continuous Calkin category, Verdier cofibre sequences in the large setting, Efimov&amp;#39;s definition of continuous K-theory, its basic properties, and a sketch of the universal property of $K^{\mathrm{cont}}$.
-</description>
-    </item>
-    <item>
-      <title>Stefanich Rings</title>
-      <link>http://localhost:1313/notes/gestalten/stefanich-rings/</link>
-      <pubDate>Mon, 29 Dec 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/notes/gestalten/stefanich-rings/</guid>
-      <description>This note discusses the colimit of the sequence \[ \mathsf{CAlg}(1\mathsf{Pr}) \hookrightarrow \mathsf{CAlg}(2\mathsf{Pr}) \hookrightarrow \cdots \hookrightarrow \mathsf{CAlg}(n\mathsf{Pr}) \hookrightarrow \cdots . \] in $1\mathsf{Pr}$, and discuss the $n$-affine, $n$-proper, $n$-suave and $n$-prim maps.
-</description>
-    </item>
-    <item>
-      <title>Everything Becomes Affine Under Sufficient Categorification</title>
-      <link>http://localhost:1313/notes/gestalten/everything-becomes-affine-under-sufficient-categorification/</link>
-      <pubDate>Mon, 29 Dec 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/notes/gestalten/everything-becomes-affine-under-sufficient-categorification/</guid>
-      <description>
-This note constructs the six-functor formalism on \(n\mathsf{Pr}_{(-)}\), shows that it is sheafy with respect to fpqc topology, and then extends the theory from affine schemes of derived rings to stacks.
-</description>
-    </item>
-    <item>
-      <title>Algebraic geometry</title>
-      <link>http://localhost:1313/wiki/algebraic-geometry/</link>
-      <pubDate>Sun, 26 Apr 2026 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/wiki/algebraic-geometry/</guid>
-      <description>The study of geometric objects represented as functors from commutative rings to sets (or anima, in the derived variant) — schemes, projective varieties, and elliptic curves are central examples.
-</description>
-    </item>
-    <item>
-      <title>A brief introduction to 6-functor formalisms</title>
-      <link>http://localhost:1313/notes/a-brief-introduction-to-6-functor-formalisms/</link>
-      <pubDate>Fri, 24 Apr 2026 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/notes/a-brief-introduction-to-6-functor-formalisms/</guid>
-      <description>A coherent pass through six-functor formalisms. From the structural properties one wants of cohomology, through the Liu–Zheng / Mann / Scholze span-category packaging and the Cnossen–Lenz–Linskens universal property, to Scholze&amp;#39;s organising observation: Poincaré duality for a morphism is *precisely* a dualizability statement in the $2$-category of kernels. We close with Heyer–Mann&amp;#39;s suave/prim weakening, Aoki&amp;#39;s one-step étale/proper picture, and transmutation to Gestalten.</description>
     </item>
     <item>
       <title>Playbook</title>
@@ -146,13 +76,6 @@ representation theory.&lt;/p&gt;
 &lt;em&gt;University of Regensburg&lt;/em&gt;, Germany.&lt;br&gt;
 Research focus on motivic homotopy theory, derived algebraic geometry and
 higher category theory.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Graph view</title>
-      <link>http://localhost:1313/wiki/graph/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/wiki/graph/</guid>
-      <description>A force-directed graph of all wiki entries and their cross-references.</description>
     </item>
   </channel>
 </rss>
