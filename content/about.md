@@ -74,7 +74,7 @@ See the [Papers](/papers/) page for a running list.
 - *Six functors and Gestalten* — Gestalten (Oberseminar, Regensburg),
   22 June 2026.
 - *Zariski descent for modules* — Higher Zariski Geometry (Oberseminar,
-  Regensburg), 30 June 2026.
+  Regensburg), 07 July 2026.
 
 See the [Notes](/notes/) page for accompanying write-ups.
 
