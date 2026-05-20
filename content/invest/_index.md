@@ -47,7 +47,7 @@ If you're new:
 For any potential position:
 
 1. Apply **risk vectors** (rate / geopolitical / AI bubble / regulatory / macro fiscal) sector-specifically — no universal "should I be in stocks?" answer.
-2. Apply the **关联性 framework** — first-order financials are insufficient; second-order sector ecosystem analysis separates driver from symptom.
+2. Apply the **Interconnections framework** — first-order financials are insufficient; second-order sector ecosystem analysis separates driver from symptom.
 3. Compare risk-adjusted potential return to **near-riskless yield** (T-bill / money market / short-duration bonds). If below → skip; if above → proceed to sizing.
 
 Cash level is the cumulative downstream result of these decisions, not a policy target.
@@ -58,8 +58,8 @@ Cash level is the cumulative downstream result of these decisions, not a policy 
 
 These pages back the Playbook with concrete, frequently consulted state:
 
-- **[Watchlist](/invest/watchlist/)** — 候补池 of names not held but in active monitoring, with explicit trigger conditions.
-- **[Circle of Competence](/invest/circle-of-competence/)** — 圈内 / 边缘 / 外 map; where I have edge, where I'm learning, where I should fast-skip.
+- **[Watchlist](/invest/watchlist/)** — candidate pool of names not held but in active monitoring, with explicit trigger conditions.
+- **[Circle of Competence](/invest/circle-of-competence/)** — core / edge / outside map; where I have edge, where I'm learning, where I should fast-skip.
 - **[Calibration](/invest/calibration/)** — Tetlock-style prediction tracking; every substantive thesis gets a confidence + deadline + verification source.
 - **[Calibration Methodology](/invest/calibration-methodology/)** — 5-step process for deriving a defensible confidence number (not intuition).
 
