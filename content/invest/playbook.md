@@ -46,11 +46,11 @@ Risk does not exist as a single one-dimensional "regime level." It decomposes in
 
 Any position judgment must land **sector-specifically**. There is no universal "should I be in stocks right now?" answer.
 
-### 3.2 Methodology — 关联性 Framework
+### 3.2 Methodology — Interconnections Framework
 
 First-order (company financials) alone is **insufficient**. Must combine with **second-order** sector-specific ecosystem / dependency analysis to separate driver from symptom.
 
-> *"在评估一个行业时需要按照这个行业的特性以及跟某些领域的联系来判断。"*
+> *"When evaluating an industry, judgment must follow the industry's own characteristics together with its linkages to certain other fields."*
 
 Each sector has different second-order dimensions — no universal checklist. Build a library over time. Examples accumulated so far:
 
@@ -81,7 +81,7 @@ Monthly inflow provides an organic buffer — there is no fixed cash floor in ab
 The research flow is **collaborative**, not AI-led or solo:
 
 1. **User** forms a rough understanding of the company (business, product, competitive position)
-2. **AI** researches financials + 关联性 second-order analysis
+2. **AI** researches financials + Interconnections second-order analysis
 3. **User** raises probing questions to confirm thesis (no yes-man acceptance)
 4. **Decision**: deploy / don't deploy / add to watchlist
 
@@ -89,15 +89,15 @@ The research flow is **collaborative**, not AI-led or solo:
 
 ### 4.1 KB Auto-Triggers
 
-When financial discussion activates (any ticker / valuation / position / sector / 买卖 question), the AI side additionally consults the local KB:
+When financial discussion activates (any ticker / valuation / position / sector / buy-sell question), the AI side additionally consults the local KB:
 
 - **Ticker mentioned** → silent grep the [Watchlist](/invest/watchlist/); surface matching thesis stub + trigger conditions
-- **Sector discussed** → check [Circle of Competence](/invest/circle-of-competence/) (圈内 / 边缘 / 外):
-  - 圈内 → full thesis analysis
-  - 圈边缘 → flag learning area + open questions
-  - 圈外 → fast-skip, suggest stay out
+- **Sector discussed** → check [Circle of Competence](/invest/circle-of-competence/) (in-circle / edge / outside):
+  - In-circle → full thesis analysis
+  - Edge of circle → flag learning area + open questions
+  - Out-of-circle → fast-skip, suggest stay out
 - **Substantive thesis stated** → prompt for *Confidence (10/25/50/75/90)* + *Deadline (YYYY-MM-DD)* + *Verification source* → log to [Calibration](/invest/calibration/) open predictions
-- **加码 / 减仓 / 入场 / 出场 decision** → check against §5 sizing ladder + verify trigger criteria
+- **Build-up / trim / entry / exit decision** → check against §5 sizing ladder + verify trigger criteria
 
 **Override**: say "skip the check" to disable for the current turn.
 **Conflict resolution**: if KB says X and current discussion says Y → surface the conflict for explicit reconciliation, don't silently overwrite.
@@ -108,22 +108,22 @@ When financial discussion activates (any ticker / valuation / position / sector 
 
 Not static categories. Every position has both **upward and downward** mobility; the tier reflects current conviction, not a permanent label.
 
-### 5.1 Test-tier 底仓 (entry)
+### 5.1 Test-tier (entry)
 
 - Used when thesis is generally bullish but **not yet verified**
 - Entry conditions: low valuation + healthy financials + thesis directionally positive
 - **Typical size: ~2% NAV** (reference: DUOL Tranche 1)
 - Purpose: small position to observe and validate
 
-### 5.2 Build-up 加码
+### 5.2 Build-up
 
-- Triggered when thesis 可达成性 has been verified by subsequent evidence
+- Triggered when the thesis's achievability has been verified by subsequent evidence
 - Mechanism: **staged adds with continued validation**, not one-shot to target
 - Requires an explicit deployment plan (price milestones / event triggers / time pacing)
 - Minimum 5 trading days between steps (discipline, not a hard rule)
 - Same-day or next-day adds count as the same step
 
-### 5.3 Reduce / Exit 减仓 / 出
+### 5.3 Reduce / Exit
 
 Multiple triggers, all valid:
 
@@ -203,8 +203,8 @@ I may break a default rule only if:
 
 **Operational files (working tools, frequently consulted)**:
 
-- [Watchlist](/invest/watchlist/) — 候补池 + trigger conditions
-- [Circle of Competence](/invest/circle-of-competence/) — 圈内/边缘/外 map
+- [Watchlist](/invest/watchlist/) — candidate pool + trigger conditions
+- [Circle of Competence](/invest/circle-of-competence/) — in-circle / edge / outside map
 - [Calibration](/invest/calibration/) — Prediction tracking + Tetlock-style calibration
 - [Calibration Methodology](/invest/calibration-methodology/) — How to derive a defensible confidence number
 
@@ -227,7 +227,7 @@ I may break a default rule only if:
   - **Removed** sector 25% hard cap — consciously seek specific sector exposure (e.g., tech via MSFT, financial via AXP+V upstream/downstream pairing).
   - **Removed** rigid 5-day step gap as a hard rule — preserved as a discipline guideline within build-up sizing.
   - **Removed** "Sleep Test" absolute-loss framing — replaced by relative-to-index performance ruler.
-  - **Added** §3 World-view (risk vectors) + Methodology (关联性 framework) + Decision standard (vs near-riskless).
+  - **Added** §3 World-view (risk vectors) + Methodology (Interconnections framework) + Decision standard (vs near-riskless).
   - **Added** §5 Dynamic conviction ladder (test-tier → build-up → reduce/exit) replacing static sleeve allocation.
   - **Added** §6 Functional position-role configuration.
   - **Added** §4 Collaborative research protocol replacing "independent research" framing.
