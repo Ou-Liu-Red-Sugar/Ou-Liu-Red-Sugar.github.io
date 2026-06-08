@@ -65,3 +65,15 @@
   source: "/papers/notes/Low_weight.typ"
   wip: true
   weight: 60
+
+- title: "Six Functors and Gestalten"
+  description: >
+    Talk script for the Gestalten Oberseminar, following Scholze's "Geometry and
+    Higher Category Theory". Starting from a presentable six-functor formalism, we
+    construct its transmutation into the category of Gestalten (Stefanich rings)
+    via the category of kernels, factoring the formalism as "geometry plus
+    quasicoherent sheaves". Work in progress.
+  pdf: "/papers/notes/six-functors-and-gestalten.pdf"
+  updated: "2026-06-08"
+  wip: true
+  weight: 70
