@@ -68,11 +68,14 @@
 
 - title: "Six Functors and Gestalten"
   description: >
-    Talk script for the Gestalten Oberseminar, following Scholze's "Geometry and
-    Higher Category Theory". Starting from a presentable six-functor formalism, we
-    construct its transmutation into the category of Gestalten (Stefanich rings)
-    via the category of kernels, factoring the formalism as "geometry plus
-    quasicoherent sheaves". Work in progress.
+    Talk script following Scholze's "Geometry and Higher Category Theory"
+    (Lecture IX). Starting from a presentable six-functor formalism, we construct
+    its transmutation into the category of Gestalten (Stefanich rings) via the
+    category of kernels, factoring the formalism as "geometry plus quasicoherent
+    sheaves". Work in progress.
+  seminar:
+    name: "Gestalten Seminar"
+    url: "https://sites.google.com/view/sil-linskens/seminars/gestalten"
   pdf: "/papers/notes/six-functors-and-gestalten.pdf"
   updated: "2026-06-08"
   wip: true
