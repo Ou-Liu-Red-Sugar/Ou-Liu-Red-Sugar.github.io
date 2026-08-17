@@ -1,6 +1,6 @@
 ---
 title: "Monthly Reviews"
-description: "Low-frequency calibration of decision discipline, thesis drift, and attention cost."
+description: "Low-frequency review of decision discipline, thesis drift, and attention cost."
 layout: "list"
 hideMeta: true
 ShowToc: false

@@ -1,73 +1,65 @@
 ---
-title: "Investing"
-description: "A long-term investing log: decisions, lessons, and a personal playbook."
+title: "Investing Lab"
+description: "A public notebook for an investing research framework being tested in live practice."
 hideMeta: true
 layout: invest-home
 ShowToc: false
 ---
 
-> **Note:** This section is primarily for my personal reviews and post-mortems.
-> If you find it interesting or useful, you're welcome to read along.
+> **Current status:** This framework is being tested in live practice. The public version focuses on method, high-level review, and how the framework evolves. Detailed trade records, positions, and account data remain private. Nothing here is financial advice.
 
 ---
 
-## Why I write this
+## What this lab is
 
-I decided to treat investing as something worth doing **properly**—not something I ignore until volatility forces my attention.
+I am a personal investor building a research process that turns business events, context, and narratives into explicit variables, scenarios, and decisions. The work is still evolving: ideas are expected to change when evidence, outcomes, or better questions expose weak assumptions.
 
-I also admit a human motivation: investing adds a bit of intensity and color to life. But I learned the cost early: investing can silently consume time and attention, and my math study and projects slow down.
+This site is the public layer of that process. It records the parts that are useful without publishing a portfolio diary:
 
-That is why I document and review: to keep investing **explainable, repeatable, and in the background**, so I can go further without sacrificing what matters most.
+- translating narratives into operating drivers and risks;
+- constructing and comparing Bull, Base, and Bear scenarios;
+- reviewing uncertainty and assumptions against later evidence;
+- documenting how the framework changes after live testing.
 
----
-
-## Attention boundary (math comes first)
-
-To prevent investing from hijacking my schedule:
-
-- I keep investing in **small, scheduled windows** (and avoid "always-on monitoring").
-- If I break this boundary, it must be written down and reviewed.
-- The goal is not to "win every week", but to remain consistent for years.
+The private layer contains exact positions, trade records, cost bases, orders, and account-level exposure.
 
 ---
 
-## How to read this section
+## Start here
 
-If you're new:
+1. Read **[Framework](/invest/framework/)** for the public summary of the current research architecture.
+2. Read the **[Working Protocol](/invest/playbook/)** for the present decision and review process.
+3. Read **[Learning Notes](/learning/)** for the stochastic-process and financial-market study behind the framework.
 
-1. Read the **[Playbook](/invest/playbook/)** first (the "constitution" — world-view, methodology, decision standard).
-2. Scan a few entries in the **[Log](/invest/log/)** (execution in the wild).
-3. Browse **[Lessons](/invest/lessons/)** (rules backed by concrete cases — historical v1.x record).
-4. Use **[Monthly Reviews](/invest/reviews/)** to see how structure and attention drift over time.
-
----
-
-## Decision standard (before any action)
-
-For any potential position:
-
-1. Apply **risk vectors** (rate / geopolitical / AI bubble / regulatory / macro fiscal) sector-specifically — no universal "should I be in stocks?" answer.
-2. Apply the **Interconnections framework** — first-order financials are insufficient; second-order sector ecosystem analysis separates driver from symptom.
-3. Compare risk-adjusted potential return to **near-riskless yield** (T-bill / money market / short-duration bonds). If below → skip; if above → proceed to sizing.
-
-Cash level is the cumulative downstream result of these decisions, not a policy target.
+The framework is not presented as a finished strategy or a claim of edge. It is a live-tested working model whose value depends on whether it improves translation, comparison, review discipline, and decision quality over time.
 
 ---
 
-## Tools (operational layer)
+## Research loop
 
-These pages back the Playbook with concrete, frequently consulted state:
+1. **Translate** an event or narrative into observable business variables.
+2. **Structure** the business model, operating drivers, dependencies, and risk paths.
+3. **Build scenarios** with explicit assumptions and valuation ranges.
+4. **Attach uncertainty** through probabilities, confidence levels, and falsification conditions.
+5. **Decide conservatively**, including the option to take no action.
+6. **Review and update** the structure when new evidence arrives.
 
-- **[Watchlist](/invest/watchlist/)** — candidate pool of names not held but in active monitoring, with explicit trigger conditions.
-- **[Circle of Competence](/invest/circle-of-competence/)** — core / edge / outside map; where I have edge, where I'm learning, where I should fast-skip.
-- **[Calibration](/invest/calibration/)** — Tetlock-style prediction tracking; every substantive thesis gets a confidence + deadline + verification source.
-- **[Calibration Methodology](/invest/calibration-methodology/)** — 5-step process for deriving a defensible confidence number (not intuition).
+This is the bridge between fundamental analysis and the language of probability, distributions, risk exposure, and portfolio decisions.
 
 ---
 
-## Cadence
+## Historical record
 
-- **Log:** not frequent — just honest and close to the decision (3–10 minutes).
-- **Monthly review:** once per month, mainly to detect drift and attention cost.
-- **Lessons:** if the same mistake appears twice, it gets turned into an explicit rule.
-- **Sector library / calibration review:** quarterly (90 days) or trigger-based.
+Earlier public material remains available for continuity:
+
+- **[Log](/invest/log/)** — time-stamped notes close to past decisions;
+- **[Lessons](/invest/lessons/)** — rules extracted from earlier cases;
+- **[Monthly Reviews](/invest/reviews/)** — snapshots of process and attention drift.
+
+These pages may contain account details published in the past and may reflect older versions of the framework. They are historical records, not a description of the current method and not a promise that similar details will be published in the future.
+
+---
+
+## Boundary
+
+Investing has a defined place within broader work and life. Research happens in scheduled windows; continuous monitoring is not the default. When the process starts consuming disproportionate attention, the correct response is to reduce frequency and scope.

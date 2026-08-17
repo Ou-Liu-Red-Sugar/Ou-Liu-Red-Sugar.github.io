@@ -1,6 +1,7 @@
 ---
 title: "Basic Concepts on Higher Algebra"
 date: 2025-09-22
+math: true
 tags:
   - Algebraic Pattern
   - Operad

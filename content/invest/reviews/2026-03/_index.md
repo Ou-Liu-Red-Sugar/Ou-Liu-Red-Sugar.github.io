@@ -334,7 +334,7 @@ The two-week ceasefire clock runs to approximately April 21. Between now (4/9) a
 |----------|------------------:|------------------|--------|
 | **A. Ceasefire extends + Q1 earnings OK** | 40% | Gradual rebound, oil re-prices to USD 80s, stocks grind higher | Rebuild Core ETFs with new cash. MSFT Q3 on 4/29 is the binary catalyst. |
 | **B. Ceasefire holds but earnings disappoint on oil pass-through** | 30% | Oil-sensitive names (AMZN, V) under pressure; MSFT OK | Do not add; let 4/29 MSFT earnings clarify before any move. |
-| **C. Ceasefire fractures mid-April** | 25% | Oil back to USD 100+, SPX tests recent lows, VIX spikes | Existing Zone limits remain valid; no recalibration. |
+| **C. Ceasefire fractures mid-April** | 25% | Oil back to USD 100+, SPX tests recent lows, VIX spikes | Existing Zone limits remain valid; no reassessment. |
 | **D. Ceasefire becomes durable peace** | 5% | Full risk-on rally, cash drag maximized | Rebuild Core ETFs faster; accept the missed entry. |
 
 In all four scenarios the first-priority action converges: **rebuild Core ETFs with new cash, not by liquidating existing positions.**

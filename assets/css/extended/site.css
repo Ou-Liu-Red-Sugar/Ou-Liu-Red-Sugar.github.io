@@ -49,22 +49,20 @@ body{
 .nav a:hover{ color: var(--ou-accent); }
 
 /* =========================
-   Hero — Apple-style: white gradient, big sans, one centerpiece
+   Homepage hero
    ========================= */
 .ou-hero{
-  min-height: calc(100vh - 4rem);
+  min-height: min(760px, calc(100vh - 7rem));
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
   position: relative;
-  padding: 9vh 0 6vh;
+  padding: clamp(4.5rem, 10vh, 7rem) 0 clamp(4rem, 8vh, 6rem);
   overflow: hidden;
-  /* Soft white → warm-cream vertical wash */
-  background:
-    radial-gradient(ellipse 80% 50% at 50% 30%, rgba(255,255,255,0.85), rgba(255,255,255,0) 70%),
-    linear-gradient(180deg, #ffffff 0%, #fbfaf4 50%, var(--ou-bg) 100%);
+  background: #fbfaf5;
+  border-bottom: 1px solid var(--ou-rule-soft);
   margin-left: calc(50% - 50vw);
   margin-right: calc(50% - 50vw);
   padding-left: max(1rem, 4vw);
@@ -178,14 +176,14 @@ body{
   .ou-hero-bg .wm-term{ opacity: 0.05; }
 }
 
-.ou-hero-inner{ position: relative; z-index: 1; max-width: 60rem; }
+.ou-hero-inner{ position: relative; z-index: 1; max-width: 58rem; }
 
 /* Apple-style small tracked eyebrow */
 .ou-hero-eyebrow{
   font-family: var(--ou-sans);
   font-weight: 500;
   font-size: 0.78rem;
-  letter-spacing: 0.22em;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
   color: #7a7068;
   margin: 0 0 2.6rem;
@@ -199,7 +197,7 @@ body{
   font-weight: 700;
   font-size: clamp(4rem, 13vw, 10rem);
   line-height: 0.95;
-  letter-spacing: -0.045em;
+  letter-spacing: 0;
   margin: 0;
   color: #0a0a0a;
 }
@@ -219,22 +217,24 @@ body{
   font-family: var(--ou-body);
   font-style: normal;
   font-weight: 400;
-  font-size: clamp(0.98rem, 1.1vw, 1.12rem);
-  line-height: 1.65;
-  color: #4a443d;
-  max-width: 52ch;
+  font-size: clamp(1.15rem, 2.2vw, 1.55rem);
+  line-height: 1.55;
+  color: var(--ou-ink);
+  max-width: 54ch;
   margin: 2.2rem auto 0;
 }
 .ou-hero-bio em{ font-style: italic; color: var(--ou-ink); }
 
-/* Solo-hero modifier: homepage is just this one viewport */
-.ou-hero--solo{
-  min-height: 100vh;
-  padding: 6vh 0 6vh;
-  /* Remove vignette so the ink-cream gradient is cleaner */
+.ou-hero-context{
+  max-width: 62ch;
+  margin: 1.2rem auto 0;
+  font-family: var(--ou-body);
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--ou-ink-soft);
 }
 
-/* Apple-style CTA buttons: primary filled, secondary outlined */
+/* Homepage calls to action */
 .ou-hero-links{
   margin-top: 2.6rem;
   display: flex;
@@ -249,9 +249,9 @@ body{
   font-family: var(--ou-sans);
   font-weight: 500;
   font-size: 1rem;
-  letter-spacing: -0.005em;
+  letter-spacing: 0;
   padding: 0.78rem 1.7rem;
-  border-radius: 999px;
+  border-radius: 6px;
   text-decoration: none;
   transition: all 200ms ease;
 }
@@ -334,6 +334,159 @@ body{
   .ou-hero-eyebrow::after{ width: 1.5rem; }
   .ou-hero-bio{ margin-top: 1.4rem; }
   .ou-hero-links{ margin-top: 1.8rem; }
+  .ou-hero-links a{ width: 100%; justify-content: center; }
+}
+
+/* =========================
+   Homepage content paths
+   ========================= */
+.ou-home{
+  padding: 1rem 0 4rem;
+}
+
+.ou-home-section{
+  display: grid;
+  grid-template-columns: minmax(12rem, 0.75fr) minmax(0, 1.5fr);
+  gap: clamp(2rem, 6vw, 5rem);
+  padding: clamp(3.5rem, 8vw, 6rem) 0;
+  border-bottom: 1px solid var(--ou-rule);
+}
+
+.ou-home-heading{
+  align-self: start;
+}
+
+.ou-home-kicker{
+  margin: 0 0 0.8rem;
+  font-family: var(--ou-sans);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ou-accent);
+}
+
+.ou-home-heading h2{
+  margin: 0;
+  font-family: var(--ou-display);
+  font-size: clamp(1.65rem, 3vw, 2.35rem);
+  font-weight: 500;
+  line-height: 1.18;
+  letter-spacing: 0;
+  color: var(--ou-ink);
+}
+
+.ou-now-copy p,
+.ou-boundary-copy p,
+.ou-archive-copy p{
+  max-width: 62ch;
+  margin: 0 0 1rem;
+  font-family: var(--ou-body);
+  font-size: 1.05rem;
+  line-height: 1.75;
+  color: var(--ou-ink-soft);
+}
+
+.ou-paths{
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  border-top: 1px solid var(--ou-rule);
+  border-bottom: 1px solid var(--ou-rule);
+}
+
+.ou-path{
+  display: flex;
+  min-width: 0;
+  min-height: 18rem;
+  flex-direction: column;
+  padding: 1.5rem;
+  border-right: 1px solid var(--ou-rule);
+  color: var(--ou-ink);
+  text-decoration: none;
+  transition: background 160ms ease;
+}
+
+.ou-path:last-child{ border-right: 0; }
+.ou-path:hover{ background: rgba(139,44,30,0.045); }
+
+.ou-path-index{
+  font-family: var(--ou-mono);
+  font-size: 0.75rem;
+  color: var(--ou-ink-muted);
+}
+
+.ou-path h3{
+  margin: 2.2rem 0 0.65rem;
+  font-family: var(--ou-display);
+  font-size: 1.35rem;
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0;
+}
+
+.ou-path p{
+  margin: 0;
+  font-family: var(--ou-body);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--ou-ink-soft);
+}
+
+.ou-path-link{
+  margin-top: auto;
+  padding-top: 1.5rem;
+  font-family: var(--ou-sans);
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--ou-accent);
+}
+
+.ou-path-link::after,
+.ou-text-link::after{ content: " →"; }
+
+.ou-boundary{
+  background: var(--ou-bg-warm);
+  box-shadow: 50vw 0 var(--ou-bg-warm), -50vw 0 var(--ou-bg-warm);
+}
+
+.ou-disclaimer{
+  margin-top: 1.5rem !important;
+  font-family: var(--ou-sans) !important;
+  font-size: 0.8rem !important;
+  color: var(--ou-ink-muted) !important;
+}
+
+.ou-text-link{
+  display: inline-block;
+  margin-top: 0.5rem;
+  font-family: var(--ou-sans);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--ou-accent);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(139,44,30,0.3);
+}
+
+.ou-text-link:hover{ border-bottom-color: var(--ou-accent); }
+
+.ou-hero a:focus-visible,
+.ou-home a:focus-visible{
+  outline: 2px solid var(--ou-accent);
+  outline-offset: 4px;
+}
+
+@media (max-width: 760px){
+  .ou-hero{ min-height: auto; }
+  .ou-home-section{ grid-template-columns: 1fr; gap: 2rem; }
+  .ou-paths{ grid-template-columns: 1fr; }
+  .ou-path{
+    min-height: 0;
+    border-right: 0;
+    border-bottom: 1px solid var(--ou-rule);
+  }
+  .ou-path:last-child{ border-bottom: 0; }
+  .ou-path h3{ margin-top: 1.25rem; }
+  .ou-path-link{ margin-top: 1rem; }
 }
 
 /* =========================
@@ -520,7 +673,7 @@ body{
   padding: 0;
   margin: 0 0 3rem;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   border-top: 1px solid var(--ou-rule);
   border-bottom: 1px solid var(--ou-rule);
 }

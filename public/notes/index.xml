@@ -1,47 +1,8 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
-  <channel>
-    <title>Notes on Ou Liu</title>
-    <link>http://localhost:1313/notes/</link>
-    <description>Recent content in Notes on Ou Liu</description>
-    <generator>Hugo -- 0.152.2</generator>
-    <language>en-us</language>
-    <lastBuildDate>Sat, 27 Dec 2025 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/notes/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Basic Concepts on Higher Algebra</title>
-      <link>http://localhost:1313/notes/basic-concepts-on-higher-algebra/</link>
-      <pubDate>Mon, 22 Sep 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/notes/basic-concepts-on-higher-algebra/</guid>
-      <description>This note introduces algebraic patterns and Segal objects, develops operads over algebraic patterns, and studies $\mathcal{O}$-monoidal categories together with $\mathcal{O}$-algebras in the Cartesian setting.</description>
-    </item>
-    <item>
-      <title>Sheaf Cohomology as Sheafification</title>
-      <link>http://localhost:1313/notes/sheaf-cohomology-as-sheafification/</link>
-      <pubDate>Sat, 27 Dec 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/notes/sheaf-cohomology-as-sheafification/</guid>
-      <description>Sheaf cohomology is evaluation of the sheafification: \(\Gamma(X, \mathcal{F}) \coloneqq (L\mathcal{F})(X)\). Reading Mayer–Vietoris, derived Čech, pushforward, base change and the vanishing \(H^i(\mathrm{Spec}\,R, \widetilde{M}) = 0\) directly off the sheaf condition, without spectral sequences or injective resolutions.</description>
-    </item>
-    <item>
-      <title>Synthetic category theory and type theory</title>
-      <link>http://localhost:1313/notes/synthetic-category-theory-and-type-theory/</link>
-      <pubDate>Wed, 24 Dec 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/notes/synthetic-category-theory-and-type-theory/</guid>
-      <description>&lt;p&gt;This page aims to explain how &lt;strong&gt;type theory&lt;/strong&gt; can be understood within the framework of &lt;strong&gt;synthetic category theory&lt;/strong&gt;.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Math Notes on Ou Liu</title><link>https://ou-liu-red-sugar.github.io/notes/</link><description>Recent content in Math Notes on Ou Liu</description><generator>Hugo -- 0.152.2</generator><language>en-us</language><lastBuildDate>Sat, 27 Dec 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://ou-liu-red-sugar.github.io/notes/index.xml" rel="self" type="application/rss+xml"/><item><title>Basic Concepts on Higher Algebra</title><link>https://ou-liu-red-sugar.github.io/notes/basic-concepts-on-higher-algebra/</link><pubDate>Mon, 22 Sep 2025 00:00:00 +0000</pubDate><guid>https://ou-liu-red-sugar.github.io/notes/basic-concepts-on-higher-algebra/</guid><description>This note introduces algebraic patterns and Segal objects, develops operads over algebraic patterns, and studies $\mathcal{O}$-monoidal categories together with $\mathcal{O}$-algebras in the Cartesian setting.</description></item><item><title>Sheaf Cohomology as Sheafification</title><link>https://ou-liu-red-sugar.github.io/notes/sheaf-cohomology-as-sheafification/</link><pubDate>Sat, 27 Dec 2025 00:00:00 +0000</pubDate><guid>https://ou-liu-red-sugar.github.io/notes/sheaf-cohomology-as-sheafification/</guid><description>Sheaf cohomology is evaluation of the sheafification: \(\Gamma(X, \mathcal{F}) \coloneqq (L\mathcal{F})(X)\). Reading Mayer–Vietoris, derived Čech, pushforward, base change and the vanishing \(H^i(\mathrm{Spec}\,R, \widetilde{M}) = 0\) directly off the sheaf condition, without spectral sequences or injective resolutions.</description></item><item><title>Synthetic category theory and type theory</title><link>https://ou-liu-red-sugar.github.io/notes/synthetic-category-theory-and-type-theory/</link><pubDate>Wed, 24 Dec 2025 00:00:00 +0000</pubDate><guid>https://ou-liu-red-sugar.github.io/notes/synthetic-category-theory-and-type-theory/</guid><description>&lt;p&gt;This page aims to explain how &lt;strong&gt;type theory&lt;/strong&gt; can be understood within the framework of &lt;strong&gt;synthetic category theory&lt;/strong&gt;.&lt;/p&gt;
 &lt;p&gt;The content of this page is derived from my questions to Tashi during the second exercise class and Tashi’s responses. I would like to express my gratitude to Tashi here.&lt;/p&gt;
 &lt;p&gt;We focus on the following two questions:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;Question I.&lt;/strong&gt; How should we understand the notion of &lt;strong&gt;isofibration&lt;/strong&gt; (hereafter referred to as a &lt;em&gt;fibration&lt;/em&gt;) in synthetic category theory?&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Question II.&lt;/strong&gt; Do we still have a &lt;strong&gt;weak factorization system&lt;/strong&gt; in this context?&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;Next, we will answer these questions through the lens of type theory and the categorical perspective of synthetic category theory.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Stable Dold–Kan and Descent</title>
-      <link>http://localhost:1313/notes/stable-doldkan-and-descent/</link>
-      <pubDate>Thu, 27 Nov 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/notes/stable-doldkan-and-descent/</guid>
-      <description>Unified exposition of the stable Dold–Kan correspondence and its application to descent theory in stable categories.</description>
-    </item>
-  </channel>
-</rss>
+&lt;p&gt;Next, we will answer these questions through the lens of type theory and the categorical perspective of synthetic category theory.&lt;/p&gt;</description></item><item><title>Stable Dold–Kan and Descent</title><link>https://ou-liu-red-sugar.github.io/notes/stable-doldkan-and-descent/</link><pubDate>Thu, 27 Nov 2025 00:00:00 +0000</pubDate><guid>https://ou-liu-red-sugar.github.io/notes/stable-doldkan-and-descent/</guid><description>Unified exposition of the stable Dold–Kan correspondence and its application to descent theory in stable categories.</description></item></channel></rss>

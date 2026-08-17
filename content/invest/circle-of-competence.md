@@ -15,7 +15,7 @@ Built bottom-up from **actual experience + verified knowledge**, NOT aspiration.
 - Edge of circle → explicitly tag "learning area, apply Interconnections cautiously + open questions"
 - Out-of-circle → fast-skip, suggest stay out
 
-**Status**: Starter version 2026-05-18, awaiting calibration + ongoing expansion.
+**Status**: Starter version 2026-05-18, awaiting review + ongoing expansion.
 
 ---
 

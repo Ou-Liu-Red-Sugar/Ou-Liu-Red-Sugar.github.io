@@ -28,53 +28,39 @@ permalinks:
 
 menu:
   main:
-    - identifier: wiki
-      name: Wiki
-      url: /wiki/
-      weight: 5
-    - identifier: notes
-      name: Notes
-      url: /notes/
-      weight: 10
-    - identifier: papers
-      name: Papers
-      url: /papers/
-      weight: 20
     - identifier: invest
-      name: Investing
+      name: Investing Lab
       url: /invest/
-      weight: 25
-    - identifier: about
-      name: About me
-      url: /about/
+      weight: 10
+    - identifier: learning
+      name: Learning Notes
+      url: /learning/
+      weight: 20
+    - identifier: archive
+      name: Math Archive
+      url: /notes/
       weight: 30
+    - identifier: about
+      name: About
+      url: /about/
+      weight: 40
 
 params:
   env: production
-  description: "Academic homepage and notes."
+  description: "Learning stochastic processes and financial markets while testing an investing research framework in live practice."
   author: "Ou Liu"
 
   # PaperMod UX
   ShowPostNavLinks: true
   defaultTheme: light
   disableThemeToggle: true
-  math: true
+  math: false
 
   # Reading experience (PaperMod keys are case-sensitive)
   ShowToc: true
   TocOpen: false
   ShowReadingTime: true
   ShowCodeCopyButtons: true
-
-  profileMode:
-    enabled: true
-    title: "Ou Liu (刘欧)"
-    subtitle: "M.Sc. student in Mathematics, University of Regensburg"
-    buttons:
-      - name: My Chinese Homepage (Banana Space)
-        url: "https://www.bananaspace.org/wiki/%E7%94%A8%E6%88%B7:%E9%81%97%E5%BF%98%E7%9A%84%E5%B7%A6%E4%BC%B4%E9%9A%8F"
-      - name: ORCID
-        url: "https://orcid.org/0009-0006-5593-4339"
 
   customCSS:
     - css/custom.css

@@ -4,7 +4,7 @@
   <header class="ou-section-head">
     <div class="ou-section-eyebrow">
       {{- if eq .RelPermalink "/notes/" -}}
-        Mathematics &middot; working notes &amp; seminars
+        Mathematics archive &middot; notes &amp; seminars
       {{- else -}}
         Notes{{ with .Parent }}{{ if ne .RelPermalink "/notes/" }} &middot; {{ .Title }}{{ end }}{{ end }}
       {{- end -}}
@@ -28,7 +28,7 @@
         <li>
           <div class="row">
             <p class="t">{{ .title }}</p>
-            <span class="meta">PDF{{ with .updated }} &middot; updated {{ . }}{{ end }}{{ if .wip }} &middot; WIP{{ end }}</span>
+            <span class="meta">PDF{{ with .updated }} &middot; archived {{ . }}{{ end }}{{ if .wip }} &middot; archived draft{{ end }}</span>
           </div>
           <p class="d">
             {{ .description }}
@@ -37,8 +37,9 @@
           <p class="l">
             <a href="{{ .pdf }}" rel="noopener">Download PDF →</a>
             {{- with .online_ref -}}
-              {{- $url := print "/" (replace . ".md" "/") -}}
-              <a href="{{ $url }}">Online version →</a>
+              {{- with site.GetPage . -}}
+              <a href="{{ .RelPermalink }}">Online version →</a>
+              {{- end -}}
             {{- end -}}
           </p>
         </li>
@@ -54,11 +55,11 @@
   </div>
   {{- end }}
 
-  {{- /* Latest updates — compact, at the very bottom of the page */ -}}
+  {{- /* Most recently archived entries — compact, at the bottom */ -}}
   {{- if eq .RelPermalink "/notes/" }}
     {{- $latest := first 5 (where .Site.RegularPages "Section" "notes").ByDate.Reverse }}
     {{- if gt (len $latest) 0 }}
-    <h2 class="ou-latest-heading">Latest updates</h2>
+    <h2 class="ou-latest-heading">Recently archived</h2>
     <ul class="ou-entry-list">
       {{- range $latest }}
       <li>

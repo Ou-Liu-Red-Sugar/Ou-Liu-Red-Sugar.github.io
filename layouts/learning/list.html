@@ -1,0 +1,38 @@
+{{- define "main" -}}
+<article class="ou-section-landing ou-section--learning">
+  <header class="ou-section-head">
+    <div class="ou-section-eyebrow">Learning log &middot; markets under uncertainty</div>
+    <h1>{{ .Title }}</h1>
+    {{- with .Params.description }}
+      <p class="ou-section-desc">{{ . | markdownify }}</p>
+    {{- end }}
+  </header>
+
+  <div class="post-content">
+    {{ .Content }}
+  </div>
+
+  <h2>Current notebook</h2>
+  <ul class="ou-notes-pdfs">
+    <li>
+      <div class="row">
+        <p class="t" lang="zh-CN">随机过程与金融市场</p>
+        <span class="meta">PDF &middot; Chinese &middot; work in progress</span>
+      </div>
+      <p class="d">
+        Notes in progress on probability, stochastic processes, market
+        structure, and the boundary between mathematical models and investing
+        decisions.
+      </p>
+      <p class="l">
+        <a href="{{ "learning/stochastic.pdf" | relURL }}" rel="noopener">Read the PDF &rarr;</a>
+      </p>
+    </li>
+  </ul>
+
+  <p class="ou-section-note">
+    This public notebook shares the learning process and framework ideas.
+    Detailed positions, transactions, and portfolio records remain private.
+  </p>
+</article>
+{{- end -}}

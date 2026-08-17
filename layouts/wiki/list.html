@@ -6,7 +6,7 @@
 <article class="ou-section-landing ou-section--wiki">
 
   <header class="ou-section-head">
-    <div class="ou-section-eyebrow">Mathematics &middot; personal wiki</div>
+    <div class="ou-section-eyebrow">Mathematics &middot; paused archive</div>
     <h1>{{ .Title }}</h1>
     {{- with .Params.description }}
       <p class="ou-section-desc">{{ . | markdownify }}</p>
@@ -27,6 +27,8 @@
       {{- $entries = $entries | append . -}}
     {{- end -}}
   {{- end -}}
+
+  {{- if gt (len $entries) 0 }}
 
   {{- /* Convention banner */ -}}
   {{- with site.GetPage "wiki/conventions" }}
@@ -59,7 +61,7 @@
 
     {{- /* MAIN: latest updates (title + date) + topic grid */ -}}
     <section class="wiki-landing-main">
-      <h2 class="wiki-landing-heading">Latest updates</h2>
+      <h2 class="wiki-landing-heading">Recently archived</h2>
       <ul class="wiki-latest">
         {{- range first 5 (sort $entries "Date" "desc") }}
         {{- $color := partial "wiki/category-color.html" . }}
@@ -124,9 +126,11 @@
         {{- end }}
       </div>
 
+      {{- with site.GetPage "wiki/graph" }}
       <p class="wiki-graph-link">
-        <a href="/wiki/graph/">Open the graph view →</a>
+        <a href="{{ .RelPermalink }}">Open the graph view →</a>
       </p>
+      {{- end }}
     </section>
 
     {{- /* SIDE: search-filtered A-Z list of every entry */ -}}
@@ -155,8 +159,12 @@
 
   </div>
 
+  {{- end }}
+
 </article>
 
+{{- if gt (len $entries) 0 }}
 {{- $v := now.Unix -}}
 <script src="{{ "js/wiki-search.js" | relURL }}?v={{ $v }}" defer></script>
+{{- end }}
 {{- end -}}

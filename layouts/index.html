@@ -1,25 +1,111 @@
 {{- define "main" -}}
 
-<section class="ou-hero ou-hero--solo">
+<section class="ou-hero" aria-labelledby="home-title">
   <div class="ou-hero-inner">
-    <p class="ou-hero-eyebrow">Mathematics · Regensburg</p>
+    <p class="ou-hero-eyebrow">Personal investor · Learning in public</p>
 
-    <h1 class="ou-hero-name">
+    <h1 class="ou-hero-name" id="home-title">
       Ou Liu
       <span class="ou-hero-name-cn">刘欧</span>
     </h1>
 
     <p class="ou-hero-bio">
-      I am a master's student in Mathematics at the <em>University of Regensburg</em>,
-      with interests in motivic homotopy theory, derived algebraic geometry, and
-      higher category theory. Before Regensburg, I studied at <em>Shanxi University</em>.
+      I am learning stochastic processes and financial markets while testing an
+      investing research framework in live practice.
+    </p>
+
+    <p class="ou-hero-context">
+      This is a working record of how I study, form views, and revise decisions
+      under uncertainty. The framework is still being tested and is not presented
+      as a finished system.
     </p>
 
     <div class="ou-hero-links">
-      <a class="cta-primary" href="/notes/">Explore notes</a>
-      <a class="cta-secondary" href="/about/">About me</a>
+      <a class="cta-primary" href="/invest/">Enter the Investing Lab</a>
+      <a class="cta-secondary" href="/learning/">Browse learning notes</a>
     </div>
   </div>
 </section>
+
+<div class="ou-home">
+  <section class="ou-home-section ou-now" aria-labelledby="now-title">
+    <div class="ou-home-heading">
+      <p class="ou-home-kicker">Now</p>
+      <h2 id="now-title">Learning, testing, revising.</h2>
+    </div>
+    <div class="ou-now-copy">
+      <p>
+        My current work sits between study and practice: building a clearer
+        understanding of stochastic processes and financial markets, then using
+        that understanding to improve a fundamental investing process.
+      </p>
+      <p>
+        Live practice is the test environment. Conclusions remain provisional,
+        and the process is expected to change as evidence accumulates.
+      </p>
+    </div>
+  </section>
+
+  <section class="ou-home-section" aria-labelledby="paths-title">
+    <div class="ou-home-heading">
+      <p class="ou-home-kicker">Paths</p>
+      <h2 id="paths-title">Three parts of the site.</h2>
+    </div>
+    <div class="ou-paths">
+      <a class="ou-path" href="/invest/">
+        <span class="ou-path-index">01</span>
+        <h3>Investing Lab</h3>
+        <p>Framework design, uncertainty review, and lessons from testing ideas in live practice.</p>
+        <span class="ou-path-link">Explore the lab</span>
+      </a>
+      <a class="ou-path" href="/learning/">
+        <span class="ou-path-index">02</span>
+        <h3>Learning Notes</h3>
+        <p>Notes on stochastic processes, financial markets, and the concepts connecting them.</p>
+        <span class="ou-path-link">Read the notes</span>
+      </a>
+      <a class="ou-path" href="/notes/">
+        <span class="ou-path-index">03</span>
+        <h3>Math Archive</h3>
+        <p>Earlier mathematical notes and research material, preserved as an archive.</p>
+        <span class="ou-path-link">Open the archive</span>
+      </a>
+    </div>
+  </section>
+
+  <section class="ou-home-section ou-boundary" aria-labelledby="boundary-title">
+    <div class="ou-home-heading">
+      <p class="ou-home-kicker">Public boundary</p>
+      <h2 id="boundary-title">The process is public. The portfolio is not.</h2>
+    </div>
+    <div class="ou-boundary-copy">
+      <p>
+        This site focuses on learning notes, framework design, and high-level review.
+        Detailed trade records, position data, and account-level results stay private.
+      </p>
+      <p class="ou-disclaimer">These are personal research notes, not recommendations.</p>
+    </div>
+  </section>
+
+  <section class="ou-home-section ou-archive-note" aria-labelledby="archive-title">
+    <div class="ou-home-heading">
+      <p class="ou-home-kicker">Archive note</p>
+      <h2 id="archive-title">Mathematics remains part of the record, not the current identity.</h2>
+    </div>
+    <div class="ou-archive-copy">
+      <p>
+        I have stepped away from academic mathematics. Notes and papers from that
+        period remain available for reference, but they are no longer the main thread
+        of this site.
+      </p>
+      <p>
+        Even after leaving Germany, the body has not simply returned to normal,
+        and mentally I am still far from fully recovered. The present work is
+        part of trying to do better.
+      </p>
+      <a class="ou-text-link" href="/notes/">Visit the Math Archive</a>
+    </div>
+  </section>
+</div>
 
 {{- end -}}

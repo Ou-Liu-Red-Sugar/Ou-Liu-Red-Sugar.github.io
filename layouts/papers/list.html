@@ -2,12 +2,12 @@
 <article class="ou-section-landing ou-section--papers">
 
   <header class="ou-section-head">
-    <div class="ou-section-eyebrow">Publications &amp; preprints</div>
+    <div class="ou-section-eyebrow">Earlier work &middot; preserved archive</div>
     <h1>{{ .Title }}</h1>
     {{- with .Params.description }}
       <p class="ou-section-desc">{{ . | markdownify }}</p>
     {{- else }}
-      <p class="ou-section-desc">A running list of my published work and preprints.</p>
+      <p class="ou-section-desc">Published work preserved from my earlier mathematical activity.</p>
     {{- end }}
   </header>
 
@@ -39,9 +39,9 @@
   </ol>
   {{- end }}
 
-  <h2>Preprints</h2>
   {{- $preprints := .Site.Data.publications.preprints }}
   {{- if and $preprints (gt (len $preprints) 0) }}
+  <h2>Preprints</h2>
   <ol class="ou-pub-list">
     {{- range $preprints }}
     <li>
@@ -56,8 +56,6 @@
     </li>
     {{- end }}
   </ol>
-  {{- else }}
-  <p class="ou-pub-empty">No publicly available preprints at this time.</p>
   {{- end }}
 
 </article>

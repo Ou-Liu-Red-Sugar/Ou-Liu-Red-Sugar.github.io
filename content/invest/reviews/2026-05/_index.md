@@ -195,7 +195,7 @@ The honest failure of the period. An NVDA earnings deep-dive on 5/21 concluded t
 
 ### 5.2 The FUTU execution miss
 
-Thesis right, execution wrong: +14.7% of same-day opportunity cost surrendered because I waited for stabilization on a setup whose reversal window was minutes, not days. A framework-calibration error rather than a thesis error, but a real cost.
+Thesis right, execution wrong: +14.7% of same-day opportunity cost surrendered because I waited for stabilization on a setup whose reversal window was minutes, not days. A framework-review error rather than a thesis error, but a real cost.
 
 ### 5.3 PDD build pace
 
@@ -255,7 +255,7 @@ Mean-reversion gaps give days; capitulation bounces give minutes. The pre-trade 
 
 ### 7.5 Repeating a thesis is not accumulating evidence for it
 
-Filing the same bear call at escalating confidence (65% → 90% in 9 days) with no new mechanism is confirmation bias wearing a calibration costume. A high-cash posture is justified by R/D math at *any* conditional probability from 15% to 90% — so inflating the confidence number adds zero decision value and real self-deception cost.
+Filing the same bear call at escalating confidence (65% → 90% in 9 days) with no new mechanism is confirmation bias wearing a process costume. A high-cash posture is justified by R/D math at *any* conditional probability from 15% to 90% — so inflating the confidence number adds zero decision value and real self-deception cost.
 
 ### 7.6 "Wanting to reward innovation" is an alarm, not a license
 
@@ -319,7 +319,7 @@ At 5/30 the book is concentrated quality + ~72% cash, with a disciplined set of 
 | 6/15–6/30 | Energy plays (XOM/OXY/XLE) evaluation window | Deferred until the post-Iran oil baseline is clear |
 | ~Aug | PDD Q2 earnings | HARD STOP lifts; Q2 online-marketing growth is the key falsifying gate |
 | 8/15 | 段永平 Q2 13F | PDD conviction check (no >10% cut from 19.75M baseline) |
-| 8/17–8/19 | Quarterly calibration + FOMO 90-day review | The real next checkpoint |
+| 8/17–8/19 | Quarterly review + FOMO 90-day review | The real next checkpoint |
 
 ### 9.3 What I will and won't do
 
