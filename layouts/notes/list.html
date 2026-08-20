@@ -28,7 +28,7 @@
         <li>
           <div class="row">
             <p class="t">{{ .title }}</p>
-            <span class="meta">PDF{{ with .updated }} &middot; archived {{ . }}{{ end }}{{ if .wip }} &middot; archived draft{{ end }}</span>
+            <span class="meta">PDF{{ with .language }} &middot; {{ . }}{{ end }}{{ with .updated }} &middot; archived {{ . }}{{ end }}{{ if .wip }} &middot; archived draft{{ end }}</span>
           </div>
           <p class="d">
             {{ .description }}

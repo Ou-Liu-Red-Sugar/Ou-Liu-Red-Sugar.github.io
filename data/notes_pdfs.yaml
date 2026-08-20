@@ -79,3 +79,14 @@
   pdf: "/papers/notes/six-functors-and-gestalten.pdf"
   updated: "2026-06-09"
   weight: 70
+
+- title: "Spectra: Basic Ideas"
+  description: >
+    Chinese-language notes on the basic ideas around spectra and stable
+    categories, including Brown representability, generalized cohomology,
+    homological algebra, higher algebra, monads, and descent. Preserved here as
+    part of the mathematics archive.
+  pdf: "/papers/notes/spectra-basic-ideas.pdf"
+  language: "Chinese"
+  updated: "2026-08-20"
+  weight: 80
