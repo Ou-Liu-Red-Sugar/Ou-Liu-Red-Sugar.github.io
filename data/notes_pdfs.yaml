@@ -90,3 +90,16 @@
   language: "Chinese"
   updated: "2026-08-20"
   weight: 80
+
+- title: "Category Theory and Model Categories"
+  description: >
+    Chinese-language graduate-level notes on category theory and model
+    categories, with perspectives from simplicial models, homotopy type theory,
+    and higher categories. Topics include basic category theory, abstract
+    homotopy theory, model structures and Quillen adjunctions, simplicial sets,
+    and the relationship between HoTT, CaTT, and higher categorical models.
+    Preserved here as part of the mathematics archive.
+  pdf: "/papers/notes/category-theory-and-model-categories.pdf"
+  language: "Chinese"
+  updated: "2026-08-21"
+  weight: 90
