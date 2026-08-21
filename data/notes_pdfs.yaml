@@ -29,17 +29,17 @@
   pdf: "/papers/notes/Monad.pdf"
   weight: 30
 
-- title: "Algebraic Geometry"
+- title: "Algebraic Geometry: A Functor-of-Points Viewpoint"
   description: >
-    Archived lecture notes for Algebraic Geometry I (WiSe 2025/26), taught by Marc
-    Hoyois, with detailed proofs supplementing Marc's script. The second-semester
-    material was unfinished when archived.
+    Completed lecture notes for Algebraic Geometry I and II, developed from
+    lectures by Marc Hoyois and written from a functor-of-points viewpoint. The
+    final archived version was proofread and polished with Codex.
   seminar:
     name: "Algebraic Geometry I"
     url: "https://hoyois.app.uni-regensburg.de/WS26/alggeo1/index.html"
   pdf: "/papers/notes/AG.pdf"
-  updated: "2026-04-26"
-  wip: true
+  language: "English"
+  updated: "2026-08-21"
   weight: 40
 
 - title: "Motivic Homotopy Theory"
