@@ -38,6 +38,10 @@ preserved here as an archive rather than an active research programme.
 - [Publications Archive](/papers/)
 - [Wiki Archive](/wiki/)
 
+## Contact
+
+Email: [ouliuredsugar@gmail.com](mailto:ouliuredsugar@gmail.com)
+
 ## Languages
 
 Chinese (native) and English (working).
