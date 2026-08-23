@@ -42,6 +42,19 @@
   updated: "2026-08-23"
   weight: 40
 
+- title: "Algebraic Geometry: A Functor-of-Points Viewpoint (Chinese Version)"
+  description: >
+    Chinese-language version of AG.pdf, developed from lectures by Marc Hoyois
+    and written from a functor-of-points viewpoint. Preserved alongside the
+    English version in the mathematics archive.
+  seminar:
+    name: "Algebraic Geometry I"
+    url: "https://hoyois.app.uni-regensburg.de/WS26/alggeo1/index.html"
+  pdf: "/papers/notes/AG-zh.pdf"
+  language: "Chinese"
+  updated: "2026-08-24"
+  weight: 41
+
 - title: "Motivic Homotopy Theory"
   description: >
     Revised archived draft notes on motivic homotopy theory and motivic
