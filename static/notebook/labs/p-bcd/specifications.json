@@ -3,7 +3,7 @@
     "id": "EXP-P04-CANONICAL-PATH",
     "title": "从校准业务关系到共同经营情景",
     "anchor": "p04-experiment",
-    "description": "以已实现事实校准同一经营关系，重建资本批次、利润与资金，再比较原状态和具名替代。",
+    "description": "以已实现事实校准同一经营关系，重建资本批次、利润与资金，再比较原状态和具名替代.",
     "inputs": {
       "choice": {
         "allowed": [
@@ -36,7 +36,7 @@
       "lab": "https://ou-liu-red-sugar.github.io/notebook/labs/p-bcd/interactions.html#EXP-P04-CANONICAL-PATH",
       "without_javascript": "默认完整表和主要对照保留；不把参数规格当运行结果"
     },
-    "algorithm": "engine.path(choice)；只按source_key选已有结果，选择命名替代不再接state/stress，缺季度不插值。",
+    "algorithm": "engine.path(choice)；只按source_key选已有结果，选择命名替代不再接state/stress，缺季度不插值.",
     "boundaries": [
       "未知组合抛错并清空旧结果",
       "替代中capital规则为Base但余额属于重算结果",
@@ -53,7 +53,7 @@
     "id": "EXP-P05-PROBABILITY-LEDGER",
     "title": "情景概率：状态集合、证据与更新",
     "anchor": "p05-experiment",
-    "description": "先定义互斥穷尽的公司状态，再记录粗权重的证据、可行替代和更新；评分不生成概率。",
+    "description": "先定义互斥穷尽的公司状态，再记录粗权重的证据、可行替代和更新；评分不生成概率.",
     "inputs": {
       "aws_state": {
         "allowed": [
@@ -115,7 +115,7 @@
       "lab": "https://ou-liu-red-sugar.github.io/notebook/labs/p-bcd/interactions.html#EXP-P05-PROBABILITY-LEDGER",
       "without_javascript": "默认完整表和主要对照保留；不把参数规格当运行结果"
     },
-    "algorithm": "engine.classify/weights/brier；教学转移只Bull→Bear，Base/Tail不动；操作历史不更改研究。",
+    "algorithm": "engine.classify/weights/brier；教学转移只Bull→Bear，Base/Tail不动；操作历史不更改研究.",
     "boundaries": [
       "概率和≠1直接拒绝，非自动归一化",
       "NaN/negative/unknown states拒绝",
@@ -138,7 +138,7 @@
     "id": "EXP-P28-GROUPING",
     "title": "估值对象与业务状态：从研究拆分到估值组",
     "anchor": "p28-experiment",
-    "description": "分清收费业务、地域、资源与报告分部，按利润、资本和权利的可识别性形成估值组。",
+    "description": "分清收费业务、地域、资源与报告分部，按利润、资本和权利的可识别性形成估值组.",
     "inputs": {
       "card": {
         "allowed": [
@@ -176,7 +176,7 @@
       "lab": "https://ou-liu-red-sugar.github.io/notebook/labs/p-bcd/interactions.html#EXP-P28-GROUPING",
       "without_javascript": "默认完整表和主要对照保留；不把参数规格当运行结果"
     },
-    "algorithm": "按类型展示映射；reallocation在固定两倍数下守恒EBIT，不建立新组估值。",
+    "algorithm": "按类型展示映射；reallocation在固定两倍数下守恒EBIT，不建立新组估值.",
     "boundaries": [
       "地域/资源不可当收入单元加总",
       "不以客户独占为条件",
@@ -200,7 +200,7 @@
     "id": "EXP-P29-COMP-MATCH",
     "title": "盈利状态、资本需求与条件定价参照",
     "anchor": "p29-experiment",
-    "description": "重建TTM和经营价值边界，匹配索取权、盈利期间与定价日，再讨论资本状态差异。",
+    "description": "重建TTM和经营价值边界，匹配索取权、盈利期间与定价日，再讨论资本状态差异.",
     "inputs": {
       "peer": {
         "allowed": [
@@ -246,7 +246,7 @@
       "lab": "https://ou-liu-red-sugar.github.io/notebook/labs/p-bcd/interactions.html#EXP-P29-COMP-MATCH",
       "without_javascript": "默认完整表和主要对照保留；不把参数规格当运行结果"
     },
-    "algorithm": "engine.peer；GOOGL账面开关仅取0/131.461；MSFT只接受PE_GAAP/PE_ADJUSTED；同EV转NOPAT倍数除1−t。",
+    "algorithm": "engine.peer；GOOGL账面开关仅取0/131.461；MSFT只接受PE_GAAP/PE_ADJUSTED；同EV转NOPAT倍数除1−t.",
     "boundaries": [
       "EV/EPS和PE/EBIT报错",
       "t<0或t≥1/NaN报错",
@@ -264,7 +264,7 @@
     "id": "EXP-P30-EQUITY-BRIDGE",
     "title": "从经营价值与股权价值到普通股",
     "anchor": "p30-experiment",
-    "description": "用同日期资本与权利完成普通股桥，区分已计项目、现金保留和期末股份。",
+    "description": "用同日期资本与权利完成普通股桥，区分已计项目、现金保留和期末股份.",
     "inputs": {
       "state": {
         "allowed": [
@@ -300,7 +300,7 @@
       "lab": "https://ou-liu-red-sugar.github.io/notebook/labs/p-bcd/interactions.html#EXP-P30-EQUITY-BRIDGE",
       "without_javascript": "默认完整表和主要对照保留；不把参数规格当运行结果"
     },
-    "algorithm": "engine.equity；新增奖励仅固定价值的分母算例；mixedEquity拒绝重复扣银行债。",
+    "algorithm": "engine.equity；新增奖励仅固定价值的分母算例；mixedEquity拒绝重复扣银行债.",
     "boundaries": [
       "额外股数有限且0≤extra≤.2",
       "0其他权利明确模型假设",
@@ -323,7 +323,7 @@
     "id": "EXP-P31-RISK-REWARD",
     "title": "日期现金、结果分布与Risk-Reward",
     "anchor": "p31-experiment",
-    "description": "用日期现金与同状态普通股结果合并粗权重，区分两种年化、代表点亏损及资金限制。",
+    "description": "用日期现金与同状态普通股结果合并粗权重，区分两种年化、代表点亏损及资金限制.",
     "inputs": {
       "pricing_id": {
         "allowed": [
@@ -366,7 +366,7 @@
       "lab": "https://ou-liu-red-sugar.github.io/notebook/labs/p-bcd/interactions.html#EXP-P31-RISK-REWARD",
       "without_javascript": "默认完整表和主要对照保留；不把参数规格当运行结果"
     },
-    "algorithm": "engine.distribution读取16个已有价格/权重对，复算所有字段；flip始终固定原repr/adopted，不随其他下拉框混算。",
+    "algorithm": "engine.distribution读取16个已有价格/权重对，复算所有字段；flip始终固定原repr/adopted，不随其他下拉框混算.",
     "boundaries": [
       "未知定价/权重拒绝",
       "无类内支持故不发布true P(loss)",

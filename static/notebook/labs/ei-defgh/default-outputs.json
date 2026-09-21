@@ -74,7 +74,7 @@
         "cumulative_accrual": 2
       }
     ],
-    "units": "million USD; annualized rates versus first-calendar-year accrual; not payment-date cash"
+    "units": "USD M; annualized rates versus first-calendar-year accrual; not payment-date cash"
   },
   "exp-ei11-fx": {
     "receivable_start": 110.00000000000001,

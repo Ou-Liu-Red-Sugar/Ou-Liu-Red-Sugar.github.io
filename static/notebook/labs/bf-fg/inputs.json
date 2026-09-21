@@ -2,7 +2,7 @@
   "schema_version": "BFFG-1.0",
   "content_version": "2026-09-21-review-v3",
   "cutoff": "2026-09-21",
-  "identity_policy": "historical_observation / disclosed_non_gaap / analyst_arithmetic / hypothetical_contract 分列；未获取的未来现金及收益为null。",
+  "identity_policy": "historical_observation / disclosed_non_gaap / analyst_arithmetic / hypothetical_contract 分列；未获取的未来现金及收益为null.",
   "tables": {
     "cost_income": {
       "id": "cost_income",
@@ -14,7 +14,7 @@
         "FY2024 · 2024-09-01 · 52周",
         "FY2023 · 2023-09-03 · 53周"
       ],
-      "unit": "USD millions",
+      "unit": "USD M",
       "data_identity": "historical_observation",
       "rows": [
         {
@@ -224,7 +224,7 @@
         {
           "id": "shares",
           "label_original": "SHARES USED IN CALCULATION (000's)",
-          "label_zh": "计算使用股数（千股）",
+          "label_zh": "计算使用股数（K 股）",
           "kind": "heading",
           "section": "shares",
           "values": [
@@ -259,9 +259,9 @@
         }
       ],
       "notes": [
-        "金额为百万美元；EPS为美元/股；股数为千股。括号负数按负号保存。",
-        "合并利润表未单列毛利；MD&A p.27定义Gross Margin=Net sales−Merchandise costs，2025/24/23分别30026/27267/25124。",
-        "2023是53周，2025和2024为52周；比较增长前核对。"
+        "金额单位为 USD M；EPS为美元/股；股数为K 股. 括号负数按负号保存.",
+        "合并利润表未单列毛利；MD&A p.27定义Gross Margin=Net sales−Merchandise costs，2025/24/23分别30026/27267/25124.",
+        "2023是53周，2025和2024为52周；比较增长前核对."
       ],
       "retrieved_at": "2026-09-21",
       "provenance": "同会话已核原表输入复用；本批仍保留原标签、比较列与脚注。"
@@ -276,7 +276,7 @@
         "2024",
         "2023"
       ],
-      "unit": "USD millions",
+      "unit": "USD M",
       "data_identity": "historical_observation",
       "rows": [
         {
@@ -654,7 +654,7 @@
         {
           "id": "shares_basic",
           "label_original": "Weighted-average basic shares",
-          "label_zh": "基本加权平均股数（百万股）",
+          "label_zh": "基本加权平均股数（ M 股）",
           "kind": "detail",
           "section": "shares",
           "values": [
@@ -666,7 +666,7 @@
         {
           "id": "shares_diluted",
           "label_original": "Weighted-average diluted shares",
-          "label_zh": "稀释加权平均股数（百万股）",
+          "label_zh": "稀释加权平均股数（ M 股）",
           "kind": "detail",
           "section": "shares",
           "values": [
@@ -677,9 +677,9 @@
         }
       ],
       "notes": [
-        "GAAP集团合并口径，不混入managed/FTE分部口径。",
-        "费用行原表为正额，计算中减去；投资证券损失为带负号收入。",
-        "EPS为美元/股，股数为百万股；原表应与附注一同阅读。"
+        "GAAP集团合并口径，不混入managed/FTE分部口径.",
+        "费用行原表为正额，计算中减去；投资证券损失为带负号收入.",
+        "EPS为美元/股，股数为 M 股；原表应与附注一同阅读."
       ],
       "retrieved_at": "2026-09-21",
       "provenance": "同会话已核原表输入复用；本批仍保留原标签、比较列与脚注。"
@@ -694,7 +694,7 @@
         "FY2025 · 2025-01-31",
         "FY2024 · 2024-01-31"
       ],
-      "unit": "USD millions",
+      "unit": "USD M",
       "data_identity": "historical_observation",
       "rows": [
         {
@@ -1179,9 +1179,9 @@
         }
       ],
       "notes": [
-        "（1）D&A含取得无形资产摊销、固定资产折旧、使用权资产摊销及减值。",
-        "资产与负债变动按原表扣除企业合并影响，不能直接用两个期末余额替换。",
-        "现金集合为cash and cash equivalents。补充已付利息和税款已经体现在现金流中，不重复累加。"
+        "（1）D&A含取得无形资产摊销、固定资产折旧、使用权资产摊销及减值.",
+        "资产与负债变动按原表扣除企业合并影响，不能直接用两个期末余额替换.",
+        "现金集合为cash and cash equivalents. 补充已付利息和税款已经体现在现金流中，不重复累加."
       ],
       "aggregation_rules": [
         {
@@ -1259,7 +1259,7 @@
         "FY2024 · 52周",
         "FY2023 · 53周"
       ],
-      "unit": "USD millions",
+      "unit": "USD M",
       "data_identity": "historical_observation",
       "rows": [
         {
@@ -1720,9 +1720,9 @@
         }
       ],
       "notes": [
-        "零值按原表破折号语义保留数值0；主表标题无金额为null，不等于0。",
-        "其他非现金经营活动净额为负不能整行解释为本期资产减值。",
-        "现金集合为cash and cash equivalents；补充的未付资本支出不加到当期现金支出。"
+        "零值按原表破折号语义保留数值0；主表标题无金额为null，不等于0.",
+        "其他非现金经营活动净额为负不能整行解释为本期资产减值.",
+        "现金集合为cash and cash equivalents；补充的未付资本支出不加到当期现金支出."
       ],
       "aggregation_rules": [
         {
@@ -1795,7 +1795,7 @@
         "2024",
         "2023"
       ],
-      "unit": "USD millions",
+      "unit": "USD M",
       "data_identity": "historical_observation",
       "rows": [
         {
@@ -2400,9 +2400,9 @@
         }
       ],
       "notes": [
-        "此表以原页重新排版；行名称保留业务含义，原文图像位于PDF第201页。",
-        "JPM现金集合为cash and due from banks and deposits with banks，不能改称普通公司cash equivalents。",
-        "变化和合计按原表符号；经营资产扩张与客户存款筹资分属不同活动类别。"
+        "此表以原页重新排版；行名称保留业务含义，原文图像位于PDF第201页.",
+        "JPM现金集合为cash and due from banks and deposits with banks，不能改称普通公司cash equivalents.",
+        "变化和合计按原表符号；经营资产扩张与客户存款筹资分属不同活动类别."
       ],
       "aggregation_rules": [
         {
@@ -2491,7 +2491,7 @@
         "2025-08-31",
         "2024-09-01"
       ],
-      "unit": "USD million；股数与每股面值按行另标",
+      "unit": "USD M；股数与每股面值按行另标",
       "data_identity": "historical_observation",
       "rows": [
         {
@@ -2986,7 +2986,7 @@
         }
       ],
       "notes": [
-        "标题和无金额披露为空，不等于零；括号为减项；明细、小计和总计不得重复相加。"
+        "标题和无金额披露为空，不等于零；括号为减项；明细、小计和总计不得重复相加."
       ]
     },
     "jpm_bs": {
@@ -2998,7 +2998,7 @@
         "2025-12-31",
         "2024-12-31"
       ],
-      "unit": "USD million；股数与每股面值按行另标",
+      "unit": "USD M；股数与每股面值按行另标",
       "data_identity": "historical_observation",
       "rows": [
         {
@@ -3507,8 +3507,8 @@
         }
       ],
       "notes": [
-        "标题和无金额披露为空，不等于零；括号为减项；明细、小计和总计不得重复相加。",
-        "脚注(a)：所列VIE资产负债已包含于主表，排除被合并抵销的集团内余额，不能再次加总。"
+        "标题和无金额披露为空，不等于零；括号为减项；明细、小计和总计不得重复相加.",
+        "脚注(a)：所列VIE资产负债已包含于主表，排除被合并抵销的集团内余额，不能再次加总."
       ],
       "vie_note_rows": [
         {
@@ -3639,7 +3639,7 @@
         "2025-08-31",
         "2024-09-01"
       ],
-      "unit": "USD million",
+      "unit": "USD M",
       "data_identity": "historical_observation",
       "rows": [
         {
@@ -3734,7 +3734,7 @@
         }
       ],
       "notes": [
-        "原脚注：流动部分扣除相关未摊销折价及发行费用，列入其他流动负债；不可泛化为流动账面额永远等于未折现本金。"
+        "原脚注：流动部分扣除相关未摊销折价及发行费用，列入其他流动负债；不可泛化为流动账面额永远等于未折现本金."
       ]
     },
     "sf_adjust_oi": {
@@ -3746,7 +3746,7 @@
         "FY2026",
         "FY2025"
       ],
-      "unit": "USD million",
+      "unit": "USD M",
       "data_identity": "historical_observation",
       "rows": [
         {
@@ -3831,8 +3831,8 @@
         }
       ],
       "notes": [
-        "年度期间截至相应年份1月31日，非日历年；利润率是公司展示的取整百分数。",
-        "SBC脚注(3)：FY26/FY25重组项内的29/2不在本表SBC剔除行，已经纳入重组与收购行。"
+        "年度期间截至相应年份1月31日，非日历年；利润率是公司展示的取整百分数.",
+        "SBC脚注(3)：FY26/FY25重组项内的29/2不在本表SBC剔除行，已经纳入重组与收购行."
       ]
     },
     "sf_adjust_ni": {
@@ -3844,7 +3844,7 @@
         "FY2026",
         "FY2025"
       ],
-      "unit": "USD million",
+      "unit": "USD M",
       "data_identity": "historical_observation",
       "rows": [
         {
@@ -3909,7 +3909,7 @@
         }
       ],
       "notes": [
-        "这是官方完整组合；税额不作为可任意拆分的单项税收属性。"
+        "这是官方完整组合；税额不作为可任意拆分的单项税收属性."
       ]
     },
     "sf_adjust_eps": {
@@ -3987,7 +3987,7 @@
         {
           "id": "basic_shares",
           "label_original": "Shares used in computing basic net income per share",
-          "label_zh": "GAAP与non-GAAP基本分母（百万股）",
+          "label_zh": "GAAP与non-GAAP基本分母（ M 股）",
           "values": [
             950,
             962
@@ -3997,7 +3997,7 @@
         {
           "id": "diluted_shares",
           "label_original": "Shares used in computing diluted net income per share",
-          "label_zh": "GAAP与non-GAAP稀释分母（百万股）",
+          "label_zh": "GAAP与non-GAAP稀释分母（ M 股）",
           "values": [
             956,
             974
@@ -4006,7 +4006,7 @@
         }
       ],
       "notes": [
-        "每股调整分别取整；FY26/FY25官方两种稀释EPS分别使用同一956/974百万股分母。"
+        "每股调整分别取整；FY26/FY25官方两种稀释EPS分别使用同一956/974 M 股分母."
       ]
     },
     "sf_fcf": {
@@ -4018,7 +4018,7 @@
         "FY2026",
         "FY2025"
       ],
-      "unit": "USD million",
+      "unit": "USD M",
       "data_identity": "historical_observation",
       "rows": [
         {
@@ -4064,7 +4064,7 @@
         "3m ended 2025-09-30",
         "3m ended 2024-12-31"
       ],
-      "unit": "USD million",
+      "unit": "USD M",
       "data_identity": "historical_observation",
       "rows": [
         {
@@ -4157,8 +4157,8 @@
         }
       ],
       "notes": [
-        "季度平均；银行法人行与集团行身份不同。证券使用监管公允价值及haircut口径。",
-        "集团排除银行超过独立最低要求且无法转移给非银行关联方的HQLA；金额比值不是逐日监管比率平均的重新计算。"
+        "季度平均；银行法人行与集团行身份不同. 证券使用监管公允价值及haircut口径.",
+        "集团排除银行超过独立最低要求且无法转移给非银行关联方的HQLA；金额比值不是逐日监管比率平均的重新计算."
       ]
     },
     "jpm_deposits": {
@@ -4172,7 +4172,7 @@
         "2025 average",
         "2024 average"
       ],
-      "unit": "USD million",
+      "unit": "USD M",
       "data_identity": "historical_observation",
       "rows": [
         {
@@ -4247,7 +4247,7 @@
         "FY2026",
         "FY2025"
       ],
-      "unit": "USD million",
+      "unit": "USD M",
       "data_identity": "historical_observation",
       "rows": [
         {
@@ -4323,7 +4323,7 @@
         "FY2025",
         "FY2024"
       ],
-      "unit": "USD million",
+      "unit": "USD M",
       "data_identity": "historical_observation",
       "rows": [
         {
@@ -4383,13 +4383,13 @@
         }
       ],
       "notes": [
-        "(1)投资现金流已经包含物业设备付款。FCF未扣债务服务、其他合同付款及收购，不能再将CFI全额扣一次。"
+        "(1)投资现金流已经包含物业设备付款. FCF未扣债务服务、其他合同付款及收购，不能再将CFI全额扣一次."
       ]
     }
   },
   "cost_debt": {
     "source_id": "BFFG-C01",
-    "unit": "USD million",
+    "unit": "USD M",
     "as_of": "2025-08-31",
     "cash": 14161,
     "short_investments": 1123,
@@ -4415,15 +4415,15 @@
     "current_net": 75,
     "noncurrent_carrying": 5713,
     "facility_conditions": [
-      "多数设施一年内到期，续期只是管理层意图。",
-      "借款余额在期末不重大。",
-      "可借金额受未结信用证影响；1220不另擅自扣200。",
-      "是否能在所选付款日提款仍须核到期、条件、主体及币种。"
+      "多数设施一年内到期，续期只是管理层意图.",
+      "借款余额在期末不重大.",
+      "可借金额受未结信用证影响；1220不另擅自扣200.",
+      "是否能在所选付款日提款仍须核到期、条件、主体及币种."
     ]
   },
   "jpm_liquidity": {
     "source_id": "BFFG-C02",
-    "unit": "USD million unless marked",
+    "unit": "USD M unless marked",
     "average_period": "three months ended 2025-12-31",
     "group": {
       "eligible_cash": 281117,
@@ -4447,14 +4447,14 @@
       "uninsured_estimate": 1558600
     },
     "notes": [
-      "449bn原文明确排除已列HQLA/其他无抵押证券带来的相关能力，不能武断称必然重复。",
-      "期末资产与有条件融资能力分别呈现，不输出无条件挤兑覆盖率。"
+      "449bn原文明确排除已列HQLA/其他无抵押证券带来的相关能力，不能武断称必然重复.",
+      "期末资产与有条件融资能力分别呈现，不输出无条件挤兑覆盖率."
     ]
   },
   "sf_adjust": {
     "source_id": "BFFG-C05",
     "period": "FY2026 ended 2026-01-31",
-    "unit": "USD million",
+    "unit": "USD M",
     "revenue": 41525,
     "gaap_oi": 8331,
     "adjustments": [
@@ -4498,7 +4498,7 @@
   "sf_finance": {
     "source_id": "BFFG-C04",
     "period": "FY2026 ended 2026-01-31",
-    "unit": "USD million; shares in millions",
+    "unit": "USD M; shares in millions",
     "principal": 14500,
     "carrying": 14439,
     "current": 4000,
@@ -4560,10 +4560,10 @@
     "budget": 3000,
     "repurchase_price": 60,
     "conditions": [
-      "同一初始状态、同一即时比较点。",
-      "建设限已取得且符合资本化条件设施；不涵盖所有研发或内部投入。",
-      "回购使用库存股成本法，无费用税款；0<=B<=cash，p>0，B/p<N。",
-      "无额外收入、融资、价格变动或未来收益假设。"
+      "同一初始状态、同一即时比较点.",
+      "建设限已取得且符合资本化条件设施；不涵盖所有研发或内部投入.",
+      "回购使用库存股成本法，无费用税款；0<=B<=cash，p>0，B/p<N.",
+      "无额外收入、融资、价格变动或未来收益假设."
     ]
   },
   "liquidity_teaching": {
@@ -4579,7 +4579,7 @@
     "debt_day": 2,
     "observation_days": 3,
     "same_day_order": "当日收款先于付款；非结算制度一般结论",
-    "conditions": "已确认一项无条件收款权；只改到账日，不改销售收入/债务本金；负值表示融资前缺口。"
+    "conditions": "已确认一项无条件收款权；只改到账日，不改销售收入/债务本金；负值表示融资前缺口."
   },
   "integrated": {
     "retail": {
@@ -4643,7 +4643,7 @@
   "walmart": {
     "source_id": "BFFG-C06",
     "period": "FY2026 ended 2026-01-31",
-    "unit": "USD million",
+    "unit": "USD M",
     "revenue": 713163,
     "net_sales": 706413,
     "oi": 29825,
@@ -4651,9 +4651,9 @@
     "capex": 26642,
     "fcf": 14923,
     "notes": [
-      "三报告分部：Walmart U.S.、Walmart International、Sam’s Club U.S.。",
-      "美国/加拿大1月31日年结，其他经营通常自然年口径滞后一个月合并。",
-      "美国RIM/LIFO、国际依业态RIM或加权平均/FIFO、Sam’s Club多数加权平均/LIFO，按原政策保留。"
+      "三报告分部：Walmart U.S.、Walmart International、Sam’s Club U.S..",
+      "美国/加拿大1月31日年结，其他经营通常自然年口径滞后一个月合并.",
+      "美国RIM/LIFO、国际依业态RIM或加权平均/FIFO、Sam’s Club多数加权平均/LIFO，按原政策保留."
     ]
   },
   "svb": {
@@ -4669,20 +4669,20 @@
       {
         "date": "2023-03-09",
         "kind": "realized",
-        "text": "单日存款流出超过400亿美元"
+        "text": "单日存款流出超过40 B 美元"
       },
       {
         "date": "2023-03-10",
         "kind": "expected_not_realized_total",
-        "text": "管理层预计额外1000亿美元流出；当日银行关闭"
+        "text": "管理层预计额外100 B 美元流出；当日银行关闭"
       }
     ],
-    "notes": "预期流出不是另一笔已实现历史流出；不得两项相加称已完成提款。"
+    "notes": "预期流出不是另一笔已实现历史流出；不得两项相加称已完成提款."
   },
   "paper_example": {
     "source_id": "BFFG-R03",
     "data_identity": "published_teaching_example_not_company_data",
-    "unit": "USD million / million shares except per share",
+    "unit": "USD M / million shares except per share",
     "earnings": 2990,
     "shares": 1000,
     "budget": 600,

@@ -12,7 +12,7 @@
         "scope": "实证设计、三层预处理、结果与指标完整单元",
         "purpose": "A 支复核设计与 variance-ratio 指标"
       },
-      "supports": "§V.A–C 的预测设计与作者样本结果；三层标准化、不含截距、footnote33 发布时间约定、footnote40 variance-ratio R² 必须保留。",
+      "supports": "§V.A–C 的预测设计与作者样本结果；三层标准化、不含截距、footnote33 发布时间约定、footnote40 variance-ratio R² 必须保留.",
       "branch": "A",
       "title": "The Virtue of Complexity in Return Prediction",
       "authors": [
@@ -32,7 +32,7 @@
         "kind": "pdf_full_text",
         "uri": "https://www.nber.org/system/files/working_papers/w34104/w34104.pdf",
         "landing_uri": "https://www.nber.org/papers/w34104",
-        "access_note": "本轮独立审查公网请求失败；沿先前已读同版原件记录提供正式PDF入口。该状态不等于当前Agent已取得，选用后须实际读完指定单元。"
+        "access_note": "本轮独立审查公网请求失败；沿先前已读同版原件记录提供正式PDF入口. 该状态不等于当前Agent已取得，选用后须实际读完指定单元."
       },
       "required_unit": {
         "locator": "§II.A–D、§II.G.1",
@@ -49,8 +49,8 @@
   ],
   "runtime_reading_log": [],
   "supplied_inputs": {
-    "competence": "回归、预测误差、时序信息；调用 QT20/QT21/QT22 局部能力。",
-    "static_equivalent": "本包所选分支正文、静态表与完整题解；输入和结果保留在 branches。",
+    "competence": "回归、预测误差、时序信息；调用 QT20/QT21/QT22 局部能力.",
+    "static_equivalent": "本包所选分支正文、静态表与完整题解；输入和结果保留在 branches.",
     "attachments": [],
     "branches": {
       "A": {
@@ -79,7 +79,7 @@
     },
     "authors_results_not_replication": true
   },
-  "selection": "共同部分与已选择的 A 分支；先读此范围的指定原文。",
-  "required_competence": "回归、预测误差、时序信息；调用 QT20/QT21/QT22 局部能力。",
+  "selection": "共同部分与已选择的 A 分支；先读此范围的指定原文.",
+  "required_competence": "回归、预测误差、时序信息；调用 QT20/QT21/QT22 局部能力.",
   "selected_branch": "A"
 }

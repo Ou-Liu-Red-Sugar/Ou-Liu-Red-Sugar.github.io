@@ -1,14 +1,18 @@
 # Amazon：2026-09-20业务状态与股东结果历史案例
 
-冻结2026年9月20日的业务、资本、条件定价与概率判断；保留2026年9月18日参考价及2029年末条件结果。
+冻结2026年9月20日的业务、资本、条件定价与概率判断；保留2026年9月18日参考价及2029年末条件结果.
 
 Entry: zh-amzn-research-20260920 | Node: CASE-AMZN-20260920 | Language: zh | Editorial revision: 2026-09-21
 Research cutoff: 2026-09-20 | Data period: 2025Q4–2026Q2 facts and dated subsequent disclosures; conditional paths 2026H2–2029
 
 ## Teaching instructions
-先读取该日期案例所用单元与原文。保留事实、代理、未来路径、分布近似及资本限制；只解释既有研究，不更新报价或产生新推荐。
+先读取该日期案例所用单元与原文. 保留事实、代理、未来路径、分布近似及资本限制；只解释既有研究，不更新报价或产生新推荐.
 
 Before substantive teaching, actually retrieve every required reading unit for the selected scope. Read its complete designated section, including necessary assumptions, tables and footnotes. A working URL or an editorial access date is not a runtime reading receipt. Record the actual version, location, scope and what it supports. If unavailable, use a previously verified equivalent source; if the required unit remains unavailable, identify that gap rather than teach it from memory. Start runtime_reading_log empty. Once reading is complete, use a substantive diagnostic or follow the reader's request for direct explanation. Advance one complete reasoning task at a time; skip mastered basics. Distinguish original facts, supplied teaching assumptions and inference.
+
+## Shared notation and writing conventions
+数学期望统一写成 \mathbb{E}，条件期望用 \mathbb{E}[X\mid\mathcal{G}]，需要时注明测度 P 或 Q. 保留局部变量的明确定义. 金额与数量使用 K=10^3、M=10^6、B=10^9；表格标明币种、量级与期间，变更量级时同步换算数值. 展示小数最多三位，计算保留原始精度. 直接解释对象、机制与推理；保留影响结论的假设和事实来源，把编辑流程留在记录中. 句末使用英文句点 .，包括定义、命题、证明和解析等标签. 基础定义与推导直接讲内容，出处放在紧邻脚注；来源读取、复审和采用范围等编辑经过留在记录中.
+[Notation and units](https://ou-liu-red-sugar.github.io/agent/zh/notation.md)
 
 ## Required readings and runtime protocol
 ```json
@@ -29,7 +33,7 @@ Before substantive teaching, actually retrieve every required reading unit for t
         "scope": "身份与所用单元",
         "purpose": "固定日期和结果身份"
       },
-      "supports": "原研究的事实/分析代理、四条未来路径、5项具名替代、4套权重与16组已算分布。报价冻结，代表点不是条件均值。",
+      "supports": "原研究的事实/分析代理、四条未来路径、5项具名替代、4套权重与16组已算分布. 报价冻结，代表点不是条件均值.",
       "authors": [
         "本站历史研究"
       ]
@@ -493,7 +497,7 @@ Before substantive teaching, actually retrieve every required reading unit for t
             "investment_net": 219.252225,
             "minimum_pre_financing_cash": 16.29222090682039
           },
-          "detail_export": "本包导出替代经营年度表与资金终点/低谷摘要；不从主路径补出未导出的替代季度。"
+          "detail_export": "本包导出替代经营年度表与资金终点/低谷摘要；不从主路径补出未导出的替代季度."
         },
         "retail_weak_fixed_base_pricing": {
           "title": "非AWS较弱、AWS Base",
@@ -521,7 +525,7 @@ Before substantive teaching, actually retrieve every required reading unit for t
             "investment_net": 219.252225,
             "minimum_pre_financing_cash": 13.887237257714155
           },
-          "detail_export": "本包导出替代经营年度表与资金终点/低谷摘要；不从主路径补出未导出的替代季度。"
+          "detail_export": "本包导出替代经营年度表与资金终点/低谷摘要；不从主路径补出未导出的替代季度."
         },
         "mixed_aws_strong_retail_weak": {
           "title": "AWS强、非AWS弱",
@@ -549,7 +553,7 @@ Before substantive teaching, actually retrieve every required reading unit for t
             "investment_net": 219.252225,
             "minimum_pre_financing_cash": 7.684874822033322
           },
-          "detail_export": "本包导出替代经营年度表与资金终点/低谷摘要；不从主路径补出未导出的替代季度。"
+          "detail_export": "本包导出替代经营年度表与资金终点/低谷摘要；不从主路径补出未导出的替代季度."
         },
         "mixed_aws_weak_retail_strong": {
           "title": "AWS弱、非AWS强",
@@ -577,7 +581,7 @@ Before substantive teaching, actually retrieve every required reading unit for t
             "investment_net": 219.252225,
             "minimum_pre_financing_cash": 16.412377067643583
           },
-          "detail_export": "本包导出替代经营年度表与资金终点/低谷摘要；不从主路径补出未导出的替代季度。"
+          "detail_export": "本包导出替代经营年度表与资金终点/低谷摘要；不从主路径补出未导出的替代季度."
         },
         "ai_delay_core_attach_linked_capital_unchanged": {
           "title": "AI延后并连带Core；原资本计划保留",
@@ -602,7 +606,7 @@ Before substantive teaching, actually retrieve every required reading unit for t
             "later_growth_from": "Base",
             "capital_additions": "Base；资本计划不变不代表现金或债务不变"
           },
-          "detail_export": "冻结敏感性仅保存本项汇总；本包不生成未导出的逐季度路径或改倍数版本。"
+          "detail_export": "冻结敏感性仅保存本项汇总；本包不生成未导出的逐季度路径或改倍数版本."
         }
       },
       "calibration": {
@@ -3256,7 +3260,7 @@ Before substantive teaching, actually retrieve every required reading unit for t
           "W": "兑现、单位经济或资本转化受挫，仍有经营与修复能力",
           "X": "客户融资/使用、既有能力或普通股权利严重受损"
         },
-        "boundary_rule": "先依业务条件定S/N/W/X，再按矩阵。Tail格优先、其次Bull与Bear、余格Base；不是按终价分档。原研究未给硬数字阈值；边界不清先记录未定类，不事后按股价改类。"
+        "boundary_rule": "先依业务条件定S/N/W/X，再按矩阵. Tail格优先、其次Bull与Bear、余格Base；不是按终价分档. 原研究未给硬数字阈值；边界不清先记录未定类，不事后按股价改类."
       },
       "probability_evidence": [
         {
@@ -3310,8 +3314,8 @@ Before substantive teaching, actually retrieve every required reading unit for t
         "pricing_range": "同一经营/资金路径的定价参数范围；不是置信区间或条件支持",
         "probability": "主观粗判断，不是统计后验；按钮操作不新增研究证据",
         "quarters": "每季已继承此前融资；融资前余额不是全期无融资轨迹，也不保证季内资金充足",
-        "quote_vs_cutoff": "9月18日参考进入价格，9月20日研究信息截止；无实际成交或仅用9月18日信息的样本外回测声明。",
-        "share_count_proxy": "11.0274十亿股是冻结模型规划代理：10.783普通股 + 0.2444 outstanding RSU；公司另披露普通股加全部 outstanding stock awards 对应股份约11.0十亿股。该代理不是官方完全稀释股数，也不是EPS加权平均股数。"
+        "quote_vs_cutoff": "9月18日参考进入价格，9月20日研究信息截止；无实际成交或仅用9月18日信息的样本外回测声明.",
+        "share_count_proxy": "11.0274 B 股是冻结模型规划代理：10.783普通股 + 0.2444 outstanding RSU；公司另披露普通股加全部 outstanding stock awards 对应股份约11.0 B 股. 该代理不是官方完全稀释股数，也不是EPS加权平均股数."
       },
       "source_map": {
         "annual_operations": "operating-results.json::{state}.aws/retail",
@@ -3361,7 +3365,7 @@ Before substantive teaching, actually retrieve every required reading unit for t
             131.461
           ],
           "full_cash_reconstruction": false,
-          "limitations": "vendor EV为原研究观察并非当日完整不可变快照；非上市账面非税后现金；优先权清算额非市值；不能把集团参照当纯GCP。"
+          "limitations": "vendor EV为原研究观察并非当日完整不可变快照；非上市账面非税后现金；优先权清算额非市值；不能把集团参照当纯GCP."
         },
         "WMT": {
           "title": "Walmart全集团",
@@ -3418,7 +3422,7 @@ Before substantive teaching, actually retrieve every required reading unit for t
               "value": -11.529
             }
           ],
-          "limitations": "NCI用账面代理；未完全复原vendor debt定义；ROI调整后分子50.285不是经营利润32.280。"
+          "limitations": "NCI用账面代理；未完全复原vendor debt定义；ROI调整后分子50.285不是经营利润32.280."
         },
         "MSFT": {
           "title": "Microsoft全集团盈利对照",
@@ -3539,37 +3543,37 @@ Before substantive teaching, actually retrieve every required reading unit for t
 ## Supplied entry
 [返回 Amazon 公司入口](/zh/notebook/amzn/)
 
-**案例ID：CASE-AMZN-20260920。** `CASE-PBCD-AMZN-20260920`是本案例的显式旧别名，不代表第二份研究。公司为Amazon.com, Inc.；证券为AMZN普通股，计价美元。资料身份是固定日期研究，不能用本页替代今日投资判断。这个案例作为公司资料保存，概念课程在正文嵌入需要的局部，不要求先通读所有表。
+**案例ID：CASE-AMZN-20260920.** 公司为Amazon.com, Inc.；证券为AMZN普通股，计价美元. 本页是一份固定日期公司研究；概念课程会在正文嵌入所需局部，无需先通读所有表.
 
 <a id="case-amzn-identity"></a>
 ## 时点、单位与结果身份
 
-信息截止2026-09-20；原买入观察价为2026-09-18常规收盘253.71美元；条件价值日2029-12-31，1200/365.25=3.2854209445585214年。经营/融资金额为十亿美元，股数为十亿股；期间分配和原股东额外付款均为零。未来四条路径是研究代表，不是已实现结果或已识别的类内条件均值。公司未来融资与授予已经进入各自股数，不转成旧股东个人必付出资。
+信息截止2026-09-20；原买入观察价为2026-09-18常规收盘253.71美元；条件价值日2029-12-31，1200/365.25=3.2854209445585214年. 经营/融资金额为 B 美元，股数为 B 股；期间分配和原股东额外付款均为零. 未来四条路径是研究代表，不是已实现结果或已识别的类内条件均值. 公司未来融资与授予已经进入各自股数，不转成旧股东个人必付出资.
 
 <a id="case-amzn-facts"></a>
 ## 事实起点与模型假设分开
 
-历史研究的三期AWS收入/OI依次为2025Q4的35.579/12.465、2026Q1的37.587/14.161、2026Q2的42.232/16.621。Q2 10-Q Note8可直接复核H1收入79.819、OI30.782、设备折旧摊销15.353，以及北美/国际H1 OI17.390/3.141。原研究另使用对应电话会、代表性电力供应/成熟云客户/消费者资料及IAB、CMA、IEA研究校准关系；这些覆盖并不把未来每个代理变成观测事实。
+历史研究的三期AWS收入/OI依次为2025Q4的35.579/12.465、2026Q1的37.587/14.161、2026Q2的42.232/16.621. Q2 10-Q Note8可直接复核H1收入79.819、OI30.782、设备折旧摊销15.353，以及北美/国际H1 OI17.390/3.141. 原研究另使用对应电话会、代表性电力供应/成熟云客户/消费者资料及IAB、CMA、IEA研究校准关系；这些覆盖并不把未来每个代理变成观测事实.
 
-收入用Core与直接AI代理区分需求来源；64%贡献率、固定成本随折旧比例、资产mix与投用批次是分析假设。非AWS从六类收入、服务组合、物流单位成本、价格投入和其他净改善生成地区利润。2026全年估计与H1实现分开，剩余H2资金只扣后半年的经营及资本现金。
+收入用Core与直接AI代理区分需求来源；64%贡献率、固定成本随折旧比例、资产mix与投用批次是分析假设. 非AWS从六类收入、服务组合、物流单位成本、价格投入和其他净改善生成地区利润. 2026全年估计与H1实现分开，剩余H2资金只扣后半年的经营及资本现金.
 
-电力合同的1,920MW在历史研究中是地区性、分阶段的供电上限，不是全球AWS已经投用的IT容量；没有从它生成美元/MW收入。[Talen 2025-06-11公告](https://ir.talenenergy.com/static-files/90cce90c-e281-42c6-b686-ed6010dd8699)附件99.1第1页预计分阶段爬坡，最迟2032年达到全额；此处保留公告时的计划身份。IEA对同一合同的转述不是独立第二证据。
+电力合同的1,920MW在历史研究中是地区性、分阶段的供电上限，不是全球AWS已经投用的IT容量；没有从它生成美元/MW收入. [Talen 2025-06-11公告](https://ir.talenenergy.com/static-files/90cce90c-e281-42c6-b686-ed6010dd8699)附件99.1第1页预计分阶段爬坡，最迟2032年达到全额；此处保留公告时的计划身份. IEA对同一合同的转述不是独立第二证据.
 
-原始材料入口：Amazon [Q2 10-Q](https://www.sec.gov/Archives/edgar/data/1018724/000101872426000026/amzn-20260630.htm)，Note8 pp22–25；[IAB/PwC FY2025](https://www.iab.com/wp-content/uploads/2026/04/IAB_PwC_Internet_Ad_Revenue_Report_Full_Year_2025_April_2026.pdf) p27及定义/方法pp32、35；[CMA 2025](https://assets.publishing.service.gov.uk/media/688b8891fdde2b8f73469544/final_decision_report.pdf) §§6.320–6.325；[IEA 2026执行摘要](https://www.iea.org/reports/key-questions-on-energy-and-ai/executive-summary)供给和融资小节。来源各自支持事实与机制，不证明本案例所有预测。
+原始材料入口：Amazon [Q2 10-Q](https://www.sec.gov/Archives/edgar/data/1018724/000101872426000026/amzn-20260630.htm)，Note8 pp22–25；[IAB/PwC FY2025](https://www.iab.com/wp-content/uploads/2026/04/IAB_PwC_Internet_Ad_Revenue_Report_Full_Year_2025_April_2026.pdf) p27及定义/方法pp32、35；[CMA 2025](https://assets.publishing.service.gov.uk/media/688b8891fdde2b8f73469544/final_decision_report.pdf) §§6.320–6.325；[IEA 2026执行摘要](https://www.iea.org/reports/key-questions-on-energy-and-ai/executive-summary)供给和融资小节.
 
 <a id="case-amzn-groups"></a>
 ## 业务、资源与估值组
 
-唯一经营定价组为AWS与整合非AWS。1P、3P、广告、Prime/订阅是收费业务，国际是地域，履约、技术和内容含共同资源。广告贡献已在地理分部利润中；没有在非AWS价值上额外加广告EV。独立定价要求利润、资本、索取权和共同负担可识别，不要求客户独占。
+唯一经营定价组为AWS与整合非AWS. 1P、3P、广告、Prime/订阅是收费业务，国际是地域，履约、技术和内容含共同资源. 广告贡献已在地理分部利润中；没有在非AWS价值上额外加广告EV. 独立定价要求利润、资本、索取权和共同负担可识别，不要求客户独占.
 
-固定Base倍数21/22时，把5十亿美元EBIT从非AWS移给AWS，集团利润不变而每股变动−0.442579709；这只是分摊敏感性，不是证明所有重新分组都会降低价值。
+固定Base倍数21/22时，把5 B 美元EBIT从非AWS移给AWS，集团利润不变而每股变动−0.442579709；这只是分摊敏感性，不是证明所有重新分组都会降低价值.
 
 <a id="case-amzn-operating"></a>
 ## 四条经营路径
 
-AWS采用 `OI=贡献率×收入−固定折旧前成本−设备D&A`。服务器/网络占45%，寿命5.5年，投用75%/25%；数据中心占55%，寿命30年，投用20%/45%/35%；投用首年半年度折旧。短窗口折旧核为0.0325151515/0.0793825758/0.0969431818/0.1001515152；既有折旧每年保留90%。这些是研究假设而非逐项目披露。
+AWS采用 `OI=贡献率×收入−固定折旧前成本−设备D&A`. 服务器/网络占45%，寿命5.5年，投用75%/25%；数据中心占55%，寿命30年，投用20%/45%/35%；投用首年半年度折旧. 短窗口折旧核为0.0325151515/0.0793825758/0.0969431818/0.1001515152；既有折旧每年保留90%. 这些是研究假设而非逐项目披露.
 
-下表均为当时的年度预测；2026一行也不是2026全年实现。资产取得与现金付款另有时差。
+下表均为当时的年度预测；2026一行也不是2026全年实现. 资产取得与现金付款另有时差.
 
 | 状态 | 年 | AWS收入 | AWS OI | AWS D&A | AWS取得 | 非AWS收入 | 非AWS OI | 非AWS D&A | 非AWS取得 |
 |---|---|---|---|---|---|---|---|---|---|
@@ -3593,13 +3597,13 @@ AWS采用 `OI=贡献率×收入−固定折旧前成本−设备D&A`。服务器
 <a id="case-amzn-capital"></a>
 ## 资金、股份和可行性
 
-2026-06-30起始现金及证券122.988，不含受限现金；借款本金132.995加短借0.325；融资租赁13.451及融资义务9.315另列。期后已知发债本金30.692875与净现金30.5344245分别进账；OpenAI支付21.3一次。整体2026现金资本支出220，上半年已付96.31，H2仅123.69。2027—2029设备付款时差依次−10/−12/−8.2，不无限积累未付款来制造现金。
+2026-06-30起始现金及证券122.988，不含受限现金；借款本金132.995加短借0.325；融资租赁13.451及融资义务9.315另列. 期后已知发债本金30.692875与净现金30.5344245分别进账；OpenAI支付21.3一次. 整体2026现金资本支出220，上半年已付96.31，H2仅123.69. 2027—2029设备付款时差依次−10/−12/−8.2，不无限积累未付款来制造现金.
 
-季度融资警戒线60、终点经营现金保留40是两个不同假设。自6月末以来借款总增加上限200，扣已知发行30.692875与收购承接债0.423692后，额外增长借款空间168.883433；融资租赁另滚。新债利率Bull/Base为6%、Bear7.5%、Tail9%，发行费率0.5%；这些是假设，不是承销承诺。
+季度融资警戒线60、终点经营现金保留40是两个不同假设. 自6月末以来借款总增加上限200，扣已知发行30.692875与收购承接债0.423692后，额外增长借款空间168.883433；融资租赁另滚. 新债利率Bull/Base为6%、Bear7.5%、Tail9%，发行费率0.5%；这些是假设，不是承销承诺.
 
-SBC费用、现金加回和股权授予分别处理。公司披露6月末普通股10.783十亿股、outstanding RSU 0.2444十亿股，并另以四舍五入口径披露普通股加全部 outstanding stock awards 对应股份约11.0十亿股。冻结模型采用 `10.783+0.2444=11.0274` 作为 fully-awarded **规划代理**；它不是公司披露的官方完全稀释股数，也不是EPS期内加权平均股数。已有RSU归属不再加一次。Tail在借款约束后按25美元假设发行21.235175，形成约0.849407额外十亿股；融资关闭可比代表路径更坏。
+SBC费用、现金加回和股权授予分别处理. 公司披露6月末普通股10.783 B 股、outstanding RSU 0.2444 B 股，并另以四舍五入口径披露普通股加全部 outstanding stock awards 对应股份约11.0 B 股. 冻结模型采用 `10.783+0.2444=11.0274` 作为 fully-awarded **规划代理**；它不是公司披露的官方完全稀释股数，也不是EPS期内加权平均股数. 已有RSU归属不再加一次. Tail在借款约束后按25美元假设发行21.235175，形成约0.849407额外 B 股；融资关闭可比代表路径更坏.
 
-以下“融资前”现金继承之前已经完成的融资，并非全期从不融资；季度端点也不保证季内现金一定充足。
+以下“融资前”现金继承之前已经完成的融资，并非全期从不融资；季度端点也不保证季内现金一定充足.
 
 ### Bull：14个季度资金摘要
 
@@ -3681,18 +3685,18 @@ SBC费用、现金加回和股权授予分别处理。公司披露6月末普通�
 <a id="case-amzn-pricing"></a>
 ## 条件定价与同行身份
 
-本研究条件倍数统一为2029-12-31 EV/FY2029 EBIT，AWS四状态26/21/16/9，非AWS26/22/17/12。独立低倍数替代AWS22/17/12/7，非AWS21/17/13/9。它们是业务状态和资本转化的判断，不是统一行业档位。
+本研究条件倍数统一为2029-12-31 EV/FY2029 EBIT，AWS四状态26/21/16/9，非AWS26/22/17/12. 独立低倍数替代AWS22/17/12/7，非AWS21/17/13/9. 它们是业务状态和资本转化的判断，不是统一行业档位.
 
-同行冻结价格观察日2026-09-18、历史取数日2026-09-20。Alphabet和Microsoft盈利截止2026-06-30，Walmart截止2026-07-31。Walmart TTM=29.825+16.876−14.421=32.280，官方演示slide26交叉确认；以冻结普通股市值846.770和官方组件重建EV899.045，对应约27.85倍。NCI6.561用账面代理，供应商债务差额1.337未对平。
+同行冻结价格观察日2026-09-18、历史取数日2026-09-20. Alphabet和Microsoft盈利截止2026-06-30，Walmart截止2026-07-31. Walmart TTM=29.825+16.876−14.421=32.280，官方演示slide26交叉确认；以冻结普通股市值846.770和官方组件重建EV899.045，对应约27.85倍. NCI6.561用账面代理，供应商债务差额1.337未对平.
 
-Alphabet TTM=129.039+80.466−61.877=147.628；从冻结vendor EV4153.1912剔经营租赁18.037、加存托股份清算额代理19.250、对非上市证券账面0或131.461作扣除边界，得到约27.25—28.14倍。不是GCP独立参照。Microsoft只作FY2026经营利润155.237、GAAP/调整EPS17.95/17.28的集团口径对照。
+Alphabet TTM=129.039+80.466−61.877=147.628；从冻结vendor EV4153.1912剔经营租赁18.037、加存托股份清算额代理19.250、对非上市证券账面0或131.461作扣除边界，得到约27.25—28.14倍. 不是GCP独立参照. Microsoft只作FY2026经营利润155.237、GAAP/调整EPS17.95/17.28的集团口径对照.
 
-精确原件：Alphabet [FY2025公告p5](https://www.sec.gov/Archives/edgar/data/1652044/000165204426000012/googexhibit991q42025.htm)及[Q2 10-Q](https://www.sec.gov/Archives/edgar/data/1652044/000165204426000071/goog-20260630.htm) p5、Notes3/4/6/11；Walmart [Q2 FY27公告pp8–9](https://stock.walmart.com/sec-filings/all-sec-filings/content/0000104169-26-000145/earningsreleasefy27q2.htm)和[演示slide26](https://stock.walmart.com/sec-filings/all-sec-filings/content/0000104169-26-000145/earningspresentationfy27.htm)；[Microsoft FY2026业绩](https://www.microsoft.com/en-us/Investor/earnings/FY-2026-Q4/press-release-webcast)。原市场EV/市值保留历史研究观察，不随页面更新取新值。
+精确原件：Alphabet [FY2025公告p5](https://www.sec.gov/Archives/edgar/data/1652044/000165204426000012/googexhibit991q42025.htm)及[Q2 10-Q](https://www.sec.gov/Archives/edgar/data/1652044/000165204426000071/goog-20260630.htm) p5、Notes3/4/6/11；Walmart [Q2 FY27公告pp8–9](https://stock.walmart.com/sec-filings/all-sec-filings/content/0000104169-26-000145/earningsreleasefy27q2.htm)和[演示slide26](https://stock.walmart.com/sec-filings/all-sec-filings/content/0000104169-26-000145/earningspresentationfy27.htm)；[Microsoft FY2026业绩](https://www.microsoft.com/en-us/Investor/earnings/FY-2026-Q4/press-release-webcast). 原市场EV/市值保留历史研究观察，不随页面更新取新值.
 
 <a id="case-amzn-equity"></a>
 ## 同时点的普通股桥
 
-现金加回仅用超过40的部分；借款为期末有息借款余额的模型口径，不冒充2029债券市场价格。非经营投资以证券权利计价；Base毛值261.195、税基代理90、税率24.5%，税后219.252225。其他权利采用零不等于审计确认所有潜在索取权为零。
+现金加回仅用超过40的部分；借款采用期末有息借款余额的模型口径，而非2029债券市场价格. 非经营投资以证券权利计价；Base毛值261.195、税基代理90、税率24.5%，税后219.252225. 其他权利在本桥中取0，表示模型未另计入其他潜在索取权.
 
 | 状态 | AWS EV | 非AWS EV | 现金总额 | 可加入现金 | 借款 | 融资权利 | 税后投资 | 普通股值 | 股数 | 每股值 |
 |---|---|---|---|---|---|---|---|---|---|---|
@@ -3704,7 +3708,7 @@ Alphabet TTM=129.039+80.466−61.877=147.628；从冻结vendor EV4153.1912剔经
 <a id="case-amzn-probabilities"></a>
 ## 公司状态与概率证据
 
-分别以S/N/W/X表示两组业务的强、正常、弱、严重受损，先按采用、交付、单位经济、资本转化与权利判断，后按公司矩阵归类；Tail优先，其次Bull、Bear，其余Base。没有把每个代表小数当硬阈值，边界不明要保留证据争议，不能按事后股价分类。
+分别以S/N/W/X表示两组业务的强、正常、弱、严重受损，先按采用、交付、单位经济、资本转化与权利判断，后按公司矩阵归类；Tail优先，其次Bull、Bear，其余Base. 没有把每个代表小数当硬阈值，边界不明要保留证据争议，不能按事后股价分类.
 
 | AWS / 非AWS | S | N | W | X |
 |---|---|---|---|---|
@@ -3734,7 +3738,7 @@ Alphabet TTM=129.039+80.466−61.877=147.628；从冻结vendor EV4153.1912剔经
 <a id="case-amzn-alternatives"></a>
 ## 具名经营替代
 
-这些替代不是原四状态与压力的任意组合；前四项仍使用Base的资本规则接替代经营结果，不沿用原Base现金。名称中的“强反证”不等于AWS更强。前四项分别保留固定Base倍数与各组对应状态倍数；AI延后项只有已保存的Base定价结果，没有另造改倍数版本。
+这些替代不是原四状态与压力的任意组合；前四项仍使用Base的资本规则接替代经营结果，不沿用原Base现金. 名称中的“强反证”不等于AWS更强. 前四项分别保留固定Base倍数与各组对应状态倍数；AI延后项只有已保存的Base定价结果，没有另造改倍数版本.
 
 | 替代 | 固定Base倍数 | 相应组状态倍数 | 现金 | 借款 | 最低融资前现金 |
 |---|---|---|---|---|---|
@@ -3744,12 +3748,12 @@ Alphabet TTM=129.039+80.466−61.877=147.628；从冻结vendor EV4153.1912剔经
 | AWS弱、非AWS强 | 306.414499 | 301.179738 | 91.968193 | 304.766303 | 16.412377 |
 | AI延后并连带Core；原资本计划保留 | 294.517264 | 未生成 | 94.580212 | 327.672724 | 9.750021 |
 
-AI延后将Core2027按148×1.12，随后沿原增速，AI为27/35/58/90；原资产取得不变，但资金随经营重算。各具名替代在此提供年度经营引用及实际保存资金摘要，不把未导出的替代季度用原状态季度填充。
+AI延后将Core2027按148×1.12，随后沿原增速，AI为27/35/58/90；原资产取得不变，但资金随经营重算. 各具名替代在此提供年度经营引用及实际保存资金摘要，不把未导出的替代季度用原状态季度填充.
 
 <a id="case-amzn-distributions"></a>
 ## 四种定价与四套概率：16组既有分布
 
-价格列由同一经营/融资路径的既定定价框架产生；概率由公司状态判断产生。两者可以在这16组既有结果中分别比较，不混成16条经营预测。期望是加权代表点近似；亏损列只统计代表点低于253.71的权重。Tail代表损失约84.4023%，不代表最坏下限或ES。定价参数区间不是完整类内支持，因此没有由它发布真实全局亏损概率界限。
+价格列由同一经营/融资路径的既定定价框架产生，概率由公司状态判断产生；这16组结果是不同定价与概率组合的比较，不是16条新的经营预测. 期望是加权代表点近似；亏损列只统计代表点低于253.71的权重. Tail代表损失约84.4023%，对应这一代表点而非最坏下限或ES. 定价参数区间并非完整类内支持，因此本表不提供真实全局亏损概率界限.
 
 | 定价 | 权重 | 期望终财富 | 期望终财富年化 | 加权路径年化 | 四点亏损权重 |
 |---|---|---|---|---|---|
@@ -3770,25 +3774,25 @@ AI延后将Core2027按148×1.12，随后沿原增速，AI为27/35/58/90；原资
 | both_low | platform_durable | 311.651097 | 6.460903% | 3.506603% | 20% |
 | both_low | mixed_retail_pressure | 272.817320 | 2.234686% | -1.489749% | 32% |
 
-固定4.83%作常利率再投近似比较，终财富296.238403；不是精确匹配期限的债券交易或估值折现率。固定价格和Base/Tail权重，Bull→Bear转移16.886105个百分点使期望财富与该比较相等；转移27.902110个百分点与本金相等。这些阈值只适用于声明的转移路径。
+固定4.83%作常利率再投近似比较，终财富296.238403；不是精确匹配期限的债券交易或估值折现率. 固定价格和Base/Tail权重，Bull→Bear转移16.886105个百分点使期望财富与该比较相等；转移27.902110个百分点与本金相等. 这些阈值只适用于声明的转移路径.
 
-本案例保留完整条件链，不证明预测效果。AWS可计费容量/利用率、AI拆分、私企证券税基、未来融资可得性、季内资金与完整类内概率仍有未识别部分。按新事实更新时应另建有日期案例，不覆盖这一历史版本。
+仍未识别的部分包括AWS可计费容量/利用率、AI拆分、私企证券税基、未来融资可得性、季内资金与完整类内概率. 后续出现新事实时应另建有日期案例，与这一历史版本并存.
 
-**价格与信息时间边界：** 9月18日价格是9月20日研究采用的参考进入价格，未声称有实际成交；信息截止晚于报价观察，不据此宣称9月18日当时可得信息的样本外回测。
+**价格与信息时间边界：** 9月18日价格是9月20日研究采用的参考进入价格，未声称有实际成交；信息截止晚于报价观察，不据此宣称9月18日当时可得信息的样本外回测.
 
 
 ## Sources
-- [Amazon：2026-09-20历史条件研究案例](https://ou-liu-red-sugar.github.io/zh/notebook/amzn-research-20260920/): 原研究的事实/分析代理、四条未来路径、5项具名替代、4套权重与16组已算分布。报价冻结，代表点不是条件均值。
-- [Cloud Infrastructure Services: Final Decision Report](https://assets.publishing.service.gov.uk/media/688b8891fdde2b8f73469544/final_decision_report.pdf): 历史英国技术迁移/multi-cloud摩擦及缓解并存；不从这一单元推全球AWS增长或现行费用政策。
-- [Alphabet Q4 and FY2025 earnings exhibit](https://www.sec.gov/Archives/edgar/data/1652044/000165204426000012/googexhibit991q42025.htm): 全年营业利润129.039bn，作为截至2026年6月末TTM的旧全年组成。
-- [Internet Advertising Revenue Report, Full-Year2025](https://www.iab.com/wp-content/uploads/2026/04/IAB_PwC_Internet_Ad_Revenue_Report_Full_Year_2025_April_2026.pdf): 美国commerce media收入63.4bn、报告增速18%，并有测量/增量回报约束；范围不是Amazon全球广告。
-- [Key Questions on Energy and AI — Executive summary](https://www.iea.org/reports/key-questions-on-energy-and-ai/executive-summary): AI资本链中的供应/设备/电网与融资限制；采用行业机制，不推AWS具体容量或收益率。
-- [Microsoft FY2026 Q4/FY results](https://www.microsoft.com/en-us/Investor/earnings/FY-2026-Q4/press-release-webcast): 集团营业利润155.237、GAAP EPS17.95与按OpenAI投资影响调整EPS17.28；不提供纯Azure倍数。
-- [Talen 8-K, Exhibit 99.1: nuclear energy relationship with Amazon](https://ir.talenenergy.com/static-files/90cce90c-e281-42c6-b686-ed6010dd8699): 公告中的1,920MW为满额供电计划，预计爬坡最迟2032达到；供电数量不等于AWS当期IT容量或收费收入。
-- [Walmart FY2027 Q2 earnings release](https://stock.walmart.com/sec-filings/all-sec-filings/content/0000104169-26-000145/earningsreleasefy27q2.htm): H1利润16.876/14.421及借款、融资租赁、NCI和现金组件；FY2027与实际经济期间同时记录。
-- [Walmart FY2027 Q2 presentation](https://stock.walmart.com/sec-filings/all-sec-filings/content/0000104169-26-000145/earningspresentationfy27.htm): ROI reconciliation第一行TTM营业利润32.280及旧FY29.825；不采用调整后ROI分子50.285作EBIT。
-- [Amazon · 2026 Q2 Form 10-Q](https://www.sec.gov/Archives/edgar/data/1018724/000101872426000026/amzn-20260630.htm): 来源摘要：截至 2026-06-30 的季度报告。用于核对自营零售、第三方卖家服务与 AWS 的业务口径，以及存货、设备和现金流的合并披露。案例的解释由作者根据研究整理。
-- [Alphabet · 2026 Q2 Form 10-Q](https://www.sec.gov/Archives/edgar/data/1652044/000165204426000071/goog-20260630.htm): 来源摘要：截至 2026-06-30 的季度报告。用于核对 Google Services、Google Cloud、技术基础设施与设备用途。报告主体为 Alphabet；GOOG 与 GOOGL 对应不同股份类别。
+- [Amazon：2026-09-20历史条件研究案例](https://ou-liu-red-sugar.github.io/zh/notebook/amzn-research-20260920/): 原研究的事实/分析代理、四条未来路径、5项具名替代、4套权重与16组已算分布. 报价冻结，代表点不是条件均值.
+- [Cloud Infrastructure Services: Final Decision Report](https://assets.publishing.service.gov.uk/media/688b8891fdde2b8f73469544/final_decision_report.pdf): 历史英国技术迁移/multi-cloud摩擦及缓解并存；不从这一单元推全球AWS增长或现行费用政策.
+- [Alphabet Q4 and FY2025 earnings exhibit](https://www.sec.gov/Archives/edgar/data/1652044/000165204426000012/googexhibit991q42025.htm): 全年营业利润129.039bn，作为截至2026年6月末TTM的旧全年组成.
+- [Internet Advertising Revenue Report, Full-Year2025](https://www.iab.com/wp-content/uploads/2026/04/IAB_PwC_Internet_Ad_Revenue_Report_Full_Year_2025_April_2026.pdf): 美国commerce media收入63.4bn、报告增速18%，并有测量/增量回报约束；范围不是Amazon全球广告.
+- [Key Questions on Energy and AI — Executive summary](https://www.iea.org/reports/key-questions-on-energy-and-ai/executive-summary): AI资本链中的供应/设备/电网与融资限制；采用行业机制，不推AWS具体容量或收益率.
+- [Microsoft FY2026 Q4/FY results](https://www.microsoft.com/en-us/Investor/earnings/FY-2026-Q4/press-release-webcast): 集团营业利润155.237、GAAP EPS17.95与按OpenAI投资影响调整EPS17.28；不提供纯Azure倍数.
+- [Talen 8-K, Exhibit 99.1: nuclear energy relationship with Amazon](https://ir.talenenergy.com/static-files/90cce90c-e281-42c6-b686-ed6010dd8699): 公告中的1,920MW为满额供电计划，预计爬坡最迟2032达到；供电数量不等于AWS当期IT容量或收费收入.
+- [Walmart FY2027 Q2 earnings release](https://stock.walmart.com/sec-filings/all-sec-filings/content/0000104169-26-000145/earningsreleasefy27q2.htm): H1利润16.876/14.421及借款、融资租赁、NCI和现金组件；FY2027与实际经济期间同时记录.
+- [Walmart FY2027 Q2 presentation](https://stock.walmart.com/sec-filings/all-sec-filings/content/0000104169-26-000145/earningspresentationfy27.htm): ROI reconciliation第一行TTM营业利润32.280及旧FY29.825；不采用调整后ROI分子50.285作EBIT.
+- [Amazon · 2026 Q2 Form 10-Q](https://www.sec.gov/Archives/edgar/data/1018724/000101872426000026/amzn-20260630.htm): 来源摘要：截至 2026-06-30 的季度报告. 用于核对自营零售、第三方卖家服务与 AWS 的业务口径，以及存货、设备和现金流的合并披露. 案例的解释由作者根据研究整理.
+- [Alphabet · 2026 Q2 Form 10-Q](https://www.sec.gov/Archives/edgar/data/1652044/000165204426000071/goog-20260630.htm): 来源摘要：截至 2026-06-30 的季度报告. 用于核对 Google Services、Google Cloud、技术基础设施与设备用途. 报告主体为 Alphabet；GOOG 与 GOOGL 对应不同股份类别.
 
 ## Content relations
 ```json
@@ -3796,7 +3800,7 @@ AI延后将Core2027按148×1.12，随后沿原增速，AI为27/35/58/90；原资
   {
     "relation": "analyzes",
     "to": "zh-amzn",
-    "reason": "公司身份与这一日期的独立研究记录分别保留；不覆盖旧教学片段。",
+    "reason": "公司身份与这一日期的独立研究记录分别保留；不覆盖旧教学片段.",
     "cutoff": "2026-09-20",
     "period": "2025Q4–2026Q2 facts and dated subsequent disclosures; conditional paths 2026H2–2029",
     "from": "zh-amzn-research-20260920"

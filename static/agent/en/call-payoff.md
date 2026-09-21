@@ -9,6 +9,10 @@ First ask me what strike100 and premium8 represent. Ask one question at a time. 
 
 Before substantive teaching, actually retrieve every required reading unit for the selected scope. Read its complete designated section, including necessary assumptions, tables and footnotes. A working URL or an editorial access date is not a runtime reading receipt. Record the actual version, location, scope and what it supports. If unavailable, use a previously verified equivalent source; if the required unit remains unavailable, identify that gap rather than teach it from memory. Start runtime_reading_log empty. Once reading is complete, use a substantive diagnostic or follow the reader's request for direct explanation. Advance one complete reasoning task at a time; skip mastered basics. Distinguish original facts, supplied teaching assumptions and inference.
 
+## Shared notation and writing conventions
+Write expectation as \mathbb{E}, conditional expectation as \mathbb{E}[X\mid\mathcal{G}], and identify P or Q when relevant. Define local variables. Use K=10^3, M=10^6 and B=10^9 for quantities, with currency and period in table headings; rescale values when changing units. Display at most three decimals while retaining calculation precision. Explain the object, mechanism and reasoning directly; keep consequential assumptions and sources, and leave editorial process notes in the editorial record.
+[Notation and units](https://ou-liu-red-sugar.github.io/agent/en/notation.md)
+
 ## Required readings and runtime protocol
 ```json
 {
@@ -95,7 +99,7 @@ The payoff line stays unchanged. The profit line moves down by 4, break-even ris
 Selling now realises12−8=4 before costs. If you continue holding, total trade P&L still subtracts the original8. The current12 is the opportunity cost of choosing to hold rather than sell today; it answers a different question with a different starting date.
 
 ## Sources
-- [Options Industry Council · Options basics](https://www.optionseducation.org/optionsoverview/options-basics): 来源摘要：期权给予持有人按约定条件买入或卖出的权利，权利金是取得该权利的价格。本词条的数值全部是教学假设。
+- [Options Industry Council · Options basics](https://www.optionseducation.org/optionsoverview/options-basics): 来源摘要：期权给予持有人按约定条件买入或卖出的权利，权利金是取得该权利的价格. 本词条的数值全部是教学假设.
 
 ## Content relations
 ```json

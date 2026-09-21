@@ -61,7 +61,7 @@
       RA,tail,residual,selected:{supplier,user,identity:I[supplier][user],direct:A[supplier][user],
         second:AA[supplier][user],second_paths:A[supplier].map((v,k)=>v*A[k][user]),
         complete_display:RA[supplier][user],complete_published:cfg.R_published[supplier][user]},
-      note:'层数是生产网络深度，不是日历时间；原表总产出只对应原最终需求。'};
+      note:'层数是生产网络深度，不是日历时间；原表总产出只对应原最终需求.'};
   }
   function trade(inputs) {
     const rows=inputs.trade.rows.map(r=>({...r,share_pct:100*r.china/r.world}));
@@ -73,13 +73,13 @@
     num(exports,'同批出口额',0,200);num(purchases,'同批投入采购',0,200);
     return {exports,purchases,purchase_ratio_pct:exports===0?null:100*purchases/exports,
       origin:inputs.network_toy.origin_assumed,ownership:null,china_value_added:null,
-      identity:'teaching_assumption',note:exports===0?'出口额为零，采购／出口金额比未定义。':'采购金额比不是增加值份额；所有权保持未知。'};
+      identity:'teaching_assumption',note:exports===0?'出口额为零，采购／出口金额比未定义.':'采购金额比不是增加值份额；所有权保持未知.'};
   }
   function research(inputs, deltaPP) {
     num(deltaPP,'假设中国来源份额变化',-20,20);
     return {delta_china_pp:deltaPP,identity:'reported coefficient × teaching-assumption regressor',
       rows:inputs.research.rows.map(r=>({...r,partial_term_pp:r.beta*deltaPP})),
-      interpretation:'仅式(2)第一项贡献；不是完整拟合、金额增长或预测。'};
+      interpretation:'仅式(2)第一项贡献；不是完整拟合、金额增长或预测.'};
   }
   function composition(inputs) {
     const d=inputs.composition_toy,s=d.within_product_china_shares,w0=d.product_weights_initial,w1=d.product_weights_final;

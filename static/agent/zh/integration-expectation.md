@@ -1,19 +1,23 @@
 # 积分与可积性
 
-核对非负与有符号期望、可积性及极限交换条件，用封顶重尾和尖峰反例划清边界。
+核对非负与有符号期望、可积性及极限交换条件，用封顶重尾和尖峰反例划清边界.
 
 Entry: zh-qt10 | Node: QT10 | Language: zh | Editorial revision: 2026-09-21
 
 ## Teaching instructions
-你正在使用一份公开教学包，读者具有高年级本科至研究生的数学背景。先实际读取 required_readings 中本次采用的完整单元，再进入讲解；记录版本、页/节、关键假设与支持范围。仅取得目录、摘要或失败链接不算读完。已在本次会话完整取得的同一版本可以复用。找不到正文时尝试已核公开等价版本并说明版本变化，仍缺失则明确缺少的单元，不编造已读内容。
-以下正文、输入和解析为共同来源，不能自行改变数字或把教学概率改称样本频率、现实真值或定价测度。不要访问账户。每次推进一个完整推理任务；已掌握的基础可跳过讲解，但承重条件不能省略。静态说明与交互同义；工具不能运行时直接使用完整静态输入与精确计算，不声称运行过实验。
+你正在使用一份公开教学包，读者具有高年级本科至研究生的数学背景. 先实际读取 required_readings 中本次采用的完整单元，再进入讲解；记录版本、页/节、关键假设与支持范围. 仅取得目录、摘要或失败链接不算读完. 已在本次会话完整取得的同一版本可以复用. 找不到正文时尝试已核公开等价版本并说明版本变化，仍缺失则明确缺少的单元，不编造已读内容.
+以下正文、输入和解析为共同来源，不能自行改变数字或把教学概率改称样本频率、现实真值或定价测度. 不要访问账户. 每次推进一个完整推理任务；已掌握的基础可跳过讲解，但承重条件不能省略. 静态说明与交互同义；工具不能运行时直接使用完整静态输入与精确计算，不声称运行过实验.
 
-当前词条：QT10《积分与可积性》。本次只教这个节点及选择的证明分支。
-诊断任务：给 f_n=n·1_(0,1/n)，问能否交换积分与极限；要求先说定理条件再答数值。
-通过标准：能区分有限、扩展、未定义期望；说出 DCT 统一可积支配；算封顶 2.8 和超阈值置零 2.7，拒绝以样本有限证明矩存在。
-先让读者作解释或计算，再依完整解析反馈；最后更换分组、概率或条件做迁移，不能只询问“懂了吗”。
+当前词条：QT10《积分与可积性》. 本次只教这个节点及选择的证明分支.
+诊断任务：给 f_n=n·1_(0,1/n)，问能否交换积分与极限；要求先说定理条件再答数值.
+通过标准：能区分有限、扩展、未定义期望；说出 DCT 统一可积支配；算封顶 2.8 和超阈值置零 2.7，拒绝以样本有限证明矩存在.
+先让读者作解释或计算，再依完整解析反馈；最后更换分组、概率或条件做迁移，不能只询问“懂了吗”.
 
 Before substantive teaching, actually retrieve every required reading unit for the selected scope. Read its complete designated section, including necessary assumptions, tables and footnotes. A working URL or an editorial access date is not a runtime reading receipt. Record the actual version, location, scope and what it supports. If unavailable, use a previously verified equivalent source; if the required unit remains unavailable, identify that gap rather than teach it from memory. Start runtime_reading_log empty. Once reading is complete, use a substantive diagnostic or follow the reader's request for direct explanation. Advance one complete reasoning task at a time; skip mastered basics. Distinguish original facts, supplied teaching assumptions and inference.
+
+## Shared notation and writing conventions
+数学期望统一写成 \mathbb{E}，条件期望用 \mathbb{E}[X\mid\mathcal{G}]，需要时注明测度 P 或 Q. 保留局部变量的明确定义. 金额与数量使用 K=10^3、M=10^6、B=10^9；表格标明币种、量级与期间，变更量级时同步换算数值. 展示小数最多三位，计算保留原始精度. 直接解释对象、机制与推理；保留影响结论的假设和事实来源，把编辑流程留在记录中. 句末使用英文句点 .，包括定义、命题、证明和解析等标签. 基础定义与推导直接讲内容，出处放在紧邻脚注；来源读取、复审和采用范围等编辑经过留在记录中.
+[Notation and units](https://ou-liu-red-sugar.github.io/agent/zh/notation.md)
 
 ## Required readings and runtime protocol
 ```json
@@ -31,7 +35,7 @@ Before substantive teaching, actually retrieve every required reading unit for t
         "scope": "简单/非负/有符号积分、L1 可积性、MCT、Fatou 与 DCT 的陈述及所用证明步骤",
         "purpose": "区分非负扩展积分、L1 有符号积分及极限交换条件，并核 DCT 的 L1 结论"
       },
-      "supports": "定义与条件的公开依据。采用 L1 条件期望及 RN 构造、塔式性质和 L2 投影；正文把指示函数到有界函数再到 L2 检验函数的延伸逐步写出。一般 RN 证明单元保留其 Hahn 分解依赖，未声称重新证明全部测度论。",
+      "supports": "定义与条件的公开依据. 采用 L1 条件期望及 RN 构造、塔式性质和 L2 投影；正文把指示函数到有界函数再到 L2 检验函数的延伸逐步写出. 一般 RN 证明单元保留其 Hahn 分解依赖，未声称重新证明全部测度论.",
       "title": "Probability Theory: STAT310/MATH230",
       "authors": [
         "Amir Dembo"
@@ -47,7 +51,7 @@ Before substantive teaching, actually retrieve every required reading unit for t
       "id": "EXP-QTB-INTEGRAL-01",
       "title": "积分、封顶与极限条件",
       "anchor": "qt10-tail",
-      "description": "下面三个模型各自固定：Pareto 封顶、尖峰序列、Uniform 简单函数。它们各自独立，不使用四状态概率。",
+      "description": "下面三个模型各自固定：Pareto 封顶、尖峰序列、Uniform 简单函数. 它们各自独立，不使用四状态概率.",
       "inputs": {
         "identity": "确定的积分教学模型，非金融样本或模拟",
         "shared_file": "shared_inputs.json",
@@ -129,7 +133,7 @@ Before substantive teaching, actually retrieve every required reading unit for t
           "limit_integral": 0.5
         }
       },
-      "algorithm": "Pareto：封顶均值用积分解析式，alpha=1 用对数；非有限矩输出 finite=false,value=null。尖峰按 x<1/n 判值，面积恒1；Uniform简单函数积分(1−2^-n)/2。",
+      "algorithm": "Pareto：封顶均值用积分解析式，alpha=1 用对数；非有限矩输出 finite=false,value=null. 尖峰按 x<1/n 判值，面积恒1；Uniform简单函数积分(1−2^-n)/2.",
       "units": {
         "probabilities": "dimensionless",
         "settlement_points": "index points (contract-defined settlement value)",
@@ -146,7 +150,7 @@ Before substantive teaching, actually retrieve every required reading unit for t
       ],
       "static_equivalent": {
         "body_anchor": "qt10-tail",
-        "default_table_html": "<div class=\"table-wrap\"><table><thead><tr><th>α</th><th>b</th><th>完整均值</th><th>封顶均值</th><th>超阈值置零均值</th></tr></thead><tbody><tr><td>1.5</td><td>100</td><td>3</td><td>2.8</td><td>2.7</td></tr></tbody></table></div><div class=\"table-wrap\"><table><thead><tr><th>n</th><th>尖峰高度</th><th>支撑长度</th><th>积分</th><th>fₙ(0.02)</th></tr></thead><tbody><tr><td>2</td><td>2</td><td>1/2</td><td>1</td><td>2</td></tr><tr><td>10</td><td>10</td><td>1/10</td><td>1</td><td>10</td></tr><tr><td>100</td><td>100</td><td>1/100</td><td>1</td><td>0</td></tr></tbody></table></div><p>二进简单函数：n=4 时积分 0.46875，极限 0.5。尖峰的逐点极限为零，但各项积分恒为一。</p>",
+        "default_table_html": "<div class=\"table-wrap\"><table><thead><tr><th>α</th><th>b</th><th>完整均值</th><th>封顶均值</th><th>超阈值置零均值</th></tr></thead><tbody><tr><td>1.5</td><td>100</td><td>3</td><td>2.8</td><td>2.7</td></tr></tbody></table></div><div class=\"table-wrap\"><table><thead><tr><th>n</th><th>尖峰高度</th><th>支撑长度</th><th>积分</th><th>fₙ(0.02)</th></tr></thead><tbody><tr><td>2</td><td>2</td><td>1/2</td><td>1</td><td>2</td></tr><tr><td>10</td><td>10</td><td>1/10</td><td>1</td><td>10</td></tr><tr><td>100</td><td>100</td><td>1/100</td><td>1</td><td>0</td></tr></tbody></table></div><p>二进简单函数：n=4 时积分 0.46875，极限 0.5. 尖峰的逐点极限为零，但各项积分恒为一.</p>",
         "scope": "默认及正文列明的迁移算例，不依赖点击状态"
       },
       "execution": {
@@ -393,61 +397,61 @@ Before substantive teaching, actually retrieve every required reading unit for t
 ```
 
 ## Supplied entry
-期望可以是有限数，也可以是扩展实数中的无穷；有正有负时，甚至可能根本没有定义。这页用于核对这些边界，以及“把极限移进期望”究竟需要什么条件。可测性记号见 [可测空间与概率测度](https://ou-liu-red-sugar.github.io/zh/notebook/measurable-information/)。
+期望可以是有限数，也可以是扩展实数中的无穷；有正有负时，甚至可能根本没有定义. 这页用于核对这些边界，以及“把极限移进期望”究竟需要什么条件. 可测性记号见 [可测空间与概率测度](https://ou-liu-red-sugar.github.io/zh/notebook/measurable-information/).
 
 <a id="qt10-integral"></a>
 ## 从加权和到积分
 
-固定测度空间 $(\Omega,\mathcal F,\mu)$。令 $s=\sum_{i=1}^m a_i1_{A_i}$ 为非负简单函数，其中 $a_i\ge0$、$A_i\in\mathcal F$，则定义
+固定测度空间 $(\Omega,\mathcal F,\mu)$. 令 $s=\sum_{i=1}^m a_i1_{A_i}$ 为非负简单函数，其中 $a_i\ge0$、$A_i\in\mathcal F$，则定义
 $$
 \int s\,d\mu=\sum_i a_i\mu(A_i),
 $$
-并约定 $0\cdot\infty=0$。表示中的集合可以重叠；把两种表示的集合共同细分为不交小块，两种写法在每块的总函数值相同，故积分相同。积分不依赖这项表示选择。[^integral]
+并约定 $0\cdot\infty=0$. 表示中的集合可以重叠；把两种表示的集合共同细分为不交小块，两种写法在每块的总函数值相同，故积分相同. 积分不依赖这项表示选择. [^integral]
 
 对非负可测函数 $f$，定义
 $$
 \int f\,d\mu
 =\sup\left\{\int s\,d\mu:\ 0\le s\le f,\ s\text{ 为简单函数}\right\}.
 $$
-结果允许是 $+\infty$。例如用逐渐加高的截断与逐渐变细的二进网格，可以构造简单函数 $s_n\uparrow f$；单调收敛定理会保证它们的积分趋于同一上确界。定义本身并没有先假定这项极限交换成立。
+结果允许是 $+\infty$. 例如用逐渐加高的截断与逐渐变细的二进网格，可以构造简单函数 $s_n\uparrow f$；单调收敛定理会保证它们的积分趋于同一上确界. 定义本身并没有先假定这项极限交换成立.
 
-概率空间中取 $\mu=P$，积分便是期望。有限状态的加权平均是它的特例，而不是另一种互不相干的“经验平均”。
+概率空间中取 $\mu=P$，积分便是期望. 有限状态的加权平均是它的特例，而不是另一种互不相干的“经验平均”.
 
 <a id="qt10-signed"></a>
 ## 有符号期望：三个不同的问题
 
-令 $X$ 为实值可测随机变量，记 $X^+=\max(X,0)$、$X^-=\max(-X,0)$。先分别定义两个非负期望，再讨论相减：
+令 $X$ 为实值可测随机变量，记 $X^+=\max(X,0)$、$X^-=\max(-X,0)$. 先分别定义两个非负期望，再讨论相减：
 
-| $E[X^+]$ | $E[X^-]$ | $E[X]$ 的状态 |
+| $\mathbb{E}[X^+]$ | $\mathbb{E}[X^-]$ | $\mathbb{E}[X]$ 的状态 |
 |---|---|---|
 | 有限 | 有限 | 有限实数；称 $X\in L^1$ |
 | $+\infty$ | 有限 | 扩展期望为 $+\infty$，但不在 $L^1$ |
 | 有限 | $+\infty$ | 扩展期望为 $-\infty$，但不在 $L^1$ |
 | $+\infty$ | $+\infty$ | 未定义；不能作 $\infty-\infty$ |
 
-因此**可积**指 $E|X|<\infty$，等价于两部分期望都有限。这比“某种截断求和看起来能抵消成一个数”强。[^signed]
+因此**可积**指 $\mathbb{E}|X|<\infty$，等价于两部分期望都有限. 这比“某种截断求和看起来能抵消成一个数”强. [^signed]
 
-例如令 $Z\ge1$ 满足 $P(Z>x)=x^{-0.8}$（$x\ge1$），再独立选择等概率正负号 $\varepsilon$。虽然 $\varepsilon Z$ 的分布对称，但其正负部分期望都无穷，不能凭对称性写 $E[\varepsilon Z]=0$。
+例如令 $Z\ge1$ 满足 $P(Z>x)=x^{-0.8}$（$x\ge1$），再独立选择等概率正负号 $\varepsilon$. 虽然 $\varepsilon Z$ 的分布对称，但其正负部分期望都无穷，不能凭对称性写 $\mathbb{E}[\varepsilon Z]=0$.
 
-一般条件期望 [[QT11|$E[X\mid\mathcal G]$ 的定义与投影]] 在主篇中使用 $X\in L^1$；谈有限均方误差时还需更强的 $E[X^2]<\infty$。不能把“期望存在”和“方差有限”当作同一条件。
+一般条件期望 [[QT11|$\mathbb{E}[X\mid\mathcal G]$ 的定义与投影]] 在主篇中使用 $X\in L^1$；谈有限均方误差时还需更强的 $\mathbb{E}[X^2]<\infty$. 不能把“期望存在”和“方差有限”当作同一条件.
 
 <a id="qt10-limits"></a>
 ## 两张极限条件卡
 
-**单调收敛定理。** 在任意测度空间上，若可测函数满足 $0\le f_n\uparrow f$，则 $\int f_n\,d\mu\uparrow\int f\,d\mu$，允许极限为无穷。a.e. 版本可先在共同可测零测集上修正。非负性和单调性都是这里的条件。[^mct]
+**单调收敛定理.** 在任意测度空间上，若可测函数满足 $0\le f_n\uparrow f$，则 $\int f_n\,d\mu\uparrow\int f\,d\mu$，允许极限为无穷. a.e. 版本可先在共同可测零测集上修正. 非负性和单调性都是这里的条件. [^mct]
 
-**控制收敛定理（DCT）。** 若 $f,f_1,f_2,\ldots$ 均为实值可测函数，$f_n\to f$ a.e.，且存在**同一个非负可积函数** $g$，使对所有 $n$ 都有 $|f_n|\le g$ a.e.，则 $f$ 与各 $f_n$ 可积，而且
+**控制收敛定理（DCT）.** 若 $f,f_1,f_2,\ldots$ 均为实值可测函数，$f_n\to f$ a.e.，且存在**同一个非负可积函数** $g$，使对所有 $n$ 都有 $|f_n|\le g$ a.e.，则 $f$ 与各 $f_n$ 可积，而且
 $$
 \int |f_n-f|\,d\mu\longrightarrow0,\qquad
 \int f_n\,d\mu\longrightarrow\int f\,d\mu.
 $$
-每个 $f_n$ 各自有界或各自可积都不够；支配函数必须统一，并且本身可积。Dembo 的证明先由 $|f_n|\le g$ 与 a.e. 收敛得到 $|f|\le g$，再对 $|f_n-f|\le2g$ 使用反向 Fatou 不等式，得到 $\int|f_n-f|\,d\mu\to0$；于是 $|\int f_n\,d\mu-\int f\,d\mu|\le\int|f_n-f|\,d\mu\to0$。相关证明见原文 pp.42–43。[^dct]
+每个 $f_n$ 各自有界或各自可积都不够；支配函数必须统一，并且本身可积. Dembo 的证明先由 $|f_n|\le g$ 与 a.e. 收敛得到 $|f|\le g$，再对 $|f_n-f|\le2g$ 使用反向 Fatou 不等式，得到 $\int|f_n-f|\,d\mu\to0$；于是 $|\int f_n\,d\mu-\int f\,d\mu|\le\int|f_n-f|\,d\mu\to0$. 相关证明见原文 pp.42–43. [^dct]
 
 最容易误用的反例是在 $(0,1)$ 的 Lebesgue 概率空间上取
 $$
 f_n(x)=n\,1_{(0,1/n)}(x).
 $$
-每个固定 $x>0$ 最终都会在支撑外，因此 $f_n(x)\to0$；但每项积分都是 $n(1/n)=1$。这里不能交换极限与积分。
+每个固定 $x>0$ 最终都会在支撑外，因此 $f_n(x)\to0$；但每项积分都是 $n(1/n)=1$. 这里不能交换极限与积分.
 
 | $n$ | 高度 | 支撑长度 | 积分 | $f_n(0.02)$ |
 |---:|---:|---:|---:|---:|
@@ -455,19 +459,19 @@ $$
 | $10$ | $10$ | $1/10$ | $1$ | $10$ |
 | $100$ | $100$ | $1/100$ | $1$ | $0$ |
 
-质量挤到越来越窄的区间，不会因为每个固定点最终归零就自动消失。这个例子既不满足递增条件，也不存在统一可积支配，否则 DCT 会与积分恒为 $1$ 矛盾。
+质量挤到越来越窄的区间，不会因为每个固定点最终归零就自动消失. 这个例子既不满足递增条件，也不存在统一可积支配，否则 DCT 会与积分恒为 $1$ 矛盾.
 
 <a id="qt10-tail"></a>
 ## 截断平均不能证明原期望有限
 
-取无量纲的 Pareto 教学模型：$Z\ge1$，$P(Z>x)=x^{-\alpha}$，$x\ge1$、$\alpha>0$。直接积分密度 $\alpha x^{-\alpha-1}$ 得到
+取无量纲的 Pareto 教学模型：$Z\ge1$，$P(Z>x)=x^{-\alpha}$，$x\ge1$、$\alpha>0$. 直接积分密度 $\alpha x^{-\alpha-1}$ 得到
 $$
-E[Z^q]=\alpha\int_1^\infty x^{q-\alpha-1}\,dx
+\mathbb{E}[Z^q]=\alpha\int_1^\infty x^{q-\alpha-1}\,dx
 =\frac{\alpha}{\alpha-q}\quad(0<q<\alpha);
 $$
-$q\ge\alpha$ 时该积分发散。
+$q\ge\alpha$ 时该积分发散.
 
-| $\alpha$ | $E[Z]$ | $E[Z^2]$ |
+| $\alpha$ | $\mathbb{E}[Z]$ | $\mathbb{E}[Z^2]$ |
 |---:|---:|---:|
 | $0.8$ | $+\infty$ | $+\infty$ |
 | $1.5$ | $3$ | $+\infty$ |
@@ -475,45 +479,45 @@ $q\ge\alpha$ 时该积分发散。
 
 若显示的是封顶变量 $\min(Z,b)$，其中 $b\ge1$，则计算结果为
 $$
-E[\min(Z,b)]
+\mathbb{E}[\min(Z,b)]
 =1+\int_1^b x^{-\alpha}\,dx
 =\begin{cases}
 1+\dfrac{b^{1-\alpha}-1}{1-\alpha},&\alpha\ne1,\\[2mm]
 1+\log b,&\alpha=1.
 \end{cases}
 $$
-积分式也可直接从封顶分布的密度部分与 $b$ 处的点质量相加得到。
+积分式也可直接从封顶分布的密度部分与 $b$ 处的点质量相加得到.
 
-默认 $\alpha=1.5,b=100$ 时，封顶平均为 $2.8$，低于完整均值 $3$。它不等于“超出 $b$ 的值全部删为零”后的平均：后者是
+默认 $\alpha=1.5,b=100$ 时，封顶平均为 $2.8$，低于完整均值 $3$. 它不等于“超出 $b$ 的值全部删为零”后的平均：后者是
 $$
-E[Z1_{\{Z\le b\}}]=E[\min(Z,b)]-bP(Z>b)=2.8-0.1=2.7.
+\mathbb{E}[Z1_{\{Z\le b\}}]=\mathbb{E}[\min(Z,b)]-bP(Z>b)=2.8-0.1=2.7.
 $$
 
 <div data-experiment-slot="EXP-QTB-INTEGRAL-01"></div>
 
-保持 $\alpha=1.5$，取 $b=10,100,1000$，封顶平均依次约为 $2.368$、$2.800$、$2.937$。精确值仍由上式直接计算。若改成 $\alpha=0.8$，任何有限 $b$ 的封顶平均仍然有限，但不能因此说未封顶的均值存在于有限实数中。
+保持 $\alpha=1.5$，取 $b=10,100,1000$，封顶平均依次约为 $2.368$、$2.800$、$2.937$. 精确值仍由上式直接计算. 若改成 $\alpha=0.8$，任何有限 $b$ 的封顶平均仍然有限，但不能因此说未封顶的均值存在于有限实数中.
 
-积分面板还给出一个独立的简单函数例：在 $U\sim\mathrm{Unif}[0,1)$ 上，$s_n=2^{-n}\lfloor2^nU\rfloor\uparrow U$，其平均为 $(1-2^{-n})/2$。$n=1,2,4,8$ 时依次为 $0.25,0.375,0.46875,0.498046875$。这是从下方逼近一个固定可积函数，和不断挤向零点的尖峰序列不同。
+积分面板还给出一个独立的简单函数例：在 $U\sim\mathrm{Unif}[0,1)$ 上，$s_n=2^{-n}\lfloor2^nU\rfloor\uparrow U$，其平均为 $(1-2^{-n})/2$. $n=1,2,4,8$ 时依次为 $0.25,0.375,0.46875,0.498046875$. 这是从下方逼近一个固定可积函数，和不断挤向零点的尖峰序列不同.
 
 <a id="qt10-tests"></a>
 ## 自检与解析
 
-**题 1。** $\alpha=1.5$ 时，$Z$ 可积吗？$Z-3$ 的平方可积吗？有限样本中没有观察到极端值，能否改变答案？
+**题 1.** $\alpha=1.5$ 时，$Z$ 可积吗？$Z-3$ 的平方可积吗？有限样本中没有观察到极端值，能否改变答案？
 
-**解析。** $E[Z]=3<\infty$，所以 $Z\in L^1$。但 $E[(Z-3)^2]=\infty$：在 $Z>6$ 时，$(Z-3)^2\ge Z^2/4$，而这部分二阶矩发散。矩是否存在是给定模型的性质，有限样本没有出现极端值不能证明总体二阶矩有限。
+**解析.** $\mathbb{E}[Z]=3<\infty$，所以 $Z\in L^1$. 但 $\mathbb{E}[(Z-3)^2]=\infty$：在 $Z>6$ 时，$(Z-3)^2\ge Z^2/4$，而这部分二阶矩发散. 矩是否存在是给定模型的性质，有限样本没有出现极端值不能证明总体二阶矩有限.
 
-**题 2。** 有人说“$f_n(x)\to0$ 且每个 $\int|f_n|=1$，所以可由 DCT 推出 $\int f_n\to0$”。错误在哪一步？
+**题 2.** 有人说“$f_n(x)\to0$ 且每个 $\int|f_n|=1$，所以可由 DCT 推出 $\int f_n\to0$”. 错误在哪一步？
 
-**解析。** 各项 $L^1$ 范数一致有界，不等于存在统一可积的点态支配函数。尖峰例恰好满足前者而不满足后者。DCT 的缺口不能用一组相同的积分值补上。
+**解析.** 各项 $L^1$ 范数一致有界，不等于存在统一可积的点态支配函数. 尖峰例恰好满足前者而不满足后者. DCT 的缺口不能用一组相同的积分值补上.
 
-**题 3。** 某函数的正部期望无穷、负部期望为 $2$。可以说它“没有任何期望”吗？能否使用本篇所指的 $L^1$ 条件期望定理？
+**题 3.** 某函数的正部期望无穷、负部期望为 $2$. 可以说它“没有任何期望”吗？能否使用本篇所指的 $L^1$ 条件期望定理？
 
-**解析。** 它有扩展期望 $+\infty$，但没有有限期望，且不属于 $L^1$，所以不能直接套用该定理。非负扩展条件期望可以另行定义，但不能据此把有符号的 $\infty-\infty$ 运算合法化。
+**解析.** 它有扩展期望 $+\infty$，但没有有限期望，且不属于 $L^1$，所以不能直接套用该定理. 非负扩展条件期望可以另行定义，但不能据此把有符号的 $\infty-\infty$ 运算合法化.
 
-[^integral]: Amir Dembo, *Probability Theory: STAT310/MATH230*，2021-04-15 版，Definition 1.3.1 Step 1–3（p.31）定义指示函数、简单函数与非负积分；Lemma 1.3.3（p.32）说明简单函数积分与表示无关并给出线性、单调性。[作者公开讲义](https://adembo.su.domains/stat-310b/lnotes.pdf)。
-[^signed]: 同版，Definition 1.3.1 Step 4（p.31）用正负部分定义有符号积分，并规定至少一侧有限时才能作差；Definition 1.3.2（p.32）把 $E|X|<\infty$ 定义为可积/有限期望。本文重尾例由所给密度直接计算。
-[^mct]: 同版，Theorem 1.3.4，p.33；完整证明 p.41。
-[^dct]: 同版，Fatou Lemma 1.3.33 与 Dominated Convergence Theorem 1.3.34，pp.42–43，包含完整证明。尖峰例是对“仅有点态收敛”的直接反例。
+[^integral]: Amir Dembo, *Probability Theory: STAT310/MATH230*，2021-04-15 版，Definition 1.3.1 Step 1–3（p.31）定义指示函数、简单函数与非负积分；Lemma 1.3.3（p.32）说明简单函数积分与表示无关并给出线性、单调性. [作者公开讲义](https://adembo.su.domains/stat-310b/lnotes.pdf).
+[^signed]: 同版，Definition 1.3.1 Step 4（p.31）用正负部分定义有符号积分，并规定至少一侧有限时才能作差；Definition 1.3.2（p.32）把 $\mathbb{E}|X|<\infty$ 定义为可积/有限期望. 本文重尾例由所给密度直接计算.
+[^mct]: 同版，Theorem 1.3.4，p.33；完整证明 p.41.
+[^dct]: 同版，Fatou Lemma 1.3.33 与 Dominated Convergence Theorem 1.3.34，pp.42–43，包含完整证明. 尖峰例是对“仅有点态收敛”的直接反例.
 
 
 ## Experiment inputs and static equivalents
@@ -523,7 +527,7 @@ $$
     "id": "EXP-QTB-INTEGRAL-01",
     "title": "积分、封顶与极限条件",
     "anchor": "qt10-tail",
-    "description": "下面三个模型各自固定：Pareto 封顶、尖峰序列、Uniform 简单函数。它们各自独立，不使用四状态概率。",
+    "description": "下面三个模型各自固定：Pareto 封顶、尖峰序列、Uniform 简单函数. 它们各自独立，不使用四状态概率.",
     "inputs": {
       "identity": "确定的积分教学模型，非金融样本或模拟",
       "shared_file": "shared_inputs.json",
@@ -605,7 +609,7 @@ $$
         "limit_integral": 0.5
       }
     },
-    "algorithm": "Pareto：封顶均值用积分解析式，alpha=1 用对数；非有限矩输出 finite=false,value=null。尖峰按 x<1/n 判值，面积恒1；Uniform简单函数积分(1−2^-n)/2。",
+    "algorithm": "Pareto：封顶均值用积分解析式，alpha=1 用对数；非有限矩输出 finite=false,value=null. 尖峰按 x<1/n 判值，面积恒1；Uniform简单函数积分(1−2^-n)/2.",
     "units": {
       "probabilities": "dimensionless",
       "settlement_points": "index points (contract-defined settlement value)",
@@ -622,7 +626,7 @@ $$
     ],
     "static_equivalent": {
       "body_anchor": "qt10-tail",
-      "default_table_html": "<div class=\"table-wrap\"><table><thead><tr><th>α</th><th>b</th><th>完整均值</th><th>封顶均值</th><th>超阈值置零均值</th></tr></thead><tbody><tr><td>1.5</td><td>100</td><td>3</td><td>2.8</td><td>2.7</td></tr></tbody></table></div><div class=\"table-wrap\"><table><thead><tr><th>n</th><th>尖峰高度</th><th>支撑长度</th><th>积分</th><th>fₙ(0.02)</th></tr></thead><tbody><tr><td>2</td><td>2</td><td>1/2</td><td>1</td><td>2</td></tr><tr><td>10</td><td>10</td><td>1/10</td><td>1</td><td>10</td></tr><tr><td>100</td><td>100</td><td>1/100</td><td>1</td><td>0</td></tr></tbody></table></div><p>二进简单函数：n=4 时积分 0.46875，极限 0.5。尖峰的逐点极限为零，但各项积分恒为一。</p>",
+      "default_table_html": "<div class=\"table-wrap\"><table><thead><tr><th>α</th><th>b</th><th>完整均值</th><th>封顶均值</th><th>超阈值置零均值</th></tr></thead><tbody><tr><td>1.5</td><td>100</td><td>3</td><td>2.8</td><td>2.7</td></tr></tbody></table></div><div class=\"table-wrap\"><table><thead><tr><th>n</th><th>尖峰高度</th><th>支撑长度</th><th>积分</th><th>fₙ(0.02)</th></tr></thead><tbody><tr><td>2</td><td>2</td><td>1/2</td><td>1</td><td>2</td></tr><tr><td>10</td><td>10</td><td>1/10</td><td>1</td><td>10</td></tr><tr><td>100</td><td>100</td><td>1/100</td><td>1</td><td>0</td></tr></tbody></table></div><p>二进简单函数：n=4 时积分 0.46875，极限 0.5. 尖峰的逐点极限为零，但各项积分恒为一.</p>",
       "scope": "默认及正文列明的迁移算例，不依赖点击状态"
     },
     "execution": {
@@ -638,7 +642,7 @@ $$
 ```
 
 ## Sources
-- [Probability Theory: STAT310/MATH230](https://adembo.su.domains/stat-310b/lnotes.pdf): 定义与条件的公开依据。采用 L1 条件期望及 RN 构造、塔式性质和 L2 投影；正文把指示函数到有界函数再到 L2 检验函数的延伸逐步写出。一般 RN 证明单元保留其 Hahn 分解依赖，未声称重新证明全部测度论。
+- [Probability Theory: STAT310/MATH230](https://adembo.su.domains/stat-310b/lnotes.pdf): 定义与条件的公开依据. 采用 L1 条件期望及 RN 构造、塔式性质和 L2 投影；正文把指示函数到有界函数再到 L2 检验函数的延伸逐步写出. 一般 RN 证明单元保留其 Hahn 分解依赖，未声称重新证明全部测度论.
 
 ## Content relations
 ```json
@@ -655,13 +659,13 @@ $$
     "to": "QTB-DEMBO-2021",
     "reason": "支持本篇采用的定义、条件或真实产品条款",
     "locator": "Definition 1.3.1 Step 1–4 p.31；Definition 1.3.2、Lemma 1.3.3 p.32；Theorem 1.3.4 p.33/证明 p.41；Lemma 1.3.33、Theorem 1.3.34 pp.42–43",
-    "scope": "定义与条件的公开依据。采用 L1 条件期望及 RN 构造、塔式性质和 L2 投影；正文把指示函数到有界函数再到 L2 检验函数的延伸逐步写出。一般 RN 证明单元保留其 Hahn 分解依赖，未声称重新证明全部测度论。"
+    "scope": "定义与条件的公开依据. 采用 L1 条件期望及 RN 构造、塔式性质和 L2 投影；正文把指示函数到有界函数再到 L2 检验函数的延伸逐步写出. 一般 RN 证明单元保留其 Hahn 分解依赖，未声称重新证明全部测度论."
   },
   {
     "from": "qt10-tail",
     "relation": "illustrated_by",
     "to": "EXP-QTB-INTEGRAL-01",
-    "reason": "下面三个模型各自固定：Pareto 封顶、尖峰序列、Uniform 简单函数。它们各自独立，不使用四状态概率。"
+    "reason": "下面三个模型各自固定：Pareto 封顶、尖峰序列、Uniform 简单函数. 它们各自独立，不使用四状态概率."
   },
   {
     "from": "zh-qt10",

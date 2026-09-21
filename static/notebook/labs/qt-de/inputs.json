@@ -31,7 +31,7 @@
       "internal_unit": "monthly decimal return",
       "display_errors": "百分点/月",
       "annualized": false,
-      "identity": "单一当前重建快照；不是FIZ/CIZ时间拼接，不是逐月当时可见版本。"
+      "identity": "单一当前重建快照；不是FIZ/CIZ时间拼接，不是逐月当时可见版本."
     },
     "forecast": {
       "experiment_id": "EXP-QT-D-FORECAST-01",
@@ -109,7 +109,7 @@
       "alpha": 0.05,
       "hypothesis": "事前单侧H0:mu=0 versus H1:mu>0; sigma known",
       "pvalue": "0.5*erfc(Z/sqrt(2))",
-      "draw_order": "先取(5000,500)开发Z矩阵，再取独立保留Z矩阵；M为共同500列前缀。mixed另重置2202。",
+      "draw_order": "先取(5000,500)开发Z矩阵，再取独立保留Z矩阵；M为共同500列前缀. mixed另重置2202.",
       "bh_adopted_comparison": "strict <",
       "source_pilot_comparison": "<=",
       "empty_BH": "k=0, no rejections, FDP=0",
@@ -87001,7 +87001,7 @@
       "alpha": 0.05,
       "hypothesis": "事前单侧H0:mu=0 versus H1:mu>0; sigma known",
       "pvalue": "0.5*erfc(Z/sqrt(2))",
-      "draw_order": "先取(5000,500)开发Z矩阵，再取独立保留Z矩阵；M为共同500列前缀。mixed另重置2202。",
+      "draw_order": "先取(5000,500)开发Z矩阵，再取独立保留Z矩阵；M为共同500列前缀. mixed另重置2202.",
       "bh_adopted_comparison": "strict <",
       "source_pilot_comparison": "<=",
       "empty_BH": "k=0, no rejections, FDP=0",

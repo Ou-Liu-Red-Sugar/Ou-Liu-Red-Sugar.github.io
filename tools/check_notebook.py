@@ -252,6 +252,8 @@ class Validator:
         if not self.require(target is not None and target.is_file(), "MISSING_AGENT", eid, entry["agent"]):
             return
         agent = target.read_text(encoding="utf-8-sig")
+        conventions = load_json(ROOT / "notebook/notation.json")["text"][entry["lang"]]["instruction"]
+        self.require(conventions in agent, "AGENT_NOTATION", eid, "Shared notation and style conventions are missing")
         self.require(entry["prompt"] in agent, "AGENT_PROMPT_LOSS", eid, "Tailored prompt is absent or altered")
         self.require(not LOCAL_DRIVE.search(agent), "PRIVATE_PATH", eid, "Public Agent export contains a local drive path")
         teaching = page.ids.get("teaching-context")
@@ -350,6 +352,8 @@ class Validator:
             if page is None:
                 continue
             self.stats["entries"] += 1
+            self.require(any(node.tag == "a" and node.attrs.get("data-reference") == "notation-" + entry["lang"]
+                             for node in page.elements), "INLINE_NOTATION", eid, "Inline notation reference is missing")
             self.require(entry["title"] in unescape(page.raw), "ENTRY_TITLE", eid, "Title missing from HTML")
             self.require(not LOCAL_DRIVE.search(unescape(page.raw)), "PRIVATE_PATH", eid, "Public page contains a local drive path")
             self.require(entry["prompt"] == canonical.get("prompt"), "STALE_COMPILED_PROMPT", eid, "Compiled prompt differs from canonical input")
@@ -364,6 +368,12 @@ class Validator:
                 for anchor in explicit | {item["id"] for item in entry.get("anchors", [])}:
                     self.require(anchor in page.ids, "EXPLICIT_ANCHOR", eid, anchor)
                 clean = outside_fences(body)
+                formulas = re.findall(r"\$\$[\s\S]*?\$\$|(?<!\\)\$(?!\$)[^$\n]+?\$|\\\[[\s\S]*?\\\]|\\\([\s\S]*?\\\)", clean)
+                expectation_forms = (r"\\mathbb\s+E|(?<![A-Za-z\\])E"
+                                     r"(?:_(?:[PQt]|\{[PQt]\}))?(?:\^\{[^}]*\})?\s*(?:\[|\\left\[)"
+                                     r"|(?<![A-Za-z\\])E[XY]\b")
+                self.require(not any(re.search(expectation_forms, formula) for formula in formulas),
+                             "EXPECTATION_NOTATION", eid, "Write expectation with the shared \\mathbb{E} notation")
                 definitions = set(re.findall(r"(?m)^\s*\[\^([^\]]+)\]:", clean))
                 refs = re.findall(r"\[\^([^\]\r\n]+)\](?!:)", clean)
                 self.require(set(refs) <= definitions, "FOOTNOTE_DEFINITION", eid, "Undefined labels: " + ", ".join(sorted(set(refs) - definitions)))
@@ -513,6 +523,9 @@ class Validator:
             self.internal_link("/", f"/zh/notebook/{slug}/", "retained notebook URL")
 
     def run(self):
+        for lang in ("zh", "en"):
+            self.page_for(f"/{lang}/notebook/notation/")
+            self.internal_link("/", f"/agent/{lang}/notation.md", "notation export")
         self.check_entries()
         self.check_routes_and_graph()
         self.check_site()

@@ -2352,8 +2352,8 @@
       "detail": null
     }
   ],
-  "scope": "本轮作者沙盒：重算完整保存输出、核冻结摘要检查点、独立有限表达/JS引擎、文件合同、实际Chromium交互/移动/无脚本/打印。",
-  "browser_loading": "set_content加载实际导出的自包含HTML；不是正式站点部署或文件导航验收。",
+  "scope": "本轮作者沙盒：重算完整保存输出、核冻结摘要检查点、独立有限表达/JS引擎、文件合同、实际Chromium交互/移动/无脚本/打印.",
+  "browser_loading": "set_content加载实际导出的自包含HTML；不是正式站点部署或文件导航验收.",
   "not_done": [
     "连接端完整随机results.json逐字节比较",
     "重新执行Lead的68项原测试",

@@ -34,15 +34,15 @@
   function updateInput(input) {
     const group = input.dataset.group, key = input.dataset.key;
     if (!group) return;
-    if (input.value.trim() === '') { error(group, '请输入 ' + input.labels[0].textContent.trim() + '。'); return; }
+    if (input.value.trim() === '') { error(group, '请输入 ' + input.labels[0].textContent.trim() + '.'); return; }
     const value = Number(input.value), candidate = { ...state[group], [key]: value };
     try {
-      if (!input.checkValidity()) throw new Error('请使用控件范围内的数值与步长。');
+      if (!input.checkValidity()) throw new Error('请使用控件范围内的数值与步长.');
       validate(group, candidate); state[group] = candidate;
       if (group === 'fleet' && !candidate.carried) state.fleetHistory = [];
       error(group); render(group);
     } catch (err) {
-      error(group, err.message + ' 图中保留上一次有效输入。');
+      error(group, err.message + ' 图中保留上一次有效输入.');
       if (input.type === 'range') sync(group);
     }
   }
@@ -87,7 +87,7 @@
     }
     if (button.hasAttribute('data-orders-adjust')) {
       const candidate = { ...state.orders, adjustment: E.experiment(data,'EXP-EI-CAPACITY-01').orders_adjustment_exercise.adjustment };
-      try { E.orders(candidate); state.orders = candidate; error('orders'); render('orders'); } catch (err) { error('orders', err.message + ' 图中保留上一次有效输入。'); }
+      try { E.orders(candidate); state.orders = candidate; error('orders'); render('orders'); } catch (err) { error('orders', err.message + ' 图中保留上一次有效输入.'); }
     }
     if (button.dataset.reset) { const group = button.dataset.reset; state[group] = structuredClone(initial[group]); if (group === 'fleet') state.fleetHistory = []; error(group); render(group); }
     if (button.hasAttribute('data-print')) window.print();

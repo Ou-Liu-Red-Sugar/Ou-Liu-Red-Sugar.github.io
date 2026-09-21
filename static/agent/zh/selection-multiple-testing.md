@@ -1,13 +1,17 @@
 # 选择效应与多重检验
 
-保留全部尝试，证明 Bonferroni，区分 FWER/FDR 并按严格规则执行 BH。
+保留全部尝试，证明 Bonferroni，区分 FWER/FDR 并按严格规则执行 BH.
 
 Entry: zh-qt22 | Node: QT22 | Language: zh | Editorial revision: 2026-09-21
 
 ## Teaching instructions
-请以具有微积分、线性代数与基本概率背景的高年级本科至研究生为对象，围绕“选择效应与多重检验”完成一次学习。先实际取得并读完 required_readings 的完整指定单元，记录实际版本/定位/假设/支持范围；目录、摘要或入口不抵扣阅读。可先读取本篇所有必读以备课，但不要把它们全变成读者额外作业。来源打不开时先尝试同版作者可读入口；仍缺承重单元应说明具体缺口，不伪称已读，也不要求无关新批准。先给全部候选与开发/保留独立关系；让读者独立证明Bonferroni并计算严格BH。要求解释M10模拟超过理论界、混合FDR不等FWER、人工等号例、研究者已看数据不可通过折叠界面恢复独立。 先让读者尝试，再根据本文完整解析反馈；引用范围内解释，不把模拟当市场事实、不把最优目标当收益保证。只在读者选择分支时启用 optional_readings。完成后用一项新输入迁移检验，明确其能独立完成什么。
+请以具有微积分、线性代数与基本概率背景的高年级本科至研究生为对象，围绕“选择效应与多重检验”完成一次学习. 先实际取得并读完 required_readings 的完整指定单元，记录实际版本/定位/假设/支持范围；目录、摘要或入口不抵扣阅读. 可先读取本篇所有必读以备课，但不要把它们全变成读者额外作业. 来源打不开时先尝试同版作者可读入口；仍缺承重单元应说明具体缺口，不伪称已读，也不要求无关新批准. 先给全部候选与开发/保留独立关系；让读者独立证明Bonferroni并计算严格BH. 要求解释M10模拟超过理论界、混合FDR不等FWER、人工等号例、研究者已看数据不可通过折叠界面恢复独立. 先让读者尝试，再根据本文完整解析反馈；引用范围内解释，不把模拟当市场事实、不把最优目标当收益保证. 只在读者选择分支时启用 optional_readings. 完成后用一项新输入迁移检验，明确其能独立完成什么.
 
 Before substantive teaching, actually retrieve every required reading unit for the selected scope. Read its complete designated section, including necessary assumptions, tables and footnotes. A working URL or an editorial access date is not a runtime reading receipt. Record the actual version, location, scope and what it supports. If unavailable, use a previously verified equivalent source; if the required unit remains unavailable, identify that gap rather than teach it from memory. Start runtime_reading_log empty. Once reading is complete, use a substantive diagnostic or follow the reader's request for direct explanation. Advance one complete reasoning task at a time; skip mastered basics. Distinguish original facts, supplied teaching assumptions and inference.
+
+## Shared notation and writing conventions
+数学期望统一写成 \mathbb{E}，条件期望用 \mathbb{E}[X\mid\mathcal{G}]，需要时注明测度 P 或 Q. 保留局部变量的明确定义. 金额与数量使用 K=10^3、M=10^6、B=10^9；表格标明币种、量级与期间，变更量级时同步换算数值. 展示小数最多三位，计算保留原始精度. 直接解释对象、机制与推理；保留影响结论的假设和事实来源，把编辑流程留在记录中. 句末使用英文句点 .，包括定义、命题、证明和解析等标签. 基础定义与推导直接讲内容，出处放在紧邻脚注；来源读取、复审和采用范围等编辑经过留在记录中.
+[Notation and units](https://ou-liu-red-sugar.github.io/agent/zh/notation.md)
 
 ## Required readings and runtime protocol
 ```json
@@ -75,7 +79,7 @@ Before substantive teaching, actually retrieve every required reading unit for t
         "internal_unit": "monthly decimal return",
         "display_errors": "百分点/月",
         "annualized": false,
-        "identity": "单一当前重建快照；不是FIZ/CIZ时间拼接，不是逐月当时可见版本。"
+        "identity": "单一当前重建快照；不是FIZ/CIZ时间拼接，不是逐月当时可见版本."
       },
       "forecast": {
         "experiment_id": "EXP-QT-D-FORECAST-01",
@@ -153,7 +157,7 @@ Before substantive teaching, actually retrieve every required reading unit for t
         "alpha": 0.05,
         "hypothesis": "事前单侧H0:mu=0 versus H1:mu>0; sigma known",
         "pvalue": "0.5*erfc(Z/sqrt(2))",
-        "draw_order": "先取(5000,500)开发Z矩阵，再取独立保留Z矩阵；M为共同500列前缀。mixed另重置2202。",
+        "draw_order": "先取(5000,500)开发Z矩阵，再取独立保留Z矩阵；M为共同500列前缀. mixed另重置2202.",
         "bh_adopted_comparison": "strict <",
         "source_pilot_comparison": "<=",
         "empty_BH": "k=0, no rejections, FDP=0",
@@ -288,7 +292,7 @@ Before substantive teaching, actually retrieve every required reading unit for t
         }
       }
     },
-    "static_equivalent_html": "<p>已知σ=.05、n=120、单侧检验；直接生成Z。PCG64先2201开发5000×500再独立保留，2202真假混合；M是共同前缀。BH正文/实现严格&lt;，无合格序号则R=0。</p><div class=\"table-wrap\" tabindex=\"0\"><table><thead><tr><th>M</th><th>未校正模拟</th><th>Bonf模拟</th><th>Bonf精确</th><th>Bonf MCSE</th><th>开发冠军pp/月</th><th>独立保留pp/月</th></tr></thead><tbody><tr><td>1</td><td>0.0474</td><td>0.0474</td><td>0.05000000</td><td>0.003005</td><td>-0.000216</td><td>-0.001749</td></tr><tr><td>10</td><td>0.4080</td><td>0.0570</td><td>0.04888987</td><td>0.003279</td><td>0.710968</td><td>-0.006699</td></tr><tr><td>100</td><td>0.9934</td><td>0.0498</td><td>0.04878247</td><td>0.003077</td><td>1.146183</td><td>0.009726</td></tr><tr><td>500</td><td>1.0000</td><td>0.0458</td><td>0.04877295</td><td>0.002957</td><td>1.384628</td><td>-0.007626</td></tr></tbody></table></div><div class=\"formula\">FWER=P(V≥1)；Bonferroni ≤Σ_{j∈I0}P(pj≤α/M)≤α。FDR=E[V/max(R,1)]，不是E[V]/E[R]。</div><div class=\"table-wrap\" tabindex=\"0\"><table><thead><tr><th>混合真值：100项中10项μ=.01</th><th>实际输出</th></tr></thead><tbody><tr><td>mean_fdp_fdr_estimate</td><td>0.04527148</td></tr><tr><td>mc_se_fdr_estimate</td><td>0.00178395</td></tr><tr><td>probability_any_false_rejection</td><td>0.14880000</td></tr><tr><td>mean_rejections</td><td>2.44380000</td></tr><tr><td>mean_true_discoveries</td><td>2.26920000</td></tr></tbody></table></div><p>q=.05；混合FDR约.04527而FWER=.1488。它们是不同对象。人工p=(.025,.06)、q=.05：严格规则R=0，非严格R=1。模拟使用完整精度；人工等号例单独比较两种规则。约束条件由理论给出，不由这轮频率证明。</p>",
+    "static_equivalent_html": "<p>已知σ=.05、n=120、单侧检验；直接生成Z. PCG64先2201开发5000×500再独立保留，2202真假混合；M是共同前缀. BH正文/实现严格&lt;，无合格序号则R=0.</p><div class=\"table-wrap\" tabindex=\"0\"><table><thead><tr><th>M</th><th>未校正模拟</th><th>Bonf模拟</th><th>Bonf精确</th><th>Bonf MCSE</th><th>开发冠军pp/月</th><th>独立保留pp/月</th></tr></thead><tbody><tr><td>1</td><td>0.0474</td><td>0.0474</td><td>0.05000000</td><td>0.003005</td><td>-0.000216</td><td>-0.001749</td></tr><tr><td>10</td><td>0.4080</td><td>0.0570</td><td>0.04888987</td><td>0.003279</td><td>0.710968</td><td>-0.006699</td></tr><tr><td>100</td><td>0.9934</td><td>0.0498</td><td>0.04878247</td><td>0.003077</td><td>1.146183</td><td>0.009726</td></tr><tr><td>500</td><td>1.0000</td><td>0.0458</td><td>0.04877295</td><td>0.002957</td><td>1.384628</td><td>-0.007626</td></tr></tbody></table></div><div class=\"formula\">FWER=P(V≥1)；Bonferroni ≤Σ_{j∈I0}P(pj≤α/M)≤α. FDR=E[V/max(R,1)]，不是E[V]/E[R].</div><div class=\"table-wrap\" tabindex=\"0\"><table><thead><tr><th>混合真值：100项中10项μ=.01</th><th>实际输出</th></tr></thead><tbody><tr><td>mean_fdp_fdr_estimate</td><td>0.04527148</td></tr><tr><td>mc_se_fdr_estimate</td><td>0.00178395</td></tr><tr><td>probability_any_false_rejection</td><td>0.14880000</td></tr><tr><td>mean_rejections</td><td>2.44380000</td></tr><tr><td>mean_true_discoveries</td><td>2.26920000</td></tr></tbody></table></div><p>q=.05；混合FDR约. 04527而FWER=.1488. 它们是不同对象. 人工p=(.025,.06)、q=.05：严格规则R=0，非严格R=1. 模拟使用完整精度；人工等号例单独比较两种规则. 约束条件由理论给出，不由这轮频率证明.</p>",
     "files": {
       "frozen_csv": "https://ou-liu-red-sugar.github.io/notebook/labs/qt-de/data/BusEq-value-weighted-monthly-199001-202512.csv",
       "complete_outputs": "https://ou-liu-red-sugar.github.io/notebook/labs/qt-de/data/results.json",
@@ -298,7 +302,7 @@ Before substantive teaching, actually retrieve every required reading unit for t
       "shared_inputs": "https://ou-liu-red-sugar.github.io/notebook/labs/qt-de/shared_inputs.json",
       "sources": "https://ou-liu-red-sugar.github.io/notebook/labs/qt-de/sources.json"
     },
-    "algorithm_identity": "forecast/selection使用真实计算的冻结网格及PCG64结果；成本和人工边界可重算。完整reader在body_markdown中仅一份。",
+    "algorithm_identity": "forecast/selection使用真实计算的冻结网格及PCG64结果；成本和人工边界可重算. 完整reader在body_markdown中仅一份.",
     "actual_selection_summary": {
       "config": {
         "experiment_id": "EXP-QT-D-SELECT-01",
@@ -319,7 +323,7 @@ Before substantive teaching, actually retrieve every required reading unit for t
         "alpha": 0.05,
         "hypothesis": "事前单侧H0:mu=0 versus H1:mu>0; sigma known",
         "pvalue": "0.5*erfc(Z/sqrt(2))",
-        "draw_order": "先取(5000,500)开发Z矩阵，再取独立保留Z矩阵；M为共同500列前缀。mixed另重置2202。",
+        "draw_order": "先取(5000,500)开发Z矩阵，再取独立保留Z矩阵；M为共同500列前缀. mixed另重置2202.",
         "bh_adopted_comparison": "strict <",
         "source_pilot_comparison": "<=",
         "empty_BH": "k=0, no rejections, FDP=0",
@@ -2530,33 +2534,33 @@ Before substantive teaching, actually retrieve every required reading unit for t
         "mean_beta_norm": 0.001015524644240653
       }
     ],
-    "reading_base": "公开同源包；按完整 URL 取得冻结输入与复算文件。来源网站后续更新不覆盖本份 202607 快照。"
+    "reading_base": "公开同源包；按完整 URL 取得冻结输入与复算文件. 来源网站后续更新不覆盖本份 202607 快照."
   },
   "entry_id": "zh-qt22",
   "content_version": "2026-09-21-QT-DE-review-v2",
   "audience": "高年级本科至研究生；默认微积分、线性代数与基本概率",
-  "learning_task": "保留全部尝试，证明 Bonferroni，区分 FWER/FDR 并按严格规则执行 BH。"
+  "learning_task": "保留全部尝试，证明 Bonferroni，区分 FWER/FDR 并按严格规则执行 BH."
 }
 ```
 
 ## Supplied entry
-前两篇已把预测目标与信息时钟写清，但研究者还可以尝试许多变量、窗口和参数，最后只展示最好的结果。即使每一次拟合都没偷看未来，这个挑选过程也会改变结果的分布。本篇保留完整候选集合，先在真值已知的模拟里观察选择效应，再区分“至少犯一次错”与“发现中错误的比例”。
+前两篇已把预测目标与信息时钟写清，但研究者还可以尝试许多变量、窗口和参数，最后只展示最好的结果. 即使每一次拟合都没偷看未来，这个挑选过程也会改变结果的分布. 本篇保留完整候选集合，先在真值已知的模拟里观察选择效应，再区分“至少犯一次错”与“发现中错误的比例”.
 
 <a id="qt22-object"></a>
 ## 1. 被评价的不只是冠军，还有挑冠军的方法
 
-BusEq 实验有 12 个回归候选和两条基线，采用同一 202607 CIZ 快照、同一训练和验证月份，最终按预定 SSE 规则选择扩展历史均值。那 12 次回归不能在报告中消失；若还尝试过后来放弃的变量或起止日，也应进入研究记录。只对最终展示的一项作检验，会把“它为何留下来”排除在问题之外。[^pilot]
+BusEq 实验有 12 个回归候选和两条基线，采用同一 202607 CIZ 快照、同一训练和验证月份，最终按预定 SSE 规则选择扩展历史均值. 那 12 次回归不能在报告中消失；若还尝试过后来放弃的变量或起止日，也应进入研究记录. 只对最终展示的一项作检验，会把“它为何留下来”排除在问题之外. [^pilot]
 
-为了把选择机制看清，我们暂时离开真实数据。构造 $M$ 个候选，每个开发样本有 $n=120$ 个独立正态月收益，已知标准差 $\sigma=0.05$。先设所有均值都为零。对每个候选事前固定单侧检验 $H_0:\mu=0$、$H_1:\mu>0$，则
+为了把选择机制看清，我们暂时离开真实数据. 构造 $M$ 个候选，每个开发样本有 $n=120$ 个独立正态月收益，已知标准差 $\sigma=0.05$. 先设所有均值都为零. 对每个候选事前固定单侧检验 $H_0:\mu=0$、$H_1:\mu>0$，则
 
 $$
 Z_j=\sqrt n\,\bar R_j/\sigma\sim N(0,1),\qquad
 p_j=1-\Phi(Z_j).
 $$
 
-模拟直接生成这个 $Z$ 的精确分布，再换算样本均值，不需要制造 120 行月收益。它不是实际策略面板，也没有逐月净值路径。开发与独立保留样本各生成一组 $5000\times500$ 的独立正态矩阵；种子为 PCG64(2201)，先开发、再保留。$M=1,10,100,500$ 使用相同 500 列的前缀，所以这些规模的结果彼此相关。[^simulation]
+模拟直接生成这个 $Z$ 的精确分布，再换算样本均值，不需要制造 120 行月收益. 它不是实际策略面板，也没有逐月净值路径. 开发与独立保留样本各生成一组 $5000\times500$ 的独立正态矩阵；种子为 PCG64(2201)，先开发、再保留. $M=1,10,100,500$ 使用相同 500 列的前缀，所以这些规模的结果彼此相关. [^simulation]
 
-每轮只按开发 $Z$ 最大值选出编号 $J$，冻结编号后才看独立保留样本的同一列。$p$ 值问的是“在原假设及所设抽样模型下，至少这样极端的统计量有多常见”，不是“看完数据后原假设为真的概率”。单侧方向也不能看完符号再改。[^testing]
+每轮只按开发 $Z$ 最大值选出编号 $J$，冻结编号后才看独立保留样本的同一列. $p$ 值问的是“在原假设及所设抽样模型下，至少这样极端的统计量有多常见”，不是“看完数据后原假设为真的概率”. 单侧方向也不能看完符号再改. [^testing]
 
 <a id="qt22-winner"></a>
 ## 2. 没有真信号，冠军仍会越来越漂亮
@@ -2568,27 +2572,27 @@ $$
 | 100 | 1.146183 | 0.009726 |
 | 500 | 1.384628 | −0.007626 |
 
-数值为 5000 次实验的平均，单位百分点/月。开发冠军变好不是均值从零变正，而是取最大值这项操作改变了统计量。保留样本的小幅正负差仍是有限模拟波动。[^simulation]
+数值为 5000 次实验的平均，单位百分点/月. 开发冠军变好不是均值从零变正，而是取最大值这项操作改变了统计量. 保留样本的小幅正负差仍是有限模拟波动. [^simulation]
 
-还可以直接解释为什么保留样本不继承这种提升。$J$ 完全由开发数据决定，保留向量与全部开发数据独立，且每列均值为零。因此给定开发数据后，
+还可以直接解释为什么保留样本不继承这种提升. $J$ 完全由开发数据决定，保留向量与全部开发数据独立，且每列均值为零. 因此给定开发数据后，
 
 $$
-E[\bar R^{hold}_J\mid\text{开发数据}]
-=\sum_{j=1}^M1_{\{J=j\}}E[\bar R^{hold}_j]=0.
+\mathbb{E}[\bar R^{hold}_J\mid\text{开发数据}]
+=\sum_{j=1}^M1_{\{J=j\}}\mathbb{E}[\bar R^{hold}_j]=0.
 $$
 
-再取期望仍是零。若看过保留结果再换编号，这个证明的独立性步骤便不再适用。
+再取期望仍是零. 若看过保留结果再换编号，这个证明的独立性步骤便不再适用.
 
 <a id="qt22-fwer"></a>
 ## 3. FWER：整组中至少错一次
 
-令 $V$ 表示错误拒绝的真实原假设个数。族错误率是 $FWER=P(V\ge1)$。若全部 $M$ 个原假设为真，每个独立检验以 $\alpha$ 的概率误报，那么
+令 $V$ 表示错误拒绝的真实原假设个数. 族错误率是 $FWER=P(V\ge1)$. 若全部 $M$ 个原假设为真，每个独立检验以 $\alpha$ 的概率误报，那么
 
 $$
 FWER=1-P(\text{一个也不错})=1-(1-\alpha)^M.
 $$
 
-这里的乘法需要独立性，等号也用了每项精确误报率为 $\alpha$。对一般仅“有效”的 $p$ 值，我们只知道原假设下 $P(p_j\le u)\le u$，不应自动把所有界写成等号。[^fwer]
+这里的乘法需要独立性，等号也用了每项精确误报率为 $\alpha$. 对一般仅“有效”的 $p$ 值，我们只知道原假设下 $P(p_j\le u)\le u$，不应自动把所有界写成等号. [^fwer]
 
 用 $\alpha=0.05$ 比较理论和本次模拟：
 
@@ -2599,7 +2603,7 @@ $$
 | 100 | 0.994079 | 0.9934 | 0.0498 | 0.048782 |
 | 500 | 约 1 | 1.0000 | 0.0458 | 0.048773 |
 
-Bonferroni 把每一项门槛改成 $\alpha/M$。其一般控制可以在这里完整证明：设 $I_0$ 是真实原假设集合，只需各项 $p$ 值有效，便有
+Bonferroni 把每一项门槛改成 $\alpha/M$. 其一般控制可以在这里完整证明：设 $I_0$ 是真实原假设集合，只需各项 $p$ 值有效，便有
 
 $$
 \begin{aligned}
@@ -2610,32 +2614,32 @@ P(V\ge1)
 \end{aligned}
 $$
 
-这次使用的是并集上界，不需要检验相互独立。但它也不能挽救本来无效的单项 $p$ 值，或只把公布的候选数当作全部尝试数。[^bonf]
+这次使用的是并集上界，不需要检验相互独立. 但它也不能挽救本来无效的单项 $p$ 值，或只把公布的候选数当作全部尝试数. [^bonf]
 
-为什么表中 $M=10$ 的模拟 Bonferroni 值 0.0570 反而超过 0.05？它是 5000 次试验的频率，不是理论概率。该频率的 Monte Carlo 标准误约 0.003279。我们保留真实输出，不把它改成符合定理的数；定理靠证明成立，不靠这轮随机数恰好落在界内。$M=500$ 未校正模拟全为误报，其代入式 MCSE 为零，也不能解释成风险估计毫无不确定性。[^simulation]
+为什么表中 $M=10$ 的模拟 Bonferroni 值 0.0570 反而超过 0.05？它是 5000 次试验的频率，不是理论概率. 该频率的 Monte Carlo 标准误约 0.003279. 我们保留真实输出，不把它改成符合定理的数；定理靠证明成立，不靠这轮随机数恰好落在界内. $M=500$ 未校正模拟全为误报，其代入式 MCSE 为零，也不能解释成风险估计毫无不确定性. [^simulation]
 
 <a id="qt22-fdr"></a>
 ## 4. FDR：控制的是比例的期望
 
-记 $R$ 为拒绝总数，$V$ 为其中的误报数。定义
+记 $R$ 为拒绝总数，$V$ 为其中的误报数. 定义
 
 $$
-FDP=\frac{V}{\max(R,1)},\qquad FDR=E[FDP].
+FDP=\frac{V}{\max(R,1)},\qquad FDR=\mathbb{E}[FDP].
 $$
 
-没有拒绝时 FDP 为零。FDR 不是一般意义下的 $E[V]/E[R]$，也不是观测到 $R=100$ 后保证恰有至多 $100q$ 个误报。它是对重复抽样中每轮比例取期望。全零假设时 $V=R$，故 FDP 是 $R>0$ 的示性函数，FDR 与 FWER 恰好相同；为了区分两者，需要有真假混合的实验。[^fdr]
+没有拒绝时 FDP 为零. FDR 不是一般意义下的 $\mathbb{E}[V]/\mathbb{E}[R]$，也不是观测到 $R=100$ 后保证恰有至多 $100q$ 个误报. 它是对重复抽样中每轮比例取期望. 全零假设时 $V=R$，故 FDP 是 $R>0$ 的示性函数，FDR 与 FWER 恰好相同；为了区分两者，需要有真假混合的实验. [^fdr]
 
-本篇的 BH 规则采用 ISLP Algorithm 13.2 的严格比较。对 $M$ 个 $p$ 值排序，取
+本篇的 BH 规则采用 ISLP Algorithm 13.2 的严格比较. 对 $M$ 个 $p$ 值排序，取
 
 $$
 k=\max\{j:p_{(j)}<qj/M\};
 $$
 
-集合为空时取 $k=0$、一个也不拒绝；否则拒绝前 $k$ 个排序位置。必须寻找最大的合格序号，不能在遇到第一个不合格位置时就提前停止。这是 step-up 算法。这里引用其在全部 $p$ 值相互独立、真实原假设下 $p$ 值有效的条件下的 FDR 控制结论，不把本篇的数值演示当作控制定理的证明；一般依赖结构需要另外的理论。[^bh]
+集合为空时取 $k=0$、一个也不拒绝；否则拒绝前 $k$ 个排序位置. 必须寻找最大的合格序号，不能在遇到第一个不合格位置时提前停止. 这是 step-up 算法. FDR 控制结论要求全部 $p$ 值相互独立，并且真实原假设下的 $p$ 值有效；本页数值只演示算法，一般依赖结构需要另外的理论.[^bh]
 
-例如构造五个 $p$ 值 $0.006,0.012,0.601,0.756,0.918$，$q=0.05$。BH 的阈值依次为 $0.01,0.02,0.03,0.04,0.05$，最大合格序号为 2；Bonferroni 的统一阈值为 0.01，只拒绝第一项。两者回答的错误控制问题不同，不是单纯的“宽松更好”。
+例如构造五个 $p$ 值 $0.006,0.012,0.601,0.756,0.918$，$q=0.05$. BH 的阈值依次为 $0.01,0.02,0.03,0.04,0.05$，最大合格序号为 2；Bonferroni 的统一阈值为 0.01，只拒绝第一项. 两者回答的错误控制问题不同，不是单纯的“宽松更好”.
 
-真假混合实验仍有 $M=100$，前 10 个均值为 0.01，其余 90 个为零，$\sigma=0.05,n=120$ 不变，重置 PCG64(2202)。5000 次运行得到：
+真假混合实验仍有 $M=100$，前 10 个均值为 0.01，其余 90 个为零，$\sigma=0.05,n=120$ 不变，重置 PCG64(2202). 5000 次运行得到：
 
 | 混合实验、BH $q=0.05$ | 输出 |
 |---|---:|
@@ -2645,44 +2649,44 @@ $$
 | 每轮平均拒绝数 | 2.4438 |
 | 每轮平均真发现数 | 2.2692 |
 
-FDR 约 4.53% 与“至少错一个”约 14.88% 可以同时出现。这里知道真假，是因为模型由我们构造，不是从真实策略历史里识别出了谁必然有效。[^simulation]
+FDR 约 4.53% 与“至少错一个”约 14.88% 可以同时出现. 这里知道真假，是因为模型由我们构造，不是从真实策略历史里识别出了谁必然有效. [^simulation]
 
 ### 等号为什么也属于算法？
 
-给 $M=2,q=0.05,p=(0.025,0.06)$。严格 `<` 下两项都不合格，拒绝数为零；若改成 `≤`，第一项恰在门槛上，拒绝数为 1。连续模拟中精确等号的概率为零，但离散输入或四舍五入后的输入可能有等号；显示时四舍五入也不应改变底层比较。实验保留这组人工边界例，正文和交互使用同一严格规则。[^simulation]
+给 $M=2,q=0.05,p=(0.025,0.06)$. 严格 `<` 下两项都不合格，拒绝数为零；若改成 `≤`，第一项恰在门槛上，拒绝数为 1. 连续模拟中精确等号的概率为零，但离散输入或四舍五入后的输入可能有等号；显示时四舍五入也不应改变底层比较. 实验保留这组人工边界例，正文和交互使用同一严格规则. [^simulation]
 
 <div data-experiment-slot="EXP-QT-D-SELECT-01"></div>
 
-先在全零模型下改变候选数，比较开发冠军与固定编号的独立保留结果；再切入混合模型，看 FWER 和平均 FDP 的不同。图中是候选或重复试验的分布，不是未生成的月度收益路径。
+先在全零模型下改变候选数，比较开发冠军与固定编号的独立保留结果；再切入混合模型，看 FWER 和平均 FDP 的不同. 图中是候选或重复试验的分布，不是未生成的月度收益路径.
 
 <a id="qt22-exercises"></a>
 ## 5. 复核与迁移
 
-解释题。 同一轮 BH 发现很多候选，后来知道其中 20% 是误报。能否据此断言 $q=5\%$ 的 FDR 控制失效？
+解释题. 同一轮 BH 发现很多候选，后来知道其中 20% 是误报. 能否据此断言 $q=5\%$ 的 FDR 控制失效？
 
-解析。 不能仅凭这一轮断言。控制对象是重复抽样中 FDP 的期望，不是每轮确定上限。不过仍须检查原假设 $p$ 值是否有效、独立性等采用条件是否满足，以及研究者是否按预定规则执行。满足某个观测比例也反过来不能证明这些条件成立。
+解析. 不能仅凭这一轮断言. 控制对象是重复抽样中 FDP 的期望，不是每轮确定上限. 不过仍须检查原假设 $p$ 值是否有效、独立性等采用条件是否满足，以及研究者是否按预定规则执行. 满足某个观测比例也反过来不能证明这些条件成立.
 
-迁移题一。 $M=10$ 个独立全零检验，每项门槛 0.05，至少一次误报的概率是多少？Bonferroni 的证明哪一步允许任意依赖？
+迁移题一. $M=10$ 个独立全零检验，每项门槛 0.05，至少一次误报的概率是多少？Bonferroni 的证明哪一步允许任意依赖？
 
-解析。 未校正值为 $1-0.95^{10}\approx0.401263$。Bonferroni 证明用 $P(\cup A_j)\le\sum P(A_j)$，不使用乘法分解，所以无需独立；只要每个真实原假设的误报概率都不超过 $0.05/10$，总 FWER 就不超过 0.05。
+解析. 未校正值为 $1-0.95^{10}\approx0.401263$. Bonferroni 证明用 $P(\cup A_j)\le\sum P(A_j)$，不使用乘法分解，所以无需独立；只要每个真实原假设的误报概率都不超过 $0.05/10$，总 FWER 就不超过 0.05.
 
-迁移题二。 开发期尝试 100 项，挑出编号 7。先看它的保留成绩，不喜欢，再改成编号 12。为什么不能继续引用本篇“保留均值为零”的条件证明？
+迁移题二. 开发期尝试 100 项，挑出编号 7. 先看它的保留成绩，不喜欢，再改成编号 12. 为什么不能继续引用本篇“保留均值为零”的条件证明？
 
-解析。 新编号不再只由开发数据决定；在给定开发数据后，它仍依赖保留结果，因此不能把 $E[\bar R_J^{hold}\mid开发]$ 拆成固定编号的零均值。新尝试应写回研究账本，之后的确认需要未用于这次调整的数据。网页把成绩折叠起来只是一种学习顺序，不会让已被研究者查看的历史重新独立。
+解析. 新编号不再只由开发数据决定；在给定开发数据后，它仍依赖保留结果，因此不能把 $\mathbb{E}[\bar R_J^{hold}\mid开发]$ 拆成固定编号的零均值. 新尝试应写回研究账本，之后的确认需要未用于这次调整的数据. 网页把成绩折叠起来只是一种学习顺序，不会让已被研究者查看的历史重新独立.
 
-迁移题三。 对上面的人工等号例分别执行 `<` 和 `≤`，再说明只保存三位小数的 $p$ 值有何风险。
+迁移题三. 对上面的人工等号例分别执行 `<` 和 `≤`，再说明只保存三位小数的 $p$ 值有何风险.
 
-解析。 拒绝数分别为 0 和 1。若原值略大于 0.025 却显示成 0.025，用显示值重算会改变决定；应保留原始精度、比较规则和全部候选数量，显示精度与运算精度分开。
+解析. 拒绝数分别为 0 和 1. 若原值略大于 0.025 却显示成 0.025，用显示值重算会改变决定；应保留原始精度、比较规则和全部候选数量，显示精度与运算精度分开.
 
-最后，把这种记录意识带回真实研究：目标、期限、数据版本、全部特征和参数、所有尝试、选择准则，以及何时查看评价结果，都属于方法本身。即使得到可信预测，下一步仍须把它转成有预算和成本的可行决策。[成本、约束与稳健决策](https://ou-liu-red-sugar.github.io/zh/notebook/costs-constraints-robust-decisions/)
+最后，把这种记录意识带回真实研究：目标、期限、数据版本、全部特征和参数、所有尝试、选择准则，以及何时查看评价结果，都属于方法本身. 即使得到可信预测，下一步仍须把它转成有预算和成本的可行决策. [成本、约束与稳健决策](https://ou-liu-red-sugar.github.io/zh/notebook/costs-constraints-robust-decisions/)
 
-[^pilot]: [共同输入](https://ou-liu-red-sugar.github.io/notebook/labs/qt-de/shared_inputs.json)与[实际结果](https://ou-liu-red-sugar.github.io/notebook/labs/qt-de/data/results.json)，forecast 组；BusEq 版本与数据来源见 [预测目标与正则化](https://ou-liu-red-sugar.github.io/zh/notebook/prediction-regularization-complexity/)。
-[^simulation]: [复算程序](https://ou-liu-red-sugar.github.io/notebook/labs/qt-de/compute/reproduce.py)、[完整结果](https://ou-liu-red-sugar.github.io/notebook/labs/qt-de/data/results.json) selection 组及[重复试验数组](https://ou-liu-red-sugar.github.io/notebook/labs/qt-de/data/selection-arrays.npz)。模拟按严格 `<` 比较完整精度的 p 值；人工等号例单独展示两种比较规则的差别。
-[^testing]: James 等，ISLP 2023，[作者全文入口](https://hastie.su.domains/ISLP/ISLP_website.pdf.download.html)，§13.1.1–13.1.2、§13.2，印刷 pp.558–564。
-[^fwer]: 同上，§13.3.1，pp.565–566，FWER 定义及独立全零模型。
-[^bonf]: 同上，§13.3.2 的 Bonferroni 子单元，pp.567–568；本文以真实原假设集合写出完整并集上界证明。
-[^fdr]: 同上，§13.4.1，pp.573–575，包括 $R=0$ 时比例取零的约定。
-[^bh]: 同上，§13.4.2，pp.575–577，Algorithm 13.2 的严格比较；该书不提供一般控制定理证明，本篇明确限定到全部 $p$ 值相互独立、真实原假设下有效。
+[^pilot]: [共同输入](https://ou-liu-red-sugar.github.io/notebook/labs/qt-de/shared_inputs.json)与[实际结果](https://ou-liu-red-sugar.github.io/notebook/labs/qt-de/data/results.json)，forecast 组；BusEq 版本与数据来源见 [预测目标与正则化](https://ou-liu-red-sugar.github.io/zh/notebook/prediction-regularization-complexity/).
+[^simulation]: [复算程序](https://ou-liu-red-sugar.github.io/notebook/labs/qt-de/compute/reproduce.py)、[完整结果](https://ou-liu-red-sugar.github.io/notebook/labs/qt-de/data/results.json) selection 组及[重复试验数组](https://ou-liu-red-sugar.github.io/notebook/labs/qt-de/data/selection-arrays.npz). 模拟按严格 `<` 比较完整精度的 p 值；人工等号例单独展示两种比较规则的差别.
+[^testing]: James 等，ISLP 2023，[作者全文入口](https://hastie.su.domains/ISLP/ISLP_website.pdf.download.html)，§13.1.1–13.1.2、§13.2，印刷 pp.558–564.
+[^fwer]: 同上，§13.3.1，pp.565–566，FWER 定义及独立全零模型.
+[^bonf]: 同上，§13.3.2 的 Bonferroni 子单元，pp.567–568；本文以真实原假设集合写出完整并集上界证明.
+[^fdr]: 同上，§13.4.1，pp.573–575，包括 $R=0$ 时比例取零的约定.
+[^bh]: 同上，§13.4.2，pp.575–577，Algorithm 13.2 的严格比较；该书不提供一般控制定理证明，本篇明确限定到全部 $p$ 值相互独立、真实原假设下有效.
 
 
 ## Experiment inputs and static equivalents
@@ -2692,7 +2696,7 @@ FDR 约 4.53% 与“至少错一个”约 14.88% 可以同时出现。这里知�
     "id": "EXP-QT-D-SELECT-01",
     "title": "选择效应与多重检验：可复算实验",
     "anchor": "qt22-fdr",
-    "description": "保留全部尝试，证明 Bonferroni，区分 FWER/FDR 并按严格规则执行 BH。",
+    "description": "保留全部尝试，证明 Bonferroni，区分 FWER/FDR 并按严格规则执行 BH.",
     "inputs": {
       "identity": "QT-DE-adopted-inputs-20260921-v1",
       "manifest": "https://ou-liu-red-sugar.github.io/notebook/labs/qt-de/shared_inputs.json"
@@ -2743,8 +2747,8 @@ FDR 约 4.53% 与“至少错一个”约 14.88% 可以同时出现。这里知�
 ```
 
 ## Sources
-- [QT-D/E adopted teaching experiments](https://ou-liu-red-sugar.github.io/notebook/labs/qt-de/compute/reproduce.py): 本轮实际沙盒复算，预测遵守冻结算法及数据；选择沿PCG64调用顺序并核strict/inclusive，成本用Fraction。数学演算与假设模型不等于真实投资有效性。
-- [An Introduction to Statistical Learning with Applications in Python](https://drive.google.com/uc?export=download&id=1ajFkHO6zjrdGNqhqW1jKBZdiNGh_8YQ1): 采用单元的完整镜像原文已在规划轮读取。Ridge 的截距、尺度、参数选择；有效p值、FWER、Bonferroni及BH。BH一般控制定理是引用，原书不提供证明。正文采用严格<；不采用任意相关p值也有效的扩展。
+- [QT-D/E adopted teaching experiments](https://ou-liu-red-sugar.github.io/notebook/labs/qt-de/compute/reproduce.py): 冻结算法与数据的复算材料. 预测按时间验证；选择实验固定 PCG64 调用顺序与 strict/inclusive 计数；成本实验使用精确分数.
+- [An Introduction to Statistical Learning with Applications in Python](https://drive.google.com/uc?export=download&id=1ajFkHO6zjrdGNqhqW1jKBZdiNGh_8YQ1): 采用单元的完整镜像原文已在规划轮读取. Ridge 的截距、尺度、参数选择；有效p值、FWER、Bonferroni及BH. BH一般控制定理是引用，原书不提供证明. 正文采用严格<；不采用任意相关p值也有效的扩展.
 
 ## Content relations
 ```json
@@ -2760,20 +2764,20 @@ FDR 约 4.53% 与“至少错一个”约 14.88% 可以同时出现。这里知�
     "relation": "requires",
     "to": "zh-qt19",
     "required_competence": "抽样不确定性",
-    "reason": "本篇使用该能力，不要求整门随机过程课程。"
+    "reason": "本篇使用该能力，不要求整门随机过程课程."
   },
   {
     "from": "zh-qt22",
     "relation": "requires",
     "to": "zh-qt21",
     "required_competence": "完整时间验证与保留期",
-    "reason": "本篇使用该能力，不要求整门随机过程课程。"
+    "reason": "本篇使用该能力，不要求整门随机过程课程."
   },
   {
     "from": "qt22-fdr",
     "relation": "illustrated_by",
     "to": "EXP-QT-D-SELECT-01",
-    "reason": "完整输入、默认及静态等价支持本篇独立任务。"
+    "reason": "完整输入、默认及静态等价支持本篇独立任务."
   },
   {
     "from": "zh-qt22",
@@ -2790,6 +2794,6 @@ FDR 约 4.53% 与“至少错一个”约 14.88% 可以同时出现。这里知�
 
 ## Optional reading path
 理解模型并亲手算: step 8/9
-证明 Bonferroni，计算严格 BH，并区分 FWER 与 FDR。
-把预测作为决策输入时，进一步明确资金、风险与交易成本。
+证明 Bonferroni，计算严格 BH，并区分 FWER 与 FDR.
+把预测作为决策输入时，进一步明确资金、风险与交易成本.
 Next: [成本、约束与稳健决策](https://ou-liu-red-sugar.github.io/zh/notebook/costs-constraints-robust-decisions/)

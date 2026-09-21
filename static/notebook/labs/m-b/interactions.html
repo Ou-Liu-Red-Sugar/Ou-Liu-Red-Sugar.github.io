@@ -7,19 +7,19 @@
 </head><body>
 <header><div class="eyebrow">金融市场与金融工具 · M05 / M08</div>
 <h1>先看权利，再把钱与份额算清</h1>
-<p>真实文件用于读条款，合成数据用于改变条件。先选择一个动作，检查它是否能完成，再看每股价值、净值和两条交易腿。</p>
+<p>真实文件用于读条款，合成数据用于改变条件. 先选择一个动作，检查它是否能完成，再看每股价值、净值和两条交易腿.</p>
 <nav aria-label="实验导航"><a href="#">全部实验</a><a href="#EXP-MB-M05-CAPITAL">M05 · 现金与股数</a><a href="#EXP-MB-M08-NAV">M08 · 净值与申赎</a><a href="#EXP-MB-M08-AP">M08 · 双向交易</a></nav>
 </header>
 <main>
-<noscript><p class="status">JavaScript 未启用。各实验的“静态算例”仍可展开阅读；全部真实文件链接仍可使用。</p></noscript>
+<noscript><p class="status">JavaScript 未启用. 各实验的“静态算例”仍可展开阅读；全部真实文件链接仍可使用.</p></noscript>
 <section class="lab" id="EXP-MB-M05-CAPITAL" aria-labelledby="cap-title">
 <span class="badge">M05 · 真实权利卡 ＋ 单类别教学公司</span>
 <h2 id="cap-title">每股价值变了，现金够不够？</h2>
-<p>初始权益经济价值包含现金；它不是现金余额，也不是账面净资产或已观测市值。这里假设非现金业务价值不变，每一美元现金进出对应一美元权益经济价值变化，忽略税费、债务融资和市场冲击。</p>
+<p>初始权益经济价值包含现金；它不是现金余额，也不是账面净资产或已观测市值. 这里假设非现金业务价值不变，每一美元现金进出对应一美元权益经济价值变化，忽略税费、债务融资和市场冲击.</p>
 <details><summary>先读股份权利：Alphabet 与 Apple</summary>
 <label class="field" for="rights-choice">选择证券类别<select id="rights-choice"><option value="alphabet_A">Alphabet Class A</option><option value="alphabet_B">Alphabet Class B</option><option value="alphabet_C">Alphabet Class C</option><option value="apple">Apple 普通股</option></select></label>
 <div class="rights" id="rights-output" aria-live="polite"></div>
-<p class="sources">Alphabet：2025 年报 4.41 援引的 2023 Exhibit 4.20；Apple：截至 2025-09-27 的 Common Stock 单元。完整条件看 <a href="https://www.sec.gov/Archives/edgar/data/1652044/000165204423000016/googexhibit420q42022.htm" target="_blank" rel="noopener noreferrer">Alphabet证券说明</a> 与 <a href="https://www.sec.gov/Archives/edgar/data/320193/000032019325000079/a10-kexhibit4109272025.htm" target="_blank" rel="noopener noreferrer">Apple普通股单元</a>，尤其 B 转让例外及 C 清算前转换程序。</p>
+<p class="sources">Alphabet：2025 年报 4.41 援引的 2023 Exhibit 4.20；Apple：截至 2025-09-27 的 Common Stock 单元. 完整条件看 <a href="https://www.sec.gov/Archives/edgar/data/1652044/000165204423000016/googexhibit420q42022.htm" target="_blank" rel="noopener noreferrer">Alphabet证券说明</a> 与 <a href="https://www.sec.gov/Archives/edgar/data/320193/000032019325000079/a10-kexhibit4109272025.htm" target="_blank" rel="noopener noreferrer">Apple普通股单元</a>，尤其 B 转让例外及 C 清算前转换程序.</p>
 </details>
 <div class="grid"><div>
 <div class="fields">
@@ -33,13 +33,13 @@
 <label class="field wide" for="cap-h">不参与出售的持续持有人 h（股）<input id="cap-h" type="number" min="0" max="1000000000" step="1" value="1000"></label>
 </div>
 <div class="button-row"><button type="button" id="cap-reset">恢复默认</button><button type="button" id="cap-stress">把现金降至 60,000</button></div>
-<p class="muted">回购先检查 p×q ≤ C₀ 和 q &lt; N₀。持续持有股数不能超过行动后的在外股数。交易失败时，不生成虚假的“完成后”结果。</p>
+<p class="muted">回购先检查 p×q ≤ C₀ 和 q &lt; N₀. 持续持有股数不能超过行动后的在外股数. 交易失败时，不生成虚假的“完成后”结果.</p>
 </div><div>
 <div id="cap-status" class="status" role="status" aria-live="polite"></div>
 <div id="cap-result"></div><div id="cap-chart"></div>
 </div></div>
 <details class="static-panel"><summary>静态算例与读图任务（无需交互）</summary>
-<p>每行都从 V₀=1,000,000、C₀=150,000、N₀=100,000 开始；各行不是连续交易。</p>
+<p>每行都从 V₀=1,000,000、C₀=150,000、N₀=100,000 开始；各行不是连续交易.</p>
 <div class="table-wrap"><table><thead><tr><th>动作</th><th>价格</th><th>公司现金</th><th>权益经济价值</th><th>股数</th><th>每股值</th></tr></thead><tbody>
 <tr><td>增发20,000</td><td>8</td><td>310,000</td><td>1,160,000</td><td>120,000</td><td>9.6667</td></tr>
 <tr><td>增发20,000</td><td>10</td><td>350,000</td><td>1,200,000</td><td>120,000</td><td>10.0000</td></tr>
@@ -48,26 +48,26 @@
 <tr><td>回购10,000</td><td>10</td><td>50,000</td><td>900,000</td><td>90,000</td><td>10.0000</td></tr>
 <tr><td>回购10,000</td><td>12</td><td>30,000</td><td>880,000</td><td>90,000</td><td>9.7778</td></tr>
 </tbody></table></div>
-<p>按 8 美元回购时，卖出者收到 80,000，剩余权益 920,000。原有 1,000 股不卖的股东，其权益值从 10,000 到约 10,222.22；不是直接收到这笔现金。如果初始现金只有 60,000，缺口为 20,000，交易停止。</p>
-<p>分配分支：每股 0.21，合计 21,000；现金 129,000、权益 979,000、每股值 9.79。持有10股者的 97.90＋2.10＝100。曲线实线仅画可行交易价，虚线是初始每股值；不要把教学经济价值读成未来股价。</p>
+<p>按 8 美元回购时，卖出者收到 80,000，剩余权益 920,000. 原有 1,000 股不卖的股东，其权益值从 10,000 到约 10,222.22；不是直接收到这笔现金. 如果初始现金只有 60,000，缺口为 20,000，交易停止.</p>
+<p>分配分支：每股 0.21，合计 21,000；现金 129,000、权益 979,000、每股值 9.79. 持有10股者的 97.90＋2.10＝100. 曲线实线仅画可行交易价，虚线是初始每股值；不要把教学经济价值读成未来股价.</p>
 </details>
-<p class="sources">真实数值桥见 <a href="https://www.sec.gov/Archives/edgar/data/1652044/000165204426000018/goog-20251231.htm" target="_blank" rel="noopener noreferrer">Alphabet 2025年报</a>：百万股 12,211＋117−240＝12,088；Note 11 回购表列 240 百万股／45,398 百万美元，表下注明 shares repurchased 包括未交收回购；现金流量表期间付款为 45,709 百万美元。两者不能相加，也不把 45,398 另命名为一般“确认金额”。它们不用于给上面的合成公司估值。</p>
+<p class="sources">真实数值桥见 <a href="https://www.sec.gov/Archives/edgar/data/1652044/000165204426000018/goog-20251231.htm" target="_blank" rel="noopener noreferrer">Alphabet 2025年报</a>： M 股 12,211＋117−240＝12,088；Note 11 回购表列 240 M 股／45,398 M 美元，表下注明 shares repurchased 包括未交收回购；现金流量表期间付款为 45,709 M 美元. 两者不能相加，也不把 45,398 另命名为一般“确认金额”. 它们不用于给上面的合成公司估值.</p>
 </section>
 
 <section class="lab" id="EXP-MB-M08-NAV" aria-labelledby="nav-title">
 <span class="badge">M08 · 单类别合成基金</span>
 <h2 id="nav-title">新份额要和什么资产一起进入？</h2>
-<p>投资者持有份额，基金持有证券，策略跟踪指数；指数不是资金账户。NAV 必须让同一类别、同一时点的净资产和份额数配对。</p>
+<p>投资者持有份额，基金持有证券，策略跟踪指数；指数不是资金账户. NAV 必须让同一类别、同一时点的净资产和份额数配对.</p>
 <div class="flow" aria-label="基金对象关系">
 <div class="node">投资者</div><div class="arrow">持有权利 →</div><div class="node">基金份额</div><div class="arrow">对应载体 →</div><div class="node">基金持有底层资产</div>
 </div>
-<p class="muted">另有一条方法关系：“基金策略 → 跟踪目标指数”。这不是现金转账。ETF 的交易结构也不等于所有 ETF 都采用指数策略。</p>
+<p class="muted">另有一条方法关系：“基金策略 → 跟踪目标指数”. 这不是现金转账. ETF 的交易结构也不等于所有 ETF 都采用指数策略.</p>
 <details><summary>VTI 文件版本：更名，不是本文件证明的方法切换</summary>
 <div class="table-wrap"><table><thead><tr><th>字段</th><th>2026-04-28 基础文件</th><th>2026-07-29 起</th></tr></thead><tbody>
 <tr><td>基金</td><td>Vanguard Total Stock Market Index Fund</td><td>Vanguard Morningstar Total Stock Market Index Fund</td></tr>
 <tr><td>ETF类别</td><td>Vanguard Total Stock Market ETF</td><td>Vanguard Morningstar Total Stock Market ETF</td></tr>
 <tr><td>目标指数</td><td>CRSP US Total Market Index</td><td>Morningstar US Total Market Index</td></tr></tbody></table></div>
-<p>补充文件只支持基金、ETF类别和目标指数的名称变更，并说明目标、策略、政策不变；不据此推定法律基金实体、指数方法论或实际持仓同步发生实质变化。VTI 是基金的一种 ETF 份额类别。下面只有一个合成类别，不使用真实 VTI 每日持仓、NAV 或交易篮子。来源：<a href="https://www.sec.gov/Archives/edgar/data/36405/000003640526000197/f44849d1.htm" target="_blank" rel="noopener noreferrer">VTI概要招募书</a>；<a href="https://www.sec.gov/Archives/edgar/data/36405/000003640526000386/f45788d1.htm" target="_blank" rel="noopener noreferrer">2026-07-29补充文件</a>。</p>
+<p>补充文件只支持基金、ETF类别和目标指数的名称变更，并说明目标、策略、政策不变；不据此推定法律基金实体、指数方法论或实际持仓同步发生实质变化. VTI 是基金的一种 ETF 份额类别. 下面只有一个合成类别，不使用真实 VTI 每日持仓、NAV 或交易篮子. 来源：<a href="https://www.sec.gov/Archives/edgar/data/36405/000003640526000197/f44849d1.htm" target="_blank" rel="noopener noreferrer">VTI概要招募书</a>；<a href="https://www.sec.gov/Archives/edgar/data/36405/000003640526000386/f45788d1.htm" target="_blank" rel="noopener noreferrer">2026-07-29补充文件</a>.</p>
 </details>
 <div class="grid"><div>
 <div class="fields">
@@ -76,23 +76,23 @@
 </div>
 <div class="checks"><label><input id="nav-mismatch" type="checkbox">故意把分子换成全基金 3,000,000 净资产</label></div>
 <div class="button-row"><button type="button" id="nav-reset">恢复默认</button></div>
-<p class="muted">初始资产 1,010,000、负债 5,000、份额 10,000；公平价值交换，无费用由现有基金承担。赎回从申购后的状态开始。</p>
+<p class="muted">初始资产 1,010,000、负债 5,000、份额 10,000；公平价值交换，无费用由现有基金承担. 赎回从申购后的状态开始.</p>
 </div><div><div id="nav-status" class="status" role="status" aria-live="polite"></div><div id="nav-result"></div></div></div>
 <details class="static-panel"><summary>静态净值表、资产构成与分配练习</summary>
 <div class="table-wrap"><table><thead><tr><th>初始资产</th><th>计算</th><th>USD</th></tr></thead><tbody>
 <tr><td>证券甲</td><td>4,000×100</td><td>400,000</td></tr><tr><td>证券乙</td><td>2,000×200</td><td>400,000</td></tr><tr><td>现金</td><td>—</td><td>210,000</td></tr><tr><td>负债</td><td>从总资产扣除</td><td>5,000</td></tr></tbody></table></div>
 <div class="table-wrap"><table><thead><tr><th>状态</th><th>净资产 USD</th><th>份额</th><th>NAV</th></tr></thead><tbody>
 <tr><td>初始</td><td>1,005,000</td><td>10,000</td><td>100.50</td></tr><tr><td>公允值申购50,000份后</td><td>6,030,000</td><td>60,000</td><td>100.50</td></tr><tr><td>再赎回50,000份后</td><td>1,005,000</td><td>10,000</td><td>100.50</td></tr></tbody></table></div>
-<p>篮子公允值为 50,000×100.50＝5,025,000。新增资产和份额同向进入，(W＋Bn)/(S＋B)=n；赎回反向。若改为新增10,000份，则先达到净资产2,010,000与20,000份。为了保留“剩余每份净值”的分母，本实验拒绝赎回全部份额。</p>
-<p>从初始状态另行分配每份2美元，总支出20,000，净资产985,000、NAV98.50。持有100份者的9,850＋200＝10,050。这个分配例不使用 VTI 真实分配数据。</p>
+<p>篮子公允值为 50,000×100.50＝5,025,000. 新增资产和份额同向进入，(W＋Bn)/(S＋B)=n；赎回反向. 若改为新增10,000份，则先达到净资产2,010,000与20,000份. 为了保留“剩余每份净值”的分母，本实验拒绝赎回全部份额.</p>
+<p>从初始状态另行分配每份2美元，总支出20,000，净资产985,000、NAV98.50. 持有100份者的9,850＋200＝10,050. 这个分配例不使用 VTI 真实分配数据.</p>
 </details>
-<p class="sources">通用 AP / 50,000 份示例：<a href="https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins-24" target="_blank" rel="noopener noreferrer">SEC ETF教学公告</a>。本实验采用同口径价值守恒，不表示已经知道 VTI 的实际申赎单位。</p>
+<p class="sources">通用 AP / 50,000 份示例：<a href="https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins-24" target="_blank" rel="noopener noreferrer">SEC ETF教学公告</a>. 本实验采用同口径价值守恒，不表示已经知道 VTI 的实际申赎单位.</p>
 </section>
 
 <section class="lab" id="EXP-MB-M08-AP" aria-labelledby="ap-title">
 <span class="badge">M08 · 合成同步报价，不是市场订单</span>
 <h2 id="ap-title">有溢价，也未必有可完成的正差额</h2>
-<p>本实验只模拟 basket / in-kind 教学分支：申购先买篮子 → 交篮子取得份额 → 按 ETF bid 卖出；赎回按 ETF ask 买份额 → 交份额取得篮子 → 卖篮子。现金型申赎和 custom basket 不在本实验范围。现金按“先支付买入和费用、后取得卖出所得”检查，不自动借款。</p>
+<p>本实验只模拟 basket / in-kind 教学分支：申购先买篮子 → 交篮子取得份额 → 按 ETF bid 卖出；赎回按 ETF ask 买份额 → 交份额取得篮子 → 卖篮子. 现金型申赎和 custom basket 不在本实验范围. 现金按“先支付买入和费用、后取得卖出所得”检查，不自动借款.</p>
 <p id="ap-stage" class="muted"></p>
 <div class="grid"><div>
 <div class="fields">
@@ -113,18 +113,18 @@
 <label><input id="ap-synchronized" type="checkbox" checked>全部步骤报价同步且保持</label>
 </div>
 <div class="button-row"><button type="button" id="ap-reset">恢复默认申购情景</button></div>
-<p class="muted">篮子价格已含买卖方向，其他成本不重复扣价差。申赎中的基金公允价值保持100.50；AP买篮子的执行成本可以不同。没有足量深度时，不虚构表外成交。</p>
+<p class="muted">篮子价格已含买卖方向，其他成本不重复扣价差. 申赎中的基金公允价值保持100.50；AP买篮子的执行成本可以不同. 没有足量深度时，不虚构表外成交.</p>
 </div><div><div id="ap-status" class="status" role="status" aria-live="polite"></div><div id="ap-quote"></div><div id="ap-result"></div></div></div>
 <details class="static-panel"><summary>静态双向现金表与约束反例</summary>
 <div class="table-wrap"><table><thead><tr><th>项目（USD）</th><th>申购情景</th><th>赎回情景</th></tr></thead><tbody>
 <tr><td>先买入支出</td><td>5,027,000</td><td>5,013,500</td></tr><tr><td>另一腿卖出所得</td><td>5,036,500</td><td>5,023,000</td></tr><tr><td>其他成本</td><td>6,000</td><td>6,000</td></tr><tr><td>条件差额</td><td>3,500</td><td>3,500</td></tr><tr><td>先备现金</td><td>5,033,000</td><td>5,019,500</td></tr></tbody></table></div>
-<p>申购公式 B×(ETF bid−篮子买价−f)，赎回公式 B×(篮子卖价−ETF ask−f)。中间价与NAV分别是100.75和100.50，参考溢价24.88基点；若偷用它们计算，得到6,500，会多算3,000。</p>
-<p>把费用升到每份0.19，默认两方向差额均为0；把现金降到5,000,000，申购缺33,000、赎回缺19,500，均不能按给定顺序完成。ETF深度20,000或取消资格、窗口、同步条件时，完成后状态不生成。赎回从基金60,000份开始；原始10,000份不足以直接赎回50,000。</p>
-<p>“宽价差”预设仍保持中间价100.75，但ETF bid降至100.55、ask升至100.95。默认申购差额变为−5,500。参考溢价相同不等于执行条件相同。</p>
+<p>申购公式 B×(ETF bid−篮子买价−f)，赎回公式 B×(篮子卖价−ETF ask−f). 中间价与NAV分别是100.75和100.50，参考溢价24.88基点；若偷用它们计算，得到6,500，会多算3,000.</p>
+<p>把费用升到每份0.19，默认两方向差额均为0；把现金降到5,000,000，申购缺33,000、赎回缺19,500，均不能按给定顺序完成. ETF深度20,000或取消资格、窗口、同步条件时，完成后状态不生成. 赎回从基金60,000份开始；原始10,000份不足以直接赎回50,000.</p>
+<p>“宽价差”预设仍保持中间价100.75，但ETF bid降至100.55、ask升至100.95. 默认申购差额变为−5,500. 参考溢价相同不等于执行条件相同.</p>
 </details>
-<details><summary>选读：AP 机制与研究数据</summary><p>AP 的申赎权限与做市商的报价职责不是同一种身份，AP 也不必每次偏离都申赎。FCA OP68 的 §2 与 §4.1–4.2 将申赎记录和二级交易报告区分：2018-01 至 2022-10，128 只主要在 LSE 交易的实物ETF（50股票型、78债券型）。这里只读机构流程和数据结构，不展示模型估计或把样本当作VTI检验。</p><p class="sources">参见 <a href="https://www.sec.gov/Archives/edgar/data/36405/000003640526000197/f44849d1.htm" target="_blank" rel="noopener noreferrer">VTI概要招募书</a>、<a href="https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins-24" target="_blank" rel="noopener noreferrer">SEC ETF教学公告</a>、<a href="https://www.fca.org.uk/publication/occasional-papers/op68-etf-mispricing.pdf" target="_blank" rel="noopener noreferrer">FCA OP68原文</a>。</p></details>
+<details><summary>选读：AP 机制与研究数据</summary><p>AP 的申赎权限与做市商的报价职责不是同一种身份，AP 也不必每次偏离都申赎. FCA OP68 的 §2 与 §4.1–4.2 将申赎记录和二级交易报告区分：2018-01 至 2022-10，128 只主要在 LSE 交易的实物ETF（50股票型、78债券型）. 这里只读机构流程和数据结构，不展示模型估计或把样本当作VTI检验.</p><p class="sources">参见 <a href="https://www.sec.gov/Archives/edgar/data/36405/000003640526000197/f44849d1.htm" target="_blank" rel="noopener noreferrer">VTI概要招募书</a>、<a href="https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins-24" target="_blank" rel="noopener noreferrer">SEC ETF教学公告</a>、<a href="https://www.fca.org.uk/publication/occasional-papers/op68-etf-mispricing.pdf" target="_blank" rel="noopener noreferrer">FCA OP68原文</a>.</p></details>
 </section>
-<footer>所有可调价格、现金、公司价值、篮子和数量均为教学设定。真实文件承担明确条款与版本的证据，不为合成交易提供实盘可执行保证。</footer>
+<footer>所有可调价格、现金、公司价值、篮子和数量均为教学设定. 真实文件承担明确条款与版本的证据，不为合成交易提供实盘可执行保证.</footer>
 </main>
 <script src="data.js"></script><script src="engine.js"></script><script src="app.js"></script>
 </body></html>

@@ -1,33 +1,37 @@
 # 财务报告的组成与阅读地图
 
-在一份真实年报中找到报表、附注、管理层解释和审计意见，并为一个数字补齐可核对的出处。
+在一份真实年报中找到报表、附注、管理层解释和审计意见，并为一个数字补齐可核对的出处.
 
 Entry: zh-bf02 | Node: BF-02 | Language: zh | Editorial revision: 2026-09-21
 
 ## Teaching instructions
-你正在讲授BF-02“财务报告的组成与阅读地图”（2026-09-21.BF-A.rev-1）。这是随用随查的T10参考，不要自动扩成一堂财务入门课。先确认读者当前需要定位的是哪个数字或事项；若未指定，用Costco现金14,161。
+你正在讲授BF-02“财务报告的组成与阅读地图”（2026-09-21.BF-A.rev-1）. 这是随用随查的T10参考，不要自动扩成一堂财务入门课. 先确认读者当前需要定位的是哪个数字或事项；若未指定，用Costco现金14,161.
 
-在实质讲解前实际读取以下可读单元。运行时读取日志初始为空；记录标题、版本、实际取得范围和当前用途，来源清单本身不算读取：
+在实质讲解前实际读取以下可读单元. 运行时读取日志初始为空；记录标题、版本、实际取得范围和当前用途，来源清单本身不算读取：
 1. OpenStax，Principles of Accounting Vol.1，2019，§2.1全文：
 https://openstax.org/books/principles-financial-accounting/pages/2-1-describe-the-income-statement-statement-of-owners-equity-balance-sheet-and-statement-of-cash-flows-and-how-they-interrelate
-目的：报表各自记录什么，以及时点与期间的联系。
+目的：报表各自记录什么，以及时点与期间的联系.
 2. SEC，Beginners’ Guide to Financial Statements，公开正文：
 https://www.sec.gov/about/reports-publications/beginners-guide-financial-statements
-目的：报表、附注和MD&A的不同用途。旧指南用来解释稳定结构，不当作全部现行规则。
+目的：报表、附注和MD&A的不同用途. 旧指南用来解释稳定结构，不当作全部现行规则.
 3. Costco FY2025 SEC 10-K：
 https://www.sec.gov/Archives/edgar/data/909832/000090983225000101/cost-20250831.htm
-读取Item 8目录p.33，财报审计意见和Basis for Opinion p.34，pp.37–41各表表头；完整p.39和p.41；Note 1 p.42的Basis of Presentation、Fiscal Year、Reclassification、Cash and Cash Equivalents完整小节。使用存货练习时再读Note 1 Merchandise Inventories完整小节p.44。不要把目录读取说成整份年报已读。
+读取Item 8目录p.33，财报审计意见和Basis for Opinion p.34，pp.37–41各表表头；完整p.39和p.41；Note 1 p.42的Basis of Presentation、Fiscal Year、Reclassification、Cash and Cash Equivalents完整小节. 使用存货练习时再读Note 1 Merchandise Inventories完整小节p.44. 不要把目录读取说成整份年报已读.
 4. 采用银行迁移题时，读取JPMorgan 2025 Annual Report的完整资产负债表p.167/物理p.199、现金流p.169/物理p.201及表注：
 https://www.jpmorganchase.com/content/dam/jpmc/jpmorgan-chase-and-co/investor-relations/documents/annualreport-2025.pdf
-PDF表格看原页。该分支没选时不强求银行全文。
+PDF表格看原页. 该分支没选时不强求银行全文.
 
-正文未取得时，尝试同机构可读原件；只有等价页码、期间和内容核对后才替换。仍缺则准确说明缺少的单元，不从搜索摘要补作已核内容。
+正文未取得时，尝试同机构可读原件；只有等价页码、期间和内容核对后才替换. 仍缺则准确说明缺少的单元，不从搜索摘要补作已核内容.
 
-先给读者一个定位任务，而不是考四则运算：现金14,161是本年利润、期间现金流还是期末余额？让读者说出需要的表头。接着按“主表→现金流→定义”展示三处材料，复算9906+13335-5311-3775+6=14161。解释来源不同于用途：这个桥不把现金增加都称为盈利。
+先给读者一个定位任务，而不是考四则运算：现金14,161是本年利润、期间现金流还是期末余额？让读者说出需要的表头. 接着按“主表→现金流→定义”展示三处材料，复算9906+13335-5311-3775+6=14161. 解释来源不同于用途：这个桥不把现金增加都称为盈利.
 
-最后让读者区分18,116和559，或者把页码方法迁移到JPM。答案必须同时有文档、行名、单位、时点/期间和支持范围；只有找到相同词语不算通过。已掌握的导航不重复讲，当前疑点解决即返回BF-05相应段落。不要引出估值或用户账户。
+最后让读者区分18,116和559，或者把页码方法迁移到JPM. 答案必须同时有文档、行名、单位、时点/期间和支持范围；只有找到相同词语不算通过. 已掌握的导航不重复讲，当前疑点解决即返回BF-05相应段落. 不要引出估值或用户账户.
 
 Before substantive teaching, actually retrieve every required reading unit for the selected scope. Read its complete designated section, including necessary assumptions, tables and footnotes. A working URL or an editorial access date is not a runtime reading receipt. Record the actual version, location, scope and what it supports. If unavailable, use a previously verified equivalent source; if the required unit remains unavailable, identify that gap rather than teach it from memory. Start runtime_reading_log empty. Once reading is complete, use a substantive diagnostic or follow the reader's request for direct explanation. Advance one complete reasoning task at a time; skip mastered basics. Distinguish original facts, supplied teaching assumptions and inference.
+
+## Shared notation and writing conventions
+数学期望统一写成 \mathbb{E}，条件期望用 \mathbb{E}[X\mid\mathcal{G}]，需要时注明测度 P 或 Q. 保留局部变量的明确定义. 金额与数量使用 K=10^3、M=10^6、B=10^9；表格标明币种、量级与期间，变更量级时同步换算数值. 展示小数最多三位，计算保留原始精度. 直接解释对象、机制与推理；保留影响结论的假设和事实来源，把编辑流程留在记录中. 句末使用英文句点 .，包括定义、命题、证明和解析等标签. 基础定义与推导直接讲内容，出处放在紧邻脚注；来源读取、复审和采用范围等编辑经过留在记录中.
+[Notation and units](https://ou-liu-red-sugar.github.io/agent/zh/notation.md)
 
 ## Required readings and runtime protocol
 ```json
@@ -38,8 +42,8 @@ Before substantive teaching, actually retrieve every required reading unit for t
   "export_mode": "public",
   "audience": "具有足够数学背景的高年级本科至研究生",
   "body_source": "body_markdown",
-  "learning_task": "在一份真实年报中找到报表、附注、管理层解释和审计意见，并为一个数字补齐可核对的出处。",
-  "prompt": "你正在讲授BF-02“财务报告的组成与阅读地图”（2026-09-21.BF-A.rev-1）。这是随用随查的T10参考，不要自动扩成一堂财务入门课。先确认读者当前需要定位的是哪个数字或事项；若未指定，用Costco现金14,161。\n\n在实质讲解前实际读取以下可读单元。运行时读取日志初始为空；记录标题、版本、实际取得范围和当前用途，来源清单本身不算读取：\n1. OpenStax，Principles of Accounting Vol.1，2019，§2.1全文：\nhttps://openstax.org/books/principles-financial-accounting/pages/2-1-describe-the-income-statement-statement-of-owners-equity-balance-sheet-and-statement-of-cash-flows-and-how-they-interrelate\n目的：报表各自记录什么，以及时点与期间的联系。\n2. SEC，Beginners’ Guide to Financial Statements，公开正文：\nhttps://www.sec.gov/about/reports-publications/beginners-guide-financial-statements\n目的：报表、附注和MD&A的不同用途。旧指南用来解释稳定结构，不当作全部现行规则。\n3. Costco FY2025 SEC 10-K：\nhttps://www.sec.gov/Archives/edgar/data/909832/000090983225000101/cost-20250831.htm\n读取Item 8目录p.33，财报审计意见和Basis for Opinion p.34，pp.37–41各表表头；完整p.39和p.41；Note 1 p.42的Basis of Presentation、Fiscal Year、Reclassification、Cash and Cash Equivalents完整小节。使用存货练习时再读Note 1 Merchandise Inventories完整小节p.44。不要把目录读取说成整份年报已读。\n4. 采用银行迁移题时，读取JPMorgan 2025 Annual Report的完整资产负债表p.167/物理p.199、现金流p.169/物理p.201及表注：\nhttps://www.jpmorganchase.com/content/dam/jpmc/jpmorgan-chase-and-co/investor-relations/documents/annualreport-2025.pdf\nPDF表格看原页。该分支没选时不强求银行全文。\n\n正文未取得时，尝试同机构可读原件；只有等价页码、期间和内容核对后才替换。仍缺则准确说明缺少的单元，不从搜索摘要补作已核内容。\n\n先给读者一个定位任务，而不是考四则运算：现金14,161是本年利润、期间现金流还是期末余额？让读者说出需要的表头。接着按“主表→现金流→定义”展示三处材料，复算9906+13335-5311-3775+6=14161。解释来源不同于用途：这个桥不把现金增加都称为盈利。\n\n最后让读者区分18,116和559，或者把页码方法迁移到JPM。答案必须同时有文档、行名、单位、时点/期间和支持范围；只有找到相同词语不算通过。已掌握的导航不重复讲，当前疑点解决即返回BF-05相应段落。不要引出估值或用户账户。",
+  "learning_task": "在一份真实年报中找到报表、附注、管理层解释和审计意见，并为一个数字补齐可核对的出处.",
+  "prompt": "你正在讲授BF-02“财务报告的组成与阅读地图”（2026-09-21.BF-A.rev-1）. 这是随用随查的T10参考，不要自动扩成一堂财务入门课. 先确认读者当前需要定位的是哪个数字或事项；若未指定，用Costco现金14,161.\n\n在实质讲解前实际读取以下可读单元. 运行时读取日志初始为空；记录标题、版本、实际取得范围和当前用途，来源清单本身不算读取：\n1. OpenStax，Principles of Accounting Vol.1，2019，§2.1全文：\nhttps://openstax.org/books/principles-financial-accounting/pages/2-1-describe-the-income-statement-statement-of-owners-equity-balance-sheet-and-statement-of-cash-flows-and-how-they-interrelate\n目的：报表各自记录什么，以及时点与期间的联系.\n2. SEC，Beginners’ Guide to Financial Statements，公开正文：\nhttps://www.sec.gov/about/reports-publications/beginners-guide-financial-statements\n目的：报表、附注和MD&A的不同用途. 旧指南用来解释稳定结构，不当作全部现行规则.\n3. Costco FY2025 SEC 10-K：\nhttps://www.sec.gov/Archives/edgar/data/909832/000090983225000101/cost-20250831.htm\n读取Item 8目录p.33，财报审计意见和Basis for Opinion p.34，pp.37–41各表表头；完整p.39和p.41；Note 1 p.42的Basis of Presentation、Fiscal Year、Reclassification、Cash and Cash Equivalents完整小节. 使用存货练习时再读Note 1 Merchandise Inventories完整小节p.44. 不要把目录读取说成整份年报已读.\n4. 采用银行迁移题时，读取JPMorgan 2025 Annual Report的完整资产负债表p.167/物理p.199、现金流p.169/物理p.201及表注：\nhttps://www.jpmorganchase.com/content/dam/jpmc/jpmorgan-chase-and-co/investor-relations/documents/annualreport-2025.pdf\nPDF表格看原页. 该分支没选时不强求银行全文.\n\n正文未取得时，尝试同机构可读原件；只有等价页码、期间和内容核对后才替换. 仍缺则准确说明缺少的单元，不从搜索摘要补作已核内容.\n\n先给读者一个定位任务，而不是考四则运算：现金14,161是本年利润、期间现金流还是期末余额？让读者说出需要的表头. 接着按“主表→现金流→定义”展示三处材料，复算9906+13335-5311-3775+6=14161. 解释来源不同于用途：这个桥不把现金增加都称为盈利.\n\n最后让读者区分18,116和559，或者把页码方法迁移到JPM. 答案必须同时有文档、行名、单位、时点/期间和支持范围；只有找到相同词语不算通过. 已掌握的导航不重复讲，当前疑点解决即返回BF-05相应段落. 不要引出估值或用户账户.",
   "selected_branch": "current_task",
   "required_readings": [
     {
@@ -55,11 +59,11 @@ Before substantive teaching, actually retrieve every required reading unit for t
         "verified_access_at": "2026-09-21"
       },
       "required_unit": {
-        "locator": "1. OpenStax，Principles of Accounting Vol.1，2019，§2.1全文：\n目的：报表各自记录什么，以及时点与期间的联系。",
-        "scope": "1. OpenStax，Principles of Accounting Vol.1，2019，§2.1全文：\nhttps://openstax.org/books/principles-financial-accounting/pages/2-1-describe-the-income-statement-statement-of-owners-equity-balance-sheet-and-statement-of-cash-flows-and-how-they-interrelate\n目的：报表各自记录什么，以及时点与期间的联系。",
-        "purpose": "在一份真实年报中找到报表、附注、管理层解释和审计意见，并为一个数字补齐可核对的出处。"
+        "locator": "1. OpenStax，Principles of Accounting Vol.1，2019，§2.1全文：\n目的：报表各自记录什么，以及时点与期间的联系.",
+        "scope": "1. OpenStax，Principles of Accounting Vol.1，2019，§2.1全文：\nhttps://openstax.org/books/principles-financial-accounting/pages/2-1-describe-the-income-statement-statement-of-owners-equity-balance-sheet-and-statement-of-cash-flows-and-how-they-interrelate\n目的：报表各自记录什么，以及时点与期间的联系.",
+        "purpose": "在一份真实年报中找到报表、附注、管理层解释和审计意见，并为一个数字补齐可核对的出处."
       },
-      "supports": "1. OpenStax，Principles of Accounting Vol.1，2019，§2.1全文：\n目的：报表各自记录什么，以及时点与期间的联系。",
+      "supports": "1. OpenStax，Principles of Accounting Vol.1，2019，§2.1全文：\n目的：报表各自记录什么，以及时点与期间的联系.",
       "fallback_source_ids": []
     },
     {
@@ -75,11 +79,11 @@ Before substantive teaching, actually retrieve every required reading unit for t
         "verified_access_at": "2026-09-21"
       },
       "required_unit": {
-        "locator": "2. SEC，Beginners’ Guide to Financial Statements，公开正文：\n目的：报表、附注和MD&A的不同用途。旧指南用来解释稳定结构，不当作全部现行规则。",
-        "scope": "2. SEC，Beginners’ Guide to Financial Statements，公开正文：\nhttps://www.sec.gov/about/reports-publications/beginners-guide-financial-statements\n目的：报表、附注和MD&A的不同用途。旧指南用来解释稳定结构，不当作全部现行规则。",
-        "purpose": "在一份真实年报中找到报表、附注、管理层解释和审计意见，并为一个数字补齐可核对的出处。"
+        "locator": "2. SEC，Beginners’ Guide to Financial Statements，公开正文：\n目的：报表、附注和MD&A的不同用途. 旧指南用来解释稳定结构，不当作全部现行规则.",
+        "scope": "2. SEC，Beginners’ Guide to Financial Statements，公开正文：\nhttps://www.sec.gov/about/reports-publications/beginners-guide-financial-statements\n目的：报表、附注和MD&A的不同用途. 旧指南用来解释稳定结构，不当作全部现行规则.",
+        "purpose": "在一份真实年报中找到报表、附注、管理层解释和审计意见，并为一个数字补齐可核对的出处."
       },
-      "supports": "2. SEC，Beginners’ Guide to Financial Statements，公开正文：\n目的：报表、附注和MD&A的不同用途。旧指南用来解释稳定结构，不当作全部现行规则。",
+      "supports": "2. SEC，Beginners’ Guide to Financial Statements，公开正文：\n目的：报表、附注和MD&A的不同用途. 旧指南用来解释稳定结构，不当作全部现行规则.",
       "fallback_source_ids": []
     },
     {
@@ -95,11 +99,11 @@ Before substantive teaching, actually retrieve every required reading unit for t
         "verified_access_at": "2026-09-21"
       },
       "required_unit": {
-        "locator": "3. Costco FY2025 SEC 10-K：\n读取Item 8目录p.33，财报审计意见和Basis for Opinion p.34，pp.37–41各表表头；完整p.39和p.41；Note 1 p.42的Basis of Presentation、Fiscal Year、Reclassification、Cash and Cash Equivalents完整小节。使用存货练习时再读Note 1 Merchandise Inventories完整小节p.44。不要把目录读取说成整份年报已读。",
-        "scope": "3. Costco FY2025 SEC 10-K：\nhttps://www.sec.gov/Archives/edgar/data/909832/000090983225000101/cost-20250831.htm\n读取Item 8目录p.33，财报审计意见和Basis for Opinion p.34，pp.37–41各表表头；完整p.39和p.41；Note 1 p.42的Basis of Presentation、Fiscal Year、Reclassification、Cash and Cash Equivalents完整小节。使用存货练习时再读Note 1 Merchandise Inventories完整小节p.44。不要把目录读取说成整份年报已读。",
-        "purpose": "在一份真实年报中找到报表、附注、管理层解释和审计意见，并为一个数字补齐可核对的出处。"
+        "locator": "3. Costco FY2025 SEC 10-K：\n读取Item 8目录p.33，财报审计意见和Basis for Opinion p.34，pp.37–41各表表头；完整p.39和p.41；Note 1 p.42的Basis of Presentation、Fiscal Year、Reclassification、Cash and Cash Equivalents完整小节. 使用存货练习时再读Note 1 Merchandise Inventories完整小节p.44. 不要把目录读取说成整份年报已读.",
+        "scope": "3. Costco FY2025 SEC 10-K：\nhttps://www.sec.gov/Archives/edgar/data/909832/000090983225000101/cost-20250831.htm\n读取Item 8目录p.33，财报审计意见和Basis for Opinion p.34，pp.37–41各表表头；完整p.39和p.41；Note 1 p.42的Basis of Presentation、Fiscal Year、Reclassification、Cash and Cash Equivalents完整小节. 使用存货练习时再读Note 1 Merchandise Inventories完整小节p.44. 不要把目录读取说成整份年报已读.",
+        "purpose": "在一份真实年报中找到报表、附注、管理层解释和审计意见，并为一个数字补齐可核对的出处."
       },
-      "supports": "3. Costco FY2025 SEC 10-K：\n读取Item 8目录p.33，财报审计意见和Basis for Opinion p.34，pp.37–41各表表头；完整p.39和p.41；Note 1 p.42的Basis of Presentation、Fiscal Year、Reclassification、Cash and Cash Equivalents完整小节。使用存货练习时再读Note 1 Merchandise Inventories完整小节p.44。不要把目录读取说成整份年报已读。",
+      "supports": "3. Costco FY2025 SEC 10-K：\n读取Item 8目录p.33，财报审计意见和Basis for Opinion p.34，pp.37–41各表表头；完整p.39和p.41；Note 1 p.42的Basis of Presentation、Fiscal Year、Reclassification、Cash and Cash Equivalents完整小节. 使用存货练习时再读Note 1 Merchandise Inventories完整小节p.44. 不要把目录读取说成整份年报已读.",
       "fallback_source_ids": []
     }
   ],
@@ -117,17 +121,17 @@ Before substantive teaching, actually retrieve every required reading unit for t
         "verified_access_at": "2026-09-21"
       },
       "required_unit": {
-        "locator": "4. 采用银行迁移题时，读取JPMorgan 2025 Annual Report的完整资产负债表p.167/物理p.199、现金流p.169/物理p.201及表注：\nPDF表格看原页。该分支没选时不强求银行全文。",
-        "scope": "4. 采用银行迁移题时，读取JPMorgan 2025 Annual Report的完整资产负债表p.167/物理p.199、现金流p.169/物理p.201及表注：\nhttps://www.jpmorganchase.com/content/dam/jpmc/jpmorgan-chase-and-co/investor-relations/documents/annualreport-2025.pdf\nPDF表格看原页。该分支没选时不强求银行全文。",
-        "purpose": "在一份真实年报中找到报表、附注、管理层解释和审计意见，并为一个数字补齐可核对的出处。"
+        "locator": "4. 采用银行迁移题时，读取JPMorgan 2025 Annual Report的完整资产负债表p.167/物理p.199、现金流p.169/物理p.201及表注：\nPDF表格看原页. 该分支没选时不强求银行全文.",
+        "scope": "4. 采用银行迁移题时，读取JPMorgan 2025 Annual Report的完整资产负债表p.167/物理p.199、现金流p.169/物理p.201及表注：\nhttps://www.jpmorganchase.com/content/dam/jpmc/jpmorgan-chase-and-co/investor-relations/documents/annualreport-2025.pdf\nPDF表格看原页. 该分支没选时不强求银行全文.",
+        "purpose": "在一份真实年报中找到报表、附注、管理层解释和审计意见，并为一个数字补齐可核对的出处."
       },
-      "supports": "4. 采用银行迁移题时，读取JPMorgan 2025 Annual Report的完整资产负债表p.167/物理p.199、现金流p.169/物理p.201及表注：\nPDF表格看原页。该分支没选时不强求银行全文。",
+      "supports": "4. 采用银行迁移题时，读取JPMorgan 2025 Annual Report的完整资产负债表p.167/物理p.199、现金流p.169/物理p.201及表注：\nPDF表格看原页. 该分支没选时不强求银行全文.",
       "fallback_source_ids": [],
       "required_when_selected": true,
       "selected_scope": "4. 采用银行迁移题时，读取JPMorgan 2025 Annual Report的完整资产负债表p.167/物理p.199、现金流p.169/物理p.201及表注："
     }
   ],
-  "reading_protocol": "1. **确认当前学习范围。** 使用所选分支及本篇正文；先修仅诊断本篇确实需要的内容。识别必读材料，选读材料只有被采用时才转成对应问题的必读。\n2. **实际获取。** 用浏览/文件读取工具打开指定 URL 或随包文件。核对返回的标题/版本/范围，发现只有摘要、登录页、目录或文件清单时如实记录，继续找明确可读的正文入口。\n3. **完整读取所需单元。** 分页或分块读取到所需单元结束，包含前文约定、必要表图和脚注。PDF 符号或图表解析不可靠时查看原页；TeX 读取相关宏定义与 include 文件。不能只看搜索命中的几行。\n4. **形成简短内容对应。** 每项记录实际位置、读到的关键设定和它支持哪一步教学。例如“§5.10 的训练集仅含当前预测点之前的观测；该限制需要落实到预处理拟合，不仅是分割最终数据表”。后半句若为本站推论须标为推论。\n5. **满足后才开始该范围的实质教学。** 所有当前必读单元读完之后，基于材料给一项高密度诊断任务或按读者要求直接讲解。引用跟着对应命题或计算，不在末尾堆书名。\n6. **读取失败时自动处理缺口。** 先尝试指定的可读等价版本或作者/机构正式全文，不新造批准步骤。等价性包括版本、条款期间、定义和假设；新的替代来源实际读完后记录采用范围。仍缺失则说明具体缺少哪一个必读单元及原因，不凭训练记忆补成已读讲解，不宣称已完成本篇。\n\n“读取校验”依赖实际取得的内容及其位置、与教学相关的设定复述；不靠让模型报一句“我已阅读”，不引入无意义哈希或重复下载。它不能从技术上保证理解，但能让来源与使用之间可检查。",
+  "reading_protocol": "1. **确认当前学习范围.** 使用所选分支及本篇正文；先修仅诊断本篇确实需要的内容. 识别必读材料，选读材料只有被采用时才转成对应问题的必读.\n2. **实际获取.** 用浏览/文件读取工具打开指定 URL 或随包文件. 核对返回的标题/版本/范围，发现只有摘要、登录页、目录或文件清单时如实记录，继续找明确可读的正文入口.\n3. **完整读取所需单元.** 分页或分块读取到所需单元结束，包含前文约定、必要表图和脚注. PDF 符号或图表解析不可靠时查看原页；TeX 读取相关宏定义与 include 文件. 不能只看搜索命中的几行.\n4. **形成简短内容对应.** 每项记录实际位置、读到的关键设定和它支持哪一步教学. 例如“§5.10 的训练集仅含当前预测点之前的观测；该限制需要落实到预处理拟合，不仅是分割最终数据表”. 后半句若为本站推论须标为推论.\n5. **满足后才开始该范围的实质教学.** 所有当前必读单元读完之后，基于材料给一项高密度诊断任务或按读者要求直接讲解. 引用跟着对应命题或计算，不在末尾堆书名.\n6. **读取失败时自动处理缺口.** 先尝试指定的可读等价版本或作者/机构正式全文，不新造批准步骤. 等价性包括版本、条款期间、定义和假设；新的替代来源实际读完后记录采用范围. 仍缺失则说明具体缺少哪一个必读单元及原因，不凭训练记忆补成已读讲解，不宣称已完成本篇.\n\n“读取校验”依赖实际取得的内容及其位置、与教学相关的设定复述；不靠让模型报一句“我已阅读”，不引入无意义哈希或重复下载. 它不能从技术上保证理解，但能让来源与使用之间可检查.",
   "supplied_inputs": {
     "source_version": "2026-09-21.BF-A.rev-1",
     "tables": [
@@ -196,9 +200,9 @@ Before substantive teaching, actually retrieve every required reading unit for t
     "source_input_schema": "BF-A.rev-1.unified-inputs",
     "information_cutoff": "2026-09-21",
     "units_and_limits": [
-      "金额默认单位为USD millions；股数单独使用shares；教学设定另列。",
-      "主表与附注明细分层保存；附注明细不得自动再加到主表总额。",
-      "Costco存货/应付余额反向变化893与现金流调整963之间的70保持未归因。"
+      "金额默认单位为USD M；股数单独使用shares；教学设定另列.",
+      "主表与附注明细分层保存；附注明细不得自动再加到主表总额.",
+      "Costco存货/应付余额反向变化893与现金流调整963之间的70保持未归因."
     ],
     "case_inputs": {
       "COST-BS-20250831": {
@@ -1341,7 +1345,7 @@ Before substantive teaching, actually retrieve every required reading unit for t
       }
     },
     "experiments": [],
-    "specification_markdown": "## 阅读器交互与静态等价\n\n此页不是依赖点击才能理解的流程。上面的导航表、现金例子和题目解析，就是默认静态内容。网页可在此基础上增加 `BF02-REPORT-MAP`：点击“时点状态／期间结果／现金变化／口径与估计”后，滚动到相应原表入口；选择现金14,161时，并排打开三个定位卡。卡片应明确区分原始金额、原文定位和教学解释，不以生成的解释代替原件。\n\n**固定输入与输出：** 文档为Costco FY2025 SEC HTML；默认字段为 `cash`，原行定位p.39、数值14161、单位USD_millions、时点2025-08-31。现金桥输入为 `[9906,13335,-5311,-3775,6]`，输出14161、差额0；政策卡为Note 1 p.42。切换JPM时，必须同时改为本公司的两行现金构成、p.167/p.169及其时间，不能保留Costco定义只换标题。\n\n查找无匹配时显示“尚未定位”，不生成原文。所有入口支持键盘和返回原段落；窄屏按“主表—变化—定义”顺序排列；打印保留上述全部位置与公式。这里给出静态内容和交互规格；网页实现另行完成。",
+    "specification_markdown": "## 阅读器交互与静态等价\n\n此页不是依赖点击才能理解的流程. 上面的导航表、现金例子和题目解析，就是默认静态内容. 网页可在此基础上增加 `BF02-REPORT-MAP`：点击“时点状态／期间结果／现金变化／口径与估计”后，滚动到相应原表入口；选择现金14,161时，并排打开三个定位卡. 卡片应明确区分原始金额、原文定位和教学解释，不以生成的解释代替原件.\n\n**固定输入与输出：** 文档为Costco FY2025 SEC HTML；默认字段为 `cash`，原行定位p.39、数值14161、单位USD_millions、时点2025-08-31. 现金桥输入为 `[9906,13335,-5311,-3775,6]`，输出14161、差额0；政策卡为Note 1 p.42. 切换JPM时，必须同时改为本公司的两行现金构成、p.167/p.169及其时间，不能保留Costco定义只换标题.\n\n查找无匹配时显示“尚未定位”，不生成原文. 所有入口支持键盘和返回原段落；窄屏按“主表—变化—定义”顺序排列；打印保留上述全部位置与公式. 这里给出静态内容和交互规格；网页实现另行完成.",
     "outputs_origin": "原稿静态表、公式和配套规格；本导入仅提取"
   },
   "runtime_reading_log": []
@@ -1349,17 +1353,17 @@ Before substantive teaching, actually retrieve every required reading unit for t
 ```
 
 ## Supplied entry
-打开年报，不必从第一页一路读到最后，但也不能只搜索一个数字。我们需要一张地图：先知道自己要回答的是“企业在做什么”“某日有什么”，还是“一段时间里发生了什么”，再去相应位置取材料。此页供 [BF-01](/zh/notebook/business-activities/) 和 [BF-05](/zh/notebook/balance-sheet/) 随时调用，不是一套新的必修课。
+打开年报，不必从第一页一路读到最后，但也不能只搜索一个数字. 我们需要一张地图：先知道自己要回答的是“企业在做什么”“某日有什么”，还是“一段时间里发生了什么”，再去相应位置取材料. 此页供 [BF-01](/zh/notebook/business-activities/) 和 [BF-05](/zh/notebook/balance-sheet/) 随时调用，不是一套新的必修课.
 
 <span id="bf02-statement-map"></span>
 
 ## 1　主表各自回答什么
 
-**资产负债表记录某一时点已确认的资产、负债与权益；利润表记录一段期间的收入、费用与利润；现金流量表记录一段期间现金的来源与使用；权益变动表把期初权益连接到期末权益。综合收益还包括按相应会计处理未进入当期净利润的其他综合收益项目。** 一家公司可以将相关信息合并或分开呈现，所以不应只凭“有几张表”判断报告是否完整。[OPENSTAX-21]、[SEC-GUIDE]
+**资产负债表记录某一时点已确认的资产、负债与权益；利润表记录一段期间的收入、费用与利润；现金流量表记录一段期间现金的来源与使用；权益变动表把期初权益连接到期末权益. 综合收益还包括按相应会计处理未进入当期净利润的其他综合收益项目.** 一家公司可以将相关信息合并或分开呈现，所以不应只凭“有几张表”判断报告是否完整. [OPENSTAX-21]、[SEC-GUIDE]
 
-这些表不是对同一笔金额的重复展示。利润影响权益，但权益也会因出资、分配和其他综合收益改变；利润与现金的时间和范围不相同，需要现金流量表解释；现金流的期末金额又要回到资产负债表及现金定义核对。更完整的联动在 BF-04、BF-07、BF-08 展开；此处先保留“时点表”与“期间表”的区别。[OPENSTAX-21]
+这些表不是对同一笔金额的重复展示. 利润影响权益，但权益也会因出资、分配和其他综合收益改变；利润与现金的时间和范围不相同，需要现金流量表解释；现金流的期末金额又要回到资产负债表及现金定义核对. 更完整的联动在 BF-04、BF-07、BF-08 展开；此处先保留“时点表”与“期间表”的区别. [OPENSTAX-21]
 
-下面使用 **Costco FY2025 SEC HTML 10-K 的印刷页码**。同一公司另一个排版版本可能有不同页码，文档名称和表名都属于定位的一部分。[COST-MAP]
+下面使用 **Costco FY2025 SEC HTML 10-K 的印刷页码**. 同一公司另一个排版版本可能有不同页码，文档名称和表名都属于定位的一部分. [COST-MAP]
 
 | 原件位置 | 看什么 | 能回答的具体问题 |
 |---|---|---|
@@ -1374,33 +1378,33 @@ Before substantive teaching, actually retrieve every required reading unit for t
 | Consolidated Statements of Cash Flows，p.41 | 合并现金流量表 | 本期实际资金来源与使用如何连接期初、期末？ |
 | Notes，p.42起 | 政策、明细、估计、期限和承诺 | 主表这一行具体包括什么、怎样计量？ |
 
-附注不是主表之外的可有可无说明，而是解释这些金额所必需的材料。MD&A 则保留管理层自己的解释身份，不能代替原表。Costco 的审计报告对合并财报发表意见，并明确是对重大错报取得合理保证；它没有替读者承诺未来盈利或股票价值。[COST-AUDIT]
+附注是解释主表金额所必需的材料. MD&A则保留管理层自己的解释身份，不能代替原表. Costco的审计报告对合并财报发表意见，其合理保证针对财务报表是否存在重大错报.[COST-AUDIT]
 
 <span id="bf02-cash-bridge"></span>
 
 ## 2　沿同一个数字走一遍
 
-假设我们在 Costco 2025-08-31 的资产负债表找到 **Cash and cash equivalents，14,161**。先不要写“公司一年赚了141.61亿美元”，而是把三处材料接起来。[COST-BS]
+假设我们在 Costco 2025-08-31 的资产负债表找到 **Cash and cash equivalents，14,161**. 先不要写“公司一年赚了14.161 B 美元”，而是把三处材料接起来. [COST-BS]
 
-第一处是 **p.39 主表**：这是某日余额，单位为百万美元，范围为集团合并报表。第二处是 **p.41 现金流量表**：期初现金9,906，本期经营、投资、筹资和汇率影响依次为13,335、−5,311、−3,775、6，于是 `9906 + 13335 - 5311 - 3775 + 6 = 14161`。这一步解释余额怎么变，却没有把所有变化都称为利润。[COST-CF]
+第一处是 **p.39 主表**：这是某日余额，单位为 M 美元，范围为集团合并报表. 第二处是 **p.41 现金流量表**：期初现金9,906，本期经营、投资、筹资和汇率影响依次为13,335、−5,311、−3,775、6，于是 `9906 + 13335 - 5311 - 3775 + 6 = 14161`. 这一步解释余额怎么变，却没有把所有变化都称为利润. [COST-CF]
 
-第三处是 **Note 1，p.42，Cash and Cash Equivalents**。公司定义还包含结算期不超过四天的信用卡和借记卡交易待收款。因此，这一行也不宜被改写成“期末银行账户里已经到账的现金”。同一个数字，从主表到现金流再到附注，分别解决了时点、变化和定义三个问题。[COST-CASH]
+第三处是 **Note 1，p.42，Cash and Cash Equivalents**. 公司定义还包含结算期不超过四天的信用卡和借记卡交易待收款. 因此，这一行也不宜被改写成“期末银行账户里已经到账的现金”. 同一个数字，从主表到现金流再到附注，分别解决了时点、变化和定义三个问题. [COST-CASH]
 
-这就形成了一条可复用的阅读路径：**报表行定位对象，另一张表解释变化，附注限定含义。** 需要解释原因时，再去找对应的管理层讨论和经营材料；数字之间算得上，不等于经营原因已经证明。
+这就形成了一条可复用的阅读路径：**报表行定位对象，另一张表解释变化，附注限定含义.** 需要解释原因时，再去找对应的管理层讨论和经营材料；数字之间算得上，不等于经营原因已经证明.
 
-换到银行，这张地图仍然有用，但要沿它自己的表头走。JPMorgan 2025年报的资产负债表在印刷p.167／PDF物理p.199；现金流量表在印刷p.169／物理p.201。现金流末端343,338对应资产端的现金及应收银行款21,742与存放银行款321,596之和，而不是负债端的客户存款。我们迁移的是查找和核对的方法，不是零售公司的科目定义。[JPM-BS]、[JPM-CF]
+换到银行，这张地图仍然有用，但要沿它自己的表头走. JPMorgan 2025年报的资产负债表在印刷p.167／PDF物理p.199；现金流量表在印刷p.169／物理p.201. 现金流末端343,338对应资产端的现金及应收银行款21,742与存放银行款321,596之和，而不是负债端的客户存款. 我们迁移的是查找和核对的方法，不是零售公司的科目定义. [JPM-BS]、[JPM-CF]
 
 <span id="bf02-exercises"></span>
 
 ## 3　练习：不是找到相同单词就结束
 
-**定位题。** 同一份 Costco 年报里，`Merchandise inventories` 有18,116和559两个数。请分别写出表名、时间性质、单位和用途，并判断能否将559加到18,116上当作“更完整的期末存货”。
+**定位题.** 同一份 Costco 年报里，`Merchandise inventories` 有18,116和559两个数. 请分别写出表名、时间性质、单位和用途，并判断能否将559加到18,116上当作“更完整的期末存货”.
 
-**解析。** 18,116在p.39资产负债表，是2025-08-31的存货余额；559在p.41现金流量表的经营活动调整中，属于截至该日52周的期间调整。两者单位同为百万美元，时间和含义却不同，不能相加成新的期末余额。若要了解存货计量，应去Note 1的 `Merchandise Inventories` 小节，而不是因现金流行同名就认定完成了全部解释。[COST-BS]、[COST-CF]、[COST-INVENTORY]
+**解析.** 18,116在p.39资产负债表，是2025-08-31的存货余额；559在p.41现金流量表的经营活动调整中，属于截至该日52周的期间调整. 两者单位同为 M 美元，时间和含义却不同，不能相加成新的期末余额. 若要了解存货计量，应去Note 1的 `Merchandise Inventories` 小节，而不是因现金流行同名就认定完成了全部解释. [COST-BS]、[COST-CF]、[COST-INVENTORY]
 
-**迁移题。** 有人拿 JPM 的PDF物理第167页，找不到预期的资产负债表，就改从搜索摘要抄一个总资产数。应该怎样修正这一步？
+**迁移题.** 有人拿 JPM 的PDF物理第167页，找不到预期的资产负债表，就改从搜索摘要抄一个总资产数. 应该怎样修正这一步？
 
-**解析。** 先区分印刷页与PDF物理页：本例的印刷p.167对应物理p.199。到该页核对公司集团名称、表名、两个时点和百万美元单位，再读取行与脚注。即便搜索摘要的数恰好正确，也缺少表头、范围与附注，不能替代这条定位。银行与零售的完整原表及带读都见 [BF-05](/zh/notebook/balance-sheet/)。[JPM-BS]
+**解析.** 先区分印刷页与PDF物理页：本例的印刷p.167对应物理p.199. 到该页核对公司集团名称、表名、两个时点和 M 美元单位，再读取行与脚注. 即便搜索摘要的数恰好正确，也缺少表头、范围与附注，不能替代这条定位. 银行与零售的完整原表及带读都见 [BF-05](/zh/notebook/balance-sheet/). [JPM-BS]
 
 <span id="bf02-sources"></span>
 
@@ -1412,7 +1416,7 @@ Before substantive teaching, actually retrieve every required reading unit for t
 | [SEC-GUIDE] | BF-S-SEC-GUIDE；SEC公开指南，2014发布、2017复核；Financial Statements、Footnotes、MD&A等相关单元 |
 | [COST-MAP] | BI-S05；Costco FY2025 SEC 10-K，总目录及Item 8目录p.33；Business p.3起、MD&A p.23起 |
 | [COST-AUDIT] | BI-S05；Reports of Independent Registered Public Accounting Firm pp.34–36；财报Opinion与Basis p.34，内控Opinion p.36 |
-| [COST-BS] | BI-S05；完整合并资产负债表印刷p.39；百万美元，2025-08-31及2024-09-01 |
+| [COST-BS] | BI-S05；完整合并资产负债表印刷p.39； M 美元，2025-08-31及2024-09-01 |
 | [COST-CF] | BI-S05；完整合并现金流量表印刷p.41；现金总桥及Merchandise inventories调整行 |
 | [COST-CASH] | BI-S05；Note 1 Cash and Cash Equivalents，印刷p.42；包括结算期不超过4天的卡交易待收款 |
 | [COST-INVENTORY] | BI-S05；Note 1 Merchandise Inventories，印刷p.44；存货计量、损失及供应商折扣相关政策 |
@@ -1423,7 +1427,7 @@ Before substantive teaching, actually retrieve every required reading unit for t
 [SEC-GUIDE]: https://www.sec.gov/about/reports-publications/beginners-guide-financial-statements "BF-S-SEC-GUIDE；SEC公开指南，2014发布、2017复核；Financial Statements、Footnotes、MD&A等相关单元"
 [COST-MAP]: https://www.sec.gov/Archives/edgar/data/909832/000090983225000101/cost-20250831.htm "BI-S05；Costco FY2025 SEC 10-K，总目录及Item 8目录p.33；Business p.3起、MD&A p.23起"
 [COST-AUDIT]: https://www.sec.gov/Archives/edgar/data/909832/000090983225000101/cost-20250831.htm "BI-S05；Reports of Independent Registered Public Accounting Firm pp.34–36；财报Opinion与Basis p.34，内控Opinion p.36"
-[COST-BS]: https://www.sec.gov/Archives/edgar/data/909832/000090983225000101/cost-20250831.htm "BI-S05；完整合并资产负债表印刷p.39；百万美元，2025-08-31及2024-09-01"
+[COST-BS]: https://www.sec.gov/Archives/edgar/data/909832/000090983225000101/cost-20250831.htm "BI-S05；完整合并资产负债表印刷p.39； M 美元，2025-08-31及2024-09-01"
 [COST-CF]: https://www.sec.gov/Archives/edgar/data/909832/000090983225000101/cost-20250831.htm "BI-S05；完整合并现金流量表印刷p.41；现金总桥及Merchandise inventories调整行"
 [COST-CASH]: https://www.sec.gov/Archives/edgar/data/909832/000090983225000101/cost-20250831.htm "BI-S05；Note 1 Cash and Cash Equivalents，印刷p.42；包括结算期不超过4天的卡交易待收款"
 [COST-INVENTORY]: https://www.sec.gov/Archives/edgar/data/909832/000090983225000101/cost-20250831.htm "BI-S05；Note 1 Merchandise Inventories，印刷p.44；存货计量、损失及供应商折扣相关政策"
@@ -1434,29 +1438,29 @@ Before substantive teaching, actually retrieve every required reading unit for t
 ## Additional teaching material
 ## 阅读器交互与静态等价
 
-此页不是依赖点击才能理解的流程。上面的导航表、现金例子和题目解析，就是默认静态内容。网页可在此基础上增加 `BF02-REPORT-MAP`：点击“时点状态／期间结果／现金变化／口径与估计”后，滚动到相应原表入口；选择现金14,161时，并排打开三个定位卡。卡片应明确区分原始金额、原文定位和教学解释，不以生成的解释代替原件。
+此页不是依赖点击才能理解的流程. 上面的导航表、现金例子和题目解析，就是默认静态内容. 网页可在此基础上增加 `BF02-REPORT-MAP`：点击“时点状态／期间结果／现金变化／口径与估计”后，滚动到相应原表入口；选择现金14,161时，并排打开三个定位卡. 卡片应明确区分原始金额、原文定位和教学解释，不以生成的解释代替原件.
 
-**固定输入与输出：** 文档为Costco FY2025 SEC HTML；默认字段为 `cash`，原行定位p.39、数值14161、单位USD_millions、时点2025-08-31。现金桥输入为 `[9906,13335,-5311,-3775,6]`，输出14161、差额0；政策卡为Note 1 p.42。切换JPM时，必须同时改为本公司的两行现金构成、p.167/p.169及其时间，不能保留Costco定义只换标题。
+**固定输入与输出：** 文档为Costco FY2025 SEC HTML；默认字段为 `cash`，原行定位p.39、数值14161、单位USD_millions、时点2025-08-31. 现金桥输入为 `[9906,13335,-5311,-3775,6]`，输出14161、差额0；政策卡为Note 1 p.42. 切换JPM时，必须同时改为本公司的两行现金构成、p.167/p.169及其时间，不能保留Costco定义只换标题.
 
-查找无匹配时显示“尚未定位”，不生成原文。所有入口支持键盘和返回原段落；窄屏按“主表—变化—定义”顺序排列；打印保留上述全部位置与公式。这里给出静态内容和交互规格；网页实现另行完成。
+查找无匹配时显示“尚未定位”，不生成原文. 所有入口支持键盘和返回原段落；窄屏按“主表—变化—定义”顺序排列；打印保留上述全部位置与公式. 这里给出静态内容和交互规格；网页实现另行完成.
 
 ## Sources
-- [Costco Wholesale Corporation · FY2025 Form 10-K（SEC HTML）](https://www.sec.gov/Archives/edgar/data/909832/000090983225000101/cost-20250831.htm): Costco 的 2025 财年末合并资产为77,099百万美元，负债47,935，权益29,164。业务说明把商品快速周转与供应商付款安排联系起来；会员费的确认则需要结合收入政策和递延余额。
+- [Costco Wholesale Corporation · FY2025 Form 10-K（SEC HTML）](https://www.sec.gov/Archives/edgar/data/909832/000090983225000101/cost-20250831.htm): Costco 的 2025 财年末合并资产为77,099 M 美元，负债47,935，权益29,164. 业务说明把商品快速周转与供应商付款安排联系起来；会员费的确认则需要结合收入政策和递延余额.
 
-本组带读将存货与应付的两期余额变化接到现金流量表。两种计算并不完全相同，差额留待附注和其他口径解释。
+本组带读将存货与应付的两期余额变化接到现金流量表. 两种计算并不完全相同，差额留待附注和其他口径解释.
 
-EI-B 本批采用：会员制度、尾随续费率定义、会员费收入及合并营业利润桥。美元百万转换为十亿美元；全球公司边界不等于美国单一零售市场。
+EI-B 本批采用：会员制度、尾随续费率定义、会员费收入及合并营业利润桥. USD M 转换为 B 美元；全球公司边界不等于美国单一零售市场.
 
-BF-F/G 本批采用：零售利润/现金/普通股及债务时间的历史原件。SEC具名表定位优先；不混用IR PDF页码。
-- [JPMorgan Chase & Co. · 2025 Annual Report](https://www.jpmorganchase.com/content/dam/jpmc/jpmorgan-chase-and-co/investor-relations/documents/annualreport-2025.pdf): JPMorgan 的 2025 年末集团合并表没有照普通工业企业划分流动／非流动。证券和贷款各有计量类别；贷款损失准备是贷款账面余额的减项，表下注明的合并VIE金额已包含在集团总额内。
+BF-F/G 本批采用：零售利润/现金/普通股及债务时间的历史原件. SEC具名表定位优先；不混用IR PDF页码.
+- [JPMorgan Chase & Co. · 2025 Annual Report](https://www.jpmorganchase.com/content/dam/jpmc/jpmorgan-chase-and-co/investor-relations/documents/annualreport-2025.pdf): JPMorgan 的 2025 年末集团合并表没有照普通工业企业划分流动／非流动. 证券和贷款各有计量类别；贷款损失准备是贷款账面余额的减项，表下注明的合并VIE金额已包含在集团总额内.
 
-从总权益到普通股权益，还要扣除优先股；每股账面值的股数使用已发行股数减库存股。原表、附注和普通股权利因此要连在一起读。
+从总权益到普通股权益，还要扣除优先股；每股账面值的股数使用已发行股数减库存股. 原表、附注和普通股权利因此要连在一起读.
 
-BF-F/G 本批采用：集团季度平均LCR、期末资产和有条件融资能力分别记录；银行法人另列；完整主表支持综合带读。
-- [OpenStax · Principles of Accounting, Volume 1 · §2.1](https://openstax.org/books/principles-financial-accounting/pages/2-1-describe-the-income-statement-statement-of-owners-equity-balance-sheet-and-statement-of-cash-flows-and-how-they-interrelate): 利润表解释一个期间的收入、费用和净收益；权益变动表把期间结果和所有者交易接回权益；资产负债表给出期末余额；现金流量表解释现金在期间怎样变化。四张表的连接需要使用相同企业范围和相匹配的期间。
-- [SEC · Beginners’ Guide to Financial Statements](https://www.sec.gov/about/reports-publications/beginners-guide-financial-statements): 主表给出汇总数字，附注补充会计政策、组成和承诺，管理层讨论解释经营变化，审计意见说明审计结论。读一个财务数字时，可以沿“主表行—相关附注—管理层解释”寻找它的含义。
+BF-F/G 本批采用：集团季度平均LCR、期末资产和有条件融资能力分别记录；银行法人另列；完整主表支持综合带读.
+- [OpenStax · Principles of Accounting, Volume 1 · §2.1](https://openstax.org/books/principles-financial-accounting/pages/2-1-describe-the-income-statement-statement-of-owners-equity-balance-sheet-and-statement-of-cash-flows-and-how-they-interrelate): 利润表解释一个期间的收入、费用和净收益；权益变动表把期间结果和所有者交易接回权益；资产负债表给出期末余额；现金流量表解释现金在期间怎样变化. 四张表的连接需要使用相同企业范围和相匹配的期间.
+- [SEC · Beginners’ Guide to Financial Statements](https://www.sec.gov/about/reports-publications/beginners-guide-financial-statements): 主表给出汇总数字，附注补充会计政策、组成和承诺，管理层讨论解释经营变化，审计意见说明审计结论. 读一个财务数字时，可以沿“主表行—相关附注—管理层解释”寻找它的含义.
 
-BF-F/G 本批采用：综合材料地图，不替代行业分支机制。
+BF-F/G 本批采用：综合材料地图，不替代行业分支机制.
 
 ## Content relations
 ```json
@@ -1471,27 +1475,27 @@ BF-F/G 本批采用：综合材料地图，不替代行业分支机制。
     "from": "zh-bf02",
     "relation": "supported_by",
     "to": "BF-S-OPENSTAX-21",
-    "reason": "四张报表承担不同的信息职责。",
+    "reason": "四张报表承担不同的信息职责.",
     "scope": "OpenStax 2019 §2.1"
   },
   {
     "from": "zh-bf02",
     "relation": "supported_by",
     "to": "BF-S-SEC-GUIDE",
-    "reason": "报表、附注与管理层讨论的阅读地图。",
+    "reason": "报表、附注与管理层讨论的阅读地图.",
     "scope": "SEC Beginners’ Guide to Financial Statements 正文"
   },
   {
     "from": "zh-bf02",
     "relation": "uses_method",
     "to": "zh-bf03",
-    "reason": "定位结果需保留单位、期间及合并范围；可就地补充，不是硬先修。"
+    "reason": "定位结果需保留单位、期间及合并范围；可就地补充，不是硬先修."
   },
   {
     "from": "zh-bf02",
     "relation": "informs",
     "to": "zh-balance-sheet",
-    "reason": "提供原表、附注及跨表核对的导航位置，不提供独立投资判断。"
+    "reason": "提供原表、附注及跨表核对的导航位置，不提供独立投资判断."
   }
 ]
 ```

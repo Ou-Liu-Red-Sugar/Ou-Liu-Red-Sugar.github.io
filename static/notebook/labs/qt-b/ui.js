@@ -42,50 +42,50 @@ function update(){
  output("out-events","events",()=>{
   const a=C.events[$("event-a").value],b=C.events[$("event-b").value],r=QTB.eventStats(weights,a,b,T);
   return [r,table(["P(A)","P(B)","P(A∩B)","P(A|B)","P(B|A)"],[[n(r.p_event),n(r.p_given),n(r.p_intersection),n(r.conditional),n(r.reverse_conditional)]])+
-   '<p>'+ (r.conditional_defined?"选中的条件分母为 "+n(r.p_given)+"。":"<strong>条件事件概率为零：比值没有定义，不填成 0。</strong>")+
-   ' 乘法检验：P(A)P(B)='+n(r.product)+'；'+(r.independent?"在数值容差内独立。":"不独立。")+'</p>'];
+   '<p>'+ (r.conditional_defined?"选中的条件分母为 "+n(r.p_given)+".":"<strong>条件事件概率为零：比值没有定义，不填成 0.</strong>")+
+   ' 乘法检验：P(A)P(B)='+n(r.product)+'；'+(r.independent?"在数值容差内独立.":"不独立.")+'</p>'];
  });
  output("out-ce","conditional",()=>{
   const r=QTB.conditional(x,weights,C.partitions[$("ce-partition").value],T);
-  return [r,groupRows(r)+'<p>条件期望向量 M = <code>'+vec(r.vector)+'</code> 美元。</p><p>E[X]='+n(r.expectation)+'；E[M]='+n(r.conditional_expectation)+' 美元。必须按组概率再平均。</p>'];
+  return [r,groupRows(r)+'<p>条件期望向量 M = <code>'+vec(r.vector)+'</code> 美元.</p><p>𝔼[X]='+n(r.expectation)+'；𝔼[M]='+n(r.conditional_expectation)+' 美元. 必须按组概率再平均.</p>'];
  });
  output("out-meas","measurable",()=>{
   const g=C.partitions[$("meas-partition").value],y=getvector("meas-vector"),r=QTB.measurable(y,g),ev=QTB.sigmaEvents(g,weights.length);
-  return [{...r,events:ev},'<p class="'+(r.measurable?"good":"bad")+'">'+(r.measurable?"可测：每个分组内取值相同。":"不可测：这些组内出现不同值 "+r.violations.map(groupName).join("、"))+'</p>'+
-  '<p>事件域有 '+ev.length+' 个事件：</p><div class="chips">'+ev.map(e=>'<span class="chip">'+(e.length?groupName(e):"∅")+'</span>').join("")+'</div><p class="muted">这个检查不根据概率删除状态。零概率组也必须保留可测性。</p>'];
+  return [{...r,events:ev},'<p class="'+(r.measurable?"good":"bad")+'">'+(r.measurable?"可测：每个分组内取值相同.":"不可测：这些组内出现不同值 "+r.violations.map(groupName).join("、"))+'</p>'+
+  '<p>事件域有 '+ev.length+' 个事件：</p><div class="chips">'+ev.map(e=>'<span class="chip">'+(e.length?groupName(e):"∅")+'</span>').join("")+'</div><p class="muted">这个检查不根据概率删除状态. 零概率组也必须保留可测性.</p>'];
  });
  output("out-projection","projection",()=>{
   const g=C.partitions[$("proj-partition").value],y=getvector("proj-vector"),r=QTB.projection(x,weights,g,y,T);
-  let text='<p class="'+(r.admissible?"good":"bad")+'">'+(r.admissible?"候选只使用当前信息，可以参与最优性比较。":"候选在同组内取不同值，使用当前信息无法辨认；不属于允许集合。")+'</p>'+
-    table(["E[(X−M)²]","E[(M−Y)²]","E[(X−Y)²]"],[[sqmoney(r.mse_ce),sqmoney(r.mse_gap),sqmoney(r.mse_candidate)]])+
-   '<p>以上单位均为美元²。交叉项 E[(X−M)(M−Y)] = '+n(r.cross_term)+'。</p>'+
-   '<p>一般展开：MSE(Y)=MSE(M)+E[(M−Y)²]+2×交叉项。'+(r.admissible?"理论交叉项为零；显示出的微小残差来自浮点舍入。":"不可测候选不能自动省略交叉项。")+'</p>'+
-   '<p>条件期望 M = <code>'+vec(r.conditional.vector)+'</code> 美元。</p>';
+  let text='<p class="'+(r.admissible?"good":"bad")+'">'+(r.admissible?"候选只使用当前信息，可以参与最优性比较.":"候选在同组内取不同值，使用当前信息无法辨认；不属于允许集合.")+'</p>'+
+    table(["𝔼[(X−M)²]","𝔼[(M−Y)²]","𝔼[(X−Y)²]"],[[sqmoney(r.mse_ce),sqmoney(r.mse_gap),sqmoney(r.mse_candidate)]])+
+   '<p>以上单位均为美元². 交叉项 𝔼[(X−M)(M−Y)] = '+n(r.cross_term)+'.</p>'+
+   '<p>一般展开：MSE(Y)=MSE(M)+𝔼[(M−Y)²]+2×交叉项.'+(r.admissible?"理论交叉项为零；显示出的微小残差来自浮点舍入.":"不可测候选不能自动省略交叉项.")+'</p>'+
+   '<p>条件期望 M = <code>'+vec(r.conditional.vector)+'</code> 美元.</p>';
   if($("proj-partition").value==="signal")text+='<h3>只改变 H 组预测时的误差</h3>'+drawCurve(x,weights);
   return [r,text];
  });
  output("out-tower","tower",()=>{
   const r=QTB.tower(x,weights,C.partitions[$("proj-partition").value],C.partitions[$("outer-partition").value],T);
-  return [r,'<p class="'+(r.nested?"good":"bad")+'">'+(r.nested?"外层信息包含在内层信息中，可使用塔式性质。":"两份信息没有所需的嵌套关系：本例不能调用塔式性质。")+'</p>'+
-  table(["直接按外层信息平均","先按内层再按外层平均"],[[vec(r.direct),vec(r.iterated)]])+'<p class="muted">非嵌套时数值偶尔相等，也不是一般塔式定理成立的证明。</p>'];
+  return [r,'<p class="'+(r.nested?"good":"bad")+'">'+(r.nested?"外层信息包含在内层信息中，可使用塔式性质.":"两份信息没有所需的嵌套关系：本例不能调用塔式性质.")+'</p>'+
+  table(["直接按外层信息平均","先按内层再按外层平均"],[[vec(r.direct),vec(r.iterated)]])+'<p class="muted">非嵌套时数值偶尔相等，也不是一般塔式定理成立的证明.</p>'];
  });
  output("out-rn","rn",()=>{
   const r=QTB.rn(x,weights,C.partitions[$("rn-partition").value],getnum("rn-shift"),T);
-  return [r,'<p>W = <code>'+vec(r.w)+'</code> 美元。总 ν₊='+n(r.total_nu_plus)+'，总 ν₋='+n(r.total_nu_minus)+'（美元），不是归一化概率。</p>'+
+  return [r,'<p>W = <code>'+vec(r.w)+'</code> 美元. 总 ν₊='+n(r.total_nu_plus)+'，总 ν₋='+n(r.total_nu_minus)+'（美元），不是归一化概率.</p>'+
   table(["组","P(组)","ν₊(组)","ν₋(组)","U","V","M","M⁺","M⁻"],r.rows.map(v=>[groupName(v.indices),n(v.mass),money(v.nu_plus),money(v.nu_minus),money(v.u),money(v.v),money(v.m),money(v.m_plus),money(v.m_minus)]))+
-  '<p>E[W]='+n(r.expectation)+'，E[M]='+n(r.conditional_expectation)+' 美元。'+(r.rows.some(v=>!v.ratio_defined)?"零概率组未做除法，U、V 均使用常数 0 版本。":"")+'</p>'];
+  '<p>𝔼[W]='+n(r.expectation)+'，𝔼[M]='+n(r.conditional_expectation)+' 美元.'+(r.rows.some(v=>!v.ratio_defined)?"零概率组未做除法，U、V 均使用常数 0 版本.":"")+'</p>'];
  });
  output("out-pareto","pareto",()=>{
   const r=QTB.pareto(getnum("pareto-alpha"),getnum("pareto-cap"));
-  return [r,table(["E[Z]","E[Z²]","E[min(Z,b)]","E[Z·1{Z≤b}]"],[[
+  return [r,table(["𝔼[Z]","𝔼[Z²]","𝔼[min(Z,b)]","𝔼[Z·1{Z≤b}]"],[[
   r.mean_finite?n(r.mean):"+∞（非有限）",r.second_moment_finite?n(r.second_moment):"+∞（非有限）",n(r.capped_mean),n(r.omitted_tail_mean)]])+
-  '<p>封顶与超阈值置零之差 bP(Z&gt;b)='+n(r.boundary_contribution)+'。变量无量纲；这些值不是股票收益样本。</p>'];
+  '<p>封顶与超阈值置零之差 bP(Z&gt;b)='+n(r.boundary_contribution)+'. 变量无量纲；这些值不是股票收益样本.</p>'];
  });
  output("out-integral","integral",()=>{
   const r=QTB.spike(getnum("spike-n"),getnum("spike-x")),dy=QTB.dyadic(getnum("dyadic-n"));
   return [{spike:r,dyadic:dy},table(["尖峰高度","支撑长度","积分","观察位置的值"],[[n(r.height),n(r.width),n(r.area),n(r.value)]])+
-   '<p>每个固定 x&gt;0 处极限为零，积分仍恒为一；不能省略 DCT 的统一可积支配。</p>'+
-   '<p>独立的 Uniform 简单函数：二进步长 '+n(dy.step)+'，积分 '+n(dy.integral)+'，目标积分 '+n(dy.limit_integral)+'。</p>'];
+   '<p>每个固定 x&gt;0 处极限为零，积分仍恒为一；不能省略 DCT 的统一可积支配.</p>'+
+   '<p>独立的 Uniform 简单函数：二进步长 '+n(dy.step)+'，积分 '+n(dy.integral)+'，目标积分 '+n(dy.limit_integral)+'.</p>'];
  });
 }
 function init(){
@@ -98,16 +98,16 @@ function init(){
  select("rn-partition",groupopts,D.defaults.rn.partition);$("rn-shift").value=D.defaults.rn.shift_usd;
  $("pareto-alpha").value=D.defaults.integration.pareto_alpha;$("pareto-cap").value=D.defaults.integration.cap;
  $("spike-n").value=D.defaults.integration.spike_n;$("spike-x").value=D.defaults.integration.probe_x;$("dyadic-n").value=D.defaults.integration.dyadic_n;
- weights=C.probabilities.slice();$("results").hidden=false;$("data-status").textContent="当前使用明确设定的四状态模型概率。";update();
+ weights=C.probabilities.slice();$("results").hidden=false;$("data-status").textContent="当前使用明确设定的四状态模型概率.";update();
 }
 document.documentElement.classList.add("js");
 document.querySelectorAll(".live-controls").forEach(e=>e.hidden=false);
 document.querySelectorAll("details.static").forEach(e=>e.open=false);
 $("prob-apply").addEventListener("click",()=>{
  try{const next=C.probabilities.map((_,i)=>getnum("p"+i));QTB.probabilities(next,T);weights=next;
- $("data-status").className="good";$("data-status").textContent="已采用新权重；它们仍是模型输入，不是历史频率。";
+ $("data-status").className="good";$("data-status").textContent="已采用新权重；它们仍是模型输入，不是历史频率.";
  $("results").hidden=false;update();}
- catch(e){$("data-status").className="bad";$("data-status").textContent=e.message+"。隐藏旧结果，直到输入合法。";$("results").hidden=true;}
+ catch(e){$("data-status").className="bad";$("data-status").textContent=e.message+". 隐藏旧结果，直到输入合法.";$("results").hidden=true;}
 });
 $("all-reset").addEventListener("click",()=>{init();$("data-status").className="";});
 $("zero-preset").addEventListener("click",()=>{D.named_cases.zero_group.probabilities.forEach((p,i)=>$("p"+i).value=p);$("prob-apply").click();});

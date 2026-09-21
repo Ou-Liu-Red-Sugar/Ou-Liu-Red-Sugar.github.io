@@ -10,6 +10,7 @@ import json
 import re
 from pathlib import Path
 from urllib.parse import urljoin
+from notebook_notation import load_notation, notation_markdown, notation_instruction
 
 ROOT = Path(__file__).resolve().parents[1]
 BASE_URL = "https://ou-liu-red-sugar.github.io/"
@@ -108,6 +109,7 @@ def compile_notebook(source_root=ROOT, output_root=None):
     require(len(topics) == len(topic_rows), "Maintain each topic once: nested subjects[].topics OR book.topics")
     book["topics"] = list(topics.values())
     files = {}
+    notation = load_notation(source_root)
 
     def write(path, value):
         relative = Path(path)
@@ -130,6 +132,10 @@ def compile_notebook(source_root=ROOT, output_root=None):
         source.setdefault("body", source.get("summary") or source.get("supports") or
                           "; ".join(source.get("locators", [])) or source["title"])
         add(source["id"], dict(source, kind="source"))
+    for lang in ("zh", "en"):
+        add(f"notation-{lang}", dict(title=notation["text"][lang]["title"],
+            body=notation_markdown(notation, lang), kind="notation", lang=lang,
+            url=f"/{lang}/notebook/notation/"))
     for subject in subjects.values():
         add(subject["id"], dict(title=subject.get("zh", subject["id"]), body=subject.get("desc_zh", ""),
                                kind="domain", url=f'/zh/notebook/#{subject["id"]}'))
@@ -410,6 +416,8 @@ def compile_notebook(source_root=ROOT, output_root=None):
         if entry.get("cutoff"):
             lines += [f'Research cutoff: {entry["cutoff"]} | Data period: {entry.get("period", "")}']
         lines += ["", "## Teaching instructions", entry["prompt"], "", READING_PROTOCOL,
+                  "", "## Shared notation and writing conventions", notation_instruction(notation, lang),
+                  f'[Notation and units]({BASE_URL}agent/{lang}/notation.md)',
                   "", "## Required readings and runtime protocol", "```json",
                   json.dumps(packet, ensure_ascii=False, indent=2), "```", "", "## Supplied entry"]
         used = {target_id(sid, lang) for sid in entry.get("sources", [])}
@@ -499,6 +507,8 @@ def compile_notebook(source_root=ROOT, output_root=None):
         if rid in ref_aliases:
             continue
         kind = ref["kind"]
+        if kind == "notation":
+            continue
         if kind == "source" and rid not in used_sources and rid not in edge_endpoints:
             continue
         if kind == "domain" and rid not in active_subjects:
@@ -518,10 +528,15 @@ def compile_notebook(source_root=ROOT, output_root=None):
     write("static/notebook/search.json", json.dumps(search, ensure_ascii=False))
     for lang, folder, title in [("zh", "content-zh", "投资与金融笔记"), ("en", "content", "Finance notebook")]:
         page(f"{folder}/notebook/_index.md", dict(title=title, layout="catalogue"))
+        notation_title = notation["text"][lang]["title"]
+        notation_body = notation_markdown(notation, lang)
+        page(f"{folder}/notebook/notation.md", dict(title=notation_title, layout="notation", math=True,
+             translationKey="notebook-notation"), notation_body.rstrip())
+        write(f"static/agent/{lang}/notation.md", f"# {notation_title}\n\n" + notation_body)
         if any(entry["kind"] in COMPANY_KINDS and entry["lang"] == lang for entry in entries):
             require((lang, "companies") not in document_keys, "Company index collides with an entry/path")
             page(f"{folder}/notebook/companies.md", dict(title="公司资料库" if lang == "zh" else "Company library", layout="companies"))
-        write(f"static/agent/{lang}/index.md", "# Agent notebook\n\n" + "\n".join(
+        write(f"static/agent/{lang}/index.md", f"# Agent notebook\n\n- [{notation_title}]({BASE_URL}agent/{lang}/notation.md)\n" + "\n".join(
             f'- [{entry["title"]}]({urljoin(BASE_URL, entry["agent"])})' for entry in entries if entry["lang"] == lang) + "\n")
     # Validation is complete before the first generated file is written.
     for path, value in files.items():

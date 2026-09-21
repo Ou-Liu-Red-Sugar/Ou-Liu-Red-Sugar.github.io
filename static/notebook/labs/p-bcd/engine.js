@@ -29,7 +29,7 @@
   const den=metric==='EV_NOPAT'?ttm*(1-tax):ttm;
   return {...p,metric,claimant:'经营价值',ttm_ebit:ttm,denominator:den,denominator_label:metric==='EV_NOPAT'?'同TTM经营税代理下NOPAT':'TTM EBIT',value:ev,multiple:ev/den,tax,subtractBook:id==='GOOGL'&&subtractBook,identity:'冻结市场观察+明确资本边界；非新的报价或目标价'};
  }
- function equity(state='Base',extra=0){enumKey(state,S,'原状态');finite(extra,'额外奖励股');if(extra<0||extra>.2)throw new RangeError('额外奖励股仅允许0至0.2十亿股的分母敏感性');const b=clone(D.scenarios[state].bridge),c=D.scenarios[state].capital;
+ function equity(state='Base',extra=0){enumKey(state,S,'原状态');finite(extra,'额外奖励股');if(extra<0||extra>.2)throw new RangeError('额外奖励股仅允许0至0.2 B 股的分母敏感性');const b=clone(D.scenarios[state].bridge),c=D.scenarios[state].capital;
   const common=b.aws_ev+b.retail_ev+b.cash-b.debt-b.finance_claims+b.investment_net-b.other_claims;
   return {...b,original_shares:b.shares,shares:b.shares+extra,common_equity:common,price:Math.max(0,common)/(b.shares+extra),original_price:b.price,extra_awards:extra,ending_cash:c.cash,operating_cash_reserve:D.parameters.capital.operating_cash_reserve,liquidity_floor:D.parameters.capital.liquidity_floor,identity:extra?'固定价值的股份分母教学扰动，不是新的薪酬/融资预测':'原研究同日期普通股桥'};
  }

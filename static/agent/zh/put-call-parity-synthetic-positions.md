@@ -1,22 +1,26 @@
 # 平价与合成：同样的支付，需要哪些现金腿
 
-逐状态保留行权价现金腿，推导平价；用真实交易方向的合成bid/ask检查中价偏离。
+逐状态保留行权价现金腿，推导平价；用真实交易方向的合成bid/ask检查中价偏离.
 
 Entry: zh-m20 | Node: M20 | Language: zh | Editorial revision: 2026-09-21
 
 ## Teaching instructions
-你正在教M20《平价与合成：同样的支付，需要哪些现金腿》，内容版本2026-09-21-MEFG-review-v3。读者已有高年级本科至研究生的数学基础。
+你正在教M20《平价与合成：同样的支付，需要哪些现金腿》，内容版本2026-09-21-MEFG-review-v3. 读者已有高年级本科至研究生的数学基础.
 
-先确认选用本篇共同正文和哪些分支，再实际读取agent_packet列出的当前必读完整原文。PDF需读脚注、表图与符号；只拿到摘要/目录/搜索片段不算完成。记录实际版本、范围与内容对应，不沿用编辑端“已读”充当本次读取；同会话已完整取得相同版本单元可以复用。若所需单元失败，尝试机构正式等价全文；仍缺失则指出具体单元，不凭记忆补成已读教学。runtime_reading_log从空开始。
+先确认选用本篇共同正文和哪些分支，再实际读取agent_packet列出的当前必读完整原文. PDF需读脚注、表图与符号；只拿到摘要/目录/搜索片段不算完成. 记录实际版本、范围与内容对应，不沿用编辑端“已读”充当本次读取；同会话已完整取得相同版本单元可以复用. 若所需单元失败，尝试机构正式等价全文；仍缺失则指出具体单元，不凭记忆补成已读教学. runtime_reading_log从空开始.
 
-独立学习任务：先验证每个终点状态的现金相等，再写两方向初始bid/ask交易现金。
-专属诊断与正向讲解：从到期支付 $C_T-P_T=S_T-K$ 出发，先逐状态核对；再加入今天投入 $K/R$ 的现金腿，得到 $C_0-P_0=S_0-K/R$。随后用5.8/6.2等报价逐腿买ask卖bid。mid差+.041176不允许直接命名套利。
-反馈尺度：要报告每方向资金、借款/借券、同步与足量条件；终点0不等于初始免费。
+独立学习任务：先验证每个终点状态的现金相等，再写两方向初始bid/ask交易现金.
+专属诊断与正向讲解：从到期支付 $C_T-P_T=S_T-K$ 出发，先逐状态核对；再加入今天投入 $K/R$ 的现金腿，得到 $C_0-P_0=S_0-K/R$. 随后用5.8/6.2等报价逐腿买ask卖bid. mid差+.041176不允许直接命名套利.
+反馈尺度：要报告每方向资金、借款/借券、同步与足量条件；终点0不等于初始免费.
 
-读者要求直接讲解时，按本篇连贯推导讲清，不反复问已会先修。静态例、实验、练习必须使用本包同一输入和单位；实例价、合成价、模型价、规则时点不能混换。练习要给完整解析，不仅打分。仅当选读分支被采用时，将其optional reading转入当前必读。
+读者要求直接讲解时，按本篇连贯推导讲清，不反复问已会先修. 静态例、实验、练习必须使用本包同一输入和单位；实例价、合成价、模型价、规则时点不能混换. 练习要给完整解析，不仅打分. 仅当选读分支被采用时，将其optional reading转入当前必读.
 
 
 Before substantive teaching, actually retrieve every required reading unit for the selected scope. Read its complete designated section, including necessary assumptions, tables and footnotes. A working URL or an editorial access date is not a runtime reading receipt. Record the actual version, location, scope and what it supports. If unavailable, use a previously verified equivalent source; if the required unit remains unavailable, identify that gap rather than teach it from memory. Start runtime_reading_log empty. Once reading is complete, use a substantive diagnostic or follow the reader's request for direct explanation. Advance one complete reasoning task at a time; skip mastered basics. Distinguish original facts, supplied teaching assumptions and inference.
+
+## Shared notation and writing conventions
+数学期望统一写成 \mathbb{E}，条件期望用 \mathbb{E}[X\mid\mathcal{G}]，需要时注明测度 P 或 Q. 保留局部变量的明确定义. 金额与数量使用 K=10^3、M=10^6、B=10^9；表格标明币种、量级与期间，变更量级时同步换算数值. 展示小数最多三位，计算保留原始精度. 直接解释对象、机制与推理；保留影响结论的假设和事实来源，把编辑流程留在记录中. 句末使用英文句点 .，包括定义、命题、证明和解析等标签. 基础定义与推导直接讲内容，出处放在紧邻脚注；来源读取、复审和采用范围等编辑经过留在记录中.
+[Notation and units](https://ou-liu-red-sugar.github.io/agent/zh/notation.md)
 
 ## Required readings and runtime protocol
 ```json
@@ -36,7 +40,7 @@ Before substantive teaching, actually retrieve every required reading unit for t
         "scope": "完整指定单元、必要脚注与表图；不以搜索摘要代替",
         "purpose": "不丢strike现金腿、区分理论与成交"
       },
-      "supports": "合成支付与融资条件；简写合成表遗漏的行权价现金腿须补齐，美式不能一律套欧式等式。",
+      "supports": "合成支付与融资条件；简写合成表遗漏的行权价现金腿须补齐，美式不能一律套欧式等式.",
       "id": "M20-READ-01",
       "title": "Put/Call Parity",
       "authors": [
@@ -57,7 +61,7 @@ Before substantive teaching, actually retrieve every required reading unit for t
         "scope": "完整指定单元、必要脚注与表图；不以搜索摘要代替",
         "purpose": "逐状态复制"
       },
-      "supports": "模型内的支付和复制定价；不代替当前产品规则，讲义现金增长记号不能误写成年化净利率。",
+      "supports": "模型内的支付和复制定价；不代替当前产品规则，讲义现金增长记号不能误写成年化净利率.",
       "id": "M20-READ-02",
       "title": "15.401 Finance Theory I, Lecture 10–11: Options",
       "authors": [
@@ -79,7 +83,7 @@ Before substantive teaching, actually retrieve every required reading unit for t
         "scope": "完整指定单元、必要脚注与表图；不以搜索摘要代替",
         "purpose": "K105冻结市场与独立bid/ask变式分开"
       },
-      "supports": "唯一冻结教学市场；二状态K105、三状态K100，允许正负可分持仓、全支持P、同借贷率。非观测价格。",
+      "supports": "唯一冻结教学市场；二状态K105、三状态K100，允许正负可分持仓、全支持P、同借贷率. 非观测价格.",
       "id": "M20-READ-03",
       "title": "EXP-STATE-01 shared finite-market experiment",
       "authors": [
@@ -369,40 +373,40 @@ Before substantive teaching, actually retrieve every required reading unit for t
 <a id="m20-payoff"></a>
 ## 一、先在终点比较，再谈价格
 
-平价不是因为两条曲线长得像就把价格写成等式。我们先约定：同一标的、同一行权价 $K$、同一到期日，欧式call和put，无股息；允许持有股票和现金、借贷利率相同、没有费用或交易约束。在这些条件下，再逐状态检查支付。[^MEFG-OIC-PARITY]
+平价不是因为两条曲线长得像就把价格写成等式. 我们先约定：同一标的、同一行权价 $K$、同一到期日，欧式call和put，无股息；允许持有股票和现金、借贷利率相同、没有费用或交易约束. 在这些条件下，再逐状态检查支付. [^MEFG-OIC-PARITY]
 
 无论 $S_T$ 大于还是小于 $K$，
 $$
 (S_T-K)^+-(K-S_T)^+=S_T-K.
 $$
-所以“买call、卖put”在到期时相当于收到一股的价值再支付 $K$。这**不是**裸股票：还差一笔到期付款。若同时存入足够到期变成 $K$ 的现金，支付才变为 $S_T$。
+所以“买call、卖put”在到期时相当于收到一股的价值再支付 $K$. 这**不是**裸股票：还差一笔到期付款. 若同时存入足够到期变成 $K$ 的现金，支付才变为 $S_T$.
 
-这一现金腿特别容易在“合成股票”的简称中消失。我们以后每遇到“某组合等于某资产”，都先问等的是到期支付、当前成本，还是已经扣除融资后的收益。一个简称不能同时替代三种关系。
+这一现金腿特别容易在“合成股票”的简称中消失. 我们以后每遇到“某组合等于某资产”，都先问等的是到期支付、当前成本，还是已经扣除融资后的收益. 一个简称不能同时替代三种关系.
 
 <a id="m20-parity"></a>
 ## 二、把冻结两状态例完整勾稽一次
 
-采用共同有限市场：$B_0=1$，$B_1=R=1.02$，股票100变为120或90；本分支 $K=105$。两种期权到期支付分别为call的 $(15,0)$ 与put的 $(0,15)$。[^MEFG-STATE]
+采用共同有限市场：$B_0=1$，$B_1=R=1.02$，股票100变为120或90；本分支 $K=105$. 两种期权到期支付分别为call的 $(15,0)$ 与put的 $(0,15)$. [^MEFG-STATE]
 
 | 到期状态 | call支付 | put支付 | call−put | 到期支付105的现金＋call−put | 股票价值 |
 |---|---:|---:|---:|---:|---:|
 | 上涨 | 15 | 0 | 15 | 120 | 120 |
 | 下跌 | 0 | 15 | −15 | 90 | 90 |
 
-若今天存入 $K/R=105/1.02$，到期可支付105。因此相同终端支付的价格关系为
+若今天存入 $K/R=105/1.02$，到期可支付105. 因此相同终端支付的价格关系为
 $$
 C+\frac K R=P+S_0,
 \qquad
 C-P=S_0-\frac K R.
 $$
-共同模型中 $C=100/17$，$P=150/17$，两侧均为 $-50/17\approx-2.941176$。这个负数不是call“负价格”，而是call比put便宜的差额。下一篇会从股票与现金解出两个期权各自的复制价格；本篇先完成支付和资金腿的核对。[^MEFG-MIT-OPTIONS]
+共同模型中 $C=100/17$，$P=150/17$，两侧均为 $-50/17\approx-2.941176$. 这个负数不是call“负价格”，而是call比put便宜的差额. 下一篇会从股票与现金解出两个期权各自的复制价格；本篇先完成支付和资金腿的核对. [^MEFG-MIT-OPTIONS]
 
-平价也给价格界提供直觉。例如无股息欧式call不低于 $\max(S_0-K/R,0)$，而不是无条件不低于 $S_0-K$；put的相应融资关系涉及 $K/R-S_0$。对立刻允许行权的美式，决策集合改变，不能把上述欧式等式原封不动套过去。已知现金股息还需把持股期间现金计入；不同借贷成本与借券约束则把理想等式变成需要逐腿检查的区间或单向约束。[^MEFG-OIC-PARITY]
+平价也给价格界提供直觉. 例如无股息欧式call不低于 $\max(S_0-K/R,0)$，而不是无条件不低于 $S_0-K$；put的相应融资关系涉及 $K/R-S_0$. 对立刻允许行权的美式，决策集合改变，不能把上述欧式等式原封不动套过去. 已知现金股息还需把持股期间现金计入；不同借贷成本与借券约束则把理想等式变成需要逐腿检查的区间或单向约束. [^MEFG-OIC-PARITY]
 
 <a id="m20-execution"></a>
 ## 三、中间价有缝，为什么仍然可能没有交易
 
-现在离开无价差的核心市场，进入一个另有身份的教学报价变式。$K=105$、现金因子仍1.02，但股票、call、put都有bid／ask：
+现在离开无价差的核心市场，进入一个另有身份的教学报价变式. $K=105$、现金因子仍1.02，但股票、call、put都有bid／ask：
 
 | 工具 | bid | ask | mid |
 |---|---:|---:|---:|
@@ -414,19 +418,19 @@ $$
 $$
 6-8.9-100+\frac{105}{1.02}=0.041176.
 $$
-这个“偏离”来自中价，但你不能要求所有腿按中价足额成交。为了核可交易现金，先定义**初始净现金为收到减付出**；正数表示手里剩下现金，负数表示还需投入。
+这个“偏离”来自中价，但你不能要求所有腿按中价足额成交. 为了核可交易现金，先定义**初始净现金为收到减付出**；正数表示手里剩下现金，负数表示还需投入.
 
-第一条方向是卖call、借入 $K/R$、买put和股票。卖用bid，买用ask：
+第一条方向是卖call、借入 $K/R$、买put和股票. 卖用bid，买用ask：
 $$
 a_1=5.8+\frac{105}{1.02}-9.1-100.05=-0.408824.
 $$
-到期支付 $-C_T-K+P_T+S_T=0$，但起点已经需要净付0.408824。
+到期支付 $-C_T-K+P_T+S_T=0$，但起点已经需要净付0.408824.
 
 反方向是卖股票和put、买call并存入 $K/R$：
 $$
 a_2=99.95+8.7-6.2-\frac{105}{1.02}=-0.491176.
 $$
-到期 $-S_T-P_T+C_T+K=0$，起点同样要净付。两方向都没有留下正的初始现金；加上额外费用只会更差。
+到期 $-S_T-P_T+C_T+K=0$，起点同样要净付. 两方向都没有留下正的初始现金；加上额外费用只会更差.
 
 | 检查 | 第一方向 | 反方向 |
 |---|---:|---:|
@@ -434,50 +438,50 @@ $$
 | 理论到期净支付 | 0 | 0 |
 | 已证明无风险套利？ | 否 | 否 |
 
-价格在这里是按每个标的单位计量，允许分割的教学交易单位；不能未经产品乘数确认就当成“每份上市期权”的美元金额。报价可同步成交、融资与借券可得、深度足够也只是这个检查中的显式假设，不是已经观测到的机会。
+价格在这里是按每个标的单位计量，允许分割的教学交易单位；不能未经产品乘数确认就当成“每份上市期权”的美元金额. 报价可同步成交、融资与借券可得、深度足够也只是这个检查中的显式假设，不是已经观测到的机会.
 
 <a id="m20-feasibility"></a>
 ## 四、什么条件会让一条复制腿断掉
 
-无套利论证通常是“若两个完全相同的终值支付价格不同，则买便宜、卖贵，并完成所有资金安排”。因此发现账面价格差以后，真正要查的是能否完成那些腿，而不是再找一个更漂亮的等式。
+无套利论证通常是“若两个完全相同的终值支付价格不同，则买便宜、卖贵，并完成所有资金安排”. 因此发现账面价格差以后，真正要查的是能否完成那些腿，而不是再找一个更漂亮的等式.
 
-第一方向需要融资买入股票和put、卖出call；反方向需要卖空股票并卖出put。若借不到股票，反方向就不能按原设定实施。若某报价滞后，下一秒另一条腿的价格可能已经变动；若一个产品允许提前行权而另一个不允许，原先只按共同到期日设计的现金账也不再完整。此时模型结论没有自动消失，变化的是我们是否还在它的假设内。[^MEFG-OIC-PARITY]
+第一方向需要融资买入股票和put、卖出call；反方向需要卖空股票并卖出put. 若借不到股票，反方向就不能按原设定实施. 若某报价滞后，下一秒另一条腿的价格可能已经变动；若一个产品允许提前行权而另一个不允许，原先只按共同到期日设计的现金账也不再完整. 此时模型结论没有自动消失，变化的是我们是否还在它的假设内. [^MEFG-OIC-PARITY]
 
-保持这种“先支付、再资金、再执行条件”的顺序，还能避免一个误解：同一期限的合成远期支付 $S_T-K$ 可以为正也可以为负，它并不是一个非负选择权。共同市场的公平远期交割价为 $RS_0=102$，可以有零初始价格；而 $K=105$ 的合成支付不是同一条公平远期，初值为 $S_0-105/R$。零成本双向承诺和有成本的不对称选择，正好回到本批开始的问题。
+保持这种“先支付、再资金、再执行条件”的顺序，还能避免一个误解：同一期限的合成远期支付 $S_T-K$ 可以为正也可以为负，它并不是一个非负选择权. 共同市场的公平远期交割价为 $RS_0=102$，可以有零初始价格；而 $K=105$ 的合成支付不是同一条公平远期，初值为 $S_0-105/R$. 零成本双向承诺和有成本的不对称选择，正好回到本批开始的问题.
 
 <a id="m20-explore"></a>
 ## 五、先看状态表，再看可执行现金表
 
 <div data-experiment-slot="EXP-MEFG-M20-PARITY"></div>
 
-先用上面已经列出的两状态表核对 $C_T-P_T=S_T-K$ 及现金腿；实验本身不重复画第二套终点状态图，而是专门把**今天的初始现金**展开成两方向的bid／ask账本，并同时显示中价差作对照。改变一个教学报价时，中价差、两个可执行方向的净额会一起重算。若关闭融资、借券、同步或深度条件，相应方向只保留诊断值，不显示已执行套利利润。这个变式不会修改后面M21的冻结无摩擦市场。
+先用上面已经列出的两状态表核对 $C_T-P_T=S_T-K$ 及现金腿；实验本身不重复画第二套终点状态图，而是专门把**今天的初始现金**展开成两方向的bid／ask账本，并同时显示中价差作对照. 改变一个教学报价时，中价差、两个可执行方向的净额会一起重算. 若关闭融资、借券、同步或深度条件，相应方向只保留诊断值，不显示已执行套利利润. 这个变式不会修改后面M21的冻结无摩擦市场.
 
-静态阅读时，按上表分别把“收到”与“付出”分开加总即可：第一方向收到108.741176、付出109.15；反方向收到108.65、付出109.141176。每条账到期归零，起点差额才是该检查的重点。
+静态阅读时，按上表分别把“收到”与“付出”分开加总即可：第一方向收到108.741176、付出109.15；反方向收到108.65、付出109.141176. 每条账到期归零，起点差额才是该检查的重点.
 
 <a id="m20-exercises"></a>
 ## 六、把缺掉的腿补回来
 
-**题一。** “买call、卖put等于买股票”在本例缺了哪一条现金腿？
+**题一.** “买call、卖put等于买股票”在本例缺了哪一条现金腿？
 
-**解析。** 前者到期支付 $S_T-105$，还要加到期支付105的现金资产，才能变成股票支付 $S_T$。这笔资产今天成本 $105/1.02$。不计现金腿就把一个有融资成分的合成头寸冒充裸股票。
+**解析.** 前者到期支付 $S_T-105$，还要加到期支付105的现金资产，才能变成股票支付 $S_T$. 这笔资产今天成本 $105/1.02$. 不计现金腿就把一个有融资成分的合成头寸冒充裸股票.
 
-**题二。** 中间价偏离为＋0.041176。为什么第一方向真正使用买卖边后反而需要付0.408824？
+**题二.** 中间价偏离为＋0.041176. 为什么第一方向真正使用买卖边后反而需要付0.408824？
 
-**解析。** 卖call只能按5.8，买put需9.1，买股需100.05。中价不是所有腿的可执行价格。把各腿恢复到正确bid／ask，交易成本立刻超过中价缝隙。
+**解析.** 卖call只能按5.8，买put需9.1，买股需100.05. 中价不是所有腿的可执行价格. 把各腿恢复到正确bid／ask，交易成本立刻超过中价缝隙.
 
-**题三。** 若反方向初始净额出现正数，但股票无法借到，应该怎样展示？
+**题三.** 若反方向初始净额出现正数，但股票无法借到，应该怎样展示？
 
-**解析。** 可以报告“报价代数提示这个方向”，但执行状态必须标为受借券约束而未完成。不能给它一个真实无风险利润，也不能悄悄把不能卖空的股票腿删掉。
+**解析.** 可以报告“报价代数提示这个方向”，但执行状态必须标为受借券约束而未完成. 不能给它一个真实无风险利润，也不能悄悄把不能卖空的股票腿删掉.
 
-**题四。** 为什么共同模型公平远期交割价是102，而本篇平价仍用105？
+**题四.** 为什么共同模型公平远期交割价是102，而本篇平价仍用105？
 
-**解析。** 102使远期初值 $S_0-K/R$ 为零；105是两份期权的给定行权价。不同 $K$ 对应不同初始价值的合成远期，不能为了让公式“漂亮”就改合约条款。
+**解析.** 102使远期初值 $S_0-K/R$ 为零；105是两份期权的给定行权价. 不同 $K$ 对应不同初始价值的合成远期，不能为了让公式“漂亮”就改合约条款.
 
-[^MEFG-OIC-PARITY]: Options Industry Council，*Put/Call Parity*，Undated; retrieved 2026-09-21。[原文](https://www.optionseducation.org/advancedconcepts/put-call-parity)。本篇定位：Full article including formulas, financing/dividend/friction discussion。
+[^MEFG-OIC-PARITY]: Options Industry Council，*Put/Call Parity*，Undated; retrieved 2026-09-21. [原文](https://www.optionseducation.org/advancedconcepts/put-call-parity). 本篇定位：Full article including formulas, financing/dividend/friction discussion.
 
-[^MEFG-STATE]: QT-F / Lead frozen teaching contract，*EXP-STATE-01 shared finite-market experiment*，2026-09-21-v1。[原文](/notebook/labs/qt-f/data/qt-f-shared-state-experiment.json)。本篇定位：Complete contract; two_state; three_state_incomplete; three_state_augmented_complete; formula_contract; assumptions。
+[^MEFG-STATE]: QT-F / Lead frozen teaching contract，*EXP-STATE-01 shared finite-market experiment*，2026-09-21-v1. [原文](/notebook/labs/qt-f/data/qt-f-shared-state-experiment.json). 本篇定位：Complete contract; two_state; three_state_incomplete; three_state_augmented_complete; formula_contract; assumptions.
 
-[^MEFG-MIT-OPTIONS]: Andrew W. Lo, MIT OpenCourseWare，*15.401 Finance Theory I, Lecture 10–11: Options*，Fall 2008。[原文](https://ocw.mit.edu/courses/15-401-finance-theory-i-fall-2008/c40ecc0cc0dce0fbf2d229bc4027c43b_MIT15_401F08_lec10.pdf)。本篇定位：Slides 3–9: option definitions and payoff；Slides 16–21: binomial replication and risk-neutral valuation。
+[^MEFG-MIT-OPTIONS]: Andrew W. Lo, MIT OpenCourseWare，*15.401 Finance Theory I, Lecture 10–11: Options*，Fall 2008. [原文](https://ocw.mit.edu/courses/15-401-finance-theory-i-fall-2008/c40ecc0cc0dce0fbf2d229bc4027c43b_MIT15_401F08_lec10.pdf). 本篇定位：Slides 3–9: option definitions and payoff；Slides 16–21: binomial replication and risk-neutral valuation.
 
 <script src="/notebook/labs/m-efg/reader-adapter.js" defer></script>
 
@@ -485,9 +489,9 @@ $$
 ## Additional teaching material
 ### 本篇默认结果与静态等价
 
-<p>终点状态恒等式先在正文状态表核对；本静态页专列今天的可执行bid/ask初始现金，不重复制造第二套状态图。</p><div class="table-wrap"><table><thead><tr><th>工具</th><th>bid</th><th>ask</th></tr></thead><tbody><tr><td>股</td><td>99.95</td><td>100.05</td></tr><tr><td>call</td><td>5.8</td><td>6.2</td></tr><tr><td>put</td><td>8.7</td><td>9.1</td></tr></tbody></table></div><div class="table-wrap"><table><thead><tr><th>对象</th><th>默认结果</th></tr></thead><tbody><tr><td>PV(105)</td><td>102.941176</td></tr><tr><td>mid平价差</td><td>+0.041176</td></tr><tr><td>方向一初始净收款</td><td>−0.408824</td></tr><tr><td>方向二初始净收款</td><td>−0.491176</td></tr><tr><td>匹配支付的终点净额</td><td>两方向均0</td></tr></tbody></table></div><p>方向一：卖call＋借PV(K)−买put−买股；方向二反过来。没有正初始收款，不能把mid的缝叫套利。只在同K/T、欧式、无分红、同借贷率、允许各腿且同步足量时使用这张表。</p>
+<p>终点状态恒等式先在正文状态表核对；本静态页专列今天的可执行bid/ask初始现金，不重复制造第二套状态图.</p><div class="table-wrap"><table><thead><tr><th>工具</th><th>bid</th><th>ask</th></tr></thead><tbody><tr><td>股</td><td>99.95</td><td>100.05</td></tr><tr><td>call</td><td>5.8</td><td>6.2</td></tr><tr><td>put</td><td>8.7</td><td>9.1</td></tr></tbody></table></div><div class="table-wrap"><table><thead><tr><th>对象</th><th>默认结果</th></tr></thead><tbody><tr><td>PV(105)</td><td>102.941176</td></tr><tr><td>mid平价差</td><td>+0.041176</td></tr><tr><td>方向一初始净收款</td><td>−0.408824</td></tr><tr><td>方向二初始净收款</td><td>−0.491176</td></tr><tr><td>匹配支付的终点净额</td><td>两方向均0</td></tr></tbody></table></div><p>方向一：卖call＋借PV(K)−买put−买股；方向二反过来. 没有正初始收款，不能把mid的缝叫套利. 只在同K/T、欧式、无分红、同借贷率、允许各腿且同步足量时使用这张表.</p>
 
-完整冻结输入：https://ou-liu-red-sugar.github.io/notebook/labs/m-efg/inputs.json。来源内的包路径按 source_paths 取得。
+完整冻结输入：https://ou-liu-red-sugar.github.io/notebook/labs/m-efg/inputs.json. 来源内的包路径按 source_paths 取得.
 
 ## Experiment inputs and static equivalents
 ```json
@@ -496,8 +500,8 @@ $$
     "id": "EXP-MEFG-M20-PARITY",
     "title": "平价：用哪一侧成交",
     "anchor": "m20-explore",
-    "description": "中价看似有缝，先把买入ask、卖出bid和现金腿全部列出来。",
-    "data_identity": "独立合成bid/ask账本；同利率、无分红欧式合约。核心冻结市场不加入价差开关。",
+    "description": "中价看似有缝，先把买入ask、卖出bid和现金腿全部列出来.",
+    "data_identity": "独立合成bid/ask账本；同利率、无分红欧式合约. 核心冻结市场不加入价差开关.",
     "shared_dataset_ids": [],
     "inputs": {
       "canonical_common": "shared_inputs.json",
@@ -671,7 +675,7 @@ $$
         "identity": "separate synthetic executable-side model; core EXP-STATE-01 unchanged"
       },
       "static_equivalent": "https://ou-liu-red-sugar.github.io/notebook/labs/m-efg/static/M20.html",
-      "unit_note": "独立合成bid/ask账本；同利率、无分红欧式合约。核心冻结市场不加入价差开关。"
+      "unit_note": "独立合成bid/ask账本；同利率、无分红欧式合约. 核心冻结市场不加入价差开关."
     },
     "boundaries": [
       "模型启动资本按同步净资金，不是客户账户实际毛margin",
@@ -707,13 +711,13 @@ $$
 ```
 
 ## Sources
-- [EXP-STATE-01 shared finite-market experiment](https://ou-liu-red-sugar.github.io/notebook/labs/qt-f/data/qt-f-shared-state-experiment.json): 唯一冻结教学市场；二状态K105、三状态K100，允许正负可分持仓、全支持P、同借贷率。非观测价格。
-- [15.401 Finance Theory I: Lecture 10–11, Options](https://ocw.mit.edu/courses/15-401-finance-theory-i-fall-2008/c40ecc0cc0dce0fbf2d229bc4027c43b_MIT15_401F08_lec10.pdf): 逐腿相加的保护、价差和跨式支付；不承担现行结算规则。
+- [EXP-STATE-01 shared finite-market experiment](https://ou-liu-red-sugar.github.io/notebook/labs/qt-f/data/qt-f-shared-state-experiment.json): 唯一冻结教学市场；二状态K105、三状态K100，允许正负可分持仓、全支持P、同借贷率. 非观测价格.
+- [15.401 Finance Theory I: Lecture 10–11, Options](https://ocw.mit.edu/courses/15-401-finance-theory-i-fall-2008/c40ecc0cc0dce0fbf2d229bc4027c43b_MIT15_401F08_lec10.pdf): 逐腿相加的保护、价差和跨式支付；不承担现行结算规则.
 
-M-E/F/G 本批采用：模型内的支付和复制定价；不代替当前产品规则，讲义现金增长记号不能误写成年化净利率。
-- [Put/Call Parity](https://www.optionseducation.org/advancedconcepts/put-call-parity): 同标的/同K/同到期及资金、分红、行权方式条件；独立R=1.01例为本站推导。
+M-E/F/G 本批采用：模型内的支付和复制定价；不代替当前产品规则，讲义现金增长记号不能误写成年化净利率.
+- [Put/Call Parity](https://www.optionseducation.org/advancedconcepts/put-call-parity): 同标的/同K/同到期及资金、分红、行权方式条件；独立R=1.01例为本站推导.
 
-M-E/F/G 本批采用：合成支付与融资条件；简写合成表遗漏的行权价现金腿须补齐，美式不能一律套欧式等式。
+M-E/F/G 本批采用：合成支付与融资条件；简写合成表遗漏的行权价现金腿须补齐，美式不能一律套欧式等式.
 
 ## Content relations
 ```json
@@ -747,7 +751,7 @@ M-E/F/G 本批采用：合成支付与融资条件；简写合成表遗漏的行
     "from": "m20-payoff",
     "relation": "supported_by",
     "to": "PFH-PARITY",
-    "reason": "合成支付与融资条件；简写合成表遗漏的行权价现金腿须补齐，美式不能一律套欧式等式。",
+    "reason": "合成支付与融资条件；简写合成表遗漏的行权价现金腿须补齐，美式不能一律套欧式等式.",
     "locator": "Full article including formulas, financing/dividend/friction discussion",
     "scope": "本段具名采用内容；教学生成数字仍按自身身份",
     "at_section": "m20-payoff"
@@ -756,7 +760,7 @@ M-E/F/G 本批采用：合成支付与融资条件；简写合成表遗漏的行
     "from": "m20-parity",
     "relation": "supported_by",
     "to": "MEFG-STATE",
-    "reason": "唯一冻结教学市场；二状态K105、三状态K100，允许正负可分持仓、全支持P、同借贷率。非观测价格。",
+    "reason": "唯一冻结教学市场；二状态K105、三状态K100，允许正负可分持仓、全支持P、同借贷率. 非观测价格.",
     "locator": "Complete contract; two_state; three_state_incomplete; three_state_augmented_complete; formula_contract; assumptions",
     "scope": "本段具名采用内容；教学生成数字仍按自身身份",
     "at_section": "m20-parity"
@@ -765,7 +769,7 @@ M-E/F/G 本批采用：合成支付与融资条件；简写合成表遗漏的行
     "from": "m20-parity",
     "relation": "supported_by",
     "to": "PFH-MIT-OPTIONS",
-    "reason": "模型内的支付和复制定价；不代替当前产品规则，讲义现金增长记号不能误写成年化净利率。",
+    "reason": "模型内的支付和复制定价；不代替当前产品规则，讲义现金增长记号不能误写成年化净利率.",
     "locator": "Slides 3–9: option definitions and payoff；Slides 16–21: binomial replication and risk-neutral valuation",
     "scope": "本段具名采用内容；教学生成数字仍按自身身份",
     "at_section": "m20-parity"
@@ -774,7 +778,7 @@ M-E/F/G 本批采用：合成支付与融资条件；简写合成表遗漏的行
     "from": "m20-parity",
     "relation": "supported_by",
     "to": "PFH-PARITY",
-    "reason": "合成支付与融资条件；简写合成表遗漏的行权价现金腿须补齐，美式不能一律套欧式等式。",
+    "reason": "合成支付与融资条件；简写合成表遗漏的行权价现金腿须补齐，美式不能一律套欧式等式.",
     "locator": "Full article including formulas, financing/dividend/friction discussion",
     "scope": "本段具名采用内容；教学生成数字仍按自身身份",
     "at_section": "m20-parity"
@@ -783,7 +787,7 @@ M-E/F/G 本批采用：合成支付与融资条件；简写合成表遗漏的行
     "from": "m20-feasibility",
     "relation": "supported_by",
     "to": "PFH-PARITY",
-    "reason": "合成支付与融资条件；简写合成表遗漏的行权价现金腿须补齐，美式不能一律套欧式等式。",
+    "reason": "合成支付与融资条件；简写合成表遗漏的行权价现金腿须补齐，美式不能一律套欧式等式.",
     "locator": "Full article including formulas, financing/dividend/friction discussion",
     "scope": "本段具名采用内容；教学生成数字仍按自身身份",
     "at_section": "m20-feasibility"
@@ -792,7 +796,7 @@ M-E/F/G 本批采用：合成支付与融资条件；简写合成表遗漏的行
     "from": "m20-explore",
     "relation": "illustrated_by",
     "to": "EXP-MEFG-M20-PARITY",
-    "reason": "中价看似有缝，先把买入ask、卖出bid和现金腿全部列出来。",
+    "reason": "中价看似有缝，先把买入ask、卖出bid和现金腿全部列出来.",
     "at_section": "m20-explore"
   }
 ]

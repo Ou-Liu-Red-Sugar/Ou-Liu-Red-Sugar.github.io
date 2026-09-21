@@ -1,13 +1,17 @@
 # 成本、约束与稳健决策
 
-由精确费用预算推导不交易带，再用整股佣金枚举检验连续近似的边界。
+由精确费用预算推导不交易带，再用整股佣金枚举检验连续近似的边界.
 
 Entry: zh-qt23 | Node: QT23 | Language: zh | Editorial revision: 2026-09-21
 
 ## Teaching instructions
-请以具有微积分、线性代数与基本概率背景的高年级本科至研究生为对象，围绕“成本、约束与稳健决策”完成一次学习。先实际取得并读完 required_readings 的完整指定单元，记录实际版本/定位/假设/支持范围；目录、摘要或入口不抵扣阅读。可先读取本篇所有必读以备课，但不要把它们全变成读者额外作业。来源打不开时先尝试同版作者可读入口；仍缺承重单元应说明具体缺口，不伪称已读，也不要求无关新批准。先让读者用调仓前财富写预算，完整推导左右导数与不交易带；再枚举q37/38并拆净期望、风险罚项、目标、现金。最后改最低现金使w0不可行，要求用可行方向而非套内点公式。 先让读者尝试，再根据本文完整解析反馈；引用范围内解释，不把模拟当市场事实、不把最优目标当收益保证。只在读者选择分支时启用 optional_readings。完成后用一项新输入迁移检验，明确其能独立完成什么。
+请以具有微积分、线性代数与基本概率背景的高年级本科至研究生为对象，围绕“成本、约束与稳健决策”完成一次学习. 先实际取得并读完 required_readings 的完整指定单元，记录实际版本/定位/假设/支持范围；目录、摘要或入口不抵扣阅读. 可先读取本篇所有必读以备课，但不要把它们全变成读者额外作业. 来源打不开时先尝试同版作者可读入口；仍缺承重单元应说明具体缺口，不伪称已读，也不要求无关新批准. 先让读者用调仓前财富写预算，完整推导左右导数与不交易带；再枚举q37/38并拆净期望、风险罚项、目标、现金. 最后改最低现金使w0不可行，要求用可行方向而非套内点公式. 先让读者尝试，再根据本文完整解析反馈；引用范围内解释，不把模拟当市场事实、不把最优目标当收益保证. 只在读者选择分支时启用 optional_readings. 完成后用一项新输入迁移检验，明确其能独立完成什么.
 
 Before substantive teaching, actually retrieve every required reading unit for the selected scope. Read its complete designated section, including necessary assumptions, tables and footnotes. A working URL or an editorial access date is not a runtime reading receipt. Record the actual version, location, scope and what it supports. If unavailable, use a previously verified equivalent source; if the required unit remains unavailable, identify that gap rather than teach it from memory. Start runtime_reading_log empty. Once reading is complete, use a substantive diagnostic or follow the reader's request for direct explanation. Advance one complete reasoning task at a time; skip mastered basics. Distinguish original facts, supplied teaching assumptions and inference.
+
+## Shared notation and writing conventions
+数学期望统一写成 \mathbb{E}，条件期望用 \mathbb{E}[X\mid\mathcal{G}]，需要时注明测度 P 或 Q. 保留局部变量的明确定义. 金额与数量使用 K=10^3、M=10^6、B=10^9；表格标明币种、量级与期间，变更量级时同步换算数值. 展示小数最多三位，计算保留原始精度. 直接解释对象、机制与推理；保留影响结论的假设和事实来源，把编辑流程留在记录中. 句末使用英文句点 .，包括定义、命题、证明和解析等标签. 基础定义与推导直接讲内容，出处放在紧邻脚注；来源读取、复审和采用范围等编辑经过留在记录中.
+[Notation and units](https://ou-liu-red-sugar.github.io/agent/zh/notation.md)
 
 ## Required readings and runtime protocol
 ```json
@@ -113,7 +117,7 @@ Before substantive teaching, actually retrieve every required reading unit for t
         "internal_unit": "monthly decimal return",
         "display_errors": "百分点/月",
         "annualized": false,
-        "identity": "单一当前重建快照；不是FIZ/CIZ时间拼接，不是逐月当时可见版本。"
+        "identity": "单一当前重建快照；不是FIZ/CIZ时间拼接，不是逐月当时可见版本."
       },
       "forecast": {
         "experiment_id": "EXP-QT-D-FORECAST-01",
@@ -191,7 +195,7 @@ Before substantive teaching, actually retrieve every required reading unit for t
         "alpha": 0.05,
         "hypothesis": "事前单侧H0:mu=0 versus H1:mu>0; sigma known",
         "pvalue": "0.5*erfc(Z/sqrt(2))",
-        "draw_order": "先取(5000,500)开发Z矩阵，再取独立保留Z矩阵；M为共同500列前缀。mixed另重置2202。",
+        "draw_order": "先取(5000,500)开发Z矩阵，再取独立保留Z矩阵；M为共同500列前缀. mixed另重置2202.",
         "bh_adopted_comparison": "strict <",
         "source_pilot_comparison": "<=",
         "empty_BH": "k=0, no rejections, FDP=0",
@@ -326,7 +330,7 @@ Before substantive teaching, actually retrieve every required reading unit for t
         }
       }
     },
-    "static_equivalent_html": "<p>rf=0，费用期初现金扣除。连续默认w0=.5, μ=.015, σ=.1, γ=2, κ=.002, u=.8, cmin=.2。收益/报价/容量是教学假设；佣金是2026-09-21官方组件。</p><div class=\"formula\">c=1−x−κ|x−w0|；J=(μ−ρ)x−γσ²x²/2−κ|x−w0|。w0是可行内点时，不交易 iff |μ−ρ−γσ²w0|≤κ。</div><div class=\"table-wrap\" tabindex=\"0\"><table><thead><tr><th>默认连续量</th><th>值</th></tr></thead><tbody><tr><td>x</td><td>0.650000000</td></tr><tr><td>cost</td><td>0.000300000</td></tr><tr><td>cash</td><td>0.349700000</td></tr><tr><td>post_cost_wealth</td><td>0.999700000</td></tr><tr><td>post_weight_risky</td><td>0.650195059</td></tr><tr><td>nominal_expected_net_return</td><td>0.009450000</td></tr><tr><td>risk_penalty</td><td>0.004225000</td></tr><tr><td>objective</td><td>0.005225000</td></tr></tbody></table></div><p>ρ=.004则x=.5；cmin=.8时w0不可行，只能沿可行方向。真实规则组件comm=min(.01p|q|,max(1,.005|q|))，q=0不下单费用零。</p><div class=\"table-wrap\" tabindex=\"0\"><table><thead><tr><th>整股情景</th><th>全部最优q</th><th>目标USD</th><th>最大可行q</th></tr></thead><tbody><tr><td>default</td><td>[37, 38]</td><td>1.812</td><td>79</td></tr><tr><td>no_cost</td><td>[50]</td><td>5.000</td><td>80</td></tr><tr><td>spread_only</td><td>[37, 38]</td><td>2.812</td><td>79</td></tr><tr><td>low_mu</td><td>[0]</td><td>0.000</td><td>79</td></tr><tr><td>box0006</td><td>[22, 23]</td><td>0.012</td><td>79</td></tr><tr><td>cap10</td><td>[10]</td><td>0.300</td><td>10</td></tr><tr><td>cash9000</td><td>[9]</td><td>0.188</td><td>9</td></tr></tbody></table></div><div class=\"table-wrap\" tabindex=\"0\"><table><thead><tr><th>默认q37账本</th><th>USD或明确标注</th></tr></thead><tbody><tr><td>spread</td><td>1.85</td></tr><tr><td>commission</td><td>1.0</td></tr><tr><td>cash</td><td>6297.15</td></tr><tr><td>nominal_expected_net_pnl</td><td>4.55</td></tr><tr><td>risk_penalty_dollars</td><td>2.738</td></tr><tr><td>objective_dollars</td><td>1.812</td></tr><tr><td>terminal_mid_wealth</td><td>[9930.55, 10078.55]</td></tr><tr><td>returns_prewealth</td><td>[-0.006945, 0.007855]</td></tr></tbody></table></div><p>q37/38的目标同为1.812，不代表风险和净期望相同；q80现金1995不可行。风险罚项不是现金收费。期末仅中价标记，不含退出费用。盒集半径不是统计置信区间。</p>",
+    "static_equivalent_html": "<p>rf=0，费用期初现金扣除. 连续默认w0=.5, μ=.015, σ=.1, γ=2, κ=.002, u=.8, cmin=.2. 收益/报价/容量是教学假设；佣金是2026-09-21官方组件.</p><div class=\"formula\">c=1−x−κ|x−w0|；J=(μ−ρ)x−γσ²x²/2−κ|x−w0|. w0是可行内点时，不交易 iff |μ−ρ−γσ²w0|≤κ.</div><div class=\"table-wrap\" tabindex=\"0\"><table><thead><tr><th>默认连续量</th><th>值</th></tr></thead><tbody><tr><td>x</td><td>0.650000000</td></tr><tr><td>cost</td><td>0.000300000</td></tr><tr><td>cash</td><td>0.349700000</td></tr><tr><td>post_cost_wealth</td><td>0.999700000</td></tr><tr><td>post_weight_risky</td><td>0.650195059</td></tr><tr><td>nominal_expected_net_return</td><td>0.009450000</td></tr><tr><td>risk_penalty</td><td>0.004225000</td></tr><tr><td>objective</td><td>0.005225000</td></tr></tbody></table></div><p>ρ=.004则x=.5；cmin=.8时w0不可行，只能沿可行方向. 真实规则组件comm=min(.01p|q|,max(1,.005|q|))，q=0不下单费用零.</p><div class=\"table-wrap\" tabindex=\"0\"><table><thead><tr><th>整股情景</th><th>全部最优q</th><th>目标USD</th><th>最大可行q</th></tr></thead><tbody><tr><td>default</td><td>[37, 38]</td><td>1.812</td><td>79</td></tr><tr><td>no_cost</td><td>[50]</td><td>5.000</td><td>80</td></tr><tr><td>spread_only</td><td>[37, 38]</td><td>2.812</td><td>79</td></tr><tr><td>low_mu</td><td>[0]</td><td>0.000</td><td>79</td></tr><tr><td>box0006</td><td>[22, 23]</td><td>0.012</td><td>79</td></tr><tr><td>cap10</td><td>[10]</td><td>0.300</td><td>10</td></tr><tr><td>cash9000</td><td>[9]</td><td>0.188</td><td>9</td></tr></tbody></table></div><div class=\"table-wrap\" tabindex=\"0\"><table><thead><tr><th>默认q37账本</th><th>USD或明确标注</th></tr></thead><tbody><tr><td>spread</td><td>1.85</td></tr><tr><td>commission</td><td>1.0</td></tr><tr><td>cash</td><td>6297.15</td></tr><tr><td>nominal_expected_net_pnl</td><td>4.55</td></tr><tr><td>risk_penalty_dollars</td><td>2.738</td></tr><tr><td>objective_dollars</td><td>1.812</td></tr><tr><td>terminal_mid_wealth</td><td>[9930.55, 10078.55]</td></tr><tr><td>returns_prewealth</td><td>[-0.006945, 0.007855]</td></tr></tbody></table></div><p>q37/38的目标同为1.812，不代表风险和净期望相同；q80现金1995不可行. 风险罚项不是现金收费. 期末仅中价标记，不含退出费用. 盒集半径不是统计置信区间.</p>",
     "files": {
       "frozen_csv": "https://ou-liu-red-sugar.github.io/notebook/labs/qt-de/data/BusEq-value-weighted-monthly-199001-202512.csv",
       "complete_outputs": "https://ou-liu-red-sugar.github.io/notebook/labs/qt-de/data/results.json",
@@ -336,8 +340,8 @@ Before substantive teaching, actually retrieve every required reading unit for t
       "shared_inputs": "https://ou-liu-red-sugar.github.io/notebook/labs/qt-de/shared_inputs.json",
       "sources": "https://ou-liu-red-sugar.github.io/notebook/labs/qt-de/sources.json"
     },
-    "algorithm_identity": "forecast/selection使用真实计算的冻结网格及PCG64结果；成本和人工边界可重算。完整reader在body_markdown中仅一份。",
-    "reading_base": "公开同源包；按完整 URL 取得冻结输入与复算文件。来源网站后续更新不覆盖本份 202607 快照。",
+    "algorithm_identity": "forecast/selection使用真实计算的冻结网格及PCG64结果；成本和人工边界可重算. 完整reader在body_markdown中仅一份.",
+    "reading_base": "公开同源包；按完整 URL 取得冻结输入与复算文件. 来源网站后续更新不覆盖本份 202607 快照.",
     "cost_results_for_teaching": {
       "continuous": {
         "default": {
@@ -1150,40 +1154,40 @@ Before substantive teaching, actually retrieve every required reading unit for t
   "entry_id": "zh-qt23",
   "content_version": "2026-09-21-QT-DE-review-v2",
   "audience": "高年级本科至研究生；默认微积分、线性代数与基本概率",
-  "learning_task": "由精确费用预算推导不交易带，再用整股佣金枚举检验连续近似的边界。"
+  "learning_task": "由精确费用预算推导不交易带，再用整股佣金枚举检验连续近似的边界."
 }
 ```
 
 ## Supplied entry
-预测给出的是关于结果的判断，决策还要回答“现在允许买多少、花掉哪些现金、愿意承受什么风险”。本篇先完整求解一个比例费用模型，再换成整股委托和实际最低佣金规则。两层使用同一种预算思路，却不是同一个优化问题。读完后，你应能独立核对现金、推导不交易带，并解释为什么最优数量可能不唯一。
+预测给出的是关于结果的判断，决策还要回答“现在允许买多少、花掉哪些现金、愿意承受什么风险”. 本篇先完整求解一个比例费用模型，再换成整股委托和实际最低佣金规则. 两层使用同一种预算思路，却不是同一个优化问题. 读完后，你应能独立核对现金、推导不交易带，并解释为什么最优数量可能不唯一.
 
 <a id="qt23-budget"></a>
 ## 1. 决策变量先有分母，成本才有位置
 
-先取一期现金收益 $r_f=0$，调仓前财富为 1，原风险资产金额为 $w_0$。令 $x$ 表示调仓后风险资产的中价金额，仍除以调仓前财富；交易成本为 $C(x)$，从期初现金扣除。无新增资金时
+先取一期现金收益 $r_f=0$，调仓前财富为 1，原风险资产金额为 $w_0$. 令 $x$ 表示调仓后风险资产的中价金额，仍除以调仓前财富；交易成本为 $C(x)$，从期初现金扣除. 无新增资金时
 
 $$
 c=1-x-C(x),\qquad x+c+C(x)=1.
 $$
 
-$c$ 是留下的现金金额，而非在交易后财富下重新归一化的权重。期初中价标记的剩余财富是 $1-C$，因此真正的交易后权重是 $x/(1-C)$ 与 $c/(1-C)$，两者才合计为 1。把 $x+c=1$ 和另一处“费用已扣掉”同时写入账本，会让同一笔现金出现两次。[^cvx]
+$c$ 是留下的现金金额，而非在交易后财富下重新归一化的权重. 期初中价标记的剩余财富是 $1-C$，因此真正的交易后权重是 $x/(1-C)$ 与 $c/(1-C)$，两者才合计为 1. 把 $x+c=1$ 和另一处“费用已扣掉”同时写入账本，会让同一笔现金出现两次. [^cvx]
 
-若风险资产一期简单收益为 $R$，期末财富是 $x(1+R)+c$，所以以原财富为分母的组合净回报为 $R_p=xR-C$。若另取确定现金收益 $r_f$，相同推导给 $R_p=x(R-r_f)+r_f-(1+r_f)C$；费用在期初支付，会同时失去相应现金利息。本篇固定 $r_f=0$，不把这项时点差异藏进近似。
+若风险资产一期简单收益为 $R$，期末财富是 $x(1+R)+c$，所以以原财富为分母的组合净回报为 $R_p=xR-C$. 若另取确定现金收益 $r_f$，相同推导给 $R_p=x(R-r_f)+r_f-(1+r_f)C$；费用在期初支付，会同时失去相应现金利息. 本篇固定 $r_f=0$，不把这项时点差异藏进近似.
 
-下面的收益均值、波动、价差和风险参数都是教学设定，不是从 BusEq 历史均值直接宣称得到的预测。只有后面注明的佣金组件来自真实公开规则。
+下面的收益均值、波动、价差和风险参数都是教学设定，不是从 BusEq 历史均值直接宣称得到的预测. 只有后面注明的佣金组件来自真实公开规则.
 
 <a id="qt23-continuous"></a>
 ## 2. 比例成本为什么产生不交易带？
 
-本实验取 $0\le w_0,u\le1$、$0\le\kappa<1$、$c_{\min}\ge0$，并要求 $\gamma>0,\sigma>0$；可能没有可行解，届时先报告预算不成立。取 $E[R]=\mu$、$\operatorname{Var}(R)=\sigma^2$，成本为 $C(x)=\kappa|x-w_0|$。明确选择一个均值—方差准则：最大化净回报期望减去 $\gamma/2$ 倍方差。这是本例的决策目标，不宣称代表所有人的效用。[^cvx]
+本实验取 $0\le w_0,u\le1$、$0\le\kappa<1$、$c_{\min}\ge0$，并要求 $\gamma>0,\sigma>0$；可能没有可行解，届时先报告预算不成立. 取 $\mathbb{E}[R]=\mu$、$\operatorname{Var}(R)=\sigma^2$，成本为 $C(x)=\kappa|x-w_0|$. 明确选择一个均值—方差准则：最大化净回报期望减去 $\gamma/2$ 倍方差. 这是本例的决策目标，不宣称代表所有人的效用. [^cvx]
 
 $$
 J(x)=\mu x-\tfrac12\gamma\sigma^2x^2-\kappa|x-w_0|,
 $$
 
-约束为 $0\le x\le u$，以及 $1-x-\kappa|x-w_0|\ge c_{\min}$。上限 $u$ 限风险金额，现金约束又会进一步缩小可行范围；它们不是一回事。
+约束为 $0\le x\le u$，以及 $1-x-\kappa|x-w_0|\ge c_{\min}$. 上限 $u$ 限风险金额，现金约束又会进一步缩小可行范围；它们不是一回事.
 
-令 $a=\gamma\sigma^2>0$。目标是连续严格凹函数，可行集若非空且有界，就是一个闭区间，因此存在唯一最优解。这里的一维证明不需要先讲整套 KKT。凸目标的支撑不等式，或等价地凹目标的切线界，保证符合可行方向条件的解是全局最优。[^optimality]
+令 $a=\gamma\sigma^2>0$. 目标是连续严格凹函数，可行集若非空且有界，就是一个闭区间，因此存在唯一最优解. 这里的一维证明不需要先讲整套 KKT. 凸目标的支撑不等式，或等价地凹目标的切线界，保证符合可行方向条件的解是全局最优. [^optimality]
 
 在 $w_0$ 两侧，普通导数分别为
 
@@ -1201,20 +1205,20 @@ $$
 |\mu-aw_0|\le\kappa.
 $$
 
-若 $\mu-aw_0>\kappa$，向右买入，先求 $x=(\mu-\kappa)/a$；若 $\mu-aw_0<-\kappa$，向左卖出，先求 $x=(\mu+\kappa)/a$。再将该无约束候选截到可行区间。严格凹性使这一局部导数判断足够：越过最优点后，导数不可能再升回正值。
+若 $\mu-aw_0>\kappa$，向右买入，先求 $x=(\mu-\kappa)/a$；若 $\mu-aw_0<-\kappa$，向左卖出，先求 $x=(\mu+\kappa)/a$. 再将该无约束候选截到可行区间. 严格凹性使这一局部导数判断足够：越过最优点后，导数不可能再升回正值.
 
-这个带的经济含义是：小幅改变持仓带来的边际好处，还不足以支付买卖方向上的边际费用。不是所有预测变动都值得下单。但若原持仓本身违反新现金要求，就不能拿内点不等式为“不交易”辩护，只能沿可行方向重新选择。
+这个带的经济含义是：小幅改变持仓带来的边际好处，还不足以支付买卖方向上的边际费用. 不是所有预测变动都值得下单. 但若原持仓本身违反新现金要求，就不能拿内点不等式为“不交易”辩护，只能沿可行方向重新选择.
 
 <a id="qt23-default"></a>
 ## 3. 把默认解与资金账一起算出来
 
-固定 $w_0=0.5,\mu=0.015,\sigma=0.1,\gamma=2,\kappa=0.002,u=0.8,c_{\min}=0.2$。$a=0.02$，不交易的均值带为 $[0.008,0.012]$。默认均值在带上方，所以
+固定 $w_0=0.5,\mu=0.015,\sigma=0.1,\gamma=2,\kappa=0.002,u=0.8,c_{\min}=0.2$. $a=0.02$，不交易的均值带为 $[0.008,0.012]$. 默认均值在带上方，所以
 
 $$
 x^*=\frac{0.015-0.002}{0.02}=0.65.
 $$
 
-此处候选满足所有约束。费用 $0.002(0.65-0.5)=0.0003$，现金为 $0.3497$，成本后的财富是 $0.9997$。真正的风险权重为 $0.65/0.9997=500/769\approx0.650195$，不是恰好 65%。
+此处候选满足所有约束. 费用 $0.002(0.65-0.5)=0.0003$，现金为 $0.3497$，成本后的财富是 $0.9997$. 真正的风险权重为 $0.65/0.9997=500/769\approx0.650195$，不是恰好 65%.
 
 | 默认连续解：均以调仓前财富为基数 | 数值 |
 |---|---:|
@@ -1225,30 +1229,30 @@ $$
 | 风险罚项 $\gamma\sigma^2x^2/2$ | 0.004225 |
 | 目标 $J$ | 0.005225 |
 
-目标 0.005225 不是期望净回报，更不是某一期会赚到的回报。三者必须分开。默认可行上界实际为 $\min(0.8,(1+\kappa w_0-c_{\min})/(1+\kappa))=267/334\approx0.799401$，所以仅看 $u=0.8$ 会遗漏费用占用。[^calculation]
+目标 0.005225 不是期望净回报，更不是某一期会赚到的回报. 三者必须分开. 默认可行上界实际为 $\min(0.8,(1+\kappa w_0-c_{\min})/(1+\kappa))=267/334\approx0.799401$，所以仅看 $u=0.8$ 会遗漏费用占用. [^calculation]
 
-把风险金额上限收紧到 $u=0.6$，最优点被截到 0.6；不是重新发现了一个不同的市场均值。如果把最低现金改为 0.8，原持仓 0.5 已不可行。卖出侧现金为 $1-\kappa w_0-(1-\kappa)x$，因此 $x\le(1-\kappa w_0-0.8)/(1-\kappa)\approx0.199399$，必须大幅减仓。
+把风险金额上限收紧到 $u=0.6$，最优点被截到 0.6；不是重新发现了一个不同的市场均值. 如果把最低现金改为 0.8，原持仓 0.5 已不可行. 卖出侧现金为 $1-\kappa w_0-(1-\kappa)x$，因此 $x\le(1-\kappa w_0-0.8)/(1-\kappa)\approx0.199399$，必须大幅减仓.
 
 <a id="qt23-robust"></a>
 ## 4. 预测不确定性怎样进入目标？
 
-现在不改名义 $\mu$，而是指定一组可能均值 $\mu+\delta$，其中 $|\delta|\le\rho$。对 long-only 的 $x\ge0$，最坏均值是 $\mu-\rho$。多资产盒集的计算同样直接：
+现在不改名义 $\mu$，而是指定一组可能均值 $\mu+\delta$，其中 $|\delta|\le\rho$. 对 long-only 的 $x\ge0$，最坏均值是 $\mu-\rho$. 多资产盒集的计算同样直接：
 
 $$
 \inf_{|\delta_i|\le\rho_i}(\mu+\delta)^Tx
 =\mu^Tx-\sum_i\rho_i|x_i|.
 $$
 
-证明是逐项选择 $\delta_i=-\rho_i\operatorname{sign}(x_i)$；各坐标约束互不耦合，所以可以同时达到这个下界。它来自明确指定的集合，不是把所有未知量统一打折。Boyd 等人的 2024 稿件把这类均值区间放进组合构建，并分开讨论约束、交易成本预测和非凸实施。[^robust]
+证明是逐项选择 $\delta_i=-\rho_i\operatorname{sign}(x_i)$；各坐标约束互不耦合，所以可以同时达到这个下界. 它来自明确指定的集合，不是把所有未知量统一打折. Boyd 等人的 2024 稿件把这类均值区间放进组合构建，并分开讨论约束、交易成本预测和非凸实施. [^robust]
 
-本例取 $\rho=0.004$，最坏均值成为 0.011，落入不交易带，所以 $x^*=0.5$。名义净回报期望仍按 0.015 算，是 0.0075；最坏均值下是 0.0055；风险罚项 0.0025；稳健目标为 0.003。不同 $\rho$ 改变的是所优化的问题，不能比较两次目标的大小，就宣称哪次预测更准确。
+本例取 $\rho=0.004$，最坏均值成为 0.011，落入不交易带，所以 $x^*=0.5$. 名义净回报期望仍按 0.015 算，是 0.0075；最坏均值下是 0.0055；风险罚项 0.0025；稳健目标为 0.003. 不同 $\rho$ 改变的是所优化的问题，不能比较两次目标的大小，就宣称哪次预测更准确.
 
-若要把 $\rho$ 称为统计置信半径，必须另外给出估计对象、数据和推断条件。本例没有这样做，也没有把论文中对未来成交量的预测换成事后已知成交量。现金预算仍按这里的精确期初账执行，不沿用忽略费用的权重近似。
+若要把 $\rho$ 称为统计置信半径，必须另外给出估计对象、数据和推断条件. 本例没有这样做，也没有把论文中对未来成交量的预测换成事后已知成交量. 现金预算仍按这里的精确期初账执行，不沿用忽略费用的权重近似.
 
 <a id="qt23-integer"></a>
 ## 5. 真正下整股委托时，连续模型还剩下多少？
 
-换一个独立但同类的教学账户：财富 $W=10000$ 美元、原持仓零，假设中价 100、买价 100.05，$q$ 为 0—80 的整数，最低现金 2000，现金收益为零。假设一期股票收益为 $\mu\pm\sigma$，各概率 $1/2$，其中 $\mu=0.002,\sigma=0.02,\gamma=10$。这些是研究概率下的构造情景，不是报价或定价测度。
+换一个独立但同类的教学账户：财富 $W=10000$ 美元、原持仓零，假设中价 100、买价 100.05，$q$ 为 0—80 的整数，最低现金 2000，现金收益为零. 假设一期股票收益为 $\mu\pm\sigma$，各概率 $1/2$，其中 $\mu=0.002,\sigma=0.02,\gamma=10$. 这些是研究概率下的构造情景，不是报价或定价测度.
 
 作为真实规则组件，2026-09-21 所核 IBKR Pro 美国 Fixed 普通整股单笔委托的佣金写成：下单时
 
@@ -1256,9 +1260,9 @@ $$
 C_{comm}(q,p)=\min\{0.01p|q|,\;\max(1,0.005|q|)\},
 $$
 
-不下单则为零。这里 $p$ 为成交价，规则包括每股费、最低费与成交金额上限。100 股×25 美元收 1 美元；1000 股×25 收 5；1000 股×0.25 收 2.50；10 股×0.20 时上限只有 0.02，即按 0.02 而不是 1 收取。其他监管、交易所等费用、税、冲击及退出交易没有包含，不能称作全部账单。[^commission]
+不下单则为零. 这里 $p$ 为成交价，规则包括每股费、最低费与成交金额上限. 100 股×25 美元收 1 美元；1000 股×25 收 5；1000 股×0.25 收 2.50；10 股×0.20 时上限只有 0.02，即按 0.02 而不是 1 收取. 其他监管、交易所等费用、税、冲击及退出交易没有包含，不能称作全部账单. [^commission]
 
-本例还计入假设价差 $0.05q$。令 $C_q=0.05q+C_{comm}(q,100.05)$，于是
+本例还计入假设价差 $0.05q$. 令 $C_q=0.05q+C_{comm}(q,100.05)$，于是
 
 $$
 \begin{aligned}
@@ -1268,7 +1272,7 @@ J_{\$}(q)&=100q\mu-C_q-\frac{W\gamma}{2}(x\sigma)^2.
 \end{aligned}
 $$
 
-$J_{\$}$ 是原财富乘以均值—方差准则的美元表示。整数和最低佣金使它不再是前面那个连续凸优化问题；这里只有 81 个候选，逐个枚举即可，无须用求导假装获得唯一整股解。
+$J_{\$}$ 是原财富乘以均值—方差准则的美元表示. 整数和最低佣金使它成为 81 个离散候选的枚举问题，不再是前面的连续凸优化；连续一阶条件不能给出唯一的整股解.
 
 | 默认整股例 | $q=37$ | $q=38$ |
 |---|---:|---:|
@@ -1279,7 +1283,7 @@ $J_{\$}$ 是原财富乘以均值—方差准则的美元表示。整数和最�
 | 风险罚项（美元） | 2.738 | 2.888 |
 | 目标（美元） | 1.812 | 1.812 |
 
-两个股数并列最优。显示 37 只是预先约定的同分取较小股数，不把另一个最优解藏起来。在选中的 $q=37$ 下，两个期末中价标记财富分别为 9930.55 和 10078.55，按原财富计算回报是 −0.6945% 和 0.7855%；平均净损益 4.55。期末尚未发出退出委托，所以不称为往返交易净利。[^calculation]
+两个股数并列最优. 显示 37 只是预先约定的同分取较小股数，不把另一个最优解藏起来. 在选中的 $q=37$ 下，两个期末中价标记财富分别为 9930.55 和 10078.55，按原财富计算回报是 −0.6945% 和 0.7855%；平均净损益 4.55. 期末尚未发出退出委托，所以不称为往返交易净利. [^calculation]
 
 | 改一项条件 | 全部最优股数 | 最优目标（美元） |
 |---|---|---:|
@@ -1291,38 +1295,38 @@ $J_{\$}$ 是原财富乘以均值—方差准则的美元表示。整数和最�
 | 教学可买数量上限为 10 | 10 | 0.300 |
 | 最低现金为 9000 | 9 | 0.188 |
 
-稳健行的数字是稳健目标，不是实际利润。默认 $q=80$ 的现金只有 1995，现金低于最低要求，即使它没有违反股数上限；最大可行数量是 79，现金为 2095.05。[^calculation]
+稳健行的数字是稳健目标，不是实际利润. 默认 $q=80$ 的现金只有 1995，现金低于最低要求，即使它没有违反股数上限；最大可行数量是 79，现金为 2095.05. [^calculation]
 
 <div data-experiment-slot="EXP-QT23-COST-01"></div>
 
-先在连续模式指出预计会生效的约束，再改变均值或费用；随后在整数模式同时看所有候选、并列最优、现金和期望净损益。曲线最高的位置必须属于可行集，且目标轴不是利润轴。
+先在连续模式指出预计会生效的约束，再改变均值或费用；随后在整数模式同时看所有候选、并列最优、现金和期望净损益. 曲线最高的位置必须属于可行集，且目标轴不是利润轴.
 
 <a id="qt23-exercises"></a>
 ## 6. 独立重建与解析
 
-解释题。 连续默认解 $x=0.65$，为什么风险权重不是恰好 65%？为什么目标 0.005225 不是净回报期望？
+解释题. 连续默认解 $x=0.65$，为什么风险权重不是恰好 65%？为什么目标 0.005225 不是净回报期望？
 
-解析。 $x$ 以调仓前财富为分母，费用后财富为 0.9997；重新归一化后风险权重为 $0.65/0.9997$。净回报期望是 $0.015\times0.65-0.0003=0.00945$，再减风险罚项 0.004225 才得到目标。风险罚项没有付给交易所，也不从现金中再扣一次。
+解析. $x$ 以调仓前财富为分母，费用后财富为 0.9997；重新归一化后风险权重为 $0.65/0.9997$. 净回报期望是 $0.015\times0.65-0.0003=0.00945$，再减风险罚项 0.004225 才得到目标. 风险罚项没有付给交易所，也不从现金中再扣一次.
 
-迁移题一。 连续模型改成 $\mu=0.011$，其余默认，是否交易？若另把最低现金改成 0.8，能否继续使用相同答案？
+迁移题一. 连续模型改成 $\mu=0.011$，其余默认，是否交易？若另把最低现金改成 0.8，能否继续使用相同答案？
 
-解析。 原默认可行域下 $|0.011-0.02\times0.5|=0.001\le0.002$，原持仓为可行内点，所以不交易。最低现金 0.8 时原持仓不可行，内点条件的前提失效；卖出侧可行上界约为 0.199399；整个可行区间内 $J'(x)=0.011-0.02x+0.002>0$，所以最优点就是该上界，不能继续维持 0.5。
+解析. 原默认可行域下 $|0.011-0.02\times0.5|=0.001\le0.002$，原持仓为可行内点，所以不交易. 最低现金 0.8 时原持仓不可行，内点条件的前提失效；卖出侧可行上界约为 0.199399；整个可行区间内 $J'(x)=0.011-0.02x+0.002>0$，所以最优点就是该上界，不能继续维持 0.5.
 
-迁移题二。 重算 $q=37$ 的现金、平均净损益和目标；再判断 $q=80$ 是否可行。
+迁移题二. 重算 $q=37$ 的现金、平均净损益和目标；再判断 $q=80$ 是否可行.
 
-解析。 现金 $10000-3700-1.85-1=6297.15$；名义毛损益期望 $3700\times0.002=7.4$，净期望 $7.4-2.85=4.55$；罚项 $10000\times10\times0.37^2\times0.02^2/2=2.738$；目标 $4.55-2.738=1.812$。$q=80$ 的现金为 $10000-8000-4-1=1995<2000$，不可行。反过来，37 和 38 的目标相同并不表示两者的风险或期望损益相同。
+解析. 现金 $10000-3700-1.85-1=6297.15$；名义毛损益期望 $3700\times0.002=7.4$，净期望 $7.4-2.85=4.55$；罚项 $10000\times10\times0.37^2\times0.02^2/2=2.738$；目标 $4.55-2.738=1.812$. $q=80$ 的现金为 $10000-8000-4-1=1995<2000$，不可行. 反过来，37 和 38 的目标相同并不表示两者的风险或期望损益相同.
 
-迁移题三。 多资产盒集中有一项 $x_i<0$，为什么最坏均值是 $\mu_i+\rho_i$ 而非 $\mu_i-\rho_i$？
+迁移题三. 多资产盒集中有一项 $x_i<0$，为什么最坏均值是 $\mu_i+\rho_i$ 而非 $\mu_i-\rho_i$？
 
-解析。 负头寸乘以更高收益，贡献更差，因此对手在该坐标选最大均值。最坏贡献统一写作 $\mu_i x_i-\rho_i|x_i|$。换成耦合的不确定性集合后不能再逐坐标独立取端点，必须重做极小化。
+解析. 负头寸乘以更高收益，贡献更差，因此对手在该坐标选最大均值. 最坏贡献统一写作 $\mu_i x_i-\rho_i|x_i|$. 换成耦合的不确定性集合后不能再逐坐标独立取端点，必须重做极小化.
 
-至此，预测、验证与决策的分工才闭合：预测量需要合适的数据与评价，决策把它当作有不确定性的输入，在实际资金边界内求解。求得最优只说明模型内比较已完成，不能替代对输入和制度的核实。
+至此，预测、验证与决策的分工才闭合：预测量需要合适的数据与评价，决策把它当作有不确定性的输入，在实际资金边界内求解. 求得最优只说明模型内比较已完成，不能替代对输入和制度的核实.
 
-[^cvx]: Boyd、Vandenberghe，[Convex Optimization](https://web.stanford.edu/~boyd/cvxbook/bv_cvxbook.pdf)，2004，Markowitz portfolio optimization 子节，印刷 pp.155–156。本篇使用明确的期初费用预算，并固定 $r_f=0$。
-[^optimality]: 同书 §4.2.2–4.2.3，pp.138–140，可行凸集上的最优性与完整方向证明；本篇的一维不交易带由左右导数直接证明，不依赖未展开的一般 KKT。
-[^robust]: Boyd 等，[Markowitz Portfolio Construction at Seventy](https://web.stanford.edu/~boyd/papers/pdf/markowitz.pdf)，所读稿为 2024-01-05，§2.1–2.4、§3.4–3.5、§4.1–4.3；盒集最坏均值见 p.23 式(16)。论文发表与稿件日期分开，本篇不采用其绩效主张。
-[^commission]: IBKR，[美国股票 Fixed 佣金表](https://www.interactivebrokers.com/en/pricing/commissions-stocks.php?re=amer)，2026-09-21 取得的 US table、Fixed Examples、最低/最高费用及相关说明。适用对象为普通整股单笔委托的佣金组件，非全部成本。
-[^calculation]: [输入与身份](https://ou-liu-red-sugar.github.io/notebook/labs/qt-de/shared_inputs.json)、[全部精确分数及枚举结果](https://ou-liu-red-sugar.github.io/notebook/labs/qt-de/data/results.json) cost 组、[复算程序](https://ou-liu-red-sugar.github.io/notebook/labs/qt-de/compute/reproduce.py)。教学收益、价差和容量与佣金事实分开。
+[^cvx]: Boyd、Vandenberghe，[Convex Optimization](https://web.stanford.edu/~boyd/cvxbook/bv_cvxbook.pdf)，2004，Markowitz portfolio optimization 子节，印刷 pp.155–156. 本篇使用明确的期初费用预算，并固定 $r_f=0$.
+[^optimality]: 同书 §4.2.2–4.2.3，pp.138–140，可行凸集上的最优性与方向条件；本篇的一维不交易带由左右导数直接证明.
+[^robust]: Boyd 等，[Markowitz Portfolio Construction at Seventy](https://web.stanford.edu/~boyd/papers/pdf/markowitz.pdf)，所读稿为 2024-01-05，§2.1–2.4、§3.4–3.5、§4.1–4.3；盒集最坏均值见 p.23 式(16). 稿件日期与发表信息分开记录.
+[^commission]: IBKR，[美国股票 Fixed 佣金表](https://www.interactivebrokers.com/en/pricing/commissions-stocks.php?re=amer)，2026-09-21 取得的 US table、Fixed Examples、最低/最高费用及相关说明. 适用对象为普通整股单笔委托的佣金组件，不代表全部交易成本.
+[^calculation]: [输入与身份](https://ou-liu-red-sugar.github.io/notebook/labs/qt-de/shared_inputs.json)、[全部精确分数及枚举结果](https://ou-liu-red-sugar.github.io/notebook/labs/qt-de/data/results.json) cost 组、[复算程序](https://ou-liu-red-sugar.github.io/notebook/labs/qt-de/compute/reproduce.py). 教学收益、价差和容量与佣金事实分别标识.
 
 
 ## Experiment inputs and static equivalents
@@ -1332,7 +1336,7 @@ $J_{\$}$ 是原财富乘以均值—方差准则的美元表示。整数和最�
     "id": "EXP-QT23-COST-01",
     "title": "成本、约束与稳健决策：可复算实验",
     "anchor": "qt23-integer",
-    "description": "由精确费用预算推导不交易带，再用整股佣金枚举检验连续近似的边界。",
+    "description": "由精确费用预算推导不交易带，再用整股佣金枚举检验连续近似的边界.",
     "inputs": {
       "identity": "QT-DE-adopted-inputs-20260921-v1",
       "manifest": "https://ou-liu-red-sugar.github.io/notebook/labs/qt-de/shared_inputs.json"
@@ -1637,10 +1641,10 @@ $J_{\$}$ 是原财富乘以均值—方差准则的美元表示。整数和最�
 ```
 
 ## Sources
-- [QT-D/E adopted teaching experiments](https://ou-liu-red-sugar.github.io/notebook/labs/qt-de/compute/reproduce.py): 本轮实际沙盒复算，预测遵守冻结算法及数据；选择沿PCG64调用顺序并核strict/inclusive，成本用Fraction。数学演算与假设模型不等于真实投资有效性。
-- [Convex Optimization](https://web.stanford.edu/~boyd/cvxbook/bv_cvxbook.pdf): 已读可行凸集最优性完整证明和组合预算子节。本站不交易带由一维严格凹直接推出，不引用未读强对偶或KKT证明。
-- [US stocks IBKR Pro Fixed commission component](https://www.interactivebrokers.com/en/pricing/commissions-stocks.php?re=amer): 普通整股单笔委托每股0.005、最低1、最高成交金额1%，上限低于最低时按上限。仅佣金组件；其余收费与零股/改单/退出未纳入。
-- [Markowitz Portfolio Construction at Seventy](https://web.stanford.edu/~boyd/papers/pdf/markowitz.pdf): 规划轮完整单元；本轮回核p.16/18/23原页。成本、约束、均值盒集、非凸实施；本站采用精确期初现金账而非稿中忽略/预测费用的近似。未采用§5回测绩效。
+- [QT-D/E adopted teaching experiments](https://ou-liu-red-sugar.github.io/notebook/labs/qt-de/compute/reproduce.py): 冻结算法与数据的复算材料. 预测按时间验证；选择实验固定 PCG64 调用顺序与 strict/inclusive 计数；成本实验使用精确分数.
+- [Convex Optimization](https://web.stanford.edu/~boyd/cvxbook/bv_cvxbook.pdf): 可行凸集上的最优性条件与证明、组合预算设置. 本站的一维不交易带另由左右导数推导.
+- [US stocks IBKR Pro Fixed commission component](https://www.interactivebrokers.com/en/pricing/commissions-stocks.php?re=amer): 普通整股单笔委托每股0.005、最低1、最高成交金额1%，上限低于最低时按上限. 仅佣金组件；其余收费与零股/改单/退出未纳入.
+- [Markowitz Portfolio Construction at Seventy](https://web.stanford.edu/~boyd/papers/pdf/markowitz.pdf): 组合构建中的成本、约束、均值不确定集和非凸实施. 本站例子使用精确的期初现金账；文中相应设置包含忽略或预测费用的近似.
 
 ## Content relations
 ```json
@@ -1656,20 +1660,20 @@ $J_{\$}$ 是原财富乘以均值—方差准则的美元表示。整数和最�
     "relation": "requires",
     "to": "zh-qt04",
     "required_competence": "期望、方差与量纲",
-    "reason": "本篇使用该能力，不要求整门随机过程课程。"
+    "reason": "本篇使用该能力，不要求整门随机过程课程."
   },
   {
     "from": "zh-qt23",
     "relation": "requires",
     "to": "zh-qt19",
     "required_competence": "估计量与指定不确定集的区别",
-    "reason": "本篇使用该能力，不要求整门随机过程课程。"
+    "reason": "本篇使用该能力，不要求整门随机过程课程."
   },
   {
     "from": "qt23-integer",
     "relation": "illustrated_by",
     "to": "EXP-QT23-COST-01",
-    "reason": "完整输入、默认及静态等价支持本篇独立任务。"
+    "reason": "完整输入、默认及静态等价支持本篇独立任务."
   },
   {
     "from": "zh-qt23",
@@ -1702,4 +1706,4 @@ $J_{\$}$ 是原财富乘以均值—方差准则的美元表示。整数和最�
 
 ## Optional reading path
 理解模型并亲手算: step 9/9
-从期初资金账推导不交易带，再枚举有最低佣金的整股可行集。
+从期初资金账推导不交易带，再枚举有最低佣金的整股可行集.

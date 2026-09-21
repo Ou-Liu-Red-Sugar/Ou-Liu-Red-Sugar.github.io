@@ -5,8 +5,8 @@
       "node": "M15",
       "id": "EXP-MEFG-M15-CONTRACT",
       "title": "期权的权利与现金",
-      "identity": "真实产品规则；所有价格为教学设定。选择方向并不等于执行了交易。",
-      "question": "先判断选择权在哪一方，再看权利金、行权货款和终点支付。",
+      "identity": "真实产品规则；所有价格为教学设定. 选择方向并不等于执行了交易.",
+      "question": "先判断选择权在哪一方，再看权利金、行权货款和终点支付.",
       "controls": [
         [
           "product",
@@ -107,8 +107,8 @@
       "node": "M16",
       "id": "EXP-MEFG-M16-RETURN",
       "title": "同样5,000美元，结果怎样比较",
-      "identity": "OCC官方假设例；可调现金率为教学变式。到期经济支付不保证实物行权融资。",
-      "question": "先比较全部财富，再切到期权权利金分母，看两个百分比回答什么问题。",
+      "identity": "OCC官方假设例；可调现金率为教学变式. 到期经济支付不保证实物行权融资.",
+      "question": "先比较全部财富，再切到期权权利金分母，看两个百分比回答什么问题.",
       "controls": [
         [
           "terminal",
@@ -158,8 +158,8 @@
       "node": "M17",
       "id": "EXP-MEFG-M17-LIFECYCLE",
       "title": "平仓、行权与空头资金账",
-      "identity": "真实合约机制＋教学报价。股票期权标记负债不当作期货逐日现金。现金不足不续写完成结果。",
-      "question": "比较实物与现金交收，再按四列账本分开抵押资产、负债、权益和外部资金。",
+      "identity": "真实合约机制＋教学报价. 股票期权标记负债不当作期货逐日现金. 现金不足不续写完成结果.",
+      "question": "比较实物与现金交收，再按四列账本分开抵押资产、负债、权益和外部资金.",
       "controls": [
         [
           "mode",
@@ -253,8 +253,8 @@
       "node": "M18",
       "id": "EXP-MEFG-M18-IV",
       "title": "报价反解IV，与欧式put反例",
-      "identity": "EXP-MEFG-IV-01合成报价；提前行权树为独立教学市场，绝不改写EXP-STATE-01。",
-      "question": "先检查报价是否在模型价格界内，再看同一树在不同决策集合中的价值。",
+      "identity": "EXP-MEFG-IV-01合成报价；提前行权树为独立教学市场，绝不改写EXP-STATE-01.",
+      "question": "先检查报价是否在模型价格界内，再看同一树在不同决策集合中的价值.",
       "controls": [
         [
           "days",
@@ -367,8 +367,8 @@
       "node": "M19",
       "id": "EXP-MEFG-M19-GREEKS",
       "title": "局部近似与完整重新定价",
-      "identity": "同一90天、K=5,000、σ=23.5%的合成切片；不是实时Greeks。",
-      "question": "小变动和大变动各算一次；点数、美元和波动率百分点分别显示。",
+      "identity": "同一90天、K=5,000、σ=23.5%的合成切片；不是实时Greeks.",
+      "question": "小变动和大变动各算一次；点数、美元和波动率百分点分别显示.",
       "controls": [
         [
           "ds",
@@ -425,8 +425,8 @@
       "node": "M20",
       "id": "EXP-MEFG-M20-PARITY",
       "title": "平价：用哪一侧成交",
-      "identity": "独立合成bid/ask账本；同利率、无分红欧式合约。核心冻结市场不加入价差开关。",
-      "question": "中价看似有缝，先把买入ask、卖出bid和现金腿全部列出来。",
+      "identity": "独立合成bid/ask账本；同利率、无分红欧式合约. 核心冻结市场不加入价差开关.",
+      "question": "中价看似有缝，先把买入ask、卖出bid和现金腿全部列出来.",
       "controls": [
         [
           "stockBid",
@@ -550,7 +550,7 @@
       "id": "VIEW-MEFG-M21-STATE-01",
       "title": "复制、概率与状态价格（Markets视图）",
       "identity": "Markets view of the unique frozen EXP-STATE-01; no second experiment registration",
-      "question": "先复制，再读权重。改变P是改变看法；改变三状态t是在允许的Q族中选一点。",
+      "question": "先复制，再读权重. 改变P是改变看法；改变三状态t是在允许的Q族中选一点.",
       "controls": [
         [
           "branch",
@@ -608,8 +608,8 @@
       "node": "M22",
       "id": "EXP-MEFG-M22-SURFACE",
       "title": "曲面切片与30日总方差",
-      "identity": "曲面完全合成；13.93为Cboe官方假设例。论文Figure 8只提供原文定位，不生成伪历史图。",
-      "question": "先沿两个方向读IV，再把两期限总方差插到30天。",
+      "identity": "曲面完全合成；13.93为Cboe官方假设例. 论文Figure 8只提供原文定位，不生成伪历史图.",
+      "question": "先沿两个方向读IV，再把两期限总方差插到30天.",
       "controls": [
         [
           "slice",
@@ -743,8 +743,8 @@
       "node": "M23",
       "id": "EXP-MEFG-M23-INFORMATION",
       "title": "合约成交量与事件时间",
-      "identity": "四组数均为按发起方向分类的合约份数，不是未加权笔数；不是交易者动机或真实流量。",
-      "question": "同一组put量可以更多，而带方向的TOI仍为正。先核单位，再解释系数。",
+      "identity": "四组数均为按发起方向分类的合约份数，不是未加权笔数；不是交易者动机或真实流量.",
+      "question": "同一组put量可以更多，而带方向的TOI仍为正. 先核单位，再解释系数.",
       "controls": [
         [
           "bc",

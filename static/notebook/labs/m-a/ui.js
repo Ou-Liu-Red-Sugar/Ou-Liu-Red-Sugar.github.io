@@ -25,27 +25,27 @@
         shares: num('share-count'), optionCount: num('option-count'), premium: $('option-premium').value });
       let descriptions, short, edges, relationDescription;
       if (instrument === 'bill') {
-        descriptions = [`义务主体：美国财政部。面值 ${money(r.face)} 美元；发行 2025-09-23，到期 2025-10-21。`,
-          `${r.quote_identity}：每 100 面值 ${money(r.quote, 6)}。教学规模对应付款 <strong>${money(r.cost, 4)}</strong> 美元。`,
-          `特定账户的实际到账：<strong>未知</strong>。按约到期的条件面值差 ${money(r.conditional_gap, 4)}；持有回报 ${money(r.holding_return_percent, 6)}%。${r.holding_days === null ? '剩余期限未设定，不年化。' : '对应 28 天。'}`];
+        descriptions = [`义务主体：美国财政部. 面值 ${money(r.face)} 美元；发行 2025-09-23，到期 2025-10-21.`,
+          `${r.quote_identity}：每 100 面值 ${money(r.quote, 6)}. 教学规模对应付款 <strong>${money(r.cost, 4)}</strong> 美元.`,
+          `特定账户的实际到账：<strong>未知</strong>. 按约到期的条件面值差 ${money(r.conditional_gap, 4)}；持有回报 ${money(r.holding_return_percent, 6)}%. ${r.holding_days === null ? '剩余期限未设定，不年化.' : '对应 28 天.'}`];
         short = ['美国财政部', '具名到期面值权利', `本例 ${money(r.face, 0)} 面值`];
         edges = ['支付约定', '到期支付'];
-        relationDescription = '美国财政部承担本券支付义务；到期支付归属于届时持有人。交易价格另列在下方，转售不会改变到期面值。';
+        relationDescription = '美国财政部承担本券支付义务；到期支付归属于届时持有人. 交易价格另列在下方，转售不会改变到期面值.';
       } else if (instrument === 'spx') {
-        descriptions = ['SPX 指数期权：欧式行权、现金结算，每点 100 美元。具体系列、执行价和期限尚未选定。',
-          `${num('option-count')} 份 × ${$('option-premium').value} 教学权利金点 × 100 美元/点 = <strong>${money(r.premium_cash)}</strong> 美元，未计费用。`,
-          '到期现金与实际到账均未给出。还需要具体系列规则、结算值及实际履约记录；不把权利金当到期支付。'];
+        descriptions = ['SPX 指数期权：欧式行权、现金结算，每点 100 美元. 具体系列、执行价和期限尚未选定.',
+          `${num('option-count')} 份 × ${$('option-premium').value} 教学权利金点 × 100 美元/点 = <strong>${money(r.premium_cash)}</strong> 美元，未计费用.`,
+          '到期现金与实际到账均未给出. 还需要具体系列规则、结算值及实际履约记录；不把权利金当到期支付.'];
         short = ['S&P 500 指数', 'SPX 系列期权合约', `本例 ${num('option-count')} 份`];
         edges = ['指数参照', '合约履约'];
-        relationDescription = '指数 → 期权：提供参照对象；期权 → 持有人：依具体系列与清算安排履约。指数本身不是付款义务人，持有期权也不是持有指数成分股。';
+        relationDescription = '指数 → 期权：提供参照对象；期权 → 持有人：依具体系列与清算安排履约. 指数本身不是付款义务人，持有期权也不是持有指数成分股.';
       } else {
         const cls = instrument === 'alphabet_A' ? 'A' : 'C';
-        descriptions = [`Alphabet ${cls} 类，教学数量 ${r.shares} 股。${cls === 'A' ? '通常每股一票。' : '除法律要求外通常没有投票权。'}分配取决于董事会决定及适用优先权等条件。`,
-          '本实验没有提供股票交易价格，因此不生成购买支出。公司经营结果也不自动等于股东现金分配。',
-          `不承诺固定到期支付。${cls === 'C' ? '清算权利涉及 C 转 A 及剩余资产的条件与顺位。' : '清算所得取决于剩余资产及适用顺位。'}实际分配须有相应记录。`];
+        descriptions = [`Alphabet ${cls} 类，教学数量 ${r.shares} 股. ${cls === 'A' ? '通常每股一票.' : '除法律要求外通常没有投票权.'}分配取决于董事会决定及适用优先权等条件.`,
+          '本实验没有提供股票交易价格，因此不生成购买支出. 公司经营结果也不自动等于股东现金分配.',
+          `不承诺固定到期支付. ${cls === 'C' ? '清算权利涉及 C 转 A 及剩余资产的条件与顺位.' : '清算所得取决于剩余资产及适用顺位.'}实际分配须有相应记录.`];
         short = ['Alphabet 公司', `${cls} 类股份权利`, `本例 ${r.shares} 股`];
         edges = ['类别安排', '股东权利'];
-        relationDescription = `公司 → 类别股份：规定经济与治理权利；股份 → 持有人：取得该类别的权利。本例通常投票数 ${r.usual_votes}；分配仍需满足原条款条件。`;
+        relationDescription = `公司 → 类别股份：规定经济与治理权利；股份 → 持有人：取得该类别的权利. 本例通常投票数 ${r.usual_votes}；分配仍需满足原条款条件.`;
       }
       $('rights-cards').innerHTML = ['契约约定', '交易对价', '实际所得'].map((x, i) => card(x, descriptions[i])).join('');
       $('rights-relations').textContent = relationDescription;
@@ -61,7 +61,7 @@
           : label(x + bw + 35, y + 31, edges[i], 'text-anchor="middle"') + label(x + bw + 35, y + 54, '→', 'text-anchor="middle" font-size="18"');
       }
       $('rights-graphic').innerHTML = svg(w, vertical ? 285 : 98, '主体或参照对象、金融权利与持有人之间的具名关系', marks);
-      $('rights-update').textContent = `已切换为 ${$('instrument').selectedOptions[0].textContent}；具体内容与图的等价说明在三张卡中。`;
+      $('rights-update').textContent = `已切换为 ${$('instrument').selectedOptions[0].textContent}；具体内容与图的等价说明在三张卡中.`;
     });
   }
 
@@ -72,17 +72,17 @@
       let payer, recipient, cashAmount, rightsText, description;
       if (r.blocked) {
         payer = '甲 · TreasuryDirect'; recipient = '到期前转出 / 出售路径'; cashAmount = null; rightsText = '面值权利仍由甲持有';
-        description = '转出路径不可达：本例新购四周券受到 45 天持有要求限制。界面保留发行后的现金与权利，没有先生成转售再撤回。';
+        description = '转出路径不可达：本例新购四周券受到 45 天持有要求限制. 界面保留发行后的现金与权利，没有先生成转售再撤回.';
       } else if (r.effective_step === 'issue') {
         payer = '甲'; recipient = '美国财政部'; cashAmount = r.issue_cash_millionths / 1000000; rightsText = '财政部 → 甲';
-        description = '发行动作完成属于教学设定。财政部是本例经济收款主体；经纪、支付和清算服务没有被合并成融资所得人。';
+        description = '发行动作完成属于教学设定. 财政部是本例经济收款主体；经纪、支付和清算服务没有被合并成融资所得人.';
       } else if (r.effective_step === 'transfer') {
         payer = '乙'; recipient = '甲'; cashAmount = r.resale_cash_millionths / 1000000; rightsText = '甲 → 乙';
-        description = '商业渠道中的教学转售：乙付款给甲，取得同一面值权利。财政部没有取得新的发行款，到期义务保留。';
+        description = '商业渠道中的教学转售：乙付款给甲，取得同一面值权利. 财政部没有取得新的发行款，到期义务保留.';
       } else {
         payer = '美国财政部'; recipient = r.channel === 'treasurydirect_new' ? '甲 · 未转售的持有人' : '乙 · 转售后的持有人';
         cashAmount = r.face; rightsText = '债权按约偿付后归零';
-        description = '这是按约到期支付的条件结果。' + (r.channel === 'treasurydirect_new' ? '甲未能转出，故到期收款仍归甲。' : '甲已转出权利，故到期收款归乙。');
+        description = '这是按约到期支付的条件结果.' + (r.channel === 'treasurydirect_new' ? '甲未能转出，故到期收款仍归甲.' : '甲已转出权利，故到期收款归乙.');
       }
       const left = w * .29, right = w * .71;
       let marks = '<defs><marker id="ma-flow-arrow" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto"><path d="M0,0 L7,3.5 L0,7 Z" fill="#25638a"/></marker></defs>';
@@ -106,12 +106,12 @@
         } else marks += label(right, 143, '债权偿付', 'text-anchor="middle"');
       }
       $('flow-graphic').innerHTML = svg(w, 308, '当前步骤的现金付款与面值权利；渠道阻挡时不生成成交', marks);
-      $('flow-status').textContent = description + ' 权利：' + rightsText + '。';
+      $('flow-status').textContent = description + ' 权利：' + rightsText + '.';
       $('flow-ledger').innerHTML = table(['主体', '累计现金变动（美元）', '剩余面值权利（美元）'],
         [['甲', money(r.cash_millionths[0] / 1000000, 4), money(r.face_rights[0], 0)],
          ['乙', money(r.cash_millionths[1] / 1000000, 4), money(r.face_rights[1], 0)],
          ['财政部（仅本例份额）', money(r.cash_millionths[2] / 1000000, 4), '义务主体，不列持有量']],
-        '现金变动与面值权利分列。底层使用十进制定点；三方累计现金变动之和为零。');
+        '现金变动与面值权利分列. 底层使用十进制定点；三方累计现金变动之和为零.');
     });
   }
 
@@ -129,8 +129,8 @@
       $('ipo-graphic').innerHTML = svg(w, 137, '同一文件状态内公司出售与原股东出售的股数构成', marks);
       const base = r.view === 'prospectus_base';
       $('ipo-status').textContent = base
-        ? '2024-03-20 招股书基准安排，不包括额外购买权。公司与原股东分别取得其售股所得；合计金额不是公司净融资。'
-        : '2024-03-25 完成发行，3 月 26 日更正 8-K/A。额外购买权的 3,300,000 股已全额行使；公司毛所得 631,601,918 美元是承销折扣、佣金及估计发行费用前。没有把此完成数量写回基准表。';
+        ? '2024-03-20 招股书基准安排，不包括额外购买权. 公司与原股东分别取得其售股所得；合计金额不是公司净融资.'
+        : '2024-03-25 完成发行，3 月 26 日更正 8-K/A. 额外购买权的 3,300,000 股已全额行使；公司毛所得 631,601,918 美元是承销折扣、佣金及估计发行费用前. 没有把此完成数量写回基准表.';
       const rows = keys.map((key, i) => {
         const row = r[key];
         return [names[i], money(row.shares, 0), row.gross_cents === null ? '本面板未展开' : money(row.gross_cents / 100),
@@ -138,7 +138,7 @@
           row.after_commission_before_other_fees_cents === null ? '本面板未展开' : money(row.after_commission_before_other_fees_cents / 100)];
       });
       $('ipo-ledger').innerHTML = table(['出售主体', '股数', '毛所得（美元）', '承销折扣与佣金', '扣佣金后、其他费用前'], rows,
-        base ? '每股公开价格 34 美元；每股承销折扣与佣金 1.70。' : '完成记录独立只读；只展示稿件核定的数量和更正后的公司毛所得。');
+        base ? '每股公开价格 34 美元；每股承销折扣与佣金 1.70.' : '完成记录独立只读；只展示稿件核定的数量和更正后的公司毛所得.');
       $('ipo-ledger').querySelectorAll('tbody tr')[keys.indexOf(selected)].classList.add('row-highlight');
     });
   }
@@ -160,7 +160,7 @@
         marks += box(78, y + 3, barW * level.quantity / max, 24, '#e2e9ed');
         if (got) marks += box(78, y + 3, barW * got / max, 24, palette[0]);
       });
-      marks += label(0, levels.length * 67 + 29, '表外执行未知，不延长档位。');
+      marks += label(0, levels.length * 67 + 29, '表外执行未知，不延长档位.');
       $('book-graphic').innerHTML = svg(w, levels.length * 67 + 45, '逐档可见数量和已成交数量；不外推深度', marks);
       const cw = width('cost-graphic'), values = [r.half_spread_cents, r.walk_cents, r.fees_cents], names = ['半价差', '逐档变化', '成交费'];
       let x = 4, costMarks = '';
@@ -193,10 +193,10 @@
       marks += label(4, 108, `从成交日之后计 ${r.lag} 个营业日 → 5 月 29 日`);
       $('settlement-graphic').innerHTML = svg(w, 127, '冻结美国历史营业日日历；两种交易日均对应5月29日标准交收', marks);
       const stageText = $('trade-stage').selectedOptions[0].textContent;
-      $('settlement-cards').innerHTML = card('标准日期', `<strong>${r.standard_date}</strong><br>适用本例历史 T+${r.lag} 条件。`)
+      $('settlement-cards').innerHTML = card('标准日期', `<strong>${r.standard_date}</strong><br>适用本例历史 T+${r.lag} 条件.`)
         + card('待付与待收', `<strong>${money(r.pending_cash)}</strong> 美元待付<br><strong>${r.pending_shares}</strong> 股待收`)
-        + card('当前教学状态', `${stageText}。${r.stage === 'settled' ? '只有这项显式完成假设使待履行事项归零。' : '义务继续保留；标准日期不证明实际完成。'}`);
-      $('settlement-update').textContent = `标准日期 ${r.standard_date}；${stageText}；待付 ${r.pending_cash} 美元、待收 ${r.pending_shares} 股。`;
+        + card('当前教学状态', `${stageText}. ${r.stage === 'settled' ? '只有这项显式完成假设使待履行事项归零.' : '义务继续保留；标准日期不证明实际完成.'}`);
+      $('settlement-update').textContent = `标准日期 ${r.standard_date}；${stageText}；待付 ${r.pending_cash} 美元、待收 ${r.pending_shares} 股.`;
     });
   }
 
@@ -210,7 +210,7 @@
         marks += label(80, y - 5, `${money(value)} 美元`);
       });
       $('collateral-graphic').innerHTML = svg(w, 109, '独立DTC参与人层抵押价值与净借记对照', marks);
-      $('collateral-output').textContent = `CM = ${money(r.collateral)} − ${money(r.net_debit)} = ${money(r.cm)} 美元。${r.status}。`;
+      $('collateral-output').textContent = `CM = ${money(r.collateral)} − ${money(r.net_debit)} = ${money(r.cm)} 美元. ${r.status}.`;
     });
   }
 
@@ -231,17 +231,17 @@
         else { marks += box(x, 102, bw, 54, '#f1f3f5', 'stroke="#a7b3ba" stroke-dasharray="4 3"'); marks += label(x + bw / 2, 133, '未计算', 'text-anchor="middle"'); }
         marks += label(x + bw / 2, 178, names[i], 'text-anchor="middle" font-size="11"');
       });
-      marks += label(8, 205, '虚线 2,700；补款目标 3,000。');
+      marks += label(8, 205, '虚线 2,700；补款目标 3,000.');
       $('mes-graphic').innerHTML = svg(w, 220, '逐日保证金余额；资金缺口未解决时后续余额停止计算', marks);
       $('mes-status').textContent = blocked
-        ? `首日亏损 ${money(-r.day1_pnl)}，需补 ${money(r.call)}；现有自由缓冲 ${money(r.buffer)}，尚缺 ${money(r.shortfall)} 美元。路径停在补款关口。第二日 +500 仅为资金解决后的条件损益。`
-        : `补款来源明确：自由缓冲用于 ${money(r.call - r.extra_external_cash)}，额外外部资金 ${money(r.extra_external_cash)}。在本例第二日路径下，期末总资源 ${money(r.terminal_resources)} − 总外部投入 ${money(r.external_resources)} = 净损益 ${money(r.net_pnl)} 美元。`;
+        ? `首日亏损 ${money(-r.day1_pnl)}，需补 ${money(r.call)}；现有自由缓冲 ${money(r.buffer)}，尚缺 ${money(r.shortfall)} 美元. 路径停在补款关口. 第二日 +500 仅为资金解决后的条件损益.`
+        : `补款来源明确：自由缓冲用于 ${money(r.call - r.extra_external_cash)}，额外外部资金 ${money(r.extra_external_cash)}. 在本例第二日路径下，期末总资源 ${money(r.terminal_resources)} − 总外部投入 ${money(r.external_resources)} = 净损益 ${money(r.net_pnl)} 美元.`;
       const rows = [['起点', '3,000.00', money(r.buffer), money(3000 + r.buffer), '均为外部初始资金'],
         ['首日损益 −400 后', money(r.balance_before_topup), money(r.buffer), money(3000 + r.buffer), '尚未作补款转移'],
         ['补款关口', blocked ? money(r.balance_before_topup) : '3,000.00', blocked ? money(r.buffer) : money(r.free_cash),
           money(r.external_resources), blocked ? `缺口 ${money(r.shortfall)}，未完成补足` : `补入 ${money(r.call)}；其中新增外部资金 ${money(r.extra_external_cash)}`],
         ['第二日条件路径', money(r.margin_terminal), money(r.free_cash), money(r.external_resources), blocked ? '余额未计算；+500 仅为条件损益' : `期末总资源 ${money(r.terminal_resources)}；净损益 ${money(r.net_pnl)}`]];
-      $('mes-ledger').innerHTML = table(['阶段', '保证金余额', '自由现金', '累计外部投入', '资金动作与条件'], rows, '金额单位：美元。转移自由现金到保证金不会再次增加外部投入。');
+      $('mes-ledger').innerHTML = table(['阶段', '保证金余额', '自由现金', '累计外部投入', '资金动作与条件'], rows, '金额单位：美元. 转移自由现金到保证金不会再次增加外部投入.');
     });
   }
 

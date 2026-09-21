@@ -254043,7 +254043,7 @@
         "abs_difference": 3.469446951953614e-18
       }
     ],
-    "interpretation": "冻结版本上的教学历史重放；不是未经研究者看过的保留数据，也不证明可交易或因果。"
+    "interpretation": "冻结版本上的教学历史重放；不是未经研究者看过的保留数据，也不证明可交易或因果."
   },
   "selection": {
     "config": {
@@ -254065,7 +254065,7 @@
       "alpha": 0.05,
       "hypothesis": "事前单侧H0:mu=0 versus H1:mu>0; sigma known",
       "pvalue": "0.5*erfc(Z/sqrt(2))",
-      "draw_order": "先取(5000,500)开发Z矩阵，再取独立保留Z矩阵；M为共同500列前缀。mixed另重置2202。",
+      "draw_order": "先取(5000,500)开发Z矩阵，再取独立保留Z矩阵；M为共同500列前缀. mixed另重置2202.",
       "bh_adopted_comparison": "strict <",
       "source_pilot_comparison": "<=",
       "empty_BH": "k=0, no rejections, FDP=0",

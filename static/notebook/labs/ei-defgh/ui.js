@@ -42,53 +42,53 @@ function render(s,x,o){
  switch(s.method){
  case "rates": {
  const t=x.refiTime,p=o.annual_net_before_refinance,a=o.annual_net_after_refinance;
- return tiles([["年初净年化增量（百万美元/年）",fmt(p)],["再融资后净年化增量",fmt(a)],["首年累计增量（百万美元）",fmt(o.first_year_net_accrual)]])
- +chart([{label:"净年化增量",points:[[0,p],[t,p],[t,a],[1,a]]}],"速度：再融资时点前后","年内时间 τ","百万美元/年")
- +chart([{label:"累计计息增量",points:[[0,0],[t,p*t],[1,o.first_year_net_accrual]]}],"期间：首年累计计息","年内时间 τ","百万美元")
+ return tiles([["年初净年化增量（ M 美元/年）",fmt(p)],["再融资后净年化增量",fmt(a)],["首年累计增量（ M 美元）",fmt(o.first_year_net_accrual)]])
+ +chart([{label:"净年化增量",points:[[0,p],[t,p],[t,a],[1,a]]}],"速度：再融资时点前后","年内时间 τ"," M 美元/年")
+ +chart([{label:"累计计息增量",points:[[0,0],[t,p*t],[1,o.first_year_net_accrual]]}],"期间：首年累计计息","年内时间 τ"," M 美元")
  +table(["组成","年化增量","首年影响"],[
  ["现金利息收入",fmt(o.annual_asset_income),fmt(o.annual_asset_income)],
  ["浮债利息费用",fmt(o.annual_floating_expense),fmt(o.annual_floating_expense)],
  ["新固定债利息费用",fmt(o.annual_refinance_expense),fmt(o.first_year_refinance_expense)]])
- +'<p>默认旧浮债利差固定，现金和浮债基准完全传导；固定债只对再融资部分重定价。累计计息不是付息日现金流水。</p>';
+ +'<p>默认旧浮债利差固定，现金和浮债基准完全传导；固定债只对再融资部分重定价. 累计计息不是付息日现金流水.</p>';
  }
  case "fx":return tiles([["应收重估损益（USD）",fmt(o.receivable_change)],["应付重估损益（USD）",fmt(o.payable_gain)],["自然匹配净损益（USD）",fmt(o.net_change)]])
  +table(["同币种、同日","确认时 USD","结算时 USD"],[["应收 EUR "+fmt(x.receivable),fmt(o.receivable_start),fmt(o.receivable_end)],["应付 EUR "+fmt(x.payable),fmt(o.payable_start),fmt(o.payable_end)],["净额 EUR "+fmt(o.net_eur),fmt(o.net_start),fmt(o.net_end)]])
- +'<div class="flow"><span>美元功能货币</span><b>→</b><span>确认 EUR 固定金额</span><b>→</b><span>同日结算与自然匹配</span></div><p>报价是 USD/EUR。日期不同就不能把两笔现金当同日净额；本实验没有衍生品支付，也不计算 OCI 折算。</p>';
+ +'<div class="flow"><span>美元功能货币</span><b>→</b><span>确认 EUR 固定金额</span><b>→</b><span>同日结算与自然匹配</span></div><p>报价是 USD/EUR. 日期不同就不能把两笔现金当同日净额；本实验没有衍生品支付，也不计算 OCI 折算.</p>';
  case "liquidity":return tiles([["合格来源（同一金额单位）",fmt(o.eligible_sources)],["30天净压力需要",fmt(o.net_need)],["测试频率（题设类别）",o.test_frequency]])
  +table(["资源/需要","采用金额","规则身份"],[["压力需要",fmt(o.need),"本情景假设"],["候选来源",fmt(o.eligible_sources),"通过资格审查且已折价"],["未满足资格的来源",fmt(o.excluded_sources),"不计入"],["授信额度",fmt(o.excluded_credit_line),"30天及以下不计入现金流来源"],["实际另留缓冲资产","未给定","不能据此推算实际缺口"]])
- +'<p>同一可变现资产只记一次。若来源超过需要，净需要显示0；带符号差额为 '+fmt(o.signed_net_need)+'。这不是资本比率或监管 LCR。</p>';
+ +'<p>同一可变现资产只记一次. 若来源超过需要，净需要显示0；带符号差额为 '+fmt(o.signed_net_need)+'. 这不是资本比率或监管 LCR.</p>';
  case "adoption":return tiles([["采用者数量份额",pct(o.adopter_count_share)],["采用者基期产出份额",pct(o.adopter_output_share)],["总体产出增幅",pct(o.growth)]])
  +table(["单位","基期产出","是否采用","相对提升","产出增量"],[[1,fmt(x.y1),x.d1?"是":"否",pct(x.g1),fmt(o.delta[0])],[2,fmt(x.y2),x.d2?"是":"否",pct(x.g2),fmt(o.delta[1])],["合计",fmt(o.baseline),"—","总体 "+pct(o.growth),fmt(o.delta.reduce((a,b)=>a+b,0))]])
- +'<p>计算 Σ(y·d·g)/Σy。按人数/企业数平均效果会给 '+pct(o.count_weighted_gain)+'，只有额外条件成立才等于产出加权结果。本模型固定投入、忽略外溢，不能代入 BTOS×QJE。</p>';
+ +'<p>计算 Σ(y·d·g)/Σy. 按人数/企业数平均效果会给 '+pct(o.count_weighted_gain)+'，只有额外条件成立才等于产出加权结果. 本模型固定投入、忽略外溢，不能代入 BTOS×QJE.</p>';
  case "metrics":{
- if(o.branch==="electricity")return tiles([["2025售电量（千MWh）",fmt(o.qty2025,0)],["2024→2025增长",fmt(o.growth)+"%"],["平均收入率（美分/kWh）",fmt(o.averageCents)]])
- +'<p>'+o.status+'。收入为 '+fmt(o.revenue,0)+' 百万美元。Table5.1/5.2 同版、同总体，收入率是收入除售电量，不是边际电价。</p>'+table(["指标","能观察的环节","下一步资料"],[["售电量","客户账单售电","天气、客户结构"],["收入/量","平均账单收入","费率条款、客户mix"],["发电量/容量","供应不同环节","相同覆盖、时段可用性"]]);
+ if(o.branch==="electricity")return tiles([["2025售电量（ K MWh）",fmt(o.qty2025,0)],["2024→2025增长",fmt(o.growth)+"%"],["平均收入率（美分/kWh）",fmt(o.averageCents)]])
+ +'<p>'+o.status+'. 收入为 '+fmt(o.revenue,0)+' M 美元. Table5.1/5.2 同版、同总体，收入率是收入除售电量，不是边际电价.</p>'+table(["指标","能观察的环节","下一步资料"],[["售电量","客户账单售电","天气、客户结构"],["收入/量","平均账单收入","费率条款、客户mix"],["发电量/容量","供应不同环节","相同覆盖、时段可用性"]]);
  if(o.branch==="manufacturing")return tiles([["未交订单变化",fmt(o.backlogChange)],["构造的新订单",fmt(o.constructedOrders)],["另列存货变化",fmt(o.inventoryChange)]])
- +'<p>百万美元、季调；April revised / May preliminary。N = S + ΔB = '+fmt(o.shipments)+' + '+fmt(o.backlogChange)+'。这是统计构造桥，不是三个独立需求信号。</p>'+table(["材料","角色"],[["出货","期间流量"],["未交订单","期末存量"],["新订单","由前两者构造"],["存货","另一存量，不加进订单桥"]]);
- if(o.branch==="retail")return table(["同一2022材料期","原口径（百万USD）","重述口径","版本差"],[["年度销售",fmt(o.salesOld,0),fmt(o.salesNew,0),fmt(o.salesPct)+"%"],["期末库存",fmt(o.inventoryOld,0),fmt(o.inventoryNew,0),fmt(o.inventoryPct)+"%"]])
- +'<p>2025-04-25发布的重述改变统计总体/分类；它不是同一经济体在相邻两期需求下降。保留原版和重述版，避免拼接同比。</p>';
- return tiles([["行业净利润（十亿美元）",fmt(o.net_income_billion_USD)],["净息差 NIM",fmt(o.NIM_pct)+"%"],["相邻上一季NIM（倒推）",fmt(o.previousNIMpct)+"%"]])
- +'<p>FDIC Q1 2026，4,278家机构。NIM = 年化净利息 / 平均生息资产；ROA '+fmt(o.ROA_pct)+'% 的分母不同。资产收益率降21bp、资金成本降13bp，给出净息差收窄的方向，不能无视分母结构强行相减为精确恒等式。</p>';
+ +'<p> M 美元、季调；April revised / May preliminary. N = S + ΔB = '+fmt(o.shipments)+' + '+fmt(o.backlogChange)+'. 这是统计构造桥，不是三个独立需求信号.</p>'+table(["材料","角色"],[["出货","期间流量"],["未交订单","期末存量"],["新订单","由前两者构造"],["存货","另一存量，不加进订单桥"]]);
+ if(o.branch==="retail")return table(["同一2022材料期","原口径（ M USD）","重述口径","版本差"],[["年度销售",fmt(o.salesOld,0),fmt(o.salesNew,0),fmt(o.salesPct)+"%"],["期末库存",fmt(o.inventoryOld,0),fmt(o.inventoryNew,0),fmt(o.inventoryPct)+"%"]])
+ +'<p>2025-04-25发布的重述改变统计总体/分类；它不是同一经济体在相邻两期需求下降. 保留原版和重述版，避免拼接同比.</p>';
+ return tiles([["行业净利润（ B 美元）",fmt(o.net_income_billion_USD)],["净息差 NIM",fmt(o.NIM_pct)+"%"],["相邻上一季NIM（倒推）",fmt(o.previousNIMpct)+"%"]])
+ +'<p>FDIC Q1 2026，4,278家机构. NIM = 年化净利息 / 平均生息资产；ROA '+fmt(o.ROA_pct)+'% 的分母不同. 资产收益率降21bp、资金成本降13bp，给出净息差收窄的方向，不能无视分母结构强行相减为精确恒等式.</p>';
  }
  case "industry":return tiles([["零售售电量增长",fmt(o.salesGrowth)+"%"],["公用事业规模发电增长",fmt(o.growth)+"%"],["2026新增计划",fmt(o.plannedGW)+" GW"]])
- +table(["发电来源（千MWh）","2024 final","2025 preliminary","增长"],o.rows.map(r=>[r.label,fmt(r.y2024,0),fmt(r.y2025,0),fmt(r.growth)+"%"]).concat([["总计",fmt(o.totals[0],0),fmt(o.totals[1],0),fmt(o.growth)+"%"]]))
- +'<div class="flow"><span>'+esc(o.path)+'</span></div><p>冻结 EPM 2026-08-26版。这里切换的是经营路径，不更改全国观察数据；86GW为计划而非发电量。其余净额是总计减已列五类，不代表单一技术。</p>';
+ +table(["发电来源（ K MWh）","2024 final","2025 preliminary","增长"],o.rows.map(r=>[r.label,fmt(r.y2024,0),fmt(r.y2025,0),fmt(r.growth)+"%"]).concat([["总计",fmt(o.totals[0],0),fmt(o.totals[1],0),fmt(o.growth)+"%"]]))
+ +'<div class="flow"><span>'+esc(o.path)+'</span></div><p>冻结 EPM 2026-08-26版. 这里切换的是经营路径，不更改全国观察数据；86GW为计划而非发电量. 其余净额是总计减已列五类，不代表单一技术.</p>';
  case "capacity":{
  const qmax=Math.max(x.a,x.K,100),points=Array.from({length:31},(_,i)=>{let q=qmax*i/30;return[q,x.a-q];});
  return tiles([["均衡量 Q",fmt(o.q)],["价格 P",fmt(o.p)],["约束乘子 μ",fmt(o.mu)]])
  +chart([{label:"逆需求 P=a−Q",points},{label:"边际成本 P=Q",points:[[0,0],[qmax,qmax]]},{label:"容量上限 K",points:[[x.K,0],[x.K,Math.max(x.a,x.K)]]}],"教学竞争市场：成本与容量","抽象数量","抽象价格")
  +table(["状态","值"],[["K−Q",fmt(o.slack)],["μ(Q−K)",fmt(o.complementarity)],["状态",o.regime]])
- +'<p>Q=min(a/2,K)，P=a−Q，μ=a−2Q。需求增加在容量绑定时可只抬升价格。本实验为一期间教学模型，不是 IMES 估计模型。</p>';
+ +'<p>Q=min(a/2,K)，P=a−Q，μ=a−2Q. 需求增加在容量绑定时可只抬升价格. 本实验为一期间教学模型，不是 IMES 估计模型.</p>';
  }
  case "relax":return chart([{label:"保留容量约束",points:o.rows.map(r=>[r.period,r.constrained_p])},{label:"同需求，令容量始终松弛",points:o.rows.map(r=>[r.period,r.slack_p])}],"相同需求路径的两次教学运行","教学期数","抽象价格（不是通胀百分点）")
  +table(["期","固定需求a","容量K","约束价格","松弛价格","差"],o.rows.map(r=>[r.period,r.a,fmt(r.K),fmt(r.constrained_p),fmt(r.slack_p),fmt(r.difference)]))
- +'<p>需求 [100,120,130,110] 在两次运行完全相同；只切换是否施加容量上限。操作结构对应 Fig.7，但这些是本站教学价格，不是论文后验序列。论文须保留同一滤出冲击、参数、measurement error和不确定区间。</p>';
+ +'<p>需求 [100,120,130,110] 在两次运行完全相同；只切换是否施加容量上限. 操作结构对应 Fig.7，但这些是本站教学价格，不是论文后验序列. 论文须保留同一滤出冲击、参数、measurement error和不确定区间.</p>';
  case "interaction":return table(["同一个基准下的情景","a","K","Q","P"],[["基准 G(0,0)",100,80,fmt(o.baseline.q),fmt(o.baseline.p)],["仅需求 G(u,0)",100+x.demandShock,80,fmt(o.demand_only.q),fmt(o.demand_only.p)],["仅容量 G(0,v)",100,80-x.capacityReduction,fmt(o.capacity_only.q),fmt(o.capacity_only.p)],["联合 G(u,v)",100+x.demandShock,80-x.capacityReduction,fmt(o.joint.q),fmt(o.joint.p)]])
  +tiles([["无容量冲击的需求效应",fmt(o.demand_effect_without_capacity)],["给定容量冲击的需求效应",fmt(o.conditional_demand_effect)],["非线性交互项",fmt(o.interaction)]])
- +'<p>条件需求效应=G(u,v)−G(0,v)。交互项再减 G(u,0)−G(0,0)。单位为教学价格，不是通胀贡献；这种差分不是可相加至100%的线性分解。</p>';
+ +'<p>条件需求效应=G(u,v)−G(0,v). 交互项再减 G(u,0)−G(0,0). 单位为教学价格，不是通胀贡献；这种差分不是可相加至100%的线性分解.</p>';
  case "paper":return tiles([["低现金比率下条件导数",fmt(o.derivativeLow,6)],["高现金比率下条件导数",fmt(o.derivativeHigh,6)],["响应差（log units）",fmt(o.logDifference,6)]])
  +table(["对象","结果","单位"],[["现金比率差",fmt(x.cashGap),"0–1比率"],["FFR变动",fmt(x.ffrPP),"采用工作例的百分点尺度"],["对数点",fmt(o.logPoints,6),"100×log units"],["精确相对差 exp(z)−1",pct(o.exactRelativeDifference),"同一条件模型的变换，不是现金收益率"]])
- +'<p>Table2(2)：β₂=.214、β₄=.398；导数 β₂+β₄C。来源文字与算式的比例单位存在疑点；这里按明确的0–1现金比率和工作例FFR尺度解释，不声称修复了原作者，也不输出公司预测。</p>';
+ +'<p>Table2(2)：β₂=.214、β₄=.398；导数 β₂+β₄C. 来源文字与算式的比例单位存在疑点；这里按明确的0–1现金比率和工作例FFR尺度解释，不声称修复了原作者，也不输出公司预测.</p>';
  }
  return "";
 }
@@ -99,11 +99,11 @@ if(embedded)document.body.classList.add("embedded");
 const nav=document.getElementById("lab-nav"),container=document.getElementById("experiments");
 const allSpecs=D.experiments;
 if(wanted&&!allSpecs.some(s=>s.id===wanted)){
- container.innerHTML='<p class="error" role="alert">未知实验 ID：'+esc(wanted)+'。查询参数优先，不回退到其他实验。</p>';
+ container.innerHTML='<p class="error" role="alert">未知实验 ID：'+esc(wanted)+'. 查询参数优先，不回退到其他实验.</p>';
  if(nav)nav.hidden=true;
  return;
 }
-if(hasQuery&&!wanted){container.innerHTML='<p class="error">experiment 参数为空。</p>';if(nav)nav.hidden=true;return;}
+if(hasQuery&&!wanted){container.innerHTML='<p class="error">experiment 参数为空.</p>';if(nav)nav.hidden=true;return;}
 const selected=wanted?allSpecs.filter(s=>s.id===wanted):allSpecs;
 if(nav){nav.hidden=embedded;nav.innerHTML='<a href="interactions.html">全部实验</a> · '+allSpecs.map(s=>'<a href="?experiment='+s.id+'#'+s.id+'">'+s.node_id+' · '+esc(s.title)+'</a>').join(' · ');}
 const rendered={};

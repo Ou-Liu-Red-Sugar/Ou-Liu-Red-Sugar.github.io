@@ -14,9 +14,9 @@
 <p>{{ if $zh }}选择实际出现的点数：{{ else }}Choose the realised result:{{ end }}</p>
 <div class="die-faces">{{ range seq 6 }}<button type="button" data-face="{{ . }}" aria-pressed="{{ if eq . 1 }}true{{ else }}false{{ end }}" disabled><span>{{ . }}</span><small data-mean>{{ if modBool . 2 }}4{{ else }}3{{ end }}</small></button>{{ end }}</div>
 <div class="chart-result" aria-live="polite" aria-atomic="true"><span>{{ if $zh }}无法再区分的结果{{ else }}Information cell{{ end }} <strong data-result="cell">{1, 3, 5}</strong></span><span>{{ if $zh }}条件平均{{ else }}Conditional mean{{ end }} <strong data-result="mean">3</strong></span><span>{{ if $zh }}整体期望{{ else }}Overall mean{{ end }} <strong>3.5</strong></span></div>
-<p class="small-note">{{ if $zh }}大数字是实际点数，小数字是该结果对应的条件期望。高亮表示当前信息单元。{{ else }}Large numbers are outcomes; small numbers are their conditional means. Highlighted outcomes belong to the current information cell.{{ end }}</p>
+<p class="small-note">{{ if $zh }}大数字是实际点数，小数字是该结果对应的条件期望. 高亮表示当前信息单元.{{ else }}Large numbers are outcomes; small numbers are their conditional means. Highlighted outcomes belong to the current information cell.{{ end }}</p>
 {{ else if eq $d.type "balance" }}
-<p>选一个动作，沿箭头看它如何传到资产、负债和权益。每一步接着上一步发生。</p>
+<p>选一个动作，沿箭头看它如何传到资产、负债和权益. 每一步接着上一步发生.</p>
 <div class="event-tabs" role="group" aria-label="选择经营动作" hidden>{{ range $d.events }}<button data-event="{{ .id }}" aria-pressed="false">{{ .label }}</button>{{ end }}</div>
 {{ range $d.events }}<section class="event-panel" data-event-panel="{{ .id }}"><h3>{{ .label }}</h3>{{ partial "notebook/flow.html" .paths }}<p class="event-explanation">{{ .explanation }}</p><div class="balance-snapshot"><div><strong>资产 {{ .assets }}</strong><span>{{ .asset_detail }}</span></div><b>=</b><div><strong>负债 {{ .liabilities }}</strong><span>{{ .liability_detail }}</span></div><b>+</b><div><strong>权益 {{ .equity }}</strong><span>{{ .equity_detail }}</span></div></div></section>{{ end }}
 {{ else if eq $d.type "flow" }}
@@ -25,5 +25,5 @@
 {{ end }}
 <figcaption><strong>{{ if $zh }}适用条件：{{ else }}Conditions: {{ end }}</strong>{{ $d.conditions }}</figcaption>
 <details class="diagram-description"><summary>{{ if $zh }}图表的完整文字说明{{ else }}Complete text equivalent{{ end }}</summary><p>{{ $d.description }}</p><p>{{ $d.formula }}</p><p>{{ $d.default }}</p></details>
-<noscript><p>{{ if $zh }}当前为静态示意；完整规则与默认结果见上方文字说明。{{ else }}Static illustration. Rules and default results are described above.{{ end }}</p></noscript>
+<noscript><p>{{ if $zh }}当前为静态示意；完整规则与默认结果见上方文字说明.{{ else }}Static illustration. Rules and default results are described above.{{ end }}</p></noscript>
 </figure>

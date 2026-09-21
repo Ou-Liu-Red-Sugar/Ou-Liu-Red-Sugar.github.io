@@ -13,7 +13,7 @@
         "FY2024 · 2024-09-01 · 52周",
         "FY2023 · 2023-09-03 · 53周"
       ],
-      "unit": "USD millions",
+      "unit": "USD M",
       "data_identity": "historical_observation",
       "rows": [
         {
@@ -223,7 +223,7 @@
         {
           "id": "shares",
           "label_original": "SHARES USED IN CALCULATION (000's)",
-          "label_zh": "计算使用股数（千股）",
+          "label_zh": "计算使用股数（K 股）",
           "kind": "heading",
           "section": "shares",
           "values": [
@@ -258,9 +258,9 @@
         }
       ],
       "notes": [
-        "金额为百万美元；EPS为美元/股；股数为千股。括号负数按负号保存。",
-        "合并利润表未单列毛利；MD&A p.27定义Gross Margin=Net sales−Merchandise costs，2025/24/23分别30026/27267/25124。",
-        "2023是53周，2025和2024为52周；比较增长前核对。"
+        "金额单位为 USD M；EPS为美元/股；股数为K 股. 括号负数按负号保存.",
+        "合并利润表未单列毛利；MD&A p.27定义Gross Margin=Net sales−Merchandise costs，2025/24/23分别30026/27267/25124.",
+        "2023是53周，2025和2024为52周；比较增长前核对."
       ]
     },
     "jpm_income": {
@@ -273,7 +273,7 @@
         "2024",
         "2023"
       ],
-      "unit": "USD millions",
+      "unit": "USD M",
       "data_identity": "historical_observation",
       "rows": [
         {
@@ -651,7 +651,7 @@
         {
           "id": "shares_basic",
           "label_original": "Weighted-average basic shares",
-          "label_zh": "基本加权平均股数（百万股）",
+          "label_zh": "基本加权平均股数（ M 股）",
           "kind": "detail",
           "section": "shares",
           "values": [
@@ -663,7 +663,7 @@
         {
           "id": "shares_diluted",
           "label_original": "Weighted-average diluted shares",
-          "label_zh": "稀释加权平均股数（百万股）",
+          "label_zh": "稀释加权平均股数（ M 股）",
           "kind": "detail",
           "section": "shares",
           "values": [
@@ -674,9 +674,9 @@
         }
       ],
       "notes": [
-        "GAAP集团合并口径，不混入managed/FTE分部口径。",
-        "费用行原表为正额，计算中减去；投资证券损失为带负号收入。",
-        "EPS为美元/股，股数为百万股；原表应与附注一同阅读。"
+        "GAAP集团合并口径，不混入managed/FTE分部口径.",
+        "费用行原表为正额，计算中减去；投资证券损失为带负号收入.",
+        "EPS为美元/股，股数为 M 股；原表应与附注一同阅读."
       ]
     },
     "sf_cash": {
@@ -689,7 +689,7 @@
         "FY2025 · 2025-01-31",
         "FY2024 · 2024-01-31"
       ],
-      "unit": "USD millions",
+      "unit": "USD M",
       "data_identity": "historical_observation",
       "rows": [
         {
@@ -1174,9 +1174,9 @@
         }
       ],
       "notes": [
-        "（1）D&A含取得无形资产摊销、固定资产折旧、使用权资产摊销及减值。",
-        "资产与负债变动按原表扣除企业合并影响，不能直接用两个期末余额替换。",
-        "现金集合为cash and cash equivalents。补充已付利息和税款已经体现在现金流中，不重复累加。"
+        "（1）D&A含取得无形资产摊销、固定资产折旧、使用权资产摊销及减值.",
+        "资产与负债变动按原表扣除企业合并影响，不能直接用两个期末余额替换.",
+        "现金集合为cash and cash equivalents. 补充已付利息和税款已经体现在现金流中，不重复累加."
       ],
       "aggregation_rules": [
         {
@@ -1252,7 +1252,7 @@
         "FY2024 · 52周",
         "FY2023 · 53周"
       ],
-      "unit": "USD millions",
+      "unit": "USD M",
       "data_identity": "historical_observation",
       "rows": [
         {
@@ -1714,9 +1714,9 @@
         }
       ],
       "notes": [
-        "零值按原表破折号语义保留数值0；主表标题无金额为null，不等于0。",
-        "其他非现金经营活动净额为负不能整行解释为本期资产减值。",
-        "现金集合为cash and cash equivalents；补充的未付资本支出不加到当期现金支出。"
+        "零值按原表破折号语义保留数值0；主表标题无金额为null，不等于0.",
+        "其他非现金经营活动净额为负不能整行解释为本期资产减值.",
+        "现金集合为cash and cash equivalents；补充的未付资本支出不加到当期现金支出."
       ],
       "aggregation_rules": [
         {
@@ -1787,7 +1787,7 @@
         "2024",
         "2023"
       ],
-      "unit": "USD millions",
+      "unit": "USD M",
       "data_identity": "historical_observation",
       "rows": [
         {
@@ -2392,9 +2392,9 @@
         }
       ],
       "notes": [
-        "此表以原页重新排版；行名称保留业务含义，原文图像位于PDF第201页。",
-        "JPM现金集合为cash and due from banks and deposits with banks，不能改称普通公司cash equivalents。",
-        "变化和合计按原表符号；经营资产扩张与客户存款筹资分属不同活动类别。"
+        "此表以原页重新排版；行名称保留业务含义，原文图像位于PDF第201页.",
+        "JPM现金集合为cash and due from banks and deposits with banks，不能改称普通公司cash equivalents.",
+        "变化和合计按原表符号；经营资产扩张与客户存款筹资分属不同活动类别."
       ],
       "aggregation_rules": [
         {
@@ -2502,7 +2502,7 @@
       "terms": "Four bounded contracts; distinct promises, fixed consideration, no returns, taxes, financing, credit losses or cost; dates govern accounting, invoice alone does not create unconditional rights.",
       "presets": {
         "prepaid": {
-          "rights_and_performance_terms": "全年均匀服务；2026-01-01付款已无条件到期。",
+          "rights_and_performance_terms": "全年均匀服务；2026-01-01付款已无条件到期.",
           "events": [
             {
               "type": "right",
@@ -2597,7 +2597,7 @@
           ]
         },
         "unbilled": {
-          "rights_and_performance_terms": "1月10日交付即取得无条件收款权；后续仅待时间经过，开票是行政步骤。",
+          "rights_and_performance_terms": "1月10日交付即取得无条件收款权；后续仅待时间经过，开票是行政步骤.",
           "events": [
             {
               "type": "performance",
@@ -2626,7 +2626,7 @@
           ]
         },
         "conditional": {
-          "rights_and_performance_terms": "两项可区分交付各分配一半对价；1月10日、2月10日分别转移控制。首项已履约，但须第二项完成后才取得整笔无条件权利。",
+          "rights_and_performance_terms": "两项可区分交付各分配一半对价；1月10日、2月10日分别转移控制. 首项已履约，但须第二项完成后才取得整笔无条件权利.",
           "events": [
             {
               "type": "performance",
@@ -2661,7 +2661,7 @@
           ]
         },
         "pos": {
-          "rights_and_performance_terms": "1月10日当面交付，即取得整笔无条件权利。",
+          "rights_and_performance_terms": "1月10日当面交付，即取得整笔无条件权利.",
           "events": [
             {
               "type": "performance",
@@ -2696,7 +2696,7 @@
         "invoice",
         "cash"
       ],
-      "scope_note": "假设合同在首个事件前有效成立。改变收款日只改变实际收付；提前收款属于可抵未来合同对价的预收，不是另一个押金合同。"
+      "scope_note": "假设合同在首个事件前有效成立. 改变收款日只改变实际收付；提前收款属于可抵未来合同对价的预收，不是另一个押金合同."
     },
     "ssp": {
       "id": "SYN-SSP-01",
@@ -2743,14 +2743,14 @@
     "locator": "Consolidated Statements of Stockholders’ Equity, printed p.60",
     "identity": "historical_observation",
     "columns": [
-      "普通股股数（百万股）",
-      "普通股金额（百万美元）",
-      "库存股股数（负数，百万股）",
-      "库存股金额（负数，百万美元）",
-      "额外实收资本（百万美元）",
-      "累计其他综合收益／损失（百万美元）",
-      "留存收益（百万美元）",
-      "权益合计（百万美元）"
+      "普通股股数（ M 股）",
+      "普通股金额（ M 美元）",
+      "库存股股数（负数， M 股）",
+      "库存股金额（负数， M 美元）",
+      "额外实收资本（ M 美元）",
+      "累计其他综合收益／损失（ M 美元）",
+      "留存收益（ M 美元）",
+      "权益合计（ M 美元）"
     ],
     "rows": [
       [
@@ -2947,9 +2947,9 @@
       ]
     ],
     "notes": [
-      "连续选取FY2025–2026完整年度权益变动；原表另有FY2024，未纳入此处年度窗口。",
-      "股数按百万取整，显示0不证明没有股数变动；17不得全部标为SBC发股。",
-      "原表Other comprehensive loss, net of tax在FY2026列正579，按原符号保留。"
+      "连续选取FY2025–2026完整年度权益变动；原表另有FY2024，未纳入此处年度窗口.",
+      "股数以 M 为单位取整，显示0不证明没有股数变动；17不得全部标为SBC发股.",
+      "原表Other comprehensive loss, net of tax在FY2026列正579，按原符号保留."
     ]
   },
   "sf_eps": {
@@ -3036,9 +3036,9 @@
     "rpo_noncurrent_bn": 37.3,
     "rpo_total_bn": 72.4,
     "rpo_precision_bn": 0.1,
-    "other_note": "billings and other包括汇兑、合同资产及企业合并；FY2026包含Informatica收购日未赚取收入651百万美元。",
+    "other_note": "billings and other包括汇兑、合同资产及企业合并；FY2026包含Informatica收购日未赚取收入651 M 美元.",
     "identity": "historical_observation",
-    "unit": "USD millions except RPO USD billions"
+    "unit": "USD M except RPO USD billions"
   },
   "sf_tax": {
     "source_id": "BBC-C01",
@@ -3361,7 +3361,7 @@
       ]
     ],
     "identity": "historical_observation",
-    "unit": "USD millions; tax reconciliation percentages separately identified"
+    "unit": "USD M; tax reconciliation percentages separately identified"
   },
   "inventory": {
     "cat": {
@@ -3453,7 +3453,7 @@
       "policy": "lower of cost or market; US LIFO, other regions primarily FIFO"
     },
     "identity": "historical_observation",
-    "unit": "USD millions"
+    "unit": "USD M"
   },
   "cat_nci": {
     "source_id": "BBC-C04",
@@ -3465,7 +3465,7 @@
     "opening_nci": 3,
     "other_nci": -1,
     "closing_nci": 0,
-    "unit": "USD millions",
+    "unit": "USD M",
     "identity": "historical_observation"
   },
   "sf_equity_comparison": {
@@ -3481,6 +3481,6 @@
     "repurchase_shares_m": 50,
     "repurchase_avg_price": 254.21,
     "identity": "historical_observation",
-    "unit": "USD millions except shares million and average price USD/share"
+    "unit": "USD M except shares million and average price USD/share"
   }
 }

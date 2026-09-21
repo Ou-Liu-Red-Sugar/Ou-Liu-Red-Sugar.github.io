@@ -4,7 +4,7 @@
     "node_id": "P13",
     "title": "备兑财富与交付",
     "anchor": "p13-lab",
-    "description": "从已有股票出发，重建权利金、负债、封顶收益和股息指派后的完整账户。",
+    "description": "从已有股票出发，重建权利金、负债、封顶收益和股息指派后的完整账户.",
     "shared_experiment_id": "EXP-OPTIONS-01",
     "inputs": {
       "terminal_stock": {
@@ -29,7 +29,7 @@
       "缺口或适用边界"
     ],
     "algorithm": "entry -> terminal/expiryHoldings; early-assignment uses separately imposed event and ex-dividend comparator.",
-    "boundaries": "已有100股不重复买入；恰K按非行权演示不预测指派；未知后续报价不补造。",
+    "boundaries": "已有100股不重复买入；恰K按非行权演示不预测指派；未知后续报价不补造.",
     "views": [
       "到期财富线",
       "股票、现金、短义务与除息时点"
@@ -54,7 +54,7 @@
     "node_id": "P14",
     "title": "接股义务、平价与资金",
     "anchor": "p14-lab",
-    "description": "区分接股总款与有效成本，比较同K平价、限价成交和指派时点。",
+    "description": "区分接股总款与有效成本，比较同K平价、限价成交和指派时点.",
     "shared_experiment_id": "EXP-OPTIONS-01",
     "inputs": {
       "terminal_stock": {
@@ -81,7 +81,7 @@
       "缺口或适用边界"
     ],
     "algorithm": "terminal CSP95 + same-K CC105/CSP105; putAssignment separates gross and reachable cash; limitComparison is imposed fill path.",
-    "boundaries": "没有资金不输出已完成股份；不以一次触价推定成交/指派。",
+    "boundaries": "没有资金不输出已完成股份；不以一次触价推定成交/指派.",
     "views": [
       "接股/不接股财富曲线",
       "总交割款与及时现金/缺口"
@@ -106,7 +106,7 @@
     "node_id": "P10",
     "title": "风险单位与可行集合",
     "anchor": "p10-lab",
-    "description": "先定义终点下限、保留上行与付款时间，再判断候选对冲是否满足同一任务。",
+    "description": "先定义终点下限、保留上行与付款时间，再判断候选对冲是否满足同一任务.",
     "shared_experiment_id": "EXP-OPTIONS-01",
     "inputs": {
       "terminal_stock": {
@@ -139,7 +139,7 @@
       "缺口或适用边界"
     ],
     "algorithm": "For each of six candidates compute all-price floor and high-price slope; take intersection, then show selected stress wealth.",
-    "boundaries": "无概率或最优组合宣称；一组任务可以没有可行候选；截止现金另核。",
+    "boundaries": "无概率或最优组合宣称；一组任务可以没有可行候选；截止现金另核.",
     "views": [
       "六条共同财富线",
       "下限/上涨比例/实际建仓现金矩阵"
@@ -164,7 +164,7 @@
     "node_id": "P15",
     "title": "保护下限与三次重设",
     "anchor": "p15-lab",
-    "description": "逐腿推导指定期限净财富下限，并用三次续保说明参照点重设的累计后果。",
+    "description": "逐腿推导指定期限净财富下限，并用三次续保说明参照点重设的累计后果.",
     "shared_experiment_id": "EXP-OPTIONS-01",
     "inputs": {
       "terminal_stock": {
@@ -185,7 +185,7 @@
       "缺口或适用边界"
     ],
     "algorithm": "100 shares + 95put; roll fixes 3 cycles -4%, resets95%strike, charges each premium once.",
-    "boundaries": "续保为独立指定路径，非概率或回测；不把每期floor外推累计floor。",
+    "boundaries": "续保为独立指定路径，非概率或回测；不把每期floor外推累计floor.",
     "views": [
       "终点保护线",
       "三次strike、股价与现金轨迹"
@@ -210,7 +210,7 @@
     "node_id": "P16",
     "title": "三腿领口与剩余持仓",
     "anchor": "p16-lab",
-    "description": "由股票、put与call推导下限和上限，解释净credit的机会成本以及异期限领口。",
+    "description": "由股票、put与call推导下限和上限，解释净credit的机会成本以及异期限领口.",
     "shared_experiment_id": "EXP-OPTIONS-01",
     "inputs": {
       "terminal_stock": {
@@ -235,7 +235,7 @@
       "缺口或适用边界"
     ],
     "algorithm": "cash+100 clip(S,95,105); assignment removes stock/shortcall but retains longput with unknown mark.",
-    "boundaries": "保留put价值unknown/null；net credit不是zero economic cost；不调未冻结strike制造新链。",
+    "boundaries": "保留put价值unknown/null；net credit不是zero economic cost；不调未冻结strike制造新链.",
     "views": [
       "三腿合成的下限/上限",
       "D1净现金与指派后的剩余权利"
@@ -260,7 +260,7 @@
     "node_id": "P17",
     "title": "垂直价差与交割钱包",
     "anchor": "p17-lab",
-    "description": "重建借方/贷方同到期支付、状态相关theta和行权后股票资金压力。",
+    "description": "重建借方/贷方同到期支付、状态相关theta和行权后股票资金压力.",
     "shared_experiment_id": "EXP-OPTIONS-01",
     "inputs": {
       "terminal_stock": {
@@ -298,7 +298,7 @@
       "缺口或适用边界"
     ],
     "algorithm": "Legwise entry/payoffs; theta is one-day BSM difference; long100 exercise independent short105 nonassignment at104.99.",
-    "boundaries": "小钱包不足不继续；期权宽度不封住之后股票损失；保证金不从debit猜测。",
+    "boundaries": "小钱包不足不继续；期权宽度不封住之后股票损失；保证金不从debit猜测.",
     "views": [
       "借方/贷方/看跌价差到期损益",
       "应付10000与钱包可用额/残余股票"
@@ -323,7 +323,7 @@
     "node_id": "P18",
     "title": "幅度门槛与期间重新报价",
     "anchor": "p18-lab",
-    "description": "把到期幅度、期间两侧IV与时间分开，计入真实身份的合成退出报价和费用。",
+    "description": "把到期幅度、期间两侧IV与时间分开，计入真实身份的合成退出报价和费用.",
     "shared_experiment_id": "EXP-OPTIONS-01",
     "inputs": {
       "spot": {
@@ -366,7 +366,7 @@
       "缺口或适用边界"
     ],
     "algorithm": "BSM each remaining leg, round synthetic mid to cents, exit longs bid/shorts ask, .65 per leg each transaction.",
-    "boundaries": "零bid不虚构成交；IV独立变化只作敏感性；短结构担保未核，不判可实施；买回现金不足停止完成结果。",
+    "boundaries": "零bid不虚构成交；IV独立变化只作敏感性；短结构担保未核，不判可实施；买回现金不足停止完成结果.",
     "views": [
       "到期损益与门槛",
       "当前两腿mark、退出bid/ask与全现金"
@@ -391,7 +391,7 @@
     "node_id": "P19",
     "title": "两次到期与残余头寸",
     "anchor": "p19-lab",
-    "description": "在近月到期盘点远腿、现金与股票，区分平仓、续持和两期限波动率变化。",
+    "description": "在近月到期盘点远腿、现金与股票，区分平仓、续持和两期限波动率变化.",
     "shared_experiment_id": "EXP-OPTIONS-01",
     "inputs": {
       "normalized_spot": {
@@ -458,7 +458,7 @@
       "缺口或适用边界"
     ],
     "algorithm": "Before near expiry close two legs at respective quotes; at near cash settlement pay intrinsic then close/continue far; physical route stops at stock inventory.",
-    "boundaries": "SPXW onlyscale50/cash；fee不缩放；无及时支付或无bid不完成；physical不复用cash continuation；不同IV非时间预测。",
+    "boundaries": "SPXW onlyscale50/cash；fee不缩放；无及时支付或无bid不完成；physical不复用cash continuation；不同IV非时间预测.",
     "views": [
       "近端价值随远IV和spot的切片",
       "两到期现金、付款缺口或股票库存"

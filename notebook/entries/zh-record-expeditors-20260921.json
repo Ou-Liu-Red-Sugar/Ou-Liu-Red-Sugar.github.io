@@ -7,7 +7,7 @@
   "anchors": [],
   "references": [],
   "study_time": "材料索引",
-  "prompt": "先实际读取随包指定原件，核材料期间、对象及定位，再回答这份材料怎样支持相邻教学词条。",
+  "prompt": "先实际读取随包指定原件，核材料期间、对象及定位，再回答这份材料怎样支持相邻教学词条.",
   "agent_packet": {
     "export_mode": "public",
     "required_readings": [
@@ -25,10 +25,10 @@
         },
         "required_unit": {
           "locator": "Item7A，SEC印刷pp.41–42；Note1J/1K，F-13–F-14",
-          "scope": "所列具名单元全文，包含公式、表头、表注及本篇采用结论所需上下文；不要求无关章节。",
-          "purpose": "交易币种、功能货币和报告货币分开；2025交易损失约28m与税后折算约49m不同。假设敏感度不含运输模式变化。"
+          "scope": "所列具名单元全文，包含公式、表头、表注及本篇采用结论所需上下文；不要求无关章节.",
+          "purpose": "交易币种、功能货币和报告货币分开；2025交易损失约28m与税后折算约49m不同. 假设敏感度不含运输模式变化."
         },
-        "supports": "交易币种、功能货币和报告货币分开；2025交易损失约28m与税后折算约49m不同。假设敏感度不含运输模式变化。",
+        "supports": "交易币种、功能货币和报告货币分开；2025交易损失约28m与税后折算约49m不同. 假设敏感度不含运输模式变化.",
         "id": "EI-11-READ-2",
         "retrieved_at": "2026-09-21"
       }
@@ -50,8 +50,8 @@
   "company_id": "zh-company-expeditors",
   "cutoff": "2026-09-21",
   "period": "2025-01-01/2025-12-31",
-  "summary": "映射功能货币、外币交易、报表折算和结算管理；不形成证券估值。",
-  "body_markdown": "## 材料身份\n\n公司：[Expeditors International of Washington, Inc.](/zh/notebook/expeditors/)。研究截止 2026-09-21；材料期间 2025-01-01/2025-12-31。\n\n采用范围：映射功能货币、外币交易、报表折算和结算管理；不形成证券估值。\n\n原文：[Expeditors International 2025 Form 10-K](https://www.sec.gov/Archives/edgar/data/746515/000119312526071569/expd-20251231.htm)。定位：Item7A；Note1J/K。\n\n| 原披露字段（百万美元） | 值 |\n|---|---:|\n| 2025 年外币交易损失 | 28 |\n| 2024 年外币交易收益 | 12 |\n| 2025 年外币报表折算（税后 OCI） | 49 |\n| 2024 年外币报表折算（税后 OCI） | -41 |\n\n## 对应带读\n\n[查看本材料的逐项分析](/zh/notebook/exchange-rates-cross-border-business/#ei11-material)。\n\n材料时间固定，后续新报告另建记录。",
+  "summary": "映射功能货币、外币交易、报表折算和结算管理；不形成证券估值.",
+  "body_markdown": "## 材料身份\n\n公司：[Expeditors International of Washington, Inc.](/zh/notebook/expeditors/). 研究截止 2026-09-21；材料期间 2025-01-01/2025-12-31.\n\n采用范围：映射功能货币、外币交易、报表折算和结算管理；不形成证券估值.\n\n原文：[Expeditors International 2025 Form 10-K](https://www.sec.gov/Archives/edgar/data/746515/000119312526071569/expd-20251231.htm). 定位：Item7A；Note1J/K.\n\n| 原披露字段（ M 美元） | 值 |\n|---|---:|\n| 2025 年外币交易损失 | 28 |\n| 2024 年外币交易收益 | 12 |\n| 2025 年外币报表折算（税后 OCI） | 49 |\n| 2024 年外币报表折算（税后 OCI） | -41 |\n\n## 对应带读\n\n[查看本材料的逐项分析](/zh/notebook/exchange-rates-cross-border-business/#ei11-material).\n\n材料时间固定，后续新报告另建记录.",
   "relations": [
     {
       "from": "CASE-EI11-EXPD-FX-2025",
@@ -63,7 +63,7 @@
       "from": "CASE-EI11-EXPD-FX-2025",
       "relation": "supported_by",
       "to": "EIDEF-S06",
-      "reason": "映射功能货币、外币交易、报表折算和结算管理；不形成证券估值。",
+      "reason": "映射功能货币、外币交易、报表折算和结算管理；不形成证券估值.",
       "locator": "Item7A；Note1J/K"
     }
   ]

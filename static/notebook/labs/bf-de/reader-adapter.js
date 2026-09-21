@@ -20,7 +20,7 @@ function prepareContext(){
  const seen=new Set();packet.required_readings=required.filter(r=>{const key=[r.source_id,r.required_unit?.locator,r.branch].join('|');if(seen.has(key))return false;seen.add(key);return true;});
  packet.selected_branch=selected;packet.activated_options=activated;packet.runtime_reading_log=[];
  const task=all?Object.entries(packet.branch_tasks||{}).map(([k,v])=>k+'：'+v).join('\n'):(packet.branch_tasks||{})[selected]||'';
- const notice='当前阅读选择：'+selected+'；选读：'+(activated.join('、')||'无')+'。以本次选择及下列 required_readings 为准，先实际读取，再教学；其他分支正文作为完整材料保留。\n'+(task?'当前任务：'+task+'\n':'')+'\n';
+ const notice='当前阅读选择：'+selected+'；选读：'+(activated.join('、')||'无')+'. 以本次选择及下列 required_readings 为准，先实际读取，再教学；其他分支正文作为完整材料保留. \n'+(task?'当前任务：'+task+'\n':'')+'\n';
  context.value=notice+original.replace(pattern,(_,head,_json,tail)=>head+JSON.stringify(packet,null,2)+tail);
 }
 document.addEventListener('click',ev=>{if(ev.target.closest('[data-teach]'))prepareContext();},true);

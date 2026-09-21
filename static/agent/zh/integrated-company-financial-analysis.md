@@ -1,20 +1,24 @@
 # 企业财报综合带读与迁移练习
 
-以完整零售/银行原表产出可复核一页分析：业务、资源、利润、现金、普通股、竞争解释及下一条证据；附Walmart和SVB迁移。
+以完整零售/银行原表产出可复核一页分析：业务、资源、利润、现金、普通股、竞争解释及下一条证据；附Walmart和SVB迁移.
 
 Entry: zh-bf22 | Node: BF-22 | Language: zh | Editorial revision: 2026-09-21
 
 ## Teaching instructions
-你教授BF-22《企业财报综合带读与迁移练习》，版本2026-09-21-review-v3，面对有微积分、线性代数与基本概率基础的高年级本科至研究生。使用本包同源全文，不另造一套事实。
-先确定selected_branch，默认retail，允许["retail", "bank"]；all表示逐支教学。按required_readings过滤common与选中行业，未选行业不是必读。迁移与研究仅在读者启用时按optional_readings补读。
-先实际打开每项公开URL，读完required_unit包含的正文/表/脚注；记录标题、版本、定位、得到的关键设定。runtime_reading_log初始为空，不能把编辑的阅读回执当本次已读。只有摘要、登录页或访问失败不算完成；尝试正式等价入口，仍缺则说明具体单元并停止该范围的实质讲解。
-当前分支任务：{"retail": "先独立填写Costco六格分析，再恢复OI10383与现金14161，解释股数口径和893/963差异；提出两项可推翻的库存解释。", "bank": "先独立填写JPM分析，恢复税前72595、现金343338及普通股权益342393；用CIB存款增119826说明为何需要账户/平均余额而非只看总量。"}
-用一项完整真实材料任务诊断，不把四则运算拆成逐句考试。让读者先完成关系和解释，再对照同源题解反馈；已会内容直接跳过。实验的历史、分析计算和教学合同身份分开，所有默认输入来自supplied_inputs。解释必须包含原表定位、时间/单位和任务的正向完成。
-最后问“读者只读完这个词条，真的能学明白吗？”用独立产出与迁移答案作检验，而不是给自评分。数字正确但混用时间、主体、税额或现金/股数时，指出具体误解并让读者修一份完整结果。不要把过程记录写进读者正文。
+你教授BF-22《企业财报综合带读与迁移练习》，版本2026-09-21-review-v3，面对有微积分、线性代数与基本概率基础的高年级本科至研究生. 使用本包同源全文，不另造一套事实.
+先确定selected_branch，默认retail，允许["retail", "bank"]；all表示逐支教学. 按required_readings过滤common与选中行业，未选行业不是必读. 迁移与研究仅在读者启用时按optional_readings补读.
+先实际打开每项公开URL，读完required_unit包含的正文/表/脚注；记录标题、版本、定位、得到的关键设定. runtime_reading_log初始为空，不能把编辑的阅读回执当本次已读. 只有摘要、登录页或访问失败不算完成；尝试正式等价入口，仍缺则说明具体单元并停止该范围的实质讲解.
+当前分支任务：{"retail": "先独立填写Costco六格分析，再恢复OI10383与现金14161，解释股数口径和893/963差异；提出两项可推翻的库存解释.", "bank": "先独立填写JPM分析，恢复税前72595、现金343338及普通股权益342393；用CIB存款增119826说明为何需要账户/平均余额而非只看总量."}
+用一项完整真实材料任务诊断，不把四则运算拆成逐句考试. 让读者先完成关系和解释，再对照同源题解反馈；已会内容直接跳过. 实验的历史、分析计算和教学合同身份分开，所有默认输入来自supplied_inputs. 解释必须包含原表定位、时间/单位和任务的正向完成.
+最后问“读者只读完这个词条，真的能学明白吗？”用独立产出与迁移答案作检验，而不是给自评分. 数字正确但混用时间、主体、税额或现金/股数时，指出具体误解并让读者修一份完整结果. 不要把过程记录写进读者正文.
 
-本篇特有边界：默认共同部分+一支15–20分钟；先写自己的六格再看示范。自动仅检查数值和非空，因果解释须人工复核。
+本篇特有边界：默认共同部分+一支15–20分钟；先写自己的六格再看示范. 自动仅检查数值和非空，因果解释须人工复核.
 
 Before substantive teaching, actually retrieve every required reading unit for the selected scope. Read its complete designated section, including necessary assumptions, tables and footnotes. A working URL or an editorial access date is not a runtime reading receipt. Record the actual version, location, scope and what it supports. If unavailable, use a previously verified equivalent source; if the required unit remains unavailable, identify that gap rather than teach it from memory. Start runtime_reading_log empty. Once reading is complete, use a substantive diagnostic or follow the reader's request for direct explanation. Advance one complete reasoning task at a time; skip mastered basics. Distinguish original facts, supplied teaching assumptions and inference.
+
+## Shared notation and writing conventions
+数学期望统一写成 \mathbb{E}，条件期望用 \mathbb{E}[X\mid\mathcal{G}]，需要时注明测度 P 或 Q. 保留局部变量的明确定义. 金额与数量使用 K=10^3、M=10^6、B=10^9；表格标明币种、量级与期间，变更量级时同步换算数值. 展示小数最多三位，计算保留原始精度. 直接解释对象、机制与推理；保留影响结论的假设和事实来源，把编辑流程留在记录中. 句末使用英文句点 .，包括定义、命题、证明和解析等标签. 基础定义与推导直接讲内容，出处放在紧邻脚注；来源读取、复审和采用范围等编辑经过留在记录中.
+[Notation and units](https://ou-liu-red-sugar.github.io/agent/zh/notation.md)
 
 ## Required readings and runtime protocol
 ```json
@@ -28,8 +32,8 @@ Before substantive teaching, actually retrieve every required reading unit for t
     "bank"
   ],
   "branch_tasks": {
-    "retail": "先独立填写Costco六格分析，再恢复OI10383与现金14161，解释股数口径和893/963差异；提出两项可推翻的库存解释。",
-    "bank": "先独立填写JPM分析，恢复税前72595、现金343338及普通股权益342393；用CIB存款增119826说明为何需要账户/平均余额而非只看总量。"
+    "retail": "先独立填写Costco六格分析，再恢复OI10383与现金14161，解释股数口径和893/963差异；提出两项可推翻的库存解释.",
+    "bank": "先独立填写JPM分析，恢复税前72595、现金343338及普通股权益342393；用CIB存款增119826说明为何需要账户/平均余额而非只看总量."
   },
   "required_readings": [
     {
@@ -189,7 +193,7 @@ Before substantive teaching, actually retrieve every required reading unit for t
     "schema_version": "BFFG-1.0",
     "content_version": "2026-09-21-review-v3",
     "cutoff": "2026-09-21",
-    "identity_policy": "historical_observation / disclosed_non_gaap / analyst_arithmetic / hypothetical_contract 分列；未获取的未来现金及收益为null。",
+    "identity_policy": "historical_observation / disclosed_non_gaap / analyst_arithmetic / hypothetical_contract 分列；未获取的未来现金及收益为null.",
     "integrated": {
       "retail": {
         "source_id": "BFFG-C01",
@@ -259,7 +263,7 @@ Before substantive teaching, actually retrieve every required reading unit for t
           "2025-08-31",
           "2024-09-01"
         ],
-        "unit": "USD million；股数与每股面值按行另标",
+        "unit": "USD M；股数与每股面值按行另标",
         "data_identity": "historical_observation",
         "rows": [
           {
@@ -754,7 +758,7 @@ Before substantive teaching, actually retrieve every required reading unit for t
           }
         ],
         "notes": [
-          "标题和无金额披露为空，不等于零；括号为减项；明细、小计和总计不得重复相加。"
+          "标题和无金额披露为空，不等于零；括号为减项；明细、小计和总计不得重复相加."
         ]
       },
       "cost_income": {
@@ -767,7 +771,7 @@ Before substantive teaching, actually retrieve every required reading unit for t
           "FY2024 · 2024-09-01 · 52周",
           "FY2023 · 2023-09-03 · 53周"
         ],
-        "unit": "USD millions",
+        "unit": "USD M",
         "data_identity": "historical_observation",
         "rows": [
           {
@@ -977,7 +981,7 @@ Before substantive teaching, actually retrieve every required reading unit for t
           {
             "id": "shares",
             "label_original": "SHARES USED IN CALCULATION (000's)",
-            "label_zh": "计算使用股数（千股）",
+            "label_zh": "计算使用股数（K 股）",
             "kind": "heading",
             "section": "shares",
             "values": [
@@ -1012,9 +1016,9 @@ Before substantive teaching, actually retrieve every required reading unit for t
           }
         ],
         "notes": [
-          "金额为百万美元；EPS为美元/股；股数为千股。括号负数按负号保存。",
-          "合并利润表未单列毛利；MD&A p.27定义Gross Margin=Net sales−Merchandise costs，2025/24/23分别30026/27267/25124。",
-          "2023是53周，2025和2024为52周；比较增长前核对。"
+          "金额单位为 USD M；EPS为美元/股；股数为K 股. 括号负数按负号保存.",
+          "合并利润表未单列毛利；MD&A p.27定义Gross Margin=Net sales−Merchandise costs，2025/24/23分别30026/27267/25124.",
+          "2023是53周，2025和2024为52周；比较增长前核对."
         ],
         "retrieved_at": "2026-09-21",
         "provenance": "同会话已核原表输入复用；本批仍保留原标签、比较列与脚注。"
@@ -1029,7 +1033,7 @@ Before substantive teaching, actually retrieve every required reading unit for t
           "FY2024 · 52周",
           "FY2023 · 53周"
         ],
-        "unit": "USD millions",
+        "unit": "USD M",
         "data_identity": "historical_observation",
         "rows": [
           {
@@ -1490,9 +1494,9 @@ Before substantive teaching, actually retrieve every required reading unit for t
           }
         ],
         "notes": [
-          "零值按原表破折号语义保留数值0；主表标题无金额为null，不等于0。",
-          "其他非现金经营活动净额为负不能整行解释为本期资产减值。",
-          "现金集合为cash and cash equivalents；补充的未付资本支出不加到当期现金支出。"
+          "零值按原表破折号语义保留数值0；主表标题无金额为null，不等于0.",
+          "其他非现金经营活动净额为负不能整行解释为本期资产减值.",
+          "现金集合为cash and cash equivalents；补充的未付资本支出不加到当期现金支出."
         ],
         "aggregation_rules": [
           {
@@ -1564,7 +1568,7 @@ Before substantive teaching, actually retrieve every required reading unit for t
           "FY2026",
           "FY2025"
         ],
-        "unit": "USD million",
+        "unit": "USD M",
         "data_identity": "historical_observation",
         "rows": [
           {
@@ -1640,7 +1644,7 @@ Before substantive teaching, actually retrieve every required reading unit for t
           "FY2025",
           "FY2024"
         ],
-        "unit": "USD million",
+        "unit": "USD M",
         "data_identity": "historical_observation",
         "rows": [
           {
@@ -1700,7 +1704,7 @@ Before substantive teaching, actually retrieve every required reading unit for t
           }
         ],
         "notes": [
-          "(1)投资现金流已经包含物业设备付款。FCF未扣债务服务、其他合同付款及收购，不能再将CFI全额扣一次。"
+          "(1)投资现金流已经包含物业设备付款. FCF未扣债务服务、其他合同付款及收购，不能再将CFI全额扣一次."
         ]
       },
       "jpm_bs": {
@@ -1712,7 +1716,7 @@ Before substantive teaching, actually retrieve every required reading unit for t
           "2025-12-31",
           "2024-12-31"
         ],
-        "unit": "USD million；股数与每股面值按行另标",
+        "unit": "USD M；股数与每股面值按行另标",
         "data_identity": "historical_observation",
         "rows": [
           {
@@ -2221,8 +2225,8 @@ Before substantive teaching, actually retrieve every required reading unit for t
           }
         ],
         "notes": [
-          "标题和无金额披露为空，不等于零；括号为减项；明细、小计和总计不得重复相加。",
-          "脚注(a)：所列VIE资产负债已包含于主表，排除被合并抵销的集团内余额，不能再次加总。"
+          "标题和无金额披露为空，不等于零；括号为减项；明细、小计和总计不得重复相加.",
+          "脚注(a)：所列VIE资产负债已包含于主表，排除被合并抵销的集团内余额，不能再次加总."
         ],
         "vie_note_rows": [
           {
@@ -2354,7 +2358,7 @@ Before substantive teaching, actually retrieve every required reading unit for t
           "2024",
           "2023"
         ],
-        "unit": "USD millions",
+        "unit": "USD M",
         "data_identity": "historical_observation",
         "rows": [
           {
@@ -2732,7 +2736,7 @@ Before substantive teaching, actually retrieve every required reading unit for t
           {
             "id": "shares_basic",
             "label_original": "Weighted-average basic shares",
-            "label_zh": "基本加权平均股数（百万股）",
+            "label_zh": "基本加权平均股数（ M 股）",
             "kind": "detail",
             "section": "shares",
             "values": [
@@ -2744,7 +2748,7 @@ Before substantive teaching, actually retrieve every required reading unit for t
           {
             "id": "shares_diluted",
             "label_original": "Weighted-average diluted shares",
-            "label_zh": "稀释加权平均股数（百万股）",
+            "label_zh": "稀释加权平均股数（ M 股）",
             "kind": "detail",
             "section": "shares",
             "values": [
@@ -2755,9 +2759,9 @@ Before substantive teaching, actually retrieve every required reading unit for t
           }
         ],
         "notes": [
-          "GAAP集团合并口径，不混入managed/FTE分部口径。",
-          "费用行原表为正额，计算中减去；投资证券损失为带负号收入。",
-          "EPS为美元/股，股数为百万股；原表应与附注一同阅读。"
+          "GAAP集团合并口径，不混入managed/FTE分部口径.",
+          "费用行原表为正额，计算中减去；投资证券损失为带负号收入.",
+          "EPS为美元/股，股数为 M 股；原表应与附注一同阅读."
         ],
         "retrieved_at": "2026-09-21",
         "provenance": "同会话已核原表输入复用；本批仍保留原标签、比较列与脚注。"
@@ -2772,7 +2776,7 @@ Before substantive teaching, actually retrieve every required reading unit for t
           "2024",
           "2023"
         ],
-        "unit": "USD millions",
+        "unit": "USD M",
         "data_identity": "historical_observation",
         "rows": [
           {
@@ -3377,9 +3381,9 @@ Before substantive teaching, actually retrieve every required reading unit for t
           }
         ],
         "notes": [
-          "此表以原页重新排版；行名称保留业务含义，原文图像位于PDF第201页。",
-          "JPM现金集合为cash and due from banks and deposits with banks，不能改称普通公司cash equivalents。",
-          "变化和合计按原表符号；经营资产扩张与客户存款筹资分属不同活动类别。"
+          "此表以原页重新排版；行名称保留业务含义，原文图像位于PDF第201页.",
+          "JPM现金集合为cash and due from banks and deposits with banks，不能改称普通公司cash equivalents.",
+          "变化和合计按原表符号；经营资产扩张与客户存款筹资分属不同活动类别."
         ],
         "aggregation_rules": [
           {
@@ -3469,7 +3473,7 @@ Before substantive teaching, actually retrieve every required reading unit for t
           "3m ended 2025-09-30",
           "3m ended 2024-12-31"
         ],
-        "unit": "USD million",
+        "unit": "USD M",
         "data_identity": "historical_observation",
         "rows": [
           {
@@ -3562,8 +3566,8 @@ Before substantive teaching, actually retrieve every required reading unit for t
           }
         ],
         "notes": [
-          "季度平均；银行法人行与集团行身份不同。证券使用监管公允价值及haircut口径。",
-          "集团排除银行超过独立最低要求且无法转移给非银行关联方的HQLA；金额比值不是逐日监管比率平均的重新计算。"
+          "季度平均；银行法人行与集团行身份不同. 证券使用监管公允价值及haircut口径.",
+          "集团排除银行超过独立最低要求且无法转移给非银行关联方的HQLA；金额比值不是逐日监管比率平均的重新计算."
         ]
       },
       "jpm_deposits": {
@@ -3577,7 +3581,7 @@ Before substantive teaching, actually retrieve every required reading unit for t
           "2025 average",
           "2024 average"
         ],
-        "unit": "USD million",
+        "unit": "USD M",
         "data_identity": "historical_observation",
         "rows": [
           {
@@ -3647,7 +3651,7 @@ Before substantive teaching, actually retrieve every required reading unit for t
     "walmart": {
       "source_id": "BFFG-C06",
       "period": "FY2026 ended 2026-01-31",
-      "unit": "USD million",
+      "unit": "USD M",
       "revenue": 713163,
       "net_sales": 706413,
       "oi": 29825,
@@ -3655,14 +3659,14 @@ Before substantive teaching, actually retrieve every required reading unit for t
       "capex": 26642,
       "fcf": 14923,
       "notes": [
-        "三报告分部：Walmart U.S.、Walmart International、Sam’s Club U.S.。",
-        "美国/加拿大1月31日年结，其他经营通常自然年口径滞后一个月合并。",
-        "美国RIM/LIFO、国际依业态RIM或加权平均/FIFO、Sam’s Club多数加权平均/LIFO，按原政策保留。"
+        "三报告分部：Walmart U.S.、Walmart International、Sam’s Club U.S..",
+        "美国/加拿大1月31日年结，其他经营通常自然年口径滞后一个月合并.",
+        "美国RIM/LIFO、国际依业态RIM或加权平均/FIFO、Sam’s Club多数加权平均/LIFO，按原政策保留."
       ]
     },
     "jpm_liquidity": {
       "source_id": "BFFG-C02",
-      "unit": "USD million unless marked",
+      "unit": "USD M unless marked",
       "average_period": "three months ended 2025-12-31",
       "group": {
         "eligible_cash": 281117,
@@ -3686,8 +3690,8 @@ Before substantive teaching, actually retrieve every required reading unit for t
         "uninsured_estimate": 1558600
       },
       "notes": [
-        "449bn原文明确排除已列HQLA/其他无抵押证券带来的相关能力，不能武断称必然重复。",
-        "期末资产与有条件融资能力分别呈现，不输出无条件挤兑覆盖率。"
+        "449bn原文明确排除已列HQLA/其他无抵押证券带来的相关能力，不能武断称必然重复.",
+        "期末资产与有条件融资能力分别呈现，不输出无条件挤兑覆盖率."
       ]
     },
     "svb": {
@@ -3703,15 +3707,15 @@ Before substantive teaching, actually retrieve every required reading unit for t
         {
           "date": "2023-03-09",
           "kind": "realized",
-          "text": "单日存款流出超过400亿美元"
+          "text": "单日存款流出超过40 B 美元"
         },
         {
           "date": "2023-03-10",
           "kind": "expected_not_realized_total",
-          "text": "管理层预计额外1000亿美元流出；当日银行关闭"
+          "text": "管理层预计额外100 B 美元流出；当日银行关闭"
         }
       ],
-      "notes": "预期流出不是另一笔已实现历史流出；不得两项相加称已完成提款。"
+      "notes": "预期流出不是另一笔已实现历史流出；不得两项相加称已完成提款."
     }
   },
   "entry_id": "zh-bf22",
@@ -4099,21 +4103,21 @@ Before substantive teaching, actually retrieve every required reading unit for t
       ]
     },
     "complete_frozen_input_uri": "https://ou-liu-red-sugar.github.io/notebook/labs/bf-fg/inputs.json",
-    "rule": "同源完整对象/整表按篇及行业投影，不删表中行、列、期间、单位、脚注或已包含的题解；研究/迁移仍按原选读规则。",
+    "rule": "同源完整对象/整表按篇及行业投影，不删表中行、列、期间、单位、脚注或已包含的题解；研究/迁移仍按原选读规则.",
     "scope": "Canonical packet contains the union for this entry; copy action projects the selected industry. Other entry data stays in the complete frozen public input."
   }
 }
 ```
 
 ## Supplied entry
-这一篇不再按科目逐个讲解。我们接到一份年报，要在有限时间内交出一页别人能复核的企业分析：公司怎样经营，资源与义务在哪里，利润怎样形成，现金去了哪里，结果如何归到普通股，以及目前还有哪两种解释无法区分。
+这一篇不再按科目逐个讲解. 我们接到一份年报，要在有限时间内交出一页别人能复核的企业分析：公司怎样经营，资源与义务在哪里，利润怎样形成，现金去了哪里，结果如何归到普通股，以及目前还有哪两种解释无法区分.
 
-选择Costco零售或JPM银行一支，连同共同地图与题解约15–20分钟。完整原表可随时展开；Walmart与SVB迁移另行选读。信息取得截至2026-09-21，各项数字仍固定在原材料的报告期间，不向当时的判断倒填后续事实。
+选择Costco零售或JPM银行一支，连同共同地图与题解约15–20分钟. 完整原表可随时展开；Walmart与SVB迁移另行选读. 信息取得截至2026-09-21，各项数字仍固定在原材料的报告期间，不向当时的判断倒填后续事实.
 
 <a id="bf22-map"></a>
 ## 1. 开始前先留一张空白分析页
 
-先用下面六个格子写自己的答案，再展开示范。不是每格都必须填一个比率：有时最重要的结论是某个余额不适合做分母，或某项未来结果还缺资料。
+先用下面六个格子写自己的答案，再展开示范. 不是每格都必须填一个比率：有时最重要的结论是某个余额不适合做分母，或某项未来结果还缺资料.
 
 | 格子 | 要交出的内容 |
 |---|---|
@@ -4124,9 +4128,9 @@ Before substantive teaching, actually retrieve every required reading unit for t
 | 普通股 | 总权益与普通股归属、期末和加权股数的区别 |
 | 判断与下一条证据 | 两项可区分的解释；下一份什么资料能推进判断 |
 
-四张主表并不竞争“谁最真实”。利润表归集一段期间的经营结果，资产负债表记录时点资源与义务，现金流量表记录收付与现金余额变化，权益表解释股东投入、分配和其他变动。附注展开计量与边界，MD&A帮助把变动放回业务；要做完整分析，就让它们围绕同一个问题互相接上。[^map]
+四张主表并不竞争“谁最真实”. 利润表归集一段期间的经营结果，资产负债表记录时点资源与义务，现金流量表记录收付与现金余额变化，权益表解释股东投入、分配和其他变动. 附注展开计量与边界，MD&A帮助把变动放回业务；要做完整分析，就让它们围绕同一个问题互相接上. [^map]
 
-这一轮的作业不是猜股票明天涨跌。我们要求：每个关键数字能回到原表；每条解释能说出证据支持到哪里；每个未决问题能指向下一条具体观察。图可以检查算术，但不会替你给公司打投资分数。
+这一轮的作业不是猜股票明天涨跌. 我们要求：每个关键数字能回到原表；每条解释能说出证据支持到哪里；每个未决问题能指向下一条具体观察. 图可以检查算术，但不会替你给公司打投资分数.
 
 <div data-reading-branch-controls><button data-select-reading-branch="retail">零售：Costco</button><button data-select-reading-branch="bank">银行：JPMorgan Chase</button><button data-select-reading-branch="all">两支展开</button></div>
 
@@ -4135,7 +4139,7 @@ Before substantive teaching, actually retrieve every required reading unit for t
 <a id="bf22-retail"></a>
 ## 2. 零售任务包：Costco FY2025
 
-对象为Costco Wholesale Corporation合并集团，FY2025截至2025-08-31；比较期2024-09-01，两年都是52周。金额百万美元，利润表股数为千股，资产负债表普通股文字说明中的股数则是实际股数。先保持这些单位分开，再开始计算。[^cost]
+对象为Costco Wholesale Corporation合并集团，FY2025截至2025-08-31；比较期2024-09-01，两年都是52周. 金额 M 美元，利润表股数为K 股，资产负债表普通股文字说明中的股数则是实际股数. 先保持这些单位分开，再开始计算. [^cost]
 
 ### 原表入口：全貌保留，重点由业务决定
 
@@ -4160,11 +4164,11 @@ Before substantive teaching, actually retrieve every required reading unit for t
 | <strong>NET INCOME PER COMMON SHARE</strong> | <strong>普通股每股净利润（美元/股）</strong> |  |  |  |
 | Basic | 基本每股净利润 | 18.24 | 16.59 | 14.18 |
 | Diluted | 稀释每股净利润 | 18.21 | 16.56 | 14.16 |
-| <strong>SHARES USED IN CALCULATION (000&#x27;s)</strong> | <strong>计算使用股数（千股）</strong> |  |  |  |
+| <strong>SHARES USED IN CALCULATION (000&#x27;s)</strong> | <strong>计算使用股数（K 股）</strong> |  |  |  |
 | Basic | 基本加权平均股数 | 443,985 | 443,914 | 443,854 |
 | Diluted | 稀释加权平均股数 | 444,803 | 444,759 | 444,452 |
 
-单位：USD millions。金额为百万美元；EPS为美元/股；股数为千股。括号负数按负号保存。 合并利润表未单列毛利；MD&A p.27定义Gross Margin=Net sales−Merchandise costs，2025/24/23分别30026/27267/25124。 2023是53周，2025和2024为52周；比较增长前核对。
+单位：USD M. 金额单位为 USD M；EPS为美元/股；股数为K 股. 括号负数按负号保存. 合并利润表未单列毛利；MD&A p.27定义Gross Margin=Net sales−Merchandise costs，2025/24/23分别30026/27267/25124. 2023是53周，2025和2024为52周；比较增长前核对.
 
 </details>
 
@@ -4208,7 +4212,7 @@ Before substantive teaching, actually retrieve every required reading unit for t
 | <strong>TOTAL EQUITY</strong> | <strong>权益合计</strong> | <strong>29,164</strong> | <strong>23,622</strong> |
 | <strong>TOTAL LIABILITIES AND EQUITY</strong> | <strong>负债及权益合计</strong> | <strong>77,099</strong> | <strong>69,831</strong> |
 
-单位：USD million；股数与每股面值按行另标。标题和无金额披露为空，不等于零；括号为减项；明细、小计和总计不得重复相加。
+单位：USD M；股数与每股面值按行另标. 标题和无金额披露为空，不等于零；括号为减项；明细、小计和总计不得重复相加.
 
 </details>
 
@@ -4255,34 +4259,34 @@ Before substantive teaching, actually retrieve every required reading unit for t
 | Dividends declared, but not yet paid | 已宣布而未支付股息 | — | — | 452 |
 | Capital expenditures included in liabilities | 列入负债的资本支出 | 193 | 203 | 170 |
 
-单位：USD millions。零值按原表破折号语义保留数值0；主表标题无金额为null，不等于0。 其他非现金经营活动净额为负不能整行解释为本期资产减值。 现金集合为cash and cash equivalents；补充的未付资本支出不加到当期现金支出。
+单位：USD M. 零值按原表破折号语义保留数值0；主表标题无金额为null，不等于0. 其他非现金经营活动净额为负不能整行解释为本期资产减值. 现金集合为cash and cash equivalents；补充的未付资本支出不加到当期现金支出.
 
 </details>
 
 ### 先自己观察，再走一遍完整解释
 
-请先在原表找出净销售、会员费、商品成本、存货、应付及门店资源。公司以会员仓储零售为业务入口，但它的资源不只是商品：仓库、物业设备及租赁使用权也支持交付。商品采购和供应商付款形成一个时间过程，会员服务又有自己的收费与确认节奏。会员费按一年会员期递延确认，因此会员费收入不是期末现金余额。[^costpolicy]
+请先在原表找出净销售、会员费、商品成本、存货、应付及门店资源. 公司以会员仓储零售为业务入口，但它的资源不只是商品：仓库、物业设备及租赁使用权也支持交付. 商品采购和供应商付款形成一个时间过程，会员服务又有自己的收费与确认节奏. 会员费按一年会员期递延确认，因此会员费收入不是期末现金余额. [^costpolicy]
 
-从利润入手，净销售269,912减商品成本239,886，得到30,026；公司MD&A将这一关系列为Gross Margin。加会员费5,323，再扣销售及管理等费用24,966，得到经营利润10,383。随后10,383−利息费用154＋利息及其他净收入589＝税前10,818，扣所得税2,719得到净利润8,099。这里同一段话既有业务层次，也能完全复算。[^costincome]
+从利润入手，净销售269,912减商品成本239,886，得到30,026；公司MD&A将这一关系列为Gross Margin. 加会员费5,323，再扣销售及管理等费用24,966，得到经营利润10,383. 随后10,383−利息费用154＋利息及其他净收入589＝税前10,818，扣所得税2,719得到净利润8,099. 这里同一段话既有业务层次，也能完全复算. [^costincome]
 
-现在做两期变化桥。商品销售与商品成本差额由27,267增到30,026，增加2,759；会员费增加495；销售及管理等费用增加2,156。因此2,759＋495−2,156＝经营利润增加1,098，正好等于10,383−9,285。它把总增长分成三个明确入口，但尚未把2,759唯一归因为销量、价格、组合或采购成本。
+现在做两期变化桥. 商品销售与商品成本差额由27,267增到30,026，增加2,759；会员费增加495；销售及管理等费用增加2,156. 因此2,759＋495−2,156＝经营利润增加1,098，正好等于10,383−9,285. 它把总增长分成三个明确入口，但尚未把2,759唯一归因为销量、价格、组合或采购成本.
 
-再回到资源和现金。存货18,116比前期少531，应付19,783比前期多362；两行余额之差由−774变为−1,667。其反向变化893说明所选两行账面资金部件的变化；现金流中对应两项却为559＋404＝963，差70尚未分解。此处最有用的动作是保留两张表各自口径，继续查变化明细，而不是挑一个数让另外一张表强行相等。[^costcash]
+再回到资源和现金. 存货18,116比前期少531，应付19,783比前期多362；两行余额之差由−774变为−1,667. 其反向变化893说明所选两行账面资金部件的变化；现金流中对应两项却为559＋404＝963，差70尚未分解. 此处最有用的动作是保留两张表各自口径，继续查变化明细，而不是挑一个数让另外一张表强行相等. [^costcash]
 
-完整现金桥为9,906＋13,335−5,311−3,775＋6＝14,161。经营现金流13,335支持了当年5,498物业设备付款以及其他安排，但“13,335−5,498＝7,837”只是两行残余，不是扣尽一切义务后的自由资金。筹资部分还包括股息2,183、回购903、股权奖励代扣款、债务收付及融资租赁等；这些都是这年资金路径的一部分。
+完整现金桥为9,906＋13,335−5,311−3,775＋6＝14,161. 经营现金流13,335支持了当年5,498物业设备付款以及其他安排，但“13,335−5,498＝7,837”只是两行残余，不是扣尽一切义务后的自由资金. 筹资部分还包括股息2,183、回购903、股权奖励代扣款、债务收付及融资租赁等；这些都是这年资金路径的一部分.
 
 ### 普通股处在这条链的哪里
 
-期末总资产77,099、负债47,935、权益29,164，三者相等关系成立。优先股未发行，所以这里的权益没有一项在外优先股余额需要另减。普通股期末443,237,000股，前期443,126,000股，净增加111,000股；本期有回购并不等于期末股数一定下降。若要解释这种净变动，需要回到发行、股权奖励与回购的股数，而不是只看回购现金。[^costequity]
+期末总资产77,099、负债47,935、权益29,164，三者相等关系成立. 优先股未发行，所以这里的权益没有一项在外优先股余额需要另减. 普通股期末443,237,000股，前期443,126,000股，净增加111,000股；本期有回购并不等于期末股数一定下降. 若要解释这种净变动，需要回到发行、股权奖励与回购的股数，而不是只看回购现金. [^costequity]
 
-全年基本EPS用443,985千股加权平均，稀释EPS用444,803千股；期末443,237,000股不能替代这两个期间分母。净利润8,099也不等于权益增加：权益由23,622到29,164增加5,542，中间还有分配和其他权益变动。我们在一页里不必展开所有奖励细节，却须保留普通股所得所依赖的口径。
+全年基本EPS用443,985 K 股加权平均，稀释EPS用444,803 K 股；期末443,237,000股不能替代这两个期间分母. 净利润8,099也不等于权益增加：权益由23,622到29,164增加5,542，中间还有分配和其他权益变动. 我们在一页里不必展开所有奖励细节，却须保留普通股所得所依赖的口径.
 
 <a id="bf22-retail-onepage"></a>
 ### 可交付的一页示范
 
 | 分析格 | 一页可复核内容 |
 |---|---|
-| 范围 | FY2025合并集团；2025-08-31年结，52周；金额百万美元，股数单位另核 |
+| 范围 | FY2025合并集团；2025-08-31年结，52周；金额 M 美元，股数单位另核 |
 | 业务/资源 | 商品销售与会员服务；商品18,116、物业设备净额31,909和经营租赁使用权2,725共同支持交付；应付19,783是供应链付款义务 |
 | 利润桥 | (269,912−239,886)＋5,323−24,966＝10,383；10,383−154＋589−2,719＝8,099 |
 | 现金/资金 | 9,906＋13,335−5,311−3,775＋6＝14,161；物业设备现金投入5,498；分红2,183、回购903；债务本金5,805另按到期表读 |
@@ -4290,26 +4294,26 @@ Before substantive teaching, actually retrieve every required reading unit for t
 | 未决解释 | 存货下降可能反映交付/备货节奏变化，也可能反映成本或组合；供应商结算时间也影响应付；不能凭两期净额唯一归因 |
 | 下一条证据 | 取得相同期次的销量/可比销售与库存构成，再对照采购、供应商条款和付款时点，区分“销售更快”与“采购及结算时点” |
 
-这份示范不是“没有结论”。它已经给出经营利润变化、现金闭合、资金用途和股数边界；只是把还需要证据的因果问题留在正确位置。能明确指出下一条观察，通常比用一个模糊形容词评价库存更有用。
+这份示范不是“没有结论”. 它已经给出经营利润变化、现金闭合、资金用途和股数边界；只是把还需要证据的因果问题留在正确位置. 能明确指出下一条观察，通常比用一个模糊形容词评价库存更有用.
 
 ### 分支练习与完整反馈
 
-<strong>先做：</strong>重建经营利润增加1,098；再解释为什么两行库存资金反向变化893不能直接说成现金流963。最后在“销售更快”和“结算时点改变”两种解释中，为每一种指定一条可以推翻它的观察。
+<strong>先做：</strong>重建经营利润增加1,098；再解释为什么两行库存资金反向变化893不能直接说成现金流963. 最后在“销售更快”和“结算时点改变”两种解释中，为每一种指定一条可以推翻它的观察.
 
 <details><summary>展开解析</summary>
 
-利润变化＝毛利差额增加2,759＋会员费增加495−销售管理等费用增加2,156＝1,098。893来自两期资产负债表，963来自现金流调整，两者差70没有取得完整归因。
+利润变化＝毛利差额增加2,759＋会员费增加495−销售管理等费用增加2,156＝1,098. 893来自两期资产负债表，963来自现金流调整，两者差70没有取得完整归因.
 
-若解释为销售更快，应当能在相应销量、交付或库存周转结构中找到证据；若销量/交付无此变化，却发现期末采购减少，这个解释就受挑战。若解释为供应商结算更晚，应检查具体付款日、条款或到期应付；若账期与支付节奏未变而采购结构变化明显，便不能继续把应付增长归给延付。这里只提出可检验假说，没把假说写成公司已经发生的事实。
+若解释为销售更快，应当能在相应销量、交付或库存周转结构中找到证据；若销量/交付无此变化，却发现期末采购减少，这个解释就受挑战. 若解释为供应商结算更晚，应检查具体付款日、条款或到期应付；若账期与支付节奏未变而采购结构变化明显，便不能继续把应付增长归给延付. 这里只提出可检验假说，没把假说写成公司已经发生的事实.
 
 </details>
 
 <details data-agent-option="walmart"><summary>同类迁移：Walmart FY2026，换一家零售商还能重建吗？</summary>
 <a id="bf22-walmart"></a>
 
-先读对象卡：Walmart有Walmart U.S.、Walmart International和Sam’s Club U.S.三个报告分部。美国和加拿大财年截至1月31日，其他经营通常按自然年、滞后一个月合并。它与Costco的52周财年不是同一个期间安排。库存方法也随分部、业态不同：美国主要RIM及LIFO，国际依业态采用RIM或加权平均并用FIFO，Sam’s Club多数为加权平均/LIFO。相似的“零售”标签没有消除这些边界。[^wmtpolicy]
+先读对象卡：Walmart有Walmart U.S.、Walmart International和Sam’s Club U.S.三个报告分部. 美国和加拿大财年截至1月31日，其他经营通常按自然年、滞后一个月合并. 它与Costco的52周财年不是同一个期间安排. 库存方法也随分部、业态不同：美国主要RIM及LIFO，国际依业态采用RIM或加权平均并用FIFO，Sam’s Club多数为加权平均/LIFO. 相似的“零售”标签没有消除这些边界. [^wmtpolicy]
 
-采用FY2026：净销售706,413，加会员及其他收入6,750，得到收入713,163；经营利润29,825。下表给出可直接核的资金及投入材料，不要求先读完另一家全部附注。[^wmt]
+采用FY2026：净销售706,413，加会员及其他收入6,750，得到收入713,163；经营利润29,825. 下表给出可直接核的资金及投入材料，不要求先读完另一家全部附注. [^wmt]
 
 | 原行名称 | 中文读法 | FY2026 | FY2025 | FY2024 |
 |---|---|---:|---:|---:|
@@ -4319,7 +4323,7 @@ Before substantive teaching, actually retrieve every required reading unit for t
 | Net cash used in investing activities (1) | 投资现金流 | (26,350) | (21,379) | (21,287) |
 | Net cash used in financing activities | 筹资现金流 | (13,553) | (14,822) | (13,414) |
 
-单位：USD million。(1)投资现金流已经包含物业设备付款。FCF未扣债务服务、其他合同付款及收购，不能再将CFI全额扣一次。
+单位：USD M. (1)投资现金流已经包含物业设备付款. FCF未扣债务服务、其他合同付款及收购，不能再将CFI全额扣一次.
 
 | 原行名称 | 中文读法 | FY2026 | FY2025 |
 |---|---|---:|---:|
@@ -4330,13 +4334,13 @@ Before substantive teaching, actually retrieve every required reading unit for t
 | Walmart International | 国际业务 | 3,197 | 3,178 |
 | <strong>Total Capital Expenditures</strong> | <strong>资本支出合计</strong> | <strong>26,642</strong> | <strong>23,783</strong> |
 
-单位：USD million。
+单位：USD M.
 
-<strong>迁移任务：</strong>将“业务—资源—利润—现金—投入目标”写成五行，并复算美国资本支出小计与总额；指出一条不能直接从Costco搬来的比较方法。
+<strong>迁移任务：</strong>将“业务—资源—利润—现金—投入目标”写成五行，并复算美国资本支出小计与总额；指出一条不能直接从Costco搬来的比较方法.
 
-<strong>完整解析：</strong>业务先按三个报告分部及各自业态定位；资源包括门店、供应链和技术能力，不能只等同于新开门店。收入713,163、经营利润29,825给出利润层次入口。经营现金流41,565减物业设备付款26,642＝公司FCF14,923，但原文说明它未扣债务服务、其他合同义务和收购，所以不能叫任意可用于回购的钱。资本支出美国小计16,468＋5,571＋1,406＝23,445，再加国际3,197＝26,642；这把供应链/客户项目/技术等、改造与新店投入分开了。公司将这些投入与全渠道及自动化策略相联系，但还要用交付效率、成本或客户使用结果检验效果，不能由用途标签直接生成回报率。[^wmt]
+<strong>完整解析：</strong>业务先按三个报告分部及各自业态定位；资源包括门店、供应链和技术能力，不能只等同于新开门店. 收入713,163、经营利润29,825给出利润层次入口. 经营现金流41,565减物业设备付款26,642＝公司FCF14,923，但原文说明它未扣债务服务、其他合同义务和收购，所以不能叫任意可用于回购的钱. 资本支出美国小计16,468＋5,571＋1,406＝23,445，再加国际3,197＝26,642；这把供应链/客户项目/技术等、改造与新店投入分开了. 公司将这些投入与全渠道及自动化策略相联系，但还要用交付效率、成本或客户使用结果检验效果，不能由用途标签直接生成回报率. [^wmt]
 
-不能照搬的例子：两个集团的毛利或周转比较需要先核会员及其他收入、库存方法、期间和业务组合；不能拿各自总收入与一个混合应收余额随手造出同口径客户DSO。
+不能照搬的例子：两个集团的毛利或周转比较需要先核会员及其他收入、库存方法、期间和业务组合；不能拿各自总收入与一个混合应收余额随手造出同口径客户DSO.
 
 </details>
 
@@ -4347,7 +4351,7 @@ Before substantive teaching, actually retrieve every required reading unit for t
 <a id="bf22-bank"></a>
 ## 3. 银行任务包：JPMorgan Chase FY2025
 
-对象为JPMorgan Chase & Co.集团，不是其银行子公司单体；年度截至2025-12-31。金额百万美元，利润表加权股数为百万股，资产负债表股数说明为实际股数。银行业务围绕贷款、证券、支付、客户资产服务及其融资展开，分析先从资产和资金的关系进入，而不是先找一张商品毛利表。[^jpm]
+对象为JPMorgan Chase & Co.集团，不是其银行子公司单体；年度截至2025-12-31. 金额 M 美元，利润表加权股数为 M 股，资产负债表股数说明为实际股数. 银行业务围绕贷款、证券、支付、客户资产服务及其融资展开，分析先从资产和资金的关系进入，而不是先找一张商品毛利表. [^jpm]
 
 <details><summary>完整集团合并利润表：净利息、非利息、信用成本、费用及普通股</summary>
 
@@ -4384,10 +4388,10 @@ Before substantive teaching, actually retrieve every required reading unit for t
 | <strong>Net income per common share data</strong> | <strong>普通股每股净利润数据（美元/股）</strong> |  |  |  |
 | Basic earnings per share | 基本每股净利润 | 20.05 | 19.79 | 16.25 |
 | Diluted earnings per share | 稀释每股净利润 | 20.02 | 19.75 | 16.23 |
-| Weighted-average basic shares | 基本加权平均股数（百万股） | 2,776.5 | 2,873.9 | 2,938.6 |
-| Weighted-average diluted shares | 稀释加权平均股数（百万股） | 2,781.5 | 2,879 | 2,943.1 |
+| Weighted-average basic shares | 基本加权平均股数（ M 股） | 2,776.5 | 2,873.9 | 2,938.6 |
+| Weighted-average diluted shares | 稀释加权平均股数（ M 股） | 2,781.5 | 2,879 | 2,943.1 |
 
-单位：USD millions。GAAP集团合并口径，不混入managed/FTE分部口径。 费用行原表为正额，计算中减去；投资证券损失为带负号收入。 EPS为美元/股，股数为百万股；原表应与附注一同阅读。
+单位：USD M. GAAP集团合并口径，不混入managed/FTE分部口径. 费用行原表为正额，计算中减去；投资证券损失为带负号收入. EPS为美元/股，股数为 M 股；原表应与附注一同阅读.
 
 </details>
 
@@ -4432,7 +4436,7 @@ Before substantive teaching, actually retrieve every required reading unit for t
 | <strong>Total stockholders’ equity</strong> | <strong>股东权益合计</strong> | <strong>362,438</strong> | <strong>344,758</strong> |
 | <strong>Total liabilities and stockholders’ equity</strong> | <strong>负债及股东权益合计</strong> | <strong>4,424,900</strong> | <strong>4,002,814</strong> |
 
-单位：USD million；股数与每股面值按行另标。标题和无金额披露为空，不等于零；括号为减项；明细、小计和总计不得重复相加。 脚注(a)：所列VIE资产负债已包含于主表，排除被合并抵销的集团内余额，不能再次加总。
+单位：USD M；股数与每股面值按行另标. 标题和无金额披露为空，不等于零；括号为减项；明细、小计和总计不得重复相加. 脚注(a)：所列VIE资产负债已包含于主表，排除被合并抵销的集团内余额，不能再次加总.
 
 | 脚注(a)原行 | 中文读法 | 2025-12-31 | 2024-12-31 |
 |---|---|---:|---:|
@@ -4446,7 +4450,7 @@ Before substantive teaching, actually retrieve every required reading unit for t
 | All other liabilities | 其他负债 | 691 | 454 |
 | Total liabilities | 负债合计 | 28,642 | 27,777 |
 
-以上VIE数额已包含于合并主表，不能再加到总资产或总负债。
+以上VIE数额已包含于合并主表，不能再加到总资产或总负债.
 
 </details>
 
@@ -4505,23 +4509,23 @@ Before substantive teaching, actually retrieve every required reading unit for t
 | Cash interest paid | 已付现金利息 | 96,436 | 99,642 | 77,114 |
 | Income taxes paid, net | 已付所得税净额 | 5,309 | 11,715 | 9,908 |
 
-单位：USD millions。此表以原页重新排版；行名称保留业务含义，原文图像位于PDF第201页。 JPM现金集合为cash and due from banks and deposits with banks，不能改称普通公司cash equivalents。 变化和合计按原表符号；经营资产扩张与客户存款筹资分属不同活动类别。
+单位：USD M. 此表以原页重新排版；行名称保留业务含义，原文图像位于PDF第201页. JPM现金集合为cash and due from banks and deposits with banks，不能改称普通公司cash equivalents. 变化和合计按原表符号；经营资产扩张与客户存款筹资分属不同活动类别.
 
 </details>
 
 ### 从经营结构解释收入和成本
 
-利息收入193,341减利息支出97,898，得到净利息收入95,443；再加非利息收入87,004，得到净收入182,447。信用损失准备费用14,212和非利息费用95,640都继续扣除，得税前72,595；减税15,547得净利润57,048。这里利息支出参与资金业务的核心收入形成，不像一般工业企业的融资费用那样只在经营利润后补一行。[^jpmincome]
+利息收入193,341减利息支出97,898，得到净利息收入95,443；再加非利息收入87,004，得到净收入182,447. 信用损失准备费用14,212和非利息费用95,640都继续扣除，得税前72,595；减税15,547得净利润57,048. 这里利息支出参与资金业务的核心收入形成，不像一般工业企业的融资费用那样只在经营利润后补一行. [^jpmincome]
 
-两期桥也能给出一个正向结论：FY2025净收入比2024增加4,891，但准备费用增加3,534、非利息费用增加3,843，因此税前利润减少2,486；税费减少1,063后，净利润减少1,423。于是收入增长和净利润下降可以同时成立。我们已经定位到信用成本和费用两条解释入口，接下来应读贷款组合、准备估计和费用组成，而不是把“银行收入增长”直接当作股东利润同比增长。
+两期桥也能给出一个正向结论：FY2025净收入比2024增加4,891，但准备费用增加3,534、非利息费用增加3,843，因此税前利润减少2,486；税费减少1,063后，净利润减少1,423. 于是收入增长和净利润下降可以同时成立. 我们已经定位到信用成本和费用两条解释入口，接下来应读贷款组合、准备估计和费用组成，而不是把“银行收入增长”直接当作股东利润同比增长.
 
 ### 资源、资金与现金表的读法一起改变
 
-主表贷款1,493,429减准备余额25,765＝贷款净额1,467,664。这个准备余额不是一笔额外现金，也不是当期损益表14,212的同义词：一个是期末资产减项，一个是期间费用。客户存款2,559,320是资金来源负债；交易资产、证券与借入证券等则有各自经营和流动性角色。[^jpmbs]
+主表贷款1,493,429减准备余额25,765＝贷款净额1,467,664. 这个准备余额不是一笔额外现金，也不是当期损益表14,212的同义词：一个是期末资产减项，一个是期间费用. 客户存款2,559,320是资金来源负债；交易资产、证券与借入证券等则有各自经营和流动性角色. [^jpmbs]
 
-现金表中经营现金流−147,782，不能只贴一个“经营失败”标签。表内交易资产变动−156,461、借入证券−66,648，以及待售贷款发放购买−260,772与出售回收235,232，说明经营性金融资产变化会大量影响这一分类；存款现金变动则在筹资活动。完整桥469,317−147,782−265,565＋269,533＋17,835＝343,338，期末集合名是<strong>cash and due from banks and deposits with banks</strong>，不是把工业企业cash equivalents名字直接套过来。[^jpmcash]
+现金表中经营现金流−147,782，不能只贴一个“经营失败”标签. 表内交易资产变动−156,461、借入证券−66,648，以及待售贷款发放购买−260,772与出售回收235,232，说明经营性金融资产变化会大量影响这一分类；存款现金变动则在筹资活动. 完整桥469,317−147,782−265,565＋269,533＋17,835＝343,338，期末集合名是<strong>cash and due from banks and deposits with banks</strong>，不是把工业企业cash equivalents名字直接套过来. [^jpmcash]
 
-与现金表并读的流动性证据，是集团季度平均HQLA961,979对净流出868,500、披露LCR111%，以及期末资产和融资能力。约915十亿美元的期末HQLA（未扣监管haircut）加548十亿美元其他无抵押证券，对应约1.5万亿美元；449十亿美元为另列有条件抵押融资能力，原文已说明排除关系。不能使用季度平均HQLA去拼期末总额，银行法人的115%也不能替换集团111%。[^jpmliq]
+与现金表并读的流动性证据，是集团季度平均HQLA961,979对净流出868,500、披露LCR111%，以及期末资产和融资能力. 约915 B 美元的期末HQLA（未扣监管haircut）加548 B 美元其他无抵押证券，对应约1500 B 美元；449 B 美元为另列有条件抵押融资能力，原文已说明排除关系. 不能使用季度平均HQLA去拼期末总额，银行法人的115%也不能替换集团111%. [^jpmliq]
 
 ### 给存款变化提出两种解释，而不是只报同比
 
@@ -4533,16 +4537,16 @@ Before substantive teaching, actually retrieve every required reading unit for t
 | Corporate | 公司层 | 35,874 | 27,581 | 29,504 | 25,793 |
 | <strong>Total</strong> | <strong>存款合计</strong> | <strong>2,559,320</strong> | <strong>2,406,032</strong> | <strong>2,506,565</strong> | <strong>2,386,642</strong> |
 
-单位：USD million。
+单位：USD M.
 
-期末存款增加2,559,320−2,406,032＝153,288。按原表，商业与投资银行增加119,826，是其中最大一部分；其余来自CCB16,140、AWM9,029和公司层8,293，四项合计相等。原MD&A将CIB变化与支付、证券服务中的客户资金活动等联系。这个分解比“全部客户更信任银行”更接近所披露的经营结构。[^jpmdeposits]
+期末存款增加2,559,320−2,406,032＝153,288. 按原表，商业与投资银行增加119,826，是其中最大一部分；其余来自CCB16,140、AWM9,029和公司层8,293，四项合计相等. 原MD&A将CIB变化与支付、证券服务中的客户资金活动等联系. 这个分解比“全部客户更信任银行”更接近所披露的经营结构. [^jpmdeposits]
 
-下一步可以并列两种分析假说：一是客户交易和服务活动扩大带来更多经营存款；二是利率、账户产品与资产配置改变使资金暂时停留或迁移。它们可能同时存在。要区分，应查分业务的平均余额、存款成本、客户资金流及账户类型，不能只用期末总额上涨就判断稳定性更强。
+下一步可以并列两种分析假说：一是客户交易和服务活动扩大带来更多经营存款；二是利率、账户产品与资产配置改变使资金暂时停留或迁移. 它们可能同时存在. 要区分，应查分业务的平均余额、存款成本、客户资金流及账户类型，不能只用期末总额上涨就判断稳定性更强.
 
 <a id="bf22-bank-onepage"></a>
 ### 普通股归属与一页示范
 
-集团权益362,438减优先股20,045，得到普通股账面权益342,393；这不是监管资本，也不是股票市值。期末已发行4,104,933,895股减库存股1,408,661,319股，得在外2,696,272,576股；年度稀释加权股数2,781.5百万股又是不同量。净利润57,048与普通股可归属净利润55,681也分别保留，1,367差额不在没有进一步归属明细时全部改名成某一种优先股现金支付。[^jpmbs]
+集团权益362,438减优先股20,045，得到普通股账面权益342,393；这不是监管资本，也不是股票市值. 期末已发行4,104,933,895股减库存股1,408,661,319股，得在外2,696,272,576股；年度稀释加权股数2,781.5 M 股又是不同量. 净利润57,048与普通股可归属净利润55,681也分别保留，1,367差额不在没有进一步归属明细时全部改名成某一种优先股现金支付. [^jpmbs]
 
 | 分析格 | 一页可复核内容 |
 |---|---|
@@ -4550,30 +4554,30 @@ Before substantive teaching, actually retrieve every required reading unit for t
 | 业务/资源 | 客户资金、贷款/证券及服务相互连接；贷款净额1,467,664、存款2,559,320；准备余额与当期信用费用不同 |
 | 利润桥 | 193,341−97,898＋87,004−14,212−95,640＝72,595；扣税15,547得57,048 |
 | 现金/融资 | 469,317−147,782−265,565＋269,533＋17,835＝343,338；金融资产变动与客户存款分别影响不同现金分类 |
-| 流动性 | 季度平均集团LCR111%；期末约915＋548十亿美元为资产视图；有条件融资449十亿美元另列 |
+| 流动性 | 季度平均集团LCR111%；期末约915＋548 B 美元为资产视图；有条件融资449 B 美元另列 |
 | 普通股 | 普通股账面权益342,393；期末在外2,696,272,576股；普通股可归属净利润55,681与集团净利润不同 |
 | 解释及下一证据 | 存款增长可能来自客户业务流量或定价/配置变化；先查CIB/CCB等平均余额、存款成本、客户流量和账户集中度 |
 
 ### 分支练习与完整反馈
 
-<strong>先做：</strong>重建FY2025的税前利润、普通股账面权益及存款增加；说明为何−147,782没有单独完成经营质量判断。再为一项存款增长假说写出一条能推翻它的证据。
+<strong>先做：</strong>重建FY2025的税前利润、普通股账面权益及存款增加；说明为何−147,782没有单独完成经营质量判断. 再为一项存款增长假说写出一条能推翻它的证据.
 
 <details><summary>展开解析</summary>
 
-税前182,447−14,212−95,640＝72,595；普通股权益362,438−20,045＝342,393；存款增加153,288。现金流表中的交易资产、借入证券和待售贷款活动使CFO包含金融资产的收付，必须与筹资中的存款、资产质量和流动性一起解释。
+税前182,447−14,212−95,640＝72,595；普通股权益362,438−20,045＝342,393；存款增加153,288. 现金流表中的交易资产、借入证券和待售贷款活动使CFO包含金融资产的收付，必须与筹资中的存款、资产质量和流动性一起解释.
 
-例如，若把全部存款增长解释为更稳定的经营性客户资金，下一步应查账户类型、客户流量及平均余额。若增量主要是短暂的期末大额机构资金、平均余额未同步，原解释就需要修改。这里假说和检验方法是我们的分析安排，不是已确认的公司结论。
+例如，若把全部存款增长解释为更稳定的经营性客户资金，下一步应查账户类型、客户流量及平均余额. 若增量主要是短暂的期末大额机构资金、平均余额未同步，原解释就需要修改. 这里假说和检验方法是我们的分析安排，不是已确认的公司结论.
 
 </details>
 
 <details data-agent-option="svb"><summary>历史迁移：把同一方法带到SVB 2023</summary>
 <a id="bf22-svb"></a>
 
-这一次不是把JPM的111%套给另一家银行，而是更换全部历史证据。美联储SVB复盘的核心材料包括未保险存款集中、内部流动性压力测试与应急融资缺陷，以及2023-03-09超过400亿美元的实际提款和次日额外1,000亿美元的预期提款。[^svb]
+迁移到SVB 2023时，需要改用SVB自身的历史证据. 美联储SVB复盘的核心材料包括未保险存款集中、内部流动性压力测试与应急融资缺陷，以及2023-03-09超过40 B 美元的实际提款和次日额外100 B 美元的预期提款. [^svb]
 
-<strong>任务：</strong>用“资产—负债—可操作融资—时间”四格，解释为什么仅有低信用风险证券不够；并辨认其中哪个提款量是当时预期。
+<strong>任务：</strong>用“资产—负债—可操作融资—时间”四格，解释为什么仅有低信用风险证券不够；并辨认其中哪个提款量是当时预期.
 
-<strong>完整解析：</strong>资产格写证券可能提供回收或抵押资源，但出售价格、结算及抵押准备决定何时能用；负债格写集中且未保险的资金来源使提款可能共同发生；融资格检查应急渠道是否已测试、抵押和操作是否能落地；时间格区分3月9日已实现流出与次日管理层预计流出。两项不能相加说成1400亿美元已完成提款。这个历史案例还包含治理和监督问题，四格只是完成本篇流动性迁移，不宣称它解释了所有失败原因。
+<strong>完整解析：</strong>资产格写证券可能提供回收或抵押资源，但出售价格、结算及抵押准备决定何时能用；负债格写集中且未保险的资金来源使提款可能共同发生；融资格检查应急渠道是否已测试、抵押和操作是否能落地；时间格区分3月9日已实现流出与次日管理层预计流出. 两项不能相加说成140 B 美元已完成提款. 这个历史案例还包含治理和监督问题，四格只是完成本篇流动性迁移，不宣称它解释了所有失败原因.
 
 </details>
 
@@ -4582,35 +4586,35 @@ Before substantive teaching, actually retrieve every required reading unit for t
 <a id="bf22-builder"></a>
 ## 4. 交出你自己的那一页
 
-现在在实验里选定行业。先只显示对象和材料入口，逐步填写业务、利润、现金、普通股、竞争解释及下一证据；完成后再揭示示范。保存的只是本浏览器中的学习笔记，不发送到账户或外部服务；也可以导出一页文本带走。
+现在在实验里选定行业. 先只显示对象和材料入口，逐步填写业务、利润、现金、普通股、竞争解释及下一证据；完成后再揭示示范. 保存的只是本浏览器中的学习笔记，不发送到账户或外部服务；也可以导出一页文本带走.
 
 <div data-experiment-slot="EXP-BF22-ONE-PAGE-BUILDER"></div>
 
-自动核对只检查指定数值和填写情况，不能判断一段业务解释是否有充分因果证据。一个合格的分析页应当允许下一位读者沿来源重算，并看出哪些是事实、哪些是解释、哪些仍需观察。若看完示范只记住了数字，再换一家就不会做，任务尚未完成；若能换行业后改变读表顺序、保留口径，并提出具体下一证据，这套方法才真正可以迁移。
+自动核对只检查指定数值和填写情况，不能判断一段业务解释是否有充分因果证据. 一个合格的分析页应当允许下一位读者沿来源重算，并看出哪些是事实、哪些是解释、哪些仍需观察. 若看完示范只记住了数字，再换一家就不会做，任务尚未完成；若能换行业后改变读表顺序、保留口径，并提出具体下一证据，这套方法才真正可以迁移.
 
 <details data-agent-option="research"><summary>选读：为什么不设一个综合“财报好坏分”</summary>
 <a id="bf22-research"></a>
 
-Dechow等（2026）把财务披露放在多渠道框架中讨论，提醒读者联合理解报表、调整指标和其他管理层沟通，而不是用单一数字替代全部信息。本文据此保留竞争解释和证据入口，不复刻其2024Q2试用评价，也不把本次分析页变成自动买卖评分。[^disclosure]
+Dechow等（2026）把财务披露放在多渠道框架中讨论，提醒读者联合理解报表、调整指标和其他管理层沟通，而不是用单一数字替代全部信息. 本文据此保留竞争解释和证据入口，不复刻其2024Q2试用评价，也不把本次分析页变成自动买卖评分. [^disclosure]
 
 </details>
 
-[^map]: SEC，[Beginners’ Guide to Financial Statements](https://www.sec.gov/about/reports-publications/beginners-guide-financial-statements)，四表、附注、MD&A及Bringing It All Together单元；本篇将地图落实到两种行业。
-[^cost]: [Costco FY2025 Form 10-K](https://www.sec.gov/Archives/edgar/data/909832/000090983225000101/cost-20250831.htm)，Item 1、合并利润表/资产负债表/现金流量表，Note 1财年与合并政策。IR PDF与SEC HTML页码不同，按具名报表定位。
-[^costpolicy]: 同份[Costco 10-K](https://www.sec.gov/Archives/edgar/data/909832/000090983225000101/cost-20250831.htm)，Note 1 Membership Fees、Merchandise Inventories、Receivables及Property and Equipment/Leases政策。
-[^costincome]: 同份[Costco 10-K](https://www.sec.gov/Archives/edgar/data/909832/000090983225000101/cost-20250831.htm)，Consolidated Statements of Income及MD&A Gross Margin；表中全部年度行保留。
-[^costcash]: 同份[Costco 10-K](https://www.sec.gov/Archives/edgar/data/909832/000090983225000101/cost-20250831.htm)，Consolidated Statements of Cash Flows及两期资产负债表库存/应付行。70差额未分解。
-[^costequity]: 同份[Costco 10-K](https://www.sec.gov/Archives/edgar/data/909832/000090983225000101/cost-20250831.htm)，两期资产负债表权益栏、Consolidated Statements of Equity及EPS分母；Note 4本金到期。
-[^wmtpolicy]: [Walmart FY2026 Form 10-K](https://www.sec.gov/Archives/edgar/data/104169/000010416926000055/wmt-20260131.htm)，Item 1分部及期间、Note 1 Inventories；2026-01-31年度，取得日2026-09-21。
-[^wmt]: 同份[Walmart 10-K](https://www.sec.gov/Archives/edgar/data/104169/000010416926000055/wmt-20260131.htm)，MD&A Capital Allocation（p36）、Free Cash Flow（p37）完整表及限制、Consolidated Results of Operations（p38）。
-[^jpm]: [JPMorgan Chase 2025 Annual Report](https://www.jpmorganchase.com/content/dam/jpmc/jpmorgan-chase-and-co/investor-relations/documents/annualreport-2025.pdf)，集团业务概览，印刷p165利润表、p167资产负债表、p169现金流表，分别为一基PDF物理197/199/201页。
-[^jpmincome]: 同份[JPM年报](https://www.jpmorganchase.com/content/dam/jpmc/jpmorgan-chase-and-co/investor-relations/documents/annualreport-2025.pdf)，印刷p165完整Consolidated statements of income；原费用行以正额列示，在桥中减去。
-[^jpmbs]: 同份[JPM年报](https://www.jpmorganchase.com/content/dam/jpmc/jpmorgan-chase-and-co/investor-relations/documents/annualreport-2025.pdf)，印刷p167及贷款/存款相关附注；资产负债表股份为shares，利润表加权分母为million shares。
-[^jpmcash]: 同份[JPM年报](https://www.jpmorganchase.com/content/dam/jpmc/jpmorgan-chase-and-co/investor-relations/documents/annualreport-2025.pdf)，印刷p169完整Consolidated statements of cash flows及补充；保留原现金集合名称。
-[^jpmliq]: 同份[JPM年报](https://www.jpmorganchase.com/content/dam/jpmc/jpmorgan-chase-and-co/investor-relations/documents/annualreport-2025.pdf)，Liquidity Risk Management印刷pp100–103／一基PDF物理pp132–135；季度平均、期末、集团与法人分别采用。
-[^jpmdeposits]: 同份[JPM年报](https://www.jpmorganchase.com/content/dam/jpmc/jpmorgan-chase-and-co/investor-relations/documents/annualreport-2025.pdf)，印刷p103完整存款分业务表及变动说明；表内153,288的余额差不是现金流表存款153,168的替代。
-[^svb]: 美联储，2023-04-28，[SVB Key Takeaways](https://www.federalreserve.gov/publications/2023-April-SVB-Key-Takeaways.htm)及[Critical Risk Areas—Liquidity Supervision（Overview至Conclusions，止于下一节Interest Rate Risk and Investment Portfolio Supervision之前）](https://www.federalreserve.gov/publications/2023-April-SVB-Supervision-of-SVBFG-by-Critical-Risk-Areas.htm)。历史失败不作为JPM当前预测。
-[^disclosure]: Dechow、Ge、Loh、McVay，[Beyond earnings quality](https://link.springer.com/article/10.1007/s11142-026-09971-2)（2026），引言、§3.2–3.3、§8试用范围与局限。
+[^map]: SEC，[Beginners’ Guide to Financial Statements](https://www.sec.gov/about/reports-publications/beginners-guide-financial-statements)，四表、附注、MD&A及Bringing It All Together单元；本篇将地图落实到两种行业.
+[^cost]: [Costco FY2025 Form 10-K](https://www.sec.gov/Archives/edgar/data/909832/000090983225000101/cost-20250831.htm)，Item 1、合并利润表/资产负债表/现金流量表，Note 1财年与合并政策. IR PDF与SEC HTML页码不同，按具名报表定位.
+[^costpolicy]: 同份[Costco 10-K](https://www.sec.gov/Archives/edgar/data/909832/000090983225000101/cost-20250831.htm)，Note 1 Membership Fees、Merchandise Inventories、Receivables及Property and Equipment/Leases政策.
+[^costincome]: 同份[Costco 10-K](https://www.sec.gov/Archives/edgar/data/909832/000090983225000101/cost-20250831.htm)，Consolidated Statements of Income及MD&A Gross Margin；表中全部年度行保留.
+[^costcash]: 同份[Costco 10-K](https://www.sec.gov/Archives/edgar/data/909832/000090983225000101/cost-20250831.htm)，Consolidated Statements of Cash Flows及两期资产负债表库存/应付行. 70差额未分解.
+[^costequity]: 同份[Costco 10-K](https://www.sec.gov/Archives/edgar/data/909832/000090983225000101/cost-20250831.htm)，两期资产负债表权益栏、Consolidated Statements of Equity及EPS分母；Note 4本金到期.
+[^wmtpolicy]: [Walmart FY2026 Form 10-K](https://www.sec.gov/Archives/edgar/data/104169/000010416926000055/wmt-20260131.htm)，Item 1分部及期间、Note 1 Inventories；2026-01-31年度，取得日2026-09-21.
+[^wmt]: 同份[Walmart 10-K](https://www.sec.gov/Archives/edgar/data/104169/000010416926000055/wmt-20260131.htm)，MD&A Capital Allocation（p36）、Free Cash Flow（p37）完整表及限制、Consolidated Results of Operations（p38）.
+[^jpm]: [JPMorgan Chase 2025 Annual Report](https://www.jpmorganchase.com/content/dam/jpmc/jpmorgan-chase-and-co/investor-relations/documents/annualreport-2025.pdf)，集团业务概览，印刷p165利润表、p167资产负债表、p169现金流表，分别为一基PDF物理197/199/201页.
+[^jpmincome]: 同份[JPM年报](https://www.jpmorganchase.com/content/dam/jpmc/jpmorgan-chase-and-co/investor-relations/documents/annualreport-2025.pdf)，印刷p165完整Consolidated statements of income；原费用行以正额列示，在桥中减去.
+[^jpmbs]: 同份[JPM年报](https://www.jpmorganchase.com/content/dam/jpmc/jpmorgan-chase-and-co/investor-relations/documents/annualreport-2025.pdf)，印刷p167及贷款/存款相关附注；资产负债表股份为shares，利润表加权分母为million shares.
+[^jpmcash]: 同份[JPM年报](https://www.jpmorganchase.com/content/dam/jpmc/jpmorgan-chase-and-co/investor-relations/documents/annualreport-2025.pdf)，印刷p169完整Consolidated statements of cash flows及补充；保留原现金集合名称.
+[^jpmliq]: 同份[JPM年报](https://www.jpmorganchase.com/content/dam/jpmc/jpmorgan-chase-and-co/investor-relations/documents/annualreport-2025.pdf)，Liquidity Risk Management印刷pp100–103／一基PDF物理pp132–135；季度平均、期末、集团与法人分别采用.
+[^jpmdeposits]: 同份[JPM年报](https://www.jpmorganchase.com/content/dam/jpmc/jpmorgan-chase-and-co/investor-relations/documents/annualreport-2025.pdf)，印刷p103完整存款分业务表及变动说明；表内153,288的余额差不是现金流表存款153,168的替代.
+[^svb]: 美联储，2023-04-28，[SVB Key Takeaways](https://www.federalreserve.gov/publications/2023-April-SVB-Key-Takeaways.htm)及[Critical Risk Areas—Liquidity Supervision（Overview至Conclusions，止于下一节Interest Rate Risk and Investment Portfolio Supervision之前）](https://www.federalreserve.gov/publications/2023-April-SVB-Supervision-of-SVBFG-by-Critical-Risk-Areas.htm). 历史失败不作为JPM当前预测.
+[^disclosure]: Dechow、Ge、Loh、McVay，[Beyond earnings quality](https://link.springer.com/article/10.1007/s11142-026-09971-2)（2026），引言、§3.2–3.3、§8试用范围与局限.
 
 <script src="/notebook/labs/bf-fg/reader-adapter.js" defer></script>
 
@@ -4620,17 +4624,17 @@ Dechow等（2026）把财务披露放在多渠道框架中讨论，提醒读者�
 
 ### 零售
 
-Costco FY2025、52周，合并集团。商品销售与会员服务共享门店、物业和租赁资源。经营利润(269912−239886)+5323−24966=10383；净利润10383−154+589−2719=8099。现金9906+13335−5311−3775+6=14161。权益29164；期末443237000股，与EPS加权分母不同。库存/应付反向变化893，CFO对应963，未分解差70。下一观察是匹配期次销量/库存构成及采购/付款条款，而不是把差额直接命名。
+Costco FY2025、52周，合并集团. 商品销售与会员服务共享门店、物业和租赁资源. 经营利润(269912−239886)+5323−24966=10383；净利润10383−154+589−2719=8099. 现金9906+13335−5311−3775+6=14161. 权益29164；期末443237000股，与EPS加权分母不同. 库存/应付反向变化893，CFO对应963，未分解差70. 下一观察是匹配期次销量/库存构成及采购/付款条款，而不是把差额直接命名.
 
 ### 银行
 
-JPM FY2025集团。NII95443+非息87004−准备14212−非息费用95640=税前72595；净利润57048。贷款净额1493429−25765=1467664；存款2559320。现金469317−147782−265565+269533+17835=343338。权益362438−优先20045=普通股342393；期末在外2696272576股。季度平均LCR111%与期末资金不混用。存款增153288，CIB增119826；区分客户活动与产品定价/配置变化，下一步读平均余额、成本、资金流和集中度。
+JPM FY2025集团. NII95443+非息87004−准备14212−非息费用95640=税前72595；净利润57048. 贷款净额1493429−25765=1467664；存款2559320. 现金469317−147782−265565+269533+17835=343338. 权益362438−优先20045=普通股342393；期末在外2696272576股. 季度平均LCR111%与期末资金不混用. 存款增153288，CIB增119826；区分客户活动与产品定价/配置变化，下一步读平均余额、成本、资金流和集中度.
 
 ### 迁移解析
 
-Walmart FY2026：美国资本16468+5571+1406=23445，加国际3197=26642；CFO41565−26642=FCF14923，但未扣尽债务与收购等义务。三分部、期间和库存方法须重新定位。SVB：2023-03-09超过400亿美元为已实现流出，次日1000亿美元为管理层预期；要看资产变现及抵押操作，不能合称1400亿美元已实现。
+Walmart FY2026：美国资本16468+5571+1406=23445，加国际3197=26642；CFO41565−26642=FCF14923，但未扣尽债务与收购等义务. 三分部、期间和库存方法须重新定位. SVB：2023-03-09超过40 B 美元为已实现流出，次日100 B 美元为管理层预期；要看资产变现及抵押操作，不能合称140 B 美元已实现.
 
-一页表自动检查仅核数字与非空格，不认证解释的因果充分性或投资质量。完整练习与逐条解析见同源正文。
+一页表自动检查仅核数字与非空格，不认证解释的因果充分性或投资质量. 完整练习与逐条解析见同源正文.
 
 
 ## Experiment inputs and static equivalents
@@ -4640,16 +4644,16 @@ Walmart FY2026：美国资本16468+5571+1406=23445，加国际3197=26642；CFO41
     "id": "EXP-BF22-ONE-PAGE-BUILDER",
     "title": "一页分析工作台",
     "anchor": "bf22-builder",
-    "description": "按行业逐步显示材料/填写/数字检查/完整示范。",
+    "description": "按行业逐步显示材料/填写/数字检查/完整示范.",
     "inputs": {
       "provided_by": "agent_packet.supplied_inputs",
       "selection": "agent_packet.selected_branch",
       "pointer_contract": "agent_packet.input_projection",
       "complete_frozen_input_uri": "https://ou-liu-red-sugar.github.io/notebook/labs/bf-fg/inputs.json",
-      "scope": "实际输入已在同一教学包中提供一次；当前 experiment 通过上述绑定复用，不复制第二份表格。"
+      "scope": "实际输入已在同一教学包中提供一次；当前 experiment 通过上述绑定复用，不复制第二份表格."
     },
-    "algorithm": "integrated重建指定桥；worksheet只验证两项数值与六格非空。",
-    "boundaries": "不自动认定因果解释、投资价值或财报质量；本地保存/导出不上传。",
+    "algorithm": "integrated重建指定桥；worksheet只验证两项数值与六格非空.",
+    "boundaries": "不自动认定因果解释、投资价值或财报质量；本地保存/导出不上传.",
     "outputs": {
       "retail": {
         "branch": "retail",
@@ -4676,7 +4680,7 @@ Walmart FY2026：美国资本16468+5571+1406=23445，加国际3197=26642；CFO41
         "deposits_change": 153288
       }
     },
-    "static_equivalent": "## 一页分析：默认完整反馈\n\n### 零售\n\nCostco FY2025、52周，合并集团。商品销售与会员服务共享门店、物业和租赁资源。经营利润(269912−239886)+5323−24966=10383；净利润10383−154+589−2719=8099。现金9906+13335−5311−3775+6=14161。权益29164；期末443237000股，与EPS加权分母不同。库存/应付反向变化893，CFO对应963，未分解差70。下一观察是匹配期次销量/库存构成及采购/付款条款，而不是把差额直接命名。\n\n### 银行\n\nJPM FY2025集团。NII95443+非息87004−准备14212−非息费用95640=税前72595；净利润57048。贷款净额1493429−25765=1467664；存款2559320。现金469317−147782−265565+269533+17835=343338。权益362438−优先20045=普通股342393；期末在外2696272576股。季度平均LCR111%与期末资金不混用。存款增153288，CIB增119826；区分客户活动与产品定价/配置变化，下一步读平均余额、成本、资金流和集中度。\n\n### 迁移解析\n\nWalmart FY2026：美国资本16468+5571+1406=23445，加国际3197=26642；CFO41565−26642=FCF14923，但未扣尽债务与收购等义务。三分部、期间和库存方法须重新定位。SVB：2023-03-09超过400亿美元为已实现流出，次日1000亿美元为管理层预期；要看资产变现及抵押操作，不能合称1400亿美元已实现。\n\n一页表自动检查仅核数字与非空格，不认证解释的因果充分性或投资质量。完整练习与逐条解析见同源正文。\n",
+    "static_equivalent": "## 一页分析：默认完整反馈\n\n### 零售\n\nCostco FY2025、52周，合并集团. 商品销售与会员服务共享门店、物业和租赁资源. 经营利润(269912−239886)+5323−24966=10383；净利润10383−154+589−2719=8099. 现金9906+13335−5311−3775+6=14161. 权益29164；期末443237000股，与EPS加权分母不同. 库存/应付反向变化893，CFO对应963，未分解差70. 下一观察是匹配期次销量/库存构成及采购/付款条款，而不是把差额直接命名.\n\n### 银行\n\nJPM FY2025集团. NII95443+非息87004−准备14212−非息费用95640=税前72595；净利润57048. 贷款净额1493429−25765=1467664；存款2559320. 现金469317−147782−265565+269533+17835=343338. 权益362438−优先20045=普通股342393；期末在外2696272576股. 季度平均LCR111%与期末资金不混用. 存款增153288，CIB增119826；区分客户活动与产品定价/配置变化，下一步读平均余额、成本、资金流和集中度.\n\n### 迁移解析\n\nWalmart FY2026：美国资本16468+5571+1406=23445，加国际3197=26642；CFO41565−26642=FCF14923，但未扣尽债务与收购等义务. 三分部、期间和库存方法须重新定位. SVB：2023-03-09超过40 B 美元为已实现流出，次日100 B 美元为管理层预期；要看资产变现及抵押操作，不能合称140 B 美元已实现.\n\n一页表自动检查仅核数字与非空格，不认证解释的因果充分性或投资质量. 完整练习与逐条解析见同源正文.\n",
     "source_id_aliases": {
       "BFFG-C01": "BF-S-COST-FY2025-SEC",
       "BFFG-C02": "BF-S-JPM-FY2025",
@@ -4690,27 +4694,27 @@ Walmart FY2026：美国资本16468+5571+1406=23445，加国际3197=26642；CFO41
 ```
 
 ## Sources
-- [Costco Wholesale Corporation · FY2025 Form 10-K（SEC HTML）](https://www.sec.gov/Archives/edgar/data/909832/000090983225000101/cost-20250831.htm): Costco 的 2025 财年末合并资产为77,099百万美元，负债47,935，权益29,164。业务说明把商品快速周转与供应商付款安排联系起来；会员费的确认则需要结合收入政策和递延余额。
+- [Costco Wholesale Corporation · FY2025 Form 10-K（SEC HTML）](https://www.sec.gov/Archives/edgar/data/909832/000090983225000101/cost-20250831.htm): Costco 的 2025 财年末合并资产为77,099 M 美元，负债47,935，权益29,164. 业务说明把商品快速周转与供应商付款安排联系起来；会员费的确认则需要结合收入政策和递延余额.
 
-本组带读将存货与应付的两期余额变化接到现金流量表。两种计算并不完全相同，差额留待附注和其他口径解释。
+本组带读将存货与应付的两期余额变化接到现金流量表. 两种计算并不完全相同，差额留待附注和其他口径解释.
 
-EI-B 本批采用：会员制度、尾随续费率定义、会员费收入及合并营业利润桥。美元百万转换为十亿美元；全球公司边界不等于美国单一零售市场。
+EI-B 本批采用：会员制度、尾随续费率定义、会员费收入及合并营业利润桥. USD M 转换为 B 美元；全球公司边界不等于美国单一零售市场.
 
-BF-F/G 本批采用：零售利润/现金/普通股及债务时间的历史原件。SEC具名表定位优先；不混用IR PDF页码。
-- [JPMorgan Chase & Co. · 2025 Annual Report](https://www.jpmorganchase.com/content/dam/jpmc/jpmorgan-chase-and-co/investor-relations/documents/annualreport-2025.pdf): JPMorgan 的 2025 年末集团合并表没有照普通工业企业划分流动／非流动。证券和贷款各有计量类别；贷款损失准备是贷款账面余额的减项，表下注明的合并VIE金额已包含在集团总额内。
+BF-F/G 本批采用：零售利润/现金/普通股及债务时间的历史原件. SEC具名表定位优先；不混用IR PDF页码.
+- [JPMorgan Chase & Co. · 2025 Annual Report](https://www.jpmorganchase.com/content/dam/jpmc/jpmorgan-chase-and-co/investor-relations/documents/annualreport-2025.pdf): JPMorgan 的 2025 年末集团合并表没有照普通工业企业划分流动／非流动. 证券和贷款各有计量类别；贷款损失准备是贷款账面余额的减项，表下注明的合并VIE金额已包含在集团总额内.
 
-从总权益到普通股权益，还要扣除优先股；每股账面值的股数使用已发行股数减库存股。原表、附注和普通股权利因此要连在一起读。
+从总权益到普通股权益，还要扣除优先股；每股账面值的股数使用已发行股数减库存股. 原表、附注和普通股权利因此要连在一起读.
 
-BF-F/G 本批采用：集团季度平均LCR、期末资产和有条件融资能力分别记录；银行法人另列；完整主表支持综合带读。
-- [SEC · Beginners’ Guide to Financial Statements](https://www.sec.gov/about/reports-publications/beginners-guide-financial-statements): 主表给出汇总数字，附注补充会计政策、组成和承诺，管理层讨论解释经营变化，审计意见说明审计结论。读一个财务数字时，可以沿“主表行—相关附注—管理层解释”寻找它的含义。
+BF-F/G 本批采用：集团季度平均LCR、期末资产和有条件融资能力分别记录；银行法人另列；完整主表支持综合带读.
+- [SEC · Beginners’ Guide to Financial Statements](https://www.sec.gov/about/reports-publications/beginners-guide-financial-statements): 主表给出汇总数字，附注补充会计政策、组成和承诺，管理层讨论解释经营变化，审计意见说明审计结论. 读一个财务数字时，可以沿“主表行—相关附注—管理层解释”寻找它的含义.
 
-BF-F/G 本批采用：综合材料地图，不替代行业分支机制。
-- [Review of the Federal Reserve’s Supervision and Regulation of Silicon Valley Bank — Key Takeaways](https://www.federalreserve.gov/publications/2023-April-SVB-Key-Takeaways.htm): 2023历史复盘；超过400亿美元为实际日流出，1000亿美元为次日预期，不可相加为已实现。
-- [SVB Review — Supervision of SVBFG by Critical Risk Areas](https://www.federalreserve.gov/publications/2023-April-SVB-Supervision-of-SVBFG-by-Critical-Risk-Areas.htm): 具体流动性治理、压力假设与可操作融资缺陷；不把历史复盘当JPM当前预测。
-- [Beyond earnings quality: evaluating the quality of corporate disclosure practices](https://link.springer.com/article/10.1007/s11142-026-09971-2): 透明度、项目持续性、分母和其他披露的联读框架；18家公司试用是2024Q2，不是Salesforce FY26评价。
-- [Walmart FY2026 Form 10-K — Sam’s Club U.S.](https://www.sec.gov/Archives/edgar/data/104169/000010416926000055/wmt-20260131.htm): Sam’s Club U.S.分部，会员与其他收入含other，净销售加该项才是总收入；损益层级支持重建而不支持会员利润归因。
+BF-F/G 本批采用：综合材料地图，不替代行业分支机制.
+- [Review of the Federal Reserve’s Supervision and Regulation of Silicon Valley Bank — Key Takeaways](https://www.federalreserve.gov/publications/2023-April-SVB-Key-Takeaways.htm): 2023历史复盘；超过40 B 美元为实际日流出，100 B 美元为次日预期，不可相加为已实现.
+- [SVB Review — Supervision of SVBFG by Critical Risk Areas](https://www.federalreserve.gov/publications/2023-April-SVB-Supervision-of-SVBFG-by-Critical-Risk-Areas.htm): 具体流动性治理、压力假设与可操作融资缺陷；不把历史复盘当JPM当前预测.
+- [Beyond earnings quality: evaluating the quality of corporate disclosure practices](https://link.springer.com/article/10.1007/s11142-026-09971-2): 透明度、项目持续性、分母和其他披露的联读框架；18家公司试用是2024Q2，不是Salesforce FY26评价.
+- [Walmart FY2026 Form 10-K — Sam’s Club U.S.](https://www.sec.gov/Archives/edgar/data/104169/000010416926000055/wmt-20260131.htm): Sam’s Club U.S.分部，会员与其他收入含other，净销售加该项才是总收入；损益层级支持重建而不支持会员利润归因.
 
-BF-F/G 本批采用：零售迁移：三分部、年结差异、资本用途与FCF范围；FY25 capex为23783。
+BF-F/G 本批采用：零售迁移：三分部、年结差异、资本用途与FCF范围；FY25 capex为23783.
 
 ## Content relations
 ```json
@@ -4763,7 +4767,7 @@ BF-F/G 本批采用：零售迁移：三分部、年结差异、资本用途与F
     "from": "bf22-map",
     "relation": "supported_by",
     "to": "BF-S-SEC-GUIDE",
-    "reason": "综合材料地图，不替代行业分支机制。",
+    "reason": "综合材料地图，不替代行业分支机制.",
     "locator": [
       "四张报表、Footnotes、MD&A、Bringing It All Together"
     ],
@@ -4774,7 +4778,7 @@ BF-F/G 本批采用：零售迁移：三分部、年结差异、资本用途与F
     "from": "bf22-retail",
     "relation": "supported_by",
     "to": "BF-S-COST-FY2025-SEC",
-    "reason": "零售利润/现金/普通股及债务时间的历史原件。SEC具名表定位优先；不混用IR PDF页码。",
+    "reason": "零售利润/现金/普通股及债务时间的历史原件. SEC具名表定位优先；不混用IR PDF页码.",
     "locator": [
       "Item 1",
       "Consolidated Statements of Income / Balance Sheets / Equity / Cash Flows",
@@ -4789,7 +4793,7 @@ BF-F/G 本批采用：零售迁移：三分部、年结差异、资本用途与F
     "from": "bf22-bank",
     "relation": "supported_by",
     "to": "BF-S-JPM-FY2025",
-    "reason": "集团季度平均LCR、期末资产和有条件融资能力分别记录；银行法人另列；完整主表支持综合带读。",
+    "reason": "集团季度平均LCR、期末资产和有条件融资能力分别记录；银行法人另列；完整主表支持综合带读.",
     "locator": [
       "printed 100–103 = physical 132–135 (1-based)",
       "printed 165/167/169 = physical 197/199/201",
@@ -4802,7 +4806,7 @@ BF-F/G 本批采用：零售迁移：三分部、年结差异、资本用途与F
     "from": "bf22-walmart",
     "relation": "supported_by",
     "to": "EIBC-S04",
-    "reason": "零售迁移：三分部、年结差异、资本用途与FCF范围；FY25 capex为23783。",
+    "reason": "零售迁移：三分部、年结差异、资本用途与FCF范围；FY25 capex为23783.",
     "locator": [
       "Item1 分部与期间",
       "MD&A Capital Allocation p36",
@@ -4817,7 +4821,7 @@ BF-F/G 本批采用：零售迁移：三分部、年结差异、资本用途与F
     "from": "bf22-svb",
     "relation": "supported_by",
     "to": "BFFG-C03",
-    "reason": "2023历史复盘；超过400亿美元为实际日流出，1000亿美元为次日预期，不可相加为已实现。",
+    "reason": "2023历史复盘；超过40 B 美元为实际日流出，100 B 美元为次日预期，不可相加为已实现.",
     "locator": [
       "Key Takeaways 全文"
     ],
@@ -4828,7 +4832,7 @@ BF-F/G 本批采用：零售迁移：三分部、年结差异、资本用途与F
     "from": "bf22-svb",
     "relation": "supported_by",
     "to": "BFFG-C03L",
-    "reason": "具体流动性治理、压力假设与可操作融资缺陷；不把历史复盘当JPM当前预测。",
+    "reason": "具体流动性治理、压力假设与可操作融资缺陷；不把历史复盘当JPM当前预测.",
     "locator": [
       "Liquidity Supervision：Overview至该节Conclusions；止于下一节Interest Rate Risk and Investment Portfolio Supervision之前"
     ],
@@ -4839,7 +4843,7 @@ BF-F/G 本批采用：零售迁移：三分部、年结差异、资本用途与F
     "from": "bf22-research",
     "relation": "supported_by",
     "to": "BFFG-R02",
-    "reason": "透明度、项目持续性、分母和其他披露的联读框架；18家公司试用是2024Q2，不是Salesforce FY26评价。",
+    "reason": "透明度、项目持续性、分母和其他披露的联读框架；18家公司试用是2024Q2，不是Salesforce FY26评价.",
     "locator": [
       "Introduction",
       "§3.2–3.3",
@@ -4895,8 +4899,8 @@ BF-F/G 本批采用：零售迁移：三分部、年结差异、资本用途与F
     "relation": "illustrated_by",
     "to": "EXP-BF22-ONE-PAGE-BUILDER",
     "at_section": "bf22-builder",
-    "reason": "按行业逐步显示材料/填写/数字检查/完整示范。",
-    "conditions": "不自动认定因果解释、投资价值或财报质量；本地保存/导出不上传。"
+    "reason": "按行业逐步显示材料/填写/数字检查/完整示范.",
+    "conditions": "不自动认定因果解释、投资价值或财报质量；本地保存/导出不上传."
   }
 ]
 ```
@@ -4905,4 +4909,4 @@ BF-F/G 本批采用：零售迁移：三分部、年结差异、资本用途与F
 
 ## Optional reading path
 拆一份企业财报: step 14/14
-完成所选行业的原表重建，写出竞争解释及下一项区分证据。
+完成所选行业的原表重建，写出竞争解释及下一项区分证据.

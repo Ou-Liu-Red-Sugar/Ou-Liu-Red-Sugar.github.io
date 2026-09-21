@@ -45,7 +45,7 @@
       "continued_final_wealth": null,
       "continued_pnl": null,
       "finalSpot": 80,
-      "note": "近端先现金结算。远腿出售只有在明确可成交且款项可抵付时才帮助当期付款；保留远腿另为新决策。"
+      "note": "近端先现金结算. 远腿出售只有在明确可成交且款项可抵付时才帮助当期付款；保留远腿另为新决策."
     },
     {
       "spot": 80,
@@ -92,7 +92,7 @@
       "continued_final_wealth": null,
       "continued_pnl": null,
       "finalSpot": 80,
-      "note": "近端先现金结算。远腿出售只有在明确可成交且款项可抵付时才帮助当期付款；保留远腿另为新决策。"
+      "note": "近端先现金结算. 远腿出售只有在明确可成交且款项可抵付时才帮助当期付款；保留远腿另为新决策."
     },
     {
       "spot": 80,
@@ -139,7 +139,7 @@
       "continued_final_wealth": null,
       "continued_pnl": null,
       "finalSpot": 80,
-      "note": "近端先现金结算。远腿出售只有在明确可成交且款项可抵付时才帮助当期付款；保留远腿另为新决策。"
+      "note": "近端先现金结算. 远腿出售只有在明确可成交且款项可抵付时才帮助当期付款；保留远腿另为新决策."
     },
     {
       "spot": 100,
@@ -186,7 +186,7 @@
       "continued_final_wealth": null,
       "continued_pnl": null,
       "finalSpot": 80,
-      "note": "近端先现金结算。远腿出售只有在明确可成交且款项可抵付时才帮助当期付款；保留远腿另为新决策。"
+      "note": "近端先现金结算. 远腿出售只有在明确可成交且款项可抵付时才帮助当期付款；保留远腿另为新决策."
     },
     {
       "spot": 100,
@@ -233,7 +233,7 @@
       "continued_final_wealth": null,
       "continued_pnl": null,
       "finalSpot": 80,
-      "note": "近端先现金结算。远腿出售只有在明确可成交且款项可抵付时才帮助当期付款；保留远腿另为新决策。"
+      "note": "近端先现金结算. 远腿出售只有在明确可成交且款项可抵付时才帮助当期付款；保留远腿另为新决策."
     },
     {
       "spot": 100,
@@ -280,7 +280,7 @@
       "continued_final_wealth": null,
       "continued_pnl": null,
       "finalSpot": 80,
-      "note": "近端先现金结算。远腿出售只有在明确可成交且款项可抵付时才帮助当期付款；保留远腿另为新决策。"
+      "note": "近端先现金结算. 远腿出售只有在明确可成交且款项可抵付时才帮助当期付款；保留远腿另为新决策."
     },
     {
       "spot": 140,
@@ -327,7 +327,7 @@
       "continued_final_wealth": null,
       "continued_pnl": null,
       "finalSpot": 80,
-      "note": "近端先现金结算。远腿出售只有在明确可成交且款项可抵付时才帮助当期付款；保留远腿另为新决策。"
+      "note": "近端先现金结算. 远腿出售只有在明确可成交且款项可抵付时才帮助当期付款；保留远腿另为新决策."
     },
     {
       "spot": 140,
@@ -374,7 +374,7 @@
       "continued_final_wealth": null,
       "continued_pnl": null,
       "finalSpot": 80,
-      "note": "近端先现金结算。远腿出售只有在明确可成交且款项可抵付时才帮助当期付款；保留远腿另为新决策。"
+      "note": "近端先现金结算. 远腿出售只有在明确可成交且款项可抵付时才帮助当期付款；保留远腿另为新决策."
     },
     {
       "spot": 140,
@@ -421,7 +421,7 @@
       "continued_final_wealth": null,
       "continued_pnl": null,
       "finalSpot": 80,
-      "note": "近端先现金结算。远腿出售只有在明确可成交且款项可抵付时才帮助当期付款；保留远腿另为新决策。"
+      "note": "近端先现金结算. 远腿出售只有在明确可成交且款项可抵付时才帮助当期付款；保留远腿另为新决策."
     }
   ],
   "iv_shocks": [
@@ -464,7 +464,7 @@
       "closed_wealth": 11999.737632976023,
       "closed_pnl": -0.2623670239772764,
       "continued_final_wealth": null,
-      "note": "两期限仍存在，平仓分别卖远腿bid、买回近腿ask。"
+      "note": "两期限仍存在，平仓分别卖远腿bid、买回近腿ask."
     },
     {
       "spot": 100,
@@ -505,7 +505,7 @@
       "closed_wealth": 12082.85787066941,
       "closed_pnl": 82.85787066940975,
       "continued_final_wealth": null,
-      "note": "两期限仍存在，平仓分别卖远腿bid、买回近腿ask。"
+      "note": "两期限仍存在，平仓分别卖远腿bid、买回近腿ask."
     },
     {
       "spot": 100,
@@ -546,7 +546,7 @@
       "closed_wealth": 11885.50926664026,
       "closed_pnl": -114.49073335974026,
       "continued_final_wealth": null,
-      "note": "两期限仍存在，平仓分别卖远腿bid、买回近腿ask。"
+      "note": "两期限仍存在，平仓分别卖远腿bid、买回近腿ask."
     },
     {
       "spot": 100,
@@ -587,7 +587,7 @@
       "closed_wealth": 11802.023750311047,
       "closed_pnl": -197.97624968895252,
       "continued_final_wealth": null,
-      "note": "两期限仍存在，平仓分别卖远腿bid、买回近腿ask。"
+      "note": "两期限仍存在，平仓分别卖远腿bid、买回近腿ask."
     }
   ],
   "spxw_continuation": [
@@ -636,7 +636,7 @@
       "continued_final_wealth": 587450,
       "continued_pnl": -12550,
       "finalSpot": 80,
-      "note": "近端先现金结算。远腿出售只有在明确可成交且款项可抵付时才帮助当期付款；保留远腿另为新决策。"
+      "note": "近端先现金结算. 远腿出售只有在明确可成交且款项可抵付时才帮助当期付款；保留远腿另为新决策."
     },
     {
       "spot": 140,
@@ -683,7 +683,7 @@
       "continued_final_wealth": 387450,
       "continued_pnl": -212550,
       "finalSpot": 80,
-      "note": "近端先现金结算。远腿出售只有在明确可成交且款项可抵付时才帮助当期付款；保留远腿另为新决策。"
+      "note": "近端先现金结算. 远腿出售只有在明确可成交且款项可抵付时才帮助当期付款；保留远腿另为新决策."
     }
   ]
 }

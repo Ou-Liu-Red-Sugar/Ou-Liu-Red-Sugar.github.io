@@ -16,7 +16,7 @@
       "intraday transition paragraph"
     ],
     "read_scope": "specified complete web units",
-    "body": "现金/融资账户、SEC 16000/8000→12000示例与利息。补救公式和费用扩展由本文推导，40%为例中条件。",
+    "body": "现金/融资账户、SEC 16000/8000→12000示例与利息. 补救公式和费用扩展由本文推导，40%为例中条件.",
     "retrieved_at": "2026-09-21",
     "supports_nodes": [
       "P08"
@@ -40,7 +40,7 @@
       "(d)(1)"
     ],
     "read_scope": "maintenance long-margin minimum and house margin provisions",
-    "body": "适用普通长仓(c)(1)最低维持与(d)(1)内部要求；不是全部工具统一百分比。",
+    "body": "适用普通长仓(c)(1)最低维持与(d)(1)内部要求；不是全部工具统一百分比.",
     "retrieved_at": "2026-09-21",
     "supports_nodes": [
       "P08"
@@ -64,7 +64,7 @@
       "(b)-(d) checked for context"
     ],
     "read_scope": "margin disclosure and liquidation/notice/house requirement rights",
-    "body": "贷款/抵押关系、处置/通知、提高内部要求和延期限制。",
+    "body": "贷款/抵押关系、处置/通知、提高内部要求和延期限制.",
     "retrieved_at": "2026-09-21",
     "supports_nodes": [
       "P08"
@@ -88,7 +88,7 @@
       "Background/transition"
     ],
     "read_scope": "effective and phase-in identity, not full implementation manual",
-    "body": "2026-06-04生效及2027-10-20实施过渡；不替经纪商确认采用状态。",
+    "body": "2026-06-04生效及2027-10-20实施过渡；不替经纪商确认采用状态.",
     "retrieved_at": "2026-09-21",
     "supports_nodes": [
       "P08"
@@ -112,7 +112,7 @@
       "Recommendations 6–8"
     ],
     "read_scope": "complete specified section; original PDF pages visually checked",
-    "body": "Recommendations6–8的资源可用性、haircut、币种/地点/截止与操作准备；不是零售统一账户规则。",
+    "body": "Recommendations6–8的资源可用性、haircut、币种/地点/截止与操作准备；不是零售统一账户规则.",
     "retrieved_at": "2026-09-21",
     "supports_nodes": [
       "P08",
@@ -137,7 +137,7 @@
       "Timing Restrictions and Trading Instructions"
     ],
     "read_scope": "two complete web units",
-    "body": "订单的价格/成交保证区别与有效期；本篇盘口和执行数列另为合成数据。",
+    "body": "订单的价格/成交保证区别与有效期；本篇盘口和执行数列另为合成数据.",
     "retrieved_at": "2026-09-21",
     "supports_nodes": [
       "P09",
@@ -166,7 +166,7 @@
       "Q14"
     ],
     "read_scope": "specified questions; current margin number intentionally not adopted",
-    "body": "MES每点5美元、0.25点跳动、代码/结算与保证金可变；不提供本文教学费率或当前保证金。",
+    "body": "MES每点5美元、0.25点跳动、代码/结算与保证金可变；不提供本文教学费率或当前保证金.",
     "retrieved_at": "2026-09-21",
     "supports_nodes": [
       "P07"
@@ -191,7 +191,7 @@
       "Table1 p32 / PDF p33"
     ],
     "read_scope": "complete specified method/sample/distribution units and table; original PDF pages checked",
-    "body": "估计公平价和有效价差的方法、筛选/分组样本、Table1PanelA摘要统计。未取原始TRACE，未复现估计；收益率bp不移植到股票价格bp。",
+    "body": "估计公平价和有效价差的方法、筛选/分组样本、Table1PanelA摘要统计. 未取原始TRACE，未复现估计；收益率bp不移植到股票价格bp.",
     "retrieved_at": "2026-09-21",
     "supports_nodes": [
       "P09"
@@ -220,7 +220,7 @@
       "p7"
     ],
     "read_scope": "all specified pages visually checked and text read",
-    "body": "触发与目的地、收益/成本联合研究框架及模拟条件。无现金流/期货的研究结果不证明200/175普遍最优。",
+    "body": "触发与目的地、收益/成本联合研究框架及模拟条件. 无现金流/期货的研究结果不证明200/175普遍最优.",
     "retrieved_at": "2026-09-21",
     "supports_nodes": [
       "P11"
@@ -244,7 +244,7 @@
       "transaction cost / allocation alignment sections"
     ],
     "read_scope": "web body; conflicting image-alt performance wording excluded",
-    "body": "2025-01-23机构政策中200bps触发、175bps目的地；排除冲突图像替代文字。",
+    "body": "2025-01-23机构政策中200bps触发、175bps目的地；排除冲突图像替代文字.",
     "retrieved_at": "2026-09-21",
     "supports_nodes": [
       "P11"
@@ -267,7 +267,7 @@
       "event announcement paragraphs"
     ],
     "read_scope": "event body and timeline",
-    "body": "2023公告的参考、公开、计划文件发布与生效四种日期；不包含ETF成交。",
+    "body": "2023公告的参考、公开、计划文件发布与生效四种日期；不包含ETF成交.",
     "retrieved_at": "2026-09-21",
     "supports_nodes": [
       "P11"

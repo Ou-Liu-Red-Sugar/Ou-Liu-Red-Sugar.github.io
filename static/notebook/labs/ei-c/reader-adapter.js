@@ -83,7 +83,7 @@
       load().then(() => { context.value = variants[selected]; }).catch(() => {
         // The page already carries the complete all-branch package. A failed
         // optional asset request may not present that package as branch-only.
-        context.value = '当前分支文件未取得，以下提供本篇全部分支的完整材料；selected_branch=all。\n\n' + original;
+        context.value = '当前分支文件未取得，以下提供本篇全部分支的完整材料；selected_branch=all. \n\n' + original;
       }).finally(() => {
         button.removeAttribute('aria-busy'); replay.add(button); button.click();
       });

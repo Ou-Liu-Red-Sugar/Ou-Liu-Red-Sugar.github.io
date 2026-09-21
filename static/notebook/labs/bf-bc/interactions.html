@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="zh-CN"><head><meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/><title>企业经营与财务分析 · 八个实验</title><link href="style.css" rel="stylesheet"/><script defer src="/js/notebook-number-format.js" data-notebook-numbers></script>
-</head><body><header><div class="tag">企业经营与财务分析 · 配套实验</div><h1>让同一组数字沿不同关系展开</h1><p>历史原表与教学设定分开。金额单位在各实验内注明；负数表示相应流出、减项或损失，不依赖颜色辨别。全部实验可离线运行，无需账户或网络服务。</p><nav><a href="#EXP-BF04-ACCRUAL-TIMELINE">BF-04</a><a href="#EXP-BF06-PROFIT-LAYERS">BF-06</a><a href="#EXP-BF07-CASH-BRIDGE">BF-07</a><a href="#EXP-BF08-EQUITY-SHARES">BF-08</a><a href="#EXP-BF09-EVIDENCE">BF-09</a><a href="#EXP-BF10-CONTRACT-TIMING">BF-10</a><a href="#EXP-BF11-INVENTORY-VIEW">BF-11</a><a href="#EXP-BF15-TAX-LAYERS">BF-15</a><a href="static.html">完整静态结果</a><a href="/zh/notebook/#business" target="_top">回到笔记</a></nav></header><main><noscript><p>JavaScript未启用。请打开<a href="static.html">静态等价页</a>阅读所有默认结果与输入。</p></noscript><section class="lab" id="EXP-BF04-ACCRUAL-TIMELINE"><div class="tag">BF-04</div><h2>履约、权利与收付款的时间线</h2><p>四种条款明确的教学合同；总对价120。不是公司的真实合同，也不是通用ASC 606自动判断器。没有成本、税、退款、可变对价、信用损失或融资成分。</p><p><a href="/zh/notebook/accrual-and-statement-links/#bf04-accrual-experiment" target="_top">回到正文与原表 →</a></p><div class="controls"><label>合同<select name="mode"><option value="prepaid">A 年度提前收费</option><option value="unbilled">B 未开票但权利无条件</option><option value="conditional">C 仍附第二项交付条件</option><option value="pos">D 当场交付收款</option></select></label><label>首个／唯一履约日<input name="performance" type="date"/></label><label>无条件收款权成立日<input name="right" type="date"/></label><label>开票日<input name="invoice" type="date"/></label><label>实际收款日<input name="collection" type="date"/></label><label>观察日<input name="cutoff" type="date"/></label><button class="reset" type="button">恢复默认条款</button></div><p class="terms"></p><p class="error" role="alert"></p><div aria-live="polite" class="output"></div><details class="static-default"><summary>默认输入与完整静态结果</summary>
+</head><body><header><div class="tag">企业经营与财务分析 · 配套实验</div><h1>让同一组数字沿不同关系展开</h1><p>历史原表与教学设定分开. 金额单位在各实验内注明；负数表示相应流出、减项或损失，不依赖颜色辨别. 全部实验可离线运行，无需账户或网络服务.</p><nav><a href="#EXP-BF04-ACCRUAL-TIMELINE">BF-04</a><a href="#EXP-BF06-PROFIT-LAYERS">BF-06</a><a href="#EXP-BF07-CASH-BRIDGE">BF-07</a><a href="#EXP-BF08-EQUITY-SHARES">BF-08</a><a href="#EXP-BF09-EVIDENCE">BF-09</a><a href="#EXP-BF10-CONTRACT-TIMING">BF-10</a><a href="#EXP-BF11-INVENTORY-VIEW">BF-11</a><a href="#EXP-BF15-TAX-LAYERS">BF-15</a><a href="static.html">完整静态结果</a><a href="/zh/notebook/#business" target="_top">回到笔记</a></nav></header><main><noscript><p>JavaScript未启用. 请打开<a href="static.html">静态等价页</a>阅读所有默认结果与输入.</p></noscript><section class="lab" id="EXP-BF04-ACCRUAL-TIMELINE"><div class="tag">BF-04</div><h2>履约、权利与收付款的时间线</h2><p>四种条款明确的教学合同；总对价120. 不是公司的真实合同，也不是通用ASC 606自动判断器. 没有成本、税、退款、可变对价、信用损失或融资成分.</p><p><a href="/zh/notebook/accrual-and-statement-links/#bf04-accrual-experiment" target="_top">回到正文与原表 →</a></p><div class="controls"><label>合同<select name="mode"><option value="prepaid">A 年度提前收费</option><option value="unbilled">B 未开票但权利无条件</option><option value="conditional">C 仍附第二项交付条件</option><option value="pos">D 当场交付收款</option></select></label><label>首个／唯一履约日<input name="performance" type="date"/></label><label>无条件收款权成立日<input name="right" type="date"/></label><label>开票日<input name="invoice" type="date"/></label><label>实际收款日<input name="collection" type="date"/></label><label>观察日<input name="cutoff" type="date"/></label><button class="reset" type="button">恢复默认条款</button></div><p class="terms"></p><p class="error" role="alert"></p><div aria-live="polite" class="output"></div><details class="static-default"><summary>默认输入与完整静态结果</summary>
 <h2>BF-04 · 权责发生与报表之间的联系</h2>
-<p><strong>交互版补充：</strong>可分别修改履约日、无条件收款权成立日、开票日、收款日和观察日。以下静态表保留默认合同，用于无 JavaScript 阅读。</p>
-<p>四种固定条款、固定对价；不含成本、税、退款、信用损失或重大融资；不是通用ASC606引擎。</p>
+<p><strong>交互版补充：</strong>可分别修改履约日、无条件收款权成立日、开票日、收款日和观察日. 以下静态表保留默认合同，用于无 JavaScript 阅读.</p>
+<p>四种固定条款、固定对价；不含成本、税、退款、信用损失或重大融资；不是通用ASC606引擎.</p>
 <h3>合同prepaid · 教学总价120</h3>
-<p>全年均匀服务；2026-01-01付款已无条件到期。 当前开票日：2026-01-01；实际收款日：2026-01-05。假设合同在首个事件前有效成立。改变收款日只改变实际收付；提前收款属于可抵未来合同对价的预收，不是另一个押金合同。</p>
+<p>全年均匀服务；2026-01-01付款已无条件到期. 当前开票日：2026-01-01；实际收款日：2026-01-05. 假设合同在首个事件前有效成立. 改变收款日只改变实际收付；提前收款属于可抵未来合同对价的预收，不是另一个押金合同.</p>
 <div class="table-scroll"><table>
 <thead>
 <tr>
@@ -189,7 +189,7 @@
 </tbody>
 </table></div>
 <h3>合同unbilled · 教学总价120</h3>
-<p>1月10日交付即取得无条件收款权；后续仅待时间经过，开票是行政步骤。 当前开票日：2026-02-01；实际收款日：2026-02-28。假设合同在首个事件前有效成立。改变收款日只改变实际收付；提前收款属于可抵未来合同对价的预收，不是另一个押金合同。</p>
+<p>1月10日交付即取得无条件收款权；后续仅待时间经过，开票是行政步骤. 当前开票日：2026-02-01；实际收款日：2026-02-28. 假设合同在首个事件前有效成立. 改变收款日只改变实际收付；提前收款属于可抵未来合同对价的预收，不是另一个押金合同.</p>
 <div class="table-scroll"><table>
 <thead>
 <tr>
@@ -252,7 +252,7 @@
 </tbody>
 </table></div>
 <h3>合同conditional · 教学总价120</h3>
-<p>两项可区分交付各分配一半对价；1月10日、2月10日分别转移控制。首项已履约，但须第二项完成后才取得整笔无条件权利。 当前开票日：2026-02-11；实际收款日：2026-03-01。假设合同在首个事件前有效成立。改变收款日只改变实际收付；提前收款属于可抵未来合同对价的预收，不是另一个押金合同。</p>
+<p>两项可区分交付各分配一半对价；1月10日、2月10日分别转移控制. 首项已履约，但须第二项完成后才取得整笔无条件权利. 当前开票日：2026-02-11；实际收款日：2026-03-01. 假设合同在首个事件前有效成立. 改变收款日只改变实际收付；提前收款属于可抵未来合同对价的预收，不是另一个押金合同.</p>
 <div class="table-scroll"><table>
 <thead>
 <tr>
@@ -326,7 +326,7 @@
 </tbody>
 </table></div>
 <h3>合同pos · 教学总价120</h3>
-<p>1月10日当面交付，即取得整笔无条件权利。 当前开票日：2026-01-10；实际收款日：2026-01-10。假设合同在首个事件前有效成立。改变收款日只改变实际收付；提前收款属于可抵未来合同对价的预收，不是另一个押金合同。</p>
+<p>1月10日当面交付，即取得整笔无条件权利. 当前开票日：2026-01-10；实际收款日：2026-01-10. 假设合同在首个事件前有效成立. 改变收款日只改变实际收付；提前收款属于可抵未来合同对价的预收，不是另一个押金合同.</p>
 <div class="table-scroll"><table>
 <thead>
 <tr>
@@ -388,12 +388,12 @@
 </tr>
 </tbody>
 </table></div>
-<p>关键比较：1月末未开票的B已取得无条件权利，应收120；C尚附第二项交付条件，合同资产60。A在3月末现金120、合同负债90、收入30。单改开票不改权利；延迟实际收款会留下应收。</p>
-</details></section><section class="lab" id="EXP-BF06-PROFIT-LAYERS"><div class="tag">BF-06</div><h2>零售与银行的利润层次</h2><p>真实历史数据。行业切换会更换整套利润结构，不能把银行净利息收入改名成商品毛利。</p><p><a href="/zh/notebook/income-statement-layers/#bf06-experiment" target="_top">回到正文与原表 →</a></p><div class="controls"><label>行业<select name="industry"><option value="retail">Costco 零售</option><option value="bank">JPM 银行</option></select></label><label>年度<select name="year"><option value="0">2025</option><option value="1">2024</option><option value="2">2023</option></select></label></div><p class="error" role="alert"></p><div aria-live="polite" class="output"></div><details class="static-default"><summary>默认输入与完整静态结果</summary>
+<p>关键比较：1月末未开票的B已取得无条件权利，应收120；C尚附第二项交付条件，合同资产60. A在3月末现金120、合同负债90、收入30. 单改开票不改权利；延迟实际收款会留下应收.</p>
+</details></section><section class="lab" id="EXP-BF06-PROFIT-LAYERS"><div class="tag">BF-06</div><h2>零售与银行的利润层次</h2><p>真实历史数据. 行业切换会更换整套利润结构，不能把银行净利息收入改名成商品毛利.</p><p><a href="/zh/notebook/income-statement-layers/#bf06-experiment" target="_top">回到正文与原表 →</a></p><div class="controls"><label>行业<select name="industry"><option value="retail">Costco 零售</option><option value="bank">JPM 银行</option></select></label><label>年度<select name="year"><option value="0">2025</option><option value="1">2024</option><option value="2">2023</option></select></label></div><p class="error" role="alert"></p><div aria-live="polite" class="output"></div><details class="static-default"><summary>默认输入与完整静态结果</summary>
 <h2>BF-06 · 利润表：收入、成本与利润的层次</h2>
-<p>三个历史年度不能当预测；52/53周保留；不计算跨行业统一毛利排名。</p>
+<p>三个历史年度不能当预测；52/53周保留；不计算跨行业统一毛利排名.</p>
 <h3>Costco Consolidated Statements of Income</h3>
-<p>SEC HTML printed p.37; MD&amp;A Gross Margin p.27；单位：USD millions</p>
+<p>SEC HTML printed p.37; MD&amp;A Gross Margin p.27；单位：USD M</p>
 <div class="table-scroll"><table>
 <thead>
 <tr>
@@ -507,7 +507,7 @@
 <td>14.16</td>
 </tr>
 <tr>
-<td>SHARES USED IN CALCULATION (000's)／计算使用股数（千股）</td>
+<td>SHARES USED IN CALCULATION (000's)／计算使用股数（K 股）</td>
 <td></td>
 <td></td>
 <td></td>
@@ -549,7 +549,7 @@
 </tbody>
 </table></div>
 <h3>JPMorgan Chase Consolidated Statements of Income</h3>
-<p>Printed p.165 / physical PDF p.197；单位：USD millions</p>
+<p>Printed p.165 / physical PDF p.197；单位：USD M</p>
 <div class="table-scroll"><table>
 <thead>
 <tr>
@@ -747,13 +747,13 @@
 <td>16.23</td>
 </tr>
 <tr>
-<td>Weighted-average basic shares／基本加权平均股数（百万股）</td>
+<td>Weighted-average basic shares／基本加权平均股数（ M 股）</td>
 <td>2,776.5</td>
 <td>2,873.9</td>
 <td>2,938.6</td>
 </tr>
 <tr>
-<td>Weighted-average diluted shares／稀释加权平均股数（百万股）</td>
+<td>Weighted-average diluted shares／稀释加权平均股数（ M 股）</td>
 <td>2,781.5</td>
 <td>2,879</td>
 <td>2,943.1</td>
@@ -782,12 +782,12 @@
 </tr>
 </tbody>
 </table></div>
-<p>零售Gross Margin按公司MD&amp;A定义；银行NII是资金价格和业务资产所产生的差额，不贴商品毛利标签。</p>
-</details></section><section class="lab" id="EXP-BF07-CASH-BRIDGE"><div class="tag">BF-07</div><h2>完整现金桥</h2><p>真实完整现金流明细；补充披露不重复累加。未识别的余额差不自动补平。</p><p><a href="/zh/notebook/cash-flow-statement/#bf07-experiment" target="_top">回到正文与原表 →</a></p><div class="controls"><label>公司／分支<select name="industry"><option value="software">Salesforce 软件</option><option value="retail">Costco 零售</option><option value="bank">JPM 银行扩展</option></select></label><label>报告相对年度<select name="year"><option value="0">最新采用年：SF2026／其他2025</option><option value="1">上一年</option><option value="2">再上一年</option></select></label></div><p class="error" role="alert"></p><div aria-live="polite" class="output"></div><details class="static-default"><summary>默认输入与完整静态结果</summary>
+<p>零售Gross Margin按公司MD&amp;A定义；银行NII是资金价格和业务资产所产生的差额，不贴商品毛利标签.</p>
+</details></section><section class="lab" id="EXP-BF07-CASH-BRIDGE"><div class="tag">BF-07</div><h2>完整现金桥</h2><p>真实完整现金流明细；补充披露不重复累加. 未识别的余额差不自动补平.</p><p><a href="/zh/notebook/cash-flow-statement/#bf07-experiment" target="_top">回到正文与原表 →</a></p><div class="controls"><label>公司／分支<select name="industry"><option value="software">Salesforce 软件</option><option value="retail">Costco 零售</option><option value="bank">JPM 银行扩展</option></select></label><label>报告相对年度<select name="year"><option value="0">最新采用年：SF2026／其他2025</option><option value="1">上一年</option><option value="2">再上一年</option></select></label></div><p class="error" role="alert"></p><div aria-live="polite" class="output"></div><details class="static-default"><summary>默认输入与完整静态结果</summary>
 <h2>BF-07 · 现金流量表：经营、投资与筹资</h2>
-<p>原表与附注定义的现金集合不混同；余额差不自动替代CFO行；银行不计算工业企业FCF。</p>
+<p>原表与附注定义的现金集合不混同；余额差不自动替代CFO行；银行不计算工业企业FCF.</p>
 <h3>Salesforce Consolidated Statements of Cash Flows</h3>
-<p>Printed pp.61–62。（1）D&amp;A含取得无形资产摊销、固定资产折旧、使用权资产摊销及减值。 资产与负债变动按原表扣除企业合并影响，不能直接用两个期末余额替换。 现金集合为cash and cash equivalents。补充已付利息和税款已经体现在现金流中，不重复累加。</p>
+<p>Printed pp.61–62.（1）D&amp;A含取得无形资产摊销、固定资产折旧、使用权资产摊销及减值. 资产与负债变动按原表扣除企业合并影响，不能直接用两个期末余额替换. 现金集合为cash and cash equivalents. 补充已付利息和税款已经体现在现金流中，不重复累加.</p>
 <div class="table-scroll"><table>
 <thead>
 <tr>
@@ -1087,7 +1087,7 @@
 </tbody>
 </table></div>
 <h3>Costco Consolidated Statements of Cash Flows</h3>
-<p>SEC HTML printed p.41。零值按原表破折号语义保留数值0；主表标题无金额为null，不等于0。 其他非现金经营活动净额为负不能整行解释为本期资产减值。 现金集合为cash and cash equivalents；补充的未付资本支出不加到当期现金支出。</p>
+<p>SEC HTML printed p.41. 零值按原表破折号语义保留数值0；主表标题无金额为null，不等于0. 其他非现金经营活动净额为负不能整行解释为本期资产减值. 现金集合为cash and cash equivalents；补充的未付资本支出不加到当期现金支出.</p>
 <div class="table-scroll"><table>
 <thead>
 <tr>
@@ -1375,7 +1375,7 @@
 </tbody>
 </table></div>
 <h3>JPMorgan Chase Consolidated Statements of Cash Flows</h3>
-<p>Printed p.169 / physical PDF p.201。此表以原页重新排版；行名称保留业务含义，原文图像位于PDF第201页。 JPM现金集合为cash and due from banks and deposits with banks，不能改称普通公司cash equivalents。 变化和合计按原表符号；经营资产扩张与客户存款筹资分属不同活动类别。</p>
+<p>Printed p.169 / physical PDF p.201. 此表以原页重新排版；行名称保留业务含义，原文图像位于PDF第201页. JPM现金集合为cash and due from banks and deposits with banks，不能改称普通公司cash equivalents. 变化和合计按原表符号；经营资产扩张与客户存款筹资分属不同活动类别.</p>
 <div class="table-scroll"><table>
 <thead>
 <tr>
@@ -1734,22 +1734,22 @@
 </tr>
 </tbody>
 </table></div>
-<p>SF七项重点合计14,747，另四行−1,017+819+1,014−567=249，共14,996。Costco选定余额反向变化893与现金流调整963差70，保留未归因。</p>
-</details></section><section class="lab" id="EXP-BF08-EQUITY-SHARES"><div class="tag">BF-08</div><h2>权益、期末股数与EPS</h2><p>Salesforce FY2026原件；股数为百万股，权益金额为百万美元。Caterpillar为独立NCI对照。</p><p><a href="/zh/notebook/equity-shares-and-shareholder-claims/#bf08-experiment" target="_top">回到正文与原表 →</a></p><div class="controls"><label>桥<select name="view"><option value="equity">权益金额</option><option value="shares">期末数量</option><option value="eps">EPS分母</option></select></label><label>EPS口径说明<select name="denominator"><option value="basic">基本加权平均</option><option value="diluted">稀释加权平均</option><option value="wrong">期末股数：错误口径对照</option></select></label></div><p class="error" role="alert"></p><div aria-live="polite" class="output"></div><details class="static-default"><summary>默认输入与完整静态结果</summary>
+<p>SF七项重点合计14,747，另四行−1,017+819+1,014−567=249，共14,996. Costco选定余额反向变化893与现金流调整963差70，保留未归因.</p>
+</details></section><section class="lab" id="EXP-BF08-EQUITY-SHARES"><div class="tag">BF-08</div><h2>权益、期末股数与EPS</h2><p>Salesforce FY2026原件；股数为 M 股，权益金额单位为 USD M. Caterpillar为独立NCI对照.</p><p><a href="/zh/notebook/equity-shares-and-shareholder-claims/#bf08-experiment" target="_top">回到正文与原表 →</a></p><div class="controls"><label>桥<select name="view"><option value="equity">权益金额</option><option value="shares">期末数量</option><option value="eps">EPS分母</option></select></label><label>EPS口径说明<select name="denominator"><option value="basic">基本加权平均</option><option value="diluted">稀释加权平均</option><option value="wrong">期末股数：错误口径对照</option></select></label></div><p class="error" role="alert"></p><div aria-live="polite" class="output"></div><details class="static-default"><summary>默认输入与完整静态结果</summary>
 <h2>BF-08 · 权益变动、每股口径与股东所得</h2>
-<p>三桥各自单位与时点；排除反稀释奖励；不通过把SBC和回购抵销来断言无成本。</p>
+<p>三桥各自单位与时点；排除反稀释奖励；不通过把SBC和回购抵销来断言无成本.</p>
 <div class="table-scroll"><table>
 <thead>
 <tr>
 <th>权益原行／中文</th>
-<th>普通股股数（百万股）</th>
-<th>普通股金额（百万美元）</th>
-<th>库存股股数（负数，百万股）</th>
-<th>库存股金额（负数，百万美元）</th>
-<th>额外实收资本（百万美元）</th>
-<th>累计其他综合收益／损失（百万美元）</th>
-<th>留存收益（百万美元）</th>
-<th>权益合计（百万美元）</th>
+<th>普通股股数（ M 股）</th>
+<th>普通股金额（ M 美元）</th>
+<th>库存股股数（负数， M 股）</th>
+<th>库存股金额（负数， M 美元）</th>
+<th>额外实收资本（ M 美元）</th>
+<th>累计其他综合收益／损失（ M 美元）</th>
+<th>留存收益（ M 美元）</th>
+<th>权益合计（ M 美元）</th>
 </tr>
 </thead>
 <tbody>
@@ -1935,8 +1935,8 @@
 <thead>
 <tr>
 <th>口径</th>
-<th>分子：百万美元</th>
-<th>分母：百万股</th>
+<th>分子： M 美元</th>
+<th>分母： M 股</th>
 <th>美元／股</th>
 </tr>
 </thead>
@@ -1961,11 +1961,11 @@
 </tr>
 </tbody>
 </table></div>
-<p>期末流通：1,073−144=929；期初：1,056−94=962。NCI利润归属8,882−(−2)=8,884；余额3−2−1=0。</p>
-<p>SBC费用3,509、权益3,522、结算现金351分开；回购附注12,677、现金12,596、权益12,721分开，不强行抵销。</p>
-</details></section><section class="lab" id="EXP-BF09-EVIDENCE"><div class="tag">BF-09</div><h2>证据层与售价分配</h2><p>同一收入事项的证据地图。售价分配部分为教学合同，不代表Salesforce的单独售价。</p><p><a href="/zh/notebook/notes-estimates-and-audit/#bf09-experiment" target="_top">回到正文与原表 →</a></p><div class="controls"><label>证据层<select name="layer"><option value="statement">主表</option><option value="policy">政策与附注</option><option value="audit">CAM与审计</option></select></label><label>教学单独售价<select name="allocation"><option value="ratio">许可100／支持50</option><option value="equal">许可80／支持80</option></select></label><label>哪一句被支持？<select name="answer"><option value="">请选择</option><option value="A">A CAM认定收入重大错报</option><option value="B">B CAM解释复杂判断与程序</option><option value="C">C 有CAM公司必然更差</option></select></label></div><p aria-live="polite" class="feedback"></p><p class="error" role="alert"></p><div aria-live="polite" class="output"></div><details class="static-default"><summary>默认输入与完整静态结果</summary>
+<p>期末流通：1,073−144=929；期初：1,056−94=962. NCI利润归属8,882−(−2)=8,884；余额3−2−1=0.</p>
+<p>SBC费用3,509、权益3,522、结算现金351分开；回购附注12,677、现金12,596、权益12,721分开，不强行抵销.</p>
+</details></section><section class="lab" id="EXP-BF09-EVIDENCE"><div class="tag">BF-09</div><h2>证据层与售价分配</h2><p>同一收入事项的证据地图. 售价分配部分为教学合同，不代表Salesforce的单独售价.</p><p><a href="/zh/notebook/notes-estimates-and-audit/#bf09-experiment" target="_top">回到正文与原表 →</a></p><div class="controls"><label>证据层<select name="layer"><option value="statement">主表</option><option value="policy">政策与附注</option><option value="audit">CAM与审计</option></select></label><label>教学单独售价<select name="allocation"><option value="ratio">许可100／支持50</option><option value="equal">许可80／支持80</option></select></label><label>哪一句被支持？<select name="answer"><option value="">请选择</option><option value="A">A CAM认定收入重大错报</option><option value="B">B CAM解释复杂判断与程序</option><option value="C">C 有CAM公司必然更差</option></select></label></div><p aria-live="polite" class="feedback"></p><p class="error" role="alert"></p><div aria-live="polite" class="output"></div><details class="static-default"><summary>默认输入与完整静态结果</summary>
 <h2>BF-09 · 财报附注、会计估计与审计信息</h2>
-<p>单独售价模型是教学设定；仅对给定distinct obligations和履约模式；CAM不是独立意见。</p>
+<p>单独售价模型是教学设定；仅对给定distinct obligations和履约模式；CAM不是独立意见.</p>
 <div class="table-scroll"><table>
 <thead>
 <tr>
@@ -2016,13 +2016,13 @@
 </tr>
 </tbody>
 </table></div>
-<p>反馈：选B正确——CAM说明复杂审计判断和应对。A错把CAM当错报结论；C把披露沟通变成公司排名。</p>
-</details></section><section class="lab" id="EXP-BF10-CONTRACT-TIMING"><div class="tag">BF-10</div><h2>四种合同的权利分类</h2><p>四种条款明确的教学合同；总对价120。不是公司的真实合同，也不是通用ASC 606自动判断器。没有成本、税、退款、可变对价、信用损失或融资成分。</p><p><a href="/zh/notebook/revenue-receivables-contract-balances/#bf10-timeline" target="_top">回到正文与原表 →</a></p><div class="controls"><label>合同<select name="mode"><option value="prepaid">A 年度提前收费</option><option value="unbilled">B 未开票但权利无条件</option><option value="conditional">C 仍附第二项交付条件</option><option value="pos">D 当场交付收款</option></select></label><label>首个／唯一履约日<input name="performance" type="date"/></label><label>无条件收款权成立日<input name="right" type="date"/></label><label>开票日<input name="invoice" type="date"/></label><label>实际收款日<input name="collection" type="date"/></label><label>观察日<input name="cutoff" type="date"/></label><button class="reset" type="button">恢复默认条款</button></div><p class="terms"></p><p class="error" role="alert"></p><div aria-live="polite" class="output"></div><details class="static-default"><summary>默认输入与完整静态结果</summary>
+<p>反馈：选B正确——CAM说明复杂审计判断和应对. A错把CAM当错报结论；C把披露沟通变成公司排名.</p>
+</details></section><section class="lab" id="EXP-BF10-CONTRACT-TIMING"><div class="tag">BF-10</div><h2>四种合同的权利分类</h2><p>四种条款明确的教学合同；总对价120. 不是公司的真实合同，也不是通用ASC 606自动判断器. 没有成本、税、退款、可变对价、信用损失或融资成分.</p><p><a href="/zh/notebook/revenue-receivables-contract-balances/#bf10-timeline" target="_top">回到正文与原表 →</a></p><div class="controls"><label>合同<select name="mode"><option value="prepaid">A 年度提前收费</option><option value="unbilled">B 未开票但权利无条件</option><option value="conditional">C 仍附第二项交付条件</option><option value="pos">D 当场交付收款</option></select></label><label>首个／唯一履约日<input name="performance" type="date"/></label><label>无条件收款权成立日<input name="right" type="date"/></label><label>开票日<input name="invoice" type="date"/></label><label>实际收款日<input name="collection" type="date"/></label><label>观察日<input name="cutoff" type="date"/></label><button class="reset" type="button">恢复默认条款</button></div><p class="terms"></p><p class="error" role="alert"></p><div aria-live="polite" class="output"></div><details class="static-default"><summary>默认输入与完整静态结果</summary>
 <h2>BF-10 · 收入、应收与合同余额</h2>
-<p><strong>交互版补充：</strong>可分别修改履约日、无条件收款权成立日、开票日、收款日和观察日。以下静态表保留默认合同，用于无 JavaScript 阅读。</p>
-<p>只比较四份明确条款；现实合同的条件要由人读取；不将所有未开票款归为CA。</p>
+<p><strong>交互版补充：</strong>可分别修改履约日、无条件收款权成立日、开票日、收款日和观察日. 以下静态表保留默认合同，用于无 JavaScript 阅读.</p>
+<p>只比较四份明确条款；现实合同的条件要由人读取；不将所有未开票款归为CA.</p>
 <h3>合同prepaid · 教学总价120</h3>
-<p>全年均匀服务；2026-01-01付款已无条件到期。 当前开票日：2026-01-01；实际收款日：2026-01-05。假设合同在首个事件前有效成立。改变收款日只改变实际收付；提前收款属于可抵未来合同对价的预收，不是另一个押金合同。</p>
+<p>全年均匀服务；2026-01-01付款已无条件到期. 当前开票日：2026-01-01；实际收款日：2026-01-05. 假设合同在首个事件前有效成立. 改变收款日只改变实际收付；提前收款属于可抵未来合同对价的预收，不是另一个押金合同.</p>
 <div class="table-scroll"><table>
 <thead>
 <tr>
@@ -2206,7 +2206,7 @@
 </tbody>
 </table></div>
 <h3>合同unbilled · 教学总价120</h3>
-<p>1月10日交付即取得无条件收款权；后续仅待时间经过，开票是行政步骤。 当前开票日：2026-02-01；实际收款日：2026-02-28。假设合同在首个事件前有效成立。改变收款日只改变实际收付；提前收款属于可抵未来合同对价的预收，不是另一个押金合同。</p>
+<p>1月10日交付即取得无条件收款权；后续仅待时间经过，开票是行政步骤. 当前开票日：2026-02-01；实际收款日：2026-02-28. 假设合同在首个事件前有效成立. 改变收款日只改变实际收付；提前收款属于可抵未来合同对价的预收，不是另一个押金合同.</p>
 <div class="table-scroll"><table>
 <thead>
 <tr>
@@ -2269,7 +2269,7 @@
 </tbody>
 </table></div>
 <h3>合同conditional · 教学总价120</h3>
-<p>两项可区分交付各分配一半对价；1月10日、2月10日分别转移控制。首项已履约，但须第二项完成后才取得整笔无条件权利。 当前开票日：2026-02-11；实际收款日：2026-03-01。假设合同在首个事件前有效成立。改变收款日只改变实际收付；提前收款属于可抵未来合同对价的预收，不是另一个押金合同。</p>
+<p>两项可区分交付各分配一半对价；1月10日、2月10日分别转移控制. 首项已履约，但须第二项完成后才取得整笔无条件权利. 当前开票日：2026-02-11；实际收款日：2026-03-01. 假设合同在首个事件前有效成立. 改变收款日只改变实际收付；提前收款属于可抵未来合同对价的预收，不是另一个押金合同.</p>
 <div class="table-scroll"><table>
 <thead>
 <tr>
@@ -2343,7 +2343,7 @@
 </tbody>
 </table></div>
 <h3>合同pos · 教学总价120</h3>
-<p>1月10日当面交付，即取得整笔无条件权利。 当前开票日：2026-01-10；实际收款日：2026-01-10。假设合同在首个事件前有效成立。改变收款日只改变实际收付；提前收款属于可抵未来合同对价的预收，不是另一个押金合同。</p>
+<p>1月10日当面交付，即取得整笔无条件权利. 当前开票日：2026-01-10；实际收款日：2026-01-10. 假设合同在首个事件前有效成立. 改变收款日只改变实际收付；提前收款属于可抵未来合同对价的预收，不是另一个押金合同.</p>
 <div class="table-scroll"><table>
 <thead>
 <tr>
@@ -2405,10 +2405,10 @@
 </tr>
 </tbody>
 </table></div>
-<p>关键比较：1月末未开票的B已取得无条件权利，应收120；C尚附第二项交付条件，合同资产60。A在3月末现金120、合同负债90、收入30。单改开票不改权利；延迟实际收款会留下应收。</p>
-</details></section><section class="lab" id="EXP-BF11-INVENTORY-VIEW"><div class="tag">BF-11</div><h2>库存范围与成本去向</h2><p>上半为Caterpillar历史披露；下半为独立同质商品批次。两者不是同一个数据模型。</p><p><a href="/zh/notebook/inventory-cogs-and-write-downs/#bf11-write-down" target="_top">回到正文与原表 →</a></p><div class="controls"><label>实际库存口径<select name="basis"><option value="reported">报告总额：混合方法</option><option value="fifo">FIFO可比总额</option></select></label><label>教学销售件数（0–10）<input max="10" min="0" name="sold" step="1" type="number" value="6"/></label><label>教学期末每件NRV<input min="0" name="nrv" step="0.5" type="number" value="8"/></label></div><p class="error" role="alert"></p><div aria-live="polite" class="output"></div><details class="static-default"><summary>默认输入与完整静态结果</summary>
+<p>关键比较：1月末未开票的B已取得无条件权利，应收120；C尚附第二项交付条件，合同资产60. A在3月末现金120、合同负债90、收入30. 单改开票不改权利；延迟实际收款会留下应收.</p>
+</details></section><section class="lab" id="EXP-BF11-INVENTORY-VIEW"><div class="tag">BF-11</div><h2>库存范围与成本去向</h2><p>上半为Caterpillar历史披露；下半为独立同质商品批次. 两者不是同一个数据模型.</p><p><a href="/zh/notebook/inventory-cogs-and-write-downs/#bf11-write-down" target="_top">回到正文与原表 →</a></p><div class="controls"><label>实际库存口径<select name="basis"><option value="reported">报告总额：混合方法</option><option value="fifo">FIFO可比总额</option></select></label><label>教学销售件数（0–10）<input max="10" min="0" name="sold" step="1" type="number" value="6"/></label><label>教学期末每件NRV<input min="0" name="nrv" step="0.5" type="number" value="8"/></label></div><p class="error" role="alert"></p><div aria-live="polite" class="output"></div><details class="static-default"><summary>默认输入与完整静态结果</summary>
 <h2>BF-11 · 存货、销售成本与减值</h2>
-<p>历史混合LIFO/FIFO总额与教学商品分开；不倒推真实采购COGS完整桥；不演示减记转回。</p>
+<p>历史混合LIFO/FIFO总额与教学商品分开；不倒推真实采购COGS完整桥；不演示减记转回.</p>
 <div class="table-scroll"><table>
 <thead>
 <tr>
@@ -2505,10 +2505,10 @@
 </tr>
 </tbody>
 </table></div>
-<p>销售数量6、单位成本10、售价15、期末每件NRV8；只对余下4件减记。成本100=60+8+32，收入90，利润22。NRV升至10则减记0、库存40、利润30；全部卖完则没有在手库存减记。</p>
-</details></section><section class="lab" id="EXP-BF15-TAX-LAYERS"><div class="tag">BF-15</div><h2>税项三口径与两期暂时差异</h2><p>真实税费、现金税和期末余额并排；可调整项只属于后面的教学两期模型。</p><p><a href="/zh/notebook/income-tax-provision-cash-and-deferred/#bf15-experiment" target="_top">回到正文与原表 →</a></p><div class="controls"><label>教学每年特殊成本前利润<input min="0" name="base" type="number" value="200"/></label><label>教学第一年账面费用（≤利润）<input min="0" name="cost" type="number" value="100"/></label><label>教学税率（0–100%）<input max="100" min="0" name="rate" step="1" type="number" value="25"/></label></div><p class="error" role="alert"></p><div aria-live="polite" class="output"></div><details class="static-default"><summary>默认输入与完整静态结果</summary>
+<p>销售数量6、单位成本10、售价15、期末每件NRV8；只对余下4件减记. 成本100=60+8+32，收入90，利润22. NRV升至10则减记0、库存40、利润30；全部卖完则没有在手库存减记.</p>
+</details></section><section class="lab" id="EXP-BF15-TAX-LAYERS"><div class="tag">BF-15</div><h2>税项三口径与两期暂时差异</h2><p>真实税费、现金税和期末余额并排；可调整项只属于后面的教学两期模型.</p><p><a href="/zh/notebook/income-tax-provision-cash-and-deferred/#bf15-experiment" target="_top">回到正文与原表 →</a></p><div class="controls"><label>教学每年特殊成本前利润<input min="0" name="base" type="number" value="200"/></label><label>教学第一年账面费用（≤利润）<input min="0" name="cost" type="number" value="100"/></label><label>教学税率（0–100%）<input max="100" min="0" name="rate" step="1" type="number" value="25"/></label></div><p class="error" role="alert"></p><div aria-live="polite" class="output"></div><details class="static-default"><summary>默认输入与完整静态结果</summary>
 <h2>BF-15 · 所得税费用、现金税与递延税项</h2>
-<p>区间需正分母不穿0；不补造税率差异成因；税费、现金和期末余额不连成连续瀑布。</p>
+<p>区间需正分母不穿0；不补造税率差异成因；税费、现金和期末余额不连成连续瀑布.</p>
 <div class="table-scroll"><table>
 <thead>
 <tr>
@@ -2596,5 +2596,5 @@
 </tr>
 </tbody>
 </table></div>
-<p>金额取整区间不含21.5%；两种原件/复算结果并存，不补造原因。两期教学采用每年特殊费用前利润200、第一年账面费用100、第二年支付且扣除、税率25%、当期税当年付清，无其他差异和备抵，有充分适当的未来应税利润。</p>
-</details></section></main><footer><p>原件、期间、单位及模型条件见相应笔记与<a href="sources.html">来源索引</a>。</p></footer><script src="inputs.js"></script><script src="engine.js"></script><script src="app.js"></script></body></html>
+<p>金额取整区间不含21.5%；两种原件/复算结果并存，不补造原因. 两期教学采用每年特殊费用前利润200、第一年账面费用100、第二年支付且扣除、税率25%、当期税当年付清，无其他差异和备抵，有充分适当的未来应税利润.</p>
+</details></section></main><footer><p>原件、期间、单位及模型条件见相应笔记与<a href="sources.html">来源索引</a>.</p></footer><script src="inputs.js"></script><script src="engine.js"></script><script src="app.js"></script></body></html>

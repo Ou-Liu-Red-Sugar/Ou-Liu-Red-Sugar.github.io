@@ -1,18 +1,22 @@
 # 每日结算与期货保证金
 
-用同终点的两条价格路径重建VM、担保余额、外部现金和追缴缺口。
+用同终点的两条价格路径重建VM、担保余额、外部现金和追缴缺口.
 
 Entry: zh-m11 | Node: M11 | Language: zh | Editorial revision: 2026-09-21
 
 ## Teaching instructions
-你正在带读《每日结算与期货保证金》（M11，2026-09-21-MD-review-v3）。对象为有微积分/线性代数/基础概率的高年级本科至研究生。
-本次任务：逐阶段算实际转入与未满足金额，证明资金不足时不能继续实现后续收益。
-先确认选择核心或研究分支。必须实际读取required_readings的指定完整单元，核标题、版本、页/节、必要表图；图像未读不得猜。运行日志起始为空，记录本次实际范围和支持的一步，不把编辑端reading_log当成自己已读。选研究分支时对应optional单元转为必读。只能取得目录/摘要/错误页时继续找正式可读入口；仍缺关键原文就说明具体缺口，不凭印象补课。
-先让学习者完成一项完整诊断，而非逐个考四则运算。已会内容跳过；在同一原件与同源输入上推进：
-先给路径A一张完整空白资金表，让学习者自己填VM、转入前、要求、实际、尚欠、余额与外部现金。专门追问6,500等号和73.49时为何应补1,510。再切IM/MM变式：阶段2起变成10,000/8,500，阶段3部分转入后8,800仍欠1,200；此处必须停止，不能显示反弹后终点。最后让其解释现金足够但赶不上D_i与现金不足有何不同；检验M+C=初始总现金+已处理VM。BIS支线被选择时，先读完整BoxA，分清五日口径与这个客户教学账。
-核每个金额的主体、单位、时点和身份；事实、由事实推算与教学条件分别说清。读者完成后须能独立解释与迁移，不能只报正确数字。逐题使用正文完整解析反馈，必要时把失败条件放回算法；未建立融资/履约路径不输出已经实现的收益。公共包不假定能访问用户硬盘。
+你正在带读《每日结算与期货保证金》（M11，2026-09-21-MD-review-v3）. 对象为有微积分/线性代数/基础概率的高年级本科至研究生.
+本次任务：逐阶段算实际转入与未满足金额，证明资金不足时不能继续实现后续收益.
+先确认选择核心或研究分支. 必须实际读取required_readings的指定完整单元，核标题、版本、页/节、必要表图；图像未读不得猜. 运行日志起始为空，记录本次实际范围和支持的一步，不把编辑端reading_log当成自己已读. 选研究分支时对应optional单元转为必读. 只能取得目录/摘要/错误页时继续找正式可读入口；仍缺关键原文就说明具体缺口，不凭印象补课.
+先让学习者完成一项完整诊断，而非逐个考四则运算. 已会内容跳过；在同一原件与同源输入上推进：
+先给路径A一张完整空白资金表，让学习者自己填VM、转入前、要求、实际、尚欠、余额与外部现金. 专门追问6,500等号和73.49时为何应补1,510. 再切IM/MM变式：阶段2起变成10,000/8,500，阶段3部分转入后8,800仍欠1,200；此处必须停止，不能显示反弹后终点. 最后让其解释现金足够但赶不上D_i与现金不足有何不同；检验M+C=初始总现金+已处理VM. BIS支线被选择时，先读完整BoxA，分清五日口径与这个客户教学账.
+核每个金额的主体、单位、时点和身份；事实、由事实推算与教学条件分别说清. 读者完成后须能独立解释与迁移，不能只报正确数字. 逐题使用正文完整解析反馈，必要时把失败条件放回算法；未建立融资/履约路径不输出已经实现的收益. 公共包不假定能访问用户硬盘.
 
 Before substantive teaching, actually retrieve every required reading unit for the selected scope. Read its complete designated section, including necessary assumptions, tables and footnotes. A working URL or an editorial access date is not a runtime reading receipt. Record the actual version, location, scope and what it supports. If unavailable, use a previously verified equivalent source; if the required unit remains unavailable, identify that gap rather than teach it from memory. Start runtime_reading_log empty. Once reading is complete, use a substantive diagnostic or follow the reader's request for direct explanation. Advance one complete reasoning task at a time; skip mastered basics. Distinguish original facts, supplied teaching assumptions and inference.
+
+## Shared notation and writing conventions
+数学期望统一写成 \mathbb{E}，条件期望用 \mathbb{E}[X\mid\mathcal{G}]，需要时注明测度 P 或 Q. 保留局部变量的明确定义. 金额与数量使用 K=10^3、M=10^6、B=10^9；表格标明币种、量级与期间，变更量级时同步换算数值. 展示小数最多三位，计算保留原始精度. 直接解释对象、机制与推理；保留影响结论的假设和事实来源，把编辑流程留在记录中. 句末使用英文句点 .，包括定义、命题、证明和解析等标签. 基础定义与推导直接讲内容，出处放在紧邻脚注；来源读取、复审和采用范围等编辑经过留在记录中.
+[Notation and units](https://ou-liu-red-sugar.github.io/agent/zh/notation.md)
 
 ## Required readings and runtime protocol
 ```json
@@ -20,7 +24,7 @@ Before substantive teaching, actually retrieve every required reading unit for t
   "export_mode": "public",
   "content_version": "2026-09-21-MD-review-v3",
   "selected_branch": "core",
-  "learning_task": "逐阶段算实际转入与未满足金额，证明资金不足时不能继续实现后续收益。",
+  "learning_task": "逐阶段算实际转入与未满足金额，证明资金不足时不能继续实现后续收益.",
   "required_readings": [
     {
       "source_id": "MD-S05",
@@ -38,7 +42,7 @@ Before substantive teaching, actually retrieve every required reading unit for t
         "scope": "日初头寸和当日成交、现金符号与normal variation算法完整单元；无关分数报价错误不采用",
         "purpose": "先按正确时段算VM，再进入资金账户"
       },
-      "supports": "当日成交与期初头寸的结算现金及正常舍入；不采用无关分数报价例的印刷错误，不提供CL保证金水平。"
+      "supports": "当日成交与期初头寸的结算现金及正常舍入；不采用无关分数报价例的印刷错误，不提供CL保证金水平."
     },
     {
       "source_id": "MD-S05-MARGIN",
@@ -56,7 +60,7 @@ Before substantive teaching, actually retrieve every required reading unit for t
         "scope": "完整读initial/maintenance及客户资金安排相关内容",
         "purpose": "机制与本篇8,000/6,500教学水平分开"
       },
-      "supports": "保证金是应维持的担保余额而非货款；补足规则因制度/经纪商而异。不给百分比当作当前CL参数。"
+      "supports": "保证金是应维持的担保余额而非货款；补足规则因制度/经纪商而异. 不给百分比当作当前CL参数."
     },
     {
       "source_id": "MD-S03",
@@ -74,7 +78,7 @@ Before substantive teaching, actually retrieve every required reading unit for t
         "scope": "市场/合约/结算的完整背景单元及采用价格定位",
         "purpose": "真实历史VM与合成IM/MM分开"
       },
-      "supports": "历史May结算与May−June价差；June由两者相减得到。报告不识别负价唯一根因；未采用April2020保证金。"
+      "supports": "历史May结算与May−June价差；June由两者相减得到. 报告不识别负价唯一根因；未采用April2020保证金."
     }
   ],
   "optional_readings": [
@@ -95,7 +99,7 @@ Before substantive teaching, actually retrieve every required reading unit for t
         "scope": "两页全文，设置、两类假想IRS、模型比较、五日VM/IM口径和结论",
         "purpose": "用模型比较说明VM/IM与及时现金需求；不复刻数据、不冒充公司CSA"
       },
-      "supports": "假想一年期USD付固定与GBP收固定IRS；VM五日累计/IM五日closeout，讨论模型重校准与流动性。未复现Clarus曲线，不替代AECOM CSA或CL客户账户。",
+      "supports": "假想一年期USD付固定与GBP收固定IRS；VM五日累计/IM五日closeout，讨论模型重校准与流动性. 未复现Clarus曲线，不替代AECOM CSA或CL客户账户.",
       "branch": "margin-liquidity",
       "required_if_selected": true
     }
@@ -408,43 +412,43 @@ Before substantive teaching, actually retrieve every required reading unit for t
           "id": "last",
           "title": "最后交易日 L",
           "locator": "200102.F",
-          "text": "交割月前月25日前第三个营业日；若25日非营业日，以其前最近营业日为基准再倒数三个营业日。上市后休业表变更有保留原到期日及前移例外。"
+          "text": "交割月前月25日前第三个营业日；若25日非营业日，以其前最近营业日为基准再倒数三个营业日. 上市后休业表变更有保留原到期日及前移例外."
         },
         {
           "id": "intent",
           "title": "L 后第1营业日",
           "locator": "200105.A/B",
-          "text": "纽约时间15:00前，持仓清算会员提交接受或交付意向。不要将这一步称作实物已交付。"
+          "text": "纽约时间15:00前，持仓清算会员提交接受或交付意向. 不要将这一步称作实物已交付."
         },
         {
           "id": "notice",
           "title": "L 后第2营业日：Notice Day",
           "locator": "200105.E/F",
-          "text": "清算所分配通知；收到通知的会员承担相应接受或交付安排，通知不可转让。"
+          "text": "清算所分配通知；收到通知的会员承担相应接受或交付安排，通知不可转让."
         },
         {
           "id": "margin",
           "title": "L 后第3营业日",
           "locator": "200105.A.2; 200107.B",
-          "text": "清算会员须向买方收取等于完整货值的交割保证金；卖方另按交易所规定。另须交付指令及设施接入信息。"
+          "text": "清算会员须向买方收取等于完整货值的交割保证金；卖方另按交易所规定. 另须交付指令及设施接入信息."
         },
         {
           "id": "physical",
           "title": "交割月首日至末日",
           "locator": "200106",
-          "text": "安排实物交付及初步货权转移确认；调度和接入必须可行，不等于“有仓位就有仓储”。"
+          "text": "安排实物交付及初步货权转移确认；调度和接入必须可行，不等于“有仓位就有仓储”."
         },
         {
           "id": "payment",
           "title": "交割次月20日及规则调整",
           "locator": "200107.A/C",
-          "text": "货款基于最终结算价与交付量。周六或非周一休业日前移；周日或周一休业日后移。须依实际交易所/纽约银行日历。"
+          "text": "货款基于最终结算价与交付量. 周六或非周一休业日前移；周日或周一休业日后移. 须依实际交易所/纽约银行日历."
         },
         {
           "id": "complete",
           "title": "完成通知与保证金退回",
           "locator": "200107.B/C",
-          "text": "交付与付款完成并通知交易所后，按规则退回所持保证金；数量差异另依规定调整。不是第二次商品收入。"
+          "text": "交付与付款完成并通知交易所后，按规则退回所持保证金；数量差异另依规定调整. 不是第二次商品收入."
         }
       ],
       "additional_teaching_examples": {
@@ -498,33 +502,33 @@ Before substantive teaching, actually retrieve every required reading unit for t
 ```
 
 ## Supplied entry
-用约20分钟，重建两条价格路径的现金账，并找到一处“终点虽然盈利，中途却不能继续”的资金缺口。先修是[按方向和合约乘数算价格变动损益](https://ou-liu-red-sugar.github.io/zh/notebook/forward-futures-contracts/)；本篇不要求了解清算所的完整风险模型。
+用约20分钟，重建两条价格路径的现金账，并找到一处“终点虽然盈利，中途却不能继续”的资金缺口. 先修是[按方向和合约乘数算价格变动损益](https://ou-liu-red-sugar.github.io/zh/notebook/forward-futures-contracts/).
 
 <a id="m11-purpose"></a>
 ## 一、同一份价格风险，为什么要每天付钱
 
-假设一张多头的亏损一直留到到期才处理。若中间累积了很大亏损，另一方必须相信它到时有能力支付。逐日结算把已经发生的价格变化分段结清，减少未结金额长期堆积；与此同时，亏损方需要在制度要求的时点准备现金。后来的价格反弹，不能拿来支付今天已经到期的要求。
+假设一张多头的亏损一直留到到期才处理. 若中间累积了很大亏损，另一方必须相信它到时有能力支付. 逐日结算把已经发生的价格变化分段结清，减少未结金额长期堆积；与此同时，亏损方需要在制度要求的时点准备现金. 后来的价格反弹，不能拿来支付今天已经到期的要求.
 
-CME的正常期货变动现金算法区分当日成交和日初已有头寸：前者从成交价算到当日结算价，后者从前一结算价算到当日结算价。[^MD-S05] 所以“昨日损益”“今天平仓的现金”“整个持有期损益”不是天然相等的三个数。
+CME的正常期货变动现金算法区分当日成交和日初已有头寸：前者从成交价算到当日结算价，后者从前一结算价算到当日结算价. [^MD-S05] 所以“昨日损益”“今天平仓的现金”“整个持有期损益”不是天然相等的三个数.
 
-设一张CL多头一直持有，本例合约单位为$Q=1{,}000$桶，则第$i$次结算变化为$\mathrm{VM}_i=Q(F_i-F_{i-1})$。只要同一张头寸没有中断，未计费用的累计价格损益满足
+设一张CL多头一直持有，本例合约单位为$Q=1{,}000$桶，则第$i$次结算变化为$\mathrm{VM}_i=Q(F_i-F_{i-1})$. 只要同一张头寸没有中断，未计费用的累计价格损益满足
 
 $$
 \sum_{i=1}^k\mathrm{VM}_i=Q(F_k-F_0).
 $$
 
-这是价格差相消的恒等式，不是资金充足的保证。左边每一笔都有日期，右边却只保留两个端点。接下来我们要把被右边省略的时间放回来。
+这是价格差相消的恒等式，不是资金充足的保证. 左边每一笔都有日期，右边却只保留两个端点. 接下来我们要把被右边省略的时间放回来.
 
 <a id="m11-accounts"></a>
 ## 二、担保余额、损益和外部可用现金是三件事
 
-初始保证金是建立头寸所需的账户担保余额；维持保证金给出继续持有时检查余额的界线。它们不是油价的首付款，也不是每天自动扣一次的费用。实际要求及补足方式须按适用规则和经纪商安排读取。[^MD-S05-MARGIN]
+初始保证金是建立头寸所需的账户担保余额；维持保证金给出继续持有时检查余额的界线. 它们不是油价的首付款，也不是每天自动扣一次的费用. 实际要求及补足方式须按适用规则和经纪商安排读取. [^MD-S05-MARGIN]
 
-本篇采用一个**完全标明为教学设定的客户资金账**：一张CL多头，最初总现金12,000美元，其中8,000转作保证金，另有4,000随时可用。IM=8,000，MM=6,500；结算变化计入后，只有余额**严格小于**MM才产生补回IM的要求。没有利息、手续费、提款和盘中追加。
+本篇采用一个**完全标明为教学设定的客户资金账**：一张CL多头，最初总现金12,000美元，其中8,000转作保证金，另有4,000随时可用. IM=8,000，MM=6,500；结算变化计入后，只有余额**严格小于**MM才产生补回IM的要求. 没有利息、手续费、提款和盘中追加.
 
-每次收到要求的模型阶段记作$D_i$，资金必须在进入下一价格阶段以前到达。它不是某家券商的真实几点截止。界面可检验“资金虽然存在，但晚于截止”的变式；不能把晚到的钱倒填成准时履约。
+每次收到要求的模型阶段记作$D_i$，资金必须在进入下一价格阶段以前到达. 它不是某家券商的真实几点截止. 界面可检验“资金虽然存在，但晚于截止”的变式；不能把晚到的钱倒填成准时履约.
 
-为避免边算边换口径，令$M_{i-1}$为原担保余额，$C_{i-1}$为保证金账户之外的可用现金。先算
+为避免边算边换口径，令$M_{i-1}$为原担保余额，$C_{i-1}$为保证金账户之外的可用现金. 先算
 
 $$
 \widetilde M_i=M_{i-1}+\mathrm{VM}_i,
@@ -535,14 +539,14 @@ A_i=\begin{cases}
 \end{cases}
 $$
 
-$A_i$是要求转入的金额。若资金准时，实际转入$T_i=\min(C_{i-1},A_i)$；否则$T_i=0$。更新$M_i=\widetilde M_i+T_i$、$C_i=C_{i-1}-T_i$，剩余要求为$A_i-T_i$。尚有缺口时，我们停在这个阶段，不编造融资、平仓价格或后面的反弹收益。
+$A_i$是要求转入的金额. 若资金准时，实际转入$T_i=\min(C_{i-1},A_i)$；否则$T_i=0$. 更新$M_i=\widetilde M_i+T_i$、$C_i=C_{i-1}-T_i$，剩余要求为$A_i-T_i$. 尚有缺口时，我们停在这个阶段，不编造融资、平仓价格或后面的反弹收益.
 
-转入$T_i$只是把自己的钱从一栏挪到另一栏：$M_i+C_i$不因此增减；真正改变总额的是VM和未在本例纳入的费用等项目。把追加资金又当一次亏损，账就会重复。
+转入$T_i$只是把自己的钱从一栏挪到另一栏：$M_i+C_i$不因此增减；真正改变总额的是VM和未在本例纳入的费用等项目. 把追加资金又当一次亏损，账就会重复.
 
 <a id="m11-paths"></a>
 ## 三、走完两条同终点路径
 
-路径A的教学结算价为75→73.5→74.2→71.8→75.6。每个价格都是合成输入，不是历史CL行情。
+路径A的教学结算价为75→73.5→74.2→71.8→75.6. 每个价格都是合成输入，不是历史CL行情.
 
 | 阶段 | 结算价，美元/桶 | VM，美元 | 转入前余额 | 要求/实际转入 | 转入后余额 | 外部现金 |
 |---|---:|---:|---:|---:|---:|---:|
@@ -552,20 +556,20 @@ $A_i$是要求转入的金额。若资金准时，实际转入$T_i=\min(C_{i-1},
 | 3 | 71.80 | −2,400 | 4,800 | 3,200 / 3,200 | 8,000 | 800 |
 | 4 | 75.60 | +3,800 | 11,800 | 0 / 0 | 11,800 | 800 |
 
-第一步恰好等于MM，不触发追缴；第三步从4,800补回8,000，需要3,200，而不是只补到6,500。最后总额为11,800+800=12,600，较初始12,000增加600。3,200的转入没有成为额外亏损。
+第一步恰好等于MM，不触发追缴；第三步从4,800补回8,000，需要3,200，而不是只补到6,500. 最后总额为11,800+800=12,600，较初始12,000增加600. 3,200的转入没有成为额外亏损.
 
-再看路径B：75→75.2→75.4→75.5→75.6。四次VM依次为+200、+200、+100、+100，无追缴；最后担保余额8,600、外部现金4,000，总额同样为12,600。
+再看路径B：75→75.2→75.4→75.5→75.6. 四次VM依次为+200、+200、+100、+100，无追缴；最后担保余额8,600、外部现金4,000，总额同样为12,600.
 
-两条路径的期末价格相同，累计VM都等于$1{,}000(75.6-75)=600$。但在路径A上，经营者有一段时间只能自由使用800美元；路径B则一直保留4,000。其他业务若也在这期间需要付款，这个差别就有实际后果。终点P&L把它省掉了，资金管理不能省。
+两条路径的期末价格相同，累计VM都等于$1{,}000(75.6-75)=600$. 但在路径A上，经营者有一段时间只能自由使用800美元；路径B则一直保留4,000. 其他业务若也在这期间需要付款，这个差别就有实际后果. 终点P&L把它省掉了，资金管理不能省.
 
 <div data-experiment-slot="EXP-MD-M11-MARGIN"></div>
 
-交互里先比较A/B，再把“转款是否赶上模型截止”改为否。在首次需要补款的阶段，余额总额并未凭空消失，但未按时满足的要求仍会使路径停止。页面不把“还有钱”替换成“已按时交钱”。
+交互里先比较A/B，再把“转款是否赶上模型截止”改为否. 在首次需要补款的阶段，余额总额并未凭空消失，但未按时满足的要求仍会使路径停止. 页面不把“还有钱”替换成“已按时交钱”.
 
 <a id="m11-raised"></a>
 ## 四、市场要求也会改变：为什么余额超过MM仍可能未补足
 
-现在沿路径A，在第2次结算变化计入后，IM改为10,000、MM改为8,500，并从此维持。其余条件不变。这仍是教学压力变式，不是CME当时的保证金公告。
+现在沿路径A，在第2次结算变化计入后，IM改为10,000、MM改为8,500，并从此维持. 其余条件不变. 这仍是教学压力变式，不是CME当时的保证金公告.
 
 | 阶段 | VM | 转入前余额 | 当期IM/MM | 要求转入 | 实际转入 | 尚欠 | 转入后余额/外部现金 |
 |---|---:|---:|---|---:|---:|---:|---|
@@ -573,21 +577,21 @@ $A_i$是要求转入的金额。若资金准时，实际转入$T_i=\min(C_{i-1},
 | 2，要求改变 | +700 | 7,200 | 10,000 / 8,500 | 2,800 | 2,800 | 0 | 10,000 / 1,200 |
 | 3 | −2,400 | 7,600 | 10,000 / 8,500 | 2,400 | 1,200 | **1,200** | 8,800 / 0；停止 |
 
-注意最后的8,800已经高于MM=8,500，但既已触发的要求是补回IM=10,000，仍欠1,200。不能在交了一半后重新拿“已经高于维持线”抹掉剩余要求。这是为什么必须把“触发条件”和“触发后的应补金额”分开。
+注意最后的8,800已经高于MM=8,500，但既已触发的要求是补回IM=10,000，仍欠1,200. 不能在交了一半后重新拿“已经高于维持线”抹掉剩余要求. 这是为什么必须把“触发条件”和“触发后的应补金额”分开.
 
-到停止点，累计VM为−3,200，总余额8,800正好等于12,000−3,200。后面的75.6只存在于输入路径里，不能继续画成已经获得的+3,800。若要讨论处置，需要另给真实或教学的融资、强平、费用及成交条件，不能用一个自动反弹假设填空。
+到停止点，累计VM为−3,200，总余额8,800正好等于12,000−3,200. 后面的75.6只存在于输入路径里，不能继续画成已经获得的+3,800. 若要讨论处置，需要另给真实或教学的融资、强平、费用及成交条件，不能用一个自动反弹假设填空.
 
 <a id="m11-history"></a>
 ## 五、历史价格与研究材料各能告诉我们什么
 
-把同样算法用于真实历史观测：CFTC记录的2020年5月CL结算价18.27→−37.63→10.01。假设一张多头在第一个结算价建立并一直持有，两个后续变动现金为−55,900和+47,640美元。[^MD-S03] 本篇没有该客户的账户、当时IM/MM和盘中要求，因此只重建价格对应的条件VM，不把12,000/8,000/6,500那套合成账户套成历史事实。
+把同样算法用于真实历史观测：CFTC记录的2020年5月CL结算价18.27→−37.63→10.01. 假设一张多头在第一个结算价建立并一直持有，两个后续变动现金为−55,900和+47,640美元. [^MD-S03] 本篇没有该客户的账户、当时IM/MM和盘中要求，因此只重建价格对应的条件VM，不把12,000/8,000/6,500那套合成账户套成历史事实.
 
 <details>
 <summary>选读：保证金更保守，为什么也会增加资金占用？</summary>
 
-BIS 2023年的Box A用假想利率互换对比2020美元付固定与2022英镑收固定头寸，展示VM支付和IM模型重校准可相继增加流动性需求；图中VM按五日累计，IM以五日平仓期计算。作者比较预防性压力底线与随近期波动变化的部分：更高底线可缓和压力时的追加幅度，却提高平静时期的资金占用。[^MD-S08]
+BIS 2023年的Box A用假想利率互换对比2020美元付固定与2022英镑收固定头寸，展示VM支付和IM模型重校准可相继增加流动性需求；图中VM按五日累计，IM以五日平仓期计算. 作者比较预防性压力底线与随近期波动变化的部分：更高底线可缓和压力时的追加幅度，却提高平静时期的资金占用. [^MD-S08]
 
-读Graph A1时先找这些口径，不要把IM曲线的水平当作每日新付费用，也不要将两个互换模型当作我们的CL账户。原图提供研究模型比较，本文的路径A/B提供可亲自重算的现金机制；两者职责不同。
+读Graph A1时先找这些口径，不要把IM曲线的水平当作每日新付费用，也不要将两个互换模型当作我们的CL账户. 原图提供研究模型比较，本文的路径A/B提供可亲自重算的现金机制；两者职责不同.
 </details>
 
 <a id="m11-exercises"></a>
@@ -595,28 +599,28 @@ BIS 2023年的Box A用假想利率互换对比2020美元付固定与2022英镑�
 
 **题一：边界究竟在哪里？** 路径A第一次结算后6,500，要不要补钱？若价格不是73.50而是73.49呢？
 
-**解析。** 前者等于MM，不追缴。后者VM为−1,510，转入前6,490，严格低于MM；应补$8{,}000-6{,}490=1{,}510$。不是只补10美元。触发不等式与补款目标承担不同职责。
+**解析.** 前者等于MM，不追缴. 后者VM为−1,510，转入前6,490，严格低于MM；应补$8{,}000-6{,}490=1{,}510$. 不是只补10美元. 触发不等式与补款目标承担不同职责.
 
-**题二：少一点现金。** 原始IM/MM不变，起点总现金改为11,000，路径A能否走完？
+**题二：少一点现金.** 原始IM/MM不变，起点总现金改为11,000，路径A能否走完？
 
-**解析。** 初始划入8,000后外部仅3,000。第三步仍需3,200，最多转入3,000，差200；账户到7,800，外部为0，停在该阶段。不能因为端点从75到75.6就报告盈利600已实现。
+**解析.** 初始划入8,000后外部仅3,000. 第三步仍需3,200，最多转入3,000，差200；账户到7,800，外部为0，停在该阶段. 不能因为端点从75到75.6就报告盈利600已实现.
 
 **题三：为何不把3,200追加再从12,600扣掉？**
 
-**解析。** 3,200来自原来4,000的外部现金。转入后它在担保余额中，已经计入11,800；外部只剩800。再次扣除相当于把自己两个账户间的移动当成对外费用。应检查“担保余额+外部现金＝初始资金+累计VM”。
+**解析.** 3,200来自原来4,000的外部现金. 转入后它在担保余额中，已经计入11,800；外部只剩800. 再次扣除相当于把自己两个账户间的移动当成对外费用. 应检查“担保余额+外部现金＝初始资金+累计VM”.
 
 **题四：加保证金情景的8,800是否合格？**
 
-**解析。** 本例在7,600低于8,500时已经产生2,400补足要求。只交1,200后虽然超过维持线，仍未达到这笔要求的10,000目标。既有追缴不能自行用重新测试维持线的方法撤销。
+**解析.** 本例在7,600低于8,500时已经产生2,400补足要求. 只交1,200后虽然超过维持线，仍未达到这笔要求的10,000目标. 既有追缴不能自行用重新测试维持线的方法撤销.
 
-**题五：有现金但晚到。** 第三步需3,200且外部有4,000，但转款将在模型截止后到达，可以先计作已付吗？
+**题五：有现金但晚到.** 第三步需3,200且外部有4,000，但转款将在模型截止后到达，可以先计作已付吗？
 
-**解析。** 不可以。已拥有现金、可在指定时间使用、已履行转款是三个状态。模型在截止时把实际转入记为0、未满足记为3,200并停止；它不预测真实券商将采取何种处置。
+**解析.** 不可以. 已拥有现金、可在指定时间使用、已履行转款是三个状态. 模型在截止时把实际转入记为0、未满足记为3,200并停止；它不预测真实券商将采取何种处置.
 
-[^MD-S05]: CME，*Money Calculations for CME-cleared Futures and Options*，2015-06-11，pp.1–3正常期货变动现金单元。[原文](https://www.cmegroup.com/clearing/files/CME-Money-Calculations-Futures-and-Options.pdf)。本例CL价格与乘数使金额精确到美元；其他产品须按其舍入规则。
-[^MD-S05-MARGIN]: CME，*The Benefits of Futures Margins*，保证金与初始/维持保证金单元。[原文](https://www.cmegroup.com/education/courses/understanding-the-benefits-of-futures/the-benefits-of-futures-margins)。具体8,000/6,500与严格不等式由本教学账户设定。
-[^MD-S03]: CFTC staff，*WTI Interim Staff Report*，2020-11-23，印刷pp.8–9、11。[原文](https://www.cftc.gov/media/5296/InterimStaffReportNYMEX_WTICrudeOil/download)。结算价为历史观测，持仓与资金账户为条件算例。
-[^MD-S08]: Benjamin H Cohen、Kevin Tracol，BIS Quarterly Review，March 2023，Box A，pp.5–6及Graph A1/脚注。[原文](https://www.bis.org/publications/perceptions-risk-and-policy-outlook-drive-markets_1.pdf)。假想IRS；没有复刻Clarus底层数据。
+[^MD-S05]: CME，*Money Calculations for CME-cleared Futures and Options*，2015-06-11，pp.1–3正常期货变动现金单元. [原文](https://www.cmegroup.com/clearing/files/CME-Money-Calculations-Futures-and-Options.pdf). 本例CL价格与乘数使金额精确到美元；其他产品须按其舍入规则.
+[^MD-S05-MARGIN]: CME，*The Benefits of Futures Margins*，保证金与初始/维持保证金单元. [原文](https://www.cmegroup.com/education/courses/understanding-the-benefits-of-futures/the-benefits-of-futures-margins). 具体8,000/6,500与严格不等式由本教学账户设定.
+[^MD-S03]: CFTC staff，*WTI Interim Staff Report*，2020-11-23，印刷pp.8–9、11. [原文](https://www.cftc.gov/media/5296/InterimStaffReportNYMEX_WTICrudeOil/download). 结算价为历史观测，持仓与资金账户为条件算例.
+[^MD-S08]: Benjamin H Cohen、Kevin Tracol，BIS Quarterly Review，March 2023，Box A，pp.5–6及Graph A1/脚注. [原文](https://www.bis.org/publications/perceptions-risk-and-policy-outlook-drive-markets_1.pdf). 假想IRS；没有复刻Clarus底层数据.
 
 
 ## Experiment inputs and static equivalents
@@ -626,7 +630,7 @@ BIS 2023年的Box A用假想利率互换对比2020美元付固定与2022英镑�
     "id": "EXP-MD-M11-MARGIN",
     "title": "每日结算与期货保证金：交互实验",
     "anchor": "m11-paths",
-    "description": "固定教学截止下，先计VM，再比较MM，按IM补款并在不足/晚到停止。",
+    "description": "固定教学截止下，先计VM，再比较MM，按IM补款并在不足/晚到停止.",
     "inputs": {
       "data_keys": [
         "margin",
@@ -988,14 +992,14 @@ BIS 2023年的Box A用假想利率互换对比2020美元付固定与2022英镑�
 ```
 
 ## Sources
-- [WTI Interim Staff Report: Trading leading up to, on and around April 20, 2020](https://www.cftc.gov/media/5296/InterimStaffReportNYMEX_WTICrudeOil/download): 历史May结算与May−June价差；June由两者相减得到。报告不识别负价唯一根因；未采用April2020保证金。
-- [Money Calculations for CME-cleared Futures and Options](https://www.cmegroup.com/clearing/files/CME-Money-Calculations-Futures-and-Options.pdf): 当日成交与期初头寸的结算现金及正常舍入；不采用无关分数报价例的印刷错误，不提供CL保证金水平。
+- [WTI Interim Staff Report: Trading leading up to, on and around April 20, 2020](https://www.cftc.gov/media/5296/InterimStaffReportNYMEX_WTICrudeOil/download): 历史May结算与May−June价差；June由两者相减得到. 报告不识别负价唯一根因；未采用April2020保证金.
+- [Money Calculations for CME-cleared Futures and Options](https://www.cmegroup.com/clearing/files/CME-Money-Calculations-Futures-and-Options.pdf): 当日成交与期初头寸的结算现金及正常舍入；不采用无关分数报价例的印刷错误，不提供CL保证金水平.
 
-本批读取范围：逐日价格变动、乘数、现金与结算口径。
-- [The Benefits of Futures Margins](https://www.cmegroup.com/education/courses/understanding-the-benefits-of-futures/the-benefits-of-futures-margins): 保证金是应维持的担保余额而非货款；补足规则因制度/经纪商而异。不给百分比当作当前CL参数。
-- [Market turbulence and soaring margins: lessons from two recent episodes — Box A](https://www.bis.org/publications/perceptions-risk-and-policy-outlook-drive-markets_1.pdf): 假想一年期USD付固定与GBP收固定IRS；VM五日累计/IM五日closeout，讨论模型重校准与流动性。未复现Clarus曲线，不替代AECOM CSA或CL客户账户。
+本批读取范围：逐日价格变动、乘数、现金与结算口径.
+- [The Benefits of Futures Margins](https://www.cmegroup.com/education/courses/understanding-the-benefits-of-futures/the-benefits-of-futures-margins): 保证金是应维持的担保余额而非货款；补足规则因制度/经纪商而异. 不给百分比当作当前CL参数.
+- [Market turbulence and soaring margins: lessons from two recent episodes — Box A](https://www.bis.org/publications/perceptions-risk-and-policy-outlook-drive-markets_1.pdf): 假想一年期USD付固定与GBP收固定IRS；VM五日累计/IM五日closeout，讨论模型重校准与流动性. 未复现Clarus曲线，不替代AECOM CSA或CL客户账户.
 
-本批读取范围：VM与模型IM在压力中共同变化；VM图为五日累计。
+本批读取范围：VM与模型IM在压力中共同变化；VM图为五日累计.
 
 ## Content relations
 ```json
@@ -1017,7 +1021,7 @@ BIS 2023年的Box A用假想利率互换对比2020美元付固定与2022英镑�
     "from": "zh-m11",
     "relation": "illustrated_by",
     "to": "EXP-MD-M11-MARGIN",
-    "reason": "固定教学截止下，先计VM，再比较MM，按IM补款并在不足/晚到停止。"
+    "reason": "固定教学截止下，先计VM，再比较MM，按IM补款并在不足/晚到停止."
   },
   {
     "from": "zh-m11",
@@ -1070,6 +1074,6 @@ BIS 2023年的Box A用假想利率互换对比2020美元付固定与2022英镑�
 
 ## Optional reading path
 理解合约与市场机制: step 9/17
-重建VM、补款和资金截止，找出不能继续持有的阶段。
-现金时点明确后，比较持有实物与未来取得的两条路径。
+重建VM、补款和资金截止，找出不能继续持有的阶段.
+现金时点明确后，比较持有实物与未来取得的两条路径.
 Next: [基差、持有成本与期限结构](https://ou-liu-red-sugar.github.io/zh/notebook/basis-carry-term-structure/)

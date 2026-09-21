@@ -39,7 +39,7 @@ function init(){
   packet.selected_branch=selected;packet.required_readings=packet.required_readings_by_branch[selected]||packet.required_readings;
   packet.runtime_reading_log=[];
   packet.learning_task=selected==='all'?Object.values(packet.branch_tasks||{}).join('\n'):(packet.branch_tasks||{})[selected];
-  const notice='当前分支：'+selected+'。共同正文保留；以本次 required_readings 为必读，实际取得指定完整单元后再教。未选分支仅为附带资料。\n当前任务：'+packet.learning_task+'\n\n';
+  const notice='当前分支：'+selected+'. 共同正文保留；以本次 required_readings 为必读，实际取得指定完整单元后再教. 未选分支仅为附带资料. \n当前任务：'+packet.learning_task+'\n\n';
   context.value=notice+original.replace(pattern,(_,head,_json,tail)=>head+JSON.stringify(packet,null,2)+tail);
  }
  document.addEventListener('click',ev=>{if(ev.target.closest('[data-teach]'))prepare();},true);

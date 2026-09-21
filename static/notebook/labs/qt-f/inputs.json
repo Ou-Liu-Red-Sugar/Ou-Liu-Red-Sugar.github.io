@@ -858,7 +858,7 @@
   },
   "stopping": {
     "experiment_id": "EXP-QT08-STOP-01",
-    "identity": "有限等概率±1教学随机游走，完全穷举；非市场观测。",
+    "identity": "有限等概率±1教学随机游走，完全穷举；非市场观测.",
     "N": 8,
     "initial_value": 0,
     "increment_values": [
@@ -879,7 +879,7 @@
     },
     "default_path": "UUDDDDDD",
     "infinite_counterexample": {
-      "identity": "另一个无限公平抛币乘积空间；不是256路径的延长或重用。",
+      "identity": "另一个无限公平抛币乘积空间；不是256路径的延长或重用.",
       "initial_value": 1,
       "heads_probability": "1/2",
       "process": "Z_n=2^n * 1(first n tosses all heads)",

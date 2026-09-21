@@ -28,7 +28,7 @@ function hot(){
  if(o.mode==="equilibrium"){setVal("h-p1",r.p1);setVal("h-p2",r.p2);}
  ["c","t","p1","p2"].forEach(k=>outVal("h-"+k));
  ["h-p1","h-p2"].forEach(k=>$(k).disabled=o.mode==="equilibrium");
- $("hot-result").textContent=(r.label==="model_equilibrium"?"模型均衡":"给定价格配置")+"：p1="+fmt(r.p1)+"，p2="+fmt(r.p2)+"；q1="+fmt(r.q1)+"，q2="+fmt(r.q2)+"；利润1="+fmt(r.profit1)+"，利润2="+fmt(r.profit2)+"。"+(r.t===0?"同价均分、低价取得全市场。":r.kind==="boundary_allocation"?"客户选择位于角点。":"客户边界 θ*="+fmt(r.theta)+"。");
+ $("hot-result").textContent=(r.label==="model_equilibrium"?"模型均衡":"给定价格配置")+"：p1="+fmt(r.p1)+"，p2="+fmt(r.p2)+"；q1="+fmt(r.q1)+"，q2="+fmt(r.q2)+"；利润1="+fmt(r.profit1)+"，利润2="+fmt(r.profit2)+"."+(r.t===0?"同价均分、低价取得全市场.":r.kind==="boundary_allocation"?"客户选择位于角点.":"客户边界 θ*="+fmt(r.theta)+".");
  chart("hot-chart","两家产品的客户总负担随位置变化",[
  {label:"企业1：p1+tθ",points:[[0,r.p1],[1,r.p1+r.t]]},
  {label:"企业2：p2+t(1−θ)",points:[[0,r.p2+r.t],[1,r.p2]],dash:true}],1,Math.max(r.p1+r.t,r.p2+r.t,1),
@@ -39,7 +39,7 @@ function entry(){
  try{
  const o=Object.fromEntries(["a","c","K","cap"].map(k=>[k,readInt("e-"+k)])),r=E.entry(o);
  ["a","c","K","cap"].forEach(k=>outVal("e-"+k));
- $("entry-result").textContent="弱均衡企业数集合：{"+r.equilibrium_set.join(", ")+"}。"+(r.equilibrium_set.length>1?"存在无差异多解；没有取最大N。":"")+(r.cap===0?"潜在企业上限为0。":r.nonpositive_margin_corner?"采用零产量续局，不展示实际成交价。":"");
+ $("entry-result").textContent="弱均衡企业数集合：{"+r.equilibrium_set.join(", ")+"}."+(r.equilibrium_set.length>1?"存在无差异多解；没有取最大N.":"")+(r.cap===0?"潜在企业上限为0.":r.nonpositive_margin_corner?"采用零产量续局，不展示实际成交价.":"");
  const wrap=$("entry-table");wrap.replaceChildren();const div=el("div",{class:"table-wrap"}),t=el("table"),head=el("thead"),tr=el("tr");
  ["N","每家产量","成交价","变动利润","扣K后净利润","检查下一家？","均衡"].forEach(h=>tr.append(el("th",{scope:"col"},h)));head.append(tr);t.append(head);
  const body=el("tbody");r.rows.forEach(row=>{const tr=el("tr",row.equilibrium?{class:"eq"}:{});
@@ -53,7 +53,7 @@ function inv(){
  try{
  const o={...D.models.inventory.defaults,lambda_steps:readInt("i-lambda_steps"),h:readInt("i-h")},r=E.inventory(o);
  $("i-lambda_steps-value").textContent=o.lambda_steps+"；λ="+fmt(r.lambda,3)+"（"+fmt(100*r.lambda,1)+"%）";outVal("i-h");
- $("inventory-result").textContent=r.status==="never"?"λ=0：E始终等于100，在此阈值下永不严格低于。":"首次严格低于 "+r.h+"：第 "+r.crossing+" 期。前一期 "+fmt(r.previous)+"；本期 "+fmt(r.current)+"。"+(r.equality_previous?"前一期恰好等于阈值，必须再等一期。":"")+"计算按原式作了精确整数比较。";
+ $("inventory-result").textContent=r.status==="never"?"λ=0：E始终等于100，在此阈值下永不严格低于.":"首次严格低于 "+r.h+"：第 "+r.crossing+" 期. 前一期 "+fmt(r.previous)+"；本期 "+fmt(r.current)+"."+(r.equality_previous?"前一期恰好等于阈值，必须再等一期.":"")+"计算按原式作了精确整数比较.";
  const xmax=r.points[r.points.length-1].n;
  chart("inventory-chart","超额库存按固定比例消化的教学路径",[{label:"E_t（教学指数）",points:r.points.map(p=>[p.n,p.E])},{label:"严格阈值 h",points:[[0,r.h],[xmax,r.h]],dash:true}],xmax,100,r.crossing!==null?[{x:r.crossing,y:r.current,label:"首次低于：n="+r.crossing}]:[]);
  }catch(e){$("inventory-result").textContent="输入不合法："+e.message;}

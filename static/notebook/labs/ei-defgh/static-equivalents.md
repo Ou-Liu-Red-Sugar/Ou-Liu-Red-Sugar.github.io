@@ -1,14 +1,14 @@
 # EI-D/E/F/G/H · 交互的静态等价
 
-各实验的完整解释、推导和题解仍在对应正文；本文件提供同源默认计算，不要求点击。
+各实验的完整解释、推导和题解仍在对应正文；本文件提供同源默认计算，不要求点击.
 
 ## exp-ei10-rate-transmission · 年化利息与首年累计
 
-teaching_assumption；正文锚：EI-10#ei10-repricing。
+teaching_assumption；正文锚：EI-10#ei10-repricing.
 
-默认资产/浮债完全传导、旧浮债利差不变；ΔIA=AΔb，ΔIf=DfΔb，ΔIk=Dk*r*(Δb+Δsk)。τ前净年化ΔIA−ΔIf，τ后再减ΔIk；首年累计ΔIA−ΔIf−(1−τ)ΔIk。简单计息、余额固定，不给付息流水。
+默认资产/浮债完全传导、旧浮债利差不变；ΔIA=AΔb，ΔIf=DfΔb，ΔIk=Dk*r*(Δb+Δsk).τ前净年化ΔIA−ΔIf，τ后再减ΔIk；首年累计ΔIA−ΔIf−(1−τ)ΔIk. 简单计息、余额固定，不给付息流水.
 
-冻结默认：资产年化+4，浮债费用+1，年初净年化+3；固定债新增年化2、首年1；年中后净年化1，首年累计2。百万美元。τ=0/1显示整年/零首年新增固定债费用。
+冻结默认：资产年化+4，浮债费用+1，年初净年化+3；固定债新增年化2、首年1；年中后净年化1，首年累计2. M 美元.τ=0/1显示整年/零首年新增固定债费用.
 
 ```json
 {
@@ -96,18 +96,18 @@ teaching_assumption；正文锚：EI-10#ei10-repricing。
         "cumulative_accrual": 2
       }
     ],
-    "units": "million USD; annualized rates versus first-calendar-year accrual; not payment-date cash"
+    "units": "USD M; annualized rates versus first-calendar-year accrual; not payment-date cash"
   }
 }
 ```
 
 ## exp-ei11-fx · 同币种同日自然匹配
 
-teaching_assumption；正文锚：EI-11#ei11-invoice。
+teaching_assumption；正文锚：EI-11#ei11-invoice.
 
-交易损益R*(e1−e0)与−C*(e1−e0)，净额(R−C)*(e1−e0)。美元功能货币、同一确认/结算时点、欧元量固定；无金融衍生品。
+交易损益R*(e1−e0)与−C*(e1−e0)，净额(R−C)*(e1−e0). 美元功能货币、同一确认/结算时点、欧元量固定；无金融衍生品.
 
-100/80欧元在1.10→1.05：资产−5、负债+4、净−1美元；净现金换算22→21。错开日期题另按各自汇率，不能沿用同日净式。
+100/80欧元在1.10→1.05：资产−5、负债+4、净−1美元；净现金换算22→21. 错开日期题另按各自汇率，不能沿用同日净式.
 
 ```json
 {
@@ -135,11 +135,11 @@ teaching_assumption；正文锚：EI-11#ei11-invoice。
 
 ## exp-ei12-rule-path · 30天来源资格与净需要
 
-teaching_assumption；正文锚：EI-12#ei12-rebuild。
+teaching_assumption；正文锚：EI-12#ei12-rebuild.
 
-合格来源S=eligible?候选额:0；净需要=O−S，非负覆盖需要=max(O−S,0)。30天内credit line贡献恒0。来源与剩余buffer去重；没有B余额就不报buffer余缺。类别不从资产自动计算。
+合格来源S=eligible?候选额:0；净需要=O−S，非负覆盖需要=max(O−S,0).30天内credit line贡献恒0. 来源与剩余buffer去重；没有B余额就不报buffer余缺. 类别不从资产自动计算.
 
-120−50=70；如果50不合格，需覆盖120；另有授信20也不改变30天来源。原资产62.5经20%折价为50，仅为正文补充变式。
+120−50=70；如果50不合格，需覆盖120；另有授信20也不改变30天来源. 原资产62.5经20%折价为50，仅为正文补充变式.
 
 ```json
 {
@@ -167,11 +167,11 @@ teaching_assumption；正文锚：EI-12#ei12-rebuild。
 
 ## exp-ei13-tech-path · 数量权重与产出权重
 
-teaching_assumption；正文锚：EI-13#ei13-aggregation。
+teaching_assumption；正文锚：EI-13#ei13-aggregation.
 
-总基期Y=y1+y2>0；增量Σyi*di*gi；整体增幅=增量/Y。数量权重比较式Σdi*gi/2只在等基期产出等条件下适用。固定投入、无外溢、一致可加产出。
+总基期Y=y1+y2>0；增量Σyi*di*gi；整体增幅=增量/Y. 数量权重比较式Σdi*gi/2只在等基期产出等条件下适用. 固定投入、无外溢、一致可加产出.
 
-y1=1,y2=9,g=10%；只低产出单位采用→总增长1%，只高产出单位采用→9%，数量权重均误报5%。两者全不采用为0；总基期0拒绝。
+y1=1,y2=9,g=10%；只低产出单位采用→总增长1%，只高产出单位采用→9%，数量权重均误报5%. 两者全不采用为0；总基期0拒绝.
 
 ```json
 {
@@ -205,11 +205,11 @@ y1=1,y2=9,g=10%；只低产出单位采用→总增长1%，只高产出单位采
 
 ## exp-ei15-metric-contract · 指标的对象与证据职责
 
-observed_and_derived；正文锚：EI-15#ei15-selection。
+observed_and_derived；正文锚：EI-15#ei15-selection.
 
-真实数值只读。电力按百万USD/千MWh换算；制造N=S+ΔB是统计构造，ΔI另列；零售同年重述差=(new/old−1)；银行前季NIM=本季−bp变化/100。不同统计产品不互证。
+真实数值只读. 电力按 M USD/ K MWh换算；制造N=S+ΔB是统计构造，ΔI另列；零售同年重述差=(new/old−1)；银行前季NIM=本季−bp变化/100. 不同统计产品不互证.
 
-电力13.6344023cents/kWh；制造4498+381=4879、库存+66；零售同2022销售−1.7738%、库存−2.1807%；银行3.39%→3.31%为−8bp。
+电力13.6344023cents/kWh；制造4498+381=4879、库存+66；零售同2022销售−1.7738%、库存−2.1807%；银行3.39%→3.31%为−8bp.
 
 ```json
 {
@@ -230,11 +230,11 @@ observed_and_derived；正文锚：EI-15#ei15-selection。
 
 ## exp-ei16-industry-path · 售电、发电结构与经营路径
 
-observed_and_derived；正文锚：EI-16#ei16-capital。
+observed_and_derived；正文锚：EI-16#ei16-capital.
 
-EPM1.1只读采用 Generation at Utility Scale Facilities 列组的五项能源与utility-scale total；不把右侧estimated small-scale solar并入该总量。其余净额=utility-scale total−五项，逐项同比=(2025/2024−1)。地区按钮只改变定性条件路径，不生造价格弹性。86GW另列planned。
+EPM1.1只读采用 Generation at Utility Scale Facilities 列组的五项能源与utility-scale total；不把右侧estimated small-scale solar并入该总量. 其余净额=utility-scale total−五项，逐项同比=(2025/2024−1). 地区按钮只改变定性条件路径，不生造价格弹性.86GW另列planned.
 
-发电总量4,308,634→4,429,502千MWh，+2.8052510%；售电+2.0784166%；天然气下降、煤/太阳能上升。其余净额541981/557538。
+发电总量4,308,634→4,429,502 K MWh，+2.8052510%；售电+2.0784166%；天然气下降、煤/太阳能上升. 其余净额541981/557538.
 
 ```json
 {
@@ -302,11 +302,11 @@ EPM1.1只读采用 Generation at Utility Scale Facilities 列组的五项能源�
 
 ## exp-ei17-static-capacity-complementarity · 产能互补松弛
 
-teaching_assumption；正文锚：EI-17#ei17-kkt。
+teaching_assumption；正文锚：EI-17#ei17-kkt.
 
-最大化aQ−Q²,0≤Q≤K。a≥0,K>0；Q=min(a/2,K),P=a−Q,μ=a−2Q。显示slack与μ(Q−K)=0。a=0采用Q=P=μ=0。模型为静态教学经济，不是IMES复现。
+最大化aQ−Q²,0≤Q≤K. a≥0,K>0；Q=min(a/2,K),P=a−Q,μ=a−2Q. 显示slack与μ(Q−K)=0. a=0采用Q=P=μ=0. 模型为静态教学经济，不是IMES复现.
 
-K80/a100→120：P,Q均50→60；K50/a120→130：Q50，P70→80，μ20→30；a100,K50：触边μ0。
+K80/a100→120：P,Q均50→60；K50/a120→130：Q50，P70→80，μ20→30；a100,K50：触边μ0.
 
 ```json
 {
@@ -330,11 +330,11 @@ K80/a100→120：P,Q均50→60；K50/a120→130：Q50，P70→80，μ20→30；a
 
 ## exp-ei17-fig7-relax-constraints · 同一输入路径，放松约束
 
-teaching_assumption；正文锚：EI-17#ei17-fig7。
+teaching_assumption；正文锚：EI-17#ei17-fig7.
 
-新增教学路径a=[100,120,130,110],K=[80,50,50,80]×scale；受限逐期用静态模型，松弛逐期P=Q=a/2。不是论文通胀，不生成后验置信带。作者实验流程另列同θ、同smoothed shocks、all-slack反事实及measurement error。
+新增教学路径a=[100,120,130,110],K=[80,50,50,80]×scale；受限逐期用静态模型，松弛逐期P=Q=a/2. 不是论文通胀，不生成后验置信带. 作者实验流程另列同θ、同smoothed shocks、all-slack反事实及measurement error.
 
-scale1时受限价格[50,70,80,55]，松弛[50,60,65,55]，价格差[0,10,15,0]。均为抽象价格单位。
+scale1时受限价格[50,70,80,55]，松弛[50,60,65,55]，价格差[0,10,15,0]. 均为抽象价格单位.
 
 ```json
 {
@@ -395,11 +395,11 @@ scale1时受限价格[50,70,80,55]，松弛[50,60,65,55]，价格差[0,10,15,0]�
 
 ## exp-ei17-fig9-interaction · 条件效应与非线性交互
 
-teaching_assumption；正文锚：EI-17#ei17-fig9。
+teaching_assumption；正文锚：EI-17#ei17-fig9.
 
-基准a100,K80；分别计算P(0,0),P(u,0),P(0,v),P(u,v)。conditional=P(u,v)−P(0,v)；interaction=conditional−[P(u,0)−P(0,0)]。非线性不强制贡献加总100%。
+基准a100,K80；分别计算P(0,0),P(u,0),P(0,v),P(u,v). conditional=P(u,v)−P(0,v)；interaction=conditional−[P(u,0)−P(0,0)]. 非线性不强制贡献加总100%.
 
-默认价格[50,65,50,80]；单独需求15、容量单独0、容量背景下需求30、交互15。教学价格，不是作者Figure9数值。
+默认价格[50,65,50,80]；单独需求15、容量单独0、容量背景下需求30、交互15. 教学价格，不是作者Figure9数值.
 
 ```json
 {
@@ -464,11 +464,11 @@ teaching_assumption；正文锚：EI-17#ei17-fig9。
 
 ## exp-ei18-paper-map · 交互项导数与工作例单位
 
-teaching_assumption；正文锚：EI-18#ei18-table。
+teaching_assumption；正文锚：EI-18#ei18-table.
 
-Table2(2)beta2=.214,beta4=.398固定；m(C)=beta2+beta4*C。mhigh−mlow=beta4ΔC；额外条件log差=beta4ΔCΔF，logpoints=100×log差，精确相对差=expm1(log差)。保持原文单位歧义提示。
+Table2(2)beta2=.214,beta4=.398固定；m(C)=beta2+beta4*C. mhigh−mlow=beta4ΔC；额外条件log差=beta4ΔCΔF，logpoints=100×log差，精确相对差=expm1(log差). 保持原文单位歧义提示.
 
-C=.10/.12斜率.2538/.26176；仅在本篇声明的working scale（cash gap按0.02、ΔF=5.25）下，.04179 log units=4.179 logpoints≈4.27%精确相对变化。来源单位疑点保留；非公司回报预测。
+C=.10/.12斜率.2538/.26176；仅在本篇声明的working scale（cash gap按0.02、ΔF=5.25）下，.04179 log units=4.179 logpoints≈4.27%精确相对变化. 来源单位疑点保留；非公司回报预测.
 
 ```json
 {

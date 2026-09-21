@@ -331,7 +331,7 @@
     "M3_retained_fixed_rows": {
       "identity": "observed",
       "source_id": "EIDEF-S21",
-      "unit": "USD million SA",
+      "unit": "USD M SA",
       "shipments": [
         4424,
         4498
@@ -374,7 +374,7 @@
       "controls": [
         {
           "key": "cash",
-          "label": "现金（百万美元）",
+          "label": "现金（ M 美元）",
           "default": 200,
           "min": 0,
           "max": 1000,
@@ -383,7 +383,7 @@
         },
         {
           "key": "floating",
-          "label": "浮债（百万美元）",
+          "label": "浮债（ M 美元）",
           "default": 50,
           "min": 0,
           "max": 1000,
@@ -392,7 +392,7 @@
         },
         {
           "key": "fixed",
-          "label": "固定债（百万美元）",
+          "label": "固定债（ M 美元）",
           "default": 250,
           "min": 0,
           "max": 1000,
@@ -445,8 +445,8 @@
         "refiTime": 0.5,
         "refiSpreadBP": 0
       },
-      "algorithm": "默认资产/浮债完全传导、旧浮债利差不变；ΔIA=AΔb，ΔIf=DfΔb，ΔIk=Dk*r*(Δb+Δsk)。τ前净年化ΔIA−ΔIf，τ后再减ΔIk；首年累计ΔIA−ΔIf−(1−τ)ΔIk。简单计息、余额固定，不给付息流水。",
-      "static_equivalent": "冻结默认：资产年化+4，浮债费用+1，年初净年化+3；固定债新增年化2、首年1；年中后净年化1，首年累计2。百万美元。τ=0/1显示整年/零首年新增固定债费用。",
+      "algorithm": "默认资产/浮债完全传导、旧浮债利差不变；ΔIA=AΔb，ΔIf=DfΔb，ΔIk=Dk*r*(Δb+Δsk).τ前净年化ΔIA−ΔIf，τ后再减ΔIk；首年累计ΔIA−ΔIf−(1−τ)ΔIk. 简单计息、余额固定，不给付息流水.",
+      "static_equivalent": "冻结默认：资产年化+4，浮债费用+1，年初净年化+3；固定债新增年化2、首年1；年中后净年化1，首年累计2. M 美元.τ=0/1显示整年/零首年新增固定债费用.",
       "source_ids": [
         "EIDEF-S01",
         "EIDEF-S02"
@@ -528,7 +528,7 @@
             "cumulative_accrual": 2
           }
         ],
-        "units": "million USD; annualized rates versus first-calendar-year accrual; not payment-date cash"
+        "units": "USD M; annualized rates versus first-calendar-year accrual; not payment-date cash"
       }
     },
     {
@@ -581,8 +581,8 @@
         "e0": 1.1,
         "e1": 1.05
       },
-      "algorithm": "交易损益R*(e1−e0)与−C*(e1−e0)，净额(R−C)*(e1−e0)。美元功能货币、同一确认/结算时点、欧元量固定；无金融衍生品。",
-      "static_equivalent": "100/80欧元在1.10→1.05：资产−5、负债+4、净−1美元；净现金换算22→21。错开日期题另按各自汇率，不能沿用同日净式。",
+      "algorithm": "交易损益R*(e1−e0)与−C*(e1−e0)，净额(R−C)*(e1−e0). 美元功能货币、同一确认/结算时点、欧元量固定；无金融衍生品.",
+      "static_equivalent": "100/80欧元在1.10→1.05：资产−5、负债+4、净−1美元；净现金换算22→21. 错开日期题另按各自汇率，不能沿用同日净式.",
       "source_ids": [
         "EIDEF-S04",
         "EIDEF-S06"
@@ -677,8 +677,8 @@
         "creditLine": 0,
         "category": "unknown"
       },
-      "algorithm": "合格来源S=eligible?候选额:0；净需要=O−S，非负覆盖需要=max(O−S,0)。30天内credit line贡献恒0。来源与剩余buffer去重；没有B余额就不报buffer余缺。类别不从资产自动计算。",
-      "static_equivalent": "120−50=70；如果50不合格，需覆盖120；另有授信20也不改变30天来源。原资产62.5经20%折价为50，仅为正文补充变式。",
+      "algorithm": "合格来源S=eligible?候选额:0；净需要=O−S，非负覆盖需要=max(O−S,0).30天内credit line贡献恒0. 来源与剩余buffer去重；没有B余额就不报buffer余缺. 类别不从资产自动计算.",
+      "static_equivalent": "120−50=70；如果50不合格，需覆盖120；另有授信20也不改变30天来源. 原资产62.5经20%折价为50，仅为正文补充变式.",
       "source_ids": [
         "EIDEF-S07",
         "EIDEF-S08",
@@ -789,8 +789,8 @@
         "g1": 0.1,
         "g2": 0.1
       },
-      "algorithm": "总基期Y=y1+y2>0；增量Σyi*di*gi；整体增幅=增量/Y。数量权重比较式Σdi*gi/2只在等基期产出等条件下适用。固定投入、无外溢、一致可加产出。",
-      "static_equivalent": "y1=1,y2=9,g=10%；只低产出单位采用→总增长1%，只高产出单位采用→9%，数量权重均误报5%。两者全不采用为0；总基期0拒绝。",
+      "algorithm": "总基期Y=y1+y2>0；增量Σyi*di*gi；整体增幅=增量/Y. 数量权重比较式Σdi*gi/2只在等基期产出等条件下适用. 固定投入、无外溢、一致可加产出.",
+      "static_equivalent": "y1=1,y2=9,g=10%；只低产出单位采用→总增长1%，只高产出单位采用→9%，数量权重均误报5%. 两者全不采用为0；总基期0拒绝.",
       "source_ids": [
         "EIDEF-S10",
         "EIDEF-S11",
@@ -854,8 +854,8 @@
       "inputs": {
         "branch": "electricity"
       },
-      "algorithm": "真实数值只读。电力按百万USD/千MWh换算；制造N=S+ΔB是统计构造，ΔI另列；零售同年重述差=(new/old−1)；银行前季NIM=本季−bp变化/100。不同统计产品不互证。",
-      "static_equivalent": "电力13.6344023cents/kWh；制造4498+381=4879、库存+66；零售同2022销售−1.7738%、库存−2.1807%；银行3.39%→3.31%为−8bp。",
+      "algorithm": "真实数值只读. 电力按 M USD/ K MWh换算；制造N=S+ΔB是统计构造，ΔI另列；零售同年重述差=(new/old−1)；银行前季NIM=本季−bp变化/100. 不同统计产品不互证.",
+      "static_equivalent": "电力13.6344023cents/kWh；制造4498+381=4879、库存+66；零售同2022销售−1.7738%、库存−2.1807%；银行3.39%→3.31%为−8bp.",
       "source_ids": [
         "EIDEF-S19A",
         "EIDEF-S19B",
@@ -911,8 +911,8 @@
       "inputs": {
         "region": "rto"
       },
-      "algorithm": "EPM1.1五项能源与总量只读；其余净额=总量−五项，逐项同比=(2025/2024−1)。地区按钮只改变定性条件路径，不生造价格弹性。86GW另列planned。",
-      "static_equivalent": "发电总量4,308,634→4,429,502千MWh，+2.8052510%；售电+2.0784166%；天然气下降、煤/太阳能上升。其余净额541981/557538。",
+      "algorithm": "EPM1.1五项能源与总量只读；其余净额=总量−五项，逐项同比=(2025/2024−1). 地区按钮只改变定性条件路径，不生造价格弹性.86GW另列planned.",
+      "static_equivalent": "发电总量4,308,634→4,429,502 K MWh，+2.8052510%；售电+2.0784166%；天然气下降、煤/太阳能上升. 其余净额541981/557538.",
       "source_ids": [
         "EIDEF-S19A",
         "EIDEF-S19B",
@@ -1012,8 +1012,8 @@
         "a": 120,
         "K": 50
       },
-      "algorithm": "最大化aQ−Q²,0≤Q≤K。a≥0,K>0；Q=min(a/2,K),P=a−Q,μ=a−2Q。显示slack与μ(Q−K)=0。a=0采用Q=P=μ=0。模型为静态教学经济，不是IMES复现。",
-      "static_equivalent": "K80/a100→120：P,Q均50→60；K50/a120→130：Q50，P70→80，μ20→30；a100,K50：触边μ0。",
+      "algorithm": "最大化aQ−Q²,0≤Q≤K. a≥0,K>0；Q=min(a/2,K),P=a−Q,μ=a−2Q. 显示slack与μ(Q−K)=0. a=0采用Q=P=μ=0. 模型为静态教学经济，不是IMES复现.",
+      "static_equivalent": "K80/a100→120：P,Q均50→60；K50/a120→130：Q50，P70→80，μ20→30；a100,K50：触边μ0.",
       "source_ids": [
         "EIDEF-S20"
       ],
@@ -1051,8 +1051,8 @@
       "inputs": {
         "capacityScale": 1
       },
-      "algorithm": "新增教学路径a=[100,120,130,110],K=[80,50,50,80]×scale；受限逐期用静态模型，松弛逐期P=Q=a/2。不是论文通胀，不生成后验置信带。作者实验流程另列同θ、同smoothed shocks、all-slack反事实及measurement error。",
-      "static_equivalent": "scale1时受限价格[50,70,80,55]，松弛[50,60,65,55]，价格差[0,10,15,0]。均为抽象价格单位。",
+      "algorithm": "新增教学路径a=[100,120,130,110],K=[80,50,50,80]×scale；受限逐期用静态模型，松弛逐期P=Q=a/2. 不是论文通胀，不生成后验置信带. 作者实验流程另列同θ、同smoothed shocks、all-slack反事实及measurement error.",
+      "static_equivalent": "scale1时受限价格[50,70,80,55]，松弛[50,60,65,55]，价格差[0,10,15,0]. 均为抽象价格单位.",
       "source_ids": [
         "EIDEF-S20"
       ],
@@ -1138,8 +1138,8 @@
         "demandShock": 30,
         "capacityReduction": 30
       },
-      "algorithm": "基准a100,K80；分别计算P(0,0),P(u,0),P(0,v),P(u,v)。conditional=P(u,v)−P(0,v)；interaction=conditional−[P(u,0)−P(0,0)]。非线性不强制贡献加总100%。",
-      "static_equivalent": "默认价格[50,65,50,80]；单独需求15、容量单独0、容量背景下需求30、交互15。教学价格，不是作者Figure9数值。",
+      "algorithm": "基准a100,K80；分别计算P(0,0),P(u,0),P(0,v),P(u,v). conditional=P(u,v)−P(0,v)；interaction=conditional−[P(u,0)−P(0,0)]. 非线性不强制贡献加总100%.",
+      "static_equivalent": "默认价格[50,65,50,80]；单独需求15、容量单独0、容量背景下需求30、交互15. 教学价格，不是作者Figure9数值.",
       "source_ids": [
         "EIDEF-S20"
       ],
@@ -1238,8 +1238,8 @@
         "cashGap": 0.02,
         "ffrPP": 5.25
       },
-      "algorithm": "Table2(2)beta2=.214,beta4=.398固定；m(C)=beta2+beta4*C。mhigh−mlow=beta4ΔC；额外条件log差=beta4ΔCΔF，logpoints=100×log差，精确相对差=expm1(log差)。保持原文单位歧义提示。",
-      "static_equivalent": "C=.10/.12斜率.2538/.26176；在本篇声明的FFR工作尺度ΔF=5.25下，.04179 log units=4.179 logpoints≈4.27%精确相对变化。来源单位疑点保留；非公司回报预测。",
+      "algorithm": "Table2(2)beta2=.214,beta4=.398固定；m(C)=beta2+beta4*C. mhigh−mlow=beta4ΔC；额外条件log差=beta4ΔCΔF，logpoints=100×log差，精确相对差=expm1(log差). 保持原文单位歧义提示.",
+      "static_equivalent": "C=.10/.12斜率.2538/.26176；在本篇声明的FFR工作尺度ΔF=5.25下，.04179 log units=4.179 logpoints≈4.27%精确相对变化. 来源单位疑点保留；非公司回报预测.",
       "source_ids": [
         "EIDEF-S03"
       ],

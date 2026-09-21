@@ -19,7 +19,7 @@
     if(!Array.isArray(p)||!p.length)throw new Error('权重不能为空');
     p.forEach((v,i)=>nonnegative(v,'权重 '+(i+1)));
     const sum=p.reduce((a,b)=>a+b,0);
-    if(Math.abs(sum-1)>1e-12) throw new Error('权重和必须为 1；当前为 '+sum+'。未自动归一化。');
+    if(Math.abs(sum-1)>1e-12) throw new Error('权重和必须为 1；当前为 '+sum+'. 未自动归一化.');
     return sum;
   }
   function selectVintage(records, cutoff, mode, delaySeconds, threshold) {

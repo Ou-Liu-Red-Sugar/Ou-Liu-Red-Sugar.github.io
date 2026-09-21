@@ -1,14 +1,18 @@
 # SVB Financial Group（历史报告对象）：具名材料记录
 
-观察报告所述内部压力测试与融资操作准备；不把历史复盘当现行法条。
+观察报告所述内部压力测试与融资操作准备；不把历史复盘当现行法条.
 
 Entry: zh-record-svb-financial-group-historical-20260921 | Node: CASE-EI12-SVB-LIQUIDITY-2023 | Language: zh | Editorial revision: 2026-09-21
 Research cutoff: 2026-09-21 | Data period: 2022/2023-03
 
 ## Teaching instructions
-先实际读取随包指定原件，核材料期间、对象及定位，再回答这份材料怎样支持相邻教学词条。
+先实际读取随包指定原件，核材料期间、对象及定位，再回答这份材料怎样支持相邻教学词条.
 
 Before substantive teaching, actually retrieve every required reading unit for the selected scope. Read its complete designated section, including necessary assumptions, tables and footnotes. A working URL or an editorial access date is not a runtime reading receipt. Record the actual version, location, scope and what it supports. If unavailable, use a previously verified equivalent source; if the required unit remains unavailable, identify that gap rather than teach it from memory. Start runtime_reading_log empty. Once reading is complete, use a substantive diagnostic or follow the reader's request for direct explanation. Advance one complete reasoning task at a time; skip mastered basics. Distinguish original facts, supplied teaching assumptions and inference.
+
+## Shared notation and writing conventions
+数学期望统一写成 \mathbb{E}，条件期望用 \mathbb{E}[X\mid\mathcal{G}]，需要时注明测度 P 或 Q. 保留局部变量的明确定义. 金额与数量使用 K=10^3、M=10^6、B=10^9；表格标明币种、量级与期间，变更量级时同步换算数值. 展示小数最多三位，计算保留原始精度. 直接解释对象、机制与推理；保留影响结论的假设和事实来源，把编辑流程留在记录中. 句末使用英文句点 .，包括定义、命题、证明和解析等标签. 基础定义与推导直接讲内容，出处放在紧邻脚注；来源读取、复审和采用范围等编辑经过留在记录中.
+[Notation and units](https://ou-liu-red-sugar.github.io/agent/zh/notation.md)
 
 ## Required readings and runtime protocol
 ```json
@@ -29,10 +33,10 @@ Before substantive teaching, actually retrieve every required reading unit for t
       },
       "required_unit": {
         "locator": "Executive Summary；Governance and Risk Management中ILST、CFP及资金操作准备段",
-        "scope": "所列具名单元全文，包含公式、表头、表注及本篇采用结论所需上下文；不要求无关章节。",
-        "purpose": "历史报告记载ILST失败、调整假设和资金准备等问题；不替代现行法规，不作政治或机构优劣评级。"
+        "scope": "所列具名单元全文，包含公式、表头、表注及本篇采用结论所需上下文；不要求无关章节.",
+        "purpose": "历史报告记载ILST失败、调整假设和资金准备等问题；不替代现行法规，不作政治或机构优劣评级."
       },
-      "supports": "历史报告记载ILST失败、调整假设和资金准备等问题；不替代现行法规，不作政治或机构优劣评级。",
+      "supports": "历史报告记载ILST失败、调整假设和资金准备等问题；不替代现行法规，不作政治或机构优劣评级.",
       "id": "EI-12-READ-3",
       "retrieved_at": "2026-09-21"
     }
@@ -45,22 +49,22 @@ Before substantive teaching, actually retrieve every required reading unit for t
 ## Supplied entry
 ## 材料身份
 
-公司：[SVB Financial Group（历史报告对象）](/zh/notebook/svb-financial-group-historical/)。研究截止 2026-09-21；材料期间 2022/2023-03。
+公司：[SVB Financial Group（历史报告对象）](/zh/notebook/svb-financial-group-historical/). 研究截止 2026-09-21；材料期间 2022/2023-03.
 
-采用范围：观察报告所述内部压力测试与融资操作准备；不把历史复盘当现行法条。
+采用范围：观察报告所述内部压力测试与融资操作准备；不把历史复盘当现行法条.
 
-原文：[Review of the Federal Reserve’s Supervision and Regulation of Silicon Valley Bank — Executive Summary](https://www.federalreserve.gov/publications/2023-April-SVB-Executive-Summary.htm)。定位：2023-04 Executive Summary, Governance and Risk Management / Liquidity。
+原文：[Review of the Federal Reserve’s Supervision and Regulation of Silicon Valley Bank — Executive Summary](https://www.federalreserve.gov/publications/2023-April-SVB-Executive-Summary.htm). 定位：2023-04 Executive Summary, Governance and Risk Management / Liquidity.
 
-采用报告中内部流动性压力测试、治理与风险管理及融资操作准备的具名段落。
+采用报告中内部流动性压力测试、治理与风险管理及融资操作准备的具名段落.
 
 ## 对应带读
 
-[查看本材料的逐项分析](/zh/notebook/institutions-regulation-market-design/#ei12-history)。
+[查看本材料的逐项分析](/zh/notebook/institutions-regulation-market-design/#ei12-history).
 
-材料时间固定，后续新报告另建记录。
+材料时间固定，后续新报告另建记录.
 
 ## Sources
-- [Review of the Federal Reserve’s Supervision and Regulation of Silicon Valley Bank — Executive Summary](https://www.federalreserve.gov/publications/2023-April-SVB-Executive-Summary.htm): 历史报告记载ILST失败、调整假设和资金准备等问题；不替代现行法规，不作政治或机构优劣评级。
+- [Review of the Federal Reserve’s Supervision and Regulation of Silicon Valley Bank — Executive Summary](https://www.federalreserve.gov/publications/2023-April-SVB-Executive-Summary.htm): 历史报告记载ILST失败、调整假设和资金准备等问题；不替代现行法规，不作政治或机构优劣评级.
 
 ## Content relations
 ```json
@@ -75,7 +79,7 @@ Before substantive teaching, actually retrieve every required reading unit for t
     "from": "zh-record-svb-financial-group-historical-20260921",
     "relation": "supported_by",
     "to": "EIDEF-S09",
-    "reason": "观察报告所述内部压力测试与融资操作准备；不把历史复盘当现行法条。",
+    "reason": "观察报告所述内部压力测试与融资操作准备；不把历史复盘当现行法条.",
     "locator": "2023-04 Executive Summary, Governance and Risk Management / Liquidity"
   }
 ]

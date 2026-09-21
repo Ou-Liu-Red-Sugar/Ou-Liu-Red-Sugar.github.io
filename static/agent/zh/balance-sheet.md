@@ -1,44 +1,48 @@
 # 资产负债表：全表结构与行业带读
 
-在完整资产负债表中定位资源、义务与权益，沿所选行业查附注并解释余额变化。
+在完整资产负债表中定位资源、义务与权益，沿所选行业查附注并解释余额变化.
 
 Entry: zh-balance-sheet | Node: BF-05 | Language: zh | Editorial revision: 2026-09-21
 
 ## Teaching instructions
-你负责 BF-05《资产负债表：全表结构与行业带读》。先让读者选择零售Costco或银行JPM；未选择时默认零售。共同部分加一条分支构成本次任务，另一分支和§5扩展不默认全读。不要先让读者完成三篇通识课。
+你负责 BF-05《资产负债表：全表结构与行业带读》. 先让读者选择零售Costco或银行JPM；未选择时默认零售. 共同部分加一条分支构成本次任务，另一分支和§5扩展不默认全读. 不要先让读者完成三篇通识课.
 
 先实际读取共同必读单元：
 FASB Concepts Statement 8 Chapter 4（2021-12）
 https://storage.fasb.org/Concepts_Statement_8-Chapter_4-Elements.pdf
-E16–E70，资产、负债、权益的定义及完整特征单元。注意它不是具体计量规则。
+E16–E70，资产、负债、权益的定义及完整特征单元. 注意它不是具体计量规则.
 OpenStax Principles of Accounting Vol.1（2019）§2.2：
 https://openstax.org/books/principles-financial-accounting/pages/2-2-define-explain-and-provide-examples-of-current-and-noncurrent-assets-current-and-noncurrent-liabilities-equity-revenues-and-expenses
-读取本节，采用报表结构与交易联系，不把简化措辞当作所有现行准则。
+读取本节，采用报表结构与交易联系，不把简化措辞当作所有现行准则.
 
 所选零售分支的必读：
 https://www.sec.gov/Archives/edgar/data/909832/000090983225000101/cost-20250831.htm
-Item 1 General及Membership相关完整单元；完整资产负债表p.39、现金流量表p.41；Note 1 Basis of Presentation、Fiscal Year、Reclassification、Cash and Cash Equivalents、Receivables Net、Merchandise Inventories、Revenue Recognition；Note 5 pp.53–54全文。
+Item 1 General及Membership相关完整单元；完整资产负债表p.39、现金流量表p.41；Note 1 Basis of Presentation、Fiscal Year、Reclassification、Cash and Cash Equivalents、Receivables Net、Merchandise Inventories、Revenue Recognition；Note 5 pp.53–54全文.
 备选同公司PDF：
 https://s201.q4cdn.com/287523651/files/doc_financials/2025/ar/COST-Annual-Report-2025.pdf
-该PDF资产负债表是印刷p.37／物理p.43，不能沿用SEC的p.39。切换版本必须重新核表头、数值、附注标题，不凭页码猜读到什么。
+该PDF资产负债表是印刷p.37／物理p.43，不能沿用SEC的p.39. 切换版本必须重新核表头、数值、附注标题，不凭页码猜读到什么.
 
 所选银行分支的必读：
 https://www.jpmorganchase.com/content/dam/jpmc/jpmorgan-chase-and-co/investor-relations/documents/annualreport-2025.pdf
-MD&A Introduction印刷p.46／物理p.78；完整资产负债表及VIE脚注p.167／物理p.199；Note 10 pp.228–229；Note 12 Loan accounting framework pp.236–238以及Loan portfolio p.239的完整构成表与脚注；Note 17 p.277全文。PDF表格查看原页。
-选择净额列报扩展时再读Note 5 pp.207–209；选择现金流扩展时再读完整p.169及MD&A Cash flows analysis p.58。未读扩展时不声称已具备该处全部阅读。
+MD&A Introduction印刷p.46／物理p.78；完整资产负债表及VIE脚注p.167／物理p.199；Note 10 pp.228–229；Note 12 Loan accounting framework pp.236–238以及Loan portfolio p.239的完整构成表与脚注；Note 17 p.277全文. PDF表格查看原页.
+选择净额列报扩展时再读Note 5 pp.207–209；选择现金流扩展时再读完整p.169及MD&A Cash flows analysis p.58. 未读扩展时不声称已具备该处全部阅读.
 
-每项记录标题、版本、实际范围、取得方式和支持当前教学的一句话。运行时读取日志初始为空，只记录本次实际取得的单元；只列书目、只打开链接、看到摘要均不满足。读取失败先找同机构原件或本包提供的已核对等价单元；仍缺就报告具体单元。
+每项记录标题、版本、实际范围、取得方式和支持当前教学的一句话. 运行时读取日志初始为空，只记录本次实际取得的单元；只列书目、只打开链接、看到摘要均不满足. 读取失败先找同机构原件或本包提供的已核对等价单元；仍缺就报告具体单元.
 
-材料齐备后，先呈现所选完整原表。保留英文行、中文解释、两期、负数、小计、单位、括注和无金额披露。禁止将小计及明细重复相加，VIE脚注不能再加到主表。
+材料齐备后，先呈现所选完整原表. 保留英文行、中文解释、两期、负数、小计、单位、括注和无金额披露. 禁止将小计及明细重复相加，VIE脚注不能再加到主表.
 
-零售诊断：让读者解释为什么库存减应付从−774到−1,667不能直接叫现金释放893。带读至现金流调整963，保留差额70未归因；再让读者用Note 5把租赁义务4,147放回原表，特别指出融资租赁资产在其他长期资产。
-银行诊断：让读者区分两个deposits，再自行回接贷款三类、准备及普通股权益。准备比率匹配retained贷款；分母切换必须改名。不要用该比率直接判风险改善，也不要把普通股权益当CET1。
+零售诊断：让读者解释为什么库存减应付从−774到−1,667不能直接叫现金释放893. 带读至现金流调整963，保留差额70未归因；再让读者用Note 5把租赁义务4,147放回原表，特别指出融资租赁资产在其他长期资产.
+银行诊断：让读者区分两个deposits，再自行回接贷款三类、准备及普通股权益. 准备比率匹配retained贷款；分母切换必须改名. 不要用该比率直接判风险改善，也不要把普通股权益当CET1.
 
-共同实验必须用正文完整假设，走完期初、赊购100、赊销150并结转100、付款、收款。每步同时显示余额和变化。默认现金100/权益100；现金为0且先付款时显示缺口100，不私自生成透支。让读者解释收款和付款为什么不再改变利润。
+共同实验必须用正文完整假设，走完期初、赊购100、赊销150并结转100、付款、收款. 每步同时显示余额和变化. 默认现金100/权益100；现金为0且先付款时显示缺口100，不私自生成透支. 让读者解释收款和付款为什么不再改变利润.
 
-最后使用另一年列或另一分支的迁移题。通过标准是：能从整表定位，到附注核口径，完成计算，并说明计算的范围。只背比率或只会相加不算完成。反馈后明确一个已掌握关系和一个具体缺口，避免反复免责式总结。不做估值、不读用户账户。
+最后使用另一年列或另一分支的迁移题. 通过标准是：能从整表定位，到附注核口径，完成计算，并说明计算的范围. 只背比率或只会相加不算完成. 反馈后明确一个已掌握关系和一个具体缺口，避免反复免责式总结. 不做估值、不读用户账户.
 
 Before substantive teaching, actually retrieve every required reading unit for the selected scope. Read its complete designated section, including necessary assumptions, tables and footnotes. A working URL or an editorial access date is not a runtime reading receipt. Record the actual version, location, scope and what it supports. If unavailable, use a previously verified equivalent source; if the required unit remains unavailable, identify that gap rather than teach it from memory. Start runtime_reading_log empty. Once reading is complete, use a substantive diagnostic or follow the reader's request for direct explanation. Advance one complete reasoning task at a time; skip mastered basics. Distinguish original facts, supplied teaching assumptions and inference.
+
+## Shared notation and writing conventions
+数学期望统一写成 \mathbb{E}，条件期望用 \mathbb{E}[X\mid\mathcal{G}]，需要时注明测度 P 或 Q. 保留局部变量的明确定义. 金额与数量使用 K=10^3、M=10^6、B=10^9；表格标明币种、量级与期间，变更量级时同步换算数值. 展示小数最多三位，计算保留原始精度. 直接解释对象、机制与推理；保留影响结论的假设和事实来源，把编辑流程留在记录中. 句末使用英文句点 .，包括定义、命题、证明和解析等标签. 基础定义与推导直接讲内容，出处放在紧邻脚注；来源读取、复审和采用范围等编辑经过留在记录中.
+[Notation and units](https://ou-liu-red-sugar.github.io/agent/zh/notation.md)
 
 ## Required readings and runtime protocol
 ```json
@@ -49,10 +53,10 @@ Before substantive teaching, actually retrieve every required reading unit for t
   "export_mode": "public",
   "audience": "具有足够数学背景的高年级本科至研究生",
   "body_source": "body_markdown",
-  "learning_task": "在完整资产负债表中定位资源、义务与权益，沿所选行业查附注并解释余额变化。",
-  "prompt": "你负责 BF-05《资产负债表：全表结构与行业带读》。先让读者选择零售Costco或银行JPM；未选择时默认零售。共同部分加一条分支构成本次任务，另一分支和§5扩展不默认全读。不要先让读者完成三篇通识课。\n\n先实际读取共同必读单元：\nFASB Concepts Statement 8 Chapter 4（2021-12）\nhttps://storage.fasb.org/Concepts_Statement_8-Chapter_4-Elements.pdf\nE16–E70，资产、负债、权益的定义及完整特征单元。注意它不是具体计量规则。\nOpenStax Principles of Accounting Vol.1（2019）§2.2：\nhttps://openstax.org/books/principles-financial-accounting/pages/2-2-define-explain-and-provide-examples-of-current-and-noncurrent-assets-current-and-noncurrent-liabilities-equity-revenues-and-expenses\n读取本节，采用报表结构与交易联系，不把简化措辞当作所有现行准则。\n\n所选零售分支的必读：\nhttps://www.sec.gov/Archives/edgar/data/909832/000090983225000101/cost-20250831.htm\nItem 1 General及Membership相关完整单元；完整资产负债表p.39、现金流量表p.41；Note 1 Basis of Presentation、Fiscal Year、Reclassification、Cash and Cash Equivalents、Receivables Net、Merchandise Inventories、Revenue Recognition；Note 5 pp.53–54全文。\n备选同公司PDF：\nhttps://s201.q4cdn.com/287523651/files/doc_financials/2025/ar/COST-Annual-Report-2025.pdf\n该PDF资产负债表是印刷p.37／物理p.43，不能沿用SEC的p.39。切换版本必须重新核表头、数值、附注标题，不凭页码猜读到什么。\n\n所选银行分支的必读：\nhttps://www.jpmorganchase.com/content/dam/jpmc/jpmorgan-chase-and-co/investor-relations/documents/annualreport-2025.pdf\nMD&A Introduction印刷p.46／物理p.78；完整资产负债表及VIE脚注p.167／物理p.199；Note 10 pp.228–229；Note 12 Loan accounting framework pp.236–238以及Loan portfolio p.239的完整构成表与脚注；Note 17 p.277全文。PDF表格查看原页。\n选择净额列报扩展时再读Note 5 pp.207–209；选择现金流扩展时再读完整p.169及MD&A Cash flows analysis p.58。未读扩展时不声称已具备该处全部阅读。\n\n每项记录标题、版本、实际范围、取得方式和支持当前教学的一句话。运行时读取日志初始为空，只记录本次实际取得的单元；只列书目、只打开链接、看到摘要均不满足。读取失败先找同机构原件或本包提供的已核对等价单元；仍缺就报告具体单元。\n\n材料齐备后，先呈现所选完整原表。保留英文行、中文解释、两期、负数、小计、单位、括注和无金额披露。禁止将小计及明细重复相加，VIE脚注不能再加到主表。\n\n零售诊断：让读者解释为什么库存减应付从−774到−1,667不能直接叫现金释放893。带读至现金流调整963，保留差额70未归因；再让读者用Note 5把租赁义务4,147放回原表，特别指出融资租赁资产在其他长期资产。\n银行诊断：让读者区分两个deposits，再自行回接贷款三类、准备及普通股权益。准备比率匹配retained贷款；分母切换必须改名。不要用该比率直接判风险改善，也不要把普通股权益当CET1。\n\n共同实验必须用正文完整假设，走完期初、赊购100、赊销150并结转100、付款、收款。每步同时显示余额和变化。默认现金100/权益100；现金为0且先付款时显示缺口100，不私自生成透支。让读者解释收款和付款为什么不再改变利润。\n\n最后使用另一年列或另一分支的迁移题。通过标准是：能从整表定位，到附注核口径，完成计算，并说明计算的范围。只背比率或只会相加不算完成。反馈后明确一个已掌握关系和一个具体缺口，避免反复免责式总结。不做估值、不读用户账户。",
+  "learning_task": "在完整资产负债表中定位资源、义务与权益，沿所选行业查附注并解释余额变化.",
+  "prompt": "你负责 BF-05《资产负债表：全表结构与行业带读》. 先让读者选择零售Costco或银行JPM；未选择时默认零售. 共同部分加一条分支构成本次任务，另一分支和§5扩展不默认全读. 不要先让读者完成三篇通识课.\n\n先实际读取共同必读单元：\nFASB Concepts Statement 8 Chapter 4（2021-12）\nhttps://storage.fasb.org/Concepts_Statement_8-Chapter_4-Elements.pdf\nE16–E70，资产、负债、权益的定义及完整特征单元. 注意它不是具体计量规则.\nOpenStax Principles of Accounting Vol.1（2019）§2.2：\nhttps://openstax.org/books/principles-financial-accounting/pages/2-2-define-explain-and-provide-examples-of-current-and-noncurrent-assets-current-and-noncurrent-liabilities-equity-revenues-and-expenses\n读取本节，采用报表结构与交易联系，不把简化措辞当作所有现行准则.\n\n所选零售分支的必读：\nhttps://www.sec.gov/Archives/edgar/data/909832/000090983225000101/cost-20250831.htm\nItem 1 General及Membership相关完整单元；完整资产负债表p.39、现金流量表p.41；Note 1 Basis of Presentation、Fiscal Year、Reclassification、Cash and Cash Equivalents、Receivables Net、Merchandise Inventories、Revenue Recognition；Note 5 pp.53–54全文.\n备选同公司PDF：\nhttps://s201.q4cdn.com/287523651/files/doc_financials/2025/ar/COST-Annual-Report-2025.pdf\n该PDF资产负债表是印刷p.37／物理p.43，不能沿用SEC的p.39. 切换版本必须重新核表头、数值、附注标题，不凭页码猜读到什么.\n\n所选银行分支的必读：\nhttps://www.jpmorganchase.com/content/dam/jpmc/jpmorgan-chase-and-co/investor-relations/documents/annualreport-2025.pdf\nMD&A Introduction印刷p.46／物理p.78；完整资产负债表及VIE脚注p.167／物理p.199；Note 10 pp.228–229；Note 12 Loan accounting framework pp.236–238以及Loan portfolio p.239的完整构成表与脚注；Note 17 p.277全文. PDF表格查看原页.\n选择净额列报扩展时再读Note 5 pp.207–209；选择现金流扩展时再读完整p.169及MD&A Cash flows analysis p.58. 未读扩展时不声称已具备该处全部阅读.\n\n每项记录标题、版本、实际范围、取得方式和支持当前教学的一句话. 运行时读取日志初始为空，只记录本次实际取得的单元；只列书目、只打开链接、看到摘要均不满足. 读取失败先找同机构原件或本包提供的已核对等价单元；仍缺就报告具体单元.\n\n材料齐备后，先呈现所选完整原表. 保留英文行、中文解释、两期、负数、小计、单位、括注和无金额披露. 禁止将小计及明细重复相加，VIE脚注不能再加到主表.\n\n零售诊断：让读者解释为什么库存减应付从−774到−1,667不能直接叫现金释放893. 带读至现金流调整963，保留差额70未归因；再让读者用Note 5把租赁义务4,147放回原表，特别指出融资租赁资产在其他长期资产.\n银行诊断：让读者区分两个deposits，再自行回接贷款三类、准备及普通股权益. 准备比率匹配retained贷款；分母切换必须改名. 不要用该比率直接判风险改善，也不要把普通股权益当CET1.\n\n共同实验必须用正文完整假设，走完期初、赊购100、赊销150并结转100、付款、收款. 每步同时显示余额和变化. 默认现金100/权益100；现金为0且先付款时显示缺口100，不私自生成透支. 让读者解释收款和付款为什么不再改变利润.\n\n最后使用另一年列或另一分支的迁移题. 通过标准是：能从整表定位，到附注核口径，完成计算，并说明计算的范围. 只背比率或只会相加不算完成. 反馈后明确一个已掌握关系和一个具体缺口，避免反复免责式总结. 不做估值、不读用户账户.",
   "selected_branch": "BS-RETAIL",
-  "branch_selection": "共同材料保留；选择银行时以required_readings_by_branch.BS-BANKING替换默认零售行业部分，不要求两家公司同时必读。扩展只在选择该部分时启用。",
+  "branch_selection": "共同材料保留；选择银行时以required_readings_by_branch.BS-BANKING替换默认零售行业部分，不要求两家公司同时必读. 扩展只在选择该部分时启用.",
   "required_readings": [
     {
       "source_id": "BF-S-FASB-ELEMENTS",
@@ -67,11 +71,11 @@ Before substantive teaching, actually retrieve every required reading unit for t
         "verified_access_at": "2026-09-21"
       },
       "required_unit": {
-        "locator": "FASB Concepts Statement 8 Chapter 4（2021-12）\nE16–E70，资产、负债、权益的定义及完整特征单元。注意它不是具体计量规则。",
-        "scope": "FASB Concepts Statement 8 Chapter 4（2021-12）\nhttps://storage.fasb.org/Concepts_Statement_8-Chapter_4-Elements.pdf\nE16–E70，资产、负债、权益的定义及完整特征单元。注意它不是具体计量规则。",
+        "locator": "FASB Concepts Statement 8 Chapter 4（2021-12）\nE16–E70，资产、负债、权益的定义及完整特征单元. 注意它不是具体计量规则.",
+        "scope": "FASB Concepts Statement 8 Chapter 4（2021-12）\nhttps://storage.fasb.org/Concepts_Statement_8-Chapter_4-Elements.pdf\nE16–E70，资产、负债、权益的定义及完整特征单元. 注意它不是具体计量规则.",
         "purpose": "资产、负债、权益的定义及完整特征单元；定义不替代具体计量规则"
       },
-      "supports": "FASB Concepts Statement 8 Chapter 4（2021-12）\nE16–E70，资产、负债、权益的定义及完整特征单元。注意它不是具体计量规则。",
+      "supports": "FASB Concepts Statement 8 Chapter 4（2021-12）\nE16–E70，资产、负债、权益的定义及完整特征单元. 注意它不是具体计量规则.",
       "fallback_source_ids": []
     },
     {
@@ -87,11 +91,11 @@ Before substantive teaching, actually retrieve every required reading unit for t
         "verified_access_at": "2026-09-21"
       },
       "required_unit": {
-        "locator": "OpenStax Principles of Accounting Vol.1（2019）§2.2：\n读取本节，采用报表结构与交易联系，不把简化措辞当作所有现行准则。",
-        "scope": "OpenStax Principles of Accounting Vol.1（2019）§2.2：\nhttps://openstax.org/books/principles-financial-accounting/pages/2-2-define-explain-and-provide-examples-of-current-and-noncurrent-assets-current-and-noncurrent-liabilities-equity-revenues-and-expenses\n读取本节，采用报表结构与交易联系，不把简化措辞当作所有现行准则。",
+        "locator": "OpenStax Principles of Accounting Vol.1（2019）§2.2：\n读取本节，采用报表结构与交易联系，不把简化措辞当作所有现行准则.",
+        "scope": "OpenStax Principles of Accounting Vol.1（2019）§2.2：\nhttps://openstax.org/books/principles-financial-accounting/pages/2-2-define-explain-and-provide-examples-of-current-and-noncurrent-assets-current-and-noncurrent-liabilities-equity-revenues-and-expenses\n读取本节，采用报表结构与交易联系，不把简化措辞当作所有现行准则.",
         "purpose": "共同报表结构与交易联系"
       },
-      "supports": "OpenStax Principles of Accounting Vol.1（2019）§2.2：\n读取本节，采用报表结构与交易联系，不把简化措辞当作所有现行准则。",
+      "supports": "OpenStax Principles of Accounting Vol.1（2019）§2.2：\n读取本节，采用报表结构与交易联系，不把简化措辞当作所有现行准则.",
       "fallback_source_ids": []
     },
     {
@@ -107,11 +111,11 @@ Before substantive teaching, actually retrieve every required reading unit for t
         "verified_access_at": "2026-09-21"
       },
       "required_unit": {
-        "locator": "Item 1 General及Membership相关完整单元；完整资产负债表p.39、现金流量表p.41；Note 1 Basis of Presentation、Fiscal Year、Reclassification、Cash and Cash Equivalents、Receivables Net、Merchandise Inventories、Revenue Recognition；Note 5 pp.53–54全文。",
-        "scope": "https://www.sec.gov/Archives/edgar/data/909832/000090983225000101/cost-20250831.htm\nItem 1 General及Membership相关完整单元；完整资产负债表p.39、现金流量表p.41；Note 1 Basis of Presentation、Fiscal Year、Reclassification、Cash and Cash Equivalents、Receivables Net、Merchandise Inventories、Revenue Recognition；Note 5 pp.53–54全文。",
+        "locator": "Item 1 General及Membership相关完整单元；完整资产负债表p.39、现金流量表p.41；Note 1 Basis of Presentation、Fiscal Year、Reclassification、Cash and Cash Equivalents、Receivables Net、Merchandise Inventories、Revenue Recognition；Note 5 pp.53–54全文.",
+        "scope": "https://www.sec.gov/Archives/edgar/data/909832/000090983225000101/cost-20250831.htm\nItem 1 General及Membership相关完整单元；完整资产负债表p.39、现金流量表p.41；Note 1 Basis of Presentation、Fiscal Year、Reclassification、Cash and Cash Equivalents、Receivables Net、Merchandise Inventories、Revenue Recognition；Note 5 pp.53–54全文.",
         "purpose": "零售完整原表、业务及承重附注"
       },
-      "supports": "Item 1 General及Membership相关完整单元；完整资产负债表p.39、现金流量表p.41；Note 1 Basis of Presentation、Fiscal Year、Reclassification、Cash and Cash Equivalents、Receivables Net、Merchandise Inventories、Revenue Recognition；Note 5 pp.53–54全文。",
+      "supports": "Item 1 General及Membership相关完整单元；完整资产负债表p.39、现金流量表p.41；Note 1 Basis of Presentation、Fiscal Year、Reclassification、Cash and Cash Equivalents、Receivables Net、Merchandise Inventories、Revenue Recognition；Note 5 pp.53–54全文.",
       "fallback_source_ids": [],
       "for_branch": "BS-RETAIL"
     }
@@ -131,11 +135,11 @@ Before substantive teaching, actually retrieve every required reading unit for t
           "verified_access_at": "2026-09-21"
         },
         "required_unit": {
-          "locator": "FASB Concepts Statement 8 Chapter 4（2021-12）\nE16–E70，资产、负债、权益的定义及完整特征单元。注意它不是具体计量规则。",
-          "scope": "FASB Concepts Statement 8 Chapter 4（2021-12）\nhttps://storage.fasb.org/Concepts_Statement_8-Chapter_4-Elements.pdf\nE16–E70，资产、负债、权益的定义及完整特征单元。注意它不是具体计量规则。",
+          "locator": "FASB Concepts Statement 8 Chapter 4（2021-12）\nE16–E70，资产、负债、权益的定义及完整特征单元. 注意它不是具体计量规则.",
+          "scope": "FASB Concepts Statement 8 Chapter 4（2021-12）\nhttps://storage.fasb.org/Concepts_Statement_8-Chapter_4-Elements.pdf\nE16–E70，资产、负债、权益的定义及完整特征单元. 注意它不是具体计量规则.",
           "purpose": "资产、负债、权益的定义及完整特征单元；定义不替代具体计量规则"
         },
-        "supports": "FASB Concepts Statement 8 Chapter 4（2021-12）\nE16–E70，资产、负债、权益的定义及完整特征单元。注意它不是具体计量规则。",
+        "supports": "FASB Concepts Statement 8 Chapter 4（2021-12）\nE16–E70，资产、负债、权益的定义及完整特征单元. 注意它不是具体计量规则.",
         "fallback_source_ids": []
       },
       {
@@ -151,11 +155,11 @@ Before substantive teaching, actually retrieve every required reading unit for t
           "verified_access_at": "2026-09-21"
         },
         "required_unit": {
-          "locator": "OpenStax Principles of Accounting Vol.1（2019）§2.2：\n读取本节，采用报表结构与交易联系，不把简化措辞当作所有现行准则。",
-          "scope": "OpenStax Principles of Accounting Vol.1（2019）§2.2：\nhttps://openstax.org/books/principles-financial-accounting/pages/2-2-define-explain-and-provide-examples-of-current-and-noncurrent-assets-current-and-noncurrent-liabilities-equity-revenues-and-expenses\n读取本节，采用报表结构与交易联系，不把简化措辞当作所有现行准则。",
+          "locator": "OpenStax Principles of Accounting Vol.1（2019）§2.2：\n读取本节，采用报表结构与交易联系，不把简化措辞当作所有现行准则.",
+          "scope": "OpenStax Principles of Accounting Vol.1（2019）§2.2：\nhttps://openstax.org/books/principles-financial-accounting/pages/2-2-define-explain-and-provide-examples-of-current-and-noncurrent-assets-current-and-noncurrent-liabilities-equity-revenues-and-expenses\n读取本节，采用报表结构与交易联系，不把简化措辞当作所有现行准则.",
           "purpose": "共同报表结构与交易联系"
         },
-        "supports": "OpenStax Principles of Accounting Vol.1（2019）§2.2：\n读取本节，采用报表结构与交易联系，不把简化措辞当作所有现行准则。",
+        "supports": "OpenStax Principles of Accounting Vol.1（2019）§2.2：\n读取本节，采用报表结构与交易联系，不把简化措辞当作所有现行准则.",
         "fallback_source_ids": []
       },
       {
@@ -171,11 +175,11 @@ Before substantive teaching, actually retrieve every required reading unit for t
           "verified_access_at": "2026-09-21"
         },
         "required_unit": {
-          "locator": "Item 1 General及Membership相关完整单元；完整资产负债表p.39、现金流量表p.41；Note 1 Basis of Presentation、Fiscal Year、Reclassification、Cash and Cash Equivalents、Receivables Net、Merchandise Inventories、Revenue Recognition；Note 5 pp.53–54全文。",
-          "scope": "https://www.sec.gov/Archives/edgar/data/909832/000090983225000101/cost-20250831.htm\nItem 1 General及Membership相关完整单元；完整资产负债表p.39、现金流量表p.41；Note 1 Basis of Presentation、Fiscal Year、Reclassification、Cash and Cash Equivalents、Receivables Net、Merchandise Inventories、Revenue Recognition；Note 5 pp.53–54全文。",
+          "locator": "Item 1 General及Membership相关完整单元；完整资产负债表p.39、现金流量表p.41；Note 1 Basis of Presentation、Fiscal Year、Reclassification、Cash and Cash Equivalents、Receivables Net、Merchandise Inventories、Revenue Recognition；Note 5 pp.53–54全文.",
+          "scope": "https://www.sec.gov/Archives/edgar/data/909832/000090983225000101/cost-20250831.htm\nItem 1 General及Membership相关完整单元；完整资产负债表p.39、现金流量表p.41；Note 1 Basis of Presentation、Fiscal Year、Reclassification、Cash and Cash Equivalents、Receivables Net、Merchandise Inventories、Revenue Recognition；Note 5 pp.53–54全文.",
           "purpose": "零售完整原表、业务及承重附注"
         },
-        "supports": "Item 1 General及Membership相关完整单元；完整资产负债表p.39、现金流量表p.41；Note 1 Basis of Presentation、Fiscal Year、Reclassification、Cash and Cash Equivalents、Receivables Net、Merchandise Inventories、Revenue Recognition；Note 5 pp.53–54全文。",
+        "supports": "Item 1 General及Membership相关完整单元；完整资产负债表p.39、现金流量表p.41；Note 1 Basis of Presentation、Fiscal Year、Reclassification、Cash and Cash Equivalents、Receivables Net、Merchandise Inventories、Revenue Recognition；Note 5 pp.53–54全文.",
         "fallback_source_ids": [],
         "for_branch": "BS-RETAIL"
       }
@@ -194,11 +198,11 @@ Before substantive teaching, actually retrieve every required reading unit for t
           "verified_access_at": "2026-09-21"
         },
         "required_unit": {
-          "locator": "FASB Concepts Statement 8 Chapter 4（2021-12）\nE16–E70，资产、负债、权益的定义及完整特征单元。注意它不是具体计量规则。",
-          "scope": "FASB Concepts Statement 8 Chapter 4（2021-12）\nhttps://storage.fasb.org/Concepts_Statement_8-Chapter_4-Elements.pdf\nE16–E70，资产、负债、权益的定义及完整特征单元。注意它不是具体计量规则。",
+          "locator": "FASB Concepts Statement 8 Chapter 4（2021-12）\nE16–E70，资产、负债、权益的定义及完整特征单元. 注意它不是具体计量规则.",
+          "scope": "FASB Concepts Statement 8 Chapter 4（2021-12）\nhttps://storage.fasb.org/Concepts_Statement_8-Chapter_4-Elements.pdf\nE16–E70，资产、负债、权益的定义及完整特征单元. 注意它不是具体计量规则.",
           "purpose": "资产、负债、权益的定义及完整特征单元；定义不替代具体计量规则"
         },
-        "supports": "FASB Concepts Statement 8 Chapter 4（2021-12）\nE16–E70，资产、负债、权益的定义及完整特征单元。注意它不是具体计量规则。",
+        "supports": "FASB Concepts Statement 8 Chapter 4（2021-12）\nE16–E70，资产、负债、权益的定义及完整特征单元. 注意它不是具体计量规则.",
         "fallback_source_ids": []
       },
       {
@@ -214,11 +218,11 @@ Before substantive teaching, actually retrieve every required reading unit for t
           "verified_access_at": "2026-09-21"
         },
         "required_unit": {
-          "locator": "OpenStax Principles of Accounting Vol.1（2019）§2.2：\n读取本节，采用报表结构与交易联系，不把简化措辞当作所有现行准则。",
-          "scope": "OpenStax Principles of Accounting Vol.1（2019）§2.2：\nhttps://openstax.org/books/principles-financial-accounting/pages/2-2-define-explain-and-provide-examples-of-current-and-noncurrent-assets-current-and-noncurrent-liabilities-equity-revenues-and-expenses\n读取本节，采用报表结构与交易联系，不把简化措辞当作所有现行准则。",
+          "locator": "OpenStax Principles of Accounting Vol.1（2019）§2.2：\n读取本节，采用报表结构与交易联系，不把简化措辞当作所有现行准则.",
+          "scope": "OpenStax Principles of Accounting Vol.1（2019）§2.2：\nhttps://openstax.org/books/principles-financial-accounting/pages/2-2-define-explain-and-provide-examples-of-current-and-noncurrent-assets-current-and-noncurrent-liabilities-equity-revenues-and-expenses\n读取本节，采用报表结构与交易联系，不把简化措辞当作所有现行准则.",
           "purpose": "共同报表结构与交易联系"
         },
-        "supports": "OpenStax Principles of Accounting Vol.1（2019）§2.2：\n读取本节，采用报表结构与交易联系，不把简化措辞当作所有现行准则。",
+        "supports": "OpenStax Principles of Accounting Vol.1（2019）§2.2：\n读取本节，采用报表结构与交易联系，不把简化措辞当作所有现行准则.",
         "fallback_source_ids": []
       },
       {
@@ -234,11 +238,11 @@ Before substantive teaching, actually retrieve every required reading unit for t
           "verified_access_at": "2026-09-21"
         },
         "required_unit": {
-          "locator": "MD&A Introduction印刷p.46／物理p.78；完整资产负债表及VIE脚注p.167／物理p.199；Note 10 pp.228–229；Note 12 Loan accounting framework pp.236–238以及Loan portfolio p.239的完整构成表与脚注；Note 17 p.277全文。PDF表格查看原页。",
-          "scope": "https://www.jpmorganchase.com/content/dam/jpmc/jpmorgan-chase-and-co/investor-relations/documents/annualreport-2025.pdf\nMD&A Introduction印刷p.46／物理p.78；完整资产负债表及VIE脚注p.167／物理p.199；Note 10 pp.228–229；Note 12 Loan accounting framework pp.236–238以及Loan portfolio p.239的完整构成表与脚注；Note 17 p.277全文。PDF表格查看原页。",
+          "locator": "MD&A Introduction印刷p.46／物理p.78；完整资产负债表及VIE脚注p.167／物理p.199；Note 10 pp.228–229；Note 12 Loan accounting framework pp.236–238以及Loan portfolio p.239的完整构成表与脚注；Note 17 p.277全文. PDF表格查看原页.",
+          "scope": "https://www.jpmorganchase.com/content/dam/jpmc/jpmorgan-chase-and-co/investor-relations/documents/annualreport-2025.pdf\nMD&A Introduction印刷p.46／物理p.78；完整资产负债表及VIE脚注p.167／物理p.199；Note 10 pp.228–229；Note 12 Loan accounting framework pp.236–238以及Loan portfolio p.239的完整构成表与脚注；Note 17 p.277全文. PDF表格查看原页.",
           "purpose": "银行完整原表、VIE脚注、贷款与存款等承重附注"
         },
-        "supports": "MD&A Introduction印刷p.46／物理p.78；完整资产负债表及VIE脚注p.167／物理p.199；Note 10 pp.228–229；Note 12 Loan accounting framework pp.236–238以及Loan portfolio p.239的完整构成表与脚注；Note 17 p.277全文。PDF表格查看原页。",
+        "supports": "MD&A Introduction印刷p.46／物理p.78；完整资产负债表及VIE脚注p.167／物理p.199；Note 10 pp.228–229；Note 12 Loan accounting framework pp.236–238以及Loan portfolio p.239的完整构成表与脚注；Note 17 p.277全文. PDF表格查看原页.",
         "fallback_source_ids": [],
         "for_branch": "BS-BANKING"
       }
@@ -258,11 +262,11 @@ Before substantive teaching, actually retrieve every required reading unit for t
         "verified_access_at": "2026-09-21"
       },
       "required_unit": {
-        "locator": "MD&A Introduction印刷p.46／物理p.78；完整资产负债表及VIE脚注p.167／物理p.199；Note 10 pp.228–229；Note 12 Loan accounting framework pp.236–238以及Loan portfolio p.239的完整构成表与脚注；Note 17 p.277全文。PDF表格查看原页。",
-        "scope": "https://www.jpmorganchase.com/content/dam/jpmc/jpmorgan-chase-and-co/investor-relations/documents/annualreport-2025.pdf\nMD&A Introduction印刷p.46／物理p.78；完整资产负债表及VIE脚注p.167／物理p.199；Note 10 pp.228–229；Note 12 Loan accounting framework pp.236–238以及Loan portfolio p.239的完整构成表与脚注；Note 17 p.277全文。PDF表格查看原页。",
+        "locator": "MD&A Introduction印刷p.46／物理p.78；完整资产负债表及VIE脚注p.167／物理p.199；Note 10 pp.228–229；Note 12 Loan accounting framework pp.236–238以及Loan portfolio p.239的完整构成表与脚注；Note 17 p.277全文. PDF表格查看原页.",
+        "scope": "https://www.jpmorganchase.com/content/dam/jpmc/jpmorgan-chase-and-co/investor-relations/documents/annualreport-2025.pdf\nMD&A Introduction印刷p.46／物理p.78；完整资产负债表及VIE脚注p.167／物理p.199；Note 10 pp.228–229；Note 12 Loan accounting framework pp.236–238以及Loan portfolio p.239的完整构成表与脚注；Note 17 p.277全文. PDF表格查看原页.",
         "purpose": "银行完整原表、VIE脚注、贷款与存款等承重附注"
       },
-      "supports": "MD&A Introduction印刷p.46／物理p.78；完整资产负债表及VIE脚注p.167／物理p.199；Note 10 pp.228–229；Note 12 Loan accounting framework pp.236–238以及Loan portfolio p.239的完整构成表与脚注；Note 17 p.277全文。PDF表格查看原页。",
+      "supports": "MD&A Introduction印刷p.46／物理p.78；完整资产负债表及VIE脚注p.167／物理p.199；Note 10 pp.228–229；Note 12 Loan accounting framework pp.236–238以及Loan portfolio p.239的完整构成表与脚注；Note 17 p.277全文. PDF表格查看原页.",
       "fallback_source_ids": [],
       "for_branch": "BS-BANKING",
       "required_when_selected": true
@@ -280,11 +284,11 @@ Before substantive teaching, actually retrieve every required reading unit for t
         "verified_access_at": "2026-09-21"
       },
       "required_unit": {
-        "locator": "该PDF资产负债表是印刷p.37／物理p.43，不能沿用SEC的p.39。切换版本必须重新核表头、数值、附注标题，不凭页码猜读到什么。",
-        "scope": "https://s201.q4cdn.com/287523651/files/doc_financials/2025/ar/COST-Annual-Report-2025.pdf\n该PDF资产负债表是印刷p.37／物理p.43，不能沿用SEC的p.39。切换版本必须重新核表头、数值、附注标题，不凭页码猜读到什么。",
+        "locator": "该PDF资产负债表是印刷p.37／物理p.43，不能沿用SEC的p.39. 切换版本必须重新核表头、数值、附注标题，不凭页码猜读到什么.",
+        "scope": "https://s201.q4cdn.com/287523651/files/doc_financials/2025/ar/COST-Annual-Report-2025.pdf\n该PDF资产负债表是印刷p.37／物理p.43，不能沿用SEC的p.39. 切换版本必须重新核表头、数值、附注标题，不凭页码猜读到什么.",
         "purpose": "Costco股东年报PDF备选；转换版本重新核表头、数值与附注标题"
       },
-      "supports": "该PDF资产负债表是印刷p.37／物理p.43，不能沿用SEC的p.39。切换版本必须重新核表头、数值、附注标题，不凭页码猜读到什么。",
+      "supports": "该PDF资产负债表是印刷p.37／物理p.43，不能沿用SEC的p.39. 切换版本必须重新核表头、数值、附注标题，不凭页码猜读到什么.",
       "fallback_source_ids": [],
       "role": "alternative_version",
       "for_branch": "BS-RETAIL",
@@ -303,18 +307,18 @@ Before substantive teaching, actually retrieve every required reading unit for t
         "verified_access_at": "2026-09-21"
       },
       "required_unit": {
-        "locator": "选择净额列报扩展时再读Note 5 pp.207–209；选择现金流扩展时再读完整p.169及MD&A Cash flows analysis p.58。未读扩展时不声称已具备该处全部阅读。",
-        "scope": "https://www.jpmorganchase.com/content/dam/jpmc/jpmorgan-chase-and-co/investor-relations/documents/annualreport-2025.pdf\n选择净额列报扩展时再读Note 5 pp.207–209；选择现金流扩展时再读完整p.169及MD&A Cash flows analysis p.58。未读扩展时不声称已具备该处全部阅读。",
+        "locator": "选择净额列报扩展时再读Note 5 pp.207–209；选择现金流扩展时再读完整p.169及MD&A Cash flows analysis p.58. 未读扩展时不声称已具备该处全部阅读.",
+        "scope": "https://www.jpmorganchase.com/content/dam/jpmc/jpmorgan-chase-and-co/investor-relations/documents/annualreport-2025.pdf\n选择净额列报扩展时再读Note 5 pp.207–209；选择现金流扩展时再读完整p.169及MD&A Cash flows analysis p.58. 未读扩展时不声称已具备该处全部阅读.",
         "purpose": "仅在选择相应扩展时读取净额列报或现金流单元"
       },
-      "supports": "选择净额列报扩展时再读Note 5 pp.207–209；选择现金流扩展时再读完整p.169及MD&A Cash flows analysis p.58。未读扩展时不声称已具备该处全部阅读。",
+      "supports": "选择净额列报扩展时再读Note 5 pp.207–209；选择现金流扩展时再读完整p.169及MD&A Cash flows analysis p.58. 未读扩展时不声称已具备该处全部阅读.",
       "fallback_source_ids": [],
       "role": "extension",
       "required_when_selected": true,
       "for_branch": "BS-BANKING"
     }
   ],
-  "reading_protocol": "1. **确认当前学习范围。** 使用所选分支及本篇正文；先修仅诊断本篇确实需要的内容。识别必读材料，选读材料只有被采用时才转成对应问题的必读。\n2. **实际获取。** 用浏览/文件读取工具打开指定 URL 或随包文件。核对返回的标题/版本/范围，发现只有摘要、登录页、目录或文件清单时如实记录，继续找明确可读的正文入口。\n3. **完整读取所需单元。** 分页或分块读取到所需单元结束，包含前文约定、必要表图和脚注。PDF 符号或图表解析不可靠时查看原页；TeX 读取相关宏定义与 include 文件。不能只看搜索命中的几行。\n4. **形成简短内容对应。** 每项记录实际位置、读到的关键设定和它支持哪一步教学。例如“§5.10 的训练集仅含当前预测点之前的观测；该限制需要落实到预处理拟合，不仅是分割最终数据表”。后半句若为本站推论须标为推论。\n5. **满足后才开始该范围的实质教学。** 所有当前必读单元读完之后，基于材料给一项高密度诊断任务或按读者要求直接讲解。引用跟着对应命题或计算，不在末尾堆书名。\n6. **读取失败时自动处理缺口。** 先尝试指定的可读等价版本或作者/机构正式全文，不新造批准步骤。等价性包括版本、条款期间、定义和假设；新的替代来源实际读完后记录采用范围。仍缺失则说明具体缺少哪一个必读单元及原因，不凭训练记忆补成已读讲解，不宣称已完成本篇。\n\n“读取校验”依赖实际取得的内容及其位置、与教学相关的设定复述；不靠让模型报一句“我已阅读”，不引入无意义哈希或重复下载。它不能从技术上保证理解，但能让来源与使用之间可检查。",
+  "reading_protocol": "1. **确认当前学习范围.** 使用所选分支及本篇正文；先修仅诊断本篇确实需要的内容. 识别必读材料，选读材料只有被采用时才转成对应问题的必读.\n2. **实际获取.** 用浏览/文件读取工具打开指定 URL 或随包文件. 核对返回的标题/版本/范围，发现只有摘要、登录页、目录或文件清单时如实记录，继续找明确可读的正文入口.\n3. **完整读取所需单元.** 分页或分块读取到所需单元结束，包含前文约定、必要表图和脚注. PDF 符号或图表解析不可靠时查看原页；TeX 读取相关宏定义与 include 文件. 不能只看搜索命中的几行.\n4. **形成简短内容对应.** 每项记录实际位置、读到的关键设定和它支持哪一步教学. 例如“§5.10 的训练集仅含当前预测点之前的观测；该限制需要落实到预处理拟合，不仅是分割最终数据表”. 后半句若为本站推论须标为推论.\n5. **满足后才开始该范围的实质教学.** 所有当前必读单元读完之后，基于材料给一项高密度诊断任务或按读者要求直接讲解. 引用跟着对应命题或计算，不在末尾堆书名.\n6. **读取失败时自动处理缺口.** 先尝试指定的可读等价版本或作者/机构正式全文，不新造批准步骤. 等价性包括版本、条款期间、定义和假设；新的替代来源实际读完后记录采用范围. 仍缺失则说明具体缺少哪一个必读单元及原因，不凭训练记忆补成已读讲解，不宣称已完成本篇.\n\n“读取校验”依赖实际取得的内容及其位置、与教学相关的设定复述；不靠让模型报一句“我已阅读”，不引入无意义哈希或重复下载. 它不能从技术上保证理解，但能让来源与使用之间可检查.",
   "supplied_inputs": {
     "source_version": "2026-09-21.BF-A.rev-1",
     "tables": [
@@ -570,7 +574,7 @@ Before substantive teaching, actually retrieve every required reading unit for t
         "heading": "2.2　商品已经进来，钱什么时候出去？",
         "headers": [
           "对照步骤",
-          "计算，百万美元",
+          "计算， M 美元",
           "本步骤的身份"
         ],
         "rows": [
@@ -600,12 +604,12 @@ Before substantive teaching, actually retrieve every required reading unit for t
             "不能凭空填成汇率或非现金项目"
           ]
         ],
-        "markdown": "| 对照步骤 | 计算，百万美元 | 本步骤的身份 |\n|---|---:|---|\n| 存货余额减少 | `18,647−18,116=531` | 两期余额差 |\n| 应付余额增加 | `19,783−19,421=362` | 两期余额差 |\n| 选定余额变化取反 | `531+362=893` | 供对照的派生数 |\n| 现金流量表相应调整 | `559+404=963` | 原表期间调整合计 |\n| 尚待归因差额 | `963−893=70` | 不能凭空填成汇率或非现金项目 |"
+        "markdown": "| 对照步骤 | 计算， M 美元 | 本步骤的身份 |\n|---|---:|---|\n| 存货余额减少 | `18,647−18,116=531` | 两期余额差 |\n| 应付余额增加 | `19,783−19,421=362` | 两期余额差 |\n| 选定余额变化取反 | `531+362=893` | 供对照的派生数 |\n| 现金流量表相应调整 | `559+404=963` | 原表期间调整合计 |\n| 尚待归因差额 | `963−893=70` | 不能凭空填成汇率或非现金项目 |"
       },
       {
         "heading": "2.3　会员义务与门店资源，也在这张表里",
         "headers": [
-          "租赁义务，百万美元",
+          "租赁义务， M 美元",
           "2025金额",
           "已包含在主表的什么位置"
         ],
@@ -636,7 +640,7 @@ Before substantive teaching, actually retrieve every required reading unit for t
             "`208+78+2,460+1,401`"
           ]
         ],
-        "markdown": "| 租赁义务，百万美元 | 2025金额 | 已包含在主表的什么位置 |\n|---|---:|---|\n| 流动经营租赁负债 | 208 | 其他流动负债 |\n| 流动融资租赁负债 | 78 | 其他流动负债 |\n| 长期经营租赁负债 | 2,460 | 主表单列的长期经营租赁负债 |\n| 长期融资租赁负债 | 1,401 | 其他长期负债 |\n| **租赁负债合计** | **4,147** | `208+78+2,460+1,401` |"
+        "markdown": "| 租赁义务， M 美元 | 2025金额 | 已包含在主表的什么位置 |\n|---|---:|---|\n| 流动经营租赁负债 | 208 | 其他流动负债 |\n| 流动融资租赁负债 | 78 | 其他流动负债 |\n| 长期经营租赁负债 | 2,460 | 主表单列的长期经营租赁负债 |\n| 长期融资租赁负债 | 1,401 | 其他长期负债 |\n| **租赁负债合计** | **4,147** | `208+78+2,460+1,401` |"
       },
       {
         "heading": "3.1　先保留银行自己的全表结构",
@@ -1095,7 +1099,7 @@ Before substantive teaching, actually retrieve every required reading unit for t
         "heading": "5.1　衍生品的三个金额，不是同一层次",
         "headers": [
           "层次",
-          "计算，百万美元",
+          "计算， M 美元",
           "能怎样称呼"
         ],
         "rows": [
@@ -1115,15 +1119,15 @@ Before substantive teaching, actually retrieve every required reading unit for t
             "本附注相应净额，不改写主表列报"
           ]
         ],
-        "markdown": "| 层次 | 计算，百万美元 | 能怎样称呼 |\n|---|---|---|\n| 未作所列抵销的应收总额 | 606,382 | 衍生品应收总额，不是名义本金 |\n| 表内抵销之后 | `606,382−548,605=57,777` | 表内净应收 |\n| 再考虑所列不能表内抵销的担保品 | `57,777−28,891=28,886` | 本附注相应净额，不改写主表列报 |"
+        "markdown": "| 层次 | 计算， M 美元 | 能怎样称呼 |\n|---|---|---|\n| 未作所列抵销的应收总额 | 606,382 | 衍生品应收总额，不是名义本金 |\n| 表内抵销之后 | `606,382−548,605=57,777` | 表内净应收 |\n| 再考虑所列不能表内抵销的担保品 | `57,777−28,891=28,886` | 本附注相应净额，不改写主表列报 |"
       }
     ],
     "source_input_schema": "BF-A.rev-1.unified-inputs",
     "information_cutoff": "2026-09-21",
     "units_and_limits": [
-      "金额默认单位为USD millions；股数单独使用shares；教学设定另列。",
-      "主表与附注明细分层保存；附注明细不得自动再加到主表总额。",
-      "Costco存货/应付余额反向变化893与现金流调整963之间的70保持未归因。"
+      "金额默认单位为USD M；股数单独使用shares；教学设定另列.",
+      "主表与附注明细分层保存；附注明细不得自动再加到主表总额.",
+      "Costco存货/应付余额反向变化893与现金流调整963之间的70保持未归因."
     ],
     "case_inputs": {
       "COST-BS-20250831": {
@@ -2271,7 +2275,7 @@ Before substantive teaching, actually retrieve every required reading unit for t
         "title": "赊购、赊销、付款与收款",
         "anchor": "EXP-BF05-EVENTS",
         "url": "/notebook/labs/bf-a/interactions.html#EXP-BF05-EVENTS",
-        "description": "原稿独立教学设定；不对应Costco或JPM交易记录。",
+        "description": "原稿独立教学设定；不对应Costco或JPM交易记录.",
         "inputs": {
           "initial_cash": 100,
           "initial_equity": 100,
@@ -2407,12 +2411,12 @@ Before substantive teaching, actually retrieve every required reading unit for t
         },
         "computation_source": {
           "language": "javascript",
-          "code": "// 纯计算函数；不访问账户、不获取外部数据。与正文同一组教学设定。\nfunction eventLedger(initialCash = 100, collectFirst = false) {\n  if (!Number.isFinite(initialCash) || initialCash < 0) {\n    throw new RangeError('期初现金必须为非负有限数');\n  }\n  if (typeof collectFirst !== 'boolean') {\n    throw new TypeError('collectFirst必须为布尔值');\n  }\n  const s = {cash: initialCash, receivable: 0, inventory: 0,\n             payable: 0, equity: initialCash, profit: 0, ocf: 0};\n  const rows = [];\n  const take = event => {\n    const assets = s.cash + s.receivable + s.inventory;\n    if (Math.abs(assets - s.payable - s.equity) > 1e-9) {\n      throw new Error('资产负债关系不平');\n    }\n    rows.push({event, ...s, assets, balanceResidual: 0});\n  };\n  take('initial');\n  s.inventory += 100; s.payable += 100; take('purchase');\n  s.receivable += 150; s.inventory -= 100;\n  s.equity += 50; s.profit += 50; take('sale');\n  const order = collectFirst ? ['collect', 'pay'] : ['pay', 'collect'];\n  for (const event of order) {\n    if (event === 'pay') {\n      if (s.cash < 100) return {rows, completed: false, fundingGap: 100 - s.cash};\n      s.cash -= 100; s.payable -= 100; s.ocf -= 100;\n    } else {\n      s.cash += 150; s.receivable -= 150; s.ocf += 150;\n    }\n    take(event);\n  }\n  return {rows, completed: true, fundingGap: 0};\n}"
+          "code": "// 纯计算函数；不访问账户、不获取外部数据. 与正文同一组教学设定.\nfunction eventLedger(initialCash = 100, collectFirst = false) {\n  if (!Number.isFinite(initialCash) || initialCash < 0) {\n    throw new RangeError('期初现金必须为非负有限数');\n  }\n  if (typeof collectFirst !== 'boolean') {\n    throw new TypeError('collectFirst必须为布尔值');\n  }\n  const s = {cash: initialCash, receivable: 0, inventory: 0,\n             payable: 0, equity: initialCash, profit: 0, ocf: 0};\n  const rows = [];\n  const take = event => {\n    const assets = s.cash + s.receivable + s.inventory;\n    if (Math.abs(assets - s.payable - s.equity) > 1e-9) {\n      throw new Error('资产负债关系不平');\n    }\n    rows.push({event, ...s, assets, balanceResidual: 0});\n  };\n  take('initial');\n  s.inventory += 100; s.payable += 100; take('purchase');\n  s.receivable += 150; s.inventory -= 100;\n  s.equity += 50; s.profit += 50; take('sale');\n  const order = collectFirst ? ['collect', 'pay'] : ['pay', 'collect'];\n  for (const event of order) {\n    if (event === 'pay') {\n      if (s.cash < 100) return {rows, completed: false, fundingGap: 100 - s.cash};\n      s.cash -= 100; s.payable -= 100; s.ocf -= 100;\n    } else {\n      s.cash += 150; s.receivable -= 150; s.ocf += 150;\n    }\n    take(event);\n  }\n  return {rows, completed: true, fundingGap: 0};\n}"
         },
         "outputs_origin": "原稿第4节完整静态表；导入未执行该函数"
       }
     ],
-    "specification_markdown": "## 配套规格：原表阅读器、交互与静态等价\n\n### BF05-TABLES：完整原表不因高亮而消失\n\n输入分别绑定`COST-BS-20250831`与`JPM-BS-20251231`，年份顺序固定为较新／较旧，原始金额以百万美元保存。主表行ID就是本稿各行锚点去掉`cost-`或`jpm-`后的部分。完整表、脚注表和附注明细是不同数据层，只有明确的直接子项参加一个小计。\n\n默认显示共同结构和零售完整表；读者可切换银行。折叠只影响可见状态，不删除行或改变加总。全部展开、打印、无脚本模式均能读到两个完整表和说明。提供“定位原文”和“展开附注”按钮；原始值与派生比率区分。空白与原表破折号分开；任何股数、面值和百万美元不得共用同一个缩放开关。\n\n**加总合同。** Costco总资产只加流动资产小计、物业设备、经营租赁使用权和其他长期资产；JPM总资产只加各直接项目，证券用净小计、贷款用净小计，VIE脚注不参与主表。所有减项在数据层保留负号。正文两期合计及VIE内部合计可作为静态验收值。\n\n### BF05-RETAIL：余额变化与现金调整并排\n\n输入：`inventory_2024=18647, inventory_2025=18116, payable_2024=19421, payable_2025=19783, cf_inventory=559, cf_payable=404`。输出：`N_2024=-774, N_2025=-1667, delta_N=-893, reverse_delta=893, CF_adjustment=963, unexplained_difference=70`。默认历史数据不可编辑；“教学变式”另开命名空间，不覆盖历史数。点击差额只展示待查口径，不自动为其归因。静态等价为§2.2全部公式和表。\n\n### BF05-BANK：分子与分母必须一起说明\n\n输入来自§3.3的两期完整构成、准备负数，以及客户存款。默认展示`(-allowance)/retained_loans*100`，2025输出1.8287%；可切换“全部贷款作分母”的对照，输出1.7252%，同时出现“不是原留存贷款口径”的说明。币种不变，百分数仅乘100一次。不得把下降自动着色为风险改善。普通股每股账面值另以美元／股输出126.99和116.07，不与监管指标混名。\n\n### EXP-BF05-EVENTS：可复算状态转移\n\n状态字段为`cash, receivable, inventory, payable, equity, profit, ocf`，其中`profit`和`ocf`分别指本窗口累计利润和累计经营现金净额。期初`cash=equity=100`，其余0；采购成本`cost=100`，售价`sales=150`。允许顺序为`purchase → sale → pay → collect`或`purchase → sale → collect → pay`。付款须满足`cash>=cost`；其他事件不得重复执行。改变期初现金时权益同步改变，不引入未声明负债。\n\n```javascript\n// 纯计算函数；不访问账户、不获取外部数据。与正文同一组教学设定。\nfunction eventLedger(initialCash = 100, collectFirst = false) {\n  if (!Number.isFinite(initialCash) || initialCash < 0) {\n    throw new RangeError('期初现金必须为非负有限数');\n  }\n  if (typeof collectFirst !== 'boolean') {\n    throw new TypeError('collectFirst必须为布尔值');\n  }\n  const s = {cash: initialCash, receivable: 0, inventory: 0,\n             payable: 0, equity: initialCash, profit: 0, ocf: 0};\n  const rows = [];\n  const take = event => {\n    const assets = s.cash + s.receivable + s.inventory;\n    if (Math.abs(assets - s.payable - s.equity) > 1e-9) {\n      throw new Error('资产负债关系不平');\n    }\n    rows.push({event, ...s, assets, balanceResidual: 0});\n  };\n  take('initial');\n  s.inventory += 100; s.payable += 100; take('purchase');\n  s.receivable += 150; s.inventory -= 100;\n  s.equity += 50; s.profit += 50; take('sale');\n  const order = collectFirst ? ['collect', 'pay'] : ['pay', 'collect'];\n  for (const event of order) {\n    if (event === 'pay') {\n      if (s.cash < 100) return {rows, completed: false, fundingGap: 100 - s.cash};\n      s.cash -= 100; s.payable -= 100; s.ocf -= 100;\n    } else {\n      s.cash += 150; s.receivable -= 150; s.ocf += 150;\n    }\n    take(event);\n  }\n  return {rows, completed: true, fundingGap: 0};\n}\n```\n\n静态默认五行及每一步变化见§4。初始现金0且先付款的预期结果为`completed=false, fundingGap=100`；改为先收款则完成，最终现金50、权益50、利润50、经营现金净额50。UI显示余额与变化两层，箭头文字使用§4的完整含义；不把所有事件画到权益。\n\n页面使用可访问标签、键盘和文字状态，不依赖颜色。股票价格、自动安全评分和银行存活概率不在这个交互中。这里给出静态结果和实现规格；网页实现另行完成。",
+    "specification_markdown": "## 配套规格：原表阅读器、交互与静态等价\n\n### BF05-TABLES：完整原表不因高亮而消失\n\n输入分别绑定`COST-BS-20250831`与`JPM-BS-20251231`，年份顺序固定为较新／较旧，原始金额以 M 美元保存. 主表行ID就是本稿各行锚点去掉`cost-`或`jpm-`后的部分. 完整表、脚注表和附注明细是不同数据层，只有明确的直接子项参加一个小计.\n\n默认显示共同结构和零售完整表；读者可切换银行. 折叠只影响可见状态，不删除行或改变加总. 全部展开、打印、无脚本模式均能读到两个完整表和说明. 提供“定位原文”和“展开附注”按钮；原始值与派生比率区分. 空白与原表破折号分开；任何股数、面值和 M 美元不得共用同一个缩放开关.\n\n**加总合同.** Costco总资产只加流动资产小计、物业设备、经营租赁使用权和其他长期资产；JPM总资产只加各直接项目，证券用净小计、贷款用净小计，VIE脚注不参与主表. 所有减项在数据层保留负号. 正文两期合计及VIE内部合计可作为静态验收值.\n\n### BF05-RETAIL：余额变化与现金调整并排\n\n输入：`inventory_2024=18647, inventory_2025=18116, payable_2024=19421, payable_2025=19783, cf_inventory=559, cf_payable=404`. 输出：`N_2024=-774, N_2025=-1667, delta_N=-893, reverse_delta=893, CF_adjustment=963, unexplained_difference=70`. 默认历史数据不可编辑；“教学变式”另开命名空间，不覆盖历史数. 点击差额只展示待查口径，不自动为其归因. 静态等价为§2.2全部公式和表.\n\n### BF05-BANK：分子与分母必须一起说明\n\n输入来自§3.3的两期完整构成、准备负数，以及客户存款. 默认展示`(-allowance)/retained_loans*100`，2025输出1.8287%；可切换“全部贷款作分母”的对照，输出1.7252%，同时出现“不是原留存贷款口径”的说明. 币种不变，百分数仅乘100一次. 不得把下降自动着色为风险改善. 普通股每股账面值另以美元／股输出126.99和116.07，不与监管指标混名.\n\n### EXP-BF05-EVENTS：可复算状态转移\n\n状态字段为`cash, receivable, inventory, payable, equity, profit, ocf`，其中`profit`和`ocf`分别指本窗口累计利润和累计经营现金净额. 期初`cash=equity=100`，其余0；采购成本`cost=100`，售价`sales=150`. 允许顺序为`purchase → sale → pay → collect`或`purchase → sale → collect → pay`. 付款须满足`cash>=cost`；其他事件不得重复执行. 改变期初现金时权益同步改变，不引入未声明负债.\n\n```javascript\n// 纯计算函数；不访问账户、不获取外部数据. 与正文同一组教学设定.\nfunction eventLedger(initialCash = 100, collectFirst = false) {\n  if (!Number.isFinite(initialCash) || initialCash < 0) {\n    throw new RangeError('期初现金必须为非负有限数');\n  }\n  if (typeof collectFirst !== 'boolean') {\n    throw new TypeError('collectFirst必须为布尔值');\n  }\n  const s = {cash: initialCash, receivable: 0, inventory: 0,\n             payable: 0, equity: initialCash, profit: 0, ocf: 0};\n  const rows = [];\n  const take = event => {\n    const assets = s.cash + s.receivable + s.inventory;\n    if (Math.abs(assets - s.payable - s.equity) > 1e-9) {\n      throw new Error('资产负债关系不平');\n    }\n    rows.push({event, ...s, assets, balanceResidual: 0});\n  };\n  take('initial');\n  s.inventory += 100; s.payable += 100; take('purchase');\n  s.receivable += 150; s.inventory -= 100;\n  s.equity += 50; s.profit += 50; take('sale');\n  const order = collectFirst ? ['collect', 'pay'] : ['pay', 'collect'];\n  for (const event of order) {\n    if (event === 'pay') {\n      if (s.cash < 100) return {rows, completed: false, fundingGap: 100 - s.cash};\n      s.cash -= 100; s.payable -= 100; s.ocf -= 100;\n    } else {\n      s.cash += 150; s.receivable -= 150; s.ocf += 150;\n    }\n    take(event);\n  }\n  return {rows, completed: true, fundingGap: 0};\n}\n```\n\n静态默认五行及每一步变化见§4. 初始现金0且先付款的预期结果为`completed=false, fundingGap=100`；改为先收款则完成，最终现金50、权益50、利润50、经营现金净额50. UI显示余额与变化两层，箭头文字使用§4的完整含义；不把所有事件画到权益.\n\n页面使用可访问标签、键盘和文字状态，不依赖颜色. 股票价格、自动安全评分和银行存活概率不在这个交互中. 这里给出静态结果和实现规格；网页实现另行完成.",
     "outputs_origin": "原稿静态表、公式和配套规格；本导入仅提取"
   },
   "runtime_reading_log": []
@@ -2420,17 +2424,17 @@ Before substantive teaching, actually retrieve every required reading unit for t
 ```
 
 ## Supplied entry
-一家企业已经开展了许多交易，有些结束了，有些仍留下商品、收款权或付款义务。资产负债表把某个时点尚留在账上的这些关系放在一起。因此，我们读的不是“这一年总共赚了多少”，也不是“把公司卖掉能拿多少钱”，而是**在指定日期、指定合并范围和计量规则下，企业确认了哪些资产、负债和权益**。[FASB]、[OPENSTAX-22]
+一家企业已经开展了许多交易，有些结束了，有些仍留下商品、收款权或付款义务. 资产负债表把某个时点尚留在账上的这些关系放在一起. 因此，我们读的不是“这一年总共赚了多少”，也不是“把公司卖掉能拿多少钱”，而是**在指定日期、指定合并范围和计量规则下，企业确认了哪些资产、负债和权益**. [FASB]、[OPENSTAX-22]
 
-这一篇可以选路阅读。零售分支从商品、供应商结算和门店资源进入；银行分支从资金来源、贷款计量和普通股归属进入。两条路都先给出完整原表，然后围绕几项真正连在一起的关系展开。选一条读完、做完练习，就完成本次学习；另一条可以用来检验哪些方法能够迁移。
+这一篇可以选路阅读. 零售分支从商品、供应商结算和门店资源进入；银行分支从资金来源、贷款计量和普通股归属进入. 两条路都先给出完整原表，然后围绕几项真正连在一起的关系展开. 选一条读完、做完练习，就完成本次学习；另一条可以用来检验哪些方法能够迁移.
 
 <span id="bf05-common-structure"></span>
 
 ## 1　共同结构：同一张表的两面
 
-**在本篇采用的 FASB 概念框架中，资产是企业取得经济利益的现时权利；负债是企业转移经济利益的现时义务；权益是在资产扣除负债后的剩余利益。** 这三个定义指向权利与义务，不限于看得见的物品或已经收到的借款。[FASB]（E16、E37、E61–E66）
+**在本篇采用的 FASB 概念框架中，资产是企业取得经济利益的现时权利；负债是企业转移经济利益的现时义务；权益是在资产扣除负债后的剩余利益.** 这三个定义指向权利与义务，不限于看得见的物品或已经收到的借款. [FASB]（E16、E37、E61–E66）
 
-令某日的已确认资产、负债和权益分别为 $A,L,E$，则账面关系为 $A=L+E$。赊购货物可以使资产和负债同时增加；收回应收款可以只改变资产的构成；交付商品并确认净收益，则可能增加权益。等式要求各项相互衔接，但不会自动告诉我们交易的经济好坏。
+令某日的已确认资产、负债和权益分别为 $A,L,E$，则账面关系为 $A=L+E$. 赊购货物可以使资产和负债同时增加；收回应收款可以只改变资产的构成；交付商品并确认净收益，则可能增加权益. 等式要求各项相互衔接，但不会自动告诉我们交易的经济好坏.
 
 | 共同板块 | 通常要区分什么 | 阅读时要补的条件 |
 |---|---|---|
@@ -2438,9 +2442,9 @@ Before substantive teaching, actually retrieve every required reading unit for t
 | 负债 | 供应商及员工应付、客户相关义务、借款、租赁等 | 欠谁、何时履行、用现金还是商品或服务履行 |
 | 权益 | 股本、其他投入、留存收益、其他综合收益累计额、库存股等 | 总权益中有哪些不同权利；是否还需区分普通股、优先股和其他归属 |
 
-常见的非金融企业列报会再区分流动与非流动，考虑一年或正常经营周期等条件；它不是简单的“短期安全、长期危险”分组。银行可以采用不同列报。下面 JPMorgan 的原表就没有硬分出一组流动资产和流动负债，我们也不替它造一组。[OPENSTAX-22]、[JPM-BS]
+常见的非金融企业列报会再区分流动与非流动，考虑一年或正常经营周期等条件；它不是简单的“短期安全、长期危险”分组. 银行可以采用不同列报. 下面 JPMorgan 的原表就没有硬分出一组流动资产和流动负债，我们也不替它造一组. [OPENSTAX-22]、[JPM-BS]
 
-还要留下一条界线：定义某种权利是什么、是否在报表确认、按多少金额计量，不是同一个问题。表内的设备净额、贷款净额和证券公允价值，不能因为都以美元表示，就当成按同一种方法测出的市场价值；账面未单列的经营能力，也不能随意估一个金额补进总资产。[FASB]、[JPM-SEC]、[JPM-LOAN]
+还要留下一条界线：定义某种权利是什么、是否在报表确认、按多少金额计量，不是同一个问题. 表内的设备净额、贷款净额和证券公允价值，不能因为都以美元表示，就当成按同一种方法测出的市场价值；账面未单列的经营能力，也不能随意估一个金额补进总资产. [FASB]、[JPM-SEC]、[JPM-LOAN]
 
 <nav data-reading-branch-controls aria-label="选择资产负债表行业分支">
 <button type="button" data-select-reading-branch="retail" aria-pressed="true">零售 · Costco</button>
@@ -2458,9 +2462,9 @@ Before substantive teaching, actually retrieve every required reading unit for t
 
 ### 2.1　先看到整张表
 
-**Costco Wholesale Corporation — CONSOLIDATED BALANCE SHEETS。** 合并范围为公司及其全资子公司，重大内部交易抵销。金额为**百万美元**；面值为美元／股，股数为股，不随金额单位缩放。2025与2024比较列均取自2025年报，保留该报的比较期列报。[COST-BS]、[COST-POLICY]
+**Costco Wholesale Corporation — CONSOLIDATED BALANCE SHEETS.** 合并范围为公司及其全资子公司，重大内部交易抵销. 金额为** M 美元**；面值为美元／股，股数为股，不随金额单位缩放. 2025与2024比较列均取自2025年报，保留该报的比较期列报. [COST-BS]、[COST-POLICY]
 
-原件定位：**SEC 10-K 印刷p.39**；另一版股东年报PDF为**印刷p.37／物理p.43**，不能混用页码。以下按原序重排为中英对照，保留全部35行、板块和合计。空白表示该行没有金额，不表示零；优先股原表的破折号另由“无已发行及流通股”说明支持。[COST-BS]、[COST-PDF]
+原件定位：**SEC 10-K 印刷p.39**；另一版股东年报PDF为**印刷p.37／物理p.43**，不能混用页码. 以下按原序重排为中英对照，保留全部35行、板块和合计. 空白表示该行没有金额，不表示零；优先股原表的破折号另由“无已发行及流通股”说明支持. [COST-BS]、[COST-PDF]
 
 | 英文原行 | 中文名称 | 2025-08-31 | 2024-09-01 |
 |---|---|---:|---:|
@@ -2500,28 +2504,28 @@ Before substantive teaching, actually retrieve every required reading unit for t
 | <a id="cost-total_equity"></a>**TOTAL EQUITY** | **权益合计** | **29,164** | **23,622** |
 | <a id="cost-total_liabilities_equity"></a>**TOTAL LIABILITIES AND EQUITY** | **负债及权益合计** | **77,099** | **69,831** |
 
-附注构成合并财务报表的一部分。普通股行中的2是按百万美元列示的股本金额，不是2百万股；“承诺及或有事项”没有主表金额，也不等于不存在相关承诺。[COST-BS]
+附注构成合并财务报表的一部分. 普通股行中的2是按 M 美元列示的股本金额，不是2 M 股；“承诺及或有事项”没有主表金额，也不等于不存在相关承诺.[COST-BS]
 
-先核全貌：2025年 `77,099 = 47,935 + 29,164`；2024年 `69,831 = 46,209 + 23,622`。汇总时用流动资产小计加其余资产，不能再把现金、存货等流动资产明细重复加一遍。
+先核全貌：2025年 `77,099 = 47,935 + 29,164`；2024年 `69,831 = 46,209 + 23,622`. 汇总时用流动资产小计加其余资产，不能再把现金、存货等流动资产明细重复加一遍.
 
 <span id="bf05-retail-inventory-payables"></span>
 
 ### 2.2　商品已经进来，钱什么时候出去？
 
-我们沿实际经营过程读，而不是按表格顺序逐格念。Costco 的业务说明把快速周转和供应商结算联系起来，并说明其经常能在付款到期前售出商品。这为存货和应付提供了一个阅读方向，但是否在某个时点表现出来，仍要看数。[COST-BUS]
+我们沿实际经营过程读，而不是按表格顺序逐格念. Costco 的业务说明把快速周转和供应商结算联系起来，并说明其经常能在付款到期前售出商品. 这为存货和应付提供了一个阅读方向，但是否在某个时点表现出来，仍要看数. [COST-BUS]
 
-2024年末商品存货18,647，应付账款19,421；2025年末分别为18,116和19,783。只取这两项，定义一个本次分析使用的选定余额 $N=\text{商品存货}-\text{应付账款}$。它不是完整营运资本，也不表示两行中的每一笔合同都一一匹配。
+2024年末商品存货18,647，应付账款19,421；2025年末分别为18,116和19,783. 只取这两项，定义一个本次分析使用的选定余额 $N=\text{商品存货}-\text{应付账款}$. 它不是完整营运资本，也不表示两行中的每一笔合同都一一匹配.
 
 $$
 N_{2024}=18,647-19,421=-774,\qquad
 N_{2025}=18,116-19,783=-1,667.
 $$
 
-所以 $\Delta N=-893$。这个计算告诉我们：**相对于所列应付，账上的商品存货净占用进一步降低了893。** 它与供应商结算支持商品周转的业务关系相容，却还不能直接改名为“今年释放现金893”。[COST-BS]（本文计算）
+所以 $\Delta N=-893$. 这个计算告诉我们：**相对于所列应付，账上的商品存货净占用进一步降低了893.** 它与供应商结算支持商品周转的业务关系相容，却还不能直接改名为“今年释放现金893”.[COST-BS]（本文计算）
 
-现在翻到现金流量表。2025年的存货变动调整是正559，应付账款变动调整是正404，合计963。若只用余额变化取反，会得到893，两者还差70。[COST-CF]
+现在翻到现金流量表. 2025年的存货变动调整是正559，应付账款变动调整是正404，合计963. 若只用余额变化取反，会得到893，两者还差70. [COST-CF]
 
-| 对照步骤 | 计算，百万美元 | 本步骤的身份 |
+| 对照步骤 | 计算， M 美元 | 本步骤的身份 |
 |---|---:|---|
 | 存货余额减少 | `18,647−18,116=531` | 两期余额差 |
 | 应付余额增加 | `19,783−19,421=362` | 两期余额差 |
@@ -2529,23 +2533,23 @@ $$
 | 现金流量表相应调整 | `559+404=963` | 原表期间调整合计 |
 | 尚待归因差额 | `963−893=70` | 不能凭空填成汇率或非现金项目 |
 
-遇到差额，下一步是检查合并范围、重分类、汇兑及非现金变动等口径，而不是让计算“看起来闭合”。这些是待查的可能通道，不是已经证实的70的组成。本次保留差额，仍然已经得到一个重要结果：**相近的报表名称，并不保证余额差就是现金流量表的相应行。**
+遇到差额，下一步是检查合并范围、重分类、汇兑及非现金变动等口径，而不是让计算“看起来闭合”. 这些是待查的可能通道，不是已经证实的70的组成. 本次保留差额，仍然已经得到一个重要结果：**相近的报表名称，并不保证余额差就是现金流量表的相应行.**
 
-再看应收净额3,203，也不要自动补上一句“顾客赊账增加”。Note 1 的应收小节列出供应商款项、联名卡激励、再保险、第三方药房等来源；其中供应商应收包括折扣、销量返利等安排，通常与应付款分开列示，部分情形再按协议净额结算。企业是零售商，不代表每一项应收都来自零售顾客。[COST-RECEIVABLES]
+再看应收净额3,203，也不能直接解释为顾客赊账增加. Note 1 的应收小节列出供应商款项、联名卡激励、再保险、第三方药房等来源；其中供应商应收包括折扣、销量返利等安排，通常与应付款分开列示，部分情形再按协议净额结算. 因此，这项应收需要按实际交易对手和安排继续拆分.[COST-RECEIVABLES]
 
 <span id="bf05-retail-membership-leases"></span>
 
 ### 2.3　会员义务与门店资源，也在这张表里
 
-在商品和应付之外，表里还有递延会员费2,854、应计会员奖励2,677。前者连接尚待确认的会员服务收入；后者连接奖励安排，两者不是同一个“预收款”名称的不同写法。会员费收入按会员期间确认，奖励则按披露政策影响销售额并形成相应义务。[COST-REV]
+在商品和应付之外，表里还有递延会员费2,854、应计会员奖励2,677. 前者连接尚待确认的会员服务收入；后者连接奖励安排，两者不是同一个“预收款”名称的不同写法. 会员费收入按会员期间确认，奖励则按披露政策影响销售额并形成相应义务. [COST-REV]
 
-门店与设施也不能从商品周转图里消失。2025年的物业设备净额31,909，加经营租赁使用权资产2,725，为34,634，占总资产约44.92%。这个比例只描述两个已确认账面项目的分量，既不是全部经营资源，也不是其市场价值。[COST-BS]（本文计算）
+门店与设施也不能从商品周转图里消失. 2025年的物业设备净额31,909，加经营租赁使用权资产2,725，为34,634，占总资产约44.92%. 这个比例只描述两个已确认账面项目的分量，既不是全部经营资源，也不是其市场价值. [COST-BS]（本文计算）
 
-**使用权资产**在这里表示合同取得的使用能力；**租赁负债**表示相应付款义务。两者不必在后续每个时点都相等，读表时应分别追到各自的附注。Costco Note 5还告诉我们，融资租赁资产1,488列在**其他长期资产**，不是物业设备净额；因此不能按别家公司的常见位置替它归类。[COST-LEASE]
+**使用权资产**在这里表示合同取得的使用能力；**租赁负债**表示相应付款义务. 两者不必在后续每个时点都相等，读表时应分别追到各自的附注. Costco Note 5还告诉我们，融资租赁资产1,488列在**其他长期资产**，不是物业设备净额；因此不能按别家公司的常见位置替它归类. [COST-LEASE]
 
-下面把同一附注的2025年租赁负债展开。它是对主表已有金额的分类说明，**不是额外再添4,147的负债**。
+下面把同一附注的2025年租赁负债展开. 它是对主表已有金额的分类说明，**不是额外再添4,147的负债**.
 
-| 租赁义务，百万美元 | 2025金额 | 已包含在主表的什么位置 |
+| 租赁义务， M 美元 | 2025金额 | 已包含在主表的什么位置 |
 |---|---:|---|
 | 流动经营租赁负债 | 208 | 其他流动负债 |
 | 流动融资租赁负债 | 78 | 其他流动负债 |
@@ -2553,31 +2557,31 @@ $$
 | 长期融资租赁负债 | 1,401 | 其他长期负债 |
 | **租赁负债合计** | **4,147** | `208+78+2,460+1,401` |
 
-来源：[COST-LEASE]，SEC印刷p.53，表下注释(1)–(3)。它让我们得到的不只是一个总数，还得到一张“附注明细已经装在哪个主表项目中”的地图。
+来源：[COST-LEASE]，SEC印刷p.53，表下注释(1)–(3). 它让我们得到的不只是一个总数，还得到一张“附注明细已经装在哪个主表项目中”的地图.
 
 <span id="bf05-retail-whole-statement"></span>
 
 ### 2.4　回到全表，而不是停在几项比率
 
-现在可以把零售分支合回去：商品和应付解释一部分经营占用，会员余额解释不同性质的客户义务，物业设备和租赁解释长期使用能力。现金、短期投资、其他资产、工资福利应付、债务及权益仍留在全表里，没有因为这次不深入分析就消失。
+现在可以把零售分支合回去：商品和应付解释一部分经营占用，会员余额解释不同性质的客户义务，物业设备和租赁解释长期使用能力. 现金、短期投资、其他资产、工资福利应付、债务及权益仍留在全表里，没有因为这次不深入分析就消失.
 
-两期总资产增加7,268，对应负债增加1,726、权益增加5,542。这里回答的是账面规模怎样变动；5,542不能直接叫“本年利润”，因为盈利、分配和其他权益变化还需要回到权益表核对。[COST-BS]
+两期总资产增加7,268，对应负债增加1,726、权益增加5,542. 这里回答的是账面规模怎样变动；5,542不能直接叫“本年利润”，因为盈利、分配和其他权益变化还需要回到权益表核对.[COST-BS]
 
-最后检查现金的完整起讫。2025年现金流量表给出：
+最后检查现金的完整起讫. 2025年现金流量表给出：
 
-`9,906 + 13,335 − 5,311 − 3,775 + 6 = 14,161`。
+`9,906 + 13,335 − 5,311 − 3,775 + 6 = 14,161`.
 
-依次是期初现金、经营、投资、筹资和汇率影响，终点接回资产负债表。现金增加4,255，并不是存货与应付调整963，也不是权益增加5,542。这几项本来就在描述不同关系。[COST-CF]
+依次是期初现金、经营、投资、筹资和汇率影响，终点接回资产负债表. 现金增加4,255，并不是存货与应付调整963，也不是权益增加5,542. 这几项本来就在描述不同关系. [COST-CF]
 
 <span id="bf05-retail-exercise"></span>
 
 ### 2.5　零售迁移练习
 
-**题目。** 一位读者说：“Costco 2024年流动资产34,246小于流动负债35,464，所以当时无法经营；2025年流动比率超过1，问题就解决了。”请计算两个比率，再用本分支资料说明应怎样改写结论。随后解释为什么不能把4,147租赁负债加到47,935上。
+**题目.** 一位读者说：“Costco 2024年流动资产34,246小于流动负债35,464，所以当时无法经营；2025年流动比率超过1，问题就解决了. ”请计算两个比率，再用本分支资料说明应怎样改写结论. 随后解释为什么不能把4,147租赁负债加到47,935上.
 
-**解析。** 两期流动比率分别为 `34246/35464≈0.9657` 和 `38380/37108≈1.0343`。这只是各时点已列流动项目的比值，不能代替到期时间、销售回款、供应商账期、可用资金和履约方式。会员义务与债务到期付款也不是同一种需求。因此可以说“比值由约0.966升至1.034”，但不能仅据此给出经营能否持续的判断。需要把存货周转、结算和现金流继续连起来。[COST-BS]、[COST-BUS]、[COST-CF]
+**解析.** 两期流动比率分别为 `34246/35464≈0.9657` 和 `38380/37108≈1.0343`. 这只是各时点已列流动项目的比值，不能代替到期时间、销售回款、供应商账期、可用资金和履约方式. 会员义务与债务到期付款也不是同一种需求. 因此可以说“比值由约0.966升至1.034”，但不能仅据此给出经营能否持续的判断. 需要把存货周转、结算和现金流继续连起来. [COST-BS]、[COST-BUS]、[COST-CF]
 
-4,147已分别包含在其他流动负债、长期经营租赁负债和其他长期负债中，再加一次会重复计入。正确动作是按附注重新分类展示，不改变原总负债。这也正是为什么我们要保留完整原表，而不是只摘几个看起来重要的数。[COST-LEASE]
+4,147已分别包含在其他流动负债、长期经营租赁负债和其他长期负债中，再加一次会重复计入. 正确动作是按附注重新分类展示，不改变原总负债. 这也正是为什么我们要保留完整原表，而不是只摘几个看起来重要的数. [COST-LEASE]
 
 <div data-experiment-slot="lab-bf05-retail"></div>
 
@@ -2593,7 +2597,7 @@ $$
 
 ### 3.1　先保留银行自己的全表结构
 
-**JPMorgan Chase & Co. — Consolidated balance sheets。** 这是集团合并表，不是 JPMorgan Chase Bank, N.A. 单体表。时点为2025-12-31和2024-12-31；金额为**百万美元**，面值和股数另列。原件为2025 Annual Report，**印刷p.167／物理p.199**。以下保留36行以及全部括注；原表没有流动／非流动小计。[JPM-BS]
+**JPMorgan Chase & Co. — Consolidated balance sheets.** 这是集团合并表，不是 JPMorgan Chase Bank, N.A. 单体表. 时点为2025-12-31和2024-12-31；金额为** M 美元**，面值和股数另列. 原件为2025 Annual Report，**印刷p.167／物理p.199**. 以下保留36行以及全部括注；原表没有流动／非流动小计. [JPM-BS]
 
 | 英文原行 | 中文名称 | 2025-12-31 | 2024-12-31 |
 |---|---|---:|---:|
@@ -2634,7 +2638,7 @@ $$
 | <a id="jpm-total_equity"></a>**Total stockholders’ equity** | **股东权益合计** | **362,438** | **344,758** |
 | <a id="jpm-total_liabilities_equity"></a>**Total liabilities and stockholders’ equity** | **负债及股东权益合计** | **4,424,900** | **4,002,814** |
 
-**附注(a)：已合并VIE的资产负债。** VIE在这里是依合并规则纳入集团的可变利益实体。原表说明，这些实体的资产用于清偿各自负债；受益权持有人通常不对JPMorganChase的一般信用享有追索。下面披露的是已合并第三方资产和负债，排除了合并时抵销的内部余额，进一步说明见Note 14。<strong>它们已经在上表里，不能再加到总资产或总负债。</strong>[JPM-BS]（附注(a)）
+**附注(a)：已合并VIE的资产负债.** VIE在这里是依合并规则纳入集团的可变利益实体. 原表说明，这些实体的资产用于清偿各自负债；受益权持有人通常不对JPMorganChase的一般信用享有追索. 下面披露的是已合并第三方资产和负债，排除了合并时抵销的内部余额，进一步说明见Note 14. <strong>它们已经在上表里，不能再加到总资产或总负债.</strong>[JPM-BS]（附注(a)）
 
 | 英文原行 | 中文名称 | 2025-12-31 | 2024-12-31 |
 |---|---|---:|---:|
@@ -2648,29 +2652,29 @@ $$
 | <a id="jpm-vie-all_other_liabilities"></a>　All other liabilities | 其他负债 | 691 | 454 |
 | <a id="jpm-vie-total_liabilities"></a>**Total liabilities** | **负债合计** | **28,642** | **27,777** |
 
-主表等式为：2025年 `4,424,900 = 4,062,462 + 362,438`；2024年 `4,002,814 = 3,658,056 + 344,758`。其中投资证券777,332已经包含AFS和HTM两项，贷款净额1,467,664已经包含准备减项。核对总资产时各用一次净小计。
+主表等式为：2025年 `4,424,900 = 4,062,462 + 362,438`；2024年 `4,002,814 = 3,658,056 + 344,758`. 其中投资证券777,332已经包含AFS和HTM两项，贷款净额1,467,664已经包含准备减项. 核对总资产时各用一次净小计.
 
 <span id="bf05-bank-funding"></span>
 
 ### 3.2　先看资金来自哪里，再看它怎样使用
 
-银行的负债不是一张等待读完资产后再顺带检查的清单。资金来源本身就是经营的重要部分。先在表中对照两行：资产方 `Deposits with banks` 为321,596，负债方 `Deposits` 为2,559,320。前者是集团存放在其他银行的款项，后者是对客户的存款义务。中文都叫“存款”还不够，必须带上权利或义务的方向。[JPM-BS]
+银行的负债不是一张等待读完资产后再顺带检查的清单. 资金来源本身就是经营的重要部分. 先在表中对照两行：资产方 `Deposits with banks` 为321,596，负债方 `Deposits` 为2,559,320. 前者是集团存放在其他银行的款项，后者是对客户的存款义务. 中文都叫“存款”还不够，必须带上权利或义务的方向. [JPM-BS]
 
-Note 17让我们进一步看到，2025年美国机构无息存款583,342，非美国机构无息存款37,057，合计620,399，占客户存款约24.24%；2024年对应合计619,306，占比约25.74%。分子略增而占比下降并不矛盾：总存款的分母也在变化。[JPM-DEPOSITS]
+Note 17让我们进一步看到，2025年美国机构无息存款583,342，非美国机构无息存款37,057，合计620,399，占客户存款约24.24%；2024年对应合计619,306，占比约25.74%. 分子略增而占比下降并不矛盾：总存款的分母也在变化. [JPM-DEPOSITS]
 
-这个分解能帮助我们提出资金成本问题，但“无息”不等于提供服务没有成本，也不直接证明存款一定稳定。需要研究未来资金成本和提款需求时，必须继续看客户、期限、资金行为和其他披露，不能在这一比例后接一个自动的安全评分。
+这个分解能帮助我们提出资金成本问题，但“无息”不等于提供服务没有成本，也不直接证明存款一定稳定. 需要研究未来资金成本和提款需求时，必须继续看客户、期限、资金行为和其他披露，不能在这一比例后接一个自动的安全评分.
 
-另一边，贷款与存款之比可算成 `1,493,429/2,559,320≈58.35%`，但剩下的41.65%不能直接叫“闲置现金”：全表还包括证券、交易资产、逆回购、其他资金来源和相应负债。这个比值是两项余额关系，不是一份把每一美元存款逐笔分配给资产的资金追踪表。[JPM-BS]（本文计算）
+另一边，贷款与存款之比可算成 `1,493,429/2,559,320≈58.35%`，但剩下的41.65%不能直接叫“闲置现金”：全表还包括证券、交易资产、逆回购、其他资金来源和相应负债. 这个比值是两项余额关系，不是一份把每一美元存款逐笔分配给资产的资金追踪表. [JPM-BS]（本文计算）
 
 <span id="bf05-bank-loan-measurement"></span>
 
 ### 3.3　贷款不是一个只有总额的盒子
 
-贷款先是一项收款权，但怎么放在账上，还取决于它被怎样持有。Note 12把贷款分为留存、持有待售及按公允价值计量三类。这里“留存”指持有用于投资的贷款，不是留存收益。[JPM-LOAN]
+贷款先是一项收款权，但怎么放在账上，还取决于它被怎样持有. Note 12把贷款分为留存、持有待售及按公允价值计量三类. 这里“留存”指持有用于投资的贷款，不是留存收益. [JPM-LOAN]
 
-就本报告的政策而言，留存贷款按摊余成本记录，并另扣预期信用损失准备；摊余成本会随还本、费用或折溢价摊销等变化，不是每天重新报一个市场价格。持有待售贷款按成本与公允价值孰低计量；选择公允价值选项的贷款则按公允价值计量。后两类的相关估值变化进入非利息收入，不套用留存贷款那一套贷款损失准备处理。所以，下面的分类不仅是把总数分成三个名字，它决定了损失通过什么位置反映。[JPM-LOAN]
+就本报告的政策而言，留存贷款按摊余成本记录，并另扣预期信用损失准备；摊余成本会随还本、费用或折溢价摊销等变化，不是每天重新报一个市场价格. 持有待售贷款按成本与公允价值孰低计量；选择公允价值选项的贷款则按公允价值计量. 后两类的相关估值变化进入非利息收入，不套用留存贷款那一套贷款损失准备处理. 所以，下面的分类不仅是把总数分成三个名字，它决定了损失通过什么位置反映. [JPM-LOAN]
 
-**以下只摘Note 12贷款构成表的合计列，单位：百万美元。** 这不是附注全文，也没有把附注各业务组合再重复加到主表。
+**以下只摘Note 12贷款构成表的合计列，单位： M 美元.** 这不是附注全文，也没有把附注各业务组合再重复加到主表.
 
 | 英文原类 | 中文 | 2025-12-31 | 2024-12-31 |
 |---|---|---:|---:|
@@ -2679,39 +2683,39 @@ Note 17让我们进一步看到，2025年美国机构无息存款583,342，非�
 | At fair value | 按公允价值计量贷款 | 70,684 | 41,350 |
 | Total | 未扣贷款损失准备的贷款合计 | 1,493,429 | 1,347,988 |
 
-来源：[JPM-LOAN-TABLE]，印刷p.239。原表脚注说明该组合表不含单列的应计利息应收；不是把所有贷款有关资产都装进了这一列。
+来源：[JPM-LOAN-TABLE]，印刷p.239. 原表脚注说明该组合表不含单列的应计利息应收；不是把所有贷款有关资产都装进了这一列.
 
-我们先回接主表：`1,408,905+13,840+70,684=1,493,429`，再扣准备25,765，得到1,467,664。**贷款损失准备是账面资产的减项，不是一笔锁在另一账户中的现金。** 本期信用损失费用、核销和回收如何使准备余额变化，需要另外的滚动表，不能用两期准备之差直接替代全部期间费用。[JPM-BS]、[JPM-LOAN]
+我们先回接主表：`1,408,905+13,840+70,684=1,493,429`，再扣准备25,765，得到1,467,664. **贷款损失准备是账面资产的减项，不是一笔锁在另一账户中的现金.** 本期信用损失费用、核销和回收如何使准备余额变化，需要另外的滚动表，不能用两期准备之差直接替代全部期间费用. [JPM-BS]、[JPM-LOAN]
 
-这里还藏着一个分母问题。将准备正额除以对应的留存贷款，2025年为 `25,765/1,408,905≈1.8287%`，2024年为 `24,345/1,299,590≈1.8733%`。若改除全部贷款，2025年会得到约1.7252%。后一计算并非算术错误，却不能冒充前一口径；它把不同计量类别都放入了分母。[JPM-LOAN]、[JPM-LOAN-TABLE]
+这里还藏着一个分母问题. 将准备正额除以对应的留存贷款，2025年为 `25,765/1,408,905≈1.8287%`，2024年为 `24,345/1,299,590≈1.8733%`. 若改除全部贷款，2025年会得到约1.7252%. 后一计算并非算术错误，却不能冒充前一口径；它把不同计量类别都放入了分母. [JPM-LOAN]、[JPM-LOAN-TABLE]
 
-比值下降本身也不是信用质量改善的证明。它可能需要通过组合构成和估计变化来解释。我们在本篇完成的是计量范围匹配，不是贷款损失预测。
+比值下降本身也不是信用质量改善的证明. 它可能需要通过组合构成和估计变化来解释. 我们在本篇完成的是计量范围匹配，不是贷款损失预测.
 
-证券部分可以接着用同一读法。主表中的AFS（可供出售）507,198与HTM（持有至到期）270,134合计777,332。Note 10说明，AFS按公允价值列账；作适用的对冲和信用损失调整后，未实现损益反映在累计其他综合收益中。HTM要求有持有至到期的意图和能力，按摊余成本扣除信用损失准备列账。因此，主表的777,332是两种不同计量基础下的账面额相加，并不是把两类证券都重估到同一个“市场价值”口径。2025年还发生44.1 billion，即44,100 million，从AFS到HTM的非现金转移。这提醒我们：类别余额的变化可能同时含采购、到期和重分类，不能把HTM的变化单独当作证券购买现金。[JPM-SEC]
+证券部分可以接着用同一读法. 主表中的AFS（可供出售）507,198与HTM（持有至到期）270,134合计777,332. Note 10说明，AFS按公允价值列账；作适用的对冲和信用损失调整后，未实现损益反映在累计其他综合收益中. HTM要求有持有至到期的意图和能力，按摊余成本扣除信用损失准备列账. 因此，主表的777,332是两种不同计量基础下的账面额相加，并不是把两类证券都重估到同一个“市场价值”口径. 2025年还发生44.1 billion，即44,100 million，从AFS到HTM的非现金转移. 这提醒我们：类别余额的变化可能同时含采购、到期和重分类，不能把HTM的变化单独当作证券购买现金. [JPM-SEC]
 
 <span id="bf05-bank-common-equity"></span>
 
 ### 3.4　普通股股东在哪一层？
 
-全表的股东权益362,438中含优先股20,045。因此，按这份表计算的普通股权益为 `362,438−20,045=342,393`。2024年同口径为324,708。这里是在澄清剩余权益的归属，不是在估算股票价格，也不是直接计算监管普通股一级资本。[JPM-BS]
+全表的股东权益362,438中含优先股20,045. 因此，按这份表计算的普通股权益为 `362,438−20,045=342,393`. 2024年同口径为324,708. 这里是在澄清剩余权益的归属，不是在估算股票价格，也不是直接计算监管普通股一级资本.[JPM-BS]
 
-库存股也要读对方向。2025年的 `(164,591)` 是权益减项，不是银行新增持有的一项普通经营资产。表中还给出已发行普通股4,104,933,895股和库存股1,408,661,319股，两者相减得到流通普通股2,696,272,576股。由此算普通股每股账面值时，必须先把百万美元换成美元：
+库存股也要读对方向. 2025年的 `(164,591)` 是权益减项，不是银行新增持有的一项普通经营资产. 表中还给出已发行普通股4,104,933,895股和库存股1,408,661,319股，两者相减得到流通普通股2,696,272,576股. 由此算普通股每股账面值时，必须先把 M 美元换成美元：
 
-`342393 * 1000000 / 2696272576 ≈ 126.99 美元/股`。
+`342393 * 1000000 / 2696272576 ≈ 126.99 美元/股`.
 
-这个结果能核对金额与股数的接口，不能替代市场定价。尤其不要把“普通股”行的4,105百万美元误当作全部普通股权益；它只是权益构成中的一行。[JPM-BS]（本文计算）
+这个结果能核对金额与股数的接口，不能替代市场定价. 尤其不要把“普通股”行的4,105 M 美元误当作全部普通股权益；它只是权益构成中的一行. [JPM-BS]（本文计算）
 
-回到全貌：集团资产增加422,086，对应负债增加404,406、权益增加17,680。账面扩张同时涉及资金来源、贷款与证券及其他业务项目。只看“资产很多”或“现金下降”，都还没有完成银行经营分析。
+回到全貌：集团资产增加422,086，对应负债增加404,406、权益增加17,680. 账面扩张同时涉及资金来源、贷款与证券及其他业务项目. 只看“资产很多”或“现金下降”，都还没有完成银行经营分析.
 
 <span id="bf05-bank-exercise"></span>
 
 ### 3.5　银行迁移练习
 
-**题目。** 用2024列自行复算贷款净额与普通股权益。另一位读者把VIE脚注资产41,076加到集团资产4,002,814上，又把准备24,345当成额外现金。请逐项说明错在哪里。最后说出为何不能用Costco的“商品存货减应付”直接衡量这家银行。
+**题目.** 用2024列自行复算贷款净额与普通股权益. 另一位读者把VIE脚注资产41,076加到集团资产4,002,814上，又把准备24,345当成额外现金. 请逐项说明错在哪里. 最后说出为何不能用Costco的“商品存货减应付”直接衡量这家银行.
 
-**解析。** 贷款净额为 `1,347,988−24,345=1,323,643`；普通股权益为 `344,758−20,050=324,708`。VIE脚注明确是合并表中已有项目的说明，再加41,076重复计算；贷款准备是减项，不是额外资金来源。[JPM-BS]
+**解析.** 贷款净额为 `1,347,988−24,345=1,323,643`；普通股权益为 `344,758−20,050=324,708`. VIE脚注明确是合并表中已有项目的说明，再加41,076重复计算；贷款准备是减项，不是额外资金来源. [JPM-BS]
 
-零售那一对余额对应商品采购与供应商结算。银行本例的主要关系是金融权利、资金义务及其计量，且有许多业务类型；硬找两行替代“库存”和“应付”，会丢掉存款、证券和风险计量这些核心关系。正确的迁移是保留“先业务、后口径、再计算”的方法，而不是搬同一个比率。
+零售那一对余额对应商品采购与供应商结算. 银行本例的主要关系是金融权利、资金义务及其计量，且有许多业务类型；硬找两行替代“库存”和“应付”，会丢掉存款、证券和风险计量这些核心关系. 正确的迁移是保留“先业务、后口径、再计算”的方法，而不是搬同一个比率.
 
 <div data-experiment-slot="lab-bf05-bank"></div>
 
@@ -2721,7 +2725,7 @@ Note 17让我们进一步看到，2025年美国机构无息存款583,342，非�
 
 ## 4　共同事件实验：一张表怎样随交易移动
 
-这组数是**独立教学设定，不是 Costco 或 JPMorgan 的交易记录**。一家小企业期初只有现金100和权益100，没有负债；期初出资已在观察窗口之前完成。依次发生赊购成本100的商品、赊销全部商品150并结转成本100、向供应商付款100、向客户收款150。忽略税、退款、信用损失、运费、其他费用和分配；销售时满足确认条件。
+这组数是**独立教学设定，不是 Costco 或 JPMorgan 的交易记录**. 一家小企业期初只有现金100和权益100，没有负债；期初出资已在观察窗口之前完成. 依次发生赊购成本100的商品、赊销全部商品150并结转成本100、向供应商付款100、向客户收款150. 忽略税、退款、信用损失、运费、其他费用和分配；销售时满足确认条件.
 
 | 步骤完成后 | 现金 | 应收 | 存货 | 总资产 | 应付／总负债 | 权益 | 累计本期利润 | 累计经营现金净额 |
 |---|---:|---:|---:|---:|---:|---:|---:|---:|
@@ -2740,11 +2744,11 @@ Note 17让我们进一步看到，2025年美国机构无息存款583,342，非�
 | S2→S3 付款 | −100 | 0 | 0 | −100 | 0 | 清偿旧义务，不重复确认商品成本 |
 | S3→S4 收款 | +150 | −150 | 0 | 0 | 0 | 实现旧收款权，不重复确认销售收入 |
 
-为什么S2的总资产250比S4的150还大，最终利润却没有减少？因为S2还同时保留着100的应付，随后付款消除了现金和负债，净资产不变。总资产变大并不是利润的同义词；现金变化也不是权益变化的同义词。
+为什么S2的总资产250比S4的150还大，最终利润却没有减少？因为S2还同时保留着100的应付，随后付款消除了现金和负债，净资产不变. 总资产变大并不是利润的同义词；现金变化也不是权益变化的同义词.
 
-**迁移题。** 将收款放在付款之前，逐步写出变化。若期初现金改为0，原顺序和新顺序有什么不同？
+**迁移题.** 将收款放在付款之前，逐步写出变化. 若期初现金改为0，原顺序和新顺序有什么不同？
 
-**解析。** 期初现金100时，销售后先收款，余额成为现金250、应收0、存货0、资产250、负债100、权益150；再付款回到现金150、负债0、权益150，终点相同。若期初现金为0、权益亦为0，先付款会短缺100，不能在禁止透支的模型里执行；先收款则可先得到150，再支付100，终点现金和权益均为50。利润没有因顺序改变，资金可行性却改变了。系统应显示资金缺口，不应偷偷生成一笔未说明的借款。
+**解析.** 期初现金100时，销售后先收款，余额成为现金250、应收0、存货0、资产250、负债100、权益150；再付款回到现金150、负债0、权益150，终点相同. 若期初现金为0、权益亦为0，先付款会短缺100，不能在禁止透支的模型里执行；先收款则可先得到150，再支付100，终点现金和权益均为50. 利润没有因顺序改变，资金可行性却改变了. 系统应显示资金缺口，不应偷偷生成一笔未说明的借款.
 
 <div data-experiment-slot="lab-bf05-events"></div>
 
@@ -2754,33 +2758,33 @@ Note 17让我们进一步看到，2025年美国机构无息存款583,342，非�
 
 ## 5　扩展层：表内净额与现金口径
 
-以下不计入首次选择一条行业分支的核心任务。
+以下不计入首次选择一条行业分支的核心任务.
 
 <span id="bf05-netting-extension"></span>
 
 ### 5.1　衍生品的三个金额，不是同一层次
 
-JPM Note 5 的2025年应收表可以沿三个层次读：衍生品应收总额606,382，其中只有满足报告所述净额列报条件的部分进入表内抵销；扣除实际表内抵销548,605后，得到表内净应收57,777。再考虑表内不能抵销的担保品28,891，附注给出净额28,886。抵销政策涉及相应协议与法律意见等条件，并非见到两笔相反金额就可以相减。[JPM-NETTING]
+JPM Note 5 的2025年应收表可以沿三个层次读：衍生品应收总额606,382，其中只有满足报告所述净额列报条件的部分进入表内抵销；扣除实际表内抵销548,605后，得到表内净应收57,777. 再考虑表内不能抵销的担保品28,891，附注给出净额28,886. 抵销政策涉及相应协议与法律意见等条件，并非见到两笔相反金额就可以相减. [JPM-NETTING]
 
-| 层次 | 计算，百万美元 | 能怎样称呼 |
+| 层次 | 计算， M 美元 | 能怎样称呼 |
 |---|---|---|
 | 未作所列抵销的应收总额 | 606,382 | 衍生品应收总额，不是名义本金 |
 | 表内抵销之后 | `606,382−548,605=57,777` | 表内净应收 |
 | 再考虑所列不能表内抵销的担保品 | `57,777−28,891=28,886` | 本附注相应净额，不改写主表列报 |
 
-**解析。** 把28,886填回主表替代57,777错在跨越了列报层次。附注帮助理解信用风险相关关系，但并不授权分析者改变法定主表。这个净额也不是所有市场、流动性和交易对手风险的统一计量。[JPM-NETTING]
+**解析.** 把28,886填回主表替代57,777错在跨越了列报层次. 附注帮助理解信用风险相关关系，但并不授权分析者改变法定主表. 这个净额也不是所有市场、流动性和交易对手风险的统一计量. [JPM-NETTING]
 
 <span id="bf05-cashflow-extension"></span>
 
 ### 5.2　银行现金流的终点到底接到哪里
 
-JPM现金流表2025年的期末金额343,338，接的是 `Cash and due from banks 21,742 + Deposits with banks 321,596`，而不只是第一行。[JPM-CF]、[JPM-BS]
+JPM现金流表2025年的期末金额343,338，接的是 `Cash and due from banks 21,742 + Deposits with banks 321,596`，而不只是第一行. [JPM-CF]、[JPM-BS]
 
 完整现金桥为：
 
-`469,317 − 147,782 − 265,565 + 269,533 + 17,835 = 343,338`。
+`469,317 − 147,782 − 265,565 + 269,533 + 17,835 = 343,338`.
 
-依次为期初、经营、投资、筹资和汇率影响。经营现金流负值里包含交易资产、借入证券等业务项目的变动；MD&A也说明，支持贷款与资本市场活动的经营性资产负债会随客户活动、风险管理和市场状况显著变化。读者应先读组成，再解释经营现金流的意义；不能凭一个负值直接得出与普通商品企业完全相同的结论。[JPM-CF]
+依次为期初、经营、投资、筹资和汇率影响. 经营现金流负值里包含交易资产、借入证券等业务项目的变动；MD&A也说明，支持贷款与资本市场活动的经营性资产负债会随客户活动、风险管理和市场状况显著变化. 读者应先读组成，再解释经营现金流的意义；不能凭一个负值直接得出与普通商品企业完全相同的结论. [JPM-CF]
 
 </section>
 
@@ -2788,9 +2792,9 @@ JPM现金流表2025年的期末金额343,338，接的是 `Cash and due from bank
 
 ## 6　把两条分支合在同一阅读方法里
 
-我们保留的共同方法很简单：先确认整表对象，再找业务关系，沿主表到附注，做能回接的计算，最后把发现放回全表。改变行业时，变的是分析中心，而不是证据标准。
+我们保留的共同方法很简单：先确认整表对象，再找业务关系，沿主表到附注，做能回接的计算，最后把发现放回全表. 改变行业时，变的是分析中心，而不是证据标准.
 
-零售分支最重要的收获不是记住−1,667，而是知道这个数来自哪两项、它没有包含什么，以及为什么还要与963对照。银行分支最重要的收获不是记住某个覆盖率，而是理解它的分母为什么必须与计量范围匹配。能把这两点带到另一份真实材料中，就开始具备独立读表的能力了。
+零售分支最重要的收获不是记住−1,667，而是知道这个数来自哪两项、它没有包含什么，以及为什么还要与963对照. 银行分支最重要的收获不是记住某个覆盖率，而是理解它的分母为什么必须与计量范围匹配. 能把这两点带到另一份真实材料中，就开始具备独立读表的能力了.
 
 <span id="bf05-sources"></span>
 
@@ -2800,11 +2804,11 @@ JPM现金流表2025年的期末金额343,338，接的是 `Cash and due from bank
 |---|---|
 | [FASB] | BF-S-FASB-ELEMENTS；FASB，2021-12；Chapter 4 E16–E70，尤其E16、E37、E61–E66 |
 | [OPENSTAX-22] | BF-S-OPENSTAX-22；OpenStax，Principles of Accounting Vol.1，2019，§2.2 |
-| [COST-BS] | BI-S05；Costco FY2025 SEC 10-K，印刷p.39完整合并资产负债表；两期百万美元，股数/面值除外 |
+| [COST-BS] | BI-S05；Costco FY2025 SEC 10-K，印刷p.39完整合并资产负债表；两期 M 美元，股数/面值除外 |
 | [COST-PDF] | 同一公司股东年报PDF；资产负债表印刷p.37／物理p.43；排版页码与SEC HTML不同 |
 | [COST-POLICY] | BI-S05；Note 1，印刷p.42，Basis of Presentation、Fiscal Year、Reclassification |
 | [COST-BUS] | BI-S05；Item 1 General，印刷pp.3–4，周转与供应商付款关系 |
-| [COST-CF] | BI-S05；完整合并现金流量表印刷p.41；截至2025-08-31的52周，百万美元；股东年报PDF对应印刷p.39／物理p.45 |
+| [COST-CF] | BI-S05；完整合并现金流量表印刷p.41；截至2025-08-31的52周， M 美元；股东年报PDF对应印刷p.39／物理p.45 |
 | [COST-RECEIVABLES] | BI-S05；Note 1 Receivables, Net，印刷p.44；应收来源而非顾客赊销假定 |
 | [COST-REV] | BI-S05；Note 1 Revenue Recognition，印刷pp.47–48；会员费与会员奖励分别处理 |
 | [COST-LEASE] | BI-S05；Note 5 Leases，印刷pp.53–54；资产负债分类表及脚注(1)–(3)在p.53 |
@@ -2818,11 +2822,11 @@ JPM现金流表2025年的期末金额343,338，接的是 `Cash and due from bank
 
 [FASB]: https://storage.fasb.org/Concepts_Statement_8-Chapter_4-Elements.pdf "BF-S-FASB-ELEMENTS；FASB，2021-12；Chapter 4 E16–E70，尤其E16、E37、E61–E66"
 [OPENSTAX-22]: https://openstax.org/books/principles-financial-accounting/pages/2-2-define-explain-and-provide-examples-of-current-and-noncurrent-assets-current-and-noncurrent-liabilities-equity-revenues-and-expenses "BF-S-OPENSTAX-22；OpenStax，Principles of Accounting Vol.1，2019，§2.2"
-[COST-BS]: https://www.sec.gov/Archives/edgar/data/909832/000090983225000101/cost-20250831.htm "BI-S05；Costco FY2025 SEC 10-K，印刷p.39完整合并资产负债表；两期百万美元，股数/面值除外"
+[COST-BS]: https://www.sec.gov/Archives/edgar/data/909832/000090983225000101/cost-20250831.htm "BI-S05；Costco FY2025 SEC 10-K，印刷p.39完整合并资产负债表；两期 M 美元，股数/面值除外"
 [COST-PDF]: https://s201.q4cdn.com/287523651/files/doc_financials/2025/ar/COST-Annual-Report-2025.pdf#page=43 "同一公司股东年报PDF；资产负债表印刷p.37／物理p.43；排版页码与SEC HTML不同"
 [COST-POLICY]: https://www.sec.gov/Archives/edgar/data/909832/000090983225000101/cost-20250831.htm "BI-S05；Note 1，印刷p.42，Basis of Presentation、Fiscal Year、Reclassification"
 [COST-BUS]: https://www.sec.gov/Archives/edgar/data/909832/000090983225000101/cost-20250831.htm "BI-S05；Item 1 General，印刷pp.3–4，周转与供应商付款关系"
-[COST-CF]: https://www.sec.gov/Archives/edgar/data/909832/000090983225000101/cost-20250831.htm "BI-S05；完整合并现金流量表印刷p.41；截至2025-08-31的52周，百万美元；股东年报PDF对应印刷p.39／物理p.45"
+[COST-CF]: https://www.sec.gov/Archives/edgar/data/909832/000090983225000101/cost-20250831.htm "BI-S05；完整合并现金流量表印刷p.41；截至2025-08-31的52周， M 美元；股东年报PDF对应印刷p.39／物理p.45"
 [COST-RECEIVABLES]: https://www.sec.gov/Archives/edgar/data/909832/000090983225000101/cost-20250831.htm "BI-S05；Note 1 Receivables, Net，印刷p.44；应收来源而非顾客赊销假定"
 [COST-REV]: https://www.sec.gov/Archives/edgar/data/909832/000090983225000101/cost-20250831.htm "BI-S05；Note 1 Revenue Recognition，印刷pp.47–48；会员费与会员奖励分别处理"
 [COST-LEASE]: https://www.sec.gov/Archives/edgar/data/909832/000090983225000101/cost-20250831.htm "BI-S05；Note 5 Leases，印刷pp.53–54；资产负债分类表及脚注(1)–(3)在p.53"
@@ -2840,26 +2844,26 @@ JPM现金流表2025年的期末金额343,338，接的是 `Cash and due from bank
 
 ### BF05-TABLES：完整原表不因高亮而消失
 
-输入分别绑定`COST-BS-20250831`与`JPM-BS-20251231`，年份顺序固定为较新／较旧，原始金额以百万美元保存。主表行ID就是本稿各行锚点去掉`cost-`或`jpm-`后的部分。完整表、脚注表和附注明细是不同数据层，只有明确的直接子项参加一个小计。
+输入分别绑定`COST-BS-20250831`与`JPM-BS-20251231`，年份顺序固定为较新／较旧，原始金额以 M 美元保存. 主表行ID就是本稿各行锚点去掉`cost-`或`jpm-`后的部分. 完整表、脚注表和附注明细是不同数据层，只有明确的直接子项参加一个小计.
 
-默认显示共同结构和零售完整表；读者可切换银行。折叠只影响可见状态，不删除行或改变加总。全部展开、打印、无脚本模式均能读到两个完整表和说明。提供“定位原文”和“展开附注”按钮；原始值与派生比率区分。空白与原表破折号分开；任何股数、面值和百万美元不得共用同一个缩放开关。
+默认显示共同结构和零售完整表；读者可切换银行. 折叠只影响可见状态，不删除行或改变加总. 全部展开、打印、无脚本模式均能读到两个完整表和说明. 提供“定位原文”和“展开附注”按钮；原始值与派生比率区分. 空白与原表破折号分开；任何股数、面值和 M 美元不得共用同一个缩放开关.
 
-**加总合同。** Costco总资产只加流动资产小计、物业设备、经营租赁使用权和其他长期资产；JPM总资产只加各直接项目，证券用净小计、贷款用净小计，VIE脚注不参与主表。所有减项在数据层保留负号。正文两期合计及VIE内部合计可作为静态验收值。
+**加总合同.** Costco总资产只加流动资产小计、物业设备、经营租赁使用权和其他长期资产；JPM总资产只加各直接项目，证券用净小计、贷款用净小计，VIE脚注不参与主表. 所有减项在数据层保留负号. 正文两期合计及VIE内部合计可作为静态验收值.
 
 ### BF05-RETAIL：余额变化与现金调整并排
 
-输入：`inventory_2024=18647, inventory_2025=18116, payable_2024=19421, payable_2025=19783, cf_inventory=559, cf_payable=404`。输出：`N_2024=-774, N_2025=-1667, delta_N=-893, reverse_delta=893, CF_adjustment=963, unexplained_difference=70`。默认历史数据不可编辑；“教学变式”另开命名空间，不覆盖历史数。点击差额只展示待查口径，不自动为其归因。静态等价为§2.2全部公式和表。
+输入：`inventory_2024=18647, inventory_2025=18116, payable_2024=19421, payable_2025=19783, cf_inventory=559, cf_payable=404`. 输出：`N_2024=-774, N_2025=-1667, delta_N=-893, reverse_delta=893, CF_adjustment=963, unexplained_difference=70`. 默认历史数据不可编辑；“教学变式”另开命名空间，不覆盖历史数. 点击差额只展示待查口径，不自动为其归因. 静态等价为§2.2全部公式和表.
 
 ### BF05-BANK：分子与分母必须一起说明
 
-输入来自§3.3的两期完整构成、准备负数，以及客户存款。默认展示`(-allowance)/retained_loans*100`，2025输出1.8287%；可切换“全部贷款作分母”的对照，输出1.7252%，同时出现“不是原留存贷款口径”的说明。币种不变，百分数仅乘100一次。不得把下降自动着色为风险改善。普通股每股账面值另以美元／股输出126.99和116.07，不与监管指标混名。
+输入来自§3.3的两期完整构成、准备负数，以及客户存款. 默认展示`(-allowance)/retained_loans*100`，2025输出1.8287%；可切换“全部贷款作分母”的对照，输出1.7252%，同时出现“不是原留存贷款口径”的说明. 币种不变，百分数仅乘100一次. 不得把下降自动着色为风险改善. 普通股每股账面值另以美元／股输出126.99和116.07，不与监管指标混名.
 
 ### EXP-BF05-EVENTS：可复算状态转移
 
-状态字段为`cash, receivable, inventory, payable, equity, profit, ocf`，其中`profit`和`ocf`分别指本窗口累计利润和累计经营现金净额。期初`cash=equity=100`，其余0；采购成本`cost=100`，售价`sales=150`。允许顺序为`purchase → sale → pay → collect`或`purchase → sale → collect → pay`。付款须满足`cash>=cost`；其他事件不得重复执行。改变期初现金时权益同步改变，不引入未声明负债。
+状态字段为`cash, receivable, inventory, payable, equity, profit, ocf`，其中`profit`和`ocf`分别指本窗口累计利润和累计经营现金净额. 期初`cash=equity=100`，其余0；采购成本`cost=100`，售价`sales=150`. 允许顺序为`purchase → sale → pay → collect`或`purchase → sale → collect → pay`. 付款须满足`cash>=cost`；其他事件不得重复执行. 改变期初现金时权益同步改变，不引入未声明负债.
 
 ```javascript
-// 纯计算函数；不访问账户、不获取外部数据。与正文同一组教学设定。
+// 纯计算函数；不访问账户、不获取外部数据. 与正文同一组教学设定.
 function eventLedger(initialCash = 100, collectFirst = false) {
   if (!Number.isFinite(initialCash) || initialCash < 0) {
     throw new RangeError('期初现金必须为非负有限数');
@@ -2895,9 +2899,9 @@ function eventLedger(initialCash = 100, collectFirst = false) {
 }
 ```
 
-静态默认五行及每一步变化见§4。初始现金0且先付款的预期结果为`completed=false, fundingGap=100`；改为先收款则完成，最终现金50、权益50、利润50、经营现金净额50。UI显示余额与变化两层，箭头文字使用§4的完整含义；不把所有事件画到权益。
+静态默认五行及每一步变化见§4. 初始现金0且先付款的预期结果为`completed=false, fundingGap=100`；改为先收款则完成，最终现金50、权益50、利润50、经营现金净额50. UI显示余额与变化两层，箭头文字使用§4的完整含义；不把所有事件画到权益.
 
-页面使用可访问标签、键盘和文字状态，不依赖颜色。股票价格、自动安全评分和银行存活概率不在这个交互中。这里给出静态结果和实现规格；网页实现另行完成。
+页面使用可访问标签、键盘和文字状态，不依赖颜色. 股票价格、自动安全评分和银行存活概率不在这个交互中. 这里给出静态结果和实现规格；网页实现另行完成.
 
 ## Experiment inputs and static equivalents
 ```json
@@ -2907,7 +2911,7 @@ function eventLedger(initialCash = 100, collectFirst = false) {
     "title": "赊购、赊销、付款与收款",
     "anchor": "bf05-events",
     "url": "/notebook/labs/bf-a/interactions.html#EXP-BF05-EVENTS",
-    "description": "原稿独立教学设定；不对应Costco或JPM交易记录。",
+    "description": "原稿独立教学设定；不对应Costco或JPM交易记录.",
     "inputs": {
       "initial_cash": 100,
       "initial_equity": 100,
@@ -3043,7 +3047,7 @@ function eventLedger(initialCash = 100, collectFirst = false) {
     },
     "computation_source": {
       "language": "javascript",
-      "code": "// 纯计算函数；不访问账户、不获取外部数据。与正文同一组教学设定。\nfunction eventLedger(initialCash = 100, collectFirst = false) {\n  if (!Number.isFinite(initialCash) || initialCash < 0) {\n    throw new RangeError('期初现金必须为非负有限数');\n  }\n  if (typeof collectFirst !== 'boolean') {\n    throw new TypeError('collectFirst必须为布尔值');\n  }\n  const s = {cash: initialCash, receivable: 0, inventory: 0,\n             payable: 0, equity: initialCash, profit: 0, ocf: 0};\n  const rows = [];\n  const take = event => {\n    const assets = s.cash + s.receivable + s.inventory;\n    if (Math.abs(assets - s.payable - s.equity) > 1e-9) {\n      throw new Error('资产负债关系不平');\n    }\n    rows.push({event, ...s, assets, balanceResidual: 0});\n  };\n  take('initial');\n  s.inventory += 100; s.payable += 100; take('purchase');\n  s.receivable += 150; s.inventory -= 100;\n  s.equity += 50; s.profit += 50; take('sale');\n  const order = collectFirst ? ['collect', 'pay'] : ['pay', 'collect'];\n  for (const event of order) {\n    if (event === 'pay') {\n      if (s.cash < 100) return {rows, completed: false, fundingGap: 100 - s.cash};\n      s.cash -= 100; s.payable -= 100; s.ocf -= 100;\n    } else {\n      s.cash += 150; s.receivable -= 150; s.ocf += 150;\n    }\n    take(event);\n  }\n  return {rows, completed: true, fundingGap: 0};\n}"
+      "code": "// 纯计算函数；不访问账户、不获取外部数据. 与正文同一组教学设定.\nfunction eventLedger(initialCash = 100, collectFirst = false) {\n  if (!Number.isFinite(initialCash) || initialCash < 0) {\n    throw new RangeError('期初现金必须为非负有限数');\n  }\n  if (typeof collectFirst !== 'boolean') {\n    throw new TypeError('collectFirst必须为布尔值');\n  }\n  const s = {cash: initialCash, receivable: 0, inventory: 0,\n             payable: 0, equity: initialCash, profit: 0, ocf: 0};\n  const rows = [];\n  const take = event => {\n    const assets = s.cash + s.receivable + s.inventory;\n    if (Math.abs(assets - s.payable - s.equity) > 1e-9) {\n      throw new Error('资产负债关系不平');\n    }\n    rows.push({event, ...s, assets, balanceResidual: 0});\n  };\n  take('initial');\n  s.inventory += 100; s.payable += 100; take('purchase');\n  s.receivable += 150; s.inventory -= 100;\n  s.equity += 50; s.profit += 50; take('sale');\n  const order = collectFirst ? ['collect', 'pay'] : ['pay', 'collect'];\n  for (const event of order) {\n    if (event === 'pay') {\n      if (s.cash < 100) return {rows, completed: false, fundingGap: 100 - s.cash};\n      s.cash -= 100; s.payable -= 100; s.ocf -= 100;\n    } else {\n      s.cash += 150; s.receivable -= 150; s.ocf += 150;\n    }\n    take(event);\n  }\n  return {rows, completed: true, fundingGap: 0};\n}"
     },
     "outputs_origin": "原稿第4节完整静态表；导入未执行该函数"
   }
@@ -3051,23 +3055,23 @@ function eventLedger(initialCash = 100, collectFirst = false) {
 ```
 
 ## Sources
-- [Costco Wholesale Corporation · 2025 Annual Report（股东年报 PDF）](https://s201.q4cdn.com/287523651/files/doc_financials/2025/ar/COST-Annual-Report-2025.pdf): Costco 2025 股东年报中的完整合并报表及附注。与 SEC HTML 版使用同一组财务披露，但排版页码不同：资产负债表为印刷第37页、PDF第43页。
-- [Costco Wholesale Corporation · FY2025 Form 10-K（SEC HTML）](https://www.sec.gov/Archives/edgar/data/909832/000090983225000101/cost-20250831.htm): Costco 的 2025 财年末合并资产为77,099百万美元，负债47,935，权益29,164。业务说明把商品快速周转与供应商付款安排联系起来；会员费的确认则需要结合收入政策和递延余额。
+- [Costco Wholesale Corporation · 2025 Annual Report（股东年报 PDF）](https://s201.q4cdn.com/287523651/files/doc_financials/2025/ar/COST-Annual-Report-2025.pdf): Costco 2025 股东年报中的完整合并报表及附注. 与 SEC HTML 版使用同一组财务披露，但排版页码不同：资产负债表为印刷第37页、PDF第43页.
+- [Costco Wholesale Corporation · FY2025 Form 10-K（SEC HTML）](https://www.sec.gov/Archives/edgar/data/909832/000090983225000101/cost-20250831.htm): Costco 的 2025 财年末合并资产为77,099 M 美元，负债47,935，权益29,164. 业务说明把商品快速周转与供应商付款安排联系起来；会员费的确认则需要结合收入政策和递延余额.
 
-本组带读将存货与应付的两期余额变化接到现金流量表。两种计算并不完全相同，差额留待附注和其他口径解释。
+本组带读将存货与应付的两期余额变化接到现金流量表. 两种计算并不完全相同，差额留待附注和其他口径解释.
 
-EI-B 本批采用：会员制度、尾随续费率定义、会员费收入及合并营业利润桥。美元百万转换为十亿美元；全球公司边界不等于美国单一零售市场。
+EI-B 本批采用：会员制度、尾随续费率定义、会员费收入及合并营业利润桥. USD M 转换为 B 美元；全球公司边界不等于美国单一零售市场.
 
-BF-F/G 本批采用：零售利润/现金/普通股及债务时间的历史原件。SEC具名表定位优先；不混用IR PDF页码。
-- [FASB Concepts Statement No. 8 · Chapter 4: Elements of Financial Statements](https://storage.fasb.org/Concepts_Statement_8-Chapter_4-Elements.pdf): 资产对应企业取得经济利益的现时权利，负债对应企业转移经济利益的现时义务；权益是扣除负债后的剩余利益。
+BF-F/G 本批采用：零售利润/现金/普通股及债务时间的历史原件. SEC具名表定位优先；不混用IR PDF页码.
+- [FASB Concepts Statement No. 8 · Chapter 4: Elements of Financial Statements](https://storage.fasb.org/Concepts_Statement_8-Chapter_4-Elements.pdf): 资产对应企业取得经济利益的现时权利，负债对应企业转移经济利益的现时义务；权益是扣除负债后的剩余利益.
 
-这组定义帮助识别对象。某项权利是否确认、按何种金额计量，还要结合适用的会计规则和披露。
-- [JPMorgan Chase & Co. · 2025 Annual Report](https://www.jpmorganchase.com/content/dam/jpmc/jpmorgan-chase-and-co/investor-relations/documents/annualreport-2025.pdf): JPMorgan 的 2025 年末集团合并表没有照普通工业企业划分流动／非流动。证券和贷款各有计量类别；贷款损失准备是贷款账面余额的减项，表下注明的合并VIE金额已包含在集团总额内。
+这组定义帮助识别对象. 某项权利是否确认、按何种金额计量，还要结合适用的会计规则和披露.
+- [JPMorgan Chase & Co. · 2025 Annual Report](https://www.jpmorganchase.com/content/dam/jpmc/jpmorgan-chase-and-co/investor-relations/documents/annualreport-2025.pdf): JPMorgan 的 2025 年末集团合并表没有照普通工业企业划分流动／非流动. 证券和贷款各有计量类别；贷款损失准备是贷款账面余额的减项，表下注明的合并VIE金额已包含在集团总额内.
 
-从总权益到普通股权益，还要扣除优先股；每股账面值的股数使用已发行股数减库存股。原表、附注和普通股权利因此要连在一起读。
+从总权益到普通股权益，还要扣除优先股；每股账面值的股数使用已发行股数减库存股. 原表、附注和普通股权利因此要连在一起读.
 
-BF-F/G 本批采用：集团季度平均LCR、期末资产和有条件融资能力分别记录；银行法人另列；完整主表支持综合带读。
-- [OpenStax · Principles of Accounting, Volume 1 · §2.2](https://openstax.org/books/principles-financial-accounting/pages/2-2-define-explain-and-provide-examples-of-current-and-noncurrent-assets-current-and-noncurrent-liabilities-equity-revenues-and-expenses): 流动与非流动的区分涉及正常经营周期和一年等时间条件。资产、负债与权益描述期末余额，收入和费用描述期间活动；把这些类别放到一起，可以解释交易怎样通过报表恒等式记录。
+BF-F/G 本批采用：集团季度平均LCR、期末资产和有条件融资能力分别记录；银行法人另列；完整主表支持综合带读.
+- [OpenStax · Principles of Accounting, Volume 1 · §2.2](https://openstax.org/books/principles-financial-accounting/pages/2-2-define-explain-and-provide-examples-of-current-and-noncurrent-assets-current-and-noncurrent-liabilities-equity-revenues-and-expenses): 流动与非流动的区分涉及正常经营周期和一年等时间条件. 资产、负债与权益描述期末余额，收入和费用描述期间活动；把这些类别放到一起，可以解释交易怎样通过报表恒等式记录.
 
 ## Content relations
 ```json
@@ -3116,6 +3120,6 @@ BF-F/G 本批采用：集团季度平均LCR、期末资产和有条件融资能�
 
 ## Optional reading path
 拆一份企业财报: step 2/14
-在零售或银行分支中，从全表和附注重建两至三个经营关系。
-看过时点上的资源与义务，再追踪期间利润和实际收付款。
+在零售或银行分支中，从全表和附注重建两至三个经营关系.
+看过时点上的资源与义务，再追踪期间利润和实际收付款.
 Next: [利润表：收入、成本与利润的层次](https://ou-liu-red-sugar.github.io/zh/notebook/income-statement-layers/)

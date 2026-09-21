@@ -5,7 +5,7 @@
   "export_mode": "public",
   "selected_branch": "manufacturing",
   "audience": "有微积分、线性代数和基本概率基础的高年级本科生至研究生",
-  "learning_task": "为具体问题选择有不同职责的指标，核版本、统计构造和总体，再设计下一项检验。",
+  "learning_task": "为具体问题选择有不同职责的指标，核版本、统计构造和总体，再设计下一项检验.",
   "required_readings": [
     {
       "source_id": "EIBC-S07M",
@@ -21,10 +21,10 @@
       },
       "required_unit": {
         "locator": "Estimation pp.2–3；Seasonal Adjustment pp.3–4；Reliability p.4",
-        "scope": "所列具名单元全文，包含公式、表头、表注及本篇采用结论所需上下文；不要求无关章节。",
-        "purpose": "新订单由出货与未完成订单月差构造；季调亦然，含取消/修改。381是定义性桥，不是3项独立观察。"
+        "scope": "所列具名单元全文，包含公式、表头、表注及本篇采用结论所需上下文；不要求无关章节.",
+        "purpose": "新订单由出货与未完成订单月差构造；季调亦然，含取消/修改.381是定义性桥，不是3项独立观察."
       },
-      "supports": "新订单由出货与未完成订单月差构造；季调亦然，含取消/修改。381是定义性桥，不是3项独立观察。",
+      "supports": "新订单由出货与未完成订单月差构造；季调亦然，含取消/修改.381是定义性桥，不是3项独立观察.",
       "branch": "manufacturing",
       "id": "EI-15-READ-1",
       "retrieved_at": "2026-09-21"
@@ -43,10 +43,10 @@
       },
       "required_unit": {
         "locator": "PDFp1身份；pp6–9 Tables1–4 Construction machinery row及脚注",
-        "scope": "所列具名单元全文，包含公式、表头、表注及本篇采用结论所需上下文；不要求无关章节。",
-        "purpose": "April revised / May preliminary；SA百万美元；381定义性订单桥、存货+66分开。"
+        "scope": "所列具名单元全文，包含公式、表头、表注及本篇采用结论所需上下文；不要求无关章节.",
+        "purpose": "April revised / May preliminary；SA M 美元；381定义性订单桥、存货+66分开."
       },
-      "supports": "April revised / May preliminary；SA百万美元；381定义性订单桥、存货+66分开。",
+      "supports": "April revised / May preliminary；SA M 美元；381定义性订单桥、存货+66分开.",
       "branch": "manufacturing",
       "id": "EI-15-READ-2",
       "retrieved_at": "2026-09-21"
@@ -73,8 +73,8 @@
         "inputs": {
           "branch": "manufacturing"
         },
-        "algorithm": "真实数值只读。只使用M3当前分支：季调新订单N=S+ΔB；381是定义性未完成订单月差，ΔI=66另列，不作为同一订单桥的一部分。",
-        "static_equivalent": "制造：4498+(11595−11214)=4879；ΔB=381是构造桥；库存变化+66单列。",
+        "algorithm": "真实数值只读. 只使用M3当前分支：季调新订单N=S+ΔB；381是定义性未完成订单月差，ΔI=66另列，不作为同一订单桥的一部分.",
+        "static_equivalent": "制造：4498+(11595−11214)=4879；ΔB=381是构造桥；库存变化+66单列.",
         "source_ids": [
           "EIBC-S07M",
           "EI-S06-M3-202605"
@@ -97,7 +97,7 @@
   "static_equivalents": [
     {
       "experiment_id": "exp-ei15-metric-contract",
-      "text": "制造：4498+(11595−11214)=4879；ΔB=381是构造桥；库存变化+66单列。",
+      "text": "制造：4498+(11595−11214)=4879；ΔB=381是构造桥；库存变化+66单列.",
       "outputs": {
         "branch": "manufacturing",
         "shipments": 4498,

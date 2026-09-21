@@ -22,7 +22,7 @@ function init(){
   let value=original.replace(pattern,(_,a,_json,b)=>a+JSON.stringify(packet,null,2)+b);
   if(!active)value=value.replace(/(## Supplied entry\r?\n)([\s\S]*?)(?=\r?\n## Additional teaching material)/,
    (_,heading,md)=>heading+md.replace(/<details data-agent-option="dealer-gamma">[\s\S]*?<\/details>/,''));
-  context.value='当前范围：'+packet.selected_branch+'。正文、静态等价、实际输入和当前必读同源；先实际读取本次 required_readings。\n当前任务：'+packet.learning_task+'\n\n'+value;
+  context.value='当前范围：'+packet.selected_branch+'. 正文、静态等价、实际输入和当前必读同源；先实际读取本次 required_readings. \n当前任务：'+packet.learning_task+'\n\n'+value;
  },true);
 }
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init,{once:true});else init();

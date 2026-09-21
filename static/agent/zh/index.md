@@ -1,5 +1,6 @@
 # Agent notebook
 
+- [符号与单位](https://ou-liu-red-sugar.github.io/agent/zh/notation.md)
 - [Amazon：2026-09-20业务状态与股东结果历史案例](https://ou-liu-red-sugar.github.io/agent/zh/amzn-research-20260920.md)
 - [Amazon · AMZN：商品、平台与云服务](https://ou-liu-red-sugar.github.io/agent/zh/amzn.md)
 - [资产负债表：全表结构与行业带读](https://ou-liu-red-sugar.github.io/agent/zh/balance-sheet.md)

@@ -130,3 +130,4 @@ body.notebook-app{background:var(--paper);color:var(--ink);font-family:Inter,-ap
   .graph-relations summary{display:none}
 }
 
+@media(min-width:761px){#reference-panel:has(.notation-reference){width:620px}}

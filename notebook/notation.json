@@ -1,0 +1,319 @@
+{
+  "version": "2026-09-21",
+  "text": {
+    "zh": {
+      "title": "符号与单位",
+      "intro": "这份表统一笔记中的常用记号. 数学期望写作 $\\mathbb{E}$；金额与数量的量级使用 K、M、B.",
+      "columns": [
+        "记号",
+        "含义",
+        "使用约定"
+      ],
+      "precision": "展示的小数最多保留三位，省略末尾多余的零；计算继续使用原始精度. 比例与百分数分别写清，例如 $0.125=12.5\\%$.",
+      "local_symbols": "运算符保持统一，变量在首次使用时定义. 局部语境可以复用字母：例如资产负债表中的 $E$ 表示权益，状态空间中的 $E$ 表示集合；它们与数学期望 $\\mathbb{E}$ 区分. 行权价 $K$、现金账户 $B_t$ 使用数学斜体，量级 K、M、B 使用普通文本. 原始资料中的记号在引用时说明与本表的对应关系.",
+      "instruction": "数学期望统一写成 \\mathbb{E}，条件期望用 \\mathbb{E}[X\\mid\\mathcal{G}]，需要时注明测度 P 或 Q. 保留局部变量的明确定义. 金额与数量使用 K=10^3、M=10^6、B=10^9；表格标明币种、量级与期间，变更量级时同步换算数值. 展示小数最多三位，计算保留原始精度. 直接解释对象、机制与推理；保留影响结论的假设和事实来源，把编辑流程留在记录中. 句末使用英文句点 .，包括定义、命题、证明和解析等标签. 基础定义与推导直接讲内容，出处放在紧邻脚注；来源读取、复审和采用范围等编辑经过留在记录中."
+    },
+    "en": {
+      "title": "Notation and units",
+      "intro": "These notes share the conventions below. Expectation is written as $\\mathbb{E}$, and quantities use K, M and B for scale.",
+      "columns": [
+        "Notation",
+        "Meaning",
+        "Convention"
+      ],
+      "precision": "Display at most three decimal places and omit unnecessary trailing zeros. Retain the original precision in calculations. Distinguish fractions from percentages, for example $0.125=12.5\\%$.",
+      "local_symbols": "Operators have a shared notation; variables are defined on first use. Local meanings may reuse a letter: $E$ can denote equity or a state space, while expectation is $\\mathbb{E}$. Strike $K$ and cash account $B_t$ are mathematical variables; scale labels K, M and B are plain text. State the correspondence when a source uses different notation.",
+      "instruction": "Write expectation as \\mathbb{E}, conditional expectation as \\mathbb{E}[X\\mid\\mathcal{G}], and identify P or Q when relevant. Define local variables. Use K=10^3, M=10^6 and B=10^9 for quantities, with currency and period in table headings; rescale values when changing units. Display at most three decimals while retaining calculation precision. Explain the object, mechanism and reasoning directly; keep consequential assumptions and sources, and leave editorial process notes in the editorial record."
+    }
+  },
+  "groups": [
+    {
+      "title": {
+        "zh": "概率与统计",
+        "en": "Probability and statistics"
+      },
+      "rows": [
+        {
+          "symbol": "$\\mathbb{E}[X]$",
+          "zh": [
+            "数学期望",
+            "期望运算统一采用黑板粗体."
+          ],
+          "en": [
+            "Expectation",
+            "Use blackboard bold for the expectation operator."
+          ]
+        },
+        {
+          "symbol": "$\\mathbb{E}[X\\mid\\mathcal{G}]$",
+          "zh": [
+            "条件期望",
+            "$\\mathcal{G}$ 是给定的信息."
+          ],
+          "en": [
+            "Conditional expectation",
+            "$\\mathcal{G}$ is the conditioning information."
+          ]
+        },
+        {
+          "symbol": "$\\mathbb{E}_P[X],\\ \\mathbb{E}_Q[X]$",
+          "zh": [
+            "不同测度下的期望",
+            "P 通常为现实测度，Q 为所指定的定价测度."
+          ],
+          "en": [
+            "Expectation under a measure",
+            "P usually denotes the physical measure; specify the pricing measure Q."
+          ]
+        },
+        {
+          "symbol": "$\\widehat{\\mathbb{E}}[X]$",
+          "zh": [
+            "期望的估计值",
+            "帽号表示由样本或数值方法得到的估计."
+          ],
+          "en": [
+            "Estimated expectation",
+            "The hat denotes a sample or numerical estimate."
+          ]
+        },
+        {
+          "symbol": "$P(A),\\ Q(A)$",
+          "zh": [
+            "事件的概率",
+            "写明采用的测度."
+          ],
+          "en": [
+            "Probability of an event",
+            "Identify the measure being used."
+          ]
+        },
+        {
+          "symbol": "$\\operatorname{Var}(X),\\ \\operatorname{Cov}(X,Y)$",
+          "zh": [
+            "方差、协方差",
+            "运算符使用正体."
+          ],
+          "en": [
+            "Variance and covariance",
+            "Set operator names upright."
+          ]
+        },
+        {
+          "symbol": "$\\rho_{XY}$",
+          "zh": [
+            "相关系数",
+            "同时明确样本范围或分布."
+          ],
+          "en": [
+            "Correlation",
+            "Specify the sample or distribution."
+          ]
+        },
+        {
+          "symbol": "$\\mathbf{1}_A$",
+          "zh": [
+            "事件 A 的示性函数",
+            "事件发生时为 1，否则为 0."
+          ],
+          "en": [
+            "Indicator of event A",
+            "Equals 1 on A and 0 otherwise."
+          ]
+        },
+        {
+          "symbol": "$\\Omega,\\ \\mathcal{F},\\ (\\mathcal{F}_t)$",
+          "zh": [
+            "样本空间、事件族与信息流",
+            "信息流按时间递增."
+          ],
+          "en": [
+            "Sample space, events and filtration",
+            "The filtration increases with time."
+          ]
+        },
+        {
+          "symbol": "$X_t,\\ W_t$",
+          "zh": [
+            "随机过程与布朗运动",
+            "时间范围、测度和过程假设在正文给出."
+          ],
+          "en": [
+            "Stochastic process and Brownian motion",
+            "State the time domain, measure and process assumptions."
+          ]
+        },
+        {
+          "symbol": "$\\mu,\\ \\sigma,\\ \\Sigma$",
+          "zh": [
+            "均值或漂移、波动率、协方差矩阵",
+            "注明时间尺度；具体含义随模型定义."
+          ],
+          "en": [
+            "Mean or drift, volatility, covariance matrix",
+            "State the time scale and the model-specific definition."
+          ]
+        }
+      ]
+    },
+    {
+      "title": {
+        "zh": "市场、合约与组合",
+        "en": "Markets, contracts and portfolios"
+      },
+      "rows": [
+        {
+          "symbol": "$t,\\ T,\\ \\Delta t$",
+          "zh": [
+            "当前时点、终止时点、时间间隔",
+            "利率与时间单位相配."
+          ],
+          "en": [
+            "Current time, terminal time, time step",
+            "Match the units of interest rates and time."
+          ]
+        },
+        {
+          "symbol": "$S_t$",
+          "zh": [
+            "标的或现货价格",
+            "注明币种和每单位标的."
+          ],
+          "en": [
+            "Underlying or spot price",
+            "State currency and underlying unit."
+          ]
+        },
+        {
+          "symbol": "$F_{t,T}$",
+          "zh": [
+            "远期或期货报价",
+            "产品类型与到期日在正文中明确."
+          ],
+          "en": [
+            "Forward or futures quote",
+            "Specify the contract type and maturity."
+          ]
+        },
+        {
+          "symbol": "$K,\\ C_t,\\ P_t$",
+          "zh": [
+            "行权价、看涨期权价格、看跌期权价格",
+            "注明合约单位与乘数；P 的含义由上下文确定."
+          ],
+          "en": [
+            "Strike, call price, put price",
+            "State contract units and multiplier; define P in context."
+          ]
+        },
+        {
+          "symbol": "$V_t,\\ B_t$",
+          "zh": [
+            "合约或组合价值、现金账户价值",
+            "写清计价单位及现金账户的累积规则."
+          ],
+          "en": [
+            "Contract or portfolio value, cash account",
+            "Specify the numeraire and cash-account dynamics."
+          ]
+        },
+        {
+          "symbol": "$R,\\ r$",
+          "zh": [
+            "回报或利率",
+            "简单回报、对数回报与年化利率在首次使用时区分."
+          ],
+          "en": [
+            "Return or interest rate",
+            "Define simple return, log return or annualized rate on first use."
+          ]
+        },
+        {
+          "symbol": "$w_i,\\ q_i,\\ N$",
+          "zh": [
+            "组合权重、持有数量、名义本金或样本量",
+            "每篇按实际用途定义 N，并列出合约乘数."
+          ],
+          "en": [
+            "Portfolio weight, quantity, notional or sample size",
+            "Define N locally and state contract multipliers."
+          ]
+        },
+        {
+          "symbol": "$A=L+E$",
+          "zh": [
+            "资产＝负债＋权益",
+            "此处 E 是权益，金额口径和时点须一致."
+          ],
+          "en": [
+            "Assets = liabilities + equity",
+            "E denotes equity; use consistent scope and reporting dates."
+          ]
+        }
+      ]
+    },
+    {
+      "title": {
+        "zh": "金额与数量",
+        "en": "Amounts and quantities"
+      },
+      "rows": [
+        {
+          "symbol": "K",
+          "zh": [
+            "$10^3$",
+            "例如 250 K 股 = 250,000 股."
+          ],
+          "en": [
+            "$10^3$",
+            "For example, 250 K shares = 250,000 shares."
+          ]
+        },
+        {
+          "symbol": "M",
+          "zh": [
+            "$10^6$",
+            "例如 4,105 M 美元；表头写“单位：USD M”."
+          ],
+          "en": [
+            "$10^6$",
+            "For example, USD 4,105 M; use “USD M” in the table header."
+          ]
+        },
+        {
+          "symbol": "B",
+          "zh": [
+            "$10^9$",
+            "例如 12.5 B 美元 = 12,500 M 美元."
+          ],
+          "en": [
+            "$10^9$",
+            "For example, USD 12.5 B = USD 12,500 M."
+          ]
+        },
+        {
+          "symbol": "USD / CNY / EUR",
+          "zh": [
+            "美元 / 人民币 / 欧元",
+            "币种与量级分别标注；每股金额用 USD/股等形式."
+          ],
+          "en": [
+            "US dollar / renminbi / euro",
+            "State currency separately from scale; use USD/share for per-share values."
+          ]
+        },
+        {
+          "symbol": "bp",
+          "zh": [
+            "$10^{-4}=0.01\\%$",
+            "一个基点；利率差与收益率差可用 bp."
+          ],
+          "en": [
+            "$10^{-4}=0.01\\%$",
+            "One basis point; used for differences in rates or yields."
+          ]
+        }
+      ]
+    }
+  ]
+}

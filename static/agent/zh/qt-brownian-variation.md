@@ -1,16 +1,20 @@
 # Brownian 运动与二次变差
 
-证明确定性网格 QV 的 L2 收敛和 dyadic 几乎处处收敛，再排除有限总变差。
+证明确定性网格 QV 的 L2 收敛和 dyadic 几乎处处收敛，再排除有限总变差.
 
 Entry: zh-qt15 | Node: QT15 | Language: zh | Editorial revision: 2026-09-21
 
 ## Teaching instructions
-你是这篇中文学习单元的教学 Agent。读者具备本包列出的先修：正态矩、L2/概率收敛、Chebyshev 与 Borel–Cantelli。
-先实际取得 required_readings 中本次所选单元并读完，核对版本、页码与公式；已有同会话同版完整读取可以复用。只取得摘要或目录不得声称完成。指定原件若无法取得，先说明具体缺口；只有本包中已经具名核过等价范围的完整数学证明，才可在对应数学步骤内作为替代，并须实际读完且记录替代正文、版本与支持步骤。若本次必读仍有缺失，就停止依赖该内容的实质讲解；研究样本、训练安排、图表结果与作者主张不得以本站概述替代，也不得声称原件已经读过。runtime_reading_log 是你的实际运行记录，交付的空数组不是已读。
-本篇任务：先问 n=64 到256时，首路径相对二次变差极限 1 的绝对误差从 0.020574830905 增至 0.034184022561，是否反驳收敛。让读者独立写 Gaussian 四阶矩、方差界、dyadic 求和和有限总变差反证。
-先让读者尝试，再按所缺的一步解释，不将全部课文一次复述。完整证明需要标明每项条件在哪一步用到，练习给出完整解析。只采用 supplied_inputs 的本篇切片和已链接全量数据，区分教学模型、真实记录、作者论文结果。图不是证明，模拟不是现实规律；不以预测概率替换定价测度。禁止从分位数拟造分布或另抽浏览器随机数冒充冻结路径。最后问：读者只读完这个词条，真的能学明白吗？用迁移题实际判断，明确剩余能力缺口。
+你是这篇中文学习单元的教学 Agent. 读者具备本包列出的先修：正态矩、L2/概率收敛、Chebyshev 与 Borel–Cantelli.
+先实际取得 required_readings 中本次所选单元并读完，核对版本、页码与公式；已有同会话同版完整读取可以复用. 只取得摘要或目录不得声称完成. 指定原件若无法取得，先说明具体缺口；只有本包中已经具名核过等价范围的完整数学证明，才可在对应数学步骤内作为替代，并须实际读完且记录替代正文、版本与支持步骤. 若本次必读仍有缺失，就停止依赖该内容的实质讲解；研究样本、训练安排、图表结果与作者主张不得以本站概述替代，也不得声称原件已经读过. runtime_reading_log 是你的实际运行记录，交付的空数组不是已读.
+本篇任务：先问 n=64 到256时，首路径相对二次变差极限 1 的绝对误差从 0.020574830905 增至 0.034184022561，是否反驳收敛. 让读者独立写 Gaussian 四阶矩、方差界、dyadic 求和和有限总变差反证.
+先让读者尝试，再按所缺的一步解释，不将全部课文一次复述. 完整证明需要标明每项条件在哪一步用到，练习给出完整解析. 只采用 supplied_inputs 的本篇切片和已链接全量数据，区分教学模型、真实记录、作者论文结果. 图不是证明，模拟不是现实规律；不以预测概率替换定价测度. 禁止从分位数拟造分布或另抽浏览器随机数冒充冻结路径. 最后问：读者只读完这个词条，真的能学明白吗？用迁移题实际判断，明确剩余能力缺口.
 
 Before substantive teaching, actually retrieve every required reading unit for the selected scope. Read its complete designated section, including necessary assumptions, tables and footnotes. A working URL or an editorial access date is not a runtime reading receipt. Record the actual version, location, scope and what it supports. If unavailable, use a previously verified equivalent source; if the required unit remains unavailable, identify that gap rather than teach it from memory. Start runtime_reading_log empty. Once reading is complete, use a substantive diagnostic or follow the reader's request for direct explanation. Advance one complete reasoning task at a time; skip mastered basics. Distinguish original facts, supplied teaching assumptions and inference.
+
+## Shared notation and writing conventions
+数学期望统一写成 \mathbb{E}，条件期望用 \mathbb{E}[X\mid\mathcal{G}]，需要时注明测度 P 或 Q. 保留局部变量的明确定义. 金额与数量使用 K=10^3、M=10^6、B=10^9；表格标明币种、量级与期间，变更量级时同步换算数值. 展示小数最多三位，计算保留原始精度. 直接解释对象、机制与推理；保留影响结论的假设和事实来源，把编辑流程留在记录中. 句末使用英文句点 .，包括定义、命题、证明和解析等标签. 基础定义与推导直接讲内容，出处放在紧邻脚注；来源读取、复审和采用范围等编辑经过留在记录中.
+[Notation and units](https://ou-liu-red-sugar.github.io/agent/zh/notation.md)
 
 ## Required readings and runtime protocol
 ```json
@@ -28,7 +32,7 @@ Before substantive teaching, actually retrieve every required reading unit for t
         "scope": "Wiener 定义与存在性陈述",
         "purpose": "仅采用定义"
       },
-      "supports": "标准 Wiener 过程定义及存在性陈述；本稿不重证存在性。",
+      "supports": "标准 Wiener 过程定义及存在性陈述；本稿不重证存在性.",
       "title": "Brownian Motion",
       "authors": [
         "Steven P. Lalley"
@@ -47,7 +51,7 @@ Before substantive teaching, actually retrieve every required reading unit for t
         "scope": "QV 与积分 WdW 完整单元",
         "purpose": "结合本篇 Gaussian 矩与 dyadic BC 证明"
       },
-      "supports": "渐进可测密度、简单积分等距、延拓、停止、局部化与一维 Itô 公式。p.8 下标和 p.19 漂移步长按正确推导采用；Doob 强 L2 估计及一般系数传递在本站完整展开。",
+      "supports": "渐进可测密度、简单积分等距、延拓、停止、局部化与一维 Itô 公式. p.8 下标和 p.19 漂移步长按正确推导采用；Doob 强 L2 估计及一般系数传递在本站完整展开.",
       "title": "Notes on the Itô Calculus",
       "authors": [
         "Steven P. Lalley"
@@ -59,8 +63,8 @@ Before substantive teaching, actually retrieve every required reading unit for t
   "optional_readings": [],
   "runtime_reading_log": [],
   "supplied_inputs": {
-    "competence": "正态矩、L2/概率收敛、Chebyshev 与 Borel–Cantelli。",
-    "static_equivalent": "本篇 reader 全部默认表、证明及题解；HTML 禁用脚本仍可读。",
+    "competence": "正态矩、L2/概率收敛、Chebyshev 与 Borel–Cantelli.",
+    "static_equivalent": "本篇 reader 全部默认表、证明及题解；HTML 禁用脚本仍可读.",
     "attachments": [
       {
         "title": "本篇完整静态阅读、全部题解与证明",
@@ -222,28 +226,28 @@ Before substantive teaching, actually retrieve every required reading unit for t
 <a id="qt15-object"></a>
 ## 从增量尺度开始，而不是从一条锯齿线开始
 
-看一条模拟曲线，最多能提出猜想；要知道链式法则为什么多出一项，必须计算小增量的平方总和。本篇会完整证明确定性分割上的 $L^2$ 二次变差收敛，再得到 dyadic 分割上的几乎必然收敛，并反证 Brownian 路径具有有限总变差。先修是高斯分布的矩、方差、概率收敛和基本测度语言。
+看一条模拟曲线，最多能提出猜想；要知道链式法则为什么多出一项，必须计算小增量的平方总和. 本篇会完整证明确定性分割上的 $L^2$ 二次变差收敛，再得到 dyadic 分割上的几乎必然收敛，并反证 Brownian 路径具有有限总变差. 先修是高斯分布的矩、方差、概率收敛和基本测度语言.
 
-令 $(\Omega,\mathcal F,(\mathcal F_t),P)$ 为过滤概率空间。相对于此过滤的标准 Brownian 运动 $W$ 满足：$W_0=0$，过程适应且有连续路径，并且对 $s<t$，$W_t-W_s$ 独立于 $\mathcal F_s$，服从 $N(0,t-s)$。我们采用连续版本。存在性是另一个定理，本篇不以有限网格模拟代替它。[^bm]
+令 $(\Omega,\mathcal F,(\mathcal F_t),P)$ 为过滤概率空间. 相对于此过滤的标准 Brownian 运动 $W$ 满足：$W_0=0$，过程适应且有连续路径，并且对 $s<t$，$W_t-W_s$ 独立于 $\mathcal F_s$，服从 $N(0,t-s)$. 本篇以具有这些性质的连续版本为起点；有限网格模拟只用于实验，不承担存在性证明.[^bm]
 
-“相对于过滤”不能省略。如果把未来的 $W_T$ 塞进 $\mathcal F_0$，路径和无条件分布都可以不变，但未来增量不再独立于当前信息。后面使用的条件零均值会失效。
+“相对于过滤”不能省略. 如果把未来的 $W_T$ 塞进 $\mathcal F_0$，路径和无条件分布都可以不变，但未来增量不再独立于当前信息. 后面使用的条件零均值会失效.
 
 <a id="qt15-moments"></a>
 ## 平方为什么留下一个非零总量
 
-设 $Z\sim N(0,1)$，密度为 $\varphi$，有 $\varphi'(z)=-z\varphi(z)$。分部积分的边界项由高斯尾部消失，得到
+设 $Z\sim N(0,1)$，密度为 $\varphi$，有 $\varphi'(z)=-z\varphi(z)$. 分部积分的边界项由高斯尾部消失，得到
 
 $$
 \begin{gathered}
-E[Z^2]=-\int z\varphi'(z)\,dz=1,\\
-E[Z^4]=-\int z^3\varphi'(z)\,dz=3.
+\mathbb{E}[Z^2]=-\int z\varphi'(z)\,dz=1,\\
+\mathbb{E}[Z^4]=-\int z^3\varphi'(z)\,dz=3.
 \end{gathered}
 $$
 
 所以若 $\Delta W\sim N(0,\Delta t)$，
 
 $$
-E[(\Delta W)^2]=\Delta t,
+\mathbb{E}[(\Delta W)^2]=\Delta t,
 \qquad
 \operatorname{Var}((\Delta W)^2)=2(\Delta t)^2.
 $$
@@ -258,14 +262,14 @@ $$
 不交区间增量独立，所以平方也独立，故
 
 $$
-E[Q_\pi]=T,
+\mathbb{E}[Q_\pi]=T,
 \qquad
-E[(Q_\pi-T)^2]
+\mathbb{E}[(Q_\pi-T)^2]
 =2\sum_j(\Delta t_j)^2
 \le2T|\pi|.
 $$
 
-因此，对任意网格宽度趋于零的确定性分割序列，$Q_\pi\to T$ 于 $L^2$，从而也依概率收敛。这是一个完整的误差界，不需要把不同层网格的增量误认成相互独立。[^ito-qv]
+因此，对任意网格宽度趋于零的确定性分割序列，$Q_\pi\to T$ 于 $L^2$，从而也依概率收敛. 这是一个完整的误差界，不需要把不同层网格的增量误认成相互独立. [^ito-qv]
 
 <a id="qt15-as"></a>
 ## 从均方收敛走到路径结论
@@ -277,9 +281,9 @@ P(|Q_m-T|>\varepsilon)
 \le\frac{2T^2}{\varepsilon^2 2^m}.
 $$
 
-右边对 $m$ 可求和。因此 Borel–Cantelli 的第一部分说明：固定 $\varepsilon$ 的坏事件只发生有限次。再取可数个 $\varepsilon=1,1/2,1/3,\ldots$ 的共同满测度集合，得到 $Q_m\to T$ 几乎必然。这里只用可求和，不要求不同 $m$ 的误差独立。
+右边对 $m$ 可求和. 因此 Borel–Cantelli 的第一部分说明：固定 $\varepsilon$ 的坏事件只发生有限次. 再取可数个 $\varepsilon=1,1/2,1/3,\ldots$ 的共同满测度集合，得到 $Q_m\to T$ 几乎必然. 这里只用可求和，不要求不同 $m$ 的误差独立.
 
-注意量词：我们固定了一组 dyadic 分割。没有证明“对所有随机、甚至依赖整条路径的分割，同时几乎必然收敛”。把确定性分割的 $L^2$ 结论与某个固定细化序列的路径结论分开，后面才不会滥用二次变差。
+注意量词：我们固定了一组 dyadic 分割. 没有证明“对所有随机、甚至依赖整条路径的分割，同时几乎必然收敛”. 把确定性分割的 $L^2$ 结论与某个固定细化序列的路径结论分开，后面才不会滥用二次变差.
 
 <a id="qt15-variation"></a>
 ## 连续但没有有限总变差
@@ -299,14 +303,14 @@ $$
 \operatorname{TV}_{[0,T]}(w).
 $$
 
-连续函数在紧区间上一致连续，故网格趋细时右边趋于零。然而 Brownian 路径在刚才的共同满测度集合上，dyadic 平方和趋于 $T>0$，矛盾。因此在任意预先固定的非退化区间上，Brownian 路径几乎必然不是有限总变差路径。
+连续函数在紧区间上一致连续，故网格趋细时右边趋于零. 然而 Brownian 路径在刚才的共同满测度集合上，dyadic 平方和趋于 $T>0$，矛盾. 因此在任意预先固定的非退化区间上，Brownian 路径几乎必然不是有限总变差路径.
 
-这说明不能直接把它当作普通有限变差积分的积分器。它不等于“任何形式的路径积分都不可能”，也没有顺便证明处处不可导。我们只使用刚刚建立的结论，为下一篇的均方积分构造留下明确动机。
+这说明不能直接把它当作普通有限变差积分的积分器. 它不等于“任何形式的路径积分都不可能”，也没有顺便证明处处不可导. 我们只使用刚刚建立的结论，为下一篇的均方积分构造留下明确动机.
 
 <a id="qt15-experiment"></a>
 ## 同一路径、四层网格
 
-实验固定 PCG64(15161724)，一次生成 $8192\times256$ 个标准正态数。最细增量为 $Z_j/\sqrt{256}$，较粗的 4、16、64 步由连续最细增量相加；不是每次切换都另抽一条路径。模型时钟为一年，Brownian 的平方量纲对应时间。
+实验固定 PCG64(15161724)，一次生成 $8192\times256$ 个标准正态数. 最细增量为 $Z_j/\sqrt{256}$，较粗的 4、16、64 步由连续最细增量相加；不是每次切换都另抽一条路径. 模型时钟为一年，Brownian 的平方量纲对应时间.
 
 | 网格区间数 | 同一首路径 QV | 8,192 条路径 QV 均值 | 理论方差 $2/n$ |
 | --- | --- | --- | --- |
@@ -317,16 +321,16 @@ $$
 
 <div data-experiment-slot="EXP-QT15-17-DIFFUSION-01"></div>
 
-单条示例路径的平方和不是单调靠近 1：16 步时在 1 上方，256 步时又在下方。收敛不要求每一次细化都改善误差。样本均值更接近 1，也不意味着我们已经从有限数据证明了路径定理；定理来自高斯矩和上面的概率论论证。
+单条示例路径的平方和不是单调靠近 1：16 步时在 1 上方，256 步时又在下方. 收敛不要求每一次细化都改善误差. 样本均值更接近 1，也不意味着我们已经从有限数据证明了路径定理；定理来自高斯矩和上面的概率论论证.
 
-在真实日线资料中可以计算 $\sum(\Delta\log P)^2$，但它带着具体日频、复权和缺失处理。它不是获得了价格的全部连续路径，也不能只凭数值相近就断言价格服从 GBM。这里的主实验不把事后调整价当作历史成交价。
+真实日线资料可以计算 $\sum(\Delta\log P)^2$，但该量仍依赖具体日频、复权和缺失处理. 它不能还原价格的完整连续路径，也不能仅凭数值相近就判定价格服从 GBM. 主实验使用模型路径，不把事后调整价当作历史成交价.
 
 <a id="qt15-exercise"></a>
 ## 迁移：加入漂移以后平方和怎样变化？
 
-**题目。** 对常数 $a,b$，令 $X_t=at+bW_t$。沿同一组 dyadic 分割，证明平方增量和趋于 $b^2T$，并指出为什么只观察平方和不能恢复漂移 $a$。再解释：改看 $W_{2t}$，其 $[0,1]$ 平方和目标为什么不是 1。
+**题目.** 对常数 $a,b$，令 $X_t=at+bW_t$. 沿同一组 dyadic 分割，证明平方增量和趋于 $b^2T$，并指出为什么只观察平方和不能恢复漂移 $a$. 再解释：改看 $W_{2t}$，其 $[0,1]$ 平方和目标为什么不是 1.
 
-**解析。** 展开平方：
+**解析.** 展开平方：
 
 $$
 \sum(\Delta X)^2
@@ -335,17 +339,17 @@ $$
 +b^2Q_\pi.
 $$
 
-第一项不超过 $a^2T|\pi|$。混合项的绝对值不超过
+第一项不超过 $a^2T|\pi|$. 混合项的绝对值不超过
 
 $$
 2|ab|\left(\sum(\Delta t)^2\right)^{1/2}
 Q_\pi^{1/2},
 $$
 
-在 dyadic 的满测度收敛集合上趋于零，第三项趋于 $b^2T$。故漂移不进入该极限，并不能由这个量识别 $a$。对 $W_{2t}$，每个时长 $\Delta t$ 的增量方差为 $2\Delta t$，相当于系数 $b=\sqrt2$ 的 Brownian 运动，因此目标为 2。时间尺度也是模型的一部分。
+在 dyadic 的满测度收敛集合上趋于零，第三项趋于 $b^2T$. 故漂移不进入该极限，并不能由这个量识别 $a$. 对 $W_{2t}$，每个时长 $\Delta t$ 的增量方差为 $2\Delta t$，相当于系数 $b=\sqrt2$ 的 Brownian 运动，因此目标为 2. 时间尺度也是模型的一部分.
 
-[^bm]: Steven P. Lalley，[Brownian Motion](https://galton.uchicago.edu/~lalley/Courses/385/BrownianMotion.pdf)，未标修订日期，§1.1，物理 pp.1–3 的定义与存在性陈述。
-[^ito-qv]: Steven P. Lalley，[Notes on the Itô Calculus](https://www.stat.uchicago.edu/~lalley/Courses/385/Old/ItoIntegral-2012.pdf)，2012-05-15，§3.3，pp.10–12。本文把高斯矩、$L^2$ 误差界及 dyadic 的 Borel–Cantelli 步骤完整展开。
+[^bm]: Steven P. Lalley，[Brownian Motion](https://galton.uchicago.edu/~lalley/Courses/385/BrownianMotion.pdf)，未标修订日期，§1.1，物理 pp.1–3 的定义与存在性陈述.
+[^ito-qv]: Steven P. Lalley，[Notes on the Itô Calculus](https://www.stat.uchicago.edu/~lalley/Courses/385/Old/ItoIntegral-2012.pdf)，2012-05-15，§3.3，pp.10–12. 本文把高斯矩、$L^2$ 误差界及 dyadic 的 Borel–Cantelli 步骤完整展开.
 
 
 ## Experiment inputs and static equivalents
@@ -355,11 +359,11 @@ $$
     "id": "EXP-QT15-17-DIFFUSION-01",
     "title": "同一路径的二次变差",
     "anchor": "qt15-experiment",
-    "description": "共享输入的本篇视图；保持 EXP-QT15-17-DIFFUSION-01 唯一冻结身份。",
+    "description": "共享输入的本篇视图；保持 EXP-QT15-17-DIFFUSION-01 唯一冻结身份.",
     "inputs": {
       "uri": "https://ou-liu-red-sugar.github.io/notebook/labs/qt-ghi/data/learning-inputs.json",
       "json_pointer": "/QT15",
-      "scope": "本篇 supplied_inputs 的完整同源切片；冻结参数和全部结果附件在该切片内定位。"
+      "scope": "本篇 supplied_inputs 的完整同源切片；冻结参数和全部结果附件在该切片内定位."
     },
     "outputs": {
       "grids": [
@@ -454,8 +458,8 @@ $$
 ```
 
 ## Sources
-- [Brownian Motion](https://galton.uchicago.edu/~lalley/Courses/385/BrownianMotion.pdf): 标准 Wiener 过程定义及存在性陈述；本稿不重证存在性。
-- [Notes on the Itô Calculus](https://www.stat.uchicago.edu/~lalley/Courses/385/Old/ItoIntegral-2012.pdf): 渐进可测密度、简单积分等距、延拓、停止、局部化与一维 Itô 公式。p.8 下标和 p.19 漂移步长按正确推导采用；Doob 强 L2 估计及一般系数传递在本站完整展开。
+- [Brownian Motion](https://galton.uchicago.edu/~lalley/Courses/385/BrownianMotion.pdf): 标准 Wiener 过程定义及存在性陈述；本稿不重证存在性.
+- [Notes on the Itô Calculus](https://www.stat.uchicago.edu/~lalley/Courses/385/Old/ItoIntegral-2012.pdf): 渐进可测密度、简单积分等距、延拓、停止、局部化与一维 Itô 公式. p.8 下标和 p.19 漂移步长按正确推导采用；Doob 强 L2 估计及一般系数传递在本站完整展开.
 
 ## Content relations
 ```json
@@ -470,14 +474,14 @@ $$
     "from": "qt15-moments",
     "relation": "requires",
     "to": "zh-qt12",
-    "reason": "该段实际使用所列局部能力。",
+    "reason": "该段实际使用所列局部能力.",
     "required_competence": "L2/概率收敛与 Chebyshev"
   },
   {
     "from": "zh-qt15",
     "relation": "supported_by",
     "to": "QGHI-LALLEY-BM",
-    "reason": "标准 Wiener 过程定义及存在性陈述；本稿不重证存在性。",
+    "reason": "标准 Wiener 过程定义及存在性陈述；本稿不重证存在性.",
     "locator": "§1.1 pp.1–3",
     "scope": "Wiener 定义与存在性陈述"
   },
@@ -485,7 +489,7 @@ $$
     "from": "zh-qt15",
     "relation": "supported_by",
     "to": "QGHI-LALLEY-ITO12",
-    "reason": "渐进可测密度、简单积分等距、延拓、停止、局部化与一维 Itô 公式。p.8 下标和 p.19 漂移步长按正确推导采用；Doob 强 L2 估计及一般系数传递在本站完整展开。",
+    "reason": "渐进可测密度、简单积分等距、延拓、停止、局部化与一维 Itô 公式. p.8 下标和 p.19 漂移步长按正确推导采用；Doob 强 L2 估计及一般系数传递在本站完整展开.",
     "locator": "§3.3 pp.10–12",
     "scope": "QV 与积分 WdW 完整单元"
   },
@@ -493,15 +497,15 @@ $$
     "from": "qt15-experiment",
     "relation": "illustrated_by",
     "to": "EXP-QT15-17-DIFFUSION-01",
-    "reason": "唯一冻结输入在本篇的对应视图。"
+    "reason": "唯一冻结输入在本篇的对应视图."
   },
   {
     "from": "qt15-object",
     "relation": "supported_by",
     "to": "QGHI-LALLEY-BM",
-    "reason": "对应本段作者已著明脚注；教学模型及本站补全证明的身份沿原脚注保留。",
-    "locator": "Steven P. Lalley，[Brownian Motion](https://galton.uchicago.edu/~lalley/Courses/385/BrownianMotion.pdf)，未标修订日期，§1.1，物理 pp.1–3 的定义与存在性陈述。",
-    "scope": "只支持此处脚注具名的定义、条件、证明或原表单元。",
+    "reason": "对应本段作者已著明脚注；教学模型及本站补全证明的身份沿原脚注保留.",
+    "locator": "Steven P. Lalley，[Brownian Motion](https://galton.uchicago.edu/~lalley/Courses/385/BrownianMotion.pdf)，未标修订日期，§1.1，物理 pp.1–3 的定义与存在性陈述.",
+    "scope": "只支持此处脚注具名的定义、条件、证明或原表单元.",
     "citation_labels": [
       "bm"
     ]
@@ -510,9 +514,9 @@ $$
     "from": "qt15-moments",
     "relation": "supported_by",
     "to": "QGHI-LALLEY-ITO12",
-    "reason": "对应本段作者已著明脚注；教学模型及本站补全证明的身份沿原脚注保留。",
-    "locator": "Steven P. Lalley，[Notes on the Itô Calculus](https://www.stat.uchicago.edu/~lalley/Courses/385/Old/ItoIntegral-2012.pdf)，2012-05-15，§3.3，pp.10–12。本文把高斯矩、$L^2$ 误差界及 dyadic 的 Borel–Cantelli 步骤完整展开。",
-    "scope": "只支持此处脚注具名的定义、条件、证明或原表单元。",
+    "reason": "对应本段作者已著明脚注；教学模型及本站补全证明的身份沿原脚注保留.",
+    "locator": "Steven P. Lalley，[Notes on the Itô Calculus](https://www.stat.uchicago.edu/~lalley/Courses/385/Old/ItoIntegral-2012.pdf)，2012-05-15，§3.3，pp.10–12. 本文把高斯矩、$L^2$ 误差界及 dyadic 的 Borel–Cantelli 步骤完整展开.",
+    "scope": "只支持此处脚注具名的定义、条件、证明或原表单元.",
     "citation_labels": [
       "ito-qv"
     ]

@@ -1,7 +1,7 @@
 {
   "QT13": {
-    "competence": "QT11 的条件概率/塔性质与有限矩阵乘法。",
-    "static_equivalent": "本篇 reader 全部默认表、证明及题解；HTML 禁用脚本仍可读。",
+    "competence": "QT11 的条件概率/塔性质与有限矩阵乘法.",
+    "static_equivalent": "本篇 reader 全部默认表、证明及题解；HTML 禁用脚本仍可读.",
     "attachments": [
       {
         "title": "本篇完整静态阅读、全部题解与证明",
@@ -168,8 +168,8 @@
     }
   },
   "QT14": {
-    "competence": "基本概率、条件期望和过滤；无需强 Markov 定理。",
-    "static_equivalent": "本篇 reader 全部默认表、证明及题解；HTML 禁用脚本仍可读。",
+    "competence": "基本概率、条件期望和过滤；无需强 Markov 定理.",
+    "static_equivalent": "本篇 reader 全部默认表、证明及题解；HTML 禁用脚本仍可读.",
     "attachments": [
       {
         "title": "本篇完整静态阅读、全部题解与证明",
@@ -342,8 +342,8 @@
     }
   },
   "QT15": {
-    "competence": "正态矩、L2/概率收敛、Chebyshev 与 Borel–Cantelli。",
-    "static_equivalent": "本篇 reader 全部默认表、证明及题解；HTML 禁用脚本仍可读。",
+    "competence": "正态矩、L2/概率收敛、Chebyshev 与 Borel–Cantelli.",
+    "static_equivalent": "本篇 reader 全部默认表、证明及题解；HTML 禁用脚本仍可读.",
     "attachments": [
       {
         "title": "本篇完整静态阅读、全部题解与证明",
@@ -499,8 +499,8 @@
     }
   },
   "QT16": {
-    "competence": "条件期望、时空 L2 范数与 QT15 的 QV。",
-    "static_equivalent": "本篇 reader 全部默认表、证明及题解；HTML 禁用脚本仍可读。",
+    "competence": "条件期望、时空 L2 范数与 QT15 的 QV.",
+    "static_equivalent": "本篇 reader 全部默认表、证明及题解；HTML 禁用脚本仍可读.",
     "attachments": [
       {
         "title": "本篇完整静态阅读、全部题解与证明",
@@ -656,8 +656,8 @@
     }
   },
   "QT16-P1": {
-    "competence": "QT16 简单积分/等距；L2 完备、Lebesgue 微分、Tonelli/DCT、条件期望收缩。",
-    "static_equivalent": "本篇 reader 全部默认表、证明及题解；HTML 禁用脚本仍可读。",
+    "competence": "QT16 简单积分/等距；L2 完备、Lebesgue 微分、Tonelli/DCT、条件期望收缩.",
+    "static_equivalent": "本篇 reader 全部默认表、证明及题解；HTML 禁用脚本仍可读.",
     "attachments": [
       {
         "title": "本篇完整静态阅读、全部题解与证明",
@@ -670,11 +670,11 @@
         "kind": "markdown"
       }
     ],
-    "proof_scope": "本篇完整证明为 supplied site body；通常条件、progressive、dt⊗P 等价类、共同满概率版本与局部/全局矩条件按正文。"
+    "proof_scope": "本篇完整证明为 supplied site body；通常条件、progressive、dt⊗P 等价类、共同满概率版本与局部/全局矩条件按正文."
   },
   "QT17": {
-    "competence": "Brownian 增量、Itô 积分、基本微分与期望。",
-    "static_equivalent": "本篇 reader 全部默认表、证明及题解；HTML 禁用脚本仍可读。",
+    "competence": "Brownian 增量、Itô 积分、基本微分与期望.",
+    "static_equivalent": "本篇 reader 全部默认表、证明及题解；HTML 禁用脚本仍可读.",
     "attachments": [
       {
         "title": "本篇完整静态阅读、全部题解与证明",
@@ -830,8 +830,8 @@
     }
   },
   "QT17-P1": {
-    "competence": "QT16-P1 构造、最大估计与停止；L1/L2 收敛、Taylor、连续模。",
-    "static_equivalent": "本篇 reader 全部默认表、证明及题解；HTML 禁用脚本仍可读。",
+    "competence": "QT16-P1 构造、最大估计与停止；L1/L2 收敛、Taylor、连续模.",
+    "static_equivalent": "本篇 reader 全部默认表、证明及题解；HTML 禁用脚本仍可读.",
     "attachments": [
       {
         "title": "本篇完整静态阅读、全部题解与证明",
@@ -844,11 +844,11 @@
         "kind": "markdown"
       }
     ],
-    "proof_scope": "本篇完整证明为 supplied site body；通常条件、progressive、dt⊗P 等价类、共同满概率版本与局部/全局矩条件按正文。"
+    "proof_scope": "本篇完整证明为 supplied site body；通常条件、progressive、dt⊗P 等价类、共同满概率版本与局部/全局矩条件按正文."
   },
   "QT24": {
-    "competence": "主线只需现金递推、概率与均方误差；定价分支调用 QT17。",
-    "static_equivalent": "本篇 reader 全部默认表、证明及题解；HTML 禁用脚本仍可读。",
+    "competence": "主线只需现金递推、概率与均方误差；定价分支调用 QT17.",
+    "static_equivalent": "本篇 reader 全部默认表、证明及题解；HTML 禁用脚本仍可读.",
     "attachments": [
       {
         "title": "本篇完整静态阅读、全部题解与证明",
@@ -1116,12 +1116,12 @@
     "reproduction": {
       "instructions": "https://ou-liu-red-sugar.github.io/notebook/labs/qt-ghi/README.md",
       "code": "https://ou-liu-red-sugar.github.io/notebook/labs/qt-ghi/compute/reproduce.py",
-      "array_policy": "全数组为实际复算附件；教学先读当前完整账本及所选设计结果。NPZ需实际用数组工具读取，不由浏览器另抽随机数。"
+      "array_policy": "全数组为实际复算附件；教学先读当前完整账本及所选设计结果. NPZ需实际用数组工具读取，不由浏览器另抽随机数."
     }
   },
   "QT25": {
-    "competence": "A：回归、时序评价与信息时点。B：条件信息、状态与离散对冲损失。无共同 QT20–22 硬门槛。",
-    "static_equivalent": "本篇 reader 全部默认表、证明及题解；HTML 禁用脚本仍可读。",
+    "competence": "A：回归、时序评价与信息时点. B：条件信息、状态与离散对冲损失. 无共同 QT20–22 硬门槛.",
+    "static_equivalent": "本篇 reader 全部默认表、证明及题解；HTML 禁用脚本仍可读.",
     "attachments": [
       {
         "title": "本篇完整静态阅读、全部题解与证明",

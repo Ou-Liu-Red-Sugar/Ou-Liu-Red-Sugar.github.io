@@ -55,14 +55,14 @@
   }
   function remainderText(result, tif) {
     choice(tif, ['day', 'ioc'], '有效期');
-    if (!result.requested) return '数量为 0：本轮没有订单，也没有逐股成交费。';
-    if (result.reason === 'complete') return '所列模型中已完成全部数量。';
+    if (!result.requested) return '数量为 0：本轮没有订单，也没有逐股成交费.';
+    if (result.reason === 'complete') return '所列模型中已完成全部数量.';
     if (result.reason === 'limit_blocked') return tif === 'ioc'
-      ? '本轮被限价阻挡；IOC 在本实验条件下取消余量。'
-      : '本轮被限价阻挡；Day 余量等待后续，后续成交未建模。';
+      ? '本轮被限价阻挡；IOC 在本实验条件下取消余量.'
+      : '本轮被限价阻挡；Day 余量等待后续，后续成交未建模.';
     return tif === 'ioc'
-      ? '表外执行未知；只有在不存在其他可得深度的条件下，IOC 余量才会取消。'
-      : '表外执行未知；没有第一个未完成单位的价格，不能外推成交或最终状态。';
+      ? '表外执行未知；只有在不存在其他可得深度的条件下，IOC 余量才会取消.'
+      : '表外执行未知；没有第一个未完成单位的价格，不能外推成交或最终状态.';
   }
   function settlement(data, tradeDate, stage) {
     choice(tradeDate, Object.keys(data.lags), '交易日期');

@@ -830,7 +830,7 @@
   "lease_costco": {
     "company": "costco",
     "period": "2025-08-31",
-    "unit": "USD million",
+    "unit": "USD M",
     "source_id": "BF-S-COST-FY2025-PDF",
     "locator": "Note5 printed pp50–51; PDF pp56–57; policy printed p43",
     "balances": [
@@ -950,7 +950,7 @@
   "lease_salesforce": {
     "company": "salesforce",
     "period": "2026-01-31",
-    "unit": "USD million",
+    "unit": "USD M",
     "source_id": "BBC-C01",
     "locator": "Note6 Leases and Other Commitments pp75–77; Note1 Leases pp67–68",
     "balances": [
@@ -1062,7 +1062,7 @@
   },
   "intangible_facts": {
     "period": "FY2026 / 2026-01-31",
-    "unit": "USD million",
+    "unit": "USD M",
     "preliminary": true,
     "consideration": 9636,
     "assets": 11017,
@@ -1252,7 +1252,7 @@
     }
   },
   "segments": {
-    "unit": "USD million",
+    "unit": "USD M",
     "period": "FY2025",
     "revenue": {
       "opening": 73955,
@@ -1416,7 +1416,7 @@
   },
   "drivers": {
     "identity": "Company historical attribution, not structural coefficients",
-    "unit": "USD million",
+    "unit": "USD M",
     "revenue": {
       "opening": 64809,
       "rows": [
@@ -1644,7 +1644,7 @@
     "exact_linear_identity_applies": false
   },
   "working_capital": {
-    "unit": "USD million / days",
+    "unit": "USD M / days",
     "period": "FY2025 (52 weeks)",
     "days": 364,
     "average_inventory": 18381.5,

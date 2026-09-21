@@ -181,7 +181,7 @@
         "period": "2026-04/2026-05",
         "released_at": "2026-07-02T10:00:00-04:00",
         "retrieved_at": "2026-09-21",
-        "unit": "million USD",
+        "unit": "USD M",
         "seasonally_adjusted": true,
         "price_adjusted": false,
         "new_orders_net_of_cancellations": true,

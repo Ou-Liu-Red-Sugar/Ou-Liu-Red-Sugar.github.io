@@ -40,7 +40,7 @@ function cash(D){
  const lines=[{id:'cfo',label_original:row(t,'cfo').label_original,label_zh:'经营现金流整体',value:cfo,section:'cfo'},...t.rows.filter(r=>r.kind==='detail'&&['cfi','cff'].includes(r.section)).map(r=>({id:r.id,label_original:r.label_original,label_zh:r.label_zh,value:r.values[0],section:r.section}))];
  const sources=lines.filter(r=>r.value>0),uses=lines.filter(r=>r.value<0),zero=lines.filter(r=>r.value===0);const sourceTotal=sum(sources.map(r=>r.value)),useTotal=-sum(uses.map(r=>r.value));
  const begin=row(t,'begin').values[0],fx=row(t,'fx').values[0];
- return {identity:'reported_cash_rows_regrouped',sources,uses,zero,sources_total:sourceTotal,uses_total:useTotal,cfo,cfi:row(t,'cfi').values[0],cff:row(t,'cff').values[0],net_three_activities:sourceTotal-useTotal,fx_separate:fx,change:sourceTotal-useTotal+fx,begin,end:begin+sourceTotal-useTotal+fx,operating_explanation:operating,operating_explanation_sum:sum(operating.map(r=>r.value)),note:'CFO展开替换整体；来源29028不含FX，补充现金披露不再累计。'};
+ return {identity:'reported_cash_rows_regrouped',sources,uses,zero,sources_total:sourceTotal,uses_total:useTotal,cfo,cfi:row(t,'cfi').values[0],cff:row(t,'cff').values[0],net_three_activities:sourceTotal-useTotal,fx_separate:fx,change:sourceTotal-useTotal+fx,begin,end:begin+sourceTotal-useTotal+fx,operating_explanation:operating,operating_explanation_sum:sum(operating.map(r=>r.value)),note:'CFO展开替换整体；来源29028不含FX，补充现金披露不再累计.'};
 }
 function allocate(D,action='retain',opt={}){
  if(!['retain','repay','build','repurchase'].includes(action))throw new Error('未知资金用途');

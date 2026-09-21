@@ -4,7 +4,7 @@
   "lang": "zh",
   "slug": "volatility-surface-option-information",
   "title": "波动率曲面与市场信息：从报价读到研究结论",
-  "summary": "从合成IV网格到VIX总方差插值，再带读2025年风险溢价研究，分开模型表达、回报分母和风险调整。",
+  "summary": "从合成IV网格到VIX总方差插值，再带读2025年风险溢价研究，分开模型表达、回报分母和风险调整.",
   "subject": "markets",
   "topic": "markets-pricing",
   "kind": "concept",
@@ -17,8 +17,8 @@
   },
   "revised": "2026-09-21",
   "content_version": "2026-09-21-MEFG-review-v3",
-  "body_markdown": "<a id=\"m22-question\"></a>\n## 一、我们究竟在图上看什么\n\n同一个标的，不同行权价、到期日的期权会有不同报价。把每个报价放进同一套定价模型反解，就得到一组隐含波动率，简称IV。沿执行价看，是偏斜或微笑；沿期限看，是波动率期限结构；把两个方向放在一起，才是一张曲面。\n\n这里先分清三层。期权市场给出带时点的bid和ask；模型把报价换一种参数形式表达；研究者再解释这种定价与未来风险、投资者要求的补偿或交易条件有什么关系。第三层不能跳过前两层。尤其不能把一张IV图直接读成真实概率分布的照片。上一节BSM中 $N(d_2)$ 与实际概率不同的边界，在这里同样有效。[^MEFG-MIT-KOGAN]\n\n本篇先做一张可以复算的教学曲面，再读Cboe如何把特定期权报价构造成VIX，最后读一项2025年研究。前两段计算是练习，研究图是原文带读；它们不混成一份“历史回测”。\n\n<a id=\"m22-surface\"></a>\n## 二、同源九点曲面：把报价区间保留下来\n\n采用与M18、M19相同的 **EXP-MEFG-IV-01**：标的点数5,000，连续复利年利率4%，股息率设为0，期限按ACT/365。股息率0是教学假设，不是对S&P 500分红的测量。先明示各点的模型 $\\sigma$，计算欧式call/put，再按SPX报价增量取整、加减0.2点半价差。真实SPX的100美元乘数只负责将点数换成美元；下面不是任何一天的SPX期权链。[^MEFG-SPX]\n\n| 到期天数 | 执行价 | 生成报价所用 $\\sigma$ | call bid / mid / ask（点） | 反解IV：bid / mid / ask |\n|---:|---:|---:|---|---|\n| 30 | 4,500 | 28.0% | 530.00 / 530.20 / 530.40 | 27.9111% / 28.0037% / 28.0958% |\n| 30 | 5,000 | 24.0% | 145.20 / 145.40 / 145.60 | 23.9724% / 24.0074% / 24.0425% |\n| 30 | 5,500 | 22.0% | 10.40 / 10.60 / 10.80 | 21.8955% / 21.9929% / 22.0894% |\n| 90 | 4,500 | 27.0% | 612.30 / 612.50 / 612.70 | 26.9695% / 27.0006% / 27.0316% |\n| 90 | 5,000 | 23.5% | 256.70 / 256.90 / 257.10 | 23.4841% / 23.5045% / 23.5249% |\n| 90 | 5,500 | 22.0% | 70.40 / 70.60 / 70.80 | 21.9679% / 21.9942% / 22.0205% |\n| 180 | 4,500 | 25.0% | 702.80 / 703.00 / 703.20 | 24.9814% / 25.0011% / 25.0207% |\n| 180 | 5,000 | 23.0% | 369.70 / 369.90 / 370.10 | 22.9864% / 23.0010% / 23.0155% |\n| 180 | 5,500 | 22.0% | 160.90 / 161.10 / 161.30 | 21.9834% / 21.9989% / 22.0145% |\n\n读表先做两个动作。固定90天，低执行价的IV较高；这描述当前教学网格的执行价方向。再固定执行价5,000，从30到180天，输入波动率24%、23.5%、23%，描述期限方向。两者不是“期权价格随执行价或期限的斜率”：期权价格还同时受内在程度、资金时间等因素影响。\n\nbid和ask反解得到一个IV区间。90天、K=5,000的call中价为256.90，反解23.5045%，略不同于生成未取整价格时的23.5%。这点差别来自报价取整，不是突然发现了另一种真实波动率。价格与IV的转换还依赖股息、利率、结算和模型；换一组假设，同一个报价可以对应不同IV。这里只检查这九点的价格界、执行价单调性和离散凸性，不宣称构建了一张全局无套利插值曲面。\n\n<a id=\"m22-vix\"></a>\n## 三、VIX为什么不是“所有IV的平均数”\n\nCboe的VIX产品方法文件与数学方法文件各有职责。本篇采用前者 **v6.0、2026-02-26**，后者 **v5.0、同日**。产品方法确定合格SPX／SPXW合约、期限、报价与发布／结算安排；数学方法给定期权报价如何进入方差计算。常规30天VIX组合不是把当天到期的0DTE期权直接加进来。[^MEFG-VIX-METHOD]\n\n为看清权重，先只写一个期限 $T$ 的核心表达：\n$$\n\\sigma^2(T)=\n\\frac{2}{T}\\sum_i\n\\frac{\\Delta K_i}{K_i^2}e^{rT}q_{\\rm quote}(K_i)\n-\\frac1T\\left(\\frac F{K_0}-1\\right)^2.\n$$\n这里的 $q_{\\rm quote}(K)$ 是按方法选定的**期权报价**；原文把它写作 $Q(K)$，我们特意换符号，避免与M21的概率测度 $Q$ 混淆。$F$ 是由期权关系推得的远期水平，$K_0$ 是相应边界执行价；两侧使用指定的虚值put／call，$K_0$处按规则使用两种期权的平均报价，$\\Delta K$则给不同执行价间距以权重。完整规则还包括合约和报价过滤，不是随便拿一条链求和。[^MEFG-VIX-MATH]\n\n每个期限先形成**年化方差**，然后在两个期限之间插值的是总方差。若两期限剩余分钟数为 $N_1,N_2$，目标30天为 $N_*=43,200$，一年为 $N_Y=525,600$，令\n$$\nw_1=\\frac{N_2-N_*}{N_2-N_1},\\qquad w_2=1-w_1,\\qquad T_i=\\frac{N_i}{N_Y}.\n$$\n则\n$$\n\\sigma_{30}^2\n=\\frac{w_1T_1\\sigma_1^2+w_2T_2\\sigma_2^2}{N_*/N_Y},\n\\qquad\nVIX=100\\sqrt{\\sigma_{30}^2}.\n$$\n\n产品方法Appendix 3**明确称为假设算例**。它虽带一个示例日期和时刻，仍不是该日实测VIX。本篇只重建它的最后一步：\n\n| 输入 | 近到期 | 次近到期 |\n|---|---:|---:|\n| 剩余分钟 | 34,484 | 44,954 |\n| 已给定年化方差 | 0.019233906 | 0.019423884 |\n\n代入得到13.927842，显示到两位小数为 **13.93**。另一项可核的小计算是执行价1,370那一行：$\\Delta K=5$、报价0.2、原例舍入后的 $r=0.000317,T=0.0656088$，其求和项\n$$\n\\frac5{1370^2}e^{0.000317\\times0.0656088}\\times0.2\n\\approx5.32804517\\times10^{-7}.\n$$\n这是求和中的一个贡献，尚不是完整期限方差；本篇没有重建整条执行价条带和利率曲线样条。[^MEFG-VIX-METHOD]\n\n再做一个更直观的独立教学变式：24天年化波动20%、36天24%，目标30天。权重各半，但总方差必须带期限：\n$$\n\\sigma_{30}^2\n=\\frac{\\tfrac12\\,24(0.20)^2+\\tfrac12\\,36(0.24)^2}{30}\n=0.05056.\n$$\n开平方是 <strong>22.485551%</strong>，不是20%与24%的算术平均22%。\n\n最后，VIX现货指数的中间报价计算，不等于能直接按那个指数值买卖某个现货资产。相关衍生品到期使用的特别开盘报价SOQ有自己的单期限、开盘成交及相应替代报价规则，不是机械复制普通盘中两期限插值。[^MEFG-VIX-METHOD]\n\n<a id=\"case-mefg-chicago-2025\"></a>\n<a id=\"m22-study\"></a>\n## 四、带读一项研究：alpha下降，不等于所有风险补偿消失\n\nDew-Becker和Giglio的Chicago Fed工作论文 *The decline of the variance risk premium: evidence from traded and synthetic options*，稿件日期2025-09-04，比较真实交易期权与动态合成期权的回报。先不要跳到“卖波动还赚不赚钱”，先读三个设置。[^MEFG-CHICAGOFED-2025]\n\n**第一，两个样本不是一条历史期权链。** Synthetic使用CRSP股票市场回报构造，历史覆盖1926–2022；traded部分拼接CME的1987–1995与SPX OptionMetrics的1996–2022。1926年起的长历史是模型合成，不是当年已观察到相同上市合约。\n\n**第二，回报分母和窗口要对齐。** 作者把期权超额回报按**标的价格**缩放，不是拿损益除以买入权利金。它表达每单位标的规模对应的期权结果，不能直接与M16中“投入500美元期权、回报140%”相比较。直接对照的持有窗口为第三个周五到下个月第三个周五；合成序列的另一些单变量统计用21日重叠窗口。Figure 8采用对齐的roll dates，不能将不同窗口静默拼接。\n\n**第三，风险调整不等于知道未来。** 合成头寸利用滞后一日信息，波动估计使用扩张窗；§2.2的beta对冲是用期初信息选择的静态市场头寸，不是每天更新的delta对冲。§2.1–2.3还说明traded和synthetic的定义、所需条件及交易可行性问题：把一条可计算路径写出来，不代表任意参与者都能无成本、无限频率地实现它。\n\n现在打开原论文 **Figure 8，印刷p29／PDF第30页**。先看横轴年份和图中滚动风险调整量，而不是把纵轴读成累计净值；再看traded与synthetic在可比样本中的变化。作者在§4.1–4.1.1讨论CAPM alpha部分衰减，并明确beta关联的方差风险补偿仍在。因此“某种alpha下降”不等于“所有variance risk premium归零”。研究也没有把一次期权交易或一个卖方策略变成稳赚产品。[^MEFG-CHICAGOFED-2025]\n\n我们在这里保留原图阅读定位，不用人工画一条似是而非的“历史复现”。可以独立检验的任务是：说清样本、分母、窗口、对冲方法以及作者结论覆盖的范围。缺原始数据时，不能给读者一个虚构的年份筛选器，再声称重跑了Figure 8。\n\n<details data-agent-option=\"dealer-gamma\"><summary>选读：交易商 gamma 的候选机制</summary>\n\n<a id=\"m22-mechanism\"></a>\n\n\nBIS 2024年文章 *What could explain the recent drop in VIX?* 讨论收益增强产品、交易商头寸与对冲行为的候选联系。若某种客户交易使交易商净持有正gamma，价格上涨后减持、下跌后增持的对冲可能逆着价格变动交易；但净头寸还取决于客户方向、产品结构和其他头寸抵销。[^MEFG-BIS-2024]\n\n所以“0DTE成交量很大”只告诉我们活动规模，不能独立识别交易商净gamma；常规VIX不直接纳入0DTE，也不等于其他期限与市场机制不会有间接联系。这两句话要同时保留。该文章给的是需要进一步检验的机制，而不是从总成交量推出VIX下跌的已识别因果证明。本篇只采用已读正文及脚注，不采用其图中特有数值。\n\n\n</details>\n\n<a id=\"m22-explore\"></a>\n## 六、两个图形视角，各回答一个问题\n\n<div data-experiment-slot=\"EXP-MEFG-M22-SURFACE\"></div>\n\n曲面实验可以沿执行价或期限看同一九点网格，并切换bid／mid／ask。总方差实验单独画出两个期限与30天目标的关系。前者看报价如何表达，后者看指数如何聚合；研究卡另提供Figure 8的原文定位，不把人工合成图当成实证证据。\n\n<a id=\"m22-exercises\"></a>\n## 七、检验理解\n\n**题一：24天20%、36天24%，为什么不直接取22%？**\n\n**解析。** 合约期限不同，先形成期限内总方差，再插到30天并重新年化。公式得0.05056，开平方为22.485551%。先平均波动率会丢掉平方与期限权重。\n\n**题二：低执行价IV高，能否直接读出实际崩盘概率？**\n\n**解析。** 不能。它首先是某模型下对期权报价的表达，包含投资者对状态支付的定价、风险补偿及交易条件。真实概率需要另外的统计与经济假设，不能把定价权重直接换名。\n\n**题三：想复核论文的回报，为什么不能用“到期损益÷权利金”？**\n\n**解析。** 论文§3.1采用标的价格分母。换成权利金分母会引入不同的杠杆尺度，合约期限、虚实值和roll窗口也需保持一致；那已经不是同一个统计对象。\n\n**题四：Figure 8中alpha的变化，证明未来卖期权一定无利可图吗？**\n\n**解析。** 没有。它是指定样本和风险调整方法下的结果；作者区分alpha与beta相关补偿。预测未来可执行净收益还需新信息、真实成本、融资和风险约束，不能从该图一步推出。\n\n**题五：为什么这里不画“0DTE成交量导致VIX下降”的箭头？**\n\n**解析。** 总量不等于净方向或净gamma，常规VIX还有自己的成份方法。要画因果箭头，需要识别中间持仓、对冲路径及替代解释；现有候选机制不足以完成这一步。\n\n[^MEFG-MIT-KOGAN]: Leonid Kogan, MIT OpenCourseWare，*15.450: Stochastic Calculus and Option Pricing*，Fall 2010。[原文](https://ocw.mit.edu/courses/15-450-analytics-of-finance-fall-2010/0d1260b891a96241316d883d4f5bfaec_MIT15_450F10_lec02.pdf)。本篇定位：Slides 16–21: BSM market, replication/PDE/formula；Slides 52–58 and 60: Q pricing and European application。\n\n[^MEFG-SPX]: Cboe Global Markets，*S&P 500 Index Options (SPX) Fact Sheet*，©2026; WF-451400-KC; no precise issue date shown。[原文](https://cdn.cboe.com/resources/spx/spx-fact-sheet.pdf)。本篇定位：Full physical pp1–2; p2 specifications and relevant footnotes。\n\n[^MEFG-VIX-METHOD]: Cboe Global Indices，*Volatility Index Methodology: Cboe Volatility Index*，v6.0, revised 2026-02-26。[原文](https://cdn.cboe.com/api/global/us_indices/governance/Volatility_Index_Methodology_Cboe_Volatility_Index.pdf)。本篇定位：Sections 1–5 and Appendices 1–3; physical pp3–14, stop before Appendix4 strip；Appendix2 document version; Appendix3 hypothetical sample。\n\n[^MEFG-VIX-MATH]: Cboe Global Indices，*Cboe Volatility Index Mathematics Methodology*，v5.0, revised 2026-02-26。[原文](https://cdn.cboe.com/api/global/us_indices/governance/Cboe_Volatility_Index_Mathematics_Methodology.pdf)。本篇定位：Physical pp3–8 / printed pp4–9: constituent, rates, single-term and constant-maturity calculation；Physical p18 / printed p19: version。\n\n[^MEFG-CHICAGOFED-2025]: Ian Dew-Becker, Stefano Giglio，*The decline of the variance risk premium: evidence from traded and synthetic options*，Chicago Fed WP2025-17, manuscript 2025-09-04; DOI 10.21033/wp-2025-17。[原文](https://www.chicagofed.org/-/media/publications/working-papers/2025/wp2025-17.pdf?sc_lang=en)。本篇定位：§2.1–2.3 including feasibility: physical pp7–12；§3.1 data: physical pp13–14；§4.1–4.1.1: physical pp29–32; Figure8 physical p30。\n\n[^MEFG-BIS-2024]: Karamfil Todorov, Grigory Vilkov，*What could explain the recent drop in VIX?*，BIS Quarterly Review Box B, 2024-03-04。[原文](https://www.bis.org/publications/what-could-explain-recent-drop-vix)。本篇定位：Full box body and footnotes; no GraphB1 numeric extraction。\n\n<script src=\"/notebook/labs/m-efg/reader-adapter.js\" defer></script>\n",
-  "prompt": "你正在教M22《波动率曲面与市场信息：从报价读到研究结论》，内容版本2026-09-21-MEFG-review-v3。读者已有高年级本科至研究生的数学基础。\n\n先确认选用本篇共同正文和哪些分支，再实际读取agent_packet列出的当前必读完整原文。PDF需读脚注、表图与符号；只拿到摘要/目录/搜索片段不算完成。记录实际版本、范围与内容对应，不沿用编辑端“已读”充当本次读取；同会话已完整取得相同版本单元可以复用。若所需单元失败，尝试机构正式等价全文；仍缺失则指出具体单元，不凭记忆补成已读教学。runtime_reading_log从空开始。\n\n独立学习任务：从九点合成报价比较两方向IV，再复算VIX假设例；能读出Chicago论文的样本/方法/分母/结论边界。\n专属诊断与正向讲解：先核两份VIX方法版本。Chicago必须先读§2.1–2.3定义与feasibility，再读§3.1和§4.1–4.1.1/Figure8，不能只读结果。让读者解释beta hedge与delta hedge不同。\n反馈尺度：13.93是官方假设例；一个strike贡献不等于全strip。不得自造论文历史数据或将alpha衰减写成全部风险补偿归零。BIS只有选该分支才加入必读。\n\n读者要求直接讲解时，按本篇连贯推导讲清，不反复问已会先修。静态例、实验、练习必须使用本包同一输入和单位；实例价、合成价、模型价、规则时点不能混换。练习要给完整解析，不仅打分。仅当选读分支被采用时，将其optional reading转入当前必读。\n",
+  "body_markdown": "<a id=\"m22-question\"></a>\n## 一、我们究竟在图上看什么\n\n同一个标的，不同行权价、到期日的期权会有不同报价. 把每个报价放进同一套定价模型反解，就得到一组隐含波动率，简称IV. 沿执行价看，是偏斜或微笑；沿期限看，是波动率期限结构；把两个方向放在一起，才是一张曲面.\n\n这里先分清三层. 期权市场给出带时点的bid和ask；模型把报价换一种参数形式表达；研究者再解释这种定价与未来风险、投资者要求的补偿或交易条件有什么关系. 第三层不能跳过前两层. 尤其不能把一张IV图直接读成真实概率分布的照片. 上一节BSM中 $N(d_2)$ 与实际概率不同的边界，在这里同样有效. [^MEFG-MIT-KOGAN]\n\n本篇先做一张可以复算的教学曲面，再读Cboe如何把特定期权报价构造成VIX，最后读一项2025年研究. 前两部分是教学计算，研究图按原文解读，三者分别承担不同任务.\n\n<a id=\"m22-surface\"></a>\n## 二、同源九点曲面：把报价区间保留下来\n\n采用与M18、M19相同的 **EXP-MEFG-IV-01**：标的点数5,000，连续复利年利率4%，股息率设为0，期限按ACT/365. 股息率0是教学假设，不是对S&P 500分红的测量. 先明示各点的模型 $\\sigma$，计算欧式call/put，再按SPX报价增量取整、加减0.2点半价差. 真实SPX的100美元乘数只负责将点数换成美元；下面不是任何一天的SPX期权链. [^MEFG-SPX]\n\n| 到期天数 | 执行价 | 生成报价所用 $\\sigma$ | call bid / mid / ask（点） | 反解IV：bid / mid / ask |\n|---:|---:|---:|---|---|\n| 30 | 4,500 | 28.0% | 530.00 / 530.20 / 530.40 | 27.9111% / 28.0037% / 28.0958% |\n| 30 | 5,000 | 24.0% | 145.20 / 145.40 / 145.60 | 23.9724% / 24.0074% / 24.0425% |\n| 30 | 5,500 | 22.0% | 10.40 / 10.60 / 10.80 | 21.8955% / 21.9929% / 22.0894% |\n| 90 | 4,500 | 27.0% | 612.30 / 612.50 / 612.70 | 26.9695% / 27.0006% / 27.0316% |\n| 90 | 5,000 | 23.5% | 256.70 / 256.90 / 257.10 | 23.4841% / 23.5045% / 23.5249% |\n| 90 | 5,500 | 22.0% | 70.40 / 70.60 / 70.80 | 21.9679% / 21.9942% / 22.0205% |\n| 180 | 4,500 | 25.0% | 702.80 / 703.00 / 703.20 | 24.9814% / 25.0011% / 25.0207% |\n| 180 | 5,000 | 23.0% | 369.70 / 369.90 / 370.10 | 22.9864% / 23.0010% / 23.0155% |\n| 180 | 5,500 | 22.0% | 160.90 / 161.10 / 161.30 | 21.9834% / 21.9989% / 22.0145% |\n\n读表先做两个动作. 固定90天，低执行价的IV较高；这描述当前教学网格的执行价方向. 再固定执行价5,000，从30到180天，输入波动率24%、23.5%、23%，描述期限方向. 两者不是“期权价格随执行价或期限的斜率”：期权价格还同时受内在程度、资金时间等因素影响.\n\nbid和ask反解得到一个IV区间. 90天、K=5,000的call中价为256.90，反解23.5045%，略不同于生成未取整价格时的23.5%. 这点差别来自报价取整. 价格与IV的转换还依赖股息、利率、结算和模型；换一组假设，同一个报价可以对应不同IV. 这里的九点只检查价格界、执行价单调性和离散凸性，并没有构造全局无套利插值曲面.\n\n<a id=\"m22-vix\"></a>\n## 三、VIX为什么不是“所有IV的平均数”\n\nCboe的VIX产品方法文件与数学方法文件各有职责. 本篇采用前者 **v6.0、2026-02-26**，后者 **v5.0、同日**. 产品方法确定合格SPX／SPXW合约、期限、报价与发布／结算安排；数学方法给定期权报价如何进入方差计算. 常规30天VIX组合不是把当天到期的0DTE期权直接加进来. [^MEFG-VIX-METHOD]\n\n为看清权重，先只写一个期限 $T$ 的核心表达：\n$$\n\\sigma^2(T)=\n\\frac{2}{T}\\sum_i\n\\frac{\\Delta K_i}{K_i^2}e^{rT}q_{\\rm quote}(K_i)\n-\\frac1T\\left(\\frac F{K_0}-1\\right)^2.\n$$\n这里的 $q_{\\rm quote}(K)$ 是按方法选定的**期权报价**；原文把它写作 $Q(K)$，我们特意换符号，避免与M21的概率测度 $Q$ 混淆. $F$ 是由期权关系推得的远期水平，$K_0$ 是相应边界执行价；两侧使用指定的虚值put／call，$K_0$处按规则使用两种期权的平均报价，$\\Delta K$则给不同执行价间距以权重. 完整规则还包括合约和报价过滤，不是随便拿一条链求和. [^MEFG-VIX-MATH]\n\n每个期限先形成**年化方差**，然后在两个期限之间插值的是总方差. 若两期限剩余分钟数为 $N_1,N_2$，目标30天为 $N_*=43,200$，一年为 $N_Y=525,600$，令\n$$\nw_1=\\frac{N_2-N_*}{N_2-N_1},\\qquad w_2=1-w_1,\\qquad T_i=\\frac{N_i}{N_Y}.\n$$\n则\n$$\n\\sigma_{30}^2\n=\\frac{w_1T_1\\sigma_1^2+w_2T_2\\sigma_2^2}{N_*/N_Y},\n\\qquad\nVIX=100\\sqrt{\\sigma_{30}^2}.\n$$\n\n产品方法Appendix 3**明确称为假设算例**. 它带有示例日期和时刻，但这些字段属于算例设定；本篇只重建其最后一步：\n\n| 输入 | 近到期 | 次近到期 |\n|---|---:|---:|\n| 剩余分钟 | 34,484 | 44,954 |\n| 已给定年化方差 | 0.019233906 | 0.019423884 |\n\n代入得到13.927842，显示到两位小数为 **13.93**. 另一项可核的小计算是执行价1,370那一行：$\\Delta K=5$、报价0.2、原例舍入后的 $r=0.000317,T=0.0656088$，其求和项\n$$\n\\frac5{1370^2}e^{0.000317\\times0.0656088}\\times0.2\n\\approx5.32804517\\times10^{-7}.\n$$\n这是求和中的一个贡献，尚不是完整期限方差；本篇没有重建整条执行价条带和利率曲线样条. [^MEFG-VIX-METHOD]\n\n再做一个更直观的独立教学变式：24天年化波动20%、36天24%，目标30天. 权重各半，但总方差必须带期限：\n$$\n\\sigma_{30}^2\n=\\frac{\\tfrac12\\,24(0.20)^2+\\tfrac12\\,36(0.24)^2}{30}\n=0.05056.\n$$\n开平方是 <strong>22.485551%</strong>，不是20%与24%的算术平均22%.\n\n最后，VIX现货指数的中间报价计算，不等于能直接按那个指数值买卖某个现货资产. 相关衍生品到期使用的特别开盘报价SOQ有自己的单期限、开盘成交及相应替代报价规则，不是机械复制普通盘中两期限插值. [^MEFG-VIX-METHOD]\n\n<a id=\"case-mefg-chicago-2025\"></a>\n<a id=\"m22-study\"></a>\n## 四、带读一项研究：alpha下降，不等于所有风险补偿消失\n\nDew-Becker和Giglio的Chicago Fed工作论文 *The decline of the variance risk premium: evidence from traded and synthetic options*，稿件日期2025-09-04，比较真实交易期权与动态合成期权的回报. 先不要跳到“卖波动还赚不赚钱”，先读三个设置. [^MEFG-CHICAGOFED-2025]\n\n**第一，两个样本不是一条历史期权链.** Synthetic使用CRSP股票市场回报构造，历史覆盖1926–2022；traded部分拼接CME的1987–1995与SPX OptionMetrics的1996–2022. 1926年起的长历史是模型合成，不是当年已观察到相同上市合约.\n\n**第二，回报分母和窗口要对齐.** 作者把期权超额回报按**标的价格**缩放，不是拿损益除以买入权利金. 它表达每单位标的规模对应的期权结果，不能直接与M16中“投入500美元期权、回报140%”相比较. 直接对照的持有窗口为第三个周五到下个月第三个周五；合成序列的另一些单变量统计用21日重叠窗口. Figure 8采用对齐的roll dates，不能将不同窗口静默拼接.\n\n**第三，风险调整不等于知道未来.** 合成头寸利用滞后一日信息，波动估计使用扩张窗；§2.2的beta对冲是用期初信息选择的静态市场头寸，不是每天更新的delta对冲. §2.1–2.3还说明traded和synthetic的定义、所需条件及交易可行性问题：把一条可计算路径写出来，不代表任意参与者都能无成本、无限频率地实现它.\n\n现在打开原论文 **Figure 8，印刷p29／PDF第30页**. 先看横轴年份和图中滚动风险调整量，而不是把纵轴读成累计净值；再看traded与synthetic在可比样本中的变化. 作者在§4.1–4.1.1讨论CAPM alpha部分衰减，并明确beta关联的方差风险补偿仍在. 因此“某种alpha下降”不等于“所有variance risk premium归零”. 研究也没有把一次期权交易或一个卖方策略变成稳赚产品. [^MEFG-CHICAGOFED-2025]\n\n我们在这里保留原图阅读定位，不用人工画一条似是而非的“历史复现”. 可以独立检验的任务是：说清样本、分母、窗口、对冲方法以及作者结论覆盖的范围. 缺原始数据时，不能给读者一个虚构的年份筛选器，再声称重跑了Figure 8.\n\n<details data-agent-option=\"dealer-gamma\"><summary>选读：交易商 gamma 的候选机制</summary>\n\n<a id=\"m22-mechanism\"></a>\n\n\nBIS 2024年文章 *What could explain the recent drop in VIX?* 讨论收益增强产品、交易商头寸与对冲行为的候选联系. 若某种客户交易使交易商净持有正gamma，价格上涨后减持、下跌后增持的对冲可能逆着价格变动交易；但净头寸还取决于客户方向、产品结构和其他头寸抵销. [^MEFG-BIS-2024]\n\n所以“0DTE成交量很大”只说明活动规模，不能独立识别交易商净gamma；常规VIX不直接纳入0DTE，但其他期限与市场机制仍可能存在间接联系. 该文章提出的是需要进一步检验的机制，不能由总成交量单独识别VIX下降的因果关系.\n\n\n</details>\n\n<a id=\"m22-explore\"></a>\n## 六、两个图形视角，各回答一个问题\n\n<div data-experiment-slot=\"EXP-MEFG-M22-SURFACE\"></div>\n\n曲面实验可以沿执行价或期限看同一九点网格，并切换bid／mid／ask. 总方差实验单独画出两个期限与30天目标的关系. 前者看报价如何表达，后者看指数如何聚合；研究卡另提供Figure 8的原文定位，不把人工合成图当成实证证据.\n\n<a id=\"m22-exercises\"></a>\n## 七、检验理解\n\n**题一：24天20%、36天24%，为什么不直接取22%？**\n\n**解析.** 合约期限不同，先形成期限内总方差，再插到30天并重新年化. 公式得0.05056，开平方为22.485551%. 先平均波动率会丢掉平方与期限权重.\n\n**题二：低执行价IV高，能否直接读出实际崩盘概率？**\n\n**解析.** 不能. 它首先是某模型下对期权报价的表达，包含投资者对状态支付的定价、风险补偿及交易条件. 真实概率需要另外的统计与经济假设，不能把定价权重直接换名.\n\n**题三：想复核论文的回报，为什么不能用“到期损益÷权利金”？**\n\n**解析.** 论文§3.1采用标的价格分母. 换成权利金分母会引入不同的杠杆尺度，合约期限、虚实值和roll窗口也需保持一致；那已经不是同一个统计对象.\n\n**题四：Figure 8中alpha的变化，证明未来卖期权一定无利可图吗？**\n\n**解析.** 没有. 它是指定样本和风险调整方法下的结果；作者区分alpha与beta相关补偿. 预测未来可执行净收益还需新信息、真实成本、融资和风险约束，不能从该图一步推出.\n\n**题五：为什么这里不画“0DTE成交量导致VIX下降”的箭头？**\n\n**解析.** 总量不等于净方向或净gamma，常规VIX还有自己的成份方法. 要画因果箭头，需要识别中间持仓、对冲路径及替代解释；现有候选机制不足以完成这一步.\n\n[^MEFG-MIT-KOGAN]: Leonid Kogan, MIT OpenCourseWare，*15.450: Stochastic Calculus and Option Pricing*，Fall 2010. [原文](https://ocw.mit.edu/courses/15-450-analytics-of-finance-fall-2010/0d1260b891a96241316d883d4f5bfaec_MIT15_450F10_lec02.pdf). 本篇定位：Slides 16–21: BSM market, replication/PDE/formula；Slides 52–58 and 60: Q pricing and European application.\n\n[^MEFG-SPX]: Cboe Global Markets，*S&P 500 Index Options (SPX) Fact Sheet*，©2026; WF-451400-KC; no precise issue date shown. [原文](https://cdn.cboe.com/resources/spx/spx-fact-sheet.pdf). 本篇定位：Full physical pp1–2; p2 specifications and relevant footnotes.\n\n[^MEFG-VIX-METHOD]: Cboe Global Indices，*Volatility Index Methodology: Cboe Volatility Index*，v6.0, revised 2026-02-26. [原文](https://cdn.cboe.com/api/global/us_indices/governance/Volatility_Index_Methodology_Cboe_Volatility_Index.pdf). 本篇定位：Sections 1–5 and Appendices 1–3; physical pp3–14, stop before Appendix4 strip；Appendix2 document version; Appendix3 hypothetical sample.\n\n[^MEFG-VIX-MATH]: Cboe Global Indices，*Cboe Volatility Index Mathematics Methodology*，v5.0, revised 2026-02-26. [原文](https://cdn.cboe.com/api/global/us_indices/governance/Cboe_Volatility_Index_Mathematics_Methodology.pdf). 本篇定位：Physical pp3–8 / printed pp4–9: constituent, rates, single-term and constant-maturity calculation；Physical p18 / printed p19: version.\n\n[^MEFG-CHICAGOFED-2025]: Ian Dew-Becker, Stefano Giglio，*The decline of the variance risk premium: evidence from traded and synthetic options*，Chicago Fed WP2025-17, manuscript 2025-09-04; DOI 10.21033/wp-2025-17. [原文](https://www.chicagofed.org/-/media/publications/working-papers/2025/wp2025-17.pdf?sc_lang=en). 本篇定位：§2.1–2.3 including feasibility: physical pp7–12；§3.1 data: physical pp13–14；§4.1–4.1.1: physical pp29–32; Figure8 physical p30.\n\n[^MEFG-BIS-2024]: Karamfil Todorov, Grigory Vilkov，*What could explain the recent drop in VIX?*，BIS Quarterly Review Box B, 2024-03-04. [原文](https://www.bis.org/publications/what-could-explain-recent-drop-vix). 本篇定位：Full box body and footnotes; no GraphB1 numeric extraction.\n\n<script src=\"/notebook/labs/m-efg/reader-adapter.js\" defer></script>\n",
+  "prompt": "你正在教M22《波动率曲面与市场信息：从报价读到研究结论》，内容版本2026-09-21-MEFG-review-v3. 读者已有高年级本科至研究生的数学基础.\n\n先确认选用本篇共同正文和哪些分支，再实际读取agent_packet列出的当前必读完整原文. PDF需读脚注、表图与符号；只拿到摘要/目录/搜索片段不算完成. 记录实际版本、范围与内容对应，不沿用编辑端“已读”充当本次读取；同会话已完整取得相同版本单元可以复用. 若所需单元失败，尝试机构正式等价全文；仍缺失则指出具体单元，不凭记忆补成已读教学. runtime_reading_log从空开始.\n\n独立学习任务：从九点合成报价比较两方向IV，再复算VIX假设例；能读出Chicago论文的样本/方法/分母/结论边界.\n专属诊断与正向讲解：先核两份VIX方法版本. Chicago必须先读§2.1–2.3定义与feasibility，再读§3.1和§4.1–4.1.1/Figure8，不能只读结果. 让读者解释beta hedge与delta hedge不同.\n反馈尺度：13.93是官方假设例；一个strike贡献不等于全strip. 不得自造论文历史数据或将alpha衰减写成全部风险补偿归零. BIS只有选该分支才加入必读.\n\n读者要求直接讲解时，按本篇连贯推导讲清，不反复问已会先修. 静态例、实验、练习必须使用本包同一输入和单位；实例价、合成价、模型价、规则时点不能混换. 练习要给完整解析，不仅打分. 仅当选读分支被采用时，将其optional reading转入当前必读.\n",
   "sources": [
     "MA-SPX",
     "MEFG-BIS-2024",
@@ -32,43 +32,43 @@
       "id": "m22-question",
       "title": "一、我们究竟在图上看什么",
       "kind": "section",
-      "preview": "同一个标的，不同行权价、到期日的期权会有不同报价。把每个报价放进同一套定价模型反解，就得到一组隐含波动率，简称IV。沿执行价看，是偏斜或微笑；沿期限看，是波动率期限结构；把两个方向放在一起，才是一张曲面。 这里先分清三层。期权市场给出带时点的bid和ask；模型把报价换一种参数形式表达；研究者再解释这种定价与未来风险、投资者要求的补偿或交"
+      "preview": "同一个标的，不同行权价、到期日的期权会有不同报价. 把每个报价放进同一套定价模型反解，就得到一组隐含波动率，简称IV. 沿执行价看，是偏斜或微笑；沿期限看，是波动率期限结构；把两个方向放在一起，才是一张曲面. 这里先分清三层. 期权市场给出带时点的bid和ask；模型把报价换一种参数形式表达；研究者再解释这种定价与未来风险、投资者要求的补偿或交"
     },
     {
       "id": "m22-surface",
       "title": "二、同源九点曲面：把报价区间保留下来",
       "kind": "section",
-      "preview": "采用与M18、M19相同的 EXP-MEFG-IV-01 ：标的点数5,000，连续复利年利率4%，股息率设为0，期限按ACT/365。股息率0是教学假设，不是对S&P 500分红的测量。先明示各点的模型 \\sigma ，计算欧式call/put，再按SPX报价增量取整、加减0.2点半价差。真实SPX的100美元乘数只负责将点数换成美元；"
+      "preview": "采用与M18、M19相同的 EXP-MEFG-IV-01 ：标的点数5,000，连续复利年利率4%，股息率设为0，期限按ACT/365. 股息率0是教学假设，不是对S&P 500分红的测量. 先明示各点的模型 \\sigma ，计算欧式call/put，再按SPX报价增量取整、加减0.2点半价差. 真实SPX的100美元乘数只负责将点数换成美元；"
     },
     {
       "id": "m22-vix",
       "title": "三、VIX为什么不是“所有IV的平均数”",
       "kind": "section",
-      "preview": "Cboe的VIX产品方法文件与数学方法文件各有职责。本篇采用前者 v6.0、2026-02-26 ，后者 v5.0、同日 。产品方法确定合格SPX／SPXW合约、期限、报价与发布／结算安排；数学方法给定期权报价如何进入方差计算。常规30天VIX组合不是把当天到期的0DTE期权直接加进来。[^MEFG-VIX-METHOD] 为看清权重，先"
+      "preview": "Cboe的VIX产品方法文件与数学方法文件各有职责. 本篇采用前者 v6.0、2026-02-26 ，后者 v5.0、同日 . 产品方法确定合格SPX／SPXW合约、期限、报价与发布／结算安排；数学方法给定期权报价如何进入方差计算. 常规30天VIX组合不是把当天到期的0DTE期权直接加进来.[^MEFG-VIX-METHOD] 为看清权重，先"
     },
     {
       "id": "m22-study",
       "title": "四、带读一项研究：alpha下降，不等于所有风险补偿消失",
       "kind": "section",
-      "preview": "Dew-Becker和Giglio的Chicago Fed工作论文 The decline of the variance risk premium: evidence from traded and synthetic options ，稿件日期2025-09-04，比较真实交易期权与动态合成期权的回报。先不要跳到“卖波动还赚不赚钱”，"
+      "preview": "Dew-Becker和Giglio的Chicago Fed工作论文 The decline of the variance risk premium: evidence from traded and synthetic options ，稿件日期2025-09-04，比较真实交易期权与动态合成期权的回报. 先不要跳到“卖波动还赚不赚钱”，"
     },
     {
       "id": "m22-mechanism",
       "title": "五、选读：一种候选机制，还不是因果结论",
       "kind": "section",
-      "preview": "BIS 2024年文章 What could explain the recent drop in VIX? 讨论收益增强产品、交易商头寸与对冲行为的候选联系。若某种客户交易使交易商净持有正gamma，价格上涨后减持、下跌后增持的对冲可能逆着价格变动交易；但净头寸还取决于客户方向、产品结构和其他头寸抵销。[^MEFG-BIS-2024] "
+      "preview": "BIS 2024年文章 What could explain the recent drop in VIX? 讨论收益增强产品、交易商头寸与对冲行为的候选联系. 若某种客户交易使交易商净持有正gamma，价格上涨后减持、下跌后增持的对冲可能逆着价格变动交易；但净头寸还取决于客户方向、产品结构和其他头寸抵销.[^MEFG-BIS-2024] "
     },
     {
       "id": "m22-explore",
       "title": "六、两个图形视角，各回答一个问题",
       "kind": "section",
-      "preview": "曲面实验可以沿执行价或期限看同一九点网格，并切换bid／mid／ask。总方差实验单独画出两个期限与30天目标的关系。前者看报价如何表达，后者看指数如何聚合；研究卡另提供Figure 8的原文定位，不把人工合成图当成实证证据。"
+      "preview": "曲面实验可以沿执行价或期限看同一九点网格，并切换bid／mid／ask. 总方差实验单独画出两个期限与30天目标的关系. 前者看报价如何表达，后者看指数如何聚合；研究卡另提供Figure 8的原文定位，不把人工合成图当成实证证据."
     },
     {
       "id": "m22-exercises",
       "title": "七、检验理解",
       "kind": "section",
-      "preview": "题一：24天20%、36天24%，为什么不直接取22%？ 解析。 合约期限不同，先形成期限内总方差，再插到30天并重新年化。公式得0.05056，开平方为22.485551%。先平均波动率会丢掉平方与期限权重。 题二：低执行价IV高，能否直接读出实际崩盘概率？ 解析。 不能。它首先是某模型下对期权报价的表达，包含投资者对状态支付的定价、风"
+      "preview": "题一：24天20%、36天24%，为什么不直接取22%？ 解析. 合约期限不同，先形成期限内总方差，再插到30天并重新年化. 公式得0.05056，开平方为22.485551%. 先平均波动率会丢掉平方与期限权重. 题二：低执行价IV高，能否直接读出实际崩盘概率？ 解析. 不能. 它首先是某模型下对期权报价的表达，包含投资者对状态支付的定价、风"
     },
     {
       "id": "case-mefg-chicago-2025",
@@ -109,7 +109,7 @@
       "from": "M22#m22-question",
       "relation": "supported_by",
       "to": "PFH-MIT-BSM",
-      "reason": "常参数、无股息模型条件下价格/偏导与Q；不宣称完整连续时间定理证明。",
+      "reason": "常参数、无股息模型条件下价格/偏导与Q；不宣称完整连续时间定理证明.",
       "locator": "Slides 16–21: BSM market, replication/PDE/formula；Slides 52–58 and 60: Q pricing and European application",
       "scope": "本段具名采用内容；教学生成数字仍按自身身份",
       "at_section": "m22-question"
@@ -118,7 +118,7 @@
       "from": "M22#m22-surface",
       "relation": "supported_by",
       "to": "MA-SPX",
-      "reason": "SPX/SPXW欧式现金、100美元乘数、最小报价增量及AM/PM结算差别；并非某条历史上市期权链。",
+      "reason": "SPX/SPXW欧式现金、100美元乘数、最小报价增量及AM/PM结算差别；并非某条历史上市期权链.",
       "locator": "Full physical pp1–2; p2 specifications and relevant footnotes",
       "scope": "本段具名采用内容；教学生成数字仍按自身身份",
       "at_section": "m22-surface"
@@ -127,7 +127,7 @@
       "from": "M22#m22-vix",
       "relation": "supported_by",
       "to": "MEFG-VIX-METHOD",
-      "reason": "VIX产品筛选、期限定常与SOQ区别；13.93是官方假设计算例，不是当日行情。",
+      "reason": "VIX产品筛选、期限定常与SOQ区别；13.93是官方假设计算例，不是当日行情.",
       "locator": "Sections 1–5 and Appendices 1–3; physical pp3–14, stop before Appendix4 strip；Appendix2 document version; Appendix3 hypothetical sample",
       "scope": "本段具名采用内容；教学生成数字仍按自身身份",
       "at_section": "m22-vix"
@@ -136,7 +136,7 @@
       "from": "M22#m22-vix",
       "relation": "supported_by",
       "to": "MEFG-VIX-MATH",
-      "reason": "加权方差与总方差插值；原公式Q(K)是报价函数。仅final-stage与单strike复算，不称全strip或国债样条实现。",
+      "reason": "加权方差与总方差插值；原公式Q(K)是报价函数. 仅final-stage与单strike复算，不称全strip或国债样条实现.",
       "locator": "Physical pp3–8 / printed pp4–9: constituent, rates, single-term and constant-maturity calculation；Physical p18 / printed p19: version",
       "scope": "本段具名采用内容；教学生成数字仍按自身身份",
       "at_section": "m22-vix"
@@ -145,7 +145,7 @@
       "from": "M22#m22-study",
       "relation": "supported_by",
       "to": "PFH-CHIFED2025",
-      "reason": "区分traded/synthetic、标的价格分母、滞后信息、beta hedge和动态delta；alpha衰减不等于全部风险补偿消失；未复现原始数据或后续均衡模型。",
+      "reason": "区分traded/synthetic、标的价格分母、滞后信息、beta hedge和动态delta；alpha衰减不等于全部风险补偿消失；未复现原始数据或后续均衡模型.",
       "locator": "§2.1–2.3 including feasibility: physical pp7–12；§3.1 data: physical pp13–14；§4.1–4.1.1: physical pp29–32; Figure8 physical p30",
       "scope": "本段具名采用内容；教学生成数字仍按自身身份",
       "at_section": "m22-study"
@@ -154,7 +154,7 @@
       "from": "M22#m22-mechanism",
       "relation": "supported_by",
       "to": "MEFG-BIS-2024",
-      "reason": "结构化产品/做市对冲的候选机制；总0DTE量不识别净gamma和因果VIX，不转引未读论文结论。",
+      "reason": "结构化产品/做市对冲的候选机制；总0DTE量不识别净gamma和因果VIX，不转引未读论文结论.",
       "locator": "Full box body and footnotes; no GraphB1 numeric extraction",
       "scope": "本段具名采用内容；教学生成数字仍按自身身份",
       "at_section": "m22-mechanism"
@@ -163,7 +163,7 @@
       "from": "M22#m22-explore",
       "relation": "illustrated_by",
       "to": "EXP-MEFG-M22-SURFACE",
-      "reason": "先沿两个方向读IV，再把两期限总方差插到30天。",
+      "reason": "先沿两个方向读IV，再把两期限总方差插到30天.",
       "at_section": "m22-explore"
     }
   ],
@@ -183,7 +183,7 @@
           "scope": "完整指定单元、必要脚注与表图；不以搜索摘要代替",
           "purpose": "产品/成份/结算身份与假设例"
         },
-        "supports": "VIX产品筛选、期限定常与SOQ区别；13.93是官方假设计算例，不是当日行情。",
+        "supports": "VIX产品筛选、期限定常与SOQ区别；13.93是官方假设计算例，不是当日行情.",
         "id": "M22-READ-01",
         "title": "Volatility Index Methodology: Cboe Volatility Index",
         "authors": [
@@ -204,7 +204,7 @@
           "scope": "完整指定单元、必要脚注与表图；不以搜索摘要代替",
           "purpose": "single-term variance与total-variance interpolation"
         },
-        "supports": "加权方差与总方差插值；原公式Q(K)是报价函数。仅final-stage与单strike复算，不称全strip或国债样条实现。",
+        "supports": "加权方差与总方差插值；原公式Q(K)是报价函数. 仅final-stage与单strike复算，不称全strip或国债样条实现.",
         "id": "M22-READ-02",
         "title": "Cboe Volatility Index Mathematics Methodology",
         "authors": [
@@ -225,7 +225,7 @@
           "scope": "完整指定单元、必要脚注与表图；不以搜索摘要代替",
           "purpose": "traded/synthetic方法、样本、分母、roll、滞后对冲、alpha/beta结果"
         },
-        "supports": "区分traded/synthetic、标的价格分母、滞后信息、beta hedge和动态delta；alpha衰减不等于全部风险补偿消失；未复现原始数据或后续均衡模型。",
+        "supports": "区分traded/synthetic、标的价格分母、滞后信息、beta hedge和动态delta；alpha衰减不等于全部风险补偿消失；未复现原始数据或后续均衡模型.",
         "id": "M22-READ-03",
         "title": "The decline of the variance risk premium: evidence from traded and synthetic options",
         "authors": [
@@ -247,7 +247,7 @@
           "scope": "完整指定单元、必要脚注与表图；不以搜索摘要代替",
           "purpose": "同源BSM合成曲面模型"
         },
-        "supports": "常参数、无股息模型条件下价格/偏导与Q；不宣称完整连续时间定理证明。",
+        "supports": "常参数、无股息模型条件下价格/偏导与Q；不宣称完整连续时间定理证明.",
         "id": "M22-READ-04",
         "title": "15.450: Stochastic Calculus and Option Pricing",
         "authors": [
@@ -271,7 +271,7 @@
           "scope": "完整指定单元、必要脚注与表图；不以搜索摘要代替",
           "purpose": "候选gamma机制而非已识别因果"
         },
-        "supports": "结构化产品/做市对冲的候选机制；总0DTE量不识别净gamma和因果VIX，不转引未读论文结论。",
+        "supports": "结构化产品/做市对冲的候选机制；总0DTE量不识别净gamma和因果VIX，不转引未读论文结论.",
         "branch": "dealer-gamma",
         "id": "M22-READ-05",
         "title": "What could explain the recent drop in VIX?",
@@ -565,7 +565,7 @@
             "scope": "完整指定单元、必要脚注与表图；不以搜索摘要代替",
             "purpose": "产品/成份/结算身份与假设例"
           },
-          "supports": "VIX产品筛选、期限定常与SOQ区别；13.93是官方假设计算例，不是当日行情。",
+          "supports": "VIX产品筛选、期限定常与SOQ区别；13.93是官方假设计算例，不是当日行情.",
           "id": "M22-READ-01",
           "title": "Volatility Index Methodology: Cboe Volatility Index",
           "authors": [
@@ -586,7 +586,7 @@
             "scope": "完整指定单元、必要脚注与表图；不以搜索摘要代替",
             "purpose": "single-term variance与total-variance interpolation"
           },
-          "supports": "加权方差与总方差插值；原公式Q(K)是报价函数。仅final-stage与单strike复算，不称全strip或国债样条实现。",
+          "supports": "加权方差与总方差插值；原公式Q(K)是报价函数. 仅final-stage与单strike复算，不称全strip或国债样条实现.",
           "id": "M22-READ-02",
           "title": "Cboe Volatility Index Mathematics Methodology",
           "authors": [
@@ -607,7 +607,7 @@
             "scope": "完整指定单元、必要脚注与表图；不以搜索摘要代替",
             "purpose": "traded/synthetic方法、样本、分母、roll、滞后对冲、alpha/beta结果"
           },
-          "supports": "区分traded/synthetic、标的价格分母、滞后信息、beta hedge和动态delta；alpha衰减不等于全部风险补偿消失；未复现原始数据或后续均衡模型。",
+          "supports": "区分traded/synthetic、标的价格分母、滞后信息、beta hedge和动态delta；alpha衰减不等于全部风险补偿消失；未复现原始数据或后续均衡模型.",
           "id": "M22-READ-03",
           "title": "The decline of the variance risk premium: evidence from traded and synthetic options",
           "authors": [
@@ -629,7 +629,7 @@
             "scope": "完整指定单元、必要脚注与表图；不以搜索摘要代替",
             "purpose": "同源BSM合成曲面模型"
           },
-          "supports": "常参数、无股息模型条件下价格/偏导与Q；不宣称完整连续时间定理证明。",
+          "supports": "常参数、无股息模型条件下价格/偏导与Q；不宣称完整连续时间定理证明.",
           "id": "M22-READ-04",
           "title": "15.450: Stochastic Calculus and Option Pricing",
           "authors": [
@@ -653,7 +653,7 @@
             "scope": "完整指定单元、必要脚注与表图；不以搜索摘要代替",
             "purpose": "产品/成份/结算身份与假设例"
           },
-          "supports": "VIX产品筛选、期限定常与SOQ区别；13.93是官方假设计算例，不是当日行情。",
+          "supports": "VIX产品筛选、期限定常与SOQ区别；13.93是官方假设计算例，不是当日行情.",
           "id": "M22-READ-01",
           "title": "Volatility Index Methodology: Cboe Volatility Index",
           "authors": [
@@ -674,7 +674,7 @@
             "scope": "完整指定单元、必要脚注与表图；不以搜索摘要代替",
             "purpose": "single-term variance与total-variance interpolation"
           },
-          "supports": "加权方差与总方差插值；原公式Q(K)是报价函数。仅final-stage与单strike复算，不称全strip或国债样条实现。",
+          "supports": "加权方差与总方差插值；原公式Q(K)是报价函数. 仅final-stage与单strike复算，不称全strip或国债样条实现.",
           "id": "M22-READ-02",
           "title": "Cboe Volatility Index Mathematics Methodology",
           "authors": [
@@ -695,7 +695,7 @@
             "scope": "完整指定单元、必要脚注与表图；不以搜索摘要代替",
             "purpose": "traded/synthetic方法、样本、分母、roll、滞后对冲、alpha/beta结果"
           },
-          "supports": "区分traded/synthetic、标的价格分母、滞后信息、beta hedge和动态delta；alpha衰减不等于全部风险补偿消失；未复现原始数据或后续均衡模型。",
+          "supports": "区分traded/synthetic、标的价格分母、滞后信息、beta hedge和动态delta；alpha衰减不等于全部风险补偿消失；未复现原始数据或后续均衡模型.",
           "id": "M22-READ-03",
           "title": "The decline of the variance risk premium: evidence from traded and synthetic options",
           "authors": [
@@ -717,7 +717,7 @@
             "scope": "完整指定单元、必要脚注与表图；不以搜索摘要代替",
             "purpose": "同源BSM合成曲面模型"
           },
-          "supports": "常参数、无股息模型条件下价格/偏导与Q；不宣称完整连续时间定理证明。",
+          "supports": "常参数、无股息模型条件下价格/偏导与Q；不宣称完整连续时间定理证明.",
           "id": "M22-READ-04",
           "title": "15.450: Stochastic Calculus and Option Pricing",
           "authors": [
@@ -739,7 +739,7 @@
             "scope": "完整指定单元、必要脚注与表图；不以搜索摘要代替",
             "purpose": "候选gamma机制而非已识别因果"
           },
-          "supports": "结构化产品/做市对冲的候选机制；总0DTE量不识别净gamma和因果VIX，不转引未读论文结论。",
+          "supports": "结构化产品/做市对冲的候选机制；总0DTE量不识别净gamma和因果VIX，不转引未读论文结论.",
           "branch": "dealer-gamma",
           "id": "M22-READ-05",
           "title": "What could explain the recent drop in VIX?",
@@ -753,18 +753,18 @@
       ]
     },
     "branch_tasks": {
-      "core": "从九点合成报价读 IV 切片，复算官方假设例，并核 Chicago 研究的样本、方法、分母和结论边界。",
-      "dealer-gamma": "先完成共同 IV/VIX/研究带读，再读 BIS Box B 正文及脚注，解释交易商净 gamma 候选机制及总成交量不能识别的内容。"
+      "core": "从九点合成报价读 IV 切片，复算官方假设例，并核 Chicago 研究的样本、方法、分母和结论边界.",
+      "dealer-gamma": "先完成共同 IV/VIX/研究带读，再读 BIS Box B 正文及脚注，解释交易商净 gamma 候选机制及总成交量不能识别的内容."
     }
   },
-  "agent_markdown": "### 本篇默认结果与静态等价\n\n<div class=\"table-wrap\"><table><thead><tr><th>天数</th><th>K</th><th>call mid</th><th>mid IV</th></tr></thead><tbody><tr><td>30</td><td>4500</td><td>530.20</td><td>28.003704%</td></tr><tr><td>30</td><td>5000</td><td>145.40</td><td>24.007449%</td></tr><tr><td>30</td><td>5500</td><td>10.60</td><td>21.992924%</td></tr><tr><td>90</td><td>4500</td><td>612.50</td><td>27.000564%</td></tr><tr><td>90</td><td>5000</td><td>256.90</td><td>23.504499%</td></tr><tr><td>90</td><td>5500</td><td>70.60</td><td>21.994241%</td></tr><tr><td>180</td><td>4500</td><td>703.00</td><td>25.001056%</td></tr><tr><td>180</td><td>5000</td><td>369.90</td><td>23.000964%</td></tr><tr><td>180</td><td>5500</td><td>161.10</td><td>21.998911%</td></tr></tbody></table></div><div class=\"table-wrap\"><table><thead><tr><th>方差对象</th><th>输入/输出</th></tr></thead><tbody><tr><td>教学近/远</td><td>24天20%；36天24%</td></tr><tr><td>目标30天年化方差</td><td>0.05056</td></tr><tr><td>目标波动</td><td>22.485551%</td></tr><tr><td>简单平均</td><td>22%（不等于正确插值）</td></tr><tr><td>官方假设近/远分钟</td><td>34,484 / 44,954</td></tr><tr><td>官方假设两方差</td><td>.019233906 / .019423884</td></tr><tr><td>官方假设最终计算</td><td>13.927842 → 13.93</td></tr><tr><td>K1,370单行贡献</td><td>5.32804517×10⁻⁷（非完整strip）</td></tr></tbody></table></div><p>Chicago Fed §2.1–2.3、§3.1、§4.1–4.1.1、Figure 8原文带读：合成历史1926–2022；交易期权1987–2022；标的价格分母；对齐月度roll；alpha与beta风险补偿分开。没有底层数据复现。</p>\n\n完整冻结输入：https://ou-liu-red-sugar.github.io/notebook/labs/m-efg/inputs.json。来源内的包路径按 source_paths 取得。",
+  "agent_markdown": "### 本篇默认结果与静态等价\n\n<div class=\"table-wrap\"><table><thead><tr><th>天数</th><th>K</th><th>call mid</th><th>mid IV</th></tr></thead><tbody><tr><td>30</td><td>4500</td><td>530.20</td><td>28.003704%</td></tr><tr><td>30</td><td>5000</td><td>145.40</td><td>24.007449%</td></tr><tr><td>30</td><td>5500</td><td>10.60</td><td>21.992924%</td></tr><tr><td>90</td><td>4500</td><td>612.50</td><td>27.000564%</td></tr><tr><td>90</td><td>5000</td><td>256.90</td><td>23.504499%</td></tr><tr><td>90</td><td>5500</td><td>70.60</td><td>21.994241%</td></tr><tr><td>180</td><td>4500</td><td>703.00</td><td>25.001056%</td></tr><tr><td>180</td><td>5000</td><td>369.90</td><td>23.000964%</td></tr><tr><td>180</td><td>5500</td><td>161.10</td><td>21.998911%</td></tr></tbody></table></div><div class=\"table-wrap\"><table><thead><tr><th>方差对象</th><th>输入/输出</th></tr></thead><tbody><tr><td>教学近/远</td><td>24天20%；36天24%</td></tr><tr><td>目标30天年化方差</td><td>0.05056</td></tr><tr><td>目标波动</td><td>22.485551%</td></tr><tr><td>简单平均</td><td>22%（不等于正确插值）</td></tr><tr><td>官方假设近/远分钟</td><td>34,484 / 44,954</td></tr><tr><td>官方假设两方差</td><td>.019233906 / .019423884</td></tr><tr><td>官方假设最终计算</td><td>13.927842 → 13.93</td></tr><tr><td>K1,370单行贡献</td><td>5.32804517×10⁻⁷（非完整strip）</td></tr></tbody></table></div><p>Chicago Fed §2.1–2.3、§3.1、§4.1–4.1.1、Figure 8原文带读：合成历史1926–2022；交易期权1987–2022；标的价格分母；对齐月度roll；alpha与beta风险补偿分开. 没有底层数据复现.</p>\n\n完整冻结输入：https://ou-liu-red-sugar.github.io/notebook/labs/m-efg/inputs.json. 来源内的包路径按 source_paths 取得.",
   "experiments": [
     {
       "id": "EXP-MEFG-M22-SURFACE",
       "title": "曲面切片与30日总方差",
       "anchor": "m22-explore",
-      "description": "先沿两个方向读IV，再把两期限总方差插到30天。",
-      "data_identity": "曲面完全合成；13.93为Cboe官方假设例。论文Figure 8只提供原文定位，不生成伪历史图。",
+      "description": "先沿两个方向读IV，再把两期限总方差插到30天.",
+      "data_identity": "曲面完全合成；13.93为Cboe官方假设例. 论文Figure 8只提供原文定位，不生成伪历史图.",
       "shared_dataset_ids": [
         "EXP-MEFG-IV-01"
       ],
@@ -918,7 +918,7 @@
           "officialIdentity": "Methodology v6.0 Appendix3 explicitly hypothetical (2022-09-27 10:45:15 ET label is not observed VIX)"
         },
         "static_equivalent": "https://ou-liu-red-sugar.github.io/notebook/labs/m-efg/static/M22.html",
-        "unit_note": "曲面完全合成；13.93为Cboe官方假设例。论文Figure 8只提供原文定位，不生成伪历史图。"
+        "unit_note": "曲面完全合成；13.93为Cboe官方假设例. 论文Figure 8只提供原文定位，不生成伪历史图."
       },
       "boundaries": [
         "quote_date=null且所有曲面数据synthetic",
@@ -979,42 +979,42 @@
       "label": "MEFG-MIT-KOGAN",
       "href": "https://ocw.mit.edu/courses/15-450-analytics-of-finance-fall-2010/0d1260b891a96241316d883d4f5bfaec_MIT15_450F10_lec02.pdf",
       "source_id": "PFH-MIT-BSM",
-      "locator": "Leonid Kogan, MIT OpenCourseWare，*15.450: Stochastic Calculus and Option Pricing*，Fall 2010。[原文](https://ocw.mit.edu/courses/15-450-analytics-of-finance-fall-2010/0d1260b891a96241316d883d4f5bfaec_MIT15_450F10_lec02.pdf)。本篇定位：Slides 16–21: BSM market, replication/PDE/formula；Slides 52–58 and 60: Q pricing and European application。"
+      "locator": "Leonid Kogan, MIT OpenCourseWare，*15.450: Stochastic Calculus and Option Pricing*，Fall 2010.[原文](https://ocw.mit.edu/courses/15-450-analytics-of-finance-fall-2010/0d1260b891a96241316d883d4f5bfaec_MIT15_450F10_lec02.pdf). 本篇定位：Slides 16–21: BSM market, replication/PDE/formula；Slides 52–58 and 60: Q pricing and European application."
     },
     {
       "kind": "source_link",
       "label": "MEFG-SPX",
       "href": "https://cdn.cboe.com/resources/spx/spx-fact-sheet.pdf",
       "source_id": "MA-SPX",
-      "locator": "Cboe Global Markets，*S&P 500 Index Options (SPX) Fact Sheet*，©2026; WF-451400-KC; no precise issue date shown。[原文](https://cdn.cboe.com/resources/spx/spx-fact-sheet.pdf)。本篇定位：Full physical pp1–2; p2 specifications and relevant footnotes。"
+      "locator": "Cboe Global Markets，*S&P 500 Index Options (SPX) Fact Sheet*，©2026; WF-451400-KC; no precise issue date shown.[原文](https://cdn.cboe.com/resources/spx/spx-fact-sheet.pdf). 本篇定位：Full physical pp1–2; p2 specifications and relevant footnotes."
     },
     {
       "kind": "source_link",
       "label": "MEFG-VIX-METHOD",
       "href": "https://cdn.cboe.com/api/global/us_indices/governance/Volatility_Index_Methodology_Cboe_Volatility_Index.pdf",
       "source_id": "MEFG-VIX-METHOD",
-      "locator": "Cboe Global Indices，*Volatility Index Methodology: Cboe Volatility Index*，v6.0, revised 2026-02-26。[原文](https://cdn.cboe.com/api/global/us_indices/governance/Volatility_Index_Methodology_Cboe_Volatility_Index.pdf)。本篇定位：Sections 1–5 and Appendices 1–3; physical pp3–14, stop before Appendix4 strip；Appendix2 document version; Appendix3 hypothetical sample。"
+      "locator": "Cboe Global Indices，*Volatility Index Methodology: Cboe Volatility Index*，v6.0, revised 2026-02-26.[原文](https://cdn.cboe.com/api/global/us_indices/governance/Volatility_Index_Methodology_Cboe_Volatility_Index.pdf). 本篇定位：Sections 1–5 and Appendices 1–3; physical pp3–14, stop before Appendix4 strip；Appendix2 document version; Appendix3 hypothetical sample."
     },
     {
       "kind": "source_link",
       "label": "MEFG-VIX-MATH",
       "href": "https://cdn.cboe.com/api/global/us_indices/governance/Cboe_Volatility_Index_Mathematics_Methodology.pdf",
       "source_id": "MEFG-VIX-MATH",
-      "locator": "Cboe Global Indices，*Cboe Volatility Index Mathematics Methodology*，v5.0, revised 2026-02-26。[原文](https://cdn.cboe.com/api/global/us_indices/governance/Cboe_Volatility_Index_Mathematics_Methodology.pdf)。本篇定位：Physical pp3–8 / printed pp4–9: constituent, rates, single-term and constant-maturity calculation；Physical p18 / printed p19: version。"
+      "locator": "Cboe Global Indices，*Cboe Volatility Index Mathematics Methodology*，v5.0, revised 2026-02-26.[原文](https://cdn.cboe.com/api/global/us_indices/governance/Cboe_Volatility_Index_Mathematics_Methodology.pdf). 本篇定位：Physical pp3–8 / printed pp4–9: constituent, rates, single-term and constant-maturity calculation；Physical p18 / printed p19: version."
     },
     {
       "kind": "source_link",
       "label": "MEFG-CHICAGOFED-2025",
       "href": "https://www.chicagofed.org/-/media/publications/working-papers/2025/wp2025-17.pdf?sc_lang=en",
       "source_id": "PFH-CHIFED2025",
-      "locator": "Ian Dew-Becker, Stefano Giglio，*The decline of the variance risk premium: evidence from traded and synthetic options*，Chicago Fed WP2025-17, manuscript 2025-09-04; DOI 10.21033/wp-2025-17。[原文](https://www.chicagofed.org/-/media/publications/working-papers/2025/wp2025-17.pdf?sc_lang=en)。本篇定位：§2.1–2.3 including feasibility: physical pp7–12；§3.1 data: physical pp13–14；§4.1–4.1.1: physical pp29–32; Figure8 physical p30。"
+      "locator": "Ian Dew-Becker, Stefano Giglio，*The decline of the variance risk premium: evidence from traded and synthetic options*，Chicago Fed WP2025-17, manuscript 2025-09-04; DOI 10.21033/wp-2025-17.[原文](https://www.chicagofed.org/-/media/publications/working-papers/2025/wp2025-17.pdf?sc_lang=en). 本篇定位：§2.1–2.3 including feasibility: physical pp7–12；§3.1 data: physical pp13–14；§4.1–4.1.1: physical pp29–32; Figure8 physical p30."
     },
     {
       "kind": "source_link",
       "label": "MEFG-BIS-2024",
       "href": "https://www.bis.org/publications/what-could-explain-recent-drop-vix",
       "source_id": "MEFG-BIS-2024",
-      "locator": "Karamfil Todorov, Grigory Vilkov，*What could explain the recent drop in VIX?*，BIS Quarterly Review Box B, 2024-03-04。[原文](https://www.bis.org/publications/what-could-explain-recent-drop-vix)。本篇定位：Full box body and footnotes; no GraphB1 numeric extraction。"
+      "locator": "Karamfil Todorov, Grigory Vilkov，*What could explain the recent drop in VIX?*，BIS Quarterly Review Box B, 2024-03-04.[原文](https://www.bis.org/publications/what-could-explain-recent-drop-vix). 本篇定位：Full box body and footnotes; no GraphB1 numeric extraction."
     }
   ],
   "provenance": {

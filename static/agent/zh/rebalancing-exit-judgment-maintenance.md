@@ -1,14 +1,18 @@
 # 再平衡、退出与判断维护
 
-把触发与目的地、费用后的交易量、外部新资本和判断更新分别放回同一维护过程。
+把触发与目的地、费用后的交易量、外部新资本和判断更新分别放回同一维护过程.
 
 Entry: zh-p11 | Node: P11 | Language: zh | Editorial revision: 2026-09-21
 
 ## Teaching instructions
-你在教P11“再平衡、退出与判断维护”。先读取Vanguard指定研究页与政策单元，保留日期和模拟条件；Nasdaq只在选中index-event分支时读取完整公告。不要把未来Agent日志预填为已读，不以机构研究为普遍最优规则背书。
-先让读者区分价格导致权重漂移、外部现金流、目标改变、承重判断失效，再写200bps触发与175bps目的地。对于固定教学股票超配，要求其从S′=S−x、B′=B+x−cx推导费用后分母，解x=(S−uV)/(1−uc)。比较不动、部分、全部和新增4000：费用只扣一次，外部本金不是收益。未触发不发指令；股票低配时本包未实现买股分支，不能套负卖出公式。判断失效模式须先更新目标，不能因权重没越线就自动不动。以61.8%未触发和58%反向边界作默认迁移，评价其是否能解释“为什么调”和“调到哪里”，而非以事后财富排序给规则封优。只有读者选择index-event分支且Agent已经读取Nasdaq公告三段正文后，才追加参考日/公开日迁移题；未选择该分支时不得用Nasdaq题收束默认课程。
+你在教P11“再平衡、退出与判断维护”. 先读取Vanguard指定研究页与政策单元，保留日期和模拟条件；Nasdaq只在选中index-event分支时读取完整公告. 不要把未来Agent日志预填为已读，不以机构研究为普遍最优规则背书.
+先让读者区分价格导致权重漂移、外部现金流、目标改变、承重判断失效，再写200bps触发与175bps目的地. 对于固定教学股票超配，要求其从S′=S−x、B′=B+x−cx推导费用后分母，解x=(S−uV)/(1−uc). 比较不动、部分、全部和新增4000：费用只扣一次，外部本金不是收益. 未触发不发指令；股票低配时本包未实现买股分支，不能套负卖出公式. 判断失效模式须先更新目标，不能因权重没越线就自动不动. 以61.8%未触发和58%反向边界作默认迁移，评价其是否能解释“为什么调”和“调到哪里”，而非以事后财富排序给规则封优. 只有读者选择index-event分支且Agent已经读取Nasdaq公告三段正文后，才追加参考日/公开日迁移题；未选择该分支时不得用Nasdaq题收束默认课程.
 
 Before substantive teaching, actually retrieve every required reading unit for the selected scope. Read its complete designated section, including necessary assumptions, tables and footnotes. A working URL or an editorial access date is not a runtime reading receipt. Record the actual version, location, scope and what it supports. If unavailable, use a previously verified equivalent source; if the required unit remains unavailable, identify that gap rather than teach it from memory. Start runtime_reading_log empty. Once reading is complete, use a substantive diagnostic or follow the reader's request for direct explanation. Advance one complete reasoning task at a time; skip mastered basics. Distinguish original facts, supplied teaching assumptions and inference.
+
+## Shared notation and writing conventions
+数学期望统一写成 \mathbb{E}，条件期望用 \mathbb{E}[X\mid\mathcal{G}]，需要时注明测度 P 或 Q. 保留局部变量的明确定义. 金额与数量使用 K=10^3、M=10^6、B=10^9；表格标明币种、量级与期间，变更量级时同步换算数值. 展示小数最多三位，计算保留原始精度. 直接解释对象、机制与推理；保留影响结论的假设和事实来源，把编辑流程留在记录中. 句末使用英文句点 .，包括定义、命题、证明和解析等标签. 基础定义与推导直接讲内容，出处放在紧邻脚注；来源读取、复审和采用范围等编辑经过留在记录中.
+[Notation and units](https://ou-liu-red-sugar.github.io/agent/zh/notation.md)
 
 ## Required readings and runtime protocol
 ```json
@@ -29,7 +33,7 @@ Before substantive teaching, actually retrieve every required reading unit for t
         "scope": "完整具名单元及图注",
         "purpose": "区分阈值、目的地和模拟条件，不把研究节费结果泛化"
       },
-      "supports": "触发与目的地、收益/成本联合研究框架及模拟条件。无现金流/期货的研究结果不证明200/175普遍最优。",
+      "supports": "触发与目的地、收益/成本联合研究框架及模拟条件. 无现金流/期货的研究结果不证明200/175普遍最优.",
       "authors": [
         "Yu Zhang",
         "Harshdeep Ahluwalia",
@@ -52,7 +56,7 @@ Before substantive teaching, actually retrieve every required reading unit for t
         "scope": "有日期的政策说明完整正文；不采用冲突图像替代描述",
         "purpose": "以真实机构选择解释200/175的两个不同数字"
       },
-      "supports": "2025-01-23机构政策中200bps触发、175bps目的地；排除冲突图像替代文字。",
+      "supports": "2025-01-23机构政策中200bps触发、175bps目的地；排除冲突图像替代文字.",
       "authors": [
         "Vanguard"
       ],
@@ -74,7 +78,7 @@ Before substantive teaching, actually retrieve every required reading unit for t
         "scope": "完整事件正文",
         "purpose": "区分参考、公告、计划文件发布与生效日期"
       },
-      "supports": "2023公告的参考、公开、计划文件发布与生效四种日期；不包含ETF成交。",
+      "supports": "2023公告的参考、公开、计划文件发布与生效四种日期；不包含ETF成交.",
       "branch": "index-event",
       "required_if_branch_selected": true,
       "authors": [
@@ -96,7 +100,7 @@ Before substantive teaching, actually retrieve every required reading unit for t
         "scope": "完整两小节",
         "purpose": "判断触发和订单执行的区别"
       },
-      "supports": "订单的价格/成交保证区别与有效期；本篇盘口和执行数列另为合成数据。",
+      "supports": "订单的价格/成交保证区别与有效期；本篇盘口和执行数列另为合成数据.",
       "branch": "order-trigger",
       "required_if_branch_selected": true,
       "authors": [
@@ -226,13 +230,13 @@ Before substantive teaching, actually retrieve every required reading unit for t
       "PE-SEC-ORDERS": "MA-ORDERS",
       "PE-CME-MES": "MA-MES"
     },
-    "selection_identity": "本篇全部教学输入的逐字段副本；原公共共享文件保持作者字节，不含其他三篇无关数列。"
+    "selection_identity": "本篇全部教学输入的逐字段副本；原公共共享文件保持作者字节，不含其他三篇无关数列."
   },
   "solutions_identity": "解释、迁移与边界题完整解析包含在同源body_markdown末节",
   "entry_id": "zh-p11",
   "content_version": "2026-09-21.PE-review-v3",
   "selected_branch": "common",
-  "branch_selection_protocol": "默认只读 required_readings；选中 optional_readings 的具名分支后，追加该条完整 required_unit，实际读完后才教相应分支。正文保留可展开内容与全部题解。",
+  "branch_selection_protocol": "默认只读 required_readings；选中 optional_readings 的具名分支后，追加该条完整 required_unit，实际读完后才教相应分支. 正文保留可展开内容与全部题解.",
   "public_artifacts": {
     "full_inputs": "https://ou-liu-red-sugar.github.io/notebook/labs/p-e/inputs.json",
     "full_results": "https://ou-liu-red-sugar.github.io/notebook/labs/p-e/default-results.json",
@@ -249,29 +253,29 @@ Before substantive teaching, actually retrieve every required reading unit for t
 ```
 
 ## Supplied entry
-建立一个组合之后，价格会动、资金会进出，原来的判断也可能改变。“现在要不要调仓”因此不是一个单纯的价格问题。我们先分开两件事：**既定目标没有变，只是持仓偏离了它；或者目标和依据本身已经需要更新。** 前者可以用清楚的再平衡规则处理，后者不能靠把权重调回旧位置来解决。
+建立一个组合之后，价格会动、资金会进出，原来的判断也可能改变. “现在要不要调仓”因此不是一个单纯的价格问题. 我们先分开两件事：**既定目标没有变，只是持仓偏离了它；或者目标和依据本身已经需要更新.** 前者可以用清楚的再平衡规则处理，后者不能靠把权重调回旧位置来解决.
 
-本篇先走完一项带费用的股票超配调整，再比较不动、部分调回、完全调回和新增现金。最后回到判断维护：我们为何行动，何时知道新信息，动作之后还承担什么。
+本篇先走完一项带费用的股票超配调整，再比较不动、部分调回、完全调回和新增现金. 最后回到判断维护：我们为何行动，何时知道新信息，动作之后还承担什么.
 
 <a id="p11-policy"></a>
 ## 1. 触发阈值回答“何时”，目的地回答“哪里”
 
-Vanguard在2025-01-23的目标日期基金政策说明中，区分了触发距离与调整目的地：股票配置偏离目标200个基点时触发，其选择的调整后偏离为175个基点，而非总是调回目标。这是有日期的机构管理选择，不是任意组合的通用最优定理。[^policy]
+Vanguard在2025-01-23的目标日期基金政策说明中，区分了触发距离与调整目的地：股票配置偏离目标200个基点时触发，其选择的调整后偏离为175个基点，而非总是调回目标. 这是有日期的机构管理选择，不是任意组合的通用最优定理. [^policy]
 
-以60%股票目标为例，200个基点是**2个百分点**，所以上侧阈值为62%；175个基点是调整后仍保留的1.75个百分点偏离，所以上侧目的地为61.75%。它既不是“卖掉175个基点的资产”，也不是“把偏离减少175个基点”。具体卖多少，必须从当前持仓反算。
+以60%股票目标为例，200个基点是**2个百分点**，所以上侧阈值为62%；175个基点是调整后仍保留的1.75个百分点偏离，所以上侧目的地为61.75%. 它既不是“卖掉175个基点的资产”，也不是“把偏离减少175个基点”. 具体卖多少，必须从当前持仓反算.
 
-> **本篇的政策约定。** 设当前股票权重为 $w$，目标为 $w_*$，上侧触发距离为 $\tau$，目的地距离为 $\delta$。当 $w-w_*>\tau$ 时，卖股买债，调向 $u=w_*+\delta$；其中 $0\le\delta<\tau$。恰好等于阈值时，本教学实现暂不触发；这是为计算明确的边界约定，不替代具体管理协议。完全调回则取 $u=w_*$。
+> **本篇的政策约定.** 设当前股票权重为 $w$，目标为 $w_*$，上侧触发距离为 $\tau$，目的地距离为 $\delta$. 当 $w-w_*>\tau$ 时，卖股买债，调向 $u=w_*+\delta$；其中 $0\le\delta<\tau$. 恰好等于阈值时，本教学实现暂不触发；这是为计算明确的边界约定，不替代具体管理协议. 完全调回则取 $u=w_*$.
 
-为什么不每次都调回60%？较小的调整通常需要较少交易，但会容许更大偏离，并可能改变下一次触发的时间。Vanguard的2024研究把回报路径、波动、交易量与交易成本共同纳入比较；其模拟条件包括10,000条模拟、指定资产组合以及不使用现金流或期货的设置。这里采用的是比较框架与条件意识，不把该模型结果当作我们这张组合的保证。[^research]
+为什么不每次都调回60%？较小的调整通常需要较少交易，但会容许更大偏离，并可能改变下一次触发的时间. Vanguard的2024研究把回报路径、波动、交易量与交易成本共同纳入比较；其模拟条件包括10,000条模拟、指定资产组合以及不使用现金流或期货的设置. 本节借用这一比较框架；其模拟结果受这些设定约束，不能直接外推到这张组合.[^research]
 
 <span id="SIM-PE-REBALANCE-01"></span>
 
 <a id="p11-ledger"></a>
 ## 2. 一项调整必须先把钱分配完整
 
-现在给一个独立教学组合：股票62,400美元，债券37,600，总额100,000，目标60/40。股票权重62.4%，比目标高240个基点，超过200的上侧阈值。
+现在给一个独立教学组合：股票62,400美元，债券37,600，总额100,000，目标60/40. 股票权重62.4%，比目标高240个基点，超过200的上侧阈值.
 
-假设每次卖出股票并买入债券的**合计实施费用**为股票卖出金额的20个基点，即 $c=0.002$。这是教学成本，已经包含两腿，不再给买债另收同一份20基点。卖出 $x$ 后，费用 $cx$ 被扣掉，只有 $x-cx$ 能买债。因而
+假设每次卖出股票并买入债券的**合计实施费用**为股票卖出金额的20个基点，即 $c=0.002$. 这是教学成本，已经包含两腿，不再给买债另收同一份20基点. 卖出 $x$ 后，费用 $cx$ 被扣掉，只有 $x-cx$ 能买债. 因而
 
 $$
 S'=62,400-x,\qquad B'=37,600+x-cx,
@@ -281,18 +285,18 @@ $$
 V'=S'+B'=100,000-cx.
 $$
 
-卖掉的本金在股票与债券之间转移，只有费用减少总财富。把总额仍写成100,000，再用它计算调整后权重，就会遗漏费用带来的分母变化。
+卖掉的本金在股票与债券之间转移，只有费用减少总财富. 把总额仍写成100,000，再用它计算调整后权重，就会遗漏费用带来的分母变化.
 
 <a id="p11-derivation"></a>
 ## 3. 用交易后的分母，解出真正的交易量
 
-希望交易后股票权重为 $u$，便要满足 $(S-x)/(V-cx)=u$。移项得到 $S-x=uV-ucx$，所以
+希望交易后股票权重为 $u$，便要满足 $(S-x)/(V-cx)=u$. 移项得到 $S-x=uV-ucx$，所以
 
 $$
 x=\frac{S-uV}{1-uc}.
 $$
 
-这条公式处理的是**股票超配、卖股买债**。本篇只在 $S/V\ge u$、$0\le c<1$、$0\le x\le S$、$V-cx>0$ 时使用。如果股票低配，需要另建买股、卖债及费用的关系，不能把这里算出的负 $x$ 当成已经推导好的反向交易。实验在这种情况下会说明当前分支不适用。
+这条公式处理的是**股票超配、卖股买债**. 本篇只在 $S/V\ge u$、$0\le c<1$、$0\le x\le S$、$V-cx>0$ 时使用. 如果股票低配，需要另建买股、卖债及费用的关系，不能把这里算出的负 $x$ 当成已经推导好的反向交易. 实验在这种情况下会说明当前分支不适用.
 
 部分调回时，$u=0.6175$，于是
 
@@ -301,9 +305,9 @@ x=\frac{62,400-0.6175\times100,000}{1-0.6175\times0.002}
 =650.803743.
 $$
 
-费用为1.301607，买债649.502135，交易后股票61,749.196257、债券38,249.502135，总额99,998.698393。用新总额相除，股票恰为61.75%。
+费用为1.301607，买债649.502135，交易后股票61,749.196257、债券38,249.502135，总额99,998.698393. 用新总额相除，股票恰为61.75%.
 
-完全调回时，$u=0.60$，卖出额为2,402.883460，费用4.805767，买债2,398.077693，股票59,997.116540、债券39,998.077693，总额99,995.194233，股票恰为60%。
+完全调回时，$u=0.60$，卖出额为2,402.883460，费用4.805767，买债2,398.077693，股票59,997.116540、债券39,998.077693，总额99,995.194233，股票恰为60%.
 
 | 立即选择的动作 | 卖股金额 | 合计费用 | 买债金额 | 交易后总额 | 股票权重 |
 |---|---:|---:|---:|---:|---:|
@@ -311,12 +315,12 @@ $$
 | 部分调至61.75% | 650.803743 | 1.301607 | 649.502135 | 99,998.698393 | 61.75% |
 | 完全调至60% | 2,402.883460 | 4.805767 | 2,398.077693 | 99,995.194233 | 60.00% |
 
-如果忽略费用，部分调整会卖650，完全调整会卖2,400。差额虽小，机制仍应写对：目标是费用后的权重，交易量便会响应成本。实际实施还需要满足成交与资金约束；本表假设交易按所设成本完成，不把纸面交易量当成实际成交。
+如果忽略费用，部分调整会卖650，完全调整会卖2,400. 差额虽小，机制仍应写对：目标是费用后的权重，交易量便会响应成本. 实际实施还需要满足成交与资金约束；本表假设交易按所设成本完成，不把纸面交易量当成实际成交.
 
 <a id="p11-alternatives"></a>
 ## 4. 三种动作与现金流修复，究竟改变了什么
 
-我们再给两个明确的教学后续：下一期债券不变，股票分别涨5%或跌5%。沿交易后的持仓计算 $W_1=S'(1+r_S)+B'(1+r_B)$，得到
+我们再给两个明确的教学后续：下一期债券不变，股票分别涨5%或跌5%. 沿交易后的持仓计算 $W_1=S'(1+r_S)+B'(1+r_B)$，得到
 
 | 动作 | 下一期股票+5%、债券0 | 下一期股票−5%、债券0 |
 |---|---:|---:|
@@ -324,20 +328,20 @@ $$
 | 部分调回 | 103,086.1582 | 96,911.2386 |
 | 完全调回 | 102,995.0501 | 96,995.3384 |
 
-上涨时多持股票的不动路径财富更高；下跌时减少更多股票的完全调回路径财富更高。这不是哪条政策“永远更好”的证明。事前规则处理的是成本与目标偏离；后来某次涨跌决定了这一条路径的结果。把事后财富最高者倒写成事前应当知道的选择，就换掉了信息条件。
+上涨时多持股票的不动路径财富更高；下跌时减少更多股票的完全调回路径财富更高. 这不是哪条政策“永远更好”的证明. 事前规则处理的是成本与目标偏离；后来某次涨跌决定了这一条路径的结果. 把事后财富最高者倒写成事前应当知道的选择，就换掉了信息条件.
 
-还有第四条路径：账户得到外部新增4,000，全部买债。在暂不计这笔新投入的交易费用时，股票仍为62,400，总资产104,000，股票权重 $62,400/104,000=60\%$。无需卖股也可以修复权重，但代价是使用了新的资本。
+还有第四条路径：账户得到外部新增4,000，全部买债. 在暂不计这笔新投入的交易费用时，股票仍为62,400，总资产104,000，股票权重 $62,400/104,000=60\%$. 无需卖股也可以修复权重，但代价是使用了新的资本.
 
-这4,000不能记作4%回报。转入后总财富增加4,000，外部投入也增加4,000，即时净损益仍为零。若下一期股票涨5%，财富为107,120，看起来高于前表，但其中包含新增本金；在这一瞬间先扣除新增投入再比较，才不会把更大的资金基数当执行效果。更一般的多日期现金流，应按实际投入日期计算，而不是随意从期末金额里减一个数。
+这4,000不能记作4%回报. 转入后总财富增加4,000，外部投入也增加4,000，即时净损益仍为零. 若下一期股票涨5%，财富为107,120，看起来高于前表，但其中包含新增本金；在这一瞬间先扣除新增投入再比较，才不会把更大的资金基数当执行效果. 更一般的多日期现金流，应按实际投入日期计算，而不是随意从期末金额里减一个数.
 
 <a id="p11-maintenance"></a>
 ## 5. 哪一种新信息，应该改变哪一层判断
 
-再平衡规则成立的前提，是原目标仍适合当前任务。我们为一份维护记录保留五项：原目标和依据版本；观察到的新事实及可得时间；受影响的假设或约束；选择的动作及成交条件；不采取动作的比较安排。记录不是为了多填表，而是避免每次都从当前价格倒编理由。
+再平衡规则成立的前提，是原目标仍适合当前任务. 一份维护记录至少保留五项：原目标和依据版本；观察到的新事实及可得时间；受影响的假设或约束；选择的动作及成交条件；不采取动作的比较安排. 这样可以把行动理由固定在当时可得的信息上，避免从当前价格反向拼接解释.
 
-考虑四种变化。**价格上涨、业务判断未变**，首先改变权重和剩余条件回报，不直接证明业务失效。**价格没动、关键客户或经营依据失效**，则应重审判断和目标，即使权重恰好60%。**付款义务提前**，改变可用资金约束，可能要求降低风险或准备现金；这不是同一条价格阈值。**政策或基准更新**，改变的是要追踪的目标，不能只把仓位调回已失效的旧权重。
+考虑四种变化.**价格上涨、业务判断未变**，首先改变权重和剩余条件回报，不直接证明业务失效. **价格没动、关键客户或经营依据失效**，则应重审判断和目标，即使权重恰好60%. **付款义务提前**，改变可用资金约束，可能要求降低风险或准备现金；这不是同一条价格阈值. **政策或基准更新**，改变的是要追踪的目标，不能只把仓位调回已失效的旧权重.
 
-对有到期日的合约，还要维护到期、交割、展期及融资条款。对普通现金股票组合，并不需要为了再平衡先学完所有衍生品；只需识别真正影响当前安排的条件。止损订单同样只是一个执行安排，触发价不等于业务判断失败的充分证据，也不保证最终成交价。[^orders]
+对有到期日的合约，还要维护到期、交割、展期及融资条款. 对普通现金股票组合，并不需要为了再平衡先学完所有衍生品；只需识别真正影响当前安排的条件. 止损订单同样只是一个执行安排，触发价不等于业务判断失败的充分证据，也不保证最终成交价. [^orders]
 
 <details id="p11-index-branch">
 <summary>选读：Nasdaq特别再平衡的四个不同日期</summary>
@@ -346,7 +350,7 @@ $$
 
 <a id="p11-index-event"></a>
 
-Nasdaq在2023-07-07公告，拟于7月24日开市前实施Nasdaq-100特别再平衡；采用7月3日的在外指数股份作为参考，计划7月14日发布调整后的指数股份和pro-forma文件，并说明不增删成分股。[^nasdaq]
+Nasdaq在2023-07-07公告，拟于7月24日开市前实施Nasdaq-100特别再平衡；采用7月3日的在外指数股份作为参考，计划7月14日发布调整后的指数股份和pro-forma文件，并说明不增删成分股. [^nasdaq]
 
 | 日期 | 在该公告中的身份 |
 |---|---|
@@ -355,43 +359,43 @@ Nasdaq在2023-07-07公告，拟于7月24日开市前实施Nasdaq-100特别再平
 | 2023-07-14 | 公告计划的新股份／pro-forma发布日 |
 | 2023-07-24开市前 | 公告所定生效时间 |
 
-参考数据日期不等于投资者当时已经知道决定。这里没有取得逐股新权重或ETF真实成交，因而只用这项事件练习信息时间与外部触发，不编造调仓损益。指数没有增删成分股，也仍可能因为权重改变而要求跟踪者调整。
+参考数据日期不等于投资者当时已经知道决定. 这里没有取得逐股新权重或ETF真实成交，因而只用这项事件练习信息时间与外部触发，不编造调仓损益. 指数没有增删成分股，也仍可能因为权重改变而要求跟踪者调整.
 
-**选读分支迁移题。** 只有在选择本分支并读完上述公告后，再回答：能否从7月3日开始给“知道将特别再平衡”的策略记收益？
+**选读分支迁移题.** 只有在选择本分支并读完上述公告后，再回答：能否从7月3日开始给“知道将特别再平衡”的策略记收益？
 
-**解析。** 不能。该公告到7月7日才公开，7月3日只是计算参考日。没有更早可得信息的独立证据，就不能把公告内容写回7月3日。7月14日也只是在本公告中保留为计划发布时间，不是本篇已经核过实际文件发布的保证。
+**解析.** 不能. 该公告到7月7日才公开，7月3日只是计算参考日. 没有更早可得信息的独立证据，就不能把公告内容写回7月3日. 7月14日也只是在本公告中保留为计划发布时间，不是本篇已经核过实际文件发布的保证.
 
 </details>
 
 <a id="p11-lab"></a>
 ## 6. 先写清为何调整，再计算调到哪里
 
-打开[维护与再平衡实验](/notebook/labs/p-e/interactions.html?experiment=EXP-P11-MAINTENANCE-DECISION#EXP-P11-MAINTENANCE-DECISION)。先分开改变触发阈值和目的地：提高阈值，可能让当前持仓不再触发；改变目的地，只应影响已触发后的交易。再增加费用，观察交易额和费用后总额同时变化。选择“关键判断改变”时，界面不会根据尚未跨阈值就替你决定不行动，而是要求先重新确定目标。
+打开[维护与再平衡实验](/notebook/labs/p-e/interactions.html?experiment=EXP-P11-MAINTENANCE-DECISION#EXP-P11-MAINTENANCE-DECISION). 先分开改变触发阈值和目的地：提高阈值，可能让当前持仓不再触发；改变目的地，只应影响已触发后的交易. 再增加费用，观察交易额和费用后总额同时变化. 选择“关键判断改变”时，界面不会根据尚未跨阈值就替你决定不行动，而是要求先重新确定目标.
 
 <div data-experiment-slot="EXP-P11-MAINTENANCE-DECISION"></div>
 
-**解释题。** 目标60%、规则200/175、当前62.4%，为什么不能直接卖1,750美元？
+**解释题.** 目标60%、规则200/175、当前62.4%，为什么不能直接卖1,750美元？
 
-**解析。** 175个基点是调整后相对于60%的距离，目的地为61.75%，不是交易量。当前到目的地只差0.65个百分点，且费用还改变分母。解费用后方程得到650.803743；卖1,750会越过指定目的地，执行的已是另一条规则。
+**解析.** 175个基点是调整后相对于60%的距离，目的地为61.75%，不是交易量. 当前到目的地只差0.65个百分点，且费用还改变分母. 解费用后方程得到650.803743；卖1,750会越过指定目的地，执行的已是另一条规则.
 
-**迁移题。** 当前股票权重改为61.8%，仍是200/175，其他条件不变。是否应先算出一个正出售量，再执行？
+**迁移题.** 当前股票权重改为61.8%，仍是200/175，其他条件不变. 是否应先算出一个正出售量，再执行？
 
-**解析。** 不应。偏离只有180个基点，未触发。即使“假设立即调向61.75%”能解出一个小出售量，它也不是该政策此刻发出的交易。政策判断在前，交易量计算在后。若恰为62%，依本篇严格超过阈值的约定也暂不触发；换一个边界约定应明确记录。
+**解析.** 不应. 偏离只有180个基点，未触发. 即使“假设立即调向61.75%”能解出一个小出售量，它也不是该政策此刻发出的交易. 政策判断在前，交易量计算在后. 若恰为62%，依本篇严格超过阈值的约定也暂不触发；换一个边界约定应明确记录.
 
-**判断题。** A组合权重62.4%，经营判断未变；B组合权重60%，一项承重经营证据已被反驳。谁更需要重新研究？
+**判断题.** A组合权重62.4%，经营判断未变；B组合权重60%，一项承重经营证据已被反驳. 谁更需要重新研究？
 
-**解析。** A可以先检查原目标、成本与组合约束，决定是否按既定政策调回；B必须先重审受影响的判断，即使未发生权重漂移。这里不能用一个“哪边更危险”的权重数字替代问题分类，也不能认为B无需行动只因为它恰好在目标。
+**解析.** A可以先检查原目标、成本与组合约束，决定是否按既定政策调回；B必须先重审受影响的判断，即使未发生权重漂移. 这里不能用一个“哪边更危险”的权重数字替代问题分类，也不能认为B无需行动只因为它恰好在目标.
 
-**反向边界题。** 股票低配至58%，把上面的公式算出负交易额后，能否直接买入相应绝对金额？
+**反向边界题.** 股票低配至58%，把上面的公式算出负交易额后，能否直接买入相应绝对金额？
 
-**解析。** 不能沿用未经推导的现金关系。原式费用以卖股额计、从买债资金扣除；反向交易的费用基数、卖债净所得与买股金额需要重新定义。当前实验只实现股票超配分支，低配时报告分支不适用。限制适用范围比显示一个错误的精确交易量更有用。
+**解析.** 不能沿用未经推导的现金关系. 原式费用以卖股额计、从买债资金扣除；反向交易的费用基数、卖债净所得与买股金额需要重新定义. 当前实验只实现股票超配分支，低配时报告分支不适用. 限制适用范围比显示一个错误的精确交易量更有用.
 
-最后，维护判断并不等于不断交易。重要的是保留“哪个事实改变了哪个目标或约束”的关系；动作可以是准备现金、修改指令、部分调整、退出，也可以是有依据地不动。
+最后，维护判断并不等于不断交易. 重要的是保留“哪个事实改变了哪个目标或约束”的关系；动作可以是准备现金、修改指令、部分调整、退出，也可以是有依据地不动.
 
-[^policy]: Vanguard，*Vanguard’s approach to target-date fund rebalancing*，2025-01-23；“Selecting a TDF rebalancing approach”及“Vanguard’s approach”正文。200/175按该日期的管理政策解释；本篇采用政策正文和Figure 1的定义。[原文](https://workplace.vanguard.com/insights-and-research/perspective/vanguards-approach-to-target-date-fund-rebalancing.html)。
-[^research]: Yu Zhang、Harshdeep Ahluwalia、Ankul Daga、Yiran Zi，*The rebalancing edge*，Vanguard Research，2024-12；pp.2–3阈值与Figure 1、p.4框架、pp.5–6模型输入及图注、p.7成本单元。模拟研究与本篇合成组合分开。[原文](https://corporate.vanguard.com/content/dam/corp/research/pdf/the_rebalancing_edge_optimizing_target_date_fund_rebalancing_through_threshold_based_strategies.pdf#page=2)。
-[^orders]: SEC，*Understanding Order Types – Investor Bulletin*，更新2026-08-18，“Stop Orders”。[原文](https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins-14)。
-[^nasdaq]: Nasdaq，*The Nasdaq-100 Index Special Rebalance to be Effective July 24, 2023*，公告2023-07-07，事件正文三段。[原文](https://ir.nasdaq.com/node/106481)。
+[^policy]: Vanguard，*Vanguard’s approach to target-date fund rebalancing*，2025-01-23；“Selecting a TDF rebalancing approach”及“Vanguard’s approach”正文. 200/175按该日期的管理政策解释；本篇采用政策正文和Figure 1的定义. [原文](https://workplace.vanguard.com/insights-and-research/perspective/vanguards-approach-to-target-date-fund-rebalancing.html).
+[^research]: Yu Zhang、Harshdeep Ahluwalia、Ankul Daga、Yiran Zi，*The rebalancing edge*，Vanguard Research，2024-12；pp.2–3阈值与Figure 1、p.4框架、pp.5–6模型输入及图注、p.7成本单元. 模拟研究与本篇合成组合分开. [原文](https://corporate.vanguard.com/content/dam/corp/research/pdf/the_rebalancing_edge_optimizing_target_date_fund_rebalancing_through_threshold_based_strategies.pdf#page=2).
+[^orders]: SEC，*Understanding Order Types – Investor Bulletin*，更新2026-08-18，“Stop Orders”. [原文](https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins-14).
+[^nasdaq]: Nasdaq，*The Nasdaq-100 Index Special Rebalance to be Effective July 24, 2023*，公告2023-07-07，事件正文三段. [原文](https://ir.nasdaq.com/node/106481).
 
 
 ## Experiment inputs and static equivalents
@@ -402,7 +406,7 @@ Nasdaq在2023-07-07公告，拟于7月24日开市前实施Nasdaq-100特别再平
     "node_id": "P11",
     "title": "再平衡、退出与判断维护：操作实验",
     "anchor": "p11-lab",
-    "description": "把触发与目的地、费用后的交易量、外部新资本和判断更新分别放回同一维护过程。",
+    "description": "把触发与目的地、费用后的交易量、外部新资本和判断更新分别放回同一维护过程.",
     "inputs": {
       "shared_input_id": "PE-DRAFT-INPUTS-20260921-v1",
       "frozen_case_keys": [
@@ -473,12 +477,12 @@ Nasdaq在2023-07-07公告，拟于7月24日开市前实施Nasdaq-100特别再平
       }
     },
     "algorithm": [
-      "current_stock=100000×weight；target、trigger、destination分别给定，严格超过上侧阈值才触发。",
-      "仅卖股买债：0≤destination<trigger；低配拒绝反向量；thesis/target_changed先返回needs-judgment。",
-      "已触发partial的u=target+destination，full的u=target；x=(S−uV)/(1−u×c)。",
-      "成本c×x一次；S′=S−x，B′=B+x−c×x，V′=V−c×x；以V′求权重。",
-      "contribution固定外部4000进入债券，本分支忽略该新增投入交易成本，即时净损益0。",
-      "next财富=S′(1+r)+B′；新资本分支按V+4000资金基数说明，不把本金视为收益。"
+      "current_stock=100000×weight；target、trigger、destination分别给定，严格超过上侧阈值才触发.",
+      "仅卖股买债：0≤destination<trigger；低配拒绝反向量；thesis/target_changed先返回needs-judgment.",
+      "已触发partial的u=target+destination，full的u=target；x=(S−uV)/(1−u×c).",
+      "成本c×x一次；S′=S−x，B′=B+x−c×x，V′=V−c×x；以V′求权重.",
+      "contribution固定外部4000进入债券，本分支忽略该新增投入交易成本，即时净损益0.",
+      "next财富=S′(1+r)+B′；新资本分支按V+4000资金基数说明，不把本金视为收益."
     ],
     "boundaries": [
       "no negative sell amount",
@@ -523,7 +527,7 @@ Nasdaq在2023-07-07公告，拟于7月24日开市前实施Nasdaq-100特别再平
           "wealth": 103120,
           "next_return_on_funded_capital": 0.031199999999999894,
           "instant_net_gain": 0,
-          "message": "选择不调整，保留原敞口。"
+          "message": "选择不调整，保留原敞口."
         },
         "down": {
           "parameters": {
@@ -556,7 +560,7 @@ Nasdaq在2023-07-07公告，拟于7月24日开市前实施Nasdaq-100特别再平
           "wealth": 96880,
           "next_return_on_funded_capital": -0.031200000000000006,
           "instant_net_gain": 0,
-          "message": "选择不调整，保留原敞口。"
+          "message": "选择不调整，保留原敞口."
         }
       },
       {
@@ -592,7 +596,7 @@ Nasdaq在2023-07-07公告，拟于7月24日开市前实施Nasdaq-100特别再平
           "wealth": 103086.15820538366,
           "next_return_on_funded_capital": 0.03086158205383671,
           "instant_net_gain": -1.3016074852442912,
-          "message": "按费用后目的地计算卖股买债。"
+          "message": "按费用后目的地计算卖股买债."
         },
         "down": {
           "parameters": {
@@ -625,7 +629,7 @@ Nasdaq在2023-07-07公告，拟于7月24日开市前实施Nasdaq-100特别再平
           "wealth": 96911.23857964587,
           "next_return_on_funded_capital": -0.030887614203541358,
           "instant_net_gain": -1.3016074852442912,
-          "message": "按费用后目的地计算卖股买债。"
+          "message": "按费用后目的地计算卖股买债."
         }
       },
       {
@@ -661,7 +665,7 @@ Nasdaq在2023-07-07公告，拟于7月24日开市前实施Nasdaq-100特别再平
           "wealth": 102995.0500600721,
           "next_return_on_funded_capital": 0.02995050060072102,
           "instant_net_gain": -4.805766920304365,
-          "message": "按费用后目的地计算卖股买债。"
+          "message": "按费用后目的地计算卖股买债."
         },
         "down": {
           "parameters": {
@@ -694,7 +698,7 @@ Nasdaq在2023-07-07公告，拟于7月24日开市前实施Nasdaq-100特别再平
           "wealth": 96995.3384060873,
           "next_return_on_funded_capital": -0.03004661593912694,
           "instant_net_gain": -4.805766920304365,
-          "message": "按费用后目的地计算卖股买债。"
+          "message": "按费用后目的地计算卖股买债."
         }
       },
       {
@@ -730,7 +734,7 @@ Nasdaq在2023-07-07公告，拟于7月24日开市前实施Nasdaq-100特别再平
           "wealth": 107120,
           "next_return_on_funded_capital": 0.030000000000000027,
           "instant_net_gain": 0,
-          "message": "新增4000为外部资本；该分支忽略新增投入的交易费，不将资本增加当收益。"
+          "message": "新增4000为外部资本；该分支忽略新增投入的交易费，不将资本增加当收益."
         },
         "down": {
           "parameters": {
@@ -763,11 +767,11 @@ Nasdaq在2023-07-07公告，拟于7月24日开市前实施Nasdaq-100特别再平
           "wealth": 100880,
           "next_return_on_funded_capital": -0.030000000000000027,
           "instant_net_gain": 0,
-          "message": "新增4000为外部资本；该分支忽略新增投入的交易费，不将资本增加当收益。"
+          "message": "新增4000为外部资本；该分支忽略新增投入的交易费，不将资本增加当收益."
         }
       }
     ],
-    "static_equivalent_markdown": "| 路线 | 出售 | 费 | 外部投入 | 费用后总额 | 股票权重 | 股票+5%财富 | 股票−5%财富 |\n| --- | --- | --- | --- | --- | --- | --- | --- |\n| none | 0.000000 | 0.000000 | 0 | 100,000.000000 | 0.624000 | 103,120.000000 | 96,880.000000 |\n| partial | 650.803743 | 1.301607 | 0 | 99,998.698393 | 0.617500 | 103,086.158205 | 96,911.238580 |\n| full | 2,402.883460 | 4.805767 | 0 | 99,995.194233 | 0.600000 | 102,995.050060 | 96,995.338406 |\n| contribution | 0.000000 | 0.000000 | 4,000 | 104,000.000000 | 0.600000 | 107,120.000000 | 100,880.000000 |\n\n新增4000财富含新本金，不能与三条原资金路线直接按金额排名。低配反向交易未实现；恰等阈值不触发。",
+    "static_equivalent_markdown": "| 路线 | 出售 | 费 | 外部投入 | 费用后总额 | 股票权重 | 股票+5%财富 | 股票−5%财富 |\n| --- | --- | --- | --- | --- | --- | --- | --- |\n| none | 0.000000 | 0.000000 | 0 | 100,000.000000 | 0.624000 | 103,120.000000 | 96,880.000000 |\n| partial | 650.803743 | 1.301607 | 0 | 99,998.698393 | 0.617500 | 103,086.158205 | 96,911.238580 |\n| full | 2,402.883460 | 4.805767 | 0 | 99,995.194233 | 0.600000 | 102,995.050060 | 96,995.338406 |\n| contribution | 0.000000 | 0.000000 | 4,000 | 104,000.000000 | 0.600000 | 107,120.000000 | 100,880.000000 |\n\n新增4000财富含新本金，不能与三条原资金路线直接按金额排名. 低配反向交易未实现；恰等阈值不触发.",
     "inputs_uri": "https://ou-liu-red-sugar.github.io/notebook/labs/p-e/inputs.json",
     "results_uri": "https://ou-liu-red-sugar.github.io/notebook/labs/p-e/default-results.json",
     "results_pointer": "/P11",
@@ -777,12 +781,12 @@ Nasdaq在2023-07-07公告，拟于7月24日开市前实施Nasdaq-100特别再平
 ```
 
 ## Sources
-- [Understanding Order Types — Investor Bulletin](https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins-14): 订单语义、分档执行、限价与成交保证的区别；投资者教学而非规则正文；各券商细则仍可能不同。
+- [Understanding Order Types — Investor Bulletin](https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins-14): 订单语义、分档执行、限价与成交保证的区别；投资者教学而非规则正文；各券商细则仍可能不同.
 
-P-E 使用范围：订单的价格/成交保证区别与有效期；本篇盘口和执行数列另为合成数据。
-- [The Nasdaq-100 Index Special Rebalance to be Effective July 24, 2023](https://ir.nasdaq.com/node/106481): 2023公告的参考、公开、计划文件发布与生效四种日期；不包含ETF成交。
-- [Vanguard's approach to target-date fund rebalancing](https://workplace.vanguard.com/insights-and-research/perspective/vanguards-approach-to-target-date-fund-rebalancing.html): 2025-01-23机构政策中200bps触发、175bps目的地；排除冲突图像替代文字。
-- [The rebalancing edge: Optimizing target-date fund rebalancing through threshold-based strategies](https://corporate.vanguard.com/content/dam/corp/research/pdf/the_rebalancing_edge_optimizing_target_date_fund_rebalancing_through_threshold_based_strategies.pdf): 触发与目的地、收益/成本联合研究框架及模拟条件。无现金流/期货的研究结果不证明200/175普遍最优。
+P-E 使用范围：订单的价格/成交保证区别与有效期；本篇盘口和执行数列另为合成数据.
+- [The Nasdaq-100 Index Special Rebalance to be Effective July 24, 2023](https://ir.nasdaq.com/node/106481): 2023公告的参考、公开、计划文件发布与生效四种日期；不包含ETF成交.
+- [Vanguard's approach to target-date fund rebalancing](https://workplace.vanguard.com/insights-and-research/perspective/vanguards-approach-to-target-date-fund-rebalancing.html): 2025-01-23机构政策中200bps触发、175bps目的地；排除冲突图像替代文字.
+- [The rebalancing edge: Optimizing target-date fund rebalancing through threshold-based strategies](https://corporate.vanguard.com/content/dam/corp/research/pdf/the_rebalancing_edge_optimizing_target_date_fund_rebalancing_through_threshold_based_strategies.pdf): 触发与目的地、收益/成本联合研究框架及模拟条件. 无现金流/期货的研究结果不证明200/175普遍最优.
 
 ## Content relations
 ```json
@@ -829,7 +833,7 @@ P-E 使用范围：订单的价格/成交保证区别与有效期；本篇盘口
     "to": "PE-VANGUARD-RB",
     "reason": "区分阈值、目的地和模拟条件，不把研究节费结果泛化",
     "locator": "pp2–3 definitions and Figure1 notes; p4 framework; pp5–6 The inputs to our forecasting model; p7 Estimated transaction costs and Figure5 notes",
-    "scope": "触发与目的地、收益/成本联合研究框架及模拟条件。无现金流/期货的研究结果不证明200/175普遍最优。"
+    "scope": "触发与目的地、收益/成本联合研究框架及模拟条件. 无现金流/期货的研究结果不证明200/175普遍最优."
   },
   {
     "from": "zh-p11",
@@ -837,7 +841,7 @@ P-E 使用范围：订单的价格/成交保证区别与有效期；本篇盘口
     "to": "PE-VANGUARD-POL",
     "reason": "以真实机构选择解释200/175的两个不同数字",
     "locator": "Selecting a TDF rebalancing approach; Vanguard’s approach; Figure1 notes",
-    "scope": "2025-01-23机构政策中200bps触发、175bps目的地；排除冲突图像替代文字。"
+    "scope": "2025-01-23机构政策中200bps触发、175bps目的地；排除冲突图像替代文字."
   },
   {
     "from": "zh-p11",
@@ -845,7 +849,7 @@ P-E 使用范围：订单的价格/成交保证区别与有效期；本篇盘口
     "to": "PE-NASDAQ-NDX",
     "reason": "区分参考、公告、计划文件发布与生效日期",
     "locator": "Event announcement three paragraphs",
-    "scope": "2023公告的参考、公开、计划文件发布与生效四种日期；不包含ETF成交。",
+    "scope": "2023公告的参考、公开、计划文件发布与生效四种日期；不包含ETF成交.",
     "branch": "index-event"
   },
   {
@@ -854,7 +858,7 @@ P-E 使用范围：订单的价格/成交保证区别与有效期；本篇盘口
     "to": "MA-ORDERS",
     "reason": "判断触发和订单执行的区别",
     "locator": "Stop Orders; Stop-Limit Orders",
-    "scope": "订单的价格/成交保证区别与有效期；本篇盘口和执行数列另为合成数据。",
+    "scope": "订单的价格/成交保证区别与有效期；本篇盘口和执行数列另为合成数据.",
     "branch": "order-trigger"
   },
   {
@@ -862,7 +866,7 @@ P-E 使用范围：订单的价格/成交保证区别与有效期；本篇盘口
     "relation": "illustrated_by",
     "to": "EXP-P11-MAINTENANCE-DECISION",
     "at_section": "p11-lab",
-    "reason": "把触发与目的地、费用后的交易量、外部新资本和判断更新分别放回同一维护过程。"
+    "reason": "把触发与目的地、费用后的交易量、外部新资本和判断更新分别放回同一维护过程."
   }
 ]
 ```
@@ -871,6 +875,6 @@ P-E 使用范围：订单的价格/成交保证区别与有效期；本篇盘口
 
 ## Optional reading path
 做一次投资或对冲安排: step 8/9
-区分触发和目的地，推导费用后的交易量并维护判断。
-安排实施后，用一致的资金与费用口径评价表现。
+区分触发和目的地，推导费用后的交易量并维护判断.
+安排实施后，用一致的资金与费用口径评价表现.
 Next: [表现评价与归因：资金、费用与基准](https://ou-liu-red-sugar.github.io/zh/notebook/performance-attribution-and-fee-recognition/)

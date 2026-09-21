@@ -1,24 +1,28 @@
 # 期权价格、内在价值与隐含波动率
 
-解释价格因素与欧式put的迟收货款反例；在明确BSM假设下将报价区间反解为IV区间。
+解释价格因素与欧式put的迟收货款反例；在明确BSM假设下将报价区间反解为IV区间.
 
 Entry: zh-m18 | Node: M18 | Language: zh | Editorial revision: 2026-09-21
 
 ## Teaching instructions
-你正在教M18《期权价格、内在价值与隐含波动率》，内容版本2026-09-21-MEFG-review-v3。读者已有高年级本科至研究生的数学基础。
+你正在教M18《期权价格、内在价值与隐含波动率》，内容版本2026-09-21-MEFG-review-v3. 读者已有高年级本科至研究生的数学基础.
 
-先确认选用本篇共同正文和哪些分支，再实际读取agent_packet列出的当前必读完整原文。PDF需读脚注、表图与符号；只拿到摘要/目录/搜索片段不算完成。记录实际版本、范围与内容对应，不沿用编辑端“已读”充当本次读取；同会话已完整取得相同版本单元可以复用。若所需单元失败，尝试机构正式等价全文；仍缺失则指出具体单元，不凭记忆补成已读教学。runtime_reading_log从空开始。
+先确认选用本篇共同正文和哪些分支，再实际读取agent_packet列出的当前必读完整原文. PDF需读脚注、表图与符号；只拿到摘要/目录/搜索片段不算完成. 记录实际版本、范围与内容对应，不沿用编辑端“已读”充当本次读取；同会话已完整取得相同版本单元可以复用. 若所需单元失败，尝试机构正式等价全文；仍缺失则指出具体单元，不凭记忆补成已读教学. runtime_reading_log从空开始.
 
-独立学习任务：在完全给定的树中分别倒推欧式和美式put；给定模型与报价侧后反解IV，界外拒绝。
-专属诊断与正向讲解：先问欧式持有人今天能否收到100；写S50,K100,u1.2,d.9,R1.02，无股息和抽象期间，逐节点比较继续/行权。之后才看SPX尺寸的另一组模型报价。
-反馈尺度：不能把两个不同市场写回EXP-STATE-01；解释迟收K和决策集合，而非仅报反例数字。IV不是真实sigma或P概率。
+独立学习任务：在完全给定的树中分别倒推欧式和美式put；给定模型与报价侧后反解IV，界外拒绝.
+专属诊断与正向讲解：先问欧式持有人今天能否收到100；写S50,K100,u1.2,d.9,R1.02，无股息和抽象期间，逐节点比较继续/行权. 之后才看SPX尺寸的另一组模型报价.
+反馈尺度：不能把两个不同市场写回EXP-STATE-01；解释迟收K和决策集合，而非仅报反例数字. IV不是真实sigma或P概率.
 
-读者要求直接讲解时，按本篇连贯推导讲清，不反复问已会先修。静态例、实验、练习必须使用本包同一输入和单位；实例价、合成价、模型价、规则时点不能混换。练习要给完整解析，不仅打分。仅当选读分支被采用时，将其optional reading转入当前必读。
+读者要求直接讲解时，按本篇连贯推导讲清，不反复问已会先修. 静态例、实验、练习必须使用本包同一输入和单位；实例价、合成价、模型价、规则时点不能混换. 练习要给完整解析，不仅打分. 仅当选读分支被采用时，将其optional reading转入当前必读.
 
-本篇数值与IV实验使用无股息BSM；股息只作现金/行权机制说明，不把未读的非零股息公式扩展归给Kogan来源。
-说明BSM时必须列出常参数GBM动态 $dS_t=\mu S_tdt+\sigma S_tdW_t$、q=0和复制后物理漂移不进入定价公式。
+本篇数值与IV实验使用无股息BSM；股息只作现金/行权机制说明，不把未读的非零股息公式扩展归给Kogan来源.
+说明BSM时必须列出常参数GBM动态 $dS_t=\mu S_tdt+\sigma S_tdW_t$、q=0和复制后物理漂移不进入定价公式.
 
 Before substantive teaching, actually retrieve every required reading unit for the selected scope. Read its complete designated section, including necessary assumptions, tables and footnotes. A working URL or an editorial access date is not a runtime reading receipt. Record the actual version, location, scope and what it supports. If unavailable, use a previously verified equivalent source; if the required unit remains unavailable, identify that gap rather than teach it from memory. Start runtime_reading_log empty. Once reading is complete, use a substantive diagnostic or follow the reader's request for direct explanation. Advance one complete reasoning task at a time; skip mastered basics. Distinguish original facts, supplied teaching assumptions and inference.
+
+## Shared notation and writing conventions
+数学期望统一写成 \mathbb{E}，条件期望用 \mathbb{E}[X\mid\mathcal{G}]，需要时注明测度 P 或 Q. 保留局部变量的明确定义. 金额与数量使用 K=10^3、M=10^6、B=10^9；表格标明币种、量级与期间，变更量级时同步换算数值. 展示小数最多三位，计算保留原始精度. 直接解释对象、机制与推理；保留影响结论的假设和事实来源，把编辑流程留在记录中. 句末使用英文句点 .，包括定义、命题、证明和解析等标签. 基础定义与推导直接讲内容，出处放在紧邻脚注；来源读取、复审和采用范围等编辑经过留在记录中.
+[Notation and units](https://ou-liu-red-sugar.github.io/agent/zh/notation.md)
 
 ## Required readings and runtime protocol
 ```json
@@ -38,7 +42,7 @@ Before substantive teaching, actually retrieve every required reading unit for t
         "scope": "完整指定单元、必要脚注与表图；不以搜索摘要代替",
         "purpose": "价格与内在/剩余价值的条件"
       },
-      "supports": "规则、权利金、行权/指派和同财富假设例；本课指定单元不替代实际交易者对整份ODD的阅读。无真实行情或个人券商操作保证。",
+      "supports": "规则、权利金、行权/指派和同财富假设例；本课指定单元不替代实际交易者对整份ODD的阅读. 无真实行情或个人券商操作保证.",
       "id": "M18-READ-01",
       "title": "Characteristics and Risks of Standardized Options",
       "authors": [
@@ -59,7 +63,7 @@ Before substantive teaching, actually retrieve every required reading unit for t
         "scope": "完整指定单元、必要脚注与表图；不以搜索摘要代替",
         "purpose": "模型假设和价格函数"
       },
-      "supports": "常参数、无股息模型条件下价格/偏导与Q；不宣称完整连续时间定理证明。",
+      "supports": "常参数、无股息模型条件下价格/偏导与Q；不宣称完整连续时间定理证明.",
       "id": "M18-READ-02",
       "title": "15.450: Stochastic Calculus and Option Pricing",
       "authors": [
@@ -81,7 +85,7 @@ Before substantive teaching, actually retrieve every required reading unit for t
         "scope": "完整指定单元、必要脚注与表图；不以搜索摘要代替",
         "purpose": "独立教学树的倒推关系"
       },
-      "supports": "模型内的支付和复制定价；不代替当前产品规则，讲义现金增长记号不能误写成年化净利率。",
+      "supports": "模型内的支付和复制定价；不代替当前产品规则，讲义现金增长记号不能误写成年化净利率.",
       "id": "M18-READ-03",
       "title": "15.401 Finance Theory I, Lecture 10–11: Options",
       "authors": [
@@ -103,7 +107,7 @@ Before substantive teaching, actually retrieve every required reading unit for t
         "scope": "完整指定单元、必要脚注与表图；不以搜索摘要代替",
         "purpose": "模型价格随vol变化的局部含义"
       },
-      "supports": "波动率参数的偏导和每百分点单位；IV不是独立的P下预测。",
+      "supports": "波动率参数的偏导和每百分点单位；IV不是独立的P下预测.",
       "id": "M18-READ-04",
       "title": "Vega",
       "authors": [
@@ -124,7 +128,7 @@ Before substantive teaching, actually retrieve every required reading unit for t
         "scope": "完整指定单元、必要脚注与表图；不以搜索摘要代替",
         "purpose": "欧式与美式决策集合"
       },
-      "supports": "行权vs平仓、ex-by-ex与客户指令、提前行权和分红；不提供任何个人券商统一截止。",
+      "supports": "行权vs平仓、ex-by-ex与客户指令、提前行权和分红；不提供任何个人券商统一截止.",
       "id": "M18-READ-05",
       "title": "Options Exercise FAQ",
       "authors": [
@@ -407,22 +411,22 @@ Before substantive teaching, actually retrieve every required reading unit for t
 <a id="m18-price"></a>
 ## 一、当前价格买到的不是“今天就行权”
 
-一张期权的到期支付由合约给出，当前交易价却买到一段尚未结束的选择。看涨与看跌、行权价、剩余期限、行权方式和分配条款都属于这项选择的一部分。权利金因市场交易而形成，模型则回答：在一组明确假设下，哪些因素通过什么关系约束这个价格。[^MEFG-ODD]
+一张期权的到期支付由合约给出，当前交易价却买到一段尚未结束的选择. 看涨与看跌、行权价、剩余期限、行权方式和分配条款都属于这项选择的一部分. 权利金因市场交易而形成，模型则回答：在一组明确假设下，哪些因素通过什么关系约束这个价格. [^MEFG-ODD]
 
-先定义一个常用比较量。给定当前标的价 $S$，call的现时立即行权差额为 $(S-K)^+$，put为 $(K-S)^+$。它常被称作spot intrinsic value。但只有合约此刻允许行权，持有人才有权立即取得相应交换差额。欧式期权此刻没有这个动作，不能把“看起来已经价内”直接当成可以立即兑现的现金。
+先定义一个常用比较量. 给定当前标的价 $S$，call的现时立即行权差额为 $(S-K)^+$，put为 $(K-S)^+$. 它常被称作spot intrinsic value. 但只有合约此刻允许行权，持有人才有权立即取得相应交换差额. 欧式期权此刻没有这个动作，不能把“看起来已经价内”直接当成可以立即兑现的现金.
 
-因此，权利金减去这个现时差额，可用来讨论价格中超出立即交换价值的部分；不能先把差值命名为“时间价值”，再从名称推出它永远非负。我们先把一个完整反例走完，再看价格模型。[^MEFG-ODD]
+因此，权利金减去这个现时差额，可用来讨论价格中超出立即交换价值的部分；不能先把差值命名为“时间价值”，再从名称推出它永远非负. 我们先把一个完整反例走完，再看价格模型. [^MEFG-ODD]
 
 <a id="m18-tree"></a>
 ## 二、一个越晚到期反而越便宜的欧式put
 
-下面是独立的教学树，不是SPX行情，也不是后面复制一篇的冻结市场。初始 $S_0=50$，$K=100$；每个抽象期间，股票乘以 $u=1.2$ 或 $d=0.9$，现金增长因子 $R=1.02$，无股息，允许按相同条件借贷。这里一期不是默认一年。
+下面是独立的教学树，不是SPX行情，也不是后面复制一篇的冻结市场. 初始 $S_0=50$，$K=100$；每个抽象期间，股票乘以 $u=1.2$ 或 $d=0.9$，现金增长因子 $R=1.02$，无股息，允许按相同条件借贷. 这里一期不是默认一年.
 
-一期股票为60或45；两期为72、54或40.5，均低于100。定价权重由股票／现金关系得到
+一期股票为60或45；两期为72、54或40.5，均低于100. 定价权重由股票／现金关系得到
 $$
 q_{\rm tree}=\frac{R-d}{u-d}=\frac{1.02-0.9}{1.2-0.9}=0.4.
 $$
-因为每个终端状态的put支付都等于 $K-S_T$，只需持有到期付 $K$ 的现金、同时空一股就能复制。所以 $n$ 期欧式价格为
+因为每个终端状态的put支付都等于 $K-S_T$，只需持有到期付 $K$ 的现金、同时空一股就能复制. 所以 $n$ 期欧式价格为
 $$
 P_E(n)=\frac{K}{R^n}-S_0.
 $$
@@ -432,9 +436,9 @@ $$
 | 1 | $2450/51\approx48.039216$ | 50 | −1.960784 |
 | 2 | $119950/2601\approx46.116878$ | 50 | −3.883122 |
 
-这不是凭空“违反常识”。欧式持有人要等到到期才能取得 $K$；在此树中所有到期状态仍深度价内，选择权没有额外打开“价格高于 $K$ 就放弃卖出”的终端分支，推迟收到100的资金影响直接显现。复制关系与现金时间价值给出了价格下降，而不是一个“所有put都随期限便宜”的定理。[^MEFG-MIT-OPTIONS]
+这不是凭空“违反常识”. 欧式持有人要等到到期才能取得 $K$；在此树中所有到期状态仍深度价内，选择权没有额外打开“价格高于 $K$ 就放弃卖出”的终端分支，推迟收到100的资金影响直接显现. 复制关系与现金时间价值给出了价格下降，而不是一个“所有put都随期限便宜”的定理. [^MEFG-MIT-OPTIONS]
 
-现在让同一树上的put变为每个节点都能行权的美式版本。两期末支付依次为28、46、59.5。回到第一期节点，继续持有值必须和立即行权值比较：
+现在让同一树上的put变为每个节点都能行权的美式版本. 两期末支付依次为28、46、59.5. 回到第一期节点，继续持有值必须和立即行权值比较：
 
 | 美式树节点 | 股票价 | 继续持有价值 | 立即行权价值 | 节点选择 |
 |---|---:|---:|---:|---:|
@@ -442,29 +446,29 @@ $$
 | 第一期下跌 | 45 | $(0.4\times46+0.6\times59.5)/1.02=53.039216$ | 55 | 55 |
 | 初始节点 | 50 | $(0.4\times40+0.6\times55)/1.02=48.039216$ | 50 | 50 |
 
-一期美式初值同样为50。美式之所以不低于立即行权差额，是因为立即行权属于它的可行决策集，而非因为所有期权都天然附带一个非负“时间价值”。这也为提前行权与分红、融资之间的比较提供了正确起点。[^MEFG-OIC-EXERCISE]
+一期美式初值同样为50. 美式之所以不低于立即行权差额，是因为立即行权属于它的可行决策集，而非因为所有期权都天然附带一个非负“时间价值”. 这也为提前行权与分红、融资之间的比较提供了正确起点. [^MEFG-OIC-EXERCISE]
 
 <a id="m18-factors"></a>
 ## 三、价格因素各自改变哪一件事
 
-接下来固定一种合约与模型，一次只动一个变量。提高 $S$ 让按固定 $K$ 买入更有利，call价值上升，put方向相反；提高 $K$ 则让call不利、put有利。剩余时间会同时改变可等待多久和未来货款的折现，刚才的欧式put反例说明不能只看前者。
+接下来固定一种合约与模型，一次只动一个变量. 提高 $S$ 让按固定 $K$ 买入更有利，call价值上升，put方向相反；提高 $K$ 则让call不利、put有利. 剩余时间会同时改变可等待多久和未来货款的折现，刚才的欧式put反例说明不能只看前者.
 
-利率和股息也不是公式里的装饰。持有股票可能收分红，持有call并不会自动获得同一现金；支付行权货款的时间不同，融资成本也不同。提前行权是否值得考虑时，这两类现金差异也会进入比较。[^MEFG-OIC-EXERCISE]
+利率和股息也不是公式里的装饰. 持有股票可能收分红，持有call并不会自动获得同一现金；支付行权货款的时间不同，融资成本也不同. 提前行权是否值得考虑时，这两类现金差异也会进入比较. [^MEFG-OIC-EXERCISE]
 
-本批真正拿来算数的 Kogan 单元采用**无股息**的常参数欧式模型。在这个已经读到公式的模型里，较高利率降低到期 $K$ 的现值，对call和put的作用相反。若以后要把连续股息率作为非零模型输入，应另采用明确包含该扩展的公式来源，而不是把一般现金直觉静默塞进当前公式。[^MEFG-MIT-KOGAN]
+本批真正拿来算数的 Kogan 单元采用**无股息**的常参数欧式模型. 在这个已经读到公式的模型里，较高利率降低到期 $K$ 的现值，对call和put的作用相反. 若以后要把连续股息率作为非零模型输入，应另采用明确包含该扩展的公式来源，而不是把一般现金直觉静默塞进当前公式. [^MEFG-MIT-KOGAN]
 
-波动率的作用要多说一句。看涨与看跌的支付是凸函数。在合适的“保持均值而增加分散”的比较下，更多尾部变化可以增加这种选择的价值；仅说“某分布方差更大”，并不能在任意两个分布间无条件得出所有凸支付价格更高。BSM模型给出了一个具体可算的比较：其余参数固定，vanilla期权对波动率的vega为正。它说明这个模型中的变化方向，不是所有市场与产品的万能因果命题。[^MEFG-OIC-VEGA]
+波动率的作用要多说一句. 看涨与看跌的支付是凸函数. 在合适的“保持均值而增加分散”的比较下，更多尾部变化可以增加这种选择的价值；仅说“某分布方差更大”，并不能在任意两个分布间无条件得出所有凸支付价格更高. BSM模型给出了一个具体可算的比较：其余参数固定，vanilla期权对波动率的vega为正. 它说明这个模型中的变化方向，不是所有市场与产品的万能因果命题. [^MEFG-OIC-VEGA]
 
 <a id="m18-model"></a>
 ## 四、把一个报价放进一个有条件的模型
 
-本批使用一个完全合成的SPX尺度网格：$S=5,000$，连续复利年利率4%，**股息设为0**，期限用天数／365。零股息是教学假设，不是对S&P 500实际分红的估计。真实规格只提供每点100美元乘数与报价增量；没有取得对应某日期的历史期权链。[^MEFG-SPX]
+本批使用一个完全合成的SPX尺度网格：$S=5,000$，连续复利年利率4%，**股息设为0**，期限用天数／365. 零股息是教学假设，不是对S&P 500实际分红的估计. 真实规格只提供每点100美元乘数与报价增量；没有取得对应某日期的历史期权链.[^MEFG-SPX]
 
-为与实际采用的 Kogan 单元和共享输入保持完全一致，这里只写本批使用的**无股息 BSM 欧式公式**。模型进一步假定标的在连续时间服从常参数几何布朗运动
+这里采用共享输入对应的**无股息 BSM 欧式公式**. 模型假定标的在连续时间服从常参数几何布朗运动
 $$
 dS_t=\mu S_t\,dt+\sigma S_t\,dW_t,
 $$
-并假定连续可交易、无摩擦、可按同一常数利率融资和对冲。复制定价消去了物理漂移 $\mu$；在风险中性表示下，标的漂移相应由 $r$ 进入价格公式。本批股息率固定为0，因此不在下面的数值公式里额外放连续股息项。[^MEFG-MIT-KOGAN]
+并假定连续可交易、无摩擦、可按同一常数利率融资和对冲. 复制定价消去了物理漂移 $\mu$；在风险中性表示下，标的漂移相应由 $r$ 进入价格公式. 股息率固定为0，因此下面的数值公式不再加入连续股息项.[^MEFG-MIT-KOGAN]
 
 在这些条件下：
 $$
@@ -475,9 +479,9 @@ C&=S N(d_1)-Ke^{-r\tau}N(d_2),\\
 P&=Ke^{-r\tau}N(-d_2)-S N(-d_1).
 \end{aligned}
 $$
-$N$ 是标准正态分布函数。这里把公式作为明确模型的计算入口；连续时间复制的完整证明不在本篇里偷压成几句话。[^MEFG-MIT-KOGAN]
+$N$ 是标准正态分布函数. 这里把公式作为明确模型的计算入口；连续时间复制的完整证明不在本篇里偷压成几句话. [^MEFG-MIT-KOGAN]
 
-对90天、$K=5,000$、$\sigma=23.5\%$，模型call价格为256.855895点。为形成教学bid／ask，先按相应增量把中价取成256.9，再给两边各0.2点价差：
+对90天、$K=5,000$、$\sigma=23.5\%$，模型call价格为256.855895点. 为形成教学bid／ask，先按相应增量把中价取成256.9，再给两边各0.2点价差：
 
 | 报价身份 | 期权点数 | 一份对应美元 | 同模型反解的IV |
 |---|---:|---:|---:|
@@ -485,51 +489,51 @@ $N$ 是标准正态分布函数。这里把公式作为明确模型的计算入�
 | mid | 256.9 | 25,690 | 23.5045% |
 | ask | 257.1 | 25,710 | 23.5249% |
 
-模型输入23.5%与中价反解23.5045%的细微差异来自报价取整，不是推断出另一条“真实波动率”。这一点正好提醒我们：IV是由一个价格和其他约定反解出的参数，不是额外独立观察。
+模型输入23.5%与中价反解23.5045%的细微差异来自报价取整，不是推断出另一条“真实波动率”. 这一点正好提醒我们：IV是由一个价格和其他约定反解出的参数，不是额外独立观察.
 
 <a id="m18-inversion"></a>
 ## 五、IV是价格的一种坐标，不是未来的保证
 
-给定合约及本批无股息模型的 $S,K,\tau,r$，隐含波动率解决的是方程 $C_{\rm model}(\sigma)=C_{\rm quote}$。可以从较小和较大的 $\sigma$ 起步，反复二分，直到模型价格接近给定报价。买入通常面对ask，卖出面对bid；相应IV区间比只报一个中价IV更贴近交易对象。
+给定合约及本批无股息模型的 $S,K,\tau,r$，隐含波动率解决的是方程 $C_{\rm model}(\sigma)=C_{\rm quote}$. 可以从较小和较大的 $\sigma$ 起步，反复二分，直到模型价格接近给定报价. 买入通常面对ask，卖出面对bid；相应IV区间比只报一个中价IV更贴近交易对象.
 
-反解前还要检查价格界。在本例无股息模型中，call的正有限波动率价格位于 $\max(S-Ke^{-r\tau},0)$ 与 $S$ 之间。若30天、$K=4,500$ 的call被输入1点，远低于模型下界，算法应拒绝给出IV，而不是挤出一个接近零的数字来掩盖不相容。
+反解前还要检查价格界. 在本例无股息模型中，call的正有限波动率价格位于 $\max(S-Ke^{-r\tau},0)$ 与 $S$ 之间. 若30天、$K=4,500$ 的call被输入1点，远低于模型下界，算法应拒绝给出IV，而不是挤出一个接近零的数字来掩盖不相容.
 
 <div data-experiment-slot="EXP-MEFG-M18-IV"></div>
 
-实验提供价格随 $\sigma$ 变化的曲线和提前行权树两个视角。选择网格中的bid、mid、ask可以看反解位置；切到put反例时，节点比较使用上面的完整 $u,d,R$，不会把它改成SPX的连续时间模型。
+实验提供价格随 $\sigma$ 变化的曲线和提前行权树两个视角. 选择网格中的bid、mid、ask可以看反解位置；切到put反例时，节点比较使用上面的完整 $u,d,R$，不会把它改成SPX的连续时间模型.
 
-市场报价还会受库存、供求、成交条件和资金限制影响。把报价反解为IV有助于跨行权价、跨期限比较，但不等于证明它就是未来真实波动率或真实上涨概率；后面会把这种报价表达与研究中的风险补偿分开。
+市场报价还会受库存、供求、成交条件和资金限制影响. 把报价反解为IV有助于跨行权价、跨期限比较，但不等于证明它就是未来真实波动率或真实上涨概率；后面会把这种报价表达与研究中的风险补偿分开.
 
 <a id="m18-exercises"></a>
 ## 六、从反例回到自己的判断
 
-**题一。** 为什么一期欧式put的48.039216低于当前差额50，不构成这里的套利？
+**题一.** 为什么一期欧式put的48.039216低于当前差额50，不构成这里的套利？
 
-**解析。** 持有人现在没有立即以100卖出股票的权利，不能买put后今天就取得50。合约只承诺期末支付，复制需要今天存入 $100/1.02$ 并空一股，成本48.039216。将美式的立即行权操作擅自加给欧式，才制造了虚假的套利。
+**解析.** 持有人现在没有立即以100卖出股票的权利，不能买put后今天就取得50. 合约只承诺期末支付，复制需要今天存入 $100/1.02$ 并空一股，成本48.039216. 将美式的立即行权操作擅自加给欧式，才制造了虚假的套利.
 
-**题二。** 两期美式put为什么不是46.116878？请在上涨节点核一次。
+**题二.** 两期美式put为什么不是46.116878？请在上涨节点核一次.
 
-**解析。** 上涨后股票60，继续持有两期末支付的折现价值38.039216，而立即行权值40；美式可取较大者40。下跌节点取55，初始继续值48.039216仍低于立即行权50，故初值50。46.116878只属于必须等待两期末的欧式版本。
+**解析.** 上涨后股票60，继续持有两期末支付的折现价值38.039216，而立即行权值40；美式可取较大者40. 下跌节点取55，初始继续值48.039216仍低于立即行权50，故初值50. 46.116878只属于必须等待两期末的欧式版本.
 
-**题三。** 为什么表中ask IV高于bid IV？它们是否是对未来的两个独立预测？
+**题三.** 为什么表中ask IV高于bid IV？它们是否是对未来的两个独立预测？
 
-**解析。** 在其他BSM输入相同且vega为正时，更高期权价格需要更大的 $\sigma$ 来重现。因此两边反解出区间；它们首先表达同一交易价差，不是从两个独立样本估出的未来波动预测。
+**解析.** 在其他BSM输入相同且vega为正时，更高期权价格需要更大的 $\sigma$ 来重现. 因此两边反解出区间；它们首先表达同一交易价差，不是从两个独立样本估出的未来波动预测.
 
-**题四。** 30天、$K=4,500$ 的call报价1点，能否输出“市场几乎确定不会波动”？
+**题四.** 30天、$K=4,500$ 的call报价1点，能否输出“市场几乎确定不会波动”？
 
-**解析。** 不能。先检查模型价格下界；该输入已与无股息、给定现价／利率的价格界不相容。可能是单位、合约、时点或输入错误，也可能模型条件不适用。在识别原因前，不应强行输出IV。
+**解析.** 不能. 先检查模型价格下界；该输入已与无股息、给定现价／利率的价格界不相容. 可能是单位、合约、时点或输入错误，也可能模型条件不适用. 在识别原因前，不应强行输出IV.
 
-[^MEFG-ODD]: The Options Clearing Corporation，*Characteristics and Risks of Standardized Options*，June 2024。[原文](https://www.theocc.com/getmedia/a151a9ae-d784-4a15-bdeb-23a029f50b70/riskstoc.pdf)。本篇定位：Ch I printed pp3–5；Ch II vanilla terms pp6–9; Premium/Opening and Closing pp11–12; Intrinsic and Time Value pp14–15；Ch VIII pp55–57; Ch IX pp58–59；Ch X holder pp61–63; writer pp63–67（至所采用第11项）。
+[^MEFG-ODD]: The Options Clearing Corporation，*Characteristics and Risks of Standardized Options*，June 2024. [原文](https://www.theocc.com/getmedia/a151a9ae-d784-4a15-bdeb-23a029f50b70/riskstoc.pdf). 本篇定位：Ch I printed pp3–5；Ch II vanilla terms pp6–9; Premium/Opening and Closing pp11–12; Intrinsic and Time Value pp14–15；Ch VIII pp55–57; Ch IX pp58–59；Ch X holder pp61–63; writer pp63–67（至所采用第11项）.
 
-[^MEFG-MIT-OPTIONS]: Andrew W. Lo, MIT OpenCourseWare，*15.401 Finance Theory I, Lecture 10–11: Options*，Fall 2008。[原文](https://ocw.mit.edu/courses/15-401-finance-theory-i-fall-2008/c40ecc0cc0dce0fbf2d229bc4027c43b_MIT15_401F08_lec10.pdf)。本篇定位：Slides 3–9: option definitions and payoff；Slides 16–21: binomial replication and risk-neutral valuation。
+[^MEFG-MIT-OPTIONS]: Andrew W. Lo, MIT OpenCourseWare，*15.401 Finance Theory I, Lecture 10–11: Options*，Fall 2008. [原文](https://ocw.mit.edu/courses/15-401-finance-theory-i-fall-2008/c40ecc0cc0dce0fbf2d229bc4027c43b_MIT15_401F08_lec10.pdf). 本篇定位：Slides 3–9: option definitions and payoff；Slides 16–21: binomial replication and risk-neutral valuation.
 
-[^MEFG-OIC-EXERCISE]: Options Industry Council，*Options Exercise FAQ*，Undated; retrieved 2026-09-21。[原文](https://www.optionseducation.org/referencelibrary/faq/options-exercise)。本篇定位：Full FAQ main body through exercise/closing distinction。
+[^MEFG-OIC-EXERCISE]: Options Industry Council，*Options Exercise FAQ*，Undated; retrieved 2026-09-21. [原文](https://www.optionseducation.org/referencelibrary/faq/options-exercise). 本篇定位：Full FAQ main body through exercise/closing distinction.
 
-[^MEFG-MIT-KOGAN]: Leonid Kogan, MIT OpenCourseWare，*15.450: Stochastic Calculus and Option Pricing*，Fall 2010。[原文](https://ocw.mit.edu/courses/15-450-analytics-of-finance-fall-2010/0d1260b891a96241316d883d4f5bfaec_MIT15_450F10_lec02.pdf)。本篇定位：Slides 16–21: BSM market, replication/PDE/formula；Slides 52–58 and 60: Q pricing and European application。
+[^MEFG-MIT-KOGAN]: Leonid Kogan, MIT OpenCourseWare，*15.450: Stochastic Calculus and Option Pricing*，Fall 2010. [原文](https://ocw.mit.edu/courses/15-450-analytics-of-finance-fall-2010/0d1260b891a96241316d883d4f5bfaec_MIT15_450F10_lec02.pdf). 本篇定位：Slides 16–21: BSM market, replication/PDE/formula；Slides 52–58 and 60: Q pricing and European application.
 
-[^MEFG-OIC-VEGA]: Options Industry Council，*Vega*，Undated; retrieved 2026-09-21。[原文](https://www.optionseducation.org/advancedconcepts/vega)。本篇定位：Full main concept body。
+[^MEFG-OIC-VEGA]: Options Industry Council，*Vega*，Undated; retrieved 2026-09-21. [原文](https://www.optionseducation.org/advancedconcepts/vega). 本篇定位：Full main concept body.
 
-[^MEFG-SPX]: Cboe Global Markets，*S&P 500 Index Options (SPX) Fact Sheet*，©2026; WF-451400-KC; no precise issue date shown。[原文](https://cdn.cboe.com/resources/spx/spx-fact-sheet.pdf)。本篇定位：Full physical pp1–2; p2 specifications and relevant footnotes。
+[^MEFG-SPX]: Cboe Global Markets，*S&P 500 Index Options (SPX) Fact Sheet*，©2026; WF-451400-KC; no precise issue date shown. [原文](https://cdn.cboe.com/resources/spx/spx-fact-sheet.pdf). 本篇定位：Full physical pp1–2; p2 specifications and relevant footnotes.
 
 <script src="/notebook/labs/m-efg/reader-adapter.js" defer></script>
 
@@ -537,9 +541,9 @@ $N$ 是标准正态分布函数。这里把公式作为明确模型的计算入�
 ## Additional teaching material
 ### 本篇默认结果与静态等价
 
-<div class="table-wrap"><table><thead><tr><th>90天/K5,000 call</th><th>报价点</th><th>反解IV</th></tr></thead><tbody><tr><td>bid</td><td>256.70</td><td>23.484100%</td></tr><tr><td>mid</td><td>256.90</td><td>23.504499%</td></tr><tr><td>ask</td><td>257.10</td><td>23.524897%</td></tr></tbody></table></div><p>BSM:S=5,000,r=4%,q_div=0,ACT/365；标的采用常参数GBM dS=μSdt+σSdW。复制定价消去物理漂移μ；价格界以同一无股息模型验证，q_div=0不是SPX实际股息。</p><div class="table-wrap"><table><thead><tr><th>put反例</th><th>欧式</th><th>美式</th><th>现在行权差额</th></tr></thead><tbody><tr><td>1</td><td>48.039215686</td><td>50.00</td><td>50</td></tr><tr><td>2</td><td>46.116878124</td><td>50.00</td><td>50</td></tr></tbody></table></div><div class="table-wrap"><table><thead><tr><th>两期树节点（t,上次数）</th><th>S</th><th>立即行权</th><th>美式继续值</th><th>美式价值</th></tr></thead><tbody><tr><td>0,0</td><td>50.00</td><td>50.00</td><td>48.039216</td><td>50.000000</td></tr><tr><td>1,1</td><td>60.00</td><td>40.00</td><td>38.039216</td><td>40.000000</td></tr><tr><td>1,0</td><td>45.00</td><td>55.00</td><td>53.039216</td><td>55.000000</td></tr><tr><td>2,2</td><td>72.00</td><td>28.00</td><td>—</td><td>28.000000</td></tr><tr><td>2,1</td><td>54.00</td><td>46.00</td><td>—</td><td>46.000000</td></tr><tr><td>2,0</td><td>40.50</td><td>59.50</td><td>—</td><td>59.500000</td></tr></tbody></table></div><p>独立教学树S0=50,K=100,u=1.2,d=0.9,R=1.02，每期抽象期间，无股息；欧式今天不能行权。</p>
+<div class="table-wrap"><table><thead><tr><th>90天/K5,000 call</th><th>报价点</th><th>反解IV</th></tr></thead><tbody><tr><td>bid</td><td>256.70</td><td>23.484100%</td></tr><tr><td>mid</td><td>256.90</td><td>23.504499%</td></tr><tr><td>ask</td><td>257.10</td><td>23.524897%</td></tr></tbody></table></div><p>BSM:S=5,000,r=4%,q_div=0,ACT/365；标的采用常参数GBM dS=μSdt+σSdW. 复制定价消去物理漂移μ；价格界以同一无股息模型验证，q_div=0不是SPX实际股息.</p><div class="table-wrap"><table><thead><tr><th>put反例</th><th>欧式</th><th>美式</th><th>现在行权差额</th></tr></thead><tbody><tr><td>1</td><td>48.039215686</td><td>50.00</td><td>50</td></tr><tr><td>2</td><td>46.116878124</td><td>50.00</td><td>50</td></tr></tbody></table></div><div class="table-wrap"><table><thead><tr><th>两期树节点（t,上次数）</th><th>S</th><th>立即行权</th><th>美式继续值</th><th>美式价值</th></tr></thead><tbody><tr><td>0,0</td><td>50.00</td><td>50.00</td><td>48.039216</td><td>50.000000</td></tr><tr><td>1,1</td><td>60.00</td><td>40.00</td><td>38.039216</td><td>40.000000</td></tr><tr><td>1,0</td><td>45.00</td><td>55.00</td><td>53.039216</td><td>55.000000</td></tr><tr><td>2,2</td><td>72.00</td><td>28.00</td><td>—</td><td>28.000000</td></tr><tr><td>2,1</td><td>54.00</td><td>46.00</td><td>—</td><td>46.000000</td></tr><tr><td>2,0</td><td>40.50</td><td>59.50</td><td>—</td><td>59.500000</td></tr></tbody></table></div><p>独立教学树S0=50,K=100,u=1.2,d=0.9,R=1.02，每期抽象期间，无股息；欧式今天不能行权.</p>
 
-完整冻结输入：https://ou-liu-red-sugar.github.io/notebook/labs/m-efg/inputs.json。来源内的包路径按 source_paths 取得。
+完整冻结输入：https://ou-liu-red-sugar.github.io/notebook/labs/m-efg/inputs.json. 来源内的包路径按 source_paths 取得.
 
 ## Experiment inputs and static equivalents
 ```json
@@ -548,8 +552,8 @@ $N$ 是标准正态分布函数。这里把公式作为明确模型的计算入�
     "id": "EXP-MEFG-M18-IV",
     "title": "报价反解IV，与欧式put反例",
     "anchor": "m18-inversion",
-    "description": "先检查报价是否在模型价格界内，再看同一树在不同决策集合中的价值。",
-    "data_identity": "EXP-MEFG-IV-01合成报价；提前行权树为独立教学市场，绝不改写EXP-STATE-01。",
+    "description": "先检查报价是否在模型价格界内，再看同一树在不同决策集合中的价值.",
+    "data_identity": "EXP-MEFG-IV-01合成报价；提前行权树为独立教学市场，绝不改写EXP-STATE-01.",
     "shared_dataset_ids": [
       "EXP-MEFG-IV-01"
     ],
@@ -712,7 +716,7 @@ $N$ 是标准正态分布函数。这里把公式作为明确模型的计算入�
         }
       },
       "static_equivalent": "https://ou-liu-red-sugar.github.io/notebook/labs/m-efg/static/M18.html",
-      "unit_note": "EXP-MEFG-IV-01合成报价；提前行权树为独立教学市场，绝不改写EXP-STATE-01。"
+      "unit_note": "EXP-MEFG-IV-01合成报价；提前行权树为独立教学市场，绝不改写EXP-STATE-01."
     },
     "boundaries": [
       "独立tree并非EXP-STATE-01，u/d/R全显示",
@@ -748,26 +752,22 @@ $N$ 是标准正态分布函数。这里把公式作为明确模型的计算入�
 ```
 
 ## Sources
-- [Characteristics and Risks of Standardized Options](https://www.theocc.com/getmedia/a151a9ae-d784-4a15-bdeb-23a029f50b70/riskstoc.pdf): 本会话实际读取的指定单元，不是96页全文；支持权利、单位、权利金、费用和保证金的区分。
+- [Characteristics and Risks of Standardized Options](https://www.theocc.com/getmedia/a151a9ae-d784-4a15-bdeb-23a029f50b70/riskstoc.pdf): 标准化期权的合约安排、买卖双方权利义务、权利金与担保品、行权与指派、结算，以及多腿组合中各项义务的关系.
+- [SPX Options Fact Sheet](https://cdn.cboe.com/resources/spx/spx-fact-sheet.pdf): 现金结算、欧式行权、100美元乘数及SPX/SPXW结算差别；不采用营销/税务部分.
 
-契约、买卖双方权利义务、权利金/担保品、行权/指派/结算与多腿独立性。不给本链报价、客户截止时点或自动处理保证。
+SPXW欧式、PM、每点100美元、现金于到期后营业日交付；传统SPX AM/SOQ与SPXW分开. 无实际报价.
 
-M-E/F/G 本批采用：规则、权利金、行权/指派和同财富假设例；本课指定单元不替代实际交易者对整份ODD的阅读。无真实行情或个人券商操作保证。
-- [SPX Options Fact Sheet](https://cdn.cboe.com/resources/spx/spx-fact-sheet.pdf): 现金结算、欧式行权、100美元乘数及SPX/SPXW结算差别；不采用营销/税务部分。
+M-E/F/G 本批采用：SPX/SPXW欧式现金、100美元乘数、最小报价增量及AM/PM结算差别；并非某条历史上市期权链.
+- [Vega](https://www.optionseducation.org/advancedconcepts/vega): 波动率参数的偏导和每百分点单位；IV不是独立的P下预测.
+- [Options Exercise FAQ](https://www.optionseducation.org/referencelibrary/faq/options-exercise): 行权、平仓、成员exercise-by-exception与客户指令分开；股息和时间价值影响选择，但不保证每个客户腿自动执行.
 
-SPXW欧式、PM、每点100美元、现金于到期后营业日交付；传统SPX AM/SOQ与SPXW分开。无实际报价。
+M-E/F/G 本批采用：行权vs平仓、ex-by-ex与客户指令、提前行权和分红；不提供任何个人券商统一截止.
+- [15.450 Stochastic Calculus and Option Pricing](https://ocw.mit.edu/courses/15-450-analytics-of-finance-fall-2010/0d1260b891a96241316d883d4f5bfaec_MIT15_450F10_lec02.pdf): 无分红、常利率/常波动率模型、复制、PDE与BSM公式；本例采用r=0，非一般American模型或实际概率.
 
-M-E/F/G 本批采用：SPX/SPXW欧式现金、100美元乘数、最小报价增量及AM/PM结算差别；并非某条历史上市期权链。
-- [Vega](https://www.optionseducation.org/advancedconcepts/vega): 波动率参数的偏导和每百分点单位；IV不是独立的P下预测。
-- [Options Exercise FAQ](https://www.optionseducation.org/referencelibrary/faq/options-exercise): 行权、平仓、成员exercise-by-exception与客户指令分开；股息和时间价值影响选择，但不保证每个客户腿自动执行。
+M-E/F/G 本批采用：常参数、无股息模型条件下价格/偏导与Q；本批数值只采用q=0版本，不把非零股息扩展归给该读取单元；不宣称完整连续时间定理证明.
+- [15.401 Finance Theory I: Lecture 10–11, Options](https://ocw.mit.edu/courses/15-401-finance-theory-i-fall-2008/c40ecc0cc0dce0fbf2d229bc4027c43b_MIT15_401F08_lec10.pdf): 逐腿相加的保护、价差和跨式支付；不承担现行结算规则.
 
-M-E/F/G 本批采用：行权vs平仓、ex-by-ex与客户指令、提前行权和分红；不提供任何个人券商统一截止。
-- [15.450 Stochastic Calculus and Option Pricing](https://ocw.mit.edu/courses/15-450-analytics-of-finance-fall-2010/0d1260b891a96241316d883d4f5bfaec_MIT15_450F10_lec02.pdf): 无分红、常利率/常波动率模型、复制、PDE与BSM公式；本例采用r=0，非一般American模型或实际概率。
-
-M-E/F/G 本批采用：常参数、无股息模型条件下价格/偏导与Q；本批数值只采用q=0版本，不把非零股息扩展归给该读取单元；不宣称完整连续时间定理证明。
-- [15.401 Finance Theory I: Lecture 10–11, Options](https://ocw.mit.edu/courses/15-401-finance-theory-i-fall-2008/c40ecc0cc0dce0fbf2d229bc4027c43b_MIT15_401F08_lec10.pdf): 逐腿相加的保护、价差和跨式支付；不承担现行结算规则。
-
-M-E/F/G 本批采用：模型内的支付和复制定价；不代替当前产品规则，讲义现金增长记号不能误写成年化净利率。
+M-E/F/G 本批采用：模型内的支付和复制定价；不代替当前产品规则，讲义现金增长记号不能误写成年化净利率.
 
 ## Content relations
 ```json
@@ -795,7 +795,7 @@ M-E/F/G 本批采用：模型内的支付和复制定价；不代替当前产品
     "from": "m18-price",
     "relation": "supported_by",
     "to": "MA-OCC",
-    "reason": "规则、权利金、行权/指派和同财富假设例；本课指定单元不替代实际交易者对整份ODD的阅读。无真实行情或个人券商操作保证。",
+    "reason": "规则、权利金、行权/指派和同财富假设例；本课指定单元不替代实际交易者对整份ODD的阅读. 无真实行情或个人券商操作保证.",
     "locator": "Ch I printed pp3–5；Ch II vanilla terms pp6–9; Premium/Opening and Closing pp11–12; Intrinsic and Time Value pp14–15；Ch VIII pp55–57; Ch IX pp58–59；Ch X holder pp61–63; writer pp63–67（至所采用第11项）",
     "scope": "本段具名采用内容；教学生成数字仍按自身身份",
     "at_section": "m18-price"
@@ -804,7 +804,7 @@ M-E/F/G 本批采用：模型内的支付和复制定价；不代替当前产品
     "from": "m18-tree",
     "relation": "supported_by",
     "to": "PFH-MIT-OPTIONS",
-    "reason": "模型内的支付和复制定价；不代替当前产品规则，讲义现金增长记号不能误写成年化净利率。",
+    "reason": "模型内的支付和复制定价；不代替当前产品规则，讲义现金增长记号不能误写成年化净利率.",
     "locator": "Slides 3–9: option definitions and payoff；Slides 16–21: binomial replication and risk-neutral valuation",
     "scope": "本段具名采用内容；教学生成数字仍按自身身份",
     "at_section": "m18-tree"
@@ -813,7 +813,7 @@ M-E/F/G 本批采用：模型内的支付和复制定价；不代替当前产品
     "from": "m18-tree",
     "relation": "supported_by",
     "to": "PFH-EXERCISE",
-    "reason": "行权vs平仓、ex-by-ex与客户指令、提前行权和分红；不提供任何个人券商统一截止。",
+    "reason": "行权vs平仓、ex-by-ex与客户指令、提前行权和分红；不提供任何个人券商统一截止.",
     "locator": "Full FAQ main body through exercise/closing distinction",
     "scope": "本段具名采用内容；教学生成数字仍按自身身份",
     "at_section": "m18-tree"
@@ -822,7 +822,7 @@ M-E/F/G 本批采用：模型内的支付和复制定价；不代替当前产品
     "from": "m18-factors",
     "relation": "supported_by",
     "to": "PFH-EXERCISE",
-    "reason": "分红、融资与提前行权的现金比较；不把经纪商操作或特定截止写成统一规则。",
+    "reason": "分红、融资与提前行权的现金比较；不把经纪商操作或特定截止写成统一规则.",
     "locator": "FAQ中提前行权、分红、closing与exercise相关完整问答",
     "scope": "解释持股现金分配与行权选择的现实边界；不作为BSM非零股息公式来源",
     "at_section": "m18-factors"
@@ -831,7 +831,7 @@ M-E/F/G 本批采用：模型内的支付和复制定价；不代替当前产品
     "from": "m18-factors",
     "relation": "supported_by",
     "to": "PFH-MIT-BSM",
-    "reason": "常参数、无股息模型条件下价格/偏导与Q；不宣称完整连续时间定理证明。",
+    "reason": "常参数、无股息模型条件下价格/偏导与Q；不宣称完整连续时间定理证明.",
     "locator": "Slides 16–21: BSM market, replication/PDE/formula；Slides 52–58 and 60: Q pricing and European application",
     "scope": "本段具名采用内容；教学生成数字仍按自身身份",
     "at_section": "m18-factors"
@@ -840,7 +840,7 @@ M-E/F/G 本批采用：模型内的支付和复制定价；不代替当前产品
     "from": "m18-factors",
     "relation": "supported_by",
     "to": "MEFG-OIC-VEGA",
-    "reason": "波动率参数的偏导和每百分点单位；IV不是独立的P下预测。",
+    "reason": "波动率参数的偏导和每百分点单位；IV不是独立的P下预测.",
     "locator": "Full main concept body",
     "scope": "本段具名采用内容；教学生成数字仍按自身身份",
     "at_section": "m18-factors"
@@ -849,7 +849,7 @@ M-E/F/G 本批采用：模型内的支付和复制定价；不代替当前产品
     "from": "m18-model",
     "relation": "supported_by",
     "to": "MA-SPX",
-    "reason": "SPX/SPXW欧式现金、100美元乘数、最小报价增量及AM/PM结算差别；并非某条历史上市期权链。",
+    "reason": "SPX/SPXW欧式现金、100美元乘数、最小报价增量及AM/PM结算差别；并非某条历史上市期权链.",
     "locator": "Full physical pp1–2; p2 specifications and relevant footnotes",
     "scope": "本段具名采用内容；教学生成数字仍按自身身份",
     "at_section": "m18-model"
@@ -858,7 +858,7 @@ M-E/F/G 本批采用：模型内的支付和复制定价；不代替当前产品
     "from": "m18-model",
     "relation": "supported_by",
     "to": "PFH-MIT-BSM",
-    "reason": "常参数、无股息模型条件下价格/偏导与Q；不宣称完整连续时间定理证明。",
+    "reason": "常参数、无股息模型条件下价格/偏导与Q；不宣称完整连续时间定理证明.",
     "locator": "Slides 16–21: BSM market, replication/PDE/formula；Slides 52–58 and 60: Q pricing and European application",
     "scope": "本段具名采用内容；教学生成数字仍按自身身份",
     "at_section": "m18-model"
@@ -867,7 +867,7 @@ M-E/F/G 本批采用：模型内的支付和复制定价；不代替当前产品
     "from": "m18-inversion",
     "relation": "illustrated_by",
     "to": "EXP-MEFG-M18-IV",
-    "reason": "先检查报价是否在模型价格界内，再看同一树在不同决策集合中的价值。",
+    "reason": "先检查报价是否在模型价格界内，再看同一树在不同决策集合中的价值.",
     "at_section": "m18-inversion"
   }
 ]
@@ -877,4 +877,4 @@ M-E/F/G 本批采用：模型内的支付和复制定价；不代替当前产品
 
 ## Optional reading path
 理解合约与市场机制: step 17/17
-先辨欧式可行权约束和模型条件，再检查报价界并反解 IV。
+先辨欧式可行权约束和模型条件，再检查报价界并反解 IV.

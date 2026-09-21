@@ -350,7 +350,7 @@
           "fee": null,
           "repayment": null,
           "post": null,
-          "reason": "在现有证券、债务与费用范围内无法执行这项卖出还债；不能超卖或制造负借款。"
+          "reason": "在现有证券、债务与费用范围内无法执行这项卖出还债；不能超卖或制造负借款."
         }
       ],
       "selected": {
@@ -360,7 +360,7 @@
         "fee": null,
         "repayment": null,
         "post": null,
-        "reason": "在现有证券、债务与费用范围内无法执行这项卖出还债；不能超卖或制造负借款。"
+        "reason": "在现有证券、债务与费用范围内无法执行这项卖出还债；不能超卖或制造负借款."
       },
       "identity": "Account algebra; outside cash repayment is a transfer, not profit"
     },
@@ -2194,7 +2194,7 @@
         "wealth": 103120,
         "next_return_on_funded_capital": 0.031199999999999894,
         "instant_net_gain": 0,
-        "message": "选择不调整，保留原敞口。"
+        "message": "选择不调整，保留原敞口."
       },
       "down": {
         "parameters": {
@@ -2227,7 +2227,7 @@
         "wealth": 96880,
         "next_return_on_funded_capital": -0.031200000000000006,
         "instant_net_gain": 0,
-        "message": "选择不调整，保留原敞口。"
+        "message": "选择不调整，保留原敞口."
       }
     },
     {
@@ -2263,7 +2263,7 @@
         "wealth": 103086.15820538366,
         "next_return_on_funded_capital": 0.03086158205383671,
         "instant_net_gain": -1.3016074852442912,
-        "message": "按费用后目的地计算卖股买债。"
+        "message": "按费用后目的地计算卖股买债."
       },
       "down": {
         "parameters": {
@@ -2296,7 +2296,7 @@
         "wealth": 96911.23857964587,
         "next_return_on_funded_capital": -0.030887614203541358,
         "instant_net_gain": -1.3016074852442912,
-        "message": "按费用后目的地计算卖股买债。"
+        "message": "按费用后目的地计算卖股买债."
       }
     },
     {
@@ -2332,7 +2332,7 @@
         "wealth": 102995.0500600721,
         "next_return_on_funded_capital": 0.02995050060072102,
         "instant_net_gain": -4.805766920304365,
-        "message": "按费用后目的地计算卖股买债。"
+        "message": "按费用后目的地计算卖股买债."
       },
       "down": {
         "parameters": {
@@ -2365,7 +2365,7 @@
         "wealth": 96995.3384060873,
         "next_return_on_funded_capital": -0.03004661593912694,
         "instant_net_gain": -4.805766920304365,
-        "message": "按费用后目的地计算卖股买债。"
+        "message": "按费用后目的地计算卖股买债."
       }
     },
     {
@@ -2401,7 +2401,7 @@
         "wealth": 107120,
         "next_return_on_funded_capital": 0.030000000000000027,
         "instant_net_gain": 0,
-        "message": "新增4000为外部资本；该分支忽略新增投入的交易费，不将资本增加当收益。"
+        "message": "新增4000为外部资本；该分支忽略新增投入的交易费，不将资本增加当收益."
       },
       "down": {
         "parameters": {
@@ -2434,7 +2434,7 @@
         "wealth": 100880,
         "next_return_on_funded_capital": -0.030000000000000027,
         "instant_net_gain": 0,
-        "message": "新增4000为外部资本；该分支忽略新增投入的交易费，不将资本增加当收益。"
+        "message": "新增4000为外部资本；该分支忽略新增投入的交易费，不将资本增加当收益."
       }
     }
   ]

@@ -42,19 +42,19 @@
 @media print{.pfh-responsive-figure>.pfh-wide,.pfh-responsive-figure>.svg-wide{display:block}.pfh-responsive-figure>.pfh-native,.pfh-responsive-figure>.svg-narrow{display:none}}
 </style></noscript><script defer src="/js/notebook-number-format.js" data-notebook-numbers></script>
 </head><body data-mode="reader"><main class="wrap"><nav><a href="/zh/notebook/investment-path/" target="_top">P-F/G/H入口</a><a href="P13.html">P13</a><a href="P14.html">P14</a><a href="P10.html">P10</a><a href="P15.html">P15</a><a href="P16.html">P16</a><a href="P17.html">P17</a><a href="P18.html">P18</a><a href="P19.html">P19</a><a href="P16.md">Markdown</a></nav><article class="reader"><h1>P16 领口：保护下跌，要用什么来支付</h1>
-<p>保护性put可以保留上涨，但要付出权利金。现在我们愿意让出一部分上涨，用卖call所得支付保护。领口的核心不是“零成本”这个标签，而是同时决定下限、上限和这段安排的期限。</p>
+<p>保护性put可以保留上涨，但要付出权利金. 现在我们愿意让出一部分上涨，用卖call所得支付保护. 领口的核心不是“零成本”这个标签，而是同时决定下限、上限和这段安排的期限.</p>
 <p><a id="p16-goal"></a></p>
 <h2>1. 三条腿对应三个不同承诺</h2>
-<p>设我们已有100股XYZ、每股100，另有现金2,000，总财富12,000。为了保护未来30天的大幅下跌，买一张95 put；为了降低这笔支出，再卖一张105 call。股票保留中间区间的涨跌，put赋予按95卖出的权利，call让对方取得按105买走股票的权利。三条腿的数量都对应100股，并使用同一30天到期日，才得到本篇的同期限领口。<sup><a href="#fn-p16-collar" role="doc-noteref">[1]</a></sup></p>
-<p>PF-GRID-01的价格是合成教学链：95 put mid1.42，105 call mid1.57，利率与分红先设零；每张每次费0.65。真实契约的美式实物身份与交付单位来自OCC，不代表XYZ实际上市。我们先看不含摩擦的mid结构，再把bid/ask和费用放进去，不把模型价格说成成交记录。</p>
-<p>用mid建立时，put支出142，call收入157，净收15。D1现金由2,000变为2,015；期权净市值则是<span class="inline-math" title="142-157=-15"><math xmlns="http://www.w3.org/1998/Math/MathML">
+<p>设我们已有100股XYZ、每股100，另有现金2,000，总财富12,000. 为了保护未来30天的大幅下跌，买一张95 put；为了降低这笔支出，再卖一张105 call. 股票保留中间区间的涨跌，put赋予按95卖出的权利，call让对方取得按105买走股票的权利. 三条腿的数量都对应100股，并使用同一30天到期日，才得到本篇的同期限领口.<sup><a href="#fn-p16-collar" role="doc-noteref">[1]</a></sup></p>
+<p>PF-GRID-01的价格是合成教学链：95 put mid1.42，105 call mid1.57，利率与分红先设零；每张每次费0.65. 真实契约的美式实物身份与交付单位来自OCC，不代表XYZ实际上市. 我们先看不含摩擦的mid结构，再把bid/ask和费用放进去，不把模型价格说成成交记录.</p>
+<p>用mid建立时，put支出142，call收入157，净收15. D1现金由2,000变为2,015；期权净市值则是<span class="inline-math" title="142-157=-15"><math xmlns="http://www.w3.org/1998/Math/MathML">
   <mn>142</mn>
   <mo>&#x2212;</mo>
   <mn>157</mn>
   <mo>=</mo>
   <mo>&#x2212;</mo>
   <mn>15</mn>
-</math></span>。现金多了15，负债也相应增加15，净财富仍为12,000。收款并不在建仓瞬间产生15盈利。</p>
+</math></span>. 现金多了15，负债也相应增加15，净财富仍为12,000. 收款并不在建仓瞬间产生15盈利.</p>
 <p><a id="p16-clipping"></a></p>
 <h2>2. 一步一步把三条腿合起来</h2>
 <p>令到期股价为<span class="inline-math" title="s"><math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -92,7 +92,7 @@
   </msup>
   <mo>.</mo>
 </math></div>
-<p>分三段看：低于95时，股票每再跌1美元，put支付多1美元，股票加put合计保持95；95到105之间，两张期权都没有正支付，保留股票；超过105时，股票继续上涨被短call支付抵消。因此</p>
+<p>分三段看：低于95时，股票每再跌1美元，put支付多1美元，股票加put合计保持95；95到105之间，两张期权都没有正支付，保留股票；超过105时，股票继续上涨被短call支付抵消. 因此</p>
 <div class="equation" title="W_T=2015+100\min\{\max(s,95),105\}."><math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
   <msub>
     <mi>W</mi>
@@ -115,7 +115,7 @@
   <mo fence="false" stretchy="false">}</mo>
   <mo>.</mo>
 </math></div>
-<p>mid财富下限11,515，上限12,515，对12,000起点的损失上限485、盈利上限515。下限更高于单独买put的11,358，不是保护变得免费，而是另外卖出了一项有价值的权利。</p>
+<p>mid财富下限11,515，上限12,515，对12,000起点的损失上限485、盈利上限515. 下限更高于单独买put的11,358，不是保护变得免费，而是另外卖出了一项有价值的权利.</p>
 <p>把净权利金记为<span class="inline-math" title="b=C-P"><math xmlns="http://www.w3.org/1998/Math/MathML">
   <mi>b</mi>
   <mo>=</mo>
@@ -134,7 +134,7 @@
   </msub>
   <mo>&#x2212;</mo>
   <mi>b</mi>
-</math></span>。若净付<span class="inline-math" title="d=P-C&gt;0"><math xmlns="http://www.w3.org/1998/Math/MathML">
+</math></span>. 若净付<span class="inline-math" title="d=P-C&gt;0"><math xmlns="http://www.w3.org/1998/Math/MathML">
   <mi>d</mi>
   <mo>=</mo>
   <mi>P</mi>
@@ -154,7 +154,7 @@
   </msub>
   <mo>+</mo>
   <mi>d</mi>
-</math></span>。符号必须跟随现金方向。OIC页面的简式横幅曾将净付和净收的符号反写；本篇用上面的三腿现金式核算，不照抄那个横幅。<sup><a href="#fn-p16-correction" role="doc-noteref">[2]</a></sup></p>
+</math></span>. 符号必须跟随现金方向. OIC页面的简式横幅曾将净付和净收的符号反写；本篇用上面的三腿现金式核算，不照抄那个横幅.<sup><a href="#fn-p16-correction" role="doc-noteref">[2]</a></sup></p>
 <div class="table-wrap" role="region" aria-label="教学数据表，可横向查看" tabindex="0"><table>
 <thead>
 <tr>
@@ -212,27 +212,27 @@
   <mn>1.30</mn>
   <mo>=</mo>
   <mn>9.70</mn>
-</math></span>。这5.30差额包含两腿各2美元的报价让价和1.30费用。我们的股票已在账户中，不再收费式地扣掉10,000；表中也没有混入最终平股、行权费和税。</p>
+</math></span>. 这5.30差额包含两腿各2美元的报价让价和1.30费用. 我们的股票已在账户中，不再收费式地扣掉10,000；表中也没有混入最终平股、行权费和税.</p>
 <p><a id="p16-price"></a></p>
 <h2>3. “净收款”为什么仍有经济成本</h2>
-<p>如果股价到130，领口mid财富12,515，单纯持股15,000，差额2,485。这个机会差额远大于建仓净收的15。它不是一张另外扣款的账单，而是原本可能获得的上行被合同让出。把经济成本只定义成今天现金减少，会漏掉这项最重要的交换。</p>
-<p>反过来，若股价到70，领口比持股多2,515，对最初的30天保护目标可能非常有价值。两种结果并不矛盾：领口就是把部分高价状态的所得交换为低价状态的保护。评价时应比较同一初始财富下的整个分布或任务，不应只挑“收了钱”或“少赚了钱”的一边。</p>
-<p>离开到期日，净期权价值还会随状态变化。long put与short call的Greek可以部分抵消，但它们的执行价不同，不能因此认定theta、vega总为零。我们以当前两腿报价评估提前退出成本，而不把到期平台线当作每一天的可平仓价格。</p>
+<p>如果股价到130，领口mid财富12,515，单纯持股15,000，差额2,485. 这个机会差额远大于建仓净收的15. 它不是一张另外扣款的账单，而是原本可能获得的上行被合同让出. 把经济成本只定义成今天现金减少，会漏掉这项最重要的交换.</p>
+<p>反过来，若股价到70，领口比持股多2,515，对最初的30天保护目标可能非常有价值. 两种结果并不矛盾：领口就是把部分高价状态的所得交换为低价状态的保护. 评价时应比较同一初始财富下的整个分布或任务，不应只挑“收了钱”或“少赚了钱”的一边.</p>
+<p>离开到期日，净期权价值还会随状态变化. long put与short call的Greek可以部分抵消，但它们的执行价不同，不能因此认定theta、vega总为零. 我们以当前两腿报价评估提前退出成本，而不把到期平台线当作每一天的可平仓价格.</p>
 <p><a id="p16-lifecycle"></a></p>
 <h2>4. 指派以后，三条腿可能只剩一条</h2>
-<p>考虑独立的提前指派分支：D10，短105 call被指派，除息前XYZ109，接着每股除息1美元，教学除息后价108。中间价账中，交股并收取10,500后现金为<span class="inline-math" title="2015+10500=12515"><math xmlns="http://www.w3.org/1998/Math/MathML">
+<p>考虑独立的提前指派分支：D10，短105 call被指派，除息前XYZ109，接着每股除息1美元，教学除息后价108. 中间价账中，交股并收取10,500后现金为<span class="inline-math" title="2015+10500=12515"><math xmlns="http://www.w3.org/1998/Math/MathML">
   <mn>2015</mn>
   <mo>+</mo>
   <mn>10500</mn>
   <mo>=</mo>
   <mn>12515</mn>
-</math></span>；100股已交出，但95 put仍在。我们没有取得该put的新市场报价，所以不能把它标成零，也不能报告“整个领口已全部清算”。</p>
-<p>只持股对照为100股按108加2,000原现金与100股息，合计12,900。这样才能同时反映除息股价和现金股息。领口账户此时是现金12,515加一个仍有期限的put，而不是还持100股的旧三腿结构。</p>
-<figure class="pfh-responsive-figure"><div class="svg-wide"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 350" role="img" aria-label="短call被指派，并不会顺便关闭long put"><title>短call被指派，并不会顺便关闭long put</title><rect width="860" height="350" fill="white"/><g font-family="system-ui, Noto Sans CJK SC, Microsoft YaHei, sans-serif" fill="#182936"><text x="22" y="30" font-size="19" font-weight="700">短call被指派，并不会顺便关闭long put</text><rect x="23.0" y="62" width="255.33333333333334" height="181" rx="8" fill="#eff4f3" stroke="#bcced2"/><text x="36.0" y="89" font-size="15" fill="#145c70" font-weight="700">D1三腿</text><text x="36.0" y="118" font-size="13">股票100股</text><text x="36.0" y="145" font-size="13">long P95 / short C105</text><text x="36.0" y="172" font-size="13">现金2,015</text><text x="36.0" y="199" font-size="13">净期权负债15</text><path d="M281.33333333333337 150h17l-5-4m5 4l-5 4" fill="none" stroke="#526c78" stroke-width="2"/><rect x="302.33333333333337" y="62" width="255.33333333333334" height="181" rx="8" fill="#eff4f3" stroke="#bcced2"/><text x="315.33333333333337" y="89" font-size="15" fill="#a2682d" font-weight="700">D10：short call指派</text><text x="315.33333333333337" y="118" font-size="13">股票交出100股</text><text x="315.33333333333337" y="145" font-size="13">收到10,500</text><text x="315.33333333333337" y="172" font-size="13">现金12,515</text><text x="315.33333333333337" y="199" font-size="13">long put仍存续</text><path d="M560.6666666666667 150h17l-5-4m5 4l-5 4" fill="none" stroke="#526c78" stroke-width="2"/><rect x="581.6666666666667" y="62" width="255.33333333333334" height="181" rx="8" fill="#eff4f3" stroke="#bcced2"/><text x="594.6666666666667" y="89" font-size="15" fill="#607298" font-weight="700">下一项决策</text><text x="594.6666666666667" y="118" font-size="13">持有/卖出剩余put？</text><text x="594.6666666666667" y="145" font-size="13">新put报价未给</text><text x="594.6666666666667" y="172" font-size="13">总财富＝现金＋put mark</text><text x="594.6666666666667" y="199" font-size="13">不用零填未知价值</text><text x="23" y="273" font-size="13">只持股对照：108×100＋2,000现金＋100股息＝12,900。</text></g></svg></div><div class="svg-narrow pfh-native" data-static-figure="P16-lifecycle-mobile.svg"><p class="pfh-figure-title">短call被指派，并不会顺便关闭long put</p><ol class="pfh-flow-steps"><li><strong>D1三腿</strong><p>股票100股</p><p>long P95 / short C105</p><p>现金2,015</p><p>净期权负债15</p></li><li><strong>D10：short call指派</strong><p>股票交出100股</p><p>收到10,500</p><p>现金12,515</p><p>long put仍存续</p></li><li><strong>下一项决策</strong><p>持有/卖出剩余put？</p><p>新put报价未给</p><p>总财富＝现金＋put mark</p><p>不用零填未知价值</p></li></ol><p class="pfh-figure-note">只持股对照：108×100＋2,000现金＋100股息＝12,900。</p></div><figcaption>指派前后的持仓数量：股票消失不代表put也消失</figcaption></figure>
-<p>剩下的put不再保护已经交出的股票。继续持有它、卖掉它，或重新建立股票仓位，各有不同目的和资金要求。OCC把这种“一腿结束、其余腿仍在”的变化列为多腿策略的重要风险。行权与指派也不能统一套成“周一才处理”：应按当前合约交割规则及具体客户指令时点安排。<sup><a href="#fn-p16-odd" role="doc-noteref">[3]</a></sup></p>
+</math></span>；100股已交出，但95 put仍在. 我们没有取得该put的新市场报价，所以不能把它标成零，也不能报告“整个领口已全部清算”.</p>
+<p>只持股对照为100股按108加2,000原现金与100股息，合计12,900. 这样才能同时反映除息股价和现金股息. 领口账户此时是现金12,515加一个仍有期限的put，而不是还持100股的旧三腿结构.</p>
+<figure class="pfh-responsive-figure"><div class="svg-wide"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 350" role="img" aria-label="短call被指派，并不会顺便关闭long put"><title>短call被指派，并不会顺便关闭long put</title><rect width="860" height="350" fill="white"/><g font-family="system-ui, Noto Sans CJK SC, Microsoft YaHei, sans-serif" fill="#182936"><text x="22" y="30" font-size="19" font-weight="700">短call被指派，并不会顺便关闭long put</text><rect x="23.0" y="62" width="255.33333333333334" height="181" rx="8" fill="#eff4f3" stroke="#bcced2"/><text x="36.0" y="89" font-size="15" fill="#145c70" font-weight="700">D1三腿</text><text x="36.0" y="118" font-size="13">股票100股</text><text x="36.0" y="145" font-size="13">long P95 / short C105</text><text x="36.0" y="172" font-size="13">现金2,015</text><text x="36.0" y="199" font-size="13">净期权负债15</text><path d="M281.33333333333337 150h17l-5-4m5 4l-5 4" fill="none" stroke="#526c78" stroke-width="2"/><rect x="302.33333333333337" y="62" width="255.33333333333334" height="181" rx="8" fill="#eff4f3" stroke="#bcced2"/><text x="315.33333333333337" y="89" font-size="15" fill="#a2682d" font-weight="700">D10：short call指派</text><text x="315.33333333333337" y="118" font-size="13">股票交出100股</text><text x="315.33333333333337" y="145" font-size="13">收到10,500</text><text x="315.33333333333337" y="172" font-size="13">现金12,515</text><text x="315.33333333333337" y="199" font-size="13">long put仍存续</text><path d="M560.6666666666667 150h17l-5-4m5 4l-5 4" fill="none" stroke="#526c78" stroke-width="2"/><rect x="581.6666666666667" y="62" width="255.33333333333334" height="181" rx="8" fill="#eff4f3" stroke="#bcced2"/><text x="594.6666666666667" y="89" font-size="15" fill="#607298" font-weight="700">下一项决策</text><text x="594.6666666666667" y="118" font-size="13">持有/卖出剩余put？</text><text x="594.6666666666667" y="145" font-size="13">新put报价未给</text><text x="594.6666666666667" y="172" font-size="13">总财富＝现金＋put mark</text><text x="594.6666666666667" y="199" font-size="13">不用零填未知价值</text><text x="23" y="273" font-size="13">只持股对照：108×100＋2,000现金＋100股息＝12,900.</text></g></svg></div><div class="svg-narrow pfh-native" data-static-figure="P16-lifecycle-mobile.svg"><p class="pfh-figure-title">短call被指派，并不会顺便关闭long put</p><ol class="pfh-flow-steps"><li><strong>D1三腿</strong><p>股票100股</p><p>long P95 / short C105</p><p>现金2,015</p><p>净期权负债15</p></li><li><strong>D10：short call指派</strong><p>股票交出100股</p><p>收到10,500</p><p>现金12,515</p><p>long put仍存续</p></li><li><strong>下一项决策</strong><p>持有/卖出剩余put？</p><p>新put报价未给</p><p>总财富＝现金＋put mark</p><p>不用零填未知价值</p></li></ol><p class="pfh-figure-note">只持股对照：108×100＋2,000现金＋100股息＝12,900.</p></div><figcaption>指派前后的持仓数量：股票消失不代表put也消失</figcaption></figure>
+<p>剩下的put不再保护已经交出的股票. 继续持有它、卖掉它，或重新建立股票仓位，各有不同目的和资金要求. OCC把这种“一腿结束、其余腿仍在”的变化列为多腿策略的重要风险. 行权与指派也不能统一套成“周一才处理”：应按当前合约交割规则及具体客户指令时点安排.<sup><a href="#fn-p16-odd" role="doc-noteref">[3]</a></sup></p>
 <p><a id="p16-benchmarks"></a></p>
 <h2>5. 同叫领口，真实规则可能有不同期限</h2>
-<p>Cboe Collar方法文件1.1版（2026-08-17修订）提供一个很好的制度对照。这里读的是策略规则，而不是历史收益或真实客户成交。<sup><a href="#fn-p16-cll" role="doc-noteref">[4]</a></sup></p>
+<p>Cboe Collar方法文件1.1版（2026-08-17修订）提供一个很好的制度对照. 这里读的是策略规则，而不是历史收益或真实客户成交.<sup><a href="#fn-p16-cll" role="doc-noteref">[4]</a></sup></p>
 <div class="table-wrap" role="region" aria-label="教学数据表，可横向查看" tabindex="0"><table>
 <thead>
 <tr>
@@ -263,15 +263,15 @@
 </tr>
 </tbody>
 </table></div>
-<p>所以“买put卖call”只告诉我们方向，没有告诉我们保护会持续多久。CLL还处理跨滚动时call执行价低于已有put执行价的情形，不能把所有时点都当成同一条永久走廊。本篇数值仍是同期限95/105主例；真实规则表只帮助读者检查日期，不把CLL当PF-GRID-01的实盘版本。</p>
+<p>所以“买put卖call”只告诉我们方向，没有告诉我们保护会持续多久. CLL还处理跨滚动时call执行价低于已有put执行价的情形，不能把所有时点都当成同一条永久走廊. 本篇数值仍是同期限95/105主例；真实规则表只帮助读者检查日期，不把CLL当PF-GRID-01的实盘版本.</p>
 <p><a id="p16-lab"></a></p>
 <h2>6. 操作与完整题解</h2>
-<div class="embed-box" data-experiment-slot="EXP-P16-COLLAR"><nav><a class="button" href="../interactions.html?experiment=EXP-P16-COLLAR#EXP-P16-COLLAR">打开本篇实验</a><a href="../standalone.html#EXP-P16-COLLAR">八实验离线总入口</a></nav><iframe class="lab-iframe" title="三腿领口与剩余持仓" loading="lazy" src="../interactions.html?experiment=EXP-P16-COLLAR#EXP-P16-COLLAR"></iframe><p>不启用脚本或嵌入失败时，正文静态表图与完整解析仍可独立阅读。</p></div>
-<p>先让价格由70经过100到130，观察各腿支付怎样变成平台。切换执行层后，检查净收15如何变9.70。再选提前指派：读出剩余put，而不是继续沿用股票仍在的收益线。最后用上面的规则表写出CLL与CLL3M首次call到期时的不同持仓。</p>
-<p><strong>解释题。</strong> 为什么净收9.70的执行领口仍不能称为“没有成本”？</p>
-<p><strong>解析。</strong> 首先有买卖价差与费用，它们使净收低于mid的15。更重要的是short call让出了105以上上涨；股票130时执行层财富12,509.70，而只持股为15,000。这是结果分布的改变，不是一笔免费保险。零净支出只描述一个时点的现金净额。</p>
-<p><strong>迁移题。</strong> 换成净付20美元、其他条件相同的领口，最低终点财富应比净收15时更高还是更低？</p>
-<p><strong>解析。</strong> 净现金相差35，因此财富下限和上限都低35。现金变为1,980，下限11,480，最大损失520；不能写成净付权利金反而降低损失。这个不依赖复杂模型的符号检查，可以揭示简式公式错误。</p>
-<p><strong>生命周期题。</strong> CLL的月度call到期后，能否假定季度put也结束，并把账户当成只持股票？</p>
-<p><strong>解析。</strong> 不能。两腿期限不同，原put可能仍有剩余价值和保护，后续call滚动又是新交易。应先列股票数量、原put期限、新call条款和现金，再评估新的保护走廊，而不是复制原图。</p>
-<section class="footnotes" role="doc-endnotes"><h2>原文与定位</h2><ol><li id="fn-p16-collar">OIC，<a href="https://www.optionseducation.org/strategies/all-strategies/collar-protective-collar">Collar</a>，完整Description、Max Gain/Loss、Assignment Risk正文，2026-09-21核用。</li><li id="fn-p16-correction">同一OIC页面“Net Position”横幅与详细Max Loss段对照。本篇的净付增加成本、净收减少成本来自逐腿现金恒等式；不采用横幅中相反的紧凑符号。</li><li id="fn-p16-odd">OCC，<a href="https://www.theocc.com/getmedia/a151a9ae-d784-4a15-bdeb-23a029f50b70/riskstoc.pdf">ODD</a>，June 2024，Chapter VIII、Other Risks item 1印刷67–68页；OIC <a href="https://www.optionseducation.org/news/understanding-t-1-conversion">T+1说明</a>，July 2024。</li><li id="fn-p16-cll">Cboe，<a href="https://cdn.cboe.com/api/global/us_indices/governance/Cboe_Collar_Indices_Methodology.pdf">Collar Indices Methodology</a>，1.1版，§§1–2.3、CLL/CLL1M/CLL3M构成表及cross-roll说明；不采用历史绩效。</li></ol></section></article></main><script>addEventListener("beforeprint",()=>document.querySelectorAll("details").forEach(e=>{e.dataset.wasOpen=e.open;e.open=true}));addEventListener("afterprint",()=>document.querySelectorAll("details").forEach(e=>e.open=e.dataset.wasOpen==="true"));</script></body></html>
+<div class="embed-box" data-experiment-slot="EXP-P16-COLLAR"><nav><a class="button" href="../interactions.html?experiment=EXP-P16-COLLAR#EXP-P16-COLLAR">打开本篇实验</a><a href="../standalone.html#EXP-P16-COLLAR">八实验离线总入口</a></nav><iframe class="lab-iframe" title="三腿领口与剩余持仓" loading="lazy" src="../interactions.html?experiment=EXP-P16-COLLAR#EXP-P16-COLLAR"></iframe><p>不启用脚本或嵌入失败时，正文静态表图与完整解析仍可独立阅读.</p></div>
+<p>先让价格由70经过100到130，观察各腿支付怎样变成平台. 切换执行层后，检查净收15如何变9.70. 再选提前指派：读出剩余put，而不是继续沿用股票仍在的收益线. 最后用上面的规则表写出CLL与CLL3M首次call到期时的不同持仓.</p>
+<p><strong>解释题.</strong> 为什么净收9.70的执行领口仍不能称为“没有成本”？</p>
+<p><strong>解析.</strong> 首先有买卖价差与费用，它们使净收低于mid的15. 更重要的是short call让出了105以上上涨；股票130时执行层财富12,509.70，而只持股为15,000. 这是结果分布的改变，不是一笔免费保险. 零净支出只描述一个时点的现金净额.</p>
+<p><strong>迁移题.</strong> 换成净付20美元、其他条件相同的领口，最低终点财富应比净收15时更高还是更低？</p>
+<p><strong>解析.</strong> 净现金相差35，因此财富下限和上限都低35. 现金变为1,980，下限11,480，最大损失520；不能写成净付权利金反而降低损失. 这个不依赖复杂模型的符号检查，可以揭示简式公式错误.</p>
+<p><strong>生命周期题.</strong> CLL的月度call到期后，能否假定季度put也结束，并把账户当成只持股票？</p>
+<p><strong>解析.</strong> 不能. 两腿期限不同，原put可能仍有剩余价值和保护，后续call滚动又是新交易. 应先列股票数量、原put期限、新call条款和现金，再评估新的保护走廊，而不是复制原图.</p>
+<section class="footnotes" role="doc-endnotes"><h2>原文与定位</h2><ol><li id="fn-p16-collar">OIC，<a href="https://www.optionseducation.org/strategies/all-strategies/collar-protective-collar">Collar</a>，完整Description、Max Gain/Loss、Assignment Risk正文，2026-09-21核用.</li><li id="fn-p16-correction">同一OIC页面“Net Position”横幅与详细Max Loss段对照. 本篇的净付增加成本、净收减少成本来自逐腿现金恒等式；不采用横幅中相反的紧凑符号.</li><li id="fn-p16-odd">OCC，<a href="https://www.theocc.com/getmedia/a151a9ae-d784-4a15-bdeb-23a029f50b70/riskstoc.pdf">ODD</a>，June 2024，Chapter VIII、Other Risks item 1印刷67–68页；OIC <a href="https://www.optionseducation.org/news/understanding-t-1-conversion">T+1说明</a>，July 2024.</li><li id="fn-p16-cll">Cboe，<a href="https://cdn.cboe.com/api/global/us_indices/governance/Cboe_Collar_Indices_Methodology.pdf">Collar Indices Methodology</a>，1.1版，§§1–2.3、CLL/CLL1M/CLL3M构成表及cross-roll说明；不采用历史绩效.</li></ol></section></article></main><script>addEventListener("beforeprint",()=>document.querySelectorAll("details").forEach(e=>{e.dataset.wasOpen=e.open;e.open=true}));addEventListener("afterprint",()=>document.querySelectorAll("details").forEach(e=>e.open=e.dataset.wasOpen==="true"));</script></body></html>

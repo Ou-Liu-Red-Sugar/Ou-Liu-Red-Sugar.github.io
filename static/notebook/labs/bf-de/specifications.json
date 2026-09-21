@@ -3,7 +3,7 @@
     "id": "EXP-BF12-ASSET-CLOCKS",
     "title": "资本开支、在建工程与折旧：同源实验",
     "anchor": "bf12-experiment",
-    "description": "取得、可用、付款按真实月份排序，同月依此次序；月末才折旧。取得前付款为预付；取得未付为应付。月折旧=(cost-residual)/life_months，使用期满停止；本例当期费用化。",
+    "description": "取得、可用、付款按真实月份排序，同月依此次序；月末才折旧. 取得前付款为预付；取得未付为应付. 月折旧=(cost-residual)/life_months，使用期满停止；本例当期费用化.",
     "inputs": {
       "input_id": "BFDE-SHARED-20260921-v1",
       "source": "https://ou-liu-red-sugar.github.io/notebook/labs/bf-de/inputs.json",
@@ -25,7 +25,7 @@
           "identity": "Historical financial-statement observations; teaching cases are separately labelled. Values are not stock valuation inputs.",
           "costco": {
             "source_id": "BF-S-COST-FY2025-PDF",
-            "unit": "USD million",
+            "unit": "USD M",
             "periods": [
               "2025-08-31",
               "2024-09-01"
@@ -181,7 +181,7 @@
           },
           "salesforce": {
             "source_id": "BBC-C01",
-            "unit": "USD million",
+            "unit": "USD M",
             "periods": [
               "2026-01-31",
               "2025-01-31"
@@ -354,7 +354,7 @@
           },
           "caterpillar": {
             "source_id": "BBC-C04",
-            "unit": "USD million",
+            "unit": "USD M",
             "periods": [
               "2025-12-31",
               "2024-12-31"
@@ -635,7 +635,7 @@
               "third-party pharmacy",
               "other receivables"
             ],
-            "explanation_zh": "其他应收主要为对政府的应收，多与税款有关。信用卡奖励应收不是顾客刷卡货款；结算期不超过四天的顾客刷卡货款另依现金政策列示。"
+            "explanation_zh": "其他应收主要为对政府的应收，多与税款有关. 信用卡奖励应收不是顾客刷卡货款；结算期不超过四天的顾客刷卡货款另依现金政策列示."
           },
           "costco_lease_2024": {
             "operating_rou_asset": 2617,
@@ -1800,8 +1800,8 @@
       },
       "all_defaults_file": "https://ou-liu-red-sugar.github.io/notebook/labs/bf-de/default-results.json"
     },
-    "algorithm": "取得、可用、付款按真实月份排序，同月依此次序；月末才折旧。取得前付款为预付；取得未付为应付。月折旧=(cost-residual)/life_months，使用期满停止；本例当期费用化。",
-    "boundaries": "正向状态表平衡，资源未取得时不生成CIP、不提前折旧；差额1,608不自动归因为处置。",
+    "algorithm": "取得、可用、付款按真实月份排序，同月依此次序；月末才折旧. 取得前付款为预付；取得未付为应付. 月折旧=(cost-residual)/life_months，使用期满停止；本例当期费用化.",
+    "boundaries": "正向状态表平衡，资源未取得时不生成CIP、不提前折旧；差额1,608不自动归因为处置.",
     "local_url": "/notebook/labs/bf-de/interactions.html#EXP-BF12-ASSET-CLOCKS",
     "static_equivalent": {
       "html": "https://ou-liu-red-sugar.github.io/notebook/labs/bf-de/static.html#EXP-BF12-ASSET-CLOCKS",
@@ -1812,7 +1812,7 @@
     "id": "EXP-BF13-LEASE-VIEWS",
     "title": "租赁、使用权与付款义务：同源实验",
     "anchor": "bf13-experiment",
-    "description": "按公司选择固定资产、负债、付款桶、费用与特定现金；合计未折付款减原表利息=负债。资产与义务并列，不构造618到460的调节桥。",
+    "description": "按公司选择固定资产、负债、付款桶、费用与特定现金；合计未折付款减原表利息=负债. 资产与义务并列，不构造618到460的调节桥.",
     "inputs": {
       "input_id": "BFDE-SHARED-20260921-v1",
       "source": "https://ou-liu-red-sugar.github.io/notebook/labs/bf-de/inputs.json",
@@ -1834,7 +1834,7 @@
           "identity": "Historical financial-statement observations; teaching cases are separately labelled. Values are not stock valuation inputs.",
           "costco": {
             "source_id": "BF-S-COST-FY2025-PDF",
-            "unit": "USD million",
+            "unit": "USD M",
             "periods": [
               "2025-08-31",
               "2024-09-01"
@@ -1990,7 +1990,7 @@
           },
           "salesforce": {
             "source_id": "BBC-C01",
-            "unit": "USD million",
+            "unit": "USD M",
             "periods": [
               "2026-01-31",
               "2025-01-31"
@@ -2163,7 +2163,7 @@
           },
           "caterpillar": {
             "source_id": "BBC-C04",
-            "unit": "USD million",
+            "unit": "USD M",
             "periods": [
               "2025-12-31",
               "2024-12-31"
@@ -2444,7 +2444,7 @@
               "third-party pharmacy",
               "other receivables"
             ],
-            "explanation_zh": "其他应收主要为对政府的应收，多与税款有关。信用卡奖励应收不是顾客刷卡货款；结算期不超过四天的顾客刷卡货款另依现金政策列示。"
+            "explanation_zh": "其他应收主要为对政府的应收，多与税款有关. 信用卡奖励应收不是顾客刷卡货款；结算期不超过四天的顾客刷卡货款另依现金政策列示."
           },
           "costco_lease_2024": {
             "operating_rou_asset": 2617,
@@ -2781,7 +2781,7 @@
         "lease_costco": {
           "company": "costco",
           "period": "2025-08-31",
-          "unit": "USD million",
+          "unit": "USD M",
           "source_id": "BF-S-COST-FY2025-PDF",
           "locator": "Note5 printed pp50–51; PDF pp56–57; policy printed p43",
           "balances": [
@@ -2901,7 +2901,7 @@
         "lease_salesforce": {
           "company": "salesforce",
           "period": "2026-01-31",
-          "unit": "USD million",
+          "unit": "USD M",
           "source_id": "BBC-C01",
           "locator": "Note6 Leases and Other Commitments pp75–77; Note1 Leases pp67–68",
           "balances": [
@@ -3014,8 +3014,8 @@
       },
       "all_defaults_file": "https://ou-liu-red-sugar.github.io/notebook/labs/bf-de/default-results.json"
     },
-    "algorithm": "按公司选择固定资产、负债、付款桶、费用与特定现金；合计未折付款减原表利息=负债。资产与义务并列，不构造618到460的调节桥。",
-    "boundaries": "Costco618和460不做无调节桥；选Salesforce时不得强制用Costco迁移，默认用2025比较列。",
+    "algorithm": "按公司选择固定资产、负债、付款桶、费用与特定现金；合计未折付款减原表利息=负债. 资产与义务并列，不构造618到460的调节桥.",
+    "boundaries": "Costco618和460不做无调节桥；选Salesforce时不得强制用Costco迁移，默认用2025比较列.",
     "local_url": "/notebook/labs/bf-de/interactions.html#EXP-BF13-LEASE-VIEWS",
     "static_equivalent": {
       "html": "https://ou-liu-red-sugar.github.io/notebook/labs/bf-de/static.html#EXP-BF13-LEASE-VIEWS",
@@ -3026,7 +3026,7 @@
     "id": "EXP-BF14-INTANGIBLE-LAYERS",
     "title": "无形资源、研发与商誉：同源实验",
     "anchor": "bf14-experiment",
-    "description": "真实PPA/滚动只作有符号加总。教学G_t=(1-delta_r)G_(t-1)+alpha*RD_t，S_t=(1-delta_s)S_(t-1)+gamma*SGA_t；SGA剔除RD，先折损期初再加期末流。",
+    "description": "真实PPA/滚动只作有符号加总. 教学G_t=(1-delta_r)G_(t-1)+alpha*RD_t，S_t=(1-delta_s)S_(t-1)+gamma*SGA_t；SGA剔除RD，先折损期初再加期末流.",
     "inputs": {
       "input_id": "BFDE-SHARED-20260921-v1",
       "source": "https://ou-liu-red-sugar.github.io/notebook/labs/bf-de/inputs.json",
@@ -3048,7 +3048,7 @@
           "identity": "Historical financial-statement observations; teaching cases are separately labelled. Values are not stock valuation inputs.",
           "costco": {
             "source_id": "BF-S-COST-FY2025-PDF",
-            "unit": "USD million",
+            "unit": "USD M",
             "periods": [
               "2025-08-31",
               "2024-09-01"
@@ -3204,7 +3204,7 @@
           },
           "salesforce": {
             "source_id": "BBC-C01",
-            "unit": "USD million",
+            "unit": "USD M",
             "periods": [
               "2026-01-31",
               "2025-01-31"
@@ -3377,7 +3377,7 @@
           },
           "caterpillar": {
             "source_id": "BBC-C04",
-            "unit": "USD million",
+            "unit": "USD M",
             "periods": [
               "2025-12-31",
               "2024-12-31"
@@ -3658,7 +3658,7 @@
               "third-party pharmacy",
               "other receivables"
             ],
-            "explanation_zh": "其他应收主要为对政府的应收，多与税款有关。信用卡奖励应收不是顾客刷卡货款；结算期不超过四天的顾客刷卡货款另依现金政策列示。"
+            "explanation_zh": "其他应收主要为对政府的应收，多与税款有关. 信用卡奖励应收不是顾客刷卡货款；结算期不超过四天的顾客刷卡货款另依现金政策列示."
           },
           "costco_lease_2024": {
             "operating_rou_asset": 2617,
@@ -3994,7 +3994,7 @@
       "default": {
         "intangible_facts": {
           "period": "FY2026 / 2026-01-31",
-          "unit": "USD million",
+          "unit": "USD M",
           "preliminary": true,
           "consideration": 9636,
           "assets": 11017,
@@ -4186,8 +4186,8 @@
       },
       "all_defaults_file": "https://ou-liu-red-sugar.github.io/notebook/labs/bf-de/default-results.json"
     },
-    "algorithm": "真实PPA/滚动只作有符号加总。教学G_t=(1-delta_r)G_(t-1)+alpha*RD_t，S_t=(1-delta_s)S_(t-1)+gamma*SGA_t；SGA剔除RD，先折损期初再加期末流。",
-    "boundaries": "不重复加研发SBC，不把累计净变动当费用；模型初始存量/流量/比例/折损/时序全部可重算。",
+    "algorithm": "真实PPA/滚动只作有符号加总. 教学G_t=(1-delta_r)G_(t-1)+alpha*RD_t，S_t=(1-delta_s)S_(t-1)+gamma*SGA_t；SGA剔除RD，先折损期初再加期末流.",
+    "boundaries": "不重复加研发SBC，不把累计净变动当费用；模型初始存量/流量/比例/折损/时序全部可重算.",
     "local_url": "/notebook/labs/bf-de/interactions.html#EXP-BF14-INTANGIBLE-LAYERS",
     "static_equivalent": {
       "html": "https://ou-liu-red-sugar.github.io/notebook/labs/bf-de/static.html#EXP-BF14-INTANGIBLE-LAYERS",
@@ -4198,7 +4198,7 @@
     "id": "EXP-BF18-SEGMENT-RECONCILIATION",
     "title": "分部、合并范围与共同资源：同源实验",
     "anchor": "bf18-experiment",
-    "description": "CAT报告分部总额加All Other及完整调整项，收入回67,589，分部利润回税前11,541。经营利润11,151经-502+892另回税前。软件视图保留多产品/单分部。",
+    "description": "CAT报告分部总额加All Other及完整调整项，收入回67,589，分部利润回税前11,541. 经营利润11,151经-502+892另回税前. 软件视图保留多产品/单分部.",
     "inputs": {
       "input_id": "BFDE-SHARED-20260921-v1",
       "source": "https://ou-liu-red-sugar.github.io/notebook/labs/bf-de/inputs.json",
@@ -4220,7 +4220,7 @@
           "identity": "Historical financial-statement observations; teaching cases are separately labelled. Values are not stock valuation inputs.",
           "costco": {
             "source_id": "BF-S-COST-FY2025-PDF",
-            "unit": "USD million",
+            "unit": "USD M",
             "periods": [
               "2025-08-31",
               "2024-09-01"
@@ -4376,7 +4376,7 @@
           },
           "salesforce": {
             "source_id": "BBC-C01",
-            "unit": "USD million",
+            "unit": "USD M",
             "periods": [
               "2026-01-31",
               "2025-01-31"
@@ -4549,7 +4549,7 @@
           },
           "caterpillar": {
             "source_id": "BBC-C04",
-            "unit": "USD million",
+            "unit": "USD M",
             "periods": [
               "2025-12-31",
               "2024-12-31"
@@ -4830,7 +4830,7 @@
               "third-party pharmacy",
               "other receivables"
             ],
-            "explanation_zh": "其他应收主要为对政府的应收，多与税款有关。信用卡奖励应收不是顾客刷卡货款；结算期不超过四天的顾客刷卡货款另依现金政策列示。"
+            "explanation_zh": "其他应收主要为对政府的应收，多与税款有关. 信用卡奖励应收不是顾客刷卡货款；结算期不超过四天的顾客刷卡货款另依现金政策列示."
           },
           "costco_lease_2024": {
             "operating_rou_asset": 2617,
@@ -5165,7 +5165,7 @@
     "outputs": {
       "default": {
         "segments": {
-          "unit": "USD million",
+          "unit": "USD M",
           "period": "FY2025",
           "revenue": {
             "opening": 73955,
@@ -5330,8 +5330,8 @@
       },
       "all_defaults_file": "https://ou-liu-red-sugar.github.io/notebook/labs/bf-de/default-results.json"
     },
-    "algorithm": "CAT报告分部总额加All Other及完整调整项，收入回67,589，分部利润回税前11,541。经营利润11,151经-502+892另回税前。软件视图保留多产品/单分部。",
-    "boundaries": "保留FP external列712脚注，内部列归零；软件多产品不等同报告多分部。",
+    "algorithm": "CAT报告分部总额加All Other及完整调整项，收入回67,589，分部利润回税前11,541. 经营利润11,151经-502+892另回税前. 软件视图保留多产品/单分部.",
+    "boundaries": "保留FP external列712脚注，内部列归零；软件多产品不等同报告多分部.",
     "local_url": "/notebook/labs/bf-de/interactions.html#EXP-BF18-SEGMENT-RECONCILIATION",
     "static_equivalent": {
       "html": "https://ou-liu-red-sugar.github.io/notebook/labs/bf-de/static.html#EXP-BF18-SEGMENT-RECONCILIATION",
@@ -5342,7 +5342,7 @@
     "id": "EXP-BF17-HISTORICAL-VS-STRUCTURAL",
     "title": "单位经济、成本结构与经营杠杆：同源实验",
     "anchor": "bf17-experiment",
-    "description": "真实桥固定历史输入。教学CM=sales-variable_costs；OI=CM-fixed_costs；DOL=CM/OI。固定参数时newOI=(1+x)CM-F，有限百分比关系精确；台阶另加10,000，基点OI零拒绝百分比。",
+    "description": "真实桥固定历史输入. 教学CM=sales-variable_costs；OI=CM-fixed_costs；DOL=CM/OI. 固定参数时newOI=(1+x)CM-F，有限百分比关系精确；台阶另加10,000，基点OI零拒绝百分比.",
     "inputs": {
       "input_id": "BFDE-SHARED-20260921-v1",
       "source": "https://ou-liu-red-sugar.github.io/notebook/labs/bf-de/inputs.json",
@@ -5364,7 +5364,7 @@
           "identity": "Historical financial-statement observations; teaching cases are separately labelled. Values are not stock valuation inputs.",
           "costco": {
             "source_id": "BF-S-COST-FY2025-PDF",
-            "unit": "USD million",
+            "unit": "USD M",
             "periods": [
               "2025-08-31",
               "2024-09-01"
@@ -5520,7 +5520,7 @@
           },
           "salesforce": {
             "source_id": "BBC-C01",
-            "unit": "USD million",
+            "unit": "USD M",
             "periods": [
               "2026-01-31",
               "2025-01-31"
@@ -5693,7 +5693,7 @@
           },
           "caterpillar": {
             "source_id": "BBC-C04",
-            "unit": "USD million",
+            "unit": "USD M",
             "periods": [
               "2025-12-31",
               "2024-12-31"
@@ -5974,7 +5974,7 @@
               "third-party pharmacy",
               "other receivables"
             ],
-            "explanation_zh": "其他应收主要为对政府的应收，多与税款有关。信用卡奖励应收不是顾客刷卡货款；结算期不超过四天的顾客刷卡货款另依现金政策列示。"
+            "explanation_zh": "其他应收主要为对政府的应收，多与税款有关. 信用卡奖励应收不是顾客刷卡货款；结算期不超过四天的顾客刷卡货款另依现金政策列示."
           },
           "costco_lease_2024": {
             "operating_rou_asset": 2617,
@@ -6310,7 +6310,7 @@
       "default": {
         "drivers": {
           "identity": "Company historical attribution, not structural coefficients",
-          "unit": "USD million",
+          "unit": "USD M",
           "revenue": {
             "opening": 64809,
             "rows": [
@@ -6540,8 +6540,8 @@
       },
       "all_defaults_file": "https://ou-liu-red-sugar.github.io/notebook/labs/bf-de/default-results.json"
     },
-    "algorithm": "真实桥固定历史输入。教学CM=sales-variable_costs；OI=CM-fixed_costs；DOL=CM/OI。固定参数时newOI=(1+x)CM-F，有限百分比关系精确；台阶另加10,000，基点OI零拒绝百分比。",
-    "boundaries": "有限变化固定参数时两结果完全一致；跨台阶另算新增成本，基点利润0不返回可用比率。",
+    "algorithm": "真实桥固定历史输入. 教学CM=sales-variable_costs；OI=CM-fixed_costs；DOL=CM/OI. 固定参数时newOI=(1+x)CM-F，有限百分比关系精确；台阶另加10,000，基点OI零拒绝百分比.",
+    "boundaries": "有限变化固定参数时两结果完全一致；跨台阶另算新增成本，基点利润0不返回可用比率.",
     "local_url": "/notebook/labs/bf-de/interactions.html#EXP-BF17-HISTORICAL-VS-STRUCTURAL",
     "static_equivalent": {
       "html": "https://ou-liu-red-sugar.github.io/notebook/labs/bf-de/static.html#EXP-BF17-HISTORICAL-VS-STRUCTURAL",
@@ -6552,7 +6552,7 @@
     "id": "EXP-BF16-CASH-CYCLES",
     "title": "营运资本与现金周转：同源实验",
     "anchor": "bf16-experiment",
-    "description": "历史DIO/DPO=平均余额/merchandise_costs*364，后者代理非采购额；DSO/CCC不可识别。教学现金按日期累计，资金缺口=max(0,-最低累计现金)，同日先收后付；订阅另按30天月服务与成本。",
+    "description": "历史DIO/DPO=平均余额/merchandise_costs*364，后者代理非采购额；DSO/CCC不可识别. 教学现金按日期累计，资金缺口=max(0,-最低累计现金)，同日先收后付；订阅另按30天月服务与成本.",
     "inputs": {
       "input_id": "BFDE-SHARED-20260921-v1",
       "source": "https://ou-liu-red-sugar.github.io/notebook/labs/bf-de/inputs.json",
@@ -6574,7 +6574,7 @@
           "identity": "Historical financial-statement observations; teaching cases are separately labelled. Values are not stock valuation inputs.",
           "costco": {
             "source_id": "BF-S-COST-FY2025-PDF",
-            "unit": "USD million",
+            "unit": "USD M",
             "periods": [
               "2025-08-31",
               "2024-09-01"
@@ -6730,7 +6730,7 @@
           },
           "salesforce": {
             "source_id": "BBC-C01",
-            "unit": "USD million",
+            "unit": "USD M",
             "periods": [
               "2026-01-31",
               "2025-01-31"
@@ -6903,7 +6903,7 @@
           },
           "caterpillar": {
             "source_id": "BBC-C04",
-            "unit": "USD million",
+            "unit": "USD M",
             "periods": [
               "2025-12-31",
               "2024-12-31"
@@ -7184,7 +7184,7 @@
               "third-party pharmacy",
               "other receivables"
             ],
-            "explanation_zh": "其他应收主要为对政府的应收，多与税款有关。信用卡奖励应收不是顾客刷卡货款；结算期不超过四天的顾客刷卡货款另依现金政策列示。"
+            "explanation_zh": "其他应收主要为对政府的应收，多与税款有关. 信用卡奖励应收不是顾客刷卡货款；结算期不超过四天的顾客刷卡货款另依现金政策列示."
           },
           "costco_lease_2024": {
             "operating_rou_asset": 2617,
@@ -7519,7 +7519,7 @@
     "outputs": {
       "default": {
         "working_capital": {
-          "unit": "USD million / days",
+          "unit": "USD M / days",
           "period": "FY2025 (52 weeks)",
           "days": 364,
           "average_inventory": 18381.5,
@@ -8171,8 +8171,8 @@
       },
       "all_defaults_file": "https://ou-liu-red-sugar.github.io/notebook/labs/bf-de/default-results.json"
     },
-    "algorithm": "历史DIO/DPO=平均余额/merchandise_costs*364，后者代理非采购额；DSO/CCC不可识别。教学现金按日期累计，资金缺口=max(0,-最低累计现金)，同日先收后付；订阅另按30天月服务与成本。",
-    "boundaries": "Costco混合应收不生成客户DSO或CCC；订阅default30/90/120日对应0/12/18缺口，原年末余额不变。",
+    "algorithm": "历史DIO/DPO=平均余额/merchandise_costs*364，后者代理非采购额；DSO/CCC不可识别. 教学现金按日期累计，资金缺口=max(0,-最低累计现金)，同日先收后付；订阅另按30天月服务与成本.",
+    "boundaries": "Costco混合应收不生成客户DSO或CCC；订阅default30/90/120日对应0/12/18缺口，原年末余额不变.",
     "local_url": "/notebook/labs/bf-de/interactions.html#EXP-BF16-CASH-CYCLES",
     "static_equivalent": {
       "html": "https://ou-liu-red-sugar.github.io/notebook/labs/bf-de/static.html#EXP-BF16-CASH-CYCLES",

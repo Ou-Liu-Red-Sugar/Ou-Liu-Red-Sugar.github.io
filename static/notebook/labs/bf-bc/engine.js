@@ -45,7 +45,7 @@
     });
     const perfDate=events.find(e=>e.type==='performance').date,rightDate=events.find(e=>e.type==='right').date,invoiceDate=events.find(e=>e.type==='invoice').date,collectionDate=events.find(e=>e.type==='cash').date;
     const changed=perfDate!==source.events.find(e=>e.type==='performance').date||rightDate!==source.events.find(e=>e.type==='right').date||invoiceDate!==source.events.find(e=>e.type==='invoice').date||collectionDate!==source.events.find(e=>e.type==='cash').date;
-    const terms=source.rights_and_performance_terms+' 当前首个/唯一履约日：'+perfDate+'；无条件权利日：'+rightDate+'；开票日：'+invoiceDate+'；实际收款日：'+collectionDate+'。'+(changed?' 日期已改为教学变式；权利日变化代表合同权利事实变化。':'')+template.scope_note;
+    const terms=source.rights_and_performance_terms+' 当前首个/唯一履约日：'+perfDate+'；无条件权利日：'+rightDate+'；开票日：'+invoiceDate+'；实际收款日：'+collectionDate+'.'+(changed?' 日期已改为教学变式；权利日变化代表合同权利事实变化.':'')+template.scope_note;
     return {name,price,terms,events,timeline:contractEvents(events,price),same_day_order:template.same_day_order.join(' → ')};
   }
   function at(timeline,cutoff){date(cutoff);const a=timeline.filter(r=>r.date<=cutoff);return a.length?a[a.length-1]:{date:cutoff,revenue:0,unconditional:0,billed:0,cash:0,receivable:0,contract_asset:0,contract_liability:0,assets:0,equity:0,residual:0};}

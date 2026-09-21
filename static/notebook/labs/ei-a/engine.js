@@ -6,7 +6,7 @@
   'use strict';
   const sum = values => values.reduce((a, b) => a + b, 0);
   function number(value, name, low = -Infinity, high = Infinity) {
-    if (typeof value !== 'number' || !Number.isFinite(value) || value < low || value > high) throw new Error(name + ' 应在 ' + low + ' 至 ' + high + ' 之间。');
+    if (typeof value !== 'number' || !Number.isFinite(value) || value < low || value > high) throw new Error(name + ' 应在 ' + low + ' 至 ' + high + ' 之间.');
     return value;
   }
   function experiment(data, id) {
@@ -38,12 +38,12 @@
   }
   function hhi(raw, boundary, ownership) {
     if (!['narrow', 'wide'].includes(boundary) || !['separate', 'combined'].includes(ownership)) throw new Error('Unknown boundary or ownership');
-    if (!Array.isArray(raw) || raw.length !== 5) throw new Error('需要五家教学企业的完整销售输入。');
+    if (!Array.isArray(raw) || raw.length !== 5) throw new Error('需要五家教学企业的完整销售输入.');
     raw.forEach((x, i) => number(x, '企业 ' + i + ' 销售', 0));
     let firms = raw.map((sales, index) => ({ name: 'ABCDE'[index], sales })).slice(0, boundary === 'narrow' ? 3 : 5);
     if (ownership === 'combined') firms = [{ name: 'A+B', sales: firms[0].sales + firms[1].sales }, ...firms.slice(2)];
     const denominator = sum(firms.map(f => f.sales));
-    if (!(denominator > 0)) throw new Error('份额分母必须为正，缺失销售不能按零处理。');
+    if (!(denominator > 0)) throw new Error('份额分母必须为正，缺失销售不能按零处理.');
     firms = firms.map(f => ({ ...f, share: 100 * f.sales / denominator, contribution: (100 * f.sales / denominator) ** 2 }));
     return { firms, denominator, HHI: sum(firms.map(f => f.contribution)), boundary, ownership };
   }
@@ -66,7 +66,7 @@
   }
   function power(p) {
     [['L', 40, 80], ['W', 0, 30], ['K', 0, 70], ['O', 0, p.K], ['M', 0, 15], ['Pmax', 0, 10], ['E0', 0, 40], ['H', 1, 24]].forEach(([k, lo, hi]) => number(p[k], k, lo, hi));
-    if (!Number.isInteger(p.H)) throw new Error('持续窗口使用整数小时。');
+    if (!Number.isInteger(p.H)) throw new Error('持续窗口使用整数小时.');
     const available = p.K - p.O, residualLoad = p.L - p.W, headroom = p.W + available + p.M - p.L;
     const gapBefore = Math.max(0, -headroom), batteryLimit = Math.min(p.Pmax, p.E0 / p.H), batteryUsed = Math.min(gapBefore, batteryLimit);
     return { ...p, available, residualLoad, headroom, gapBefore, batteryLimit, batteryUsed, gapAfter: gapBefore - batteryUsed, endEnergy: p.E0 - batteryUsed * p.H };
@@ -84,13 +84,13 @@
     if (p.orderMode === 'gross') number(p.cancel, '取消订单', 0, p.Ngross);
     const net = p.orderMode === 'net' ? p.Nnet : p.Ngross - p.cancel;
     const B1 = p.B0 + net - p.shipments + p.adjustment;
-    if (B1 < 0) throw new Error('输入不满足本例余额约束：期末未交订单小于 0。');
+    if (B1 < 0) throw new Error('输入不满足本例余额约束：期末未交订单小于 0.');
     return { ...p, net, B1, change: B1 - p.B0, inventoryRatio: p.shipments === 0 ? null : p.inventory / p.shipments, backlogRatio: p.shipments === 0 ? null : B1 / p.shipments };
   }
   function actualOrders(data, month = '2026-05') {
     const record = observed(data, 'CASE-EI-US-CONSTRUCTION-MACHINERY-202605');
     const index = record.rows.findIndex(x => x.month === month);
-    if (index < 1) throw new Error('此桥需要同版上月余额。');
+    if (index < 1) throw new Error('此桥需要同版上月余额.');
     const row = record.rows[index], prev = record.rows[index - 1];
     const p = { B0: prev.end_unfilled_orders, Nnet: row.net_new_orders, Ngross: row.net_new_orders, cancel: 0, shipments: row.shipments, inventory: row.end_inventories, adjustment: row.end_unfilled_orders - prev.end_unfilled_orders - row.net_new_orders + row.shipments, orderMode: 'net' };
     return { ...orders(p), month, previousMonth: prev.month, status: row.status_in_selected_table, observed: true, reconciliationResidual: p.adjustment, netFlow: row.net_new_orders - row.shipments };

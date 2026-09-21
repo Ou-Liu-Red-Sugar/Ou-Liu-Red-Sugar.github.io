@@ -56,7 +56,7 @@
       ]
     },
     "m3": {
-      "unit": "USD million",
+      "unit": "USD M",
       "adjustment": "seasonally adjusted; not price adjusted",
       "industry": "Construction machinery",
       "rows": [

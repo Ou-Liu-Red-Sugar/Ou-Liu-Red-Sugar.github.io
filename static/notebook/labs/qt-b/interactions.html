@@ -27,44 +27,44 @@ details.static>div,details.static>p{display:block!important}details{display:bloc
 </head>
 <body><main>
 <header id="all"><div class="eyebrow">数学、统计与计算方法 · 条件期望</div><h1>从信息分组到积分与投影</h1>
-<p>保持一张四状态表，分别检查条件概率、可测性、条件平均和均方误差。积分面板另使用三个明确模型，不依赖四状态权重。</p>
-<p class="note">四状态情景、信号和概率全部是假设；只借用 SPX 每点 100 美元的支付约定。金额确定、实际现金交付与账户入账不是同一时点。这里不输出市场价格、收益率或可执行交易结果。</p>
+<p>保持一张四状态表，分别检查条件概率、可测性、条件平均和均方误差. 积分面板另使用三个明确模型，不依赖四状态权重.</p>
+<p class="note">四状态情景、信号和概率全部是假设；只借用 SPX 每点 100 美元的支付约定. 金额确定、实际现金交付与账户入账不是同一时点. 这里不输出市场价格、收益率或可执行交易结果.</p>
 <nav aria-label="实验目录"><a href="#all">全部实验</a><a href="#EXP-QTB-EVENTS-01">QT05</a><a href="#EXP-QTB-CONDITIONAL-01">QT06</a><a href="#EXP-QTB-MEASURABLE-01">QT09</a><a href="#EXP-QTB-INTEGRAL-01">QT10</a><a href="#EXP-QTB-PROJECTION-01">QT11</a><a href="#EXP-QTB-RN-01">QT11-P1</a></nav></header>
 <section class="card"><h2>共用输入：一张合约的模型支付</h2>
 <div class="table-wrap" tabindex="0" role="region" aria-label="数据表；窄屏可横向滚动"><table><thead><tr><th>状态</th><th>信号</th><th>结算值（点）</th><th>模型概率</th><th>支付（美元）</th></tr></thead><tbody><tr><td>ω1</td><td>L</td><td>5900</td><td>0.1</td><td>0</td></tr><tr><td>ω2</td><td>L</td><td>6000</td><td>0.3</td><td>0</td></tr><tr><td>ω3</td><td>H</td><td>6100</td><td>0.4</td><td>10000</td></tr><tr><td>ω4</td><td>H</td><td>6200</td><td>0.2</td><td>20000</td></tr></tbody></table></div>
-<p>行权价 6,000 点；X=100×max(结算值−6,000,0)。先收到 L/H 信号，之后才知道合约结算值。上表显示默认输入；下方编辑只改变模型概率，各面板的分组选项互相独立。</p>
+<p>行权价 6,000 点；X=100×max(结算值−6,000,0). 先收到 L/H 信号，之后才知道合约结算值. 上表显示默认输入；下方编辑只改变模型概率，各面板的分组选项互相独立.</p>
 <div class="prob-editor live-controls" hidden><div class="controls"><label>p1<input id="p0" type="number" min="0" max="1" step="0.05" aria-label="状态 1 的模型概率"></label><label>p2<input id="p1" type="number" min="0" max="1" step="0.05" aria-label="状态 2 的模型概率"></label><label>p3<input id="p2" type="number" min="0" max="1" step="0.05" aria-label="状态 3 的模型概率"></label><label>p4<input id="p3" type="number" min="0" max="1" step="0.05" aria-label="状态 4 的模型概率"></label></div><div class="buttons"><button id="prob-apply" type="button">采用这些概率</button><button id="zero-preset" type="button">查看零概率 H 组</button><button id="all-reset" type="button">全部恢复默认</button></div><p id="data-status" role="status" aria-live="polite"></p></div>
-<noscript><p>脚本未启用。以下默认核算完整保留，所有输入、单位和结论可以直接阅读。</p></noscript>
+<noscript><p>脚本未启用. 以下默认核算完整保留，所有输入、单位和结论可以直接阅读.</p></noscript>
 </section><div id="results"><section class="lab" id="EXP-QTB-EVENTS-01" data-node="QT05">
-<div class="eyebrow">QT05</div><h2>选事件，再选条件</h2><p>同一份联合分布中，选择一个事件和一个条件。先找分母，再比较交换条件前后的结果。</p>
+<div class="eyebrow">QT05</div><h2>选事件，再选条件</h2><p>同一份联合分布中，选择一个事件和一个条件. 先找分母，再比较交换条件前后的结果.</p>
 <div class="live-controls" hidden><div class="controls"><label>事件 A<select id="event-a"></select></label><label>条件事件 B<select id="event-b"></select></label></div><div id="out-events" class="output" aria-live="polite"></div></div>
 <details class="static" open><summary>默认输入的静态核算</summary><div class="table-wrap" tabindex="0" role="region" aria-label="数据表；窄屏可横向滚动"><table><caption>默认四状态模型</caption><thead><tr><th>P(T)</th><th>P(H)</th><th>P(T∩H)</th><th>P(T|H)</th><th>P(H|T)</th></tr></thead><tbody><tr><td>0.2</td><td>0.6</td><td>0.2</td><td>1/3</td><td>1</td></tr></tbody></table></div></details>
 </section><section class="lab" id="EXP-QTB-CONDITIONAL-01" data-node="QT06">
-<div class="eyebrow">QT06</div><h2>信息分组与条件平均</h2><p>在同一支付变量上改变信息分组，逐组检查 M×P(组) 是否等于 X 在该组的加权总量。</p>
+<div class="eyebrow">QT06</div><h2>信息分组与条件平均</h2><p>在同一支付变量上改变信息分组，逐组检查 M×P(组) 是否等于 X 在该组的加权总量.</p>
 <div class="live-controls" hidden><label>可用信息<select id="ce-partition"></select></label><div id="out-ce" class="output" aria-live="polite"></div></div>
-<details class="static" open><summary>默认输入的静态核算</summary><div class="table-wrap" tabindex="0" role="region" aria-label="数据表；窄屏可横向滚动"><table><caption>按组保留积分</caption><thead><tr><th>信息组</th><th>概率</th><th>支付积分（美元）</th><th>条件平均（美元）</th></tr></thead><tbody><tr><td>L</td><td>0.4</td><td>0</td><td>0</td></tr><tr><td>H</td><td>0.6</td><td>8,000</td><td>40,000/3</td></tr></tbody></table></div><p>全期望：0.4×0 + 0.6×(40,000/3) = 8,000 美元。完整状态已知时条件期望等于 X。</p></details>
+<details class="static" open><summary>默认输入的静态核算</summary><div class="table-wrap" tabindex="0" role="region" aria-label="数据表；窄屏可横向滚动"><table><caption>按组保留积分</caption><thead><tr><th>信息组</th><th>概率</th><th>支付积分（美元）</th><th>条件平均（美元）</th></tr></thead><tbody><tr><td>L</td><td>0.4</td><td>0</td><td>0</td></tr><tr><td>H</td><td>0.6</td><td>8,000</td><td>40,000/3</td></tr></tbody></table></div><p>全期望：0.4×0 + 0.6×(40,000/3) = 8,000 美元. 完整状态已知时条件期望等于 X.</p></details>
 </section><section class="lab" id="EXP-QTB-MEASURABLE-01" data-node="QT09">
-<div class="eyebrow">QT09</div><h2>信息能否辨认这个函数</h2><p>可测性先看函数在每组是否恒定，而不是先看哪个组的概率很小。</p>
+<div class="eyebrow">QT09</div><h2>信息能否辨认这个函数</h2><p>可测性先看函数在每组是否恒定，而不是先看哪个组的概率很小.</p>
 <div class="live-controls" hidden><div class="controls"><label>信息分组<select id="meas-partition"></select></label><label>四个状态上的函数值（逗号分隔）<input id="meas-vector" type="text"></label></div><div id="out-meas" class="output" aria-live="polite"></div></div>
-<details class="static" open><summary>默认输入的静态核算</summary><div class="table-wrap" tabindex="0" role="region" aria-label="数据表；窄屏可横向滚动"><table><thead><tr><th>信息</th><th>事件数</th><th>(0,1,2,2) 可测？</th></tr></thead><tbody><tr><td>平凡信息</td><td>2</td><td>否</td></tr><tr><td>L/H</td><td>4</td><td>否；L 组中取值不同</td></tr><tr><td>完整状态</td><td>16</td><td>是</td></tr></tbody></table></div><p>零概率不会改变函数是否在每个信息组内恒定的检查。</p></details>
+<details class="static" open><summary>默认输入的静态核算</summary><div class="table-wrap" tabindex="0" role="region" aria-label="数据表；窄屏可横向滚动"><table><thead><tr><th>信息</th><th>事件数</th><th>(0,1,2,2) 可测？</th></tr></thead><tbody><tr><td>平凡信息</td><td>2</td><td>否</td></tr><tr><td>L/H</td><td>4</td><td>否；L 组中取值不同</td></tr><tr><td>完整状态</td><td>16</td><td>是</td></tr></tbody></table></div><p>零概率不会改变函数是否在每个信息组内恒定的检查.</p></details>
 </section><section class="lab" id="EXP-QTB-INTEGRAL-01" data-node="QT10">
-<div class="eyebrow">QT10</div><h2>积分、封顶与极限条件</h2><p>下面三个模型各自固定：Pareto 封顶、尖峰序列、Uniform 简单函数。它们各自独立，不使用四状态概率。</p>
+<div class="eyebrow">QT10</div><h2>积分、封顶与极限条件</h2><p>下面三个模型各自固定：Pareto 封顶、尖峰序列、Uniform 简单函数. 它们各自独立，不使用四状态概率.</p>
 <div class="live-controls" hidden><div class="controls"><label>尾指数 α<input id="pareto-alpha" type="number" min="0" step="0.1"></label><label>封顶 b<input id="pareto-cap" type="number" min="1" step="1"></label></div><div id="out-pareto" class="output" aria-live="polite"></div>
 <div class="controls"><label>尖峰 n<input id="spike-n" type="number" min="1" step="1"></label><label>观察位置 x<input id="spike-x" type="number" min="0" max="1" step="0.01"></label><label>二进网格层 n<input id="dyadic-n" type="number" min="1" max="20" step="1"></label></div><div id="out-integral" class="output" aria-live="polite"></div></div>
-<details class="static" open><summary>默认输入的静态核算</summary><div class="table-wrap" tabindex="0" role="region" aria-label="数据表；窄屏可横向滚动"><table><thead><tr><th>α</th><th>b</th><th>完整均值</th><th>封顶均值</th><th>超阈值置零均值</th></tr></thead><tbody><tr><td>1.5</td><td>100</td><td>3</td><td>2.8</td><td>2.7</td></tr></tbody></table></div><div class="table-wrap" tabindex="0" role="region" aria-label="数据表；窄屏可横向滚动"><table><thead><tr><th>n</th><th>尖峰高度</th><th>支撑长度</th><th>积分</th><th>fₙ(0.02)</th></tr></thead><tbody><tr><td>2</td><td>2</td><td>1/2</td><td>1</td><td>2</td></tr><tr><td>10</td><td>10</td><td>1/10</td><td>1</td><td>10</td></tr><tr><td>100</td><td>100</td><td>1/100</td><td>1</td><td>0</td></tr></tbody></table></div><p>二进简单函数：n=4 时积分 0.46875，极限 0.5。尖峰的逐点极限为零，但各项积分恒为一。</p></details>
+<details class="static" open><summary>默认输入的静态核算</summary><div class="table-wrap" tabindex="0" role="region" aria-label="数据表；窄屏可横向滚动"><table><thead><tr><th>α</th><th>b</th><th>完整均值</th><th>封顶均值</th><th>超阈值置零均值</th></tr></thead><tbody><tr><td>1.5</td><td>100</td><td>3</td><td>2.8</td><td>2.7</td></tr></tbody></table></div><div class="table-wrap" tabindex="0" role="region" aria-label="数据表；窄屏可横向滚动"><table><thead><tr><th>n</th><th>尖峰高度</th><th>支撑长度</th><th>积分</th><th>fₙ(0.02)</th></tr></thead><tbody><tr><td>2</td><td>2</td><td>1/2</td><td>1</td><td>2</td></tr><tr><td>10</td><td>10</td><td>1/10</td><td>1</td><td>10</td></tr><tr><td>100</td><td>100</td><td>1/100</td><td>1</td><td>0</td></tr></tbody></table></div><p>二进简单函数：n=4 时积分 0.46875，极限 0.5. 尖峰的逐点极限为零，但各项积分恒为一.</p></details>
 </section><section class="lab" id="EXP-QTB-PROJECTION-01" data-node="QT11">
-<div class="eyebrow">QT11</div><h2>合法预测与正交误差分解</h2><p>平方误差以美元²计。候选不依赖未来信息，才属于当前信息允许的比较集合。</p>
+<div class="eyebrow">QT11</div><h2>合法预测与正交误差分解</h2><p>平方误差以美元²计. 候选不依赖未来信息，才属于当前信息允许的比较集合.</p>
 <div class="live-controls" hidden><div class="controls"><label>允许使用的信息<select id="proj-partition"></select></label><label>候选 Y 的四个美元值<input id="proj-vector" type="text"></label></div>
 <div class="buttons"><button id="proj-ce" type="button">用条件期望作为候选</button><button id="proj-future" type="button">试试直接用未来支付 X</button><button id="proj-default" type="button">恢复默认候选</button></div>
 <div id="out-projection" class="output" aria-live="polite"></div>
 <label>再次平均的信息<select id="outer-partition"></select></label><div id="out-tower" class="output" aria-live="polite"></div></div>
-<details class="static" open><summary>默认输入的静态核算</summary><div class="table-wrap" tabindex="0" role="region" aria-label="数据表；窄屏可横向滚动"><table><thead><tr><th>量</th><th>精确值（美元²）</th><th>近似值</th></tr></thead><tbody><tr><td>E[(X−M)²]</td><td>40,000,000/3</td><td>13,333,333.33</td></tr><tr><td>E[(M−Y)²]</td><td>20,000,000/3</td><td>6,666,666.67</td></tr><tr><td>E[(X−Y)²]</td><td>20,000,000</td><td>20,000,000</td></tr></tbody></table></div><p>Y=(0,0,10,000,10,000) 只用 L/H 信息，合法；Y=X 虽为零误差，却在 H 组有不同取值，因此不是该信息下的合法候选。</p></details>
+<details class="static" open><summary>默认输入的静态核算</summary><div class="table-wrap" tabindex="0" role="region" aria-label="数据表；窄屏可横向滚动"><table><thead><tr><th>量</th><th>精确值（美元²）</th><th>近似值</th></tr></thead><tbody><tr><td>𝔼[(X−M)²]</td><td>40,000,000/3</td><td>13,333,333.33</td></tr><tr><td>𝔼[(M−Y)²]</td><td>20,000,000/3</td><td>6,666,666.67</td></tr><tr><td>𝔼[(X−Y)²]</td><td>20,000,000</td><td>20,000,000</td></tr></tbody></table></div><p>Y=(0,0,10,000,10,000) 只用 L/H 信息，合法；Y=X 虽为零误差，却在 H 组有不同取值，因此不是该信息下的合法候选.</p></details>
 </section><section class="lab" id="EXP-QTB-RN-01" data-node="QT11-P1">
-<div class="eyebrow">QT11-P1</div><h2>两个密度与结果的正负部分</h2><p>先分别平均 W 的正负部分，再相减；观察这两个平均与结果自身的正负部分为什么不同。</p>
+<div class="eyebrow">QT11-P1</div><h2>两个密度与结果的正负部分</h2><p>先分别平均 W 的正负部分，再相减；观察这两个平均与结果自身的正负部分为什么不同.</p>
 <div class="live-controls" hidden><div class="controls"><label>信息分组<select id="rn-partition"></select></label><label>参考平移金额 c（美元），W=X−c<input id="rn-shift" type="number" step="1000"></label></div><div id="out-rn" class="output" aria-live="polite"></div></div>
-<details class="static" open><summary>默认输入的静态核算</summary><div class="table-wrap" tabindex="0" role="region" aria-label="数据表；窄屏可横向滚动"><table><caption>W=X−15,000；金额单位均为美元</caption><thead><tr><th>组</th><th>U=E[W⁺|G]</th><th>V=E[W⁻|G]</th><th>M=U−V</th><th>M⁺</th><th>M⁻</th></tr></thead><tbody><tr><td>L</td><td>0</td><td>15,000</td><td>−15,000</td><td>0</td><td>15,000</td></tr><tr><td>H</td><td>5,000/3</td><td>10,000/3</td><td>−5,000/3</td><td>0</td><td>5,000/3</td></tr></tbody></table></div><p>ν₊ 总量 1,000 美元，ν₋ 总量 8,000 美元，所以 E[W]=−7,000 美元。U、V 不是 M 的正负部分。</p></details>
+<details class="static" open><summary>默认输入的静态核算</summary><div class="table-wrap" tabindex="0" role="region" aria-label="数据表；窄屏可横向滚动"><table><caption>W=X−15,000；金额单位均为美元</caption><thead><tr><th>组</th><th>U=𝔼[W⁺|G]</th><th>V=𝔼[W⁻|G]</th><th>M=U−V</th><th>M⁺</th><th>M⁻</th></tr></thead><tbody><tr><td>L</td><td>0</td><td>15,000</td><td>−15,000</td><td>0</td><td>15,000</td></tr><tr><td>H</td><td>5,000/3</td><td>10,000/3</td><td>−5,000/3</td><td>0</td><td>5,000/3</td></tr></tbody></table></div><p>ν₊ 总量 1,000 美元，ν₋ 总量 8,000 美元，所以 𝔼[W]=−7,000 美元. U、V 不是 M 的正负部分.</p></details>
 </section></div>
-<footer class="muted"><p>原始读物：<a href="https://adembo.su.domains/stat-310b/lnotes.pdf">Dembo 2021-04-15</a>；<a href="https://ocw.mit.edu/courses/6-436j-fundamentals-of-probability-fall-2018/5ba99e3803701c145f1d06c26dcf61b8_MIT6_436JF18_lec03.pdf">MIT 条件概率</a>；<a href="https://ocw.mit.edu/courses/6-436j-fundamentals-of-probability-fall-2018/c1ab69cb198badcebee42d5880784439_MIT6_436JF18_rec3.pdf">MIT 条件期望</a>；<a href="https://cdn.cboe.com/resources/spx/spx-fact-sheet.pdf">Cboe SPX 规格</a>。数学证明、条件与迁移练习见各篇正文。</p></footer>
+<footer class="muted"><p>原始读物：<a href="https://adembo.su.domains/stat-310b/lnotes.pdf">Dembo 2021-04-15</a>；<a href="https://ocw.mit.edu/courses/6-436j-fundamentals-of-probability-fall-2018/5ba99e3803701c145f1d06c26dcf61b8_MIT6_436JF18_lec03.pdf">MIT 条件概率</a>；<a href="https://ocw.mit.edu/courses/6-436j-fundamentals-of-probability-fall-2018/c1ab69cb198badcebee42d5880784439_MIT6_436JF18_rec3.pdf">MIT 条件期望</a>；<a href="https://cdn.cboe.com/resources/spx/spx-fact-sheet.pdf">Cboe SPX 规格</a>. 数学证明、条件与迁移练习见各篇正文.</p></footer>
 </main><script type="application/json" id="qtb-inputs">{
   "schema_version": "qt-b-inputs-1",
   "content_version": "2026-09-21-QT-B-review-v3",
@@ -479,50 +479,50 @@ function update(){
  output("out-events","events",()=>{
   const a=C.events[$("event-a").value],b=C.events[$("event-b").value],r=QTB.eventStats(weights,a,b,T);
   return [r,table(["P(A)","P(B)","P(A∩B)","P(A|B)","P(B|A)"],[[n(r.p_event),n(r.p_given),n(r.p_intersection),n(r.conditional),n(r.reverse_conditional)]])+
-   '<p>'+ (r.conditional_defined?"选中的条件分母为 "+n(r.p_given)+"。":"<strong>条件事件概率为零：比值没有定义，不填成 0。</strong>")+
-   ' 乘法检验：P(A)P(B)='+n(r.product)+'；'+(r.independent?"在数值容差内独立。":"不独立。")+'</p>'];
+   '<p>'+ (r.conditional_defined?"选中的条件分母为 "+n(r.p_given)+".":"<strong>条件事件概率为零：比值没有定义，不填成 0.</strong>")+
+   ' 乘法检验：P(A)P(B)='+n(r.product)+'；'+(r.independent?"在数值容差内独立.":"不独立.")+'</p>'];
  });
  output("out-ce","conditional",()=>{
   const r=QTB.conditional(x,weights,C.partitions[$("ce-partition").value],T);
-  return [r,groupRows(r)+'<p>条件期望向量 M = <code>'+vec(r.vector)+'</code> 美元。</p><p>E[X]='+n(r.expectation)+'；E[M]='+n(r.conditional_expectation)+' 美元。必须按组概率再平均。</p>'];
+  return [r,groupRows(r)+'<p>条件期望向量 M = <code>'+vec(r.vector)+'</code> 美元.</p><p>𝔼[X]='+n(r.expectation)+'；𝔼[M]='+n(r.conditional_expectation)+' 美元. 必须按组概率再平均.</p>'];
  });
  output("out-meas","measurable",()=>{
   const g=C.partitions[$("meas-partition").value],y=getvector("meas-vector"),r=QTB.measurable(y,g),ev=QTB.sigmaEvents(g,weights.length);
-  return [{...r,events:ev},'<p class="'+(r.measurable?"good":"bad")+'">'+(r.measurable?"可测：每个分组内取值相同。":"不可测：这些组内出现不同值 "+r.violations.map(groupName).join("、"))+'</p>'+
-  '<p>事件域有 '+ev.length+' 个事件：</p><div class="chips">'+ev.map(e=>'<span class="chip">'+(e.length?groupName(e):"∅")+'</span>').join("")+'</div><p class="muted">这个检查不根据概率删除状态。零概率组也必须保留可测性。</p>'];
+  return [{...r,events:ev},'<p class="'+(r.measurable?"good":"bad")+'">'+(r.measurable?"可测：每个分组内取值相同.":"不可测：这些组内出现不同值 "+r.violations.map(groupName).join("、"))+'</p>'+
+  '<p>事件域有 '+ev.length+' 个事件：</p><div class="chips">'+ev.map(e=>'<span class="chip">'+(e.length?groupName(e):"∅")+'</span>').join("")+'</div><p class="muted">这个检查不根据概率删除状态. 零概率组也必须保留可测性.</p>'];
  });
  output("out-projection","projection",()=>{
   const g=C.partitions[$("proj-partition").value],y=getvector("proj-vector"),r=QTB.projection(x,weights,g,y,T);
-  let text='<p class="'+(r.admissible?"good":"bad")+'">'+(r.admissible?"候选只使用当前信息，可以参与最优性比较。":"候选在同组内取不同值，使用当前信息无法辨认；不属于允许集合。")+'</p>'+
-    table(["E[(X−M)²]","E[(M−Y)²]","E[(X−Y)²]"],[[sqmoney(r.mse_ce),sqmoney(r.mse_gap),sqmoney(r.mse_candidate)]])+
-   '<p>以上单位均为美元²。交叉项 E[(X−M)(M−Y)] = '+n(r.cross_term)+'。</p>'+
-   '<p>一般展开：MSE(Y)=MSE(M)+E[(M−Y)²]+2×交叉项。'+(r.admissible?"理论交叉项为零；显示出的微小残差来自浮点舍入。":"不可测候选不能自动省略交叉项。")+'</p>'+
-   '<p>条件期望 M = <code>'+vec(r.conditional.vector)+'</code> 美元。</p>';
+  let text='<p class="'+(r.admissible?"good":"bad")+'">'+(r.admissible?"候选只使用当前信息，可以参与最优性比较.":"候选在同组内取不同值，使用当前信息无法辨认；不属于允许集合.")+'</p>'+
+    table(["𝔼[(X−M)²]","𝔼[(M−Y)²]","𝔼[(X−Y)²]"],[[sqmoney(r.mse_ce),sqmoney(r.mse_gap),sqmoney(r.mse_candidate)]])+
+   '<p>以上单位均为美元². 交叉项 𝔼[(X−M)(M−Y)] = '+n(r.cross_term)+'.</p>'+
+   '<p>一般展开：MSE(Y)=MSE(M)+𝔼[(M−Y)²]+2×交叉项.'+(r.admissible?"理论交叉项为零；显示出的微小残差来自浮点舍入.":"不可测候选不能自动省略交叉项.")+'</p>'+
+   '<p>条件期望 M = <code>'+vec(r.conditional.vector)+'</code> 美元.</p>';
   if($("proj-partition").value==="signal")text+='<h3>只改变 H 组预测时的误差</h3>'+drawCurve(x,weights);
   return [r,text];
  });
  output("out-tower","tower",()=>{
   const r=QTB.tower(x,weights,C.partitions[$("proj-partition").value],C.partitions[$("outer-partition").value],T);
-  return [r,'<p class="'+(r.nested?"good":"bad")+'">'+(r.nested?"外层信息包含在内层信息中，可使用塔式性质。":"两份信息没有所需的嵌套关系：本例不能调用塔式性质。")+'</p>'+
-  table(["直接按外层信息平均","先按内层再按外层平均"],[[vec(r.direct),vec(r.iterated)]])+'<p class="muted">非嵌套时数值偶尔相等，也不是一般塔式定理成立的证明。</p>'];
+  return [r,'<p class="'+(r.nested?"good":"bad")+'">'+(r.nested?"外层信息包含在内层信息中，可使用塔式性质.":"两份信息没有所需的嵌套关系：本例不能调用塔式性质.")+'</p>'+
+  table(["直接按外层信息平均","先按内层再按外层平均"],[[vec(r.direct),vec(r.iterated)]])+'<p class="muted">非嵌套时数值偶尔相等，也不是一般塔式定理成立的证明.</p>'];
  });
  output("out-rn","rn",()=>{
   const r=QTB.rn(x,weights,C.partitions[$("rn-partition").value],getnum("rn-shift"),T);
-  return [r,'<p>W = <code>'+vec(r.w)+'</code> 美元。总 ν₊='+n(r.total_nu_plus)+'，总 ν₋='+n(r.total_nu_minus)+'（美元），不是归一化概率。</p>'+
+  return [r,'<p>W = <code>'+vec(r.w)+'</code> 美元. 总 ν₊='+n(r.total_nu_plus)+'，总 ν₋='+n(r.total_nu_minus)+'（美元），不是归一化概率.</p>'+
   table(["组","P(组)","ν₊(组)","ν₋(组)","U","V","M","M⁺","M⁻"],r.rows.map(v=>[groupName(v.indices),n(v.mass),money(v.nu_plus),money(v.nu_minus),money(v.u),money(v.v),money(v.m),money(v.m_plus),money(v.m_minus)]))+
-  '<p>E[W]='+n(r.expectation)+'，E[M]='+n(r.conditional_expectation)+' 美元。'+(r.rows.some(v=>!v.ratio_defined)?"零概率组未做除法，U、V 均使用常数 0 版本。":"")+'</p>'];
+  '<p>𝔼[W]='+n(r.expectation)+'，𝔼[M]='+n(r.conditional_expectation)+' 美元.'+(r.rows.some(v=>!v.ratio_defined)?"零概率组未做除法，U、V 均使用常数 0 版本.":"")+'</p>'];
  });
  output("out-pareto","pareto",()=>{
   const r=QTB.pareto(getnum("pareto-alpha"),getnum("pareto-cap"));
-  return [r,table(["E[Z]","E[Z²]","E[min(Z,b)]","E[Z·1{Z≤b}]"],[[
+  return [r,table(["𝔼[Z]","𝔼[Z²]","𝔼[min(Z,b)]","𝔼[Z·1{Z≤b}]"],[[
   r.mean_finite?n(r.mean):"+∞（非有限）",r.second_moment_finite?n(r.second_moment):"+∞（非有限）",n(r.capped_mean),n(r.omitted_tail_mean)]])+
-  '<p>封顶与超阈值置零之差 bP(Z&gt;b)='+n(r.boundary_contribution)+'。变量无量纲；这些值不是股票收益样本。</p>'];
+  '<p>封顶与超阈值置零之差 bP(Z&gt;b)='+n(r.boundary_contribution)+'. 变量无量纲；这些值不是股票收益样本.</p>'];
  });
  output("out-integral","integral",()=>{
   const r=QTB.spike(getnum("spike-n"),getnum("spike-x")),dy=QTB.dyadic(getnum("dyadic-n"));
   return [{spike:r,dyadic:dy},table(["尖峰高度","支撑长度","积分","观察位置的值"],[[n(r.height),n(r.width),n(r.area),n(r.value)]])+
-   '<p>每个固定 x&gt;0 处极限为零，积分仍恒为一；不能省略 DCT 的统一可积支配。</p>'+
-   '<p>独立的 Uniform 简单函数：二进步长 '+n(dy.step)+'，积分 '+n(dy.integral)+'，目标积分 '+n(dy.limit_integral)+'。</p>'];
+   '<p>每个固定 x&gt;0 处极限为零，积分仍恒为一；不能省略 DCT 的统一可积支配.</p>'+
+   '<p>独立的 Uniform 简单函数：二进步长 '+n(dy.step)+'，积分 '+n(dy.integral)+'，目标积分 '+n(dy.limit_integral)+'.</p>'];
  });
 }
 function init(){
@@ -535,16 +535,16 @@ function init(){
  select("rn-partition",groupopts,D.defaults.rn.partition);$("rn-shift").value=D.defaults.rn.shift_usd;
  $("pareto-alpha").value=D.defaults.integration.pareto_alpha;$("pareto-cap").value=D.defaults.integration.cap;
  $("spike-n").value=D.defaults.integration.spike_n;$("spike-x").value=D.defaults.integration.probe_x;$("dyadic-n").value=D.defaults.integration.dyadic_n;
- weights=C.probabilities.slice();$("results").hidden=false;$("data-status").textContent="当前使用明确设定的四状态模型概率。";update();
+ weights=C.probabilities.slice();$("results").hidden=false;$("data-status").textContent="当前使用明确设定的四状态模型概率.";update();
 }
 document.documentElement.classList.add("js");
 document.querySelectorAll(".live-controls").forEach(e=>e.hidden=false);
 document.querySelectorAll("details.static").forEach(e=>e.open=false);
 $("prob-apply").addEventListener("click",()=>{
  try{const next=C.probabilities.map((_,i)=>getnum("p"+i));QTB.probabilities(next,T);weights=next;
- $("data-status").className="good";$("data-status").textContent="已采用新权重；它们仍是模型输入，不是历史频率。";
+ $("data-status").className="good";$("data-status").textContent="已采用新权重；它们仍是模型输入，不是历史频率.";
  $("results").hidden=false;update();}
- catch(e){$("data-status").className="bad";$("data-status").textContent=e.message+"。隐藏旧结果，直到输入合法。";$("results").hidden=true;}
+ catch(e){$("data-status").className="bad";$("data-status").textContent=e.message+". 隐藏旧结果，直到输入合法.";$("results").hidden=true;}
 });
 $("all-reset").addEventListener("click",()=>{init();$("data-status").className="";});
 $("zero-preset").addEventListener("click",()=>{D.named_cases.zero_group.probabilities.forEach((p,i)=>$("p"+i).value=p);$("prob-apply").click();});

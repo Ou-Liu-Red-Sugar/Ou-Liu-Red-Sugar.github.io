@@ -12,7 +12,7 @@
         "scope": "完整模型/信息/工具/架构/实验单元",
         "purpose": "B 支对象与表格审计，不把附录 functional Itô 当已证"
       },
-      "supports": "Q 下无成本、股票及 forward variance 两工具的合成 rough 模型架构比较。保留 Eq.(3.8) 对象不一致与 Tables2/3 H=.4 未解释差异；不声称训练复现或一般架构最优。",
+      "supports": "Q 下无成本、股票及 forward variance 两工具的合成 rough 模型架构比较. 保留 Eq.(3.8) 对象不一致与 Tables2/3 H=.4 未解释差异；不声称训练复现或一般架构最优.",
       "branch": "B",
       "title": "Deep Hedging under Rough Volatility",
       "authors": [
@@ -27,8 +27,8 @@
   "optional_readings": [],
   "runtime_reading_log": [],
   "supplied_inputs": {
-    "competence": "状态、条件信息与离散对冲损失；不强制 QT20–22 或完整随机分析。",
-    "static_equivalent": "本包所选分支正文、静态表与完整题解；输入和结果保留在 branches。",
+    "competence": "状态、条件信息与离散对冲损失；不强制 QT20–22 或完整随机分析.",
+    "static_equivalent": "本包所选分支正文、静态表与完整题解；输入和结果保留在 branches.",
     "attachments": [],
     "branches": {
       "B": {
@@ -59,7 +59,7 @@
     },
     "authors_results_not_replication": true
   },
-  "selection": "共同部分与已选择的 B 分支；先读此范围的指定原文。",
-  "required_competence": "状态、条件信息与离散对冲损失；不强制 QT20–22 或完整随机分析。",
+  "selection": "共同部分与已选择的 B 分支；先读此范围的指定原文.",
+  "required_competence": "状态、条件信息与离散对冲损失；不强制 QT20–22 或完整随机分析.",
   "selected_branch": "B"
 }

@@ -452,7 +452,7 @@
         "investment_net": 219.252225,
         "minimum_pre_financing_cash": 16.29222090682039
       },
-      "detail_export": "本包导出替代经营年度表与资金终点/低谷摘要；不从主路径补出未导出的替代季度。"
+      "detail_export": "本包导出替代经营年度表与资金终点/低谷摘要；不从主路径补出未导出的替代季度."
     },
     "retail_weak_fixed_base_pricing": {
       "title": "非AWS较弱、AWS Base",
@@ -480,7 +480,7 @@
         "investment_net": 219.252225,
         "minimum_pre_financing_cash": 13.887237257714155
       },
-      "detail_export": "本包导出替代经营年度表与资金终点/低谷摘要；不从主路径补出未导出的替代季度。"
+      "detail_export": "本包导出替代经营年度表与资金终点/低谷摘要；不从主路径补出未导出的替代季度."
     },
     "mixed_aws_strong_retail_weak": {
       "title": "AWS强、非AWS弱",
@@ -508,7 +508,7 @@
         "investment_net": 219.252225,
         "minimum_pre_financing_cash": 7.684874822033322
       },
-      "detail_export": "本包导出替代经营年度表与资金终点/低谷摘要；不从主路径补出未导出的替代季度。"
+      "detail_export": "本包导出替代经营年度表与资金终点/低谷摘要；不从主路径补出未导出的替代季度."
     },
     "mixed_aws_weak_retail_strong": {
       "title": "AWS弱、非AWS强",
@@ -536,7 +536,7 @@
         "investment_net": 219.252225,
         "minimum_pre_financing_cash": 16.412377067643583
       },
-      "detail_export": "本包导出替代经营年度表与资金终点/低谷摘要；不从主路径补出未导出的替代季度。"
+      "detail_export": "本包导出替代经营年度表与资金终点/低谷摘要；不从主路径补出未导出的替代季度."
     },
     "ai_delay_core_attach_linked_capital_unchanged": {
       "title": "AI延后并连带Core；原资本计划保留",
@@ -561,7 +561,7 @@
         "later_growth_from": "Base",
         "capital_additions": "Base；资本计划不变不代表现金或债务不变"
       },
-      "detail_export": "冻结敏感性仅保存本项汇总；本包不生成未导出的逐季度路径或改倍数版本。"
+      "detail_export": "冻结敏感性仅保存本项汇总；本包不生成未导出的逐季度路径或改倍数版本."
     }
   },
   "calibration": {
@@ -3215,7 +3215,7 @@
       "W": "兑现、单位经济或资本转化受挫，仍有经营与修复能力",
       "X": "客户融资/使用、既有能力或普通股权利严重受损"
     },
-    "boundary_rule": "先依业务条件定S/N/W/X，再按矩阵。Tail格优先、其次Bull与Bear、余格Base；不是按终价分档。原研究未给硬数字阈值；边界不清先记录未定类，不事后按股价改类。"
+    "boundary_rule": "先依业务条件定S/N/W/X，再按矩阵. Tail格优先、其次Bull与Bear、余格Base；不是按终价分档. 原研究未给硬数字阈值；边界不清先记录未定类，不事后按股价改类."
   },
   "probability_evidence": [
     {
@@ -3269,8 +3269,8 @@
     "pricing_range": "同一经营/资金路径的定价参数范围；不是置信区间或条件支持",
     "probability": "主观粗判断，不是统计后验；按钮操作不新增研究证据",
     "quarters": "每季已继承此前融资；融资前余额不是全期无融资轨迹，也不保证季内资金充足",
-    "quote_vs_cutoff": "9月18日参考进入价格，9月20日研究信息截止；无实际成交或仅用9月18日信息的样本外回测声明。",
-    "share_count_proxy": "11.0274十亿股是冻结模型规划代理：10.783普通股 + 0.2444 outstanding RSU；公司另披露普通股加全部 outstanding stock awards 对应股份约11.0十亿股。该代理不是官方完全稀释股数，也不是EPS加权平均股数。"
+    "quote_vs_cutoff": "9月18日参考进入价格，9月20日研究信息截止；无实际成交或仅用9月18日信息的样本外回测声明.",
+    "share_count_proxy": "11.0274 B 股是冻结模型规划代理：10.783普通股 + 0.2444 outstanding RSU；公司另披露普通股加全部 outstanding stock awards 对应股份约11.0 B 股. 该代理不是官方完全稀释股数，也不是EPS加权平均股数."
   },
   "source_map": {
     "annual_operations": "operating-results.json::{state}.aws/retail",
@@ -3320,7 +3320,7 @@
         131.461
       ],
       "full_cash_reconstruction": false,
-      "limitations": "vendor EV为原研究观察并非当日完整不可变快照；非上市账面非税后现金；优先权清算额非市值；不能把集团参照当纯GCP。"
+      "limitations": "vendor EV为原研究观察并非当日完整不可变快照；非上市账面非税后现金；优先权清算额非市值；不能把集团参照当纯GCP."
     },
     "WMT": {
       "title": "Walmart全集团",
@@ -3377,7 +3377,7 @@
           "value": -11.529
         }
       ],
-      "limitations": "NCI用账面代理；未完全复原vendor debt定义；ROI调整后分子50.285不是经营利润32.280。"
+      "limitations": "NCI用账面代理；未完全复原vendor debt定义；ROI调整后分子50.285不是经营利润32.280."
     },
     "MSFT": {
       "title": "Microsoft全集团盈利对照",

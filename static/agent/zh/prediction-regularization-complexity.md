@@ -1,13 +1,17 @@
 # 预测目标、正则化与模型复杂度
 
-从损失函数推导 ridge，重建相同信息下的完整基线比较，分清两类单位变换。
+从损失函数推导 ridge，重建相同信息下的完整基线比较，分清两类单位变换.
 
 Entry: zh-qt20 | Node: QT20 | Language: zh | Editorial revision: 2026-09-21
 
 ## Teaching instructions
-请以具有微积分、线性代数与基本概率背景的高年级本科至研究生为对象，围绕“预测目标、正则化与模型复杂度”完成一次学习。先实际取得并读完 required_readings 的完整指定单元，记录实际版本/定位/假设/支持范围；目录、摘要或入口不抵扣阅读。可先读取本篇所有必读以备课，但不要把它们全变成读者额外作业。来源打不开时先尝试同版作者可读入口；仍缺承重单元应说明具体缺口，不伪称已读，也不要求无关新批准。先让读者重建2010-01的一列ridge预测，再推导未标准化x×10与仅y×100的区别。反馈必须核矩阵维度、nλ、截距、满秩边界以及总冠军/回归冠军。 先让读者尝试，再根据本文完整解析反馈；引用范围内解释，不把模拟当市场事实、不把最优目标当收益保证。只在读者选择分支时启用 optional_readings。完成后用一项新输入迁移检验，明确其能独立完成什么。
+请以具有微积分、线性代数与基本概率背景的高年级本科至研究生为对象，围绕“预测目标、正则化与模型复杂度”完成一次学习. 先实际取得并读完 required_readings 的完整指定单元，记录实际版本/定位/假设/支持范围；目录、摘要或入口不抵扣阅读. 可先读取本篇所有必读以备课，但不要把它们全变成读者额外作业. 来源打不开时先尝试同版作者可读入口；仍缺承重单元应说明具体缺口，不伪称已读，也不要求无关新批准. 先让读者重建2010-01的一列ridge预测，再推导未标准化x×10与仅y×100的区别. 反馈必须核矩阵维度、nλ、截距、满秩边界以及总冠军/回归冠军. 先让读者尝试，再根据本文完整解析反馈；引用范围内解释，不把模拟当市场事实、不把最优目标当收益保证. 只在读者选择分支时启用 optional_readings. 完成后用一项新输入迁移检验，明确其能独立完成什么.
 
 Before substantive teaching, actually retrieve every required reading unit for the selected scope. Read its complete designated section, including necessary assumptions, tables and footnotes. A working URL or an editorial access date is not a runtime reading receipt. Record the actual version, location, scope and what it supports. If unavailable, use a previously verified equivalent source; if the required unit remains unavailable, identify that gap rather than teach it from memory. Start runtime_reading_log empty. Once reading is complete, use a substantive diagnostic or follow the reader's request for direct explanation. Advance one complete reasoning task at a time; skip mastered basics. Distinguish original facts, supplied teaching assumptions and inference.
+
+## Shared notation and writing conventions
+数学期望统一写成 \mathbb{E}，条件期望用 \mathbb{E}[X\mid\mathcal{G}]，需要时注明测度 P 或 Q. 保留局部变量的明确定义. 金额与数量使用 K=10^3、M=10^6、B=10^9；表格标明币种、量级与期间，变更量级时同步换算数值. 展示小数最多三位，计算保留原始精度. 直接解释对象、机制与推理；保留影响结论的假设和事实来源，把编辑流程留在记录中. 句末使用英文句点 .，包括定义、命题、证明和解析等标签. 基础定义与推导直接讲内容，出处放在紧邻脚注；来源读取、复审和采用范围等编辑经过留在记录中.
+[Notation and units](https://ou-liu-red-sugar.github.io/agent/zh/notation.md)
 
 ## Required readings and runtime protocol
 ```json
@@ -166,7 +170,7 @@ Before substantive teaching, actually retrieve every required reading unit for t
         "internal_unit": "monthly decimal return",
         "display_errors": "百分点/月",
         "annualized": false,
-        "identity": "单一当前重建快照；不是FIZ/CIZ时间拼接，不是逐月当时可见版本。"
+        "identity": "单一当前重建快照；不是FIZ/CIZ时间拼接，不是逐月当时可见版本."
       },
       "forecast": {
         "experiment_id": "EXP-QT-D-FORECAST-01",
@@ -244,7 +248,7 @@ Before substantive teaching, actually retrieve every required reading unit for t
         "alpha": 0.05,
         "hypothesis": "事前单侧H0:mu=0 versus H1:mu>0; sigma known",
         "pvalue": "0.5*erfc(Z/sqrt(2))",
-        "draw_order": "先取(5000,500)开发Z矩阵，再取独立保留Z矩阵；M为共同500列前缀。mixed另重置2202。",
+        "draw_order": "先取(5000,500)开发Z矩阵，再取独立保留Z矩阵；M为共同500列前缀. mixed另重置2202.",
         "bh_adopted_comparison": "strict <",
         "source_pilot_comparison": "<=",
         "empty_BH": "k=0, no rejections, FDP=0",
@@ -379,7 +383,7 @@ Before substantive teaching, actually retrieve every required reading unit for t
         }
       }
     },
-    "static_equivalent_html": "<p>对象：BusEq 1990—2025，432月；前12月预热；228/120/72个训练、验证、历史评价目标。每个原点单独拟合训练均值与ddof=0尺度，截距不惩罚。</p><div class=\"formula\">RSS/n + λ‖β‖²；(ZcᵀZc+nλI)β=Zcᵀyc；R²OS=1−SSEmodel/SSEexpanding_mean。</div><div class=\"table-wrap\" tabindex=\"0\"><table><thead><tr><th>全部候选</th><th>验证RMSE pp/月</th><th>验证MAE pp/月</th><th>R²OS</th></tr></thead><tbody><tr><td>p1-l0</td><td>5.04591564</td><td>4.15173855</td><td>-0.00653461</td></tr><tr><td>p1-l0.1</td><td>5.04434493</td><td>4.15050355</td><td>-0.00590808</td></tr><tr><td>p1-l1</td><td>5.03747253</td><td>4.14494608</td><td>-0.00316905</td></tr><tr><td>p1-l10</td><td>5.03092147</td><td>4.13938860</td><td>-0.00056157</td></tr><tr><td>p3-l0</td><td>5.06121532</td><td>4.10642026</td><td>-0.01264768</td></tr><tr><td>p3-l0.1</td><td>5.05707327</td><td>4.10796478</td><td>-0.01099088</td></tr><tr><td>p3-l1</td><td>5.04151891</td><td>4.11931979</td><td>-0.00478130</td></tr><tr><td>p3-l10</td><td>5.03110972</td><td>4.13445130</td><td>-0.00063645</td></tr><tr><td>p12-l0</td><td>5.13541496</td><td>4.16633893</td><td>-0.04255704</td></tr><tr><td>p12-l0.1</td><td>5.12076573</td><td>4.16109078</td><td>-0.03661755</td></tr><tr><td>p12-l1</td><td>5.06883037</td><td>4.14662389</td><td>-0.01569721</td></tr><tr><td>p12-l10</td><td>5.03493938</td><td>4.13836039</td><td>-0.00216039</td></tr><tr><td>zero</td><td>5.21387572</td><td>4.31950000</td><td>-0.07465755</td></tr><tr><td>expanding_mean</td><td>5.02950945</td><td>4.13815361</td><td>0.00000000</td></tr></tbody></table></div><div class=\"table-wrap\" tabindex=\"0\"><table><thead><tr><th>历史评价2020—2025</th><th>RMSE pp/月</th></tr></thead><tbody><tr><td>selected_ridge</td><td>6.82421636</td></tr><tr><td>expanding_mean</td><td>6.82382346</td></tr><tr><td>zero</td><td>7.12353747</td></tr></tbody></table></div><p>总冠军是扩展均值，p1-λ10只是回归组冠军。第一个验证原点：ȳ=0.011622807018，z0=0.655343745416，β=0.000242269126，预测1.1781576574%。此历史已被研究者查看，不是首次揭开的独立保留期。</p><p>单位迁移：原始x×10、λ仍1时预测从1/2变成100/101；λ改100恢复1/2。仅y×100时预测×100，换回不变。</p>",
+    "static_equivalent_html": "<p>对象：BusEq 1990—2025，432月；前12月预热；228/120/72个训练、验证、历史评价目标. 每个原点单独拟合训练均值与ddof=0尺度，截距不惩罚.</p><div class=\"formula\">RSS/n + λ‖β‖²；(ZcᵀZc+nλI)β=Zcᵀyc；R²OS=1−SSEmodel/SSEexpanding_mean.</div><div class=\"table-wrap\" tabindex=\"0\"><table><thead><tr><th>全部候选</th><th>验证RMSE pp/月</th><th>验证MAE pp/月</th><th>R²OS</th></tr></thead><tbody><tr><td>p1-l0</td><td>5.04591564</td><td>4.15173855</td><td>-0.00653461</td></tr><tr><td>p1-l0.1</td><td>5.04434493</td><td>4.15050355</td><td>-0.00590808</td></tr><tr><td>p1-l1</td><td>5.03747253</td><td>4.14494608</td><td>-0.00316905</td></tr><tr><td>p1-l10</td><td>5.03092147</td><td>4.13938860</td><td>-0.00056157</td></tr><tr><td>p3-l0</td><td>5.06121532</td><td>4.10642026</td><td>-0.01264768</td></tr><tr><td>p3-l0.1</td><td>5.05707327</td><td>4.10796478</td><td>-0.01099088</td></tr><tr><td>p3-l1</td><td>5.04151891</td><td>4.11931979</td><td>-0.00478130</td></tr><tr><td>p3-l10</td><td>5.03110972</td><td>4.13445130</td><td>-0.00063645</td></tr><tr><td>p12-l0</td><td>5.13541496</td><td>4.16633893</td><td>-0.04255704</td></tr><tr><td>p12-l0.1</td><td>5.12076573</td><td>4.16109078</td><td>-0.03661755</td></tr><tr><td>p12-l1</td><td>5.06883037</td><td>4.14662389</td><td>-0.01569721</td></tr><tr><td>p12-l10</td><td>5.03493938</td><td>4.13836039</td><td>-0.00216039</td></tr><tr><td>zero</td><td>5.21387572</td><td>4.31950000</td><td>-0.07465755</td></tr><tr><td>expanding_mean</td><td>5.02950945</td><td>4.13815361</td><td>0.00000000</td></tr></tbody></table></div><div class=\"table-wrap\" tabindex=\"0\"><table><thead><tr><th>历史评价2020—2025</th><th>RMSE pp/月</th></tr></thead><tbody><tr><td>selected_ridge</td><td>6.82421636</td></tr><tr><td>expanding_mean</td><td>6.82382346</td></tr><tr><td>zero</td><td>7.12353747</td></tr></tbody></table></div><p>总冠军是扩展均值，p1-λ10只是回归组冠军. 第一个验证原点：ȳ=0.011622807018，z0=0.655343745416，β=0.000242269126，预测1.1781576574%. 此历史已被研究者查看，不是首次揭开的独立保留期.</p><p>单位迁移：原始x×10、λ仍1时预测从1/2变成100/101；λ改100恢复1/2. 仅y×100时预测×100，换回不变.</p>",
     "files": {
       "frozen_csv": "https://ou-liu-red-sugar.github.io/notebook/labs/qt-de/data/BusEq-value-weighted-monthly-199001-202512.csv",
       "complete_outputs": "https://ou-liu-red-sugar.github.io/notebook/labs/qt-de/data/results.json",
@@ -389,7 +393,7 @@ Before substantive teaching, actually retrieve every required reading unit for t
       "shared_inputs": "https://ou-liu-red-sugar.github.io/notebook/labs/qt-de/shared_inputs.json",
       "sources": "https://ou-liu-red-sugar.github.io/notebook/labs/qt-de/sources.json"
     },
-    "algorithm_identity": "forecast/selection使用真实计算的冻结网格及PCG64结果；成本和人工边界可重算。完整reader在body_markdown中仅一份。",
+    "algorithm_identity": "forecast/selection使用真实计算的冻结网格及PCG64结果；成本和人工边界可重算. 完整reader在body_markdown中仅一份.",
     "frozen_records": [
       {
         "month": "199001",
@@ -4159,26 +4163,26 @@ Before substantive teaching, actually retrieve every required reading unit for t
         0.0026649603813122744
       ]
     },
-    "reading_base": "公开同源包；按完整 URL 取得冻结输入与复算文件。来源网站后续更新不覆盖本份 202607 快照。"
+    "reading_base": "公开同源包；按完整 URL 取得冻结输入与复算文件. 来源网站后续更新不覆盖本份 202607 快照."
   },
   "entry_id": "zh-qt20",
   "content_version": "2026-09-21-QT-DE-review-v2",
   "audience": "高年级本科至研究生；默认微积分、线性代数与基本概率",
-  "learning_task": "从损失函数推导 ridge，重建相同信息下的完整基线比较，分清两类单位变换。"
+  "learning_task": "从损失函数推导 ridge，重建相同信息下的完整基线比较，分清两类单位变换."
 }
 ```
 
 ## Supplied entry
-我们已经能给历史收益算出均值和误差，但“把过去描述得更细”不等于“把下个月预测得更准”。本篇做一件具体的事：从一个明确的预测目标出发，推导 ridge 回归，按相同的信息和评价规则比较它与简单基线。最后，你应能解释收缩改变了什么，也能接受一次实验的最好选择仍然是历史均值。
+我们已经能给历史收益算出均值和误差，但“把过去描述得更细”不等于“把下个月预测得更准”. 本篇做一件具体的事：从一个明确的预测目标出发，推导 ridge 回归，按相同的信息和评价规则比较它与简单基线. 最后，你应能解释收缩改变了什么，也能接受一次实验的最好选择仍然是历史均值.
 
 <a id="qt20-object"></a>
 ## 1. 先固定数据、目标和比较对象
 
-我们使用 French 30 Industry Portfolios 的 BusEq、按市值加权的月收益。样本为 1990-01 至 2025-12，共 432 个连续月，原文件缺失标记在此窗口没有出现。内部把百分数除以 100，例如 6.63% 记作 0.0663。这里每个月的观测权重相同；“市值加权”指来源行业组合内部的股票权重，不是对 432 个月再按市值加权。[^french]
+我们使用 French 30 Industry Portfolios 的 BusEq、按市值加权的月收益. 样本为 1990-01 至 2025-12，共 432 个连续月，原文件缺失标记在此窗口没有出现. 内部把百分数除以 100，例如 6.63% 记作 0.0663. 这里每个月的观测权重相同；“市值加权”指来源行业组合内部的股票权重，不是对 432 个月再按市值加权. [^french]
 
-数据来自 202607 CRSP 数据库 vintage 的当前 CIZ 重建快照。这是一份用同一生产链重建的历史，不是把 2024 年以前的 FIZ 与以后 CIZ 拼起来，也不保证这些版本在历史预测原点已经可得。下面明确采用“月末已知当月收益”的教学信息假设，研究的是预测运算，不把它称为已重建真实数据接收时点的交易回测。[^french-version]
+数据来自 202607 CRSP 数据库 vintage 的当前 CIZ 重建快照. 这是一份用同一生产链重建的历史，不是把 2024 年以前的 FIZ 与以后 CIZ 拼起来，也不保证这些版本在历史预测原点已经可得. 下面明确采用“月末已知当月收益”的教学信息假设，研究的是预测运算，不把它称为已重建真实数据接收时点的交易回测. [^french-version]
 
-令 $r_t$ 为月份 $t$ 的简单收益。我们在 $t-1$ 月末预测 $y_t=r_t$，特征是 $x_t=(r_{t-1},\ldots,r_{t-p})^T$。这与用当月市场收益解释当月行业暴露不同：后者可以研究同期关系，却不能直接当作下一期预测。回归系数也不是因果效应。
+令 $r_t$ 为月份 $t$ 的简单收益. 我们在 $t-1$ 月末预测 $y_t=r_t$，特征是 $x_t=(r_{t-1},\ldots,r_{t-p})^T$. 这与用当月市场收益解释当月行业暴露不同：后者可以研究同期关系，却不能直接当作下一期预测. 回归系数也不是因果效应.
 
 | 阶段 | 目标月份 | 数量 | 用途 |
 |---|---|---:|---|
@@ -4187,27 +4191,27 @@ Before substantive teaching, actually retrieve every required reading unit for t
 | 参数选择 | 2010-01—2019-12 | 120 | 每月扩展训练、预测，再累计验证误差 |
 | 历史评价 | 2020-01—2025-12 | 72 | 固定选择规则后评价；系数仍按相同扩展规则更新 |
 
-候选为 $p\in\{1,3,12\}$、$\lambda\in\{0,0.1,1,10\}$ 的 12 个回归，另外保留零预测和扩展历史均值两条基线。每个模型从同一目标行开始、预测同一批月份。完整候选账本与逐月结果随实验提供。[^compute]
+候选为 $p\in\{1,3,12\}$、$\lambda\in\{0,0.1,1,10\}$ 的 12 个回归，另外保留零预测和扩展历史均值两条基线. 每个模型从同一目标行开始、预测同一批月份. 完整候选账本与逐月结果随实验提供. [^compute]
 
 <a id="qt20-loss"></a>
 ## 2. 损失函数先决定我们想预测什么
 
-令 $Y\in L^2$，$\mathcal G$ 是预测时已知的信息，$m=E[Y\mid\mathcal G]$。对任意 $\mathcal G$ 可测的平方可积预测量 $g$，条件期望的正交性质给出
+令 $Y\in L^2$，$\mathcal G$ 是预测时已知的信息，$m=\mathbb{E}[Y\mid\mathcal G]$. 对任意 $\mathcal G$ 可测的平方可积预测量 $g$，条件期望的正交性质给出
 
 $$
-E[(Y-g)^2]=E[(Y-m)^2]+E[(m-g)^2].
+\mathbb{E}[(Y-g)^2]=\mathbb{E}[(Y-m)^2]+\mathbb{E}[(m-g)^2].
 $$
 
-推导并不神秘：把 $Y-g=(Y-m)+(m-g)$ 平方展开，交叉项 $E[(Y-m)(m-g)]$ 为零。因此，平方损失对应的总体目标是条件均值；这一步使用了二阶可积性，也限定了允许使用的信息。[条件期望与投影](https://ou-liu-red-sugar.github.io/zh/notebook/conditional-expectation-projection/) 已完整建立这条正交关系。
+推导并不神秘：把 $Y-g=(Y-m)+(m-g)$ 平方展开，交叉项 $\mathbb{E}[(Y-m)(m-g)]$ 为零. 因此，平方损失对应的总体目标是条件均值；这一步使用了二阶可积性，也限定了允许使用的信息. [条件期望与投影](https://ou-liu-red-sugar.github.io/zh/notebook/conditional-expectation-projection/) 已完整建立这条正交关系.
 
-这并不说线性回归就等于真正的 $m$。我们只是用某一函数族逼近它，再用有限样本估计参数。函数族的限制和估计误差都还存在。换成绝对损失，最优目标一般是条件中位数；因此选 RMSE 或 MAE，不只是换一种报表格式。[^accuracy]
+这并不说线性回归就等于真正的 $m$. 我们只是用某一函数族逼近它，再用有限样本估计参数. 函数族的限制和估计误差都还存在. 换成绝对损失，最优目标一般是条件中位数；因此选 RMSE 或 MAE，不只是换一种报表格式. [^accuracy]
 
-本实验事先采用验证平方误差和 $SSE=\sum_t(r_t-\widehat r_t)^2$ 选模型，同时报告 $RMSE=\sqrt{SSE/n}$ 和 $MAE=n^{-1}\sum_t|r_t-\widehat r_t|$。它们都按月收益的百分点展示。这里没有把收益再除以真实收益去算 MAPE；真实收益接近零时，那样的分母会造成另一种不稳定。
+本实验事先采用验证平方误差和 $SSE=\sum_t(r_t-\widehat r_t)^2$ 选模型，同时报告 $RMSE=\sqrt{SSE/n}$ 和 $MAE=n^{-1}\sum_t|r_t-\widehat r_t|$. 它们都按月收益的百分点展示. 这里没有把收益再除以真实收益去算 MAPE；真实收益接近零时，那样的分母会造成另一种不稳定.
 
 <a id="qt20-ridge"></a>
 ## 3. 从标准化到 ridge：每个矩阵都要有对象
 
-固定一个预测原点，训练目标有 $n$ 行、特征有 $p$ 列。只在这 $n$ 行上求第 $j$ 列的均值 $\bar x_j$ 与标准差 $s_j=\sqrt{n^{-1}\sum_i(x_{ij}-\bar x_j)^2}$，然后令 $Z_{ij}=(x_{ij}-\bar x_j)/s_j$。本实验各列都非恒定；若 $s_j=0$，须另定删除或保留规则，不能直接除零。未来输入也使用这同一组训练参数。
+固定一个预测原点，训练目标有 $n$ 行、特征有 $p$ 列. 只在这 $n$ 行上求第 $j$ 列的均值 $\bar x_j$ 与标准差 $s_j=\sqrt{n^{-1}\sum_i(x_{ij}-\bar x_j)^2}$，然后令 $Z_{ij}=(x_{ij}-\bar x_j)/s_j$. 本实验各列都非恒定；若 $s_j=0$，须另定删除或保留规则，不能直接除零. 未来输入也使用这同一组训练参数.
 
 Ridge 回归在本篇是以下优化问题：
 
@@ -4217,9 +4221,9 @@ $$
 \qquad \lambda\ge0.
 $$
 
-$Z$ 为 $n\times p$，$y$ 为 $n\times1$；截距 $a$ 不受惩罚。惩罚只限制斜率，避免把整体平均收益也机械压向零。ISLP 使用的 RSS 版本与这里相差一个 $n$：把我们的目标整体乘 $n$，惩罚就成为 $n\lambda\|\beta\|^2$，不能不换尺度便移植另一实现的参数值。[^ridge]
+$Z$ 为 $n\times p$，$y$ 为 $n\times1$；截距 $a$ 不受惩罚. 惩罚只限制斜率，避免把整体平均收益也机械压向零. ISLP 使用的 RSS 版本与这里相差一个 $n$：把我们的目标整体乘 $n$，惩罚就成为 $n\lambda\|\beta\|^2$，不能不换尺度便移植另一实现的参数值. [^ridge]
 
-对 $a$ 求导得 $a=\bar y-\bar z^T\beta$。设 $Z_c=Z-\mathbf1\bar z^T$、$y_c=y-\bar y\mathbf1$，再对 $\beta$ 求导：
+对 $a$ 求导得 $a=\bar y-\bar z^T\beta$. 设 $Z_c=Z-\mathbf1\bar z^T$、$y_c=y-\bar y\mathbf1$，再对 $\beta$ 求导：
 
 $$
 -\frac2nZ_c^T(y_c-Z_c\beta)+2\lambda\beta=0,
@@ -4231,14 +4235,14 @@ $$
 (Z_c^TZ_c+n\lambda I_p)\widehat\beta=Z_c^Ty_c.
 $$
 
-当 $\lambda>0$，任意非零 $v$ 都满足 $v^T(Z_c^TZ_c+n\lambda I)v=\|Z_cv\|^2+n\lambda\|v\|^2>0$，故解唯一。实际计算解线性方程，不显式求逆。$\lambda=0$ 是 OLS；若设计矩阵秩不足，系数可以不唯一，不能顺便宣称每个样本外输入的预测都唯一。
+当 $\lambda>0$，任意非零 $v$ 都满足 $v^T(Z_c^TZ_c+n\lambda I)v=\|Z_cv\|^2+n\lambda\|v\|^2>0$，故解唯一. 实际计算解线性方程，不显式求逆. $\lambda=0$ 是 OLS；若设计矩阵秩不足，系数可以不唯一，不能顺便宣称每个样本外输入的预测都唯一.
 
-收缩是在训练拟合与系数规模间作取舍。它可能减少对样本扰动的敏感度，也会引入偏差；是否改善新数据预测，仍要评价。随 $\lambda$ 增大，系数向量的整体范数不增，不意味着每一项系数都逐项单调下降。[^ridge]
+收缩是在训练拟合与系数规模间作取舍. 它可能减少对样本扰动的敏感度，也会引入偏差；是否改善新数据预测，仍要评价. 随 $\lambda$ 增大，系数向量的整体范数不增，不意味着每一项系数都逐项单调下降. [^ridge]
 
 <a id="qt20-run"></a>
 ## 4. 走通一次预测，再看完整比较
 
-先取回归组内最终胜者 $p=1,\lambda=10$，但只重建它在第一个验证原点的拟合。预测目标为 2010-01；训练目标截止 2009-12，共 228 行。
+先取回归组内最终胜者 $p=1,\lambda=10$，但只重建它在第一个验证原点的拟合. 预测目标为 2010-01；训练目标截止 2009-12，共 228 行.
 
 | 中间量 | 内部数值 |
 |---|---:|
@@ -4251,9 +4255,9 @@ $$
 | $Z_c^TZ_c/n$ | 1 |
 | 斜率 $\widehat\beta$ | 0.000242269126 |
 
-由于只有一列标准化特征，斜率就是 $0.002664960381/(1+10)$。预测为 $\bar y+z_0\widehat\beta\approx0.011781576574$，即 1.17816%。真实 2010-01 收益随后为 −8.05%，所以这次误差约 −9.22816 个百分点；一次大误差既不证明方法无用，也不能被后续重新挑月份删掉。[^compute]
+由于只有一列标准化特征，斜率就是 $0.002664960381/(1+10)$. 预测为 $\bar y+z_0\widehat\beta\approx0.011781576574$，即 1.17816%. 真实 2010-01 收益随后为 −8.05%，所以这次误差约 −9.22816 个百分点. 这个原点应按预先固定的验证流程保留；模型评价依赖全部验证原点，不能因结果不佳事后删月.[^compute]
 
-接下来对每个验证原点重复同一流程。训练窗口可以扩展，但每个候选的 $p,\lambda$ 保持固定，验证段只在结束后比较累计成绩。
+接下来对每个验证原点重复同一流程. 训练窗口可以扩展，但每个候选的 $p,\lambda$ 保持固定，验证段只在结束后比较累计成绩.
 
 | 候选 | 验证 RMSE（百分点/月） | MAE（百分点/月） | $R^2_{OS}$ |
 |---|---:|---:|---:|
@@ -4272,7 +4276,7 @@ $$
 | 零预测 | 5.21387572 | 4.31950000 | -0.07465755 |
 | 扩展历史均值 | 5.02950945 | 4.13815361 | 0.00000000 |
 
-表中 $R^2_{OS}=1-SSE_{model}/SSE_{expanding\ mean}$，分母来自同一批原点上可用历史均值的预测误差，不是全部收益减去一个事后样本均值的方差。负值表示不如这条基线。12 个回归候选内的冠军是 $p=1,\lambda=10$；把两条基线也纳入原定比较，总冠军却是扩展历史均值。
+表中 $R^2_{OS}=1-SSE_{model}/SSE_{expanding\ mean}$，分母来自同一批原点上可用历史均值的预测误差，不是全部收益减去一个事后样本均值的方差. 负值表示不如这条基线. 12 个回归候选内的冠军是 $p=1,\lambda=10$；把两条基线也纳入原定比较，总冠军却是扩展历史均值.
 
 | 2020—2025 历史评价 | RMSE（百分点/月） | 相对均值基线 $R^2_{OS}$ |
 |---|---:|---:|
@@ -4280,51 +4284,51 @@ $$
 | $p=1,\lambda=10$：回归组冠军 | 6.82421636 | −0.0001151587 |
 | 零预测 | 7.12353747 | −0.0897725418 |
 
-这段历史已在研究过程中被查看，不能称为研究者从未见过的保留样本；它仍然能检查一个明示算法的历史运算。微小的 RMSE 差异也没有在这里被证明具有统计显著性。[^compute]
+这段历史已在研究过程中被查看，不能称为研究者从未见过的保留样本；它仍然能检查一个明示算法的历史运算. 微小的 RMSE 差异也没有在这里被证明具有统计显著性. [^compute]
 
 <div data-experiment-slot="EXP-QT-D-FORECAST-01"></div>
 
-先选一个 $p,\lambda$，说出你期待训练误差、系数范数和验证误差怎样变化，再看完整结果。界面提供实际计算的离散网格；它不会把两个网格点之间插值后称作新拟合。
+先选一个 $p,\lambda$，说出你期待训练误差、系数范数和验证误差怎样变化，再看完整结果. 界面提供实际计算的离散网格；它不会把两个网格点之间插值后称作新拟合.
 
 <a id="qt20-units"></a>
 ## 5. 改单位，到底改变了什么？
 
-这一点值得单独推导。取 $c>0$，设未经标准化的一列特征从 $x$ 改成 $x'=c x$，响应不变。为了保持同一预测函数，对应系数必须是 $\beta'=\beta/c$。若还施加相同的 $\lambda(\beta')^2$，它在原系数坐标下变成 $\lambda\beta^2/c^2$：预测函数虽然能对应，惩罚强度却改变了。若要维持原惩罚，应改为 $\lambda'=c^2\lambda$。[^ridge]
+这一点值得单独推导. 取 $c>0$，设未经标准化的一列特征从 $x$ 改成 $x'=c x$，响应不变. 为了保持同一预测函数，对应系数必须是 $\beta'=\beta/c$. 若还施加相同的 $\lambda(\beta')^2$，它在原系数坐标下变成 $\lambda\beta^2/c^2$：预测函数虽然能对应，惩罚强度却改变了. 若要维持原惩罚，应改为 $\lambda'=c^2\lambda$. [^ridge]
 
-对照一下：只把响应 $y$ 乘以 $c$，同时允许 $a,\beta$ 乘以 $c$，整个 ridge 目标恰好乘以 $c^2$；$\lambda$ 不变时，解与预测随之乘 $c$，换回原单位仍相同。本实验若把原始滞后收益 $X$ 与 $y$ 同时由小数改成百分数，重新按训练窗标准化后 $Z$ 不变，经济预测也不因此改变。
+对照一下：只把响应 $y$ 乘以 $c$，同时允许 $a,\beta$ 乘以 $c$，整个 ridge 目标恰好乘以 $c^2$；$\lambda$ 不变时，解与预测随之乘 $c$，换回原单位仍相同. 本实验若把原始滞后收益 $X$ 与 $y$ 同时由小数改成百分数，重新按训练窗标准化后 $Z$ 不变，经济预测也不因此改变.
 
-“尺度影响 ridge”指的是特征坐标与系数惩罚之间的关系，不是看到任何单位变换就宣布模型变了。
+“尺度影响 ridge”指的是特征坐标与系数惩罚之间的关系，不是看到任何单位变换就宣布模型变了.
 
 ### 选读：复杂模型为什么仍需拆开看
 
-Kelly、Malamud、Zhou 的 2024 年研究在 15 个原始预测量上构造随机 Fourier 特征，改变特征数、训练窗和收缩参数，报告其特定设计下的预测与策略结果。Nagel 的 2025 年工作论文则把相关 ridgeless 预测重写为过去收益的线性权重，研究短训练窗和持久预测量的作用，并用人工反转收益检验机制。[^kmz][^nagel]
+Kelly、Malamud、Zhou 的 2024 年研究在 15 个原始预测量上构造随机 Fourier 特征，改变特征数、训练窗和收缩参数，报告其特定设计下的预测与策略结果. Nagel 的 2025 年工作论文则把相关 ridgeless 预测重写为过去收益的线性权重，研究短训练窗和持久预测量的作用，并用人工反转收益检验机制.[^kmz][^nagel]
 
-这两项研究给我们的任务不是记住“复杂更好”或“复杂无用”，而是问：函数族、信息日期、权重、评价分母分别是什么？例如 $k^TK^{-1}y$ 的权重通常不保证非负或和为 1，不能直接解释成凸平均；矩阵求逆也需要相应秩条件。本篇的小型线性实验没有复现这两篇研究。
+阅读这两项研究时，应分别核对函数族、信息日期、权重和评价分母. 例如 $k^TK^{-1}y$ 的权重通常不保证非负或和为 1，不能直接解释成凸平均；矩阵求逆也需要相应秩条件. 本篇的小型线性实验与两篇论文的完整研究设计不同.
 
 <a id="qt20-exercises"></a>
 ## 6. 独立重建与解析
 
-解释题。 某回归在 12 个回归候选里最好，却比预先保留的均值基线差。应选择谁？换用 MAE 会自动得到同一选择吗？
+解释题. 某回归在 12 个回归候选里最好，却比预先保留的均值基线差. 应选择谁？换用 MAE 会自动得到同一选择吗？
 
-解析。 沿事先约定的验证 SSE，应选择均值基线。回归组内胜出不是完整集合胜出。MAE 对应另一种损失与总体目标，排序可能不同；可以同时报告，但不能看完结果才换准则并继续称原先规则。要证明未来优势，还需适合时间依赖的评价与不确定性分析。
+解析. 沿事先约定的验证 SSE，应选择均值基线. 回归组内胜出不是完整集合胜出. MAE 对应另一种损失与总体目标，排序可能不同；可以同时报告，但不能看完结果才换准则并继续称原先规则. 要证明未来优势，还需适合时间依赖的评价与不确定性分析.
 
-迁移题一：原始特征换单位。 两行教学数据为 $x=(-1,1)^T$、$y=(-1,1)^T$，无须额外标准化，含不惩罚截距，$\lambda=1$。先求 ridge；再把 $x$ 乘 10、保持同一惩罚，计算在原来 $x=1$ 处的预测。
+迁移题一：原始特征换单位. 两行教学数据为 $x=(-1,1)^T$、$y=(-1,1)^T$，无须额外标准化，含不惩罚截距，$\lambda=1$. 先求 ridge；再把 $x$ 乘 10、保持同一惩罚，计算在原来 $x=1$ 处的预测.
 
-解析。 两列都居中，截距为零。原目标为 $(1-\beta)^2+\beta^2$，故 $\beta=1/2$、预测为 $1/2$。新目标为 $(1-10b)^2+b^2$，故 $b=10/101$，在 $x'=10$ 的预测是 $100/101$，不是 $1/2$。改用 $\lambda'=100$ 后，$b=0.05$，才恢复原预测。
+解析. 两列都居中，截距为零. 原目标为 $(1-\beta)^2+\beta^2$，故 $\beta=1/2$、预测为 $1/2$. 新目标为 $(1-10b)^2+b^2$，故 $b=10/101$，在 $x'=10$ 的预测是 $100/101$，不是 $1/2$. 改用 $\lambda'=100$ 后，$b=0.05$，才恢复原预测.
 
-迁移题二：响应换单位。 保持原 $x$，只把 $y$ 乘 100，$\lambda=1$。解和换回原单位的预测是什么？
+迁移题二：响应换单位. 保持原 $x$，只把 $y$ 乘 100，$\lambda=1$. 解和换回原单位的预测是什么？
 
-解析。 目标为 $(100-b)^2+b^2$，解 $b=50$；预测 50 除以 100，仍是 $1/2$。一般情形的结论来自目标函数整体乘 $c^2$，而不是这个两点例的巧合。
+解析. 目标为 $(100-b)^2+b^2$，解 $b=50$；预测 50 除以 100，仍是 $1/2$. 一般情形的结论来自目标函数整体乘 $c^2$，而不是这个两点例的巧合.
 
-现在我们已有一个可重算的预测方法。下一篇把注意力移到它的每个原点：不仅问“算得对不对”，还问“这些输入与拟合参数当时是否可得”。[时间序列验证与信息泄漏](https://ou-liu-red-sugar.github.io/zh/notebook/time-series-validation-leakage/)
+现在我们已有一个可重算的预测方法. 下一篇把注意力移到它的每个原点：不仅问“算得对不对”，还问“这些输入与拟合参数当时是否可得”. [时间序列验证与信息泄漏](https://ou-liu-red-sugar.github.io/zh/notebook/time-series-validation-leakage/)
 
-[^french]: Kenneth French，30 Industry Portfolios：[来源构造说明](https://mba.tuck.dartmouth.edu/pages/Faculty/ken.french/Data_Library/det_30_ind_port.html)。本篇数值使用随包冻结 CSV，而非重新下载后的潜在修订值。
-[^french-version]: French [Data Library](https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/data_library.html)，FIZ/CIZ 生产方式说明；本包原文件首行明确为 202607 CRSP database。
-[^accuracy]: Hyndman、Athanasopoulos，FPP3，[§5.8 全节](https://otexts.com/fpp3/accuracy.html)，误差度量、训练与新数据评价。
-[^ridge]: James 等，ISLP，2023 首印，[作者全文下载入口](https://hastie.su.domains/ISLP/ISLP_website.pdf.download.html)，§6.2.1 pp.240–244、§6.2.3 pp.252–253。这里采用 RSS/n 目标，单位变换计算为本文推导。
-[^compute]: [完整实验输入](https://ou-liu-red-sugar.github.io/notebook/labs/qt-de/shared_inputs.json)；[实际计算结果](https://ou-liu-red-sugar.github.io/notebook/labs/qt-de/data/results.json)，forecast 组；[复算程序](https://ou-liu-red-sugar.github.io/notebook/labs/qt-de/compute/reproduce.py)。均值、预测与误差均为这份历史教学实验的输出。
-[^kmz]: Kelly、Malamud、Zhou，*The Virtue of Complexity in Return Prediction*，Journal of Finance 79(1), 2024，[发表版全文](https://economics.yale.edu/sites/default/files/2024-01/The%20Journal%20of%20Finance%20-%202023%20-%20KELLY%20-%20The%20Virtue%20of%20Complexity%20in%20Return%20Prediction%20%281%29.pdf)，§V.A–C pp.487–493，特别是脚注33、39–40；本篇不采用其前部理论证明或未读附录。
-[^nagel]: Nagel，*Seemingly Virtuous Complexity in Return Prediction*，NBER 34104，2025-08 版，[全文](https://www.nber.org/system/files/working_papers/w34104/w34104.pdf)，§II.A–D 与 §II.G.1；只采用具名方法与机制讨论，不概括为普遍否定复杂模型。
+[^french]: Kenneth French，30 Industry Portfolios：[来源构造说明](https://mba.tuck.dartmouth.edu/pages/Faculty/ken.french/Data_Library/det_30_ind_port.html). 本篇数值绑定随包冻结 CSV，而不是公开页后续可能修订的值.
+[^french-version]: French [Data Library](https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/data_library.html)，FIZ/CIZ 生产方式说明；本包原文件首行标明 202607 CRSP database.
+[^accuracy]: Hyndman、Athanasopoulos，FPP3，[§5.8 全节](https://otexts.com/fpp3/accuracy.html)，误差度量、训练与新数据评价.
+[^ridge]: James 等，ISLP，2023 首印，[作者全文下载入口](https://hastie.su.domains/ISLP/ISLP_website.pdf.download.html)，§6.2.1 pp.240–244、§6.2.3 pp.252–253. 本节使用 RSS/n 目标，单位变换见正文推导.
+[^compute]: [完整实验输入](https://ou-liu-red-sugar.github.io/notebook/labs/qt-de/shared_inputs.json)；[实际计算结果](https://ou-liu-red-sugar.github.io/notebook/labs/qt-de/data/results.json)，forecast 组；[复算程序](https://ou-liu-red-sugar.github.io/notebook/labs/qt-de/compute/reproduce.py). 均值、预测与误差均对应这份冻结历史教学实验.
+[^kmz]: Kelly、Malamud、Zhou，*The Virtue of Complexity in Return Prediction*，Journal of Finance 79(1), 2024，[发表版全文](https://economics.yale.edu/sites/default/files/2024-01/The%20Journal%20of%20Finance%20-%202023%20-%20KELLY%20-%20The%20Virtue%20of%20Complexity%20in%20Return%20Prediction%20%281%29.pdf)，§V.A–C pp.487–493，特别是脚注33、39–40.
+[^nagel]: Nagel，*Seemingly Virtuous Complexity in Return Prediction*，NBER 34104，2025-08 版，[全文](https://www.nber.org/system/files/working_papers/w34104/w34104.pdf)，§II.A–D 与 §II.G.1；用于具名方法与机制对照，不概括为对复杂模型的普遍判断.
 
 
 ## Experiment inputs and static equivalents
@@ -4334,7 +4338,7 @@ Kelly、Malamud、Zhou 的 2024 年研究在 15 个原始预测量上构造随�
     "id": "EXP-QT-D-FORECAST-01",
     "title": "预测目标、正则化与模型复杂度：可复算实验",
     "anchor": "qt20-run",
-    "description": "从损失函数推导 ridge，重建相同信息下的完整基线比较，分清两类单位变换。",
+    "description": "从损失函数推导 ridge，重建相同信息下的完整基线比较，分清两类单位变换.",
     "inputs": {
       "identity": "QT-DE-adopted-inputs-20260921-v1",
       "manifest": "https://ou-liu-red-sugar.github.io/notebook/labs/qt-de/shared_inputs.json"
@@ -4378,13 +4382,13 @@ Kelly、Malamud、Zhou 的 2024 年研究在 15 个原始预测量上构造随�
 ```
 
 ## Sources
-- [Forecasting: Principles and Practice, §5.8](https://otexts.com/fpp3/accuracy.html): 完整单元支持预测误差不同于残差，RMSE/MAE与mean/median的关系；书中实例不是本站交易绩效。
-- [QT-D/E adopted teaching experiments](https://ou-liu-red-sugar.github.io/notebook/labs/qt-de/compute/reproduce.py): 本轮实际沙盒复算，预测遵守冻结算法及数据；选择沿PCG64调用顺序并核strict/inclusive，成本用Fraction。数学演算与假设模型不等于真实投资有效性。
-- [30 Industry Portfolios](https://mba.tuck.dartmouth.edu/pages/Faculty/ken.french/Data_Library/det_30_ind_port.html): 冻结原件摘取的432个连续月；百分数除100。来自当前重建历史，不是各月当时可见vintage；无样本期缺失。
-- [French Data Library：FIZ/CIZ methodology](https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/data_library.html): 生产链转换与股息复投口径；本批坚持单次202607重建快照，未拼接旧vintage。
-- [An Introduction to Statistical Learning with Applications in Python](https://drive.google.com/uc?export=download&id=1ajFkHO6zjrdGNqhqW1jKBZdiNGh_8YQ1): 采用单元的完整镜像原文已在规划轮读取。Ridge 的截距、尺度、参数选择；有效p值、FWER、Bonferroni及BH。BH一般控制定理是引用，原书不提供证明。正文采用严格<；不采用任意相关p值也有效的扩展。
-- [The Virtue of Complexity in Return Prediction](https://economics.yale.edu/sites/default/files/2024-01/The%20Journal%20of%20Finance%20-%202023%20-%20KELLY%20-%20The%20Virtue%20of%20Complexity%20in%20Return%20Prediction%20%281%29.pdf): 已读完整实证设置单元，用于配对研究选读：随机特征、训练窗口、信息日期约定、R²分母。未验证前部理论或附录，未复现论文，具体作者结果不普遍化。
-- [Seemingly Virtuous Complexity in Return Prediction](https://www.nber.org/system/files/working_papers/w34104/w34104.pdf): 已读方法与人工反转完整单元；线性权重不自动凸权重，短窗机制为具名作者主张。工作论文不作普遍反定理，未采用未读附录。
+- [Forecasting: Principles and Practice, §5.8](https://otexts.com/fpp3/accuracy.html): 完整单元支持预测误差不同于残差，RMSE/MAE与mean/median的关系；书中实例不是本站交易绩效.
+- [QT-D/E adopted teaching experiments](https://ou-liu-red-sugar.github.io/notebook/labs/qt-de/compute/reproduce.py): 冻结算法与数据的复算材料. 预测按时间验证；选择实验固定 PCG64 调用顺序与 strict/inclusive 计数；成本实验使用精确分数.
+- [30 Industry Portfolios](https://mba.tuck.dartmouth.edu/pages/Faculty/ken.french/Data_Library/det_30_ind_port.html): 冻结原件摘取的432个连续月；百分数除100. 来自当前重建历史，不是各月当时可见vintage；无样本期缺失.
+- [French Data Library：FIZ/CIZ methodology](https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/data_library.html): 生产链转换与股息复投口径；本批坚持单次202607重建快照，未拼接旧vintage.
+- [An Introduction to Statistical Learning with Applications in Python](https://drive.google.com/uc?export=download&id=1ajFkHO6zjrdGNqhqW1jKBZdiNGh_8YQ1): 采用单元的完整镜像原文已在规划轮读取. Ridge 的截距、尺度、参数选择；有效p值、FWER、Bonferroni及BH. BH一般控制定理是引用，原书不提供证明. 正文采用严格<；不采用任意相关p值也有效的扩展.
+- [The Virtue of Complexity in Return Prediction](https://economics.yale.edu/sites/default/files/2024-01/The%20Journal%20of%20Finance%20-%202023%20-%20KELLY%20-%20The%20Virtue%20of%20Complexity%20in%20Return%20Prediction%20%281%29.pdf): 已读完整实证设置单元，用于配对研究选读：随机特征、训练窗口、信息日期约定、R²分母. 未验证前部理论或附录，未复现论文，具体作者结果不普遍化.
+- [Seemingly Virtuous Complexity in Return Prediction](https://www.nber.org/system/files/working_papers/w34104/w34104.pdf): 线性权重、短样本窗口与复杂模型的比较；包括方法设置和人工反转实验. 作者提出的解释以工作论文中的具体模型和样本为背景.
 
 ## Content relations
 ```json
@@ -4400,20 +4404,20 @@ Kelly、Malamud、Zhou 的 2024 年研究在 15 个原始预测量上构造随�
     "relation": "requires",
     "to": "zh-qt04",
     "required_competence": "读懂收益分布与矩",
-    "reason": "本篇使用该能力，不要求整门随机过程课程。"
+    "reason": "本篇使用该能力，不要求整门随机过程课程."
   },
   {
     "from": "zh-qt20",
     "relation": "requires",
     "to": "zh-qt19",
     "required_competence": "分清样本估计与不确定性",
-    "reason": "本篇使用该能力，不要求整门随机过程课程。"
+    "reason": "本篇使用该能力，不要求整门随机过程课程."
   },
   {
     "from": "qt20-run",
     "relation": "illustrated_by",
     "to": "EXP-QT-D-FORECAST-01",
-    "reason": "完整输入、默认及静态等价支持本篇独立任务。"
+    "reason": "完整输入、默认及静态等价支持本篇独立任务."
   },
   {
     "from": "zh-qt20",
@@ -4467,7 +4471,7 @@ Kelly、Malamud、Zhou 的 2024 年研究在 15 个原始预测量上构造随�
     "from": "qt20-loss",
     "relation": "uses_method",
     "to": "zh-qt11",
-    "reason": "二阶可积平方损失的投影分解。"
+    "reason": "二阶可积平方损失的投影分解."
   }
 ]
 ```
@@ -4476,6 +4480,6 @@ Kelly、Malamud、Zhou 的 2024 年研究在 15 个原始预测量上构造随�
 
 ## Optional reading path
 理解模型并亲手算: step 6/9
-推导一轮 ridge，并把全部候选与均值基线放在同一比较中。
-下一篇为这些计算逐项检查信息到达和标签成熟时点。
+推导一轮 ridge，并把全部候选与均值基线放在同一比较中.
+下一篇为这些计算逐项检查信息到达和标签成熟时点.
 Next: [时间序列验证与信息泄漏](https://ou-liu-red-sugar.github.io/zh/notebook/time-series-validation-leakage/)

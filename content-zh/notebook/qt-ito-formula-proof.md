@@ -1,6 +1,6 @@
 {
   "title": "一维 Itô 公式：从 Taylor 和式到一般系数",
-  "description": "完整传递 Taylor、加权 QV、一般 L1/L2 系数和空间截断到一维 Itô 公式。",
+  "description": "完整传递 Taylor、加权 QV、一般 L1/L2 系数和空间截断到一维 Itô 公式.",
   "layout": "entry",
   "notebookid": "zh-qt17p1",
   "math": true,
@@ -8,18 +8,18 @@
   "translationKey": "zh-qt17p1"
 }
 
-这篇证明的困难不是写出二阶项，而是说明每一个和式究竟收敛到什么，以及最后怎样从有界阶梯系数返回一般过程。我们先把证明中真正要使用的条件列全，再逐项过极限。先修是 $L^1/L^2$ 收敛、条件期望，以及 <a class="inline-ref" href="/zh/notebook/qt-ito-integral-proof/" data-reference="zh-qt16p1">Itô 积分的构造、Doob 估计和停止规则<span aria-hidden="true"> ↗</span></a>；不需要一般鞅表示定理。
+这篇证明的困难不是写出二阶项，而是说明每一个和式究竟收敛到什么，以及最后怎样从有界阶梯系数返回一般过程. 我们先把证明中真正要使用的条件列全，再逐项过极限. 先修是 $L^1/L^2$ 收敛、条件期望，以及 <a class="inline-ref" href="/zh/notebook/qt-ito-integral-proof/" data-reference="zh-qt16p1">Itô 积分的构造、Doob 估计和停止规则<span aria-hidden="true"> ↗</span></a>；不需要一般鞅表示定理.
 
 <a id="qt17p1-statement"></a>
 ## 1. 要证明的命题
 
-令 $T<\infty$，过滤概率空间满足通常条件（过滤右连续，且 $\mathcal F_0$ 包含 $\mathcal F$ 中所有 $P$ 零集及其子集），$W$ 是相对于该过滤的 Brownian 运动。令 $X_0$ 为有限的 $\mathcal F_0$ 可测随机变量，$a,b$ 为渐进可测过程，且
+令 $T<\infty$，过滤概率空间满足通常条件（过滤右连续，且 $\mathcal F_0$ 包含 $\mathcal F$ 中所有 $P$ 零集及其子集），$W$ 是相对于该过滤的 Brownian 运动. 令 $X_0$ 为有限的 $\mathcal F_0$ 可测随机变量，$a,b$ 为渐进可测过程，且
 
 $$
 \int_0^T|a_s|\,ds+\int_0^T b_s^2\,ds<\infty\quad\text{a.s.}
 $$
 
-令 $X_t=X_0+\int_0^ta_sds+\int_0^tb_sdW_s$，取其连续版本。令 $f\in C^{1,2}([0,T]\times\mathbb R)$：$f,f_t,f_x,f_{xx}$ 联合连续，时间端点采用单侧导数。则在一个共同的满概率事件上，对所有 $t\in[0,T]$，
+令 $X_t=X_0+\int_0^ta_sds+\int_0^tb_sdW_s$，取其连续版本. 令 $f\in C^{1,2}([0,T]\times\mathbb R)$：$f,f_t,f_x,f_{xx}$ 联合连续，时间端点采用单侧导数. 则在一个共同的满概率事件上，对所有 $t\in[0,T]$，
 
 $$
 \begin{aligned}
@@ -31,21 +31,21 @@ f(t,X_t)-f(0,X_0)
 \end{aligned}
 $$
 
-最后一项按局部平方可积积分理解。因为每条连续 $X$ 路径在有限区间内有界，相关导数沿路径也有界，以上积分的路径可积条件成立。这里没有假定 $X_0\in L^2$，也没有假定 $f_{tt}$ 或 $f_{tx}$ 存在。Lalley 的一维命题给出这个公式；下面把其证明中略写的一般系数逼近完整展开。[^ito]
+最后一项按局部平方可积积分理解. 因为每条连续 $X$ 路径在有限区间内有界，相关导数沿路径也有界，以上积分的路径可积条件成立. 这里没有假定 $X_0\in L^2$，也没有假定 $f_{tt}$ 或 $f_{tx}$ 存在. Lalley 的一维命题给出这个公式；下面把其证明中略写的一般系数逼近完整展开. [^ito]
 
-证明分为三层：先取有界阶梯系数和有界一致连续导数；再传递到积分可积的一般系数；最后用停止和空间截断返回原来的 $f$。
+证明分为三层：先取有界阶梯系数和有界一致连续导数；再传递到积分可积的一般系数；最后用停止和空间截断返回原来的 $f$.
 
 <a id="qt17p1-taylor"></a>
 ## 2. 只用一次时间导数的 Taylor 展开
 
-先假设 $a,b$ 是有界简单可预测过程，且 $f$ 及所需导数有界、一致连续。对固定 $t\le T$，取确定性分割 $\pi$，使它包含系数的全部跳点。记 $h_j=t_{j+1}-t_j$、$x_j=X_{t_j}$、$\Delta X_j=X_{t_{j+1}}-X_{t_j}$。于是
+先假设 $a,b$ 是有界简单可预测过程，且 $f$ 及所需导数有界、一致连续. 对固定 $t\le T$，取确定性分割 $\pi$，使它包含系数的全部跳点. 记 $h_j=t_{j+1}-t_j$、$x_j=X_{t_j}$、$\Delta X_j=X_{t_{j+1}}-X_{t_j}$. 于是
 
 $$
 \Delta X_j=a_jh_j+b_j\Delta W_j,
 \qquad a_j,b_j\in\mathcal F_{t_j}.
 $$
 
-不要对 $(t,x)$ 作一个未经条件支持的二阶全变量展开。我们先在固定 $x_{j+1}$ 时展开时间，再在固定 $t_j$ 时展开空间：
+不要对 $(t,x)$ 作一个未经条件支持的二阶全变量展开. 我们先在固定 $x_{j+1}$ 时展开时间，再在固定 $t_j$ 时展开空间：
 
 $$
 \begin{aligned}
@@ -55,7 +55,7 @@ f(t_{j+1},x_{j+1})-f(t_j,x_j)
 \end{aligned}
 $$
 
-时间差可以直接写为 $\int_{t_j}^{t_{j+1}}f_t(s,x_{j+1})ds$。减去 $f_t(t_j,x_j)h_j$ 后，绝对值至多为 $h_j\omega(h_j+|\Delta X_j|)$。空间余项由 $f_{xx}$ 的一致连续性控制为 $\tfrac12(\Delta X_j)^2\omega(|\Delta X_j|)$。放大同一个连续模 $\omega$，便得到
+时间差可以直接写为 $\int_{t_j}^{t_{j+1}}f_t(s,x_{j+1})ds$. 减去 $f_t(t_j,x_j)h_j$ 后，绝对值至多为 $h_j\omega(h_j+|\Delta X_j|)$. 空间余项由 $f_{xx}$ 的一致连续性控制为 $\tfrac12(\Delta X_j)^2\omega(|\Delta X_j|)$. 放大同一个连续模 $\omega$，便得到
 
 $$
 \sum_j|R_j|
@@ -63,29 +63,29 @@ $$
 \left(t+\sum_j(\Delta X_j)^2\right).
 $$
 
-$X$ 连续，所以第一个因子几乎处处趋零。若 $|a_j|,|b_j|\le K$，则
+$X$ 连续，所以第一个因子几乎处处趋零. 若 $|a_j|,|b_j|\le K$，则
 
 $$
-E\sum_j(\Delta X_j)^2
+\mathbb{E}\sum_j(\Delta X_j)^2
 \le 2K^2\sum_jh_j^2+2K^2t.
 $$
 
-右边一致有界，因此括号中的随机变量族在概率上有界。一个趋零于概率的因子乘以一个在概率上有界的因子仍趋零于概率：先把第二因子限制在任意大常数以内，再控制第一因子即可。故全部余项之和趋零于概率。这一步只用到时间的一阶连续可微性。[^correction]
+右边一致有界，因此括号中的随机变量族在概率上有界. 一个趋零于概率的因子乘以一个在概率上有界的因子仍趋零于概率：先把第二因子限制在任意大常数以内，再控制第一因子即可. 故全部余项之和趋零于概率. 这一步只用到时间的一阶连续可微性. [^correction]
 
 <a id="qt17p1-weighted"></a>
 ## 3. 加权平方增量为什么给出二阶项
 
-先证明一个可反复使用的小结论。若 $\zeta_j$ 是 $\mathcal F_{t_j}$ 可测且 $|\zeta_j|\le C$，令
+先证明一个可反复使用的小结论. 若 $\zeta_j$ 是 $\mathcal F_{t_j}$ 可测且 $|\zeta_j|\le C$，令
 
 $$
 \eta_j=\zeta_j\big((\Delta W_j)^2-h_j\big).
 $$
 
-Brownian 增量独立于过去，故 $E[\eta_j\mid\mathcal F_{t_j}]=0$，而正态四阶矩给 $E\eta_j^2\le2C^2h_j^2$。当 $i<j$ 时，$\eta_i$ 已是 $\mathcal F_{t_j}$ 可测，条件期望消掉交叉项。于是
+Brownian 增量独立于过去，故 $\mathbb{E}[\eta_j\mid\mathcal F_{t_j}]=0$，而正态四阶矩给 $\mathbb{E}\eta_j^2\le2C^2h_j^2$. 当 $i<j$ 时，$\eta_i$ 已是 $\mathcal F_{t_j}$ 可测，条件期望消掉交叉项. 于是
 
 $$
-E\left|\sum_j\eta_j\right|^2
-=\sum_jE\eta_j^2
+\mathbb{E}\left|\sum_j\eta_j\right|^2
+=\sum_j\mathbb{E}\eta_j^2
 \le2C^2\sum_jh_j^2\longrightarrow0.
 $$
 
@@ -99,9 +99,9 @@ $$
 \end{aligned}
 $$
 
-第二个和式趋于 $\int_0^t f_{xx}(s,X_s)b_s^2ds$，因为 $b$ 只有有限个跳点，其余部分沿连续路径是普通 Riemann 和。
+第二个和式趋于 $\int_0^t f_{xx}(s,X_s)b_s^2ds$，因为 $b$ 只有有限个跳点，其余部分沿连续路径是普通 Riemann 和.
 
-还需检查 $\Delta X$ 中的漂移。漂移平方和不超过 $K^2\sum h_j^2$；漂移与 Brownian 的混合和满足
+还需检查 $\Delta X$ 中的漂移. 漂移平方和不超过 $K^2\sum h_j^2$；漂移与 Brownian 的混合和满足
 
 $$
 \left|\sum_j a_jb_jh_j\Delta W_j\right|
@@ -109,34 +109,34 @@ $$
 \left(\sum_j(\Delta W_j)^2\right)^{1/2}.
 $$
 
-第一因子趋零，第二因子在概率上有界。即使再乘有界的 $f_{xx}$，相同估计仍成立。因此二阶和式的极限只有 $\int b^2f_{xx}ds$，没有漂移平方或混合项留下来。
+第一因子趋零，第二因子在概率上有界. 即使再乘有界的 $f_{xx}$，相同估计仍成立. 因此二阶和式的极限只有 $\int b^2f_{xx}ds$，没有漂移平方或混合项留下来.
 
-这里得到的是一个有条件的极限结论，不是把普通代数中的 $(dW)^2$ 任意替换成 $dt$。
+这里得到的是一个有条件的极限结论，不是把普通代数中的 $(dW)^2$ 任意替换成 $dt$.
 
 <a id="qt17p1-first-order"></a>
 ## 4. 一次项与共同版本
 
-时间项和漂移项分别趋于 $\int f_tds$ 与 $\int af_xds$。随机一次项是简单积分
+时间项和漂移项分别趋于 $\int f_tds$ 与 $\int af_xds$. 随机一次项是简单积分
 
 $$
 \sum_j f_x(t_j,X_{t_j})b_j\Delta W_j.
 $$
 
-由于 $b$ 有界，且 $f_x$ 有界、一致连续，分割细化后，相应被积过程在 $L^2(dt\otimes P)$ 中趋于 $f_x(s,X_s)b_s$。这里可以用有界控制收敛：路径连续给点态收敛，统一上界给可积控制。Itô 等距因此把简单积分送到所需随机积分。
+由于 $b$ 有界，且 $f_x$ 有界、一致连续，分割细化后，相应被积过程在 $L^2(dt\otimes P)$ 中趋于 $f_x(s,X_s)b_s$. 这里可以用有界控制收敛：路径连续给点态收敛，统一上界给可积控制. Itô 等距因此把简单积分送到所需随机积分.
 
-将各项极限放回逐路径成立的有限 Taylor 恒等式，得到固定 $t$ 时的公式几乎处处成立。然后先只取 $[0,T]$ 内的有理数并加上 $T$，合并这个可数集合对应的零测例外；左右各项都有连续版本，所以等式延伸到全部 $t$。不能直接把“每个固定时点几乎处处”当作“所有时点同时几乎处处”。
+将各项极限放回逐路径成立的有限 Taylor 恒等式，得到固定 $t$ 时的公式几乎处处成立. 然后先只取 $[0,T]$ 内的有理数并加上 $T$，合并这个可数集合对应的零测例外；左右各项都有连续版本，所以等式延伸到全部 $t$. 不能直接把“每个固定时点几乎处处”当作“所有时点同时几乎处处”.
 
 <a id="qt17p1-general"></a>
 ## 5. 一般系数：逐项说明怎样过极限
 
-现在仍暂取导数有界一致连续，但不再假定系数有界或为阶梯。令
+现在仍暂取导数有界一致连续，但不再假定系数有界或为阶梯. 令
 
 $$
 A_t=\int_0^t(|a_s|+b_s^2)ds,
 \qquad \tau_m=\inf\{t:A_t\ge m\}\wedge T.
 $$
 
-先证明停止后的过程。把 $a,b$ 替换为它们乘 $\mathbf1_{(0,\tau_m]}$ 的版本，仍记为 $a,b$，则逐路径有 $\int|a|\le m$、$\int b^2\le m$。因此也有 $E\int|a|\le m$、$E\int b^2\le m$。
+先证明停止后的过程. 把 $a,b$ 替换为它们乘 $\mathbf1_{(0,\tau_m]}$ 的版本，仍记为 $a,b$，则逐路径有 $\int|a|\le m$、$\int b^2\le m$. 因此也有 $\mathbb{E}\int|a|\le m$、$\mathbb{E}\int b^2\le m$.
 
 由 <a class="inline-ref" href="/zh/notebook/qt-ito-integral-proof/#qt16p1-density" data-reference="qt16p1-density">渐进可测过程的稠密逼近<span aria-hidden="true"> ↗</span></a>，可取有界简单可预测 $a^n,b^n$ 使
 
@@ -145,7 +145,7 @@ a^n\to a\text{ 于 }L^1(dt\otimes P),
 \qquad b^n\to b\text{ 于 }L^2(dt\otimes P).
 $$
 
-令 $X^n$ 使用相同的 $X_0$，漂移和波动系数为 $a^n,b^n$。则
+令 $X^n$ 使用相同的 $X_0$，漂移和波动系数为 $a^n,b^n$. 则
 
 $$
 \sup_{t\le T}|X_t^n-X_t|
@@ -153,9 +153,9 @@ $$
 +\sup_{t\le T}\left|\int_0^t(b_s^n-b_s)dW_s\right|.
 $$
 
-第一项趋零于 $L^1$；第二项由 Doob 和等距趋零于 $L^2$。所以 $X^n\to X$ 一致于概率。初值在相减时消掉，这正是无需 $E|X_0|^2<\infty$ 的原因。
+第一项趋零于 $L^1$；第二项由 Doob 和等距趋零于 $L^2$. 所以 $X^n\to X$ 一致于概率. 初值在相减时消掉，这正是无需 $\mathbb{E}|X_0|^2<\infty$ 的原因.
 
-令 $\delta_n=\sup_{s\le T}|f_x(s,X_s^n)-f_x(s,X_s)|$。一致连续性使 $\delta_n\to0$ 于概率；有界性又给 $E\delta_n\to0$、$E\delta_n^2\to0$。对 $f_t,f_{xx}$ 同理。接下来不是笼统说“连续，所以全部可以传递”，而是分别估计。
+令 $\delta_n=\sup_{s\le T}|f_x(s,X_s^n)-f_x(s,X_s)|$. 一致连续性使 $\delta_n\to0$ 于概率；有界性又给 $\mathbb{E}\delta_n\to0$、$\mathbb{E}\delta_n^2\to0$. 对 $f_t,f_{xx}$ 同理. 接下来不是笼统说“连续，所以全部可以传递”，而是分别估计.
 
 漂移项分为
 
@@ -163,7 +163,7 @@ $$
 f_x(X^n)(a^n-a)+(f_x(X^n)-f_x(X))a.
 $$
 
-这里略去共同时间变量。第一部分积分的 $L^1$ 范数至多为 $\|f_x\|_\infty\|a^n-a\|_1$；第二部分至多为 $mE\delta_n$，两者都趋零。时间项以 $T$ 乘相应导数的上确界差控制。
+这里略去共同时间变量. 第一部分积分的 $L^1$ 范数至多为 $\|f_x\|_\infty\|a^n-a\|_1$；第二部分至多为 $m\mathbb{E}\delta_n$，两者都趋零. 时间项以 $T$ 乘相应导数的上确界差控制.
 
 二阶项先注意
 
@@ -175,7 +175,7 @@ $$
 \end{aligned}
 $$
 
-把 $f_{xx}(X^n)(b^n)^2-f_{xx}(X)b^2$ 分成平方系数差和导数差两部分，前者由上式控制，后者由 $\int b^2\le m$ 控制。因此其积分也趋零于 $L^1$。
+把 $f_{xx}(X^n)(b^n)^2-f_{xx}(X)b^2$ 分成平方系数差和导数差两部分，前者由上式控制，后者由 $\int b^2\le m$ 控制. 因此其积分也趋零于 $L^1$.
 
 随机项的被积过程差为
 
@@ -186,32 +186,32 @@ $$
 其平方范数至多为
 
 $$
-2\|f_x\|_\infty^2\|b^n-b\|_2^2+2mE\delta_n^2\longrightarrow0.
+2\|f_x\|_\infty^2\|b^n-b\|_2^2+2m\mathbb{E}\delta_n^2\longrightarrow0.
 $$
 
-Itô 等距与 Doob 估计再给随机积分的一致概率收敛。左端 $f(t,X_t^n)$ 也由有界一致连续性传递。于是有界导数条件下的一般系数公式成立。注意整个证明只需要漂移的 $L^1$ 逼近，没有暗中要求漂移平方可积。[^approx]
+Itô 等距与 Doob 估计再给随机积分的一致概率收敛. 左端 $f(t,X_t^n)$ 也由有界一致连续性传递. 于是有界导数条件下的一般系数公式成立. 注意整个证明只需要漂移的 $L^1$ 逼近，没有暗中要求漂移平方可积. [^approx]
 
 <a id="qt17p1-localization"></a>
 ## 6. 返回原来的函数和过程
 
-取光滑空间截断 $\chi_R$，在 $[-R,R]$ 上等于一，在更大的有界区间外为零，令 $f^R(t,x)=\chi_R(x)f(t,x)$。有限时间区间上，$f^R$ 及所需导数有界、一致连续，因此上一节的结论适用。
+取光滑空间截断 $\chi_R$，在 $[-R,R]$ 上等于一，在更大的有界区间外为零，令 $f^R(t,x)=\chi_R(x)f(t,x)$. 有限时间区间上，$f^R$ 及所需导数有界、一致连续，因此上一节的结论适用.
 
-令 $\rho_R=\inf\{t:|X_t|\ge R\}\wedge T$。在 $|X_0|<R$ 且 $t\le\rho_R$ 时，$f^R$ 与 $f$ 及所需导数一致。使用 <a class="inline-ref" href="/zh/notebook/qt-ito-integral-proof/#qt16p1-stopping" data-reference="qt16p1-stopping">已经证明的随机积分停止规则<span aria-hidden="true"> ↗</span></a>，可把 $f^R$ 的等式停止在 $\rho_R\wedge\tau_m$，换回原函数。普通积分的停止身份直接由时间截断成立。
+令 $\rho_R=\inf\{t:|X_t|\ge R\}\wedge T$. 在 $|X_0|<R$ 且 $t\le\rho_R$ 时，$f^R$ 与 $f$ 及所需导数一致. 使用 <a class="inline-ref" href="/zh/notebook/qt-ito-integral-proof/#qt16p1-stopping" data-reference="qt16p1-stopping">已经证明的随机积分停止规则<span aria-hidden="true"> ↗</span></a>，可把 $f^R$ 的等式停止在 $\rho_R\wedge\tau_m$，换回原函数. 普通积分的停止身份直接由时间截断成立.
 
-对几乎每条路径，$A_T<\infty$，且 $\sup_{t\le T}|X_t|<\infty$。因此取足够大的整数 $m,R$ 后，这两个停时都等于 $T$，并且 $|X_0|<R$。在这些可数停止版本上取共同满概率事件，再利用连续性，就得到命题所述整个区间的同一版本。这完成证明。
+对几乎每条路径，$A_T<\infty$，且 $\sup_{t\le T}|X_t|<\infty$. 因此取足够大的整数 $m,R$ 后，这两个停时都等于 $T$，并且 $|X_0|<R$. 在这些可数停止版本上取共同满概率事件，再利用连续性，就得到命题所述整个区间的同一版本. 这完成证明.
 
-这个结论不会额外保证随机项是全局真鞅。只有局部平方可积条件时，公式中的随机积分仍可能仅为局部鞅；不能仅因它写成 $\int\cdots dW$ 就直接把期望设为零。
+这个结论不会额外保证随机项是全局真鞅. 只有局部平方可积条件时，公式中的随机积分仍可能仅为局部鞅；不能仅因它写成 $\int\cdots dW$ 就直接把期望设为零.
 
 <div data-experiment-slot="VIEW-QT17-P1-PROOF"></div>
 
 <a id="qt17p1-exercise"></a>
 ## 7. 迁移：哪一个条件真的不可少
 
-令 $t_0\in(0,T)$，取 $f(t,x)=|t-t_0|^{3/2}+x^2$。先判断此函数能否使用本篇定理，再对一般的 $X$ 写出结果。最后判断“随机积分没有漂移，所以 $E[X_t^2]$ 等于右边确定积分的期望”是否已经得到证明。
+令 $t_0\in(0,T)$，取 $f(t,x)=|t-t_0|^{3/2}+x^2$. 先判断此函数能否使用本篇定理，再对一般的 $X$ 写出结果. 最后判断“随机积分没有漂移，所以 $\mathbb{E}[X_t^2]$ 等于右边确定积分的期望”是否已经得到证明.
 
 ### 解析
 
-时间导数是 $\tfrac32\operatorname{sgn}(t-t_0)|t-t_0|^{1/2}$，在 $t_0$ 连续；二阶时间导数在那里不存在，但本定理不需要它。空间导数为 $2x$ 和 $2$。因此
+时间导数是 $\tfrac32\operatorname{sgn}(t-t_0)|t-t_0|^{1/2}$，在 $t_0$ 连续；二阶时间导数在那里不存在，但本定理不需要它. 空间导数为 $2x$ 和 $2$. 因此
 
 $$
 \begin{aligned}
@@ -222,9 +222,9 @@ $$
 \end{aligned}
 $$
 
-消去时间函数，得到 $X_t^2-X_0^2=2\int X_sa_sds+\int b_s^2ds+2\int X_sb_sdW_s$。各项是已经合法建立的路径恒等式。要直接取期望并消去最后一项，还要有足够的全局可积条件，例如 $E\int_0^tX_s^2b_s^2ds<\infty$，并检查其余项的期望存在。局部公式本身不提供这些额外结论。
+消去时间函数，得到 $X_t^2-X_0^2=2\int X_sa_sds+\int b_s^2ds+2\int X_sb_sdW_s$. 各项是已经合法建立的路径恒等式. 要直接取期望并消去最后一项，还要有足够的全局可积条件，例如 $\mathbb{E}\int_0^tX_s^2b_s^2ds<\infty$，并检查其余项的期望存在. 局部公式本身不提供这些额外结论.
 
-[^ito]: Steven P. Lalley, *Notes on the Itô Calculus*, 2012-05-15，§4.1–4.2、§4.5，PDF pp.14–16、18–20；[公开原件](https://www.stat.uchicago.edu/~lalley/Courses/385/Old/ItoIntegral-2012.pdf)。
-[^correction]: 同原件 p.19 的漂移步长应为 $\zeta T2^{-n}$，而非印出的 $\zeta2^{-n}T^{-1}$。本篇分别展开时间和空间，只用 $\Delta t\,\omega(\Delta t+|\Delta X|)$ 控制时间余项。
-[^approx]: Lalley §4.5 将一般系数的步骤概括为逼近；这里的 $L^1/L^2$ 分解、过程估计和停止传递是完整展开，不称为原讲义逐字提供的证明。
+[^ito]: Steven P. Lalley, *Notes on the Itô Calculus*, 2012-05-15，§4.1–4.2、§4.5，PDF pp.14–16、18–20；[公开原件](https://www.stat.uchicago.edu/~lalley/Courses/385/Old/ItoIntegral-2012.pdf).
+[^correction]: 同原件 p.19 的漂移步长应为 $\zeta T2^{-n}$，而非印出的 $\zeta2^{-n}T^{-1}$. 本篇分别展开时间和空间，只用 $\Delta t\,\omega(\Delta t+|\Delta X|)$ 控制时间余项.
+[^approx]: Lalley §4.5 将一般系数的步骤概括为逼近；这里的 $L^1/L^2$ 分解、过程估计和停止传递是完整展开，不称为原讲义逐字提供的证明.
 

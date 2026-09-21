@@ -1,14 +1,18 @@
 # 收益分布、尾部与风险度量
 
-从损失的广义逆分位数与尾部概率质量出发，复算202607重建历史中BusEq的月度VaR/ES，并区分经验统计量与未来风险。
+从损失的广义逆分位数与尾部概率质量出发，复算202607重建历史中BusEq的月度VaR/ES，并区分经验统计量与未来风险.
 
 Entry: zh-qt04 | Node: QT04 | Language: zh | Editorial revision: 2026-09-21
 
 ## Teaching instructions
-你教授 QT04《收益分布、尾部与风险度量》。先实际读取 required_readings 的完整指定单元，再读 supplied_inputs 的冻结432月记录和本篇同源正文；报告实际版本、定位、拿到的定义及其支持范围。目录、摘要、访问成功或旧阅读记录不算本次完成；当前官方数据链接更新也不得替换202607快照。若必读失败，先取得经核同版本可读入口；仍缺则停在缺口说明，不凭记忆冒充原文。
-先用五点损失[0,1,1,1,10]、p=.7诊断：请读者指出上尾需多少质量，以及边界取多少。反馈围绕分位约定、原子质量、分母，而不是只纠正四则运算。接着让读者用原1997-10边界月重算432月ES。必须区分总体F、经验Fhat和未来L，明确L=-R及美元换算的起始资本分母。展示一组预先固定窗口对照；删除最差月只能是具名扰动。最后让读者迁移到p=.8或新样本，并说明样本阈值不能成为未来损失保证。静态表和公式足以完成任务，交互只是联动辅助。完成标准：能独立重建边界质量公式、数值和对象解释，不靠背ES名称。
+你教授 QT04《收益分布、尾部与风险度量》. 先实际读取 required_readings 的完整指定单元，再读 supplied_inputs 的冻结432月记录和本篇同源正文；报告实际版本、定位、拿到的定义及其支持范围. 目录、摘要、访问成功或旧阅读记录不算本次完成；当前官方数据链接更新也不得替换202607快照. 若必读失败，先取得经核同版本可读入口；仍缺则停在缺口说明，不凭记忆冒充原文.
+先用五点损失[0,1,1,1,10]、p=.7诊断：请读者指出上尾需多少质量，以及边界取多少. 反馈围绕分位约定、原子质量、分母，而不是只纠正四则运算. 接着让读者用原1997-10边界月重算432月ES. 必须区分总体F、经验Fhat和未来L，明确L=-R及美元换算的起始资本分母. 展示一组预先固定窗口对照；删除最差月只能是具名扰动. 最后让读者迁移到p=.8或新样本，并说明样本阈值不能成为未来损失保证. 静态表和公式足以完成任务，交互只是联动辅助. 完成标准：能独立重建边界质量公式、数值和对象解释，不靠背ES名称.
 
 Before substantive teaching, actually retrieve every required reading unit for the selected scope. Read its complete designated section, including necessary assumptions, tables and footnotes. A working URL or an editorial access date is not a runtime reading receipt. Record the actual version, location, scope and what it supports. If unavailable, use a previously verified equivalent source; if the required unit remains unavailable, identify that gap rather than teach it from memory. Start runtime_reading_log empty. Once reading is complete, use a substantive diagnostic or follow the reader's request for direct explanation. Advance one complete reasoning task at a time; skip mastered basics. Distinguish original facts, supplied teaching assumptions and inference.
+
+## Shared notation and writing conventions
+数学期望统一写成 \mathbb{E}，条件期望用 \mathbb{E}[X\mid\mathcal{G}]，需要时注明测度 P 或 Q. 保留局部变量的明确定义. 金额与数量使用 K=10^3、M=10^6、B=10^9；表格标明币种、量级与期间，变更量级时同步换算数值. 展示小数最多三位，计算保留原始精度. 直接解释对象、机制与推理；保留影响结论的假设和事实来源，把编辑流程留在记录中. 句末使用英文句点 .，包括定义、命题、证明和解析等标签. 基础定义与推导直接讲内容，出处放在紧邻脚注；来源读取、复审和采用范围等编辑经过留在记录中.
+[Notation and units](https://ou-liu-red-sugar.github.io/agent/zh/notation.md)
 
 ## Required readings and runtime protocol
 ```json
@@ -27,7 +31,7 @@ Before substantive teaching, actually retrieve every required reading unit for t
         "scope": "完整定义、原文损益下尾约定、分位积分证明",
         "purpose": "重建L=-X、p=1-alpha转换与边界概率质量"
       },
-      "supports": "支持分位数、ES的原子边界与分位积分。原文X为损益、alpha为下尾质量，正文显式采用L=-X、p=1-alpha。本站有限样本逐格公式由同一定义重建；不把一般coherence或一致性证明算入本课。",
+      "supports": "支持分位数、ES的原子边界与分位积分. 原文X为损益、alpha为下尾质量，正文显式采用L=-X、p=1-alpha. 本站有限样本逐格公式由同一定义重建；不把一般coherence或一致性证明算入本课.",
       "title": "On the coherence of Expected Shortfall",
       "authors": [
         "Carlo Acerbi",
@@ -47,7 +51,7 @@ Before substantive teaching, actually retrieve every required reading unit for t
         "scope": "所用数据生产格式/整段历史重建段",
         "purpose": "不要把冻结历史写成FIZ/CIZ拼接或PIT数据"
       },
-      "supports": "Data Library说明自2025-01发布起使用CIZ文件生成美国研究收益，并说明每次更新会重建完整收益历史；CIZ与旧FIZ的月收益复合/股息再投资安排不同。本课432月绑定一个202607数据库快照，不能拼接为前段FIZ后段CIZ，也不能称为逐月当时可见数据。",
+      "supports": "Data Library说明自2025-01发布起使用CIZ文件生成美国研究收益，并说明每次更新会重建完整收益历史；CIZ与旧FIZ的月收益复合/股息再投资安排不同. 本课432月绑定一个202607数据库快照，不能拼接为前段FIZ后段CIZ，也不能称为逐月当时可见数据.",
       "title": "French Data Library: Current Research Returns",
       "authors": [
         "Kenneth R. French"
@@ -66,7 +70,7 @@ Before substantive teaching, actually retrieve every required reading unit for t
         "scope": "完整对应条目",
         "purpose": "识别行业组合与月度数据来源"
       },
-      "supports": "行业组合、Monthly Returns与Construction口径；用于标识BusEq不是一家公司或一只可直接交易的基金。",
+      "supports": "行业组合、Monthly Returns与Construction口径；用于标识BusEq不是一家公司或一只可直接交易的基金.",
       "title": "30 Industry Portfolios",
       "authors": [
         "Kenneth R. French"
@@ -82,7 +86,7 @@ Before substantive teaching, actually retrieve every required reading unit for t
       "id": "EXP-RETURNS-01",
       "title": "经验损失分布与分位点边界质量",
       "anchor": "qt04-sample",
-      "description": "在有原子质量的分布和432月经验样本中正确计算VaR/ES，解释对象、单位与窗口变化。",
+      "description": "在有原子质量的分布和432月经验样本中正确计算VaR/ES，解释对象、单位与窗口变化.",
       "inputs": {
         "config": {
           "experiment_id": "EXP-RETURNS-01",
@@ -3856,7 +3860,7 @@ Before substantive teaching, actually retrieve every required reading unit for t
           }
         }
       },
-      "algorithm": "广义逆经验分位数(inverted_cdf)；上尾ES分位积分=严格上尾+部分边界质量；等权数据分母n；样本SD ddof=1，经验SD ddof=0。删除最差月仅对完整窗口生成新扰动，不改主数据。",
+      "algorithm": "广义逆经验分位数(inverted_cdf)；上尾ES分位积分=严格上尾+部分边界质量；等权数据分母n；样本SD ddof=1，经验SD ddof=0. 删除最差月仅对完整窗口生成新扰动，不改主数据.",
       "boundaries": [
         "0<p<1；ES理论L1条件；有符号损失允许负VaR",
         "经验结果不保证未来概率",
@@ -3865,7 +3869,7 @@ Before substantive teaching, actually retrieve every required reading unit for t
       ],
       "static_equivalent": {
         "reader_anchor": "qt04-sample",
-        "description": "正文完整输入/推导/默认数值/题解；HTML保留默认表和静态解释。"
+        "description": "正文完整输入/推导/默认数值/题解；HTML保留默认表和静态解释."
       },
       "execution": {
         "author_sandbox_recomputed": true,
@@ -3882,78 +3886,78 @@ Before substantive teaching, actually retrieve every required reading unit for t
         "purpose": "需要完整图形或索引时按JSON路径读取；不以全部随机数组作为每次口头讲解必读"
       }
     ],
-    "reading_base": "本站同源冻结输入；通过给定完整公开链接读取。数据官网的当前更新不替换此 202607 快照。",
+    "reading_base": "本站同源冻结输入；通过给定完整公开链接读取. 数据官网的当前更新不替换此 202607 快照.",
     "reproduction_source": "https://ou-liu-red-sugar.github.io/notebook/labs/qt-c/compute/reproduce.py",
     "input_csv": "https://ou-liu-red-sugar.github.io/notebook/labs/qt-c/data/BusEq-value-weighted-monthly-199001-202512.csv",
     "configuration": "https://ou-liu-red-sugar.github.io/notebook/labs/qt-c/data/experiment-config.json"
   },
-  "learning_task": "在有原子质量的分布和432月经验样本中正确计算VaR/ES，解释对象、单位与窗口变化。"
+  "learning_task": "在有原子质量的分布和432月经验样本中正确计算VaR/ES，解释对象、单位与窗口变化."
 }
 ```
 
 ## Supplied entry
-同样是“风险”，我们可能在问三个不同的问题：结果通常波动多大，损失跨过某个阈值的机会有多大，或者最坏一段结果平均有多严重。一个均值不能同时回答这些问题。我们先把损失与分布固定下来，再用一个能手算的原子分布看清 VaR 与 ES，最后回到一段真实行业组合收益。
+同样是“风险”，我们可能在问三个不同的问题：结果通常波动多大，损失跨过某个阈值的机会有多大，或者最坏一段结果平均有多严重. 一个均值不能同时回答这些问题. 我们先把损失与分布固定下来，再用一个能手算的原子分布看清 VaR 与 ES，最后回到一段真实行业组合收益.
 
-这一节的任务是：**对固定月度样本计算并解释均值、标准差、VaR 和 ES，能正确处理分位点上的概率质量，也能说清这些样本数值没有告诉我们什么。** 需要的先修只是随机变量、分布和加权平均；不要求先学随机过程。
+这一节的任务是：**对固定月度样本计算并解释均值、标准差、VaR 和 ES，能正确处理分位点上的概率质量，也能说清这些样本数值没有告诉我们什么.** 需要的先修只是随机变量、分布和加权平均；不要求先学随机过程.
 
 <a id="qt04-objects"></a>
 ## 1. 先固定变量，再谈风险
 
-令 $R$ 为一个月的简单收益率，内部按小数表示，例如 $-0.10$ 表示亏损 10%。定义损失率 $L=-R$，于是损失越大越坏；赚钱时 $L$ 可以为负。以下概率与期望都针对明确选定的分布，不默认存在一个已被我们知道的“市场真实分布”。
+令 $R$ 为一个月的简单收益率，内部按小数表示，例如 $-0.10$ 表示亏损 10%. 定义损失率 $L=-R$，于是损失越大越坏；赚钱时 $L$ 可以为负. 以下概率与期望都针对明确选定的分布，不默认存在一个已被我们知道的“市场真实分布”.
 
-这里有三层对象。模型分布 $F$ 给出一个**总体风险函数值**，例如 $\operatorname{ES}_{.95}(F)$。拿到历史记录 $r_1,\ldots,r_n$ 后，给每个月 $1/n$ 权重，得到**经验分布** $\widehat F_n$；其 ES 是历史记录的一个确定函数。至于**下一月实际损失**，它还没有发生，既不是 ES，也不会因为我们已经算出一个阈值就被限制在阈值以下。将经验分布用于未来，需要另说明过程与估计假设，不能由“公式算对了”自动得到。
+这里有三层对象. 模型分布 $F$ 给出一个**总体风险函数值**，例如 $\operatorname{\mathbb{E}S}_{.95}(F)$. 拿到历史记录 $r_1,\ldots,r_n$ 后，给每个月 $1/n$ 权重，得到**经验分布** $\widehat F_n$；其 ES 是历史记录的一个确定函数. 至于**下一月实际损失**，它还没有发生，既不是 ES，也不会因为我们已经算出一个阈值就被限制在阈值以下. 将经验分布用于未来，需要另说明过程与估计假设，不能由“公式算对了”自动得到.
 
-期望 $E[R]$ 在 $E|R|<\infty$ 时有限；方差 $\operatorname{Var}(R)=E[(R-E[R])^2]$ 的有限性需要二阶矩。对固定样本，我们计算
+期望 $\mathbb{E}[R]$ 在 $\mathbb{E}|R|<\infty$ 时有限；方差 $\operatorname{Var}(R)=\mathbb{E}[(R-\mathbb{E}[R])^2]$ 的有限性需要二阶矩. 对固定样本，我们计算
 \[
 \bar r=\frac1n\sum_{t=1}^n r_t,\qquad
 s^2=\frac1{n-1}\sum_{t=1}^n(r_t-\bar r)^2.
 \]
-经验分布自身的方差则用分母 $n$，记为 $\widehat\sigma_{\rm emp}^2$，因此 $s^2=\frac{n}{n-1}\widehat\sigma_{\rm emp}^2$。它们都能计算，但不是同一个数。只有在相应抽样假设下，才讨论 $s^2$ 对某个总体方差是否无偏；本节不先把历史月份宣布为 iid。
+经验分布自身的方差则用分母 $n$，记为 $\widehat\sigma_{\rm emp}^2$，因此 $s^2=\frac{n}{n-1}\widehat\sigma_{\rm emp}^2$. 它们都能计算，但不是同一个数. 只有在相应抽样假设下，才讨论 $s^2$ 对某个总体方差是否无偏；本节不先把历史月份宣布为 iid.
 
-均值与标准差分别保留中心和二阶离散程度，仍会丢掉尾部形状。比如恒等于 2.6 的损失与稍后五点例的损失均值都为 2.6，但前者没有超过 2.6 的损失，后者还可能达到 10。要问尾部，必须直接看分布的上端。
+均值与标准差分别保留中心和二阶离散程度，仍会丢掉尾部形状. 比如恒等于 2.6 的损失与稍后五点例的损失均值都为 2.6，但前者没有超过 2.6 的损失，后者还可能达到 10. 要问尾部，必须直接看分布的上端.
 
 <a id="qt04-quantile-es"></a>
 ## 2. VaR 是阈值；ES 是固定尾部质量的平均
 
-令 $F_L(x)=P(L\le x)$，固定 $0<p<1$。本节采用广义逆分位数：
+令 $F_L(x)=P(L\le x)$，固定 $0<p<1$. 本节采用广义逆分位数：
 \[
 q_p(L)=\inf\{x:F_L(x)\ge p\},\qquad
 \operatorname{VaR}_p(L)=q_p(L).
 \]
-这里的 $\ge$ 属于定义。若分布有跳跃，改变分位数约定可能改变边界取值。VaR 说明一个概率阈值的位置，不是最大损失，也不说明阈值以外到底损失多少。负 VaR 也是合法结果，不能为了看起来像“风险”而截为零。
+这里的 $\ge$ 属于定义. 若分布有跳跃，改变分位数约定可能改变边界取值. VaR 说明一个概率阈值的位置，不是最大损失，也不说明阈值以外到底损失多少. 负 VaR 也是合法结果，不能为了看起来像“风险”而截为零.
 
 在 $L\in L^1$ 下，定义**预期短缺（Expected Shortfall，ES）**
 \[
-\operatorname{ES}_p(L)=\frac1{1-p}\int_p^1 q_u(L)\,du.
+\operatorname{\mathbb{E}S}_p(L)=\frac1{1-p}\int_p^1 q_u(L)\,du.
 \]
-这相当于取最坏的 $1-p$ 概率质量，按质量平均其损失。定义对离散、连续和混合分布都适用。Acerbi–Tasche 原文用损益 $X$ 和下尾质量 $\alpha$；这里用 $L=-X$、$p=1-\alpha$，把记号统一为损失上尾。[^es]
+这相当于取最坏的 $1-p$ 概率质量，按质量平均其损失. 定义对离散、连续和混合分布都适用. Acerbi–Tasche 原文用损益 $X$ 和下尾质量 $\alpha$；这里用 $L=-X$、$p=1-\alpha$，把记号统一为损失上尾. [^es]
 
-为什么必须强调“固定质量”？记 $v=q_p(L)$。因为
+为什么必须强调“固定质量”？记 $v=q_p(L)$. 因为
 $P(L>v)\le1-p\le P(L\ge v)$，先取完所有严格超过 $v$ 的结果，再从 $L=v$ 的质量中补足
-$b=(1-p)-P(L>v)$。于是
+$b=(1-p)-P(L>v)$. 于是
 \[
-\operatorname{ES}_p(L)
-=\frac{E[L\mathbf1_{\{L>v\}}]+v\,b}{1-p},
+\operatorname{\mathbb{E}S}_p(L)
+=\frac{\mathbb{E}[L\mathbf1_{\{L>v\}}]+v\,b}{1-p},
 \qquad 0\le b\le P(L=v).
 \]
-在分位数图上，$L=v$ 对应一段高度为 $v$ 的水平阶梯；积分只取这段阶梯落在 $(p,1)$ 内的长度。若需要的只是该原子的一部分，不能把整个原子都纳入，也不能通过修改损失数值冒充取了一部分概率。
+在分位数图上，$L=v$ 对应一段高度为 $v$ 的水平阶梯；积分只取这段阶梯落在 $(p,1)$ 内的长度. 若需要的只是该原子的一部分，不能把整个原子都纳入，也不能通过修改损失数值冒充取了一部分概率.
 
-现在手算一个教学分布。五个等可能结果的损失为 $0,1,1,1,10$，单位暂不指定为货币。取 $p=.7$，则 $F_L(0)=.2$、$F_L(1)=.8$，所以 VaR 为 1。最坏 30% 的质量包括损失 10 的全部 20%，再从损失 1 的 60% 原子里取 10%：
+现在手算一个教学分布. 五个等可能结果的损失为 $0,1,1,1,10$，单位暂不指定为货币. 取 $p=.7$，则 $F_L(0)=.2$、$F_L(1)=.8$，所以 VaR 为 1. 最坏 30% 的质量包括损失 10 的全部 20%，再从损失 1 的 60% 原子里取 10%：
 \[
-\operatorname{ES}_{.7}=\frac{.2\times10+.1\times1}{.3}=7.
+\operatorname{\mathbb{E}S}_{.7}=\frac{.2\times10+.1\times1}{.3}=7.
 \]
-这里取的是损失 1 的原子质量的 $1/6$。反过来，把所有 $L\ge1$ 的结果平均，会得到
-$E[L\mid L\ge1]=(.6\times1+.2\times10)/.8=3.25$。
-它回答的是“落入这个 80% 事件后的平均损失”，当然不是“最坏 30% 的平均损失”。
+这里取的是损失 1 的原子质量的 $1/6$. 反过来，把所有 $L\ge1$ 的结果平均，会得到
+$\mathbb{E}[L\mid L\ge1]=(.6\times1+.2\times10)/.8=3.25$.
+它回答的是“落入这个 80% 事件后的平均损失”，当然不是“最坏 30% 的平均损失”.
 
 <a id="qt04-sample"></a>
 ## 3. 把同一算法放到 432 个月的真实记录上
 
-本例采用 Kenneth French 30 Industry Portfolios 的 **BusEq、value-weighted monthly** 数据，取 1990-01 至 2025-12，共 432 个连续月份。原文件声明使用 **202607 CRSP database**；这是数据库版本，不是这 432 个月最初各自的公布时间。样本对应原 CSV 第 775–1206 行，原单位为百分数，读入后除以 100，损失取相反数；两个缺失码 `-99.99`、`-999` 在目标窗口均未出现，未插值、未删除极端月。[^data]
+本例采用 Kenneth French 30 Industry Portfolios 的 **BusEq、value-weighted monthly** 数据，取 1990-01 至 2025-12，共 432 个连续月份. 原文件声明使用 **202607 CRSP database**；这是数据库版本，不是这 432 个月最初各自的公布时间. 样本对应原 CSV 第 775–1206 行，原单位为百分数，读入后除以 100，损失取相反数；两个缺失码 `-99.99`、`-999` 在目标窗口均未出现，未插值、未删除极端月. [^data]
 
-当前 202607 快照是在 French 从 2025 年 1 月发布起改用 CIZ 文件生成美国研究收益的现行流程下产生；资料库同时说明，每次更新都会重建完整收益历史。因此本例是一份**单一当前重建快照**，不是旧 FIZ 历史与新 CIZ 月份的拼接，也不是逐月当时可见的数据档案。[^french] 这是回顾性样本描述，不能直接拿去声称完成了按当时信息进行的策略回测。
+当前 202607 快照是在 French 从 2025 年 1 月发布起改用 CIZ 文件生成美国研究收益的现行流程下产生；资料库同时说明，每次更新都会重建完整收益历史. 因此本例是一份**单一当前重建快照**，不是旧 FIZ 历史与新 CIZ 月份的拼接，也不是逐月当时可见的数据档案. [^french] 这是回顾性样本描述，不能直接拿去声称完成了按当时信息进行的策略回测.
 
-默认样本结果如下，全部为月度口径，不年化。
+默认样本结果如下，全部为月度口径，不年化.
 
 | 量 | 结果 | 对象 |
 |---|---:|---|
@@ -3963,25 +3967,25 @@ $E[L\mid L\ge1]=(.6\times1+.2\times10)/.8=3.25$。
 | 损失 VaR95 | 10.68% | 经验损失分布的 95% 分位点 |
 | 损失 ES95 | 16.0582% | 最坏 5% 经验质量的平均损失 |
 
-实际复算 ES 不需要画一条光滑密度。把损失降序排列为
-$l_{[1]}\ge\cdots\ge l_{[n]}$，令 $m=n(1-p)=k+\theta$，其中 $k=\lfloor m\rfloor$、$0\le\theta<1$。每个排序格子的质量是 $1/n$，因此分位数积分直接化为
+实际复算 ES 不需要画一条光滑密度. 把损失降序排列为
+$l_{[1]}\ge\cdots\ge l_{[n]}$，令 $m=n(1-p)=k+\theta$，其中 $k=\lfloor m\rfloor$、$0\le\theta<1$. 每个排序格子的质量是 $1/n$，因此分位数积分直接化为
 \[
-\widehat{\operatorname{ES}}_p=
+\widehat{\operatorname{\mathbb{E}S}}_p=
 \frac{\sum_{j=1}^k l_{[j]}+\theta\,l_{[k+1]}}{m}.
 \]
-$\theta=0$ 时不再加入下一项。这是对阶梯函数逐格积分，不是连续分布的近似公式。
+$\theta=0$ 时不再加入下一项. 这是对阶梯函数逐格积分，不是连续分布的近似公式.
 
-这里 $m=432\times.05=21.6$：完整取最坏 21 个月，再取边界月 0.6 份**经验概率质量**。边界月是 1997-10，损失为 10.68%；最坏 21 项损失按百分数读数相加为 **340.45**。故
+这里 $m=432\times.05=21.6$：完整取最坏 21 个月，再取边界月 0.6 份**经验概率质量**. 边界月是 1997-10，损失为 10.68%；最坏 21 项损失按百分数读数相加为 **340.45**. 故
 \[
-\widehat{\operatorname{ES}}_{.95}
+\widehat{\operatorname{\mathbb{E}S}}_{.95}
 =\frac{340.45+.6\times10.68}{21.6}\%
 =16.05824074\ldots\%.
 \]
-分子先用同一百分数刻度求和，再除以 21.6。若把所有损失至少为 10.68% 的 22 个月直接平均，则为 15.9605%；多取的那 0.4 份较轻损失拉低了均值。
+分子先用同一百分数刻度求和，再除以 21.6. 若把所有损失至少为 10.68% 的 22 个月直接平均，则为 15.9605%；多取的那 0.4 份较轻损失拉低了均值.
 
 <div data-experiment-slot="EXP-RETURNS-01"></div>
 
-图中的每个点保留原月份和原损失；实心标记表示严格高于 VaR 的观测，空心边界标记旁给出纳入比例。先预测把尾部从 5% 缩为 1% 会怎样改变阈值与平均损失，再切换 $p$ 检查。图的上尾高亮只是在选择经验质量，不是在预测下一次危机的日期。
+图中的每个点保留原月份和原损失；实心标记表示严格高于 VaR 的观测，空心边界标记旁给出纳入比例. 先预测把尾部从 5% 缩为 1% 会怎样改变阈值与平均损失，再切换 $p$ 检查. 图的上尾高亮只是在选择经验质量，不是在预测下一次危机的日期.
 
 <a id="qt04-comparisons"></a>
 ## 4. 改窗口改变的是样本，不是对未来的保证
@@ -3993,36 +3997,36 @@ $\theta=0$ 时不再加入下一项。这是对阶梯函数逐格积分，不是
 | 2010-01 | 192 | 1.7414% | 5.7585% | 8.40% | 10.0552% |
 | 2020-01 | 72 | 2.2731% | 6.7985% | 9.82% | 11.1533% |
 
-四个窗口的终点一致，起点在观察前已明确。较近窗口的经验 ES 较低，并不说明未来已经变得安全；样本长度、包含的历史状态和极端月份都不同。若只挑出最让人安心的窗口，就在风险描述里引入了选择问题。
+四个窗口的终点一致，起点在观察前已明确. 较近窗口的经验 ES 较低，并不说明未来已经变得安全；样本长度、包含的历史状态和极端月份都不同. 若只挑出最让人安心的窗口，就在风险描述里引入了选择问题.
 
-另一个有用的对照是**仅为教学删除最差月 2001-02**。剩余 431 月的平均收益为 1.4650%，VaR95 为 10.33%，ES95 为 15.0943%。这个变化说明极端观测会影响统计量，不是删除它的理由。交互中的这一项不改变主样本，也不进入后面的 bootstrap。
+另一个有用的对照是**仅为教学删除最差月 2001-02**. 剩余 431 月的平均收益为 1.4650%，VaR95 为 10.33%，ES95 为 15.0943%. 这个变化说明极端观测会影响统计量，不是删除它的理由. 交互中的这一项不改变主样本，也不进入后面的 bootstrap.
 
-本节保持月度口径还有一个原因：一年简单收益是 $\prod_{t=1}^{12}(1+r_t)-1$，不是把单月损失阈值乘 12。即使研究的是可相加的逐月损益，其总方差还包含跨月协方差。时间尺度改变时，需要新的联合分布或明确的聚合假设。
+本节保持月度口径还有一个原因：一年简单收益是 $\prod_{t=1}^{12}(1+r_t)-1$，不是把单月损失阈值乘 12. 即使研究的是可相加的逐月损益，其总方差还包含跨月协方差. 时间尺度改变时，需要新的联合分布或明确的聚合假设.
 
-从这里到估计问题只差一步：$\widehat F_n$ 随样本变化，$\widehat{\operatorname{ES}}_p$ 也会变化。[估计误差与预测不确定性](https://ou-liu-red-sugar.github.io/zh/notebook/estimation-prediction-uncertainty/)将区分这种抽样不确定性和未来结果本身的波动；本节先把要估的对象算准确。
+从这里到估计问题只差一步：$\widehat F_n$ 随样本变化，$\widehat{\operatorname{\mathbb{E}S}}_p$ 也会变化.[估计误差与预测不确定性](https://ou-liu-red-sugar.github.io/zh/notebook/estimation-prediction-uncertainty/)将区分这种抽样不确定性和未来结果本身的波动；本节先把要估的对象算准确.
 
 <a id="qt04-exercises"></a>
 ## 5. 自己完成一次核算
 
-**题一：边界恰好落在哪里？** 对五点分布 $[0,1,1,1,10]$，改取 $p=.8$，求 VaR、ES 与纳入的边界质量。不要默认 ES 等于一个条件平均。
+**题一：边界恰好落在哪里？** 对五点分布 $[0,1,1,1,10]$，改取 $p=.8$，求 VaR、ES 与纳入的边界质量. 不要默认 ES 等于一个条件平均.
 
-**解析。** 广义逆仍给 $q_{.8}=1$，因为 $F_L(1)=.8$。最坏 20% 已全部由损失 10 占满，因此边界质量为零，ES 为 10。VaR 所在原子不一定要在 ES 中保留正质量；这正是“阈值”和“尾部平均”不同的一个例子。
+**解析.** 广义逆仍给 $q_{.8}=1$，因为 $F_L(1)=.8$. 最坏 20% 已全部由损失 10 占满，因此边界质量为零，ES 为 10. VaR 所在原子不一定要在 ES 中保留正质量；这正是“阈值”和“尾部平均”不同的一个例子.
 
-**题二：从比率变成金额。** 只作风险刻度换算，假设起始资本为 100,000 美元且损失金额等于资本乘月损失率，不增加杠杆或现金流。默认样本 VaR95 与 ES95 对应多少美元？其中哪一个是最大可能损失？
+**题二：从比率变成金额.** 只作风险刻度换算，假设起始资本为 100,000 美元且损失金额等于资本乘月损失率，不增加杠杆或现金流. 默认样本 VaR95 与 ES95 对应多少美元？其中哪一个是最大可能损失？
 
-**解析。** 分别是 10,680 美元和约 16,058.24 美元，分母始终是给定的起始资本。二者都不是最大可能损失；它们是这份经验分布的两个风险函数值。这里也没有声称未来恰有 5% 概率超过 10,680 美元。
+**解析.** 分别是 10,680 美元和约 16,058.24 美元，分母始终是给定的起始资本. 二者都不是最大可能损失；它们是这份经验分布的两个风险函数值. 这里也没有声称未来恰有 5% 概率超过 10,680 美元.
 
-**题三：检验一项解释。** 有人说“删除最差月后 ES 降低，所以清洗后的估计更可靠”。这个结论缺什么？
+**题三：检验一项解释.** 有人说“删除最差月后 ES 降低，所以清洗后的估计更可靠”. 这个结论缺什么？
 
-**解析。** 他需要先给出与结果好坏无关的数据错误证据或预先确定的处理规则。极端值本来就是尾部度量要保留的对象；仅因它使 ES 变大就删除，会改变经验分布而不是纠正算术。主样本、具名扰动与未来模型的判断应分别记录。
+**解析.** 他需要先给出与结果好坏无关的数据错误证据或预先确定的处理规则. 极端值本来就是尾部度量要保留的对象；仅因它使 ES 变大就删除，会改变经验分布而不是纠正算术. 主样本、具名扰动与未来模型的判断应分别记录.
 
-[^es]: Carlo Acerbi、Dirk Tasche，*On the coherence of Expected Shortfall*，arXiv:cond-mat/0104295v5（2002-05-02）；§2 的损益/下尾约定、Definitions 2.1、2.2、2.6，及 Proposition 3.2 与证明，PDF pp.3、5–6。[公开全文](https://arxiv.org/pdf/cond-mat/0104295v5)。本文保留广义逆约定，并显式改写为损失上尾；没有在此重证一般风险度量的一致性理论。
-[^data]: 数据版本 `QT-C-inputs-20260921-v1`，原 CSV 的 `202607 CRSP database`、首个 value-weighted monthly 区块、`BusEq` 列。[完整 432 行快照](/notebook/labs/qt-c/data/BusEq-value-weighted-monthly-199001-202512.csv)、[参数合同](/notebook/labs/qt-c/data/experiment-config.json)、[完整计算结果](/notebook/labs/qt-c/data/results.json)。同一参数与输入生成表格；原始百分数保留两位小数，显示更多计算位数不代表原观测更精确。
-[^french]: Kenneth R. French，[Data Library](https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/data_library.html) 的 Current Research Returns 及历史重建说明；[30 Industry Portfolios](https://mba.tuck.dartmouth.edu/pages/Faculty/ken.french/Data_Library/det_30_ind_port.html) 的 Monthly Returns、Construction。访问于 2026-09-21，公开链接会更新，本文计算始终绑定上述快照。
+[^es]: Carlo Acerbi、Dirk Tasche，*On the coherence of Expected Shortfall*，arXiv:cond-mat/0104295v5（2002-05-02）；§2 的损益/下尾约定、Definitions 2.1、2.2、2.6，以及 Proposition 3.2 与证明，PDF pp.3、5–6. [公开全文](https://arxiv.org/pdf/cond-mat/0104295v5). 本节保留广义逆约定，并改写为损失上尾.
+[^data]: 数据版本 `QT-C-inputs-20260921-v1`，原 CSV 的 `202607 CRSP database`、首个 value-weighted monthly 区块、`BusEq` 列. [完整 432 行快照](/notebook/labs/qt-c/data/BusEq-value-weighted-monthly-199001-202512.csv)、[参数合同](/notebook/labs/qt-c/data/experiment-config.json)、[完整计算结果](/notebook/labs/qt-c/data/results.json). 表格由同一组参数与输入生成；原始百分数保留两位小数，额外计算位数不增加原观测精度.
+[^french]: Kenneth R. French，[Data Library](https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/data_library.html) 的 Current Research Returns 与历史重建说明；[30 Industry Portfolios](https://mba.tuck.dartmouth.edu/pages/Faculty/ken.french/Data_Library/det_30_ind_port.html) 的 Monthly Returns、Construction. 访问于 2026-09-21；公开链接会更新，本节数值绑定上述冻结快照.
 
 
 ## Additional teaching material
-以下是本篇真正使用的输入与结果；完整随机数组按[完整冻结结果](https://ou-liu-red-sugar.github.io/notebook/labs/qt-c/data/results.json) 的指定路径读取。
+以下是本篇真正使用的输入与结果；完整随机数组按[完整冻结结果](https://ou-liu-red-sugar.github.io/notebook/labs/qt-c/data/results.json) 的指定路径读取.
 
 ## Experiment inputs and static equivalents
 ```json
@@ -4031,7 +4035,7 @@ $\theta=0$ 时不再加入下一项。这是对阶梯函数逐格积分，不是
     "id": "EXP-RETURNS-01",
     "title": "经验损失分布与分位点边界质量",
     "anchor": "qt04-sample",
-    "description": "在有原子质量的分布和432月经验样本中正确计算VaR/ES，解释对象、单位与窗口变化。",
+    "description": "在有原子质量的分布和432月经验样本中正确计算VaR/ES，解释对象、单位与窗口变化.",
     "inputs": {
       "config": {
         "experiment_id": "EXP-RETURNS-01",
@@ -7805,7 +7809,7 @@ $\theta=0$ 时不再加入下一项。这是对阶梯函数逐格积分，不是
         }
       }
     },
-    "algorithm": "广义逆经验分位数(inverted_cdf)；上尾ES分位积分=严格上尾+部分边界质量；等权数据分母n；样本SD ddof=1，经验SD ddof=0。删除最差月仅对完整窗口生成新扰动，不改主数据。",
+    "algorithm": "广义逆经验分位数(inverted_cdf)；上尾ES分位积分=严格上尾+部分边界质量；等权数据分母n；样本SD ddof=1，经验SD ddof=0. 删除最差月仅对完整窗口生成新扰动，不改主数据.",
     "boundaries": [
       "0<p<1；ES理论L1条件；有符号损失允许负VaR",
       "经验结果不保证未来概率",
@@ -7814,7 +7818,7 @@ $\theta=0$ 时不再加入下一项。这是对阶梯函数逐格积分，不是
     ],
     "static_equivalent": {
       "reader_anchor": "qt04-sample",
-      "description": "正文完整输入/推导/默认数值/题解；HTML保留默认表和静态解释。"
+      "description": "正文完整输入/推导/默认数值/题解；HTML保留默认表和静态解释."
     },
     "execution": {
       "author_sandbox_recomputed": true,
@@ -7827,14 +7831,14 @@ $\theta=0$ 时不再加入下一项。这是对阶梯函数逐格积分，不是
 ```
 
 ## Sources
-- [On the coherence of Expected Shortfall](https://arxiv.org/pdf/cond-mat/0104295v5): 支持分位数、ES的原子边界与分位积分。原文X为损益、alpha为下尾质量，正文显式采用L=-X、p=1-alpha。本站有限样本逐格公式由同一定义重建；不把一般coherence或一致性证明算入本课。
-- [French Data Library: Current Research Returns](https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/data_library.html): Data Library说明自2025-01发布起使用CIZ文件生成美国研究收益，并说明每次更新会重建完整收益历史；CIZ与旧FIZ的月收益复合/股息再投资安排不同。本课432月绑定一个202607数据库快照，不能拼接为前段FIZ后段CIZ，也不能称为逐月当时可见数据。
+- [On the coherence of Expected Shortfall](https://arxiv.org/pdf/cond-mat/0104295v5): 支持分位数、ES的原子边界与分位积分. 原文X为损益、alpha为下尾质量，正文显式采用L=-X、p=1-alpha. 本站有限样本逐格公式由同一定义重建；不把一般coherence或一致性证明算入本课.
+- [French Data Library: Current Research Returns](https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/data_library.html): Data Library说明自2025-01发布起使用CIZ文件生成美国研究收益，并说明每次更新会重建完整收益历史；CIZ与旧FIZ的月收益复合/股息再投资安排不同. 本课432月绑定一个202607数据库快照，不能拼接为前段FIZ后段CIZ，也不能称为逐月当时可见数据.
 
-本批读取范围：同版本数据和回溯重建历史的区别。
-- [30 Industry Portfolios](https://mba.tuck.dartmouth.edu/pages/Faculty/ken.french/Data_Library/det_30_ind_port.html): 行业组合、Monthly Returns与Construction口径；用于标识BusEq不是一家公司或一只可直接交易的基金。
+本批读取范围：同版本数据和回溯重建历史的区别.
+- [30 Industry Portfolios](https://mba.tuck.dartmouth.edu/pages/Faculty/ken.french/Data_Library/det_30_ind_port.html): 行业组合、Monthly Returns与Construction口径；用于标识BusEq不是一家公司或一只可直接交易的基金.
 
-本批读取范围：固定120个月研究组合的身份。
-- [QT-C 冻结输入：BusEq 月收益、离散支付与重抽结果](https://ou-liu-red-sugar.github.io/notebook/labs/qt-c/data/BusEq-value-weighted-monthly-199001-202512.csv): 原源CSV首个value-weighted monthly区块BusEq，199001–202512、原行775–1206共432月，缺失0。归档源链接本身可变；实际随包为逐字节核验的432行提取及配置，结果由同样冻结算法在作者沙盒复算。原全行业ZIP不在此包内。MC/AR是教学模拟而非市场资料。
+本批读取范围：固定120个月研究组合的身份.
+- [QT-C 冻结输入：BusEq 月收益、离散支付与重抽结果](https://ou-liu-red-sugar.github.io/notebook/labs/qt-c/data/BusEq-value-weighted-monthly-199001-202512.csv): 原源CSV首个value-weighted monthly区块BusEq，199001–202512、原行775–1206共432月，缺失0. 归档源链接本身可变；实际随包为逐字节核验的432行提取及配置，结果由同样冻结算法在作者沙盒复算. 原全行业ZIP不在此包内. MC/AR是教学模拟而非市场资料.
 
 ## Content relations
 ```json
@@ -7858,7 +7862,7 @@ $\theta=0$ 时不再加入下一项。这是对阶梯函数逐格积分，不是
     "to": "QTC-ES",
     "reason": "支持对应定义、口径或明确限定的研究延伸",
     "locator": "§2 conventions; Definitions 2.1/2.2, p.3；Definition 2.6, p.5；Proposition 3.2 and its complete proof, p.6",
-    "scope": "支持分位数、ES的原子边界与分位积分。原文X为损益、alpha为下尾质量，正文显式采用L=-X、p=1-alpha。本站有限样本逐格公式由同一定义重建；不把一般coherence或一致性证明算入本课。"
+    "scope": "支持分位数、ES的原子边界与分位积分. 原文X为损益、alpha为下尾质量，正文显式采用L=-X、p=1-alpha. 本站有限样本逐格公式由同一定义重建；不把一般coherence或一致性证明算入本课."
   },
   {
     "from": "zh-qt04",
@@ -7866,7 +7870,7 @@ $\theta=0$ 时不再加入下一项。这是对阶梯函数逐格积分，不是
     "to": "QTC-FRENCH",
     "reason": "支持对应定义、口径或明确限定的研究延伸",
     "locator": "Current Research Returns 开头生产格式说明；历史重建说明：全部历史随数据更新重建",
-    "scope": "Data Library说明自2025-01发布起使用CIZ文件生成美国研究收益，并说明每次更新会重建完整收益历史；CIZ与旧FIZ的月收益复合/股息再投资安排不同。本课432月绑定一个202607数据库快照，不能拼接为前段FIZ后段CIZ，也不能称为逐月当时可见数据。"
+    "scope": "Data Library说明自2025-01发布起使用CIZ文件生成美国研究收益，并说明每次更新会重建完整收益历史；CIZ与旧FIZ的月收益复合/股息再投资安排不同. 本课432月绑定一个202607数据库快照，不能拼接为前段FIZ后段CIZ，也不能称为逐月当时可见数据."
   },
   {
     "from": "zh-qt04",
@@ -7874,7 +7878,7 @@ $\theta=0$ 时不再加入下一项。这是对阶梯函数逐格积分，不是
     "to": "QTC-FRENCH30",
     "reason": "支持对应定义、口径或明确限定的研究延伸",
     "locator": "Monthly Returns；Construction",
-    "scope": "行业组合、Monthly Returns与Construction口径；用于标识BusEq不是一家公司或一只可直接交易的基金。"
+    "scope": "行业组合、Monthly Returns与Construction口径；用于标识BusEq不是一家公司或一只可直接交易的基金."
   },
   {
     "from": "zh-qt04",
@@ -7882,13 +7886,13 @@ $\theta=0$ 时不再加入下一项。这是对阶梯函数逐格积分，不是
     "to": "QTC-FROZEN",
     "reason": "支持对应定义、口径或明确限定的研究延伸",
     "locator": "source CSV title line11/header12, BusEq index23 including date；selected source rows775–1206；data/experiment-config.json；data/results.json: returns, Monte_Carlo, bootstrap",
-    "scope": "原源CSV首个value-weighted monthly区块BusEq，199001–202512、原行775–1206共432月，缺失0。归档源链接本身可变；实际随包为逐字节核验的432行提取及配置，结果由同样冻结算法在作者沙盒复算。原全行业ZIP不在此包内。MC/AR是教学模拟而非市场资料。"
+    "scope": "原源CSV首个value-weighted monthly区块BusEq，199001–202512、原行775–1206共432月，缺失0. 归档源链接本身可变；实际随包为逐字节核验的432行提取及配置，结果由同样冻结算法在作者沙盒复算. 原全行业ZIP不在此包内. MC/AR是教学模拟而非市场资料."
   },
   {
     "from": "qt04-sample",
     "relation": "illustrated_by",
     "to": "EXP-RETURNS-01",
-    "reason": "在有原子质量的分布和432月经验样本中正确计算VaR/ES，解释对象、单位与窗口变化。"
+    "reason": "在有原子质量的分布和432月经验样本中正确计算VaR/ES，解释对象、单位与窗口变化."
   },
   {
     "from": "zh-qt04",
@@ -7903,6 +7907,6 @@ $\theta=0$ 时不再加入下一项。这是对阶梯函数逐格积分，不是
 
 ## Optional reading path
 理解模型并亲手算: step 4/9
-按固定尾部概率质量复算经验 VaR/ES，区分样本统计量与未来结果。
-描述一份样本后，下一篇检验估计量的波动；Monte Carlo 标准误可按需读 QT12。
+按固定尾部概率质量复算经验 VaR/ES，区分样本统计量与未来结果.
+描述一份样本后，下一篇检验估计量的波动；Monte Carlo 标准误可按需读 QT12.
 Next: [估计误差与预测不确定性](https://ou-liu-red-sugar.github.io/zh/notebook/estimation-prediction-uncertainty/)

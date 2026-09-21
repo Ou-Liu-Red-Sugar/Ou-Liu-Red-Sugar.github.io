@@ -4,7 +4,7 @@
       "id": "EXP-MHIJ-M24-FUNDING-01",
       "node": "M24",
       "title": "一笔资金费：函数、资格与下一事件",
-      "identity": "Bybit具名规则 + 已汇总教学溢价。规则系数0.75固定；IMR/MMR与溢价为透明教学输入。不是历史资金费率或当前币对参数。",
+      "identity": "Bybit具名规则 + 已汇总教学溢价. 规则系数0.75固定；IMR/MMR与溢价为透明教学输入. 不是历史资金费率或当前币对参数.",
       "controls": [
         {
           "name": "hours",
@@ -143,7 +143,7 @@
       "id": "EXP-MHIJ-M25-CURRENCY-01",
       "node": "M25",
       "title": "把合约结果和钱包财富分开",
-      "identity": "50,000入场；0.1 BTC线性／5,000 USD反向；入场钱包均按冻结入场换算记5,000 USD。BTC与USDT控件只改变报告时估值，不回写入场财富。",
+      "identity": "50,000入场；0.1 BTC线性／5,000 USD反向；入场钱包均按冻结入场换算记5,000 USD. BTC与USDT控件只改变报告时估值，不回写入场财富.",
       "controls": [
         {
           "name": "exit",
@@ -288,7 +288,7 @@
       "id": "EXP-MHIJ-M26-LIQUIDATION-01",
       "node": "M26",
       "title": "先模式，再触发：清算不是成交",
-      "identity": "主线为官方USDT逐仓long例；反向short为完整对照。mark/last是合成同刻输入；保险基金数值是另一独立例。",
+      "identity": "主线为官方USDT逐仓long例；反向short为完整对照. mark/last是合成同刻输入；保险基金数值是另一独立例.",
       "controls": [
         {
           "name": "mode",
@@ -411,7 +411,7 @@
       "id": "EXP-MHIJ-M26-COLLATERAL-01",
       "node": "M26",
       "title": "分档维持额与抵押认可值：两张账",
-      "identity": "子例A是官方假设分档；子例B是无仓BTC钱包。350 USDT与0.1 BTC不合并成同一账户；90%不是实时档位。",
+      "identity": "子例A是官方假设分档；子例B是无仓BTC钱包.350 USDT与0.1 BTC不合并成同一账户；90%不是实时档位.",
       "controls": [
         {
           "name": "position",
@@ -487,7 +487,7 @@
       "id": "EXP-MHIJ-M27-REDEMPTION-01",
       "node": "M27",
       "title": "先核可达路线，再算美元净额",
-      "identity": "USDC非EEA具名条款；买价0.997、通道费25美元和出售费0.1%全为教学值，不是历史行情。",
+      "identity": "USDC非EEA具名条款；买价0.997、通道费25美元和出售费0.1%全为教学值，不是历史行情.",
       "controls": [
         {
           "name": "holder",
@@ -587,7 +587,7 @@
       "id": "EXP-MHIJ-M28-SETTLEMENT-01",
       "node": "M28",
       "title": "份额记录与PvP：锁定还不是付款",
-      "identity": "Franklin基金记录例与Agorá式教学PvP是两个对象。不是Franklin采用Agorá的实际服务；100 USD/90 EUR是预定指令。",
+      "identity": "Franklin基金记录例与Agorá式教学PvP是两个对象. 不是Franklin采用Agorá的实际服务；100 USD/90 EUR是预定指令.",
       "controls": [
         {
           "name": "tab",
@@ -661,7 +661,7 @@
       "id": "EXP-MHIJ-M29-AMM-SWAP-01",
       "node": "M29",
       "title": "有限交换：gross、net、费用和限价余量",
-      "identity": "v3式连续教学状态；区间0.81–1.21，用户价格上限固定1.21。不是链上区块、tick/wei有效状态或长期LP收益。",
+      "identity": "v3式连续教学状态；区间0.81–1.21，用户价格上限固定1.21. 不是链上区块、tick/wei有效状态或长期LP收益.",
       "controls": [
         {
           "name": "gross",

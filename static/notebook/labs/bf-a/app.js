@@ -16,7 +16,7 @@
     let selectedRelation=E.relations(data,periodSelect.value)[0].id;
     function update(){
       const period=periodSelect.value,relations=E.relations(data,period);
-      q('[data-balance-equation]',panel).innerHTML=`<span>资产 <strong>${E.format(E.amount(data,'total_assets',period))}</strong></span><b>=</b><span>负债 <strong>${E.format(E.amount(data,'total_liabilities',period))}</strong></span><b>+</b><span>权益 <strong>${E.format(E.amount(data,'total_equity',period))}</strong></span><small>${period} · 百万美元</small>`;
+      q('[data-balance-equation]',panel).innerHTML=`<span>资产 <strong>${E.format(E.amount(data,'total_assets',period))}</strong></span><b>=</b><span>负债 <strong>${E.format(E.amount(data,'total_liabilities',period))}</strong></span><b>+</b><span>权益 <strong>${E.format(E.amount(data,'total_equity',period))}</strong></span><small>${period} · M 美元</small>`;
       for(const item of relations){const box=q('[data-relation-panel="'+item.id+'"]',panel);box.innerHTML=V.relation(data,item,period);box.hidden=item.id!==selectedRelation;}
       qa('[data-relation-button]',panel).forEach(button=>button.setAttribute('aria-pressed',String(button.dataset.relationButton===selectedRelation)));
       qa('[data-period]',panel).forEach(cell=>cell.classList.toggle('active-period',cell.dataset.period===period));
@@ -38,11 +38,11 @@
   const stepButtons=qa('[data-event-step]'),eventPanels=qa('[data-event-panel]');
   function updateEvents(){
     try{
-      const input=q('#initial-cash').value.trim();if(input==='')throw new Error('请填入期初现金与权益。');
+      const input=q('#initial-cash').value.trim();if(input==='')throw new Error('请填入期初现金与权益.');
       const cash=Number(input),collectFirst=q('#event-order').value==='collect-first',result=E.ledgerAt(step,cash,collectFirst);
       if(!result.completed)step=result.index;
       for(let i=0;i<5;i++){eventPanels[i].innerHTML=V.eventPanel(E.ledgerAt(i,cash,collectFirst));eventPanels[i].hidden=i!==step;stepButtons[i].textContent='S'+i+' '+E.sequence(collectFirst)[i].title;stepButtons[i].setAttribute('aria-pressed',String(i===step));stepButtons[i].tabIndex=i===step?0:-1;}
-      q('#event-config').textContent='当前输入：期初现金与权益各 '+E.format(cash)+' 美元；'+(collectFirst?'先收款，再付款。':'先付款，再收款。');
+      q('#event-config').textContent='当前输入：期初现金与权益各 '+E.format(cash)+' 美元；'+(collectFirst?'先收款，再付款.':'先付款，再收款.');
       q('#event-position').textContent='S'+step+' / S4';q('#event-previous').disabled=step===0;q('#event-next').disabled=step===4||!result.completed;
       q('#event-error').hidden=true;
     }catch(error){q('#event-error').textContent=error.message;q('#event-error').hidden=false;}

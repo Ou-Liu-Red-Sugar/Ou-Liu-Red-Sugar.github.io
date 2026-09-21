@@ -1,7 +1,7 @@
 {{ define "main" }}
 {{ $page := . }}{{ $zh := eq .Lang "zh" }}{{ $book := .Site.Data.notebook }}{{ $all := where $book.entries "lang" .Lang }}{{ $entries := where $all "kind" "not in" (slice "company" "research") }}{{ $companies := where $all "kind" "company" }}
 <div class="catalogue-shell">
-  <header class="page-intro"><p class="eyebrow">THE NOTEBOOK</p><h1>{{ .Title }}</h1><p>{{ if $zh }}按领域与主题进入，每个领域都有自己的阅读路线。需要补充的概念、实例和来源可以就地查阅。{{ else }}Explore by domain and topic, with a reading path for each domain. Concepts, examples and sources remain within reach.{{ end }}</p></header>
+  <header class="page-intro"><p class="eyebrow">THE NOTEBOOK</p><h1>{{ .Title }}</h1><p>{{ if $zh }}按领域与主题进入，每个领域都有自己的阅读路线. 需要补充的概念、实例和来源可以就地查阅.{{ else }}Explore by domain and topic, with a reading path for each domain. Concepts, examples and sources remain within reach.{{ end }}</p><a href="/{{ .Lang }}/notebook/notation/" data-reference="notation-{{ .Lang }}">{{ if $zh }}符号与单位{{ else }}Notation & units{{ end }} ↗</a></header>
   {{ with $companies }}<a class="company-library-link" href="/{{ $page.Lang }}/notebook/companies/"><span><strong>{{ if $zh }}公司资料与研究{{ else }}Company profiles & research{{ end }}</strong><small>{{ if $zh }}查看企业业务与有日期的研究材料{{ else }}Explore businesses and dated research{{ end }}</small></span><span>{{ len . }} →</span></a>{{ end }}
   <div class="catalogue-accordion" id="paths">
     {{ range $book.subjects }}{{ $subject := . }}{{ $items := where $entries "subject" .id }}{{ if $items }}

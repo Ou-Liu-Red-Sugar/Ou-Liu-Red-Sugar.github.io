@@ -1,21 +1,25 @@
 # 库存周期、产能周期与结构变化
 
-重建订单存量流量与库存调整，区分经营交期和资本建设期，并按需比较CAT独立经销渠道。
+重建订单存量流量与库存调整，区分经营交期和资本建设期，并按需比较CAT独立经销渠道.
 
 Entry: zh-ei09 | Node: EI-09 | Language: zh | Editorial revision: 2026-09-21
 
 ## Teaching instructions
-你正在教 EI-09《库存周期、产能周期与结构变化》，先确认common、dealer-channel、research或all分支。
-核心先实际读Census固定May2026报告定义和四表工程机械行、列头与表注，并读 M3 Methodology 的 Estimation（pp.2–3）与 Seasonal Adjustment Methodology（pp.3–4）完整采用单元。按选择启动CAT和Cowles对应完整单元的required_readings；不要求默认读者读所有研究分支。公共SEC超长度限制时使用分段/文本工具，或实际读取随包同源指定单元；不能假设可访问用户F盘。
-先请读者把订单、出货、待交订单、存货分成流量/存量，再按 Census Methodology 重建381桥：季调新订单由季调出货与季调未完成订单的期差构造，因此381是定义性桥，不是三个独立观测互证。取消/修改影响已包含在新订单估计；通用台账仍可保留A项。制造商存货增加66另列。
-接着让读者在两条平行时间轴安放行为：经营供应链的投入生产/交付，以及资本形成的投资建设。二者不共用延迟参数；投资可提前启动。
-推导E_t=100(1-lambda)^t并检查严格阈值。实际控件lambda=m/200、m整数0..100，h整数1..100。lambda0不越过；lambda.5,h25在n2相等、n3才低于。显示值舍入不能改变原式比较。这个单调调整不是周期定律。
-dealer-channel分支必须保留Q2/H1与total/CI，库存为机器发动机且排除售后零件。end-user equipment sales译为向最终用户销售设备，而非使用量/利用率；缺完整可比桥，不反推金额，不借用未读Retail Sales Statistics。
-research分支锁定March2025，区分投入生产/交付delay与厂房建设期；说明完整信息下单调/驼峰冲击条件，不搬入§3.3/4.4结果、不生成伪复现IRF。
-最后迁移到“订单降、出货平、渠道库存高、仍在建厂”：要求至少两条可检验路径及下一项区分证据。反馈回到对象、时点与机制，而不只追问指标名称。
-以当前 selected_branch 和 required_readings 为准；共同正文必读，选中分支的完整单元同时成为必读。保留完整同源正文一次及附带静态说明、输入和解析；runtime_reading_log 本次从空开始。
+你正在教 EI-09《库存周期、产能周期与结构变化》，先确认common、dealer-channel、research或all分支.
+核心先实际读Census固定May2026报告定义和四表工程机械行、列头与表注，并读 M3 Methodology 的 Estimation（pp.2–3）与 Seasonal Adjustment Methodology（pp.3–4）完整采用单元. 按选择启动CAT和Cowles对应完整单元的required_readings；不要求默认读者读所有研究分支. 公共SEC超长度限制时使用分段/文本工具，或实际读取随包同源指定单元；不能假设可访问用户F盘.
+先请读者把订单、出货、待交订单、存货分成流量/存量，再按 Census Methodology 重建381桥：季调新订单由季调出货与季调未完成订单的期差构造，因此381是定义性桥，不是三个独立观测互证. 取消/修改影响已包含在新订单估计；通用台账仍可保留A项. 制造商存货增加66另列.
+接着让读者在两条平行时间轴安放行为：经营供应链的投入生产/交付，以及资本形成的投资建设. 二者不共用延迟参数；投资可提前启动.
+推导E_t=100(1-lambda)^t并检查严格阈值. 实际控件lambda=m/200、m整数0..100，h整数1..100. lambda0不越过；lambda.5,h25在n2相等、n3才低于. 显示值舍入不能改变原式比较. 这个单调调整不是周期定律.
+dealer-channel分支必须保留Q2/H1与total/CI，库存为机器发动机且排除售后零件. end-user equipment sales译为向最终用户销售设备，而非使用量/利用率；缺完整可比桥，不反推金额，不借用未读Retail Sales Statistics.
+research分支锁定March2025，区分投入生产/交付delay与厂房建设期；说明完整信息下单调/驼峰冲击条件，不搬入§3.3/4.4结果、不生成伪复现IRF.
+最后迁移到“订单降、出货平、渠道库存高、仍在建厂”：要求至少两条可检验路径及下一项区分证据. 反馈回到对象、时点与机制，而不只追问指标名称.
+以当前 selected_branch 和 required_readings 为准；共同正文必读，选中分支的完整单元同时成为必读. 保留完整同源正文一次及附带静态说明、输入和解析；runtime_reading_log 本次从空开始.
 
 Before substantive teaching, actually retrieve every required reading unit for the selected scope. Read its complete designated section, including necessary assumptions, tables and footnotes. A working URL or an editorial access date is not a runtime reading receipt. Record the actual version, location, scope and what it supports. If unavailable, use a previously verified equivalent source; if the required unit remains unavailable, identify that gap rather than teach it from memory. Start runtime_reading_log empty. Once reading is complete, use a substantive diagnostic or follow the reader's request for direct explanation. Advance one complete reasoning task at a time; skip mastered basics. Distinguish original facts, supplied teaching assumptions and inference.
+
+## Shared notation and writing conventions
+数学期望统一写成 \mathbb{E}，条件期望用 \mathbb{E}[X\mid\mathcal{G}]，需要时注明测度 P 或 Q. 保留局部变量的明确定义. 金额与数量使用 K=10^3、M=10^6、B=10^9；表格标明币种、量级与期间，变更量级时同步换算数值. 展示小数最多三位，计算保留原始精度. 直接解释对象、机制与推理；保留影响结论的假设和事实来源，把编辑流程留在记录中. 句末使用英文句点 .，包括定义、命题、证明和解析等标签. 基础定义与推导直接讲内容，出处放在紧邻脚注；来源读取、复审和采用范围等编辑经过留在记录中.
+[Notation and units](https://ou-liu-red-sugar.github.io/agent/zh/notation.md)
 
 ## Required readings and runtime protocol
 ```json
@@ -34,7 +38,7 @@ Before substantive teaching, actually retrieve every required reading unit for t
         "scope": "定义、工程机械行、表头、期间标签和脚注",
         "purpose": "重建同版金额存量流量"
       },
-      "supports": "工程机械固定4月修订/5月初值四表；美元百万、季调、未作价格调整。与CAT公司渠道范围不对账。",
+      "supports": "工程机械固定4月修订/5月初值四表；USD M 、季调、未作价格调整. 与CAT公司渠道范围不对账.",
       "version": "Released 2026-07-02 10:00 AM EDT; CB 26-104 M3-2 (26)-05",
       "id": "EI09-READ-01",
       "title": "Manufacturers’ Shipments, Inventories, and Orders — May 2026 Full Report",
@@ -52,8 +56,8 @@ Before substantive teaching, actually retrieve every required reading unit for t
       },
       "required_unit": {
         "locator": "Estimation, PDF pp.2–3; Seasonal Adjustment Methodology, pp.3–4",
-        "scope": "新订单总体估计与季调新订单的构造关系；取消/修改影响的定义。",
-        "purpose": "解释工程机械表中381桥为何是统计定义重建，而不是三个独立观测的外部验证。"
+        "scope": "新订单总体估计与季调新订单的构造关系；取消/修改影响的定义.",
+        "purpose": "解释工程机械表中381桥为何是统计定义重建，而不是三个独立观测的外部验证."
       },
       "supports": "M3 new-orders construction and seasonal-adjustment identity only.",
       "id": "EI09-READ-02",
@@ -89,7 +93,7 @@ Before substantive teaching, actually retrieve every required reading unit for t
         "scope": "该标题下完整叙述及经销商段",
         "purpose": "区分厂家报告、终端设备销售与渠道库存"
       },
-      "supports": "完整具名MD&A叙述中的Q2/H1全体与CI经销商库存变动；经销商独立，库存排除售后零件。end-user equipment sales译为向最终用户销售设备，而非设备使用量。",
+      "supports": "完整具名MD&A叙述中的Q2/H1全体与CI经销商库存变动；经销商独立，库存排除售后零件. end-user equipment sales译为向最终用户销售设备，而非设备使用量.",
       "version": "Period ended 2026-06-30; filed 2026-08-05",
       "branch": "dealer-channel",
       "required_when": "selected_branch includes dealer-channel",
@@ -121,7 +125,7 @@ Before substantive teaching, actually retrieve every required reading unit for t
         "scope": "至下一Resource Industries标题前的完整叙述",
         "purpose": "CI的终端设备销售与库存因素"
       },
-      "supports": "完整具名MD&A叙述中的Q2/H1全体与CI经销商库存变动；经销商独立，库存排除售后零件。end-user equipment sales译为向最终用户销售设备，而非设备使用量。",
+      "supports": "完整具名MD&A叙述中的Q2/H1全体与CI经销商库存变动；经销商独立，库存排除售后零件. end-user equipment sales译为向最终用户销售设备，而非设备使用量.",
       "version": "Period ended 2026-06-30; filed 2026-08-05",
       "branch": "dealer-channel",
       "required_when": "selected_branch includes dealer-channel",
@@ -153,7 +157,7 @@ Before substantive teaching, actually retrieve every required reading unit for t
         "scope": "半年比较完整叙述",
         "purpose": "不把季度与半年相加"
       },
-      "supports": "完整具名MD&A叙述中的Q2/H1全体与CI经销商库存变动；经销商独立，库存排除售后零件。end-user equipment sales译为向最终用户销售设备，而非设备使用量。",
+      "supports": "完整具名MD&A叙述中的Q2/H1全体与CI经销商库存变动；经销商独立，库存排除售后零件. end-user equipment sales译为向最终用户销售设备，而非设备使用量.",
       "version": "Period ended 2026-06-30; filed 2026-08-05",
       "branch": "dealer-channel",
       "required_when": "selected_branch includes dealer-channel",
@@ -185,7 +189,7 @@ Before substantive teaching, actually retrieve every required reading unit for t
         "scope": "Dealer Inventories、Sales Volume、Construction Industries各完整定义",
         "purpose": "排除售后零件；销售量不是利用率"
       },
-      "supports": "完整具名MD&A叙述中的Q2/H1全体与CI经销商库存变动；经销商独立，库存排除售后零件。end-user equipment sales译为向最终用户销售设备，而非设备使用量。",
+      "supports": "完整具名MD&A叙述中的Q2/H1全体与CI经销商库存变动；经销商独立，库存排除售后零件. end-user equipment sales译为向最终用户销售设备，而非设备使用量.",
       "version": "Period ended 2026-06-30; filed 2026-08-05",
       "branch": "dealer-channel",
       "required_when": "selected_branch includes dealer-channel",
@@ -217,7 +221,7 @@ Before substantive teaching, actually retrieve every required reading unit for t
         "scope": "March2025对应完整模型和经验单元，含相关图表、变量、信息条件",
         "purpose": "条件化动态网络机制而非无条件bullwhip"
       },
-      "supports": "完整信息下投入生产/交付延迟、网络位置与冲击时间形状的条件化机制；数据代理和经验检验分开。非新厂建设期，未复现IRF或不完全信息命题。",
+      "supports": "完整信息下投入生产/交付延迟、网络位置与冲击时间形状的条件化机制；数据代理和经验检验分开. 非新厂建设期，未复现IRF或不完全信息命题.",
       "version": "Cowles Foundation Discussion Paper 2436, March 2025",
       "branch": "research",
       "required_when": "selected_branch includes research",
@@ -236,7 +240,7 @@ Before substantive teaching, actually retrieve every required reading unit for t
     "input_version": "2026-09-21-review-v2",
     "facts": {
       "m3": {
-        "unit": "USD million",
+        "unit": "USD M",
         "adjustment": "seasonally adjusted; not price adjusted",
         "industry": "Construction machinery",
         "rows": [
@@ -474,7 +478,7 @@ Before substantive teaching, actually retrieve every required reading unit for t
         "scope": "定义、工程机械行、表头、期间标签和脚注",
         "purpose": "重建同版金额存量流量"
       },
-      "supports": "工程机械固定4月修订/5月初值四表；美元百万、季调、未作价格调整。与CAT公司渠道范围不对账。",
+      "supports": "工程机械固定4月修订/5月初值四表；USD M 、季调、未作价格调整. 与CAT公司渠道范围不对账.",
       "version": "Released 2026-07-02 10:00 AM EDT; CB 26-104 M3-2 (26)-05",
       "id": "EI09-READ-01",
       "title": "Manufacturers’ Shipments, Inventories, and Orders — May 2026 Full Report",
@@ -492,8 +496,8 @@ Before substantive teaching, actually retrieve every required reading unit for t
       },
       "required_unit": {
         "locator": "Estimation, PDF pp.2–3; Seasonal Adjustment Methodology, pp.3–4",
-        "scope": "新订单总体估计与季调新订单的构造关系；取消/修改影响的定义。",
-        "purpose": "解释工程机械表中381桥为何是统计定义重建，而不是三个独立观测的外部验证。"
+        "scope": "新订单总体估计与季调新订单的构造关系；取消/修改影响的定义.",
+        "purpose": "解释工程机械表中381桥为何是统计定义重建，而不是三个独立观测的外部验证."
       },
       "supports": "M3 new-orders construction and seasonal-adjustment identity only.",
       "id": "EI09-READ-02",
@@ -527,7 +531,7 @@ Before substantive teaching, actually retrieve every required reading unit for t
         "scope": "该标题下完整叙述及经销商段",
         "purpose": "区分厂家报告、终端设备销售与渠道库存"
       },
-      "supports": "完整具名MD&A叙述中的Q2/H1全体与CI经销商库存变动；经销商独立，库存排除售后零件。end-user equipment sales译为向最终用户销售设备，而非设备使用量。",
+      "supports": "完整具名MD&A叙述中的Q2/H1全体与CI经销商库存变动；经销商独立，库存排除售后零件. end-user equipment sales译为向最终用户销售设备，而非设备使用量.",
       "version": "Period ended 2026-06-30; filed 2026-08-05",
       "branch": "dealer-channel",
       "required_when": "selected_branch includes dealer-channel",
@@ -559,7 +563,7 @@ Before substantive teaching, actually retrieve every required reading unit for t
         "scope": "至下一Resource Industries标题前的完整叙述",
         "purpose": "CI的终端设备销售与库存因素"
       },
-      "supports": "完整具名MD&A叙述中的Q2/H1全体与CI经销商库存变动；经销商独立，库存排除售后零件。end-user equipment sales译为向最终用户销售设备，而非设备使用量。",
+      "supports": "完整具名MD&A叙述中的Q2/H1全体与CI经销商库存变动；经销商独立，库存排除售后零件. end-user equipment sales译为向最终用户销售设备，而非设备使用量.",
       "version": "Period ended 2026-06-30; filed 2026-08-05",
       "branch": "dealer-channel",
       "required_when": "selected_branch includes dealer-channel",
@@ -591,7 +595,7 @@ Before substantive teaching, actually retrieve every required reading unit for t
         "scope": "半年比较完整叙述",
         "purpose": "不把季度与半年相加"
       },
-      "supports": "完整具名MD&A叙述中的Q2/H1全体与CI经销商库存变动；经销商独立，库存排除售后零件。end-user equipment sales译为向最终用户销售设备，而非设备使用量。",
+      "supports": "完整具名MD&A叙述中的Q2/H1全体与CI经销商库存变动；经销商独立，库存排除售后零件. end-user equipment sales译为向最终用户销售设备，而非设备使用量.",
       "version": "Period ended 2026-06-30; filed 2026-08-05",
       "branch": "dealer-channel",
       "required_when": "selected_branch includes dealer-channel",
@@ -623,7 +627,7 @@ Before substantive teaching, actually retrieve every required reading unit for t
         "scope": "Dealer Inventories、Sales Volume、Construction Industries各完整定义",
         "purpose": "排除售后零件；销售量不是利用率"
       },
-      "supports": "完整具名MD&A叙述中的Q2/H1全体与CI经销商库存变动；经销商独立，库存排除售后零件。end-user equipment sales译为向最终用户销售设备，而非设备使用量。",
+      "supports": "完整具名MD&A叙述中的Q2/H1全体与CI经销商库存变动；经销商独立，库存排除售后零件. end-user equipment sales译为向最终用户销售设备，而非设备使用量.",
       "version": "Period ended 2026-06-30; filed 2026-08-05",
       "branch": "dealer-channel",
       "required_when": "selected_branch includes dealer-channel",
@@ -655,7 +659,7 @@ Before substantive teaching, actually retrieve every required reading unit for t
         "scope": "March2025对应完整模型和经验单元，含相关图表、变量、信息条件",
         "purpose": "条件化动态网络机制而非无条件bullwhip"
       },
-      "supports": "完整信息下投入生产/交付延迟、网络位置与冲击时间形状的条件化机制；数据代理和经验检验分开。非新厂建设期，未复现IRF或不完全信息命题。",
+      "supports": "完整信息下投入生产/交付延迟、网络位置与冲击时间形状的条件化机制；数据代理和经验检验分开. 非新厂建设期，未复现IRF或不完全信息命题.",
       "version": "Cowles Foundation Discussion Paper 2436, March 2025",
       "branch": "research",
       "required_when": "selected_branch includes research",
@@ -683,7 +687,7 @@ Before substantive teaching, actually retrieve every required reading unit for t
           "scope": "定义、工程机械行、表头、期间标签和脚注",
           "purpose": "重建同版金额存量流量"
         },
-        "supports": "工程机械固定4月修订/5月初值四表；美元百万、季调、未作价格调整。与CAT公司渠道范围不对账。",
+        "supports": "工程机械固定4月修订/5月初值四表；USD M 、季调、未作价格调整. 与CAT公司渠道范围不对账.",
         "version": "Released 2026-07-02 10:00 AM EDT; CB 26-104 M3-2 (26)-05",
         "id": "EI09-READ-01",
         "title": "Manufacturers’ Shipments, Inventories, and Orders — May 2026 Full Report",
@@ -701,8 +705,8 @@ Before substantive teaching, actually retrieve every required reading unit for t
         },
         "required_unit": {
           "locator": "Estimation, PDF pp.2–3; Seasonal Adjustment Methodology, pp.3–4",
-          "scope": "新订单总体估计与季调新订单的构造关系；取消/修改影响的定义。",
-          "purpose": "解释工程机械表中381桥为何是统计定义重建，而不是三个独立观测的外部验证。"
+          "scope": "新订单总体估计与季调新订单的构造关系；取消/修改影响的定义.",
+          "purpose": "解释工程机械表中381桥为何是统计定义重建，而不是三个独立观测的外部验证."
         },
         "supports": "M3 new-orders construction and seasonal-adjustment identity only.",
         "id": "EI09-READ-02",
@@ -738,7 +742,7 @@ Before substantive teaching, actually retrieve every required reading unit for t
           "scope": "定义、工程机械行、表头、期间标签和脚注",
           "purpose": "重建同版金额存量流量"
         },
-        "supports": "工程机械固定4月修订/5月初值四表；美元百万、季调、未作价格调整。与CAT公司渠道范围不对账。",
+        "supports": "工程机械固定4月修订/5月初值四表；USD M 、季调、未作价格调整. 与CAT公司渠道范围不对账.",
         "version": "Released 2026-07-02 10:00 AM EDT; CB 26-104 M3-2 (26)-05",
         "id": "EI09-READ-01",
         "title": "Manufacturers’ Shipments, Inventories, and Orders — May 2026 Full Report",
@@ -756,8 +760,8 @@ Before substantive teaching, actually retrieve every required reading unit for t
         },
         "required_unit": {
           "locator": "Estimation, PDF pp.2–3; Seasonal Adjustment Methodology, pp.3–4",
-          "scope": "新订单总体估计与季调新订单的构造关系；取消/修改影响的定义。",
-          "purpose": "解释工程机械表中381桥为何是统计定义重建，而不是三个独立观测的外部验证。"
+          "scope": "新订单总体估计与季调新订单的构造关系；取消/修改影响的定义.",
+          "purpose": "解释工程机械表中381桥为何是统计定义重建，而不是三个独立观测的外部验证."
         },
         "supports": "M3 new-orders construction and seasonal-adjustment identity only.",
         "id": "EI09-READ-02",
@@ -791,7 +795,7 @@ Before substantive teaching, actually retrieve every required reading unit for t
           "scope": "该标题下完整叙述及经销商段",
           "purpose": "区分厂家报告、终端设备销售与渠道库存"
         },
-        "supports": "完整具名MD&A叙述中的Q2/H1全体与CI经销商库存变动；经销商独立，库存排除售后零件。end-user equipment sales译为向最终用户销售设备，而非设备使用量。",
+        "supports": "完整具名MD&A叙述中的Q2/H1全体与CI经销商库存变动；经销商独立，库存排除售后零件. end-user equipment sales译为向最终用户销售设备，而非设备使用量.",
         "version": "Period ended 2026-06-30; filed 2026-08-05",
         "branch": "dealer-channel",
         "required_when": "selected_branch includes dealer-channel",
@@ -823,7 +827,7 @@ Before substantive teaching, actually retrieve every required reading unit for t
           "scope": "至下一Resource Industries标题前的完整叙述",
           "purpose": "CI的终端设备销售与库存因素"
         },
-        "supports": "完整具名MD&A叙述中的Q2/H1全体与CI经销商库存变动；经销商独立，库存排除售后零件。end-user equipment sales译为向最终用户销售设备，而非设备使用量。",
+        "supports": "完整具名MD&A叙述中的Q2/H1全体与CI经销商库存变动；经销商独立，库存排除售后零件. end-user equipment sales译为向最终用户销售设备，而非设备使用量.",
         "version": "Period ended 2026-06-30; filed 2026-08-05",
         "branch": "dealer-channel",
         "required_when": "selected_branch includes dealer-channel",
@@ -855,7 +859,7 @@ Before substantive teaching, actually retrieve every required reading unit for t
           "scope": "半年比较完整叙述",
           "purpose": "不把季度与半年相加"
         },
-        "supports": "完整具名MD&A叙述中的Q2/H1全体与CI经销商库存变动；经销商独立，库存排除售后零件。end-user equipment sales译为向最终用户销售设备，而非设备使用量。",
+        "supports": "完整具名MD&A叙述中的Q2/H1全体与CI经销商库存变动；经销商独立，库存排除售后零件. end-user equipment sales译为向最终用户销售设备，而非设备使用量.",
         "version": "Period ended 2026-06-30; filed 2026-08-05",
         "branch": "dealer-channel",
         "required_when": "selected_branch includes dealer-channel",
@@ -887,7 +891,7 @@ Before substantive teaching, actually retrieve every required reading unit for t
           "scope": "Dealer Inventories、Sales Volume、Construction Industries各完整定义",
           "purpose": "排除售后零件；销售量不是利用率"
         },
-        "supports": "完整具名MD&A叙述中的Q2/H1全体与CI经销商库存变动；经销商独立，库存排除售后零件。end-user equipment sales译为向最终用户销售设备，而非设备使用量。",
+        "supports": "完整具名MD&A叙述中的Q2/H1全体与CI经销商库存变动；经销商独立，库存排除售后零件. end-user equipment sales译为向最终用户销售设备，而非设备使用量.",
         "version": "Period ended 2026-06-30; filed 2026-08-05",
         "branch": "dealer-channel",
         "required_when": "selected_branch includes dealer-channel",
@@ -921,7 +925,7 @@ Before substantive teaching, actually retrieve every required reading unit for t
           "scope": "定义、工程机械行、表头、期间标签和脚注",
           "purpose": "重建同版金额存量流量"
         },
-        "supports": "工程机械固定4月修订/5月初值四表；美元百万、季调、未作价格调整。与CAT公司渠道范围不对账。",
+        "supports": "工程机械固定4月修订/5月初值四表；USD M 、季调、未作价格调整. 与CAT公司渠道范围不对账.",
         "version": "Released 2026-07-02 10:00 AM EDT; CB 26-104 M3-2 (26)-05",
         "id": "EI09-READ-01",
         "title": "Manufacturers’ Shipments, Inventories, and Orders — May 2026 Full Report",
@@ -939,8 +943,8 @@ Before substantive teaching, actually retrieve every required reading unit for t
         },
         "required_unit": {
           "locator": "Estimation, PDF pp.2–3; Seasonal Adjustment Methodology, pp.3–4",
-          "scope": "新订单总体估计与季调新订单的构造关系；取消/修改影响的定义。",
-          "purpose": "解释工程机械表中381桥为何是统计定义重建，而不是三个独立观测的外部验证。"
+          "scope": "新订单总体估计与季调新订单的构造关系；取消/修改影响的定义.",
+          "purpose": "解释工程机械表中381桥为何是统计定义重建，而不是三个独立观测的外部验证."
         },
         "supports": "M3 new-orders construction and seasonal-adjustment identity only.",
         "id": "EI09-READ-02",
@@ -974,7 +978,7 @@ Before substantive teaching, actually retrieve every required reading unit for t
           "scope": "March2025对应完整模型和经验单元，含相关图表、变量、信息条件",
           "purpose": "条件化动态网络机制而非无条件bullwhip"
         },
-        "supports": "完整信息下投入生产/交付延迟、网络位置与冲击时间形状的条件化机制；数据代理和经验检验分开。非新厂建设期，未复现IRF或不完全信息命题。",
+        "supports": "完整信息下投入生产/交付延迟、网络位置与冲击时间形状的条件化机制；数据代理和经验检验分开. 非新厂建设期，未复现IRF或不完全信息命题.",
         "version": "Cowles Foundation Discussion Paper 2436, March 2025",
         "branch": "research",
         "required_when": "selected_branch includes research",
@@ -1001,7 +1005,7 @@ Before substantive teaching, actually retrieve every required reading unit for t
           "scope": "定义、工程机械行、表头、期间标签和脚注",
           "purpose": "重建同版金额存量流量"
         },
-        "supports": "工程机械固定4月修订/5月初值四表；美元百万、季调、未作价格调整。与CAT公司渠道范围不对账。",
+        "supports": "工程机械固定4月修订/5月初值四表；USD M 、季调、未作价格调整. 与CAT公司渠道范围不对账.",
         "version": "Released 2026-07-02 10:00 AM EDT; CB 26-104 M3-2 (26)-05",
         "id": "EI09-READ-01",
         "title": "Manufacturers’ Shipments, Inventories, and Orders — May 2026 Full Report",
@@ -1019,8 +1023,8 @@ Before substantive teaching, actually retrieve every required reading unit for t
         },
         "required_unit": {
           "locator": "Estimation, PDF pp.2–3; Seasonal Adjustment Methodology, pp.3–4",
-          "scope": "新订单总体估计与季调新订单的构造关系；取消/修改影响的定义。",
-          "purpose": "解释工程机械表中381桥为何是统计定义重建，而不是三个独立观测的外部验证。"
+          "scope": "新订单总体估计与季调新订单的构造关系；取消/修改影响的定义.",
+          "purpose": "解释工程机械表中381桥为何是统计定义重建，而不是三个独立观测的外部验证."
         },
         "supports": "M3 new-orders construction and seasonal-adjustment identity only.",
         "id": "EI09-READ-02",
@@ -1054,7 +1058,7 @@ Before substantive teaching, actually retrieve every required reading unit for t
           "scope": "该标题下完整叙述及经销商段",
           "purpose": "区分厂家报告、终端设备销售与渠道库存"
         },
-        "supports": "完整具名MD&A叙述中的Q2/H1全体与CI经销商库存变动；经销商独立，库存排除售后零件。end-user equipment sales译为向最终用户销售设备，而非设备使用量。",
+        "supports": "完整具名MD&A叙述中的Q2/H1全体与CI经销商库存变动；经销商独立，库存排除售后零件. end-user equipment sales译为向最终用户销售设备，而非设备使用量.",
         "version": "Period ended 2026-06-30; filed 2026-08-05",
         "branch": "dealer-channel",
         "required_when": "selected_branch includes dealer-channel",
@@ -1086,7 +1090,7 @@ Before substantive teaching, actually retrieve every required reading unit for t
           "scope": "至下一Resource Industries标题前的完整叙述",
           "purpose": "CI的终端设备销售与库存因素"
         },
-        "supports": "完整具名MD&A叙述中的Q2/H1全体与CI经销商库存变动；经销商独立，库存排除售后零件。end-user equipment sales译为向最终用户销售设备，而非设备使用量。",
+        "supports": "完整具名MD&A叙述中的Q2/H1全体与CI经销商库存变动；经销商独立，库存排除售后零件. end-user equipment sales译为向最终用户销售设备，而非设备使用量.",
         "version": "Period ended 2026-06-30; filed 2026-08-05",
         "branch": "dealer-channel",
         "required_when": "selected_branch includes dealer-channel",
@@ -1118,7 +1122,7 @@ Before substantive teaching, actually retrieve every required reading unit for t
           "scope": "半年比较完整叙述",
           "purpose": "不把季度与半年相加"
         },
-        "supports": "完整具名MD&A叙述中的Q2/H1全体与CI经销商库存变动；经销商独立，库存排除售后零件。end-user equipment sales译为向最终用户销售设备，而非设备使用量。",
+        "supports": "完整具名MD&A叙述中的Q2/H1全体与CI经销商库存变动；经销商独立，库存排除售后零件. end-user equipment sales译为向最终用户销售设备，而非设备使用量.",
         "version": "Period ended 2026-06-30; filed 2026-08-05",
         "branch": "dealer-channel",
         "required_when": "selected_branch includes dealer-channel",
@@ -1150,7 +1154,7 @@ Before substantive teaching, actually retrieve every required reading unit for t
           "scope": "Dealer Inventories、Sales Volume、Construction Industries各完整定义",
           "purpose": "排除售后零件；销售量不是利用率"
         },
-        "supports": "完整具名MD&A叙述中的Q2/H1全体与CI经销商库存变动；经销商独立，库存排除售后零件。end-user equipment sales译为向最终用户销售设备，而非设备使用量。",
+        "supports": "完整具名MD&A叙述中的Q2/H1全体与CI经销商库存变动；经销商独立，库存排除售后零件. end-user equipment sales译为向最终用户销售设备，而非设备使用量.",
         "version": "Period ended 2026-06-30; filed 2026-08-05",
         "branch": "dealer-channel",
         "required_when": "selected_branch includes dealer-channel",
@@ -1182,7 +1186,7 @@ Before substantive teaching, actually retrieve every required reading unit for t
           "scope": "March2025对应完整模型和经验单元，含相关图表、变量、信息条件",
           "purpose": "条件化动态网络机制而非无条件bullwhip"
         },
-        "supports": "完整信息下投入生产/交付延迟、网络位置与冲击时间形状的条件化机制；数据代理和经验检验分开。非新厂建设期，未复现IRF或不完全信息命题。",
+        "supports": "完整信息下投入生产/交付延迟、网络位置与冲击时间形状的条件化机制；数据代理和经验检验分开. 非新厂建设期，未复现IRF或不完全信息命题.",
         "version": "Cowles Foundation Discussion Paper 2436, March 2025",
         "branch": "research",
         "required_when": "selected_branch includes research",
@@ -1198,11 +1202,11 @@ Before substantive teaching, actually retrieve every required reading unit for t
     ]
   },
   "branch_tasks": {
-    "common": "按固定 M3 定义重建季调 N=S+ΔB 的381桥，将制造商存货+66另列；推严格库存阈值，并用两条时间轴提出可区分的经营路径。",
-    "dealer-channel": "完成共同主线后，按 CAT 同源四个完整单元分开 Q2/H1、2025/2026、全体/CI 的经销商库存变动；解释向最终用户销售设备和库存可同时增加，不虚构终端销售金额。",
-    "research": "完成共同主线后，读 March 2025 Cowles 的指定完整模型与经验单元，说明投入生产/交付延迟、冲击形状和网络位置的条件；不转成工厂建设期或伪复现IRF。"
+    "common": "按固定 M3 定义重建季调 N=S+ΔB 的381桥，将制造商存货+66另列；推严格库存阈值，并用两条时间轴提出可区分的经营路径.",
+    "dealer-channel": "完成共同主线后，按 CAT 同源四个完整单元分开 Q2/H1、2025/2026、全体/CI 的经销商库存变动；解释向最终用户销售设备和库存可同时增加，不虚构终端销售金额.",
+    "research": "完成共同主线后，读 March 2025 Cowles 的指定完整模型与经验单元，说明投入生产/交付延迟、冲击形状和网络位置的条件；不转成工厂建设期或伪复现IRF."
   },
-  "learning_task": "按固定 M3 定义重建季调 N=S+ΔB 的381桥，将制造商存货+66另列；推严格库存阈值，并用两条时间轴提出可区分的经营路径。",
+  "learning_task": "按固定 M3 定义重建季调 N=S+ΔB 的381桥，将制造商存货+66另列；推严格库存阈值，并用两条时间轴提出可区分的经营路径.",
   "source_id_aliases": {
     "EIBC-S03": "BF-S-COST-FY2025-SEC",
     "EIBC-S07": "EI-S06-M3-202605"
@@ -1273,15 +1277,15 @@ Before substantive teaching, actually retrieve every required reading unit for t
       ]
     }
   ],
-  "statistical_identity": "季调新订单 N 由季调出货 S 与季调未完成订单期差 ΔB 构造：N=S+ΔB。因此 4,498+(11,595−11,214)=4,879 是同一发布版本的统计定义重建，不是三项独立需求观测互证；不能据此推断经济调整为零。取消和修改影响已包含在新订单估计中。制造商存货增加 66 另列。",
+  "statistical_identity": "季调新订单 N 由季调出货 S 与季调未完成订单期差 ΔB 构造：N=S+ΔB. 因此 4,498+(11,595−11,214)=4,879 是同一发布版本的统计定义重建，不是三项独立需求观测互证；不能据此推断经济调整为零. 取消和修改影响已包含在新订单估计中. 制造商存货增加 66 另列.",
   "output_field_interpretation": {
-    "m3.adjustment_residual": "沿原引擎保留的代数字段；本版为0反映统计构造核对，不估计经济调整为零。"
+    "m3.adjustment_residual": "沿原引擎保留的代数字段；本版为0反映统计构造核对，不估计经济调整为零."
   }
 }
 ```
 
 ## Supplied entry
-> 建议学习时间：18–20 分钟，包含行业原表重建、一次库存调整实验和一道迁移题。CAT 渠道比较与现代研究为可分别展开的选读；共同主线不要求先读完整投入产出方法。
+> 建议学习时间：18–20 分钟，包含行业原表重建、一次库存调整实验和一道迁移题. CAT 渠道比较与现代研究为可分别展开的选读；共同主线不要求先读完整投入产出方法.
 
 <div data-reading-branch-controls aria-label="选择阅读分支">
 <button type="button" data-select-reading-branch="common">共同主线</button>
@@ -1294,7 +1298,7 @@ Before substantive teaching, actually retrieve every required reading unit for t
 
 ## 一、行业里并不只有一只时钟
 
-订单、出货和库存经常一起出现在行业图表上，但它们记录的不是同一步。客户下单后，企业可能需要采购零件、安排生产，再发货；货到经销商手中，也未必已经卖给最终用户。与此同时，企业可能正在为几年后的需求建设工厂。短期订单波动与长期供给形成因而可以重叠。
+订单、出货和库存经常一起出现在行业图表上，但它们记录的不是同一步. 客户下单后，企业可能需要采购零件、安排生产，再发货；货到经销商手中，也未必已经卖给最终用户. 与此同时，企业可能正在为几年后的需求建设工厂. 短期订单波动与长期供给形成因而可以重叠.
 
 我们先把两条时间轴并排放好：
 
@@ -1308,16 +1312,16 @@ Before substantive teaching, actually retrieve every required reading unit for t
        └──────── 可在当期销售尚未完成时提前启动 ────────────────┘
 ```
 
-第一条描述现有生产和交易如何展开，第二条描述新能力如何形成。[进入、退出与产业资本投入](https://ou-liu-red-sugar.github.io/zh/notebook/entry-exit-capital-formation/)中的建设期属于第二条。供应商需要两个月交付零件，不意味着新厂也能在两个月内建成；反过来，新厂需要三年，也不意味着所有已接订单都要等三年。
+第一条描述现有生产和交易如何展开，第二条描述新能力如何形成. [进入、退出与产业资本投入](https://ou-liu-red-sugar.github.io/zh/notebook/entry-exit-capital-formation/)中的建设期属于第二条. 供应商需要两个月交付零件，不意味着新厂也能在两个月内建成；反过来，新厂需要三年，也不意味着所有已接订单都要等三年.
 
-把所谓“周期”放回这些关系，分析任务就明确了：哪些余额正在积累，哪些流量正在变化，是什么规则或约束把它们连起来，接下来应该观察哪一步。
+把所谓“周期”放回这些关系，分析任务就明确了：哪些余额正在积累，哪些流量正在变化，是什么规则或约束把它们连起来，接下来应该观察哪一步.
 
 <a id="ei09-m3"></a>
 <a id="CASE-EI09-M3-CONSTRUCTION-MACHINERY-202605"></a>
 
 ## 二、先读四张表，再连订单与交付
 
-Census M3 制造业报告分别公布出货、新订单、未完成订单和存货。出货是期间流量；未完成订单和存货是期末余额。表中的“新订单”也以期间金额呈现，但这里还要多读一步统计方法：Census 并不是把它当作与另三项完全独立估计的序列。这里选固定的2026年5月完整发布版，于2026年7月2日发布；表中5月为初值，4月为该版本的修订值。以下重排保留工程机械行，单位为**百万美元、季节调整后、未作价格调整**。[^m3]
+Census M3 制造业报告分别公布出货、新订单、未完成订单和存货. 出货是期间流量；未完成订单和存货是期末余额. 表中的“新订单”也以期间金额呈现，但这里还要多读一步统计方法：Census 并不是把它当作与另三项完全独立估计的序列. 这里选固定的2026年5月完整发布版，于2026年7月2日发布；表中5月为初值，4月为该版本的修订值. 以下重排保留工程机械行，单位为** M 美元、季节调整后、未作价格调整**. [^m3]
 
 | 原表与记录对象 | 2026年4月，修订值 | 2026年5月，初值 | 读数时必须保留的身份 |
 |---|---:|---:|---|
@@ -1326,7 +1330,7 @@ Census M3 制造业报告分别公布出货、新订单、未完成订单和存�
 | Table3，未完成订单 | 11,214 | 11,595 | 月末待交付订单余额 |
 | Table4，存货 | 10,593 | 10,659 | 月末制造商存货金额 |
 
-这四张表先提供生产过程的不同观察点。订单显示新增加的待履约需求，出货显示本月离开厂家交付环节的金额，未完成订单是剩余任务的余额；存货则是生产与销售过程中仍由相关主体持有的资源金额，它并不只包含已完成、可立即出售的设备。
+这四张表先提供生产过程的不同观察点. 订单显示新增加的待履约需求，出货显示本月离开厂家交付环节的金额，未完成订单是剩余任务的余额；存货则是生产与销售过程中仍由相关主体持有的资源金额，它并不只包含已完成、可立即出售的设备.
 
 令 $B_t$ 为未完成订单，$N_t$ 为新订单净额，$S_t$ 为出货，$A_t$ 汇集范围、计量和修订调整，则一般的金额桥为：
 
@@ -1334,31 +1338,31 @@ $$
 B_t=B_{t-1}+N_t-S_t+A_t.
 $$
 
-这个式子先是在同一对象与口径下整理存量和流量，不是一个行为模型。对一般企业订单台账，$A_t$ 可以保留范围、计量和修订等调整。
+这个式子先是在同一对象与口径下整理存量和流量，不是一个行为模型. 对一般企业订单台账，$A_t$ 可以保留范围、计量和修订等调整.
 
-但**这份 Census M3 发布表还有一个统计构造关系**。官方 Methodology 的 Estimation 单元说明，总体新订单估计由“当月出货 + 本月与上月未完成订单之差”构造；Seasonal Adjustment Methodology 又规定，季调新订单由季调出货和季调未完成订单的期差构造。新订单估计本身也已经包含先前订单取消和修改的影响。[^m3method]
+但**这份 Census M3 发布表还有一个统计构造关系**. 官方 Methodology 的 Estimation 单元说明，总体新订单估计由“当月出货 + 本月与上月未完成订单之差”构造；Seasonal Adjustment Methodology 又规定，季调新订单由季调出货和季调未完成订单的期差构造. 新订单估计本身也已经包含先前订单取消和修改的影响. [^m3method]
 
 因此5月表中的
 $N_t-S_t=4879-4498=381$
 与
 $B_t-B_{t-1}=11595-11214=381$
-相等，首先是这套数据产品定义与季调构造的结果。这里的重建任务是在核对**同一发布版本、同一行业行、同一单位和同一统计定义**，而不是用三份独立观测相互验证需求变化。也不能因为本月等式精确成立，就推断真实经济过程中不存在取消、修改、错期或其他调整；这些经济变化可以已经进入 Census 对新订单的定义与估计。
+相等，首先是这套数据产品定义与季调构造的结果. 这里的重建任务是在核对**同一发布版本、同一行业行、同一单位和同一统计定义**，而不是用三份独立观测相互验证需求变化. 也不能因为本月等式精确成立，就推断真实经济过程中不存在取消、修改、错期或其他调整；这些经济变化可以已经进入 Census 对新订单的定义与估计.
 
-再看幅度，新订单环比约3.06295%，出货约1.67269%，未完成订单约3.39754%，存货约0.62305%。四条公布序列都在增长，但不能把“orders 与 backlog 同时上升”当成两份独立需求证据：在 M3 中两者通过上述统计构造相连。可以独立另看的，是制造商存货从10,593增加到10,659，即 **+66**；它属于资源余额，需要再看原材料、在制品、成品和估价因素，才能解释增加发生在哪一环。
+再看幅度，新订单环比约3.06295%，出货约1.67269%，未完成订单约3.39754%，存货约0.62305%. 四条公布序列都在增长，但不能把“orders 与 backlog 同时上升”当成两份独立需求证据：在 M3 中两者通过上述统计构造相连. 可以独立另看的，是制造商存货从10,593增加到10,659，即 **+66**；它属于资源余额，需要再看原材料、在制品、成品和估价因素，才能解释增加发生在哪一环.
 
 还可以计算期末存货与当月出货金额之比：
-$10659/4498=2.369720$。
-若把月度出货写成每月金额流率，这个量具有“月”的量纲；但估价、产品组合和库存组成都可能不同，不能直接当作设备还要等2.37个月才交付。这里的用途是规范读数：**相除得到的量纲，并不会自动替我们建立一条交付时间模型。**
+$10659/4498=2.369720$.
+若把月度出货写成每月金额流率，这个量具有“月”的量纲；但估价、产品组合和库存组成都可能不同，不能直接当作设备还要等2.37个月才交付. 这里的用途是规范读数：**相除得到的量纲，并不会自动替我们建立一条交付时间模型.**
 
 <a id="ei09-path"></a>
 
 ## 三、让一种解释给出下一步可观察结果
 
-假设订单突然上升而厂家交付调整较慢。原有出货暂时跟不上，未完成订单先增加；企业可能增加排产和采购，原材料或在制品随后增加。这是一条“需求先变、交付后跟”的路径。它预期我们会看到交期延长、产出响应或资源投入增加。
+假设订单突然上升而厂家交付调整较慢. 原有出货暂时跟不上，未完成订单先增加；企业可能增加排产和采购，原材料或在制品随后增加. 这是一条“需求先变、交付后跟”的路径. 它预期我们会看到交期延长、产出响应或资源投入增加.
 
-另一条路径是特定投入交付受阻。厂家可能继续接单，出货受限，未完成订单也会上升；部分不能配齐的在制品积累，甚至在总存货增加时仍缺少关键零件。这条解释更需要投入到货、缺件和生产瓶颈资料。两条路径可以产生相似的四表方向，却要求不同的新证据。
+另一条路径是特定投入交付受阻. 厂家可能继续接单，出货受限，未完成订单也会上升；部分不能配齐的在制品积累，甚至在总存货增加时仍缺少关键零件. 这条解释更需要投入到货、缺件和生产瓶颈资料. 两条路径可以产生相似的四表方向，却要求不同的新证据.
 
-“库存高”也要相对于目标来解释。我们用一个明示的教学假设隔离调整速度：目标库存 $I^*$ 固定，超额库存为 $E_t=I_t-I^*\ge0$；每期净消化超额库存的比例为 $\lambda$，没有新的需求冲击、估值变化或目标变化。于是
+“库存高”也要相对于目标来解释. 我们用一个明示的教学假设隔离调整速度：目标库存 $I^*$ 固定，超额库存为 $E_t=I_t-I^*\ge0$；每期净消化超额库存的比例为 $\lambda$，没有新的需求冲击、估值变化或目标变化. 于是
 
 $$
 E_{t+1}=E_t-\lambda E_t=(1-\lambda)E_t,
@@ -1366,16 +1370,16 @@ E_{t+1}=E_t-\lambda E_t=(1-\lambda)E_t,
 E_t=E_0(1-\lambda)^t.
 $$
 
-取 $E_0=100,\lambda=0.05$。这些数是教学指数单位，未用M3估计。第6期约73.50919，第7期约69.83373，所以首次严格低于70发生在第7期。
+取 $E_0=100,\lambda=0.05$. 这些数是教学指数单位，未用M3估计. 第6期约73.50919，第7期约69.83373，所以首次严格低于70发生在第7期.
 
 一般地，对 $0<\lambda<1$、$0<h\le E_0$，严格条件 $E_t<h$ 给出
-$t>\log(h/E_0)/\log(1-\lambda)$。因此第一个满足条件的整数期为
+$t>\log(h/E_0)/\log(1-\lambda)$. 因此第一个满足条件的整数期为
 
 $$
 n=\left\lfloor\frac{\log(h/E_0)}{\log(1-\lambda)}\right\rfloor+1.
 $$
 
-等号必须检查。例如 $\lambda=0.5,h=25,E_0=100$ 时，第2期恰为25，还没有严格低于阈值，答案是第3期。若 $\lambda=0$，余额一直为100，在本例合法阈值范围内永不越过。这个路径是单调调整，不产生往复波动；它解释消化需要多久，而不是发现“每七期必有一次库存周期”。
+等号必须检查. 例如 $\lambda=0.5,h=25,E_0=100$ 时，第2期恰为25，还没有严格低于阈值，答案是第3期. 若 $\lambda=0$，余额一直为100，在本例合法阈值范围内永不越过. 这个路径是单调调整，不产生往复波动；它解释消化需要多久，而不是发现“每七期必有一次库存周期”.
 
 | 教学设置 | 临界前一期 | 下一期 | 首次严格低于阈值 |
 |---|---|---|---|
@@ -1389,9 +1393,9 @@ $$
 
 <div data-experiment-slot="exp-ei09-clocks"></div>
 
-先按 Census 的统计定义重建381桥，并把制造商存货+66另列，再切到教学路径，改变消化比例或阈值。改变 $\lambda$ 只影响教学路径，不修改Census数据；它也不修改新厂建设期或供应商交期。比较这三种时长时，先说被延迟或被调整的对象，再比较数字。
+先按 Census 的统计定义重建381桥，并把制造商存货+66另列，再切到教学路径，改变消化比例或阈值. 改变 $\lambda$ 只影响教学路径，不修改Census数据；它也不修改新厂建设期或供应商交期. 比较这三种时长时，先说被延迟或被调整的对象，再比较数字.
 
-在图上，观察点和解释层也各有职责。两个月同向变化可以作为进一步研究的起点，却不能产生一个可靠的历史周期长度。要检验周期与结构变化，通常要加入更长的同口径序列和业务变化证据；本篇不凭两个点补出一条历史曲线。
+图上的观察点和解释层各有职责. 两个月同向变化可以作为进一步研究的起点，但可靠的历史周期长度需要更长的同口径序列和业务变化证据. 当前两点只能说明这段时间的共同变化，不能识别一条历史周期曲线.
 
 <section data-reading-branch="dealer-channel">
 <a id="ei09-dealer"></a>
@@ -1399,18 +1403,18 @@ $$
 <details>
 <summary>比较分支：Caterpillar 的独立经销商，库存由谁持有？</summary>
 
-M3给行业层的厂家观察。Caterpillar Q2 2026 10-Q 的具名MD&A单元，另提供了独立经销渠道的一层。公司词汇表把 Dealer Inventories 定义为经销商的机器和发动机库存，**排除售后零件**。因此它不是Caterpillar合并报表的全部存货，也不是整个工程机械行业的库存。[^cat]
+M3给行业层的厂家观察. Caterpillar Q2 2026 10-Q 的具名MD&A单元，另提供了独立经销渠道的一层. 公司词汇表把 Dealer Inventories 定义为经销商的机器和发动机库存，**排除售后零件**. 因此它不是Caterpillar合并报表的全部存货，也不是整个工程机械行业的库存. [^cat]
 
-| Dealer Inventories期间变动，十亿美元 | 2025年同期 | 2026年当期 | 覆盖 |
+| Dealer Inventories期间变动， B 美元 | 2025年同期 | 2026年当期 | 覆盖 |
 |---|---:|---:|---|
 | 第二季度 | +0.1 | +0.6 | 全体 |
 | 第二季度 | −0.3 | +0.4 | Construction Industries |
 | 上半年 | +0.2 | +2.6 | 全体 |
 | 上半年 | −0.4 | +1.9 | Construction Industries |
 
-先按“窗口”和“范围”读表：上半年包含第二季度，不能再相加；CI在全体范围内，不能与全体相加；四个数字都是期间变动，不是期末库存余额。
+先按“窗口”和“范围”读表：上半年包含第二季度，不能再相加；CI在全体范围内，不能与全体相加；四个数字都是期间变动，不是期末库存余额.
 
-同一Q2单元说，销售量增长主要由**向最终用户销售设备增加**驱动，CI北美叙述还同时提到经销商库存变化的影响。这里的 end-user equipment sales 是售出设备，不是设备使用小时、开工率或作业量。公司对 Sales Volume 的术语定义还包含新品引入的销售影响，不能只看中文“量”字就把所有桥项都当设备台数。[^cat]
+同一Q2单元说，销售量增长主要由**向最终用户销售设备增加**驱动，CI北美叙述还同时提到经销商库存变化的影响. 这里的 end-user equipment sales 是售出设备，不是设备使用小时、开工率或作业量. 公司对 Sales Volume 的术语定义还包含新品引入的销售影响，不能只看中文“量”字就把所有桥项都当设备台数. [^cat]
 
 把经营过程画出来：
 
@@ -1426,11 +1430,11 @@ M3给行业层的厂家观察。Caterpillar Q2 2026 10-Q 的具名MD&A单元，�
 
 在相同单位、估价和范围都能对齐的抽象渠道中，可以写
 $I_t^d=I_{t-1}^d+X_t-R_t+J_t$，
-其中 $X_t$ 为流入经销商的货、$R_t$ 为流出、$J_t$ 为调整项。这解释了为什么终端销售增加时，库存仍可能增加：流入增加得更多即可。但已采用MD&A没有给足该桥的所有可比金额，不能用制造商总收入减库存变动去反推终端销售。
+其中 $X_t$ 为流入经销商的货、$R_t$ 为流出、$J_t$ 为调整项. 这解释了为什么终端销售增加时，库存仍可能增加：流入增加得更多即可. 但已采用MD&A没有给足该桥的所有可比金额，不能用制造商总收入减库存变动去反推终端销售.
 
-管理层说明，经销商独立，其库存选择可能受需求预期、季节性、机器租赁和交货时间影响；交货时间又与工厂、配送中心的产品可得性有关。这是公司提供的可能机制，不是本篇对各因素贡献的估计。[^cat]
+管理层说明，经销商独立，其库存选择可能受需求预期、季节性、机器租赁和交货时间影响；交货时间又与工厂、配送中心的产品可得性有关. 这是公司提供的可能机制，不是本篇对各因素贡献的估计. [^cat]
 
-**分支任务。** 请把Q2的+0.4和H1的+1.9分别放到CI经销商范围下，再用一句话解释“终端设备销售增加且渠道库存增加”为何可以同时成立。合格答案必须保留主体、期间和库存变化身份；不需要也不允许虚构终端销售金额。
+**分支任务.** 请把Q2的+0.4和H1的+1.9分别放到CI经销商范围下，再用一句话解释“终端设备销售增加且渠道库存增加”为何可以同时成立. 合格答案必须保留主体、期间和库存变化身份；不需要也不允许虚构终端销售金额.
 
 </details>
 </section>
@@ -1440,13 +1444,13 @@ $I_t^d=I_{t-1}^d+X_t-R_t+J_t$，
 <details>
 <summary>研究分支：为什么有些冲击会向上游放大？</summary>
 
-Leng、Liu、Ren、Tsyvinski 的 Cowles Discussion Paper 2436，本文固定2025年3月版。它把 time-to-build 放在**供应商与使用者之间的特定投入生产／交付**上，而不是新厂投资至投运的资本建设期。模型中企业要提前安排投入，需求冲击的未来形状因此会影响今天的上游反应。[^bullwhip]
+Leng、Liu、Ren、Tsyvinski 的 Cowles Discussion Paper 2436，本文固定2025年3月版. 它把 time-to-build 放在**供应商与使用者之间的特定投入生产／交付**上，而不是新厂投资至投运的资本建设期. 模型中企业要提前安排投入，需求冲击的未来形状因此会影响今天的上游反应. [^bullwhip]
 
-一种信号出现后立即逐步消退，另一种则先上升再回落；即使当前幅度相似，对未来交付时点的需求也不同。企业在同一信息条件下会作出不同投入安排。论文完整信息单元分别处理单调型与驼峰型冲击，并分析网络位置与投入滞后如何共同作用。因此，“越上游必然放大”不是无条件定律。
+一种信号出现后立即逐步消退，另一种则先上升再回落；即使当前幅度相似，对未来交付时点的需求也不同. 企业在同一信息条件下会作出不同投入安排. 论文完整信息单元分别处理单调型与驼峰型冲击，并分析网络位置与投入滞后如何共同作用. 因此，“越上游必然放大”不是无条件定律.
 
-经验单元使用工业生产资料、投入产出联系与M3订单积压相关代理，并区分冲击的时间形状。订单积压／出货的金额比在指定条件下可以帮助近似订单到收货的时间，却不能直接改名为工厂建设年限。本文只采用这些设定和有条件的机制；没有重估论文，没有使用未读的不完全信息命题或定量方差分解。[^bullwhip]
+经验单元使用工业生产资料、投入产出联系与M3订单积压相关代理，并区分冲击的时间形状. 订单积压／出货的金额比在指定条件下可以帮助近似订单到收货的时间，却不能直接改名为工厂建设年限. 论文中的冲击形状与网络机制用于解释路径，M3工程机械案例仍是独立的存量—流量教学案例.[^bullwhip]
 
-**研究迁移题。** 某设备行业出现订单积压，能否因为本篇也用了M3，就宣称它复现了论文的一条已估计供应链？不能。还要匹配行业、网络联系、代理构造、样本期间和冲击识别。本篇五月工程机械表只是一个独立的存量—流量教学案例。
+**研究迁移题.** 某设备行业出现订单积压，能否因为本篇也用了M3，就宣称它复现了论文的一条已估计供应链？不能. 还要匹配行业、网络联系、代理构造、样本期间和冲击识别. 本篇五月工程机械表只是一个独立的存量—流量教学案例.
 
 </details>
 </section>
@@ -1455,24 +1459,24 @@ Leng、Liu、Ren、Tsyvinski 的 Cowles Discussion Paper 2436，本文固定2025
 
 ## 五、把“周期判断”写成可检验的路径
 
-**任务一：按统计定义重建订单桥。** 用原表和 M3 Methodology 解释为什么5月会有 $4879-4498=11595-11214=381$，并指出“制造商存货也多66”应放在哪里。
+**任务一：按统计定义重建订单桥.** 用原表和 M3 Methodology 解释为什么5月会有 $4879-4498=11595-11214=381$，并指出“制造商存货也多66”应放在哪里.
 
-**解析。** M3 的季调新订单就是由季调出货与季调未完成订单的月度变化构造，因此 $4498+(11595-11214)=4879$ 是这一统计定义的重建，不是三项独立需求观测恰好互相印证。取消和修改的影响已经包含在新订单估计里，也不能从等式成立反推经济调整为零。制造商存货余额另由 $10659-10593=66$ 给出，它不进入新订单的构造桥；若要解释这66，需要采购、生产、出货、库存阶段和估价等资料。
+**解析.** M3 的季调新订单就是由季调出货与季调未完成订单的月度变化构造，因此 $4498+(11595-11214)=4879$ 是这一统计定义的重建，不是三项独立需求观测恰好互相印证. 取消和修改的影响已经包含在新订单估计里，也不能从等式成立反推经济调整为零. 制造商存货余额另由 $10659-10593=66$ 给出，它不进入新订单的构造桥；若要解释这66，需要采购、生产、出货、库存阶段和估价等资料.
 
-**任务二：阈值为何必须严格？** 保持 $E_0=100$，令 $\lambda=0.5$。当阈值是25时，给出最早满足“低于”与“不高于”的时期。
+**任务二：阈值为何必须严格？** 保持 $E_0=100$，令 $\lambda=0.5$. 当阈值是25时，给出最早满足“低于”与“不高于”的时期.
 
-**解析。** 序列为100、50、25、12.5。“不高于25”在第2期成立，“低于25”要到第3期。必须先读题目比较符号，再处理整数时期；舍入后的图上标签相等，也不能代替原式比较。
+**解析.** 序列为100、50、25、12.5. “不高于25”在第2期成立，“低于25”要到第3期. 必须先读题目比较符号，再处理整数时期；舍入后的图上标签相等，也不能代替原式比较.
 
-**迁移题。** 同一口径材料显示：新订单下降，出货暂时持平，经销商库存偏高，新厂仍在建设。请提出“去库调整”和“长期需求转弱”两条路径，并分别选择下一项最有区分力的证据。
+**迁移题.** 同一口径材料显示：新订单下降，出货暂时持平，经销商库存偏高，新厂仍在建设. 请提出“去库调整”和“长期需求转弱”两条路径，并分别选择下一项最有区分力的证据.
 
-**解析。** 去库路径可以是渠道主动减少向厂商订货，但仍利用现有库存满足较稳定的终端设备销售；厂家暂时交付原有积压订单，所以出货滞后于新订单。应检查同批终端销售、渠道补货与库存消化是否随后恢复。长期需求转弱则预期终端购买、客户投资计划或订单取消持续恶化，原有积压耗尽后厂家出货也承压；应检查这些更接近客户用途的资料。新厂建设是早先投资决定的延续，不能用“仍在建设”替代当前需求证据。两条路径还可能叠加，后续判断要允许修正。
+**解析.** 去库路径可以是渠道主动减少向厂商订货，但仍利用现有库存满足较稳定的终端设备销售；厂家暂时交付原有积压订单，所以出货滞后于新订单. 应检查同批终端销售、渠道补货与库存消化是否随后恢复. 长期需求转弱则预期终端购买、客户投资计划或订单取消持续恶化，原有积压耗尽后厂家出货也承压；应检查这些更接近客户用途的资料. 新厂建设是早先投资决定的延续，不能用“仍在建设”替代当前需求证据. 两条路径还可能叠加，后续判断要允许修正.
 
-本篇没有给某个行业规定固定的循环年数，而是把任务、资源、交易和资本能力放回各自过程。下一步研究产业联系时，就可以把每条上下游边与它的交期、可替代性和证据放在一起，而不只画一张静态公司名单。
+本篇没有给某个行业规定固定的循环年数，而是把任务、资源、交易和资本能力放回各自过程. 下一步研究产业联系时，就可以把每条上下游边与它的交期、可替代性和证据放在一起，而不只画一张静态公司名单.
 
-[^m3]: EI-S06-M3-202605，Census《Manufacturers’ Shipments, Inventories, and Orders — May 2026 Full Report》，2026-07-02 10:00 AM EDT，CB 26-104 M3-2 (26)-05。PDF p.3定义、pp.6–9 Tables1–4工程机械行、表头及表注；May preliminary / April revised。[固定原件](https://www.census.gov/manufacturing/m3/historical_data/pressreleases/prel/2026/may26prel.pdf)。这里保留同版公布值，不作当前实时更新。
-[^m3method]: EIBC-S07M，U.S. Census Bureau，《Methodology for Manufacturers’ Shipments, Inventories, and Orders》。采用 Estimation（PDF pp.2–3）中“new orders = shipments + change in unfilled orders”的估计定义，以及 Seasonal Adjustment Methodology（pp.3–4）中季调新订单的同样构造；原文还说明新订单包含既有订单取消和修改的影响。[官方方法 PDF](https://www.census.gov/manufacturing/m3/Web_Methodology.pdf)。
-[^cat]: EIBC-S08，Caterpillar Q2 2026 10-Q，period 2026-06-30；完整采用单元为 Q2 Consolidated Sales and Revenues、Q2 Construction Industries、H1 Consolidated Sales and Revenues，以及MD&A Glossary的Dealer Inventories、Sales Volume、Construction Industries。原件文本导出对应行6628–6642、7268–7280、7346–7357、8046–8123，行号仅为保存文本定位，公共阅读以具名标题为准。独立记录：`CASE-EI09-CAT-Q2H1-2026`。本例依据这些MD&A叙述，不引用Retail Sales Statistics中的零售统计。[SEC原件](https://www.sec.gov/Archives/edgar/data/18230/000001823026000046/cat-20260630.htm)。
-[^bullwhip]: EIBC-S09，Leng、Liu、Ren、Tsyvinski，《The Bullwhip: Time-to-Build and Sectoral Fluctuations》，Cowles DP2436，March 2025。采用§§2.1–2.2、3.1–3.2.1、4.1、4.3；模型、经验代理与检验范围分别按原文，不采用§3.3和§4.4结论。[所用版本](https://cowles.yale.edu/sites/default/files/2025-04/d2436.pdf)。
+[^m3]: EI-S06-M3-202605，Census《Manufacturers’ Shipments, Inventories, and Orders — May 2026 Full Report》，2026-07-02 10:00 AM EDT，CB 26-104 M3-2 (26)-05. PDF p.3定义、pp.6–9 Tables1–4工程机械行、表头及表注；May preliminary / April revised. [固定原件](https://www.census.gov/manufacturing/m3/historical_data/pressreleases/prel/2026/may26prel.pdf). 这里保留同版公布值，不作当前实时更新.
+[^m3method]: EIBC-S07M，U.S. Census Bureau，《Methodology for Manufacturers’ Shipments, Inventories, and Orders》. 采用 Estimation（PDF pp.2–3）中“new orders = shipments + change in unfilled orders”的估计定义，以及 Seasonal Adjustment Methodology（pp.3–4）中季调新订单的同样构造；原文还说明新订单包含既有订单取消和修改的影响. [官方方法 PDF](https://www.census.gov/manufacturing/m3/Web_Methodology.pdf).
+[^cat]: EIBC-S08，Caterpillar Q2 2026 10-Q，period 2026-06-30；完整采用单元为 Q2 Consolidated Sales and Revenues、Q2 Construction Industries、H1 Consolidated Sales and Revenues，以及MD&A Glossary的Dealer Inventories、Sales Volume、Construction Industries. 原件文本导出对应行6628–6642、7268–7280、7346–7357、8046–8123，行号仅为保存文本定位，公共阅读以具名标题为准. 独立记录：`CASE-EI09-CAT-Q2H1-2026`. 本例依据这些MD&A叙述，不引用Retail Sales Statistics中的零售统计. [SEC原件](https://www.sec.gov/Archives/edgar/data/18230/000001823026000046/cat-20260630.htm).
+[^bullwhip]: EIBC-S09，Leng、Liu、Ren、Tsyvinski，《The Bullwhip: Time-to-Build and Sectoral Fluctuations》，Cowles DP2436，March 2025. 采用§§2.1–2.2、3.1–3.2.1、4.1、4.3；模型、经验代理与检验范围分别按原文，不采用§3.3和§4.4结论. [所用版本](https://cowles.yale.edu/sites/default/files/2025-04/d2436.pdf).
 
 <script src="/notebook/labs/ei-b/reader-adapter.js" defer></script>
 
@@ -1481,31 +1485,31 @@ Leng、Liu、Ren、Tsyvinski 的 Cowles Discussion Paper 2436，本文固定2025
 ### 本篇实验静态等价与计算说明
 
 Census工程机械固定版：
-April revised / May preliminary，USD million，SA、未价格调整。
-订单4734/4879；出货4424/4498；未交订单11214/11595；存货10593/10659。
-一般桥B_t=B_(t-1)+N_t−S_t+A_t，净新订单不再扣取消。
-May：4879−4498=381=11595−11214。按 Census M3 Methodology，这一相等来自季调新订单由季调出货与季调未完成订单期差构造；它是统计定义重建，不是三项独立观测互证。制造商存货变化 10659−10593=66 另列。
-存货/月出货10659/4498=2.3697198755，不自动是实际交期。
+April revised / May preliminary，USD M，SA、未价格调整.
+订单4734/4879；出货4424/4498；未交订单11214/11595；存货10593/10659.
+一般桥B_t=B_(t-1)+N_t−S_t+A_t，净新订单不再扣取消.
+May：4879−4498=381=11595−11214. 按 Census M3 Methodology，这一相等来自季调新订单由季调出货与季调未完成订单期差构造；它是统计定义重建，不是三项独立观测互证. 制造商存货变化 10659−10593=66 另列.
+存货/月出货10659/4498=2.3697198755，不自动是实际交期.
 
-教学路径E0=100；m为0..100整数，λ=m/200；阈值h为1..100整数。
-默认m10,h70 -> λ.05；n6=73.5091890625；n7=69.833729609375；首次严格低于n7。
-m100,h25 -> λ.5；n2=25（未满足），n3=12.5（满足）。
-m0时始终100，合法阈值内never。
+教学路径E0=100；m为0..100整数，λ=m/200；阈值h为1..100整数.
+默认m10,h70 -> λ.05；n6=73.5091890625；n7=69.833729609375；首次严格低于n7.
+m100,h25 -> λ.5；n2=25（未满足），n3=12.5（满足）.
+m0时始终100，合法阈值内never.
 
 算法先从log求候选n，再用精确整数不等式
-100*(200-m)^n < h*200^n校验；若不满足向上调，若前一期已满足向下调。
-显示值使用浮点，仅用于显示，不参与等号决策。
-图横轴整数期数，纵轴教学指数；不把消化速度λ、供应商交期、建设期合并。
+100*(200-m)^n < h*200^n校验；若不满足向上调，若前一期已满足向下调.
+显示值使用浮点，仅用于显示，不参与等号决策.
+图横轴整数期数，纵轴教学指数；不把消化速度λ、供应商交期、建设期合并.
 
 CAT可选静态卡（USD bn期间变化）：
 Q2全体2025+.1/2026+.6；Q2CI−.3/+.4；
-H1全体+.2/+2.6；H1CI−.4/+1.9。
-H1包含Q2，CI属于全体，不能跨层加总。
-库存排除售后零件；end-user equipment sales是终端设备销售，不是利用率。
-缺完整可比金额桥，不计算“厂家收入−经销库存变化=终端销售”。
+H1全体+.2/+2.6；H1CI−.4/+1.9.
+H1包含Q2，CI属于全体，不能跨层加总.
+库存排除售后零件；end-user equipment sales是终端设备销售，不是利用率.
+缺完整可比金额桥，不计算“厂家收入−经销库存变化=终端销售”.
 
-两条时间轴各自有名称：经营／供应链与资本形成。
-本实验不生成或声称复现论文IRF；现代研究卡只解释指定版本的有条件机制。
+两条时间轴各自有名称：经营／供应链与资本形成.
+本实验不生成或声称复现论文IRF；现代研究卡只解释指定版本的有条件机制.
 
 
 ## Experiment inputs and static equivalents
@@ -1520,7 +1524,7 @@ H1包含Q2，CI属于全体，不能跨层加总。
       "input_version": "2026-09-21-review-v2",
       "facts": {
         "m3": {
-          "unit": "USD million",
+          "unit": "USD M",
           "adjustment": "seasonally adjusted; not price adjusted",
           "industry": "Construction machinery",
           "rows": [
@@ -1862,7 +1866,7 @@ H1包含Q2，CI属于全体，不能跨层加总。
     "static_equivalent": {
       "markdown": "https://ou-liu-red-sugar.github.io/notebook/labs/ei-b/static-equivalents.md",
       "in_entry": "ei09-experiment",
-      "text": "M3 4月/5月固定表 + 381定义性构造桥 + 制造商存货+66；另列严格阈值库存调整表。"
+      "text": "M3 4月/5月固定表 + 381定义性构造桥 + 制造商存货+66；另列严格阈值库存调整表."
     },
     "implementation_files": [
       "/notebook/labs/ei-b/inputs.json",
@@ -1873,27 +1877,27 @@ H1包含Q2，CI属于全体，不能跨层加总。
     ],
     "state": "staging_only_awaiting_Lead_UI",
     "local_url": "/notebook/labs/ei-b/interactions.html?experiment=exp-ei09-clocks",
-    "statistical_identity": "季调新订单 N 由季调出货 S 与季调未完成订单期差 ΔB 构造：N=S+ΔB。因此 4,498+(11,595−11,214)=4,879 是同一发布版本的统计定义重建，不是三项独立需求观测互证；不能据此推断经济调整为零。取消和修改影响已包含在新订单估计中。制造商存货增加 66 另列。",
+    "statistical_identity": "季调新订单 N 由季调出货 S 与季调未完成订单期差 ΔB 构造：N=S+ΔB. 因此 4,498+(11,595−11,214)=4,879 是同一发布版本的统计定义重建，不是三项独立需求观测互证；不能据此推断经济调整为零. 取消和修改影响已包含在新订单估计中. 制造商存货增加 66 另列.",
     "output_field_interpretation": {
-      "m3.adjustment_residual": "原始引擎字段名；代数差为0不能解释为经济取消/修改/调整为0。"
+      "m3.adjustment_residual": "原始引擎字段名；代数差为0不能解释为经济取消/修改/调整为0."
     }
   }
 ]
 ```
 
 ## Sources
-- [Manufacturers’ Shipments, Inventories, and Orders · May 2026 Full Report](https://www.census.gov/manufacturing/m3/historical_data/pressreleases/prel/2026/may26prel.pdf): Census 的 M3 报告把出货、新订单、未交订单和存货分开，分别描述已交付活动、期间订单流和期末余额。本文使用固定的2026年5月报告及其中4月比较列。
+- [Manufacturers’ Shipments, Inventories, and Orders · May 2026 Full Report](https://www.census.gov/manufacturing/m3/historical_data/pressreleases/prel/2026/may26prel.pdf): Census 的 M3 报告把出货、新订单、未交订单和存货分开，分别描述已交付活动、期间订单流和期末余额. 本文使用固定的2026年5月报告及其中4月比较列.
 
-新订单按净额口径使用；不能再次机械扣除取消量。未交订单与月出货之比也不是每位客户实际等待时间。
+新订单按净额口径使用；不能再次机械扣除取消量. 未交订单与月出货之比也不是每位客户实际等待时间.
 
-EI-B 本批采用：工程机械固定4月修订/5月初值四表；美元百万、季调、未作价格调整。与CAT公司渠道范围不对账。 季调新订单 N=S+ΔB 为数据产品定义，详见 EIBC-S07M；381不是三个独立需求观测的互证。
+EI-B 本批采用：工程机械固定4月修订/5月初值四表；USD M 、季调、未作价格调整. 与CAT公司渠道范围不对账. 季调新订单 N=S+ΔB 为数据产品定义，详见 EIBC-S07M；381不是三个独立需求观测的互证.
 
-本批采用：April revised / May preliminary；SA百万美元；381定义性订单桥、存货+66分开。
-- [Methodology for Manufacturers’ Shipments, Inventories, and Orders](https://www.census.gov/manufacturing/m3/Web_Methodology.pdf): Estimation和Seasonal Adjustment Methodology规定：总体/季调新订单由出货加未完成订单期差构造；新订单估计包含既有订单取消和修改影响。
+本批采用：April revised / May preliminary；SA M 美元；381定义性订单桥、存货+66分开.
+- [Methodology for Manufacturers’ Shipments, Inventories, and Orders](https://www.census.gov/manufacturing/m3/Web_Methodology.pdf): Estimation和Seasonal Adjustment Methodology规定：总体/季调新订单由出货加未完成订单期差构造；新订单估计包含既有订单取消和修改影响.
 
-本批采用：新订单由出货与未完成订单月差构造；季调亦然，含取消/修改。381是定义性桥，不是3项独立观察。
-- [Caterpillar Q2 2026 Form 10-Q — adopted MD&A units](https://www.sec.gov/Archives/edgar/data/18230/000001823026000046/cat-20260630.htm): 完整具名MD&A叙述中的Q2/H1全体与CI经销商库存变动；经销商独立，库存排除售后零件。end-user equipment sales译为向最终用户销售设备，而非设备使用量。
-- [The Bullwhip: Time-to-Build and Sectoral Fluctuations](https://cowles.yale.edu/sites/default/files/2025-04/d2436.pdf): 完整信息下投入生产/交付延迟、网络位置与冲击时间形状的条件化机制；数据代理和经验检验分开。非新厂建设期，未复现IRF或不完全信息命题。
+本批采用：新订单由出货与未完成订单月差构造；季调亦然，含取消/修改.381是定义性桥，不是3项独立观察.
+- [Caterpillar Q2 2026 Form 10-Q — adopted MD&A units](https://www.sec.gov/Archives/edgar/data/18230/000001823026000046/cat-20260630.htm): 完整具名MD&A叙述中的Q2/H1全体与CI经销商库存变动；经销商独立，库存排除售后零件. end-user equipment sales译为向最终用户销售设备，而非设备使用量.
+- [The Bullwhip: Time-to-Build and Sectoral Fluctuations](https://cowles.yale.edu/sites/default/files/2025-04/d2436.pdf): 完整信息下投入生产/交付延迟、网络位置与冲击时间形状的条件化机制；数据代理和经验检验分开. 非新厂建设期，未复现IRF或不完全信息命题.
 
 ## Content relations
 ```json
@@ -1922,7 +1926,7 @@ EI-B 本批采用：工程机械固定4月修订/5月初值四表；美元百万
     "from": "ei09-m3",
     "relation": "supported_by",
     "to": "EI-S06-M3-202605",
-    "reason": "工程机械固定4月修订/5月初值四表；美元百万、季调、未作价格调整。与CAT公司渠道范围不对账。",
+    "reason": "工程机械固定4月修订/5月初值四表；USD M 、季调、未作价格调整. 与CAT公司渠道范围不对账.",
     "locator": "PDF p.3 definitions; PDF pp.6–9 Tables 1–4; Construction machinery; headers and footnotes",
     "scope": "指定采用单元，不等于整部报告",
     "at_section": "ei09-m3"
@@ -1931,7 +1935,7 @@ EI-B 本批采用：工程机械固定4月修订/5月初值四表；美元百万
     "from": "ei09-dealer",
     "relation": "supported_by",
     "to": "EIBC-S08",
-    "reason": "完整具名MD&A叙述中的Q2/H1全体与CI经销商库存变动；经销商独立，库存排除售后零件。end-user equipment sales译为向最终用户销售设备，而非设备使用量。",
+    "reason": "完整具名MD&A叙述中的Q2/H1全体与CI经销商库存变动；经销商独立，库存排除售后零件. end-user equipment sales译为向最终用户销售设备，而非设备使用量.",
     "locator": "Q2 Consolidated Sales and Revenues (saved text 6628–6642); Q2 Construction Industries (7268–7280); H1 Consolidated Sales and Revenues (7346–7357); MD&A Glossary: Dealer Inventories / Sales Volume / Construction Industries (8046–8123)",
     "scope": "指定采用单元，不等于整部报告",
     "at_section": "ei09-dealer"
@@ -1940,7 +1944,7 @@ EI-B 本批采用：工程机械固定4月修订/5月初值四表；美元百万
     "from": "ei09-research",
     "relation": "supported_by",
     "to": "EIBC-S09",
-    "reason": "完整信息下投入生产/交付延迟、网络位置与冲击时间形状的条件化机制；数据代理和经验检验分开。非新厂建设期，未复现IRF或不完全信息命题。",
+    "reason": "完整信息下投入生产/交付延迟、网络位置与冲击时间形状的条件化机制；数据代理和经验检验分开. 非新厂建设期，未复现IRF或不完全信息命题.",
     "locator": "§§2.1–2.2; §§3.1–3.2.1; §4.1; §4.3",
     "scope": "指定采用单元，不等于整部报告",
     "at_section": "ei09-research"
@@ -1964,9 +1968,9 @@ EI-B 本批采用：工程机械固定4月修订/5月初值四表；美元百万
     "relation": "supported_by",
     "to": "EIBC-S07M",
     "at_section": "ei09-m3",
-    "reason": "季调新订单 N 由季调出货 S 与季调未完成订单期差 ΔB 构造：N=S+ΔB。因此 4,498+(11,595−11,214)=4,879 是同一发布版本的统计定义重建，不是三项独立需求观测互证；不能据此推断经济调整为零。取消和修改影响已包含在新订单估计中。制造商存货增加 66 另列。",
+    "reason": "季调新订单 N 由季调出货 S 与季调未完成订单期差 ΔB 构造：N=S+ΔB. 因此 4,498+(11,595−11,214)=4,879 是同一发布版本的统计定义重建，不是三项独立需求观测互证；不能据此推断经济调整为零. 取消和修改影响已包含在新订单估计中. 制造商存货增加 66 另列.",
     "locator": "Estimation, PDF pp.2–3; Seasonal Adjustment Methodology, PDF pp.3–4; Reliability of the Data, PDF p.4",
-    "scope": "统计构造与取消/修改身份；不证明需求因果。"
+    "scope": "统计构造与取消/修改身份；不证明需求因果."
   },
   {
     "from": "ei09-experiment",
@@ -1982,6 +1986,6 @@ EI-B 本批采用：工程机械固定4月修订/5月初值四表；美元百万
 
 ## Optional reading path
 读懂一个行业: step 7/10
-从固定M3四表和统计定义出发，区分订单桥、库存调整与资本形成。
-从库存与交付动态继续看技术采用、指标选择和完整行业路径。
+从固定M3四表和统计定义出发，区分订单桥、库存调整与资本形成.
+从库存与交付动态继续看技术采用、指标选择和完整行业路径.
 Next: [技术、创新与产业结构演变](https://ou-liu-red-sugar.github.io/zh/notebook/technology-adoption-value-capture/)

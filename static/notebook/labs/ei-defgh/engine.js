@@ -15,7 +15,7 @@ function rates(x) {
  return {annual_asset_income:asset,annual_floating_expense:floating,annual_net_before_refinance:pre,
  annual_refinance_expense:refi,first_year_refinance_expense:refi*(1-tau),
  annual_net_after_refinance:pre-refi,first_year_net_accrual:pre-refi*(1-tau),series,
- units:"million USD; annualized rates versus first-calendar-year accrual; not payment-date cash"};
+ units:"USD M; annualized rates versus first-calendar-year accrual; not payment-date cash"};
 }
 function fx(x) {
  const R=num(x.receivable,"receivable",0,1000),P=num(x.payable,"payable",0,1000);

@@ -16,7 +16,7 @@ window.BFDE_INPUTS = {
     "identity": "Historical financial-statement observations; teaching cases are separately labelled. Values are not stock valuation inputs.",
     "costco": {
       "source_id": "BF-S-COST-FY2025-PDF",
-      "unit": "USD million",
+      "unit": "USD M",
       "periods": [
         "2025-08-31",
         "2024-09-01"
@@ -172,7 +172,7 @@ window.BFDE_INPUTS = {
     },
     "salesforce": {
       "source_id": "BBC-C01",
-      "unit": "USD million",
+      "unit": "USD M",
       "periods": [
         "2026-01-31",
         "2025-01-31"
@@ -345,7 +345,7 @@ window.BFDE_INPUTS = {
     },
     "caterpillar": {
       "source_id": "BBC-C04",
-      "unit": "USD million",
+      "unit": "USD M",
       "periods": [
         "2025-12-31",
         "2024-12-31"
@@ -626,7 +626,7 @@ window.BFDE_INPUTS = {
         "third-party pharmacy",
         "other receivables"
       ],
-      "explanation_zh": "其他应收主要为对政府的应收，多与税款有关。信用卡奖励应收不是顾客刷卡货款；结算期不超过四天的顾客刷卡货款另依现金政策列示。"
+      "explanation_zh": "其他应收主要为对政府的应收，多与税款有关. 信用卡奖励应收不是顾客刷卡货款；结算期不超过四天的顾客刷卡货款另依现金政策列示."
     },
     "costco_lease_2024": {
       "operating_rou_asset": 2617,

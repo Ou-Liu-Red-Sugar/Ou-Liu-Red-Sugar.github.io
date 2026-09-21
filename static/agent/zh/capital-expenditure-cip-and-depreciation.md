@@ -1,17 +1,21 @@
 # 资本开支、在建工程与折旧
 
-从取得、付款与可用三个日期重建设备状态，再用Costco完整PP&E表核存量桥；Caterpillar出租设备作为可选对照。
+从取得、付款与可用三个日期重建设备状态，再用Costco完整PP&E表核存量桥；Caterpillar出租设备作为可选对照.
 
 Entry: zh-bf12 | Node: BF-12 | Language: zh | Editorial revision: 2026-09-21
 
 ## Teaching instructions
-你正在教 BF-12《资本开支、在建工程与折旧》，材料版本2026-09-21。学习任务：独立重建预付/在建/使用中资产/应付/折旧；核3,890−1,013=2,877并区分5,498现金。
-Agent 接口把 Costco 主线记为 retail；这只是既有教学入口的接口名，不新增正文行业分支。MIT与Costco为核心必读；Caterpillar只在读者展开可选对照后转为必读。optional只有读者启用后才变为必读。先实际打开指定公开原文单元，分页读到单元结束，必要表图核原页，记录标题/版本/位置/范围与当前用途。文献目录、工具返回标题或作者先前已读记录都不能代替本次读取；runtime_reading_log从空数组开始。读取失败先找同版本正式等价原文，仍缺则说明该单元缺口，不凭摘要补讲。
-诊断任务：{"retail": "独立重建预付/在建/使用中资产/应付/折旧；核3,890−1,013=2,877并区分5,498现金。"}。补充任务：只把付款推迟到2026-06，取得日2026-02、可用日2026-04保持不变；先写3月末和12月末哪些余额改变，再核当年折旧是否改变。
-随后沿本包完整正文、实际输入、静态实验与题解推进一个完整任务，先让读者解释或计算再反馈；已会的基础跳过。默认用Costco比较期和设备教学时钟迁移；Caterpillar只是读者展开后的可选对照，启用后再读其Note1D/Note9。通过尺度：正向状态表平衡，资源未取得时不生成CIP、不提前折旧；差额1,608不自动归因为处置。
-保持真实披露、分析计算、教学模型三种身份，参数只改变模型，不反写真实公司数据。资料不足处不要补造差额或估值。最后明确：读者已经能独立重建什么，换一份材料时还需先核哪些条件？
+你正在教 BF-12《资本开支、在建工程与折旧》，材料版本2026-09-21. 学习任务：独立重建预付/在建/使用中资产/应付/折旧；核3,890−1,013=2,877并区分5,498现金.
+Agent 接口把 Costco 主线记为 retail；这只是既有教学入口的接口名，不新增正文行业分支. MIT与Costco为核心必读；Caterpillar只在读者展开可选对照后转为必读. optional只有读者启用后才变为必读. 先实际打开指定公开原文单元，分页读到单元结束，必要表图核原页，记录标题/版本/位置/范围与当前用途. 文献目录、工具返回标题或作者先前已读记录都不能代替本次读取；runtime_reading_log从空数组开始. 读取失败先找同版本正式等价原文，仍缺则说明该单元缺口，不凭摘要补讲.
+诊断任务：{"retail": "独立重建预付/在建/使用中资产/应付/折旧；核3,890−1,013=2,877并区分5,498现金."}. 补充任务：只把付款推迟到2026-06，取得日2026-02、可用日2026-04保持不变；先写3月末和12月末哪些余额改变，再核当年折旧是否改变.
+随后沿本包完整正文、实际输入、静态实验与题解推进一个完整任务，先让读者解释或计算再反馈；已会的基础跳过. 默认用Costco比较期和设备教学时钟迁移；Caterpillar只是读者展开后的可选对照，启用后再读其Note1D/Note9. 通过尺度：正向状态表平衡，资源未取得时不生成CIP、不提前折旧；差额1,608不自动归因为处置.
+保持真实披露、分析计算、教学模型三种身份，参数只改变模型，不反写真实公司数据. 资料不足处不要补造差额或估值. 最后明确：读者已经能独立重建什么，换一份材料时还需先核哪些条件？
 
 Before substantive teaching, actually retrieve every required reading unit for the selected scope. Read its complete designated section, including necessary assumptions, tables and footnotes. A working URL or an editorial access date is not a runtime reading receipt. Record the actual version, location, scope and what it supports. If unavailable, use a previously verified equivalent source; if the required unit remains unavailable, identify that gap rather than teach it from memory. Start runtime_reading_log empty. Once reading is complete, use a substantive diagnostic or follow the reader's request for direct explanation. Advance one complete reasoning task at a time; skip mastered basics. Distinguish original facts, supplied teaching assumptions and inference.
+
+## Shared notation and writing conventions
+数学期望统一写成 \mathbb{E}，条件期望用 \mathbb{E}[X\mid\mathcal{G}]，需要时注明测度 P 或 Q. 保留局部变量的明确定义. 金额与数量使用 K=10^3、M=10^6、B=10^9；表格标明币种、量级与期间，变更量级时同步换算数值. 展示小数最多三位，计算保留原始精度. 直接解释对象、机制与推理；保留影响结论的假设和事实来源，把编辑流程留在记录中. 句末使用英文句点 .，包括定义、命题、证明和解析等标签. 基础定义与推导直接讲内容，出处放在紧邻脚注；来源读取、复审和采用范围等编辑经过留在记录中.
+[Notation and units](https://ou-liu-red-sugar.github.io/agent/zh/notation.md)
 
 ## Required readings and runtime protocol
 ```json
@@ -22,7 +26,7 @@ Before substantive teaching, actually retrieve every required reading unit for t
     "retail"
   ],
   "branch_tasks": {
-    "retail": "独立重建预付/在建/使用中资产/应付/折旧；核3,890−1,013=2,877并区分5,498现金。"
+    "retail": "独立重建预付/在建/使用中资产/应付/折旧；核3,890−1,013=2,877并区分5,498现金."
   },
   "selection_rules": {
     "common": "始终必读",
@@ -47,7 +51,7 @@ Before substantive teaching, actually retrieve every required reading unit for t
         "scope": "采用单元含制造成本路径、分摊和估计变更",
         "purpose": "分开取得、付款、可用及分摊"
       },
-      "supports": "成本、资源用途、残值、寿命和分摊。采用制造折旧可能先入库存的路径，不采用旧时代普遍性陈述或租赁政策。",
+      "supports": "成本、资源用途、残值、寿命和分摊. 采用制造折旧可能先入库存的路径，不采用旧时代普遍性陈述或租赁政策.",
       "branch": "common"
     },
     {
@@ -66,7 +70,7 @@ Before substantive teaching, actually retrieve every required reading unit for t
         "scope": "完整PPE政策/表和现金购建/补充行",
         "purpose": "重建Costco存量及现金差额"
       },
-      "supports": "完整PP&E结构、租赁五视图与经营周转部件。PP&E现金/存量和租赁费用/特定现金的边界保留，混合应收不作为客户DSO。",
+      "supports": "完整PP&E结构、租赁五视图与经营周转部件. PP&E现金/存量和租赁费用/特定现金的边界保留，混合应收不作为客户DSO.",
       "branch": "common"
     }
   ],
@@ -87,7 +91,7 @@ Before substantive teaching, actually retrieve every required reading unit for t
         "scope": "完整折旧政策与PPE表",
         "purpose": "出租设备对照"
       },
-      "supports": "制造与出租资产用途、公司历史驱动定义、报告分部到收入/税前利润的完整桥。不得把volume包含的组合效果当结构性贡献率。",
+      "supports": "制造与出租资产用途、公司历史驱动定义、报告分部到收入/税前利润的完整桥. 不得把volume包含的组合效果当结构性贡献率.",
       "branch": "cat",
       "activated_by": "cat"
     }
@@ -108,7 +112,7 @@ Before substantive teaching, actually retrieve every required reading unit for t
       "identity": "Historical financial-statement observations; teaching cases are separately labelled. Values are not stock valuation inputs.",
       "costco": {
         "source_id": "BF-S-COST-FY2025-PDF",
-        "unit": "USD million",
+        "unit": "USD M",
         "periods": [
           "2025-08-31",
           "2024-09-01"
@@ -264,7 +268,7 @@ Before substantive teaching, actually retrieve every required reading unit for t
       },
       "salesforce": {
         "source_id": "BBC-C01",
-        "unit": "USD million",
+        "unit": "USD M",
         "periods": [
           "2026-01-31",
           "2025-01-31"
@@ -437,7 +441,7 @@ Before substantive teaching, actually retrieve every required reading unit for t
       },
       "caterpillar": {
         "source_id": "BBC-C04",
-        "unit": "USD million",
+        "unit": "USD M",
         "periods": [
           "2025-12-31",
           "2024-12-31"
@@ -718,7 +722,7 @@ Before substantive teaching, actually retrieve every required reading unit for t
           "third-party pharmacy",
           "other receivables"
         ],
-        "explanation_zh": "其他应收主要为对政府的应收，多与税款有关。信用卡奖励应收不是顾客刷卡货款；结算期不超过四天的顾客刷卡货款另依现金政策列示。"
+        "explanation_zh": "其他应收主要为对政府的应收，多与税款有关. 信用卡奖励应收不是顾客刷卡货款；结算期不超过四天的顾客刷卡货款另依现金政策列示."
       },
       "costco_lease_2024": {
         "operating_rou_asset": 2617,
@@ -1880,7 +1884,7 @@ Before substantive teaching, actually retrieve every required reading unit for t
       }
     }
   },
-  "prompt": "你正在教 BF-12《资本开支、在建工程与折旧》，材料版本2026-09-21。学习任务：独立重建预付/在建/使用中资产/应付/折旧；核3,890−1,013=2,877并区分5,498现金。\nAgent 接口把 Costco 主线记为 retail；这只是既有教学入口的接口名，不新增正文行业分支。MIT与Costco为核心必读；Caterpillar只在读者展开可选对照后转为必读。optional只有读者启用后才变为必读。先实际打开指定公开原文单元，分页读到单元结束，必要表图核原页，记录标题/版本/位置/范围与当前用途。文献目录、工具返回标题或作者先前已读记录都不能代替本次读取；runtime_reading_log从空数组开始。读取失败先找同版本正式等价原文，仍缺则说明该单元缺口，不凭摘要补讲。\n诊断任务：{\"retail\": \"独立重建预付/在建/使用中资产/应付/折旧；核3,890−1,013=2,877并区分5,498现金。\"}。补充任务：只把付款推迟到2026-06，取得日2026-02、可用日2026-04保持不变；先写3月末和12月末哪些余额改变，再核当年折旧是否改变。\n随后沿本包完整正文、实际输入、静态实验与题解推进一个完整任务，先让读者解释或计算再反馈；已会的基础跳过。默认用Costco比较期和设备教学时钟迁移；Caterpillar只是读者展开后的可选对照，启用后再读其Note1D/Note9。通过尺度：正向状态表平衡，资源未取得时不生成CIP、不提前折旧；差额1,608不自动归因为处置。\n保持真实披露、分析计算、教学模型三种身份，参数只改变模型，不反写真实公司数据。资料不足处不要补造差额或估值。最后明确：读者已经能独立重建什么，换一份材料时还需先核哪些条件？",
+  "prompt": "你正在教 BF-12《资本开支、在建工程与折旧》，材料版本2026-09-21. 学习任务：独立重建预付/在建/使用中资产/应付/折旧；核3,890−1,013=2,877并区分5,498现金.\nAgent 接口把 Costco 主线记为 retail；这只是既有教学入口的接口名，不新增正文行业分支. MIT与Costco为核心必读；Caterpillar只在读者展开可选对照后转为必读. optional只有读者启用后才变为必读. 先实际打开指定公开原文单元，分页读到单元结束，必要表图核原页，记录标题/版本/位置/范围与当前用途. 文献目录、工具返回标题或作者先前已读记录都不能代替本次读取；runtime_reading_log从空数组开始. 读取失败先找同版本正式等价原文，仍缺则说明该单元缺口，不凭摘要补讲.\n诊断任务：{\"retail\": \"独立重建预付/在建/使用中资产/应付/折旧；核3,890−1,013=2,877并区分5,498现金.\"}. 补充任务：只把付款推迟到2026-06，取得日2026-02、可用日2026-04保持不变；先写3月末和12月末哪些余额改变，再核当年折旧是否改变.\n随后沿本包完整正文、实际输入、静态实验与题解推进一个完整任务，先让读者解释或计算再反馈；已会的基础跳过. 默认用Costco比较期和设备教学时钟迁移；Caterpillar只是读者展开后的可选对照，启用后再读其Note1D/Note9. 通过尺度：正向状态表平衡，资源未取得时不生成CIP、不提前折旧；差额1,608不自动归因为处置.\n保持真实披露、分析计算、教学模型三种身份，参数只改变模型，不反写真实公司数据. 资料不足处不要补造差额或估值. 最后明确：读者已经能独立重建什么，换一份材料时还需先核哪些条件？",
   "selected_branch": "retail",
   "required_readings_by_branch": {
     "retail": [
@@ -1900,7 +1904,7 @@ Before substantive teaching, actually retrieve every required reading unit for t
           "scope": "采用单元含制造成本路径、分摊和估计变更",
           "purpose": "分开取得、付款、可用及分摊"
         },
-        "supports": "成本、资源用途、残值、寿命和分摊。采用制造折旧可能先入库存的路径，不采用旧时代普遍性陈述或租赁政策。",
+        "supports": "成本、资源用途、残值、寿命和分摊. 采用制造折旧可能先入库存的路径，不采用旧时代普遍性陈述或租赁政策.",
         "branch": "common"
       },
       {
@@ -1919,7 +1923,7 @@ Before substantive teaching, actually retrieve every required reading unit for t
           "scope": "完整PPE政策/表和现金购建/补充行",
           "purpose": "重建Costco存量及现金差额"
         },
-        "supports": "完整PP&E结构、租赁五视图与经营周转部件。PP&E现金/存量和租赁费用/特定现金的边界保留，混合应收不作为客户DSO。",
+        "supports": "完整PP&E结构、租赁五视图与经营周转部件. PP&E现金/存量和租赁费用/特定现金的边界保留，混合应收不作为客户DSO.",
         "branch": "common"
       }
     ]
@@ -1941,7 +1945,7 @@ Before substantive teaching, actually retrieve every required reading unit for t
         "scope": "采用单元含制造成本路径、分摊和估计变更",
         "purpose": "分开取得、付款、可用及分摊"
       },
-      "supports": "成本、资源用途、残值、寿命和分摊。采用制造折旧可能先入库存的路径，不采用旧时代普遍性陈述或租赁政策。",
+      "supports": "成本、资源用途、残值、寿命和分摊. 采用制造折旧可能先入库存的路径，不采用旧时代普遍性陈述或租赁政策.",
       "branch": "common"
     },
     {
@@ -1960,11 +1964,11 @@ Before substantive teaching, actually retrieve every required reading unit for t
         "scope": "完整PPE政策/表和现金购建/补充行",
         "purpose": "重建Costco存量及现金差额"
       },
-      "supports": "完整PP&E结构、租赁五视图与经营周转部件。PP&E现金/存量和租赁费用/特定现金的边界保留，混合应收不作为客户DSO。",
+      "supports": "完整PP&E结构、租赁五视图与经营周转部件. PP&E现金/存量和租赁费用/特定现金的边界保留，混合应收不作为客户DSO.",
       "branch": "common"
     }
   ],
-  "branch_selection_protocol": "网页已选分支和展开的选读优先；切换后以相应 required_readings_by_branch 的完整数组替换必读，cross/all才读取所有主分支。运行日志从空开始。",
+  "branch_selection_protocol": "网页已选分支和展开的选读优先；切换后以相应 required_readings_by_branch 的完整数组替换必读，cross/all才读取所有主分支. 运行日志从空开始.",
   "experiment_ids": [
     "EXP-BF12-ASSET-CLOCKS"
   ]
@@ -1972,25 +1976,25 @@ Before substantive teaching, actually retrieve every required reading unit for t
 ```
 
 ## Supplied entry
-我们读资产负债表时，看到的是某一天留下的资源；读现金流量表时，看到的是一段时间里的付款。资本开支正好跨在这两者之间：一笔钱可能已经付出，设备却还没有取得；设备已经取得，也可能还在安装；开始使用以后，成本又会在多个期间分摊。本篇要完成的任务，是沿一项资源建立这些时钟，再用 Costco 的完整物业设备表核出可以重建的存量变化。
+我们读资产负债表时，看到的是某一天留下的资源；读现金流量表时，看到的是一段时间里的付款. 资本开支正好跨在这两者之间：一笔钱可能已经付出，设备却还没有取得；设备已经取得，也可能还在安装；开始使用以后，成本又会在多个期间分摊. 本篇要完成的任务，是沿一项资源建立这些时钟，再用 Costco 的完整物业设备表核出可以重建的存量变化.
 
-主线约需 15–20 分钟，包含一个可操作的设备例和一份真实报表。Caterpillar 的制造与出租设备对照可单独展开。金额、余额与时点是本篇需要的基础，下面就地说明，不要求先读完其他会计章节。
+主线约需 15–20 分钟，包含一个可操作的设备例和一份真实报表. Caterpillar 的制造与出租设备对照可单独展开. 金额、余额与时点是本篇需要的基础，下面就地说明，不要求先读完其他会计章节.
 
 <a id="bf12-clocks"></a>
 ## 1. 同一项设备，至少要保留三个日期
 
-<strong>取得日</strong>回答企业何时取得这项资源以及相应付款义务；<strong>付款日</strong>回答现金何时交给对方；<strong>达到预定可用状态的日期</strong>回答资源何时可以开始提供服务。折旧再把可折旧成本分配到使用期间。把这几个日期分开，不是为了把记账变复杂，而是为了同时回答“有什么”“欠什么”“用了多少”“付了多少”。[^bf12-mit]
+<strong>取得日</strong>回答企业何时取得这项资源以及相应付款义务；<strong>付款日</strong>回答现金何时交给对方；<strong>达到预定可用状态的日期</strong>回答资源何时可以开始提供服务. 折旧再把可折旧成本分配到使用期间. 把这几个日期分开，就能同时回答“有什么”“欠什么”“用了多少”“付了多少”.[^bf12-mit]
 
-例如，企业先付钱、后取得设备，先出现的是预付款；设备已经取得而尚未付款，则出现设备或在建资源与应付款。安装尚未完成时，成本可以留在在建工程；达到可用状态后转为使用中的资产。可折旧成本通常是成本减去估计残值，直线法再除以估计使用期。土地和未达到可用状态的在建项目，不能仅因表上有金额就按同一设备寿命分摊。
+例如，企业先付钱、后取得设备，先出现的是预付款；设备已经取得而尚未付款，则出现设备或在建资源与应付款. 安装尚未完成时，成本可以留在在建工程；达到可用状态后转为使用中的资产. 可折旧成本通常是成本减去估计残值，直线法再除以估计使用期. 土地和未达到可用状态的在建项目，不能仅因表上有金额就按同一设备寿命分摊.
 
-这里要再分清<strong>折旧的发生</strong>与<strong>损益表的列报</strong>。用于生产的资产，其折旧可能先进入存货成本，等产品出售再成为销售成本；管理用途资产的折旧通常直接进入相应期间费用。下面的小例子明确把折旧直接计入当期费用，以便我们只观察一条资源的时间关系。[^bf12-mit]
+这里要再分清<strong>折旧的发生</strong>与<strong>损益表的列报</strong>. 用于生产的资产，其折旧可能先进入存货成本，等产品出售再成为销售成本；管理用途资产的折旧通常直接进入相应期间费用. 下面的小例子明确把折旧直接计入当期费用，以便我们只观察一条资源的时间关系. [^bf12-mit]
 
 <a id="bf12-experiment"></a>
 ## 2. 走完一项资源：先付款，再取得，最后投用
 
-这是一个教学合同，不是 Costco 的实际采购。期初现金和权益各为 150。设备全部成本为 100、残值为 0、使用期 60 个月；没有税费、融资利息、处置和其他业务。2026 年 1 月 1 日全额付款，2 月 1 日取得设备控制权并进入安装，4 月 1 日达到可用状态。为使分摊可核算，日期均取月初，从可用月份开始，每个月末计提一个完整月的折旧。
+这是一个教学合同，不是 Costco 的实际采购. 期初现金和权益各为 150. 设备全部成本为 100、残值为 0、使用期 60 个月；没有税费、融资利息、处置和其他业务. 2026 年 1 月 1 日全额付款，2 月 1 日取得设备控制权并进入安装，4 月 1 日达到可用状态. 为使分摊可核算，日期均取月初，从可用月份开始，每个月末计提一个完整月的折旧.
 
-每月折旧为 $d=(100-0)/60=1.666667$。先沿事件看余额，而不是只看年末结果：
+每月折旧为 $d=(100-0)/60=1.666667$. 先沿事件看余额，而不是只看年末结果：
 
 | 时点与事项 | 现金 | 预付款 | 在建工程 | 使用中资产原值 | 累计折旧 | 应付 | 权益 |
 |---|---:|---:|---:|---:|---:|---:|---:|
@@ -2001,19 +2005,19 @@ Before substantive teaching, actually retrieve every required reading unit for t
 | 4月末：计提首月折旧 | 50 | 0 | 0 | 100 | 1.666667 | 0 | 148.333333 |
 | 12月末：共使用9个月 | 50 | 0 | 0 | 100 | 15 | 0 | 135 |
 
-表中累计折旧是资产减项。年末资产合计是 $50+100-15=135$，与权益一致。付款和转固本身没有制造利润或损失；本例的费用在开始使用后逐月出现。
+表中累计折旧是资产减项. 年末资产合计是 $50+100-15=135$，与权益一致. 付款和转固本身没有制造利润或损失；本例的费用在开始使用后逐月出现.
 
-现在只把付款日改为 6 月 1 日。2 月取得资源时，现金仍为 150、在建工程为 100、应付为 100；4 月照常投用、照常折旧；6 月付款才同时减少现金与应付。<strong>在取得日与可用日不变时，延后付款改变的是资金安排，不是这台设备当年被分摊的服务期间。</strong>再把可用日改到 7 月：这次年内只分摊六个月，折旧为 10。两种变式分别改变了不同的时钟。
+现在只把付款日改为 6 月 1 日. 2 月取得资源时，现金仍为 150、在建工程为 100、应付为 100；4 月照常投用、照常折旧；6 月付款才同时减少现金与应付. <strong>在取得日与可用日不变时，延后付款改变的是资金安排，不是这台设备当年被分摊的服务期间. </strong>再把可用日改到 7 月：这次年内只分摊六个月，折旧为 10. 两种变式分别改变了不同的时钟.
 
 <div data-experiment-slot="EXP-BF12-ASSET-CLOCKS"></div>
 
-图中“付款→预付款”表示取得前的资金交付；“取得→在建／应付”表示资源和义务的确认；“可用→使用中资产”是资产内部转类；“使用→累计折旧／费用”是跨期分摊。试着先预测哪一列会变，再移动付款月或可用月。取得前不能投用，残值不能高于成本，这两种输入会被拒绝。
+图中“付款→预付款”表示取得前的资金交付；“取得→在建／应付”表示资源和义务的确认；“可用→使用中资产”是资产内部转类；“使用→累计折旧／费用”是跨期分摊. 试着先预测哪一列会变，再移动付款月或可用月. 取得前不能投用，残值不能高于成本，这两种输入会被拒绝.
 
 <a id="CASE-BFDE-COST-BF12-20260921"></a>
 <a id="bf12-costco-ppe"></a>
 ## 3. 把这套读法放回 Costco 的原表
 
-Costco 的财年分别截至 2025-08-31、2024-09-01，均为 52 周。下表按年报物业及设备附注重排，保留全部分项、累计减项及年限；<strong>单位：百万美元</strong>。使用的是投资者年报 PDF 印刷第 42–43 页、物理第 48–49 页；SEC 10-K 对应位置为第 44–45 页，不混用两个版本的页码。[^bf12-cost]
+Costco 的财年分别截至 2025-08-31、2024-09-01，均为 52 周. 下表按年报物业及设备附注重排，保留全部分项、累计减项及年限；<strong>单位： M 美元</strong>. 使用的是投资者年报 PDF 印刷第 42–43 页、物理第 48–49 页；SEC 10-K 对应位置为第 44–45 页，不混用两个版本的页码. [^bf12-cost]
 
 | 原行 | 中文说明 | 估计年限 | 2025 | 2024 |
 |---|---|---|---|---|
@@ -2026,28 +2030,28 @@ Costco 的财年分别截至 2025-08-31、2024-09-01，均为 52 周。下表按
 | Property and equipment, net | 物业及设备净额 | — | 31,909 | 29,032 |
 
 
-先给这些项目找经营位置。土地、建筑和改良支持门店及设施；设备与装置支撑实际作业。在建工程不是另一种现金，而是尚在形成中的资源。公司还说明，某些内部使用软件的开发成本先进入在建，达到预定可用状态后转入设备及装置，按估计寿命摊销。维修保养与增加功能或寿命的改良也有不同处理。这样读，资产行就和“取得—可用—服务”的过程连起来了。[^bf12-cost]
+先给这些项目找经营位置. 土地、建筑和改良支持门店及设施；设备与装置支撑实际作业. 在建工程不是另一种现金，而是尚在形成中的资源. 公司还说明，某些内部使用软件的开发成本先进入在建，达到预定可用状态后转入设备及装置，按估计寿命摊销. 维修保养与增加功能或寿命的改良也有不同处理. 这样读，资产行就和“取得—可用—服务”的过程连起来了. [^bf12-cost]
 
-接下来可以做一个完整、但范围明确的计算。令 $G$ 为原值，$A$ 为累计折旧摊销正额，$N=G-A$ 为净额。两期相减仍有 $\Delta N=\Delta G-\Delta A$：
+接下来可以做一个完整、但范围明确的计算. 令 $G$ 为原值，$A$ 为累计折旧摊销正额，$N=G-A$ 为净额. 两期相减仍有 $\Delta N=\Delta G-\Delta A$：
 
-| 存量变化 | 计算 | 百万美元 |
+| 存量变化 | 计算 | M 美元 |
 |---|---|---:|
 | 原值增加 | 50,840 − 46,950 | 3,890 |
 | 累计折旧摊销增加 | 18,931 − 17,918 | 1,013 |
 | 净额增加 | 31,909 − 29,032 | 2,877 |
 | 核对 | 3,890 − 1,013 | 2,877 |
 
-这张桥回答的是<strong>两张期末表怎样接起来</strong>。它还不是新增、处置、汇兑及转类的完整流量表。累计折旧在处置资产时也可能被移除，所以增加 1,013 不等于当年的折旧费用。现金流量表另列整体折旧摊销 2,426，也不是可以直接替换进这张 PP&E 桥的同范围数字。[^bf12-cf]
+这张桥回答的是<strong>两张期末表怎样接起来</strong>. 它还不是新增、处置、汇兑及转类的完整流量表. 累计折旧在处置资产时也可能被移除，所以增加 1,013 不等于当年的折旧费用. 现金流量表另列整体折旧摊销 2,426，也不是可以直接替换进这张 PP&E 桥的同范围数字. [^bf12-cf]
 
-现金流量表的 `Additions to property and equipment` 为流出 5,498，比原值增量 3,890 多 1,608。这些原件没有把这 1,608 完整拆开，因此把它保留为待核差额。另一个可确定的事实是，在建余额增加了 $1,882-1,389=493$；如果一年中既有新工程投入、又有项目投用，这个净变化就不会等于“本年新开工”。
+现金流量表的 `Additions to property and equipment` 为流出 5,498，比原值增量 3,890 多 1,608. 这些原件没有把这 1,608 完整拆开，因此把它保留为待核差额. 另一个可确定的事实是，在建余额增加了 $1,882-1,389=493$；如果一年中既有新工程投入、又有项目投用，这个净变化就不会等于“本年新开工”.
 
-做到这里，我们已有正面的判断：Costco 期末已确认的物业设备净额增加 2,877；增长分布在土地、建筑、设备与在建。要继续解释新增门店能力、设备替换或投用进度，应补相应项目和资产流量明细，而不是让这张存量表承担它没有提供的过程数据。
+做到这里，我们已有正面的判断：Costco 期末已确认的物业设备净额增加 2,877；增长分布在土地、建筑、设备与在建. 要继续解释新增门店能力、设备替换或投用进度，应补相应项目和资产流量明细，而不是让这张存量表承担它没有提供的过程数据.
 
 <a id="bf12-cat-ppe"></a>
 <details data-agent-option="cat">
 <summary>可选对照：Caterpillar 的资产不仅用于自己制造</summary>
 
-Caterpillar FY2025 的 Note 9 保留了“出租给他人的设备”这一行。以下均为年末、百万美元；2025 与 2024 原表分项完整列出。[^bf12-cat]
+Caterpillar FY2025 的 Note 9 保留了“出租给他人的设备”这一行. 以下均为年末、 M 美元；2025 与 2024 原表分项完整列出. [^bf12-cat]
 
 | 原行 | 中文说明 | 估计年限 | 2025 | 2024 |
 |---|---|---|---|---|
@@ -2062,27 +2066,27 @@ Caterpillar FY2025 的 Note 9 保留了“出租给他人的设备”这一行�
 | Property, plant and equipment–net | 物业厂房设备净额 | — | 15,140 | 13,361 |
 
 
-从这张表重建的净额变化是 $2,429-650=1,779$。但比这个等式更有业务意义的是：2025 年原值 31,906 中有 6,004 是出租给他人的设备。公司对工厂设备主要使用加速折旧，对主要属于金融产品业务的出租设备则按租期直线分摊，折旧基础扣除估计残值。前者支持制造，后者通过向客户提供设备使用获得收益。把总 PP&E 全部解释成工厂产能，就会丢掉后一种业务。
+从这张表重建的净额变化是 $2,429-650=1,779$. 但比这个等式更有业务意义的是：2025 年原值 31,906 中有 6,004 是出租给他人的设备. 公司对工厂设备主要使用加速折旧，对主要属于金融产品业务的出租设备则按租期直线分摊，折旧基础扣除估计残值. 前者支持制造，后者通过向客户提供设备使用获得收益. 把总 PP&E 全部解释成工厂产能，就会丢掉后一种业务.
 
-同一公司的不同用途已经足以提醒我们：寿命和分摊方式应跟着资源怎样提供服务来理解，不能先给整家公司设一个统一折旧率，再让所有资产迁就它。
+同一公司的不同用途已经足以提醒我们：寿命和分摊方式应跟着资源怎样提供服务来理解，不能先给整家公司设一个统一折旧率，再让所有资产迁就它.
 
 </details>
 
 <a id="bf12-exercise"></a>
 ## 4. 独立重建与迁移
 
-<strong>任务。</strong>先不看解析，把教学设备的付款日改为 6 月、取得日保持 2 月、可用日保持 4 月。写出 3 月末和 12 月末的现金、在建／净资产、应付、权益。然后用 Costco 表说明：原值增加、净额增加、购建现金三者各是多少，各自回答什么。
+<strong>任务. </strong>先不看解析，把教学设备的付款日改为 6 月、取得日保持 2 月、可用日保持 4 月. 写出 3 月末和 12 月末的现金、在建／净资产、应付、权益. 然后用 Costco 表说明：原值增加、净额增加、购建现金三者各是多少，各自回答什么.
 
-<strong>解析。</strong>3 月末现金 150、在建 100、应付 100、权益 150；资产 250 等于负债加权益。12 月末付款已完成，现金 50、设备净额 85、应付 0、权益 135。折旧仍为九个月共 15。Costco 原值增加 3,890、净额增加 2,877、购建现金流出 5,498；前两者是时点余额差，第三个是期间实际付款。
+<strong>解析. </strong>3 月末现金 150、在建 100、应付 100、权益 150；资产 250 等于负债加权益. 12 月末付款已完成，现金 50、设备净额 85、应付 0、权益 135. 折旧仍为九个月共 15. Costco 原值增加 3,890、净额增加 2,877、购建现金流出 5,498；前两者是时点余额差，第三个是期间实际付款.
 
-<strong>迁移。</strong>另一台设备成本 100、残值 10、使用 60 个月，7 月初才可用。在相同月度约定下，当年应分摊多少？
+<strong>迁移. </strong>另一台设备成本 100、残值 10、使用 60 个月，7 月初才可用. 在相同月度约定下，当年应分摊多少？
 
-<strong>解析。</strong>可折旧基础 90，每月 1.5，六个月共 9；年末净额 91。改残值改变可分摊总额，改可用日改变本年服务期，改付款日只改变本例的资金与应付时间。现在你可以拿一份新公司的 PP&E 附注，先找资产用途和政策，再重建净额桥，最后检查缺少哪一段流量。
+<strong>解析. </strong>可折旧基础 90，每月 1.5，六个月共 9；年末净额 91. 改残值改变可分摊总额，改可用日改变本年服务期，改付款日只改变本例的资金与应付时间. 现在你可以拿一份新公司的 PP&E 附注，先找资产用途和政策，再重建净额桥，最后检查缺少哪一段流量.
 
-[^bf12-mit]: MIT OCW, *15.515 Financial Accounting, Fall 2003, Session 7: Accounting for Long-lived Assets*，slides 2–8、11；采用成本、分摊及存货成本路径，不采用旧准则或历史行业比例。[原讲义](https://ocw.mit.edu/courses/15-515-financial-accounting-fall-2003/c14a0767af3d7544d85e4b20eb6be1bb_lec7.pdf)。
-[^bf12-cost]: Costco FY2025 Annual Report，Note 1 “Property and Equipment, Net”，PDF 印刷 pp42–43／物理 pp48–49。[公司 PDF](https://s201.q4cdn.com/287523651/files/doc_financials/2025/ar/COST-Annual-Report-2025.pdf#page=48)；[SEC 同年度 10-K](https://www.sec.gov/Archives/edgar/data/909832/000090983225000101/cost-20250831.htm)，对应 pp44–45。取得日 2026-09-21；合并口径。
-[^bf12-cf]: 同一 Costco 公司 PDF，Consolidated Statements of Cash Flows，印刷 p39／物理 p45；SEC p41。整体 D&A 与购建现金分别为报表原行，非 PP&E 滚动表替代。
-[^bf12-cat]: Caterpillar FY2025 Form 10-K，Note 1D pp64–65、Note 9 p89，“Property, plant and equipment”。[SEC 原件](https://www.sec.gov/Archives/edgar/data/18230/000001823026000008/cat-20251231.htm)。取得日 2026-09-21；合并口径，出租设备用途及折旧按原政策。
+[^bf12-mit]: MIT OCW, *15.515 Financial Accounting, Fall 2003, Session 7: Accounting for Long-lived Assets*，slides 2–8、11；采用成本、分摊及存货成本路径，不采用旧准则或历史行业比例. [原讲义](https://ocw.mit.edu/courses/15-515-financial-accounting-fall-2003/c14a0767af3d7544d85e4b20eb6be1bb_lec7.pdf).
+[^bf12-cost]: Costco FY2025 Annual Report，Note 1 “Property and Equipment, Net”，PDF 印刷 pp42–43／物理 pp48–49. [公司 PDF](https://s201.q4cdn.com/287523651/files/doc_financials/2025/ar/COST-Annual-Report-2025.pdf#page=48)；[SEC 同年度 10-K](https://www.sec.gov/Archives/edgar/data/909832/000090983225000101/cost-20250831.htm)，对应 pp44–45. 取得日 2026-09-21；合并口径.
+[^bf12-cf]: 同一 Costco 公司 PDF，Consolidated Statements of Cash Flows，印刷 p39／物理 p45；SEC p41. 整体 D&A 与购建现金分别为报表原行，非 PP&E 滚动表替代.
+[^bf12-cat]: Caterpillar FY2025 Form 10-K，Note 1D pp64–65、Note 9 p89，“Property, plant and equipment”. [SEC 原件](https://www.sec.gov/Archives/edgar/data/18230/000001823026000008/cat-20251231.htm). 取得日 2026-09-21；合并口径，出租设备用途及折旧按原政策.
 
 <script defer src="/notebook/labs/bf-de/reader-adapter.js"></script>
 
@@ -2091,11 +2095,11 @@ Caterpillar FY2025 的 Note 9 保留了“出租给他人的设备”这一行�
 <a id="EXP-BF12-ASSET-CLOCKS"></a>
 ## BF-12｜资本开支、在建工程与折旧：静态实验
 
-输入身份 `BFDE-SHARED-20260921-v1`。公司金额为百万美元；教学设备、现金例和资本模型为教学金额；CVP 为美元。
+输入身份 `BFDE-SHARED-20260921-v1`. 公司金额单位为 USD M；教学设备、现金例和资本模型为教学金额；CVP 为美元.
 
 ### 默认设备：1月付款、2月取得、4月可用
 
-成本100、残值0、寿命60个月、期初现金/权益150。月初事件依取得、可用、付款顺序处理；月底从可用月开始分摊。这里的顺序只处理同日事件，日期先后优先。
+成本100、残值0、寿命60个月、期初现金/权益150. 月初事件依取得、可用、付款顺序处理；月底从可用月开始分摊. 这里的顺序只处理同日事件，日期先后优先.
 
 ### 默认
 
@@ -2160,7 +2164,7 @@ Caterpillar FY2025 的 Note 9 保留了“出租给他人的设备”这一行�
 | 2026-11-末 | 月末分摊 | 50 | 0 | 0 | 100 | 8.333333 | 0 | 141.666667 |
 | 2026-12-末 | 月末分摊 | 50 | 0 | 0 | 100 | 10 | 0 | 140 |
 
-每一行检查现金+预付+在建+使用中原值−累计折旧=应付+权益。取得前可用、残值高于成本、非正寿命、非有限数字均拒绝；现金不足不自动融资。真实Costco净存量桥为3,890−1,013=2,877，现金购建5,498另列，1,608不归因。
+每一行检查现金+预付+在建+使用中原值−累计折旧=应付+权益. 取得前可用、残值高于成本、非正寿命、非有限数字均拒绝；现金不足不自动融资. 真实Costco净存量桥为3,890−1,013=2,877，现金购建5,498另列，1,608不归因.
 
 
 ## Experiment inputs and static equivalents
@@ -2170,7 +2174,7 @@ Caterpillar FY2025 的 Note 9 保留了“出租给他人的设备”这一行�
     "id": "EXP-BF12-ASSET-CLOCKS",
     "title": "资本开支、在建工程与折旧：同源实验",
     "anchor": "bf12-experiment",
-    "description": "取得、可用、付款按真实月份排序，同月依此次序；月末才折旧。取得前付款为预付；取得未付为应付。月折旧=(cost-residual)/life_months，使用期满停止；本例当期费用化。",
+    "description": "取得、可用、付款按真实月份排序，同月依此次序；月末才折旧. 取得前付款为预付；取得未付为应付. 月折旧=(cost-residual)/life_months，使用期满停止；本例当期费用化.",
     "inputs": {
       "input_id": "BFDE-SHARED-20260921-v1",
       "source": "https://ou-liu-red-sugar.github.io/notebook/labs/bf-de/inputs.json",
@@ -2192,7 +2196,7 @@ Caterpillar FY2025 的 Note 9 保留了“出租给他人的设备”这一行�
           "identity": "Historical financial-statement observations; teaching cases are separately labelled. Values are not stock valuation inputs.",
           "costco": {
             "source_id": "BF-S-COST-FY2025-PDF",
-            "unit": "USD million",
+            "unit": "USD M",
             "periods": [
               "2025-08-31",
               "2024-09-01"
@@ -2348,7 +2352,7 @@ Caterpillar FY2025 的 Note 9 保留了“出租给他人的设备”这一行�
           },
           "salesforce": {
             "source_id": "BBC-C01",
-            "unit": "USD million",
+            "unit": "USD M",
             "periods": [
               "2026-01-31",
               "2025-01-31"
@@ -2521,7 +2525,7 @@ Caterpillar FY2025 的 Note 9 保留了“出租给他人的设备”这一行�
           },
           "caterpillar": {
             "source_id": "BBC-C04",
-            "unit": "USD million",
+            "unit": "USD M",
             "periods": [
               "2025-12-31",
               "2024-12-31"
@@ -2802,7 +2806,7 @@ Caterpillar FY2025 的 Note 9 保留了“出租给他人的设备”这一行�
               "third-party pharmacy",
               "other receivables"
             ],
-            "explanation_zh": "其他应收主要为对政府的应收，多与税款有关。信用卡奖励应收不是顾客刷卡货款；结算期不超过四天的顾客刷卡货款另依现金政策列示。"
+            "explanation_zh": "其他应收主要为对政府的应收，多与税款有关. 信用卡奖励应收不是顾客刷卡货款；结算期不超过四天的顾客刷卡货款另依现金政策列示."
           },
           "costco_lease_2024": {
             "operating_rou_asset": 2617,
@@ -3967,8 +3971,8 @@ Caterpillar FY2025 的 Note 9 保留了“出租给他人的设备”这一行�
       },
       "all_defaults_file": "https://ou-liu-red-sugar.github.io/notebook/labs/bf-de/default-results.json"
     },
-    "algorithm": "取得、可用、付款按真实月份排序，同月依此次序；月末才折旧。取得前付款为预付；取得未付为应付。月折旧=(cost-residual)/life_months，使用期满停止；本例当期费用化。",
-    "boundaries": "正向状态表平衡，资源未取得时不生成CIP、不提前折旧；差额1,608不自动归因为处置。",
+    "algorithm": "取得、可用、付款按真实月份排序，同月依此次序；月末才折旧. 取得前付款为预付；取得未付为应付. 月折旧=(cost-residual)/life_months，使用期满停止；本例当期费用化.",
+    "boundaries": "正向状态表平衡，资源未取得时不生成CIP、不提前折旧；差额1,608不自动归因为处置.",
     "local_url": "/notebook/labs/bf-de/interactions.html#EXP-BF12-ASSET-CLOCKS",
     "static_equivalent": {
       "html": "https://ou-liu-red-sugar.github.io/notebook/labs/bf-de/static.html#EXP-BF12-ASSET-CLOCKS",
@@ -3979,9 +3983,9 @@ Caterpillar FY2025 的 Note 9 保留了“出租给他人的设备”这一行�
 ```
 
 ## Sources
-- [Caterpillar Inc. FY2025 Form 10-K](https://www.sec.gov/Archives/edgar/data/18230/000001823026000008/cat-20251231.htm): 制造库存四阶段、部分LIFO与FIFO可比调整，以及NCI利润/权益归属；公司同时包含Financial Products。
-- [Costco Wholesale Corporation · 2025 Annual Report（股东年报 PDF）](https://s201.q4cdn.com/287523651/files/doc_financials/2025/ar/COST-Annual-Report-2025.pdf): Costco 2025 股东年报中的完整合并报表及附注。与 SEC HTML 版使用同一组财务披露，但排版页码不同：资产负债表为印刷第37页、PDF第43页。
-- [MIT OCW 15.515 Session 7 — Accounting for Long-lived Assets](https://ocw.mit.edu/courses/15-515-financial-accounting-fall-2003/c14a0767af3d7544d85e4b20eb6be1bb_lec7.pdf): 成本、资源用途、残值、寿命和分摊。采用制造折旧可能先入库存的路径，不采用旧时代普遍性陈述或租赁政策。
+- [Caterpillar Inc. FY2025 Form 10-K](https://www.sec.gov/Archives/edgar/data/18230/000001823026000008/cat-20251231.htm): 制造库存四阶段、部分LIFO与FIFO可比调整，以及NCI利润/权益归属；公司同时包含Financial Products.
+- [Costco Wholesale Corporation · 2025 Annual Report（股东年报 PDF）](https://s201.q4cdn.com/287523651/files/doc_financials/2025/ar/COST-Annual-Report-2025.pdf): Costco 2025 股东年报中的完整合并报表及附注. 与 SEC HTML 版使用同一组财务披露，但排版页码不同：资产负债表为印刷第37页、PDF第43页.
+- [MIT OCW 15.515 Session 7 — Accounting for Long-lived Assets](https://ocw.mit.edu/courses/15-515-financial-accounting-fall-2003/c14a0767af3d7544d85e4b20eb6be1bb_lec7.pdf): 成本、资源用途、残值、寿命和分摊. 采用制造折旧可能先入库存的路径，不采用旧时代普遍性陈述或租赁政策.
 
 ## Content relations
 ```json
@@ -4002,7 +4006,7 @@ Caterpillar FY2025 的 Note 9 保留了“出租给他人的设备”这一行�
       "IR Note1 Receivables pp41–42, PPE pp42–43, leases p43, costs/vendor p46; SEC corresponding +2 printed pages",
       "IR Note5 pp50–51 / physical pp56–57; SEC Note5 pp52–53"
     ],
-    "scope": "完整PP&E结构、租赁五视图与经营周转部件。PP&E现金/存量和租赁费用/特定现金的边界保留，混合应收不作为客户DSO。"
+    "scope": "完整PP&E结构、租赁五视图与经营周转部件. PP&E现金/存量和租赁费用/特定现金的边界保留，混合应收不作为客户DSO."
   },
   {
     "from": "zh-bf12",
@@ -4012,7 +4016,7 @@ Caterpillar FY2025 的 Note 9 保留了“出租给他人的设备”这一行�
     "locator": [
       "Slides2–8,11; matching diagram slide2"
     ],
-    "scope": "成本、资源用途、残值、寿命和分摊。采用制造折旧可能先入库存的路径，不采用旧时代普遍性陈述或租赁政策。"
+    "scope": "成本、资源用途、残值、寿命和分摊. 采用制造折旧可能先入库存的路径，不采用旧时代普遍性陈述或租赁政策."
   },
   {
     "from": "zh-bf12",
@@ -4024,7 +4028,7 @@ Caterpillar FY2025 的 Note 9 保留了“出租给他人的设备”这一行�
       "MD&A pp31–35; Definitions pp36–38",
       "Note23 A/B/C pp115–118; profit p120; pretax reconciliation p121"
     ],
-    "scope": "制造与出租资产用途、公司历史驱动定义、报告分部到收入/税前利润的完整桥。不得把volume包含的组合效果当结构性贡献率。"
+    "scope": "制造与出租资产用途、公司历史驱动定义、报告分部到收入/税前利润的完整桥. 不得把volume包含的组合效果当结构性贡献率."
   },
   {
     "from": "zh-bf12",
@@ -4036,9 +4040,9 @@ Caterpillar FY2025 的 Note 9 保留了“出租给他人的设备”这一行�
     "from": "bf12-experiment",
     "relation": "illustrated_by",
     "to": "EXP-BF12-ASSET-CLOCKS",
-    "reason": "取得、可用、付款按真实月份排序，同月依此次序；月末才折旧。取得前付款为预付；取得未付为应付。月折旧=(cost-residual)/life_months，使用期满停止；本例当期费用化。",
+    "reason": "取得、可用、付款按真实月份排序，同月依此次序；月末才折旧. 取得前付款为预付；取得未付为应付. 月折旧=(cost-residual)/life_months，使用期满停止；本例当期费用化.",
     "at_section": "bf12-experiment",
-    "conditions": "正向状态表平衡，资源未取得时不生成CIP、不提前折旧；差额1,608不自动归因为处置。"
+    "conditions": "正向状态表平衡，资源未取得时不生成CIP、不提前折旧；差额1,608不自动归因为处置."
   }
 ]
 ```
@@ -4047,6 +4051,6 @@ Caterpillar FY2025 的 Note 9 保留了“出租给他人的设备”这一行�
 
 ## Optional reading path
 拆一份企业财报: step 6/14
-沿设备时钟区分取得、付款、投用和折旧，再恢复真实PP&E桥。
-有形资源的记录边界厘清后，比较内部形成和购入的无形资源。
+沿设备时钟区分取得、付款、投用和折旧，再恢复真实PP&E桥.
+有形资源的记录边界厘清后，比较内部形成和购入的无形资源.
 Next: [无形资源、研发与商誉](https://ou-liu-red-sugar.github.io/zh/notebook/intangible-resources-rd-and-goodwill/)

@@ -7,10 +7,10 @@
  const D=inputs.frozen,X=inputs.extensions,EPS=1e-8;
  class InputError extends Error {constructor(code,message){super(message);this.name='InputError';this.code=code;}}
  const clone=o=>JSON.parse(JSON.stringify(o));
- function num(v,name,lo=-Infinity,hi=Infinity){if(typeof v!=='number'||!Number.isFinite(v)||v<lo||v>hi)throw new InputError('invalid-number',`${name}必须是${lo}至${hi}之间的有限数值。`);return v;}
- function integer(v,name,lo,hi){num(v,name,lo,hi);if(!Number.isInteger(v))throw new InputError('non-integer',`${name}必须是整数。`);return v;}
- function member(v,arr,name){if(!arr.includes(v))throw new InputError('invalid-choice',`${name}不在本实验允许范围。`);return v;}
- function bool(v,name){if(typeof v!=='boolean')throw new InputError('invalid-boolean',`${name}须明确选择是或否。`);return v;}
+ function num(v,name,lo=-Infinity,hi=Infinity){if(typeof v!=='number'||!Number.isFinite(v)||v<lo||v>hi)throw new InputError('invalid-number',`${name}必须是${lo}至${hi}之间的有限数值.`);return v;}
+ function integer(v,name,lo,hi){num(v,name,lo,hi);if(!Number.isInteger(v))throw new InputError('non-integer',`${name}必须是整数.`);return v;}
+ function member(v,arr,name){if(!arr.includes(v))throw new InputError('invalid-choice',`${name}不在本实验允许范围.`);return v;}
+ function bool(v,name){if(typeof v!=='boolean')throw new InputError('invalid-boolean',`${name}须明确选择是或否.`);return v;}
  function closezero(x){return Math.abs(x)<1e-9?0:x;}
  function balance(A,D0,m){const E=A-D0;return{assets:closezero(A),debt:closezero(D0),equity:closezero(E),required_equity:m*A,shortfall:Math.max(0,m*A-E),equity_ratio:A>EPS?E/A:null};}
  function margin(opt={}){
@@ -24,8 +24,8 @@
    const charged=action==='cash'||amount<=EPS?0:fee;
    const repay=action==='cash'?amount:amount-charged;
    if(action!=='cash'&&(amount>A+EPS||repay>due+EPS||repay< -EPS))
-    return{action,feasible:false,amount:null,fee:null,repayment:null,post:null,reason:'在现有证券、债务与费用范围内无法执行这项卖出还债；不能超卖或制造负借款。'};
-   if(action==='cash'&&repay>due+EPS)throw new InputError('repay-over-debt','还债不能超过借款。');
+    return{action,feasible:false,amount:null,fee:null,repayment:null,post:null,reason:'在现有证券、债务与费用范围内无法执行这项卖出还债；不能超卖或制造负借款.'};
+   if(action==='cash'&&repay>due+EPS)throw new InputError('repay-over-debt','还债不能超过借款.');
    const post=balance(action==='cash'?A:A-amount,due-repay,m);
    return{action,feasible:true,amount,fee:charged,repayment:repay,external_cash_used:action==='cash'?amount:0,post,satisfied:post.shortfall<=EPS,closed:post.assets<=EPS&&post.debt<=EPS};
   }
@@ -49,7 +49,7 @@
   for(const x of e.arrival_asks){if(remain<=0)break;if(p.route!=='market'&&x.price>p.limit_price+1e-10)break;let q=Math.min(remain,x.shares);fills.push({price:x.price,shares:q});remain-=q;}
   if(p.route==='fok'&&remain>0){fills=[];remain=Q;}
   const filled=Q-remain,notional=fills.reduce((s,x)=>s+x.price*x.shares,0),fee=filled?p.fee:0;
-  if(notional+fee>e.initial_cash+EPS)throw new InputError('cash-insufficient','给定现金不足以支付该成交款与费用；本例不自动新增借款。');
+  if(notional+fee>e.initial_cash+EPS)throw new InputError('cash-insufficient','给定现金不足以支付该成交款与费用；本例不自动新增借款.');
   const cash=e.initial_cash-notional-fee,stock=filled*p.terminal_price;
   const executed=notional-filled*p0,opportunity=remain*(p.terminal_price-p0),is=executed+fee+opportunity;
   const paper=e.initial_cash-Q*p0+Q*p.terminal_price,actual=cash+stock;
@@ -87,24 +87,24 @@
  function rebalance(opt={}){
   const p=Object.assign({},X.rebalance.default,opt),r=D.rebalance,L=X.rebalance.limits;
   ['weight','target','trigger','destination','cost','next_return'].forEach(k=>num(p[k],k,...L[k]));member(p.mode,X.rebalance.modes,'调整模式');member(p.reason,X.rebalance.reasons,'维护原因');
-  if(p.destination>=p.trigger-EPS)throw new InputError('destination-outside','目的地偏离必须小于触发距离；完全回目标对应0。');
-  if(p.target+p.trigger>1+EPS)throw new InputError('invalid-threshold','上侧触发权重不能大于100%。');
+  if(p.destination>=p.trigger-EPS)throw new InputError('destination-outside','目的地偏离必须小于触发距离；完全回目标对应0.');
+  if(p.target+p.trigger>1+EPS)throw new InputError('invalid-threshold','上侧触发权重不能大于100%.');
   const V=r.stock+r.bond,S=V*p.weight,B=V-S,triggered=p.weight-p.target>p.trigger+1e-12;
   const identity={parameters:p,initial_stock:S,initial_bond:B,initial_total:V,current_weight:p.weight,threshold_weight:p.target+p.trigger,destination_weight:p.target+p.destination,triggered,identity:r.identity};
-  if(['thesis_changed','target_changed'].includes(p.reason))return Object.assign(identity,{status:'needs-judgment',sale:null,message:'先更新受影响的判断或目标；未跨价格/权重阈值不能代替这项决定。'});
+  if(['thesis_changed','target_changed'].includes(p.reason))return Object.assign(identity,{status:'needs-judgment',sale:null,message:'先更新受影响的判断或目标；未跨价格/权重阈值不能代替这项决定.'});
   if(p.mode==='contribution'){
    const add=r.new_contribution_alternative,postV=V+add,wealth=S*(1+p.next_return)+(B+add)*(1+r.next_bond_return);
-   return Object.assign(identity,{status:'contribution',sale:0,cost:0,bond_purchase:add,external_contribution:add,stock:S,bond:B+add,total:postV,post_weight:S/postV,wealth,next_return_on_funded_capital:wealth/postV-1,instant_net_gain:0,message:'新增4000为外部资本；该分支忽略新增投入的交易费，不将资本增加当收益。'});
+   return Object.assign(identity,{status:'contribution',sale:0,cost:0,bond_purchase:add,external_contribution:add,stock:S,bond:B+add,total:postV,post_weight:S/postV,wealth,next_return_on_funded_capital:wealth/postV-1,instant_net_gain:0,message:'新增4000为外部资本；该分支忽略新增投入的交易费，不将资本增加当收益.'});
   }
-  if(p.mode!=='none'&&p.weight<p.target-EPS)return Object.assign(identity,{status:'unsupported-direction',sale:null,message:'股票低配：本分支只推导了卖股买债，不使用负卖出量模拟反向交易。'});
+  if(p.mode!=='none'&&p.weight<p.target-EPS)return Object.assign(identity,{status:'unsupported-direction',sale:null,message:'股票低配：本分支只推导了卖股买债，不使用负卖出量模拟反向交易.'});
   let sale=0,u=p.mode==='full'?p.target:p.target+p.destination;
   if(p.mode!=='none'&&triggered){
-   if(S/V<u-EPS)throw new InputError('unsupported-direction','目的地高于当前权重；需要反向交易。');
+   if(S/V<u-EPS)throw new InputError('unsupported-direction','目的地高于当前权重；需要反向交易.');
    sale=(S-u*V)/(1-u*p.cost);
-   if(sale< -EPS||sale>S+EPS||V-p.cost*sale<=0)throw new InputError('infeasible-sale','卖出量或费用后的资金不满足当前账户约束。');
+   if(sale< -EPS||sale>S+EPS||V-p.cost*sale<=0)throw new InputError('infeasible-sale','卖出量或费用后的资金不满足当前账户约束.');
   }
   sale=closezero(sale);let cost=p.cost*sale,stock=S-sale,bond=B+sale-cost,total=stock+bond,wealth=stock*(1+p.next_return)+bond*(1+r.next_bond_return);
-  return Object.assign(identity,{status:sale>EPS?'traded':'no-trade',sale,cost,bond_purchase:sale-cost,external_contribution:0,stock,bond,total,post_weight:stock/total,wealth,next_return_on_funded_capital:wealth/V-1,instant_net_gain:-cost,message:p.mode==='none'?'选择不调整，保留原敞口。':!triggered?'未严格超过阈值，不发出调仓指令。':'按费用后目的地计算卖股买债。'});
+  return Object.assign(identity,{status:sale>EPS?'traded':'no-trade',sale,cost,bond_purchase:sale-cost,external_contribution:0,stock,bond,total,post_weight:stock/total,wealth,next_return_on_funded_capital:wealth/V-1,instant_net_gain:-cost,message:p.mode==='none'?'选择不调整，保留原敞口.':!triggered?'未严格超过阈值，不发出调仓指令.':'按费用后目的地计算卖股买债.'});
  }
  return Object.freeze({margin,collateral,execution,budget,budgetAll,rebalance,defaults:()=>clone(X),InputError});
 });

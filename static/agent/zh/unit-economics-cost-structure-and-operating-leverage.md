@@ -1,17 +1,21 @@
 # 单位经济、成本结构与经营杠杆
 
-用CAT历史桥解释变化，再用独立教材模型推导经营杠杆的精确有限变化；产能台阶显式改变条件。
+用CAT历史桥解释变化，再用独立教材模型推导经营杠杆的精确有限变化；产能台阶显式改变条件.
 
 Entry: zh-bf17 | Node: BF-17 | Language: zh | Editorial revision: 2026-09-21
 
 ## Teaching instructions
-你正在教 BF-17《单位经济、成本结构与经营杠杆》，材料版本2026-09-21。学习任务：核八项历史OI桥与A/B直接重算，证明线性条件下百分比恒等式。
-本篇没有行业分支；Caterpillar历史桥与OpenStax A/B教学模型均为核心必读，二者身份必须分开。 optional只有读者启用后才变为必读。先实际打开指定公开原文单元，分页读到单元结束，必要表图核原页，记录标题/版本/位置/范围与当前用途。文献目录、工具返回标题或作者先前已读记录都不能代替本次读取；runtime_reading_log从空数组开始。读取失败先找同版本正式等价原文，仍缺则说明该单元缺口，不凭摘要补讲。
-诊断任务：{"core": "核八项历史OI桥与A/B直接重算，证明线性条件下百分比恒等式。"}。补充任务：A销量下降20%，先用贡献利润算55,400，再从基点DOL得到同一结果。
-随后沿本包完整正文、实际输入、静态实验与题解推进一个完整任务，先让读者解释或计算再反馈；已会的基础跳过。默认迁移是在同一虚构A/B模型改变销量并核恒等式，再回到Caterpillar判断缺失结构输入；没有额外行业分支。通过尺度：有限变化固定参数时两结果完全一致；跨台阶另算新增成本，基点利润0不返回可用比率。
-保持真实披露、分析计算、教学模型三种身份，参数只改变模型，不反写真实公司数据。资料不足处不要补造差额或估值。最后明确：读者已经能独立重建什么，换一份材料时还需先核哪些条件？
+你正在教 BF-17《单位经济、成本结构与经营杠杆》，材料版本2026-09-21. 学习任务：核八项历史OI桥与A/B直接重算，证明线性条件下百分比恒等式.
+本篇没有行业分支；Caterpillar历史桥与OpenStax A/B教学模型均为核心必读，二者身份必须分开. optional只有读者启用后才变为必读. 先实际打开指定公开原文单元，分页读到单元结束，必要表图核原页，记录标题/版本/位置/范围与当前用途. 文献目录、工具返回标题或作者先前已读记录都不能代替本次读取；runtime_reading_log从空数组开始. 读取失败先找同版本正式等价原文，仍缺则说明该单元缺口，不凭摘要补讲.
+诊断任务：{"core": "核八项历史OI桥与A/B直接重算，证明线性条件下百分比恒等式."}. 补充任务：A销量下降20%，先用贡献利润算55,400，再从基点DOL得到同一结果.
+随后沿本包完整正文、实际输入、静态实验与题解推进一个完整任务，先让读者解释或计算再反馈；已会的基础跳过. 默认迁移是在同一虚构A/B模型改变销量并核恒等式，再回到Caterpillar判断缺失结构输入；没有额外行业分支. 通过尺度：有限变化固定参数时两结果完全一致；跨台阶另算新增成本，基点利润0不返回可用比率.
+保持真实披露、分析计算、教学模型三种身份，参数只改变模型，不反写真实公司数据. 资料不足处不要补造差额或估值. 最后明确：读者已经能独立重建什么，换一份材料时还需先核哪些条件？
 
 Before substantive teaching, actually retrieve every required reading unit for the selected scope. Read its complete designated section, including necessary assumptions, tables and footnotes. A working URL or an editorial access date is not a runtime reading receipt. Record the actual version, location, scope and what it supports. If unavailable, use a previously verified equivalent source; if the required unit remains unavailable, identify that gap rather than teach it from memory. Start runtime_reading_log empty. Once reading is complete, use a substantive diagnostic or follow the reader's request for direct explanation. Advance one complete reasoning task at a time; skip mastered basics. Distinguish original facts, supplied teaching assumptions and inference.
+
+## Shared notation and writing conventions
+数学期望统一写成 \mathbb{E}，条件期望用 \mathbb{E}[X\mid\mathcal{G}]，需要时注明测度 P 或 Q. 保留局部变量的明确定义. 金额与数量使用 K=10^3、M=10^6、B=10^9；表格标明币种、量级与期间，变更量级时同步换算数值. 展示小数最多三位，计算保留原始精度. 直接解释对象、机制与推理；保留影响结论的假设和事实来源，把编辑流程留在记录中. 句末使用英文句点 .，包括定义、命题、证明和解析等标签. 基础定义与推导直接讲内容，出处放在紧邻脚注；来源读取、复审和采用范围等编辑经过留在记录中.
+[Notation and units](https://ou-liu-red-sugar.github.io/agent/zh/notation.md)
 
 ## Required readings and runtime protocol
 ```json
@@ -22,7 +26,7 @@ Before substantive teaching, actually retrieve every required reading unit for t
     "core"
   ],
   "branch_tasks": {
-    "core": "核八项历史OI桥与A/B直接重算，证明线性条件下百分比恒等式。"
+    "core": "核八项历史OI桥与A/B直接重算，证明线性条件下百分比恒等式."
   },
   "selection_rules": {
     "common": "始终必读",
@@ -48,7 +52,7 @@ Before substantive teaching, actually retrieve every required reading unit for t
         "purpose": "历史归因与模型输入区别",
         "figure_uri": "https://www.sec.gov/Archives/edgar/data/18230/000001823026000008/cat-20251231_g4.jpg"
       },
-      "supports": "制造与出租资产用途、公司历史驱动定义、报告分部到收入/税前利润的完整桥。不得把volume包含的组合效果当结构性贡献率。",
+      "supports": "制造与出租资产用途、公司历史驱动定义、报告分部到收入/税前利润的完整桥. 不得把volume包含的组合效果当结构性贡献率.",
       "branch": "common"
     },
     {
@@ -70,7 +74,7 @@ Before substantive teaching, actually retrieve every required reading unit for t
         "scope": "完整相关设置、表、变化与相关范围段",
         "purpose": "正向CVP重算与有限变化恒等式"
       },
-      "supports": "Company A/B虚构输入与经营杠杆；按原始表复算，不采用网页不一致的1.71、31.9%/46.9%。有限变化精确式由本篇条件推导。",
+      "supports": "Company A/B虚构输入与经营杠杆；按原始表复算，不采用网页不一致的1.71、31.9%/46.9%. 有限变化精确式由本篇条件推导.",
       "branch": "common"
     }
   ],
@@ -91,7 +95,7 @@ Before substantive teaching, actually retrieve every required reading unit for t
       "identity": "Historical financial-statement observations; teaching cases are separately labelled. Values are not stock valuation inputs.",
       "costco": {
         "source_id": "BF-S-COST-FY2025-PDF",
-        "unit": "USD million",
+        "unit": "USD M",
         "periods": [
           "2025-08-31",
           "2024-09-01"
@@ -247,7 +251,7 @@ Before substantive teaching, actually retrieve every required reading unit for t
       },
       "salesforce": {
         "source_id": "BBC-C01",
-        "unit": "USD million",
+        "unit": "USD M",
         "periods": [
           "2026-01-31",
           "2025-01-31"
@@ -420,7 +424,7 @@ Before substantive teaching, actually retrieve every required reading unit for t
       },
       "caterpillar": {
         "source_id": "BBC-C04",
-        "unit": "USD million",
+        "unit": "USD M",
         "periods": [
           "2025-12-31",
           "2024-12-31"
@@ -701,7 +705,7 @@ Before substantive teaching, actually retrieve every required reading unit for t
           "third-party pharmacy",
           "other receivables"
         ],
-        "explanation_zh": "其他应收主要为对政府的应收，多与税款有关。信用卡奖励应收不是顾客刷卡货款；结算期不超过四天的顾客刷卡货款另依现金政策列示。"
+        "explanation_zh": "其他应收主要为对政府的应收，多与税款有关. 信用卡奖励应收不是顾客刷卡货款；结算期不超过四天的顾客刷卡货款另依现金政策列示."
       },
       "costco_lease_2024": {
         "operating_rou_asset": 2617,
@@ -1036,7 +1040,7 @@ Before substantive teaching, actually retrieve every required reading unit for t
   "default_outputs": {
     "drivers": {
       "identity": "Company historical attribution, not structural coefficients",
-      "unit": "USD million",
+      "unit": "USD M",
       "revenue": {
         "opening": 64809,
         "rows": [
@@ -1264,7 +1268,7 @@ Before substantive teaching, actually retrieve every required reading unit for t
       "exact_linear_identity_applies": false
     }
   },
-  "prompt": "你正在教 BF-17《单位经济、成本结构与经营杠杆》，材料版本2026-09-21。学习任务：核八项历史OI桥与A/B直接重算，证明线性条件下百分比恒等式。\n本篇没有行业分支；Caterpillar历史桥与OpenStax A/B教学模型均为核心必读，二者身份必须分开。 optional只有读者启用后才变为必读。先实际打开指定公开原文单元，分页读到单元结束，必要表图核原页，记录标题/版本/位置/范围与当前用途。文献目录、工具返回标题或作者先前已读记录都不能代替本次读取；runtime_reading_log从空数组开始。读取失败先找同版本正式等价原文，仍缺则说明该单元缺口，不凭摘要补讲。\n诊断任务：{\"core\": \"核八项历史OI桥与A/B直接重算，证明线性条件下百分比恒等式。\"}。补充任务：A销量下降20%，先用贡献利润算55,400，再从基点DOL得到同一结果。\n随后沿本包完整正文、实际输入、静态实验与题解推进一个完整任务，先让读者解释或计算再反馈；已会的基础跳过。默认迁移是在同一虚构A/B模型改变销量并核恒等式，再回到Caterpillar判断缺失结构输入；没有额外行业分支。通过尺度：有限变化固定参数时两结果完全一致；跨台阶另算新增成本，基点利润0不返回可用比率。\n保持真实披露、分析计算、教学模型三种身份，参数只改变模型，不反写真实公司数据。资料不足处不要补造差额或估值。最后明确：读者已经能独立重建什么，换一份材料时还需先核哪些条件？",
+  "prompt": "你正在教 BF-17《单位经济、成本结构与经营杠杆》，材料版本2026-09-21. 学习任务：核八项历史OI桥与A/B直接重算，证明线性条件下百分比恒等式.\n本篇没有行业分支；Caterpillar历史桥与OpenStax A/B教学模型均为核心必读，二者身份必须分开. optional只有读者启用后才变为必读. 先实际打开指定公开原文单元，分页读到单元结束，必要表图核原页，记录标题/版本/位置/范围与当前用途. 文献目录、工具返回标题或作者先前已读记录都不能代替本次读取；runtime_reading_log从空数组开始. 读取失败先找同版本正式等价原文，仍缺则说明该单元缺口，不凭摘要补讲.\n诊断任务：{\"core\": \"核八项历史OI桥与A/B直接重算，证明线性条件下百分比恒等式.\"}. 补充任务：A销量下降20%，先用贡献利润算55,400，再从基点DOL得到同一结果.\n随后沿本包完整正文、实际输入、静态实验与题解推进一个完整任务，先让读者解释或计算再反馈；已会的基础跳过. 默认迁移是在同一虚构A/B模型改变销量并核恒等式，再回到Caterpillar判断缺失结构输入；没有额外行业分支. 通过尺度：有限变化固定参数时两结果完全一致；跨台阶另算新增成本，基点利润0不返回可用比率.\n保持真实披露、分析计算、教学模型三种身份，参数只改变模型，不反写真实公司数据. 资料不足处不要补造差额或估值. 最后明确：读者已经能独立重建什么，换一份材料时还需先核哪些条件？",
   "selected_branch": "core",
   "required_readings_by_branch": {
     "core": [
@@ -1285,7 +1289,7 @@ Before substantive teaching, actually retrieve every required reading unit for t
           "purpose": "历史归因与模型输入区别",
           "figure_uri": "https://www.sec.gov/Archives/edgar/data/18230/000001823026000008/cat-20251231_g4.jpg"
         },
-        "supports": "制造与出租资产用途、公司历史驱动定义、报告分部到收入/税前利润的完整桥。不得把volume包含的组合效果当结构性贡献率。",
+        "supports": "制造与出租资产用途、公司历史驱动定义、报告分部到收入/税前利润的完整桥. 不得把volume包含的组合效果当结构性贡献率.",
         "branch": "common"
       },
       {
@@ -1307,7 +1311,7 @@ Before substantive teaching, actually retrieve every required reading unit for t
           "scope": "完整相关设置、表、变化与相关范围段",
           "purpose": "正向CVP重算与有限变化恒等式"
         },
-        "supports": "Company A/B虚构输入与经营杠杆；按原始表复算，不采用网页不一致的1.71、31.9%/46.9%。有限变化精确式由本篇条件推导。",
+        "supports": "Company A/B虚构输入与经营杠杆；按原始表复算，不采用网页不一致的1.71、31.9%/46.9%. 有限变化精确式由本篇条件推导.",
         "branch": "common"
       }
     ]
@@ -1330,7 +1334,7 @@ Before substantive teaching, actually retrieve every required reading unit for t
         "purpose": "历史归因与模型输入区别",
         "figure_uri": "https://www.sec.gov/Archives/edgar/data/18230/000001823026000008/cat-20251231_g4.jpg"
       },
-      "supports": "制造与出租资产用途、公司历史驱动定义、报告分部到收入/税前利润的完整桥。不得把volume包含的组合效果当结构性贡献率。",
+      "supports": "制造与出租资产用途、公司历史驱动定义、报告分部到收入/税前利润的完整桥. 不得把volume包含的组合效果当结构性贡献率.",
       "branch": "common"
     },
     {
@@ -1352,11 +1356,11 @@ Before substantive teaching, actually retrieve every required reading unit for t
         "scope": "完整相关设置、表、变化与相关范围段",
         "purpose": "正向CVP重算与有限变化恒等式"
       },
-      "supports": "Company A/B虚构输入与经营杠杆；按原始表复算，不采用网页不一致的1.71、31.9%/46.9%。有限变化精确式由本篇条件推导。",
+      "supports": "Company A/B虚构输入与经营杠杆；按原始表复算，不采用网页不一致的1.71、31.9%/46.9%. 有限变化精确式由本篇条件推导.",
       "branch": "common"
     }
   ],
-  "branch_selection_protocol": "网页已选分支和展开的选读优先；切换后以相应 required_readings_by_branch 的完整数组替换必读，cross/all才读取所有主分支。运行日志从空开始。",
+  "branch_selection_protocol": "网页已选分支和展开的选读优先；切换后以相应 required_readings_by_branch 的完整数组替换必读，cross/all才读取所有主分支. 运行日志从空开始.",
   "experiment_ids": [
     "EXP-BF17-HISTORICAL-VS-STRUCTURAL"
   ]
@@ -1364,17 +1368,17 @@ Before substantive teaching, actually retrieve every required reading unit for t
 ```
 
 ## Supplied entry
-收入和利润把许多经营变化压成几个总额。要解释变化，我们需要重新展开销量、价格、组合、投入成本和共同费用；要预测一个条件变化的后果，还需要更明确的模型。本篇把这两项工作分开：先走完 Caterpillar 的真实历史驱动桥，再用参数透明的线性模型理解经营杠杆。完成以后，你应能判断一项数字究竟是历史归因，还是可以用于变式计算的模型参数。
+收入和利润把许多经营变化压成几个总额. 要解释变化，我们需要重新展开销量、价格、组合、投入成本和共同费用；要预测一个条件变化的后果，还需要更明确的模型. 本篇把这两项工作分开：先走完 Caterpillar 的真实历史驱动桥，再用参数透明的线性模型理解经营杠杆. 完成以后，你应能判断一项数字究竟是历史归因，还是可以用于变式计算的模型参数.
 
-主线约 15–20 分钟。历史公司图和教学模型使用不同单位与身份，实验也将它们分在两个视图。我们不把某家教材虚构公司改名成 Caterpillar。
+主线约 15–20 分钟. 历史公司图和教学模型使用不同单位与身份，实验也将它们分在两个视图. 我们不把某家教材虚构公司改名成 Caterpillar.
 
 <a id="CASE-BFDE-CAT-BF17-20260921"></a>
 <a id="bf17-historical-bridge"></a>
 ## 1. 从历史总额回到变化来源
 
-Caterpillar FY2025 将 2024 年收入 64,809 百万美元接到 2025 年 67,589。按其披露类别，完整桥为：[^bf17-cat]
+Caterpillar FY2025 将 2024 年收入 64,809 M 美元接到 2025 年 67,589. 按其披露类别，完整桥为：[^bf17-cat]
 
-| Sales and Revenues Comparison／收入桥原类别 | 影响，百万美元 |
+| Sales and Revenues Comparison／收入桥原类别 | 影响， M 美元 |
 |---|---:|
 | 2024 Sales and revenues／期初年度收入 | 64,809 |
 | Sales Volume／销售量相关影响 | +3,389 |
@@ -1383,9 +1387,9 @@ Caterpillar FY2025 将 2024 年收入 64,809 百万美元接到 2025 年 67,589�
 | Financial Products／金融产品 | +163 |
 | 2025 Sales and revenues／期末年度收入 | 67,589 |
 
-收入增长了 2,780，但经营利润反而由 13,072 降至 11,151。公司原始经营利润比较图给出八个因素，全部列出才能核回终点：
+收入增长了 2,780，但经营利润反而由 13,072 降至 11,151. 公司原始经营利润比较图给出八个因素，全部列出才能核回终点：
 
-| Consolidated Operating Profit Comparison／经营利润桥原类别 | 影响，百万美元 |
+| Consolidated Operating Profit Comparison／经营利润桥原类别 | 影响， M 美元 |
 |---|---:|
 | 2024 Operating profit | 13,072 |
 | Sales Volume | +1,218 |
@@ -1398,29 +1402,29 @@ Caterpillar FY2025 将 2024 年收入 64,809 百万美元接到 2025 年 67,589�
 | Other | +230 |
 | 2025 Operating profit | 11,151 |
 
-正向关系已经很清楚：本次披露中销量相关影响为正，但制造成本、价格及其他费用的不利影响更大，最终利润净减少 1,921。这是公司对历史变化的分类与解释。下一步要读定义，才能知道这些名字究竟捕捉了什么，而不是把每一行直接当教科书里的独立变量。
+正向关系已经很清楚：本次披露中销量相关影响为正，但制造成本、价格及其他费用的不利影响更大，最终利润净减少 1,921. 这是公司对历史变化的分类与解释. 下一步要读定义，才能知道这些名字究竟捕捉了什么，而不是把每一行直接当教科书里的独立变量.
 
 <a id="bf17-driver-definitions"></a>
 ## 2. “Volume”不总是纯数量
 
-Caterpillar 的 Definitions 说明：收入桥中的 Sales Volume 包含数量与新产品推出的影响；经营利润桥里的同名项目还包含产品组合。Price Realization 包含地域价格组合；Manufacturing Costs 包含按产量调整后的变动成本变化，以及期间制造成本的绝对变化。Financial Products 的汇率等影响又留在其自身类别中。[^bf17-def]
+Caterpillar 的 Definitions 说明：收入桥中的 Sales Volume 包含数量与新产品推出的影响；经营利润桥里的同名项目还包含产品组合. Price Realization 包含地域价格组合；Manufacturing Costs 包含按产量调整后的变动成本变化，以及期间制造成本的绝对变化. Financial Products 的汇率等影响又留在其自身类别中. [^bf17-def]
 
-这意味着，$1,218/3,389\approx35.94\%$ 可以叫“这次两项披露效果之比”，却不是已经识别出的每台设备边际贡献率。你甚至还没有一个纯数量单位和对应单位变动成本。真实驱动桥依然有用：它指向要继续核验的成本、组合和定价证据；只是它所回答的是“公司怎样解释这一年”，不是“下一年每增加一台设备必然赚多少”。
+这意味着，$1,218/3,389\approx35.94\%$ 可以叫“这次两项披露效果之比”，却不是已经识别出的每台设备边际贡献率. 你甚至还没有一个纯数量单位和对应单位变动成本. 真实驱动桥依然有用：它指向要继续核验的成本、组合和定价证据；只是它所回答的是“公司怎样解释这一年”，不是“下一年每增加一台设备必然赚多少”.
 
-现在我们主动换一种对象：建立一个条件足够清楚的小模型，让后一个问题可以被严格回答。
+现在我们主动换一种对象：建立一个条件足够清楚的小模型，让后一个问题可以被严格回答.
 
 <a id="bf17-cvp"></a>
 ## 3. 线性模型里，经营杠杆为什么出现
 
-假定只有一种产品，或固定产品组合；单位价格为 $p$，单位变动成本为 $v$，销量为 $q$，相关产量范围内固定成本为 $F$。那么销售额为 $S=pq$，贡献利润为 $C=(p-v)q$，经营利润为 $OI=C-F$。贡献利润先承担固定成本，余下部分才是模型经营利润。这里的“固定”是针对决策期间和产量范围而言，并非永远不能调整。
+假定只有一种产品，或固定产品组合；单位价格为 $p$，单位变动成本为 $v$，销量为 $q$，相关产量范围内固定成本为 $F$. 那么销售额为 $S=pq$，贡献利润为 $C=(p-v)q$，经营利润为 $OI=C-F$. 贡献利润先承担固定成本，余下部分才是模型经营利润. 这里的“固定”是针对决策期间和产量范围而言，并非永远不能调整.
 
-<strong>经营杠杆系数</strong>在基点利润非零时为 $DOL=C/OI$。把价格、单位变动成本、组合及固定成本保持不变，只让销量变化比例 $x$，新的贡献利润就是 $C(1+x)$，所以利润增量为 $Cx$。因此：
+<strong>经营杠杆系数</strong>在基点利润非零时为 $DOL=C/OI$. 把价格、单位变动成本、组合及固定成本保持不变，只让销量变化比例 $x$，新的贡献利润就是 $C(1+x)$，所以利润增量为 $Cx$. 因此：
 
 $$\frac{\Delta OI}{OI}=\frac{C}{OI}x=DOL\frac{\Delta S}{S}$$
 
-在上述线性且参数不变的模型里，这对该次<strong>有限变化是精确恒等式</strong>，不是只能在极小变化下成立的近似。它也有局部弹性的含义；两种表述并不矛盾。直接重算与右式应给出相同结果。[^bf17-cvp]
+在上述线性且参数不变的模型里，这对该次<strong>有限变化是精确恒等式</strong>，不是只能在极小变化下成立的近似. 它也有局部弹性的含义；两种表述并不矛盾. 直接重算与右式应给出相同结果. [^bf17-cvp]
 
-OpenStax 的虚构 Company A／B 给出一个有区分力的基准，单位是普通美元，不是上面的百万美元：
+OpenStax 的虚构 Company A／B 给出一个有区分力的基准，单位是普通美元，不是上面的 M 美元：
 
 | 模型项目 | Company A | Company B |
 |---|---:|---:|
@@ -1431,45 +1435,45 @@ OpenStax 的虚构 Company A／B 给出一个有区分力的基准，单位是�
 | Operating income／经营利润 | 85,000 | 85,000 |
 | 由上述原始输入计算的DOL | 1.741176 | 2.470588 |
 
-两者利润相同，但 B 有更大的贡献利润和固定成本。销售上升时，有更多新增贡献利润越过已覆盖的固定成本；下降时，同一固定成本又会使利润降得更快。
+两者利润相同，但 B 有更大的贡献利润和固定成本. 销售上升时，有更多新增贡献利润越过已覆盖的固定成本；下降时，同一固定成本又会使利润降得更快.
 
 | 在固定参数内的销量／销售变化 | A新利润 | A利润变化 | B新利润 | B利润变化 |
 |---|---:|---:|---:|---:|
 | +10% | 99,800 | +17.4118% | 106,000 | +24.7059% |
 | −20% | 55,400 | −34.8235% | 43,000 | −49.4118% |
 
-例如 A 的 −20% 情景，直接算 $148,000\times0.8-63,000=55,400$；同样由 $1.741176\times(-20\%)$ 得利润下降约 34.8235%。两条路径相等。表格全部由原始输入复算，正文中的系数与百分比不采用教材网页中和这些输入不一致的数值。
+例如 A 的 −20% 情景，直接算 $148,000\times0.8-63,000=55,400$；同样由 $1.741176\times(-20\%)$ 得利润下降约 34.8235%. 两条路径相等. 表格全部由原始输入复算，正文中的系数与百分比不采用教材网页中和这些输入不一致的数值.
 
 <a id="bf17-boundaries"></a>
 ## 4. 模型边界要用另一个计算展示
 
-接近盈亏平衡时，基点利润小，DOL 会很大；这不代表企业获得了免费的高回报能力。当 $OI=0$ 时该比率无定义，程序应显示“基点利润为零”，而不是给一个能继续乘的无穷大。
+接近盈亏平衡时，基点利润小，DOL 会很大；这是分母接近零时的机械结果，而不是额外的经营回报能力. 当 $OI=0$ 时该比率无定义，程序应显示“基点利润为零”，而不是给一个能继续乘的无穷大.
 
-再给 Company A 加一个明确的教学条件：销量比基准高出 15% 以后，必须新增 10,000 固定成本。若销量增加 20%，旧线性式先给 $148,000\times1.2-63,000=114,600$；跨产能台阶后实际模型利润为 104,600。此时参数已改变，旧 DOL 预测的 34.8235% 与新模型利润增长约 23.0588% 不再相等，差异来自新增固定成本，而非 DOL 公式突然不准确。
+再给 Company A 加一个明确的教学条件：销量比基准高出 15% 以后，必须新增 10,000 固定成本. 若销量增加 20%，旧线性式先给 $148,000\times1.2-63,000=114,600$；跨产能台阶后实际模型利润为 104,600. 此时参数已改变，旧 DOL 预测的 34.8235% 与新模型利润增长约 23.0588% 不再相等，差异来自新增固定成本，而非 DOL 公式突然不准确.
 
-真实企业还可能改变售价、折扣、产品组合和投入方式。与其把这些全部塞进一个“调整后杠杆”，不如先说明是哪项条件变化，再建立新的成本桥。这样模型的差异能被经营资料核验。
+真实企业还可能改变售价、折扣、产品组合和投入方式. 与其把这些全部塞进一个“调整后杠杆”，不如先说明是哪项条件变化，再建立新的成本桥. 这样模型的差异能被经营资料核验.
 
 <a id="bf17-experiment"></a>
 ## 5. 固定历史桥，与可变教学模型并排看
 
 <div data-experiment-slot="EXP-BF17-HISTORICAL-VS-STRUCTURAL"></div>
 
-历史视图完整保留 Caterpillar 的两条桥，不用滑块把历史变成预测。模型视图允许选择 A／B、改变销量比例，并开启上面定义的产能台阶。图同时显示直接重算与恒定参数恒等式结果；在线性模式两条线重合，台阶模式才发生有解释的分离。每次图的变化都附有数值表，不依赖颜色猜结论。
+历史视图完整保留 Caterpillar 的两条桥，不用滑块把历史变成预测. 模型视图允许选择 A／B、改变销量比例，并开启上面定义的产能台阶. 图同时显示直接重算与恒定参数恒等式结果；在线性模式两条线重合，台阶模式才发生有解释的分离. 每次图的变化都附有数值表，不依赖颜色猜结论.
 
 <a id="bf17-exercise"></a>
 ## 6. 从推演回到资料
 
-<strong>计算任务。</strong>Company B 在固定参数下销量下降 20%，请同时用贡献利润直接重算和 DOL 等式求结果。然后说明要把同样的模型用于 Caterpillar，还缺哪些输入。
+<strong>计算任务. </strong>Company B 在固定参数下销量下降 20%，请同时用贡献利润直接重算和 DOL 等式求结果. 然后说明要把同样的模型用于 Caterpillar，还缺哪些输入.
 
-<strong>解析。</strong>直接算 $210,000\times0.8-125,000=43,000$；利润下降 42,000，占原85,000的49.4118%。DOL为 $210,000/85,000=2.470588$，乘 −20% 得相同变化。迁移到 Caterpillar，仍需定义销量单位、纯价格、单位变动成本、产品组合、相关范围及固定成本，并处理报告桥里已混合的组合与新产品影响。
+<strong>解析. </strong>直接算 $210,000\times0.8-125,000=43,000$；利润下降 42,000，占原85,000的49.4118%. DOL为 $210,000/85,000=2.470588$，乘 −20% 得相同变化. 迁移到 Caterpillar，仍需定义销量单位、纯价格、单位变动成本、产品组合、相关范围及固定成本，并处理报告桥里已混合的组合与新产品影响.
 
-<strong>解释任务。</strong>Caterpillar 收入上升而利润下降，与 DOL 模型矛盾吗？
+<strong>解释任务. </strong>Caterpillar 收入上升而利润下降，与 DOL 模型矛盾吗？
 
-<strong>解析。</strong>不矛盾。固定参数模型没有允许售价、单位成本与固定成本同时变化，而公司历史桥恰恰披露了价格、制造成本等多项变化。正确的工作次序是先用真实定义解释历史，再判断是否具备建立某个条件模型的证据；不是拿一个模型系数覆盖全部经营过程。
+<strong>解析. </strong>不矛盾. 固定参数模型没有允许售价、单位成本与固定成本同时变化，而公司历史桥恰恰披露了价格、制造成本等多项变化. 正确的工作次序是先用真实定义解释历史，再判断是否具备建立某个条件模型的证据；不是拿一个模型系数覆盖全部经营过程.
 
-[^bf17-cat]: Caterpillar FY2025 10-K，MD&A pp31–35，Sales and Revenues Comparison 与 Consolidated Operating Profit Comparison；[SEC 原件](https://www.sec.gov/Archives/edgar/data/18230/000001823026000008/cat-20251231.htm)，[经营利润原图](https://www.sec.gov/Archives/edgar/data/18230/000001823026000008/cat-20251231_g4.jpg)。两期为2024→2025，单位百万美元，取得日2026-09-21。
-[^bf17-def]: 同一原件 Definitions pp36–38：Manufacturing Costs、Price Realization、Sales Volume、Financial Products。披露归因不等于独立因果识别或可外推结构参数。
-[^bf17-cvp]: OpenStax, *Principles of Accounting, Volume 2: Managerial Accounting* (2019)，§3.5 的 Operating Leverage 与虚构 Company A/B 输入。[公开全节](https://openstax.org/books/principles-managerial-accounting/pages/3-5-calculate-and-interpret-a-companys-margin-of-safety-and-operating-leverage)。有限变化恒等式由本篇列明的线性假设推导；产能台阶为另设教学变式。
+[^bf17-cat]: Caterpillar FY2025 10-K，MD&A pp31–35，Sales and Revenues Comparison 与 Consolidated Operating Profit Comparison；[SEC 原件](https://www.sec.gov/Archives/edgar/data/18230/000001823026000008/cat-20251231.htm)，[经营利润原图](https://www.sec.gov/Archives/edgar/data/18230/000001823026000008/cat-20251231_g4.jpg). 两期为2024→2025，单位 M 美元，取得日2026-09-21.
+[^bf17-def]: 同一原件 Definitions pp36–38：Manufacturing Costs、Price Realization、Sales Volume、Financial Products. 披露归因不等于独立因果识别或可外推结构参数.
+[^bf17-cvp]: OpenStax, *Principles of Accounting, Volume 2: Managerial Accounting* (2019)，§3.5 的 Operating Leverage 与虚构 Company A/B 输入. [公开全节](https://openstax.org/books/principles-managerial-accounting/pages/3-5-calculate-and-interpret-a-companys-margin-of-safety-and-operating-leverage). 有限变化恒等式由本篇列明的线性假设推导；产能台阶为另设教学变式.
 
 <script defer src="/notebook/labs/bf-de/reader-adapter.js"></script>
 
@@ -1478,7 +1482,7 @@ OpenStax 的虚构 Company A／B 给出一个有区分力的基准，单位是�
 <a id="EXP-BF17-HISTORICAL-VS-STRUCTURAL"></a>
 ## BF-17｜单位经济、成本结构与经营杠杆：静态实验
 
-输入身份 `BFDE-SHARED-20260921-v1`。公司金额为百万美元；教学设备、现金例和资本模型为教学金额；CVP 为美元。
+输入身份 `BFDE-SHARED-20260921-v1`. 公司金额单位为 USD M；教学设备、现金例和资本模型为教学金额；CVP 为美元.
 
 ### 固定的CAT历史归因
 
@@ -1504,7 +1508,7 @@ OpenStax 的虚构 Company A／B 给出一个有区分力的基准，单位是�
 | Other | 230 | 11,151 |
 | 原表终点 | 11,151 | 11,151 |
 
-Volume含新产品，利润volume还含组合；price realization含地域组合。1218/3389不是结构性边际贡献率。
+Volume含新产品，利润volume还含组合；price realization含地域组合. 1218/3389不是结构性边际贡献率.
 
 ### 独立线性CVP
 
@@ -1520,7 +1524,7 @@ Volume含新产品，利润volume还含组合；price realization含地域组合
 | B | 10 | 2.470588 | 106,000 | 24.705882 | 24.705882 |
 | B | -20 | 2.470588 | 43,000 | -49.411765 | -49.411765 |
 
-固定价格、单位变动成本、组合与固定成本，且基点利润非零时，有限变化等式精确成立。局部弹性解释与此不矛盾。
+固定价格、单位变动成本、组合与固定成本，且基点利润非零时，有限变化等式精确成立. 局部弹性解释与此不矛盾.
 
 | 台阶变式：A增加20% | 金额 |
 |---|---|
@@ -1528,7 +1532,7 @@ Volume含新产品，利润volume还含组合；price realization含地域组合
 | 超过15%新增固定成本 | 10,000 |
 | 台阶后利润 | 104,600 |
 
-新增固定成本是作者教学设定。基点OI=0时DOL及相对变化返回null，不显示无穷百分比为可用结果。
+新增固定成本是作者教学设定. 基点OI=0时DOL及相对变化返回null，不显示无穷百分比为可用结果.
 
 
 ## Experiment inputs and static equivalents
@@ -1538,7 +1542,7 @@ Volume含新产品，利润volume还含组合；price realization含地域组合
     "id": "EXP-BF17-HISTORICAL-VS-STRUCTURAL",
     "title": "单位经济、成本结构与经营杠杆：同源实验",
     "anchor": "bf17-experiment",
-    "description": "真实桥固定历史输入。教学CM=sales-variable_costs；OI=CM-fixed_costs；DOL=CM/OI。固定参数时newOI=(1+x)CM-F，有限百分比关系精确；台阶另加10,000，基点OI零拒绝百分比。",
+    "description": "真实桥固定历史输入. 教学CM=sales-variable_costs；OI=CM-fixed_costs；DOL=CM/OI. 固定参数时newOI=(1+x)CM-F，有限百分比关系精确；台阶另加10,000，基点OI零拒绝百分比.",
     "inputs": {
       "input_id": "BFDE-SHARED-20260921-v1",
       "source": "https://ou-liu-red-sugar.github.io/notebook/labs/bf-de/inputs.json",
@@ -1560,7 +1564,7 @@ Volume含新产品，利润volume还含组合；price realization含地域组合
           "identity": "Historical financial-statement observations; teaching cases are separately labelled. Values are not stock valuation inputs.",
           "costco": {
             "source_id": "BF-S-COST-FY2025-PDF",
-            "unit": "USD million",
+            "unit": "USD M",
             "periods": [
               "2025-08-31",
               "2024-09-01"
@@ -1716,7 +1720,7 @@ Volume含新产品，利润volume还含组合；price realization含地域组合
           },
           "salesforce": {
             "source_id": "BBC-C01",
-            "unit": "USD million",
+            "unit": "USD M",
             "periods": [
               "2026-01-31",
               "2025-01-31"
@@ -1889,7 +1893,7 @@ Volume含新产品，利润volume还含组合；price realization含地域组合
           },
           "caterpillar": {
             "source_id": "BBC-C04",
-            "unit": "USD million",
+            "unit": "USD M",
             "periods": [
               "2025-12-31",
               "2024-12-31"
@@ -2170,7 +2174,7 @@ Volume含新产品，利润volume还含组合；price realization含地域组合
               "third-party pharmacy",
               "other receivables"
             ],
-            "explanation_zh": "其他应收主要为对政府的应收，多与税款有关。信用卡奖励应收不是顾客刷卡货款；结算期不超过四天的顾客刷卡货款另依现金政策列示。"
+            "explanation_zh": "其他应收主要为对政府的应收，多与税款有关. 信用卡奖励应收不是顾客刷卡货款；结算期不超过四天的顾客刷卡货款另依现金政策列示."
           },
           "costco_lease_2024": {
             "operating_rou_asset": 2617,
@@ -2506,7 +2510,7 @@ Volume含新产品，利润volume还含组合；price realization含地域组合
       "default": {
         "drivers": {
           "identity": "Company historical attribution, not structural coefficients",
-          "unit": "USD million",
+          "unit": "USD M",
           "revenue": {
             "opening": 64809,
             "rows": [
@@ -2736,8 +2740,8 @@ Volume含新产品，利润volume还含组合；price realization含地域组合
       },
       "all_defaults_file": "https://ou-liu-red-sugar.github.io/notebook/labs/bf-de/default-results.json"
     },
-    "algorithm": "真实桥固定历史输入。教学CM=sales-variable_costs；OI=CM-fixed_costs；DOL=CM/OI。固定参数时newOI=(1+x)CM-F，有限百分比关系精确；台阶另加10,000，基点OI零拒绝百分比。",
-    "boundaries": "有限变化固定参数时两结果完全一致；跨台阶另算新增成本，基点利润0不返回可用比率。",
+    "algorithm": "真实桥固定历史输入. 教学CM=sales-variable_costs；OI=CM-fixed_costs；DOL=CM/OI. 固定参数时newOI=(1+x)CM-F，有限百分比关系精确；台阶另加10,000，基点OI零拒绝百分比.",
+    "boundaries": "有限变化固定参数时两结果完全一致；跨台阶另算新增成本，基点利润0不返回可用比率.",
     "local_url": "/notebook/labs/bf-de/interactions.html#EXP-BF17-HISTORICAL-VS-STRUCTURAL",
     "static_equivalent": {
       "html": "https://ou-liu-red-sugar.github.io/notebook/labs/bf-de/static.html#EXP-BF17-HISTORICAL-VS-STRUCTURAL",
@@ -2748,9 +2752,9 @@ Volume含新产品，利润volume还含组合；price realization含地域组合
 ```
 
 ## Sources
-- [Caterpillar Inc. FY2025 Form 10-K](https://www.sec.gov/Archives/edgar/data/18230/000001823026000008/cat-20251231.htm): 制造库存四阶段、部分LIFO与FIFO可比调整，以及NCI利润/权益归属；公司同时包含Financial Products。
-- [Caterpillar FY2025 Consolidated Operating Profit Comparison](https://www.sec.gov/Archives/edgar/data/18230/000001823026000008/cat-20251231_g4.jpg): 期初13,072、八项归因及期末11,151；这是公司历史解释，不是独立因果估计。
-- [Principles of Accounting Vol2 §3.5 — Margin of Safety and Operating Leverage](https://openstax.org/books/principles-managerial-accounting/pages/3-5-calculate-and-interpret-a-companys-margin-of-safety-and-operating-leverage): Company A/B虚构输入与经营杠杆；按原始表复算，不采用网页不一致的1.71、31.9%/46.9%。有限变化精确式由本篇条件推导。
+- [Caterpillar Inc. FY2025 Form 10-K](https://www.sec.gov/Archives/edgar/data/18230/000001823026000008/cat-20251231.htm): 制造库存四阶段、部分LIFO与FIFO可比调整，以及NCI利润/权益归属；公司同时包含Financial Products.
+- [Caterpillar FY2025 Consolidated Operating Profit Comparison](https://www.sec.gov/Archives/edgar/data/18230/000001823026000008/cat-20251231_g4.jpg): 期初13,072、八项归因及期末11,151；这是公司历史解释，不是独立因果估计.
+- [Principles of Accounting Vol2 §3.5 — Margin of Safety and Operating Leverage](https://openstax.org/books/principles-managerial-accounting/pages/3-5-calculate-and-interpret-a-companys-margin-of-safety-and-operating-leverage): Company A/B虚构输入与经营杠杆；按原始表复算，不采用网页不一致的1.71、31.9%/46.9%. 有限变化精确式由本篇条件推导.
 
 ## Content relations
 ```json
@@ -2771,7 +2775,7 @@ Volume含新产品，利润volume还含组合；price realization含地域组合
       "MD&A pp31–35; Definitions pp36–38",
       "Note23 A/B/C pp115–118; profit p120; pretax reconciliation p121"
     ],
-    "scope": "制造与出租资产用途、公司历史驱动定义、报告分部到收入/税前利润的完整桥。不得把volume包含的组合效果当结构性贡献率。"
+    "scope": "制造与出租资产用途、公司历史驱动定义、报告分部到收入/税前利润的完整桥. 不得把volume包含的组合效果当结构性贡献率."
   },
   {
     "from": "zh-bf17",
@@ -2781,7 +2785,7 @@ Volume含新产品，利润volume还含组合；price realization含地域组合
     "locator": [
       "MD&A p33 original chart"
     ],
-    "scope": "期初13,072、八项归因及期末11,151；这是公司历史解释，不是独立因果估计。"
+    "scope": "期初13,072、八项归因及期末11,151；这是公司历史解释，不是独立因果估计."
   },
   {
     "from": "zh-bf17",
@@ -2791,7 +2795,7 @@ Volume含新产品，利润volume还含组合；price realization含地域组合
     "locator": [
       "§3.5 full section; Operating Leverage; Company A/B tables and relevant-range discussion"
     ],
-    "scope": "Company A/B虚构输入与经营杠杆；按原始表复算，不采用网页不一致的1.71、31.9%/46.9%。有限变化精确式由本篇条件推导。"
+    "scope": "Company A/B虚构输入与经营杠杆；按原始表复算，不采用网页不一致的1.71、31.9%/46.9%. 有限变化精确式由本篇条件推导."
   },
   {
     "from": "zh-bf17",
@@ -2809,9 +2813,9 @@ Volume含新产品，利润volume还含组合；price realization含地域组合
     "from": "bf17-experiment",
     "relation": "illustrated_by",
     "to": "EXP-BF17-HISTORICAL-VS-STRUCTURAL",
-    "reason": "真实桥固定历史输入。教学CM=sales-variable_costs；OI=CM-fixed_costs；DOL=CM/OI。固定参数时newOI=(1+x)CM-F，有限百分比关系精确；台阶另加10,000，基点OI零拒绝百分比。",
+    "reason": "真实桥固定历史输入. 教学CM=sales-variable_costs；OI=CM-fixed_costs；DOL=CM/OI. 固定参数时newOI=(1+x)CM-F，有限百分比关系精确；台阶另加10,000，基点OI零拒绝百分比.",
     "at_section": "bf17-experiment",
-    "conditions": "有限变化固定参数时两结果完全一致；跨台阶另算新增成本，基点利润0不返回可用比率。"
+    "conditions": "有限变化固定参数时两结果完全一致；跨台阶另算新增成本，基点利润0不返回可用比率."
   }
 ]
 ```
@@ -2820,6 +2824,6 @@ Volume含新产品，利润volume还含组合；price realization含地域组合
 
 ## Optional reading path
 拆一份企业财报: step 9/14
-把公司历史利润桥与明确条件的经营杠杆模型分开。
-同样的经营利润，也会因收付款时间形成不同的资金需要。
+把公司历史利润桥与明确条件的经营杠杆模型分开.
+同样的经营利润，也会因收付款时间形成不同的资金需要.
 Next: [营运资本与现金周转](https://ou-liu-red-sugar.github.io/zh/notebook/working-capital-and-cash-cycle/)

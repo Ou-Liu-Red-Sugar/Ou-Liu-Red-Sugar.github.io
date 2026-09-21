@@ -1,14 +1,18 @@
 # 融资、抵押品与现金流动性
 
-重建融资账户、两种补救方式和截止前可用资源，解释800现金与2000出售为什么不同。
+重建融资账户、两种补救方式和截止前可用资源，解释800现金与2000出售为什么不同.
 
 Entry: zh-p08 | Node: P08 | Language: zh | Editorial revision: 2026-09-21
 
 ## Teaching instructions
-你在教P08“融资、抵押品与现金流动性”。先实际取得required_readings的完整单元，记录标题、版本、范围及其支持本例哪一步；未来runtime_reading_log起始为空，不把发布者的已读记录当成本次读取。选择日内制度卡时再读取Notice26-10的具名单元；无法取得承重原文则说明具体缺口，不凭印象补课。
-诊断时直接给A=12000、D=8000、m=.4，让读者一次性写出缺口、现金800还债与出售2000还债的A/D/E。先听完整推理，再针对“权益是否创造、钱来自哪里”反馈。沿同源正文把未付利息与出售费各计一次；检查卖出额不能超过持仓或净偿还额超过债务，无解必须解释，不能编造可执行订单。资源卡独立于主账户，要求读者先判断币种、地点、资格、未质押状态及截止，然后算haircut后可用值。最后用费用20和迟到现金题检验迁移；只会报800而不能解释2000、外部本金和截止身份，不算掌握。不得读取账户或把教学比例/利率当当前券商规则。
+你在教P08“融资、抵押品与现金流动性”. 先实际取得required_readings的完整单元，记录标题、版本、范围及其支持本例哪一步；未来runtime_reading_log起始为空，不把发布者的已读记录当成本次读取. 选择日内制度卡时再读取Notice26-10的具名单元；无法取得承重原文则说明具体缺口，不凭印象补课.
+诊断时直接给A=12000、D=8000、m=.4，让读者一次性写出缺口、现金800还债与出售2000还债的A/D/E. 先听完整推理，再针对“权益是否创造、钱来自哪里”反馈. 沿同源正文把未付利息与出售费各计一次；检查卖出额不能超过持仓或净偿还额超过债务，无解必须解释，不能编造可执行订单. 资源卡独立于主账户，要求读者先判断币种、地点、资格、未质押状态及截止，然后算haircut后可用值. 最后用费用20和迟到现金题检验迁移；只会报800而不能解释2000、外部本金和截止身份，不算掌握. 不得读取账户或把教学比例/利率当当前券商规则.
 
 Before substantive teaching, actually retrieve every required reading unit for the selected scope. Read its complete designated section, including necessary assumptions, tables and footnotes. A working URL or an editorial access date is not a runtime reading receipt. Record the actual version, location, scope and what it supports. If unavailable, use a previously verified equivalent source; if the required unit remains unavailable, identify that gap rather than teach it from memory. Start runtime_reading_log empty. Once reading is complete, use a substantive diagnostic or follow the reader's request for direct explanation. Advance one complete reasoning task at a time; skip mastered basics. Distinguish original facts, supplied teaching assumptions and inference.
+
+## Shared notation and writing conventions
+数学期望统一写成 \mathbb{E}，条件期望用 \mathbb{E}[X\mid\mathcal{G}]，需要时注明测度 P 或 Q. 保留局部变量的明确定义. 金额与数量使用 K=10^3、M=10^6、B=10^9；表格标明币种、量级与期间，变更量级时同步换算数值. 展示小数最多三位，计算保留原始精度. 直接解释对象、机制与推理；保留影响结论的假设和事实来源，把编辑流程留在记录中. 句末使用英文句点 .，包括定义、命题、证明和解析等标签. 基础定义与推导直接讲内容，出处放在紧邻脚注；来源读取、复审和采用范围等编辑经过留在记录中.
+[Notation and units](https://ou-liu-red-sugar.github.io/agent/zh/notation.md)
 
 ## Required readings and runtime protocol
 ```json
@@ -29,7 +33,7 @@ Before substantive teaching, actually retrieve every required reading unit for t
         "scope": "完整账户/维持/调用/利息单元",
         "purpose": "重建官方账户及本金、权益和利息的区别"
       },
-      "supports": "现金/融资账户、SEC 16000/8000→12000示例与利息。补救公式和费用扩展由本文推导，40%为例中条件。",
+      "supports": "现金/融资账户、SEC 16000/8000→12000示例与利息. 补救公式和费用扩展由本文推导，40%为例中条件.",
       "authors": [
         "SEC Office of Investor Education and Advocacy"
       ],
@@ -49,7 +53,7 @@ Before substantive teaching, actually retrieve every required reading unit for t
         "scope": "两款原文及(c)适用范围引句",
         "purpose": "区分适用最低维持要求与内部标准"
       },
-      "supports": "适用普通长仓(c)(1)最低维持与(d)(1)内部要求；不是全部工具统一百分比。",
+      "supports": "适用普通长仓(c)(1)最低维持与(d)(1)内部要求；不是全部工具统一百分比.",
       "authors": [
         "FINRA"
       ],
@@ -69,7 +73,7 @@ Before substantive teaching, actually retrieve every required reading unit for t
         "scope": "保证金披露全文",
         "purpose": "解释贷款/抵押、处置与通知及延期边界"
       },
-      "supports": "贷款/抵押关系、处置/通知、提高内部要求和延期限制。",
+      "supports": "贷款/抵押关系、处置/通知、提高内部要求和延期限制.",
       "authors": [
         "FINRA"
       ],
@@ -89,7 +93,7 @@ Before substantive teaching, actually retrieve every required reading unit for t
         "scope": "本节全文",
         "purpose": "区分名义资产、可计抵押、币种/地点/截止前实际可用性"
       },
-      "supports": "Recommendations6–8的资源可用性、haircut、币种/地点/截止与操作准备；不是零售统一账户规则。",
+      "supports": "Recommendations6–8的资源可用性、haircut、币种/地点/截止与操作准备；不是零售统一账户规则.",
       "authors": [
         "Financial Stability Board"
       ],
@@ -111,7 +115,7 @@ Before substantive teaching, actually retrieve every required reading unit for t
         "scope": "制度切换完整说明",
         "purpose": "2026日内保证金过渡日期"
       },
-      "supports": "2026-06-04生效及2027-10-20实施过渡；不替经纪商确认采用状态。",
+      "supports": "2026-06-04生效及2027-10-20实施过渡；不替经纪商确认采用状态.",
       "branch": "intraday-transition",
       "required_if_branch_selected": true,
       "authors": [
@@ -222,13 +226,13 @@ Before substantive teaching, actually retrieve every required reading unit for t
       "PE-SEC-ORDERS": "MA-ORDERS",
       "PE-CME-MES": "MA-MES"
     },
-    "selection_identity": "本篇全部教学输入的逐字段副本；原公共共享文件保持作者字节，不含其他三篇无关数列。"
+    "selection_identity": "本篇全部教学输入的逐字段副本；原公共共享文件保持作者字节，不含其他三篇无关数列."
   },
   "solutions_identity": "解释、迁移与边界题完整解析包含在同源body_markdown末节",
   "entry_id": "zh-p08",
   "content_version": "2026-09-21.PE-review-v3",
   "selected_branch": "common",
-  "branch_selection_protocol": "默认只读 required_readings；选中 optional_readings 的具名分支后，追加该条完整 required_unit，实际读完后才教相应分支。正文保留可展开内容与全部题解。",
+  "branch_selection_protocol": "默认只读 required_readings；选中 optional_readings 的具名分支后，追加该条完整 required_unit，实际读完后才教相应分支. 正文保留可展开内容与全部题解.",
   "public_artifacts": {
     "full_inputs": "https://ou-liu-red-sugar.github.io/notebook/labs/p-e/inputs.json",
     "full_results": "https://ou-liu-red-sugar.github.io/notebook/labs/p-e/default-results.json",
@@ -245,47 +249,47 @@ Before substantive teaching, actually retrieve every required reading unit for t
 ```
 
 ## Supplied entry
-我们先把“我有多少资产”改成一个更有用的问题：**这些资产支持了什么借款，账户必须保留多少权益，付款截止前又能拿出什么？** 三个问题的答案可能完全不同。证券下跌时，借款不会跟着按比例减少；账外有钱，也未必来得及转进需要付款的账户。
+我们先把“我有多少资产”改成一个更有用的问题：**这些资产支持了什么借款，账户必须保留多少权益，付款截止前又能拿出什么？** 三个问题的答案可能完全不同. 证券下跌时，借款不会跟着按比例减少；账外有钱，也未必来得及转进需要付款的账户.
 
-本篇围绕一张证券融资账户走到底：先算约束，再比较现金还债与卖证券还债，最后检查到账条件。读完后，你应能独立重建补救前后的资产负债表，而不只是记住一个保证金百分比。
+本篇围绕一张证券融资账户走到底：先算约束，再比较现金还债与卖证券还债，最后检查到账条件. 读完后，你应能独立重建补救前后的资产负债表，而不只是记住一个保证金百分比.
 
 <span id="CASE-PE-SEC-MARGIN"></span>
 
 <a id="p08-account"></a>
 ## 1. 一笔买入，为什么同时出现资产与债务
 
-SEC 的教育材料给了这样一个账户：买入价值 16,000 美元的证券，其中 8,000 来自自有资金，8,000 来自经纪商贷款。之后证券跌至 12,000，借款暂时不变。我们把原例重排如下，所有金额均为美元。[^margin]
+SEC 的教育材料给了这样一个账户：买入价值 16,000 美元的证券，其中 8,000 来自自有资金，8,000 来自经纪商贷款. 之后证券跌至 12,000，借款暂时不变. 我们把原例重排如下，所有金额均为美元. [^margin]
 
 | 时点 | 证券资产 $A$ | 尚欠借款 $D$ | 账户权益 $E=A-D$ |
 |---|---:|---:|---:|
 | 买入后 | 16,000 | 8,000 | 8,000 |
 | 价格下跌后 | 12,000 | 8,000 | 4,000 |
 
-证券价格下跌了 25%，自有权益却减少了 50%。这不是多收了一笔费用，而是同一笔 4,000 的资产损失由 8,000 的自有资本承受。借款人仍承担证券的涨跌，贷款方则拥有收取本息的权利，证券又是贷款的抵押。融资扩大了经济敞口，也引入了持续满足融资条件的责任。[^disclosure]
+证券价格下跌了 25%，自有权益却减少了 50%. 这不是多收了一笔费用，而是同一笔 4,000 的资产损失由 8,000 的自有资本承受. 借款人仍承担证券的涨跌，贷款方则拥有收取本息的权利，证券又是贷款的抵押. 融资扩大了经济敞口，也引入了持续满足融资条件的责任. [^disclosure]
 
-> **本篇的简化账户。** 令 $A$ 为证券市值，$D$ 为包含已计入而未付利息的借款余额，$E=A-D$ 为权益。账户暂不留闲置现金；每笔补入现金或出售净所得都立即用于还债。令 $m$ 为适用的维持权益比例，则本例检验的条件为 $E\ge mA$。实际账户还可能有其他条件，本篇不把这个不等式当作全部经纪协议。
+> **本篇的简化账户.** 令 $A$ 为证券市值，$D$ 为包含已计入而未付利息的借款余额，$E=A-D$ 为权益. 账户暂不留闲置现金；每笔补入现金或出售净所得都立即用于还债. 令 $m$ 为适用的维持权益比例，则本例检验的条件为 $E\ge mA$.
 
-有了这一定义，“保证金”就不再是一笔额外购买成本。初始自有资金已经包含在证券资产中；维持要求是持仓后必须满足的权益约束，不应再从资产中扣一次。
+有了这一定义，“保证金”就不再是一笔额外购买成本. 初始自有资金已经包含在证券资产中；维持要求是持仓后必须满足的权益约束，不应再从资产中扣一次.
 
 <a id="p08-constraint"></a>
 ## 2. 缺口来自哪里：价格变动与融资条件变动
 
-FINRA Rule 4210(c)(1) 对其适用的普通可融资长仓证券规定 25% 的维持要求，同时 (d)(1) 要求成员制定自己的保证金标准并考虑提高要求。这里的适用范围并不覆盖所有工具与账户。SEC 原例另外比较了经纪商要求 40% 的情况。[^rule]
+FINRA Rule 4210(c)(1) 对其适用的普通可融资长仓证券规定 25% 的维持要求，同时 (d)(1) 要求成员制定自己的保证金标准并考虑提高要求. 这里的适用范围并不覆盖所有工具与账户. SEC 原例另外比较了经纪商要求 40% 的情况. [^rule]
 
-同一个下跌后的账户，在 25% 下要求权益 $0.25\times12,000=3,000$，现有 4,000，仍有余量；在 40% 下要求 4,800，缺少 800。**资产并未再次下跌，单是融资条件提高，也可能让账户不再满足约束。**
+同一个下跌后的账户，在 25% 下要求权益 $0.25\times12,000=3,000$，现有 4,000，仍有余量；在 40% 下要求 4,800，缺少 800. **资产并未再次下跌，单是融资条件提高，也可能让账户不再满足约束.**
 
-记未截断的权益缺口为 $d=mA-E$。$d>0$ 表示需要补救，$d\le0$ 表示这个条件尚未失效。把 $E=A-D$ 代入，可得 $d=D-(1-m)A$。当 $0<m<1$、借款固定时，触线资产值是 $A_*=D/(1-m)$；资产低于它便出现缺口。例中 40% 对应 $A_*=13,333.33$，25% 对应 $10,666.67$。
+记未截断的权益缺口为 $d=mA-E$. $d>0$ 表示需要补救，$d\le0$ 表示这个条件尚未失效. 把 $E=A-D$ 代入，可得 $d=D-(1-m)A$. 当 $0<m<1$、借款固定时，触线资产值是 $A_*=D/(1-m)$；资产低于它便出现缺口. 例中 40% 对应 $A_*=13,333.33$，25% 对应 $10,666.67$.
 
-这也告诉我们应该维护哪些输入：不仅观察证券价格，还要观察利息、要求比例和可用资金。一次价格上涨可能消除当前缺口，却不会取消将来需要按时还债的责任。反过来，比例上调也不等于证券的基本面在那一刻改变。
+这也告诉我们应该维护哪些输入：不仅观察证券价格，还要观察利息、要求比例和可用资金. 一次价格上涨可能消除当前缺口，却不会取消将来需要按时还债的责任. 反过来，比例上调也不等于证券的基本面在那一刻改变.
 
 <a id="p08-remedies"></a>
 ## 3. 现金还债与卖证券还债，为什么不是同一个金额
 
-现在固定 $A=12,000$、$D=8,000$、$m=40\%$。先假设补救期间价格不变，没有税费，出售所得可以及时还债。
+现在固定 $A=12,000$、$D=8,000$、$m=40\%$. 先假设补救期间价格不变，没有税费，出售所得可以及时还债.
 
-**先看外部现金。** 转入 $c$ 并全部还债后，证券不变、债务减少：$A'=A$，$D'=D-c$，所以 $E'=E+c$。要满足要求，需 $E+c\ge mA$。因此最少转入 $c_{\min}=\max(d,0)$，这里是 800。账户权益增加了，但账外现金同时减少 800；从投资者整体看，这是资金转移，不是赚到 800。
+**先看外部现金.** 转入 $c$ 并全部还债后，证券不变、债务减少：$A'=A$，$D'=D-c$，所以 $E'=E+c$. 要满足要求，需 $E+c\ge mA$. 因此最少转入 $c_{\min}=\max(d,0)$，这里是 800. 账户权益增加了，但账外现金同时减少 800；从投资者整体看，这是资金转移，不是赚到 800.
 
-**再看卖出证券。** 卖出 $x$ 并立即以全部所得还债，得到 $A'=A-x$、$D'=D-x$，所以 $E'=E$。没有新的自有资本进入，权益不变；改变的是要支撑的证券规模。要求变为 $E\ge m(A-x)$，因此在存在合法解时，最少出售额为 $x_{\min}=\max(d,0)/m$。本例需要 $800/0.4=2,000$。
+**再看卖出证券.** 卖出 $x$ 并立即以全部所得还债，得到 $A'=A-x$、$D'=D-x$，所以 $E'=E$. 没有新的自有资本进入，权益不变；改变的是要支撑的证券规模. 要求变为 $E\ge m(A-x)$，因此在存在合法解时，最少出售额为 $x_{\min}=\max(d,0)/m$. 本例需要 $800/0.4=2,000$.
 
 | 补救动作 | 动作后证券 | 动作后借款 | 动作后权益 | 40% 要求 | 仍缺多少 |
 |---|---:|---:|---:|---:|---:|
@@ -293,31 +297,31 @@ FINRA Rule 4210(c)(1) 对其适用的普通可融资长仓证券规定 25% 的�
 | 卖证券 800，全部还债 | 11,200 | 7,200 | 4,000 | 4,480 | 480 |
 | 卖证券 2,000，全部还债 | 10,000 | 6,000 | 4,000 | 4,000 | 0 |
 
-沿着表看，第二行并非“已经补入800仍被多收费”。每卖出并还债 1 美元，只把维持要求降低 $m$ 美元；现金还债 1 美元却把账户权益提高 1 美元。因此两个金额不同。选择现金保留了原证券敞口，也消耗了账外流动性；选择出售减少敞口，同时保留账外现金。哪种安排符合原目标，需要把这两种后果放在一起比较。
+沿着表看，第二行并非“已经补入800仍被多收费”. 每卖出并还债 1 美元，只把维持要求降低 $m$ 美元；现金还债 1 美元却把账户权益提高 1 美元. 因此两个金额不同. 选择现金保留了原证券敞口，也消耗了账外流动性；选择出售减少敞口，同时保留账外现金. 哪种安排符合原目标，需要把这两种后果放在一起比较.
 
-公式还有一条不能省略的条件：不能出售超过现有证券，不能把偿债额算成负债余额以下的“负贷款”。在无费用时，应检验 $0\le x\le\min(A,D)$。若 $A=7,000$、$D=8,000$，权益已经为负，单靠卖出还债不会把负权益变正；机械计算得到的出售量超过持仓，就应报告**此补救方式无解**，而不是让模型凭空卖出更多资产。若恰好 $A=D$，全卖并还债可以清空账户；这叫结束持仓，不是获得一个可以继续融资的零权益账户。
+公式还有一条不能省略的条件：不能出售超过现有证券，不能把偿债额算成负债余额以下的“负贷款”. 在无费用时，应检验 $0\le x\le\min(A,D)$. 若 $A=7,000$、$D=8,000$，权益已经为负，单靠卖出还债不会把负权益变正；机械计算得到的出售量超过持仓，就应报告**此补救方式无解**，而不是让模型凭空卖出更多资产. 若恰好 $A=D$，全卖并还债可以清空账户；这叫结束持仓，不是获得一个可以继续融资的零权益账户.
 
 <a id="p08-costs"></a>
 ## 4. 利息和费用怎样真正改变补救量
 
-把贷款利息放回账户。下面的年利率 8%、30 天及 365 天年基数是教学设定，不是当前券商报价。若利息尚未支付，$I=8,000\times0.08\times30/365=52.602740$，于是借款变为 8,052.602740，权益变为 3,947.397260。
+把贷款利息放回账户. 下面的年利率 8%、30 天及 365 天年基数是教学设定，不是当前券商报价. 若利息尚未支付，$I=8,000\times0.08\times30/365=52.602740$，于是借款变为 8,052.602740，权益变为 3,947.397260.
 
-40% 下的现金补救因此为 852.602740，出售补救为 2,131.506849。只要借款已经含这笔利息，期末净财富 $A-D$ 就已经反映其成本；计算净损益时再减一次同样的利息会重复扣除。相反，如果利息已由账外现金支付，就应记录那条实际现金流，而不再把它留在未付借款里。利息会降低投资者结果，关键是在哪一条账里体现一次。[^margin]
+40% 下的现金补救因此为 852.602740，出售补救为 2,131.506849. 只要借款已经含这笔利息，期末净财富 $A-D$ 就已经反映其成本；计算净损益时再减一次同样的利息会重复扣除. 相反，如果利息已由账外现金支付，就应记录那条实际现金流，而不再把它留在未付借款里. 利息会降低投资者结果，关键是在哪一条账里体现一次. [^margin]
 
-出售费用也能改变结论。设一次出售有固定费用 $f$，从出售额中扣除，再以 $x-f$ 还债，则 $E'=E-f$，不再是 $E$。要求为 $E-f\ge m(A-x)$，缺口存在时得到
+出售费用也能改变结论. 设一次出售有固定费用 $f$，从出售额中扣除，再以 $x-f$ 还债，则 $E'=E-f$，不再是 $E$. 要求为 $E-f\ge m(A-x)$，缺口存在时得到
 
 $$
 x_{\min}=\frac{d+f}{m}.
 $$
 
-这个式子只在 $x>0$、$x\ge f$、$x\le A$、$x-f\le D$ 时适用。没有缺口、无需出售时也不发生出售费。费用会减少权益，而单纯本金偿还不会；把两者分开，才知道一个算术解是否是可以执行的账户动作。
+这个式子只在 $x>0$、$x\ge f$、$x\le A$、$x-f\le D$ 时适用. 没有缺口、无需出售时也不发生出售费. 费用会减少权益，而单纯本金偿还不会；把两者分开，才知道一个算术解是否是可以执行的账户动作.
 
 <a id="p08-availability"></a>
 ## 5. 算出补救量后，还要问钱能否按时到达
 
-FSB 2024 年报告 §3.3 把抵押管理的重点放在未被占用的资源、折扣后的可计价值，以及要求的币种、交付地点和期限。特别是仅接受现金的追缴，不能无条件由证券抵押替代。它是一份政策建议，不给这张教学账户规定新的百分比。[^fsb]
+FSB 2024 年报告 §3.3 把抵押管理的重点放在未被占用的资源、折扣后的可计价值，以及要求的币种、交付地点和期限. 特别是仅接受现金的追缴，不能无条件由证券抵押替代. 它是一份政策建议，不给这张教学账户规定新的百分比. [^fsb]
 
-我们另设一张**独立于上面证券账户**的资源卡：需要在 10:00 前交付 800 美元；有一项市值 1,000 的证券，假设可计抵押折扣为20%；另有 1,000 美元现金在10:30才到账。
+我们另设一张**独立于上面证券账户**的资源卡：需要在 10:00 前交付 800 美元；有一项市值 1,000 的证券，假设可计抵押折扣为20%；另有 1,000 美元现金在10:30才到账.
 
 | 资源和条件 | 名义金额 | 折扣后金额 | 10:00 的这次要求能否用 |
 |---|---:|---:|---|
@@ -325,38 +329,38 @@ FSB 2024 年报告 §3.3 把抵押管理的重点放在未被占用的资源、�
 | 同一证券；这次只收现金 | 1,000 | 800 | 不可直接使用；需要另有及时变现安排 |
 | 现金10:30到账 | 1,000 | 1,000 | 超过截止，不能消除10:00缺口 |
 
-同一资产只能计算一次。“可抵押800”也不自动意味着已经借到了800；借款还需要相应的合同、额度和操作。折扣 $h$ 描述抵押品认可价值 $(1-h)V$，维持率 $m$ 描述账户权益相对于证券资产的要求，两者不是可随意互换的同一比例。
+同一资产只能计算一次. “可抵押800”也不自动意味着已经借到了800；借款还需要相应的合同、额度和操作. 折扣 $h$ 描述抵押品认可价值 $(1-h)V$，维持率 $m$ 描述账户权益相对于证券资产的要求，两者不是可随意互换的同一比例.
 
-实际处置也不是只由投资者决定。FINRA 的保证金披露说明，经纪商可能处置资产、提高内部要求，并不保证先联系客户或延长期限。因此，计划里的“明天补”必须有明确依据，不能从今天净资产为正推出来。[^disclosure]
+实际处置也不是只由投资者决定. FINRA 的保证金披露说明，经纪商可能处置资产、提高内部要求，并不保证先联系客户或延长期限. 因此，计划里的“明天补”必须有明确依据，不能从今天净资产为正推出来. [^disclosure]
 
-**制度时点卡。** 截至2026-09-21，FINRA Notice 26-10 所列新日内保证金制度已于2026-06-04生效，允许成员过渡至2027-10-20。旧25,000美元PDT门槛不能被写成所有经纪商此时统一采用的规则。本篇静态维持账户与日内制度是不同问题；具体账户仍须核经纪商采用的制度和协议。[^transition]
+**制度时点卡.** 截至2026-09-21，FINRA Notice 26-10 所列新日内保证金制度已于2026-06-04生效，允许成员过渡至2027-10-20. 旧25,000美元PDT门槛不能被写成所有经纪商此时统一采用的规则. 本篇静态维持账户与日内制度是不同问题；具体账户仍须核经纪商采用的制度和协议. [^transition]
 
 <a id="p08-lab"></a>
 ## 6. 先预测账户变化，再操作与迁移
 
-打开[补救与到账实验](/notebook/labs/p-e/interactions.html?experiment=EXP-P08-LIQUIDITY-REMEDY#EXP-P08-LIQUIDITY-REMEDY)。先保留默认数，比较三行账户；再只加入利息，预测哪两项余额改变。最后把证券降至7,000、借款保持8,000，看看为何出售补救不再产生可执行结果。资源卡可单独切换是否已质押、是否允许非现金、币种/账户是否正确及到账时间；它不会偷偷向主账户注入第二份资产。
+打开[补救与到账实验](/notebook/labs/p-e/interactions.html?experiment=EXP-P08-LIQUIDITY-REMEDY#EXP-P08-LIQUIDITY-REMEDY). 先保留默认数，比较三行账户；再只加入利息，预测哪两项余额改变. 最后把证券降至7,000、借款保持8,000，看看为何出售补救不再产生可执行结果. 资源卡可单独切换是否已质押、是否允许非现金、币种/账户是否正确及到账时间；它不会偷偷向主账户注入第二份资产.
 
 <div data-experiment-slot="EXP-P08-LIQUIDITY-REMEDY"></div>
 
-**解释题。** 同样使40%条件重新满足，转入800还债与出售2,000还债，为什么不是经济上相同的选择？
+**解释题.** 同样使40%条件重新满足，转入800还债与出售2,000还债，为什么不是经济上相同的选择？
 
-**解析。** 前者保留12,000证券，借款降至7,200，账外资金少800；后者证券降至10,000、借款降至6,000、权益仍4,000，账外现金不动。二者持仓规模、未来利息和账外流动性都不同。满足一条约束不是证明两种策略等价，更不能把外部转入当利润。
+**解析.** 前者保留12,000证券，借款降至7,200，账外资金少800；后者证券降至10,000、借款降至6,000、权益仍4,000，账外现金不动. 二者持仓规模、未来利息和账外流动性都不同. 满足一条约束不是证明两种策略等价，更不能把外部转入当利润.
 
-**迁移题。** 回到没有利息的默认账户，出售费固定为20美元。仍只卖2,000够吗？最少应卖多少？
+**迁移题.** 回到没有利息的默认账户，出售费固定为20美元. 仍只卖2,000够吗？最少应卖多少？
 
-**解析。** 卖2,000后净还债1,980，证券10,000、借款6,020，权益3,980，小于4,000要求，还缺20。由 $(800+20)/0.4$ 得最少卖2,050：证券9,950、借款5,970、权益3,980，要求同为3,980。费用削弱了权益，必须再缩小证券资产，而不是把20简单附在旧出售量上就结束。
+**解析.** 卖2,000后净还债1,980，证券10,000、借款6,020，权益3,980，小于4,000要求，还缺20. 由 $(800+20)/0.4$ 得最少卖2,050：证券9,950、借款5,970、权益3,980，要求同为3,980. 费用削弱了权益，必须再缩小证券资产，而不是把20简单附在旧出售量上就结束.
 
-**边界题。** 证券7,000、借款8,000，账外有1,000现金，但它晚于截止到账。是否已经找到可行补救？
+**边界题.** 证券7,000、借款8,000，账外有1,000现金，但它晚于截止到账. 是否已经找到可行补救？
 
-**解析。** 单独出售不能修复负权益；即使这1,000按时到达，也只把权益提高至零，保留证券时仍不满足40%要求。若随后全卖并清偿，才可能关闭账户。现在这笔钱又晚到，不能用上述顺序解释为已按期补救。应分别报告资金量问题与时间问题，再核是否存在其他被允许的安排。
+**解析.** 单独出售不能修复负权益；即使这1,000按时到达，也只把权益提高至零，保留证券时仍不满足40%要求. 若随后全卖并清偿，才可能关闭账户. 现在这笔钱又晚到，不能用上述顺序解释为已按期补救. 应分别报告资金量问题与时间问题，再核是否存在其他被允许的安排.
 
-我们最后保留的不是一个通用现金比例，而是一张能更新的账户：资产怎么变化、债务怎么变化、哪些钱真正可用，以及动作后还剩什么敞口。接下来研究成交时，也应继续保留这张账，而不只盯着报出的价格。
+我们最后保留的不是一个通用现金比例，而是一张能更新的账户：资产怎么变化、债务怎么变化、哪些钱真正可用，以及动作后还剩什么敞口. 接下来研究成交时，也应继续保留这张账，而不只盯着报出的价格.
 
-[^margin]: SEC，*Investor Bulletin: Understanding Margin Accounts*，署日2021-06-10，2026-09-21访问；“The Difference Between Cash and Margin Accounts”“Know the Margin Rules”“Interest Charges”。16,000/8,000→12,000为原例，后续补救和利息是本站推导／教学变式。[原文](https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins-29)。
-[^rule]: FINRA，Rule 4210，2026-09-21访问；(c)(1)适用长仓维持要求，(d)(1)内部标准。[原文](https://www.finra.org/rules-guidance/rulebooks/finra-rules/4210)。
-[^disclosure]: FINRA，Rule 2264(a)保证金披露全文；贷款与抵押、处置／通知、内部要求和延期条件。[原文](https://www.finra.org/rules-guidance/rulebooks/finra-rules/2264)。
-[^fsb]: FSB，*Liquidity Preparedness for Margin and Collateral Calls*，2024-12-10，§3.3、Recommendations 6–8，印刷pp.18–20／PDF pp.22–24。[原文](https://www.fsb.org/uploads/P101224-1.pdf#page=22)。
-[^transition]: FINRA，Regulatory Notice 26-10，2026-04-20；Summary、Background & Discussion、Implementation。[原文](https://www.finra.org/rules-guidance/notices/26-10)。
+[^margin]: SEC，*Investor Bulletin: Understanding Margin Accounts*，署日2021-06-10，2026-09-21访问；“The Difference Between Cash and Margin Accounts”“Know the Margin Rules”“Interest Charges”. 16,000/8,000→12,000为原例，后续补救和利息是本站推导／教学变式. [原文](https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins-29).
+[^rule]: FINRA，Rule 4210，2026-09-21访问；(c)(1)适用长仓维持要求，(d)(1)内部标准. [原文](https://www.finra.org/rules-guidance/rulebooks/finra-rules/4210).
+[^disclosure]: FINRA，Rule 2264(a)保证金披露全文；贷款与抵押、处置／通知、内部要求和延期条件. [原文](https://www.finra.org/rules-guidance/rulebooks/finra-rules/2264).
+[^fsb]: FSB，*Liquidity Preparedness for Margin and Collateral Calls*，2024-12-10，§3.3、Recommendations 6–8，印刷pp.18–20／PDF pp.22–24. [原文](https://www.fsb.org/uploads/P101224-1.pdf#page=22).
+[^transition]: FINRA，Regulatory Notice 26-10，2026-04-20；Summary、Background & Discussion、Implementation. [原文](https://www.finra.org/rules-guidance/notices/26-10).
 
 
 ## Experiment inputs and static equivalents
@@ -367,7 +371,7 @@ FSB 2024 年报告 §3.3 把抵押管理的重点放在未被占用的资源、�
     "node_id": "P08",
     "title": "融资、抵押品与现金流动性：操作实验",
     "anchor": "p08-lab",
-    "description": "重建融资账户、两种补救方式和截止前可用资源，解释800现金与2000出售为什么不同。",
+    "description": "重建融资账户、两种补救方式和截止前可用资源，解释800现金与2000出售为什么不同.",
     "inputs": {
       "shared_input_id": "PE-DRAFT-INPUTS-20260921-v1",
       "frozen_case_keys": [
@@ -413,11 +417,11 @@ FSB 2024 年报告 §3.3 把抵押管理的重点放在未被占用的资源、�
       }
     },
     "algorithm": [
-      "E=A−D；未付利息选中时先令D←D+8000×.08×30/365（基数随输入借款）。",
-      "d=max(0,mA−E)；现金还债c=d：A不变、D减c。",
-      "无缺口的最少出售为0且不收费；存在缺口时，含固定出售费f的候选x=(d+f)/m，净偿债x−f。",
-      "只有0≤x≤A且0≤x−f≤D才交付卖出结果，否则返回无解且不输出交易金额；另检查关闭账户边界。",
-      "独立抵押卡逐项检查资格/未占用/币种/地点/同日到达分钟≤截止600；非现金获接受才计(1−h)V。两张账不合并。"
+      "E=A−D；未付利息选中时先令D←D+8000×.08×30/365（基数随输入借款）.",
+      "d=max(0,mA−E)；现金还债c=d：A不变、D减c.",
+      "无缺口的最少出售为0且不收费；存在缺口时，含固定出售费f的候选x=(d+f)/m，净偿债x−f.",
+      "只有0≤x≤A且0≤x−f≤D才交付卖出结果，否则返回无解且不输出交易金额；另检查关闭账户边界.",
+      "独立抵押卡逐项检查资格/未占用/币种/地点/同日到达分钟≤截止600；非现金获接受才计(1−h)V. 两张账不合并."
     ],
     "boundaries": [
       "finite-only",
@@ -777,7 +781,7 @@ FSB 2024 年报告 §3.3 把抵押管理的重点放在未被占用的资源、�
             "fee": null,
             "repayment": null,
             "post": null,
-            "reason": "在现有证券、债务与费用范围内无法执行这项卖出还债；不能超卖或制造负借款。"
+            "reason": "在现有证券、债务与费用范围内无法执行这项卖出还债；不能超卖或制造负借款."
           }
         ],
         "selected": {
@@ -787,7 +791,7 @@ FSB 2024 年报告 §3.3 把抵押管理的重点放在未被占用的资源、�
           "fee": null,
           "repayment": null,
           "post": null,
-          "reason": "在现有证券、债务与费用范围内无法执行这项卖出还债；不能超卖或制造负借款。"
+          "reason": "在现有证券、债务与费用范围内无法执行这项卖出还债；不能超卖或制造负借款."
         },
         "identity": "Account algebra; outside cash repayment is a transfer, not profit"
       },
@@ -817,7 +821,7 @@ FSB 2024 年报告 §3.3 把抵押管理的重点放在未被占用的资源、�
         "identity": "Separate resource card: same-day local clock; not added to the securities margin account"
       }
     },
-    "static_equivalent_markdown": "| 动作 | 金额 | 证券 | 债务 | 权益 | 所需权益 | 缺口 |\n| --- | --- | --- | --- | --- | --- | --- |\n| 现金还债 | 800.000000 | 12,000.000000 | 7,200.000000 | 4,800.000000 | 4,800.000000 | 0.000000 |\n| 出售800 | 800.000000 | 11,200.000000 | 7,200.000000 | 4,000.000000 | 4,480.000000 | 480.000000 |\n| 最少出售 | 2,000.000000 | 10,000.000000 | 6,000.000000 | 4,000.000000 | 4,000.000000 | 0.000000 |\n\n未付利息扩展：52.602740；带利息最少出售2,131.506849。费用20无利息最少出售2,050.000000。独立资源卡默认现金迟到、只收现金，可用0，缺800。",
+    "static_equivalent_markdown": "| 动作 | 金额 | 证券 | 债务 | 权益 | 所需权益 | 缺口 |\n| --- | --- | --- | --- | --- | --- | --- |\n| 现金还债 | 800.000000 | 12,000.000000 | 7,200.000000 | 4,800.000000 | 4,800.000000 | 0.000000 |\n| 出售800 | 800.000000 | 11,200.000000 | 7,200.000000 | 4,000.000000 | 4,480.000000 | 480.000000 |\n| 最少出售 | 2,000.000000 | 10,000.000000 | 6,000.000000 | 4,000.000000 | 4,000.000000 | 0.000000 |\n\n未付利息扩展：52.602740；带利息最少出售2,131.506849. 费用20无利息最少出售2,050.000000. 独立资源卡默认现金迟到、只收现金，可用0，缺800.",
     "inputs_uri": "https://ou-liu-red-sugar.github.io/notebook/labs/p-e/inputs.json",
     "results_uri": "https://ou-liu-red-sugar.github.io/notebook/labs/p-e/default-results.json",
     "results_pointer": "/P08",
@@ -827,15 +831,11 @@ FSB 2024 年报告 §3.3 把抵押管理的重点放在未被占用的资源、�
 ```
 
 ## Sources
-- [Liquidity Preparedness for Margin and Collateral Calls — Final Report](https://www.fsb.org/uploads/P101224-1.pdf): 政策研究中的流动性压力分析；未读全报告，不作因果估计或约束性规则。
-
-P-E 使用范围：Recommendations6–8的资源可用性、haircut、币种/地点/截止与操作准备；不是零售统一账户规则。
-
-本批读取范围：抵押品资格、占用、haircut、币种、地点与及时到账。
-- [FINRA Rule 2264 Margin Disclosure Statement](https://www.finra.org/rules-guidance/rulebooks/finra-rules/2264): 贷款/抵押关系、处置/通知、提高内部要求和延期限制。
-- [Regulatory Notice 26-10](https://www.finra.org/rules-guidance/notices/26-10): 2026-06-04生效及2027-10-20实施过渡；不替经纪商确认采用状态。
-- [FINRA Rule 4210 Margin Requirements](https://www.finra.org/rules-guidance/rulebooks/finra-rules/4210): 适用普通长仓(c)(1)最低维持与(d)(1)内部要求；不是全部工具统一百分比。
-- [Investor Bulletin: Understanding Margin Accounts](https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins-29): 现金/融资账户、SEC 16000/8000→12000示例与利息。补救公式和费用扩展由本文推导，40%为例中条件。
+- [Liquidity Preparedness for Margin and Collateral Calls — Final Report](https://www.fsb.org/uploads/P101224-1.pdf): 流动性压力与准备的政策研究. Recommendations 6–8 讨论抵押品资格、占用、haircut、币种、地点、付款截止时间及操作准备.
+- [FINRA Rule 2264 Margin Disclosure Statement](https://www.finra.org/rules-guidance/rulebooks/finra-rules/2264): 贷款/抵押关系、处置/通知、提高内部要求和延期限制.
+- [Regulatory Notice 26-10](https://www.finra.org/rules-guidance/notices/26-10): 2026-06-04生效及2027-10-20实施过渡；不替经纪商确认采用状态.
+- [FINRA Rule 4210 Margin Requirements](https://www.finra.org/rules-guidance/rulebooks/finra-rules/4210): 适用普通长仓(c)(1)最低维持与(d)(1)内部要求；不是全部工具统一百分比.
+- [Investor Bulletin: Understanding Margin Accounts](https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins-29): 现金/融资账户、SEC 16000/8000→12000示例与利息. 补救公式和费用扩展由本文推导，40%为例中条件.
 
 ## Content relations
 ```json
@@ -876,7 +876,7 @@ P-E 使用范围：Recommendations6–8的资源可用性、haircut、币种/地
     "to": "PE-SEC-MARGIN",
     "reason": "重建官方账户及本金、权益和利息的区别",
     "locator": "The Difference Between Cash and Margin Accounts; Understand How Margin Works; Know the Margin Rules; Understand Margin Calls; Interest Charges",
-    "scope": "现金/融资账户、SEC 16000/8000→12000示例与利息。补救公式和费用扩展由本文推导，40%为例中条件。"
+    "scope": "现金/融资账户、SEC 16000/8000→12000示例与利息. 补救公式和费用扩展由本文推导，40%为例中条件."
   },
   {
     "from": "zh-p08",
@@ -884,7 +884,7 @@ P-E 使用范围：Recommendations6–8的资源可用性、haircut、币种/地
     "to": "PE-FINRA-4210",
     "reason": "区分适用最低维持要求与内部标准",
     "locator": "(c)(1) and (d)(1)",
-    "scope": "适用普通长仓(c)(1)最低维持与(d)(1)内部要求；不是全部工具统一百分比。"
+    "scope": "适用普通长仓(c)(1)最低维持与(d)(1)内部要求；不是全部工具统一百分比."
   },
   {
     "from": "zh-p08",
@@ -892,7 +892,7 @@ P-E 使用范围：Recommendations6–8的资源可用性、haircut、币种/地
     "to": "PE-FINRA-2264",
     "reason": "解释贷款/抵押、处置与通知及延期边界",
     "locator": "(a)",
-    "scope": "贷款/抵押关系、处置/通知、提高内部要求和延期限制。"
+    "scope": "贷款/抵押关系、处置/通知、提高内部要求和延期限制."
   },
   {
     "from": "zh-p08",
@@ -900,7 +900,7 @@ P-E 使用范围：Recommendations6–8的资源可用性、haircut、币种/地
     "to": "MA-FSB",
     "reason": "区分名义资产、可计抵押、币种/地点/截止前实际可用性",
     "locator": "§3.3; Recommendations 6–8; printed pp18–20 / PDF pp22–24",
-    "scope": "Recommendations6–8的资源可用性、haircut、币种/地点/截止与操作准备；不是零售统一账户规则。"
+    "scope": "Recommendations6–8的资源可用性、haircut、币种/地点/截止与操作准备；不是零售统一账户规则."
   },
   {
     "from": "zh-p08",
@@ -908,7 +908,7 @@ P-E 使用范围：Recommendations6–8的资源可用性、haircut、币种/地
     "to": "PE-FINRA-2610",
     "reason": "2026日内保证金过渡日期",
     "locator": "Summary; Background & Discussion introduction; Implementation",
-    "scope": "2026-06-04生效及2027-10-20实施过渡；不替经纪商确认采用状态。",
+    "scope": "2026-06-04生效及2027-10-20实施过渡；不替经纪商确认采用状态.",
     "branch": "intraday-transition"
   },
   {
@@ -916,7 +916,7 @@ P-E 使用范围：Recommendations6–8的资源可用性、haircut、币种/地
     "relation": "illustrated_by",
     "to": "EXP-P08-LIQUIDITY-REMEDY",
     "at_section": "p08-lab",
-    "reason": "重建融资账户、两种补救方式和截止前可用资源，解释800现金与2000出售为什么不同。"
+    "reason": "重建融资账户、两种补救方式和截止前可用资源，解释800现金与2000出售为什么不同."
   }
 ]
 ```
@@ -925,6 +925,6 @@ P-E 使用范围：Recommendations6–8的资源可用性、haircut、币种/地
 
 ## Optional reading path
 做一次投资或对冲安排: step 5/9
-比较现金还债与出售还债，再检查可计抵押和到账条件。
-资金安排明确后，还要把目标数量落实为成交和剩余现金。
+比较现金还债与出售还债，再检查可计抵押和到账条件.
+资金安排明确后，还要把目标数量落实为成交和剩余现金.
 Next: [下单、成交与交易成本](https://ou-liu-red-sugar.github.io/zh/notebook/orders-execution-implementation-shortfall/)

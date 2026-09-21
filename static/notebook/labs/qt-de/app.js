@@ -29,7 +29,7 @@ function renderForecast(){guard('e20',()=>{
  $('out20').innerHTML=metric('验证 RMSE（百分点/月）',pp(sc.rmse_decimal,8))+metric('验证 MAE（百分点/月）',pp(sc.mae_decimal,8))+metric('R²_OS；分母=扩展均值 SSE',num(sc.r2_os_vs_expanding_mean,8))+metric('各原点训练 RMSE 的均值',baseline?'基线不作同类拟合':pp(item.mean_train_rmse_decimal,6))+metric('标准化斜率范数的原点均值',baseline?'—':num(item.mean_beta_norm,8));
  lineChart('plot20',[{name:'随后观测',values:F.observed.map(x=>100*x)},{name:'所选预测',values:pred.map(x=>100*x)},{name:'扩展均值基线',values:F.baseline_predictions.map(x=>100*x)}],'收益百分数；误差差值为百分点',F.months.map(shortmonth));
  $('all20').innerHTML=table(['完整候选（全部14项）','验证RMSE pp/月','验证MAE pp/月','R²_OS'],F.ledger.map(r=>[r.key===key?'<b>'+r.key+'</b>':r.key,pp(r.rmse_decimal,8),pp(r.mae_decimal,8),num(r.r2_os_vs_expanding_mean,8)]).concat(['zero','expanding_mean'].map(k=>[k===key?'<b>'+k+'</b>':k,pp(F.baselines[k].rmse_decimal,8),pp(F.baselines[k].mae_decimal,8),num(F.baselines[k].r2_os_vs_expanding_mean,8)])));
- $('identity20').textContent='202607 CIZ 重建历史；验证120月；总冠军 expanding_mean。这里切换冻结的实际拟合网格，不插值、不重新选历史评价冠军。';
+ $('identity20').textContent='202607 CIZ 重建历史；验证120月；总冠军 expanding_mean. 这里切换冻结的实际拟合网格，不插值、不重新选历史评价冠军.';
 });}
 function renderScale(){guard('escale',()=>{let a=QTDE.scaleExample(nread('featureScale'),C.scale_examples.lambda,C.scale_examples.response_scale);$('scaleOut').innerHTML=table(['两点教学例','原单位预测'],[['基准 λ=1',num(a.base_beta)],['未标准化特征×尺度，λ仍=1',num(a.raw_scaled_prediction)],['λ改为 '+num(a.adjusted_lambda,3),num(a.adjusted_prediction)],['只将响应×100，预测再÷100',num(a.response_back)]]);});}
 function renderClock(){guard('e21',()=>{
@@ -38,22 +38,22 @@ function renderClock(){guard('e21',()=>{
  $('out21').innerHTML=table(['一步的对象','所用信息'],rows);
  let co=F.controls[l];$('compare21').innerHTML=table(['p=12；λ='+l,'训练期尺度','全样本尺度（越界）'],[['验证RMSE pp/月',pp(co.good.rmse_decimal,8),pp(co.bad.rmse_decimal,8)],['最大逐点预测差 pp','—',pp(co.maxdiff,12)]]);
  lineChart('plot21',[{name:'合法预测',values:F.series[key].predictions.map(x=>100*x)},{name:'未来尺度预测（越界）',values:co.predictions.map(x=>100*x)}],'预测百分数',F.months.map(shortmonth));
- $('note21').textContent=l==='0'?'OLS 带截距；本设计满列秩。同一可逆仿射变换不改变预测函数族。过程仍然越界。':'Ridge 的惩罚几何随尺度改变。本样本的未来尺度反而略增 RMSE，不能预设泄漏总改善成绩。';
+ $('note21').textContent=l==='0'?'OLS 带截距；本设计满列秩. 同一可逆仿射变换不改变预测函数族. 过程仍然越界.':'Ridge 的惩罚几何随尺度改变. 本样本的未来尺度反而略增 RMSE，不能预设泄漏总改善成绩.';
  });}
-function renderBEA(){guard('ebea',()=>{let x=QTDE.beaAt(C.clocks.BEA,$('cutoff21').value+'T23:59:59-04:00');$('beaOut').textContent=x?'截至该日可公开取得的最近版本：'+x.vintage+'，'+x.value_percent_SAAR+'%（季度环比年化）；发布 '+x.release_at+'。received_at 未知，不能证明系统何时收到。':'该日两份发布均未发生；没有可选版本。';});}
+function renderBEA(){guard('ebea',()=>{let x=QTDE.beaAt(C.clocks.BEA,$('cutoff21').value+'T23:59:59-04:00');$('beaOut').textContent=x?'截至该日可公开取得的最近版本：'+x.vintage+'，'+x.value_percent_SAAR+'%（季度环比年化）；发布 '+x.release_at+'. received_at 未知，不能证明系统何时收到.':'该日两份发布均未发生；没有可选版本.';});}
 function renderSelect(){guard('e22',()=>{
  const m=nread('m22'),a=S.all_null.find(x=>x.m===m),v=S.views[String(m)];
  $('out22').innerHTML=metric('M / B',m+' / '+C.selection.B)+metric('未校正 FWER：模拟 / 精确',num(a.naive_fwer_estimate,4)+' / '+num(a.naive_fwer_exact,6))+metric('Bonferroni FWER 模拟（MCSE）',num(a.bonferroni_fwer_estimate,4)+' ('+num(a.bonferroni_fwer_mcse,6)+')')+metric('BH 严格<：全零 FDR=FWER',num(a.bh_strict.mean_fdp_fdr_estimate,4));
  histogram('plot22',[{name:'开发冠军均值',values:v.development.map(x=>100*x)},{name:'相同编号独立保留均值',values:v.holdout.map(x=>100*x)}],'百分点/月');
  const first=a.first_replica,b=QTDE.bh(first.p_values,C.selection.alpha,true);
- $('first22').innerHTML='<p>第一轮模拟：开发冠军编号 '+(first.winner_zero_based+1)+'（从1显示）；原始数据索引从0。BH R='+b.k+'。这是候选分布，不是月度路径。</p>'+table(['排序','候选编号','p（显示）','qj/M','严格< 合格','最终拒绝'],b.rows.map(r=>[r.rank,r.index+1,r.p.toExponential(7),num(r.threshold,8),r.hit?'是':'否',r.rejected?'是':'否']));
+ $('first22').innerHTML='<p>第一轮模拟：开发冠军编号 '+(first.winner_zero_based+1)+'（从1显示）；原始数据索引从0. BH R='+b.k+'. 这是候选分布，不是月度路径.</p>'+table(['排序','候选编号','p（显示）','qj/M','严格< 合格','最终拒绝'],b.rows.map(r=>[r.rank,r.index+1,r.p.toExponential(7),num(r.threshold,8),r.hit?'是':'否',r.rejected?'是':'否']));
  });}
 function renderMixed(){guard('emixed',()=>{const kind=$('mixedMetric').value,a=S.mixed.bh_strict;
-const specs={fdr:['平均 FDP（FDR估计）',a.mean_fdp_fdr_estimate,'每轮 V/max(R,1)，再对5000轮取平均；不是 E[V]/E[R]。MCSE='+num(a.mc_se_fdr_estimate,8)],fwer:['至少一次错误的频率（FWER估计）',a.probability_any_false_rejection,'每轮 1{V≥1}，再取平均；不等于本例约4.53%的FDR。'],discoveries:['每轮平均真发现',a.mean_true_discoveries,'每轮 R−V 的平均；不是从真实市场辨认已知真策略。']};
+const specs={fdr:['平均 FDP（FDR估计）',a.mean_fdp_fdr_estimate,'每轮 V/max(R,1)，再对5000轮取平均；不是 𝔼[V]/𝔼[R]. MCSE='+num(a.mc_se_fdr_estimate,8)],fwer:['至少一次错误的频率（FWER估计）',a.probability_any_false_rejection,'每轮 1{V≥1}，再取平均；不等于本例约4.53%的FDR.'],discoveries:['每轮平均真发现',a.mean_true_discoveries,'每轮 R−V 的平均；不是从真实市场辨认已知真策略.']};
 const v=specs[kind];$('mixedOut').innerHTML=metric(v[0],num(v[1],8))+'<p>'+v[2]+'</p>'+table(['固定混合模型','参数'],[['M / 真信号数','100 / 10'],['真信号μ / 原假设μ','0.01 / 0'],['B / seed','5000 / 2202'],['全部p值独立；BH严格<','q=0.05'],['平均拒绝数',num(a.mean_rejections,4)]]);
 lineChart('mixedPlot',[{name:'前80轮的拒绝数 R',values:S.mixed.replicate_R.slice(0,80)},{name:'前80轮的误报数 V',values:S.mixed.replicate_V.slice(0,80)}],'每轮个数；不是月度路径');
 });}
-function renderManual(){guard('emanual',()=>{const p=$('manual22').value.split(/[ ,，]+/).filter(Boolean).map(Number),q=nread('q22');const a=QTDE.bh(p,q,true),b=QTDE.bh(p,q,false);$('manualOut').innerHTML='<p><b>严格 &lt;：R='+a.k+'；非严格 ≤：R='+b.k+'</b>。数学运算用未舍入 p 值。</p>'+table(['序号','p','阈值','严格合格','严格最终拒绝'],a.rows.map(r=>[r.rank,num(r.p,8),num(r.threshold,8),r.hit?'是':'否',r.rejected?'是':'否']));});}
+function renderManual(){guard('emanual',()=>{const p=$('manual22').value.split(/[ ,，]+/).filter(Boolean).map(Number),q=nread('q22');const a=QTDE.bh(p,q,true),b=QTDE.bh(p,q,false);$('manualOut').innerHTML='<p><b>严格 &lt;：R='+a.k+'；非严格 ≤：R='+b.k+'</b>. 数学运算用未舍入 p 值.</p>'+table(['序号','p','阈值','严格合格','严格最终拒绝'],a.rows.map(r=>[r.rank,num(r.p,8),num(r.threshold,8),r.hit?'是':'否',r.rejected?'是':'否']));});}
 function continuousInput(){return {...C.cost.continuous_default,mu:nread('mu23'),rho:nread('rho23'),kappa:nread('kappa23'),cap:nread('cap23'),cash_min:nread('cash23')};}
 function renderContinuous(){guard('e23c',()=>{let o=continuousInput(),v=QTDE.continuous(o);if(!v.feasible){$('out23c').textContent=v.reason;$('plot23c').innerHTML='';return;}
  $('out23c').innerHTML=table(['连续金额：调仓前财富=1','实际重算'],[['最优风险金额 x',num(v.x,9)],['费用 / 现金',num(v.cost,9)+' / '+num(v.cash,9)],['费用后财富',num(v.post_cost_wealth,9)],['真正风险权重',num(v.post_weight_risky,9)],['名义净回报期望',num(v.nominal_expected_net_return,9)],['最坏均值下净回报期望',num(v.worst_expected_net_return,9)],['风险罚项（不再扣现金）',num(v.risk_penalty,9)],['目标 J',num(v.objective,9)],['可行上界',num(v.upper,9)],['内点不交易条件是否适用',v.w0_feasible_interior?'w0 为可行内点':'否；使用可行方向'],['名义 μ 的不交易带（ρ=0）',v.no_trade_mu_band.map(x=>num(x,6)).join(' — ')]]);

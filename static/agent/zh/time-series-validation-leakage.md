@@ -1,13 +1,17 @@
 # 时间序列验证与信息泄漏
 
-按一个预测原点重建训练、预处理与标签成熟，解释未来缩放不必改善成绩。
+按一个预测原点重建训练、预处理与标签成熟，解释未来缩放不必改善成绩.
 
 Entry: zh-qt21 | Node: QT21 | Language: zh | Editorial revision: 2026-09-21
 
 ## Teaching instructions
-请以具有微积分、线性代数与基本概率背景的高年级本科至研究生为对象，围绕“时间序列验证与信息泄漏”完成一次学习。先实际取得并读完 required_readings 的完整指定单元，记录实际版本/定位/假设/支持范围；目录、摘要或入口不抵扣阅读。可先读取本篇所有必读以备课，但不要把它们全变成读者额外作业。来源打不开时先尝试同版作者可读入口；仍缺承重单元应说明具体缺口，不伪称已读，也不要求无关新批准。先要求读者逐项填写预测2010-01的时间账本；随后比较p12 OLS/ridge未来尺度，最后完成2020-03时点的三期标签成熟题。反馈先定位违规信息，再讨论分数；received_at未知不能补造。 先让读者尝试，再根据本文完整解析反馈；引用范围内解释，不把模拟当市场事实、不把最优目标当收益保证。只在读者选择分支时启用 optional_readings。完成后用一项新输入迁移检验，明确其能独立完成什么。
+请以具有微积分、线性代数与基本概率背景的高年级本科至研究生为对象，围绕“时间序列验证与信息泄漏”完成一次学习. 先实际取得并读完 required_readings 的完整指定单元，记录实际版本/定位/假设/支持范围；目录、摘要或入口不抵扣阅读. 可先读取本篇所有必读以备课，但不要把它们全变成读者额外作业. 来源打不开时先尝试同版作者可读入口；仍缺承重单元应说明具体缺口，不伪称已读，也不要求无关新批准. 先要求读者逐项填写预测2010-01的时间账本；随后比较p12 OLS/ridge未来尺度，最后完成2020-03时点的三期标签成熟题. 反馈先定位违规信息，再讨论分数；received_at未知不能补造. 先让读者尝试，再根据本文完整解析反馈；引用范围内解释，不把模拟当市场事实、不把最优目标当收益保证. 只在读者选择分支时启用 optional_readings. 完成后用一项新输入迁移检验，明确其能独立完成什么.
 
 Before substantive teaching, actually retrieve every required reading unit for the selected scope. Read its complete designated section, including necessary assumptions, tables and footnotes. A working URL or an editorial access date is not a runtime reading receipt. Record the actual version, location, scope and what it supports. If unavailable, use a previously verified equivalent source; if the required unit remains unavailable, identify that gap rather than teach it from memory. Start runtime_reading_log empty. Once reading is complete, use a substantive diagnostic or follow the reader's request for direct explanation. Advance one complete reasoning task at a time; skip mastered basics. Distinguish original facts, supplied teaching assumptions and inference.
+
+## Shared notation and writing conventions
+数学期望统一写成 \mathbb{E}，条件期望用 \mathbb{E}[X\mid\mathcal{G}]，需要时注明测度 P 或 Q. 保留局部变量的明确定义. 金额与数量使用 K=10^3、M=10^6、B=10^9；表格标明币种、量级与期间，变更量级时同步换算数值. 展示小数最多三位，计算保留原始精度. 直接解释对象、机制与推理；保留影响结论的假设和事实来源，把编辑流程留在记录中. 句末使用英文句点 .，包括定义、命题、证明和解析等标签. 基础定义与推导直接讲内容，出处放在紧邻脚注；来源读取、复审和采用范围等编辑经过留在记录中.
+[Notation and units](https://ou-liu-red-sugar.github.io/agent/zh/notation.md)
 
 ## Required readings and runtime protocol
 ```json
@@ -184,7 +188,7 @@ Before substantive teaching, actually retrieve every required reading unit for t
         "internal_unit": "monthly decimal return",
         "display_errors": "百分点/月",
         "annualized": false,
-        "identity": "单一当前重建快照；不是FIZ/CIZ时间拼接，不是逐月当时可见版本。"
+        "identity": "单一当前重建快照；不是FIZ/CIZ时间拼接，不是逐月当时可见版本."
       },
       "forecast": {
         "experiment_id": "EXP-QT-D-FORECAST-01",
@@ -262,7 +266,7 @@ Before substantive teaching, actually retrieve every required reading unit for t
         "alpha": 0.05,
         "hypothesis": "事前单侧H0:mu=0 versus H1:mu>0; sigma known",
         "pvalue": "0.5*erfc(Z/sqrt(2))",
-        "draw_order": "先取(5000,500)开发Z矩阵，再取独立保留Z矩阵；M为共同500列前缀。mixed另重置2202。",
+        "draw_order": "先取(5000,500)开发Z矩阵，再取独立保留Z矩阵；M为共同500列前缀. mixed另重置2202.",
         "bh_adopted_comparison": "strict <",
         "source_pilot_comparison": "<=",
         "empty_BH": "k=0, no rejections, FDP=0",
@@ -397,7 +401,7 @@ Before substantive teaching, actually retrieve every required reading unit for t
         }
       }
     },
-    "static_equivalent_html": "<p>预测2010-01：原点2009-12月末；训练目标1991-01—2009-12（228行），训练滞后特征最晚2009-11，新输入最晚2009-12。预测后等2010-01标签成熟再评价。</p><div class=\"table-wrap\" tabindex=\"0\"><table><thead><tr><th>p12模型</th><th>合法尺度RMSE pp/月</th><th>未来尺度RMSE pp/月</th></tr></thead><tbody><tr><td>λ=0</td><td>5.13541496</td><td>5.13541496</td></tr><tr><td>λ=0.1</td><td>5.12076573</td><td>5.12283553</td></tr></tbody></table></div><p>OLS 带截距、无约束、同一可逆仿射转换且本设计满秩时不变；ridge 惩罚改变。本例越界并未改善RMSE。</p><div class=\"table-wrap\" tabindex=\"0\"><table><thead><tr><th>BEA 2020Q2版本</th><th>release_at</th><th>值% SAAR</th><th>received_at</th></tr></thead><tbody><tr><td>advance</td><td>2020-07-30T08:30:00-04:00</td><td>-32.9</td><td>未知</td></tr><tr><td>second</td><td>2020-08-27T08:30:00-04:00</td><td>-31.7</td><td>未知</td></tr></tbody></table></div><p>2020-08-03公开截面只能选advance；系统接收时间未记录。三期标签Y_s=∏(1+r_s+j)−1，在2020-03月末最多纳入原点2019-12；相邻标签重叠。本篇没有h=3历史RMSE。虚构1%、−2%、3%的复合收益为1.9494%。</p>",
+    "static_equivalent_html": "<p>预测2010-01：原点2009-12月末；训练目标1991-01—2009-12（228行），训练滞后特征最晚2009-11，新输入最晚2009-12. 预测后等2010-01标签成熟再评价.</p><div class=\"table-wrap\" tabindex=\"0\"><table><thead><tr><th>p12模型</th><th>合法尺度RMSE pp/月</th><th>未来尺度RMSE pp/月</th></tr></thead><tbody><tr><td>λ=0</td><td>5.13541496</td><td>5.13541496</td></tr><tr><td>λ=0.1</td><td>5.12076573</td><td>5.12283553</td></tr></tbody></table></div><p>OLS 带截距、无约束、同一可逆仿射转换且本设计满秩时不变；ridge 惩罚改变. 本例越界并未改善RMSE.</p><div class=\"table-wrap\" tabindex=\"0\"><table><thead><tr><th>BEA 2020Q2版本</th><th>release_at</th><th>值% SAAR</th><th>received_at</th></tr></thead><tbody><tr><td>advance</td><td>2020-07-30T08:30:00-04:00</td><td>-32.9</td><td>未知</td></tr><tr><td>second</td><td>2020-08-27T08:30:00-04:00</td><td>-31.7</td><td>未知</td></tr></tbody></table></div><p>2020-08-03公开截面只能选advance；系统接收时间未记录. 三期标签Y_s=∏(1+r_s+j)−1，在2020-03月末最多纳入原点2019-12；相邻标签重叠. 本篇没有h=3历史RMSE. 虚构1%、−2%、3%的复合收益为1.9494%.</p>",
     "files": {
       "frozen_csv": "https://ou-liu-red-sugar.github.io/notebook/labs/qt-de/data/BusEq-value-weighted-monthly-199001-202512.csv",
       "complete_outputs": "https://ou-liu-red-sugar.github.io/notebook/labs/qt-de/data/results.json",
@@ -407,7 +411,7 @@ Before substantive teaching, actually retrieve every required reading unit for t
       "shared_inputs": "https://ou-liu-red-sugar.github.io/notebook/labs/qt-de/shared_inputs.json",
       "sources": "https://ou-liu-red-sugar.github.io/notebook/labs/qt-de/sources.json"
     },
-    "algorithm_identity": "forecast/selection使用真实计算的冻结网格及PCG64结果；成本和人工边界可重算。完整reader在body_markdown中仅一份。",
+    "algorithm_identity": "forecast/selection使用真实计算的冻结网格及PCG64结果；成本和人工边界可重算. 完整reader在body_markdown中仅一份.",
     "frozen_records": [
       {
         "month": "199001",
@@ -4465,24 +4469,24 @@ Before substantive teaching, actually retrieve every required reading unit for t
         "max_abs_prediction_difference_decimal": 0.00039484640920822017
       }
     },
-    "reading_base": "公开同源包；按完整 URL 取得冻结输入与复算文件。来源网站后续更新不覆盖本份 202607 快照。"
+    "reading_base": "公开同源包；按完整 URL 取得冻结输入与复算文件. 来源网站后续更新不覆盖本份 202607 快照."
   },
   "entry_id": "zh-qt21",
   "content_version": "2026-09-21-QT-DE-review-v2",
   "audience": "高年级本科至研究生；默认微积分、线性代数与基本概率",
-  "learning_task": "按一个预测原点重建训练、预处理与标签成熟，解释未来缩放不必改善成绩。"
+  "learning_task": "按一个预测原点重建训练、预处理与标签成熟，解释未来缩放不必改善成绩."
 }
 ```
 
 ## Supplied entry
-预测方法不是一个脱离时间的公式。它先接收记录，再拟合预处理和模型，最后等预测目标成熟，才能计算误差。本篇沿一段真实历史重放，把这些时点放回计算中。读完后，你应能为一个预测原点列出完整信息账本，指出违规发生在哪一步，而不只是看到好成绩便怀疑“有未来函数”。
+预测方法不是一个脱离时间的公式. 它先接收记录，再拟合预处理和模型，最后等预测目标成熟，才能计算误差. 本篇沿一段真实历史重放，把这些时点放回计算中. 读完后，你应能为一个预测原点列出完整信息账本，指出违规发生在哪一步，而不只是看到好成绩便怀疑“有未来函数”.
 
 <a id="qt21-clock"></a>
 ## 1. 在 2009 年末，我们到底算了什么？
 
-仍使用 202607 CRSP 数据库 vintage 下由当前 CIZ 生产链重建的 BusEq 月收益快照：1990-01—2025-12，共 432 月，无目标窗口缺失，百分数除以 100 后运算。它是历史计算材料，不是逐月当时可见的资料集合。先约定教学时钟：月份结束后可知该月收益，并预测下一月。来源真实发布时间和系统接收延迟没有在这份行业组合文件中重建。[^data]
+仍使用 202607 CRSP 数据库 vintage 下由当前 CIZ 生产链重建的 BusEq 月收益快照：1990-01—2025-12，共 432 月，无目标窗口缺失，百分数除以 100 后运算. 它是历史计算材料，不是逐月当时可见的资料集合. 先约定教学时钟：月份结束后可知该月收益，并预测下一月. 来源真实发布时间和系统接收延迟没有在这份行业组合文件中重建. [^data]
 
-以预测 2010-01 为例，训练目标为 1991-01 至 2009-12 的 228 行。1990 年只供最大 12 期滞后预热；各模型不能各自多取一批较早目标行，随后再比较不同样本的误差。
+以预测 2010-01 为例，训练目标为 1991-01 至 2009-12 的 228 行. 1990 年只供最大 12 期滞后预热；各模型不能各自多取一批较早目标行，随后再比较不同样本的误差.
 
 | 环节 | 本原点允许使用的对象 |
 |---|---|
@@ -4494,7 +4498,7 @@ Before substantive teaching, actually retrieve every required reading unit for t
 | 当前输出 | 对 2010-01 的预测 |
 | 何时评价 | 2010-01 目标成熟后，才用真实 $r_t$ 计算误差 |
 
-注意两个容易混在一起的范围：训练标签可以到 2009-12，而训练滞后特征最晚到 2009-11；2009-12 收益作为本次新输入出现。标准差必须说明“在哪些行上估计”，不能只写含糊的“用了截至今天的数据”。[^calculation]
+注意两个容易混在一起的范围：训练标签可以到 2009-12，而训练滞后特征最晚到 2009-11；2009-12 收益作为本次新输入出现. 标准差必须说明“在哪些行上估计”，不能只写含糊的“用了截至今天的数据”. [^calculation]
 
 <a id="qt21-procedure"></a>
 ## 2. 把一次预测写成可重复的过程
@@ -4511,55 +4515,55 @@ Z_train = (X_train-mean)/sd
 输出并保留 prediction[t]；目标成熟后才添加 error[t]
 ```
 
-这是扩展窗口：起点固定，终点随原点推进。滚动窗口则只保留固定长度的最近历史；二者估计目标与适应变化的方式不同，不是“移动原点”就自动意味着训练长度固定。FPP3 的 rolling forecasting origin 指评价原点向前滚动，其示例训练集可以扩展。[^cv]
+这是扩展窗口：起点固定，终点随原点推进. 滚动窗口则只保留固定长度的最近历史；二者估计目标与适应变化的方式不同，不是“移动原点”就自动意味着训练长度固定. FPP3 的 rolling forecasting origin 指评价原点向前滚动，其示例训练集可以扩展. [^cv]
 
-本实验用 2010—2019 的 120 个原点比较 12 个回归候选与两条基线。选择完成后，进入 2020—2025 的 72 月历史评价：$p,\lambda$ 或基线身份已冻结，但模型系数仍按照原定扩展规则逐月重估。冻结超参数不等于冻结所有系数，也不等于禁止合法的新标签进入训练。[^calculation]
+本实验用 2010—2019 的 120 个原点比较 12 个回归候选与两条基线. 选择完成后，进入 2020—2025 的 72 月历史评价：$p,\lambda$ 或基线身份已冻结，但模型系数仍按照原定扩展规则逐月重估. 冻结超参数不等于冻结所有系数，也不等于禁止合法的新标签进入训练. [^calculation]
 
-例如下一原点预测 2010-02 时，2010-01 收益已按教学时钟成熟，训练行增至 229。这时使用它是正常更新；把它提前用于 2010-01 的预测则是信息越界。残差来自参与拟合的数据，预测误差来自该原点尚未参与拟合的目标，两者不能混报。[^accuracy]
+例如下一原点预测 2010-02 时，2010-01 收益已按教学时钟成熟，训练行增至 229. 这时使用它是正常更新；把它提前用于 2010-01 的预测则是信息越界. 残差来自参与拟合的数据，预测误差来自该原点尚未参与拟合的目标，两者不能混报. [^accuracy]
 
 <a id="qt21-leakage"></a>
 ## 3. 一个真实对照：越界不一定让分数更好
 
-我们故意构造一个错误版本：每个原点都用完整样本的滞后特征列拟合标准化参数。该池含目标月份 1991-01—2025-12 的特征行，最晚原始特征收益到 2025-11。对 2009 年末的原点而言，它显然包含未来信息。拟合标签仍只取过去，以便隔离“标准化范围”这一项变化。
+我们故意构造一个错误版本：每个原点都用完整样本的滞后特征列拟合标准化参数. 该池含目标月份 1991-01—2025-12 的特征行，最晚原始特征收益到 2025-11. 对 2009 年末的原点而言，它显然包含未来信息. 拟合标签仍只取过去，以便隔离“标准化范围”这一项变化.
 
 | $p=12$，2010—2019 验证 | 合法训练窗标准化 RMSE | 越界全样本标准化 RMSE | 最大单月预测差 |
 |---|---:|---:|---:|
 | OLS，$\lambda=0$ | 5.13541496 | 5.13541496 | 约 $7.3\times10^{-15}$ |
 | Ridge，$\lambda=0.1$ | 5.12076573 | 5.12283553 | 0.03948464 |
 
-表内三列误差单位均为百分点/月。OLS 的差异只有浮点量级；ridge 的越界版本反而稍差。我们不改参数来制造“泄漏让曲线更漂亮”的效果，因为要检验的是信息使用，而不是预先安排一个方向的答案。[^calculation]
+表内三列误差单位均为百分点/月. OLS 的差异只有浮点量级；ridge 的越界版本反而稍差. 我们不改参数来制造“泄漏让曲线更漂亮”的效果，因为要检验的是信息使用，而不是预先安排一个方向的答案. [^calculation]
 
-为什么 OLS 会不变？设原输入 $x=m+Dz$，$D$ 为对角非奇异尺度矩阵。仿射预测函数可写成
+为什么 OLS 会不变？设原输入 $x=m+Dz$，$D$ 为对角非奇异尺度矩阵. 仿射预测函数可写成
 
 $$
 a+x^Tb=(a+m^Tb)+z^TDb.
 $$
 
-在有截距、斜率无约束、同一转换作用于训练和新输入时，这是一一对应的重参数化。OLS 最小化相同的残差集合。本例每个训练设计都满列秩，因此唯一预测函数被对应起来，样本外预测也相同。若秩不足，只能先说训练拟合向量与解集合在映射下相同；两种坐标下软件各自挑出的最小范数系数，其样本外外推未必一样。
+在有截距、斜率无约束、同一转换作用于训练和新输入时，这是一一对应的重参数化. OLS 最小化相同的残差集合. 本例每个训练设计都满列秩，因此唯一预测函数被对应起来，样本外预测也相同. 若秩不足，只能先说训练拟合向量与解集合在映射下相同；两种坐标下软件各自挑出的最小范数系数，其样本外外推未必一样.
 
-Ridge 则额外惩罚系数。改了 $D$ 却仍用同一个坐标中的 $\lambda\|\beta\|^2$，等于改变了对原预测函数的代价，所以预测可以变。[预测目标与正则化](https://ou-liu-red-sugar.github.io/zh/notebook/prediction-regularization-complexity/) 已推导这一点。这个特例也不意味着 OLS 对标签泄漏、未来特征选择或其他预处理免疫。
+Ridge 则额外惩罚系数. 改了 $D$ 却仍用同一个坐标中的 $\lambda\|\beta\|^2$，等于改变了对原预测函数的代价，所以预测可以变. [预测目标与正则化](https://ou-liu-red-sugar.github.io/zh/notebook/prediction-regularization-complexity/) 已推导这一点. 这个特例也不意味着 OLS 对标签泄漏、未来特征选择或其他预处理免疫.
 
 <div data-experiment-slot="EXP-QT-D-CLOCK-01"></div>
 
-在实验中先选一个验证月份，读训练标签终点、特征尺度及输入，再打开故意越界的对照。请先说哪项记录不应出现，最后才看 RMSE；不能反过来以“分数没有改善”证明流程合法。
+在实验中先选一个验证月份，读训练标签终点、特征尺度及输入，再打开故意越界的对照. 请先说哪项记录不应出现，最后才看 RMSE；不能反过来以“分数没有改善”证明流程合法.
 
 <a id="qt21-release"></a>
 ## 4. 日期排序之外，还要区分观察期、发布和接收
 
-经济数据尤其能说明这个区别。美国 2020Q2 GDP 描述第二季度，但以下两个数并不是在季度末同时可得：
+经济数据尤其能说明这个区别. 美国 2020Q2 GDP 描述第二季度，但以下两个数并不是在季度末同时可得：
 
 | 观察期 | 版本 | BEA 发布时点 | 实际 GDP 环比年化率 |
 |---|---|---|---:|
 | 2020Q2 | Advance | 2020-07-30 08:30 EDT | −32.9% |
 | 2020Q2 | Second | 2020-08-27 08:30 EDT | −31.7% |
 
-这两行是原始发布记录；它们的差为 1.2 个百分点，而非观察期移动。[^bea-a][^bea-b] 若信息截止在 2020-08-03，公开发布截面只能选择初值，不能把后来次值写回这个原点。
+这两行是原始发布记录；它们的差为 1.2 个百分点，而非观察期移动. [^bea-a][^bea-b] 若信息截止在 2020-08-03，公开发布截面只能选择初值，不能把后来次值写回这个原点.
 
-发布时点仍不等于研究系统收到、解析、完成计算的时点。没有 `received_at` 日志，就保留未知；不能由“08:30 发布”推出“08:30:01 系统已能下单”。历史重放可明确假设一个延迟，再研究该假设下的结果，但这不把假设变成历史事实。
+发布时点仍不等于研究系统收到、解析、完成计算的时点. 没有 `received_at` 日志，就保留未知；不能由“08:30 发布”推出“08:30:01 系统已能下单”. 历史重放可明确假设一个延迟，再研究该假设下的结果，但这不把假设变成历史事实.
 
-前面 BusEq 的时间切分也因此有两层评价：运算确实不让后面标签参与前面拟合，但所用文件版本不是每个历史原点的原始可得版本。准确的描述是“当前冻结快照上的按时间算法重放”。只有额外恢复来源版本和接收过程，才可进一步评价当时的可执行性。
+前面 BusEq 的时间切分也因此有两层评价：运算确实不让后面标签参与前面拟合，但所用文件版本不是每个历史原点的原始可得版本. 准确的描述是“当前冻结快照上的按时间算法重放”. 只有额外恢复来源版本和接收过程，才可进一步评价当时的可执行性.
 
-一个有分量的研究阅读例是 Kelly、Malamud、Zhou 的脚注33：作者交代了通胀数据的月度日期约定与实际发布滞后的区别。阅读论文时应把这种约定记入方法条件，而不是看到“样本外”三个字就忽略它。[^kmz]
+一个有分量的研究阅读例是 Kelly、Malamud、Zhou 的脚注33：作者交代了通胀数据的月度日期约定与实际发布滞后的区别. 阅读论文时应把这种约定记入方法条件，而不是看到“样本外”三个字就忽略它. [^kmz]
 
 <a id="qt21-horizon"></a>
 ## 5. 预测三个月时，标签什么时候成熟？
@@ -4570,7 +4574,7 @@ $$
 Y_s=(1+r_{s+1})(1+r_{s+2})(1+r_{s+3})-1.
 $$
 
-在月份 $t$ 结束时，训练可使用这行标签的必要条件是 $s+3\le t$，还要满足相关原始材料已接收。不能只因特征行的日期 $s\le t$ 就把未来三个月的完整标签拿来拟合。
+在月份 $t$ 结束时，训练可使用这行标签的必要条件是 $s+3\le t$，还要满足相关原始材料已接收. 不能只因特征行的日期 $s\le t$ 就把未来三个月的完整标签拿来拟合.
 
 | 当前信息截面：2020-03 月末 | 标签覆盖月份 | 是否成熟 |
 |---|---|---|
@@ -4579,32 +4583,32 @@ $$
 | 原点 2020-02 | 2020-03—2020-05 | 否 |
 | 原点 2020-03 | 2020-04—2020-06 | 否，这是新的预测对象 |
 
-相邻原点的三个月标签会共享收益月。因此，即使每个预测都遵守信息约束，多个误差也可能相关，不能机械当作独立观测估计标准误。隔离范围应从标签成熟与评价问题推导，不是对所有时间序列统一“空三个月”。FPP3 对多步预测原点评价提供了相应结构，本篇没有为这个三个月目标运行新的 RMSE。[^cv]
+相邻原点的三个月标签会共享收益月. 因此，即使每个预测都遵守信息约束，多个误差也可能相关，不能机械当作独立观测估计标准误. 隔离范围应从标签成熟与评价问题推导，不是对所有时间序列统一“空三个月”. FPP3 对多步预测原点评价提供了相应结构，本篇没有为这个三个月目标运行新的 RMSE. [^cv]
 
 <a id="qt21-exercises"></a>
 ## 6. 独立重建与解析
 
-解释题。 在预测 2010-01 前，用全样本求标准差，随后发现 OLS 的预测完全不变。是否就证明未来标准化没有问题？
+解释题. 在预测 2010-01 前，用全样本求标准差，随后发现 OLS 的预测完全不变. 是否就证明未来标准化没有问题？
 
-解析。 没有。计算步骤仍依赖未来信息；本例不变来自明确条件下的仿射重参数化。它只能说明这一模型恰好对这项变换不敏感。把同一流程用于 ridge、筛选变量或选择模型，结论都需要另核。应修复流程，而不是用偶然的输出不变代替信息证明。
+解析. 没有. 计算步骤仍依赖未来信息；本例不变来自明确条件下的仿射重参数化. 它只能说明这一模型恰好对这项变换不敏感. 把同一流程用于 ridge、筛选变量或选择模型，结论都需要另核. 应修复流程，而不是用偶然的输出不变代替信息证明.
 
-迁移题一。 截止 2020-08-03，分析规则比较 GDP 公布值是否大于 −32。用哪一版？能否断言自己的系统 7 月 30 日 08:30:01 已得到信号？
+迁移题一. 截止 2020-08-03，分析规则比较 GDP 公布值是否大于 −32. 用哪一版？能否断言自己的系统 7 月 30 日 08:30:01 已得到信号？
 
-解析。 在公开发布口径下，初值 −32.9 不满足规则；8 月 27 日才发布的 −31.7 会满足，但不能提前使用。系统是否收到及完成计算没有日志便不能判断。这项规则是教学设定，不是经检验可盈利的交易信号。
+解析. 在公开发布口径下，初值 −32.9 不满足规则；8 月 27 日才发布的 −31.7 会满足，但不能提前使用. 系统是否收到及完成计算没有日志便不能判断. 这项规则是教学设定，不是经检验可盈利的交易信号.
 
-迁移题二。 2020-03 月末训练三个月目标，最新能纳入的原点是哪月？再用明确虚构的月收益 $1\%,-2\%,3\%$ 算一次标签。
+迁移题二. 2020-03 月末训练三个月目标，最新能纳入的原点是哪月？再用明确虚构的月收益 $1\%,-2\%,3\%$ 算一次标签.
 
-解析。 最新是 2019-12；2020-01 原点的标签还含 4 月。虚构标签为 $1.01\times0.98\times1.03-1=0.019494$，即 1.9494%，不能简单加成 2%。这只是标签算式核对，不是新增的历史绩效结果。
+解析. 最新是 2019-12；2020-01 原点的标签还含 4 月. 虚构标签为 $1.01\times0.98\times1.03-1=0.019494$，即 1.9494%，不能简单加成 2%. 这只是标签算式核对，不是新增的历史绩效结果.
 
-最后再分开两件事：时间顺序正确，可以阻止某类未来信息进入拟合；它不能自动消除“尝试许多流程后只留下最好一个”的选择效应。下一篇保留全部尝试，研究后者。[选择效应与多重检验](https://ou-liu-red-sugar.github.io/zh/notebook/selection-multiple-testing/)
+最后再分开两件事：时间顺序正确，可以阻止某类未来信息进入拟合；它不能自动消除“尝试许多流程后只留下最好一个”的选择效应. 下一篇保留全部尝试，研究后者. [选择效应与多重检验](https://ou-liu-red-sugar.github.io/zh/notebook/selection-multiple-testing/)
 
-[^data]: French [30 Industry Portfolios](https://mba.tuck.dartmouth.edu/pages/Faculty/ken.french/Data_Library/det_30_ind_port.html) 与 [FIZ/CIZ 来源说明](https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/data_library.html)。具体样本身份和所有 432 行见[随包输入](https://ou-liu-red-sugar.github.io/notebook/labs/qt-de/shared_inputs.json)及 CSV。
-[^calculation]: [实际计算结果](https://ou-liu-red-sugar.github.io/notebook/labs/qt-de/data/results.json)，forecast 的逐原点拟合与 future_scaling_controls；[复算程序](https://ou-liu-red-sugar.github.io/notebook/labs/qt-de/compute/reproduce.py)。原点、尺度与标签均可逐行重建。
-[^accuracy]: FPP3，[§5.8 Evaluating point forecast accuracy 全节](https://otexts.com/fpp3/accuracy.html)。
-[^cv]: FPP3，[§5.10 Time series cross-validation 全节](https://otexts.com/fpp3/tscv.html)。多期复合标签成熟条件由本文定义直接推出，未声称该书给出本例金融回测。
-[^bea-a]: BEA，[2020Q2 Advance Estimate 原发布](https://www.bea.gov/news/2020/gross-domestic-product-2nd-quarter-2020-advance-estimate-and-annual-update)，页首发布时间及 GDP 开篇。
-[^bea-b]: BEA，[2020Q2 Second Estimate 原发布](https://www.bea.gov/news/2020/gross-domestic-product-2nd-quarter-2020-second-estimate-corporate-profits-2nd-quarter)，页首、GDP 开篇和 Updates to GDP 表。
-[^kmz]: Kelly、Malamud、Zhou，[2024 发表版](https://economics.yale.edu/sites/default/files/2024-01/The%20Journal%20of%20Finance%20-%202023%20-%20KELLY%20-%20The%20Virtue%20of%20Complexity%20in%20Return%20Prediction%20%281%29.pdf)，§V.A，p.487 脚注33。未读取的附录稳健性不作为本篇证据。
+[^data]: French [30 Industry Portfolios](https://mba.tuck.dartmouth.edu/pages/Faculty/ken.french/Data_Library/det_30_ind_port.html) 与 [FIZ/CIZ 来源说明](https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/data_library.html). 具体样本身份和所有 432 行见[随包输入](https://ou-liu-red-sugar.github.io/notebook/labs/qt-de/shared_inputs.json)及 CSV.
+[^calculation]: [实际计算结果](https://ou-liu-red-sugar.github.io/notebook/labs/qt-de/data/results.json)，forecast 的逐原点拟合与 future_scaling_controls；[复算程序](https://ou-liu-red-sugar.github.io/notebook/labs/qt-de/compute/reproduce.py). 原点、尺度与标签均可逐行重建.
+[^accuracy]: FPP3，[§5.8 Evaluating point forecast accuracy 全节](https://otexts.com/fpp3/accuracy.html).
+[^cv]: FPP3，[§5.10 Time series cross-validation 全节](https://otexts.com/fpp3/tscv.html). 多期复合标签成熟条件由本文定义直接推出，未声称该书给出本例金融回测.
+[^bea-a]: BEA，[2020Q2 Advance Estimate 原发布](https://www.bea.gov/news/2020/gross-domestic-product-2nd-quarter-2020-advance-estimate-and-annual-update)，页首发布时间及 GDP 开篇.
+[^bea-b]: BEA，[2020Q2 Second Estimate 原发布](https://www.bea.gov/news/2020/gross-domestic-product-2nd-quarter-2020-second-estimate-corporate-profits-2nd-quarter)，页首、GDP 开篇和 Updates to GDP 表.
+[^kmz]: Kelly、Malamud、Zhou，[2024 发表版](https://economics.yale.edu/sites/default/files/2024-01/The%20Journal%20of%20Finance%20-%202023%20-%20KELLY%20-%20The%20Virtue%20of%20Complexity%20in%20Return%20Prediction%20%281%29.pdf)，§V.A，p.487 脚注33. 未读取的附录稳健性不作为本篇证据.
 
 
 ## Experiment inputs and static equivalents
@@ -4614,7 +4618,7 @@ $$
     "id": "EXP-QT-D-CLOCK-01",
     "title": "时间序列验证与信息泄漏：可复算实验",
     "anchor": "qt21-leakage",
-    "description": "按一个预测原点重建训练、预处理与标签成熟，解释未来缩放不必改善成绩。",
+    "description": "按一个预测原点重建训练、预处理与标签成熟，解释未来缩放不必改善成绩.",
     "inputs": {
       "identity": "QT-DE-adopted-inputs-20260921-v1",
       "manifest": "https://ou-liu-red-sugar.github.io/notebook/labs/qt-de/shared_inputs.json"
@@ -4630,14 +4634,14 @@ $$
 ```
 
 ## Sources
-- [Forecasting: Principles and Practice, §5.8](https://otexts.com/fpp3/accuracy.html): 完整单元支持预测误差不同于残差，RMSE/MAE与mean/median的关系；书中实例不是本站交易绩效。
-- [GDP 2020Q2 Advance Estimate](https://www.bea.gov/news/2020/gross-domestic-product-2nd-quarter-2020-advance-estimate-and-annual-update): 原始发布的-32.9%为实际GDP季度环比年化率。支持release，不提供本研究系统received_at。
-- [GDP 2020Q2 Second Estimate](https://www.bea.gov/news/2020/gross-domestic-product-2nd-quarter-2020-second-estimate-corporate-profits-2nd-quarter): 原始发布-31.7%、相对初值上修1.2pp；原件不支持推断系统接收时间。
-- [QT-D/E adopted teaching experiments](https://ou-liu-red-sugar.github.io/notebook/labs/qt-de/compute/reproduce.py): 本轮实际沙盒复算，预测遵守冻结算法及数据；选择沿PCG64调用顺序并核strict/inclusive，成本用Fraction。数学演算与假设模型不等于真实投资有效性。
-- [30 Industry Portfolios](https://mba.tuck.dartmouth.edu/pages/Faculty/ken.french/Data_Library/det_30_ind_port.html): 冻结原件摘取的432个连续月；百分数除100。来自当前重建历史，不是各月当时可见vintage；无样本期缺失。
-- [French Data Library：FIZ/CIZ methodology](https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/data_library.html): 生产链转换与股息复投口径；本批坚持单次202607重建快照，未拼接旧vintage。
-- [The Virtue of Complexity in Return Prediction](https://economics.yale.edu/sites/default/files/2024-01/The%20Journal%20of%20Finance%20-%202023%20-%20KELLY%20-%20The%20Virtue%20of%20Complexity%20in%20Return%20Prediction%20%281%29.pdf): 已读完整实证设置单元，用于配对研究选读：随机特征、训练窗口、信息日期约定、R²分母。未验证前部理论或附录，未复现论文，具体作者结果不普遍化。
-- [Forecasting: Principles and Practice, §5.10](https://otexts.com/fpp3/tscv.html): 完整单元支持按原点训练、按期限评价；真实发布/接收时点仍需另核。
+- [Forecasting: Principles and Practice, §5.8](https://otexts.com/fpp3/accuracy.html): 完整单元支持预测误差不同于残差，RMSE/MAE与mean/median的关系；书中实例不是本站交易绩效.
+- [GDP 2020Q2 Advance Estimate](https://www.bea.gov/news/2020/gross-domestic-product-2nd-quarter-2020-advance-estimate-and-annual-update): 原始发布的-32.9%为实际GDP季度环比年化率. 支持release，不提供本研究系统received_at.
+- [GDP 2020Q2 Second Estimate](https://www.bea.gov/news/2020/gross-domestic-product-2nd-quarter-2020-second-estimate-corporate-profits-2nd-quarter): 原始发布-31.7%、相对初值上修1.2pp；原件不支持推断系统接收时间.
+- [QT-D/E adopted teaching experiments](https://ou-liu-red-sugar.github.io/notebook/labs/qt-de/compute/reproduce.py): 冻结算法与数据的复算材料. 预测按时间验证；选择实验固定 PCG64 调用顺序与 strict/inclusive 计数；成本实验使用精确分数.
+- [30 Industry Portfolios](https://mba.tuck.dartmouth.edu/pages/Faculty/ken.french/Data_Library/det_30_ind_port.html): 冻结原件摘取的432个连续月；百分数除100. 来自当前重建历史，不是各月当时可见vintage；无样本期缺失.
+- [French Data Library：FIZ/CIZ methodology](https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/data_library.html): 生产链转换与股息复投口径；本批坚持单次202607重建快照，未拼接旧vintage.
+- [The Virtue of Complexity in Return Prediction](https://economics.yale.edu/sites/default/files/2024-01/The%20Journal%20of%20Finance%20-%202023%20-%20KELLY%20-%20The%20Virtue%20of%20Complexity%20in%20Return%20Prediction%20%281%29.pdf): 已读完整实证设置单元，用于配对研究选读：随机特征、训练窗口、信息日期约定、R²分母. 未验证前部理论或附录，未复现论文，具体作者结果不普遍化.
+- [Forecasting: Principles and Practice, §5.10](https://otexts.com/fpp3/tscv.html): 完整单元支持按原点训练、按期限评价；真实发布/接收时点仍需另核.
 
 ## Content relations
 ```json
@@ -4653,20 +4657,20 @@ $$
     "relation": "requires",
     "to": "zh-qt07",
     "required_competence": "区分决策前的信息与成交",
-    "reason": "本篇使用该能力，不要求整门随机过程课程。"
+    "reason": "本篇使用该能力，不要求整门随机过程课程."
   },
   {
     "from": "zh-qt21",
     "relation": "requires",
     "to": "zh-qt20",
     "required_competence": "理解训练、目标与正则化",
-    "reason": "本篇使用该能力，不要求整门随机过程课程。"
+    "reason": "本篇使用该能力，不要求整门随机过程课程."
   },
   {
     "from": "qt21-leakage",
     "relation": "illustrated_by",
     "to": "EXP-QT-D-CLOCK-01",
-    "reason": "完整输入、默认及静态等价支持本篇独立任务。"
+    "reason": "完整输入、默认及静态等价支持本篇独立任务."
   },
   {
     "from": "zh-qt21",
@@ -4731,6 +4735,6 @@ $$
 
 ## Optional reading path
 理解模型并亲手算: step 7/9
-重建滚动原点，区分合法更新、未来尺度和修订信息。
-时间顺序正确后，还要把挑选候选的方法纳入评价。
+重建滚动原点，区分合法更新、未来尺度和修订信息.
+时间顺序正确后，还要把挑选候选的方法纳入评价.
 Next: [选择效应与多重检验](https://ou-liu-red-sugar.github.io/zh/notebook/selection-multiple-testing/)

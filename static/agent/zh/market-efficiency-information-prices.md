@@ -1,22 +1,26 @@
 # 市场有效性与信息处理：从公开事件到可检验的证据
 
-按size加权合约量重建公告前流量代理，核对信息窗口、回报基准与分组标准化，避免把关联当收益。
+按size加权合约量重建公告前流量代理，核对信息窗口、回报基准与分组标准化，避免把关联当收益.
 
 Entry: zh-m23 | Node: M23 | Language: zh | Editorial revision: 2026-09-21
 
 ## Teaching instructions
-你正在教M23《市场有效性与信息处理：从公开事件到可检验的证据》，内容版本2026-09-21-MEFG-review-v3。读者已有高年级本科至研究生的数学基础。
+你正在教M23《市场有效性与信息处理：从公开事件到可检验的证据》，内容版本2026-09-21-MEFG-review-v3. 读者已有高年级本科至研究生的数学基础.
 
-先确认选用本篇共同正文和哪些分支，再实际读取agent_packet列出的当前必读完整原文。PDF需读脚注、表图与符号；只拿到摘要/目录/搜索片段不算完成。记录实际版本、范围与内容对应，不沿用编辑端“已读”充当本次读取；同会话已完整取得相同版本单元可以复用。若所需单元失败，尝试机构正式等价全文；仍缺失则指出具体单元，不凭记忆补成已读教学。runtime_reading_log从空开始。
+先确认选用本篇共同正文和哪些分支，再实际读取agent_packet列出的当前必读完整原文. PDF需读脚注、表图与符号；只拿到摘要/目录/搜索片段不算完成. 记录实际版本、范围与内容对应，不沿用编辑端“已读”充当本次读取；同会话已完整取得相同版本单元可以复用. 若所需单元失败，尝试机构正式等价全文；仍缺失则指出具体单元，不凭记忆补成已读教学. runtime_reading_log从空开始.
 
-独立学习任务：用四类size加权合约量算TOI，标出事件前可用信息，并解释标准化回归而不是宣称策略利润。
-专属诊断与正向讲解：先问30/10/25/35的单位，若答笔数要求补每笔size；核TOI.30和PCR1.5。然后按τ−300至−46、τ−40至−10、τ−1、τ、[0,1]排序。
-反馈尺度：.0283是原文宏观分组标准化下的系数，不能说2.83%收益；发起分类不是动机；不把事后消息分类倒入交易信号。
+独立学习任务：用四类size加权合约量算TOI，标出事件前可用信息，并解释标准化回归而不是宣称策略利润.
+专属诊断与正向讲解：先问30/10/25/35的单位，若答笔数要求补每笔size；核TOI.30和PCR1.5. 然后按τ−300至−46、τ−40至−10、τ−1、τ、[0,1]排序.
+反馈尺度：.0283是原文宏观分组标准化下的系数，不能说2.83%收益；发起分类不是动机；不把事后消息分类倒入交易信号.
 
-读者要求直接讲解时，按本篇连贯推导讲清，不反复问已会先修。静态例、实验、练习必须使用本包同一输入和单位；实例价、合成价、模型价、规则时点不能混换。练习要给完整解析，不仅打分。仅当选读分支被采用时，将其optional reading转入当前必读。
+读者要求直接讲解时，按本篇连贯推导讲清，不反复问已会先修. 静态例、实验、练习必须使用本包同一输入和单位；实例价、合成价、模型价、规则时点不能混换. 练习要给完整解析，不仅打分. 仅当选读分支被采用时，将其optional reading转入当前必读.
 
 
 Before substantive teaching, actually retrieve every required reading unit for the selected scope. Read its complete designated section, including necessary assumptions, tables and footnotes. A working URL or an editorial access date is not a runtime reading receipt. Record the actual version, location, scope and what it supports. If unavailable, use a previously verified equivalent source; if the required unit remains unavailable, identify that gap rather than teach it from memory. Start runtime_reading_log empty. Once reading is complete, use a substantive diagnostic or follow the reader's request for direct explanation. Advance one complete reasoning task at a time; skip mastered basics. Distinguish original facts, supplied teaching assumptions and inference.
+
+## Shared notation and writing conventions
+数学期望统一写成 \mathbb{E}，条件期望用 \mathbb{E}[X\mid\mathcal{G}]，需要时注明测度 P 或 Q. 保留局部变量的明确定义. 金额与数量使用 K=10^3、M=10^6、B=10^9；表格标明币种、量级与期间，变更量级时同步换算数值. 展示小数最多三位，计算保留原始精度. 直接解释对象、机制与推理；保留影响结论的假设和事实来源，把编辑流程留在记录中. 句末使用英文句点 .，包括定义、命题、证明和解析等标签. 基础定义与推导直接讲内容，出处放在紧邻脚注；来源读取、复审和采用范围等编辑经过留在记录中.
+[Notation and units](https://ou-liu-red-sugar.github.io/agent/zh/notation.md)
 
 ## Required readings and runtime protocol
 ```json
@@ -36,7 +40,7 @@ Before substantive teaching, actually retrieve every required reading unit for t
         "scope": "完整指定单元、必要脚注与表图；不以搜索摘要代替",
         "purpose": "效率的相对信息集和基准"
       },
-      "supports": "信息集、检验基准与实施成本的基本框架；历史基金绩效不是当前市场事实。",
+      "supports": "信息集、检验基准与实施成本的基本框架；历史基金绩效不是当前市场事实.",
       "id": "M23-READ-01",
       "title": "15.433 Investments, Class 22: Market Efficiency",
       "authors": [
@@ -57,7 +61,7 @@ Before substantive teaching, actually retrieve every required reading unit for t
         "scope": "完整指定单元、必要脚注与表图；不以搜索摘要代替",
         "purpose": "size加权合约量、事件/估计窗口、CAR、macro/nonmacro分别标准化与关联"
       },
-      "supports": "size加权的发起方向合约成交量代理、事件时间、市场模型基准、分组标准化关联；无交易动机识别或可执行净收益证明。",
+      "supports": "size加权的发起方向合约成交量代理、事件时间、市场模型基准、分组标准化关联；无交易动机识别或可执行净收益证明.",
       "id": "M23-READ-02",
       "title": "Information Processing in the Option Market Around Earnings and Macroeconomic Announcements",
       "authors": [
@@ -342,21 +346,21 @@ Before substantive teaching, actually retrieve every required reading unit for t
 <a id="m23-information"></a>
 ## 一、“信息已反映在价格里”，究竟是什么意思
 
-一句“市场有效”必须说明相对于什么信息。过去价格、全部公开信息、甚至私人信息，形成不同的信息集。弱式、半强式与强式的区分，就在于可用信息的范围，而不是把市场分成“聪明”或“愚蠢”。价格迅速反应也不意味着每一刻都等于研究者心中的唯一真实价值。[^MEFG-MIT-EFFICIENCY]
+一句“市场有效”必须说明相对于什么信息. 过去价格、全部公开信息、甚至私人信息，形成不同的信息集. 弱式、半强式与强式的区分，就在于可用信息的范围，而不是把市场分成“聪明”或“愚蠢”. 价格迅速反应也不意味着每一刻都等于研究者心中的唯一真实价值. [^MEFG-MIT-EFFICIENCY]
 
-检验还需要正常回报的基准。发现公告后股票上涨，可能是意外好消息，也可能是共同市场变化；发现某信号与未来回报有关，也可能是风险补偿而不是可免费取得的超额收益。因而检验信息效率常与检验回报模型交织在一起。没有声明信息集和比较基准，只拿一段涨跌图，不能完成这项工作。
+检验还需要正常回报的基准. 发现公告后股票上涨，可能是意外好消息，也可能是共同市场变化；发现某信号与未来回报有关，也可能是风险补偿而不是可免费取得的超额收益. 因而检验信息效率常与检验回报模型交织在一起. 没有声明信息集和比较基准，只拿一段涨跌图，不能完成这项工作.
 
-信息处理本身要花时间，交易要支付价差与费用，某些持仓还需要借券和资本。所以本篇不从“存在统计关系”直接跳到“投资者可以靠它稳定赚钱”。我们读一项真实研究，逐项看作者观察了什么、怎样定义变量，以及结论停在哪里。
+统计关系与可执行收益之间还隔着信息处理时间、买卖价差与费用，以及部分头寸所需的借券和资本. 本篇因此把重点放在一项真实研究：作者观察了什么、怎样定义变量，以及结论能支持到哪一步.
 
 <a id="case-mefg-kit-2025"></a>
 <a id="m23-study"></a>
 ## 二、研究对象不是交易者脑中的想法
 
-采用Eberbach、Uhrig-Homburg和Yu的 *Information Processing in the Option Market Around Earnings and Macroeconomic Announcements*，2025-03-07工作稿。其美国股票期权样本覆盖2004年1月至2017年10月，结合LiveVol成交／报价、OptionMetrics、I/B/E/S及宏观公告资料。它研究公告附近的期权流量和随后股票价格关系，不是2026年实时信号。[^MEFG-KIT-2025]
+采用Eberbach、Uhrig-Homburg和Yu的 *Information Processing in the Option Market Around Earnings and Macroeconomic Announcements*，2025-03-07工作稿. 其美国股票期权样本覆盖2004年1月至2017年10月，结合LiveVol成交／报价、OptionMetrics、I/B/E/S及宏观公告资料. 它研究公告附近的期权流量和随后股票价格关系，不是2026年实时信号. [^MEFG-KIT-2025]
 
-第一步已经有测量问题：一笔成交由买方还是卖方主动发起，是根据报价附近的成交分类等规则推断的，并非直接观察交易者真实动机。买入put可能为对冲，也可能为方向判断；卖出put可能有不同组合背景。作者构造的是可观察信息处理的**代理量**，不是给每位交易者贴“知情”标签。
+第一步已经有测量问题：一笔成交由买方还是卖方主动发起，是根据报价附近的成交分类等规则推断的，并非直接观察交易者真实动机. 买入put可能为对冲，也可能为方向判断；卖出put可能有不同组合背景. 作者构造的是可观察信息处理的**代理量**，不是给每位交易者贴“知情”标签.
 
-图形阅读也要看时间。原文§4.1.1、Figure 1（PDF第19页）按事后消息分类比较公告周围的异常流量。这能帮助描述消息与交易之间的关系，但事后才知道的好／坏消息标签，不能被放进公告前的策略输入。
+图形阅读也要看时间. 原文§4.1.1、Figure 1（PDF第19页）按事后消息分类比较公告周围的异常流量. 这能帮助描述消息与交易之间的关系，但事后才知道的好／坏消息标签，不能被放进公告前的策略输入.
 
 <a id="m23-volume"></a>
 ## 三、先按合约份数加权，再读方向
@@ -366,9 +370,9 @@ $$
 TOI=\frac{\sum_i \operatorname{sign}_i\,\operatorname{size}_i}
 {\sum_i\operatorname{size}_i}.
 $$
-买方发起的call和卖方发起的put取正；卖方发起的call和买方发起的put取负。它是方向性合约成交量的标准化差，不是未加权的“有几笔买、有几笔卖”。[^MEFG-KIT-2025]
+买方发起的call和卖方发起的put取正；卖方发起的call和买方发起的put取负. 它是方向性合约成交量的标准化差，不是未加权的“有几笔买、有几笔卖”. [^MEFG-KIT-2025]
 
-现在用一个明确的合成例。四行是发起方向分类后的**合约份数**，不是实际公司数据，也不是四组交易者意图：
+现在用一个明确的合成例. 四行是发起方向分类后的**合约份数**，不是实际公司数据，也不是四组交易者意图：
 
 | 分类 | 成交合约份数 | 符号 | 带符号合约量 |
 |---|---:|---:|---:|
@@ -378,15 +382,15 @@ $$
 | 卖方发起put | 35 | +1 | +35 |
 | 合计 | 100 | — | 30 |
 
-所以 $TOI=(30+35-10-25)/100=0.30$。若对应的非事件基线均值为0.05，异常OI为 $0.30-0.05=0.25$。原文的基线使用公告前指定非公告日窗口，这里只把其均值0.05作为教学输入，不伪造那段真实历史。
+所以 $TOI=(30+35-10-25)/100=0.30$. 若对应的非事件基线均值为0.05，异常OI为 $0.30-0.05=0.25$. 原文的基线使用公告前指定非公告日窗口；本例把其均值0.05作为教学输入，不重建那段历史样本.
 
 同一组数据的put／call总量比是
 $$
 \frac{25+35}{30+10}=\frac{60}{40}=1.5.
 $$
-“put量更多”和“方向代理量为正”没有矛盾。前者不区分发起方向，后者区分并按合约量加权。更不能把1.5直接改写成“60%的交易者看空”。
+“put量更多”和“方向代理量为正”没有矛盾. 前者不区分发起方向，后者区分并按合约量加权. 更不能把1.5直接改写成“60%的交易者看空”.
 
-再想一个更小的核对：若上表恰好来自四笔不同大小的成交，每笔各算一票会有两个正、两个负，未加权结果为0；按size加权才是0.30。只给笔数而不给每笔规模，就没有足够输入复算论文的这个变量。原研究还设成交量等筛选；本例数值达到100份，不能因此声称整个研究数据清理已经复现。
+再想一个更小的核对：若上表恰好来自四笔不同大小的成交，每笔各算一票会有两个正、两个负，未加权结果为0；按size加权才是0.30. 只给笔数而不给每笔规模，就没有足够输入复算论文的这个变量. 原研究还设成交量等筛选；本例数值达到100份，不能因此声称整个研究数据清理已经复现.
 
 <a id="m23-timing"></a>
 ## 四、信息必须在使用时已经可得
@@ -401,23 +405,23 @@ $$
 | 公告／消息 | $\tau$ | 确定事件，具体盘中盘后对齐沿原研究 |
 | 公告回报窗口 | 例如 $[0,1]$ | 度量公告附近价格反应 |
 
-这些窗口不能仅因为都在同一张图上，就当成同一时点已经知道的信息。预测者在 $\tau-1$ 不知道事后实现的公告回报，也不能用完整未来样本重新估计当时的beta。[^MEFG-KIT-2025]
+这些窗口不能仅因为都在同一张图上，就当成同一时点已经知道的信息. 预测者在 $\tau-1$ 不知道事后实现的公告回报，也不能用完整未来样本重新估计当时的beta. [^MEFG-KIT-2025]
 
-原文的市场调整累计回报也不是随便把股票涨幅叫alpha。用 $G_i=\prod(1+r_{i,t})$、$G_m=\prod(1+r_{m,t})$、$G_f=\prod(1+r_{f,t})$ 表示指定窗口的累计总增长量，其比较结构为
+原文的市场调整累计回报也不是随便把股票涨幅叫alpha. 用 $G_i=\prod(1+r_{i,t})$、$G_m=\prod(1+r_{m,t})$、$G_f=\prod(1+r_{f,t})$ 表示指定窗口的累计总增长量，其比较结构为
 $$
 CAR=(G_i-G_f)-\widehat\beta_i(G_m-G_f).
 $$
-$\widehat\beta_i$ 由上述更早的估计窗口取得。这里解释的是原文比较口径；没有原始股票和市场序列，我们不为这条式子填一个似乎真实的CAR。
+$\widehat\beta_i$ 由上述更早的估计窗口取得. 这里解释的是原文比较口径；没有原始股票和市场序列，我们不为这条式子填一个似乎真实的CAR.
 
 <a id="m23-regression"></a>
 ## 五、0.0283为什么不是“赚2.83%”
 
-Table 2（印刷p22／PDF第23页）将公告窗口回报与公告前异常OI、宏观日指标及其交互联系。用简写表示其中一部分：
+Table 2（印刷p22／PDF第23页）将公告窗口回报与公告前异常OI、宏观日指标及其交互联系. 用简写表示其中一部分：
 $$
 CAR=\alpha+\beta_1OI+\beta_2MD
 +\beta_3(OI\times MD)+\text{控制项}+\varepsilon.
 $$
-$MD$ 是相应宏观公告日指示变量。作者在宏观／非宏观两组分别标准化相关变量；因此表中系数不能直接作为未经标准化的OI每增加1时，真实回报百分点会增加多少。[^MEFG-KIT-2025]
+$MD$ 是相应宏观公告日指示变量. 作者在宏观／非宏观两组分别标准化相关变量；因此表中系数不能直接作为未经标准化的OI每增加1时，真实回报百分点会增加多少. [^MEFG-KIT-2025]
 
 | 原文比较 | 采用值 | 正确阅读 |
 |---|---:|---|
@@ -426,45 +430,45 @@ $MD$ 是相应宏观公告日指示变量。作者在宏观／非宏观两组分
 | 两者之和 | 0.0283 | 作者解释的宏观日对应系数 |
 | 第1列合并样本OI系数 | 0.0078 | 另一列合并回归的参照 |
 
-作者正文采用 $0.0033+0.0250=0.0283$ 并与0.0078比较，数值比约3.63。这个加法在原回归定义和分组标准化说明下有意义，却不等于“发现信号后能赚2.83%”。还差交易价格、持有规则、可用信息、费用、资金和风险等整条策略链；统计显著性本身不会补齐它。
+作者正文采用 $0.0033+0.0250=0.0283$ 并与0.0078比较，数值比约3.63. 这个加法在原回归定义和分组标准化说明下有意义，却不等于“发现信号后能赚2.83%”. 还差交易价格、持有规则、可用信息、费用、资金和风险等整条策略链；统计显著性本身不会补齐它.
 
-这也说明一种检验的边界：期权流量与随后股票反应有关，支持作者对信息处理的讨论，但不直接识别每笔交易者的动机，不单独证明内幕交易，也不构成已经实施的样本外策略。信息可能来自对公开资料的处理，可能与风险暴露和交易需求相关；要在这些解释之间作更强判断，需要额外识别。
+这也说明一种检验的边界：期权流量与随后股票反应有关，支持作者对信息处理的讨论，但不直接识别每笔交易者的动机，不单独证明内幕交易，也不构成已经实施的样本外策略. 信息可能来自对公开资料的处理，可能与风险暴露和交易需求相关；要在这些解释之间作更强判断，需要额外识别.
 
 <a id="m23-explore"></a>
 ## 六、图形和计算各承担什么
 
 <div data-experiment-slot="EXP-MEFG-M23-INFORMATION"></div>
 
-第一个视角把四类合约量画成正负贡献，再计算TOI、异常OI和put／call总量比；第二个视角显示估计、基线、流量、公告和回报窗口。只有前者使用这里的合成数字。原研究Figure 1与Table 2保留公开原文定位，不提供虚构的公司选择或历史回测按钮。
+第一个视角把四类合约量画成正负贡献，再计算TOI、异常OI和put／call总量比；第二个视角显示估计、基线、流量、公告和回报窗口. 只有前者使用这里的合成数字. 原研究Figure 1与Table 2保留公开原文定位，不提供虚构的公司选择或历史回测按钮.
 
-总量为0时TOI没有定义；call总量为0时put／call比也不能强制显示为0。少量合成数据可以算教学定义，但不因此满足原研究全部样本筛选。每一个输出都应先有足够的分母与合格的时间身份。
+总量为0时TOI没有定义；call总量为0时put／call比也不能强制显示为0. 少量合成数据可以算教学定义，但不因此满足原研究全部样本筛选. 每一个输出都应先有足够的分母与合格的时间身份.
 
 <a id="m23-exercises"></a>
 ## 七、从结果回到证据
 
 **题一：上表只有四行，为什么不能算成“二正二负，TOI为0”？**
 
-**解析。** 论文按size加权，四行分别汇总30、10、25、35份合约。带符号量为30，总量100，得0.30。即使恰好来自四笔成交，也不能丢掉不同size。
+**解析.** 论文按size加权，四行分别汇总30、10、25、35份合约. 带符号量为30，总量100，得0.30. 即使恰好来自四笔成交，也不能丢掉不同size.
 
 **题二：put／call比1.5与TOI=+0.30各告诉我们什么？**
 
-**解析。** 前者只有call与put总量，不含发起方向；后者对四类方向加权。两者都不是交易者心理的直接测量，也不能凭这两个数建立必赚信号。
+**解析.** 前者只有call与put总量，不含发起方向；后者对四类方向加权. 两者都不是交易者心理的直接测量，也不能凭这两个数建立必赚信号.
 
 **题三：把Figure 1事后好消息组的标签加入 $\tau-1$ 策略，会犯什么错？**
 
-**解析。** 该标签依赖后来公告，属于未来信息。用它训练或执行公告前规则，会把事后解释误当成当时可用的预测信息。
+**解析.** 该标签依赖后来公告，属于未来信息. 用它训练或执行公告前规则，会把事后解释误当成当时可用的预测信息.
 
 **题四：0.0283和0.0078的比约3.63，能否说宏观日策略收益高3.63倍？**
 
-**解析。** 不能。它比较原文指定回归和标准化口径下的系数；不是同资本、同成本的两套交易收益。要作策略比较，须另定义价格、仓位、信息、持有期和可执行费用。
+**解析.** 不能. 它比较原文指定回归和标准化口径下的系数；不是同资本、同成本的两套交易收益. 要作策略比较，须另定义价格、仓位、信息、持有期和可执行费用.
 
 **题五：一条公开消息之后价格仍缓慢变化，足以推翻半强式有效吗？**
 
-**解析。** 单一观察不足。先确认何时消息真正公开、市场基准、风险补偿、样本选择及交易成本；再检验可重复的异常结果。否则既可能漏掉真正信息处理，也可能把正常风险或测量偏差错当成低效率。
+**解析.** 单一观察不足. 先确认何时消息真正公开、市场基准、风险补偿、样本选择及交易成本；再检验可重复的异常结果. 否则既可能漏掉真正信息处理，也可能把正常风险或测量偏差错当成低效率.
 
-[^MEFG-MIT-EFFICIENCY]: MIT OpenCourseWare，*15.433 Investments, Class 22: Market Efficiency*，Spring 2003。[原文](https://ocw.mit.edu/courses/15-433-investments-spring-2003/4491842813dd9719421bce96c282b39c_1543322marketefficiency.pdf)。本篇定位：Full physical pp1–11; p2 information sets, pp4–6 event/cost/limits, p9 framing。
+[^MEFG-MIT-EFFICIENCY]: MIT OpenCourseWare，*15.433 Investments, Class 22: Market Efficiency*，Spring 2003. [原文](https://ocw.mit.edu/courses/15-433-investments-spring-2003/4491842813dd9719421bce96c282b39c_1543322marketefficiency.pdf). 本篇定位：Full physical pp1–11; p2 information sets, pp4–6 event/cost/limits, p9 framing.
 
-[^MEFG-KIT-2025]: Jelena Eberbach, Marliese Uhrig-Homburg, Xiaoxiao Yu，*Information Processing in the Option Market Around Earnings and Macroeconomic Announcements*，Manuscript 2025-03-07; no journal status claimed。[原文](https://derivate.fbv.kit.edu/download/Information_Processing_in_the_Option_Market%202025.pdf)。本篇定位：§2.2 proxy; §3 full data/variables: physical pp11–18；§4.1.1, Figure1 physical p19；§4.2 including Tables2–3, physical pp21–26 before §4.3; Table2 p23；§3.4.1 Eq(2)–(3): physical pp14–15。
+[^MEFG-KIT-2025]: Jelena Eberbach, Marliese Uhrig-Homburg, Xiaoxiao Yu，*Information Processing in the Option Market Around Earnings and Macroeconomic Announcements*，Manuscript 2025-03-07; no journal status claimed. [原文](https://derivate.fbv.kit.edu/download/Information_Processing_in_the_Option_Market%202025.pdf). 本篇定位：§2.2 proxy; §3 full data/variables: physical pp11–18；§4.1.1, Figure1 physical p19；§4.2 including Tables2–3, physical pp21–26 before §4.3; Table2 p23；§3.4.1 Eq(2)–(3): physical pp14–15.
 
 <script src="/notebook/labs/m-efg/reader-adapter.js" defer></script>
 
@@ -472,9 +476,9 @@ $MD$ 是相应宏观公告日指示变量。作者在宏观／非宏观两组分
 ## Additional teaching material
 ### 本篇默认结果与静态等价
 
-<div class="table-wrap"><table><thead><tr><th>发起方向</th><th>合约份数</th><th>符号</th></tr></thead><tbody><tr><td>买call</td><td>30</td><td>+</td></tr><tr><td>卖call</td><td>10</td><td>−</td></tr><tr><td>买put</td><td>25</td><td>−</td></tr><tr><td>卖put</td><td>35</td><td>+</td></tr></tbody></table></div><div class="table-wrap"><table><thead><tr><th>量</th><th>计算</th></tr></thead><tbody><tr><td>TOI</td><td>(30+35−10−25)/100=0.30</td></tr><tr><td>异常OI</td><td>0.30−0.05=0.25</td></tr><tr><td>put/call量</td><td>60/40=1.5</td></tr><tr><td>宏观日标准化系数</td><td>.0033+.0250=.0283</td></tr><tr><td>与合并列比较</td><td>.0283/.0078≈3.6282</td></tr></tbody></table></div><p>单位是按发起方向分类的成交合约份数，size加权。论文按宏观/非宏观组标准化；系数不是交易收益。估计窗口τ−300…−46，基线τ−40…−10，公告前流量τ−1，CAR[0,1]。事后消息标签不能倒放。</p>
+<div class="table-wrap"><table><thead><tr><th>发起方向</th><th>合约份数</th><th>符号</th></tr></thead><tbody><tr><td>买call</td><td>30</td><td>+</td></tr><tr><td>卖call</td><td>10</td><td>−</td></tr><tr><td>买put</td><td>25</td><td>−</td></tr><tr><td>卖put</td><td>35</td><td>+</td></tr></tbody></table></div><div class="table-wrap"><table><thead><tr><th>量</th><th>计算</th></tr></thead><tbody><tr><td>TOI</td><td>(30+35−10−25)/100=0.30</td></tr><tr><td>异常OI</td><td>0.30−0.05=0.25</td></tr><tr><td>put/call量</td><td>60/40=1.5</td></tr><tr><td>宏观日标准化系数</td><td>.0033+.0250=.0283</td></tr><tr><td>与合并列比较</td><td>.0283/.0078≈3.6282</td></tr></tbody></table></div><p>单位是按发起方向分类的成交合约份数，size加权. 论文按宏观/非宏观组标准化；系数不是交易收益. 估计窗口τ−300…−46，基线τ−40…−10，公告前流量τ−1，CAR[0,1]. 事后消息标签不能倒放.</p>
 
-完整冻结输入：https://ou-liu-red-sugar.github.io/notebook/labs/m-efg/inputs.json。来源内的包路径按 source_paths 取得。
+完整冻结输入：https://ou-liu-red-sugar.github.io/notebook/labs/m-efg/inputs.json. 来源内的包路径按 source_paths 取得.
 
 ## Experiment inputs and static equivalents
 ```json
@@ -483,8 +487,8 @@ $MD$ 是相应宏观公告日指示变量。作者在宏观／非宏观两组分
     "id": "EXP-MEFG-M23-INFORMATION",
     "title": "合约成交量与事件时间",
     "anchor": "m23-explore",
-    "description": "同一组put量可以更多，而带方向的TOI仍为正。先核单位，再解释系数。",
-    "data_identity": "四组数均为按发起方向分类的合约份数，不是未加权笔数；不是交易者动机或真实流量。",
+    "description": "同一组put量可以更多，而带方向的TOI仍为正. 先核单位，再解释系数.",
+    "data_identity": "四组数均为按发起方向分类的合约份数，不是未加权笔数；不是交易者动机或真实流量.",
     "shared_dataset_ids": [],
     "inputs": {
       "canonical_common": "shared_inputs.json",
@@ -565,7 +569,7 @@ $MD$ 是相应宏观公告日指示变量。作者在宏观／非宏观两组分
         "unit": "contracts classified by initiating side, size weighted; not transaction counts"
       },
       "static_equivalent": "https://ou-liu-red-sugar.github.io/notebook/labs/m-efg/static/M23.html",
-      "unit_note": "四组数均为按发起方向分类的合约份数，不是未加权笔数；不是交易者动机或真实流量。"
+      "unit_note": "四组数均为按发起方向分类的合约份数，不是未加权笔数；不是交易者动机或真实流量."
     },
     "boundaries": [
       "合约份数非交易笔数，非动机",
@@ -602,8 +606,8 @@ $MD$ 是相应宏观公告日指示变量。作者在宏观／非宏观两组分
 ```
 
 ## Sources
-- [Information Processing in the Option Market Around Earnings and Macroeconomic Announcements](https://derivate.fbv.kit.edu/download/Information_Processing_in_the_Option_Market%202025.pdf): size加权的发起方向合约成交量代理、事件时间、市场模型基准、分组标准化关联；无交易动机识别或可执行净收益证明。
-- [15.433 Investments, Class 22: Market Efficiency](https://ocw.mit.edu/courses/15-433-investments-spring-2003/4491842813dd9719421bce96c282b39c_1543322marketefficiency.pdf): 信息集、检验基准与实施成本的基本框架；历史基金绩效不是当前市场事实。
+- [Information Processing in the Option Market Around Earnings and Macroeconomic Announcements](https://derivate.fbv.kit.edu/download/Information_Processing_in_the_Option_Market%202025.pdf): size加权的发起方向合约成交量代理、事件时间、市场模型基准、分组标准化关联；无交易动机识别或可执行净收益证明.
+- [15.433 Investments, Class 22: Market Efficiency](https://ocw.mit.edu/courses/15-433-investments-spring-2003/4491842813dd9719421bce96c282b39c_1543322marketefficiency.pdf): 信息集、检验基准与实施成本的基本框架；历史基金绩效不是当前市场事实.
 
 ## Content relations
 ```json
@@ -631,7 +635,7 @@ $MD$ 是相应宏观公告日指示变量。作者在宏观／非宏观两组分
     "from": "m23-information",
     "relation": "supported_by",
     "to": "MEFG-MIT-EFFICIENCY",
-    "reason": "信息集、检验基准与实施成本的基本框架；历史基金绩效不是当前市场事实。",
+    "reason": "信息集、检验基准与实施成本的基本框架；历史基金绩效不是当前市场事实.",
     "locator": "Full physical pp1–11; p2 information sets, pp4–6 event/cost/limits, p9 framing",
     "scope": "本段具名采用内容；教学生成数字仍按自身身份",
     "at_section": "m23-information"
@@ -640,7 +644,7 @@ $MD$ 是相应宏观公告日指示变量。作者在宏观／非宏观两组分
     "from": "m23-study",
     "relation": "supported_by",
     "to": "MEFG-KIT-2025",
-    "reason": "size加权的发起方向合约成交量代理、事件时间、市场模型基准、分组标准化关联；无交易动机识别或可执行净收益证明。",
+    "reason": "size加权的发起方向合约成交量代理、事件时间、市场模型基准、分组标准化关联；无交易动机识别或可执行净收益证明.",
     "locator": "§2.2 proxy; §3 full data/variables: physical pp11–18；§4.1.1, Figure1 physical p19；§4.2 including Tables2–3, physical pp21–26 before §4.3; Table2 p23；§3.4.1 Eq(2)–(3): physical pp14–15",
     "scope": "本段具名采用内容；教学生成数字仍按自身身份",
     "at_section": "m23-study"
@@ -649,7 +653,7 @@ $MD$ 是相应宏观公告日指示变量。作者在宏观／非宏观两组分
     "from": "m23-volume",
     "relation": "supported_by",
     "to": "MEFG-KIT-2025",
-    "reason": "size加权的发起方向合约成交量代理、事件时间、市场模型基准、分组标准化关联；无交易动机识别或可执行净收益证明。",
+    "reason": "size加权的发起方向合约成交量代理、事件时间、市场模型基准、分组标准化关联；无交易动机识别或可执行净收益证明.",
     "locator": "§2.2 proxy; §3 full data/variables: physical pp11–18；§4.1.1, Figure1 physical p19；§4.2 including Tables2–3, physical pp21–26 before §4.3; Table2 p23；§3.4.1 Eq(2)–(3): physical pp14–15",
     "scope": "本段具名采用内容；教学生成数字仍按自身身份",
     "at_section": "m23-volume"
@@ -658,7 +662,7 @@ $MD$ 是相应宏观公告日指示变量。作者在宏观／非宏观两组分
     "from": "m23-timing",
     "relation": "supported_by",
     "to": "MEFG-KIT-2025",
-    "reason": "size加权的发起方向合约成交量代理、事件时间、市场模型基准、分组标准化关联；无交易动机识别或可执行净收益证明。",
+    "reason": "size加权的发起方向合约成交量代理、事件时间、市场模型基准、分组标准化关联；无交易动机识别或可执行净收益证明.",
     "locator": "§2.2 proxy; §3 full data/variables: physical pp11–18；§4.1.1, Figure1 physical p19；§4.2 including Tables2–3, physical pp21–26 before §4.3; Table2 p23；§3.4.1 Eq(2)–(3): physical pp14–15",
     "scope": "本段具名采用内容；教学生成数字仍按自身身份",
     "at_section": "m23-timing"
@@ -667,7 +671,7 @@ $MD$ 是相应宏观公告日指示变量。作者在宏观／非宏观两组分
     "from": "m23-regression",
     "relation": "supported_by",
     "to": "MEFG-KIT-2025",
-    "reason": "size加权的发起方向合约成交量代理、事件时间、市场模型基准、分组标准化关联；无交易动机识别或可执行净收益证明。",
+    "reason": "size加权的发起方向合约成交量代理、事件时间、市场模型基准、分组标准化关联；无交易动机识别或可执行净收益证明.",
     "locator": "§2.2 proxy; §3 full data/variables: physical pp11–18；§4.1.1, Figure1 physical p19；§4.2 including Tables2–3, physical pp21–26 before §4.3; Table2 p23；§3.4.1 Eq(2)–(3): physical pp14–15",
     "scope": "本段具名采用内容；教学生成数字仍按自身身份",
     "at_section": "m23-regression"
@@ -676,7 +680,7 @@ $MD$ 是相应宏观公告日指示变量。作者在宏观／非宏观两组分
     "from": "m23-explore",
     "relation": "illustrated_by",
     "to": "EXP-MEFG-M23-INFORMATION",
-    "reason": "同一组put量可以更多，而带方向的TOI仍为正。先核单位，再解释系数。",
+    "reason": "同一组put量可以更多，而带方向的TOI仍为正. 先核单位，再解释系数.",
     "at_section": "m23-explore"
   }
 ]

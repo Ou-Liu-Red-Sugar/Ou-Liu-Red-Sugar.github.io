@@ -1,0 +1,11 @@
+{{ define "main" }}
+{{ $zh := eq .Lang "zh" }}
+<div class="reader-layout">
+  <aside class="reader-nav"><a class="back-link" href="/{{ .Lang }}/notebook/">← {{ if $zh }}全部词条{{ else }}All entries{{ end }}</a></aside>
+  <article class="entry-article">
+    <header class="entry-header"><p class="eyebrow">{{ if $zh }}阅读参考{{ else }}READING REFERENCE{{ end }}</p><h1>{{ .Title }}</h1><div class="entry-actions"><a href="/agent/{{ .Lang }}/notation.md">Agent Markdown ↓</a><button data-print>{{ if $zh }}打印{{ else }}Print{{ end }}</button></div></header>
+    <div class="prose entry-body">{{ .Content }}</div>
+  </article>
+  <aside class="entry-toc"><p class="eyebrow">{{ if $zh }}本页{{ else }}ON THIS PAGE{{ end }}</p>{{ .TableOfContents }}</aside>
+</div>
+{{ end }}

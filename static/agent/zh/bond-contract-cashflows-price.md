@@ -1,15 +1,19 @@
 # 债券的合约现金流与价格
 
-沿同一国债发行与重开，读清合同日程、净全价、YTM和持有结果。
+沿同一国债发行与重开，读清合同日程、净全价、YTM和持有结果.
 
 Entry: zh-m06 | Node: M06 | Language: zh | Editorial revision: 2026-09-21
 
 ## Teaching instructions
-你在教M06《债券的合约现金流与价格》。先实际取得required_readings的完整指定单元，核版本/页码；PDF表头、单位与公式看原页，记录本次工具取得范围。运行日志初始为空，不把编辑端已读当成本次已读。取不到原件就说明缺口，不补造报价。
-先让我用91282CNT4两份原始发行文件给出首息、末息、20期CF及每100/每1000单位；再比较原发行与重开。高密度诊断：2,000面值的票息、原价、重开全价分别多少，重开是否重启20个完整半年？只有单位与日程对了才做YTM。
-用同源输入验999.5961996与1017.6171；不要把重开套成20完整期。要求我区别YTM定义与复投终值条件、约定日/财政部规则付款日/实际到账。若我把剩余票息再加到卖出价里，指出重复计量。结尾给一份未见过的发行片段或本篇双倍面值迁移题，要求解释而不只报数。
+你在教M06《债券的合约现金流与价格》. 先实际取得required_readings的完整指定单元，核版本/页码；PDF表头、单位与公式看原页，记录本次工具取得范围. 运行日志初始为空，不把编辑端已读当成本次已读. 取不到原件就说明缺口，不补造报价.
+先让我用91282CNT4两份原始发行文件给出首息、末息、20期CF及每100/每1000单位；再比较原发行与重开. 高密度诊断：2,000面值的票息、原价、重开全价分别多少，重开是否重启20个完整半年？只有单位与日程对了才做YTM.
+用同源输入验999.5961996与1017.6171；不要把重开套成20完整期. 要求我区别YTM定义与复投终值条件、约定日/财政部规则付款日/实际到账. 若我把剩余票息再加到卖出价里，指出重复计量. 结尾给一份未见过的发行片段或本篇双倍面值迁移题，要求解释而不只报数.
 
 Before substantive teaching, actually retrieve every required reading unit for the selected scope. Read its complete designated section, including necessary assumptions, tables and footnotes. A working URL or an editorial access date is not a runtime reading receipt. Record the actual version, location, scope and what it supports. If unavailable, use a previously verified equivalent source; if the required unit remains unavailable, identify that gap rather than teach it from memory. Start runtime_reading_log empty. Once reading is complete, use a substantive diagnostic or follow the reader's request for direct explanation. Advance one complete reasoning task at a time; skip mastered basics. Distinguish original facts, supplied teaching assumptions and inference.
+
+## Shared notation and writing conventions
+数学期望统一写成 \mathbb{E}，条件期望用 \mathbb{E}[X\mid\mathcal{G}]，需要时注明测度 P 或 Q. 保留局部变量的明确定义. 金额与数量使用 K=10^3、M=10^6、B=10^9；表格标明币种、量级与期间，变更量级时同步换算数值. 展示小数最多三位，计算保留原始精度. 直接解释对象、机制与推理；保留影响结论的假设和事实来源，把编辑流程留在记录中. 句末使用英文句点 .，包括定义、命题、证明和解析等标签. 基础定义与推导直接讲内容，出处放在紧邻脚注；来源读取、复审和采用范围等编辑经过留在记录中.
+[Notation and units](https://ou-liu-red-sugar.github.io/agent/zh/notation.md)
 
 ## Required readings and runtime protocol
 ```json
@@ -27,7 +31,7 @@ Before substantive teaching, actually retrieve every required reading unit for t
         "scope": "主体及 Notes at a Glance 全表的完整指定单元，含必要脚注与表头",
         "purpose": "先读票息国债的产品结构"
       },
-      "supports": "票息国债期限、半年付息与持有/出售的产品层结构；不是某CUSIP的报价。",
+      "supports": "票息国债期限、半年付息与持有/出售的产品层结构；不是某CUSIP的报价.",
       "version": "网页；取得2026-09-21",
       "title": "Treasury Notes",
       "authors": [
@@ -45,7 +49,7 @@ Before substantive teaching, actually retrieve every required reading unit for t
         "scope": "PDF物理p1全文，Security Terms与Tender Information的完整指定单元，含必要脚注与表头",
         "purpose": "原始日期与票息日"
       },
-      "supports": "原发行日期、到期日、半年票息日及报价单位。",
+      "supports": "原发行日期、到期日、半年票息日及报价单位.",
       "version": "2025-07-30",
       "title": "Offering Announcement: 10-Year Note 91282CNT4",
       "authors": [
@@ -63,7 +67,7 @@ Before substantive teaching, actually retrieve every required reading unit for t
         "scope": "PDF物理p1全文，Coupon/High Yield/Price/Accrued Interest的完整指定单元，含必要脚注与表头",
         "purpose": "官方收益率/价格核对"
       },
-      "supports": "4.25%票息、4.255%高收益率、每100面值99.959620、原发行无应计。",
+      "supports": "4.25%票息、4.255%高收益率、每100面值99.959620、原发行无应计.",
       "version": "2025-08-06",
       "title": "Auction Results: 10-Year Note 91282CNT4",
       "authors": [
@@ -81,7 +85,7 @@ Before substantive teaching, actually retrieve every required reading unit for t
         "scope": "PDF物理p1全文的完整指定单元，含必要脚注与表头",
         "purpose": "同券重开安排"
       },
-      "supports": "同一CUSIP重开、2025-10-15交付、相同票息/到期日及应计期间。",
+      "supports": "同一CUSIP重开、2025-10-15交付、相同票息/到期日及应计期间.",
       "version": "2025-10-02",
       "title": "Reopening Announcement: 91282CNT4",
       "authors": [
@@ -99,7 +103,7 @@ Before substantive teaching, actually retrieve every required reading unit for t
         "scope": "PDF物理p1全文的完整指定单元，含必要脚注与表头",
         "purpose": "净价、应计、全价"
       },
-      "supports": "重开净价101.057226/100、应计7.04484/1000、高收益率4.117%；本包不另反算重开YTM。",
+      "supports": "重开净价101.057226/100、应计7.04484/1000、高收益率4.117%；本包不另反算重开YTM.",
       "version": "2025-10-08",
       "title": "Reopening Auction Results: 91282CNT4",
       "authors": [
@@ -117,7 +121,7 @@ Before substantive teaching, actually retrieve every required reading unit for t
         "scope": "slides25–33的完整指定单元，含必要脚注与表头",
         "purpose": "从规则期CF推PV/YTM；不偷加复投定义"
       },
-      "supports": "零息利率、票息债券现金流、YTM、久期与凸性。采用独立导数校验；不采用forward=预测的简化及slide41末项错号。",
+      "supports": "零息利率、票息债券现金流、YTM、久期与凸性. 采用独立导数校验；不采用forward=预测的简化及slide41末项错号.",
       "version": "MIT 15.401, Fall 2008, lecture file 2007–2008",
       "title": "Finance Theory I: Fixed Income Securities",
       "authors": [
@@ -135,7 +139,7 @@ Before substantive teaching, actually retrieve every required reading unit for t
         "scope": "§356.30(a)完整段的完整指定单元，含必要脚注与表头",
         "purpose": "约定日与营业日支付；历史版本范围"
       },
-      "supports": "本金/票息支付与遇周末或联储非营业日顺延且不加利息的规则，用于2025发行案例。",
+      "supports": "本金/票息支付与遇周末或联储非营业日顺延且不加利息的规则，用于2025发行案例.",
       "version": "2025-07-01 CFR edition",
       "title": "31 CFR §356.30: Payment of principal and interest",
       "authors": [
@@ -153,7 +157,7 @@ Before substantive teaching, actually retrieve every required reading unit for t
         "scope": "2026列及周末/假日规则的完整指定单元，含必要脚注与表头",
         "purpose": "只推首笔财政部规则付款日，不声称全部未来到账"
       },
-      "supports": "2026-02-16休业与星期日2026-02-15结合，推算首次财政部规则付款日2026-02-17；非账户到账记录。",
+      "supports": "2026-02-16休业与星期日2026-02-15结合，推算首次财政部规则付款日2026-02-17；非账户到账记录.",
       "version": "2026–2030表；更新2026-07-08",
       "title": "Holidays Observed — K.8",
       "authors": [
@@ -511,15 +515,15 @@ Before substantive teaching, actually retrieve every required reading unit for t
 ```
 
 ## Supplied entry
-我们先不问一只债券“收益率高不高”，而是把三件事排开：它约定在什么时候付多少钱；我们今天为取得这些权利付多少钱；用什么口径描述两者之间的关系。本篇沿着同一只美国国债的原始发行与重开走一遍。读完以后，你应当能从发行文件画出支付日程，算清取得成本，并解释票息、净价、全价和到期收益率为什么不能互换。
+我们先不问一只债券“收益率高不高”，而是把三件事排开：它约定在什么时候付多少钱；我们今天为取得这些权利付多少钱；用什么口径描述两者之间的关系. 本篇沿着同一只美国国债的原始发行与重开走一遍. 读完以后，你应当能从发行文件画出支付日程，算清取得成本，并解释票息、净价、全价和到期收益率为什么不能互换.
 
-默认学习约 18–20 分钟。需要已经能识别金融权利的义务主体、期限和单位；有限现金流求和直接使用。
+默认学习约 18–20 分钟. 需要已经能识别金融权利的义务主体、期限和单位；有限现金流求和直接使用.
 
 <a id="case-mbc-ust-91282cnt4"></a>
 <a id="m06-contract"></a>
 ## 一、先把真实合约读成一张时间表
 
-主角是 CUSIP **91282CNT4**。2025 年 7 月 30 日的发行公告和 8 月 6 日的拍卖结果给了我们不同层次的信息：公告说明期限与发行安排，结果补上实际确定的票息、拍卖收益率和价格。两张纸要一起读，而不是只截一行“4.255%”。[^MBC-11][^MBC-12]
+主角是 CUSIP **91282CNT4**. 2025 年 7 月 30 日的发行公告和 8 月 6 日的拍卖结果给了我们不同层次的信息：公告说明期限与发行安排，结果补上实际确定的票息、拍卖收益率和价格. 两张纸要一起读，而不是只截一行“4.255%”. [^MBC-11][^MBC-12]
 
 | 字段 | 原件对应内容 | 对持有人的意义 |
 |---|---|---|
@@ -531,7 +535,7 @@ Before substantive teaching, actually retrieve every required reading unit for t
 | 拍卖高收益率 | 4.255% | 原始发行价格对应的年化报价 |
 | 公布价格 | 每 100 美元面值 99.959620 美元 | 不是每 1,000 面值的总付款 |
 
-以下选择 **1,000 美元面值**做教学持仓，并不代表一笔已核实的投资者账户交易。每半年票息为 $1000\times4.25\%/2=21.25$ 美元。发行日不是首个票息日，因此不能在 2025-08-15 再凭空加一笔 21.25。完整约定日程是：
+以下以 **1,000 美元面值**作为教学持仓. 每半年票息为 $1000\times4.25\%/2=21.25$ 美元. 发行日不是首个票息日，因此不能在 2025-08-15 再加一笔 21.25. 完整约定日程是：
 
 | 年份 | 2月15日：票息／本金 | 8月15日：票息／本金 |
 |---|---:|---:|
@@ -546,24 +550,24 @@ Before substantive teaching, actually retrieve every required reading unit for t
 | 2034 | 21.25／0 | 21.25／0 |
 | 2035 | 21.25／0 | 21.25／1,000.00 |
 
-共有 20 次票息，最后一期合付 1,021.25。425 美元票息加 1,000 美元本金，是一项**跨十年的名义金额合计**；它还没有处理资金时间，也不是“赚了 1,425”。
+共有 20 次票息，最后一期合付 1,021.25. 425 美元票息加 1,000 美元本金，是一项**跨十年的名义金额合计**；它还没有处理资金时间，也不是“赚了 1,425”.
 
-这张表列的是**约定日**。本例采用的财政部支付规则规定，若约定日遇周末或联储休业日，顺延到下一营业日，不额外增加利息。2026-02-15 是星期日，2 月 16 日又在联储休业日表中，因此首笔按规则推得的**财政部付款日**为 **2026-02-17**。这里说的是按财政部支付规则与联储营业日推得的付款日期，不是持有人银行或券商界面的到账时间；其余未来日期也不能仅按周末猜测银行营业日。[^MBC-25][^MBC-26]
+这张表列的是**约定日**. 本例采用的财政部支付规则规定，若约定日遇周末或联储休业日，顺延到下一营业日，不额外增加利息. 2026-02-15 是星期日，2 月 16 日又在联储休业日表中，因此首笔按规则推得的**财政部付款日**为 **2026-02-17**. 这里说的是按财政部支付规则与联储营业日推得的付款日期，不是持有人银行或券商界面的到账时间；其余未来日期也不能仅按周末猜测银行营业日. [^MBC-25][^MBC-26]
 
-票息把本金的使用分成期间支付，本金则在到期时归还。这种安排让出借人与借款人事先知道支付规则，但不保证投资者提前卖出时仍能拿回原来付出的价格。合同时间表与二级市场转让价格，需要分别研究。[^MBC-10]
+票息把本金的使用分成期间支付，本金则在到期时归还. 这种安排让出借人与借款人事先知道支付规则，但不保证投资者提前卖出时仍能拿回原来付出的价格. 合同时间表与二级市场转让价格，需要分别研究. [^MBC-10]
 
 <a id="m06-price-yield"></a>
 ## 二、票息、价格和 YTM 是三种不同的量
 
-票息率乘的是面值。若以 950 美元买入同样 1,000 面值，合同每半年仍付 21.25；若以 1,050 买入也一样。市场价格改变的是取得这组现金流的成本，不会自动重写票息。
+票息率乘的是面值. 若以 950 美元买入同样 1,000 面值，合同每半年仍付 21.25；若以 1,050 买入也一样. 市场价格改变的是取得这组现金流的成本，不会自动重写票息.
 
-令 $CF_k$ 为第 $k$ 个半年期的合同现金流：前 19 期各 21.25，最后一期 1,021.25。按名义年率 $y$、半年复利报价，期利率是 $y/2$。在原始发行这个规则期点上，价格与收益率的关系为
+令 $CF_k$ 为第 $k$ 个半年期的合同现金流：前 19 期各 21.25，最后一期 1,021.25. 按名义年率 $y$、半年复利报价，期利率是 $y/2$. 在原始发行这个规则期点上，价格与收益率的关系为
 
 $$
 P(y)=\sum_{k=1}^{20}\frac{CF_k}{(1+y/2)^k}.
 $$
 
-**到期收益率（YTM**）是使这组约定现金流的现值等于给定价格的那一个内部收益率表示。它不是另一个合同付款，也不需要先假定投资者已经把票息再投资，才能定义出来。对本例全为正的未来现金流，收益率 $y$ 上升时，固定现金流的价格 $P(y)$ 下降；在允许的利率范围内，较高的要求收益率对应较低的取得价格。[^MBC-09]
+**到期收益率（YTM**）是使这组约定现金流的现值等于给定价格的那一个内部收益率表示. 它不是另一个合同付款，也不需要先假定投资者已经把票息再投资，才能定义出来. 对本例全为正的未来现金流，收益率 $y$ 上升时，固定现金流的价格 $P(y)$ 下降；在允许的利率范围内，较高的要求收益率对应较低的取得价格. [^MBC-09]
 
 代入官方原始拍卖的 $y=0.04255$：
 
@@ -573,9 +577,9 @@ P=\sum_{k=1}^{20}\frac{21.25}{(1+0.04255/2)^k}
  \approx999.5961996.
 $$
 
-官方报价乘以十为 $99.959620\times10=999.596200$ 美元，两者在公布精度一致。现金显示到美分是 **999.60**；复算时先保留内部精度，不能一开始把每期现值都舍到分再相加。
+官方报价乘以十为 $99.959620\times10=999.596200$ 美元，两者在公布精度一致. 现金显示到美分是 **999.60**；复算时先保留内部精度，不能一开始把每期现值都舍到分再相加.
 
-这里使用的是 Treasury 原始发行的常规半年报价模型。它按约定票息期间折现；前节的营业日支付顺延不使合同额外生息，也不在这条拍卖报价复算里人为增加一个 2 天计息期间。若研究实际每日现金可用时点，应另用实际支付日账本，而不是默默改变报价公式。
+这里使用的是 Treasury 原始发行的常规半年报价模型. 它按约定票息期间折现；前节的营业日支付顺延不使合同额外生息，也不在这条拍卖报价复算里人为增加一个 2 天计息期间. 若研究实际每日现金可用时点，应另用实际支付日账本，而不是默默改变报价公式.
 
 为了看出“同一合同，不同价格”的含义，我们只改变教学收益率，保持全部现金流不动：
 
@@ -585,14 +589,14 @@ $$
 | 4.255% | 999.60 |
 | 6.000% | 869.82 |
 
-这三点不是历史行情。它们揭示的是价格函数：新买家要求的回报越高，愿为同样固定现金流支付的金额越少。年票息 42.50 除以今天价格所得的“当前收益率”也不是 YTM，因为它忽略了票息的时点，以及到期收到 1,000 与购买成本之间的差额。
+这三点不是历史行情. 它们揭示的是价格函数：新买家要求的回报越高，愿为同样固定现金流支付的金额越少. 年票息 42.50 除以今天价格所得的“当前收益率”也不是 YTM，因为它忽略了票息的时点，以及到期收到 1,000 与购买成本之间的差额.
 
 <a id="m06-reopening"></a>
 ## 三、重开同一只债券：为什么还要付应计利息？
 
-2025 年 10 月 2 日公告、10 月 8 日拍卖的重开券，**CUSIP 仍是 91282CNT4**，票息仍为 4.25%，到期仍为 2035-08-15；新一批证券在 2025-10-15 交付。它不是把十年期限从十月重新开始算。[^MBC-13]
+2025 年 10 月 2 日公告、10 月 8 日拍卖的重开券，**CUSIP 仍是 91282CNT4**，票息仍为 4.25%，到期仍为 2035-08-15；新一批证券在 2025-10-15 交付. 它不是把十年期限从十月重新开始算. [^MBC-13]
 
-到十月中旬，首个半年票息期间已经走过一部分。新买方取得的是这只债券今后的支付权，包括下一次完整的票息；因此发行结果将净价与应计利息分列。我们把同一面值下两次取得条件放在一起：[^MBC-14]
+到十月中旬，首个半年票息期间已经走过一部分. 新买方取得的是这只债券今后的支付权，包括下一次完整的票息；因此发行结果将净价与应计利息分列. 我们把同一面值下两次取得条件放在一起：[^MBC-14]
 
 | 取得批次 | 原始发行 | 重开 |
 |---|---:|---:|
@@ -603,22 +607,22 @@ $$
 | 每1,000面值应计利息 | 0 | 7.044840 |
 | 每1,000面值全价 | 999.596200 | **1,017.617100** |
 
-**净价（clean price**）把本期已经积累的利息单列；**全价（dirty/full price**）把它加回，表示本例不计额外交易费用的应付对价。重开时，
+**净价（clean price**）把本期已经积累的利息单列；**全价（dirty/full price**）把它加回，表示本例不计额外交易费用的应付对价. 重开时，
 
 $$
 1{,}010.572260+7.044840=1{,}017.617100.
 $$
 
-应计利息不是把下一次 21.25 改成 $21.25+7.04484$。下一次合同票息仍是21.25；7.04484在取得证券时支付。也不能因为净价高于面值就断言收益率为负：期间还会收到票息，要把完整剩余现金流和今天的全价一起看。
+应计利息不是把下一次 21.25 改成 $21.25+7.04484$. 下一次合同票息仍是21.25；7.04484在取得证券时支付. 也不能因为净价高于面值就断言收益率为负：期间还会收到票息，要把完整剩余现金流和今天的全价一起看.
 
-这里沿用官方应计数。重开日位于票息期中，不能再把第一笔票息当作整整半年后，用前节“20 个完整半年期”公式反算 4.117%。完整的非票息日定价还需要正确的分段计息和结算日约定。本篇用原件净价加应计核对全价，把首次规则期定价和期中取得明确分开。
+这里沿用官方应计数. 重开日位于票息期中，不能再把第一笔票息当作整整半年后，用前节“20 个完整半年期”公式反算 4.117%. 完整的非票息日定价还需要正确的分段计息和结算日约定. 本篇用原件净价加应计核对全价，把首次规则期定价和期中取得明确分开.
 
 <a id="m06-return"></a>
 ## 四、YTM 算出来以后，实际回报还缺什么？
 
-先区分两个问题。第一，给定价格和合同现金流的 YTM 是多少？第二，我们最后实际留下多少财富？第一问是前面的内部收益率方程；第二问还涉及是否按约履行、何时出售，以及收到票息以后怎么处理。
+先区分两个问题. 第一，给定价格和合同现金流的 YTM 是多少？第二，我们最后实际留下多少财富？第一问是前面的内部收益率方程；第二问还涉及是否按约履行、何时出售，以及收到票息以后怎么处理.
 
-仍用原始取得成本 999.5962，假设全部按约支付且持有至约定到期。若每次票息只保留为不生息现金，到期合计财富为 1,425。以这个**终值财富**计算十年年化约为 $(1425/999.5962)^{1/10}-1=3.6094\%$。若每笔票息均能按同一半年率 $0.04255/2$ 复投到最后一个规则期点，终值为
+仍用原始取得成本 999.5962，假设全部按约支付且持有至约定到期. 若每次票息只保留为不生息现金，到期合计财富为 1,425. 以这个**终值财富**计算十年年化约为 $(1425/999.5962)^{1/10}-1=3.6094\%$. 若每笔票息均能按同一半年率 $0.04255/2$ 复投到最后一个规则期点，终值为
 
 $$
 W_{20}
@@ -626,66 +630,66 @@ W_{20}
 =P_0(1+y/2)^{20}.
 $$
 
-相应有效年复合率是 $(1+y/2)^2-1=4.3003\%$，而不是把名义年率 4.255%直接当有效年率。这两个财富路径**不会改变原始合同现金流的 YTM 定义**：它们改变的是中途收款后累积到同一终点的财富。若票息被花掉，终值投资账户自然不同，也不能据此宣称当初 IRR 算错。
+相应有效年复合率是 $(1+y/2)^2-1=4.3003\%$，而不是把名义年率 4.255%直接当有效年率. 这两个财富路径**不会改变原始合同现金流的 YTM 定义**：它们改变的是中途收款后累积到同一终点的财富. 若票息被花掉，终值投资账户会相应减少.
 
-再换一个教学情景：收到两次票息后立即卖出，假设不计费用的出售所得是 1,010 美元。这不是一笔历史成交。投入仍为 999.5962，期间收票息42.50，终点出售1,010，则该段不复投的持有回报为
+再换一个教学情景：收到两次票息后立即卖出，假设不计费用的出售所得是 1,010 美元. 这不是一笔历史成交. 投入仍为 999.5962，期间收票息42.50，终点出售1,010，则该段不复投的持有回报为
 
 $$
 \frac{1010+42.50-999.5962}{999.5962}\approx5.293\%.
 $$
 
-出售时拿不到还没发生的剩余十八次票息；它们作为剩余权利的一部分已经反映在买方愿付的价格中。把未来票息再加到卖出所得上，会重复计算。怎样分析出售价格对利率、流动性或合同条款的敏感性，下一篇再展开。
+出售时拿不到还没发生的剩余十八次票息；它们作为剩余权利的一部分已经反映在买方愿付的价格中. 把未来票息再加到卖出所得上，会重复计算. 怎样分析出售价格对利率、流动性或合同条款的敏感性，下一篇再展开.
 
 <a id="m06-experiment"></a>
 ## 五、带着日程操作一次
 
 <div data-experiment-slot="EXP-MC-M06-NOTE"></div>
 
-实验有“原始发行”和“重开”两个原件视图。先固定面值1,000，检查20行约定日程及本金只出现在最后一期；切换重开后，合同日程不重新起算，但取得日、净价和应计改变。收益率滑杆只对**原始发行的规则期现金流**开放，旁边分别保留官方报价与教学重定价，不把滑杆输出叫市场成交价。
+实验有“原始发行”和“重开”两个原件视图. 先固定面值1,000，检查20行约定日程及本金只出现在最后一期；切换重开后，合同日程不重新起算，但取得日、净价和应计改变. 收益率滑杆只对**原始发行的规则期现金流**开放，旁边分别保留官方报价与教学重定价，不把滑杆输出叫市场成交价.
 
-不用交互也能完成同一任务：用第二节的3%、4.255%、6%三行价格，说明票息是否改变；再用第三节两批次表核算全价。最后把“首个约定日2026-02-15”“财政部规则付款日2026-02-17”“实际到账待账户记录核对”写成三个不同字段。
+不用交互也能完成同一任务：用第二节的3%、4.255%、6%三行价格，说明票息是否改变；再用第三节两批次表核算全价. 最后把“首个约定日2026-02-15”“财政部规则付款日2026-02-17”“实际到账待账户记录核对”写成三个不同字段.
 
 <a id="m06-exercises"></a>
 ## 六、检验理解：换了一个字段，其他字段跟着变吗？
 
 ### 题一：首息和到期是否都数进去了？
 
-某同学从2025-08-15开始每半年计21.25，一直算到2035-08-15，得到21次票息。错在哪里？
+某同学从2025-08-15开始每半年计21.25，一直算到2035-08-15，得到21次票息. 错在哪里？
 
-**解析。** 他把原始发行日也当成付息日。首个约定票息日为2026-02-15，至2035-08-15共20期。前19期各21.25，末期1,021.25；面值1,000不能每一期都加。实际支付按营业日规则顺延，不会凭空多出一次票息。
+**解析.** 他把原始发行日也当成付息日. 首个约定票息日为2026-02-15，至2035-08-15共20期. 前19期各21.25，末期1,021.25；面值1,000不能每一期都加. 实际支付按营业日规则顺延，不会凭空多出一次票息.
 
 ### 题二：面值翻倍，哪些是金额，哪些是率？
 
-取2,000面值，分别算原始发行成本、每半年票息和重开全价。4.255%是否也翻倍？
+取2,000面值，分别算原始发行成本、每半年票息和重开全价. 4.255%是否也翻倍？
 
-**解析。** 原始成本为1,999.1924，票息为42.50，重开全价为2,035.2342美元；现金展示分别约1,999.19、42.50、2,035.23。收益率、票息率及每100面值报价均不翻倍。面值只按比例放大金额。
+**解析.** 原始成本为1,999.1924，票息为42.50，重开全价为2,035.2342美元；现金展示分别约1,999.19、42.50、2,035.23. 收益率、票息率及每100面值报价均不翻倍. 面值只按比例放大金额.
 
 ### 题三：净价101.057226是不是收到的利息？
 
-**解析。** 不是。它是每100面值的净购买价格。1,000面值净价为1,010.57226，另付应计7.04484，总成本1,017.6171。下一次合同票息仍为21.25，应计不再次加进票息。仅凭净价高于100也不能判定持有回报正负。
+**解析.** 不是. 它是每100面值的净购买价格. 1,000面值净价为1,010.57226，另付应计7.04484，总成本1,017.6171. 下一次合同票息仍为21.25，应计不再次加进票息. 仅凭净价高于100也不能判定持有回报正负.
 
 ### 题四：不复投能不能定义YTM？
 
-**解析。** 能。只要给定价格和约定现金流，YTM方程就已确定。把它解释为某个终点财富的复合增长率，才需要说明履约、持有期及中间现金再投资。提前出售还要用实际出售对价，不能把当初YTM当成一年的收益保证。
+**解析.** 能. 只要给定价格和约定现金流，YTM方程就已确定. 把它解释为某个终点财富的复合增长率，才需要说明履约、持有期及中间现金再投资. 提前出售还要用实际出售对价，不能把当初YTM当成一年的收益保证.
 
-这四道题连在一起，得到一套可迁移的阅读顺序：**先定现金流和日期，再核面值与报价单位，随后算取得成本，最后才谈收益率和持有结果。**
+这四道题连在一起，得到一套可迁移的阅读顺序：**先定现金流和日期，再核面值与报价单位，随后算取得成本，最后才谈收益率和持有结果.**
 
 
-[^MBC-11]: U.S. Treasury，*Offering Announcement: 10-Year Note 91282CNT4*，2025-07-30。[原文](https://www.treasurydirect.gov/instit/annceresult/press/preanre/2025/A_20250730_1.pdf)。定位：PDF物理p1全文，Security Terms与Tender Information。
+[^MBC-11]: U.S. Treasury，*Offering Announcement: 10-Year Note 91282CNT4*，2025-07-30. [原文](https://www.treasurydirect.gov/instit/annceresult/press/preanre/2025/A_20250730_1.pdf). 定位：PDF物理p1全文，Security Terms与Tender Information.
 
-[^MBC-12]: U.S. Treasury，*Auction Results: 10-Year Note 91282CNT4*，2025-08-06。[原文](https://www.treasurydirect.gov/instit/annceresult/press/preanre/2025/R_20250806_2.pdf)。定位：PDF物理p1全文，Coupon/High Yield/Price/Accrued Interest。
+[^MBC-12]: U.S. Treasury，*Auction Results: 10-Year Note 91282CNT4*，2025-08-06. [原文](https://www.treasurydirect.gov/instit/annceresult/press/preanre/2025/R_20250806_2.pdf). 定位：PDF物理p1全文，Coupon/High Yield/Price/Accrued Interest.
 
-[^MBC-25]: U.S. Treasury / Government Publishing Office，*31 CFR §356.30: Payment of principal and interest*，2025-07-01 CFR edition。[原文](https://www.govinfo.gov/content/pkg/CFR-2025-title31-vol2/pdf/CFR-2025-title31-vol2-sec356-30.pdf)。定位：§356.30(a)，印刷p406。
+[^MBC-25]: U.S. Treasury / Government Publishing Office，*31 CFR §356.30: Payment of principal and interest*，2025-07-01 CFR edition. [原文](https://www.govinfo.gov/content/pkg/CFR-2025-title31-vol2/pdf/CFR-2025-title31-vol2-sec356-30.pdf). 定位：§356.30(a)，印刷p406.
 
-[^MBC-26]: Board of Governors of the Federal Reserve System，*Holidays Observed — K.8*，2026–2030表；更新2026-07-08。[原文](https://www.federalreserve.gov/aboutthefed/k8.htm)。定位：2026列及周末观察规则、注释。
+[^MBC-26]: Board of Governors of the Federal Reserve System，*Holidays Observed — K.8*，2026–2030表；更新2026-07-08. [原文](https://www.federalreserve.gov/aboutthefed/k8.htm). 定位：2026列及周末观察规则、注释.
 
-[^MBC-10]: U.S. Treasury, Bureau of the Fiscal Service，*Treasury Notes*，网页；取得2026-09-21。[原文](https://www.treasurydirect.gov/marketable-securities/treasury-notes/)。定位：主体及 Notes at a Glance 全表。
+[^MBC-10]: U.S. Treasury, Bureau of the Fiscal Service，*Treasury Notes*，网页；取得2026-09-21. [原文](https://www.treasurydirect.gov/marketable-securities/treasury-notes/). 定位：主体及 Notes at a Glance 全表.
 
-[^MBC-09]: Andrew W. Lo，*Finance Theory I: Fixed Income Securities*，MIT 15.401, Fall 2008, lecture file 2007–2008。[原文](https://ocw.mit.edu/courses/15-401-finance-theory-i-fall-2008/df418b972d36cd53ae5c375b8af61e53_MIT15_401F08_lec04.pdf)。定位：slides 12–19；slides 25–33；slides 35–47。
+[^MBC-09]: Andrew W. Lo，*Finance Theory I: Fixed Income Securities*，MIT 15.401, Fall 2008, lecture file 2007–2008. [原文](https://ocw.mit.edu/courses/15-401-finance-theory-i-fall-2008/df418b972d36cd53ae5c375b8af61e53_MIT15_401F08_lec04.pdf). 定位：slides 12–19；slides 25–33；slides 35–47.
 
-[^MBC-13]: U.S. Treasury，*Reopening Announcement: 91282CNT4*，2025-10-02。[原文](https://www.treasurydirect.gov/instit/annceresult/press/preanre/2025/A_20251002_2.pdf)。定位：PDF物理p1全文。
+[^MBC-13]: U.S. Treasury，*Reopening Announcement: 91282CNT4*，2025-10-02. [原文](https://www.treasurydirect.gov/instit/annceresult/press/preanre/2025/A_20251002_2.pdf). 定位：PDF物理p1全文.
 
-[^MBC-14]: U.S. Treasury，*Reopening Auction Results: 91282CNT4*，2025-10-08。[原文](https://www.treasurydirect.gov/instit/annceresult/press/preanre/2025/R_20251008_2.pdf)。定位：PDF物理p1全文。
+[^MBC-14]: U.S. Treasury，*Reopening Auction Results: 91282CNT4*，2025-10-08. [原文](https://www.treasurydirect.gov/instit/annceresult/press/preanre/2025/R_20251008_2.pdf). 定位：PDF物理p1全文.
 
 
 ## Experiment inputs and static equivalents
@@ -695,7 +699,7 @@ $$
     "id": "EXP-MC-M06-NOTE",
     "title": "国债日程、原发行与重开",
     "anchor": "m06-experiment",
-    "description": "两批次共享同一合同日程；重开不用原始20完整期模型。",
+    "description": "两批次共享同一合同日程；重开不用原始20完整期模型.",
     "inputs": {
       "case": [
         "original",
@@ -1141,7 +1145,7 @@ $$
       "重开返回model=null",
       "日程为约定日；首日历调整另列；无账户到账证明"
     ],
-    "static_equivalent": "正文二/三节价格表与第一节完整20期表；HTML静态表一致。",
+    "static_equivalent": "正文二/三节价格表与第一节完整20期表；HTML静态表一致.",
     "source_inputs": "shared_inputs.json",
     "implementation": "labs/m-c/engine.js",
     "data_identity": "合同/报价身份按输入卡；可调项均为教学设定"
@@ -1150,14 +1154,14 @@ $$
 ```
 
 ## Sources
-- [Finance Theory I: Fixed Income Securities](https://ocw.mit.edu/courses/15-401-finance-theory-i-fall-2008/df418b972d36cd53ae5c375b8af61e53_MIT15_401F08_lec04.pdf): 零息利率、票息债券现金流、YTM、久期与凸性。采用独立导数校验；不采用forward=预测的简化及slide41末项错号。
-- [Treasury Notes](https://www.treasurydirect.gov/marketable-securities/treasury-notes/): 票息国债期限、半年付息与持有/出售的产品层结构；不是某CUSIP的报价。
-- [Offering Announcement: 10-Year Note 91282CNT4](https://www.treasurydirect.gov/instit/annceresult/press/preanre/2025/A_20250730_1.pdf): 原发行日期、到期日、半年票息日及报价单位。
-- [Auction Results: 10-Year Note 91282CNT4](https://www.treasurydirect.gov/instit/annceresult/press/preanre/2025/R_20250806_2.pdf): 4.25%票息、4.255%高收益率、每100面值99.959620、原发行无应计。
-- [Reopening Announcement: 91282CNT4](https://www.treasurydirect.gov/instit/annceresult/press/preanre/2025/A_20251002_2.pdf): 同一CUSIP重开、2025-10-15交付、相同票息/到期日及应计期间。
-- [Reopening Auction Results: 91282CNT4](https://www.treasurydirect.gov/instit/annceresult/press/preanre/2025/R_20251008_2.pdf): 重开净价101.057226/100、应计7.04484/1000、高收益率4.117%；本包不另反算重开YTM。
-- [31 CFR §356.30: Payment of principal and interest](https://www.govinfo.gov/content/pkg/CFR-2025-title31-vol2/pdf/CFR-2025-title31-vol2-sec356-30.pdf): 本金/票息支付与遇周末或联储非营业日顺延且不加利息的规则，用于2025发行案例。
-- [Holidays Observed — K.8](https://www.federalreserve.gov/aboutthefed/k8.htm): 2026-02-16为Washington’s Birthday联储休业日；与星期日2026-02-15及支付规则结合，推算财政部规则付款日2026-02-17；不是持有人账户到账记录。
+- [Finance Theory I: Fixed Income Securities](https://ocw.mit.edu/courses/15-401-finance-theory-i-fall-2008/df418b972d36cd53ae5c375b8af61e53_MIT15_401F08_lec04.pdf): 零息利率、票息债券现金流、YTM、久期与凸性. 采用独立导数校验；不采用forward=预测的简化及slide41末项错号.
+- [Treasury Notes](https://www.treasurydirect.gov/marketable-securities/treasury-notes/): 票息国债期限、半年付息与持有/出售的产品层结构；不是某CUSIP的报价.
+- [Offering Announcement: 10-Year Note 91282CNT4](https://www.treasurydirect.gov/instit/annceresult/press/preanre/2025/A_20250730_1.pdf): 原发行日期、到期日、半年票息日及报价单位.
+- [Auction Results: 10-Year Note 91282CNT4](https://www.treasurydirect.gov/instit/annceresult/press/preanre/2025/R_20250806_2.pdf): 4.25%票息、4.255%高收益率、每100面值99.959620、原发行无应计.
+- [Reopening Announcement: 91282CNT4](https://www.treasurydirect.gov/instit/annceresult/press/preanre/2025/A_20251002_2.pdf): 同一CUSIP重开、2025-10-15交付、相同票息/到期日及应计期间.
+- [Reopening Auction Results: 91282CNT4](https://www.treasurydirect.gov/instit/annceresult/press/preanre/2025/R_20251008_2.pdf): 重开净价101.057226/100、应计7.04484/1000、高收益率4.117%；本包不另反算重开YTM.
+- [31 CFR §356.30: Payment of principal and interest](https://www.govinfo.gov/content/pkg/CFR-2025-title31-vol2/pdf/CFR-2025-title31-vol2-sec356-30.pdf): 本金/票息支付与遇周末或联储非营业日顺延且不加利息的规则，用于2025发行案例.
+- [Holidays Observed — K.8](https://www.federalreserve.gov/aboutthefed/k8.htm): 2026-02-16为Washington’s Birthday联储休业日；与星期日2026-02-15及支付规则结合，推算财政部规则付款日2026-02-17；不是持有人账户到账记录.
 
 ## Content relations
 ```json
@@ -1186,7 +1190,7 @@ $$
     "from": "m06-experiment",
     "relation": "illustrated_by",
     "to": "EXP-MC-M06-NOTE",
-    "reason": "两批次共享同一合同日程；重开不用原始20完整期模型。"
+    "reason": "两批次共享同一合同日程；重开不用原始20完整期模型."
   },
   {
     "from": "m06-contract",
@@ -1194,7 +1198,7 @@ $$
     "to": "MBC-11",
     "reason": "该单元原件依据",
     "locator": "PDF物理p1全文，Security Terms与Tender Information",
-    "scope": "原发行日期、到期日、半年票息日及报价单位。"
+    "scope": "原发行日期、到期日、半年票息日及报价单位."
   },
   {
     "from": "m06-contract",
@@ -1202,7 +1206,7 @@ $$
     "to": "MBC-12",
     "reason": "该单元原件依据",
     "locator": "PDF物理p1全文，Coupon/High Yield/Price/Accrued Interest",
-    "scope": "4.25%票息、4.255%高收益率、每100面值99.959620、原发行无应计。"
+    "scope": "4.25%票息、4.255%高收益率、每100面值99.959620、原发行无应计."
   },
   {
     "from": "m06-contract",
@@ -1210,7 +1214,7 @@ $$
     "to": "MBC-25",
     "reason": "该单元原件依据",
     "locator": "§356.30(a)，印刷p406",
-    "scope": "本金/票息支付与遇周末或联储非营业日顺延且不加利息的规则，用于2025发行案例。"
+    "scope": "本金/票息支付与遇周末或联储非营业日顺延且不加利息的规则，用于2025发行案例."
   },
   {
     "from": "m06-contract",
@@ -1218,7 +1222,7 @@ $$
     "to": "MBC-26",
     "reason": "该单元原件依据",
     "locator": "2026列及周末观察规则、注释",
-    "scope": "2026-02-16休业与星期日2026-02-15结合，推算首次财政部规则付款日2026-02-17；非账户到账记录。"
+    "scope": "2026-02-16休业与星期日2026-02-15结合，推算首次财政部规则付款日2026-02-17；非账户到账记录."
   },
   {
     "from": "m06-price-yield",
@@ -1226,7 +1230,7 @@ $$
     "to": "MBC-09",
     "reason": "该单元原件依据",
     "locator": "slides 12–19；slides 25–33；slides 35–47",
-    "scope": "零息利率、票息债券现金流、YTM、久期与凸性。采用独立导数校验；不采用forward=预测的简化及slide41末项错号。"
+    "scope": "零息利率、票息债券现金流、YTM、久期与凸性. 采用独立导数校验；不采用forward=预测的简化及slide41末项错号."
   },
   {
     "from": "m06-reopening",
@@ -1234,7 +1238,7 @@ $$
     "to": "MBC-13",
     "reason": "该单元原件依据",
     "locator": "PDF物理p1全文",
-    "scope": "同一CUSIP重开、2025-10-15交付、相同票息/到期日及应计期间。"
+    "scope": "同一CUSIP重开、2025-10-15交付、相同票息/到期日及应计期间."
   },
   {
     "from": "m06-reopening",
@@ -1242,7 +1246,7 @@ $$
     "to": "MBC-14",
     "reason": "该单元原件依据",
     "locator": "PDF物理p1全文",
-    "scope": "重开净价101.057226/100、应计7.04484/1000、高收益率4.117%；本包不另反算重开YTM。"
+    "scope": "重开净价101.057226/100、应计7.04484/1000、高收益率4.117%；本包不另反算重开YTM."
   },
   {
     "from": "case-mbc-ust-91282cnt4",
@@ -1250,7 +1254,7 @@ $$
     "to": "MBC-11",
     "reason": "本例有日期的契约、规则或公开观察材料",
     "locator": "PDF物理p1全文，Security Terms与Tender Information",
-    "scope": "原始交付2025-08-15、重开交付2025-10-15；同一CUSIP、4.25%票息和2035-08-15约定到期。比较价格、应计及取得日期，合同日程不重启。"
+    "scope": "原始交付2025-08-15、重开交付2025-10-15；同一CUSIP、4.25%票息和2035-08-15约定到期. 比较价格、应计及取得日期，合同日程不重启."
   },
   {
     "from": "case-mbc-ust-91282cnt4",
@@ -1258,7 +1262,7 @@ $$
     "to": "MBC-12",
     "reason": "本例有日期的契约、规则或公开观察材料",
     "locator": "PDF物理p1全文，Coupon/High Yield/Price/Accrued Interest",
-    "scope": "原始交付2025-08-15、重开交付2025-10-15；同一CUSIP、4.25%票息和2035-08-15约定到期。比较价格、应计及取得日期，合同日程不重启。"
+    "scope": "原始交付2025-08-15、重开交付2025-10-15；同一CUSIP、4.25%票息和2035-08-15约定到期. 比较价格、应计及取得日期，合同日程不重启."
   },
   {
     "from": "case-mbc-ust-91282cnt4",
@@ -1266,7 +1270,7 @@ $$
     "to": "MBC-13",
     "reason": "本例有日期的契约、规则或公开观察材料",
     "locator": "PDF物理p1全文",
-    "scope": "原始交付2025-08-15、重开交付2025-10-15；同一CUSIP、4.25%票息和2035-08-15约定到期。比较价格、应计及取得日期，合同日程不重启。"
+    "scope": "原始交付2025-08-15、重开交付2025-10-15；同一CUSIP、4.25%票息和2035-08-15约定到期. 比较价格、应计及取得日期，合同日程不重启."
   },
   {
     "from": "case-mbc-ust-91282cnt4",
@@ -1274,7 +1278,7 @@ $$
     "to": "MBC-14",
     "reason": "本例有日期的契约、规则或公开观察材料",
     "locator": "PDF物理p1全文",
-    "scope": "原始交付2025-08-15、重开交付2025-10-15；同一CUSIP、4.25%票息和2035-08-15约定到期。比较价格、应计及取得日期，合同日程不重启。"
+    "scope": "原始交付2025-08-15、重开交付2025-10-15；同一CUSIP、4.25%票息和2035-08-15约定到期. 比较价格、应计及取得日期，合同日程不重启."
   }
 ]
 ```
@@ -1283,6 +1287,6 @@ $$
 
 ## Optional reading path
 理解合约与市场机制: step 7/17
-从原始发行与重开文件重建票息日程、净价、全价和持有回报。
-利率与短期资金可从选读分支进入；接着把未来义务放进远期与期货合约。
+从原始发行与重开文件重建票息日程、净价、全价和持有回报.
+利率与短期资金可从选读分支进入；接着把未来义务放进远期与期货合约.
 Next: [远期与期货的合约结构](https://ou-liu-red-sugar.github.io/zh/notebook/forward-futures-contracts/)

@@ -1,6 +1,6 @@
 {
   "title": "保证金与对冲中的现金压力",
-  "description": "用一条玉米采购账完整重放VM、可用资金、承诺融资与资金不足后的平仓。",
+  "description": "用一条玉米采购账完整重放VM、可用资金、承诺融资与资金不足后的平仓.",
   "layout": "entry",
   "notebookid": "zh-p23",
   "math": true,
@@ -8,31 +8,31 @@
   "translationKey": "zh-p23"
 }
 
-“如果一直持有，这个对冲最终有效”与“我们真的能一直持有”，是两个问题。本篇用一条完整采购资金账把它们分开。你将逐次计算结算损益、保证金余额、应补款、实际可用资金及平仓后的结果。最重要的一步不是算出最终利润，而是在某个截止点承认：原来的计划已经不能继续。
+“如果一直持有，这个对冲最终有效”与“我们真的能一直持有”，是两个问题. 本篇用一条完整采购资金账把它们分开. 你将逐次计算结算损益、保证金余额、应补款、实际可用资金及平仓后的结果. 最重要的一步不是算出最终利润，而是在某个截止点承认：原来的计划已经不能继续.
 
 <a id="p23-setup"></a>
 ## 1. 同一笔106,000美元，为什么不是都能补保证金？
 
-一位采购者未来要买15,000蒲式耳玉米，已经有106,000美元自有现金。其中90,000在一笔到采购日才可动用的存款中；今天可用于对冲的只有16,000。这里没有把90,000从财富中删掉，只是根据教学合同区分它何时可用。
+一位采购者未来要买15,000蒲式耳玉米，已经有106,000美元自有现金. 其中90,000在一笔到采购日才可动用的存款中；今天可用于对冲的只有16,000. 这里没有把90,000从财富中删掉，只是根据教学合同区分它何时可用.
 
-沿用CME采购例的数量与期货起点：做多3张，每张5,000蒲式耳，起点5.75。中途路径、账户限制和保证金以下均为教学设定：价格依次5.45、5.10、6.25；每张初始保证金3,000，维持要求2,000；先计结算损益，若账户低于维持要求，就补至初始要求。补不齐时，假设能在显示的结算价平仓并取回余额；这是假设成交，不是清算所保证的实际平仓价格。暂不计交易费和滑点。[^grain23]
+沿用CME采购例的数量与期货起点：做多3张，每张5,000蒲式耳，起点5.75. 中途路径、账户限制和保证金以下均为教学设定：价格依次5.45、5.10、6.25；每张初始保证金3,000，维持要求2,000；先计结算损益，若账户低于维持要求，就补至初始要求. 补不齐时，假设能在显示的结算价平仓并取回余额；这是假设成交，不是清算所保证的实际平仓价格. 暂不计交易费和滑点. [^grain23]
 
-建立3张头寸需把9,000从自由现金移到保证金账户，留下7,000自由现金。转账并没有亏损9,000：现在的资产是90,000受限存款、9,000保证金和7,000自由现金，合计仍是106,000。期货价格随后变化产生的损益才会改变净财富。
+建立3张头寸需把9,000从自由现金移到保证金账户，留下7,000自由现金. 转账并没有亏损9,000：现在的资产是90,000受限存款、9,000保证金和7,000自由现金，合计仍是106,000. 期货价格随后变化产生的损益才会改变净财富.
 
 <a id="p23-recursion"></a>
 ## 2. 先结算，再判断，再动作
 
-设仍持有的张数为 $N$，期货价从 $F_{k-1}$ 变为 $F_k$。多头本次结算损益为
+设仍持有的张数为 $N$，期货价从 $F_{k-1}$ 变为 $F_k$. 多头本次结算损益为
 
 $$
 VM_k=5,000N(F_k-F_{k-1}).
 $$
 
-设结算前保证金为 $M_{k-1}$，先算 $M_k^-=M_{k-1}+VM_k$。若 $M_k^-<2,000N$，要求补款 $A_k=3,000N-M_k^-$；否则补款为零。这里“应补”是合同要求，不是已经到账的金额。只有自由现金加上事先承诺且能及时提款的额度足够，才能把余额写成补足后的数。
+设结算前保证金为 $M_{k-1}$，先算 $M_k^-=M_{k-1}+VM_k$. 若 $M_k^-<2,000N$，要求补款 $A_k=3,000N-M_k^-$；否则补款为零. 这里“应补”是合同要求，不是已经到账的金额. 只有自由现金加上事先承诺且能及时提款的额度足够，才能把余额写成补足后的数.
 
-第一次跌到5.45，损失 $15,000\times(-0.30)=-4,500$。账户从9,000降到4,500，低于6,000维持要求，应补4,500。7,000自由现金足够，所以补至9,000，自由现金变2,500。
+第一次跌到5.45，损失 $15,000\times(-0.30)=-4,500$. 账户从9,000降到4,500，低于6,000维持要求，应补4,500. 7,000自由现金足够，所以补至9,000，自由现金变2,500.
 
-第二次跌到5.10，再损失 $15,000\times(-0.35)=-5,250$。账户从9,000降到3,750，应补5,250，但自由现金只有2,500。因此缺口是2,750。不是把2,500填成“已补5,250”，也不是因为还拥有90,000存款就宣布没有问题。
+第二次跌到5.10，再损失 $15,000\times(-0.35)=-5,250$. 账户从9,000降到3,750，应补5,250，但自由现金只有2,500. 因此缺口是2,750. 不是把2,500填成“已补5,250”，也不是因为还拥有90,000存款就宣布没有问题.
 
 | 事件 | 本次VM | 结算后账户 | 应补款 | 截止前自由现金 | 动作后账户 | 动作后自由现金 |
 |---|---:|---:|---:|---:|---:|---:|
@@ -41,35 +41,35 @@ $$
 | 5.45→5.10 | −5,250 | 3,750 | 5,250 | 2,500 | 0，平仓 | 6,250 |
 | 后来5.10→6.25 | 0 | 0 | 0 | 6,250 | 0 | 6,250 |
 
-第二次失败时没有先无意义地补入2,500再借回来；本教学处置直接平仓，把3,750保证金返还，自由现金成为 $2,500+3,750=6,250$。从此期货张数为零，后来反弹不再属于这个账户的收益。
+第二次失败时没有先无意义地补入2,500再借回来；本教学处置直接平仓，把3,750保证金返还，自由现金成为 $2,500+3,750=6,250$. 从此期货张数为零，后来反弹不再属于这个账户的收益.
 
-<figure class="pfh-responsive-figure"><div class="svg-wide"><img src="/notebook/labs/p-ijklm/figures/P23-a.svg" alt="资金分在不同地点和日期：第二次要求补款时，90,000仍不能调用。"></div><div class="svg-narrow pfh-native"><p class="pfh-figure-title">三张采购对冲的现金过程</p><p class="pfh-figure-note">第2压力点无法足额补款，平仓后不再赚反弹</p><ul class="pfh-legend"><li><svg viewBox="0 0 32 12" width="32" height="12" aria-hidden="true"><path d="M1 6H31" stroke="currentColor" stroke-width="3" stroke-dasharray=""/></svg><span>保证金</span></li><li><svg viewBox="0 0 32 12" width="32" height="12" aria-hidden="true"><path d="M1 6H31" stroke="currentColor" stroke-width="3" stroke-dasharray="10 5"/></svg><span>自由现金</span></li></ul><p class="pfh-axis-label">美元；90,000受限存款未画成可用现金</p><div class="pfh-plot" style="--pfh-y-label-ch:10"><div class="pfh-y-ticks"><span style="top:100.0%">-1,080.00</span><span style="top:75.0%">1,710.00</span><span style="top:50.0%">4,500.00</span><span style="top:25.0%">7,290.00</span><span style="top:0.0%">10,080.00</span></div><svg class="pfh-plot-svg" viewBox="95.0 105.0 670.0 240.0" preserveAspectRatio="none" aria-hidden="true"><line class="grid" x1="95" y1="345.0" x2="765" y2="345.0" vector-effect="non-scaling-stroke"/><line class="grid" x1="95" y1="285.0" x2="765" y2="285.0" vector-effect="non-scaling-stroke"/><line class="grid" x1="95" y1="225.0" x2="765" y2="225.0" vector-effect="non-scaling-stroke"/><line class="grid" x1="95" y1="165.0" x2="765" y2="165.0" vector-effect="non-scaling-stroke"/><line class="grid" x1="95" y1="105.0" x2="765" y2="105.0" vector-effect="non-scaling-stroke"/><polyline points="95.00,128.23 229.00,225.00 363.00,128.23 497.00,241.13 631.00,321.77 765.00,321.77" fill="none" stroke="currentColor" stroke-width="2.7" stroke-dasharray="" vector-effect="non-scaling-stroke"/><polyline points="95.00,171.24 229.00,171.24 363.00,268.01 497.00,268.01 631.00,187.37 765.00,187.37" fill="none" stroke="currentColor" stroke-width="2" stroke-dasharray="10 5" vector-effect="non-scaling-stroke"/><circle cx="95.0" cy="128.2258064516129" r="3.5" fill="white" stroke="currentColor" vector-effect="non-scaling-stroke"/><circle cx="229.0" cy="224.99999999999994" r="3.5" fill="white" stroke="currentColor" vector-effect="non-scaling-stroke"/><circle cx="363.0" cy="128.2258064516129" r="3.5" fill="white" stroke="currentColor" vector-effect="non-scaling-stroke"/><circle cx="497.0" cy="241.12903225806468" r="3.5" fill="white" stroke="currentColor" vector-effect="non-scaling-stroke"/><circle cx="631.0" cy="321.7741935483871" r="3.5" fill="white" stroke="currentColor" vector-effect="non-scaling-stroke"/><circle cx="765.0" cy="321.7741935483871" r="3.5" fill="white" stroke="currentColor" vector-effect="non-scaling-stroke"/><circle cx="95.0" cy="171.23655913978496" r="3.5" fill="white" stroke="currentColor" vector-effect="non-scaling-stroke"/><circle cx="229.0" cy="171.23655913978496" r="3.5" fill="white" stroke="currentColor" vector-effect="non-scaling-stroke"/><circle cx="363.0" cy="268.010752688172" r="3.5" fill="white" stroke="currentColor" vector-effect="non-scaling-stroke"/><circle cx="497.0" cy="268.010752688172" r="3.5" fill="white" stroke="currentColor" vector-effect="non-scaling-stroke"/><circle cx="631.0" cy="187.36559139784956" r="3.5" fill="white" stroke="currentColor" vector-effect="non-scaling-stroke"/><circle cx="765.0" cy="187.36559139784956" r="3.5" fill="white" stroke="currentColor" vector-effect="non-scaling-stroke"/></svg><div class="pfh-x-ticks"><span class="first" style="left:0.0%">建仓</span><span class="" style="left:60.0%">第2记账</span><span class="last" style="left:100.0%">无仓位</span></div></div></div></figure>
+<figure class="pfh-responsive-figure"><div class="svg-wide"><img src="/notebook/labs/p-ijklm/figures/P23-a.svg" alt="资金分在不同地点和日期：第二次要求补款时，90,000仍不能调用. "></div><div class="svg-narrow pfh-native"><p class="pfh-figure-title">三张采购对冲的现金过程</p><p class="pfh-figure-note">第2压力点无法足额补款，平仓后不再赚反弹</p><ul class="pfh-legend"><li><svg viewBox="0 0 32 12" width="32" height="12" aria-hidden="true"><path d="M1 6H31" stroke="currentColor" stroke-width="3" stroke-dasharray=""/></svg><span>保证金</span></li><li><svg viewBox="0 0 32 12" width="32" height="12" aria-hidden="true"><path d="M1 6H31" stroke="currentColor" stroke-width="3" stroke-dasharray="10 5"/></svg><span>自由现金</span></li></ul><p class="pfh-axis-label">美元；90,000受限存款未画成可用现金</p><div class="pfh-plot" style="--pfh-y-label-ch:10"><div class="pfh-y-ticks"><span style="top:100.0%">-1,080.00</span><span style="top:75.0%">1,710.00</span><span style="top:50.0%">4,500.00</span><span style="top:25.0%">7,290.00</span><span style="top:0.0%">10,080.00</span></div><svg class="pfh-plot-svg" viewBox="95.0 105.0 670.0 240.0" preserveAspectRatio="none" aria-hidden="true"><line class="grid" x1="95" y1="345.0" x2="765" y2="345.0" vector-effect="non-scaling-stroke"/><line class="grid" x1="95" y1="285.0" x2="765" y2="285.0" vector-effect="non-scaling-stroke"/><line class="grid" x1="95" y1="225.0" x2="765" y2="225.0" vector-effect="non-scaling-stroke"/><line class="grid" x1="95" y1="165.0" x2="765" y2="165.0" vector-effect="non-scaling-stroke"/><line class="grid" x1="95" y1="105.0" x2="765" y2="105.0" vector-effect="non-scaling-stroke"/><polyline points="95.00,128.23 229.00,225.00 363.00,128.23 497.00,241.13 631.00,321.77 765.00,321.77" fill="none" stroke="currentColor" stroke-width="2.7" stroke-dasharray="" vector-effect="non-scaling-stroke"/><polyline points="95.00,171.24 229.00,171.24 363.00,268.01 497.00,268.01 631.00,187.37 765.00,187.37" fill="none" stroke="currentColor" stroke-width="2" stroke-dasharray="10 5" vector-effect="non-scaling-stroke"/><circle cx="95.0" cy="128.2258064516129" r="3.5" fill="white" stroke="currentColor" vector-effect="non-scaling-stroke"/><circle cx="229.0" cy="224.99999999999994" r="3.5" fill="white" stroke="currentColor" vector-effect="non-scaling-stroke"/><circle cx="363.0" cy="128.2258064516129" r="3.5" fill="white" stroke="currentColor" vector-effect="non-scaling-stroke"/><circle cx="497.0" cy="241.12903225806468" r="3.5" fill="white" stroke="currentColor" vector-effect="non-scaling-stroke"/><circle cx="631.0" cy="321.7741935483871" r="3.5" fill="white" stroke="currentColor" vector-effect="non-scaling-stroke"/><circle cx="765.0" cy="321.7741935483871" r="3.5" fill="white" stroke="currentColor" vector-effect="non-scaling-stroke"/><circle cx="95.0" cy="171.23655913978496" r="3.5" fill="white" stroke="currentColor" vector-effect="non-scaling-stroke"/><circle cx="229.0" cy="171.23655913978496" r="3.5" fill="white" stroke="currentColor" vector-effect="non-scaling-stroke"/><circle cx="363.0" cy="268.010752688172" r="3.5" fill="white" stroke="currentColor" vector-effect="non-scaling-stroke"/><circle cx="497.0" cy="268.010752688172" r="3.5" fill="white" stroke="currentColor" vector-effect="non-scaling-stroke"/><circle cx="631.0" cy="187.36559139784956" r="3.5" fill="white" stroke="currentColor" vector-effect="non-scaling-stroke"/><circle cx="765.0" cy="187.36559139784956" r="3.5" fill="white" stroke="currentColor" vector-effect="non-scaling-stroke"/></svg><div class="pfh-x-ticks"><span class="first" style="left:0.0%">建仓</span><span class="" style="left:60.0%">第2记账</span><span class="last" style="left:100.0%">无仓位</span></div></div></div></figure>
 
 <a id="p23-terminal"></a>
 ## 3. 到采购日：比较采购成本，不把买货当全额财富损失
 
-采购日存款可用，账户有 $90,000+6,250=96,250$ 现金。当地现货价6.20，支付93,000采购，剩余现金3,250。期间期货累计损失9,750，所以有效采购成本为
+采购日存款可用，账户有 $90,000+6,250=96,250$ 现金. 当地现货价6.20，支付93,000采购，剩余现金3,250. 期间期货累计损失9,750，所以有效采购成本为
 
 $$
 93,000-(-9,750)=102,750.
 $$
 
-买到的玉米还在，它不是凭空消失的93,000财富；本表评价的是完成同一采购后剩多少现金，以及为该批货一共牺牲了多少资金。各方案的实物数量、采购日期和现货价相同，因此这个比较可对齐。若讨论整个企业终点净资产，还应把玉米库存按一致口径加回来。
+买到的玉米还在，它不是凭空消失的93,000财富；本表评价的是完成同一采购后剩多少现金，以及为该批货一共牺牲了多少资金. 各方案的实物数量、采购日期和现货价相同，因此这个比较可对齐. 若讨论整个企业终点净资产，还应把玉米库存按一致口径加回来.
 
-若错误地忽略中途退出，把5.10到6.25的反弹继续加给3张多头，会虚增17,250收入，让期货结果从−9,750变成+7,500。这正是只画终点损益图最危险的地方：图上的“继续持有”其实偷偷假定了还没有取得的融资。
+若错误地忽略中途退出，把5.10到6.25的反弹继续加给3张多头，会虚增17,250收入，让期货结果从−9,750变成+7,500. 这正是只画终点损益图最危险的地方：图上的“继续持有”其实偷偷假定了还没有取得的融资.
 
 <a id="p23-alternatives"></a>
 ## 4. 三种替代改变了什么？
 
-减为2张时，覆盖10,000蒲式耳，留下5,000未对冲。初始保证金6,000，自由现金10,000。前两次VM分别−3,000、−3,500，补款后仍有3,500自由现金；最后反弹带来11,500，期货累计盈利5,000。采购成本变88,000，剩余18,000。它在本路径活下来，代价是一直少覆盖了三分之一采购量。
+减为2张时，覆盖10,000蒲式耳，留下5,000未对冲. 初始保证金6,000，自由现金10,000. 前两次VM分别−3,000、−3,500，补款后仍有3,500自由现金；最后反弹带来11,500，期货累计盈利5,000. 采购成本变88,000，剩余18,000. 它在本路径活下来，代价是一直少覆盖了三分之一采购量.
 
-另一种安排是在建仓前取得3,000承诺额度。第二次缺口出现时只借2,750，不需要借满。若十天后按10%年单利偿还，利息为
+另一种安排是在建仓前取得3,000承诺额度. 第二次缺口出现时只借2,750，不需要借满. 若十天后按10%年单利偿还，利息为
 
 $$
 2,750\times10\%\times\frac{10}{365}=7.5342466.
 $$
 
-3张继续持有，累计期货收入7,500。采购成本为 $93,000-7,500+7.5342466=85,507.5342466$，自有剩余现金20,492.4657534。偿还本金会减少现金，也同时消灭负债；不能把本金再作为额外费用扣一次。
+3张继续持有，累计期货收入7,500. 采购成本为 $93,000-7,500+7.5342466=85,507.5342466$，自有剩余现金20,492.4657534. 偿还本金会减少现金，也同时消灭负债；不能把本金再作为额外费用扣一次.
 
 | 安排 | 能否完整持有原头寸 | 期货累计损益 | 利息 | 有效采购成本 | 采购后自有现金 |
 |---|---|---:|---:|---:|---:|
@@ -78,35 +78,35 @@ $$
 | 3张，预先承诺额度 | 是，借2,750 | +7,500 | 7.534247 | 85,507.534247 | 20,492.465753 |
 | 不对冲 | 不适用 | 0 | 0 | 93,000 | 13,000 |
 
-<figure class="pfh-responsive-figure"><div class="svg-wide"><img src="/notebook/labs/p-ijklm/figures/P23-b.svg" alt="结果与取舍：同一初始资金下，存续、覆盖数量和融资代价不能合成一个“最好”标签。"></div><div class="svg-narrow pfh-native"><p class="pfh-figure-title">同一采购日，不同存续路径</p><p class="pfh-figure-note">四方案都从106,000自有资金出发</p><p class="pfh-axis-label">单位：有效采购成本，美元</p><ul class="pfh-cash-list"><li class="pfh-cash-row"><span class="pfh-cash-label">3张，停仓</span><div class="pfh-cash-reading"><strong>102,750.000</strong><span>正值</span></div><div class="pfh-cash-track" aria-hidden="true"><span style="width:100.0%"></span></div></li><li class="pfh-cash-row"><span class="pfh-cash-label">2张，存续</span><div class="pfh-cash-reading"><strong>88,000.000</strong><span>正值</span></div><div class="pfh-cash-track" aria-hidden="true"><span style="width:85.64476885644768%"></span></div></li><li class="pfh-cash-row"><span class="pfh-cash-label">3张，承诺融资</span><div class="pfh-cash-reading"><strong>85,507.534</strong><span>正值</span></div><div class="pfh-cash-track" aria-hidden="true"><span style="width:83.21901119221411%"></span></div></li><li class="pfh-cash-row"><span class="pfh-cash-label">不对冲</span><div class="pfh-cash-reading"><strong>93,000.000</strong><span>正值</span></div><div class="pfh-cash-track" aria-hidden="true"><span style="width:90.51094890510949%"></span></div></li></ul></div></figure>
+<figure class="pfh-responsive-figure"><div class="svg-wide"><img src="/notebook/labs/p-ijklm/figures/P23-b.svg" alt="结果与取舍：同一初始资金下，存续、覆盖数量和融资代价不能合成一个“最好”标签. "></div><div class="svg-narrow pfh-native"><p class="pfh-figure-title">同一采购日，不同存续路径</p><p class="pfh-figure-note">四方案都从106,000自有资金出发</p><p class="pfh-axis-label">单位：有效采购成本，美元</p><ul class="pfh-cash-list"><li class="pfh-cash-row"><span class="pfh-cash-label">3张，停仓</span><div class="pfh-cash-reading"><strong>102,750.000</strong><span>正值</span></div><div class="pfh-cash-track" aria-hidden="true"><span style="width:100.0%"></span></div></li><li class="pfh-cash-row"><span class="pfh-cash-label">2张，存续</span><div class="pfh-cash-reading"><strong>88,000.000</strong><span>正值</span></div><div class="pfh-cash-track" aria-hidden="true"><span style="width:85.64476885644768%"></span></div></li><li class="pfh-cash-row"><span class="pfh-cash-label">3张，承诺融资</span><div class="pfh-cash-reading"><strong>85,507.534</strong><span>正值</span></div><div class="pfh-cash-track" aria-hidden="true"><span style="width:83.21901119221411%"></span></div></li><li class="pfh-cash-row"><span class="pfh-cash-label">不对冲</span><div class="pfh-cash-reading"><strong>93,000.000</strong><span>正值</span></div><div class="pfh-cash-track" aria-hidden="true"><span style="width:90.51094890510949%"></span></div></li></ul></div></figure>
 
 <a id="p23-reality"></a>
 ## 5. 真实制度材料告诉我们再查什么
 
-BIS对2020、2022利率互换压力的分析显示，变动保证金和模型初始保证金可以一起增加。但它的图包含五日累计VM和假设五日平仓期的IM，不是本玉米账户的某一天真实记录。我们用它理解两个资金通道同时收紧，不将图值移植成当前保证金。[^bis23]
+BIS对2020、2022利率互换压力的分析显示，变动保证金和模型初始保证金可以一起增加. 但它的图包含五日累计VM和假设五日平仓期的IM，不是本玉米账户的某一天真实记录. 我们用它理解两个资金通道同时收紧，不将图值移植成当前保证金. [^bis23]
 
-FSB的抵押品管理建议则要求考虑资产是否已占用、是否合格、折扣率、币种、账户地点和到达时间。[^fsb23] 这说明“资产不少”只是起点。现实里还要查询券商要求、提款条件和处置程序。提前卖货能否及时结算，银行能否当日转账，承诺额度在压力下是否仍可提款，都不能从资产总额自动推出来。
+FSB的抵押品管理建议则要求考虑资产是否已占用、是否合格、折扣率、币种、账户地点和到达时间. [^fsb23] 这说明“资产不少”只是起点. 现实里还要查询券商要求、提款条件和处置程序. 提前卖货能否及时结算，银行能否当日转账，承诺额度在压力下是否仍可提款，都不能从资产总额自动推出来.
 
 <div data-experiment-slot="EXP-P23-LIQUIDITY"></div>
 
-先选择3张、额度0，停在第二次现金检查；然后把额度改为2,000，检查剩余缺口750，而不是看到“有贷款”就跳到终点。最后比较额度3,000与2张无融资，分别说明新增的是信用依赖还是未覆盖采购量。实验只改变明确的教学额度和张数，不声称这就是任何经纪商的现行规则。
+先选择3张、额度0，停在第二次现金检查；然后把额度改为2,000，检查剩余缺口750，而不是看到“有贷款”就跳到终点. 最后比较额度3,000与2张无融资，分别说明新增的是信用依赖还是未覆盖采购量. 实验只改变明确的教学额度和张数；经纪商的现行融资与保证金条件仍由实际账户规则决定.
 
 <a id="p23-exercises"></a>
 ## 6. 自测与解析
 
-**解释题。** 在第二次追保前，资产包括90,000存款、3,750保证金和2,500自由现金，为什么仍不能继续？
+**解释题.** 在第二次追保前，资产包括90,000存款、3,750保证金和2,500自由现金，为什么仍不能继续？
 
-资产合计96,250说明尚有净资产，但要求在当前截止前补5,250。90,000被合同时间限制；可补只有2,500。因此资金缺口2,750与净资产是否为正是两个问题。若改动存款到期规则，就已经是新的资金方案，必须明示。
+资产合计96,250说明尚有净资产，但要求在当前截止前补5,250. 90,000被合同时间限制；可补只有2,500. 因此资金缺口2,750与净资产是否为正是两个问题. 若改动存款到期规则，就已经是新的资金方案，必须明示.
 
-**迁移题。** 承诺额度只有2,000，第二次应补5,250时应怎么记账？可以直接拿借来的2,000算后续盈利吗？
+**迁移题.** 承诺额度只有2,000，第二次应补5,250时应怎么记账？可以直接拿借来的2,000算后续盈利吗？
 
-总可达资金4,500，仍缺750，不能补足。按本实验“先判断能否补齐”的规则，不为一个已失败的延续方案提款；在5.10平仓并停止。若另设“先提款、再被平仓”的操作，必须同时记借款、返还资金与利息，不能只保留贷款带来的现金而漏掉负债。
+总可达资金4,500，仍缺750，不能补足. 按本实验“先判断能否补齐”的规则，不为一个已失败的延续方案提款；在5.10平仓并停止. 若另设“先提款、再被平仓”的操作，必须同时记借款、返还资金与利息，不能只保留贷款带来的现金而漏掉负债.
 
-**完成标准。** 能逐事件指出应补、实补、返还、本金、利息和已关闭仓位，并拒绝把后来反弹加入失败路径，才算真正理解现金压力。
+**完成标准.** 能逐事件指出应补、实补、返还、本金、利息和已关闭仓位，并拒绝把后来反弹加入失败路径，才算真正理解现金压力.
 
-[^grain23]: CME Group，[Grain and Oilseed Hedgers Guide](https://www.cmegroup.com/trading/agricultural/files/grain-oilseed-hedgers-guide.pdf)，ch1保证金机制与ch3采购单元。本文中途路径、期限、保证金数额和处置价为教学变式。
-[^bis23]: Benjamin H. Cohen、Kevin Tracol，BIS Quarterly Review March 2023，[Box A: Market turbulence and soaring margins](https://www.bis.org/publications/perceptions-risk-and-policy-outlook-drive-markets_1.pdf)，印刷pp5–6与Graph A1图注。
-[^fsb23]: FSB，[Liquidity Preparedness for Margin and Collateral Calls](https://www.fsb.org/uploads/P101224-1.pdf)，2024-12-10，§3.3印刷pp18–20、Recommendations 6–8。
+[^grain23]: CME Group，[Grain and Oilseed Hedgers Guide](https://www.cmegroup.com/trading/agricultural/files/grain-oilseed-hedgers-guide.pdf)，ch1保证金机制与ch3采购单元. 本文中途路径、期限、保证金数额和处置价为教学变式.
+[^bis23]: Benjamin H. Cohen、Kevin Tracol，BIS Quarterly Review March 2023，[Box A: Market turbulence and soaring margins](https://www.bis.org/publications/perceptions-risk-and-policy-outlook-drive-markets_1.pdf)，印刷pp5–6与Graph A1图注.
+[^fsb23]: FSB，[Liquidity Preparedness for Margin and Collateral Calls](https://www.fsb.org/uploads/P101224-1.pdf)，2024-12-10，§3.3印刷pp18–20、Recommendations 6–8.
 
 <script src="/notebook/labs/p-ijklm/reader-adapter.js" defer></script>
 

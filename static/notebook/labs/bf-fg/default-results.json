@@ -11,10 +11,10 @@
       "conditional_capacity": 0,
       "conditional_scenario_difference": null,
       "conditions": [
-        "多数设施一年内到期，续期只是管理层意图。",
-        "借款余额在期末不重大。",
-        "可借金额受未结信用证影响；1220不另擅自扣200。",
-        "是否能在所选付款日提款仍须核到期、条件、主体及币种。"
+        "多数设施一年内到期，续期只是管理层意图.",
+        "借款余额在期末不重大.",
+        "可借金额受未结信用证影响；1220不另擅自扣200.",
+        "是否能在所选付款日提款仍须核到期、条件、主体及币种."
       ],
       "cash_forecast": null,
       "safety_score": null
@@ -29,17 +29,17 @@
       "conditional_capacity": 0,
       "conditional_scenario_difference": null,
       "conditions": [
-        "多数设施一年内到期，续期只是管理层意图。",
-        "借款余额在期末不重大。",
-        "可借金额受未结信用证影响；1220不另擅自扣200。",
-        "是否能在所选付款日提款仍须核到期、条件、主体及币种。"
+        "多数设施一年内到期，续期只是管理层意图.",
+        "借款余额在期末不重大.",
+        "可借金额受未结信用证影响；1220不另擅自扣200.",
+        "是否能在所选付款日提款仍须核到期、条件、主体及币种."
       ],
       "cash_forecast": null,
       "safety_score": null
     },
     "bank": {
       "source_id": "BFFG-C02",
-      "unit": "USD million unless marked",
+      "unit": "USD M unless marked",
       "average_period": "three months ended 2025-12-31",
       "group": {
         "eligible_cash": 281117,
@@ -63,8 +63,8 @@
         "uninsured_estimate": 1558600
       },
       "notes": [
-        "449bn原文明确排除已列HQLA/其他无抵押证券带来的相关能力，不能武断称必然重复。",
-        "期末资产与有条件融资能力分别呈现，不输出无条件挤兑覆盖率。"
+        "449bn原文明确排除已列HQLA/其他无抵押证券带来的相关能力，不能武断称必然重复.",
+        "期末资产与有条件融资能力分别呈现，不输出无条件挤兑覆盖率."
       ],
       "average_amount_ratio_pct": 110.76327000575705,
       "period_end_asset_sum_approx_bn": 1463,
@@ -718,7 +718,7 @@
         }
       ],
       "operating_explanation_sum": 14996,
-      "note": "CFO展开替换整体；来源29028不含FX，补充现金披露不再累计。"
+      "note": "CFO展开替换整体；来源29028不含FX，补充现金披露不再累计."
     },
     "allocation": [
       {

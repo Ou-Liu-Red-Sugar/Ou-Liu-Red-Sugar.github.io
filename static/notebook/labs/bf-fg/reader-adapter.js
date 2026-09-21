@@ -30,7 +30,7 @@ function init(){
   let result=original.replace(pattern,(_,a,_old,b)=>a+JSON.stringify(packet,null,2)+b);
   if(selected!=='all')result=result.replace(/(## Supplied entry\r?\n)([\s\S]*?)(?=\r?\n## Additional teaching material)/,
    (_,heading,md)=>heading+md.replace(/<section data-reading-branch="([^"]+)">([\s\S]*?)<\/section>/g,(_section,key,inner)=>key===selected?inner:''));
-  context.value='当前分支：'+selected+'；启用选读：'+(active.join('、')||'无')+'。共同与所选分支的同源正文、完整必要原表与输入、静态说明和解析随包提供；先实际读取本次 required_readings。未启用的扩展不得冒称已读。\n当前任务：'+packet.learning_task+'\n\n'+result;
+  context.value='当前分支：'+selected+'；启用选读：'+(active.join('、')||'无')+'. 共同与所选分支的同源正文、完整必要原表与输入、静态说明和解析随包提供；先实际读取本次 required_readings. 未启用的扩展不得冒称已读. \n当前任务：'+packet.learning_task+'\n\n'+result;
  }
  document.addEventListener('click',event=>{if(event.target.closest('[data-teach]'))prepare();},true);
  function sync(frame){if(new URL(frame.src,location.href).origin===location.origin)frame.contentWindow?.postMessage({type:'notebook-reading-branch',branch:current()},location.origin);}

@@ -10,8 +10,8 @@
 <link rel="stylesheet" href="{{ "notebook/discussions.css" | relURL }}">
 <section class="entry-discussion" id="entry-discussion" aria-labelledby="entry-discussion-title">
   <p class="eyebrow">{{ if $zh }}READ TOGETHER{{ else }}DISCUSSION{{ end }}</p>
-  <h2 id="entry-discussion-title">{{ if $zh }}一起读，也一起把问题说清楚。{{ else }}Read together. Work through the questions.{{ end }}</h2>
-  <p>{{ if $zh }}关于整篇的想法留在这里；某个推导、算例或表格的问题，可以点小节旁的“章说”，在原处展开讨论。{{ else }}Discuss the entry here, or use “Discuss” beside a section to ask about a particular argument, example or table.{{ end }}</p>
+  <h2 id="entry-discussion-title">{{ if $zh }}一起读，也一起把问题说清楚.{{ else }}Read together. Work through the questions.{{ end }}</h2>
+  <p>{{ if $zh }}关于整篇的想法留在这里；某个推导、算例或表格的问题，可以点小节旁的“章说”，在原处展开讨论.{{ else }}Discuss the entry here, or use “Discuss” beside a section to ask about a particular argument, example or table.{{ end }}</p>
   <div class="discussion-entry-actions"><button type="button" class="primary-button" data-discuss-entry>{{ if $zh }}查看／参与本篇讨论{{ else }}Read or join the discussion{{ end }} <span aria-hidden="true">↗</span></button><span>{{ if $zh }}使用 GitHub 账号参与{{ else }}Join with your GitHub account{{ end }}</span></div>
   <noscript><p><a href="https://github.com/{{ $settings.repo }}/discussions">{{ if $zh }}到 GitHub 查看讨论{{ else }}View discussions on GitHub{{ end }} ↗</a></p></noscript>
 </section>

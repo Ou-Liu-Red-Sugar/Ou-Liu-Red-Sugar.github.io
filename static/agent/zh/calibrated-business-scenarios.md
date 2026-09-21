@@ -1,18 +1,22 @@
 # 从校准业务关系到共同经营情景
 
-以已实现事实校准同一经营关系，重建资本批次、利润与资金，再比较原状态和具名替代。
+以已实现事实校准同一经营关系，重建资本批次、利润与资金，再比较原状态和具名替代.
 
 Entry: zh-p04 | Node: P04 | Language: zh | Editorial revision: 2026-09-21
 
 ## Teaching instructions
-你正在教授P04《从校准业务关系到共同经营情景》，读者具有高年级本科至研究生数学背景。
+你正在教授P04《从校准业务关系到共同经营情景》，读者具有高年级本科至研究生数学背景.
 
-先确认本次节点和读者所选分支。先实际取得required_readings中该范围的全部完整单元，核对版本、期间、币种与模型身份；目录、摘要、搜索节选和成功打开标题不算正文。记录实际工具/文件、单元起止、读到的关键约定及其支持范围，runtime_reading_log从空表开始，不预填“已读”。本站方法和公司案例从access.uri所列公开正文读取，外部原件从指定URL读取；不得假设访问任何私人盘符。读取失败先用明示的已核等价来源，仍缺则具体说明缺的单元，不凭记忆声称已核该事实。读者要求直接讲解时可直接推进；互动时一次要求一个完整推理任务，不逐格问四则运算。引用紧随所用材料。案例固定2026-09-20信息与2026-09-18价格，不更新报价、不接账户、不重估公司；不执行或换名恢复股票DCF/WACC。所有操作标原状态、具名已算替代或纯教学扰动，不能把点击当新增证据。最后用迁移题检验，给完整解析，并指出剩余条件。
+先确认本次节点和读者所选分支. 先实际取得required_readings中该范围的全部完整单元，核对版本、期间、币种与模型身份；目录、摘要、搜索节选和成功打开标题不算正文. 记录实际工具/文件、单元起止、读到的关键约定及其支持范围，runtime_reading_log从空表开始，不预填“已读”. 本站方法和公司案例从access.uri所列公开正文读取，外部原件从指定URL读取；不得假设访问任何私人盘符. 读取失败先用明示的已核等价来源，仍缺则具体说明缺的单元，不凭记忆声称已核该事实. 读者要求直接讲解时可直接推进；互动时一次要求一个完整推理任务，不逐格问四则运算. 引用紧随所用材料. 案例固定2026-09-20信息与2026-09-18价格，不更新报价、不接账户、不重估公司；不执行或换名恢复股票DCF/WACC. 所有操作标原状态、具名已算替代或纯教学扰动，不能把点击当新增证据. 最后用迁移题检验，给完整解析，并指出剩余条件.
 
 本篇任务与反馈尺度（只执行所选分支，再完成共同资金任务）：
-选择AWS时，先让读者解释“2027收入228、64%贡献、固定负担16.451787、折旧45.525775”各是什么身份。带他从k0、k1和旧资产折旧重建D2027，再算83.942439的OI；不只代入利润表。共同资金任务：让他解释Q1本金6.733513为何比现金缺口略高。具名AI延后保留资本计划，但现金94.580212、借款327.672724与Base不同；必须说出缺口来自经营现金。零售分支要从六类收入生成mix与地区利润，而非复制AWS变量。最终换成可取消服务器/不可撤销数据中心的需求延迟，要求分清已投用、已承诺、未下单和实际付款。若读者仍说“资本不变所以现金不变”，回到净现金桥，不判已掌握。
+选择AWS时，先让读者解释“2027收入228、64%贡献、固定负担16.451787、折旧45.525775”各是什么身份. 带他从k0、k1和旧资产折旧重建D2027，再算83.942439的OI；不只代入利润表. 共同资金任务：让他解释Q1本金6.733513为何比现金缺口略高. 具名AI延后保留资本计划，但现金94.580212、借款327.672724与Base不同；必须说出缺口来自经营现金. 零售分支要从六类收入生成mix与地区利润，而非复制AWS变量. 最终换成可取消服务器/不可撤销数据中心的需求延迟，要求分清已投用、已承诺、未下单和实际付款. 若读者仍说“资本不变所以现金不变”，回到净现金桥，不判已掌握.
 
 Before substantive teaching, actually retrieve every required reading unit for the selected scope. Read its complete designated section, including necessary assumptions, tables and footnotes. A working URL or an editorial access date is not a runtime reading receipt. Record the actual version, location, scope and what it supports. If unavailable, use a previously verified equivalent source; if the required unit remains unavailable, identify that gap rather than teach it from memory. Start runtime_reading_log empty. Once reading is complete, use a substantive diagnostic or follow the reader's request for direct explanation. Advance one complete reasoning task at a time; skip mastered basics. Distinguish original facts, supplied teaching assumptions and inference.
+
+## Shared notation and writing conventions
+数学期望统一写成 \mathbb{E}，条件期望用 \mathbb{E}[X\mid\mathcal{G}]，需要时注明测度 P 或 Q. 保留局部变量的明确定义. 金额与数量使用 K=10^3、M=10^6、B=10^9；表格标明币种、量级与期间，变更量级时同步换算数值. 展示小数最多三位，计算保留原始精度. 直接解释对象、机制与推理；保留影响结论的假设和事实来源，把编辑流程留在记录中. 句末使用英文句点 .，包括定义、命题、证明和解析等标签. 基础定义与推导直接讲内容，出处放在紧邻脚注；来源读取、复审和采用范围等编辑经过留在记录中.
+[Notation and units](https://ou-liu-red-sugar.github.io/agent/zh/notation.md)
 
 ## Required readings and runtime protocol
 ```json
@@ -33,7 +37,7 @@ Before substantive teaching, actually retrieve every required reading unit for t
         "scope": "完整三节",
         "purpose": "区分覆盖与采用、共同状态和资本日期"
       },
-      "supports": "本站原创方法摘编，规定业务边界、校准与共同资本责任；公开原件各自支持实例，不是完整方法的外部背书。",
+      "supports": "本站原创方法摘编，规定业务边界、校准与共同资本责任；公开原件各自支持实例，不是完整方法的外部背书.",
       "authors": [
         "本站方法"
       ]
@@ -52,7 +56,7 @@ Before substantive teaching, actually retrieve every required reading unit for t
         "scope": "事实身份、所选分支4年及Base季度资金段",
         "purpose": "把实现H1、全年估计和剩余H2分开"
       },
-      "supports": "原研究的事实/分析代理、四条未来路径、5项具名替代、4套权重与16组已算分布。报价冻结，代表点不是条件均值。",
+      "supports": "原研究的事实/分析代理、四条未来路径、5项具名替代、4套权重与16组已算分布. 报价冻结，代表点不是条件均值.",
       "authors": [
         "本站历史研究"
       ]
@@ -70,7 +74,7 @@ Before substantive teaching, actually retrieve every required reading unit for t
         "scope": "分部定义、费用分配、收入/OI、PP&E取得/D&A完整单元",
         "purpose": "不混用广义现金流加回与设备折旧"
       },
-      "supports": "分部范围与经营费用使用分配、产品收入、PP&E取得和折旧；债务/租赁、SBC/RSU等资本权利实例。未来余额不由当期附注直接给出。",
+      "supports": "分部范围与经营费用使用分配、产品收入、PP&E取得和折旧；债务/租赁、SBC/RSU等资本权利实例. 未来余额不由当期附注直接给出.",
       "authors": [
         "Amazon.com, Inc."
       ]
@@ -88,7 +92,7 @@ Before substantive teaching, actually retrieve every required reading unit for t
         "scope": "该小节全文",
         "purpose": "理解供给和融资前置"
       },
-      "supports": "AI资本链中的供应/设备/电网与融资限制；采用行业机制，不推AWS具体容量或收益率。",
+      "supports": "AI资本链中的供应/设备/电网与融资限制；采用行业机制，不推AWS具体容量或收益率.",
       "branch": "aws",
       "authors": [
         "International Energy Agency"
@@ -107,7 +111,7 @@ Before substantive teaching, actually retrieve every required reading unit for t
         "scope": "技术迁移与multi-cloud完整指定单元",
         "purpose": "留存机制不等于固定收入增长"
       },
-      "supports": "历史英国技术迁移/multi-cloud摩擦及缓解并存；不从这一单元推全球AWS增长或现行费用政策。",
+      "supports": "历史英国技术迁移/multi-cloud摩擦及缓解并存；不从这一单元推全球AWS增长或现行费用政策.",
       "branch": "aws",
       "authors": [
         "Competition and Markets Authority"
@@ -128,7 +132,7 @@ Before substantive teaching, actually retrieve every required reading unit for t
         "scope": "供电计划全文页和前瞻说明",
         "purpose": "合同上限和未来爬坡"
       },
-      "supports": "公告中的1,920MW为满额供电计划，预计爬坡最迟2032达到；供电数量不等于AWS当期IT容量或收费收入。",
+      "supports": "公告中的1,920MW为满额供电计划，预计爬坡最迟2032达到；供电数量不等于AWS当期IT容量或收费收入.",
       "branch": "aws",
       "required_only_if_selected": true,
       "authors": [
@@ -148,7 +152,7 @@ Before substantive teaching, actually retrieve every required reading unit for t
         "scope": "commerce media、定义与调查方法完整页",
         "purpose": "美国市场与全球公司分母边界"
       },
-      "supports": "美国commerce media收入63.4bn、报告增速18%，并有测量/增量回报约束；范围不是Amazon全球广告。",
+      "supports": "美国commerce media收入63.4bn、报告增速18%，并有测量/增量回报约束；范围不是Amazon全球广告.",
       "branch": "retail",
       "authors": [
         "IAB",
@@ -2832,7 +2836,7 @@ Before substantive teaching, actually retrieve every required reading unit for t
             "investment_net": 219.252225,
             "minimum_pre_financing_cash": 16.29222090682039
           },
-          "detail_export": "本包导出替代经营年度表与资金终点/低谷摘要；不从主路径补出未导出的替代季度。"
+          "detail_export": "本包导出替代经营年度表与资金终点/低谷摘要；不从主路径补出未导出的替代季度."
         },
         "retail_weak_fixed_base_pricing": {
           "title": "非AWS较弱、AWS Base",
@@ -2860,7 +2864,7 @@ Before substantive teaching, actually retrieve every required reading unit for t
             "investment_net": 219.252225,
             "minimum_pre_financing_cash": 13.887237257714155
           },
-          "detail_export": "本包导出替代经营年度表与资金终点/低谷摘要；不从主路径补出未导出的替代季度。"
+          "detail_export": "本包导出替代经营年度表与资金终点/低谷摘要；不从主路径补出未导出的替代季度."
         },
         "mixed_aws_strong_retail_weak": {
           "title": "AWS强、非AWS弱",
@@ -2888,7 +2892,7 @@ Before substantive teaching, actually retrieve every required reading unit for t
             "investment_net": 219.252225,
             "minimum_pre_financing_cash": 7.684874822033322
           },
-          "detail_export": "本包导出替代经营年度表与资金终点/低谷摘要；不从主路径补出未导出的替代季度。"
+          "detail_export": "本包导出替代经营年度表与资金终点/低谷摘要；不从主路径补出未导出的替代季度."
         },
         "mixed_aws_weak_retail_strong": {
           "title": "AWS弱、非AWS强",
@@ -2916,7 +2920,7 @@ Before substantive teaching, actually retrieve every required reading unit for t
             "investment_net": 219.252225,
             "minimum_pre_financing_cash": 16.412377067643583
           },
-          "detail_export": "本包导出替代经营年度表与资金终点/低谷摘要；不从主路径补出未导出的替代季度。"
+          "detail_export": "本包导出替代经营年度表与资金终点/低谷摘要；不从主路径补出未导出的替代季度."
         },
         "ai_delay_core_attach_linked_capital_unchanged": {
           "title": "AI延后并连带Core；原资本计划保留",
@@ -2941,7 +2945,7 @@ Before substantive teaching, actually retrieve every required reading unit for t
             "later_growth_from": "Base",
             "capital_additions": "Base；资本计划不变不代表现金或债务不变"
           },
-          "detail_export": "冻结敏感性仅保存本项汇总；本包不生成未导出的逐季度路径或改倍数版本。"
+          "detail_export": "冻结敏感性仅保存本项汇总；本包不生成未导出的逐季度路径或改倍数版本."
         }
       },
       "identity_notes": {
@@ -2953,8 +2957,8 @@ Before substantive teaching, actually retrieve every required reading unit for t
         "pricing_range": "同一经营/资金路径的定价参数范围；不是置信区间或条件支持",
         "probability": "主观粗判断，不是统计后验；按钮操作不新增研究证据",
         "quarters": "每季已继承此前融资；融资前余额不是全期无融资轨迹，也不保证季内资金充足",
-        "quote_vs_cutoff": "9月18日参考进入价格，9月20日研究信息截止；无实际成交或仅用9月18日信息的样本外回测声明。",
-        "share_count_proxy": "11.0274十亿股是冻结模型规划代理：10.783普通股 + 0.2444 outstanding RSU；公司另披露普通股加全部 outstanding stock awards 对应股份约11.0十亿股。该代理不是官方完全稀释股数，也不是EPS加权平均股数。"
+        "quote_vs_cutoff": "9月18日参考进入价格，9月20日研究信息截止；无实际成交或仅用9月18日信息的样本外回测声明.",
+        "share_count_proxy": "11.0274 B 股是冻结模型规划代理：10.783普通股 + 0.2444 outstanding RSU；公司另披露普通股加全部 outstanding stock awards 对应股份约11.0 B 股. 该代理不是官方完全稀释股数，也不是EPS加权平均股数."
       },
       "source_map": {
         "annual_operations": "operating-results.json::{state}.aws/retail",
@@ -2983,7 +2987,7 @@ Before substantive teaching, actually retrieve every required reading unit for t
           "scope": "完整三节",
           "purpose": "区分覆盖与采用、共同状态和资本日期"
         },
-        "supports": "本站原创方法摘编，规定业务边界、校准与共同资本责任；公开原件各自支持实例，不是完整方法的外部背书。",
+        "supports": "本站原创方法摘编，规定业务边界、校准与共同资本责任；公开原件各自支持实例，不是完整方法的外部背书.",
         "authors": [
           "本站方法"
         ]
@@ -3002,7 +3006,7 @@ Before substantive teaching, actually retrieve every required reading unit for t
           "scope": "事实身份、所选分支4年及Base季度资金段",
           "purpose": "把实现H1、全年估计和剩余H2分开"
         },
-        "supports": "原研究的事实/分析代理、四条未来路径、5项具名替代、4套权重与16组已算分布。报价冻结，代表点不是条件均值。",
+        "supports": "原研究的事实/分析代理、四条未来路径、5项具名替代、4套权重与16组已算分布. 报价冻结，代表点不是条件均值.",
         "authors": [
           "本站历史研究"
         ]
@@ -3020,7 +3024,7 @@ Before substantive teaching, actually retrieve every required reading unit for t
           "scope": "分部定义、费用分配、收入/OI、PP&E取得/D&A完整单元",
           "purpose": "不混用广义现金流加回与设备折旧"
         },
-        "supports": "分部范围与经营费用使用分配、产品收入、PP&E取得和折旧；债务/租赁、SBC/RSU等资本权利实例。未来余额不由当期附注直接给出。",
+        "supports": "分部范围与经营费用使用分配、产品收入、PP&E取得和折旧；债务/租赁、SBC/RSU等资本权利实例. 未来余额不由当期附注直接给出.",
         "authors": [
           "Amazon.com, Inc."
         ]
@@ -3038,7 +3042,7 @@ Before substantive teaching, actually retrieve every required reading unit for t
           "scope": "该小节全文",
           "purpose": "理解供给和融资前置"
         },
-        "supports": "AI资本链中的供应/设备/电网与融资限制；采用行业机制，不推AWS具体容量或收益率。",
+        "supports": "AI资本链中的供应/设备/电网与融资限制；采用行业机制，不推AWS具体容量或收益率.",
         "branch": "aws",
         "authors": [
           "International Energy Agency"
@@ -3057,7 +3061,7 @@ Before substantive teaching, actually retrieve every required reading unit for t
           "scope": "技术迁移与multi-cloud完整指定单元",
           "purpose": "留存机制不等于固定收入增长"
         },
-        "supports": "历史英国技术迁移/multi-cloud摩擦及缓解并存；不从这一单元推全球AWS增长或现行费用政策。",
+        "supports": "历史英国技术迁移/multi-cloud摩擦及缓解并存；不从这一单元推全球AWS增长或现行费用政策.",
         "branch": "aws",
         "authors": [
           "Competition and Markets Authority"
@@ -3079,7 +3083,7 @@ Before substantive teaching, actually retrieve every required reading unit for t
           "scope": "完整三节",
           "purpose": "区分覆盖与采用、共同状态和资本日期"
         },
-        "supports": "本站原创方法摘编，规定业务边界、校准与共同资本责任；公开原件各自支持实例，不是完整方法的外部背书。",
+        "supports": "本站原创方法摘编，规定业务边界、校准与共同资本责任；公开原件各自支持实例，不是完整方法的外部背书.",
         "authors": [
           "本站方法"
         ]
@@ -3098,7 +3102,7 @@ Before substantive teaching, actually retrieve every required reading unit for t
           "scope": "事实身份、所选分支4年及Base季度资金段",
           "purpose": "把实现H1、全年估计和剩余H2分开"
         },
-        "supports": "原研究的事实/分析代理、四条未来路径、5项具名替代、4套权重与16组已算分布。报价冻结，代表点不是条件均值。",
+        "supports": "原研究的事实/分析代理、四条未来路径、5项具名替代、4套权重与16组已算分布. 报价冻结，代表点不是条件均值.",
         "authors": [
           "本站历史研究"
         ]
@@ -3116,7 +3120,7 @@ Before substantive teaching, actually retrieve every required reading unit for t
           "scope": "分部定义、费用分配、收入/OI、PP&E取得/D&A完整单元",
           "purpose": "不混用广义现金流加回与设备折旧"
         },
-        "supports": "分部范围与经营费用使用分配、产品收入、PP&E取得和折旧；债务/租赁、SBC/RSU等资本权利实例。未来余额不由当期附注直接给出。",
+        "supports": "分部范围与经营费用使用分配、产品收入、PP&E取得和折旧；债务/租赁、SBC/RSU等资本权利实例. 未来余额不由当期附注直接给出.",
         "authors": [
           "Amazon.com, Inc."
         ]
@@ -3134,7 +3138,7 @@ Before substantive teaching, actually retrieve every required reading unit for t
           "scope": "commerce media、定义与调查方法完整页",
           "purpose": "美国市场与全球公司分母边界"
         },
-        "supports": "美国commerce media收入63.4bn、报告增速18%，并有测量/增量回报约束；范围不是Amazon全球广告。",
+        "supports": "美国commerce media收入63.4bn、报告增速18%，并有测量/增量回报约束；范围不是Amazon全球广告.",
         "branch": "retail",
         "authors": [
           "IAB",
@@ -3157,7 +3161,7 @@ Before substantive teaching, actually retrieve every required reading unit for t
           "scope": "完整三节",
           "purpose": "区分覆盖与采用、共同状态和资本日期"
         },
-        "supports": "本站原创方法摘编，规定业务边界、校准与共同资本责任；公开原件各自支持实例，不是完整方法的外部背书。",
+        "supports": "本站原创方法摘编，规定业务边界、校准与共同资本责任；公开原件各自支持实例，不是完整方法的外部背书.",
         "authors": [
           "本站方法"
         ]
@@ -3176,7 +3180,7 @@ Before substantive teaching, actually retrieve every required reading unit for t
           "scope": "事实身份、所选分支4年及Base季度资金段",
           "purpose": "把实现H1、全年估计和剩余H2分开"
         },
-        "supports": "原研究的事实/分析代理、四条未来路径、5项具名替代、4套权重与16组已算分布。报价冻结，代表点不是条件均值。",
+        "supports": "原研究的事实/分析代理、四条未来路径、5项具名替代、4套权重与16组已算分布. 报价冻结，代表点不是条件均值.",
         "authors": [
           "本站历史研究"
         ]
@@ -3194,7 +3198,7 @@ Before substantive teaching, actually retrieve every required reading unit for t
           "scope": "分部定义、费用分配、收入/OI、PP&E取得/D&A完整单元",
           "purpose": "不混用广义现金流加回与设备折旧"
         },
-        "supports": "分部范围与经营费用使用分配、产品收入、PP&E取得和折旧；债务/租赁、SBC/RSU等资本权利实例。未来余额不由当期附注直接给出。",
+        "supports": "分部范围与经营费用使用分配、产品收入、PP&E取得和折旧；债务/租赁、SBC/RSU等资本权利实例. 未来余额不由当期附注直接给出.",
         "authors": [
           "Amazon.com, Inc."
         ]
@@ -3212,7 +3216,7 @@ Before substantive teaching, actually retrieve every required reading unit for t
           "scope": "该小节全文",
           "purpose": "理解供给和融资前置"
         },
-        "supports": "AI资本链中的供应/设备/电网与融资限制；采用行业机制，不推AWS具体容量或收益率。",
+        "supports": "AI资本链中的供应/设备/电网与融资限制；采用行业机制，不推AWS具体容量或收益率.",
         "branch": "aws",
         "authors": [
           "International Energy Agency"
@@ -3231,7 +3235,7 @@ Before substantive teaching, actually retrieve every required reading unit for t
           "scope": "技术迁移与multi-cloud完整指定单元",
           "purpose": "留存机制不等于固定收入增长"
         },
-        "supports": "历史英国技术迁移/multi-cloud摩擦及缓解并存；不从这一单元推全球AWS增长或现行费用政策。",
+        "supports": "历史英国技术迁移/multi-cloud摩擦及缓解并存；不从这一单元推全球AWS增长或现行费用政策.",
         "branch": "aws",
         "authors": [
           "Competition and Markets Authority"
@@ -3250,7 +3254,7 @@ Before substantive teaching, actually retrieve every required reading unit for t
           "scope": "commerce media、定义与调查方法完整页",
           "purpose": "美国市场与全球公司分母边界"
         },
-        "supports": "美国commerce media收入63.4bn、报告增速18%，并有测量/增量回报约束；范围不是Amazon全球广告。",
+        "supports": "美国commerce media收入63.4bn、报告增速18%，并有测量/增量回报约束；范围不是Amazon全球广告.",
         "branch": "retail",
         "authors": [
           "IAB",
@@ -3259,7 +3263,7 @@ Before substantive teaching, actually retrieve every required reading unit for t
       }
     ]
   },
-  "branch_selection_protocol": "默认AWS。切换零售时以该分支完整数组替换必读，完成对应材料后再教；全部展开才要求两支。共同资金任务必做。",
+  "branch_selection_protocol": "默认AWS. 切换零售时以该分支完整数组替换必读，完成对应材料后再教；全部展开才要求两支. 共同资金任务必做.",
   "experiment_ids": [
     "EXP-P04-CANONICAL-PATH"
   ]
@@ -3267,25 +3271,25 @@ Before substantive teaching, actually retrieve every required reading unit for t
 ```
 
 ## Supplied entry
-我们先不问股票值多少钱。先问一个更具体的问题：在未来几年里，客户为什么付钱，公司拿什么交付，收入变成利润之前要承担哪些成本，又要先拿出多少资金？只有把这些关系接起来，“增长”才不只是一列百分比。
+我们先不问股票值多少钱. 先问一个更具体的问题：在未来几年里，客户为什么付钱，公司拿什么交付，收入变成利润之前要承担哪些成本，又要先拿出多少资金？只有把这些关系接起来，“增长”才不只是一列百分比.
 
-本篇用 **2026年9月20日的 Amazon 历史研究**练习这一步。财报实现值、研究中的分析代理和2027—2029年未来路径会分别标明。金额均为十亿美元；它们不是今天更新的预测。读完之后，你应能重建一条经营关系，再解释同一个冲击为什么同时改变利润、资本与融资需求。完整历史材料归于[公司案例](/zh/notebook/amzn-research-20260920/)。[^case]
+本篇用 **2026年9月20日的 Amazon 历史研究**练习这一步. 财报实现值、研究中的分析代理和2027—2029年未来路径会分别标明. 金额均为 B 美元；它们不是今天更新的预测. 读完之后，你应能重建一条经营关系，再解释同一个冲击为什么同时改变利润、资本与融资需求. 完整历史材料归于[公司案例](/zh/notebook/amzn-research-20260920/). [^case]
 
 <a id="p04-business"></a>
 ## 1. 我们究竟在预测哪一种生意
 
-Amazon 的报告分部是北美、国际和 AWS。北美、国际内部又包含自营商品、第三方卖家服务、广告与订阅等收费活动。这里不能把“国际”与“广告”当两份互不重叠的收入相加，也不能把履约网络另算成一家公司，然后再把它服务的商品收入完整算一遍。财报分部说明公司怎样汇总经营结果，业务关系说明这些结果为什么出现。[^amzn]
+Amazon 的报告分部是北美、国际和 AWS. 北美、国际内部又包含自营商品、第三方卖家服务、广告与订阅等收费活动. 这里不能把“国际”与“广告”当两份互不重叠的收入相加，也不能把履约网络另算成一家公司，然后再把它服务的商品收入完整算一遍. 财报分部说明公司怎样汇总经营结果，业务关系说明这些结果为什么出现. [^amzn]
 
-AWS 的客户使用计算、存储、数据库等服务。客户业务扩大可能增加使用量，但优化程序、压缩存储或更换产品也可能减少每项任务的资源消耗。因此，客户还留在云上，不等于账单必然按固定速度增长。CMA 的历史研究确认技术迁移存在摩擦，并同时讨论缓解这些摩擦的办法；它支持研究留存机制，不提供 AWS 的全球未来增长率。[^cma]
+AWS 的客户使用计算、存储、数据库等服务. 客户业务扩大可能增加使用量，但优化程序、压缩存储或更换产品也可能减少每项任务的资源消耗. 因此，客户还留在云上，不等于账单必然按固定速度增长. CMA 的历史研究确认技术迁移存在摩擦，并同时讨论缓解这些摩擦的办法；它支持研究留存机制，不提供 AWS 的全球未来增长率. [^cma]
 
-我们可以把一条关系写成“客户任务量 → 每项任务资源消耗 → 实际服务组合与净价 → 收入”。若再展开供给端，还要接上供电、设备、投用与工程资源。IEA 的2026年研究把芯片、电网、设备和融资列为数据中心建设的相互制约条件；这提醒我们，客户签约与能够交付并不是同一天发生的事。[^iea]
+我们可以把一条关系写成“客户任务量 → 每项任务资源消耗 → 实际服务组合与净价 → 收入”. 若再展开供给端，还要接上供电、设备、投用与工程资源. IEA 的2026年研究把芯片、电网、设备和融资列为数据中心建设的相互制约条件；这提醒我们，客户签约与能够交付并不是同一天发生的事. [^iea]
 
-**经营情景**是同一组外部条件下，企业与客户作出响应后形成的经营和资金路径。它不是把一张表统一上调或下调百分之二十。好情景可以有更多资本需求；坏情景也必须保留公司调整采购、改变产品或修复成本的能力。
+**经营情景**是同一组外部条件下，企业与客户作出响应后形成的经营和资金路径. 它不是把一张表统一上调或下调百分之二十. 好情景可以有更多资本需求；坏情景也必须保留公司调整采购、改变产品或修复成本的能力.
 
 <a id="p04-calibration"></a>
 ## 2. 用实现结果固定起点，而不是固定未来
 
-先看历史案例使用的 AWS 三期实现值。Q4来自年度业绩，Q1和Q2属于2026年；最后一行才是研究的全年估计。[^case]
+先看历史案例使用的 AWS 三期实现值. Q4来自年度业绩，Q1和Q2属于2026年；最后一行才是研究的全年估计. [^case]
 
 | 期间 | 收入 | 经营利润 OI | 身份 |
 |---|---:|---:|---|
@@ -3294,61 +3298,61 @@ AWS 的客户使用计算、存储、数据库等服务。客户业务扩大可�
 | 2026Q2 | 42.232 | 16.621 | 已实现单季 |
 | 2026全年 | 175.000 | 67.074690 | 历史研究中的预测，不是实现值 |
 
-Q2的附注明确给出上半年 AWS 收入79.819、OI30.782、物业设备折旧摊销15.353。三者分别是收费结果、扣除经营成本后的利润，以及其中一类资本消耗；不能把现金流量表中包括内容、租赁资产等项目的更大加回数，换来充当这里的设备折旧。[^amzn]
+Q2的附注明确给出上半年 AWS 收入79.819、OI30.782、物业设备折旧摊销15.353. 三者分别是收费结果、扣除经营成本后的利润，以及其中一类资本消耗；不能把现金流量表中包括内容、租赁资产等项目的更大加回数，换来充当这里的设备折旧. [^amzn]
 
-本案例把 AWS 收入拆为 Core 与“直接 AI”代理。Core 也包括 AI 带来的存储、数据库和 CPU 配套；所以这并非财报披露的“纯非AI/纯AI”两分部。Base 的2027年采用173与55，合计228。这个拆分有助于研究客户采用与配套需求，却没有把未披露的微观变量变成观测事实。
+本案例把 AWS 收入拆为 Core 与“直接 AI”代理. Core 也包括 AI 带来的存储、数据库和 CPU 配套；所以这并非财报披露的“纯非AI/纯AI”两分部. Base 的2027年采用173与55，合计228. 这个拆分有助于研究客户采用与配套需求，却没有把未披露的微观变量变成观测事实.
 
-校准的用途，是让关系面对实际材料。三期财报检查规模与变化；上下游检查交付和付款是否成立；外部研究检查另一种解释。历史案例的电力合同上限、成熟客户的数据库优化和广告市场增速，分别约束供给、消耗效率与付费，不是三份可以相加的需求。完整方法还要求对应电话会、代表上下一跳和不同外部研究角度；这里沿用那份历史研究的证据记录，不把一节教学当作重做完整公司研究。[^method]
+校准的用途，是让关系面对实际材料. 三期财报检查规模与变化；上下游检查交付和付款是否成立；外部研究检查另一种解释. 历史案例的电力合同上限、成熟客户的数据库优化和广告市场增速，分别约束供给、消耗效率与付费，不是三份可以相加的需求. 完整方法还会纳入对应电话会、代表上下一跳和不同外部研究角度；本节直接使用那份历史研究已经形成的证据记录与校准结果.[^method]
 
 <a id="p04-aws-relation"></a>
 ## 3. 把收入、贡献和折旧接成一条关系
 
-先选择 AWS 主分支。零售分支在后面，阅读其中一支即可完成本篇的主要操作。
+先选择 AWS 主分支. 零售分支在后面，阅读其中一支即可完成本篇的主要操作.
 
 <div data-reading-branch-controls><button data-select-reading-branch="aws">AWS主分支</button><button data-select-reading-branch="retail">零售分支</button><button data-select-reading-branch="all">全部展开</button></div>
 <section data-reading-branch="aws">
 
-本案例采用 $OI_t=c_tR_t-F_t-D_t$。其中 $c_tR_t$ 是扣除关系中所定义可变成本后的贡献，$F_t$ 是折旧前的固定经营成本代理，$D_t$ 是设备折旧摊销。$c_t$ 不是公司披露的毛利率，$F_t$ 也不是财报里一行可直接抄下的费用。
+本案例采用 $OI_t=c_tR_t-F_t-D_t$. 其中 $c_tR_t$ 是扣除关系中所定义可变成本后的贡献，$F_t$ 是折旧前的固定经营成本代理，$D_t$ 是设备折旧摊销. $c_t$ 不是公司披露的毛利率，$F_t$ 也不是财报里一行可直接抄下的费用.
 
-怎样确定这个代理的起点？历史研究设 $c=64\%$，并把0.599的能源估值收益全分配至 AWS，作为会计调整的上限假设。用上半年结果反推：
+怎样确定这个代理的起点？历史研究设 $c=64\%$，并把0.599的能源估值收益全分配至 AWS，作为会计调整的上限假设. 用上半年结果反推：
 
 $$
 F_{H1}=0.64\times79.819-(30.782-0.599+15.353)=5.54816,
 \qquad a=F_{H1}/15.353.
 $$
 
-接下来暂用 $F_t=aD_t$ 表示已投用资本规模带来的固定经营负担。它把规模变化连起来，但并未证明所有固定成本都由折旧驱动。这样的代理允许被证据修正；它的好处不是精确，而是比另填一列利润率更容易检查。
+接下来暂用 $F_t=aD_t$ 表示已投用资本规模带来的固定经营负担. 它把规模变化连起来，但并未证明所有固定成本都由折旧驱动. 这样的代理允许被证据修正；它的好处不是精确，而是比另填一列利润率更容易检查.
 
-关键在于 $D_t$ 也来自同一资本计划。案例将新资产分为45%的服务器/网络与55%的数据中心，设寿命分别5.5年、30年；服务器分当年/次年投用75%/25%，数据中心分当年/后两年投用20%/45%/35%，投用当年计半年的折旧。这些均为研究假设。于是，当年取得1单位资产，贡献的当年折旧是
+关键在于 $D_t$ 也来自同一资本计划. 案例将新资产分为45%的服务器/网络与55%的数据中心，设寿命分别5.5年、30年；服务器分当年/次年投用75%/25%，数据中心分当年/后两年投用20%/45%/35%，投用当年计半年的折旧. 这些均为研究假设. 于是，当年取得1单位资产，贡献的当年折旧是
 
 $$
 k_0=\frac{0.45\times0.75}{5.5}\times\frac12+
 \frac{0.55\times0.20}{30}\times\frac12=0.0325151515.
 $$
 
-若 $A_j$ 为第 $j$ 年取得资产，$k_{t-j}$ 为相应批次在第 $t$ 年的折旧系数，则本观察窗口内 $D_t=L_t+\sum_{j\le t}A_jk_{t-j}$；$L_t$ 是既有资产的折旧。这里的半年度约定适用于此例，不是所有资产的通用会计要求。预测窗外还要处理寿命结束与更新，不能无限延伸这一短窗口系数。
+若 $A_j$ 为第 $j$ 年取得资产，$k_{t-j}$ 为相应批次在第 $t$ 年的折旧系数，则本观察窗口内 $D_t=L_t+\sum_{j\le t}A_jk_{t-j}$；$L_t$ 是既有资产的折旧. 这里的半年度约定适用于此例，不是所有资产的通用会计要求. 预测窗外还要处理寿命结束与更新，不能无限延伸这一短窗口系数.
 
-我们把2027年的折旧也实际重建一次。上一年新取得资产在第二年的折旧系数为
+我们把2027年的折旧也实际重建一次. 上一年新取得资产在第二年的折旧系数为
 
 $$
 k_1=\frac{0.45}{5.5}(0.75+0.25/2)+\frac{0.55}{30}(0.20+0.45/2)
 =0.0793825758.
 $$
 
-第一项把已投用服务器计全年、新投用部分计半年；第二项对数据中心做同样处理。2026年的既有资产折旧为 $L_{2026}=33-192.5k_0=26.7408333333$，案例再设其每年保留90%，因此
+第一项把已投用服务器计全年、新投用部分计半年；第二项对数据中心做同样处理. 2026年的既有资产折旧为 $L_{2026}=33-192.5k_0=26.7408333333$，案例再设其每年保留90%，因此
 
 $$
 D_{2027}=0.9L_{2026}+192.5k_1+190k_0=45.5257746212.
 $$
 
-三个加项分别来自更早的存量、2026批次和2027批次，并不是把所有取得额都直接计成当年费用。固定经营负担比例 $a=5.54816/15.353\approx0.3613730216$，所以 $F_{2027}=aD_{2027}=16.4517867337$。因此
+三个加项分别来自更早的存量、2026批次和2027批次，并不是把所有取得额都直接计成当年费用. 固定经营负担比例 $a=5.54816/15.353\approx0.3613730216$，所以 $F_{2027}=aD_{2027}=16.4517867337$. 因此
 
 $$
 OI=0.64\times228-16.4517867337-45.5257746212
 =83.9424386451.
 $$
 
-我们现在能解释利润变化：收入增加带来贡献，先行资本投用使折旧与固定负担也增加。2029年收入337、OI113.569862、折旧75.005261，利润率约33.70%；不是看到收入增长后，再独立宣布利润率也会上升。
+我们现在能解释利润变化：收入增加带来贡献，先行资本投用使折旧与固定负担也增加. 2029年收入337、OI113.569862、折旧75.005261，利润率约33.70%；不是看到收入增长后，再独立宣布利润率也会上升.
 
 | Base年份 | 收入 | 折旧摊销 | 经营利润 | 当年资产取得 |
 |---|---:|---:|---:|---:|
@@ -3357,14 +3361,14 @@ $$
 | 2028 | 283 | 60.769327 | 98.390278 | 165.0 |
 | 2029 | 337 | 75.005261 | 113.569862 | 145.0 |
 
-表中资产取得不等于同年现金付款，折旧也不等于维护资本开支。它们分别回答“本期增加了什么资源”“本期付了多少钱”“本期利润承担多少资本消耗”。
+表中资产取得不等于同年现金付款，折旧也不等于维护资本开支. 它们分别回答“本期增加了什么资源”“本期付了多少钱”“本期利润承担多少资本消耗”.
 </section>
 
 <a id="p04-retail-relation"></a>
 <section data-reading-branch="retail">
 ## 分支：同一个框架，零售为什么换了变量
 
-零售不能照搬算力关系。案例从自营、实体店、第三方、广告、订阅、其他六类收入出发。2026研究基数依次为297.1、23.5、194.1、85.0、55.7、7.1，总计662.5。Base 2027对应增长8%、4%、11%、18%、10%、24%，因此合计731.133。这里的第三方服务收入不是商户成交总额，广告收入也不是广告主销售额。[^case]
+零售不能照搬算力关系. 案例从自营、实体店、第三方、广告、订阅、其他六类收入出发. 2026研究基数依次为297.1、23.5、194.1、85.0、55.7、7.1，总计662.5. Base 2027对应增长8%、4%、11%、18%、10%、24%，因此合计731.133. 这里的第三方服务收入不是商户成交总额，广告收入也不是广告主销售额. [^case]
 
 以 $S=(第三方+广告+订阅)/非AWS收入$ 表示服务收入组合，案例采用
 
@@ -3372,39 +3376,39 @@ $$
 \Delta m_{bps}=20\Delta S_{pp}-35u_{\%}-v_{bps}+e_{bps}.
 $$
 
-$u$ 是单位物流成本变化，$v$ 是价格投入，$e$ 是其他净改善。20与35都是研究代理；百分点、百分数、基点各有分母：服务占比增加1个百分点产生20基点贡献，而单位成本增加1%产生35基点负担。
+$u$ 是单位物流成本变化，$v$ 是价格投入，$e$ 是其他净改善. 20与35都是研究代理；百分点、百分数、基点各有分母：服务占比增加1个百分点产生20基点贡献，而单位成本增加1%产生35基点负担.
 
-2027服务组合贡献为20.616579基点。北美的单位成本变化为0%、价格投入15基点、其他改善15基点，净增仍是20.616579基点；国际分别为0.25%、20、25，净增 $20.616579-8.75-20+25=16.866579$ 基点。将这两个增量加入7.65%与3.85%的起始利润率，再按各地区收入加总，得到49.639111的非AWS经营利润。
+2027服务组合贡献为20.616579基点. 北美的单位成本变化为0%、价格投入15基点、其他改善15基点，净增仍是20.616579基点；国际分别为0.25%、20、25，净增 $20.616579-8.75-20+25=16.866579$ 基点. 将这两个增量加入7.65%与3.85%的起始利润率，再按各地区收入加总，得到49.639111的非AWS经营利润.
 
-IAB/PwC报告中的美国 commerce media 在2025年为63.4十亿美元、增长18%；其统计范围不是 Amazon 全球广告，不能直接相除求市占率。它在历史研究中用于挑战广告增长的持续性，促使广告收入和组合贡献一起下调，而不是另加一笔独立“广告价值”。[^iab]
+IAB/PwC报告中的美国 commerce media 在2025年为63.4 B 美元、增长18%；其统计范围不是 Amazon 全球广告，不能直接相除求市占率. 它在历史研究中用于挑战广告增长的持续性，促使广告收入和组合贡献一起下调，而不是另加一笔独立“广告价值”. [^iab]
 </section>
 
 <a id="p04-capital"></a>
 ## 4. 利润增长之后，现金为何还可能不够
 
-从利润走到资金，要保留费用与付款的时间差。历史案例以集团2026全年资产取得254.5，减融资租赁新增4.3，再减额外设备付款时差30.2，得到现金资本支出220。6月末现金余额已经反映上半年付款96.31，所以后半年只再扣123.69。若再次扣全年220，就把已发生的上半年重复算了一遍。[^case]
+从利润走到资金，要保留费用与付款的时间差. 历史案例以集团2026全年资产取得254.5，减融资租赁新增4.3，再减额外设备付款时差30.2，得到现金资本支出220. 6月末现金余额已经反映上半年付款96.31，所以后半年只再扣123.69. 若再次扣全年220，就把已发生的上半年重复算了一遍. [^case]
 
-再看 Base 2027Q1。期初现金111.974015，加上该季核心现金变化−56.123359，另扣客户融资出资2.5，融资前现金为53.350656。核心现金变化已经包括当季收入成本、折旧/SBC加回、营运资本、现金税、资本付款、既有融资服务与近似现金收益，但未含本次新发债的费用与半季度利息。
+再看 Base 2027Q1. 期初现金111.974015，加上该季核心现金变化−56.123359，另扣客户融资出资2.5，融资前现金为53.350656. 核心现金变化已经包括当季收入成本、折旧/SBC加回、营运资本、现金税、资本付款、既有融资服务与近似现金收益，但未含本次新发债的费用与半季度利息.
 
-模型要求融资后至少保留60。设新债本金 $B$、发行费用率0.5%、年利率6%，且该季新债平均占用半个季度，则
+模型要求融资后至少保留60. 设新债本金 $B$、发行费用率0.5%、年利率6%，且该季新债平均占用半个季度，则
 
 $$
 53.350656+B(1-0.005-0.06/8)=60,
 \qquad B=6.733512582.
 $$
 
-费用和利息也消耗现金，所以融资本金略大于缺口6.649344。60只是本模型的融资警戒线，不是 Amazon 的实际资金政策；借款可得性也是条件。后续季度的“融资前现金”继承了前面已经融到的钱，它不是全期从不融资的反事实路径。
+费用和利息也消耗现金，所以融资本金略大于缺口6.649344. 60只是本模型的融资警戒线，不是 Amazon 的实际资金政策；借款可得性也是条件. 后续季度的“融资前现金”继承了前面已经融到的钱，它不是全期从不融资的反事实路径.
 
 <a id="p04-experiment"></a>
 ## 5. 操作：换一个已经定义的世界
 
 <div data-experiment-slot="EXP-P04-CANONICAL-PATH"></div>
 
-[打开经营与资金实验](/notebook/labs/p-bcd/interactions.html#EXP-P04-CANONICAL-PATH)。先看 Base 的年度经营表与季度现金线，再选择“AI延后并连带Core”。后者把2027 Core改为 $148\times1.12$，AI采用27/35/58/90，保留原来的资产取得计划；企业现金和融资随新经营结果重算。其终点现金从116.404522变为94.580212，借款从276.792273变为327.672724。**资本计划不变，绝不等于现金不变。**
+[打开经营与资金实验](/notebook/labs/p-bcd/interactions.html#EXP-P04-CANONICAL-PATH). 先看 Base 的年度经营表与季度现金线，再选择“AI延后并连带Core”. 后者把2027 Core改为 $148\times1.12$，AI采用27/35/58/90，保留原来的资产取得计划；企业现金和融资随新经营结果重算. 其终点现金从116.404522变为94.580212，借款从276.792273变为327.672724. **资本计划不变，绝不等于现金不变.**
 
-另一项“AWS较弱、非AWS Base”使用 AWS Bear 经营关系、非AWS Base 关系，并以 Base 资金规则重算。只固定原倍数时每股条件值278.410746，再采用各自业务状态倍数时为243.300457。前后比较分别隔离经营变化与定价变化；不能把这个替代再任意叠加到 Bull 或 Tail 上。
+另一项“AWS较弱、非AWS Base”使用 AWS Bear 经营关系、非AWS Base 关系，并以 Base 资金规则重算. 只固定原倍数时每股条件值278.410746，再采用各自业务状态倍数时为243.300457. 前后比较分别隔离经营变化与定价变化；不能把这个替代再任意叠加到 Bull 或 Tail 上.
 
-关闭脚本时，可直接用下面的摘要作同一比较。具名替代只给其实际保存的摘要，没有把原 Base 的14季现金线冒充替代路径。
+关闭脚本时，可直接用下面的摘要作同一比较. 具名替代只给其实际保存的摘要，没有把原 Base 的14季现金线冒充替代路径.
 
 | 路径 | 2029现金 | 2029有息借款 | 2029每股条件值，固定Base倍数 |
 |---|---:|---:|---:|
@@ -3416,26 +3420,26 @@ $$
 <a id="p04-exercises"></a>
 ## 6. 练习与完整解析
 
-**解释题。** 某电力合同写“最多供应1,920MW”，研究员把它乘自设的每MW收入并加入当年预测。哪条关系缺失？
+**解释题.** 某电力合同写“最多供应1,920MW”，研究员把它乘自设的每MW收入并加入当年预测. 哪条关系缺失？
 
-**解析。** “最多”是权利上限，不是当期交付。需要核合同爬坡、地点与并网、机房投用、供电与IT负载的转换、任务量、使用率和计费条件。Talen在2025年6月11日的公告预计分阶段爬坡至全额，最迟2032年达到1,920MW；这个历史计划不等于当年实现。[^talen] 不能既把合同当新容量、又把客户合同总额另算一份需求。即使乘法量纲看似成立，经济对应仍未建立。
+**解析.** “最多”是权利上限，不是当期交付. 需要核合同爬坡、地点与并网、机房投用、供电与IT负载的转换、任务量、使用率和计费条件. Talen在2025年6月11日的公告预计分阶段爬坡至全额，最迟2032年达到1,920MW；这个历史计划不等于当年实现. [^talen] 不能既把合同当新容量、又把客户合同总额另算一份需求. 即使乘法量纲看似成立，经济对应仍未建立.
 
-**计算题。** 若 Base 2027只把贡献率从64%降到60%，暂时固定收入、固定成本与折旧，经营利润下降多少？能否直接由此宣称融资也不变？
+**计算题.** 若 Base 2027只把贡献率从64%降到60%，暂时固定收入、固定成本与折旧，经营利润下降多少？能否直接由此宣称融资也不变？
 
-**解析。** 利润下降 $0.04\times228=9.12$，得到74.8224386451。这是局部贡献敏感性，不是新公司情景。利润下降会影响经营现金与借款需求；现金税、营运资本、融资费用是否响应还需指定。固定资本计划只固定一类支出，不能固定现金净变化。本实验不把这个手算自动升级为已保存的完整替代。
+**解析.** 利润下降 $0.04\times228=9.12$，得到74.8224386451. 这是局部贡献敏感性，不是新公司情景. 利润下降会影响经营现金与借款需求；现金税、营运资本、融资费用是否响应还需指定. 固定资本计划只固定一类支出，不能固定现金净变化. 本实验不把这个手算自动升级为已保存的完整替代.
 
-**迁移题。** 需求晚一年到来，公司能够取消尚未下单的服务器，但不能撤销已投用的数据中心。应该把所有资本和折旧随收入一起后移吗？
+**迁移题.** 需求晚一年到来，公司能够取消尚未下单的服务器，但不能撤销已投用的数据中心. 应该把所有资本和折旧随收入一起后移吗？
 
-**解析。** 不应。先区分已付款、已承诺、未下单、已投用四种状态，再只调整真正可调整的批次；已投用资产的折旧和维护仍存在。未来服务器采购后移可能缓解现金，却也约束后续交付能力。我们应重新检查“客户需求—交付能力—贡献—资本—融资”，而不是只把收入表平移。下一篇将沿这张业务图判断哪些部分可以独立定价。
+**解析.** 不应. 先区分已付款、已承诺、未下单、已投用四种状态，再只调整真正可调整的批次；已投用资产的折旧和维护仍存在. 未来服务器采购后移可能缓解现金，却也约束后续交付能力. 我们应重新检查“客户需求—交付能力—贡献—资本—融资”，而不是只把收入表平移. 下一篇将沿这张业务图判断哪些部分可以独立定价.
 
-[^amzn]: Amazon，2026Q2 Form 10-Q，Note 8，印刷pp22–25：分部范围、经营费用分配、收入/OI、PP&E取得与折旧表。[原文](https://www.sec.gov/Archives/edgar/data/1018724/000101872426000026/amzn-20260630.htm)。表内million已统一为billion。
-[^case]: [CASE-AMZN-20260920](/zh/notebook/amzn-research-20260920/#case-amzn-operating)，历史研究的事实台账、经营代理、年度路径与具名替代。未来金额均保持2026-09-20研究身份。
-[^method]: [业务关系与共同经营状态](/zh/notebook/business-relations-calibrated-states/#pm-business-state-calibration-contract)，本站方法的局部摘编。
-[^cma]: CMA，Cloud Infrastructure Services: Final Decision Report，2025，§§6.320–6.325，印刷pp326–327。[原文](https://assets.publishing.service.gov.uk/media/688b8891fdde2b8f73469544/final_decision_report.pdf)。采用历史英国技术迁移机制，不移植市场份额。
-[^iea]: IEA，Key Questions on Energy and AI，2026-04-16，[Executive summary](https://www.iea.org/reports/key-questions-on-energy-and-ai/executive-summary)，完整小节“Across the AI value chain, a scramble…”；提供行业供给与融资机制，不提供AWS特定收入参数。
-[^iab]: IAB/PwC，Internet Advertising Revenue Report FY2025，2026-04，p27，定义与方法见pp32、35。[原文](https://www.iab.com/wp-content/uploads/2026/04/IAB_PwC_Internet_Ad_Revenue_Report_Full_Year_2025_April_2026.pdf)。
+[^amzn]: Amazon，2026Q2 Form 10-Q，Note 8，印刷pp22–25：分部范围、经营费用分配、收入/OI、PP&E取得与折旧表. [原文](https://www.sec.gov/Archives/edgar/data/1018724/000101872426000026/amzn-20260630.htm). 表内million已统一为billion.
+[^case]: [CASE-AMZN-20260920](/zh/notebook/amzn-research-20260920/#case-amzn-operating)，历史研究的事实台账、经营代理、年度路径与具名替代. 未来金额均保持2026-09-20研究身份.
+[^method]: [业务关系与共同经营状态](/zh/notebook/business-relations-calibrated-states/#pm-business-state-calibration-contract)，本站方法的局部摘编.
+[^cma]: CMA，Cloud Infrastructure Services: Final Decision Report，2025，§§6.320–6.325，印刷pp326–327. [原文](https://assets.publishing.service.gov.uk/media/688b8891fdde2b8f73469544/final_decision_report.pdf). 采用历史英国技术迁移机制，不移植市场份额.
+[^iea]: IEA，Key Questions on Energy and AI，2026-04-16，[Executive summary](https://www.iea.org/reports/key-questions-on-energy-and-ai/executive-summary)，完整小节“Across the AI value chain, a scramble…”；提供行业供给与融资机制，不提供AWS特定收入参数.
+[^iab]: IAB/PwC，Internet Advertising Revenue Report FY2025，2026-04，p27，定义与方法见pp32、35. [原文](https://www.iab.com/wp-content/uploads/2026/04/IAB_PwC_Internet_Ad_Revenue_Report_Full_Year_2025_April_2026.pdf).
 
-[^talen]: Talen，2025-06-11 Form 8-K，Exhibit 99.1，第1页（PDF第4页）供电数量、爬坡时间；第3页前瞻性说明。[公告原文](https://ir.talenenergy.com/static-files/90cce90c-e281-42c6-b686-ed6010dd8699)。采用公告时的计划身份，不据此确认后续全部交付。
+[^talen]: Talen，2025-06-11 Form 8-K，Exhibit 99.1，第1页（PDF第4页）供电数量、爬坡时间；第3页前瞻性说明. [公告原文](https://ir.talenenergy.com/static-files/90cce90c-e281-42c6-b686-ed6010dd8699). 采用公告时的计划身份，不据此确认后续全部交付.
 
 
 ## Experiment inputs and static equivalents
@@ -3445,7 +3449,7 @@ $$
     "id": "EXP-P04-CANONICAL-PATH",
     "title": "从校准业务关系到共同经营情景",
     "anchor": "p04-experiment",
-    "description": "以已实现事实校准同一经营关系，重建资本批次、利润与资金，再比较原状态和具名替代。",
+    "description": "以已实现事实校准同一经营关系，重建资本批次、利润与资金，再比较原状态和具名替代.",
     "inputs": {
       "choice": {
         "allowed": [
@@ -3478,7 +3482,7 @@ $$
       "lab": "https://ou-liu-red-sugar.github.io/notebook/labs/p-bcd/interactions.html#EXP-P04-CANONICAL-PATH",
       "without_javascript": "默认完整表和主要对照保留；不把参数规格当运行结果"
     },
-    "algorithm": "engine.path(choice)；只按source_key选已有结果，选择命名替代不再接state/stress，缺季度不插值。",
+    "algorithm": "engine.path(choice)；只按source_key选已有结果，选择命名替代不再接state/stress，缺季度不插值.",
     "boundaries": [
       "未知组合抛错并清空旧结果",
       "替代中capital规则为Base但余额属于重算结果",
@@ -3495,13 +3499,13 @@ $$
 ```
 
 ## Sources
-- [Amazon：2026-09-20历史条件研究案例](https://ou-liu-red-sugar.github.io/zh/notebook/amzn-research-20260920/): 原研究的事实/分析代理、四条未来路径、5项具名替代、4套权重与16组已算分布。报价冻结，代表点不是条件均值。
-- [Cloud Infrastructure Services: Final Decision Report](https://assets.publishing.service.gov.uk/media/688b8891fdde2b8f73469544/final_decision_report.pdf): 历史英国技术迁移/multi-cloud摩擦及缓解并存；不从这一单元推全球AWS增长或现行费用政策。
-- [Internet Advertising Revenue Report, Full-Year2025](https://www.iab.com/wp-content/uploads/2026/04/IAB_PwC_Internet_Ad_Revenue_Report_Full_Year_2025_April_2026.pdf): 美国commerce media收入63.4bn、报告增速18%，并有测量/增量回报约束；范围不是Amazon全球广告。
-- [Key Questions on Energy and AI — Executive summary](https://www.iea.org/reports/key-questions-on-energy-and-ai/executive-summary): AI资本链中的供应/设备/电网与融资限制；采用行业机制，不推AWS具体容量或收益率。
-- [业务关系、校准与共同经营状态](https://ou-liu-red-sugar.github.io/zh/notebook/business-relations-calibrated-states/): 本站原创方法摘编，规定业务边界、校准与共同资本责任；公开原件各自支持实例，不是完整方法的外部背书。
-- [Talen 8-K, Exhibit 99.1: nuclear energy relationship with Amazon](https://ir.talenenergy.com/static-files/90cce90c-e281-42c6-b686-ed6010dd8699): 公告中的1,920MW为满额供电计划，预计爬坡最迟2032达到；供电数量不等于AWS当期IT容量或收费收入。
-- [Amazon · 2026 Q2 Form 10-Q](https://www.sec.gov/Archives/edgar/data/1018724/000101872426000026/amzn-20260630.htm): 来源摘要：截至 2026-06-30 的季度报告。用于核对自营零售、第三方卖家服务与 AWS 的业务口径，以及存货、设备和现金流的合并披露。案例的解释由作者根据研究整理。
+- [Amazon：2026-09-20历史条件研究案例](https://ou-liu-red-sugar.github.io/zh/notebook/amzn-research-20260920/): 原研究的事实/分析代理、四条未来路径、5项具名替代、4套权重与16组已算分布. 报价冻结，代表点不是条件均值.
+- [Cloud Infrastructure Services: Final Decision Report](https://assets.publishing.service.gov.uk/media/688b8891fdde2b8f73469544/final_decision_report.pdf): 历史英国技术迁移/multi-cloud摩擦及缓解并存；不从这一单元推全球AWS增长或现行费用政策.
+- [Internet Advertising Revenue Report, Full-Year2025](https://www.iab.com/wp-content/uploads/2026/04/IAB_PwC_Internet_Ad_Revenue_Report_Full_Year_2025_April_2026.pdf): 美国commerce media收入63.4bn、报告增速18%，并有测量/增量回报约束；范围不是Amazon全球广告.
+- [Key Questions on Energy and AI — Executive summary](https://www.iea.org/reports/key-questions-on-energy-and-ai/executive-summary): AI资本链中的供应/设备/电网与融资限制；采用行业机制，不推AWS具体容量或收益率.
+- [业务关系、校准与共同经营状态](https://ou-liu-red-sugar.github.io/zh/notebook/business-relations-calibrated-states/): 本站原创方法摘编，规定业务边界、校准与共同资本责任；公开原件各自支持实例，不是完整方法的外部背书.
+- [Talen 8-K, Exhibit 99.1: nuclear energy relationship with Amazon](https://ir.talenenergy.com/static-files/90cce90c-e281-42c6-b686-ed6010dd8699): 公告中的1,920MW为满额供电计划，预计爬坡最迟2032达到；供电数量不等于AWS当期IT容量或收费收入.
+- [Amazon · 2026 Q2 Form 10-Q](https://www.sec.gov/Archives/edgar/data/1018724/000101872426000026/amzn-20260630.htm): 来源摘要：截至 2026-06-30 的季度报告. 用于核对自营零售、第三方卖家服务与 AWS 的业务口径，以及存货、设备和现金流的合并披露. 案例的解释由作者根据研究整理.
 
 ## Content relations
 ```json
@@ -3529,45 +3533,45 @@ $$
   {
     "relation": "supported_by",
     "to": "src-amzn-2026q2",
-    "reason": "分部范围与经营费用使用分配、产品收入、PP&E取得和折旧；债务/租赁、SBC/RSU等资本权利实例。未来余额不由当期附注直接给出。",
+    "reason": "分部范围与经营费用使用分配、产品收入、PP&E取得和折旧；债务/租赁、SBC/RSU等资本权利实例. 未来余额不由当期附注直接给出.",
     "locator": "Note8 pp22–25; Note3 pp13–14; Note4 p15 Commitments; Note5 pp17–18 debt table and notes; Note6 p19",
-    "scope": "本次重开Note8整单元；租赁余额/期限及成本表、融资承诺表与脚注、债务本金/账面及费用桥、RSU/SBC单元。不是整份10-Q全部审阅。",
+    "scope": "本次重开Note8整单元；租赁余额/期限及成本表、融资承诺表与脚注、债务本金/账面及费用桥、RSU/SBC单元. 不是整份10-Q全部审阅.",
     "optional": false,
     "from": "zh-p04"
   },
   {
     "relation": "supported_by",
     "to": "PBCD-CMA-CLOUD-2025",
-    "reason": "历史英国技术迁移/multi-cloud摩擦及缓解并存；不从这一单元推全球AWS增长或现行费用政策。",
+    "reason": "历史英国技术迁移/multi-cloud摩擦及缓解并存；不从这一单元推全球AWS增长或现行费用政策.",
     "locator": "§§6.320–6.325, printedpp326–327",
-    "scope": "两页完整指定单元，原页已看；不作为全部637页阅读。",
+    "scope": "两页完整指定单元，原页已看；不作为全部637页阅读.",
     "optional": false,
     "from": "zh-p04"
   },
   {
     "relation": "supported_by",
     "to": "PBCD-IEA-AI-2026-HTML",
-    "reason": "AI资本链中的供应/设备/电网与融资限制；采用行业机制，不推AWS具体容量或收益率。",
+    "reason": "AI资本链中的供应/设备/电网与融资限制；采用行业机制，不推AWS具体容量或收益率.",
     "locator": "Complete subsection beginning “Across the AI value chain, a scramble…”",
-    "scope": "实际取得官方HTML指定完整小节及相邻供给展望。PDF直链反复失败，未将其p47记作本次读取；PPA具体事实改用已读Talen原件。",
+    "scope": "实际取得官方HTML指定完整小节及相邻供给展望. PDF直链反复失败，未将其p47记作本次读取；PPA具体事实改用已读Talen原件.",
     "optional": false,
     "from": "zh-p04"
   },
   {
     "relation": "supported_by",
     "to": "PBCD-IAB-PWC-2025",
-    "reason": "美国commerce media收入63.4bn、报告增速18%，并有测量/增量回报约束；范围不是Amazon全球广告。",
+    "reason": "美国commerce media收入63.4bn、报告增速18%，并有测量/增量回报约束；范围不是Amazon全球广告.",
     "locator": "p27 commerce media; p32 definitions; p35 methodology",
-    "scope": "三页正文、图与定义/方法实际看原页；不称43页全部重读。",
+    "scope": "三页正文、图与定义/方法实际看原页；不称43页全部重读.",
     "optional": false,
     "from": "zh-p04"
   },
   {
     "relation": "supported_by",
     "to": "PBCD-TALEN-PPA",
-    "reason": "公告中的1,920MW为满额供电计划，预计爬坡最迟2032达到；供电数量不等于AWS当期IT容量或收费收入。",
+    "reason": "公告中的1,920MW为满额供电计划，预计爬坡最迟2032达到；供电数量不等于AWS当期IT容量或收费收入.",
     "locator": "Ex99.1 printed p1 (PDF p4); Ex99.1 printed p3 forward-looking statements (PDF p6)",
-    "scope": "上述完整页和前瞻说明，已查看原页；未用公告确认后来全部交付。",
+    "scope": "上述完整页和前瞻说明，已查看原页；未用公告确认后来全部交付.",
     "optional": false,
     "from": "zh-p04"
   },
@@ -3576,7 +3580,7 @@ $$
     "relation": "illustrated_by",
     "to": "EXP-P04-CANONICAL-PATH",
     "at_section": "p04-experiment",
-    "reason": "以已实现事实校准同一经营关系，重建资本批次、利润与资金，再比较原状态和具名替代。"
+    "reason": "以已实现事实校准同一经营关系，重建资本批次、利润与资金，再比较原状态和具名替代."
   }
 ]
 ```
