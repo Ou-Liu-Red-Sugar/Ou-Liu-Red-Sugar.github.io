@@ -1,0 +1,974 @@
+# 有限期完备性与唯一等价鞅测度
+
+用可复制空间与严格正扰动证明完备性定理，并构造全部数字支付和任意支付的复制。
+
+Entry: zh-qt18p2 | Node: QT18-P2 | Language: zh | Editorial revision: 2026-09-21
+
+## Teaching instructions
+你是 QT18-P2《有限期完备性与唯一等价鞅测度》的数学助教。面向有微积分、线性代数与基本概率背景的高年级本科或研究生。
+先实际取得并读完 required_readings 中与当前任务对应的 Williams 官方 PDF 完整单元，记录版本、页/节、条件与读取失败；文件入口或摘要不算全文。同一官方 URL 已于 2026-09-21 通过正常 TLS 校验的普通 HTTP 下载取得完整 PDF，但这不替代本次课堂运行的实际读取；若本次无法取得原件，须如实说明缺口。阅读成功后的课堂运行才填写 runtime_reading_log，本导出中保持空。
+本次诊断与推演：从K=span{1}+L的双向可实现性开始，再推完备到事件概率唯一。反向必须给非零正交方向及epsilon幅度、归一化、严格正性和EMM检查。最后让读者自己解中间数字与(2,-1,3)支付。
+先让读者独立作答，再逐步反馈，最后换一个条件做迁移。反馈标准：通过须区分EMM唯一与持仓唯一；不能只报矩阵rank。多期复制作信息原子指标基，再补足现金，不能把一期常数theta当作全部动态策略。
+严格区分已证结论、引用定理、教学模型与算术验证；有限枚举不是一般证明。只使用 supplied_inputs 中当前单元的冻结市场切片，输入时点与单位不改写；不得另造第二套 EXP-STATE-01，也不得把 QT08 的抛币实验混入市场证明。不采用原件已说明的排印错误。界面只展示当前视图，静态默认表与题解同样可完成任务。
+结束时问：读者只读完这个词条，真的能学明白吗？请用其独立完成的证明或计算回答，给具体缺口，不以复述结论代替理解。
+
+Before substantive teaching, actually retrieve every required reading unit for the selected scope. Read its complete designated section, including necessary assumptions, tables and footnotes. A working URL or an editorial access date is not a runtime reading receipt. Record the actual version, location, scope and what it supports. If unavailable, use a previously verified equivalent source; if the required unit remains unavailable, identify that gap rather than teach it from memory. Start runtime_reading_log empty. Once reading is complete, use a substantive diagnostic or follow the reader's request for direct explanation. Advance one complete reasoning task at a time; skip mastered basics. Distinguish original facts, supplied teaching assumptions and inference.
+
+## Required readings and runtime protocol
+```json
+{
+  "export_mode": "public",
+  "required_readings": [
+    {
+      "source_id": "QTF-WILLIAMS3",
+      "access": {
+        "kind": "pdf_full_text",
+        "uri": "https://mathweb.ucsd.edu/~williams/courses/m294notes/chap3.pdf",
+        "verified_access_at": "2026-09-21"
+      },
+      "required_unit": {
+        "locator": "§3.1 complete; printed pp.40–43/PDF2–3",
+        "scope": "完整读取该采用单元，含必要条件和所用证明。",
+        "purpose": "有限原子、终端全信息、现金与持仓约定"
+      },
+      "supports": "有限原子、终端全信息、现金与持仓约定",
+      "title": "Finite Market Model, Chapter 3",
+      "authors": [
+        "Ruth J. Williams"
+      ],
+      "version": "Chapter PDF; no reliable revision date stated"
+    },
+    {
+      "source_id": "QTF-WILLIAMS3",
+      "access": {
+        "kind": "pdf_full_text",
+        "uri": "https://mathweb.ucsd.edu/~williams/courses/m294notes/chap3.pdf",
+        "verified_access_at": "2026-09-21"
+      },
+      "required_unit": {
+        "locator": "§3.2 Lemmas3.2.3,3.2.5,3.2.6 and proofs; printed pp.44–45,48–50/PDF4,6–7",
+        "scope": "完整读取该采用单元，含必要条件和所用证明。",
+        "purpose": "已证依赖：财富鞅、现金补足及指标判据"
+      },
+      "supports": "已证依赖：财富鞅、现金补足及指标判据",
+      "title": "Finite Market Model, Chapter 3",
+      "authors": [
+        "Ruth J. Williams"
+      ],
+      "version": "Chapter PDF; no reliable revision date stated"
+    },
+    {
+      "source_id": "QTF-WILLIAMS3",
+      "access": {
+        "kind": "pdf_full_text",
+        "uri": "https://mathweb.ucsd.edu/~williams/courses/m294notes/chap3.pdf",
+        "verified_access_at": "2026-09-21"
+      },
+      "required_unit": {
+        "locator": "§3.3 Theorems3.3.1–3.3.3 complete; printed pp.51–55/PDF7–9",
+        "scope": "完整读取该采用单元，含必要条件和所用证明。",
+        "purpose": "复制价值、唯一EMM和动态复制完成"
+      },
+      "supports": "复制价值、唯一EMM和动态复制完成",
+      "title": "Finite Market Model, Chapter 3",
+      "authors": [
+        "Ruth J. Williams"
+      ],
+      "version": "Chapter PDF; no reliable revision date stated"
+    }
+  ],
+  "optional_readings": [],
+  "runtime_reading_log": [],
+  "supplied_inputs": {
+    "market_contract": {
+      "experiment_id": "EXP-STATE-01",
+      "version": "2026-09-21-v1",
+      "identity": "Finite frictionless teaching market, independently reconstructed with exact rational arithmetic; no estimated probability or live security quote",
+      "units": {
+        "monetary_unit": "USD, teaching denomination per modeled asset unit",
+        "time": "one abstract period; not annualized",
+        "cash_account_holding": "number of cash-account units; cash value at t equals beta*B_t",
+        "probabilities": "dimensionless; state-price vector is not a probability",
+        "gross_cash_return_symbol": "R=B_1/B_0=51/50; reserve real scalars for mathbb R"
+      },
+      "assumptions": {
+        "time_grid": [
+          0,
+          1
+        ],
+        "F_0": "{empty, Omega}",
+        "F_T": "all subsets of the displayed terminal atoms",
+        "physical_probability": "strictly positive on every terminal atom",
+        "cash_account": "B_0=1, deterministic B_1=51/50 > 0; identical borrowing and lending accumulation",
+        "holdings": "unrestricted finite signed real quantities; fractional positions and short sales allowed",
+        "timing": "holdings for (0,1] chosen from F_0; terminal state cannot be used to choose them",
+        "financing": "V_0=beta*B_0+sum_j h_j*S_0^j over every traded risky asset; in the augmented market this includes the added claim at price c. No external cash flows; its terminal payoff is included once in the portfolio value.",
+        "frictions": "zero transaction costs, no bid/ask spread, no dividends, no margin/liquidity/short-sale constraint"
+      },
+      "formula_contract": {
+        "state_prices": "A^T*pi=s_0; pi_i>0; sum_i pi_i=B_0/B_1=1/R",
+        "martingale_probability": "Q_i=R*pi_i, E_Q[S_1]=R*S_0",
+        "density": "z_i=Q_i/P_i; E_P[z]=1",
+        "pricing_kernel": "m_i=pi_i/P_i=z_i/R; E_P[m]=1/R",
+        "replication": "A*theta=H; price=s_0^T*theta=sum_i pi_i*H_i",
+        "multiperiod_cash_completion": "beta_1=(V_0-h_1 dot S_0)/B_0; beta_(k+1)=(beta_k*B_k+h_k dot S_k-h_(k+1) dot S_k)/B_k",
+        "discounted_wealth": "V_k/B_k=V_0/B_0+sum_(j=1)^k h_j dot (S_j/B_j-S_(j-1)/B_(j-1))",
+        "attainable_space": "K=span{1}+L={a*1+ell:a in real numbers,ell in L}; R is not the scalar field"
+      }
+    },
+    "incomplete_market": {
+      "state_order": [
+        "down",
+        "middle",
+        "up"
+      ],
+      "B_0": {
+        "exact": "1",
+        "decimal": 1.0
+      },
+      "B_1": {
+        "exact": "51/50",
+        "decimal": 1.02
+      },
+      "S_0": {
+        "exact": "100",
+        "decimal": 100.0
+      },
+      "S_1": [
+        {
+          "exact": "80",
+          "decimal": 80.0
+        },
+        {
+          "exact": "100",
+          "decimal": 100.0
+        },
+        {
+          "exact": "120",
+          "decimal": 120.0
+        }
+      ],
+      "rank": 2,
+      "Q_family": {
+        "parameter": "t",
+        "expression": [
+          "t",
+          "9/10 - 2*t",
+          "1/10 + t"
+        ],
+        "open_parameter_interval": {
+          "lower": {
+            "exact": "0",
+            "decimal": 0.0
+          },
+          "upper": {
+            "exact": "9/20",
+            "decimal": 0.45
+          },
+          "endpoints_included": false
+        },
+        "default_t": {
+          "exact": "1/5",
+          "decimal": 0.2
+        },
+        "null_direction": [
+          {
+            "exact": "1",
+            "decimal": 1.0
+          },
+          {
+            "exact": "-2",
+            "decimal": -2.0
+          },
+          {
+            "exact": "1",
+            "decimal": 1.0
+          }
+        ],
+        "samples": [
+          {
+            "t": {
+              "exact": "1/10",
+              "decimal": 0.1
+            },
+            "Q": [
+              {
+                "exact": "1/10",
+                "decimal": 0.1
+              },
+              {
+                "exact": "7/10",
+                "decimal": 0.7
+              },
+              {
+                "exact": "1/5",
+                "decimal": 0.2
+              }
+            ],
+            "state_prices": [
+              {
+                "exact": "5/51",
+                "decimal": 0.09803921568627451
+              },
+              {
+                "exact": "35/51",
+                "decimal": 0.6862745098039216
+              },
+              {
+                "exact": "10/51",
+                "decimal": 0.19607843137254902
+              }
+            ],
+            "claim_price": {
+              "exact": "200/51",
+              "decimal": 3.9215686274509802
+            }
+          },
+          {
+            "t": {
+              "exact": "1/5",
+              "decimal": 0.2
+            },
+            "Q": [
+              {
+                "exact": "1/5",
+                "decimal": 0.2
+              },
+              {
+                "exact": "1/2",
+                "decimal": 0.5
+              },
+              {
+                "exact": "3/10",
+                "decimal": 0.3
+              }
+            ],
+            "state_prices": [
+              {
+                "exact": "10/51",
+                "decimal": 0.19607843137254902
+              },
+              {
+                "exact": "25/51",
+                "decimal": 0.49019607843137253
+              },
+              {
+                "exact": "5/17",
+                "decimal": 0.29411764705882354
+              }
+            ],
+            "claim_price": {
+              "exact": "100/17",
+              "decimal": 5.882352941176471
+            }
+          },
+          {
+            "t": {
+              "exact": "2/5",
+              "decimal": 0.4
+            },
+            "Q": [
+              {
+                "exact": "2/5",
+                "decimal": 0.4
+              },
+              {
+                "exact": "1/10",
+                "decimal": 0.1
+              },
+              {
+                "exact": "1/2",
+                "decimal": 0.5
+              }
+            ],
+            "state_prices": [
+              {
+                "exact": "20/51",
+                "decimal": 0.39215686274509803
+              },
+              {
+                "exact": "5/51",
+                "decimal": 0.09803921568627451
+              },
+              {
+                "exact": "25/51",
+                "decimal": 0.49019607843137253
+              }
+            ],
+            "claim_price": {
+              "exact": "500/51",
+              "decimal": 9.803921568627452
+            }
+          }
+        ]
+      }
+    },
+    "augmented_complete": {
+      "traded_call_price": {
+        "exact": "6",
+        "decimal": 6.0
+      },
+      "Q": [
+        {
+          "exact": "103/500",
+          "decimal": 0.206
+        },
+        {
+          "exact": "61/125",
+          "decimal": 0.488
+        },
+        {
+          "exact": "153/500",
+          "decimal": 0.306
+        }
+      ],
+      "state_prices": [
+        {
+          "exact": "103/510",
+          "decimal": 0.2019607843137255
+        },
+        {
+          "exact": "122/255",
+          "decimal": 0.47843137254901963
+        },
+        {
+          "exact": "3/10",
+          "decimal": 0.3
+        }
+      ],
+      "payoff_matrix_state_rows_asset_columns_B_S_C": [
+        [
+          {
+            "exact": "51/50",
+            "decimal": 1.02
+          },
+          {
+            "exact": "80",
+            "decimal": 80.0
+          },
+          {
+            "exact": "0",
+            "decimal": 0.0
+          }
+        ],
+        [
+          {
+            "exact": "51/50",
+            "decimal": 1.02
+          },
+          {
+            "exact": "100",
+            "decimal": 100.0
+          },
+          {
+            "exact": "0",
+            "decimal": 0.0
+          }
+        ],
+        [
+          {
+            "exact": "51/50",
+            "decimal": 1.02
+          },
+          {
+            "exact": "120",
+            "decimal": 120.0
+          },
+          {
+            "exact": "20",
+            "decimal": 20.0
+          }
+        ]
+      ],
+      "initial_price_vector_B_S_C": [
+        {
+          "exact": "1",
+          "decimal": 1.0
+        },
+        {
+          "exact": "100",
+          "decimal": 100.0
+        },
+        {
+          "exact": "6",
+          "decimal": 6.0
+        }
+      ],
+      "rank": 3,
+      "determinant": {
+        "exact": "408",
+        "decimal": 408.0
+      },
+      "parameter_t": {
+        "exact": "103/500",
+        "decimal": 0.206
+      },
+      "digital_replications": [
+        {
+          "state": "down",
+          "payoff": [
+            {
+              "exact": "1",
+              "decimal": 1.0
+            },
+            {
+              "exact": "0",
+              "decimal": 0.0
+            },
+            {
+              "exact": "0",
+              "decimal": 0.0
+            }
+          ],
+          "holdings_B_S_C": [
+            {
+              "exact": "250/51",
+              "decimal": 4.901960784313726
+            },
+            {
+              "exact": "-1/20",
+              "decimal": -0.05
+            },
+            {
+              "exact": "1/20",
+              "decimal": 0.05
+            }
+          ],
+          "initial_cost": {
+            "exact": "103/510",
+            "decimal": 0.2019607843137255
+          }
+        },
+        {
+          "state": "middle",
+          "payoff": [
+            {
+              "exact": "0",
+              "decimal": 0.0
+            },
+            {
+              "exact": "1",
+              "decimal": 1.0
+            },
+            {
+              "exact": "0",
+              "decimal": 0.0
+            }
+          ],
+          "holdings_B_S_C": [
+            {
+              "exact": "-200/51",
+              "decimal": -3.9215686274509802
+            },
+            {
+              "exact": "1/20",
+              "decimal": 0.05
+            },
+            {
+              "exact": "-1/10",
+              "decimal": -0.1
+            }
+          ],
+          "initial_cost": {
+            "exact": "122/255",
+            "decimal": 0.47843137254901963
+          }
+        },
+        {
+          "state": "up",
+          "payoff": [
+            {
+              "exact": "0",
+              "decimal": 0.0
+            },
+            {
+              "exact": "0",
+              "decimal": 0.0
+            },
+            {
+              "exact": "1",
+              "decimal": 1.0
+            }
+          ],
+          "holdings_B_S_C": [
+            {
+              "exact": "0",
+              "decimal": 0.0
+            },
+            {
+              "exact": "0",
+              "decimal": 0.0
+            },
+            {
+              "exact": "1/20",
+              "decimal": 0.05
+            }
+          ],
+          "initial_cost": {
+            "exact": "3/10",
+            "decimal": 0.3
+          }
+        }
+      ],
+      "arbitrary_payoff_replication_formula": {
+        "for": [
+          "x_down",
+          "x_middle",
+          "x_up"
+        ],
+        "stock_units": "(x_middle-x_down)/20",
+        "cash_account_units": "(5*x_down-4*x_middle)/(51/50)",
+        "claim_units": "(x_up-2*x_middle+x_down)/20",
+        "initial_cost": "pi_down*x_down + pi_middle*x_middle + pi_up*x_up"
+      }
+    },
+    "view": {
+      "node": "QT18-P2",
+      "underlying_experiment_id": "EXP-STATE-01",
+      "default_digital_state": "middle",
+      "perturbation_multiplier": "1"
+    },
+    "attachments": [
+      {
+        "title": "本篇完整静态阅读",
+        "uri": "https://ou-liu-red-sugar.github.io/notebook/labs/qt-f/static/QT18-P2.html",
+        "kind": "html"
+      },
+      {
+        "title": "EXP-STATE-01 唯一冻结市场",
+        "uri": "https://ou-liu-red-sugar.github.io/notebook/labs/qt-f/data/qt-f-shared-state-experiment.json",
+        "kind": "json",
+        "version": "2026-09-21-v1",
+        "json_pointers": [
+          "/units",
+          "/assumptions",
+          "/three_state_incomplete/Q_family",
+          "/three_state_augmented_complete"
+        ],
+        "policy": "沿同一冻结文件读取当前单元指定部分，不另造树或三状态物理概率。"
+      },
+      {
+        "title": "同包默认精确计算",
+        "uri": "https://ou-liu-red-sugar.github.io/notebook/labs/qt-f/data/results.json",
+        "kind": "json",
+        "json_pointers": [
+          "/complete/digitals",
+          "/complete/exercise",
+          "/complete/perturbation"
+        ]
+      }
+    ]
+  }
+}
+```
+
+## Supplied entry
+无套利让我们找到了至少一种不会遗漏任何状态的定价权重，但还没有保证这组权重唯一。完备性问的是另一件事：利用已有资产和允许的动态交易，能不能做出每一种终端支付？这篇将证明两者的精确联系，并把“可复制”落实为持仓和初始成本。
+
+先修是 QT18-P1 中已经证明的三项结果：现金补足、贴现财富鞅性质，以及指标持仓恢复条件鞅的判据。本篇会写出它们在何处使用，不再另借一个未展开的鞅表示定理。
+
+<a id="qt18p2-model"></a>
+
+## 1. 终端信息决定“全部支付”的范围
+
+仍取有限状态 $\Omega=\{\omega_1,\ldots,\omega_m\}$，$\mathcal F=2^\Omega$，$P$ 对所有状态严格正，$\mathcal F_0$ 平凡、$\mathcal F_T=\mathcal F$，有限交易时点为 $0,\ldots,T$。现金账户 $B_k$ 确定且严格正，借贷同率；风险价格适应，持有于 $(k-1,k]$ 的仓位在 $\mathcal F_{k-1}$ 可知。允许任意有限有符号实数仓位，交易无摩擦、无分红、无外部资金流、无额外持仓限制，并假设市场无套利。[^w-model]
+
+一个终端支付是任意实值 $\mathcal F_T$ 可测变量 $X$；它可由自融资策略在每个状态满足 $V_T=X$，就称可复制。若每个这样的 $X$ 都可复制，市场就是完备的。若终端信息只区分原始空间中的一些原子，就应把这些原子当作本模型的状态，而不是对未观测的额外细分也宣称测度唯一。[^w-completeness]
+
+<a id="qt18p2-space"></a>
+
+## 2. 可复制空间里，常数项不能漏掉
+
+令 $L$ 为全部零初始贴现终端增益组成的线性空间。允许任意初始财富后，全部可复制贴现终值组成
+
+$$
+\begin{aligned}
+K&=\operatorname{span}\{\mathbf1\}+L\\
+ &=\{a\mathbf1+\ell:a\in\mathbb R,\ \ell\in L\}.
+\end{aligned}
+$$
+
+这里的 $\operatorname{span}\{\mathbf1\}$ 是所有实数倍的常数向量；它不是固定现金增长因子 $R$ 乘以一次 $\mathbf1$。
+
+我们把这条刻画的两个方向都核对。任意自融资策略满足
+
+$$
+V_T/B_T=V_0/B_0+\sum_{k=1}^T h_k\cdot\Delta\widetilde S_k,
+$$
+
+所以贴现终值在 $K$ 中。反过来，若 $X/B_T=a\mathbf1+\ell\in K$，取产生 $\ell$ 的可预测风险持仓，初始财富取 $aB_0$，由现金补足递推构造现金仓位，得到 $V_T/B_T=X/B_T$，即确实复制 $X$。因此
+
+$$
+\text{市场完备}\quad\Longleftrightarrow\quad K=\mathbb R^m.
+$$
+
+现金补足在这里完成了“向量属于一个空间”到“存在可实施交易策略”的最后一步。[^w-space]
+
+<a id="qt18p2-theorem"></a>
+
+## 3. 完备当且仅当 EMM 唯一
+
+定理（有限期第二资产定价基本定理）。在第 1 节全部条件下，市场完备，当且仅当等价鞅测度唯一。无套利假设保证至少有一个 EMM；“唯一”不是在一个空集合中讨论。[^w-completeness]
+
+先作一个准备。若策略复制 $X$，则在任何 EMM $Q$ 下，贴现财富为鞅，故
+
+$$
+V_k/B_k=E_Q[X/B_T\mid\mathcal F_k].
+$$
+
+左边是一套已经选定的持仓沿已给价格计值的过程，根本不随我们挑哪个 EMM 改变。因此所有 EMM 给这个可复制支付相同价值；所有复制它的策略也有相同价值过程。这不要求复制仓位唯一：有冗余资产时，不同仓位可能产生同一财富过程。[^w-value]
+
+证明“完备 $\Rightarrow$ 唯一”。设 $Q,Q'$ 都是 EMM。对任意终端事件 $A$，完备性给出复制 $\mathbf1_A$ 的策略，其初始贴现财富满足
+
+$$
+E_Q[\mathbf1_A/B_T]
+=V_0/B_0
+=E_{Q'}[\mathbf1_A/B_T].
+$$
+
+$B_T$ 是确定的正数，乘回它得到 $Q(A)=Q'(A)$。因为 $A$ 遍历 $\mathcal F_T=2^\Omega$，故 $Q=Q'$。这条证明用的是模型中的确定现金条件，并不是在断言随机正计价资产下不存在其他形式的完备性定理。
+
+<a id="qt18p2-perturbation"></a>
+
+## 4. 不完备留下的方向，怎样生成另一概率
+
+另一方向用逆否命题。若市场不完备，第 2 节给 $K\subsetneq\mathbb R^m$。有限维线性代数因此提供非零向量 $z\in K^\perp$。由于 $\mathbf1\in K$ 且 $L\subseteq K$，
+
+$$
+\sum_i z_i=0,\qquad z\cdot\ell=0\quad(\ell\in L).
+$$
+
+第一基本定理给出一个全支持 EMM $q=(q_i)$。选
+
+$$
+0<|\varepsilon|\le
+\frac12\min_{z_i\ne0}\frac{q_i}{|z_i|},
+\qquad q'_i=q_i+\varepsilon z_i.
+$$
+
+右侧最小值严格正，因为只有有限多个状态且所有 $q_i>0$。对 $z_i\ne0$，有 $q'_i\ge q_i/2>0$；对 $z_i=0$，$q'_i=q_i>0$。而 $\sum z_i=0$ 保证 $\sum q'_i=1$。因此 $q'$ 是另一全支持概率，且因 $\varepsilon\ne0,z\ne0$ 确实不同于 $q$。
+
+还必须检查它仍是 EMM。对每个零成本增益 $\ell\in L$，
+
+$$
+E_{Q'}\ell
+=E_Q\ell+\varepsilon z\cdot\ell=0.
+$$
+
+固定一期、一个资产和一个当期之前可知的事件，采用 QT18-P1 已构造的指标风险持仓并补足现金，就得到
+
+$$
+E_{Q'}[\mathbf1_A\Delta\widetilde S_k^i]=0
+\quad\text{对所有 }A\in\mathcal F_{k-1}.
+$$
+
+故各贴现价格在 $Q'$ 下仍是鞅。于是市场不完备便存在至少两个 EMM，逆否命题完成。[^w-space]
+
+这一证明也解释了“未被资产价格约束的方向”：$z$ 与全部可复制贴现支付正交，微调概率时这些支付的价格看不出变化；只有某些不可复制支付可能看到区别。
+
+在同一个三状态市场、未加入新资产时，可以取
+
+$$
+q=\left(\frac{1}{5},\frac{1}{2},\frac{3}{10}\right),\qquad z=\left(1,-2,1\right).
+$$
+
+由上述公式得到一个安全幅度 $\varepsilon=\frac{1}{10}$，从而 $q'=\left(\frac{3}{10},\frac{3}{10},\frac{2}{5}\right)$。新旧两组权重都正确定价现金和股票，但对看涨式支付的价格不同。这里改变的是定价测度的选择，没有改动股票、现金或支付定义。
+
+<a id="qt18p2-replication"></a>
+
+## 5. 从矩阵满秩走到真实持仓
+
+在一期市场，把各资产终端支付组成矩阵 $A$，状态为行、资产为列。若 $\operatorname{rank}(A)=m$，任意支付向量 $x$ 都能求解 $A\theta=x$；初始成本为 $s_0^T\theta$，终值逐行相等。反过来，若每个状态数字支付 $e_i$ 都可复制，所有 $e_i$ 都在列空间内，矩阵必为满行秩。
+
+采用 EXP-STATE-01 的三状态分支，将看涨式支付以初价 $6$ 加入交易。矩阵行列式为 $408$，因此我们现在不仅知道能复制，而且可以逐一解出：
+
+| 数字支付 | 持仓 $(\beta,\Delta,\gamma)$ | 初始成本 |
+|---|---|---|
+| $\left(1,0,0\right)$ | $\left(\frac{250}{51},-\frac{1}{20},\frac{1}{20}\right)$ | $\frac{103}{510}$ |
+| $\left(0,1,0\right)$ | $\left(-\frac{200}{51},\frac{1}{20},-\frac{1}{10}\right)$ | $\frac{122}{255}$ |
+| $\left(0,0,1\right)$ | $\left(0,0,\frac{1}{20}\right)$ | $\frac{3}{10}$ |
+
+以中间状态的一美元为例，持仓在每个终端状态的三项贡献如下：
+
+| 状态 | 现金终值 | 股票终值 | 新增资产支付 | 合计 |
+|---|---|---|---|---|
+| 下跌 | $-4$ | $4$ | $0$ | $0$ |
+| 中间 | $-4$ | $5$ | $0$ | $1$ |
+| 上涨 | $-4$ | $6$ | $-2$ | $0$ |
+
+每一行加总都达到目标，初始成本为 $\frac{122}{255}$。表里的现金列仍是 $\beta B_1$；不能把现金账户单位 $\beta$ 直接当作美元终值。
+
+对任意支付 $x=(x_d,x_m,x_u)$，线性组合三种数字支付即可复制。把矩阵相邻行相减，也能直接得到
+
+$$
+\begin{aligned}
+\Delta&=\frac{x_m-x_d}{ 20 },\\
+\beta&=\frac{ 5x_d-4x_m }{ \frac{51}{50} },\\
+\gamma&=\frac{x_u-2x_m+x_d}{ 20 }.
+\end{aligned}
+$$
+
+其中 $\gamma$ 是新增看涨式资产的单位数。初始价格为
+
+$$
+\beta B_0+\Delta S_0+\gamma c
+=\pi_dx_d+\pi_mx_m+\pi_ux_u.
+$$
+
+<div data-experiment-slot="EXP-STATE-01--complete-proof"></div>
+
+先在界面选三个数字支付之一，再输入一个含正负分量的支付。它会重新求解持仓并逐状态乘回，而不是只显示“秩等于 3”。
+
+<a id="qt18p2-multiperiod"></a>
+
+## 6. 多期复制怎样计算：仓位会随信息改变
+
+多期不能继续用一组从头持有到尾的常数 $\theta$ 表示全部策略。对每个时点 $k$、每个风险资产 $i$ 和 $\mathcal F_{k-1}$ 的每个原子 $A$，定义向量
+
+$$
+b_{k,i,A}(\omega)
+=\mathbf1_A(\omega)\Delta\widetilde S_k^i(\omega).
+$$
+
+任意可预测持仓在一个信息原子上必为常数，因此这些向量张成 $L$。把常数向量与全部 $b_{k,i,A}$ 排成一个有限矩阵，求解
+
+$$
+X/B_T=a\mathbf1+\sum_{k,i,A}\alpha_{k,i,A}b_{k,i,A}.
+$$
+
+找到系数后，在事件 $A$ 上、第 $k$ 期持有资产 $i$ 的数量就是 $\alpha_{k,i,A}$，即 $h_k^i=\sum_A\alpha_{k,i,A}\mathbf1_A$。初始财富为 $aB_0$，然后逐期补足现金。贴现财富恒等式保证终值等于 $X$。完备性保证该有限系统对所有 $X$ 可解；冗余列可能让持仓解不唯一。[^w-representation]
+
+这段构造把一般证明真正落到了信息树上的计算：不是让今天的仓位依赖最终状态，而是让明天的仓位依赖到明天已经可知的分组。
+
+<a id="qt18p2-exercises"></a>
+
+## 7. 迁移：复制一个支付，再检查一个符号错误
+
+问题一。在已加入初价 $6$ 看涨式资产的三状态市场中，复制 $x=\left(2,-1,3\right)$。计算持仓、三个终值与初始成本。
+
+解析。代入上面的差分公式，得 $(\beta,\Delta,\gamma)=\left(\frac{700}{51},-\frac{3}{20},\frac{7}{20}\right)$。逐状态的结果是：
+
+| 状态 | 现金终值 | 股票终值 | 新增资产支付 | 合计 |
+|---|---|---|---|---|
+| 下跌 | $14$ | $-12$ | $0$ | $2$ |
+| 中间 | $14$ | $-15$ | $0$ | $-1$ |
+| 上涨 | $14$ | $-18$ | $7$ | $3$ |
+
+初始成本为 $\frac{421}{510}\approx0.8254902$，也等于 $\pi\cdot x$。支付含负分量并不妨碍线性复制；它表示该状态下组合需要支付而非收到资金，不是“概率为负”。
+
+问题二。有人把可复制空间写成 $K=R\mathbf1+L$，这里 $R=\frac{51}{50}$ 是现金增长因子，并继续使用 $K^\perp$。哪里出了问题？
+
+解析。固定一个 $R$ 只给出 $L$ 的仿射平移，并非全部实数初始财富。最简单取 $L=\{0\}$，该集合只有一个向量 $R\mathbf1$，不含零，不是线性子空间。正确写法是 $K=\operatorname{span}\{\mathbf1\}+L$。这才允许由“$\mathbf1\in K$”推出 $\sum z_i=0$，进而保持扰动后的概率总和为 1。
+
+问题三。若加入一列与原现金账户完全相同的资产，复制仓位不唯一，是否意味着 EMM 不唯一？
+
+解析。不意味着。复制全部支付对应满行秩；持仓唯一还需要列没有冗余。重复列不改变列空间，因此不会破坏原有完备性或 EMM 唯一性，却使持仓可以在两列相同资产之间自由挪动。定理中的两个“唯一”不能混淆。
+
+[^w-model]: Ruth J. Williams, [Finite Market Model, Chapter 3](https://mathweb.ucsd.edu/~williams/courses/m294notes/chap3.pdf#page=2)，§3.1，印刷 pp.40–43 / PDF pp.2–3。章节无可靠修订日期；本文显式保留终端全信息、初始平凡信息和确定正现金条件。
+[^w-completeness]: 同章 §3.3，完备性定义及 Theorem 3.3.2，印刷 pp.50–54 / PDF pp.7–9；一般证明在本篇完整展开。
+[^w-value]: 同章 Theorem 3.3.1，印刷 p.51 / PDF p.7。复制价值与持仓唯一性是不同问题。
+[^w-space]: 同章 Theorem 3.3.2 的反向证明，尤其 (3.37)–(3.45)，印刷 pp.52–54 / PDF pp.8–9；本文把全部可复制贴现支付空间记为 $K$，并明确给出严格正扰动幅度。
+[^w-representation]: 同章 Lemma 3.2.5，印刷 pp.48–49 / PDF p.6，以及 Theorem 3.3.3 及完整证明，印刷 pp.54–55 / PDF p.9。本文直接用信息原子的指标向量实现有限维求解与现金补足。
+
+
+## Experiment inputs and static equivalents
+```json
+[
+  {
+    "id": "EXP-STATE-01",
+    "title": "有限市场中的状态价格、等价鞅测度与完备性：计算视图",
+    "anchor": "qt18-measures",
+    "description": "改变本视图参数后重算；正文保留默认表、完整推导和题解，公开附件提供精确输入与结果。",
+    "inputs": {
+      "shared_experiment_id": "EXP-STATE-01",
+      "view": {
+        "node": "QT18",
+        "underlying_experiment_id": "EXP-STATE-01",
+        "default_mode": "two"
+      },
+      "public_attachments": [
+        {
+          "title": "EXP-STATE-01 唯一冻结市场",
+          "uri": "https://ou-liu-red-sugar.github.io/notebook/labs/qt-f/data/qt-f-shared-state-experiment.json",
+          "kind": "json",
+          "version": "2026-09-21-v1",
+          "json_pointers": [
+            "/units",
+            "/assumptions",
+            "/two_state",
+            "/three_state_incomplete",
+            "/three_state_augmented_complete"
+          ],
+          "policy": "沿同一冻结文件读取当前单元指定部分，不另造树或三状态物理概率。"
+        },
+        {
+          "title": "同包默认精确计算",
+          "uri": "https://ou-liu-red-sugar.github.io/notebook/labs/qt-f/data/results.json",
+          "kind": "json",
+          "json_pointers": [
+            "/two",
+            "/three",
+            "/complete"
+          ]
+        }
+      ]
+    },
+    "outputs": {
+      "file": "https://ou-liu-red-sugar.github.io/notebook/labs/qt-f/data/results.json",
+      "scope": "two/three/complete",
+      "json_pointers": [
+        "/two",
+        "/three",
+        "/complete"
+      ]
+    },
+    "is_view_of_existing_experiment": true,
+    "static_equivalent": "https://ou-liu-red-sugar.github.io/notebook/labs/qt-f/static/QT18.html"
+  },
+  {
+    "id": "EXP-STATE-01--complete-proof",
+    "title": "有限期完备性与唯一等价鞅测度：计算视图",
+    "anchor": "qt18p2-replication",
+    "description": "改变本视图参数后重算；正文保留默认表、完整推导和题解，公开附件提供精确输入与结果。",
+    "inputs": {
+      "shared_experiment_id": "EXP-STATE-01",
+      "view": {
+        "node": "QT18-P2",
+        "underlying_experiment_id": "EXP-STATE-01",
+        "default_digital_state": "middle",
+        "perturbation_multiplier": "1"
+      },
+      "public_attachments": [
+        {
+          "title": "EXP-STATE-01 唯一冻结市场",
+          "uri": "https://ou-liu-red-sugar.github.io/notebook/labs/qt-f/data/qt-f-shared-state-experiment.json",
+          "kind": "json",
+          "version": "2026-09-21-v1",
+          "json_pointers": [
+            "/units",
+            "/assumptions",
+            "/three_state_incomplete/Q_family",
+            "/three_state_augmented_complete"
+          ],
+          "policy": "沿同一冻结文件读取当前单元指定部分，不另造树或三状态物理概率。"
+        },
+        {
+          "title": "同包默认精确计算",
+          "uri": "https://ou-liu-red-sugar.github.io/notebook/labs/qt-f/data/results.json",
+          "kind": "json",
+          "json_pointers": [
+            "/complete/digitals",
+            "/complete/exercise",
+            "/complete/perturbation"
+          ]
+        }
+      ]
+    },
+    "outputs": {
+      "file": "https://ou-liu-red-sugar.github.io/notebook/labs/qt-f/data/results.json",
+      "scope": "two/three/complete",
+      "json_pointers": [
+        "/complete/digitals",
+        "/complete/exercise",
+        "/complete/perturbation"
+      ]
+    },
+    "is_view_of_existing_experiment": true,
+    "static_equivalent": "https://ou-liu-red-sugar.github.io/notebook/labs/qt-f/static/QT18-P2.html"
+  }
+]
+```
+
+## Sources
+- [Finite Market Model, Chapter 3](https://mathweb.ucsd.edu/~williams/courses/m294notes/chap3.pdf): 有限状态模型、现金补足、指标持仓鞅判据、两条基本定理及有限维分离完整证明。数值输入属于另行冻结的教学市场，不归称讲义报价。
+
+## Content relations
+```json
+[
+  {
+    "from": "zh-qt18p2",
+    "relation": "part_of",
+    "to": "quant-processes",
+    "reason": "主要 topic 归属"
+  },
+  {
+    "from": "qt18p2-replication",
+    "relation": "illustrated_by",
+    "to": "EXP-STATE-01",
+    "reason": "同一冻结输入的当前视图；证明与算术分别呈现。"
+  },
+  {
+    "from": "zh-qt18p2",
+    "relation": "requires",
+    "to": "qt18p1-cash",
+    "reason": "本证明实际调用的局部能力。",
+    "required_competence": "现金补足与贴现财富恒等式。"
+  },
+  {
+    "from": "zh-qt18p2",
+    "relation": "requires",
+    "to": "qt18p1-indicator",
+    "reason": "本证明实际调用的局部能力。",
+    "required_competence": "用所有指标持仓恢复条件鞅。"
+  },
+  {
+    "from": "qt18p2-model",
+    "relation": "supported_by",
+    "to": "QTF-WILLIAMS3",
+    "reason": "本段已著明脚注的定义、条件或证明单元；例题数字由具名教学输入提供。",
+    "locator": "Ruth J. Williams, [Finite Market Model, Chapter 3](https://mathweb.ucsd.edu/~williams/courses/m294notes/chap3.pdf#page=2)，§3.1，印刷 pp.40–43 / PDF pp.2–3。章节无可靠修订日期；本文显式保留终端全信息、初始平凡信息和确定正现金条件。\n同章 §3.3，完备性定义及 Theorem 3.3.2，印刷 pp.50–54 / PDF pp.7–9；一般证明在本篇完整展开。",
+    "scope": "沿本段原脚注的采用范围和勘误说明，不扩充为原件全部结论。",
+    "citation_labels": [
+      "w-model",
+      "w-completeness"
+    ]
+  },
+  {
+    "from": "qt18p2-space",
+    "relation": "supported_by",
+    "to": "QTF-WILLIAMS3",
+    "reason": "本段已著明脚注的定义、条件或证明单元；例题数字由具名教学输入提供。",
+    "locator": "同章 Theorem 3.3.2 的反向证明，尤其 (3.37)–(3.45)，印刷 pp.52–54 / PDF pp.8–9；本文把全部可复制贴现支付空间记为 $K$，并明确给出严格正扰动幅度。",
+    "scope": "沿本段原脚注的采用范围和勘误说明，不扩充为原件全部结论。",
+    "citation_labels": [
+      "w-space"
+    ]
+  },
+  {
+    "from": "qt18p2-theorem",
+    "relation": "supported_by",
+    "to": "QTF-WILLIAMS3",
+    "reason": "本段已著明脚注的定义、条件或证明单元；例题数字由具名教学输入提供。",
+    "locator": "同章 §3.3，完备性定义及 Theorem 3.3.2，印刷 pp.50–54 / PDF pp.7–9；一般证明在本篇完整展开。\n同章 Theorem 3.3.1，印刷 p.51 / PDF p.7。复制价值与持仓唯一性是不同问题。",
+    "scope": "沿本段原脚注的采用范围和勘误说明，不扩充为原件全部结论。",
+    "citation_labels": [
+      "w-completeness",
+      "w-value"
+    ]
+  },
+  {
+    "from": "qt18p2-perturbation",
+    "relation": "supported_by",
+    "to": "QTF-WILLIAMS3",
+    "reason": "本段已著明脚注的定义、条件或证明单元；例题数字由具名教学输入提供。",
+    "locator": "同章 Theorem 3.3.2 的反向证明，尤其 (3.37)–(3.45)，印刷 pp.52–54 / PDF pp.8–9；本文把全部可复制贴现支付空间记为 $K$，并明确给出严格正扰动幅度。",
+    "scope": "沿本段原脚注的采用范围和勘误说明，不扩充为原件全部结论。",
+    "citation_labels": [
+      "w-space"
+    ]
+  },
+  {
+    "from": "qt18p2-multiperiod",
+    "relation": "supported_by",
+    "to": "QTF-WILLIAMS3",
+    "reason": "本段已著明脚注的定义、条件或证明单元；例题数字由具名教学输入提供。",
+    "locator": "同章 Lemma 3.2.5，印刷 pp.48–49 / PDF p.6，以及 Theorem 3.3.3 及完整证明，印刷 pp.54–55 / PDF p.9。本文直接用信息原子的指标向量实现有限维求解与现金补足。",
+    "scope": "沿本段原脚注的采用范围和勘误说明，不扩充为原件全部结论。",
+    "citation_labels": [
+      "w-representation"
+    ]
+  }
+]
+```
+
+## Related entries

@@ -1,0 +1,468 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>计数过程与 Poisson 基准</title><style>:root{color-scheme:light;--ink:#203044;--muted:#536578;--line:#ccd7e1;--paper:#fff;--accent:#245b75;--wash:#f2f6f8;--alt:#9b5732}*{box-sizing:border-box}body{font-family:system-ui,-apple-system,"Microsoft YaHei",sans-serif;color:var(--ink);background:var(--paper);margin:0;line-height:1.8}main{max-width:940px;margin:auto;padding:28px 32px 70px}h1{font-size:1.9rem;line-height:1.4;margin:0 0 1.2rem}h2{font-size:1.38rem;margin-top:2.1rem;border-bottom:1px solid var(--line);padding-bottom:.3rem}h3{font-size:1.12rem}p{margin:.85rem 0}a{color:var(--accent);text-underline-offset:3px}strong{font-weight:650}nav{display:flex;flex-wrap:wrap;gap:12px;padding:12px 0;margin-bottom:15px;font-size:.92rem}button,select,input{font:inherit;min-height:42px;max-width:100%;border:1px solid var(--line);border-radius:5px;padding:5px 10px;background:white;color:var(--ink)}button{cursor:pointer}button:hover,button[aria-pressed=true]{background:var(--wash);border-color:var(--accent)}button:focus-visible,a:focus-visible,select:focus-visible,input:focus-visible{outline:3px solid #c57939;outline-offset:3px}.controls{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin:1rem 0}.controls label{display:flex;flex-wrap:wrap;align-items:center;gap:7px}.result{padding:12px 16px;background:var(--wash);border-left:3px solid var(--accent);overflow-wrap:anywhere}.subtle,small{color:var(--muted)}.table-wrap{width:100%;overflow:auto;margin:14px 0}table{border-collapse:collapse;width:100%;font-size:.92rem}th,td{padding:8px 10px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}th{font-weight:650;background:var(--wash)}td{font-variant-numeric:tabular-nums}pre{white-space:pre-wrap;overflow-wrap:anywhere;padding:12px;background:var(--wash)}code{font-family:ui-monospace,monospace;font-size:.93em}math{font-family:math;font-size:1.05em}math[display=block]{display:block;margin:1em 0;max-width:100%;line-height:1.8}span.math.display{display:block;max-width:100%;margin:1rem 0}section.lab-panel{padding:12px 0 25px;border-bottom:2px solid var(--line)}svg.chart{width:100%;height:auto;display:block;margin:1rem 0}svg text{font:12px system-ui}svg .line{fill:none;stroke:var(--accent);stroke-width:1.8}svg .bar{fill:var(--accent)}svg .line.alt{stroke:var(--alt)}.math-step{padding:10px;border:1px solid var(--line);border-radius:4px}.footnotes{font-size:.9rem;margin-top:3rem;border-top:1px solid var(--line)}iframe{width:100%;border:1px solid var(--line);border-radius:4px;min-height:680px;background:white}details{padding:8px 12px;border:1px solid var(--line);margin:1rem 0}summary{cursor:pointer;font-weight:600}.source-note{font-size:.88rem;overflow-wrap:anywhere}.branch-controls{display:flex;flex-wrap:wrap;gap:8px}.branch-status{font-size:.88rem}.lab-slot{margin:20px 0}.proof-link{padding:8px 0}.sr-only{position:absolute;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0,0,0,0)}[hidden]{display:none!important}
+@media(max-width:540px){main{padding:18px 14px 45px}h1{font-size:1.5rem}h2{font-size:1.2rem}table{font-size:.85rem}th,td{padding:6px 8px}iframe{min-height:790px}.controls{gap:8px}.controls label{max-width:100%}.result{padding:10px}}
+@media print{body{background:white;color:black}main{max-width:none;padding:0}nav,.controls,.branch-controls,button,.lab-slot{display:none!important}iframe{display:none}section[data-reading-branch]{display:block!important}details,details>*{display:block}table{font-size:9pt}h1,h2,h3{break-after:avoid}tr{break-inside:avoid}a{color:black}.table-wrap{overflow:visible}section.lab-panel[hidden]{display:none!important}svg{max-height:300px}}
+
+body,input,select,button,svg text{font-variant-numeric:lining-nums tabular-nums}
+</style><script defer src="/js/notebook-number-format.js" data-notebook-numbers></script>
+</head><body><main><nav><a href="/zh/notebook/models-path/">本批目录</a><a href="QT14.md">Markdown</a><a href="/agent/zh/qt-counting-poisson.md">完整Agent包</a><button id="copy-agent">复制Agent包</button></nav><p id="copy-status" role="status"></p><p class="subtle">15–18 分钟 · 从全部微秒时间记录复算计数和等待，建立有信息条件的 Poisson 基准。</p><h1 id="计数过程与-poisson-基准">计数过程与 Poisson 基准</h1>
+<p><a id="qt14-records"></a></p>
+<h2 id="先数真实记录再谈模型">先数真实记录，再谈模型</h2>
+<p>我们取 Binance 的 ETHBTC 现货逐笔成交档案，观察 2025 年 1 月 2 日 UTC 的第一个小时：<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">[</mo><mn>00</mn><mo>:</mo><mn>00</mn><mo>,</mo><mn>01</mn><mo>:</mo><mn>00</mn><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">[00{:}00,01{:}00)</annotation></semantics></math>。这是预先指定的一段描述性窗口，不是挑一段像 Poisson 的图。每条记录有 trade ID、价格、数量、报价资产数量、时间戳及两个布尔字段。价格单位是 BTC/ETH，数量单位是 ETH；此日期的现货时间戳用 Unix 微秒，而不是毫秒。不同 ID 即使时间戳相同，也不能删成一条。<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
+<p>本篇的任务是从这些字段建立计数、等待时间与时间单位，然后用一个条件明确的 Poisson 模型作比较。只需基本概率、条件期望以及过滤表示信息的含义。</p>
+<div class="table-wrap"><table>
+<thead>
+<tr class="header">
+<th>trade ID</th>
+<th>价格（BTC/ETH）</th>
+<th>数量（ETH）</th>
+<th>Unix 微秒</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>482524746</td>
+<td>0.03553000</td>
+<td>0.00560000</td>
+<td>1735776004130016</td>
+</tr>
+<tr class="even">
+<td>482524747</td>
+<td>0.03552000</td>
+<td>1.00000000</td>
+<td>1735776015196046</td>
+</tr>
+</tbody>
+</table></div>
+<p>第一条记录在窗口开始后约 4.130016 秒。这个“4.13 秒”不是我们观测到一个无删失的新等待：窗口开始前的上一笔成交没有包含进来。相同地，窗口结束后的下一笔也未知。数据附件保留这一小时全部 3,291 条记录的 trade ID 与微秒时间字段，并附固定窗口规则、逐秒/逐分钟计数和内部相邻间隔。价格与数量只在上面的实际原行节选中展示；计数和等待实验不需要这些列，也没有给它们补造数值。下列汇总均可从完整时间投影复算，不来自一分钟计数的反推。</p>
+<p><a id="qt14-counts"></a></p>
+<h2 id="两种时间区间约定不要混写">两种时间区间约定不要混写</h2>
+<p>对严格递增的模型到达时刻 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>0</mn><mo>&lt;</mo><msub><mi>T</mi><mn>1</mn></msub><mo>&lt;</mo><msub><mi>T</mi><mn>2</mn></msub><mo>&lt;</mo><mi>⋯</mi><mo>→</mo><mi>∞</mi></mrow><annotation encoding="application/x-tex">0&lt;T_1&lt;T_2&lt;\cdots\to\infty</annotation></semantics></math>，定义</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>N</mi><mi>t</mi></msub><mo>=</mo><munder><mo>∑</mo><mrow><mi>j</mi><mo>≥</mo><mn>1</mn></mrow></munder><msub><mn>𝟏</mn><mrow><mo stretchy="false" form="prefix">{</mo><msub><mi>T</mi><mi>j</mi></msub><mo>≤</mo><mi>t</mi><mo stretchy="false" form="postfix">}</mo></mrow></msub><mo>,</mo><mspace width="2.0em"></mspace><mi>N</mi><mo stretchy="false" form="prefix">(</mo><mi>a</mi><mo>,</mo><mi>b</mi><mo stretchy="false" form="postfix">]</mo><mo>=</mo><msub><mi>N</mi><mi>b</mi></msub><mo>−</mo><msub><mi>N</mi><mi>a</mi></msub><mi>.</mi></mrow><annotation encoding="application/x-tex">
+N_t=\sum_{j\ge1}\mathbf1_{\{T_j\le t\}},
+\qquad N(a,b]=N_b-N_a.
+</annotation></semantics></math></p>
+<p>这是理论右连续计数过程的约定。本数据的截窗和分箱则固定为左闭右开 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">[</mo><mi>a</mi><mo>,</mo><mi>b</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">[a,b)</annotation></semantics></math>：时间戳恰在下一分钟开始处，就归入下一箱。真实记录时间精度有限；模型的严格递增到达时刻与数据库里的重复时间戳不是同一个对象。记录相同只能说明无法用这一字段区分次序，不能证明潜在连续事件真的同时发生。</p>
+<p>以窗口起点为 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>u</mi><mn>0</mn></msub><annotation encoding="application/x-tex">u_0</annotation></semantics></math>，对每条微秒时间戳 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>u</mi><mi>i</mi></msub><annotation encoding="application/x-tex">u_i</annotation></semantics></math>，计算秒偏移 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>t</mi><mi>i</mi></msub><mo>=</mo><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>u</mi><mi>i</mi></msub><mo>−</mo><msub><mi>u</mi><mn>0</mn></msub><mo stretchy="true" form="postfix">)</mo></mrow><mi>/</mi><msup><mn>10</mn><mn>6</mn></msup></mrow><annotation encoding="application/x-tex">t_i=(u_i-u_0)/10^6</annotation></semantics></math>。宽度为 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>Δ</mi><annotation encoding="application/x-tex">\Delta</annotation></semantics></math> 秒时，箱号是 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">⌊</mo><msub><mi>t</mi><mi>i</mi></msub><mi>/</mi><mi>Δ</mi><mo stretchy="false" form="postfix">⌋</mo></mrow><annotation encoding="application/x-tex">\lfloor t_i/\Delta\rfloor</annotation></semantics></math>，仅保留 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>0</mn><mo>≤</mo><msub><mi>t</mi><mi>i</mi></msub><mo>&lt;</mo><mn>3600</mn></mrow><annotation encoding="application/x-tex">0\le t_i&lt;3600</annotation></semantics></math>。于是</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mover><mi>λ</mi><mo accent="true">̂</mo></mover><mo>=</mo><mfrac><mn>3291</mn><mn>3600</mn></mfrac><mo>=</mo><mn>0.914166667</mn><mspace width="1.0em"></mspace><mtext mathvariant="normal">笔/秒</mtext><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\widehat\lambda=\frac{3291}{3600}
+=0.914166667\quad\text{笔/秒}.
+</annotation></semantics></math></p>
+<p>这是窗口总数除以时长的描述量。改用分钟，数值为 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>54.85</mn><annotation encoding="application/x-tex">54.85</annotation></semantics></math> 笔/分钟；改变的是单位，不是交易强度突然变了六十倍。</p>
+<p><a id="qt14-poisson"></a></p>
+<h2 id="poisson-模型究竟多要求了什么">Poisson 模型究竟多要求了什么</h2>
+<p>令 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>N</mi><mn>0</mn></msub><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">N_0=0</annotation></semantics></math>，<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>N</mi><annotation encoding="application/x-tex">N</annotation></semantics></math> 为右连续计数过程。齐次 Poisson 过程的强度为 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>λ</mi><mo>&gt;</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">\lambda&gt;0</annotation></semantics></math>，是指不相交时间区间的增量独立，而且对 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>s</mi><mo>&lt;</mo><mi>t</mi></mrow><annotation encoding="application/x-tex">s&lt;t</annotation></semantics></math>，</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>N</mi><mi>t</mi></msub><mo>−</mo><msub><mi>N</mi><mi>s</mi></msub><mo>=</mo><mi>k</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><msup><mi>e</mi><mrow><mi>−</mi><mi>λ</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>t</mi><mo>−</mo><mi>s</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow></msup><mfrac><msup><mrow><mo stretchy="true" form="prefix">[</mo><mi>λ</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>t</mi><mo>−</mo><mi>s</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo stretchy="true" form="postfix">]</mo></mrow><mi>k</mi></msup><mrow><mi>k</mi><mi>!</mi></mrow></mfrac><mo>,</mo><mspace width="2.0em"></mspace><mi>k</mi><mo>=</mo><mn>0</mn><mo>,</mo><mn>1</mn><mo>,</mo><mi>…</mi><mi>.</mi></mrow><annotation encoding="application/x-tex">
+P(N_t-N_s=k)
+=e^{-\lambda(t-s)}\frac{[\lambda(t-s)]^k}{k!},
+\qquad k=0,1,\ldots.
+</annotation></semantics></math></p>
+<p>我们采用自然过滤 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>ℱ</mi><mi>s</mi></msub><mo>=</mo><mi>σ</mi><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>N</mi><mi>u</mi></msub><mo>:</mo><mi>u</mi><mo>≤</mo><mi>s</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">\mathcal F_s=\sigma(N_u:u\le s)</annotation></semantics></math>。若扩大过滤，必须仍要求未来增量独立于 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>ℱ</mi><mi>s</mi></msub><annotation encoding="application/x-tex">\mathcal F_s</annotation></semantics></math>。例如一开始就告诉观察者 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>N</mi><mi>T</mi></msub><annotation encoding="application/x-tex">N_T</annotation></semantics></math>，即使过程无条件的计数分布没变，下面的条件均值结论也可能被破坏。<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a></p>
+<p>由独立增量，</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>E</mi><mrow><mo stretchy="true" form="prefix">[</mo><msub><mi>N</mi><mi>t</mi></msub><mo>−</mo><msub><mi>N</mi><mi>s</mi></msub><mo>∣</mo><msub><mi>ℱ</mi><mi>s</mi></msub><mo stretchy="true" form="postfix">]</mo></mrow><mo>=</mo><mi>λ</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>t</mi><mo>−</mo><mi>s</mi><mo stretchy="true" form="postfix">)</mo></mrow><mi>.</mi></mrow><annotation encoding="application/x-tex">
+E[N_t-N_s\mid\mathcal F_s]=\lambda(t-s).
+</annotation></semantics></math></p>
+<p>因此 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>M</mi><mi>t</mi></msub><mo>=</mo><msub><mi>N</mi><mi>t</mi></msub><mo>−</mo><mi>λ</mi><mi>t</mi></mrow><annotation encoding="application/x-tex">M_t=N_t-\lambda t</annotation></semantics></math> 适应、可积，且</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>E</mi><mrow><mo stretchy="true" form="prefix">[</mo><msub><mi>M</mi><mi>t</mi></msub><mo>∣</mo><msub><mi>ℱ</mi><mi>s</mi></msub><mo stretchy="true" form="postfix">]</mo></mrow><mo>=</mo><msub><mi>N</mi><mi>s</mi></msub><mo>+</mo><mi>λ</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>t</mi><mo>−</mo><mi>s</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>−</mo><mi>λ</mi><mi>t</mi><mo>=</mo><msub><mi>M</mi><mi>s</mi></msub><mi>.</mi></mrow><annotation encoding="application/x-tex">
+E[M_t\mid\mathcal F_s]
+=N_s+\lambda(t-s)-\lambda t=M_s.
+</annotation></semantics></math></p>
+<p>这完整证明了补偿过程为鞅。我们减去的是已指定模型的期望到达量，不是从同一窗口拟合一个均值以后就让真实残差自动变成鞅。</p>
+<p>首等待 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>T</mi><mn>1</mn></msub><annotation encoding="application/x-tex">T_1</annotation></semantics></math> 的尾概率也立即可算：</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>T</mi><mn>1</mn></msub><mo>&gt;</mo><mi>t</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mi>P</mi><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>N</mi><mi>t</mi></msub><mo>=</mo><mn>0</mn><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><msup><mi>e</mi><mrow><mi>−</mi><mi>λ</mi><mi>t</mi></mrow></msup><mi>.</mi></mrow><annotation encoding="application/x-tex">
+P(T_1&gt;t)=P(N_t=0)=e^{-\lambda t}.
+</annotation></semantics></math></p>
+<p>故 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>T</mi><mn>1</mn></msub><mo>∼</mo><mo>Exp</mo><mrow><mo stretchy="true" form="prefix">(</mo><mi>λ</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">T_1\sim\operatorname{Exp}(\lambda)</annotation></semantics></math>，其均值 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1</mn><mi>/</mi><mi>λ</mi></mrow><annotation encoding="application/x-tex">1/\lambda</annotation></semantics></math>。关键依据是零计数的完整概率，不是单凭 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>E</mi><mrow><mo stretchy="true" form="prefix">[</mo><msub><mi>N</mi><mi>t</mi></msub><mo stretchy="true" form="postfix">]</mo></mrow><mo>=</mo><mi>λ</mi><mi>t</mi></mrow><annotation encoding="application/x-tex">E[N_t]=\lambda t</annotation></semantics></math>。</p>
+<p><a id="qt14-arrivals-proof"></a></p>
+<h2 id="从指数间隔反过来构造还要证明联合增量">从指数间隔反过来构造：还要证明联合增量</h2>
+<p>取独立同分布的 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>E</mi><mi>j</mi></msub><mo>∼</mo><mo>Exp</mo><mrow><mo stretchy="true" form="prefix">(</mo><mi>λ</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">E_j\sim\operatorname{Exp}(\lambda)</annotation></semantics></math>，令 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>T</mi><mi>n</mi></msub><mo>=</mo><msub><mi>E</mi><mn>1</mn></msub><mo>+</mo><mi>⋯</mi><mo>+</mo><msub><mi>E</mi><mi>n</mi></msub></mrow><annotation encoding="application/x-tex">T_n=E_1+\cdots+E_n</annotation></semantics></math>。先排除有限时点发生无穷多次到达。对任何 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>θ</mi><mo>&gt;</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">\theta&gt;0</annotation></semantics></math>，</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtable><mtr><mtd columnalign="right" style="text-align: right"><mi>P</mi><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>T</mi><mi>n</mi></msub><mo>≤</mo><mi>T</mi><mo stretchy="true" form="postfix">)</mo></mrow></mtd><mtd columnalign="left" style="text-align: left"><mo>≤</mo><msup><mi>e</mi><mrow><mi>θ</mi><mi>T</mi></mrow></msup><mi>E</mi><mrow><mo stretchy="true" form="prefix">[</mo><msup><mi>e</mi><mrow><mi>−</mi><mi>θ</mi><msub><mi>T</mi><mi>n</mi></msub></mrow></msup><mo stretchy="true" form="postfix">]</mo></mrow></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right"></mtd><mtd columnalign="left" style="text-align: left"><mo>=</mo><msup><mi>e</mi><mrow><mi>θ</mi><mi>T</mi></mrow></msup><msup><mrow><mo stretchy="true" form="prefix">(</mo><mfrac><mi>λ</mi><mrow><mi>λ</mi><mo>+</mo><mi>θ</mi></mrow></mfrac><mo stretchy="true" form="postfix">)</mo></mrow><mi>n</mi></msup><mo>→</mo><mn>0</mn><mi>.</mi></mtd></mtr></mtable><annotation encoding="application/x-tex">
+\begin{aligned}
+P(T_n\le T)
+&amp;\le e^{\theta T}E[e^{-\theta T_n}]\\
+&amp;=e^{\theta T}
+\left(\frac{\lambda}{\lambda+\theta}\right)^n\longrightarrow0.
+\end{aligned}
+</annotation></semantics></math></p>
+<p>由于 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">{</mo><msub><mi>T</mi><mi>n</mi></msub><mo>≤</mo><mi>T</mi><mo stretchy="false" form="postfix">}</mo></mrow><annotation encoding="application/x-tex">\{T_n\le T\}</annotation></semantics></math> 递减，所有 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>T</mi><mi>n</mi></msub><annotation encoding="application/x-tex">T_n</annotation></semantics></math> 都落在固定 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="true" form="prefix">[</mo><mn>0</mn><mo>,</mo><mi>T</mi><mo stretchy="true" form="postfix">]</mo></mrow><annotation encoding="application/x-tex">[0,T]</annotation></semantics></math> 内的概率为零。再对正整数 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>T</mi><annotation encoding="application/x-tex">T</annotation></semantics></math> 取可数并，得到无爆炸。</p>
+<p>现在固定 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>0</mn><mo>=</mo><msub><mi>t</mi><mn>0</mn></msub><mo>&lt;</mo><mi>⋯</mi><mo>&lt;</mo><msub><mi>t</mi><mi>m</mi></msub><mo>=</mo><mi>T</mi></mrow><annotation encoding="application/x-tex">0=t_0&lt;\cdots&lt;t_m=T</annotation></semantics></math>，要求第 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>j</mi><annotation encoding="application/x-tex">j</annotation></semantics></math> 段恰好有 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>n</mi><mi>j</mi></msub><annotation encoding="application/x-tex">n_j</annotation></semantics></math> 次到达，令 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>=</mo><mo>∑</mo><msub><mi>n</mi><mi>j</mi></msub></mrow><annotation encoding="application/x-tex">n=\sum n_j</annotation></semantics></math>。对有序到达位置 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>0</mn><mo>&lt;</mo><msub><mi>s</mi><mn>1</mn></msub><mo>&lt;</mo><mi>⋯</mi><mo>&lt;</mo><msub><mi>s</mi><mi>n</mi></msub><mo>&lt;</mo><mi>T</mi></mrow><annotation encoding="application/x-tex">0&lt;s_1&lt;\cdots&lt;s_n&lt;T</annotation></semantics></math>，前 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>n</mi><annotation encoding="application/x-tex">n</annotation></semantics></math> 个指数密度相乘，再乘下一次等待超过 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>T</mi><mo>−</mo><msub><mi>s</mi><mi>n</mi></msub></mrow><annotation encoding="application/x-tex">T-s_n</annotation></semantics></math> 的概率，得到</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>λ</mi><mi>n</mi></msup><msup><mi>e</mi><mrow><mi>−</mi><mi>λ</mi><msub><mi>s</mi><mi>n</mi></msub></mrow></msup><msup><mi>e</mi><mrow><mi>−</mi><mi>λ</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>T</mi><mo>−</mo><msub><mi>s</mi><mi>n</mi></msub><mo stretchy="true" form="postfix">)</mo></mrow></mrow></msup><mo>=</mo><msup><mi>λ</mi><mi>n</mi></msup><msup><mi>e</mi><mrow><mi>−</mi><mi>λ</mi><mi>T</mi></mrow></msup><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\lambda^n e^{-\lambda s_n}
+ e^{-\lambda(T-s_n)}=\lambda^n e^{-\lambda T}.
+</annotation></semantics></math></p>
+<p>在每段各自的有序单纯形上积分，体积为 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mo>∏</mo><mi>j</mi></msub><msup><mrow><mo stretchy="true" form="prefix">(</mo><mi>Δ</mi><msub><mi>t</mi><mi>j</mi></msub><mo stretchy="true" form="postfix">)</mo></mrow><msub><mi>n</mi><mi>j</mi></msub></msup><mi>/</mi><msub><mi>n</mi><mi>j</mi></msub><mi>!</mi></mrow><annotation encoding="application/x-tex">\prod_j(\Delta t_j)^{n_j}/n_j!</annotation></semantics></math>，所以联合概率是</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><munderover><mo>∏</mo><mrow><mi>j</mi><mo>=</mo><mn>1</mn></mrow><mi>m</mi></munderover><msup><mi>e</mi><mrow><mi>−</mi><mi>λ</mi><mi>Δ</mi><msub><mi>t</mi><mi>j</mi></msub></mrow></msup><mfrac><msup><mrow><mo stretchy="true" form="prefix">(</mo><mi>λ</mi><mi>Δ</mi><msub><mi>t</mi><mi>j</mi></msub><mo stretchy="true" form="postfix">)</mo></mrow><msub><mi>n</mi><mi>j</mi></msub></msup><mrow><msub><mi>n</mi><mi>j</mi></msub><mi>!</mi></mrow></mfrac><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\prod_{j=1}^m
+ e^{-\lambda\Delta t_j}
+ \frac{(\lambda\Delta t_j)^{n_j}}{n_j!}.
+</annotation></semantics></math></p>
+<p>它同时给出各段的 Poisson 分布和独立性，而不只是终点 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>N</mi><mi>T</mi></msub><annotation encoding="application/x-tex">N_T</annotation></semantics></math> 的边际。反过来，计数的所有有限维分布决定到达时刻的联合分布，因为 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">{</mo><msub><mi>T</mi><mi>j</mi></msub><mo>&gt;</mo><mi>t</mi><mo stretchy="false" form="postfix">}</mo><mo>=</mo><mo stretchy="false" form="prefix">{</mo><msub><mi>N</mi><mi>t</mi></msub><mo>&lt;</mo><mi>j</mi><mo stretchy="false" form="postfix">}</mo></mrow><annotation encoding="application/x-tex">\{T_j&gt;t\}=\{N_t&lt;j\}</annotation></semantics></math>。因此这个构造也说明 Poisson 过程的间隔具有上述独立指数律。这里不需要调用未证明的 strong Markov 定理。</p>
+<p><a id="qt14-observed"></a></p>
+<h2 id="把基准放回这一小时">把基准放回这一小时</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr class="header">
+<th>描述对象</th>
+<th>箱数/间隔数</th>
+<th>平均数</th>
+<th>样本方差/零间隔</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>每秒计数</td>
+<td>3600</td>
+<td>0.914166667</td>
+<td>51.166012087</td>
+</tr>
+<tr class="even">
+<td>每分钟计数</td>
+<td>60</td>
+<td>54.85</td>
+<td>6364.977118644</td>
+</tr>
+<tr class="odd">
+<td>内部等待时间</td>
+<td>3290</td>
+<td>1.092549621 秒</td>
+<td>1880 个零间隔</td>
+</tr>
+</tbody>
+</table></div>
+<p>方差使用“箱数减一”的样本分母。齐次 Poisson 的理论均值与方差相等；这里分钟样本方差远大于均值。1 秒箱中有 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>2901</mn><mi>/</mi><mn>3600</mn><mo>≈</mo><mn>80.58</mn><mi>%</mi></mrow><annotation encoding="application/x-tex">2901/3600\approx80.58\%</annotation></semantics></math> 没有成交，而用全窗估计的强度代入 Poisson，零计数概率约为 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>40.09</mn><mi>%</mi></mrow><annotation encoding="application/x-tex">40.09\%</annotation></semantics></math>。均值相同绝不等于分布相同。</p>
+<p>内部相邻记录共有 3290 个间隔，其中 1880 个为零，平均约 1.09255 秒。不要把这个内部平均数直接当作无删失的 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1</mn><mi>/</mi><mi>λ</mi></mrow><annotation encoding="application/x-tex">1/\lambda</annotation></semantics></math> 估计，也不要删除零间隔后悄悄改变研究对象。计数的过度离散可能来自时变强度、共同订单的记录批次、依赖、精度或多个因素；仅凭一个 Fano 比不能识别唯一机制。</p>
+<div class="lab-slot">
+<iframe title="逐笔计数与内部等待" loading="lazy" src="../interactions.html?experiment=EXP-QT14-ARRIVAL-01">
+</iframe>
+<p>
+<a href="../interactions.html?experiment=EXP-QT14-ARRIVAL-01">打开独立实验视图</a>
+</p>
+</div>
+<p>先看分钟时间线的峰值，再比较“窗口总数/时长”和逐箱计数。界面中的 Poisson 参照始终是模型预测；真实秒级、分钟级柱子和内部等待分布都从同一份完整时间投影计算。零间隔单列，不用连续密度图把它抹掉。</p>
+<p>这个数据档案是后续下载的历史记录。官方说明日档次日可用且可能修订；这里没有重建当日某一交易者收到消息的精确时钟，也不把记录时间戳当作我们的 received time。<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a></p>
+<p><a id="qt14-exercise"></a></p>
+<h2 id="迁移题与解析">迁移题与解析</h2>
+<p><strong>题目。</strong> 用每秒强度预测十秒内零成交的概率，然后解释为什么不能把这个概率叫作本窗口已验证的未来预测。再假定 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>ℱ</mi><mn>0</mn></msub><annotation encoding="application/x-tex">\mathcal F_0</annotation></semantics></math> 额外包含 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>N</mi><mn>60</mn></msub><annotation encoding="application/x-tex">N_{60}</annotation></semantics></math>，说明补偿鞅证明哪一步失效。</p>
+<p><strong>解析。</strong> 齐次模型给 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>e</mi><mrow><mi>−</mi><mn>10</mn><mover><mi>λ</mi><mo accent="true">̂</mo></mover></mrow></msup><mo>≈</mo><mn>0.0001071</mn></mrow><annotation encoding="application/x-tex">e^{-10\widehat\lambda}\approx0.0001071</annotation></semantics></math>。这个数是把拟合强度代回强假设后的计算；窗口分箱已经显示该基准与记录的明显差异，参数拟合和模型检验又用同一数据，尚无独立未来验证。</p>
+<p>在扩大后的过滤中，<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>N</mi><mn>60</mn></msub><annotation encoding="application/x-tex">N_{60}</annotation></semantics></math> 已知，故 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>E</mi><mrow><mo stretchy="true" form="prefix">[</mo><msub><mi>N</mi><mn>60</mn></msub><mo>∣</mo><msub><mi>ℱ</mi><mn>0</mn></msub><mo stretchy="true" form="postfix">]</mo></mrow><mo>=</mo><msub><mi>N</mi><mn>60</mn></msub></mrow><annotation encoding="application/x-tex">E[N_{60}\mid\mathcal F_0]=N_{60}</annotation></semantics></math>，通常不等于固定的 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>60</mn><mi>λ</mi></mrow><annotation encoding="application/x-tex">60\lambda</annotation></semantics></math>。独立于过去计数不等于独立于任意额外信息。失效的是条件均值步骤，后面减去 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>λ</mi><mi>t</mi></mrow><annotation encoding="application/x-tex">\lambda t</annotation></semantics></math> 的代数没有错。</p>
+<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<hr />
+<ol>
+<li id="fn1"><p>Binance，<a href="https://github.com/binance/binance-public-data">Public Data README</a>，Spot/Trades、availability、Updates；<a href="https://data.binance.vision/data/spot/daily/trades/ETHBTC/ETHBTC-trades-2025-01-02.zip">2025-01-02 ETHBTC 原日档</a>。固定窗口统计与分钟计数来自 2026-09-21 冻结档，不能据此保证未来档案永不修订。<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>Hao Wu，MIT 18.445，<a href="https://ocw.mit.edu/courses/18-445-introduction-to-stochastic-processes-spring-2015/06c09371501eb1d7dd4c7c72c74cef5b_MIT18_445S15_lecture20.pdf">Lecture 20: Poisson process</a>，2015-04-29，7 张教学 slides。指数间隔的联合密度证明在本篇完整给出；讲义的 strong Markov 陈述不是这里采用的证明。<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3"><p>Binance，<a href="https://github.com/binance/binance-public-data">Public Data README</a>，Spot/Trades、availability、Updates；<a href="https://data.binance.vision/data/spot/daily/trades/ETHBTC/ETHBTC-trades-2025-01-02.zip">2025-01-02 ETHBTC 原日档</a>。固定窗口统计与分钟计数来自 2026-09-21 冻结档，不能据此保证未来档案永不修订。<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
+<textarea id="agent-text" hidden># QT14 · Reference-first Agent
+
+你是这篇中文学习单元的教学 Agent。读者具备本包列出的先修：基本概率、条件期望和过滤；无需强 Markov 定理。
+先实际取得 required_readings 中本次所选单元并读完，核对版本、页码与公式；已有同会话同版完整读取可以复用。只取得摘要或目录不得声称完成；无法取得原文时说明具体缺口，可先讲本包完整已给推导，但不得编造原文已读记录。runtime_reading_log 是你的实际运行记录，交付的空数组不是已读。
+本篇任务：先让读者解释两个相同微秒而 ID 不同的行是否重复，以及 N(a,b] 与数据 [a,b) 的区别；再让其重建补偿鞅的条件均值，指出 F0 预知 N60 时的失败。
+先让读者尝试，再按所缺的一步解释，不将全部课文一次复述。完整证明需要标明每项条件在哪一步用到，练习给出完整解析。只采用 supplied_inputs 的本篇切片和已链接全量数据，区分教学模型、真实记录、作者论文结果。图不是证明，模拟不是现实规律；不以预测概率替换定价测度。禁止从分位数拟造分布或另抽浏览器随机数冒充冻结路径。最后问：读者只读完这个词条，真的能学明白吗？用迁移题实际判断，明确剩余能力缺口。
+
+## 可读单元与输入
+
+```json
+{
+  &quot;export_mode&quot;: &quot;public&quot;,
+  &quot;required_readings&quot;: [
+    {
+      &quot;source_id&quot;: &quot;QGHI-MIT-POISSON15&quot;,
+      &quot;access&quot;: {
+        &quot;kind&quot;: &quot;pdf_full_text&quot;,
+        &quot;uri&quot;: &quot;https://ocw.mit.edu/courses/18-445-introduction-to-stochastic-processes-spring-2015/06c09371501eb1d7dd4c7c72c74cef5b_MIT18_445S15_lecture20.pdf&quot;
+      },
+      &quot;required_unit&quot;: {
+        &quot;locator&quot;: &quot;七张教学 slides pp.1–7&quot;,
+        &quot;scope&quot;: &quot;计数定义、指数间隔、Poisson 条件&quot;,
+        &quot;purpose&quot;: &quot;不借未证明 strong Markov；本篇联合密度证明自足&quot;
+      },
+      &quot;supports&quot;: &quot;到达、计数、Poisson 与指数间隔设置；strong Markov 在原文仅陈述，本文不用它承担构造证明。&quot;
+    },
+    {
+      &quot;source_id&quot;: &quot;QGHI-BINANCE-DATA&quot;,
+      &quot;access&quot;: {
+        &quot;kind&quot;: &quot;html_full_text&quot;,
+        &quot;uri&quot;: &quot;https://github.com/binance/binance-public-data&quot;
+      },
+      &quot;required_unit&quot;: {
+        &quot;locator&quot;: &quot;README Spot/Trades、availability、Updates&quot;,
+        &quot;scope&quot;: &quot;微秒、七列、日档次日与修订&quot;,
+        &quot;purpose&quot;: &quot;读取附带全部 ID/time 投影，复算秒/分计数和内部等待&quot;
+      },
+      &quot;supports&quot;: &quot;2025 起现货 timestamp 微秒；trades 七列、日档次日可用、可能更新。本文按冻结 first UTC hour 的全部 ID/time 字段复算计数和间隔。&quot;
+    }
+  ],
+  &quot;optional_readings&quot;: [],
+  &quot;runtime_reading_log&quot;: [],
+  &quot;supplied_inputs&quot;: {
+    &quot;competence&quot;: &quot;基本概率、条件期望和过滤；无需强 Markov 定理。&quot;,
+    &quot;static_equivalent&quot;: &quot;本篇 reader 全部默认表、证明及题解；HTML 禁用脚本仍可读。&quot;,
+    &quot;attachments&quot;: [
+      &quot;data/ethbtc-trade-times.csv&quot;,
+      &quot;data/ethbtc-interior-waits.csv&quot;,
+      &quot;data/ethbtc-counts-one-second.csv&quot;,
+      &quot;data/ethbtc-counts-one-minute.csv&quot;
+    ],
+    &quot;frozen&quot;: {
+      &quot;window_utc&quot;: {
+        &quot;start_inclusive&quot;: &quot;2025-01-02T00:00:00Z&quot;,
+        &quot;end_exclusive&quot;: &quot;2025-01-02T01:00:00Z&quot;
+      },
+      &quot;timestamp_unit&quot;: &quot;Unix microseconds&quot;,
+      &quot;bin_closure&quot;: &quot;[left,right)&quot;,
+      &quot;keep_equal_timestamp_distinct_trade_ids&quot;: true,
+      &quot;waiting_times&quot;: &quot;Adjacent observed interior events only; left/right window waiting segments are censored.&quot;,
+      &quot;model_count_interval&quot;: &quot;N(a,b] is a separate mathematical convention.&quot;
+    },
+    &quot;default_outputs&quot;: {
+      &quot;minute_counts&quot;: [
+        6,
+        28,
+        10,
+        4,
+        21,
+        10,
+        23,
+        20,
+        16,
+        14,
+        16,
+        22,
+        11,
+        37,
+        19,
+        61,
+        9,
+        55,
+        16,
+        100,
+        45,
+        35,
+        62,
+        203,
+        531,
+        195,
+        145,
+        54,
+        228,
+        44,
+        139,
+        54,
+        28,
+        59,
+        22,
+        49,
+        52,
+        173,
+        51,
+        33,
+        33,
+        47,
+        21,
+        54,
+        33,
+        3,
+        48,
+        24,
+        51,
+        16,
+        38,
+        41,
+        11,
+        19,
+        19,
+        28,
+        17,
+        48,
+        17,
+        23
+      ],
+      &quot;n&quot;: 3291,
+      &quot;mean&quot;: 54.85,
+      &quot;sample_variance&quot;: 6364.977118644067,
+      &quot;fano&quot;: 116.04333853498754,
+      &quot;lambda_per_second&quot;: 0.9141666666666667,
+      &quot;seconds_summary_source&quot;: &quot;Recomputed from complete 3291-row ID/time projection of the connected frozen CSV&quot;,
+      &quot;one_second&quot;: {
+        &quot;mean&quot;: 0.9141666666666667,
+        &quot;sample_variance&quot;: 51.16601208669075,
+        &quot;zero_bins&quot;: 2901,
+        &quot;bins&quot;: 3600
+      },
+      &quot;interior_waits&quot;: {
+        &quot;n&quot;: 3290,
+        &quot;zero_gaps&quot;: 1880,
+        &quot;mean_seconds&quot;: 1.092549620668693,
+        &quot;max_seconds&quot;: 42.742328
+      },
+      &quot;waiting_histogram&quot;: {
+        &quot;zero_atom&quot;: 1880,
+        &quot;positive_bin_edges&quot;: [
+          0.0,
+          0.001,
+          0.01,
+          0.1,
+          1.0,
+          5.0,
+          10.0,
+          30.0,
+          60.0
+        ],
+        &quot;counts&quot;: [
+          294,
+          167,
+          112,
+          269,
+          337,
+          131,
+          93,
+          7
+        ],
+        &quot;closure&quot;: &quot;positive first bin (0,right); subsequent [left,right), final includes right&quot;,
+        &quot;total&quot;: 3290
+      }
+    }
+  }
+}
+```
+
+&lt;!-- READER_BODY_START --&gt;
+# 计数过程与 Poisson 基准
+
+&lt;a id=&quot;qt14-records&quot;&gt;&lt;/a&gt;
+## 先数真实记录，再谈模型
+
+我们取 Binance 的 ETHBTC 现货逐笔成交档案，观察 2025 年 1 月 2 日 UTC 的第一个小时：$[00{:}00,01{:}00)$。这是预先指定的一段描述性窗口，不是挑一段像 Poisson 的图。每条记录有 trade ID、价格、数量、报价资产数量、时间戳及两个布尔字段。价格单位是 BTC/ETH，数量单位是 ETH；此日期的现货时间戳用 Unix 微秒，而不是毫秒。不同 ID 即使时间戳相同，也不能删成一条。[^binance]
+
+本篇的任务是从这些字段建立计数、等待时间与时间单位，然后用一个条件明确的 Poisson 模型作比较。只需基本概率、条件期望以及过滤表示信息的含义。
+
+| trade ID | 价格（BTC/ETH） | 数量（ETH） | Unix 微秒 |
+| --- | --- | --- | --- |
+| 482524746 | 0.03553000 | 0.00560000 | 1735776004130016 |
+| 482524747 | 0.03552000 | 1.00000000 | 1735776015196046 |
+
+第一条记录在窗口开始后约 4.130016 秒。这个“4.13 秒”不是我们观测到一个无删失的新等待：窗口开始前的上一笔成交没有包含进来。相同地，窗口结束后的下一笔也未知。数据附件保留这一小时全部 3,291 条记录的 trade ID 与微秒时间字段，并附固定窗口规则、逐秒/逐分钟计数和内部相邻间隔。价格与数量只在上面的实际原行节选中展示；计数和等待实验不需要这些列，也没有给它们补造数值。下列汇总均可从完整时间投影复算，不来自一分钟计数的反推。
+
+&lt;a id=&quot;qt14-counts&quot;&gt;&lt;/a&gt;
+## 两种时间区间约定不要混写
+
+对严格递增的模型到达时刻 $0&lt;T_1&lt;T_2&lt;\cdots\to\infty$，定义
+
+$$
+N_t=\sum_{j\ge1}\mathbf1_{\{T_j\le t\}},
+\qquad N(a,b]=N_b-N_a.
+$$
+
+这是理论右连续计数过程的约定。本数据的截窗和分箱则固定为左闭右开 $[a,b)$：时间戳恰在下一分钟开始处，就归入下一箱。真实记录时间精度有限；模型的严格递增到达时刻与数据库里的重复时间戳不是同一个对象。记录相同只能说明无法用这一字段区分次序，不能证明潜在连续事件真的同时发生。
+
+以窗口起点为 $u_0$，对每条微秒时间戳 $u_i$，计算秒偏移 $t_i=(u_i-u_0)/10^6$。宽度为 $\Delta$ 秒时，箱号是 $\lfloor t_i/\Delta\rfloor$，仅保留 $0\le t_i&lt;3600$。于是
+
+$$
+\widehat\lambda=\frac{3291}{3600}
+=0.914166667\quad\text{笔/秒}.
+$$
+
+这是窗口总数除以时长的描述量。改用分钟，数值为 $54.85$ 笔/分钟；改变的是单位，不是交易强度突然变了六十倍。
+
+&lt;a id=&quot;qt14-poisson&quot;&gt;&lt;/a&gt;
+## Poisson 模型究竟多要求了什么
+
+令 $N_0=0$，$N$ 为右连续计数过程。齐次 Poisson 过程的强度为 $\lambda&gt;0$，是指不相交时间区间的增量独立，而且对 $s&lt;t$，
+
+$$
+P(N_t-N_s=k)
+=e^{-\lambda(t-s)}\frac{[\lambda(t-s)]^k}{k!},
+\qquad k=0,1,\ldots.
+$$
+
+我们采用自然过滤 $\mathcal F_s=\sigma(N_u:u\le s)$。若扩大过滤，必须仍要求未来增量独立于 $\mathcal F_s$。例如一开始就告诉观察者 $N_T$，即使过程无条件的计数分布没变，下面的条件均值结论也可能被破坏。[^poisson]
+
+由独立增量，
+
+$$
+E[N_t-N_s\mid\mathcal F_s]=\lambda(t-s).
+$$
+
+因此 $M_t=N_t-\lambda t$ 适应、可积，且
+
+$$
+E[M_t\mid\mathcal F_s]
+=N_s+\lambda(t-s)-\lambda t=M_s.
+$$
+
+这完整证明了补偿过程为鞅。我们减去的是已指定模型的期望到达量，不是从同一窗口拟合一个均值以后就让真实残差自动变成鞅。
+
+首等待 $T_1$ 的尾概率也立即可算：
+
+$$
+P(T_1&gt;t)=P(N_t=0)=e^{-\lambda t}.
+$$
+
+故 $T_1\sim\operatorname{Exp}(\lambda)$，其均值 $1/\lambda$。关键依据是零计数的完整概率，不是单凭 $E[N_t]=\lambda t$。
+
+&lt;a id=&quot;qt14-arrivals-proof&quot;&gt;&lt;/a&gt;
+## 从指数间隔反过来构造：还要证明联合增量
+
+取独立同分布的 $E_j\sim\operatorname{Exp}(\lambda)$，令 $T_n=E_1+\cdots+E_n$。先排除有限时点发生无穷多次到达。对任何 $\theta&gt;0$，
+
+$$
+\begin{aligned}
+P(T_n\le T)
+&amp;\le e^{\theta T}E[e^{-\theta T_n}]\\
+&amp;=e^{\theta T}
+\left(\frac{\lambda}{\lambda+\theta}\right)^n\longrightarrow0.
+\end{aligned}
+$$
+
+由于 $\{T_n\le T\}$ 递减，所有 $T_n$ 都落在固定 $[0,T]$ 内的概率为零。再对正整数 $T$ 取可数并，得到无爆炸。
+
+现在固定 $0=t_0&lt;\cdots&lt;t_m=T$，要求第 $j$ 段恰好有 $n_j$ 次到达，令 $n=\sum n_j$。对有序到达位置 $0&lt;s_1&lt;\cdots&lt;s_n&lt;T$，前 $n$ 个指数密度相乘，再乘下一次等待超过 $T-s_n$ 的概率，得到
+
+$$
+\lambda^n e^{-\lambda s_n}
+ e^{-\lambda(T-s_n)}=\lambda^n e^{-\lambda T}.
+$$
+
+在每段各自的有序单纯形上积分，体积为 $\prod_j(\Delta t_j)^{n_j}/n_j!$，所以联合概率是
+
+$$
+\prod_{j=1}^m
+ e^{-\lambda\Delta t_j}
+ \frac{(\lambda\Delta t_j)^{n_j}}{n_j!}.
+$$
+
+它同时给出各段的 Poisson 分布和独立性，而不只是终点 $N_T$ 的边际。反过来，计数的所有有限维分布决定到达时刻的联合分布，因为 $\{T_j&gt;t\}=\{N_t&lt;j\}$。因此这个构造也说明 Poisson 过程的间隔具有上述独立指数律。这里不需要调用未证明的 strong Markov 定理。
+
+&lt;a id=&quot;qt14-observed&quot;&gt;&lt;/a&gt;
+## 把基准放回这一小时
+
+| 描述对象 | 箱数/间隔数 | 平均数 | 样本方差/零间隔 |
+| --- | --- | --- | --- |
+| 每秒计数 | 3600 | 0.914166667 | 51.166012087 |
+| 每分钟计数 | 60 | 54.85 | 6364.977118644 |
+| 内部等待时间 | 3290 | 1.092549621 秒 | 1880 个零间隔 |
+
+方差使用“箱数减一”的样本分母。齐次 Poisson 的理论均值与方差相等；这里分钟样本方差远大于均值。1 秒箱中有 $2901/3600\approx80.58\%$ 没有成交，而用全窗估计的强度代入 Poisson，零计数概率约为 $40.09\%$。均值相同绝不等于分布相同。
+
+内部相邻记录共有 3290 个间隔，其中 1880 个为零，平均约 1.09255 秒。不要把这个内部平均数直接当作无删失的 $1/\lambda$ 估计，也不要删除零间隔后悄悄改变研究对象。计数的过度离散可能来自时变强度、共同订单的记录批次、依赖、精度或多个因素；仅凭一个 Fano 比不能识别唯一机制。
+
+&lt;div data-experiment-slot=&quot;EXP-QT14-ARRIVAL-01&quot;&gt;&lt;/div&gt;
+
+先看分钟时间线的峰值，再比较“窗口总数/时长”和逐箱计数。界面中的 Poisson 参照始终是模型预测；真实秒级、分钟级柱子和内部等待分布都从同一份完整时间投影计算。零间隔单列，不用连续密度图把它抹掉。
+
+这个数据档案是后续下载的历史记录。官方说明日档次日可用且可能修订；这里没有重建当日某一交易者收到消息的精确时钟，也不把记录时间戳当作我们的 received time。[^binance]
+
+&lt;a id=&quot;qt14-exercise&quot;&gt;&lt;/a&gt;
+## 迁移题与解析
+
+**题目。** 用每秒强度预测十秒内零成交的概率，然后解释为什么不能把这个概率叫作本窗口已验证的未来预测。再假定 $\mathcal F_0$ 额外包含 $N_{60}$，说明补偿鞅证明哪一步失效。
+
+**解析。** 齐次模型给 $e^{-10\widehat\lambda}\approx0.0001071$。这个数是把拟合强度代回强假设后的计算；窗口分箱已经显示该基准与记录的明显差异，参数拟合和模型检验又用同一数据，尚无独立未来验证。
+
+在扩大后的过滤中，$N_{60}$ 已知，故 $E[N_{60}\mid\mathcal F_0]=N_{60}$，通常不等于固定的 $60\lambda$。独立于过去计数不等于独立于任意额外信息。失效的是条件均值步骤，后面减去 $\lambda t$ 的代数没有错。
+
+[^poisson]: Hao Wu，MIT 18.445，[Lecture 20: Poisson process](https://ocw.mit.edu/courses/18-445-introduction-to-stochastic-processes-spring-2015/06c09371501eb1d7dd4c7c72c74cef5b_MIT18_445S15_lecture20.pdf)，2015-04-29，7 张教学 slides。指数间隔的联合密度证明在本篇完整给出；讲义的 strong Markov 陈述不是这里采用的证明。
+[^binance]: Binance，[Public Data README](https://github.com/binance/binance-public-data)，Spot/Trades、availability、Updates；[2025-01-02 ETHBTC 原日档](https://data.binance.vision/data/spot/daily/trades/ETHBTC/ETHBTC-trades-2025-01-02.zip)。固定窗口统计与分钟计数来自 2026-09-21 冻结档，不能据此保证未来档案永不修订。
+
+&lt;!-- READER_BODY_END --&gt;
+</textarea></main><script>(function(){const panels=[...document.querySelectorAll('section[data-reading-branch]')];function branch(b){panels.forEach(s=>s.hidden=b!=='all'&&s.dataset.readingBranch!==b);document.querySelectorAll('[data-select-reading-branch]').forEach(x=>x.setAttribute('aria-pressed',x.dataset.selectReadingBranch===b));}document.querySelectorAll('[data-select-reading-branch]').forEach(x=>x.addEventListener('click',()=>branch(x.dataset.selectReadingBranch)));if(panels.some(x=>x.dataset.readingBranch==='A')){const h=location.hash;branch(h.includes('-b-')?'B':'A');}else if(panels.some(x=>x.dataset.readingBranch==='pricing')){branch(location.hash.includes('qt24-pricing')?'all':'ledger');}const copy=document.getElementById('copy-agent');if(copy)copy.addEventListener('click',async()=>{const text=document.getElementById('agent-text').value;try{await navigator.clipboard.writeText(text);document.getElementById('copy-status').textContent='已复制完整Agent包。';}catch(e){document.getElementById('copy-status').textContent='浏览器未允许剪贴板；请使用相邻的Agent Markdown文件。';}});window.QT_READER_READY=true;})();</script></body></html>

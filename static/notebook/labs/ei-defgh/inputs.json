@@ -1,0 +1,1261 @@
+{
+  "content_version": "2026-09-21-review-v2",
+  "frozen": {
+    "version": "2026-09-21-ei-defgh-preflight-final",
+    "created_at": "2026-09-21",
+    "nodes": {
+      "EI-10": {
+        "experiment_id": "exp-ei10-rate-transmission",
+        "status": "teaching_assumption",
+        "inputs": {
+          "cash_m_usd": 200,
+          "floating_debt_m_usd": 50,
+          "fixed_debt_m_usd": 250,
+          "benchmark_rate_shock_bp": 200,
+          "cash_yield_pass_through": 1.0,
+          "floating_debt_benchmark_pass_through": 1.0,
+          "credit_spread_change_bp": 0,
+          "fixed_debt_refinance_fraction": 0.4,
+          "fixed_debt_refinance_time_year_fraction": 0.5
+        },
+        "outputs": {
+          "annualized_cash_interest_income_delta_m_usd": 4.0,
+          "annualized_floating_interest_expense_delta_m_usd": 1.0,
+          "annualized_immediate_net_interest_carry_delta_m_usd": 3.0,
+          "annualized_fixed_refinance_expense_delta_m_usd": 2.0,
+          "first_year_fixed_refinance_expense_delta_if_midyear_m_usd": 1.0
+        },
+        "identity": {
+          "timing": "annualized run-rate changes, not cash received/paid immediately",
+          "assumptions": [
+            "cash yield and floating-debt benchmark reprice fully by the 200 bp shock",
+            "credit spread held fixed in the default teaching case",
+            "fixed-rate debt changes only for the refinanced fraction",
+            "midyear first-year amount applies the new coupon for half a year"
+          ]
+        }
+      },
+      "EI-11": {
+        "experiment_id": "exp-ei11-fx",
+        "status": "teaching_assumption",
+        "quote_convention": "USD per EUR",
+        "inputs": {
+          "eur_receivable": 100,
+          "eur_payable_natural_match": 80,
+          "initial_usd_per_eur": 1.1,
+          "settlement_usd_per_eur": 1.05,
+          "same_currency": true,
+          "same_recognition_and_settlement_dates_for_match": true,
+          "derivative_hedge_control": null
+        },
+        "outputs": {
+          "receivable_transaction_change_usd": -5.0,
+          "payable_transaction_change_usd": 4.0,
+          "net_transaction_change_usd": -1.0
+        },
+        "identity": {
+          "natural_match_only": true,
+          "note": "No futures/forward/option hedge amount is exposed because no contract, strike/forward rate, maturity, or payoff rule is defined."
+        }
+      },
+      "EI-12": {
+        "experiment_id": "exp-ei12-rule-path",
+        "status": "teaching_assumption",
+        "inputs": {
+          "thirty_day_stressed_cash_need": 120,
+          "eligible_cash_flow_sources_after_haircuts": 50,
+          "credit_line_in_30_day_sources": 0,
+          "institution_category": "given_by_case_not_inferred_from_assets"
+        },
+        "outputs": {
+          "net_thirty_day_stressed_cash_need": 70
+        },
+        "eligibility_contract": {
+          "eligible_sources": "monetizable asset/cash-flow sources after risk/volatility haircuts under the teaching scenario",
+          "exclude_credit_lines_for_30_days_or_less": true,
+          "no_double_counting": "assets counted as the 50 cash-flow sources cannot simultaneously remain in the residual liquidity buffer calculation",
+          "not_lcr_or_capital_gap": true
+        }
+      },
+      "EI-13": {
+        "experiment_id": "exp-ei13-tech-path",
+        "aggregation_formula": "sum(y_i * d_i * g_i) / sum(y_i)",
+        "required_weight": "baseline output share when g_i is a relative output effect",
+        "counterexample": {
+          "baseline_outputs": [
+            1,
+            9
+          ],
+          "relative_gain_if_adopted": 0.1,
+          "number_share_adoption": 0.5,
+          "naive_number_share_times_gain": 0.05,
+          "aggregate_growth_if_low_output_unit_adopts": 0.01,
+          "aggregate_growth_if_high_output_unit_adopts": 0.09
+        },
+        "observed_sources_kept_separate": {
+          "BTOS_business_AI_use_May_3_2026_pct": 19.8,
+          "QJE_total_agents": 5172,
+          "QJE_Table_II_col3_agent_months": 12295,
+          "QJE_Table_II_col3_effect_resolutions_per_hour": 0.301,
+          "QJE_source_reported_pct_effect_from_pretreatment_baseline": 15.2,
+          "QJE_Table_II_overall_DV_mean": 2.176
+        },
+        "prohibited_real_world_product": "Do not multiply BTOS adoption share by QJE treatment effect."
+      },
+      "EI-15": {
+        "electricity_branch": {
+          "source_release": "EIA Electric Power Monthly, data for June 2026, released 2026-08-26",
+          "Table_5_1_sales_thousand_MWh": {
+            "2024": 3975382,
+            "2025": 4058007,
+            "2024_status": "final",
+            "2025_status": "preliminary_cutoff_model_sample"
+          },
+          "Table_5_2_revenue_million_USD": {
+            "2025": 553285,
+            "2025_status": "preliminary_cutoff_model_sample"
+          },
+          "derived": {
+            "sales_growth_2024_to_2025_pct": 2.0784166150573657,
+            "revenue_divided_by_sales_cents_per_kWh": 13.634402306353833
+          },
+          "note": "Revenue/sales is an average billed revenue rate, not a marginal retail price."
+        },
+        "bank_branch": {
+          "source": "FDIC Quarterly Banking Profile Q1 2026 / May 27 2026 release",
+          "population": "4,278 FDIC-insured commercial banks and savings institutions in the release",
+          "net_income_billion_USD": 80.5,
+          "ROA_pct": 1.26,
+          "NIM_pct": 3.31,
+          "NIM_qoq_change_bp": -8,
+          "NIM_definition": "interest/dividends earned on interest-bearing assets minus interest paid to depositors and other creditors, expressed relative to average earning assets",
+          "current_driver": "earning-asset yield fell 21 bp while cost of funds fell 13 bp"
+        },
+        "retail_branch": {
+          "restatement_release": "2025-04-25 Annual Revision",
+          "identity": "series restated to 2017 NAICS and employer-only firms; affected industries restated back through their series rather than a one-month April 2025 break",
+          "2022_sales_million_USD": {
+            "original_employer_plus_nonemployer": 7040995,
+            "restated_employer_only": 6916099,
+            "difference_pct_source": -1.8
+          },
+          "2022_end_of_year_inventory_million_USD": {
+            "original_employer_plus_nonemployer": 733168,
+            "restated_employer_only": 717180,
+            "difference_pct_source": -2.2
+          }
+        },
+        "manufacturing_branch": {
+          "M3_new_orders_identity": "published new orders are constructed from shipments plus the change in unfilled orders; not an independent third demand observation",
+          "reuse": "EI-B review-v2 M3 methodology correction"
+        }
+      },
+      "EI-16": {
+        "experiment_id": "exp-ei16-industry-path",
+        "source_release": "EIA Electric Power Monthly, data for June 2026, released 2026-08-26",
+        "retail_sales": {
+          "2024_thousand_MWh_final": 3975382,
+          "2025_thousand_MWh_preliminary": 4058007,
+          "growth_pct": 2.0784166150573657
+        },
+        "generation_Table_1_1_thousand_MWh": {
+          "2024_status": "final",
+          "2025_status": "preliminary",
+          "2024": {
+            "coal": 652156,
+            "natural_gas": 1869902,
+            "nuclear": 781865,
+            "hydro": 242896,
+            "utility_scale_solar": 219834,
+            "utility_scale_total": 4308634
+          },
+          "2025": {
+            "coal": 737151,
+            "natural_gas": 1807338,
+            "nuclear": 784781,
+            "hydro": 247023,
+            "utility_scale_solar": 295671,
+            "utility_scale_total": 4429502
+          },
+          "derived_growth_pct": {
+            "coal": 13.03292463766339,
+            "natural_gas": -3.345843792883263,
+            "nuclear": 0.37295441028821763,
+            "hydro": 1.6990810882023588,
+            "utility_scale_solar": 34.49739348781353,
+            "utility_scale_total": 2.8052510377999162
+          }
+        },
+        "teaching_use": {
+          "actual_supply_evidence": "EPM Table 1.1 exact annual rows by energy source",
+          "comparison": "2025 retail-sales growth and utility-scale generation growth are different series with different coverage/timing; do not force equality",
+          "alternative_explanation_example": "utility-scale generation rose while natural-gas generation fell and coal/solar generation rose, so system mix can change even when total demand rises"
+        },
+        "planned_capacity_2026_GW": 86,
+        "planned_capacity_status": "planned_if_realized_not_commitment",
+        "form_923_final_note": "A later 2025 Form 923 annual final release exists, but its final status is not transferred to EPM retail-sales/revenue or to this 2026-08-26 EPM Table 1.1 vintage."
+      },
+      "EI-17": {
+        "experiment_ids": [
+          "exp-ei17-static-capacity-complementarity",
+          "exp-ei17-fig7-relax-constraints",
+          "exp-ei17-fig9-interaction"
+        ],
+        "research_version": "IMES Discussion Paper 2025-E-15, October 2025",
+        "static_capacity_toy": {
+          "demand_inverse": "P = a - Q",
+          "marginal_cost_inverse_supply": "P = Q + mu",
+          "constraints": [
+            "Q <= K",
+            "mu >= 0",
+            "mu*(Q-K)=0"
+          ],
+          "slack_case": {
+            "K": 80,
+            "a_before": 100,
+            "a_after": 120,
+            "before": {
+              "P": 50,
+              "Q": 50,
+              "mu": 0
+            },
+            "after": {
+              "P": 60,
+              "Q": 60,
+              "mu": 0
+            }
+          },
+          "binding_case": {
+            "K": 50,
+            "a_before": 120,
+            "a_after": 130,
+            "before": {
+              "P": 70,
+              "Q": 50,
+              "mu": 20
+            },
+            "after": {
+              "P": 80,
+              "Q": 50,
+              "mu": 30
+            }
+          },
+          "lesson": "P↑,Q↑ for a positive demand shift requires a non-binding interior in this toy; with binding capacity, P can rise while Q remains fixed."
+        },
+        "Fig7_contract": {
+          "filter_shocks_under_model_with_potentially_binding_constraints": true,
+          "counterfactual": "feed the same smoothed shocks through the model with constraints slack in all periods",
+          "inflation_identity": "quarterly inflation expressed at annualized rate and de-meaned; counterfactual simulations retain measurement-error treatment",
+          "uncertainty": "posterior simulations / 5th-95th percentile bands",
+          "capacity_prior": "positive mass on binding durations only starting 2020Q2"
+        },
+        "Fig9b_contract": {
+          "operation": "simulate named shock type together with filtered capacity shocks, then subtract the capacity-shocks-alone path",
+          "nonlinear_interaction": true,
+          "not_additive_100pct_decomposition": true
+        },
+        "Figure7_scale_reading": {
+          "aggregate_consumer_price_inflation": {
+            "period": "2021-2022",
+            "actual_minus_all_slack_counterfactual_pp_approx": "1-2",
+            "panel": "Figure 7c / aggregate consumer price inflation"
+          },
+          "goods_price_inflation_acceleration": {
+            "period": "2020Q2-2021Q2",
+            "constraint_share_approx": "about one half",
+            "panel": "Figure 7a / goods price inflation"
+          },
+          "identity": "different panel, period, and denominator; do not infer a permanent aggregate 50% share by dividing an aggregate pp gap by another number"
+        }
+      },
+      "EI-18": {
+        "experiment_id": "exp-ei18-paper-map",
+        "research_version": "IMF Working Paper 2024/245, November 2024",
+        "sample": "U.S.-headquartered non-financial firms, 2010-2023",
+        "equation_1": {
+          "dependent_variable": "ln InterestIncome_it",
+          "cash_ratio": "CashToAssets_(i,t-1), ratio from 0 to 1",
+          "ffr": "effective federal funds rate",
+          "interaction": "FFR_t * CashToAssets_(i,t-1)",
+          "firm_fixed_effects": true,
+          "marginal_response_formula": "d ln(InterestIncome) / d FFR = beta2 + beta4*C"
+        },
+        "Table_2_col2": {
+          "beta2_FFR": 0.214,
+          "beta4_FFR_x_cash": 0.398,
+          "observations": 8413,
+          "balanced_sample": true
+        },
+        "source_work_example": {
+          "cash_ratio_difference": 0.02,
+          "FFR_change_source_scale": 5.25,
+          "normalized_interaction_log_units": 0.04179,
+          "approx_log_points": 4.179,
+          "source_prose_display": "≈ 0.4 × 2 × 5.25",
+          "unit_caveat": "The paper's prose/displayed arithmetic uses inconsistent percentage-point/ratio scaling in places; retain the ambiguity rather than silently rewriting the authors."
+        },
+        "Table_3_unit_warning": "The fixed-rate-debt prose says 2 percentage points but the displayed calculation uses ×10; do not use it as a clean default numeric exercise.",
+        "real_effect_grouping": {
+          "high_cash_definition": "above 2020 within-2-digit-NAICS median cash-to-assets ratio",
+          "base_year": 2020,
+          "controls": "lagged log revenue and debt, firm and year fixed effects, sector-specific trends",
+          "author_10_5_percent_counterfactual": "upper-bound framing, not randomized causal effect"
+        }
+      }
+    }
+  },
+  "supplemental": {
+    "EI17_fig7_teaching_path": {
+      "identity": "teaching_assumption",
+      "a": [
+        100,
+        120,
+        130,
+        110
+      ],
+      "K": [
+        80,
+        50,
+        50,
+        80
+      ],
+      "unit": "abstract price/output; not inflation pp"
+    },
+    "EI17_fig9_teaching_baseline": {
+      "identity": "teaching_assumption",
+      "a": 100,
+      "K": 80,
+      "demandShock": 30,
+      "capacityReduction": 30
+    },
+    "M3_retained_fixed_rows": {
+      "identity": "observed",
+      "source_id": "EIDEF-S21",
+      "unit": "USD million SA",
+      "shipments": [
+        4424,
+        4498
+      ],
+      "orders": [
+        4734,
+        4879
+      ],
+      "unfilled": [
+        11214,
+        11595
+      ],
+      "inventory": [
+        10593,
+        10659
+      ]
+    },
+    "EI12_haircut_example": {
+      "identity": "teaching_assumption",
+      "gross_asset": 62.5,
+      "haircut": 0.2,
+      "eligible_value": 50
+    },
+    "EI16_residual": {
+      "identity": "derived_residual",
+      "values": {
+        "2024": 541981,
+        "2025": 557538
+      },
+      "formula": "total minus five displayed sources"
+    }
+  },
+  "experiments": [
+    {
+      "id": "exp-ei10-rate-transmission",
+      "node_id": "EI-10",
+      "title": "年化利息与首年累计",
+      "anchor": "ei10-repricing",
+      "method": "rates",
+      "controls": [
+        {
+          "key": "cash",
+          "label": "现金（百万美元）",
+          "default": 200,
+          "min": 0,
+          "max": 1000,
+          "step": 10,
+          "kind": "number"
+        },
+        {
+          "key": "floating",
+          "label": "浮债（百万美元）",
+          "default": 50,
+          "min": 0,
+          "max": 1000,
+          "step": 10,
+          "kind": "number"
+        },
+        {
+          "key": "fixed",
+          "label": "固定债（百万美元）",
+          "default": 250,
+          "min": 0,
+          "max": 1000,
+          "step": 10,
+          "kind": "number"
+        },
+        {
+          "key": "rateBP",
+          "label": "基准变动（bp）",
+          "default": 200,
+          "min": -500,
+          "max": 500,
+          "step": 25,
+          "kind": "number"
+        },
+        {
+          "key": "refiFraction",
+          "label": "固定债再融资比例",
+          "default": 0.4,
+          "min": 0,
+          "max": 1,
+          "step": 0.05,
+          "kind": "number"
+        },
+        {
+          "key": "refiTime",
+          "label": "年内再融资时点τ",
+          "default": 0.5,
+          "min": 0,
+          "max": 1,
+          "step": 0.05,
+          "kind": "number"
+        },
+        {
+          "key": "refiSpreadBP",
+          "label": "新固定债额外利差（bp）",
+          "default": 0,
+          "min": -500,
+          "max": 500,
+          "step": 25,
+          "kind": "number"
+        }
+      ],
+      "inputs": {
+        "cash": 200,
+        "floating": 50,
+        "fixed": 250,
+        "rateBP": 200,
+        "refiFraction": 0.4,
+        "refiTime": 0.5,
+        "refiSpreadBP": 0
+      },
+      "algorithm": "默认资产/浮债完全传导、旧浮债利差不变；ΔIA=AΔb，ΔIf=DfΔb，ΔIk=Dk*r*(Δb+Δsk)。τ前净年化ΔIA−ΔIf，τ后再减ΔIk；首年累计ΔIA−ΔIf−(1−τ)ΔIk。简单计息、余额固定，不给付息流水。",
+      "static_equivalent": "冻结默认：资产年化+4，浮债费用+1，年初净年化+3；固定债新增年化2、首年1；年中后净年化1，首年累计2。百万美元。τ=0/1显示整年/零首年新增固定债费用。",
+      "source_ids": [
+        "EIDEF-S01",
+        "EIDEF-S02"
+      ],
+      "identity": "teaching_assumption",
+      "description": "年化利息与首年累计",
+      "outputs": {
+        "annual_asset_income": 4,
+        "annual_floating_expense": 1,
+        "annual_net_before_refinance": 3,
+        "annual_refinance_expense": 2,
+        "first_year_refinance_expense": 1,
+        "annual_net_after_refinance": 1,
+        "first_year_net_accrual": 2,
+        "series": [
+          {
+            "t": 0,
+            "annual_net": 3,
+            "cumulative_accrual": 0
+          },
+          {
+            "t": 0.08333333333333333,
+            "annual_net": 3,
+            "cumulative_accrual": 0.25
+          },
+          {
+            "t": 0.16666666666666666,
+            "annual_net": 3,
+            "cumulative_accrual": 0.5
+          },
+          {
+            "t": 0.25,
+            "annual_net": 3,
+            "cumulative_accrual": 0.75
+          },
+          {
+            "t": 0.3333333333333333,
+            "annual_net": 3,
+            "cumulative_accrual": 1
+          },
+          {
+            "t": 0.4166666666666667,
+            "annual_net": 3,
+            "cumulative_accrual": 1.25
+          },
+          {
+            "t": 0.5,
+            "annual_net": 1,
+            "cumulative_accrual": 1.5
+          },
+          {
+            "t": 0.5833333333333334,
+            "annual_net": 1,
+            "cumulative_accrual": 1.5833333333333333
+          },
+          {
+            "t": 0.6666666666666666,
+            "annual_net": 1,
+            "cumulative_accrual": 1.6666666666666667
+          },
+          {
+            "t": 0.75,
+            "annual_net": 1,
+            "cumulative_accrual": 1.75
+          },
+          {
+            "t": 0.8333333333333334,
+            "annual_net": 1,
+            "cumulative_accrual": 1.8333333333333333
+          },
+          {
+            "t": 0.9166666666666666,
+            "annual_net": 1,
+            "cumulative_accrual": 1.9166666666666667
+          },
+          {
+            "t": 1,
+            "annual_net": 1,
+            "cumulative_accrual": 2
+          }
+        ],
+        "units": "million USD; annualized rates versus first-calendar-year accrual; not payment-date cash"
+      }
+    },
+    {
+      "id": "exp-ei11-fx",
+      "node_id": "EI-11",
+      "title": "同币种同日自然匹配",
+      "anchor": "ei11-invoice",
+      "method": "fx",
+      "controls": [
+        {
+          "key": "receivable",
+          "label": "应收（EUR）",
+          "default": 100,
+          "min": 0,
+          "max": 1000,
+          "step": 10,
+          "kind": "number"
+        },
+        {
+          "key": "payable",
+          "label": "应付（EUR）",
+          "default": 80,
+          "min": 0,
+          "max": 1000,
+          "step": 10,
+          "kind": "number"
+        },
+        {
+          "key": "e0",
+          "label": "确认时 USD/EUR",
+          "default": 1.1,
+          "min": 0.01,
+          "max": 10,
+          "step": 0.01,
+          "kind": "number"
+        },
+        {
+          "key": "e1",
+          "label": "结算时 USD/EUR",
+          "default": 1.05,
+          "min": 0.01,
+          "max": 10,
+          "step": 0.01,
+          "kind": "number"
+        }
+      ],
+      "inputs": {
+        "receivable": 100,
+        "payable": 80,
+        "e0": 1.1,
+        "e1": 1.05
+      },
+      "algorithm": "交易损益R*(e1−e0)与−C*(e1−e0)，净额(R−C)*(e1−e0)。美元功能货币、同一确认/结算时点、欧元量固定；无金融衍生品。",
+      "static_equivalent": "100/80欧元在1.10→1.05：资产−5、负债+4、净−1美元；净现金换算22→21。错开日期题另按各自汇率，不能沿用同日净式。",
+      "source_ids": [
+        "EIDEF-S04",
+        "EIDEF-S06"
+      ],
+      "identity": "teaching_assumption",
+      "description": "同币种同日自然匹配",
+      "outputs": {
+        "receivable_start": 110.00000000000001,
+        "receivable_end": 105,
+        "payable_start": 88,
+        "payable_end": 84,
+        "receivable_change": -5.000000000000004,
+        "payable_gain": 4.0000000000000036,
+        "net_change": -1.0000000000000009,
+        "net_start": 22,
+        "net_end": 21,
+        "net_eur": 20,
+        "conditions": "USD functional currency; EUR fixed amounts; same recognition and settlement dates; no derivative contract"
+      }
+    },
+    {
+      "id": "exp-ei12-rule-path",
+      "node_id": "EI-12",
+      "title": "30天来源资格与净需要",
+      "anchor": "ei12-rebuild",
+      "method": "liquidity",
+      "controls": [
+        {
+          "key": "need",
+          "label": "30天压力需要",
+          "default": 120,
+          "min": 0,
+          "max": 500,
+          "step": 5,
+          "kind": "number"
+        },
+        {
+          "key": "sources",
+          "label": "折价后候选来源",
+          "default": 50,
+          "min": 0,
+          "max": 500,
+          "step": 5,
+          "kind": "number"
+        },
+        {
+          "key": "eligible",
+          "label": "候选来源已满足资格",
+          "default": true,
+          "min": 0,
+          "max": 100,
+          "step": 1,
+          "kind": "checkbox"
+        },
+        {
+          "key": "creditLine",
+          "label": "另有授信额度（不计入）",
+          "default": 0,
+          "min": 0,
+          "max": 500,
+          "step": 5,
+          "kind": "number"
+        },
+        {
+          "key": "category",
+          "label": "题设已给定类别",
+          "default": "unknown",
+          "min": 0,
+          "max": 100,
+          "step": 1,
+          "kind": "select",
+          "options": [
+            [
+              "unknown",
+              "未给定"
+            ],
+            [
+              "IV",
+              "Category IV"
+            ],
+            [
+              "other",
+              "其他本条适用机构"
+            ]
+          ]
+        }
+      ],
+      "inputs": {
+        "need": 120,
+        "sources": 50,
+        "eligible": true,
+        "creditLine": 0,
+        "category": "unknown"
+      },
+      "algorithm": "合格来源S=eligible?候选额:0；净需要=O−S，非负覆盖需要=max(O−S,0)。30天内credit line贡献恒0。来源与剩余buffer去重；没有B余额就不报buffer余缺。类别不从资产自动计算。",
+      "static_equivalent": "120−50=70；如果50不合格，需覆盖120；另有授信20也不改变30天来源。原资产62.5经20%折价为50，仅为正文补充变式。",
+      "source_ids": [
+        "EIDEF-S07",
+        "EIDEF-S08",
+        "EIDEF-S09"
+      ],
+      "identity": "teaching_assumption",
+      "description": "30天来源资格与净需要",
+      "outputs": {
+        "need": 120,
+        "eligible_sources": 50,
+        "excluded_sources": 0,
+        "excluded_credit_line": 0,
+        "signed_net_need": 70,
+        "net_need": 70,
+        "test_frequency": "先查完整分类，不能自动推定",
+        "buffer_balance": null,
+        "buffer_surplus": null,
+        "interpretation": "30-day scenario net need; distinct source and reserve asset sets; not LCR/capital gap"
+      }
+    },
+    {
+      "id": "exp-ei13-tech-path",
+      "node_id": "EI-13",
+      "title": "数量权重与产出权重",
+      "anchor": "ei13-aggregation",
+      "method": "adoption",
+      "controls": [
+        {
+          "key": "y1",
+          "label": "单位1基期产出",
+          "default": 1,
+          "min": 0,
+          "max": 100,
+          "step": 0.5,
+          "kind": "number"
+        },
+        {
+          "key": "y2",
+          "label": "单位2基期产出",
+          "default": 9,
+          "min": 0,
+          "max": 100,
+          "step": 0.5,
+          "kind": "number"
+        },
+        {
+          "key": "d1",
+          "label": "单位1采用",
+          "default": 1,
+          "min": 0,
+          "max": 100,
+          "step": 1,
+          "kind": "select",
+          "options": [
+            [
+              0,
+              "不采用"
+            ],
+            [
+              1,
+              "采用"
+            ]
+          ]
+        },
+        {
+          "key": "d2",
+          "label": "单位2采用",
+          "default": 0,
+          "min": 0,
+          "max": 100,
+          "step": 1,
+          "kind": "select",
+          "options": [
+            [
+              0,
+              "不采用"
+            ],
+            [
+              1,
+              "采用"
+            ]
+          ]
+        },
+        {
+          "key": "g1",
+          "label": "单位1相对提升",
+          "default": 0.1,
+          "min": -1,
+          "max": 1,
+          "step": 0.01,
+          "kind": "number"
+        },
+        {
+          "key": "g2",
+          "label": "单位2相对提升",
+          "default": 0.1,
+          "min": -1,
+          "max": 1,
+          "step": 0.01,
+          "kind": "number"
+        }
+      ],
+      "inputs": {
+        "y1": 1,
+        "y2": 9,
+        "d1": 1,
+        "d2": 0,
+        "g1": 0.1,
+        "g2": 0.1
+      },
+      "algorithm": "总基期Y=y1+y2>0；增量Σyi*di*gi；整体增幅=增量/Y。数量权重比较式Σdi*gi/2只在等基期产出等条件下适用。固定投入、无外溢、一致可加产出。",
+      "static_equivalent": "y1=1,y2=9,g=10%；只低产出单位采用→总增长1%，只高产出单位采用→9%，数量权重均误报5%。两者全不采用为0；总基期0拒绝。",
+      "source_ids": [
+        "EIDEF-S10",
+        "EIDEF-S11",
+        "EIDEF-S12"
+      ],
+      "identity": "teaching_assumption",
+      "description": "数量权重与产出权重",
+      "outputs": {
+        "baseline": 10,
+        "delta": [
+          0.1,
+          0
+        ],
+        "post_output": 10.1,
+        "growth": 0.01,
+        "weights": [
+          0.1,
+          0.9
+        ],
+        "adopter_output_share": 0.1,
+        "adopter_count_share": 0.5,
+        "count_weighted_gain": 0.05,
+        "interpretation": "same population, additive baseline output, fixed inputs/no spillovers; not BTOS × QJE"
+      }
+    },
+    {
+      "id": "exp-ei15-metric-contract",
+      "node_id": "EI-15",
+      "title": "指标的对象与证据职责",
+      "anchor": "ei15-selection",
+      "method": "metrics",
+      "controls": [
+        {
+          "key": "branch",
+          "label": "行业",
+          "default": "electricity",
+          "min": 0,
+          "max": 100,
+          "step": 1,
+          "kind": "select",
+          "options": [
+            [
+              "electricity",
+              "电力"
+            ],
+            [
+              "manufacturing",
+              "制造"
+            ],
+            [
+              "retail",
+              "零售"
+            ],
+            [
+              "banking",
+              "银行"
+            ]
+          ]
+        }
+      ],
+      "inputs": {
+        "branch": "electricity"
+      },
+      "algorithm": "真实数值只读。电力按百万USD/千MWh换算；制造N=S+ΔB是统计构造，ΔI另列；零售同年重述差=(new/old−1)；银行前季NIM=本季−bp变化/100。不同统计产品不互证。",
+      "static_equivalent": "电力13.6344023cents/kWh；制造4498+381=4879、库存+66；零售同2022销售−1.7738%、库存−2.1807%；银行3.39%→3.31%为−8bp。",
+      "source_ids": [
+        "EIDEF-S19A",
+        "EIDEF-S19B",
+        "EIDEF-S13",
+        "EIDEF-S14",
+        "EIDEF-S21",
+        "EIDEF-S17",
+        "EIDEF-S22"
+      ],
+      "identity": "observed_and_derived",
+      "description": "指标的对象与证据职责",
+      "outputs": {
+        "branch": "electricity",
+        "qty2024": 3975382,
+        "qty2025": 4058007,
+        "revenue": 553285,
+        "growth": 2.0784166150573657,
+        "averageCents": 13.634402306353833,
+        "status": "2024 final / 2025 preliminary；EPM 2026-08-26"
+      }
+    },
+    {
+      "id": "exp-ei16-industry-path",
+      "node_id": "EI-16",
+      "title": "售电、发电结构与经营路径",
+      "anchor": "ei16-capital",
+      "method": "industry",
+      "controls": [
+        {
+          "key": "region",
+          "label": "假定交易情形",
+          "default": "rto",
+          "min": 0,
+          "max": 100,
+          "step": 1,
+          "kind": "select",
+          "options": [
+            [
+              "rto",
+              "RTO内现货/合同敞口"
+            ],
+            [
+              "integrated",
+              "费率/成本回收情形"
+            ],
+            [
+              "supplier",
+              "设备供应商"
+            ]
+          ]
+        }
+      ],
+      "inputs": {
+        "region": "rto"
+      },
+      "algorithm": "EPM1.1五项能源与总量只读；其余净额=总量−五项，逐项同比=(2025/2024−1)。地区按钮只改变定性条件路径，不生造价格弹性。86GW另列planned。",
+      "static_equivalent": "发电总量4,308,634→4,429,502千MWh，+2.8052510%；售电+2.0784166%；天然气下降、煤/太阳能上升。其余净额541981/557538。",
+      "source_ids": [
+        "EIDEF-S19A",
+        "EIDEF-S19B",
+        "EIDEF-S19C",
+        "EIDEF-S16A",
+        "EIDEF-S16B",
+        "EIDEF-S18",
+        "EIDEF-S14",
+        "EIDEF-S21"
+      ],
+      "identity": "observed_and_derived",
+      "description": "售电、发电结构与经营路径",
+      "outputs": {
+        "region": "rto",
+        "rows": [
+          {
+            "key": "coal",
+            "label": "煤炭",
+            "y2024": 652156,
+            "y2025": 737151,
+            "growth": 13.03292463766339
+          },
+          {
+            "key": "natural_gas",
+            "label": "天然气",
+            "y2024": 1869902,
+            "y2025": 1807338,
+            "growth": -3.345843792883263
+          },
+          {
+            "key": "nuclear",
+            "label": "核能",
+            "y2024": 781865,
+            "y2025": 784781,
+            "growth": 0.37295441028821763
+          },
+          {
+            "key": "hydro",
+            "label": "常规水电",
+            "y2024": 242896,
+            "y2025": 247023,
+            "growth": 1.6990810882023588
+          },
+          {
+            "key": "utility_scale_solar",
+            "label": "公用事业规模太阳能",
+            "y2024": 219834,
+            "y2025": 295671,
+            "growth": 34.49739348781353
+          },
+          {
+            "key": "residual",
+            "label": "其余净额（重排）",
+            "y2024": 541981,
+            "y2025": 557538,
+            "growth": 2.8703958256839357
+          }
+        ],
+        "totals": [
+          4308634,
+          4429502
+        ],
+        "growth": 2.8052510377999162,
+        "salesGrowth": 2.0784166150573657,
+        "plannedGW": 86,
+        "plannedIdentity": "2026计划，if realized；不是发电量",
+        "path": "分时可用出力 → 现货/长期合同 → 燃料与对冲 → 净收入"
+      }
+    },
+    {
+      "id": "exp-ei17-static-capacity-complementarity",
+      "node_id": "EI-17",
+      "title": "产能互补松弛",
+      "anchor": "ei17-kkt",
+      "method": "capacity",
+      "controls": [
+        {
+          "key": "a",
+          "label": "逆需求截距a",
+          "default": 120,
+          "min": 0,
+          "max": 200,
+          "step": 5,
+          "kind": "number"
+        },
+        {
+          "key": "K",
+          "label": "产能K",
+          "default": 50,
+          "min": 1,
+          "max": 150,
+          "step": 5,
+          "kind": "number"
+        }
+      ],
+      "inputs": {
+        "a": 120,
+        "K": 50
+      },
+      "algorithm": "最大化aQ−Q²,0≤Q≤K。a≥0,K>0；Q=min(a/2,K),P=a−Q,μ=a−2Q。显示slack与μ(Q−K)=0。a=0采用Q=P=μ=0。模型为静态教学经济，不是IMES复现。",
+      "static_equivalent": "K80/a100→120：P,Q均50→60；K50/a120→130：Q50，P70→80，μ20→30；a100,K50：触边μ0。",
+      "source_ids": [
+        "EIDEF-S20"
+      ],
+      "identity": "teaching_assumption",
+      "description": "产能互补松弛",
+      "outputs": {
+        "a": 120,
+        "K": 50,
+        "q": 50,
+        "p": 70,
+        "mu": 20,
+        "slack": 0,
+        "complementarity": 0,
+        "regime": "绑定且乘子为正",
+        "identity": "one-period competitive teaching model; abstract price/output, not the IMES model"
+      }
+    },
+    {
+      "id": "exp-ei17-fig7-relax-constraints",
+      "node_id": "EI-17",
+      "title": "同一输入路径，放松约束",
+      "anchor": "ei17-fig7",
+      "method": "relax",
+      "controls": [
+        {
+          "key": "capacityScale",
+          "label": "教学容量路径倍数",
+          "default": 1,
+          "min": 0.5,
+          "max": 2,
+          "step": 0.1,
+          "kind": "number"
+        }
+      ],
+      "inputs": {
+        "capacityScale": 1
+      },
+      "algorithm": "新增教学路径a=[100,120,130,110],K=[80,50,50,80]×scale；受限逐期用静态模型，松弛逐期P=Q=a/2。不是论文通胀，不生成后验置信带。作者实验流程另列同θ、同smoothed shocks、all-slack反事实及measurement error。",
+      "static_equivalent": "scale1时受限价格[50,70,80,55]，松弛[50,60,65,55]，价格差[0,10,15,0]。均为抽象价格单位。",
+      "source_ids": [
+        "EIDEF-S20"
+      ],
+      "identity": "teaching_assumption",
+      "description": "同一输入路径，放松约束",
+      "outputs": {
+        "rows": [
+          {
+            "period": 1,
+            "a": 100,
+            "K": 80,
+            "constrained_q": 50,
+            "constrained_p": 50,
+            "slack_q": 50,
+            "slack_p": 50,
+            "difference": 0,
+            "mu": 0
+          },
+          {
+            "period": 2,
+            "a": 120,
+            "K": 50,
+            "constrained_q": 50,
+            "constrained_p": 70,
+            "slack_q": 60,
+            "slack_p": 60,
+            "difference": 10,
+            "mu": 20
+          },
+          {
+            "period": 3,
+            "a": 130,
+            "K": 50,
+            "constrained_q": 50,
+            "constrained_p": 80,
+            "slack_q": 65,
+            "slack_p": 65,
+            "difference": 15,
+            "mu": 30
+          },
+          {
+            "period": 4,
+            "a": 110,
+            "K": 80,
+            "constrained_q": 55,
+            "constrained_p": 55,
+            "slack_q": 55,
+            "slack_p": 55,
+            "difference": 0,
+            "mu": 0
+          }
+        ],
+        "identity": "same demand sequence, constraint switched off; additional teaching data, not Fig.7 posterior simulation"
+      }
+    },
+    {
+      "id": "exp-ei17-fig9-interaction",
+      "node_id": "EI-17",
+      "title": "条件效应与非线性交互",
+      "anchor": "ei17-fig9",
+      "method": "interaction",
+      "controls": [
+        {
+          "key": "demandShock",
+          "label": "教学需求截距增量u",
+          "default": 30,
+          "min": 0,
+          "max": 80,
+          "step": 5,
+          "kind": "number"
+        },
+        {
+          "key": "capacityReduction",
+          "label": "教学容量减少v",
+          "default": 30,
+          "min": 0,
+          "max": 60,
+          "step": 5,
+          "kind": "number"
+        }
+      ],
+      "inputs": {
+        "demandShock": 30,
+        "capacityReduction": 30
+      },
+      "algorithm": "基准a100,K80；分别计算P(0,0),P(u,0),P(0,v),P(u,v)。conditional=P(u,v)−P(0,v)；interaction=conditional−[P(u,0)−P(0,0)]。非线性不强制贡献加总100%。",
+      "static_equivalent": "默认价格[50,65,50,80]；单独需求15、容量单独0、容量背景下需求30、交互15。教学价格，不是作者Figure9数值。",
+      "source_ids": [
+        "EIDEF-S20"
+      ],
+      "identity": "teaching_assumption",
+      "description": "条件效应与非线性交互",
+      "outputs": {
+        "baseline": {
+          "a": 100,
+          "K": 80,
+          "q": 50,
+          "p": 50,
+          "mu": 0,
+          "slack": 30,
+          "complementarity": 0,
+          "regime": "松弛",
+          "identity": "one-period competitive teaching model; abstract price/output, not the IMES model"
+        },
+        "demand_only": {
+          "a": 130,
+          "K": 80,
+          "q": 65,
+          "p": 65,
+          "mu": 0,
+          "slack": 15,
+          "complementarity": 0,
+          "regime": "松弛",
+          "identity": "one-period competitive teaching model; abstract price/output, not the IMES model"
+        },
+        "capacity_only": {
+          "a": 100,
+          "K": 50,
+          "q": 50,
+          "p": 50,
+          "mu": 0,
+          "slack": 0,
+          "complementarity": 0,
+          "regime": "恰好触边，乘子为零",
+          "identity": "one-period competitive teaching model; abstract price/output, not the IMES model"
+        },
+        "joint": {
+          "a": 130,
+          "K": 50,
+          "q": 50,
+          "p": 80,
+          "mu": 30,
+          "slack": 0,
+          "complementarity": 0,
+          "regime": "绑定且乘子为正",
+          "identity": "one-period competitive teaching model; abstract price/output, not the IMES model"
+        },
+        "demand_effect_without_capacity": 15,
+        "capacity_alone_effect": 0,
+        "conditional_demand_effect": 30,
+        "interaction": 15,
+        "total_effect": 30,
+        "identity": "price-unit four-state teaching example; difference operation mirrors Fig.9b, not estimated inflation"
+      }
+    },
+    {
+      "id": "exp-ei18-paper-map",
+      "node_id": "EI-18",
+      "title": "交互项导数与工作例单位",
+      "anchor": "ei18-table",
+      "method": "paper",
+      "controls": [
+        {
+          "key": "cashLow",
+          "label": "低现金比例C",
+          "default": 0.1,
+          "min": 0,
+          "max": 0.8,
+          "step": 0.01,
+          "kind": "number"
+        },
+        {
+          "key": "cashGap",
+          "label": "高低现金比例差ΔC",
+          "default": 0.02,
+          "min": 0,
+          "max": 0.2,
+          "step": 0.01,
+          "kind": "number"
+        },
+        {
+          "key": "ffrPP",
+          "label": "FFR变动（工作例百分点）",
+          "default": 5.25,
+          "min": -10,
+          "max": 10,
+          "step": 0.25,
+          "kind": "number"
+        }
+      ],
+      "inputs": {
+        "cashLow": 0.1,
+        "cashGap": 0.02,
+        "ffrPP": 5.25
+      },
+      "algorithm": "Table2(2)beta2=.214,beta4=.398固定；m(C)=beta2+beta4*C。mhigh−mlow=beta4ΔC；额外条件log差=beta4ΔCΔF，logpoints=100×log差，精确相对差=expm1(log差)。保持原文单位歧义提示。",
+      "static_equivalent": "C=.10/.12斜率.2538/.26176；在本篇声明的FFR工作尺度ΔF=5.25下，.04179 log units=4.179 logpoints≈4.27%精确相对变化。来源单位疑点保留；非公司回报预测。",
+      "source_ids": [
+        "EIDEF-S03"
+      ],
+      "identity": "teaching_assumption",
+      "description": "交互项导数与工作例单位",
+      "outputs": {
+        "cashLow": 0.1,
+        "cashHigh": 0.12000000000000001,
+        "derivativeLow": 0.2538,
+        "derivativeHigh": 0.26176,
+        "derivativeDifference": 0.00796,
+        "logDifference": 0.04179,
+        "logPoints": 4.179,
+        "exactRelativeDifference": 0.04267549390443921,
+        "interpretation": "Table2(2) conditional interaction; declared working-scale illustration with FFR=5.25 and cash-ratio gap encoded as 0.02; paper unit ambiguity retained; not company forecast"
+      }
+    }
+  ]
+}

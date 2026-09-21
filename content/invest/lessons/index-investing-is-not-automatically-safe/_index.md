@@ -1,4 +1,5 @@
 ---
+aliases: ["/invest/lessons/index-investing-is-not-automatically-safe/"]
 title: "Index Investing Is Not Automatically Safe"
 description: "Index investing is not automatically safe if I deploy the core in one shot while ignoring valuation risk. When uncertainty or expensive regimes are plausible, margin of safety must be engineered through pacing: staged entries, cash buffers, and drift correction via cash flows."
 date: 2026-01-30

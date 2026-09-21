@@ -1,0 +1,360 @@
+# 财报附注、会计估计与审计信息
+
+沿真实收入事项从主表追到政策、合同证据和审计程序，判断材料支持什么结论。
+
+Entry: zh-bf09 | Node: BF-09 | Language: zh | Editorial revision: 2026-09-21
+
+## Teaching instructions
+你现在教授BF-09《财报附注、会计估计与审计信息》。对象是有微积分、线性代数及基本概率基础，但不假定受过会计训练的高年级本科至研究生。先确认本篇行业/扩展分支和学习任务。在讲解前，使用读取工具实际取得agent_packet中common及所选branch的全部required_readings完整单元（含表头、脚注和条件）。optional_readings只有选中相应研究/扩展时才转为必读。记录标题、版本、实际范围以及支持当前教学的关键设定；runtime_reading_log初始为空，不以编辑访问或参考清单冒充本次已读。访问失败时尝试同版本官方等价正文；仍缺失就指出具体缺口，不拿摘要代替承重单元。诊断任务：从41525收入出发，请读者指出识别distinct obligations和SSP需要哪层材料。沿当前同源正文、静态表和supplied_inputs逐段推进，先让读者分析再反馈，已会步骤直接跳过。判断理解的尺度：能解释一项实际审计程序回答什么；CAM不是单独意见，样本研究不是公司风险排名。最后迁移：给一个寿命估计变动，提出政策、明细、估计变化及审计证据的路线。保留历史观测与教学设定身份、单位、期间、未解释差额；不得从本篇生成新估值或账户建议。
+
+Before substantive teaching, actually retrieve every required reading unit for the selected scope. Read its complete designated section, including necessary assumptions, tables and footnotes. A working URL or an editorial access date is not a runtime reading receipt. Record the actual version, location, scope and what it supports. If unavailable, use a previously verified equivalent source; if the required unit remains unavailable, identify that gap rather than teach it from memory. Start runtime_reading_log empty. Once reading is complete, use a substantive diagnostic or follow the reader's request for direct explanation. Advance one complete reasoning task at a time; skip mastered basics. Distinguish original facts, supplied teaching assumptions and inference.
+
+## Required readings and runtime protocol
+```json
+{
+  "export_mode": "public",
+  "required_readings": [
+    {
+      "source_id": "BBC-S16",
+      "access": {
+        "kind": "html_full_text",
+        "uri": "https://pcaobus.org/oversight/standards/auditing-standards/details/AS3101"
+      },
+      "required_unit": {
+        "locator": ".01–.05及.11–.17完整单元",
+        "scope": "所列完整单元、相关表头、脚注及当前计算所需说明",
+        "purpose": "CAM适用位置、条件、程序和意见边界"
+      },
+      "supports": "CAM定义、判断因素及沟通要求；CAM不是单独意见，也不改变总体意见。",
+      "branch": "common",
+      "required_when_selected": false,
+      "title": "PCAOB AS 3101 — The Auditor’s Report on an Audit of Financial Statements When the Auditor Expresses an Unqualified Opinion",
+      "authors": [
+        "Public Company Accounting Oversight Board"
+      ],
+      "version": "Official standard page checked 2026-09-21"
+    },
+    {
+      "source_id": "BBC-C01",
+      "access": {
+        "kind": "html_full_text",
+        "uri": "https://www.sec.gov/Archives/edgar/data/1108524/000110852426000060/crm-20260131.htm"
+      },
+      "required_unit": {
+        "locator": "Operations p.58；Note1 Revenue Recognition pp.64–65；Note2 Contract Balances p.71；Revenue Recognition CAM pp.54–55完整单元",
+        "scope": "所列完整单元、相关表头、脚注及当前计算所需说明",
+        "purpose": "同一收入事项的三层证据"
+      },
+      "supports": "订阅收入确认、合同余额、完整现金流、权益与EPS、收入CAM及所得税附注。金额、现金和股数口径保留，不虚构差额调节。",
+      "branch": "common",
+      "required_when_selected": false,
+      "title": "Salesforce, Inc. FY2026 Form 10-K",
+      "authors": [
+        "Salesforce, Inc."
+      ],
+      "version": "Fiscal year ended 2026-01-31"
+    }
+  ],
+  "optional_readings": [
+    {
+      "source_id": "BBC-R02",
+      "access": {
+        "kind": "html_full_text",
+        "uri": "https://link.springer.com/article/10.1007/s11142-026-09938-3"
+      },
+      "required_unit": {
+        "locator": "Introduction；method/sample；findings；conclusion",
+        "scope": "所列完整单元、相关表头、脚注及当前计算所需说明",
+        "purpose": "首年CAM实施的质性研究"
+      },
+      "supports": "CAM实施中的组织行为质性证据；30位高层审计人员、七家事务所，不代表随机项目总体。",
+      "branch": "research",
+      "required_when_selected": true
+    }
+  ],
+  "runtime_reading_log": [],
+  "supplied_inputs": {
+    "canonical_file": "https://ou-liu-red-sugar.github.io/notebook/labs/bf-bc/inputs.json",
+    "selected_keys": [
+      "sf_contract",
+      "synthetic.ssp"
+    ],
+    "data": {
+      "sf_contract": {
+        "source_id": "BBC-C01",
+        "locator": "Note 2, printed p.71; Note 1 Revenue Recognition; balance sheet p.57",
+        "periods": [
+          "FY2026",
+          "FY2025"
+        ],
+        "begin": [
+          20743,
+          19003
+        ],
+        "billings_and_other": [
+          45099,
+          39635
+        ],
+        "over_time": [
+          39041,
+          35628
+        ],
+        "point_in_time": [
+          2484,
+          2267
+        ],
+        "end": [
+          24317,
+          20743
+        ],
+        "receivables_net": [
+          14339,
+          11945
+        ],
+        "contract_assets": [
+          818,
+          724
+        ],
+        "rpo_current_bn": 35.1,
+        "rpo_noncurrent_bn": 37.3,
+        "rpo_total_bn": 72.4,
+        "rpo_precision_bn": 0.1,
+        "other_note": "billings and other包括汇兑、合同资产及企业合并；FY2026包含Informatica收购日未赚取收入651百万美元。",
+        "identity": "historical_observation",
+        "unit": "USD millions except RPO USD billions"
+      },
+      "synthetic": {
+        "ssp": {
+          "id": "SYN-SSP-01",
+          "data_identity": "teaching_assumption",
+          "total": 120,
+          "license_ssp": 100,
+          "support_ssp": 50,
+          "alternative_license_ssp": 80,
+          "alternative_support_ssp": 80,
+          "support_months": 12,
+          "unit": "arbitrary currency units",
+          "terms": "Distinct licence delivered at inception; support recognized evenly over one year. No variable consideration, costs, tax or refund."
+        }
+      }
+    },
+    "default_results_file": "labs/default-results.json"
+  },
+  "diagnosis": "从41525收入出发，请读者指出识别distinct obligations和SSP需要哪层材料。",
+  "feedback_criteria": "能解释一项实际审计程序回答什么；CAM不是单独意见，样本研究不是公司风险排名。",
+  "transfer_task": "给一个寿命估计变动，提出政策、明细、估计变化及审计证据的路线。",
+  "experiment_ids": [
+    "EXP-BF09-EVIDENCE"
+  ]
+}
+```
+
+## Supplied entry
+主表把大量合同和经营事项压成有限几行，因此看起来很整齐。但一个金额到底包含什么、何时确认、哪些部分依赖估计，往往要在附注里才看得见。审计报告又提供另一类信息：审计师如何形成意见，哪些事项涉及尤其困难的审计判断。
+
+这一篇不要求你把年报从头背到尾，而是沿Salesforce的一项收入事项往返阅读。读完后，你应能从主表出发，找到政策、明细和审计说明，并写出一句证据支持得住的分析，而不是简单地说“附注很重要”。
+
+<a id="bf09-evidence-layers"></a>
+## 1. 同一件事，在三层材料里回答不同问题
+
+Salesforce FY2026合并利润表报告收入41,525百万美元，其中订阅及支持39,388，专业服务及其他2,137。这个分组告诉我们收入大体从哪里来，却还没有回答合同包含几项交付、价格怎样分配，以及哪些金额在今天而不是以后进入收入。[^sfstatement]
+
+我们把查证路线写成一张地图，随后沿它实际走一遍。
+
+| 材料层 | 本例的具体位置 | 它回答什么 |
+| --- | --- | --- |
+| 主表 | Consolidated Statements of Operations，p.58 | 41,525属于哪个期间；收入和成本如何汇总 |
+| 政策 | Note 1 Revenue Recognition，pp.64–65 | 何时转移控制；履约义务是否可区分；怎样分配价格 |
+| 余额与明细 | Note 2 Contract Balances，p.71 | 已确认收入、应收／合同资产和剩余履约之间还有哪些关系 |
+| 审计报告 | Revenue Recognition CAM，pp.54–55 | 审计难点在哪；审计师描述了哪些应对程序 |
+
+
+这几层不是彼此替代的四个摘要。主表金额不够细，不能据它猜全部政策；会计政策也不告诉我们每份合同实际采用什么参数；审计描述则不等于把所有合同细节公开给读者。因此，要保留问题的尺度：先确认哪一层能支持当前这句话，再决定还需要什么。
+
+<a id="bf09-revenue-policy"></a>
+## 2. 从收入政策找到真正依赖判断的位置
+
+Note 1区分不同交付。云服务通常在服务期间分期确认；可供使用的软件许可可能在控制权转移时确认；支持与专业服务还要按各自履约方式处理。合同若包含多项承诺，就要判断它们能否分别识别，再按相对单独售价分配交易价格。[^sfpolicy]
+
+这些判断并不只是计算器问题。例如，客户是否可以从某项服务本身获益，它是否与其他承诺高度相互依赖，企业有没有把多项投入整合为一个综合交付，都会影响我们如何理解合同。Salesforce披露了对独立履约义务、单独售价及不同收入类型的判断方法。我们可以据此指出“收入确认包含这些判断”，却不能仅凭政策文字断言某份合同的售价估计偏高。
+
+用一个**纯教学设定**看判断为何会影响期间数字：合同总价120，包含一个立即交付的可区分软件使用权和一年的可区分支持服务；没有折扣分配例外、可变对价、税或融资成分。假设单独售价分别为100和50，那么按相对售价，许可分到 `120×100/150=80`，支持分到40。许可满足时点确认条件并已交付，支持均匀履约，第一月累计收入就是 `80 + 40/12 ≈ 83.33`。
+
+若有证据支持的单独售价改为80和80，两项各分60，第一月累计收入为 `60 + 60/12 = 65`。总合同价仍为120，累计到服务结束也仍是120；改变的是收入进入不同期间的节奏。我们故意把其他条件固定，才看得清售价分配的作用。这个算例既不是Salesforce实际合同，也不是说公司可以随意挑一个更高的本期收入；所用估计必须有可支持的依据。
+
+| 教学假设：单独售价 | 许可分配 | 支持分配 | 第一月累计收入 | 一年最终收入 |
+| --- | --- | --- | --- | --- |
+| 100与50 | 80 | 40 | 83.33… | 120 |
+| 80与80 | 60 | 60 | 65 | 120 |
+
+
+判断是否合理，需要可比独立销售、合同条款、交付内容和适用政策，而不是看到某个结果就反推管理层意图。这正是从“数值正确”进一步走向“计量依据是否合适”的地方。
+
+<a id="bf09-cam"></a>
+## 3. CAM究竟说了什么，又没有说什么？
+
+PCAOB AS 3101把关键审计事项（CAM）的判断限定在具体条件下：该事项来自财务报表审计，已向或按要求应向审计委员会沟通；涉及对报表重大的账户或披露；并涉及尤其具有挑战性、主观或复杂的审计师判断。三层条件需要合起来看，不能把“重要”二字单独当作定义。[^cam]
+
+标准还要求审计师识别事项、说明为何认定为CAM、怎样应对，并指向相关账户或披露。**CAM不替代应当出具的其他类型审计意见，也不是对该事项单独发表意见**。有无CAM和CAM数量，都不能直接变成公司财务质量的等级表。[^cam]
+
+Salesforce的收入确认CAM恰好接到我们刚才看到的判断：多项履约义务的识别和价格分配、单独售价等，需要较复杂或主观的分析。审计报告描述的应对包括了解及测试相关控制、评价产品与服务及其可区分性、抽取合同检查条款、评价单独售价依据以及检查计算。[^sfcam]
+
+这给读者一个很具体的使用方法。若你的疑问是“收入确认的判断集中在哪里”，CAM能帮助定位；若你要说“审计师发现本年收入存在重大错报”，这段CAM并不支持。审计报告提供合理保证和相应意见，不保证未来业务结果，也不承诺我们任意构造的调整利润都正确。
+
+<a id="bf09-evidence-practice"></a>
+## 4. 把“发现问题”改成可以继续检验的命题
+
+假设你看到公司收入增速与未赚取收入增速不同。第一反应不必是“收入有问题”。先核期间：一个是全年流量，一个是年末余额。再核范围：Note 2的未赚取收入滚动增加项还包含汇兑、合同资产和企业合并。再看确认政策：同一份合同可能包含时点与期间确认。只有这样，才有机会把真实经营变化和会计记录区别开。[^sfcontract]
+
+一个证据充分的句子可以是：“该公司将多项合同承诺按所估计的单独售价分配，相关判断也是收入确认CAM关注的内容；要检验某类收入提前或推迟确认的影响，还需取得对应合同结构和分配依据。”它比“审计师担心收入造假”长一点，却明确告诉读者已知什么、下一步查什么。
+
+对寿命或减值估计也可以迁移同一路径：先找资产余额及费用行，再找成本、累计折旧或减值滚动，随后查寿命、使用方式和估计变更，最后看审计报告是否讨论相关判断。不能因为某个主题没有出现在CAM，就推断其金额无需估计，或审计师没有执行工作。
+
+<a id="bf09-experiment"></a>
+## 5. 在证据层与一个小计算之间往返
+
+<div data-experiment-slot="EXP-BF09-EVIDENCE"></div>
+
+实验保留主表、政策、审计三层阅读卡；另可切换上文的两组教学单独售价。无论你选择哪组，合同价始终120，界面把分配结果和期间确认放在一起，同时提示哪些真实证据还没取得。它不会据CAM文字为公司自动打分。
+
+<a id="bf09-research"></a>
+<details>
+<summary>研究选读：正式标准与实际实施经验</summary>
+
+Griffith、Rousseau与Zehms发表于2026年的研究，通过七家事务所30位资深审计人员的调查和访谈，研究CAM早期实施经验。作者报告的组织惯例，包括避免与同行显著不同、关注披露数量、尽量避免让客户措手不及等，可能影响最终披露提供多少新增信息。[^research]
+
+这是特定实施环境中的质性证据，不是全部公司CAM质量的量化排名。它也不能取代AS 3101的定义。阅读时应分别问：规范要求审计师做什么；访谈能观察到哪些实践；这些观察能否推广到另一时间或项目？回答第三问，不能只靠第一问的制度目标或第二问的一段访谈。
+
+</details>
+
+<a id="bf09-exercise"></a>
+## 6. 练习：把不被支持的推断挑出来
+
+**题一**。看到Revenue Recognition CAM，以下哪句最接近原件支持的范围？
+
+A．审计师认定该公司收入有重大错报。B．收入事项符合CAM条件，涉及尤其困难、主观或复杂的审计判断，报告解释了相应应对。C．这家公司一定比没有收入CAM的公司风险高。
+
+**解析**。B。A把事项沟通错当成不利或单独审计意见；C把不同项目的披露直接变成跨公司排名。完整判断还要看总体意见、事项条件和实际程序。
+
+**题二**。教学合同单独售价从100／50变成80／80时，第一月收入从83.33左右变成65。能否由此断言修改者操纵了利润？
+
+**解析**。不能。我们只建立了参数对确认节奏的机械影响；尚未判断哪组单独售价有证据，甚至尚未给出公司成本。合理性要回到可比销售、合同和估计依据，利润还需相应费用。能识别敏感性，是提出检验问题，不是已经完成归因。
+
+**迁移题**。一项设备净额下降，请给出至少两种需要区分的原因和应查材料。
+
+**解析**。可能是折旧，也可能有处置或减值等变化。先查固定资产明细及滚动，再查当期折旧、处置和减值政策／记录；若涉及寿命变化，还要找估计变更说明。只看净额下降，不足以断言设备老化、出售或经营恶化中的任何一种。
+
+[^sfstatement]: Salesforce，[FY2026 10-K](https://www.sec.gov/Archives/edgar/data/1108524/000110852426000060/crm-20260131.htm)，Consolidated Statements of Operations，p.58；收入三行，年度截至2026-01-31，单位百万美元。
+[^sfpolicy]: 同份[10-K](https://www.sec.gov/Archives/edgar/data/1108524/000110852426000060/crm-20260131.htm)，Note 1 Revenue Recognition，pp.64–65，履约义务、时点／期间确认与Standalone Selling Price相关完整小节。
+[^sfcontract]: 同份[10-K](https://www.sec.gov/Archives/edgar/data/1108524/000110852426000060/crm-20260131.htm)，Note 2 Contract Balances，p.71，未赚取收入滚动及脚注。
+[^cam]: PCAOB，[AS 3101](https://pcaobus.org/oversight/standards/auditing-standards/details/AS3101)，.11–.17；定义、因素、应沟通事项及不构成单独意见的说明。
+[^sfcam]: Salesforce，[FY2026 10-K](https://www.sec.gov/Archives/edgar/data/1108524/000110852426000060/crm-20260131.htm)，Report of Independent Registered Public Accounting Firm中的Revenue Recognition CAM，pp.54–55。这里概述其判断和程序，不把概述改称审计师对某项收入的单独意见。
+[^research]: Emily E. Griffith、Linette M. Rousseau、Karla M. Zehms，[Why do critical audit matters lack teeth? Insights from auditors’ implementation experiences](https://link.springer.com/article/10.1007/s11142-026-09938-3)，2026，*Review of Accounting Studies* 31:1481–1520；引言、方法及样本、主要发现、结论。30位受访者不构成当前所有项目的代表性随机样本。
+
+
+## Additional teaching material
+交互算法：source layer selector; allocationA=price*SSPA/(SSPA+SSPB), support analogous; first-month revenue=A+B/12。
+
+边界：单独售价模型是教学设定；仅对给定distinct obligations和履约模式；CAM不是独立意见。
+
+静态结果：https://ou-liu-red-sugar.github.io/notebook/labs/bf-bc/static.html#EXP-BF09-EVIDENCE。所有输入保留历史/教学身份；行业选择与打印由配套页面提供。
+
+## Experiment inputs and static equivalents
+```json
+[
+  {
+    "id": "EXP-BF09-EVIDENCE",
+    "title": "财报附注、会计估计与审计信息：交互实验",
+    "anchor": "bf09-experiment",
+    "description": "沿真实收入事项从主表追到政策、合同证据和审计程序，判断材料支持什么结论。",
+    "inputs": {
+      "source": "https://ou-liu-red-sugar.github.io/notebook/labs/bf-bc/inputs.json",
+      "selected_keys": [
+        "sf_contract",
+        "synthetic.ssp"
+      ],
+      "units": "各原表自带单位；教学合同/成本/税例使用独立教学货币单位",
+      "controls": "见labs/interactions.html具名label；全部算法使用engine.js"
+    },
+    "outputs": {
+      "default": {
+        "a": 80,
+        "b": 40
+      },
+      "all_defaults_file": "https://ou-liu-red-sugar.github.io/notebook/labs/bf-bc/default-results.json"
+    },
+    "algorithm": "source layer selector; allocationA=price*SSPA/(SSPA+SSPB), support analogous; first-month revenue=A+B/12。",
+    "boundaries": "单独售价模型是教学设定；仅对给定distinct obligations和履约模式；CAM不是独立意见。",
+    "static_equivalent": {
+      "reader_anchors": [
+        "bf09-experiment"
+      ],
+      "html": "https://ou-liu-red-sugar.github.io/notebook/labs/bf-bc/static.html#EXP-BF09-EVIDENCE",
+      "markdown": "https://ou-liu-red-sugar.github.io/notebook/labs/bf-bc/static-equivalents.md",
+      "markdown_body": "<a id=\"EXP-BF09-EVIDENCE\"></a>\n## BF-09 · 财报附注、会计估计与审计信息\n\n单独售价模型是教学设定；仅对给定distinct obligations和履约模式；CAM不是独立意见。\n\n| 证据层 | 能回答 | 需要继续取得 |\n| --- | --- | --- |\n| 主表 | 合并收入41,525与期间 | 合同义务、确认政策和估计 |\n| 政策及Note2 | 控制权、相对单独售价及余额范围 | 实际合同及SSP证据 |\n| CAM | 审计中复杂判断及应对程序 | 不能据此给公司打分或视作单独意见 |\n\n\n| 教学单独售价 | 许可分配 | 支持分配 | 首月累计收入 |\n| --- | --- | --- | --- |\n| 100／50 | 80 | 40 | 83.333333 |\n| 80／80 | 60 | 60 | 65 |\n\n\n反馈：选B正确——CAM说明复杂审计判断和应对。A错把CAM当错报结论；C把披露沟通变成公司排名。\n"
+    },
+    "data_identity": "historical_observations_and_separately_labelled_teaching_assumptions"
+  }
+]
+```
+
+## Sources
+- [Salesforce, Inc. FY2026 Form 10-K](https://www.sec.gov/Archives/edgar/data/1108524/000110852426000060/crm-20260131.htm): 订阅收入确认、合同余额、完整现金流、权益与EPS、收入CAM及所得税附注。金额、现金和股数口径保留，不虚构差额调节。
+
+BF-F/G 本批采用：完整收付账、净现金和债务账面/本金、PPA对价及三种回购/股数口径；FX单列。
+- [Why do critical audit matters lack teeth? Insights from auditors’ implementation experiences](https://link.springer.com/article/10.1007/s11142-026-09938-3): CAM实施中的组织行为质性证据；30位高层审计人员、七家事务所，不代表随机项目总体。
+- [PCAOB AS 3101 — The Auditor’s Report on an Audit of Financial Statements When the Auditor Expresses an Unqualified Opinion](https://pcaobus.org/oversight/standards/auditing-standards/details/AS3101): CAM定义、判断因素及沟通要求；CAM不是单独意见，也不改变总体意见。
+
+## Content relations
+```json
+[
+  {
+    "from": "zh-bf09",
+    "relation": "part_of",
+    "to": "business-reports",
+    "reason": "主要 topic 归属"
+  },
+  {
+    "from": "zh-bf09",
+    "relation": "illustrated_by",
+    "to": "bf09-cam",
+    "reason": "固定期间原始材料带读",
+    "period": "FY2026",
+    "cutoff": "2026-09-21"
+  },
+  {
+    "from": "bf09-cam",
+    "relation": "supported_by",
+    "to": "BBC-C01",
+    "reason": "该案例的原表与附注",
+    "locator": "Auditor Revenue Recognition CAM pp.54–55；Balance Sheets p.57; Operations p.58；Equity p.60; Cash Flows pp.61–62；Note 1 credit risk/revenue pp.63–65; income tax and ASU adoption pp.69–70；Note 2 Contract Balances/RPO pp.71–72；Note 11 p.85; Note 12 pp.86–89; Note 13 pp.89–90",
+    "scope": "订阅收入确认、合同余额、完整现金流、权益与EPS、收入CAM及所得税附注。金额、现金和股数口径保留，不虚构差额调节。"
+  },
+  {
+    "from": "zh-bf09",
+    "relation": "supported_by",
+    "to": "BBC-S16",
+    "reason": "定义、机制或选读研究的直接来源",
+    "locator": ".01–.05；.11–.17",
+    "scope": "CAM定义、判断因素及沟通要求；CAM不是单独意见，也不改变总体意见。"
+  },
+  {
+    "from": "zh-bf09",
+    "relation": "supported_by",
+    "to": "BBC-R02",
+    "reason": "定义、机制或选读研究的直接来源",
+    "locator": "Introduction; method/sample; implementation findings; conclusion",
+    "scope": "CAM实施中的组织行为质性证据；30位高层审计人员、七家事务所，不代表随机项目总体。"
+  },
+  {
+    "from": "bf09-experiment",
+    "relation": "illustrated_by",
+    "to": "EXP-BF09-EVIDENCE",
+    "reason": "沿真实收入事项从主表追到政策、合同证据和审计程序，判断材料支持什么结论。",
+    "at_section": "bf09-experiment",
+    "conditions": "单独售价模型是教学设定；仅对给定distinct obligations和履约模式；CAM不是独立意见。"
+  }
+]
+```
+
+## Related entries

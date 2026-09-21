@@ -1,0 +1,229 @@
+{
+  "schema_version": "qt-b-inputs-1",
+  "content_version": "2026-09-21-QT-B-review-v3",
+  "shared_case": {
+    "id": "EXP-COND-01",
+    "identity": "教学构造；真实产品条款仅用于支付乘数和结算值的解释，不是历史行情、样本频率或风险中性模型",
+    "state_ids": [
+      "w1",
+      "w2",
+      "w3",
+      "w4"
+    ],
+    "probabilities": [
+      0.1,
+      0.3,
+      0.4,
+      0.2
+    ],
+    "signals": [
+      "L",
+      "L",
+      "H",
+      "H"
+    ],
+    "settlement_points": [
+      5900,
+      6000,
+      6100,
+      6200
+    ],
+    "strike_points": 6000,
+    "multiplier_usd_per_point": 100,
+    "contracts": 1,
+    "payoff_type": "call",
+    "probability_measure": "P_model",
+    "clocks": {
+      "t0": "未观察信号",
+      "t1": "模型约定已收到 L/H 信号",
+      "t2": "合约规定结算值确定；支付金额可计算",
+      "cash_delivery": "与 t2 的金额确定区分，不在本实验建立账户到账/交收模型"
+    },
+    "partitions": {
+      "trivial": [
+        [
+          0,
+          1,
+          2,
+          3
+        ]
+      ],
+      "signal": [
+        [
+          0,
+          1
+        ],
+        [
+          2,
+          3
+        ]
+      ],
+      "full": [
+        [
+          0
+        ],
+        [
+          1
+        ],
+        [
+          2
+        ],
+        [
+          3
+        ]
+      ],
+      "cross": [
+        [
+          0,
+          2
+        ],
+        [
+          1,
+          3
+        ]
+      ]
+    },
+    "partition_labels": {
+      "trivial": "尚无信号",
+      "signal": "只知 L/H",
+      "full": "完整状态",
+      "cross": "交叉分组 {1,3}/{2,4}"
+    },
+    "events": {
+      "H": [
+        2,
+        3
+      ],
+      "T": [
+        3
+      ],
+      "L": [
+        0,
+        1
+      ],
+      "all": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "empty": []
+    },
+    "case_source_ids": [
+      "QTB-CBOE-SPX"
+    ]
+  },
+  "defaults": {
+    "events": {
+      "event": "T",
+      "given": "H"
+    },
+    "conditional": {
+      "partition": "signal"
+    },
+    "measurable": {
+      "partition": "signal",
+      "candidate": [
+        0,
+        1,
+        2,
+        2
+      ]
+    },
+    "projection": {
+      "partition": "signal",
+      "candidate_usd": [
+        0,
+        0,
+        10000,
+        10000
+      ],
+      "outer_partition": "trivial"
+    },
+    "rn": {
+      "partition": "signal",
+      "shift_usd": 15000
+    },
+    "integration": {
+      "pareto_alpha": 1.5,
+      "cap": 100,
+      "spike_n": 10,
+      "probe_x": 0.02,
+      "dyadic_n": 4
+    }
+  },
+  "named_cases": {
+    "zero_group": {
+      "probabilities": [
+        0.25,
+        0.75,
+        0,
+        0
+      ],
+      "partition": "signal"
+    },
+    "zero_atom": {
+      "probabilities": [
+        0.25,
+        0.75,
+        0,
+        0
+      ],
+      "partition": "full"
+    },
+    "bad_future_candidate": {
+      "candidate_usd": [
+        0,
+        0,
+        10000,
+        20000
+      ]
+    },
+    "cap_grid": [
+      10,
+      100,
+      1000
+    ],
+    "alpha_grid": [
+      0.8,
+      1,
+      1.5,
+      3
+    ],
+    "integration_spike_grid": [
+      2,
+      10,
+      100
+    ],
+    "mse_probe_grid_usd": [
+      0,
+      10000,
+      13333.333333333334,
+      20000
+    ],
+    "dyadic_grid": [
+      1,
+      2,
+      4,
+      8
+    ]
+  },
+  "units": {
+    "probabilities": "dimensionless",
+    "settlement_points": "index points (contract-defined settlement value)",
+    "payoff": "USD / one contract",
+    "expectation": "USD",
+    "mse": "USD^2",
+    "pareto": "dimensionless pedagogical variable, support [1,infinity)",
+    "spike": "dimensionless on (0,1) with Lebesgue probability"
+  },
+  "numerical_policy": {
+    "probability_sum_absolute_tolerance": 1e-12,
+    "calculation_relative_tolerance": 1e-10,
+    "calculation_absolute_tolerance": 1e-08,
+    "null_group": "mass exactly zero; conditional ratios undefined; canonical CE constant 0 on that group; never infer impossibility outside the model",
+    "normalization": "invalid probabilities rejected, never silently normalized",
+    "finite": "all finite numeric inputs required",
+    "identity": "fixed finite model; no stochastic simulation and no financial return denominator used"
+  }
+}

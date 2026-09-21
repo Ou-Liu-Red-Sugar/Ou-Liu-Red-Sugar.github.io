@@ -1,0 +1,109 @@
+{
+  "entry_id": "zh-ei15",
+  "node_id": "EI-15",
+  "content_version": "2026-09-21-review-v3",
+  "export_mode": "public",
+  "selected_branch": "retail",
+  "audience": "有微积分、线性代数和基本概率基础的高年级本科生至研究生",
+  "learning_task": "为具体问题选择有不同职责的指标，核版本、统计构造和总体，再设计下一项检验。",
+  "required_readings": [
+    {
+      "source_id": "EIDEF-S13",
+      "title": "2017 NAICS Restatement — Summary of Changes",
+      "authors": [
+        "U.S. Census Bureau"
+      ],
+      "version": "Annual Revision released 2025-04-25",
+      "access": {
+        "kind": "pdf_full_text",
+        "uri": "https://www.census.gov/retail/mrts/www/NAICS_Restatement_Summary.pdf",
+        "verified_access_at": "2026-09-21"
+      },
+      "required_unit": {
+        "locator": "PDF pp.1–2说明；p.3 Restated Annual Retail Sales / End-of-Year Inventories，NAICS44–45总行",
+        "scope": "所列具名单元全文，包含公式、表头、表注及本篇采用结论所需上下文；不要求无关章节。",
+        "purpose": "同一2022期原雇主+非雇主与重述雇主口径不同；不是从2025April观测才发生的需求下降。"
+      },
+      "supports": "同一2022期原雇主+非雇主与重述雇主口径不同；不是从2025April观测才发生的需求下降。",
+      "branch": "retail",
+      "id": "EI-15-READ-1",
+      "retrieved_at": "2026-09-21"
+    }
+  ],
+  "optional_readings": [],
+  "runtime_reading_log": [],
+  "supplied_inputs": {
+    "frozen_source_version": "2026-09-21-ei-defgh-preflight-final",
+    "node": {
+      "retail_branch": {
+        "restatement_release": "2025-04-25 Annual Revision",
+        "identity": "series restated to 2017 NAICS and employer-only firms; affected industries restated back through their series rather than a one-month April 2025 break",
+        "2022_sales_million_USD": {
+          "original_employer_plus_nonemployer": 7040995,
+          "restated_employer_only": 6916099,
+          "difference_pct_source": -1.8
+        },
+        "2022_end_of_year_inventory_million_USD": {
+          "original_employer_plus_nonemployer": 733168,
+          "restated_employer_only": 717180,
+          "difference_pct_source": -2.2
+        }
+      }
+    },
+    "experiments": [
+      {
+        "id": "exp-ei15-metric-contract",
+        "node_id": "EI-15",
+        "title": "指标的对象与证据职责",
+        "anchor": "ei15-selection",
+        "method": "metrics",
+        "controls": [],
+        "inputs": {
+          "branch": "retail"
+        },
+        "algorithm": "真实数值只读。只使用当前零售分支：同一2022材料期重述差=(restated/original−1)；比较的是统计总体/版本重述，不是跨期需求增长。",
+        "static_equivalent": "零售：同一2022材料期销售重述差−1.7738402%，库存重述差−2.1806735%；不是需求同比。",
+        "source_ids": [
+          "EIDEF-S13"
+        ],
+        "identity": "observed_and_derived",
+        "description": "指标的对象与证据职责",
+        "outputs": {
+          "branch": "retail",
+          "salesOld": 7040995,
+          "salesNew": 6916099,
+          "salesChange": -124896,
+          "salesPct": -1.7738402029826794,
+          "inventoryOld": 733168,
+          "inventoryNew": 717180,
+          "inventoryPct": -2.1806734609257306,
+          "identity": "同一2022材料期的重述差，不是时间增长"
+        }
+      }
+    ]
+  },
+  "static_equivalents": [
+    {
+      "experiment_id": "exp-ei15-metric-contract",
+      "text": "零售：同一2022材料期销售重述差−1.7738402%，库存重述差−2.1806735%；不是需求同比。",
+      "outputs": {
+        "branch": "retail",
+        "salesOld": 7040995,
+        "salesNew": 6916099,
+        "salesChange": -124896,
+        "salesPct": -1.7738402029826794,
+        "inventoryOld": 733168,
+        "inventoryNew": 717180,
+        "inventoryPct": -2.1806734609257306,
+        "identity": "同一2022材料期的重述差，不是时间增长"
+      }
+    }
+  ],
+  "source_id_aliases": {
+    "EIDEF-S10": "BFDE-JEP",
+    "EIDEF-S14": "EIBC-S07M",
+    "EIDEF-S16A": "EIBC-S05A",
+    "EIDEF-S16B": "EIBC-S05B",
+    "EIDEF-S21": "EI-S06-M3-202605"
+  }
+}

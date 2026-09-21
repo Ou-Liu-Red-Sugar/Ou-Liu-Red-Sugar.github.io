@@ -1,0 +1,155 @@
+{
+  "entry_id": "zh-ei15",
+  "node_id": "EI-15",
+  "content_version": "2026-09-21-review-v3",
+  "export_mode": "public",
+  "selected_branch": "electricity",
+  "audience": "有微积分、线性代数和基本概率基础的高年级本科生至研究生",
+  "learning_task": "为具体问题选择有不同职责的指标，核版本、统计构造和总体，再设计下一项检验。",
+  "required_readings": [
+    {
+      "source_id": "EIDEF-S19A",
+      "title": "Table 5.1 Sales of Electricity to Ultimate Customers",
+      "authors": [
+        "EIA"
+      ],
+      "version": "Electric Power Monthly；data June2026；release2026-08-26",
+      "access": {
+        "kind": "site_body",
+        "uri": "https://www.eia.gov/electricity/monthly/epm_table_grapher.php?t=epmt_5_1",
+        "verified_access_at": "2026-09-21"
+      },
+      "required_unit": {
+        "locator": "2024/2025年度all sectors行与适用表注",
+        "scope": "所列具名单元全文，包含公式、表头、表注及本篇采用结论所需上下文；不要求无关章节。",
+        "purpose": "2024 final、2025 preliminary；销售账单期间与发电自然月/覆盖不同。冻结行数值保留，不借用另一个923 final标签。"
+      },
+      "supports": "2024 final、2025 preliminary；销售账单期间与发电自然月/覆盖不同。冻结行数值保留，不借用另一个923 final标签。",
+      "branch": "electricity",
+      "id": "EI-15-READ-1",
+      "retrieved_at": "2026-09-21"
+    },
+    {
+      "source_id": "EIDEF-S19B",
+      "title": "Table 5.2 Revenue from Sales of Electricity to Ultimate Customers",
+      "authors": [
+        "EIA"
+      ],
+      "version": "Electric Power Monthly；data June2026；release2026-08-26",
+      "access": {
+        "kind": "site_body",
+        "uri": "https://www.eia.gov/electricity/monthly/epm_table_grapher.php?t=epmt_5_2",
+        "verified_access_at": "2026-09-21"
+      },
+      "required_unit": {
+        "locator": "2025年度all sectors行与适用表注",
+        "scope": "所列具名单元全文，包含公式、表头、表注及本篇采用结论所需上下文；不要求无关章节。",
+        "purpose": "2024 final、2025 preliminary；销售账单期间与发电自然月/覆盖不同。冻结行数值保留，不借用另一个923 final标签。"
+      },
+      "supports": "2024 final、2025 preliminary；销售账单期间与发电自然月/覆盖不同。冻结行数值保留，不借用另一个923 final标签。",
+      "branch": "electricity",
+      "id": "EI-15-READ-2",
+      "retrieved_at": "2026-09-21"
+    },
+    {
+      "source_id": "EIBC-S05B",
+      "title": "Preliminary Monthly Electric Generator Inventory (EIA-860M)",
+      "authors": [
+        "EIA"
+      ],
+      "version": "方法页访问2026-09-21",
+      "access": {
+        "kind": "site_body",
+        "uri": "https://www.eia.gov/electricity/data/eia860m/index.php",
+        "verified_access_at": "2026-09-21"
+      },
+      "required_unit": {
+        "locator": "工作簿列表前：preliminary、existing/proposed、revision及not capacity commitments说明",
+        "scope": "所列具名单元全文，包含公式、表头、表注及本篇采用结论所需上下文；不要求无关章节。",
+        "purpose": "月度库存含现有与拟建项目，估计可修订；没有读取状态码就不造状态码交互。"
+      },
+      "supports": "月度库存含现有与拟建项目，估计可修订；没有读取状态码就不造状态码交互。",
+      "branch": "electricity",
+      "id": "EI-15-READ-3",
+      "retrieved_at": "2026-09-21"
+    }
+  ],
+  "optional_readings": [],
+  "runtime_reading_log": [],
+  "supplied_inputs": {
+    "frozen_source_version": "2026-09-21-ei-defgh-preflight-final",
+    "node": {
+      "electricity_branch": {
+        "source_release": "EIA Electric Power Monthly, data for June 2026, released 2026-08-26",
+        "Table_5_1_sales_thousand_MWh": {
+          "2024": 3975382,
+          "2025": 4058007,
+          "2024_status": "final",
+          "2025_status": "preliminary_cutoff_model_sample"
+        },
+        "Table_5_2_revenue_million_USD": {
+          "2025": 553285,
+          "2025_status": "preliminary_cutoff_model_sample"
+        },
+        "derived": {
+          "sales_growth_2024_to_2025_pct": 2.0784166150573657,
+          "revenue_divided_by_sales_cents_per_kWh": 13.634402306353833
+        },
+        "note": "Revenue/sales is an average billed revenue rate, not a marginal retail price."
+      }
+    },
+    "experiments": [
+      {
+        "id": "exp-ei15-metric-contract",
+        "node_id": "EI-15",
+        "title": "指标的对象与证据职责",
+        "anchor": "ei15-selection",
+        "method": "metrics",
+        "controls": [],
+        "inputs": {
+          "branch": "electricity"
+        },
+        "algorithm": "真实数值只读。只使用EPM Table 5.1/5.2当前分支：售电增长=(2025/2024−1)；平均账单收入率=百万USD/千MWh换算为cents/kWh。2024 final、2025 preliminary；不引入EI-16 Table 1.1发电分解。",
+        "static_equivalent": "电力：2024→2025售电增长2.0784166%；2025收入/售电=13.6344023 cents/kWh；2024 final / 2025 preliminary。",
+        "source_ids": [
+          "EIDEF-S19A",
+          "EIDEF-S19B",
+          "EIBC-S05B"
+        ],
+        "identity": "observed_and_derived",
+        "description": "指标的对象与证据职责",
+        "outputs": {
+          "branch": "electricity",
+          "qty2024": 3975382,
+          "qty2025": 4058007,
+          "revenue": 553285,
+          "growth": 2.0784166150573657,
+          "averageCents": 13.634402306353833,
+          "status": "2024 final / 2025 preliminary；EPM 2026-08-26"
+        }
+      }
+    ]
+  },
+  "static_equivalents": [
+    {
+      "experiment_id": "exp-ei15-metric-contract",
+      "text": "电力：2024→2025售电增长2.0784166%；2025收入/售电=13.6344023 cents/kWh；2024 final / 2025 preliminary。",
+      "outputs": {
+        "branch": "electricity",
+        "qty2024": 3975382,
+        "qty2025": 4058007,
+        "revenue": 553285,
+        "growth": 2.0784166150573657,
+        "averageCents": 13.634402306353833,
+        "status": "2024 final / 2025 preliminary；EPM 2026-08-26"
+      }
+    }
+  ],
+  "source_id_aliases": {
+    "EIDEF-S10": "BFDE-JEP",
+    "EIDEF-S14": "EIBC-S07M",
+    "EIDEF-S16A": "EIBC-S05A",
+    "EIDEF-S16B": "EIBC-S05B",
+    "EIDEF-S21": "EI-S06-M3-202605"
+  }
+}

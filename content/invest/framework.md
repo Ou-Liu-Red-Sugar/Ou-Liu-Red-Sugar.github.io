@@ -1,4 +1,5 @@
 ---
+aliases: ["/invest/framework/"]
 title: "Framework"
 description: "A public summary of the fundamental-analysis framework currently being tested in live practice."
 date: 2026-08-17

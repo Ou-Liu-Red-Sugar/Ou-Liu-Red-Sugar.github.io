@@ -1,0 +1,5 @@
+<div class="flow-paths">
+{{ range . }}<div class="flow-path">{{ with .title }}<p class="flow-label">{{ . }}</p>{{ end }}<ol>
+{{ range .steps }}<li>{{ with .via }}<div class="flow-edge"><span>{{ . }}</span><svg viewBox="0 0 24 32" aria-hidden="true"><path d="M12 0V28M5 21L12 28L19 21"/></svg></div>{{ end }}<div class="flow-node"><strong>{{ .node }}</strong>{{ with .detail }}<small>{{ . }}</small>{{ end }}</div></li>{{ end }}
+</ol></div>{{ end }}
+</div>

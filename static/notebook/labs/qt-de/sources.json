@@ -1,0 +1,354 @@
+[
+  {
+    "id": "QTDE-ISLP",
+    "title": "An Introduction to Statistical Learning with Applications in Python",
+    "authors": [
+      "James",
+      "Witten",
+      "Hastie",
+      "Tibshirani",
+      "Taylor"
+    ],
+    "version": "First Printing July 5, 2023",
+    "url": "https://drive.google.com/uc?export=download&id=1ajFkHO6zjrdGNqhqW1jKBZdiNGh_8YQ1",
+    "body": "采用单元的完整镜像原文已在规划轮读取。Ridge 的截距、尺度、参数选择；有效p值、FWER、Bonferroni及BH。BH一般控制定理是引用，原书不提供证明。正文采用严格<；不采用任意相关p值也有效的扩展。",
+    "retrieved_at": "2026-09-21",
+    "locators": [
+      "§6.2.1 pp.240–244 (PDF248–252)",
+      "§6.2.3 pp.252–253 (PDF260–261)",
+      "§13.1.1–13.1.2; §13.2 pp.558–564 (PDF564–570)",
+      "§13.3.1; Bonferroni 子单元 §13.3.2 pp.565–568 (PDF571–574)",
+      "§13.4.1–13.4.2 pp.573–577 (PDF579–583)"
+    ],
+    "read_scope": {
+      "scope": "采用单元的完整镜像原文已在规划轮读取。Ridge 的截距、尺度、参数选择；有效p值、FWER、Bonferroni及BH。BH一般控制定理是引用，原书不提供证明。正文采用严格<；不采用任意相关p值也有效的扩展。",
+      "phase": "prior_plan_primary_units"
+    },
+    "author_gateway": "https://hastie.su.domains/ISLP/ISLP_website.pdf.download.html",
+    "access_note": "作者提供的下载入口及其分发链接；本轮网页入口未返回可解析正文，沙盒HTTP受DNS限制，未声称本轮重新下载全书。先前已读同版镜像单元支持正文；运行Agent须实际取得这些完整单元，不能用入口替代阅读。",
+    "actual_read_scope": {
+      "scope": "采用单元的完整镜像原文已在规划轮读取。Ridge 的截距、尺度、参数选择；有效p值、FWER、Bonferroni及BH。BH一般控制定理是引用，原书不提供证明。正文采用严格<；不采用任意相关p值也有效的扩展。",
+      "phase": "prior_plan_primary_units"
+    },
+    "reading_provenance": "Received author/xhigh record; not a runtime Agent reading receipt",
+    "accessed_at": "2026-09-21"
+  },
+  {
+    "id": "QTDE-ACCURACY",
+    "title": "Forecasting: Principles and Practice, §5.8",
+    "authors": [
+      "Rob J Hyndman",
+      "George Athanasopoulos"
+    ],
+    "version": "3e online; accessed 2026-09-21",
+    "url": "https://otexts.com/fpp3/accuracy.html",
+    "body": "完整单元支持预测误差不同于残差，RMSE/MAE与mean/median的关系；书中实例不是本站交易绩效。",
+    "retrieved_at": "2026-09-21",
+    "locators": [
+      "§5.8 全节：训练/测试、误差、尺度指标及示例"
+    ],
+    "read_scope": {
+      "scope": "完整单元支持预测误差不同于残差，RMSE/MAE与mean/median的关系；书中实例不是本站交易绩效。",
+      "phase": "draft_refresh_full_html"
+    },
+    "actual_read_scope": {
+      "scope": "完整单元支持预测误差不同于残差，RMSE/MAE与mean/median的关系；书中实例不是本站交易绩效。",
+      "phase": "draft_refresh_full_html"
+    },
+    "reading_provenance": "Received author/xhigh record; not a runtime Agent reading receipt",
+    "accessed_at": "2026-09-21"
+  },
+  {
+    "id": "QTDE-TSCV",
+    "title": "Forecasting: Principles and Practice, §5.10",
+    "authors": [
+      "Rob J Hyndman",
+      "George Athanasopoulos"
+    ],
+    "version": "3e online; accessed 2026-09-21",
+    "url": "https://otexts.com/fpp3/tscv.html",
+    "body": "完整单元支持按原点训练、按期限评价；真实发布/接收时点仍需另核。",
+    "retrieved_at": "2026-09-21",
+    "locators": [
+      "§5.10 全节：rolling origin、单步/多步与Google例"
+    ],
+    "read_scope": {
+      "scope": "完整单元支持按原点训练、按期限评价；真实发布/接收时点仍需另核。",
+      "phase": "draft_refresh_full_html"
+    },
+    "actual_read_scope": {
+      "scope": "完整单元支持按原点训练、按期限评价；真实发布/接收时点仍需另核。",
+      "phase": "draft_refresh_full_html"
+    },
+    "reading_provenance": "Received author/xhigh record; not a runtime Agent reading receipt",
+    "accessed_at": "2026-09-21"
+  },
+  {
+    "id": "QTDE-FRENCH",
+    "title": "30 Industry Portfolios",
+    "authors": [
+      "Kenneth R. French"
+    ],
+    "version": "frozen CRSP database vintage 202607; CIZ reconstruction",
+    "url": "https://mba.tuck.dartmouth.edu/pages/Faculty/ken.french/Data_Library/det_30_ind_port.html",
+    "body": "冻结原件摘取的432个连续月；百分数除100。来自当前重建历史，不是各月当时可见vintage；无样本期缺失。",
+    "retrieved_at": "2026-09-21",
+    "locators": [
+      "Average Value Weighted Returns -- Monthly；BusEq；源行775–1206；199001–202512"
+    ],
+    "read_scope": {
+      "scope": "冻结原件摘取的432个连续月；百分数除100。来自当前重建历史，不是各月当时可见vintage；无样本期缺失。",
+      "phase": "prior_plan_primary_units"
+    },
+    "data_file": "data/BusEq-value-weighted-monthly-199001-202512.csv",
+    "actual_read_scope": {
+      "scope": "冻结原件摘取的432个连续月；百分数除100。来自当前重建历史，不是各月当时可见vintage；无样本期缺失。",
+      "phase": "prior_plan_primary_units"
+    },
+    "reading_provenance": "Received author/xhigh record; not a runtime Agent reading receipt",
+    "accessed_at": "2026-09-21"
+  },
+  {
+    "id": "QTDE-FRENCH-REGIME",
+    "title": "French Data Library：FIZ/CIZ methodology",
+    "authors": [
+      "Kenneth R. French"
+    ],
+    "version": "accessed 2026-09-21; source transition 2025-01",
+    "url": "https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/data_library.html",
+    "body": "生产链转换与股息复投口径；本批坚持单次202607重建快照，未拼接旧vintage。",
+    "retrieved_at": "2026-09-21",
+    "locators": [
+      "CRSP FIZ/CIZ description at page introduction"
+    ],
+    "read_scope": {
+      "scope": "生产链转换与股息复投口径；本批坚持单次202607重建快照，未拼接旧vintage。",
+      "phase": "prior_plan_primary_units"
+    },
+    "actual_read_scope": {
+      "scope": "生产链转换与股息复投口径；本批坚持单次202607重建快照，未拼接旧vintage。",
+      "phase": "prior_plan_primary_units"
+    },
+    "reading_provenance": "Received author/xhigh record; not a runtime Agent reading receipt",
+    "accessed_at": "2026-09-21"
+  },
+  {
+    "id": "QTDE-BEA-A",
+    "title": "GDP 2020Q2 Advance Estimate",
+    "authors": [
+      "U.S. Bureau of Economic Analysis"
+    ],
+    "version": "2020-07-30 08:30 EDT",
+    "url": "https://www.bea.gov/news/2020/gross-domestic-product-2nd-quarter-2020-advance-estimate-and-annual-update",
+    "body": "原始发布的-32.9%为实际GDP季度环比年化率。支持release，不提供本研究系统received_at。",
+    "retrieved_at": "2026-09-21",
+    "locators": [
+      "发布时间；GDP opening；estimate identity"
+    ],
+    "read_scope": {
+      "scope": "原始发布的-32.9%为实际GDP季度环比年化率。支持release，不提供本研究系统received_at。",
+      "phase": "draft_refresh_named_release_unit"
+    },
+    "actual_read_scope": {
+      "scope": "原始发布的-32.9%为实际GDP季度环比年化率。支持release，不提供本研究系统received_at。",
+      "phase": "draft_refresh_named_release_unit"
+    },
+    "reading_provenance": "Received author/xhigh record; not a runtime Agent reading receipt",
+    "accessed_at": "2026-09-21"
+  },
+  {
+    "id": "QTDE-BEA-B",
+    "title": "GDP 2020Q2 Second Estimate",
+    "authors": [
+      "U.S. Bureau of Economic Analysis"
+    ],
+    "version": "2020-08-27 08:30 EDT",
+    "url": "https://www.bea.gov/news/2020/gross-domestic-product-2nd-quarter-2020-second-estimate-corporate-profits-2nd-quarter",
+    "body": "原始发布-31.7%、相对初值上修1.2pp；原件不支持推断系统接收时间。",
+    "retrieved_at": "2026-09-21",
+    "locators": [
+      "发布时间；GDP opening；Updates to GDP"
+    ],
+    "read_scope": {
+      "scope": "原始发布-31.7%、相对初值上修1.2pp；原件不支持推断系统接收时间。",
+      "phase": "draft_refresh_named_release_unit"
+    },
+    "actual_read_scope": {
+      "scope": "原始发布-31.7%、相对初值上修1.2pp；原件不支持推断系统接收时间。",
+      "phase": "draft_refresh_named_release_unit"
+    },
+    "reading_provenance": "Received author/xhigh record; not a runtime Agent reading receipt",
+    "accessed_at": "2026-09-21"
+  },
+  {
+    "id": "QTDE-KMZ",
+    "title": "The Virtue of Complexity in Return Prediction",
+    "authors": [
+      "Bryan Kelly",
+      "Semyon Malamud",
+      "Kangying Zhou"
+    ],
+    "version": "Journal of Finance 79(1), 459–503, February 2024",
+    "url": "https://economics.yale.edu/sites/default/files/2024-01/The%20Journal%20of%20Finance%20-%202023%20-%20KELLY%20-%20The%20Virtue%20of%20Complexity%20in%20Return%20Prediction%20%281%29.pdf",
+    "body": "已读完整实证设置单元，用于配对研究选读：随机特征、训练窗口、信息日期约定、R²分母。未验证前部理论或附录，未复现论文，具体作者结果不普遍化。",
+    "retrieved_at": "2026-09-21",
+    "locators": [
+      "§V.A–C printed487–493/PDF29–35，脚注33、38–41、Figures7–10"
+    ],
+    "read_scope": {
+      "scope": "已读完整实证设置单元，用于配对研究选读：随机特征、训练窗口、信息日期约定、R²分母。未验证前部理论或附录，未复现论文，具体作者结果不普遍化。",
+      "phase": "prior_plan_primary_units"
+    },
+    "actual_read_scope": {
+      "scope": "已读完整实证设置单元，用于配对研究选读：随机特征、训练窗口、信息日期约定、R²分母。未验证前部理论或附录，未复现论文，具体作者结果不普遍化。",
+      "phase": "prior_plan_primary_units"
+    },
+    "reading_provenance": "Received author/xhigh record; not a runtime Agent reading receipt",
+    "accessed_at": "2026-09-21"
+  },
+  {
+    "id": "QTDE-NAGEL",
+    "title": "Seemingly Virtuous Complexity in Return Prediction",
+    "authors": [
+      "Stefan Nagel"
+    ],
+    "version": "NBER Working Paper 34104, August 2025 frozen version",
+    "url": "https://www.nber.org/system/files/working_papers/w34104/w34104.pdf",
+    "body": "已读方法与人工反转完整单元；线性权重不自动凸权重，短窗机制为具名作者主张。工作论文不作普遍反定理，未采用未读附录。",
+    "retrieved_at": "2026-09-21",
+    "locators": [
+      "§II.A–D printed6–15/PDF8–17",
+      "§II.G.1 printed23–25/PDF25–27"
+    ],
+    "read_scope": {
+      "scope": "已读方法与人工反转完整单元；线性权重不自动凸权重，短窗机制为具名作者主张。工作论文不作普遍反定理，未采用未读附录。",
+      "phase": "prior_plan_primary_units"
+    },
+    "actual_read_scope": {
+      "scope": "已读方法与人工反转完整单元；线性权重不自动凸权重，短窗机制为具名作者主张。工作论文不作普遍反定理，未采用未读附录。",
+      "phase": "prior_plan_primary_units"
+    },
+    "reading_provenance": "Received author/xhigh record; not a runtime Agent reading receipt",
+    "accessed_at": "2026-09-21"
+  },
+  {
+    "id": "QTDE-CVX",
+    "title": "Convex Optimization",
+    "authors": [
+      "Stephen Boyd",
+      "Lieven Vandenberghe"
+    ],
+    "version": "2004",
+    "url": "https://web.stanford.edu/~boyd/cvxbook/bv_cvxbook.pdf",
+    "body": "已读可行凸集最优性完整证明和组合预算子节。本站不交易带由一维严格凹直接推出，不引用未读强对偶或KKT证明。",
+    "retrieved_at": "2026-09-21",
+    "locators": [
+      "§4.2.2–4.2.3 printed138–140/PDF152–154",
+      "Markowitz portfolio optimization printed155–156/PDF169–170"
+    ],
+    "read_scope": {
+      "scope": "已读可行凸集最优性完整证明和组合预算子节。本站不交易带由一维严格凹直接推出，不引用未读强对偶或KKT证明。",
+      "phase": "prior_plan_primary_units"
+    },
+    "actual_read_scope": {
+      "scope": "已读可行凸集最优性完整证明和组合预算子节。本站不交易带由一维严格凹直接推出，不引用未读强对偶或KKT证明。",
+      "phase": "prior_plan_primary_units"
+    },
+    "reading_provenance": "Received author/xhigh record; not a runtime Agent reading receipt",
+    "accessed_at": "2026-09-21"
+  },
+  {
+    "id": "QTDE-MARKOWITZ",
+    "title": "Markowitz Portfolio Construction at Seventy",
+    "authors": [
+      "Stephen Boyd",
+      "Kasper Johansson",
+      "Ronald Kahn",
+      "Philipp Schiele",
+      "Thomas Schmelzer"
+    ],
+    "version": "manuscript January 5, 2024; journal July 2024 separately identified",
+    "url": "https://web.stanford.edu/~boyd/papers/pdf/markowitz.pdf",
+    "body": "规划轮完整单元；本轮回核p.16/18/23原页。成本、约束、均值盒集、非凸实施；本站采用精确期初现金账而非稿中忽略/预测费用的近似。未采用§5回测绩效。",
+    "retrieved_at": "2026-09-21",
+    "locators": [
+      "§2.1–2.4 pp.13–18",
+      "§3.4–3.5 pp.21–24",
+      "§4.1–4.3 pp.24–28",
+      "p.23 eq.(16)"
+    ],
+    "read_scope": {
+      "scope": "规划轮完整单元；本轮回核p.16/18/23原页。成本、约束、均值盒集、非凸实施；本站采用精确期初现金账而非稿中忽略/预测费用的近似。未采用§5回测绩效。",
+      "phase": "prior_full_units_plus_draft_page_refresh"
+    },
+    "actual_read_scope": {
+      "scope": "规划轮完整单元；本轮回核p.16/18/23原页。成本、约束、均值盒集、非凸实施；本站采用精确期初现金账而非稿中忽略/预测费用的近似。未采用§5回测绩效。",
+      "phase": "prior_full_units_plus_draft_page_refresh"
+    },
+    "reading_provenance": "Received author/xhigh record; not a runtime Agent reading receipt",
+    "accessed_at": "2026-09-21"
+  },
+  {
+    "id": "QTDE-IBKR",
+    "title": "US stocks IBKR Pro Fixed commission component",
+    "authors": [
+      "Interactive Brokers"
+    ],
+    "version": "official page accessed 2026-09-21; not an assumed effective date",
+    "url": "https://www.interactivebrokers.com/en/pricing/commissions-stocks.php?re=amer",
+    "body": "普通整股单笔委托每股0.005、最低1、最高成交金额1%，上限低于最低时按上限。仅佣金组件；其余收费与零股/改单/退出未纳入。",
+    "retrieved_at": "2026-09-21",
+    "locators": [
+      "US Fixed table；Fixed Examples；minimum/maximum disclosures；fee exclusions"
+    ],
+    "read_scope": {
+      "scope": "普通整股单笔委托每股0.005、最低1、最高成交金额1%，上限低于最低时按上限。仅佣金组件；其余收费与零股/改单/退出未纳入。",
+      "phase": "draft_refresh_table_examples_disclosures"
+    },
+    "actual_read_scope": {
+      "scope": "普通整股单笔委托每股0.005、最低1、最高成交金额1%，上限低于最低时按上限。仅佣金组件；其余收费与零股/改单/退出未纳入。",
+      "phase": "draft_refresh_table_examples_disclosures"
+    },
+    "reading_provenance": "Received author/xhigh record; not a runtime Agent reading receipt",
+    "accessed_at": "2026-09-21"
+  },
+  {
+    "id": "QTDE-COMPUTE",
+    "title": "QT-D/E adopted teaching experiments",
+    "authors": [
+      "Chat-QT; frozen pilot by Lead support"
+    ],
+    "version": "QT-DE-adopted-inputs-20260921-v1",
+    "url": "https://ou-liu-red-sugar.github.io/notebook/labs/qt-de/compute/reproduce.py",
+    "body": "本轮实际沙盒复算，预测遵守冻结算法及数据；选择沿PCG64调用顺序并核strict/inclusive，成本用Fraction。数学演算与假设模型不等于真实投资有效性。",
+    "retrieved_at": "2026-09-21",
+    "locators": [
+      "forecast / selection / cost_results",
+      "shared_inputs.json",
+      "data/results.json"
+    ],
+    "read_scope": {
+      "scope": "本轮实际沙盒复算，预测遵守冻结算法及数据；选择沿PCG64调用顺序并核strict/inclusive，成本用Fraction。数学演算与假设模型不等于真实投资有效性。",
+      "phase": "draft_actual_sandbox_execution"
+    },
+    "actual_read_scope": {
+      "scope": "本轮实际沙盒复算，预测遵守冻结算法及数据；选择沿PCG64调用顺序并核strict/inclusive，成本用Fraction。数学演算与假设模型不等于真实投资有效性。",
+      "phase": "draft_actual_sandbox_execution"
+    },
+    "reading_provenance": "Received author/xhigh record; not a runtime Agent reading receipt",
+    "accessed_at": "2026-09-21",
+    "original_package_url": "compute/reproduce.py",
+    "additional_urls": [
+      "https://ou-liu-red-sugar.github.io/notebook/labs/qt-de/shared_inputs.json",
+      "https://ou-liu-red-sugar.github.io/notebook/labs/qt-de/data/BusEq-value-weighted-monthly-199001-202512.csv",
+      "https://ou-liu-red-sugar.github.io/notebook/labs/qt-de/data/results.json",
+      "https://ou-liu-red-sugar.github.io/notebook/labs/qt-de/data/selection-arrays.npz"
+    ],
+    "independent_check": {
+      "record": "docs/production/20260921/receipts/qt-de-independent-draft-review.md",
+      "scope": "77 independent checks including 35 actual JS calls on v1; review-v2 numerical files unchanged",
+      "numerical_rerun_for_staging": false,
+      "browser_used": false
+    }
+  }
+]

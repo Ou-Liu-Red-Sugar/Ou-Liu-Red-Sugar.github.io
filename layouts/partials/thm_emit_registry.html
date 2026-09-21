@@ -7,11 +7,11 @@
   {{- $json := $registry | jsonify -}}
 
   <script id="thm-registry" type="application/json">
-  {{- $json | safeHTML -}}
+  {{- $json | safeJS -}}
   </script>
 
 <script>
-var __thm_base = {{ $page.RelPermalink | jsonify }};
+var __thm_base = {{ $page.RelPermalink | jsonify | safeJS }};
 var __thm_reg_el = document.getElementById("thm-registry");
 if (__thm_reg_el) {
   var __thm_reg = {};

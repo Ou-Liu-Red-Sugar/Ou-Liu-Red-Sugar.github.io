@@ -9,8 +9,9 @@
     return !!(location.hash && location.hash.length > 1);
   }
 
-  // Save on unload (full reload)
-  window.addEventListener("beforeunload", function () {
+  // Preserve the reading position for a preview reload. Normal navigation and
+  // history traversal keep the browser's own starting/restored position.
+  window.addEventListener("pagehide", function () {
     try {
       if (!hasHash()) {
         sessionStorage.setItem(key(), String(window.scrollY || 0));
@@ -18,10 +19,12 @@
     } catch (e) {}
   });
 
-  // Restore on load
+  // A previously visited URL is still a new page when reached through a link.
   window.addEventListener("load", function () {
     try {
       if (hasHash()) return;
+      var navigation = performance.getEntriesByType("navigation")[0];
+      if (!navigation || navigation.type !== "reload") return;
       var v = sessionStorage.getItem(key());
       if (v == null) return;
       var y = parseInt(v, 10);

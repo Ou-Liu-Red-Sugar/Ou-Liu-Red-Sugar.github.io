@@ -1,4 +1,5 @@
 ---
+aliases: ["/notes/"]
 title: "Math Notes"
 description: "An archive of my mathematical notes — seminar notes, lecture notes, and expository material in algebra, topology, and higher category theory."
 draft: false

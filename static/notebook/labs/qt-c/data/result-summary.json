@@ -1,0 +1,1142 @@
+{
+  "version": "QT-C-inputs-20260921-v1",
+  "content_version": "2026-09-21-QT-C-draft-v1",
+  "recomputed_at_utc": "2026-09-20T20:03:04.256722+00:00",
+  "environment": {
+    "python": "3.13.5",
+    "numpy": "2.3.5",
+    "platform": "Linux-6.18.44-x86_64-with-glibc2.41",
+    "rng": "numpy.random.Generator(PCG64)"
+  },
+  "dataset": {
+    "source_csv": "30_Industry_Portfolios.csv",
+    "source_zip": "30_Industry_Portfolios_CSV.zip",
+    "source_zip_url": "https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/ftp/30_Industry_Portfolios_CSV.zip",
+    "source_details_url": "https://mba.tuck.dartmouth.edu/pages/Faculty/ken.french/Data_Library/det_30_ind_port.html",
+    "source_regime_url": "https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/data_library.html",
+    "download_date": "2026-09-21",
+    "download_date_provenance": "Lead具名下载记录；非源文件生成日或各月发布日期",
+    "expected_crsp_vintage": "202607",
+    "block_title": "Average Value Weighted Returns -- Monthly",
+    "column": "BusEq",
+    "sample_start": "199001",
+    "sample_end": "202512",
+    "expected_months": 432,
+    "missing_codes": [
+      -99.99,
+      -999.0
+    ],
+    "percent_divisor": 100.0,
+    "regime": "当前CIZ生成的整段重建历史；不与历史FIZ快照拼接",
+    "sample_windows": [
+      [
+        "199001",
+        "202512"
+      ],
+      [
+        "200001",
+        "202512"
+      ],
+      [
+        "201001",
+        "202512"
+      ],
+      [
+        "202001",
+        "202512"
+      ]
+    ],
+    "history_identity": "202607当前CIZ整段重建历史；非逐月当时可见vintage",
+    "first_source_line": 775,
+    "last_source_line": 1206,
+    "selected_rows": 432,
+    "missing_removed": 0,
+    "original_archive_included": false,
+    "selected_csv_bytes_verified": true
+  },
+  "returns": {
+    "config": {
+      "experiment_id": "EXP-RETURNS-01",
+      "loss_definition": "L_t = -r_t",
+      "sample_sd_ddof": 1,
+      "quantile_method": "inverted_cdf",
+      "return_quantile_levels": [
+        0.01,
+        0.05,
+        0.25,
+        0.5,
+        0.75,
+        0.95,
+        0.99
+      ],
+      "tail_levels": [
+        0.5,
+        0.9,
+        0.95,
+        0.975,
+        0.99
+      ],
+      "default_tail_level": 0.95,
+      "annualized": false,
+      "atom_example": {
+        "losses": [
+          0,
+          1,
+          1,
+          1,
+          10
+        ],
+        "probabilities": [
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2
+        ],
+        "p": 0.7
+      }
+    },
+    "default": {
+      "n": 432,
+      "start": "199001",
+      "end": "202512",
+      "unit": "monthly decimal return; not annualized",
+      "sample_mean": 0.013886342592592592,
+      "sample_standard_deviation": 0.07288267292421713,
+      "sample_variance": 0.005311884012578413,
+      "empirical_distribution_standard_deviation": 0.07279826910560112,
+      "minimum": {
+        "value": -0.3153,
+        "months": [
+          "200102"
+        ]
+      },
+      "maximum": {
+        "value": 0.24719999999999998,
+        "months": [
+          "200002"
+        ]
+      },
+      "return_quantiles": {
+        "0.01": -0.1773,
+        "0.05": -0.10679999999999999,
+        "0.25": -0.0269,
+        "0.5": 0.0168,
+        "0.75": 0.056100000000000004,
+        "0.95": 0.1309,
+        "0.99": 0.18899999999999997
+      },
+      "loss_tail_measures": [
+        {
+          "p": 0.5,
+          "VaR": -0.0168,
+          "ES": 0.04158796296296296,
+          "ES_quantile_integral_check": 0.04158796296296295,
+          "upper_tail_probability": 0.5,
+          "strictly_above_VaR_probability": 0.4976851851851852,
+          "VaR_atom_probability": 0.004629629629629629,
+          "included_VaR_atom_probability": 0.002314814814814825,
+          "included_fraction_of_VaR_atom": 0.5000000000000022,
+          "naive_conditional_mean_L_ge_VaR": 0.041318894009216595
+        },
+        {
+          "p": 0.9,
+          "VaR": 0.0758,
+          "ES": 0.12407083333333335,
+          "ES_quantile_integral_check": 0.1240708333333333,
+          "upper_tail_probability": 0.09999999999999998,
+          "strictly_above_VaR_probability": 0.09953703703703703,
+          "VaR_atom_probability": 0.0023148148148148147,
+          "included_VaR_atom_probability": 0.0004629629629629428,
+          "included_fraction_of_VaR_atom": 0.1999999999999913,
+          "naive_conditional_mean_L_ge_VaR": 0.12319318181818185
+        },
+        {
+          "p": 0.95,
+          "VaR": 0.10679999999999999,
+          "ES": 0.16058240740740737,
+          "ES_quantile_integral_check": 0.16058240740740726,
+          "upper_tail_probability": 0.050000000000000044,
+          "strictly_above_VaR_probability": 0.048611111111111105,
+          "VaR_atom_probability": 0.0023148148148148147,
+          "included_VaR_atom_probability": 0.0013888888888889395,
+          "included_fraction_of_VaR_atom": 0.6000000000000218,
+          "naive_conditional_mean_L_ge_VaR": 0.1596045454545455
+        },
+        {
+          "p": 0.975,
+          "VaR": 0.15810000000000002,
+          "ES": 0.19859999999999994,
+          "ES_quantile_integral_check": 0.19859999999999978,
+          "upper_tail_probability": 0.025000000000000022,
+          "strictly_above_VaR_probability": 0.023148148148148147,
+          "VaR_atom_probability": 0.0023148148148148147,
+          "included_VaR_atom_probability": 0.0018518518518518753,
+          "included_fraction_of_VaR_atom": 0.8000000000000101,
+          "naive_conditional_mean_L_ge_VaR": 0.1978636363636364
+        },
+        {
+          "p": 0.99,
+          "VaR": 0.1773,
+          "ES": 0.24192962962962958,
+          "ES_quantile_integral_check": 0.2419296296296292,
+          "upper_tail_probability": 0.010000000000000009,
+          "strictly_above_VaR_probability": 0.009259259259259259,
+          "VaR_atom_probability": 0.0023148148148148147,
+          "included_VaR_atom_probability": 0.0007407407407407501,
+          "included_fraction_of_VaR_atom": 0.32000000000000406,
+          "naive_conditional_mean_L_ge_VaR": 0.23314000000000001
+        }
+      ]
+    },
+    "window_sensitivity": [
+      {
+        "n": 432,
+        "start": "199001",
+        "end": "202512",
+        "unit": "monthly decimal return; not annualized",
+        "sample_mean": 0.013886342592592592,
+        "sample_standard_deviation": 0.07288267292421713,
+        "sample_variance": 0.005311884012578413,
+        "empirical_distribution_standard_deviation": 0.07279826910560112,
+        "minimum": {
+          "value": -0.3153,
+          "months": [
+            "200102"
+          ]
+        },
+        "maximum": {
+          "value": 0.24719999999999998,
+          "months": [
+            "200002"
+          ]
+        },
+        "return_quantiles": {
+          "0.01": -0.1773,
+          "0.05": -0.10679999999999999,
+          "0.25": -0.0269,
+          "0.5": 0.0168,
+          "0.75": 0.056100000000000004,
+          "0.95": 0.1309,
+          "0.99": 0.18899999999999997
+        },
+        "loss_tail_measures": [
+          {
+            "p": 0.5,
+            "VaR": -0.0168,
+            "ES": 0.04158796296296296,
+            "ES_quantile_integral_check": 0.04158796296296295,
+            "upper_tail_probability": 0.5,
+            "strictly_above_VaR_probability": 0.4976851851851852,
+            "VaR_atom_probability": 0.004629629629629629,
+            "included_VaR_atom_probability": 0.002314814814814825,
+            "included_fraction_of_VaR_atom": 0.5000000000000022,
+            "naive_conditional_mean_L_ge_VaR": 0.041318894009216595
+          },
+          {
+            "p": 0.9,
+            "VaR": 0.0758,
+            "ES": 0.12407083333333335,
+            "ES_quantile_integral_check": 0.1240708333333333,
+            "upper_tail_probability": 0.09999999999999998,
+            "strictly_above_VaR_probability": 0.09953703703703703,
+            "VaR_atom_probability": 0.0023148148148148147,
+            "included_VaR_atom_probability": 0.0004629629629629428,
+            "included_fraction_of_VaR_atom": 0.1999999999999913,
+            "naive_conditional_mean_L_ge_VaR": 0.12319318181818185
+          },
+          {
+            "p": 0.95,
+            "VaR": 0.10679999999999999,
+            "ES": 0.16058240740740737,
+            "ES_quantile_integral_check": 0.16058240740740726,
+            "upper_tail_probability": 0.050000000000000044,
+            "strictly_above_VaR_probability": 0.048611111111111105,
+            "VaR_atom_probability": 0.0023148148148148147,
+            "included_VaR_atom_probability": 0.0013888888888889395,
+            "included_fraction_of_VaR_atom": 0.6000000000000218,
+            "naive_conditional_mean_L_ge_VaR": 0.1596045454545455
+          },
+          {
+            "p": 0.975,
+            "VaR": 0.15810000000000002,
+            "ES": 0.19859999999999994,
+            "ES_quantile_integral_check": 0.19859999999999978,
+            "upper_tail_probability": 0.025000000000000022,
+            "strictly_above_VaR_probability": 0.023148148148148147,
+            "VaR_atom_probability": 0.0023148148148148147,
+            "included_VaR_atom_probability": 0.0018518518518518753,
+            "included_fraction_of_VaR_atom": 0.8000000000000101,
+            "naive_conditional_mean_L_ge_VaR": 0.1978636363636364
+          },
+          {
+            "p": 0.99,
+            "VaR": 0.1773,
+            "ES": 0.24192962962962958,
+            "ES_quantile_integral_check": 0.2419296296296292,
+            "upper_tail_probability": 0.010000000000000009,
+            "strictly_above_VaR_probability": 0.009259259259259259,
+            "VaR_atom_probability": 0.0023148148148148147,
+            "included_VaR_atom_probability": 0.0007407407407407501,
+            "included_fraction_of_VaR_atom": 0.32000000000000406,
+            "naive_conditional_mean_L_ge_VaR": 0.23314000000000001
+          }
+        ]
+      },
+      {
+        "n": 312,
+        "start": "200001",
+        "end": "202512",
+        "unit": "monthly decimal return; not annualized",
+        "sample_mean": 0.01035576923076923,
+        "sample_standard_deviation": 0.07523936785119568,
+        "sample_variance": 0.0056609624746475394,
+        "empirical_distribution_standard_deviation": 0.07511869517072214,
+        "minimum": {
+          "value": -0.3153,
+          "months": [
+            "200102"
+          ]
+        },
+        "maximum": {
+          "value": 0.24719999999999998,
+          "months": [
+            "200002"
+          ]
+        },
+        "return_quantiles": {
+          "0.01": -0.1852,
+          "0.05": -0.1162,
+          "0.25": -0.0308,
+          "0.5": 0.0168,
+          "0.75": 0.054000000000000006,
+          "0.95": 0.1284,
+          "0.99": 0.19579999999999997
+        },
+        "loss_tail_measures": [
+          {
+            "p": 0.5,
+            "VaR": -0.0168,
+            "ES": 0.046257692307692305,
+            "ES_quantile_integral_check": 0.04625769230769229,
+            "upper_tail_probability": 0.5,
+            "strictly_above_VaR_probability": 0.49679487179487175,
+            "VaR_atom_probability": 0.00641025641025641,
+            "included_VaR_atom_probability": 0.0032051282051282493,
+            "included_fraction_of_VaR_atom": 0.5000000000000069,
+            "naive_conditional_mean_L_ge_VaR": 0.04585605095541402
+          },
+          {
+            "p": 0.9,
+            "VaR": 0.0808,
+            "ES": 0.13413333333333333,
+            "ES_quantile_integral_check": 0.13413333333333335,
+            "upper_tail_probability": 0.09999999999999998,
+            "strictly_above_VaR_probability": 0.09935897435897435,
+            "VaR_atom_probability": 0.003205128205128205,
+            "included_VaR_atom_probability": 0.0006410256410256249,
+            "included_fraction_of_VaR_atom": 0.19999999999999496,
+            "naive_conditional_mean_L_ge_VaR": 0.13280000000000003
+          },
+          {
+            "p": 0.95,
+            "VaR": 0.1162,
+            "ES": 0.17381538461538457,
+            "ES_quantile_integral_check": 0.17381538461538446,
+            "upper_tail_probability": 0.050000000000000044,
+            "strictly_above_VaR_probability": 0.04807692307692307,
+            "VaR_atom_probability": 0.003205128205128205,
+            "included_VaR_atom_probability": 0.0019230769230769718,
+            "included_fraction_of_VaR_atom": 0.6000000000000152,
+            "naive_conditional_mean_L_ge_VaR": 0.172375
+          },
+          {
+            "p": 0.975,
+            "VaR": 0.1668,
+            "ES": 0.21163333333333328,
+            "ES_quantile_integral_check": 0.2116333333333332,
+            "upper_tail_probability": 0.025000000000000022,
+            "strictly_above_VaR_probability": 0.022435897435897436,
+            "VaR_atom_probability": 0.003205128205128205,
+            "included_VaR_atom_probability": 0.0025641025641025862,
+            "included_fraction_of_VaR_atom": 0.8000000000000069,
+            "naive_conditional_mean_L_ge_VaR": 0.21051250000000002
+          },
+          {
+            "p": 0.99,
+            "VaR": 0.1852,
+            "ES": 0.2645589743589743,
+            "ES_quantile_integral_check": 0.264558974358974,
+            "upper_tail_probability": 0.010000000000000009,
+            "strictly_above_VaR_probability": 0.009615384615384616,
+            "VaR_atom_probability": 0.003205128205128205,
+            "included_VaR_atom_probability": 0.00038461538461539296,
+            "included_fraction_of_VaR_atom": 0.1200000000000026,
+            "naive_conditional_mean_L_ge_VaR": 0.2471
+          }
+        ]
+      },
+      {
+        "n": 192,
+        "start": "201001",
+        "end": "202512",
+        "unit": "monthly decimal return; not annualized",
+        "sample_mean": 0.017413541666666667,
+        "sample_standard_deviation": 0.057584721322580884,
+        "sample_variance": 0.003316000129799302,
+        "empirical_distribution_standard_deviation": 0.05743456533995822,
+        "minimum": {
+          "value": -0.1241,
+          "months": [
+            "202204"
+          ]
+        },
+        "maximum": {
+          "value": 0.15789999999999998,
+          "months": [
+            "202207"
+          ]
+        },
+        "return_quantiles": {
+          "0.01": -0.1167,
+          "0.05": -0.084,
+          "0.25": -0.020099999999999996,
+          "0.5": 0.0233,
+          "0.75": 0.055099999999999996,
+          "0.95": 0.10800000000000001,
+          "0.99": 0.13970000000000002
+        },
+        "loss_tail_measures": [
+          {
+            "p": 0.5,
+            "VaR": -0.023399999999999997,
+            "ES": 0.029142708333333333,
+            "ES_quantile_integral_check": 0.029142708333333336,
+            "upper_tail_probability": 0.5,
+            "strictly_above_VaR_probability": 0.5,
+            "VaR_atom_probability": 0.005208333333333333,
+            "included_VaR_atom_probability": 0.0,
+            "included_fraction_of_VaR_atom": 0.0,
+            "naive_conditional_mean_L_ge_VaR": 0.028601030927835044
+          },
+          {
+            "p": 0.9,
+            "VaR": 0.06309999999999999,
+            "ES": 0.08882916666666668,
+            "ES_quantile_integral_check": 0.0888291666666667,
+            "upper_tail_probability": 0.09999999999999998,
+            "strictly_above_VaR_probability": 0.09895833333333333,
+            "VaR_atom_probability": 0.005208333333333333,
+            "included_VaR_atom_probability": 0.001041666666666649,
+            "included_fraction_of_VaR_atom": 0.19999999999999662,
+            "naive_conditional_mean_L_ge_VaR": 0.0878
+          },
+          {
+            "p": 0.95,
+            "VaR": 0.084,
+            "ES": 0.10055208333333332,
+            "ES_quantile_integral_check": 0.1005520833333333,
+            "upper_tail_probability": 0.050000000000000044,
+            "strictly_above_VaR_probability": 0.046875,
+            "VaR_atom_probability": 0.005208333333333333,
+            "included_VaR_atom_probability": 0.0031250000000000444,
+            "included_fraction_of_VaR_atom": 0.6000000000000085,
+            "naive_conditional_mean_L_ge_VaR": 0.09988999999999998
+          },
+          {
+            "p": 0.975,
+            "VaR": 0.09820000000000001,
+            "ES": 0.11194999999999997,
+            "ES_quantile_integral_check": 0.11195000000000001,
+            "upper_tail_probability": 0.025000000000000022,
+            "strictly_above_VaR_probability": 0.020833333333333332,
+            "VaR_atom_probability": 0.005208333333333333,
+            "included_VaR_atom_probability": 0.00416666666666669,
+            "included_fraction_of_VaR_atom": 0.8000000000000045,
+            "naive_conditional_mean_L_ge_VaR": 0.1114
+          },
+          {
+            "p": 0.99,
+            "VaR": 0.1167,
+            "ES": 0.12055416666666666,
+            "ES_quantile_integral_check": 0.12055416666666671,
+            "upper_tail_probability": 0.010000000000000009,
+            "strictly_above_VaR_probability": 0.005208333333333333,
+            "VaR_atom_probability": 0.005208333333333333,
+            "included_VaR_atom_probability": 0.004791666666666676,
+            "included_fraction_of_VaR_atom": 0.9200000000000018,
+            "naive_conditional_mean_L_ge_VaR": 0.12040000000000001
+          }
+        ]
+      },
+      {
+        "n": 72,
+        "start": "202001",
+        "end": "202512",
+        "unit": "monthly decimal return; not annualized",
+        "sample_mean": 0.022730555555555556,
+        "sample_standard_deviation": 0.06798525448842584,
+        "sample_variance": 0.004621994827856025,
+        "empirical_distribution_standard_deviation": 0.0675114838767962,
+        "minimum": {
+          "value": -0.1241,
+          "months": [
+            "202204"
+          ]
+        },
+        "maximum": {
+          "value": 0.15789999999999998,
+          "months": [
+            "202207"
+          ]
+        },
+        "return_quantiles": {
+          "0.01": -0.1241,
+          "0.05": -0.09820000000000001,
+          "0.25": -0.026600000000000002,
+          "0.5": 0.025,
+          "0.75": 0.07980000000000001,
+          "0.95": 0.1213,
+          "0.99": 0.15789999999999998
+        },
+        "loss_tail_measures": [
+          {
+            "p": 0.5,
+            "VaR": -0.029500000000000002,
+            "ES": 0.03310277777777778,
+            "ES_quantile_integral_check": 0.03310277777777778,
+            "upper_tail_probability": 0.5,
+            "strictly_above_VaR_probability": 0.5,
+            "VaR_atom_probability": 0.013888888888888888,
+            "included_VaR_atom_probability": 0.0,
+            "included_fraction_of_VaR_atom": 0.0,
+            "naive_conditional_mean_L_ge_VaR": 0.03141081081081082
+          },
+          {
+            "p": 0.9,
+            "VaR": 0.0791,
+            "ES": 0.1006138888888889,
+            "ES_quantile_integral_check": 0.10061388888888889,
+            "upper_tail_probability": 0.09999999999999998,
+            "strictly_above_VaR_probability": 0.09722222222222221,
+            "VaR_atom_probability": 0.013888888888888888,
+            "included_VaR_atom_probability": 0.002777777777777768,
+            "included_fraction_of_VaR_atom": 0.1999999999999993,
+            "naive_conditional_mean_L_ge_VaR": 0.09846250000000001
+          },
+          {
+            "p": 0.95,
+            "VaR": 0.09820000000000001,
+            "ES": 0.11153333333333332,
+            "ES_quantile_integral_check": 0.11153333333333332,
+            "upper_tail_probability": 0.050000000000000044,
+            "strictly_above_VaR_probability": 0.041666666666666664,
+            "VaR_atom_probability": 0.013888888888888888,
+            "included_VaR_atom_probability": 0.00833333333333338,
+            "included_fraction_of_VaR_atom": 0.6000000000000034,
+            "naive_conditional_mean_L_ge_VaR": 0.1102
+          },
+          {
+            "p": 0.975,
+            "VaR": 0.1167,
+            "ES": 0.12081111111111112,
+            "ES_quantile_integral_check": 0.12081111111111108,
+            "upper_tail_probability": 0.025000000000000022,
+            "strictly_above_VaR_probability": 0.013888888888888888,
+            "VaR_atom_probability": 0.013888888888888888,
+            "included_VaR_atom_probability": 0.011111111111111134,
+            "included_fraction_of_VaR_atom": 0.8000000000000017,
+            "naive_conditional_mean_L_ge_VaR": 0.1204
+          },
+          {
+            "p": 0.99,
+            "VaR": 0.1241,
+            "ES": 0.12410000000000002,
+            "ES_quantile_integral_check": 0.12410000000000002,
+            "upper_tail_probability": 0.010000000000000009,
+            "strictly_above_VaR_probability": 0.0,
+            "VaR_atom_probability": 0.013888888888888888,
+            "included_VaR_atom_probability": 0.010000000000000009,
+            "included_fraction_of_VaR_atom": 0.7200000000000006,
+            "naive_conditional_mean_L_ge_VaR": 0.1241
+          }
+        ]
+      }
+    ],
+    "atom_example": {
+      "inputs": {
+        "losses": [
+          0,
+          1,
+          1,
+          1,
+          10
+        ],
+        "probabilities": [
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2
+        ],
+        "p": 0.7
+      },
+      "outputs": {
+        "p": 0.7,
+        "VaR": 1.0,
+        "ES": 6.999999999999999,
+        "ES_quantile_integral_check": 6.999999999999998,
+        "upper_tail_probability": 0.30000000000000004,
+        "strictly_above_VaR_probability": 0.2,
+        "VaR_atom_probability": 0.6000000000000001,
+        "included_VaR_atom_probability": 0.10000000000000003,
+        "included_fraction_of_VaR_atom": 0.16666666666666669,
+        "naive_conditional_mean_L_ge_VaR": 3.25
+      }
+    },
+    "delete_one_worst_month_sensitivity": {
+      "identity": "只作具名教学扰动，不改变主样本或bootstrap",
+      "removed_month": "200102",
+      "removed_return": -0.3153,
+      "statistics": {
+        "n": 431,
+        "start": "199001",
+        "end": "202512",
+        "unit": "monthly decimal return; not annualized",
+        "sample_mean": 0.014650116009280742,
+        "sample_standard_deviation": 0.07121547613183658,
+        "sample_variance": 0.005071644040684186,
+        "empirical_distribution_standard_deviation": 0.0711328115930852,
+        "minimum": {
+          "value": -0.2451,
+          "months": [
+            "200109"
+          ]
+        },
+        "maximum": {
+          "value": 0.24719999999999998,
+          "months": [
+            "200002"
+          ]
+        },
+        "return_quantiles": {
+          "0.01": -0.17679999999999998,
+          "0.05": -0.1033,
+          "0.25": -0.026600000000000002,
+          "0.5": 0.0168,
+          "0.75": 0.059800000000000006,
+          "0.95": 0.1309,
+          "0.99": 0.18899999999999997
+        },
+        "loss_tail_measures": [
+          {
+            "p": 0.5,
+            "VaR": -0.0168,
+            "ES": 0.04018236658932715,
+            "ES_quantile_integral_check": 0.04018236658932716,
+            "upper_tail_probability": 0.5,
+            "strictly_above_VaR_probability": 0.49651972157772617,
+            "VaR_atom_probability": 0.004640371229698376,
+            "included_VaR_atom_probability": 0.0034802784222738303,
+            "included_fraction_of_VaR_atom": 0.7500000000000104,
+            "naive_conditional_mean_L_ge_VaR": 0.040050462962962954
+          },
+          {
+            "p": 0.9,
+            "VaR": 0.0754,
+            "ES": 0.11862505800464039,
+            "ES_quantile_integral_check": 0.11862505800464039,
+            "upper_tail_probability": 0.09999999999999998,
+            "strictly_above_VaR_probability": 0.09976798143851508,
+            "VaR_atom_probability": 0.002320185614849188,
+            "included_VaR_atom_probability": 0.00023201856148490074,
+            "included_fraction_of_VaR_atom": 0.09999999999999222,
+            "naive_conditional_mean_L_ge_VaR": 0.11774090909090912
+          },
+          {
+            "p": 0.95,
+            "VaR": 0.1033,
+            "ES": 0.15094269141531316,
+            "ES_quantile_integral_check": 0.15094269141531327,
+            "upper_tail_probability": 0.050000000000000044,
+            "strictly_above_VaR_probability": 0.048723897911832945,
+            "VaR_atom_probability": 0.002320185614849188,
+            "included_VaR_atom_probability": 0.0012761020881670998,
+            "included_fraction_of_VaR_atom": 0.55000000000002,
+            "naive_conditional_mean_L_ge_VaR": 0.14996818181818186
+          },
+          {
+            "p": 0.975,
+            "VaR": 0.1417,
+            "ES": 0.18292505800464035,
+            "ES_quantile_integral_check": 0.18292505800464043,
+            "upper_tail_probability": 0.025000000000000022,
+            "strictly_above_VaR_probability": 0.02320185614849188,
+            "VaR_atom_probability": 0.002320185614849188,
+            "included_VaR_atom_probability": 0.0017981438515081438,
+            "included_fraction_of_VaR_atom": 0.77500000000001,
+            "naive_conditional_mean_L_ge_VaR": 0.18208181818181818
+          },
+          {
+            "p": 0.99,
+            "VaR": 0.17679999999999998,
+            "ES": 0.21002505800464033,
+            "ES_quantile_integral_check": 0.2100250580046405,
+            "upper_tail_probability": 0.010000000000000009,
+            "strictly_above_VaR_probability": 0.009280742459396751,
+            "VaR_atom_probability": 0.002320185614849188,
+            "included_VaR_atom_probability": 0.0007192575406032575,
+            "included_fraction_of_VaR_atom": 0.310000000000004,
+            "naive_conditional_mean_L_ge_VaR": 0.20543999999999998
+          }
+        ]
+      }
+    }
+  },
+  "Monte_Carlo": {
+    "experiment_id": "EXP-MC-01",
+    "config": {
+      "experiment_id": "EXP-MC-01",
+      "generator": "numpy.random.Generator(numpy.random.PCG64(seed))",
+      "payoffs_usd": [
+        0,
+        0,
+        10000,
+        20000
+      ],
+      "probabilities": [
+        0.1,
+        0.3,
+        0.4,
+        0.2
+      ],
+      "stress_probabilities": [
+        0.1,
+        0.4,
+        0.3,
+        0.2
+      ],
+      "reference_seed": 1201,
+      "sample_sizes": [
+        100,
+        1000,
+        10000
+      ],
+      "default_sample_size": 1000,
+      "reference_path": "先生成10000个U[0,1)；各n取同一路径前缀，p与p'共用均匀数；inverse-CDF按四个状态映射",
+      "coverage_seed": 1202,
+      "coverage_repetitions": 5000,
+      "coverage_chunk_rows": 250,
+      "coverage_interval_z": 1.96,
+      "coverage_design": "每行10000个独立均匀数，行间独立；各n在每行使用嵌套前缀，故不同n的覆盖结果相关；只对p模型统计覆盖",
+      "sample_sd_ddof": 1
+    },
+    "reference": {
+      "base": {
+        "model": {
+          "payoffs_usd": [
+            0.0,
+            0.0,
+            10000.0,
+            20000.0
+          ],
+          "probabilities": [
+            0.1,
+            0.3,
+            0.4,
+            0.2
+          ],
+          "mean_usd": 8000.0,
+          "second_moment_usd_squared": 120000000.0,
+          "variance_usd_squared": 56000000.0,
+          "sd_usd": 7483.314773547882
+        },
+        "sample_sizes": [
+          {
+            "n": 100,
+            "state_counts": [
+              9,
+              34,
+              41,
+              16
+            ],
+            "estimate_usd": 7300.0,
+            "error_relative_to_simulated_model_usd": -700.0,
+            "error_relative_to_base_model_usd": -700.0,
+            "estimated_SE_usd": 722.7193316379687,
+            "theoretical_SE_usd": 748.3314773547883,
+            "CLT_95_interval_usd": [
+              5883.470109989581,
+              8716.529890010419
+            ],
+            "interval_contains_simulated_model_mean": true
+          },
+          {
+            "n": 1000,
+            "state_counts": [
+              95,
+              313,
+              389,
+              203
+            ],
+            "estimate_usd": 7950.0,
+            "error_relative_to_simulated_model_usd": -50.0,
+            "error_relative_to_base_model_usd": -50.0,
+            "estimated_SE_usd": 238.6513240157164,
+            "theoretical_SE_usd": 236.64319132398464,
+            "CLT_95_interval_usd": [
+              7482.243404929196,
+              8417.756595070805
+            ],
+            "interval_contains_simulated_model_mean": true
+          },
+          {
+            "n": 10000,
+            "state_counts": [
+              967,
+              3051,
+              3969,
+              2013
+            ],
+            "estimate_usd": 7995.0,
+            "error_relative_to_simulated_model_usd": -5.0,
+            "error_relative_to_base_model_usd": -5.0,
+            "estimated_SE_usd": 75.03039688050174,
+            "theoretical_SE_usd": 74.83314773547882,
+            "CLT_95_interval_usd": [
+              7847.940422114217,
+              8142.059577885783
+            ],
+            "interval_contains_simulated_model_mean": true
+          }
+        ]
+      },
+      "stress": {
+        "model": {
+          "payoffs_usd": [
+            0.0,
+            0.0,
+            10000.0,
+            20000.0
+          ],
+          "probabilities": [
+            0.1,
+            0.4,
+            0.3,
+            0.2
+          ],
+          "mean_usd": 7000.0,
+          "second_moment_usd_squared": 110000000.0,
+          "variance_usd_squared": 61000000.0,
+          "sd_usd": 7810.249675906654
+        },
+        "sample_sizes": [
+          {
+            "n": 100,
+            "state_counts": [
+              9,
+              46,
+              29,
+              16
+            ],
+            "estimate_usd": 6100.0,
+            "error_relative_to_simulated_model_usd": -900.0,
+            "error_relative_to_base_model_usd": -1900.0,
+            "estimated_SE_usd": 750.6899183653352,
+            "theoretical_SE_usd": 781.0249675906655,
+            "CLT_95_interval_usd": [
+              4628.647760003943,
+              7571.352239996057
+            ],
+            "interval_contains_simulated_model_mean": true
+          },
+          {
+            "n": 1000,
+            "state_counts": [
+              95,
+              416,
+              286,
+              203
+            ],
+            "estimate_usd": 6920.0,
+            "error_relative_to_simulated_model_usd": -80.0,
+            "error_relative_to_base_model_usd": -1080.0,
+            "estimated_SE_usd": 248.94894170406826,
+            "theoretical_SE_usd": 246.9817807045694,
+            "CLT_95_interval_usd": [
+              6432.060074260026,
+              7407.939925739974
+            ],
+            "interval_contains_simulated_model_mean": true
+          },
+          {
+            "n": 10000,
+            "state_counts": [
+              967,
+              4049,
+              2971,
+              2013
+            ],
+            "estimate_usd": 6997.0,
+            "error_relative_to_simulated_model_usd": -3.0,
+            "error_relative_to_base_model_usd": -1003.0,
+            "estimated_SE_usd": 78.28034160112051,
+            "theoretical_SE_usd": 78.10249675906654,
+            "CLT_95_interval_usd": [
+              6843.570530461804,
+              7150.429469538196
+            ],
+            "interval_contains_simulated_model_mean": true
+          }
+        ]
+      }
+    },
+    "coverage": [
+      {
+        "n": 100,
+        "R": 5000,
+        "coverage_count": 4750,
+        "coverage_rate": 0.95,
+        "coverage_MC_standard_error": 0.0030822070014844896,
+        "empirical_bias_usd": -0.5399999999999636,
+        "empirical_RMSE_usd": 741.2840211416943,
+        "replicate_mean_SD_usd": 741.3579639594798,
+        "mean_estimated_SE_usd": 747.5128208198363,
+        "theoretical_SE_usd": 748.3314773547883
+      },
+      {
+        "n": 1000,
+        "R": 5000,
+        "coverage_count": 4792,
+        "coverage_rate": 0.9584,
+        "coverage_MC_standard_error": 0.0028238073588685176,
+        "empirical_bias_usd": 0.17600000000038563,
+        "empirical_RMSE_usd": 229.83211263876944,
+        "replicate_mean_SD_usd": 229.85503190301975,
+        "mean_estimated_SE_usd": 236.70645159930316,
+        "theoretical_SE_usd": 236.64319132398464
+      },
+      {
+        "n": 10000,
+        "R": 5000,
+        "coverage_count": 4723,
+        "coverage_rate": 0.9446,
+        "coverage_MC_standard_error": 0.0032351457463304493,
+        "empirical_bias_usd": -0.40020000000004075,
+        "empirical_RMSE_usd": 75.85731210634872,
+        "replicate_mean_SD_usd": 75.86384319622161,
+        "mean_estimated_SE_usd": 74.83376414414207,
+        "theoretical_SE_usd": 74.83314773547882
+      }
+    ],
+    "model_mean_difference_stress_minus_base_usd": -1000.0
+  },
+  "bootstrap": {
+    "experiment_id": "EXP-BOOT-01",
+    "config": {
+      "experiment_id": "EXP-BOOT-01",
+      "repetitions": 5000,
+      "iid_seed": 1901,
+      "moving_block_seed": 1902,
+      "block_lengths": [
+        3,
+        6,
+        12
+      ],
+      "default_block_length": 6,
+      "percentile_levels": [
+        0.025,
+        0.975
+      ],
+      "percentile_method": "linear",
+      "se_ddof": 1,
+      "index_base": 0,
+      "moving_block_algorithm": "均匀有放回抽起点0..n-l；每块保留连续l项，拼接ceil(n/l)块后截取前n项；不循环绕回",
+      "seed_reset": "每个设计重新初始化指定种子；真实收益与AR(1)复用同一组抽样索引；不同块长分别重置1902",
+      "ar1": {
+        "seed": 1910,
+        "rho": 0.6,
+        "innovation_variance": 0.64,
+        "n": 432,
+        "initial_distribution": "X0 ~ N(0,1)，与后续独立创新独立",
+        "draw_order": "Generator(PCG64(1910))先standard_normal()取X0，再standard_normal(432)乘sqrt(0.64)取创新；保存X1..X432",
+        "unit": "无量纲的教学模拟变量"
+      }
+    },
+    "AR1": {
+      "config": {
+        "seed": 1910,
+        "rho": 0.6,
+        "innovation_variance": 0.64,
+        "n": 432,
+        "initial_distribution": "X0 ~ N(0,1)，与后续独立创新独立",
+        "draw_order": "Generator(PCG64(1910))先standard_normal()取X0，再standard_normal(432)乘sqrt(0.64)取创新；保存X1..X432",
+        "unit": "无量纲的教学模拟变量"
+      },
+      "X0": 1.4678084774843276,
+      "sample_mean": -0.05561958489307564,
+      "sample_sd": 0.9744542646704172,
+      "model_mean": 0.0,
+      "model_marginal_variance": 1.0,
+      "exact_finite_n_sample_mean_variance": 0.009219071502057611,
+      "exact_finite_n_sample_mean_SE": 0.096015996073871,
+      "iid_counterfactual_SE_for_variance_1": 0.048112522432468816
+    },
+    "series": {
+      "French_BusEq": {
+        "unit": "monthly decimal return",
+        "designs": [
+          {
+            "method": "iid",
+            "block_length": null,
+            "B": 5000,
+            "seed": 1901,
+            "n": 432,
+            "original_sample_mean": 0.013886342592592592,
+            "bootstrap_mean_of_means": 0.013898207638888889,
+            "bootstrap_SE": 0.0035285634950972433,
+            "percentile_95_interval": [
+              0.00697949074074074,
+              0.020692962962962958
+            ],
+            "exact_conditional_resampling_center": 0.013886342592592592,
+            "exact_conditional_resampling_SE": 0.0035025083553881352,
+            "finite_B_SE_relative_difference_from_exact_conditional": 0.0074389943050459095,
+            "resampling_center_minus_original_mean": 0.0
+          },
+          {
+            "method": "moving_block",
+            "block_length": 3,
+            "B": 5000,
+            "seed": 1902,
+            "n": 432,
+            "original_sample_mean": 0.013886342592592592,
+            "bootstrap_mean_of_means": 0.013984987407407407,
+            "bootstrap_SE": 0.003565264010786091,
+            "percentile_95_interval": [
+              0.006828124999999999,
+              0.02074227430555555
+            ],
+            "exact_conditional_resampling_center": 0.013970697674418607,
+            "exact_conditional_resampling_SE": 0.003548406359510234,
+            "finite_B_SE_relative_difference_from_exact_conditional": 0.004750766842325227,
+            "resampling_center_minus_original_mean": 8.435508182601421e-05
+          },
+          {
+            "method": "moving_block",
+            "block_length": 6,
+            "B": 5000,
+            "seed": 1902,
+            "n": 432,
+            "original_sample_mean": 0.013886342592592592,
+            "bootstrap_mean_of_means": 0.01387384101851852,
+            "bootstrap_SE": 0.0036986457176410798,
+            "percentile_95_interval": [
+              0.006649438657407408,
+              0.02090615162037036
+            ],
+            "exact_conditional_resampling_center": 0.013803708040593285,
+            "exact_conditional_resampling_SE": 0.0036113240893080175,
+            "finite_B_SE_relative_difference_from_exact_conditional": 0.024179947900991206,
+            "resampling_center_minus_original_mean": -8.263455199930721e-05
+          },
+          {
+            "method": "moving_block",
+            "block_length": 12,
+            "B": 5000,
+            "seed": 1902,
+            "n": 432,
+            "original_sample_mean": 0.013886342592592592,
+            "bootstrap_mean_of_means": 0.013793640046296294,
+            "bootstrap_SE": 0.0037955376138197857,
+            "percentile_95_interval": [
+              0.005921608796296295,
+              0.021007829861111108
+            ],
+            "exact_conditional_resampling_center": 0.013730463182897864,
+            "exact_conditional_resampling_SE": 0.0037499768463182784,
+            "finite_B_SE_relative_difference_from_exact_conditional": 0.012149613015941307,
+            "resampling_center_minus_original_mean": -0.00015587940969472892
+          }
+        ]
+      },
+      "simulated_AR1": {
+        "unit": "dimensionless simulated variable",
+        "designs": [
+          {
+            "method": "iid",
+            "block_length": null,
+            "B": 5000,
+            "seed": 1901,
+            "n": 432,
+            "original_sample_mean": -0.05561958489307564,
+            "bootstrap_mean_of_means": -0.05612870133298568,
+            "bootstrap_SE": 0.04624076788830656,
+            "percentile_95_interval": [
+              -0.14533262243579023,
+              0.03254600084993952
+            ],
+            "exact_conditional_resampling_center": -0.05561958489307564,
+            "exact_conditional_resampling_SE": 0.04682915797422228,
+            "finite_B_SE_relative_difference_from_exact_conditional": -0.012564609558848083,
+            "resampling_center_minus_original_mean": 0.0
+          },
+          {
+            "method": "moving_block",
+            "block_length": 3,
+            "B": 5000,
+            "seed": 1902,
+            "n": 432,
+            "original_sample_mean": -0.05561958489307564,
+            "bootstrap_mean_of_means": -0.05794880337663453,
+            "bootstrap_SE": 0.06510086450471249,
+            "percentile_95_interval": [
+              -0.18472380403705843,
+              0.0706219085403846
+            ],
+            "exact_conditional_resampling_center": -0.05846471647570767,
+            "exact_conditional_resampling_SE": 0.06519620273923855,
+            "finite_B_SE_relative_difference_from_exact_conditional": -0.0014623280270997796,
+            "resampling_center_minus_original_mean": -0.0028451315826320267
+          },
+          {
+            "method": "moving_block",
+            "block_length": 6,
+            "B": 5000,
+            "seed": 1902,
+            "n": 432,
+            "original_sample_mean": -0.05561958489307564,
+            "bootstrap_mean_of_means": -0.0570049419652368,
+            "bootstrap_SE": 0.07577485215711521,
+            "percentile_95_interval": [
+              -0.20609711656998075,
+              0.08985227621071178
+            ],
+            "exact_conditional_resampling_center": -0.058220295684175444,
+            "exact_conditional_resampling_SE": 0.07519114243777843,
+            "finite_B_SE_relative_difference_from_exact_conditional": 0.007763011711383605,
+            "resampling_center_minus_original_mean": -0.002600710791099803
+          },
+          {
+            "method": "moving_block",
+            "block_length": 12,
+            "B": 5000,
+            "seed": 1902,
+            "n": 432,
+            "original_sample_mean": -0.05561958489307564,
+            "bootstrap_mean_of_means": -0.057889919987945015,
+            "bootstrap_SE": 0.08368447834029598,
+            "percentile_95_interval": [
+              -0.22660800500811165,
+              0.10467902745219997
+            ],
+            "exact_conditional_resampling_center": -0.05941968515501624,
+            "exact_conditional_resampling_SE": 0.08280077561519829,
+            "finite_B_SE_relative_difference_from_exact_conditional": 0.010672638251657762,
+            "resampling_center_minus_original_mean": -0.003800100261940602
+          }
+        ]
+      }
+    }
+  }
+}

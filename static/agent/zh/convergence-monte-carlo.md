@@ -1,0 +1,1016 @@
+# 大数定律、中心极限定理与 Monte Carlo 误差
+
+完整证明有限方差Chebyshev弱律，沿冻结PCG64前缀核算支付均值、标准误与区间覆盖，分开模拟误差和模型差。
+
+Entry: zh-qt12 | Node: QT12 | Language: zh | Editorial revision: 2026-09-21
+
+## Teaching instructions
+你教授 QT12《大数定律、中心极限定理与Monte Carlo误差》。先实际读MIT Lecture17所指定完整单元、Cboe采用条款和Dembo具名Slutsky条目；读取本篇正文与冻结参数/默认结果。记录版本、页/节、iid与矩条件及来源支持范围。p5强律旁述笔误不要照抄；不要宣称本节证明了强律。必读缺正文时补取经核同版本入口，否则明确缺口。runtime_reading_log 起初为空，不能填编辑的读取记录。
+先问：把模拟n增大100倍，哪类误差缩小，哪类不一定改变？据此进入完整Chebyshev证明，要求读者指出交叉项为零的原因；已会的概率基础直接略过。复算n=1000的四状态计数、样本均值、SE与近似区间。每次都说明金额为USD的模型支付，不是期权报价，不偷换风险中性测度。用共同uniform、嵌套前缀解释图；不同n的5000次覆盖率估计相关，覆盖率也有MCSE。压力模型必须同时报告对本模型的数值误差和对基准的模型差。不要把固定n区间说成整条路径同时置信带或下一次支付区间。弱矩研究只在选择对应分支并实际读取完整设定后展开。最终检验：读者独立求SE<=100所需n，拆分6997-8000的两类误差，并用离散支付说明均值区间不是预测区间。
+
+Before substantive teaching, actually retrieve every required reading unit for the selected scope. Read its complete designated section, including necessary assumptions, tables and footnotes. A working URL or an editorial access date is not a runtime reading receipt. Record the actual version, location, scope and what it supports. If unavailable, use a previously verified equivalent source; if the required unit remains unavailable, identify that gap rather than teach it from memory. Start runtime_reading_log empty. Once reading is complete, use a substantive diagnostic or follow the reader's request for direct explanation. Advance one complete reasoning task at a time; skip mastered basics. Distinguish original facts, supplied teaching assumptions and inference.
+
+## Required readings and runtime protocol
+```json
+{
+  "export_mode": "public",
+  "required_readings": [
+    {
+      "source_id": "QTC-MIT17",
+      "access": {
+        "kind": "pdf_full_text",
+        "uri": "https://ocw.mit.edu/courses/6-436j-fundamentals-of-probability-fall-2018/f44fa78f05ac31a4ba2bd82f599dcf60_MIT6_436JF18_lec17.pdf",
+        "verified_access_at": "2026-09-21"
+      },
+      "required_unit": {
+        "locator": "§1 p.1；§3 pp.5–6；§4 p.7",
+        "scope": "不等式、iid L1弱律和有限正方差CLT完整单元",
+        "purpose": "核Chebyshev证明条件与CLT对象；不复制p5强律笔误"
+      },
+      "supports": "采用iid L1弱律和有限正方差CLT；正文完整给有限方差Chebyshev短证明。p.5强律旁述的X_n为笔误，应为样本均值；未照抄且未扩写强律证明。",
+      "title": "Lecture 17: Laws of Large Numbers and Central Limit Theorem",
+      "authors": [
+        "MIT OCW 6.436J / 15.085J"
+      ],
+      "version": "Fall 2018"
+    },
+    {
+      "source_id": "QTC-SPX",
+      "access": {
+        "kind": "pdf_full_text",
+        "uri": "https://cdn.cboe.com/resources/spx/spx-fact-sheet.pdf",
+        "verified_access_at": "2026-09-21"
+      },
+      "required_unit": {
+        "locator": "p.1 settlement type/exercise style；p.2 Summary Product Specifications 中 Contract Multiplier 与 Final Settlement Value",
+        "scope": "现金结算/欧式行权、乘数、结算值计算与到期后下一营业日现金交付",
+        "purpose": "核指数点/美元、支付、结算值计算与现金交付；不从事实表推断券商booking时点"
+      },
+      "supports": "支持每点100美元、欧式现金结算、行权结算值及到期后下一营业日的现金交付。四状态未来值、行权价6000与概率均为教学假设；预期支付不自动成为期权现价。券商账户内部booking时点不由该事实表给出。",
+      "title": "SPX Index Options Fact Sheet",
+      "authors": [
+        "Cboe Exchange, Inc."
+      ],
+      "version": "©2026；2026-09-21访问，无独立修订日期"
+    },
+    {
+      "source_id": "QTC-SLUTSKY",
+      "access": {
+        "kind": "pdf_full_text",
+        "uri": "https://adembo.su.domains/stat-310b/lnotes.pdf",
+        "verified_access_at": "2026-09-21"
+      },
+      "required_unit": {
+        "locator": "Exercise3.2.8(a)–(c), p.106",
+        "scope": "完整练习陈述及常数极限条件",
+        "purpose": "核学生化中常数因子的乘法形式；该页不是完整附解证明"
+      },
+      "supports": "Exercise3.2.8在每n同概率空间、第二极限为常数时给和与积形式；正文用它解释s_n替代sigma。原件此处是练习，不声称附有完整证明。",
+      "title": "Probability Theory: STAT310/MATH230",
+      "authors": [
+        "Amir Dembo"
+      ],
+      "version": "2021-04-15"
+    }
+  ],
+  "optional_readings": [
+    {
+      "source_id": "QTC-WEAK",
+      "access": {
+        "kind": "html_full_text",
+        "uri": "https://arxiv.org/html/2011.12433v2",
+        "verified_access_at": "2026-09-21"
+      },
+      "required_unit": {
+        "locator": "§1 Introduction, Problem1.1, Theorems1.2–1.3",
+        "scope": "完整所用弱矩设定与主结果陈述",
+        "purpose": "只解释有限方差条件失败后问题改变，不教未实现算法"
+      },
+      "supports": "以更弱(1+alpha)矩条件研究均值估计，支持失去有限方差后应更换条件/方法这一有限延伸。本课没有实现该算法或声称金融有效性。",
+      "branch": "weak-moments-extension",
+      "required_if_selected": true
+    }
+  ],
+  "runtime_reading_log": [],
+  "supplied_inputs": {
+    "content_version": "2026-09-21-QT-C-review-v2",
+    "experiment": {
+      "id": "EXP-MC-01",
+      "title": "共同均匀数、嵌套前缀与覆盖率",
+      "anchor": "qt12-experiment",
+      "description": "从指定支付模型与冻结随机序列重建平均、SE和CLT近似区间，并说明增加n不能消去模型差。",
+      "inputs": {
+        "config": {
+          "experiment_id": "EXP-MC-01",
+          "generator": "numpy.random.Generator(numpy.random.PCG64(seed))",
+          "payoffs_usd": [
+            0,
+            0,
+            10000,
+            20000
+          ],
+          "probabilities": [
+            0.1,
+            0.3,
+            0.4,
+            0.2
+          ],
+          "stress_probabilities": [
+            0.1,
+            0.4,
+            0.3,
+            0.2
+          ],
+          "reference_seed": 1201,
+          "sample_sizes": [
+            100,
+            1000,
+            10000
+          ],
+          "default_sample_size": 1000,
+          "reference_path": "先生成10000个U[0,1)；各n取同一路径前缀，p与p'共用均匀数；inverse-CDF按四个状态映射",
+          "coverage_seed": 1202,
+          "coverage_repetitions": 5000,
+          "coverage_chunk_rows": 250,
+          "coverage_interval_z": 1.96,
+          "coverage_design": "每行10000个独立均匀数，行间独立；各n在每行使用嵌套前缀，故不同n的覆盖结果相关；只对p模型统计覆盖",
+          "sample_sd_ddof": 1
+        },
+        "contract_convention": {
+          "settlement_points": [
+            5900,
+            6000,
+            6100,
+            6200
+          ],
+          "strike_points": 6000,
+          "multiplier_usd_per_point": 100,
+          "identity": "教学未来情景；非具体挂牌报价"
+        },
+        "examples": {
+          "precision": {
+            "target_SE_usd": 100,
+            "required_n": 5600
+          },
+          "heavy_tail": {
+            "identity": "教学Pareto，P(Y>y)=y^-alpha for y>=1",
+            "alpha": 1.5,
+            "mean": 3,
+            "second_moment_finite": false
+          }
+        }
+      },
+      "outputs": {
+        "experiment_id": "EXP-MC-01",
+        "config": {
+          "experiment_id": "EXP-MC-01",
+          "generator": "numpy.random.Generator(numpy.random.PCG64(seed))",
+          "payoffs_usd": [
+            0,
+            0,
+            10000,
+            20000
+          ],
+          "probabilities": [
+            0.1,
+            0.3,
+            0.4,
+            0.2
+          ],
+          "stress_probabilities": [
+            0.1,
+            0.4,
+            0.3,
+            0.2
+          ],
+          "reference_seed": 1201,
+          "sample_sizes": [
+            100,
+            1000,
+            10000
+          ],
+          "default_sample_size": 1000,
+          "reference_path": "先生成10000个U[0,1)；各n取同一路径前缀，p与p'共用均匀数；inverse-CDF按四个状态映射",
+          "coverage_seed": 1202,
+          "coverage_repetitions": 5000,
+          "coverage_chunk_rows": 250,
+          "coverage_interval_z": 1.96,
+          "coverage_design": "每行10000个独立均匀数，行间独立；各n在每行使用嵌套前缀，故不同n的覆盖结果相关；只对p模型统计覆盖",
+          "sample_sd_ddof": 1
+        },
+        "reference": {
+          "base": {
+            "model": {
+              "payoffs_usd": [
+                0.0,
+                0.0,
+                10000.0,
+                20000.0
+              ],
+              "probabilities": [
+                0.1,
+                0.3,
+                0.4,
+                0.2
+              ],
+              "mean_usd": 8000.0,
+              "second_moment_usd_squared": 120000000.0,
+              "variance_usd_squared": 56000000.0,
+              "sd_usd": 7483.314773547882
+            },
+            "sample_sizes": [
+              {
+                "n": 100,
+                "state_counts": [
+                  9,
+                  34,
+                  41,
+                  16
+                ],
+                "estimate_usd": 7300.0,
+                "error_relative_to_simulated_model_usd": -700.0,
+                "error_relative_to_base_model_usd": -700.0,
+                "estimated_SE_usd": 722.7193316379687,
+                "theoretical_SE_usd": 748.3314773547883,
+                "CLT_95_interval_usd": [
+                  5883.470109989581,
+                  8716.529890010419
+                ],
+                "interval_contains_simulated_model_mean": true
+              },
+              {
+                "n": 1000,
+                "state_counts": [
+                  95,
+                  313,
+                  389,
+                  203
+                ],
+                "estimate_usd": 7950.0,
+                "error_relative_to_simulated_model_usd": -50.0,
+                "error_relative_to_base_model_usd": -50.0,
+                "estimated_SE_usd": 238.6513240157164,
+                "theoretical_SE_usd": 236.64319132398464,
+                "CLT_95_interval_usd": [
+                  7482.243404929196,
+                  8417.756595070805
+                ],
+                "interval_contains_simulated_model_mean": true
+              },
+              {
+                "n": 10000,
+                "state_counts": [
+                  967,
+                  3051,
+                  3969,
+                  2013
+                ],
+                "estimate_usd": 7995.0,
+                "error_relative_to_simulated_model_usd": -5.0,
+                "error_relative_to_base_model_usd": -5.0,
+                "estimated_SE_usd": 75.03039688050174,
+                "theoretical_SE_usd": 74.83314773547882,
+                "CLT_95_interval_usd": [
+                  7847.940422114217,
+                  8142.059577885783
+                ],
+                "interval_contains_simulated_model_mean": true
+              }
+            ]
+          },
+          "stress": {
+            "model": {
+              "payoffs_usd": [
+                0.0,
+                0.0,
+                10000.0,
+                20000.0
+              ],
+              "probabilities": [
+                0.1,
+                0.4,
+                0.3,
+                0.2
+              ],
+              "mean_usd": 7000.0,
+              "second_moment_usd_squared": 110000000.0,
+              "variance_usd_squared": 61000000.0,
+              "sd_usd": 7810.249675906654
+            },
+            "sample_sizes": [
+              {
+                "n": 100,
+                "state_counts": [
+                  9,
+                  46,
+                  29,
+                  16
+                ],
+                "estimate_usd": 6100.0,
+                "error_relative_to_simulated_model_usd": -900.0,
+                "error_relative_to_base_model_usd": -1900.0,
+                "estimated_SE_usd": 750.6899183653352,
+                "theoretical_SE_usd": 781.0249675906655,
+                "CLT_95_interval_usd": [
+                  4628.647760003943,
+                  7571.352239996057
+                ],
+                "interval_contains_simulated_model_mean": true
+              },
+              {
+                "n": 1000,
+                "state_counts": [
+                  95,
+                  416,
+                  286,
+                  203
+                ],
+                "estimate_usd": 6920.0,
+                "error_relative_to_simulated_model_usd": -80.0,
+                "error_relative_to_base_model_usd": -1080.0,
+                "estimated_SE_usd": 248.94894170406826,
+                "theoretical_SE_usd": 246.9817807045694,
+                "CLT_95_interval_usd": [
+                  6432.060074260026,
+                  7407.939925739974
+                ],
+                "interval_contains_simulated_model_mean": true
+              },
+              {
+                "n": 10000,
+                "state_counts": [
+                  967,
+                  4049,
+                  2971,
+                  2013
+                ],
+                "estimate_usd": 6997.0,
+                "error_relative_to_simulated_model_usd": -3.0,
+                "error_relative_to_base_model_usd": -1003.0,
+                "estimated_SE_usd": 78.28034160112051,
+                "theoretical_SE_usd": 78.10249675906654,
+                "CLT_95_interval_usd": [
+                  6843.570530461804,
+                  7150.429469538196
+                ],
+                "interval_contains_simulated_model_mean": true
+              }
+            ]
+          }
+        },
+        "coverage": [
+          {
+            "n": 100,
+            "R": 5000,
+            "coverage_count": 4750,
+            "coverage_rate": 0.95,
+            "coverage_MC_standard_error": 0.0030822070014844896,
+            "empirical_bias_usd": -0.5399999999999636,
+            "empirical_RMSE_usd": 741.2840211416943,
+            "replicate_mean_SD_usd": 741.3579639594798,
+            "mean_estimated_SE_usd": 747.5128208198363,
+            "theoretical_SE_usd": 748.3314773547883
+          },
+          {
+            "n": 1000,
+            "R": 5000,
+            "coverage_count": 4792,
+            "coverage_rate": 0.9584,
+            "coverage_MC_standard_error": 0.0028238073588685176,
+            "empirical_bias_usd": 0.17600000000038563,
+            "empirical_RMSE_usd": 229.83211263876944,
+            "replicate_mean_SD_usd": 229.85503190301975,
+            "mean_estimated_SE_usd": 236.70645159930316,
+            "theoretical_SE_usd": 236.64319132398464
+          },
+          {
+            "n": 10000,
+            "R": 5000,
+            "coverage_count": 4723,
+            "coverage_rate": 0.9446,
+            "coverage_MC_standard_error": 0.0032351457463304493,
+            "empirical_bias_usd": -0.40020000000004075,
+            "empirical_RMSE_usd": 75.85731210634872,
+            "replicate_mean_SD_usd": 75.86384319622161,
+            "mean_estimated_SE_usd": 74.83376414414207,
+            "theoretical_SE_usd": 74.83314773547882
+          }
+        ],
+        "model_mean_difference_stress_minus_base_usd": -1000.0
+      },
+      "algorithm": "PCG64(1201)一次10000 uniform，p/p'共同逆CDF；n取前缀。seed1202 5000独立行，每行10000，chunk250；各n跨行独立而不同n共享前缀；CLT区间z=1.96；覆盖率MCSE使用二项比例SE。",
+      "boundaries": [
+        "iid可积弱律，CLT需要有限正方差",
+        "n=1样本SE未定义；零样本方差不证明总体无波动",
+        "区间为固定n近似均值区间；无同时覆盖/预测承诺",
+        "数值误差和模型差分开",
+        "浏览器只读取复算冻结路径，无新RNG"
+      ],
+      "static_equivalent": {
+        "reader_anchor": "qt12-experiment",
+        "description": "正文完整输入/推导/默认数值/题解；HTML保留默认表和静态解释。"
+      },
+      "execution": {
+        "author_sandbox_recomputed": true,
+        "results_file": "https://ou-liu-red-sugar.github.io/notebook/labs/qt-c/data/results.json",
+        "checkpoint_evidence": "https://ou-liu-red-sugar.github.io/notebook/labs/qt-c/evidence/validation.json",
+        "original_full_results_byte_compared": false
+      }
+    },
+    "shared_input_file": "https://ou-liu-red-sugar.github.io/notebook/labs/qt-c/shared_inputs.json",
+    "array_files": [
+      {
+        "path": "https://ou-liu-red-sugar.github.io/notebook/labs/qt-c/data/results.json",
+        "scope": "Monte_Carlo reference/coverage",
+        "purpose": "需要完整图形或索引时按JSON路径读取；不以全部随机数组作为每次口头讲解必读"
+      }
+    ],
+    "reading_base": "本站同源冻结输入；通过给定完整公开链接读取。数据官网的当前更新不替换此 202607 快照。",
+    "reproduction_source": "https://ou-liu-red-sugar.github.io/notebook/labs/qt-c/compute/reproduce.py",
+    "input_csv": "https://ou-liu-red-sugar.github.io/notebook/labs/qt-c/data/BusEq-value-weighted-monthly-199001-202512.csv",
+    "configuration": "https://ou-liu-red-sugar.github.io/notebook/labs/qt-c/data/experiment-config.json"
+  },
+  "learning_task": "从指定支付模型与冻结随机序列重建平均、SE和CLT近似区间，并说明增加n不能消去模型差。"
+}
+```
+
+## Supplied entry
+给定一个支付模型，我们可以反复模拟，再把支付平均。可是“模拟了一万次”仍留下两个问题：这次平均离**该模型的期望**有多远，以及这个模型是否适合描述我们关心的对象。前一个是数值抽样问题，后一个不会因为电脑多运行几秒就自动解决。
+
+这一节用一个期望可以精确算出的支付分布，比较理论误差、一次模拟路径与重复覆盖实验。读完后，你应能重建一个 Monte Carlo 估计及其误差说明，知道哪些结论依赖独立性、可积性或有限方差。先修是随机变量的期望与方差；极限定理只调用下面明确列出的版本。
+
+<a id="qt12-target"></a>
+## 1. 先给模拟一个确切目标
+
+我们沿用一张看涨期权式支付表。SPX 产品采用每指数点 100 美元的乘数和现金结算；其支付以合约规定的行权结算值为依据，不随意用盘中最后报价替代。[^spx] 以下行权价 6,000、四个结算情景和概率是**教学设定**，没有对应一笔已核实的挂牌交易或市场报价。
+
+令 $Z$ 表示结算值，$X=100(Z-6000)^+$ 表示一张合约对应的到期支付金额：
+
+| 状态 | $Z$（指数点） | $X$（美元） | 基准概率 $p$ | 压力概率 $p'$ |
+|---|---:|---:|---:|---:|
+| 1 | 5,900 | 0 | 0.1 | 0.1 |
+| 2 | 6,000 | 0 | 0.3 | 0.4 |
+| 3 | 6,100 | 10,000 | 0.4 | 0.3 |
+| 4 | 6,200 | 20,000 | 0.2 | 0.2 |
+
+这里是支付，不是扣除权利金和费用后的利润。Cboe 原件明确区分行权结算值的计算与到期后的现金交付：标准 SPX 的结算值按到期日成分股开盘价计算，行权产生的现金在到期后的下一营业日交付。券商账户内部何时显示 booking/入账并未由这份产品事实表规定，本实验也不自行补一个时点。本实验只估计金额函数的模型期望，没有建立现金账户，更没有把概率 $p$ 宣布为定价测度。因此 $E_pX$ **不是由本表自动得到的今日期权价格**。
+
+基准模型的精确计算是
+\[
+\mu=E_pX=.4(10000)+.2(20000)=8000\ {\rm USD},
+\]
+\[
+E_pX^2=.4(10000)^2+.2(20000)^2=120000000\ {\rm USD}^2,
+\]
+\[
+\sigma^2=E_pX^2-\mu^2=56000000\ {\rm USD}^2,
+\qquad \sigma\approx7483.31\ {\rm USD}.
+\]
+有了这两个真值，我们可以直接检查模拟误差，而不必把模拟结果本身当标准答案。一次市场支付仍只是一个结果；本节的 $n$ 次是电脑在同一指定分布下重复抽样，不能把它们误读为连续 $n$ 天市场记录。[^inputs]
+
+<a id="qt12-lln"></a>
+## 2. 平均值为什么会收敛？
+
+令 $X_1,X_2,\ldots$ 在模拟概率空间上独立同分布，$\bar X_n=n^{-1}\sum_{i=1}^nX_i$。采用的**弱大数定律**是：若 $E|X_1|<\infty$，则
+$\bar X_n\to E[X_1]$ 依概率，即对每个 $\varepsilon>0$，
+$P(|\bar X_n-E[X_1]|>\varepsilon)\to0$。它没有声称每增加一次抽样，误差都会减小。[^lln]
+
+在本例有限方差的条件下，我们还能完整证明一个误差界。
+
+**命题。** 若 $X_i$ iid，$E[X_i]=\mu$、$\operatorname{Var}(X_i)=\sigma^2<\infty$，则
+\[
+E[(\bar X_n-\mu)^2]=\frac{\sigma^2}{n},\qquad
+P(|\bar X_n-\mu|\ge\varepsilon)
+\le\frac{\sigma^2}{n\varepsilon^2}\quad(\varepsilon>0).
+\]
+
+**证明。** 期望的线性性给出 $E\bar X_n=\mu$。展开中心化和的平方，不同项因独立且均值为零，交叉期望为零，所以
+\[
+E[(\bar X_n-\mu)^2]
+=\frac1{n^2}\sum_{i=1}^nE[(X_i-\mu)^2]
+=\frac{\sigma^2}{n}.
+\]
+又因为
+$\varepsilon^2\mathbf1_{\{|\bar X_n-\mu|\ge\varepsilon\}}
+\le(\bar X_n-\mu)^2$，
+两边取期望，再除以 $\varepsilon^2$，即得不等式；右边随 $n$ 趋于零，因而得到依概率收敛。
+
+这里把独立性用在交叉项，而不是用在期望线性性。若样本相关，就要保留协方差项，不能直接把方差除以 $n$。这个短证明还使用了有限二阶矩；只有有限一阶绝对矩时，弱律仍成立，但不能沿这条方差计算来证明。
+
+<a id="qt12-clt"></a>
+## 3. 从标准误到近似区间
+
+上面的平方误差计算已经给出平均值的标准差
+$\operatorname{SE}(\bar X_n)=\sigma/\sqrt n$。**标准误描述估计量的抽样波动，不是单次支付的标准差。** 本例 $n=1000$ 时，单次支付标准差仍为 7,483.31 美元，平均值的理论标准误则约为 236.64 美元。
+
+采用的经典 iid **中心极限定理**进一步要求 $0<\sigma^2<\infty$，结论是
+\[
+\frac{\sqrt n(\bar X_n-\mu)}{\sigma}\ \Rightarrow\ N(0,1).
+\]
+这是标准化误差的分布收敛，不是说每个 $X_i$ 接近正态，也不是有限 $n$ 时的精确正态身份。[^lln]
+
+模拟时通常以
+$s_n^2=(n-1)^{-1}\sum_i(X_i-\bar X_n)^2$ 估计方差。这个替换也需要理由：有限二阶矩使 $X_i$ 与 $X_i^2$ 都可积，分别应用大数定律，再用
+\[
+s_n^2=\frac n{n-1}\left(\frac1n\sum_iX_i^2-\bar X_n^2\right)
+\]
+可得 $s_n^2\to\sigma^2$ 依概率。由于 $\sigma>0$，Slutsky 定理允许用 $s_n$ 替代标准化分母；它不要求样本均值和样本标准差独立。这一步不需要额外假设四阶矩有限。[^slutsky]
+
+于是我们使用近似 95% 区间
+\[
+I_n=\left[\bar X_n-1.96\,\frac{s_n}{\sqrt n},
+          \bar X_n+1.96\,\frac{s_n}{\sqrt n}\right].
+\]
+其频率解释是：按同一模型反复生成整份样本，这一构造的区间覆盖固定 $\mu$ 的比例在适用极限下趋近 95%。它不是下一次支付的预测区间，也不是“观察完这个区间后，固定均值有 95% 概率在里面”。若某次离散样本恰好全相同、$s_n=0$，计算会给零宽区间；这并不证明总体无波动，只说明这次学生化近似可能失灵。
+
+<a id="qt12-experiment"></a>
+## 4. 看同一路径，而不是每次换一次实验
+
+冻结实验使用 NumPy `Generator(PCG64(1201))` 一次生成 10,000 个 $[0,1)$ 均匀数，再按累计概率映射四个状态。$n=100,1000,10000$ 都取同一路径的前缀；基准与压力模型也使用同一组均匀数，只有映射阈值改变。[^inputs] 因此切换 $n$ 是延长同一次记录，不是三次独立实验。
+
+| 模型 | $n$ | 样本均值（美元） | 对本模型的数值误差 | 估计 SE | 理论 SE |
+|---|---:|---:|---:|---:|---:|
+| 基准 | 100 | 7,300.00 | -700.00 | 722.72 | 748.33 |
+| 基准 | 1,000 | 7,950.00 | -50.00 | 238.65 | 236.64 |
+| 基准 | 10,000 | 7,995.00 | -5.00 | 75.03 | 74.83 |
+| 压力 | 100 | 6,100.00 | -900.00 | 750.69 | 781.02 |
+| 压力 | 1,000 | 6,920.00 | -80.00 | 248.95 | 246.98 |
+| 压力 | 10,000 | 6,997.00 | -3.00 | 78.28 | 78.10 |
+
+以默认基准 $n=1000$ 为例，四状态次数为 $[95,313,389,203]$，所以
+\[
+\bar X_{1000}=\frac{389(10000)+203(20000)}{1000}=7950.
+\]
+将这组计数代入样本方差公式，得到估计 SE 为 238.65 美元，而模型给出的理论 SE 为 236.64 美元。两者不必完全相等；前者本身也由随机样本估计。此次近似区间为 **[7,482.24，8,417.76] 美元**，包含模型均值 8,000。
+
+<div data-experiment-slot="EXP-MC-01"></div>
+
+先观察实际支付路径，再看累计平均曲线。曲线的来回波动不会违反大数定律；上表恰好三次误差逐渐变小，也不能证明每一步都如此。图中的区间针对当前选定的固定 $n$，没有同时覆盖整条路径的承诺。
+
+为了检验区间构造，另用 seed 1202 生成 5,000 行独立重复，每行长度 10,000，再各取三个前缀。每个 $n$ 的 5,000 次重复彼此独立，但**不同 $n$ 的覆盖率结果互相关联**，因为它们共享每行前缀。
+
+| $n$ | 覆盖模型均值的次数 / 5,000 | 覆盖率 | 覆盖率的 MCSE（百分点） |
+|---:|---:|---:|---:|
+| 100 | 4,750 | 95.00% | 0.3082 |
+| 1,000 | 4,792 | 95.84% | 0.2824 |
+| 10,000 | 4,723 | 94.46% | 0.3235 |
+
+若覆盖率为 $\widehat c$，覆盖指示变量是 0/1，覆盖率自身的 Monte Carlo 标准误估计为
+$\sqrt{\widehat c(1-\widehat c)/5000}$。因此 95.84% 不等于区间“理论覆盖率被改成了 95.84%”；它是有限次重复所得的随机比例，且区间本来也是有限样本近似。表中没有把数值强行调整到 95%。
+
+<a id="qt12-model-error"></a>
+## 5. 多抽样消不掉模型差异
+
+压力模型的期望为 7,000 美元、方差为 61,000,000 美元²。默认 $n=1000$ 得到 6,920 美元。现在有两种误差：
+\[
+6920-8000
+=\underbrace{(6920-7000)}_{\text{对所模拟模型的数值误差 }-80}
++\underbrace{(7000-8000)}_{\text{两模型均值差 }-1000}.
+\]
+增加 $n$，第一项会向零收敛，第二项不变。我们并没有证明基准 $p$ 是现实真相；这个比较只是说明，即使两套模型的差异已知，也不能用更窄的数值误差带把它抹掉。
+
+矩条件同样不会被大样本自动创造。比如 $P(Y>y)=y^{-1.5}$（$y\ge1$）的 Pareto 分布，均值为 3，二阶矩却无限：普通均值大数定律可以使用，有限方差版 CLT 和 $\sigma/\sqrt n$ 则不能照搬。
+
+<details>
+<summary>选读：没有有限方差时，均值估计并未停止</summary>
+
+关于更弱矩条件下的均值估计，Cherapanamjeri 等有专门研究；它是另一套条件与方法，不是把本例的标准误公式继续使用的理由。[^weak]
+
+</details>
+
+把这两项区分带回金融分析：如果不确定的是模型参数与数据生成机制，增加模拟路径只会更精确地算出**当前假设的答案**。下一节 [估计误差与预测不确定性](https://ou-liu-red-sugar.github.io/zh/notebook/estimation-prediction-uncertainty/)再研究样本信息本身不足所带来的问题。
+
+<a id="qt12-exercises"></a>
+## 6. 检查你能否独立报告模拟结果
+
+**题一：要多少次？** 本例基准模型的理论 SE 要不超过 100 美元，最少需要多少次 iid 抽样？这是保证实际误差不超过 100 美元吗？
+
+**解析。** 由 $\sqrt{56000000/n}\le100$ 得 $n\ge5600$。它限制的是抽样标准差，不是每一次误差的确定上界。即使用该 $n$，单次估计仍可能偏离均值超过 100 美元；若需要一个概率界，还要说明采用 Chebyshev 还是 CLT 近似。
+
+**题二：两个不同的“误差”。** 压力模型 $n=10000$ 的估计是 6,997 美元。分别计算相对本模型和相对基准模型的差异，并解释再加一百倍路径可能改变什么。
+
+**解析。** 数值误差为 $6997-7000=-3$；相对基准的差异为 $6997-8000=-1003$。理论 SE 在路径数增大一百倍后缩为原来的十分之一，模型均值差仍为 $-1000$。一次路径的实际误差不必恰按十分之一缩放。
+
+**题三：区间到底覆盖什么？** 把 [7,482.24，8,417.76] 美元解释为“下一次支付大概率在这里”是否合理？
+
+**解析。** 不合理。本模型的下一次支付只可能为 0、10,000、20,000 美元，三个数都不在该区间里。该区间的构造目标是模型**均值** 8,000，而不是未来单次支付。这个直接反例比一句“置信区间不同于预测区间”更能检验对象是否分清。
+
+[^spx]: Cboe，*SPX Index Options Fact Sheet*，©2026，p.2 “Summary Product Specifications” 的乘数、结算金额与结算值定义，[原件](https://cdn.cboe.com/resources/spx/spx-fact-sheet.pdf)，访问于 2026-09-21。标准 SPX 与 SPXW 的结算值计算方式不同；同页还明确行权现金在到期后的下一营业日交付。本例的 $Z$ 只是已选合约所规定结算值的教学情景；券商内部 booking 时点不由该事实表支持。
+[^lln]: MIT 6.436J/15.085J，Fall 2018，*Lecture 17: Laws of Large Numbers and Central Limit Theorem*，§1 的 Markov/Chebyshev 不等式（p.1）、§3 WLLN（pp.5–6）与 §4 CLT（p.7），[完整讲义](https://ocw.mit.edu/courses/6-436j-fundamentals-of-probability-fall-2018/f44fa78f05ac31a4ba2bd82f599dcf60_MIT6_436JF18_lec17.pdf)。讲义 p.5 强律旁述的 $X_n$ 应为样本均值；本节不采用该笔误，也不展开强律证明。
+[^inputs]: `QT-C-inputs-20260921-v1`，[参数合同](/notebook/labs/qt-c/data/experiment-config.json) 的 `monte_carlo`，[结果](/notebook/labs/qt-c/data/results.json) 的 `Monte_Carlo`。共同均匀数、全长状态序列、前缀均值/SE、每次覆盖指示均保留；复算程序在 [compute/reproduce.py](/notebook/labs/qt-c/compute/reproduce.py)。图使用这些冻结路径，不调用另一随机数发生器冒充相同种子的复现。
+[^weak]: Y. Cherapanamjeri、N. Tripuraneni、P. L. Bartlett、M. I. Jordan，*Optimal Mean Estimation without a Variance*：[COLT 2022/PMLR 178 扩展摘要](https://proceedings.mlr.press/v178/cherapanamjeri22a.html)；[开放完整预印本 2011.12433v2](https://arxiv.org/html/2011.12433v2) 的 §1（Problem 1.1、主要定理）及 §3 算法概述。完整预印本版本为 2020 年，不能与 2022 扩展摘要混作同一文件；这里只引用弱矩条件下需要不同均值估计方法这一边界，不声称运行或复现其算法。
+
+[^slutsky]: Amir Dembo，*Probability Theory: STAT310/MATH230*，2021-04-15 版，Exercise 3.2.8 (a)–(c)，p.106，[公开原文](https://adembo.su.domains/stat-310b/lnotes.pdf)。原文给出趋于常数时的和与积版本；这里对 $\sigma/s_n\to1$ 使用积版本，$\sigma>0$ 是倒数变换所需条件。它是所调用结果的精确定位，不把练习条目称作书中已经附出的完整证明。
+
+
+## Additional teaching material
+以下是本篇真正使用的输入与结果；完整随机数组按[完整冻结结果](https://ou-liu-red-sugar.github.io/notebook/labs/qt-c/data/results.json) 的指定路径读取。
+
+## Experiment inputs and static equivalents
+```json
+[
+  {
+    "id": "EXP-MC-01",
+    "title": "共同均匀数、嵌套前缀与覆盖率",
+    "anchor": "qt12-experiment",
+    "description": "从指定支付模型与冻结随机序列重建平均、SE和CLT近似区间，并说明增加n不能消去模型差。",
+    "inputs": {
+      "config": {
+        "experiment_id": "EXP-MC-01",
+        "generator": "numpy.random.Generator(numpy.random.PCG64(seed))",
+        "payoffs_usd": [
+          0,
+          0,
+          10000,
+          20000
+        ],
+        "probabilities": [
+          0.1,
+          0.3,
+          0.4,
+          0.2
+        ],
+        "stress_probabilities": [
+          0.1,
+          0.4,
+          0.3,
+          0.2
+        ],
+        "reference_seed": 1201,
+        "sample_sizes": [
+          100,
+          1000,
+          10000
+        ],
+        "default_sample_size": 1000,
+        "reference_path": "先生成10000个U[0,1)；各n取同一路径前缀，p与p'共用均匀数；inverse-CDF按四个状态映射",
+        "coverage_seed": 1202,
+        "coverage_repetitions": 5000,
+        "coverage_chunk_rows": 250,
+        "coverage_interval_z": 1.96,
+        "coverage_design": "每行10000个独立均匀数，行间独立；各n在每行使用嵌套前缀，故不同n的覆盖结果相关；只对p模型统计覆盖",
+        "sample_sd_ddof": 1
+      },
+      "contract_convention": {
+        "settlement_points": [
+          5900,
+          6000,
+          6100,
+          6200
+        ],
+        "strike_points": 6000,
+        "multiplier_usd_per_point": 100,
+        "identity": "教学未来情景；非具体挂牌报价"
+      },
+      "examples": {
+        "precision": {
+          "target_SE_usd": 100,
+          "required_n": 5600
+        },
+        "heavy_tail": {
+          "identity": "教学Pareto，P(Y>y)=y^-alpha for y>=1",
+          "alpha": 1.5,
+          "mean": 3,
+          "second_moment_finite": false
+        }
+      }
+    },
+    "outputs": {
+      "experiment_id": "EXP-MC-01",
+      "config": {
+        "experiment_id": "EXP-MC-01",
+        "generator": "numpy.random.Generator(numpy.random.PCG64(seed))",
+        "payoffs_usd": [
+          0,
+          0,
+          10000,
+          20000
+        ],
+        "probabilities": [
+          0.1,
+          0.3,
+          0.4,
+          0.2
+        ],
+        "stress_probabilities": [
+          0.1,
+          0.4,
+          0.3,
+          0.2
+        ],
+        "reference_seed": 1201,
+        "sample_sizes": [
+          100,
+          1000,
+          10000
+        ],
+        "default_sample_size": 1000,
+        "reference_path": "先生成10000个U[0,1)；各n取同一路径前缀，p与p'共用均匀数；inverse-CDF按四个状态映射",
+        "coverage_seed": 1202,
+        "coverage_repetitions": 5000,
+        "coverage_chunk_rows": 250,
+        "coverage_interval_z": 1.96,
+        "coverage_design": "每行10000个独立均匀数，行间独立；各n在每行使用嵌套前缀，故不同n的覆盖结果相关；只对p模型统计覆盖",
+        "sample_sd_ddof": 1
+      },
+      "reference": {
+        "base": {
+          "model": {
+            "payoffs_usd": [
+              0.0,
+              0.0,
+              10000.0,
+              20000.0
+            ],
+            "probabilities": [
+              0.1,
+              0.3,
+              0.4,
+              0.2
+            ],
+            "mean_usd": 8000.0,
+            "second_moment_usd_squared": 120000000.0,
+            "variance_usd_squared": 56000000.0,
+            "sd_usd": 7483.314773547882
+          },
+          "sample_sizes": [
+            {
+              "n": 100,
+              "state_counts": [
+                9,
+                34,
+                41,
+                16
+              ],
+              "estimate_usd": 7300.0,
+              "error_relative_to_simulated_model_usd": -700.0,
+              "error_relative_to_base_model_usd": -700.0,
+              "estimated_SE_usd": 722.7193316379687,
+              "theoretical_SE_usd": 748.3314773547883,
+              "CLT_95_interval_usd": [
+                5883.470109989581,
+                8716.529890010419
+              ],
+              "interval_contains_simulated_model_mean": true
+            },
+            {
+              "n": 1000,
+              "state_counts": [
+                95,
+                313,
+                389,
+                203
+              ],
+              "estimate_usd": 7950.0,
+              "error_relative_to_simulated_model_usd": -50.0,
+              "error_relative_to_base_model_usd": -50.0,
+              "estimated_SE_usd": 238.6513240157164,
+              "theoretical_SE_usd": 236.64319132398464,
+              "CLT_95_interval_usd": [
+                7482.243404929196,
+                8417.756595070805
+              ],
+              "interval_contains_simulated_model_mean": true
+            },
+            {
+              "n": 10000,
+              "state_counts": [
+                967,
+                3051,
+                3969,
+                2013
+              ],
+              "estimate_usd": 7995.0,
+              "error_relative_to_simulated_model_usd": -5.0,
+              "error_relative_to_base_model_usd": -5.0,
+              "estimated_SE_usd": 75.03039688050174,
+              "theoretical_SE_usd": 74.83314773547882,
+              "CLT_95_interval_usd": [
+                7847.940422114217,
+                8142.059577885783
+              ],
+              "interval_contains_simulated_model_mean": true
+            }
+          ]
+        },
+        "stress": {
+          "model": {
+            "payoffs_usd": [
+              0.0,
+              0.0,
+              10000.0,
+              20000.0
+            ],
+            "probabilities": [
+              0.1,
+              0.4,
+              0.3,
+              0.2
+            ],
+            "mean_usd": 7000.0,
+            "second_moment_usd_squared": 110000000.0,
+            "variance_usd_squared": 61000000.0,
+            "sd_usd": 7810.249675906654
+          },
+          "sample_sizes": [
+            {
+              "n": 100,
+              "state_counts": [
+                9,
+                46,
+                29,
+                16
+              ],
+              "estimate_usd": 6100.0,
+              "error_relative_to_simulated_model_usd": -900.0,
+              "error_relative_to_base_model_usd": -1900.0,
+              "estimated_SE_usd": 750.6899183653352,
+              "theoretical_SE_usd": 781.0249675906655,
+              "CLT_95_interval_usd": [
+                4628.647760003943,
+                7571.352239996057
+              ],
+              "interval_contains_simulated_model_mean": true
+            },
+            {
+              "n": 1000,
+              "state_counts": [
+                95,
+                416,
+                286,
+                203
+              ],
+              "estimate_usd": 6920.0,
+              "error_relative_to_simulated_model_usd": -80.0,
+              "error_relative_to_base_model_usd": -1080.0,
+              "estimated_SE_usd": 248.94894170406826,
+              "theoretical_SE_usd": 246.9817807045694,
+              "CLT_95_interval_usd": [
+                6432.060074260026,
+                7407.939925739974
+              ],
+              "interval_contains_simulated_model_mean": true
+            },
+            {
+              "n": 10000,
+              "state_counts": [
+                967,
+                4049,
+                2971,
+                2013
+              ],
+              "estimate_usd": 6997.0,
+              "error_relative_to_simulated_model_usd": -3.0,
+              "error_relative_to_base_model_usd": -1003.0,
+              "estimated_SE_usd": 78.28034160112051,
+              "theoretical_SE_usd": 78.10249675906654,
+              "CLT_95_interval_usd": [
+                6843.570530461804,
+                7150.429469538196
+              ],
+              "interval_contains_simulated_model_mean": true
+            }
+          ]
+        }
+      },
+      "coverage": [
+        {
+          "n": 100,
+          "R": 5000,
+          "coverage_count": 4750,
+          "coverage_rate": 0.95,
+          "coverage_MC_standard_error": 0.0030822070014844896,
+          "empirical_bias_usd": -0.5399999999999636,
+          "empirical_RMSE_usd": 741.2840211416943,
+          "replicate_mean_SD_usd": 741.3579639594798,
+          "mean_estimated_SE_usd": 747.5128208198363,
+          "theoretical_SE_usd": 748.3314773547883
+        },
+        {
+          "n": 1000,
+          "R": 5000,
+          "coverage_count": 4792,
+          "coverage_rate": 0.9584,
+          "coverage_MC_standard_error": 0.0028238073588685176,
+          "empirical_bias_usd": 0.17600000000038563,
+          "empirical_RMSE_usd": 229.83211263876944,
+          "replicate_mean_SD_usd": 229.85503190301975,
+          "mean_estimated_SE_usd": 236.70645159930316,
+          "theoretical_SE_usd": 236.64319132398464
+        },
+        {
+          "n": 10000,
+          "R": 5000,
+          "coverage_count": 4723,
+          "coverage_rate": 0.9446,
+          "coverage_MC_standard_error": 0.0032351457463304493,
+          "empirical_bias_usd": -0.40020000000004075,
+          "empirical_RMSE_usd": 75.85731210634872,
+          "replicate_mean_SD_usd": 75.86384319622161,
+          "mean_estimated_SE_usd": 74.83376414414207,
+          "theoretical_SE_usd": 74.83314773547882
+        }
+      ],
+      "model_mean_difference_stress_minus_base_usd": -1000.0
+    },
+    "algorithm": "PCG64(1201)一次10000 uniform，p/p'共同逆CDF；n取前缀。seed1202 5000独立行，每行10000，chunk250；各n跨行独立而不同n共享前缀；CLT区间z=1.96；覆盖率MCSE使用二项比例SE。",
+    "boundaries": [
+      "iid可积弱律，CLT需要有限正方差",
+      "n=1样本SE未定义；零样本方差不证明总体无波动",
+      "区间为固定n近似均值区间；无同时覆盖/预测承诺",
+      "数值误差和模型差分开",
+      "浏览器只读取复算冻结路径，无新RNG"
+    ],
+    "static_equivalent": {
+      "reader_anchor": "qt12-experiment",
+      "description": "正文完整输入/推导/默认数值/题解；HTML保留默认表和静态解释。"
+    },
+    "execution": {
+      "author_sandbox_recomputed": true,
+      "results_file": "https://ou-liu-red-sugar.github.io/notebook/labs/qt-c/data/results.json",
+      "checkpoint_evidence": "https://ou-liu-red-sugar.github.io/notebook/labs/qt-c/evidence/validation.json",
+      "original_full_results_byte_compared": false
+    }
+  }
+]
+```
+
+## Sources
+- [QT-C 冻结输入：BusEq 月收益、离散支付与重抽结果](https://ou-liu-red-sugar.github.io/notebook/labs/qt-c/data/BusEq-value-weighted-monthly-199001-202512.csv): 原源CSV首个value-weighted monthly区块BusEq，199001–202512、原行775–1206共432月，缺失0。归档源链接本身可变；实际随包为逐字节核验的432行提取及配置，结果由同样冻结算法在作者沙盒复算。原全行业ZIP不在此包内。MC/AR是教学模拟而非市场资料。
+- [Lecture 17: Laws of Large Numbers and Central Limit Theorem](https://ocw.mit.edu/courses/6-436j-fundamentals-of-probability-fall-2018/f44fa78f05ac31a4ba2bd82f599dcf60_MIT6_436JF18_lec17.pdf): 采用iid L1弱律和有限正方差CLT；正文完整给有限方差Chebyshev短证明。p.5强律旁述的X_n为笔误，应为样本均值；未照抄且未扩写强律证明。
+- [Probability Theory: STAT310/MATH230](https://adembo.su.domains/stat-310b/lnotes.pdf): Exercise3.2.8在每n同概率空间、第二极限为常数时给和与积形式；正文用它解释s_n替代sigma。原件此处是练习，不声称附有完整证明。
+- [SPX Index Options Fact Sheet](https://cdn.cboe.com/resources/spx/spx-fact-sheet.pdf): 支持每点100美元、欧式现金结算、行权结算值及到期后下一营业日的现金交付。四状态未来值、行权价6000与概率均为教学假设；预期支付不自动成为期权现价。券商账户内部booking时点不由该事实表给出。
+- [Optimal Mean Estimation without a Variance](https://arxiv.org/html/2011.12433v2): 以更弱(1+alpha)矩条件研究均值估计，支持失去有限方差后应更换条件/方法这一有限延伸。本课没有实现该算法或声称金融有效性。
+
+## Content relations
+```json
+[
+  {
+    "from": "zh-qt12",
+    "relation": "part_of",
+    "to": "quant-estimation",
+    "reason": "主要 topic 归属"
+  },
+  {
+    "from": "zh-qt12",
+    "relation": "requires",
+    "to": "zh-qt04",
+    "reason": "当前学习任务确实调用该能力",
+    "required_competence": "分布、期望、方差与样本量的含义"
+  },
+  {
+    "from": "zh-qt12",
+    "relation": "supported_by",
+    "to": "QTC-MIT17",
+    "reason": "支持对应定义、口径或明确限定的研究延伸",
+    "locator": "§1, p.1, Markov and Chebyshev；§3, pp.5–6, WLLN；§4, p.7, CLT statement and characteristic-function proof",
+    "scope": "采用iid L1弱律和有限正方差CLT；正文完整给有限方差Chebyshev短证明。p.5强律旁述的X_n为笔误，应为样本均值；未照抄且未扩写强律证明。"
+  },
+  {
+    "from": "zh-qt12",
+    "relation": "supported_by",
+    "to": "QTC-SLUTSKY",
+    "reason": "支持对应定义、口径或明确限定的研究延伸",
+    "locator": "Exercise 3.2.8(a)–(c), p.106",
+    "scope": "Exercise3.2.8在每n同概率空间、第二极限为常数时给和与积形式；正文用它解释s_n替代sigma。原件此处是练习，不声称附有完整证明。"
+  },
+  {
+    "from": "zh-qt12",
+    "relation": "supported_by",
+    "to": "QTC-SPX",
+    "reason": "支持对应定义、口径或明确限定的研究延伸",
+    "locator": "p.1 Comparison table: settlement type/exercise style；p.2 Summary Product Specifications: Contract Multiplier; Final Settlement Value; cash delivery on business day following expiration",
+    "scope": "支持每点100美元、欧式现金结算、行权结算值及到期后下一营业日的现金交付。四状态未来值、行权价6000与概率均为教学假设；预期支付不自动成为期权现价。券商账户内部booking时点不由该事实表给出。"
+  },
+  {
+    "from": "zh-qt12",
+    "relation": "supported_by",
+    "to": "QTC-FROZEN",
+    "reason": "支持对应定义、口径或明确限定的研究延伸",
+    "locator": "source CSV title line11/header12, BusEq index23 including date；selected source rows775–1206；data/experiment-config.json；data/results.json: returns, Monte_Carlo, bootstrap",
+    "scope": "原源CSV首个value-weighted monthly区块BusEq，199001–202512、原行775–1206共432月，缺失0。归档源链接本身可变；实际随包为逐字节核验的432行提取及配置，结果由同样冻结算法在作者沙盒复算。原全行业ZIP不在此包内。MC/AR是教学模拟而非市场资料。"
+  },
+  {
+    "from": "zh-qt12",
+    "relation": "supported_by",
+    "to": "QTC-WEAK",
+    "reason": "支持对应定义、口径或明确限定的研究延伸",
+    "locator": "§1 Introduction, Problem1.1, Theorems1.2–1.3；§3 algorithm overview",
+    "scope": "以更弱(1+alpha)矩条件研究均值估计，支持失去有限方差后应更换条件/方法这一有限延伸。本课没有实现该算法或声称金融有效性。"
+  },
+  {
+    "from": "qt12-experiment",
+    "relation": "illustrated_by",
+    "to": "EXP-MC-01",
+    "reason": "从指定支付模型与冻结随机序列重建平均、SE和CLT近似区间，并说明增加n不能消去模型差。"
+  },
+  {
+    "from": "zh-qt12",
+    "relation": "informs",
+    "to": "zh-qt19",
+    "reason": "解释有限B重抽模拟误差，区别于原始样本信息不足"
+  }
+]
+```
+
+## Related entries

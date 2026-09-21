@@ -9,11 +9,15 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Source+Serif+4:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@400;500;600;700&display=swap">
 
+{{- if eq .Section "notebook" -}}
+<script defer src="{{ "js/notebook-number-format.js" | relURL }}?v={{ $v }}" data-notebook-numbers></script>
+{{- end -}}
+
 {{- if eq .Params.math true }}
 <script>
   window.MathJax = {
     loader: {
-      load: ['[tex]/amscd', '[tex]/newcommand', '[tex]/html']
+      load: ['[tex]/amscd', '[tex]/html']
     },
     tex: {
       inlineMath: [['$', '$'], ['\\(', '\\)']],
@@ -61,6 +65,11 @@
         dbigsqcup:  "\\displaystyle\\bigsqcup"
       }
     },
+    output: {
+      fontPath: 'https://cdn.jsdelivr.net/npm/@mathjax/%%FONT%%-font@4.0.0',
+      displayOverflow: 'linebreak',
+      linebreaks: {inline: true, width: '100%', lineleading: 0.25}
+    },
     options: {
       ignoreHtmlClass: 'tex2jax_ignore',
       processHtmlClass: 'tex2jax_process'
@@ -71,20 +80,9 @@
   };
 </script>
 
-<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" id="MathJax-script"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@4.0.0/tex-chtml.js" id="MathJax-script"></script>
 
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-  document.querySelectorAll("details.math-env").forEach(function (d) {
-    d.addEventListener("toggle", function () {
-      if (!d.open) return;
-      if (window.MathJax && MathJax.typesetPromise) {
-        MathJax.typesetPromise([d]);
-      }
-    });
-  });
-});
-</script>
+<script defer src="/notebook/math-layout.js"></script>
 {{- end }}
 
 <link rel="icon" href="/favicon/favicon.svg" type="image/svg+xml">

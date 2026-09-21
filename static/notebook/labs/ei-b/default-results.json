@@ -1,0 +1,1302 @@
+{
+  "hotelling": {
+    "c": 10,
+    "t": 6,
+    "p1": 16,
+    "p2": 16,
+    "theta": 0.5,
+    "q1": 0.5,
+    "q2": 0.5,
+    "profit1": 3,
+    "profit2": 3,
+    "kind": "interior_allocation",
+    "label": "model_equilibrium",
+    "covered_market": true
+  },
+  "entry": {
+    "a": 120,
+    "c": 0,
+    "K": 800,
+    "cap": 10,
+    "equilibrium_set": [
+      3
+    ],
+    "rows": [
+      {
+        "N": 0,
+        "q_each": null,
+        "Q": 0,
+        "price": null,
+        "variable_profit": null,
+        "net_profit": null,
+        "incumbentOK": true,
+        "outsiderOK": false,
+        "next_exists": true,
+        "equilibrium": false,
+        "cap_bound": false,
+        "entry_tie": false,
+        "incumbent_tie": false
+      },
+      {
+        "N": 1,
+        "q_each": 60,
+        "Q": 60,
+        "price": 60,
+        "variable_profit": 3600,
+        "net_profit": 2800,
+        "incumbentOK": true,
+        "outsiderOK": false,
+        "next_exists": true,
+        "equilibrium": false,
+        "cap_bound": false,
+        "entry_tie": false,
+        "incumbent_tie": false
+      },
+      {
+        "N": 2,
+        "q_each": 40,
+        "Q": 80,
+        "price": 40,
+        "variable_profit": 1600,
+        "net_profit": 800,
+        "incumbentOK": true,
+        "outsiderOK": false,
+        "next_exists": true,
+        "equilibrium": false,
+        "cap_bound": false,
+        "entry_tie": false,
+        "incumbent_tie": false
+      },
+      {
+        "N": 3,
+        "q_each": 30,
+        "Q": 90,
+        "price": 30,
+        "variable_profit": 900,
+        "net_profit": 100,
+        "incumbentOK": true,
+        "outsiderOK": true,
+        "next_exists": true,
+        "equilibrium": true,
+        "cap_bound": false,
+        "entry_tie": false,
+        "incumbent_tie": false
+      },
+      {
+        "N": 4,
+        "q_each": 24,
+        "Q": 96,
+        "price": 24,
+        "variable_profit": 576,
+        "net_profit": -224,
+        "incumbentOK": false,
+        "outsiderOK": true,
+        "next_exists": true,
+        "equilibrium": false,
+        "cap_bound": false,
+        "entry_tie": false,
+        "incumbent_tie": false
+      },
+      {
+        "N": 5,
+        "q_each": 20,
+        "Q": 100,
+        "price": 20,
+        "variable_profit": 400,
+        "net_profit": -400,
+        "incumbentOK": false,
+        "outsiderOK": true,
+        "next_exists": true,
+        "equilibrium": false,
+        "cap_bound": false,
+        "entry_tie": false,
+        "incumbent_tie": false
+      },
+      {
+        "N": 6,
+        "q_each": 17.142857142857142,
+        "Q": 102.85714285714286,
+        "price": 17.142857142857142,
+        "variable_profit": 293.8775510204082,
+        "net_profit": -506.1224489795918,
+        "incumbentOK": false,
+        "outsiderOK": true,
+        "next_exists": true,
+        "equilibrium": false,
+        "cap_bound": false,
+        "entry_tie": false,
+        "incumbent_tie": false
+      },
+      {
+        "N": 7,
+        "q_each": 15,
+        "Q": 105,
+        "price": 15,
+        "variable_profit": 225,
+        "net_profit": -575,
+        "incumbentOK": false,
+        "outsiderOK": true,
+        "next_exists": true,
+        "equilibrium": false,
+        "cap_bound": false,
+        "entry_tie": false,
+        "incumbent_tie": false
+      },
+      {
+        "N": 8,
+        "q_each": 13.333333333333334,
+        "Q": 106.66666666666667,
+        "price": 13.333333333333334,
+        "variable_profit": 177.77777777777777,
+        "net_profit": -622.2222222222222,
+        "incumbentOK": false,
+        "outsiderOK": true,
+        "next_exists": true,
+        "equilibrium": false,
+        "cap_bound": false,
+        "entry_tie": false,
+        "incumbent_tie": false
+      },
+      {
+        "N": 9,
+        "q_each": 12,
+        "Q": 108,
+        "price": 12,
+        "variable_profit": 144,
+        "net_profit": -656,
+        "incumbentOK": false,
+        "outsiderOK": true,
+        "next_exists": true,
+        "equilibrium": false,
+        "cap_bound": false,
+        "entry_tie": false,
+        "incumbent_tie": false
+      },
+      {
+        "N": 10,
+        "q_each": 10.909090909090908,
+        "Q": 109.09090909090908,
+        "price": 10.909090909090908,
+        "variable_profit": 119.00826446280992,
+        "net_profit": -680.99173553719,
+        "incumbentOK": false,
+        "outsiderOK": true,
+        "next_exists": false,
+        "equilibrium": false,
+        "cap_bound": true,
+        "entry_tie": false,
+        "incumbent_tie": false
+      }
+    ],
+    "nonpositive_margin_corner": false,
+    "zero_output_continuation": false,
+    "no_potential_entrants": false
+  },
+  "inventory": {
+    "E0": 100,
+    "lambda_steps": 10,
+    "lambda": 0.05,
+    "h": 70,
+    "crossing": 7,
+    "status": "crossed",
+    "previous": 73.50918906249998,
+    "current": 69.83372960937497,
+    "equality_previous": false,
+    "verified_current": true,
+    "verified_previous": true,
+    "points": [
+      {
+        "n": 0,
+        "E": 100
+      },
+      {
+        "n": 1,
+        "E": 95
+      },
+      {
+        "n": 2,
+        "E": 90.25
+      },
+      {
+        "n": 3,
+        "E": 85.73749999999998
+      },
+      {
+        "n": 4,
+        "E": 81.45062499999999
+      },
+      {
+        "n": 5,
+        "E": 77.37809374999998
+      },
+      {
+        "n": 6,
+        "E": 73.50918906249998
+      },
+      {
+        "n": 7,
+        "E": 69.83372960937497
+      },
+      {
+        "n": 8,
+        "E": 66.34204312890623
+      },
+      {
+        "n": 9,
+        "E": 63.02494097246091
+      },
+      {
+        "n": 10,
+        "E": 59.873693923837855
+      },
+      {
+        "n": 11,
+        "E": 56.880009227645964
+      },
+      {
+        "n": 12,
+        "E": 54.03600876626366
+      },
+      {
+        "n": 13,
+        "E": 51.33420832795048
+      },
+      {
+        "n": 14,
+        "E": 48.76749791155295
+      },
+      {
+        "n": 15,
+        "E": 46.329123015975306
+      },
+      {
+        "n": 16,
+        "E": 44.012666865176534
+      },
+      {
+        "n": 17,
+        "E": 41.812033521917705
+      },
+      {
+        "n": 18,
+        "E": 39.72143184582182
+      },
+      {
+        "n": 19,
+        "E": 37.73536025353073
+      },
+      {
+        "n": 20,
+        "E": 35.848592240854195
+      }
+    ],
+    "comparison": "strict <"
+  },
+  "m3": {
+    "net_flow": 381,
+    "backlog_change": 381,
+    "adjustment_residual": 0,
+    "inventory_change": 66,
+    "inventory_shipments": 2.3697198755002225,
+    "growth_pct": {
+      "orders": 3.0629488804393645,
+      "shipments": 1.672694394213381,
+      "backlog": 3.3975387907972276,
+      "inventories": 0.6230529595015577
+    }
+  },
+  "accounts": {
+    "costco": {
+      "reconstructed_revenue": 275.235,
+      "reconstructed_oi": 10.383,
+      "membership_revenue_pct": 1.9339836866677569,
+      "membership_oi_pct": 51.266493306366186
+    },
+    "sams": {
+      "reconstructed_revenue": 95.54,
+      "reconstructed_oi": 2.442,
+      "membership_revenue_pct": 2.6428720954574,
+      "membership_oi_pct": 103.39885339885339
+    }
+  },
+  "comparisons": {
+    "entry": [
+      {
+        "a": 120,
+        "c": 0,
+        "K": 800,
+        "cap": 10,
+        "equilibrium_set": [
+          3
+        ],
+        "rows": [
+          {
+            "N": 0,
+            "q_each": null,
+            "Q": 0,
+            "price": null,
+            "variable_profit": null,
+            "net_profit": null,
+            "incumbentOK": true,
+            "outsiderOK": false,
+            "next_exists": true,
+            "equilibrium": false,
+            "cap_bound": false,
+            "entry_tie": false,
+            "incumbent_tie": false
+          },
+          {
+            "N": 1,
+            "q_each": 60,
+            "Q": 60,
+            "price": 60,
+            "variable_profit": 3600,
+            "net_profit": 2800,
+            "incumbentOK": true,
+            "outsiderOK": false,
+            "next_exists": true,
+            "equilibrium": false,
+            "cap_bound": false,
+            "entry_tie": false,
+            "incumbent_tie": false
+          },
+          {
+            "N": 2,
+            "q_each": 40,
+            "Q": 80,
+            "price": 40,
+            "variable_profit": 1600,
+            "net_profit": 800,
+            "incumbentOK": true,
+            "outsiderOK": false,
+            "next_exists": true,
+            "equilibrium": false,
+            "cap_bound": false,
+            "entry_tie": false,
+            "incumbent_tie": false
+          },
+          {
+            "N": 3,
+            "q_each": 30,
+            "Q": 90,
+            "price": 30,
+            "variable_profit": 900,
+            "net_profit": 100,
+            "incumbentOK": true,
+            "outsiderOK": true,
+            "next_exists": true,
+            "equilibrium": true,
+            "cap_bound": false,
+            "entry_tie": false,
+            "incumbent_tie": false
+          },
+          {
+            "N": 4,
+            "q_each": 24,
+            "Q": 96,
+            "price": 24,
+            "variable_profit": 576,
+            "net_profit": -224,
+            "incumbentOK": false,
+            "outsiderOK": true,
+            "next_exists": true,
+            "equilibrium": false,
+            "cap_bound": false,
+            "entry_tie": false,
+            "incumbent_tie": false
+          },
+          {
+            "N": 5,
+            "q_each": 20,
+            "Q": 100,
+            "price": 20,
+            "variable_profit": 400,
+            "net_profit": -400,
+            "incumbentOK": false,
+            "outsiderOK": true,
+            "next_exists": true,
+            "equilibrium": false,
+            "cap_bound": false,
+            "entry_tie": false,
+            "incumbent_tie": false
+          },
+          {
+            "N": 6,
+            "q_each": 17.142857142857142,
+            "Q": 102.85714285714286,
+            "price": 17.142857142857142,
+            "variable_profit": 293.8775510204082,
+            "net_profit": -506.1224489795918,
+            "incumbentOK": false,
+            "outsiderOK": true,
+            "next_exists": true,
+            "equilibrium": false,
+            "cap_bound": false,
+            "entry_tie": false,
+            "incumbent_tie": false
+          },
+          {
+            "N": 7,
+            "q_each": 15,
+            "Q": 105,
+            "price": 15,
+            "variable_profit": 225,
+            "net_profit": -575,
+            "incumbentOK": false,
+            "outsiderOK": true,
+            "next_exists": true,
+            "equilibrium": false,
+            "cap_bound": false,
+            "entry_tie": false,
+            "incumbent_tie": false
+          },
+          {
+            "N": 8,
+            "q_each": 13.333333333333334,
+            "Q": 106.66666666666667,
+            "price": 13.333333333333334,
+            "variable_profit": 177.77777777777777,
+            "net_profit": -622.2222222222222,
+            "incumbentOK": false,
+            "outsiderOK": true,
+            "next_exists": true,
+            "equilibrium": false,
+            "cap_bound": false,
+            "entry_tie": false,
+            "incumbent_tie": false
+          },
+          {
+            "N": 9,
+            "q_each": 12,
+            "Q": 108,
+            "price": 12,
+            "variable_profit": 144,
+            "net_profit": -656,
+            "incumbentOK": false,
+            "outsiderOK": true,
+            "next_exists": true,
+            "equilibrium": false,
+            "cap_bound": false,
+            "entry_tie": false,
+            "incumbent_tie": false
+          },
+          {
+            "N": 10,
+            "q_each": 10.909090909090908,
+            "Q": 109.09090909090908,
+            "price": 10.909090909090908,
+            "variable_profit": 119.00826446280992,
+            "net_profit": -680.99173553719,
+            "incumbentOK": false,
+            "outsiderOK": true,
+            "next_exists": false,
+            "equilibrium": false,
+            "cap_bound": true,
+            "entry_tie": false,
+            "incumbent_tie": false
+          }
+        ],
+        "nonpositive_margin_corner": false,
+        "zero_output_continuation": false,
+        "no_potential_entrants": false
+      },
+      {
+        "a": 120,
+        "c": 0,
+        "K": 350,
+        "cap": 10,
+        "equilibrium_set": [
+          5
+        ],
+        "rows": [
+          {
+            "N": 0,
+            "q_each": null,
+            "Q": 0,
+            "price": null,
+            "variable_profit": null,
+            "net_profit": null,
+            "incumbentOK": true,
+            "outsiderOK": false,
+            "next_exists": true,
+            "equilibrium": false,
+            "cap_bound": false,
+            "entry_tie": false,
+            "incumbent_tie": false
+          },
+          {
+            "N": 1,
+            "q_each": 60,
+            "Q": 60,
+            "price": 60,
+            "variable_profit": 3600,
+            "net_profit": 3250,
+            "incumbentOK": true,
+            "outsiderOK": false,
+            "next_exists": true,
+            "equilibrium": false,
+            "cap_bound": false,
+            "entry_tie": false,
+            "incumbent_tie": false
+          },
+          {
+            "N": 2,
+            "q_each": 40,
+            "Q": 80,
+            "price": 40,
+            "variable_profit": 1600,
+            "net_profit": 1250,
+            "incumbentOK": true,
+            "outsiderOK": false,
+            "next_exists": true,
+            "equilibrium": false,
+            "cap_bound": false,
+            "entry_tie": false,
+            "incumbent_tie": false
+          },
+          {
+            "N": 3,
+            "q_each": 30,
+            "Q": 90,
+            "price": 30,
+            "variable_profit": 900,
+            "net_profit": 550,
+            "incumbentOK": true,
+            "outsiderOK": false,
+            "next_exists": true,
+            "equilibrium": false,
+            "cap_bound": false,
+            "entry_tie": false,
+            "incumbent_tie": false
+          },
+          {
+            "N": 4,
+            "q_each": 24,
+            "Q": 96,
+            "price": 24,
+            "variable_profit": 576,
+            "net_profit": 226,
+            "incumbentOK": true,
+            "outsiderOK": false,
+            "next_exists": true,
+            "equilibrium": false,
+            "cap_bound": false,
+            "entry_tie": false,
+            "incumbent_tie": false
+          },
+          {
+            "N": 5,
+            "q_each": 20,
+            "Q": 100,
+            "price": 20,
+            "variable_profit": 400,
+            "net_profit": 50,
+            "incumbentOK": true,
+            "outsiderOK": true,
+            "next_exists": true,
+            "equilibrium": true,
+            "cap_bound": false,
+            "entry_tie": false,
+            "incumbent_tie": false
+          },
+          {
+            "N": 6,
+            "q_each": 17.142857142857142,
+            "Q": 102.85714285714286,
+            "price": 17.142857142857142,
+            "variable_profit": 293.8775510204082,
+            "net_profit": -56.12244897959181,
+            "incumbentOK": false,
+            "outsiderOK": true,
+            "next_exists": true,
+            "equilibrium": false,
+            "cap_bound": false,
+            "entry_tie": false,
+            "incumbent_tie": false
+          },
+          {
+            "N": 7,
+            "q_each": 15,
+            "Q": 105,
+            "price": 15,
+            "variable_profit": 225,
+            "net_profit": -125,
+            "incumbentOK": false,
+            "outsiderOK": true,
+            "next_exists": true,
+            "equilibrium": false,
+            "cap_bound": false,
+            "entry_tie": false,
+            "incumbent_tie": false
+          },
+          {
+            "N": 8,
+            "q_each": 13.333333333333334,
+            "Q": 106.66666666666667,
+            "price": 13.333333333333334,
+            "variable_profit": 177.77777777777777,
+            "net_profit": -172.22222222222223,
+            "incumbentOK": false,
+            "outsiderOK": true,
+            "next_exists": true,
+            "equilibrium": false,
+            "cap_bound": false,
+            "entry_tie": false,
+            "incumbent_tie": false
+          },
+          {
+            "N": 9,
+            "q_each": 12,
+            "Q": 108,
+            "price": 12,
+            "variable_profit": 144,
+            "net_profit": -206,
+            "incumbentOK": false,
+            "outsiderOK": true,
+            "next_exists": true,
+            "equilibrium": false,
+            "cap_bound": false,
+            "entry_tie": false,
+            "incumbent_tie": false
+          },
+          {
+            "N": 10,
+            "q_each": 10.909090909090908,
+            "Q": 109.09090909090908,
+            "price": 10.909090909090908,
+            "variable_profit": 119.00826446280992,
+            "net_profit": -230.9917355371901,
+            "incumbentOK": false,
+            "outsiderOK": true,
+            "next_exists": false,
+            "equilibrium": false,
+            "cap_bound": true,
+            "entry_tie": false,
+            "incumbent_tie": false
+          }
+        ],
+        "nonpositive_margin_corner": false,
+        "zero_output_continuation": false,
+        "no_potential_entrants": false
+      },
+      {
+        "a": 120,
+        "c": 0,
+        "K": 900,
+        "cap": 10,
+        "equilibrium_set": [
+          2,
+          3
+        ],
+        "rows": [
+          {
+            "N": 0,
+            "q_each": null,
+            "Q": 0,
+            "price": null,
+            "variable_profit": null,
+            "net_profit": null,
+            "incumbentOK": true,
+            "outsiderOK": false,
+            "next_exists": true,
+            "equilibrium": false,
+            "cap_bound": false,
+            "entry_tie": false,
+            "incumbent_tie": false
+          },
+          {
+            "N": 1,
+            "q_each": 60,
+            "Q": 60,
+            "price": 60,
+            "variable_profit": 3600,
+            "net_profit": 2700,
+            "incumbentOK": true,
+            "outsiderOK": false,
+            "next_exists": true,
+            "equilibrium": false,
+            "cap_bound": false,
+            "entry_tie": false,
+            "incumbent_tie": false
+          },
+          {
+            "N": 2,
+            "q_each": 40,
+            "Q": 80,
+            "price": 40,
+            "variable_profit": 1600,
+            "net_profit": 700,
+            "incumbentOK": true,
+            "outsiderOK": true,
+            "next_exists": true,
+            "equilibrium": true,
+            "cap_bound": false,
+            "entry_tie": true,
+            "incumbent_tie": false
+          },
+          {
+            "N": 3,
+            "q_each": 30,
+            "Q": 90,
+            "price": 30,
+            "variable_profit": 900,
+            "net_profit": 0,
+            "incumbentOK": true,
+            "outsiderOK": true,
+            "next_exists": true,
+            "equilibrium": true,
+            "cap_bound": false,
+            "entry_tie": false,
+            "incumbent_tie": true
+          },
+          {
+            "N": 4,
+            "q_each": 24,
+            "Q": 96,
+            "price": 24,
+            "variable_profit": 576,
+            "net_profit": -324,
+            "incumbentOK": false,
+            "outsiderOK": true,
+            "next_exists": true,
+            "equilibrium": false,
+            "cap_bound": false,
+            "entry_tie": false,
+            "incumbent_tie": false
+          },
+          {
+            "N": 5,
+            "q_each": 20,
+            "Q": 100,
+            "price": 20,
+            "variable_profit": 400,
+            "net_profit": -500,
+            "incumbentOK": false,
+            "outsiderOK": true,
+            "next_exists": true,
+            "equilibrium": false,
+            "cap_bound": false,
+            "entry_tie": false,
+            "incumbent_tie": false
+          },
+          {
+            "N": 6,
+            "q_each": 17.142857142857142,
+            "Q": 102.85714285714286,
+            "price": 17.142857142857142,
+            "variable_profit": 293.8775510204082,
+            "net_profit": -606.1224489795918,
+            "incumbentOK": false,
+            "outsiderOK": true,
+            "next_exists": true,
+            "equilibrium": false,
+            "cap_bound": false,
+            "entry_tie": false,
+            "incumbent_tie": false
+          },
+          {
+            "N": 7,
+            "q_each": 15,
+            "Q": 105,
+            "price": 15,
+            "variable_profit": 225,
+            "net_profit": -675,
+            "incumbentOK": false,
+            "outsiderOK": true,
+            "next_exists": true,
+            "equilibrium": false,
+            "cap_bound": false,
+            "entry_tie": false,
+            "incumbent_tie": false
+          },
+          {
+            "N": 8,
+            "q_each": 13.333333333333334,
+            "Q": 106.66666666666667,
+            "price": 13.333333333333334,
+            "variable_profit": 177.77777777777777,
+            "net_profit": -722.2222222222222,
+            "incumbentOK": false,
+            "outsiderOK": true,
+            "next_exists": true,
+            "equilibrium": false,
+            "cap_bound": false,
+            "entry_tie": false,
+            "incumbent_tie": false
+          },
+          {
+            "N": 9,
+            "q_each": 12,
+            "Q": 108,
+            "price": 12,
+            "variable_profit": 144,
+            "net_profit": -756,
+            "incumbentOK": false,
+            "outsiderOK": true,
+            "next_exists": true,
+            "equilibrium": false,
+            "cap_bound": false,
+            "entry_tie": false,
+            "incumbent_tie": false
+          },
+          {
+            "N": 10,
+            "q_each": 10.909090909090908,
+            "Q": 109.09090909090908,
+            "price": 10.909090909090908,
+            "variable_profit": 119.00826446280992,
+            "net_profit": -780.99173553719,
+            "incumbentOK": false,
+            "outsiderOK": true,
+            "next_exists": false,
+            "equilibrium": false,
+            "cap_bound": true,
+            "entry_tie": false,
+            "incumbent_tie": false
+          }
+        ],
+        "nonpositive_margin_corner": false,
+        "zero_output_continuation": false,
+        "no_potential_entrants": false
+      },
+      {
+        "a": 120,
+        "c": 0,
+        "K": 400,
+        "cap": 10,
+        "equilibrium_set": [
+          4,
+          5
+        ],
+        "rows": [
+          {
+            "N": 0,
+            "q_each": null,
+            "Q": 0,
+            "price": null,
+            "variable_profit": null,
+            "net_profit": null,
+            "incumbentOK": true,
+            "outsiderOK": false,
+            "next_exists": true,
+            "equilibrium": false,
+            "cap_bound": false,
+            "entry_tie": false,
+            "incumbent_tie": false
+          },
+          {
+            "N": 1,
+            "q_each": 60,
+            "Q": 60,
+            "price": 60,
+            "variable_profit": 3600,
+            "net_profit": 3200,
+            "incumbentOK": true,
+            "outsiderOK": false,
+            "next_exists": true,
+            "equilibrium": false,
+            "cap_bound": false,
+            "entry_tie": false,
+            "incumbent_tie": false
+          },
+          {
+            "N": 2,
+            "q_each": 40,
+            "Q": 80,
+            "price": 40,
+            "variable_profit": 1600,
+            "net_profit": 1200,
+            "incumbentOK": true,
+            "outsiderOK": false,
+            "next_exists": true,
+            "equilibrium": false,
+            "cap_bound": false,
+            "entry_tie": false,
+            "incumbent_tie": false
+          },
+          {
+            "N": 3,
+            "q_each": 30,
+            "Q": 90,
+            "price": 30,
+            "variable_profit": 900,
+            "net_profit": 500,
+            "incumbentOK": true,
+            "outsiderOK": false,
+            "next_exists": true,
+            "equilibrium": false,
+            "cap_bound": false,
+            "entry_tie": false,
+            "incumbent_tie": false
+          },
+          {
+            "N": 4,
+            "q_each": 24,
+            "Q": 96,
+            "price": 24,
+            "variable_profit": 576,
+            "net_profit": 176,
+            "incumbentOK": true,
+            "outsiderOK": true,
+            "next_exists": true,
+            "equilibrium": true,
+            "cap_bound": false,
+            "entry_tie": true,
+            "incumbent_tie": false
+          },
+          {
+            "N": 5,
+            "q_each": 20,
+            "Q": 100,
+            "price": 20,
+            "variable_profit": 400,
+            "net_profit": 0,
+            "incumbentOK": true,
+            "outsiderOK": true,
+            "next_exists": true,
+            "equilibrium": true,
+            "cap_bound": false,
+            "entry_tie": false,
+            "incumbent_tie": true
+          },
+          {
+            "N": 6,
+            "q_each": 17.142857142857142,
+            "Q": 102.85714285714286,
+            "price": 17.142857142857142,
+            "variable_profit": 293.8775510204082,
+            "net_profit": -106.12244897959181,
+            "incumbentOK": false,
+            "outsiderOK": true,
+            "next_exists": true,
+            "equilibrium": false,
+            "cap_bound": false,
+            "entry_tie": false,
+            "incumbent_tie": false
+          },
+          {
+            "N": 7,
+            "q_each": 15,
+            "Q": 105,
+            "price": 15,
+            "variable_profit": 225,
+            "net_profit": -175,
+            "incumbentOK": false,
+            "outsiderOK": true,
+            "next_exists": true,
+            "equilibrium": false,
+            "cap_bound": false,
+            "entry_tie": false,
+            "incumbent_tie": false
+          },
+          {
+            "N": 8,
+            "q_each": 13.333333333333334,
+            "Q": 106.66666666666667,
+            "price": 13.333333333333334,
+            "variable_profit": 177.77777777777777,
+            "net_profit": -222.22222222222223,
+            "incumbentOK": false,
+            "outsiderOK": true,
+            "next_exists": true,
+            "equilibrium": false,
+            "cap_bound": false,
+            "entry_tie": false,
+            "incumbent_tie": false
+          },
+          {
+            "N": 9,
+            "q_each": 12,
+            "Q": 108,
+            "price": 12,
+            "variable_profit": 144,
+            "net_profit": -256,
+            "incumbentOK": false,
+            "outsiderOK": true,
+            "next_exists": true,
+            "equilibrium": false,
+            "cap_bound": false,
+            "entry_tie": false,
+            "incumbent_tie": false
+          },
+          {
+            "N": 10,
+            "q_each": 10.909090909090908,
+            "Q": 109.09090909090908,
+            "price": 10.909090909090908,
+            "variable_profit": 119.00826446280992,
+            "net_profit": -280.9917355371901,
+            "incumbentOK": false,
+            "outsiderOK": true,
+            "next_exists": false,
+            "equilibrium": false,
+            "cap_bound": true,
+            "entry_tie": false,
+            "incumbent_tie": false
+          }
+        ],
+        "nonpositive_margin_corner": false,
+        "zero_output_continuation": false,
+        "no_potential_entrants": false
+      }
+    ],
+    "hotelling": [
+      {
+        "c": 10,
+        "t": 6,
+        "p1": 18,
+        "p2": 16,
+        "theta": 0.3333333333333333,
+        "q1": 0.3333333333333333,
+        "q2": 0.6666666666666667,
+        "profit1": 2.6666666666666665,
+        "profit2": 4,
+        "kind": "interior_allocation",
+        "label": "given_price_allocation",
+        "covered_market": true
+      },
+      {
+        "c": 10,
+        "t": 6,
+        "p1": 22,
+        "p2": 16,
+        "theta": 0,
+        "q1": 0,
+        "q2": 1,
+        "profit1": 0,
+        "profit2": 6,
+        "kind": "boundary_allocation",
+        "label": "given_price_allocation",
+        "covered_market": true
+      },
+      {
+        "c": 10,
+        "t": 2,
+        "p1": 12,
+        "p2": 12,
+        "theta": 0.5,
+        "q1": 0.5,
+        "q2": 0.5,
+        "profit1": 1,
+        "profit2": 1,
+        "kind": "interior_allocation",
+        "label": "model_equilibrium",
+        "covered_market": true
+      },
+      {
+        "c": 10,
+        "t": 0,
+        "p1": 10,
+        "p2": 10,
+        "theta": null,
+        "q1": 0.5,
+        "q2": 0.5,
+        "profit1": 0,
+        "profit2": 0,
+        "kind": "homogeneous_equal_split",
+        "label": "model_equilibrium",
+        "covered_market": true
+      }
+    ],
+    "inventory": [
+      {
+        "E0": 100,
+        "lambda_steps": 100,
+        "lambda": 0.5,
+        "h": 25,
+        "crossing": 3,
+        "status": "crossed",
+        "previous": 25,
+        "current": 12.5,
+        "equality_previous": true,
+        "verified_current": true,
+        "verified_previous": true,
+        "points": [
+          {
+            "n": 0,
+            "E": 100
+          },
+          {
+            "n": 1,
+            "E": 50
+          },
+          {
+            "n": 2,
+            "E": 25
+          },
+          {
+            "n": 3,
+            "E": 12.5
+          },
+          {
+            "n": 4,
+            "E": 6.25
+          },
+          {
+            "n": 5,
+            "E": 3.125
+          },
+          {
+            "n": 6,
+            "E": 1.5625
+          },
+          {
+            "n": 7,
+            "E": 0.78125
+          },
+          {
+            "n": 8,
+            "E": 0.390625
+          },
+          {
+            "n": 9,
+            "E": 0.1953125
+          },
+          {
+            "n": 10,
+            "E": 0.09765625
+          },
+          {
+            "n": 11,
+            "E": 0.048828125
+          },
+          {
+            "n": 12,
+            "E": 0.0244140625
+          },
+          {
+            "n": 13,
+            "E": 0.01220703125
+          },
+          {
+            "n": 14,
+            "E": 0.006103515625
+          },
+          {
+            "n": 15,
+            "E": 0.0030517578125
+          },
+          {
+            "n": 16,
+            "E": 0.00152587890625
+          },
+          {
+            "n": 17,
+            "E": 0.000762939453125
+          },
+          {
+            "n": 18,
+            "E": 0.0003814697265625
+          },
+          {
+            "n": 19,
+            "E": 0.00019073486328125
+          },
+          {
+            "n": 20,
+            "E": 9.5367431640625e-05
+          }
+        ],
+        "comparison": "strict <"
+      },
+      {
+        "E0": 100,
+        "lambda_steps": 0,
+        "lambda": 0,
+        "h": 70,
+        "crossing": null,
+        "status": "never",
+        "previous": null,
+        "current": null,
+        "equality_previous": false,
+        "points": [
+          {
+            "n": 0,
+            "E": 100
+          },
+          {
+            "n": 1,
+            "E": 100
+          },
+          {
+            "n": 2,
+            "E": 100
+          },
+          {
+            "n": 3,
+            "E": 100
+          },
+          {
+            "n": 4,
+            "E": 100
+          },
+          {
+            "n": 5,
+            "E": 100
+          },
+          {
+            "n": 6,
+            "E": 100
+          },
+          {
+            "n": 7,
+            "E": 100
+          },
+          {
+            "n": 8,
+            "E": 100
+          },
+          {
+            "n": 9,
+            "E": 100
+          },
+          {
+            "n": 10,
+            "E": 100
+          },
+          {
+            "n": 11,
+            "E": 100
+          },
+          {
+            "n": 12,
+            "E": 100
+          },
+          {
+            "n": 13,
+            "E": 100
+          },
+          {
+            "n": 14,
+            "E": 100
+          },
+          {
+            "n": 15,
+            "E": 100
+          },
+          {
+            "n": 16,
+            "E": 100
+          },
+          {
+            "n": 17,
+            "E": 100
+          },
+          {
+            "n": 18,
+            "E": 100
+          },
+          {
+            "n": 19,
+            "E": 100
+          },
+          {
+            "n": 20,
+            "E": 100
+          }
+        ],
+        "comparison": "strict <"
+      }
+    ]
+  }
+}

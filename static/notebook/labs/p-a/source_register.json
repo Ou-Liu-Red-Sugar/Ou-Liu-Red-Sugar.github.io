@@ -1,0 +1,240 @@
+{
+  "version": "2026-09-21-author-review-v2",
+  "sources": [
+    {
+      "id": "P-R01-UCRP",
+      "authors": [
+        "University of California"
+      ],
+      "title": "University of California Retirement Plan Investment Policy Statement",
+      "url": "https://regents.universityofcalifornia.edu/policies/6101.pdf",
+      "access": "pdf",
+      "version": {
+        "effective": "2025-07-01",
+        "amended": "2025-07-15"
+      },
+      "initial_phase_read": "全文10页",
+      "draft_units": "§2 p.3；§5–6 pp.7–8；原页与版本复核",
+      "used_by": [
+        "P01"
+      ],
+      "supports": "养老金支付、风险和基准的资金用途对照",
+      "limits": "不迁移机构配置或法律要求",
+      "verified_access_at": "2026-09-21",
+      "author_review_units_2026-09-21": "作者复核重开封面版本页、§2印刷p.3、§5–6起始印刷p.7；用于确认退休负债目标、风险管理与基准边界。",
+      "author_review_status": "reopened_relevant_unit"
+    },
+    {
+      "id": "P-R01-STIP",
+      "authors": [
+        "University of California"
+      ],
+      "title": "Short Term Investment Pool Investment Policy Statement",
+      "url": "https://regents.universityofcalifornia.edu/policies/6109.pdf",
+      "access": "pdf",
+      "version": {
+        "effective": "2025-07-01",
+        "amended": "2025-07-15"
+      },
+      "initial_phase_read": "全文5页",
+      "draft_units": "§2–3 p.3；§5–6 pp.4–5；原页与版本复核",
+      "used_by": [
+        "P01"
+      ],
+      "supports": "短期流动性与本金、收益目标的关系",
+      "limits": "政策目标不是本金或收益保证",
+      "verified_access_at": "2026-09-21",
+      "author_review_units_2026-09-21": "作者复核重开封面版本页、§2–3印刷p.3、§5印刷p.4；用于确认短期流动性、本金保护与风险管理边界。",
+      "author_review_status": "reopened_relevant_unit"
+    },
+    {
+      "id": "P-R02",
+      "authors": [
+        "Eric Zivot"
+      ],
+      "title": "Introduction to Computational Finance and Financial Econometrics with R — Chapter 1 Return Calculations",
+      "url": "https://bookdown.org/compfinezbook/introFinRbook/Return-Calculations.html",
+      "access": "html",
+      "version": {
+        "chapter_update": "2022-01-30",
+        "original_plan_book_home_date": "2022-02-25"
+      },
+      "initial_phase_read": "§1.2.2完整Simple Returns及前置复利约定",
+      "draft_units": "§1.2.2；§1.2.2.1–3、§1.2.2.6–7；分配、实际/名义及复利关系",
+      "used_by": [
+        "P02"
+      ],
+      "supports": "回报、复利、分配和购买力口径",
+      "limits": "不是全书阅读；旧税率不作当前制度",
+      "verified_access_at": "2026-09-21",
+      "author_review_units_2026-09-21": "作者复核重开§1.2.2 Simple Returns，含多期复利、分配、年化与几何平均（网页§1.2.2.1–7的相关正文）。",
+      "author_review_status": "reopened_relevant_unit"
+    },
+    {
+      "id": "P-R03",
+      "authors": [
+        "CFA Institute"
+      ],
+      "title": "GIPS Standards Handbook for Firms",
+      "url": "https://www.gipsstandards.org/standards/gips-standards-for-firms/gips-standards-handbook-for-firms/",
+      "access": "html",
+      "version": {
+        "edition_context": "2020 GIPS Standards；当前在线Handbook按2026-09-21访问",
+        "accessed": "2026-09-21"
+      },
+      "initial_phase_read": "1.A.35；2.A.23–24、2.A.28–29及Discussion与公式",
+      "draft_units": "2.A.23–24、2.A.28–29及Discussion；子期估值、连接、MWR与日期公式",
+      "used_by": [
+        "P02"
+      ],
+      "supports": "TWR/MWR边界和估值要求、近似身份",
+      "limits": "未读完整手册；不把机构合规要求套个人教学账户",
+      "verified_access_at": "2026-09-21",
+      "author_review_units_2026-09-21": "作者复核重开2.A.23–24与Discussion、2.A.28–29与Discussion；确认外部现金流、子期连接、MWR/IRR及日期现金。",
+      "author_review_status": "reopened_relevant_unit"
+    },
+    {
+      "id": "P-R04a",
+      "authors": [
+        "Andrew W. Lo"
+      ],
+      "title": "MIT 15.401, Lecture 13–14: Risk Analytics and Portfolio Theory",
+      "url": "https://ocw.mit.edu/courses/15-401-finance-theory-i-fall-2008/dd628e151309a7f23962b1a31b9356e5_MIT15_401F08_lec13.pdf",
+      "access": "pdf",
+      "version": {
+        "course": "Fall 2008",
+        "copyright": "2007–2008"
+      },
+      "initial_phase_read": "slides 3–7、9–16、26–31及承重图和公式",
+      "draft_units": "slides 9–11、13–16、26–28；核原页13、16、26、28",
+      "used_by": [
+        "P03",
+        "P06"
+      ],
+      "supports": "回报分布、固定权重、协方差与分散",
+      "limits": "不采用旧参数为当前值，不认为均值方差包含流动性",
+      "verified_access_at": "2026-09-21",
+      "author_review_units_2026-09-21": "作者复核重开收益分布/组合权重/协方差承重原页（slides 9、13、26）并对照已读13–16、26–28单元；未新增旧参数用途。",
+      "author_review_status": "reopened_relevant_unit"
+    },
+    {
+      "id": "P-R04b",
+      "authors": [
+        "Andrew W. Lo"
+      ],
+      "title": "MIT 15.401, Lecture 15–17: The CAPM and APT",
+      "url": "https://ocw.mit.edu/courses/15-401-finance-theory-i-fall-2008/411d7d9df37d4d0440b18e17e8cea3a9_MIT15_401F08_lec15.pdf",
+      "access": "pdf",
+      "version": {
+        "course": "Fall 2008"
+      },
+      "initial_phase_read": "slides 6、8、17–19",
+      "draft_units": "slides 6、8、17正文与原页",
+      "used_by": [
+        "P06"
+      ],
+      "supports": "描述性beta定义、线性组合与估计身份",
+      "limits": "不调用CAPM必要回报、股票DCF或WACC",
+      "verified_access_at": "2026-09-21",
+      "author_review_units_2026-09-21": "作者复核重开slides 6、8、17：beta定义、组合beta线性关系与回归估计身份。",
+      "author_review_status": "reopened_relevant_unit"
+    },
+    {
+      "id": "P-R05",
+      "authors": [
+        "Marco Lombardi",
+        "Vladyslav Sushko"
+      ],
+      "title": "The correlation of equity and bond returns",
+      "url": "https://www.bis.org/publications/correlation-equity-and-bond-returns",
+      "pdf_url": "https://www.bis.org/publications/markets-adjust-higher-longer_1.pdf",
+      "access": "html_and_pdf",
+      "version": {
+        "published": "2023-12-04"
+      },
+      "initial_phase_read": "Box A全文、印刷pp.7–8图A1与脚注",
+      "draft_units": "相同完整Box A与图A1；原页截图核图注",
+      "used_by": [
+        "P06#regime"
+      ],
+      "supports": "历史相关性及经济环境解释",
+      "sample_note": "图A1部分月度递归回归：初始2003-01至2018-01，最终2003-01至2023-09",
+      "limits": "非2026当前估计，未取得全套底层数据或复现，不当作因果证明",
+      "verified_access_at": "2026-09-21",
+      "author_review_units_2026-09-21": "作者复核重开Box A印刷pp.7–8及图A1/方法脚注；只作为2023历史相关性与环境解释。",
+      "author_review_status": "reopened_relevant_unit"
+    },
+    {
+      "id": "P-R06",
+      "authors": [
+        "Financial Stability Board"
+      ],
+      "title": "Liquidity Preparedness for Margin and Collateral Calls: Final Report",
+      "url": "https://www.fsb.org/uploads/P101224-1.pdf",
+      "access": "pdf",
+      "version": {
+        "published": "2024-12-10"
+      },
+      "initial_phase_read": "Executive Summary pp.1–2、§1.2 pp.5–8、§3.2 pp.15–18",
+      "draft_units": "§1.2 pp.5–8、§3.2 pp.15–18；LDI说明印刷p.7原页核验",
+      "used_by": [
+        "P03"
+      ],
+      "supports": "历史保证金/抵押现金压力与情景检查机制",
+      "limits": "调查、历史案例与建议，不是特定账户逐笔重建或当前适用法律核验",
+      "verified_access_at": "2026-09-21",
+      "author_review_units_2026-09-21": "作者复核重开§1.2中LDI历史说明印刷p.7，并重开§3.2印刷pp.15–18的流动性储备与压力测试单元。",
+      "author_review_status": "reopened_relevant_unit"
+    },
+    {
+      "id": "P-R07",
+      "authors": [
+        "Vanguard"
+      ],
+      "title": "Vanguard 500 Index Fund Admiral Shares — VFIAX",
+      "url": "https://workplace.vanguard.com/iippdf/pdfs/FS540.pdf",
+      "access": "pdf",
+      "version": {
+        "as_of": "2026-06-30",
+        "document_marker": "F0540 062026"
+      },
+      "initial_phase_read": "已取全文；实际使用p.1年度/总回报和脚注，p.2十大持仓与脚注",
+      "draft_units": "p.1和p.2文本及原页，原页版本均为2026-06-30",
+      "used_by": [
+        "P02",
+        "P06"
+      ],
+      "supports": "2022/2023基金年度回报及十大持仓合计37.9%",
+      "limits": "披露值已四舍五入；没有各公司权重；不使用VTSAX冲突版本，不称事前回测",
+      "verified_access_at": "2026-09-21",
+      "author_review_units_2026-09-21": "作者复核重开p.1与p.2原页：2026-06-30、F0540 062026；年度回报/费用再投资脚注；十大持仓名单及合计37.9%，无单项权重。",
+      "author_review_status": "reopened_relevant_unit"
+    },
+    {
+      "id": "P-R08",
+      "authors": [
+        "Carlo Acerbi",
+        "Dirk Tasche"
+      ],
+      "title": "On the Coherence of Expected Shortfall",
+      "url": "https://arxiv.org/pdf/cond-mat/0104295",
+      "access": "pdf",
+      "version": {
+        "arxiv": "cond-mat/0104295v5",
+        "date": "2002-05-02"
+      },
+      "initial_phase_read": "§2 Definitions 2.1–2.6；Proposition 3.2及完整证明；式(3.3)",
+      "draft_units": "§2定义，Proposition 3.2及证明、式(3.3)；承重原页p.6–7",
+      "used_by": [
+        "P03#tail-branch"
+      ],
+      "supports": "分位数积分、离散点质量处理",
+      "limits": "原文利润低尾，本篇显式改为损失高尾；未核全文相干性证明",
+      "verified_access_at": "2026-09-21",
+      "author_review_units_2026-09-21": "作者复核重开§2尾均值/ES定义（印刷p.4）、Proposition 3.2（p.6）与式(3.3)（p.7）；核离散点质量处理。",
+      "author_review_status": "reopened_relevant_unit"
+    }
+  ],
+  "runtime_reading_log_for_future_agent": [],
+  "policy": "编辑曾成功访问不等于新Agent已经读取；动态原件须核对应期次；不随包再发布第三方完整作品。"
+}

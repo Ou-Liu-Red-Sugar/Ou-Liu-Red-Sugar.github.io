@@ -1,0 +1,270 @@
+[
+  {
+    "id": "QTC-ES",
+    "title": "On the coherence of Expected Shortfall",
+    "authors": [
+      "Carlo Acerbi",
+      "Dirk Tasche"
+    ],
+    "version": "arXiv:cond-mat/0104295v5；提交2002-05-02，文内日期2002-04-19",
+    "url": "https://arxiv.org/pdf/cond-mat/0104295v5",
+    "body": "支持分位数、ES的原子边界与分位积分。原文X为损益、alpha为下尾质量，正文显式采用L=-X、p=1-alpha。本站有限样本逐格公式由同一定义重建；不把一般coherence或一致性证明算入本课。",
+    "retrieved_at": "2026-09-21",
+    "locators": [
+      "§2 conventions; Definitions 2.1/2.2, p.3",
+      "Definition 2.6, p.5",
+      "Proposition 3.2 and its complete proof, p.6"
+    ],
+    "read_scope": "本轮实际读HTML引言与相关定义/完整Prop3.2证明；实际PDF页图pp.3、5、6。不是全文各定理逐项证明审查。",
+    "html_url": "https://arxiv.org/html/cond-mat/0104295v5",
+    "actual_read_scope": "本轮实际读HTML引言与相关定义/完整Prop3.2证明；实际PDF页图pp.3、5、6。不是全文各定理逐项证明审查。",
+    "reading_provenance": "Received QT-C author/xhigh source record; not a runtime Agent reading log",
+    "accessed_at": "2026-09-21"
+  },
+  {
+    "id": "QTC-MIT17",
+    "title": "Lecture 17: Laws of Large Numbers and Central Limit Theorem",
+    "authors": [
+      "MIT OCW 6.436J / 15.085J"
+    ],
+    "version": "Fall 2018",
+    "url": "https://ocw.mit.edu/courses/6-436j-fundamentals-of-probability-fall-2018/f44fa78f05ac31a4ba2bd82f599dcf60_MIT6_436JF18_lec17.pdf",
+    "body": "采用iid L1弱律和有限正方差CLT；正文完整给有限方差Chebyshev短证明。p.5强律旁述的X_n为笔误，应为样本均值；未照抄且未扩写强律证明。",
+    "retrieved_at": "2026-09-21",
+    "locators": [
+      "§1, p.1, Markov and Chebyshev",
+      "§3, pp.5–6, WLLN",
+      "§4, p.7, CLT statement and characteristic-function proof"
+    ],
+    "read_scope": "本轮取得10页PDF并读§1及§3–4有关完整单元，页图核p.5/p.7。Berry–Esseen等未成为主篇依赖。",
+    "actual_read_scope": "本轮取得10页PDF并读§1及§3–4有关完整单元，页图核p.5/p.7。Berry–Esseen等未成为主篇依赖。",
+    "reading_provenance": "Received QT-C author/xhigh source record; not a runtime Agent reading log",
+    "accessed_at": "2026-09-21"
+  },
+  {
+    "id": "QTC-SLUTSKY",
+    "title": "Probability Theory: STAT310/MATH230",
+    "authors": [
+      "Amir Dembo"
+    ],
+    "version": "2021-04-15",
+    "url": "https://adembo.su.domains/stat-310b/lnotes.pdf",
+    "body": "Exercise3.2.8在每n同概率空间、第二极限为常数时给和与积形式；正文用它解释s_n替代sigma。原件此处是练习，不声称附有完整证明。",
+    "retrieved_at": "2026-09-21",
+    "locators": [
+      "Exercise 3.2.8(a)–(c), p.106"
+    ],
+    "read_scope": "本轮实际读取练习完整条目与上下文；先前QT-B版本核验复用但不改其内容。",
+    "actual_read_scope": "本轮实际读取练习完整条目与上下文；先前QT-B版本核验复用但不改其内容。",
+    "reading_provenance": "Received QT-C author/xhigh source record; not a runtime Agent reading log",
+    "accessed_at": "2026-09-21"
+  },
+  {
+    "id": "QTC-FRENCH",
+    "title": "French Data Library: Current Research Returns",
+    "authors": [
+      "Kenneth R. French"
+    ],
+    "version": "在线说明，2026-09-21访问",
+    "url": "https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/data_library.html",
+    "body": "Data Library说明自2025-01发布起使用CIZ文件生成美国研究收益，并说明每次更新会重建完整收益历史；CIZ与旧FIZ的月收益复合/股息再投资安排不同。本课432月绑定一个202607数据库快照，不能拼接为前段FIZ后段CIZ，也不能称为逐月当时可见数据。",
+    "retrieved_at": "2026-09-21",
+    "locators": [
+      "Current Research Returns 开头生产格式说明",
+      "历史重建说明：全部历史随数据更新重建"
+    ],
+    "read_scope": "本轮实际重新读取生产方式和历史重建段；未用新下载数值替换已冻结样本。",
+    "actual_read_scope": "本轮实际重新读取生产方式和历史重建段；未用新下载数值替换已冻结样本。",
+    "reading_provenance": "Received QT-C author/xhigh source record; not a runtime Agent reading log",
+    "accessed_at": "2026-09-21"
+  },
+  {
+    "id": "QTC-FRENCH30",
+    "title": "30 Industry Portfolios",
+    "authors": [
+      "Kenneth R. French"
+    ],
+    "version": "在线详情；数据快照202607",
+    "url": "https://mba.tuck.dartmouth.edu/pages/Faculty/ken.french/Data_Library/det_30_ind_port.html",
+    "body": "行业组合、Monthly Returns与Construction口径；用于标识BusEq不是一家公司或一只可直接交易的基金。",
+    "retrieved_at": "2026-09-21",
+    "locators": [
+      "Monthly Returns",
+      "Construction"
+    ],
+    "read_scope": "本轮核读相应完整条目；原始当前链接会更新，实验绑定冻结快照。",
+    "actual_read_scope": "本轮核读相应完整条目；原始当前链接会更新，实验绑定冻结快照。",
+    "reading_provenance": "Received QT-C author/xhigh source record; not a runtime Agent reading log",
+    "accessed_at": "2026-09-21"
+  },
+  {
+    "id": "QTC-FROZEN",
+    "title": "QT-C 冻结输入：BusEq 月收益、离散支付与重抽结果",
+    "authors": [
+      "QT-C 冻结实验包"
+    ],
+    "version": "QT-C-inputs-20260921-v1；CRSP vintage202607",
+    "url": "https://ou-liu-red-sugar.github.io/notebook/labs/qt-c/data/BusEq-value-weighted-monthly-199001-202512.csv",
+    "body": "原源CSV首个value-weighted monthly区块BusEq，199001–202512、原行775–1206共432月，缺失0。归档源链接本身可变；实际随包为逐字节核验的432行提取及配置，结果由同样冻结算法在作者沙盒复算。原全行业ZIP不在此包内。MC/AR是教学模拟而非市场资料。",
+    "retrieved_at": "2026-09-21",
+    "locators": [
+      "source CSV title line11/header12, BusEq index23 including date",
+      "selected source rows775–1206",
+      "data/experiment-config.json",
+      "data/results.json: returns, Monte_Carlo, bootstrap"
+    ],
+    "read_scope": "本轮重新完整读取432数据行与配置；此前读取README/input-notes/validation/result-summary和compute函数1–332，本轮补读输出函数333–480。未传输/逐字比较连接端约5MB results.json的全部随机数组；本包实际复算且核对冻结摘要检查点。",
+    "snapshot": {
+      "csv": "https://ou-liu-red-sugar.github.io/notebook/labs/qt-c/data/BusEq-value-weighted-monthly-199001-202512.csv",
+      "config": "https://ou-liu-red-sugar.github.io/notebook/labs/qt-c/data/experiment-config.json",
+      "results": "https://ou-liu-red-sugar.github.io/notebook/labs/qt-c/data/results.json",
+      "summary": "https://ou-liu-red-sugar.github.io/notebook/labs/qt-c/data/result-summary.json",
+      "actual_rows": 432,
+      "missing_removed": 0
+    },
+    "actual_read_scope": "本轮重新完整读取432数据行与配置；此前读取README/input-notes/validation/result-summary和compute函数1–332，本轮补读输出函数333–480。未传输/逐字比较连接端约5MB results.json的全部随机数组；本包实际复算且核对冻结摘要检查点。",
+    "reading_provenance": "Received QT-C author/xhigh source record; not a runtime Agent reading log",
+    "accessed_at": "2026-09-21",
+    "original_source_url": "https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/ftp/30_Industry_Portfolios_CSV.zip",
+    "additional_urls": [
+      "https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/ftp/30_Industry_Portfolios_CSV.zip",
+      "https://ou-liu-red-sugar.github.io/notebook/labs/qt-c/data/experiment-config.json",
+      "https://ou-liu-red-sugar.github.io/notebook/labs/qt-c/data/results.json",
+      "https://ou-liu-red-sugar.github.io/notebook/labs/qt-c/data/result-summary.json"
+    ],
+    "independent_check": {
+      "record": "docs/production/20260921/receipts/qt-c-independent-draft-review.md",
+      "scope": "Original all-industry CSV reselected; frozen arrays independently recomputed; v2 numerical files unchanged",
+      "python_checks": 95,
+      "node_checks": 24,
+      "browser_used": false
+    }
+  },
+  {
+    "id": "QTC-SPX",
+    "title": "SPX Index Options Fact Sheet",
+    "authors": [
+      "Cboe Exchange, Inc."
+    ],
+    "version": "©2026；2026-09-21访问，无独立修订日期",
+    "url": "https://cdn.cboe.com/resources/spx/spx-fact-sheet.pdf",
+    "body": "支持每点100美元、欧式现金结算、行权结算值及到期后下一营业日的现金交付。四状态未来值、行权价6000与概率均为教学假设；预期支付不自动成为期权现价。券商账户内部booking时点不由该事实表给出。",
+    "retrieved_at": "2026-09-21",
+    "locators": [
+      "p.1 Comparison table: settlement type/exercise style",
+      "p.2 Summary Product Specifications: Contract Multiplier; Final Settlement Value; cash delivery on business day following expiration"
+    ],
+    "read_scope": "本轮重新取得两页原件并读完整相关规格；页2明确乘数、结算值计算与到期后下一营业日现金交付。未从该事实表推断券商内部booking时间。",
+    "actual_read_scope": "本轮重新取得两页原件并读完整相关规格；页2明确乘数、结算值计算与到期后下一营业日现金交付。未从该事实表推断券商内部booking时间。",
+    "reading_provenance": "Received QT-C author/xhigh source record; not a runtime Agent reading log",
+    "accessed_at": "2026-09-21"
+  },
+  {
+    "id": "QTC-BOOT",
+    "title": "Bootstrap — STATS 202",
+    "authors": [
+      "Sergio Bacallado",
+      "Jonathan Taylor"
+    ],
+    "version": "following ISLR 2e；©2022",
+    "url": "https://web.stanford.edu/class/stats202/notes/Resampling/Bootstrap.html",
+    "body": "经验分布有放回重抽、估计量标准误与交叉验证任务区别。仅采用对应单元，不把网页广泛的可适用性说明当作金融序列一致性定理。",
+    "retrieved_at": "2026-09-21",
+    "locators": [
+      "Cross-validation vs. the Bootstrap",
+      "Resampling the data from the true distribution",
+      "Computing the standard error",
+      "In reality, we only have n samples",
+      "Comparing Bootstrap sampling to sampling from the true distribution"
+    ],
+    "read_scope": "本轮读取网页完整正文，重点上述连续单元。未采用其方差卡方例中省略尺度的写法。",
+    "actual_read_scope": "本轮读取网页完整正文，重点上述连续单元。未采用其方差卡方例中省略尺度的写法。",
+    "reading_provenance": "Received QT-C author/xhigh source record; not a runtime Agent reading log",
+    "accessed_at": "2026-09-21"
+  },
+  {
+    "id": "QTC-BLOCK",
+    "title": "Forecasting: Principles and Practice (3e), §12.5",
+    "authors": [
+      "Rob J Hyndman",
+      "George Athanasopoulos"
+    ],
+    "version": "在线第三版；2026-09-21访问",
+    "url": "https://otexts.com/fpp3/bootstrap.html",
+    "body": "连续块可保留块内局部顺序；FPP3示例针对STL余项、再组合与bagging。本课原收益非循环MBB为明确另述算法，有限条件中心/SE自行推导；不以该示例证明一般bootstrap一致性。",
+    "retrieved_at": "2026-09-21",
+    "locators": [
+      "§12.5 Bootstrapping time series (完整单元)",
+      "Bagged forecasts（仅定位边界，不采用效果结论）"
+    ],
+    "read_scope": "本轮读§12.5全文及代码和图示说明；不复现水泥/ETS实验。",
+    "actual_read_scope": "本轮读§12.5全文及代码和图示说明；不复现水泥/ETS实验。",
+    "reading_provenance": "Received QT-C author/xhigh source record; not a runtime Agent reading log",
+    "accessed_at": "2026-09-21"
+  },
+  {
+    "id": "QTC-CV",
+    "title": "Forecasting: Principles and Practice (3e), §5.10",
+    "authors": [
+      "Rob J Hyndman",
+      "George Athanasopoulos"
+    ],
+    "version": "在线第三版；2026-09-21访问",
+    "url": "https://otexts.com/fpp3/tscv.html",
+    "body": "滚动预测起点的信息边界；只用作bootstrap均值区间不等于未来预测验证的区分。",
+    "retrieved_at": "2026-09-21",
+    "locators": [
+      "§5.10 Time series cross-validation；rolling forecasting origin、单步/多步例"
+    ],
+    "read_scope": "本轮读取相应完整网页单元，先前QT-A同一单元阅读可复用；没有运行新的预测验证。",
+    "actual_read_scope": "本轮读取相应完整网页单元，先前QT-A同一单元阅读可复用；没有运行新的预测验证。",
+    "reading_provenance": "Received QT-C author/xhigh source record; not a runtime Agent reading log",
+    "accessed_at": "2026-09-21"
+  },
+  {
+    "id": "QTC-WEAK",
+    "title": "Optimal Mean Estimation without a Variance",
+    "authors": [
+      "Yeshwanth Cherapanamjeri",
+      "Nilesh Tripuraneni",
+      "Peter L. Bartlett",
+      "Michael I. Jordan"
+    ],
+    "version": "arXiv:2011.12433v2（2020）；对应COLT2022扩展摘要另列",
+    "url": "https://arxiv.org/html/2011.12433v2",
+    "body": "以更弱(1+alpha)矩条件研究均值估计，支持失去有限方差后应更换条件/方法这一有限延伸。本课没有实现该算法或声称金融有效性。",
+    "retrieved_at": "2026-09-21",
+    "locators": [
+      "§1 Introduction, Problem1.1, Theorems1.2–1.3",
+      "§3 algorithm overview"
+    ],
+    "read_scope": "本轮读完整问题设定、主要定理及算法概述，未逐项复证整篇。",
+    "companion_url": "https://proceedings.mlr.press/v178/cherapanamjeri22a.html",
+    "companion_scope": "PMLR178(2022)356–357扩展摘要用于出版信息，不能替代完整预印本条件。",
+    "actual_read_scope": "本轮读完整问题设定、主要定理及算法概述，未逐项复证整篇。",
+    "reading_provenance": "Received QT-C author/xhigh source record; not a runtime Agent reading log",
+    "accessed_at": "2026-09-21"
+  },
+  {
+    "id": "QTC-BDK",
+    "title": "Backtesting Value-at-Risk and Expected Shortfall in the Presence of Estimation Error",
+    "authors": [
+      "Sander Barendse",
+      "Erik Kole",
+      "Dick van Dijk"
+    ],
+    "version": "本轮可读采用：Tinbergen2019-058/III，August2019；2023正式版仅书目关联",
+    "url": "https://papers.tinbergen.nl/19058.pdf",
+    "body": "只采用估计风险预测时需要把参数估计步骤纳入后续评价这一引言范围机制。主篇不转述特定实证优劣或拒绝率。2019与2023是不同版本，未逐式核等。",
+    "retrieved_at": "2026-09-21",
+    "locators": [
+      "§1 Introduction 完整单元，印刷pp.2–5 / PDF pp.4–7"
+    ],
+    "read_scope": "本轮出版商正式版入口失败后取得开放2019稿并读完整引言；部分理论开头不计为完整理论阅读。先前计划中正式版阅读记录保留原身份，不冒充本轮重读。",
+    "publication_metadata_url": "https://sites.google.com/view/dickvandijk/publications",
+    "publication_metadata": "作者书目列2023 Journal of Financial Econometrics21,528–568。",
+    "actual_read_scope": "本轮出版商正式版入口失败后取得开放2019稿并读完整引言；部分理论开头不计为完整理论阅读。先前计划中正式版阅读记录保留原身份，不冒充本轮重读。",
+    "reading_provenance": "Received QT-C author/xhigh source record; not a runtime Agent reading log",
+    "accessed_at": "2026-09-21"
+  }
+]

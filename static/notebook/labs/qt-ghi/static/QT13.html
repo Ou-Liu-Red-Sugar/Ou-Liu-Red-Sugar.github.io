@@ -1,0 +1,469 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Markov 性与状态选择</title><style>:root{color-scheme:light;--ink:#203044;--muted:#536578;--line:#ccd7e1;--paper:#fff;--accent:#245b75;--wash:#f2f6f8;--alt:#9b5732}*{box-sizing:border-box}body{font-family:system-ui,-apple-system,"Microsoft YaHei",sans-serif;color:var(--ink);background:var(--paper);margin:0;line-height:1.8}main{max-width:940px;margin:auto;padding:28px 32px 70px}h1{font-size:1.9rem;line-height:1.4;margin:0 0 1.2rem}h2{font-size:1.38rem;margin-top:2.1rem;border-bottom:1px solid var(--line);padding-bottom:.3rem}h3{font-size:1.12rem}p{margin:.85rem 0}a{color:var(--accent);text-underline-offset:3px}strong{font-weight:650}nav{display:flex;flex-wrap:wrap;gap:12px;padding:12px 0;margin-bottom:15px;font-size:.92rem}button,select,input{font:inherit;min-height:42px;max-width:100%;border:1px solid var(--line);border-radius:5px;padding:5px 10px;background:white;color:var(--ink)}button{cursor:pointer}button:hover,button[aria-pressed=true]{background:var(--wash);border-color:var(--accent)}button:focus-visible,a:focus-visible,select:focus-visible,input:focus-visible{outline:3px solid #c57939;outline-offset:3px}.controls{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin:1rem 0}.controls label{display:flex;flex-wrap:wrap;align-items:center;gap:7px}.result{padding:12px 16px;background:var(--wash);border-left:3px solid var(--accent);overflow-wrap:anywhere}.subtle,small{color:var(--muted)}.table-wrap{width:100%;overflow:auto;margin:14px 0}table{border-collapse:collapse;width:100%;font-size:.92rem}th,td{padding:8px 10px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}th{font-weight:650;background:var(--wash)}td{font-variant-numeric:tabular-nums}pre{white-space:pre-wrap;overflow-wrap:anywhere;padding:12px;background:var(--wash)}code{font-family:ui-monospace,monospace;font-size:.93em}math{font-family:math;font-size:1.05em}math[display=block]{display:block;margin:1em 0;max-width:100%;line-height:1.8}span.math.display{display:block;max-width:100%;margin:1rem 0}section.lab-panel{padding:12px 0 25px;border-bottom:2px solid var(--line)}svg.chart{width:100%;height:auto;display:block;margin:1rem 0}svg text{font:12px system-ui}svg .line{fill:none;stroke:var(--accent);stroke-width:1.8}svg .bar{fill:var(--accent)}svg .line.alt{stroke:var(--alt)}.math-step{padding:10px;border:1px solid var(--line);border-radius:4px}.footnotes{font-size:.9rem;margin-top:3rem;border-top:1px solid var(--line)}iframe{width:100%;border:1px solid var(--line);border-radius:4px;min-height:680px;background:white}details{padding:8px 12px;border:1px solid var(--line);margin:1rem 0}summary{cursor:pointer;font-weight:600}.source-note{font-size:.88rem;overflow-wrap:anywhere}.branch-controls{display:flex;flex-wrap:wrap;gap:8px}.branch-status{font-size:.88rem}.lab-slot{margin:20px 0}.proof-link{padding:8px 0}.sr-only{position:absolute;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0,0,0,0)}[hidden]{display:none!important}
+@media(max-width:540px){main{padding:18px 14px 45px}h1{font-size:1.5rem}h2{font-size:1.2rem}table{font-size:.85rem}th,td{padding:6px 8px}iframe{min-height:790px}.controls{gap:8px}.controls label{max-width:100%}.result{padding:10px}}
+@media print{body{background:white;color:black}main{max-width:none;padding:0}nav,.controls,.branch-controls,button,.lab-slot{display:none!important}iframe{display:none}section[data-reading-branch]{display:block!important}details,details>*{display:block}table{font-size:9pt}h1,h2,h3{break-after:avoid}tr{break-inside:avoid}a{color:black}.table-wrap{overflow:visible}section.lab-panel[hidden]{display:none!important}svg{max-height:300px}}
+
+body,input,select,button,svg text{font-variant-numeric:lining-nums tabular-nums}
+</style><script defer src="/js/notebook-number-format.js" data-notebook-numbers></script>
+</head><body><main><nav><a href="/zh/notebook/models-path/">本批目录</a><a href="QT13.md">Markdown</a><a href="/agent/zh/qt-markov-state.md">完整Agent包</a><button id="copy-agent">复制Agent包</button></nav><p id="copy-status" role="status"></p><p class="subtle">12–15 分钟 · 从矩阵和隐藏状态反例判断当前状态是否足够，并重建后验状态。</p><h1 id="markov-性与状态选择">Markov 性与状态选择</h1>
+<p><a id="qt13-question"></a></p>
+<h2 id="当前这一个数真的够用吗">当前这一个数，真的够用吗？</h2>
+<p>我们每天都在压缩历史：把一串成交概括成最新价格，把一系列观察概括成某个“状态”。压缩本身没有错，问题是压缩以后还剩下多少预测信息。本篇要完成两件事：从一个给定的转移矩阵算出多步分布；再用一个反例检查“当前观测就是状态”是否成立。所需先修是条件概率、条件期望的塔式性质和矩阵乘法。</p>
+<p>这里的概率都是明确构造的模型概率。转移图不会因为看起来像市场状态图，就自动获得现实解释。我们先把数学条件说完整，再决定某个观测量配不配叫作状态。</p>
+<p><a id="qt13-definition"></a></p>
+<h2 id="markov-性要连同信息一起给出">Markov 性要连同信息一起给出</h2>
+<p>令 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>E</mi><annotation encoding="application/x-tex">E</annotation></semantics></math> 为有限状态集，<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>ℱ</mi><mi>n</mi></msub><mo stretchy="true" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">(\mathcal F_n)</annotation></semantics></math> 为过滤，<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>X</mi><mi>n</mi></msub><annotation encoding="application/x-tex">X_n</annotation></semantics></math> 是适应过程。相对于这个过滤的 Markov 性，是说对每个有界函数 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo>:</mo><mi>E</mi><mo>→</mo><mi>ℝ</mi></mrow><annotation encoding="application/x-tex">f\colon E\to\mathbb R</annotation></semantics></math>，存在转移核，使</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>E</mi><mrow><mo stretchy="true" form="prefix">[</mo><mi>f</mi><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>X</mi><mrow><mi>n</mi><mo>+</mo><mn>1</mn></mrow></msub><mo stretchy="true" form="postfix">)</mo></mrow><mo>∣</mo><msub><mi>ℱ</mi><mi>n</mi></msub><mo stretchy="true" form="postfix">]</mo></mrow><mo>=</mo><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>P</mi><mrow><mi>n</mi><mo>,</mo><mi>n</mi><mo>+</mo><mn>1</mn></mrow></msub><mi>f</mi><mo stretchy="true" form="postfix">)</mo></mrow><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>X</mi><mi>n</mi></msub><mo stretchy="true" form="postfix">)</mo></mrow><mi>.</mi></mrow><annotation encoding="application/x-tex">
+E[f(X_{n+1})\mid\mathcal F_n]
+=(P_{n,n+1}f)(X_n).
+</annotation></semantics></math></p>
+<p>左边可以利用全部已知历史，右边只保留当前状态。如果转移规律还不随日历时点改变，才称为时间齐次；此时记为同一个 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>P</mi><annotation encoding="application/x-tex">P</annotation></semantics></math>。Markov 性与时间齐次性是两个条件，不能合成一句“只依赖现在”。<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
+<p>有一个容易漏掉的范围问题：只观察从某个初始分布出发的一条过程，条件期望等式只约束该分布能够到达的状态。它不能替不可达状态规定转移概率。以下直接给定每个状态的整行转移概率，并对每一个起点定义一条链，这构成我们采用的全初始状态 Markov family。比如可以逐步使用独立均匀随机数，按照当前行的概率选择下一状态。这样得到的矩阵幂是全状态陈述，而不是对未观测状态的外推。</p>
+<p><a id="qt13-ck"></a></p>
+<h2 id="两步转移为什么是矩阵乘法">两步转移为什么是矩阵乘法</h2>
+<p>采用两个状态，行是当前状态，列是下一状态：</p>
+<div class="table-wrap"><table>
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>当前状态</th>
+<th>下一期到状态 1</th>
+<th>下一期到状态 2</th>
+<th>两期后到状态 1</th>
+<th>两期后到状态 2</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>0.80</td>
+<td>0.20</td>
+<td>0.70</td>
+<td>0.30</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>0.30</td>
+<td>0.70</td>
+<td>0.45</td>
+<td>0.55</td>
+</tr>
+</tbody>
+</table></div>
+<p>从状态 1 两步后回到状态 1，有两条互斥路线：<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1</mn><mo>→</mo><mn>1</mn><mo>→</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">1\to1\to1</annotation></semantics></math> 和 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1</mn><mo>→</mo><mn>2</mn><mo>→</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">1\to2\to1</annotation></semantics></math>。所以概率为 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>.8</mn><mo>×</mo><mn>.8</mn><mo>+</mo><mn>.2</mn><mo>×</mo><mn>.3</mn><mo>=</mo><mn>.70</mn></mrow><annotation encoding="application/x-tex">.8\times.8+.2\times.3=.70</annotation></semantics></math>。这不是假设两步无条件独立；第二步的分布由中间状态决定。</p>
+<p>一般地，对任何起点 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>i</mi><annotation encoding="application/x-tex">i</annotation></semantics></math>，先对中间状态求和，利用 Markov 性，有</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtable><mtr><mtd columnalign="right" style="text-align: right"><msub><mi>P</mi><mi>i</mi></msub><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>X</mi><mrow><mi>m</mi><mo>+</mo><mi>n</mi></mrow></msub><mo>=</mo><mi>j</mi><mo stretchy="true" form="postfix">)</mo></mrow></mtd><mtd columnalign="left" style="text-align: left"><mo>=</mo><munder><mo>∑</mo><mi>k</mi></munder><msub><mi>P</mi><mi>i</mi></msub><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>X</mi><mi>m</mi></msub><mo>=</mo><mi>k</mi><mo stretchy="true" form="postfix">)</mo></mrow><mspace width="0.167em"></mspace><msub><mi>P</mi><mi>k</mi></msub><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>X</mi><mi>n</mi></msub><mo>=</mo><mi>j</mi><mo stretchy="true" form="postfix">)</mo></mrow></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right"></mtd><mtd columnalign="left" style="text-align: left"><mo>=</mo><msub><mrow><mo stretchy="true" form="prefix">(</mo><msup><mi>P</mi><mi>m</mi></msup><msup><mi>P</mi><mi>n</mi></msup><mo stretchy="true" form="postfix">)</mo></mrow><mrow><mi>i</mi><mi>j</mi></mrow></msub><mi>.</mi></mtd></mtr></mtable><annotation encoding="application/x-tex">
+\begin{aligned}
+P_i(X_{m+n}=j)
+&amp;=\sum_kP_i(X_m=k)\,P_k(X_n=j)\\
+&amp;=(P^mP^n)_{ij}.
+\end{aligned}
+</annotation></semantics></math></p>
+<p>等价地，若 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>P</mi><mi>n</mi></msub><mi>f</mi><mo stretchy="true" form="postfix">)</mo></mrow><mrow><mo stretchy="true" form="prefix">(</mo><mi>i</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><msub><mi>E</mi><mi>i</mi></msub><mrow><mo stretchy="true" form="prefix">[</mo><mi>f</mi><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>X</mi><mi>n</mi></msub><mo stretchy="true" form="postfix">)</mo></mrow><mo stretchy="true" form="postfix">]</mo></mrow></mrow><annotation encoding="application/x-tex">(P_nf)(i)=E_i[f(X_n)]</annotation></semantics></math>，塔式性质给</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtable><mtr><mtd columnalign="right" style="text-align: right"><msub><mi>E</mi><mi>i</mi></msub><mrow><mo stretchy="true" form="prefix">[</mo><mi>f</mi><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>X</mi><mrow><mi>m</mi><mo>+</mo><mi>n</mi></mrow></msub><mo stretchy="true" form="postfix">)</mo></mrow><mo stretchy="true" form="postfix">]</mo></mrow></mtd><mtd columnalign="left" style="text-align: left"><mo>=</mo><msub><mi>E</mi><mi>i</mi></msub><mo stretchy="false" form="prefix">{</mo><mi>E</mi><mrow><mo stretchy="true" form="prefix">[</mo><mi>f</mi><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>X</mi><mrow><mi>m</mi><mo>+</mo><mi>n</mi></mrow></msub><mo stretchy="true" form="postfix">)</mo></mrow><mo>∣</mo><msub><mi>ℱ</mi><mi>m</mi></msub><mo stretchy="true" form="postfix">]</mo></mrow><mo stretchy="false" form="postfix">}</mo></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right"></mtd><mtd columnalign="left" style="text-align: left"><mo>=</mo><msub><mi>E</mi><mi>i</mi></msub><mrow><mo stretchy="true" form="prefix">[</mo><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>P</mi><mi>n</mi></msub><mi>f</mi><mo stretchy="true" form="postfix">)</mo></mrow><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>X</mi><mi>m</mi></msub><mo stretchy="true" form="postfix">)</mo></mrow><mo stretchy="true" form="postfix">]</mo></mrow></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right"></mtd><mtd columnalign="left" style="text-align: left"><mo>=</mo><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>P</mi><mi>m</mi></msub><msub><mi>P</mi><mi>n</mi></msub><mi>f</mi><mo stretchy="true" form="postfix">)</mo></mrow><mrow><mo stretchy="true" form="prefix">(</mo><mi>i</mi><mo stretchy="true" form="postfix">)</mo></mrow><mi>.</mi></mtd></mtr></mtable><annotation encoding="application/x-tex">
+\begin{aligned}
+E_i[f(X_{m+n})]
+&amp;=E_i\{E[f(X_{m+n})\mid\mathcal F_m]\}\\
+&amp;=E_i[(P_nf)(X_m)]\\
+&amp;=(P_mP_nf)(i).
+\end{aligned}
+</annotation></semantics></math></p>
+<p>因而 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>P</mi><mrow><mi>m</mi><mo>+</mo><mi>n</mi></mrow></msub><mo>=</mo><msub><mi>P</mi><mi>m</mi></msub><msub><mi>P</mi><mi>n</mi></msub></mrow><annotation encoding="application/x-tex">P_{m+n}=P_mP_n</annotation></semantics></math>。这是 Chapman–Kolmogorov 关系。全初始状态的设定允许我们对每个 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>i</mi><annotation encoding="application/x-tex">i</annotation></semantics></math> 写最后这个等式；若只给了一个初始分布，就不能无声抹去“几乎处处”的限制。</p>
+<p><a id="qt13-hidden"></a></p>
+<h2 id="同样看到为什么预测还会不同">同样看到“+”，为什么预测还会不同</h2>
+<p>现在换一个模型。先抽取一个隐藏且以后不变的状态 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>H</mi><mo>∈</mo><mo stretchy="false" form="prefix">{</mo><mi>−</mi><mo>,</mo><mi>+</mi><mo stretchy="false" form="postfix">}</mo></mrow><annotation encoding="application/x-tex">H\in\{-,+\}</annotation></semantics></math>，先验各为 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1</mn><mi>/</mi><mn>2</mn></mrow><annotation encoding="application/x-tex">1/2</annotation></semantics></math>。给定 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>H</mi><annotation encoding="application/x-tex">H</annotation></semantics></math> 后，各期观测 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>Y</mi><mn>1</mn></msub><mo>,</mo><msub><mi>Y</mi><mn>2</mn></msub><mo>,</mo><mi>…</mi></mrow><annotation encoding="application/x-tex">Y_1,Y_2,\ldots</annotation></semantics></math> 条件独立，每次正确报告 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>H</mi><annotation encoding="application/x-tex">H</annotation></semantics></math> 的概率为 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>0.8</mn><annotation encoding="application/x-tex">0.8</annotation></semantics></math>。条件独立很重要：它正是下面把似然相乘的依据。</p>
+<p>若历史是 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>+</mi><mo>+</mo></mrow><annotation encoding="application/x-tex">++</annotation></semantics></math>，两个隐藏状态下出现这段历史的似然分别为 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mn>.8</mn><mn>2</mn></msup><annotation encoding="application/x-tex">.8^2</annotation></semantics></math> 与 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mn>.2</mn><mn>2</mn></msup><annotation encoding="application/x-tex">.2^2</annotation></semantics></math>。因此</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>H</mi><mo>=</mo><mi>+</mi><mo>∣</mo><mi>+</mi><mo>+</mo><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mfrac><msup><mn>.8</mn><mn>2</mn></msup><mrow><msup><mn>.8</mn><mn>2</mn></msup><mo>+</mo><msup><mn>.2</mn><mn>2</mn></msup></mrow></mfrac><mo>=</mo><mfrac><mn>16</mn><mn>17</mn></mfrac><mi>.</mi></mrow><annotation encoding="application/x-tex">
+P(H=+\mid++)=\frac{.8^2}{.8^2+.2^2}=\frac{16}{17}.
+</annotation></semantics></math></p>
+<p>若历史为 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>−</mi><mo>+</mo></mrow><annotation encoding="application/x-tex">-+</annotation></semantics></math>，两边似然均为 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>.2</mn><mo>×</mo><mn>.8</mn></mrow><annotation encoding="application/x-tex">.2\times.8</annotation></semantics></math>，后验仍为 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1</mn><mi>/</mi><mn>2</mn></mrow><annotation encoding="application/x-tex">1/2</annotation></semantics></math>。下一次看到 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>+</mi><annotation encoding="application/x-tex">+</annotation></semantics></math> 的概率，要再对隐藏状态求平均，而不是直接把后验当作预测：</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtable><mtr><mtd columnalign="right" style="text-align: right"><mi>P</mi><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>Y</mi><mn>3</mn></msub><mo>=</mo><mi>+</mi><mo>∣</mo><mi>+</mi><mo>+</mo><mo stretchy="true" form="postfix">)</mo></mrow></mtd><mtd columnalign="left" style="text-align: left"><mo>=</mo><mn>.8</mn><mfrac><mn>16</mn><mn>17</mn></mfrac><mo>+</mo><mn>.2</mn><mfrac><mn>1</mn><mn>17</mn></mfrac><mo>=</mo><mfrac><mn>13</mn><mn>17</mn></mfrac><mo>,</mo></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right"><mi>P</mi><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>Y</mi><mn>3</mn></msub><mo>=</mo><mi>+</mi><mo>∣</mo><mi>−</mi><mo>+</mo><mo stretchy="true" form="postfix">)</mo></mrow></mtd><mtd columnalign="left" style="text-align: left"><mo>=</mo><mfrac><mn>1</mn><mn>2</mn></mfrac><mi>.</mi></mtd></mtr></mtable><annotation encoding="application/x-tex">
+\begin{aligned}
+P(Y_3=+\mid++)
+&amp;=.8\frac{16}{17}+.2\frac1{17}=\frac{13}{17},\\
+P(Y_3=+\mid-+)&amp;=\frac12.
+\end{aligned}
+</annotation></semantics></math></p>
+<p>这两段历史长度相同，当前观测都为 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>+</mi><annotation encoding="application/x-tex">+</annotation></semantics></math>，却给出不同的下一期分布。因此 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>Y</mi><mi>n</mi></msub><annotation encoding="application/x-tex">Y_n</annotation></semantics></math> 本身相对于观测历史的自然过滤不是 Markov 过程。我们否定的是这个状态选择，不是说“任何带隐藏状态的模型都无法计算”。</p>
+<div class="table-wrap"><table>
+<thead>
+<tr class="header">
+<th>历史</th>
+<th>当前观测</th>
+<th>隐藏状态为 + 的后验</th>
+<th>下一期为 + 的概率</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>++</td>
+<td>+</td>
+<td>16/17</td>
+<td>13/17</td>
+</tr>
+<tr class="even">
+<td>+-</td>
+<td>-</td>
+<td>1/2</td>
+<td>1/2</td>
+</tr>
+<tr class="odd">
+<td>-+</td>
+<td>+</td>
+<td>1/2</td>
+<td>1/2</td>
+</tr>
+<tr class="even">
+<td>–</td>
+<td>-</td>
+<td>1/17</td>
+<td>4/17</td>
+</tr>
+</tbody>
+</table></div>
+<p><a id="qt13-posterior"></a></p>
+<h2 id="把历史压成后验而不是压成最后一个符号">把历史压成后验，而不是压成最后一个符号</h2>
+<p>令 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>π</mi><mi>n</mi></msub><mo>=</mo><mi>P</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>H</mi><mo>=</mo><mi>+</mi><mo>∣</mo><msub><mi>Y</mi><mn>1</mn></msub><mo>,</mo><mi>…</mi><mo>,</mo><msub><mi>Y</mi><mi>n</mi></msub><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">\pi_n=P(H=+\mid Y_1,\ldots,Y_n)</annotation></semantics></math>。已知当前后验 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>π</mi><annotation encoding="application/x-tex">\pi</annotation></semantics></math>，看到新观测以后，Bayes 公式给出封闭递推：</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>π</mi><mo>+</mo></msup><mo>=</mo><mfrac><mrow><mn>4</mn><mi>π</mi></mrow><mrow><mn>1</mn><mo>+</mo><mn>3</mn><mi>π</mi></mrow></mfrac><mo>,</mo><mspace width="2.0em"></mspace><msup><mi>π</mi><mo>−</mo></msup><mo>=</mo><mfrac><mi>π</mi><mrow><mn>4</mn><mo>−</mo><mn>3</mn><mi>π</mi></mrow></mfrac><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\pi^+=\frac{4\pi}{1+3\pi},
+\qquad
+\pi^-=\frac{\pi}{4-3\pi}.
+</annotation></semantics></math></p>
+<p>而下一次为 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>+</mi><annotation encoding="application/x-tex">+</annotation></semantics></math> 的概率是</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>g</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>π</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mfrac><mn>1</mn><mn>5</mn></mfrac><mo>+</mo><mfrac><mn>3</mn><mn>5</mn></mfrac><mi>π</mi><mi>.</mi></mrow><annotation encoding="application/x-tex">
+g(\pi)=\frac15+\frac35\pi.
+</annotation></semantics></math></p>
+<p>于是后验状态以概率 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>g</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>π</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">g(\pi)</annotation></semantics></math> 移动到 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>π</mi><mo>+</mo></msup><annotation encoding="application/x-tex">\pi^+</annotation></semantics></math>，以概率 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1</mn><mo>−</mo><mi>g</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>π</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">1-g(\pi)</annotation></semantics></math> 移动到 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>π</mi><mo>−</mo></msup><annotation encoding="application/x-tex">\pi^-</annotation></semantics></math>。其转移只依赖当前后验；完整历史已经通过似然比积压缩到这个数里。这里“充分”仅指本模型对未来观测的条件分布，并不等于后验在任何金融模型中都是一个标量。</p>
+<div class="lab-slot">
+<iframe title="隐藏状态与矩阵" loading="lazy" src="../interactions.html?experiment=EXP-QT13-MARKOV-01">
+</iframe>
+<p>
+<a href="../interactions.html?experiment=EXP-QT13-MARKOV-01">打开独立实验视图</a>
+</p>
+</div>
+<p>读图时先选择两段当前符号相同的历史，看后验和预测是否相同；然后改看后验状态。界面不会重新估计概率，它只是把上述固定模型的递推展开。无需交互，上面的公式和四行表已经足以重算。</p>
+<p><a id="qt13-exercise"></a></p>
+<h2 id="迁移记住最近两期就够了吗">迁移：记住最近两期就够了吗？</h2>
+<p><strong>题目。</strong> 比较 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>+</mi><mo>+</mo><mi>+</mi></mrow><annotation encoding="application/x-tex">+++</annotation></semantics></math> 与 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>−</mi><mo>+</mo><mi>+</mi></mrow><annotation encoding="application/x-tex">-++</annotation></semantics></math>。它们最后两期都是 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>+</mi><mo>+</mo></mrow><annotation encoding="application/x-tex">++</annotation></semantics></math>。分别求隐藏状态为 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>+</mi><annotation encoding="application/x-tex">+</annotation></semantics></math> 的后验、下一期为 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>+</mi><annotation encoding="application/x-tex">+</annotation></semantics></math> 的概率，并判断状态 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>Y</mi><mrow><mi>n</mi><mo>−</mo><mn>1</mn></mrow></msub><mo>,</mo><msub><mi>Y</mi><mi>n</mi></msub><mo stretchy="true" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">(Y_{n-1},Y_n)</annotation></semantics></math> 是否充分。再说明向状态加入整个历史为什么虽然可行，却未必是好的建模答案。</p>
+<p><strong>解析。</strong> 对 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>+</mi><mo>+</mo><mi>+</mi></mrow><annotation encoding="application/x-tex">+++</annotation></semantics></math>，后验赔率为 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mn>4</mn><mn>3</mn></msup><annotation encoding="application/x-tex">4^3</annotation></semantics></math>，所以后验 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>64</mn><mi>/</mi><mn>65</mn></mrow><annotation encoding="application/x-tex">64/65</annotation></semantics></math>，预测为</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mfrac><mn>1</mn><mn>5</mn></mfrac><mo>+</mo><mfrac><mn>3</mn><mn>5</mn></mfrac><mfrac><mn>64</mn><mn>65</mn></mfrac><mo>=</mo><mfrac><mn>257</mn><mn>325</mn></mfrac><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\frac15+\frac35\frac{64}{65}=\frac{257}{325}.
+</annotation></semantics></math></p>
+<p>对 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>−</mi><mo>+</mo><mi>+</mi></mrow><annotation encoding="application/x-tex">-++</annotation></semantics></math>，赔率为 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mn>4</mn><mrow><mi>−</mi><mn>1</mn></mrow></msup><msup><mn>4</mn><mn>2</mn></msup><mo>=</mo><mn>4</mn></mrow><annotation encoding="application/x-tex">4^{-1}4^2=4</annotation></semantics></math>，所以后验 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>4</mn><mi>/</mi><mn>5</mn></mrow><annotation encoding="application/x-tex">4/5</annotation></semantics></math>，预测为 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>17</mn><mi>/</mi><mn>25</mn></mrow><annotation encoding="application/x-tex">17/25</annotation></semantics></math>。两者仍不同，因此最近两期也不够。</p>
+<p>完整历史当然包含自己，并能保留所有已知信息，但它的维数随时间增加，未解释什么可以安全丢掉。本例的后验递推给出了一个更小而闭合的状态。面对真实数据，找到类似压缩需要额外模型与检验，不能由这个构造反例直接宣布某个价格、波动率或神经网络隐状态已具有 Markov 性。</p>
+<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<hr />
+<ol>
+<li id="fn1"><p>MIT 6.436J/15.085J，Fall 2018，<a href="https://ocw.mit.edu/courses/6-436j-fundamentals-of-probability-fall-2018/141423989a49375f14f0a44940d81e67_MIT6_436JF18_lec21.pdf">Lecture 21: Markov Chains</a>，物理 pp.1–4：有限状态定义、齐次矩阵与多步转移。隐藏状态数例是另述教学构造，不是讲义中的实证。<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
+<textarea id="agent-text" hidden># QT13 · Reference-first Agent
+
+你是这篇中文学习单元的教学 Agent。读者具备本包列出的先修：QT11 的条件概率/塔性质与有限矩阵乘法。
+先实际取得 required_readings 中本次所选单元并读完，核对版本、页码与公式；已有同会话同版完整读取可以复用。只取得摘要或目录不得声称完成；无法取得原文时说明具体缺口，可先讲本包完整已给推导，但不得编造原文已读记录。runtime_reading_log 是你的实际运行记录，交付的空数组不是已读。
+本篇任务：先给 +++ 与 -++，要求同一最后两期下独立算下一期概率。若读者只说“当前状态足够”，要求明确状态是 Y 还是后验 pi，再检查全状态核的条件。
+先让读者尝试，再按所缺的一步解释，不将全部课文一次复述。完整证明需要标明每项条件在哪一步用到，练习给出完整解析。只采用 supplied_inputs 的本篇切片和已链接全量数据，区分教学模型、真实记录、作者论文结果。图不是证明，模拟不是现实规律；不以预测概率替换定价测度。禁止从分位数拟造分布或另抽浏览器随机数冒充冻结路径。最后问：读者只读完这个词条，真的能学明白吗？用迁移题实际判断，明确剩余能力缺口。
+
+## 可读单元与输入
+
+```json
+{
+  &quot;export_mode&quot;: &quot;public&quot;,
+  &quot;required_readings&quot;: [
+    {
+      &quot;source_id&quot;: &quot;QGHI-MIT-MARKOV18&quot;,
+      &quot;access&quot;: {
+        &quot;kind&quot;: &quot;pdf_full_text&quot;,
+        &quot;uri&quot;: &quot;https://ocw.mit.edu/courses/6-436j-fundamentals-of-probability-fall-2018/141423989a49375f14f0a44940d81e67_MIT6_436JF18_lec21.pdf&quot;
+      },
+      &quot;required_unit&quot;: {
+        &quot;locator&quot;: &quot;PDF pp.1–4&quot;,
+        &quot;scope&quot;: &quot;有限状态定义、齐次矩阵和 C–K 完整单元&quot;,
+        &quot;purpose&quot;: &quot;核对全起点模型与条件分布边界&quot;
+      },
+      &quot;supports&quot;: &quot;有限状态 Markov 性、齐次性与矩阵多步转移；不证明真实市场 Markov 性。&quot;
+    }
+  ],
+  &quot;optional_readings&quot;: [],
+  &quot;runtime_reading_log&quot;: [],
+  &quot;supplied_inputs&quot;: {
+    &quot;competence&quot;: &quot;QT11 的条件概率/塔性质与有限矩阵乘法。&quot;,
+    &quot;static_equivalent&quot;: &quot;本篇 reader 全部默认表、证明及题解；HTML 禁用脚本仍可读。&quot;,
+    &quot;attachments&quot;: [],
+    &quot;frozen&quot;: {
+      &quot;transition_matrix&quot;: [
+        [
+          0.8,
+          0.2
+        ],
+        [
+          0.3,
+          0.7
+        ]
+      ],
+      &quot;prior_H_plus&quot;: 0.5,
+      &quot;observation_accuracy&quot;: 0.8,
+      &quot;observations_conditionally_independent_given_H&quot;: true
+    },
+    &quot;default_outputs&quot;: {
+      &quot;P&quot;: [
+        [
+          0.8,
+          0.2
+        ],
+        [
+          0.3,
+          0.7
+        ]
+      ],
+      &quot;P2&quot;: [
+        [
+          0.7000000000000002,
+          0.30000000000000004
+        ],
+        [
+          0.44999999999999996,
+          0.5499999999999999
+        ]
+      ],
+      &quot;histories&quot;: [
+        {
+          &quot;history&quot;: &quot;+&quot;,
+          &quot;posterior_exact&quot;: &quot;4/5&quot;,
+          &quot;predictive_exact&quot;: &quot;17/25&quot;,
+          &quot;posterior&quot;: 0.8,
+          &quot;predictive&quot;: 0.68
+        },
+        {
+          &quot;history&quot;: &quot;-&quot;,
+          &quot;posterior_exact&quot;: &quot;1/5&quot;,
+          &quot;predictive_exact&quot;: &quot;8/25&quot;,
+          &quot;posterior&quot;: 0.2,
+          &quot;predictive&quot;: 0.32
+        },
+        {
+          &quot;history&quot;: &quot;++&quot;,
+          &quot;posterior_exact&quot;: &quot;16/17&quot;,
+          &quot;predictive_exact&quot;: &quot;13/17&quot;,
+          &quot;posterior&quot;: 0.9411764705882353,
+          &quot;predictive&quot;: 0.7647058823529411
+        },
+        {
+          &quot;history&quot;: &quot;+-&quot;,
+          &quot;posterior_exact&quot;: &quot;1/2&quot;,
+          &quot;predictive_exact&quot;: &quot;1/2&quot;,
+          &quot;posterior&quot;: 0.5,
+          &quot;predictive&quot;: 0.5
+        },
+        {
+          &quot;history&quot;: &quot;-+&quot;,
+          &quot;posterior_exact&quot;: &quot;1/2&quot;,
+          &quot;predictive_exact&quot;: &quot;1/2&quot;,
+          &quot;posterior&quot;: 0.5,
+          &quot;predictive&quot;: 0.5
+        },
+        {
+          &quot;history&quot;: &quot;--&quot;,
+          &quot;posterior_exact&quot;: &quot;1/17&quot;,
+          &quot;predictive_exact&quot;: &quot;4/17&quot;,
+          &quot;posterior&quot;: 0.058823529411764705,
+          &quot;predictive&quot;: 0.23529411764705882
+        },
+        {
+          &quot;history&quot;: &quot;+++&quot;,
+          &quot;posterior_exact&quot;: &quot;64/65&quot;,
+          &quot;predictive_exact&quot;: &quot;257/325&quot;,
+          &quot;posterior&quot;: 0.9846153846153847,
+          &quot;predictive&quot;: 0.7907692307692308
+        },
+        {
+          &quot;history&quot;: &quot;++-&quot;,
+          &quot;posterior_exact&quot;: &quot;4/5&quot;,
+          &quot;predictive_exact&quot;: &quot;17/25&quot;,
+          &quot;posterior&quot;: 0.8,
+          &quot;predictive&quot;: 0.68
+        },
+        {
+          &quot;history&quot;: &quot;+-+&quot;,
+          &quot;posterior_exact&quot;: &quot;4/5&quot;,
+          &quot;predictive_exact&quot;: &quot;17/25&quot;,
+          &quot;posterior&quot;: 0.8,
+          &quot;predictive&quot;: 0.68
+        },
+        {
+          &quot;history&quot;: &quot;+--&quot;,
+          &quot;posterior_exact&quot;: &quot;1/5&quot;,
+          &quot;predictive_exact&quot;: &quot;8/25&quot;,
+          &quot;posterior&quot;: 0.2,
+          &quot;predictive&quot;: 0.32
+        },
+        {
+          &quot;history&quot;: &quot;-++&quot;,
+          &quot;posterior_exact&quot;: &quot;4/5&quot;,
+          &quot;predictive_exact&quot;: &quot;17/25&quot;,
+          &quot;posterior&quot;: 0.8,
+          &quot;predictive&quot;: 0.68
+        },
+        {
+          &quot;history&quot;: &quot;-+-&quot;,
+          &quot;posterior_exact&quot;: &quot;1/5&quot;,
+          &quot;predictive_exact&quot;: &quot;8/25&quot;,
+          &quot;posterior&quot;: 0.2,
+          &quot;predictive&quot;: 0.32
+        },
+        {
+          &quot;history&quot;: &quot;--+&quot;,
+          &quot;posterior_exact&quot;: &quot;1/5&quot;,
+          &quot;predictive_exact&quot;: &quot;8/25&quot;,
+          &quot;posterior&quot;: 0.2,
+          &quot;predictive&quot;: 0.32
+        },
+        {
+          &quot;history&quot;: &quot;---&quot;,
+          &quot;posterior_exact&quot;: &quot;1/65&quot;,
+          &quot;predictive_exact&quot;: &quot;68/325&quot;,
+          &quot;posterior&quot;: 0.015384615384615385,
+          &quot;predictive&quot;: 0.20923076923076922
+        }
+      ]
+    }
+  }
+}
+```
+
+&lt;!-- READER_BODY_START --&gt;
+# Markov 性与状态选择
+
+&lt;a id=&quot;qt13-question&quot;&gt;&lt;/a&gt;
+## 当前这一个数，真的够用吗？
+
+我们每天都在压缩历史：把一串成交概括成最新价格，把一系列观察概括成某个“状态”。压缩本身没有错，问题是压缩以后还剩下多少预测信息。本篇要完成两件事：从一个给定的转移矩阵算出多步分布；再用一个反例检查“当前观测就是状态”是否成立。所需先修是条件概率、条件期望的塔式性质和矩阵乘法。
+
+这里的概率都是明确构造的模型概率。转移图不会因为看起来像市场状态图，就自动获得现实解释。我们先把数学条件说完整，再决定某个观测量配不配叫作状态。
+
+&lt;a id=&quot;qt13-definition&quot;&gt;&lt;/a&gt;
+## Markov 性要连同信息一起给出
+
+令 $E$ 为有限状态集，$(\mathcal F_n)$ 为过滤，$X_n$ 是适应过程。相对于这个过滤的 Markov 性，是说对每个有界函数 $f\colon E\to\mathbb R$，存在转移核，使
+
+$$
+E[f(X_{n+1})\mid\mathcal F_n]
+=(P_{n,n+1}f)(X_n).
+$$
+
+左边可以利用全部已知历史，右边只保留当前状态。如果转移规律还不随日历时点改变，才称为时间齐次；此时记为同一个 $P$。Markov 性与时间齐次性是两个条件，不能合成一句“只依赖现在”。[^markov]
+
+有一个容易漏掉的范围问题：只观察从某个初始分布出发的一条过程，条件期望等式只约束该分布能够到达的状态。它不能替不可达状态规定转移概率。以下直接给定每个状态的整行转移概率，并对每一个起点定义一条链，这构成我们采用的全初始状态 Markov family。比如可以逐步使用独立均匀随机数，按照当前行的概率选择下一状态。这样得到的矩阵幂是全状态陈述，而不是对未观测状态的外推。
+
+&lt;a id=&quot;qt13-ck&quot;&gt;&lt;/a&gt;
+## 两步转移为什么是矩阵乘法
+
+采用两个状态，行是当前状态，列是下一状态：
+
+| 当前状态 | 下一期到状态 1 | 下一期到状态 2 | 两期后到状态 1 | 两期后到状态 2 |
+| --- | --- | --- | --- | --- |
+| 1 | 0.80 | 0.20 | 0.70 | 0.30 |
+| 2 | 0.30 | 0.70 | 0.45 | 0.55 |
+
+从状态 1 两步后回到状态 1，有两条互斥路线：$1\to1\to1$ 和 $1\to2\to1$。所以概率为 $.8\times.8+.2\times.3=.70$。这不是假设两步无条件独立；第二步的分布由中间状态决定。
+
+一般地，对任何起点 $i$，先对中间状态求和，利用 Markov 性，有
+
+$$
+\begin{aligned}
+P_i(X_{m+n}=j)
+&amp;=\sum_kP_i(X_m=k)\,P_k(X_n=j)\\
+&amp;=(P^mP^n)_{ij}.
+\end{aligned}
+$$
+
+等价地，若 $(P_nf)(i)=E_i[f(X_n)]$，塔式性质给
+
+$$
+\begin{aligned}
+E_i[f(X_{m+n})]
+&amp;=E_i\{E[f(X_{m+n})\mid\mathcal F_m]\}\\
+&amp;=E_i[(P_nf)(X_m)]\\
+&amp;=(P_mP_nf)(i).
+\end{aligned}
+$$
+
+因而 $P_{m+n}=P_mP_n$。这是 Chapman–Kolmogorov 关系。全初始状态的设定允许我们对每个 $i$ 写最后这个等式；若只给了一个初始分布，就不能无声抹去“几乎处处”的限制。
+
+&lt;a id=&quot;qt13-hidden&quot;&gt;&lt;/a&gt;
+## 同样看到“+”，为什么预测还会不同
+
+现在换一个模型。先抽取一个隐藏且以后不变的状态 $H\in\{-,+\}$，先验各为 $1/2$。给定 $H$ 后，各期观测 $Y_1,Y_2,\ldots$ 条件独立，每次正确报告 $H$ 的概率为 $0.8$。条件独立很重要：它正是下面把似然相乘的依据。
+
+若历史是 $++$，两个隐藏状态下出现这段历史的似然分别为 $.8^2$ 与 $.2^2$。因此
+
+$$
+P(H=+\mid++)=\frac{.8^2}{.8^2+.2^2}=\frac{16}{17}.
+$$
+
+若历史为 $-+$，两边似然均为 $.2\times.8$，后验仍为 $1/2$。下一次看到 $+$ 的概率，要再对隐藏状态求平均，而不是直接把后验当作预测：
+
+$$
+\begin{aligned}
+P(Y_3=+\mid++)
+&amp;=.8\frac{16}{17}+.2\frac1{17}=\frac{13}{17},\\
+P(Y_3=+\mid-+)&amp;=\frac12.
+\end{aligned}
+$$
+
+这两段历史长度相同，当前观测都为 $+$，却给出不同的下一期分布。因此 $Y_n$ 本身相对于观测历史的自然过滤不是 Markov 过程。我们否定的是这个状态选择，不是说“任何带隐藏状态的模型都无法计算”。
+
+| 历史 | 当前观测 | 隐藏状态为 + 的后验 | 下一期为 + 的概率 |
+| --- | --- | --- | --- |
+| ++ | + | 16/17 | 13/17 |
+| +- | - | 1/2 | 1/2 |
+| -+ | + | 1/2 | 1/2 |
+| -- | - | 1/17 | 4/17 |
+
+&lt;a id=&quot;qt13-posterior&quot;&gt;&lt;/a&gt;
+## 把历史压成后验，而不是压成最后一个符号
+
+令 $\pi_n=P(H=+\mid Y_1,\ldots,Y_n)$。已知当前后验 $\pi$，看到新观测以后，Bayes 公式给出封闭递推：
+
+$$
+\pi^+=\frac{4\pi}{1+3\pi},
+\qquad
+\pi^-=\frac{\pi}{4-3\pi}.
+$$
+
+而下一次为 $+$ 的概率是
+
+$$
+g(\pi)=\frac15+\frac35\pi.
+$$
+
+于是后验状态以概率 $g(\pi)$ 移动到 $\pi^+$，以概率 $1-g(\pi)$ 移动到 $\pi^-$。其转移只依赖当前后验；完整历史已经通过似然比积压缩到这个数里。这里“充分”仅指本模型对未来观测的条件分布，并不等于后验在任何金融模型中都是一个标量。
+
+&lt;div data-experiment-slot=&quot;EXP-QT13-MARKOV-01&quot;&gt;&lt;/div&gt;
+
+读图时先选择两段当前符号相同的历史，看后验和预测是否相同；然后改看后验状态。界面不会重新估计概率，它只是把上述固定模型的递推展开。无需交互，上面的公式和四行表已经足以重算。
+
+&lt;a id=&quot;qt13-exercise&quot;&gt;&lt;/a&gt;
+## 迁移：记住最近两期就够了吗？
+
+**题目。** 比较 $+++$ 与 $-++$。它们最后两期都是 $++$。分别求隐藏状态为 $+$ 的后验、下一期为 $+$ 的概率，并判断状态 $(Y_{n-1},Y_n)$ 是否充分。再说明向状态加入整个历史为什么虽然可行，却未必是好的建模答案。
+
+**解析。** 对 $+++$，后验赔率为 $4^3$，所以后验 $64/65$，预测为
+
+$$
+\frac15+\frac35\frac{64}{65}=\frac{257}{325}.
+$$
+
+对 $-++$，赔率为 $4^{-1}4^2=4$，所以后验 $4/5$，预测为 $17/25$。两者仍不同，因此最近两期也不够。
+
+完整历史当然包含自己，并能保留所有已知信息，但它的维数随时间增加，未解释什么可以安全丢掉。本例的后验递推给出了一个更小而闭合的状态。面对真实数据，找到类似压缩需要额外模型与检验，不能由这个构造反例直接宣布某个价格、波动率或神经网络隐状态已具有 Markov 性。
+
+[^markov]: MIT 6.436J/15.085J，Fall 2018，[Lecture 21: Markov Chains](https://ocw.mit.edu/courses/6-436j-fundamentals-of-probability-fall-2018/141423989a49375f14f0a44940d81e67_MIT6_436JF18_lec21.pdf)，物理 pp.1–4：有限状态定义、齐次矩阵与多步转移。隐藏状态数例是另述教学构造，不是讲义中的实证。
+
+&lt;!-- READER_BODY_END --&gt;
+</textarea></main><script>(function(){const panels=[...document.querySelectorAll('section[data-reading-branch]')];function branch(b){panels.forEach(s=>s.hidden=b!=='all'&&s.dataset.readingBranch!==b);document.querySelectorAll('[data-select-reading-branch]').forEach(x=>x.setAttribute('aria-pressed',x.dataset.selectReadingBranch===b));}document.querySelectorAll('[data-select-reading-branch]').forEach(x=>x.addEventListener('click',()=>branch(x.dataset.selectReadingBranch)));if(panels.some(x=>x.dataset.readingBranch==='A')){const h=location.hash;branch(h.includes('-b-')?'B':'A');}else if(panels.some(x=>x.dataset.readingBranch==='pricing')){branch(location.hash.includes('qt24-pricing')?'all':'ledger');}const copy=document.getElementById('copy-agent');if(copy)copy.addEventListener('click',async()=>{const text=document.getElementById('agent-text').value;try{await navigator.clipboard.writeText(text);document.getElementById('copy-status').textContent='已复制完整Agent包。';}catch(e){document.getElementById('copy-status').textContent='浏览器未允许剪贴板；请使用相邻的Agent Markdown文件。';}});window.QT_READER_READY=true;})();</script></body></html>

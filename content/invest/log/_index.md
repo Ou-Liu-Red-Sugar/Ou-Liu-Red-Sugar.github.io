@@ -1,4 +1,5 @@
 ---
+aliases: ["/invest/log/"]
 title: "Log"
 description: "Time-stamped notes written close to decisions. Short, explicit, and action-oriented."
 date: 2026-01-30

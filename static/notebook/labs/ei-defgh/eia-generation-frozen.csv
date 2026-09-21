@@ -1,0 +1,7 @@
+energy_source,2024_thousand_MWh_final,2025_thousand_MWh_preliminary,source_release,identity
+coal,652156,737151,2026-08-26,observed
+natural_gas,1869902,1807338,2026-08-26,observed
+nuclear,781865,784781,2026-08-26,observed
+hydro,242896,247023,2026-08-26,observed
+utility_scale_solar,219834,295671,2026-08-26,observed
+residual,541981,557538,2026-08-26,derived_residual

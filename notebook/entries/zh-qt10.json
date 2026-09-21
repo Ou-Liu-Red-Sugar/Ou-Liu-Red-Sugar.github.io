@@ -1,0 +1,600 @@
+{
+  "id": "zh-qt10",
+  "node_id": "QT10",
+  "lang": "zh",
+  "slug": "integration-expectation",
+  "title": "积分与可积性",
+  "summary": "核对非负与有符号期望、可积性及极限交换条件，用封顶重尾和尖峰反例划清边界。",
+  "subject": "quant",
+  "topic": "quant-foundations",
+  "kind": "reference",
+  "template": "T10",
+  "role": "基础参考",
+  "study_time": "约 7–9 分钟；可查参考",
+  "revised": "2026-09-21",
+  "content_version": "2026-09-21-QT-B-review-v3",
+  "body_markdown": "期望可以是有限数，也可以是扩展实数中的无穷；有正有负时，甚至可能根本没有定义。这页用于核对这些边界，以及“把极限移进期望”究竟需要什么条件。可测性记号见 [[QT09|可测空间与概率测度]]。\n\n<a id=\"qt10-integral\"></a>\n## 从加权和到积分\n\n固定测度空间 $(\\Omega,\\mathcal F,\\mu)$。令 $s=\\sum_{i=1}^m a_i1_{A_i}$ 为非负简单函数，其中 $a_i\\ge0$、$A_i\\in\\mathcal F$，则定义\n$$\n\\int s\\,d\\mu=\\sum_i a_i\\mu(A_i),\n$$\n并约定 $0\\cdot\\infty=0$。表示中的集合可以重叠；把两种表示的集合共同细分为不交小块，两种写法在每块的总函数值相同，故积分相同。积分不依赖这项表示选择。[^integral]\n\n对非负可测函数 $f$，定义\n$$\n\\int f\\,d\\mu\n=\\sup\\left\\{\\int s\\,d\\mu:\\ 0\\le s\\le f,\\ s\\text{ 为简单函数}\\right\\}.\n$$\n结果允许是 $+\\infty$。例如用逐渐加高的截断与逐渐变细的二进网格，可以构造简单函数 $s_n\\uparrow f$；单调收敛定理会保证它们的积分趋于同一上确界。定义本身并没有先假定这项极限交换成立。\n\n概率空间中取 $\\mu=P$，积分便是期望。有限状态的加权平均是它的特例，而不是另一种互不相干的“经验平均”。\n\n<a id=\"qt10-signed\"></a>\n## 有符号期望：三个不同的问题\n\n令 $X$ 为实值可测随机变量，记 $X^+=\\max(X,0)$、$X^-=\\max(-X,0)$。先分别定义两个非负期望，再讨论相减：\n\n| $E[X^+]$ | $E[X^-]$ | $E[X]$ 的状态 |\n|---|---|---|\n| 有限 | 有限 | 有限实数；称 $X\\in L^1$ |\n| $+\\infty$ | 有限 | 扩展期望为 $+\\infty$，但不在 $L^1$ |\n| 有限 | $+\\infty$ | 扩展期望为 $-\\infty$，但不在 $L^1$ |\n| $+\\infty$ | $+\\infty$ | 未定义；不能作 $\\infty-\\infty$ |\n\n因此**可积**指 $E|X|<\\infty$，等价于两部分期望都有限。这比“某种截断求和看起来能抵消成一个数”强。[^signed]\n\n例如令 $Z\\ge1$ 满足 $P(Z>x)=x^{-0.8}$（$x\\ge1$），再独立选择等概率正负号 $\\varepsilon$。虽然 $\\varepsilon Z$ 的分布对称，但其正负部分期望都无穷，不能凭对称性写 $E[\\varepsilon Z]=0$。\n\n一般条件期望 [[QT11|$E[X\\mid\\mathcal G]$ 的定义与投影]] 在主篇中使用 $X\\in L^1$；谈有限均方误差时还需更强的 $E[X^2]<\\infty$。不能把“期望存在”和“方差有限”当作同一条件。\n\n<a id=\"qt10-limits\"></a>\n## 两张极限条件卡\n\n**单调收敛定理。** 在任意测度空间上，若可测函数满足 $0\\le f_n\\uparrow f$，则 $\\int f_n\\,d\\mu\\uparrow\\int f\\,d\\mu$，允许极限为无穷。a.e. 版本可先在共同可测零测集上修正。非负性和单调性都是这里的条件。[^mct]\n\n**控制收敛定理（DCT）。** 若 $f,f_1,f_2,\\ldots$ 均为实值可测函数，$f_n\\to f$ a.e.，且存在**同一个非负可积函数** $g$，使对所有 $n$ 都有 $|f_n|\\le g$ a.e.，则 $f$ 与各 $f_n$ 可积，而且\n$$\n\\int |f_n-f|\\,d\\mu\\longrightarrow0,\\qquad\n\\int f_n\\,d\\mu\\longrightarrow\\int f\\,d\\mu.\n$$\n每个 $f_n$ 各自有界或各自可积都不够；支配函数必须统一，并且本身可积。Dembo 的证明先由 $|f_n|\\le g$ 与 a.e. 收敛得到 $|f|\\le g$，再对 $|f_n-f|\\le2g$ 使用反向 Fatou 不等式，得到 $\\int|f_n-f|\\,d\\mu\\to0$；于是 $|\\int f_n\\,d\\mu-\\int f\\,d\\mu|\\le\\int|f_n-f|\\,d\\mu\\to0$。相关证明见原文 pp.42–43。[^dct]\n\n最容易误用的反例是在 $(0,1)$ 的 Lebesgue 概率空间上取\n$$\nf_n(x)=n\\,1_{(0,1/n)}(x).\n$$\n每个固定 $x>0$ 最终都会在支撑外，因此 $f_n(x)\\to0$；但每项积分都是 $n(1/n)=1$。这里不能交换极限与积分。\n\n| $n$ | 高度 | 支撑长度 | 积分 | $f_n(0.02)$ |\n|---:|---:|---:|---:|---:|\n| $2$ | $2$ | $1/2$ | $1$ | $2$ |\n| $10$ | $10$ | $1/10$ | $1$ | $10$ |\n| $100$ | $100$ | $1/100$ | $1$ | $0$ |\n\n质量挤到越来越窄的区间，不会因为每个固定点最终归零就自动消失。这个例子既不满足递增条件，也不存在统一可积支配，否则 DCT 会与积分恒为 $1$ 矛盾。\n\n<a id=\"qt10-tail\"></a>\n## 截断平均不能证明原期望有限\n\n取无量纲的 Pareto 教学模型：$Z\\ge1$，$P(Z>x)=x^{-\\alpha}$，$x\\ge1$、$\\alpha>0$。直接积分密度 $\\alpha x^{-\\alpha-1}$ 得到\n$$\nE[Z^q]=\\alpha\\int_1^\\infty x^{q-\\alpha-1}\\,dx\n=\\frac{\\alpha}{\\alpha-q}\\quad(0<q<\\alpha);\n$$\n$q\\ge\\alpha$ 时该积分发散。\n\n| $\\alpha$ | $E[Z]$ | $E[Z^2]$ |\n|---:|---:|---:|\n| $0.8$ | $+\\infty$ | $+\\infty$ |\n| $1.5$ | $3$ | $+\\infty$ |\n| $3$ | $3/2$ | $3$ |\n\n若显示的是封顶变量 $\\min(Z,b)$，其中 $b\\ge1$，则计算结果为\n$$\nE[\\min(Z,b)]\n=1+\\int_1^b x^{-\\alpha}\\,dx\n=\\begin{cases}\n1+\\dfrac{b^{1-\\alpha}-1}{1-\\alpha},&\\alpha\\ne1,\\\\[2mm]\n1+\\log b,&\\alpha=1.\n\\end{cases}\n$$\n积分式也可直接从封顶分布的密度部分与 $b$ 处的点质量相加得到。\n\n默认 $\\alpha=1.5,b=100$ 时，封顶平均为 $2.8$，低于完整均值 $3$。它不等于“超出 $b$ 的值全部删为零”后的平均：后者是\n$$\nE[Z1_{\\{Z\\le b\\}}]=E[\\min(Z,b)]-bP(Z>b)=2.8-0.1=2.7.\n$$\n\n<div data-experiment-slot=\"EXP-QTB-INTEGRAL-01\"></div>\n\n保持 $\\alpha=1.5$，取 $b=10,100,1000$，封顶平均依次约为 $2.368$、$2.800$、$2.937$。精确值仍由上式直接计算。若改成 $\\alpha=0.8$，任何有限 $b$ 的封顶平均仍然有限，但不能因此说未封顶的均值存在于有限实数中。\n\n积分面板还给出一个独立的简单函数例：在 $U\\sim\\mathrm{Unif}[0,1)$ 上，$s_n=2^{-n}\\lfloor2^nU\\rfloor\\uparrow U$，其平均为 $(1-2^{-n})/2$。$n=1,2,4,8$ 时依次为 $0.25,0.375,0.46875,0.498046875$。这是从下方逼近一个固定可积函数，和不断挤向零点的尖峰序列不同。\n\n<a id=\"qt10-tests\"></a>\n## 自检与解析\n\n**题 1。** $\\alpha=1.5$ 时，$Z$ 可积吗？$Z-3$ 的平方可积吗？有限样本中没有观察到极端值，能否改变答案？\n\n**解析。** $E[Z]=3<\\infty$，所以 $Z\\in L^1$。但 $E[(Z-3)^2]=\\infty$：在 $Z>6$ 时，$(Z-3)^2\\ge Z^2/4$，而这部分二阶矩发散。矩是否存在是给定模型的性质，有限样本没有出现极端值不能证明总体二阶矩有限。\n\n**题 2。** 有人说“$f_n(x)\\to0$ 且每个 $\\int|f_n|=1$，所以可由 DCT 推出 $\\int f_n\\to0$”。错误在哪一步？\n\n**解析。** 各项 $L^1$ 范数一致有界，不等于存在统一可积的点态支配函数。尖峰例恰好满足前者而不满足后者。DCT 的缺口不能用一组相同的积分值补上。\n\n**题 3。** 某函数的正部期望无穷、负部期望为 $2$。可以说它“没有任何期望”吗？能否使用本篇所指的 $L^1$ 条件期望定理？\n\n**解析。** 它有扩展期望 $+\\infty$，但没有有限期望，且不属于 $L^1$，所以不能直接套用该定理。非负扩展条件期望可以另行定义，但不能据此把有符号的 $\\infty-\\infty$ 运算合法化。\n\n[^integral]: Amir Dembo, *Probability Theory: STAT310/MATH230*，2021-04-15 版，Definition 1.3.1 Step 1–3（p.31）定义指示函数、简单函数与非负积分；Lemma 1.3.3（p.32）说明简单函数积分与表示无关并给出线性、单调性。[作者公开讲义](https://adembo.su.domains/stat-310b/lnotes.pdf)。\n[^signed]: 同版，Definition 1.3.1 Step 4（p.31）用正负部分定义有符号积分，并规定至少一侧有限时才能作差；Definition 1.3.2（p.32）把 $E|X|<\\infty$ 定义为可积/有限期望。本文重尾例由所给密度直接计算。\n[^mct]: 同版，Theorem 1.3.4，p.33；完整证明 p.41。\n[^dct]: 同版，Fatou Lemma 1.3.33 与 Dominated Convergence Theorem 1.3.34，pp.42–43，包含完整证明。尖峰例是对“仅有点态收敛”的直接反例。\n",
+  "prompt": "你正在使用一份公开教学包，读者具有高年级本科至研究生的数学背景。先实际读取 required_readings 中本次采用的完整单元，再进入讲解；记录版本、页/节、关键假设与支持范围。仅取得目录、摘要或失败链接不算读完。已在本次会话完整取得的同一版本可以复用。找不到正文时尝试已核公开等价版本并说明版本变化，仍缺失则明确缺少的单元，不编造已读内容。\n以下正文、输入和解析为共同来源，不能自行改变数字或把教学概率改称样本频率、现实真值或定价测度。不要访问账户。每次推进一个完整推理任务；已掌握的基础可跳过讲解，但承重条件不能省略。静态说明与交互同义；工具不能运行时直接使用完整静态输入与精确计算，不声称运行过实验。\n\n当前词条：QT10《积分与可积性》。本次只教这个节点及选择的证明分支。\n诊断任务：给 f_n=n·1_(0,1/n)，问能否交换积分与极限；要求先说定理条件再答数值。\n通过标准：能区分有限、扩展、未定义期望；说出 DCT 统一可积支配；算封顶 2.8 和超阈值置零 2.7，拒绝以样本有限证明矩存在。\n先让读者作解释或计算，再依完整解析反馈；最后更换分组、概率或条件做迁移，不能只询问“懂了吗”。",
+  "sources": [
+    "QTB-DEMBO-2021"
+  ],
+  "anchors": [
+    {
+      "id": "qt10-integral",
+      "title": "从加权和到积分",
+      "kind": "section",
+      "preview": "固定测度空间 $(\\Omega,\\mathcal F,\\mu)$。令 $s=\\sum_{i=1}^m a_i1_{A_i}$ 为非负简单函数，其中 $a_i\\ge0$、$A_i\\in\\mathcal F$，则定义 $$ \\int s\\,d\\mu=\\sum_i a_i\\mu(A_i), $$ 并约定 $0\\cdot\\infty=0$。表示中的集合可以重叠；把两种表示的集合共同细分为不交小块，两种写法在每块的总函数值相同，故积分相同。积分不依赖这项表示选择。["
+    },
+    {
+      "id": "qt10-signed",
+      "title": "有符号期望：三个不同的问题",
+      "kind": "section",
+      "preview": "令 $X$ 为实值可测随机变量，记 $X^+=\\max(X,0)$、$X^-=\\max(-X,0)$。先分别定义两个非负期望，再讨论相减："
+    },
+    {
+      "id": "qt10-limits",
+      "title": "两张极限条件卡",
+      "kind": "section",
+      "preview": "**单调收敛定理。** 在任意测度空间上，若可测函数满足 $0\\le f_n\\uparrow f$，则 $\\int f_n\\,d\\mu\\uparrow\\int f\\,d\\mu$，允许极限为无穷。a.e. 版本可先在共同可测零测集上修正。非负性和单调性都是这里的条件。[^mct]"
+    },
+    {
+      "id": "qt10-tail",
+      "title": "截断平均不能证明原期望有限",
+      "kind": "section",
+      "preview": "取无量纲的 Pareto 教学模型：$Z\\ge1$，$P(Z>x)=x^{-\\alpha}$，$x\\ge1$、$\\alpha>0$。直接积分密度 $\\alpha x^{-\\alpha-1}$ 得到 $$ E[Z^q]=\\alpha\\int_1^\\infty x^{q-\\alpha-1}\\,dx =\\frac{\\alpha}{\\alpha-q}\\quad(0<q<\\alpha); $$ $q\\ge\\alpha$ 时该积分发散。"
+    },
+    {
+      "id": "qt10-tests",
+      "title": "自检与解析",
+      "kind": "section",
+      "preview": "**题 1。** $\\alpha=1.5$ 时，$Z$ 可积吗？$Z-3$ 的平方可积吗？有限样本中没有观察到极端值，能否改变答案？"
+    }
+  ],
+  "relations": [
+    {
+      "from": "QT10",
+      "relation": "part_of",
+      "to": "quant-foundations",
+      "reason": "本篇的主要主题归属"
+    },
+    {
+      "from": "QT10",
+      "relation": "supported_by",
+      "to": "QTB-DEMBO-2021",
+      "reason": "支持本篇采用的定义、条件或真实产品条款",
+      "locator": "Definition 1.3.1 Step 1–4 p.31；Definition 1.3.2、Lemma 1.3.3 p.32；Theorem 1.3.4 p.33/证明 p.41；Lemma 1.3.33、Theorem 1.3.34 pp.42–43",
+      "scope": "定义与条件的公开依据。采用 L1 条件期望及 RN 构造、塔式性质和 L2 投影；正文把指示函数到有界函数再到 L2 检验函数的延伸逐步写出。一般 RN 证明单元保留其 Hahn 分解依赖，未声称重新证明全部测度论。"
+    },
+    {
+      "from": "QT10#qt10-tail",
+      "relation": "illustrated_by",
+      "to": "EXP-QTB-INTEGRAL-01",
+      "reason": "下面三个模型各自固定：Pareto 封顶、尖峰序列、Uniform 简单函数。它们各自独立，不使用四状态概率。"
+    },
+    {
+      "from": "QT10",
+      "relation": "requires",
+      "to": "QT09",
+      "reason": "积分对象须先具备可测空间与函数的语言",
+      "required_competence": "能识别可测函数、事件及概率测度；可在 QT09 就地查询"
+    },
+    {
+      "from": "QT10",
+      "relation": "informs",
+      "to": "QT12",
+      "reason": "为将来的 Monte Carlo 误差章节区分一阶与二阶矩条件",
+      "status": "planned"
+    }
+  ],
+  "agent_packet": {
+    "export_mode": "public",
+    "required_readings": [
+      {
+        "source_id": "QTB-DEMBO-2021",
+        "access": {
+          "kind": "pdf_full_text",
+          "uri": "https://adembo.su.domains/stat-310b/lnotes.pdf"
+        },
+        "required_unit": {
+          "locator": "Definition 1.3.1 Step 1–4 p.31；Definition 1.3.2、Lemma 1.3.3 p.32；Theorem 1.3.4 p.33/证明 p.41；Lemma 1.3.33 与 Theorem 1.3.34 pp.42–43",
+          "scope": "简单/非负/有符号积分、L1 可积性、MCT、Fatou 与 DCT 的陈述及所用证明步骤",
+          "purpose": "区分非负扩展积分、L1 有符号积分及极限交换条件，并核 DCT 的 L1 结论"
+        },
+        "supports": "定义与条件的公开依据。采用 L1 条件期望及 RN 构造、塔式性质和 L2 投影；正文把指示函数到有界函数再到 L2 检验函数的延伸逐步写出。一般 RN 证明单元保留其 Hahn 分解依赖，未声称重新证明全部测度论。"
+      }
+    ],
+    "optional_readings": [],
+    "runtime_reading_log": [],
+    "supplied_inputs": {
+      "content_version": "2026-09-21-QT-B-review-v3",
+      "experiment": {
+        "id": "EXP-QTB-INTEGRAL-01",
+        "title": "积分、封顶与极限条件",
+        "anchor": "qt10-tail",
+        "description": "下面三个模型各自固定：Pareto 封顶、尖峰序列、Uniform 简单函数。它们各自独立，不使用四状态概率。",
+        "inputs": {
+          "identity": "确定的积分教学模型，非金融样本或模拟",
+          "shared_file": "shared_inputs.json",
+          "paths": [
+            "defaults.integration",
+            "named_cases.cap_grid",
+            "named_cases.alpha_grid",
+            "named_cases.integration_spike_grid",
+            "named_cases.dyadic_grid"
+          ],
+          "values": {
+            "shared_case": null,
+            "defaults": {
+              "events": {
+                "event": "T",
+                "given": "H"
+              },
+              "conditional": {
+                "partition": "signal"
+              },
+              "measurable": {
+                "partition": "signal",
+                "candidate": [
+                  0,
+                  1,
+                  2,
+                  2
+                ]
+              },
+              "projection": {
+                "partition": "signal",
+                "candidate_usd": [
+                  0,
+                  0,
+                  10000,
+                  10000
+                ],
+                "outer_partition": "trivial"
+              },
+              "rn": {
+                "partition": "signal",
+                "shift_usd": 15000
+              },
+              "integration": {
+                "pareto_alpha": 1.5,
+                "cap": 100,
+                "spike_n": 10,
+                "probe_x": 0.02,
+                "dyadic_n": 4
+              }
+            }
+          }
+        },
+        "outputs": {
+          "pareto": {
+            "alpha": 1.5,
+            "cap": 100,
+            "mean": 3,
+            "mean_finite": true,
+            "second_moment": null,
+            "second_moment_finite": false,
+            "capped_mean": 2.8,
+            "omitted_tail_mean": 2.6999999999999997,
+            "boundary_contribution": 0.09999999999999998
+          },
+          "spike": {
+            "n": 10,
+            "x": 0.02,
+            "height": 10,
+            "width": 0.1,
+            "area": 1,
+            "value": 10,
+            "pointwise_limit": 0
+          },
+          "dyadic": {
+            "n": 4,
+            "step": 0.0625,
+            "integral": 0.46875,
+            "limit_integral": 0.5
+          }
+        },
+        "algorithm": "Pareto：封顶均值用积分解析式，alpha=1 用对数；非有限矩输出 finite=false,value=null。尖峰按 x<1/n 判值，面积恒1；Uniform简单函数积分(1−2^-n)/2。",
+        "units": {
+          "probabilities": "dimensionless",
+          "settlement_points": "index points (contract-defined settlement value)",
+          "payoff": "USD / one contract",
+          "expectation": "USD",
+          "mse": "USD^2",
+          "pareto": "dimensionless pedagogical variable, support [1,infinity)",
+          "spike": "dimensionless on (0,1) with Lebesgue probability"
+        },
+        "boundaries": [
+          "alpha>0,b≥1；非有限原矩不与 finite cap 混同",
+          "n为正整数，0<x<1；支撑端点严格开区间",
+          "二进层数1–20；解析模型不称随机模拟"
+        ],
+        "static_equivalent": {
+          "body_anchor": "qt10-tail",
+          "default_table_html": "<div class=\"table-wrap\"><table><thead><tr><th>α</th><th>b</th><th>完整均值</th><th>封顶均值</th><th>超阈值置零均值</th></tr></thead><tbody><tr><td>1.5</td><td>100</td><td>3</td><td>2.8</td><td>2.7</td></tr></tbody></table></div><div class=\"table-wrap\"><table><thead><tr><th>n</th><th>尖峰高度</th><th>支撑长度</th><th>积分</th><th>fₙ(0.02)</th></tr></thead><tbody><tr><td>2</td><td>2</td><td>1/2</td><td>1</td><td>2</td></tr><tr><td>10</td><td>10</td><td>1/10</td><td>1</td><td>10</td></tr><tr><td>100</td><td>100</td><td>1/100</td><td>1</td><td>0</td></tr></tbody></table></div><p>二进简单函数：n=4 时积分 0.46875，极限 0.5。尖峰的逐点极限为零，但各项积分恒为一。</p>",
+          "scope": "默认及正文列明的迁移算例，不依赖点击状态"
+        },
+        "execution": {
+          "status": "executed",
+          "runtime": "Chromium 144.0.7559.96 JavaScript in author sandbox",
+          "independent_check": "Python Fraction 的共同四状态精确结果；其余边界见验证报告"
+        },
+        "source_ids": [
+          "QTB-DEMBO-2021"
+        ]
+      },
+      "shared_inputs": {
+        "schema_version": "qt-b-inputs-1",
+        "content_version": "2026-09-21-QT-B-review-v3",
+        "shared_case": {
+          "id": "EXP-COND-01",
+          "identity": "教学构造；真实产品条款仅用于支付乘数和结算值的解释，不是历史行情、样本频率或风险中性模型",
+          "state_ids": [
+            "w1",
+            "w2",
+            "w3",
+            "w4"
+          ],
+          "probabilities": [
+            0.1,
+            0.3,
+            0.4,
+            0.2
+          ],
+          "signals": [
+            "L",
+            "L",
+            "H",
+            "H"
+          ],
+          "settlement_points": [
+            5900,
+            6000,
+            6100,
+            6200
+          ],
+          "strike_points": 6000,
+          "multiplier_usd_per_point": 100,
+          "contracts": 1,
+          "payoff_type": "call",
+          "probability_measure": "P_model",
+          "clocks": {
+            "t0": "未观察信号",
+            "t1": "模型约定已收到 L/H 信号",
+            "t2": "合约规定结算值确定；支付金额可计算",
+            "cash_delivery": "与 t2 的金额确定区分，不在本实验建立账户到账/交收模型"
+          },
+          "partitions": {
+            "trivial": [
+              [
+                0,
+                1,
+                2,
+                3
+              ]
+            ],
+            "signal": [
+              [
+                0,
+                1
+              ],
+              [
+                2,
+                3
+              ]
+            ],
+            "full": [
+              [
+                0
+              ],
+              [
+                1
+              ],
+              [
+                2
+              ],
+              [
+                3
+              ]
+            ],
+            "cross": [
+              [
+                0,
+                2
+              ],
+              [
+                1,
+                3
+              ]
+            ]
+          },
+          "partition_labels": {
+            "trivial": "尚无信号",
+            "signal": "只知 L/H",
+            "full": "完整状态",
+            "cross": "交叉分组 {1,3}/{2,4}"
+          },
+          "events": {
+            "H": [
+              2,
+              3
+            ],
+            "T": [
+              3
+            ],
+            "L": [
+              0,
+              1
+            ],
+            "all": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "empty": []
+          },
+          "case_source_ids": [
+            "QTB-CBOE-SPX"
+          ]
+        },
+        "defaults": {
+          "events": {
+            "event": "T",
+            "given": "H"
+          },
+          "conditional": {
+            "partition": "signal"
+          },
+          "measurable": {
+            "partition": "signal",
+            "candidate": [
+              0,
+              1,
+              2,
+              2
+            ]
+          },
+          "projection": {
+            "partition": "signal",
+            "candidate_usd": [
+              0,
+              0,
+              10000,
+              10000
+            ],
+            "outer_partition": "trivial"
+          },
+          "rn": {
+            "partition": "signal",
+            "shift_usd": 15000
+          },
+          "integration": {
+            "pareto_alpha": 1.5,
+            "cap": 100,
+            "spike_n": 10,
+            "probe_x": 0.02,
+            "dyadic_n": 4
+          }
+        },
+        "named_cases": {
+          "zero_group": {
+            "probabilities": [
+              0.25,
+              0.75,
+              0,
+              0
+            ],
+            "partition": "signal"
+          },
+          "zero_atom": {
+            "probabilities": [
+              0.25,
+              0.75,
+              0,
+              0
+            ],
+            "partition": "full"
+          },
+          "bad_future_candidate": {
+            "candidate_usd": [
+              0,
+              0,
+              10000,
+              20000
+            ]
+          },
+          "cap_grid": [
+            10,
+            100,
+            1000
+          ],
+          "alpha_grid": [
+            0.8,
+            1,
+            1.5,
+            3
+          ],
+          "integration_spike_grid": [
+            2,
+            10,
+            100
+          ],
+          "mse_probe_grid_usd": [
+            0,
+            10000,
+            13333.333333333334,
+            20000
+          ],
+          "dyadic_grid": [
+            1,
+            2,
+            4,
+            8
+          ]
+        },
+        "units": {
+          "probabilities": "dimensionless",
+          "settlement_points": "index points (contract-defined settlement value)",
+          "payoff": "USD / one contract",
+          "expectation": "USD",
+          "mse": "USD^2",
+          "pareto": "dimensionless pedagogical variable, support [1,infinity)",
+          "spike": "dimensionless on (0,1) with Lebesgue probability"
+        },
+        "numerical_policy": {
+          "probability_sum_absolute_tolerance": 1e-12,
+          "calculation_relative_tolerance": 1e-10,
+          "calculation_absolute_tolerance": 1e-08,
+          "null_group": "mass exactly zero; conditional ratios undefined; canonical CE constant 0 on that group; never infer impossibility outside the model",
+          "normalization": "invalid probabilities rejected, never silently normalized",
+          "finite": "all finite numeric inputs required",
+          "identity": "fixed finite model; no stochastic simulation and no financial return denominator used"
+        }
+      },
+      "body_scope": "完整正文、静态核算与题目解析"
+    }
+  },
+  "experiments": [
+    {
+      "id": "EXP-QTB-INTEGRAL-01",
+      "title": "积分、封顶与极限条件",
+      "anchor": "qt10-tail",
+      "description": "下面三个模型各自固定：Pareto 封顶、尖峰序列、Uniform 简单函数。它们各自独立，不使用四状态概率。",
+      "inputs": {
+        "identity": "确定的积分教学模型，非金融样本或模拟",
+        "shared_file": "shared_inputs.json",
+        "paths": [
+          "defaults.integration",
+          "named_cases.cap_grid",
+          "named_cases.alpha_grid",
+          "named_cases.integration_spike_grid",
+          "named_cases.dyadic_grid"
+        ],
+        "values": {
+          "shared_case": null,
+          "defaults": {
+            "events": {
+              "event": "T",
+              "given": "H"
+            },
+            "conditional": {
+              "partition": "signal"
+            },
+            "measurable": {
+              "partition": "signal",
+              "candidate": [
+                0,
+                1,
+                2,
+                2
+              ]
+            },
+            "projection": {
+              "partition": "signal",
+              "candidate_usd": [
+                0,
+                0,
+                10000,
+                10000
+              ],
+              "outer_partition": "trivial"
+            },
+            "rn": {
+              "partition": "signal",
+              "shift_usd": 15000
+            },
+            "integration": {
+              "pareto_alpha": 1.5,
+              "cap": 100,
+              "spike_n": 10,
+              "probe_x": 0.02,
+              "dyadic_n": 4
+            }
+          }
+        }
+      },
+      "outputs": {
+        "pareto": {
+          "alpha": 1.5,
+          "cap": 100,
+          "mean": 3,
+          "mean_finite": true,
+          "second_moment": null,
+          "second_moment_finite": false,
+          "capped_mean": 2.8,
+          "omitted_tail_mean": 2.6999999999999997,
+          "boundary_contribution": 0.09999999999999998
+        },
+        "spike": {
+          "n": 10,
+          "x": 0.02,
+          "height": 10,
+          "width": 0.1,
+          "area": 1,
+          "value": 10,
+          "pointwise_limit": 0
+        },
+        "dyadic": {
+          "n": 4,
+          "step": 0.0625,
+          "integral": 0.46875,
+          "limit_integral": 0.5
+        }
+      },
+      "algorithm": "Pareto：封顶均值用积分解析式，alpha=1 用对数；非有限矩输出 finite=false,value=null。尖峰按 x<1/n 判值，面积恒1；Uniform简单函数积分(1−2^-n)/2。",
+      "units": {
+        "probabilities": "dimensionless",
+        "settlement_points": "index points (contract-defined settlement value)",
+        "payoff": "USD / one contract",
+        "expectation": "USD",
+        "mse": "USD^2",
+        "pareto": "dimensionless pedagogical variable, support [1,infinity)",
+        "spike": "dimensionless on (0,1) with Lebesgue probability"
+      },
+      "boundaries": [
+        "alpha>0,b≥1；非有限原矩不与 finite cap 混同",
+        "n为正整数，0<x<1；支撑端点严格开区间",
+        "二进层数1–20；解析模型不称随机模拟"
+      ],
+      "static_equivalent": {
+        "body_anchor": "qt10-tail",
+        "default_table_html": "<div class=\"table-wrap\"><table><thead><tr><th>α</th><th>b</th><th>完整均值</th><th>封顶均值</th><th>超阈值置零均值</th></tr></thead><tbody><tr><td>1.5</td><td>100</td><td>3</td><td>2.8</td><td>2.7</td></tr></tbody></table></div><div class=\"table-wrap\"><table><thead><tr><th>n</th><th>尖峰高度</th><th>支撑长度</th><th>积分</th><th>fₙ(0.02)</th></tr></thead><tbody><tr><td>2</td><td>2</td><td>1/2</td><td>1</td><td>2</td></tr><tr><td>10</td><td>10</td><td>1/10</td><td>1</td><td>10</td></tr><tr><td>100</td><td>100</td><td>1/100</td><td>1</td><td>0</td></tr></tbody></table></div><p>二进简单函数：n=4 时积分 0.46875，极限 0.5。尖峰的逐点极限为零，但各项积分恒为一。</p>",
+        "scope": "默认及正文列明的迁移算例，不依赖点击状态"
+      },
+      "execution": {
+        "status": "executed",
+        "runtime": "Chromium 144.0.7559.96 JavaScript in author sandbox",
+        "independent_check": "Python Fraction 的共同四状态精确结果；其余边界见验证报告"
+      },
+      "source_ids": [
+        "QTB-DEMBO-2021"
+      ]
+    }
+  ],
+  "status": "accepted_local",
+  "audience": "高年级本科至研究生；默认微积分、线性代数与基本概率",
+  "provenance": {
+    "source_package": "docs/production/20260921/drafts/qt-b-v3/QT-B-review-v3",
+    "source_status": "author_review_v3_complete_pending_lead_integration",
+    "import_status": "adopted_canonical",
+    "author_model": "6 Pro draft; xhigh review",
+    "independent_review": "docs/production/20260921/receipts/qt-b-independent-draft-review.md",
+    "local_acceptance": "docs/production/20260921/receipts/qt-b-local-acceptance.md"
+  },
+  "hard_prerequisites": [
+    "QT09"
+  ],
+  "interactions": [
+    {
+      "id": "EXP-QTB-INTEGRAL-01",
+      "title": "积分、封顶与极限条件",
+      "url": "/notebook/labs/qt-b/interactions.html#EXP-QTB-INTEGRAL-01",
+      "height": 1200,
+      "open": true,
+      "experiment_ids": [
+        "EXP-QTB-INTEGRAL-01"
+      ],
+      "static_anchor": "qt10-tail"
+    }
+  ]
+}

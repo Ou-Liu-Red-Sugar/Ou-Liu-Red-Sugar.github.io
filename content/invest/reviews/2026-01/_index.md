@@ -1,4 +1,5 @@
 ---
+aliases: ["/invest/reviews/2026-01/"]
 title: "Monthly Review — January 2026"
 description: "Core build under a violent gold swing; upgrading execution rules and controlling attention cost."
 date: 2026-01-30

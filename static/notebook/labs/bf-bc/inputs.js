@@ -1,0 +1,3486 @@
+window.BFBC_INPUTS = {
+  "schema_version": "bfbc-teaching-1.0",
+  "cutoff": "2026-09-21",
+  "identity_policy": "Historical observations are fixed; teaching scenarios have separate ids. No live company valuation.",
+  "tables": {
+    "cost_income": {
+      "id": "cost_income",
+      "title": "Costco Consolidated Statements of Income",
+      "source_id": "BF-S-COST-FY2025-SEC",
+      "locator": "SEC HTML printed p.37; MD&A Gross Margin p.27",
+      "periods": [
+        "FY2025 · 2025-08-31 · 52周",
+        "FY2024 · 2024-09-01 · 52周",
+        "FY2023 · 2023-09-03 · 53周"
+      ],
+      "unit": "USD millions",
+      "data_identity": "historical_observation",
+      "rows": [
+        {
+          "id": "revenue",
+          "label_original": "REVENUE",
+          "label_zh": "收入",
+          "kind": "heading",
+          "section": "revenue",
+          "values": [
+            null,
+            null,
+            null
+          ]
+        },
+        {
+          "id": "sales",
+          "label_original": "Net sales",
+          "label_zh": "净销售额",
+          "kind": "detail",
+          "section": "revenue",
+          "values": [
+            269912,
+            249625,
+            237710
+          ]
+        },
+        {
+          "id": "membership",
+          "label_original": "Membership fees",
+          "label_zh": "会员费",
+          "kind": "detail",
+          "section": "revenue",
+          "values": [
+            5323,
+            4828,
+            4580
+          ]
+        },
+        {
+          "id": "revenue_total",
+          "label_original": "Total revenue",
+          "label_zh": "收入合计",
+          "kind": "total",
+          "section": "revenue",
+          "values": [
+            275235,
+            254453,
+            242290
+          ]
+        },
+        {
+          "id": "cost",
+          "label_original": "OPERATING EXPENSES",
+          "label_zh": "经营费用",
+          "kind": "heading",
+          "section": "cost",
+          "values": [
+            null,
+            null,
+            null
+          ]
+        },
+        {
+          "id": "merchandise",
+          "label_original": "Merchandise costs",
+          "label_zh": "商品成本",
+          "kind": "detail",
+          "section": "cost",
+          "values": [
+            239886,
+            222358,
+            212586
+          ]
+        },
+        {
+          "id": "sga",
+          "label_original": "Selling, general and administrative",
+          "label_zh": "销售、一般及行政费用",
+          "kind": "detail",
+          "section": "cost",
+          "values": [
+            24966,
+            22810,
+            21590
+          ]
+        },
+        {
+          "id": "operating",
+          "label_original": "Operating income",
+          "label_zh": "经营利润",
+          "kind": "total",
+          "section": "operating",
+          "values": [
+            10383,
+            9285,
+            8114
+          ]
+        },
+        {
+          "id": "other",
+          "label_original": "OTHER INCOME (EXPENSE)",
+          "label_zh": "其他收益（费用）",
+          "kind": "heading",
+          "section": "other",
+          "values": [
+            null,
+            null,
+            null
+          ]
+        },
+        {
+          "id": "interest_expense",
+          "label_original": "Interest expense",
+          "label_zh": "利息费用",
+          "kind": "detail",
+          "section": "other",
+          "values": [
+            -154,
+            -169,
+            -160
+          ]
+        },
+        {
+          "id": "interest_other",
+          "label_original": "Interest income and other, net",
+          "label_zh": "利息收入及其他净额",
+          "kind": "detail",
+          "section": "other",
+          "values": [
+            589,
+            624,
+            533
+          ]
+        },
+        {
+          "id": "pretax",
+          "label_original": "Income before income taxes",
+          "label_zh": "税前利润",
+          "kind": "total",
+          "section": "pretax",
+          "values": [
+            10818,
+            9740,
+            8487
+          ]
+        },
+        {
+          "id": "tax",
+          "label_original": "Provision for income taxes",
+          "label_zh": "所得税费用",
+          "kind": "detail",
+          "section": "tax",
+          "values": [
+            2719,
+            2373,
+            2195
+          ]
+        },
+        {
+          "id": "net",
+          "label_original": "Net income",
+          "label_zh": "净利润",
+          "kind": "total",
+          "section": "net",
+          "values": [
+            8099,
+            7367,
+            6292
+          ]
+        },
+        {
+          "id": "eps",
+          "label_original": "NET INCOME PER COMMON SHARE",
+          "label_zh": "普通股每股净利润（美元/股）",
+          "kind": "heading",
+          "section": "eps",
+          "values": [
+            null,
+            null,
+            null
+          ]
+        },
+        {
+          "id": "eps_basic",
+          "label_original": "Basic",
+          "label_zh": "基本每股净利润",
+          "kind": "detail",
+          "section": "eps",
+          "values": [
+            18.24,
+            16.59,
+            14.18
+          ]
+        },
+        {
+          "id": "eps_diluted",
+          "label_original": "Diluted",
+          "label_zh": "稀释每股净利润",
+          "kind": "detail",
+          "section": "eps",
+          "values": [
+            18.21,
+            16.56,
+            14.16
+          ]
+        },
+        {
+          "id": "shares",
+          "label_original": "SHARES USED IN CALCULATION (000's)",
+          "label_zh": "计算使用股数（千股）",
+          "kind": "heading",
+          "section": "shares",
+          "values": [
+            null,
+            null,
+            null
+          ]
+        },
+        {
+          "id": "shares_basic",
+          "label_original": "Basic",
+          "label_zh": "基本加权平均股数",
+          "kind": "detail",
+          "section": "shares",
+          "values": [
+            443985,
+            443914,
+            443854
+          ]
+        },
+        {
+          "id": "shares_diluted",
+          "label_original": "Diluted",
+          "label_zh": "稀释加权平均股数",
+          "kind": "detail",
+          "section": "shares",
+          "values": [
+            444803,
+            444759,
+            444452
+          ]
+        }
+      ],
+      "notes": [
+        "金额为百万美元；EPS为美元/股；股数为千股。括号负数按负号保存。",
+        "合并利润表未单列毛利；MD&A p.27定义Gross Margin=Net sales−Merchandise costs，2025/24/23分别30026/27267/25124。",
+        "2023是53周，2025和2024为52周；比较增长前核对。"
+      ]
+    },
+    "jpm_income": {
+      "id": "jpm_income",
+      "title": "JPMorgan Chase Consolidated Statements of Income",
+      "source_id": "BF-S-JPM-FY2025",
+      "locator": "Printed p.165 / physical PDF p.197",
+      "periods": [
+        "2025",
+        "2024",
+        "2023"
+      ],
+      "unit": "USD millions",
+      "data_identity": "historical_observation",
+      "rows": [
+        {
+          "id": "revenue",
+          "label_original": "Revenue",
+          "label_zh": "收入",
+          "kind": "heading",
+          "section": "noninterest",
+          "values": [
+            null,
+            null,
+            null
+          ]
+        },
+        {
+          "id": "ib",
+          "label_original": "Investment banking fees",
+          "label_zh": "投资银行费用收入",
+          "kind": "detail",
+          "section": "noninterest",
+          "values": [
+            9615,
+            8910,
+            6519
+          ]
+        },
+        {
+          "id": "principal",
+          "label_original": "Principal transactions",
+          "label_zh": "自营交易收入",
+          "kind": "detail",
+          "section": "noninterest",
+          "values": [
+            27212,
+            24787,
+            24460
+          ]
+        },
+        {
+          "id": "lendingfees",
+          "label_original": "Lending- and deposit-related fees",
+          "label_zh": "贷款及存款相关费用收入",
+          "kind": "detail",
+          "section": "noninterest",
+          "values": [
+            9093,
+            7606,
+            7413
+          ]
+        },
+        {
+          "id": "am",
+          "label_original": "Asset management fees",
+          "label_zh": "资产管理费用收入",
+          "kind": "detail",
+          "section": "noninterest",
+          "values": [
+            20327,
+            17801,
+            15220
+          ]
+        },
+        {
+          "id": "commissions",
+          "label_original": "Commissions and other fees",
+          "label_zh": "佣金及其他费用收入",
+          "kind": "detail",
+          "section": "noninterest",
+          "values": [
+            8539,
+            7530,
+            6836
+          ]
+        },
+        {
+          "id": "investment",
+          "label_original": "Investment securities losses",
+          "label_zh": "投资证券收益／损失",
+          "kind": "detail",
+          "section": "noninterest",
+          "values": [
+            -57,
+            -1021,
+            -3180
+          ]
+        },
+        {
+          "id": "mortgage",
+          "label_original": "Mortgage fees and related income",
+          "label_zh": "按揭费用及相关收入",
+          "kind": "detail",
+          "section": "noninterest",
+          "values": [
+            1381,
+            1401,
+            1176
+          ]
+        },
+        {
+          "id": "card",
+          "label_original": "Card income",
+          "label_zh": "银行卡收入",
+          "kind": "detail",
+          "section": "noninterest",
+          "values": [
+            4720,
+            5497,
+            4784
+          ]
+        },
+        {
+          "id": "otherincome",
+          "label_original": "Other income",
+          "label_zh": "其他收入",
+          "kind": "detail",
+          "section": "noninterest",
+          "values": [
+            6174,
+            12462,
+            5609
+          ]
+        },
+        {
+          "id": "noninterest_total",
+          "label_original": "Noninterest revenue",
+          "label_zh": "非利息收入",
+          "kind": "subtotal",
+          "section": "noninterest",
+          "values": [
+            87004,
+            84973,
+            68837
+          ]
+        },
+        {
+          "id": "interestincome",
+          "label_original": "Interest income",
+          "label_zh": "利息收入",
+          "kind": "detail",
+          "section": "interest",
+          "values": [
+            193341,
+            193933,
+            170588
+          ]
+        },
+        {
+          "id": "interestexpense",
+          "label_original": "Interest expense",
+          "label_zh": "利息支出",
+          "kind": "detail",
+          "section": "interest",
+          "values": [
+            97898,
+            101350,
+            81321
+          ]
+        },
+        {
+          "id": "nii",
+          "label_original": "Net interest income",
+          "label_zh": "净利息收入",
+          "kind": "subtotal",
+          "section": "interest",
+          "values": [
+            95443,
+            92583,
+            89267
+          ]
+        },
+        {
+          "id": "netrevenue",
+          "label_original": "Total net revenue",
+          "label_zh": "净收入合计",
+          "kind": "total",
+          "section": "revenue",
+          "values": [
+            182447,
+            177556,
+            158104
+          ]
+        },
+        {
+          "id": "provision",
+          "label_original": "Provision for credit losses",
+          "label_zh": "信用损失计提",
+          "kind": "detail",
+          "section": "provision",
+          "values": [
+            14212,
+            10678,
+            9320
+          ]
+        },
+        {
+          "id": "expenses",
+          "label_original": "Noninterest expense",
+          "label_zh": "非利息费用",
+          "kind": "heading",
+          "section": "expense",
+          "values": [
+            null,
+            null,
+            null
+          ]
+        },
+        {
+          "id": "compensation",
+          "label_original": "Compensation expense",
+          "label_zh": "薪酬费用",
+          "kind": "detail",
+          "section": "expense",
+          "values": [
+            54487,
+            51357,
+            46465
+          ]
+        },
+        {
+          "id": "occupancy",
+          "label_original": "Occupancy expense",
+          "label_zh": "场地费用",
+          "kind": "detail",
+          "section": "expense",
+          "values": [
+            5461,
+            5026,
+            4590
+          ]
+        },
+        {
+          "id": "technology",
+          "label_original": "Technology, communications and equipment expense",
+          "label_zh": "技术、通信及设备费用",
+          "kind": "detail",
+          "section": "expense",
+          "values": [
+            11029,
+            9831,
+            9246
+          ]
+        },
+        {
+          "id": "professional",
+          "label_original": "Professional and outside services",
+          "label_zh": "专业及外部服务费用",
+          "kind": "detail",
+          "section": "expense",
+          "values": [
+            12356,
+            11057,
+            10235
+          ]
+        },
+        {
+          "id": "marketing",
+          "label_original": "Marketing",
+          "label_zh": "营销费用",
+          "kind": "detail",
+          "section": "expense",
+          "values": [
+            5531,
+            4974,
+            4591
+          ]
+        },
+        {
+          "id": "otherexpense",
+          "label_original": "Other expense",
+          "label_zh": "其他费用",
+          "kind": "detail",
+          "section": "expense",
+          "values": [
+            6776,
+            9552,
+            12045
+          ]
+        },
+        {
+          "id": "expense_total",
+          "label_original": "Total noninterest expense",
+          "label_zh": "非利息费用合计",
+          "kind": "subtotal",
+          "section": "expense",
+          "values": [
+            95640,
+            91797,
+            87172
+          ]
+        },
+        {
+          "id": "pretax",
+          "label_original": "Income before income tax expense",
+          "label_zh": "税前利润",
+          "kind": "total",
+          "section": "pretax",
+          "values": [
+            72595,
+            75081,
+            61612
+          ]
+        },
+        {
+          "id": "tax",
+          "label_original": "Income tax expense",
+          "label_zh": "所得税费用",
+          "kind": "detail",
+          "section": "tax",
+          "values": [
+            15547,
+            16610,
+            12060
+          ]
+        },
+        {
+          "id": "net",
+          "label_original": "Net income",
+          "label_zh": "净利润",
+          "kind": "total",
+          "section": "net",
+          "values": [
+            57048,
+            58471,
+            49552
+          ]
+        },
+        {
+          "id": "common_net",
+          "label_original": "Net income applicable to common stockholders",
+          "label_zh": "归属于普通股权益的净利润",
+          "kind": "total",
+          "section": "common",
+          "values": [
+            55681,
+            56868,
+            47760
+          ]
+        },
+        {
+          "id": "eps",
+          "label_original": "Net income per common share data",
+          "label_zh": "普通股每股净利润数据（美元/股）",
+          "kind": "heading",
+          "section": "eps",
+          "values": [
+            null,
+            null,
+            null
+          ]
+        },
+        {
+          "id": "eps_basic",
+          "label_original": "Basic earnings per share",
+          "label_zh": "基本每股净利润",
+          "kind": "detail",
+          "section": "eps",
+          "values": [
+            20.05,
+            19.79,
+            16.25
+          ]
+        },
+        {
+          "id": "eps_diluted",
+          "label_original": "Diluted earnings per share",
+          "label_zh": "稀释每股净利润",
+          "kind": "detail",
+          "section": "eps",
+          "values": [
+            20.02,
+            19.75,
+            16.23
+          ]
+        },
+        {
+          "id": "shares_basic",
+          "label_original": "Weighted-average basic shares",
+          "label_zh": "基本加权平均股数（百万股）",
+          "kind": "detail",
+          "section": "shares",
+          "values": [
+            2776.5,
+            2873.9,
+            2938.6
+          ]
+        },
+        {
+          "id": "shares_diluted",
+          "label_original": "Weighted-average diluted shares",
+          "label_zh": "稀释加权平均股数（百万股）",
+          "kind": "detail",
+          "section": "shares",
+          "values": [
+            2781.5,
+            2879,
+            2943.1
+          ]
+        }
+      ],
+      "notes": [
+        "GAAP集团合并口径，不混入managed/FTE分部口径。",
+        "费用行原表为正额，计算中减去；投资证券损失为带负号收入。",
+        "EPS为美元/股，股数为百万股；原表应与附注一同阅读。"
+      ]
+    },
+    "sf_cash": {
+      "id": "sf_cash",
+      "title": "Salesforce Consolidated Statements of Cash Flows",
+      "source_id": "BBC-C01",
+      "locator": "Printed pp.61–62",
+      "periods": [
+        "FY2026 · 2026-01-31",
+        "FY2025 · 2025-01-31",
+        "FY2024 · 2024-01-31"
+      ],
+      "unit": "USD millions",
+      "data_identity": "historical_observation",
+      "rows": [
+        {
+          "id": "op",
+          "label_original": "Operating activities",
+          "label_zh": "经营活动",
+          "kind": "heading",
+          "section": "cfo",
+          "values": [
+            null,
+            null,
+            null
+          ]
+        },
+        {
+          "id": "net",
+          "label_original": "Net income",
+          "label_zh": "净利润",
+          "kind": "detail",
+          "section": "cfo",
+          "values": [
+            7457,
+            6197,
+            4136
+          ]
+        },
+        {
+          "id": "adjust",
+          "label_original": "Adjustments to reconcile net income to net cash provided by operating activities",
+          "label_zh": "由净利润调节至经营活动净现金",
+          "kind": "heading",
+          "section": "cfo",
+          "values": [
+            null,
+            null,
+            null
+          ]
+        },
+        {
+          "id": "da",
+          "label_original": "Depreciation and amortization (1)",
+          "label_zh": "折旧和摊销（1）",
+          "kind": "detail",
+          "section": "cfo",
+          "values": [
+            3631,
+            3477,
+            3959
+          ]
+        },
+        {
+          "id": "contract_amort",
+          "label_original": "Amortization of costs capitalized to obtain revenue contracts, net",
+          "label_zh": "取得收入合同资本化成本的摊销净额",
+          "kind": "detail",
+          "section": "cfo",
+          "values": [
+            2197,
+            2095,
+            1925
+          ]
+        },
+        {
+          "id": "sbc",
+          "label_original": "Stock-based compensation expense",
+          "label_zh": "股权薪酬费用",
+          "kind": "detail",
+          "section": "cfo",
+          "values": [
+            3509,
+            3183,
+            2787
+          ]
+        },
+        {
+          "id": "strategic",
+          "label_original": "(Gains) losses on strategic investments, net",
+          "label_zh": "战略投资收益／损失净额的现金流调整",
+          "kind": "detail",
+          "section": "cfo",
+          "values": [
+            -1017,
+            121,
+            277
+          ]
+        },
+        {
+          "id": "changes",
+          "label_original": "Changes in assets and liabilities, net of business combinations",
+          "label_zh": "资产负债变动，扣除企业合并影响",
+          "kind": "heading",
+          "section": "cfo",
+          "values": [
+            null,
+            null,
+            null
+          ]
+        },
+        {
+          "id": "ar",
+          "label_original": "Accounts receivable, net",
+          "label_zh": "应收款净额变动",
+          "kind": "detail",
+          "section": "cfo",
+          "values": [
+            -2160,
+            -490,
+            -659
+          ]
+        },
+        {
+          "id": "contract_add",
+          "label_original": "Costs capitalized to obtain revenue contracts, net",
+          "label_zh": "取得收入合同的资本化成本净额变动",
+          "kind": "detail",
+          "section": "cfo",
+          "values": [
+            -2811,
+            -2121,
+            -1872
+          ]
+        },
+        {
+          "id": "prepaid",
+          "label_original": "Prepaid expenses and other current assets and other assets",
+          "label_zh": "预付及其他资产变动",
+          "kind": "detail",
+          "section": "cfo",
+          "values": [
+            819,
+            -1495,
+            -843
+          ]
+        },
+        {
+          "id": "ap",
+          "label_original": "Accounts payable and accrued expenses and other liabilities",
+          "label_zh": "应付、应计费用及其他负债变动",
+          "kind": "detail",
+          "section": "cfo",
+          "values": [
+            1014,
+            1089,
+            -478
+          ]
+        },
+        {
+          "id": "lease",
+          "label_original": "Operating lease liabilities",
+          "label_zh": "经营租赁负债变动",
+          "kind": "detail",
+          "section": "cfo",
+          "values": [
+            -567,
+            -548,
+            -621
+          ]
+        },
+        {
+          "id": "unearned",
+          "label_original": "Unearned revenue",
+          "label_zh": "未赚取收入变动",
+          "kind": "detail",
+          "section": "cfo",
+          "values": [
+            2924,
+            1584,
+            1623
+          ]
+        },
+        {
+          "id": "cfo",
+          "label_original": "Net cash provided by operating activities",
+          "label_zh": "经营活动产生净现金",
+          "kind": "total",
+          "section": "cfo",
+          "values": [
+            14996,
+            13092,
+            10234
+          ]
+        },
+        {
+          "id": "inv",
+          "label_original": "Investing activities",
+          "label_zh": "投资活动",
+          "kind": "heading",
+          "section": "cfi",
+          "values": [
+            null,
+            null,
+            null
+          ]
+        },
+        {
+          "id": "acquisitions",
+          "label_original": "Business combinations, net of cash acquired",
+          "label_zh": "企业合并，扣取得现金",
+          "kind": "detail",
+          "section": "cfi",
+          "values": [
+            -9268,
+            -2734,
+            -82
+          ]
+        },
+        {
+          "id": "strategic_purchases",
+          "label_original": "Purchases of strategic investments",
+          "label_zh": "购入战略投资",
+          "kind": "detail",
+          "section": "cfi",
+          "values": [
+            -1958,
+            -539,
+            -496
+          ]
+        },
+        {
+          "id": "strategic_sales",
+          "label_original": "Sales of strategic investments",
+          "label_zh": "出售战略投资",
+          "kind": "detail",
+          "section": "cfi",
+          "values": [
+            184,
+            126,
+            108
+          ]
+        },
+        {
+          "id": "market_purchases",
+          "label_original": "Purchases of marketable securities",
+          "label_zh": "购入有价证券",
+          "kind": "detail",
+          "section": "cfi",
+          "values": [
+            -3763,
+            -6879,
+            -3761
+          ]
+        },
+        {
+          "id": "market_sales",
+          "label_original": "Sales of marketable securities",
+          "label_zh": "出售有价证券",
+          "kind": "detail",
+          "section": "cfi",
+          "values": [
+            4414,
+            4143,
+            1511
+          ]
+        },
+        {
+          "id": "market_maturities",
+          "label_original": "Maturities of marketable securities",
+          "label_zh": "有价证券到期",
+          "kind": "detail",
+          "section": "cfi",
+          "values": [
+            2395,
+            3378,
+            2129
+          ]
+        },
+        {
+          "id": "capex",
+          "label_original": "Capital expenditures",
+          "label_zh": "资本支出",
+          "kind": "detail",
+          "section": "cfi",
+          "values": [
+            -594,
+            -658,
+            -736
+          ]
+        },
+        {
+          "id": "cfi",
+          "label_original": "Net cash used in investing activities",
+          "label_zh": "投资活动使用净现金",
+          "kind": "total",
+          "section": "cfi",
+          "values": [
+            -8590,
+            -3163,
+            -1327
+          ]
+        },
+        {
+          "id": "fin",
+          "label_original": "Financing activities",
+          "label_zh": "筹资活动",
+          "kind": "heading",
+          "section": "cff",
+          "values": [
+            null,
+            null,
+            null
+          ]
+        },
+        {
+          "id": "debtissue",
+          "label_original": "Proceeds from issuance of debt, net of issuance costs",
+          "label_zh": "发行债务所得，扣发行成本",
+          "kind": "detail",
+          "section": "cff",
+          "values": [
+            6000,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "repurchases",
+          "label_original": "Repurchases of common stock",
+          "label_zh": "回购普通股现金",
+          "kind": "detail",
+          "section": "cff",
+          "values": [
+            -12596,
+            -7829,
+            -7620
+          ]
+        },
+        {
+          "id": "settlementtax",
+          "label_original": "Payments for taxes related to net share settlement of equity awards",
+          "label_zh": "股权奖励净额结算相关税款支付",
+          "kind": "detail",
+          "section": "cff",
+          "values": [
+            -351,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "employee",
+          "label_original": "Proceeds from employee stock plans",
+          "label_zh": "员工股票计划所得",
+          "kind": "detail",
+          "section": "cff",
+          "values": [
+            1039,
+            1540,
+            1954
+          ]
+        },
+        {
+          "id": "financeprincipal",
+          "label_original": "Principal payments on financing obligations",
+          "label_zh": "融资义务本金支付",
+          "kind": "detail",
+          "section": "cff",
+          "values": [
+            -584,
+            -603,
+            -629
+          ]
+        },
+        {
+          "id": "debtrepay",
+          "label_original": "Repayments of debt",
+          "label_zh": "偿还债务",
+          "kind": "detail",
+          "section": "cff",
+          "values": [
+            0,
+            -1000,
+            -1182
+          ]
+        },
+        {
+          "id": "dividends",
+          "label_original": "Payments of dividends and dividend equivalents",
+          "label_zh": "股息及股息等价支付",
+          "kind": "detail",
+          "section": "cff",
+          "values": [
+            -1587,
+            -1537,
+            0
+          ]
+        },
+        {
+          "id": "cff",
+          "label_original": "Net cash used in financing activities",
+          "label_zh": "筹资活动使用净现金",
+          "kind": "total",
+          "section": "cff",
+          "values": [
+            -8079,
+            -9429,
+            -7477
+          ]
+        },
+        {
+          "id": "fx",
+          "label_original": "Effect of exchange rate changes",
+          "label_zh": "汇率变化影响",
+          "kind": "detail",
+          "section": "cash",
+          "values": [
+            152,
+            -124,
+            26
+          ]
+        },
+        {
+          "id": "change",
+          "label_original": "Net increase (decrease) in cash and cash equivalents",
+          "label_zh": "现金及等价物净增／减",
+          "kind": "subtotal",
+          "section": "cash",
+          "values": [
+            -1521,
+            376,
+            1456
+          ]
+        },
+        {
+          "id": "begin",
+          "label_original": "Cash and cash equivalents, beginning of period",
+          "label_zh": "期初现金及等价物",
+          "kind": "balance",
+          "section": "cash",
+          "values": [
+            8848,
+            8472,
+            7016
+          ]
+        },
+        {
+          "id": "end",
+          "label_original": "Cash and cash equivalents, end of period",
+          "label_zh": "期末现金及等价物",
+          "kind": "balance",
+          "section": "cash",
+          "values": [
+            7327,
+            8848,
+            8472
+          ]
+        },
+        {
+          "id": "supp",
+          "label_original": "Supplemental cash flow disclosure",
+          "label_zh": "补充现金流披露（不再加入合计）",
+          "kind": "heading",
+          "section": "supplement",
+          "values": [
+            null,
+            null,
+            null
+          ]
+        },
+        {
+          "id": "paidinterest",
+          "label_original": "Cash paid for interest",
+          "label_zh": "已付利息",
+          "kind": "supplement",
+          "section": "supplement",
+          "values": [
+            276,
+            233,
+            254
+          ]
+        },
+        {
+          "id": "paidtax",
+          "label_original": "Cash paid for income taxes, net of tax refunds",
+          "label_zh": "已付所得税，扣退款",
+          "kind": "supplement",
+          "section": "supplement",
+          "values": [
+            1282,
+            2061,
+            1027
+          ]
+        }
+      ],
+      "notes": [
+        "（1）D&A含取得无形资产摊销、固定资产折旧、使用权资产摊销及减值。",
+        "资产与负债变动按原表扣除企业合并影响，不能直接用两个期末余额替换。",
+        "现金集合为cash and cash equivalents。补充已付利息和税款已经体现在现金流中，不重复累加。"
+      ],
+      "aggregation_rules": [
+        {
+          "target": "cfo",
+          "components": [
+            "net",
+            "da",
+            "contract_amort",
+            "sbc",
+            "strategic",
+            "ar",
+            "contract_add",
+            "prepaid",
+            "ap",
+            "lease",
+            "unearned"
+          ],
+          "operation": "signed_sum"
+        },
+        {
+          "target": "cfi",
+          "components": [
+            "acquisitions",
+            "strategic_purchases",
+            "strategic_sales",
+            "market_purchases",
+            "market_sales",
+            "market_maturities",
+            "capex"
+          ],
+          "operation": "signed_sum"
+        },
+        {
+          "target": "cff",
+          "components": [
+            "debtissue",
+            "repurchases",
+            "settlementtax",
+            "employee",
+            "financeprincipal",
+            "debtrepay",
+            "dividends"
+          ],
+          "operation": "signed_sum"
+        },
+        {
+          "target": "change",
+          "components": [
+            "cfo",
+            "cfi",
+            "cff",
+            "fx"
+          ],
+          "operation": "signed_sum"
+        },
+        {
+          "target": "end",
+          "components": [
+            "begin",
+            "change"
+          ],
+          "operation": "signed_sum"
+        }
+      ]
+    },
+    "cost_cash": {
+      "id": "cost_cash",
+      "title": "Costco Consolidated Statements of Cash Flows",
+      "source_id": "BF-S-COST-FY2025-SEC",
+      "locator": "SEC HTML printed p.41",
+      "periods": [
+        "FY2025 · 52周",
+        "FY2024 · 52周",
+        "FY2023 · 53周"
+      ],
+      "unit": "USD millions",
+      "data_identity": "historical_observation",
+      "rows": [
+        {
+          "id": "op",
+          "label_original": "CASH FLOWS FROM OPERATING ACTIVITIES",
+          "label_zh": "经营活动现金流",
+          "kind": "heading",
+          "section": "cfo",
+          "values": [
+            null,
+            null,
+            null
+          ]
+        },
+        {
+          "id": "net",
+          "label_original": "Net income",
+          "label_zh": "净利润",
+          "kind": "detail",
+          "section": "cfo",
+          "values": [
+            8099,
+            7367,
+            6292
+          ]
+        },
+        {
+          "id": "adjust",
+          "label_original": "Adjustments to reconcile net income to net cash provided by operating activities",
+          "label_zh": "净利润至经营活动净现金的调整",
+          "kind": "heading",
+          "section": "cfo",
+          "values": [
+            null,
+            null,
+            null
+          ]
+        },
+        {
+          "id": "da",
+          "label_original": "Depreciation and amortization",
+          "label_zh": "折旧及摊销",
+          "kind": "detail",
+          "section": "cfo",
+          "values": [
+            2426,
+            2237,
+            2077
+          ]
+        },
+        {
+          "id": "lease",
+          "label_original": "Non-cash lease expense",
+          "label_zh": "非现金租赁费用",
+          "kind": "detail",
+          "section": "cfo",
+          "values": [
+            303,
+            315,
+            412
+          ]
+        },
+        {
+          "id": "sbc",
+          "label_original": "Stock-based compensation",
+          "label_zh": "股权薪酬",
+          "kind": "detail",
+          "section": "cfo",
+          "values": [
+            860,
+            818,
+            774
+          ]
+        },
+        {
+          "id": "noncash",
+          "label_original": "Impairment of assets and other non-cash operating activities, net",
+          "label_zh": "资产减值及其他非现金经营活动净额",
+          "kind": "detail",
+          "section": "cfo",
+          "values": [
+            -117,
+            -9,
+            495
+          ]
+        },
+        {
+          "id": "changes",
+          "label_original": "Changes in operating assets and liabilities",
+          "label_zh": "经营资产及负债变动",
+          "kind": "heading",
+          "section": "cfo",
+          "values": [
+            null,
+            null,
+            null
+          ]
+        },
+        {
+          "id": "inventory",
+          "label_original": "Merchandise inventories",
+          "label_zh": "商品存货变动",
+          "kind": "detail",
+          "section": "cfo",
+          "values": [
+            559,
+            -2068,
+            1228
+          ]
+        },
+        {
+          "id": "ap",
+          "label_original": "Accounts payable",
+          "label_zh": "应付账款变动",
+          "kind": "detail",
+          "section": "cfo",
+          "values": [
+            404,
+            1938,
+            -382
+          ]
+        },
+        {
+          "id": "other",
+          "label_original": "Other operating assets and liabilities, net",
+          "label_zh": "其他经营资产负债净变动",
+          "kind": "detail",
+          "section": "cfo",
+          "values": [
+            801,
+            741,
+            172
+          ]
+        },
+        {
+          "id": "cfo",
+          "label_original": "Net cash provided by operating activities",
+          "label_zh": "经营活动产生净现金",
+          "kind": "total",
+          "section": "cfo",
+          "values": [
+            13335,
+            11339,
+            11068
+          ]
+        },
+        {
+          "id": "inv",
+          "label_original": "CASH FLOWS FROM INVESTING ACTIVITIES",
+          "label_zh": "投资活动现金流",
+          "kind": "heading",
+          "section": "cfi",
+          "values": [
+            null,
+            null,
+            null
+          ]
+        },
+        {
+          "id": "capex",
+          "label_original": "Additions to property and equipment",
+          "label_zh": "物业及设备增加的现金支出",
+          "kind": "detail",
+          "section": "cfi",
+          "values": [
+            -5498,
+            -4710,
+            -4323
+          ]
+        },
+        {
+          "id": "purchases",
+          "label_original": "Purchases of short-term investments",
+          "label_zh": "购买短期投资",
+          "kind": "detail",
+          "section": "cfi",
+          "values": [
+            -1028,
+            -1470,
+            -1622
+          ]
+        },
+        {
+          "id": "maturities",
+          "label_original": "Maturities of short-term investments",
+          "label_zh": "短期投资到期",
+          "kind": "detail",
+          "section": "cfi",
+          "values": [
+            1141,
+            1790,
+            937
+          ]
+        },
+        {
+          "id": "otherinv",
+          "label_original": "Other investing activities, net",
+          "label_zh": "其他投资活动净额",
+          "kind": "detail",
+          "section": "cfi",
+          "values": [
+            74,
+            -19,
+            36
+          ]
+        },
+        {
+          "id": "cfi",
+          "label_original": "Net cash used in investing activities",
+          "label_zh": "投资活动使用净现金",
+          "kind": "total",
+          "section": "cfi",
+          "values": [
+            -5311,
+            -4409,
+            -4972
+          ]
+        },
+        {
+          "id": "fin",
+          "label_original": "CASH FLOWS FROM FINANCING ACTIVITIES",
+          "label_zh": "筹资活动现金流",
+          "kind": "heading",
+          "section": "cff",
+          "values": [
+            null,
+            null,
+            null
+          ]
+        },
+        {
+          "id": "shortrepay",
+          "label_original": "Repayments of short-term borrowings",
+          "label_zh": "偿还短期借款",
+          "kind": "detail",
+          "section": "cff",
+          "values": [
+            -862,
+            -920,
+            -935
+          ]
+        },
+        {
+          "id": "shortissue",
+          "label_original": "Proceeds from short-term borrowings",
+          "label_zh": "短期借款所得",
+          "kind": "detail",
+          "section": "cff",
+          "values": [
+            816,
+            928,
+            917
+          ]
+        },
+        {
+          "id": "longrepay",
+          "label_original": "Repayments of long-term debt",
+          "label_zh": "偿还长期债务",
+          "kind": "detail",
+          "section": "cff",
+          "values": [
+            -103,
+            -1077,
+            -75
+          ]
+        },
+        {
+          "id": "longissue",
+          "label_original": "Proceeds from issuance of long-term debt",
+          "label_zh": "长期债务所得",
+          "kind": "detail",
+          "section": "cff",
+          "values": [
+            0,
+            498,
+            0
+          ]
+        },
+        {
+          "id": "taxwithheld",
+          "label_original": "Tax withholdings on stock-based awards",
+          "label_zh": "股票奖励代扣税款",
+          "kind": "detail",
+          "section": "cff",
+          "values": [
+            -393,
+            -315,
+            -303
+          ]
+        },
+        {
+          "id": "repurchases",
+          "label_original": "Repurchases of common stock",
+          "label_zh": "回购普通股",
+          "kind": "detail",
+          "section": "cff",
+          "values": [
+            -903,
+            -700,
+            -676
+          ]
+        },
+        {
+          "id": "dividends",
+          "label_original": "Cash dividend payments",
+          "label_zh": "支付股息",
+          "kind": "detail",
+          "section": "cff",
+          "values": [
+            -2183,
+            -9041,
+            -1251
+          ]
+        },
+        {
+          "id": "otherfin",
+          "label_original": "Financing lease payments and other financing activities, net",
+          "label_zh": "融资租赁支付及其他筹资净额",
+          "kind": "detail",
+          "section": "cff",
+          "values": [
+            -147,
+            -137,
+            -291
+          ]
+        },
+        {
+          "id": "cff",
+          "label_original": "Net cash used in financing activities",
+          "label_zh": "筹资活动使用净现金",
+          "kind": "total",
+          "section": "cff",
+          "values": [
+            -3775,
+            -10764,
+            -2614
+          ]
+        },
+        {
+          "id": "fx",
+          "label_original": "Effect of exchange rate changes on cash and cash equivalents",
+          "label_zh": "汇率变化对现金及等价物影响",
+          "kind": "detail",
+          "section": "cash",
+          "values": [
+            6,
+            40,
+            15
+          ]
+        },
+        {
+          "id": "change",
+          "label_original": "Net change in cash and cash equivalents",
+          "label_zh": "现金及等价物净变动",
+          "kind": "subtotal",
+          "section": "cash",
+          "values": [
+            4255,
+            -3794,
+            3497
+          ]
+        },
+        {
+          "id": "begin",
+          "label_original": "Cash and cash equivalents, beginning of year",
+          "label_zh": "期初现金及等价物",
+          "kind": "balance",
+          "section": "cash",
+          "values": [
+            9906,
+            13700,
+            10203
+          ]
+        },
+        {
+          "id": "end",
+          "label_original": "Cash and cash equivalents, end of year",
+          "label_zh": "期末现金及等价物",
+          "kind": "balance",
+          "section": "cash",
+          "values": [
+            14161,
+            9906,
+            13700
+          ]
+        },
+        {
+          "id": "supp",
+          "label_original": "SUPPLEMENTAL DISCLOSURE OF CASH FLOW INFORMATION",
+          "label_zh": "补充披露（不重复加总）",
+          "kind": "heading",
+          "section": "supplement",
+          "values": [
+            null,
+            null,
+            null
+          ]
+        },
+        {
+          "id": "paidinterest",
+          "label_original": "Cash paid during the year for interest",
+          "label_zh": "年内已付利息",
+          "kind": "supplement",
+          "section": "supplement",
+          "values": [
+            106,
+            129,
+            125
+          ]
+        },
+        {
+          "id": "paidtax",
+          "label_original": "Income taxes, net",
+          "label_zh": "年内已付所得税净额",
+          "kind": "supplement",
+          "section": "supplement",
+          "values": [
+            2917,
+            2319,
+            2234
+          ],
+          "parent_original": "Cash paid during the year for"
+        },
+        {
+          "id": "noncashheading",
+          "label_original": "SUPPLEMENTAL DISCLOSURE OF NON-CASH ACTIVITIES",
+          "label_zh": "非现金活动补充披露",
+          "kind": "heading",
+          "section": "supplement",
+          "values": [
+            null,
+            null,
+            null
+          ]
+        },
+        {
+          "id": "unpaiddividends",
+          "label_original": "Dividends declared, but not yet paid",
+          "label_zh": "已宣布而未支付股息",
+          "kind": "supplement",
+          "section": "supplement",
+          "values": [
+            0,
+            0,
+            452
+          ]
+        },
+        {
+          "id": "unpaidcapex",
+          "label_original": "Capital expenditures included in liabilities",
+          "label_zh": "列入负债的资本支出",
+          "kind": "supplement",
+          "section": "supplement",
+          "values": [
+            193,
+            203,
+            170
+          ]
+        }
+      ],
+      "notes": [
+        "零值按原表破折号语义保留数值0；主表标题无金额为null，不等于0。",
+        "其他非现金经营活动净额为负不能整行解释为本期资产减值。",
+        "现金集合为cash and cash equivalents；补充的未付资本支出不加到当期现金支出。"
+      ],
+      "aggregation_rules": [
+        {
+          "target": "cfo",
+          "components": [
+            "net",
+            "da",
+            "lease",
+            "sbc",
+            "noncash",
+            "inventory",
+            "ap",
+            "other"
+          ],
+          "operation": "signed_sum"
+        },
+        {
+          "target": "cfi",
+          "components": [
+            "capex",
+            "purchases",
+            "maturities",
+            "otherinv"
+          ],
+          "operation": "signed_sum"
+        },
+        {
+          "target": "cff",
+          "components": [
+            "shortrepay",
+            "shortissue",
+            "longrepay",
+            "longissue",
+            "taxwithheld",
+            "repurchases",
+            "dividends",
+            "otherfin"
+          ],
+          "operation": "signed_sum"
+        },
+        {
+          "target": "change",
+          "components": [
+            "cfo",
+            "cfi",
+            "cff",
+            "fx"
+          ],
+          "operation": "signed_sum"
+        },
+        {
+          "target": "end",
+          "components": [
+            "begin",
+            "change"
+          ],
+          "operation": "signed_sum"
+        }
+      ]
+    },
+    "jpm_cash": {
+      "id": "jpm_cash",
+      "title": "JPMorgan Chase Consolidated Statements of Cash Flows",
+      "source_id": "BF-S-JPM-FY2025",
+      "locator": "Printed p.169 / physical PDF p.201",
+      "periods": [
+        "2025",
+        "2024",
+        "2023"
+      ],
+      "unit": "USD millions",
+      "data_identity": "historical_observation",
+      "rows": [
+        {
+          "id": "op",
+          "label_original": "Operating activities",
+          "label_zh": "经营活动",
+          "kind": "heading",
+          "section": "cfo",
+          "values": [
+            null,
+            null,
+            null
+          ]
+        },
+        {
+          "id": "net",
+          "label_original": "Net income",
+          "label_zh": "净利润",
+          "kind": "detail",
+          "section": "cfo",
+          "values": [
+            57048,
+            58471,
+            49552
+          ]
+        },
+        {
+          "id": "provision",
+          "label_original": "Provision for credit losses",
+          "label_zh": "信用损失计提",
+          "kind": "detail",
+          "section": "cfo",
+          "values": [
+            14212,
+            10678,
+            9320
+          ]
+        },
+        {
+          "id": "da",
+          "label_original": "Depreciation and amortization",
+          "label_zh": "折旧摊销",
+          "kind": "detail",
+          "section": "cfo",
+          "values": [
+            8821,
+            7938,
+            7512
+          ]
+        },
+        {
+          "id": "deferred",
+          "label_original": "Deferred tax expense (benefit)",
+          "label_zh": "递延所得税费用／利益",
+          "kind": "detail",
+          "section": "cfo",
+          "values": [
+            5611,
+            2004,
+            -4534
+          ]
+        },
+        {
+          "id": "fr",
+          "label_original": "Bargain purchase gain associated with First Republic acquisition",
+          "label_zh": "First Republic收购廉价购买收益调整",
+          "kind": "detail",
+          "section": "cfo",
+          "values": [
+            0,
+            -103,
+            -2775
+          ]
+        },
+        {
+          "id": "visa",
+          "label_original": "Initial gain on Visa exchange",
+          "label_zh": "Visa交换初始收益调整",
+          "kind": "detail",
+          "section": "cfo",
+          "values": [
+            0,
+            -7990,
+            0
+          ]
+        },
+        {
+          "id": "otheradjust",
+          "label_original": "Other adjustments",
+          "label_zh": "其他调整",
+          "kind": "detail",
+          "section": "cfo",
+          "values": [
+            1309,
+            1985,
+            4301
+          ]
+        },
+        {
+          "id": "hfsorigin",
+          "label_original": "Originations and purchases of loans held-for-sale",
+          "label_zh": "待售贷款发放及购买",
+          "kind": "detail",
+          "section": "cfo",
+          "values": [
+            -260772,
+            -212238,
+            -115245
+          ]
+        },
+        {
+          "id": "hfssales",
+          "label_original": "Proceeds from sales, securitizations and paydowns of loans held-for-sale",
+          "label_zh": "待售贷款出售、证券化及偿还所得",
+          "kind": "detail",
+          "section": "cfo",
+          "values": [
+            235232,
+            205303,
+            116430
+          ]
+        },
+        {
+          "id": "tradingassets",
+          "label_original": "Trading assets",
+          "label_zh": "交易资产变动",
+          "kind": "detail",
+          "section": "cfo",
+          "values": [
+            -156461,
+            -95729,
+            -74091
+          ]
+        },
+        {
+          "id": "securitiesborrowed",
+          "label_original": "Securities borrowed",
+          "label_zh": "借入证券变动",
+          "kind": "detail",
+          "section": "cfo",
+          "values": [
+            -66648,
+            -18762,
+            -14902
+          ]
+        },
+        {
+          "id": "receivables",
+          "label_original": "Accrued interest and accounts receivable",
+          "label_zh": "应计利息和应收账款变动",
+          "kind": "detail",
+          "section": "cfo",
+          "values": [
+            -11514,
+            5735,
+            19928
+          ]
+        },
+        {
+          "id": "otherassets",
+          "label_original": "Other assets",
+          "label_zh": "其他资产变动",
+          "kind": "detail",
+          "section": "cfo",
+          "values": [
+            -12582,
+            -7650,
+            32970
+          ]
+        },
+        {
+          "id": "tradingliabilities",
+          "label_original": "Trading liabilities",
+          "label_zh": "交易负债变动",
+          "kind": "detail",
+          "section": "cfo",
+          "values": [
+            23134,
+            2276,
+            5315
+          ]
+        },
+        {
+          "id": "ap",
+          "label_original": "Accounts payable and other liabilities",
+          "label_zh": "应付及其他负债变动",
+          "kind": "detail",
+          "section": "cfo",
+          "values": [
+            5270,
+            -90,
+            -25388
+          ]
+        },
+        {
+          "id": "otheroperating",
+          "label_original": "Other operating adjustments",
+          "label_zh": "其他经营调整",
+          "kind": "detail",
+          "section": "cfo",
+          "values": [
+            9558,
+            6160,
+            4581
+          ]
+        },
+        {
+          "id": "cfo",
+          "label_original": "Net cash provided by (used in) operating activities",
+          "label_zh": "经营活动产生／使用净现金",
+          "kind": "total",
+          "section": "cfo",
+          "values": [
+            -147782,
+            -42012,
+            12974
+          ]
+        },
+        {
+          "id": "inv",
+          "label_original": "Investing activities",
+          "label_zh": "投资活动",
+          "kind": "heading",
+          "section": "cfi",
+          "values": [
+            null,
+            null,
+            null
+          ]
+        },
+        {
+          "id": "resale",
+          "label_original": "Federal funds sold and securities purchased under resale agreements",
+          "label_zh": "拆出联邦基金及买入返售变动",
+          "kind": "detail",
+          "section": "cfi",
+          "values": [
+            -41264,
+            -18706,
+            39740
+          ]
+        },
+        {
+          "id": "htmmaturity",
+          "label_original": "Proceeds from maturities and paydowns of held-to-maturity securities",
+          "label_zh": "HTM到期偿还所得",
+          "kind": "detail",
+          "section": "cfi",
+          "values": [
+            54791,
+            99363,
+            53056
+          ]
+        },
+        {
+          "id": "htmbuy",
+          "label_original": "Purchases of held-to-maturity securities",
+          "label_zh": "买入HTM",
+          "kind": "detail",
+          "section": "cfi",
+          "values": [
+            -5432,
+            -4709,
+            -4141
+          ]
+        },
+        {
+          "id": "afspay",
+          "label_original": "Proceeds from maturities and paydowns of available-for-sale securities",
+          "label_zh": "AFS到期偿还所得",
+          "kind": "detail",
+          "section": "cfi",
+          "values": [
+            37414,
+            38499,
+            53744
+          ]
+        },
+        {
+          "id": "afssell",
+          "label_original": "Proceeds from sales of available-for-sale securities",
+          "label_zh": "出售AFS所得",
+          "kind": "detail",
+          "section": "cfi",
+          "values": [
+            141295,
+            104625,
+            108434
+          ]
+        },
+        {
+          "id": "afsbuy",
+          "label_original": "Purchases of available-for-sale securities",
+          "label_zh": "购入AFS",
+          "kind": "detail",
+          "section": "cfi",
+          "values": [
+            -308772,
+            -352712,
+            -115499
+          ]
+        },
+        {
+          "id": "hfi",
+          "label_original": "Proceeds from sales and securitizations of loans held-for-investment",
+          "label_zh": "留存投资贷款出售及证券化所得",
+          "kind": "detail",
+          "section": "cfi",
+          "values": [
+            57565,
+            57921,
+            47312
+          ]
+        },
+        {
+          "id": "otherloans",
+          "label_original": "Other changes in loans, net",
+          "label_zh": "其他贷款净变动",
+          "kind": "detail",
+          "section": "cfi",
+          "values": [
+            -188497,
+            -83176,
+            -88343
+          ]
+        },
+        {
+          "id": "fracquisition",
+          "label_original": "Cash paid for First Republic acquisition",
+          "label_zh": "First Republic收购现金支出",
+          "kind": "detail",
+          "section": "cfi",
+          "values": [
+            0,
+            -2362,
+            -9920
+          ]
+        },
+        {
+          "id": "otherinv",
+          "label_original": "All other investing activities, net",
+          "label_zh": "其他投资活动净额",
+          "kind": "detail",
+          "section": "cfi",
+          "values": [
+            -12665,
+            -2146,
+            -16740
+          ]
+        },
+        {
+          "id": "cfi",
+          "label_original": "Net cash provided by (used in) investing activities",
+          "label_zh": "投资活动产生／使用净现金",
+          "kind": "total",
+          "section": "cfi",
+          "values": [
+            -265565,
+            -163403,
+            67643
+          ]
+        },
+        {
+          "id": "fin",
+          "label_original": "Financing activities",
+          "label_zh": "筹资活动",
+          "kind": "heading",
+          "section": "cff",
+          "values": [
+            null,
+            null,
+            null
+          ]
+        },
+        {
+          "id": "deposits",
+          "label_original": "Deposits",
+          "label_zh": "客户存款变动",
+          "kind": "detail",
+          "section": "cff",
+          "values": [
+            153168,
+            3299,
+            -32196
+          ]
+        },
+        {
+          "id": "repo",
+          "label_original": "Federal funds purchased and securities loaned or sold under repurchase agreements",
+          "label_zh": "拆入联邦基金及证券出借／回购变动",
+          "kind": "detail",
+          "section": "cff",
+          "values": [
+            145535,
+            80288,
+            13801
+          ]
+        },
+        {
+          "id": "short",
+          "label_original": "Short-term borrowings",
+          "label_zh": "短期借款变动",
+          "kind": "detail",
+          "section": "cff",
+          "values": [
+            9422,
+            7439,
+            -1934
+          ]
+        },
+        {
+          "id": "vie",
+          "label_original": "Beneficial interests issued by consolidated VIEs",
+          "label_zh": "合并VIE发行受益权变动",
+          "kind": "detail",
+          "section": "cff",
+          "values": [
+            -622,
+            1543,
+            9029
+          ]
+        },
+        {
+          "id": "longissue",
+          "label_original": "Proceeds from long-term borrowings",
+          "label_zh": "长期借款所得",
+          "kind": "detail",
+          "section": "cff",
+          "values": [
+            120761,
+            109915,
+            75417
+          ]
+        },
+        {
+          "id": "longpay",
+          "label_original": "Payments of long-term borrowings",
+          "label_zh": "偿还长期借款",
+          "kind": "detail",
+          "section": "cff",
+          "values": [
+            -108100,
+            -96605,
+            -64880
+          ]
+        },
+        {
+          "id": "preferredissue",
+          "label_original": "Proceeds from issuance of preferred stock",
+          "label_zh": "发行优先股所得",
+          "kind": "detail",
+          "section": "cff",
+          "values": [
+            3000,
+            2500,
+            0
+          ]
+        },
+        {
+          "id": "preferredpay",
+          "label_original": "Redemption of preferred stock",
+          "label_zh": "赎回优先股",
+          "kind": "detail",
+          "section": "cff",
+          "values": [
+            -3000,
+            -9850,
+            0
+          ]
+        },
+        {
+          "id": "treasury",
+          "label_original": "Treasury stock repurchased",
+          "label_zh": "购买库存股",
+          "kind": "detail",
+          "section": "cff",
+          "values": [
+            -31591,
+            -18830,
+            -9824
+          ]
+        },
+        {
+          "id": "dividends",
+          "label_original": "Dividends paid",
+          "label_zh": "支付股息",
+          "kind": "detail",
+          "section": "cff",
+          "values": [
+            -16625,
+            -14783,
+            -13463
+          ]
+        },
+        {
+          "id": "otherfin",
+          "label_original": "All other financing activities, net",
+          "label_zh": "其他筹资活动净额",
+          "kind": "detail",
+          "section": "cff",
+          "values": [
+            -2415,
+            -1469,
+            -1521
+          ]
+        },
+        {
+          "id": "cff",
+          "label_original": "Net cash provided by (used in) financing activities",
+          "label_zh": "筹资活动产生／使用净现金",
+          "kind": "total",
+          "section": "cff",
+          "values": [
+            269533,
+            63447,
+            -25571
+          ]
+        },
+        {
+          "id": "fx",
+          "label_original": "Effect of exchange rate changes",
+          "label_zh": "汇率变化影响",
+          "kind": "detail",
+          "section": "cash",
+          "values": [
+            17835,
+            -12866,
+            1871
+          ]
+        },
+        {
+          "id": "change",
+          "label_original": "Net increase (decrease) in cash and due from banks and deposits with banks",
+          "label_zh": "指定现金集合净变动",
+          "kind": "subtotal",
+          "section": "cash",
+          "values": [
+            -125979,
+            -154834,
+            56917
+          ]
+        },
+        {
+          "id": "begin",
+          "label_original": "Cash and due from banks and deposits with banks, beginning of year",
+          "label_zh": "期初现金、应收银行款及存放银行款",
+          "kind": "balance",
+          "section": "cash",
+          "values": [
+            469317,
+            624151,
+            567234
+          ]
+        },
+        {
+          "id": "end",
+          "label_original": "Cash and due from banks and deposits with banks, end of year",
+          "label_zh": "期末现金、应收银行款及存放银行款",
+          "kind": "balance",
+          "section": "cash",
+          "values": [
+            343338,
+            469317,
+            624151
+          ]
+        },
+        {
+          "id": "supp",
+          "label_original": "Supplemental disclosures of cash flow information",
+          "label_zh": "补充披露",
+          "kind": "heading",
+          "section": "supplement",
+          "values": [
+            null,
+            null,
+            null
+          ]
+        },
+        {
+          "id": "paidinterest",
+          "label_original": "Cash interest paid",
+          "label_zh": "已付现金利息",
+          "kind": "supplement",
+          "section": "supplement",
+          "values": [
+            96436,
+            99642,
+            77114
+          ]
+        },
+        {
+          "id": "paidtax",
+          "label_original": "Income taxes paid, net",
+          "label_zh": "已付所得税净额",
+          "kind": "supplement",
+          "section": "supplement",
+          "values": [
+            5309,
+            11715,
+            9908
+          ]
+        }
+      ],
+      "notes": [
+        "此表以原页重新排版；行名称保留业务含义，原文图像位于PDF第201页。",
+        "JPM现金集合为cash and due from banks and deposits with banks，不能改称普通公司cash equivalents。",
+        "变化和合计按原表符号；经营资产扩张与客户存款筹资分属不同活动类别。"
+      ],
+      "aggregation_rules": [
+        {
+          "target": "cfo",
+          "components": [
+            "net",
+            "provision",
+            "da",
+            "deferred",
+            "fr",
+            "visa",
+            "otheradjust",
+            "hfsorigin",
+            "hfssales",
+            "tradingassets",
+            "securitiesborrowed",
+            "receivables",
+            "otherassets",
+            "tradingliabilities",
+            "ap",
+            "otheroperating"
+          ],
+          "operation": "signed_sum"
+        },
+        {
+          "target": "cfi",
+          "components": [
+            "resale",
+            "htmmaturity",
+            "htmbuy",
+            "afspay",
+            "afssell",
+            "afsbuy",
+            "hfi",
+            "otherloans",
+            "fracquisition",
+            "otherinv"
+          ],
+          "operation": "signed_sum"
+        },
+        {
+          "target": "cff",
+          "components": [
+            "deposits",
+            "repo",
+            "short",
+            "vie",
+            "longissue",
+            "longpay",
+            "preferredissue",
+            "preferredpay",
+            "treasury",
+            "dividends",
+            "otherfin"
+          ],
+          "operation": "signed_sum"
+        },
+        {
+          "target": "change",
+          "components": [
+            "cfo",
+            "cfi",
+            "cff",
+            "fx"
+          ],
+          "operation": "signed_sum"
+        },
+        {
+          "target": "end",
+          "components": [
+            "begin",
+            "change"
+          ],
+          "operation": "signed_sum"
+        }
+      ]
+    }
+  },
+  "synthetic": {
+    "inventory": {
+      "id": "SYN-INVENTORY-01",
+      "data_identity": "teaching_assumption",
+      "units": 10,
+      "unit_cost": 10,
+      "sold": 6,
+      "sale_price": 15,
+      "nrv_per_unit": 8,
+      "unit": "arbitrary currency units",
+      "policy": "single homogeneous batch; cost/NRV; no opening balance, FX, returns, tax or additional costs; no reversal demonstration"
+    },
+    "tax": {
+      "id": "SYN-TAX-01",
+      "data_identity": "teaching_assumption",
+      "base_profit_each_year": 200,
+      "expense": 100,
+      "rate": 0.25,
+      "unit": "arbitrary currency units",
+      "terms": "Book expense in year 1; tax deduction and cash payment for underlying expense in year 2; tax paid in each year equals current tax; no opening tax balances, permanent differences, credits or valuation allowance; sufficient future taxable profit."
+    },
+    "contract": {
+      "id": "SYN-CONTRACT-120",
+      "data_identity": "teaching_assumption",
+      "consideration": 120,
+      "unit": "arbitrary currency units",
+      "terms": "Four bounded contracts; distinct promises, fixed consideration, no returns, taxes, financing, credit losses or cost; dates govern accounting, invoice alone does not create unconditional rights.",
+      "presets": {
+        "prepaid": {
+          "rights_and_performance_terms": "全年均匀服务；2026-01-01付款已无条件到期。",
+          "events": [
+            {
+              "type": "right",
+              "date": "2026-01-01",
+              "fraction": 1,
+              "label": "付款义务已无条件到期"
+            },
+            {
+              "type": "invoice",
+              "date": "2026-01-01",
+              "fraction": 1,
+              "label": "开具全年账单"
+            },
+            {
+              "type": "cash",
+              "date": "2026-01-05",
+              "fraction": 1,
+              "label": "收到服务款"
+            },
+            {
+              "type": "performance",
+              "date": "2026-01-31",
+              "fraction": 0.08333333333333333,
+              "label": "完成第1个月服务"
+            },
+            {
+              "type": "performance",
+              "date": "2026-02-28",
+              "fraction": 0.08333333333333333,
+              "label": "完成第2个月服务"
+            },
+            {
+              "type": "performance",
+              "date": "2026-03-31",
+              "fraction": 0.08333333333333333,
+              "label": "完成第3个月服务"
+            },
+            {
+              "type": "performance",
+              "date": "2026-04-30",
+              "fraction": 0.08333333333333333,
+              "label": "完成第4个月服务"
+            },
+            {
+              "type": "performance",
+              "date": "2026-05-31",
+              "fraction": 0.08333333333333333,
+              "label": "完成第5个月服务"
+            },
+            {
+              "type": "performance",
+              "date": "2026-06-30",
+              "fraction": 0.08333333333333333,
+              "label": "完成第6个月服务"
+            },
+            {
+              "type": "performance",
+              "date": "2026-07-31",
+              "fraction": 0.08333333333333333,
+              "label": "完成第7个月服务"
+            },
+            {
+              "type": "performance",
+              "date": "2026-08-31",
+              "fraction": 0.08333333333333333,
+              "label": "完成第8个月服务"
+            },
+            {
+              "type": "performance",
+              "date": "2026-09-30",
+              "fraction": 0.08333333333333333,
+              "label": "完成第9个月服务"
+            },
+            {
+              "type": "performance",
+              "date": "2026-10-31",
+              "fraction": 0.08333333333333333,
+              "label": "完成第10个月服务"
+            },
+            {
+              "type": "performance",
+              "date": "2026-11-30",
+              "fraction": 0.08333333333333333,
+              "label": "完成第11个月服务"
+            },
+            {
+              "type": "performance",
+              "date": "2026-12-31",
+              "fraction": 0.08333333333333333,
+              "label": "完成第12个月服务"
+            }
+          ]
+        },
+        "unbilled": {
+          "rights_and_performance_terms": "1月10日交付即取得无条件收款权；后续仅待时间经过，开票是行政步骤。",
+          "events": [
+            {
+              "type": "performance",
+              "date": "2026-01-10",
+              "fraction": 1,
+              "label": "控制权转移、交付完成"
+            },
+            {
+              "type": "right",
+              "date": "2026-01-10",
+              "fraction": 1,
+              "label": "收款只待时间经过"
+            },
+            {
+              "type": "invoice",
+              "date": "2026-02-01",
+              "fraction": 1,
+              "label": "行政开票"
+            },
+            {
+              "type": "cash",
+              "date": "2026-02-28",
+              "fraction": 1,
+              "label": "收到货款"
+            }
+          ]
+        },
+        "conditional": {
+          "rights_and_performance_terms": "两项可区分交付各分配一半对价；1月10日、2月10日分别转移控制。首项已履约，但须第二项完成后才取得整笔无条件权利。",
+          "events": [
+            {
+              "type": "performance",
+              "date": "2026-01-10",
+              "fraction": 0.5,
+              "label": "首项独立交付完成"
+            },
+            {
+              "type": "performance",
+              "date": "2026-02-10",
+              "fraction": 0.5,
+              "label": "第二项独立交付完成"
+            },
+            {
+              "type": "right",
+              "date": "2026-02-10",
+              "fraction": 1,
+              "label": "第二项交付条件解除"
+            },
+            {
+              "type": "invoice",
+              "date": "2026-02-11",
+              "fraction": 1,
+              "label": "开票"
+            },
+            {
+              "type": "cash",
+              "date": "2026-03-01",
+              "fraction": 1,
+              "label": "收到货款"
+            }
+          ]
+        },
+        "pos": {
+          "rights_and_performance_terms": "1月10日当面交付，即取得整笔无条件权利。",
+          "events": [
+            {
+              "type": "performance",
+              "date": "2026-01-10",
+              "fraction": 1,
+              "label": "交付商品"
+            },
+            {
+              "type": "right",
+              "date": "2026-01-10",
+              "fraction": 1,
+              "label": "取得无条件权利"
+            },
+            {
+              "type": "invoice",
+              "date": "2026-01-10",
+              "fraction": 1,
+              "label": "开具收据"
+            },
+            {
+              "type": "cash",
+              "date": "2026-01-10",
+              "fraction": 1,
+              "label": "客户付款"
+            }
+          ]
+        }
+      },
+      "same_day_order": [
+        "performance",
+        "right",
+        "invoice",
+        "cash"
+      ],
+      "scope_note": "假设合同在首个事件前有效成立。改变收款日只改变实际收付；提前收款属于可抵未来合同对价的预收，不是另一个押金合同。"
+    },
+    "ssp": {
+      "id": "SYN-SSP-01",
+      "data_identity": "teaching_assumption",
+      "total": 120,
+      "license_ssp": 100,
+      "support_ssp": 50,
+      "alternative_license_ssp": 80,
+      "alternative_support_ssp": 80,
+      "support_months": 12,
+      "unit": "arbitrary currency units",
+      "terms": "Distinct licence delivered at inception; support recognized evenly over one year. No variable consideration, costs, tax or refund."
+    },
+    "share_weighting": {
+      "id": "SYN-SHARE-01",
+      "data_identity": "teaching_assumption",
+      "profit": 100,
+      "first_half_shares": 100,
+      "second_half_shares": 80,
+      "first_half_weight": 0.5,
+      "unit": "arbitrary currency / shares",
+      "terms": "Two equal half-year intervals; no preferred distributions or other share changes."
+    },
+    "cost_layers": {
+      "id": "SYN-COST-LAYERS-01",
+      "data_identity": "teaching_assumption",
+      "layers": [
+        {
+          "quantity": 10,
+          "cost": 10
+        },
+        {
+          "quantity": 10,
+          "cost": 14
+        }
+      ],
+      "sold": 12,
+      "unit": "arbitrary currency units",
+      "terms": "No other inventory movements or write-down; compare cost-flow allocations only."
+    }
+  },
+  "sf_equity": {
+    "source_id": "BBC-C01",
+    "locator": "Consolidated Statements of Stockholders’ Equity, printed p.60",
+    "identity": "historical_observation",
+    "columns": [
+      "普通股股数（百万股）",
+      "普通股金额（百万美元）",
+      "库存股股数（负数，百万股）",
+      "库存股金额（负数，百万美元）",
+      "额外实收资本（百万美元）",
+      "累计其他综合收益／损失（百万美元）",
+      "留存收益（百万美元）",
+      "权益合计（百万美元）"
+    ],
+    "rows": [
+      [
+        "Balance at January 31, 2024",
+        "2024-01-31期初",
+        1035,
+        1,
+        -64,
+        -11692,
+        59841,
+        -225,
+        11721,
+        59646
+      ],
+      [
+        "Common stock issued",
+        "普通股发行",
+        21,
+        0,
+        0,
+        0,
+        1535,
+        0,
+        0,
+        1535
+      ],
+      [
+        "Common stock repurchased",
+        "普通股回购",
+        0,
+        0,
+        -30,
+        -7815,
+        0,
+        0,
+        0,
+        -7815
+      ],
+      [
+        "Stock-based compensation",
+        "股权薪酬",
+        0,
+        0,
+        0,
+        0,
+        3200,
+        0,
+        0,
+        3200
+      ],
+      [
+        "Other comprehensive loss, net of tax",
+        "其他综合损失税后",
+        0,
+        0,
+        0,
+        0,
+        0,
+        -41,
+        0,
+        -41
+      ],
+      [
+        "Cash dividends declared",
+        "宣布现金股息",
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        -1549,
+        -1549
+      ],
+      [
+        "Net income",
+        "净利润",
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        6197,
+        6197
+      ],
+      [
+        "Balance at January 31, 2025",
+        "2025-01-31期末／次年期初",
+        1056,
+        1,
+        -94,
+        -19507,
+        64576,
+        -266,
+        16369,
+        61173
+      ],
+      [
+        "Common stock issued",
+        "普通股发行",
+        17,
+        0,
+        0,
+        0,
+        1062,
+        0,
+        0,
+        1062
+      ],
+      [
+        "Common stock withheld related to net share settlement of equity awards",
+        "股权奖励净额结算扣留普通股",
+        0,
+        0,
+        0,
+        0,
+        -325,
+        0,
+        0,
+        -325
+      ],
+      [
+        "Common stock repurchased",
+        "普通股回购",
+        0,
+        0,
+        -50,
+        -12721,
+        0,
+        0,
+        0,
+        -12721
+      ],
+      [
+        "Stock-based compensation",
+        "股权薪酬",
+        0,
+        0,
+        0,
+        0,
+        3522,
+        0,
+        0,
+        3522
+      ],
+      [
+        "Other comprehensive loss, net of tax",
+        "原行名为loss，本年为正额",
+        0,
+        0,
+        0,
+        0,
+        0,
+        579,
+        0,
+        579
+      ],
+      [
+        "Cash dividends and dividend equivalents declared",
+        "宣布现金股息及股息等价",
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        -1605,
+        -1605
+      ],
+      [
+        "Net income",
+        "净利润",
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        7457,
+        7457
+      ],
+      [
+        "Balance at January 31, 2026",
+        "2026-01-31期末",
+        1073,
+        1,
+        -144,
+        -32228,
+        68835,
+        313,
+        22221,
+        59142
+      ]
+    ],
+    "notes": [
+      "连续选取FY2025–2026完整年度权益变动；原表另有FY2024，未纳入此处年度窗口。",
+      "股数按百万取整，显示0不证明没有股数变动；17不得全部标为SBC发股。",
+      "原表Other comprehensive loss, net of tax在FY2026列正579，按原符号保留。"
+    ]
+  },
+  "sf_eps": {
+    "source_id": "BBC-C01",
+    "locator": "Note 13, printed pp.89–90",
+    "periods": [
+      "FY2026",
+      "FY2025",
+      "FY2024"
+    ],
+    "net_income": [
+      7457,
+      6197,
+      4136
+    ],
+    "basic_shares_m": [
+      950,
+      962,
+      974
+    ],
+    "dilutive_awards_m": [
+      6,
+      12,
+      10
+    ],
+    "diluted_shares_m": [
+      956,
+      974,
+      984
+    ],
+    "antidilutive_awards_m": [
+      9,
+      7,
+      13
+    ],
+    "reported_basic_eps": [
+      7.85,
+      6.44,
+      4.25
+    ],
+    "reported_diluted_eps": [
+      7.8,
+      6.36,
+      4.2
+    ],
+    "identity": "historical_observation"
+  },
+  "sf_contract": {
+    "source_id": "BBC-C01",
+    "locator": "Note 2, printed p.71; Note 1 Revenue Recognition; balance sheet p.57",
+    "periods": [
+      "FY2026",
+      "FY2025"
+    ],
+    "begin": [
+      20743,
+      19003
+    ],
+    "billings_and_other": [
+      45099,
+      39635
+    ],
+    "over_time": [
+      39041,
+      35628
+    ],
+    "point_in_time": [
+      2484,
+      2267
+    ],
+    "end": [
+      24317,
+      20743
+    ],
+    "receivables_net": [
+      14339,
+      11945
+    ],
+    "contract_assets": [
+      818,
+      724
+    ],
+    "rpo_current_bn": 35.1,
+    "rpo_noncurrent_bn": 37.3,
+    "rpo_total_bn": 72.4,
+    "rpo_precision_bn": 0.1,
+    "other_note": "billings and other包括汇兑、合同资产及企业合并；FY2026包含Informatica收购日未赚取收入651百万美元。",
+    "identity": "historical_observation",
+    "unit": "USD millions except RPO USD billions"
+  },
+  "sf_tax": {
+    "source_id": "BBC-C01",
+    "locator": "Note 12 pp.86–88; Note 1 Income Taxes and ASU adoption",
+    "periods": [
+      "FY2026",
+      "FY2025",
+      "FY2024"
+    ],
+    "pretax_domestic": [
+      6627,
+      5119,
+      4045
+    ],
+    "pretax_foreign": [
+      2893,
+      2319,
+      905
+    ],
+    "pretax": [
+      9520,
+      7438,
+      4950
+    ],
+    "current": {
+      "federal": [
+        413,
+        1284,
+        940
+      ],
+      "state": [
+        72,
+        245,
+        199
+      ],
+      "foreign": [
+        619,
+        925,
+        417
+      ]
+    },
+    "deferred": {
+      "federal": [
+        618,
+        -982,
+        -640
+      ],
+      "state": [
+        121,
+        -167,
+        -182
+      ],
+      "foreign": [
+        220,
+        -64,
+        80
+      ]
+    },
+    "expense": [
+      2063,
+      1241,
+      814
+    ],
+    "cash_paid": {
+      "federal": [
+        658,
+        1091,
+        417
+      ],
+      "state": [
+        132,
+        276,
+        233
+      ],
+      "Ireland": [
+        92,
+        139,
+        0
+      ],
+      "Israel": [
+        0,
+        287,
+        129
+      ],
+      "other_foreign": [
+        400,
+        268,
+        248
+      ]
+    },
+    "cash_total": [
+      1282,
+      2061,
+      1027
+    ],
+    "displayed_etr_percent": 21.5,
+    "amount_rounding_halfwidth_m": 0.5,
+    "deferred_balances": {
+      "periods": [
+        "2026-01-31",
+        "2025-01-31"
+      ],
+      "dta_rows": [
+        [
+          "Loss and deduction carryforwards",
+          "亏损及扣除结转",
+          200,
+          209
+        ],
+        [
+          "Deferred stock-based compensation",
+          "递延股权薪酬",
+          260,
+          237
+        ],
+        [
+          "Tax credit carryforwards",
+          "税收抵免结转",
+          906,
+          769
+        ],
+        [
+          "Accrued liabilities",
+          "应计负债",
+          494,
+          482
+        ],
+        [
+          "Intangible assets",
+          "无形资产",
+          1541,
+          1694
+        ],
+        [
+          "Operating lease liabilities",
+          "经营租赁负债",
+          685,
+          740
+        ],
+        [
+          "Unearned revenue",
+          "未赚取收入",
+          124,
+          -28
+        ],
+        [
+          "Capitalized research and development",
+          "资本化研发",
+          1944,
+          2431
+        ],
+        [
+          "Other",
+          "其他",
+          17,
+          65
+        ]
+      ],
+      "gross_dta": [
+        6171,
+        6599
+      ],
+      "valuation_allowance": [
+        -967,
+        -786
+      ],
+      "dta_after_allowance": [
+        5204,
+        5813
+      ],
+      "dtl_rows": [
+        [
+          "Costs capitalized to obtain revenue contracts",
+          "取得收入合同资本化成本",
+          -912,
+          -850
+        ],
+        [
+          "Purchased intangible assets",
+          "购入无形资产",
+          -1173,
+          -650
+        ],
+        [
+          "Depreciation and amortization",
+          "折旧摊销",
+          -193,
+          -164
+        ],
+        [
+          "Strategic investments and other investments",
+          "战略及其他投资",
+          -347,
+          -106
+        ],
+        [
+          "Operating lease right-of-use assets",
+          "经营租赁使用权资产",
+          -519,
+          -554
+        ]
+      ],
+      "total_dtl": [
+        -3144,
+        -2324
+      ],
+      "net_deferred_tax_asset": [
+        2060,
+        3489
+      ]
+    },
+    "reconciliation_2026": [
+      [
+        "U.S. federal statutory rate",
+        "美国联邦法定税率金额",
+        1999,
+        21.0
+      ],
+      [
+        "State and local income taxes, net",
+        "州及地方税净额",
+        114,
+        1.2
+      ],
+      [
+        "Foreign tax effects: Ireland rate differential",
+        "外国税项：爱尔兰税率差",
+        -197,
+        -2.1
+      ],
+      [
+        "Ireland other",
+        "爱尔兰其他",
+        -24,
+        -0.3
+      ],
+      [
+        "Israel reorganization",
+        "以色列重组",
+        0,
+        0
+      ],
+      [
+        "Israel other",
+        "以色列其他",
+        0,
+        0
+      ],
+      [
+        "Other foreign tax effects",
+        "其他外国税项",
+        463,
+        4.9
+      ],
+      [
+        "GILTI, net of foreign tax credits",
+        "GILTI扣外国税抵免",
+        152,
+        1.6
+      ],
+      [
+        "Foreign-derived intangible income deduction",
+        "FDII扣除",
+        -188,
+        -2.0
+      ],
+      [
+        "Other foreign tax credits",
+        "其他外国税抵免",
+        -160,
+        -1.7
+      ],
+      [
+        "Other cross-border tax effects",
+        "其他跨境税项",
+        28,
+        0.3
+      ],
+      [
+        "Research and development tax credits",
+        "研发税收抵免",
+        -368,
+        -3.9
+      ],
+      [
+        "Changes in valuation allowances",
+        "估值备抵变化",
+        70,
+        0.7
+      ],
+      [
+        "Reorganization (nontaxable/nondeductible)",
+        "重组（非应税／不可扣除）",
+        0,
+        0
+      ],
+      [
+        "Share-based payment awards",
+        "股份支付奖励",
+        4,
+        0.0
+      ],
+      [
+        "Other nontaxable/nondeductible",
+        "其他非应税／不可扣除",
+        30,
+        0.3
+      ],
+      [
+        "Changes in unrecognized tax benefits",
+        "未确认税收利益变化",
+        151,
+        1.6
+      ],
+      [
+        "Other adjustments",
+        "其他调整",
+        -11,
+        -0.1
+      ]
+    ],
+    "identity": "historical_observation",
+    "unit": "USD millions; tax reconciliation percentages separately identified"
+  },
+  "inventory": {
+    "cat": {
+      "source_id": "BBC-C04",
+      "locator": "Note 8 p.89; Note 1 C. Inventories",
+      "periods": [
+        "2025-12-31",
+        "2024-12-31"
+      ],
+      "rows": [
+        [
+          "Raw materials",
+          "原材料",
+          7434,
+          6681
+        ],
+        [
+          "Work-in-process",
+          "在制品",
+          1598,
+          1438
+        ],
+        [
+          "Finished goods",
+          "产成品",
+          8725,
+          8329
+        ],
+        [
+          "Supplies",
+          "用品",
+          378,
+          379
+        ]
+      ],
+      "total": [
+        18135,
+        16827
+      ],
+      "lifo_share_percent": [
+        70,
+        65
+      ],
+      "fifo_uplift": [
+        4305,
+        3864
+      ],
+      "cfo_change_2025": -1477,
+      "policy": "cost or net realizable value; inventories principally LIFO, not wholly LIFO"
+    },
+    "cost": {
+      "source_id": "BF-S-COST-FY2025-SEC",
+      "locator": "Note 1 Merchandise Inventories p.44; balance sheet p.39; cash flows p.41",
+      "periods": [
+        "2025-08-31",
+        "2024-09-01"
+      ],
+      "rows": [
+        [
+          "United States",
+          "美国",
+          12868,
+          13625
+        ],
+        [
+          "Canada",
+          "加拿大",
+          1907,
+          1895
+        ],
+        [
+          "Other International",
+          "其他国际",
+          3341,
+          3127
+        ]
+      ],
+      "total": [
+        18116,
+        18647
+      ],
+      "ap": [
+        19783,
+        19421
+      ],
+      "cf_inventory": 559,
+      "cf_ap": 404,
+      "lifo_charge_2025": 142,
+      "policy": "lower of cost or market; US LIFO, other regions primarily FIFO"
+    },
+    "identity": "historical_observation",
+    "unit": "USD millions"
+  },
+  "cat_nci": {
+    "source_id": "BBC-C04",
+    "locator": "Statements 1/2 pp.58–59; Statement 4 pp.61–62",
+    "year": 2025,
+    "profit_consolidated_affiliates": 8882,
+    "nci_profit": -2,
+    "profit_common": 8884,
+    "opening_nci": 3,
+    "other_nci": -1,
+    "closing_nci": 0,
+    "unit": "USD millions",
+    "identity": "historical_observation"
+  },
+  "sf_equity_comparison": {
+    "source_id": "BBC-C01",
+    "locator": "Statements of Equity/Cash Flows; Note 11",
+    "sbc_expense": 3509,
+    "sbc_equity": 3522,
+    "share_settlement_cash_tax": 351,
+    "share_withholding_equity": 325,
+    "repurchase_note": 12677,
+    "repurchase_cash": 12596,
+    "repurchase_equity": 12721,
+    "repurchase_shares_m": 50,
+    "repurchase_avg_price": 254.21,
+    "identity": "historical_observation",
+    "unit": "USD millions except shares million and average price USD/share"
+  }
+};

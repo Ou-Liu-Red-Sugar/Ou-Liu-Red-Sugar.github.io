@@ -1,0 +1,748 @@
+{
+  "id": "zh-p31",
+  "node_id": "P31",
+  "lang": "zh",
+  "slug": "dated-cash-outcome-risk-reward",
+  "title": "日期现金、结果分布与Risk-Reward",
+  "summary": "用日期现金与同状态普通股结果合并粗权重，区分两种年化、代表点亏损及资金限制。",
+  "subject": "portfolio",
+  "topic": "portfolio-valuation",
+  "kind": "concept",
+  "template": "T5",
+  "role": "核心",
+  "study_time": "18–20分钟；含所选分支与练习",
+  "revised": "2026-09-21",
+  "content_version": "p-bcd-staging-v3",
+  "body_markdown": "一张列着Bull、Base、Bear、Tail四个价格的表，还没有完成风险回报分析。我们还要知道：这些结果属于哪一天，投资者在途中实际付出或收到什么，各类有多少权重，哪些损失可能被代表点遮住，以及有没有资金压力迫使我们到不了终点。\n\n本篇把前面两条支线合起来：P30提供同日期普通股结果，P05提供公司状态与权重。我们沿用2026年9月20日的 Amazon 历史研究，不更新报价或重新估值。读完之后，你应能重算一组结果分布，并解释结论为何会因经营、定价、概率或融资条件的不同而翻转。[^case]\n\n<a id=\"p31-dated-cash\"></a>\n## 1. 先站在同一个股东的现金视角\n\n本案例假设投资者于2026年9月18日以253.71美元买入一股，在2029年12月31日按相应条件值退出，中途分配和个人追加均取零。按实际日期/365.25计算，期间为1200/365.25，即3.2854209446年。没有把这个时间简称为“三年”后直接套立方根。 9月18日是研究采用的参考买入价，而信息截止为9月20日；这不是宣称当时已经成交，也不是仅凭9月18日可得信息完成的样本外回测。\n\n若一般情况下买入付款为 $P_0$，期间实际收到分配 $D_i$、追加付款 $A_j$，期末剩余权益售价 $P_T$，未做再投资合并之前，净损益为\n\n$$\n\\Pi=P_T+\\sum_iD_i-P_0-\\sum_jA_j.\n$$\n\n各笔现金有日期。相同净损益，早收到钱与晚收到钱对持有回报可能不同。存在复杂出入金时，应回到日期现金表，不能仅用 $P_T/P_0-1$。IRR是这条现金路径的结果，不用来生成期末条件价格；多根或无合理根时应保留原流水，而不是挑一个好看的解。[^method]\n\n企业自己的资本开支不是股东个人追加；企业借钱或向其他人增发，也不是原股东自动再付款。Tail中的救援增发已经进入公司现金和期末股数，未参与认购的原股东通过稀释承担影响。若再给该股东虚构一笔个人出资，会重复压低回报。同样，回购已经减少公司现金并改变股份数，不能在每股价值之外另加一份“回购收益”。\n\n<a id=\"p31-mixture\"></a>\n## 2. 从状态集合到结果分布\n\n令 $S_s$ 为互斥穷尽的四类公司状态，$p_s=P(S_s)$，$W_T$ 为同一资金安排下的终点财富。完整分布应满足\n\n$$\nP(W_T\\le w)=\\sum_sp_sP(W_T\\le w\\mid S_s),\n\\qquad E[W_T]=\\sum_sp_sE[W_T\\mid S_s].\n$$\n\n第一个式子把每类内的分布混合起来，第二个式子是全期望公式；期望公式要求财富可积。实际研究可能还不能识别每类的完整分布，于是只提供代表点 $w_s$。此时 $\\widehat E[W_T]=\\sum_sp_sw_s$ 是**四点近似**；除非代表点确为条件均值，否则不要把近似的帽子悄悄去掉。\n\n本案例的四个代表点如下。中途现金为零，所以该情景的一股终点售价也是终财富。[^case]\n\n| 状态 | 采用权重 | 2029年末每股条件值 | 持有期回报 |\n|---|---:|---:|---:|\n| Bull | 31% | 556.443154 | 约+119.32% |\n| Base | 44% | 347.446133 | 约+36.95% |\n| Bear | 20% | 170.383023 | 约−32.84% |\n| Tail | 5% | 39.572843 | 约−84.40% |\n\n因此四点近似期望终财富为\n\n$$\n\\begin{aligned}\n\\widehat E[W_T]\n&=0.31(556.443154)+0.44(347.446133)\\\\\n&\\quad+0.20(170.383023)+0.05(39.572843)\\\\\n&\\approx361.428923.\n\\end{aligned}\n$$\n\n对应期望净收益107.718923、期望持有期回报42.457500%。这些“期望”是基于给定粗权重和代表点的模型量，不保证哪一次投资会得到平均结果。\n\n<a id=\"p31-annualization\"></a>\n## 3. 两种年化为什么不相等\n\n把期望终财富换成年化尺度，得到\n\n$$\nr_{EW}=\\left(\\frac{361.428923090674}{253.71}\\right)^{1/3.285420944559}-1\n=11.372500\\%.\n$$\n\n若先把每个情景年化，再按概率平均，则得到\n\n$$\n\\bar r=\\sum_sp_s\\left[\\left(\\frac{w_s}{253.71}\\right)^{1/T}-1\\right]\n=8.347799\\%.\n$$\n\n一个是在问“期望终财富相当于怎样的恒定复合速度”，另一个是在平均各条路径的年化数，两者的研究对象不同。它们也都不是已经实现的长期几何复合回报。\n\n数学上，当前 $T>1$，函数 $f(x)=(x/P_0)^{1/T}-1$ 在非负财富上凹，所以 $f(\\sum p_s w_s)\\ge\\sum p_sf(w_s)$。当结果并不相同且权重为正时，通常严格不等。若观察期小于一年，幂次改变，这个不等式方向也不能原封不动搬用。真正稳妥的做法，是先说清对象，再按实际日期计算。\n\n<a id=\"p31-loss\"></a>\n## 4. 25%的亏损权重究竟是什么\n\nBear和Tail代表点低于253.71，因此相应权重相加为25%。这只是“**代表点亏损权重**”。真正的亏损概率应是\n\n$$\nP(W_T<P_0)=\\sum_sp_sP(W_T<P_0\\mid S_s).\n$$\n\n如果某类内既有盈利结果又有亏损结果，其代表点盈利并不使整类亏损概率为零。历史案例还给了一些定价参数区间，但它们只改变同一经营资金路径上的倍数和非经营投资参数，不覆盖整类经营世界，不能当作完整条件分布的支持区间。\n\n在**另有证据保证**每类全部结果都落在 $[l_s,u_s]$ 时，才可用\n\n$$\n\\sum_{u_s<P_0}p_s\\ \\le\\ P(W_T<P_0)\\ \\le\\ \\sum_{l_s<P_0}p_s\n$$\n\n得到粗界限。这里用的是严格亏损；若全部结果恰好等于买入成本，并不算亏。当前案例没有满足这种全类支持的证据，因此不能由现有参数区间宣布真实亏损概率是25%或某个漂亮的窄区间。\n\nTail的代表损失约84.4023%，权重5%。这也不是“最坏5%平均损失”，更不表示最多亏84.4%。Tail内部仍可能包含全部损失或比代表点更好的结果。情景名称、尾部分位数与Expected Shortfall是不同对象，不能换名字混用。\n\n<a id=\"p31-alternatives\"></a>\n## 5. 把不同分歧分开比较\n\n先固定四条经营与资金路径、固定条件价格，只改变概率，可以得到：\n\n| 概率判断 | 期望终财富 | 期望终财富年化 | 概率平均路径年化 | 四点亏损权重 |\n|---|---:|---:|---:|---:|\n| adopted | 361.428923 | 11.3725% | 8.3478% | 25% |\n| capital_pressure | 311.496741 | 6.4449% | 2.7394% | 38% |\n| platform_durable | 384.130002 | 13.4567% | 10.7561% | 20% |\n| mixed_retail_pressure | 339.366523 | 9.2577% | 5.8496% | 32% |\n\n接着固定经营路径，分别选择两组业务的低倍数参照。仍是同一公司的既定盈利，只改变市场在该状态下愿意给予的定价：\n\n| 定价框架 | 采用权重下期望终财富 | 年化 | 资本压力权重下期望终财富 | 年化 |\n|---|---:|---:|---:|---:|\n| 原代表定价 | 361.428923 | 11.3725% | 311.496741 | 6.4449% |\n| AWS低倍数 | 320.947728 | 7.4177% | 274.839968 | 2.4648% |\n| 非AWS低倍数 | 332.335042 | 8.5637% | 285.289320 | 3.6352% |\n| 两组均低倍数 | 291.853847 | 4.3553% | 248.632547 | −0.6134% |\n\n四种定价乘四套概率，共有16组已保存的结果。它们不是16种新经营预测。真正改变需求、成本或资本的具名经营替代，在P04实验中单独查看；不要把一个“悲观开关”同时改利润、倍数和权重，却不说明经济理由。\n\n历史研究另用4.83%的三年美债收益率作常利率再投比较，将253.71延长至同一终点，得到296.238403。它没有指定一只完全匹配3.2854年期限的证券，也没有完整处理票息、再投资与交易税费，因而是近似资本用途基准，不是本公司的折现率或必要回报率。\n\n可以看到，两组低倍数下的采用分布终财富291.853847已经低于这一近似基准；再采用资本压力权重则低于本金。这个结果说明结论依赖哪些条件，并不证明这些不利条件必然同时发生。\n\n<a id=\"p31-flip\"></a>\n## 6. 概率要改变多少，比较才会翻转\n\n我们还可以明确一次有边界的反向问题：固定所有价格与Base/Tail权重，只把 $\\delta$ 从Bull转到Bear。新的期望财富为\n\n$$\n\\widehat E_\\delta[W_T]=\\widehat E_0[W_T]-\\delta(w_{Bull}-w_{Bear}).\n$$\n\n若要与指定目标 $K$ 相等，则\n\n$$\n\\delta=\\frac{\\widehat E_0[W_T]-K}{w_{Bull}-w_{Bear}},\n\\qquad 0\\le\\delta\\le p_{Bull}.\n$$\n\n对近似国债终值296.238403，转移约16.886105个百分点；对本金253.71，转移约27.902110个百分点。它们都在原Bull31%的可转移范围内。若分母为零或所需转移超过可用权重，就不能宣称这条特定转移路径上存在可行翻转。\n\n这两个数不等于市场隐含概率，也不是所有可能概率变化的通用阈值。只移动Tail，或同时改变条件价格，会产生不同结果。反向问题的价值在于把“我对哪个判断还不放心”变得具体，而不是给一个单一股价赋予唯一信念。\n\n<a id=\"p31-experiment\"></a>\n## 7. 操作与迁移\n\n<div data-experiment-slot=\"EXP-P31-RISK-REWARD\"></div>\n\n[打开Risk-Reward实验](/notebook/labs/p-bcd/interactions.html#EXP-P31-RISK-REWARD)。先只切换概率，保持定价不变；再只切换定价。观察终财富、两种年化与亏损权重哪些变化、哪些不变。图中两条参考线分别标出本金和近似国债终财富，图下注明其身份。无脚本时，上述两表就是默认和主要对照结果，完整16组表也保留在实验静态区。\n\n最后返回P04的现金路径：高终值并不能支付之前已经到期的账款。这里的终点普通股价值依赖条件融资路径能够走通。即使某状态的利润最终恢复，季度内部融资关闭、抵押分割或资金晚到也可能迫使调整。这一层不应被期望终财富的单一均值盖住。\n\n<a id=\"p31-exercises\"></a>\n**解释题。** 某状态权重40%，代表点高于买入价。为什么不能直接认为这40%全部是盈利概率？\n\n**解析。** 代表点没有描述类内分布。若该类有一半结果亏损，其对总亏损概率贡献就是20%；若全部盈利才贡献零。缺少类内权重时应保留未知或有证据的界限，不能从一个代表点反推整类。当前AMZN参数区间不具完整支持身份，不能拿来填补这个缺口。\n\n**计算题。** 另一个纯教学投资本金100，两个互斥状态权重各50%。第一类总是终值150；第二类内部以各50%得到80或120。求期望终值与真正亏损概率，并比较只用第二类中点100的两点近似。\n\n**解析。** 第二类条件均值为100，总期望 $0.5\\times150+0.5\\times100=125$。真正亏损概率为 $0.5\\times0.5=25\\%$。若只用150与100两个点，期望恰好仍是125，但严格亏损点权重为零。即使代表点碰巧等于条件均值，它也不一定保留亏损概率；均值信息不能代替分布。\n\n**日期题。** 本金100，两年后股票卖得100，一年末还收过10股息。无再投资时净损益多少？若把股息在收到后按明确的5%利率投资一年，终财富又是多少？\n\n**解析。** 无再投资净损益为10，现金日期是−100、+10、+100，不能仅据终股价说回报为零。若确实按5%再投，终财富为 $100+10\\times1.05=110.5$。此时不能再把原10股息加一次。该5%是题目给定的现金安排，不用于股票估值；税费、再投资可得性亦按题目假设。\n\n**结论题。** 两低倍数和资本压力权重下年化为−0.6134%，是否足以证明原研究“必然亏损”？\n\n**解析。** 不足。它说明在这组具名条件和概率近似下，期望终财富略低于本金。我们应该检查低资本转化的定价解释、资本压力的证据及共同成立条件，而不是把敏感性结果当成事件已经发生。同样，原采用分布的11.3725%也不是回报保证。Risk-Reward的结论应保留条件、替代与途中资金，而不是只留下一个漂亮年化数。\n\n[^case]: [CASE-AMZN-20260920](/zh/notebook/amzn-research-20260920/#case-amzn-distributions)，冻结报价、日期、四状态价格、四套权重和16组已算分布；资本用途比较沿同一历史版本，不使用现在报价。\n[^method]: [日期股东结果短参考](/zh/notebook/conditional-pricing-common-equity-risk-reward/#pm-conditional-rr-dated-shareholder-results)。收益口径延续P02：外部出入金、公司内部资金与分红再投资分别记账。\n",
+  "prompt": "你正在教授P31《日期现金、结果分布与Risk-Reward》，读者具有高年级本科至研究生数学背景。\n\n先确认本次节点和读者所选分支。先实际取得required_readings中该范围的全部完整单元，核对版本、期间、币种与模型身份；目录、摘要、搜索节选和成功打开标题不算正文。记录实际工具/文件、单元起止、读到的关键约定及其支持范围，runtime_reading_log从空表开始，不预填“已读”。本站方法和公司案例从access.uri所列公开正文读取，外部原件从指定URL读取；不得假设访问任何私人盘符。读取失败先用明示的已核等价来源，仍缺则具体说明缺的单元，不凭记忆声称已核该事实。读者要求直接讲解时可直接推进；互动时一次要求一个完整推理任务，不逐格问四则运算。引用紧随所用材料。案例固定2026-09-20信息与2026-09-18价格，不更新报价、不接账户、不重估公司；不执行或换名恢复股票DCF/WACC。所有操作标原状态、具名已算替代或纯教学扰动，不能把点击当新增证据。最后用迁移题检验，给完整解析，并指出剩余条件。\n\n本篇任务与反馈尺度：\n先让读者列−253.71和2029末一股售价两笔现金，核1200/365.25；企业救援发行不是旧股东强制追加。由全概率/全期望公式接四代表点，保留近似身份；重算361.428923、11.372500%及8.347799%，并用非线性/Jensen解释T>1的方向。严格亏损的等号边界须说清。用第二类80/120的练习证明条件均值可能保留ETW却丢失亏损概率；当前参数区间没有全类支持身份。实验只在4定价×4权重16项内切换，具名经营替代另回P04。Tail损失84.4023不是最坏5%平均。概率翻转固定原价格和Base/Tail；16.886105pp不是通用隐含概率。最后用一年末股息再投资题检验日期现金和不重复计利。",
+  "sources": [
+    "PBCD-METHOD-RR",
+    "PBCD-CASE-AMZN"
+  ],
+  "anchors": [
+    {
+      "id": "p31-dated-cash",
+      "title": "1. 先站在同一个股东的现金视角",
+      "kind": "section",
+      "preview": "1. 先站在同一个股东的现金视角 本案例假设投资者于2026年9月18日以253.71美元买入一股，在2029年12月31日按相应条件值退出，中途分配和个人追加均取零。按实际日期/365.25计算，期间为1200/365.25，即3.2854209446年。没有把这个时间简称为“三年”后直接套立方根。 9月18日是研究采用的参考买入价，而信息截止为9月20日；这不是宣称当时已经成交，也不是仅凭9月18日可得信息完成的样本外回测。 若一般"
+    },
+    {
+      "id": "p31-mixture",
+      "title": "2. 从状态集合到结果分布",
+      "kind": "section",
+      "preview": "2. 从状态集合到结果分布 令 S_s 为互斥穷尽的四类公司状态，p_s=P(S_s)，W_T 为同一资金安排下的终点财富。完整分布应满足 P(W_T\\le w)=\\sum_sp_sP(W_T\\le w\\mid S_s), \\qquad E[W_T]=\\sum_sp_sE[W_T\\mid S_s]. 第一个式子把每类内的分布混合起来，第二个式子是全期望公式；期望公式要求财富可积。实际研究可能还不能识别每类的完整分布，于是只提供代表点 w"
+    },
+    {
+      "id": "p31-annualization",
+      "title": "3. 两种年化为什么不相等",
+      "kind": "section",
+      "preview": "3. 两种年化为什么不相等 把期望终财富换成年化尺度，得到 r_{EW}=\\left(\\frac{361.428923090674}{253.71}\\right)^{1/3.285420944559}-1 =11.372500\\%. 若先把每个情景年化，再按概率平均，则得到 \\bar r=\\sum_sp_s\\left[\\left(\\frac{w_s}{253.71}\\right)^{1/T}-1\\right] =8.347799\\%. "
+    },
+    {
+      "id": "p31-loss",
+      "title": "4. 25%的亏损权重究竟是什么",
+      "kind": "section",
+      "preview": "4. 25%的亏损权重究竟是什么 Bear和Tail代表点低于253.71，因此相应权重相加为25%。这只是“代表点亏损权重”。真正的亏损概率应是 P(W_T<P_0)=\\sum_sp_sP(W_T<P_0\\mid S_s). 如果某类内既有盈利结果又有亏损结果，其代表点盈利并不使整类亏损概率为零。历史案例还给了一些定价参数区间，但它们只改变同一经营资金路径上的倍数和非经营投资参数，不覆盖整类经营世界，不能当作完整条件分布的支持区间。 "
+    },
+    {
+      "id": "p31-alternatives",
+      "title": "5. 把不同分歧分开比较",
+      "kind": "section",
+      "preview": "5. 把不同分歧分开比较 先固定四条经营与资金路径、固定条件价格，只改变概率，可以得到： 概率判断 期望终财富 期望终财富年化 概率平均路径年化 四点亏损权重 ------:---:---:---: adopted 361.428923 11.3725% 8.3478% 25% capital_pressure 311.496741 6.4449% 2.7394% 38% platform_durable 384.130002 13.4"
+    },
+    {
+      "id": "p31-flip",
+      "title": "6. 概率要改变多少，比较才会翻转",
+      "kind": "section",
+      "preview": "6. 概率要改变多少，比较才会翻转 我们还可以明确一次有边界的反向问题：固定所有价格与Base/Tail权重，只把 \\delta 从Bull转到Bear。新的期望财富为 \\widehat E_\\delta[W_T]=\\widehat E_0[W_T]-\\delta(w_{Bull}-w_{Bear}). 若要与指定目标 K 相等，则 \\delta=\\frac{\\widehat E_0[W_T]-K}{w_{Bull}-w_{Bear}}"
+    },
+    {
+      "id": "p31-experiment",
+      "title": "7. 操作与迁移",
+      "kind": "section",
+      "preview": "7. 操作与迁移 [打开Risk-Reward实验](/notebook/labs/p-bcd/interactions.htmlEXP-P31-RISK-REWARD)。先只切换概率，保持定价不变；再只切换定价。观察终财富、两种年化与亏损权重哪些变化、哪些不变。图中两条参考线分别标出本金和近似国债终财富，图下注明其身份。无脚本时，上述两表就是默认和主要对照结果，完整16组表也保留在实验静态区。 最后返回P04的现金路径：高终值并不能支付之前已经到期"
+    },
+    {
+      "id": "p31-exercises",
+      "title": "练习与完整解析",
+      "kind": "section",
+      "preview": "解释题。 某状态权重40%，代表点高于买入价。为什么不能直接认为这40%全部是盈利概率？ 解析。 代表点没有描述类内分布。若该类有一半结果亏损，其对总亏损概率贡献就是20%；若全部盈利才贡献零。缺少类内权重时应保留未知或有证据的界限，不能从一个代表点反推整类。当前AMZN参数区间不具完整支持身份，不能拿来填补这个缺口。 计算题。 另一个纯教学投资本金100，两个互斥状态权重各50%。第一类总是终值150；第二类内部以各50%得到80或1"
+    }
+  ],
+  "relations": [
+    {
+      "relation": "part_of",
+      "to": "portfolio-valuation",
+      "reason": "公司投资主线主题",
+      "from": "P31"
+    },
+    {
+      "relation": "requires",
+      "to": "P05",
+      "reason": "本篇承重步骤实际使用该能力",
+      "required_competence": "能解释公司状态权重与证据身份",
+      "from": "P31"
+    },
+    {
+      "relation": "requires",
+      "to": "P30",
+      "reason": "本篇承重步骤实际使用该能力",
+      "required_competence": "能构造同日期普通股结果",
+      "from": "P31"
+    },
+    {
+      "relation": "uses_method",
+      "to": "PM-CONDITIONAL-RR",
+      "reason": "调用短参考中本篇对应的输入输出与条件，不反向要求读完六篇",
+      "from": "P31"
+    },
+    {
+      "relation": "illustrated_by",
+      "to": "CASE-AMZN-20260920",
+      "reason": "固定日期案例；不新建第二个别名案例",
+      "period": "2025Q4–2029",
+      "cutoff": "2026-09-20",
+      "from": "P31"
+    },
+    {
+      "relation": "uses_method",
+      "to": "P02",
+      "reason": "日期现金与回报定义在本文就地给出；P-A已交付，本包不重新发布",
+      "scope": "正式站点接入时解析P02既有身份",
+      "from": "P31"
+    },
+    {
+      "from": "P31#p31-experiment",
+      "relation": "illustrated_by",
+      "to": "EXP-P31-RISK-REWARD",
+      "at_section": "p31-experiment",
+      "reason": "用日期现金与同状态普通股结果合并粗权重，区分两种年化、代表点亏损及资金限制。"
+    }
+  ],
+  "agent_packet": {
+    "export_mode": "public",
+    "required_readings": [
+      {
+        "source_id": "PBCD-METHOD-RR",
+        "title": "业务状态下的条件定价、普通股桥与Risk-Reward",
+        "version": "2026-09-21 局部准确摘编",
+        "access": {
+          "kind": "site_body",
+          "uri": "https://ou-liu-red-sugar.github.io/zh/notebook/conditional-pricing-common-equity-risk-reward/",
+          "availability": "staged_site_body; accessible after adoption"
+        },
+        "required_unit": {
+          "locator": "pm-conditional-rr-dated-shareholder-results",
+          "scope": "完整日期结果节",
+          "purpose": "投资者与企业现金分开"
+        },
+        "supports": "规定估值组、盈利/参照、普通股桥、状态权重和日期现金的输入输出与边界。",
+        "authors": [
+          "本站方法"
+        ]
+      },
+      {
+        "source_id": "PBCD-CASE-AMZN",
+        "title": "Amazon：2026-09-20历史条件研究案例",
+        "version": "研究截止2026-09-20；教学摘编2026-09-21",
+        "access": {
+          "kind": "site_body",
+          "uri": "https://ou-liu-red-sugar.github.io/zh/notebook/amzn-research-20260920/",
+          "availability": "staged_site_body; accessible after adoption"
+        },
+        "required_unit": {
+          "locator": "case-amzn-probabilities、case-amzn-equity、case-amzn-distributions",
+          "scope": "所用状态、终点、权重及16组分布",
+          "purpose": "代表点近似、零途中现金和恒利率比较"
+        },
+        "supports": "原研究的事实/分析代理、四条未来路径、5项具名替代、4套权重与16组已算分布。报价冻结，代表点不是条件均值。",
+        "authors": [
+          "本站历史研究"
+        ]
+      }
+    ],
+    "optional_readings": [],
+    "runtime_reading_log": [],
+    "supplied_inputs": {
+      "case_id": "CASE-AMZN-20260920",
+      "uri": "https://ou-liu-red-sugar.github.io/notebook/labs/p-bcd/inputs.json",
+      "identity": "冻结2026-09-20输入；不同JSON字段保留事实/假设/条件结果身份",
+      "selected_keys": [
+        "case_id",
+        "metadata",
+        "states",
+        "probabilities",
+        "pricing",
+        "identity_notes",
+        "teaching_examples"
+      ],
+      "data": {
+        "case_id": "CASE-AMZN-20260920",
+        "metadata": {
+          "information_cutoff": "2026-09-20",
+          "purchase_date": "2026-09-18",
+          "valuation_date": "2029-12-31",
+          "purchase_price": 253.71,
+          "currency": "USD",
+          "money_unit": "billion",
+          "share_unit": "billion",
+          "quote_type": "regular_close",
+          "quote_time": "16:00 EDT",
+          "years": 3.2854209445585214,
+          "cash_distributions": 0,
+          "original_shareholder_additional_cash": 0,
+          "result_identity": "历史研究的未来条件结果；不是当期目标价；期间分配为零；救援发行不等于原股东强制追加现金"
+        },
+        "states": [
+          "Bull",
+          "Base",
+          "Bear",
+          "Tail"
+        ],
+        "probabilities": {
+          "adopted": {
+            "Bull": 0.31,
+            "Base": 0.44,
+            "Bear": 0.2,
+            "Tail": 0.05
+          },
+          "capital_pressure": {
+            "Bull": 0.2,
+            "Base": 0.42,
+            "Bear": 0.3,
+            "Tail": 0.08
+          },
+          "platform_durable": {
+            "Bull": 0.37,
+            "Base": 0.43,
+            "Bear": 0.16,
+            "Tail": 0.04
+          },
+          "mixed_retail_pressure": {
+            "Bull": 0.27,
+            "Base": 0.41,
+            "Bear": 0.26,
+            "Tail": 0.06
+          }
+        },
+        "pricing": {
+          "representative": {
+            "prices": {
+              "Bull": 556.4431539969916,
+              "Base": 347.4461331923256,
+              "Bear": 170.3830229466745,
+              "Tail": 39.57284315295868
+            },
+            "distributions": {
+              "adopted": {
+                "identity": "weighted representative-point discrete approximation; not identified conditional means",
+                "weights": {
+                  "Bull": 0.31,
+                  "Base": 0.44,
+                  "Bear": 0.2,
+                  "Tail": 0.05
+                },
+                "expected_terminal_wealth": 361.4289230906735,
+                "annualized_expected_terminal_wealth": 0.11372500084263093,
+                "probability_weighted_annualized_return": 0.08347799170226604,
+                "representative_point_loss_probability": 0.25,
+                "benchmark_terminal_wealth": 296.2384031031345,
+                "expected_net_gain": 107.71892309067348,
+                "expected_holding_return": 0.42457499937201315,
+                "arithmetic_fields_derived_from_frozen_inputs": [
+                  "expected_net_gain",
+                  "expected_holding_return"
+                ]
+              },
+              "capital_pressure": {
+                "identity": "weighted representative-point discrete approximation; not identified conditional means",
+                "weights": {
+                  "Bull": 0.2,
+                  "Base": 0.42,
+                  "Bear": 0.3,
+                  "Tail": 0.08
+                },
+                "expected_terminal_wealth": 311.49674107641414,
+                "annualized_expected_terminal_wealth": 0.06444851095331705,
+                "probability_weighted_annualized_return": 0.02739362318963135,
+                "representative_point_loss_probability": 0.38,
+                "benchmark_terminal_wealth": 296.2384031031345,
+                "expected_net_gain": 57.78674107641413,
+                "expected_holding_return": 0.22776690345833472,
+                "arithmetic_fields_derived_from_frozen_inputs": [
+                  "expected_net_gain",
+                  "expected_holding_return"
+                ]
+              },
+              "platform_durable": {
+                "identity": "weighted representative-point discrete approximation; not identified conditional means",
+                "weights": {
+                  "Bull": 0.37,
+                  "Base": 0.43,
+                  "Bear": 0.16,
+                  "Tail": 0.04
+                },
+                "expected_terminal_wealth": 384.1300016491731,
+                "annualized_expected_terminal_wealth": 0.13456741963153296,
+                "probability_weighted_annualized_return": 0.10756073466601901,
+                "representative_point_loss_probability": 0.2,
+                "benchmark_terminal_wealth": 296.2384031031345,
+                "expected_net_gain": 130.4200016491731,
+                "expected_holding_return": 0.5140514825949829,
+                "arithmetic_fields_derived_from_frozen_inputs": [
+                  "expected_net_gain",
+                  "expected_holding_return"
+                ]
+              },
+              "mixed_retail_pressure": {
+                "identity": "weighted representative-point discrete approximation; not identified conditional means",
+                "weights": {
+                  "Bull": 0.27,
+                  "Base": 0.41,
+                  "Bear": 0.26,
+                  "Tail": 0.06
+                },
+                "expected_terminal_wealth": 339.3665227433541,
+                "annualized_expected_terminal_wealth": 0.09257717616699845,
+                "probability_weighted_annualized_return": 0.05849624773953117,
+                "representative_point_loss_probability": 0.32,
+                "benchmark_terminal_wealth": 296.2384031031345,
+                "expected_net_gain": 85.65652274335409,
+                "expected_holding_return": 0.3376158714412285,
+                "arithmetic_fields_derived_from_frozen_inputs": [
+                  "expected_net_gain",
+                  "expected_holding_return"
+                ]
+              }
+            }
+          },
+          "aws_low": {
+            "prices": {
+              "Bull": 501.9201160419391,
+              "Base": 307.23516017809226,
+              "Bear": 142.662843118597,
+              "Tail": 32.729060876469404
+            },
+            "distributions": {
+              "adopted": {
+                "identity": "weighted representative-point discrete approximation; not identified conditional means",
+                "weights": {
+                  "Bull": 0.31,
+                  "Base": 0.44,
+                  "Bear": 0.2,
+                  "Tail": 0.05
+                },
+                "expected_terminal_wealth": 320.9477281189046,
+                "annualized_expected_terminal_wealth": 0.07417660466152975,
+                "probability_weighted_annualized_return": 0.04260405124858831,
+                "representative_point_loss_probability": 0.25,
+                "benchmark_terminal_wealth": 296.2384031031345,
+                "expected_net_gain": 67.23772811890458,
+                "expected_holding_return": 0.2650180446923833,
+                "arithmetic_fields_derived_from_frozen_inputs": [
+                  "expected_net_gain",
+                  "expected_holding_return"
+                ]
+              },
+              "capital_pressure": {
+                "identity": "weighted representative-point discrete approximation; not identified conditional means",
+                "weights": {
+                  "Bull": 0.2,
+                  "Base": 0.42,
+                  "Bear": 0.3,
+                  "Tail": 0.08
+                },
+                "expected_terminal_wealth": 274.8399682888832,
+                "annualized_expected_terminal_wealth": 0.024647981645059325,
+                "probability_weighted_annualized_return": -0.013972336275786732,
+                "representative_point_loss_probability": 0.38,
+                "benchmark_terminal_wealth": 296.2384031031345,
+                "expected_net_gain": 21.12996828888319,
+                "expected_holding_return": 0.08328393949344992,
+                "arithmetic_fields_derived_from_frozen_inputs": [
+                  "expected_net_gain",
+                  "expected_holding_return"
+                ]
+              },
+              "platform_durable": {
+                "identity": "weighted representative-point discrete approximation; not identified conditional means",
+                "weights": {
+                  "Bull": 0.37,
+                  "Base": 0.43,
+                  "Bear": 0.16,
+                  "Tail": 0.04
+                },
+                "expected_terminal_wealth": 341.9567791461314,
+                "annualized_expected_terminal_wealth": 0.0951087194514817,
+                "probability_weighted_annualized_return": 0.06691970990061341,
+                "representative_point_loss_probability": 0.2,
+                "benchmark_terminal_wealth": 296.2384031031345,
+                "expected_net_gain": 88.24677914613139,
+                "expected_holding_return": 0.3478253878291411,
+                "arithmetic_fields_derived_from_frozen_inputs": [
+                  "expected_net_gain",
+                  "expected_holding_return"
+                ]
+              },
+              "mixed_retail_pressure": {
+                "identity": "weighted representative-point discrete approximation; not identified conditional means",
+                "weights": {
+                  "Bull": 0.27,
+                  "Base": 0.41,
+                  "Bear": 0.26,
+                  "Tail": 0.06
+                },
+                "expected_terminal_wealth": 300.54092986776476,
+                "annualized_expected_terminal_wealth": 0.052911001655461254,
+                "probability_weighted_annualized_return": 0.017289746862522194,
+                "representative_point_loss_probability": 0.32,
+                "benchmark_terminal_wealth": 296.2384031031345,
+                "expected_net_gain": 46.83092986776475,
+                "expected_holding_return": 0.18458448570322328,
+                "arithmetic_fields_derived_from_frozen_inputs": [
+                  "expected_net_gain",
+                  "expected_holding_return"
+                ]
+              }
+            }
+          },
+          "retail_low": {
+            "prices": {
+              "Bull": 518.7315541002855,
+              "Base": 316.295337911165,
+              "Bear": 153.7165513620935,
+              "Tail": 32.3000212248235
+            },
+            "distributions": {
+              "adopted": {
+                "identity": "weighted representative-point discrete approximation; not identified conditional means",
+                "weights": {
+                  "Bull": 0.31,
+                  "Base": 0.44,
+                  "Bear": 0.2,
+                  "Tail": 0.05
+                },
+                "expected_terminal_wealth": 332.33504178566096,
+                "annualized_expected_terminal_wealth": 0.08563661920994514,
+                "probability_weighted_annualized_return": 0.05434228003363471,
+                "representative_point_loss_probability": 0.25,
+                "benchmark_terminal_wealth": 296.2384031031345,
+                "expected_net_gain": 78.62504178566095,
+                "expected_holding_return": 0.3099012328471915,
+                "arithmetic_fields_derived_from_frozen_inputs": [
+                  "expected_net_gain",
+                  "expected_holding_return"
+                ]
+              },
+              "capital_pressure": {
+                "identity": "weighted representative-point discrete approximation; not identified conditional means",
+                "weights": {
+                  "Bull": 0.2,
+                  "Base": 0.42,
+                  "Bear": 0.3,
+                  "Tail": 0.08
+                },
+                "expected_terminal_wealth": 285.2893198493603,
+                "annualized_expected_terminal_wealth": 0.03635196615726377,
+                "probability_weighted_annualized_return": -0.001923265807132167,
+                "representative_point_loss_probability": 0.38,
+                "benchmark_terminal_wealth": 296.2384031031345,
+                "expected_net_gain": 31.579319849360303,
+                "expected_holding_return": 0.12447014248299348,
+                "arithmetic_fields_derived_from_frozen_inputs": [
+                  "expected_net_gain",
+                  "expected_holding_return"
+                ]
+              },
+              "platform_durable": {
+                "identity": "weighted representative-point discrete approximation; not identified conditional means",
+                "weights": {
+                  "Bull": 0.37,
+                  "Base": 0.43,
+                  "Bear": 0.16,
+                  "Tail": 0.04
+                },
+                "expected_terminal_wealth": 353.8243193858345,
+                "annualized_expected_terminal_wealth": 0.1065396937848615,
+                "probability_weighted_annualized_return": 0.07855824157161317,
+                "representative_point_loss_probability": 0.2,
+                "benchmark_terminal_wealth": 296.2384031031345,
+                "expected_net_gain": 100.11431938583448,
+                "expected_holding_return": 0.39460139287310114,
+                "arithmetic_fields_derived_from_frozen_inputs": [
+                  "expected_net_gain",
+                  "expected_holding_return"
+                ]
+              },
+              "mixed_retail_pressure": {
+                "identity": "weighted representative-point discrete approximation; not identified conditional means",
+                "weights": {
+                  "Bull": 0.27,
+                  "Base": 0.41,
+                  "Bear": 0.26,
+                  "Tail": 0.06
+                },
+                "expected_terminal_wealth": 311.64291277828846,
+                "annualized_expected_terminal_wealth": 0.06460052109503844,
+                "probability_weighted_annualized_return": 0.02938465337265891,
+                "representative_point_loss_probability": 0.32,
+                "benchmark_terminal_wealth": 296.2384031031345,
+                "expected_net_gain": 57.932912778288454,
+                "expected_holding_return": 0.22834304039371123,
+                "arithmetic_fields_derived_from_frozen_inputs": [
+                  "expected_net_gain",
+                  "expected_holding_return"
+                ]
+              }
+            }
+          },
+          "both_low": {
+            "prices": {
+              "Bull": 464.20851614523303,
+              "Base": 276.08436489693173,
+              "Bear": 125.99637153401603,
+              "Tail": 25.45623894833421
+            },
+            "distributions": {
+              "adopted": {
+                "identity": "weighted representative-point discrete approximation; not identified conditional means",
+                "weights": {
+                  "Bull": 0.31,
+                  "Base": 0.44,
+                  "Bear": 0.2,
+                  "Tail": 0.05
+                },
+                "expected_terminal_wealth": 291.8538468138921,
+                "annualized_expected_terminal_wealth": 0.043552908344197894,
+                "probability_weighted_annualized_return": 0.01050543847442972,
+                "representative_point_loss_probability": 0.25,
+                "benchmark_terminal_wealth": 296.2384031031345,
+                "expected_net_gain": 38.14384681389211,
+                "expected_holding_return": 0.1503442781675619,
+                "arithmetic_fields_derived_from_frozen_inputs": [
+                  "expected_net_gain",
+                  "expected_holding_return"
+                ]
+              },
+              "capital_pressure": {
+                "identity": "weighted representative-point discrete approximation; not identified conditional means",
+                "weights": {
+                  "Bull": 0.2,
+                  "Base": 0.42,
+                  "Bear": 0.3,
+                  "Tail": 0.08
+                },
+                "expected_terminal_wealth": 248.63254706182948,
+                "annualized_expected_terminal_wealth": -0.006134289196877973,
+                "probability_weighted_annualized_return": -0.0465101641443272,
+                "representative_point_loss_probability": 0.38,
+                "benchmark_terminal_wealth": 296.2384031031345,
+                "expected_net_gain": -5.077452938170524,
+                "expected_holding_return": -0.020012821481890875,
+                "arithmetic_fields_derived_from_frozen_inputs": [
+                  "expected_net_gain",
+                  "expected_holding_return"
+                ]
+              },
+              "platform_durable": {
+                "identity": "weighted representative-point discrete approximation; not identified conditional means",
+                "weights": {
+                  "Bull": 0.37,
+                  "Base": 0.43,
+                  "Bear": 0.16,
+                  "Tail": 0.04
+                },
+                "expected_terminal_wealth": 311.6510968827928,
+                "annualized_expected_terminal_wealth": 0.06460903062550782,
+                "probability_weighted_annualized_return": 0.03506603435849147,
+                "representative_point_loss_probability": 0.2,
+                "benchmark_terminal_wealth": 296.2384031031345,
+                "expected_net_gain": 57.94109688279278,
+                "expected_holding_return": 0.22837529810725932,
+                "arithmetic_fields_derived_from_frozen_inputs": [
+                  "expected_net_gain",
+                  "expected_holding_return"
+                ]
+              },
+              "mixed_retail_pressure": {
+                "identity": "weighted representative-point discrete approximation; not identified conditional means",
+                "weights": {
+                  "Bull": 0.27,
+                  "Base": 0.41,
+                  "Bear": 0.26,
+                  "Tail": 0.06
+                },
+                "expected_terminal_wealth": 272.8173199026991,
+                "annualized_expected_terminal_wealth": 0.02234686284916987,
+                "probability_weighted_annualized_return": -0.014897488794448313,
+                "representative_point_loss_probability": 0.32,
+                "benchmark_terminal_wealth": 296.2384031031345,
+                "expected_net_gain": 19.107319902699118,
+                "expected_holding_return": 0.07531165465570577,
+                "arithmetic_fields_derived_from_frozen_inputs": [
+                  "expected_net_gain",
+                  "expected_holding_return"
+                ]
+              }
+            }
+          }
+        },
+        "identity_notes": {
+          "market_debt": "期末有息借款余额（模型口径），不是未来债券市场公允价值",
+          "cash": "期末账面可用现金/证券模型余额，经营保留未被支出",
+          "finance_claims": "融资租赁及融资义务；与有息借款分列",
+          "investment_net": "已扣模型实现税的非经营投资；不是流动性储备",
+          "other_claims": "模型取0；未作全体潜在权利为零的审计结论",
+          "pricing_range": "同一经营/资金路径的定价参数范围；不是置信区间或条件支持",
+          "probability": "主观粗判断，不是统计后验；按钮操作不新增研究证据",
+          "quarters": "每季已继承此前融资；融资前余额不是全期无融资轨迹，也不保证季内资金充足",
+          "quote_vs_cutoff": "9月18日参考进入价格，9月20日研究信息截止；无实际成交或仅用9月18日信息的样本外回测声明。",
+          "share_count_proxy": "11.0274十亿股是冻结模型规划代理：10.783普通股 + 0.2444 outstanding RSU；公司另披露普通股加全部 outstanding stock awards 对应股份约11.0十亿股。该代理不是官方完全稀释股数，也不是EPS加权平均股数。"
+        },
+        "teaching_examples": {
+          "mixed_equity_bridge": {
+            "industrial_ev": 600,
+            "industrial_debt": 120,
+            "bank_equity": 200,
+            "bank_debt_already_in_equity": 1000,
+            "nonoperating_cash": 30,
+            "parent_debt": 40,
+            "shares": 10,
+            "common_equity": 670,
+            "price": 67,
+            "identity": "纯教学设定；不是任何公司披露"
+          },
+          "brier": {
+            "hypothetical_observation": "Base",
+            "adopted": 0.4522,
+            "capital_pressure": 0.4728,
+            "normalization": "sum over four classes, no one-half; range0–2"
+          }
+        }
+      }
+    },
+    "reading_resolution": "Use public access.uri and its specified complete unit; the teaching runtime must actually fetch it. Site candidates are not claimed publicly published.",
+    "experiment_ids": [
+      "EXP-P31-RISK-REWARD"
+    ]
+  },
+  "experiments": [
+    {
+      "id": "EXP-P31-RISK-REWARD",
+      "title": "日期现金、结果分布与Risk-Reward",
+      "anchor": "p31-experiment",
+      "description": "用日期现金与同状态普通股结果合并粗权重，区分两种年化、代表点亏损及资金限制。",
+      "inputs": {
+        "pricing_id": {
+          "allowed": [
+            "representative",
+            "aws_low",
+            "retail_low",
+            "both_low"
+          ],
+          "default": "representative"
+        },
+        "weight_id": {
+          "allowed": [
+            "adopted",
+            "capital_pressure",
+            "platform_durable",
+            "mixed_retail_pressure"
+          ],
+          "default": "adopted"
+        },
+        "flip_target": {
+          "allowed": [
+            "treasury",
+            "capital"
+          ],
+          "default": "treasury"
+        }
+      },
+      "outputs": {
+        "distribution": "ETW, net gain, HPR, annETW, mean path annual, representative loss mass, Tail representative loss",
+        "flip": "fixed original probability transfer only"
+      },
+      "units": {
+        "money": "USD billion for company amounts; USD per share for outcomes",
+        "shares": "billion",
+        "probabilities": "fractions summing to one"
+      },
+      "identity": "frozen dated research or explicitly marked bounded teaching arithmetic",
+      "static_equivalent": {
+        "reader": "https://ou-liu-red-sugar.github.io/zh/notebook/dated-cash-outcome-risk-reward/#p31-experiment",
+        "lab": "https://ou-liu-red-sugar.github.io/notebook/labs/p-bcd/interactions.html#EXP-P31-RISK-REWARD",
+        "without_javascript": "默认完整表和主要对照保留；不把参数规格当运行结果"
+      },
+      "algorithm": "engine.distribution读取16个已有价格/权重对，复算所有字段；flip始终固定原repr/adopted，不随其他下拉框混算。",
+      "boundaries": [
+        "未知定价/权重拒绝",
+        "无类内支持故不发布true P(loss)",
+        "严格亏损用<",
+        "期间分配/追加0；其他现金例只在练习",
+        "比较利率非估值折现"
+      ],
+      "default_values": {
+        "identity": "weighted representative-point discrete approximation; not identified conditional means",
+        "weights": {
+          "Bull": 0.31,
+          "Base": 0.44,
+          "Bear": 0.2,
+          "Tail": 0.05
+        },
+        "expected_terminal_wealth": 361.4289230906735,
+        "annualized_expected_terminal_wealth": 0.11372500084263093,
+        "probability_weighted_annualized_return": 0.08347799170226604,
+        "representative_point_loss_probability": 0.25,
+        "benchmark_terminal_wealth": 296.2384031031345,
+        "expected_net_gain": 107.71892309067348,
+        "expected_holding_return": 0.42457499937201315,
+        "arithmetic_fields_derived_from_frozen_inputs": [
+          "expected_net_gain",
+          "expected_holding_return"
+        ]
+      },
+      "inputs_uri": "https://ou-liu-red-sugar.github.io/notebook/labs/p-bcd/inputs.json"
+    }
+  ],
+  "status": "candidate_local_review",
+  "provenance": {
+    "source_package": "docs/production/20260921/drafts/p-bcd-v2",
+    "source_version": "2026-09-21-review-v2",
+    "author_review_identity": "same-author xhigh review; not independent",
+    "independent_review": "docs/production/20260921/receipts/p-bcd-independent-draft-review.md",
+    "import_status": "staging_only_awaiting_Lead_adoption_and_UI",
+    "frozen_input_numeric_changes": false
+  },
+  "interactions": [
+    {
+      "id": "EXP-P31-RISK-REWARD",
+      "title": "日期现金、结果分布与Risk-Reward",
+      "url": "/notebook/labs/p-bcd/interactions.html#EXP-P31-RISK-REWARD",
+      "height": 760,
+      "open": true,
+      "experiment_id": "EXP-P31-RISK-REWARD",
+      "experiment_ids": [
+        "EXP-P31-RISK-REWARD"
+      ],
+      "inline": true,
+      "static_anchor": "p31-experiment"
+    }
+  ],
+  "references": [
+    {
+      "kind": "source_link",
+      "label": "case",
+      "href": "/zh/notebook/amzn-research-20260920/#case-amzn-distributions",
+      "source_id": "PBCD-CASE-AMZN",
+      "locator": "[CASE-AMZN-20260920](/zh/notebook/amzn-research-20260920/#case-amzn-distributions)，冻结报价、日期、四状态价格、四套权重和16组已算分布；资本用途比较沿同一历史版本，不使用现在报价。"
+    },
+    {
+      "kind": "source_link",
+      "label": "method",
+      "href": "/zh/notebook/conditional-pricing-common-equity-risk-reward/#pm-conditional-rr-dated-shareholder-results",
+      "source_id": "PBCD-METHOD-RR",
+      "locator": "[日期股东结果短参考](/zh/notebook/conditional-pricing-common-equity-risk-reward/#pm-conditional-rr-dated-shareholder-results)。收益口径延续P02：外部出入金、公司内部资金与分红再投资分别记账。"
+    }
+  ]
+}

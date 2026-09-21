@@ -1,0 +1,11 @@
+{{ define "main" }}
+{{ $zh := eq .Lang "zh" }}{{ $path := index (where .Site.Data.notebook.paths "id" .Params.pathid) 0 }}
+<div class="path-shell">
+  <a class="back-link" href="/{{ .Lang }}/notebook/">← {{ if $zh }}主题目录{{ else }}Topic catalogue{{ end }}</a>
+  <header class="page-intro"><p class="eyebrow">{{ if $zh }}可选阅读路线{{ else }}AN OPTIONAL READING PATH{{ end }}</p><h1>{{ $path.title }}</h1><p>{{ $path.summary }}</p></header>
+  <div class="path-intro">{{ with $path.intro }}<p>{{ . }}</p>{{ end }}{{ with $path.steps }}<a class="primary-link" href="{{ (index . 0).url }}">{{ if $zh }}从第一节开始{{ else }}Start reading{{ end }} <span>→</span></a>{{ end }}</div>
+  <ol class="reading-steps">{{ range $index, $step := $path.steps }}<li><div class="step-number">{{ printf "%02d" (add $index 1) }}</div><div>{{ with .label }}<span class="eyebrow">{{ . }}</span>{{ end }}<h2><a href="{{ .url }}">{{ .title }} →</a></h2>{{ with .question }}<p class="step-question">{{ . }}</p>{{ end }}{{ with .transition }}<p class="step-transition">{{ . }}</p>{{ end }}{{ with .branches }}<div class="path-branches">{{ range . }}<a href="{{ .url }}">{{ .title }} ↗</a>{{ end }}</div>{{ end }}</div></li>{{ end }}</ol>
+  {{ with $path.reference_entries }}<aside class="path-reference-list"><h2>{{ if $zh }}随读随查{{ else }}References along the way{{ end }}</h2><p>{{ if $zh }}遇到需要补充的定义或方法时，再打开相应词条。{{ else }}Open a reference when its definition or method is needed.{{ end }}</p><ul>{{ range . }}<li><a href="{{ .url }}">{{ with .node_id }}{{ . }} · {{ end }}{{ .title }} ↗</a></li>{{ end }}</ul></aside>{{ end }}
+  <div class="path-end"><p>{{ if $zh }}路线给出推荐顺序。每篇的必要先修与就地参考另行说明，你也可以直接进入需要的专题。{{ else }}This path suggests an order. Each entry identifies its own prerequisites and local references; you can also enter a topic directly.{{ end }}</p><a href="/{{ .Lang }}/notebook/">{{ if $zh }}返回全部主题{{ else }}Back to all topics{{ end }} →</a></div>
+</div>
+{{ end }}

@@ -1,4 +1,5 @@
 ---
+aliases: ["/invest/log/2026-01-30-backfilled/"]
 title: "Log — 2026-01 — Backfilled (key decisions)"
 description: "Backfilled notes for January 2026 to preserve lessons and reduce memory distortion."
 date: 2026-01-30

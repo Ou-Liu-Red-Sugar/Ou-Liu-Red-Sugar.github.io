@@ -16,6 +16,7 @@ TocOpen: false
 comments: true
 math: true
 aliases:
+  - /notes/stable-doldkan-and-descent/
   - /stable-dold-kan
 ---
 

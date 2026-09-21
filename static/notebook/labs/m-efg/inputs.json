@@ -1,0 +1,237 @@
+{
+  "schema": "markets-mefg-adopted-inputs-v1",
+  "content_version": "2026-09-21-MEFG-draft-v1",
+  "scope": [
+    "M15",
+    "M16",
+    "M17",
+    "M18",
+    "M19",
+    "M20",
+    "M21",
+    "M22",
+    "M23"
+  ],
+  "state_tree": {
+    "experiment_id": "EXP-STATE-01",
+    "source_file": "data/qt-f-shared-state-experiment.json",
+    "source_version": "2026-09-21-v1",
+    "source_sha256": "8489fd3b74f469c3424d32a2b0738280e4e83709f081dfb24282d9afcfa8804b",
+    "source_pointer": "two_state / three_state_incomplete / three_state_augmented_complete",
+    "identity": "Exact received QT-F/M21 frozen contract; file preserved byte-for-byte; generated browser data is a derived copy",
+    "physical_up_probability_variants": [
+      0.2,
+      0.6,
+      0.8,
+      0.9
+    ],
+    "period_unit": "one abstract period; R is gross growth, not annual net rate"
+  },
+  "odd_equal_wealth": {
+    "identity": "OCC ODD June2024 printed p61 hypothetical; exact interest versus rounded official display distinguished",
+    "initial_wealth_usd": 5000,
+    "spot_usd": 50,
+    "strike_usd": 50,
+    "premium_per_share_usd": 5,
+    "shares_per_contract": 100,
+    "stock_position_shares": 100,
+    "mixed_contracts": 1,
+    "all_option_contracts": 10,
+    "mixed_cash_usd": 4500,
+    "simple_annual_cash_rate": 0.0325,
+    "horizon_years": 0.5,
+    "terminal_spots_usd": [
+      62,
+      58,
+      54,
+      50,
+      46,
+      42,
+      38
+    ],
+    "cost_convention": "No fees, tax or stock dividends in base; terminal economic payoff is not a funding guarantee for physical exercise"
+  },
+  "cash_examples": {
+    "identity": "Synthetic amounts under documented product rules; not historical quotes/series/accounts",
+    "equity_call": {
+      "multiplier": 100,
+      "contracts": 1,
+      "strike": 100,
+      "purchase_premium": 4,
+      "later_underlying_bid": 105,
+      "later_option_bid": 6,
+      "later_option_ask": 6.2,
+      "exercise_gross_cash_assumption": 10000,
+      "exercise_model": "sequential gross payment first; no assumed netting/credit; broker policy not inferred"
+    },
+    "spxw_call": {
+      "multiplier_usd_per_point": 100,
+      "strike_points": 5000,
+      "purchase_premium_points": 50,
+      "settlement_value_points": 5025,
+      "shares_delivered": 0
+    },
+    "uncovered_equity_call_margin": {
+      "contract_type": "OCC ordinary equity uncovered call minimum; not ETF/index or broker house rules",
+      "multiplier": 100,
+      "strike": 105,
+      "initial_spot": 100,
+      "initial_option_premium": 4,
+      "later_spot": 120,
+      "later_option_mark": 17,
+      "base_fraction": 0.2,
+      "minimum_call_fraction": 0.1,
+      "other_positions_or_broker_addons": false,
+      "default_external_cash_available": 2200,
+      "model": "cash collateral; liability is mark not daily futures VM; no external deposits beyond the explicitly displayed steps"
+    }
+  },
+  "early_exercise_counterexample": {
+    "identity": "Separate teaching market, not EXP-STATE-01",
+    "spot": 50,
+    "strike": 100,
+    "up_factor": 1.2,
+    "down_factor": 0.9,
+    "gross_cash_growth_per_period": 1.02,
+    "periods": [
+      1,
+      2
+    ],
+    "dividend": 0,
+    "time_unit": "one abstract period; not a year; American exercise at every displayed node"
+  },
+  "parity_quotes": {
+    "identity": "Separate synthetic quote/funding scenario; no friction toggle on EXP-STATE-01",
+    "strike": 105,
+    "gross_cash_growth": 1.02,
+    "stock": {
+      "bid": 99.95,
+      "ask": 100.05
+    },
+    "call": {
+      "bid": 5.8,
+      "ask": 6.2
+    },
+    "put": {
+      "bid": 8.7,
+      "ask": 9.1
+    },
+    "extra_fee_per_underlying_unit": 0,
+    "cost_convention": "same borrowing/lending, zero dividend European same K/T; all legs synchronous and fully fillable only by explicit teaching assumption",
+    "execution_assumptions": {
+      "borrowing": true,
+      "stock_short": true,
+      "synchronous": true,
+      "depth": true,
+      "exercise_terms_match": true
+    },
+    "default_capital_available": 1
+  },
+  "surface": {
+    "experiment_id": "EXP-MEFG-IV-01",
+    "identity": "Entirely synthetic SPX-sized European call/put quotes; actual multiplier/tick only; no historical chain",
+    "quote_date": null,
+    "spot_index_points": 5000,
+    "annual_continuous_rate": 0.04,
+    "annual_continuous_dividend_yield": 0,
+    "dividend_note": "zero is teaching assumption, not S&P500 dividend forecast",
+    "day_count": "ACT/365 teaching whole-day expiries",
+    "strikes_points": [
+      4500,
+      5000,
+      5500
+    ],
+    "maturities": [
+      {
+        "days": 30,
+        "sigma_by_strike": [
+          0.28,
+          0.24,
+          0.22
+        ]
+      },
+      {
+        "days": 90,
+        "sigma_by_strike": [
+          0.27,
+          0.235,
+          0.22
+        ]
+      },
+      {
+        "days": 180,
+        "sigma_by_strike": [
+          0.25,
+          0.23,
+          0.22
+        ]
+      }
+    ],
+    "quote_half_width_points": 0.2,
+    "contract_multiplier_usd_per_point": 100,
+    "min_quote_tick_below3": 0.05,
+    "min_quote_tick_at_or_above3": 0.1,
+    "greek_example": {
+      "strike": 5000,
+      "days": 90,
+      "sigma": 0.235,
+      "spot_changes_points": [
+        50,
+        500
+      ],
+      "vol_changes_absolute": [
+        0.01,
+        0.1
+      ]
+    },
+    "validation_scope": "displayed grid only; not a global no-arbitrage surface or observed chain"
+  },
+  "vix": {
+    "official_sample": {
+      "identity": "Methodology v6.0 Appendix3 explicitly hypothetical (2022-09-27 10:45:15 ET label is not observed VIX)",
+      "minutes_near": 34484,
+      "minutes_next": 44954,
+      "target_minutes": 43200,
+      "year_minutes": 525600,
+      "near_variance": 0.019233906,
+      "next_variance": 0.019423884,
+      "displayed_T_near": 0.0656088,
+      "displayed_T_next": 0.0855289,
+      "displayed_vix": 13.93,
+      "one_strike": {
+        "strike": 1370,
+        "delta_K": 5,
+        "mid_quote": 0.2,
+        "R_rounded": 0.000317,
+        "T_rounded": 0.0656088,
+        "displayed_contribution": 5.328e-07
+      }
+    },
+    "two_term_teaching_variant": {
+      "identity": "separate variance interpolation, not a VIX-strip reproduction",
+      "days_near": 24,
+      "days_next": 36,
+      "target_days": 30,
+      "near_vol": 0.2,
+      "next_vol": 0.24
+    }
+  },
+  "information_example": {
+    "identity": "Synthetic contract volumes classified by initiating side; size-weighted KIT Eq(2), not unweighted transaction counts; not motives",
+    "unit": "option contracts",
+    "buyer_call_contracts": 30,
+    "seller_call_contracts": 10,
+    "buyer_put_contracts": 25,
+    "seller_put_contracts": 35,
+    "non_event_mean_TOI": 0.05,
+    "baseline_window": "non-announcement days tau-40 through tau-10 per paper; 0.05 here a teaching value",
+    "table_2_column_3": {
+      "identity": "published regression coefficients with macro/non-macro separately standardized variables; not raw-return slopes/profits",
+      "OI_coefficient": 0.0033,
+      "OI_macro_interaction": 0.025,
+      "column_1_OI_coefficient": 0.0078,
+      "sample_observations": 51522
+    }
+  },
+  "runtime_reading_log": []
+}

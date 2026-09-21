@@ -1,4 +1,5 @@
 ---
+aliases: ["/invest/reviews/2026-05/"]
 title: "Monthly Review — April & May 2026"
 description: "A quiet April convalescence after the Iran war, then the real event of the period: a ground-up rewrite of the Playbook (v2.0) that retired the sleeve/band framework for an R/D-vs-near-riskless standard — followed by a high-density, FOMO-tinged re-engagement (PDD build, a defense sleeve, the first swing trades) and an unusually rich set of behavioral guardrails."
 date: 2026-05-31

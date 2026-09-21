@@ -1,4 +1,5 @@
 ---
+aliases: ["/invest/playbook/"]
 title: "Working Protocol"
 slug: "playbook"
 description: "The current operating protocol for an investing research framework under live testing."

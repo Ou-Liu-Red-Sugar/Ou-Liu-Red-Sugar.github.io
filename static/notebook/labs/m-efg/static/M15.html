@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="zh"><link href="../styles.css" rel="stylesheet"/><meta charset="utf-8"/><title>M15 静态等价</title><body>
+<h1>M15 静态等价</h1>
+<p>股票／ETF期权通常每份100股／份、美式、实物交付；SPXW为欧式现金、100美元／点。调整合约须重读交付单位。</p>
+<div class="table-wrap"><table><thead><tr><th>默认：买一份股票call</th><th>金额/单位</th></tr></thead><tbody>
+<tr><td>K / 初始premium / 到期股票</td><td>100 / 4 / 110</td></tr>
+<tr><td>初始premium现金</td><td>−400美元</td></tr>
+<tr><td>条件到期支付</td><td>1,000美元</td></tr>
+<tr><td>扣premium名义损益</td><td>600美元</td></tr>
+<tr><td>若行权：毛款 / 股票</td><td>+100股、支付10,000美元</td></tr>
+</tbody></table></div>
+<p>交互中的两条曲线也是“当前选中头寸”的到期支付与扣权利金后的名义损益；二者相差权利金现金，并不是同屏多空支付。</p>
+<div class="table-wrap"><table><thead><tr><th>现金结算SPXW call教学例</th><th>结果</th></tr></thead><tbody>
+<tr><td>K / 结算值 / premium</td><td>5000 / 5025 / 50点</td></tr>
+<tr><td>premium现金</td><td>−5,000美元</td></tr>
+<tr><td>到期现金支付</td><td>+2,500美元</td></tr>
+<tr><td>名义P&amp;L</td><td>−2,500美元</td></tr>
+<tr><td>股票变化 / K×100买股货款</td><td>0股 / 不适用</td></tr>
+</tbody></table></div>
+<p>SPXW持有人取得的是按最终结算值与K计算的正差额现金；写出方承担对应现金义务。100是美元／指数点乘数，不是股票数。</p>
+</body></html>

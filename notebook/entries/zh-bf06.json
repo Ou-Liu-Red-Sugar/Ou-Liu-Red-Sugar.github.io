@@ -1,0 +1,1090 @@
+{
+  "id": "zh-bf06",
+  "node_id": "BF-06",
+  "lang": "zh",
+  "slug": "income-statement-layers",
+  "title": "利润表：收入、成本与利润的层次",
+  "summary": "沿零售和银行各自的经营关系读完整利润表，重建利润层次并解释两期变化。",
+  "subject": "business",
+  "topic": "business-reports",
+  "kind": "concept",
+  "template": "T3",
+  "role": "核心",
+  "study_time": "15–20分钟：共同部分加一条行业分支",
+  "revised": "2026-09-21",
+  "content_version": "bf-bc-staging-v3",
+  "body_markdown": "利润表把一段经营活动压缩成几层结果。它既告诉我们总共赚了多少，也让我们追问：结果是从哪一层形成的？商品售价与采购成本的差额、会员服务收入、银行取得资金所付的利息、信用损失和税项，不应该被混在一个“利润率”里。\n\n这一篇提供零售和银行两条路径。先读共同部分，再选一条完成带读与练习；另一条用来比较。我们保留完整原表，但不要求你依次背诵每行。读表的任务是走通两三个重要关系，然后把它们放回全貌。\n\n<a id=\"bf06-common\"></a>\n## 1. 层次的作用，是分清来源与归属\n\n**收入减去该期间确认的费用，形成相应层次的利润**。但“该层次”非常重要：毛利、经营利润、税前利润、净利润和普通股可归属净利润回答的不是同一个问题。一个差额能否比较，取决于分子分母包含了哪些业务和费用，而不只取决于名称相近。\n\n商品企业常从销售额、商品成本开始，随后扣除门店、人员、营销和管理等期间费用；银行则把利息收入和利息支出作为经营对象的重要两端。我们可以使用同样的加减法，却不能据此假定两种企业的中间指标具有同样的经济含义。[^teaching]\n\n以下均保留原列报的正负号。某些费用以正额列示、计算时再扣除；某些收益行已经带负号，不能再扣一次。全表中的小计和明细是包含关系，不可一起加到总额里。\n\n<div data-reading-branch-controls>\n<button data-select-reading-branch=\"retail\">零售：Costco</button>\n<button data-select-reading-branch=\"bank\">银行：JPMorgan Chase</button>\n<button data-select-reading-branch=\"all\">比较两条路径</button>\n</div>\n\n<section data-reading-branch=\"retail\">\n\n<a id=\"bf06-retail\"></a>\n## 2. 零售：商品差额、会员费与共同经营费用\n\nCostco的商品销售和会员费在利润表中分列。我们先沿货物阅读：卖出的商品带来销售收入，对应商品成本进入本期；接着看会员服务收入，最后才问共同的经营网络消耗了多少期间费用。这比先挑一个净利率，更接近企业如何经营。[^cost]\n\n### 完整合并利润表\n\n金额为**百万美元**；每股金额是**美元／股**；计算使用股数是**千股**。FY2025和FY2024各52周，FY2023为53周。以下按原顺序重排全部金额行，并保留板块及比较期。[^cost]\n\n| 原行名称 | 中文对照 | FY2025 · 2025-08-31 · 52周 | FY2024 · 2024-09-01 · 52周 | FY2023 · 2023-09-03 · 53周 |\n| --- | --- | --- | --- | --- |\n| **REVENUE** | **收入** |  |  |  |\n| Net sales | 净销售额 | 269,912 | 249,625 | 237,710 |\n| Membership fees | 会员费 | 5,323 | 4,828 | 4,580 |\n| **Total revenue** | **收入合计** | 275,235 | 254,453 | 242,290 |\n| **OPERATING EXPENSES** | **经营费用** |  |  |  |\n| Merchandise costs | 商品成本 | 239,886 | 222,358 | 212,586 |\n| Selling, general and administrative | 销售、一般及行政费用 | 24,966 | 22,810 | 21,590 |\n| **Operating income** | **经营利润** | 10,383 | 9,285 | 8,114 |\n| **OTHER INCOME (EXPENSE)** | **其他收益（费用）** |  |  |  |\n| Interest expense | 利息费用 | (154) | (169) | (160) |\n| Interest income and other, net | 利息收入及其他净额 | 589 | 624 | 533 |\n| **Income before income taxes** | **税前利润** | 10,818 | 9,740 | 8,487 |\n| Provision for income taxes | 所得税费用 | 2,719 | 2,373 | 2,195 |\n| **Net income** | **净利润** | 8,099 | 7,367 | 6,292 |\n| **NET INCOME PER COMMON SHARE** | **普通股每股净利润（美元/股）** |  |  |  |\n| Basic | 基本每股净利润 | 18.24 | 16.59 | 14.18 |\n| Diluted | 稀释每股净利润 | 18.21 | 16.56 | 14.16 |\n| **SHARES USED IN CALCULATION (000's)** | **计算使用股数（千股）** |  |  |  |\n| Basic | 基本加权平均股数 | 443,985 | 443,914 | 443,854 |\n| Diluted | 稀释加权平均股数 | 444,803 | 444,759 | 444,452 |\n\n\n### 从商品差额走到经营利润\n\n先算 `269,912 − 239,886 = 30,026`。合并利润表没有把这个差额单独列为一行，但Costco的MD&A明确将它命名为 **Gross Margin**，并以净销售额为分母计算毛利率。2025年为约11.12%，2024年为10.92%。所以这里不是我们另造了一种指标，也不能误说公司从未给它命名。[^gross]\n\n30,026还不是经营利润。要加上5,323的会员费，再减去24,966的销售、一般及行政费用：`30,026 + 5,323 − 24,966 = 10,383`。会员费与商品销售的确认节奏不同：会员费在会员期限内分期确认，不是收款当天全部赚取。与此同时，两类活动使用同一套经营基础，不能把会员费这一条收入自动当作一个没有成本的独立利润中心。[^costpolicy]\n\n这也给“会员费占利润很大比例”一个正确的位置。比例本身可以计算，但它没有把门店、员工和共同投入分配完毕。要判断一项业务的增量利润，需要知道取消它会改变哪些收入、费用与客户关系，不能只从合并利润表抽出一行收入就声称那是净利润。\n\n### 用两期变化检验解释\n\n从2024到2025，经营利润增加1,098。我们可以把变化拆回原行：商品毛利增加 `30,026 − 27,267 = 2,759`，会员费增加495，SG&A增加2,156。于是：\n\n`2,759 + 495 − 2,156 = 1,098`。\n\n这张桥已经比“经营利润增长”多解释了一层：改善先发生在商品差额和会员费，新增的期间费用消耗了一部分。再追问商品差额来自销量、价格还是组合，就必须继续读MD&A。公司对2025年毛利率变化的解释包含商品类别、联名卡、汽油价格影响及LIFO等因素，不能把20个基点的总变化全都归成涨价。[^gross]\n\n从经营利润继续往下，`10,383 − 154 + 589 = 10,818`是税前利润，`10,818 − 2,719 = 8,099`是净利润。利息和其他项目确实影响股东最后的结果，只是它们与前面的商品经营层次分开显示；“列在经营利润以下”不等于“不重要”。\n\n### 零售练习：一句话解释完整变化\n\n**题**。请从2024列出发解释2025净利润为什么增加732，并指出这条桥尚未识别的经营驱动。\n\n**解析**。经营利润增加1,098；利息费用从169降到154，改善15；利息收入及其他从624降到589，减少35；因此税前利润增加1,078。税费从2,373增至2,719，增加346，净利润便增加 `1,078 − 346 = 732`。这解释了报表层次的来源，却还没有把销量、单价、品类组合和成本方法分开，需要相应经营披露。\n\n现在回到全表：我们已解释商品毛利、会员费、期间费用和税前税后的联系，没有把这些结果变成未来预测，也没有因为本年净利率上升就跳过资本投入和现金。现金要在[[BF-07|现金流量表]]中接着读。\n\n</section>\n\n<section data-reading-branch=\"bank\">\n\n<a id=\"bf06-bank\"></a>\n## 3. 银行：资金价格、非利息收入与信用成本\n\n换到JPMorgan Chase，阅读起点必须改变。贷款和证券是资产，存款及借款是资金来源；收取利息与支付利息位于经营过程内部。手续费、交易和资产管理又提供不同收入。把银行硬塞进“采购商品—卖出商品”的读法，会在最关键的地方丢掉业务内容。[^jpm]\n\n### 完整合并利润表\n\n以下为截至各年12月31日年度的**GAAP集团合并表**，金额百万美元，EPS为美元／股，加权平均股数为百万股。不是管理层分部使用的managed或税等价收入口径。[^jpm]\n\n| 原行名称 | 中文对照 | 2025 | 2024 | 2023 |\n| --- | --- | --- | --- | --- |\n| **Revenue** | **收入** |  |  |  |\n| Investment banking fees | 投资银行费用收入 | 9,615 | 8,910 | 6,519 |\n| Principal transactions | 自营交易收入 | 27,212 | 24,787 | 24,460 |\n| Lending- and deposit-related fees | 贷款及存款相关费用收入 | 9,093 | 7,606 | 7,413 |\n| Asset management fees | 资产管理费用收入 | 20,327 | 17,801 | 15,220 |\n| Commissions and other fees | 佣金及其他费用收入 | 8,539 | 7,530 | 6,836 |\n| Investment securities losses | 投资证券收益／损失 | (57) | (1,021) | (3,180) |\n| Mortgage fees and related income | 按揭费用及相关收入 | 1,381 | 1,401 | 1,176 |\n| Card income | 银行卡收入 | 4,720 | 5,497 | 4,784 |\n| Other income | 其他收入 | 6,174 | 12,462 | 5,609 |\n| **Noninterest revenue** | **非利息收入** | 87,004 | 84,973 | 68,837 |\n| Interest income | 利息收入 | 193,341 | 193,933 | 170,588 |\n| Interest expense | 利息支出 | 97,898 | 101,350 | 81,321 |\n| **Net interest income** | **净利息收入** | 95,443 | 92,583 | 89,267 |\n| **Total net revenue** | **净收入合计** | 182,447 | 177,556 | 158,104 |\n| Provision for credit losses | 信用损失计提 | 14,212 | 10,678 | 9,320 |\n| **Noninterest expense** | **非利息费用** |  |  |  |\n| Compensation expense | 薪酬费用 | 54,487 | 51,357 | 46,465 |\n| Occupancy expense | 场地费用 | 5,461 | 5,026 | 4,590 |\n| Technology, communications and equipment expense | 技术、通信及设备费用 | 11,029 | 9,831 | 9,246 |\n| Professional and outside services | 专业及外部服务费用 | 12,356 | 11,057 | 10,235 |\n| Marketing | 营销费用 | 5,531 | 4,974 | 4,591 |\n| Other expense | 其他费用 | 6,776 | 9,552 | 12,045 |\n| **Total noninterest expense** | **非利息费用合计** | 95,640 | 91,797 | 87,172 |\n| **Income before income tax expense** | **税前利润** | 72,595 | 75,081 | 61,612 |\n| Income tax expense | 所得税费用 | 15,547 | 16,610 | 12,060 |\n| **Net income** | **净利润** | 57,048 | 58,471 | 49,552 |\n| **Net income applicable to common stockholders** | **归属于普通股权益的净利润** | 55,681 | 56,868 | 47,760 |\n| **Net income per common share data** | **普通股每股净利润数据（美元/股）** |  |  |  |\n| Basic earnings per share | 基本每股净利润 | 20.05 | 19.79 | 16.25 |\n| Diluted earnings per share | 稀释每股净利润 | 20.02 | 19.75 | 16.23 |\n| Weighted-average basic shares | 基本加权平均股数（百万股） | 2,776.5 | 2,873.9 | 2,938.6 |\n| Weighted-average diluted shares | 稀释加权平均股数（百万股） | 2,781.5 | 2,879 | 2,943.1 |\n\n\n### 第一层：资金收入必须与资金成本一起看\n\n2025年的利息收入193,341，减去利息支出97,898，得到净利息收入95,443。和2024比较，利息收入其实减少592，但利息支出减少3,452，因此净利息收入反而增加2,860。\n\n这是一道很有区分力的读表题：只盯住利息收入下降，会漏掉资金成本一端；只看到净利息收入上升，也还不能区分余额、资产收益率、存款组合和负债定价的作用。两端共同决定这个差额，进一步解释需要平均余额及收益率等材料，而不是从一次差额倒推出全部机制。\n\n非利息收入各项加总87,004，和净利息收入一起构成182,447的净收入。这里已经将利息支出扣过一次；后面再从182,447扣97,898，就会重复扣除。投资证券损失57也已经作为负额进入非利息收入，不能当作新的表外费用再减一遍。[^jpm]\n\n### 第二层：信用成本不是可以跳过的附属项\n\n接着扣除14,212的信用损失计提及95,640的非利息费用：\n\n`182,447 − 14,212 − 95,640 = 72,595`。\n\n信用损失计提是在报告期确认的损益项目，不等于本期恰好付出去同样金额现金，也不等于资产负债表期末全部准备。它与贷款等业务风险有关，读经营结果时不能因为“非现金”就直接删除。薪酬、场地、技术、专业服务等费用则让我们看到维持这些业务的另一组投入。[^jpm]\n\n2025净收入比2024增加4,891，但信用损失计提增加3,534、非利息费用增加3,843。于是税前利润变化为 `4,891 − 3,534 − 3,843 = −2,486`。收入增长与税前利润下降没有矛盾，差别就在这两层消耗。要进一步判断计提上升的性质，还需读贷款及相关承诺附注，不能只凭合并总数说贷款质量一定恶化。\n\n### 第三层：集团净利润还要分清归属\n\n税前72,595减去税费15,547后，净利润57,048；表内另列归属于普通股股东的净利润55,681。两者差1,367。这一步提醒我们：从集团盈利走到普通股每股结果，需要先识别非普通股权利，而不是拿任意一条净利润直接除股数。此处保留原列归属差额，不用一个未经拆解的标签替代全部归属项目。[^jpm]\n\n### 银行练习：别把同一笔成本减两次\n\n**题**。有人用 `182,447 − 97,898 − 14,212 − 95,640` 算银行税前利润。请找出错误，给出正确结果，并解释为什么零售的利息阅读顺序不同。\n\n**解析**。182,447已经包含净利息收入95,443，其中97,898已从193,341扣除。应算 `182,447 − 14,212 − 95,640 = 72,595`。Costco在经营利润之后列利息费用；本银行表则在形成净收入时先净掉利息支出。次序差异反映资金在业务中的位置，不是可随意互换的排版。\n\n把95,443称为“银行商品毛利”虽然好像亲切，却遮住了这种差别。更好的迁移，是保留原名净利息收入，并问与它相连的资产和负债是谁、期限和定价怎样安排。\n\n</section>\n\n<a id=\"bf06-experiment\"></a>\n## 4. 改变行业时，连计算结构一起改变\n\n<div data-experiment-slot=\"EXP-BF06-PROFIT-LAYERS\"></div>\n\n实验可以在三个年度及两种行业间切换。零售从商品毛利、会员费和SG&A形成经营利润；银行从净利息与非利息收入形成净收入。默认结果已经在正文逐步写出，不必操作才能完成学习。\n\n<a id=\"bf06-exercise\"></a>\n## 5. 最后的迁移\n\n拿到一家陌生公司的利润表，先用一句话说明它主要交付什么，再选一个中间小计，写出它包含哪些收入、已经扣过哪些成本。最后找到税后与普通股归属的位置。只有完成这三步，才适合比较利润率；如果连分母对应哪种经营过程都没说清，百分数会比原始金额更容易误导。\n\n<strong>自检题。</strong>“两家公司净利润率相同，所以经营方式相同”缺少什么？\n\n**解析**。相同的最终比率可能来自不同收入定义、直接成本、资金成本、风险计提、税项和权益归属。Costco与JPM已经提供了一个反例框架：它们可以共享算术形式，却不能共享同一套经营层次。比较首先维护结构，其次才比较数字。\n\n[^teaching]: OpenStax，[§6.6 商品企业多步式利润表](https://openstax.org/books/principles-financial-accounting/pages/6-6-describe-and-prepare-multi-step-and-simple-income-statements-for-merchandising-companies)（2019）。本单元用于零售层次，银行读法以其原报表为准。\n[^cost]: Costco，[FY2025 Form 10-K](https://www.sec.gov/Archives/edgar/data/909832/000090983225000101/cost-20250831.htm)，Consolidated Statements of Income，SEC HTML印刷p.37。三年完整主表金额及EPS、股数行；金额、股数、每股数单位分别保留。\n[^gross]: 同份[Costco 10-K](https://www.sec.gov/Archives/edgar/data/909832/000090983225000101/cost-20250831.htm)，MD&A “Gross Margin”，p.27。公司定义毛利为净销售减商品成本，并讨论百分比变化。\n[^costpolicy]: 同份[Costco 10-K](https://www.sec.gov/Archives/edgar/data/909832/000090983225000101/cost-20250831.htm)，Note 1 Revenue Recognition／Membership Fees，pp.47–48，会员费分期确认与收入政策；共同资源的分析属于本文对合并结构的解释，不是独立分部利润披露。\n[^jpm]: JPMorgan Chase，[2025 Annual Report](https://www.jpmorganchase.com/content/dam/jpmc/jpmorgan-chase-and-co/investor-relations/documents/annualreport-2025.pdf)，合并利润表印刷p.165、PDF物理第197页。全文表及普通股归属行。GAAP与managed/FTE口径的区别见“Explanation and Reconciliation of the Firm’s Use of Non-GAAP Financial Measures”。\n",
+  "prompt": "你现在教授BF-06《利润表：收入、成本与利润的层次》。对象是有微积分、线性代数及基本概率基础，但不假定受过会计训练的高年级本科至研究生。先确认本篇行业/扩展分支和学习任务。在讲解前，使用读取工具实际取得agent_packet中common及所选branch的全部required_readings完整单元（含表头、脚注和条件）。optional_readings只有选中相应研究/扩展时才转为必读。记录标题、版本、实际范围以及支持当前教学的关键设定；runtime_reading_log初始为空，不以编辑访问或参考清单冒充本次已读。访问失败时尝试同版本官方等价正文；仍缺失就指出具体缺口，不拿摘要代替承重单元。诊断任务：先选择零售或银行，让读者从完整原表重建至少两层利润。沿当前同源正文、静态表和supplied_inputs逐段推进，先让读者分析再反馈，已会步骤直接跳过。判断理解的尺度：按所选分支判断：零售能用公司MD&A的30026毛利接回10383经营利润；银行能由193341−97898构成NII并扣除信用计提。最后迁移：默认在所选行业换读上一年度，从同一原表重建两层利润并解释口径；若读者选择另一行业，再先读该分支全部指定原件，比较不能直接沿用的中间指标。保留历史观测与教学设定身份、单位、期间、未解释差额；不得从本篇生成新估值或账户建议。",
+  "sources": [
+    "BBC-S04",
+    "BF-S-COST-FY2025-SEC",
+    "BF-S-JPM-FY2025"
+  ],
+  "anchors": [
+    {
+      "id": "bf06-common",
+      "title": "1. 层次的作用，是分清来源与归属",
+      "kind": "section",
+      "preview": "**收入减去该期间确认的费用，形成相应层次的利润。**但“该层次”非常重要：毛利、经营利润、税前利润、净利润和普通股可归属净利润回答的不是同一个问题。一个差额能否比较，取决于分子分母包含了哪些业务和费用，而不只取决于名称相近。 商品企业常从销售额、商品成本开始，随后扣除门店、人员、营销和管理等期间费用；银行则把利息收入和利息支出作为经营对象的重要两端。我们可"
+    },
+    {
+      "id": "bf06-retail",
+      "title": "2. 零售：商品差额、会员费与共同经营费用",
+      "kind": "case",
+      "preview": "Costco的商品销售和会员费在利润表中分列。我们先沿货物阅读：卖出的商品带来销售收入，对应商品成本进入本期；接着看会员服务收入，最后才问共同的经营网络消耗了多少期间费用。这比先挑一个净利率，更接近企业如何经营。[^cost] 金额为**百万美元**；每股金额是**美元／股**；计算使用股数是**千股**。FY2025和FY2024各52周，FY2023为5",
+      "period": "FY2025/FY2024/FY2023",
+      "cutoff": "2026-09-21",
+      "entity": "Costco",
+      "source_id": "BF-S-COST-FY2025-SEC"
+    },
+    {
+      "id": "bf06-bank",
+      "title": "3. 银行：资金价格、非利息收入与信用成本",
+      "kind": "case",
+      "preview": "换到JPMorgan Chase，阅读起点必须改变。贷款和证券是资产，存款及借款是资金来源；收取利息与支付利息位于经营过程内部。手续费、交易和资产管理又提供不同收入。把银行硬塞进“采购商品—卖出商品”的读法，会在最关键的地方丢掉业务内容。[^jpm] 以下为截至各年12月31日年度的**GAAP集团合并表**，金额百万美元，EPS为美元／股，加权平均股数为百",
+      "period": "2025/2024/2023",
+      "cutoff": "2026-09-21",
+      "entity": "JPMorgan Chase",
+      "source_id": "BF-S-JPM-FY2025"
+    },
+    {
+      "id": "bf06-experiment",
+      "title": "4. 改变行业时，连计算结构一起改变",
+      "kind": "section",
+      "preview": "实验可以在三个年度及两种行业间切换。零售从商品毛利、会员费和SG&A形成经营利润；银行从净利息与非利息收入形成净收入。默认结果已经在正文逐步写出，不必操作才能完成学习。 拿到一家陌生公司的利润表，先用一句话说明它主要交付什么，再选一个中间小计，写出它包含哪些收入、已经扣过哪些成本。最后找到税后与普通股归属的位置。只有完成这三步，才适合比较利润率；如果连分母对"
+    },
+    {
+      "id": "bf06-exercise",
+      "title": "5. 最后的迁移",
+      "kind": "section",
+      "preview": "拿到一家陌生公司的利润表，先用一句话说明它主要交付什么，再选一个中间小计，写出它包含哪些收入、已经扣过哪些成本。最后找到税后与普通股归属的位置。只有完成这三步，才适合比较利润率；如果连分母对应哪种经营过程都没说清，百分数会比原始金额更容易误导。 **自检题。**“两家公司净利润率相同，所以经营方式相同”缺少什么？ **解析。**相同的最终比率可能来自不同收入"
+    }
+  ],
+  "relations": [
+    {
+      "from": "BF-06",
+      "relation": "part_of",
+      "to": "business-reports",
+      "reason": "本篇唯一主topic"
+    },
+    {
+      "from": "BF-06",
+      "relation": "illustrated_by",
+      "to": "BF-06#bf06-retail",
+      "reason": "固定期间原始材料带读",
+      "period": "FY2025/FY2024/FY2023",
+      "cutoff": "2026-09-21"
+    },
+    {
+      "from": "BF-06#bf06-retail",
+      "relation": "supported_by",
+      "to": "BF-S-COST-FY2025-SEC",
+      "reason": "该案例的原表与附注",
+      "locator": "Income p.37；Cash Flows p.41; Balance Sheets p.39；MD&A Gross Margin p.27；Note 1 Merchandise Inventories p.44; Revenue/Membership Fees pp.47–48；Item 1有关制造及设施说明",
+      "scope": "会员零售利润、完整现金流和库存政策；MD&A明确定义Gross Margin。库存和应付的余额反向变化893与现金流调整963不同，70保留未归因。"
+    },
+    {
+      "from": "BF-06#bf06-retail",
+      "relation": "analyzes",
+      "to": "COMPANY-COST",
+      "reason": "独立公司库身份，待与既有公司ID映射",
+      "status": "planned"
+    },
+    {
+      "from": "BF-06",
+      "relation": "illustrated_by",
+      "to": "BF-06#bf06-bank",
+      "reason": "固定期间原始材料带读",
+      "period": "2025/2024/2023",
+      "cutoff": "2026-09-21"
+    },
+    {
+      "from": "BF-06#bf06-bank",
+      "relation": "supported_by",
+      "to": "BF-S-JPM-FY2025",
+      "reason": "该案例的原表与附注",
+      "locator": "Income printed p.165 / physical PDF p.197；Cash Flows printed p.169 / physical PDF p.201；Balance Sheets printed p.167 / physical PDF p.199；MD&A Cash Flows Analysis p.58",
+      "scope": "银行GAAP合并利润表与现金流分类。交易资产、借入证券与待售贷款是经营资产，存款变动在筹资。"
+    },
+    {
+      "from": "BF-06#bf06-bank",
+      "relation": "analyzes",
+      "to": "COMPANY-JPM",
+      "reason": "独立公司库身份，待与既有公司ID映射",
+      "status": "planned"
+    },
+    {
+      "from": "BF-06",
+      "relation": "supported_by",
+      "to": "BBC-S04",
+      "reason": "定义、机制或选读研究的直接来源",
+      "locator": "§6.6完整单元",
+      "scope": "商品企业的多层利润结构；不作为银行的默认模板。"
+    },
+    {
+      "from": "BF-06#bf06-retail",
+      "relation": "compares_with",
+      "to": "BF-06#bf06-bank",
+      "reason": "商品经营与资金经营的利润层次"
+    },
+    {
+      "from": "BF-06#bf06-experiment",
+      "relation": "illustrated_by",
+      "to": "EXP-BF06-PROFIT-LAYERS",
+      "reason": "沿零售和银行各自的经营关系读完整利润表，重建利润层次并解释两期变化。",
+      "at_section": "bf06-experiment",
+      "conditions": "三个历史年度不能当预测；52/53周保留；不计算跨行业统一毛利排名。"
+    }
+  ],
+  "agent_packet": {
+    "export_mode": "public",
+    "required_readings": [
+      {
+        "source_id": "BBC-S04",
+        "access": {
+          "kind": "html_full_text",
+          "uri": "https://openstax.org/books/principles-financial-accounting/pages/6-6-describe-and-prepare-multi-step-and-simple-income-statements-for-merchandising-companies"
+        },
+        "required_unit": {
+          "locator": "§6.6全文",
+          "scope": "所列完整单元、相关表头、脚注及当前计算所需说明",
+          "purpose": "商品利润层次"
+        },
+        "supports": "商品企业的多层利润结构；不作为银行的默认模板。",
+        "branch": "retail",
+        "required_when_selected": false
+      },
+      {
+        "source_id": "BF-S-COST-FY2025-SEC",
+        "access": {
+          "kind": "html_full_text",
+          "uri": "https://www.sec.gov/Archives/edgar/data/909832/000090983225000101/cost-20250831.htm"
+        },
+        "required_unit": {
+          "locator": "完整Consolidated Statements of Income p.37；MD&A Gross Margin p.27；Note1 Membership Fees pp.47–48",
+          "scope": "所列完整单元、相关表头、脚注及当前计算所需说明",
+          "purpose": "原表、公司定义毛利与会员费确认"
+        },
+        "supports": "会员零售利润、完整现金流和库存政策；MD&A明确定义Gross Margin。库存和应付的余额反向变化893与现金流调整963不同，70保留未归因。",
+        "branch": "retail",
+        "required_when_selected": false
+      }
+    ],
+    "optional_readings": [
+      {
+        "source_id": "BF-S-JPM-FY2025",
+        "access": {
+          "kind": "pdf_full_text",
+          "uri": "https://www.jpmorganchase.com/content/dam/jpmc/jpmorgan-chase-and-co/investor-relations/documents/annualreport-2025.pdf"
+        },
+        "required_unit": {
+          "locator": "完整Consolidated Statements of Income印刷p.165/PDF197；业务Introduction p.46",
+          "scope": "所列完整单元、相关表头、脚注及当前计算所需说明",
+          "purpose": "银行利润的经营对象与GAAP层次"
+        },
+        "supports": "银行GAAP合并利润表与现金流分类。交易资产、借入证券与待售贷款是经营资产，存款变动在筹资。",
+        "branch": "bank",
+        "required_when_selected": true
+      }
+    ],
+    "runtime_reading_log": [],
+    "supplied_inputs": {
+      "canonical_file": "https://ou-liu-red-sugar.github.io/notebook/labs/bf-bc/inputs.json",
+      "selected_keys": [
+        "tables.cost_income",
+        "tables.jpm_income"
+      ],
+      "data": {
+        "tables": {
+          "cost_income": {
+            "id": "cost_income",
+            "title": "Costco Consolidated Statements of Income",
+            "source_id": "BF-S-COST-FY2025-SEC",
+            "locator": "SEC HTML printed p.37; MD&A Gross Margin p.27",
+            "periods": [
+              "FY2025 · 2025-08-31 · 52周",
+              "FY2024 · 2024-09-01 · 52周",
+              "FY2023 · 2023-09-03 · 53周"
+            ],
+            "unit": "USD millions",
+            "data_identity": "historical_observation",
+            "rows": [
+              {
+                "id": "revenue",
+                "label_original": "REVENUE",
+                "label_zh": "收入",
+                "kind": "heading",
+                "section": "revenue",
+                "values": [
+                  null,
+                  null,
+                  null
+                ]
+              },
+              {
+                "id": "sales",
+                "label_original": "Net sales",
+                "label_zh": "净销售额",
+                "kind": "detail",
+                "section": "revenue",
+                "values": [
+                  269912,
+                  249625,
+                  237710
+                ]
+              },
+              {
+                "id": "membership",
+                "label_original": "Membership fees",
+                "label_zh": "会员费",
+                "kind": "detail",
+                "section": "revenue",
+                "values": [
+                  5323,
+                  4828,
+                  4580
+                ]
+              },
+              {
+                "id": "revenue_total",
+                "label_original": "Total revenue",
+                "label_zh": "收入合计",
+                "kind": "total",
+                "section": "revenue",
+                "values": [
+                  275235,
+                  254453,
+                  242290
+                ]
+              },
+              {
+                "id": "cost",
+                "label_original": "OPERATING EXPENSES",
+                "label_zh": "经营费用",
+                "kind": "heading",
+                "section": "cost",
+                "values": [
+                  null,
+                  null,
+                  null
+                ]
+              },
+              {
+                "id": "merchandise",
+                "label_original": "Merchandise costs",
+                "label_zh": "商品成本",
+                "kind": "detail",
+                "section": "cost",
+                "values": [
+                  239886,
+                  222358,
+                  212586
+                ]
+              },
+              {
+                "id": "sga",
+                "label_original": "Selling, general and administrative",
+                "label_zh": "销售、一般及行政费用",
+                "kind": "detail",
+                "section": "cost",
+                "values": [
+                  24966,
+                  22810,
+                  21590
+                ]
+              },
+              {
+                "id": "operating",
+                "label_original": "Operating income",
+                "label_zh": "经营利润",
+                "kind": "total",
+                "section": "operating",
+                "values": [
+                  10383,
+                  9285,
+                  8114
+                ]
+              },
+              {
+                "id": "other",
+                "label_original": "OTHER INCOME (EXPENSE)",
+                "label_zh": "其他收益（费用）",
+                "kind": "heading",
+                "section": "other",
+                "values": [
+                  null,
+                  null,
+                  null
+                ]
+              },
+              {
+                "id": "interest_expense",
+                "label_original": "Interest expense",
+                "label_zh": "利息费用",
+                "kind": "detail",
+                "section": "other",
+                "values": [
+                  -154,
+                  -169,
+                  -160
+                ]
+              },
+              {
+                "id": "interest_other",
+                "label_original": "Interest income and other, net",
+                "label_zh": "利息收入及其他净额",
+                "kind": "detail",
+                "section": "other",
+                "values": [
+                  589,
+                  624,
+                  533
+                ]
+              },
+              {
+                "id": "pretax",
+                "label_original": "Income before income taxes",
+                "label_zh": "税前利润",
+                "kind": "total",
+                "section": "pretax",
+                "values": [
+                  10818,
+                  9740,
+                  8487
+                ]
+              },
+              {
+                "id": "tax",
+                "label_original": "Provision for income taxes",
+                "label_zh": "所得税费用",
+                "kind": "detail",
+                "section": "tax",
+                "values": [
+                  2719,
+                  2373,
+                  2195
+                ]
+              },
+              {
+                "id": "net",
+                "label_original": "Net income",
+                "label_zh": "净利润",
+                "kind": "total",
+                "section": "net",
+                "values": [
+                  8099,
+                  7367,
+                  6292
+                ]
+              },
+              {
+                "id": "eps",
+                "label_original": "NET INCOME PER COMMON SHARE",
+                "label_zh": "普通股每股净利润（美元/股）",
+                "kind": "heading",
+                "section": "eps",
+                "values": [
+                  null,
+                  null,
+                  null
+                ]
+              },
+              {
+                "id": "eps_basic",
+                "label_original": "Basic",
+                "label_zh": "基本每股净利润",
+                "kind": "detail",
+                "section": "eps",
+                "values": [
+                  18.24,
+                  16.59,
+                  14.18
+                ]
+              },
+              {
+                "id": "eps_diluted",
+                "label_original": "Diluted",
+                "label_zh": "稀释每股净利润",
+                "kind": "detail",
+                "section": "eps",
+                "values": [
+                  18.21,
+                  16.56,
+                  14.16
+                ]
+              },
+              {
+                "id": "shares",
+                "label_original": "SHARES USED IN CALCULATION (000's)",
+                "label_zh": "计算使用股数（千股）",
+                "kind": "heading",
+                "section": "shares",
+                "values": [
+                  null,
+                  null,
+                  null
+                ]
+              },
+              {
+                "id": "shares_basic",
+                "label_original": "Basic",
+                "label_zh": "基本加权平均股数",
+                "kind": "detail",
+                "section": "shares",
+                "values": [
+                  443985,
+                  443914,
+                  443854
+                ]
+              },
+              {
+                "id": "shares_diluted",
+                "label_original": "Diluted",
+                "label_zh": "稀释加权平均股数",
+                "kind": "detail",
+                "section": "shares",
+                "values": [
+                  444803,
+                  444759,
+                  444452
+                ]
+              }
+            ],
+            "notes": [
+              "金额为百万美元；EPS为美元/股；股数为千股。括号负数按负号保存。",
+              "合并利润表未单列毛利；MD&A p.27定义Gross Margin=Net sales−Merchandise costs，2025/24/23分别30026/27267/25124。",
+              "2023是53周，2025和2024为52周；比较增长前核对。"
+            ]
+          },
+          "jpm_income": {
+            "id": "jpm_income",
+            "title": "JPMorgan Chase Consolidated Statements of Income",
+            "source_id": "BF-S-JPM-FY2025",
+            "locator": "Printed p.165 / physical PDF p.197",
+            "periods": [
+              "2025",
+              "2024",
+              "2023"
+            ],
+            "unit": "USD millions",
+            "data_identity": "historical_observation",
+            "rows": [
+              {
+                "id": "revenue",
+                "label_original": "Revenue",
+                "label_zh": "收入",
+                "kind": "heading",
+                "section": "noninterest",
+                "values": [
+                  null,
+                  null,
+                  null
+                ]
+              },
+              {
+                "id": "ib",
+                "label_original": "Investment banking fees",
+                "label_zh": "投资银行费用收入",
+                "kind": "detail",
+                "section": "noninterest",
+                "values": [
+                  9615,
+                  8910,
+                  6519
+                ]
+              },
+              {
+                "id": "principal",
+                "label_original": "Principal transactions",
+                "label_zh": "自营交易收入",
+                "kind": "detail",
+                "section": "noninterest",
+                "values": [
+                  27212,
+                  24787,
+                  24460
+                ]
+              },
+              {
+                "id": "lendingfees",
+                "label_original": "Lending- and deposit-related fees",
+                "label_zh": "贷款及存款相关费用收入",
+                "kind": "detail",
+                "section": "noninterest",
+                "values": [
+                  9093,
+                  7606,
+                  7413
+                ]
+              },
+              {
+                "id": "am",
+                "label_original": "Asset management fees",
+                "label_zh": "资产管理费用收入",
+                "kind": "detail",
+                "section": "noninterest",
+                "values": [
+                  20327,
+                  17801,
+                  15220
+                ]
+              },
+              {
+                "id": "commissions",
+                "label_original": "Commissions and other fees",
+                "label_zh": "佣金及其他费用收入",
+                "kind": "detail",
+                "section": "noninterest",
+                "values": [
+                  8539,
+                  7530,
+                  6836
+                ]
+              },
+              {
+                "id": "investment",
+                "label_original": "Investment securities losses",
+                "label_zh": "投资证券收益／损失",
+                "kind": "detail",
+                "section": "noninterest",
+                "values": [
+                  -57,
+                  -1021,
+                  -3180
+                ]
+              },
+              {
+                "id": "mortgage",
+                "label_original": "Mortgage fees and related income",
+                "label_zh": "按揭费用及相关收入",
+                "kind": "detail",
+                "section": "noninterest",
+                "values": [
+                  1381,
+                  1401,
+                  1176
+                ]
+              },
+              {
+                "id": "card",
+                "label_original": "Card income",
+                "label_zh": "银行卡收入",
+                "kind": "detail",
+                "section": "noninterest",
+                "values": [
+                  4720,
+                  5497,
+                  4784
+                ]
+              },
+              {
+                "id": "otherincome",
+                "label_original": "Other income",
+                "label_zh": "其他收入",
+                "kind": "detail",
+                "section": "noninterest",
+                "values": [
+                  6174,
+                  12462,
+                  5609
+                ]
+              },
+              {
+                "id": "noninterest_total",
+                "label_original": "Noninterest revenue",
+                "label_zh": "非利息收入",
+                "kind": "subtotal",
+                "section": "noninterest",
+                "values": [
+                  87004,
+                  84973,
+                  68837
+                ]
+              },
+              {
+                "id": "interestincome",
+                "label_original": "Interest income",
+                "label_zh": "利息收入",
+                "kind": "detail",
+                "section": "interest",
+                "values": [
+                  193341,
+                  193933,
+                  170588
+                ]
+              },
+              {
+                "id": "interestexpense",
+                "label_original": "Interest expense",
+                "label_zh": "利息支出",
+                "kind": "detail",
+                "section": "interest",
+                "values": [
+                  97898,
+                  101350,
+                  81321
+                ]
+              },
+              {
+                "id": "nii",
+                "label_original": "Net interest income",
+                "label_zh": "净利息收入",
+                "kind": "subtotal",
+                "section": "interest",
+                "values": [
+                  95443,
+                  92583,
+                  89267
+                ]
+              },
+              {
+                "id": "netrevenue",
+                "label_original": "Total net revenue",
+                "label_zh": "净收入合计",
+                "kind": "total",
+                "section": "revenue",
+                "values": [
+                  182447,
+                  177556,
+                  158104
+                ]
+              },
+              {
+                "id": "provision",
+                "label_original": "Provision for credit losses",
+                "label_zh": "信用损失计提",
+                "kind": "detail",
+                "section": "provision",
+                "values": [
+                  14212,
+                  10678,
+                  9320
+                ]
+              },
+              {
+                "id": "expenses",
+                "label_original": "Noninterest expense",
+                "label_zh": "非利息费用",
+                "kind": "heading",
+                "section": "expense",
+                "values": [
+                  null,
+                  null,
+                  null
+                ]
+              },
+              {
+                "id": "compensation",
+                "label_original": "Compensation expense",
+                "label_zh": "薪酬费用",
+                "kind": "detail",
+                "section": "expense",
+                "values": [
+                  54487,
+                  51357,
+                  46465
+                ]
+              },
+              {
+                "id": "occupancy",
+                "label_original": "Occupancy expense",
+                "label_zh": "场地费用",
+                "kind": "detail",
+                "section": "expense",
+                "values": [
+                  5461,
+                  5026,
+                  4590
+                ]
+              },
+              {
+                "id": "technology",
+                "label_original": "Technology, communications and equipment expense",
+                "label_zh": "技术、通信及设备费用",
+                "kind": "detail",
+                "section": "expense",
+                "values": [
+                  11029,
+                  9831,
+                  9246
+                ]
+              },
+              {
+                "id": "professional",
+                "label_original": "Professional and outside services",
+                "label_zh": "专业及外部服务费用",
+                "kind": "detail",
+                "section": "expense",
+                "values": [
+                  12356,
+                  11057,
+                  10235
+                ]
+              },
+              {
+                "id": "marketing",
+                "label_original": "Marketing",
+                "label_zh": "营销费用",
+                "kind": "detail",
+                "section": "expense",
+                "values": [
+                  5531,
+                  4974,
+                  4591
+                ]
+              },
+              {
+                "id": "otherexpense",
+                "label_original": "Other expense",
+                "label_zh": "其他费用",
+                "kind": "detail",
+                "section": "expense",
+                "values": [
+                  6776,
+                  9552,
+                  12045
+                ]
+              },
+              {
+                "id": "expense_total",
+                "label_original": "Total noninterest expense",
+                "label_zh": "非利息费用合计",
+                "kind": "subtotal",
+                "section": "expense",
+                "values": [
+                  95640,
+                  91797,
+                  87172
+                ]
+              },
+              {
+                "id": "pretax",
+                "label_original": "Income before income tax expense",
+                "label_zh": "税前利润",
+                "kind": "total",
+                "section": "pretax",
+                "values": [
+                  72595,
+                  75081,
+                  61612
+                ]
+              },
+              {
+                "id": "tax",
+                "label_original": "Income tax expense",
+                "label_zh": "所得税费用",
+                "kind": "detail",
+                "section": "tax",
+                "values": [
+                  15547,
+                  16610,
+                  12060
+                ]
+              },
+              {
+                "id": "net",
+                "label_original": "Net income",
+                "label_zh": "净利润",
+                "kind": "total",
+                "section": "net",
+                "values": [
+                  57048,
+                  58471,
+                  49552
+                ]
+              },
+              {
+                "id": "common_net",
+                "label_original": "Net income applicable to common stockholders",
+                "label_zh": "归属于普通股权益的净利润",
+                "kind": "total",
+                "section": "common",
+                "values": [
+                  55681,
+                  56868,
+                  47760
+                ]
+              },
+              {
+                "id": "eps",
+                "label_original": "Net income per common share data",
+                "label_zh": "普通股每股净利润数据（美元/股）",
+                "kind": "heading",
+                "section": "eps",
+                "values": [
+                  null,
+                  null,
+                  null
+                ]
+              },
+              {
+                "id": "eps_basic",
+                "label_original": "Basic earnings per share",
+                "label_zh": "基本每股净利润",
+                "kind": "detail",
+                "section": "eps",
+                "values": [
+                  20.05,
+                  19.79,
+                  16.25
+                ]
+              },
+              {
+                "id": "eps_diluted",
+                "label_original": "Diluted earnings per share",
+                "label_zh": "稀释每股净利润",
+                "kind": "detail",
+                "section": "eps",
+                "values": [
+                  20.02,
+                  19.75,
+                  16.23
+                ]
+              },
+              {
+                "id": "shares_basic",
+                "label_original": "Weighted-average basic shares",
+                "label_zh": "基本加权平均股数（百万股）",
+                "kind": "detail",
+                "section": "shares",
+                "values": [
+                  2776.5,
+                  2873.9,
+                  2938.6
+                ]
+              },
+              {
+                "id": "shares_diluted",
+                "label_original": "Weighted-average diluted shares",
+                "label_zh": "稀释加权平均股数（百万股）",
+                "kind": "detail",
+                "section": "shares",
+                "values": [
+                  2781.5,
+                  2879,
+                  2943.1
+                ]
+              }
+            ],
+            "notes": [
+              "GAAP集团合并口径，不混入managed/FTE分部口径。",
+              "费用行原表为正额，计算中减去；投资证券损失为带负号收入。",
+              "EPS为美元/股，股数为百万股；原表应与附注一同阅读。"
+            ]
+          }
+        }
+      },
+      "default_results_file": "labs/default-results.json"
+    },
+    "diagnosis": "先选择零售或银行，让读者从完整原表重建至少两层利润。",
+    "feedback_criteria": "按所选分支判断：零售能用公司MD&A的30026毛利接回10383经营利润；银行能由193341−97898构成NII并扣除信用计提。",
+    "transfer_task": "默认在所选行业换读上一年度，从同一原表重建两层利润并解释口径；若读者选择另一行业，再先读该分支全部指定原件，比较不能直接沿用的中间指标。",
+    "selected_branch": "retail",
+    "required_readings_by_branch": {
+      "retail": [
+        {
+          "source_id": "BBC-S04",
+          "access": {
+            "kind": "html_full_text",
+            "uri": "https://openstax.org/books/principles-financial-accounting/pages/6-6-describe-and-prepare-multi-step-and-simple-income-statements-for-merchandising-companies"
+          },
+          "required_unit": {
+            "locator": "§6.6全文",
+            "scope": "所列完整单元、相关表头、脚注及当前计算所需说明",
+            "purpose": "商品利润层次"
+          },
+          "supports": "商品企业的多层利润结构；不作为银行的默认模板。",
+          "branch": "retail",
+          "required_when_selected": false
+        },
+        {
+          "source_id": "BF-S-COST-FY2025-SEC",
+          "access": {
+            "kind": "html_full_text",
+            "uri": "https://www.sec.gov/Archives/edgar/data/909832/000090983225000101/cost-20250831.htm"
+          },
+          "required_unit": {
+            "locator": "完整Consolidated Statements of Income p.37；MD&A Gross Margin p.27；Note1 Membership Fees pp.47–48",
+            "scope": "所列完整单元、相关表头、脚注及当前计算所需说明",
+            "purpose": "原表、公司定义毛利与会员费确认"
+          },
+          "supports": "会员零售利润、完整现金流和库存政策；MD&A明确定义Gross Margin。库存和应付的余额反向变化893与现金流调整963不同，70保留未归因。",
+          "branch": "retail",
+          "required_when_selected": false
+        }
+      ],
+      "bank": [
+        {
+          "source_id": "BF-S-JPM-FY2025",
+          "access": {
+            "kind": "pdf_full_text",
+            "uri": "https://www.jpmorganchase.com/content/dam/jpmc/jpmorgan-chase-and-co/investor-relations/documents/annualreport-2025.pdf"
+          },
+          "required_unit": {
+            "locator": "完整Consolidated Statements of Income印刷p.165/PDF197；业务Introduction p.46",
+            "scope": "所列完整单元、相关表头、脚注及当前计算所需说明",
+            "purpose": "银行利润的经营对象与GAAP层次"
+          },
+          "supports": "银行GAAP合并利润表与现金流分类。交易资产、借入证券与待售贷款是经营资产，存款变动在筹资。",
+          "branch": "bank",
+          "required_when_selected": false
+        }
+      ]
+    },
+    "branch_selection_protocol": "开始前确认分支。切换时用 required_readings_by_branch 对应完整数组替换必读，并完成该范围真实读取；跨行业扩展另计阅读时间。",
+    "experiment_ids": [
+      "EXP-BF06-PROFIT-LAYERS"
+    ]
+  },
+  "experiments": [
+    {
+      "id": "EXP-BF06-PROFIT-LAYERS",
+      "title": "利润表：收入、成本与利润的层次：交互实验",
+      "anchor": "bf06-experiment",
+      "description": "沿零售和银行各自的经营关系读完整利润表，重建利润层次并解释两期变化。",
+      "inputs": {
+        "source": "https://ou-liu-red-sugar.github.io/notebook/labs/bf-bc/inputs.json",
+        "selected_keys": [
+          "tables.cost_income",
+          "tables.jpm_income"
+        ],
+        "units": "各原表自带单位；教学合同/成本/税例使用独立教学货币单位",
+        "controls": "见labs/interactions.html具名label；全部算法使用engine.js"
+      },
+      "outputs": {
+        "default": {
+          "cost_income": [
+            {
+              "gross": 30026,
+              "revenue": 275235,
+              "operating": 10383,
+              "pretax": 10818,
+              "net": 8099,
+              "gross_margin_percent": 11.124366460179614
+            },
+            {
+              "gross": 27267,
+              "revenue": 254453,
+              "operating": 9285,
+              "pretax": 9740,
+              "net": 7367,
+              "gross_margin_percent": 10.923184777165748
+            },
+            {
+              "gross": 25124,
+              "revenue": 242290,
+              "operating": 8114,
+              "pretax": 8487,
+              "net": 6292,
+              "gross_margin_percent": 10.56918093475243
+            }
+          ],
+          "jpm_income": [
+            {
+              "noninterest": 87004,
+              "nii": 95443,
+              "revenue": 182447,
+              "expenses": 95640,
+              "pretax": 72595,
+              "net": 57048,
+              "common": 55681
+            },
+            {
+              "noninterest": 84973,
+              "nii": 92583,
+              "revenue": 177556,
+              "expenses": 91797,
+              "pretax": 75081,
+              "net": 58471,
+              "common": 56868
+            },
+            {
+              "noninterest": 68837,
+              "nii": 89267,
+              "revenue": 158104,
+              "expenses": 87172,
+              "pretax": 61612,
+              "net": 49552,
+              "common": 47760
+            }
+          ]
+        },
+        "all_defaults_file": "https://ou-liu-red-sugar.github.io/notebook/labs/bf-bc/default-results.json"
+      },
+      "algorithm": "成本扣减按公司原表层级；Cost gross=sales−merchandise，operating=gross+membership−SG&A。JPM NII=interest income−expense，再加全部非息收入，减计提、非息费用和税。",
+      "boundaries": "三个历史年度不能当预测；52/53周保留；不计算跨行业统一毛利排名。",
+      "static_equivalent": {
+        "reader_anchors": [
+          "bf06-experiment"
+        ],
+        "html": "https://ou-liu-red-sugar.github.io/notebook/labs/bf-bc/static.html#EXP-BF06-PROFIT-LAYERS",
+        "markdown": "https://ou-liu-red-sugar.github.io/notebook/labs/bf-bc/static-equivalents.md",
+        "markdown_body": "<a id=\"EXP-BF06-PROFIT-LAYERS\"></a>\n## BF-06 · 利润表：收入、成本与利润的层次\n\n三个历史年度不能当预测；52/53周保留；不计算跨行业统一毛利排名。\n\n### Costco Consolidated Statements of Income\n\nSEC HTML printed p.37; MD&A Gross Margin p.27；单位：USD millions\n\n| 原行／中文 | FY2025 · 2025-08-31 · 52周 | FY2024 · 2024-09-01 · 52周 | FY2023 · 2023-09-03 · 53周 |\n| --- | --- | --- | --- |\n| REVENUE／收入 |  |  |  |\n| Net sales／净销售额 | 269,912 | 249,625 | 237,710 |\n| Membership fees／会员费 | 5,323 | 4,828 | 4,580 |\n| Total revenue／收入合计 | 275,235 | 254,453 | 242,290 |\n| OPERATING EXPENSES／经营费用 |  |  |  |\n| Merchandise costs／商品成本 | 239,886 | 222,358 | 212,586 |\n| Selling, general and administrative／销售、一般及行政费用 | 24,966 | 22,810 | 21,590 |\n| Operating income／经营利润 | 10,383 | 9,285 | 8,114 |\n| OTHER INCOME (EXPENSE)／其他收益（费用） |  |  |  |\n| Interest expense／利息费用 | -154 | -169 | -160 |\n| Interest income and other, net／利息收入及其他净额 | 589 | 624 | 533 |\n| Income before income taxes／税前利润 | 10,818 | 9,740 | 8,487 |\n| Provision for income taxes／所得税费用 | 2,719 | 2,373 | 2,195 |\n| Net income／净利润 | 8,099 | 7,367 | 6,292 |\n| NET INCOME PER COMMON SHARE／普通股每股净利润（美元/股） |  |  |  |\n| Basic／基本每股净利润 | 18.24 | 16.59 | 14.18 |\n| Diluted／稀释每股净利润 | 18.21 | 16.56 | 14.16 |\n| SHARES USED IN CALCULATION (000's)／计算使用股数（千股） |  |  |  |\n| Basic／基本加权平均股数 | 443,985 | 443,914 | 443,854 |\n| Diluted／稀释加权平均股数 | 444,803 | 444,759 | 444,452 |\n\n\n| 年度 | 计算结果 |\n| --- | --- |\n| FY2025 · 2025-08-31 · 52周 | {\"gross\": 30026, \"revenue\": 275235, \"operating\": 10383, \"pretax\": 10818, \"net\": 8099, \"gross_margin_percent\": 11.124366460179614} |\n| FY2024 · 2024-09-01 · 52周 | {\"gross\": 27267, \"revenue\": 254453, \"operating\": 9285, \"pretax\": 9740, \"net\": 7367, \"gross_margin_percent\": 10.923184777165748} |\n| FY2023 · 2023-09-03 · 53周 | {\"gross\": 25124, \"revenue\": 242290, \"operating\": 8114, \"pretax\": 8487, \"net\": 6292, \"gross_margin_percent\": 10.56918093475243} |\n\n\n### JPMorgan Chase Consolidated Statements of Income\n\nPrinted p.165 / physical PDF p.197；单位：USD millions\n\n| 原行／中文 | 2025 | 2024 | 2023 |\n| --- | --- | --- | --- |\n| Revenue／收入 |  |  |  |\n| Investment banking fees／投资银行费用收入 | 9,615 | 8,910 | 6,519 |\n| Principal transactions／自营交易收入 | 27,212 | 24,787 | 24,460 |\n| Lending- and deposit-related fees／贷款及存款相关费用收入 | 9,093 | 7,606 | 7,413 |\n| Asset management fees／资产管理费用收入 | 20,327 | 17,801 | 15,220 |\n| Commissions and other fees／佣金及其他费用收入 | 8,539 | 7,530 | 6,836 |\n| Investment securities losses／投资证券收益／损失 | -57 | -1,021 | -3,180 |\n| Mortgage fees and related income／按揭费用及相关收入 | 1,381 | 1,401 | 1,176 |\n| Card income／银行卡收入 | 4,720 | 5,497 | 4,784 |\n| Other income／其他收入 | 6,174 | 12,462 | 5,609 |\n| Noninterest revenue／非利息收入 | 87,004 | 84,973 | 68,837 |\n| Interest income／利息收入 | 193,341 | 193,933 | 170,588 |\n| Interest expense／利息支出 | 97,898 | 101,350 | 81,321 |\n| Net interest income／净利息收入 | 95,443 | 92,583 | 89,267 |\n| Total net revenue／净收入合计 | 182,447 | 177,556 | 158,104 |\n| Provision for credit losses／信用损失计提 | 14,212 | 10,678 | 9,320 |\n| Noninterest expense／非利息费用 |  |  |  |\n| Compensation expense／薪酬费用 | 54,487 | 51,357 | 46,465 |\n| Occupancy expense／场地费用 | 5,461 | 5,026 | 4,590 |\n| Technology, communications and equipment expense／技术、通信及设备费用 | 11,029 | 9,831 | 9,246 |\n| Professional and outside services／专业及外部服务费用 | 12,356 | 11,057 | 10,235 |\n| Marketing／营销费用 | 5,531 | 4,974 | 4,591 |\n| Other expense／其他费用 | 6,776 | 9,552 | 12,045 |\n| Total noninterest expense／非利息费用合计 | 95,640 | 91,797 | 87,172 |\n| Income before income tax expense／税前利润 | 72,595 | 75,081 | 61,612 |\n| Income tax expense／所得税费用 | 15,547 | 16,610 | 12,060 |\n| Net income／净利润 | 57,048 | 58,471 | 49,552 |\n| Net income applicable to common stockholders／归属于普通股权益的净利润 | 55,681 | 56,868 | 47,760 |\n| Net income per common share data／普通股每股净利润数据（美元/股） |  |  |  |\n| Basic earnings per share／基本每股净利润 | 20.05 | 19.79 | 16.25 |\n| Diluted earnings per share／稀释每股净利润 | 20.02 | 19.75 | 16.23 |\n| Weighted-average basic shares／基本加权平均股数（百万股） | 2,776.5 | 2,873.9 | 2,938.6 |\n| Weighted-average diluted shares／稀释加权平均股数（百万股） | 2,781.5 | 2,879 | 2,943.1 |\n\n\n| 年度 | 计算结果 |\n| --- | --- |\n| 2025 | {\"noninterest\": 87004, \"nii\": 95443, \"revenue\": 182447, \"expenses\": 95640, \"pretax\": 72595, \"net\": 57048, \"common\": 55681} |\n| 2024 | {\"noninterest\": 84973, \"nii\": 92583, \"revenue\": 177556, \"expenses\": 91797, \"pretax\": 75081, \"net\": 58471, \"common\": 56868} |\n| 2023 | {\"noninterest\": 68837, \"nii\": 89267, \"revenue\": 158104, \"expenses\": 87172, \"pretax\": 61612, \"net\": 49552, \"common\": 47760} |\n\n\n零售Gross Margin按公司MD&A定义；银行NII是资金价格和业务资产所产生的差额，不贴商品毛利标签。\n"
+      },
+      "data_identity": "historical_observations_and_separately_labelled_teaching_assumptions"
+    }
+  ],
+  "agent_markdown": "交互算法：成本扣减按公司原表层级；Cost gross=sales−merchandise，operating=gross+membership−SG&A。JPM NII=interest income−expense，再加全部非息收入，减计提、非息费用和税。\n\n边界：三个历史年度不能当预测；52/53周保留；不计算跨行业统一毛利排名。\n\n静态结果：https://ou-liu-red-sugar.github.io/notebook/labs/bf-bc/static.html#EXP-BF06-PROFIT-LAYERS。所有输入保留历史/教学身份；行业选择与打印由配套页面提供。",
+  "status": "candidate_local_review",
+  "audience": "高年级本科至研究生；共同框架加所选行业分支",
+  "provenance": {
+    "source_package": "docs/production/20260921/drafts/bf-bc-v2/notebook-BF-BC-20260921-review-v2",
+    "source_version": "bf-bc-review-v2",
+    "author_review_identity": "same-author xhigh review; not an independent review",
+    "independent_review": "docs/production/20260921/receipts/bf-bc-independent-draft-review.md",
+    "import_status": "staging_only_awaiting_Lead_adoption_and_UI",
+    "local_corrections": "docs/production/20260921/imports/bf-bc-staging-v3/import-report.json"
+  },
+  "interactions": [
+    {
+      "id": "EXP-BF06-PROFIT-LAYERS",
+      "title": "利润表：收入、成本与利润的层次：交互实验",
+      "url": "/notebook/labs/bf-bc/interactions.html#EXP-BF06-PROFIT-LAYERS",
+      "height": 780,
+      "open": true,
+      "experiment_id": "EXP-BF06-PROFIT-LAYERS",
+      "experiment_ids": [
+        "EXP-BF06-PROFIT-LAYERS"
+      ],
+      "inline": true,
+      "static_anchor": "bf06-experiment"
+    }
+  ],
+  "references": [
+    {
+      "kind": "source_link",
+      "label": "teaching",
+      "href": "https://openstax.org/books/principles-financial-accounting/pages/6-6-describe-and-prepare-multi-step-and-simple-income-statements-for-merchandising-companies",
+      "locator": "OpenStax，[§6.6 商品企业多步式利润表](https://openstax.org/books/principles-financial-accounting/pages/6-6-describe-and-prepare-multi-step-and-simple-income-statements-for-merchandising-companies)（2019）。本单元用于零售层次，银行读法以其原报表为准。",
+      "source_id": "BBC-S04"
+    },
+    {
+      "kind": "source_link",
+      "label": "cost",
+      "href": "https://www.sec.gov/Archives/edgar/data/909832/000090983225000101/cost-20250831.htm",
+      "locator": "Costco，[FY2025 Form 10-K](https://www.sec.gov/Archives/edgar/data/909832/000090983225000101/cost-20250831.htm)，Consolidated Statements of Income，SEC HTML印刷p.37。三年完整主表金额及EPS、股数行；金额、股数、每股数单位分别保留。",
+      "source_id": "BF-S-COST-FY2025-SEC"
+    },
+    {
+      "kind": "source_link",
+      "label": "gross",
+      "href": "https://www.sec.gov/Archives/edgar/data/909832/000090983225000101/cost-20250831.htm",
+      "locator": "同份[Costco 10-K](https://www.sec.gov/Archives/edgar/data/909832/000090983225000101/cost-20250831.htm)，MD&A “Gross Margin”，p.27。公司定义毛利为净销售减商品成本，并讨论百分比变化。",
+      "source_id": "BF-S-COST-FY2025-SEC"
+    },
+    {
+      "kind": "source_link",
+      "label": "costpolicy",
+      "href": "https://www.sec.gov/Archives/edgar/data/909832/000090983225000101/cost-20250831.htm",
+      "locator": "同份[Costco 10-K](https://www.sec.gov/Archives/edgar/data/909832/000090983225000101/cost-20250831.htm)，Note 1 Revenue Recognition／Membership Fees，pp.47–48，会员费分期确认与收入政策；共同资源的分析属于本文对合并结构的解释，不是独立分部利润披露。",
+      "source_id": "BF-S-COST-FY2025-SEC"
+    },
+    {
+      "kind": "source_link",
+      "label": "jpm",
+      "href": "https://www.jpmorganchase.com/content/dam/jpmc/jpmorgan-chase-and-co/investor-relations/documents/annualreport-2025.pdf",
+      "locator": "JPMorgan Chase，[2025 Annual Report](https://www.jpmorganchase.com/content/dam/jpmc/jpmorgan-chase-and-co/investor-relations/documents/annualreport-2025.pdf)，合并利润表印刷p.165、PDF物理第197页。全文表及普通股归属行。GAAP与managed/FTE口径的区别见“Explanation and Reconciliation of the Firm’s Use of Non-GAAP Financial Measures”。",
+      "source_id": "BF-S-JPM-FY2025"
+    }
+  ]
+}

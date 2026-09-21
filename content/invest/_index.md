@@ -1,4 +1,5 @@
 ---
+aliases: ["/invest/"]
 title: "Investing Lab"
 description: "A public notebook for an investing research framework being tested in live practice."
 hideMeta: true

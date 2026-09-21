@@ -1,0 +1,902 @@
+{
+  "EXP-BF19-MATURITY-AND-LIQUIDITY": {
+    "default_branch": "retail",
+    "maturity": {
+      "identity": "analyst_arithmetic_not_forecast",
+      "snapshot_date": "2025-08-31",
+      "through": "FY2026",
+      "selected_assets": 15284,
+      "selected_principal": 75,
+      "difference": 15209,
+      "conditional_capacity": 0,
+      "conditional_scenario_difference": null,
+      "conditions": [
+        "多数设施一年内到期，续期只是管理层意图。",
+        "借款余额在期末不重大。",
+        "可借金额受未结信用证影响；1220不另擅自扣200。",
+        "是否能在所选付款日提款仍须核到期、条件、主体及币种。"
+      ],
+      "cash_forecast": null,
+      "safety_score": null
+    },
+    "through_FY2027": {
+      "identity": "analyst_arithmetic_not_forecast",
+      "snapshot_date": "2025-08-31",
+      "through": "FY2027",
+      "selected_assets": 15284,
+      "selected_principal": 2325,
+      "difference": 12959,
+      "conditional_capacity": 0,
+      "conditional_scenario_difference": null,
+      "conditions": [
+        "多数设施一年内到期，续期只是管理层意图。",
+        "借款余额在期末不重大。",
+        "可借金额受未结信用证影响；1220不另擅自扣200。",
+        "是否能在所选付款日提款仍须核到期、条件、主体及币种。"
+      ],
+      "cash_forecast": null,
+      "safety_score": null
+    },
+    "bank": {
+      "source_id": "BFFG-C02",
+      "unit": "USD million unless marked",
+      "average_period": "three months ended 2025-12-31",
+      "group": {
+        "eligible_cash": 281117,
+        "eligible_securities": 680862,
+        "hqla": 961979,
+        "nco": 868500,
+        "reported_lcr_pct": 111,
+        "excess": 93479
+      },
+      "bank_na": {
+        "reported_lcr_pct": 115,
+        "excess": 138052
+      },
+      "period_end": {
+        "date": "2025-12-31",
+        "hqla_pre_haircut_approx_bn": 915,
+        "other_unencumbered_approx_bn": 548,
+        "reported_available_approx_tn": 1.5,
+        "conditional_borrowing_approx_bn": 449,
+        "deposits": 2559320,
+        "uninsured_estimate": 1558600
+      },
+      "notes": [
+        "449bn原文明确排除已列HQLA/其他无抵押证券带来的相关能力，不能武断称必然重复。",
+        "期末资产与有条件融资能力分别呈现，不输出无条件挤兑覆盖率。"
+      ],
+      "average_amount_ratio_pct": 110.76327000575705,
+      "period_end_asset_sum_approx_bn": 1463,
+      "uninsured_share_pct": 60.89898879389838,
+      "total_unconditional_liquidity": null,
+      "run_probability": null
+    },
+    "stress": [
+      {
+        "identity": "hypothetical_contract",
+        "receipt_day": 1,
+        "initial_cash": 1000,
+        "events": [
+          {
+            "day": 1,
+            "order": 0,
+            "label": "既有应收到账",
+            "amount": 600,
+            "cash_before_financing": 1600
+          },
+          {
+            "day": 1,
+            "order": 1,
+            "label": "供应商付款",
+            "amount": -900,
+            "cash_before_financing": 700
+          },
+          {
+            "day": 2,
+            "order": 1,
+            "label": "到期本金",
+            "amount": -500,
+            "cash_before_financing": 200
+          }
+        ],
+        "days": [
+          {
+            "day": 1,
+            "cash_before_financing": 700
+          },
+          {
+            "day": 2,
+            "cash_before_financing": 200
+          },
+          {
+            "day": 3,
+            "cash_before_financing": 200
+          }
+        ],
+        "ending_cash": 200,
+        "minimum_cash": 200,
+        "funding_gap": 0,
+        "same_day_order": "当日收款先于付款；非结算制度一般结论",
+        "revenue_changed": false
+      },
+      {
+        "identity": "hypothetical_contract",
+        "receipt_day": 2,
+        "initial_cash": 1000,
+        "events": [
+          {
+            "day": 1,
+            "order": 1,
+            "label": "供应商付款",
+            "amount": -900,
+            "cash_before_financing": 100
+          },
+          {
+            "day": 2,
+            "order": 0,
+            "label": "既有应收到账",
+            "amount": 600,
+            "cash_before_financing": 700
+          },
+          {
+            "day": 2,
+            "order": 1,
+            "label": "到期本金",
+            "amount": -500,
+            "cash_before_financing": 200
+          }
+        ],
+        "days": [
+          {
+            "day": 1,
+            "cash_before_financing": 100
+          },
+          {
+            "day": 2,
+            "cash_before_financing": 200
+          },
+          {
+            "day": 3,
+            "cash_before_financing": 200
+          }
+        ],
+        "ending_cash": 200,
+        "minimum_cash": 100,
+        "funding_gap": 0,
+        "same_day_order": "当日收款先于付款；非结算制度一般结论",
+        "revenue_changed": false
+      },
+      {
+        "identity": "hypothetical_contract",
+        "receipt_day": 3,
+        "initial_cash": 1000,
+        "events": [
+          {
+            "day": 1,
+            "order": 1,
+            "label": "供应商付款",
+            "amount": -900,
+            "cash_before_financing": 100
+          },
+          {
+            "day": 2,
+            "order": 1,
+            "label": "到期本金",
+            "amount": -500,
+            "cash_before_financing": -400
+          },
+          {
+            "day": 3,
+            "order": 0,
+            "label": "既有应收到账",
+            "amount": 600,
+            "cash_before_financing": 200
+          }
+        ],
+        "days": [
+          {
+            "day": 1,
+            "cash_before_financing": 100
+          },
+          {
+            "day": 2,
+            "cash_before_financing": -400
+          },
+          {
+            "day": 3,
+            "cash_before_financing": 200
+          }
+        ],
+        "ending_cash": 200,
+        "minimum_cash": -400,
+        "funding_gap": 400,
+        "same_day_order": "当日收款先于付款；非结算制度一般结论",
+        "revenue_changed": false
+      }
+    ]
+  },
+  "EXP-BF20-REVERSIBLE-ADJUSTMENTS": {
+    "default": {
+      "identity": "analyst_selected_operating_measure",
+      "selected": {
+        "amort": true,
+        "sbc": true,
+        "restruct": true
+      },
+      "oi": 14156,
+      "margin_pct": 34.09030704394943,
+      "revenue": 41525,
+      "adjustments": [
+        {
+          "id": "amort",
+          "label": "Amortization of purchased intangibles",
+          "label_zh": "购入无形资产摊销",
+          "value": 1687
+        },
+        {
+          "id": "sbc",
+          "label": "Stock-based compensation expense",
+          "label_zh": "股权薪酬（不含重组项内29）",
+          "value": 3480
+        },
+        {
+          "id": "restruct",
+          "label": "Restructuring and acquisition-related costs",
+          "label_zh": "重组与收购相关成本",
+          "value": 658
+        }
+      ],
+      "official": {
+        "oi": 14156,
+        "ni": 11969,
+        "eps": 12.52,
+        "fcf": 14402,
+        "gaap_ni": 7457,
+        "gaap_eps": 7.8,
+        "diluted_shares_m": 956,
+        "tax_effect": -1313
+      },
+      "scope": "Only operating income and margin; no custom NI/EPS or cash/share mutations."
+    },
+    "all_combinations": [
+      {
+        "identity": "analyst_selected_operating_measure",
+        "selected": {
+          "amort": false,
+          "sbc": false,
+          "restruct": false
+        },
+        "oi": 8331,
+        "margin_pct": 20.06261288380494,
+        "revenue": 41525,
+        "adjustments": [],
+        "official": {
+          "oi": 14156,
+          "ni": 11969,
+          "eps": 12.52,
+          "fcf": 14402,
+          "gaap_ni": 7457,
+          "gaap_eps": 7.8,
+          "diluted_shares_m": 956,
+          "tax_effect": -1313
+        },
+        "scope": "Only operating income and margin; no custom NI/EPS or cash/share mutations."
+      },
+      {
+        "identity": "analyst_selected_operating_measure",
+        "selected": {
+          "amort": true,
+          "sbc": false,
+          "restruct": false
+        },
+        "oi": 10018,
+        "margin_pct": 24.125225767609873,
+        "revenue": 41525,
+        "adjustments": [
+          {
+            "id": "amort",
+            "label": "Amortization of purchased intangibles",
+            "label_zh": "购入无形资产摊销",
+            "value": 1687
+          }
+        ],
+        "official": {
+          "oi": 14156,
+          "ni": 11969,
+          "eps": 12.52,
+          "fcf": 14402,
+          "gaap_ni": 7457,
+          "gaap_eps": 7.8,
+          "diluted_shares_m": 956,
+          "tax_effect": -1313
+        },
+        "scope": "Only operating income and margin; no custom NI/EPS or cash/share mutations."
+      },
+      {
+        "identity": "analyst_selected_operating_measure",
+        "selected": {
+          "amort": false,
+          "sbc": true,
+          "restruct": false
+        },
+        "oi": 11811,
+        "margin_pct": 28.44310656231186,
+        "revenue": 41525,
+        "adjustments": [
+          {
+            "id": "sbc",
+            "label": "Stock-based compensation expense",
+            "label_zh": "股权薪酬（不含重组项内29）",
+            "value": 3480
+          }
+        ],
+        "official": {
+          "oi": 14156,
+          "ni": 11969,
+          "eps": 12.52,
+          "fcf": 14402,
+          "gaap_ni": 7457,
+          "gaap_eps": 7.8,
+          "diluted_shares_m": 956,
+          "tax_effect": -1313
+        },
+        "scope": "Only operating income and margin; no custom NI/EPS or cash/share mutations."
+      },
+      {
+        "identity": "analyst_selected_operating_measure",
+        "selected": {
+          "amort": true,
+          "sbc": true,
+          "restruct": false
+        },
+        "oi": 13498,
+        "margin_pct": 32.5057194461168,
+        "revenue": 41525,
+        "adjustments": [
+          {
+            "id": "amort",
+            "label": "Amortization of purchased intangibles",
+            "label_zh": "购入无形资产摊销",
+            "value": 1687
+          },
+          {
+            "id": "sbc",
+            "label": "Stock-based compensation expense",
+            "label_zh": "股权薪酬（不含重组项内29）",
+            "value": 3480
+          }
+        ],
+        "official": {
+          "oi": 14156,
+          "ni": 11969,
+          "eps": 12.52,
+          "fcf": 14402,
+          "gaap_ni": 7457,
+          "gaap_eps": 7.8,
+          "diluted_shares_m": 956,
+          "tax_effect": -1313
+        },
+        "scope": "Only operating income and margin; no custom NI/EPS or cash/share mutations."
+      },
+      {
+        "identity": "analyst_selected_operating_measure",
+        "selected": {
+          "amort": false,
+          "sbc": false,
+          "restruct": true
+        },
+        "oi": 8989,
+        "margin_pct": 21.64720048163757,
+        "revenue": 41525,
+        "adjustments": [
+          {
+            "id": "restruct",
+            "label": "Restructuring and acquisition-related costs",
+            "label_zh": "重组与收购相关成本",
+            "value": 658
+          }
+        ],
+        "official": {
+          "oi": 14156,
+          "ni": 11969,
+          "eps": 12.52,
+          "fcf": 14402,
+          "gaap_ni": 7457,
+          "gaap_eps": 7.8,
+          "diluted_shares_m": 956,
+          "tax_effect": -1313
+        },
+        "scope": "Only operating income and margin; no custom NI/EPS or cash/share mutations."
+      },
+      {
+        "identity": "analyst_selected_operating_measure",
+        "selected": {
+          "amort": true,
+          "sbc": false,
+          "restruct": true
+        },
+        "oi": 10676,
+        "margin_pct": 25.709813365442503,
+        "revenue": 41525,
+        "adjustments": [
+          {
+            "id": "amort",
+            "label": "Amortization of purchased intangibles",
+            "label_zh": "购入无形资产摊销",
+            "value": 1687
+          },
+          {
+            "id": "restruct",
+            "label": "Restructuring and acquisition-related costs",
+            "label_zh": "重组与收购相关成本",
+            "value": 658
+          }
+        ],
+        "official": {
+          "oi": 14156,
+          "ni": 11969,
+          "eps": 12.52,
+          "fcf": 14402,
+          "gaap_ni": 7457,
+          "gaap_eps": 7.8,
+          "diluted_shares_m": 956,
+          "tax_effect": -1313
+        },
+        "scope": "Only operating income and margin; no custom NI/EPS or cash/share mutations."
+      },
+      {
+        "identity": "analyst_selected_operating_measure",
+        "selected": {
+          "amort": false,
+          "sbc": true,
+          "restruct": true
+        },
+        "oi": 12469,
+        "margin_pct": 30.02769416014449,
+        "revenue": 41525,
+        "adjustments": [
+          {
+            "id": "sbc",
+            "label": "Stock-based compensation expense",
+            "label_zh": "股权薪酬（不含重组项内29）",
+            "value": 3480
+          },
+          {
+            "id": "restruct",
+            "label": "Restructuring and acquisition-related costs",
+            "label_zh": "重组与收购相关成本",
+            "value": 658
+          }
+        ],
+        "official": {
+          "oi": 14156,
+          "ni": 11969,
+          "eps": 12.52,
+          "fcf": 14402,
+          "gaap_ni": 7457,
+          "gaap_eps": 7.8,
+          "diluted_shares_m": 956,
+          "tax_effect": -1313
+        },
+        "scope": "Only operating income and margin; no custom NI/EPS or cash/share mutations."
+      },
+      {
+        "identity": "analyst_selected_operating_measure",
+        "selected": {
+          "amort": true,
+          "sbc": true,
+          "restruct": true
+        },
+        "oi": 14156,
+        "margin_pct": 34.09030704394943,
+        "revenue": 41525,
+        "adjustments": [
+          {
+            "id": "amort",
+            "label": "Amortization of purchased intangibles",
+            "label_zh": "购入无形资产摊销",
+            "value": 1687
+          },
+          {
+            "id": "sbc",
+            "label": "Stock-based compensation expense",
+            "label_zh": "股权薪酬（不含重组项内29）",
+            "value": 3480
+          },
+          {
+            "id": "restruct",
+            "label": "Restructuring and acquisition-related costs",
+            "label_zh": "重组与收购相关成本",
+            "value": 658
+          }
+        ],
+        "official": {
+          "oi": 14156,
+          "ni": 11969,
+          "eps": 12.52,
+          "fcf": 14402,
+          "gaap_ni": 7457,
+          "gaap_eps": 7.8,
+          "diluted_shares_m": 956,
+          "tax_effect": -1313
+        },
+        "scope": "Only operating income and margin; no custom NI/EPS or cash/share mutations."
+      }
+    ]
+  },
+  "EXP-BF21-SOURCES-USES": {
+    "historical": {
+      "identity": "reported_cash_rows_regrouped",
+      "sources": [
+        {
+          "id": "cfo",
+          "label_original": "Net cash provided by operating activities",
+          "label_zh": "经营现金流整体",
+          "value": 14996,
+          "section": "cfo"
+        },
+        {
+          "id": "strategic_sales",
+          "label_original": "Sales of strategic investments",
+          "label_zh": "出售战略投资",
+          "value": 184,
+          "section": "cfi"
+        },
+        {
+          "id": "market_sales",
+          "label_original": "Sales of marketable securities",
+          "label_zh": "出售有价证券",
+          "value": 4414,
+          "section": "cfi"
+        },
+        {
+          "id": "market_maturities",
+          "label_original": "Maturities of marketable securities",
+          "label_zh": "有价证券到期",
+          "value": 2395,
+          "section": "cfi"
+        },
+        {
+          "id": "debtissue",
+          "label_original": "Proceeds from issuance of debt, net of issuance costs",
+          "label_zh": "发行债务所得，扣发行成本",
+          "value": 6000,
+          "section": "cff"
+        },
+        {
+          "id": "employee",
+          "label_original": "Proceeds from employee stock plans",
+          "label_zh": "员工股票计划所得",
+          "value": 1039,
+          "section": "cff"
+        }
+      ],
+      "uses": [
+        {
+          "id": "acquisitions",
+          "label_original": "Business combinations, net of cash acquired",
+          "label_zh": "企业合并，扣取得现金",
+          "value": -9268,
+          "section": "cfi"
+        },
+        {
+          "id": "strategic_purchases",
+          "label_original": "Purchases of strategic investments",
+          "label_zh": "购入战略投资",
+          "value": -1958,
+          "section": "cfi"
+        },
+        {
+          "id": "market_purchases",
+          "label_original": "Purchases of marketable securities",
+          "label_zh": "购入有价证券",
+          "value": -3763,
+          "section": "cfi"
+        },
+        {
+          "id": "capex",
+          "label_original": "Capital expenditures",
+          "label_zh": "资本支出",
+          "value": -594,
+          "section": "cfi"
+        },
+        {
+          "id": "repurchases",
+          "label_original": "Repurchases of common stock",
+          "label_zh": "回购普通股现金",
+          "value": -12596,
+          "section": "cff"
+        },
+        {
+          "id": "settlementtax",
+          "label_original": "Payments for taxes related to net share settlement of equity awards",
+          "label_zh": "股权奖励净额结算相关税款",
+          "value": -351,
+          "section": "cff"
+        },
+        {
+          "id": "financeprincipal",
+          "label_original": "Principal payments on financing obligations",
+          "label_zh": "融资义务本金支付",
+          "value": -584,
+          "section": "cff"
+        },
+        {
+          "id": "dividends",
+          "label_original": "Payments of dividends and dividend equivalents",
+          "label_zh": "股息及股息等价支付",
+          "value": -1587,
+          "section": "cff"
+        }
+      ],
+      "zero": [
+        {
+          "id": "debtrepay",
+          "label_original": "Repayments of debt",
+          "label_zh": "偿还债务",
+          "value": 0,
+          "section": "cff"
+        }
+      ],
+      "sources_total": 29028,
+      "uses_total": 30701,
+      "cfo": 14996,
+      "cfi": -8590,
+      "cff": -8079,
+      "net_three_activities": -1673,
+      "fx_separate": 152,
+      "change": -1521,
+      "begin": 8848,
+      "end": 7327,
+      "operating_explanation": [
+        {
+          "id": "net",
+          "label_original": "Net income",
+          "label_zh": "净利润",
+          "value": 7457
+        },
+        {
+          "id": "da",
+          "label_original": "Depreciation and amortization (1)",
+          "label_zh": "折旧和摊销（1）",
+          "value": 3631
+        },
+        {
+          "id": "contract_amort",
+          "label_original": "Amortization of costs capitalized to obtain revenue contracts, net",
+          "label_zh": "取得收入合同资本化成本的摊销净额",
+          "value": 2197
+        },
+        {
+          "id": "sbc",
+          "label_original": "Stock-based compensation expense",
+          "label_zh": "股权薪酬费用",
+          "value": 3509
+        },
+        {
+          "id": "strategic",
+          "label_original": "(Gains) losses on strategic investments, net",
+          "label_zh": "战略投资收益／损失净额的现金流调整",
+          "value": -1017
+        },
+        {
+          "id": "ar",
+          "label_original": "Accounts receivable, net",
+          "label_zh": "应收款净额变动",
+          "value": -2160
+        },
+        {
+          "id": "contract_add",
+          "label_original": "Costs capitalized to obtain revenue contracts, net",
+          "label_zh": "取得收入合同的资本化成本净额变动",
+          "value": -2811
+        },
+        {
+          "id": "prepaid",
+          "label_original": "Prepaid expenses and other current assets and other assets",
+          "label_zh": "预付及其他资产变动",
+          "value": 819
+        },
+        {
+          "id": "ap",
+          "label_original": "Accounts payable and accrued expenses and other liabilities",
+          "label_zh": "应付、应计费用及其他负债变动",
+          "value": 1014
+        },
+        {
+          "id": "lease",
+          "label_original": "Operating lease liabilities",
+          "label_zh": "经营租赁负债变动",
+          "value": -567
+        },
+        {
+          "id": "unearned",
+          "label_original": "Unearned revenue",
+          "label_zh": "未赚取收入变动",
+          "value": 2924
+        }
+      ],
+      "operating_explanation_sum": 14996,
+      "note": "CFO展开替换整体；来源29028不含FX，补充现金披露不再累计。"
+    },
+    "allocation": [
+      {
+        "identity": "hypothetical_instant_book_state",
+        "action": "retain",
+        "budget": 3000,
+        "price": 60,
+        "initial": {
+          "cash": 3000,
+          "other_assets": 7000,
+          "facility": 0,
+          "debt": 4000,
+          "equity": 6000,
+          "shares": 100
+        },
+        "state": {
+          "cash": 3000,
+          "other_assets": 7000,
+          "facility": 0,
+          "debt": 4000,
+          "equity": 6000,
+          "shares": 100
+        },
+        "assets": 10000,
+        "liabilities_plus_equity": 10000,
+        "accounting_gap": 0,
+        "delta": {
+          "cash": 0,
+          "other_assets": 0,
+          "facility": 0,
+          "debt": 0,
+          "equity": 0,
+          "shares": 0
+        },
+        "shares_bought": 0,
+        "future_return": null,
+        "wealth_change": null
+      },
+      {
+        "identity": "hypothetical_instant_book_state",
+        "action": "repay",
+        "budget": 3000,
+        "price": 60,
+        "initial": {
+          "cash": 3000,
+          "other_assets": 7000,
+          "facility": 0,
+          "debt": 4000,
+          "equity": 6000,
+          "shares": 100
+        },
+        "state": {
+          "cash": 0,
+          "other_assets": 7000,
+          "facility": 0,
+          "debt": 1000,
+          "equity": 6000,
+          "shares": 100
+        },
+        "assets": 7000,
+        "liabilities_plus_equity": 7000,
+        "accounting_gap": 0,
+        "delta": {
+          "cash": -3000,
+          "other_assets": 0,
+          "facility": 0,
+          "debt": -3000,
+          "equity": 0,
+          "shares": 0
+        },
+        "shares_bought": 0,
+        "future_return": null,
+        "wealth_change": null
+      },
+      {
+        "identity": "hypothetical_instant_book_state",
+        "action": "build",
+        "budget": 3000,
+        "price": 60,
+        "initial": {
+          "cash": 3000,
+          "other_assets": 7000,
+          "facility": 0,
+          "debt": 4000,
+          "equity": 6000,
+          "shares": 100
+        },
+        "state": {
+          "cash": 0,
+          "other_assets": 7000,
+          "facility": 3000,
+          "debt": 4000,
+          "equity": 6000,
+          "shares": 100
+        },
+        "assets": 10000,
+        "liabilities_plus_equity": 10000,
+        "accounting_gap": 0,
+        "delta": {
+          "cash": -3000,
+          "other_assets": 0,
+          "facility": 3000,
+          "debt": 0,
+          "equity": 0,
+          "shares": 0
+        },
+        "shares_bought": 0,
+        "future_return": null,
+        "wealth_change": null
+      },
+      {
+        "identity": "hypothetical_instant_book_state",
+        "action": "repurchase",
+        "budget": 3000,
+        "price": 60,
+        "initial": {
+          "cash": 3000,
+          "other_assets": 7000,
+          "facility": 0,
+          "debt": 4000,
+          "equity": 6000,
+          "shares": 100
+        },
+        "state": {
+          "cash": 0,
+          "other_assets": 7000,
+          "facility": 0,
+          "debt": 4000,
+          "equity": 3000,
+          "shares": 50
+        },
+        "assets": 7000,
+        "liabilities_plus_equity": 7000,
+        "accounting_gap": 0,
+        "delta": {
+          "cash": -3000,
+          "other_assets": 0,
+          "facility": 0,
+          "debt": 0,
+          "equity": -3000,
+          "shares": -50
+        },
+        "shares_bought": 50,
+        "future_return": null,
+        "wealth_change": null
+      }
+    ],
+    "paper_example": {
+      "identity": "published_teaching_example_not_company_data",
+      "shares_bought": 10,
+      "forgone_interest": 5.25,
+      "eps": 3.01489898989899
+    }
+  },
+  "EXP-BF22-ONE-PAGE-BUILDER": {
+    "retail": {
+      "branch": "retail",
+      "period": "FY2025 ended 2025-08-31 (52 weeks)",
+      "profit": 10383,
+      "ni": 8099,
+      "cash_end": 14161,
+      "stock_gap": 5542,
+      "shares_net_change": 111000,
+      "inventory_ap_change": -893,
+      "reverse_balance_change": 893,
+      "cf_two_rows": 963,
+      "unexplained_difference": 70,
+      "income_growth": 1098
+    },
+    "bank": {
+      "branch": "bank",
+      "period": "FY2025 ended 2025-12-31",
+      "profit": 72595,
+      "ni": 57048,
+      "cash_end": 343338,
+      "common_equity": 342393,
+      "shares_end": 2696272576,
+      "deposits_change": 153288
+    }
+  }
+}

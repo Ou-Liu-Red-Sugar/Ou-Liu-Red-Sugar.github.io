@@ -1,4 +1,5 @@
 ---
+aliases: ["/invest/lessons/margin-of-safety-is-a-behavior/"]
 title: "Lesson: Margin of Safety Is Not a Word—It’s a Behavior"
 date: 2026-01-30
 tags: ["lesson", "margin-of-safety", "behavior", "process"]

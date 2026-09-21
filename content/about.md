@@ -1,4 +1,5 @@
 ---
+aliases: ["/about/"]
 title: "About"
 description: "Personal notes on investing research, learning, and archived mathematics."
 draft: false

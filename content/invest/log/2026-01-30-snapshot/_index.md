@@ -1,4 +1,5 @@
 ---
+aliases: ["/invest/log/2026-01-30-snapshot/"]
 title: "Snapshot — 2026-01-30 (intraday)"
 description: "Intraday snapshot used for later attribution and structure checks."
 date: 2026-01-30

@@ -1,0 +1,29 @@
+{{ $d := .diagram }}{{ $zh := .zh }}
+<figure class="interactive-figure" data-diagram="{{ $d.type }}"><div class="figure-top"><span class="eyebrow">{{ if $zh }}动手试一试{{ else }}TRY IT YOURSELF{{ end }}</span><span class="figure-badge">{{ if $zh }}教学示意{{ else }}ILLUSTRATION{{ end }}</span></div>
+{{ if eq $d.type "call" }}
+<div class="chart-legend"><span class="teal-dot">{{ if $zh }}到期收益{{ else }}Payoff{{ end }}</span><span class="orange-dot">{{ if $zh }}净盈亏{{ else }}Profit{{ end }}</span></div>
+<svg class="call-chart" viewBox="0 0 640 300" role="img" aria-label="{{ if $zh }}到期收益和净盈亏随到期标的价格的变化{{ else }}Expiry payoff and profit versus terminal underlying price{{ end }}">
+<path d="M54 24V251H608M54 213H608" class="chart-axis"/><g class="chart-labels"><text data-yhigh x="10" y="28">100</text><text x="10" y="218">0</text><text x="48" y="274">0</text><text x="315" y="274">100</text><text x="576" y="274">200</text><text x="535" y="296">S_T →</text></g>
+<path data-line="payoff" d="M54 213L331 213L608 24" class="payoff-line"/><path data-line="profit" d="M54 228L331 228L608 39" class="profit-line"/>
+<line data-marker x1="386" y1="24" x2="386" y2="251" class="chart-marker"/><circle data-point="payoff" cx="386" cy="175" r="5" class="payoff-dot"/><circle data-point="profit" cx="386" cy="190" r="5" class="profit-dot"/>
+</svg>
+<div class="chart-controls"><label for="call-strike">{{ if $zh }}执行价 K{{ else }}Strike K{{ end }} <output data-value="strike">100</output><input type="range" min="40" max="150" value="100" step="1" name="strike" id="call-strike" disabled></label><label for="call-premium">{{ if $zh }}权利金{{ else }}Premium{{ end }} <output data-value="premium">8</output><input type="range" min="0" max="30" value="8" step="1" name="premium" id="call-premium" disabled></label><label for="call-spot">{{ if $zh }}到期价格 S_T{{ else }}Terminal price S_T{{ end }} <output data-value="spot">120</output><input type="range" min="0" max="200" value="120" step="1" name="spot" id="call-spot" disabled></label></div>
+<div class="chart-result" aria-live="polite" aria-atomic="true"><span>{{ if $zh }}到期收益{{ else }}Payoff{{ end }} <strong data-result="payoff">20</strong></span><span>{{ if $zh }}净盈亏{{ else }}Profit{{ end }} <strong data-result="profit">12</strong></span><span>{{ if $zh }}盈亏平衡{{ else }}Break-even{{ end }} <strong data-result="breakeven">108</strong></span></div>
+{{ else if eq $d.type "expectation" }}
+<label class="information-choice">{{ if $zh }}现在知道的信息{{ else }}Available information{{ end }}<select name="information" disabled><option value="none">{{ if $zh }}什么都不知道{{ else }}No information{{ end }}</option><option value="parity" selected>{{ if $zh }}只知道奇偶性{{ else }}Parity only{{ end }}</option><option value="exact">{{ if $zh }}知道具体点数{{ else }}Exact result{{ end }}</option></select></label>
+<p>{{ if $zh }}选择实际出现的点数：{{ else }}Choose the realised result:{{ end }}</p>
+<div class="die-faces">{{ range seq 6 }}<button type="button" data-face="{{ . }}" aria-pressed="{{ if eq . 1 }}true{{ else }}false{{ end }}" disabled><span>{{ . }}</span><small data-mean>{{ if modBool . 2 }}4{{ else }}3{{ end }}</small></button>{{ end }}</div>
+<div class="chart-result" aria-live="polite" aria-atomic="true"><span>{{ if $zh }}无法再区分的结果{{ else }}Information cell{{ end }} <strong data-result="cell">{1, 3, 5}</strong></span><span>{{ if $zh }}条件平均{{ else }}Conditional mean{{ end }} <strong data-result="mean">3</strong></span><span>{{ if $zh }}整体期望{{ else }}Overall mean{{ end }} <strong>3.5</strong></span></div>
+<p class="small-note">{{ if $zh }}大数字是实际点数，小数字是该结果对应的条件期望。高亮表示当前信息单元。{{ else }}Large numbers are outcomes; small numbers are their conditional means. Highlighted outcomes belong to the current information cell.{{ end }}</p>
+{{ else if eq $d.type "balance" }}
+<p>选一个动作，沿箭头看它如何传到资产、负债和权益。每一步接着上一步发生。</p>
+<div class="event-tabs" role="group" aria-label="选择经营动作" hidden>{{ range $d.events }}<button data-event="{{ .id }}" aria-pressed="false">{{ .label }}</button>{{ end }}</div>
+{{ range $d.events }}<section class="event-panel" data-event-panel="{{ .id }}"><h3>{{ .label }}</h3>{{ partial "notebook/flow.html" .paths }}<p class="event-explanation">{{ .explanation }}</p><div class="balance-snapshot"><div><strong>资产 {{ .assets }}</strong><span>{{ .asset_detail }}</span></div><b>=</b><div><strong>负债 {{ .liabilities }}</strong><span>{{ .liability_detail }}</span></div><b>+</b><div><strong>权益 {{ .equity }}</strong><span>{{ .equity_detail }}</span></div></div></section>{{ end }}
+{{ else if eq $d.type "flow" }}
+{{ partial "notebook/flow.html" $d.paths }}
+
+{{ end }}
+<figcaption><strong>{{ if $zh }}适用条件：{{ else }}Conditions: {{ end }}</strong>{{ $d.conditions }}</figcaption>
+<details class="diagram-description"><summary>{{ if $zh }}图表的完整文字说明{{ else }}Complete text equivalent{{ end }}</summary><p>{{ $d.description }}</p><p>{{ $d.formula }}</p><p>{{ $d.default }}</p></details>
+<noscript><p>{{ if $zh }}当前为静态示意；完整规则与默认结果见上方文字说明。{{ else }}Static illustration. Rules and default results are described above.{{ end }}</p></noscript>
+</figure>

@@ -1,0 +1,47 @@
+{{ define "main" }}
+{{ $page := . }}{{ $zh := eq .Lang "zh" }}{{ $e := index (where .Site.Data.notebook.entries "id" .Params.notebookid) 0 }}
+<div class="reader-layout">
+  <aside class="reader-nav"><a class="back-link" href="/{{ .Lang }}/notebook/">← {{ if $zh }}全部词条{{ else }}All entries{{ end }}</a>{{ partial "notebook/subject-tree.html" (dict "page" $page "entry" $e) }}</aside>
+  <article class="entry-article" data-entry-id="{{ $e.id }}">
+    <header class="entry-header">
+      <p class="eyebrow">{{ if in (slice "company" "research") $e.kind }}{{ if $zh }}公司库{{ else }}Companies{{ end }}{{ else }}{{ range where .Site.Data.notebook.subjects "id" $e.subject }}{{ if $zh }}{{ .zh }}{{ else }}{{ .en }}{{ end }}{{ end }}{{ end }}{{ with $e.node_id }} / {{ . }}{{ end }}</p>
+      <h1>{{ $e.title }}</h1><p class="entry-deck">{{ $e.summary }}</p>
+      <div class="entry-meta">
+        {{ if not (in (slice "company" "research") $e.kind) }}<span class="read-time">{{ with $e.study_time }}{{ . }}{{ else }}{{ if eq $e.template "T10" }}{{ if $zh }}按需查阅{{ else }}Quick reference{{ end }}{{ else }}{{ if $zh }}阅读与练习 · 约 10–20 分钟{{ else }}Reading & practice · about 10–20 min{{ end }}{{ end }}{{ end }}</span>{{ end }}
+        {{ with $e.revised }}<span>{{ if $zh }}编辑{{ else }}Edited{{ end }} {{ . }}</span>{{ end }}{{ with $e.cutoff }}<span>{{ if $zh }}研究截至{{ else }}Research cutoff{{ end }} {{ . }}</span>{{ end }}
+      </div>
+      {{ with $e.period }}<p class="period">{{ if $zh }}资料期间：{{ else }}Data period: {{ end }}{{ . }}</p>{{ end }}
+      <div class="entry-actions">{{ with $e.teaching_context }}<button class="primary-button" data-teach>{{ if $zh }}让 Agent 教我{{ else }}Learn with an Agent{{ end }} ↗</button>{{ end }}{{ with $e.agent }}<a href="{{ . }}">Agent Markdown ↓</a>{{ end }}<button data-print>{{ if $zh }}打印{{ else }}Print{{ end }}</button></div>
+    </header>
+    {{ with $e.reading_path }}<a class="path-position" href="{{ .url }}">{{ if $zh }}本领域路线{{ else }}Domain reading path{{ end }} · {{ .number }} / {{ .total }}{{ with .question }} <span>{{ . }}</span>{{ end }}</a>{{ end }}
+
+    {{ if $e.body_markdown }}
+      <div class="prose entry-body">{{ .Content }}</div>
+    {{ else }}
+      {{ range $e.sections }}
+      <section id="{{ .id }}" class="entry-section {{ .kind }}">
+        {{ with .kind }}<span class="block-kind">{{ . }}</span>{{ end }}<h2><a class="anchor-link" href="#{{ .id }}" aria-label="Permalink">#</a>{{ .title }}</h2><div class="prose">{{ .body | markdownify }}</div>
+        {{ with .diagram }}{{ partial "notebook/diagram.html" (dict "diagram" . "zh" $zh) }}{{ end }}
+        {{ range .checks }}<div class="learning-check"><p>{{ .question }}</p><details><summary>{{ if $zh }}展开推理与答案{{ else }}Show the reasoning{{ end }}</summary><div class="prose">{{ .answer | markdownify }}</div></details></div>{{ end }}
+        {{ with .cases }}
+        <div class="case-group"><div class="case-controls" hidden><div class="case-tabs" role="tablist" aria-label="{{ if $zh }}对照案例{{ else }}Comparison cases{{ end }}">{{ range . }}<button role="tab" id="tab-{{ .id }}" aria-controls="{{ .id }}" aria-selected="false" data-case="{{ .id }}">{{ .title }}</button>{{ end }}</div><label class="mobile-case">{{ if $zh }}案例{{ else }}Case{{ end }}<select data-case-select>{{ range . }}<option value="{{ .id }}">{{ .title }}</option>{{ end }}</select></label><button data-show-cases>{{ if $zh }}展开全部案例{{ else }}Show all cases{{ end }}</button></div>
+          {{ range . }}<section class="case-card" id="{{ .id }}" aria-labelledby="heading-{{ .id }}"><p class="eyebrow">CASE / {{ .entity }}</p><h3 id="heading-{{ .id }}"><a href="#{{ .id }}">{{ .title }} ↗</a></h3><p class="case-date">{{ if $zh }}研究截至{{ else }}Research cutoff{{ end }} {{ .cutoff }} · {{ .period }}</p><div class="prose">{{ .body | markdownify }}</div>{{ with .diagram }}{{ partial "notebook/diagram.html" (dict "diagram" . "zh" $zh) }}{{ end }}</section>{{ end }}
+        </div>{{ end }}
+      </section>{{ end }}
+      <section class="entry-section source-list" id="sources"><h2>{{ if $zh }}来源与延伸阅读{{ else }}Sources & further reading{{ end }}</h2>{{ range $e.sources }}{{ $r := index $page.Site.Data.notebook.references . }}<p><a class="inline-ref" href="{{ $r.url }}" data-reference="{{ . }}">{{ $r.title }} ↗</a></p>{{ end }}{{ range $e.related }}{{ $r := index $page.Site.Data.notebook.references . }}<p><a class="inline-ref" href="{{ $r.url }}" data-reference="{{ . }}">{{ $r.title }} ↗</a></p>{{ end }}</section>
+    {{ end }}
+
+    {{ with $e.anchor_aliases }}<div class="anchor-aliases" aria-label="{{ if $zh }}旧版段落入口{{ else }}Earlier section links{{ end }}">{{ range . }}<span id="{{ .id }}" class="anchor-alias" data-anchor-target="{{ .target }}" data-anchor-url="{{ .url }}"><a href="{{ .url | default (printf "#%s" .target) }}">{{ if $zh }}转到对应段落{{ else }}Continue to this section{{ end }} →</a></span>{{ end }}</div>{{ end }}
+    {{ with $e.interactions }}
+    <section class="entry-section entry-experiments" id="experiments"><h2>{{ if $zh }}动手试一试{{ else }}Interactive experiments{{ end }}</h2>
+      {{ range . }}<details class="experiment-embed" id="{{ .id }}" data-experiment-id="{{ .id }}"{{ if .inline }} data-inline="true"{{ end }}{{ if .open }} open{{ end }}><summary>{{ .title }}</summary><div class="experiment-links"><a href="{{ .url }}" target="_blank" rel="noopener">{{ if $zh }}单独打开实验{{ else }}Open experiment{{ end }} ↗</a>{{ with .static_anchor }}<a href="#{{ . }}">{{ if $zh }}查看正文中的输入与静态结果{{ else }}Read inputs and static results{{ end }}</a>{{ end }}</div>{{ $embedURL := .url }}{{ if strings.HasPrefix .url "/notebook/labs/" }}{{ $parts := split .url "#" }}{{ if eq (len $parts) 2 }}{{ $baseURL := index $parts 0 }}{{ if not (findRE `[?&]experiment=` $baseURL) }}{{ $separator := "?" }}{{ if strings.Contains $baseURL "?" }}{{ $separator = "&" }}{{ end }}{{ $embedURL = printf "%s%sexperiment=%s" $baseURL $separator (index $parts 1) }}{{ end }}{{ end }}{{ end }}<iframe src="{{ $embedURL }}" title="{{ .title }}" loading="lazy" class="experiment-frame"></iframe></details>{{ end }}
+    </section>{{ end }}
+    {{ partial "notebook/knowledge-graph.html" (dict "page" $page "entry" $e) }}
+    {{ partial "notebook/path-navigation.html" (dict "page" $page "entry" $e) }}
+    {{ if in (slice "company" "research") $e.kind }}<p class="company-return"><a href="/{{ .Lang }}/notebook/companies/">← {{ if $zh }}公司资料与研究{{ else }}Company profiles and research{{ end }}</a></p>{{ end }}
+    {{ with $e.teaching_context }}<section class="teaching-card"><p class="eyebrow">KEEP ASKING</p><h2>{{ if $zh }}把这一页，变成一堂课。{{ else }}Turn this page into a lesson.{{ end }}</h2><p>{{ if $zh }}专属 Prompt 与同源材料会一并复制。Agent 先读取指定文献，再围绕本页的材料、推导和练习展开教学。{{ else }}The tailored prompt travels with the same source material. Your Agent reads the specified references before teaching the examples, reasoning and exercises.{{ end }}</p><button class="primary-button" data-teach>{{ if $zh }}打开教学 Prompt{{ else }}Open teaching prompt{{ end }}</button></section><textarea id="teaching-context" hidden>{{ . }}</textarea>{{ end }}
+    {{ partial "notebook/discussions.html" (dict "page" $page "entry" $e) }}
+  </article>
+  <aside class="entry-toc"><p class="eyebrow">{{ if $zh }}本页{{ else }}ON THIS PAGE{{ end }}</p>{{ if $e.body_markdown }}{{ .TableOfContents }}{{ else }}{{ range $e.sections }}<a href="#{{ .id }}">{{ .title }}</a>{{ end }}<a href="#sources">{{ if $zh }}来源与延伸{{ else }}Sources{{ end }}</a>{{ end }}{{ with $e.interactions }}<a href="#experiments">{{ if $zh }}交互实验{{ else }}Experiments{{ end }}</a>{{ end }}<p class="toc-tip">{{ if $zh }}概念引用与脚注可在原处展开。{{ else }}Concept links and footnotes open alongside the text.{{ end }}</p></aside>
+</div>
+{{ end }}

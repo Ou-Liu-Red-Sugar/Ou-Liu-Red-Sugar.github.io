@@ -1,0 +1,689 @@
+{
+  "near_grid": [
+    {
+      "spot": 80,
+      "elapsed": 30,
+      "nearIV": 0.3,
+      "farIV": 0.15,
+      "scale": 1,
+      "view": "mid",
+      "decision": "close",
+      "settlement": "cash",
+      "initial_wealth": 12000,
+      "debit": 251,
+      "cash_after_D1": 11749,
+      "near_model": 0,
+      "far_model": 0.00016017558402747767,
+      "near_bid": null,
+      "near_ask": null,
+      "far_bid": 0,
+      "far_ask": 0.02,
+      "marked_wealth": 11749.016017558402,
+      "marked_pnl": -250.98398244159762,
+      "entry_legs": [
+        {
+          "side": "sell near",
+          "cash": 343
+        },
+        {
+          "side": "buy far",
+          "cash": -594
+        }
+      ],
+      "phase": "near_cash_settled",
+      "gross_near_cash_obligation": 0,
+      "payment_day": "D31",
+      "available_cash": 11749,
+      "far_sale_proceeds": 0.016017558402747767,
+      "confirmed_sale_offset": 0,
+      "gap": 0,
+      "completed": true,
+      "cash_after_near_settlement": 11749,
+      "close_available": true,
+      "closed_wealth": 11749.016017558402,
+      "closed_pnl": -250.98398244159762,
+      "continued_final_wealth": null,
+      "continued_pnl": null,
+      "finalSpot": 80,
+      "note": "近端先现金结算。远腿出售只有在明确可成交且款项可抵付时才帮助当期付款；保留远腿另为新决策。"
+    },
+    {
+      "spot": 80,
+      "elapsed": 30,
+      "nearIV": 0.3,
+      "farIV": 0.3,
+      "scale": 1,
+      "view": "mid",
+      "decision": "close",
+      "settlement": "cash",
+      "initial_wealth": 12000,
+      "debit": 251,
+      "cash_after_D1": 11749,
+      "near_model": 0,
+      "far_model": 0.14209471540200802,
+      "near_bid": null,
+      "near_ask": null,
+      "far_bid": 0.12000000000000001,
+      "far_ask": 0.16,
+      "marked_wealth": 11763.2094715402,
+      "marked_pnl": -236.79052845980004,
+      "entry_legs": [
+        {
+          "side": "sell near",
+          "cash": 343
+        },
+        {
+          "side": "buy far",
+          "cash": -594
+        }
+      ],
+      "phase": "near_cash_settled",
+      "gross_near_cash_obligation": 0,
+      "payment_day": "D31",
+      "available_cash": 11749,
+      "far_sale_proceeds": 14.209471540200802,
+      "confirmed_sale_offset": 0,
+      "gap": 0,
+      "completed": true,
+      "cash_after_near_settlement": 11749,
+      "close_available": true,
+      "closed_wealth": 11763.2094715402,
+      "closed_pnl": -236.79052845980004,
+      "continued_final_wealth": null,
+      "continued_pnl": null,
+      "finalSpot": 80,
+      "note": "近端先现金结算。远腿出售只有在明确可成交且款项可抵付时才帮助当期付款；保留远腿另为新决策。"
+    },
+    {
+      "spot": 80,
+      "elapsed": 30,
+      "nearIV": 0.3,
+      "farIV": 0.45,
+      "scale": 1,
+      "view": "mid",
+      "decision": "close",
+      "settlement": "cash",
+      "initial_wealth": 12000,
+      "debit": 251,
+      "cash_after_D1": 11749,
+      "near_model": 0,
+      "far_model": 0.8706214727945305,
+      "near_bid": null,
+      "near_ask": null,
+      "far_bid": 0.85,
+      "far_ask": 0.89,
+      "marked_wealth": 11836.062147279454,
+      "marked_pnl": -163.9378527205463,
+      "entry_legs": [
+        {
+          "side": "sell near",
+          "cash": 343
+        },
+        {
+          "side": "buy far",
+          "cash": -594
+        }
+      ],
+      "phase": "near_cash_settled",
+      "gross_near_cash_obligation": 0,
+      "payment_day": "D31",
+      "available_cash": 11749,
+      "far_sale_proceeds": 87.06214727945306,
+      "confirmed_sale_offset": 0,
+      "gap": 0,
+      "completed": true,
+      "cash_after_near_settlement": 11749,
+      "close_available": true,
+      "closed_wealth": 11836.062147279454,
+      "closed_pnl": -163.9378527205463,
+      "continued_final_wealth": null,
+      "continued_pnl": null,
+      "finalSpot": 80,
+      "note": "近端先现金结算。远腿出售只有在明确可成交且款项可抵付时才帮助当期付款；保留远腿另为新决策。"
+    },
+    {
+      "spot": 100,
+      "elapsed": 30,
+      "nearIV": 0.3,
+      "farIV": 0.15,
+      "scale": 1,
+      "view": "mid",
+      "decision": "close",
+      "settlement": "cash",
+      "initial_wealth": 12000,
+      "debit": 251,
+      "cash_after_D1": 11749,
+      "near_model": 0,
+      "far_model": 2.4258480440155097,
+      "near_bid": null,
+      "near_ask": null,
+      "far_bid": 2.41,
+      "far_ask": 2.45,
+      "marked_wealth": 11991.584804401551,
+      "marked_pnl": -8.415195598448918,
+      "entry_legs": [
+        {
+          "side": "sell near",
+          "cash": 343
+        },
+        {
+          "side": "buy far",
+          "cash": -594
+        }
+      ],
+      "phase": "near_cash_settled",
+      "gross_near_cash_obligation": 0,
+      "payment_day": "D31",
+      "available_cash": 11749,
+      "far_sale_proceeds": 242.58480440155097,
+      "confirmed_sale_offset": 0,
+      "gap": 0,
+      "completed": true,
+      "cash_after_near_settlement": 11749,
+      "close_available": true,
+      "closed_wealth": 11991.584804401551,
+      "closed_pnl": -8.415195598448918,
+      "continued_final_wealth": null,
+      "continued_pnl": null,
+      "finalSpot": 80,
+      "note": "近端先现金结算。远腿出售只有在明确可成交且款项可抵付时才帮助当期付款；保留远腿另为新决策。"
+    },
+    {
+      "spot": 100,
+      "elapsed": 30,
+      "nearIV": 0.3,
+      "farIV": 0.3,
+      "scale": 1,
+      "view": "mid",
+      "decision": "close",
+      "settlement": "cash",
+      "initial_wealth": 12000,
+      "debit": 251,
+      "cash_after_D1": 11749,
+      "near_model": 0,
+      "far_model": 4.849454218755341,
+      "near_bid": null,
+      "near_ask": null,
+      "far_bid": 4.83,
+      "far_ask": 4.869999999999999,
+      "marked_wealth": 12233.945421875535,
+      "marked_pnl": 233.94542187553452,
+      "entry_legs": [
+        {
+          "side": "sell near",
+          "cash": 343
+        },
+        {
+          "side": "buy far",
+          "cash": -594
+        }
+      ],
+      "phase": "near_cash_settled",
+      "gross_near_cash_obligation": 0,
+      "payment_day": "D31",
+      "available_cash": 11749,
+      "far_sale_proceeds": 484.94542187553407,
+      "confirmed_sale_offset": 0,
+      "gap": 0,
+      "completed": true,
+      "cash_after_near_settlement": 11749,
+      "close_available": true,
+      "closed_wealth": 12233.945421875535,
+      "closed_pnl": 233.94542187553452,
+      "continued_final_wealth": null,
+      "continued_pnl": null,
+      "finalSpot": 80,
+      "note": "近端先现金结算。远腿出售只有在明确可成交且款项可抵付时才帮助当期付款；保留远腿另为新决策。"
+    },
+    {
+      "spot": 100,
+      "elapsed": 30,
+      "nearIV": 0.3,
+      "farIV": 0.45,
+      "scale": 1,
+      "view": "mid",
+      "decision": "close",
+      "settlement": "cash",
+      "initial_wealth": 12000,
+      "debit": 251,
+      "cash_after_D1": 11749,
+      "near_model": 0,
+      "far_model": 7.26858286855996,
+      "near_bid": null,
+      "near_ask": null,
+      "far_bid": 7.25,
+      "far_ask": 7.289999999999999,
+      "marked_wealth": 12475.858286855997,
+      "marked_pnl": 475.858286855997,
+      "entry_legs": [
+        {
+          "side": "sell near",
+          "cash": 343
+        },
+        {
+          "side": "buy far",
+          "cash": -594
+        }
+      ],
+      "phase": "near_cash_settled",
+      "gross_near_cash_obligation": 0,
+      "payment_day": "D31",
+      "available_cash": 11749,
+      "far_sale_proceeds": 726.8582868559961,
+      "confirmed_sale_offset": 0,
+      "gap": 0,
+      "completed": true,
+      "cash_after_near_settlement": 11749,
+      "close_available": true,
+      "closed_wealth": 12475.858286855997,
+      "closed_pnl": 475.858286855997,
+      "continued_final_wealth": null,
+      "continued_pnl": null,
+      "finalSpot": 80,
+      "note": "近端先现金结算。远腿出售只有在明确可成交且款项可抵付时才帮助当期付款；保留远腿另为新决策。"
+    },
+    {
+      "spot": 140,
+      "elapsed": 30,
+      "nearIV": 0.3,
+      "farIV": 0.15,
+      "scale": 1,
+      "view": "mid",
+      "decision": "close",
+      "settlement": "cash",
+      "initial_wealth": 12000,
+      "debit": 251,
+      "cash_after_D1": 11749,
+      "near_model": 40,
+      "far_model": 40.00000001934846,
+      "near_bid": null,
+      "near_ask": null,
+      "far_bid": 39.98,
+      "far_ask": 40.02,
+      "marked_wealth": 11749.000001934846,
+      "marked_pnl": -250.9999980651537,
+      "entry_legs": [
+        {
+          "side": "sell near",
+          "cash": 343
+        },
+        {
+          "side": "buy far",
+          "cash": -594
+        }
+      ],
+      "phase": "near_cash_settled",
+      "gross_near_cash_obligation": 4000,
+      "payment_day": "D31",
+      "available_cash": 11749,
+      "far_sale_proceeds": 4000.0000019348463,
+      "confirmed_sale_offset": 0,
+      "gap": 0,
+      "completed": true,
+      "cash_after_near_settlement": 7749,
+      "close_available": true,
+      "closed_wealth": 11749.000001934846,
+      "closed_pnl": -250.9999980651537,
+      "continued_final_wealth": null,
+      "continued_pnl": null,
+      "finalSpot": 80,
+      "note": "近端先现金结算。远腿出售只有在明确可成交且款项可抵付时才帮助当期付款；保留远腿另为新决策。"
+    },
+    {
+      "spot": 140,
+      "elapsed": 30,
+      "nearIV": 0.3,
+      "farIV": 0.3,
+      "scale": 1,
+      "view": "mid",
+      "decision": "close",
+      "settlement": "cash",
+      "initial_wealth": 12000,
+      "debit": 251,
+      "cash_after_D1": 11749,
+      "near_model": 40,
+      "far_model": 40.012240245616624,
+      "near_bid": null,
+      "near_ask": null,
+      "far_bid": 39.989999999999995,
+      "far_ask": 40.03,
+      "marked_wealth": 11750.224024561663,
+      "marked_pnl": -249.7759754383369,
+      "entry_legs": [
+        {
+          "side": "sell near",
+          "cash": 343
+        },
+        {
+          "side": "buy far",
+          "cash": -594
+        }
+      ],
+      "phase": "near_cash_settled",
+      "gross_near_cash_obligation": 4000,
+      "payment_day": "D31",
+      "available_cash": 11749,
+      "far_sale_proceeds": 4001.224024561662,
+      "confirmed_sale_offset": 0,
+      "gap": 0,
+      "completed": true,
+      "cash_after_near_settlement": 7749,
+      "close_available": true,
+      "closed_wealth": 11750.224024561663,
+      "closed_pnl": -249.7759754383369,
+      "continued_final_wealth": null,
+      "continued_pnl": null,
+      "finalSpot": 80,
+      "note": "近端先现金结算。远腿出售只有在明确可成交且款项可抵付时才帮助当期付款；保留远腿另为新决策。"
+    },
+    {
+      "spot": 140,
+      "elapsed": 30,
+      "nearIV": 0.3,
+      "farIV": 0.45,
+      "scale": 1,
+      "view": "mid",
+      "decision": "close",
+      "settlement": "cash",
+      "initial_wealth": 12000,
+      "debit": 251,
+      "cash_after_D1": 11749,
+      "near_model": 40,
+      "far_model": 40.27463565439032,
+      "near_bid": null,
+      "near_ask": null,
+      "far_bid": 40.25,
+      "far_ask": 40.290000000000006,
+      "marked_wealth": 11776.463565439033,
+      "marked_pnl": -223.53643456096688,
+      "entry_legs": [
+        {
+          "side": "sell near",
+          "cash": 343
+        },
+        {
+          "side": "buy far",
+          "cash": -594
+        }
+      ],
+      "phase": "near_cash_settled",
+      "gross_near_cash_obligation": 4000,
+      "payment_day": "D31",
+      "available_cash": 11749,
+      "far_sale_proceeds": 4027.463565439032,
+      "confirmed_sale_offset": 0,
+      "gap": 0,
+      "completed": true,
+      "cash_after_near_settlement": 7749,
+      "close_available": true,
+      "closed_wealth": 11776.463565439033,
+      "closed_pnl": -223.53643456096688,
+      "continued_final_wealth": null,
+      "continued_pnl": null,
+      "finalSpot": 80,
+      "note": "近端先现金结算。远腿出售只有在明确可成交且款项可抵付时才帮助当期付款；保留远腿另为新决策。"
+    }
+  ],
+  "iv_shocks": [
+    {
+      "spot": 100,
+      "elapsed": 0,
+      "nearIV": 0.3,
+      "farIV": 0.3,
+      "scale": 1,
+      "view": "mid",
+      "decision": "close",
+      "settlement": "cash",
+      "initial_wealth": 12000,
+      "debit": 251,
+      "cash_after_D1": 11749,
+      "near_model": 3.4301386438779957,
+      "far_model": 5.93751497363823,
+      "near_bid": 3.41,
+      "near_ask": 3.45,
+      "far_bid": 5.920000000000001,
+      "far_ask": 5.96,
+      "marked_wealth": 11999.737632976023,
+      "marked_pnl": -0.2623670239772764,
+      "entry_legs": [
+        {
+          "side": "sell near",
+          "cash": 343
+        },
+        {
+          "side": "buy far",
+          "cash": -594
+        }
+      ],
+      "phase": "before_near_expiry",
+      "closing_legs": {
+        "near": -343.0138643877996,
+        "far": 593.751497363823
+      },
+      "close_available": true,
+      "closed_wealth": 11999.737632976023,
+      "closed_pnl": -0.2623670239772764,
+      "continued_final_wealth": null,
+      "note": "两期限仍存在，平仓分别卖远腿bid、买回近腿ask。"
+    },
+    {
+      "spot": 100,
+      "elapsed": 0,
+      "nearIV": 0.4,
+      "farIV": 0.4,
+      "scale": 1,
+      "view": "mid",
+      "decision": "close",
+      "settlement": "cash",
+      "initial_wealth": 12000,
+      "debit": 251,
+      "cash_after_D1": 11749,
+      "near_model": 4.572422307235627,
+      "far_model": 7.91100101392972,
+      "near_bid": 4.550000000000001,
+      "near_ask": 4.59,
+      "far_bid": 7.890000000000001,
+      "far_ask": 7.93,
+      "marked_wealth": 12082.85787066941,
+      "marked_pnl": 82.85787066940975,
+      "entry_legs": [
+        {
+          "side": "sell near",
+          "cash": 343
+        },
+        {
+          "side": "buy far",
+          "cash": -594
+        }
+      ],
+      "phase": "before_near_expiry",
+      "closing_legs": {
+        "near": -457.24223072356267,
+        "far": 791.100101392972
+      },
+      "close_available": true,
+      "closed_wealth": 12082.85787066941,
+      "closed_pnl": 82.85787066940975,
+      "continued_final_wealth": null,
+      "note": "两期限仍存在，平仓分别卖远腿bid、买回近腿ask。"
+    },
+    {
+      "spot": 100,
+      "elapsed": 0,
+      "nearIV": 0.4,
+      "farIV": 0.3,
+      "scale": 1,
+      "view": "mid",
+      "decision": "close",
+      "settlement": "cash",
+      "initial_wealth": 12000,
+      "debit": 251,
+      "cash_after_D1": 11749,
+      "near_model": 4.572422307235627,
+      "far_model": 5.93751497363823,
+      "near_bid": 4.550000000000001,
+      "near_ask": 4.59,
+      "far_bid": 5.920000000000001,
+      "far_ask": 5.96,
+      "marked_wealth": 11885.50926664026,
+      "marked_pnl": -114.49073335974026,
+      "entry_legs": [
+        {
+          "side": "sell near",
+          "cash": 343
+        },
+        {
+          "side": "buy far",
+          "cash": -594
+        }
+      ],
+      "phase": "before_near_expiry",
+      "closing_legs": {
+        "near": -457.24223072356267,
+        "far": 593.751497363823
+      },
+      "close_available": true,
+      "closed_wealth": 11885.50926664026,
+      "closed_pnl": -114.49073335974026,
+      "continued_final_wealth": null,
+      "note": "两期限仍存在，平仓分别卖远腿bid、买回近腿ask。"
+    },
+    {
+      "spot": 100,
+      "elapsed": 0,
+      "nearIV": 0.3,
+      "farIV": 0.2,
+      "scale": 1,
+      "view": "mid",
+      "decision": "close",
+      "settlement": "cash",
+      "initial_wealth": 12000,
+      "debit": 251,
+      "cash_after_D1": 11749,
+      "near_model": 3.4301386438779957,
+      "far_model": 3.96037614698848,
+      "near_bid": 3.41,
+      "near_ask": 3.45,
+      "far_bid": 3.94,
+      "far_ask": 3.98,
+      "marked_wealth": 11802.02375031105,
+      "marked_pnl": -197.9762496889507,
+      "entry_legs": [
+        {
+          "side": "sell near",
+          "cash": 343
+        },
+        {
+          "side": "buy far",
+          "cash": -594
+        }
+      ],
+      "phase": "before_near_expiry",
+      "closing_legs": {
+        "near": -343.0138643877996,
+        "far": 396.037614698848
+      },
+      "close_available": true,
+      "closed_wealth": 11802.023750311047,
+      "closed_pnl": -197.97624968895252,
+      "continued_final_wealth": null,
+      "note": "两期限仍存在，平仓分别卖远腿bid、买回近腿ask。"
+    }
+  ],
+  "spxw_continuation": [
+    {
+      "spot": 100,
+      "elapsed": 30,
+      "nearIV": 0.3,
+      "farIV": 0.3,
+      "scale": 50,
+      "view": "mid",
+      "decision": "continue",
+      "settlement": "cash",
+      "initial_wealth": 600000,
+      "debit": 12550,
+      "cash_after_D1": 587450,
+      "near_model": 0,
+      "far_model": 242.47271093776703,
+      "near_bid": null,
+      "near_ask": null,
+      "far_bid": 241.5,
+      "far_ask": 243.49999999999997,
+      "marked_wealth": 611697.2710937767,
+      "marked_pnl": 11697.271093776682,
+      "entry_legs": [
+        {
+          "side": "sell near",
+          "cash": 17150
+        },
+        {
+          "side": "buy far",
+          "cash": -29700
+        }
+      ],
+      "phase": "near_cash_settled",
+      "gross_near_cash_obligation": 0,
+      "payment_day": "D31",
+      "available_cash": 587450,
+      "far_sale_proceeds": 24247.271093776704,
+      "confirmed_sale_offset": 0,
+      "gap": 0,
+      "completed": true,
+      "cash_after_near_settlement": 587450,
+      "close_available": false,
+      "closed_wealth": null,
+      "closed_pnl": null,
+      "continued_final_wealth": 587450,
+      "continued_pnl": -12550,
+      "finalSpot": 80,
+      "note": "近端先现金结算。远腿出售只有在明确可成交且款项可抵付时才帮助当期付款；保留远腿另为新决策。"
+    },
+    {
+      "spot": 140,
+      "elapsed": 30,
+      "nearIV": 0.3,
+      "farIV": 0.3,
+      "scale": 50,
+      "view": "mid",
+      "decision": "continue",
+      "settlement": "cash",
+      "initial_wealth": 600000,
+      "debit": 12550,
+      "cash_after_D1": 587450,
+      "near_model": 2000,
+      "far_model": 2000.612012280831,
+      "near_bid": null,
+      "near_ask": null,
+      "far_bid": 1999.4999999999998,
+      "far_ask": 2001.5,
+      "marked_wealth": 587511.2012280831,
+      "marked_pnl": -12488.798771916889,
+      "entry_legs": [
+        {
+          "side": "sell near",
+          "cash": 17150
+        },
+        {
+          "side": "buy far",
+          "cash": -29700
+        }
+      ],
+      "phase": "near_cash_settled",
+      "gross_near_cash_obligation": 200000,
+      "payment_day": "D31",
+      "available_cash": 587450,
+      "far_sale_proceeds": 200061.2012280831,
+      "confirmed_sale_offset": 0,
+      "gap": 0,
+      "completed": true,
+      "cash_after_near_settlement": 387450,
+      "close_available": false,
+      "closed_wealth": null,
+      "closed_pnl": null,
+      "continued_final_wealth": 387450,
+      "continued_pnl": -212550,
+      "finalSpot": 80,
+      "note": "近端先现金结算。远腿出售只有在明确可成交且款项可抵付时才帮助当期付款；保留远腿另为新决策。"
+    }
+  ]
+}

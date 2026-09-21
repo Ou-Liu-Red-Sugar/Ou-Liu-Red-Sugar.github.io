@@ -12,6 +12,7 @@ ShowToc: true
 TocOpen: false
 comments: true
 aliases:
+  - /notes/synthetic-category-theory-and-type-theory/
   - /type
 ---
 

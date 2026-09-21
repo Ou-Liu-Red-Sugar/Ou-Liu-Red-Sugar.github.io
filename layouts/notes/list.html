@@ -1,80 +1,26 @@
 {{- define "main" -}}
+{{- $zh := eq .Lang "zh" -}}
+{{- $root := eq .RelPermalink (printf "/%s/notes/" .Lang) -}}
 <article class="ou-section-landing ou-section--notes">
-
   <header class="ou-section-head">
-    <div class="ou-section-eyebrow">
-      {{- if eq .RelPermalink "/notes/" -}}
-        Mathematics archive &middot; notes &amp; seminars
-      {{- else -}}
-        Notes{{ with .Parent }}{{ if ne .RelPermalink "/notes/" }} &middot; {{ .Title }}{{ end }}{{ end }}
-      {{- end -}}
-    </div>
+    <div class="ou-section-eyebrow">{{ if $zh }}中文 · 笔记与讲义{{ else }}English · notes &amp; lecture notes{{ end }}</div>
     <h1>{{ .Title }}</h1>
-    {{- with .Params.description }}
-      <p class="ou-section-desc">{{ . | markdownify }}</p>
-    {{- else }}
-      {{- with .Description }}
-      <p class="ou-section-desc">{{ . | markdownify }}</p>
-      {{- end }}
-    {{- end }}
+    {{ with .Params.description }}<p class="ou-section-desc">{{ . | markdownify }}</p>{{ end }}
   </header>
-
-  {{- /* PDF notes first (only on /notes/ root) */ -}}
-  {{- if eq .RelPermalink "/notes/" }}
-    {{- with .Site.Data.notes_pdfs }}
-    <h2>PDF notes</h2>
-    <ul class="ou-notes-pdfs">
-      {{- range (sort . "weight") }}
-        <li>
-          <div class="row">
-            <p class="t">{{ .title }}</p>
-            <span class="meta">PDF{{ with .language }} &middot; {{ . }}{{ end }}{{ with .updated }} &middot; archived {{ . }}{{ end }}{{ if .wip }} &middot; archived draft{{ end }}</span>
-          </div>
-          <p class="d">
-            {{ .description }}
-            {{- with .seminar }} Based on the <a href="{{ .url }}" rel="noopener">{{ .name }}</a>.{{ end }}
-          </p>
-          <p class="l">
-            <a href="{{ .pdf }}" rel="noopener">Download PDF →</a>
-            {{- with .online_ref -}}
-              {{- with site.GetPage . -}}
-              <a href="{{ .RelPermalink }}">Online version →</a>
-              {{- end -}}
-            {{- end -}}
-          </p>
-        </li>
-      {{- end }}
-    </ul>
-    {{- end }}
-  {{- end }}
-
-  {{- /* Author prose + markdown notes index from _index.md */ -}}
-  {{- if .Content }}
-  <div class="post-content">
-    {{ .Content }}
-  </div>
-  {{- end }}
-
-  {{- /* Most recently archived entries — compact, at the bottom */ -}}
-  {{- if eq .RelPermalink "/notes/" }}
-    {{- $latest := first 5 (where .Site.RegularPages "Section" "notes").ByDate.Reverse }}
-    {{- if gt (len $latest) 0 }}
-    <h2 class="ou-latest-heading">Recently archived</h2>
-    <ul class="ou-entry-list">
-      {{- range $latest }}
-      <li>
-        <div class="row">
-          <a href="{{ .RelPermalink }}">{{ .Title }}</a>
-          {{- with .Date }}<time datetime="{{ .Format "2006-01-02" }}">{{ .Format "Jan 2, 2006" }}</time>{{- end }}
-        </div>
-        {{- with .Params.description }}
-        <p class="desc">{{ . | markdownify }}</p>
-        {{- end }}
-      </li>
-      {{- end }}
-    </ul>
-    {{- end }}
-  {{- end }}
-
+  {{ if $root }}
+  {{ with where .Site.Data.notes_pdfs "lang" .Lang }}
+  <h2>{{ if $zh }}PDF 笔记与讲义{{ else }}PDF notes &amp; lectures{{ end }}</h2>
+  <ul class="ou-notes-pdfs">
+    {{ range sort . "weight" }}
+    <li>
+      <div class="row"><p class="t">{{ .title }}</p><span class="meta">PDF{{ with .language }} · {{ . }}{{ end }}{{ with .pages }} · {{ . }} {{ if $zh }}页{{ else }}pages{{ end }}{{ end }}{{ with .updated }} · {{ if $zh }}版本{{ else }}version{{ end }} {{ . }}{{ end }}{{ if .wip }} · {{ if $zh }}整理中{{ else }}draft{{ end }}{{ end }}</span></div>
+      <p class="d">{{ .description }}{{ with .seminar }} {{ if $zh }}课程来源：{{ else }}Based on {{ end }}<a href="{{ .url }}" rel="noopener">{{ .name }}</a>.{{ end }}</p>
+      <p class="l"><a href="{{ .pdf }}" target="_blank" rel="noopener">{{ if $zh }}在线阅读{{ else }}Read PDF{{ end }} ↗</a><a href="{{ .pdf }}" download>{{ if $zh }}下载 PDF{{ else }}Download PDF{{ end }} ↓</a>{{ with .online_ref }}{{ with site.GetPage . }}<a href="{{ .RelPermalink }}">{{ if $zh }}讲义介绍{{ else }}Online version{{ end }} →</a>{{ end }}{{ end }}</p>
+    </li>
+    {{ end }}
+  </ul>
+  {{ end }}
+  {{ end }}
+  {{ with .Content }}<div class="post-content">{{ . }}</div>{{ end }}
 </article>
 {{- end -}}

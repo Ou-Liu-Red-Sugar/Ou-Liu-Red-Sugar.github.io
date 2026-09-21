@@ -1,0 +1,1599 @@
+# 组合实施：风险、资金与可成交规模的联合预算
+
+逐项检验整数数量的情景损失、账户余额、到账截止和成交深度，允许可行集合为空。
+
+Entry: zh-p07 | Node: P07 | Language: zh | Editorial revision: 2026-09-21
+
+## Teaching instructions
+你在教P07“组合实施的联合预算”。先读取CME具名问答和FSB§3.3，核MES5美元/点与1.25美元tick；其余价格、保证金、费用和时间均为随包教学设定。读者无需先完成公司估值；按本篇自足关系直接开始。
+诊断任务是找0–3张的可行集合，并分别说明损失、初始余额、截止现金和深度。要求读者完整算一条3张的逐日资金账；区分应补2631/4125/3975与实际支付。D3只剩1244时余额3869、缺2731，不能写成已达6600或允许负外部池；失败后不生成未知强平或继续持仓结果。随后把篮子降190000、张数2，必须保留10000一般现金，总初始财富仍220000；默认不增加原8000预算。若重新分配释放现金，减少一般池并增加同一及时池，晚到6000只能按实际选择的D3时间释放。n=0不得制造费用或调用。最后用31500损失上限或2张深度的迁移检验，不以单一风险分数替代约束交集；通过指定情景不等于所有市场都能对冲。
+
+Before substantive teaching, actually retrieve every required reading unit for the selected scope. Read its complete designated section, including necessary assumptions, tables and footnotes. A working URL or an editorial access date is not a runtime reading receipt. Record the actual version, location, scope and what it supports. If unavailable, use a previously verified equivalent source; if the required unit remains unavailable, identify that gap rather than teach it from memory. Start runtime_reading_log empty. Once reading is complete, use a substantive diagnostic or follow the reader's request for direct explanation. Advance one complete reasoning task at a time; skip mastered basics. Distinguish original facts, supplied teaching assumptions and inference.
+
+## Required readings and runtime protocol
+```json
+{
+  "export_mode": "public",
+  "required_readings": [
+    {
+      "source_id": "MA-MES",
+      "title": "Micro E-mini Equity Index Futures FAQ",
+      "version": "current page read 2026-09-21",
+      "access": {
+        "kind": "html_full_text",
+        "uri": "https://www.cmegroup.com/articles/faqs/micro-e-mini-equity-index-futures-frequently-asked-questions.html",
+        "verified_access_at": "2026-09-21"
+      },
+      "required_unit": {
+        "locator": "Q2, Q5, Q6, Q9, Q10, Q14",
+        "scope": "各完整问答",
+        "purpose": "取得MES乘数、跳动、结算和保证金可变性；不采历史示例名义额为现值"
+      },
+      "supports": "MES每点5美元、0.25点跳动、代码/结算与保证金可变；不提供本文教学费率或当前保证金。",
+      "authors": [
+        "CME Group"
+      ],
+      "fallback_source_ids": []
+    },
+    {
+      "source_id": "MA-FSB",
+      "title": "Liquidity Preparedness for Margin and Collateral Calls: Final report",
+      "version": "2024-12-10",
+      "access": {
+        "kind": "pdf_full_text",
+        "uri": "https://www.fsb.org/uploads/P101224-1.pdf",
+        "verified_access_at": "2026-09-21"
+      },
+      "required_unit": {
+        "locator": "§3.3; Recommendations 6–8; printed pp18–20 / PDF pp22–24",
+        "scope": "完整一节",
+        "purpose": "识别现金调用的时间/地点/币种与操作可用性"
+      },
+      "supports": "Recommendations6–8的资源可用性、haircut、币种/地点/截止与操作准备；不是零售统一账户规则。",
+      "authors": [
+        "Financial Stability Board"
+      ],
+      "fallback_source_ids": []
+    }
+  ],
+  "optional_readings": [],
+  "runtime_reading_log": [],
+  "supplied_inputs": {
+    "uri": "https://ou-liu-red-sugar.github.io/notebook/labs/p-e/inputs.json",
+    "input_id": "PE-DRAFT-INPUTS-20260921-v1",
+    "version": "2026-09-21-v1",
+    "selected_paths": [
+      "frozen.joint_budget",
+      "extensions.budget"
+    ],
+    "data": {
+      "id": "PE-DRAFT-INPUTS-20260921-v1",
+      "version": "2026-09-21-v1",
+      "frozen": {
+        "package_id": "P-E-PRIMARY-20260921",
+        "research_cutoff": "2026-09-21",
+        "identity": "Public-source teaching support, not account or historical execution data",
+        "joint_budget": {
+          "id": "SIM-PE-BUDGET-01",
+          "identity": "MES multiplier and tick are actual contract specifications; portfolio, futures prices, account amounts, margins, fee, depth and stress paths are teaching inputs",
+          "source_id": "PE-CME-MES",
+          "currency": "USD",
+          "basket_value": 200000,
+          "basket_reduced_value": 190000,
+          "futures_multiplier": 5,
+          "execution_index_level": 4500,
+          "max_entry_contracts_at_accepted_price": 3,
+          "entry_fee_per_contract": 2,
+          "exit_fee_per_contract": 2,
+          "fcm_cash_initial": 6000,
+          "initial_margin_per_contract": 1750,
+          "timely_external_cash_total": 8000,
+          "late_external_cash": 6000,
+          "late_cash_time": "D3 10:30, after the D3 10:00 call deadline",
+          "max_stress_loss": 30000,
+          "down": {
+            "basket_return": -0.2,
+            "futures_final": 3600
+          },
+          "up": {
+            "basket_return": 0.15,
+            "daily_settlements": [
+              4500,
+              4725,
+              4950,
+              5175
+            ],
+            "required_balance_per_contract": [
+              1750,
+              1750,
+              2000,
+              2200
+            ],
+            "call_deadlines": [
+              "T0 entry",
+              "D1 10:00",
+              "D2 10:00",
+              "D3 10:00"
+            ],
+            "rule_identity": "Teaching FCM cash-only arrangement: debit each daily variation loss, then restore this day's required balance by its stated deadline; amounts are neither current CME margins nor a real broker agreement"
+          }
+        }
+      },
+      "extensions": {
+        "identity": "Author teaching interface extensions; not new observed data or broker terms",
+        "budget": {
+          "default": {
+            "basket": 200000,
+            "contracts": 3,
+            "early_budget": 8000,
+            "late_before_deadline": false,
+            "allocate_released": false,
+            "loss_cap": 30000,
+            "depth": 3
+          },
+          "limits": {
+            "contracts": [
+              0,
+              3
+            ],
+            "early_budget": [
+              0,
+              8000
+            ],
+            "loss_cap": [
+              0,
+              50000
+            ],
+            "depth": [
+              0,
+              3
+            ]
+          },
+          "basket_options": [
+            200000,
+            190000
+          ],
+          "release_assumption": "Basket reduced before T0 at stated value, no incremental sale costs; released 10000 is already settled general cash; transfer designation moves this same cash, never creates wealth",
+          "early_budget_assumption": "Unused part of original 8000 remains in general cash, not destroyed",
+          "late_timing": "Early switch releases the same 6000 only at D3 09:30; default D3 10:30 remains unavailable at all call deadlines",
+          "default_initial_total_wealth": 220000
+        }
+      },
+      "units": {
+        "amount": "USD",
+        "shares": "shares",
+        "futures": "integer contracts",
+        "index": "index points",
+        "rate": "fraction unless UI percent/bps labelled",
+        "p09_cost_bps_denominator": "target_shares * decision_price",
+        "feds_bps": "paper-defined duration-normalized yield equivalent basis points"
+      }
+    },
+    "source_id_mapping": {
+      "PE-FSB-MARGIN": "MA-FSB",
+      "PE-SEC-ORDERS": "MA-ORDERS",
+      "PE-CME-MES": "MA-MES"
+    },
+    "selection_identity": "本篇全部教学输入的逐字段副本；原公共共享文件保持作者字节，不含其他三篇无关数列。"
+  },
+  "solutions_identity": "解释、迁移与边界题完整解析包含在同源body_markdown末节",
+  "entry_id": "zh-p07",
+  "content_version": "2026-09-21.PE-review-v3",
+  "selected_branch": "common",
+  "branch_selection_protocol": "默认只读 required_readings；选中 optional_readings 的具名分支后，追加该条完整 required_unit，实际读完后才教相应分支。正文保留可展开内容与全部题解。",
+  "public_artifacts": {
+    "full_inputs": "https://ou-liu-red-sugar.github.io/notebook/labs/p-e/inputs.json",
+    "full_results": "https://ou-liu-red-sugar.github.io/notebook/labs/p-e/default-results.json",
+    "result_pointer": "/P07",
+    "engine": "https://ou-liu-red-sugar.github.io/notebook/labs/p-e/engine.js",
+    "reproduction_instructions": "https://ou-liu-red-sugar.github.io/notebook/labs/p-e/reproduce.md",
+    "static_equivalents": "https://ou-liu-red-sugar.github.io/notebook/labs/p-e/static-results.md",
+    "original_specifications": "https://ou-liu-red-sugar.github.io/notebook/labs/p-e/author-experiments.json"
+  },
+  "experiment_ids": [
+    "EXP-P07-FEASIBLE-INTEGERS"
+  ]
+}
+```
+
+## Supplied entry
+我们经常先问“该持有多少”，但有一个问题应当更早回答：**这个数量能不能在给定约束下建立并维持？** 一个仓位可以改善最终损失，却在途中付不出保证金；账户可以有足够总资产，却缺少指定账户、指定截止时间可用的现金。把这些限制合成一个风险分数，会把真正使计划失败的条件藏起来。
+
+本篇从一项给定的股票风险出发，枚举四个整数数量。我们先不追求最优，也不估计情景概率；先找可行集合，再讨论改变哪个条件才能让计划成立。
+
+<span id="SIM-PE-BUDGET-01"></span>
+
+<a id="p07-task"></a>
+## 1. 把目标、工具与钱放在不同的栏里
+
+设一个教学股票篮子价值200,000美元，希望在指定下跌情景中，把平仓后的净损失限制在30,000以内。可用工具是做空Micro E-mini S&P 500期货，代码MES。CME的合约资料给出每指数点5美元、最小价格跳动0.25点，即每张1.25美元；保证金要求会随条件变化。[^cme]
+
+以下除合约乘数和最小跳动外，均是教学输入：按4,500点建立MES空头，接受价位最多成交3张；每张开仓费2美元，平仓费2美元。期货账户有6,000现金，初始要求余额为每张1,750。另有8,000可按各次截止要求调入，还有6,000要到D3的10:30才可用，晚于最后一次10:00截止。没有把这些金额称为当前CME保证金或某家经纪商报价。
+
+| 资产或资金池 | 初始金额，美元 | 作用 |
+|---|---:|---|
+| 股票篮子 | 200,000 | 原有经济敞口；不是已兑现的期货现金 |
+| 期货账户现金 | 6,000 | 支付费用、逐日变动损失，并满足所需余额 |
+| 可及时调拨的现金 | 8,000 | 需要时转入期货账户；不与账户余额重复计数 |
+| D3 10:30才可调拨的现金 | 6,000 | 属于总资产，但晚于本例最后截止 |
+| 合计 | **220,000** | 转账只改变所在地，不产生收益 |
+
+3张合约的初始名义敞口为 $3\times4,500\times5=67,500$。它不是购买期货花掉的67,500，也不是最大可能损失。初始所需余额5,250仍留在期货账户中；开仓费6才是当时减少财富的费用。
+
+我们采用两条共同情景。DOWN：股票跌20%，期货从4,500到3,600，随后平仓。UP：股票到终点涨15%，期货沿三个结算日 $4,500\to4,725\to4,950\to5,175$ 上升。股票与期货的变动都是本例设定，不是由一个固定beta或历史相关性推出来的。UP下，每日先扣空头变动损失，再补到当日所需余额；D1、D2、D3每张分别要求1,750、2,000、2,200。这是本例的现金调用规则，不是全部期货账户的统一操作方式。
+
+<a id="p07-risk"></a>
+## 2. 先找满足经济损失约束的整数
+
+令空头张数为 $n$。DOWN中的股票损失40,000；期货每张赚 $(4,500-3,600)\times5=4,500$，进出费用每张共4。因此组合净损失是
+
+$$
+L(n)=40,000-4,500n+4n=40,000-4,496n.
+$$
+
+要使 $L(n)\le30,000$，需 $n\ge10,000/4,496\approx2.2242$。合约不能买卖0.2242张，所以至少3张；给定接受价的可成交数量又把 $n$ 限在0至3。只看这一项约束，3张似乎已经解决问题。
+
+但这里并没有推导“3张最优”。它只是在这条DOWN路径上、以给定费用和成交价计算出的一个满足者。如果期货与篮子的相对变化不同，抵消关系也会不同；本篇保留这种情景身份，不把它升级为完整对冲。
+
+<a id="p07-cash"></a>
+## 3. 再问：中途的付款由谁完成
+
+UP中，空头每天每张损失 $(4,725-4,500)\times5=1,125$，后三个相邻结算日的涨幅相同。3张每天扣3,375。股票账面升值并不会自动进入期货账户，不能先把两者净额相抵，再宣布无需付钱。
+
+我们把现金计算写成可以逐日核对的关系。令 $B_{t-1}$ 是前一日补款后余额，$v_t$ 是当日变动损失，$M_t$ 是当日要求余额。则补款前余额 $B^-_t=B_{t-1}-v_t$，本次需要补入 $a_t=\max(0,M_t-B^-_t)$。**只有资金确实可用并已转入，余额才能写成 $B_t=B^-_t+a_t$。** 若当日只能转入 $u_t<a_t$，实际余额是 $B^-_t+u_t$，仍有缺口，不能继续写成已满足要求。
+
+先沿“每次需要补多少”的账走一遍：3张开仓费6，期货现金从6,000变为5,994，满足5,250的初始要求。
+
+| 截止 | 扣变动损失前余额 | 本日变动损失 | 补款前余额 | 当日要求 | 本日应补 | 累计应补 |
+|---|---:|---:|---:|---:|---:|---:|
+| D1 10:00 | 5,994 | 3,375 | 2,619 | 5,250 | 2,631 | 2,631 |
+| D2 10:00 | 5,250 | 3,375 | 1,875 | 6,000 | 4,125 | 6,756 |
+| D3 10:00 | 6,000 | 3,375 | 2,625 | 6,600 | 3,975 | 10,731 |
+
+前两日的补款来自8,000池，之后只剩1,244。D3实际最多转入这1,244，所以期货账户只能达到 $2,625+1,244=3,869$，低于6,600，**仍缺2,731**。表中的10,731是完整履行调用所需的累计现金，并非已经拿到的现金。若把账户写成6,600、再把外部池记成−2,731，就等于在没有融资依据时造了一笔贷款。
+
+FSB的抵押管理建议强调，资源要能在要求的币种、地点和时间到达，现金专用调用也需要相应的现金安排。我们在此调用这项操作原则，而不把它当作规定教学保证金金额的条文。[^fsb] D3 10:30的6,000是资产，却不是10:00已交付的付款；除非另有有效延期或提前到账安排，计划在10:00就失败。实验会停下实际资金路径，不假设一个未知价格的强制平仓已经解决了问题。
+
+<a id="p07-feasibility"></a>
+## 4. 可行集合是多条约束的交集
+
+把整数数量逐个放回相同输入，得到以下静态结果。初始要求栏是应保留余额加开仓费，不是两笔费用；累计应补是UP下维持给定持仓所需的资金。
+
+| $n$ | 初始要求＋开仓费 | DOWN平仓净损失 | UP累计应补 | 截止前缺口 | 结论 |
+|---:|---:|---:|---:|---:|---|
+| 0 | 0 | 40,000 | 0 | 0 | 损失超限 |
+| 1 | 1,752 | 35,504 | 0 | 0 | 损失超限 |
+| 2 | 3,504 | 31,008 | 5,154 | 0 | 损失超限 |
+| 3 | 5,256 | 26,512 | 10,731 | 2,731 | 按时现金不足 |
+
+$n=0$意味着不建立期货，不收期货费用、不占用期货保证金，也不产生追加现金。它保留股票的40,000下跌损失。$n=2$资金可行，但只把损失降至31,008；$n=3$经济损失过关，资金却不过关。所以原问题的可行集合为空。
+
+形式上，我们是在找
+
+$$
+\mathcal F=\{n\in\mathbb Z_{\ge0}: n\le3,\ L(n)\le30,000,\ B_0\ge M_0,\ \text{每次调用都可按期支付}\}.
+$$
+
+每项限制有不同单位和经济含义。不能拿“更低DOWN损失”补偿“当天少2,731现金”，也不能在固定深度之外增加第四张，随后仍使用原成交价。只有先得到非空的 $\mathcal F$，讨论偏好、费用或剩余风险才有实施基础。
+
+<a id="p07-repair"></a>
+## 5. 改哪条约束，才是真正的替代安排
+
+第一种修复是减少原敞口。假设在开始本实验前，以所示账面值将股票篮子降为190,000；这项教学调整不计额外减仓费用，释放的10,000已成为一般现金。先**不把它加入期货调拨预算**，仍只用原8,000比较。于是
+
+$$
+L_{190000}(2)=38,000-9,000+8=29,008,
+$$
+
+而2张UP累计应补仍为5,154，初始要求也满足。这时2张已经是可行解。整体资产为190,000股票＋10,000一般现金＋6,000期货现金＋8,000及时现金＋6,000迟到现金，仍是220,000。减少证券没有让本金消失，也没有创造10,000收益；它降低了未来股票敞口。
+
+第二种修复是保留200,000股票和3张期货，但安排原本迟到的6,000在D3 10:00以前真正到账。前两日仍靠原8,000，D3剩余1,244再加6,000，足够完成3,975调用。新增的是**及时可用性**，不是总财富。也可以把减仓释放现金的一部分分配给期货预算，但必须同时减少一般现金，不能让同一10,000在两个池中各算一遍。
+
+| 替代 | 股票敞口 | 张数 | 原8,000以外的及时资金 | 是否通过本例约束 | 放弃或改变什么 |
+|---|---:|---:|---:|---|---|
+| 减篮子且保留一般现金 | 190,000 | 2 | 0 | 通过 | 减少股票参与度，保留10,000一般现金 |
+| 原篮子，迟到款提前到D3截止前 | 200,000 | 3 | D3可用6,000 | 通过 | 需要可信的提前到账安排 |
+
+即使在UP中，完整持有并最终平仓的经济结果可为 $30,000-10,125-12=19,863$ 的盈利，也只有先完成所有调用，这条终值才有实施意义。原来现金不足的路径不能把这个数当作已经实现的收益。短期可支付与长期经济结果分别检查，正是联合预算的用途。
+
+<a id="p07-lab"></a>
+## 6. 让无解成为可以解释的答案
+
+在[整数仓位与每日现金实验](/notebook/labs/p-e/interactions.html?experiment=EXP-P07-FEASIBLE-INTEGERS#EXP-P07-FEASIBLE-INTEGERS)中，先保留默认输入，找到每一张数失败的条件。选3张查看D3的“应补”与“实际补入”；再选择190,000篮子，观察新增的一般现金栏。将迟到资金改为D3截止前可用时，D1、D2不应凭空多出6,000。所有调拨都要能在资金池之间找到另一侧。
+
+<div data-experiment-slot="EXP-P07-FEASIBLE-INTEGERS"></div>
+
+**解释题。** 为什么给3张期货的现金准备不能只按初始5,250，再加一次最终净损失来计算？
+
+**解析。** 初始5,250是账户所需余额，不是已经损失的金额。期间按日支付变动损失，要求余额还从5,250升至6,600；每次截止之前可用多少现金决定能否继续。股票的上涨也不是同期进入该账户的现金。应逐日滚动余额和外部调拨，再汇总所需现金，而不是把一切推到终点净额。
+
+**迁移题。** 原200,000篮子不变，只把DOWN损失上限放宽到31,500，其余保持默认。是否出现可行张数？
+
+**解析。** 2张损失31,008，不超过新上限，UP需5,154，不超过原8,000；初始要求和深度也通过，所以2张可行。1张损失35,504仍超限；3张资金问题没有消失。这次放宽的是允许损失，不是发现了新融资，也不是把2张变成更精确的对冲。
+
+**资金守恒题。** 在190,000篮子变式中，若把释放的10,000全部预先列为可调拨现金，一般现金还能保留10,000吗？
+
+**解析。** 不能。转入预算不必立即等于转入期货账户，但它已经属于同一个被指定用途的现金池。应把一般现金降为0，及时调拨池从8,000增至18,000；实际调用时再从该池移至期货账户。总资产仍为220,000减去实际费用与损益。没有任何步骤能复制一份本金。
+
+**执行题。** 若接受价位只剩2张深度，保持原篮子与30,000上限，即使增加现金是否就足够？
+
+**解析。** 不足。允许数量只有0、1、2，三者都不能满足损失限制。更多资金没有改善给定价格下的成交容量；必须重新考虑目标、工具或可以接受的价格，并重新计算成本与剩余风险。不能继续使用3张的收益表作为已经可实施的安排。
+
+完成本篇后，你应当留下的是一个注明条件的可行集合，以及改变具体约束的备选方案。下一步的再平衡和退出，也需要以这种可实施安排为起点。
+
+[^cme]: CME Group，*Micro E-mini Equity Index Futures FAQ*，2026-09-21访问；Q2乘数、Q5最小变动、Q6代码、Q9–10结算、Q14保证金。本文的4,500点、现金要求和费用均为教学条件。[原文](https://www.cmegroup.com/articles/faqs/micro-e-mini-equity-index-futures-frequently-asked-questions.html)。
+[^fsb]: FSB，*Liquidity Preparedness for Margin and Collateral Calls*，2024-12-10；§3.3、Recommendations 6–8，印刷pp.18–20／PDF pp.22–24，讨论资源的币种、地点、时间及操作可用性。[原文](https://www.fsb.org/uploads/P101224-1.pdf#page=22)。
+
+
+## Experiment inputs and static equivalents
+```json
+[
+  {
+    "id": "EXP-P07-FEASIBLE-INTEGERS",
+    "node_id": "P07",
+    "title": "组合实施：风险、资金与可成交规模的联合预算：操作实验",
+    "anchor": "p07-lab",
+    "description": "逐项检验整数数量的情景损失、账户余额、到账截止和成交深度，允许可行集合为空。",
+    "inputs": {
+      "shared_input_id": "PE-DRAFT-INPUTS-20260921-v1",
+      "frozen_case_keys": [
+        "joint_budget"
+      ],
+      "controls": {
+        "default": {
+          "basket": 200000,
+          "contracts": 3,
+          "early_budget": 8000,
+          "late_before_deadline": false,
+          "allocate_released": false,
+          "loss_cap": 30000,
+          "depth": 3
+        },
+        "limits": {
+          "contracts": [
+            0,
+            3
+          ],
+          "early_budget": [
+            0,
+            8000
+          ],
+          "loss_cap": [
+            0,
+            50000
+          ],
+          "depth": [
+            0,
+            3
+          ]
+        },
+        "basket_options": [
+          200000,
+          190000
+        ],
+        "release_assumption": "Basket reduced before T0 at stated value, no incremental sale costs; released 10000 is already settled general cash; transfer designation moves this same cash, never creates wealth",
+        "early_budget_assumption": "Unused part of original 8000 remains in general cash, not destroyed",
+        "late_timing": "Early switch releases the same 6000 only at D3 09:30; default D3 10:30 remains unavailable at all call deadlines",
+        "default_initial_total_wealth": 220000
+      },
+      "unit_contract": {
+        "amount": "USD",
+        "shares": "shares",
+        "futures": "integer contracts",
+        "index": "index points",
+        "rate": "fraction unless UI percent/bps labelled",
+        "p09_cost_bps_denominator": "target_shares * decision_price",
+        "feds_bps": "paper-defined duration-normalized yield equivalent basis points"
+      }
+    },
+    "algorithm": [
+      "枚举整数0..3，在选择深度之外拒绝实际交易；L=−basket×down_return−n×5×(4500−3600)+4n。",
+      "初始期货余额6000−2n，保证金为账户要求，不再次扣除。",
+      "单独计算足额条件下应补路径a=max(0,M−(B−variation))，得到完整持有所需资金。",
+      "实际账每次只从可用池支付min(a,pool)；6000提前开关仅在D3解锁；首个缺口后停止实际持仓路径。",
+      "减篮子200000→190000释放10000，一般现金保留；重分配开关把相同现金转到及时池。减少原及时预算时未指定部分也回一般池。",
+      "所有转移守恒，总初始220000；每期全部现金=20000−开仓费−累计变动损失。",
+      "UP完整平仓财富仅对已经满足现金与执行条件的路径给出，不能对失败路径续算已实现收益。"
+    ],
+    "boundaries": [
+      "n0 zero fees/margin/calls",
+      "integer contracts and depth",
+      "no negative reserve as implicit borrowing",
+      "all released principal retained",
+      "late money cannot cure an earlier deadline",
+      "no forced-liquidation price assumed"
+    ],
+    "outputs": {
+      "default_candidates": [
+        {
+          "parameters": {
+            "basket": 200000,
+            "contracts": 0,
+            "early_budget": 8000,
+            "late_before_deadline": false,
+            "allocate_released": false,
+            "loss_cap": 30000,
+            "depth": 3
+          },
+          "opening": {
+            "basket": 200000,
+            "general_cash": 0,
+            "fcm_cash": 6000,
+            "timely_pool": 8000,
+            "locked_pool": 6000,
+            "total": 220000,
+            "released_general_source": 0,
+            "released_designated": 0
+          },
+          "down_loss": 40000,
+          "initial_required": 0,
+          "entry_fee": 0,
+          "initial_required_plus_fee": 0,
+          "exit_fee": 0,
+          "cumulative_required": 0,
+          "depth_ok": true,
+          "risk_ok": false,
+          "initial_ok": true,
+          "identity": "MES multiplier and tick are actual contract specifications; portfolio, futures prices, account amounts, margins, fee, depth and stress paths are teaching inputs",
+          "cash_ok": true,
+          "feasible": false,
+          "first_failure": null,
+          "failure_gap": 0,
+          "actual_calls": 0,
+          "ending_pools": {
+            "fcm_cash": 6000,
+            "timely_pool": 8000,
+            "locked_pool": 6000,
+            "general_cash": 0
+          },
+          "up_wealth_after_close": 249999.99999999997,
+          "up_gain_after_close": 29999.99999999997,
+          "up_outcome_identity": "Only the stated UP path if every cash call is funded; not a realized outcome after failure"
+        },
+        {
+          "parameters": {
+            "basket": 200000,
+            "contracts": 1,
+            "early_budget": 8000,
+            "late_before_deadline": false,
+            "allocate_released": false,
+            "loss_cap": 30000,
+            "depth": 3
+          },
+          "opening": {
+            "basket": 200000,
+            "general_cash": 0,
+            "fcm_cash": 6000,
+            "timely_pool": 8000,
+            "locked_pool": 6000,
+            "total": 220000,
+            "released_general_source": 0,
+            "released_designated": 0
+          },
+          "down_loss": 35504,
+          "initial_required": 1750,
+          "entry_fee": 2,
+          "initial_required_plus_fee": 1752,
+          "exit_fee": 2,
+          "cumulative_required": 0,
+          "depth_ok": true,
+          "risk_ok": false,
+          "initial_ok": true,
+          "identity": "MES multiplier and tick are actual contract specifications; portfolio, futures prices, account amounts, margins, fee, depth and stress paths are teaching inputs",
+          "cash_ok": true,
+          "feasible": false,
+          "first_failure": null,
+          "failure_gap": 0,
+          "actual_calls": 0,
+          "ending_pools": {
+            "fcm_cash": 2623,
+            "timely_pool": 8000,
+            "locked_pool": 6000,
+            "general_cash": 0
+          },
+          "up_wealth_after_close": 246620.99999999997,
+          "up_gain_after_close": 26620.99999999997,
+          "up_outcome_identity": "Only the stated UP path if every cash call is funded; not a realized outcome after failure"
+        },
+        {
+          "parameters": {
+            "basket": 200000,
+            "contracts": 2,
+            "early_budget": 8000,
+            "late_before_deadline": false,
+            "allocate_released": false,
+            "loss_cap": 30000,
+            "depth": 3
+          },
+          "opening": {
+            "basket": 200000,
+            "general_cash": 0,
+            "fcm_cash": 6000,
+            "timely_pool": 8000,
+            "locked_pool": 6000,
+            "total": 220000,
+            "released_general_source": 0,
+            "released_designated": 0
+          },
+          "down_loss": 31008,
+          "initial_required": 3500,
+          "entry_fee": 4,
+          "initial_required_plus_fee": 3504,
+          "exit_fee": 4,
+          "cumulative_required": 5154,
+          "depth_ok": true,
+          "risk_ok": false,
+          "initial_ok": true,
+          "identity": "MES multiplier and tick are actual contract specifications; portfolio, futures prices, account amounts, margins, fee, depth and stress paths are teaching inputs",
+          "cash_ok": true,
+          "feasible": false,
+          "first_failure": null,
+          "failure_gap": 0,
+          "actual_calls": 5154,
+          "ending_pools": {
+            "fcm_cash": 4400,
+            "timely_pool": 2846,
+            "locked_pool": 6000,
+            "general_cash": 0
+          },
+          "up_wealth_after_close": 243241.99999999997,
+          "up_gain_after_close": 23241.99999999997,
+          "up_outcome_identity": "Only the stated UP path if every cash call is funded; not a realized outcome after failure"
+        },
+        {
+          "parameters": {
+            "basket": 200000,
+            "contracts": 3,
+            "early_budget": 8000,
+            "late_before_deadline": false,
+            "allocate_released": false,
+            "loss_cap": 30000,
+            "depth": 3
+          },
+          "opening": {
+            "basket": 200000,
+            "general_cash": 0,
+            "fcm_cash": 6000,
+            "timely_pool": 8000,
+            "locked_pool": 6000,
+            "total": 220000,
+            "released_general_source": 0,
+            "released_designated": 0
+          },
+          "down_loss": 26512,
+          "initial_required": 5250,
+          "entry_fee": 6,
+          "initial_required_plus_fee": 5256,
+          "exit_fee": 6,
+          "cumulative_required": 10731,
+          "depth_ok": true,
+          "risk_ok": true,
+          "initial_ok": true,
+          "identity": "MES multiplier and tick are actual contract specifications; portfolio, futures prices, account amounts, margins, fee, depth and stress paths are teaching inputs",
+          "cash_ok": false,
+          "feasible": false,
+          "first_failure": "D3 10:00",
+          "failure_gap": 2731,
+          "actual_calls": 8000,
+          "ending_pools": {
+            "fcm_cash": 3869,
+            "timely_pool": 0,
+            "locked_pool": 6000,
+            "general_cash": 0
+          },
+          "up_wealth_after_close": null,
+          "up_gain_after_close": null,
+          "up_outcome_identity": "Only the stated UP path if every cash call is funded; not a realized outcome after failure"
+        }
+      ],
+      "reduced_candidates": [
+        {
+          "parameters": {
+            "basket": 190000,
+            "contracts": 0,
+            "early_budget": 8000,
+            "late_before_deadline": false,
+            "allocate_released": false,
+            "loss_cap": 30000,
+            "depth": 3
+          },
+          "opening": {
+            "basket": 190000,
+            "general_cash": 10000,
+            "fcm_cash": 6000,
+            "timely_pool": 8000,
+            "locked_pool": 6000,
+            "total": 220000,
+            "released_general_source": 10000,
+            "released_designated": 0
+          },
+          "down_loss": 38000,
+          "initial_required": 0,
+          "entry_fee": 0,
+          "initial_required_plus_fee": 0,
+          "exit_fee": 0,
+          "cumulative_required": 0,
+          "depth_ok": true,
+          "risk_ok": false,
+          "initial_ok": true,
+          "identity": "MES multiplier and tick are actual contract specifications; portfolio, futures prices, account amounts, margins, fee, depth and stress paths are teaching inputs",
+          "cash_ok": true,
+          "feasible": false,
+          "first_failure": null,
+          "failure_gap": 0,
+          "actual_calls": 0,
+          "ending_pools": {
+            "fcm_cash": 6000,
+            "timely_pool": 8000,
+            "locked_pool": 6000,
+            "general_cash": 10000
+          },
+          "up_wealth_after_close": 248499.99999999997,
+          "up_gain_after_close": 28499.99999999997,
+          "up_outcome_identity": "Only the stated UP path if every cash call is funded; not a realized outcome after failure"
+        },
+        {
+          "parameters": {
+            "basket": 190000,
+            "contracts": 1,
+            "early_budget": 8000,
+            "late_before_deadline": false,
+            "allocate_released": false,
+            "loss_cap": 30000,
+            "depth": 3
+          },
+          "opening": {
+            "basket": 190000,
+            "general_cash": 10000,
+            "fcm_cash": 6000,
+            "timely_pool": 8000,
+            "locked_pool": 6000,
+            "total": 220000,
+            "released_general_source": 10000,
+            "released_designated": 0
+          },
+          "down_loss": 33504,
+          "initial_required": 1750,
+          "entry_fee": 2,
+          "initial_required_plus_fee": 1752,
+          "exit_fee": 2,
+          "cumulative_required": 0,
+          "depth_ok": true,
+          "risk_ok": false,
+          "initial_ok": true,
+          "identity": "MES multiplier and tick are actual contract specifications; portfolio, futures prices, account amounts, margins, fee, depth and stress paths are teaching inputs",
+          "cash_ok": true,
+          "feasible": false,
+          "first_failure": null,
+          "failure_gap": 0,
+          "actual_calls": 0,
+          "ending_pools": {
+            "fcm_cash": 2623,
+            "timely_pool": 8000,
+            "locked_pool": 6000,
+            "general_cash": 10000
+          },
+          "up_wealth_after_close": 245120.99999999997,
+          "up_gain_after_close": 25120.99999999997,
+          "up_outcome_identity": "Only the stated UP path if every cash call is funded; not a realized outcome after failure"
+        },
+        {
+          "parameters": {
+            "basket": 190000,
+            "contracts": 2,
+            "early_budget": 8000,
+            "late_before_deadline": false,
+            "allocate_released": false,
+            "loss_cap": 30000,
+            "depth": 3
+          },
+          "opening": {
+            "basket": 190000,
+            "general_cash": 10000,
+            "fcm_cash": 6000,
+            "timely_pool": 8000,
+            "locked_pool": 6000,
+            "total": 220000,
+            "released_general_source": 10000,
+            "released_designated": 0
+          },
+          "down_loss": 29008,
+          "initial_required": 3500,
+          "entry_fee": 4,
+          "initial_required_plus_fee": 3504,
+          "exit_fee": 4,
+          "cumulative_required": 5154,
+          "depth_ok": true,
+          "risk_ok": true,
+          "initial_ok": true,
+          "identity": "MES multiplier and tick are actual contract specifications; portfolio, futures prices, account amounts, margins, fee, depth and stress paths are teaching inputs",
+          "cash_ok": true,
+          "feasible": true,
+          "first_failure": null,
+          "failure_gap": 0,
+          "actual_calls": 5154,
+          "ending_pools": {
+            "fcm_cash": 4400,
+            "timely_pool": 2846,
+            "locked_pool": 6000,
+            "general_cash": 10000
+          },
+          "up_wealth_after_close": 241741.99999999997,
+          "up_gain_after_close": 21741.99999999997,
+          "up_outcome_identity": "Only the stated UP path if every cash call is funded; not a realized outcome after failure"
+        },
+        {
+          "parameters": {
+            "basket": 190000,
+            "contracts": 3,
+            "early_budget": 8000,
+            "late_before_deadline": false,
+            "allocate_released": false,
+            "loss_cap": 30000,
+            "depth": 3
+          },
+          "opening": {
+            "basket": 190000,
+            "general_cash": 10000,
+            "fcm_cash": 6000,
+            "timely_pool": 8000,
+            "locked_pool": 6000,
+            "total": 220000,
+            "released_general_source": 10000,
+            "released_designated": 0
+          },
+          "down_loss": 24512,
+          "initial_required": 5250,
+          "entry_fee": 6,
+          "initial_required_plus_fee": 5256,
+          "exit_fee": 6,
+          "cumulative_required": 10731,
+          "depth_ok": true,
+          "risk_ok": true,
+          "initial_ok": true,
+          "identity": "MES multiplier and tick are actual contract specifications; portfolio, futures prices, account amounts, margins, fee, depth and stress paths are teaching inputs",
+          "cash_ok": false,
+          "feasible": false,
+          "first_failure": "D3 10:00",
+          "failure_gap": 2731,
+          "actual_calls": 8000,
+          "ending_pools": {
+            "fcm_cash": 3869,
+            "timely_pool": 0,
+            "locked_pool": 6000,
+            "general_cash": 10000
+          },
+          "up_wealth_after_close": null,
+          "up_gain_after_close": null,
+          "up_outcome_identity": "Only the stated UP path if every cash call is funded; not a realized outcome after failure"
+        }
+      ],
+      "representative_ledgers": {
+        "default_n3": {
+          "parameters": {
+            "basket": 200000,
+            "contracts": 3,
+            "early_budget": 8000,
+            "late_before_deadline": false,
+            "allocate_released": false,
+            "loss_cap": 30000,
+            "depth": 3
+          },
+          "opening": {
+            "basket": 200000,
+            "general_cash": 0,
+            "fcm_cash": 6000,
+            "timely_pool": 8000,
+            "locked_pool": 6000,
+            "total": 220000,
+            "released_general_source": 0,
+            "released_designated": 0
+          },
+          "down_loss": 26512,
+          "initial_required": 5250,
+          "entry_fee": 6,
+          "initial_required_plus_fee": 5256,
+          "exit_fee": 6,
+          "required_path": [
+            {
+              "time": "T0",
+              "balance": 5994,
+              "required_balance": 5250,
+              "required_call": 0,
+              "cumulative_required": 0
+            },
+            {
+              "time": "D1 10:00",
+              "variation_loss": 3375,
+              "before": 2619,
+              "required_balance": 5250,
+              "required_call": 2631,
+              "cumulative_required": 2631,
+              "balance": 5250
+            },
+            {
+              "time": "D2 10:00",
+              "variation_loss": 3375,
+              "before": 1875,
+              "required_balance": 6000,
+              "required_call": 4125,
+              "cumulative_required": 6756,
+              "balance": 6000
+            },
+            {
+              "time": "D3 10:00",
+              "variation_loss": 3375,
+              "before": 2625,
+              "required_balance": 6600,
+              "required_call": 3975,
+              "cumulative_required": 10731,
+              "balance": 6600
+            }
+          ],
+          "cumulative_required": 10731,
+          "depth_ok": true,
+          "risk_ok": true,
+          "initial_ok": true,
+          "identity": "MES multiplier and tick are actual contract specifications; portfolio, futures prices, account amounts, margins, fee, depth and stress paths are teaching inputs",
+          "actual_path": [
+            {
+              "time": "T0",
+              "balance": 5994,
+              "required_balance": 5250,
+              "actual_call": 0,
+              "required_call": 0,
+              "remaining_timely": 8000,
+              "remaining_locked": 6000,
+              "general_cash": 0,
+              "cash_total": 19994,
+              "cumulative_variation_loss": 0
+            },
+            {
+              "time": "D1 10:00",
+              "variation_loss": 3375,
+              "before": 2619,
+              "required_balance": 5250,
+              "required_call": 2631,
+              "actual_call": 2631,
+              "balance": 5250,
+              "remaining_timely": 5369,
+              "remaining_locked": 6000,
+              "general_cash": 0,
+              "unlocked_at_deadline": 0,
+              "cumulative_actual_calls": 2631,
+              "cash_total": 16619,
+              "cumulative_variation_loss": 3375,
+              "gap": 0
+            },
+            {
+              "time": "D2 10:00",
+              "variation_loss": 3375,
+              "before": 1875,
+              "required_balance": 6000,
+              "required_call": 4125,
+              "actual_call": 4125,
+              "balance": 6000,
+              "remaining_timely": 1244,
+              "remaining_locked": 6000,
+              "general_cash": 0,
+              "unlocked_at_deadline": 0,
+              "cumulative_actual_calls": 6756,
+              "cash_total": 13244,
+              "cumulative_variation_loss": 6750,
+              "gap": 0
+            },
+            {
+              "time": "D3 10:00",
+              "variation_loss": 3375,
+              "before": 2625,
+              "required_balance": 6600,
+              "required_call": 3975,
+              "actual_call": 1244,
+              "balance": 3869,
+              "remaining_timely": 0,
+              "remaining_locked": 6000,
+              "general_cash": 0,
+              "unlocked_at_deadline": 0,
+              "cumulative_actual_calls": 8000,
+              "cash_total": 9869,
+              "cumulative_variation_loss": 10125,
+              "gap": 2731
+            }
+          ],
+          "cash_ok": false,
+          "feasible": false,
+          "first_failure": "D3 10:00",
+          "failure_gap": 2731,
+          "actual_calls": 8000,
+          "ending_pools": {
+            "fcm_cash": 3869,
+            "timely_pool": 0,
+            "locked_pool": 6000,
+            "general_cash": 0
+          },
+          "up_wealth_after_close": null,
+          "up_gain_after_close": null,
+          "up_outcome_identity": "Only the stated UP path if every cash call is funded; not a realized outcome after failure"
+        },
+        "reduced_n2": {
+          "parameters": {
+            "basket": 190000,
+            "contracts": 2,
+            "early_budget": 8000,
+            "late_before_deadline": false,
+            "allocate_released": false,
+            "loss_cap": 30000,
+            "depth": 3
+          },
+          "opening": {
+            "basket": 190000,
+            "general_cash": 10000,
+            "fcm_cash": 6000,
+            "timely_pool": 8000,
+            "locked_pool": 6000,
+            "total": 220000,
+            "released_general_source": 10000,
+            "released_designated": 0
+          },
+          "down_loss": 29008,
+          "initial_required": 3500,
+          "entry_fee": 4,
+          "initial_required_plus_fee": 3504,
+          "exit_fee": 4,
+          "required_path": [
+            {
+              "time": "T0",
+              "balance": 5996,
+              "required_balance": 3500,
+              "required_call": 0,
+              "cumulative_required": 0
+            },
+            {
+              "time": "D1 10:00",
+              "variation_loss": 2250,
+              "before": 3746,
+              "required_balance": 3500,
+              "required_call": 0,
+              "cumulative_required": 0,
+              "balance": 3746
+            },
+            {
+              "time": "D2 10:00",
+              "variation_loss": 2250,
+              "before": 1496,
+              "required_balance": 4000,
+              "required_call": 2504,
+              "cumulative_required": 2504,
+              "balance": 4000
+            },
+            {
+              "time": "D3 10:00",
+              "variation_loss": 2250,
+              "before": 1750,
+              "required_balance": 4400,
+              "required_call": 2650,
+              "cumulative_required": 5154,
+              "balance": 4400
+            }
+          ],
+          "cumulative_required": 5154,
+          "depth_ok": true,
+          "risk_ok": true,
+          "initial_ok": true,
+          "identity": "MES multiplier and tick are actual contract specifications; portfolio, futures prices, account amounts, margins, fee, depth and stress paths are teaching inputs",
+          "actual_path": [
+            {
+              "time": "T0",
+              "balance": 5996,
+              "required_balance": 3500,
+              "actual_call": 0,
+              "required_call": 0,
+              "remaining_timely": 8000,
+              "remaining_locked": 6000,
+              "general_cash": 10000,
+              "cash_total": 29996,
+              "cumulative_variation_loss": 0
+            },
+            {
+              "time": "D1 10:00",
+              "variation_loss": 2250,
+              "before": 3746,
+              "required_balance": 3500,
+              "required_call": 0,
+              "actual_call": 0,
+              "balance": 3746,
+              "remaining_timely": 8000,
+              "remaining_locked": 6000,
+              "general_cash": 10000,
+              "unlocked_at_deadline": 0,
+              "cumulative_actual_calls": 0,
+              "cash_total": 27746,
+              "cumulative_variation_loss": 2250,
+              "gap": 0
+            },
+            {
+              "time": "D2 10:00",
+              "variation_loss": 2250,
+              "before": 1496,
+              "required_balance": 4000,
+              "required_call": 2504,
+              "actual_call": 2504,
+              "balance": 4000,
+              "remaining_timely": 5496,
+              "remaining_locked": 6000,
+              "general_cash": 10000,
+              "unlocked_at_deadline": 0,
+              "cumulative_actual_calls": 2504,
+              "cash_total": 25496,
+              "cumulative_variation_loss": 4500,
+              "gap": 0
+            },
+            {
+              "time": "D3 10:00",
+              "variation_loss": 2250,
+              "before": 1750,
+              "required_balance": 4400,
+              "required_call": 2650,
+              "actual_call": 2650,
+              "balance": 4400,
+              "remaining_timely": 2846,
+              "remaining_locked": 6000,
+              "general_cash": 10000,
+              "unlocked_at_deadline": 0,
+              "cumulative_actual_calls": 5154,
+              "cash_total": 23246,
+              "cumulative_variation_loss": 6750,
+              "gap": 0
+            }
+          ],
+          "cash_ok": true,
+          "feasible": true,
+          "first_failure": null,
+          "failure_gap": 0,
+          "actual_calls": 5154,
+          "ending_pools": {
+            "fcm_cash": 4400,
+            "timely_pool": 2846,
+            "locked_pool": 6000,
+            "general_cash": 10000
+          },
+          "up_wealth_after_close": 241741.99999999997,
+          "up_gain_after_close": 21741.99999999997,
+          "up_outcome_identity": "Only the stated UP path if every cash call is funded; not a realized outcome after failure"
+        },
+        "late_early": {
+          "parameters": {
+            "basket": 200000,
+            "contracts": 3,
+            "early_budget": 8000,
+            "late_before_deadline": true,
+            "allocate_released": false,
+            "loss_cap": 30000,
+            "depth": 3
+          },
+          "opening": {
+            "basket": 200000,
+            "general_cash": 0,
+            "fcm_cash": 6000,
+            "timely_pool": 8000,
+            "locked_pool": 6000,
+            "total": 220000,
+            "released_general_source": 0,
+            "released_designated": 0
+          },
+          "down_loss": 26512,
+          "initial_required": 5250,
+          "entry_fee": 6,
+          "initial_required_plus_fee": 5256,
+          "exit_fee": 6,
+          "required_path": [
+            {
+              "time": "T0",
+              "balance": 5994,
+              "required_balance": 5250,
+              "required_call": 0,
+              "cumulative_required": 0
+            },
+            {
+              "time": "D1 10:00",
+              "variation_loss": 3375,
+              "before": 2619,
+              "required_balance": 5250,
+              "required_call": 2631,
+              "cumulative_required": 2631,
+              "balance": 5250
+            },
+            {
+              "time": "D2 10:00",
+              "variation_loss": 3375,
+              "before": 1875,
+              "required_balance": 6000,
+              "required_call": 4125,
+              "cumulative_required": 6756,
+              "balance": 6000
+            },
+            {
+              "time": "D3 10:00",
+              "variation_loss": 3375,
+              "before": 2625,
+              "required_balance": 6600,
+              "required_call": 3975,
+              "cumulative_required": 10731,
+              "balance": 6600
+            }
+          ],
+          "cumulative_required": 10731,
+          "depth_ok": true,
+          "risk_ok": true,
+          "initial_ok": true,
+          "identity": "MES multiplier and tick are actual contract specifications; portfolio, futures prices, account amounts, margins, fee, depth and stress paths are teaching inputs",
+          "actual_path": [
+            {
+              "time": "T0",
+              "balance": 5994,
+              "required_balance": 5250,
+              "actual_call": 0,
+              "required_call": 0,
+              "remaining_timely": 8000,
+              "remaining_locked": 6000,
+              "general_cash": 0,
+              "cash_total": 19994,
+              "cumulative_variation_loss": 0
+            },
+            {
+              "time": "D1 10:00",
+              "variation_loss": 3375,
+              "before": 2619,
+              "required_balance": 5250,
+              "required_call": 2631,
+              "actual_call": 2631,
+              "balance": 5250,
+              "remaining_timely": 5369,
+              "remaining_locked": 6000,
+              "general_cash": 0,
+              "unlocked_at_deadline": 0,
+              "cumulative_actual_calls": 2631,
+              "cash_total": 16619,
+              "cumulative_variation_loss": 3375,
+              "gap": 0
+            },
+            {
+              "time": "D2 10:00",
+              "variation_loss": 3375,
+              "before": 1875,
+              "required_balance": 6000,
+              "required_call": 4125,
+              "actual_call": 4125,
+              "balance": 6000,
+              "remaining_timely": 1244,
+              "remaining_locked": 6000,
+              "general_cash": 0,
+              "unlocked_at_deadline": 0,
+              "cumulative_actual_calls": 6756,
+              "cash_total": 13244,
+              "cumulative_variation_loss": 6750,
+              "gap": 0
+            },
+            {
+              "time": "D3 10:00",
+              "variation_loss": 3375,
+              "before": 2625,
+              "required_balance": 6600,
+              "required_call": 3975,
+              "actual_call": 3975,
+              "balance": 6600,
+              "remaining_timely": 3269,
+              "remaining_locked": 0,
+              "general_cash": 0,
+              "unlocked_at_deadline": 6000,
+              "cumulative_actual_calls": 10731,
+              "cash_total": 9869,
+              "cumulative_variation_loss": 10125,
+              "gap": 0
+            }
+          ],
+          "cash_ok": true,
+          "feasible": true,
+          "first_failure": null,
+          "failure_gap": 0,
+          "actual_calls": 10731,
+          "ending_pools": {
+            "fcm_cash": 6600,
+            "timely_pool": 3269,
+            "locked_pool": 0,
+            "general_cash": 0
+          },
+          "up_wealth_after_close": 239862.99999999997,
+          "up_gain_after_close": 19862.99999999997,
+          "up_outcome_identity": "Only the stated UP path if every cash call is funded; not a realized outcome after failure"
+        },
+        "relaxed_loss": {
+          "parameters": {
+            "basket": 200000,
+            "contracts": 2,
+            "early_budget": 8000,
+            "late_before_deadline": false,
+            "allocate_released": false,
+            "loss_cap": 31500,
+            "depth": 3
+          },
+          "opening": {
+            "basket": 200000,
+            "general_cash": 0,
+            "fcm_cash": 6000,
+            "timely_pool": 8000,
+            "locked_pool": 6000,
+            "total": 220000,
+            "released_general_source": 0,
+            "released_designated": 0
+          },
+          "down_loss": 31008,
+          "initial_required": 3500,
+          "entry_fee": 4,
+          "initial_required_plus_fee": 3504,
+          "exit_fee": 4,
+          "required_path": [
+            {
+              "time": "T0",
+              "balance": 5996,
+              "required_balance": 3500,
+              "required_call": 0,
+              "cumulative_required": 0
+            },
+            {
+              "time": "D1 10:00",
+              "variation_loss": 2250,
+              "before": 3746,
+              "required_balance": 3500,
+              "required_call": 0,
+              "cumulative_required": 0,
+              "balance": 3746
+            },
+            {
+              "time": "D2 10:00",
+              "variation_loss": 2250,
+              "before": 1496,
+              "required_balance": 4000,
+              "required_call": 2504,
+              "cumulative_required": 2504,
+              "balance": 4000
+            },
+            {
+              "time": "D3 10:00",
+              "variation_loss": 2250,
+              "before": 1750,
+              "required_balance": 4400,
+              "required_call": 2650,
+              "cumulative_required": 5154,
+              "balance": 4400
+            }
+          ],
+          "cumulative_required": 5154,
+          "depth_ok": true,
+          "risk_ok": true,
+          "initial_ok": true,
+          "identity": "MES multiplier and tick are actual contract specifications; portfolio, futures prices, account amounts, margins, fee, depth and stress paths are teaching inputs",
+          "actual_path": [
+            {
+              "time": "T0",
+              "balance": 5996,
+              "required_balance": 3500,
+              "actual_call": 0,
+              "required_call": 0,
+              "remaining_timely": 8000,
+              "remaining_locked": 6000,
+              "general_cash": 0,
+              "cash_total": 19996,
+              "cumulative_variation_loss": 0
+            },
+            {
+              "time": "D1 10:00",
+              "variation_loss": 2250,
+              "before": 3746,
+              "required_balance": 3500,
+              "required_call": 0,
+              "actual_call": 0,
+              "balance": 3746,
+              "remaining_timely": 8000,
+              "remaining_locked": 6000,
+              "general_cash": 0,
+              "unlocked_at_deadline": 0,
+              "cumulative_actual_calls": 0,
+              "cash_total": 17746,
+              "cumulative_variation_loss": 2250,
+              "gap": 0
+            },
+            {
+              "time": "D2 10:00",
+              "variation_loss": 2250,
+              "before": 1496,
+              "required_balance": 4000,
+              "required_call": 2504,
+              "actual_call": 2504,
+              "balance": 4000,
+              "remaining_timely": 5496,
+              "remaining_locked": 6000,
+              "general_cash": 0,
+              "unlocked_at_deadline": 0,
+              "cumulative_actual_calls": 2504,
+              "cash_total": 15496,
+              "cumulative_variation_loss": 4500,
+              "gap": 0
+            },
+            {
+              "time": "D3 10:00",
+              "variation_loss": 2250,
+              "before": 1750,
+              "required_balance": 4400,
+              "required_call": 2650,
+              "actual_call": 2650,
+              "balance": 4400,
+              "remaining_timely": 2846,
+              "remaining_locked": 6000,
+              "general_cash": 0,
+              "unlocked_at_deadline": 0,
+              "cumulative_actual_calls": 5154,
+              "cash_total": 13246,
+              "cumulative_variation_loss": 6750,
+              "gap": 0
+            }
+          ],
+          "cash_ok": true,
+          "feasible": true,
+          "first_failure": null,
+          "failure_gap": 0,
+          "actual_calls": 5154,
+          "ending_pools": {
+            "fcm_cash": 4400,
+            "timely_pool": 2846,
+            "locked_pool": 6000,
+            "general_cash": 0
+          },
+          "up_wealth_after_close": 243241.99999999997,
+          "up_gain_after_close": 23241.99999999997,
+          "up_outcome_identity": "Only the stated UP path if every cash call is funded; not a realized outcome after failure"
+        },
+        "reallocated": {
+          "parameters": {
+            "basket": 190000,
+            "contracts": 3,
+            "early_budget": 8000,
+            "late_before_deadline": false,
+            "allocate_released": true,
+            "loss_cap": 30000,
+            "depth": 3
+          },
+          "opening": {
+            "basket": 190000,
+            "general_cash": 0,
+            "fcm_cash": 6000,
+            "timely_pool": 18000,
+            "locked_pool": 6000,
+            "total": 220000,
+            "released_general_source": 10000,
+            "released_designated": 10000
+          },
+          "down_loss": 24512,
+          "initial_required": 5250,
+          "entry_fee": 6,
+          "initial_required_plus_fee": 5256,
+          "exit_fee": 6,
+          "required_path": [
+            {
+              "time": "T0",
+              "balance": 5994,
+              "required_balance": 5250,
+              "required_call": 0,
+              "cumulative_required": 0
+            },
+            {
+              "time": "D1 10:00",
+              "variation_loss": 3375,
+              "before": 2619,
+              "required_balance": 5250,
+              "required_call": 2631,
+              "cumulative_required": 2631,
+              "balance": 5250
+            },
+            {
+              "time": "D2 10:00",
+              "variation_loss": 3375,
+              "before": 1875,
+              "required_balance": 6000,
+              "required_call": 4125,
+              "cumulative_required": 6756,
+              "balance": 6000
+            },
+            {
+              "time": "D3 10:00",
+              "variation_loss": 3375,
+              "before": 2625,
+              "required_balance": 6600,
+              "required_call": 3975,
+              "cumulative_required": 10731,
+              "balance": 6600
+            }
+          ],
+          "cumulative_required": 10731,
+          "depth_ok": true,
+          "risk_ok": true,
+          "initial_ok": true,
+          "identity": "MES multiplier and tick are actual contract specifications; portfolio, futures prices, account amounts, margins, fee, depth and stress paths are teaching inputs",
+          "actual_path": [
+            {
+              "time": "T0",
+              "balance": 5994,
+              "required_balance": 5250,
+              "actual_call": 0,
+              "required_call": 0,
+              "remaining_timely": 18000,
+              "remaining_locked": 6000,
+              "general_cash": 0,
+              "cash_total": 29994,
+              "cumulative_variation_loss": 0
+            },
+            {
+              "time": "D1 10:00",
+              "variation_loss": 3375,
+              "before": 2619,
+              "required_balance": 5250,
+              "required_call": 2631,
+              "actual_call": 2631,
+              "balance": 5250,
+              "remaining_timely": 15369,
+              "remaining_locked": 6000,
+              "general_cash": 0,
+              "unlocked_at_deadline": 0,
+              "cumulative_actual_calls": 2631,
+              "cash_total": 26619,
+              "cumulative_variation_loss": 3375,
+              "gap": 0
+            },
+            {
+              "time": "D2 10:00",
+              "variation_loss": 3375,
+              "before": 1875,
+              "required_balance": 6000,
+              "required_call": 4125,
+              "actual_call": 4125,
+              "balance": 6000,
+              "remaining_timely": 11244,
+              "remaining_locked": 6000,
+              "general_cash": 0,
+              "unlocked_at_deadline": 0,
+              "cumulative_actual_calls": 6756,
+              "cash_total": 23244,
+              "cumulative_variation_loss": 6750,
+              "gap": 0
+            },
+            {
+              "time": "D3 10:00",
+              "variation_loss": 3375,
+              "before": 2625,
+              "required_balance": 6600,
+              "required_call": 3975,
+              "actual_call": 3975,
+              "balance": 6600,
+              "remaining_timely": 7269,
+              "remaining_locked": 6000,
+              "general_cash": 0,
+              "unlocked_at_deadline": 0,
+              "cumulative_actual_calls": 10731,
+              "cash_total": 19869,
+              "cumulative_variation_loss": 10125,
+              "gap": 0
+            }
+          ],
+          "cash_ok": true,
+          "feasible": true,
+          "first_failure": null,
+          "failure_gap": 0,
+          "actual_calls": 10731,
+          "ending_pools": {
+            "fcm_cash": 6600,
+            "timely_pool": 7269,
+            "locked_pool": 6000,
+            "general_cash": 0
+          },
+          "up_wealth_after_close": 238362.99999999997,
+          "up_gain_after_close": 18362.99999999997,
+          "up_outcome_identity": "Only the stated UP path if every cash call is funded; not a realized outcome after failure"
+        }
+      },
+      "full_results_uri": "https://ou-liu-red-sugar.github.io/notebook/labs/p-e/default-results.json",
+      "full_results_pointer": "/P07",
+      "identity": "未重新计算或取整：所有候选保留非路径字段，五种默认/变式各有精确代表账本；所有完整逐日账在公开原结果文件。"
+    },
+    "static_equivalent_markdown": "| 张数 | DOWN损失 | 完整持有所需补款 | 实际累计补款 | 首个现金缺口 | 全部可行 |\n| --- | --- | --- | --- | --- | --- |\n| 0 | 40,000 | 0 | 0 | 0 | False |\n| 1 | 35,504 | 0 | 0 | 0 | False |\n| 2 | 31,008 | 5,154 | 5,154 | 0 | False |\n| 3 | 26,512 | 10,731 | 8,000 | 2,731 | False |\n\n实际3张逐日账（不是足额融资假设账）：\n\n| 时点 | 应补 | 实补 | 补后余额 | 及时池余 | 待解锁 | 缺口 |\n| --- | --- | --- | --- | --- | --- | --- |\n| T0 | 0 | 0 | 5,994 | 8,000 | 6,000 | 0 |\n| D1 10:00 | 2,631 | 2,631 | 5,250 | 5,369 | 6,000 | 0 |\n| D2 10:00 | 4,125 | 4,125 | 6,000 | 1,244 | 6,000 | 0 |\n| D3 10:00 | 3,975 | 1,244 | 3,869 | 0 | 6,000 | 2,731 |\n\n190000篮子、2张：一般现金10000；DOWN29008，需补5154，可行。原篮子3张且6000于D3截止前到达也可行。所有初始资金池合计220000。",
+    "inputs_uri": "https://ou-liu-red-sugar.github.io/notebook/labs/p-e/inputs.json",
+    "results_uri": "https://ou-liu-red-sugar.github.io/notebook/labs/p-e/default-results.json",
+    "results_pointer": "/P07",
+    "reproduce_uri": "https://ou-liu-red-sugar.github.io/notebook/labs/p-e/reproduce.md"
+  }
+]
+```
+
+## Sources
+- [Liquidity Preparedness for Margin and Collateral Calls — Final Report](https://www.fsb.org/uploads/P101224-1.pdf): 政策研究中的流动性压力分析；未读全报告，不作因果估计或约束性规则。
+
+P-E 使用范围：Recommendations6–8的资源可用性、haircut、币种/地点/截止与操作准备；不是零售统一账户规则。
+
+本批读取范围：抵押品资格、占用、haircut、币种、地点与及时到账。
+- [Micro E-mini Equity Index Futures: Frequently Asked Questions](https://www.cmegroup.com/articles/faqs/micro-e-mini-equity-index-futures-frequently-asked-questions.html): MES每指数点5美元及结算/保证金基本安排；本篇价格和保证金金额均为教学设定。
+
+P-E 使用范围：MES每点5美元、0.25点跳动、代码/结算与保证金可变；不提供本文教学费率或当前保证金。
+
+本批读取范围：MES乘数、tick、结算与保证金的不同身份。
+
+## Content relations
+```json
+[
+  {
+    "from": "zh-p07",
+    "relation": "part_of",
+    "to": "portfolio-objectives",
+    "reason": "主要 topic 归属"
+  },
+  {
+    "from": "zh-p07",
+    "relation": "uses_method",
+    "to": "zh-p08",
+    "reason": "调用截止前资金与账户恒等式"
+  },
+  {
+    "from": "zh-p07",
+    "relation": "uses_method",
+    "to": "zh-p09",
+    "reason": "调用成交数量与费用"
+  },
+  {
+    "from": "zh-p07",
+    "relation": "uses_method",
+    "to": "zh-p03",
+    "reason": "调用情景损失与现金短缺的区分"
+  },
+  {
+    "from": "zh-p07",
+    "relation": "uses_method",
+    "to": "zh-p06",
+    "reason": "调用共同风险敞口语言，不重估beta"
+  },
+  {
+    "from": "zh-p07",
+    "relation": "illustrated_by",
+    "to": "SIM-PE-BUDGET-01",
+    "reason": "同源教学算例／有日期原始观察；身份见https://ou-liu-red-sugar.github.io/notebook/labs/p-e/objects.json"
+  },
+  {
+    "from": "zh-p07",
+    "relation": "supported_by",
+    "to": "MA-MES",
+    "reason": "取得MES乘数、跳动、结算和保证金可变性；不采历史示例名义额为现值",
+    "locator": "Q2, Q5, Q6, Q9, Q10, Q14",
+    "scope": "MES每点5美元、0.25点跳动、代码/结算与保证金可变；不提供本文教学费率或当前保证金。"
+  },
+  {
+    "from": "zh-p07",
+    "relation": "supported_by",
+    "to": "MA-FSB",
+    "reason": "识别现金调用的时间/地点/币种与操作可用性",
+    "locator": "§3.3; Recommendations 6–8; printed pp18–20 / PDF pp22–24",
+    "scope": "Recommendations6–8的资源可用性、haircut、币种/地点/截止与操作准备；不是零售统一账户规则。"
+  },
+  {
+    "from": "p07-lab",
+    "relation": "illustrated_by",
+    "to": "EXP-P07-FEASIBLE-INTEGERS",
+    "at_section": "p07-lab",
+    "reason": "逐项检验整数数量的情景损失、账户余额、到账截止和成交深度，允许可行集合为空。"
+  }
+]
+```
+
+## Related entries
+
+## Optional reading path
+做一次投资或对冲安排: step 7/9
+枚举整数数量，找出共同可行集合及可改变的具体约束。
+安排建立后，继续区分权重漂移、资金变化与判断更新。
+Next: [再平衡、退出与判断维护](https://ou-liu-red-sugar.github.io/zh/notebook/rebalancing-exit-judgment-maintenance/)

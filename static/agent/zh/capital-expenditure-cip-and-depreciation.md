@@ -1,0 +1,4052 @@
+# 资本开支、在建工程与折旧
+
+从取得、付款与可用三个日期重建设备状态，再用Costco完整PP&E表核存量桥；Caterpillar出租设备作为可选对照。
+
+Entry: zh-bf12 | Node: BF-12 | Language: zh | Editorial revision: 2026-09-21
+
+## Teaching instructions
+你正在教 BF-12《资本开支、在建工程与折旧》，材料版本2026-09-21。学习任务：独立重建预付/在建/使用中资产/应付/折旧；核3,890−1,013=2,877并区分5,498现金。
+Agent 接口把 Costco 主线记为 retail；这只是既有教学入口的接口名，不新增正文行业分支。MIT与Costco为核心必读；Caterpillar只在读者展开可选对照后转为必读。optional只有读者启用后才变为必读。先实际打开指定公开原文单元，分页读到单元结束，必要表图核原页，记录标题/版本/位置/范围与当前用途。文献目录、工具返回标题或作者先前已读记录都不能代替本次读取；runtime_reading_log从空数组开始。读取失败先找同版本正式等价原文，仍缺则说明该单元缺口，不凭摘要补讲。
+诊断任务：{"retail": "独立重建预付/在建/使用中资产/应付/折旧；核3,890−1,013=2,877并区分5,498现金。"}。补充任务：只把付款推迟到2026-06，取得日2026-02、可用日2026-04保持不变；先写3月末和12月末哪些余额改变，再核当年折旧是否改变。
+随后沿本包完整正文、实际输入、静态实验与题解推进一个完整任务，先让读者解释或计算再反馈；已会的基础跳过。默认用Costco比较期和设备教学时钟迁移；Caterpillar只是读者展开后的可选对照，启用后再读其Note1D/Note9。通过尺度：正向状态表平衡，资源未取得时不生成CIP、不提前折旧；差额1,608不自动归因为处置。
+保持真实披露、分析计算、教学模型三种身份，参数只改变模型，不反写真实公司数据。资料不足处不要补造差额或估值。最后明确：读者已经能独立重建什么，换一份材料时还需先核哪些条件？
+
+Before substantive teaching, actually retrieve every required reading unit for the selected scope. Read its complete designated section, including necessary assumptions, tables and footnotes. A working URL or an editorial access date is not a runtime reading receipt. Record the actual version, location, scope and what it supports. If unavailable, use a previously verified equivalent source; if the required unit remains unavailable, identify that gap rather than teach it from memory. Start runtime_reading_log empty. Once reading is complete, use a substantive diagnostic or follow the reader's request for direct explanation. Advance one complete reasoning task at a time; skip mastered basics. Distinguish original facts, supplied teaching assumptions and inference.
+
+## Required readings and runtime protocol
+```json
+{
+  "export_mode": "public",
+  "default_branch": "retail",
+  "branch_options": [
+    "retail"
+  ],
+  "branch_tasks": {
+    "retail": "独立重建预付/在建/使用中资产/应付/折旧；核3,890−1,013=2,877并区分5,498现金。"
+  },
+  "selection_rules": {
+    "common": "始终必读",
+    "selected": "只读所选主分支",
+    "all": "读所有主分支",
+    "optional": "读者启用后再读；cat/epw/cross不同入口"
+  },
+  "required_readings": [
+    {
+      "source_id": "BFDE-MIT",
+      "title": "MIT OCW 15.515 Session 7 — Accounting for Long-lived Assets",
+      "authors": [
+        "MIT OpenCourseWare"
+      ],
+      "version": "Fall 2003, 14 slides",
+      "access": {
+        "kind": "pdf_full_text",
+        "uri": "https://ocw.mit.edu/courses/15-515-financial-accounting-fall-2003/c14a0767af3d7544d85e4b20eb6be1bb_lec7.pdf"
+      },
+      "required_unit": {
+        "locator": "slides2–8,11",
+        "scope": "采用单元含制造成本路径、分摊和估计变更",
+        "purpose": "分开取得、付款、可用及分摊"
+      },
+      "supports": "成本、资源用途、残值、寿命和分摊。采用制造折旧可能先入库存的路径，不采用旧时代普遍性陈述或租赁政策。",
+      "branch": "common"
+    },
+    {
+      "source_id": "BF-S-COST-FY2025-PDF",
+      "title": "Costco Wholesale Corporation — FY2025 Annual Report",
+      "authors": [
+        "Costco Wholesale Corporation"
+      ],
+      "version": "FY ended 2025-08-31; comparative 2024-09-01; 52 weeks each",
+      "access": {
+        "kind": "pdf_full_text",
+        "uri": "https://s201.q4cdn.com/287523651/files/doc_financials/2025/ar/COST-Annual-Report-2025.pdf"
+      },
+      "required_unit": {
+        "locator": "IR Note1 pp42–43 and CF p39; PDF48–49,45",
+        "scope": "完整PPE政策/表和现金购建/补充行",
+        "purpose": "重建Costco存量及现金差额"
+      },
+      "supports": "完整PP&E结构、租赁五视图与经营周转部件。PP&E现金/存量和租赁费用/特定现金的边界保留，混合应收不作为客户DSO。",
+      "branch": "common"
+    }
+  ],
+  "optional_readings": [
+    {
+      "source_id": "BBC-C04",
+      "title": "Caterpillar Inc. — FY2025 Form 10-K",
+      "authors": [
+        "Caterpillar Inc."
+      ],
+      "version": "FY ended 2025-12-31; comparatives recast in this filing after July 1, 2025 organization changes",
+      "access": {
+        "kind": "html_full_text",
+        "uri": "https://www.sec.gov/Archives/edgar/data/18230/000001823026000008/cat-20251231.htm"
+      },
+      "required_unit": {
+        "locator": "Note1D pp64–65; Note9 p89",
+        "scope": "完整折旧政策与PPE表",
+        "purpose": "出租设备对照"
+      },
+      "supports": "制造与出租资产用途、公司历史驱动定义、报告分部到收入/税前利润的完整桥。不得把volume包含的组合效果当结构性贡献率。",
+      "branch": "cat",
+      "activated_by": "cat"
+    }
+  ],
+  "runtime_reading_log": [],
+  "supplied_inputs": {
+    "input_id": "BFDE-SHARED-20260921-v1",
+    "historical": {
+      "scope": [
+        "BF-12",
+        "BF-13",
+        "BF-14",
+        "BF-18",
+        "BF-17",
+        "BF-16"
+      ],
+      "retrieved_on": "2026-09-21",
+      "identity": "Historical financial-statement observations; teaching cases are separately labelled. Values are not stock valuation inputs.",
+      "costco": {
+        "source_id": "BF-S-COST-FY2025-PDF",
+        "unit": "USD million",
+        "periods": [
+          "2025-08-31",
+          "2024-09-01"
+        ],
+        "fiscal_weeks": [
+          52,
+          52
+        ],
+        "ppe": {
+          "locator": "FY2025 annual-report PDF printed pp42–43; PDF pp48–49",
+          "land": [
+            10323,
+            9447
+          ],
+          "buildings_improvements": [
+            25508,
+            23727
+          ],
+          "equipment_fixtures": [
+            13127,
+            12387
+          ],
+          "construction_in_progress": [
+            1882,
+            1389
+          ],
+          "gross": [
+            50840,
+            46950
+          ],
+          "accumulated_depreciation_amortization_positive": [
+            18931,
+            17918
+          ],
+          "net": [
+            31909,
+            29032
+          ]
+        },
+        "flows": {
+          "locator": "Printed pp35,39; PDF pp41,45",
+          "net_sales": [
+            269912,
+            249625
+          ],
+          "merchandise_costs": [
+            239886,
+            222358
+          ],
+          "cash_ppe_additions_outflow_positive": [
+            5498,
+            4710
+          ],
+          "consolidated_depreciation_amortization": [
+            2426,
+            2237
+          ],
+          "capex_included_in_liabilities_supplemental_noncash": [
+            193,
+            203
+          ],
+          "cashflow_inventory_adjustment": [
+            559,
+            -2068
+          ],
+          "cashflow_accounts_payable_adjustment": [
+            404,
+            1938
+          ],
+          "cfo": [
+            13335,
+            11339
+          ]
+        },
+        "working_capital": {
+          "locator": "Printed p37 balance sheet; pp41–42 Receivables, Net; p39 cash flow",
+          "inventory": [
+            18116,
+            18647
+          ],
+          "accounts_payable": [
+            19783,
+            19421
+          ],
+          "receivables_net": [
+            3203,
+            2721
+          ],
+          "deferred_membership_fees": [
+            2854,
+            2501
+          ],
+          "receivables_identity": "Includes vendor, credit-card, reinsurance and tax receivables; do not use total as customer credit-sale receivables.",
+          "payable_days_denominator": "Merchandise costs proxy, not independently observed credit purchases."
+        },
+        "leases_2025": {
+          "locator": "Note5 printed pp50–51; PDF pp56–57; policy printed p43",
+          "operating_rou_asset": 2725,
+          "finance_lease_asset_net": 1488,
+          "finance_asset_balance_sheet_location": "Other long-term assets",
+          "operating_liability_current": 208,
+          "operating_liability_noncurrent": 2460,
+          "finance_liability_current": 78,
+          "finance_liability_noncurrent": 1401,
+          "operating_cost": 271,
+          "finance_asset_amortization": 102,
+          "finance_interest_expense": 63,
+          "variable_cost": 182,
+          "total_cost_reported": 618,
+          "cash_operating_leases": 255,
+          "cash_finance_interest": 58,
+          "cash_finance_principal": 147,
+          "cash_scope": "Cash paid for amounts included in measurement of lease liabilities; not total lease cash payments including variable payments.",
+          "new_modified_operating_rou": 294,
+          "new_modified_finance_rou": 131,
+          "remaining_term_years_operating_finance": [
+            20,
+            25
+          ],
+          "payment_buckets": [
+            "FY2026",
+            "FY2027",
+            "FY2028",
+            "FY2029",
+            "FY2030",
+            "Thereafter"
+          ],
+          "operating_payments": [
+            267,
+            250,
+            235,
+            204,
+            184,
+            2451
+          ],
+          "operating_payments_total": 3591,
+          "operating_interest_deduction": 923,
+          "operating_liability": 2668,
+          "finance_payments": [
+            133,
+            132,
+            135,
+            122,
+            109,
+            1780
+          ],
+          "finance_payments_total": 2411,
+          "finance_interest_deduction": 932,
+          "finance_liability": 1479,
+          "signed_not_commenced_payments_excluded": 1094,
+          "future_operating_sublease_income_not_netted": 92
+        }
+      },
+      "salesforce": {
+        "source_id": "BBC-C01",
+        "unit": "USD million",
+        "periods": [
+          "2026-01-31",
+          "2025-01-31"
+        ],
+        "income": {
+          "locator": "Consolidated Statements of Operations p58 including notes1–2; MD&A Research and Development",
+          "total_revenue": [
+            41525,
+            37895
+          ],
+          "rd_expense": [
+            5993,
+            5493
+          ],
+          "rd_sbc_included": [
+            1162,
+            1091
+          ],
+          "acquired_intangibles_amortization_cost_of_revenue": [
+            692,
+            750
+          ],
+          "acquired_intangibles_amortization_sales_marketing": [
+            995,
+            901
+          ]
+        },
+        "working_capital": {
+          "locator": "Balance sheet p57; Note2 Unearned Revenue p71; MD&A seasonal nature pp39–40",
+          "accounts_receivable_net": [
+            14339,
+            11945
+          ],
+          "unearned_revenue": [
+            24317,
+            20743
+          ],
+          "unearned_opening_2026": 20743,
+          "billings_and_other_2026": 45099,
+          "revenue_over_time_2026": 39041,
+          "revenue_point_in_time_2026": 2484,
+          "unearned_acquired_informatica": 651,
+          "identity": "Billings and other includes FX, contract assets and business combinations; neither cash receipts nor organic billings."
+        },
+        "leases_2026": {
+          "locator": "Note6 Leases and Other Commitments pp75–77; Note1 Leases pp67–68",
+          "operating_rou_asset": 2003,
+          "finance_lease_asset_gross": 1427,
+          "finance_accumulated_amortization_positive": 813,
+          "finance_lease_asset_net": 614,
+          "finance_asset_balance_sheet_location": "Property and equipment",
+          "operating_liability_current": 548,
+          "operating_liability_noncurrent": 2189,
+          "finance_liability_current": 275,
+          "finance_liability_noncurrent": 260,
+          "operating_cost": 614,
+          "finance_asset_amortization": 375,
+          "finance_interest_expense": 25,
+          "cash_operating_leases": 695,
+          "cash_finance_interest": 25,
+          "cash_finance_principal": 367,
+          "remaining_term_years_operating_finance": [
+            7,
+            3
+          ],
+          "payment_buckets": [
+            "FY2027",
+            "FY2028",
+            "FY2029",
+            "FY2030",
+            "FY2031",
+            "Thereafter"
+          ],
+          "operating_payments": [
+            615,
+            571,
+            493,
+            338,
+            268,
+            790
+          ],
+          "operating_payments_total": 3075,
+          "operating_interest_deduction": 338,
+          "operating_liability": 2737,
+          "finance_payments": [
+            289,
+            120,
+            76,
+            58,
+            26,
+            0
+          ],
+          "finance_payments_total": 569,
+          "finance_interest_deduction": 34,
+          "finance_liability": 535
+        },
+        "informatica_2025_ppa": {
+          "locator": "Note7 Informatica, Inc., pp77–79",
+          "acquisition_period": "November 2025",
+          "status": "Preliminary purchase-price allocation at FY2026 filing; measurement period not complete",
+          "consideration_components": {
+            "cash": 9538,
+            "preexisting_relationship": 62,
+            "assumed_equity_purchase_component": 36
+          },
+          "consideration_total": 9636,
+          "assets": {
+            "cash": 1405,
+            "receivables": 233,
+            "ppe": 128,
+            "operating_rou": 27,
+            "other_assets": 149,
+            "goodwill": 5257,
+            "identifiable_intangibles": 3818
+          },
+          "liabilities_positive": {
+            "payables_accruals_current": 221,
+            "unearned_revenue": 651,
+            "operating_lease_liabilities": 30,
+            "other_noncurrent": 36,
+            "deferred_tax_liability": 443
+          },
+          "intangibles": [
+            {
+              "name": "Cloud developed technology",
+              "amount": 1350,
+              "life_years": 7
+            },
+            {
+              "name": "Other developed technology",
+              "amount": 270,
+              "life_years": 3
+            },
+            {
+              "name": "Customer relationships",
+              "amount": 1840,
+              "life_years": 10
+            },
+            {
+              "name": "Trade names",
+              "amount": 79,
+              "life_years": 4
+            },
+            {
+              "name": "Backlog",
+              "amount": 279,
+              "life_years": 2
+            }
+          ],
+          "assumed_equity_fair_value": 330,
+          "assumed_equity_future_service_component": 294
+        },
+        "intangible_roll": {
+          "locator": "Note8 pp80–81; addition/retirement columns are net movements, not gross acquisition or amortization flows",
+          "gross_opening": 10183,
+          "additions_and_retirements_net": 3956,
+          "gross_closing": 14139,
+          "accum_amortization_opening_positive": 5755,
+          "expense_and_retirements_net_positive": 1569,
+          "accum_amortization_closing_positive": 7324,
+          "net_opening": 4428,
+          "net_closing": 6815,
+          "goodwill_opening": 51283,
+          "regrello": 704,
+          "informatica": 5257,
+          "other_acquisitions_adjustments": 697,
+          "goodwill_closing": 57941
+        },
+        "segment_identity": "One operating segment; Note1 p63 CODM assesses consolidated net income. Product offering revenue categories are not separately reported operating segments."
+      },
+      "caterpillar": {
+        "source_id": "BBC-C04",
+        "unit": "USD million",
+        "periods": [
+          "2025-12-31",
+          "2024-12-31"
+        ],
+        "comparative_identity": "2024 figures as retrospectively adjusted in FY2025 filing after July 1, 2025 segment changes",
+        "ppe": {
+          "locator": "Note9 p89; Note1D pp64–65",
+          "land": [
+            616,
+            612
+          ],
+          "buildings": [
+            7761,
+            7281
+          ],
+          "machinery_equipment": [
+            13737,
+            12523
+          ],
+          "capitalized_software": [
+            1696,
+            1609
+          ],
+          "equipment_leased_to_others": [
+            6004,
+            5701
+          ],
+          "construction_in_progress": [
+            2092,
+            1751
+          ],
+          "gross": [
+            31906,
+            29477
+          ],
+          "accumulated_depreciation_positive": [
+            16766,
+            16116
+          ],
+          "net": [
+            15140,
+            13361
+          ],
+          "consolidated_depreciation": [
+            2093,
+            1983
+          ],
+          "cat_financial_leased_to_others_depreciation": [
+            699,
+            722
+          ]
+        },
+        "operating_profit_bridge": {
+          "locator": "MD&A p33 Consolidated Operating Profit Comparison, original chart cat-20251231_g4.jpg; Definitions pp36–38",
+          "opening_2024": 13072,
+          "drivers": {
+            "sales_volume_including_product_mix": 1218,
+            "price_realization": -817,
+            "manufacturing_costs": -2148,
+            "sga_rd": -336,
+            "currency": -32,
+            "financial_products": 49,
+            "restructuring": -85,
+            "other": 230
+          },
+          "closing_2025": 11151,
+          "bridge_identity": "Company historical attribution, not structural marginal profit coefficients."
+        },
+        "revenue_bridge": {
+          "locator": "MD&A p31 Sales and Revenues Comparison",
+          "opening_2024": 64809,
+          "drivers": {
+            "sales_volume": 3389,
+            "price_realization": -817,
+            "currency": 45,
+            "financial_products": 163
+          },
+          "closing_2025": 67589
+        },
+        "segments_2025": {
+          "locator": "Note23 pp115–121; external-column Financial Products footnote is integral",
+          "rows": [
+            {
+              "name": "Construction Industries",
+              "external_column": 24800,
+              "intersegment_column": 260,
+              "total_sales": 25060,
+              "profit": 4675
+            },
+            {
+              "name": "Resource Industries",
+              "external_column": 12185,
+              "intersegment_column": 289,
+              "total_sales": 12474,
+              "profit": 1988
+            },
+            {
+              "name": "Power & Energy",
+              "external_column": 27143,
+              "intersegment_column": 5058,
+              "total_sales": 32201,
+              "profit": 6418
+            },
+            {
+              "name": "Financial Products",
+              "external_column": 4220,
+              "intersegment_column": 0,
+              "total_sales": 4220,
+              "profit": 966
+            }
+          ],
+          "financial_products_external_column_includes_group_revenue": 712,
+          "reportable_sales_total": 73955,
+          "all_other_sales": 327,
+          "corporate_eliminations_sales": -6693,
+          "consolidated_sales": 67589,
+          "all_other_external_column": 46,
+          "all_other_intersegment_column": 281,
+          "corporate_external_column": -805,
+          "corporate_intersegment_column": -5888,
+          "reportable_profit_total": 14047,
+          "profit_reconciling_items": {
+            "all_other": -8,
+            "cost_centers": -11,
+            "corporate_costs": -1006,
+            "timing": -175,
+            "restructuring": -445,
+            "inventory_method": 49,
+            "postretirement_benefit": 185,
+            "sbc": -230,
+            "financing_costs": -180,
+            "currency": -81,
+            "goodwill_impairment": 0,
+            "other_income_expense_method": -470,
+            "other_method": -134
+          },
+          "consolidated_pretax_profit": 11541,
+          "interest_expense_excluding_financial_products": 502,
+          "other_income": 892,
+          "consolidated_operating_profit": 11151
+        }
+      },
+      "teaching_cvp": {
+        "source_id": "BFDE-CVP",
+        "identity": "OpenStax §3.5 fictional Company A/B example; not actual company observations",
+        "unit": "USD",
+        "assumptions": "Constant prices and unit variable costs, fixed product mix, unchanged fixed costs within the relevant range; reported income here is model operating income.",
+        "companies": [
+          {
+            "name": "A",
+            "sales": 250000,
+            "variable_costs": 102000,
+            "fixed_costs": 63000,
+            "income": 85000
+          },
+          {
+            "name": "B",
+            "sales": 315000,
+            "variable_costs": 105000,
+            "fixed_costs": 125000,
+            "income": 85000
+          }
+        ],
+        "sales_changes": [
+          0.1,
+          -0.2
+        ]
+      }
+    },
+    "supplemental": {
+      "costco_ppe_original_labels": [
+        [
+          "land",
+          "Land",
+          "土地",
+          "N/A"
+        ],
+        [
+          "buildings_improvements",
+          "Buildings and improvements",
+          "建筑及改良",
+          "5–50 years"
+        ],
+        [
+          "equipment_fixtures",
+          "Equipment and fixtures",
+          "设备及装置",
+          "3–20 years"
+        ],
+        [
+          "construction_in_progress",
+          "Construction in progress",
+          "在建工程",
+          "N/A"
+        ],
+        [
+          "gross",
+          null,
+          "原值合计（原表该行无行名）",
+          null
+        ],
+        [
+          "accumulated_depreciation_amortization_positive",
+          "Accumulated depreciation and amortization",
+          "累计折旧摊销（减项）",
+          null
+        ],
+        [
+          "net",
+          "Property and equipment, net",
+          "物业及设备净额",
+          null
+        ]
+      ],
+      "cat_ppe_original_labels": [
+        [
+          "land",
+          "Land",
+          "土地",
+          "—"
+        ],
+        [
+          "buildings",
+          "Buildings and land improvements",
+          "建筑及土地改良",
+          "20–45 years"
+        ],
+        [
+          "machinery_equipment",
+          "Machinery, equipment and other",
+          "机器、设备及其他",
+          "2–10 years"
+        ],
+        [
+          "capitalized_software",
+          "Software",
+          "软件",
+          "3–7 years"
+        ],
+        [
+          "equipment_leased_to_others",
+          "Equipment leased to others",
+          "出租给他人的设备",
+          "1–7 years"
+        ],
+        [
+          "construction_in_progress",
+          "Construction-in-process",
+          "在建工程",
+          "—"
+        ],
+        [
+          "gross",
+          "Total property, plant and equipment, at cost",
+          "物业厂房设备成本合计",
+          null
+        ],
+        [
+          "accumulated_depreciation_positive",
+          "Less: Accumulated depreciation",
+          "减：累计折旧",
+          null
+        ],
+        [
+          "net",
+          "Property, plant and equipment–net",
+          "物业厂房设备净额",
+          null
+        ]
+      ],
+      "costco_receivables_exact_scope": {
+        "source_id": "BF-S-COST-FY2025-PDF",
+        "locator": "IR PDF printed pp41–42; SEC pp43–44, Receivables, Net",
+        "original_categories": [
+          "vendor",
+          "credit card incentive",
+          "reinsurance",
+          "third-party pharmacy",
+          "other receivables"
+        ],
+        "explanation_zh": "其他应收主要为对政府的应收，多与税款有关。信用卡奖励应收不是顾客刷卡货款；结算期不超过四天的顾客刷卡货款另依现金政策列示。"
+      },
+      "costco_lease_2024": {
+        "operating_rou_asset": 2617,
+        "finance_lease_asset_net": 1433,
+        "operating_liability_current": 179,
+        "operating_liability_noncurrent": 2375,
+        "finance_liability_current": 147,
+        "finance_liability_noncurrent": 1351,
+        "total_assets": 4050,
+        "total_liabilities": 4052,
+        "operating_cost": 284,
+        "finance_asset_amortization": 97,
+        "finance_interest_expense": 58,
+        "variable_cost": 163,
+        "total_cost_reported": 602,
+        "cash_operating_leases": 274,
+        "cash_finance_interest": 58,
+        "cash_finance_principal": 136,
+        "remaining_term": [
+          19,
+          23
+        ],
+        "discount_rate_percent": [
+          2.67,
+          4.59
+        ]
+      },
+      "salesforce_lease_2025": {
+        "operating_rou_asset": 2157,
+        "operating_liability_current": 579,
+        "operating_liability_noncurrent": 2380,
+        "finance_lease_asset_gross": 1520,
+        "finance_accumulated_amortization_positive": 708,
+        "finance_lease_asset_net": 812,
+        "finance_liability_current": 337,
+        "finance_liability_noncurrent": 341,
+        "operating_cost": 684,
+        "finance_asset_amortization": 303,
+        "finance_interest_expense": 28,
+        "cash_operating_leases": 628,
+        "cash_finance_interest": 27,
+        "cash_finance_principal": 380,
+        "remaining_term": [
+          7,
+          3
+        ]
+      },
+      "intangible_rows": [
+        {
+          "label_original": "Acquired developed technology",
+          "label_zh": "购入已开发技术",
+          "gross_open": 2958,
+          "gross_change_net": 1838,
+          "gross_close": 4796,
+          "accum_open": 1753,
+          "accum_change_net": 654,
+          "accum_close": 2407,
+          "net_open": 1205,
+          "net_close": 2389,
+          "remaining_years": 4.4
+        },
+        {
+          "label_original": "Customer relationships",
+          "label_zh": "客户关系",
+          "gross_open": 6894,
+          "gross_change_net": 1765,
+          "gross_close": 8659,
+          "accum_open": 3820,
+          "accum_change_net": 820,
+          "accum_close": 4640,
+          "net_open": 3074,
+          "net_close": 4019,
+          "remaining_years": 6.3
+        },
+        {
+          "label_original": "Other (1)",
+          "label_zh": "其他（商号、未开票订单、区域权利）",
+          "gross_open": 331,
+          "gross_change_net": 353,
+          "gross_close": 684,
+          "accum_open": 182,
+          "accum_change_net": 95,
+          "accum_close": 277,
+          "net_open": 149,
+          "net_close": 407,
+          "remaining_years": 2.1
+        }
+      ],
+      "future_amortization": {
+        "buckets": [
+          "FY2027",
+          "FY2028",
+          "FY2029",
+          "FY2030",
+          "FY2031",
+          "Thereafter"
+        ],
+        "amounts": [
+          1842,
+          1412,
+          1104,
+          710,
+          448,
+          1299
+        ]
+      },
+      "cat_profit_rows_original": [
+        [
+          "all_other",
+          "Profit from All Other Segment",
+          "其他分部利润"
+        ],
+        [
+          "cost_centers",
+          "Cost centers",
+          "成本中心"
+        ],
+        [
+          "corporate_costs",
+          "Corporate costs",
+          "公司共同成本"
+        ],
+        [
+          "timing",
+          "Timing",
+          "确认时点差异"
+        ],
+        [
+          "restructuring",
+          "Restructuring costs",
+          "重组成本"
+        ],
+        [
+          "inventory_method",
+          "Inventory/cost of sales",
+          "存货／销售成本计量"
+        ],
+        [
+          "postretirement_benefit",
+          "Postretirement benefit income (expense)",
+          "退休后福利收益（费用）"
+        ],
+        [
+          "sbc",
+          "Stock-based compensation expense",
+          "股权薪酬费用"
+        ],
+        [
+          "financing_costs",
+          "Financing costs",
+          "融资成本"
+        ],
+        [
+          "currency",
+          "Currency",
+          "汇率"
+        ],
+        [
+          "goodwill_impairment",
+          "Goodwill impairment charge",
+          "商誉减值"
+        ],
+        [
+          "other_income_expense_method",
+          "Other income/expense methodology differences",
+          "其他损益计量方法差异"
+        ],
+        [
+          "other_method",
+          "Other methodology differences",
+          "其他方法差异"
+        ]
+      ],
+      "cat_segment_costs_2025": {
+        "cost_of_goods_sold": [
+          18393,
+          9018,
+          22474,
+          0
+        ],
+        "sga_rd": [
+          1902,
+          1513,
+          3330,
+          829
+        ],
+        "other_segment_items": [
+          90,
+          -45,
+          -21,
+          2425
+        ]
+      },
+      "cat_segments_2024": {
+        "rows": [
+          [
+            "Construction Industries",
+            25344,
+            111,
+            25455,
+            6165
+          ],
+          [
+            "Resource Industries",
+            12100,
+            371,
+            12471,
+            2538
+          ],
+          [
+            "Power & Energy",
+            24088,
+            4766,
+            28854,
+            5736
+          ],
+          [
+            "Financial Products Segment",
+            4053,
+            0,
+            4053,
+            932
+          ]
+        ],
+        "total_profit": 15371,
+        "reconciling": [
+          43,
+          -1,
+          -889,
+          133,
+          -359,
+          33,
+          67,
+          -223,
+          -126,
+          145,
+          0,
+          -740,
+          -81
+        ],
+        "pretax": 13373,
+        "revenue": 64809,
+        "reportable_revenue": 70833,
+        "all_other_revenue": 344,
+        "corporate_revenue": -6368
+      },
+      "cat_segment_name_overrides": {
+        "Financial Products": "Financial Products Segment"
+      },
+      "origins": {
+        "costco_lease_2024": "BF-S-COST-FY2025-PDF Note5 printed pp50–51 / PDF pp56–57, reopened 2026-09-21",
+        "salesforce_lease_2025": "BBC-C01 Note6 pp75–77, same-session full reading",
+        "intangible_rows": "BBC-C01 Note8 pp80–81, same-session full reading",
+        "cat_segment_costs_2025": "BBC-C04 Note23 p120, same-session full reading",
+        "cat_segments_2024": "BBC-C04 Note23 pp118,120–121; comparatives as recast in FY2025 filing"
+      }
+    },
+    "teaching": {
+      "asset": {
+        "identity": "Author synthetic example, not company transactions",
+        "unit": "teaching currency units",
+        "cost": 100,
+        "residual": 0,
+        "life_months": 60,
+        "initial_cash": 150,
+        "payment": "2026-01",
+        "acquisition": "2026-02",
+        "ready": "2026-04",
+        "start": "2026-01",
+        "months": 12,
+        "convention": "Events at month start; same-day acquisition then ready then payment; depreciation at month end starting ready month, full months, no tax/interest/disposal, depreciation expensed in this example."
+      },
+      "intangible": {
+        "identity": "Author synthetic accumulation model, not EPW estimates or Salesforce valuation",
+        "unit": "teaching currency units",
+        "rd": [
+          100,
+          120,
+          80
+        ],
+        "sga_excluding_rd": [
+          60,
+          60,
+          60
+        ],
+        "alpha": 1,
+        "gamma": 0.3,
+        "delta_r": 0.2,
+        "delta_s": 0.2,
+        "initial_r": 0,
+        "initial_s": 0,
+        "order": "Opening stock depreciates first; eligible current investment added at each period end. R&D and SG&A inputs do not overlap."
+      },
+      "cvp_extension": {
+        "identity": "Author optional capacity-step variation; not OpenStax original inputs or CAT facts",
+        "sales_change": 0.1,
+        "step_enabled": false,
+        "threshold": 0.15,
+        "step_fixed_cost": 10000
+      },
+      "retail_cycle": {
+        "identity": "Author synthetic inventory/cash-timing example, not Costco days",
+        "unit": "teaching currency units and relative days",
+        "cost": 100,
+        "price": 150,
+        "acquire_day": 0,
+        "sale_day": 20,
+        "collect_day": 23,
+        "pay_day": 30,
+        "order": "Day start: acquire, sell, collect, pay. Same-day effects follow this explicit convention; cumulative net cash can be negative as a financing-gap measure, not an observed bank balance."
+      },
+      "subscription_cycle": {
+        "identity": "Author synthetic subscription funding example, not actual Salesforce contract",
+        "unit": "teaching currency units and relative 30-day months",
+        "amount": 120,
+        "invoice_day": 0,
+        "collection_day": 30,
+        "term_months": 12,
+        "monthly_cost": 6,
+        "month_days": 30,
+        "order": "Invoice and unconditional right at day0; each service month completed on day30*n; collection precedes same-day service cash cost. No refunds/tax, no costs before day30. Advances cover remaining service obligations."
+      }
+    },
+    "provenance": {
+      "lead_input_sha256": "5300ec0d05b830f8d6aa2ce72fd367beb3dc6bbfe044ff6cd28146e8beb7c68b",
+      "lead_input_lines": 209,
+      "transcription": "All supplied keys and amounts reproduced semantically; original byte hash identifies connector source, not this JSON serialization. Labels clarified in supplemental, raw observations unchanged.",
+      "reference_plan_sha256": "d6a351ea333643dc50af7704a7984a43fb623f24a058db74726b12c418a1494b"
+    },
+    "canonical_file": "https://ou-liu-red-sugar.github.io/notebook/labs/bf-de/inputs.json"
+  },
+  "default_outputs": {
+    "asset": {
+      "identity": "Author synthetic example, not company transactions",
+      "unit": "teaching currency units",
+      "parameters": {
+        "identity": "Author synthetic example, not company transactions",
+        "unit": "teaching currency units",
+        "cost": 100,
+        "residual": 0,
+        "life_months": 60,
+        "initial_cash": 150,
+        "payment": "2026-01",
+        "acquisition": "2026-02",
+        "ready": "2026-04",
+        "start": "2026-01",
+        "months": 12,
+        "convention": "Events at month start; same-day acquisition then ready then payment; depreciation at month end starting ready month, full months, no tax/interest/disposal, depreciation expensed in this example."
+      },
+      "monthly_depreciation": 1.6666666666666667,
+      "rows": [
+        {
+          "date": "2026-01-01",
+          "event": "期初",
+          "cash": 150,
+          "prepaid": 0,
+          "cip": 0,
+          "in_use_gross": 0,
+          "accumulated_depreciation": 0,
+          "net_ppe": 0,
+          "accounts_payable": 0,
+          "equity": 150,
+          "total_assets": 150,
+          "period_depreciation": 0,
+          "balance_residual": 0
+        },
+        {
+          "date": "2026-01-01",
+          "event": "取得前付款：形成预付款",
+          "cash": 50,
+          "prepaid": 100,
+          "cip": 0,
+          "in_use_gross": 0,
+          "accumulated_depreciation": 0,
+          "net_ppe": 0,
+          "accounts_payable": 0,
+          "equity": 150,
+          "total_assets": 150,
+          "period_depreciation": 0,
+          "balance_residual": 0
+        },
+        {
+          "date": "2026-01-末",
+          "event": "月末分摊",
+          "cash": 50,
+          "prepaid": 100,
+          "cip": 0,
+          "in_use_gross": 0,
+          "accumulated_depreciation": 0,
+          "net_ppe": 0,
+          "accounts_payable": 0,
+          "equity": 150,
+          "total_assets": 150,
+          "period_depreciation": 0,
+          "balance_residual": 0
+        },
+        {
+          "date": "2026-02-01",
+          "event": "取得控制权：确认在建资源",
+          "cash": 50,
+          "prepaid": 0,
+          "cip": 100,
+          "in_use_gross": 0,
+          "accumulated_depreciation": 0,
+          "net_ppe": 100,
+          "accounts_payable": 0,
+          "equity": 150,
+          "total_assets": 150,
+          "period_depreciation": 0,
+          "balance_residual": 0
+        },
+        {
+          "date": "2026-02-末",
+          "event": "月末分摊",
+          "cash": 50,
+          "prepaid": 0,
+          "cip": 100,
+          "in_use_gross": 0,
+          "accumulated_depreciation": 0,
+          "net_ppe": 100,
+          "accounts_payable": 0,
+          "equity": 150,
+          "total_assets": 150,
+          "period_depreciation": 0,
+          "balance_residual": 0
+        },
+        {
+          "date": "2026-03-末",
+          "event": "月末分摊",
+          "cash": 50,
+          "prepaid": 0,
+          "cip": 100,
+          "in_use_gross": 0,
+          "accumulated_depreciation": 0,
+          "net_ppe": 100,
+          "accounts_payable": 0,
+          "equity": 150,
+          "total_assets": 150,
+          "period_depreciation": 0,
+          "balance_residual": 0
+        },
+        {
+          "date": "2026-04-01",
+          "event": "达到可用状态：在建转入使用中",
+          "cash": 50,
+          "prepaid": 0,
+          "cip": 0,
+          "in_use_gross": 100,
+          "accumulated_depreciation": 0,
+          "net_ppe": 100,
+          "accounts_payable": 0,
+          "equity": 150,
+          "total_assets": 150,
+          "period_depreciation": 0,
+          "balance_residual": 0
+        },
+        {
+          "date": "2026-04-末",
+          "event": "月末分摊",
+          "cash": 50,
+          "prepaid": 0,
+          "cip": 0,
+          "in_use_gross": 100,
+          "accumulated_depreciation": 1.6666666666666667,
+          "net_ppe": 98.33333333333333,
+          "accounts_payable": 0,
+          "equity": 148.33333333333334,
+          "total_assets": 148.33333333333334,
+          "period_depreciation": 1.6666666666666667,
+          "balance_residual": 0
+        },
+        {
+          "date": "2026-05-末",
+          "event": "月末分摊",
+          "cash": 50,
+          "prepaid": 0,
+          "cip": 0,
+          "in_use_gross": 100,
+          "accumulated_depreciation": 3.3333333333333335,
+          "net_ppe": 96.66666666666667,
+          "accounts_payable": 0,
+          "equity": 146.66666666666666,
+          "total_assets": 146.66666666666666,
+          "period_depreciation": 1.6666666666666667,
+          "balance_residual": 0
+        },
+        {
+          "date": "2026-06-末",
+          "event": "月末分摊",
+          "cash": 50,
+          "prepaid": 0,
+          "cip": 0,
+          "in_use_gross": 100,
+          "accumulated_depreciation": 5,
+          "net_ppe": 95,
+          "accounts_payable": 0,
+          "equity": 145,
+          "total_assets": 145,
+          "period_depreciation": 1.6666666666666667,
+          "balance_residual": 0
+        },
+        {
+          "date": "2026-07-末",
+          "event": "月末分摊",
+          "cash": 50,
+          "prepaid": 0,
+          "cip": 0,
+          "in_use_gross": 100,
+          "accumulated_depreciation": 6.666666666666667,
+          "net_ppe": 93.33333333333333,
+          "accounts_payable": 0,
+          "equity": 143.33333333333334,
+          "total_assets": 143.33333333333334,
+          "period_depreciation": 1.6666666666666667,
+          "balance_residual": 0
+        },
+        {
+          "date": "2026-08-末",
+          "event": "月末分摊",
+          "cash": 50,
+          "prepaid": 0,
+          "cip": 0,
+          "in_use_gross": 100,
+          "accumulated_depreciation": 8.333333333333334,
+          "net_ppe": 91.66666666666667,
+          "accounts_payable": 0,
+          "equity": 141.66666666666666,
+          "total_assets": 141.66666666666666,
+          "period_depreciation": 1.6666666666666667,
+          "balance_residual": 0
+        },
+        {
+          "date": "2026-09-末",
+          "event": "月末分摊",
+          "cash": 50,
+          "prepaid": 0,
+          "cip": 0,
+          "in_use_gross": 100,
+          "accumulated_depreciation": 10,
+          "net_ppe": 90,
+          "accounts_payable": 0,
+          "equity": 140,
+          "total_assets": 140,
+          "period_depreciation": 1.6666666666666667,
+          "balance_residual": 0
+        },
+        {
+          "date": "2026-10-末",
+          "event": "月末分摊",
+          "cash": 50,
+          "prepaid": 0,
+          "cip": 0,
+          "in_use_gross": 100,
+          "accumulated_depreciation": 11.666666666666666,
+          "net_ppe": 88.33333333333333,
+          "accounts_payable": 0,
+          "equity": 138.33333333333334,
+          "total_assets": 138.33333333333334,
+          "period_depreciation": 1.6666666666666667,
+          "balance_residual": 0
+        },
+        {
+          "date": "2026-11-末",
+          "event": "月末分摊",
+          "cash": 50,
+          "prepaid": 0,
+          "cip": 0,
+          "in_use_gross": 100,
+          "accumulated_depreciation": 13.333333333333332,
+          "net_ppe": 86.66666666666667,
+          "accounts_payable": 0,
+          "equity": 136.66666666666666,
+          "total_assets": 136.66666666666666,
+          "period_depreciation": 1.6666666666666667,
+          "balance_residual": 0
+        },
+        {
+          "date": "2026-12-末",
+          "event": "月末分摊",
+          "cash": 50,
+          "prepaid": 0,
+          "cip": 0,
+          "in_use_gross": 100,
+          "accumulated_depreciation": 14.999999999999998,
+          "net_ppe": 85,
+          "accounts_payable": 0,
+          "equity": 135,
+          "total_assets": 135,
+          "period_depreciation": 1.6666666666666667,
+          "balance_residual": 0
+        }
+      ],
+      "ending": {
+        "date": "2026-12-末",
+        "event": "月末分摊",
+        "cash": 50,
+        "prepaid": 0,
+        "cip": 0,
+        "in_use_gross": 100,
+        "accumulated_depreciation": 14.999999999999998,
+        "net_ppe": 85,
+        "accounts_payable": 0,
+        "equity": 135,
+        "total_assets": 135,
+        "period_depreciation": 1.6666666666666667,
+        "balance_residual": 0
+      }
+    },
+    "asset_late_payment": {
+      "identity": "Author synthetic example, not company transactions",
+      "unit": "teaching currency units",
+      "parameters": {
+        "identity": "Author synthetic example, not company transactions",
+        "unit": "teaching currency units",
+        "cost": 100,
+        "residual": 0,
+        "life_months": 60,
+        "initial_cash": 150,
+        "payment": "2026-06",
+        "acquisition": "2026-02",
+        "ready": "2026-04",
+        "start": "2026-01",
+        "months": 12,
+        "convention": "Events at month start; same-day acquisition then ready then payment; depreciation at month end starting ready month, full months, no tax/interest/disposal, depreciation expensed in this example."
+      },
+      "monthly_depreciation": 1.6666666666666667,
+      "rows": [
+        {
+          "date": "2026-01-01",
+          "event": "期初",
+          "cash": 150,
+          "prepaid": 0,
+          "cip": 0,
+          "in_use_gross": 0,
+          "accumulated_depreciation": 0,
+          "net_ppe": 0,
+          "accounts_payable": 0,
+          "equity": 150,
+          "total_assets": 150,
+          "period_depreciation": 0,
+          "balance_residual": 0
+        },
+        {
+          "date": "2026-01-末",
+          "event": "月末分摊",
+          "cash": 150,
+          "prepaid": 0,
+          "cip": 0,
+          "in_use_gross": 0,
+          "accumulated_depreciation": 0,
+          "net_ppe": 0,
+          "accounts_payable": 0,
+          "equity": 150,
+          "total_assets": 150,
+          "period_depreciation": 0,
+          "balance_residual": 0
+        },
+        {
+          "date": "2026-02-01",
+          "event": "取得控制权：确认在建资源",
+          "cash": 150,
+          "prepaid": 0,
+          "cip": 100,
+          "in_use_gross": 0,
+          "accumulated_depreciation": 0,
+          "net_ppe": 100,
+          "accounts_payable": 100,
+          "equity": 150,
+          "total_assets": 250,
+          "period_depreciation": 0,
+          "balance_residual": 0
+        },
+        {
+          "date": "2026-02-末",
+          "event": "月末分摊",
+          "cash": 150,
+          "prepaid": 0,
+          "cip": 100,
+          "in_use_gross": 0,
+          "accumulated_depreciation": 0,
+          "net_ppe": 100,
+          "accounts_payable": 100,
+          "equity": 150,
+          "total_assets": 250,
+          "period_depreciation": 0,
+          "balance_residual": 0
+        },
+        {
+          "date": "2026-03-末",
+          "event": "月末分摊",
+          "cash": 150,
+          "prepaid": 0,
+          "cip": 100,
+          "in_use_gross": 0,
+          "accumulated_depreciation": 0,
+          "net_ppe": 100,
+          "accounts_payable": 100,
+          "equity": 150,
+          "total_assets": 250,
+          "period_depreciation": 0,
+          "balance_residual": 0
+        },
+        {
+          "date": "2026-04-01",
+          "event": "达到可用状态：在建转入使用中",
+          "cash": 150,
+          "prepaid": 0,
+          "cip": 0,
+          "in_use_gross": 100,
+          "accumulated_depreciation": 0,
+          "net_ppe": 100,
+          "accounts_payable": 100,
+          "equity": 150,
+          "total_assets": 250,
+          "period_depreciation": 0,
+          "balance_residual": 0
+        },
+        {
+          "date": "2026-04-末",
+          "event": "月末分摊",
+          "cash": 150,
+          "prepaid": 0,
+          "cip": 0,
+          "in_use_gross": 100,
+          "accumulated_depreciation": 1.6666666666666667,
+          "net_ppe": 98.33333333333333,
+          "accounts_payable": 100,
+          "equity": 148.33333333333334,
+          "total_assets": 248.33333333333334,
+          "period_depreciation": 1.6666666666666667,
+          "balance_residual": 0
+        },
+        {
+          "date": "2026-05-末",
+          "event": "月末分摊",
+          "cash": 150,
+          "prepaid": 0,
+          "cip": 0,
+          "in_use_gross": 100,
+          "accumulated_depreciation": 3.3333333333333335,
+          "net_ppe": 96.66666666666667,
+          "accounts_payable": 100,
+          "equity": 146.66666666666666,
+          "total_assets": 246.66666666666666,
+          "period_depreciation": 1.6666666666666667,
+          "balance_residual": 0
+        },
+        {
+          "date": "2026-06-01",
+          "event": "付款：结清应付",
+          "cash": 50,
+          "prepaid": 0,
+          "cip": 0,
+          "in_use_gross": 100,
+          "accumulated_depreciation": 3.3333333333333335,
+          "net_ppe": 96.66666666666667,
+          "accounts_payable": 0,
+          "equity": 146.66666666666666,
+          "total_assets": 146.66666666666666,
+          "period_depreciation": 0,
+          "balance_residual": 0
+        },
+        {
+          "date": "2026-06-末",
+          "event": "月末分摊",
+          "cash": 50,
+          "prepaid": 0,
+          "cip": 0,
+          "in_use_gross": 100,
+          "accumulated_depreciation": 5,
+          "net_ppe": 95,
+          "accounts_payable": 0,
+          "equity": 145,
+          "total_assets": 145,
+          "period_depreciation": 1.6666666666666667,
+          "balance_residual": 0
+        },
+        {
+          "date": "2026-07-末",
+          "event": "月末分摊",
+          "cash": 50,
+          "prepaid": 0,
+          "cip": 0,
+          "in_use_gross": 100,
+          "accumulated_depreciation": 6.666666666666667,
+          "net_ppe": 93.33333333333333,
+          "accounts_payable": 0,
+          "equity": 143.33333333333334,
+          "total_assets": 143.33333333333334,
+          "period_depreciation": 1.6666666666666667,
+          "balance_residual": 0
+        },
+        {
+          "date": "2026-08-末",
+          "event": "月末分摊",
+          "cash": 50,
+          "prepaid": 0,
+          "cip": 0,
+          "in_use_gross": 100,
+          "accumulated_depreciation": 8.333333333333334,
+          "net_ppe": 91.66666666666667,
+          "accounts_payable": 0,
+          "equity": 141.66666666666666,
+          "total_assets": 141.66666666666666,
+          "period_depreciation": 1.6666666666666667,
+          "balance_residual": 0
+        },
+        {
+          "date": "2026-09-末",
+          "event": "月末分摊",
+          "cash": 50,
+          "prepaid": 0,
+          "cip": 0,
+          "in_use_gross": 100,
+          "accumulated_depreciation": 10,
+          "net_ppe": 90,
+          "accounts_payable": 0,
+          "equity": 140,
+          "total_assets": 140,
+          "period_depreciation": 1.6666666666666667,
+          "balance_residual": 0
+        },
+        {
+          "date": "2026-10-末",
+          "event": "月末分摊",
+          "cash": 50,
+          "prepaid": 0,
+          "cip": 0,
+          "in_use_gross": 100,
+          "accumulated_depreciation": 11.666666666666666,
+          "net_ppe": 88.33333333333333,
+          "accounts_payable": 0,
+          "equity": 138.33333333333334,
+          "total_assets": 138.33333333333334,
+          "period_depreciation": 1.6666666666666667,
+          "balance_residual": 0
+        },
+        {
+          "date": "2026-11-末",
+          "event": "月末分摊",
+          "cash": 50,
+          "prepaid": 0,
+          "cip": 0,
+          "in_use_gross": 100,
+          "accumulated_depreciation": 13.333333333333332,
+          "net_ppe": 86.66666666666667,
+          "accounts_payable": 0,
+          "equity": 136.66666666666666,
+          "total_assets": 136.66666666666666,
+          "period_depreciation": 1.6666666666666667,
+          "balance_residual": 0
+        },
+        {
+          "date": "2026-12-末",
+          "event": "月末分摊",
+          "cash": 50,
+          "prepaid": 0,
+          "cip": 0,
+          "in_use_gross": 100,
+          "accumulated_depreciation": 14.999999999999998,
+          "net_ppe": 85,
+          "accounts_payable": 0,
+          "equity": 135,
+          "total_assets": 135,
+          "period_depreciation": 1.6666666666666667,
+          "balance_residual": 0
+        }
+      ],
+      "ending": {
+        "date": "2026-12-末",
+        "event": "月末分摊",
+        "cash": 50,
+        "prepaid": 0,
+        "cip": 0,
+        "in_use_gross": 100,
+        "accumulated_depreciation": 14.999999999999998,
+        "net_ppe": 85,
+        "accounts_payable": 0,
+        "equity": 135,
+        "total_assets": 135,
+        "period_depreciation": 1.6666666666666667,
+        "balance_residual": 0
+      }
+    },
+    "asset_late_ready": {
+      "identity": "Author synthetic example, not company transactions",
+      "unit": "teaching currency units",
+      "parameters": {
+        "identity": "Author synthetic example, not company transactions",
+        "unit": "teaching currency units",
+        "cost": 100,
+        "residual": 0,
+        "life_months": 60,
+        "initial_cash": 150,
+        "payment": "2026-01",
+        "acquisition": "2026-02",
+        "ready": "2026-07",
+        "start": "2026-01",
+        "months": 12,
+        "convention": "Events at month start; same-day acquisition then ready then payment; depreciation at month end starting ready month, full months, no tax/interest/disposal, depreciation expensed in this example."
+      },
+      "monthly_depreciation": 1.6666666666666667,
+      "rows": [
+        {
+          "date": "2026-01-01",
+          "event": "期初",
+          "cash": 150,
+          "prepaid": 0,
+          "cip": 0,
+          "in_use_gross": 0,
+          "accumulated_depreciation": 0,
+          "net_ppe": 0,
+          "accounts_payable": 0,
+          "equity": 150,
+          "total_assets": 150,
+          "period_depreciation": 0,
+          "balance_residual": 0
+        },
+        {
+          "date": "2026-01-01",
+          "event": "取得前付款：形成预付款",
+          "cash": 50,
+          "prepaid": 100,
+          "cip": 0,
+          "in_use_gross": 0,
+          "accumulated_depreciation": 0,
+          "net_ppe": 0,
+          "accounts_payable": 0,
+          "equity": 150,
+          "total_assets": 150,
+          "period_depreciation": 0,
+          "balance_residual": 0
+        },
+        {
+          "date": "2026-01-末",
+          "event": "月末分摊",
+          "cash": 50,
+          "prepaid": 100,
+          "cip": 0,
+          "in_use_gross": 0,
+          "accumulated_depreciation": 0,
+          "net_ppe": 0,
+          "accounts_payable": 0,
+          "equity": 150,
+          "total_assets": 150,
+          "period_depreciation": 0,
+          "balance_residual": 0
+        },
+        {
+          "date": "2026-02-01",
+          "event": "取得控制权：确认在建资源",
+          "cash": 50,
+          "prepaid": 0,
+          "cip": 100,
+          "in_use_gross": 0,
+          "accumulated_depreciation": 0,
+          "net_ppe": 100,
+          "accounts_payable": 0,
+          "equity": 150,
+          "total_assets": 150,
+          "period_depreciation": 0,
+          "balance_residual": 0
+        },
+        {
+          "date": "2026-02-末",
+          "event": "月末分摊",
+          "cash": 50,
+          "prepaid": 0,
+          "cip": 100,
+          "in_use_gross": 0,
+          "accumulated_depreciation": 0,
+          "net_ppe": 100,
+          "accounts_payable": 0,
+          "equity": 150,
+          "total_assets": 150,
+          "period_depreciation": 0,
+          "balance_residual": 0
+        },
+        {
+          "date": "2026-03-末",
+          "event": "月末分摊",
+          "cash": 50,
+          "prepaid": 0,
+          "cip": 100,
+          "in_use_gross": 0,
+          "accumulated_depreciation": 0,
+          "net_ppe": 100,
+          "accounts_payable": 0,
+          "equity": 150,
+          "total_assets": 150,
+          "period_depreciation": 0,
+          "balance_residual": 0
+        },
+        {
+          "date": "2026-04-末",
+          "event": "月末分摊",
+          "cash": 50,
+          "prepaid": 0,
+          "cip": 100,
+          "in_use_gross": 0,
+          "accumulated_depreciation": 0,
+          "net_ppe": 100,
+          "accounts_payable": 0,
+          "equity": 150,
+          "total_assets": 150,
+          "period_depreciation": 0,
+          "balance_residual": 0
+        },
+        {
+          "date": "2026-05-末",
+          "event": "月末分摊",
+          "cash": 50,
+          "prepaid": 0,
+          "cip": 100,
+          "in_use_gross": 0,
+          "accumulated_depreciation": 0,
+          "net_ppe": 100,
+          "accounts_payable": 0,
+          "equity": 150,
+          "total_assets": 150,
+          "period_depreciation": 0,
+          "balance_residual": 0
+        },
+        {
+          "date": "2026-06-末",
+          "event": "月末分摊",
+          "cash": 50,
+          "prepaid": 0,
+          "cip": 100,
+          "in_use_gross": 0,
+          "accumulated_depreciation": 0,
+          "net_ppe": 100,
+          "accounts_payable": 0,
+          "equity": 150,
+          "total_assets": 150,
+          "period_depreciation": 0,
+          "balance_residual": 0
+        },
+        {
+          "date": "2026-07-01",
+          "event": "达到可用状态：在建转入使用中",
+          "cash": 50,
+          "prepaid": 0,
+          "cip": 0,
+          "in_use_gross": 100,
+          "accumulated_depreciation": 0,
+          "net_ppe": 100,
+          "accounts_payable": 0,
+          "equity": 150,
+          "total_assets": 150,
+          "period_depreciation": 0,
+          "balance_residual": 0
+        },
+        {
+          "date": "2026-07-末",
+          "event": "月末分摊",
+          "cash": 50,
+          "prepaid": 0,
+          "cip": 0,
+          "in_use_gross": 100,
+          "accumulated_depreciation": 1.6666666666666667,
+          "net_ppe": 98.33333333333333,
+          "accounts_payable": 0,
+          "equity": 148.33333333333334,
+          "total_assets": 148.33333333333334,
+          "period_depreciation": 1.6666666666666667,
+          "balance_residual": 0
+        },
+        {
+          "date": "2026-08-末",
+          "event": "月末分摊",
+          "cash": 50,
+          "prepaid": 0,
+          "cip": 0,
+          "in_use_gross": 100,
+          "accumulated_depreciation": 3.3333333333333335,
+          "net_ppe": 96.66666666666667,
+          "accounts_payable": 0,
+          "equity": 146.66666666666666,
+          "total_assets": 146.66666666666666,
+          "period_depreciation": 1.6666666666666667,
+          "balance_residual": 0
+        },
+        {
+          "date": "2026-09-末",
+          "event": "月末分摊",
+          "cash": 50,
+          "prepaid": 0,
+          "cip": 0,
+          "in_use_gross": 100,
+          "accumulated_depreciation": 5,
+          "net_ppe": 95,
+          "accounts_payable": 0,
+          "equity": 145,
+          "total_assets": 145,
+          "period_depreciation": 1.6666666666666667,
+          "balance_residual": 0
+        },
+        {
+          "date": "2026-10-末",
+          "event": "月末分摊",
+          "cash": 50,
+          "prepaid": 0,
+          "cip": 0,
+          "in_use_gross": 100,
+          "accumulated_depreciation": 6.666666666666667,
+          "net_ppe": 93.33333333333333,
+          "accounts_payable": 0,
+          "equity": 143.33333333333334,
+          "total_assets": 143.33333333333334,
+          "period_depreciation": 1.6666666666666667,
+          "balance_residual": 0
+        },
+        {
+          "date": "2026-11-末",
+          "event": "月末分摊",
+          "cash": 50,
+          "prepaid": 0,
+          "cip": 0,
+          "in_use_gross": 100,
+          "accumulated_depreciation": 8.333333333333334,
+          "net_ppe": 91.66666666666667,
+          "accounts_payable": 0,
+          "equity": 141.66666666666666,
+          "total_assets": 141.66666666666666,
+          "period_depreciation": 1.6666666666666667,
+          "balance_residual": 0
+        },
+        {
+          "date": "2026-12-末",
+          "event": "月末分摊",
+          "cash": 50,
+          "prepaid": 0,
+          "cip": 0,
+          "in_use_gross": 100,
+          "accumulated_depreciation": 10,
+          "net_ppe": 90,
+          "accounts_payable": 0,
+          "equity": 140,
+          "total_assets": 140,
+          "period_depreciation": 1.6666666666666667,
+          "balance_residual": 0
+        }
+      ],
+      "ending": {
+        "date": "2026-12-末",
+        "event": "月末分摊",
+        "cash": 50,
+        "prepaid": 0,
+        "cip": 0,
+        "in_use_gross": 100,
+        "accumulated_depreciation": 10,
+        "net_ppe": 90,
+        "accounts_payable": 0,
+        "equity": 140,
+        "total_assets": 140,
+        "period_depreciation": 1.6666666666666667,
+        "balance_residual": 0
+      }
+    }
+  },
+  "prompt": "你正在教 BF-12《资本开支、在建工程与折旧》，材料版本2026-09-21。学习任务：独立重建预付/在建/使用中资产/应付/折旧；核3,890−1,013=2,877并区分5,498现金。\nAgent 接口把 Costco 主线记为 retail；这只是既有教学入口的接口名，不新增正文行业分支。MIT与Costco为核心必读；Caterpillar只在读者展开可选对照后转为必读。optional只有读者启用后才变为必读。先实际打开指定公开原文单元，分页读到单元结束，必要表图核原页，记录标题/版本/位置/范围与当前用途。文献目录、工具返回标题或作者先前已读记录都不能代替本次读取；runtime_reading_log从空数组开始。读取失败先找同版本正式等价原文，仍缺则说明该单元缺口，不凭摘要补讲。\n诊断任务：{\"retail\": \"独立重建预付/在建/使用中资产/应付/折旧；核3,890−1,013=2,877并区分5,498现金。\"}。补充任务：只把付款推迟到2026-06，取得日2026-02、可用日2026-04保持不变；先写3月末和12月末哪些余额改变，再核当年折旧是否改变。\n随后沿本包完整正文、实际输入、静态实验与题解推进一个完整任务，先让读者解释或计算再反馈；已会的基础跳过。默认用Costco比较期和设备教学时钟迁移；Caterpillar只是读者展开后的可选对照，启用后再读其Note1D/Note9。通过尺度：正向状态表平衡，资源未取得时不生成CIP、不提前折旧；差额1,608不自动归因为处置。\n保持真实披露、分析计算、教学模型三种身份，参数只改变模型，不反写真实公司数据。资料不足处不要补造差额或估值。最后明确：读者已经能独立重建什么，换一份材料时还需先核哪些条件？",
+  "selected_branch": "retail",
+  "required_readings_by_branch": {
+    "retail": [
+      {
+        "source_id": "BFDE-MIT",
+        "title": "MIT OCW 15.515 Session 7 — Accounting for Long-lived Assets",
+        "authors": [
+          "MIT OpenCourseWare"
+        ],
+        "version": "Fall 2003, 14 slides",
+        "access": {
+          "kind": "pdf_full_text",
+          "uri": "https://ocw.mit.edu/courses/15-515-financial-accounting-fall-2003/c14a0767af3d7544d85e4b20eb6be1bb_lec7.pdf"
+        },
+        "required_unit": {
+          "locator": "slides2–8,11",
+          "scope": "采用单元含制造成本路径、分摊和估计变更",
+          "purpose": "分开取得、付款、可用及分摊"
+        },
+        "supports": "成本、资源用途、残值、寿命和分摊。采用制造折旧可能先入库存的路径，不采用旧时代普遍性陈述或租赁政策。",
+        "branch": "common"
+      },
+      {
+        "source_id": "BF-S-COST-FY2025-PDF",
+        "title": "Costco Wholesale Corporation — FY2025 Annual Report",
+        "authors": [
+          "Costco Wholesale Corporation"
+        ],
+        "version": "FY ended 2025-08-31; comparative 2024-09-01; 52 weeks each",
+        "access": {
+          "kind": "pdf_full_text",
+          "uri": "https://s201.q4cdn.com/287523651/files/doc_financials/2025/ar/COST-Annual-Report-2025.pdf"
+        },
+        "required_unit": {
+          "locator": "IR Note1 pp42–43 and CF p39; PDF48–49,45",
+          "scope": "完整PPE政策/表和现金购建/补充行",
+          "purpose": "重建Costco存量及现金差额"
+        },
+        "supports": "完整PP&E结构、租赁五视图与经营周转部件。PP&E现金/存量和租赁费用/特定现金的边界保留，混合应收不作为客户DSO。",
+        "branch": "common"
+      }
+    ]
+  },
+  "required_readings_all_branches": [
+    {
+      "source_id": "BFDE-MIT",
+      "title": "MIT OCW 15.515 Session 7 — Accounting for Long-lived Assets",
+      "authors": [
+        "MIT OpenCourseWare"
+      ],
+      "version": "Fall 2003, 14 slides",
+      "access": {
+        "kind": "pdf_full_text",
+        "uri": "https://ocw.mit.edu/courses/15-515-financial-accounting-fall-2003/c14a0767af3d7544d85e4b20eb6be1bb_lec7.pdf"
+      },
+      "required_unit": {
+        "locator": "slides2–8,11",
+        "scope": "采用单元含制造成本路径、分摊和估计变更",
+        "purpose": "分开取得、付款、可用及分摊"
+      },
+      "supports": "成本、资源用途、残值、寿命和分摊。采用制造折旧可能先入库存的路径，不采用旧时代普遍性陈述或租赁政策。",
+      "branch": "common"
+    },
+    {
+      "source_id": "BF-S-COST-FY2025-PDF",
+      "title": "Costco Wholesale Corporation — FY2025 Annual Report",
+      "authors": [
+        "Costco Wholesale Corporation"
+      ],
+      "version": "FY ended 2025-08-31; comparative 2024-09-01; 52 weeks each",
+      "access": {
+        "kind": "pdf_full_text",
+        "uri": "https://s201.q4cdn.com/287523651/files/doc_financials/2025/ar/COST-Annual-Report-2025.pdf"
+      },
+      "required_unit": {
+        "locator": "IR Note1 pp42–43 and CF p39; PDF48–49,45",
+        "scope": "完整PPE政策/表和现金购建/补充行",
+        "purpose": "重建Costco存量及现金差额"
+      },
+      "supports": "完整PP&E结构、租赁五视图与经营周转部件。PP&E现金/存量和租赁费用/特定现金的边界保留，混合应收不作为客户DSO。",
+      "branch": "common"
+    }
+  ],
+  "branch_selection_protocol": "网页已选分支和展开的选读优先；切换后以相应 required_readings_by_branch 的完整数组替换必读，cross/all才读取所有主分支。运行日志从空开始。",
+  "experiment_ids": [
+    "EXP-BF12-ASSET-CLOCKS"
+  ]
+}
+```
+
+## Supplied entry
+我们读资产负债表时，看到的是某一天留下的资源；读现金流量表时，看到的是一段时间里的付款。资本开支正好跨在这两者之间：一笔钱可能已经付出，设备却还没有取得；设备已经取得，也可能还在安装；开始使用以后，成本又会在多个期间分摊。本篇要完成的任务，是沿一项资源建立这些时钟，再用 Costco 的完整物业设备表核出可以重建的存量变化。
+
+主线约需 15–20 分钟，包含一个可操作的设备例和一份真实报表。Caterpillar 的制造与出租设备对照可单独展开。金额、余额与时点是本篇需要的基础，下面就地说明，不要求先读完其他会计章节。
+
+<a id="bf12-clocks"></a>
+## 1. 同一项设备，至少要保留三个日期
+
+<strong>取得日</strong>回答企业何时取得这项资源以及相应付款义务；<strong>付款日</strong>回答现金何时交给对方；<strong>达到预定可用状态的日期</strong>回答资源何时可以开始提供服务。折旧再把可折旧成本分配到使用期间。把这几个日期分开，不是为了把记账变复杂，而是为了同时回答“有什么”“欠什么”“用了多少”“付了多少”。[^bf12-mit]
+
+例如，企业先付钱、后取得设备，先出现的是预付款；设备已经取得而尚未付款，则出现设备或在建资源与应付款。安装尚未完成时，成本可以留在在建工程；达到可用状态后转为使用中的资产。可折旧成本通常是成本减去估计残值，直线法再除以估计使用期。土地和未达到可用状态的在建项目，不能仅因表上有金额就按同一设备寿命分摊。
+
+这里要再分清<strong>折旧的发生</strong>与<strong>损益表的列报</strong>。用于生产的资产，其折旧可能先进入存货成本，等产品出售再成为销售成本；管理用途资产的折旧通常直接进入相应期间费用。下面的小例子明确把折旧直接计入当期费用，以便我们只观察一条资源的时间关系。[^bf12-mit]
+
+<a id="bf12-experiment"></a>
+## 2. 走完一项资源：先付款，再取得，最后投用
+
+这是一个教学合同，不是 Costco 的实际采购。期初现金和权益各为 150。设备全部成本为 100、残值为 0、使用期 60 个月；没有税费、融资利息、处置和其他业务。2026 年 1 月 1 日全额付款，2 月 1 日取得设备控制权并进入安装，4 月 1 日达到可用状态。为使分摊可核算，日期均取月初，从可用月份开始，每个月末计提一个完整月的折旧。
+
+每月折旧为 $d=(100-0)/60=1.666667$。先沿事件看余额，而不是只看年末结果：
+
+| 时点与事项 | 现金 | 预付款 | 在建工程 | 使用中资产原值 | 累计折旧 | 应付 | 权益 |
+|---|---:|---:|---:|---:|---:|---:|---:|
+| 期初 | 150 | 0 | 0 | 0 | 0 | 0 | 150 |
+| 1月付款：现金换成预付款 | 50 | 100 | 0 | 0 | 0 | 0 | 150 |
+| 2月取得：预付款转为在建资源 | 50 | 0 | 100 | 0 | 0 | 0 | 150 |
+| 4月初可用：在建转入使用中资产 | 50 | 0 | 0 | 100 | 0 | 0 | 150 |
+| 4月末：计提首月折旧 | 50 | 0 | 0 | 100 | 1.666667 | 0 | 148.333333 |
+| 12月末：共使用9个月 | 50 | 0 | 0 | 100 | 15 | 0 | 135 |
+
+表中累计折旧是资产减项。年末资产合计是 $50+100-15=135$，与权益一致。付款和转固本身没有制造利润或损失；本例的费用在开始使用后逐月出现。
+
+现在只把付款日改为 6 月 1 日。2 月取得资源时，现金仍为 150、在建工程为 100、应付为 100；4 月照常投用、照常折旧；6 月付款才同时减少现金与应付。<strong>在取得日与可用日不变时，延后付款改变的是资金安排，不是这台设备当年被分摊的服务期间。</strong>再把可用日改到 7 月：这次年内只分摊六个月，折旧为 10。两种变式分别改变了不同的时钟。
+
+<div data-experiment-slot="EXP-BF12-ASSET-CLOCKS"></div>
+
+图中“付款→预付款”表示取得前的资金交付；“取得→在建／应付”表示资源和义务的确认；“可用→使用中资产”是资产内部转类；“使用→累计折旧／费用”是跨期分摊。试着先预测哪一列会变，再移动付款月或可用月。取得前不能投用，残值不能高于成本，这两种输入会被拒绝。
+
+<a id="CASE-BFDE-COST-BF12-20260921"></a>
+<a id="bf12-costco-ppe"></a>
+## 3. 把这套读法放回 Costco 的原表
+
+Costco 的财年分别截至 2025-08-31、2024-09-01，均为 52 周。下表按年报物业及设备附注重排，保留全部分项、累计减项及年限；<strong>单位：百万美元</strong>。使用的是投资者年报 PDF 印刷第 42–43 页、物理第 48–49 页；SEC 10-K 对应位置为第 44–45 页，不混用两个版本的页码。[^bf12-cost]
+
+| 原行 | 中文说明 | 估计年限 | 2025 | 2024 |
+|---|---|---|---|---|
+| Land | 土地 | N/A | 10,323 | 9,447 |
+| Buildings and improvements | 建筑及改良 | 5–50 years | 25,508 | 23,727 |
+| Equipment and fixtures | 设备及装置 | 3–20 years | 13,127 | 12,387 |
+| Construction in progress | 在建工程 | N/A | 1,882 | 1,389 |
+| 〔原表无行名〕 | 原值合计（原表该行无行名） | — | 50,840 | 46,950 |
+| Accumulated depreciation and amortization | 累计折旧摊销（减项） | — | (18,931) | (17,918) |
+| Property and equipment, net | 物业及设备净额 | — | 31,909 | 29,032 |
+
+
+先给这些项目找经营位置。土地、建筑和改良支持门店及设施；设备与装置支撑实际作业。在建工程不是另一种现金，而是尚在形成中的资源。公司还说明，某些内部使用软件的开发成本先进入在建，达到预定可用状态后转入设备及装置，按估计寿命摊销。维修保养与增加功能或寿命的改良也有不同处理。这样读，资产行就和“取得—可用—服务”的过程连起来了。[^bf12-cost]
+
+接下来可以做一个完整、但范围明确的计算。令 $G$ 为原值，$A$ 为累计折旧摊销正额，$N=G-A$ 为净额。两期相减仍有 $\Delta N=\Delta G-\Delta A$：
+
+| 存量变化 | 计算 | 百万美元 |
+|---|---|---:|
+| 原值增加 | 50,840 − 46,950 | 3,890 |
+| 累计折旧摊销增加 | 18,931 − 17,918 | 1,013 |
+| 净额增加 | 31,909 − 29,032 | 2,877 |
+| 核对 | 3,890 − 1,013 | 2,877 |
+
+这张桥回答的是<strong>两张期末表怎样接起来</strong>。它还不是新增、处置、汇兑及转类的完整流量表。累计折旧在处置资产时也可能被移除，所以增加 1,013 不等于当年的折旧费用。现金流量表另列整体折旧摊销 2,426，也不是可以直接替换进这张 PP&E 桥的同范围数字。[^bf12-cf]
+
+现金流量表的 `Additions to property and equipment` 为流出 5,498，比原值增量 3,890 多 1,608。这些原件没有把这 1,608 完整拆开，因此把它保留为待核差额。另一个可确定的事实是，在建余额增加了 $1,882-1,389=493$；如果一年中既有新工程投入、又有项目投用，这个净变化就不会等于“本年新开工”。
+
+做到这里，我们已有正面的判断：Costco 期末已确认的物业设备净额增加 2,877；增长分布在土地、建筑、设备与在建。要继续解释新增门店能力、设备替换或投用进度，应补相应项目和资产流量明细，而不是让这张存量表承担它没有提供的过程数据。
+
+<a id="bf12-cat-ppe"></a>
+<details data-agent-option="cat">
+<summary>可选对照：Caterpillar 的资产不仅用于自己制造</summary>
+
+Caterpillar FY2025 的 Note 9 保留了“出租给他人的设备”这一行。以下均为年末、百万美元；2025 与 2024 原表分项完整列出。[^bf12-cat]
+
+| 原行 | 中文说明 | 估计年限 | 2025 | 2024 |
+|---|---|---|---|---|
+| Land | 土地 | — | 616 | 612 |
+| Buildings and land improvements | 建筑及土地改良 | 20–45 years | 7,761 | 7,281 |
+| Machinery, equipment and other | 机器、设备及其他 | 2–10 years | 13,737 | 12,523 |
+| Software | 软件 | 3–7 years | 1,696 | 1,609 |
+| Equipment leased to others | 出租给他人的设备 | 1–7 years | 6,004 | 5,701 |
+| Construction-in-process | 在建工程 | — | 2,092 | 1,751 |
+| Total property, plant and equipment, at cost | 物业厂房设备成本合计 | — | 31,906 | 29,477 |
+| Less: Accumulated depreciation | 减：累计折旧 | — | (16,766) | (16,116) |
+| Property, plant and equipment–net | 物业厂房设备净额 | — | 15,140 | 13,361 |
+
+
+从这张表重建的净额变化是 $2,429-650=1,779$。但比这个等式更有业务意义的是：2025 年原值 31,906 中有 6,004 是出租给他人的设备。公司对工厂设备主要使用加速折旧，对主要属于金融产品业务的出租设备则按租期直线分摊，折旧基础扣除估计残值。前者支持制造，后者通过向客户提供设备使用获得收益。把总 PP&E 全部解释成工厂产能，就会丢掉后一种业务。
+
+同一公司的不同用途已经足以提醒我们：寿命和分摊方式应跟着资源怎样提供服务来理解，不能先给整家公司设一个统一折旧率，再让所有资产迁就它。
+
+</details>
+
+<a id="bf12-exercise"></a>
+## 4. 独立重建与迁移
+
+<strong>任务。</strong>先不看解析，把教学设备的付款日改为 6 月、取得日保持 2 月、可用日保持 4 月。写出 3 月末和 12 月末的现金、在建／净资产、应付、权益。然后用 Costco 表说明：原值增加、净额增加、购建现金三者各是多少，各自回答什么。
+
+<strong>解析。</strong>3 月末现金 150、在建 100、应付 100、权益 150；资产 250 等于负债加权益。12 月末付款已完成，现金 50、设备净额 85、应付 0、权益 135。折旧仍为九个月共 15。Costco 原值增加 3,890、净额增加 2,877、购建现金流出 5,498；前两者是时点余额差，第三个是期间实际付款。
+
+<strong>迁移。</strong>另一台设备成本 100、残值 10、使用 60 个月，7 月初才可用。在相同月度约定下，当年应分摊多少？
+
+<strong>解析。</strong>可折旧基础 90，每月 1.5，六个月共 9；年末净额 91。改残值改变可分摊总额，改可用日改变本年服务期，改付款日只改变本例的资金与应付时间。现在你可以拿一份新公司的 PP&E 附注，先找资产用途和政策，再重建净额桥，最后检查缺少哪一段流量。
+
+[^bf12-mit]: MIT OCW, *15.515 Financial Accounting, Fall 2003, Session 7: Accounting for Long-lived Assets*，slides 2–8、11；采用成本、分摊及存货成本路径，不采用旧准则或历史行业比例。[原讲义](https://ocw.mit.edu/courses/15-515-financial-accounting-fall-2003/c14a0767af3d7544d85e4b20eb6be1bb_lec7.pdf)。
+[^bf12-cost]: Costco FY2025 Annual Report，Note 1 “Property and Equipment, Net”，PDF 印刷 pp42–43／物理 pp48–49。[公司 PDF](https://s201.q4cdn.com/287523651/files/doc_financials/2025/ar/COST-Annual-Report-2025.pdf#page=48)；[SEC 同年度 10-K](https://www.sec.gov/Archives/edgar/data/909832/000090983225000101/cost-20250831.htm)，对应 pp44–45。取得日 2026-09-21；合并口径。
+[^bf12-cf]: 同一 Costco 公司 PDF，Consolidated Statements of Cash Flows，印刷 p39／物理 p45；SEC p41。整体 D&A 与购建现金分别为报表原行，非 PP&E 滚动表替代。
+[^bf12-cat]: Caterpillar FY2025 Form 10-K，Note 1D pp64–65、Note 9 p89，“Property, plant and equipment”。[SEC 原件](https://www.sec.gov/Archives/edgar/data/18230/000001823026000008/cat-20251231.htm)。取得日 2026-09-21；合并口径，出租设备用途及折旧按原政策。
+
+<script defer src="/notebook/labs/bf-de/reader-adapter.js"></script>
+
+
+## Additional teaching material
+<a id="EXP-BF12-ASSET-CLOCKS"></a>
+## BF-12｜资本开支、在建工程与折旧：静态实验
+
+输入身份 `BFDE-SHARED-20260921-v1`。公司金额为百万美元；教学设备、现金例和资本模型为教学金额；CVP 为美元。
+
+### 默认设备：1月付款、2月取得、4月可用
+
+成本100、残值0、寿命60个月、期初现金/权益150。月初事件依取得、可用、付款顺序处理；月底从可用月开始分摊。这里的顺序只处理同日事件，日期先后优先。
+
+### 默认
+
+| 日期 | 事件 | 现金 | 预付 | 在建 | 使用中原值 | 累计折旧 | 应付 | 权益 |
+|---|---|---|---|---|---|---|---|---|
+| 2026-01-01 | 期初 | 150 | 0 | 0 | 0 | 0 | 0 | 150 |
+| 2026-01-01 | 取得前付款：形成预付款 | 50 | 100 | 0 | 0 | 0 | 0 | 150 |
+| 2026-01-末 | 月末分摊 | 50 | 100 | 0 | 0 | 0 | 0 | 150 |
+| 2026-02-01 | 取得控制权：确认在建资源 | 50 | 0 | 100 | 0 | 0 | 0 | 150 |
+| 2026-02-末 | 月末分摊 | 50 | 0 | 100 | 0 | 0 | 0 | 150 |
+| 2026-03-末 | 月末分摊 | 50 | 0 | 100 | 0 | 0 | 0 | 150 |
+| 2026-04-01 | 达到可用状态：在建转入使用中 | 50 | 0 | 0 | 100 | 0 | 0 | 150 |
+| 2026-04-末 | 月末分摊 | 50 | 0 | 0 | 100 | 1.666667 | 0 | 148.333333 |
+| 2026-05-末 | 月末分摊 | 50 | 0 | 0 | 100 | 3.333333 | 0 | 146.666667 |
+| 2026-06-末 | 月末分摊 | 50 | 0 | 0 | 100 | 5 | 0 | 145 |
+| 2026-07-末 | 月末分摊 | 50 | 0 | 0 | 100 | 6.666667 | 0 | 143.333333 |
+| 2026-08-末 | 月末分摊 | 50 | 0 | 0 | 100 | 8.333333 | 0 | 141.666667 |
+| 2026-09-末 | 月末分摊 | 50 | 0 | 0 | 100 | 10 | 0 | 140 |
+| 2026-10-末 | 月末分摊 | 50 | 0 | 0 | 100 | 11.666667 | 0 | 138.333333 |
+| 2026-11-末 | 月末分摊 | 50 | 0 | 0 | 100 | 13.333333 | 0 | 136.666667 |
+| 2026-12-末 | 月末分摊 | 50 | 0 | 0 | 100 | 15 | 0 | 135 |
+
+### 仅改付款到6月
+
+| 日期 | 事件 | 现金 | 预付 | 在建 | 使用中原值 | 累计折旧 | 应付 | 权益 |
+|---|---|---|---|---|---|---|---|---|
+| 2026-01-01 | 期初 | 150 | 0 | 0 | 0 | 0 | 0 | 150 |
+| 2026-01-末 | 月末分摊 | 150 | 0 | 0 | 0 | 0 | 0 | 150 |
+| 2026-02-01 | 取得控制权：确认在建资源 | 150 | 0 | 100 | 0 | 0 | 100 | 150 |
+| 2026-02-末 | 月末分摊 | 150 | 0 | 100 | 0 | 0 | 100 | 150 |
+| 2026-03-末 | 月末分摊 | 150 | 0 | 100 | 0 | 0 | 100 | 150 |
+| 2026-04-01 | 达到可用状态：在建转入使用中 | 150 | 0 | 0 | 100 | 0 | 100 | 150 |
+| 2026-04-末 | 月末分摊 | 150 | 0 | 0 | 100 | 1.666667 | 100 | 148.333333 |
+| 2026-05-末 | 月末分摊 | 150 | 0 | 0 | 100 | 3.333333 | 100 | 146.666667 |
+| 2026-06-01 | 付款：结清应付 | 50 | 0 | 0 | 100 | 3.333333 | 0 | 146.666667 |
+| 2026-06-末 | 月末分摊 | 50 | 0 | 0 | 100 | 5 | 0 | 145 |
+| 2026-07-末 | 月末分摊 | 50 | 0 | 0 | 100 | 6.666667 | 0 | 143.333333 |
+| 2026-08-末 | 月末分摊 | 50 | 0 | 0 | 100 | 8.333333 | 0 | 141.666667 |
+| 2026-09-末 | 月末分摊 | 50 | 0 | 0 | 100 | 10 | 0 | 140 |
+| 2026-10-末 | 月末分摊 | 50 | 0 | 0 | 100 | 11.666667 | 0 | 138.333333 |
+| 2026-11-末 | 月末分摊 | 50 | 0 | 0 | 100 | 13.333333 | 0 | 136.666667 |
+| 2026-12-末 | 月末分摊 | 50 | 0 | 0 | 100 | 15 | 0 | 135 |
+
+### 仅改可用到7月
+
+| 日期 | 事件 | 现金 | 预付 | 在建 | 使用中原值 | 累计折旧 | 应付 | 权益 |
+|---|---|---|---|---|---|---|---|---|
+| 2026-01-01 | 期初 | 150 | 0 | 0 | 0 | 0 | 0 | 150 |
+| 2026-01-01 | 取得前付款：形成预付款 | 50 | 100 | 0 | 0 | 0 | 0 | 150 |
+| 2026-01-末 | 月末分摊 | 50 | 100 | 0 | 0 | 0 | 0 | 150 |
+| 2026-02-01 | 取得控制权：确认在建资源 | 50 | 0 | 100 | 0 | 0 | 0 | 150 |
+| 2026-02-末 | 月末分摊 | 50 | 0 | 100 | 0 | 0 | 0 | 150 |
+| 2026-03-末 | 月末分摊 | 50 | 0 | 100 | 0 | 0 | 0 | 150 |
+| 2026-04-末 | 月末分摊 | 50 | 0 | 100 | 0 | 0 | 0 | 150 |
+| 2026-05-末 | 月末分摊 | 50 | 0 | 100 | 0 | 0 | 0 | 150 |
+| 2026-06-末 | 月末分摊 | 50 | 0 | 100 | 0 | 0 | 0 | 150 |
+| 2026-07-01 | 达到可用状态：在建转入使用中 | 50 | 0 | 0 | 100 | 0 | 0 | 150 |
+| 2026-07-末 | 月末分摊 | 50 | 0 | 0 | 100 | 1.666667 | 0 | 148.333333 |
+| 2026-08-末 | 月末分摊 | 50 | 0 | 0 | 100 | 3.333333 | 0 | 146.666667 |
+| 2026-09-末 | 月末分摊 | 50 | 0 | 0 | 100 | 5 | 0 | 145 |
+| 2026-10-末 | 月末分摊 | 50 | 0 | 0 | 100 | 6.666667 | 0 | 143.333333 |
+| 2026-11-末 | 月末分摊 | 50 | 0 | 0 | 100 | 8.333333 | 0 | 141.666667 |
+| 2026-12-末 | 月末分摊 | 50 | 0 | 0 | 100 | 10 | 0 | 140 |
+
+每一行检查现金+预付+在建+使用中原值−累计折旧=应付+权益。取得前可用、残值高于成本、非正寿命、非有限数字均拒绝；现金不足不自动融资。真实Costco净存量桥为3,890−1,013=2,877，现金购建5,498另列，1,608不归因。
+
+
+## Experiment inputs and static equivalents
+```json
+[
+  {
+    "id": "EXP-BF12-ASSET-CLOCKS",
+    "title": "资本开支、在建工程与折旧：同源实验",
+    "anchor": "bf12-experiment",
+    "description": "取得、可用、付款按真实月份排序，同月依此次序；月末才折旧。取得前付款为预付；取得未付为应付。月折旧=(cost-residual)/life_months，使用期满停止；本例当期费用化。",
+    "inputs": {
+      "input_id": "BFDE-SHARED-20260921-v1",
+      "source": "https://ou-liu-red-sugar.github.io/notebook/labs/bf-de/inputs.json",
+      "identity": "历史观察与教学设定分别标识",
+      "values": {
+        "schema_version": "BFDE-1.0",
+        "input_id": "BFDE-SHARED-20260921-v1",
+        "revised": "2026-09-21",
+        "historical": {
+          "scope": [
+            "BF-12",
+            "BF-13",
+            "BF-14",
+            "BF-18",
+            "BF-17",
+            "BF-16"
+          ],
+          "retrieved_on": "2026-09-21",
+          "identity": "Historical financial-statement observations; teaching cases are separately labelled. Values are not stock valuation inputs.",
+          "costco": {
+            "source_id": "BF-S-COST-FY2025-PDF",
+            "unit": "USD million",
+            "periods": [
+              "2025-08-31",
+              "2024-09-01"
+            ],
+            "fiscal_weeks": [
+              52,
+              52
+            ],
+            "ppe": {
+              "locator": "FY2025 annual-report PDF printed pp42–43; PDF pp48–49",
+              "land": [
+                10323,
+                9447
+              ],
+              "buildings_improvements": [
+                25508,
+                23727
+              ],
+              "equipment_fixtures": [
+                13127,
+                12387
+              ],
+              "construction_in_progress": [
+                1882,
+                1389
+              ],
+              "gross": [
+                50840,
+                46950
+              ],
+              "accumulated_depreciation_amortization_positive": [
+                18931,
+                17918
+              ],
+              "net": [
+                31909,
+                29032
+              ]
+            },
+            "flows": {
+              "locator": "Printed pp35,39; PDF pp41,45",
+              "net_sales": [
+                269912,
+                249625
+              ],
+              "merchandise_costs": [
+                239886,
+                222358
+              ],
+              "cash_ppe_additions_outflow_positive": [
+                5498,
+                4710
+              ],
+              "consolidated_depreciation_amortization": [
+                2426,
+                2237
+              ],
+              "capex_included_in_liabilities_supplemental_noncash": [
+                193,
+                203
+              ],
+              "cashflow_inventory_adjustment": [
+                559,
+                -2068
+              ],
+              "cashflow_accounts_payable_adjustment": [
+                404,
+                1938
+              ],
+              "cfo": [
+                13335,
+                11339
+              ]
+            },
+            "working_capital": {
+              "locator": "Printed p37 balance sheet; pp41–42 Receivables, Net; p39 cash flow",
+              "inventory": [
+                18116,
+                18647
+              ],
+              "accounts_payable": [
+                19783,
+                19421
+              ],
+              "receivables_net": [
+                3203,
+                2721
+              ],
+              "deferred_membership_fees": [
+                2854,
+                2501
+              ],
+              "receivables_identity": "Includes vendor, credit-card, reinsurance and tax receivables; do not use total as customer credit-sale receivables.",
+              "payable_days_denominator": "Merchandise costs proxy, not independently observed credit purchases."
+            },
+            "leases_2025": {
+              "locator": "Note5 printed pp50–51; PDF pp56–57; policy printed p43",
+              "operating_rou_asset": 2725,
+              "finance_lease_asset_net": 1488,
+              "finance_asset_balance_sheet_location": "Other long-term assets",
+              "operating_liability_current": 208,
+              "operating_liability_noncurrent": 2460,
+              "finance_liability_current": 78,
+              "finance_liability_noncurrent": 1401,
+              "operating_cost": 271,
+              "finance_asset_amortization": 102,
+              "finance_interest_expense": 63,
+              "variable_cost": 182,
+              "total_cost_reported": 618,
+              "cash_operating_leases": 255,
+              "cash_finance_interest": 58,
+              "cash_finance_principal": 147,
+              "cash_scope": "Cash paid for amounts included in measurement of lease liabilities; not total lease cash payments including variable payments.",
+              "new_modified_operating_rou": 294,
+              "new_modified_finance_rou": 131,
+              "remaining_term_years_operating_finance": [
+                20,
+                25
+              ],
+              "payment_buckets": [
+                "FY2026",
+                "FY2027",
+                "FY2028",
+                "FY2029",
+                "FY2030",
+                "Thereafter"
+              ],
+              "operating_payments": [
+                267,
+                250,
+                235,
+                204,
+                184,
+                2451
+              ],
+              "operating_payments_total": 3591,
+              "operating_interest_deduction": 923,
+              "operating_liability": 2668,
+              "finance_payments": [
+                133,
+                132,
+                135,
+                122,
+                109,
+                1780
+              ],
+              "finance_payments_total": 2411,
+              "finance_interest_deduction": 932,
+              "finance_liability": 1479,
+              "signed_not_commenced_payments_excluded": 1094,
+              "future_operating_sublease_income_not_netted": 92
+            }
+          },
+          "salesforce": {
+            "source_id": "BBC-C01",
+            "unit": "USD million",
+            "periods": [
+              "2026-01-31",
+              "2025-01-31"
+            ],
+            "income": {
+              "locator": "Consolidated Statements of Operations p58 including notes1–2; MD&A Research and Development",
+              "total_revenue": [
+                41525,
+                37895
+              ],
+              "rd_expense": [
+                5993,
+                5493
+              ],
+              "rd_sbc_included": [
+                1162,
+                1091
+              ],
+              "acquired_intangibles_amortization_cost_of_revenue": [
+                692,
+                750
+              ],
+              "acquired_intangibles_amortization_sales_marketing": [
+                995,
+                901
+              ]
+            },
+            "working_capital": {
+              "locator": "Balance sheet p57; Note2 Unearned Revenue p71; MD&A seasonal nature pp39–40",
+              "accounts_receivable_net": [
+                14339,
+                11945
+              ],
+              "unearned_revenue": [
+                24317,
+                20743
+              ],
+              "unearned_opening_2026": 20743,
+              "billings_and_other_2026": 45099,
+              "revenue_over_time_2026": 39041,
+              "revenue_point_in_time_2026": 2484,
+              "unearned_acquired_informatica": 651,
+              "identity": "Billings and other includes FX, contract assets and business combinations; neither cash receipts nor organic billings."
+            },
+            "leases_2026": {
+              "locator": "Note6 Leases and Other Commitments pp75–77; Note1 Leases pp67–68",
+              "operating_rou_asset": 2003,
+              "finance_lease_asset_gross": 1427,
+              "finance_accumulated_amortization_positive": 813,
+              "finance_lease_asset_net": 614,
+              "finance_asset_balance_sheet_location": "Property and equipment",
+              "operating_liability_current": 548,
+              "operating_liability_noncurrent": 2189,
+              "finance_liability_current": 275,
+              "finance_liability_noncurrent": 260,
+              "operating_cost": 614,
+              "finance_asset_amortization": 375,
+              "finance_interest_expense": 25,
+              "cash_operating_leases": 695,
+              "cash_finance_interest": 25,
+              "cash_finance_principal": 367,
+              "remaining_term_years_operating_finance": [
+                7,
+                3
+              ],
+              "payment_buckets": [
+                "FY2027",
+                "FY2028",
+                "FY2029",
+                "FY2030",
+                "FY2031",
+                "Thereafter"
+              ],
+              "operating_payments": [
+                615,
+                571,
+                493,
+                338,
+                268,
+                790
+              ],
+              "operating_payments_total": 3075,
+              "operating_interest_deduction": 338,
+              "operating_liability": 2737,
+              "finance_payments": [
+                289,
+                120,
+                76,
+                58,
+                26,
+                0
+              ],
+              "finance_payments_total": 569,
+              "finance_interest_deduction": 34,
+              "finance_liability": 535
+            },
+            "informatica_2025_ppa": {
+              "locator": "Note7 Informatica, Inc., pp77–79",
+              "acquisition_period": "November 2025",
+              "status": "Preliminary purchase-price allocation at FY2026 filing; measurement period not complete",
+              "consideration_components": {
+                "cash": 9538,
+                "preexisting_relationship": 62,
+                "assumed_equity_purchase_component": 36
+              },
+              "consideration_total": 9636,
+              "assets": {
+                "cash": 1405,
+                "receivables": 233,
+                "ppe": 128,
+                "operating_rou": 27,
+                "other_assets": 149,
+                "goodwill": 5257,
+                "identifiable_intangibles": 3818
+              },
+              "liabilities_positive": {
+                "payables_accruals_current": 221,
+                "unearned_revenue": 651,
+                "operating_lease_liabilities": 30,
+                "other_noncurrent": 36,
+                "deferred_tax_liability": 443
+              },
+              "intangibles": [
+                {
+                  "name": "Cloud developed technology",
+                  "amount": 1350,
+                  "life_years": 7
+                },
+                {
+                  "name": "Other developed technology",
+                  "amount": 270,
+                  "life_years": 3
+                },
+                {
+                  "name": "Customer relationships",
+                  "amount": 1840,
+                  "life_years": 10
+                },
+                {
+                  "name": "Trade names",
+                  "amount": 79,
+                  "life_years": 4
+                },
+                {
+                  "name": "Backlog",
+                  "amount": 279,
+                  "life_years": 2
+                }
+              ],
+              "assumed_equity_fair_value": 330,
+              "assumed_equity_future_service_component": 294
+            },
+            "intangible_roll": {
+              "locator": "Note8 pp80–81; addition/retirement columns are net movements, not gross acquisition or amortization flows",
+              "gross_opening": 10183,
+              "additions_and_retirements_net": 3956,
+              "gross_closing": 14139,
+              "accum_amortization_opening_positive": 5755,
+              "expense_and_retirements_net_positive": 1569,
+              "accum_amortization_closing_positive": 7324,
+              "net_opening": 4428,
+              "net_closing": 6815,
+              "goodwill_opening": 51283,
+              "regrello": 704,
+              "informatica": 5257,
+              "other_acquisitions_adjustments": 697,
+              "goodwill_closing": 57941
+            },
+            "segment_identity": "One operating segment; Note1 p63 CODM assesses consolidated net income. Product offering revenue categories are not separately reported operating segments."
+          },
+          "caterpillar": {
+            "source_id": "BBC-C04",
+            "unit": "USD million",
+            "periods": [
+              "2025-12-31",
+              "2024-12-31"
+            ],
+            "comparative_identity": "2024 figures as retrospectively adjusted in FY2025 filing after July 1, 2025 segment changes",
+            "ppe": {
+              "locator": "Note9 p89; Note1D pp64–65",
+              "land": [
+                616,
+                612
+              ],
+              "buildings": [
+                7761,
+                7281
+              ],
+              "machinery_equipment": [
+                13737,
+                12523
+              ],
+              "capitalized_software": [
+                1696,
+                1609
+              ],
+              "equipment_leased_to_others": [
+                6004,
+                5701
+              ],
+              "construction_in_progress": [
+                2092,
+                1751
+              ],
+              "gross": [
+                31906,
+                29477
+              ],
+              "accumulated_depreciation_positive": [
+                16766,
+                16116
+              ],
+              "net": [
+                15140,
+                13361
+              ],
+              "consolidated_depreciation": [
+                2093,
+                1983
+              ],
+              "cat_financial_leased_to_others_depreciation": [
+                699,
+                722
+              ]
+            },
+            "operating_profit_bridge": {
+              "locator": "MD&A p33 Consolidated Operating Profit Comparison, original chart cat-20251231_g4.jpg; Definitions pp36–38",
+              "opening_2024": 13072,
+              "drivers": {
+                "sales_volume_including_product_mix": 1218,
+                "price_realization": -817,
+                "manufacturing_costs": -2148,
+                "sga_rd": -336,
+                "currency": -32,
+                "financial_products": 49,
+                "restructuring": -85,
+                "other": 230
+              },
+              "closing_2025": 11151,
+              "bridge_identity": "Company historical attribution, not structural marginal profit coefficients."
+            },
+            "revenue_bridge": {
+              "locator": "MD&A p31 Sales and Revenues Comparison",
+              "opening_2024": 64809,
+              "drivers": {
+                "sales_volume": 3389,
+                "price_realization": -817,
+                "currency": 45,
+                "financial_products": 163
+              },
+              "closing_2025": 67589
+            },
+            "segments_2025": {
+              "locator": "Note23 pp115–121; external-column Financial Products footnote is integral",
+              "rows": [
+                {
+                  "name": "Construction Industries",
+                  "external_column": 24800,
+                  "intersegment_column": 260,
+                  "total_sales": 25060,
+                  "profit": 4675
+                },
+                {
+                  "name": "Resource Industries",
+                  "external_column": 12185,
+                  "intersegment_column": 289,
+                  "total_sales": 12474,
+                  "profit": 1988
+                },
+                {
+                  "name": "Power & Energy",
+                  "external_column": 27143,
+                  "intersegment_column": 5058,
+                  "total_sales": 32201,
+                  "profit": 6418
+                },
+                {
+                  "name": "Financial Products",
+                  "external_column": 4220,
+                  "intersegment_column": 0,
+                  "total_sales": 4220,
+                  "profit": 966
+                }
+              ],
+              "financial_products_external_column_includes_group_revenue": 712,
+              "reportable_sales_total": 73955,
+              "all_other_sales": 327,
+              "corporate_eliminations_sales": -6693,
+              "consolidated_sales": 67589,
+              "all_other_external_column": 46,
+              "all_other_intersegment_column": 281,
+              "corporate_external_column": -805,
+              "corporate_intersegment_column": -5888,
+              "reportable_profit_total": 14047,
+              "profit_reconciling_items": {
+                "all_other": -8,
+                "cost_centers": -11,
+                "corporate_costs": -1006,
+                "timing": -175,
+                "restructuring": -445,
+                "inventory_method": 49,
+                "postretirement_benefit": 185,
+                "sbc": -230,
+                "financing_costs": -180,
+                "currency": -81,
+                "goodwill_impairment": 0,
+                "other_income_expense_method": -470,
+                "other_method": -134
+              },
+              "consolidated_pretax_profit": 11541,
+              "interest_expense_excluding_financial_products": 502,
+              "other_income": 892,
+              "consolidated_operating_profit": 11151
+            }
+          },
+          "teaching_cvp": {
+            "source_id": "BFDE-CVP",
+            "identity": "OpenStax §3.5 fictional Company A/B example; not actual company observations",
+            "unit": "USD",
+            "assumptions": "Constant prices and unit variable costs, fixed product mix, unchanged fixed costs within the relevant range; reported income here is model operating income.",
+            "companies": [
+              {
+                "name": "A",
+                "sales": 250000,
+                "variable_costs": 102000,
+                "fixed_costs": 63000,
+                "income": 85000
+              },
+              {
+                "name": "B",
+                "sales": 315000,
+                "variable_costs": 105000,
+                "fixed_costs": 125000,
+                "income": 85000
+              }
+            ],
+            "sales_changes": [
+              0.1,
+              -0.2
+            ]
+          }
+        },
+        "supplemental": {
+          "costco_ppe_original_labels": [
+            [
+              "land",
+              "Land",
+              "土地",
+              "N/A"
+            ],
+            [
+              "buildings_improvements",
+              "Buildings and improvements",
+              "建筑及改良",
+              "5–50 years"
+            ],
+            [
+              "equipment_fixtures",
+              "Equipment and fixtures",
+              "设备及装置",
+              "3–20 years"
+            ],
+            [
+              "construction_in_progress",
+              "Construction in progress",
+              "在建工程",
+              "N/A"
+            ],
+            [
+              "gross",
+              null,
+              "原值合计（原表该行无行名）",
+              null
+            ],
+            [
+              "accumulated_depreciation_amortization_positive",
+              "Accumulated depreciation and amortization",
+              "累计折旧摊销（减项）",
+              null
+            ],
+            [
+              "net",
+              "Property and equipment, net",
+              "物业及设备净额",
+              null
+            ]
+          ],
+          "cat_ppe_original_labels": [
+            [
+              "land",
+              "Land",
+              "土地",
+              "—"
+            ],
+            [
+              "buildings",
+              "Buildings and land improvements",
+              "建筑及土地改良",
+              "20–45 years"
+            ],
+            [
+              "machinery_equipment",
+              "Machinery, equipment and other",
+              "机器、设备及其他",
+              "2–10 years"
+            ],
+            [
+              "capitalized_software",
+              "Software",
+              "软件",
+              "3–7 years"
+            ],
+            [
+              "equipment_leased_to_others",
+              "Equipment leased to others",
+              "出租给他人的设备",
+              "1–7 years"
+            ],
+            [
+              "construction_in_progress",
+              "Construction-in-process",
+              "在建工程",
+              "—"
+            ],
+            [
+              "gross",
+              "Total property, plant and equipment, at cost",
+              "物业厂房设备成本合计",
+              null
+            ],
+            [
+              "accumulated_depreciation_positive",
+              "Less: Accumulated depreciation",
+              "减：累计折旧",
+              null
+            ],
+            [
+              "net",
+              "Property, plant and equipment–net",
+              "物业厂房设备净额",
+              null
+            ]
+          ],
+          "costco_receivables_exact_scope": {
+            "source_id": "BF-S-COST-FY2025-PDF",
+            "locator": "IR PDF printed pp41–42; SEC pp43–44, Receivables, Net",
+            "original_categories": [
+              "vendor",
+              "credit card incentive",
+              "reinsurance",
+              "third-party pharmacy",
+              "other receivables"
+            ],
+            "explanation_zh": "其他应收主要为对政府的应收，多与税款有关。信用卡奖励应收不是顾客刷卡货款；结算期不超过四天的顾客刷卡货款另依现金政策列示。"
+          },
+          "costco_lease_2024": {
+            "operating_rou_asset": 2617,
+            "finance_lease_asset_net": 1433,
+            "operating_liability_current": 179,
+            "operating_liability_noncurrent": 2375,
+            "finance_liability_current": 147,
+            "finance_liability_noncurrent": 1351,
+            "total_assets": 4050,
+            "total_liabilities": 4052,
+            "operating_cost": 284,
+            "finance_asset_amortization": 97,
+            "finance_interest_expense": 58,
+            "variable_cost": 163,
+            "total_cost_reported": 602,
+            "cash_operating_leases": 274,
+            "cash_finance_interest": 58,
+            "cash_finance_principal": 136,
+            "remaining_term": [
+              19,
+              23
+            ],
+            "discount_rate_percent": [
+              2.67,
+              4.59
+            ]
+          },
+          "salesforce_lease_2025": {
+            "operating_rou_asset": 2157,
+            "operating_liability_current": 579,
+            "operating_liability_noncurrent": 2380,
+            "finance_lease_asset_gross": 1520,
+            "finance_accumulated_amortization_positive": 708,
+            "finance_lease_asset_net": 812,
+            "finance_liability_current": 337,
+            "finance_liability_noncurrent": 341,
+            "operating_cost": 684,
+            "finance_asset_amortization": 303,
+            "finance_interest_expense": 28,
+            "cash_operating_leases": 628,
+            "cash_finance_interest": 27,
+            "cash_finance_principal": 380,
+            "remaining_term": [
+              7,
+              3
+            ]
+          },
+          "intangible_rows": [
+            {
+              "label_original": "Acquired developed technology",
+              "label_zh": "购入已开发技术",
+              "gross_open": 2958,
+              "gross_change_net": 1838,
+              "gross_close": 4796,
+              "accum_open": 1753,
+              "accum_change_net": 654,
+              "accum_close": 2407,
+              "net_open": 1205,
+              "net_close": 2389,
+              "remaining_years": 4.4
+            },
+            {
+              "label_original": "Customer relationships",
+              "label_zh": "客户关系",
+              "gross_open": 6894,
+              "gross_change_net": 1765,
+              "gross_close": 8659,
+              "accum_open": 3820,
+              "accum_change_net": 820,
+              "accum_close": 4640,
+              "net_open": 3074,
+              "net_close": 4019,
+              "remaining_years": 6.3
+            },
+            {
+              "label_original": "Other (1)",
+              "label_zh": "其他（商号、未开票订单、区域权利）",
+              "gross_open": 331,
+              "gross_change_net": 353,
+              "gross_close": 684,
+              "accum_open": 182,
+              "accum_change_net": 95,
+              "accum_close": 277,
+              "net_open": 149,
+              "net_close": 407,
+              "remaining_years": 2.1
+            }
+          ],
+          "future_amortization": {
+            "buckets": [
+              "FY2027",
+              "FY2028",
+              "FY2029",
+              "FY2030",
+              "FY2031",
+              "Thereafter"
+            ],
+            "amounts": [
+              1842,
+              1412,
+              1104,
+              710,
+              448,
+              1299
+            ]
+          },
+          "cat_profit_rows_original": [
+            [
+              "all_other",
+              "Profit from All Other Segment",
+              "其他分部利润"
+            ],
+            [
+              "cost_centers",
+              "Cost centers",
+              "成本中心"
+            ],
+            [
+              "corporate_costs",
+              "Corporate costs",
+              "公司共同成本"
+            ],
+            [
+              "timing",
+              "Timing",
+              "确认时点差异"
+            ],
+            [
+              "restructuring",
+              "Restructuring costs",
+              "重组成本"
+            ],
+            [
+              "inventory_method",
+              "Inventory/cost of sales",
+              "存货／销售成本计量"
+            ],
+            [
+              "postretirement_benefit",
+              "Postretirement benefit income (expense)",
+              "退休后福利收益（费用）"
+            ],
+            [
+              "sbc",
+              "Stock-based compensation expense",
+              "股权薪酬费用"
+            ],
+            [
+              "financing_costs",
+              "Financing costs",
+              "融资成本"
+            ],
+            [
+              "currency",
+              "Currency",
+              "汇率"
+            ],
+            [
+              "goodwill_impairment",
+              "Goodwill impairment charge",
+              "商誉减值"
+            ],
+            [
+              "other_income_expense_method",
+              "Other income/expense methodology differences",
+              "其他损益计量方法差异"
+            ],
+            [
+              "other_method",
+              "Other methodology differences",
+              "其他方法差异"
+            ]
+          ],
+          "cat_segment_costs_2025": {
+            "cost_of_goods_sold": [
+              18393,
+              9018,
+              22474,
+              0
+            ],
+            "sga_rd": [
+              1902,
+              1513,
+              3330,
+              829
+            ],
+            "other_segment_items": [
+              90,
+              -45,
+              -21,
+              2425
+            ]
+          },
+          "cat_segments_2024": {
+            "rows": [
+              [
+                "Construction Industries",
+                25344,
+                111,
+                25455,
+                6165
+              ],
+              [
+                "Resource Industries",
+                12100,
+                371,
+                12471,
+                2538
+              ],
+              [
+                "Power & Energy",
+                24088,
+                4766,
+                28854,
+                5736
+              ],
+              [
+                "Financial Products Segment",
+                4053,
+                0,
+                4053,
+                932
+              ]
+            ],
+            "total_profit": 15371,
+            "reconciling": [
+              43,
+              -1,
+              -889,
+              133,
+              -359,
+              33,
+              67,
+              -223,
+              -126,
+              145,
+              0,
+              -740,
+              -81
+            ],
+            "pretax": 13373,
+            "revenue": 64809,
+            "reportable_revenue": 70833,
+            "all_other_revenue": 344,
+            "corporate_revenue": -6368
+          },
+          "cat_segment_name_overrides": {
+            "Financial Products": "Financial Products Segment"
+          },
+          "origins": {
+            "costco_lease_2024": "BF-S-COST-FY2025-PDF Note5 printed pp50–51 / PDF pp56–57, reopened 2026-09-21",
+            "salesforce_lease_2025": "BBC-C01 Note6 pp75–77, same-session full reading",
+            "intangible_rows": "BBC-C01 Note8 pp80–81, same-session full reading",
+            "cat_segment_costs_2025": "BBC-C04 Note23 p120, same-session full reading",
+            "cat_segments_2024": "BBC-C04 Note23 pp118,120–121; comparatives as recast in FY2025 filing"
+          }
+        },
+        "teaching": {
+          "asset": {
+            "identity": "Author synthetic example, not company transactions",
+            "unit": "teaching currency units",
+            "cost": 100,
+            "residual": 0,
+            "life_months": 60,
+            "initial_cash": 150,
+            "payment": "2026-01",
+            "acquisition": "2026-02",
+            "ready": "2026-04",
+            "start": "2026-01",
+            "months": 12,
+            "convention": "Events at month start; same-day acquisition then ready then payment; depreciation at month end starting ready month, full months, no tax/interest/disposal, depreciation expensed in this example."
+          },
+          "intangible": {
+            "identity": "Author synthetic accumulation model, not EPW estimates or Salesforce valuation",
+            "unit": "teaching currency units",
+            "rd": [
+              100,
+              120,
+              80
+            ],
+            "sga_excluding_rd": [
+              60,
+              60,
+              60
+            ],
+            "alpha": 1,
+            "gamma": 0.3,
+            "delta_r": 0.2,
+            "delta_s": 0.2,
+            "initial_r": 0,
+            "initial_s": 0,
+            "order": "Opening stock depreciates first; eligible current investment added at each period end. R&D and SG&A inputs do not overlap."
+          },
+          "cvp_extension": {
+            "identity": "Author optional capacity-step variation; not OpenStax original inputs or CAT facts",
+            "sales_change": 0.1,
+            "step_enabled": false,
+            "threshold": 0.15,
+            "step_fixed_cost": 10000
+          },
+          "retail_cycle": {
+            "identity": "Author synthetic inventory/cash-timing example, not Costco days",
+            "unit": "teaching currency units and relative days",
+            "cost": 100,
+            "price": 150,
+            "acquire_day": 0,
+            "sale_day": 20,
+            "collect_day": 23,
+            "pay_day": 30,
+            "order": "Day start: acquire, sell, collect, pay. Same-day effects follow this explicit convention; cumulative net cash can be negative as a financing-gap measure, not an observed bank balance."
+          },
+          "subscription_cycle": {
+            "identity": "Author synthetic subscription funding example, not actual Salesforce contract",
+            "unit": "teaching currency units and relative 30-day months",
+            "amount": 120,
+            "invoice_day": 0,
+            "collection_day": 30,
+            "term_months": 12,
+            "monthly_cost": 6,
+            "month_days": 30,
+            "order": "Invoice and unconditional right at day0; each service month completed on day30*n; collection precedes same-day service cash cost. No refunds/tax, no costs before day30. Advances cover remaining service obligations."
+          }
+        },
+        "provenance": {
+          "lead_input_sha256": "5300ec0d05b830f8d6aa2ce72fd367beb3dc6bbfe044ff6cd28146e8beb7c68b",
+          "lead_input_lines": 209,
+          "transcription": "All supplied keys and amounts reproduced semantically; original byte hash identifies connector source, not this JSON serialization. Labels clarified in supplemental, raw observations unchanged.",
+          "reference_plan_sha256": "d6a351ea333643dc50af7704a7984a43fb623f24a058db74726b12c418a1494b"
+        }
+      }
+    },
+    "outputs": {
+      "default": {
+        "asset": {
+          "identity": "Author synthetic example, not company transactions",
+          "unit": "teaching currency units",
+          "parameters": {
+            "identity": "Author synthetic example, not company transactions",
+            "unit": "teaching currency units",
+            "cost": 100,
+            "residual": 0,
+            "life_months": 60,
+            "initial_cash": 150,
+            "payment": "2026-01",
+            "acquisition": "2026-02",
+            "ready": "2026-04",
+            "start": "2026-01",
+            "months": 12,
+            "convention": "Events at month start; same-day acquisition then ready then payment; depreciation at month end starting ready month, full months, no tax/interest/disposal, depreciation expensed in this example."
+          },
+          "monthly_depreciation": 1.6666666666666667,
+          "rows": [
+            {
+              "date": "2026-01-01",
+              "event": "期初",
+              "cash": 150,
+              "prepaid": 0,
+              "cip": 0,
+              "in_use_gross": 0,
+              "accumulated_depreciation": 0,
+              "net_ppe": 0,
+              "accounts_payable": 0,
+              "equity": 150,
+              "total_assets": 150,
+              "period_depreciation": 0,
+              "balance_residual": 0
+            },
+            {
+              "date": "2026-01-01",
+              "event": "取得前付款：形成预付款",
+              "cash": 50,
+              "prepaid": 100,
+              "cip": 0,
+              "in_use_gross": 0,
+              "accumulated_depreciation": 0,
+              "net_ppe": 0,
+              "accounts_payable": 0,
+              "equity": 150,
+              "total_assets": 150,
+              "period_depreciation": 0,
+              "balance_residual": 0
+            },
+            {
+              "date": "2026-01-末",
+              "event": "月末分摊",
+              "cash": 50,
+              "prepaid": 100,
+              "cip": 0,
+              "in_use_gross": 0,
+              "accumulated_depreciation": 0,
+              "net_ppe": 0,
+              "accounts_payable": 0,
+              "equity": 150,
+              "total_assets": 150,
+              "period_depreciation": 0,
+              "balance_residual": 0
+            },
+            {
+              "date": "2026-02-01",
+              "event": "取得控制权：确认在建资源",
+              "cash": 50,
+              "prepaid": 0,
+              "cip": 100,
+              "in_use_gross": 0,
+              "accumulated_depreciation": 0,
+              "net_ppe": 100,
+              "accounts_payable": 0,
+              "equity": 150,
+              "total_assets": 150,
+              "period_depreciation": 0,
+              "balance_residual": 0
+            },
+            {
+              "date": "2026-02-末",
+              "event": "月末分摊",
+              "cash": 50,
+              "prepaid": 0,
+              "cip": 100,
+              "in_use_gross": 0,
+              "accumulated_depreciation": 0,
+              "net_ppe": 100,
+              "accounts_payable": 0,
+              "equity": 150,
+              "total_assets": 150,
+              "period_depreciation": 0,
+              "balance_residual": 0
+            },
+            {
+              "date": "2026-03-末",
+              "event": "月末分摊",
+              "cash": 50,
+              "prepaid": 0,
+              "cip": 100,
+              "in_use_gross": 0,
+              "accumulated_depreciation": 0,
+              "net_ppe": 100,
+              "accounts_payable": 0,
+              "equity": 150,
+              "total_assets": 150,
+              "period_depreciation": 0,
+              "balance_residual": 0
+            },
+            {
+              "date": "2026-04-01",
+              "event": "达到可用状态：在建转入使用中",
+              "cash": 50,
+              "prepaid": 0,
+              "cip": 0,
+              "in_use_gross": 100,
+              "accumulated_depreciation": 0,
+              "net_ppe": 100,
+              "accounts_payable": 0,
+              "equity": 150,
+              "total_assets": 150,
+              "period_depreciation": 0,
+              "balance_residual": 0
+            },
+            {
+              "date": "2026-04-末",
+              "event": "月末分摊",
+              "cash": 50,
+              "prepaid": 0,
+              "cip": 0,
+              "in_use_gross": 100,
+              "accumulated_depreciation": 1.6666666666666667,
+              "net_ppe": 98.33333333333333,
+              "accounts_payable": 0,
+              "equity": 148.33333333333334,
+              "total_assets": 148.33333333333334,
+              "period_depreciation": 1.6666666666666667,
+              "balance_residual": 0
+            },
+            {
+              "date": "2026-05-末",
+              "event": "月末分摊",
+              "cash": 50,
+              "prepaid": 0,
+              "cip": 0,
+              "in_use_gross": 100,
+              "accumulated_depreciation": 3.3333333333333335,
+              "net_ppe": 96.66666666666667,
+              "accounts_payable": 0,
+              "equity": 146.66666666666666,
+              "total_assets": 146.66666666666666,
+              "period_depreciation": 1.6666666666666667,
+              "balance_residual": 0
+            },
+            {
+              "date": "2026-06-末",
+              "event": "月末分摊",
+              "cash": 50,
+              "prepaid": 0,
+              "cip": 0,
+              "in_use_gross": 100,
+              "accumulated_depreciation": 5,
+              "net_ppe": 95,
+              "accounts_payable": 0,
+              "equity": 145,
+              "total_assets": 145,
+              "period_depreciation": 1.6666666666666667,
+              "balance_residual": 0
+            },
+            {
+              "date": "2026-07-末",
+              "event": "月末分摊",
+              "cash": 50,
+              "prepaid": 0,
+              "cip": 0,
+              "in_use_gross": 100,
+              "accumulated_depreciation": 6.666666666666667,
+              "net_ppe": 93.33333333333333,
+              "accounts_payable": 0,
+              "equity": 143.33333333333334,
+              "total_assets": 143.33333333333334,
+              "period_depreciation": 1.6666666666666667,
+              "balance_residual": 0
+            },
+            {
+              "date": "2026-08-末",
+              "event": "月末分摊",
+              "cash": 50,
+              "prepaid": 0,
+              "cip": 0,
+              "in_use_gross": 100,
+              "accumulated_depreciation": 8.333333333333334,
+              "net_ppe": 91.66666666666667,
+              "accounts_payable": 0,
+              "equity": 141.66666666666666,
+              "total_assets": 141.66666666666666,
+              "period_depreciation": 1.6666666666666667,
+              "balance_residual": 0
+            },
+            {
+              "date": "2026-09-末",
+              "event": "月末分摊",
+              "cash": 50,
+              "prepaid": 0,
+              "cip": 0,
+              "in_use_gross": 100,
+              "accumulated_depreciation": 10,
+              "net_ppe": 90,
+              "accounts_payable": 0,
+              "equity": 140,
+              "total_assets": 140,
+              "period_depreciation": 1.6666666666666667,
+              "balance_residual": 0
+            },
+            {
+              "date": "2026-10-末",
+              "event": "月末分摊",
+              "cash": 50,
+              "prepaid": 0,
+              "cip": 0,
+              "in_use_gross": 100,
+              "accumulated_depreciation": 11.666666666666666,
+              "net_ppe": 88.33333333333333,
+              "accounts_payable": 0,
+              "equity": 138.33333333333334,
+              "total_assets": 138.33333333333334,
+              "period_depreciation": 1.6666666666666667,
+              "balance_residual": 0
+            },
+            {
+              "date": "2026-11-末",
+              "event": "月末分摊",
+              "cash": 50,
+              "prepaid": 0,
+              "cip": 0,
+              "in_use_gross": 100,
+              "accumulated_depreciation": 13.333333333333332,
+              "net_ppe": 86.66666666666667,
+              "accounts_payable": 0,
+              "equity": 136.66666666666666,
+              "total_assets": 136.66666666666666,
+              "period_depreciation": 1.6666666666666667,
+              "balance_residual": 0
+            },
+            {
+              "date": "2026-12-末",
+              "event": "月末分摊",
+              "cash": 50,
+              "prepaid": 0,
+              "cip": 0,
+              "in_use_gross": 100,
+              "accumulated_depreciation": 14.999999999999998,
+              "net_ppe": 85,
+              "accounts_payable": 0,
+              "equity": 135,
+              "total_assets": 135,
+              "period_depreciation": 1.6666666666666667,
+              "balance_residual": 0
+            }
+          ],
+          "ending": {
+            "date": "2026-12-末",
+            "event": "月末分摊",
+            "cash": 50,
+            "prepaid": 0,
+            "cip": 0,
+            "in_use_gross": 100,
+            "accumulated_depreciation": 14.999999999999998,
+            "net_ppe": 85,
+            "accounts_payable": 0,
+            "equity": 135,
+            "total_assets": 135,
+            "period_depreciation": 1.6666666666666667,
+            "balance_residual": 0
+          }
+        },
+        "asset_late_payment": {
+          "identity": "Author synthetic example, not company transactions",
+          "unit": "teaching currency units",
+          "parameters": {
+            "identity": "Author synthetic example, not company transactions",
+            "unit": "teaching currency units",
+            "cost": 100,
+            "residual": 0,
+            "life_months": 60,
+            "initial_cash": 150,
+            "payment": "2026-06",
+            "acquisition": "2026-02",
+            "ready": "2026-04",
+            "start": "2026-01",
+            "months": 12,
+            "convention": "Events at month start; same-day acquisition then ready then payment; depreciation at month end starting ready month, full months, no tax/interest/disposal, depreciation expensed in this example."
+          },
+          "monthly_depreciation": 1.6666666666666667,
+          "rows": [
+            {
+              "date": "2026-01-01",
+              "event": "期初",
+              "cash": 150,
+              "prepaid": 0,
+              "cip": 0,
+              "in_use_gross": 0,
+              "accumulated_depreciation": 0,
+              "net_ppe": 0,
+              "accounts_payable": 0,
+              "equity": 150,
+              "total_assets": 150,
+              "period_depreciation": 0,
+              "balance_residual": 0
+            },
+            {
+              "date": "2026-01-末",
+              "event": "月末分摊",
+              "cash": 150,
+              "prepaid": 0,
+              "cip": 0,
+              "in_use_gross": 0,
+              "accumulated_depreciation": 0,
+              "net_ppe": 0,
+              "accounts_payable": 0,
+              "equity": 150,
+              "total_assets": 150,
+              "period_depreciation": 0,
+              "balance_residual": 0
+            },
+            {
+              "date": "2026-02-01",
+              "event": "取得控制权：确认在建资源",
+              "cash": 150,
+              "prepaid": 0,
+              "cip": 100,
+              "in_use_gross": 0,
+              "accumulated_depreciation": 0,
+              "net_ppe": 100,
+              "accounts_payable": 100,
+              "equity": 150,
+              "total_assets": 250,
+              "period_depreciation": 0,
+              "balance_residual": 0
+            },
+            {
+              "date": "2026-02-末",
+              "event": "月末分摊",
+              "cash": 150,
+              "prepaid": 0,
+              "cip": 100,
+              "in_use_gross": 0,
+              "accumulated_depreciation": 0,
+              "net_ppe": 100,
+              "accounts_payable": 100,
+              "equity": 150,
+              "total_assets": 250,
+              "period_depreciation": 0,
+              "balance_residual": 0
+            },
+            {
+              "date": "2026-03-末",
+              "event": "月末分摊",
+              "cash": 150,
+              "prepaid": 0,
+              "cip": 100,
+              "in_use_gross": 0,
+              "accumulated_depreciation": 0,
+              "net_ppe": 100,
+              "accounts_payable": 100,
+              "equity": 150,
+              "total_assets": 250,
+              "period_depreciation": 0,
+              "balance_residual": 0
+            },
+            {
+              "date": "2026-04-01",
+              "event": "达到可用状态：在建转入使用中",
+              "cash": 150,
+              "prepaid": 0,
+              "cip": 0,
+              "in_use_gross": 100,
+              "accumulated_depreciation": 0,
+              "net_ppe": 100,
+              "accounts_payable": 100,
+              "equity": 150,
+              "total_assets": 250,
+              "period_depreciation": 0,
+              "balance_residual": 0
+            },
+            {
+              "date": "2026-04-末",
+              "event": "月末分摊",
+              "cash": 150,
+              "prepaid": 0,
+              "cip": 0,
+              "in_use_gross": 100,
+              "accumulated_depreciation": 1.6666666666666667,
+              "net_ppe": 98.33333333333333,
+              "accounts_payable": 100,
+              "equity": 148.33333333333334,
+              "total_assets": 248.33333333333334,
+              "period_depreciation": 1.6666666666666667,
+              "balance_residual": 0
+            },
+            {
+              "date": "2026-05-末",
+              "event": "月末分摊",
+              "cash": 150,
+              "prepaid": 0,
+              "cip": 0,
+              "in_use_gross": 100,
+              "accumulated_depreciation": 3.3333333333333335,
+              "net_ppe": 96.66666666666667,
+              "accounts_payable": 100,
+              "equity": 146.66666666666666,
+              "total_assets": 246.66666666666666,
+              "period_depreciation": 1.6666666666666667,
+              "balance_residual": 0
+            },
+            {
+              "date": "2026-06-01",
+              "event": "付款：结清应付",
+              "cash": 50,
+              "prepaid": 0,
+              "cip": 0,
+              "in_use_gross": 100,
+              "accumulated_depreciation": 3.3333333333333335,
+              "net_ppe": 96.66666666666667,
+              "accounts_payable": 0,
+              "equity": 146.66666666666666,
+              "total_assets": 146.66666666666666,
+              "period_depreciation": 0,
+              "balance_residual": 0
+            },
+            {
+              "date": "2026-06-末",
+              "event": "月末分摊",
+              "cash": 50,
+              "prepaid": 0,
+              "cip": 0,
+              "in_use_gross": 100,
+              "accumulated_depreciation": 5,
+              "net_ppe": 95,
+              "accounts_payable": 0,
+              "equity": 145,
+              "total_assets": 145,
+              "period_depreciation": 1.6666666666666667,
+              "balance_residual": 0
+            },
+            {
+              "date": "2026-07-末",
+              "event": "月末分摊",
+              "cash": 50,
+              "prepaid": 0,
+              "cip": 0,
+              "in_use_gross": 100,
+              "accumulated_depreciation": 6.666666666666667,
+              "net_ppe": 93.33333333333333,
+              "accounts_payable": 0,
+              "equity": 143.33333333333334,
+              "total_assets": 143.33333333333334,
+              "period_depreciation": 1.6666666666666667,
+              "balance_residual": 0
+            },
+            {
+              "date": "2026-08-末",
+              "event": "月末分摊",
+              "cash": 50,
+              "prepaid": 0,
+              "cip": 0,
+              "in_use_gross": 100,
+              "accumulated_depreciation": 8.333333333333334,
+              "net_ppe": 91.66666666666667,
+              "accounts_payable": 0,
+              "equity": 141.66666666666666,
+              "total_assets": 141.66666666666666,
+              "period_depreciation": 1.6666666666666667,
+              "balance_residual": 0
+            },
+            {
+              "date": "2026-09-末",
+              "event": "月末分摊",
+              "cash": 50,
+              "prepaid": 0,
+              "cip": 0,
+              "in_use_gross": 100,
+              "accumulated_depreciation": 10,
+              "net_ppe": 90,
+              "accounts_payable": 0,
+              "equity": 140,
+              "total_assets": 140,
+              "period_depreciation": 1.6666666666666667,
+              "balance_residual": 0
+            },
+            {
+              "date": "2026-10-末",
+              "event": "月末分摊",
+              "cash": 50,
+              "prepaid": 0,
+              "cip": 0,
+              "in_use_gross": 100,
+              "accumulated_depreciation": 11.666666666666666,
+              "net_ppe": 88.33333333333333,
+              "accounts_payable": 0,
+              "equity": 138.33333333333334,
+              "total_assets": 138.33333333333334,
+              "period_depreciation": 1.6666666666666667,
+              "balance_residual": 0
+            },
+            {
+              "date": "2026-11-末",
+              "event": "月末分摊",
+              "cash": 50,
+              "prepaid": 0,
+              "cip": 0,
+              "in_use_gross": 100,
+              "accumulated_depreciation": 13.333333333333332,
+              "net_ppe": 86.66666666666667,
+              "accounts_payable": 0,
+              "equity": 136.66666666666666,
+              "total_assets": 136.66666666666666,
+              "period_depreciation": 1.6666666666666667,
+              "balance_residual": 0
+            },
+            {
+              "date": "2026-12-末",
+              "event": "月末分摊",
+              "cash": 50,
+              "prepaid": 0,
+              "cip": 0,
+              "in_use_gross": 100,
+              "accumulated_depreciation": 14.999999999999998,
+              "net_ppe": 85,
+              "accounts_payable": 0,
+              "equity": 135,
+              "total_assets": 135,
+              "period_depreciation": 1.6666666666666667,
+              "balance_residual": 0
+            }
+          ],
+          "ending": {
+            "date": "2026-12-末",
+            "event": "月末分摊",
+            "cash": 50,
+            "prepaid": 0,
+            "cip": 0,
+            "in_use_gross": 100,
+            "accumulated_depreciation": 14.999999999999998,
+            "net_ppe": 85,
+            "accounts_payable": 0,
+            "equity": 135,
+            "total_assets": 135,
+            "period_depreciation": 1.6666666666666667,
+            "balance_residual": 0
+          }
+        },
+        "asset_late_ready": {
+          "identity": "Author synthetic example, not company transactions",
+          "unit": "teaching currency units",
+          "parameters": {
+            "identity": "Author synthetic example, not company transactions",
+            "unit": "teaching currency units",
+            "cost": 100,
+            "residual": 0,
+            "life_months": 60,
+            "initial_cash": 150,
+            "payment": "2026-01",
+            "acquisition": "2026-02",
+            "ready": "2026-07",
+            "start": "2026-01",
+            "months": 12,
+            "convention": "Events at month start; same-day acquisition then ready then payment; depreciation at month end starting ready month, full months, no tax/interest/disposal, depreciation expensed in this example."
+          },
+          "monthly_depreciation": 1.6666666666666667,
+          "rows": [
+            {
+              "date": "2026-01-01",
+              "event": "期初",
+              "cash": 150,
+              "prepaid": 0,
+              "cip": 0,
+              "in_use_gross": 0,
+              "accumulated_depreciation": 0,
+              "net_ppe": 0,
+              "accounts_payable": 0,
+              "equity": 150,
+              "total_assets": 150,
+              "period_depreciation": 0,
+              "balance_residual": 0
+            },
+            {
+              "date": "2026-01-01",
+              "event": "取得前付款：形成预付款",
+              "cash": 50,
+              "prepaid": 100,
+              "cip": 0,
+              "in_use_gross": 0,
+              "accumulated_depreciation": 0,
+              "net_ppe": 0,
+              "accounts_payable": 0,
+              "equity": 150,
+              "total_assets": 150,
+              "period_depreciation": 0,
+              "balance_residual": 0
+            },
+            {
+              "date": "2026-01-末",
+              "event": "月末分摊",
+              "cash": 50,
+              "prepaid": 100,
+              "cip": 0,
+              "in_use_gross": 0,
+              "accumulated_depreciation": 0,
+              "net_ppe": 0,
+              "accounts_payable": 0,
+              "equity": 150,
+              "total_assets": 150,
+              "period_depreciation": 0,
+              "balance_residual": 0
+            },
+            {
+              "date": "2026-02-01",
+              "event": "取得控制权：确认在建资源",
+              "cash": 50,
+              "prepaid": 0,
+              "cip": 100,
+              "in_use_gross": 0,
+              "accumulated_depreciation": 0,
+              "net_ppe": 100,
+              "accounts_payable": 0,
+              "equity": 150,
+              "total_assets": 150,
+              "period_depreciation": 0,
+              "balance_residual": 0
+            },
+            {
+              "date": "2026-02-末",
+              "event": "月末分摊",
+              "cash": 50,
+              "prepaid": 0,
+              "cip": 100,
+              "in_use_gross": 0,
+              "accumulated_depreciation": 0,
+              "net_ppe": 100,
+              "accounts_payable": 0,
+              "equity": 150,
+              "total_assets": 150,
+              "period_depreciation": 0,
+              "balance_residual": 0
+            },
+            {
+              "date": "2026-03-末",
+              "event": "月末分摊",
+              "cash": 50,
+              "prepaid": 0,
+              "cip": 100,
+              "in_use_gross": 0,
+              "accumulated_depreciation": 0,
+              "net_ppe": 100,
+              "accounts_payable": 0,
+              "equity": 150,
+              "total_assets": 150,
+              "period_depreciation": 0,
+              "balance_residual": 0
+            },
+            {
+              "date": "2026-04-末",
+              "event": "月末分摊",
+              "cash": 50,
+              "prepaid": 0,
+              "cip": 100,
+              "in_use_gross": 0,
+              "accumulated_depreciation": 0,
+              "net_ppe": 100,
+              "accounts_payable": 0,
+              "equity": 150,
+              "total_assets": 150,
+              "period_depreciation": 0,
+              "balance_residual": 0
+            },
+            {
+              "date": "2026-05-末",
+              "event": "月末分摊",
+              "cash": 50,
+              "prepaid": 0,
+              "cip": 100,
+              "in_use_gross": 0,
+              "accumulated_depreciation": 0,
+              "net_ppe": 100,
+              "accounts_payable": 0,
+              "equity": 150,
+              "total_assets": 150,
+              "period_depreciation": 0,
+              "balance_residual": 0
+            },
+            {
+              "date": "2026-06-末",
+              "event": "月末分摊",
+              "cash": 50,
+              "prepaid": 0,
+              "cip": 100,
+              "in_use_gross": 0,
+              "accumulated_depreciation": 0,
+              "net_ppe": 100,
+              "accounts_payable": 0,
+              "equity": 150,
+              "total_assets": 150,
+              "period_depreciation": 0,
+              "balance_residual": 0
+            },
+            {
+              "date": "2026-07-01",
+              "event": "达到可用状态：在建转入使用中",
+              "cash": 50,
+              "prepaid": 0,
+              "cip": 0,
+              "in_use_gross": 100,
+              "accumulated_depreciation": 0,
+              "net_ppe": 100,
+              "accounts_payable": 0,
+              "equity": 150,
+              "total_assets": 150,
+              "period_depreciation": 0,
+              "balance_residual": 0
+            },
+            {
+              "date": "2026-07-末",
+              "event": "月末分摊",
+              "cash": 50,
+              "prepaid": 0,
+              "cip": 0,
+              "in_use_gross": 100,
+              "accumulated_depreciation": 1.6666666666666667,
+              "net_ppe": 98.33333333333333,
+              "accounts_payable": 0,
+              "equity": 148.33333333333334,
+              "total_assets": 148.33333333333334,
+              "period_depreciation": 1.6666666666666667,
+              "balance_residual": 0
+            },
+            {
+              "date": "2026-08-末",
+              "event": "月末分摊",
+              "cash": 50,
+              "prepaid": 0,
+              "cip": 0,
+              "in_use_gross": 100,
+              "accumulated_depreciation": 3.3333333333333335,
+              "net_ppe": 96.66666666666667,
+              "accounts_payable": 0,
+              "equity": 146.66666666666666,
+              "total_assets": 146.66666666666666,
+              "period_depreciation": 1.6666666666666667,
+              "balance_residual": 0
+            },
+            {
+              "date": "2026-09-末",
+              "event": "月末分摊",
+              "cash": 50,
+              "prepaid": 0,
+              "cip": 0,
+              "in_use_gross": 100,
+              "accumulated_depreciation": 5,
+              "net_ppe": 95,
+              "accounts_payable": 0,
+              "equity": 145,
+              "total_assets": 145,
+              "period_depreciation": 1.6666666666666667,
+              "balance_residual": 0
+            },
+            {
+              "date": "2026-10-末",
+              "event": "月末分摊",
+              "cash": 50,
+              "prepaid": 0,
+              "cip": 0,
+              "in_use_gross": 100,
+              "accumulated_depreciation": 6.666666666666667,
+              "net_ppe": 93.33333333333333,
+              "accounts_payable": 0,
+              "equity": 143.33333333333334,
+              "total_assets": 143.33333333333334,
+              "period_depreciation": 1.6666666666666667,
+              "balance_residual": 0
+            },
+            {
+              "date": "2026-11-末",
+              "event": "月末分摊",
+              "cash": 50,
+              "prepaid": 0,
+              "cip": 0,
+              "in_use_gross": 100,
+              "accumulated_depreciation": 8.333333333333334,
+              "net_ppe": 91.66666666666667,
+              "accounts_payable": 0,
+              "equity": 141.66666666666666,
+              "total_assets": 141.66666666666666,
+              "period_depreciation": 1.6666666666666667,
+              "balance_residual": 0
+            },
+            {
+              "date": "2026-12-末",
+              "event": "月末分摊",
+              "cash": 50,
+              "prepaid": 0,
+              "cip": 0,
+              "in_use_gross": 100,
+              "accumulated_depreciation": 10,
+              "net_ppe": 90,
+              "accounts_payable": 0,
+              "equity": 140,
+              "total_assets": 140,
+              "period_depreciation": 1.6666666666666667,
+              "balance_residual": 0
+            }
+          ],
+          "ending": {
+            "date": "2026-12-末",
+            "event": "月末分摊",
+            "cash": 50,
+            "prepaid": 0,
+            "cip": 0,
+            "in_use_gross": 100,
+            "accumulated_depreciation": 10,
+            "net_ppe": 90,
+            "accounts_payable": 0,
+            "equity": 140,
+            "total_assets": 140,
+            "period_depreciation": 1.6666666666666667,
+            "balance_residual": 0
+          }
+        }
+      },
+      "all_defaults_file": "https://ou-liu-red-sugar.github.io/notebook/labs/bf-de/default-results.json"
+    },
+    "algorithm": "取得、可用、付款按真实月份排序，同月依此次序；月末才折旧。取得前付款为预付；取得未付为应付。月折旧=(cost-residual)/life_months，使用期满停止；本例当期费用化。",
+    "boundaries": "正向状态表平衡，资源未取得时不生成CIP、不提前折旧；差额1,608不自动归因为处置。",
+    "local_url": "/notebook/labs/bf-de/interactions.html#EXP-BF12-ASSET-CLOCKS",
+    "static_equivalent": {
+      "html": "https://ou-liu-red-sugar.github.io/notebook/labs/bf-de/static.html#EXP-BF12-ASSET-CLOCKS",
+      "markdown": "https://ou-liu-red-sugar.github.io/notebook/labs/bf-de/static-equivalents.md"
+    }
+  }
+]
+```
+
+## Sources
+- [Caterpillar Inc. FY2025 Form 10-K](https://www.sec.gov/Archives/edgar/data/18230/000001823026000008/cat-20251231.htm): 制造库存四阶段、部分LIFO与FIFO可比调整，以及NCI利润/权益归属；公司同时包含Financial Products。
+- [Costco Wholesale Corporation · 2025 Annual Report（股东年报 PDF）](https://s201.q4cdn.com/287523651/files/doc_financials/2025/ar/COST-Annual-Report-2025.pdf): Costco 2025 股东年报中的完整合并报表及附注。与 SEC HTML 版使用同一组财务披露，但排版页码不同：资产负债表为印刷第37页、PDF第43页。
+- [MIT OCW 15.515 Session 7 — Accounting for Long-lived Assets](https://ocw.mit.edu/courses/15-515-financial-accounting-fall-2003/c14a0767af3d7544d85e4b20eb6be1bb_lec7.pdf): 成本、资源用途、残值、寿命和分摊。采用制造折旧可能先入库存的路径，不采用旧时代普遍性陈述或租赁政策。
+
+## Content relations
+```json
+[
+  {
+    "from": "zh-bf12",
+    "relation": "part_of",
+    "to": "business-capital",
+    "reason": "主要 topic 归属"
+  },
+  {
+    "from": "zh-bf12",
+    "relation": "supported_by",
+    "to": "BF-S-COST-FY2025-PDF",
+    "reason": "指定原文支持本篇采用范围；不扩展为整份原件已读",
+    "locator": [
+      "IR PDF printed pp35,37,39 / physical pp41,43,45; SEC pp37,39,41",
+      "IR Note1 Receivables pp41–42, PPE pp42–43, leases p43, costs/vendor p46; SEC corresponding +2 printed pages",
+      "IR Note5 pp50–51 / physical pp56–57; SEC Note5 pp52–53"
+    ],
+    "scope": "完整PP&E结构、租赁五视图与经营周转部件。PP&E现金/存量和租赁费用/特定现金的边界保留，混合应收不作为客户DSO。"
+  },
+  {
+    "from": "zh-bf12",
+    "relation": "supported_by",
+    "to": "BFDE-MIT",
+    "reason": "指定原文支持本篇采用范围；不扩展为整份原件已读",
+    "locator": [
+      "Slides2–8,11; matching diagram slide2"
+    ],
+    "scope": "成本、资源用途、残值、寿命和分摊。采用制造折旧可能先入库存的路径，不采用旧时代普遍性陈述或租赁政策。"
+  },
+  {
+    "from": "zh-bf12",
+    "relation": "supported_by",
+    "to": "BBC-C04",
+    "reason": "指定原文支持本篇采用范围；不扩展为整份原件已读",
+    "locator": [
+      "Note1D pp64–65; Note9 p89",
+      "MD&A pp31–35; Definitions pp36–38",
+      "Note23 A/B/C pp115–118; profit p120; pretax reconciliation p121"
+    ],
+    "scope": "制造与出租资产用途、公司历史驱动定义、报告分部到收入/税前利润的完整桥。不得把volume包含的组合效果当结构性贡献率。"
+  },
+  {
+    "from": "zh-bf12",
+    "relation": "illustrated_by",
+    "to": "CASE-BFDE-COST-BF12-20260921",
+    "reason": "固定期间的教学案例，不指向动态最新研究"
+  },
+  {
+    "from": "bf12-experiment",
+    "relation": "illustrated_by",
+    "to": "EXP-BF12-ASSET-CLOCKS",
+    "reason": "取得、可用、付款按真实月份排序，同月依此次序；月末才折旧。取得前付款为预付；取得未付为应付。月折旧=(cost-residual)/life_months，使用期满停止；本例当期费用化。",
+    "at_section": "bf12-experiment",
+    "conditions": "正向状态表平衡，资源未取得时不生成CIP、不提前折旧；差额1,608不自动归因为处置。"
+  }
+]
+```
+
+## Related entries
+
+## Optional reading path
+拆一份企业财报: step 6/14
+沿设备时钟区分取得、付款、投用和折旧，再恢复真实PP&E桥。
+有形资源的记录边界厘清后，比较内部形成和购入的无形资源。
+Next: [无形资源、研发与商誉](https://ou-liu-red-sugar.github.io/zh/notebook/intangible-resources-rd-and-goodwill/)

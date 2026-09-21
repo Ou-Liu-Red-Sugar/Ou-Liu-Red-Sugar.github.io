@@ -1,0 +1,223 @@
+{
+  "id": "QT-GHI-SHARED-INPUTS-20260921-v1",
+  "status": "adopted_frozen_by_lead",
+  "scope": "Unique shared inputs proposed for one complete QT-GHI mother draft; Lead adoption remains explicit.",
+  "path_base": "docs/production/20260921",
+  "review": "receipts/qt-ghi-independent-plan-review.md",
+  "source_of_computation": {
+    "algorithm": "references/qt-ghi-primary-20260921/qt-ghi-experiments.py",
+    "results": "references/qt-ghi-primary-20260921/qt-ghi-experiment-results.json",
+    "status": "previously_executed_candidate_support",
+    "previous_check_count": 54,
+    "this_review_reran_previous_suite": false,
+    "this_review_checks": "receipts/qt-ghi-plan-connection-check.json"
+  },
+  "experiments": [
+    {
+      "id": "EXP-QT13-MARKOV-01",
+      "owner": "QT13",
+      "candidate_status": "adopted_frozen_by_lead",
+      "inputs": {
+        "transition_matrix": [
+          [
+            0.8,
+            0.2
+          ],
+          [
+            0.3,
+            0.7
+          ]
+        ],
+        "prior_H_plus": 0.5,
+        "observation_accuracy": 0.8,
+        "observations_conditionally_independent_given_H": true
+      },
+      "extra_exact_migration_input": "receipts/qt-ghi-plan-connection-check.json#/hidden_state_exact",
+      "no_rng": true
+    },
+    {
+      "id": "EXP-QT14-ARRIVAL-01",
+      "owner": "QT14",
+      "candidate_status": "adopted_frozen_by_lead",
+      "data": "references/qt-ghi-primary-20260921/ethbtc-trades-20250102-0000-0100-utc.csv",
+      "minute_counts": "references/qt-ghi-primary-20260921/ethbtc-counts-one-minute.csv",
+      "source_readme": "references/qt-ghi-primary-20260921/binance-public-data-20260921.md",
+      "source_archive": "references/qt-ghi-primary-20260921/ETHBTC-trades-2025-01-02.zip",
+      "window_utc": {
+        "start_inclusive": "2025-01-02T00:00:00Z",
+        "end_exclusive": "2025-01-02T01:00:00Z"
+      },
+      "timestamp_unit": "Unix microseconds",
+      "bin_closure": "[left,right)",
+      "keep_equal_timestamp_distinct_trade_ids": true,
+      "waiting_times": "Adjacent observed interior events only; left/right window waiting segments are censored.",
+      "model_count_interval": "N(a,b] is a separate mathematical convention."
+    },
+    {
+      "id": "EXP-QT15-17-DIFFUSION-01",
+      "owner": "QT15",
+      "consumers": [
+        "QT15",
+        "QT16",
+        "QT17"
+      ],
+      "candidate_status": "adopted_frozen_by_lead",
+      "rng": {
+        "library": "NumPy 2.4.6",
+        "generator": "Generator(PCG64(15161724))",
+        "draw": "standard_normal((8192,256))",
+        "seed": 15161724,
+        "shape": [
+          8192,
+          256
+        ],
+        "draw_order": "Exactly as the existing source algorithm; no preceding draws."
+      },
+      "brownian_horizon": 1,
+      "finest_intervals": 256,
+      "nested_intervals": [
+        4,
+        16,
+        64,
+        256
+      ],
+      "first_path": "references/qt-ghi-primary-20260921/common-first-path-diffusion-candidate.csv",
+      "gbm_P_illustration": {
+        "S0": 100,
+        "mu_P": 0.08,
+        "sigma": 0.2,
+        "T_years": 1,
+        "identity": "Teaching physical model; not fitted to observed returns."
+      },
+      "aapl_optional_context": {
+        "data": "references/qt-ghi-primary-20260921/aapl-2019-2021-adjusted-close.csv",
+        "provenance": "references/qt-ghi-primary-20260921/aapl-subset-provenance.json",
+        "identity": "Retrospective daily adjusted description, not intraday QV or historical execution."
+      }
+    },
+    {
+      "id": "EXP-HEDGE-01",
+      "owner": "QT24",
+      "consumers": [
+        "QT24",
+        "P26"
+      ],
+      "candidate_status": "adopted_frozen_by_lead",
+      "input_version_proposal": "qt-ghi-support-20260921-v1",
+      "contract": {
+        "position": "short_one_model_european_call",
+        "S0": 100,
+        "K": 100,
+        "multiplier": 100,
+        "sigma": 0.2,
+        "T_years": 0.0821917808219178,
+        "T_exact": "30/365",
+        "r_lend_equals_borrow": 0.03,
+        "rate_convention": "annual continuously compounded",
+        "dividend_yield": 0,
+        "underlying_identity": "Hypothetical tradable GBM asset; not XSP index shares.",
+        "measure": "Q model with drift r"
+      },
+      "path_recipe": {
+        "shared_normal_array_with": "EXP-QT15-17-DIFFUSION-01",
+        "normalized_clock": "u=j/256",
+        "hedge_clock": "t=(30/365)*u",
+        "hedge_brownian_driver": "sqrt(30/365)*W_u",
+        "price": "100*exp((r-sigma^2/2)*t+sigma*sqrt(T)*W_u)",
+        "nested_intervals": [
+          4,
+          16,
+          64,
+          256
+        ],
+        "pair_by": "Identical path index within the shared normal array.",
+        "meaning": "Common random numbers and deterministic time scaling, not a change-of-measure theorem."
+      },
+      "default_display": {
+        "intervals": 16,
+        "half_spread_bps": 5
+      },
+      "comparison_grid": {
+        "intervals": [
+          4,
+          16,
+          64,
+          256
+        ],
+        "half_spread_bps": [
+          0,
+          5,
+          20
+        ]
+      },
+      "initial_model_price_per_unit": 2.409581446079464,
+      "initial_premium_dollars": 240.95814460794642,
+      "initial_delta_per_unit": 0.5285688375454997,
+      "holding_rule": "After observation/fill at t_k, q_k=100*Phi(d1) serves (t_k,t_(k+1)]; at T, q_n=0.",
+      "event_order": [
+        "At inception receive model premium with q=0.",
+        "For k>0 accrue previous cash at exp(r*dt).",
+        "Observe S_k and compute target using time-k information.",
+        "Trade dq at model mid plus/minus half-spread.",
+        "Subtract c*S_k*abs(dq) from cash.",
+        "At T flatten all shares, including closing spread.",
+        "Pay model cash payoff at the same T."
+      ],
+      "cash_recursion": "C_k=C_(k-1)*exp(r*dt_k)-S_k*(q_k-q_(k-1))-c*S_k*abs(q_k-q_(k-1))",
+      "model_assumptions": [
+        "fractional shares",
+        "unlimited symmetric borrowing and lending",
+        "no margin constraint",
+        "no dividends",
+        "observation then same-grid assumed fill",
+        "no external funding after inception",
+        "half-spread is an assumed one-way cost, not an observed quote"
+      ],
+      "error_definition": "Cash after terminal hedge liquidation minus call payoff; dollars, not a return rate.",
+      "short_hand_path": {
+        "prices": [
+          100,
+          102,
+          101,
+          104
+        ],
+        "interval_count": 3,
+        "dt_exact": "10/365",
+        "half_spread_bps": 5,
+        "ledger": "references/qt-ghi-primary-20260921/exp-hedge-01-candidate-hand-path-ledger.csv",
+        "terminal_cash": 446.6663306126902,
+        "payoff": 400,
+        "hedge_error": 46.6663306126902,
+        "identity": "Chosen hand path, distinct from simulated first path."
+      },
+      "first_model_path_ledger": "references/qt-ghi-primary-20260921/exp-hedge-01-candidate-first-path-ledger.csv",
+      "distribution_data_to_export_after_adoption": {
+        "currently_available": "Per-design summary moments/quantiles and first-path CSV only.",
+        "needed": "Twelve same-index path-error arrays, or fixed histogram bins with exact edges, closure, counts and totals; preserve pairing if recomputing paired MSE.",
+        "validation": "Derived summaries must agree with existing candidate output; no new browser RNG.",
+        "agent_pack": "Include current design and representative complete ledger once; provide public readable/recomputable attachments for full arrays, not twelve repeated inline enumerations."
+      },
+      "real_rule_context": {
+        "source_id": "QGHI-CBOE-XSP",
+        "unit": "Underlying, Multiplier, Exercise Style, Settlement of Option Exercise",
+        "model_is_historical_XSP_backtest": false,
+        "distinction": "XSP is SPX/10 with $100 multiplier and European cash exercise; cash delivery next business day. No actual historical quote or broker booking-time claim."
+      },
+      "P26_coordination": {
+        "confirmed_by": "/root/business_industry",
+        "scope": "P26 reuses the existing hand-path ledger and inputs; rule/funding decisions remain P26, computation owner QT24.",
+        "freeze_action_performed_by_reviewer": false,
+        "lead_freeze": "2026-09-21"
+      },
+      "input_version": "qt-ghi-support-20260921-v1"
+    }
+  ],
+  "QT25_scope": {
+    "A": "KMZ published §V.A–C; three separate preprocessing layers, footnotes33–35/38–40; Nagel optional.",
+    "B": "HTZ fixed arXiv v1 §2, §3.1–3.5, §4.1–4.3, introduction/conclusion; model setting read, no functional-Ito proof or training replication claimed.",
+    "branch_specific_required_competence": true,
+    "runtime_reading_log": []
+  },
+  "adopted_at": "2026-09-21",
+  "adoption_scope": "All four named experiments, exact defaults and shared identities in the independent recommendation; dataset export remains a required author deliverable."
+}

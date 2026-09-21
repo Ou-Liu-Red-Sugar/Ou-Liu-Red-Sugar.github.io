@@ -1,0 +1,245 @@
+{
+  "content_version": "2026-09-21-QT-DE-review-v2",
+  "input_version": "QT-DE-adopted-inputs-20260921-v1",
+  "dataset": {
+    "file": "data/BusEq-value-weighted-monthly-199001-202512.csv",
+    "origin_input_version": "QT-C-inputs-20260921-v1",
+    "transport_sha256": "72dd0f35d9437d268971de8553827a5c7a4f85ebcf9712c0c1b85ea2ec7cfa74",
+    "source_url": "https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/ftp/30_Industry_Portfolios_CSV.zip",
+    "source_details_url": "https://mba.tuck.dartmouth.edu/pages/Faculty/ken.french/Data_Library/det_30_ind_port.html",
+    "regime_url": "https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/data_library.html",
+    "vintage": "202607 CRSP database; current CIZ reconstruction",
+    "download_date": "2026-09-21",
+    "block": "Average Value Weighted Returns -- Monthly",
+    "column": "BusEq",
+    "sample": [
+      "199001",
+      "202512"
+    ],
+    "n": 432,
+    "source_lines": [
+      775,
+      1206
+    ],
+    "missing_removed": 0,
+    "missing_codes": [
+      -99.99,
+      -999
+    ],
+    "raw_unit": "percent",
+    "internal_unit": "monthly decimal return",
+    "display_errors": "百分点/月",
+    "annualized": false,
+    "identity": "单一当前重建快照；不是FIZ/CIZ时间拼接，不是逐月当时可见版本。"
+  },
+  "forecast": {
+    "experiment_id": "EXP-QT-D-FORECAST-01",
+    "p_grid": [
+      1,
+      3,
+      12
+    ],
+    "lambda_grid": [
+      0.0,
+      0.1,
+      1.0,
+      10.0
+    ],
+    "default_candidate": "p1-l10",
+    "target": "y_t=r_t",
+    "features": "(r_(t-1),...,r_(t-p))",
+    "warmup": [
+      "199001",
+      "199012"
+    ],
+    "initial_train": [
+      "199101",
+      "200912",
+      228
+    ],
+    "validation": [
+      "201001",
+      "201912",
+      120
+    ],
+    "historical_evaluation": [
+      "202001",
+      "202512",
+      72
+    ],
+    "train_start_index": 12,
+    "objective": "RSS/n + lambda*||beta||^2",
+    "matrix_penalty": "n*lambda*I",
+    "standardization_ddof": 0,
+    "intercept_penalized": false,
+    "selection": "minimum validation SSE including zero and expanding-mean baselines",
+    "tie_rule": "regression grid: smaller p then smaller lambda",
+    "frozen_hyperparameters_after_validation": true,
+    "refit": "每原点用新成熟标签扩展重拟合；不再次选择p或lambda",
+    "availability": "教学月末可知收益假设；French历史真实发布和接收时点未重建",
+    "future_scaling_control": {
+      "p": 12,
+      "lambdas": [
+        0.0,
+        0.1
+      ],
+      "scope": "validation only",
+      "identity": "故意信息越界对照"
+    },
+    "default_clock_month": "201001",
+    "default_clock_lambda": 0.1
+  },
+  "selection": {
+    "experiment_id": "EXP-QT-D-SELECT-01",
+    "B": 5000,
+    "m_grid": [
+      1,
+      10,
+      100,
+      500
+    ],
+    "default_m": 100,
+    "seed_all_null": 2201,
+    "seed_mixed": 2202,
+    "rng": "numpy.random.Generator(PCG64)",
+    "n_development": 120,
+    "n_holdout": 120,
+    "sigma": 0.05,
+    "alpha": 0.05,
+    "hypothesis": "事前单侧H0:mu=0 versus H1:mu>0; sigma known",
+    "pvalue": "0.5*erfc(Z/sqrt(2))",
+    "draw_order": "先取(5000,500)开发Z矩阵，再取独立保留Z矩阵；M为共同500列前缀。mixed另重置2202。",
+    "bh_adopted_comparison": "strict <",
+    "source_pilot_comparison": "<=",
+    "empty_BH": "k=0, no rejections, FDP=0",
+    "mixed": {
+      "m": 100,
+      "signals": 10,
+      "signal_mu": 0.01,
+      "null_mu": 0.0
+    },
+    "identity": "直接模拟正态样本均值的Z分布；不含逐月路径，不是真实策略面板",
+    "equal_example": {
+      "p": [
+        0.025,
+        0.06
+      ],
+      "q": 0.05
+    },
+    "manual_example": {
+      "p": [
+        0.006,
+        0.012,
+        0.601,
+        0.756,
+        0.918
+      ],
+      "q": 0.05
+    }
+  },
+  "cost": {
+    "experiment_id": "EXP-QT23-COST-01",
+    "rf": 0,
+    "continuous_default": {
+      "mu": 0.015,
+      "rho": 0,
+      "sigma": 0.1,
+      "gamma": 2,
+      "w0": 0.5,
+      "kappa": 0.002,
+      "cap": 0.8,
+      "cash_min": 0.2
+    },
+    "integer_default": {
+      "mu": 0.002,
+      "rho": 0,
+      "sigma": 0.02,
+      "gamma": 10,
+      "wealth": 10000,
+      "initial_shares": 0,
+      "mid": 100,
+      "ask": 100.05,
+      "cap": 80,
+      "cash_min": 2000,
+      "mode": "spread_and_commission"
+    },
+    "fee": {
+      "id": "QTDE-IBKR",
+      "url": "https://www.interactivebrokers.com/en/pricing/commissions-stocks.php?re=amer",
+      "accessed_at": "2026-09-21",
+      "scope": "IBKR Pro US Fixed ordinary whole-share single-order commission component only",
+      "formula": "q=0:0; otherwise min(0.01*execution_price*abs(q),max(1,0.005*abs(q)))"
+    },
+    "identity": "收益、波动、风险系数、报价、价差、容量为教学设定；佣金是有日期的实际规则组件",
+    "end_value": "期末中价标记；没有退出委托，非往返净利",
+    "excluded_costs": [
+      "监管/交易所/清算等其他收费",
+      "税",
+      "市场冲击",
+      "持仓融资费",
+      "退出交易费",
+      "零股及改单最低费规则"
+    ]
+  },
+  "clocks": {
+    "view_id": "EXP-QT-D-CLOCK-01",
+    "shared_experiment": "EXP-QT-D-FORECAST-01",
+    "BEA": [
+      {
+        "period": "2020Q2",
+        "vintage": "advance",
+        "release_at": "2020-07-30T08:30:00-04:00",
+        "received_at": null,
+        "value_percent_SAAR": -32.9
+      },
+      {
+        "period": "2020Q2",
+        "vintage": "second",
+        "release_at": "2020-08-27T08:30:00-04:00",
+        "received_at": null,
+        "value_percent_SAAR": -31.7
+      }
+    ],
+    "h3_task": {
+      "formula": "prod(1+r_(s+j),j=1..3)-1",
+      "cutoff": "202003",
+      "latest_mature_origin": "201912",
+      "performance_run": false
+    }
+  },
+  "scale_examples": {
+    "raw_x": [
+      -1,
+      1
+    ],
+    "y": [
+      -1,
+      1
+    ],
+    "lambda": 1.0,
+    "default_feature_scale": 10.0,
+    "response_scale": 100.0
+  },
+  "source_identities": {
+    "d_pilot": {
+      "file": "qt-d-experiment-pilot.py",
+      "sha256": "b8a23b01294d543b3b74c6a153168529db74ab7c84837ea3724a55f5071fd3fb",
+      "read_scope": "1–193"
+    },
+    "ef_pilot": {
+      "file": "qt-ef-calculations.py",
+      "sha256": "28eff60cf87400805af145fabd22d4fe17e2c25bac3708cd9e71506d939acb20",
+      "adopted_scope": "commission, continuous_case, integer_case, decision_calculation"
+    },
+    "approval": {
+      "file": "qt-de-draft-approved.md",
+      "read_scope": "1–7",
+      "sha256": "80e92333d057772de9463d786a9be435c6dc1208744bf828d5eb2a4d2a5e9a48"
+    },
+    "plan_review": {
+      "file": "qt-def-plan-review.md",
+      "read_scope": "1–20",
+      "sha256": "56fddfa847ca0f83ec4822652c506f847e9da4e45f7223c039b31428f3aedfd4"
+    }
+  }
+}

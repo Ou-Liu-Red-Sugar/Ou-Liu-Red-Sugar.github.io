@@ -1,0 +1,2745 @@
+[
+  {
+    "id": "EXP-P08-LIQUIDITY-REMEDY",
+    "node_id": "P08",
+    "title": "融资、抵押品与现金流动性：操作实验",
+    "anchor": "p08-lab",
+    "description": "重建融资账户、两种补救方式和截止前可用资源，解释800现金与2000出售为什么不同。",
+    "inputs": {
+      "shared_input_id": "PE-DRAFT-INPUTS-20260921-v1",
+      "frozen_case_keys": [
+        "margin"
+      ],
+      "controls": {
+        "default": {
+          "assets": 12000,
+          "debt": 8000,
+          "maintenance": 0.4,
+          "interest_on": false,
+          "sale_fee": 0,
+          "action": "cash"
+        },
+        "limits": {
+          "assets": [
+            0,
+            30000
+          ],
+          "debt": [
+            0,
+            30000
+          ],
+          "maintenance": [
+            0.01,
+            1
+          ],
+          "sale_fee": [
+            0,
+            1000
+          ]
+        },
+        "fixed_sale_amount": 800
+      },
+      "unit_contract": {
+        "amount": "USD",
+        "shares": "shares",
+        "futures": "integer contracts",
+        "index": "index points",
+        "rate": "fraction unless UI percent/bps labelled",
+        "p09_cost_bps_denominator": "target_shares * decision_price",
+        "feds_bps": "paper-defined duration-normalized yield equivalent basis points"
+      }
+    },
+    "algorithm": [
+      "E=A−D；未付利息选中时先令D←D+8000×.08×30/365（基数随输入借款）。",
+      "d=max(0,mA−E)；现金还债c=d：A不变、D减c。",
+      "无缺口的最少出售为0且不收费；存在缺口时，含固定出售费f的候选x=(d+f)/m，净偿债x−f。",
+      "只有0≤x≤A且0≤x−f≤D才交付卖出结果，否则返回无解且不输出交易金额；另检查关闭账户边界。",
+      "独立抵押卡逐项检查资格/未占用/币种/地点/同日到达分钟≤截止600；非现金获接受才计(1−h)V。两张账不合并。"
+    ],
+    "boundaries": [
+      "finite-only",
+      "assets/debt>=0",
+      "0.01<=maintenance<=1",
+      "0<=sale_fee<=1000",
+      "no over-sale or negative loan",
+      "no fee when no minimal sale needed",
+      "cash at exact deadline accepted; late cash excluded"
+    ],
+    "outputs": {
+      "default": {
+        "parameters": {
+          "assets": 12000,
+          "debt": 8000,
+          "maintenance": 0.4,
+          "interest_on": false,
+          "sale_fee": 0,
+          "action": "cash"
+        },
+        "interest": 0,
+        "initial": {
+          "assets": 12000,
+          "debt": 8000,
+          "equity": 4000,
+          "required_equity": 4800,
+          "shortfall": 800,
+          "equity_ratio": 0.3333333333333333
+        },
+        "trigger_assets": 13333.333333333334,
+        "actions": [
+          {
+            "action": "cash",
+            "feasible": true,
+            "amount": 800,
+            "fee": 0,
+            "repayment": 800,
+            "external_cash_used": 800,
+            "post": {
+              "assets": 12000,
+              "debt": 7200,
+              "equity": 4800,
+              "required_equity": 4800,
+              "shortfall": 0,
+              "equity_ratio": 0.4
+            },
+            "satisfied": true,
+            "closed": false
+          },
+          {
+            "action": "sale800",
+            "feasible": true,
+            "amount": 800,
+            "fee": 0,
+            "repayment": 800,
+            "external_cash_used": 0,
+            "post": {
+              "assets": 11200,
+              "debt": 7200,
+              "equity": 4000,
+              "required_equity": 4480,
+              "shortfall": 480,
+              "equity_ratio": 0.35714285714285715
+            },
+            "satisfied": false,
+            "closed": false
+          },
+          {
+            "action": "sale",
+            "feasible": true,
+            "amount": 2000,
+            "fee": 0,
+            "repayment": 2000,
+            "external_cash_used": 0,
+            "post": {
+              "assets": 10000,
+              "debt": 6000,
+              "equity": 4000,
+              "required_equity": 4000,
+              "shortfall": 0,
+              "equity_ratio": 0.4
+            },
+            "satisfied": true,
+            "closed": false
+          }
+        ],
+        "selected": {
+          "action": "cash",
+          "feasible": true,
+          "amount": 800,
+          "fee": 0,
+          "repayment": 800,
+          "external_cash_used": 800,
+          "post": {
+            "assets": 12000,
+            "debt": 7200,
+            "equity": 4800,
+            "required_equity": 4800,
+            "shortfall": 0,
+            "equity_ratio": 0.4
+          },
+          "satisfied": true,
+          "closed": false
+        },
+        "identity": "Account algebra; outside cash repayment is a transfer, not profit"
+      },
+      "fee20": {
+        "parameters": {
+          "assets": 12000,
+          "debt": 8000,
+          "maintenance": 0.4,
+          "interest_on": false,
+          "sale_fee": 20,
+          "action": "sale"
+        },
+        "interest": 0,
+        "initial": {
+          "assets": 12000,
+          "debt": 8000,
+          "equity": 4000,
+          "required_equity": 4800,
+          "shortfall": 800,
+          "equity_ratio": 0.3333333333333333
+        },
+        "trigger_assets": 13333.333333333334,
+        "actions": [
+          {
+            "action": "cash",
+            "feasible": true,
+            "amount": 800,
+            "fee": 0,
+            "repayment": 800,
+            "external_cash_used": 800,
+            "post": {
+              "assets": 12000,
+              "debt": 7200,
+              "equity": 4800,
+              "required_equity": 4800,
+              "shortfall": 0,
+              "equity_ratio": 0.4
+            },
+            "satisfied": true,
+            "closed": false
+          },
+          {
+            "action": "sale800",
+            "feasible": true,
+            "amount": 800,
+            "fee": 20,
+            "repayment": 780,
+            "external_cash_used": 0,
+            "post": {
+              "assets": 11200,
+              "debt": 7220,
+              "equity": 3980,
+              "required_equity": 4480,
+              "shortfall": 500,
+              "equity_ratio": 0.35535714285714287
+            },
+            "satisfied": false,
+            "closed": false
+          },
+          {
+            "action": "sale",
+            "feasible": true,
+            "amount": 2050,
+            "fee": 20,
+            "repayment": 2030,
+            "external_cash_used": 0,
+            "post": {
+              "assets": 9950,
+              "debt": 5970,
+              "equity": 3980,
+              "required_equity": 3980,
+              "shortfall": 0,
+              "equity_ratio": 0.4
+            },
+            "satisfied": true,
+            "closed": false
+          }
+        ],
+        "selected": {
+          "action": "sale",
+          "feasible": true,
+          "amount": 2050,
+          "fee": 20,
+          "repayment": 2030,
+          "external_cash_used": 0,
+          "post": {
+            "assets": 9950,
+            "debt": 5970,
+            "equity": 3980,
+            "required_equity": 3980,
+            "shortfall": 0,
+            "equity_ratio": 0.4
+          },
+          "satisfied": true,
+          "closed": false
+        },
+        "identity": "Account algebra; outside cash repayment is a transfer, not profit"
+      },
+      "interest": {
+        "parameters": {
+          "assets": 12000,
+          "debt": 8000,
+          "maintenance": 0.4,
+          "interest_on": true,
+          "sale_fee": 0,
+          "action": "sale"
+        },
+        "interest": 52.602739726027394,
+        "initial": {
+          "assets": 12000,
+          "debt": 8052.602739726028,
+          "equity": 3947.3972602739723,
+          "required_equity": 4800,
+          "shortfall": 852.6027397260277,
+          "equity_ratio": 0.3289497716894977
+        },
+        "trigger_assets": 13421.004566210047,
+        "actions": [
+          {
+            "action": "cash",
+            "feasible": true,
+            "amount": 852.6027397260277,
+            "fee": 0,
+            "repayment": 852.6027397260277,
+            "external_cash_used": 852.6027397260277,
+            "post": {
+              "assets": 12000,
+              "debt": 7200,
+              "equity": 4800,
+              "required_equity": 4800,
+              "shortfall": 0,
+              "equity_ratio": 0.4
+            },
+            "satisfied": true,
+            "closed": false
+          },
+          {
+            "action": "sale800",
+            "feasible": true,
+            "amount": 800,
+            "fee": 0,
+            "repayment": 800,
+            "external_cash_used": 0,
+            "post": {
+              "assets": 11200,
+              "debt": 7252.602739726028,
+              "equity": 3947.3972602739723,
+              "required_equity": 4480,
+              "shortfall": 532.6027397260277,
+              "equity_ratio": 0.35244618395303323
+            },
+            "satisfied": false,
+            "closed": false
+          },
+          {
+            "action": "sale",
+            "feasible": true,
+            "amount": 2131.5068493150693,
+            "fee": 0,
+            "repayment": 2131.5068493150693,
+            "external_cash_used": 0,
+            "post": {
+              "assets": 9868.493150684932,
+              "debt": 5921.095890410958,
+              "equity": 3947.397260273973,
+              "required_equity": 3947.3972602739727,
+              "shortfall": 0,
+              "equity_ratio": 0.4000000000000001
+            },
+            "satisfied": true,
+            "closed": false
+          }
+        ],
+        "selected": {
+          "action": "sale",
+          "feasible": true,
+          "amount": 2131.5068493150693,
+          "fee": 0,
+          "repayment": 2131.5068493150693,
+          "external_cash_used": 0,
+          "post": {
+            "assets": 9868.493150684932,
+            "debt": 5921.095890410958,
+            "equity": 3947.397260273973,
+            "required_equity": 3947.3972602739727,
+            "shortfall": 0,
+            "equity_ratio": 0.4000000000000001
+          },
+          "satisfied": true,
+          "closed": false
+        },
+        "identity": "Account algebra; outside cash repayment is a transfer, not profit"
+      },
+      "insolvent": {
+        "parameters": {
+          "assets": 7000,
+          "debt": 8000,
+          "maintenance": 0.4,
+          "interest_on": false,
+          "sale_fee": 0,
+          "action": "sale"
+        },
+        "interest": 0,
+        "initial": {
+          "assets": 7000,
+          "debt": 8000,
+          "equity": -1000,
+          "required_equity": 2800,
+          "shortfall": 3800,
+          "equity_ratio": -0.14285714285714285
+        },
+        "trigger_assets": 13333.333333333334,
+        "actions": [
+          {
+            "action": "cash",
+            "feasible": true,
+            "amount": 3800,
+            "fee": 0,
+            "repayment": 3800,
+            "external_cash_used": 3800,
+            "post": {
+              "assets": 7000,
+              "debt": 4200,
+              "equity": 2800,
+              "required_equity": 2800,
+              "shortfall": 0,
+              "equity_ratio": 0.4
+            },
+            "satisfied": true,
+            "closed": false
+          },
+          {
+            "action": "sale800",
+            "feasible": true,
+            "amount": 800,
+            "fee": 0,
+            "repayment": 800,
+            "external_cash_used": 0,
+            "post": {
+              "assets": 6200,
+              "debt": 7200,
+              "equity": -1000,
+              "required_equity": 2480,
+              "shortfall": 3480,
+              "equity_ratio": -0.16129032258064516
+            },
+            "satisfied": false,
+            "closed": false
+          },
+          {
+            "action": "sale",
+            "feasible": false,
+            "amount": null,
+            "fee": null,
+            "repayment": null,
+            "post": null,
+            "reason": "在现有证券、债务与费用范围内无法执行这项卖出还债；不能超卖或制造负借款。"
+          }
+        ],
+        "selected": {
+          "action": "sale",
+          "feasible": false,
+          "amount": null,
+          "fee": null,
+          "repayment": null,
+          "post": null,
+          "reason": "在现有证券、债务与费用范围内无法执行这项卖出还债；不能超卖或制造负借款。"
+        },
+        "identity": "Account algebra; outside cash repayment is a transfer, not profit"
+      },
+      "resources": {
+        "parameters": {
+          "cash_only": true,
+          "unencumbered": true,
+          "eligible": true,
+          "currency_ok": true,
+          "location_ok": true,
+          "haircut": 0.2,
+          "cash_arrival_minutes": 630,
+          "security_arrival_minutes": 570
+        },
+        "call_amount": 800,
+        "nominal_security": 1000,
+        "recognized_security": 800,
+        "security_credit": 0,
+        "security_reasons": [
+          "本次只收现金"
+        ],
+        "cash_credit": 0,
+        "cash_reason": "现金晚到",
+        "available_collateral_value": 0,
+        "available_cash": 0,
+        "remaining_call": 800,
+        "identity": "Separate resource card: same-day local clock; not added to the securities margin account"
+      }
+    },
+    "static_equivalent_markdown": "| 动作 | 金额 | 证券 | 债务 | 权益 | 所需权益 | 缺口 |\n| --- | --- | --- | --- | --- | --- | --- |\n| 现金还债 | 800.000000 | 12,000.000000 | 7,200.000000 | 4,800.000000 | 4,800.000000 | 0.000000 |\n| 出售800 | 800.000000 | 11,200.000000 | 7,200.000000 | 4,000.000000 | 4,480.000000 | 480.000000 |\n| 最少出售 | 2,000.000000 | 10,000.000000 | 6,000.000000 | 4,000.000000 | 4,000.000000 | 0.000000 |\n\n未付利息扩展：52.602740；带利息最少出售2,131.506849。费用20无利息最少出售2,050.000000。独立资源卡默认现金迟到、只收现金，可用0，缺800。"
+  },
+  {
+    "id": "EXP-P09-IMPLEMENTATION-SHORTFALL",
+    "node_id": "P09",
+    "title": "下单、成交与交易成本：操作实验",
+    "anchor": "p09-lab",
+    "description": "从整个300股目标、成交、现金和未完成部分推导实施差额，而不只比较成交均价。",
+    "inputs": {
+      "shared_input_id": "PE-DRAFT-INPUTS-20260921-v1",
+      "frozen_case_keys": [
+        "execution",
+        "research_observation"
+      ],
+      "controls": {
+        "default": {
+          "route": "market",
+          "limit_price": 50.05,
+          "terminal_price": 50.2,
+          "fee": 1
+        },
+        "routes": [
+          "market",
+          "limit",
+          "ioc",
+          "fok"
+        ],
+        "limits": {
+          "limit_price": [
+            49.9,
+            50.2
+          ],
+          "terminal_price": [
+            45,
+            55
+          ],
+          "fee": [
+            0,
+            100
+          ]
+        }
+      },
+      "unit_contract": {
+        "amount": "USD",
+        "shares": "shares",
+        "futures": "integer contracts",
+        "index": "index points",
+        "rate": "fraction unless UI percent/bps labelled",
+        "p09_cost_bps_denominator": "target_shares * decision_price",
+        "feds_bps": "paper-defined duration-normalized yield equivalent basis points"
+      }
+    },
+    "algorithm": [
+      "固定Q300、p0=50、C0=15100；按价格顺序吃到可用三档，限价只取不高于上限的档。",
+      "FOK不足300时全部不成交；IOC取消剩余；普通限价剩余到10:00取消。",
+      "仅有成交收单次费用，零成交均价null；现金不足时拒绝结果而不自动融资。",
+      "Wpaper=C0−Qp0+QpT；Wactual=C0−Σqipi−fee+FpT。",
+      "IS=Wpaper−Wactual=Σqi(pi−p0)+fee+(Q−F)(pT−p0)；bps=IS/(Qp0)×10000。"
+    ],
+    "boundaries": [
+      "no fabricated residual fills",
+      "fixed book not causal impact",
+      "fee once when filled",
+      "null average for zero fills",
+      "negative opportunity/IS permitted",
+      "FEDS yield basis points separate"
+    ],
+    "outputs": [
+      {
+        "parameters": {
+          "route": "market",
+          "limit_price": 50.05,
+          "terminal_price": 50.2,
+          "fee": 1
+        },
+        "target": 300,
+        "fills": [
+          {
+            "price": 50.02,
+            "shares": 100
+          },
+          {
+            "price": 50.05,
+            "shares": 100
+          },
+          {
+            "price": 50.1,
+            "shares": 100
+          }
+        ],
+        "filled": 300,
+        "unfilled": 0,
+        "notional": 15017,
+        "average_fill": 50.056666666666665,
+        "fee": 1,
+        "cash": 82,
+        "terminal_stock_value": 15060,
+        "paper_wealth": 15160,
+        "actual_wealth": 15142,
+        "execution_difference": 17,
+        "opportunity": 0,
+        "implementation_shortfall": 18,
+        "bps": 11.999999999999998,
+        "bps_denominator": 15000,
+        "pending_immediately_after_arrival": 0,
+        "cancelled_immediately": 0,
+        "unfilled_cancelled_by_terminal": 0,
+        "identity": "Entire book, fills, prices and fee are synthetic; no real ticker or historical quotes"
+      },
+      {
+        "parameters": {
+          "route": "market",
+          "limit_price": 50.05,
+          "terminal_price": 49.8,
+          "fee": 1
+        },
+        "target": 300,
+        "fills": [
+          {
+            "price": 50.02,
+            "shares": 100
+          },
+          {
+            "price": 50.05,
+            "shares": 100
+          },
+          {
+            "price": 50.1,
+            "shares": 100
+          }
+        ],
+        "filled": 300,
+        "unfilled": 0,
+        "notional": 15017,
+        "average_fill": 50.056666666666665,
+        "fee": 1,
+        "cash": 82,
+        "terminal_stock_value": 14940,
+        "paper_wealth": 15040,
+        "actual_wealth": 15022,
+        "execution_difference": 17,
+        "opportunity": 0,
+        "implementation_shortfall": 18,
+        "bps": 11.999999999999998,
+        "bps_denominator": 15000,
+        "pending_immediately_after_arrival": 0,
+        "cancelled_immediately": 0,
+        "unfilled_cancelled_by_terminal": 0,
+        "identity": "Entire book, fills, prices and fee are synthetic; no real ticker or historical quotes"
+      },
+      {
+        "parameters": {
+          "route": "limit",
+          "limit_price": 50.05,
+          "terminal_price": 50.2,
+          "fee": 1
+        },
+        "target": 300,
+        "fills": [
+          {
+            "price": 50.02,
+            "shares": 100
+          },
+          {
+            "price": 50.05,
+            "shares": 100
+          }
+        ],
+        "filled": 200,
+        "unfilled": 100,
+        "notional": 10007,
+        "average_fill": 50.035,
+        "fee": 1,
+        "cash": 5092,
+        "terminal_stock_value": 10040,
+        "paper_wealth": 15160,
+        "actual_wealth": 15132,
+        "execution_difference": 7,
+        "opportunity": 20.000000000000284,
+        "implementation_shortfall": 28.000000000000284,
+        "bps": 18.666666666666856,
+        "bps_denominator": 15000,
+        "pending_immediately_after_arrival": 100,
+        "cancelled_immediately": 0,
+        "unfilled_cancelled_by_terminal": 100,
+        "identity": "Entire book, fills, prices and fee are synthetic; no real ticker or historical quotes"
+      },
+      {
+        "parameters": {
+          "route": "limit",
+          "limit_price": 50.05,
+          "terminal_price": 49.8,
+          "fee": 1
+        },
+        "target": 300,
+        "fills": [
+          {
+            "price": 50.02,
+            "shares": 100
+          },
+          {
+            "price": 50.05,
+            "shares": 100
+          }
+        ],
+        "filled": 200,
+        "unfilled": 100,
+        "notional": 10007,
+        "average_fill": 50.035,
+        "fee": 1,
+        "cash": 5092,
+        "terminal_stock_value": 9960,
+        "paper_wealth": 15040,
+        "actual_wealth": 15052,
+        "execution_difference": 7,
+        "opportunity": -20.000000000000284,
+        "implementation_shortfall": -12.000000000000284,
+        "bps": -8.000000000000188,
+        "bps_denominator": 15000,
+        "pending_immediately_after_arrival": 100,
+        "cancelled_immediately": 0,
+        "unfilled_cancelled_by_terminal": 100,
+        "identity": "Entire book, fills, prices and fee are synthetic; no real ticker or historical quotes"
+      }
+    ],
+    "static_equivalent_markdown": "| 路线 | 终点 | 成交 | 未成交 | 现金 | 均价 | IS | 目标价格bps |\n| --- | --- | --- | --- | --- | --- | --- | --- |\n| market | 50.20 | 300 | 0 | 82.00 | 50.056667 | 18.000000 | 12.000000 |\n| market | 49.80 | 300 | 0 | 82.00 | 50.056667 | 18.000000 | 12.000000 |\n| limit | 50.20 | 200 | 100 | 5,092.00 | 50.035000 | 28.000000 | 18.666667 |\n| limit | 49.80 | 200 | 100 | 5,092.00 | 50.035000 | -12.000000 | -8.000000 |"
+  },
+  {
+    "id": "EXP-P07-FEASIBLE-INTEGERS",
+    "node_id": "P07",
+    "title": "组合实施：风险、资金与可成交规模的联合预算：操作实验",
+    "anchor": "p07-lab",
+    "description": "逐项检验整数数量的情景损失、账户余额、到账截止和成交深度，允许可行集合为空。",
+    "inputs": {
+      "shared_input_id": "PE-DRAFT-INPUTS-20260921-v1",
+      "frozen_case_keys": [
+        "joint_budget"
+      ],
+      "controls": {
+        "default": {
+          "basket": 200000,
+          "contracts": 3,
+          "early_budget": 8000,
+          "late_before_deadline": false,
+          "allocate_released": false,
+          "loss_cap": 30000,
+          "depth": 3
+        },
+        "limits": {
+          "contracts": [
+            0,
+            3
+          ],
+          "early_budget": [
+            0,
+            8000
+          ],
+          "loss_cap": [
+            0,
+            50000
+          ],
+          "depth": [
+            0,
+            3
+          ]
+        },
+        "basket_options": [
+          200000,
+          190000
+        ],
+        "release_assumption": "Basket reduced before T0 at stated value, no incremental sale costs; released 10000 is already settled general cash; transfer designation moves this same cash, never creates wealth",
+        "early_budget_assumption": "Unused part of original 8000 remains in general cash, not destroyed",
+        "late_timing": "Early switch releases the same 6000 only at D3 09:30; default D3 10:30 remains unavailable at all call deadlines",
+        "default_initial_total_wealth": 220000
+      },
+      "unit_contract": {
+        "amount": "USD",
+        "shares": "shares",
+        "futures": "integer contracts",
+        "index": "index points",
+        "rate": "fraction unless UI percent/bps labelled",
+        "p09_cost_bps_denominator": "target_shares * decision_price",
+        "feds_bps": "paper-defined duration-normalized yield equivalent basis points"
+      }
+    },
+    "algorithm": [
+      "枚举整数0..3，在选择深度之外拒绝实际交易；L=−basket×down_return−n×5×(4500−3600)+4n。",
+      "初始期货余额6000−2n，保证金为账户要求，不再次扣除。",
+      "单独计算足额条件下应补路径a=max(0,M−(B−variation))，得到完整持有所需资金。",
+      "实际账每次只从可用池支付min(a,pool)；6000提前开关仅在D3解锁；首个缺口后停止实际持仓路径。",
+      "减篮子200000→190000释放10000，一般现金保留；重分配开关把相同现金转到及时池。减少原及时预算时未指定部分也回一般池。",
+      "所有转移守恒，总初始220000；每期全部现金=20000−开仓费−累计变动损失。",
+      "UP完整平仓财富仅对已经满足现金与执行条件的路径给出，不能对失败路径续算已实现收益。"
+    ],
+    "boundaries": [
+      "n0 zero fees/margin/calls",
+      "integer contracts and depth",
+      "no negative reserve as implicit borrowing",
+      "all released principal retained",
+      "late money cannot cure an earlier deadline",
+      "no forced-liquidation price assumed"
+    ],
+    "outputs": {
+      "default": [
+        {
+          "parameters": {
+            "basket": 200000,
+            "contracts": 0,
+            "early_budget": 8000,
+            "late_before_deadline": false,
+            "allocate_released": false,
+            "loss_cap": 30000,
+            "depth": 3
+          },
+          "opening": {
+            "basket": 200000,
+            "general_cash": 0,
+            "fcm_cash": 6000,
+            "timely_pool": 8000,
+            "locked_pool": 6000,
+            "total": 220000,
+            "released_general_source": 0,
+            "released_designated": 0
+          },
+          "down_loss": 40000,
+          "initial_required": 0,
+          "entry_fee": 0,
+          "initial_required_plus_fee": 0,
+          "exit_fee": 0,
+          "required_path": [
+            {
+              "time": "T0",
+              "balance": 6000,
+              "required_balance": 0,
+              "required_call": 0,
+              "cumulative_required": 0
+            },
+            {
+              "time": "D1 10:00",
+              "variation_loss": 0,
+              "before": 6000,
+              "required_balance": 0,
+              "required_call": 0,
+              "cumulative_required": 0,
+              "balance": 6000
+            },
+            {
+              "time": "D2 10:00",
+              "variation_loss": 0,
+              "before": 6000,
+              "required_balance": 0,
+              "required_call": 0,
+              "cumulative_required": 0,
+              "balance": 6000
+            },
+            {
+              "time": "D3 10:00",
+              "variation_loss": 0,
+              "before": 6000,
+              "required_balance": 0,
+              "required_call": 0,
+              "cumulative_required": 0,
+              "balance": 6000
+            }
+          ],
+          "cumulative_required": 0,
+          "depth_ok": true,
+          "risk_ok": false,
+          "initial_ok": true,
+          "identity": "MES multiplier and tick are actual contract specifications; portfolio, futures prices, account amounts, margins, fee, depth and stress paths are teaching inputs",
+          "actual_path": [
+            {
+              "time": "T0",
+              "balance": 6000,
+              "required_balance": 0,
+              "actual_call": 0,
+              "required_call": 0,
+              "remaining_timely": 8000,
+              "remaining_locked": 6000,
+              "general_cash": 0,
+              "cash_total": 20000,
+              "cumulative_variation_loss": 0
+            },
+            {
+              "time": "D1 10:00",
+              "variation_loss": 0,
+              "before": 6000,
+              "required_balance": 0,
+              "required_call": 0,
+              "actual_call": 0,
+              "balance": 6000,
+              "remaining_timely": 8000,
+              "remaining_locked": 6000,
+              "general_cash": 0,
+              "unlocked_at_deadline": 0,
+              "cumulative_actual_calls": 0,
+              "cash_total": 20000,
+              "cumulative_variation_loss": 0,
+              "gap": 0
+            },
+            {
+              "time": "D2 10:00",
+              "variation_loss": 0,
+              "before": 6000,
+              "required_balance": 0,
+              "required_call": 0,
+              "actual_call": 0,
+              "balance": 6000,
+              "remaining_timely": 8000,
+              "remaining_locked": 6000,
+              "general_cash": 0,
+              "unlocked_at_deadline": 0,
+              "cumulative_actual_calls": 0,
+              "cash_total": 20000,
+              "cumulative_variation_loss": 0,
+              "gap": 0
+            },
+            {
+              "time": "D3 10:00",
+              "variation_loss": 0,
+              "before": 6000,
+              "required_balance": 0,
+              "required_call": 0,
+              "actual_call": 0,
+              "balance": 6000,
+              "remaining_timely": 8000,
+              "remaining_locked": 6000,
+              "general_cash": 0,
+              "unlocked_at_deadline": 0,
+              "cumulative_actual_calls": 0,
+              "cash_total": 20000,
+              "cumulative_variation_loss": 0,
+              "gap": 0
+            }
+          ],
+          "cash_ok": true,
+          "feasible": false,
+          "first_failure": null,
+          "failure_gap": 0,
+          "actual_calls": 0,
+          "ending_pools": {
+            "fcm_cash": 6000,
+            "timely_pool": 8000,
+            "locked_pool": 6000,
+            "general_cash": 0
+          },
+          "up_wealth_after_close": 249999.99999999997,
+          "up_gain_after_close": 29999.99999999997,
+          "up_outcome_identity": "Only the stated UP path if every cash call is funded; not a realized outcome after failure"
+        },
+        {
+          "parameters": {
+            "basket": 200000,
+            "contracts": 1,
+            "early_budget": 8000,
+            "late_before_deadline": false,
+            "allocate_released": false,
+            "loss_cap": 30000,
+            "depth": 3
+          },
+          "opening": {
+            "basket": 200000,
+            "general_cash": 0,
+            "fcm_cash": 6000,
+            "timely_pool": 8000,
+            "locked_pool": 6000,
+            "total": 220000,
+            "released_general_source": 0,
+            "released_designated": 0
+          },
+          "down_loss": 35504,
+          "initial_required": 1750,
+          "entry_fee": 2,
+          "initial_required_plus_fee": 1752,
+          "exit_fee": 2,
+          "required_path": [
+            {
+              "time": "T0",
+              "balance": 5998,
+              "required_balance": 1750,
+              "required_call": 0,
+              "cumulative_required": 0
+            },
+            {
+              "time": "D1 10:00",
+              "variation_loss": 1125,
+              "before": 4873,
+              "required_balance": 1750,
+              "required_call": 0,
+              "cumulative_required": 0,
+              "balance": 4873
+            },
+            {
+              "time": "D2 10:00",
+              "variation_loss": 1125,
+              "before": 3748,
+              "required_balance": 2000,
+              "required_call": 0,
+              "cumulative_required": 0,
+              "balance": 3748
+            },
+            {
+              "time": "D3 10:00",
+              "variation_loss": 1125,
+              "before": 2623,
+              "required_balance": 2200,
+              "required_call": 0,
+              "cumulative_required": 0,
+              "balance": 2623
+            }
+          ],
+          "cumulative_required": 0,
+          "depth_ok": true,
+          "risk_ok": false,
+          "initial_ok": true,
+          "identity": "MES multiplier and tick are actual contract specifications; portfolio, futures prices, account amounts, margins, fee, depth and stress paths are teaching inputs",
+          "actual_path": [
+            {
+              "time": "T0",
+              "balance": 5998,
+              "required_balance": 1750,
+              "actual_call": 0,
+              "required_call": 0,
+              "remaining_timely": 8000,
+              "remaining_locked": 6000,
+              "general_cash": 0,
+              "cash_total": 19998,
+              "cumulative_variation_loss": 0
+            },
+            {
+              "time": "D1 10:00",
+              "variation_loss": 1125,
+              "before": 4873,
+              "required_balance": 1750,
+              "required_call": 0,
+              "actual_call": 0,
+              "balance": 4873,
+              "remaining_timely": 8000,
+              "remaining_locked": 6000,
+              "general_cash": 0,
+              "unlocked_at_deadline": 0,
+              "cumulative_actual_calls": 0,
+              "cash_total": 18873,
+              "cumulative_variation_loss": 1125,
+              "gap": 0
+            },
+            {
+              "time": "D2 10:00",
+              "variation_loss": 1125,
+              "before": 3748,
+              "required_balance": 2000,
+              "required_call": 0,
+              "actual_call": 0,
+              "balance": 3748,
+              "remaining_timely": 8000,
+              "remaining_locked": 6000,
+              "general_cash": 0,
+              "unlocked_at_deadline": 0,
+              "cumulative_actual_calls": 0,
+              "cash_total": 17748,
+              "cumulative_variation_loss": 2250,
+              "gap": 0
+            },
+            {
+              "time": "D3 10:00",
+              "variation_loss": 1125,
+              "before": 2623,
+              "required_balance": 2200,
+              "required_call": 0,
+              "actual_call": 0,
+              "balance": 2623,
+              "remaining_timely": 8000,
+              "remaining_locked": 6000,
+              "general_cash": 0,
+              "unlocked_at_deadline": 0,
+              "cumulative_actual_calls": 0,
+              "cash_total": 16623,
+              "cumulative_variation_loss": 3375,
+              "gap": 0
+            }
+          ],
+          "cash_ok": true,
+          "feasible": false,
+          "first_failure": null,
+          "failure_gap": 0,
+          "actual_calls": 0,
+          "ending_pools": {
+            "fcm_cash": 2623,
+            "timely_pool": 8000,
+            "locked_pool": 6000,
+            "general_cash": 0
+          },
+          "up_wealth_after_close": 246620.99999999997,
+          "up_gain_after_close": 26620.99999999997,
+          "up_outcome_identity": "Only the stated UP path if every cash call is funded; not a realized outcome after failure"
+        },
+        {
+          "parameters": {
+            "basket": 200000,
+            "contracts": 2,
+            "early_budget": 8000,
+            "late_before_deadline": false,
+            "allocate_released": false,
+            "loss_cap": 30000,
+            "depth": 3
+          },
+          "opening": {
+            "basket": 200000,
+            "general_cash": 0,
+            "fcm_cash": 6000,
+            "timely_pool": 8000,
+            "locked_pool": 6000,
+            "total": 220000,
+            "released_general_source": 0,
+            "released_designated": 0
+          },
+          "down_loss": 31008,
+          "initial_required": 3500,
+          "entry_fee": 4,
+          "initial_required_plus_fee": 3504,
+          "exit_fee": 4,
+          "required_path": [
+            {
+              "time": "T0",
+              "balance": 5996,
+              "required_balance": 3500,
+              "required_call": 0,
+              "cumulative_required": 0
+            },
+            {
+              "time": "D1 10:00",
+              "variation_loss": 2250,
+              "before": 3746,
+              "required_balance": 3500,
+              "required_call": 0,
+              "cumulative_required": 0,
+              "balance": 3746
+            },
+            {
+              "time": "D2 10:00",
+              "variation_loss": 2250,
+              "before": 1496,
+              "required_balance": 4000,
+              "required_call": 2504,
+              "cumulative_required": 2504,
+              "balance": 4000
+            },
+            {
+              "time": "D3 10:00",
+              "variation_loss": 2250,
+              "before": 1750,
+              "required_balance": 4400,
+              "required_call": 2650,
+              "cumulative_required": 5154,
+              "balance": 4400
+            }
+          ],
+          "cumulative_required": 5154,
+          "depth_ok": true,
+          "risk_ok": false,
+          "initial_ok": true,
+          "identity": "MES multiplier and tick are actual contract specifications; portfolio, futures prices, account amounts, margins, fee, depth and stress paths are teaching inputs",
+          "actual_path": [
+            {
+              "time": "T0",
+              "balance": 5996,
+              "required_balance": 3500,
+              "actual_call": 0,
+              "required_call": 0,
+              "remaining_timely": 8000,
+              "remaining_locked": 6000,
+              "general_cash": 0,
+              "cash_total": 19996,
+              "cumulative_variation_loss": 0
+            },
+            {
+              "time": "D1 10:00",
+              "variation_loss": 2250,
+              "before": 3746,
+              "required_balance": 3500,
+              "required_call": 0,
+              "actual_call": 0,
+              "balance": 3746,
+              "remaining_timely": 8000,
+              "remaining_locked": 6000,
+              "general_cash": 0,
+              "unlocked_at_deadline": 0,
+              "cumulative_actual_calls": 0,
+              "cash_total": 17746,
+              "cumulative_variation_loss": 2250,
+              "gap": 0
+            },
+            {
+              "time": "D2 10:00",
+              "variation_loss": 2250,
+              "before": 1496,
+              "required_balance": 4000,
+              "required_call": 2504,
+              "actual_call": 2504,
+              "balance": 4000,
+              "remaining_timely": 5496,
+              "remaining_locked": 6000,
+              "general_cash": 0,
+              "unlocked_at_deadline": 0,
+              "cumulative_actual_calls": 2504,
+              "cash_total": 15496,
+              "cumulative_variation_loss": 4500,
+              "gap": 0
+            },
+            {
+              "time": "D3 10:00",
+              "variation_loss": 2250,
+              "before": 1750,
+              "required_balance": 4400,
+              "required_call": 2650,
+              "actual_call": 2650,
+              "balance": 4400,
+              "remaining_timely": 2846,
+              "remaining_locked": 6000,
+              "general_cash": 0,
+              "unlocked_at_deadline": 0,
+              "cumulative_actual_calls": 5154,
+              "cash_total": 13246,
+              "cumulative_variation_loss": 6750,
+              "gap": 0
+            }
+          ],
+          "cash_ok": true,
+          "feasible": false,
+          "first_failure": null,
+          "failure_gap": 0,
+          "actual_calls": 5154,
+          "ending_pools": {
+            "fcm_cash": 4400,
+            "timely_pool": 2846,
+            "locked_pool": 6000,
+            "general_cash": 0
+          },
+          "up_wealth_after_close": 243241.99999999997,
+          "up_gain_after_close": 23241.99999999997,
+          "up_outcome_identity": "Only the stated UP path if every cash call is funded; not a realized outcome after failure"
+        },
+        {
+          "parameters": {
+            "basket": 200000,
+            "contracts": 3,
+            "early_budget": 8000,
+            "late_before_deadline": false,
+            "allocate_released": false,
+            "loss_cap": 30000,
+            "depth": 3
+          },
+          "opening": {
+            "basket": 200000,
+            "general_cash": 0,
+            "fcm_cash": 6000,
+            "timely_pool": 8000,
+            "locked_pool": 6000,
+            "total": 220000,
+            "released_general_source": 0,
+            "released_designated": 0
+          },
+          "down_loss": 26512,
+          "initial_required": 5250,
+          "entry_fee": 6,
+          "initial_required_plus_fee": 5256,
+          "exit_fee": 6,
+          "required_path": [
+            {
+              "time": "T0",
+              "balance": 5994,
+              "required_balance": 5250,
+              "required_call": 0,
+              "cumulative_required": 0
+            },
+            {
+              "time": "D1 10:00",
+              "variation_loss": 3375,
+              "before": 2619,
+              "required_balance": 5250,
+              "required_call": 2631,
+              "cumulative_required": 2631,
+              "balance": 5250
+            },
+            {
+              "time": "D2 10:00",
+              "variation_loss": 3375,
+              "before": 1875,
+              "required_balance": 6000,
+              "required_call": 4125,
+              "cumulative_required": 6756,
+              "balance": 6000
+            },
+            {
+              "time": "D3 10:00",
+              "variation_loss": 3375,
+              "before": 2625,
+              "required_balance": 6600,
+              "required_call": 3975,
+              "cumulative_required": 10731,
+              "balance": 6600
+            }
+          ],
+          "cumulative_required": 10731,
+          "depth_ok": true,
+          "risk_ok": true,
+          "initial_ok": true,
+          "identity": "MES multiplier and tick are actual contract specifications; portfolio, futures prices, account amounts, margins, fee, depth and stress paths are teaching inputs",
+          "actual_path": [
+            {
+              "time": "T0",
+              "balance": 5994,
+              "required_balance": 5250,
+              "actual_call": 0,
+              "required_call": 0,
+              "remaining_timely": 8000,
+              "remaining_locked": 6000,
+              "general_cash": 0,
+              "cash_total": 19994,
+              "cumulative_variation_loss": 0
+            },
+            {
+              "time": "D1 10:00",
+              "variation_loss": 3375,
+              "before": 2619,
+              "required_balance": 5250,
+              "required_call": 2631,
+              "actual_call": 2631,
+              "balance": 5250,
+              "remaining_timely": 5369,
+              "remaining_locked": 6000,
+              "general_cash": 0,
+              "unlocked_at_deadline": 0,
+              "cumulative_actual_calls": 2631,
+              "cash_total": 16619,
+              "cumulative_variation_loss": 3375,
+              "gap": 0
+            },
+            {
+              "time": "D2 10:00",
+              "variation_loss": 3375,
+              "before": 1875,
+              "required_balance": 6000,
+              "required_call": 4125,
+              "actual_call": 4125,
+              "balance": 6000,
+              "remaining_timely": 1244,
+              "remaining_locked": 6000,
+              "general_cash": 0,
+              "unlocked_at_deadline": 0,
+              "cumulative_actual_calls": 6756,
+              "cash_total": 13244,
+              "cumulative_variation_loss": 6750,
+              "gap": 0
+            },
+            {
+              "time": "D3 10:00",
+              "variation_loss": 3375,
+              "before": 2625,
+              "required_balance": 6600,
+              "required_call": 3975,
+              "actual_call": 1244,
+              "balance": 3869,
+              "remaining_timely": 0,
+              "remaining_locked": 6000,
+              "general_cash": 0,
+              "unlocked_at_deadline": 0,
+              "cumulative_actual_calls": 8000,
+              "cash_total": 9869,
+              "cumulative_variation_loss": 10125,
+              "gap": 2731
+            }
+          ],
+          "cash_ok": false,
+          "feasible": false,
+          "first_failure": "D3 10:00",
+          "failure_gap": 2731,
+          "actual_calls": 8000,
+          "ending_pools": {
+            "fcm_cash": 3869,
+            "timely_pool": 0,
+            "locked_pool": 6000,
+            "general_cash": 0
+          },
+          "up_wealth_after_close": null,
+          "up_gain_after_close": null,
+          "up_outcome_identity": "Only the stated UP path if every cash call is funded; not a realized outcome after failure"
+        }
+      ],
+      "reduced": [
+        {
+          "parameters": {
+            "basket": 190000,
+            "contracts": 0,
+            "early_budget": 8000,
+            "late_before_deadline": false,
+            "allocate_released": false,
+            "loss_cap": 30000,
+            "depth": 3
+          },
+          "opening": {
+            "basket": 190000,
+            "general_cash": 10000,
+            "fcm_cash": 6000,
+            "timely_pool": 8000,
+            "locked_pool": 6000,
+            "total": 220000,
+            "released_general_source": 10000,
+            "released_designated": 0
+          },
+          "down_loss": 38000,
+          "initial_required": 0,
+          "entry_fee": 0,
+          "initial_required_plus_fee": 0,
+          "exit_fee": 0,
+          "required_path": [
+            {
+              "time": "T0",
+              "balance": 6000,
+              "required_balance": 0,
+              "required_call": 0,
+              "cumulative_required": 0
+            },
+            {
+              "time": "D1 10:00",
+              "variation_loss": 0,
+              "before": 6000,
+              "required_balance": 0,
+              "required_call": 0,
+              "cumulative_required": 0,
+              "balance": 6000
+            },
+            {
+              "time": "D2 10:00",
+              "variation_loss": 0,
+              "before": 6000,
+              "required_balance": 0,
+              "required_call": 0,
+              "cumulative_required": 0,
+              "balance": 6000
+            },
+            {
+              "time": "D3 10:00",
+              "variation_loss": 0,
+              "before": 6000,
+              "required_balance": 0,
+              "required_call": 0,
+              "cumulative_required": 0,
+              "balance": 6000
+            }
+          ],
+          "cumulative_required": 0,
+          "depth_ok": true,
+          "risk_ok": false,
+          "initial_ok": true,
+          "identity": "MES multiplier and tick are actual contract specifications; portfolio, futures prices, account amounts, margins, fee, depth and stress paths are teaching inputs",
+          "actual_path": [
+            {
+              "time": "T0",
+              "balance": 6000,
+              "required_balance": 0,
+              "actual_call": 0,
+              "required_call": 0,
+              "remaining_timely": 8000,
+              "remaining_locked": 6000,
+              "general_cash": 10000,
+              "cash_total": 30000,
+              "cumulative_variation_loss": 0
+            },
+            {
+              "time": "D1 10:00",
+              "variation_loss": 0,
+              "before": 6000,
+              "required_balance": 0,
+              "required_call": 0,
+              "actual_call": 0,
+              "balance": 6000,
+              "remaining_timely": 8000,
+              "remaining_locked": 6000,
+              "general_cash": 10000,
+              "unlocked_at_deadline": 0,
+              "cumulative_actual_calls": 0,
+              "cash_total": 30000,
+              "cumulative_variation_loss": 0,
+              "gap": 0
+            },
+            {
+              "time": "D2 10:00",
+              "variation_loss": 0,
+              "before": 6000,
+              "required_balance": 0,
+              "required_call": 0,
+              "actual_call": 0,
+              "balance": 6000,
+              "remaining_timely": 8000,
+              "remaining_locked": 6000,
+              "general_cash": 10000,
+              "unlocked_at_deadline": 0,
+              "cumulative_actual_calls": 0,
+              "cash_total": 30000,
+              "cumulative_variation_loss": 0,
+              "gap": 0
+            },
+            {
+              "time": "D3 10:00",
+              "variation_loss": 0,
+              "before": 6000,
+              "required_balance": 0,
+              "required_call": 0,
+              "actual_call": 0,
+              "balance": 6000,
+              "remaining_timely": 8000,
+              "remaining_locked": 6000,
+              "general_cash": 10000,
+              "unlocked_at_deadline": 0,
+              "cumulative_actual_calls": 0,
+              "cash_total": 30000,
+              "cumulative_variation_loss": 0,
+              "gap": 0
+            }
+          ],
+          "cash_ok": true,
+          "feasible": false,
+          "first_failure": null,
+          "failure_gap": 0,
+          "actual_calls": 0,
+          "ending_pools": {
+            "fcm_cash": 6000,
+            "timely_pool": 8000,
+            "locked_pool": 6000,
+            "general_cash": 10000
+          },
+          "up_wealth_after_close": 248499.99999999997,
+          "up_gain_after_close": 28499.99999999997,
+          "up_outcome_identity": "Only the stated UP path if every cash call is funded; not a realized outcome after failure"
+        },
+        {
+          "parameters": {
+            "basket": 190000,
+            "contracts": 1,
+            "early_budget": 8000,
+            "late_before_deadline": false,
+            "allocate_released": false,
+            "loss_cap": 30000,
+            "depth": 3
+          },
+          "opening": {
+            "basket": 190000,
+            "general_cash": 10000,
+            "fcm_cash": 6000,
+            "timely_pool": 8000,
+            "locked_pool": 6000,
+            "total": 220000,
+            "released_general_source": 10000,
+            "released_designated": 0
+          },
+          "down_loss": 33504,
+          "initial_required": 1750,
+          "entry_fee": 2,
+          "initial_required_plus_fee": 1752,
+          "exit_fee": 2,
+          "required_path": [
+            {
+              "time": "T0",
+              "balance": 5998,
+              "required_balance": 1750,
+              "required_call": 0,
+              "cumulative_required": 0
+            },
+            {
+              "time": "D1 10:00",
+              "variation_loss": 1125,
+              "before": 4873,
+              "required_balance": 1750,
+              "required_call": 0,
+              "cumulative_required": 0,
+              "balance": 4873
+            },
+            {
+              "time": "D2 10:00",
+              "variation_loss": 1125,
+              "before": 3748,
+              "required_balance": 2000,
+              "required_call": 0,
+              "cumulative_required": 0,
+              "balance": 3748
+            },
+            {
+              "time": "D3 10:00",
+              "variation_loss": 1125,
+              "before": 2623,
+              "required_balance": 2200,
+              "required_call": 0,
+              "cumulative_required": 0,
+              "balance": 2623
+            }
+          ],
+          "cumulative_required": 0,
+          "depth_ok": true,
+          "risk_ok": false,
+          "initial_ok": true,
+          "identity": "MES multiplier and tick are actual contract specifications; portfolio, futures prices, account amounts, margins, fee, depth and stress paths are teaching inputs",
+          "actual_path": [
+            {
+              "time": "T0",
+              "balance": 5998,
+              "required_balance": 1750,
+              "actual_call": 0,
+              "required_call": 0,
+              "remaining_timely": 8000,
+              "remaining_locked": 6000,
+              "general_cash": 10000,
+              "cash_total": 29998,
+              "cumulative_variation_loss": 0
+            },
+            {
+              "time": "D1 10:00",
+              "variation_loss": 1125,
+              "before": 4873,
+              "required_balance": 1750,
+              "required_call": 0,
+              "actual_call": 0,
+              "balance": 4873,
+              "remaining_timely": 8000,
+              "remaining_locked": 6000,
+              "general_cash": 10000,
+              "unlocked_at_deadline": 0,
+              "cumulative_actual_calls": 0,
+              "cash_total": 28873,
+              "cumulative_variation_loss": 1125,
+              "gap": 0
+            },
+            {
+              "time": "D2 10:00",
+              "variation_loss": 1125,
+              "before": 3748,
+              "required_balance": 2000,
+              "required_call": 0,
+              "actual_call": 0,
+              "balance": 3748,
+              "remaining_timely": 8000,
+              "remaining_locked": 6000,
+              "general_cash": 10000,
+              "unlocked_at_deadline": 0,
+              "cumulative_actual_calls": 0,
+              "cash_total": 27748,
+              "cumulative_variation_loss": 2250,
+              "gap": 0
+            },
+            {
+              "time": "D3 10:00",
+              "variation_loss": 1125,
+              "before": 2623,
+              "required_balance": 2200,
+              "required_call": 0,
+              "actual_call": 0,
+              "balance": 2623,
+              "remaining_timely": 8000,
+              "remaining_locked": 6000,
+              "general_cash": 10000,
+              "unlocked_at_deadline": 0,
+              "cumulative_actual_calls": 0,
+              "cash_total": 26623,
+              "cumulative_variation_loss": 3375,
+              "gap": 0
+            }
+          ],
+          "cash_ok": true,
+          "feasible": false,
+          "first_failure": null,
+          "failure_gap": 0,
+          "actual_calls": 0,
+          "ending_pools": {
+            "fcm_cash": 2623,
+            "timely_pool": 8000,
+            "locked_pool": 6000,
+            "general_cash": 10000
+          },
+          "up_wealth_after_close": 245120.99999999997,
+          "up_gain_after_close": 25120.99999999997,
+          "up_outcome_identity": "Only the stated UP path if every cash call is funded; not a realized outcome after failure"
+        },
+        {
+          "parameters": {
+            "basket": 190000,
+            "contracts": 2,
+            "early_budget": 8000,
+            "late_before_deadline": false,
+            "allocate_released": false,
+            "loss_cap": 30000,
+            "depth": 3
+          },
+          "opening": {
+            "basket": 190000,
+            "general_cash": 10000,
+            "fcm_cash": 6000,
+            "timely_pool": 8000,
+            "locked_pool": 6000,
+            "total": 220000,
+            "released_general_source": 10000,
+            "released_designated": 0
+          },
+          "down_loss": 29008,
+          "initial_required": 3500,
+          "entry_fee": 4,
+          "initial_required_plus_fee": 3504,
+          "exit_fee": 4,
+          "required_path": [
+            {
+              "time": "T0",
+              "balance": 5996,
+              "required_balance": 3500,
+              "required_call": 0,
+              "cumulative_required": 0
+            },
+            {
+              "time": "D1 10:00",
+              "variation_loss": 2250,
+              "before": 3746,
+              "required_balance": 3500,
+              "required_call": 0,
+              "cumulative_required": 0,
+              "balance": 3746
+            },
+            {
+              "time": "D2 10:00",
+              "variation_loss": 2250,
+              "before": 1496,
+              "required_balance": 4000,
+              "required_call": 2504,
+              "cumulative_required": 2504,
+              "balance": 4000
+            },
+            {
+              "time": "D3 10:00",
+              "variation_loss": 2250,
+              "before": 1750,
+              "required_balance": 4400,
+              "required_call": 2650,
+              "cumulative_required": 5154,
+              "balance": 4400
+            }
+          ],
+          "cumulative_required": 5154,
+          "depth_ok": true,
+          "risk_ok": true,
+          "initial_ok": true,
+          "identity": "MES multiplier and tick are actual contract specifications; portfolio, futures prices, account amounts, margins, fee, depth and stress paths are teaching inputs",
+          "actual_path": [
+            {
+              "time": "T0",
+              "balance": 5996,
+              "required_balance": 3500,
+              "actual_call": 0,
+              "required_call": 0,
+              "remaining_timely": 8000,
+              "remaining_locked": 6000,
+              "general_cash": 10000,
+              "cash_total": 29996,
+              "cumulative_variation_loss": 0
+            },
+            {
+              "time": "D1 10:00",
+              "variation_loss": 2250,
+              "before": 3746,
+              "required_balance": 3500,
+              "required_call": 0,
+              "actual_call": 0,
+              "balance": 3746,
+              "remaining_timely": 8000,
+              "remaining_locked": 6000,
+              "general_cash": 10000,
+              "unlocked_at_deadline": 0,
+              "cumulative_actual_calls": 0,
+              "cash_total": 27746,
+              "cumulative_variation_loss": 2250,
+              "gap": 0
+            },
+            {
+              "time": "D2 10:00",
+              "variation_loss": 2250,
+              "before": 1496,
+              "required_balance": 4000,
+              "required_call": 2504,
+              "actual_call": 2504,
+              "balance": 4000,
+              "remaining_timely": 5496,
+              "remaining_locked": 6000,
+              "general_cash": 10000,
+              "unlocked_at_deadline": 0,
+              "cumulative_actual_calls": 2504,
+              "cash_total": 25496,
+              "cumulative_variation_loss": 4500,
+              "gap": 0
+            },
+            {
+              "time": "D3 10:00",
+              "variation_loss": 2250,
+              "before": 1750,
+              "required_balance": 4400,
+              "required_call": 2650,
+              "actual_call": 2650,
+              "balance": 4400,
+              "remaining_timely": 2846,
+              "remaining_locked": 6000,
+              "general_cash": 10000,
+              "unlocked_at_deadline": 0,
+              "cumulative_actual_calls": 5154,
+              "cash_total": 23246,
+              "cumulative_variation_loss": 6750,
+              "gap": 0
+            }
+          ],
+          "cash_ok": true,
+          "feasible": true,
+          "first_failure": null,
+          "failure_gap": 0,
+          "actual_calls": 5154,
+          "ending_pools": {
+            "fcm_cash": 4400,
+            "timely_pool": 2846,
+            "locked_pool": 6000,
+            "general_cash": 10000
+          },
+          "up_wealth_after_close": 241741.99999999997,
+          "up_gain_after_close": 21741.99999999997,
+          "up_outcome_identity": "Only the stated UP path if every cash call is funded; not a realized outcome after failure"
+        },
+        {
+          "parameters": {
+            "basket": 190000,
+            "contracts": 3,
+            "early_budget": 8000,
+            "late_before_deadline": false,
+            "allocate_released": false,
+            "loss_cap": 30000,
+            "depth": 3
+          },
+          "opening": {
+            "basket": 190000,
+            "general_cash": 10000,
+            "fcm_cash": 6000,
+            "timely_pool": 8000,
+            "locked_pool": 6000,
+            "total": 220000,
+            "released_general_source": 10000,
+            "released_designated": 0
+          },
+          "down_loss": 24512,
+          "initial_required": 5250,
+          "entry_fee": 6,
+          "initial_required_plus_fee": 5256,
+          "exit_fee": 6,
+          "required_path": [
+            {
+              "time": "T0",
+              "balance": 5994,
+              "required_balance": 5250,
+              "required_call": 0,
+              "cumulative_required": 0
+            },
+            {
+              "time": "D1 10:00",
+              "variation_loss": 3375,
+              "before": 2619,
+              "required_balance": 5250,
+              "required_call": 2631,
+              "cumulative_required": 2631,
+              "balance": 5250
+            },
+            {
+              "time": "D2 10:00",
+              "variation_loss": 3375,
+              "before": 1875,
+              "required_balance": 6000,
+              "required_call": 4125,
+              "cumulative_required": 6756,
+              "balance": 6000
+            },
+            {
+              "time": "D3 10:00",
+              "variation_loss": 3375,
+              "before": 2625,
+              "required_balance": 6600,
+              "required_call": 3975,
+              "cumulative_required": 10731,
+              "balance": 6600
+            }
+          ],
+          "cumulative_required": 10731,
+          "depth_ok": true,
+          "risk_ok": true,
+          "initial_ok": true,
+          "identity": "MES multiplier and tick are actual contract specifications; portfolio, futures prices, account amounts, margins, fee, depth and stress paths are teaching inputs",
+          "actual_path": [
+            {
+              "time": "T0",
+              "balance": 5994,
+              "required_balance": 5250,
+              "actual_call": 0,
+              "required_call": 0,
+              "remaining_timely": 8000,
+              "remaining_locked": 6000,
+              "general_cash": 10000,
+              "cash_total": 29994,
+              "cumulative_variation_loss": 0
+            },
+            {
+              "time": "D1 10:00",
+              "variation_loss": 3375,
+              "before": 2619,
+              "required_balance": 5250,
+              "required_call": 2631,
+              "actual_call": 2631,
+              "balance": 5250,
+              "remaining_timely": 5369,
+              "remaining_locked": 6000,
+              "general_cash": 10000,
+              "unlocked_at_deadline": 0,
+              "cumulative_actual_calls": 2631,
+              "cash_total": 26619,
+              "cumulative_variation_loss": 3375,
+              "gap": 0
+            },
+            {
+              "time": "D2 10:00",
+              "variation_loss": 3375,
+              "before": 1875,
+              "required_balance": 6000,
+              "required_call": 4125,
+              "actual_call": 4125,
+              "balance": 6000,
+              "remaining_timely": 1244,
+              "remaining_locked": 6000,
+              "general_cash": 10000,
+              "unlocked_at_deadline": 0,
+              "cumulative_actual_calls": 6756,
+              "cash_total": 23244,
+              "cumulative_variation_loss": 6750,
+              "gap": 0
+            },
+            {
+              "time": "D3 10:00",
+              "variation_loss": 3375,
+              "before": 2625,
+              "required_balance": 6600,
+              "required_call": 3975,
+              "actual_call": 1244,
+              "balance": 3869,
+              "remaining_timely": 0,
+              "remaining_locked": 6000,
+              "general_cash": 10000,
+              "unlocked_at_deadline": 0,
+              "cumulative_actual_calls": 8000,
+              "cash_total": 19869,
+              "cumulative_variation_loss": 10125,
+              "gap": 2731
+            }
+          ],
+          "cash_ok": false,
+          "feasible": false,
+          "first_failure": "D3 10:00",
+          "failure_gap": 2731,
+          "actual_calls": 8000,
+          "ending_pools": {
+            "fcm_cash": 3869,
+            "timely_pool": 0,
+            "locked_pool": 6000,
+            "general_cash": 10000
+          },
+          "up_wealth_after_close": null,
+          "up_gain_after_close": null,
+          "up_outcome_identity": "Only the stated UP path if every cash call is funded; not a realized outcome after failure"
+        }
+      ],
+      "late_early": {
+        "parameters": {
+          "basket": 200000,
+          "contracts": 3,
+          "early_budget": 8000,
+          "late_before_deadline": true,
+          "allocate_released": false,
+          "loss_cap": 30000,
+          "depth": 3
+        },
+        "opening": {
+          "basket": 200000,
+          "general_cash": 0,
+          "fcm_cash": 6000,
+          "timely_pool": 8000,
+          "locked_pool": 6000,
+          "total": 220000,
+          "released_general_source": 0,
+          "released_designated": 0
+        },
+        "down_loss": 26512,
+        "initial_required": 5250,
+        "entry_fee": 6,
+        "initial_required_plus_fee": 5256,
+        "exit_fee": 6,
+        "required_path": [
+          {
+            "time": "T0",
+            "balance": 5994,
+            "required_balance": 5250,
+            "required_call": 0,
+            "cumulative_required": 0
+          },
+          {
+            "time": "D1 10:00",
+            "variation_loss": 3375,
+            "before": 2619,
+            "required_balance": 5250,
+            "required_call": 2631,
+            "cumulative_required": 2631,
+            "balance": 5250
+          },
+          {
+            "time": "D2 10:00",
+            "variation_loss": 3375,
+            "before": 1875,
+            "required_balance": 6000,
+            "required_call": 4125,
+            "cumulative_required": 6756,
+            "balance": 6000
+          },
+          {
+            "time": "D3 10:00",
+            "variation_loss": 3375,
+            "before": 2625,
+            "required_balance": 6600,
+            "required_call": 3975,
+            "cumulative_required": 10731,
+            "balance": 6600
+          }
+        ],
+        "cumulative_required": 10731,
+        "depth_ok": true,
+        "risk_ok": true,
+        "initial_ok": true,
+        "identity": "MES multiplier and tick are actual contract specifications; portfolio, futures prices, account amounts, margins, fee, depth and stress paths are teaching inputs",
+        "actual_path": [
+          {
+            "time": "T0",
+            "balance": 5994,
+            "required_balance": 5250,
+            "actual_call": 0,
+            "required_call": 0,
+            "remaining_timely": 8000,
+            "remaining_locked": 6000,
+            "general_cash": 0,
+            "cash_total": 19994,
+            "cumulative_variation_loss": 0
+          },
+          {
+            "time": "D1 10:00",
+            "variation_loss": 3375,
+            "before": 2619,
+            "required_balance": 5250,
+            "required_call": 2631,
+            "actual_call": 2631,
+            "balance": 5250,
+            "remaining_timely": 5369,
+            "remaining_locked": 6000,
+            "general_cash": 0,
+            "unlocked_at_deadline": 0,
+            "cumulative_actual_calls": 2631,
+            "cash_total": 16619,
+            "cumulative_variation_loss": 3375,
+            "gap": 0
+          },
+          {
+            "time": "D2 10:00",
+            "variation_loss": 3375,
+            "before": 1875,
+            "required_balance": 6000,
+            "required_call": 4125,
+            "actual_call": 4125,
+            "balance": 6000,
+            "remaining_timely": 1244,
+            "remaining_locked": 6000,
+            "general_cash": 0,
+            "unlocked_at_deadline": 0,
+            "cumulative_actual_calls": 6756,
+            "cash_total": 13244,
+            "cumulative_variation_loss": 6750,
+            "gap": 0
+          },
+          {
+            "time": "D3 10:00",
+            "variation_loss": 3375,
+            "before": 2625,
+            "required_balance": 6600,
+            "required_call": 3975,
+            "actual_call": 3975,
+            "balance": 6600,
+            "remaining_timely": 3269,
+            "remaining_locked": 0,
+            "general_cash": 0,
+            "unlocked_at_deadline": 6000,
+            "cumulative_actual_calls": 10731,
+            "cash_total": 9869,
+            "cumulative_variation_loss": 10125,
+            "gap": 0
+          }
+        ],
+        "cash_ok": true,
+        "feasible": true,
+        "first_failure": null,
+        "failure_gap": 0,
+        "actual_calls": 10731,
+        "ending_pools": {
+          "fcm_cash": 6600,
+          "timely_pool": 3269,
+          "locked_pool": 0,
+          "general_cash": 0
+        },
+        "up_wealth_after_close": 239862.99999999997,
+        "up_gain_after_close": 19862.99999999997,
+        "up_outcome_identity": "Only the stated UP path if every cash call is funded; not a realized outcome after failure"
+      },
+      "relaxed_loss": {
+        "parameters": {
+          "basket": 200000,
+          "contracts": 2,
+          "early_budget": 8000,
+          "late_before_deadline": false,
+          "allocate_released": false,
+          "loss_cap": 31500,
+          "depth": 3
+        },
+        "opening": {
+          "basket": 200000,
+          "general_cash": 0,
+          "fcm_cash": 6000,
+          "timely_pool": 8000,
+          "locked_pool": 6000,
+          "total": 220000,
+          "released_general_source": 0,
+          "released_designated": 0
+        },
+        "down_loss": 31008,
+        "initial_required": 3500,
+        "entry_fee": 4,
+        "initial_required_plus_fee": 3504,
+        "exit_fee": 4,
+        "required_path": [
+          {
+            "time": "T0",
+            "balance": 5996,
+            "required_balance": 3500,
+            "required_call": 0,
+            "cumulative_required": 0
+          },
+          {
+            "time": "D1 10:00",
+            "variation_loss": 2250,
+            "before": 3746,
+            "required_balance": 3500,
+            "required_call": 0,
+            "cumulative_required": 0,
+            "balance": 3746
+          },
+          {
+            "time": "D2 10:00",
+            "variation_loss": 2250,
+            "before": 1496,
+            "required_balance": 4000,
+            "required_call": 2504,
+            "cumulative_required": 2504,
+            "balance": 4000
+          },
+          {
+            "time": "D3 10:00",
+            "variation_loss": 2250,
+            "before": 1750,
+            "required_balance": 4400,
+            "required_call": 2650,
+            "cumulative_required": 5154,
+            "balance": 4400
+          }
+        ],
+        "cumulative_required": 5154,
+        "depth_ok": true,
+        "risk_ok": true,
+        "initial_ok": true,
+        "identity": "MES multiplier and tick are actual contract specifications; portfolio, futures prices, account amounts, margins, fee, depth and stress paths are teaching inputs",
+        "actual_path": [
+          {
+            "time": "T0",
+            "balance": 5996,
+            "required_balance": 3500,
+            "actual_call": 0,
+            "required_call": 0,
+            "remaining_timely": 8000,
+            "remaining_locked": 6000,
+            "general_cash": 0,
+            "cash_total": 19996,
+            "cumulative_variation_loss": 0
+          },
+          {
+            "time": "D1 10:00",
+            "variation_loss": 2250,
+            "before": 3746,
+            "required_balance": 3500,
+            "required_call": 0,
+            "actual_call": 0,
+            "balance": 3746,
+            "remaining_timely": 8000,
+            "remaining_locked": 6000,
+            "general_cash": 0,
+            "unlocked_at_deadline": 0,
+            "cumulative_actual_calls": 0,
+            "cash_total": 17746,
+            "cumulative_variation_loss": 2250,
+            "gap": 0
+          },
+          {
+            "time": "D2 10:00",
+            "variation_loss": 2250,
+            "before": 1496,
+            "required_balance": 4000,
+            "required_call": 2504,
+            "actual_call": 2504,
+            "balance": 4000,
+            "remaining_timely": 5496,
+            "remaining_locked": 6000,
+            "general_cash": 0,
+            "unlocked_at_deadline": 0,
+            "cumulative_actual_calls": 2504,
+            "cash_total": 15496,
+            "cumulative_variation_loss": 4500,
+            "gap": 0
+          },
+          {
+            "time": "D3 10:00",
+            "variation_loss": 2250,
+            "before": 1750,
+            "required_balance": 4400,
+            "required_call": 2650,
+            "actual_call": 2650,
+            "balance": 4400,
+            "remaining_timely": 2846,
+            "remaining_locked": 6000,
+            "general_cash": 0,
+            "unlocked_at_deadline": 0,
+            "cumulative_actual_calls": 5154,
+            "cash_total": 13246,
+            "cumulative_variation_loss": 6750,
+            "gap": 0
+          }
+        ],
+        "cash_ok": true,
+        "feasible": true,
+        "first_failure": null,
+        "failure_gap": 0,
+        "actual_calls": 5154,
+        "ending_pools": {
+          "fcm_cash": 4400,
+          "timely_pool": 2846,
+          "locked_pool": 6000,
+          "general_cash": 0
+        },
+        "up_wealth_after_close": 243241.99999999997,
+        "up_gain_after_close": 23241.99999999997,
+        "up_outcome_identity": "Only the stated UP path if every cash call is funded; not a realized outcome after failure"
+      },
+      "reallocated": {
+        "parameters": {
+          "basket": 190000,
+          "contracts": 3,
+          "early_budget": 8000,
+          "late_before_deadline": false,
+          "allocate_released": true,
+          "loss_cap": 30000,
+          "depth": 3
+        },
+        "opening": {
+          "basket": 190000,
+          "general_cash": 0,
+          "fcm_cash": 6000,
+          "timely_pool": 18000,
+          "locked_pool": 6000,
+          "total": 220000,
+          "released_general_source": 10000,
+          "released_designated": 10000
+        },
+        "down_loss": 24512,
+        "initial_required": 5250,
+        "entry_fee": 6,
+        "initial_required_plus_fee": 5256,
+        "exit_fee": 6,
+        "required_path": [
+          {
+            "time": "T0",
+            "balance": 5994,
+            "required_balance": 5250,
+            "required_call": 0,
+            "cumulative_required": 0
+          },
+          {
+            "time": "D1 10:00",
+            "variation_loss": 3375,
+            "before": 2619,
+            "required_balance": 5250,
+            "required_call": 2631,
+            "cumulative_required": 2631,
+            "balance": 5250
+          },
+          {
+            "time": "D2 10:00",
+            "variation_loss": 3375,
+            "before": 1875,
+            "required_balance": 6000,
+            "required_call": 4125,
+            "cumulative_required": 6756,
+            "balance": 6000
+          },
+          {
+            "time": "D3 10:00",
+            "variation_loss": 3375,
+            "before": 2625,
+            "required_balance": 6600,
+            "required_call": 3975,
+            "cumulative_required": 10731,
+            "balance": 6600
+          }
+        ],
+        "cumulative_required": 10731,
+        "depth_ok": true,
+        "risk_ok": true,
+        "initial_ok": true,
+        "identity": "MES multiplier and tick are actual contract specifications; portfolio, futures prices, account amounts, margins, fee, depth and stress paths are teaching inputs",
+        "actual_path": [
+          {
+            "time": "T0",
+            "balance": 5994,
+            "required_balance": 5250,
+            "actual_call": 0,
+            "required_call": 0,
+            "remaining_timely": 18000,
+            "remaining_locked": 6000,
+            "general_cash": 0,
+            "cash_total": 29994,
+            "cumulative_variation_loss": 0
+          },
+          {
+            "time": "D1 10:00",
+            "variation_loss": 3375,
+            "before": 2619,
+            "required_balance": 5250,
+            "required_call": 2631,
+            "actual_call": 2631,
+            "balance": 5250,
+            "remaining_timely": 15369,
+            "remaining_locked": 6000,
+            "general_cash": 0,
+            "unlocked_at_deadline": 0,
+            "cumulative_actual_calls": 2631,
+            "cash_total": 26619,
+            "cumulative_variation_loss": 3375,
+            "gap": 0
+          },
+          {
+            "time": "D2 10:00",
+            "variation_loss": 3375,
+            "before": 1875,
+            "required_balance": 6000,
+            "required_call": 4125,
+            "actual_call": 4125,
+            "balance": 6000,
+            "remaining_timely": 11244,
+            "remaining_locked": 6000,
+            "general_cash": 0,
+            "unlocked_at_deadline": 0,
+            "cumulative_actual_calls": 6756,
+            "cash_total": 23244,
+            "cumulative_variation_loss": 6750,
+            "gap": 0
+          },
+          {
+            "time": "D3 10:00",
+            "variation_loss": 3375,
+            "before": 2625,
+            "required_balance": 6600,
+            "required_call": 3975,
+            "actual_call": 3975,
+            "balance": 6600,
+            "remaining_timely": 7269,
+            "remaining_locked": 6000,
+            "general_cash": 0,
+            "unlocked_at_deadline": 0,
+            "cumulative_actual_calls": 10731,
+            "cash_total": 19869,
+            "cumulative_variation_loss": 10125,
+            "gap": 0
+          }
+        ],
+        "cash_ok": true,
+        "feasible": true,
+        "first_failure": null,
+        "failure_gap": 0,
+        "actual_calls": 10731,
+        "ending_pools": {
+          "fcm_cash": 6600,
+          "timely_pool": 7269,
+          "locked_pool": 6000,
+          "general_cash": 0
+        },
+        "up_wealth_after_close": 238362.99999999997,
+        "up_gain_after_close": 18362.99999999997,
+        "up_outcome_identity": "Only the stated UP path if every cash call is funded; not a realized outcome after failure"
+      }
+    },
+    "static_equivalent_markdown": "| 张数 | DOWN损失 | 完整持有所需补款 | 实际累计补款 | 首个现金缺口 | 全部可行 |\n| --- | --- | --- | --- | --- | --- |\n| 0 | 40,000 | 0 | 0 | 0 | False |\n| 1 | 35,504 | 0 | 0 | 0 | False |\n| 2 | 31,008 | 5,154 | 5,154 | 0 | False |\n| 3 | 26,512 | 10,731 | 8,000 | 2,731 | False |\n\n实际3张逐日账（不是足额融资假设账）：\n\n| 时点 | 应补 | 实补 | 补后余额 | 及时池余 | 待解锁 | 缺口 |\n| --- | --- | --- | --- | --- | --- | --- |\n| T0 | 0 | 0 | 5,994 | 8,000 | 6,000 | 0 |\n| D1 10:00 | 2,631 | 2,631 | 5,250 | 5,369 | 6,000 | 0 |\n| D2 10:00 | 4,125 | 4,125 | 6,000 | 1,244 | 6,000 | 0 |\n| D3 10:00 | 3,975 | 1,244 | 3,869 | 0 | 6,000 | 2,731 |\n\n190000篮子、2张：一般现金10000；DOWN29008，需补5154，可行。原篮子3张且6000于D3截止前到达也可行。所有初始资金池合计220000。"
+  },
+  {
+    "id": "EXP-P11-MAINTENANCE-DECISION",
+    "node_id": "P11",
+    "title": "再平衡、退出与判断维护：操作实验",
+    "anchor": "p11-lab",
+    "description": "把触发与目的地、费用后的交易量、外部新资本和判断更新分别放回同一维护过程。",
+    "inputs": {
+      "shared_input_id": "PE-DRAFT-INPUTS-20260921-v1",
+      "frozen_case_keys": [
+        "rebalance",
+        "index_event"
+      ],
+      "controls": {
+        "default": {
+          "weight": 0.624,
+          "target": 0.6,
+          "trigger": 0.02,
+          "destination": 0.0175,
+          "cost": 0.002,
+          "next_return": 0.05,
+          "mode": "partial",
+          "reason": "drift"
+        },
+        "limits": {
+          "weight": [
+            0,
+            1
+          ],
+          "target": [
+            0.1,
+            0.9
+          ],
+          "trigger": [
+            0.005,
+            0.1
+          ],
+          "destination": [
+            0,
+            0.1
+          ],
+          "cost": [
+            0,
+            0.01
+          ],
+          "next_return": [
+            -0.2,
+            0.2
+          ]
+        },
+        "modes": [
+          "none",
+          "partial",
+          "full",
+          "contribution"
+        ],
+        "reasons": [
+          "drift",
+          "cashflow",
+          "target_changed",
+          "thesis_changed"
+        ],
+        "trigger_convention": "Strictly above target+trigger; equality does not trigger in this teaching implementation",
+        "contribution_identity": "4000 external new cash placed into bonds, ignoring its own transaction cost; not portfolio return",
+        "direction": "Only sell stocks and buy bonds; underweight/inverse trades explicitly unsupported"
+      },
+      "unit_contract": {
+        "amount": "USD",
+        "shares": "shares",
+        "futures": "integer contracts",
+        "index": "index points",
+        "rate": "fraction unless UI percent/bps labelled",
+        "p09_cost_bps_denominator": "target_shares * decision_price",
+        "feds_bps": "paper-defined duration-normalized yield equivalent basis points"
+      }
+    },
+    "algorithm": [
+      "current_stock=100000×weight；target、trigger、destination分别给定，严格超过上侧阈值才触发。",
+      "仅卖股买债：0≤destination<trigger；低配拒绝反向量；thesis/target_changed先返回needs-judgment。",
+      "已触发partial的u=target+destination，full的u=target；x=(S−uV)/(1−u×c)。",
+      "成本c×x一次；S′=S−x，B′=B+x−c×x，V′=V−c×x；以V′求权重。",
+      "contribution固定外部4000进入债券，本分支忽略该新增投入交易成本，即时净损益0。",
+      "next财富=S′(1+r)+B′；新资本分支按V+4000资金基数说明，不把本金视为收益。"
+    ],
+    "boundaries": [
+      "no negative sell amount",
+      "no trigger at equality under explicit convention",
+      "no action before trigger",
+      "0<=cost<=.01",
+      "finite/range validation",
+      "destination strictly below trigger",
+      "changed thesis not automatic no-action advice"
+    ],
+    "outputs": [
+      {
+        "mode": "none",
+        "up": {
+          "parameters": {
+            "weight": 0.624,
+            "target": 0.6,
+            "trigger": 0.02,
+            "destination": 0.0175,
+            "cost": 0.002,
+            "next_return": 0.05,
+            "mode": "none",
+            "reason": "drift"
+          },
+          "initial_stock": 62400,
+          "initial_bond": 37600,
+          "initial_total": 100000,
+          "current_weight": 0.624,
+          "threshold_weight": 0.62,
+          "destination_weight": 0.6174999999999999,
+          "triggered": true,
+          "identity": "Synthetic cash portfolio applying the threshold/destination distinction in the dated Vanguard policy; not an actual Vanguard portfolio or cost observation",
+          "status": "no-trade",
+          "sale": 0,
+          "cost": 0,
+          "bond_purchase": 0,
+          "external_contribution": 0,
+          "stock": 62400,
+          "bond": 37600,
+          "total": 100000,
+          "post_weight": 0.624,
+          "wealth": 103120,
+          "next_return_on_funded_capital": 0.031199999999999894,
+          "instant_net_gain": 0,
+          "message": "选择不调整，保留原敞口。"
+        },
+        "down": {
+          "parameters": {
+            "weight": 0.624,
+            "target": 0.6,
+            "trigger": 0.02,
+            "destination": 0.0175,
+            "cost": 0.002,
+            "next_return": -0.05,
+            "mode": "none",
+            "reason": "drift"
+          },
+          "initial_stock": 62400,
+          "initial_bond": 37600,
+          "initial_total": 100000,
+          "current_weight": 0.624,
+          "threshold_weight": 0.62,
+          "destination_weight": 0.6174999999999999,
+          "triggered": true,
+          "identity": "Synthetic cash portfolio applying the threshold/destination distinction in the dated Vanguard policy; not an actual Vanguard portfolio or cost observation",
+          "status": "no-trade",
+          "sale": 0,
+          "cost": 0,
+          "bond_purchase": 0,
+          "external_contribution": 0,
+          "stock": 62400,
+          "bond": 37600,
+          "total": 100000,
+          "post_weight": 0.624,
+          "wealth": 96880,
+          "next_return_on_funded_capital": -0.031200000000000006,
+          "instant_net_gain": 0,
+          "message": "选择不调整，保留原敞口。"
+        }
+      },
+      {
+        "mode": "partial",
+        "up": {
+          "parameters": {
+            "weight": 0.624,
+            "target": 0.6,
+            "trigger": 0.02,
+            "destination": 0.0175,
+            "cost": 0.002,
+            "next_return": 0.05,
+            "mode": "partial",
+            "reason": "drift"
+          },
+          "initial_stock": 62400,
+          "initial_bond": 37600,
+          "initial_total": 100000,
+          "current_weight": 0.624,
+          "threshold_weight": 0.62,
+          "destination_weight": 0.6174999999999999,
+          "triggered": true,
+          "identity": "Synthetic cash portfolio applying the threshold/destination distinction in the dated Vanguard policy; not an actual Vanguard portfolio or cost observation",
+          "status": "traded",
+          "sale": 650.8037426221456,
+          "cost": 1.3016074852442912,
+          "bond_purchase": 649.5021351369013,
+          "external_contribution": 0,
+          "stock": 61749.19625737785,
+          "bond": 38249.50213513691,
+          "total": 99998.69839251475,
+          "post_weight": 0.6174999999999999,
+          "wealth": 103086.15820538366,
+          "next_return_on_funded_capital": 0.03086158205383671,
+          "instant_net_gain": -1.3016074852442912,
+          "message": "按费用后目的地计算卖股买债。"
+        },
+        "down": {
+          "parameters": {
+            "weight": 0.624,
+            "target": 0.6,
+            "trigger": 0.02,
+            "destination": 0.0175,
+            "cost": 0.002,
+            "next_return": -0.05,
+            "mode": "partial",
+            "reason": "drift"
+          },
+          "initial_stock": 62400,
+          "initial_bond": 37600,
+          "initial_total": 100000,
+          "current_weight": 0.624,
+          "threshold_weight": 0.62,
+          "destination_weight": 0.6174999999999999,
+          "triggered": true,
+          "identity": "Synthetic cash portfolio applying the threshold/destination distinction in the dated Vanguard policy; not an actual Vanguard portfolio or cost observation",
+          "status": "traded",
+          "sale": 650.8037426221456,
+          "cost": 1.3016074852442912,
+          "bond_purchase": 649.5021351369013,
+          "external_contribution": 0,
+          "stock": 61749.19625737785,
+          "bond": 38249.50213513691,
+          "total": 99998.69839251475,
+          "post_weight": 0.6174999999999999,
+          "wealth": 96911.23857964587,
+          "next_return_on_funded_capital": -0.030887614203541358,
+          "instant_net_gain": -1.3016074852442912,
+          "message": "按费用后目的地计算卖股买债。"
+        }
+      },
+      {
+        "mode": "full",
+        "up": {
+          "parameters": {
+            "weight": 0.624,
+            "target": 0.6,
+            "trigger": 0.02,
+            "destination": 0.0175,
+            "cost": 0.002,
+            "next_return": 0.05,
+            "mode": "full",
+            "reason": "drift"
+          },
+          "initial_stock": 62400,
+          "initial_bond": 37600,
+          "initial_total": 100000,
+          "current_weight": 0.624,
+          "threshold_weight": 0.62,
+          "destination_weight": 0.6174999999999999,
+          "triggered": true,
+          "identity": "Synthetic cash portfolio applying the threshold/destination distinction in the dated Vanguard policy; not an actual Vanguard portfolio or cost observation",
+          "status": "traded",
+          "sale": 2402.8834601521826,
+          "cost": 4.805766920304365,
+          "bond_purchase": 2398.077693231878,
+          "external_contribution": 0,
+          "stock": 59997.11653984782,
+          "bond": 39998.07769323188,
+          "total": 99995.1942330797,
+          "post_weight": 0.6,
+          "wealth": 102995.0500600721,
+          "next_return_on_funded_capital": 0.02995050060072102,
+          "instant_net_gain": -4.805766920304365,
+          "message": "按费用后目的地计算卖股买债。"
+        },
+        "down": {
+          "parameters": {
+            "weight": 0.624,
+            "target": 0.6,
+            "trigger": 0.02,
+            "destination": 0.0175,
+            "cost": 0.002,
+            "next_return": -0.05,
+            "mode": "full",
+            "reason": "drift"
+          },
+          "initial_stock": 62400,
+          "initial_bond": 37600,
+          "initial_total": 100000,
+          "current_weight": 0.624,
+          "threshold_weight": 0.62,
+          "destination_weight": 0.6174999999999999,
+          "triggered": true,
+          "identity": "Synthetic cash portfolio applying the threshold/destination distinction in the dated Vanguard policy; not an actual Vanguard portfolio or cost observation",
+          "status": "traded",
+          "sale": 2402.8834601521826,
+          "cost": 4.805766920304365,
+          "bond_purchase": 2398.077693231878,
+          "external_contribution": 0,
+          "stock": 59997.11653984782,
+          "bond": 39998.07769323188,
+          "total": 99995.1942330797,
+          "post_weight": 0.6,
+          "wealth": 96995.3384060873,
+          "next_return_on_funded_capital": -0.03004661593912694,
+          "instant_net_gain": -4.805766920304365,
+          "message": "按费用后目的地计算卖股买债。"
+        }
+      },
+      {
+        "mode": "contribution",
+        "up": {
+          "parameters": {
+            "weight": 0.624,
+            "target": 0.6,
+            "trigger": 0.02,
+            "destination": 0.0175,
+            "cost": 0.002,
+            "next_return": 0.05,
+            "mode": "contribution",
+            "reason": "drift"
+          },
+          "initial_stock": 62400,
+          "initial_bond": 37600,
+          "initial_total": 100000,
+          "current_weight": 0.624,
+          "threshold_weight": 0.62,
+          "destination_weight": 0.6174999999999999,
+          "triggered": true,
+          "identity": "Synthetic cash portfolio applying the threshold/destination distinction in the dated Vanguard policy; not an actual Vanguard portfolio or cost observation",
+          "status": "contribution",
+          "sale": 0,
+          "cost": 0,
+          "bond_purchase": 4000,
+          "external_contribution": 4000,
+          "stock": 62400,
+          "bond": 41600,
+          "total": 104000,
+          "post_weight": 0.6,
+          "wealth": 107120,
+          "next_return_on_funded_capital": 0.030000000000000027,
+          "instant_net_gain": 0,
+          "message": "新增4000为外部资本；该分支忽略新增投入的交易费，不将资本增加当收益。"
+        },
+        "down": {
+          "parameters": {
+            "weight": 0.624,
+            "target": 0.6,
+            "trigger": 0.02,
+            "destination": 0.0175,
+            "cost": 0.002,
+            "next_return": -0.05,
+            "mode": "contribution",
+            "reason": "drift"
+          },
+          "initial_stock": 62400,
+          "initial_bond": 37600,
+          "initial_total": 100000,
+          "current_weight": 0.624,
+          "threshold_weight": 0.62,
+          "destination_weight": 0.6174999999999999,
+          "triggered": true,
+          "identity": "Synthetic cash portfolio applying the threshold/destination distinction in the dated Vanguard policy; not an actual Vanguard portfolio or cost observation",
+          "status": "contribution",
+          "sale": 0,
+          "cost": 0,
+          "bond_purchase": 4000,
+          "external_contribution": 4000,
+          "stock": 62400,
+          "bond": 41600,
+          "total": 104000,
+          "post_weight": 0.6,
+          "wealth": 100880,
+          "next_return_on_funded_capital": -0.030000000000000027,
+          "instant_net_gain": 0,
+          "message": "新增4000为外部资本；该分支忽略新增投入的交易费，不将资本增加当收益。"
+        }
+      }
+    ],
+    "static_equivalent_markdown": "| 路线 | 出售 | 费 | 外部投入 | 费用后总额 | 股票权重 | 股票+5%财富 | 股票−5%财富 |\n| --- | --- | --- | --- | --- | --- | --- | --- |\n| none | 0.000000 | 0.000000 | 0 | 100,000.000000 | 0.624000 | 103,120.000000 | 96,880.000000 |\n| partial | 650.803743 | 1.301607 | 0 | 99,998.698393 | 0.617500 | 103,086.158205 | 96,911.238580 |\n| full | 2,402.883460 | 4.805767 | 0 | 99,995.194233 | 0.600000 | 102,995.050060 | 96,995.338406 |\n| contribution | 0.000000 | 0.000000 | 4,000 | 104,000.000000 | 0.600000 | 107,120.000000 | 100,880.000000 |\n\n新增4000财富含新本金，不能与三条原资金路线直接按金额排名。低配反向交易未实现；恰等阈值不触发。"
+  }
+]

@@ -1,121 +1,125 @@
-# Structured list of PDF notes shown on /notes/.
-# Edit this file to add/update entries; the Notes landing template renders cards from it.
+# PDF notes and lecture notes; language records the language of the actual document.
+- title: 随机过程与金融市场
+  description: 从测度与概率出发，展开随机过程、随机分析与金融市场，并连接资产、合约、市场结构和投资分析。
+  pdf: /learning/stochastic.pdf
+  lang: zh
+  language: 中文
+  updated: '2026-09-14'
+  pages: 236
+  wip: true
+  online_ref: notes/stochastic-processes-financial-markets.md
+  weight: 1
+- title: Galois Covers
+  description: 'Seminar notes prepared for the Galois Theory in Algebra and Topology Seminar.
 
-- title: "Galois Covers"
-  description: >
-    Seminar notes prepared for the Galois Theory in Algebra and Topology Seminar.
+    '
   seminar:
-    name: "Galois Theory in Algebra and Topology Seminar"
-    url: "https://hellus.app.uni-regensburg.de/KVV/abruflink.php?id=1387"
-  pdf: "/papers/notes/Galois_cover.pdf"
+    name: Galois Theory in Algebra and Topology Seminar
+    url: https://hellus.app.uni-regensburg.de/KVV/abruflink.php?id=1387
+  pdf: /papers/notes/Galois_cover.pdf
   weight: 10
+  lang: en
+  language: English
+- title: Stable Dold–Kan Correspondence
+  description: 'Seminar notes prepared for the Goodwillie Calculus Seminar.
 
-- title: "Stable Dold–Kan Correspondence"
-  description: >
-    Seminar notes prepared for the Goodwillie Calculus Seminar.
+    '
   seminar:
-    name: "Goodwillie Calculus Seminar"
-    url: "https://hoyois.app.uni-regensburg.de/WS26/calculus/index.html"
-  online_ref: "notes/StableDoldKan.md"
-  online_label: "Stable Dold–Kan and Descent"
-  pdf: "/papers/notes/StableDoldKan.pdf"
+    name: Goodwillie Calculus Seminar
+    url: https://hoyois.app.uni-regensburg.de/WS26/calculus/index.html
+  online_ref: notes/StableDoldKan.md
+  online_label: Stable Dold–Kan and Descent
+  pdf: /papers/notes/StableDoldKan.pdf
   weight: 20
+  lang: en
+  language: English
+- title: A Brief Introduction to Monads and Higher Algebra
+  description: 'Notes on higher algebra, partly rewritten using the language of algebraic patterns, together with
+    an exposition of the Lurie–Barr–Beck theorem and the theory of descendable objects developed by Akhil Mathew.
 
-- title: "A Brief Introduction to Monads and Higher Algebra"
-  description: >
-    Notes on higher algebra, partly rewritten using the language of algebraic patterns,
-    together with an exposition of the Lurie–Barr–Beck theorem and the theory of
-    descendable objects developed by Akhil Mathew.
-  pdf: "/papers/notes/Monad.pdf"
+    '
+  pdf: /papers/notes/Monad.pdf
   weight: 30
+  lang: en
+  language: English
+- title: 'Algebraic Geometry: A Functor-of-Points Viewpoint'
+  description: 'Completed lecture notes for Algebraic Geometry I and II, developed from lectures by Marc Hoyois
+    and written from a functor-of-points viewpoint. The final archived version was proofread and polished with Codex.
 
-- title: "Algebraic Geometry: A Functor-of-Points Viewpoint"
-  description: >
-    Completed lecture notes for Algebraic Geometry I and II, developed from
-    lectures by Marc Hoyois and written from a functor-of-points viewpoint. The
-    final archived version was proofread and polished with Codex.
+    '
   seminar:
-    name: "Algebraic Geometry I"
-    url: "https://hoyois.app.uni-regensburg.de/WS26/alggeo1/index.html"
-  pdf: "/papers/notes/AG.pdf"
-  language: "English"
-  updated: "2026-08-23"
+    name: Algebraic Geometry I
+    url: https://hoyois.app.uni-regensburg.de/WS26/alggeo1/index.html
+  pdf: /papers/notes/AG.pdf
+  language: English
+  updated: '2026-08-23'
   weight: 40
-
-- title: "Algebraic Geometry: A Functor-of-Points Viewpoint (Chinese Version)"
-  description: >
-    Chinese-language version of AG.pdf, developed from lectures by Marc Hoyois
-    and written from a functor-of-points viewpoint. Preserved alongside the
-    English version in the mathematics archive.
+  lang: en
+- title: 函子式代数几何
+  description: 根据 Marc Hoyois 的代数几何 I、II 课程整理，从函子观点展开概形与代数几何。
   seminar:
-    name: "Algebraic Geometry I"
-    url: "https://hoyois.app.uni-regensburg.de/WS26/alggeo1/index.html"
-  pdf: "/papers/notes/AG-zh.pdf"
-  language: "Chinese"
-  updated: "2026-08-24"
+    name: Algebraic Geometry I
+    url: https://hoyois.app.uni-regensburg.de/WS26/alggeo1/index.html
+  pdf: /papers/notes/AG-zh.pdf
+  language: 中文
+  updated: '2026-08-24'
   weight: 41
-
-- title: "Motivic Homotopy Theory"
-  description: >
-    Revised archived draft notes on motivic homotopy theory and motivic
-    cohomology, based on the Oberseminar "Motivic cohomology of schemes". This
-    version improves readability and makes the main line of the notes more
+  lang: zh
+- title: Motivic Homotopy Theory
+  description: 'Revised archived draft notes on motivic homotopy theory and motivic cohomology, based on the Oberseminar
+    "Motivic cohomology of schemes". This version improves readability and makes the main line of the notes more
     explicit.
+
+    '
   seminar:
-    name: "Motivic cohomology of schemes"
-    url: "https://hoyois.app.uni-regensburg.de/SS26/motiviccoh/index.html"
-  pdf: "/papers/notes/Motivic.pdf"
-  language: "English"
-  updated: "2026-08-23"
+    name: Motivic cohomology of schemes
+    url: https://hoyois.app.uni-regensburg.de/SS26/motiviccoh/index.html
+  pdf: /papers/notes/Motivic.pdf
+  language: English
+  updated: '2026-08-23'
   wip: true
   weight: 50
+  lang: en
+- title: Low Weights
+  description: 'Talk script for the Oberseminar "Motivic cohomology of schemes", covering BEM §4.2.1. Written in
+    Typst.
 
-- title: "Low Weights"
-  description: >
-    Talk script for the Oberseminar "Motivic cohomology of schemes",
-    covering BEM §4.2.1. Written in Typst.
+    '
   seminar:
-    name: "Motivic cohomology of schemes"
-    url: "https://hoyois.app.uni-regensburg.de/SS26/motiviccoh/index.html"
-  pdf: "/papers/notes/Low_weight.pdf"
-  source: "/papers/notes/Low_weight.typ"
+    name: Motivic cohomology of schemes
+    url: https://hoyois.app.uni-regensburg.de/SS26/motiviccoh/index.html
+  pdf: /papers/notes/Low_weight.pdf
+  source: /papers/notes/Low_weight.typ
   wip: true
   weight: 60
+  lang: en
+  language: English
+- title: Six Functors and Gestalten
+  description: 'Talk script following Scholze''s "Geometry and Higher Category Theory" (Lecture IX). Starting from
+    a presentable six-functor formalism, we construct its transmutation into the category of Gestalten (Stefanich
+    rings) via the category of kernels, factoring the formalism as "geometry plus quasicoherent sheaves". Archived
+    as an unfinished draft.
 
-- title: "Six Functors and Gestalten"
-  description: >
-    Talk script following Scholze's "Geometry and Higher Category Theory"
-    (Lecture IX). Starting from a presentable six-functor formalism, we construct
-    its transmutation into the category of Gestalten (Stefanich rings) via the
-    category of kernels, factoring the formalism as "geometry plus quasicoherent
-    sheaves". Archived as an unfinished draft.
+    '
   seminar:
-    name: "Gestalten Seminar"
-    url: "https://sites.google.com/view/sil-linskens/seminars/gestalten"
-  pdf: "/papers/notes/six-functors-and-gestalten.pdf"
-  updated: "2026-06-09"
+    name: Gestalten Seminar
+    url: https://sites.google.com/view/sil-linskens/seminars/gestalten
+  pdf: /papers/notes/six-functors-and-gestalten.pdf
+  updated: '2026-06-09'
   weight: 70
-
-- title: "Spectra: Basic Ideas"
-  description: >
-    Chinese-language notes on the basic ideas around spectra and stable
-    categories, including Brown representability, generalized cohomology,
-    homological algebra, higher algebra, monads, and descent. Preserved here as
-    part of the mathematics archive.
-  pdf: "/papers/notes/spectra-basic-ideas.pdf"
-  language: "Chinese"
-  updated: "2026-08-20"
+  lang: en
+  language: English
+- title: 谱的基本观念
+  description: 围绕谱与稳定范畴，讨论 Brown 可表性、广义上同调、同调代数、高阶代数、单子与下降。
+  pdf: /papers/notes/spectra-basic-ideas.pdf
+  language: 中文
+  updated: '2026-08-20'
   weight: 80
-
-- title: "Category Theory and Model Categories"
-  description: >
-    Chinese-language graduate-level notes on category theory and model
-    categories, with perspectives from simplicial models, homotopy type theory,
-    and higher categories. Topics include basic category theory, abstract
-    homotopy theory, model structures and Quillen adjunctions, simplicial sets,
-    and the relationship between HoTT, CaTT, and higher categorical models.
-    Preserved here as part of the mathematics archive.
-  pdf: "/papers/notes/category-theory-and-model-categories.pdf"
-  language: "Chinese"
-  updated: "2026-08-21"
+  lang: zh
+- title: 范畴论与模型范畴
+  description: 从单纯模型、同伦类型论与高阶范畴的视角，讨论模型结构、Quillen 伴随与抽象同伦理论。
+  pdf: /papers/notes/category-theory-and-model-categories.pdf
+  language: 中文
+  updated: '2026-08-21'
   weight: 90
+  lang: zh

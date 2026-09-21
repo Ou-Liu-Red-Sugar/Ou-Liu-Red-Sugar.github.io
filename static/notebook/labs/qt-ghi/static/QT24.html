@@ -1,0 +1,930 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>离散动态对冲：从现金账到误差分布</title><style>:root{color-scheme:light;--ink:#203044;--muted:#536578;--line:#ccd7e1;--paper:#fff;--accent:#245b75;--wash:#f2f6f8;--alt:#9b5732}*{box-sizing:border-box}body{font-family:system-ui,-apple-system,"Microsoft YaHei",sans-serif;color:var(--ink);background:var(--paper);margin:0;line-height:1.8}main{max-width:940px;margin:auto;padding:28px 32px 70px}h1{font-size:1.9rem;line-height:1.4;margin:0 0 1.2rem}h2{font-size:1.38rem;margin-top:2.1rem;border-bottom:1px solid var(--line);padding-bottom:.3rem}h3{font-size:1.12rem}p{margin:.85rem 0}a{color:var(--accent);text-underline-offset:3px}strong{font-weight:650}nav{display:flex;flex-wrap:wrap;gap:12px;padding:12px 0;margin-bottom:15px;font-size:.92rem}button,select,input{font:inherit;min-height:42px;max-width:100%;border:1px solid var(--line);border-radius:5px;padding:5px 10px;background:white;color:var(--ink)}button{cursor:pointer}button:hover,button[aria-pressed=true]{background:var(--wash);border-color:var(--accent)}button:focus-visible,a:focus-visible,select:focus-visible,input:focus-visible{outline:3px solid #c57939;outline-offset:3px}.controls{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin:1rem 0}.controls label{display:flex;flex-wrap:wrap;align-items:center;gap:7px}.result{padding:12px 16px;background:var(--wash);border-left:3px solid var(--accent);overflow-wrap:anywhere}.subtle,small{color:var(--muted)}.table-wrap{width:100%;overflow:auto;margin:14px 0}table{border-collapse:collapse;width:100%;font-size:.92rem}th,td{padding:8px 10px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}th{font-weight:650;background:var(--wash)}td{font-variant-numeric:tabular-nums}pre{white-space:pre-wrap;overflow-wrap:anywhere;padding:12px;background:var(--wash)}code{font-family:ui-monospace,monospace;font-size:.93em}math{font-family:math;font-size:1.05em}math[display=block]{display:block;margin:1em 0;max-width:100%;line-height:1.8}span.math.display{display:block;max-width:100%;margin:1rem 0}section.lab-panel{padding:12px 0 25px;border-bottom:2px solid var(--line)}svg.chart{width:100%;height:auto;display:block;margin:1rem 0}svg text{font:12px system-ui}svg .line{fill:none;stroke:var(--accent);stroke-width:1.8}svg .bar{fill:var(--accent)}svg .line.alt{stroke:var(--alt)}.math-step{padding:10px;border:1px solid var(--line);border-radius:4px}.footnotes{font-size:.9rem;margin-top:3rem;border-top:1px solid var(--line)}iframe{width:100%;border:1px solid var(--line);border-radius:4px;min-height:680px;background:white}details{padding:8px 12px;border:1px solid var(--line);margin:1rem 0}summary{cursor:pointer;font-weight:600}.source-note{font-size:.88rem;overflow-wrap:anywhere}.branch-controls{display:flex;flex-wrap:wrap;gap:8px}.branch-status{font-size:.88rem}.lab-slot{margin:20px 0}.proof-link{padding:8px 0}.sr-only{position:absolute;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0,0,0,0)}[hidden]{display:none!important}
+@media(max-width:540px){main{padding:18px 14px 45px}h1{font-size:1.5rem}h2{font-size:1.2rem}table{font-size:.85rem}th,td{padding:6px 8px}iframe{min-height:790px}.controls{gap:8px}.controls label{max-width:100%}.result{padding:10px}}
+@media print{body{background:white;color:black}main{max-width:none;padding:0}nav,.controls,.branch-controls,button,.lab-slot{display:none!important}iframe{display:none}section[data-reading-branch]{display:block!important}details,details>*{display:block}table{font-size:9pt}h1,h2,h3{break-after:avoid}tr{break-inside:avoid}a{color:black}.table-wrap{overflow:visible}section.lab-panel[hidden]{display:none!important}svg{max-height:300px}}
+
+body,input,select,button,svg text{font-variant-numeric:lining-nums tabular-nums}
+</style><script defer src="/js/notebook-number-format.js" data-notebook-numbers></script>
+</head><body><main><nav><a href="/zh/notebook/models-path/">本批目录</a><a href="QT24.md">Markdown</a><a href="/agent/zh/qt-dynamic-hedging-error.md">完整Agent包</a><button id="copy-agent">复制Agent包</button></nav><p id="copy-status" role="status"></p><p class="subtle">主线18–20分钟；定价推导另读 · 沿唯一冻结账本复算手路径与十二设计，区分频率误差、费用和真实合约规则。</p><h1 id="离散动态对冲从现金账到误差分布">离散动态对冲：从现金账到误差分布</h1>
+<p>我们卖出一份到期支付随标的价格变化的合约，再不断调整标的持仓来准备这笔支付。对冲是否有效，不能只看一条 delta 曲线：买入标的钱从哪里来、负现金如何计息、最后是否平仓、支付是否只扣一次，都会直接改变结果。本篇先让这些钱逐笔对上，再比较频率与费用。默认学习只需要理解现金流和基本统计；完整定价推导放在末尾的独立分支。</p>
+<p><a id="qt24-contract"></a></p>
+<h2 id="一份明确的模型合同">1. 一份明确的模型合同</h2>
+<p>实验名为 <code>EXP-HEDGE-01</code>。假设可交易资产 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>S</mi><annotation encoding="application/x-tex">S</annotation></semantics></math> 服从一个具名的 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>Q</mi><annotation encoding="application/x-tex">Q</annotation></semantics></math> 模型：<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>d</mi><msub><mi>S</mi><mi>t</mi></msub><mo>=</mo><mi>r</mi><msub><mi>S</mi><mi>t</mi></msub><mi>d</mi><mi>t</mi><mo>+</mo><mi>σ</mi><msub><mi>S</mi><mi>t</mi></msub><mi>d</mi><msub><mi>W</mi><mi>t</mi></msub></mrow><annotation encoding="application/x-tex">dS_t=rS_tdt+\sigma S_tdW_t</annotation></semantics></math>，<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>S</mi><mn>0</mn></msub><mo>=</mo><mn>100</mn></mrow><annotation encoding="application/x-tex">S_0=100</annotation></semantics></math>，<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>r</mi><mo>=</mo><mn>0.03</mn></mrow><annotation encoding="application/x-tex">r=0.03</annotation></semantics></math>，<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>σ</mi><mo>=</mo><mn>0.20</mn></mrow><annotation encoding="application/x-tex">\sigma=0.20</annotation></semantics></math>。卖出一份欧式看涨式合约，<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>K</mi><mo>=</mo><mn>100</mn></mrow><annotation encoding="application/x-tex">K=100</annotation></semantics></math>、乘数 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>m</mi><mo>=</mo><mn>100</mn></mrow><annotation encoding="application/x-tex">m=100</annotation></semantics></math>、期限 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>T</mi><mo>=</mo><mn>30</mn><mi>/</mi><mn>365</mn></mrow><annotation encoding="application/x-tex">T=30/365</annotation></semantics></math> 年，模型到期支付为 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>m</mi><msup><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>S</mi><mi>T</mi></msub><mo>−</mo><mi>K</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>+</mo></msup></mrow><annotation encoding="application/x-tex">m(S_T-K)^+</annotation></semantics></math>。这里没有真实报价，也没有宣称 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>Q</mi><annotation encoding="application/x-tex">Q</annotation></semantics></math> 是现实涨跌概率。</p>
+<p>无分红、允许分数股、允许现金以相同连续复利利率无限借贷、无保证金约束，都是本模型的条件。每个网格点先观察模型价格，再按同格价格加减假设半价差成交；现实订单的排队、部分成交和报告延迟没有被模拟。交易后不从外部补钱。负现金是已经定义的借款，不是偷偷注资。</p>
+<p>单份模型权利金为 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>240.95814461</mn><annotation encoding="application/x-tex">240.95814461</annotation></semantics></math> 美元；每单位支付的模型价为 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>2.4095814461</mn><annotation encoding="application/x-tex">2.4095814461</annotation></semantics></math>。默认将这段期限等分为 16 个区间，半价差设为 5 bps，即 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>c</mi><mo>=</mo><mn>0.0005</mn></mrow><annotation encoding="application/x-tex">c=0.0005</annotation></semantics></math>，完整买卖价差为 10 bps。这是成本假设，不是交易所实测报价。16 指模型区间数，不是 16 个真实交易日。</p>
+<p>设 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>τ</mi><mo>=</mo><mi>T</mi><mo>−</mo><mi>t</mi></mrow><annotation encoding="application/x-tex">\tau=T-t</annotation></semantics></math>。调仓所用公式是</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtable><mtr><mtd columnalign="center" style="text-align: center"><msub><mi>d</mi><mn>1</mn></msub><mrow><mo stretchy="true" form="prefix">(</mo><mi>t</mi><mo>,</mo><mi>s</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mfrac><mrow><mo>log</mo><mrow><mo stretchy="true" form="prefix">(</mo><mi>s</mi><mi>/</mi><mi>K</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>+</mo><mrow><mo stretchy="true" form="prefix">(</mo><mi>r</mi><mo>+</mo><msup><mi>σ</mi><mn>2</mn></msup><mi>/</mi><mn>2</mn><mo stretchy="true" form="postfix">)</mo></mrow><mi>τ</mi></mrow><mrow><mi>σ</mi><msqrt><mi>τ</mi></msqrt></mrow></mfrac><mo>,</mo></mtd></mtr><mtr><mtd columnalign="center" style="text-align: center"><msub><mi>q</mi><mi>t</mi></msub><mo>=</mo><mi>m</mi><mi>Φ</mi><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>d</mi><mn>1</mn></msub><mrow><mo stretchy="true" form="prefix">(</mo><mi>t</mi><mo>,</mo><mi>s</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo stretchy="true" form="postfix">)</mo></mrow><mo>,</mo><mspace width="1.0em"></mspace><mi>t</mi><mo>&lt;</mo><mi>T</mi><mi>.</mi></mtd></mtr></mtable><annotation encoding="application/x-tex">
+\begin{gathered}
+d_1(t,s)=\frac{\log(s/K)+(r+\sigma^2/2)\tau}{\sigma\sqrt\tau},\\
+q_t=m\Phi(d_1(t,s)),\quad t&lt;T.
+\end{gathered}
+</annotation></semantics></math></p>
+<p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>Φ</mi><annotation encoding="application/x-tex">\Phi</annotation></semantics></math> 是标准正态分布函数。初始每单位 delta 为 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>0.5285688375</mn><annotation encoding="application/x-tex">0.5285688375</annotation></semantics></math>，因此目标为 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>52.85688375</mn><annotation encoding="application/x-tex">52.85688375</annotation></semantics></math> 股。到期不再调用含零分母的 delta 公式，而是强制清仓 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>q</mi><mi>n</mi></msub><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">q_n=0</annotation></semantics></math>。这些数来自同一个合同；改变合约乘数要同时改变权利金、股数和支付，不能只改图的纵轴。<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
+<p><a id="qt24-ledger"></a></p>
+<h2 id="一行现金账固定三种先后关系">2. 一行现金账，固定三种先后关系</h2>
+<p>用 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>C</mi><mi>k</mi></msub><annotation encoding="application/x-tex">C_k</annotation></semantics></math> 表示在 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>t</mi><mi>k</mi></msub><annotation encoding="application/x-tex">t_k</annotation></semantics></math> 完成本次交易后的现金，<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>q</mi><mi>k</mi></msub><annotation encoding="application/x-tex">q_k</annotation></semantics></math> 表示随后持有的股数，服务于 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><msub><mi>t</mi><mi>k</mi></msub><mo>,</mo><msub><mi>t</mi><mrow><mi>k</mi><mo>+</mo><mn>1</mn></mrow></msub><mo stretchy="false" form="postfix">]</mo></mrow><annotation encoding="application/x-tex">(t_k,t_{k+1}]</annotation></semantics></math>。从上一行到当前行，先让旧现金增长为 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>C</mi><mrow><mi>k</mi><mo>−</mo><mn>1</mn></mrow></msub><msup><mi>e</mi><mrow><mi>r</mi><mi>Δ</mi><msub><mi>t</mi><mi>k</mi></msub></mrow></msup></mrow><annotation encoding="application/x-tex">C_{k-1}e^{r\Delta t_k}</annotation></semantics></math>，再按当前信息决定目标股数；实际成交变化是 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Δ</mi><msub><mi>q</mi><mi>k</mi></msub><mo>=</mo><msub><mi>q</mi><mi>k</mi></msub><mo>−</mo><msub><mi>q</mi><mrow><mi>k</mi><mo>−</mo><mn>1</mn></mrow></msub></mrow><annotation encoding="application/x-tex">\Delta q_k=q_k-q_{k-1}</annotation></semantics></math>。于是</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtable><mtr><mtd columnalign="right" style="text-align: right"><msubsup><mi>C</mi><mi>k</mi><mo>−</mo></msubsup></mtd><mtd columnalign="left" style="text-align: left"><mo>=</mo><msub><mi>C</mi><mrow><mi>k</mi><mo>−</mo><mn>1</mn></mrow></msub><msup><mi>e</mi><mrow><mi>r</mi><mi>Δ</mi><msub><mi>t</mi><mi>k</mi></msub></mrow></msup><mo>,</mo></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right"><msub><mrow><mi mathvariant="normal">f</mi><mi mathvariant="normal">e</mi><mi mathvariant="normal">e</mi></mrow><mi>k</mi></msub></mtd><mtd columnalign="left" style="text-align: left"><mo>=</mo><mi>c</mi><msub><mi>S</mi><mi>k</mi></msub><mrow><mo stretchy="true" form="prefix">|</mo><mi>Δ</mi><msub><mi>q</mi><mi>k</mi></msub><mo stretchy="true" form="postfix">|</mo></mrow><mo>,</mo></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right"><msub><mi>C</mi><mi>k</mi></msub></mtd><mtd columnalign="left" style="text-align: left"><mo>=</mo><msubsup><mi>C</mi><mi>k</mi><mo>−</mo></msubsup><mo>−</mo><msub><mi>S</mi><mi>k</mi></msub><mi>Δ</mi><msub><mi>q</mi><mi>k</mi></msub><mo>−</mo><msub><mrow><mi mathvariant="normal">f</mi><mi mathvariant="normal">e</mi><mi mathvariant="normal">e</mi></mrow><mi>k</mi></msub><mi>.</mi></mtd></mtr></mtable><annotation encoding="application/x-tex">
+\begin{aligned}
+C_k^-&amp;=C_{k-1}e^{r\Delta t_k},\\
+\mathrm{fee}_k&amp;=cS_k|\Delta q_k|,\\
+C_k&amp;=C_k^- -S_k\Delta q_k-\mathrm{fee}_k.
+\end{aligned}
+</annotation></semantics></math></p>
+<p>买入时实际模型成交价是 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>S</mi><mi>k</mi></msub><mrow><mo stretchy="true" form="prefix">(</mo><mn>1</mn><mo>+</mo><mi>c</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">S_k(1+c)</annotation></semantics></math>，卖出时是 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>S</mi><mi>k</mi></msub><mrow><mo stretchy="true" form="prefix">(</mo><mn>1</mn><mo>−</mo><mi>c</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">S_k(1-c)</annotation></semantics></math>。这与“中间价交易金额加半价差费用”完全等价；两种记法只能选一种，不能在成交价里已经加了价差后又扣一次同样费用。</p>
+<p>同一时点按中间价标记资产，就有</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>C</mi><mi>k</mi></msub><mo>+</mo><msub><mi>q</mi><mi>k</mi></msub><msub><mi>S</mi><mi>k</mi></msub><mo>=</mo><mrow><mo stretchy="true" form="prefix">(</mo><msubsup><mi>C</mi><mi>k</mi><mo>−</mo></msubsup><mo>+</mo><msub><mi>q</mi><mrow><mi>k</mi><mo>−</mo><mn>1</mn></mrow></msub><msub><mi>S</mi><mi>k</mi></msub><mo stretchy="true" form="postfix">)</mo></mrow><mo>−</mo><msub><mrow><mi mathvariant="normal">f</mi><mi mathvariant="normal">e</mi><mi mathvariant="normal">e</mi></mrow><mi>k</mi></msub><mi>.</mi></mrow><annotation encoding="application/x-tex">
+C_k+q_kS_k=(C_k^-+q_{k-1}S_k)-\mathrm{fee}_k.
+</annotation></semantics></math></p>
+<p>因此换仓本身除了费用，不创造或消灭净资产。借款现金的利息也保留在账上。起点先收取权利金、股数为零，然后开仓并扣费；终点先卖清对冲股票并计入平仓价差，随后扣合约支付。最终误差是</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ε</mi><mo>=</mo><msub><mi>C</mi><mi>n</mi></msub><mo>−</mo><mi>m</mi><msup><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>S</mi><mi>T</mi></msub><mo>−</mo><mi>K</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>+</mo></msup><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\varepsilon=C_n-m(S_T-K)^+.
+</annotation></semantics></math></p>
+<p>这是“清算后还差或还剩多少钱”。此时不再减一次初始权利金，因为它早已进入现金递推。也不自动用权利金作收益率分母：组合期间使用了借款和风险敞口，权利金不等于投入资本。</p>
+<p><a id="qt24-hand"></a></p>
+<h2 id="把一条短路径完整算完">3. 把一条短路径完整算完</h2>
+<p>先取明确选定的手算路径 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>100</mn><mo>→</mo><mn>102</mn><mo>→</mo><mn>101</mn><mo>→</mo><mn>104</mn></mrow><annotation encoding="application/x-tex">100\to102\to101\to104</annotation></semantics></math>，分为三个相等区间，每段 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>10</mn><mi>/</mi><mn>365</mn></mrow><annotation encoding="application/x-tex">10/365</annotation></semantics></math> 年，半价差仍为 5 bps。它不是模拟第一条路径，也不是平均路径。</p>
+<p>起点买入 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>52.85688375</mn><annotation encoding="application/x-tex">52.85688375</annotation></semantics></math> 股，中间价交易额约 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>5285.68837545</mn><annotation encoding="application/x-tex">5285.68837545</annotation></semantics></math>，费用约 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>2.64284419</mn><annotation encoding="application/x-tex">2.64284419</annotation></semantics></math>。所以</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtable><mtr><mtd columnalign="right" style="text-align: right"><msub><mi>C</mi><mn>0</mn></msub></mtd><mtd columnalign="left" style="text-align: left"><mo>=</mo><mn>240.95814461</mn><mo>−</mo><mn>5285.68837545</mn></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right"></mtd><mtd columnalign="left" style="text-align: left"><mspace width="1.0em"></mspace><mo>−</mo><mn>2.64284419</mn></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right"></mtd><mtd columnalign="left" style="text-align: left"><mo>=</mo><mi>−</mi><mn>5047.37307503</mn><mi>.</mi></mtd></mtr></mtable><annotation encoding="application/x-tex">
+\begin{aligned}
+C_0&amp;=240.95814461-5285.68837545\\
+&amp;\quad-2.64284419\\
+&amp;=-5047.37307503.
+\end{aligned}
+</annotation></semantics></math></p>
+<p>下一时点，旧借款增加约 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>4.15023116</mn><annotation encoding="application/x-tex">4.15023116</annotation></semantics></math> 美元利息；价格为 102，目标增至 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>68.49211432</mn><annotation encoding="application/x-tex">68.49211432</annotation></semantics></math> 股，因此追加买入 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>15.63523056</mn><annotation encoding="application/x-tex">15.63523056</annotation></semantics></math> 股。我们把全部四行列出来，金额显示作四舍五入，计算和附件保留全精度。</p>
+<div class="table-wrap"><table>
+<colgroup>
+<col style="width: 12%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>步</th>
+<th>模型中价</th>
+<th>成交股数</th>
+<th>利息</th>
+<th>半价差成本</th>
+<th>成交后股数</th>
+<th>成交后现金</th>
+<th>本步支付</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>0</td>
+<td>100</td>
+<td>52.85688375</td>
+<td>0.00000000</td>
+<td>2.64284419</td>
+<td>52.85688375</td>
+<td>-5047.37307503</td>
+<td>0.00</td>
+</tr>
+<tr class="even">
+<td>1</td>
+<td>102</td>
+<td>15.63523056</td>
+<td>-4.15023116</td>
+<td>0.79739676</td>
+<td>68.49211432</td>
+<td>-6647.11422055</td>
+<td>0.00</td>
+</tr>
+<tr class="odd">
+<td>2</td>
+<td>101</td>
+<td>-5.11131242</td>
+<td>-5.46562739</td>
+<td>0.25812128</td>
+<td>63.38080190</td>
+<td>-6136.59541458</td>
+<td>0.00</td>
+</tr>
+<tr class="even">
+<td>3</td>
+<td>104</td>
+<td>-63.38080190</td>
+<td>-5.04585041</td>
+<td>3.29580170</td>
+<td>0.00000000</td>
+<td>446.66633061</td>
+<td>400.00</td>
+</tr>
+</tbody>
+</table></div>
+<p>这张表的“成交后现金”还不是授信监控的全部事件。若只在每次成交完成后看负现金，本路径的最大借款是第 10 天的</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mrow><mi mathvariant="normal">B</mi><mi mathvariant="normal">o</mi><mi mathvariant="normal">r</mi><mi mathvariant="normal">r</mi><mi mathvariant="normal">o</mi><mi mathvariant="normal">w</mi></mrow><mo>max</mo><mrow><mi mathvariant="normal">a</mi><mi mathvariant="normal">f</mi><mi mathvariant="normal">t</mi><mi mathvariant="normal">e</mi><mi mathvariant="normal">r</mi><mspace width="0.222em"></mspace><mi mathvariant="normal">t</mi><mi mathvariant="normal">r</mi><mi mathvariant="normal">a</mi><mi mathvariant="normal">d</mi><mi mathvariant="normal">e</mi></mrow></msubsup><mo>=</mo><mn>6647.11422055133</mn><mrow><mspace width="0.333em"></mspace><mtext mathvariant="normal"> 美元</mtext></mrow><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\mathrm{Borrow}^{\mathrm{after\ trade}}_{\max}
+=6647.11422055133\text{ 美元}.
+</annotation></semantics></math></p>
+<p>但第 20 天要先让上一步的负现金计息，再卖出股票。卖出发生以前，现金已经变成</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>−</mi><mn>6647.11422055133</mn><mspace width="0.167em"></mspace><msup><mi>e</mi><mrow><mn>0.03</mn><mrow><mo stretchy="true" form="prefix">(</mo><mn>10</mn><mi>/</mi><mn>365</mn><mo stretchy="true" form="postfix">)</mo></mrow></mrow></msup><mo>=</mo><mi>−</mi><mn>6652.57984794302</mn><mi>.</mi></mrow><annotation encoding="application/x-tex">
+-6647.11422055133\,e^{0.03(10/365)}
+=-6652.57984794302.
+</annotation></semantics></math></p>
+<p>所以若“最大借款”指整个现金事件序列——包括计息以后、再平衡以前——应报告</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mrow><mi mathvariant="normal">B</mi><mi mathvariant="normal">o</mi><mi mathvariant="normal">r</mi><mi mathvariant="normal">r</mi><mi mathvariant="normal">o</mi><mi mathvariant="normal">w</mi></mrow><mo>max</mo><mrow><mi mathvariant="normal">c</mi><mi mathvariant="normal">a</mi><mi mathvariant="normal">s</mi><mi mathvariant="normal">h</mi><mspace width="0.222em"></mspace><mi mathvariant="normal">e</mi><mi mathvariant="normal">v</mi><mi mathvariant="normal">e</mi><mi mathvariant="normal">n</mi><mi mathvariant="normal">t</mi><mi mathvariant="normal">s</mi></mrow></msubsup><mo>=</mo><mn>6652.57984794302</mn><mrow><mspace width="0.333em"></mspace><mtext mathvariant="normal"> 美元</mtext></mrow><mo>,</mo></mrow><annotation encoding="application/x-tex">
+\mathrm{Borrow}^{\mathrm{cash\ events}}_{\max}
+=6652.57984794302\text{ 美元},
+</annotation></semantics></math></p>
+<p>发生在第 20 天、卖出股票以前。两项指标回答不同问题：前者便于检查每次成交后的账面余额；授信是否足够则必须检查后者。它们都由同一冻结账本推得，并没有改变任何交易、价格或终值。</p>
+<p>第三行到最后一行，先计旧现金利息，再以模型买卖价差卖清 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>63.38080190</mn><annotation encoding="application/x-tex">63.38080190</annotation></semantics></math> 股。清仓后现金 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>446.66633061</mn><annotation encoding="application/x-tex">446.66633061</annotation></semantics></math>；到期支付 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>100</mn><mrow><mo stretchy="true" form="prefix">(</mo><mn>104</mn><mo>−</mo><mn>100</mn><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mn>400</mn></mrow><annotation encoding="application/x-tex">100(104-100)=400</annotation></semantics></math>，所以剩余</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ε</mi><mo>=</mo><mn>446.66633061</mn><mo>−</mo><mn>400</mn><mo>=</mo><mn>46.66633061</mn><mrow><mspace width="0.333em"></mspace><mtext mathvariant="normal"> 美元</mtext></mrow><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\varepsilon=446.66633061-400=46.66633061\text{ 美元}.
+</annotation></semantics></math></p>
+<p>这个正数不说明策略有正期望利润。它只是这条选定路径上的离散对冲误差；另一些路径会资金不足。看误差分布，正是为了避免拿一条漂亮路径代替整个模型表现。</p>
+<p><a id="qt24-comparison"></a></p>
+<h2 id="相同路径上比较频率和费用">4. 相同路径上比较频率和费用</h2>
+<p>这里用 PCG64 的固定种子 15161724 一次生成 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>8192</mn><mo>×</mo><mn>256</mn></mrow><annotation encoding="application/x-tex">8192\times256</annotation></semantics></math> 个标准正态数。先在归一化时间 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>u</mi><mo>∈</mo><mrow><mo stretchy="true" form="prefix">[</mo><mn>0</mn><mo>,</mo><mn>1</mn><mo stretchy="true" form="postfix">]</mo></mrow></mrow><annotation encoding="application/x-tex">u\in[0,1]</annotation></semantics></math> 上形成最细 Brownian 网格，再用 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>t</mi><mo>=</mo><mi>T</mi><mi>u</mi></mrow><annotation encoding="application/x-tex">t=Tu</annotation></semantics></math>、<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msqrt><mi>T</mi></msqrt><msub><mi>W</mi><mi>u</mi></msub></mrow><annotation encoding="application/x-tex">\sqrt T W_u</annotation></semantics></math> 生成 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>Q</mi><annotation encoding="application/x-tex">Q</annotation></semantics></math> 模型价格。4、16、64、256 个区间都从同一条最细路径抽取；同一行路径索引在十二个设计中始终对应同一段价格历史。</p>
+<p>这种共同随机数减少比较中的无关抽样差异，但不构成从 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>P</mi><annotation encoding="application/x-tex">P</annotation></semantics></math> 到 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>Q</mi><annotation encoding="application/x-tex">Q</annotation></semantics></math> 的换测度证明。QT17 的一年、漂移 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>0.08</mn><annotation encoding="application/x-tex">0.08</annotation></semantics></math> 示例是另一生成模型；本账本始终用漂移 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>r</mi><mo>=</mo><mn>0.03</mn></mrow><annotation encoding="application/x-tex">r=0.03</annotation></semantics></math>。</p>
+<p>下表是 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msqrt><mrow><msup><mi>N</mi><mrow><mi>−</mi><mn>1</mn></mrow></msup><msubsup><mo>∑</mo><mrow><mi>i</mi><mo>=</mo><mn>1</mn></mrow><mi>N</mi></msubsup><msubsup><mi>ε</mi><mi>i</mi><mn>2</mn></msubsup></mrow></msqrt><annotation encoding="application/x-tex">\sqrt{N^{-1}\sum_{i=1}^N\varepsilon_i^2}</annotation></semantics></math>，即相对于完全复制目标零误差的 RMSE，单位美元。它既包含均值偏离，也包含离散程度，不等同于样本标准差。</p>
+<div class="table-wrap"><table>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>等距模型区间数</th>
+<th>0 bps RMSE（美元）</th>
+<th>5 bps RMSE（美元）</th>
+<th>20 bps RMSE（美元）</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>4</td>
+<td>93.739527</td>
+<td>94.552739</td>
+<td>100.944831</td>
+</tr>
+<tr class="even">
+<td>16</td>
+<td>47.916075</td>
+<td>49.773922</td>
+<td>68.512317</td>
+</tr>
+<tr class="odd">
+<td>64</td>
+<td>24.910062</td>
+<td>31.539889</td>
+<td>79.353757</td>
+</tr>
+<tr class="even">
+<td>256</td>
+<td>12.779218</td>
+<td>34.913530</td>
+<td>129.881951</td>
+</tr>
+</tbody>
+</table></div>
+<p>无费用时，较细网格在这组实验中使 RMSE 下降。加入成本后，这种改善不再单调：5 bps 下 256 区间的 RMSE 高于 64 区间；20 bps 下频繁调仓的费用更加明显。不能据此把 64 或 16 宣布成真实市场的最优频率，因为我们没有改变策略、资产、借贷限制或成本机制，也没有做真实交易验证。</p>
+<p>对于预定的同一个 delta 目标，如果费用没有反过来改变持仓，令 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>D</mi><mi>k</mi></msub><mo>=</mo><msubsup><mi>C</mi><mi>k</mi><mrow><mo stretchy="true" form="prefix">(</mo><mn>0</mn><mo stretchy="true" form="postfix">)</mo></mrow></msubsup><mo>−</mo><msubsup><mi>C</mi><mi>k</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>c</mi><mo stretchy="true" form="postfix">)</mo></mrow></msubsup></mrow><annotation encoding="application/x-tex">D_k=C_k^{(0)}-C_k^{(c)}</annotation></semantics></math>。两套账相减给</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtable><mtr><mtd columnalign="center" style="text-align: center"><msub><mi>D</mi><mi>k</mi></msub><mo>=</mo><msup><mi>e</mi><mrow><mi>r</mi><mi>Δ</mi><msub><mi>t</mi><mi>k</mi></msub></mrow></msup><msub><mi>D</mi><mrow><mi>k</mi><mo>−</mo><mn>1</mn></mrow></msub><mo>+</mo><msub><mrow><mi mathvariant="normal">f</mi><mi mathvariant="normal">e</mi><mi mathvariant="normal">e</mi></mrow><mi>k</mi></msub><mo>,</mo></mtd></mtr><mtr><mtd columnalign="center" style="text-align: center"><msup><mi>ε</mi><mrow><mo stretchy="true" form="prefix">(</mo><mn>0</mn><mo stretchy="true" form="postfix">)</mo></mrow></msup><mo>−</mo><msup><mi>ε</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>c</mi><mo stretchy="true" form="postfix">)</mo></mrow></msup><mo>=</mo><munderover><mo>∑</mo><mrow><mi>k</mi><mo>=</mo><mn>0</mn></mrow><mi>n</mi></munderover><msup><mi>e</mi><mrow><mi>r</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>T</mi><mo>−</mo><msub><mi>t</mi><mi>k</mi></msub><mo stretchy="true" form="postfix">)</mo></mrow></mrow></msup><msub><mrow><mi mathvariant="normal">f</mi><mi mathvariant="normal">e</mi><mi mathvariant="normal">e</mi></mrow><mi>k</mi></msub><mi>.</mi></mtd></mtr></mtable><annotation encoding="application/x-tex">
+\begin{gathered}
+D_k=e^{r\Delta t_k}D_{k-1}+\mathrm{fee}_k,\\
+\varepsilon^{(0)}-\varepsilon^{(c)}
+=\sum_{k=0}^n e^{r(T-t_k)}\mathrm{fee}_k.
+\end{gathered}
+</annotation></semantics></math></p>
+<p>初始费用和终点清仓费用都包括在内。这条恒等式逐路径成立，而不只是平均意义成立。一旦增加现金或保证金限制，使有费用方案无法维持原目标股数，便不再能用这条“同持仓差额”解释全部结果。</p>
+<p><a id="qt24-distribution"></a></p>
+<h2 id="误差分布究竟表达什么">5. 误差分布究竟表达什么</h2>
+<p>默认 16 区间、5 bps 的模型误差均值约为 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>−</mi><mn>11.0255</mn></mrow><annotation encoding="application/x-tex">-11.0255</annotation></semantics></math> 美元，样本标准差约为 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>48.5404</mn><annotation encoding="application/x-tex">48.5404</annotation></semantics></math> 美元；5% 和 95% 样本分位数约为 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>−</mi><mn>92.6979</mn></mrow><annotation encoding="application/x-tex">-92.6979</annotation></semantics></math> 与 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>67.1902</mn><annotation encoding="application/x-tex">67.1902</annotation></semantics></math> 美元。均值估计的 Monte Carlo 标准误约为 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>0.5363</mn><annotation encoding="application/x-tex">0.5363</annotation></semantics></math> 美元。这个标准误描述给定模型下有限模拟数量的误差，不描述模型离真实市场有多远。</p>
+<p>图使用实际逐路径误差分箱，不由三个分位数拼接曲线。十二个设计均有 8192 个误差，采用共同的美元区间边界；各箱左闭右开，最后一箱包含右端点，箱外计数为零。附件保留完整同索引数组，所以可以独立改变分箱，而不必重新抽路径。</p>
+<div class="table-wrap"><table>
+<thead>
+<tr class="header">
+<th>误差箱（美元）</th>
+<th>默认 16 区间 / 5 bps 路径数</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>[-325, -300)</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td>[-275, -250)</td>
+<td>2</td>
+</tr>
+<tr class="odd">
+<td>[-250, -225)</td>
+<td>4</td>
+</tr>
+<tr class="even">
+<td>[-225, -200)</td>
+<td>9</td>
+</tr>
+<tr class="odd">
+<td>[-200, -175)</td>
+<td>17</td>
+</tr>
+<tr class="even">
+<td>[-175, -150)</td>
+<td>38</td>
+</tr>
+<tr class="odd">
+<td>[-150, -125)</td>
+<td>91</td>
+</tr>
+<tr class="even">
+<td>[-125, -100)</td>
+<td>172</td>
+</tr>
+<tr class="odd">
+<td>[-100, -75)</td>
+<td>371</td>
+</tr>
+<tr class="even">
+<td>[-75, -50)</td>
+<td>736</td>
+</tr>
+<tr class="odd">
+<td>[-50, -25)</td>
+<td>1475</td>
+</tr>
+<tr class="even">
+<td>[-25, 0)</td>
+<td>2000</td>
+</tr>
+<tr class="odd">
+<td>[0, 25)</td>
+<td>1574</td>
+</tr>
+<tr class="even">
+<td>[25, 50)</td>
+<td>948</td>
+</tr>
+<tr class="odd">
+<td>[50, 75)</td>
+<td>464</td>
+</tr>
+<tr class="even">
+<td>[75, 100)</td>
+<td>192</td>
+</tr>
+<tr class="odd">
+<td>[100, 125)</td>
+<td>78</td>
+</tr>
+<tr class="even">
+<td>[125, 150)</td>
+<td>19</td>
+</tr>
+<tr class="odd">
+<td>[150, 175)</td>
+<td>1</td>
+</tr>
+</tbody>
+</table></div>
+<p>配对比较用 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>L</mi><mi>i</mi></msub><mo>=</mo><msubsup><mi>ε</mi><mrow><mi>i</mi><mo>,</mo><mn>256</mn><mo>,</mo><mn>5</mn></mrow><mn>2</mn></msubsup><mo>−</mo><msubsup><mi>ε</mi><mrow><mi>i</mi><mo>,</mo><mn>64</mn><mo>,</mo><mn>5</mn></mrow><mn>2</mn></msubsup></mrow><annotation encoding="application/x-tex">L_i=\varepsilon_{i,256,5}^2-\varepsilon_{i,64,5}^2</annotation></semantics></math>。在这8192条共同路径上，其均值为 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>224.189981</mn><annotation encoding="application/x-tex">224.189981</annotation></semantics></math> 美元²，均值 Monte Carlo 标准误为 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>18.953228</mn><annotation encoding="application/x-tex">18.953228</annotation></semantics></math> 美元²。这个比较应使用每条路径的差，而不是把两个设计的误差当成相互独立再随意合成标准误。所有样本标准差使用分母 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>N</mi><mo>−</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">N-1</annotation></semantics></math>；MSE 则按 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>N</mi><annotation encoding="application/x-tex">N</annotation></semantics></math> 平均平方误差。样本分位数采用线性插值，只是描述约定。</p>
+<div class="lab-slot">
+<iframe title="动态对冲同路径分布与资金账" loading="lazy" src="../interactions.html?experiment=EXP-HEDGE-01">
+</iframe>
+<p>
+<a href="../interactions.html?experiment=EXP-HEDGE-01">打开独立实验视图</a>
+</p>
+</div>
+<p><a id="qt24-real-rules"></a></p>
+<h2 id="真实合约规则是一项对照不是给模型换个名字">6. 真实合约规则是一项对照，不是给模型换个名字</h2>
+<p>Cboe 的 XSP 规则规定，XSP 是 SPX 的十分之一，乘数为100美元，欧式行权，行权结算产生现金交付，现金在到期后的下一个营业日交付。XSP 本身是指数，不是可以按上述 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>q</mi><mi>k</mi></msub><annotation encoding="application/x-tex">q_k</annotation></semantics></math> 买入的“XSP 股票”。<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a></p>
+<p>因此，本篇可交易 GBM 资产、同一模型时点平仓并支付的设置不能叫作 XSP 回测。把结算值确定、现金交付和券商账户显示入账混成一个时刻，也没有来源支持。真实对冲若用其他证券或期货，需要另外处理转换比例、基差、分红或展期、实际成交价格与时钟；本实验没有取得这些输入。现代组合模型中的价差、冲击和成交量约束也需要分别建模，而不是从“加入一个费用参数”自动得到。<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a></p>
+<p><a id="qt24-exercise"></a></p>
+<h2 id="迁移费用和资金约束不是同一个变动">7. 迁移：费用和资金约束不是同一个变动</h2>
+<p>在手算路径的第二次调仓时额外扣1美元，但保持原目标股数不变。终点误差会减少多少？再设可用借款额度为 5000 美元、且没有额外初始自有现金，原来的完整手算路径能否建仓？若额度改为 6700 美元，只看这条冻结手算路径时又如何判断？</p>
+<h3 id="解析">解析</h3>
+<p>这里“第二次调仓”指定为 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>t</mi><mn>1</mn></msub><mo>=</mo><mn>10</mn><mi>/</mi><mn>365</mn></mrow><annotation encoding="application/x-tex">t_1=10/365</annotation></semantics></math>，起点开仓记第零次。额外费用会在剩余 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>20</mn><mi>/</mi><mn>365</mn></mrow><annotation encoding="application/x-tex">20/365</annotation></semantics></math> 年中积累借款利息，终点误差减少 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>e</mi><mrow><mn>0.03</mn><mrow><mo stretchy="true" form="prefix">(</mo><mn>20</mn><mi>/</mi><mn>365</mn><mo stretchy="true" form="postfix">)</mo></mrow></mrow></msup><annotation encoding="application/x-tex">e^{0.03(20/365)}</annotation></semantics></math> 美元，而不只是恰好1美元。这是同持仓费用递推的直接应用。</p>
+<p>借款额度改变的是可行策略，而且必须从第一个现金事件开始检查。5000 美元额度在 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>t</mi><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">t=0</annotation></semantics></math> 就不能支持原策略：初始开仓和价差扣除以后需要借 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>5047.37307503</mn><annotation encoding="application/x-tex">5047.37307503</annotation></semantics></math> 美元，因此应在建仓时拒绝，而不能等到第 10 天才宣布超限。</p>
+<p>若额度为 6700 美元，则不能只比较“成交后最大借款” <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>6647.11422055</mn><annotation encoding="application/x-tex">6647.11422055</annotation></semantics></math>。还要看第 20 天计息后、卖出股票以前的 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>6652.57984794</mn><annotation encoding="application/x-tex">6652.57984794</annotation></semantics></math>；它仍低于 6700，所以在这条冻结手算路径、并沿本篇同率无限借贷之外仅加这一上限的假设下，额度足以覆盖全部已列现金事件。这里没有重新优化持仓，也没有加入现实保证金规则。若额度不足，就必须重新规定少买、阈值调整或新增资金等规则；新增外部资金又会改变本实验身份。不能只改最终误差，仍宣称执行了相同策略。</p>
+<div class="branch-controls">
+<button data-select-reading-branch="all">
+展开完整定价推导
+</button>
+<button data-select-reading-branch="ledger">
+仅看账本主线
+</button>
+</div>
+<section data-reading-branch="pricing">
+<p><a id="qt24-pricing"></a></p>
+<h2 id="定价推导分支从-gaussian-积分到自融资复制">定价推导分支：从 Gaussian 积分到自融资复制</h2>
+<p>这一分支需要 <a href="/zh/notebook/qt-ito-formula-gbm/">Itô 公式</a>。我们验证的是此模型中这一份 call 的连续复制，不证明所有连续市场都完备。</p>
+<p>在 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>Q</mi><annotation encoding="application/x-tex">Q</annotation></semantics></math> 模型中，给定 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>S</mi><mi>t</mi></msub><mo>=</mo><mi>s</mi></mrow><annotation encoding="application/x-tex">S_t=s</annotation></semantics></math>，有</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>S</mi><mi>T</mi></msub><mo>=</mo><mi>s</mi><mo>exp</mo><mrow><mo stretchy="true" form="prefix">(</mo><mrow><mo stretchy="true" form="prefix">(</mo><mi>r</mi><mo>−</mo><msup><mi>σ</mi><mn>2</mn></msup><mi>/</mi><mn>2</mn><mo stretchy="true" form="postfix">)</mo></mrow><mi>τ</mi><mo>+</mo><mi>σ</mi><msqrt><mi>τ</mi></msqrt><mi>Z</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>,</mo><mspace width="2.0em"></mspace><mi>Z</mi><mo>∼</mo><mi>N</mi><mrow><mo stretchy="true" form="prefix">(</mo><mn>0</mn><mo>,</mo><mn>1</mn><mo stretchy="true" form="postfix">)</mo></mrow><mi>.</mi></mrow><annotation encoding="application/x-tex">
+S_T=s\exp\left((r-\sigma^2/2)\tau+\sigma\sqrt\tau Z\right),
+\qquad Z\sim N(0,1).
+</annotation></semantics></math></p>
+<p>先定义折现支付均值 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>C</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>t</mi><mo>,</mo><mi>s</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><msup><mi>e</mi><mrow><mi>−</mi><mi>r</mi><mi>τ</mi></mrow></msup><msub><mi>E</mi><mi>Q</mi></msub><mrow><mo stretchy="true" form="prefix">[</mo><msup><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>S</mi><mi>T</mi></msub><mo>−</mo><mi>K</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>+</mo></msup><mo>∣</mo><msub><mi>S</mi><mi>t</mi></msub><mo>=</mo><mi>s</mi><mo stretchy="true" form="postfix">]</mo></mrow></mrow><annotation encoding="application/x-tex">C(t,s)=e^{-r\tau}E_Q[(S_T-K)^+\mid S_t=s]</annotation></semantics></math>。支付非零的条件是 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Z</mi><mo>&gt;</mo><mi>−</mi><msub><mi>d</mi><mn>2</mn></msub></mrow><annotation encoding="application/x-tex">Z&gt;-d_2</annotation></semantics></math>，其中 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>d</mi><mn>2</mn></msub><mo>=</mo><mrow><mo stretchy="true" form="prefix">(</mo><mo>log</mo><mrow><mo stretchy="true" form="prefix">(</mo><mi>s</mi><mi>/</mi><mi>K</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>+</mo><mrow><mo stretchy="true" form="prefix">(</mo><mi>r</mi><mo>−</mo><msup><mi>σ</mi><mn>2</mn></msup><mi>/</mi><mn>2</mn><mo stretchy="true" form="postfix">)</mo></mrow><mi>τ</mi><mo stretchy="true" form="postfix">)</mo></mrow><mi>/</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>σ</mi><msqrt><mi>τ</mi></msqrt><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">d_2=(\log(s/K)+(r-\sigma^2/2)\tau)/(\sigma\sqrt\tau)</annotation></semantics></math>，<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>d</mi><mn>1</mn></msub><mo>=</mo><msub><mi>d</mi><mn>2</mn></msub><mo>+</mo><mi>σ</mi><msqrt><mi>τ</mi></msqrt></mrow><annotation encoding="application/x-tex">d_1=d_2+\sigma\sqrt\tau</annotation></semantics></math>。</p>
+<p>记正态密度为 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>ϕ</mi><annotation encoding="application/x-tex">\phi</annotation></semantics></math>，用完成平方恒等式 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>e</mi><mrow><mi>a</mi><mi>z</mi><mo>−</mo><msup><mi>a</mi><mn>2</mn></msup><mi>/</mi><mn>2</mn></mrow></msup><mi>ϕ</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>z</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mi>ϕ</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>z</mi><mo>−</mo><mi>a</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">e^{az-a^2/2}\phi(z)=\phi(z-a)</annotation></semantics></math>，第一项积分成为</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>e</mi><mrow><mi>−</mi><mi>r</mi><mi>τ</mi></mrow></msup><msub><mi>E</mi><mi>Q</mi></msub><mrow><mo stretchy="true" form="prefix">[</mo><msub><mi>S</mi><mi>T</mi></msub><msub><mn>𝟏</mn><mrow><mi>Z</mi><mo>&gt;</mo><mi>−</mi><msub><mi>d</mi><mn>2</mn></msub></mrow></msub><mo stretchy="true" form="postfix">]</mo></mrow><mo>=</mo><mi>s</mi><msubsup><mo>∫</mo><mrow><mi>−</mi><msub><mi>d</mi><mn>2</mn></msub></mrow><mi>∞</mi></msubsup><mi>ϕ</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>z</mi><mo>−</mo><mi>σ</mi><msqrt><mi>τ</mi></msqrt><mo stretchy="true" form="postfix">)</mo></mrow><mi>d</mi><mi>z</mi><mo>=</mo><mi>s</mi><mi>Φ</mi><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>d</mi><mn>1</mn></msub><mo stretchy="true" form="postfix">)</mo></mrow><mi>.</mi></mrow><annotation encoding="application/x-tex">
+e^{-r\tau}E_Q[S_T\mathbf1_{Z&gt;-d_2}]
+=s\int_{-d_2}^{\infty}\phi(z-\sigma\sqrt\tau)dz
+=s\Phi(d_1).
+</annotation></semantics></math></p>
+<p>第二项是 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>K</mi><msup><mi>e</mi><mrow><mi>−</mi><mi>r</mi><mi>τ</mi></mrow></msup><mi>P</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>Z</mi><mo>&gt;</mo><mi>−</mi><msub><mi>d</mi><mn>2</mn></msub><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mi>K</mi><msup><mi>e</mi><mrow><mi>−</mi><mi>r</mi><mi>τ</mi></mrow></msup><mi>Φ</mi><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>d</mi><mn>2</mn></msub><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">Ke^{-r\tau}P(Z&gt;-d_2)=Ke^{-r\tau}\Phi(d_2)</annotation></semantics></math>。相减得到</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>C</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>t</mi><mo>,</mo><mi>s</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mi>s</mi><mi>Φ</mi><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>d</mi><mn>1</mn></msub><mo stretchy="true" form="postfix">)</mo></mrow><mo>−</mo><mi>K</mi><msup><mi>e</mi><mrow><mi>−</mi><mi>r</mi><mi>τ</mi></mrow></msup><mi>Φ</mi><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>d</mi><mn>2</mn></msub><mo stretchy="true" form="postfix">)</mo></mrow><mi>.</mi></mrow><annotation encoding="application/x-tex">
+C(t,s)=s\Phi(d_1)-Ke^{-r\tau}\Phi(d_2).
+</annotation></semantics></math></p>
+<p>到这里仍是一个具名模型中的计算。要给它复制含义，还须建立相同价值的自融资持仓。</p>
+<p>直接由 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>d</mi><mn>1</mn></msub><mo>−</mo><msub><mi>d</mi><mn>2</mn></msub><mo>=</mo><mi>σ</mi><msqrt><mi>τ</mi></msqrt></mrow><annotation encoding="application/x-tex">d_1-d_2=\sigma\sqrt\tau</annotation></semantics></math> 可验证 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>s</mi><mi>ϕ</mi><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>d</mi><mn>1</mn></msub><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mi>K</mi><msup><mi>e</mi><mrow><mi>−</mi><mi>r</mi><mi>τ</mi></mrow></msup><mi>ϕ</mi><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>d</mi><mn>2</mn></msub><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">s\phi(d_1)=Ke^{-r\tau}\phi(d_2)</annotation></semantics></math>；代入导数后，正态密度产生的附加项抵消，得</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>C</mi><mi>s</mi></msub><mo>=</mo><mi>Φ</mi><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>d</mi><mn>1</mn></msub><mo stretchy="true" form="postfix">)</mo></mrow><mo>,</mo><mspace width="2.0em"></mspace><msub><mi>C</mi><mrow><mi>s</mi><mi>s</mi></mrow></msub><mo>=</mo><mfrac><mrow><mi>ϕ</mi><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>d</mi><mn>1</mn></msub><mo stretchy="true" form="postfix">)</mo></mrow></mrow><mrow><mi>s</mi><mi>σ</mi><msqrt><mi>τ</mi></msqrt></mrow></mfrac><mo>,</mo></mrow><annotation encoding="application/x-tex">
+C_s=\Phi(d_1),\qquad
+C_{ss}=\frac{\phi(d_1)}{s\sigma\sqrt\tau},
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>C</mi><mi>t</mi></msub><mo>=</mo><mi>−</mi><mfrac><mrow><mi>s</mi><mi>σ</mi><mi>ϕ</mi><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>d</mi><mn>1</mn></msub><mo stretchy="true" form="postfix">)</mo></mrow></mrow><mrow><mn>2</mn><msqrt><mi>τ</mi></msqrt></mrow></mfrac><mo>−</mo><mi>r</mi><mi>K</mi><msup><mi>e</mi><mrow><mi>−</mi><mi>r</mi><mi>τ</mi></mrow></msup><mi>Φ</mi><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>d</mi><mn>2</mn></msub><mo stretchy="true" form="postfix">)</mo></mrow><mi>.</mi></mrow><annotation encoding="application/x-tex">
+C_t=-\frac{s\sigma\phi(d_1)}{2\sqrt\tau}
+-rKe^{-r\tau}\Phi(d_2).
+</annotation></semantics></math></p>
+<p>把它们代回即可逐项核对</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>C</mi><mi>t</mi></msub><mo>+</mo><mi>r</mi><mi>s</mi><msub><mi>C</mi><mi>s</mi></msub><mo>+</mo><mfrac><mn>1</mn><mn>2</mn></mfrac><msup><mi>σ</mi><mn>2</mn></msup><msup><mi>s</mi><mn>2</mn></msup><msub><mi>C</mi><mrow><mi>s</mi><mi>s</mi></mrow></msub><mo>−</mo><mi>r</mi><mi>C</mi><mo>=</mo><mn>0</mn><mi>.</mi></mrow><annotation encoding="application/x-tex">
+C_t+rsC_s+\frac12\sigma^2s^2C_{ss}-rC=0.
+</annotation></semantics></math></p>
+<p>现在即使在漂移为 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>μ</mi><annotation encoding="application/x-tex">\mu</annotation></semantics></math> 的另一个 GBM 模型中应用 Itô 公式，仍有</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtable><mtr><mtd columnalign="right" style="text-align: right"><mi>d</mi><mi>C</mi></mtd><mtd columnalign="left" style="text-align: left"><mo>=</mo><msub><mi>C</mi><mi>s</mi></msub><mspace width="0.167em"></mspace><mi>d</mi><mi>S</mi><mo>+</mo><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>C</mi><mi>t</mi></msub><mo>+</mo><mfrac displaystyle="false"><mn>1</mn><mn>2</mn></mfrac><msup><mi>σ</mi><mn>2</mn></msup><msup><mi>S</mi><mn>2</mn></msup><msub><mi>C</mi><mrow><mi>s</mi><mi>s</mi></mrow></msub><mo stretchy="true" form="postfix">)</mo></mrow><mi>d</mi><mi>t</mi></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right"></mtd><mtd columnalign="left" style="text-align: left"><mo>=</mo><mi>Δ</mi><mspace width="0.167em"></mspace><mi>d</mi><mi>S</mi><mo>+</mo><mi>r</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>C</mi><mo>−</mo><mi>Δ</mi><mi>S</mi><mo stretchy="true" form="postfix">)</mo></mrow><mi>d</mi><mi>t</mi><mi>.</mi></mtd></mtr></mtable><annotation encoding="application/x-tex">
+\begin{aligned}
+dC
+&amp;=C_s\,dS+\left(C_t+\tfrac12\sigma^2S^2C_{ss}\right)dt\\
+&amp;=\Delta\,dS+r(C-\Delta S)dt.
+\end{aligned}
+</annotation></semantics></math></p>
+<p>令货币账户 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>B</mi><mi>t</mi></msub><mo>=</mo><msup><mi>e</mi><mrow><mi>r</mi><mi>t</mi></mrow></msup></mrow><annotation encoding="application/x-tex">B_t=e^{rt}</annotation></semantics></math>，股票数量为 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>Δ</mi><mi>t</mi></msub><mo>=</mo><msub><mi>C</mi><mi>s</mi></msub><mrow><mo stretchy="true" form="prefix">(</mo><mi>t</mi><mo>,</mo><msub><mi>S</mi><mi>t</mi></msub><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">\Delta_t=C_s(t,S_t)</annotation></semantics></math>，现金账户单位为 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>β</mi><mi>t</mi></msub><mo>=</mo><mrow><mo stretchy="true" form="prefix">(</mo><mi>C</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>t</mi><mo>,</mo><msub><mi>S</mi><mi>t</mi></msub><mo stretchy="true" form="postfix">)</mo></mrow><mo>−</mo><msub><mi>Δ</mi><mi>t</mi></msub><msub><mi>S</mi><mi>t</mi></msub><mo stretchy="true" form="postfix">)</mo></mrow><mi>/</mi><msub><mi>B</mi><mi>t</mi></msub></mrow><annotation encoding="application/x-tex">\beta_t=(C(t,S_t)-\Delta_tS_t)/B_t</annotation></semantics></math>。首先有价值相等 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>Δ</mi><mi>t</mi></msub><msub><mi>S</mi><mi>t</mi></msub><mo>+</mo><msub><mi>β</mi><mi>t</mi></msub><msub><mi>B</mi><mi>t</mi></msub><mo>=</mo><mi>C</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>t</mi><mo>,</mo><msub><mi>S</mi><mi>t</mi></msub><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">\Delta_tS_t+\beta_tB_t=C(t,S_t)</annotation></semantics></math>；其次上式给 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>d</mi><mi>C</mi><mo>=</mo><msub><mi>Δ</mi><mi>t</mi></msub><mi>d</mi><msub><mi>S</mi><mi>t</mi></msub><mo>+</mo><msub><mi>β</mi><mi>t</mi></msub><mi>d</mi><msub><mi>B</mi><mi>t</mi></msub></mrow><annotation encoding="application/x-tex">dC=\Delta_t dS_t+\beta_t dB_t</annotation></semantics></math>，即自融资条件。两项一起才说明复制。现金金额 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>β</mi><mi>B</mi><mo>=</mo><mi>C</mi><mo>−</mo><mi>Δ</mi><mi>S</mi></mrow><annotation encoding="application/x-tex">\beta B=C-\Delta S</annotation></semantics></math> 包含调仓资金，不能误写成它本身只按 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>r</mi><annotation encoding="application/x-tex">r</annotation></semantics></math> 增长的确定过程。</p>
+<p>对 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>t</mi><mo>&lt;</mo><mi>T</mi></mrow><annotation encoding="application/x-tex">t&lt;T</annotation></semantics></math> 函数光滑，<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>0</mn><mo>≤</mo><mi>Δ</mi><mo>≤</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">0\le\Delta\le1</annotation></semantics></math>，常数参数 GBM 有 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>E</mi><msubsup><mo>∫</mo><mn>0</mn><mi>T</mi></msubsup><msubsup><mi>S</mi><mi>t</mi><mn>2</mn></msubsup><mi>d</mi><mi>t</mi><mo>&lt;</mo><mi>∞</mi></mrow><annotation encoding="application/x-tex">E\int_0^TS_t^2dt&lt;\infty</annotation></semantics></math>，所以股票增益积分可以合法取到端点；<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>C</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>t</mi><mo>,</mo><msub><mi>S</mi><mi>t</mi></msub><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">C(t,S_t)</annotation></semantics></math> 在 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>t</mi><mo>↑</mo><mi>T</mi></mrow><annotation encoding="application/x-tex">t\uparrow T</annotation></semantics></math> 时连续趋于 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>S</mi><mi>T</mi></msub><mo>−</mo><mi>K</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>+</mo></msup><annotation encoding="application/x-tex">(S_T-K)^+</annotation></semantics></math>。现金漂移项也可积，例如 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>C</mi><mo>−</mo><mi>Δ</mi><mi>S</mi><mo>=</mo><mi>−</mi><mi>K</mi><msup><mi>e</mi><mrow><mi>−</mi><mi>r</mi><mi>τ</mi></mrow></msup><mi>Φ</mi><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>d</mi><mn>2</mn></msub><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">C-\Delta S=-Ke^{-r\tau}\Phi(d_2)</annotation></semantics></math> 有界。这把复制从每个到期前时点延伸到支付端点。</p>
+离散账本不再满足连续再平衡恒等式，费用也破坏上述无摩擦条件，因此其终点有误差。这正是主线需要逐行复算的对象，而不是公式计算“不够准确”。<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a>
+</section>
+<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<hr />
+<ol>
+<li id="fn1"><p>Vasily Strela，MIT 18.S096，Lecture 19，Fall 2013，slides 13–22（尤其 slide19 call/delta 公式）；<a href="https://ocw.mit.edu/courses/18-s096-topics-in-mathematics-with-applications-in-finance-fall-2013/d19208c017ada04f9261cfb41ab8d702_MIT18_S096F13_lecnote19.pdf">公开讲义</a>。数值参数是本文具名教学模型，不是讲义中的历史报价。<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>Cboe，<em>XSP Options Product Specification</em>，Underlying、Multiplier、Exercise Style、Settlement of Option Exercise；<a href="https://www.cboe.com/tradable_products/sp_500/mini_spx_options/specifications">官方规则</a>，2026-09-21 核对。该规则不支持券商 booking 的精确时点。<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3"><p>Stephen Boyd、Kasper Johansson、Ronald Kahn、Philipp Schiele、Thomas Schmelzer，<em>Markowitz Portfolio Construction at Seventy</em>，2024-01-05 公开稿，§2.2–2.4、§3.4–3.5、§4.1–4.3；<a href="https://web.stanford.edu/~boyd/papers/pdf/markowitz.pdf">原文</a>。这里只采用成本、预测和约束对象，不引其策略绩效。<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn4"><p>上述 Gaussian 积分和 PDE 逐项核对支撑本篇的 call 复制。MIT slide16 对现金过程的简述不作为证明；本篇保留“价值相等”和“自融资”两个条件。一般 Itô 公式及其条件见 <a href="/zh/notebook/qt-ito-formula-proof/">完整证明单元</a>。<a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
+<textarea id="agent-text" hidden># QT24 · Reference-first Agent
+
+你是这篇中文学习单元的教学 Agent。读者具备本包列出的先修：主线只需现金递推、概率与均方误差；定价分支调用 QT17。
+先实际取得 required_readings 中本次所选单元并读完，核对版本、页码与公式；已有同会话同版完整读取可以复用。只取得摘要或目录不得声称完成；无法取得原文时说明具体缺口，可先讲本包完整已给推导，但不得编造原文已读记录。runtime_reading_log 是你的实际运行记录，交付的空数组不是已读。
+本篇任务：先让读者用完整手算账本重建起点负现金和终点46.66633061美元；再区分成交后最大借款6647.11422055133与全部现金事件峰值6652.57984794302，并判断5000额度为何在t=0拒绝建仓。默认先读账，定价分支才读取 Gaussian/PDE/Itô 推导。
+先让读者尝试，再按所缺的一步解释，不将全部课文一次复述。完整证明需要标明每项条件在哪一步用到，练习给出完整解析。只采用 supplied_inputs 的本篇切片和已链接全量数据，区分教学模型、真实记录、作者论文结果。图不是证明，模拟不是现实规律；不以预测概率替换定价测度。禁止从分位数拟造分布或另抽浏览器随机数冒充冻结路径。最后问：读者只读完这个词条，真的能学明白吗？用迁移题实际判断，明确剩余能力缺口。
+
+## 可读单元与输入
+
+```json
+{
+  &quot;export_mode&quot;: &quot;public&quot;,
+  &quot;required_readings&quot;: [
+    {
+      &quot;source_id&quot;: &quot;QGHI-CBOE-XSP&quot;,
+      &quot;access&quot;: {
+        &quot;kind&quot;: &quot;html_full_text&quot;,
+        &quot;uri&quot;: &quot;https://www.cboe.com/tradable_products/sp_500/mini_spx_options/specifications&quot;
+      },
+      &quot;required_unit&quot;: {
+        &quot;locator&quot;: &quot;Underlying、Multiplier、Exercise Style、Settlement of Option Exercise&quot;,
+        &quot;scope&quot;: &quot;完整相关合约条款&quot;,
+        &quot;purpose&quot;: &quot;核对仅是模型接口，不作真实回测&quot;
+      },
+      &quot;supports&quot;: &quot;SPX/10 指数、100 美元乘数、欧式与下一营业日现金交付；不提供真实历史报价、可买卖指数股或券商入账秒。&quot;
+    },
+    {
+      &quot;source_id&quot;: &quot;QGHI-MIT-BS13&quot;,
+      &quot;access&quot;: {
+        &quot;kind&quot;: &quot;pdf_full_text&quot;,
+        &quot;uri&quot;: &quot;https://ocw.mit.edu/courses/18-s096-topics-in-mathematics-with-applications-in-finance-fall-2013/d19208c017ada04f9261cfb41ab8d702_MIT18_S096F13_lecnote19.pdf&quot;
+      },
+      &quot;required_unit&quot;: {
+        &quot;locator&quot;: &quot;Slides 13–22&quot;,
+        &quot;scope&quot;: &quot;call、PDE、复制背景完整单元&quot;,
+        &quot;purpose&quot;: &quot;仅定价推导分支启用；忽略 slide16 错现金简述，读本篇完整推导&quot;
+      },
+      &quot;supports&quot;: &quot;call 公式与复制/PDE背景；不采用 slide16 将再平衡现金误说成确定过程的简述，完整 Gaussian/PDE/自融资核算在 QT24 定价分支。&quot;,
+      &quot;branch&quot;: &quot;pricing&quot;
+    }
+  ],
+  &quot;optional_readings&quot;: [
+    {
+      &quot;source_id&quot;: &quot;QEF-BOYD-2024&quot;,
+      &quot;access&quot;: {
+        &quot;kind&quot;: &quot;pdf_full_text&quot;,
+        &quot;uri&quot;: &quot;https://web.stanford.edu/~boyd/papers/pdf/markowitz.pdf&quot;
+      },
+      &quot;required_unit&quot;: {
+        &quot;locator&quot;: &quot;§2.1–2.4、§3.1、§3.4–3.5、§4.1–4.3&quot;,
+        &quot;scope&quot;: &quot;现金、交易成本和约束完整采用单元&quot;,
+        &quot;purpose&quot;: &quot;仅成本/约束拓展时启用，不新增实盘结论&quot;
+      }
+    }
+  ],
+  &quot;runtime_reading_log&quot;: [],
+  &quot;supplied_inputs&quot;: {
+    &quot;competence&quot;: &quot;主线只需现金递推、概率与均方误差；定价分支调用 QT17。&quot;,
+    &quot;static_equivalent&quot;: &quot;本篇 reader 全部默认表、证明及题解；HTML 禁用脚本仍可读。&quot;,
+    &quot;attachments&quot;: [
+      &quot;data/hedge-errors.csv&quot;,
+      &quot;data/hedge-histograms.json&quot;,
+      &quot;data/default-first-path-ledger.csv&quot;,
+      &quot;data/hand-path-ledger.csv&quot;,
+      &quot;compute/reproduce.py&quot;
+    ],
+    &quot;frozen&quot;: {
+      &quot;contract&quot;: {
+        &quot;position&quot;: &quot;short_one_model_european_call&quot;,
+        &quot;S0&quot;: 100,
+        &quot;K&quot;: 100,
+        &quot;multiplier&quot;: 100,
+        &quot;sigma&quot;: 0.2,
+        &quot;T_years&quot;: 0.0821917808219178,
+        &quot;T_exact&quot;: &quot;30/365&quot;,
+        &quot;r_lend_equals_borrow&quot;: 0.03,
+        &quot;rate_convention&quot;: &quot;annual continuously compounded&quot;,
+        &quot;dividend_yield&quot;: 0,
+        &quot;underlying_identity&quot;: &quot;Hypothetical tradable GBM asset; not XSP index shares.&quot;,
+        &quot;measure&quot;: &quot;Q model with drift r&quot;
+      },
+      &quot;path_recipe&quot;: {
+        &quot;shared_normal_array_with&quot;: &quot;EXP-QT15-17-DIFFUSION-01&quot;,
+        &quot;normalized_clock&quot;: &quot;u=j/256&quot;,
+        &quot;hedge_clock&quot;: &quot;t=(30/365)*u&quot;,
+        &quot;hedge_brownian_driver&quot;: &quot;sqrt(30/365)*W_u&quot;,
+        &quot;price&quot;: &quot;100*exp((r-sigma^2/2)*t+sigma*sqrt(T)*W_u)&quot;,
+        &quot;nested_intervals&quot;: [
+          4,
+          16,
+          64,
+          256
+        ],
+        &quot;pair_by&quot;: &quot;Identical path index within the shared normal array.&quot;,
+        &quot;meaning&quot;: &quot;Common random numbers and deterministic time scaling, not a change-of-measure theorem.&quot;
+      },
+      &quot;default_display&quot;: {
+        &quot;intervals&quot;: 16,
+        &quot;half_spread_bps&quot;: 5
+      },
+      &quot;comparison_grid&quot;: {
+        &quot;intervals&quot;: [
+          4,
+          16,
+          64,
+          256
+        ],
+        &quot;half_spread_bps&quot;: [
+          0,
+          5,
+          20
+        ]
+      },
+      &quot;initial_model_price_per_unit&quot;: 2.409581446079464,
+      &quot;initial_premium_dollars&quot;: 240.95814460794642,
+      &quot;holding_rule&quot;: &quot;After observation/fill at t_k, q_k=100*Phi(d1) serves (t_k,t_(k+1)]; at T, q_n=0.&quot;,
+      &quot;event_order&quot;: [
+        &quot;At inception receive model premium with q=0.&quot;,
+        &quot;For k&gt;0 accrue previous cash at exp(r*dt).&quot;,
+        &quot;Observe S_k and compute target using time-k information.&quot;,
+        &quot;Trade dq at model mid plus/minus half-spread.&quot;,
+        &quot;Subtract c*S_k*abs(dq) from cash.&quot;,
+        &quot;At T flatten all shares, including closing spread.&quot;,
+        &quot;Pay model cash payoff at the same T.&quot;
+      ],
+      &quot;cash_recursion&quot;: &quot;C_k=C_(k-1)*exp(r*dt_k)-S_k*(q_k-q_(k-1))-c*S_k*abs(q_k-q_(k-1))&quot;,
+      &quot;model_assumptions&quot;: [
+        &quot;fractional shares&quot;,
+        &quot;unlimited symmetric borrowing and lending&quot;,
+        &quot;no margin constraint&quot;,
+        &quot;no dividends&quot;,
+        &quot;observation then same-grid assumed fill&quot;,
+        &quot;no external funding after inception&quot;,
+        &quot;half-spread is an assumed one-way cost, not an observed quote&quot;
+      ],
+      &quot;error_definition&quot;: &quot;Cash after terminal hedge liquidation minus call payoff; dollars, not a return rate.&quot;
+    },
+    &quot;default_outputs&quot;: {
+      &quot;design&quot;: &quot;n16_c5&quot;,
+      &quot;intervals&quot;: 16,
+      &quot;half_spread_bps&quot;: 5,
+      &quot;n&quot;: 8192,
+      &quot;mean&quot;: -11.025472701825556,
+      &quot;sample_sd&quot;: 48.5403947822721,
+      &quot;mean_mc_se&quot;: 0.5363006611252611,
+      &quot;mse_to_zero&quot;: 2477.443355518406,
+      &quot;mse_mc_se&quot;: 51.24665443833317,
+      &quot;q05&quot;: -92.6979375973376,
+      &quot;q95&quot;: 67.19023591443182,
+      &quot;rmse&quot;: 49.77392244457338,
+      &quot;mean_nominal_cost&quot;: 11.382854902867193,
+      &quot;mean_terminal_cost&quot;: 11.39685202252775,
+      &quot;cash_balance_max_residual&quot;: 2.6666446828471635e-12,
+      &quot;cost_identity_max_residual&quot;: 1.1883827255587676e-11
+    },
+    &quot;hand_path&quot;: {
+      &quot;prices&quot;: [
+        100,
+        102,
+        101,
+        104
+      ],
+      &quot;ledger&quot;: [
+        {
+          &quot;step&quot;: 0,
+          &quot;time_years&quot;: 0.0,
+          &quot;model_mid&quot;: 100.0,
+          &quot;target_shares&quot;: 52.85688375454997,
+          &quot;shares_before&quot;: 0.0,
+          &quot;filled_shares&quot;: 52.85688375454997,
+          &quot;assumed_fill_price&quot;: 100.05,
+          &quot;cash_before_interest&quot;: 240.95814460794642,
+          &quot;interest&quot;: 0.0,
+          &quot;cash_before_trade&quot;: 240.95814460794642,
+          &quot;half_spread_cost&quot;: 2.6428441877274986,
+          &quot;cash_after_trade&quot;: -5047.373075034779,
+          &quot;shares_after&quot;: 52.85688375454997,
+          &quot;payoff&quot;: 0.0,
+          &quot;cash_after_payoff&quot;: -5047.373075034779,
+          &quot;external_flow&quot;: 0.0
+        },
+        {
+          &quot;step&quot;: 1,
+          &quot;time_years&quot;: 0.0273972602739726,
+          &quot;model_mid&quot;: 102.0,
+          &quot;target_shares&quot;: 68.49211431927395,
+          &quot;shares_before&quot;: 52.85688375454997,
+          &quot;filled_shares&quot;: 15.635230564723983,
+          &quot;assumed_fill_price&quot;: 102.05099999999999,
+          &quot;cash_before_interest&quot;: -5047.373075034779,
+          &quot;interest&quot;: -4.150231155904294,
+          &quot;cash_before_trade&quot;: -5051.523306190683,
+          &quot;half_spread_cost&quot;: 0.7973967588009232,
+          &quot;cash_after_trade&quot;: -6647.11422055133,
+          &quot;shares_after&quot;: 68.49211431927395,
+          &quot;payoff&quot;: 0.0,
+          &quot;cash_after_payoff&quot;: -6647.11422055133,
+          &quot;external_flow&quot;: 0.0
+        },
+        {
+          &quot;step&quot;: 2,
+          &quot;time_years&quot;: 0.0547945205479452,
+          &quot;model_mid&quot;: 101.0,
+          &quot;target_shares&quot;: 63.380801897059655,
+          &quot;shares_before&quot;: 68.49211431927395,
+          &quot;filled_shares&quot;: -5.111312422214297,
+          &quot;assumed_fill_price&quot;: 100.9495,
+          &quot;cash_before_interest&quot;: -6647.11422055133,
+          &quot;interest&quot;: -5.46562739168985,
+          &quot;cash_before_trade&quot;: -6652.57984794302,
+          &quot;half_spread_cost&quot;: 0.258121277321822,
+          &quot;cash_after_trade&quot;: -6136.595414576697,
+          &quot;shares_after&quot;: 63.380801897059655,
+          &quot;payoff&quot;: 0.0,
+          &quot;cash_after_payoff&quot;: -6136.595414576697,
+          &quot;external_flow&quot;: 0.0
+        },
+        {
+          &quot;step&quot;: 3,
+          &quot;time_years&quot;: 0.0821917808219178,
+          &quot;model_mid&quot;: 104.0,
+          &quot;target_shares&quot;: 0.0,
+          &quot;shares_before&quot;: 63.380801897059655,
+          &quot;filled_shares&quot;: -63.380801897059655,
+          &quot;assumed_fill_price&quot;: 103.94800000000001,
+          &quot;cash_before_interest&quot;: -6136.595414576697,
+          &quot;interest&quot;: -5.045850406169848,
+          &quot;cash_before_trade&quot;: -6141.641264982867,
+          &quot;half_spread_cost&quot;: 3.2958016986471024,
+          &quot;cash_after_trade&quot;: 446.6663306126902,
+          &quot;shares_after&quot;: 0.0,
+          &quot;payoff&quot;: 400.0,
+          &quot;cash_after_payoff&quot;: 46.66633061269022,
+          &quot;external_flow&quot;: 0.0
+        }
+      ],
+      &quot;borrowing_metrics&quot;: {
+        &quot;max_borrowing_after_trade&quot;: 6647.11422055133,
+        &quot;max_borrowing_over_cash_events&quot;: 6652.57984794302,
+        &quot;peak_over_cash_events_step&quot;: 2,
+        &quot;peak_event&quot;: &quot;after interest before trade&quot;,
+        &quot;borrowing_limit_5000_feasible&quot;: false,
+        &quot;borrowing_limit_5000_rejection_step&quot;: 0
+      }
+    },
+    &quot;full_arrays_are_external&quot;: true
+  },
+  &quot;required_readings_by_branch&quot;: {
+    &quot;ledger&quot;: [
+      {
+        &quot;source_id&quot;: &quot;QGHI-CBOE-XSP&quot;,
+        &quot;access&quot;: {
+          &quot;kind&quot;: &quot;html_full_text&quot;,
+          &quot;uri&quot;: &quot;https://www.cboe.com/tradable_products/sp_500/mini_spx_options/specifications&quot;
+        },
+        &quot;required_unit&quot;: {
+          &quot;locator&quot;: &quot;Underlying、Multiplier、Exercise Style、Settlement of Option Exercise&quot;,
+          &quot;scope&quot;: &quot;完整相关合约条款&quot;,
+          &quot;purpose&quot;: &quot;核对仅是模型接口，不作真实回测&quot;
+        },
+        &quot;supports&quot;: &quot;SPX/10 指数、100 美元乘数、欧式与下一营业日现金交付；不提供真实历史报价、可买卖指数股或券商入账秒。&quot;
+      }
+    ],
+    &quot;pricing&quot;: [
+      {
+        &quot;source_id&quot;: &quot;QGHI-CBOE-XSP&quot;,
+        &quot;access&quot;: {
+          &quot;kind&quot;: &quot;html_full_text&quot;,
+          &quot;uri&quot;: &quot;https://www.cboe.com/tradable_products/sp_500/mini_spx_options/specifications&quot;
+        },
+        &quot;required_unit&quot;: {
+          &quot;locator&quot;: &quot;Underlying、Multiplier、Exercise Style、Settlement of Option Exercise&quot;,
+          &quot;scope&quot;: &quot;完整相关合约条款&quot;,
+          &quot;purpose&quot;: &quot;核对仅是模型接口，不作真实回测&quot;
+        },
+        &quot;supports&quot;: &quot;SPX/10 指数、100 美元乘数、欧式与下一营业日现金交付；不提供真实历史报价、可买卖指数股或券商入账秒。&quot;
+      },
+      {
+        &quot;source_id&quot;: &quot;QGHI-MIT-BS13&quot;,
+        &quot;access&quot;: {
+          &quot;kind&quot;: &quot;pdf_full_text&quot;,
+          &quot;uri&quot;: &quot;https://ocw.mit.edu/courses/18-s096-topics-in-mathematics-with-applications-in-finance-fall-2013/d19208c017ada04f9261cfb41ab8d702_MIT18_S096F13_lecnote19.pdf&quot;
+        },
+        &quot;required_unit&quot;: {
+          &quot;locator&quot;: &quot;Slides 13–22&quot;,
+          &quot;scope&quot;: &quot;call、PDE、复制背景完整单元&quot;,
+          &quot;purpose&quot;: &quot;仅定价推导分支启用；忽略 slide16 错现金简述，读本篇完整推导&quot;
+        },
+        &quot;supports&quot;: &quot;call 公式与复制/PDE背景；不采用 slide16 将再平衡现金误说成确定过程的简述，完整 Gaussian/PDE/自融资核算在 QT24 定价分支。&quot;,
+        &quot;branch&quot;: &quot;pricing&quot;
+      }
+    ]
+  }
+}
+```
+
+&lt;!-- READER_BODY_START --&gt;
+# 离散动态对冲：从现金账到误差分布
+
+我们卖出一份到期支付随标的价格变化的合约，再不断调整标的持仓来准备这笔支付。对冲是否有效，不能只看一条 delta 曲线：买入标的钱从哪里来、负现金如何计息、最后是否平仓、支付是否只扣一次，都会直接改变结果。本篇先让这些钱逐笔对上，再比较频率与费用。默认学习只需要理解现金流和基本统计；完整定价推导放在末尾的独立分支。
+
+&lt;a id=&quot;qt24-contract&quot;&gt;&lt;/a&gt;
+## 1. 一份明确的模型合同
+
+实验名为 `EXP-HEDGE-01`。假设可交易资产 $S$ 服从一个具名的 $Q$ 模型：$dS_t=rS_tdt+\sigma S_tdW_t$，$S_0=100$，$r=0.03$，$\sigma=0.20$。卖出一份欧式看涨式合约，$K=100$、乘数 $m=100$、期限 $T=30/365$ 年，模型到期支付为 $m(S_T-K)^+$。这里没有真实报价，也没有宣称 $Q$ 是现实涨跌概率。
+
+无分红、允许分数股、允许现金以相同连续复利利率无限借贷、无保证金约束，都是本模型的条件。每个网格点先观察模型价格，再按同格价格加减假设半价差成交；现实订单的排队、部分成交和报告延迟没有被模拟。交易后不从外部补钱。负现金是已经定义的借款，不是偷偷注资。
+
+单份模型权利金为 $240.95814461$ 美元；每单位支付的模型价为 $2.4095814461$。默认将这段期限等分为 16 个区间，半价差设为 5 bps，即 $c=0.0005$，完整买卖价差为 10 bps。这是成本假设，不是交易所实测报价。16 指模型区间数，不是 16 个真实交易日。
+
+设 $\tau=T-t$。调仓所用公式是
+
+$$
+\begin{gathered}
+d_1(t,s)=\frac{\log(s/K)+(r+\sigma^2/2)\tau}{\sigma\sqrt\tau},\\
+q_t=m\Phi(d_1(t,s)),\quad t&lt;T.
+\end{gathered}
+$$
+
+$\Phi$ 是标准正态分布函数。初始每单位 delta 为 $0.5285688375$，因此目标为 $52.85688375$ 股。到期不再调用含零分母的 delta 公式，而是强制清仓 $q_n=0$。这些数来自同一个合同；改变合约乘数要同时改变权利金、股数和支付，不能只改图的纵轴。[^bs]
+
+&lt;a id=&quot;qt24-ledger&quot;&gt;&lt;/a&gt;
+## 2. 一行现金账，固定三种先后关系
+
+用 $C_k$ 表示在 $t_k$ 完成本次交易后的现金，$q_k$ 表示随后持有的股数，服务于 $(t_k,t_{k+1}]$。从上一行到当前行，先让旧现金增长为 $C_{k-1}e^{r\Delta t_k}$，再按当前信息决定目标股数；实际成交变化是 $\Delta q_k=q_k-q_{k-1}$。于是
+
+$$
+\begin{aligned}
+C_k^-&amp;=C_{k-1}e^{r\Delta t_k},\\
+\mathrm{fee}_k&amp;=cS_k|\Delta q_k|,\\
+C_k&amp;=C_k^- -S_k\Delta q_k-\mathrm{fee}_k.
+\end{aligned}
+$$
+
+买入时实际模型成交价是 $S_k(1+c)$，卖出时是 $S_k(1-c)$。这与“中间价交易金额加半价差费用”完全等价；两种记法只能选一种，不能在成交价里已经加了价差后又扣一次同样费用。
+
+同一时点按中间价标记资产，就有
+
+$$
+C_k+q_kS_k=(C_k^-+q_{k-1}S_k)-\mathrm{fee}_k.
+$$
+
+因此换仓本身除了费用，不创造或消灭净资产。借款现金的利息也保留在账上。起点先收取权利金、股数为零，然后开仓并扣费；终点先卖清对冲股票并计入平仓价差，随后扣合约支付。最终误差是
+
+$$
+\varepsilon=C_n-m(S_T-K)^+.
+$$
+
+这是“清算后还差或还剩多少钱”。此时不再减一次初始权利金，因为它早已进入现金递推。也不自动用权利金作收益率分母：组合期间使用了借款和风险敞口，权利金不等于投入资本。
+
+&lt;a id=&quot;qt24-hand&quot;&gt;&lt;/a&gt;
+## 3. 把一条短路径完整算完
+
+先取明确选定的手算路径 $100\to102\to101\to104$，分为三个相等区间，每段 $10/365$ 年，半价差仍为 5 bps。它不是模拟第一条路径，也不是平均路径。
+
+起点买入 $52.85688375$ 股，中间价交易额约 $5285.68837545$，费用约 $2.64284419$。所以
+
+$$
+\begin{aligned}
+C_0&amp;=240.95814461-5285.68837545\\
+&amp;\quad-2.64284419\\
+&amp;=-5047.37307503.
+\end{aligned}
+$$
+
+下一时点，旧借款增加约 $4.15023116$ 美元利息；价格为 102，目标增至 $68.49211432$ 股，因此追加买入 $15.63523056$ 股。我们把全部四行列出来，金额显示作四舍五入，计算和附件保留全精度。
+
+| 步 | 模型中价 | 成交股数 | 利息 | 半价差成本 | 成交后股数 | 成交后现金 | 本步支付 |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| 0 | 100 | 52.85688375 | 0.00000000 | 2.64284419 | 52.85688375 | -5047.37307503 | 0.00 |
+| 1 | 102 | 15.63523056 | -4.15023116 | 0.79739676 | 68.49211432 | -6647.11422055 | 0.00 |
+| 2 | 101 | -5.11131242 | -5.46562739 | 0.25812128 | 63.38080190 | -6136.59541458 | 0.00 |
+| 3 | 104 | -63.38080190 | -5.04585041 | 3.29580170 | 0.00000000 | 446.66633061 | 400.00 |
+
+这张表的“成交后现金”还不是授信监控的全部事件。若只在每次成交完成后看负现金，本路径的最大借款是第 10 天的
+
+$$
+\mathrm{Borrow}^{\mathrm{after\ trade}}_{\max}
+=6647.11422055133\text{ 美元}.
+$$
+
+但第 20 天要先让上一步的负现金计息，再卖出股票。卖出发生以前，现金已经变成
+
+$$
+-6647.11422055133\,e^{0.03(10/365)}
+=-6652.57984794302.
+$$
+
+所以若“最大借款”指整个现金事件序列——包括计息以后、再平衡以前——应报告
+
+$$
+\mathrm{Borrow}^{\mathrm{cash\ events}}_{\max}
+=6652.57984794302\text{ 美元},
+$$
+
+发生在第 20 天、卖出股票以前。两项指标回答不同问题：前者便于检查每次成交后的账面余额；授信是否足够则必须检查后者。它们都由同一冻结账本推得，并没有改变任何交易、价格或终值。
+
+第三行到最后一行，先计旧现金利息，再以模型买卖价差卖清 $63.38080190$ 股。清仓后现金 $446.66633061$；到期支付 $100(104-100)=400$，所以剩余
+
+$$
+\varepsilon=446.66633061-400=46.66633061\text{ 美元}.
+$$
+
+这个正数不说明策略有正期望利润。它只是这条选定路径上的离散对冲误差；另一些路径会资金不足。看误差分布，正是为了避免拿一条漂亮路径代替整个模型表现。
+
+&lt;a id=&quot;qt24-comparison&quot;&gt;&lt;/a&gt;
+## 4. 相同路径上比较频率和费用
+
+这里用 PCG64 的固定种子 15161724 一次生成 $8192\times256$ 个标准正态数。先在归一化时间 $u\in[0,1]$ 上形成最细 Brownian 网格，再用 $t=Tu$、$\sqrt T W_u$ 生成 $Q$ 模型价格。4、16、64、256 个区间都从同一条最细路径抽取；同一行路径索引在十二个设计中始终对应同一段价格历史。
+
+这种共同随机数减少比较中的无关抽样差异，但不构成从 $P$ 到 $Q$ 的换测度证明。QT17 的一年、漂移 $0.08$ 示例是另一生成模型；本账本始终用漂移 $r=0.03$。
+
+下表是 $\sqrt{N^{-1}\sum_{i=1}^N\varepsilon_i^2}$，即相对于完全复制目标零误差的 RMSE，单位美元。它既包含均值偏离，也包含离散程度，不等同于样本标准差。
+
+| 等距模型区间数 | 0 bps RMSE（美元） | 5 bps RMSE（美元） | 20 bps RMSE（美元） |
+| --- | --- | --- | --- |
+| 4 | 93.739527 | 94.552739 | 100.944831 |
+| 16 | 47.916075 | 49.773922 | 68.512317 |
+| 64 | 24.910062 | 31.539889 | 79.353757 |
+| 256 | 12.779218 | 34.913530 | 129.881951 |
+
+无费用时，较细网格在这组实验中使 RMSE 下降。加入成本后，这种改善不再单调：5 bps 下 256 区间的 RMSE 高于 64 区间；20 bps 下频繁调仓的费用更加明显。不能据此把 64 或 16 宣布成真实市场的最优频率，因为我们没有改变策略、资产、借贷限制或成本机制，也没有做真实交易验证。
+
+对于预定的同一个 delta 目标，如果费用没有反过来改变持仓，令 $D_k=C_k^{(0)}-C_k^{(c)}$。两套账相减给
+
+$$
+\begin{gathered}
+D_k=e^{r\Delta t_k}D_{k-1}+\mathrm{fee}_k,\\
+\varepsilon^{(0)}-\varepsilon^{(c)}
+=\sum_{k=0}^n e^{r(T-t_k)}\mathrm{fee}_k.
+\end{gathered}
+$$
+
+初始费用和终点清仓费用都包括在内。这条恒等式逐路径成立，而不只是平均意义成立。一旦增加现金或保证金限制，使有费用方案无法维持原目标股数，便不再能用这条“同持仓差额”解释全部结果。
+
+&lt;a id=&quot;qt24-distribution&quot;&gt;&lt;/a&gt;
+## 5. 误差分布究竟表达什么
+
+默认 16 区间、5 bps 的模型误差均值约为 $-11.0255$ 美元，样本标准差约为 $48.5404$ 美元；5% 和 95% 样本分位数约为 $-92.6979$ 与 $67.1902$ 美元。均值估计的 Monte Carlo 标准误约为 $0.5363$ 美元。这个标准误描述给定模型下有限模拟数量的误差，不描述模型离真实市场有多远。
+
+图使用实际逐路径误差分箱，不由三个分位数拼接曲线。十二个设计均有 8192 个误差，采用共同的美元区间边界；各箱左闭右开，最后一箱包含右端点，箱外计数为零。附件保留完整同索引数组，所以可以独立改变分箱，而不必重新抽路径。
+
+| 误差箱（美元） | 默认 16 区间 / 5 bps 路径数 |
+| --- | --- |
+| [-325, -300) | 1 |
+| [-275, -250) | 2 |
+| [-250, -225) | 4 |
+| [-225, -200) | 9 |
+| [-200, -175) | 17 |
+| [-175, -150) | 38 |
+| [-150, -125) | 91 |
+| [-125, -100) | 172 |
+| [-100, -75) | 371 |
+| [-75, -50) | 736 |
+| [-50, -25) | 1475 |
+| [-25, 0) | 2000 |
+| [0, 25) | 1574 |
+| [25, 50) | 948 |
+| [50, 75) | 464 |
+| [75, 100) | 192 |
+| [100, 125) | 78 |
+| [125, 150) | 19 |
+| [150, 175) | 1 |
+
+配对比较用 $L_i=\varepsilon_{i,256,5}^2-\varepsilon_{i,64,5}^2$。在这8192条共同路径上，其均值为 $224.189981$ 美元²，均值 Monte Carlo 标准误为 $18.953228$ 美元²。这个比较应使用每条路径的差，而不是把两个设计的误差当成相互独立再随意合成标准误。所有样本标准差使用分母 $N-1$；MSE 则按 $N$ 平均平方误差。样本分位数采用线性插值，只是描述约定。
+
+&lt;div data-experiment-slot=&quot;EXP-HEDGE-01&quot;&gt;&lt;/div&gt;
+
+&lt;a id=&quot;qt24-real-rules&quot;&gt;&lt;/a&gt;
+## 6. 真实合约规则是一项对照，不是给模型换个名字
+
+Cboe 的 XSP 规则规定，XSP 是 SPX 的十分之一，乘数为100美元，欧式行权，行权结算产生现金交付，现金在到期后的下一个营业日交付。XSP 本身是指数，不是可以按上述 $q_k$ 买入的“XSP 股票”。[^xsp]
+
+因此，本篇可交易 GBM 资产、同一模型时点平仓并支付的设置不能叫作 XSP 回测。把结算值确定、现金交付和券商账户显示入账混成一个时刻，也没有来源支持。真实对冲若用其他证券或期货，需要另外处理转换比例、基差、分红或展期、实际成交价格与时钟；本实验没有取得这些输入。现代组合模型中的价差、冲击和成交量约束也需要分别建模，而不是从“加入一个费用参数”自动得到。[^cost]
+
+&lt;a id=&quot;qt24-exercise&quot;&gt;&lt;/a&gt;
+## 7. 迁移：费用和资金约束不是同一个变动
+
+在手算路径的第二次调仓时额外扣1美元，但保持原目标股数不变。终点误差会减少多少？再设可用借款额度为 5000 美元、且没有额外初始自有现金，原来的完整手算路径能否建仓？若额度改为 6700 美元，只看这条冻结手算路径时又如何判断？
+
+### 解析
+
+这里“第二次调仓”指定为 $t_1=10/365$，起点开仓记第零次。额外费用会在剩余 $20/365$ 年中积累借款利息，终点误差减少 $e^{0.03(20/365)}$ 美元，而不只是恰好1美元。这是同持仓费用递推的直接应用。
+
+借款额度改变的是可行策略，而且必须从第一个现金事件开始检查。5000 美元额度在 $t=0$ 就不能支持原策略：初始开仓和价差扣除以后需要借 $5047.37307503$ 美元，因此应在建仓时拒绝，而不能等到第 10 天才宣布超限。
+
+若额度为 6700 美元，则不能只比较“成交后最大借款” $6647.11422055$。还要看第 20 天计息后、卖出股票以前的 $6652.57984794$；它仍低于 6700，所以在这条冻结手算路径、并沿本篇同率无限借贷之外仅加这一上限的假设下，额度足以覆盖全部已列现金事件。这里没有重新优化持仓，也没有加入现实保证金规则。若额度不足，就必须重新规定少买、阈值调整或新增资金等规则；新增外部资金又会改变本实验身份。不能只改最终误差，仍宣称执行了相同策略。
+
+&lt;section data-reading-branch=&quot;pricing&quot;&gt;
+&lt;a id=&quot;qt24-pricing&quot;&gt;&lt;/a&gt;
+## 定价推导分支：从 Gaussian 积分到自融资复制
+
+这一分支需要 [[QT17|Itô 公式]]。我们验证的是此模型中这一份 call 的连续复制，不证明所有连续市场都完备。
+
+在 $Q$ 模型中，给定 $S_t=s$，有
+
+$$
+S_T=s\exp\left((r-\sigma^2/2)\tau+\sigma\sqrt\tau Z\right),
+\qquad Z\sim N(0,1).
+$$
+
+先定义折现支付均值 $C(t,s)=e^{-r\tau}E_Q[(S_T-K)^+\mid S_t=s]$。支付非零的条件是 $Z&gt;-d_2$，其中 $d_2=(\log(s/K)+(r-\sigma^2/2)\tau)/(\sigma\sqrt\tau)$，$d_1=d_2+\sigma\sqrt\tau$。
+
+记正态密度为 $\phi$，用完成平方恒等式 $e^{az-a^2/2}\phi(z)=\phi(z-a)$，第一项积分成为
+
+$$
+e^{-r\tau}E_Q[S_T\mathbf1_{Z&gt;-d_2}]
+=s\int_{-d_2}^{\infty}\phi(z-\sigma\sqrt\tau)dz
+=s\Phi(d_1).
+$$
+
+第二项是 $Ke^{-r\tau}P(Z&gt;-d_2)=Ke^{-r\tau}\Phi(d_2)$。相减得到
+
+$$
+C(t,s)=s\Phi(d_1)-Ke^{-r\tau}\Phi(d_2).
+$$
+
+到这里仍是一个具名模型中的计算。要给它复制含义，还须建立相同价值的自融资持仓。
+
+直接由 $d_1-d_2=\sigma\sqrt\tau$ 可验证 $s\phi(d_1)=Ke^{-r\tau}\phi(d_2)$；代入导数后，正态密度产生的附加项抵消，得
+
+$$
+C_s=\Phi(d_1),\qquad
+C_{ss}=\frac{\phi(d_1)}{s\sigma\sqrt\tau},
+$$
+
+$$
+C_t=-\frac{s\sigma\phi(d_1)}{2\sqrt\tau}
+-rKe^{-r\tau}\Phi(d_2).
+$$
+
+把它们代回即可逐项核对
+
+$$
+C_t+rsC_s+\frac12\sigma^2s^2C_{ss}-rC=0.
+$$
+
+现在即使在漂移为 $\mu$ 的另一个 GBM 模型中应用 Itô 公式，仍有
+
+$$
+\begin{aligned}
+dC
+&amp;=C_s\,dS+\left(C_t+\tfrac12\sigma^2S^2C_{ss}\right)dt\\
+&amp;=\Delta\,dS+r(C-\Delta S)dt.
+\end{aligned}
+$$
+
+令货币账户 $B_t=e^{rt}$，股票数量为 $\Delta_t=C_s(t,S_t)$，现金账户单位为 $\beta_t=(C(t,S_t)-\Delta_tS_t)/B_t$。首先有价值相等 $\Delta_tS_t+\beta_tB_t=C(t,S_t)$；其次上式给 $dC=\Delta_t dS_t+\beta_t dB_t$，即自融资条件。两项一起才说明复制。现金金额 $\beta B=C-\Delta S$ 包含调仓资金，不能误写成它本身只按 $r$ 增长的确定过程。
+
+对 $t&lt;T$ 函数光滑，$0\le\Delta\le1$，常数参数 GBM 有 $E\int_0^TS_t^2dt&lt;\infty$，所以股票增益积分可以合法取到端点；$C(t,S_t)$ 在 $t\uparrow T$ 时连续趋于 $(S_T-K)^+$。现金漂移项也可积，例如 $C-\Delta S=-Ke^{-r\tau}\Phi(d_2)$ 有界。这把复制从每个到期前时点延伸到支付端点。
+
+离散账本不再满足连续再平衡恒等式，费用也破坏上述无摩擦条件，因此其终点有误差。这正是主线需要逐行复算的对象，而不是公式计算“不够准确”。[^pricing]
+&lt;/section&gt;
+
+[^bs]: Vasily Strela，MIT 18.S096，Lecture 19，Fall 2013，slides 13–22（尤其 slide19 call/delta 公式）；[公开讲义](https://ocw.mit.edu/courses/18-s096-topics-in-mathematics-with-applications-in-finance-fall-2013/d19208c017ada04f9261cfb41ab8d702_MIT18_S096F13_lecnote19.pdf)。数值参数是本文具名教学模型，不是讲义中的历史报价。
+[^xsp]: Cboe，*XSP Options Product Specification*，Underlying、Multiplier、Exercise Style、Settlement of Option Exercise；[官方规则](https://www.cboe.com/tradable_products/sp_500/mini_spx_options/specifications)，2026-09-21 核对。该规则不支持券商 booking 的精确时点。
+[^cost]: Stephen Boyd、Kasper Johansson、Ronald Kahn、Philipp Schiele、Thomas Schmelzer，*Markowitz Portfolio Construction at Seventy*，2024-01-05 公开稿，§2.2–2.4、§3.4–3.5、§4.1–4.3；[原文](https://web.stanford.edu/~boyd/papers/pdf/markowitz.pdf)。这里只采用成本、预测和约束对象，不引其策略绩效。
+[^pricing]: 上述 Gaussian 积分和 PDE 逐项核对支撑本篇的 call 复制。MIT slide16 对现金过程的简述不作为证明；本篇保留“价值相等”和“自融资”两个条件。一般 Itô 公式及其条件见 [[QT17-P1|完整证明单元]]。
+
+&lt;!-- READER_BODY_END --&gt;
+</textarea></main><script>(function(){const panels=[...document.querySelectorAll('section[data-reading-branch]')];function branch(b){panels.forEach(s=>s.hidden=b!=='all'&&s.dataset.readingBranch!==b);document.querySelectorAll('[data-select-reading-branch]').forEach(x=>x.setAttribute('aria-pressed',x.dataset.selectReadingBranch===b));}document.querySelectorAll('[data-select-reading-branch]').forEach(x=>x.addEventListener('click',()=>branch(x.dataset.selectReadingBranch)));if(panels.some(x=>x.dataset.readingBranch==='A')){const h=location.hash;branch(h.includes('-b-')?'B':'A');}else if(panels.some(x=>x.dataset.readingBranch==='pricing')){branch(location.hash.includes('qt24-pricing')?'all':'ledger');}const copy=document.getElementById('copy-agent');if(copy)copy.addEventListener('click',async()=>{const text=document.getElementById('agent-text').value;try{await navigator.clipboard.writeText(text);document.getElementById('copy-status').textContent='已复制完整Agent包。';}catch(e){document.getElementById('copy-status').textContent='浏览器未允许剪贴板；请使用相邻的Agent Markdown文件。';}});window.QT_READER_READY=true;})();</script></body></html>

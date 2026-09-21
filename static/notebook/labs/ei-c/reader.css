@@ -1,0 +1,8 @@
+/* Scoped to EI-C; the site's existing typography and mathematics stay in charge. */
+.entry-article[data-entry-id="zh-ei14"] .flow-diagram { display:flex; align-items:center; gap:.6rem; flex-wrap:wrap; margin:1.3rem 0; }
+.entry-article[data-entry-id="zh-ei14"] .flow-node { flex:1; min-width:145px; padding:.8rem; border:1px solid currentColor; border-radius:.4rem; text-align:center; font-variant-numeric:lining-nums tabular-nums; }
+.entry-article[data-entry-id="zh-ei14"] .flow-arrow { text-align:center; font-size:.9em; }
+@media (max-width:620px) {
+  .entry-article[data-entry-id="zh-ei14"] .flow-diagram { display:block; }
+  .entry-article[data-entry-id="zh-ei14"] .flow-node { margin:.4rem 0; }
+}

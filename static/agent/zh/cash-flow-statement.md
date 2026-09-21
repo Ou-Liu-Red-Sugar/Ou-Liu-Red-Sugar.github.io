@@ -1,0 +1,2822 @@
+# 现金流量表：经营、投资与筹资
+
+从完整原表连起期初与期末现金，并用软件、零售和银行区分现金流分类与经营解释。
+
+Entry: zh-bf07 | Node: BF-07 | Language: zh | Editorial revision: 2026-09-21
+
+## Teaching instructions
+你现在教授BF-07《现金流量表：经营、投资与筹资》。对象是有微积分、线性代数及基本概率基础，但不假定受过会计训练的高年级本科至研究生。先确认本篇行业/扩展分支和学习任务。在讲解前，使用读取工具实际取得agent_packet中common及所选branch的全部required_readings完整单元（含表头、脚注和条件）。optional_readings只有选中相应研究/扩展时才转为必读。记录标题、版本、实际范围以及支持当前教学的关键设定；runtime_reading_log初始为空，不以编辑访问或参考清单冒充本次已读。访问失败时尝试同版本官方等价正文；仍缺失就指出具体缺口，不拿摘要代替承重单元。诊断任务：先选择软件或零售，读者自己给出期初至期末现金桥，再检查一组完整CFO。沿当前同源正文、静态表和supplied_inputs逐段推进，先让读者分析再反馈，已会步骤直接跳过。判断理解的尺度：软件必须包括四项净249；零售保留893与963差70；原表补充项目不重复加总。最后迁移：默认在所选公司换读上一年度，重建完整现金总桥并核对一组经营调整；若读者选择银行扩展，先读取 bank-extension 的 JPM 指定完整单元，再用交易资产与存款实际行解释分类。保留历史观测与教学设定身份、单位、期间、未解释差额；不得从本篇生成新估值或账户建议。
+
+Before substantive teaching, actually retrieve every required reading unit for the selected scope. Read its complete designated section, including necessary assumptions, tables and footnotes. A working URL or an editorial access date is not a runtime reading receipt. Record the actual version, location, scope and what it supports. If unavailable, use a previously verified equivalent source; if the required unit remains unavailable, identify that gap rather than teach it from memory. Start runtime_reading_log empty. Once reading is complete, use a substantive diagnostic or follow the reader's request for direct explanation. Advance one complete reasoning task at a time; skip mastered basics. Distinguish original facts, supplied teaching assumptions and inference.
+
+## Required readings and runtime protocol
+```json
+{
+  "export_mode": "public",
+  "required_readings": [
+    {
+      "source_id": "BBC-S05",
+      "access": {
+        "kind": "html_full_text",
+        "uri": "https://openstax.org/books/principles-financial-accounting/pages/16-1-explain-the-purpose-of-the-statement-of-cash-flows"
+      },
+      "required_unit": {
+        "locator": "§16.1全文",
+        "scope": "所列完整单元、相关表头、脚注及当前计算所需说明",
+        "purpose": "现金流量表的信息职责"
+      },
+      "supports": "现金流量表的信息职责。",
+      "branch": "common",
+      "required_when_selected": false,
+      "title": "Principles of Accounting, Volume 1: Financial Accounting — §16.1 Explain the Purpose of the Statement of Cash Flows",
+      "authors": [
+        "Mitchell Franklin",
+        "Patty Graybeal",
+        "Dixon Cooper"
+      ],
+      "version": "OpenStax 2019"
+    },
+    {
+      "source_id": "BBC-S06",
+      "access": {
+        "kind": "html_full_text",
+        "uri": "https://openstax.org/books/principles-financial-accounting/pages/16-2-differentiate-between-operating-investing-and-financing-activities"
+      },
+      "required_unit": {
+        "locator": "§16.2全文",
+        "scope": "所列完整单元、相关表头、脚注及当前计算所需说明",
+        "purpose": "三类现金流基本分类"
+      },
+      "supports": "经营、投资、筹资活动的分类；实际行业口径回到原表。",
+      "branch": "common",
+      "required_when_selected": false,
+      "title": "Principles of Accounting, Volume 1: Financial Accounting — §16.2 Differentiate between Operating, Investing, and Financing Activities",
+      "authors": [
+        "Mitchell Franklin",
+        "Patty Graybeal",
+        "Dixon Cooper"
+      ],
+      "version": "OpenStax 2019"
+    },
+    {
+      "source_id": "BBC-S07",
+      "access": {
+        "kind": "html_full_text",
+        "uri": "https://openstax.org/books/principles-financial-accounting/pages/16-3-prepare-the-statement-of-cash-flows-using-the-indirect-method"
+      },
+      "required_unit": {
+        "locator": "§16.3全文",
+        "scope": "所列完整单元、相关表头、脚注及当前计算所需说明",
+        "purpose": "净利润至经营现金的完整间接调节"
+      },
+      "supports": "间接法调节及其完整性。",
+      "branch": "common",
+      "required_when_selected": false,
+      "title": "Principles of Accounting, Volume 1: Financial Accounting — §16.3 Prepare the Statement of Cash Flows Using the Indirect Method",
+      "authors": [
+        "Mitchell Franklin",
+        "Patty Graybeal",
+        "Dixon Cooper"
+      ],
+      "version": "OpenStax 2019"
+    },
+    {
+      "source_id": "BBC-C01",
+      "access": {
+        "kind": "html_full_text",
+        "uri": "https://www.sec.gov/Archives/edgar/data/1108524/000110852426000060/crm-20260131.htm"
+      },
+      "required_unit": {
+        "locator": "Cash Flows pp.61–62全表及补充、D&A脚注；Note2合同余额",
+        "scope": "所列完整单元、相关表头、脚注及当前计算所需说明",
+        "purpose": "软件CFO全部11行与现金总桥"
+      },
+      "supports": "订阅收入确认、合同余额、完整现金流、权益与EPS、收入CAM及所得税附注。金额、现金和股数口径保留，不虚构差额调节。",
+      "branch": "software",
+      "required_when_selected": false,
+      "title": "Salesforce, Inc. FY2026 Form 10-K",
+      "authors": [
+        "Salesforce, Inc."
+      ],
+      "version": "Fiscal year ended 2026-01-31"
+    }
+  ],
+  "optional_readings": [
+    {
+      "source_id": "BF-S-JPM-FY2025",
+      "access": {
+        "kind": "pdf_full_text",
+        "uri": "https://www.jpmorganchase.com/content/dam/jpmc/jpmorgan-chase-and-co/investor-relations/documents/annualreport-2025.pdf"
+      },
+      "required_unit": {
+        "locator": "Cash Flows印刷p.169/PDF201全表；MD&A Cash Flows p.58",
+        "scope": "所列完整单元、相关表头、脚注及当前计算所需说明",
+        "purpose": "交易资产/借入证券/存款分类"
+      },
+      "supports": "银行GAAP合并利润表与现金流分类。交易资产、借入证券与待售贷款是经营资产，存款变动在筹资。",
+      "branch": "bank-extension",
+      "required_when_selected": true
+    },
+    {
+      "source_id": "BF-S-COST-FY2025-SEC",
+      "access": {
+        "kind": "html_full_text",
+        "uri": "https://www.sec.gov/Archives/edgar/data/909832/000090983225000101/cost-20250831.htm"
+      },
+      "required_unit": {
+        "locator": "Cash Flows p.41全表及补充；Balance Sheets p.39库存/应付；Note1库存政策p.44",
+        "scope": "所列完整单元、相关表头、脚注及当前计算所需说明",
+        "purpose": "零售现金、893/963/70的范围"
+      },
+      "supports": "会员零售利润、完整现金流和库存政策；MD&A明确定义Gross Margin。库存和应付的余额反向变化893与现金流调整963不同，70保留未归因。",
+      "branch": "retail",
+      "required_when_selected": true
+    }
+  ],
+  "runtime_reading_log": [],
+  "supplied_inputs": {
+    "canonical_file": "https://ou-liu-red-sugar.github.io/notebook/labs/bf-bc/inputs.json",
+    "selected_keys": [
+      "tables.sf_cash",
+      "tables.cost_cash",
+      "tables.jpm_cash",
+      "inventory.cost"
+    ],
+    "data": {
+      "tables": {
+        "sf_cash": {
+          "id": "sf_cash",
+          "title": "Salesforce Consolidated Statements of Cash Flows",
+          "source_id": "BBC-C01",
+          "locator": "Printed pp.61–62",
+          "periods": [
+            "FY2026 · 2026-01-31",
+            "FY2025 · 2025-01-31",
+            "FY2024 · 2024-01-31"
+          ],
+          "unit": "USD millions",
+          "data_identity": "historical_observation",
+          "rows": [
+            {
+              "id": "op",
+              "label_original": "Operating activities",
+              "label_zh": "经营活动",
+              "kind": "heading",
+              "section": "cfo",
+              "values": [
+                null,
+                null,
+                null
+              ]
+            },
+            {
+              "id": "net",
+              "label_original": "Net income",
+              "label_zh": "净利润",
+              "kind": "detail",
+              "section": "cfo",
+              "values": [
+                7457,
+                6197,
+                4136
+              ]
+            },
+            {
+              "id": "adjust",
+              "label_original": "Adjustments to reconcile net income to net cash provided by operating activities",
+              "label_zh": "由净利润调节至经营活动净现金",
+              "kind": "heading",
+              "section": "cfo",
+              "values": [
+                null,
+                null,
+                null
+              ]
+            },
+            {
+              "id": "da",
+              "label_original": "Depreciation and amortization (1)",
+              "label_zh": "折旧和摊销（1）",
+              "kind": "detail",
+              "section": "cfo",
+              "values": [
+                3631,
+                3477,
+                3959
+              ]
+            },
+            {
+              "id": "contract_amort",
+              "label_original": "Amortization of costs capitalized to obtain revenue contracts, net",
+              "label_zh": "取得收入合同资本化成本的摊销净额",
+              "kind": "detail",
+              "section": "cfo",
+              "values": [
+                2197,
+                2095,
+                1925
+              ]
+            },
+            {
+              "id": "sbc",
+              "label_original": "Stock-based compensation expense",
+              "label_zh": "股权薪酬费用",
+              "kind": "detail",
+              "section": "cfo",
+              "values": [
+                3509,
+                3183,
+                2787
+              ]
+            },
+            {
+              "id": "strategic",
+              "label_original": "(Gains) losses on strategic investments, net",
+              "label_zh": "战略投资收益／损失净额的现金流调整",
+              "kind": "detail",
+              "section": "cfo",
+              "values": [
+                -1017,
+                121,
+                277
+              ]
+            },
+            {
+              "id": "changes",
+              "label_original": "Changes in assets and liabilities, net of business combinations",
+              "label_zh": "资产负债变动，扣除企业合并影响",
+              "kind": "heading",
+              "section": "cfo",
+              "values": [
+                null,
+                null,
+                null
+              ]
+            },
+            {
+              "id": "ar",
+              "label_original": "Accounts receivable, net",
+              "label_zh": "应收款净额变动",
+              "kind": "detail",
+              "section": "cfo",
+              "values": [
+                -2160,
+                -490,
+                -659
+              ]
+            },
+            {
+              "id": "contract_add",
+              "label_original": "Costs capitalized to obtain revenue contracts, net",
+              "label_zh": "取得收入合同的资本化成本净额变动",
+              "kind": "detail",
+              "section": "cfo",
+              "values": [
+                -2811,
+                -2121,
+                -1872
+              ]
+            },
+            {
+              "id": "prepaid",
+              "label_original": "Prepaid expenses and other current assets and other assets",
+              "label_zh": "预付及其他资产变动",
+              "kind": "detail",
+              "section": "cfo",
+              "values": [
+                819,
+                -1495,
+                -843
+              ]
+            },
+            {
+              "id": "ap",
+              "label_original": "Accounts payable and accrued expenses and other liabilities",
+              "label_zh": "应付、应计费用及其他负债变动",
+              "kind": "detail",
+              "section": "cfo",
+              "values": [
+                1014,
+                1089,
+                -478
+              ]
+            },
+            {
+              "id": "lease",
+              "label_original": "Operating lease liabilities",
+              "label_zh": "经营租赁负债变动",
+              "kind": "detail",
+              "section": "cfo",
+              "values": [
+                -567,
+                -548,
+                -621
+              ]
+            },
+            {
+              "id": "unearned",
+              "label_original": "Unearned revenue",
+              "label_zh": "未赚取收入变动",
+              "kind": "detail",
+              "section": "cfo",
+              "values": [
+                2924,
+                1584,
+                1623
+              ]
+            },
+            {
+              "id": "cfo",
+              "label_original": "Net cash provided by operating activities",
+              "label_zh": "经营活动产生净现金",
+              "kind": "total",
+              "section": "cfo",
+              "values": [
+                14996,
+                13092,
+                10234
+              ]
+            },
+            {
+              "id": "inv",
+              "label_original": "Investing activities",
+              "label_zh": "投资活动",
+              "kind": "heading",
+              "section": "cfi",
+              "values": [
+                null,
+                null,
+                null
+              ]
+            },
+            {
+              "id": "acquisitions",
+              "label_original": "Business combinations, net of cash acquired",
+              "label_zh": "企业合并，扣取得现金",
+              "kind": "detail",
+              "section": "cfi",
+              "values": [
+                -9268,
+                -2734,
+                -82
+              ]
+            },
+            {
+              "id": "strategic_purchases",
+              "label_original": "Purchases of strategic investments",
+              "label_zh": "购入战略投资",
+              "kind": "detail",
+              "section": "cfi",
+              "values": [
+                -1958,
+                -539,
+                -496
+              ]
+            },
+            {
+              "id": "strategic_sales",
+              "label_original": "Sales of strategic investments",
+              "label_zh": "出售战略投资",
+              "kind": "detail",
+              "section": "cfi",
+              "values": [
+                184,
+                126,
+                108
+              ]
+            },
+            {
+              "id": "market_purchases",
+              "label_original": "Purchases of marketable securities",
+              "label_zh": "购入有价证券",
+              "kind": "detail",
+              "section": "cfi",
+              "values": [
+                -3763,
+                -6879,
+                -3761
+              ]
+            },
+            {
+              "id": "market_sales",
+              "label_original": "Sales of marketable securities",
+              "label_zh": "出售有价证券",
+              "kind": "detail",
+              "section": "cfi",
+              "values": [
+                4414,
+                4143,
+                1511
+              ]
+            },
+            {
+              "id": "market_maturities",
+              "label_original": "Maturities of marketable securities",
+              "label_zh": "有价证券到期",
+              "kind": "detail",
+              "section": "cfi",
+              "values": [
+                2395,
+                3378,
+                2129
+              ]
+            },
+            {
+              "id": "capex",
+              "label_original": "Capital expenditures",
+              "label_zh": "资本支出",
+              "kind": "detail",
+              "section": "cfi",
+              "values": [
+                -594,
+                -658,
+                -736
+              ]
+            },
+            {
+              "id": "cfi",
+              "label_original": "Net cash used in investing activities",
+              "label_zh": "投资活动使用净现金",
+              "kind": "total",
+              "section": "cfi",
+              "values": [
+                -8590,
+                -3163,
+                -1327
+              ]
+            },
+            {
+              "id": "fin",
+              "label_original": "Financing activities",
+              "label_zh": "筹资活动",
+              "kind": "heading",
+              "section": "cff",
+              "values": [
+                null,
+                null,
+                null
+              ]
+            },
+            {
+              "id": "debtissue",
+              "label_original": "Proceeds from issuance of debt, net of issuance costs",
+              "label_zh": "发行债务所得，扣发行成本",
+              "kind": "detail",
+              "section": "cff",
+              "values": [
+                6000,
+                0,
+                0
+              ]
+            },
+            {
+              "id": "repurchases",
+              "label_original": "Repurchases of common stock",
+              "label_zh": "回购普通股现金",
+              "kind": "detail",
+              "section": "cff",
+              "values": [
+                -12596,
+                -7829,
+                -7620
+              ]
+            },
+            {
+              "id": "settlementtax",
+              "label_original": "Payments for taxes related to net share settlement of equity awards",
+              "label_zh": "股权奖励净额结算相关税款支付",
+              "kind": "detail",
+              "section": "cff",
+              "values": [
+                -351,
+                0,
+                0
+              ]
+            },
+            {
+              "id": "employee",
+              "label_original": "Proceeds from employee stock plans",
+              "label_zh": "员工股票计划所得",
+              "kind": "detail",
+              "section": "cff",
+              "values": [
+                1039,
+                1540,
+                1954
+              ]
+            },
+            {
+              "id": "financeprincipal",
+              "label_original": "Principal payments on financing obligations",
+              "label_zh": "融资义务本金支付",
+              "kind": "detail",
+              "section": "cff",
+              "values": [
+                -584,
+                -603,
+                -629
+              ]
+            },
+            {
+              "id": "debtrepay",
+              "label_original": "Repayments of debt",
+              "label_zh": "偿还债务",
+              "kind": "detail",
+              "section": "cff",
+              "values": [
+                0,
+                -1000,
+                -1182
+              ]
+            },
+            {
+              "id": "dividends",
+              "label_original": "Payments of dividends and dividend equivalents",
+              "label_zh": "股息及股息等价支付",
+              "kind": "detail",
+              "section": "cff",
+              "values": [
+                -1587,
+                -1537,
+                0
+              ]
+            },
+            {
+              "id": "cff",
+              "label_original": "Net cash used in financing activities",
+              "label_zh": "筹资活动使用净现金",
+              "kind": "total",
+              "section": "cff",
+              "values": [
+                -8079,
+                -9429,
+                -7477
+              ]
+            },
+            {
+              "id": "fx",
+              "label_original": "Effect of exchange rate changes",
+              "label_zh": "汇率变化影响",
+              "kind": "detail",
+              "section": "cash",
+              "values": [
+                152,
+                -124,
+                26
+              ]
+            },
+            {
+              "id": "change",
+              "label_original": "Net increase (decrease) in cash and cash equivalents",
+              "label_zh": "现金及等价物净增／减",
+              "kind": "subtotal",
+              "section": "cash",
+              "values": [
+                -1521,
+                376,
+                1456
+              ]
+            },
+            {
+              "id": "begin",
+              "label_original": "Cash and cash equivalents, beginning of period",
+              "label_zh": "期初现金及等价物",
+              "kind": "balance",
+              "section": "cash",
+              "values": [
+                8848,
+                8472,
+                7016
+              ]
+            },
+            {
+              "id": "end",
+              "label_original": "Cash and cash equivalents, end of period",
+              "label_zh": "期末现金及等价物",
+              "kind": "balance",
+              "section": "cash",
+              "values": [
+                7327,
+                8848,
+                8472
+              ]
+            },
+            {
+              "id": "supp",
+              "label_original": "Supplemental cash flow disclosure",
+              "label_zh": "补充现金流披露（不再加入合计）",
+              "kind": "heading",
+              "section": "supplement",
+              "values": [
+                null,
+                null,
+                null
+              ]
+            },
+            {
+              "id": "paidinterest",
+              "label_original": "Cash paid for interest",
+              "label_zh": "已付利息",
+              "kind": "supplement",
+              "section": "supplement",
+              "values": [
+                276,
+                233,
+                254
+              ]
+            },
+            {
+              "id": "paidtax",
+              "label_original": "Cash paid for income taxes, net of tax refunds",
+              "label_zh": "已付所得税，扣退款",
+              "kind": "supplement",
+              "section": "supplement",
+              "values": [
+                1282,
+                2061,
+                1027
+              ]
+            }
+          ],
+          "notes": [
+            "（1）D&A含取得无形资产摊销、固定资产折旧、使用权资产摊销及减值。",
+            "资产与负债变动按原表扣除企业合并影响，不能直接用两个期末余额替换。",
+            "现金集合为cash and cash equivalents。补充已付利息和税款已经体现在现金流中，不重复累加。"
+          ],
+          "aggregation_rules": [
+            {
+              "target": "cfo",
+              "components": [
+                "net",
+                "da",
+                "contract_amort",
+                "sbc",
+                "strategic",
+                "ar",
+                "contract_add",
+                "prepaid",
+                "ap",
+                "lease",
+                "unearned"
+              ],
+              "operation": "signed_sum"
+            },
+            {
+              "target": "cfi",
+              "components": [
+                "acquisitions",
+                "strategic_purchases",
+                "strategic_sales",
+                "market_purchases",
+                "market_sales",
+                "market_maturities",
+                "capex"
+              ],
+              "operation": "signed_sum"
+            },
+            {
+              "target": "cff",
+              "components": [
+                "debtissue",
+                "repurchases",
+                "settlementtax",
+                "employee",
+                "financeprincipal",
+                "debtrepay",
+                "dividends"
+              ],
+              "operation": "signed_sum"
+            },
+            {
+              "target": "change",
+              "components": [
+                "cfo",
+                "cfi",
+                "cff",
+                "fx"
+              ],
+              "operation": "signed_sum"
+            },
+            {
+              "target": "end",
+              "components": [
+                "begin",
+                "change"
+              ],
+              "operation": "signed_sum"
+            }
+          ]
+        },
+        "cost_cash": {
+          "id": "cost_cash",
+          "title": "Costco Consolidated Statements of Cash Flows",
+          "source_id": "BF-S-COST-FY2025-SEC",
+          "locator": "SEC HTML printed p.41",
+          "periods": [
+            "FY2025 · 52周",
+            "FY2024 · 52周",
+            "FY2023 · 53周"
+          ],
+          "unit": "USD millions",
+          "data_identity": "historical_observation",
+          "rows": [
+            {
+              "id": "op",
+              "label_original": "CASH FLOWS FROM OPERATING ACTIVITIES",
+              "label_zh": "经营活动现金流",
+              "kind": "heading",
+              "section": "cfo",
+              "values": [
+                null,
+                null,
+                null
+              ]
+            },
+            {
+              "id": "net",
+              "label_original": "Net income",
+              "label_zh": "净利润",
+              "kind": "detail",
+              "section": "cfo",
+              "values": [
+                8099,
+                7367,
+                6292
+              ]
+            },
+            {
+              "id": "adjust",
+              "label_original": "Adjustments to reconcile net income to net cash provided by operating activities",
+              "label_zh": "净利润至经营活动净现金的调整",
+              "kind": "heading",
+              "section": "cfo",
+              "values": [
+                null,
+                null,
+                null
+              ]
+            },
+            {
+              "id": "da",
+              "label_original": "Depreciation and amortization",
+              "label_zh": "折旧及摊销",
+              "kind": "detail",
+              "section": "cfo",
+              "values": [
+                2426,
+                2237,
+                2077
+              ]
+            },
+            {
+              "id": "lease",
+              "label_original": "Non-cash lease expense",
+              "label_zh": "非现金租赁费用",
+              "kind": "detail",
+              "section": "cfo",
+              "values": [
+                303,
+                315,
+                412
+              ]
+            },
+            {
+              "id": "sbc",
+              "label_original": "Stock-based compensation",
+              "label_zh": "股权薪酬",
+              "kind": "detail",
+              "section": "cfo",
+              "values": [
+                860,
+                818,
+                774
+              ]
+            },
+            {
+              "id": "noncash",
+              "label_original": "Impairment of assets and other non-cash operating activities, net",
+              "label_zh": "资产减值及其他非现金经营活动净额",
+              "kind": "detail",
+              "section": "cfo",
+              "values": [
+                -117,
+                -9,
+                495
+              ]
+            },
+            {
+              "id": "changes",
+              "label_original": "Changes in operating assets and liabilities",
+              "label_zh": "经营资产及负债变动",
+              "kind": "heading",
+              "section": "cfo",
+              "values": [
+                null,
+                null,
+                null
+              ]
+            },
+            {
+              "id": "inventory",
+              "label_original": "Merchandise inventories",
+              "label_zh": "商品存货变动",
+              "kind": "detail",
+              "section": "cfo",
+              "values": [
+                559,
+                -2068,
+                1228
+              ]
+            },
+            {
+              "id": "ap",
+              "label_original": "Accounts payable",
+              "label_zh": "应付账款变动",
+              "kind": "detail",
+              "section": "cfo",
+              "values": [
+                404,
+                1938,
+                -382
+              ]
+            },
+            {
+              "id": "other",
+              "label_original": "Other operating assets and liabilities, net",
+              "label_zh": "其他经营资产负债净变动",
+              "kind": "detail",
+              "section": "cfo",
+              "values": [
+                801,
+                741,
+                172
+              ]
+            },
+            {
+              "id": "cfo",
+              "label_original": "Net cash provided by operating activities",
+              "label_zh": "经营活动产生净现金",
+              "kind": "total",
+              "section": "cfo",
+              "values": [
+                13335,
+                11339,
+                11068
+              ]
+            },
+            {
+              "id": "inv",
+              "label_original": "CASH FLOWS FROM INVESTING ACTIVITIES",
+              "label_zh": "投资活动现金流",
+              "kind": "heading",
+              "section": "cfi",
+              "values": [
+                null,
+                null,
+                null
+              ]
+            },
+            {
+              "id": "capex",
+              "label_original": "Additions to property and equipment",
+              "label_zh": "物业及设备增加的现金支出",
+              "kind": "detail",
+              "section": "cfi",
+              "values": [
+                -5498,
+                -4710,
+                -4323
+              ]
+            },
+            {
+              "id": "purchases",
+              "label_original": "Purchases of short-term investments",
+              "label_zh": "购买短期投资",
+              "kind": "detail",
+              "section": "cfi",
+              "values": [
+                -1028,
+                -1470,
+                -1622
+              ]
+            },
+            {
+              "id": "maturities",
+              "label_original": "Maturities of short-term investments",
+              "label_zh": "短期投资到期",
+              "kind": "detail",
+              "section": "cfi",
+              "values": [
+                1141,
+                1790,
+                937
+              ]
+            },
+            {
+              "id": "otherinv",
+              "label_original": "Other investing activities, net",
+              "label_zh": "其他投资活动净额",
+              "kind": "detail",
+              "section": "cfi",
+              "values": [
+                74,
+                -19,
+                36
+              ]
+            },
+            {
+              "id": "cfi",
+              "label_original": "Net cash used in investing activities",
+              "label_zh": "投资活动使用净现金",
+              "kind": "total",
+              "section": "cfi",
+              "values": [
+                -5311,
+                -4409,
+                -4972
+              ]
+            },
+            {
+              "id": "fin",
+              "label_original": "CASH FLOWS FROM FINANCING ACTIVITIES",
+              "label_zh": "筹资活动现金流",
+              "kind": "heading",
+              "section": "cff",
+              "values": [
+                null,
+                null,
+                null
+              ]
+            },
+            {
+              "id": "shortrepay",
+              "label_original": "Repayments of short-term borrowings",
+              "label_zh": "偿还短期借款",
+              "kind": "detail",
+              "section": "cff",
+              "values": [
+                -862,
+                -920,
+                -935
+              ]
+            },
+            {
+              "id": "shortissue",
+              "label_original": "Proceeds from short-term borrowings",
+              "label_zh": "短期借款所得",
+              "kind": "detail",
+              "section": "cff",
+              "values": [
+                816,
+                928,
+                917
+              ]
+            },
+            {
+              "id": "longrepay",
+              "label_original": "Repayments of long-term debt",
+              "label_zh": "偿还长期债务",
+              "kind": "detail",
+              "section": "cff",
+              "values": [
+                -103,
+                -1077,
+                -75
+              ]
+            },
+            {
+              "id": "longissue",
+              "label_original": "Proceeds from issuance of long-term debt",
+              "label_zh": "长期债务所得",
+              "kind": "detail",
+              "section": "cff",
+              "values": [
+                0,
+                498,
+                0
+              ]
+            },
+            {
+              "id": "taxwithheld",
+              "label_original": "Tax withholdings on stock-based awards",
+              "label_zh": "股票奖励代扣税款",
+              "kind": "detail",
+              "section": "cff",
+              "values": [
+                -393,
+                -315,
+                -303
+              ]
+            },
+            {
+              "id": "repurchases",
+              "label_original": "Repurchases of common stock",
+              "label_zh": "回购普通股",
+              "kind": "detail",
+              "section": "cff",
+              "values": [
+                -903,
+                -700,
+                -676
+              ]
+            },
+            {
+              "id": "dividends",
+              "label_original": "Cash dividend payments",
+              "label_zh": "支付股息",
+              "kind": "detail",
+              "section": "cff",
+              "values": [
+                -2183,
+                -9041,
+                -1251
+              ]
+            },
+            {
+              "id": "otherfin",
+              "label_original": "Financing lease payments and other financing activities, net",
+              "label_zh": "融资租赁支付及其他筹资净额",
+              "kind": "detail",
+              "section": "cff",
+              "values": [
+                -147,
+                -137,
+                -291
+              ]
+            },
+            {
+              "id": "cff",
+              "label_original": "Net cash used in financing activities",
+              "label_zh": "筹资活动使用净现金",
+              "kind": "total",
+              "section": "cff",
+              "values": [
+                -3775,
+                -10764,
+                -2614
+              ]
+            },
+            {
+              "id": "fx",
+              "label_original": "Effect of exchange rate changes on cash and cash equivalents",
+              "label_zh": "汇率变化对现金及等价物影响",
+              "kind": "detail",
+              "section": "cash",
+              "values": [
+                6,
+                40,
+                15
+              ]
+            },
+            {
+              "id": "change",
+              "label_original": "Net change in cash and cash equivalents",
+              "label_zh": "现金及等价物净变动",
+              "kind": "subtotal",
+              "section": "cash",
+              "values": [
+                4255,
+                -3794,
+                3497
+              ]
+            },
+            {
+              "id": "begin",
+              "label_original": "Cash and cash equivalents, beginning of year",
+              "label_zh": "期初现金及等价物",
+              "kind": "balance",
+              "section": "cash",
+              "values": [
+                9906,
+                13700,
+                10203
+              ]
+            },
+            {
+              "id": "end",
+              "label_original": "Cash and cash equivalents, end of year",
+              "label_zh": "期末现金及等价物",
+              "kind": "balance",
+              "section": "cash",
+              "values": [
+                14161,
+                9906,
+                13700
+              ]
+            },
+            {
+              "id": "supp",
+              "label_original": "SUPPLEMENTAL DISCLOSURE OF CASH FLOW INFORMATION",
+              "label_zh": "补充披露（不重复加总）",
+              "kind": "heading",
+              "section": "supplement",
+              "values": [
+                null,
+                null,
+                null
+              ]
+            },
+            {
+              "id": "paidinterest",
+              "label_original": "Cash paid during the year for interest",
+              "label_zh": "年内已付利息",
+              "kind": "supplement",
+              "section": "supplement",
+              "values": [
+                106,
+                129,
+                125
+              ]
+            },
+            {
+              "id": "paidtax",
+              "label_original": "Income taxes, net",
+              "label_zh": "年内已付所得税净额",
+              "kind": "supplement",
+              "section": "supplement",
+              "values": [
+                2917,
+                2319,
+                2234
+              ],
+              "parent_original": "Cash paid during the year for"
+            },
+            {
+              "id": "noncashheading",
+              "label_original": "SUPPLEMENTAL DISCLOSURE OF NON-CASH ACTIVITIES",
+              "label_zh": "非现金活动补充披露",
+              "kind": "heading",
+              "section": "supplement",
+              "values": [
+                null,
+                null,
+                null
+              ]
+            },
+            {
+              "id": "unpaiddividends",
+              "label_original": "Dividends declared, but not yet paid",
+              "label_zh": "已宣布而未支付股息",
+              "kind": "supplement",
+              "section": "supplement",
+              "values": [
+                0,
+                0,
+                452
+              ]
+            },
+            {
+              "id": "unpaidcapex",
+              "label_original": "Capital expenditures included in liabilities",
+              "label_zh": "列入负债的资本支出",
+              "kind": "supplement",
+              "section": "supplement",
+              "values": [
+                193,
+                203,
+                170
+              ]
+            }
+          ],
+          "notes": [
+            "零值按原表破折号语义保留数值0；主表标题无金额为null，不等于0。",
+            "其他非现金经营活动净额为负不能整行解释为本期资产减值。",
+            "现金集合为cash and cash equivalents；补充的未付资本支出不加到当期现金支出。"
+          ],
+          "aggregation_rules": [
+            {
+              "target": "cfo",
+              "components": [
+                "net",
+                "da",
+                "lease",
+                "sbc",
+                "noncash",
+                "inventory",
+                "ap",
+                "other"
+              ],
+              "operation": "signed_sum"
+            },
+            {
+              "target": "cfi",
+              "components": [
+                "capex",
+                "purchases",
+                "maturities",
+                "otherinv"
+              ],
+              "operation": "signed_sum"
+            },
+            {
+              "target": "cff",
+              "components": [
+                "shortrepay",
+                "shortissue",
+                "longrepay",
+                "longissue",
+                "taxwithheld",
+                "repurchases",
+                "dividends",
+                "otherfin"
+              ],
+              "operation": "signed_sum"
+            },
+            {
+              "target": "change",
+              "components": [
+                "cfo",
+                "cfi",
+                "cff",
+                "fx"
+              ],
+              "operation": "signed_sum"
+            },
+            {
+              "target": "end",
+              "components": [
+                "begin",
+                "change"
+              ],
+              "operation": "signed_sum"
+            }
+          ]
+        },
+        "jpm_cash": {
+          "id": "jpm_cash",
+          "title": "JPMorgan Chase Consolidated Statements of Cash Flows",
+          "source_id": "BF-S-JPM-FY2025",
+          "locator": "Printed p.169 / physical PDF p.201",
+          "periods": [
+            "2025",
+            "2024",
+            "2023"
+          ],
+          "unit": "USD millions",
+          "data_identity": "historical_observation",
+          "rows": [
+            {
+              "id": "op",
+              "label_original": "Operating activities",
+              "label_zh": "经营活动",
+              "kind": "heading",
+              "section": "cfo",
+              "values": [
+                null,
+                null,
+                null
+              ]
+            },
+            {
+              "id": "net",
+              "label_original": "Net income",
+              "label_zh": "净利润",
+              "kind": "detail",
+              "section": "cfo",
+              "values": [
+                57048,
+                58471,
+                49552
+              ]
+            },
+            {
+              "id": "provision",
+              "label_original": "Provision for credit losses",
+              "label_zh": "信用损失计提",
+              "kind": "detail",
+              "section": "cfo",
+              "values": [
+                14212,
+                10678,
+                9320
+              ]
+            },
+            {
+              "id": "da",
+              "label_original": "Depreciation and amortization",
+              "label_zh": "折旧摊销",
+              "kind": "detail",
+              "section": "cfo",
+              "values": [
+                8821,
+                7938,
+                7512
+              ]
+            },
+            {
+              "id": "deferred",
+              "label_original": "Deferred tax expense (benefit)",
+              "label_zh": "递延所得税费用／利益",
+              "kind": "detail",
+              "section": "cfo",
+              "values": [
+                5611,
+                2004,
+                -4534
+              ]
+            },
+            {
+              "id": "fr",
+              "label_original": "Bargain purchase gain associated with First Republic acquisition",
+              "label_zh": "First Republic收购廉价购买收益调整",
+              "kind": "detail",
+              "section": "cfo",
+              "values": [
+                0,
+                -103,
+                -2775
+              ]
+            },
+            {
+              "id": "visa",
+              "label_original": "Initial gain on Visa exchange",
+              "label_zh": "Visa交换初始收益调整",
+              "kind": "detail",
+              "section": "cfo",
+              "values": [
+                0,
+                -7990,
+                0
+              ]
+            },
+            {
+              "id": "otheradjust",
+              "label_original": "Other adjustments",
+              "label_zh": "其他调整",
+              "kind": "detail",
+              "section": "cfo",
+              "values": [
+                1309,
+                1985,
+                4301
+              ]
+            },
+            {
+              "id": "hfsorigin",
+              "label_original": "Originations and purchases of loans held-for-sale",
+              "label_zh": "待售贷款发放及购买",
+              "kind": "detail",
+              "section": "cfo",
+              "values": [
+                -260772,
+                -212238,
+                -115245
+              ]
+            },
+            {
+              "id": "hfssales",
+              "label_original": "Proceeds from sales, securitizations and paydowns of loans held-for-sale",
+              "label_zh": "待售贷款出售、证券化及偿还所得",
+              "kind": "detail",
+              "section": "cfo",
+              "values": [
+                235232,
+                205303,
+                116430
+              ]
+            },
+            {
+              "id": "tradingassets",
+              "label_original": "Trading assets",
+              "label_zh": "交易资产变动",
+              "kind": "detail",
+              "section": "cfo",
+              "values": [
+                -156461,
+                -95729,
+                -74091
+              ]
+            },
+            {
+              "id": "securitiesborrowed",
+              "label_original": "Securities borrowed",
+              "label_zh": "借入证券变动",
+              "kind": "detail",
+              "section": "cfo",
+              "values": [
+                -66648,
+                -18762,
+                -14902
+              ]
+            },
+            {
+              "id": "receivables",
+              "label_original": "Accrued interest and accounts receivable",
+              "label_zh": "应计利息和应收账款变动",
+              "kind": "detail",
+              "section": "cfo",
+              "values": [
+                -11514,
+                5735,
+                19928
+              ]
+            },
+            {
+              "id": "otherassets",
+              "label_original": "Other assets",
+              "label_zh": "其他资产变动",
+              "kind": "detail",
+              "section": "cfo",
+              "values": [
+                -12582,
+                -7650,
+                32970
+              ]
+            },
+            {
+              "id": "tradingliabilities",
+              "label_original": "Trading liabilities",
+              "label_zh": "交易负债变动",
+              "kind": "detail",
+              "section": "cfo",
+              "values": [
+                23134,
+                2276,
+                5315
+              ]
+            },
+            {
+              "id": "ap",
+              "label_original": "Accounts payable and other liabilities",
+              "label_zh": "应付及其他负债变动",
+              "kind": "detail",
+              "section": "cfo",
+              "values": [
+                5270,
+                -90,
+                -25388
+              ]
+            },
+            {
+              "id": "otheroperating",
+              "label_original": "Other operating adjustments",
+              "label_zh": "其他经营调整",
+              "kind": "detail",
+              "section": "cfo",
+              "values": [
+                9558,
+                6160,
+                4581
+              ]
+            },
+            {
+              "id": "cfo",
+              "label_original": "Net cash provided by (used in) operating activities",
+              "label_zh": "经营活动产生／使用净现金",
+              "kind": "total",
+              "section": "cfo",
+              "values": [
+                -147782,
+                -42012,
+                12974
+              ]
+            },
+            {
+              "id": "inv",
+              "label_original": "Investing activities",
+              "label_zh": "投资活动",
+              "kind": "heading",
+              "section": "cfi",
+              "values": [
+                null,
+                null,
+                null
+              ]
+            },
+            {
+              "id": "resale",
+              "label_original": "Federal funds sold and securities purchased under resale agreements",
+              "label_zh": "拆出联邦基金及买入返售变动",
+              "kind": "detail",
+              "section": "cfi",
+              "values": [
+                -41264,
+                -18706,
+                39740
+              ]
+            },
+            {
+              "id": "htmmaturity",
+              "label_original": "Proceeds from maturities and paydowns of held-to-maturity securities",
+              "label_zh": "HTM到期偿还所得",
+              "kind": "detail",
+              "section": "cfi",
+              "values": [
+                54791,
+                99363,
+                53056
+              ]
+            },
+            {
+              "id": "htmbuy",
+              "label_original": "Purchases of held-to-maturity securities",
+              "label_zh": "买入HTM",
+              "kind": "detail",
+              "section": "cfi",
+              "values": [
+                -5432,
+                -4709,
+                -4141
+              ]
+            },
+            {
+              "id": "afspay",
+              "label_original": "Proceeds from maturities and paydowns of available-for-sale securities",
+              "label_zh": "AFS到期偿还所得",
+              "kind": "detail",
+              "section": "cfi",
+              "values": [
+                37414,
+                38499,
+                53744
+              ]
+            },
+            {
+              "id": "afssell",
+              "label_original": "Proceeds from sales of available-for-sale securities",
+              "label_zh": "出售AFS所得",
+              "kind": "detail",
+              "section": "cfi",
+              "values": [
+                141295,
+                104625,
+                108434
+              ]
+            },
+            {
+              "id": "afsbuy",
+              "label_original": "Purchases of available-for-sale securities",
+              "label_zh": "购入AFS",
+              "kind": "detail",
+              "section": "cfi",
+              "values": [
+                -308772,
+                -352712,
+                -115499
+              ]
+            },
+            {
+              "id": "hfi",
+              "label_original": "Proceeds from sales and securitizations of loans held-for-investment",
+              "label_zh": "留存投资贷款出售及证券化所得",
+              "kind": "detail",
+              "section": "cfi",
+              "values": [
+                57565,
+                57921,
+                47312
+              ]
+            },
+            {
+              "id": "otherloans",
+              "label_original": "Other changes in loans, net",
+              "label_zh": "其他贷款净变动",
+              "kind": "detail",
+              "section": "cfi",
+              "values": [
+                -188497,
+                -83176,
+                -88343
+              ]
+            },
+            {
+              "id": "fracquisition",
+              "label_original": "Cash paid for First Republic acquisition",
+              "label_zh": "First Republic收购现金支出",
+              "kind": "detail",
+              "section": "cfi",
+              "values": [
+                0,
+                -2362,
+                -9920
+              ]
+            },
+            {
+              "id": "otherinv",
+              "label_original": "All other investing activities, net",
+              "label_zh": "其他投资活动净额",
+              "kind": "detail",
+              "section": "cfi",
+              "values": [
+                -12665,
+                -2146,
+                -16740
+              ]
+            },
+            {
+              "id": "cfi",
+              "label_original": "Net cash provided by (used in) investing activities",
+              "label_zh": "投资活动产生／使用净现金",
+              "kind": "total",
+              "section": "cfi",
+              "values": [
+                -265565,
+                -163403,
+                67643
+              ]
+            },
+            {
+              "id": "fin",
+              "label_original": "Financing activities",
+              "label_zh": "筹资活动",
+              "kind": "heading",
+              "section": "cff",
+              "values": [
+                null,
+                null,
+                null
+              ]
+            },
+            {
+              "id": "deposits",
+              "label_original": "Deposits",
+              "label_zh": "客户存款变动",
+              "kind": "detail",
+              "section": "cff",
+              "values": [
+                153168,
+                3299,
+                -32196
+              ]
+            },
+            {
+              "id": "repo",
+              "label_original": "Federal funds purchased and securities loaned or sold under repurchase agreements",
+              "label_zh": "拆入联邦基金及证券出借／回购变动",
+              "kind": "detail",
+              "section": "cff",
+              "values": [
+                145535,
+                80288,
+                13801
+              ]
+            },
+            {
+              "id": "short",
+              "label_original": "Short-term borrowings",
+              "label_zh": "短期借款变动",
+              "kind": "detail",
+              "section": "cff",
+              "values": [
+                9422,
+                7439,
+                -1934
+              ]
+            },
+            {
+              "id": "vie",
+              "label_original": "Beneficial interests issued by consolidated VIEs",
+              "label_zh": "合并VIE发行受益权变动",
+              "kind": "detail",
+              "section": "cff",
+              "values": [
+                -622,
+                1543,
+                9029
+              ]
+            },
+            {
+              "id": "longissue",
+              "label_original": "Proceeds from long-term borrowings",
+              "label_zh": "长期借款所得",
+              "kind": "detail",
+              "section": "cff",
+              "values": [
+                120761,
+                109915,
+                75417
+              ]
+            },
+            {
+              "id": "longpay",
+              "label_original": "Payments of long-term borrowings",
+              "label_zh": "偿还长期借款",
+              "kind": "detail",
+              "section": "cff",
+              "values": [
+                -108100,
+                -96605,
+                -64880
+              ]
+            },
+            {
+              "id": "preferredissue",
+              "label_original": "Proceeds from issuance of preferred stock",
+              "label_zh": "发行优先股所得",
+              "kind": "detail",
+              "section": "cff",
+              "values": [
+                3000,
+                2500,
+                0
+              ]
+            },
+            {
+              "id": "preferredpay",
+              "label_original": "Redemption of preferred stock",
+              "label_zh": "赎回优先股",
+              "kind": "detail",
+              "section": "cff",
+              "values": [
+                -3000,
+                -9850,
+                0
+              ]
+            },
+            {
+              "id": "treasury",
+              "label_original": "Treasury stock repurchased",
+              "label_zh": "购买库存股",
+              "kind": "detail",
+              "section": "cff",
+              "values": [
+                -31591,
+                -18830,
+                -9824
+              ]
+            },
+            {
+              "id": "dividends",
+              "label_original": "Dividends paid",
+              "label_zh": "支付股息",
+              "kind": "detail",
+              "section": "cff",
+              "values": [
+                -16625,
+                -14783,
+                -13463
+              ]
+            },
+            {
+              "id": "otherfin",
+              "label_original": "All other financing activities, net",
+              "label_zh": "其他筹资活动净额",
+              "kind": "detail",
+              "section": "cff",
+              "values": [
+                -2415,
+                -1469,
+                -1521
+              ]
+            },
+            {
+              "id": "cff",
+              "label_original": "Net cash provided by (used in) financing activities",
+              "label_zh": "筹资活动产生／使用净现金",
+              "kind": "total",
+              "section": "cff",
+              "values": [
+                269533,
+                63447,
+                -25571
+              ]
+            },
+            {
+              "id": "fx",
+              "label_original": "Effect of exchange rate changes",
+              "label_zh": "汇率变化影响",
+              "kind": "detail",
+              "section": "cash",
+              "values": [
+                17835,
+                -12866,
+                1871
+              ]
+            },
+            {
+              "id": "change",
+              "label_original": "Net increase (decrease) in cash and due from banks and deposits with banks",
+              "label_zh": "指定现金集合净变动",
+              "kind": "subtotal",
+              "section": "cash",
+              "values": [
+                -125979,
+                -154834,
+                56917
+              ]
+            },
+            {
+              "id": "begin",
+              "label_original": "Cash and due from banks and deposits with banks, beginning of year",
+              "label_zh": "期初现金、应收银行款及存放银行款",
+              "kind": "balance",
+              "section": "cash",
+              "values": [
+                469317,
+                624151,
+                567234
+              ]
+            },
+            {
+              "id": "end",
+              "label_original": "Cash and due from banks and deposits with banks, end of year",
+              "label_zh": "期末现金、应收银行款及存放银行款",
+              "kind": "balance",
+              "section": "cash",
+              "values": [
+                343338,
+                469317,
+                624151
+              ]
+            },
+            {
+              "id": "supp",
+              "label_original": "Supplemental disclosures of cash flow information",
+              "label_zh": "补充披露",
+              "kind": "heading",
+              "section": "supplement",
+              "values": [
+                null,
+                null,
+                null
+              ]
+            },
+            {
+              "id": "paidinterest",
+              "label_original": "Cash interest paid",
+              "label_zh": "已付现金利息",
+              "kind": "supplement",
+              "section": "supplement",
+              "values": [
+                96436,
+                99642,
+                77114
+              ]
+            },
+            {
+              "id": "paidtax",
+              "label_original": "Income taxes paid, net",
+              "label_zh": "已付所得税净额",
+              "kind": "supplement",
+              "section": "supplement",
+              "values": [
+                5309,
+                11715,
+                9908
+              ]
+            }
+          ],
+          "notes": [
+            "此表以原页重新排版；行名称保留业务含义，原文图像位于PDF第201页。",
+            "JPM现金集合为cash and due from banks and deposits with banks，不能改称普通公司cash equivalents。",
+            "变化和合计按原表符号；经营资产扩张与客户存款筹资分属不同活动类别。"
+          ],
+          "aggregation_rules": [
+            {
+              "target": "cfo",
+              "components": [
+                "net",
+                "provision",
+                "da",
+                "deferred",
+                "fr",
+                "visa",
+                "otheradjust",
+                "hfsorigin",
+                "hfssales",
+                "tradingassets",
+                "securitiesborrowed",
+                "receivables",
+                "otherassets",
+                "tradingliabilities",
+                "ap",
+                "otheroperating"
+              ],
+              "operation": "signed_sum"
+            },
+            {
+              "target": "cfi",
+              "components": [
+                "resale",
+                "htmmaturity",
+                "htmbuy",
+                "afspay",
+                "afssell",
+                "afsbuy",
+                "hfi",
+                "otherloans",
+                "fracquisition",
+                "otherinv"
+              ],
+              "operation": "signed_sum"
+            },
+            {
+              "target": "cff",
+              "components": [
+                "deposits",
+                "repo",
+                "short",
+                "vie",
+                "longissue",
+                "longpay",
+                "preferredissue",
+                "preferredpay",
+                "treasury",
+                "dividends",
+                "otherfin"
+              ],
+              "operation": "signed_sum"
+            },
+            {
+              "target": "change",
+              "components": [
+                "cfo",
+                "cfi",
+                "cff",
+                "fx"
+              ],
+              "operation": "signed_sum"
+            },
+            {
+              "target": "end",
+              "components": [
+                "begin",
+                "change"
+              ],
+              "operation": "signed_sum"
+            }
+          ]
+        }
+      },
+      "inventory": {
+        "cost": {
+          "source_id": "BF-S-COST-FY2025-SEC",
+          "locator": "Note 1 Merchandise Inventories p.44; balance sheet p.39; cash flows p.41",
+          "periods": [
+            "2025-08-31",
+            "2024-09-01"
+          ],
+          "rows": [
+            [
+              "United States",
+              "美国",
+              12868,
+              13625
+            ],
+            [
+              "Canada",
+              "加拿大",
+              1907,
+              1895
+            ],
+            [
+              "Other International",
+              "其他国际",
+              3341,
+              3127
+            ]
+          ],
+          "total": [
+            18116,
+            18647
+          ],
+          "ap": [
+            19783,
+            19421
+          ],
+          "cf_inventory": 559,
+          "cf_ap": 404,
+          "lifo_charge_2025": 142,
+          "policy": "lower of cost or market; US LIFO, other regions primarily FIFO"
+        }
+      }
+    },
+    "default_results_file": "labs/default-results.json"
+  },
+  "diagnosis": "先选择软件或零售，读者自己给出期初至期末现金桥，再检查一组完整CFO。",
+  "feedback_criteria": "软件必须包括四项净249；零售保留893与963差70；原表补充项目不重复加总。",
+  "transfer_task": "默认在所选公司换读上一年度，重建完整现金总桥并核对一组经营调整；若读者选择银行扩展，先读取 bank-extension 的 JPM 指定完整单元，再用交易资产与存款实际行解释分类。",
+  "selected_branch": "software",
+  "required_readings_by_branch": {
+    "software": [
+      {
+        "source_id": "BBC-S05",
+        "access": {
+          "kind": "html_full_text",
+          "uri": "https://openstax.org/books/principles-financial-accounting/pages/16-1-explain-the-purpose-of-the-statement-of-cash-flows"
+        },
+        "required_unit": {
+          "locator": "§16.1全文",
+          "scope": "所列完整单元、相关表头、脚注及当前计算所需说明",
+          "purpose": "现金流量表的信息职责"
+        },
+        "supports": "现金流量表的信息职责。",
+        "branch": "common",
+        "required_when_selected": false,
+        "title": "Principles of Accounting, Volume 1: Financial Accounting — §16.1 Explain the Purpose of the Statement of Cash Flows",
+        "authors": [
+          "Mitchell Franklin",
+          "Patty Graybeal",
+          "Dixon Cooper"
+        ],
+        "version": "OpenStax 2019"
+      },
+      {
+        "source_id": "BBC-S06",
+        "access": {
+          "kind": "html_full_text",
+          "uri": "https://openstax.org/books/principles-financial-accounting/pages/16-2-differentiate-between-operating-investing-and-financing-activities"
+        },
+        "required_unit": {
+          "locator": "§16.2全文",
+          "scope": "所列完整单元、相关表头、脚注及当前计算所需说明",
+          "purpose": "三类现金流基本分类"
+        },
+        "supports": "经营、投资、筹资活动的分类；实际行业口径回到原表。",
+        "branch": "common",
+        "required_when_selected": false,
+        "title": "Principles of Accounting, Volume 1: Financial Accounting — §16.2 Differentiate between Operating, Investing, and Financing Activities",
+        "authors": [
+          "Mitchell Franklin",
+          "Patty Graybeal",
+          "Dixon Cooper"
+        ],
+        "version": "OpenStax 2019"
+      },
+      {
+        "source_id": "BBC-S07",
+        "access": {
+          "kind": "html_full_text",
+          "uri": "https://openstax.org/books/principles-financial-accounting/pages/16-3-prepare-the-statement-of-cash-flows-using-the-indirect-method"
+        },
+        "required_unit": {
+          "locator": "§16.3全文",
+          "scope": "所列完整单元、相关表头、脚注及当前计算所需说明",
+          "purpose": "净利润至经营现金的完整间接调节"
+        },
+        "supports": "间接法调节及其完整性。",
+        "branch": "common",
+        "required_when_selected": false,
+        "title": "Principles of Accounting, Volume 1: Financial Accounting — §16.3 Prepare the Statement of Cash Flows Using the Indirect Method",
+        "authors": [
+          "Mitchell Franklin",
+          "Patty Graybeal",
+          "Dixon Cooper"
+        ],
+        "version": "OpenStax 2019"
+      },
+      {
+        "source_id": "BBC-C01",
+        "access": {
+          "kind": "html_full_text",
+          "uri": "https://www.sec.gov/Archives/edgar/data/1108524/000110852426000060/crm-20260131.htm"
+        },
+        "required_unit": {
+          "locator": "Cash Flows pp.61–62全表及补充、D&A脚注；Note2合同余额",
+          "scope": "所列完整单元、相关表头、脚注及当前计算所需说明",
+          "purpose": "软件CFO全部11行与现金总桥"
+        },
+        "supports": "订阅收入确认、合同余额、完整现金流、权益与EPS、收入CAM及所得税附注。金额、现金和股数口径保留，不虚构差额调节。",
+        "branch": "software",
+        "required_when_selected": false,
+        "title": "Salesforce, Inc. FY2026 Form 10-K",
+        "authors": [
+          "Salesforce, Inc."
+        ],
+        "version": "Fiscal year ended 2026-01-31"
+      }
+    ],
+    "retail": [
+      {
+        "source_id": "BBC-S05",
+        "access": {
+          "kind": "html_full_text",
+          "uri": "https://openstax.org/books/principles-financial-accounting/pages/16-1-explain-the-purpose-of-the-statement-of-cash-flows"
+        },
+        "required_unit": {
+          "locator": "§16.1全文",
+          "scope": "所列完整单元、相关表头、脚注及当前计算所需说明",
+          "purpose": "现金流量表的信息职责"
+        },
+        "supports": "现金流量表的信息职责。",
+        "branch": "common",
+        "required_when_selected": false,
+        "title": "Principles of Accounting, Volume 1: Financial Accounting — §16.1 Explain the Purpose of the Statement of Cash Flows",
+        "authors": [
+          "Mitchell Franklin",
+          "Patty Graybeal",
+          "Dixon Cooper"
+        ],
+        "version": "OpenStax 2019"
+      },
+      {
+        "source_id": "BBC-S06",
+        "access": {
+          "kind": "html_full_text",
+          "uri": "https://openstax.org/books/principles-financial-accounting/pages/16-2-differentiate-between-operating-investing-and-financing-activities"
+        },
+        "required_unit": {
+          "locator": "§16.2全文",
+          "scope": "所列完整单元、相关表头、脚注及当前计算所需说明",
+          "purpose": "三类现金流基本分类"
+        },
+        "supports": "经营、投资、筹资活动的分类；实际行业口径回到原表。",
+        "branch": "common",
+        "required_when_selected": false,
+        "title": "Principles of Accounting, Volume 1: Financial Accounting — §16.2 Differentiate between Operating, Investing, and Financing Activities",
+        "authors": [
+          "Mitchell Franklin",
+          "Patty Graybeal",
+          "Dixon Cooper"
+        ],
+        "version": "OpenStax 2019"
+      },
+      {
+        "source_id": "BBC-S07",
+        "access": {
+          "kind": "html_full_text",
+          "uri": "https://openstax.org/books/principles-financial-accounting/pages/16-3-prepare-the-statement-of-cash-flows-using-the-indirect-method"
+        },
+        "required_unit": {
+          "locator": "§16.3全文",
+          "scope": "所列完整单元、相关表头、脚注及当前计算所需说明",
+          "purpose": "净利润至经营现金的完整间接调节"
+        },
+        "supports": "间接法调节及其完整性。",
+        "branch": "common",
+        "required_when_selected": false,
+        "title": "Principles of Accounting, Volume 1: Financial Accounting — §16.3 Prepare the Statement of Cash Flows Using the Indirect Method",
+        "authors": [
+          "Mitchell Franklin",
+          "Patty Graybeal",
+          "Dixon Cooper"
+        ],
+        "version": "OpenStax 2019"
+      },
+      {
+        "source_id": "BF-S-COST-FY2025-SEC",
+        "access": {
+          "kind": "html_full_text",
+          "uri": "https://www.sec.gov/Archives/edgar/data/909832/000090983225000101/cost-20250831.htm"
+        },
+        "required_unit": {
+          "locator": "Cash Flows p.41全表及补充；Balance Sheets p.39库存/应付；Note1库存政策p.44",
+          "scope": "所列完整单元、相关表头、脚注及当前计算所需说明",
+          "purpose": "零售现金、893/963/70的范围"
+        },
+        "supports": "会员零售利润、完整现金流和库存政策；MD&A明确定义Gross Margin。库存和应付的余额反向变化893与现金流调整963不同，70保留未归因。",
+        "branch": "retail",
+        "required_when_selected": false,
+        "title": "Costco Wholesale Corporation · FY2025 Form 10-K（SEC HTML）",
+        "authors": [
+          "Costco Wholesale Corporation"
+        ],
+        "version": "FY2025；截至2025-08-31；比较列采用同一报告"
+      }
+    ]
+  },
+  "branch_selection_protocol": "开始前确认分支。切换时用 required_readings_by_branch 对应完整数组替换必读，并完成该范围真实读取；跨行业扩展另计阅读时间。",
+  "experiment_ids": [
+    "EXP-BF07-CASH-BRIDGE"
+  ]
+}
+```
+
+## Supplied entry
+利润可能已经形成，但钱还没收；现金也可能已经收进来，却还需要在未来完成服务。因此，读完利润表之后，我们还要走一遍实际资金路径：期初有多少现金，经营带来或占用了多少，投资与筹资又改变了什么，最后能不能回到期末余额。
+
+这一篇以软件订阅和会员零售为两个完整分支。选择一个即可完成本次带读，银行留作短扩展。我们的目标不是记住“经营现金流越高越好”，而是能把一个真实现金桥逐行重建，并知道它尚未回答哪些问题。
+
+<a id="bf07-cash-bridge"></a>
+## 1. 先读现金集合，再读三类活动
+
+**现金流量表**解释一个报告期间内，所定义现金集合的变动。经营、投资和筹资是按现金活动性质组织的类别；它们既不是三种利润，也不是三只互不往来的钱袋。间接法的经营部分从净利润出发，把非现金、时点和分类差异调回来。[^cashbook]
+
+一个简单关系是：`期末现金 = 期初现金 + 经营净现金 + 投资净现金 + 筹资净现金 + 汇率及所列其他影响`。要使用它，先核对两端现金集合是否一致。受限现金、存放银行款等是否在这个集合内，要沿各公司表头和政策读，不能自动换成资产负债表上名字最像的一行。
+
+间接法加回折旧，并不是设备重新吐出了同额现金，而是净利润先扣了一项本期非现金费用，转向现金时需要恢复。同理，已经通过净利润反映的投资收益可能在这里扣回，再由相应投资现金活动列示。每一行都要问“它在修正什么”，而不只是看到正数就叫现金来源。
+
+<div data-reading-branch-controls>
+<button data-select-reading-branch="software">软件：Salesforce</button>
+<button data-select-reading-branch="retail">零售：Costco</button>
+<button data-select-reading-branch="all">比较两条路径</button>
+</div>
+
+<section data-reading-branch="software">
+
+<a id="bf07-software"></a>
+## 2. 软件：先收服务款，也仍有合同成本、收购与股东分配
+
+Salesforce FY2026截至2026年1月31日。下面是完整现金流主板块及现金、已付利息和税款补充；金额为**百万美元**。每个小计只加自己的明细，不能把小计与明细再次一起累计。[^sf]
+
+| 原行名称 | 中文对照 | FY2026 · 2026-01-31 | FY2025 · 2025-01-31 | FY2024 · 2024-01-31 |
+| --- | --- | --- | --- | --- |
+| **Operating activities** | **经营活动** |  |  |  |
+| Net income | 净利润 | 7,457 | 6,197 | 4,136 |
+| **Adjustments to reconcile net income to net cash provided by operating activities** | **由净利润调节至经营活动净现金** |  |  |  |
+| Depreciation and amortization (1) | 折旧和摊销（1） | 3,631 | 3,477 | 3,959 |
+| Amortization of costs capitalized to obtain revenue contracts, net | 取得收入合同资本化成本的摊销净额 | 2,197 | 2,095 | 1,925 |
+| Stock-based compensation expense | 股权薪酬费用 | 3,509 | 3,183 | 2,787 |
+| (Gains) losses on strategic investments, net | 战略投资收益／损失净额的现金流调整 | (1,017) | 121 | 277 |
+| **Changes in assets and liabilities, net of business combinations** | **资产负债变动，扣除企业合并影响** |  |  |  |
+| Accounts receivable, net | 应收款净额变动 | (2,160) | (490) | (659) |
+| Costs capitalized to obtain revenue contracts, net | 取得收入合同的资本化成本净额变动 | (2,811) | (2,121) | (1,872) |
+| Prepaid expenses and other current assets and other assets | 预付及其他资产变动 | 819 | (1,495) | (843) |
+| Accounts payable and accrued expenses and other liabilities | 应付、应计费用及其他负债变动 | 1,014 | 1,089 | (478) |
+| Operating lease liabilities | 经营租赁负债变动 | (567) | (548) | (621) |
+| Unearned revenue | 未赚取收入变动 | 2,924 | 1,584 | 1,623 |
+| **Net cash provided by operating activities** | **经营活动产生净现金** | 14,996 | 13,092 | 10,234 |
+| **Investing activities** | **投资活动** |  |  |  |
+| Business combinations, net of cash acquired | 企业合并，扣取得现金 | (9,268) | (2,734) | (82) |
+| Purchases of strategic investments | 购入战略投资 | (1,958) | (539) | (496) |
+| Sales of strategic investments | 出售战略投资 | 184 | 126 | 108 |
+| Purchases of marketable securities | 购入有价证券 | (3,763) | (6,879) | (3,761) |
+| Sales of marketable securities | 出售有价证券 | 4,414 | 4,143 | 1,511 |
+| Maturities of marketable securities | 有价证券到期 | 2,395 | 3,378 | 2,129 |
+| Capital expenditures | 资本支出 | (594) | (658) | (736) |
+| **Net cash used in investing activities** | **投资活动使用净现金** | (8,590) | (3,163) | (1,327) |
+| **Financing activities** | **筹资活动** |  |  |  |
+| Proceeds from issuance of debt, net of issuance costs | 发行债务所得，扣发行成本 | 6,000 | 0 | 0 |
+| Repurchases of common stock | 回购普通股现金 | (12,596) | (7,829) | (7,620) |
+| Payments for taxes related to net share settlement of equity awards | 股权奖励净额结算相关税款支付 | (351) | 0 | 0 |
+| Proceeds from employee stock plans | 员工股票计划所得 | 1,039 | 1,540 | 1,954 |
+| Principal payments on financing obligations | 融资义务本金支付 | (584) | (603) | (629) |
+| Repayments of debt | 偿还债务 | 0 | (1,000) | (1,182) |
+| Payments of dividends and dividend equivalents | 股息及股息等价支付 | (1,587) | (1,537) | 0 |
+| **Net cash used in financing activities** | **筹资活动使用净现金** | (8,079) | (9,429) | (7,477) |
+| Effect of exchange rate changes | 汇率变化影响 | 152 | (124) | 26 |
+| **Net increase (decrease) in cash and cash equivalents** | **现金及等价物净增／减** | (1,521) | 376 | 1,456 |
+| Cash and cash equivalents, beginning of period | 期初现金及等价物 | 8,848 | 8,472 | 7,016 |
+| Cash and cash equivalents, end of period | 期末现金及等价物 | 7,327 | 8,848 | 8,472 |
+| **Supplemental cash flow disclosure** | **补充现金流披露（不再加入合计）** |  |  |  |
+| Cash paid for interest | 已付利息 | 276 | 233 | 254 |
+| Cash paid for income taxes, net of tax refunds | 已付所得税，扣退款 | 1,282 | 2,061 | 1,027 |
+
+
+原表脚注（1）的D&A包含无形资产摊销、固定资产折旧以及使用权资产的摊销或减值，不能整行改称“服务器折旧”。资产负债变动部分也明确扣除了企业合并影响。补充的利息、税款已经在相应现金流中体现，不是末尾还要再扣的一次支出。[^sf]
+
+### 先把总桥走完
+
+`8,848 + 14,996 − 8,590 − 8,079 + 152 = 7,327`。
+
+经营部分为正，并没有使期末现金必然增加。投资和筹资使用的现金合计16,669，超过经营流入14,996，汇兑又增加152，因此现金净减少1,521。这个解释包含了经营、投入和资金安排，远比“净利润7,457，所以现金应增长7,457”接近实际。
+
+投资部分也不只是一项capex：资本支出594，与收购净支出9,268、有价证券买卖到期是不同活动。把投资现金流净额全部当作维持经营所需资本支出，会把收购和流动性管理混进去。筹资则同时有新债所得6,000、回购12,596、员工计划所得1,039、其他偿付和股息；“筹资净流出”本身并不等于没有融资。[^sf]
+
+### 再回到经营部分：把十一项实际加完
+
+本期完整经营桥为：
+
+`7,457 + 3,631 + 2,197 + 3,509 − 1,017 − 2,160 − 2,811 + 819 + 1,014 − 567 + 2,924 = 14,996`。
+
+我们把它分成两段看。净利润7,457加上D&A、合同成本摊销和股权薪酬，扣回战略投资净收益调整1,017，得到15,777。这里大部分工作是移除净利润中的非现金或不同类别影响，还不是“客户付了多少钱”。
+
+接着，应收变动占用2,160，取得收入合同的资本化成本占用2,811；预付等资产释放819，应付等负债提供1,014，经营租赁负债减少567，未赚取收入增加提供2,924。后一组净额是−781，最后得到14,996。这些项目把真实的开票、获客支出、供应商付款及提前收款的节奏带了回来。
+
+尤其看合同成本：摊销2,197与新增资本化成本现金调整−2,811同时出现。前者说明已确认费用中有过去形成资源的消耗；后者说明本期为未来收入合同继续投入。只加回摊销、不看后续投入，会把业务维护得过于轻松。[^sf]
+
+股权薪酬3,509的加回同样只是现金转换步骤。另有351的奖励净额结算税款列在筹资中，权益和股数也会变化。它不能支持“股权薪酬对原股东没有成本”的结论；这需要在[权益、股数与每股口径](https://ou-liu-red-sugar.github.io/zh/notebook/equity-shares-and-shareholder-claims/)中继续核对。
+
+### 软件练习
+
+**题**。只保留净利润、D&A、合同成本摊销、SBC、应收、合同成本增加和未赚取收入七项，会得到多少？为什么不能把这张简图标成完整经营现金桥？
+
+**解析**。七项合计14,747。还缺战略投资调整−1,017、预付及其他资产+819、应付等负债+1,014、经营租赁负债−567，四项合计+249。补全后才是14,996。重点讲七项当然可以，合计却必须包含全部项目；“其他”只有在能展开回原行时才有解释作用。
+
+**迁移**。应收账面从11,945增加到14,339，增加2,394，而现金流调整为−2,160，可以直接用−2,394替换吗？
+
+**解析**。不可以。原表相关变化扣除了企业合并影响；两端账面还可能受到范围和非现金变化。我们能辨认两口径不同，但没有完整调节时不把234差额擅自归给某个原因。经营现金桥沿现金流原行，余额变化另列。
+
+</section>
+
+<section data-reading-branch="retail">
+
+<a id="bf07-retail"></a>
+## 3. 零售：货物周转、设施投入和分配
+
+Costco FY2025截至2025年8月31日，共52周。零售带读先抓住三条线：库存及供应商结算怎样影响经营现金，门店与设备投入怎样使用现金，股东分配及借还款怎样改变剩余资金。完整表把这三条线放在一起。[^cost]
+
+| 原行名称 | 中文对照 | FY2025 · 52周 | FY2024 · 52周 | FY2023 · 53周 |
+| --- | --- | --- | --- | --- |
+| **CASH FLOWS FROM OPERATING ACTIVITIES** | **经营活动现金流** |  |  |  |
+| Net income | 净利润 | 8,099 | 7,367 | 6,292 |
+| **Adjustments to reconcile net income to net cash provided by operating activities** | **净利润至经营活动净现金的调整** |  |  |  |
+| Depreciation and amortization | 折旧及摊销 | 2,426 | 2,237 | 2,077 |
+| Non-cash lease expense | 非现金租赁费用 | 303 | 315 | 412 |
+| Stock-based compensation | 股权薪酬 | 860 | 818 | 774 |
+| Impairment of assets and other non-cash operating activities, net | 资产减值及其他非现金经营活动净额 | (117) | (9) | 495 |
+| **Changes in operating assets and liabilities** | **经营资产及负债变动** |  |  |  |
+| Merchandise inventories | 商品存货变动 | 559 | (2,068) | 1,228 |
+| Accounts payable | 应付账款变动 | 404 | 1,938 | (382) |
+| Other operating assets and liabilities, net | 其他经营资产负债净变动 | 801 | 741 | 172 |
+| **Net cash provided by operating activities** | **经营活动产生净现金** | 13,335 | 11,339 | 11,068 |
+| **CASH FLOWS FROM INVESTING ACTIVITIES** | **投资活动现金流** |  |  |  |
+| Additions to property and equipment | 物业及设备增加的现金支出 | (5,498) | (4,710) | (4,323) |
+| Purchases of short-term investments | 购买短期投资 | (1,028) | (1,470) | (1,622) |
+| Maturities of short-term investments | 短期投资到期 | 1,141 | 1,790 | 937 |
+| Other investing activities, net | 其他投资活动净额 | 74 | (19) | 36 |
+| **Net cash used in investing activities** | **投资活动使用净现金** | (5,311) | (4,409) | (4,972) |
+| **CASH FLOWS FROM FINANCING ACTIVITIES** | **筹资活动现金流** |  |  |  |
+| Repayments of short-term borrowings | 偿还短期借款 | (862) | (920) | (935) |
+| Proceeds from short-term borrowings | 短期借款所得 | 816 | 928 | 917 |
+| Repayments of long-term debt | 偿还长期债务 | (103) | (1,077) | (75) |
+| Proceeds from issuance of long-term debt | 长期债务所得 | 0 | 498 | 0 |
+| Tax withholdings on stock-based awards | 股票奖励代扣税款 | (393) | (315) | (303) |
+| Repurchases of common stock | 回购普通股 | (903) | (700) | (676) |
+| Cash dividend payments | 支付股息 | (2,183) | (9,041) | (1,251) |
+| Financing lease payments and other financing activities, net | 融资租赁支付及其他筹资净额 | (147) | (137) | (291) |
+| **Net cash used in financing activities** | **筹资活动使用净现金** | (3,775) | (10,764) | (2,614) |
+| Effect of exchange rate changes on cash and cash equivalents | 汇率变化对现金及等价物影响 | 6 | 40 | 15 |
+| **Net change in cash and cash equivalents** | **现金及等价物净变动** | 4,255 | (3,794) | 3,497 |
+| Cash and cash equivalents, beginning of year | 期初现金及等价物 | 9,906 | 13,700 | 10,203 |
+| Cash and cash equivalents, end of year | 期末现金及等价物 | 14,161 | 9,906 | 13,700 |
+| **SUPPLEMENTAL DISCLOSURE OF CASH FLOW INFORMATION** | **补充披露（不重复加总）** |  |  |  |
+| Cash paid during the year for interest | 年内已付利息 | 106 | 129 | 125 |
+| Income taxes, net | 年内已付所得税净额 | 2,917 | 2,319 | 2,234 |
+| **SUPPLEMENTAL DISCLOSURE OF NON-CASH ACTIVITIES** | **非现金活动补充披露** |  |  |  |
+| Dividends declared, but not yet paid | 已宣布而未支付股息 | 0 | 0 | 452 |
+| Capital expenditures included in liabilities | 列入负债的资本支出 | 193 | 203 | 170 |
+
+
+FY2025总桥为 `9,906 + 13,335 − 5,311 − 3,775 + 6 = 14,161`，现金增加4,255。经营桥也可以完整重建：
+
+`8,099 + 2,426 + 303 + 860 − 117 + 559 + 404 + 801 = 13,335`。
+
+注意−117这一行原名包含“资产减值及其他非现金经营活动净额”。它是混合净额，不是说公司发生了负117的单独减值损失。类似地，+801也是多个其他经营资产负债变化的净额，不应凭一个正号就断言某项业务付款延后。
+
+### 存货和应付，能解释一部分，但不是全部
+
+资产负债表里，商品存货从18,647降至18,116，应付从19,421增至19,783。我们只取这两个余额作一个局部观察：
+
+`库存−应付：−774 → −1,667；变化−893`。
+
+在最简单、没有其他变化的模型中，经营资产减少、经营负债增加通常与资金占用下降对应。但真实现金流表给的是库存调整+559、应付调整+404，合计+963，不是+893。两者差70。进一步分开看：库存两期差的反向数为531，与559差28；应付余额增加362，与404差42。[^cost]
+
+这里不是让你放弃勾稽，而是让勾稽诚实地停在证据边界。我们知道963是本表记录的期间调整，893是选定两项账面余额的反向变化；要解释70，还需要完整口径调节，不能把它随手塞进“汇兑”。“库存减应付”为负也不表示企业不需要资本：门店、设备、现金缓冲和其他业务资源仍在全表里。
+
+### 现金增加也可能主要来自分配节奏的变化
+
+2024年公司经营现金仍为11,339，期末现金却下降3,794。比较两年现金表，很快能看到2024股息支付9,041，明显高于2025的2,183。读者可以据此说“两年的现金变化受到分配支出差异影响”，但不能把前一年的现金下降直接叫经营恶化。[^cost]
+
+另外，2025物业设备现金增加5,498，而补充披露还有193的资本支出列在负债中。后者提示取得资源和支付现金的时点不同；它不应该再加到本年现金流净额中。判断资源形成，要回查资产和付款义务；判断本年用了多少钱，则先维护现金表口径。
+
+### 零售练习
+
+**题**。用2024列重建期末现金，并分别解释为何不能从“现金下降”推成“经营没赚到现金”，或从“经营现金为正”推成“本年现金必然上升”。
+
+<strong>解析。</strong>`13,700 + 11,339 − 4,409 − 10,764 + 40 = 9,906`。经营确实提供现金，但投资及筹资使用更多。后者还含股息、回购、借还款等不同去向。两种错误都把一类活动的结果直接当成全部资金变化。
+
+**迁移**。把库存及应付的调整963改成893，桥会怎样？
+
+**解析**。经营现金会被错减70，期末现金变成14,091，不再等于原表14,161。对账失败提示不能未经依据替换原行；正确动作是并排保留两种计算，并继续追查差异。
+
+</section>
+
+<a id="bf07-bank-contrast"></a>
+<details>
+<summary>银行扩展：为什么负经营现金流还需要继续解释</summary>
+
+JPMorgan Chase 2025的经营现金为−147,782。原表中，交易资产变化为−156,461，借入证券为−66,648；待售贷款发放和购买−260,772，与其出售、证券化及偿还+235,232也在经营部分。客户存款变化+153,168却列入筹资。贷款、证券、交易头寸和存款本来就在银行的业务与资金安排中，分类不能照搬零售商品和供应商账期。[^jpm]
+
+因此，这个负数首先告诉我们特定经营资产与负债活动合计使用了现金。下一步应该看资产扩张及资金从何而来，而不是直接写成“主营业务失败”。这也不意味着负数无须担心：期限、流动性和风险暴露还需要另行分析。
+
+本表的现金集合准确叫 **cash and due from banks and deposits with banks**。完整总桥是 `469,317 − 147,782 − 265,565 + 269,533 + 17,835 = 343,338`。它不是把银行存款全都当自由现金的公式；表头规定了集合，资产负债和流动性附注才能进一步解释可用性。
+
+</details>
+
+<a id="bf07-experiment"></a>
+## 4. 用完整桥检查理解
+
+<div data-experiment-slot="EXP-BF07-CASH-BRIDGE"></div>
+
+实验的行业和年度选择会一起更换全部输入。软件默认显示十一项经营桥，零售显示其八项经营桥；展开投资及筹资时，原行仍保持可查。所有默认结果都已在正文中给出。
+
+<a id="bf07-exercise"></a>
+## 5. 最后的问题：这张表回答了什么？
+
+**解释题**。经营现金流是否就是普通股股东本年可以全部取走的钱？
+
+**解析**。不是。原表还展示资本投入、收购、偿债及分配；经营本身还需要未来投入与现金缓冲。经营现金流给出当期一种现金活动分类的结果，不能自动替代可分配现金或股东所得。正确的下一步是把投入、义务和权益归属接上，而不是替它换一个更诱人的名称。
+
+[^cashbook]: OpenStax，[§16.1现金流量表目的](https://openstax.org/books/principles-financial-accounting/pages/16-1-explain-the-purpose-of-the-statement-of-cash-flows)、[§16.2活动分类](https://openstax.org/books/principles-financial-accounting/pages/16-2-differentiate-between-operating-investing-and-financing-activities)、[§16.3间接法](https://openstax.org/books/principles-financial-accounting/pages/16-3-prepare-the-statement-of-cash-flows-using-the-indirect-method)（2019）。
+[^sf]: Salesforce，[FY2026 10-K](https://www.sec.gov/Archives/edgar/data/1108524/000110852426000060/crm-20260131.htm)，Consolidated Statements of Cash Flows及脚注／补充，印刷pp.61–62；应收余额见合并资产负债表，年度截至2026-01-31。金额百万美元。
+[^cost]: Costco，[FY2025 10-K](https://www.sec.gov/Archives/edgar/data/909832/000090983225000101/cost-20250831.htm)，现金流量表及补充p.41、资产负债表p.39；原表三年比较，2023为53周。选定余额差只是局部分析，不是完整营运资本。
+[^jpm]: JPMorgan Chase，[2025 Annual Report](https://www.jpmorganchase.com/content/dam/jpmc/jpmorgan-chase-and-co/investor-relations/documents/annualreport-2025.pdf)，现金流量表印刷p.169／PDF物理第201页；MD&A现金流分析p.58。银行扩展所列各行均保持该表分类与现金集合。
+
+
+## Additional teaching material
+交互算法：每类只合计detail行，排除标题、小计、补充披露；closing=opening+CFO+CFI+CFF+FX。
+
+边界：原表与附注定义的现金集合不混同；余额差不自动替代CFO行；银行不计算工业企业FCF。
+
+静态结果：https://ou-liu-red-sugar.github.io/notebook/labs/bf-bc/static.html#EXP-BF07-CASH-BRIDGE。所有输入保留历史/教学身份；行业选择与打印由配套页面提供。
+
+## Experiment inputs and static equivalents
+```json
+[
+  {
+    "id": "EXP-BF07-CASH-BRIDGE",
+    "title": "现金流量表：经营、投资与筹资：交互实验",
+    "anchor": "bf07-experiment",
+    "description": "从完整原表连起期初与期末现金，并用软件、零售和银行区分现金流分类与经营解释。",
+    "inputs": {
+      "source": "https://ou-liu-red-sugar.github.io/notebook/labs/bf-bc/inputs.json",
+      "selected_keys": [
+        "tables.sf_cash",
+        "tables.cost_cash",
+        "tables.jpm_cash",
+        "inventory.cost"
+      ],
+      "units": "各原表自带单位；教学合同/成本/税例使用独立教学货币单位",
+      "controls": "见labs/interactions.html具名label；全部算法使用engine.js"
+    },
+    "outputs": {
+      "default": {
+        "sf_cash": [
+          {
+            "cfo": 14996,
+            "cfi": -8590,
+            "cff": -8079,
+            "begin": 8848,
+            "fx": 152,
+            "end": 7327,
+            "reported_end": 7327,
+            "cash_change": -1521,
+            "checks": [
+              {
+                "group": "cfo",
+                "computed": 14996,
+                "reported": 14996
+              },
+              {
+                "group": "cfi",
+                "computed": -8590,
+                "reported": -8590
+              },
+              {
+                "group": "cff",
+                "computed": -8079,
+                "reported": -8079
+              }
+            ]
+          },
+          {
+            "cfo": 13092,
+            "cfi": -3163,
+            "cff": -9429,
+            "begin": 8472,
+            "fx": -124,
+            "end": 8848,
+            "reported_end": 8848,
+            "cash_change": 376,
+            "checks": [
+              {
+                "group": "cfo",
+                "computed": 13092,
+                "reported": 13092
+              },
+              {
+                "group": "cfi",
+                "computed": -3163,
+                "reported": -3163
+              },
+              {
+                "group": "cff",
+                "computed": -9429,
+                "reported": -9429
+              }
+            ]
+          },
+          {
+            "cfo": 10234,
+            "cfi": -1327,
+            "cff": -7477,
+            "begin": 7016,
+            "fx": 26,
+            "end": 8472,
+            "reported_end": 8472,
+            "cash_change": 1456,
+            "checks": [
+              {
+                "group": "cfo",
+                "computed": 10234,
+                "reported": 10234
+              },
+              {
+                "group": "cfi",
+                "computed": -1327,
+                "reported": -1327
+              },
+              {
+                "group": "cff",
+                "computed": -7477,
+                "reported": -7477
+              }
+            ]
+          }
+        ],
+        "cost_cash": [
+          {
+            "cfo": 13335,
+            "cfi": -5311,
+            "cff": -3775,
+            "begin": 9906,
+            "fx": 6,
+            "end": 14161,
+            "reported_end": 14161,
+            "cash_change": 4255,
+            "checks": [
+              {
+                "group": "cfo",
+                "computed": 13335,
+                "reported": 13335
+              },
+              {
+                "group": "cfi",
+                "computed": -5311,
+                "reported": -5311
+              },
+              {
+                "group": "cff",
+                "computed": -3775,
+                "reported": -3775
+              }
+            ]
+          },
+          {
+            "cfo": 11339,
+            "cfi": -4409,
+            "cff": -10764,
+            "begin": 13700,
+            "fx": 40,
+            "end": 9906,
+            "reported_end": 9906,
+            "cash_change": -3794,
+            "checks": [
+              {
+                "group": "cfo",
+                "computed": 11339,
+                "reported": 11339
+              },
+              {
+                "group": "cfi",
+                "computed": -4409,
+                "reported": -4409
+              },
+              {
+                "group": "cff",
+                "computed": -10764,
+                "reported": -10764
+              }
+            ]
+          },
+          {
+            "cfo": 11068,
+            "cfi": -4972,
+            "cff": -2614,
+            "begin": 10203,
+            "fx": 15,
+            "end": 13700,
+            "reported_end": 13700,
+            "cash_change": 3497,
+            "checks": [
+              {
+                "group": "cfo",
+                "computed": 11068,
+                "reported": 11068
+              },
+              {
+                "group": "cfi",
+                "computed": -4972,
+                "reported": -4972
+              },
+              {
+                "group": "cff",
+                "computed": -2614,
+                "reported": -2614
+              }
+            ]
+          }
+        ],
+        "jpm_cash": [
+          {
+            "cfo": -147782,
+            "cfi": -265565,
+            "cff": 269533,
+            "begin": 469317,
+            "fx": 17835,
+            "end": 343338,
+            "reported_end": 343338,
+            "cash_change": -125979,
+            "checks": [
+              {
+                "group": "cfo",
+                "computed": -147782,
+                "reported": -147782
+              },
+              {
+                "group": "cfi",
+                "computed": -265565,
+                "reported": -265565
+              },
+              {
+                "group": "cff",
+                "computed": 269533,
+                "reported": 269533
+              }
+            ]
+          },
+          {
+            "cfo": -42012,
+            "cfi": -163403,
+            "cff": 63447,
+            "begin": 624151,
+            "fx": -12866,
+            "end": 469317,
+            "reported_end": 469317,
+            "cash_change": -154834,
+            "checks": [
+              {
+                "group": "cfo",
+                "computed": -42012,
+                "reported": -42012
+              },
+              {
+                "group": "cfi",
+                "computed": -163403,
+                "reported": -163403
+              },
+              {
+                "group": "cff",
+                "computed": 63447,
+                "reported": 63447
+              }
+            ]
+          },
+          {
+            "cfo": 12974,
+            "cfi": 67643,
+            "cff": -25571,
+            "begin": 567234,
+            "fx": 1871,
+            "end": 624151,
+            "reported_end": 624151,
+            "cash_change": 56917,
+            "checks": [
+              {
+                "group": "cfo",
+                "computed": 12974,
+                "reported": 12974
+              },
+              {
+                "group": "cfi",
+                "computed": 67643,
+                "reported": 67643
+              },
+              {
+                "group": "cff",
+                "computed": -25571,
+                "reported": -25571
+              }
+            ]
+          }
+        ]
+      },
+      "all_defaults_file": "https://ou-liu-red-sugar.github.io/notebook/labs/bf-bc/default-results.json"
+    },
+    "algorithm": "每类只合计detail行，排除标题、小计、补充披露；closing=opening+CFO+CFI+CFF+FX。",
+    "boundaries": "原表与附注定义的现金集合不混同；余额差不自动替代CFO行；银行不计算工业企业FCF。",
+    "static_equivalent": {
+      "reader_anchors": [
+        "bf07-experiment"
+      ],
+      "html": "https://ou-liu-red-sugar.github.io/notebook/labs/bf-bc/static.html#EXP-BF07-CASH-BRIDGE",
+      "markdown": "https://ou-liu-red-sugar.github.io/notebook/labs/bf-bc/static-equivalents.md",
+      "markdown_body": "<a id=\"EXP-BF07-CASH-BRIDGE\"></a>\n## BF-07 · 现金流量表：经营、投资与筹资\n\n原表与附注定义的现金集合不混同；余额差不自动替代CFO行；银行不计算工业企业FCF。\n\n### Salesforce Consolidated Statements of Cash Flows\n\nPrinted pp.61–62。（1）D&A含取得无形资产摊销、固定资产折旧、使用权资产摊销及减值。 资产与负债变动按原表扣除企业合并影响，不能直接用两个期末余额替换。 现金集合为cash and cash equivalents。补充已付利息和税款已经体现在现金流中，不重复累加。\n\n| 原行／中文 | FY2026 · 2026-01-31 | FY2025 · 2025-01-31 | FY2024 · 2024-01-31 |\n| --- | --- | --- | --- |\n| Operating activities／经营活动 |  |  |  |\n| Net income／净利润 | 7,457 | 6,197 | 4,136 |\n| Adjustments to reconcile net income to net cash provided by operating activities／由净利润调节至经营活动净现金 |  |  |  |\n| Depreciation and amortization (1)／折旧和摊销（1） | 3,631 | 3,477 | 3,959 |\n| Amortization of costs capitalized to obtain revenue contracts, net／取得收入合同资本化成本的摊销净额 | 2,197 | 2,095 | 1,925 |\n| Stock-based compensation expense／股权薪酬费用 | 3,509 | 3,183 | 2,787 |\n| (Gains) losses on strategic investments, net／战略投资收益／损失净额的现金流调整 | -1,017 | 121 | 277 |\n| Changes in assets and liabilities, net of business combinations／资产负债变动，扣除企业合并影响 |  |  |  |\n| Accounts receivable, net／应收款净额变动 | -2,160 | -490 | -659 |\n| Costs capitalized to obtain revenue contracts, net／取得收入合同的资本化成本净额变动 | -2,811 | -2,121 | -1,872 |\n| Prepaid expenses and other current assets and other assets／预付及其他资产变动 | 819 | -1,495 | -843 |\n| Accounts payable and accrued expenses and other liabilities／应付、应计费用及其他负债变动 | 1,014 | 1,089 | -478 |\n| Operating lease liabilities／经营租赁负债变动 | -567 | -548 | -621 |\n| Unearned revenue／未赚取收入变动 | 2,924 | 1,584 | 1,623 |\n| Net cash provided by operating activities／经营活动产生净现金 | 14,996 | 13,092 | 10,234 |\n| Investing activities／投资活动 |  |  |  |\n| Business combinations, net of cash acquired／企业合并，扣取得现金 | -9,268 | -2,734 | -82 |\n| Purchases of strategic investments／购入战略投资 | -1,958 | -539 | -496 |\n| Sales of strategic investments／出售战略投资 | 184 | 126 | 108 |\n| Purchases of marketable securities／购入有价证券 | -3,763 | -6,879 | -3,761 |\n| Sales of marketable securities／出售有价证券 | 4,414 | 4,143 | 1,511 |\n| Maturities of marketable securities／有价证券到期 | 2,395 | 3,378 | 2,129 |\n| Capital expenditures／资本支出 | -594 | -658 | -736 |\n| Net cash used in investing activities／投资活动使用净现金 | -8,590 | -3,163 | -1,327 |\n| Financing activities／筹资活动 |  |  |  |\n| Proceeds from issuance of debt, net of issuance costs／发行债务所得，扣发行成本 | 6,000 | 0 | 0 |\n| Repurchases of common stock／回购普通股现金 | -12,596 | -7,829 | -7,620 |\n| Payments for taxes related to net share settlement of equity awards／股权奖励净额结算相关税款支付 | -351 | 0 | 0 |\n| Proceeds from employee stock plans／员工股票计划所得 | 1,039 | 1,540 | 1,954 |\n| Principal payments on financing obligations／融资义务本金支付 | -584 | -603 | -629 |\n| Repayments of debt／偿还债务 | 0 | -1,000 | -1,182 |\n| Payments of dividends and dividend equivalents／股息及股息等价支付 | -1,587 | -1,537 | 0 |\n| Net cash used in financing activities／筹资活动使用净现金 | -8,079 | -9,429 | -7,477 |\n| Effect of exchange rate changes／汇率变化影响 | 152 | -124 | 26 |\n| Net increase (decrease) in cash and cash equivalents／现金及等价物净增／减 | -1,521 | 376 | 1,456 |\n| Cash and cash equivalents, beginning of period／期初现金及等价物 | 8,848 | 8,472 | 7,016 |\n| Cash and cash equivalents, end of period／期末现金及等价物 | 7,327 | 8,848 | 8,472 |\n| Supplemental cash flow disclosure／补充现金流披露（不再加入合计） |  |  |  |\n| Cash paid for interest／已付利息 | 276 | 233 | 254 |\n| Cash paid for income taxes, net of tax refunds／已付所得税，扣退款 | 1,282 | 2,061 | 1,027 |\n\n\n| 年度 | 期初 | CFO | CFI | CFF | 汇兑 | 计算期末 | 原表期末 |\n| --- | --- | --- | --- | --- | --- | --- | --- |\n| FY2026 · 2026-01-31 | 8,848 | 14,996 | -8,590 | -8,079 | 152 | 7,327 | 7,327 |\n| FY2025 · 2025-01-31 | 8,472 | 13,092 | -3,163 | -9,429 | -124 | 8,848 | 8,848 |\n| FY2024 · 2024-01-31 | 7,016 | 10,234 | -1,327 | -7,477 | 26 | 8,472 | 8,472 |\n\n\n### Costco Consolidated Statements of Cash Flows\n\nSEC HTML printed p.41。零值按原表破折号语义保留数值0；主表标题无金额为null，不等于0。 其他非现金经营活动净额为负不能整行解释为本期资产减值。 现金集合为cash and cash equivalents；补充的未付资本支出不加到当期现金支出。\n\n| 原行／中文 | FY2025 · 52周 | FY2024 · 52周 | FY2023 · 53周 |\n| --- | --- | --- | --- |\n| CASH FLOWS FROM OPERATING ACTIVITIES／经营活动现金流 |  |  |  |\n| Net income／净利润 | 8,099 | 7,367 | 6,292 |\n| Adjustments to reconcile net income to net cash provided by operating activities／净利润至经营活动净现金的调整 |  |  |  |\n| Depreciation and amortization／折旧及摊销 | 2,426 | 2,237 | 2,077 |\n| Non-cash lease expense／非现金租赁费用 | 303 | 315 | 412 |\n| Stock-based compensation／股权薪酬 | 860 | 818 | 774 |\n| Impairment of assets and other non-cash operating activities, net／资产减值及其他非现金经营活动净额 | -117 | -9 | 495 |\n| Changes in operating assets and liabilities／经营资产及负债变动 |  |  |  |\n| Merchandise inventories／商品存货变动 | 559 | -2,068 | 1,228 |\n| Accounts payable／应付账款变动 | 404 | 1,938 | -382 |\n| Other operating assets and liabilities, net／其他经营资产负债净变动 | 801 | 741 | 172 |\n| Net cash provided by operating activities／经营活动产生净现金 | 13,335 | 11,339 | 11,068 |\n| CASH FLOWS FROM INVESTING ACTIVITIES／投资活动现金流 |  |  |  |\n| Additions to property and equipment／物业及设备增加的现金支出 | -5,498 | -4,710 | -4,323 |\n| Purchases of short-term investments／购买短期投资 | -1,028 | -1,470 | -1,622 |\n| Maturities of short-term investments／短期投资到期 | 1,141 | 1,790 | 937 |\n| Other investing activities, net／其他投资活动净额 | 74 | -19 | 36 |\n| Net cash used in investing activities／投资活动使用净现金 | -5,311 | -4,409 | -4,972 |\n| CASH FLOWS FROM FINANCING ACTIVITIES／筹资活动现金流 |  |  |  |\n| Repayments of short-term borrowings／偿还短期借款 | -862 | -920 | -935 |\n| Proceeds from short-term borrowings／短期借款所得 | 816 | 928 | 917 |\n| Repayments of long-term debt／偿还长期债务 | -103 | -1,077 | -75 |\n| Proceeds from issuance of long-term debt／长期债务所得 | 0 | 498 | 0 |\n| Tax withholdings on stock-based awards／股票奖励代扣税款 | -393 | -315 | -303 |\n| Repurchases of common stock／回购普通股 | -903 | -700 | -676 |\n| Cash dividend payments／支付股息 | -2,183 | -9,041 | -1,251 |\n| Financing lease payments and other financing activities, net／融资租赁支付及其他筹资净额 | -147 | -137 | -291 |\n| Net cash used in financing activities／筹资活动使用净现金 | -3,775 | -10,764 | -2,614 |\n| Effect of exchange rate changes on cash and cash equivalents／汇率变化对现金及等价物影响 | 6 | 40 | 15 |\n| Net change in cash and cash equivalents／现金及等价物净变动 | 4,255 | -3,794 | 3,497 |\n| Cash and cash equivalents, beginning of year／期初现金及等价物 | 9,906 | 13,700 | 10,203 |\n| Cash and cash equivalents, end of year／期末现金及等价物 | 14,161 | 9,906 | 13,700 |\n| SUPPLEMENTAL DISCLOSURE OF CASH FLOW INFORMATION／补充披露（不重复加总） |  |  |  |\n| Cash paid during the year for interest／年内已付利息 | 106 | 129 | 125 |\n| Income taxes, net／年内已付所得税净额 | 2,917 | 2,319 | 2,234 |\n| SUPPLEMENTAL DISCLOSURE OF NON-CASH ACTIVITIES／非现金活动补充披露 |  |  |  |\n| Dividends declared, but not yet paid／已宣布而未支付股息 | 0 | 0 | 452 |\n| Capital expenditures included in liabilities／列入负债的资本支出 | 193 | 203 | 170 |\n\n\n| 年度 | 期初 | CFO | CFI | CFF | 汇兑 | 计算期末 | 原表期末 |\n| --- | --- | --- | --- | --- | --- | --- | --- |\n| FY2025 · 52周 | 9,906 | 13,335 | -5,311 | -3,775 | 6 | 14,161 | 14,161 |\n| FY2024 · 52周 | 13,700 | 11,339 | -4,409 | -10,764 | 40 | 9,906 | 9,906 |\n| FY2023 · 53周 | 10,203 | 11,068 | -4,972 | -2,614 | 15 | 13,700 | 13,700 |\n\n\n### JPMorgan Chase Consolidated Statements of Cash Flows\n\nPrinted p.169 / physical PDF p.201。此表以原页重新排版；行名称保留业务含义，原文图像位于PDF第201页。 JPM现金集合为cash and due from banks and deposits with banks，不能改称普通公司cash equivalents。 变化和合计按原表符号；经营资产扩张与客户存款筹资分属不同活动类别。\n\n| 原行／中文 | 2025 | 2024 | 2023 |\n| --- | --- | --- | --- |\n| Operating activities／经营活动 |  |  |  |\n| Net income／净利润 | 57,048 | 58,471 | 49,552 |\n| Provision for credit losses／信用损失计提 | 14,212 | 10,678 | 9,320 |\n| Depreciation and amortization／折旧摊销 | 8,821 | 7,938 | 7,512 |\n| Deferred tax expense (benefit)／递延所得税费用／利益 | 5,611 | 2,004 | -4,534 |\n| Bargain purchase gain associated with First Republic acquisition／First Republic收购廉价购买收益调整 | 0 | -103 | -2,775 |\n| Initial gain on Visa exchange／Visa交换初始收益调整 | 0 | -7,990 | 0 |\n| Other adjustments／其他调整 | 1,309 | 1,985 | 4,301 |\n| Originations and purchases of loans held-for-sale／待售贷款发放及购买 | -260,772 | -212,238 | -115,245 |\n| Proceeds from sales, securitizations and paydowns of loans held-for-sale／待售贷款出售、证券化及偿还所得 | 235,232 | 205,303 | 116,430 |\n| Trading assets／交易资产变动 | -156,461 | -95,729 | -74,091 |\n| Securities borrowed／借入证券变动 | -66,648 | -18,762 | -14,902 |\n| Accrued interest and accounts receivable／应计利息和应收账款变动 | -11,514 | 5,735 | 19,928 |\n| Other assets／其他资产变动 | -12,582 | -7,650 | 32,970 |\n| Trading liabilities／交易负债变动 | 23,134 | 2,276 | 5,315 |\n| Accounts payable and other liabilities／应付及其他负债变动 | 5,270 | -90 | -25,388 |\n| Other operating adjustments／其他经营调整 | 9,558 | 6,160 | 4,581 |\n| Net cash provided by (used in) operating activities／经营活动产生／使用净现金 | -147,782 | -42,012 | 12,974 |\n| Investing activities／投资活动 |  |  |  |\n| Federal funds sold and securities purchased under resale agreements／拆出联邦基金及买入返售变动 | -41,264 | -18,706 | 39,740 |\n| Proceeds from maturities and paydowns of held-to-maturity securities／HTM到期偿还所得 | 54,791 | 99,363 | 53,056 |\n| Purchases of held-to-maturity securities／买入HTM | -5,432 | -4,709 | -4,141 |\n| Proceeds from maturities and paydowns of available-for-sale securities／AFS到期偿还所得 | 37,414 | 38,499 | 53,744 |\n| Proceeds from sales of available-for-sale securities／出售AFS所得 | 141,295 | 104,625 | 108,434 |\n| Purchases of available-for-sale securities／购入AFS | -308,772 | -352,712 | -115,499 |\n| Proceeds from sales and securitizations of loans held-for-investment／留存投资贷款出售及证券化所得 | 57,565 | 57,921 | 47,312 |\n| Other changes in loans, net／其他贷款净变动 | -188,497 | -83,176 | -88,343 |\n| Cash paid for First Republic acquisition／First Republic收购现金支出 | 0 | -2,362 | -9,920 |\n| All other investing activities, net／其他投资活动净额 | -12,665 | -2,146 | -16,740 |\n| Net cash provided by (used in) investing activities／投资活动产生／使用净现金 | -265,565 | -163,403 | 67,643 |\n| Financing activities／筹资活动 |  |  |  |\n| Deposits／客户存款变动 | 153,168 | 3,299 | -32,196 |\n| Federal funds purchased and securities loaned or sold under repurchase agreements／拆入联邦基金及证券出借／回购变动 | 145,535 | 80,288 | 13,801 |\n| Short-term borrowings／短期借款变动 | 9,422 | 7,439 | -1,934 |\n| Beneficial interests issued by consolidated VIEs／合并VIE发行受益权变动 | -622 | 1,543 | 9,029 |\n| Proceeds from long-term borrowings／长期借款所得 | 120,761 | 109,915 | 75,417 |\n| Payments of long-term borrowings／偿还长期借款 | -108,100 | -96,605 | -64,880 |\n| Proceeds from issuance of preferred stock／发行优先股所得 | 3,000 | 2,500 | 0 |\n| Redemption of preferred stock／赎回优先股 | -3,000 | -9,850 | 0 |\n| Treasury stock repurchased／购买库存股 | -31,591 | -18,830 | -9,824 |\n| Dividends paid／支付股息 | -16,625 | -14,783 | -13,463 |\n| All other financing activities, net／其他筹资活动净额 | -2,415 | -1,469 | -1,521 |\n| Net cash provided by (used in) financing activities／筹资活动产生／使用净现金 | 269,533 | 63,447 | -25,571 |\n| Effect of exchange rate changes／汇率变化影响 | 17,835 | -12,866 | 1,871 |\n| Net increase (decrease) in cash and due from banks and deposits with banks／指定现金集合净变动 | -125,979 | -154,834 | 56,917 |\n| Cash and due from banks and deposits with banks, beginning of year／期初现金、应收银行款及存放银行款 | 469,317 | 624,151 | 567,234 |\n| Cash and due from banks and deposits with banks, end of year／期末现金、应收银行款及存放银行款 | 343,338 | 469,317 | 624,151 |\n| Supplemental disclosures of cash flow information／补充披露 |  |  |  |\n| Cash interest paid／已付现金利息 | 96,436 | 99,642 | 77,114 |\n| Income taxes paid, net／已付所得税净额 | 5,309 | 11,715 | 9,908 |\n\n\n| 年度 | 期初 | CFO | CFI | CFF | 汇兑 | 计算期末 | 原表期末 |\n| --- | --- | --- | --- | --- | --- | --- | --- |\n| 2025 | 469,317 | -147,782 | -265,565 | 269,533 | 17,835 | 343,338 | 343,338 |\n| 2024 | 624,151 | -42,012 | -163,403 | 63,447 | -12,866 | 469,317 | 469,317 |\n| 2023 | 567,234 | 12,974 | 67,643 | -25,571 | 1,871 | 624,151 | 624,151 |\n\n\nSF七项重点合计14,747，另四行−1,017+819+1,014−567=249，共14,996。Costco选定余额反向变化893与现金流调整963差70，保留未归因。\n"
+    },
+    "data_identity": "historical_observations_and_separately_labelled_teaching_assumptions"
+  }
+]
+```
+
+## Sources
+- [Salesforce, Inc. FY2026 Form 10-K](https://www.sec.gov/Archives/edgar/data/1108524/000110852426000060/crm-20260131.htm): 订阅收入确认、合同余额、完整现金流、权益与EPS、收入CAM及所得税附注。金额、现金和股数口径保留，不虚构差额调节。
+
+BF-F/G 本批采用：完整收付账、净现金和债务账面/本金、PPA对价及三种回购/股数口径；FX单列。
+- [Principles of Accounting, Volume 1: Financial Accounting — §16.1 Explain the Purpose of the Statement of Cash Flows](https://openstax.org/books/principles-financial-accounting/pages/16-1-explain-the-purpose-of-the-statement-of-cash-flows): 现金流量表的信息职责。
+- [Principles of Accounting, Volume 1: Financial Accounting — §16.2 Differentiate between Operating, Investing, and Financing Activities](https://openstax.org/books/principles-financial-accounting/pages/16-2-differentiate-between-operating-investing-and-financing-activities): 经营、投资、筹资活动的分类；实际行业口径回到原表。
+- [Principles of Accounting, Volume 1: Financial Accounting — §16.3 Prepare the Statement of Cash Flows Using the Indirect Method](https://openstax.org/books/principles-financial-accounting/pages/16-3-prepare-the-statement-of-cash-flows-using-the-indirect-method): 间接法调节及其完整性。
+- [Costco Wholesale Corporation · FY2025 Form 10-K（SEC HTML）](https://www.sec.gov/Archives/edgar/data/909832/000090983225000101/cost-20250831.htm): Costco 的 2025 财年末合并资产为77,099百万美元，负债47,935，权益29,164。业务说明把商品快速周转与供应商付款安排联系起来；会员费的确认则需要结合收入政策和递延余额。
+
+本组带读将存货与应付的两期余额变化接到现金流量表。两种计算并不完全相同，差额留待附注和其他口径解释。
+
+EI-B 本批采用：会员制度、尾随续费率定义、会员费收入及合并营业利润桥。美元百万转换为十亿美元；全球公司边界不等于美国单一零售市场。
+
+BF-F/G 本批采用：零售利润/现金/普通股及债务时间的历史原件。SEC具名表定位优先；不混用IR PDF页码。
+- [JPMorgan Chase & Co. · 2025 Annual Report](https://www.jpmorganchase.com/content/dam/jpmc/jpmorgan-chase-and-co/investor-relations/documents/annualreport-2025.pdf): JPMorgan 的 2025 年末集团合并表没有照普通工业企业划分流动／非流动。证券和贷款各有计量类别；贷款损失准备是贷款账面余额的减项，表下注明的合并VIE金额已包含在集团总额内。
+
+从总权益到普通股权益，还要扣除优先股；每股账面值的股数使用已发行股数减库存股。原表、附注和普通股权利因此要连在一起读。
+
+BF-F/G 本批采用：集团季度平均LCR、期末资产和有条件融资能力分别记录；银行法人另列；完整主表支持综合带读。
+
+## Content relations
+```json
+[
+  {
+    "from": "zh-bf07",
+    "relation": "part_of",
+    "to": "business-reports",
+    "reason": "主要 topic 归属"
+  },
+  {
+    "from": "zh-bf07",
+    "relation": "uses_method",
+    "to": "zh-bf04",
+    "reason": "按本篇实际使用的局部能力调用；正文已作必要就地补充，不锁为整篇硬先修"
+  },
+  {
+    "from": "zh-bf07",
+    "relation": "illustrated_by",
+    "to": "bf07-software",
+    "reason": "固定期间原始材料带读",
+    "period": "FY2026/FY2025/FY2024",
+    "cutoff": "2026-09-21"
+  },
+  {
+    "from": "bf07-software",
+    "relation": "supported_by",
+    "to": "BBC-C01",
+    "reason": "该案例的原表与附注",
+    "locator": "Auditor Revenue Recognition CAM pp.54–55；Balance Sheets p.57; Operations p.58；Equity p.60; Cash Flows pp.61–62；Note 1 credit risk/revenue pp.63–65; income tax and ASU adoption pp.69–70；Note 2 Contract Balances/RPO pp.71–72；Note 11 p.85; Note 12 pp.86–89; Note 13 pp.89–90",
+    "scope": "订阅收入确认、合同余额、完整现金流、权益与EPS、收入CAM及所得税附注。金额、现金和股数口径保留，不虚构差额调节。"
+  },
+  {
+    "from": "zh-bf07",
+    "relation": "illustrated_by",
+    "to": "bf07-retail",
+    "reason": "固定期间原始材料带读",
+    "period": "FY2025/FY2024/FY2023",
+    "cutoff": "2026-09-21"
+  },
+  {
+    "from": "bf07-retail",
+    "relation": "supported_by",
+    "to": "BF-S-COST-FY2025-SEC",
+    "reason": "该案例的原表与附注",
+    "locator": "Income p.37；Cash Flows p.41; Balance Sheets p.39；MD&A Gross Margin p.27；Note 1 Merchandise Inventories p.44; Revenue/Membership Fees pp.47–48；Item 1有关制造及设施说明",
+    "scope": "会员零售利润、完整现金流和库存政策；MD&A明确定义Gross Margin。库存和应付的余额反向变化893与现金流调整963不同，70保留未归因。"
+  },
+  {
+    "from": "zh-bf07",
+    "relation": "illustrated_by",
+    "to": "bf07-bank-contrast",
+    "reason": "固定期间原始材料带读",
+    "period": "2025",
+    "cutoff": "2026-09-21"
+  },
+  {
+    "from": "bf07-bank-contrast",
+    "relation": "supported_by",
+    "to": "BF-S-JPM-FY2025",
+    "reason": "该案例的原表与附注",
+    "locator": "Income printed p.165 / physical PDF p.197；Cash Flows printed p.169 / physical PDF p.201；Balance Sheets printed p.167 / physical PDF p.199；MD&A Cash Flows Analysis p.58",
+    "scope": "银行GAAP合并利润表与现金流分类。交易资产、借入证券与待售贷款是经营资产，存款变动在筹资。"
+  },
+  {
+    "from": "zh-bf07",
+    "relation": "supported_by",
+    "to": "BBC-S05",
+    "reason": "定义、机制或选读研究的直接来源",
+    "locator": "§16.1完整单元",
+    "scope": "现金流量表的信息职责。"
+  },
+  {
+    "from": "zh-bf07",
+    "relation": "supported_by",
+    "to": "BBC-S06",
+    "reason": "定义、机制或选读研究的直接来源",
+    "locator": "§16.2完整单元",
+    "scope": "经营、投资、筹资活动的分类；实际行业口径回到原表。"
+  },
+  {
+    "from": "zh-bf07",
+    "relation": "supported_by",
+    "to": "BBC-S07",
+    "reason": "定义、机制或选读研究的直接来源",
+    "locator": "§16.3完整单元",
+    "scope": "间接法调节及其完整性。"
+  },
+  {
+    "from": "bf07-software",
+    "relation": "compares_with",
+    "to": "bf07-retail",
+    "reason": "合同余额与库存周转的不同现金关系"
+  },
+  {
+    "from": "bf07-experiment",
+    "relation": "illustrated_by",
+    "to": "EXP-BF07-CASH-BRIDGE",
+    "reason": "从完整原表连起期初与期末现金，并用软件、零售和银行区分现金流分类与经营解释。",
+    "at_section": "bf07-experiment",
+    "conditions": "原表与附注定义的现金集合不混同；余额差不自动替代CFO行；银行不计算工业企业FCF。"
+  }
+]
+```
+
+## Related entries
+
+## Optional reading path
+拆一份企业财报: step 4/14
+选软件或零售，重建完整现金桥，区分余额变化和现金流调整。
+现金的使用还会改变所有者权益和股数，接着分别重建这两条桥。
+Next: [权益变动、每股口径与股东所得](https://ou-liu-red-sugar.github.io/zh/notebook/equity-shares-and-shareholder-claims/)

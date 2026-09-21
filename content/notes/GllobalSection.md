@@ -16,6 +16,7 @@ ShowToc: true
 TocOpen: false
 comments: true
 aliases:
+  - /notes/sheaf-cohomology-as-sheafification/
   - /global-section
   - /notes/spectral-sequences-as-bookkeeping-not-structure/
 ---

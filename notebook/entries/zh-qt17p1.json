@@ -1,0 +1,232 @@
+{
+  "id": "zh-qt17p1",
+  "node_id": "QT17-P1",
+  "lang": "zh",
+  "slug": "qt-ito-formula-proof",
+  "title": "一维 Itô 公式：从 Taylor 和式到一般系数",
+  "summary": "完整传递 Taylor、加权 QV、一般 L1/L2 系数和空间截断到一维 Itô 公式。",
+  "subject": "quant",
+  "topic": "quant-processes",
+  "kind": "concept",
+  "template": "T7",
+  "role": "选读",
+  "study_time": "约 20 分钟密集证明",
+  "revised": "2026-09-21",
+  "content_version": "QT-GHI-review-v3",
+  "body_markdown": "这篇证明的困难不是写出二阶项，而是说明每一个和式究竟收敛到什么，以及最后怎样从有界阶梯系数返回一般过程。我们先把证明中真正要使用的条件列全，再逐项过极限。先修是 $L^1/L^2$ 收敛、条件期望，以及 [[QT16-P1|Itô 积分的构造、Doob 估计和停止规则]]；不需要一般鞅表示定理。\n\n<a id=\"qt17p1-statement\"></a>\n## 1. 要证明的命题\n\n令 $T<\\infty$，过滤概率空间满足通常条件（过滤右连续，且 $\\mathcal F_0$ 包含 $\\mathcal F$ 中所有 $P$ 零集及其子集），$W$ 是相对于该过滤的 Brownian 运动。令 $X_0$ 为有限的 $\\mathcal F_0$ 可测随机变量，$a,b$ 为渐进可测过程，且\n\n$$\n\\int_0^T|a_s|\\,ds+\\int_0^T b_s^2\\,ds<\\infty\\quad\\text{a.s.}\n$$\n\n令 $X_t=X_0+\\int_0^ta_sds+\\int_0^tb_sdW_s$，取其连续版本。令 $f\\in C^{1,2}([0,T]\\times\\mathbb R)$：$f,f_t,f_x,f_{xx}$ 联合连续，时间端点采用单侧导数。则在一个共同的满概率事件上，对所有 $t\\in[0,T]$，\n\n$$\n\\begin{aligned}\nf(t,X_t)-f(0,X_0)\n&=\\int_0^t f_t(s,X_s)\\,ds\\\\\n&\\quad+\\int_0^t a_s f_x(s,X_s)\\,ds\\\\\n&\\quad+\\frac12\\int_0^t b_s^2 f_{xx}(s,X_s)\\,ds\\\\\n&\\quad+\\int_0^t b_s f_x(s,X_s)\\,dW_s.\n\\end{aligned}\n$$\n\n最后一项按局部平方可积积分理解。因为每条连续 $X$ 路径在有限区间内有界，相关导数沿路径也有界，以上积分的路径可积条件成立。这里没有假定 $X_0\\in L^2$，也没有假定 $f_{tt}$ 或 $f_{tx}$ 存在。Lalley 的一维命题给出这个公式；下面把其证明中略写的一般系数逼近完整展开。[^ito]\n\n证明分为三层：先取有界阶梯系数和有界一致连续导数；再传递到积分可积的一般系数；最后用停止和空间截断返回原来的 $f$。\n\n<a id=\"qt17p1-taylor\"></a>\n## 2. 只用一次时间导数的 Taylor 展开\n\n先假设 $a,b$ 是有界简单可预测过程，且 $f$ 及所需导数有界、一致连续。对固定 $t\\le T$，取确定性分割 $\\pi$，使它包含系数的全部跳点。记 $h_j=t_{j+1}-t_j$、$x_j=X_{t_j}$、$\\Delta X_j=X_{t_{j+1}}-X_{t_j}$。于是\n\n$$\n\\Delta X_j=a_jh_j+b_j\\Delta W_j,\n\\qquad a_j,b_j\\in\\mathcal F_{t_j}.\n$$\n\n不要对 $(t,x)$ 作一个未经条件支持的二阶全变量展开。我们先在固定 $x_{j+1}$ 时展开时间，再在固定 $t_j$ 时展开空间：\n\n$$\n\\begin{aligned}\nf(t_{j+1},x_{j+1})-f(t_j,x_j)\n&=f_t(t_j,x_j)h_j+f_x(t_j,x_j)\\Delta X_j\\\\\n&\\quad+\\frac12f_{xx}(t_j,x_j)(\\Delta X_j)^2+R_j.\n\\end{aligned}\n$$\n\n时间差可以直接写为 $\\int_{t_j}^{t_{j+1}}f_t(s,x_{j+1})ds$。减去 $f_t(t_j,x_j)h_j$ 后，绝对值至多为 $h_j\\omega(h_j+|\\Delta X_j|)$。空间余项由 $f_{xx}$ 的一致连续性控制为 $\\tfrac12(\\Delta X_j)^2\\omega(|\\Delta X_j|)$。放大同一个连续模 $\\omega$，便得到\n\n$$\n\\sum_j|R_j|\n\\le \\omega\\!\\left(|\\pi|+\\max_j|\\Delta X_j|\\right)\n\\left(t+\\sum_j(\\Delta X_j)^2\\right).\n$$\n\n$X$ 连续，所以第一个因子几乎处处趋零。若 $|a_j|,|b_j|\\le K$，则\n\n$$\nE\\sum_j(\\Delta X_j)^2\n\\le 2K^2\\sum_jh_j^2+2K^2t.\n$$\n\n右边一致有界，因此括号中的随机变量族在概率上有界。一个趋零于概率的因子乘以一个在概率上有界的因子仍趋零于概率：先把第二因子限制在任意大常数以内，再控制第一因子即可。故全部余项之和趋零于概率。这一步只用到时间的一阶连续可微性。[^correction]\n\n<a id=\"qt17p1-weighted\"></a>\n## 3. 加权平方增量为什么给出二阶项\n\n先证明一个可反复使用的小结论。若 $\\zeta_j$ 是 $\\mathcal F_{t_j}$ 可测且 $|\\zeta_j|\\le C$，令\n\n$$\n\\eta_j=\\zeta_j\\big((\\Delta W_j)^2-h_j\\big).\n$$\n\nBrownian 增量独立于过去，故 $E[\\eta_j\\mid\\mathcal F_{t_j}]=0$，而正态四阶矩给 $E\\eta_j^2\\le2C^2h_j^2$。当 $i<j$ 时，$\\eta_i$ 已是 $\\mathcal F_{t_j}$ 可测，条件期望消掉交叉项。于是\n\n$$\nE\\left|\\sum_j\\eta_j\\right|^2\n=\\sum_jE\\eta_j^2\n\\le2C^2\\sum_jh_j^2\\longrightarrow0.\n$$\n\n在本题取 $\\zeta_j=f_{xx}(t_j,X_{t_j})b_j^2$，得到\n\n$$\n\\begin{aligned}\n&\\sum_j f_{xx}(t_j,X_{t_j})b_j^2(\\Delta W_j)^2\\\\\n&\\quad-\\sum_j f_{xx}(t_j,X_{t_j})b_j^2h_j\n\\longrightarrow0\\quad\\text{于 }L^2.\n\\end{aligned}\n$$\n\n第二个和式趋于 $\\int_0^t f_{xx}(s,X_s)b_s^2ds$，因为 $b$ 只有有限个跳点，其余部分沿连续路径是普通 Riemann 和。\n\n还需检查 $\\Delta X$ 中的漂移。漂移平方和不超过 $K^2\\sum h_j^2$；漂移与 Brownian 的混合和满足\n\n$$\n\\left|\\sum_j a_jb_jh_j\\Delta W_j\\right|\n\\le K^2\\left(\\sum_jh_j^2\\right)^{1/2}\n\\left(\\sum_j(\\Delta W_j)^2\\right)^{1/2}.\n$$\n\n第一因子趋零，第二因子在概率上有界。即使再乘有界的 $f_{xx}$，相同估计仍成立。因此二阶和式的极限只有 $\\int b^2f_{xx}ds$，没有漂移平方或混合项留下来。\n\n这里得到的是一个有条件的极限结论，不是把普通代数中的 $(dW)^2$ 任意替换成 $dt$。\n\n<a id=\"qt17p1-first-order\"></a>\n## 4. 一次项与共同版本\n\n时间项和漂移项分别趋于 $\\int f_tds$ 与 $\\int af_xds$。随机一次项是简单积分\n\n$$\n\\sum_j f_x(t_j,X_{t_j})b_j\\Delta W_j.\n$$\n\n由于 $b$ 有界，且 $f_x$ 有界、一致连续，分割细化后，相应被积过程在 $L^2(dt\\otimes P)$ 中趋于 $f_x(s,X_s)b_s$。这里可以用有界控制收敛：路径连续给点态收敛，统一上界给可积控制。Itô 等距因此把简单积分送到所需随机积分。\n\n将各项极限放回逐路径成立的有限 Taylor 恒等式，得到固定 $t$ 时的公式几乎处处成立。然后先只取 $[0,T]$ 内的有理数并加上 $T$，合并这个可数集合对应的零测例外；左右各项都有连续版本，所以等式延伸到全部 $t$。不能直接把“每个固定时点几乎处处”当作“所有时点同时几乎处处”。\n\n<a id=\"qt17p1-general\"></a>\n## 5. 一般系数：逐项说明怎样过极限\n\n现在仍暂取导数有界一致连续，但不再假定系数有界或为阶梯。令\n\n$$\nA_t=\\int_0^t(|a_s|+b_s^2)ds,\n\\qquad \\tau_m=\\inf\\{t:A_t\\ge m\\}\\wedge T.\n$$\n\n先证明停止后的过程。把 $a,b$ 替换为它们乘 $\\mathbf1_{(0,\\tau_m]}$ 的版本，仍记为 $a,b$，则逐路径有 $\\int|a|\\le m$、$\\int b^2\\le m$。因此也有 $E\\int|a|\\le m$、$E\\int b^2\\le m$。\n\n由 [[QT16-P1#qt16p1-density|渐进可测过程的稠密逼近]]，可取有界简单可预测 $a^n,b^n$ 使\n\n$$\na^n\\to a\\text{ 于 }L^1(dt\\otimes P),\n\\qquad b^n\\to b\\text{ 于 }L^2(dt\\otimes P).\n$$\n\n令 $X^n$ 使用相同的 $X_0$，漂移和波动系数为 $a^n,b^n$。则\n\n$$\n\\sup_{t\\le T}|X_t^n-X_t|\n\\le\\int_0^T|a_s^n-a_s|ds\n+\\sup_{t\\le T}\\left|\\int_0^t(b_s^n-b_s)dW_s\\right|.\n$$\n\n第一项趋零于 $L^1$；第二项由 Doob 和等距趋零于 $L^2$。所以 $X^n\\to X$ 一致于概率。初值在相减时消掉，这正是无需 $E|X_0|^2<\\infty$ 的原因。\n\n令 $\\delta_n=\\sup_{s\\le T}|f_x(s,X_s^n)-f_x(s,X_s)|$。一致连续性使 $\\delta_n\\to0$ 于概率；有界性又给 $E\\delta_n\\to0$、$E\\delta_n^2\\to0$。对 $f_t,f_{xx}$ 同理。接下来不是笼统说“连续，所以全部可以传递”，而是分别估计。\n\n漂移项分为\n\n$$\nf_x(X^n)(a^n-a)+(f_x(X^n)-f_x(X))a.\n$$\n\n这里略去共同时间变量。第一部分积分的 $L^1$ 范数至多为 $\\|f_x\\|_\\infty\\|a^n-a\\|_1$；第二部分至多为 $mE\\delta_n$，两者都趋零。时间项以 $T$ 乘相应导数的上确界差控制。\n\n二阶项先注意\n\n$$\n\\begin{aligned}\n&\\|(b^n)^2-b^2\\|_1\\\\\n&\\quad\\le\\|b^n-b\\|_2(\\|b^n\\|_2+\\|b\\|_2)\n\\longrightarrow0.\n\\end{aligned}\n$$\n\n把 $f_{xx}(X^n)(b^n)^2-f_{xx}(X)b^2$ 分成平方系数差和导数差两部分，前者由上式控制，后者由 $\\int b^2\\le m$ 控制。因此其积分也趋零于 $L^1$。\n\n随机项的被积过程差为\n\n$$\nf_x(X^n)(b^n-b)+(f_x(X^n)-f_x(X))b.\n$$\n\n其平方范数至多为\n\n$$\n2\\|f_x\\|_\\infty^2\\|b^n-b\\|_2^2+2mE\\delta_n^2\\longrightarrow0.\n$$\n\nItô 等距与 Doob 估计再给随机积分的一致概率收敛。左端 $f(t,X_t^n)$ 也由有界一致连续性传递。于是有界导数条件下的一般系数公式成立。注意整个证明只需要漂移的 $L^1$ 逼近，没有暗中要求漂移平方可积。[^approx]\n\n<a id=\"qt17p1-localization\"></a>\n## 6. 返回原来的函数和过程\n\n取光滑空间截断 $\\chi_R$，在 $[-R,R]$ 上等于一，在更大的有界区间外为零，令 $f^R(t,x)=\\chi_R(x)f(t,x)$。有限时间区间上，$f^R$ 及所需导数有界、一致连续，因此上一节的结论适用。\n\n令 $\\rho_R=\\inf\\{t:|X_t|\\ge R\\}\\wedge T$。在 $|X_0|<R$ 且 $t\\le\\rho_R$ 时，$f^R$ 与 $f$ 及所需导数一致。使用 [[QT16-P1#qt16p1-stopping|已经证明的随机积分停止规则]]，可把 $f^R$ 的等式停止在 $\\rho_R\\wedge\\tau_m$，换回原函数。普通积分的停止身份直接由时间截断成立。\n\n对几乎每条路径，$A_T<\\infty$，且 $\\sup_{t\\le T}|X_t|<\\infty$。因此取足够大的整数 $m,R$ 后，这两个停时都等于 $T$，并且 $|X_0|<R$。在这些可数停止版本上取共同满概率事件，再利用连续性，就得到命题所述整个区间的同一版本。这完成证明。\n\n这个结论不会额外保证随机项是全局真鞅。只有局部平方可积条件时，公式中的随机积分仍可能仅为局部鞅；不能仅因它写成 $\\int\\cdots dW$ 就直接把期望设为零。\n\n<div data-experiment-slot=\"VIEW-QT17-P1-PROOF\"></div>\n\n<a id=\"qt17p1-exercise\"></a>\n## 7. 迁移：哪一个条件真的不可少\n\n令 $t_0\\in(0,T)$，取 $f(t,x)=|t-t_0|^{3/2}+x^2$。先判断此函数能否使用本篇定理，再对一般的 $X$ 写出结果。最后判断“随机积分没有漂移，所以 $E[X_t^2]$ 等于右边确定积分的期望”是否已经得到证明。\n\n### 解析\n\n时间导数是 $\\tfrac32\\operatorname{sgn}(t-t_0)|t-t_0|^{1/2}$，在 $t_0$ 连续；二阶时间导数在那里不存在，但本定理不需要它。空间导数为 $2x$ 和 $2$。因此\n\n$$\n\\begin{aligned}\n&f(t,X_t)-f(0,X_0)\\\\\n&\\quad=|t-t_0|^{3/2}-|t_0|^{3/2}\\\\\n&\\qquad+2\\int_0^tX_sa_sds+\\int_0^tb_s^2ds\\\\\n&\\qquad+2\\int_0^tX_sb_sdW_s.\n\\end{aligned}\n$$\n\n消去时间函数，得到 $X_t^2-X_0^2=2\\int X_sa_sds+\\int b_s^2ds+2\\int X_sb_sdW_s$。各项是已经合法建立的路径恒等式。要直接取期望并消去最后一项，还要有足够的全局可积条件，例如 $E\\int_0^tX_s^2b_s^2ds<\\infty$，并检查其余项的期望存在。局部公式本身不提供这些额外结论。\n\n[^ito]: Steven P. Lalley, *Notes on the Itô Calculus*, 2012-05-15，§4.1–4.2、§4.5，PDF pp.14–16、18–20；[公开原件](https://www.stat.uchicago.edu/~lalley/Courses/385/Old/ItoIntegral-2012.pdf)。\n[^correction]: 同原件 p.19 的漂移步长应为 $\\zeta T2^{-n}$，而非印出的 $\\zeta2^{-n}T^{-1}$。本篇分别展开时间和空间，只用 $\\Delta t\\,\\omega(\\Delta t+|\\Delta X|)$ 控制时间余项。\n[^approx]: Lalley §4.5 将一般系数的步骤概括为逼近；这里的 $L^1/L^2$ 分解、过程估计和停止传递是完整展开，不称为原讲义逐字提供的证明。\n",
+  "prompt": "你是这篇中文学习单元的教学 Agent。读者具备本包列出的先修：QT16-P1 构造、最大估计与停止；L1/L2 收敛、Taylor、连续模。\n先实际取得 required_readings 中本次所选单元并读完，核对版本、页码与公式；已有同会话同版完整读取可以复用。只取得摘要或目录不得声称完成。指定原件若无法取得，先说明具体缺口；只有本包中已经具名核过等价范围的完整数学证明，才可在对应数学步骤内作为替代，并须实际读完且记录替代正文、版本与支持步骤。若本次必读仍有缺失，就停止依赖该内容的实质讲解；研究样本、训练安排、图表结果与作者主张不得以本站概述替代，也不得声称原件已经读过。runtime_reading_log 是你的实际运行记录，交付的空数组不是已读。\n本篇任务：先问只有 C1 时间正则性能否用二阶时间 Taylor；要求重建连续模余项、加权 QV、L1漂移/L2波动各项分解和两层停止，不省略一般系数步骤。\n先让读者尝试，再按所缺的一步解释，不将全部课文一次复述。完整证明需要标明每项条件在哪一步用到，练习给出完整解析。只采用 supplied_inputs 的本篇切片和已链接全量数据，区分教学模型、真实记录、作者论文结果。图不是证明，模拟不是现实规律；不以预测概率替换定价测度。禁止从分位数拟造分布或另抽浏览器随机数冒充冻结路径。最后问：读者只读完这个词条，真的能学明白吗？用迁移题实际判断，明确剩余能力缺口。",
+  "sources": [
+    "QGHI-LALLEY-ITO12"
+  ],
+  "anchors": [
+    {
+      "id": "qt17p1-statement",
+      "title": "1. 要证明的命题",
+      "kind": "section",
+      "preview": "令 $T<\\infty$，过滤概率空间满足通常条件（过滤右连续，且 $\\mathcal F_0$ 包含 $\\mathcal F$ 中所有 $P$ 零集及其子集），$W$ 是相对于该过滤的 Brownian 运动。令 $X_0$ 为有限的 $\\mathcal F_0$ 可测随机"
+    },
+    {
+      "id": "qt17p1-taylor",
+      "title": "2. 只用一次时间导数的 Taylor 展开",
+      "kind": "section",
+      "preview": "先假设 $a,b$ 是有界简单可预测过程，且 $f$ 及所需导数有界、一致连续。对固定 $t\\le T$，取确定性分割 $\\pi$，使它包含系数的全部跳点。记 $h_j=t_{j+1}-t_j$、$x_j=X_{t_j}$、$\\Delta X_j=X_{t_{j+1}}-X_"
+    },
+    {
+      "id": "qt17p1-weighted",
+      "title": "3. 加权平方增量为什么给出二阶项",
+      "kind": "section",
+      "preview": "先证明一个可反复使用的小结论。若 $\\zeta_j$ 是 $\\mathcal F_{t_j}$ 可测且 $|\\zeta_j|\\le C$，令 $$ \\eta_j=\\zeta_j\\big((\\Delta W_j)^2-h_j\\big). $$ Brownian 增量独立于过"
+    },
+    {
+      "id": "qt17p1-first-order",
+      "title": "4. 一次项与共同版本",
+      "kind": "section",
+      "preview": "时间项和漂移项分别趋于 $\\int f_tds$ 与 $\\int af_xds$。随机一次项是简单积分 $$ \\sum_j f_x(t_j,X_{t_j})b_j\\Delta W_j. $$ 由于 $b$ 有界，且 $f_x$ 有界、一致连续，分割细化后，相应被积过程在"
+    },
+    {
+      "id": "qt17p1-general",
+      "title": "5. 一般系数：逐项说明怎样过极限",
+      "kind": "section",
+      "preview": "现在仍暂取导数有界一致连续，但不再假定系数有界或为阶梯。令 $$ A_t=\\int_0^t(|a_s|+b_s^2)ds, \\qquad \\tau_m=\\inf\\{t:A_t\\ge m\\}\\wedge T. $$ 先证明停止后的过程。把 $a,b$ 替换为它们乘 $\\ma"
+    },
+    {
+      "id": "qt17p1-localization",
+      "title": "6. 返回原来的函数和过程",
+      "kind": "section",
+      "preview": "取光滑空间截断 $\\chi_R$，在 $[-R,R]$ 上等于一，在更大的有界区间外为零，令 $f^R(t,x)=\\chi_R(x)f(t,x)$。有限时间区间上，$f^R$ 及所需导数有界、一致连续，因此上一节的结论适用。 令 $\\rho_R=\\inf\\{t:|X_t|\\"
+    },
+    {
+      "id": "qt17p1-exercise",
+      "title": "7. 迁移：哪一个条件真的不可少",
+      "kind": "section",
+      "preview": "令 $t_0\\in(0,T)$，取 $f(t,x)=|t-t_0|^{3/2}+x^2$。先判断此函数能否使用本篇定理，再对一般的 $X$ 写出结果。最后判断“随机积分没有漂移，所以 $E[X_t^2]$ 等于右边确定积分的期望”是否已经得到证明。 ### 解析 时间导数"
+    }
+  ],
+  "relations": [
+    {
+      "from": "QT17-P1",
+      "relation": "part_of",
+      "to": "quant-processes",
+      "reason": "按现行大纲归入严谨过程与金融专题；批次和个别文章标题不是新 topic。"
+    },
+    {
+      "from": "QT17-P1#qt17p1-localization",
+      "relation": "requires",
+      "to": "QT16-P1#qt16p1-stopping",
+      "reason": "该段实际使用所列局部能力。",
+      "required_competence": "完整停止规则"
+    },
+    {
+      "from": "QT17-P1#qt17p1-general",
+      "relation": "requires",
+      "to": "QT16-P1#qt16p1-doob",
+      "reason": "该段实际使用所列局部能力。",
+      "required_competence": "Doob L2 最大估计"
+    },
+    {
+      "from": "QT17-P1",
+      "relation": "supported_by",
+      "to": "QGHI-LALLEY-ITO12",
+      "reason": "渐进可测密度、简单积分等距、延拓、停止、局部化与一维 Itô 公式。p.8 下标和 p.19 漂移步长按正确推导采用；Doob 强 L2 估计及一般系数传递在本站完整展开。",
+      "locator": "§4.1–4.2 pp.14–16；§4.5 pp.18–20",
+      "scope": "公式与有界简单过程证明"
+    },
+    {
+      "from": "QT17-P1#qt17p1-statement",
+      "relation": "supported_by",
+      "to": "QGHI-LALLEY-ITO12",
+      "reason": "对应本段作者已著明脚注；教学模型及本站补全证明的身份沿原脚注保留。",
+      "locator": "Steven P. Lalley, *Notes on the Itô Calculus*, 2012-05-15，§4.1–4.2、§4.5，PDF pp.14–16、18–20；[公开原件](https://www.stat.uchicago.edu/~lalley/Courses/385/Old/ItoIntegral-2012.pdf)。",
+      "scope": "只支持此处脚注具名的定义、条件、证明或原表单元。",
+      "citation_labels": [
+        "ito"
+      ]
+    },
+    {
+      "from": "QT17-P1#qt17p1-taylor",
+      "relation": "supported_by",
+      "to": "QGHI-LALLEY-ITO12",
+      "reason": "对应本段作者已著明脚注；教学模型及本站补全证明的身份沿原脚注保留。",
+      "locator": "同原件 p.19 的漂移步长应为 $\\zeta T2^{-n}$，而非印出的 $\\zeta2^{-n}T^{-1}$。本篇分别展开时间和空间，只用 $\\Delta t\\,\\omega(\\Delta t+|\\Delta X|)$ 控制时间余项。",
+      "scope": "只支持此处脚注具名的定义、条件、证明或原表单元。",
+      "citation_labels": [
+        "correction"
+      ]
+    },
+    {
+      "from": "QT17-P1#qt17p1-general",
+      "relation": "supported_by",
+      "to": "QGHI-LALLEY-ITO12",
+      "reason": "对应本段作者已著明脚注；教学模型及本站补全证明的身份沿原脚注保留。",
+      "locator": "Lalley §4.5 将一般系数的步骤概括为逼近；这里的 $L^1/L^2$ 分解、过程估计和停止传递是完整展开，不称为原讲义逐字提供的证明。",
+      "scope": "只支持此处脚注具名的定义、条件、证明或原表单元。",
+      "citation_labels": [
+        "approx"
+      ]
+    }
+  ],
+  "agent_packet": {
+    "export_mode": "public",
+    "required_readings": [
+      {
+        "source_id": "QGHI-LALLEY-ITO12",
+        "access": {
+          "kind": "pdf_full_text",
+          "uri": "https://www.stat.uchicago.edu/~lalley/Courses/385/Old/ItoIntegral-2012.pdf"
+        },
+        "required_unit": {
+          "locator": "§4.1–4.2 pp.14–16；§4.5 pp.18–20",
+          "scope": "公式与有界简单过程证明",
+          "purpose": "读本篇一般 L1/L2 逼近补全；不能以 routine approximation 跳过"
+        },
+        "supports": "渐进可测密度、简单积分等距、延拓、停止、局部化与一维 Itô 公式。p.8 下标和 p.19 漂移步长按正确推导采用；Doob 强 L2 估计及一般系数传递在本站完整展开。",
+        "title": "Notes on the Itô Calculus",
+        "authors": [
+          "Steven P. Lalley"
+        ],
+        "version": "2012-05-15",
+        "fallback_source_ids": []
+      }
+    ],
+    "optional_readings": [],
+    "runtime_reading_log": [],
+    "supplied_inputs": {
+      "competence": "QT16-P1 构造、最大估计与停止；L1/L2 收敛、Taylor、连续模。",
+      "static_equivalent": "本篇 reader 全部默认表、证明及题解；HTML 禁用脚本仍可读。",
+      "attachments": [
+        {
+          "title": "本篇完整静态阅读、全部题解与证明",
+          "uri": "https://ou-liu-red-sugar.github.io/notebook/labs/qt-ghi/static/QT17-P1.html",
+          "kind": "html"
+        },
+        {
+          "title": "本篇同源 Markdown",
+          "uri": "https://ou-liu-red-sugar.github.io/notebook/labs/qt-ghi/static/QT17-P1.md",
+          "kind": "markdown"
+        }
+      ],
+      "proof_scope": "本篇完整证明为 supplied site body；通常条件、progressive、dt⊗P 等价类、共同满概率版本与局部/全局矩条件按正文。"
+    }
+  },
+  "experiments": [
+    {
+      "id": "VIEW-QT17-P1-PROOF",
+      "title": "Itô 公式证明依赖",
+      "anchor": "qt17p1-localization",
+      "description": "共享输入的本篇视图；不新增模拟实验。",
+      "inputs": {
+        "uri": "https://ou-liu-red-sugar.github.io/notebook/labs/qt-ghi/data/learning-inputs.json",
+        "json_pointer": "/QT17-P1",
+        "scope": "本篇 supplied_inputs 的完整同源切片；冻结参数和全部结果附件在该切片内定位。"
+      },
+      "outputs": {
+        "proof": "对应正文完整证明"
+      },
+      "source_experiment_id": null,
+      "static_equivalent": "https://ou-liu-red-sugar.github.io/notebook/labs/qt-ghi/static/QT17-P1.html#qt17p1-localization",
+      "result_attachment": {
+        "uri": "https://ou-liu-red-sugar.github.io/notebook/labs/qt-ghi/static/QT17-P1.html#qt17p1-localization",
+        "kind": "complete_proof"
+      }
+    }
+  ],
+  "status": "candidate_local_review",
+  "audience": "高年级本科至研究生；默认微积分、线性代数与基本概率",
+  "hard_prerequisites": [
+    {
+      "from": "QT17-P1#qt17p1-localization",
+      "relation": "requires",
+      "to": "QT16-P1#qt16p1-stopping",
+      "reason": "该段实际使用所列局部能力。",
+      "required_competence": "完整停止规则"
+    },
+    {
+      "from": "QT17-P1#qt17p1-general",
+      "relation": "requires",
+      "to": "QT16-P1#qt16p1-doob",
+      "reason": "该段实际使用所列局部能力。",
+      "required_competence": "Doob L2 最大估计"
+    }
+  ],
+  "interactions": [
+    {
+      "id": "VIEW-QT17-P1-PROOF",
+      "title": "Itô 公式证明依赖",
+      "url": "/notebook/labs/qt-ghi/interactions.html?experiment=VIEW-QT17-P1-PROOF#VIEW-QT17-P1-PROOF",
+      "height": 800,
+      "open": true,
+      "static_anchor": "qt17p1-localization",
+      "inline": true,
+      "experiment_ids": [
+        "VIEW-QT17-P1-PROOF"
+      ]
+    }
+  ],
+  "provenance": {
+    "source_package": "docs/production/20260921/drafts/qt-ghi-v3/QT-GHI-review-v3",
+    "content_version": "review-v3-20260921",
+    "independent_review": "docs/production/20260921/receipts/qt-ghi-independent-draft-review.md",
+    "import_status": "accepted_local",
+    "local_acceptance": "docs/production/20260921/receipts/qt-ghi-local-acceptance.md"
+  }
+}

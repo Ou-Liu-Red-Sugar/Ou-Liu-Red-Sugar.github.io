@@ -1,4 +1,5 @@
 ---
+aliases: ["/invest/reviews/"]
 title: "Monthly Reviews"
 description: "Low-frequency review of decision discipline, thesis drift, and attention cost."
 layout: "list"

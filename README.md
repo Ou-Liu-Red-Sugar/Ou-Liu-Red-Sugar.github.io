@@ -1,45 +1,30 @@
-# Academic website and long-form mathematical notes
+# Personal notebook — bilingual HTML edition
 
-This repository contains the source for Ou Liu’s academic homepage and long-term mathematical notes. The site is built with Hugo and the PaperMod theme, and it collects research notes, publications, and supporting tooling for rendering commutative diagrams.
+Current source guide: [Notebook authoring](docs/notebook-authoring.md).
 
-## Repository structure
+- Chinese collection: `content-zh/`; English and preserved archive: `content/`.
+- Optional reading route: `/zh/notebook/reading-path/`; the route sequence and transitions live in `notebook/catalogue.json`.
+- New entry source: `notebook/entries/*.json`; subject/source registry: `notebook/catalogue.json`.
+- Generate pages, local search and complete Agent exports: `python tools/build_notebook.py`.
+- Check interactive calculations and numeric display: `node --test tools/notebook-math.test.mjs tools/notebook-number-format.test.cjs`.
+- Preview: `hugo server --destination .git/notebook-preview --disableFastRender`.
+- Build without overwriting existing public changes: `hugo --destination .git/notebook-build`, then `python tools/check_notebook.py`.
+- The Pages workflow compiles notebook content and Agent exports, checks calculations, builds with Hugo 0.152.2 into a clean temporary directory, and checks site links before deploying. A push to `main` publishes to GitHub Pages.
+- Local editorial packets, reviews and staging builds under `docs/production/` stay on the author's machine. Published entries use the canonical source in `notebook/entries/`; these local production records are not needed to build the site.
 
-- `content/` — site content in Markdown:
-  - `notes/` — long-form mathematical notes and seminar materials, indexed through `content/notes/_index.md`.
-  - `papers/` — publication list (`content/papers/_index.md`).
-  - `about.md`, `search.md` — standalone pages.
-- `layouts/` — Hugo templates and shortcodes, including theorem-style blocks (`definition`, `lemma`, `theorem`, `proposition`, `corollary`, `remark`, `construction`, `idea`), proof rendering (`proof.html`), references (`cite.html`, `references.html`, `pageref.html`, `thmref.html`), index helpers (`notes_index.html`, `section_index.html`), diagram helpers (`tikz.html`, `tikzcd.html`, `cdrow.html`), and safe HTML passthroughs.
-- `static/` — static assets served as-is, including custom styles in `static/css/custom.css` and precompiled TikZ-CD SVGs under `static/generated/tikzcd/` with a manifest.
-- `assets/` — Hugo asset pipeline inputs (e.g., additional CSS or images, if present).
-- `themes/PaperMod/` — the PaperMod theme used by the site.
-- `tools/` — helper scripts and resources for diagram generation (`gen_tikzcd.py`, `tools/tikzcd-preamble.tex`).
-- `hugo.yaml` — site-wide configuration (base URL, menus, permalinks, MathJax, and other Hugo settings).
+The implementation record and pre-change backup location are in `docs/implementation-record.json`. Mathematical prose in the archive is preserved; old content addresses redirect to the English collection. See `notebook/sources/pilot-provenance.md` for the editorial origin of the seven pilot entries.
+
 
 ## Mathematical toolchain
 
+
 - **Hugo + PaperMod**: Site generation is handled by Hugo with the PaperMod theme configured in `hugo.yaml`.
-- **MathJax v3**: Enabled in `layouts/partials/extend_head.html` with common macros for algebraic notation and citation helpers.
+- **MathJax v4.0.0**: Enabled in `layouts/partials/extend_head.html` with existing macros and automatic inline/display line breaks. Display mathematics is re-typeset when the reading width changes.
 - **TikZ-CD diagrams**: Diagrams are authored via the `tikzcd` shortcode. Precompiled SVGs live in `static/generated/tikzcd/` with metadata in `static/generated/tikzcd/manifest.json`. The shortcode accepts optional parameters such as `hash`, `alt`, `class`, `width`, and `caption`.
 - **TikZ-CD build script**: `tools/gen_tikzcd.py` scans Markdown for `{{< tikzcd >}}...{{< /tikzcd >}}` or raw `\begin{tikzcd}` blocks, compiles them with LaTeX (`lualatex` by default), converts PDFs to SVG via `dvisvgm`, and updates the manifest.
 - **Custom styling**: Additional CSS in `static/css/custom.css` tunes MathJax rendering and layout for diagrams and notes.
 
-## Build and preview
 
-1. Install Hugo (extended) locally.
-2. From the repository root, run `hugo server -D` to start a development server with drafts enabled.
-3. Build the production site with `hugo`; outputs will be placed in `public/`.
+## TikZ-CD generation
 
-## TikZ-CD generation workflow
-
-- Existing diagrams are already precompiled and served from `static/generated/tikzcd/`.
-- To update or add diagrams, ensure LaTeX with `lualatex` (or `pdflatex`) and `dvisvgm` are available. Then run:
-
-  ```bash
-  python3 tools/gen_tikzcd.py
-  ```
-
-  Use `--force` to rebuild all diagrams or `--dry-run` to scan without rendering. Generated SVGs and `manifest.json` will be updated in `static/generated/tikzcd/`.
-
-## Local math rendering
-
-Math is rendered client-side via MathJax. Collapsible math environments rely on the MathJax configuration in `layouts/partials/extend_head.html`, and custom CSS (`static/css/custom.css`) adjusts display styles for inline and display math.
+Existing diagrams remain precompiled in `static/generated/tikzcd/`. To add diagrams, install LaTeX (`lualatex`) and `dvisvgm`, then run `python tools/gen_tikzcd.py`; `--dry-run` scans without rendering and `--force` rebuilds all diagrams. Mathematical content and theorem shortcodes continue to work independently of the new notebook source format.

@@ -1,0 +1,3278 @@
+{
+  "content_version": "2026-09-21-QT-C-draft-v1",
+  "input_version": "QT-C-inputs-20260921-v1",
+  "config": {
+    "version": "QT-C-inputs-20260921-v1",
+    "dataset": {
+      "source_csv": "30_Industry_Portfolios.csv",
+      "source_zip": "30_Industry_Portfolios_CSV.zip",
+      "source_zip_url": "https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/ftp/30_Industry_Portfolios_CSV.zip",
+      "source_details_url": "https://mba.tuck.dartmouth.edu/pages/Faculty/ken.french/Data_Library/det_30_ind_port.html",
+      "source_regime_url": "https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/data_library.html",
+      "download_date": "2026-09-21",
+      "download_date_provenance": "Lead具名下载记录；非源文件生成日或各月发布日期",
+      "expected_crsp_vintage": "202607",
+      "block_title": "Average Value Weighted Returns -- Monthly",
+      "column": "BusEq",
+      "sample_start": "199001",
+      "sample_end": "202512",
+      "expected_months": 432,
+      "missing_codes": [
+        -99.99,
+        -999.0
+      ],
+      "percent_divisor": 100.0,
+      "regime": "当前CIZ生成的整段重建历史；不与历史FIZ快照拼接",
+      "sample_windows": [
+        [
+          "199001",
+          "202512"
+        ],
+        [
+          "200001",
+          "202512"
+        ],
+        [
+          "201001",
+          "202512"
+        ],
+        [
+          "202001",
+          "202512"
+        ]
+      ]
+    },
+    "returns": {
+      "experiment_id": "EXP-RETURNS-01",
+      "loss_definition": "L_t = -r_t",
+      "sample_sd_ddof": 1,
+      "quantile_method": "inverted_cdf",
+      "return_quantile_levels": [
+        0.01,
+        0.05,
+        0.25,
+        0.5,
+        0.75,
+        0.95,
+        0.99
+      ],
+      "tail_levels": [
+        0.5,
+        0.9,
+        0.95,
+        0.975,
+        0.99
+      ],
+      "default_tail_level": 0.95,
+      "annualized": false,
+      "atom_example": {
+        "losses": [
+          0,
+          1,
+          1,
+          1,
+          10
+        ],
+        "probabilities": [
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2
+        ],
+        "p": 0.7
+      }
+    },
+    "monte_carlo": {
+      "experiment_id": "EXP-MC-01",
+      "generator": "numpy.random.Generator(numpy.random.PCG64(seed))",
+      "payoffs_usd": [
+        0,
+        0,
+        10000,
+        20000
+      ],
+      "probabilities": [
+        0.1,
+        0.3,
+        0.4,
+        0.2
+      ],
+      "stress_probabilities": [
+        0.1,
+        0.4,
+        0.3,
+        0.2
+      ],
+      "reference_seed": 1201,
+      "sample_sizes": [
+        100,
+        1000,
+        10000
+      ],
+      "default_sample_size": 1000,
+      "reference_path": "先生成10000个U[0,1)；各n取同一路径前缀，p与p'共用均匀数；inverse-CDF按四个状态映射",
+      "coverage_seed": 1202,
+      "coverage_repetitions": 5000,
+      "coverage_chunk_rows": 250,
+      "coverage_interval_z": 1.96,
+      "coverage_design": "每行10000个独立均匀数，行间独立；各n在每行使用嵌套前缀，故不同n的覆盖结果相关；只对p模型统计覆盖",
+      "sample_sd_ddof": 1
+    },
+    "bootstrap": {
+      "experiment_id": "EXP-BOOT-01",
+      "repetitions": 5000,
+      "iid_seed": 1901,
+      "moving_block_seed": 1902,
+      "block_lengths": [
+        3,
+        6,
+        12
+      ],
+      "default_block_length": 6,
+      "percentile_levels": [
+        0.025,
+        0.975
+      ],
+      "percentile_method": "linear",
+      "se_ddof": 1,
+      "index_base": 0,
+      "moving_block_algorithm": "均匀有放回抽起点0..n-l；每块保留连续l项，拼接ceil(n/l)块后截取前n项；不循环绕回",
+      "seed_reset": "每个设计重新初始化指定种子；真实收益与AR(1)复用同一组抽样索引；不同块长分别重置1902",
+      "ar1": {
+        "seed": 1910,
+        "rho": 0.6,
+        "innovation_variance": 0.64,
+        "n": 432,
+        "initial_distribution": "X0 ~ N(0,1)，与后续独立创新独立",
+        "draw_order": "Generator(PCG64(1910))先standard_normal()取X0，再standard_normal(432)乘sqrt(0.64)取创新；保存X1..X432",
+        "unit": "无量纲的教学模拟变量"
+      }
+    }
+  },
+  "dataset_identity": {
+    "source_csv": "30_Industry_Portfolios.csv",
+    "source_zip": "30_Industry_Portfolios_CSV.zip",
+    "source_zip_url": "https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/ftp/30_Industry_Portfolios_CSV.zip",
+    "source_details_url": "https://mba.tuck.dartmouth.edu/pages/Faculty/ken.french/Data_Library/det_30_ind_port.html",
+    "source_regime_url": "https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/data_library.html",
+    "download_date": "2026-09-21",
+    "download_date_provenance": "Lead具名下载记录；非源文件生成日或各月发布日期",
+    "expected_crsp_vintage": "202607",
+    "block_title": "Average Value Weighted Returns -- Monthly",
+    "column": "BusEq",
+    "sample_start": "199001",
+    "sample_end": "202512",
+    "expected_months": 432,
+    "missing_codes": [
+      -99.99,
+      -999.0
+    ],
+    "percent_divisor": 100.0,
+    "regime": "当前CIZ生成的整段重建历史；不与历史FIZ快照拼接",
+    "sample_windows": [
+      [
+        "199001",
+        "202512"
+      ],
+      [
+        "200001",
+        "202512"
+      ],
+      [
+        "201001",
+        "202512"
+      ],
+      [
+        "202001",
+        "202512"
+      ]
+    ],
+    "history_identity": "202607当前CIZ整段重建历史；非逐月当时可见vintage",
+    "first_source_line": 775,
+    "last_source_line": 1206,
+    "selected_rows": 432,
+    "missing_removed": 0,
+    "original_archive_included": false,
+    "selected_csv_bytes_verified": true
+  },
+  "records": [
+    {
+      "month": "199001",
+      "percent": -0.94,
+      "r": -0.009399999999999999,
+      "loss": 0.009399999999999999,
+      "source_line": 775
+    },
+    {
+      "month": "199002",
+      "percent": 3.53,
+      "r": 0.0353,
+      "loss": -0.0353,
+      "source_line": 776
+    },
+    {
+      "month": "199003",
+      "percent": 4.1,
+      "r": 0.040999999999999995,
+      "loss": -0.040999999999999995,
+      "source_line": 777
+    },
+    {
+      "month": "199004",
+      "percent": -1.46,
+      "r": -0.0146,
+      "loss": 0.0146,
+      "source_line": 778
+    },
+    {
+      "month": "199005",
+      "percent": 11.64,
+      "r": 0.1164,
+      "loss": -0.1164,
+      "source_line": 779
+    },
+    {
+      "month": "199006",
+      "percent": -2.0,
+      "r": -0.02,
+      "loss": 0.02,
+      "source_line": 780
+    },
+    {
+      "month": "199007",
+      "percent": -6.52,
+      "r": -0.0652,
+      "loss": 0.0652,
+      "source_line": 781
+    },
+    {
+      "month": "199008",
+      "percent": -12.22,
+      "r": -0.1222,
+      "loss": 0.1222,
+      "source_line": 782
+    },
+    {
+      "month": "199009",
+      "percent": -6.16,
+      "r": -0.0616,
+      "loss": 0.0616,
+      "source_line": 783
+    },
+    {
+      "month": "199010",
+      "percent": -3.82,
+      "r": -0.0382,
+      "loss": 0.0382,
+      "source_line": 784
+    },
+    {
+      "month": "199011",
+      "percent": 10.47,
+      "r": 0.1047,
+      "loss": -0.1047,
+      "source_line": 785
+    },
+    {
+      "month": "199012",
+      "percent": 3.93,
+      "r": 0.0393,
+      "loss": -0.0393,
+      "source_line": 786
+    },
+    {
+      "month": "199101",
+      "percent": 14.36,
+      "r": 0.1436,
+      "loss": -0.1436,
+      "source_line": 787
+    },
+    {
+      "month": "199102",
+      "percent": 5.98,
+      "r": 0.059800000000000006,
+      "loss": -0.059800000000000006,
+      "source_line": 788
+    },
+    {
+      "month": "199103",
+      "percent": -0.61,
+      "r": -0.0060999999999999995,
+      "loss": 0.0060999999999999995,
+      "source_line": 789
+    },
+    {
+      "month": "199104",
+      "percent": -3.01,
+      "r": -0.0301,
+      "loss": 0.0301,
+      "source_line": 790
+    },
+    {
+      "month": "199105",
+      "percent": 3.47,
+      "r": 0.0347,
+      "loss": -0.0347,
+      "source_line": 791
+    },
+    {
+      "month": "199106",
+      "percent": -9.19,
+      "r": -0.0919,
+      "loss": 0.0919,
+      "source_line": 792
+    },
+    {
+      "month": "199107",
+      "percent": 4.15,
+      "r": 0.0415,
+      "loss": -0.0415,
+      "source_line": 793
+    },
+    {
+      "month": "199108",
+      "percent": 1.37,
+      "r": 0.0137,
+      "loss": -0.0137,
+      "source_line": 794
+    },
+    {
+      "month": "199109",
+      "percent": -2.13,
+      "r": -0.0213,
+      "loss": 0.0213,
+      "source_line": 795
+    },
+    {
+      "month": "199110",
+      "percent": 0.13,
+      "r": 0.0013,
+      "loss": -0.0013,
+      "source_line": 796
+    },
+    {
+      "month": "199111",
+      "percent": -5.01,
+      "r": -0.0501,
+      "loss": 0.0501,
+      "source_line": 797
+    },
+    {
+      "month": "199112",
+      "percent": 7.05,
+      "r": 0.0705,
+      "loss": -0.0705,
+      "source_line": 798
+    },
+    {
+      "month": "199201",
+      "percent": 7.35,
+      "r": 0.0735,
+      "loss": -0.0735,
+      "source_line": 799
+    },
+    {
+      "month": "199202",
+      "percent": 4.45,
+      "r": 0.044500000000000005,
+      "loss": -0.044500000000000005,
+      "source_line": 800
+    },
+    {
+      "month": "199203",
+      "percent": -4.94,
+      "r": -0.049400000000000006,
+      "loss": 0.049400000000000006,
+      "source_line": 801
+    },
+    {
+      "month": "199204",
+      "percent": 0.2,
+      "r": 0.002,
+      "loss": -0.002,
+      "source_line": 802
+    },
+    {
+      "month": "199205",
+      "percent": -0.75,
+      "r": -0.0075,
+      "loss": 0.0075,
+      "source_line": 803
+    },
+    {
+      "month": "199206",
+      "percent": -2.71,
+      "r": -0.0271,
+      "loss": 0.0271,
+      "source_line": 804
+    },
+    {
+      "month": "199207",
+      "percent": 2.67,
+      "r": 0.026699999999999998,
+      "loss": -0.026699999999999998,
+      "source_line": 805
+    },
+    {
+      "month": "199208",
+      "percent": -5.32,
+      "r": -0.053200000000000004,
+      "loss": 0.053200000000000004,
+      "source_line": 806
+    },
+    {
+      "month": "199209",
+      "percent": 2.38,
+      "r": 0.023799999999999998,
+      "loss": -0.023799999999999998,
+      "source_line": 807
+    },
+    {
+      "month": "199210",
+      "percent": -0.03,
+      "r": -0.0003,
+      "loss": 0.0003,
+      "source_line": 808
+    },
+    {
+      "month": "199211",
+      "percent": 6.77,
+      "r": 0.0677,
+      "loss": -0.0677,
+      "source_line": 809
+    },
+    {
+      "month": "199212",
+      "percent": 0.32,
+      "r": 0.0032,
+      "loss": -0.0032,
+      "source_line": 810
+    },
+    {
+      "month": "199301",
+      "percent": 5.1,
+      "r": 0.051,
+      "loss": -0.051,
+      "source_line": 811
+    },
+    {
+      "month": "199302",
+      "percent": 0.75,
+      "r": 0.0075,
+      "loss": -0.0075,
+      "source_line": 812
+    },
+    {
+      "month": "199303",
+      "percent": 1.51,
+      "r": 0.0151,
+      "loss": -0.0151,
+      "source_line": 813
+    },
+    {
+      "month": "199304",
+      "percent": -2.69,
+      "r": -0.0269,
+      "loss": 0.0269,
+      "source_line": 814
+    },
+    {
+      "month": "199305",
+      "percent": 9.23,
+      "r": 0.09230000000000001,
+      "loss": -0.09230000000000001,
+      "source_line": 815
+    },
+    {
+      "month": "199306",
+      "percent": -0.48,
+      "r": -0.0048,
+      "loss": 0.0048,
+      "source_line": 816
+    },
+    {
+      "month": "199307",
+      "percent": -2.81,
+      "r": -0.0281,
+      "loss": 0.0281,
+      "source_line": 817
+    },
+    {
+      "month": "199308",
+      "percent": 7.83,
+      "r": 0.0783,
+      "loss": -0.0783,
+      "source_line": 818
+    },
+    {
+      "month": "199309",
+      "percent": -0.05,
+      "r": -0.0005,
+      "loss": 0.0005,
+      "source_line": 819
+    },
+    {
+      "month": "199310",
+      "percent": 1.19,
+      "r": 0.011899999999999999,
+      "loss": -0.011899999999999999,
+      "source_line": 820
+    },
+    {
+      "month": "199311",
+      "percent": -0.07,
+      "r": -0.0007000000000000001,
+      "loss": 0.0007000000000000001,
+      "source_line": 821
+    },
+    {
+      "month": "199312",
+      "percent": 4.15,
+      "r": 0.0415,
+      "loss": -0.0415,
+      "source_line": 822
+    },
+    {
+      "month": "199401",
+      "percent": 4.55,
+      "r": 0.0455,
+      "loss": -0.0455,
+      "source_line": 823
+    },
+    {
+      "month": "199402",
+      "percent": 1.6,
+      "r": 0.016,
+      "loss": -0.016,
+      "source_line": 824
+    },
+    {
+      "month": "199403",
+      "percent": -3.67,
+      "r": -0.036699999999999997,
+      "loss": 0.036699999999999997,
+      "source_line": 825
+    },
+    {
+      "month": "199404",
+      "percent": -2.43,
+      "r": -0.024300000000000002,
+      "loss": 0.024300000000000002,
+      "source_line": 826
+    },
+    {
+      "month": "199405",
+      "percent": 0.63,
+      "r": 0.0063,
+      "loss": -0.0063,
+      "source_line": 827
+    },
+    {
+      "month": "199406",
+      "percent": -5.03,
+      "r": -0.050300000000000004,
+      "loss": 0.050300000000000004,
+      "source_line": 828
+    },
+    {
+      "month": "199407",
+      "percent": 5.09,
+      "r": 0.0509,
+      "loss": -0.0509,
+      "source_line": 829
+    },
+    {
+      "month": "199408",
+      "percent": 9.22,
+      "r": 0.0922,
+      "loss": -0.0922,
+      "source_line": 830
+    },
+    {
+      "month": "199409",
+      "percent": -0.99,
+      "r": -0.009899999999999999,
+      "loss": 0.009899999999999999,
+      "source_line": 831
+    },
+    {
+      "month": "199410",
+      "percent": 6.94,
+      "r": 0.0694,
+      "loss": -0.0694,
+      "source_line": 832
+    },
+    {
+      "month": "199411",
+      "percent": -2.28,
+      "r": -0.022799999999999997,
+      "loss": 0.022799999999999997,
+      "source_line": 833
+    },
+    {
+      "month": "199412",
+      "percent": 2.75,
+      "r": 0.0275,
+      "loss": -0.0275,
+      "source_line": 834
+    },
+    {
+      "month": "199501",
+      "percent": -0.59,
+      "r": -0.0059,
+      "loss": 0.0059,
+      "source_line": 835
+    },
+    {
+      "month": "199502",
+      "percent": 6.65,
+      "r": 0.0665,
+      "loss": -0.0665,
+      "source_line": 836
+    },
+    {
+      "month": "199503",
+      "percent": 4.32,
+      "r": 0.0432,
+      "loss": -0.0432,
+      "source_line": 837
+    },
+    {
+      "month": "199504",
+      "percent": 9.28,
+      "r": 0.0928,
+      "loss": -0.0928,
+      "source_line": 838
+    },
+    {
+      "month": "199505",
+      "percent": 3.34,
+      "r": 0.0334,
+      "loss": -0.0334,
+      "source_line": 839
+    },
+    {
+      "month": "199506",
+      "percent": 10.15,
+      "r": 0.1015,
+      "loss": -0.1015,
+      "source_line": 840
+    },
+    {
+      "month": "199507",
+      "percent": 8.73,
+      "r": 0.0873,
+      "loss": -0.0873,
+      "source_line": 841
+    },
+    {
+      "month": "199508",
+      "percent": -0.16,
+      "r": -0.0016,
+      "loss": 0.0016,
+      "source_line": 842
+    },
+    {
+      "month": "199509",
+      "percent": 1.29,
+      "r": 0.0129,
+      "loss": -0.0129,
+      "source_line": 843
+    },
+    {
+      "month": "199510",
+      "percent": 0.03,
+      "r": 0.0003,
+      "loss": -0.0003,
+      "source_line": 844
+    },
+    {
+      "month": "199511",
+      "percent": -1.41,
+      "r": -0.0141,
+      "loss": 0.0141,
+      "source_line": 845
+    },
+    {
+      "month": "199512",
+      "percent": -4.58,
+      "r": -0.0458,
+      "loss": 0.0458,
+      "source_line": 846
+    },
+    {
+      "month": "199601",
+      "percent": 2.11,
+      "r": 0.021099999999999997,
+      "loss": -0.021099999999999997,
+      "source_line": 847
+    },
+    {
+      "month": "199602",
+      "percent": 6.93,
+      "r": 0.0693,
+      "loss": -0.0693,
+      "source_line": 848
+    },
+    {
+      "month": "199603",
+      "percent": -4.55,
+      "r": -0.0455,
+      "loss": 0.0455,
+      "source_line": 849
+    },
+    {
+      "month": "199604",
+      "percent": 10.57,
+      "r": 0.1057,
+      "loss": -0.1057,
+      "source_line": 850
+    },
+    {
+      "month": "199605",
+      "percent": 4.32,
+      "r": 0.0432,
+      "loss": -0.0432,
+      "source_line": 851
+    },
+    {
+      "month": "199606",
+      "percent": -6.32,
+      "r": -0.0632,
+      "loss": 0.0632,
+      "source_line": 852
+    },
+    {
+      "month": "199607",
+      "percent": -7.54,
+      "r": -0.0754,
+      "loss": 0.0754,
+      "source_line": 853
+    },
+    {
+      "month": "199608",
+      "percent": 5.1,
+      "r": 0.051,
+      "loss": -0.051,
+      "source_line": 854
+    },
+    {
+      "month": "199609",
+      "percent": 10.66,
+      "r": 0.1066,
+      "loss": -0.1066,
+      "source_line": 855
+    },
+    {
+      "month": "199610",
+      "percent": -1.23,
+      "r": -0.0123,
+      "loss": 0.0123,
+      "source_line": 856
+    },
+    {
+      "month": "199611",
+      "percent": 14.01,
+      "r": 0.1401,
+      "loss": -0.1401,
+      "source_line": 857
+    },
+    {
+      "month": "199612",
+      "percent": -2.42,
+      "r": -0.0242,
+      "loss": 0.0242,
+      "source_line": 858
+    },
+    {
+      "month": "199701",
+      "percent": 10.36,
+      "r": 0.1036,
+      "loss": -0.1036,
+      "source_line": 859
+    },
+    {
+      "month": "199702",
+      "percent": -8.16,
+      "r": -0.0816,
+      "loss": 0.0816,
+      "source_line": 860
+    },
+    {
+      "month": "199703",
+      "percent": -5.22,
+      "r": -0.052199999999999996,
+      "loss": 0.052199999999999996,
+      "source_line": 861
+    },
+    {
+      "month": "199704",
+      "percent": 6.02,
+      "r": 0.0602,
+      "loss": -0.0602,
+      "source_line": 862
+    },
+    {
+      "month": "199705",
+      "percent": 10.21,
+      "r": 0.10210000000000001,
+      "loss": -0.10210000000000001,
+      "source_line": 863
+    },
+    {
+      "month": "199706",
+      "percent": 0.93,
+      "r": 0.009300000000000001,
+      "loss": -0.009300000000000001,
+      "source_line": 864
+    },
+    {
+      "month": "199707",
+      "percent": 18.9,
+      "r": 0.18899999999999997,
+      "loss": -0.18899999999999997,
+      "source_line": 865
+    },
+    {
+      "month": "199708",
+      "percent": -0.79,
+      "r": -0.0079,
+      "loss": 0.0079,
+      "source_line": 866
+    },
+    {
+      "month": "199709",
+      "percent": 3.89,
+      "r": 0.038900000000000004,
+      "loss": -0.038900000000000004,
+      "source_line": 867
+    },
+    {
+      "month": "199710",
+      "percent": -10.68,
+      "r": -0.10679999999999999,
+      "loss": 0.10679999999999999,
+      "source_line": 868
+    },
+    {
+      "month": "199711",
+      "percent": 0.64,
+      "r": 0.0064,
+      "loss": -0.0064,
+      "source_line": 869
+    },
+    {
+      "month": "199712",
+      "percent": -4.76,
+      "r": -0.047599999999999996,
+      "loss": 0.047599999999999996,
+      "source_line": 870
+    },
+    {
+      "month": "199801",
+      "percent": 5.08,
+      "r": 0.0508,
+      "loss": -0.0508,
+      "source_line": 871
+    },
+    {
+      "month": "199802",
+      "percent": 9.65,
+      "r": 0.0965,
+      "loss": -0.0965,
+      "source_line": 872
+    },
+    {
+      "month": "199803",
+      "percent": -2.18,
+      "r": -0.0218,
+      "loss": 0.0218,
+      "source_line": 873
+    },
+    {
+      "month": "199804",
+      "percent": 7.61,
+      "r": 0.0761,
+      "loss": -0.0761,
+      "source_line": 874
+    },
+    {
+      "month": "199805",
+      "percent": -7.14,
+      "r": -0.07139999999999999,
+      "loss": 0.07139999999999999,
+      "source_line": 875
+    },
+    {
+      "month": "199806",
+      "percent": 4.64,
+      "r": 0.0464,
+      "loss": -0.0464,
+      "source_line": 876
+    },
+    {
+      "month": "199807",
+      "percent": 3.85,
+      "r": 0.0385,
+      "loss": -0.0385,
+      "source_line": 877
+    },
+    {
+      "month": "199808",
+      "percent": -17.49,
+      "r": -0.17489999999999997,
+      "loss": 0.17489999999999997,
+      "source_line": 878
+    },
+    {
+      "month": "199809",
+      "percent": 13.18,
+      "r": 0.1318,
+      "loss": -0.1318,
+      "source_line": 879
+    },
+    {
+      "month": "199810",
+      "percent": 10.06,
+      "r": 0.10060000000000001,
+      "loss": -0.10060000000000001,
+      "source_line": 880
+    },
+    {
+      "month": "199811",
+      "percent": 10.34,
+      "r": 0.10339999999999999,
+      "loss": -0.10339999999999999,
+      "source_line": 881
+    },
+    {
+      "month": "199812",
+      "percent": 14.09,
+      "r": 0.1409,
+      "loss": -0.1409,
+      "source_line": 882
+    },
+    {
+      "month": "199901",
+      "percent": 13.29,
+      "r": 0.1329,
+      "loss": -0.1329,
+      "source_line": 883
+    },
+    {
+      "month": "199902",
+      "percent": -12.31,
+      "r": -0.1231,
+      "loss": 0.1231,
+      "source_line": 884
+    },
+    {
+      "month": "199903",
+      "percent": 5.09,
+      "r": 0.0509,
+      "loss": -0.0509,
+      "source_line": 885
+    },
+    {
+      "month": "199904",
+      "percent": 6.19,
+      "r": 0.061900000000000004,
+      "loss": -0.061900000000000004,
+      "source_line": 886
+    },
+    {
+      "month": "199905",
+      "percent": 0.03,
+      "r": 0.0003,
+      "loss": -0.0003,
+      "source_line": 887
+    },
+    {
+      "month": "199906",
+      "percent": 12.86,
+      "r": 0.1286,
+      "loss": -0.1286,
+      "source_line": 888
+    },
+    {
+      "month": "199907",
+      "percent": 2.41,
+      "r": 0.0241,
+      "loss": -0.0241,
+      "source_line": 889
+    },
+    {
+      "month": "199908",
+      "percent": 7.8,
+      "r": 0.078,
+      "loss": -0.078,
+      "source_line": 890
+    },
+    {
+      "month": "199909",
+      "percent": -2.45,
+      "r": -0.0245,
+      "loss": 0.0245,
+      "source_line": 891
+    },
+    {
+      "month": "199910",
+      "percent": 3.17,
+      "r": 0.0317,
+      "loss": -0.0317,
+      "source_line": 892
+    },
+    {
+      "month": "199911",
+      "percent": 14.16,
+      "r": 0.1416,
+      "loss": -0.1416,
+      "source_line": 893
+    },
+    {
+      "month": "199912",
+      "percent": 17.29,
+      "r": 0.1729,
+      "loss": -0.1729,
+      "source_line": 894
+    },
+    {
+      "month": "200001",
+      "percent": -1.28,
+      "r": -0.0128,
+      "loss": 0.0128,
+      "source_line": 895
+    },
+    {
+      "month": "200002",
+      "percent": 24.72,
+      "r": 0.24719999999999998,
+      "loss": -0.24719999999999998,
+      "source_line": 896
+    },
+    {
+      "month": "200003",
+      "percent": 4.72,
+      "r": 0.0472,
+      "loss": -0.0472,
+      "source_line": 897
+    },
+    {
+      "month": "200004",
+      "percent": -6.03,
+      "r": -0.0603,
+      "loss": 0.0603,
+      "source_line": 898
+    },
+    {
+      "month": "200005",
+      "percent": -11.47,
+      "r": -0.11470000000000001,
+      "loss": 0.11470000000000001,
+      "source_line": 899
+    },
+    {
+      "month": "200006",
+      "percent": 12.82,
+      "r": 0.1282,
+      "loss": -0.1282,
+      "source_line": 900
+    },
+    {
+      "month": "200007",
+      "percent": -3.28,
+      "r": -0.032799999999999996,
+      "loss": 0.032799999999999996,
+      "source_line": 901
+    },
+    {
+      "month": "200008",
+      "percent": 12.84,
+      "r": 0.1284,
+      "loss": -0.1284,
+      "source_line": 902
+    },
+    {
+      "month": "200009",
+      "percent": -17.73,
+      "r": -0.1773,
+      "loss": 0.1773,
+      "source_line": 903
+    },
+    {
+      "month": "200010",
+      "percent": -6.66,
+      "r": -0.0666,
+      "loss": 0.0666,
+      "source_line": 904
+    },
+    {
+      "month": "200011",
+      "percent": -24.28,
+      "r": -0.24280000000000002,
+      "loss": 0.24280000000000002,
+      "source_line": 905
+    },
+    {
+      "month": "200012",
+      "percent": -8.29,
+      "r": -0.08289999999999999,
+      "loss": 0.08289999999999999,
+      "source_line": 906
+    },
+    {
+      "month": "200101",
+      "percent": 13.93,
+      "r": 0.1393,
+      "loss": -0.1393,
+      "source_line": 907
+    },
+    {
+      "month": "200102",
+      "percent": -31.53,
+      "r": -0.3153,
+      "loss": 0.3153,
+      "source_line": 908
+    },
+    {
+      "month": "200103",
+      "percent": -14.14,
+      "r": -0.1414,
+      "loss": 0.1414,
+      "source_line": 909
+    },
+    {
+      "month": "200104",
+      "percent": 15.93,
+      "r": 0.1593,
+      "loss": -0.1593,
+      "source_line": 910
+    },
+    {
+      "month": "200105",
+      "percent": -6.35,
+      "r": -0.0635,
+      "loss": 0.0635,
+      "source_line": 911
+    },
+    {
+      "month": "200106",
+      "percent": -1.57,
+      "r": -0.015700000000000002,
+      "loss": 0.015700000000000002,
+      "source_line": 912
+    },
+    {
+      "month": "200107",
+      "percent": -4.33,
+      "r": -0.0433,
+      "loss": 0.0433,
+      "source_line": 913
+    },
+    {
+      "month": "200108",
+      "percent": -11.16,
+      "r": -0.1116,
+      "loss": 0.1116,
+      "source_line": 914
+    },
+    {
+      "month": "200109",
+      "percent": -24.51,
+      "r": -0.2451,
+      "loss": 0.2451,
+      "source_line": 915
+    },
+    {
+      "month": "200110",
+      "percent": 19.58,
+      "r": 0.19579999999999997,
+      "loss": -0.19579999999999997,
+      "source_line": 916
+    },
+    {
+      "month": "200111",
+      "percent": 20.19,
+      "r": 0.20190000000000002,
+      "loss": -0.20190000000000002,
+      "source_line": 917
+    },
+    {
+      "month": "200112",
+      "percent": -3.94,
+      "r": -0.0394,
+      "loss": 0.0394,
+      "source_line": 918
+    },
+    {
+      "month": "200201",
+      "percent": 3.35,
+      "r": 0.0335,
+      "loss": -0.0335,
+      "source_line": 919
+    },
+    {
+      "month": "200202",
+      "percent": -16.68,
+      "r": -0.1668,
+      "loss": 0.1668,
+      "source_line": 920
+    },
+    {
+      "month": "200203",
+      "percent": 9.73,
+      "r": 0.0973,
+      "loss": -0.0973,
+      "source_line": 921
+    },
+    {
+      "month": "200204",
+      "percent": -8.52,
+      "r": -0.0852,
+      "loss": 0.0852,
+      "source_line": 922
+    },
+    {
+      "month": "200205",
+      "percent": -2.71,
+      "r": -0.0271,
+      "loss": 0.0271,
+      "source_line": 923
+    },
+    {
+      "month": "200206",
+      "percent": -18.52,
+      "r": -0.1852,
+      "loss": 0.1852,
+      "source_line": 924
+    },
+    {
+      "month": "200207",
+      "percent": -9.2,
+      "r": -0.092,
+      "loss": 0.092,
+      "source_line": 925
+    },
+    {
+      "month": "200208",
+      "percent": -3.42,
+      "r": -0.0342,
+      "loss": 0.0342,
+      "source_line": 926
+    },
+    {
+      "month": "200209",
+      "percent": -17.48,
+      "r": -0.1748,
+      "loss": 0.1748,
+      "source_line": 927
+    },
+    {
+      "month": "200210",
+      "percent": 15.59,
+      "r": 0.1559,
+      "loss": -0.1559,
+      "source_line": 928
+    },
+    {
+      "month": "200211",
+      "percent": 21.41,
+      "r": 0.2141,
+      "loss": -0.2141,
+      "source_line": 929
+    },
+    {
+      "month": "200212",
+      "percent": -15.94,
+      "r": -0.1594,
+      "loss": 0.1594,
+      "source_line": 930
+    },
+    {
+      "month": "200301",
+      "percent": -0.96,
+      "r": -0.0096,
+      "loss": 0.0096,
+      "source_line": 931
+    },
+    {
+      "month": "200302",
+      "percent": 3.07,
+      "r": 0.030699999999999998,
+      "loss": -0.030699999999999998,
+      "source_line": 932
+    },
+    {
+      "month": "200303",
+      "percent": -2.21,
+      "r": -0.022099999999999998,
+      "loss": 0.022099999999999998,
+      "source_line": 933
+    },
+    {
+      "month": "200304",
+      "percent": 10.5,
+      "r": 0.105,
+      "loss": -0.105,
+      "source_line": 934
+    },
+    {
+      "month": "200305",
+      "percent": 13.86,
+      "r": 0.1386,
+      "loss": -0.1386,
+      "source_line": 935
+    },
+    {
+      "month": "200306",
+      "percent": 0.34,
+      "r": 0.0034000000000000002,
+      "loss": -0.0034000000000000002,
+      "source_line": 936
+    },
+    {
+      "month": "200307",
+      "percent": 8.49,
+      "r": 0.0849,
+      "loss": -0.0849,
+      "source_line": 937
+    },
+    {
+      "month": "200308",
+      "percent": 8.2,
+      "r": 0.08199999999999999,
+      "loss": -0.08199999999999999,
+      "source_line": 938
+    },
+    {
+      "month": "200309",
+      "percent": -2.64,
+      "r": -0.0264,
+      "loss": 0.0264,
+      "source_line": 939
+    },
+    {
+      "month": "200310",
+      "percent": 13.09,
+      "r": 0.1309,
+      "loss": -0.1309,
+      "source_line": 940
+    },
+    {
+      "month": "200311",
+      "percent": 3.04,
+      "r": 0.0304,
+      "loss": -0.0304,
+      "source_line": 941
+    },
+    {
+      "month": "200312",
+      "percent": 0.08,
+      "r": 0.0008,
+      "loss": -0.0008,
+      "source_line": 942
+    },
+    {
+      "month": "200401",
+      "percent": 4.85,
+      "r": 0.048499999999999995,
+      "loss": -0.048499999999999995,
+      "source_line": 943
+    },
+    {
+      "month": "200402",
+      "percent": -2.72,
+      "r": -0.027200000000000002,
+      "loss": 0.027200000000000002,
+      "source_line": 944
+    },
+    {
+      "month": "200403",
+      "percent": -2.52,
+      "r": -0.0252,
+      "loss": 0.0252,
+      "source_line": 945
+    },
+    {
+      "month": "200404",
+      "percent": -8.06,
+      "r": -0.0806,
+      "loss": 0.0806,
+      "source_line": 946
+    },
+    {
+      "month": "200405",
+      "percent": 6.86,
+      "r": 0.06860000000000001,
+      "loss": -0.06860000000000001,
+      "source_line": 947
+    },
+    {
+      "month": "200406",
+      "percent": 1.25,
+      "r": 0.0125,
+      "loss": -0.0125,
+      "source_line": 948
+    },
+    {
+      "month": "200407",
+      "percent": -10.33,
+      "r": -0.1033,
+      "loss": 0.1033,
+      "source_line": 949
+    },
+    {
+      "month": "200408",
+      "percent": -5.94,
+      "r": -0.0594,
+      "loss": 0.0594,
+      "source_line": 950
+    },
+    {
+      "month": "200409",
+      "percent": 2.53,
+      "r": 0.0253,
+      "loss": -0.0253,
+      "source_line": 951
+    },
+    {
+      "month": "200410",
+      "percent": 5.51,
+      "r": 0.055099999999999996,
+      "loss": -0.055099999999999996,
+      "source_line": 952
+    },
+    {
+      "month": "200411",
+      "percent": 5.22,
+      "r": 0.052199999999999996,
+      "loss": -0.052199999999999996,
+      "source_line": 953
+    },
+    {
+      "month": "200412",
+      "percent": 3.03,
+      "r": 0.030299999999999997,
+      "loss": -0.030299999999999997,
+      "source_line": 954
+    },
+    {
+      "month": "200501",
+      "percent": -6.28,
+      "r": -0.06280000000000001,
+      "loss": 0.06280000000000001,
+      "source_line": 955
+    },
+    {
+      "month": "200502",
+      "percent": 1.75,
+      "r": 0.0175,
+      "loss": -0.0175,
+      "source_line": 956
+    },
+    {
+      "month": "200503",
+      "percent": -2.59,
+      "r": -0.0259,
+      "loss": 0.0259,
+      "source_line": 957
+    },
+    {
+      "month": "200504",
+      "percent": -4.32,
+      "r": -0.0432,
+      "loss": 0.0432,
+      "source_line": 958
+    },
+    {
+      "month": "200505",
+      "percent": 10.34,
+      "r": 0.10339999999999999,
+      "loss": -0.10339999999999999,
+      "source_line": 959
+    },
+    {
+      "month": "200506",
+      "percent": -1.13,
+      "r": -0.0113,
+      "loss": 0.0113,
+      "source_line": 960
+    },
+    {
+      "month": "200507",
+      "percent": 6.66,
+      "r": 0.0666,
+      "loss": -0.0666,
+      "source_line": 961
+    },
+    {
+      "month": "200508",
+      "percent": -1.19,
+      "r": -0.011899999999999999,
+      "loss": 0.011899999999999999,
+      "source_line": 962
+    },
+    {
+      "month": "200509",
+      "percent": 1.46,
+      "r": 0.0146,
+      "loss": -0.0146,
+      "source_line": 963
+    },
+    {
+      "month": "200510",
+      "percent": -4.44,
+      "r": -0.0444,
+      "loss": 0.0444,
+      "source_line": 964
+    },
+    {
+      "month": "200511",
+      "percent": 7.33,
+      "r": 0.0733,
+      "loss": -0.0733,
+      "source_line": 965
+    },
+    {
+      "month": "200512",
+      "percent": -1.46,
+      "r": -0.0146,
+      "loss": 0.0146,
+      "source_line": 966
+    },
+    {
+      "month": "200601",
+      "percent": 4.79,
+      "r": 0.0479,
+      "loss": -0.0479,
+      "source_line": 967
+    },
+    {
+      "month": "200602",
+      "percent": 0.63,
+      "r": 0.0063,
+      "loss": -0.0063,
+      "source_line": 968
+    },
+    {
+      "month": "200603",
+      "percent": 3.02,
+      "r": 0.0302,
+      "loss": -0.0302,
+      "source_line": 969
+    },
+    {
+      "month": "200604",
+      "percent": -0.27,
+      "r": -0.0027,
+      "loss": 0.0027,
+      "source_line": 970
+    },
+    {
+      "month": "200605",
+      "percent": -7.35,
+      "r": -0.0735,
+      "loss": 0.0735,
+      "source_line": 971
+    },
+    {
+      "month": "200606",
+      "percent": -3.14,
+      "r": -0.031400000000000004,
+      "loss": 0.031400000000000004,
+      "source_line": 972
+    },
+    {
+      "month": "200607",
+      "percent": -4.77,
+      "r": -0.04769999999999999,
+      "loss": 0.04769999999999999,
+      "source_line": 973
+    },
+    {
+      "month": "200608",
+      "percent": 9.1,
+      "r": 0.091,
+      "loss": -0.091,
+      "source_line": 974
+    },
+    {
+      "month": "200609",
+      "percent": 2.85,
+      "r": 0.0285,
+      "loss": -0.0285,
+      "source_line": 975
+    },
+    {
+      "month": "200610",
+      "percent": 2.14,
+      "r": 0.021400000000000002,
+      "loss": -0.021400000000000002,
+      "source_line": 976
+    },
+    {
+      "month": "200611",
+      "percent": 4.02,
+      "r": 0.04019999999999999,
+      "loss": -0.04019999999999999,
+      "source_line": 977
+    },
+    {
+      "month": "200612",
+      "percent": -1.31,
+      "r": -0.0131,
+      "loss": 0.0131,
+      "source_line": 978
+    },
+    {
+      "month": "200701",
+      "percent": 1.15,
+      "r": 0.0115,
+      "loss": -0.0115,
+      "source_line": 979
+    },
+    {
+      "month": "200702",
+      "percent": -1.14,
+      "r": -0.011399999999999999,
+      "loss": 0.011399999999999999,
+      "source_line": 980
+    },
+    {
+      "month": "200703",
+      "percent": 0.26,
+      "r": 0.0026,
+      "loss": -0.0026,
+      "source_line": 981
+    },
+    {
+      "month": "200704",
+      "percent": 5.02,
+      "r": 0.050199999999999995,
+      "loss": -0.050199999999999995,
+      "source_line": 982
+    },
+    {
+      "month": "200705",
+      "percent": 4.1,
+      "r": 0.040999999999999995,
+      "loss": -0.040999999999999995,
+      "source_line": 983
+    },
+    {
+      "month": "200706",
+      "percent": 2.05,
+      "r": 0.020499999999999997,
+      "loss": -0.020499999999999997,
+      "source_line": 984
+    },
+    {
+      "month": "200707",
+      "percent": -0.08,
+      "r": -0.0008,
+      "loss": 0.0008,
+      "source_line": 985
+    },
+    {
+      "month": "200708",
+      "percent": 3.67,
+      "r": 0.036699999999999997,
+      "loss": -0.036699999999999997,
+      "source_line": 986
+    },
+    {
+      "month": "200709",
+      "percent": 3.73,
+      "r": 0.0373,
+      "loss": -0.0373,
+      "source_line": 987
+    },
+    {
+      "month": "200710",
+      "percent": 3.97,
+      "r": 0.0397,
+      "loss": -0.0397,
+      "source_line": 988
+    },
+    {
+      "month": "200711",
+      "percent": -7.58,
+      "r": -0.0758,
+      "loss": 0.0758,
+      "source_line": 989
+    },
+    {
+      "month": "200712",
+      "percent": 0.39,
+      "r": 0.0039000000000000003,
+      "loss": -0.0039000000000000003,
+      "source_line": 990
+    },
+    {
+      "month": "200801",
+      "percent": -14.17,
+      "r": -0.1417,
+      "loss": 0.1417,
+      "source_line": 991
+    },
+    {
+      "month": "200802",
+      "percent": -1.75,
+      "r": -0.0175,
+      "loss": 0.0175,
+      "source_line": 992
+    },
+    {
+      "month": "200803",
+      "percent": 0.36,
+      "r": 0.0036,
+      "loss": -0.0036,
+      "source_line": 993
+    },
+    {
+      "month": "200804",
+      "percent": 6.8,
+      "r": 0.068,
+      "loss": -0.068,
+      "source_line": 994
+    },
+    {
+      "month": "200805",
+      "percent": 6.23,
+      "r": 0.0623,
+      "loss": -0.0623,
+      "source_line": 995
+    },
+    {
+      "month": "200806",
+      "percent": -9.74,
+      "r": -0.0974,
+      "loss": 0.0974,
+      "source_line": 996
+    },
+    {
+      "month": "200807",
+      "percent": 0.3,
+      "r": 0.003,
+      "loss": -0.003,
+      "source_line": 997
+    },
+    {
+      "month": "200808",
+      "percent": 2.93,
+      "r": 0.029300000000000003,
+      "loss": -0.029300000000000003,
+      "source_line": 998
+    },
+    {
+      "month": "200809",
+      "percent": -15.81,
+      "r": -0.15810000000000002,
+      "loss": 0.15810000000000002,
+      "source_line": 999
+    },
+    {
+      "month": "200810",
+      "percent": -17.68,
+      "r": -0.17679999999999998,
+      "loss": 0.17679999999999998,
+      "source_line": 1000
+    },
+    {
+      "month": "200811",
+      "percent": -11.63,
+      "r": -0.11630000000000001,
+      "loss": 0.11630000000000001,
+      "source_line": 1001
+    },
+    {
+      "month": "200812",
+      "percent": 1.84,
+      "r": 0.0184,
+      "loss": -0.0184,
+      "source_line": 1002
+    },
+    {
+      "month": "200901",
+      "percent": -3.08,
+      "r": -0.0308,
+      "loss": 0.0308,
+      "source_line": 1003
+    },
+    {
+      "month": "200902",
+      "percent": -6.87,
+      "r": -0.0687,
+      "loss": 0.0687,
+      "source_line": 1004
+    },
+    {
+      "month": "200903",
+      "percent": 13.08,
+      "r": 0.1308,
+      "loss": -0.1308,
+      "source_line": 1005
+    },
+    {
+      "month": "200904",
+      "percent": 14.28,
+      "r": 0.14279999999999998,
+      "loss": -0.14279999999999998,
+      "source_line": 1006
+    },
+    {
+      "month": "200905",
+      "percent": 2.18,
+      "r": 0.0218,
+      "loss": -0.0218,
+      "source_line": 1007
+    },
+    {
+      "month": "200906",
+      "percent": 4.55,
+      "r": 0.0455,
+      "loss": -0.0455,
+      "source_line": 1008
+    },
+    {
+      "month": "200907",
+      "percent": 10.36,
+      "r": 0.1036,
+      "loss": -0.1036,
+      "source_line": 1009
+    },
+    {
+      "month": "200908",
+      "percent": 2.19,
+      "r": 0.0219,
+      "loss": -0.0219,
+      "source_line": 1010
+    },
+    {
+      "month": "200909",
+      "percent": 5.61,
+      "r": 0.056100000000000004,
+      "loss": -0.056100000000000004,
+      "source_line": 1011
+    },
+    {
+      "month": "200910",
+      "percent": -3.9,
+      "r": -0.039,
+      "loss": 0.039,
+      "source_line": 1012
+    },
+    {
+      "month": "200911",
+      "percent": 4.34,
+      "r": 0.0434,
+      "loss": -0.0434,
+      "source_line": 1013
+    },
+    {
+      "month": "200912",
+      "percent": 6.63,
+      "r": 0.0663,
+      "loss": -0.0663,
+      "source_line": 1014
+    },
+    {
+      "month": "201001",
+      "percent": -8.05,
+      "r": -0.0805,
+      "loss": 0.0805,
+      "source_line": 1015
+    },
+    {
+      "month": "201002",
+      "percent": 6.25,
+      "r": 0.0625,
+      "loss": -0.0625,
+      "source_line": 1016
+    },
+    {
+      "month": "201003",
+      "percent": 8.19,
+      "r": 0.0819,
+      "loss": -0.0819,
+      "source_line": 1017
+    },
+    {
+      "month": "201004",
+      "percent": 3.83,
+      "r": 0.0383,
+      "loss": -0.0383,
+      "source_line": 1018
+    },
+    {
+      "month": "201005",
+      "percent": -7.24,
+      "r": -0.0724,
+      "loss": 0.0724,
+      "source_line": 1019
+    },
+    {
+      "month": "201006",
+      "percent": -6.05,
+      "r": -0.0605,
+      "loss": 0.0605,
+      "source_line": 1020
+    },
+    {
+      "month": "201007",
+      "percent": 6.45,
+      "r": 0.0645,
+      "loss": -0.0645,
+      "source_line": 1021
+    },
+    {
+      "month": "201008",
+      "percent": -8.4,
+      "r": -0.084,
+      "loss": 0.084,
+      "source_line": 1022
+    },
+    {
+      "month": "201009",
+      "percent": 13.79,
+      "r": 0.1379,
+      "loss": -0.1379,
+      "source_line": 1023
+    },
+    {
+      "month": "201010",
+      "percent": 4.48,
+      "r": 0.044800000000000006,
+      "loss": -0.044800000000000006,
+      "source_line": 1024
+    },
+    {
+      "month": "201011",
+      "percent": 1.03,
+      "r": 0.0103,
+      "loss": -0.0103,
+      "source_line": 1025
+    },
+    {
+      "month": "201012",
+      "percent": 5.2,
+      "r": 0.052000000000000005,
+      "loss": -0.052000000000000005,
+      "source_line": 1026
+    },
+    {
+      "month": "201101",
+      "percent": 4.85,
+      "r": 0.048499999999999995,
+      "loss": -0.048499999999999995,
+      "source_line": 1027
+    },
+    {
+      "month": "201102",
+      "percent": 3.07,
+      "r": 0.030699999999999998,
+      "loss": -0.030699999999999998,
+      "source_line": 1028
+    },
+    {
+      "month": "201103",
+      "percent": -2.5,
+      "r": -0.025,
+      "loss": 0.025,
+      "source_line": 1029
+    },
+    {
+      "month": "201104",
+      "percent": 3.05,
+      "r": 0.0305,
+      "loss": -0.0305,
+      "source_line": 1030
+    },
+    {
+      "month": "201105",
+      "percent": -1.28,
+      "r": -0.0128,
+      "loss": 0.0128,
+      "source_line": 1031
+    },
+    {
+      "month": "201106",
+      "percent": -3.47,
+      "r": -0.0347,
+      "loss": 0.0347,
+      "source_line": 1032
+    },
+    {
+      "month": "201107",
+      "percent": -1.57,
+      "r": -0.015700000000000002,
+      "loss": 0.015700000000000002,
+      "source_line": 1033
+    },
+    {
+      "month": "201108",
+      "percent": -7.23,
+      "r": -0.0723,
+      "loss": 0.0723,
+      "source_line": 1034
+    },
+    {
+      "month": "201109",
+      "percent": -5.34,
+      "r": -0.053399999999999996,
+      "loss": 0.053399999999999996,
+      "source_line": 1035
+    },
+    {
+      "month": "201110",
+      "percent": 12.08,
+      "r": 0.1208,
+      "loss": -0.1208,
+      "source_line": 1036
+    },
+    {
+      "month": "201111",
+      "percent": -1.99,
+      "r": -0.0199,
+      "loss": 0.0199,
+      "source_line": 1037
+    },
+    {
+      "month": "201112",
+      "percent": -0.75,
+      "r": -0.0075,
+      "loss": 0.0075,
+      "source_line": 1038
+    },
+    {
+      "month": "201201",
+      "percent": 10.66,
+      "r": 0.1066,
+      "loss": -0.1066,
+      "source_line": 1039
+    },
+    {
+      "month": "201202",
+      "percent": 7.37,
+      "r": 0.0737,
+      "loss": -0.0737,
+      "source_line": 1040
+    },
+    {
+      "month": "201203",
+      "percent": 5.34,
+      "r": 0.053399999999999996,
+      "loss": -0.053399999999999996,
+      "source_line": 1041
+    },
+    {
+      "month": "201204",
+      "percent": -3.26,
+      "r": -0.0326,
+      "loss": 0.0326,
+      "source_line": 1042
+    },
+    {
+      "month": "201205",
+      "percent": -8.08,
+      "r": -0.0808,
+      "loss": 0.0808,
+      "source_line": 1043
+    },
+    {
+      "month": "201206",
+      "percent": 1.68,
+      "r": 0.0168,
+      "loss": -0.0168,
+      "source_line": 1044
+    },
+    {
+      "month": "201207",
+      "percent": 0.71,
+      "r": 0.0070999999999999995,
+      "loss": -0.0070999999999999995,
+      "source_line": 1045
+    },
+    {
+      "month": "201208",
+      "percent": 5.4,
+      "r": 0.054000000000000006,
+      "loss": -0.054000000000000006,
+      "source_line": 1046
+    },
+    {
+      "month": "201209",
+      "percent": -0.28,
+      "r": -0.0028000000000000004,
+      "loss": 0.0028000000000000004,
+      "source_line": 1047
+    },
+    {
+      "month": "201210",
+      "percent": -7.27,
+      "r": -0.0727,
+      "loss": 0.0727,
+      "source_line": 1048
+    },
+    {
+      "month": "201211",
+      "percent": 1.68,
+      "r": 0.0168,
+      "loss": -0.0168,
+      "source_line": 1049
+    },
+    {
+      "month": "201212",
+      "percent": -0.61,
+      "r": -0.0060999999999999995,
+      "loss": 0.0060999999999999995,
+      "source_line": 1050
+    },
+    {
+      "month": "201301",
+      "percent": -0.87,
+      "r": -0.0087,
+      "loss": 0.0087,
+      "source_line": 1051
+    },
+    {
+      "month": "201302",
+      "percent": 0.4,
+      "r": 0.004,
+      "loss": -0.004,
+      "source_line": 1052
+    },
+    {
+      "month": "201303",
+      "percent": 3.01,
+      "r": 0.0301,
+      "loss": -0.0301,
+      "source_line": 1053
+    },
+    {
+      "month": "201304",
+      "percent": -0.86,
+      "r": -0.0086,
+      "loss": 0.0086,
+      "source_line": 1054
+    },
+    {
+      "month": "201305",
+      "percent": 5.4,
+      "r": 0.054000000000000006,
+      "loss": -0.054000000000000006,
+      "source_line": 1055
+    },
+    {
+      "month": "201306",
+      "percent": -3.39,
+      "r": -0.0339,
+      "loss": 0.0339,
+      "source_line": 1056
+    },
+    {
+      "month": "201307",
+      "percent": 7.12,
+      "r": 0.0712,
+      "loss": -0.0712,
+      "source_line": 1057
+    },
+    {
+      "month": "201308",
+      "percent": -0.49,
+      "r": -0.0049,
+      "loss": 0.0049,
+      "source_line": 1058
+    },
+    {
+      "month": "201309",
+      "percent": 2.67,
+      "r": 0.026699999999999998,
+      "loss": -0.026699999999999998,
+      "source_line": 1059
+    },
+    {
+      "month": "201310",
+      "percent": 4.55,
+      "r": 0.0455,
+      "loss": -0.0455,
+      "source_line": 1060
+    },
+    {
+      "month": "201311",
+      "percent": 3.6,
+      "r": 0.036000000000000004,
+      "loss": -0.036000000000000004,
+      "source_line": 1061
+    },
+    {
+      "month": "201312",
+      "percent": 3.51,
+      "r": 0.0351,
+      "loss": -0.0351,
+      "source_line": 1062
+    },
+    {
+      "month": "201401",
+      "percent": -2.79,
+      "r": -0.0279,
+      "loss": 0.0279,
+      "source_line": 1063
+    },
+    {
+      "month": "201402",
+      "percent": 4.66,
+      "r": 0.0466,
+      "loss": -0.0466,
+      "source_line": 1064
+    },
+    {
+      "month": "201403",
+      "percent": 1.57,
+      "r": 0.015700000000000002,
+      "loss": -0.015700000000000002,
+      "source_line": 1065
+    },
+    {
+      "month": "201404",
+      "percent": 0.94,
+      "r": 0.009399999999999999,
+      "loss": -0.009399999999999999,
+      "source_line": 1066
+    },
+    {
+      "month": "201405",
+      "percent": 4.43,
+      "r": 0.0443,
+      "loss": -0.0443,
+      "source_line": 1067
+    },
+    {
+      "month": "201406",
+      "percent": 3.45,
+      "r": 0.0345,
+      "loss": -0.0345,
+      "source_line": 1068
+    },
+    {
+      "month": "201407",
+      "percent": -0.46,
+      "r": -0.0046,
+      "loss": 0.0046,
+      "source_line": 1069
+    },
+    {
+      "month": "201408",
+      "percent": 5.13,
+      "r": 0.0513,
+      "loss": -0.0513,
+      "source_line": 1070
+    },
+    {
+      "month": "201409",
+      "percent": -1.77,
+      "r": -0.0177,
+      "loss": 0.0177,
+      "source_line": 1071
+    },
+    {
+      "month": "201410",
+      "percent": 2.92,
+      "r": 0.0292,
+      "loss": -0.0292,
+      "source_line": 1072
+    },
+    {
+      "month": "201411",
+      "percent": 6.47,
+      "r": 0.0647,
+      "loss": -0.0647,
+      "source_line": 1073
+    },
+    {
+      "month": "201412",
+      "percent": -1.64,
+      "r": -0.016399999999999998,
+      "loss": 0.016399999999999998,
+      "source_line": 1074
+    },
+    {
+      "month": "201501",
+      "percent": -2.26,
+      "r": -0.0226,
+      "loss": 0.0226,
+      "source_line": 1075
+    },
+    {
+      "month": "201502",
+      "percent": 8.43,
+      "r": 0.0843,
+      "loss": -0.0843,
+      "source_line": 1076
+    },
+    {
+      "month": "201503",
+      "percent": -3.08,
+      "r": -0.0308,
+      "loss": 0.0308,
+      "source_line": 1077
+    },
+    {
+      "month": "201504",
+      "percent": -0.06,
+      "r": -0.0006,
+      "loss": 0.0006,
+      "source_line": 1078
+    },
+    {
+      "month": "201505",
+      "percent": 4.09,
+      "r": 0.0409,
+      "loss": -0.0409,
+      "source_line": 1079
+    },
+    {
+      "month": "201506",
+      "percent": -4.87,
+      "r": -0.0487,
+      "loss": 0.0487,
+      "source_line": 1080
+    },
+    {
+      "month": "201507",
+      "percent": -0.81,
+      "r": -0.008100000000000001,
+      "loss": 0.008100000000000001,
+      "source_line": 1081
+    },
+    {
+      "month": "201508",
+      "percent": -6.31,
+      "r": -0.06309999999999999,
+      "loss": 0.06309999999999999,
+      "source_line": 1082
+    },
+    {
+      "month": "201509",
+      "percent": -1.71,
+      "r": -0.0171,
+      "loss": 0.0171,
+      "source_line": 1083
+    },
+    {
+      "month": "201510",
+      "percent": 8.54,
+      "r": 0.08539999999999999,
+      "loss": -0.08539999999999999,
+      "source_line": 1084
+    },
+    {
+      "month": "201511",
+      "percent": 0.31,
+      "r": 0.0031,
+      "loss": -0.0031,
+      "source_line": 1085
+    },
+    {
+      "month": "201512",
+      "percent": -4.57,
+      "r": -0.045700000000000005,
+      "loss": 0.045700000000000005,
+      "source_line": 1086
+    },
+    {
+      "month": "201601",
+      "percent": -7.72,
+      "r": -0.07719999999999999,
+      "loss": 0.07719999999999999,
+      "source_line": 1087
+    },
+    {
+      "month": "201602",
+      "percent": 1.45,
+      "r": 0.014499999999999999,
+      "loss": -0.014499999999999999,
+      "source_line": 1088
+    },
+    {
+      "month": "201603",
+      "percent": 8.83,
+      "r": 0.0883,
+      "loss": -0.0883,
+      "source_line": 1089
+    },
+    {
+      "month": "201604",
+      "percent": -5.42,
+      "r": -0.0542,
+      "loss": 0.0542,
+      "source_line": 1090
+    },
+    {
+      "month": "201605",
+      "percent": 5.53,
+      "r": 0.0553,
+      "loss": -0.0553,
+      "source_line": 1091
+    },
+    {
+      "month": "201606",
+      "percent": -1.37,
+      "r": -0.0137,
+      "loss": 0.0137,
+      "source_line": 1092
+    },
+    {
+      "month": "201607",
+      "percent": 7.98,
+      "r": 0.07980000000000001,
+      "loss": -0.07980000000000001,
+      "source_line": 1093
+    },
+    {
+      "month": "201608",
+      "percent": 2.33,
+      "r": 0.0233,
+      "loss": -0.0233,
+      "source_line": 1094
+    },
+    {
+      "month": "201609",
+      "percent": 3.99,
+      "r": 0.039900000000000005,
+      "loss": -0.039900000000000005,
+      "source_line": 1095
+    },
+    {
+      "month": "201610",
+      "percent": -2.24,
+      "r": -0.022400000000000003,
+      "loss": 0.022400000000000003,
+      "source_line": 1096
+    },
+    {
+      "month": "201611",
+      "percent": 2.41,
+      "r": 0.0241,
+      "loss": -0.0241,
+      "source_line": 1097
+    },
+    {
+      "month": "201612",
+      "percent": 2.07,
+      "r": 0.0207,
+      "loss": -0.0207,
+      "source_line": 1098
+    },
+    {
+      "month": "201701",
+      "percent": 3.28,
+      "r": 0.032799999999999996,
+      "loss": -0.032799999999999996,
+      "source_line": 1099
+    },
+    {
+      "month": "201702",
+      "percent": 6.7,
+      "r": 0.067,
+      "loss": -0.067,
+      "source_line": 1100
+    },
+    {
+      "month": "201703",
+      "percent": 2.37,
+      "r": 0.023700000000000002,
+      "loss": -0.023700000000000002,
+      "source_line": 1101
+    },
+    {
+      "month": "201704",
+      "percent": 0.85,
+      "r": 0.0085,
+      "loss": -0.0085,
+      "source_line": 1102
+    },
+    {
+      "month": "201705",
+      "percent": 4.53,
+      "r": 0.0453,
+      "loss": -0.0453,
+      "source_line": 1103
+    },
+    {
+      "month": "201706",
+      "percent": -3.37,
+      "r": -0.0337,
+      "loss": 0.0337,
+      "source_line": 1104
+    },
+    {
+      "month": "201707",
+      "percent": 3.05,
+      "r": 0.0305,
+      "loss": -0.0305,
+      "source_line": 1105
+    },
+    {
+      "month": "201708",
+      "percent": 4.92,
+      "r": 0.0492,
+      "loss": -0.0492,
+      "source_line": 1106
+    },
+    {
+      "month": "201709",
+      "percent": 1.07,
+      "r": 0.010700000000000001,
+      "loss": -0.010700000000000001,
+      "source_line": 1107
+    },
+    {
+      "month": "201710",
+      "percent": 7.12,
+      "r": 0.0712,
+      "loss": -0.0712,
+      "source_line": 1108
+    },
+    {
+      "month": "201711",
+      "percent": 2.52,
+      "r": 0.0252,
+      "loss": -0.0252,
+      "source_line": 1109
+    },
+    {
+      "month": "201712",
+      "percent": -0.83,
+      "r": -0.0083,
+      "loss": 0.0083,
+      "source_line": 1110
+    },
+    {
+      "month": "201801",
+      "percent": 5.51,
+      "r": 0.055099999999999996,
+      "loss": -0.055099999999999996,
+      "source_line": 1111
+    },
+    {
+      "month": "201802",
+      "percent": 1.98,
+      "r": 0.019799999999999998,
+      "loss": -0.019799999999999998,
+      "source_line": 1112
+    },
+    {
+      "month": "201803",
+      "percent": -2.71,
+      "r": -0.0271,
+      "loss": 0.0271,
+      "source_line": 1113
+    },
+    {
+      "month": "201804",
+      "percent": -2.05,
+      "r": -0.020499999999999997,
+      "loss": 0.020499999999999997,
+      "source_line": 1114
+    },
+    {
+      "month": "201805",
+      "percent": 7.79,
+      "r": 0.0779,
+      "loss": -0.0779,
+      "source_line": 1115
+    },
+    {
+      "month": "201806",
+      "percent": -2.01,
+      "r": -0.020099999999999996,
+      "loss": 0.020099999999999996,
+      "source_line": 1116
+    },
+    {
+      "month": "201807",
+      "percent": 2.76,
+      "r": 0.0276,
+      "loss": -0.0276,
+      "source_line": 1117
+    },
+    {
+      "month": "201808",
+      "percent": 9.59,
+      "r": 0.0959,
+      "loss": -0.0959,
+      "source_line": 1118
+    },
+    {
+      "month": "201809",
+      "percent": -0.18,
+      "r": -0.0018,
+      "loss": 0.0018,
+      "source_line": 1119
+    },
+    {
+      "month": "201810",
+      "percent": -8.18,
+      "r": -0.0818,
+      "loss": 0.0818,
+      "source_line": 1120
+    },
+    {
+      "month": "201811",
+      "percent": -4.7,
+      "r": -0.047,
+      "loss": 0.047,
+      "source_line": 1121
+    },
+    {
+      "month": "201812",
+      "percent": -9.01,
+      "r": -0.0901,
+      "loss": 0.0901,
+      "source_line": 1122
+    },
+    {
+      "month": "201901",
+      "percent": 7.46,
+      "r": 0.0746,
+      "loss": -0.0746,
+      "source_line": 1123
+    },
+    {
+      "month": "201902",
+      "percent": 7.38,
+      "r": 0.0738,
+      "loss": -0.0738,
+      "source_line": 1124
+    },
+    {
+      "month": "201903",
+      "percent": 4.35,
+      "r": 0.0435,
+      "loss": -0.0435,
+      "source_line": 1125
+    },
+    {
+      "month": "201904",
+      "percent": 5.3,
+      "r": 0.053,
+      "loss": -0.053,
+      "source_line": 1126
+    },
+    {
+      "month": "201905",
+      "percent": -11.62,
+      "r": -0.1162,
+      "loss": 0.1162,
+      "source_line": 1127
+    },
+    {
+      "month": "201906",
+      "percent": 11.16,
+      "r": 0.1116,
+      "loss": -0.1116,
+      "source_line": 1128
+    },
+    {
+      "month": "201907",
+      "percent": 3.26,
+      "r": 0.0326,
+      "loss": -0.0326,
+      "source_line": 1129
+    },
+    {
+      "month": "201908",
+      "percent": -3.11,
+      "r": -0.0311,
+      "loss": 0.0311,
+      "source_line": 1130
+    },
+    {
+      "month": "201909",
+      "percent": 4.23,
+      "r": 0.042300000000000004,
+      "loss": -0.042300000000000004,
+      "source_line": 1131
+    },
+    {
+      "month": "201910",
+      "percent": 5.09,
+      "r": 0.0509,
+      "loss": -0.0509,
+      "source_line": 1132
+    },
+    {
+      "month": "201911",
+      "percent": 5.02,
+      "r": 0.050199999999999995,
+      "loss": -0.050199999999999995,
+      "source_line": 1133
+    },
+    {
+      "month": "201912",
+      "percent": 6.32,
+      "r": 0.0632,
+      "loss": -0.0632,
+      "source_line": 1134
+    },
+    {
+      "month": "202001",
+      "percent": 0.97,
+      "r": 0.0097,
+      "loss": -0.0097,
+      "source_line": 1135
+    },
+    {
+      "month": "202002",
+      "percent": -9.02,
+      "r": -0.0902,
+      "loss": 0.0902,
+      "source_line": 1136
+    },
+    {
+      "month": "202003",
+      "percent": -8.65,
+      "r": -0.08650000000000001,
+      "loss": 0.08650000000000001,
+      "source_line": 1137
+    },
+    {
+      "month": "202004",
+      "percent": 13.97,
+      "r": 0.13970000000000002,
+      "loss": -0.13970000000000002,
+      "source_line": 1138
+    },
+    {
+      "month": "202005",
+      "percent": 8.02,
+      "r": 0.0802,
+      "loss": -0.0802,
+      "source_line": 1139
+    },
+    {
+      "month": "202006",
+      "percent": 6.63,
+      "r": 0.0663,
+      "loss": -0.0663,
+      "source_line": 1140
+    },
+    {
+      "month": "202007",
+      "percent": 9.52,
+      "r": 0.09519999999999999,
+      "loss": -0.09519999999999999,
+      "source_line": 1141
+    },
+    {
+      "month": "202008",
+      "percent": 11.76,
+      "r": 0.1176,
+      "loss": -0.1176,
+      "source_line": 1142
+    },
+    {
+      "month": "202009",
+      "percent": -5.14,
+      "r": -0.051399999999999994,
+      "loss": 0.051399999999999994,
+      "source_line": 1143
+    },
+    {
+      "month": "202010",
+      "percent": -3.18,
+      "r": -0.0318,
+      "loss": 0.0318,
+      "source_line": 1144
+    },
+    {
+      "month": "202011",
+      "percent": 11.73,
+      "r": 0.1173,
+      "loss": -0.1173,
+      "source_line": 1145
+    },
+    {
+      "month": "202012",
+      "percent": 7.21,
+      "r": 0.0721,
+      "loss": -0.0721,
+      "source_line": 1146
+    },
+    {
+      "month": "202101",
+      "percent": 1.26,
+      "r": 0.0126,
+      "loss": -0.0126,
+      "source_line": 1147
+    },
+    {
+      "month": "202102",
+      "percent": -1.9,
+      "r": -0.019,
+      "loss": 0.019,
+      "source_line": 1148
+    },
+    {
+      "month": "202103",
+      "percent": 1.69,
+      "r": 0.0169,
+      "loss": -0.0169,
+      "source_line": 1149
+    },
+    {
+      "month": "202104",
+      "percent": 4.07,
+      "r": 0.0407,
+      "loss": -0.0407,
+      "source_line": 1150
+    },
+    {
+      "month": "202105",
+      "percent": -0.76,
+      "r": -0.0076,
+      "loss": 0.0076,
+      "source_line": 1151
+    },
+    {
+      "month": "202106",
+      "percent": 7.42,
+      "r": 0.0742,
+      "loss": -0.0742,
+      "source_line": 1152
+    },
+    {
+      "month": "202107",
+      "percent": 3.59,
+      "r": 0.0359,
+      "loss": -0.0359,
+      "source_line": 1153
+    },
+    {
+      "month": "202108",
+      "percent": 4.03,
+      "r": 0.0403,
+      "loss": -0.0403,
+      "source_line": 1154
+    },
+    {
+      "month": "202109",
+      "percent": -5.82,
+      "r": -0.0582,
+      "loss": 0.0582,
+      "source_line": 1155
+    },
+    {
+      "month": "202110",
+      "percent": 7.15,
+      "r": 0.07150000000000001,
+      "loss": -0.07150000000000001,
+      "source_line": 1156
+    },
+    {
+      "month": "202111",
+      "percent": 8.76,
+      "r": 0.0876,
+      "loss": -0.0876,
+      "source_line": 1157
+    },
+    {
+      "month": "202112",
+      "percent": 4.38,
+      "r": 0.0438,
+      "loss": -0.0438,
+      "source_line": 1158
+    },
+    {
+      "month": "202201",
+      "percent": -7.72,
+      "r": -0.07719999999999999,
+      "loss": 0.07719999999999999,
+      "source_line": 1159
+    },
+    {
+      "month": "202202",
+      "percent": -2.66,
+      "r": -0.026600000000000002,
+      "loss": 0.026600000000000002,
+      "source_line": 1160
+    },
+    {
+      "month": "202203",
+      "percent": 4.35,
+      "r": 0.0435,
+      "loss": -0.0435,
+      "source_line": 1161
+    },
+    {
+      "month": "202204",
+      "percent": -12.41,
+      "r": -0.1241,
+      "loss": 0.1241,
+      "source_line": 1162
+    },
+    {
+      "month": "202205",
+      "percent": -0.86,
+      "r": -0.0086,
+      "loss": 0.0086,
+      "source_line": 1163
+    },
+    {
+      "month": "202206",
+      "percent": -10.18,
+      "r": -0.1018,
+      "loss": 0.1018,
+      "source_line": 1164
+    },
+    {
+      "month": "202207",
+      "percent": 15.79,
+      "r": 0.15789999999999998,
+      "loss": -0.15789999999999998,
+      "source_line": 1165
+    },
+    {
+      "month": "202208",
+      "percent": -5.86,
+      "r": -0.058600000000000006,
+      "loss": 0.058600000000000006,
+      "source_line": 1166
+    },
+    {
+      "month": "202209",
+      "percent": -11.67,
+      "r": -0.1167,
+      "loss": 0.1167,
+      "source_line": 1167
+    },
+    {
+      "month": "202210",
+      "percent": 8.83,
+      "r": 0.0883,
+      "loss": -0.0883,
+      "source_line": 1168
+    },
+    {
+      "month": "202211",
+      "percent": 5.19,
+      "r": 0.0519,
+      "loss": -0.0519,
+      "source_line": 1169
+    },
+    {
+      "month": "202212",
+      "percent": -9.11,
+      "r": -0.0911,
+      "loss": 0.0911,
+      "source_line": 1170
+    },
+    {
+      "month": "202301",
+      "percent": 9.85,
+      "r": 0.09849999999999999,
+      "loss": -0.09849999999999999,
+      "source_line": 1171
+    },
+    {
+      "month": "202302",
+      "percent": 1.36,
+      "r": 0.013600000000000001,
+      "loss": -0.013600000000000001,
+      "source_line": 1172
+    },
+    {
+      "month": "202303",
+      "percent": 9.85,
+      "r": 0.09849999999999999,
+      "loss": -0.09849999999999999,
+      "source_line": 1173
+    },
+    {
+      "month": "202304",
+      "percent": -1.83,
+      "r": -0.0183,
+      "loss": 0.0183,
+      "source_line": 1174
+    },
+    {
+      "month": "202305",
+      "percent": 8.26,
+      "r": 0.08259999999999999,
+      "loss": -0.08259999999999999,
+      "source_line": 1175
+    },
+    {
+      "month": "202306",
+      "percent": 8.02,
+      "r": 0.0802,
+      "loss": -0.0802,
+      "source_line": 1176
+    },
+    {
+      "month": "202307",
+      "percent": 3.49,
+      "r": 0.0349,
+      "loss": -0.0349,
+      "source_line": 1177
+    },
+    {
+      "month": "202308",
+      "percent": -1.52,
+      "r": -0.0152,
+      "loss": 0.0152,
+      "source_line": 1178
+    },
+    {
+      "month": "202309",
+      "percent": -7.91,
+      "r": -0.0791,
+      "loss": 0.0791,
+      "source_line": 1179
+    },
+    {
+      "month": "202310",
+      "percent": -3.88,
+      "r": -0.0388,
+      "loss": 0.0388,
+      "source_line": 1180
+    },
+    {
+      "month": "202311",
+      "percent": 12.13,
+      "r": 0.1213,
+      "loss": -0.1213,
+      "source_line": 1181
+    },
+    {
+      "month": "202312",
+      "percent": 6.29,
+      "r": 0.0629,
+      "loss": -0.0629,
+      "source_line": 1182
+    },
+    {
+      "month": "202401",
+      "percent": 2.34,
+      "r": 0.023399999999999997,
+      "loss": -0.023399999999999997,
+      "source_line": 1183
+    },
+    {
+      "month": "202402",
+      "percent": 7.98,
+      "r": 0.07980000000000001,
+      "loss": -0.07980000000000001,
+      "source_line": 1184
+    },
+    {
+      "month": "202403",
+      "percent": 2.95,
+      "r": 0.029500000000000002,
+      "loss": -0.029500000000000002,
+      "source_line": 1185
+    },
+    {
+      "month": "202404",
+      "percent": -3.53,
+      "r": -0.0353,
+      "loss": 0.0353,
+      "source_line": 1186
+    },
+    {
+      "month": "202405",
+      "percent": 13.4,
+      "r": 0.134,
+      "loss": -0.134,
+      "source_line": 1187
+    },
+    {
+      "month": "202406",
+      "percent": 7.77,
+      "r": 0.07769999999999999,
+      "loss": -0.07769999999999999,
+      "source_line": 1188
+    },
+    {
+      "month": "202407",
+      "percent": 0.33,
+      "r": 0.0033,
+      "loss": -0.0033,
+      "source_line": 1189
+    },
+    {
+      "month": "202408",
+      "percent": 1.46,
+      "r": 0.0146,
+      "loss": -0.0146,
+      "source_line": 1190
+    },
+    {
+      "month": "202409",
+      "percent": 2.24,
+      "r": 0.022400000000000003,
+      "loss": -0.022400000000000003,
+      "source_line": 1191
+    },
+    {
+      "month": "202410",
+      "percent": 0.0,
+      "r": 0.0,
+      "loss": -0.0,
+      "source_line": 1192
+    },
+    {
+      "month": "202411",
+      "percent": 3.5,
+      "r": 0.035,
+      "loss": -0.035,
+      "source_line": 1193
+    },
+    {
+      "month": "202412",
+      "percent": 2.5,
+      "r": 0.025,
+      "loss": -0.025,
+      "source_line": 1194
+    },
+    {
+      "month": "202501",
+      "percent": -4.44,
+      "r": -0.0444,
+      "loss": 0.0444,
+      "source_line": 1195
+    },
+    {
+      "month": "202502",
+      "percent": -0.74,
+      "r": -0.0074,
+      "loss": 0.0074,
+      "source_line": 1196
+    },
+    {
+      "month": "202503",
+      "percent": -9.82,
+      "r": -0.09820000000000001,
+      "loss": 0.09820000000000001,
+      "source_line": 1197
+    },
+    {
+      "month": "202504",
+      "percent": -1.17,
+      "r": -0.011699999999999999,
+      "loss": 0.011699999999999999,
+      "source_line": 1198
+    },
+    {
+      "month": "202505",
+      "percent": 9.29,
+      "r": 0.0929,
+      "loss": -0.0929,
+      "source_line": 1199
+    },
+    {
+      "month": "202506",
+      "percent": 10.8,
+      "r": 0.10800000000000001,
+      "loss": -0.10800000000000001,
+      "source_line": 1200
+    },
+    {
+      "month": "202507",
+      "percent": 6.13,
+      "r": 0.0613,
+      "loss": -0.0613,
+      "source_line": 1201
+    },
+    {
+      "month": "202508",
+      "percent": 3.4,
+      "r": 0.034,
+      "loss": -0.034,
+      "source_line": 1202
+    },
+    {
+      "month": "202509",
+      "percent": 8.15,
+      "r": 0.0815,
+      "loss": -0.0815,
+      "source_line": 1203
+    },
+    {
+      "month": "202510",
+      "percent": 9.17,
+      "r": 0.0917,
+      "loss": -0.0917,
+      "source_line": 1204
+    },
+    {
+      "month": "202511",
+      "percent": -2.88,
+      "r": -0.0288,
+      "loss": 0.0288,
+      "source_line": 1205
+    },
+    {
+      "month": "202512",
+      "percent": -0.66,
+      "r": -0.0066,
+      "loss": 0.0066,
+      "source_line": 1206
+    }
+  ],
+  "examples": {
+    "atom_transfer": {
+      "losses": [
+        0,
+        1,
+        1,
+        1,
+        10
+      ],
+      "probabilities": [
+        0.2,
+        0.2,
+        0.2,
+        0.2,
+        0.2
+      ],
+      "p": 0.8,
+      "expected_VaR": 1,
+      "expected_ES": 10
+    },
+    "capital_conversion": {
+      "starting_capital_usd": 100000,
+      "identity": "纯教学比率换算，无杠杆、无新现金流"
+    },
+    "mc_precision": {
+      "target_SE_usd": 100,
+      "required_n": 5600
+    },
+    "heavy_tail": {
+      "identity": "教学Pareto，P(Y>y)=y^-alpha for y>=1",
+      "alpha": 1.5,
+      "mean": 3,
+      "second_moment_finite": false
+    },
+    "mbb_edge_toy": {
+      "identity": "无量纲教学构造，不是市场观测",
+      "values": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        6
+      ],
+      "block_length": 3,
+      "original_mean": 1,
+      "exact_conditional_center": 0.5,
+      "exact_conditional_variance": 0.375
+    }
+  },
+  "results_file": "data/results.json",
+  "summary_file": "data/result-summary.json",
+  "array_identity": "按冻结算法及相同RNG调用顺序在作者沙盒复算；检查点与冻结摘要核对；未声称连接端完整随机JSON逐字节一致"
+}

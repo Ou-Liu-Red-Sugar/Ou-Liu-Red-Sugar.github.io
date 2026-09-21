@@ -1,0 +1,814 @@
+{
+  "m10": {
+    "status": "conditional_price_change",
+    "identity": "teaching_prices_with_actual_CL_multiplier",
+    "inputs": {
+      "identity": "teaching_prices_with_actual_CL_multiplier",
+      "side": "long",
+      "contracts": 1,
+      "entry": 75,
+      "next": 76
+    },
+    "quantity": 1000,
+    "tick_value": 10,
+    "signed_sensitivity": 1000,
+    "quote_times_quantity": 75000,
+    "pnl": 1000,
+    "commodity_purchase_payment_at_entry": 0,
+    "margin_requirement": null,
+    "history": [
+      {
+        "date": "2020-04-17",
+        "may": 18.27,
+        "june": 25.03,
+        "spot": 18.31,
+        "spread": -6.76,
+        "basis": 0.04,
+        "vm": null
+      },
+      {
+        "date": "2020-04-20",
+        "may": -37.63,
+        "june": 20.43,
+        "spot": -36.98,
+        "spread": -58.06,
+        "basis": 0.65,
+        "vm": -55900
+      },
+      {
+        "date": "2020-04-21",
+        "may": 10.01,
+        "june": 11.57,
+        "spot": 8.91,
+        "spread": -1.56,
+        "basis": -1.1,
+        "vm": 47640
+      }
+    ]
+  },
+  "m11": {
+    "status": "completed",
+    "inputs": {
+      "identity": "teaching_account_not_CCP_or_historical_margin",
+      "paths": {
+        "A": [
+          75,
+          73.5,
+          74.2,
+          71.8,
+          75.6
+        ],
+        "B": [
+          75,
+          75.2,
+          75.4,
+          75.5,
+          75.6
+        ]
+      },
+      "contracts": 1,
+      "initial_per_contract": 8000,
+      "maintenance_per_contract": 6500,
+      "starting_cash": 12000,
+      "raised_initial_per_contract": 10000,
+      "raised_maintenance_per_contract": 8500,
+      "change_at_mark": 2,
+      "deadline": "model stage D_i after settlement, before next mark; not a real broker deadline",
+      "transfer_on_time": true,
+      "path": "A",
+      "raised": false
+    },
+    "initial_state": {
+      "stage": 0,
+      "price": 75,
+      "balance": 8000,
+      "free": 4000,
+      "equity": 12000
+    },
+    "rows": [
+      {
+        "stage": 1,
+        "price": 73.5,
+        "vm": -1500,
+        "initial": 8000,
+        "maintenance": 6500,
+        "before": 6500,
+        "required": 0,
+        "paid": 0,
+        "shortfall": 0,
+        "balance": 6500,
+        "free": 4000,
+        "equity": 10500,
+        "deadline": "D_1",
+        "transfer_on_time": true
+      },
+      {
+        "stage": 2,
+        "price": 74.2,
+        "vm": 700,
+        "initial": 8000,
+        "maintenance": 6500,
+        "before": 7200,
+        "required": 0,
+        "paid": 0,
+        "shortfall": 0,
+        "balance": 7200,
+        "free": 4000,
+        "equity": 11200,
+        "deadline": "D_2",
+        "transfer_on_time": true
+      },
+      {
+        "stage": 3,
+        "price": 71.8,
+        "vm": -2400,
+        "initial": 8000,
+        "maintenance": 6500,
+        "before": 4800,
+        "required": 3200,
+        "paid": 3200,
+        "shortfall": 0,
+        "balance": 8000,
+        "free": 800,
+        "equity": 8800,
+        "deadline": "D_3",
+        "transfer_on_time": true
+      },
+      {
+        "stage": 4,
+        "price": 75.6,
+        "vm": 3800,
+        "initial": 8000,
+        "maintenance": 6500,
+        "before": 11800,
+        "required": 0,
+        "paid": 0,
+        "shortfall": 0,
+        "balance": 11800,
+        "free": 800,
+        "equity": 12600,
+        "deadline": "D_4",
+        "transfer_on_time": true
+      }
+    ],
+    "cumulative_vm": 600,
+    "equity_at_stop": 12600,
+    "completed_equity": 12600,
+    "unmodeled_marks": 0,
+    "actual_account": false
+  },
+  "m11B": {
+    "status": "completed",
+    "inputs": {
+      "identity": "teaching_account_not_CCP_or_historical_margin",
+      "paths": {
+        "A": [
+          75,
+          73.5,
+          74.2,
+          71.8,
+          75.6
+        ],
+        "B": [
+          75,
+          75.2,
+          75.4,
+          75.5,
+          75.6
+        ]
+      },
+      "contracts": 1,
+      "initial_per_contract": 8000,
+      "maintenance_per_contract": 6500,
+      "starting_cash": 12000,
+      "raised_initial_per_contract": 10000,
+      "raised_maintenance_per_contract": 8500,
+      "change_at_mark": 2,
+      "deadline": "model stage D_i after settlement, before next mark; not a real broker deadline",
+      "transfer_on_time": true,
+      "path": "B",
+      "raised": false
+    },
+    "initial_state": {
+      "stage": 0,
+      "price": 75,
+      "balance": 8000,
+      "free": 4000,
+      "equity": 12000
+    },
+    "rows": [
+      {
+        "stage": 1,
+        "price": 75.2,
+        "vm": 200,
+        "initial": 8000,
+        "maintenance": 6500,
+        "before": 8200,
+        "required": 0,
+        "paid": 0,
+        "shortfall": 0,
+        "balance": 8200,
+        "free": 4000,
+        "equity": 12200,
+        "deadline": "D_1",
+        "transfer_on_time": true
+      },
+      {
+        "stage": 2,
+        "price": 75.4,
+        "vm": 200,
+        "initial": 8000,
+        "maintenance": 6500,
+        "before": 8400,
+        "required": 0,
+        "paid": 0,
+        "shortfall": 0,
+        "balance": 8400,
+        "free": 4000,
+        "equity": 12400,
+        "deadline": "D_2",
+        "transfer_on_time": true
+      },
+      {
+        "stage": 3,
+        "price": 75.5,
+        "vm": 100,
+        "initial": 8000,
+        "maintenance": 6500,
+        "before": 8500,
+        "required": 0,
+        "paid": 0,
+        "shortfall": 0,
+        "balance": 8500,
+        "free": 4000,
+        "equity": 12500,
+        "deadline": "D_3",
+        "transfer_on_time": true
+      },
+      {
+        "stage": 4,
+        "price": 75.6,
+        "vm": 100,
+        "initial": 8000,
+        "maintenance": 6500,
+        "before": 8600,
+        "required": 0,
+        "paid": 0,
+        "shortfall": 0,
+        "balance": 8600,
+        "free": 4000,
+        "equity": 12600,
+        "deadline": "D_4",
+        "transfer_on_time": true
+      }
+    ],
+    "cumulative_vm": 600,
+    "equity_at_stop": 12600,
+    "completed_equity": 12600,
+    "unmodeled_marks": 0,
+    "actual_account": false
+  },
+  "m11raised": {
+    "status": "stopped_at_unmet_call",
+    "inputs": {
+      "identity": "teaching_account_not_CCP_or_historical_margin",
+      "paths": {
+        "A": [
+          75,
+          73.5,
+          74.2,
+          71.8,
+          75.6
+        ],
+        "B": [
+          75,
+          75.2,
+          75.4,
+          75.5,
+          75.6
+        ]
+      },
+      "contracts": 1,
+      "initial_per_contract": 8000,
+      "maintenance_per_contract": 6500,
+      "starting_cash": 12000,
+      "raised_initial_per_contract": 10000,
+      "raised_maintenance_per_contract": 8500,
+      "change_at_mark": 2,
+      "deadline": "model stage D_i after settlement, before next mark; not a real broker deadline",
+      "transfer_on_time": true,
+      "path": "A",
+      "raised": true
+    },
+    "initial_state": {
+      "stage": 0,
+      "price": 75,
+      "balance": 8000,
+      "free": 4000,
+      "equity": 12000
+    },
+    "rows": [
+      {
+        "stage": 1,
+        "price": 73.5,
+        "vm": -1500,
+        "initial": 8000,
+        "maintenance": 6500,
+        "before": 6500,
+        "required": 0,
+        "paid": 0,
+        "shortfall": 0,
+        "balance": 6500,
+        "free": 4000,
+        "equity": 10500,
+        "deadline": "D_1",
+        "transfer_on_time": true
+      },
+      {
+        "stage": 2,
+        "price": 74.2,
+        "vm": 700,
+        "initial": 10000,
+        "maintenance": 8500,
+        "before": 7200,
+        "required": 2800,
+        "paid": 2800,
+        "shortfall": 0,
+        "balance": 10000,
+        "free": 1200,
+        "equity": 11200,
+        "deadline": "D_2",
+        "transfer_on_time": true
+      },
+      {
+        "stage": 3,
+        "price": 71.8,
+        "vm": -2400,
+        "initial": 10000,
+        "maintenance": 8500,
+        "before": 7600,
+        "required": 2400,
+        "paid": 1200,
+        "shortfall": 1200,
+        "balance": 8800,
+        "free": 0,
+        "equity": 8800,
+        "deadline": "D_3",
+        "transfer_on_time": true
+      }
+    ],
+    "cumulative_vm": -3200,
+    "equity_at_stop": 8800,
+    "completed_equity": null,
+    "unmodeled_marks": 1,
+    "actual_account": false
+  },
+  "m12": {
+    "status": "conditional_funded_ledger",
+    "inputs": {
+      "identity": "teaching_funded_deliverable_lot",
+      "quantity": 1000,
+      "spot": 75,
+      "storage": 1,
+      "storage_timing": "upfront",
+      "handling": 0.2,
+      "rate": 0.05,
+      "denominator": 365,
+      "days": 90,
+      "forward": 78,
+      "mid": 79,
+      "end": 77.5,
+      "mid_day": 30,
+      "initial_margin": 8000,
+      "margin_rate": 0,
+      "positive_intermediate_cash_rate": 0,
+      "storage_available": true,
+      "funding_available": true,
+      "deliverable": true,
+      "convenience_cash_receipt": 0
+    },
+    "upfront": 76000,
+    "repayment": 76936.98630136986,
+    "late_storage": 0,
+    "handling": 200,
+    "all_in": 77136.98630136986,
+    "per_unit": 77.13698630136986,
+    "forward_receipt": 78000,
+    "forward_net": 863.0136986301368,
+    "vm": [
+      -1000,
+      1500
+    ],
+    "vm_funding": 8.219178082191782,
+    "im_funding": 98.63013698630137,
+    "futures_invoice": 77500,
+    "futures_net": 756.1643835616436,
+    "final_rows": [
+      [
+        "实物出售",
+        77500
+      ],
+      [
+        "末次VM",
+        1500
+      ],
+      [
+        "中段正VM留存释放",
+        0
+      ],
+      [
+        "保证金本金退回",
+        8000
+      ],
+      [
+        "购油/前付仓储本息",
+        -76936.98630136986
+      ],
+      [
+        "后付仓储",
+        0
+      ],
+      [
+        "交付费用",
+        -200
+      ],
+      [
+        "中段VM借款本息",
+        -1008.2191780821918
+      ],
+      [
+        "保证金借款本息",
+        -8098.630136986301
+      ]
+    ],
+    "final_cash_sum": 756.1643835616433,
+    "historical": [
+      {
+        "date": "2020-04-17",
+        "may": 18.27,
+        "june": 25.03,
+        "spot": 18.31,
+        "spread": -6.76,
+        "basis": 0.04,
+        "vm": null
+      },
+      {
+        "date": "2020-04-20",
+        "may": -37.63,
+        "june": 20.43,
+        "spot": -36.98,
+        "spread": -58.06,
+        "basis": 0.65,
+        "vm": -55900
+      },
+      {
+        "date": "2020-04-21",
+        "may": 10.01,
+        "june": 11.57,
+        "spot": 8.91,
+        "spread": -1.56,
+        "basis": -1.1,
+        "vm": 47640
+      }
+    ]
+  },
+  "m12late": {
+    "status": "conditional_funded_ledger",
+    "inputs": {
+      "identity": "teaching_funded_deliverable_lot",
+      "quantity": 1000,
+      "spot": 75,
+      "storage": 1,
+      "storage_timing": "end",
+      "handling": 0.2,
+      "rate": 0.05,
+      "denominator": 365,
+      "days": 90,
+      "forward": 78,
+      "mid": 79,
+      "end": 77.5,
+      "mid_day": 30,
+      "initial_margin": 8000,
+      "margin_rate": 0,
+      "positive_intermediate_cash_rate": 0,
+      "storage_available": true,
+      "funding_available": true,
+      "deliverable": true,
+      "convenience_cash_receipt": 0
+    },
+    "upfront": 75000,
+    "repayment": 75924.65753424658,
+    "late_storage": 1000,
+    "handling": 200,
+    "all_in": 77124.65753424658,
+    "per_unit": 77.12465753424658,
+    "forward_receipt": 78000,
+    "forward_net": 875.3424657534197,
+    "vm": [
+      -1000,
+      1500
+    ],
+    "vm_funding": 8.219178082191782,
+    "im_funding": 98.63013698630137,
+    "futures_invoice": 77500,
+    "futures_net": 768.4931506849265,
+    "final_rows": [
+      [
+        "实物出售",
+        77500
+      ],
+      [
+        "末次VM",
+        1500
+      ],
+      [
+        "中段正VM留存释放",
+        0
+      ],
+      [
+        "保证金本金退回",
+        8000
+      ],
+      [
+        "购油/前付仓储本息",
+        -75924.65753424658
+      ],
+      [
+        "后付仓储",
+        -1000
+      ],
+      [
+        "交付费用",
+        -200
+      ],
+      [
+        "中段VM借款本息",
+        -1008.2191780821918
+      ],
+      [
+        "保证金借款本息",
+        -8098.630136986301
+      ]
+    ],
+    "final_cash_sum": 768.4931506849261,
+    "historical": [
+      {
+        "date": "2020-04-17",
+        "may": 18.27,
+        "june": 25.03,
+        "spot": 18.31,
+        "spread": -6.76,
+        "basis": 0.04,
+        "vm": null
+      },
+      {
+        "date": "2020-04-20",
+        "may": -37.63,
+        "june": 20.43,
+        "spot": -36.98,
+        "spread": -58.06,
+        "basis": 0.65,
+        "vm": -55900
+      },
+      {
+        "date": "2020-04-21",
+        "may": 10.01,
+        "june": 11.57,
+        "spot": 8.91,
+        "spread": -1.56,
+        "basis": -1.1,
+        "vm": 47640
+      }
+    ]
+  },
+  "m13": {
+    "status": "assumed_executions",
+    "inputs": {
+      "identity": "assumed_executions_with_source_settlement_references",
+      "contracts": 1,
+      "old_entry": 20,
+      "old_reference": 18.27,
+      "new_reference": 25.03,
+      "next_new_settlement": 20.43,
+      "previous_settlement": null,
+      "illustrative_previous_settlement": 19,
+      "old_sell_slippage": 0,
+      "new_buy_slippage": 0,
+      "fee_per_leg_per_contract": 0,
+      "settlement_matches_entry_reference": true
+    },
+    "quantity": 1000,
+    "old_exit": 18.27,
+    "new_entry": 25.03,
+    "old_total": -1730,
+    "quoted_month_gap": 6760,
+    "new_principal_purchase_payment": 0,
+    "new_quote_scale": 25030,
+    "old_vm_before": null,
+    "old_close_day_vm": null,
+    "new_entry_day_vm": 0,
+    "new_next_vm": -4600,
+    "new_total": -4600,
+    "fees": 0,
+    "total_price_pnl": -6330,
+    "net_pnl": -6330,
+    "roll_day_cash": null,
+    "margin_change": null,
+    "roll_day_cash_includes_margin": false
+  },
+  "m13known": {
+    "status": "assumed_executions",
+    "inputs": {
+      "identity": "assumed_executions_with_source_settlement_references",
+      "contracts": 1,
+      "old_entry": 20,
+      "old_reference": 18.27,
+      "new_reference": 25.03,
+      "next_new_settlement": 20.43,
+      "previous_settlement": 19,
+      "illustrative_previous_settlement": 19,
+      "old_sell_slippage": 0,
+      "new_buy_slippage": 0,
+      "fee_per_leg_per_contract": 0,
+      "settlement_matches_entry_reference": true
+    },
+    "quantity": 1000,
+    "old_exit": 18.27,
+    "new_entry": 25.03,
+    "old_total": -1730,
+    "quoted_month_gap": 6760,
+    "new_principal_purchase_payment": 0,
+    "new_quote_scale": 25030,
+    "old_vm_before": -1000,
+    "old_close_day_vm": -730,
+    "new_entry_day_vm": 0,
+    "new_next_vm": -4600,
+    "new_total": -4600,
+    "fees": 0,
+    "total_price_pnl": -6330,
+    "net_pnl": -6330,
+    "roll_day_cash": -730,
+    "margin_change": null,
+    "roll_day_cash_includes_margin": false
+  },
+  "m13cost": {
+    "status": "assumed_executions",
+    "inputs": {
+      "identity": "assumed_executions_with_source_settlement_references",
+      "contracts": 1,
+      "old_entry": 20,
+      "old_reference": 18.27,
+      "new_reference": 25.03,
+      "next_new_settlement": 20.43,
+      "previous_settlement": 19,
+      "illustrative_previous_settlement": 19,
+      "old_sell_slippage": 0.02,
+      "new_buy_slippage": 0.03,
+      "fee_per_leg_per_contract": 5,
+      "settlement_matches_entry_reference": true
+    },
+    "quantity": 1000,
+    "old_exit": 18.25,
+    "new_entry": 25.06,
+    "old_total": -1750,
+    "quoted_month_gap": 6760,
+    "new_principal_purchase_payment": 0,
+    "new_quote_scale": 25030,
+    "old_vm_before": -1000,
+    "old_close_day_vm": -750,
+    "new_entry_day_vm": -30,
+    "new_next_vm": -4600,
+    "new_total": -4630,
+    "fees": 10,
+    "total_price_pnl": -6380,
+    "net_pnl": -6390,
+    "roll_day_cash": -790,
+    "margin_change": null,
+    "roll_day_cash_includes_margin": false
+  },
+  "m14": {
+    "status": "matched_teaching",
+    "inputs": {
+      "identity": "disclosed_inputs_plus_matched_teaching_loan",
+      "loan_notional": 400000000,
+      "swap_notional": 400000000,
+      "fixed": 0.01283,
+      "spread": 0.0175,
+      "rate": 0.04,
+      "accrual_numerator": 30,
+      "accrual_denominator": 360,
+      "same_index": true,
+      "same_fixing": true,
+      "same_payment": true,
+      "same_accrual": true,
+      "loan_floor": 0,
+      "swap_floor": "not disclosed; negative rates not modeled",
+      "missing_rates_action": "null floating/combined outputs; request distinct inputs; do not reuse default rate",
+      "cash_direction": "company receipts positive, payments positive in dedicated payment columns"
+    },
+    "alpha": 0.08333333333333333,
+    "fixed_cash": 427666.6666666666,
+    "floating_cash": 1333333.3333333333,
+    "swap_net_receipt": 905666.6666666666,
+    "loan_interest": 1916666.6666666665,
+    "combined_payment": 1010999.9999999999,
+    "fixed_combined_rate": 0.030330000000000003,
+    "residual_notional": 0,
+    "increment_for_100bp": 0,
+    "swap_mtm": null,
+    "collateral_call": null
+  },
+  "m14zero": {
+    "status": "matched_teaching",
+    "inputs": {
+      "identity": "disclosed_inputs_plus_matched_teaching_loan",
+      "loan_notional": 400000000,
+      "swap_notional": 400000000,
+      "fixed": 0.01283,
+      "spread": 0.0175,
+      "rate": 0,
+      "accrual_numerator": 30,
+      "accrual_denominator": 360,
+      "same_index": true,
+      "same_fixing": true,
+      "same_payment": true,
+      "same_accrual": true,
+      "loan_floor": 0,
+      "swap_floor": "not disclosed; negative rates not modeled",
+      "missing_rates_action": "null floating/combined outputs; request distinct inputs; do not reuse default rate",
+      "cash_direction": "company receipts positive, payments positive in dedicated payment columns"
+    },
+    "alpha": 0.08333333333333333,
+    "fixed_cash": 427666.6666666666,
+    "floating_cash": 0,
+    "swap_net_receipt": -427666.6666666666,
+    "loan_interest": 583333.3333333334,
+    "combined_payment": 1011000,
+    "fixed_combined_rate": 0.030330000000000003,
+    "residual_notional": 0,
+    "increment_for_100bp": 0,
+    "swap_mtm": null,
+    "collateral_call": null
+  },
+  "m14partial": {
+    "status": "notional_mismatch",
+    "inputs": {
+      "identity": "disclosed_inputs_plus_matched_teaching_loan",
+      "loan_notional": 400000000,
+      "swap_notional": 300000000,
+      "fixed": 0.01283,
+      "spread": 0.0175,
+      "rate": 0.04,
+      "accrual_numerator": 30,
+      "accrual_denominator": 360,
+      "same_index": true,
+      "same_fixing": true,
+      "same_payment": true,
+      "same_accrual": true,
+      "loan_floor": 0,
+      "swap_floor": "not disclosed; negative rates not modeled",
+      "missing_rates_action": "null floating/combined outputs; request distinct inputs; do not reuse default rate",
+      "cash_direction": "company receipts positive, payments positive in dedicated payment columns"
+    },
+    "alpha": 0.08333333333333333,
+    "fixed_cash": 320750,
+    "floating_cash": 1000000,
+    "swap_net_receipt": 679250,
+    "loan_interest": 1916666.6666666665,
+    "combined_payment": 1237416.6666666665,
+    "fixed_combined_rate": null,
+    "residual_notional": 100000000,
+    "increment_for_100bp": 83333.33333333333,
+    "swap_mtm": null,
+    "collateral_call": null
+  },
+  "history": [
+    {
+      "date": "2020-04-17",
+      "may": 18.27,
+      "june": 25.03,
+      "spot": 18.31,
+      "spread": -6.76,
+      "basis": 0.04,
+      "vm": null
+    },
+    {
+      "date": "2020-04-20",
+      "may": -37.63,
+      "june": 20.43,
+      "spot": -36.98,
+      "spread": -58.06,
+      "basis": 0.65,
+      "vm": -55900
+    },
+    {
+      "date": "2020-04-21",
+      "may": 10.01,
+      "june": 11.57,
+      "spot": 8.91,
+      "spread": -1.56,
+      "basis": -1.1,
+      "vm": 47640
+    }
+  ]
+}

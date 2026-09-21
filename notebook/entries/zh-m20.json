@@ -1,0 +1,748 @@
+{
+  "id": "zh-m20",
+  "node_id": "M20",
+  "lang": "zh",
+  "slug": "put-call-parity-synthetic-positions",
+  "title": "平价与合成：同样的支付，需要哪些现金腿",
+  "summary": "逐状态保留行权价现金腿，推导平价；用真实交易方向的合成bid/ask检查中价偏离。",
+  "subject": "markets",
+  "topic": "markets-pricing",
+  "kind": "concept",
+  "template": "T1",
+  "role": "选读",
+  "level": "核心概念",
+  "study_time": {
+    "minutes": 20,
+    "core": "共同正文＋所选分支；额外研究/正式证明不强塞入一次任务"
+  },
+  "revised": "2026-09-21",
+  "content_version": "2026-09-21-MEFG-review-v3",
+  "body_markdown": "<a id=\"m20-payoff\"></a>\n## 一、先在终点比较，再谈价格\n\n平价不是因为两条曲线长得像就把价格写成等式。我们先约定：同一标的、同一行权价 $K$、同一到期日，欧式call和put，无股息；允许持有股票和现金、借贷利率相同、没有费用或交易约束。在这些条件下，再逐状态检查支付。[^MEFG-OIC-PARITY]\n\n无论 $S_T$ 大于还是小于 $K$，\n$$\n(S_T-K)^+-(K-S_T)^+=S_T-K.\n$$\n所以“买call、卖put”在到期时相当于收到一股的价值再支付 $K$。这**不是**裸股票：还差一笔到期付款。若同时存入足够到期变成 $K$ 的现金，支付才变为 $S_T$。\n\n这一现金腿特别容易在“合成股票”的简称中消失。我们以后每遇到“某组合等于某资产”，都先问等的是到期支付、当前成本，还是已经扣除融资后的收益。一个简称不能同时替代三种关系。\n\n<a id=\"m20-parity\"></a>\n## 二、把冻结两状态例完整勾稽一次\n\n采用共同有限市场：$B_0=1$，$B_1=R=1.02$，股票100变为120或90；本分支 $K=105$。两种期权到期支付分别为call的 $(15,0)$ 与put的 $(0,15)$。[^MEFG-STATE]\n\n| 到期状态 | call支付 | put支付 | call−put | 到期支付105的现金＋call−put | 股票价值 |\n|---|---:|---:|---:|---:|---:|\n| 上涨 | 15 | 0 | 15 | 120 | 120 |\n| 下跌 | 0 | 15 | −15 | 90 | 90 |\n\n若今天存入 $K/R=105/1.02$，到期可支付105。因此相同终端支付的价格关系为\n$$\nC+\\frac K R=P+S_0,\n\\qquad\nC-P=S_0-\\frac K R.\n$$\n共同模型中 $C=100/17$，$P=150/17$，两侧均为 $-50/17\\approx-2.941176$。这个负数不是call“负价格”，而是call比put便宜的差额。下一篇会从股票与现金解出两个期权各自的复制价格；本篇先完成支付和资金腿的核对。[^MEFG-MIT-OPTIONS]\n\n平价也给价格界提供直觉。例如无股息欧式call不低于 $\\max(S_0-K/R,0)$，而不是无条件不低于 $S_0-K$；put的相应融资关系涉及 $K/R-S_0$。对立刻允许行权的美式，决策集合改变，不能把上述欧式等式原封不动套过去。已知现金股息还需把持股期间现金计入；不同借贷成本与借券约束则把理想等式变成需要逐腿检查的区间或单向约束。[^MEFG-OIC-PARITY]\n\n<a id=\"m20-execution\"></a>\n## 三、中间价有缝，为什么仍然可能没有交易\n\n现在离开无价差的核心市场，进入一个另有身份的教学报价变式。$K=105$、现金因子仍1.02，但股票、call、put都有bid／ask：\n\n| 工具 | bid | ask | mid |\n|---|---:|---:|---:|\n| 股票 | 99.95 | 100.05 | 100.00 |\n| call | 5.80 | 6.20 | 6.00 |\n| put | 8.70 | 9.10 | 8.90 |\n\n若只把中价代入，得到\n$$\n6-8.9-100+\\frac{105}{1.02}=0.041176.\n$$\n这个“偏离”来自中价，但你不能要求所有腿按中价足额成交。为了核可交易现金，先定义**初始净现金为收到减付出**；正数表示手里剩下现金，负数表示还需投入。\n\n第一条方向是卖call、借入 $K/R$、买put和股票。卖用bid，买用ask：\n$$\na_1=5.8+\\frac{105}{1.02}-9.1-100.05=-0.408824.\n$$\n到期支付 $-C_T-K+P_T+S_T=0$，但起点已经需要净付0.408824。\n\n反方向是卖股票和put、买call并存入 $K/R$：\n$$\na_2=99.95+8.7-6.2-\\frac{105}{1.02}=-0.491176.\n$$\n到期 $-S_T-P_T+C_T+K=0$，起点同样要净付。两方向都没有留下正的初始现金；加上额外费用只会更差。\n\n| 检查 | 第一方向 | 反方向 |\n|---|---:|---:|\n| 初始净现金 | −0.408824 | −0.491176 |\n| 理论到期净支付 | 0 | 0 |\n| 已证明无风险套利？ | 否 | 否 |\n\n价格在这里是按每个标的单位计量，允许分割的教学交易单位；不能未经产品乘数确认就当成“每份上市期权”的美元金额。报价可同步成交、融资与借券可得、深度足够也只是这个检查中的显式假设，不是已经观测到的机会。\n\n<a id=\"m20-feasibility\"></a>\n## 四、什么条件会让一条复制腿断掉\n\n无套利论证通常是“若两个完全相同的终值支付价格不同，则买便宜、卖贵，并完成所有资金安排”。因此发现账面价格差以后，真正要查的是能否完成那些腿，而不是再找一个更漂亮的等式。\n\n第一方向需要融资买入股票和put、卖出call；反方向需要卖空股票并卖出put。若借不到股票，反方向就不能按原设定实施。若某报价滞后，下一秒另一条腿的价格可能已经变动；若一个产品允许提前行权而另一个不允许，原先只按共同到期日设计的现金账也不再完整。此时模型结论没有自动消失，变化的是我们是否还在它的假设内。[^MEFG-OIC-PARITY]\n\n保持这种“先支付、再资金、再执行条件”的顺序，还能避免一个误解：同一期限的合成远期支付 $S_T-K$ 可以为正也可以为负，它并不是一个非负选择权。共同市场的公平远期交割价为 $RS_0=102$，可以有零初始价格；而 $K=105$ 的合成支付不是同一条公平远期，初值为 $S_0-105/R$。零成本双向承诺和有成本的不对称选择，正好回到本批开始的问题。\n\n<a id=\"m20-explore\"></a>\n## 五、先看状态表，再看可执行现金表\n\n<div data-experiment-slot=\"EXP-MEFG-M20-PARITY\"></div>\n\n先用上面已经列出的两状态表核对 $C_T-P_T=S_T-K$ 及现金腿；实验本身不重复画第二套终点状态图，而是专门把**今天的初始现金**展开成两方向的bid／ask账本，并同时显示中价差作对照。改变一个教学报价时，中价差、两个可执行方向的净额会一起重算。若关闭融资、借券、同步或深度条件，相应方向只保留诊断值，不显示已执行套利利润。这个变式不会修改后面M21的冻结无摩擦市场。\n\n静态阅读时，按上表分别把“收到”与“付出”分开加总即可：第一方向收到108.741176、付出109.15；反方向收到108.65、付出109.141176。每条账到期归零，起点差额才是该检查的重点。\n\n<a id=\"m20-exercises\"></a>\n## 六、把缺掉的腿补回来\n\n**题一。** “买call、卖put等于买股票”在本例缺了哪一条现金腿？\n\n**解析。** 前者到期支付 $S_T-105$，还要加到期支付105的现金资产，才能变成股票支付 $S_T$。这笔资产今天成本 $105/1.02$。不计现金腿就把一个有融资成分的合成头寸冒充裸股票。\n\n**题二。** 中间价偏离为＋0.041176。为什么第一方向真正使用买卖边后反而需要付0.408824？\n\n**解析。** 卖call只能按5.8，买put需9.1，买股需100.05。中价不是所有腿的可执行价格。把各腿恢复到正确bid／ask，交易成本立刻超过中价缝隙。\n\n**题三。** 若反方向初始净额出现正数，但股票无法借到，应该怎样展示？\n\n**解析。** 可以报告“报价代数提示这个方向”，但执行状态必须标为受借券约束而未完成。不能给它一个真实无风险利润，也不能悄悄把不能卖空的股票腿删掉。\n\n**题四。** 为什么共同模型公平远期交割价是102，而本篇平价仍用105？\n\n**解析。** 102使远期初值 $S_0-K/R$ 为零；105是两份期权的给定行权价。不同 $K$ 对应不同初始价值的合成远期，不能为了让公式“漂亮”就改合约条款。\n\n[^MEFG-OIC-PARITY]: Options Industry Council，*Put/Call Parity*，Undated; retrieved 2026-09-21。[原文](https://www.optionseducation.org/advancedconcepts/put-call-parity)。本篇定位：Full article including formulas, financing/dividend/friction discussion。\n\n[^MEFG-STATE]: QT-F / Lead frozen teaching contract，*EXP-STATE-01 shared finite-market experiment*，2026-09-21-v1。[原文](/notebook/labs/qt-f/data/qt-f-shared-state-experiment.json)。本篇定位：Complete contract; two_state; three_state_incomplete; three_state_augmented_complete; formula_contract; assumptions。\n\n[^MEFG-MIT-OPTIONS]: Andrew W. Lo, MIT OpenCourseWare，*15.401 Finance Theory I, Lecture 10–11: Options*，Fall 2008。[原文](https://ocw.mit.edu/courses/15-401-finance-theory-i-fall-2008/c40ecc0cc0dce0fbf2d229bc4027c43b_MIT15_401F08_lec10.pdf)。本篇定位：Slides 3–9: option definitions and payoff；Slides 16–21: binomial replication and risk-neutral valuation。\n\n<script src=\"/notebook/labs/m-efg/reader-adapter.js\" defer></script>\n",
+  "prompt": "你正在教M20《平价与合成：同样的支付，需要哪些现金腿》，内容版本2026-09-21-MEFG-review-v3。读者已有高年级本科至研究生的数学基础。\n\n先确认选用本篇共同正文和哪些分支，再实际读取agent_packet列出的当前必读完整原文。PDF需读脚注、表图与符号；只拿到摘要/目录/搜索片段不算完成。记录实际版本、范围与内容对应，不沿用编辑端“已读”充当本次读取；同会话已完整取得相同版本单元可以复用。若所需单元失败，尝试机构正式等价全文；仍缺失则指出具体单元，不凭记忆补成已读教学。runtime_reading_log从空开始。\n\n独立学习任务：先验证每个终点状态的现金相等，再写两方向初始bid/ask交易现金。\n专属诊断与正向讲解：从到期支付 $C_T-P_T=S_T-K$ 出发，先逐状态核对；再加入今天投入 $K/R$ 的现金腿，得到 $C_0-P_0=S_0-K/R$。随后用5.8/6.2等报价逐腿买ask卖bid。mid差+.041176不允许直接命名套利。\n反馈尺度：要报告每方向资金、借款/借券、同步与足量条件；终点0不等于初始免费。\n\n读者要求直接讲解时，按本篇连贯推导讲清，不反复问已会先修。静态例、实验、练习必须使用本包同一输入和单位；实例价、合成价、模型价、规则时点不能混换。练习要给完整解析，不仅打分。仅当选读分支被采用时，将其optional reading转入当前必读。\n",
+  "sources": [
+    "MEFG-STATE",
+    "PFH-MIT-OPTIONS",
+    "PFH-PARITY"
+  ],
+  "anchors": [
+    {
+      "id": "m20-payoff",
+      "title": "一、先在终点比较，再谈价格",
+      "kind": "section",
+      "preview": "平价不是因为两条曲线长得像就把价格写成等式。我们先约定：同一标的、同一行权价 K 、同一到期日，欧式call和put，无股息；允许持有股票和现金、借贷利率相同、没有费用或交易约束。在这些条件下，再逐状态检查支付。[^MEFG-OIC-PARITY] 无论 S_T 大于还是小于 K ， (S_T-K)^+-(K-S_T)^+=S_T-K. "
+    },
+    {
+      "id": "m20-parity",
+      "title": "二、把冻结两状态例完整勾稽一次",
+      "kind": "section",
+      "preview": "采用共同有限市场： B_0=1 ， B_1=R=1.02 ，股票100变为120或90；本分支 K=105 。两种期权到期支付分别为call的 (15,0) 与put的 (0,15) 。[^MEFG-STATE] 到期状态 call支付 put支付 call−put 到期支付105的现金＋call−put 股票价值 --- ---: --"
+    },
+    {
+      "id": "m20-execution",
+      "title": "三、中间价有缝，为什么仍然可能没有交易",
+      "kind": "section",
+      "preview": "现在离开无价差的核心市场，进入一个另有身份的教学报价变式。 K=105 、现金因子仍1.02，但股票、call、put都有bid／ask： 工具 bid ask mid --- ---: ---: ---: 股票 99.95 100.05 100.00 call 5.80 6.20 6.00 put 8.70 9.10 8.90 若只把中"
+    },
+    {
+      "id": "m20-feasibility",
+      "title": "四、什么条件会让一条复制腿断掉",
+      "kind": "section",
+      "preview": "无套利论证通常是“若两个完全相同的终值支付价格不同，则买便宜、卖贵，并完成所有资金安排”。因此发现账面价格差以后，真正要查的是能否完成那些腿，而不是再找一个更漂亮的等式。 第一方向需要融资买入股票和put、卖出call；反方向需要卖空股票并卖出put。若借不到股票，反方向就不能按原设定实施。若某报价滞后，下一秒另一条腿的价格可能已经变动；"
+    },
+    {
+      "id": "m20-explore",
+      "title": "五、先看状态表，再看可执行现金表",
+      "kind": "section",
+      "preview": "先用正文两状态表核到期支付恒等式；实验不重复终点状态图，而专门列今天的bid/ask逐腿现金、中价差和两方向可执行条件。"
+    },
+    {
+      "id": "m20-exercises",
+      "title": "六、把缺掉的腿补回来",
+      "kind": "section",
+      "preview": "题一。 “买call、卖put等于买股票”在本例缺了哪一条现金腿？ 解析。 前者到期支付 S_T-105 ，还要加到期支付105的现金资产，才能变成股票支付 S_T 。这笔资产今天成本 105/1.02 。不计现金腿就把一个有融资成分的合成头寸冒充裸股票。 题二。 中间价偏离为＋0.041176。为什么第一方向真正使用买卖边后反而需要付0"
+    }
+  ],
+  "relations": [
+    {
+      "from": "M20",
+      "relation": "part_of",
+      "to": "markets-pricing",
+      "reason": "支付定价与市场信息"
+    },
+    {
+      "from": "M20",
+      "relation": "requires",
+      "to": "M16",
+      "reason": "仅需要这项先备能力，不由推荐次序自动生成",
+      "required_competence": "能逐状态区分支付、P&L与投入"
+    },
+    {
+      "from": "M20",
+      "relation": "uses_method",
+      "to": "M06",
+      "reason": "本篇相应段落就地调用报价、履约、时间价值或价格敏感度，不要求重新学习整篇"
+    },
+    {
+      "from": "M20",
+      "relation": "uses_method",
+      "to": "M17",
+      "reason": "本篇相应段落就地调用报价、履约、时间价值或价格敏感度，不要求重新学习整篇"
+    },
+    {
+      "from": "M20#m20-payoff",
+      "relation": "supported_by",
+      "to": "PFH-PARITY",
+      "reason": "合成支付与融资条件；简写合成表遗漏的行权价现金腿须补齐，美式不能一律套欧式等式。",
+      "locator": "Full article including formulas, financing/dividend/friction discussion",
+      "scope": "本段具名采用内容；教学生成数字仍按自身身份",
+      "at_section": "m20-payoff"
+    },
+    {
+      "from": "M20#m20-parity",
+      "relation": "supported_by",
+      "to": "MEFG-STATE",
+      "reason": "唯一冻结教学市场；二状态K105、三状态K100，允许正负可分持仓、全支持P、同借贷率。非观测价格。",
+      "locator": "Complete contract; two_state; three_state_incomplete; three_state_augmented_complete; formula_contract; assumptions",
+      "scope": "本段具名采用内容；教学生成数字仍按自身身份",
+      "at_section": "m20-parity"
+    },
+    {
+      "from": "M20#m20-parity",
+      "relation": "supported_by",
+      "to": "PFH-MIT-OPTIONS",
+      "reason": "模型内的支付和复制定价；不代替当前产品规则，讲义现金增长记号不能误写成年化净利率。",
+      "locator": "Slides 3–9: option definitions and payoff；Slides 16–21: binomial replication and risk-neutral valuation",
+      "scope": "本段具名采用内容；教学生成数字仍按自身身份",
+      "at_section": "m20-parity"
+    },
+    {
+      "from": "M20#m20-parity",
+      "relation": "supported_by",
+      "to": "PFH-PARITY",
+      "reason": "合成支付与融资条件；简写合成表遗漏的行权价现金腿须补齐，美式不能一律套欧式等式。",
+      "locator": "Full article including formulas, financing/dividend/friction discussion",
+      "scope": "本段具名采用内容；教学生成数字仍按自身身份",
+      "at_section": "m20-parity"
+    },
+    {
+      "from": "M20#m20-feasibility",
+      "relation": "supported_by",
+      "to": "PFH-PARITY",
+      "reason": "合成支付与融资条件；简写合成表遗漏的行权价现金腿须补齐，美式不能一律套欧式等式。",
+      "locator": "Full article including formulas, financing/dividend/friction discussion",
+      "scope": "本段具名采用内容；教学生成数字仍按自身身份",
+      "at_section": "m20-feasibility"
+    },
+    {
+      "from": "M20#m20-explore",
+      "relation": "illustrated_by",
+      "to": "EXP-MEFG-M20-PARITY",
+      "reason": "中价看似有缝，先把买入ask、卖出bid和现金腿全部列出来。",
+      "at_section": "m20-explore"
+    }
+  ],
+  "agent_packet": {
+    "export_mode": "public",
+    "required_readings": [
+      {
+        "source_id": "PFH-PARITY",
+        "version": "Undated; retrieved 2026-09-21",
+        "access": {
+          "kind": "html_full_text",
+          "uri": "https://www.optionseducation.org/advancedconcepts/put-call-parity",
+          "verified_access_at": "2026-09-21"
+        },
+        "required_unit": {
+          "locator": "完整正文，含合成表、精确欧式公式、融资股息和摩擦段",
+          "scope": "完整指定单元、必要脚注与表图；不以搜索摘要代替",
+          "purpose": "不丢strike现金腿、区分理论与成交"
+        },
+        "supports": "合成支付与融资条件；简写合成表遗漏的行权价现金腿须补齐，美式不能一律套欧式等式。",
+        "id": "M20-READ-01",
+        "title": "Put/Call Parity",
+        "authors": [
+          "Options Industry Council"
+        ],
+        "retrieved_at": "2026-09-21"
+      },
+      {
+        "source_id": "PFH-MIT-OPTIONS",
+        "version": "Fall 2008",
+        "access": {
+          "kind": "pdf_full_text",
+          "uri": "https://ocw.mit.edu/courses/15-401-finance-theory-i-fall-2008/c40ecc0cc0dce0fbf2d229bc4027c43b_MIT15_401F08_lec10.pdf",
+          "verified_access_at": "2026-09-21"
+        },
+        "required_unit": {
+          "locator": "slides16–21完整单元",
+          "scope": "完整指定单元、必要脚注与表图；不以搜索摘要代替",
+          "purpose": "逐状态复制"
+        },
+        "supports": "模型内的支付和复制定价；不代替当前产品规则，讲义现金增长记号不能误写成年化净利率。",
+        "id": "M20-READ-02",
+        "title": "15.401 Finance Theory I, Lecture 10–11: Options",
+        "authors": [
+          "Andrew W. Lo",
+          "MIT OpenCourseWare"
+        ],
+        "retrieved_at": "2026-09-21"
+      },
+      {
+        "source_id": "MEFG-STATE",
+        "version": "2026-09-21-v1",
+        "access": {
+          "kind": "site_body",
+          "uri": "https://ou-liu-red-sugar.github.io/notebook/labs/qt-f/data/qt-f-shared-state-experiment.json",
+          "verified_access_at": "2026-09-21"
+        },
+        "required_unit": {
+          "locator": "assumptions、units、two_state完整分支及formula_contract",
+          "scope": "完整指定单元、必要脚注与表图；不以搜索摘要代替",
+          "purpose": "K105冻结市场与独立bid/ask变式分开"
+        },
+        "supports": "唯一冻结教学市场；二状态K105、三状态K100，允许正负可分持仓、全支持P、同借贷率。非观测价格。",
+        "id": "M20-READ-03",
+        "title": "EXP-STATE-01 shared finite-market experiment",
+        "authors": [
+          "QT-F / Lead frozen teaching contract"
+        ],
+        "retrieved_at": "2026-09-21"
+      }
+    ],
+    "optional_readings": [],
+    "runtime_reading_log": [],
+    "supplied_inputs": {
+      "content_version": "2026-09-21-MEFG-draft-v1",
+      "data": {
+        "schema": "markets-mefg-adopted-inputs-v1",
+        "content_version": "2026-09-21-MEFG-draft-v1",
+        "scope": [
+          "M15",
+          "M16",
+          "M17",
+          "M18",
+          "M19",
+          "M20",
+          "M21",
+          "M22",
+          "M23"
+        ],
+        "state_tree": {
+          "experiment_id": "EXP-STATE-01",
+          "source_file": "data/qt-f-shared-state-experiment.json",
+          "source_version": "2026-09-21-v1",
+          "source_sha256": "8489fd3b74f469c3424d32a2b0738280e4e83709f081dfb24282d9afcfa8804b",
+          "source_pointer": "two_state / three_state_incomplete / three_state_augmented_complete",
+          "identity": "Exact received QT-F/M21 frozen contract; file preserved byte-for-byte; generated browser data is a derived copy",
+          "physical_up_probability_variants": [
+            0.2,
+            0.6,
+            0.8,
+            0.9
+          ],
+          "period_unit": "one abstract period; R is gross growth, not annual net rate"
+        },
+        "odd_equal_wealth": {
+          "identity": "OCC ODD June2024 printed p61 hypothetical; exact interest versus rounded official display distinguished",
+          "initial_wealth_usd": 5000,
+          "spot_usd": 50,
+          "strike_usd": 50,
+          "premium_per_share_usd": 5,
+          "shares_per_contract": 100,
+          "stock_position_shares": 100,
+          "mixed_contracts": 1,
+          "all_option_contracts": 10,
+          "mixed_cash_usd": 4500,
+          "simple_annual_cash_rate": 0.0325,
+          "horizon_years": 0.5,
+          "terminal_spots_usd": [
+            62,
+            58,
+            54,
+            50,
+            46,
+            42,
+            38
+          ],
+          "cost_convention": "No fees, tax or stock dividends in base; terminal economic payoff is not a funding guarantee for physical exercise"
+        },
+        "cash_examples": {
+          "identity": "Synthetic amounts under documented product rules; not historical quotes/series/accounts",
+          "equity_call": {
+            "multiplier": 100,
+            "contracts": 1,
+            "strike": 100,
+            "purchase_premium": 4,
+            "later_underlying_bid": 105,
+            "later_option_bid": 6,
+            "later_option_ask": 6.2,
+            "exercise_gross_cash_assumption": 10000,
+            "exercise_model": "sequential gross payment first; no assumed netting/credit; broker policy not inferred"
+          },
+          "spxw_call": {
+            "multiplier_usd_per_point": 100,
+            "strike_points": 5000,
+            "purchase_premium_points": 50,
+            "settlement_value_points": 5025,
+            "shares_delivered": 0
+          },
+          "uncovered_equity_call_margin": {
+            "contract_type": "OCC ordinary equity uncovered call minimum; not ETF/index or broker house rules",
+            "multiplier": 100,
+            "strike": 105,
+            "initial_spot": 100,
+            "initial_option_premium": 4,
+            "later_spot": 120,
+            "later_option_mark": 17,
+            "base_fraction": 0.2,
+            "minimum_call_fraction": 0.1,
+            "other_positions_or_broker_addons": false,
+            "default_external_cash_available": 2200,
+            "model": "cash collateral; liability is mark not daily futures VM; no external deposits beyond the explicitly displayed steps"
+          }
+        },
+        "early_exercise_counterexample": {
+          "identity": "Separate teaching market, not EXP-STATE-01",
+          "spot": 50,
+          "strike": 100,
+          "up_factor": 1.2,
+          "down_factor": 0.9,
+          "gross_cash_growth_per_period": 1.02,
+          "periods": [
+            1,
+            2
+          ],
+          "dividend": 0,
+          "time_unit": "one abstract period; not a year; American exercise at every displayed node"
+        },
+        "parity_quotes": {
+          "identity": "Separate synthetic quote/funding scenario; no friction toggle on EXP-STATE-01",
+          "strike": 105,
+          "gross_cash_growth": 1.02,
+          "stock": {
+            "bid": 99.95,
+            "ask": 100.05
+          },
+          "call": {
+            "bid": 5.8,
+            "ask": 6.2
+          },
+          "put": {
+            "bid": 8.7,
+            "ask": 9.1
+          },
+          "extra_fee_per_underlying_unit": 0,
+          "cost_convention": "same borrowing/lending, zero dividend European same K/T; all legs synchronous and fully fillable only by explicit teaching assumption",
+          "execution_assumptions": {
+            "borrowing": true,
+            "stock_short": true,
+            "synchronous": true,
+            "depth": true,
+            "exercise_terms_match": true
+          },
+          "default_capital_available": 1
+        },
+        "surface": {
+          "experiment_id": "EXP-MEFG-IV-01",
+          "identity": "Entirely synthetic SPX-sized European call/put quotes; actual multiplier/tick only; no historical chain",
+          "quote_date": null,
+          "spot_index_points": 5000,
+          "annual_continuous_rate": 0.04,
+          "annual_continuous_dividend_yield": 0,
+          "dividend_note": "zero is teaching assumption, not S&P500 dividend forecast",
+          "day_count": "ACT/365 teaching whole-day expiries",
+          "strikes_points": [
+            4500,
+            5000,
+            5500
+          ],
+          "maturities": [
+            {
+              "days": 30,
+              "sigma_by_strike": [
+                0.28,
+                0.24,
+                0.22
+              ]
+            },
+            {
+              "days": 90,
+              "sigma_by_strike": [
+                0.27,
+                0.235,
+                0.22
+              ]
+            },
+            {
+              "days": 180,
+              "sigma_by_strike": [
+                0.25,
+                0.23,
+                0.22
+              ]
+            }
+          ],
+          "quote_half_width_points": 0.2,
+          "contract_multiplier_usd_per_point": 100,
+          "min_quote_tick_below3": 0.05,
+          "min_quote_tick_at_or_above3": 0.1,
+          "greek_example": {
+            "strike": 5000,
+            "days": 90,
+            "sigma": 0.235,
+            "spot_changes_points": [
+              50,
+              500
+            ],
+            "vol_changes_absolute": [
+              0.01,
+              0.1
+            ]
+          },
+          "validation_scope": "displayed grid only; not a global no-arbitrage surface or observed chain"
+        },
+        "vix": {
+          "official_sample": {
+            "identity": "Methodology v6.0 Appendix3 explicitly hypothetical (2022-09-27 10:45:15 ET label is not observed VIX)",
+            "minutes_near": 34484,
+            "minutes_next": 44954,
+            "target_minutes": 43200,
+            "year_minutes": 525600,
+            "near_variance": 0.019233906,
+            "next_variance": 0.019423884,
+            "displayed_T_near": 0.0656088,
+            "displayed_T_next": 0.0855289,
+            "displayed_vix": 13.93,
+            "one_strike": {
+              "strike": 1370,
+              "delta_K": 5,
+              "mid_quote": 0.2,
+              "R_rounded": 0.000317,
+              "T_rounded": 0.0656088,
+              "displayed_contribution": 5.328e-07
+            }
+          },
+          "two_term_teaching_variant": {
+            "identity": "separate variance interpolation, not a VIX-strip reproduction",
+            "days_near": 24,
+            "days_next": 36,
+            "target_days": 30,
+            "near_vol": 0.2,
+            "next_vol": 0.24
+          }
+        },
+        "information_example": {
+          "identity": "Synthetic contract volumes classified by initiating side; size-weighted KIT Eq(2), not unweighted transaction counts; not motives",
+          "unit": "option contracts",
+          "buyer_call_contracts": 30,
+          "seller_call_contracts": 10,
+          "buyer_put_contracts": 25,
+          "seller_put_contracts": 35,
+          "non_event_mean_TOI": 0.05,
+          "baseline_window": "non-announcement days tau-40 through tau-10 per paper; 0.05 here a teaching value",
+          "table_2_column_3": {
+            "identity": "published regression coefficients with macro/non-macro separately standardized variables; not raw-return slopes/profits",
+            "OI_coefficient": 0.0033,
+            "OI_macro_interaction": 0.025,
+            "column_1_OI_coefficient": 0.0078,
+            "sample_observations": 51522
+          }
+        },
+        "runtime_reading_log": []
+      },
+      "additional_files": [
+        {
+          "uri": "https://ou-liu-red-sugar.github.io/notebook/labs/qt-f/data/qt-f-shared-state-experiment.json",
+          "experiment_id": "EXP-STATE-01",
+          "sha256": "8489fd3b74f469c3424d32a2b0738280e4e83709f081dfb24282d9afcfa8804b",
+          "policy": "唯一冻结市场，原字节保留；运行时实际读取"
+        }
+      ],
+      "experiment_id": "EXP-MEFG-M20-PARITY"
+    },
+    "entry_id": "zh-m20",
+    "node_id": "M20",
+    "content_version": "2026-09-21-MEFG-review-v3",
+    "experiment_ids": [
+      "EXP-MEFG-M20-PARITY"
+    ],
+    "source_id_aliases": {
+      "MEFG-ODD": "MA-OCC",
+      "MEFG-OCC-EQUITY": "PFH-EQUITY",
+      "MEFG-OCC-ETF": "PFH-ETF",
+      "MEFG-OIC-T1": "PFH-T1",
+      "MEFG-SPX": "MA-SPX",
+      "MEFG-MIT-OPTIONS": "PFH-MIT-OPTIONS",
+      "MEFG-MIT-KOGAN": "PFH-MIT-BSM",
+      "MEFG-OIC-PARITY": "PFH-PARITY",
+      "MEFG-OIC-EXERCISE": "PFH-EXERCISE",
+      "MEFG-CHICAGOFED-2025": "PFH-CHIFED2025"
+    },
+    "source_paths": {
+      "shared_inputs.json": "https://ou-liu-red-sugar.github.io/notebook/labs/m-efg/inputs.json",
+      "data/qt-f-shared-state-experiment.json": "https://ou-liu-red-sugar.github.io/notebook/labs/qt-f/data/qt-f-shared-state-experiment.json",
+      "static/M20.html": "https://ou-liu-red-sugar.github.io/notebook/labs/m-efg/static/M20.html"
+    }
+  },
+  "agent_markdown": "### 本篇默认结果与静态等价\n\n<p>终点状态恒等式先在正文状态表核对；本静态页专列今天的可执行bid/ask初始现金，不重复制造第二套状态图。</p><div class=\"table-wrap\"><table><thead><tr><th>工具</th><th>bid</th><th>ask</th></tr></thead><tbody><tr><td>股</td><td>99.95</td><td>100.05</td></tr><tr><td>call</td><td>5.8</td><td>6.2</td></tr><tr><td>put</td><td>8.7</td><td>9.1</td></tr></tbody></table></div><div class=\"table-wrap\"><table><thead><tr><th>对象</th><th>默认结果</th></tr></thead><tbody><tr><td>PV(105)</td><td>102.941176</td></tr><tr><td>mid平价差</td><td>+0.041176</td></tr><tr><td>方向一初始净收款</td><td>−0.408824</td></tr><tr><td>方向二初始净收款</td><td>−0.491176</td></tr><tr><td>匹配支付的终点净额</td><td>两方向均0</td></tr></tbody></table></div><p>方向一：卖call＋借PV(K)−买put−买股；方向二反过来。没有正初始收款，不能把mid的缝叫套利。只在同K/T、欧式、无分红、同借贷率、允许各腿且同步足量时使用这张表。</p>\n\n完整冻结输入：https://ou-liu-red-sugar.github.io/notebook/labs/m-efg/inputs.json。来源内的包路径按 source_paths 取得。",
+  "experiments": [
+    {
+      "id": "EXP-MEFG-M20-PARITY",
+      "title": "平价：用哪一侧成交",
+      "anchor": "m20-explore",
+      "description": "中价看似有缝，先把买入ask、卖出bid和现金腿全部列出来。",
+      "data_identity": "独立合成bid/ask账本；同利率、无分红欧式合约。核心冻结市场不加入价差开关。",
+      "shared_dataset_ids": [],
+      "inputs": {
+        "canonical_common": "shared_inputs.json",
+        "state_contract": "data/qt-f-shared-state-experiment.json",
+        "controls": [
+          {
+            "name": "stockBid",
+            "label": "股票bid",
+            "type": "number",
+            "default": 99.95,
+            "domain_or_choices": {
+              "min": 0,
+              "step": 0.01
+            }
+          },
+          {
+            "name": "stockAsk",
+            "label": "股票ask",
+            "type": "number",
+            "default": 100.05,
+            "domain_or_choices": {
+              "min": 0,
+              "step": 0.01
+            }
+          },
+          {
+            "name": "callBid",
+            "label": "call bid",
+            "type": "number",
+            "default": 5.8,
+            "domain_or_choices": {
+              "min": 0,
+              "step": 0.1
+            }
+          },
+          {
+            "name": "callAsk",
+            "label": "call ask",
+            "type": "number",
+            "default": 6.2,
+            "domain_or_choices": {
+              "min": 0,
+              "step": 0.1
+            }
+          },
+          {
+            "name": "putBid",
+            "label": "put bid",
+            "type": "number",
+            "default": 8.7,
+            "domain_or_choices": {
+              "min": 0,
+              "step": 0.1
+            }
+          },
+          {
+            "name": "putAsk",
+            "label": "put ask",
+            "type": "number",
+            "default": 9.1,
+            "domain_or_choices": {
+              "min": 0,
+              "step": 0.1
+            }
+          },
+          {
+            "name": "fee",
+            "label": "每方向额外费用／单位标的",
+            "type": "number",
+            "default": 0,
+            "domain_or_choices": {
+              "min": 0,
+              "step": 0.05
+            }
+          },
+          {
+            "name": "capital",
+            "label": "模型净启动资金",
+            "type": "number",
+            "default": 1,
+            "domain_or_choices": {
+              "min": 0,
+              "step": 0.1
+            }
+          },
+          {
+            "name": "borrowing",
+            "label": "可以按设定利率借款",
+            "type": "check",
+            "default": true,
+            "domain_or_choices": {}
+          },
+          {
+            "name": "stockShort",
+            "label": "可以卖空股票",
+            "type": "check",
+            "default": true,
+            "domain_or_choices": {}
+          },
+          {
+            "name": "synchronous",
+            "label": "报价同步",
+            "type": "check",
+            "default": true,
+            "domain_or_choices": {}
+          },
+          {
+            "name": "depth",
+            "label": "各腿数量均足够",
+            "type": "check",
+            "default": true,
+            "domain_or_choices": {}
+          },
+          {
+            "name": "terms",
+            "label": "相同K/T及欧式无分红",
+            "type": "check",
+            "default": true,
+            "domain_or_choices": {}
+          }
+        ]
+      },
+      "algorithm": "PV=105/1.02; a1=call_bid+PV-put_ask-stock_ask-fee; a2=stock_bid+put_bid-call_ask-PV-fee. Mid gap separate. Terminal net payoff=0 only under European/no-dividend/sameK/T conditions. Direction1 needs borrowing; direction2 stock borrow; both synchronous/depth/terms; startup capital>=max(-receipt,0).",
+      "outputs": {
+        "default": {
+          "quotes": {
+            "stock": {
+              "bid": 99.95,
+              "ask": 100.05,
+              "mid": 100
+            },
+            "call": {
+              "bid": 5.8,
+              "ask": 6.2,
+              "mid": 6
+            },
+            "put": {
+              "bid": 8.7,
+              "ask": 9.1,
+              "mid": 8.899999999999999
+            }
+          },
+          "PV": 102.94117647058823,
+          "midGap": 0.041176470588226266,
+          "conditions": {
+            "borrowing": true,
+            "stockShort": true,
+            "depth": true,
+            "synchronous": true,
+            "terms": true
+          },
+          "fee": 0,
+          "directions": [
+            {
+              "label": "卖call＋借PV(K)－买put－买股票",
+              "initialNetReceipt": -0.40882352941176237,
+              "neededCapital": 0.40882352941176237,
+              "status": "no_positive_initial_receipt",
+              "terminalNet": 0,
+              "capitalModel": "simultaneous net-funding with stated permissions; broker gross margin not modeled"
+            },
+            {
+              "label": "卖股票＋卖put－买call－存PV(K)",
+              "initialNetReceipt": -0.4911764705882291,
+              "neededCapital": 0.4911764705882291,
+              "status": "no_positive_initial_receipt",
+              "terminalNet": 0,
+              "capitalModel": "simultaneous net-funding with stated permissions; broker gross margin not modeled"
+            }
+          ],
+          "identity": "separate synthetic executable-side model; core EXP-STATE-01 unchanged"
+        },
+        "static_equivalent": "https://ou-liu-red-sugar.github.io/notebook/labs/m-efg/static/M20.html",
+        "unit_note": "独立合成bid/ask账本；同利率、无分红欧式合约。核心冻结市场不加入价差开关。"
+      },
+      "boundaries": [
+        "模型启动资本按同步净资金，不是客户账户实际毛margin",
+        "借券/借款/时间/深度任何缺失，撤下可执行解释",
+        "核心无摩擦市场没有被修改",
+        "正初始收款仅在全部假设可实施时构成条件套利"
+      ],
+      "views": {
+        "first": "数值/单位/现金表",
+        "second": "定价、现金、状态或事件图；见同一实验实现"
+      },
+      "implementation": {
+        "html": "/notebook/labs/m-efg/interactions.html?experiment=EXP-MEFG-M20-PARITY",
+        "engine": "/notebook/labs/m-efg/engine.js",
+        "static_available_without_js": true
+      },
+      "source_id_aliases": {
+        "MEFG-ODD": "MA-OCC",
+        "MEFG-OCC-EQUITY": "PFH-EQUITY",
+        "MEFG-OCC-ETF": "PFH-ETF",
+        "MEFG-OIC-T1": "PFH-T1",
+        "MEFG-SPX": "MA-SPX",
+        "MEFG-MIT-OPTIONS": "PFH-MIT-OPTIONS",
+        "MEFG-MIT-KOGAN": "PFH-MIT-BSM",
+        "MEFG-OIC-PARITY": "PFH-PARITY",
+        "MEFG-OIC-EXERCISE": "PFH-EXERCISE",
+        "MEFG-CHICAGOFED-2025": "PFH-CHIFED2025"
+      },
+      "input_uri": "https://ou-liu-red-sugar.github.io/notebook/labs/m-efg/inputs.json",
+      "static_equivalent": "https://ou-liu-red-sugar.github.io/notebook/labs/m-efg/static/M20.html"
+    }
+  ],
+  "hard_prerequisites": [
+    "M16"
+  ],
+  "interactions": [
+    {
+      "id": "EXP-MEFG-M20-PARITY",
+      "title": "平价：用哪一侧成交",
+      "url": "/notebook/labs/m-efg/interactions.html?experiment=EXP-MEFG-M20-PARITY",
+      "height": 1250,
+      "open": true,
+      "experiment_id": "EXP-MEFG-M20-PARITY",
+      "inline": true,
+      "static_anchor": "m20-explore"
+    }
+  ],
+  "references": [
+    {
+      "kind": "source_link",
+      "label": "MEFG-OIC-PARITY",
+      "href": "https://www.optionseducation.org/advancedconcepts/put-call-parity",
+      "source_id": "PFH-PARITY",
+      "locator": "Options Industry Council，*Put/Call Parity*，Undated; retrieved 2026-09-21。[原文](https://www.optionseducation.org/advancedconcepts/put-call-parity)。本篇定位：Full article including formulas, financing/dividend/friction discussion。"
+    },
+    {
+      "kind": "source_link",
+      "label": "MEFG-STATE",
+      "href": "/notebook/labs/qt-f/data/qt-f-shared-state-experiment.json",
+      "source_id": "MEFG-STATE",
+      "locator": "QT-F / Lead frozen teaching contract，*EXP-STATE-01 shared finite-market experiment*，2026-09-21-v1。[原文](/notebook/labs/qt-f/data/qt-f-shared-state-experiment.json)。本篇定位：Complete contract; two_state; three_state_incomplete; three_state_augmented_complete; formula_contract; assumptions。"
+    },
+    {
+      "kind": "source_link",
+      "label": "MEFG-MIT-OPTIONS",
+      "href": "https://ocw.mit.edu/courses/15-401-finance-theory-i-fall-2008/c40ecc0cc0dce0fbf2d229bc4027c43b_MIT15_401F08_lec10.pdf",
+      "source_id": "PFH-MIT-OPTIONS",
+      "locator": "Andrew W. Lo, MIT OpenCourseWare，*15.401 Finance Theory I, Lecture 10–11: Options*，Fall 2008。[原文](https://ocw.mit.edu/courses/15-401-finance-theory-i-fall-2008/c40ecc0cc0dce0fbf2d229bc4027c43b_MIT15_401F08_lec10.pdf)。本篇定位：Slides 3–9: option definitions and payoff；Slides 16–21: binomial replication and risk-neutral valuation。"
+    }
+  ],
+  "provenance": {
+    "source_package": "docs/production/20260921/drafts/m-efg-v3/notebook-M-EFG-20260921-review-v3",
+    "received_content_version": "2026-09-21-MEFG-review-v2",
+    "author_review_phase": "review-v3",
+    "independent_review": "receipts/m-efg-independent-draft-review.md",
+    "import_status": "candidate_only",
+    "original_numeric_suites_rerun": false,
+    "browser_UI_verified": false
+  }
+}

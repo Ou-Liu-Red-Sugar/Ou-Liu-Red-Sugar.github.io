@@ -1,0 +1,44 @@
+(function(){'use strict';
+const E=window.EIC,D=window.EIC_INPUTS,$=id=>document.getElementById(id),fmt=(n,d=6)=>n===null?'未定义':n.toLocaleString('en-US',{minimumFractionDigits:d,maximumFractionDigits:d});
+const labels=D.io.labels,colors=['#146862','#365c9e','#946428'];let cell=[0,1],chartMode='level';
+function val(id){const s=$(id).value.trim();if(s==='')throw new RangeError('请填写数值');return Number(s)}
+function err(id,e){$(id).hidden=!e;$(id).textContent=e?e.message:''}
+function row(name,v){return '<tr><th>'+name+'</th>'+v.map(x=>'<td class="num">'+fmt(x)+'</td>').join('')+'</tr>'}
+function ioChart(r){const width=700,height=260,l=64,rr=30,top=20,bottom=45;const pw=width-l-rr,ph=height-top-bottom,maxY=Math.max(...r.limit,1)*1.06,maxX=Math.max(r.rounds,1);
+let s='<svg class="chart" viewBox="0 0 '+width+' '+height+'" role="img" aria-label="各产品累计需要量随路径层数变化，不表示日历时间">';
+for(let k=0;k<=4;k++){const n=maxY*k/4,y=top+ph*(1-k/4);s+='<line x1="'+l+'" y1="'+y+'" x2="'+(width-rr)+'" y2="'+y+'" stroke="#d9e3e5"/><text x="'+(l-8)+'" y="'+(y+5)+'" text-anchor="end">'+Math.round(n)+'</text>'}
+for(let j=0;j<3;j++){const line=r.path.map(v=>(l+pw*v.round/maxX)+','+(top+ph*(1-v.cumulative[j]/maxY))).join(' ');s+='<polyline points="'+line+'" fill="none" stroke="'+colors[j]+'" stroke-width="3" stroke-dasharray="'+(['none','9 4','3 3'][j])+'"/>';const end=r.path.at(-1);s+='<circle cx="'+(l+pw*end.round/maxX)+'" cy="'+(top+ph*(1-end.cumulative[j]/maxY))+'" r="3" fill="'+colors[j]+'"/>';s+='<text x="'+(90+j*170)+'" y="250">'+labels[j]+'：'+fmt(end.cumulative[j],2)+'</text>'}
+s+='<text x="'+l+'" y="231">0</text><text x="'+(width-rr)+'" y="231" text-anchor="end">'+r.rounds+' 层</text></svg>';return s}
+function renderIO(){try{const r=E.io(D,[val('y0'),val('y1'),val('y2')],val('rounds'),...cell);err('io-error',null);$('round-label').textContent=r.rounds;
+$('io-chain').innerHTML='<div class="box">最终交付 y<br>'+r.y.map(x=>fmt(x,2)).join(' / ')+'</div><div class="arrow">引出直接投入 →</div><div class="box">第一轮 Ay<br>'+r.direct.map(x=>fmt(x,2)).join(' / ')+'</div><div class="arrow">投入仍需生产 →</div><div class="box">第二轮 A²y<br>'+r.second.map(x=>fmt(x,2)).join(' / ')+'</div>';
+$('io-values').textContent='累加至第 '+r.rounds+' 层；与展示矩阵完全需要的差额为 '+r.tail.map(x=>fmt(Math.max(x,0),6)).join(' / ')+'。';
+$('io-chart').innerHTML=ioChart(r);$('io-path-table').innerHTML=row('最终交付 y',r.y)+row('直接投入 Ay',r.direct)+row('当前累计',r.partial)+row('展示 A 的全部轮次',r.limit);
+const c=r.selected; $('cell-summary').innerHTML='<p><strong>生产一元'+labels[c.user]+'，需要多少'+labels[c.supplier]+'？</strong></p><div class="metrics"><div class="metric">直接 Aᵢⱼ<b>'+fmt(c.direct)+'</b></div><div class="metric">第二层 (A²)ᵢⱼ<b>'+fmt(c.second)+'</b></div><div class="metric">展示 A 的完全需要<b>'+fmt(c.complete_display)+'</b></div></div>';
+$('cell-paths').innerHTML=c.second_paths.map((v,k)=>'<tr><td>'+labels[c.user]+'的要求 → '+labels[k]+'投入 → '+labels[c.supplier]+'投入</td><td>'+D.io.A_display[c.supplier][k].toFixed(3)+' × '+D.io.A_display[k][c.user].toFixed(3)+'</td><td class="num">'+fmt(v)+'</td></tr>').join('');
+$('identity-note').textContent='单位阵 I 的当前格 = '+c.identity+'。'+(c.identity===0?'这是非对角格，没有“最终交付自身一元”；不能从完全需要中减1。':'这是对角格，完全需要包含最终交付自身的一元。')+' 发表 R 的对应圆整格为 '+fmt(c.complete_published,3)+'，与展示 A 的逆分开记录。';
+$('io-precision-table').innerHTML=row('展示 A 求逆 × 当前 y',r.limit)+row('发表 R × 当前 y',r.published)+row('原使用表固定快照',r.source_snapshot);
+$('baseline-note').textContent=r.source_snapshot_is_current_scenario?'当前 y 为原例，可把第三行用作历史原例比较；它仍不是第一行逐轮路径的终点。':'当前 y 已改变。第三行仍是原最终需求下的历史快照，不是当前情景应当达到的目标。';
+document.querySelectorAll('#matrix button').forEach(b=>b.setAttribute('aria-pressed',b.dataset.cell===cell.join(',')));notify();}catch(e){err('io-error',e)}}
+function tradeChart(r){const share=chartMode==='share',v=share?r.rows.map(x=>x.share_pct):r.rows.flatMap(x=>[x.china/1000,x.world/1000]);const max=Math.max(...v)*1.15;const W=700,H=235,left=88,right=140,pw=W-left-right;let s='<svg class="chart" viewBox="0 0 '+W+' '+H+'" role="img" aria-label="'+(share?'两年中国来源份额':'两年中国来源和世界进口金额')+'">';let index=0;
+for(let i=0;i<2;i++){const series=share?[{name:r.rows[i].year+'',value:r.rows[i].share_pct,color:colors[0]}]:[{name:r.rows[i].year+' 中国',value:r.rows[i].china/1000,color:colors[0]},{name:r.rows[i].year+' 世界',value:r.rows[i].world/1000,color:colors[1]}];for(const a of series){const y=25+index*(share?75:44),w=pw*a.value/max;s+='<text x="'+(left-8)+'" y="'+(y+20)+'" text-anchor="end">'+a.name+'</text><rect x="'+left+'" y="'+y+'" width="'+w+'" height="27" fill="'+a.color+'"/><text x="'+(left+w+8)+'" y="'+(y+20)+'">'+fmt(a.value,2)+(share?'%':' 十亿美元')+'</text>';index++}}return s+'<text x="'+left+'" y="225">'+(share?'分母：同年美国自世界进口商品总额':'图中按原百万美元金额除1000，转为十亿美元')+'</text></svg>'}
+function renderTrade(){const r=E.trade(D);$('trade-table').innerHTML=r.rows.map(v=>'<tr><th>'+v.year+'</th><td class="num">'+fmt(v.china,1)+'</td><td class="num">'+fmt(v.world,1)+'</td><td class="num">'+fmt(v.share_pct,6)+'%</td></tr>').join('');$('trade-metrics').innerHTML='<div class="metric">中国来源金额增长<b>'+fmt(r.china_growth_pct,6)+'%</b></div><div class="metric">世界进口金额增长<b>'+fmt(r.world_growth_pct,6)+'%</b></div><div class="metric">中国来源份额变化<b>'+fmt(r.share_change_pp,6)+' 个百分点</b></div>';$('trade-chart').innerHTML=tradeChart(r);notify()}
+function renderNetwork(){try{const r=E.network(D,val('exports'),val('purchases'));err('network-error',null);$('network-flow').innerHTML='<div class="flow-node">中国供应商<br>本批投入 '+fmt(r.purchases,2)+' USD</div><div class="flow-arrow">投入采购 →</div><div class="flow-node">越南工厂<br>加工／装配</div><div class="flow-arrow">成品出口 →</div><div class="flow-node">美国进口<br>'+fmt(r.exports,2)+' USD</div>';$('network-values').innerHTML='<div class="metric">假定成品原产地<b>越南</b></div><div class="metric">采购／出口金额比<b>'+(r.purchase_ratio_pct===null?'未定义':fmt(r.purchase_ratio_pct,2)+'%')+'</b></div><div class="metric">中国增加值份额<b>未知</b></div><div class="metric">所有权与控制<b>未知</b></div>';$('network-note').textContent=r.note;notify()}catch(e){err('network-error',e)}}
+function renderPaper(){try{const r=E.research(D,val('delta-pp'));err('paper-error',null);$('paper-values').innerHTML=r.rows.map(v=>'<div class="metric">'+(v.destination==='Vietnam'?'越南':'墨西哥')+'列第一项贡献<b>'+fmt(v.partial_term_pp,2)+' 个百分点</b><span class="small">系数 '+v.beta+' × 假设变化 '+r.delta_china_pp+'</span></div>').join('');notify()}catch(e){err('paper-error',e)}}
+const ids=['exp-ei05-io','exp-ei14-reallocation'];let timer=0;
+function notify(){clearTimeout(timer);timer=setTimeout(()=>{if(window.parent!==window)window.parent.postMessage({type:'eic-height',id:ids.find(id=>!$(id).hidden),height:Math.ceil(document.querySelector('main').getBoundingClientRect().height+24)},location.origin)},100)}
+function route(search=location.search,fragment=location.hash){const q=new URLSearchParams(search),hasQ=q.has('experiment'),hash=decodeURIComponent(fragment.replace(/^#/,'')),selected=hasQ?q.get('experiment'):(ids.includes(hash)?hash:null),invalid=hasQ&&!ids.includes(selected);
+$('route-error').hidden=!invalid;$('route-error').textContent=invalid?'未识别的实验 ID；请使用上方完整入口。':'';
+ids.forEach(id=>$(id).hidden=invalid||(selected!==null&&id!==selected));
+$('lab-header').hidden=(window.parent!==window||q.get('embed')==='1')&&!invalid;notify()}
+for(let i=0;i<3;i++)for(let j=0;j<3;j++){const b=document.createElement('button');b.type='button';b.dataset.cell=i+','+j;b.setAttribute('aria-label','供给'+labels[i]+'、使用'+labels[j]+'，系数'+D.io.A_display[i][j]);b.textContent=D.io.A_display[i][j].toFixed(3);b.addEventListener('click',()=>{cell=[i,j];renderIO()});$('matrix').appendChild(b)}
+['y0','y1','y2','rounds'].forEach(id=>$(id).addEventListener('input',renderIO));
+$('io-reset').addEventListener('click',()=>{D.io.y_default.forEach((v,i)=>$('y'+i).value=v);$('rounds').value=2;renderIO()});
+$('io-shock').addEventListener('click',()=>{[40,140,20].forEach((v,i)=>$('y'+i).value=v);renderIO()});
+$('io-next').addEventListener('click',()=>{$('rounds').value=Math.min(80,val('rounds')+1);renderIO()});
+['exports','purchases'].forEach(id=>$(id).addEventListener('input',renderNetwork));$('delta-pp').addEventListener('input',renderPaper);
+document.querySelectorAll('[data-tab]').forEach(b=>b.addEventListener('click',()=>{const section=b.closest('.lab-module');section.querySelectorAll('.tab-panel').forEach(p=>p.hidden=p.id!==b.dataset.tab);section.querySelectorAll('[data-tab]').forEach(x=>x.setAttribute('aria-pressed',String(x===b)));notify()}));
+document.querySelectorAll('[data-chart]').forEach(b=>b.addEventListener('click',()=>{chartMode=b.dataset.chart;document.querySelectorAll('[data-chart]').forEach(x=>x.setAttribute('aria-pressed',String(x===b)));renderTrade()}));
+window.addEventListener('hashchange',()=>route());window.addEventListener('resize',notify);document.addEventListener('toggle',notify,true);
+renderIO();renderTrade();renderNetwork();renderPaper();route();
+window.EIC_UI={refreshIO:renderIO,route,notify};
+})();

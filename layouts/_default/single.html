@@ -58,10 +58,10 @@
     {{- if (templates.Exists "partials/post_footer.html") -}}
       {{- partial "post_footer.html" . -}}
     {{- else -}}
-      {{- with .Params.tags -}}
+      {{- with .GetTerms "tags" -}}
         <ul class="post-tags">
           {{- range . -}}
-            <li><a href="{{ (printf "tags/%s/" (. | urlize)) | relURL }}">{{ . }}</a></li>
+            <li><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></li>
           {{- end -}}
         </ul>
       {{- end -}}

@@ -1,0 +1,309 @@
+{
+  "exp-ei10-rate-transmission": {
+    "annual_asset_income": 4,
+    "annual_floating_expense": 1,
+    "annual_net_before_refinance": 3,
+    "annual_refinance_expense": 2,
+    "first_year_refinance_expense": 1,
+    "annual_net_after_refinance": 1,
+    "first_year_net_accrual": 2,
+    "series": [
+      {
+        "t": 0,
+        "annual_net": 3,
+        "cumulative_accrual": 0
+      },
+      {
+        "t": 0.08333333333333333,
+        "annual_net": 3,
+        "cumulative_accrual": 0.25
+      },
+      {
+        "t": 0.16666666666666666,
+        "annual_net": 3,
+        "cumulative_accrual": 0.5
+      },
+      {
+        "t": 0.25,
+        "annual_net": 3,
+        "cumulative_accrual": 0.75
+      },
+      {
+        "t": 0.3333333333333333,
+        "annual_net": 3,
+        "cumulative_accrual": 1
+      },
+      {
+        "t": 0.4166666666666667,
+        "annual_net": 3,
+        "cumulative_accrual": 1.25
+      },
+      {
+        "t": 0.5,
+        "annual_net": 1,
+        "cumulative_accrual": 1.5
+      },
+      {
+        "t": 0.5833333333333334,
+        "annual_net": 1,
+        "cumulative_accrual": 1.5833333333333333
+      },
+      {
+        "t": 0.6666666666666666,
+        "annual_net": 1,
+        "cumulative_accrual": 1.6666666666666667
+      },
+      {
+        "t": 0.75,
+        "annual_net": 1,
+        "cumulative_accrual": 1.75
+      },
+      {
+        "t": 0.8333333333333334,
+        "annual_net": 1,
+        "cumulative_accrual": 1.8333333333333333
+      },
+      {
+        "t": 0.9166666666666666,
+        "annual_net": 1,
+        "cumulative_accrual": 1.9166666666666667
+      },
+      {
+        "t": 1,
+        "annual_net": 1,
+        "cumulative_accrual": 2
+      }
+    ],
+    "units": "million USD; annualized rates versus first-calendar-year accrual; not payment-date cash"
+  },
+  "exp-ei11-fx": {
+    "receivable_start": 110.00000000000001,
+    "receivable_end": 105,
+    "payable_start": 88,
+    "payable_end": 84,
+    "receivable_change": -5.000000000000004,
+    "payable_gain": 4.0000000000000036,
+    "net_change": -1.0000000000000009,
+    "net_start": 22,
+    "net_end": 21,
+    "net_eur": 20,
+    "conditions": "USD functional currency; EUR fixed amounts; same recognition and settlement dates; no derivative contract"
+  },
+  "exp-ei12-rule-path": {
+    "need": 120,
+    "eligible_sources": 50,
+    "excluded_sources": 0,
+    "excluded_credit_line": 0,
+    "signed_net_need": 70,
+    "net_need": 70,
+    "test_frequency": "先查完整分类，不能自动推定",
+    "buffer_balance": null,
+    "buffer_surplus": null,
+    "interpretation": "30-day scenario net need; distinct source and reserve asset sets; not LCR/capital gap"
+  },
+  "exp-ei13-tech-path": {
+    "baseline": 10,
+    "delta": [
+      0.1,
+      0
+    ],
+    "post_output": 10.1,
+    "growth": 0.01,
+    "weights": [
+      0.1,
+      0.9
+    ],
+    "adopter_output_share": 0.1,
+    "adopter_count_share": 0.5,
+    "count_weighted_gain": 0.05,
+    "interpretation": "same population, additive baseline output, fixed inputs/no spillovers; not BTOS × QJE"
+  },
+  "exp-ei15-metric-contract": {
+    "branch": "electricity",
+    "qty2024": 3975382,
+    "qty2025": 4058007,
+    "revenue": 553285,
+    "growth": 2.0784166150573657,
+    "averageCents": 13.634402306353833,
+    "status": "2024 final / 2025 preliminary；EPM 2026-08-26"
+  },
+  "exp-ei16-industry-path": {
+    "region": "rto",
+    "rows": [
+      {
+        "key": "coal",
+        "label": "煤炭",
+        "y2024": 652156,
+        "y2025": 737151,
+        "growth": 13.03292463766339
+      },
+      {
+        "key": "natural_gas",
+        "label": "天然气",
+        "y2024": 1869902,
+        "y2025": 1807338,
+        "growth": -3.345843792883263
+      },
+      {
+        "key": "nuclear",
+        "label": "核能",
+        "y2024": 781865,
+        "y2025": 784781,
+        "growth": 0.37295441028821763
+      },
+      {
+        "key": "hydro",
+        "label": "常规水电",
+        "y2024": 242896,
+        "y2025": 247023,
+        "growth": 1.6990810882023588
+      },
+      {
+        "key": "utility_scale_solar",
+        "label": "公用事业规模太阳能",
+        "y2024": 219834,
+        "y2025": 295671,
+        "growth": 34.49739348781353
+      },
+      {
+        "key": "residual",
+        "label": "其余净额（重排）",
+        "y2024": 541981,
+        "y2025": 557538,
+        "growth": 2.8703958256839357
+      }
+    ],
+    "totals": [
+      4308634,
+      4429502
+    ],
+    "growth": 2.8052510377999162,
+    "salesGrowth": 2.0784166150573657,
+    "plannedGW": 86,
+    "plannedIdentity": "2026计划，if realized；不是发电量",
+    "path": "分时可用出力 → 现货/长期合同 → 燃料与对冲 → 净收入"
+  },
+  "exp-ei17-static-capacity-complementarity": {
+    "a": 120,
+    "K": 50,
+    "q": 50,
+    "p": 70,
+    "mu": 20,
+    "slack": 0,
+    "complementarity": 0,
+    "regime": "绑定且乘子为正",
+    "identity": "one-period competitive teaching model; abstract price/output, not the IMES model"
+  },
+  "exp-ei17-fig7-relax-constraints": {
+    "rows": [
+      {
+        "period": 1,
+        "a": 100,
+        "K": 80,
+        "constrained_q": 50,
+        "constrained_p": 50,
+        "slack_q": 50,
+        "slack_p": 50,
+        "difference": 0,
+        "mu": 0
+      },
+      {
+        "period": 2,
+        "a": 120,
+        "K": 50,
+        "constrained_q": 50,
+        "constrained_p": 70,
+        "slack_q": 60,
+        "slack_p": 60,
+        "difference": 10,
+        "mu": 20
+      },
+      {
+        "period": 3,
+        "a": 130,
+        "K": 50,
+        "constrained_q": 50,
+        "constrained_p": 80,
+        "slack_q": 65,
+        "slack_p": 65,
+        "difference": 15,
+        "mu": 30
+      },
+      {
+        "period": 4,
+        "a": 110,
+        "K": 80,
+        "constrained_q": 55,
+        "constrained_p": 55,
+        "slack_q": 55,
+        "slack_p": 55,
+        "difference": 0,
+        "mu": 0
+      }
+    ],
+    "identity": "same demand sequence, constraint switched off; additional teaching data, not Fig.7 posterior simulation"
+  },
+  "exp-ei17-fig9-interaction": {
+    "baseline": {
+      "a": 100,
+      "K": 80,
+      "q": 50,
+      "p": 50,
+      "mu": 0,
+      "slack": 30,
+      "complementarity": 0,
+      "regime": "松弛",
+      "identity": "one-period competitive teaching model; abstract price/output, not the IMES model"
+    },
+    "demand_only": {
+      "a": 130,
+      "K": 80,
+      "q": 65,
+      "p": 65,
+      "mu": 0,
+      "slack": 15,
+      "complementarity": 0,
+      "regime": "松弛",
+      "identity": "one-period competitive teaching model; abstract price/output, not the IMES model"
+    },
+    "capacity_only": {
+      "a": 100,
+      "K": 50,
+      "q": 50,
+      "p": 50,
+      "mu": 0,
+      "slack": 0,
+      "complementarity": 0,
+      "regime": "恰好触边，乘子为零",
+      "identity": "one-period competitive teaching model; abstract price/output, not the IMES model"
+    },
+    "joint": {
+      "a": 130,
+      "K": 50,
+      "q": 50,
+      "p": 80,
+      "mu": 30,
+      "slack": 0,
+      "complementarity": 0,
+      "regime": "绑定且乘子为正",
+      "identity": "one-period competitive teaching model; abstract price/output, not the IMES model"
+    },
+    "demand_effect_without_capacity": 15,
+    "capacity_alone_effect": 0,
+    "conditional_demand_effect": 30,
+    "interaction": 15,
+    "total_effect": 30,
+    "identity": "price-unit four-state teaching example; difference operation mirrors Fig.9b, not estimated inflation"
+  },
+  "exp-ei18-paper-map": {
+    "cashLow": 0.1,
+    "cashHigh": 0.12000000000000001,
+    "derivativeLow": 0.2538,
+    "derivativeHigh": 0.26176,
+    "derivativeDifference": 0.00796,
+    "logDifference": 0.04179,
+    "logPoints": 4.179,
+    "exactRelativeDifference": 0.04267549390443921,
+    "interpretation": "Table2(2) conditional interaction; declared working-scale illustration with FFR=5.25 and cash-ratio gap encoded as 0.02; paper unit ambiguity retained; not company forecast"
+  }
+}

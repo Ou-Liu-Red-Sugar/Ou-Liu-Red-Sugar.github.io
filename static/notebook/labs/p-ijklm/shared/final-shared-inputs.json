@@ -1,0 +1,726 @@
+{
+  "schema": "portfolio-p-ijklm-final-shared-inputs-v1",
+  "task_id": "notebook-portfolio-20260921",
+  "as_of": "2026-09-21",
+  "status": "final_for_named_pro_draft",
+  "scope": {
+    "nodes": [
+      "P20",
+      "P21",
+      "P22",
+      "P23",
+      "P26",
+      "P24",
+      "P27",
+      "P12",
+      "P25",
+      "P32",
+      "P33"
+    ],
+    "body_drafting_done": false,
+    "account_data": false,
+    "current_quote_update": false,
+    "support_57_checks_rerun": false,
+    "qt24_monte_carlo_rerun": false
+  },
+  "global_rules": {
+    "teaching_inputs_are_not_executions": true,
+    "real_rules_and_teaching_paths_keep_separate_identity": true,
+    "external_cash_flows_are_not_returns": true,
+    "P23_and_P24_share_same_corn_ledger": true,
+    "P26_only_consumes_QT24_EXP_HEDGE_01": true
+  },
+  "inputs": [
+    {
+      "id": "SIM-PI-BETA-01",
+      "owner": "P20",
+      "consumers": [
+        "P20"
+      ],
+      "version": "final-20260921",
+      "unit": {
+        "money": "USD",
+        "index": "points",
+        "beta": "dimensionless",
+        "contracts": "MES"
+      },
+      "identity": "Teaching beta-hedge case; MES multiplier is real, portfolio/beta/price/fees are teaching inputs.",
+      "defaults": {
+        "portfolio_value": 950000,
+        "portfolio_beta": 1.15,
+        "target_beta": 0.25,
+        "futures_price": 5000,
+        "multiplier_usd_per_point": 5,
+        "selected_short_contracts": 34,
+        "fee_per_contract_per_side": 2
+      },
+      "default_results": {
+        "ideal_short_contracts": 34.2,
+        "future_notional": 850000,
+        "achieved_beta": 0.25526315789473675,
+        "combined_gross_pnl_under_4pct_common_move": 9700,
+        "roundtrip_fees": 136,
+        "combined_net_pnl": 9564
+      },
+      "branch_boundaries": {
+        "34_vs_35": "Compare residual beta error explicitly.",
+        "margin": "Not supplied; do not infer from notional."
+      }
+    },
+    {
+      "id": "CME-GRAIN-TEACHING",
+      "owner": "P21",
+      "consumers": [
+        "P21",
+        "P23",
+        "P24"
+      ],
+      "version": "final-20260921",
+      "unit": {
+        "price": "USD/bushel",
+        "quantity": "bushels",
+        "contract": "5000 bushels"
+      },
+      "identity": "CME teaching illustration plus current corn contract identity; not an enterprise execution.",
+      "defaults": {
+        "procurement": {
+          "quantity": 15000,
+          "initial_futures": 5.75,
+          "contracts_long": 3,
+          "outcomes": [
+            {
+              "futures": 6.25,
+              "cash": 6.2,
+              "futures_pnl": 7500,
+              "effective_unit_price": 5.7
+            },
+            {
+              "futures": 5.45,
+              "cash": 5.45,
+              "futures_pnl": -4500,
+              "effective_unit_price": 5.75
+            },
+            {
+              "futures": 6.03,
+              "cash": 6.1,
+              "futures_pnl": 4200,
+              "effective_unit_price": 5.82
+            }
+          ]
+        },
+        "sales": {
+          "quantity": 20000,
+          "initial_futures": 5.7,
+          "contracts_short": 4,
+          "production_cost": 5.1,
+          "outcomes": [
+            {
+              "futures": 5.2,
+              "cash": 5.05,
+              "futures_pnl": 10000,
+              "effective_unit_price": 5.55,
+              "business_profit": 9000
+            },
+            {
+              "futures": 5.9,
+              "cash": 5.7,
+              "futures_pnl": -4000,
+              "effective_unit_price": 5.5,
+              "business_profit": 8000
+            },
+            {
+              "futures": 5.37,
+              "cash": 5.1,
+              "futures_pnl": 6600,
+              "effective_unit_price": 5.43,
+              "business_profit": 6600
+            }
+          ]
+        }
+      },
+      "source_corrections": [
+        "printed p21: basis -0.25→-0.20 is +0.05, not +0.10",
+        "printed p22: basis -0.25→-0.27 is -0.02, not a gain"
+      ],
+      "branch_boundaries": {
+        "quantity_mismatch": "Show uncovered/excess futures exposure.",
+        "quality_location": "Contract unit does not eliminate local basis."
+      }
+    },
+    {
+      "id": "CME-3Y-202009-TEACHING",
+      "owner": "P22",
+      "consumers": [
+        "P22"
+      ],
+      "version": "final-20260921",
+      "unit": {
+        "sensitivity": "USD/bp",
+        "par": "USD",
+        "contracts": "3-Year Treasury futures"
+      },
+      "identity": "CME Sep-2020 teaching issuance hedge; curve/CTD changes are explicit teaching stresses.",
+      "defaults": {
+        "par": 100000000,
+        "proxy_par": 200000,
+        "proxy_dv01": 56.11,
+        "portfolio_dv01": 28055,
+        "future_dv01": 61.7,
+        "selected_short_contracts": 455
+      },
+      "default_results": {
+        "ideal_short_contracts": 454.70016207455427,
+        "residual_dv01": -18.5,
+        "plus_1bp_pnl": 18.5,
+        "twist": {
+          "portfolio_pnl": -119450,
+          "future_pnl": 128765,
+          "net_pnl": 9315
+        },
+        "ctd_change": {
+          "alternative_future_dv01": 58,
+          "unadjusted_residual_dv01": 1665,
+          "new_ideal_contracts": 483.7068965517241
+        }
+      },
+      "branch_boundaries": {
+        "conversion_factor": "Delivery invoice adjustment, not DV01.",
+        "linear": "Does not cover full curve/convexity/CTD/funding."
+      }
+    },
+    {
+      "id": "SIM-PJ-CORN-CASH-01",
+      "owner": "P23",
+      "consumers": [
+        "P23",
+        "P24"
+      ],
+      "version": "final-20260921",
+      "unit": {
+        "money": "USD",
+        "quantity": "bushels",
+        "price": "USD/bushel"
+      },
+      "identity": "Single shared corn procurement funding ledger for P23/P24.",
+      "defaults": {
+        "initial_own_cash": 106000,
+        "unavailable_until_procurement": 90000,
+        "current_liquid": 16000,
+        "initial_margin_per_contract": 3000,
+        "maintenance_per_contract": 2000,
+        "futures_path": [
+          5.75,
+          5.45,
+          5.1,
+          6.25
+        ],
+        "procurement_quantity": 15000,
+        "terminal_cash_price": 6.2
+      },
+      "default_results": {
+        "three_contracts_no_credit": {
+          "unfunded_gap_step2": 2750,
+          "close_price": 5.1,
+          "futures_pnl": -9750,
+          "ending_own_cash": 3250,
+          "effective_purchase_cost": 102750
+        },
+        "two_contracts": {
+          "futures_pnl": 5000,
+          "ending_own_cash": 18000,
+          "effective_purchase_cost": 88000
+        },
+        "three_contracts_credit": {
+          "limit": 3000,
+          "draw": 2750,
+          "interest": 7.534246575342481,
+          "ending_own_cash": 20492.46575342465,
+          "effective_purchase_cost": 85507.53424657535
+        },
+        "unhedged": {
+          "ending_own_cash": 13000,
+          "effective_purchase_cost": 93000
+        }
+      },
+      "branch_boundaries": {
+        "P23": "Stop ledger when deadline funding fails.",
+        "P24": "Same ledger; later rebound is not earned after close.",
+        "credit_2000": "Still short by 750 at step2."
+      }
+    },
+    {
+      "id": "EXP-HEDGE-01",
+      "owner": "QT24",
+      "consumers": [
+        "QT24",
+        "P26"
+      ],
+      "version": "qt-ghi-support-20260921-v1",
+      "status": "adopted_frozen_by_lead",
+      "unit": {
+        "price": "model units",
+        "cash": "USD",
+        "shares": "shares",
+        "rate": "continuous annual",
+        "time": "years"
+      },
+      "identity": "Only dynamic-hedge default. P26 consumes; QT24 owns computation.",
+      "defaults": {
+        "S0": 100,
+        "K": 100,
+        "multiplier": 100,
+        "sigma": 0.2,
+        "T": "30/365",
+        "r": 0.03,
+        "hand_path": [
+          100,
+          102,
+          101,
+          104
+        ],
+        "half_spread_bps": 5
+      },
+      "default_results": {
+        "terminal_hedge_wealth": 446.6663306126902,
+        "call_payoff": 400,
+        "hedge_error": 46.6663306126902,
+        "max_borrowing_after_trade": 6647.11422055133,
+        "max_borrowing_over_cash_events": 6652.57984794302,
+        "max_borrowing_event": "day20 after interest, before rebalance trade",
+        "t0_borrowing_after_initial_trade": 5047.373075034779
+      },
+      "cash_event_ledger": [
+        {
+          "event": "t0_after_initial_trade",
+          "cash": -5047.373075034779
+        },
+        {
+          "event": "day10_after_rebalance",
+          "cash": -6647.11422055133
+        },
+        {
+          "event": "day20_after_interest_before_trade",
+          "cash": -6652.57984794302
+        },
+        {
+          "event": "day20_after_trade",
+          "cash": -6136.595414576697
+        }
+      ],
+      "branch_boundaries": {
+        "credit_limit_5000": "Reject at t0; no extra initial cash in frozen ledger.",
+        "additional_initial_cash": "New explicit branch only.",
+        "monte_carlo": "Do not rerun/regenerate in P26."
+      }
+    },
+    {
+      "id": "OBS-PK-BUSEQ-FF3-201601-202512",
+      "owner": "P27",
+      "consumers": [
+        "P27",
+        "P12"
+      ],
+      "version": "202607-CRSP-vintage/final-20260921",
+      "unit": {
+        "returns": "monthly decimals",
+        "coefficients": "regression units"
+      },
+      "identity": "Retrospective BusEq research portfolio + same-vintage FF3; not investable fund or point-in-time vintage.",
+      "defaults": {
+        "first_month": 201601,
+        "last_month": 202512,
+        "n": 120
+      },
+      "default_results": {
+        "raw_mean": 0.021445,
+        "rf_mean": 0.0017416666666666668,
+        "excess_mean": 0.019703333333333333,
+        "market_only": {
+          "alpha": 0.007019047298710774,
+          "mkt": 1.1752871007294476,
+          "r2": 0.7521400433210795
+        },
+        "ff3": {
+          "alpha": 0.006608288107652583,
+          "mkt": 1.189948308522266,
+          "smb": -0.057013935898158966,
+          "hml": -0.37581473976432667,
+          "r2": 0.8089633080072767,
+          "mean_contributions": {
+            "mkt": 0.012842517119726558,
+            "smb": 9.844406265082114e-05,
+            "hml": 0.00015408404330337412
+          }
+        }
+      },
+      "branch_boundaries": {
+        "P27": "In-sample model attribution only.",
+        "P12": "Reuse same identity; no second fund history.",
+        "compounding": "Mean contributions add; separately compounded components do not."
+      }
+    },
+    {
+      "id": "SIM-PK-FLOW-01",
+      "owner": "P12",
+      "consumers": [
+        "P12"
+      ],
+      "version": "final-20260921",
+      "unit": {
+        "wealth": "currency units",
+        "return": "decimal per equal period"
+      },
+      "identity": "Two-period cash-flow/fee teaching ledger; not GIPS compliance report.",
+      "defaults": {
+        "initial": 100,
+        "gross_returns": [
+          0.1,
+          -0.1
+        ],
+        "external_contribution_after_period1": 100,
+        "fee_each_period_end": 2
+      },
+      "default_results": {
+        "gross": {
+          "ending": 189,
+          "money_profit": -11,
+          "twr": -0.01,
+          "mwr": -0.03712611616722061
+        },
+        "baseline_net": {
+          "event_order": [
+            "100→110",
+            "fee recognized/paid→108",
+            "contribution100→208",
+            "-10%→187.2",
+            "fee→185.2"
+          ],
+          "ending": 185.2,
+          "twr": -0.03838461538461535,
+          "mwr": -0.05017242404484534
+        },
+        "deferred_payment_only": {
+          "definition": "Fee already recognized/accrued before contribution; payment later.",
+          "twr": -0.03838461538461535,
+          "rule": "Payment does not reduce NAV again."
+        },
+        "recognized_after_contribution": {
+          "event_order": [
+            "100→110",
+            "contribution100→210",
+            "fee recognized/paid→208",
+            "-10%→187.2",
+            "fee→185.2"
+          ],
+          "ending": 185.2,
+          "twr": -0.02990476190476188,
+          "mwr": -0.05017242404484534
+        }
+      },
+      "required_source_additions": [
+        {
+          "source_id": "PI-GIPS20",
+          "locator": "2.A.30",
+          "purpose": "net-of-fees methodology"
+        },
+        {
+          "source_id": "PI-GIPS20",
+          "locator": "2.B.4",
+          "purpose": "fee accrual/recognition versus payment"
+        }
+      ],
+      "branch_boundaries": {
+        "migration_question": "Use recognized-after-contribution branch for exact numeric answer; also explain deferred payment branch.",
+        "compliance": "No GIPS compliance claim."
+      }
+    },
+    {
+      "id": "OBS-PK-VRP-WP2025-17",
+      "owner": "P25",
+      "consumers": [
+        "P25"
+      ],
+      "version": "2025-09-04/final-reading-contract-20260921",
+      "unit": {
+        "returns": "paper-defined",
+        "information_ratio": "CAPM alpha / residual standard deviation"
+      },
+      "identity": "Reading contract for Chicago Fed WP2025-17; no paid raw-data replication.",
+      "required_units": [
+        "§2.3/2.3.1",
+        "§3.1",
+        "§3.2 opening: synthetic return vs market return / conditional mean nonlinearity",
+        "§4.1 and Figure8",
+        "§4.1 footnote26 printed p30/PDF p31 pseudo variance return",
+        "§4.1.1 ex-post break test",
+        "Table2 discussion printed p31/PDF p32"
+      ],
+      "default_results": {
+        "reported_traded_option_information_ratio_early": -0.6,
+        "reported_traded_option_information_ratio_late": 0.09,
+        "break_date": "2012m5",
+        "break_identity": "ex-post break test"
+      },
+      "verification_boundary": {
+        "table2_full_table_reverified": false,
+        "table2_discussion_reverified": true,
+        "do_not_claim": "Full Table2 cells, SEs or p-values independently checked."
+      },
+      "scaling_exercise": {
+        "baseline_denominator": "underlying price",
+        "premium_denominator": "Variable premium/underlying ratio changes series/exposure/weighting; cannot copy results unchanged.",
+        "fixed_positive_scaling": "Same series × fixed c>0 scales alpha and residual SD equally; information ratio unchanged."
+      },
+      "branch_boundaries": {
+        "rolling_oos": "If selected, add FPP3 §5.10 + release/vintage timing.",
+        "section4_2": "Not adopted without full read."
+      }
+    },
+    {
+      "id": "SIM-PL-MBT-CARRY-01",
+      "owner": "P32",
+      "consumers": [
+        "P32"
+      ],
+      "version": "final-20260921",
+      "unit": {
+        "money": "USD",
+        "asset": "BTC",
+        "futures": "MBT"
+      },
+      "identity": "Teaching dated-futures carry; real MBT unit/BRR settlement, synthetic path/margins/loan.",
+      "defaults": {
+        "quantity_btc": 1,
+        "contract_btc": 0.1,
+        "contracts_short": 10,
+        "own_cash": 36000,
+        "loan_principal": 30000,
+        "loan_apr": 0.08,
+        "spot_entry": 50000,
+        "futures_entry": 51500,
+        "initial_margin": 12000,
+        "maintenance_margin": 10000
+      },
+      "default_results": {
+        "initial_free_cash": 3955,
+        "stress_margin_gap": 2545,
+        "forced_exit_net": -1657.2534246575342,
+        "survive_net": 1161.7647260273973,
+        "max_committed_own": 38545,
+        "net_over_initial": 0.03227124238964992,
+        "net_over_max_committed": 0.030140478039366904
+      },
+      "branch_boundaries": {
+        "ratios": "Capital-efficiency descriptors, not TWR/MWR/annualized.",
+        "spot_transfer": "No deadline rescue unless branch explicitly permits transfer.",
+        "settlement": "BRR cash settlement differs from spot sale."
+      }
+    },
+    {
+      "id": "SIM-PL-LINEAR-PERP-01",
+      "owner": "P32",
+      "consumers": [
+        "P32"
+      ],
+      "version": "final-20260921",
+      "unit": {
+        "money": "USDT",
+        "asset": "BTC",
+        "funding_rate": "decimal/event"
+      },
+      "identity": "Teaching linear-USDT perpetual branch; exchange funding mechanics real, path/rates/fees synthetic.",
+      "defaults": {
+        "quantity_btc": 1,
+        "spot_entry": 50000,
+        "spot_exit": 51000,
+        "perp_entry": 50200,
+        "perp_exit": 51100,
+        "funding_marks": [
+          50000,
+          52000,
+          51000
+        ],
+        "funding_rates": [
+          0.0001,
+          -0.0002,
+          0.00015
+        ],
+        "own_cash": 66000
+      },
+      "default_results": {
+        "short_funding_cash": [
+          5,
+          -10.4,
+          7.65
+        ],
+        "net_funding": 2.25,
+        "spot_pnl": 1000,
+        "perp_pnl": -900,
+        "fees": 70.76,
+        "net_pnl": 31.49,
+        "net_over_initial_not_annualized": 0.00047712121212121204
+      },
+      "annualization_exercise": {
+        "assumed_interval_hours": 8,
+        "events_per_365_day_year": 1095,
+        "formula": "(24/8)*365",
+        "single_event_rate": 0.0001,
+        "simple_annualized_math_only": 0.1095,
+        "display": "10.95%",
+        "warning": "Not locked/expected/net return; interval, rate, mark notional, eligibility and fees change."
+      },
+      "branch_boundaries": {
+        "currency": "Keep separate from CME USD branch.",
+        "interval": "Bybit says pairs may differ and settlement frequency can change dynamically."
+      }
+    },
+    {
+      "id": "SIM-PM-LVR-TREE-01",
+      "owner": "P33",
+      "consumers": [
+        "P33"
+      ],
+      "version": "final-20260921",
+      "unit": {
+        "P": "Y/X",
+        "x": "X",
+        "y": "Y",
+        "wealth": "Y",
+        "fees": "Y",
+        "costs": "Y",
+        "LVR": "Y"
+      },
+      "identity": "Finite-tree LVR model plus separate concentrated-range approximation; not deployed-pool data.",
+      "baseline_no_fee_lvr": {
+        "fees": 0,
+        "costs": 0,
+        "paths": [
+          [
+            1,
+            1.4,
+            1.8
+          ],
+          [
+            1,
+            1.4,
+            1.0
+          ],
+          [
+            1,
+            0.6,
+            1.0
+          ],
+          [
+            1,
+            0.6,
+            0.2
+          ]
+        ],
+        "probabilities": [
+          0.25,
+          0.25,
+          0.25,
+          0.25
+        ],
+        "lp": [
+          2.6832815729997477,
+          2,
+          2,
+          0.8944271909999159
+        ],
+        "rebalancing": [
+          2.7380617018914064,
+          2.0619382981085934,
+          2.1163977794943225,
+          1.083602220505678
+        ],
+        "LVR": [
+          0.05478012889165873,
+          0.061938298108593415,
+          0.1163977794943225,
+          0.18917502950576204
+        ],
+        "expected_LP": 1.894427190999916,
+        "expected_rebalancing": 2.0,
+        "expected_LVR": 0.10557280900008417
+      },
+      "separate_fee_variant": {
+        "fee_cash": 0.02,
+        "cost": 0.005,
+        "net_fee_cash": 0.015,
+        "expected_total_lp_net": 1.909427190999916,
+        "expected_rebalancing_minus_total_lp_net": 0.09057280900008391,
+        "naming": "Do not relabel net shortfall as structural LVR."
+      },
+      "concentrated_range": {
+        "bounds_P_Y_per_X": [
+          0.64,
+          1.44
+        ],
+        "P0": 1,
+        "P_final": 1.69,
+        "L": 5.454545454545458,
+        "initial_x_X": 0.9090909090909094,
+        "initial_y_Y": 1.0909090909090913,
+        "final_x_X": 0,
+        "final_y_Y": 2.1818181818181825,
+        "lp_gross_Y": 2.1818181818181825,
+        "hold_Y": 2.627272727272728,
+        "fees_Y": 0.05,
+        "costs_Y": 0.01,
+        "lp_net_Y": 2.2218181818181826,
+        "fees_required_to_match_Y": 0.45545454545454533,
+        "status": "above range: inactive until re-entry"
+      },
+      "source_correction": {
+        "tree": "§5.1 prose DD=.4 conflicts with Figure3 DD=.2; adopt explicit Figure3 .2.",
+        "inventory": "Rebuild rebalancing inventory/cash from x*(P)=1/sqrt(P)."
+      },
+      "branch_boundaries": {
+        "fee_layers": ".02/.005 finite-tree branch is separate from .05/.01 concentrated-range branch.",
+        "empirics": "Do not cite unread §7 empirical proportions.",
+        "ticks": "Range is continuous-price teaching approximation, not tick-valid deployed position."
+      }
+    },
+    {
+      "id": "SIM-PJ-EUR-RECEIVABLE-01",
+      "owner": "P24",
+      "consumers": [
+        "P24"
+      ],
+      "version": "optional-final-20260921",
+      "status": "optional_migration_branch",
+      "unit": {
+        "receivable": "EUR",
+        "money": "USD",
+        "price": "USD/EUR"
+      },
+      "identity": "Optional FX migration exercise, not a disclosed corporate hedge.",
+      "defaults": {
+        "receivable_eur": 1000000,
+        "contract_eur": 125000,
+        "short_contracts": 8,
+        "initial_spot": 1.1,
+        "final_spot": 1.08,
+        "futures_path": [
+          1.105,
+          1.12,
+          1.115,
+          1.083
+        ]
+      },
+      "default_results": {
+        "hedge_net_pnl": 21968,
+        "effective_receivable_usd": 1101968,
+        "effective_rate": 1.101968,
+        "initial_total_wealth": 1152000,
+        "ending_total_wealth": 1153968,
+        "unhedged_ending_total_wealth": 1132000
+      },
+      "branch_boundaries": {
+        "mainline": false,
+        "delivery": "Close before expiry; CME EUR/USD futures are physically deliverable."
+      }
+    }
+  ]
+}

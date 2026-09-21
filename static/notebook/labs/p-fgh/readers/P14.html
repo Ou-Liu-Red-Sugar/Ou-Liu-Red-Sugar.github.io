@@ -1,0 +1,291 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="color-scheme" content="light"><title>P14 现金担保看跌：有条件地买股，不是带利息的限价单</title><style>:root{--ink:#182936;--muted:#536675;--paper:#f5f6f3;--card:#fff;--line:#cbd4d8;--accent:#145c70;--warm:#96571c;--danger:#97382d;--ok:#2b654d;font-family:system-ui,-apple-system,"Noto Sans CJK SC","Microsoft YaHei",sans-serif;color:var(--ink);background:var(--paper);font-size:17px;line-height:1.78}*{box-sizing:border-box}body{margin:0}a{color:var(--accent);text-decoration-thickness:1px;text-underline-offset:3px;overflow-wrap:anywhere}a:hover{color:var(--warm)}a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,summary:focus-visible{outline:3px solid #c17c35;outline-offset:3px}header{max-width:1160px;margin:auto;padding:2.3rem 1.5rem 1.1rem}.wrap{max-width:1160px;margin:0 auto;padding:0 1.5rem 3rem}.reader{max-width:900px;margin:1.6rem auto;background:var(--card);padding:2.1rem 2.8rem;border:1px solid var(--line);border-radius:12px}.reader h1{font-size:2rem;line-height:1.42;margin:0 0 1.25rem}.reader h2{font-size:1.38rem;line-height:1.5;margin-top:2.2rem;padding-top:.6rem;border-top:2px solid #e2e8e8}.reader p{margin:.9rem 0}.reader li{margin:.45rem 0}h1,h2,h3{letter-spacing:.015em}h1{font-size:2.1rem;line-height:1.35}h2{font-size:1.4rem;line-height:1.45}h3{font-size:1.1rem}.eyebrow{color:var(--accent);font-weight:750;letter-spacing:.12em;font-size:.82rem;text-transform:uppercase}.small,.hint,.source-line,figcaption{font-size:.83rem;color:var(--muted)}.hint{display:block;line-height:1.5;margin-top:.22rem}.muted{color:var(--muted)}nav{display:flex;flex-wrap:wrap;gap:.5rem 1rem;padding:.8rem 0}nav a{display:inline-block}.lab{margin:1.5rem 0;padding:1.65rem;background:var(--card);border:1px solid var(--line);border-radius:12px;scroll-margin-top:1rem}.controls{display:grid;grid-template-columns:repeat(auto-fit,minmax(215px,1fr));gap:.85rem 1rem;background:#f0f4f4;padding:1.15rem;border-radius:8px;margin:1rem 0}.controls label{font-size:.9rem;font-weight:650}.controls .full{grid-column:1/-1}.controls input,.controls select{width:100%;min-height:44px;border:1px solid #8d9ea7;border-radius:5px;background:white;color:var(--ink);font:inherit;font-size:.95rem;padding:.48rem .6rem;margin-top:.25rem}.controls input[type=checkbox]{width:22px;min-height:22px;vertical-align:middle}.button,button{display:inline-block;cursor:pointer;border:1px solid var(--accent);border-radius:5px;background:var(--accent);color:white;padding:.5rem .9rem;font:inherit;font-size:.9rem;text-decoration:none;line-height:1.5}button[type=reset]{background:white;color:var(--accent)}.output{border-top:1px solid var(--line);margin-top:1rem;padding-top:1rem}.metric-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(165px,1fr));gap:.7rem;margin:1rem 0}.metric{padding:.9rem;background:#f2f5f3;border:1px solid #d8e1dc;border-radius:7px}.metric strong{font-size:1.3rem;font-variant-numeric:tabular-nums;display:block;line-height:1.6;overflow-wrap:anywhere}.metric span{display:block;font-size:.82rem;color:var(--muted)}.notice{padding:.8rem 1rem;background:#f8f1e7;border-left:4px solid var(--warm);margin:.8rem 0}.error{padding:.8rem 1rem;border-left:4px solid var(--danger);background:#f9ece8}.success{padding:.8rem 1rem;border-left:4px solid var(--ok);background:#edf5ef}.table-wrap{overflow-x:auto;max-width:100%;margin:1rem 0;border:1px solid var(--line);border-radius:6px}table{width:100%;border-collapse:collapse;font-size:.87rem;line-height:1.65;font-variant-numeric:tabular-nums}th,td{text-align:left;border-bottom:1px solid #dce3e5;padding:.55rem .7rem;vertical-align:top}th{background:#edf2f3;font-weight:700}td:not(:first-child){font-variant-numeric:tabular-nums}tr:last-child td{border-bottom:0}.chart{margin:1rem 0;max-width:100%;overflow:hidden}.chart svg,.reader svg{display:block;width:100%;height:auto}.reader figure{margin:1.4rem 0}.reader img{max-width:100%;height:auto}.chart-caption{font-size:.84rem;color:var(--muted);margin:.3rem 0}.equation{max-width:100%;overflow-x:auto;padding:.35rem 0;margin:1rem 0;text-align:center}.inline-math{max-width:100%;display:inline}.inline-math math{font-size:1em}math{font-family:"STIX Two Math","Cambria Math",math;font-size:1.06em}math[display=block]{margin:.35rem auto;max-width:100%}.reader strong{font-weight:730}.footnotes{font-size:.83rem;line-height:1.65;border-top:1px solid var(--line);margin-top:2rem;padding-top:1rem}.footnotes li{overflow-wrap:anywhere}details{border:1px solid var(--line);border-radius:7px;padding:.75rem 1rem;margin:1.2rem 0;background:#f7f8f5}summary{cursor:pointer;font-weight:650}.static{margin-top:1.8rem;padding-top:1rem;border-top:2px solid #bcced1}.static p{font-size:.9rem}.static details{background:white}.lab-iframe{width:100%;height:1150px;border:1px solid var(--line);border-radius:8px}.embed-box{margin:1.4rem 0}.embed-box>p{font-size:.85rem}.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);border:0}.hidden,[hidden]{display:none!important}footer{margin-top:2rem;padding:1rem 0;color:var(--muted);font-size:.82rem}.chip{display:inline-block;margin:.1rem .25rem .1rem 0;padding:.18rem .45rem;border:1px solid var(--line);border-radius:20px;font-size:.75rem}pre{white-space:pre-wrap;overflow-wrap:anywhere;font-size:.85rem;padding:1rem;background:#eef2f3;border-radius:6px}code{font-size:.9em}.section-links{display:flex;gap:.7rem;flex-wrap:wrap}.lab-heading{display:flex;gap:1rem;align-items:baseline;flex-wrap:wrap}.lab-heading h2{margin:.2rem 0}.nojs .controls,.nojs .output{display:none}.embed-mode #lab-nav{display:none}.embed-mode header{padding-bottom:0}.embed-mode header h1{font-size:1.3rem}.embed-mode .lab{margin-top:.6rem}.embed-mode .wrap{padding:.5rem}.embed-mode .lab{border:0}.embed-mode .static{margin-top:1rem}figcaption{text-align:left;margin-top:.5rem}
+@media(max-width:640px){:root{font-size:16px}.wrap{padding:0 .8rem 2rem}header{padding:1.3rem .9rem .5rem}h1{font-size:1.6rem}.reader{padding:1.1rem .9rem;margin:.7rem auto}.reader h1{font-size:1.6rem}.reader h2{font-size:1.2rem}.lab{padding:1rem .75rem}.controls{grid-template-columns:1fr;padding:.8rem}.metric-grid{grid-template-columns:1fr 1fr}.metric{padding:.65rem}.metric strong{font-size:1.05rem}table{font-size:.78rem}th,td{padding:.4rem .48rem}.lab-iframe{height:1450px}.equation{font-size:.88rem}}
+@media print{body{background:white;color:black;font-size:10pt}header,.wrap{max-width:none;padding:0}.reader,.lab{border:0;border-radius:0;padding:0;margin:0 0 1.2cm}.controls,.output,.lab-iframe,.embed-box nav,nav,.button,button,#route-error{display:none!important}.static{display:block!important}details{display:block;border:0;background:none;padding:0}details>*:not(summary){display:block!important}summary{list-style:none}h1,h2,h3{break-after:avoid}.chart,figure,table{break-inside:avoid}.table-wrap{overflow:visible;border:0}table{font-size:8pt}a{color:black}footer{border-top:1px solid #bbb}.footnotes{font-size:8pt}math{font-size:1em}.equation{overflow:visible}.lab[hidden]{display:none!important}}
+
+.svg-narrow{display:none}.svg-wide{display:block}@media(max-width:640px){.svg-wide{display:none}.svg-narrow{display:block}}@media print{.svg-wide{display:block}.svg-narrow{display:none}}
+</style><noscript><style>.controls,.output{display:none!important}
+/* Text remains native-size when the actual figure column is narrow. */
+.pfh-responsive-figure{container:pfh-chart / inline-size;min-width:0;max-width:100%;margin:1.2rem 0}
+.pfh-responsive-figure>.pfh-wide,.pfh-responsive-figure>.svg-wide{display:none}
+.pfh-responsive-figure>.pfh-native,.pfh-responsive-figure>.svg-narrow{display:block}
+.pfh-responsive-figure>figcaption{font-size:14px;line-height:1.6;overflow-wrap:anywhere}
+.pfh-native{min-width:0;max-width:100%;font-size:14px;line-height:1.6}
+.pfh-native p,.pfh-native li,.pfh-native span,.pfh-native strong{overflow-wrap:anywhere}
+.pfh-native .pfh-figure-title{font-size:16px;font-weight:700;line-height:1.5;margin:0 0 .65em;color:var(--ink)}
+.pfh-native .pfh-figure-note,.pfh-native .pfh-axis-label{font-size:14px;line-height:1.6;margin:.65em 0;color:var(--muted)}
+.pfh-legend{list-style:none;padding:0;margin:.65em 0;font-size:14px}
+.pfh-legend li{display:flex;align-items:flex-start;gap:.55em;margin:.35em 0;min-width:0}
+.pfh-legend svg{width:32px!important;height:12px!important;flex:0 0 32px;margin-top:5px}
+.pfh-legend span{min-width:0}
+.pfh-plot{display:grid;grid-template-columns:max-content minmax(0,1fr);grid-template-rows:200px 24px;column-gap:8px;row-gap:4px;margin:1em 0 .25em;min-width:0}
+.pfh-y-ticks{position:relative;width:calc(var(--pfh-y-label-ch,9)*1ch);height:200px;font-size:12px;line-height:1;font-variant-numeric:lining-nums tabular-nums}
+.pfh-y-ticks span{position:absolute;right:0;transform:translateY(-50%);white-space:nowrap;overflow-wrap:normal}
+.pfh-native .pfh-plot-svg{display:block;width:100%;height:200px;min-width:0;background:white}
+.pfh-x-ticks{grid-column:2;position:relative;min-width:0;height:24px;font-size:12px;line-height:1.5;font-variant-numeric:lining-nums tabular-nums}
+.pfh-x-ticks span{position:absolute;top:0;transform:translateX(-50%);white-space:nowrap;overflow-wrap:normal}
+.pfh-x-ticks .first{transform:none}.pfh-x-ticks .last{transform:translateX(-100%)}
+.pfh-cash-list{list-style:none;padding:0;margin:.8em 0;min-width:0}
+.pfh-cash-row{margin:0 0 1.1em;min-width:0}
+.pfh-cash-label{display:block;font-size:14px;font-weight:650}
+.pfh-cash-reading{display:flex;flex-wrap:wrap;align-items:baseline;gap:.25em .8em;margin:.2em 0 .35em;min-width:0}
+.pfh-cash-reading strong{font-size:15px;max-width:100%;font-variant-numeric:lining-nums tabular-nums}
+.pfh-cash-reading span{font-size:14px;color:var(--muted)}
+.pfh-cash-track{height:12px;width:100%;max-width:100%;overflow:hidden;border-radius:3px;background:#edf1f3}
+.pfh-cash-track>span{display:block;height:100%;max-width:100%;background:#145c70;border-radius:3px}
+.pfh-cash-row.negative .pfh-cash-track>span{background:#96571c}
+.pfh-flow-steps{padding-left:1.6em;margin:.8em 0;font-size:14px}
+.pfh-flow-steps>li{padding:.75em .8em;margin:.8em 0;background:#eff4f3;border-left:3px solid #145c70;border-radius:4px;min-width:0}
+.pfh-flow-steps strong{display:block;font-size:15px;line-height:1.5}
+.pfh-flow-steps p{font-size:14px;line-height:1.6;margin:.35em 0}
+@container pfh-chart (min-width:800px){.pfh-responsive-figure>.pfh-wide,.pfh-responsive-figure>.svg-wide{display:block}.pfh-responsive-figure>.pfh-native,.pfh-responsive-figure>.svg-narrow{display:none}}
+@media print{.pfh-responsive-figure>.pfh-wide,.pfh-responsive-figure>.svg-wide{display:block}.pfh-responsive-figure>.pfh-native,.pfh-responsive-figure>.svg-narrow{display:none}}
+</style></noscript><script defer src="/js/notebook-number-format.js" data-notebook-numbers></script>
+</head><body data-mode="reader"><main class="wrap"><nav><a href="/zh/notebook/investment-path/" target="_top">P-F/G/H入口</a><a href="P13.html">P13</a><a href="P14.html">P14</a><a href="P10.html">P10</a><a href="P15.html">P15</a><a href="P16.html">P16</a><a href="P17.html">P17</a><a href="P18.html">P18</a><a href="P19.html">P19</a><a href="P14.md">Markdown</a></nav><article class="reader"><h1>P14 现金担保看跌：有条件地买股，不是带利息的限价单</h1>
+<p>我们现在换一个起点：手里有现金，考虑取得股票，但希望买入价格低一些。现金担保看跌把这种愿望变成一项有期限的义务。本篇要同时算清三件事：卖put收到多少、需要准备多少接股现金、到期究竟持有股票还是仍持有现金。</p>
+<p><a id="p14-goal"></a></p>
+<h2>1. 买入意愿与履约义务并不是同一句话</h2>
+<p>设账户有12,000美元现金，XYZ现价100，愿意在未来30天按95取得100股。卖一张95 put，意味着持有人可以按照合同向我们交付100股，我们被指派时需要支付9,500美元。把相应现金或合格现金等价物准备好，才构成现金担保安排。权利金是出售选择权收到的价格，不是买股票的订金；合同也不是保证我们一定能取得股票。<sup><a href="#fn-p14-csp" role="doc-noteref">[1]</a></sup></p>
+<p>本篇仍用PF-GRID-01：95 put的mid为1.42，合成bid/ask为1.40/1.44，每张每次费0.65，标准单位100股。主例没有分红和利息。用mid建立后，账户现金在D1成为12,142，但尚有142美元短put负债，净财富仍为12,000。把权利金应收与现金结算分开，是为了避免D0就将还未到达的钱转走。<sup><a href="#fn-p14-t1" role="doc-noteref">[2]</a></sup></p>
+<p>Cboe的策略保证金概述将现金账户short put的总执行价担保与期权价款分开；具体可接受资产及更高内部要求由适用规则和券商决定。本例预留9,500，而不是用某个未取得的保证金百分比替代。<sup><a href="#fn-p14-margin" role="doc-noteref">[3]</a></sup></p>
+<p><a id="p14-accounts"></a></p>
+<h2>2. 先记总支付，再讨论有效取得成本</h2>
+<p>若到期股价低于95并按约定被指派，账户支付9,500，得到100股，剩余现金2,642。得到的股票当时值多少，要按当时市场价看，不能因为行权价是95就把它们记为始终值9,500。</p>
+<div class="table-wrap" role="region" aria-label="教学数据表，可横向查看" tabindex="0"><table>
+<thead>
+<tr>
+<th style="text-align:right">到期价</th>
+<th style="text-align:right">mid路径下最终股票</th>
+<th style="text-align:right">mid现金</th>
+<th style="text-align:right">股票市值</th>
+<th style="text-align:right">合计财富</th>
+<th style="text-align:right">相对12,000损益</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right">0</td>
+<td style="text-align:right">100股</td>
+<td style="text-align:right">2,642</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">2,642</td>
+<td style="text-align:right">−9,358</td>
+</tr>
+<tr>
+<td style="text-align:right">70</td>
+<td style="text-align:right">100股</td>
+<td style="text-align:right">2,642</td>
+<td style="text-align:right">7,000</td>
+<td style="text-align:right">9,642</td>
+<td style="text-align:right">−2,358</td>
+</tr>
+<tr>
+<td style="text-align:right">95</td>
+<td style="text-align:right">本例按未指派处理</td>
+<td style="text-align:right">12,142</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">12,142</td>
+<td style="text-align:right">+142</td>
+</tr>
+<tr>
+<td style="text-align:right">110</td>
+<td style="text-align:right">0股</td>
+<td style="text-align:right">12,142</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">12,142</td>
+<td style="text-align:right">+142</td>
+</tr>
+</tbody>
+</table></div>
+<p>表中恰在95时选择“未指派”只为固定一个终点状态；若相反指令导致交割，现金2,642加100股按95标记，也是12,142，但之后的风险不同。因此平价附近应核实际结果，不能把终点经济等价当成持仓身份等价。</p>
+<p>以<span class="inline-math" title="s"><math xmlns="http://www.w3.org/1998/Math/MathML">
+  <mi>s</mi>
+</math></span>表示终点股价，整个账户可写为</p>
+<div class="equation" title="W_T=12142-100(95-s)^+."><math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+  <msub>
+    <mi>W</mi>
+    <mi>T</mi>
+  </msub>
+  <mo>=</mo>
+  <mn>12142</mn>
+  <mo>&#x2212;</mo>
+  <mn>100</mn>
+  <mo stretchy="false">(</mo>
+  <mn>95</mn>
+  <mo>&#x2212;</mo>
+  <mi>s</mi>
+  <msup>
+    <mo stretchy="false">)</mo>
+    <mo>+</mo>
+  </msup>
+  <mo>.</mo>
+</math></div>
+<p>低于95时，权利金抵消了一部分取得成本，故常用每股<span class="inline-math" title="95-1.42=93.58"><math xmlns="http://www.w3.org/1998/Math/MathML">
+  <mn>95</mn>
+  <mo>&#x2212;</mo>
+  <mn>1.42</mn>
+  <mo>=</mo>
+  <mn>93.58</mn>
+</math></span>描述mid有效取得成本。但实际交割仍支付95，不是93.58；1.42已经在之前收过，不能在交割时再少付一次。执行层按bid收140，扣0.65，净现金139.35，有效成本变为93.6065；这也不是对未来亏损的保证。</p>
+<figure class="pfh-responsive-figure"><div class="svg-wide"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 370" role="img" aria-label="准备买股的CSP95：可能接股，也可能一直持现"><title>准备买股的CSP95：可能接股，也可能一直持现</title><rect width="860" height="370" fill="white"/><g font-family="system-ui, Noto Sans CJK SC, Microsoft YaHei, sans-serif" fill="#182936"><text x="22" y="30" font-size="19" font-weight="700">准备买股的CSP95：可能接股，也可能一直持现</text><text x="100" y="55" font-size="13" fill="#145c70">1. CSP95</text><text x="330" y="55" font-size="13" fill="#a2682d">2. 持有100股</text><text x="560" y="55" font-size="13" fill="#607298">3. 全部现金</text><path d="M95 287.00H800" stroke="#dde5e8"/><text x="85" y="291.00" font-size="12" text-anchor="end">1,020</text><path d="M95 240.75H800" stroke="#dde5e8"/><text x="85" y="244.75" font-size="12" text-anchor="end">5,010</text><path d="M95 194.50H800" stroke="#dde5e8"/><text x="85" y="198.50" font-size="12" text-anchor="end">9,000</text><path d="M95 148.25H800" stroke="#dde5e8"/><text x="85" y="152.25" font-size="12" text-anchor="end">12,990</text><path d="M95 102.00H800" stroke="#dde5e8"/><text x="85" y="106.00" font-size="12" text-anchor="end">16,980</text><text x="95.00" y="309" font-size="12" text-anchor="middle">0</text><text x="235.00" y="309" font-size="12" text-anchor="middle">28</text><text x="375.00" y="309" font-size="12" text-anchor="middle">56</text><text x="515.00" y="309" font-size="12" text-anchor="middle">84</text><text x="655.00" y="309" font-size="12" text-anchor="middle">112</text><text x="795.00" y="309" font-size="12" text-anchor="middle">140</text><polyline points="95.00,268.20 105.00,265.88 115.00,263.56 125.00,261.24 135.00,258.93 145.00,256.61 155.00,254.29 165.00,251.97 175.00,249.65 185.00,247.33 195.00,245.02 205.00,242.70 215.00,240.38 225.00,238.06 235.00,235.74 245.00,233.42 255.00,231.11 265.00,228.79 275.00,226.47 285.00,224.15 295.00,221.83 305.00,219.51 315.00,217.20 325.00,214.88 335.00,212.56 345.00,210.24 355.00,207.92 365.00,205.60 375.00,203.29 385.00,200.97 395.00,198.65 405.00,196.33 415.00,194.01 425.00,191.69 435.00,189.38 445.00,187.06 455.00,184.74 465.00,182.42 475.00,180.10 485.00,177.79 495.00,175.47 505.00,173.15 515.00,170.83 525.00,168.51 535.00,166.19 545.00,163.88 555.00,161.56 565.00,159.24 575.00,158.08 585.00,158.08 595.00,158.08 605.00,158.08 615.00,158.08 625.00,158.08 635.00,158.08 645.00,158.08 655.00,158.08 665.00,158.08 675.00,158.08 685.00,158.08 695.00,158.08 705.00,158.08 715.00,158.08 725.00,158.08 735.00,158.08 745.00,158.08 755.00,158.08 765.00,158.08 775.00,158.08 785.00,158.08 795.00,158.08" fill="none" stroke="#145c70" stroke-width="3"/><polyline points="95.00,275.64 105.00,273.32 115.00,271.00 125.00,268.69 135.00,266.37 145.00,264.05 155.00,261.73 165.00,259.41 175.00,257.09 185.00,254.78 195.00,252.46 205.00,250.14 215.00,247.82 225.00,245.50 235.00,243.18 245.00,240.87 255.00,238.55 265.00,236.23 275.00,233.91 285.00,231.59 295.00,229.27 305.00,226.96 315.00,224.64 325.00,222.32 335.00,220.00 345.00,217.68 355.00,215.36 365.00,213.05 375.00,210.73 385.00,208.41 395.00,206.09 405.00,203.77 415.00,201.45 425.00,199.14 435.00,196.82 445.00,194.50 455.00,192.18 465.00,189.86 475.00,187.55 485.00,185.23 495.00,182.91 505.00,180.59 515.00,178.27 525.00,175.95 535.00,173.64 545.00,171.32 555.00,169.00 565.00,166.68 575.00,164.36 585.00,162.04 595.00,159.73 605.00,157.41 615.00,155.09 625.00,152.77 635.00,150.45 645.00,148.13 655.00,145.82 665.00,143.50 675.00,141.18 685.00,138.86 695.00,136.54 705.00,134.22 715.00,131.91 725.00,129.59 735.00,127.27 745.00,124.95 755.00,122.63 765.00,120.31 775.00,118.00 785.00,115.68 795.00,113.36" fill="none" stroke="#a2682d" stroke-width="3" stroke-dasharray="7 4"/><polyline points="95.00,159.73 105.00,159.73 115.00,159.73 125.00,159.73 135.00,159.73 145.00,159.73 155.00,159.73 165.00,159.73 175.00,159.73 185.00,159.73 195.00,159.73 205.00,159.73 215.00,159.73 225.00,159.73 235.00,159.73 245.00,159.73 255.00,159.73 265.00,159.73 275.00,159.73 285.00,159.73 295.00,159.73 305.00,159.73 315.00,159.73 325.00,159.73 335.00,159.73 345.00,159.73 355.00,159.73 365.00,159.73 375.00,159.73 385.00,159.73 395.00,159.73 405.00,159.73 415.00,159.73 425.00,159.73 435.00,159.73 445.00,159.73 455.00,159.73 465.00,159.73 475.00,159.73 485.00,159.73 495.00,159.73 505.00,159.73 515.00,159.73 525.00,159.73 535.00,159.73 545.00,159.73 555.00,159.73 565.00,159.73 575.00,159.73 585.00,159.73 595.00,159.73 605.00,159.73 615.00,159.73 625.00,159.73 635.00,159.73 645.00,159.73 655.00,159.73 665.00,159.73 675.00,159.73 685.00,159.73 695.00,159.73 705.00,159.73 715.00,159.73 725.00,159.73 735.00,159.73 745.00,159.73 755.00,159.73 765.00,159.73 775.00,159.73 785.00,159.73 795.00,159.73" fill="none" stroke="#607298" stroke-width="3"/><text x="100" y="98" font-size="12">共同财富（美元）</text><text x="440" y="335" text-anchor="middle" font-size="13">D30标的价格（美元/股）</text><text x="22" y="359" font-size="11" fill="#536675">PF-GRID-01合成链 · mid结构；非真实行情</text></g></svg></div><div class="svg-narrow pfh-native" data-static-figure="P14-payoff-mobile.svg"><p class="pfh-figure-title">准备买股的CSP95：可能接股，也可能一直持现</p><ul class="pfh-legend"><li><svg viewBox="0 0 32 12" width="32" height="12" aria-hidden="true"><path d="M1 6H31" stroke="#145c70" stroke-width="3"/></svg><span>1. CSP95</span></li><li><svg viewBox="0 0 32 12" width="32" height="12" aria-hidden="true"><path d="M1 6H31" stroke="#a2682d" stroke-width="3" stroke-dasharray="7 4"/></svg><span>2. 持有100股</span></li><li><svg viewBox="0 0 32 12" width="32" height="12" aria-hidden="true"><path d="M1 6H31" stroke="#607298" stroke-width="3"/></svg><span>3. 全部现金</span></li></ul><p class="pfh-axis-label">纵轴：共同财富（美元）</p><div class="pfh-plot" style="--pfh-y-label-ch:7"><div class="pfh-y-ticks"><span style="top:100%">1,020</span><span style="top:75%">5,010</span><span style="top:50%">9,000</span><span style="top:25%">12,990</span><span style="top:0%">16,980</span></div><svg class="pfh-plot-svg" viewBox="55 155 315 180" preserveAspectRatio="none" aria-hidden="true"><path d="M55 335.00H370" stroke="#e1e6e8" vector-effect="non-scaling-stroke"/><path d="M55 290.00H370" stroke="#e1e6e8" vector-effect="non-scaling-stroke"/><path d="M55 245.00H370" stroke="#e1e6e8" vector-effect="non-scaling-stroke"/><path d="M55 200.00H370" stroke="#e1e6e8" vector-effect="non-scaling-stroke"/><path d="M55 155.00H370" stroke="#e1e6e8" vector-effect="non-scaling-stroke"/><polyline points="55.00,316.71 59.50,314.45 64.00,312.19 68.50,309.94 73.00,307.69 77.50,305.43 82.00,303.17 86.50,300.92 91.00,298.66 95.50,296.40 100.00,294.15 104.50,291.90 109.00,289.64 113.50,287.38 118.00,285.13 122.50,282.87 127.00,280.62 131.50,278.36 136.00,276.11 140.50,273.85 145.00,271.59 149.50,269.33 154.00,267.09 158.50,264.83 163.00,262.57 167.50,260.31 172.00,258.06 176.50,255.80 181.00,253.55 185.50,251.30 190.00,249.04 194.50,246.78 199.00,244.52 203.50,242.27 208.00,240.02 212.50,237.76 217.00,235.50 221.50,233.25 226.00,230.99 230.50,228.74 235.00,226.48 239.50,224.23 244.00,221.97 248.50,219.71 253.00,217.46 257.50,215.21 262.00,212.95 266.50,210.69 271.00,209.56 275.50,209.56 280.00,209.56 284.50,209.56 289.00,209.56 293.50,209.56 298.00,209.56 302.50,209.56 307.00,209.56 311.50,209.56 316.00,209.56 320.50,209.56 325.00,209.56 329.50,209.56 334.00,209.56 338.50,209.56 343.00,209.56 347.50,209.56 352.00,209.56 356.50,209.56 361.00,209.56 365.50,209.56 370.00,209.56" fill="none" stroke="#145c70" stroke-width="2.5" vector-effect="non-scaling-stroke"/><polyline points="55.00,323.95 59.50,321.69 64.00,319.43 68.50,317.18 73.00,314.93 77.50,312.67 82.00,310.41 86.50,308.16 91.00,305.90 95.50,303.65 100.00,301.39 104.50,299.14 109.00,296.88 113.50,294.62 118.00,292.36 122.50,290.12 127.00,287.86 131.50,285.60 136.00,283.34 140.50,281.09 145.00,278.83 149.50,276.58 154.00,274.33 158.50,272.07 163.00,269.81 167.50,267.55 172.00,265.30 176.50,263.05 181.00,260.79 185.50,258.53 190.00,256.28 194.50,254.02 199.00,251.76 203.50,249.51 208.00,247.26 212.50,245.00 217.00,242.74 221.50,240.49 226.00,238.24 230.50,235.98 235.00,233.72 239.50,231.47 244.00,229.21 248.50,226.95 253.00,224.70 257.50,222.45 262.00,220.19 266.50,217.93 271.00,215.67 275.50,213.42 280.00,211.17 284.50,208.91 289.00,206.66 293.50,204.40 298.00,202.14 302.50,199.88 307.00,197.64 311.50,195.38 316.00,193.12 320.50,190.86 325.00,188.61 329.50,186.35 334.00,184.10 338.50,181.84 343.00,179.59 347.50,177.33 352.00,175.07 356.50,172.82 361.00,170.57 365.50,168.31 370.00,166.05" fill="none" stroke="#a2682d" stroke-width="2.5" stroke-dasharray="7 4" vector-effect="non-scaling-stroke"/><polyline points="55.00,211.17 59.50,211.17 64.00,211.17 68.50,211.17 73.00,211.17 77.50,211.17 82.00,211.17 86.50,211.17 91.00,211.17 95.50,211.17 100.00,211.17 104.50,211.17 109.00,211.17 113.50,211.17 118.00,211.17 122.50,211.17 127.00,211.17 131.50,211.17 136.00,211.17 140.50,211.17 145.00,211.17 149.50,211.17 154.00,211.17 158.50,211.17 163.00,211.17 167.50,211.17 172.00,211.17 176.50,211.17 181.00,211.17 185.50,211.17 190.00,211.17 194.50,211.17 199.00,211.17 203.50,211.17 208.00,211.17 212.50,211.17 217.00,211.17 221.50,211.17 226.00,211.17 230.50,211.17 235.00,211.17 239.50,211.17 244.00,211.17 248.50,211.17 253.00,211.17 257.50,211.17 262.00,211.17 266.50,211.17 271.00,211.17 275.50,211.17 280.00,211.17 284.50,211.17 289.00,211.17 293.50,211.17 298.00,211.17 302.50,211.17 307.00,211.17 311.50,211.17 316.00,211.17 320.50,211.17 325.00,211.17 329.50,211.17 334.00,211.17 338.50,211.17 343.00,211.17 347.50,211.17 352.00,211.17 356.50,211.17 361.00,211.17 365.50,211.17 370.00,211.17" fill="none" stroke="#607298" stroke-width="2.5" vector-effect="non-scaling-stroke"/></svg><div class="pfh-x-ticks"><span class="first" style="left:0%">0</span><span class="" style="left:50%">70</span><span class="last" style="left:100%">140</span></div></div><p class="pfh-axis-label">横轴：D30标的价格（美元/股）</p><p class="pfh-figure-note">PF-GRID-01合成链 · mid结构；非真实行情</p></div><figcaption>接股与未接股两侧的完整财富</figcaption></figure>
+<p>现金担保减少的是履约资金的不确定性，不是标的最终归零的可能损失。另一方面，股票一路上涨时我们可能始终没有买到，只赚有限权利金。对一个必须及时取得股票的目标，这种“赚钱但没有完成目标”的情况很重要。</p>
+<p><a id="p14-parity"></a></p>
+<h2>3. 同执行价才可以谈平价，同终值不等于同资金占用</h2>
+<p>在零利率、零分红、相同到期和相同执行价<span class="inline-math" title="K"><math xmlns="http://www.w3.org/1998/Math/MathML">
+  <mi>K</mi>
+</math></span>的理想条件下，<span class="inline-math" title="C-P=S_0-K"><math xmlns="http://www.w3.org/1998/Math/MathML">
+  <mi>C</mi>
+  <mo>&#x2212;</mo>
+  <mi>P</mi>
+  <mo>=</mo>
+  <msub>
+    <mi>S</mi>
+    <mn>0</mn>
+  </msub>
+  <mo>&#x2212;</mo>
+  <mi>K</mi>
+</math></span>。因此</p>
+<div class="equation" title="S_T-(S_T-K)^+=K-(K-S_T)^+."><math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+  <msub>
+    <mi>S</mi>
+    <mi>T</mi>
+  </msub>
+  <mo>&#x2212;</mo>
+  <mo stretchy="false">(</mo>
+  <msub>
+    <mi>S</mi>
+    <mi>T</mi>
+  </msub>
+  <mo>&#x2212;</mo>
+  <mi>K</mi>
+  <msup>
+    <mo stretchy="false">)</mo>
+    <mo>+</mo>
+  </msup>
+  <mo>=</mo>
+  <mi>K</mi>
+  <mo>&#x2212;</mo>
+  <mo stretchy="false">(</mo>
+  <mi>K</mi>
+  <mo>&#x2212;</mo>
+  <msub>
+    <mi>S</mi>
+    <mi>T</mi>
+  </msub>
+  <msup>
+    <mo stretchy="false">)</mo>
+    <mo>+</mo>
+  </msup>
+  <mo>.</mo>
+</math></div>
+<p>这是股票减call与现金减put的终点支付相同。再把起点成本配齐，就能比较同一财富。PF-GRID-01中的C105是1.57，P105是6.57，满足<span class="inline-math" title="1.57-6.57=100-105"><math xmlns="http://www.w3.org/1998/Math/MathML">
+  <mn>1.57</mn>
+  <mo>&#x2212;</mo>
+  <mn>6.57</mn>
+  <mo>=</mo>
+  <mn>100</mn>
+  <mo>&#x2212;</mo>
+  <mn>105</mn>
+</math></span>。于是CC105和现金担保P105从12,000出发，所有到期状态的mid财富一致；CSP95则是另一个取得目标，不能拿它冒充同K平价。<sup><a href="#fn-p14-parity" role="doc-noteref">[4]</a></sup></p>
+<p>利息会让“准备到期执行价”与“现在存足执行价”不同。考虑独立的一期欧式小例：<span class="inline-math" title="S_0=100,K=105"><math xmlns="http://www.w3.org/1998/Math/MathML">
+  <msub>
+    <mi>S</mi>
+    <mn>0</mn>
+  </msub>
+  <mo>=</mo>
+  <mn>100</mn>
+  <mo>,</mo>
+  <mi>K</mi>
+  <mo>=</mo>
+  <mn>105</mn>
+</math></span>，一期现金毛增长倍数<span class="inline-math" title="R=1.01"><math xmlns="http://www.w3.org/1998/Math/MathML">
+  <mi>R</mi>
+  <mo>=</mo>
+  <mn>1.01</mn>
+</math></span>，call价格2。无分红无费用时，平价给出</p>
+<div class="equation" title="P=C-S_0+K/R=5.960396."><math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+  <mi>P</mi>
+  <mo>=</mo>
+  <mi>C</mi>
+  <mo>&#x2212;</mo>
+  <msub>
+    <mi>S</mi>
+    <mn>0</mn>
+  </msub>
+  <mo>+</mo>
+  <mi>K</mi>
+  <mrow data-mjx-texclass="ORD">
+    <mo>/</mo>
+  </mrow>
+  <mi>R</mi>
+  <mo>=</mo>
+  <mn>5.960396</mn>
+  <mo>.</mo>
+</math></div>
+<p>股票减call成本为98；到期能长成105的现金现值减put，也等于98：<span class="inline-math" title="105/1.01-5.960396=98"><math xmlns="http://www.w3.org/1998/Math/MathML">
+  <mn>105</mn>
+  <mrow data-mjx-texclass="ORD">
+    <mo>/</mo>
+  </mrow>
+  <mn>1.01</mn>
+  <mo>&#x2212;</mo>
+  <mn>5.960396</mn>
+  <mo>=</mo>
+  <mn>98</mn>
+</math></span>。若现实现金担保规则要求现在就留105，而非<span class="inline-math" title="105/R"><math xmlns="http://www.w3.org/1998/Math/MathML">
+  <mn>105</mn>
+  <mrow data-mjx-texclass="ORD">
+    <mo>/</mo>
+  </mrow>
+  <mi>R</mi>
+</math></span>，就会多占用约1.039604现金。利息、保证金资格和可用时间不能从终点图中自动读出。这个小例只解释现值关系，不把主链的利率从零改为1%，也不把它说成某券商的规则。</p>
+<p><a id="p14-path"></a></p>
+<h2>4. 限价订单与卖put，需要用路径比较</h2>
+<p>另设一条无费用、无利息的教学路径：D10的95限价买单已经实际成交100股，而95 put没有提前指派。这里只是施加两个事件，不以“市场碰到95”证明一定成交或指派。</p>
+<div class="table-wrap" role="region" aria-label="教学数据表，可横向查看" tabindex="0"><table>
+<thead>
+<tr>
+<th style="text-align:right">D30股价</th>
+<th style="text-align:right">95限价已成交</th>
+<th style="text-align:right">CSP95</th>
+<th style="text-align:right">D0按100立即买100股</th>
+<th style="text-align:right">持现</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right">70</td>
+<td style="text-align:right">9,500</td>
+<td style="text-align:right">9,642</td>
+<td style="text-align:right">9,000</td>
+<td style="text-align:right">12,000</td>
+</tr>
+<tr>
+<td style="text-align:right">110</td>
+<td style="text-align:right">13,500</td>
+<td style="text-align:right">12,142</td>
+<td style="text-align:right">13,000</td>
+<td style="text-align:right">12,000</td>
+</tr>
+</tbody>
+</table></div>
+<p>限价路线买完之后已经承担上涨和下跌；put卖方在反弹路径中可能始终没有持股。两者的条件、时间和持仓都不一样。还未成交的限价单通常可以请求撤销；已存在的短put则要通过实际平仓或履约终止，不能仅仅取消一个尚未发生的未来买入。具体订单和期权状态仍须确认。</p>
+<p>再看资金路径。假设施加一次提前指派：XYZ当时75，gross接股义务9,500。账上总现金可以是12,142，但其中只有9,000能在交割截止前到达指定账户，其余3,142暂时不可用；于是仍缺500。不能把未付款后的股票当作已完成交割继续算持仓收益。若按时支付完成，剩余2,642加股票市值7,500，总财富10,142。<sup><a href="#fn-p14-exercise" role="doc-noteref">[5]</a></sup></p>
+<figure class="pfh-responsive-figure"><div class="svg-wide"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 350" role="img" aria-label="净取得成本不能替代交割总付款"><title>净取得成本不能替代交割总付款</title><rect width="860" height="350" fill="white"/><g font-family="system-ui, Noto Sans CJK SC, Microsoft YaHei, sans-serif" fill="#182936"><text x="22" y="30" font-size="19" font-weight="700">净取得成本不能替代交割总付款</text><rect x="23.0" y="62" width="255.33333333333334" height="181" rx="8" fill="#eff4f3" stroke="#bcced2"/><text x="36.0" y="89" font-size="15" fill="#145c70" font-weight="700">D1资金与负债</text><text x="36.0" y="118" font-size="13">现金12,142</text><text x="36.0" y="145" font-size="13">短put负债142</text><text x="36.0" y="172" font-size="13">接股预留9,500</text><text x="36.0" y="199" font-size="13">净财富12,000</text><path d="M281.33333333333337 150h17l-5-4m5 4l-5 4" fill="none" stroke="#526c78" stroke-width="2"/><rect x="302.33333333333337" y="62" width="255.33333333333334" height="181" rx="8" fill="#eff4f3" stroke="#bcced2"/><text x="315.33333333333337" y="89" font-size="15" fill="#a2682d" font-weight="700">提前指派压力</text><text x="315.33333333333337" y="118" font-size="13">股票当时75</text><text x="315.33333333333337" y="145" font-size="13">应付总款9,500</text><text x="315.33333333333337" y="172" font-size="13">及时可达9,000</text><text x="315.33333333333337" y="199" font-size="13">仍缺500，停止</text><path d="M560.6666666666667 150h17l-5-4m5 4l-5 4" fill="none" stroke="#526c78" stroke-width="2"/><rect x="581.6666666666667" y="62" width="255.33333333333334" height="181" rx="8" fill="#eff4f3" stroke="#bcced2"/><text x="594.6666666666667" y="89" font-size="15" fill="#607298" font-weight="700">若及时付款完整</text><text x="594.6666666666667" y="118" font-size="13">现金2,642</text><text x="594.6666666666667" y="145" font-size="13">100股×75＝7,500</text><text x="594.6666666666667" y="172" font-size="13">完整财富10,142</text><text x="594.6666666666667" y="199" font-size="13">不是支付净成本9,358</text><text x="23" y="273" font-size="13">相同总资产不代表在相同账户/截止时间可以使用。</text></g></svg></div><div class="svg-narrow pfh-native" data-static-figure="P14-lifecycle-mobile.svg"><p class="pfh-figure-title">净取得成本不能替代交割总付款</p><ol class="pfh-flow-steps"><li><strong>D1资金与负债</strong><p>现金12,142</p><p>短put负债142</p><p>接股预留9,500</p><p>净财富12,000</p></li><li><strong>提前指派压力</strong><p>股票当时75</p><p>应付总款9,500</p><p>及时可达9,000</p><p>仍缺500，停止</p></li><li><strong>若及时付款完整</strong><p>现金2,642</p><p>100股×75＝7,500</p><p>完整财富10,142</p><p>不是支付净成本9,358</p></li></ol><p class="pfh-figure-note">相同总资产不代表在相同账户/截止时间可以使用。</p></div><figcaption>期权义务、及时现金和指派交付的三个时点</figcaption></figure>
+<p><a id="p14-lab"></a></p>
+<h2>5. 操作与真实规则卡</h2>
+<div class="embed-box" data-experiment-slot="EXP-P14-CASH-SECURED-PUT"><nav><a class="button" href="../interactions.html?experiment=EXP-P14-CASH-SECURED-PUT#EXP-P14-CASH-SECURED-PUT">打开本篇实验</a><a href="../standalone.html#EXP-P14-CASH-SECURED-PUT">八实验离线总入口</a></nav><iframe class="lab-iframe" title="接股义务、平价与资金" loading="lazy" src="../interactions.html?experiment=EXP-P14-CASH-SECURED-PUT#EXP-P14-CASH-SECURED-PUT"></iframe><p>不启用脚本或嵌入失败时，正文静态表图与完整解析仍可独立阅读。</p></div>
+<p>先只改终点价，核对收到权利金、是否取得股票、全部财富三列。然后保持总现金不变，把“截止前可达现金”从9,500降为9,000：财富标记与是否完成交割应当分开，界面应在缺500处停止。最后比较同K105两条曲线，而不是把95 put和105 call重叠。</p>
+<details data-reading-branch="benchmark-put"><summary>选读：PUT基准里的现金并不是闲置背景</summary>
+<p>Cboe PUT规则用国库券账户配月度SPX put，净值需要扣除当前短put价值，并规定执行价、到期结算与滚动价格。BXM与PUT的实际执行价和滚动时段并不完全相同，所以理想同K等价不能推出两个指数历史回报逐日相等。<sup><a href="#fn-p14-put" role="doc-noteref">[6]</a></sup></p>
+<p>阅读该文件3.0版§3.1时还需做零利率校验：印刷式(4)在零利率时给出1，若再代入式(3)的“1加该值”，会让余额翻倍。本篇不采用这对式子作利息计算，只读其账户和滚动结构；上节独立现金例从终点支付重新推导。这一局部检查不影响规则文件对PUT策略组成的说明。</p>
+</details>
+<p><a id="p14-exercises"></a></p>
+<h2>6. 解释与迁移</h2>
+<p><strong>解释题。</strong> 有人说“put收了142，所以接股只需9,358现金”。这句话何时是成本简称，何时是危险的付款计划？</p>
+<p><strong>解析。</strong> 9,358可以是未计费净取得成本，但交割义务是9,500。若142已经到账并保留，账户可以由原资金和这142共同完成9,500；若它已被转走、被占用或尚未结算，不能再用净成本代替总付款额。同一权利金不能收到一次、再在结算时抵扣一次。</p>
+<p><strong>迁移题。</strong> 在D10限价已成交、put未指派的路径里，到期110时，为什么不能因CSP仍赚142就说它比限价“多了一笔收入”？</p>
+<p><strong>解析。</strong> 限价路线财富13,500，CSP为12,142，前者多1,358。所谓额外142，是以不同持股路径换来的，不是叠在相同投资组合之上的免费现金。比较要保持相同起始12,000并同时计入股票和现金。</p>
+<p><strong>更新题。</strong> XYZ的重要业务依据在D15失效，但价格仍在100附近，原来愿意95取得股票的判断是否自动继续有效？</p>
+<p><strong>解析。</strong> 不自动有效。行权义务仍在，取得意愿却可能改变。应重审是否继续承担、买回put或选择其他动作；“最初就是准备接股”不能替代更新后的判断。若另行直接买股而保留短put，还可能把未来股票数量扩大到200股，须重新检查总敞口。</p>
+<section class="footnotes" role="doc-endnotes"><h2>原文与定位</h2><ol><li id="fn-p14-csp">OIC，<a href="https://www.optionseducation.org/strategies/all-strategies/cash-secured-put">Cash-Secured Put</a>，Description、Max Loss、Profit/Loss及Assignment Risk，完整策略正文。</li><li id="fn-p14-t1">OIC，<a href="https://www.optionseducation.org/news/understanding-t-1-conversion">The Impact of T+1 on Options</a>，July 2024，Option Trade Settlement；OCC标准合约按具体交割规则执行。</li><li id="fn-p14-margin">Cboe，<a href="https://www.cboe.com/markets/us/options/margin/strategy-based-margin">Strategy-based Margin</a>，Short Put现金账户行及主文；2026-09-21所核单元，非券商个别承诺。</li><li id="fn-p14-parity">OIC，<a href="https://www.optionseducation.org/advancedconcepts/put-call-parity">Put/Call Parity</a>，同标的、执行价和期限条件及利率/分红/提前行权限制；本篇数值与等式为独立教学推导。</li><li id="fn-p14-exercise">OCC，<a href="https://www.theocc.com/getmedia/a151a9ae-d784-4a15-bdeb-23a029f50b70/riskstoc.pdf">ODD</a>，June 2024，Chapter VIII印刷55–57页；OIC <a href="https://www.optionseducation.org/referencelibrary/faq/options-exercise">Options Exercise FAQ</a>，指派、行权与平仓的完整相应问答。</li><li id="fn-p14-put">Cboe，<a href="https://cdn.cboe.com/api/global/us_indices/governance/Cboe_SP_500_PutWrite_Indices_Methodology.pdf">S&amp;P 500 PutWrite Indices Methodology</a>，3.0版（2025-08-15），§§1–3的PUT部分；§3.1印刷Page 5／PDF第6页式(3)–(4)不用于利息引擎。</li></ol></section></article></main><script>addEventListener("beforeprint",()=>document.querySelectorAll("details").forEach(e=>{e.dataset.wasOpen=e.open;e.open=true}));addEventListener("afterprint",()=>document.querySelectorAll("details").forEach(e=>e.open=e.dataset.wasOpen==="true"));</script></body></html>

@@ -1,0 +1,731 @@
+# 一次衍生品安排的完整复盘
+
+按当时信息区分对冲方向、执行与资金计划，公平比较同一采购账的替代路径。
+
+Entry: zh-p24 | Node: P24 | Language: zh | Editorial revision: 2026-09-21
+
+## Teaching instructions
+请先实际读取本篇必读原件的指定完整单元，再围绕“按当时信息区分对冲方向、执行与资金计划，公平比较同一采购账的替代路径。”带我完成学习。先让我自己判断方向、对象或基准，再让我逐步重建一项承重计算；不要先把答案全部说出。选读分支只有我选中后才启用对应原件和输入。每次解释都分清真实规则、教学假设、作者报告与本站复算。逐事件核现金、负债、费用和剩余仓位；资金不足时停止已完成结果。使用本包正文里的完整解析反馈我哪里错、为什么、如何迁移。未来runtime_reading_log由你实际读取后填写，不能把作者或支持者日志当成自己的阅读。不要接触账户或更新冻结数据。
+
+Before substantive teaching, actually retrieve every required reading unit for the selected scope. Read its complete designated section, including necessary assumptions, tables and footnotes. A working URL or an editorial access date is not a runtime reading receipt. Record the actual version, location, scope and what it supports. If unavailable, use a previously verified equivalent source; if the required unit remains unavailable, identify that gap rather than teach it from memory. Start runtime_reading_log empty. Once reading is complete, use a substantive diagnostic or follow the reader's request for direct explanation. Advance one complete reasoning task at a time; skip mastered basics. Distinguish original facts, supplied teaching assumptions and inference.
+
+## Required readings and runtime protocol
+```json
+{
+  "export_mode": "public",
+  "entry_id": "zh-p24",
+  "learning_task": "按当时信息区分对冲方向、执行与资金计划，公平比较同一采购账的替代路径。",
+  "required_readings": [
+    {
+      "source_id": "MP-CME-GRAIN",
+      "title": "Self-Study Guide to Hedging with Grain and Oilseed Futures and Options",
+      "authors": [
+        "CME Group"
+      ],
+      "version": "归档教学指南，2026-09-21读取",
+      "access": {
+        "kind": "pdf_full_text",
+        "uri": "https://www.cmegroup.com/trading/agricultural/files/grain-oilseed-hedgers-guide.pdf",
+        "verified_access_at": "2026-09-21"
+      },
+      "required_unit": {
+        "locator": "ch2 printed pp9–14 / PDF pp11–16；ch3 printed pp17–22 / PDF pp19–24；margin pp6–7",
+        "scope": "采购与销售方向、价量原例及当地基差。",
+        "purpose": "按当时信息区分对冲方向、执行与资金计划，公平比较同一采购账的替代路径。"
+      },
+      "supports": "采购与销售方向、价量原例及当地基差。",
+      "limits": "公开教学例非企业实盘；p21上涨情景+.10应为+.05，p22−.02不为gain。"
+    },
+    {
+      "source_id": "MD-S05",
+      "title": "Money Calculations for CME-cleared Futures and Options",
+      "authors": [
+        "CME Group"
+      ],
+      "version": "2015-06-11",
+      "access": {
+        "kind": "pdf_full_text",
+        "uri": "https://www.cmegroup.com/clearing/files/CME-Money-Calculations-Futures-and-Options.pdf",
+        "verified_access_at": "2026-09-21"
+      },
+      "required_unit": {
+        "locator": "pp1–3普通期货变动现金完整单元",
+        "scope": "逐日价格变动、乘数、现金与结算口径。",
+        "purpose": "按当时信息区分对冲方向、执行与资金计划，公平比较同一采购账的替代路径。"
+      },
+      "supports": "逐日价格变动、乘数、现金与结算口径。",
+      "limits": "清算层计算不等于某客户的资金时点与house margin。"
+    },
+    {
+      "source_id": "MA-FSB",
+      "title": "Liquidity Preparedness for Margin and Collateral Calls: Final Report",
+      "authors": [
+        "Financial Stability Board"
+      ],
+      "version": "2024-12-10",
+      "access": {
+        "kind": "pdf_full_text",
+        "uri": "https://www.fsb.org/uploads/P101224-1.pdf",
+        "verified_access_at": "2026-09-21"
+      },
+      "required_unit": {
+        "locator": "§3.3 printed pp18–20 / PDF pp22–24，Recommendations6–8",
+        "scope": "抵押品资格、占用、haircut、币种、地点与及时到账。",
+        "purpose": "按当时信息区分对冲方向、执行与资金计划，公平比较同一采购账的替代路径。"
+      },
+      "supports": "抵押品资格、占用、haircut、币种、地点与及时到账。",
+      "limits": "政策建议，不是统一现金比例或券商保证金承诺。"
+    }
+  ],
+  "optional_readings": [
+    {
+      "source_id": "PI-CME-EUR",
+      "title": "CME Rulebook Chapter261: EUR/USD Futures",
+      "authors": [
+        "CME Group"
+      ],
+      "version": "2026-09-21访问规则",
+      "access": {
+        "kind": "pdf_full_text",
+        "uri": "https://www.cmegroup.com/rulebook/CME/III/250/261/261.pdf",
+        "verified_access_at": "2026-09-21"
+      },
+      "required_unit": {
+        "locator": "§26101–26102，常规合约与实物交割",
+        "scope": "125,000欧元、报价单位与到期前平仓的合约背景。",
+        "purpose": "选择欧元应收迁移时"
+      },
+      "supports": "125,000欧元、报价单位与到期前平仓的合约背景。",
+      "limits": "选读应收款与行情是假设；不把实物交割写成现金结算。",
+      "branch": "eur",
+      "required_if_selected": true
+    },
+    {
+      "source_id": "P-R03",
+      "title": "2020 GIPS Standards Handbook for Firms",
+      "authors": [
+        "CFA Institute"
+      ],
+      "version": "2020标准及官方在线手册",
+      "access": {
+        "kind": "html_full_text",
+        "uri": "https://www.gipsstandards.org/standards/gips-standards-for-firms/gips-standards-handbook-for-firms/",
+        "verified_access_at": "2026-09-21"
+      },
+      "required_unit": {
+        "locator": "1.A.35；2.A.23–24；2.A.29；2.A.30；2.B.4",
+        "scope": "外部现金流、TWR/MWR、净费用方法和费用应计/付款。",
+        "purpose": "进一步讨论回报评价口径时"
+      },
+      "supports": "外部现金流、TWR/MWR、净费用方法和费用应计/付款。",
+      "limits": "教学采用，不宣称全套GIPS合规；2.B.4是建议，不改称强制。",
+      "branch": "evaluation",
+      "required_if_selected": true
+    }
+  ],
+  "runtime_reading_log": [],
+  "supplied_inputs": {
+    "case_inputs": [
+      {
+        "id": "CME-GRAIN-TEACHING",
+        "owner": "P21",
+        "consumers": [
+          "P21",
+          "P23",
+          "P24"
+        ],
+        "version": "final-20260921",
+        "unit": {
+          "price": "USD/bushel",
+          "quantity": "bushels",
+          "contract": "5000 bushels"
+        },
+        "identity": "CME teaching illustration plus current corn contract identity; not an enterprise execution.",
+        "defaults": {
+          "procurement": {
+            "quantity": 15000,
+            "initial_futures": 5.75,
+            "contracts_long": 3,
+            "outcomes": [
+              {
+                "futures": 6.25,
+                "cash": 6.2,
+                "futures_pnl": 7500,
+                "effective_unit_price": 5.7
+              },
+              {
+                "futures": 5.45,
+                "cash": 5.45,
+                "futures_pnl": -4500,
+                "effective_unit_price": 5.75
+              },
+              {
+                "futures": 6.03,
+                "cash": 6.1,
+                "futures_pnl": 4200,
+                "effective_unit_price": 5.82
+              }
+            ]
+          },
+          "sales": {
+            "quantity": 20000,
+            "initial_futures": 5.7,
+            "contracts_short": 4,
+            "production_cost": 5.1,
+            "outcomes": [
+              {
+                "futures": 5.2,
+                "cash": 5.05,
+                "futures_pnl": 10000,
+                "effective_unit_price": 5.55,
+                "business_profit": 9000
+              },
+              {
+                "futures": 5.9,
+                "cash": 5.7,
+                "futures_pnl": -4000,
+                "effective_unit_price": 5.5,
+                "business_profit": 8000
+              },
+              {
+                "futures": 5.37,
+                "cash": 5.1,
+                "futures_pnl": 6600,
+                "effective_unit_price": 5.43,
+                "business_profit": 6600
+              }
+            ]
+          }
+        },
+        "source_corrections": [
+          "printed p21: basis -0.25→-0.20 is +0.05, not +0.10",
+          "printed p22: basis -0.25→-0.27 is -0.02, not a gain"
+        ],
+        "branch_boundaries": {
+          "quantity_mismatch": "Show uncovered/excess futures exposure.",
+          "quality_location": "Contract unit does not eliminate local basis."
+        }
+      },
+      {
+        "id": "SIM-PJ-CORN-CASH-01",
+        "owner": "P23",
+        "consumers": [
+          "P23",
+          "P24"
+        ],
+        "version": "final-20260921",
+        "unit": {
+          "money": "USD",
+          "quantity": "bushels",
+          "price": "USD/bushel"
+        },
+        "identity": "Single shared corn procurement funding ledger for P23/P24.",
+        "defaults": {
+          "initial_own_cash": 106000,
+          "unavailable_until_procurement": 90000,
+          "current_liquid": 16000,
+          "initial_margin_per_contract": 3000,
+          "maintenance_per_contract": 2000,
+          "futures_path": [
+            5.75,
+            5.45,
+            5.1,
+            6.25
+          ],
+          "procurement_quantity": 15000,
+          "terminal_cash_price": 6.2
+        },
+        "default_results": {
+          "three_contracts_no_credit": {
+            "unfunded_gap_step2": 2750,
+            "close_price": 5.1,
+            "futures_pnl": -9750,
+            "ending_own_cash": 3250,
+            "effective_purchase_cost": 102750
+          },
+          "two_contracts": {
+            "futures_pnl": 5000,
+            "ending_own_cash": 18000,
+            "effective_purchase_cost": 88000
+          },
+          "three_contracts_credit": {
+            "limit": 3000,
+            "draw": 2750,
+            "interest": 7.534246575342481,
+            "ending_own_cash": 20492.46575342465,
+            "effective_purchase_cost": 85507.53424657535
+          },
+          "unhedged": {
+            "ending_own_cash": 13000,
+            "effective_purchase_cost": 93000
+          }
+        },
+        "branch_boundaries": {
+          "P23": "Stop ledger when deadline funding fails.",
+          "P24": "Same ledger; later rebound is not earned after close.",
+          "credit_2000": "Still short by 750 at step2."
+        }
+      },
+      {
+        "id": "SIM-PJ-EUR-RECEIVABLE-01",
+        "owner": "P24",
+        "consumers": [
+          "P24"
+        ],
+        "version": "optional-final-20260921",
+        "status": "optional_migration_branch",
+        "unit": {
+          "receivable": "EUR",
+          "money": "USD",
+          "price": "USD/EUR"
+        },
+        "identity": "Optional FX migration exercise, not a disclosed corporate hedge.",
+        "defaults": {
+          "receivable_eur": 1000000,
+          "contract_eur": 125000,
+          "short_contracts": 8,
+          "initial_spot": 1.1,
+          "final_spot": 1.08,
+          "futures_path": [
+            1.105,
+            1.12,
+            1.115,
+            1.083
+          ]
+        },
+        "default_results": {
+          "hedge_net_pnl": 21968,
+          "effective_receivable_usd": 1101968,
+          "effective_rate": 1.101968,
+          "initial_total_wealth": 1152000,
+          "ending_total_wealth": 1153968,
+          "unhedged_ending_total_wealth": 1132000
+        },
+        "branch_boundaries": {
+          "mainline": false,
+          "delivery": "Close before expiry; CME EUR/USD futures are physically deliverable."
+        }
+      }
+    ],
+    "operational_details": {
+      "corn": {
+        "initial_wealth": 106000,
+        "restricted_until_purchase": 90000,
+        "contract_size": 5000,
+        "initial_margin": 3000,
+        "maintenance_margin": 2000,
+        "prices": [
+          5.75,
+          5.45,
+          5.1,
+          6.25
+        ],
+        "physical_quantity": 15000,
+        "physical_price": 6.2,
+        "loan_rate": 0.1,
+        "loan_days": 10,
+        "fees": 0,
+        "close_rule": "If full call cannot be funded, close at the given teaching settlement before drawing a partial loan; no further futures position. Release remaining margin."
+      },
+      "eur": {
+        "receivable_eur": 1000000,
+        "spot_initial": 1.1,
+        "spot_final": 1.08,
+        "futures": [
+          1.105,
+          1.12,
+          1.115,
+          1.083
+        ],
+        "contract_eur": 125000,
+        "initial_cash": 52000,
+        "initial_margin": 32000,
+        "maintenance": 24000,
+        "fee_each_side": 2,
+        "close_before_expiry": true
+      }
+    },
+    "static_default_result": {
+      "asof": 3,
+      "effective_cost": 102750,
+      "ending_cash": 3250,
+      "shared_ledger_id": "SIM-PJ-CORN-CASH-01"
+    },
+    "attachments": [
+      {
+        "path": "https://ou-liu-red-sugar.github.io/notebook/labs/p-ijklm/shared/corn-cash-event-ledgers.csv",
+        "branch": "core",
+        "sha256": "9b778996982247177134a974e89d4099ff90b28187ff670a232607609d53e68f",
+        "format": "csv",
+        "public_access": "具名公开附件；与原稿字节一致。"
+      },
+      {
+        "path": "https://ou-liu-red-sugar.github.io/notebook/labs/p-ijklm/shared/eur-event-ledger.csv",
+        "branch": "eur",
+        "sha256": "bdc34b87d8070928d071969d34c7595f5e01f6ef2d98eea90521bfa3fb4d8e82",
+        "format": "csv",
+        "public_access": "具名公开附件；与原稿字节一致。"
+      }
+    ],
+    "default_scope": "core",
+    "branch_rule": "复制或学习只带本篇及所选分支需要的附件，完整大数组只在shared中保存一次。",
+    "case_scopes": {
+      "CME-GRAIN-TEACHING": "core",
+      "SIM-PJ-CORN-CASH-01": "core",
+      "SIM-PJ-EUR-RECEIVABLE-01": "eur"
+    },
+    "operational_scopes": {
+      "corn": "core",
+      "eur": "eur"
+    },
+    "frozen_inputs_uri": "https://ou-liu-red-sugar.github.io/notebook/labs/p-ijklm/shared/final-shared-inputs.json",
+    "reproduction_data_uri": "https://ou-liu-red-sugar.github.io/notebook/labs/p-ijklm/shared/runtime-inputs.json"
+  },
+  "source_id_aliases": {
+    "PE-CME-MES": "MA-MES",
+    "MP-CME-GRAIN": "MP-CME-GRAIN",
+    "PI-CME-CORN": "PI-CME-CORN",
+    "MP-CME-3Y": "MP-CME-3Y",
+    "MP-CME-TREAS": "MP-CME-TREAS",
+    "MD-S05": "MD-S05",
+    "MD-S08": "MD-S08",
+    "PE-FSB-MARGIN": "MA-FSB",
+    "PI-CME-EUR": "PI-CME-EUR",
+    "PI-MIT-CAPM03": "PI-MIT-CAPM03",
+    "PI-MIT-CAPM08": "P-R04b",
+    "PI-FRENCH-FACTORS": "PI-FRENCH-FACTORS",
+    "QTDE-FRENCH": "QTC-FRENCH30",
+    "QTDE-FRENCH-REGIME": "QTC-FRENCH",
+    "PI-GIPS20": "P-R03",
+    "MEFG-CHICAGOFED-2025": "PFH-CHIFED2025",
+    "QTDE-TSCV": "QS02-5.10",
+    "QGHI-MIT-BS13": "QGHI-MIT-BS13",
+    "MD-S01": "MD-S01",
+    "MOD-CRYPTO-CARRY": "MOD-CRYPTO-CARRY",
+    "MOD-PERP-PAPER": "MOD-PERP-PAPER",
+    "MOD-BYBIT-FUNDING": "MOD-BYBIT-FUNDING",
+    "PI-BYBIT-FEE": "PI-BYBIT-FEE",
+    "MOD-BYBIT-PNL": "MOD-BYBIT-PNL",
+    "PI-CME-MBT": "PI-CME-MBT",
+    "PI-CME-CRYPTO-FAQ": "PI-CME-CRYPTO-FAQ",
+    "MOD-LVR": "MOD-LVR",
+    "MOD-UNISWAP-V3": "MOD-UNISWAP-V3"
+  }
+}
+```
+
+## Supplied entry
+复盘最容易变成两种互相对立、却同样无用的故事：赚钱就说判断正确，亏钱就说策略无效。真正有用的复盘应当让另一个人在不知道最终行情时，也能重建当时为什么持仓、能否履约、何时退出，以及结果究竟来自哪里。本篇沿用P23的玉米采购账，不再创造另一笔看起来更漂亮的交易。
+
+<a id="p24-original"></a>
+## 1. 先把原问题写在时间线左端
+
+采购者预计未来购买15,000蒲式耳玉米，担心涨价。以5.75建立3张多头，对应数量15,000；自有资金106,000，其中90,000的存款直到采购日才可用，当前16,000。每张初始/维持要求3,000/2,000是教学约定。中途价格5.45、5.10，最后6.25；采购日当地现货价6.20。所有中途行情、账户限制和显示价格平仓的安排都是透明教学假设，不是历史企业交易。[^grain24]
+
+原计划有两个不同理由。第一个理由是经济的：采购怕涨价，因此做多；第二个理由应该是操作的：16,000流动现金是否足够维持3张头寸。前者成立不能替后者签字。复盘应保留最初的采购量、可用资金与承诺额度，不因为后来价格反弹而把“当时一定能借到钱”补入旧计划。
+
+可以在D0写一份简短承诺：保护哪批采购；何时结束；允许哪些基差；用哪些账户补款；到什么条件停止。如果目标变成“不再采购”或实际采购量下降，就要重新识别剩余期货的性质，而不是继续用“对冲”这个旧标签。
+
+<a id="p24-events"></a>
+## 2. 把每一个动作和余额接上
+
+复盘表至少区分当时已知事实、应采取动作和实际动作。这里使用给定路径中可发生的教学动作：
+
+| 时点 | 此时刚知道什么 | VM | 应补/执行 | 期货余仓 | 可动自由现金 |
+|---|---|---:|---|---:|---:|
+| D0 | 采购量和初始资金 | 0 | 转入9,000初始保证金 | 3 | 7,000 |
+| 第一次结算 | 期货5.45 | −4,500 | 实际补4,500 | 3 | 2,500 |
+| 第二次结算 | 期货5.10 | −5,250 | 应补5,250但缺2,750；平仓返还3,750 | 0 | 6,250 |
+| 采购日 | 期货6.25、现货6.20、存款解锁 | 0 | 总现金96,250中付93,000买货 | 0 | 3,250 |
+
+最后一行的期货VM为零，不是17,250，因为第二次结算后头寸已关闭。90,000解锁是自有资产从受限变可用，不是投资收入；9,000初始保证金和之后补款是账户内部转移，不是都要额外扣一次的费用。现金轨和损益轨必须能相互勾稽，否则很容易同时漏钱和重复扣钱。[^money24]
+
+如果另一个人声称“最终有效采购价应该是5.70”，先问他的仓位能不能跨过第二次追保。5.70是完整持有3张到终点时的未计融资成本结果；它不是本条失败路径的结果。反事实可以讨论，但必须把融资条件一起改变，不能只把终点换过去。
+
+<figure class="pfh-responsive-figure"><div class="svg-wide"><img src="/notebook/labs/p-ijklm/figures/P24-a.svg" alt="复盘信息集：每个时点只允许使用此前已知的信息，关闭之后不再领取未来VM。"></div><div class="svg-narrow pfh-native"><p class="pfh-figure-title">复盘沿当时信息推进</p><p class="pfh-figure-note">同P23唯一玉米账；结果不能反写交易前条件</p><ol class="pfh-flow-steps"><li><strong>初始计划</strong><p>未来采购15,000蒲式耳；多3张</p><p>当前流动资金16,000，90,000尚受限</p></li><li><strong>第1压力点</strong><p>期货5.45；变动现金−4,500</p><p>补足后自由资金2,500</p></li><li><strong>第2压力点</strong><p>期货5.10；应补5,250</p><p>无授信，缺2,750 → 按教学价退出</p></li><li><strong>采购日</strong><p>现货6.20；支付93,000</p><p>期货已经关闭，不取得后段17,250反弹</p></li></ol></div></figure>
+
+<a id="p24-attribution"></a>
+## 3. 一张金额桥，分出五类解释
+
+从采购日实物支出93,000出发，减去已实现期货结果−9,750，得到有效采购成本102,750。也可以从106,000自有资金减采购后3,250现金得到同一个数。两种算法应一致，且这里比较的是采购现金成本，不是把新取得的玉米资产当作全额亏损。
+
+这9,750差额究竟告诉我们什么？**方向**仍与未来采购上涨风险相配；**市场路径**先跌后涨；**资金安排**无法持有到原终点；**成交假设**允许在5.10平仓；**结果**是在这一条路径里比不对冲的93,000成本更高。不能从最后一句跳回去说前四句全部错误，也不能因为方向合理就忽略资金缺陷。
+
+若想衡量融资约束的影响，可以比较同一价格路径上的两个完整方案。无融资3张最终期货−9,750；有承诺额度并实际借2,750的3张最终期货+7,500，但需付7.534247利息。因此二者采购成本差额17,242.465753美元。它是“改变资金约束后，两套可执行路径的差”，不是一个可以独立归功于管理能力的收益率。
+
+<figure class="pfh-responsive-figure"><div class="svg-wide"><img src="/notebook/labs/p-ijklm/figures/P24-b.svg" alt="同一采购的金额归因：终点现货价相同，仓位是否延续改变了实际期货结果。"></div><div class="svg-narrow pfh-native"><p class="pfh-figure-title">把方向、资金和终点拆开</p><p class="pfh-figure-note">实际教学关闭分支的有效采购成本</p><p class="pfh-axis-label">单位：美元；采购取得实物，现金支出不是全部财富损失</p><ul class="pfh-cash-list"><li class="pfh-cash-row"><span class="pfh-cash-label">实物付款</span><div class="pfh-cash-reading"><strong>93,000.000</strong><span>正值</span></div><div class="pfh-cash-track" aria-hidden="true"><span style="width:90.51094890510949%"></span></div></li><li class="pfh-cash-row"><span class="pfh-cash-label">期货已实现损失</span><div class="pfh-cash-reading"><strong>9,750.000</strong><span>正值</span></div><div class="pfh-cash-track" aria-hidden="true"><span style="width:9.48905109489051%"></span></div></li><li class="pfh-cash-row"><span class="pfh-cash-label">有效采购成本</span><div class="pfh-cash-reading"><strong>102,750.000</strong><span>正值</span></div><div class="pfh-cash-track" aria-hidden="true"><span style="width:100.0%"></span></div></li></ul></div></figure>
+
+<a id="p24-comparison"></a>
+## 4. 怎样才是公平的替代比较？
+
+四个方案都从106,000自有现金、同一采购量与同一采购日开始：3张无融资、2张、3张加承诺融资、不对冲。2张方案成本88,000，留下三分之一数量未覆盖；承诺融资3张成本85,507.534247，增加了信用依赖；不对冲成本93,000，把共同价格风险保留下来。
+
+因此，可复盘的不是“哪个终值最低”，而是：哪个安排在事前符合可接受的涨价风险、资金预算与融资条件。只有这一条事后路径，不足以估计未来平均成本或失败概率。若额外加入自有资金，它是外部流，比较回报时必须处理不同金额和时点；不能分子享受额外资金救活后的收益，分母却继续只用最初保证金。
+
+FSB关于抵押品的建议提示我们，融资承诺还应具体到资格、折扣、账户、币种及到达时点。[^fsb24] 口头的“必要时融资”不是完整方案。另一方面，一次合理方案遇到不利结果，也不能自动证明原决策差；评价要回到当时的证据与可行集合。
+
+<div data-experiment-slot="EXP-P24-REVIEW"></div>
+
+实验的第一视图按时间揭示账本；第二视图显示金额归因。先选3张无额度，逐步推进而不要先看最终价。再切2张和3,000额度，说明自己改变了哪一个事前约束。若只想换一个更好看的终值，却不能指出对应的持仓和资金动作，那不是复盘。
+
+<a id="p24-fx"></a>
+## 5. 选读迁移：欧元应收款也要等到收款日
+
+再看一个独立变式，不替换玉米主账。企业未来收100万欧元，初始现汇1.10美元/欧元，准备以8张CME EUR/USD期货空头抵消部分美元换汇价值下降风险。每张125,000欧元是合约规格；本例期货路径1.105→1.120→1.115→1.083、最终现汇1.08、32,000初始和24,000维持保证金则是教学参数。期货在到期前平掉，不把本来实物交割的合约改称现金结算。[^eur24]
+
+自有现金52,000，开仓费用16，转入保证金32,000，留下19,984。第一次期货上涨0.015，空头VM−15,000，需要补15,000，自由现金降为4,984；后两次VM为+5,000、+32,000，不再补款。累计VM22,000，双边费用32，净期货21,968。
+
+收款后按1.08换得1,080,000，合并有效换汇所得1,101,968，折合1.101968美元/欧元，不等于最初期货1.105，因为终点现汇与期货相差−0.003，还扣了费用。总初始财富按应收初值1,100,000加现金52,000为1,152,000；最后1,153,968。不对冲且保留相同现金，最后则为1,132,000。
+
+这笔有正结果的安排也曾先要补15,000。如果应收款延期或金额减少，旧期货数量和退出日期都需要重估。原币应收的账面价值不能保证美元保证金当日到账；两种币种的现金也不能不经换汇就相互抵消。
+
+<a id="p24-exercises"></a>
+## 6. 自测与解析
+
+**解释题。** 3张玉米期货最终亏9,750，能否写“买入方向错了，应该卖出”？
+
+不能。原风险是未来采购涨价，买入方向与该风险相配。实际亏损路径反映先跌后的被迫退出。改成卖出会在采购价上涨时增加另一侧风险。应分别审查方向与资金计划；本例最明确的断裂是缺乏维持原规模所需的可达现金。
+
+**迁移题。** 复盘者从106,000减去9,000初始保证金，再减9,750期货亏损和93,000采购，得到负5,750。哪里重复了？
+
+初始保证金只是内部转移，平仓返还的账户余额已包含在现金轨中。把它再次当损失扣除，重复扣了9,000。正确的期末现金为 $106,000-9,750-93,000=3,250$。逐日账与这一损益式应得同一结果。
+
+**完成标准。** 读完之后，能否把某一项结果具体归入市场、仓位、成本、资金或外部流，并给出它发生的日期？不能指出日期与账户的“经验总结”，还不够可靠。
+
+[^grain24]: CME Group，[Grain and Oilseed Hedgers Guide](https://www.cmegroup.com/trading/agricultural/files/grain-oilseed-hedgers-guide.pdf)，ch3采购与销售原例。主资金路径复用P23的同一教学账。
+[^money24]: CME Group，[Money Calculations](https://www.cmegroup.com/clearing/files/CME-Money-Calculations-Futures-and-Options.pdf)，pp1–3；账户转移与期货价格损益分开。
+[^fsb24]: FSB，[Liquidity Preparedness](https://www.fsb.org/uploads/P101224-1.pdf)，§3.3 Recommendations 6–8：抵押资格、运营能力和可用性。
+[^eur24]: CME，[EUR/USD Futures，Chapter 261](https://www.cmegroup.com/rulebook/CME/III/250/261/261.pdf)，§26101–26102核心单位、报价、到期与实物交割规则；这里只采用到期前平仓分支。
+
+<script src="/notebook/labs/p-ijklm/reader-adapter.js" defer></script>
+
+
+## Experiment inputs and static equivalents
+```json
+[
+  {
+    "id": "EXP-P24-REVIEW",
+    "node_id": "P24",
+    "title": "一次衍生品安排的完整复盘",
+    "anchor": "p24-comparison",
+    "description": "按当时信息区分对冲方向、执行与资金计划，公平比较同一采购账的替代路径。",
+    "inputs": {
+      "frozen_ids": [
+        "CME-GRAIN-TEACHING",
+        "SIM-PJ-CORN-CASH-01",
+        "SIM-PJ-EUR-RECEIVABLE-01"
+      ],
+      "operational_keys": [
+        "corn",
+        "eur"
+      ],
+      "units": "逐字段以shared/final-shared-inputs.json与operational-inputs.json为准"
+    },
+    "outputs": {
+      "default_location": "agent_packet.supplied_inputs.static_default_result"
+    },
+    "algorithm": "https://ou-liu-red-sugar.github.io/notebook/labs/p-ijklm/engine.js; P26 consumes QT24 outputs without rerunning simulation.",
+    "views": [
+      "当时可知信息与仓位时间线",
+      "原资产/衍生腿/资金的结果归因"
+    ],
+    "boundaries": [
+      "真实规格不等于当前保证金或成交",
+      "不得从终点补造未提供的资金路径",
+      "输入无效即停止，不能沿用旧结果"
+    ],
+    "static_equivalent": {
+      "figures": [
+        "https://ou-liu-red-sugar.github.io/notebook/labs/p-ijklm/figures/P24-a.svg",
+        "https://ou-liu-red-sugar.github.io/notebook/labs/p-ijklm/figures/P24-b.svg"
+      ],
+      "body_tables": true,
+      "event_data": [
+        {
+          "path": "https://ou-liu-red-sugar.github.io/notebook/labs/p-ijklm/shared/corn-cash-event-ledgers.csv",
+          "branch": "core",
+          "sha256": "9b778996982247177134a974e89d4099ff90b28187ff670a232607609d53e68f",
+          "format": "csv",
+          "public_access": "随本ZIP及复制教学包提供的UTF-8附件；非内部盘符"
+        },
+        {
+          "path": "https://ou-liu-red-sugar.github.io/notebook/labs/p-ijklm/shared/eur-event-ledger.csv",
+          "branch": "eur",
+          "sha256": "bdc34b87d8070928d071969d34c7595f5e01f6ef2d98eea90521bfa3fb4d8e82",
+          "format": "csv",
+          "public_access": "随本ZIP及复制教学包提供的UTF-8附件；非内部盘符"
+        }
+      ]
+    },
+    "input_controls": [
+      {
+        "key": "branch",
+        "label": "复盘安排",
+        "type": "select",
+        "default": "three",
+        "options": [
+          {
+            "value": "three",
+            "label": "玉米3张无授信"
+          },
+          {
+            "value": "two",
+            "label": "玉米2张"
+          },
+          {
+            "value": "loan",
+            "label": "玉米3张＋承诺授信"
+          },
+          {
+            "value": "none",
+            "label": "玉米不对冲"
+          },
+          {
+            "value": "eur",
+            "label": "选读：EUR应收"
+          }
+        ]
+      },
+      {
+        "key": "step",
+        "label": "截至哪个时点",
+        "type": "selectnum",
+        "default": 3,
+        "options": [
+          {
+            "value": 3,
+            "label": "终点"
+          },
+          {
+            "value": 0,
+            "label": "初始"
+          },
+          {
+            "value": 1,
+            "label": "第1压力点"
+          },
+          {
+            "value": 2,
+            "label": "第2压力点"
+          }
+        ]
+      }
+    ],
+    "input_uri": "https://ou-liu-red-sugar.github.io/notebook/labs/p-ijklm/shared/final-shared-inputs.json"
+  }
+]
+```
+
+## Sources
+- [Liquidity Preparedness for Margin and Collateral Calls — Final Report](https://www.fsb.org/uploads/P101224-1.pdf): 政策研究中的流动性压力分析；未读全报告，不作因果估计或约束性规则。
+
+P-E 使用范围：Recommendations6–8的资源可用性、haircut、币种/地点/截止与操作准备；不是零售统一账户规则。
+
+本批读取范围：抵押品资格、占用、haircut、币种、地点与及时到账。
+- [Money Calculations for CME-cleared Futures and Options](https://www.cmegroup.com/clearing/files/CME-Money-Calculations-Futures-and-Options.pdf): 当日成交与期初头寸的结算现金及正常舍入；不采用无关分数报价例的印刷错误，不提供CL保证金水平。
+
+本批读取范围：逐日价格变动、乘数、现金与结算口径。
+- [Self-Study Guide to Hedging with Grain and Oilseed Futures and Options](https://www.cmegroup.com/trading/agricultural/files/grain-oilseed-hedgers-guide.pdf): 采购与销售方向、价量原例及当地基差。
+- [GIPS Standards Handbook for Firms](https://www.gipsstandards.org/standards/gips-standards-for-firms/gips-standards-handbook-for-firms/): GIPS Standards Handbook for Firms
+
+本批读取范围：外部现金流、TWR/MWR、净费用方法和费用应计/付款。
+- [CME Rulebook Chapter261: EUR/USD Futures](https://www.cmegroup.com/rulebook/CME/III/250/261/261.pdf): 125,000欧元、报价单位与到期前平仓的合约背景。
+
+## Content relations
+```json
+[
+  {
+    "from": "zh-p24",
+    "relation": "part_of",
+    "to": "portfolio-implementation",
+    "reason": "主要 topic 归属"
+  },
+  {
+    "from": "zh-p24",
+    "relation": "requires",
+    "to": "zh-p23",
+    "required_competence": "能够逐行重放同一玉米资金账。",
+    "reason": "这项能力进入本篇主任务，而非推荐阅读顺序。"
+  },
+  {
+    "from": "zh-p24",
+    "relation": "uses_method",
+    "to": "zh-p09",
+    "reason": "调用局部概念；本篇同时给出完成算例所需的最小说明。"
+  },
+  {
+    "from": "zh-p24",
+    "relation": "uses_method",
+    "to": "zh-p12",
+    "reason": "调用局部概念；本篇同时给出完成算例所需的最小说明。"
+  },
+  {
+    "from": "zh-p24",
+    "relation": "illustrated_by",
+    "to": "p21-procurement",
+    "reason": "同一冻结对象和明确身份的算例。"
+  },
+  {
+    "from": "zh-p24",
+    "relation": "illustrated_by",
+    "to": "p23-setup",
+    "reason": "同一冻结对象和明确身份的算例。"
+  },
+  {
+    "from": "zh-p24",
+    "relation": "illustrated_by",
+    "to": "p24-fx",
+    "reason": "同一冻结对象和明确身份的算例。"
+  },
+  {
+    "from": "p24-original",
+    "relation": "supported_by",
+    "to": "MP-CME-GRAIN",
+    "reason": "采购与销售方向、价量原例及当地基差。",
+    "locator": "ch2 printed pp9–14 / PDF pp11–16；ch3 printed pp17–22 / PDF pp19–24；margin pp6–7",
+    "scope": "采购与销售方向、价量原例及当地基差。"
+  },
+  {
+    "from": "p24-events",
+    "relation": "supported_by",
+    "to": "MD-S05",
+    "reason": "逐日价格变动、乘数、现金与结算口径。",
+    "locator": "pp1–3普通期货变动现金完整单元",
+    "scope": "逐日价格变动、乘数、现金与结算口径。"
+  },
+  {
+    "from": "p24-comparison",
+    "relation": "supported_by",
+    "to": "MA-FSB",
+    "reason": "抵押品资格、占用、haircut、币种、地点与及时到账。",
+    "locator": "§3.3 printed pp18–20 / PDF pp22–24，Recommendations6–8",
+    "scope": "抵押品资格、占用、haircut、币种、地点与及时到账。"
+  },
+  {
+    "from": "p24-fx",
+    "relation": "supported_by",
+    "to": "PI-CME-EUR",
+    "reason": "125,000欧元、报价单位与到期前平仓的合约背景。",
+    "locator": "§26101–26102，常规合约与实物交割",
+    "scope": "125,000欧元、报价单位与到期前平仓的合约背景。",
+    "branch": "eur"
+  },
+  {
+    "from": "p24-attribution",
+    "relation": "supported_by",
+    "to": "P-R03",
+    "reason": "外部现金流、TWR/MWR、净费用方法和费用应计/付款。",
+    "locator": "1.A.35；2.A.23–24；2.A.29；2.A.30；2.B.4",
+    "scope": "外部现金流、TWR/MWR、净费用方法和费用应计/付款。",
+    "branch": "evaluation"
+  },
+  {
+    "from": "p24-comparison",
+    "relation": "illustrated_by",
+    "to": "EXP-P24-REVIEW",
+    "reason": "按当时信息区分对冲方向、执行与资金计划，公平比较同一采购账的替代路径。"
+  }
+]
+```
+
+## Related entries

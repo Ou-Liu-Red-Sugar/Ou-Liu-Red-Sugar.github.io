@@ -20,7 +20,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     env:
-      HUGO_VERSION: 0.146.0
+      HUGO_VERSION: 0.152.2
     steps:
       - name: Install Hugo CLI
         run: |
@@ -30,13 +30,19 @@ jobs:
         uses: actions/checkout@v4
         with:
           submodules: recursive
+      - name: Compile notebook content and Agent exports
+        run: python3 tools/build_notebook.py
+      - name: Check interactive calculations
+        run: node --test tools/notebook-math.test.mjs tools/notebook-number-format.test.cjs
       - name: Build with Hugo
-        run: hugo --minify
+        run: hugo --minify --destination "${{ runner.temp }}/site"
+      - name: Check site links and Agent exports
+        run: python3 tools/check_notebook.py --build-dir "${{ runner.temp }}/site"
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./public
+          path: ${{ runner.temp }}/site
 
   deploy:
     if: github.event_name == 'push' && github.ref == 'refs/heads/main'

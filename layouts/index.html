@@ -1,111 +1,41 @@
-{{- define "main" -}}
-
-<section class="ou-hero" aria-labelledby="home-title">
-  <div class="ou-hero-inner">
-    <p class="ou-hero-eyebrow">Personal investor · Learning in public</p>
-
-    <h1 class="ou-hero-name" id="home-title">
-      Ou Liu
-      <span class="ou-hero-name-cn">刘欧</span>
-    </h1>
-
-    <p class="ou-hero-bio">
-      I am learning stochastic processes and financial markets while testing an
-      investing research framework in live practice.
-    </p>
-
-    <p class="ou-hero-context">
-      This is a working record of how I study, form views, and revise decisions
-      under uncertainty. The framework is still being tested and is not presented
-      as a finished system.
-    </p>
-
-    <div class="ou-hero-links">
-      <a class="cta-primary" href="/invest/">Enter the Investing Lab</a>
-      <a class="cta-secondary" href="/learning/">Browse learning notes</a>
+{{ define "main" }}
+{{ $page := . }}{{ $zh := eq .Lang "zh" }}{{ $book := .Site.Data.notebook }}
+<div class="home-shell">
+  <section class="hero">
+    <div>
+      <p class="eyebrow">OU LIU / OPEN NOTEBOOK</p>
+      <h1>{{ if $zh }}理解业务，<br>也理解<span>不确定性。</span>{{ else }}Mathematics,<br><span>one idea at a time.</span>{{ end }}</h1>
+      <p class="hero-intro">{{ if $zh }}市场、企业、行业、投资与数学，各有一条阅读路线。<br>从感兴趣的领域进入，结合真实材料、推导和交互实验学习。{{ else }}Notes on higher algebra, sheaves and category theory.<br>Follow definitions, proofs and references through each topic.{{ end }}</p>
+      <a class="primary-link" href="{{ if $zh }}#learning-paths{{ else }}/en/notes/{{ end }}">{{ if $zh }}选择一条领域路线{{ else }}Read the mathematics notes{{ end }} <span>↗</span></a>
     </div>
-  </div>
-</section>
-
-<div class="ou-home">
-  <section class="ou-home-section ou-now" aria-labelledby="now-title">
-    <div class="ou-home-heading">
-      <p class="ou-home-kicker">Now</p>
-      <h2 id="now-title">Learning, testing, revising.</h2>
-    </div>
-    <div class="ou-now-copy">
-      <p>
-        My current work sits between study and practice: building a clearer
-        understanding of stochastic processes and financial markets, then using
-        that understanding to improve a fundamental investing process.
-      </p>
-      <p>
-        Live practice is the test environment. Conclusions remain provisional,
-        and the process is expected to change as evidence accumulates.
-      </p>
+    <div class="hero-art" aria-hidden="true"><svg viewBox="0 0 420 310"><defs><pattern id="grid" width="28" height="28" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r="1" fill="#bbc5bd"/></pattern></defs><rect width="420" height="310" fill="url(#grid)"/><path d="M35 248H394M58 275V32" stroke="#a8b5ae" fill="none"/><path d="M58 229C114 239 142 215 174 186S243 199 274 131 342 131 388 50" stroke="#b8c9b9" fill="none" stroke-width="3"/><path d="M58 239L137 239 212 165 285 165 375 73" stroke="#1f6356" fill="none" stroke-width="4"/><circle cx="212" cy="165" r="7" fill="#b87951"/><circle cx="375" cy="73" r="7" fill="#1f6356"/><text x="230" y="149" fill="#596d64" font-size="14">information → understanding</text><text x="74" y="285" fill="#718077" font-size="12">{{ if $zh }}BUSINESS · MARKETS · MATHEMATICS{{ else }}DEFINITIONS · PROOFS · CONNECTIONS{{ end }}</text></svg><span class="art-caption">01 / CONNECT THE IDEAS</span></div>
+  </section>
+  {{ if $zh }}
+  <section class="home-start" id="learning-paths">
+    <div><p class="eyebrow">按领域开始</p><h2>五个领域，<br>各自展开。</h2><p>每条路线选择本领域的核心词条，按推荐顺序阅读。补充概念随时查阅，真实材料与交互实验穿插在正文中。</p><p>公司资料单独收录。跨领域的先修、方法和证据，在每篇词条的知识关系中说明。</p></div>
+    <div class="featured-list">
+      {{ range $book.subjects }}{{ $subject := . }}
+        {{ range where (where $book.paths "lang" $page.Lang) "subject" $subject.id }}{{ if and .steps (not .deprecated) }}
+          <a href="{{ .url }}"><span class="feature-label">{{ $subject.zh }}</span><h3>{{ .title }} <span>↗</span></h3><p>{{ .summary }}</p></a>
+        {{ end }}{{ end }}
+      {{ end }}
     </div>
   </section>
-
-  <section class="ou-home-section" aria-labelledby="paths-title">
-    <div class="ou-home-heading">
-      <p class="ou-home-kicker">Paths</p>
-      <h2 id="paths-title">Three parts of the site.</h2>
-    </div>
-    <div class="ou-paths">
-      <a class="ou-path" href="/invest/">
-        <span class="ou-path-index">01</span>
-        <h3>Investing Lab</h3>
-        <p>Framework design, uncertainty review, and lessons from testing ideas in live practice.</p>
-        <span class="ou-path-link">Explore the lab</span>
-      </a>
-      <a class="ou-path" href="/learning/">
-        <span class="ou-path-index">02</span>
-        <h3>Learning Notes</h3>
-        <p>Notes on stochastic processes, financial markets, and the concepts connecting them.</p>
-        <span class="ou-path-link">Read the notes</span>
-      </a>
-      <a class="ou-path" href="/notes/">
-        <span class="ou-path-index">03</span>
-        <h3>Math Archive</h3>
-        <p>Earlier mathematical notes and research material, preserved as an archive.</p>
-        <span class="ou-path-link">Open the archive</span>
-      </a>
-    </div>
+  <section class="home-collections" aria-label="其他阅读入口">
+    <a href="/zh/notebook/"><span class="eyebrow">01 / TOPICS</span><h2>词条目录</h2><p>按领域与主题查找概念、方法和可查基础，也可以回到本领域的阅读路线。</p><span>查看全部词条 ↗</span></a>
+    <a href="/zh/notebook/companies/"><span class="eyebrow">02 / COMPANIES</span><h2>公司资料与研究</h2><p>查看企业业务与带时间的研究记录，再回到具体主题对照分析。</p><span>进入公司资料库 ↗</span></a>
+    <a href="/zh/notebook/financial-claims/#connections"><span class="eyebrow">03 / CONNECTIONS</span><h2>知识关系图</h2><p>从“金融权利”开始查看相邻概念、实例与来源。每篇词条都有自己的关系图。</p><span>查看金融权利的知识关系 ↗</span></a>
+    <a href="/zh/notes/"><span class="eyebrow">04 / 笔记与讲义</span><h2>中文笔记与讲义</h2><p>随机过程与金融市场、代数几何、谱与范畴论。阅读完整讲义，沿章节展开推导。</p><span>查看中文笔记与讲义 ↗</span></a>
   </section>
-
-  <section class="ou-home-section ou-boundary" aria-labelledby="boundary-title">
-    <div class="ou-home-heading">
-      <p class="ou-home-kicker">Public boundary</p>
-      <h2 id="boundary-title">The process is public. The portfolio is not.</h2>
-    </div>
-    <div class="ou-boundary-copy">
-      <p>
-        This site focuses on learning notes, framework design, and high-level review.
-        Detailed trade records, position data, and account-level results stay private.
-      </p>
-      <p class="ou-disclaimer">These are personal research notes, not recommendations.</p>
-    </div>
+  {{ else }}
+  <section class="home-start">
+    <div><p class="eyebrow">MATHEMATICS · ENGLISH</p><h2>Definitions, proofs<br>and their connections.</h2><p>The English archive brings together notes on higher algebra, sheaf cohomology and category theory. Choose a topic and read at your own pace.</p></div>
+    <div class="featured-list">{{ range (where .Site.RegularPages "Section" "notes").ByTitle }}<a href="{{ .RelPermalink }}"><span class="feature-label">MATHEMATICS</span><h3>{{ .Title }} <span>↗</span></h3></a>{{ end }}</div>
   </section>
-
-  <section class="ou-home-section ou-archive-note" aria-labelledby="archive-title">
-    <div class="ou-home-heading">
-      <p class="ou-home-kicker">Archive note</p>
-      <h2 id="archive-title">Mathematics remains part of the record, not the current identity.</h2>
-    </div>
-    <div class="ou-archive-copy">
-      <p>
-        I have stepped away from academic mathematics. Notes and papers from that
-        period remain available for reference, but they are no longer the main thread
-        of this site.
-      </p>
-      <p>
-        Even after leaving Germany, the body has not simply returned to normal,
-        and mentally I am still far from fully recovered. The present work is
-        part of trying to do better.
-      </p>
-      <a class="ou-text-link" href="/notes/">Visit the Math Archive</a>
-    </div>
+  <section class="home-collections" aria-label="More notebooks">
+    <a href="/en/notebook/"><span class="eyebrow">01 / FINANCE · EN</span><h2>Investment &amp; finance</h2><p>Available English entries, with interactive examples and teaching prompts.</p><span>Browse English entries ↗</span></a>
+    <a href="/zh/notebook/" lang="zh"><span class="eyebrow">02 / FINANCE · 中文</span><h2>中文投资学笔记</h2><p>金融市场、企业财报、行业、投资与组合、数学方法，五个领域各有阅读路线。</p><span>进入中文词条目录 ↗</span></a>
   </section>
+  {{ end }}
 </div>
-
-{{- end -}}
+{{ end }}

@@ -1,0 +1,344 @@
+{
+  "id": "PE-DRAFT-INPUTS-20260921-v1",
+  "version": "2026-09-21-v1",
+  "frozen": {
+    "package_id": "P-E-PRIMARY-20260921",
+    "research_cutoff": "2026-09-21",
+    "identity": "Public-source teaching support, not account or historical execution data",
+    "margin": {
+      "id": "CASE-PE-SEC-MARGIN",
+      "source_id": "PE-SEC-MARGIN",
+      "source_example": {
+        "initial_assets": 16000,
+        "initial_debt": 8000,
+        "stressed_assets": 12000,
+        "maintenance_rates": [
+          0.25,
+          0.4
+        ]
+      },
+      "extensions_identity": "Independent teaching extensions of the SEC example; cash repays debt, sale proceeds repay debt; no price change or fees during the remedy",
+      "interest_extension": {
+        "identity": "Teaching assumption, not a current broker rate",
+        "annual_rate": 0.08,
+        "days": 30,
+        "day_basis": 365
+      }
+    },
+    "execution": {
+      "id": "SIM-PE-EXEC-01",
+      "identity": "Entire book, fills, prices and fee are synthetic; no real ticker or historical quotes",
+      "currency": "USD",
+      "initial_cash": 15100,
+      "target_shares": 300,
+      "decision_price": 50,
+      "arrival_bid": 49.98,
+      "arrival_asks": [
+        {
+          "price": 50.02,
+          "shares": 100
+        },
+        {
+          "price": 50.05,
+          "shares": 100
+        },
+        {
+          "price": 50.1,
+          "shares": 100
+        }
+      ],
+      "fee_per_instruction_with_fills": 1,
+      "limit_price": 50.05,
+      "terminal_prices": [
+        50.2,
+        49.8
+      ],
+      "timeline": [
+        "09:30:00 decision at midpoint 50.00",
+        "09:30:01 arrival: displayed book unchanged and available to this order",
+        "09:30:01 specified fills; limit residual remains unfilled",
+        "10:00:00 cancel residual and compare wealth at the common terminal price"
+      ],
+      "assumptions": [
+        "No competing cancellation or replenishment during the stipulated immediate fills",
+        "No interest or price change between decision and arrival",
+        "Cash for unfilled shares remains cash",
+        "Do not label book-walking arithmetic as an estimated causal price-impact model"
+      ]
+    },
+    "joint_budget": {
+      "id": "SIM-PE-BUDGET-01",
+      "identity": "MES multiplier and tick are actual contract specifications; portfolio, futures prices, account amounts, margins, fee, depth and stress paths are teaching inputs",
+      "source_id": "PE-CME-MES",
+      "currency": "USD",
+      "basket_value": 200000,
+      "basket_reduced_value": 190000,
+      "futures_multiplier": 5,
+      "execution_index_level": 4500,
+      "max_entry_contracts_at_accepted_price": 3,
+      "entry_fee_per_contract": 2,
+      "exit_fee_per_contract": 2,
+      "fcm_cash_initial": 6000,
+      "initial_margin_per_contract": 1750,
+      "timely_external_cash_total": 8000,
+      "late_external_cash": 6000,
+      "late_cash_time": "D3 10:30, after the D3 10:00 call deadline",
+      "max_stress_loss": 30000,
+      "down": {
+        "basket_return": -0.2,
+        "futures_final": 3600
+      },
+      "up": {
+        "basket_return": 0.15,
+        "daily_settlements": [
+          4500,
+          4725,
+          4950,
+          5175
+        ],
+        "required_balance_per_contract": [
+          1750,
+          1750,
+          2000,
+          2200
+        ],
+        "call_deadlines": [
+          "T0 entry",
+          "D1 10:00",
+          "D2 10:00",
+          "D3 10:00"
+        ],
+        "rule_identity": "Teaching FCM cash-only arrangement: debit each daily variation loss, then restore this day's required balance by its stated deadline; amounts are neither current CME margins nor a real broker agreement"
+      }
+    },
+    "rebalance": {
+      "id": "SIM-PE-REBALANCE-01",
+      "identity": "Synthetic cash portfolio applying the threshold/destination distinction in the dated Vanguard policy; not an actual Vanguard portfolio or cost observation",
+      "source_ids": [
+        "PE-VANGUARD-POL",
+        "PE-VANGUARD-RB"
+      ],
+      "currency": "USD",
+      "stock": 62400,
+      "bond": 37600,
+      "target_stock_weight": 0.6,
+      "trigger_distance": 0.02,
+      "destination_distance": 0.0175,
+      "combined_implementation_cost_per_stock_sale_dollar": 0.002,
+      "cost_identity": "Teaching aggregate cost for the stock sale plus bond purchase; charged once on stock-sale notional, not again on each leg",
+      "next_stock_returns": [
+        0.05,
+        -0.05
+      ],
+      "next_bond_return": 0,
+      "new_contribution_alternative": 4000
+    },
+    "research_observation": {
+      "id": "OBS-PE-FEDS-T1A",
+      "source_id": "PE-FEDS-2025049",
+      "locator": "Table 1 Panel A, printed p.32 / PDF p.33; definitions in 2.2 and 3.2; sample in 3.1",
+      "identity": "Published summary statistics, not raw trade data or a replicated estimate",
+      "sample_period": "2018-01 through 2024-06",
+      "unit": "Yield-equivalent basis points after the paper's duration normalization; not equity-price basis points",
+      "median": {
+        "effective_spread": 0.37,
+        "indicative_spread": 0.68
+      },
+      "p95": {
+        "effective_spread": 6.22,
+        "indicative_spread": 4.16
+      }
+    },
+    "index_event": {
+      "id": "EVENT-PE-NDX-20230724",
+      "source_id": "PE-NASDAQ-NDX",
+      "identity": "Actual index-rebalance announcement; not ETF executions or a trading backtest",
+      "reference_date": "2023-07-03",
+      "announcement_date": "2023-07-07",
+      "scheduled_pro_forma_release": "2023-07-14",
+      "effective_time": "2023-07-24 before market open",
+      "adds_or_removals": false
+    }
+  },
+  "extensions": {
+    "identity": "Author teaching interface extensions; not new observed data or broker terms",
+    "margin": {
+      "default": {
+        "assets": 12000,
+        "debt": 8000,
+        "maintenance": 0.4,
+        "interest_on": false,
+        "sale_fee": 0,
+        "action": "cash"
+      },
+      "limits": {
+        "assets": [
+          0,
+          30000
+        ],
+        "debt": [
+          0,
+          30000
+        ],
+        "maintenance": [
+          0.01,
+          1
+        ],
+        "sale_fee": [
+          0,
+          1000
+        ]
+      },
+      "fixed_sale_amount": 800
+    },
+    "collateral": {
+      "call_amount": 800,
+      "deadline_minutes": 600,
+      "security_value": 1000,
+      "cash_value": 1000,
+      "haircut": 0.2,
+      "cash_arrival_minutes": 630,
+      "security_arrival_minutes": 570,
+      "identity": "Separate resource card: same-day local clock; not added to the securities margin account",
+      "default": {
+        "cash_only": true,
+        "unencumbered": true,
+        "eligible": true,
+        "currency_ok": true,
+        "location_ok": true
+      }
+    },
+    "execution": {
+      "default": {
+        "route": "market",
+        "limit_price": 50.05,
+        "terminal_price": 50.2,
+        "fee": 1
+      },
+      "routes": [
+        "market",
+        "limit",
+        "ioc",
+        "fok"
+      ],
+      "limits": {
+        "limit_price": [
+          49.9,
+          50.2
+        ],
+        "terminal_price": [
+          45,
+          55
+        ],
+        "fee": [
+          0,
+          100
+        ]
+      }
+    },
+    "budget": {
+      "default": {
+        "basket": 200000,
+        "contracts": 3,
+        "early_budget": 8000,
+        "late_before_deadline": false,
+        "allocate_released": false,
+        "loss_cap": 30000,
+        "depth": 3
+      },
+      "limits": {
+        "contracts": [
+          0,
+          3
+        ],
+        "early_budget": [
+          0,
+          8000
+        ],
+        "loss_cap": [
+          0,
+          50000
+        ],
+        "depth": [
+          0,
+          3
+        ]
+      },
+      "basket_options": [
+        200000,
+        190000
+      ],
+      "release_assumption": "Basket reduced before T0 at stated value, no incremental sale costs; released 10000 is already settled general cash; transfer designation moves this same cash, never creates wealth",
+      "early_budget_assumption": "Unused part of original 8000 remains in general cash, not destroyed",
+      "late_timing": "Early switch releases the same 6000 only at D3 09:30; default D3 10:30 remains unavailable at all call deadlines",
+      "default_initial_total_wealth": 220000
+    },
+    "rebalance": {
+      "default": {
+        "weight": 0.624,
+        "target": 0.6,
+        "trigger": 0.02,
+        "destination": 0.0175,
+        "cost": 0.002,
+        "next_return": 0.05,
+        "mode": "partial",
+        "reason": "drift"
+      },
+      "limits": {
+        "weight": [
+          0,
+          1
+        ],
+        "target": [
+          0.1,
+          0.9
+        ],
+        "trigger": [
+          0.005,
+          0.1
+        ],
+        "destination": [
+          0,
+          0.1
+        ],
+        "cost": [
+          0,
+          0.01
+        ],
+        "next_return": [
+          -0.2,
+          0.2
+        ]
+      },
+      "modes": [
+        "none",
+        "partial",
+        "full",
+        "contribution"
+      ],
+      "reasons": [
+        "drift",
+        "cashflow",
+        "target_changed",
+        "thesis_changed"
+      ],
+      "trigger_convention": "Strictly above target+trigger; equality does not trigger in this teaching implementation",
+      "contribution_identity": "4000 external new cash placed into bonds, ignoring its own transaction cost; not portfolio return",
+      "direction": "Only sell stocks and buy bonds; underweight/inverse trades explicitly unsupported"
+    }
+  },
+  "units": {
+    "amount": "USD",
+    "shares": "shares",
+    "futures": "integer contracts",
+    "index": "index points",
+    "rate": "fraction unless UI percent/bps labelled",
+    "p09_cost_bps_denominator": "target_shares * decision_price",
+    "feds_bps": "paper-defined duration-normalized yield equivalent basis points"
+  },
+  "support_evidence": {
+    "reported_checks": 25,
+    "reported_failures": 0,
+    "identity": "Earlier source-support author checks; not counted as this draft author tests"
+  }
+}

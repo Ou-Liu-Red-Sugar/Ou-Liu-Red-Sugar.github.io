@@ -1,4 +1,11 @@
-<div class="math-env remark">
+{{- $id := .Get "id" | default "" -}}
+{{- if $id -}}
+  {{- $key := printf "thm_registry:%s" .Page.RelPermalink -}}
+  {{- $registry := default (dict) (.Page.Store.Get $key) -}}
+  {{- $entry := dict "kind" "Remark" "number" "" "star" true "anchor" (anchorize $id) "title" (.Get "title" | default "") -}}
+  {{- .Page.Store.Set $key (merge $registry (dict $id $entry)) -}}
+{{- end -}}
+<div class="math-env remark"{{ with $id }} id="{{ anchorize . }}"{{ end }}>
   <div class="env-title">
     <em>
       Remark

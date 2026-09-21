@@ -1,0 +1,20 @@
+{{ define "main" }}
+{{ $page := . }}{{ $zh := eq .Lang "zh" }}{{ $book := .Site.Data.notebook }}{{ $all := where $book.entries "lang" .Lang }}{{ $entries := where $all "kind" "not in" (slice "company" "research") }}{{ $companies := where $all "kind" "company" }}
+<div class="catalogue-shell">
+  <header class="page-intro"><p class="eyebrow">THE NOTEBOOK</p><h1>{{ .Title }}</h1><p>{{ if $zh }}按领域与主题进入，每个领域都有自己的阅读路线。需要补充的概念、实例和来源可以就地查阅。{{ else }}Explore by domain and topic, with a reading path for each domain. Concepts, examples and sources remain within reach.{{ end }}</p></header>
+  {{ with $companies }}<a class="company-library-link" href="/{{ $page.Lang }}/notebook/companies/"><span><strong>{{ if $zh }}公司资料与研究{{ else }}Company profiles & research{{ end }}</strong><small>{{ if $zh }}查看企业业务与有日期的研究材料{{ else }}Explore businesses and dated research{{ end }}</small></span><span>{{ len . }} →</span></a>{{ end }}
+  <div class="catalogue-accordion" id="paths">
+    {{ range $book.subjects }}{{ $subject := . }}{{ $items := where $entries "subject" .id }}{{ if $items }}
+    <details id="{{ .id }}" class="subject-group">
+      <summary><span><strong>{{ if $zh }}{{ .zh }}{{ else }}{{ .en }}{{ end }}</strong><small>{{ if $zh }}{{ .desc_zh }}{{ else }}{{ .desc_en }}{{ end }}</small></span><span class="subject-count">{{ len $items }}</span></summary>
+      <div class="subject-content">
+        {{ range where (where $book.paths "lang" $page.Lang) "subject" $subject.id }}{{ if and .steps (not .deprecated) }}<a class="domain-route" href="{{ .url }}"><span><small>{{ if $zh }}本领域推荐路线{{ else }}Suggested domain path{{ end }}</small><strong>{{ .title }}</strong></span><span>→</span></a>{{ end }}{{ end }}
+        {{ $assigned := slice }}
+        {{ range where ($book.topics | default slice) "subject" $subject.id }}{{ $topicItems := where $items "topic" .id }}{{ if $topicItems }}<details class="topic-group" id="{{ .id }}"><summary>{{ if $zh }}{{ .zh }}{{ else }}{{ .en }}{{ end }} <small>{{ len $topicItems }}</small></summary>{{ partial "notebook/entry-cards.html" (dict "items" $topicItems "zh" $zh) }}</details>{{ range $topicItems }}{{ $assigned = $assigned | append .id }}{{ end }}{{ end }}{{ end }}
+        {{ $remaining := slice }}{{ range $items }}{{ if not (in $assigned .id) }}{{ $remaining = $remaining | append . }}{{ end }}{{ end }}
+        {{ with $remaining }}{{ partial "notebook/entry-cards.html" (dict "items" . "zh" $zh) }}{{ end }}
+      </div>
+    </details>{{ end }}{{ end }}
+  </div>
+</div>
+{{ end }}

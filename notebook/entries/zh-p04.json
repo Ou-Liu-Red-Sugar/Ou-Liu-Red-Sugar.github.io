@@ -1,0 +1,3520 @@
+{
+  "id": "zh-p04",
+  "node_id": "P04",
+  "lang": "zh",
+  "slug": "calibrated-business-scenarios",
+  "title": "从校准业务关系到共同经营情景",
+  "summary": "以已实现事实校准同一经营关系，重建资本批次、利润与资金，再比较原状态和具名替代。",
+  "subject": "portfolio",
+  "topic": "portfolio-valuation",
+  "kind": "concept",
+  "template": "T5",
+  "role": "核心",
+  "study_time": "18–20分钟；含所选分支与练习",
+  "revised": "2026-09-21",
+  "content_version": "p-bcd-staging-v3",
+  "body_markdown": "我们先不问股票值多少钱。先问一个更具体的问题：在未来几年里，客户为什么付钱，公司拿什么交付，收入变成利润之前要承担哪些成本，又要先拿出多少资金？只有把这些关系接起来，“增长”才不只是一列百分比。\n\n本篇用 **2026年9月20日的 Amazon 历史研究**练习这一步。财报实现值、研究中的分析代理和2027—2029年未来路径会分别标明。金额均为十亿美元；它们不是今天更新的预测。读完之后，你应能重建一条经营关系，再解释同一个冲击为什么同时改变利润、资本与融资需求。完整历史材料归于[公司案例](/zh/notebook/amzn-research-20260920/)。[^case]\n\n<a id=\"p04-business\"></a>\n## 1. 我们究竟在预测哪一种生意\n\nAmazon 的报告分部是北美、国际和 AWS。北美、国际内部又包含自营商品、第三方卖家服务、广告与订阅等收费活动。这里不能把“国际”与“广告”当两份互不重叠的收入相加，也不能把履约网络另算成一家公司，然后再把它服务的商品收入完整算一遍。财报分部说明公司怎样汇总经营结果，业务关系说明这些结果为什么出现。[^amzn]\n\nAWS 的客户使用计算、存储、数据库等服务。客户业务扩大可能增加使用量，但优化程序、压缩存储或更换产品也可能减少每项任务的资源消耗。因此，客户还留在云上，不等于账单必然按固定速度增长。CMA 的历史研究确认技术迁移存在摩擦，并同时讨论缓解这些摩擦的办法；它支持研究留存机制，不提供 AWS 的全球未来增长率。[^cma]\n\n我们可以把一条关系写成“客户任务量 → 每项任务资源消耗 → 实际服务组合与净价 → 收入”。若再展开供给端，还要接上供电、设备、投用与工程资源。IEA 的2026年研究把芯片、电网、设备和融资列为数据中心建设的相互制约条件；这提醒我们，客户签约与能够交付并不是同一天发生的事。[^iea]\n\n**经营情景**是同一组外部条件下，企业与客户作出响应后形成的经营和资金路径。它不是把一张表统一上调或下调百分之二十。好情景可以有更多资本需求；坏情景也必须保留公司调整采购、改变产品或修复成本的能力。\n\n<a id=\"p04-calibration\"></a>\n## 2. 用实现结果固定起点，而不是固定未来\n\n先看历史案例使用的 AWS 三期实现值。Q4来自年度业绩，Q1和Q2属于2026年；最后一行才是研究的全年估计。[^case]\n\n| 期间 | 收入 | 经营利润 OI | 身份 |\n|---|---:|---:|---|\n| 2025Q4 | 35.579 | 12.465 | 已实现单季 |\n| 2026Q1 | 37.587 | 14.161 | 已实现单季 |\n| 2026Q2 | 42.232 | 16.621 | 已实现单季 |\n| 2026全年 | 175.000 | 67.074690 | 历史研究中的预测，不是实现值 |\n\nQ2的附注明确给出上半年 AWS 收入79.819、OI30.782、物业设备折旧摊销15.353。三者分别是收费结果、扣除经营成本后的利润，以及其中一类资本消耗；不能把现金流量表中包括内容、租赁资产等项目的更大加回数，换来充当这里的设备折旧。[^amzn]\n\n本案例把 AWS 收入拆为 Core 与“直接 AI”代理。Core 也包括 AI 带来的存储、数据库和 CPU 配套；所以这并非财报披露的“纯非AI/纯AI”两分部。Base 的2027年采用173与55，合计228。这个拆分有助于研究客户采用与配套需求，却没有把未披露的微观变量变成观测事实。\n\n校准的用途，是让关系面对实际材料。三期财报检查规模与变化；上下游检查交付和付款是否成立；外部研究检查另一种解释。历史案例的电力合同上限、成熟客户的数据库优化和广告市场增速，分别约束供给、消耗效率与付费，不是三份可以相加的需求。完整方法还要求对应电话会、代表上下一跳和不同外部研究角度；这里沿用那份历史研究的证据记录，不把一节教学当作重做完整公司研究。[^method]\n\n<a id=\"p04-aws-relation\"></a>\n## 3. 把收入、贡献和折旧接成一条关系\n\n先选择 AWS 主分支。零售分支在后面，阅读其中一支即可完成本篇的主要操作。\n\n<div data-reading-branch-controls><button data-select-reading-branch=\"aws\">AWS主分支</button><button data-select-reading-branch=\"retail\">零售分支</button><button data-select-reading-branch=\"all\">全部展开</button></div>\n<section data-reading-branch=\"aws\">\n\n本案例采用 $OI_t=c_tR_t-F_t-D_t$。其中 $c_tR_t$ 是扣除关系中所定义可变成本后的贡献，$F_t$ 是折旧前的固定经营成本代理，$D_t$ 是设备折旧摊销。$c_t$ 不是公司披露的毛利率，$F_t$ 也不是财报里一行可直接抄下的费用。\n\n怎样确定这个代理的起点？历史研究设 $c=64\\%$，并把0.599的能源估值收益全分配至 AWS，作为会计调整的上限假设。用上半年结果反推：\n\n$$\nF_{H1}=0.64\\times79.819-(30.782-0.599+15.353)=5.54816,\n\\qquad a=F_{H1}/15.353.\n$$\n\n接下来暂用 $F_t=aD_t$ 表示已投用资本规模带来的固定经营负担。它把规模变化连起来，但并未证明所有固定成本都由折旧驱动。这样的代理允许被证据修正；它的好处不是精确，而是比另填一列利润率更容易检查。\n\n关键在于 $D_t$ 也来自同一资本计划。案例将新资产分为45%的服务器/网络与55%的数据中心，设寿命分别5.5年、30年；服务器分当年/次年投用75%/25%，数据中心分当年/后两年投用20%/45%/35%，投用当年计半年的折旧。这些均为研究假设。于是，当年取得1单位资产，贡献的当年折旧是\n\n$$\nk_0=\\frac{0.45\\times0.75}{5.5}\\times\\frac12+\n\\frac{0.55\\times0.20}{30}\\times\\frac12=0.0325151515.\n$$\n\n若 $A_j$ 为第 $j$ 年取得资产，$k_{t-j}$ 为相应批次在第 $t$ 年的折旧系数，则本观察窗口内 $D_t=L_t+\\sum_{j\\le t}A_jk_{t-j}$；$L_t$ 是既有资产的折旧。这里的半年度约定适用于此例，不是所有资产的通用会计要求。预测窗外还要处理寿命结束与更新，不能无限延伸这一短窗口系数。\n\n我们把2027年的折旧也实际重建一次。上一年新取得资产在第二年的折旧系数为\n\n$$\nk_1=\\frac{0.45}{5.5}(0.75+0.25/2)+\\frac{0.55}{30}(0.20+0.45/2)\n=0.0793825758.\n$$\n\n第一项把已投用服务器计全年、新投用部分计半年；第二项对数据中心做同样处理。2026年的既有资产折旧为 $L_{2026}=33-192.5k_0=26.7408333333$，案例再设其每年保留90%，因此\n\n$$\nD_{2027}=0.9L_{2026}+192.5k_1+190k_0=45.5257746212.\n$$\n\n三个加项分别来自更早的存量、2026批次和2027批次，并不是把所有取得额都直接计成当年费用。固定经营负担比例 $a=5.54816/15.353\\approx0.3613730216$，所以 $F_{2027}=aD_{2027}=16.4517867337$。因此\n\n$$\nOI=0.64\\times228-16.4517867337-45.5257746212\n=83.9424386451.\n$$\n\n我们现在能解释利润变化：收入增加带来贡献，先行资本投用使折旧与固定负担也增加。2029年收入337、OI113.569862、折旧75.005261，利润率约33.70%；不是看到收入增长后，再独立宣布利润率也会上升。\n\n| Base年份 | 收入 | 折旧摊销 | 经营利润 | 当年资产取得 |\n|---|---:|---:|---:|---:|\n| 2026 | 175 | 33.000000 | 67.074690 | 192.5 |\n| 2027 | 228 | 45.525775 | 83.942439 | 190.0 |\n| 2028 | 283 | 60.769327 | 98.390278 | 165.0 |\n| 2029 | 337 | 75.005261 | 113.569862 | 145.0 |\n\n表中资产取得不等于同年现金付款，折旧也不等于维护资本开支。它们分别回答“本期增加了什么资源”“本期付了多少钱”“本期利润承担多少资本消耗”。\n</section>\n\n<a id=\"p04-retail-relation\"></a>\n<section data-reading-branch=\"retail\">\n## 分支：同一个框架，零售为什么换了变量\n\n零售不能照搬算力关系。案例从自营、实体店、第三方、广告、订阅、其他六类收入出发。2026研究基数依次为297.1、23.5、194.1、85.0、55.7、7.1，总计662.5。Base 2027对应增长8%、4%、11%、18%、10%、24%，因此合计731.133。这里的第三方服务收入不是商户成交总额，广告收入也不是广告主销售额。[^case]\n\n以 $S=(第三方+广告+订阅)/非AWS收入$ 表示服务收入组合，案例采用\n\n$$\n\\Delta m_{bps}=20\\Delta S_{pp}-35u_{\\%}-v_{bps}+e_{bps}.\n$$\n\n$u$ 是单位物流成本变化，$v$ 是价格投入，$e$ 是其他净改善。20与35都是研究代理；百分点、百分数、基点各有分母：服务占比增加1个百分点产生20基点贡献，而单位成本增加1%产生35基点负担。\n\n2027服务组合贡献为20.616579基点。北美的单位成本变化为0%、价格投入15基点、其他改善15基点，净增仍是20.616579基点；国际分别为0.25%、20、25，净增 $20.616579-8.75-20+25=16.866579$ 基点。将这两个增量加入7.65%与3.85%的起始利润率，再按各地区收入加总，得到49.639111的非AWS经营利润。\n\nIAB/PwC报告中的美国 commerce media 在2025年为63.4十亿美元、增长18%；其统计范围不是 Amazon 全球广告，不能直接相除求市占率。它在历史研究中用于挑战广告增长的持续性，促使广告收入和组合贡献一起下调，而不是另加一笔独立“广告价值”。[^iab]\n</section>\n\n<a id=\"p04-capital\"></a>\n## 4. 利润增长之后，现金为何还可能不够\n\n从利润走到资金，要保留费用与付款的时间差。历史案例以集团2026全年资产取得254.5，减融资租赁新增4.3，再减额外设备付款时差30.2，得到现金资本支出220。6月末现金余额已经反映上半年付款96.31，所以后半年只再扣123.69。若再次扣全年220，就把已发生的上半年重复算了一遍。[^case]\n\n再看 Base 2027Q1。期初现金111.974015，加上该季核心现金变化−56.123359，另扣客户融资出资2.5，融资前现金为53.350656。核心现金变化已经包括当季收入成本、折旧/SBC加回、营运资本、现金税、资本付款、既有融资服务与近似现金收益，但未含本次新发债的费用与半季度利息。\n\n模型要求融资后至少保留60。设新债本金 $B$、发行费用率0.5%、年利率6%，且该季新债平均占用半个季度，则\n\n$$\n53.350656+B(1-0.005-0.06/8)=60,\n\\qquad B=6.733512582.\n$$\n\n费用和利息也消耗现金，所以融资本金略大于缺口6.649344。60只是本模型的融资警戒线，不是 Amazon 的实际资金政策；借款可得性也是条件。后续季度的“融资前现金”继承了前面已经融到的钱，它不是全期从不融资的反事实路径。\n\n<a id=\"p04-experiment\"></a>\n## 5. 操作：换一个已经定义的世界\n\n<div data-experiment-slot=\"EXP-P04-CANONICAL-PATH\"></div>\n\n[打开经营与资金实验](/notebook/labs/p-bcd/interactions.html#EXP-P04-CANONICAL-PATH)。先看 Base 的年度经营表与季度现金线，再选择“AI延后并连带Core”。后者把2027 Core改为 $148\\times1.12$，AI采用27/35/58/90，保留原来的资产取得计划；企业现金和融资随新经营结果重算。其终点现金从116.404522变为94.580212，借款从276.792273变为327.672724。**资本计划不变，绝不等于现金不变。**\n\n另一项“AWS较弱、非AWS Base”使用 AWS Bear 经营关系、非AWS Base 关系，并以 Base 资金规则重算。只固定原倍数时每股条件值278.410746，再采用各自业务状态倍数时为243.300457。前后比较分别隔离经营变化与定价变化；不能把这个替代再任意叠加到 Bull 或 Tail 上。\n\n关闭脚本时，可直接用下面的摘要作同一比较。具名替代只给其实际保存的摘要，没有把原 Base 的14季现金线冒充替代路径。\n\n| 路径 | 2029现金 | 2029有息借款 | 2029每股条件值，固定Base倍数 |\n|---|---:|---:|---:|\n| 原 Base | 116.404522 | 276.792273 | 347.446133 |\n| AWS较弱、非AWS Base | 87.440015 | 308.731984 | 278.410746 |\n| 非AWS较弱、AWS Base | 101.777918 | 294.802952 | 300.376388 |\n| AI与Core联动延后 | 94.580212 | 327.672724 | 294.517264 |\n\n<a id=\"p04-exercises\"></a>\n## 6. 练习与完整解析\n\n**解释题。** 某电力合同写“最多供应1,920MW”，研究员把它乘自设的每MW收入并加入当年预测。哪条关系缺失？\n\n**解析。** “最多”是权利上限，不是当期交付。需要核合同爬坡、地点与并网、机房投用、供电与IT负载的转换、任务量、使用率和计费条件。Talen在2025年6月11日的公告预计分阶段爬坡至全额，最迟2032年达到1,920MW；这个历史计划不等于当年实现。[^talen] 不能既把合同当新容量、又把客户合同总额另算一份需求。即使乘法量纲看似成立，经济对应仍未建立。\n\n**计算题。** 若 Base 2027只把贡献率从64%降到60%，暂时固定收入、固定成本与折旧，经营利润下降多少？能否直接由此宣称融资也不变？\n\n**解析。** 利润下降 $0.04\\times228=9.12$，得到74.8224386451。这是局部贡献敏感性，不是新公司情景。利润下降会影响经营现金与借款需求；现金税、营运资本、融资费用是否响应还需指定。固定资本计划只固定一类支出，不能固定现金净变化。本实验不把这个手算自动升级为已保存的完整替代。\n\n**迁移题。** 需求晚一年到来，公司能够取消尚未下单的服务器，但不能撤销已投用的数据中心。应该把所有资本和折旧随收入一起后移吗？\n\n**解析。** 不应。先区分已付款、已承诺、未下单、已投用四种状态，再只调整真正可调整的批次；已投用资产的折旧和维护仍存在。未来服务器采购后移可能缓解现金，却也约束后续交付能力。我们应重新检查“客户需求—交付能力—贡献—资本—融资”，而不是只把收入表平移。下一篇将沿这张业务图判断哪些部分可以独立定价。\n\n[^amzn]: Amazon，2026Q2 Form 10-Q，Note 8，印刷pp22–25：分部范围、经营费用分配、收入/OI、PP&E取得与折旧表。[原文](https://www.sec.gov/Archives/edgar/data/1018724/000101872426000026/amzn-20260630.htm)。表内million已统一为billion。\n[^case]: [CASE-AMZN-20260920](/zh/notebook/amzn-research-20260920/#case-amzn-operating)，历史研究的事实台账、经营代理、年度路径与具名替代。未来金额均保持2026-09-20研究身份。\n[^method]: [业务关系与共同经营状态](/zh/notebook/business-relations-calibrated-states/#pm-business-state-calibration-contract)，本站方法的局部摘编。\n[^cma]: CMA，Cloud Infrastructure Services: Final Decision Report，2025，§§6.320–6.325，印刷pp326–327。[原文](https://assets.publishing.service.gov.uk/media/688b8891fdde2b8f73469544/final_decision_report.pdf)。采用历史英国技术迁移机制，不移植市场份额。\n[^iea]: IEA，Key Questions on Energy and AI，2026-04-16，[Executive summary](https://www.iea.org/reports/key-questions-on-energy-and-ai/executive-summary)，完整小节“Across the AI value chain, a scramble…”；提供行业供给与融资机制，不提供AWS特定收入参数。\n[^iab]: IAB/PwC，Internet Advertising Revenue Report FY2025，2026-04，p27，定义与方法见pp32、35。[原文](https://www.iab.com/wp-content/uploads/2026/04/IAB_PwC_Internet_Ad_Revenue_Report_Full_Year_2025_April_2026.pdf)。\n\n[^talen]: Talen，2025-06-11 Form 8-K，Exhibit 99.1，第1页（PDF第4页）供电数量、爬坡时间；第3页前瞻性说明。[公告原文](https://ir.talenenergy.com/static-files/90cce90c-e281-42c6-b686-ed6010dd8699)。采用公告时的计划身份，不据此确认后续全部交付。\n",
+  "prompt": "你正在教授P04《从校准业务关系到共同经营情景》，读者具有高年级本科至研究生数学背景。\n\n先确认本次节点和读者所选分支。先实际取得required_readings中该范围的全部完整单元，核对版本、期间、币种与模型身份；目录、摘要、搜索节选和成功打开标题不算正文。记录实际工具/文件、单元起止、读到的关键约定及其支持范围，runtime_reading_log从空表开始，不预填“已读”。本站方法和公司案例从access.uri所列公开正文读取，外部原件从指定URL读取；不得假设访问任何私人盘符。读取失败先用明示的已核等价来源，仍缺则具体说明缺的单元，不凭记忆声称已核该事实。读者要求直接讲解时可直接推进；互动时一次要求一个完整推理任务，不逐格问四则运算。引用紧随所用材料。案例固定2026-09-20信息与2026-09-18价格，不更新报价、不接账户、不重估公司；不执行或换名恢复股票DCF/WACC。所有操作标原状态、具名已算替代或纯教学扰动，不能把点击当新增证据。最后用迁移题检验，给完整解析，并指出剩余条件。\n\n本篇任务与反馈尺度（只执行所选分支，再完成共同资金任务）：\n选择AWS时，先让读者解释“2027收入228、64%贡献、固定负担16.451787、折旧45.525775”各是什么身份。带他从k0、k1和旧资产折旧重建D2027，再算83.942439的OI；不只代入利润表。共同资金任务：让他解释Q1本金6.733513为何比现金缺口略高。具名AI延后保留资本计划，但现金94.580212、借款327.672724与Base不同；必须说出缺口来自经营现金。零售分支要从六类收入生成mix与地区利润，而非复制AWS变量。最终换成可取消服务器/不可撤销数据中心的需求延迟，要求分清已投用、已承诺、未下单和实际付款。若读者仍说“资本不变所以现金不变”，回到净现金桥，不判已掌握。",
+  "sources": [
+    "PBCD-METHOD-BUSINESS",
+    "PBCD-CASE-AMZN",
+    "src-amzn-2026q2",
+    "PBCD-CMA-CLOUD-2025",
+    "PBCD-IEA-AI-2026-HTML",
+    "PBCD-IAB-PWC-2025",
+    "PBCD-TALEN-PPA"
+  ],
+  "anchors": [
+    {
+      "id": "p04-business",
+      "title": "1. 我们究竟在预测哪一种生意",
+      "kind": "section",
+      "preview": "1. 我们究竟在预测哪一种生意 Amazon 的报告分部是北美、国际和 AWS。北美、国际内部又包含自营商品、第三方卖家服务、广告与订阅等收费活动。这里不能把“国际”与“广告”当两份互不重叠的收入相加，也不能把履约网络另算成一家公司，然后再把它服务的商品收入完整算一遍。财报分部说明公司怎样汇总经营结果，业务关系说明这些结果为什么出现。 AWS 的客户使用计算、存储、数据库等服务。客户业务扩大可能增加使用量，但优化程序、压缩存储或更换产品"
+    },
+    {
+      "id": "p04-calibration",
+      "title": "2. 用实现结果固定起点，而不是固定未来",
+      "kind": "section",
+      "preview": "2. 用实现结果固定起点，而不是固定未来 先看历史案例使用的 AWS 三期实现值。Q4来自年度业绩，Q1和Q2属于2026年；最后一行才是研究的全年估计。 期间 收入 经营利润 OI 身份 ------:---:--- 2025Q4 35.579 12.465 已实现单季 2026Q1 37.587 14.161 已实现单季 2026Q2 42.232 16.621 已实现单季 2026全年 175.000 67.074690 历史研究"
+    },
+    {
+      "id": "p04-aws-relation",
+      "title": "3. 把收入、贡献和折旧接成一条关系",
+      "kind": "section",
+      "preview": "3. 把收入、贡献和折旧接成一条关系 先选择 AWS 主分支。零售分支在后面，阅读其中一支即可完成本篇的主要操作。 AWS主分支零售分支全部展开 本案例采用 OI_t=c_tR_t-F_t-D_t。其中 c_tR_t 是扣除关系中所定义可变成本后的贡献，F_t 是折旧前的固定经营成本代理，D_t 是设备折旧摊销。c_t 不是公司披露的毛利率，F_t 也不是财报里一行可直接抄下的费用。 怎样确定这个代理的起点？历史研究设 c=64\\%，并"
+    },
+    {
+      "id": "p04-retail-relation",
+      "title": "分支：同一个框架，零售为什么换了变量",
+      "kind": "section",
+      "preview": "分支：同一个框架，零售为什么换了变量 零售不能照搬算力关系。案例从自营、实体店、第三方、广告、订阅、其他六类收入出发。2026研究基数依次为297.1、23.5、194.1、85.0、55.7、7.1，总计662.5。Base 2027对应增长8%、4%、11%、18%、10%、24%，因此合计731.133。这里的第三方服务收入不是商户成交总额，广告收入也不是广告主销售额。 以 S=(第三方+广告+订阅)/非AWS收入 表示服务收入组"
+    },
+    {
+      "id": "p04-capital",
+      "title": "4. 利润增长之后，现金为何还可能不够",
+      "kind": "section",
+      "preview": "4. 利润增长之后，现金为何还可能不够 从利润走到资金，要保留费用与付款的时间差。历史案例以集团2026全年资产取得254.5，减融资租赁新增4.3，再减额外设备付款时差30.2，得到现金资本支出220。6月末现金余额已经反映上半年付款96.31，所以后半年只再扣123.69。若再次扣全年220，就把已发生的上半年重复算了一遍。 再看 Base 2027Q1。期初现金111.974015，加上该季核心现金变化−56.123359，另扣客"
+    },
+    {
+      "id": "p04-experiment",
+      "title": "5. 操作：换一个已经定义的世界",
+      "kind": "section",
+      "preview": "5. 操作：换一个已经定义的世界 [打开经营与资金实验](/notebook/labs/p-bcd/interactions.htmlEXP-P04-CANONICAL-PATH)。先看 Base 的年度经营表与季度现金线，再选择“AI延后并连带Core”。后者把2027 Core改为 148\\times1.12，AI采用27/35/58/90，保留原来的资产取得计划；企业现金和融资随新经营结果重算。其终点现金从116.404522变为94.5802"
+    },
+    {
+      "id": "p04-exercises",
+      "title": "6. 练习与完整解析",
+      "kind": "section",
+      "preview": "6. 练习与完整解析 解释题。 某电力合同写“最多供应1,920MW”，研究员把它乘自设的每MW收入并加入当年预测。哪条关系缺失？ 解析。 “最多”是权利上限，不是当期交付。需要核合同爬坡、地点与并网、机房投用、供电与IT负载的转换、任务量、使用率和计费条件。Talen在2025年6月11日的公告预计分阶段爬坡至全额，最迟2032年达到1,920MW；这个历史计划不等于当年实现。 不能既把合同当新容量、又把客户合同总额另算一份需求。即使"
+    }
+  ],
+  "relations": [
+    {
+      "relation": "part_of",
+      "to": "portfolio-valuation",
+      "reason": "公司投资主线主题",
+      "from": "P04"
+    },
+    {
+      "relation": "uses_method",
+      "to": "PM-BUSINESS-STATE",
+      "reason": "调用短参考中本篇对应的输入输出与条件，不反向要求读完六篇",
+      "from": "P04"
+    },
+    {
+      "relation": "illustrated_by",
+      "to": "CASE-AMZN-20260920",
+      "reason": "固定日期案例；不新建第二个别名案例",
+      "period": "2025Q4–2029",
+      "cutoff": "2026-09-20",
+      "from": "P04"
+    },
+    {
+      "relation": "supported_by",
+      "to": "src-amzn-2026q2",
+      "reason": "分部范围与经营费用使用分配、产品收入、PP&E取得和折旧；债务/租赁、SBC/RSU等资本权利实例。未来余额不由当期附注直接给出。",
+      "locator": "Note8 pp22–25; Note3 pp13–14; Note4 p15 Commitments; Note5 pp17–18 debt table and notes; Note6 p19",
+      "scope": "本次重开Note8整单元；租赁余额/期限及成本表、融资承诺表与脚注、债务本金/账面及费用桥、RSU/SBC单元。不是整份10-Q全部审阅。",
+      "optional": false,
+      "from": "P04"
+    },
+    {
+      "relation": "supported_by",
+      "to": "PBCD-CMA-CLOUD-2025",
+      "reason": "历史英国技术迁移/multi-cloud摩擦及缓解并存；不从这一单元推全球AWS增长或现行费用政策。",
+      "locator": "§§6.320–6.325, printedpp326–327",
+      "scope": "两页完整指定单元，原页已看；不作为全部637页阅读。",
+      "optional": false,
+      "from": "P04"
+    },
+    {
+      "relation": "supported_by",
+      "to": "PBCD-IEA-AI-2026-HTML",
+      "reason": "AI资本链中的供应/设备/电网与融资限制；采用行业机制，不推AWS具体容量或收益率。",
+      "locator": "Complete subsection beginning “Across the AI value chain, a scramble…”",
+      "scope": "实际取得官方HTML指定完整小节及相邻供给展望。PDF直链反复失败，未将其p47记作本次读取；PPA具体事实改用已读Talen原件。",
+      "optional": false,
+      "from": "P04"
+    },
+    {
+      "relation": "supported_by",
+      "to": "PBCD-IAB-PWC-2025",
+      "reason": "美国commerce media收入63.4bn、报告增速18%，并有测量/增量回报约束；范围不是Amazon全球广告。",
+      "locator": "p27 commerce media; p32 definitions; p35 methodology",
+      "scope": "三页正文、图与定义/方法实际看原页；不称43页全部重读。",
+      "optional": false,
+      "from": "P04"
+    },
+    {
+      "relation": "supported_by",
+      "to": "PBCD-TALEN-PPA",
+      "reason": "公告中的1,920MW为满额供电计划，预计爬坡最迟2032达到；供电数量不等于AWS当期IT容量或收费收入。",
+      "locator": "Ex99.1 printed p1 (PDF p4); Ex99.1 printed p3 forward-looking statements (PDF p6)",
+      "scope": "上述完整页和前瞻说明，已查看原页；未用公告确认后来全部交付。",
+      "optional": false,
+      "from": "P04"
+    },
+    {
+      "from": "P04#p04-experiment",
+      "relation": "illustrated_by",
+      "to": "EXP-P04-CANONICAL-PATH",
+      "at_section": "p04-experiment",
+      "reason": "以已实现事实校准同一经营关系，重建资本批次、利润与资金，再比较原状态和具名替代。"
+    }
+  ],
+  "agent_packet": {
+    "export_mode": "public",
+    "required_readings": [
+      {
+        "source_id": "PBCD-METHOD-BUSINESS",
+        "title": "业务关系、校准与共同经营状态",
+        "version": "2026-09-21 局部准确摘编",
+        "access": {
+          "kind": "site_body",
+          "uri": "https://ou-liu-red-sugar.github.io/zh/notebook/business-relations-calibrated-states/",
+          "availability": "staged_site_body; accessible after adoption"
+        },
+        "required_unit": {
+          "locator": "pm-business-state-calibration-contract 至 path-capital-check",
+          "scope": "完整三节",
+          "purpose": "区分覆盖与采用、共同状态和资本日期"
+        },
+        "supports": "本站原创方法摘编，规定业务边界、校准与共同资本责任；公开原件各自支持实例，不是完整方法的外部背书。",
+        "authors": [
+          "本站方法"
+        ]
+      },
+      {
+        "source_id": "PBCD-CASE-AMZN",
+        "title": "Amazon：2026-09-20历史条件研究案例",
+        "version": "研究截止2026-09-20；教学摘编2026-09-21",
+        "access": {
+          "kind": "site_body",
+          "uri": "https://ou-liu-red-sugar.github.io/zh/notebook/amzn-research-20260920/",
+          "availability": "staged_site_body; accessible after adoption"
+        },
+        "required_unit": {
+          "locator": "case-amzn-facts、case-amzn-operating、case-amzn-capital",
+          "scope": "事实身份、所选分支4年及Base季度资金段",
+          "purpose": "把实现H1、全年估计和剩余H2分开"
+        },
+        "supports": "原研究的事实/分析代理、四条未来路径、5项具名替代、4套权重与16组已算分布。报价冻结，代表点不是条件均值。",
+        "authors": [
+          "本站历史研究"
+        ]
+      },
+      {
+        "source_id": "src-amzn-2026q2",
+        "title": "Amazon Form 10-Q, quarter ended June 30, 2026",
+        "version": "2026Q2 SEC filing",
+        "access": {
+          "kind": "html_full_text",
+          "uri": "https://www.sec.gov/Archives/edgar/data/1018724/000101872426000026/amzn-20260630.htm"
+        },
+        "required_unit": {
+          "locator": "Note8 pp22–25",
+          "scope": "分部定义、费用分配、收入/OI、PP&E取得/D&A完整单元",
+          "purpose": "不混用广义现金流加回与设备折旧"
+        },
+        "supports": "分部范围与经营费用使用分配、产品收入、PP&E取得和折旧；债务/租赁、SBC/RSU等资本权利实例。未来余额不由当期附注直接给出。",
+        "authors": [
+          "Amazon.com, Inc."
+        ]
+      },
+      {
+        "source_id": "PBCD-IEA-AI-2026-HTML",
+        "title": "Key Questions on Energy and AI — Executive summary",
+        "version": "2026-04-16",
+        "access": {
+          "kind": "html_full_text",
+          "uri": "https://www.iea.org/reports/key-questions-on-energy-and-ai/executive-summary"
+        },
+        "required_unit": {
+          "locator": "Across the AI value chain, a scramble…",
+          "scope": "该小节全文",
+          "purpose": "理解供给和融资前置"
+        },
+        "supports": "AI资本链中的供应/设备/电网与融资限制；采用行业机制，不推AWS具体容量或收益率。",
+        "branch": "aws",
+        "authors": [
+          "International Energy Agency"
+        ]
+      },
+      {
+        "source_id": "PBCD-CMA-CLOUD-2025",
+        "title": "Cloud Infrastructure Services: Final Decision Report",
+        "version": "2025 final report",
+        "access": {
+          "kind": "pdf_full_text",
+          "uri": "https://assets.publishing.service.gov.uk/media/688b8891fdde2b8f73469544/final_decision_report.pdf"
+        },
+        "required_unit": {
+          "locator": "§§6.320–6.325",
+          "scope": "技术迁移与multi-cloud完整指定单元",
+          "purpose": "留存机制不等于固定收入增长"
+        },
+        "supports": "历史英国技术迁移/multi-cloud摩擦及缓解并存；不从这一单元推全球AWS增长或现行费用政策。",
+        "branch": "aws",
+        "authors": [
+          "Competition and Markets Authority"
+        ]
+      }
+    ],
+    "optional_readings": [
+      {
+        "source_id": "PBCD-TALEN-PPA",
+        "title": "Talen 8-K, Exhibit 99.1: nuclear energy relationship with Amazon",
+        "version": "2025-06-11 announcement",
+        "access": {
+          "kind": "pdf_full_text",
+          "uri": "https://ir.talenenergy.com/static-files/90cce90c-e281-42c6-b686-ed6010dd8699"
+        },
+        "required_unit": {
+          "locator": "Ex99.1 pp1、3",
+          "scope": "供电计划全文页和前瞻说明",
+          "purpose": "合同上限和未来爬坡"
+        },
+        "supports": "公告中的1,920MW为满额供电计划，预计爬坡最迟2032达到；供电数量不等于AWS当期IT容量或收费收入。",
+        "branch": "aws",
+        "required_only_if_selected": true,
+        "authors": [
+          "Talen Energy Corporation"
+        ]
+      },
+      {
+        "source_id": "PBCD-IAB-PWC-2025",
+        "title": "Internet Advertising Revenue Report, Full-Year2025",
+        "version": "2026-04",
+        "access": {
+          "kind": "pdf_full_text",
+          "uri": "https://www.iab.com/wp-content/uploads/2026/04/IAB_PwC_Internet_Ad_Revenue_Report_Full_Year_2025_April_2026.pdf"
+        },
+        "required_unit": {
+          "locator": "pp27、32、35",
+          "scope": "commerce media、定义与调查方法完整页",
+          "purpose": "美国市场与全球公司分母边界"
+        },
+        "supports": "美国commerce media收入63.4bn、报告增速18%，并有测量/增量回报约束；范围不是Amazon全球广告。",
+        "branch": "retail",
+        "authors": [
+          "IAB",
+          "PwC"
+        ],
+        "required_when_selected": true
+      }
+    ],
+    "runtime_reading_log": [],
+    "supplied_inputs": {
+      "case_id": "CASE-AMZN-20260920",
+      "uri": "https://ou-liu-red-sugar.github.io/notebook/labs/p-bcd/inputs.json",
+      "identity": "冻结2026-09-20输入；不同JSON字段保留事实/假设/条件结果身份",
+      "selected_keys": [
+        "case_id",
+        "metadata",
+        "states",
+        "calibration",
+        "parameters",
+        "scenarios",
+        "named_alternatives",
+        "identity_notes",
+        "source_map"
+      ],
+      "data": {
+        "case_id": "CASE-AMZN-20260920",
+        "metadata": {
+          "information_cutoff": "2026-09-20",
+          "purchase_date": "2026-09-18",
+          "valuation_date": "2029-12-31",
+          "purchase_price": 253.71,
+          "currency": "USD",
+          "money_unit": "billion",
+          "share_unit": "billion",
+          "quote_type": "regular_close",
+          "quote_time": "16:00 EDT",
+          "years": 3.2854209445585214,
+          "cash_distributions": 0,
+          "original_shareholder_additional_cash": 0,
+          "result_identity": "历史研究的未来条件结果；不是当期目标价；期间分配为零；救援发行不等于原股东强制追加现金"
+        },
+        "states": [
+          "Bull",
+          "Base",
+          "Bear",
+          "Tail"
+        ],
+        "calibration": {
+          "h1_2026": {
+            "aws_revenue": 79.819,
+            "aws_ebit": 30.782,
+            "aws_da": 15.353,
+            "aws_energy_gain_adjustment": 0.599,
+            "retail_ebit": 20.531,
+            "retail_tariff_refund_adjustment": 0.64,
+            "retail_da": 11.35,
+            "capex_cash": 96.31,
+            "additions": 118.648
+          },
+          "cash_20260630": 122.988,
+          "debt_principal_20260630": 132.995,
+          "short_term_borrowings_20260630": 0.325
+        },
+        "parameters": {
+          "aws": {
+            "kernel": {
+              "server_share": 0.45,
+              "server_life": 5.5,
+              "server_commission": [
+                0.75,
+                0.25
+              ],
+              "dc_share": 0.55,
+              "dc_life": 30,
+              "dc_commission": [
+                0.2,
+                0.45,
+                0.35
+              ]
+            },
+            "legacy_runoff": 0.9,
+            "da_2026": 33,
+            "calibration_contribution": 0.64
+          },
+          "retail": {
+            "growth": {
+              "Bull": [
+                [
+                  10,
+                  9,
+                  8
+                ],
+                [
+                  5,
+                  5,
+                  4
+                ],
+                [
+                  14,
+                  13,
+                  12
+                ],
+                [
+                  23,
+                  21,
+                  18
+                ],
+                [
+                  12,
+                  11,
+                  10
+                ],
+                [
+                  30,
+                  28,
+                  25
+                ]
+              ],
+              "Base": [
+                [
+                  8,
+                  7,
+                  6
+                ],
+                [
+                  4,
+                  4,
+                  4
+                ],
+                [
+                  11,
+                  10,
+                  9
+                ],
+                [
+                  18,
+                  16,
+                  14
+                ],
+                [
+                  10,
+                  9,
+                  8
+                ],
+                [
+                  24,
+                  23,
+                  23
+                ]
+              ],
+              "Bear": [
+                [
+                  5,
+                  5,
+                  4
+                ],
+                [
+                  2,
+                  2,
+                  2
+                ],
+                [
+                  8,
+                  7,
+                  6
+                ],
+                [
+                  10,
+                  9,
+                  8
+                ],
+                [
+                  6,
+                  5,
+                  4
+                ],
+                [
+                  12,
+                  10,
+                  8
+                ]
+              ],
+              "Tail": [
+                [
+                  -2,
+                  1,
+                  3
+                ],
+                [
+                  -2,
+                  0,
+                  1
+                ],
+                [
+                  1,
+                  3,
+                  4
+                ],
+                [
+                  3,
+                  5,
+                  7
+                ],
+                [
+                  2,
+                  3,
+                  4
+                ],
+                [
+                  0,
+                  5,
+                  8
+                ]
+              ]
+            },
+            "revenue_2026": [
+              297.1,
+              23.5,
+              194.1,
+              85,
+              55.7,
+              7.1
+            ],
+            "service_mix_spread_bps_per_pp": 20,
+            "logistics_cost_bps_per_pct": 35,
+            "base_unit_cost_na": [
+              0,
+              -1,
+              -1
+            ],
+            "base_unit_cost_intl": [
+              0.25,
+              -0.75,
+              -1
+            ],
+            "base_price_invest_na": [
+              15,
+              10,
+              10
+            ],
+            "base_price_invest_intl": [
+              20,
+              15,
+              10
+            ],
+            "base_other_net_na": [
+              15,
+              20,
+              25
+            ],
+            "base_other_net_intl": [
+              25,
+              35,
+              35
+            ]
+          },
+          "capital": {
+            "operating_cash_reserve": 40,
+            "liquidity_floor": 60,
+            "issuance_fee": 0.005,
+            "max_growth_debt": 168.883433,
+            "new_debt_rate": {
+              "Bull": 0.06,
+              "Base": 0.06,
+              "Bear": 0.075,
+              "Tail": 0.09
+            },
+            "dilution_start_fully_awarded": 11.0274,
+            "future_new_awards": {
+              "Bull": [
+                0.015,
+                0.035,
+                0.04,
+                0.045
+              ],
+              "Base": [
+                0.02,
+                0.065,
+                0.075,
+                0.085
+              ],
+              "Bear": [
+                0.025,
+                0.11,
+                0.125,
+                0.135
+              ],
+              "Tail": [
+                0.04,
+                0.18,
+                0.21,
+                0.22
+              ]
+            },
+            "globalstar_shares": 0.025,
+            "globalstar_debt_assumed": 0.423692,
+            "anthropic_cash": {
+              "Bull": [
+                0,
+                7.5,
+                7.5,
+                0
+              ],
+              "Base": [
+                0,
+                10,
+                5,
+                0
+              ],
+              "Bear": [
+                0,
+                0,
+                5,
+                5
+              ],
+              "Tail": [
+                0,
+                5,
+                0,
+                0
+              ]
+            },
+            "cash_tax": {
+              "Bull": [
+                5,
+                18,
+                28,
+                40
+              ],
+              "Base": [
+                5,
+                16,
+                23,
+                32
+              ],
+              "Bear": [
+                5,
+                12,
+                16,
+                22
+              ],
+              "Tail": [
+                5,
+                8,
+                11,
+                15
+              ]
+            },
+            "extra_equipment_payable_change": [
+              30.2,
+              -10,
+              -12,
+              -8.2
+            ],
+            "finance_lease_additions": [
+              4.3,
+              4,
+              4,
+              4
+            ],
+            "corporate_additions": [
+              2,
+              2,
+              2,
+              2
+            ],
+            "annual_refi_reserve": [
+              0,
+              14.06,
+              17.087,
+              19.452375
+            ]
+          },
+          "benchmark": {
+            "annual_rate": 0.0483,
+            "identity": "Frozen three-year Treasury par yield, approximate constant-rate reinvestment comparator; not a security quote or discount rate"
+          }
+        },
+        "scenarios": {
+          "Bull": {
+            "aws": [
+              {
+                "core": 148.0,
+                "ai": 27.0,
+                "revenue": 175.0,
+                "contribution_rate": 0.64,
+                "fixed_pre_da_cost": 11.92530971145705,
+                "da": 33.0,
+                "ebit": 67.07469028854295,
+                "margin": 0.38328394450595976,
+                "additions": 192.5,
+                "year": 2026
+              },
+              {
+                "core": 179.0,
+                "ai": 61.0,
+                "revenue": 240.0,
+                "contribution_rate": 0.66,
+                "fixed_pre_da_cost": 16.74553919743255,
+                "da": 46.33865340909091,
+                "ebit": 95.31580739347655,
+                "margin": 0.39714919747281896,
+                "additions": 215.0,
+                "year": 2027
+              },
+              {
+                "core": 205.0,
+                "ai": 110.0,
+                "revenue": 315.0,
+                "contribution_rate": 0.67,
+                "fixed_pre_da_cost": 23.206317744031878,
+                "da": 64.21707310606061,
+                "ebit": 123.62660914990752,
+                "margin": 0.3924654258727223,
+                "additions": 210.0,
+                "year": 2028
+              },
+              {
+                "core": 233.0,
+                "ai": 157.0,
+                "revenue": 390.0,
+                "contribution_rate": 0.68,
+                "fixed_pre_da_cost": 29.917851825714465,
+                "da": 82.78938946969697,
+                "ebit": 152.4927587045886,
+                "margin": 0.3910070736015092,
+                "additions": 200.0,
+                "year": 2029
+              }
+            ],
+            "retail": [
+              {
+                "revenue": 662.5,
+                "na_share": 0.7239245283018868,
+                "na_margin": 0.0765,
+                "intl_margin": 0.0385,
+                "ebit": 43.731049999999996,
+                "additions": 60.0,
+                "da": 24.0,
+                "mix_bps": 0.0,
+                "margin_change_na_bps": 0.0,
+                "margin_change_intl_bps": 0.0,
+                "year": 2026,
+                "categories": {
+                  "Online": 297.1,
+                  "Physical": 23.5,
+                  "ThirdParty": 194.1,
+                  "Advertising": 85,
+                  "Subscription": 55.7,
+                  "Other": 7.1
+                },
+                "na_revenue": 479.6,
+                "intl_revenue": 182.89999999999998
+              },
+              {
+                "revenue": 748.9230000000001,
+                "na_share": 0.721,
+                "na_margin": 0.08434930678315694,
+                "intl_margin": 0.04634930678315694,
+                "ebit": 55.231054237962255,
+                "additions": 68.0,
+                "da": 27.0,
+                "mix_bps": 25.993067831569405,
+                "margin_change_na_bps": 78.4930678315694,
+                "margin_change_intl_bps": 78.4930678315694,
+                "year": 2027,
+                "categories": {
+                  "Online": 326.81000000000006,
+                  "Physical": 24.675,
+                  "ThirdParty": 221.27400000000003,
+                  "Advertising": 104.55,
+                  "Subscription": 62.38400000000001,
+                  "Other": 9.23
+                },
+                "na_revenue": 539.9734830000001,
+                "intl_revenue": 208.94951700000001
+              },
+              {
+                "revenue": 839.7374100000001,
+                "na_share": 0.717,
+                "na_margin": 0.09260229263468589,
+                "intl_margin": 0.05510229263468589,
+                "ebit": 68.8498961134882,
+                "additions": 70.0,
+                "da": 30.0,
+                "mix_bps": 25.029858515289494,
+                "margin_change_na_bps": 82.52985851528949,
+                "margin_change_intl_bps": 87.52985851528949,
+                "year": 2028,
+                "categories": {
+                  "Online": 356.2229000000001,
+                  "Physical": 25.90875,
+                  "ThirdParty": 250.03962,
+                  "Advertising": 126.5055,
+                  "Subscription": 69.24624000000001,
+                  "Other": 11.814400000000001
+                },
+                "na_revenue": 602.09172297,
+                "intl_revenue": 237.6456870300001
+              },
+              {
+                "revenue": 931.9255604000002,
+                "na_share": 0.713,
+                "na_margin": 0.10116158636351254,
+                "intl_margin": 0.06416158636351253,
+                "ebit": 84.37895053688185,
+                "additions": 69.0,
+                "da": 33.0,
+                "mix_bps": 23.092937288266448,
+                "margin_change_na_bps": 85.59293728826646,
+                "margin_change_intl_bps": 90.59293728826646,
+                "year": 2029,
+                "categories": {
+                  "Online": 384.7207320000001,
+                  "Physical": 26.945100000000004,
+                  "ThirdParty": 280.04437440000004,
+                  "Advertising": 149.27649,
+                  "Subscription": 76.17086400000002,
+                  "Other": 14.768
+                },
+                "na_revenue": 664.4629245652002,
+                "intl_revenue": 267.46263583480004
+              }
+            ],
+            "capital": {
+              "cash": 109.07315890389165,
+              "debt": 318.4556581561797,
+              "finance_claims": 27.0548,
+              "shares": 11.187399999999998,
+              "cumulative_growth_debt": 154.01909115617963,
+              "cumulative_equity_proceeds": 0.0,
+              "investment_funded": 15.0,
+              "investment_gross": 425.0,
+              "investment_tax_basis": 90.0,
+              "investment_tax": 82.075,
+              "investment_net": 342.925,
+              "operating_tax_timing_proxy": 69.15670410621198,
+              "minimum_pre_financing_cash": 7.688421656321893,
+              "quarters": [
+                {
+                  "pre_financing_cash": 111.56592300226076,
+                  "ending_cash": 111.56592300226076,
+                  "core_cash_flow": -20.65650149773924,
+                  "new_growth_debt": 0.0,
+                  "equity_proceeds": 0.0,
+                  "fees": 0.0,
+                  "net_interest": 1.2495865395047758,
+                  "ebit": 28.647047305916484,
+                  "da": 14.291037735849056,
+                  "cash_capex": 61.845,
+                  "year": 2026,
+                  "quarter": 3,
+                  "lease_principal": 0.465,
+                  "sbc": 6.465,
+                  "cash_tax": 2.5,
+                  "wc_cash": -4,
+                  "known_issue_cash": 30.5344245,
+                  "known_issue_principal": 30.692875,
+                  "openai_cash": 21.3,
+                  "globalstar_cash": 0,
+                  "anthropic_cash": 0.0
+                },
+                {
+                  "pre_financing_cash": 111.97401542326261,
+                  "ending_cash": 111.97401542326261,
+                  "core_cash_flow": 0.4080924210018476,
+                  "new_growth_debt": 0.0,
+                  "equity_proceeds": 0.0,
+                  "fees": 0.0,
+                  "net_interest": 1.2975628257755671,
+                  "ebit": 32.084692982626464,
+                  "da": 16.005962264150945,
+                  "cash_capex": 61.845,
+                  "year": 2026,
+                  "quarter": 4,
+                  "lease_principal": 0.465,
+                  "sbc": 6.465,
+                  "cash_tax": 2.5,
+                  "wc_cash": 11.96,
+                  "known_issue_cash": 0,
+                  "known_issue_principal": 0,
+                  "openai_cash": 0,
+                  "globalstar_cash": 0,
+                  "anthropic_cash": 0.0
+                },
+                {
+                  "pre_financing_cash": 49.32964020006121,
+                  "ending_cash": 59.99999999999999,
+                  "core_cash_flow": -60.7693752232014,
+                  "new_growth_debt": 10.805427645507631,
+                  "equity_proceeds": 0.0,
+                  "fees": 0.05402713822753816,
+                  "net_interest": 1.5554843898645332,
+                  "ebit": 34.62577817523092,
+                  "da": 16.867890284090908,
+                  "cash_capex": 81.48,
+                  "year": 2027,
+                  "quarter": 1,
+                  "lease_principal": 0.5586,
+                  "sbc": 6.25,
+                  "cash_tax": 4.5,
+                  "wc_cash": -30.5,
+                  "known_issue_cash": 0,
+                  "known_issue_principal": 0,
+                  "openai_cash": 0,
+                  "globalstar_cash": 0,
+                  "anthropic_cash": 1.875
+                },
+                {
+                  "pre_financing_cash": 32.845012195044504,
+                  "ending_cash": 60.0,
+                  "core_cash_flow": -19.279987804955493,
+                  "new_growth_debt": 27.49872182780303,
+                  "equity_proceeds": 0.0,
+                  "fees": 0.13749360913901515,
+                  "net_interest": 2.0701518283911375,
+                  "ebit": 36.13124679154531,
+                  "da": 17.601276818181816,
+                  "cash_capex": 69.84,
+                  "year": 2027,
+                  "quarter": 2,
+                  "lease_principal": 0.5586,
+                  "sbc": 6.25,
+                  "cash_tax": 4.5,
+                  "wc_cash": -2.5,
+                  "known_issue_cash": 0,
+                  "known_issue_principal": 0,
+                  "openai_cash": 0,
+                  "globalstar_cash": 6,
+                  "anthropic_cash": 1.875
+                },
+                {
+                  "pre_financing_cash": 41.67138651803276,
+                  "ending_cash": 59.99999999999999,
+                  "core_cash_flow": -16.45361348196724,
+                  "new_growth_debt": 18.56062124756176,
+                  "equity_proceeds": 0.0,
+                  "fees": 0.0928031062378088,
+                  "net_interest": 2.4155969014563734,
+                  "ebit": 37.6367154078597,
+                  "da": 18.334663352272727,
+                  "cash_capex": 69.84,
+                  "year": 2027,
+                  "quarter": 3,
+                  "lease_principal": 0.5586,
+                  "sbc": 6.25,
+                  "cash_tax": 4.5,
+                  "wc_cash": -1.5,
+                  "known_issue_cash": 0,
+                  "known_issue_principal": 0,
+                  "openai_cash": 0,
+                  "globalstar_cash": 0,
+                  "anthropic_cash": 1.875
+                },
+                {
+                  "pre_financing_cash": 58.109542650535225,
+                  "ending_cash": 59.99999999999999,
+                  "core_cash_flow": -0.015457349464765957,
+                  "new_growth_debt": 1.9143871893314175,
+                  "equity_proceeds": 0.0,
+                  "fees": 0.009571935946657088,
+                  "net_interest": 2.569159464733072,
+                  "ebit": 42.15312125680286,
+                  "da": 20.534822954545458,
+                  "cash_capex": 69.84,
+                  "year": 2027,
+                  "quarter": 4,
+                  "lease_principal": 0.5586,
+                  "sbc": 6.25,
+                  "cash_tax": 4.5,
+                  "wc_cash": 8.5,
+                  "known_issue_cash": 0,
+                  "known_issue_principal": 0,
+                  "openai_cash": 0,
+                  "globalstar_cash": 0,
+                  "anthropic_cash": 1.875
+                },
+                {
+                  "pre_financing_cash": 7.688421656321893,
+                  "ending_cash": 60.0,
+                  "core_cash_flow": -50.4365783436781,
+                  "new_growth_debt": 52.97375022144618,
+                  "equity_proceeds": 0.0,
+                  "fees": 0.2648687511072309,
+                  "net_interest": 3.289804495313904,
+                  "ebit": 44.26959621058102,
+                  "da": 21.669926814393943,
+                  "cash_capex": 81.2,
+                  "year": 2028,
+                  "quarter": 1,
+                  "lease_principal": 0.7836,
+                  "sbc": 6.75,
+                  "cash_tax": 7.0,
+                  "wc_cash": -31.25,
+                  "known_issue_cash": 0,
+                  "known_issue_principal": 0,
+                  "openai_cash": 0,
+                  "globalstar_cash": 0,
+                  "anthropic_cash": 1.875
+                },
+                {
+                  "pre_financing_cash": 49.36075118669477,
+                  "ending_cash": 59.99999999999999,
+                  "core_cash_flow": -8.764248813305226,
+                  "new_growth_debt": 10.773922848916687,
+                  "equity_proceeds": 0.0,
+                  "fees": 0.05386961424458343,
+                  "net_interest": 3.7679120433416258,
+                  "ebit": 46.19436126321497,
+                  "da": 22.612097545454546,
+                  "cash_capex": 69.6,
+                  "year": 2028,
+                  "quarter": 2,
+                  "lease_principal": 0.7836,
+                  "sbc": 6.75,
+                  "cash_tax": 7.0,
+                  "wc_cash": -3.25,
+                  "known_issue_cash": 0,
+                  "known_issue_principal": 0,
+                  "openai_cash": 0,
+                  "globalstar_cash": 0,
+                  "anthropic_cash": 1.875
+                },
+                {
+                  "pre_financing_cash": 53.06607812765557,
+                  "ending_cash": 60.0,
+                  "core_cash_flow": -5.058921872344419,
+                  "new_growth_debt": 7.021693035285496,
+                  "equity_proceeds": 0.0,
+                  "fees": 0.03510846517642748,
+                  "net_interest": 3.9013791624731424,
+                  "ebit": 48.11912631584893,
+                  "da": 23.554268276515153,
+                  "cash_capex": 69.6,
+                  "year": 2028,
+                  "quarter": 3,
+                  "lease_principal": 0.7836,
+                  "sbc": 6.75,
+                  "cash_tax": 7.0,
+                  "wc_cash": -2.25,
+                  "known_issue_cash": 0,
+                  "known_issue_principal": 0,
+                  "openai_cash": 0,
+                  "globalstar_cash": 0,
+                  "anthropic_cash": 1.875
+                },
+                {
+                  "pre_financing_cash": 71.60984503357405,
+                  "ending_cash": 71.60984503357405,
+                  "core_cash_flow": 13.484845033574045,
+                  "new_growth_debt": 0.0,
+                  "equity_proceeds": 0.0,
+                  "fees": 0.0,
+                  "net_interest": 3.905756909873739,
+                  "ebit": 53.893421473750806,
+                  "da": 26.380780469696973,
+                  "cash_capex": 69.6,
+                  "year": 2028,
+                  "quarter": 4,
+                  "lease_principal": 0.7836,
+                  "sbc": 6.75,
+                  "cash_tax": 7.0,
+                  "wc_cash": 7.75,
+                  "known_issue_cash": 0,
+                  "known_issue_principal": 0,
+                  "openai_cash": 0,
+                  "globalstar_cash": 0,
+                  "anthropic_cash": 1.875
+                },
+                {
+                  "pre_financing_cash": 35.835314948926666,
+                  "ending_cash": 59.99999999999999,
+                  "core_cash_flow": -35.77453008464738,
+                  "new_growth_debt": 24.470567140327425,
+                  "equity_proceeds": 0.0,
+                  "fees": 0.12235283570163713,
+                  "net_interest": 4.368012041768352,
+                  "ebit": 54.48049312553821,
+                  "da": 26.631559578030306,
+                  "cash_capex": 77.056,
+                  "year": 2029,
+                  "quarter": 1,
+                  "lease_principal": 0.8961000000000001,
+                  "sbc": 7.25,
+                  "cash_tax": 10.0,
+                  "wc_cash": -32.0,
+                  "known_issue_cash": 0,
+                  "known_issue_principal": 0,
+                  "openai_cash": 0,
+                  "globalstar_cash": 0,
+                  "anthropic_cash": 0.0
+                },
+                {
+                  "pre_financing_cash": 66.36767970162707,
+                  "ending_cash": 66.36767970162707,
+                  "core_cash_flow": 6.367679701627081,
+                  "new_growth_debt": 0.0,
+                  "equity_proceeds": 0.0,
+                  "fees": 0.0,
+                  "net_interest": 4.576883989053092,
+                  "ebit": 56.84921021795291,
+                  "da": 27.78945347272727,
+                  "cash_capex": 66.048,
+                  "year": 2029,
+                  "quarter": 2,
+                  "lease_principal": 0.8961000000000001,
+                  "sbc": 7.25,
+                  "cash_tax": 10.0,
+                  "wc_cash": -4.0,
+                  "known_issue_cash": 0,
+                  "known_issue_principal": 0,
+                  "openai_cash": 0,
+                  "globalstar_cash": 0,
+                  "anthropic_cash": 0.0
+                },
+                {
+                  "pre_financing_cash": 77.33749151082368,
+                  "ending_cash": 77.33749151082368,
+                  "core_cash_flow": 10.969811809196612,
+                  "new_growth_debt": 0.0,
+                  "equity_proceeds": 0.0,
+                  "fees": 0.0,
+                  "net_interest": 4.501362868595242,
+                  "ebit": 59.217927310367614,
+                  "da": 28.947347367424243,
+                  "cash_capex": 66.048,
+                  "year": 2029,
+                  "quarter": 3,
+                  "lease_principal": 0.8961000000000001,
+                  "sbc": 7.25,
+                  "cash_tax": 10.0,
+                  "wc_cash": -3.0,
+                  "known_issue_cash": 0,
+                  "known_issue_principal": 0,
+                  "openai_cash": 0,
+                  "globalstar_cash": 0,
+                  "anthropic_cash": 0.0
+                },
+                {
+                  "pre_financing_cash": 109.07315890389165,
+                  "ending_cash": 109.07315890389165,
+                  "core_cash_flow": 31.73566739306797,
+                  "new_growth_debt": 0.0,
+                  "equity_proceeds": 0.0,
+                  "fees": 0.0,
+                  "net_interest": 4.315340246058931,
+                  "ebit": 66.32407858761174,
+                  "da": 32.421029051515156,
+                  "cash_capex": 66.048,
+                  "year": 2029,
+                  "quarter": 4,
+                  "lease_principal": 0.8961000000000001,
+                  "sbc": 7.25,
+                  "cash_tax": 10.0,
+                  "wc_cash": 7.0,
+                  "known_issue_cash": 0,
+                  "known_issue_principal": 0,
+                  "openai_cash": 0,
+                  "globalstar_cash": 0,
+                  "anthropic_cash": 0.0
+                }
+              ],
+              "annual_summaries": [
+                {
+                  "year": 2026,
+                  "period": "H2",
+                  "ending_cash": 111.97401542326261,
+                  "minimum_pre_financing_cash": 111.56592300226076,
+                  "cash_capex": 123.69,
+                  "core_cash_flow": -20.248409076737392,
+                  "new_growth_debt": 0.0,
+                  "equity_proceeds": 0.0,
+                  "net_interest": 2.547149365280343,
+                  "ebit": 60.73174028854295,
+                  "da": 30.297,
+                  "sbc": 12.93,
+                  "wc_cash": 7.960000000000001,
+                  "cash_tax": 5.0,
+                  "fees": 0.0
+                },
+                {
+                  "year": 2027,
+                  "period": "FY",
+                  "ending_cash": 59.99999999999999,
+                  "minimum_pre_financing_cash": 32.845012195044504,
+                  "cash_capex": 291.0,
+                  "core_cash_flow": -96.5184338595889,
+                  "new_growth_debt": 58.779157910203836,
+                  "equity_proceeds": 0.0,
+                  "net_interest": 8.610392584445115,
+                  "ebit": 150.5468616314388,
+                  "da": 73.33865340909091,
+                  "sbc": 25.0,
+                  "wc_cash": -26.0,
+                  "cash_tax": 18.0,
+                  "fees": 0.2938957895510192
+                },
+                {
+                  "year": 2028,
+                  "period": "FY",
+                  "ending_cash": 71.60984503357405,
+                  "minimum_pre_financing_cash": 7.688421656321893,
+                  "cash_capex": 290.0,
+                  "core_cash_flow": -50.774903995753704,
+                  "new_growth_debt": 70.76936610564836,
+                  "equity_proceeds": 0.0,
+                  "net_interest": 14.86485261100241,
+                  "ebit": 192.47650526339572,
+                  "da": 94.21707310606061,
+                  "sbc": 27.0,
+                  "wc_cash": -29.0,
+                  "cash_tax": 28.0,
+                  "fees": 0.35384683052824184
+                },
+                {
+                  "year": 2029,
+                  "period": "FY",
+                  "ending_cash": 109.07315890389165,
+                  "minimum_pre_financing_cash": 35.835314948926666,
+                  "cash_capex": 275.2,
+                  "core_cash_flow": 13.298628819244282,
+                  "new_growth_debt": 24.470567140327425,
+                  "equity_proceeds": 0.0,
+                  "net_interest": 17.761599145475618,
+                  "ebit": 236.87170924147046,
+                  "da": 115.78938946969697,
+                  "sbc": 29.0,
+                  "wc_cash": -32.0,
+                  "cash_tax": 40.0,
+                  "fees": 0.12235283570163713
+                }
+              ]
+            },
+            "bridge": {
+              "aws_ev": 3964.8117263193035,
+              "retail_ev": 2193.852713958928,
+              "cash": 69.07315890389165,
+              "debt": 318.4556581561797,
+              "finance_claims": 27.0548,
+              "investment_net": 342.925,
+              "other_claims": 0,
+              "shares": 11.187399999999998,
+              "common_equity": 6225.152141025943,
+              "price": 556.4431539969916,
+              "aws_multiple": 26,
+              "retail_multiple": 26
+            }
+          },
+          "Base": {
+            "aws": [
+              {
+                "core": 148.0,
+                "ai": 27.0,
+                "revenue": 175.0,
+                "contribution_rate": 0.64,
+                "fixed_pre_da_cost": 11.92530971145705,
+                "da": 33.0,
+                "ebit": 67.07469028854295,
+                "margin": 0.38328394450595976,
+                "additions": 192.5,
+                "year": 2026
+              },
+              {
+                "core": 173.0,
+                "ai": 55.0,
+                "revenue": 228.0,
+                "contribution_rate": 0.64,
+                "fixed_pre_da_cost": 16.45178673369533,
+                "da": 45.52577462121212,
+                "ebit": 83.94243864509258,
+                "margin": 0.36816859054865164,
+                "additions": 190.0,
+                "year": 2027
+              },
+              {
+                "core": 195.0,
+                "ai": 88.0,
+                "revenue": 283.0,
+                "contribution_rate": 0.64,
+                "fixed_pre_da_cost": 21.96039527778799,
+                "da": 60.76932689393939,
+                "ebit": 98.39027782827262,
+                "margin": 0.34766882624831313,
+                "additions": 165.0,
+                "year": 2028
+              },
+              {
+                "core": 217.0,
+                "ai": 120.0,
+                "revenue": 337.0,
+                "contribution_rate": 0.64,
+                "fixed_pre_da_cost": 27.10487768543194,
+                "da": 75.00526068181819,
+                "ebit": 113.56986163274988,
+                "margin": 0.3370025567737385,
+                "additions": 145.0,
+                "year": 2029
+              }
+            ],
+            "retail": [
+              {
+                "revenue": 662.5,
+                "na_share": 0.7239245283018868,
+                "na_margin": 0.0765,
+                "intl_margin": 0.0385,
+                "ebit": 43.731049999999996,
+                "additions": 60.0,
+                "da": 24.0,
+                "mix_bps": 0.0,
+                "margin_change_na_bps": 0.0,
+                "margin_change_intl_bps": 0.0,
+                "year": 2026,
+                "categories": {
+                  "Online": 297.1,
+                  "Physical": 23.5,
+                  "ThirdParty": 194.1,
+                  "Advertising": 85,
+                  "Subscription": 55.7,
+                  "Other": 7.1
+                },
+                "na_revenue": 479.6,
+                "intl_revenue": 182.89999999999998
+              },
+              {
+                "revenue": 731.133,
+                "na_share": 0.722,
+                "na_margin": 0.07856165792461318,
+                "intl_margin": 0.04018665792461319,
+                "ebit": 49.63911101614622,
+                "additions": 64.0,
+                "da": 27.5,
+                "mix_bps": 20.616579246131916,
+                "margin_change_na_bps": 20.616579246131916,
+                "margin_change_intl_bps": 16.866579246131916,
+                "year": 2027,
+                "categories": {
+                  "Online": 320.86800000000005,
+                  "Physical": 24.44,
+                  "ThirdParty": 215.45100000000002,
+                  "Advertising": 100.3,
+                  "Subscription": 61.27000000000001,
+                  "Other": 8.804
+                },
+                "na_revenue": 527.878026,
+                "intl_revenue": 203.25497400000006
+              },
+              {
+                "revenue": 799.7036800000002,
+                "na_share": 0.719,
+                "na_margin": 0.08499932019197266,
+                "intl_margin": 0.046749320191972664,
+                "ebit": 59.378854076458865,
+                "additions": 63.0,
+                "da": 30.5,
+                "mix_bps": 19.376622673594746,
+                "margin_change_na_bps": 64.37662267359474,
+                "margin_change_intl_bps": 65.62662267359474,
+                "year": 2028,
+                "categories": {
+                  "Online": 343.3287600000001,
+                  "Physical": 25.417600000000004,
+                  "ThirdParty": 236.99610000000004,
+                  "Advertising": 116.34799999999998,
+                  "Subscription": 66.78430000000002,
+                  "Other": 10.82892
+                },
+                "na_revenue": 574.9869459200002,
+                "intl_revenue": 224.71673408000004
+              },
+              {
+                "revenue": 866.7718742000002,
+                "na_share": 0.716,
+                "na_margin": 0.09178214123810165,
+                "intl_margin": 0.054532141238101656,
+                "ebit": 70.38459892187669,
+                "additions": 60.0,
+                "da": 33.0,
+                "mix_bps": 17.828210461289906,
+                "margin_change_na_bps": 67.8282104612899,
+                "margin_change_intl_bps": 77.8282104612899,
+                "year": 2029,
+                "categories": {
+                  "Online": 363.9284856000001,
+                  "Physical": 26.434304000000004,
+                  "ThirdParty": 258.3257490000001,
+                  "Advertising": 132.63672,
+                  "Subscription": 72.12704400000003,
+                  "Other": 13.3195716
+                },
+                "na_revenue": 620.6086619272002,
+                "intl_revenue": 246.16321227280002
+              }
+            ],
+            "capital": {
+              "cash": 116.40452209404924,
+              "debt": 276.79227253610446,
+              "finance_claims": 27.0548,
+              "shares": 11.297400000000001,
+              "cumulative_growth_debt": 112.35570553610444,
+              "cumulative_equity_proceeds": 0.0,
+              "investment_funded": 15.0,
+              "investment_gross": 261.195,
+              "investment_tax_basis": 90.0,
+              "investment_tax": 41.942775,
+              "investment_net": 219.252225,
+              "operating_tax_timing_proxy": 58.00922060228494,
+              "minimum_pre_financing_cash": 15.884423673048552,
+              "quarters": [
+                {
+                  "pre_financing_cash": 111.56592300226076,
+                  "ending_cash": 111.56592300226076,
+                  "core_cash_flow": -20.65650149773924,
+                  "new_growth_debt": 0.0,
+                  "equity_proceeds": 0.0,
+                  "fees": 0.0,
+                  "net_interest": 1.2495865395047758,
+                  "ebit": 28.647047305916484,
+                  "da": 14.291037735849056,
+                  "cash_capex": 61.845,
+                  "year": 2026,
+                  "quarter": 3,
+                  "lease_principal": 0.465,
+                  "sbc": 6.465,
+                  "cash_tax": 2.5,
+                  "wc_cash": -4,
+                  "known_issue_cash": 30.5344245,
+                  "known_issue_principal": 30.692875,
+                  "openai_cash": 21.3,
+                  "globalstar_cash": 0,
+                  "anthropic_cash": 0.0
+                },
+                {
+                  "pre_financing_cash": 111.97401542326261,
+                  "ending_cash": 111.97401542326261,
+                  "core_cash_flow": 0.4080924210018476,
+                  "new_growth_debt": 0.0,
+                  "equity_proceeds": 0.0,
+                  "fees": 0.0,
+                  "net_interest": 1.2975628257755671,
+                  "ebit": 32.084692982626464,
+                  "da": 16.005962264150945,
+                  "cash_capex": 61.845,
+                  "year": 2026,
+                  "quarter": 4,
+                  "lease_principal": 0.465,
+                  "sbc": 6.465,
+                  "cash_tax": 2.5,
+                  "wc_cash": 11.96,
+                  "known_issue_cash": 0,
+                  "known_issue_principal": 0,
+                  "openai_cash": 0,
+                  "globalstar_cash": 0,
+                  "anthropic_cash": 0.0
+                },
+                {
+                  "pre_financing_cash": 53.35065632570309,
+                  "ending_cash": 60.0,
+                  "core_cash_flow": -56.12335909755952,
+                  "new_growth_debt": 6.7335125815664885,
+                  "equity_proceeds": 0.0,
+                  "fees": 0.033667562907832446,
+                  "net_interest": 1.5249450268849747,
+                  "ebit": 30.723756422084925,
+                  "da": 16.795928162878788,
+                  "cash_capex": 73.36000000000001,
+                  "year": 2027,
+                  "quarter": 1,
+                  "lease_principal": 0.5586,
+                  "sbc": 6.25,
+                  "cash_tax": 4.0,
+                  "wc_cash": -30.5,
+                  "known_issue_cash": 0,
+                  "known_issue_principal": 0,
+                  "openai_cash": 0,
+                  "globalstar_cash": 0,
+                  "anthropic_cash": 2.5
+                },
+                {
+                  "pre_financing_cash": 35.59432513906472,
+                  "ending_cash": 59.99999999999999,
+                  "core_cash_flow": -15.905674860935276,
+                  "new_growth_debt": 24.714607454111672,
+                  "equity_proceeds": 0.0,
+                  "fees": 0.12357303727055836,
+                  "net_interest": 1.9881922446293347,
+                  "ebit": 32.05957191869731,
+                  "da": 17.52618590909091,
+                  "cash_capex": 62.879999999999995,
+                  "year": 2027,
+                  "quarter": 2,
+                  "lease_principal": 0.5586,
+                  "sbc": 6.25,
+                  "cash_tax": 4.0,
+                  "wc_cash": -2.5,
+                  "known_issue_cash": 0,
+                  "known_issue_principal": 0,
+                  "openai_cash": 0,
+                  "globalstar_cash": 6,
+                  "anthropic_cash": 2.5
+                },
+                {
+                  "pre_financing_cash": 44.289679270077556,
+                  "ending_cash": 60.0,
+                  "core_cash_flow": -13.210320729922438,
+                  "new_growth_debt": 15.90918554928855,
+                  "equity_proceeds": 0.0,
+                  "fees": 0.07954592774644274,
+                  "net_interest": 2.2928706921548367,
+                  "ebit": 33.3953874153097,
+                  "da": 18.25644365530303,
+                  "cash_capex": 62.879999999999995,
+                  "year": 2027,
+                  "quarter": 3,
+                  "lease_principal": 0.5586,
+                  "sbc": 6.25,
+                  "cash_tax": 4.0,
+                  "wc_cash": -1.5,
+                  "known_issue_cash": 0,
+                  "known_issue_principal": 0,
+                  "openai_cash": 0,
+                  "globalstar_cash": 0,
+                  "anthropic_cash": 2.5
+                },
+                {
+                  "pre_financing_cash": 60.24926121531176,
+                  "ending_cash": 60.24926121531176,
+                  "core_cash_flow": 2.7492612153117655,
+                  "new_growth_debt": 0.0,
+                  "equity_proceeds": 0.0,
+                  "fees": 0.0,
+                  "net_interest": 2.412189583774501,
+                  "ebit": 37.40283390514686,
+                  "da": 20.447216893939395,
+                  "cash_capex": 62.879999999999995,
+                  "year": 2027,
+                  "quarter": 4,
+                  "lease_principal": 0.5586,
+                  "sbc": 6.25,
+                  "cash_tax": 4.0,
+                  "wc_cash": 8.5,
+                  "known_issue_cash": 0,
+                  "known_issue_principal": 0,
+                  "openai_cash": 0,
+                  "globalstar_cash": 0,
+                  "anthropic_cash": 2.5
+                },
+                {
+                  "pre_financing_cash": 15.884423673048552,
+                  "ending_cash": 60.0,
+                  "core_cash_flow": -43.11483754226321,
+                  "new_growth_debt": 44.6740013437483,
+                  "equity_proceeds": 0.0,
+                  "fees": 0.22337000671874152,
+                  "net_interest": 3.0551380760356244,
+                  "ebit": 36.28690033808824,
+                  "da": 20.99194518560606,
+                  "cash_capex": 66.64,
+                  "year": 2028,
+                  "quarter": 1,
+                  "lease_principal": 0.7836,
+                  "sbc": 6.75,
+                  "cash_tax": 5.75,
+                  "wc_cash": -31.25,
+                  "known_issue_cash": 0,
+                  "known_issue_principal": 0,
+                  "openai_cash": 0,
+                  "globalstar_cash": 0,
+                  "anthropic_cash": 1.25
+                },
+                {
+                  "pre_financing_cash": 54.974346507750276,
+                  "ending_cash": 60.0,
+                  "core_cash_flow": -3.775653492249726,
+                  "new_growth_debt": 5.089269359240227,
+                  "equity_proceeds": 0.0,
+                  "fees": 0.025446346796201134,
+                  "net_interest": 3.4294531241250272,
+                  "ebit": 37.86459165713555,
+                  "da": 21.904638454545452,
+                  "cash_capex": 57.12,
+                  "year": 2028,
+                  "quarter": 2,
+                  "lease_principal": 0.7836,
+                  "sbc": 6.75,
+                  "cash_tax": 5.75,
+                  "wc_cash": -3.25,
+                  "known_issue_cash": 0,
+                  "known_issue_principal": 0,
+                  "openai_cash": 0,
+                  "globalstar_cash": 0,
+                  "anthropic_cash": 1.25
+                },
+                {
+                  "pre_financing_cash": 58.38839205534838,
+                  "ending_cash": 60.0,
+                  "core_cash_flow": -0.36160794465161805,
+                  "new_growth_debt": 1.632008045216827,
+                  "equity_proceeds": 0.0,
+                  "fees": 0.008160040226084136,
+                  "net_interest": 3.4798627046584545,
+                  "ebit": 39.44228297618287,
+                  "da": 22.81733172348485,
+                  "cash_capex": 57.12,
+                  "year": 2028,
+                  "quarter": 3,
+                  "lease_principal": 0.7836,
+                  "sbc": 6.75,
+                  "cash_tax": 5.75,
+                  "wc_cash": -2.25,
+                  "known_issue_cash": 0,
+                  "known_issue_principal": 0,
+                  "openai_cash": 0,
+                  "globalstar_cash": 0,
+                  "anthropic_cash": 1.25
+                },
+                {
+                  "pre_financing_cash": 75.90204723606178,
+                  "ending_cash": 75.90204723606178,
+                  "core_cash_flow": 17.152047236061772,
+                  "new_growth_debt": 0.0,
+                  "equity_proceeds": 0.0,
+                  "fees": 0.0,
+                  "net_interest": 3.425121227566074,
+                  "ebit": 44.175356933324814,
+                  "da": 25.555411530303033,
+                  "cash_capex": 57.12,
+                  "year": 2028,
+                  "quarter": 4,
+                  "lease_principal": 0.7836,
+                  "sbc": 6.75,
+                  "cash_tax": 5.75,
+                  "wc_cash": 7.75,
+                  "known_issue_cash": 0,
+                  "known_issue_principal": 0,
+                  "openai_cash": 0,
+                  "globalstar_cash": 0,
+                  "anthropic_cash": 1.25
+                },
+                {
+                  "pre_financing_cash": 46.566917812104265,
+                  "ending_cash": 59.99999999999999,
+                  "core_cash_flow": -29.33512942395751,
+                  "new_growth_debt": 13.603121202932389,
+                  "equity_proceeds": 0.0,
+                  "fees": 0.06801560601466194,
+                  "net_interest": 3.8057887173618035,
+                  "ebit": 42.30952592756411,
+                  "da": 24.841209956818183,
+                  "cash_capex": 59.136,
+                  "year": 2029,
+                  "quarter": 1,
+                  "lease_principal": 0.8961000000000001,
+                  "sbc": 7.25,
+                  "cash_tax": 8.0,
+                  "wc_cash": -32.0,
+                  "known_issue_cash": 0,
+                  "known_issue_principal": 0,
+                  "openai_cash": 0,
+                  "globalstar_cash": 0,
+                  "anthropic_cash": 0.0
+                },
+                {
+                  "pre_financing_cash": 69.79924760532762,
+                  "ending_cash": 69.79924760532762,
+                  "core_cash_flow": 9.799247605327635,
+                  "new_growth_debt": 0.0,
+                  "equity_proceeds": 0.0,
+                  "fees": 0.0,
+                  "net_interest": 3.9369854914191063,
+                  "ebit": 44.149070533110375,
+                  "da": 25.921262563636365,
+                  "cash_capex": 50.687999999999995,
+                  "year": 2029,
+                  "quarter": 2,
+                  "lease_principal": 0.8961000000000001,
+                  "sbc": 7.25,
+                  "cash_tax": 8.0,
+                  "wc_cash": -4.0,
+                  "known_issue_cash": 0,
+                  "known_issue_principal": 0,
+                  "openai_cash": 0,
+                  "globalstar_cash": 0,
+                  "anthropic_cash": 0.0
+                },
+                {
+                  "pre_financing_cash": 83.62098407737042,
+                  "ending_cash": 83.62098407737042,
+                  "core_cash_flow": 13.821736472042796,
+                  "new_growth_debt": 0.0,
+                  "equity_proceeds": 0.0,
+                  "fees": 0.0,
+                  "net_interest": 3.834093837068395,
+                  "ebit": 45.98861513865664,
+                  "da": 27.001315170454546,
+                  "cash_capex": 50.687999999999995,
+                  "year": 2029,
+                  "quarter": 3,
+                  "lease_principal": 0.8961000000000001,
+                  "sbc": 7.25,
+                  "cash_tax": 8.0,
+                  "wc_cash": -3.0,
+                  "known_issue_cash": 0,
+                  "known_issue_principal": 0,
+                  "openai_cash": 0,
+                  "globalstar_cash": 0,
+                  "anthropic_cash": 0.0
+                },
+                {
+                  "pre_financing_cash": 116.40452209404924,
+                  "ending_cash": 116.40452209404924,
+                  "core_cash_flow": 32.78353801667881,
+                  "new_growth_debt": 0.0,
+                  "equity_proceeds": 0.0,
+                  "fees": 0.0,
+                  "net_interest": 3.6310839295257367,
+                  "ebit": 51.507248955295445,
+                  "da": 30.241472990909095,
+                  "cash_capex": 50.687999999999995,
+                  "year": 2029,
+                  "quarter": 4,
+                  "lease_principal": 0.8961000000000001,
+                  "sbc": 7.25,
+                  "cash_tax": 8.0,
+                  "wc_cash": 7.0,
+                  "known_issue_cash": 0,
+                  "known_issue_principal": 0,
+                  "openai_cash": 0,
+                  "globalstar_cash": 0,
+                  "anthropic_cash": 0.0
+                }
+              ],
+              "annual_summaries": [
+                {
+                  "year": 2026,
+                  "period": "H2",
+                  "ending_cash": 111.97401542326261,
+                  "minimum_pre_financing_cash": 111.56592300226076,
+                  "cash_capex": 123.69,
+                  "core_cash_flow": -20.248409076737392,
+                  "new_growth_debt": 0.0,
+                  "equity_proceeds": 0.0,
+                  "net_interest": 2.547149365280343,
+                  "ebit": 60.73174028854295,
+                  "da": 30.297,
+                  "sbc": 12.93,
+                  "wc_cash": 7.960000000000001,
+                  "cash_tax": 5.0,
+                  "fees": 0.0
+                },
+                {
+                  "year": 2027,
+                  "period": "FY",
+                  "ending_cash": 60.24926121531176,
+                  "minimum_pre_financing_cash": 35.59432513906472,
+                  "cash_capex": 262.0,
+                  "core_cash_flow": -82.49009347310547,
+                  "new_growth_debt": 47.35730558496671,
+                  "equity_proceeds": 0.0,
+                  "net_interest": 8.218197547443648,
+                  "ebit": 133.5815496612388,
+                  "da": 73.02577462121212,
+                  "sbc": 25.0,
+                  "wc_cash": -26.0,
+                  "cash_tax": 16.0,
+                  "fees": 0.23678652792483357
+                },
+                {
+                  "year": 2028,
+                  "period": "FY",
+                  "ending_cash": 75.90204723606178,
+                  "minimum_pre_financing_cash": 15.884423673048552,
+                  "cash_capex": 238.0,
+                  "core_cash_flow": -30.10005174310278,
+                  "new_growth_debt": 51.39527874820536,
+                  "equity_proceeds": 0.0,
+                  "net_interest": 13.389575132385179,
+                  "ebit": 157.76913190473147,
+                  "da": 91.2693268939394,
+                  "sbc": 27.0,
+                  "wc_cash": -29.0,
+                  "cash_tax": 23.0,
+                  "fees": 0.25697639374102677
+                },
+                {
+                  "year": 2029,
+                  "period": "FY",
+                  "ending_cash": 116.40452209404924,
+                  "minimum_pre_financing_cash": 46.566917812104265,
+                  "cash_capex": 211.2,
+                  "core_cash_flow": 27.06939267009173,
+                  "new_growth_debt": 13.603121202932389,
+                  "equity_proceeds": 0.0,
+                  "net_interest": 15.20795197537504,
+                  "ebit": 183.95446055462656,
+                  "da": 108.00526068181819,
+                  "sbc": 29.0,
+                  "wc_cash": -32.0,
+                  "cash_tax": 32.0,
+                  "fees": 0.06801560601466194
+                }
+              ]
+            },
+            "bridge": {
+              "aws_ev": 2384.9670942877474,
+              "retail_ev": 1548.4611762812872,
+              "cash": 76.40452209404924,
+              "debt": 276.79227253610446,
+              "finance_claims": 27.0548,
+              "investment_net": 219.252225,
+              "other_claims": 0,
+              "shares": 11.297400000000001,
+              "common_equity": 3925.23794512698,
+              "price": 347.4461331923256,
+              "aws_multiple": 21,
+              "retail_multiple": 22
+            }
+          },
+          "Bear": {
+            "aws": [
+              {
+                "core": 148.0,
+                "ai": 27.0,
+                "revenue": 175.0,
+                "contribution_rate": 0.64,
+                "fixed_pre_da_cost": 11.92530971145705,
+                "da": 33.0,
+                "ebit": 67.07469028854295,
+                "margin": 0.38328394450595976,
+                "additions": 192.5,
+                "year": 2026
+              },
+              {
+                "core": 165.00816000000003,
+                "ai": 35.0,
+                "revenue": 200.00816000000003,
+                "contribution_rate": 0.6333451570079005,
+                "fixed_pre_da_cost": 16.45178673369533,
+                "da": 45.52577462121212,
+                "ebit": 64.69663814315386,
+                "margin": 0.32346999314004915,
+                "additions": 190.0,
+                "year": 2027
+              },
+              {
+                "core": 176.97125160000004,
+                "ai": 58.0,
+                "revenue": 234.97125160000004,
+                "contribution_rate": 0.63309146738186,
+                "fixed_pre_da_cost": 21.611417350868166,
+                "da": 59.803626893939395,
+                "ebit": 67.34325022318866,
+                "margin": 0.2866020832958301,
+                "additions": 135.3,
+                "year": 2028
+              },
+              {
+                "core": 190.00518428034005,
+                "ai": 90.0,
+                "revenue": 280.00518428034,
+                "contribution_rate": 0.6362980007548441,
+                "fixed_pre_da_cost": 26.23569754486125,
+                "da": 72.60004477272727,
+                "ebit": 79.33099664098356,
+                "margin": 0.28331974225719225,
+                "additions": 143.5375,
+                "year": 2029
+              }
+            ],
+            "retail": [
+              {
+                "revenue": 662.5,
+                "na_share": 0.7239245283018868,
+                "na_margin": 0.0765,
+                "intl_margin": 0.0385,
+                "ebit": 43.731049999999996,
+                "additions": 60.0,
+                "da": 24.0,
+                "mix_bps": 0.0,
+                "margin_change_na_bps": 0.0,
+                "margin_change_intl_bps": 0.0,
+                "year": 2026,
+                "categories": {
+                  "Online": 297.1,
+                  "Physical": 23.5,
+                  "ThirdParty": 194.1,
+                  "Advertising": 85,
+                  "Subscription": 55.7,
+                  "Other": 7.1
+                },
+                "na_revenue": 479.6,
+                "intl_revenue": 182.89999999999998
+              },
+              {
+                "revenue": 706.047,
+                "na_share": 0.724,
+                "na_margin": 0.07226920589176662,
+                "intl_margin": 0.031019205891766616,
+                "ebit": 42.98711091726415,
+                "additions": 62.0,
+                "da": 27.5,
+                "mix_bps": 15.192058917666174,
+                "margin_change_na_bps": -42.307941082333826,
+                "margin_change_intl_bps": -74.80794108233383,
+                "year": 2027,
+                "categories": {
+                  "Online": 311.95500000000004,
+                  "Physical": 23.97,
+                  "ThirdParty": 209.62800000000001,
+                  "Advertising": 93.50000000000001,
+                  "Subscription": 59.04200000000001,
+                  "Other": 7.952
+                },
+                "na_revenue": 511.178028,
+                "intl_revenue": 194.86897200000004
+              },
+              {
+                "revenue": 748.9604100000001,
+                "na_share": 0.725,
+                "na_margin": 0.07159494562834884,
+                "intl_margin": 0.02759494562834883,
+                "ebit": 44.55935887073586,
+                "additions": 56.0,
+                "da": 29.5,
+                "mix_bps": 10.757397365822152,
+                "margin_change_na_bps": -6.7426026341778496,
+                "margin_change_intl_bps": -34.24260263417785,
+                "year": 2028,
+                "categories": {
+                  "Online": 327.55275000000006,
+                  "Physical": 24.4494,
+                  "ThirdParty": 224.30196000000004,
+                  "Advertising": 101.91500000000002,
+                  "Subscription": 61.99410000000001,
+                  "Other": 8.747200000000001
+                },
+                "na_revenue": 542.9962972500001,
+                "intl_revenue": 205.96411275000003
+              },
+              {
+                "revenue": 787.3423656000002,
+                "na_share": 0.725,
+                "na_margin": 0.07316092129456486,
+                "intl_margin": 0.027410921294564853,
+                "ebit": 47.69694170433312,
+                "additions": 52.0,
+                "da": 30.5,
+                "mix_bps": 10.659756662160236,
+                "margin_change_na_bps": 15.659756662160236,
+                "margin_change_intl_bps": -1.840243337839766,
+                "year": 2029,
+                "categories": {
+                  "Online": 340.6548600000001,
+                  "Physical": 24.938388,
+                  "ThirdParty": 237.76007760000005,
+                  "Advertising": 110.06820000000003,
+                  "Subscription": 64.473864,
+                  "Other": 9.446976000000001
+                },
+                "na_revenue": 570.8232150600002,
+                "intl_revenue": 216.51915054000006
+              }
+            ],
+            "capital": {
+              "cash": 78.46916242898965,
+              "debt": 307.65570077862856,
+              "finance_claims": 27.0548,
+              "shares": 11.447399999999996,
+              "cumulative_growth_debt": 143.21913377862856,
+              "cumulative_equity_proceeds": 0.0,
+              "investment_funded": 10.0,
+              "investment_gross": 193.0,
+              "investment_tax_basis": 85.0,
+              "investment_tax": 26.46,
+              "investment_net": 166.54,
+              "operating_tax_timing_proxy": 46.83650919705054,
+              "minimum_pre_financing_cash": 16.284976550733155,
+              "quarters": [
+                {
+                  "pre_financing_cash": 111.56592300226076,
+                  "ending_cash": 111.56592300226076,
+                  "core_cash_flow": -20.65650149773924,
+                  "new_growth_debt": 0.0,
+                  "equity_proceeds": 0.0,
+                  "fees": 0.0,
+                  "net_interest": 1.2495865395047758,
+                  "ebit": 28.647047305916484,
+                  "da": 14.291037735849056,
+                  "cash_capex": 61.845,
+                  "year": 2026,
+                  "quarter": 3,
+                  "lease_principal": 0.465,
+                  "sbc": 6.465,
+                  "cash_tax": 2.5,
+                  "wc_cash": -4,
+                  "known_issue_cash": 30.5344245,
+                  "known_issue_principal": 30.692875,
+                  "openai_cash": 21.3,
+                  "globalstar_cash": 0,
+                  "anthropic_cash": 0.0
+                },
+                {
+                  "pre_financing_cash": 111.97401542326261,
+                  "ending_cash": 111.97401542326261,
+                  "core_cash_flow": 0.4080924210018476,
+                  "new_growth_debt": 0.0,
+                  "equity_proceeds": 0.0,
+                  "fees": 0.0,
+                  "net_interest": 1.2975628257755671,
+                  "ebit": 32.084692982626464,
+                  "da": 16.005962264150945,
+                  "cash_capex": 61.845,
+                  "year": 2026,
+                  "quarter": 4,
+                  "lease_principal": 0.465,
+                  "sbc": 6.465,
+                  "cash_tax": 2.5,
+                  "wc_cash": 11.96,
+                  "known_issue_cash": 0,
+                  "known_issue_principal": 0,
+                  "openai_cash": 0,
+                  "globalstar_cash": 0,
+                  "anthropic_cash": 0.0
+                },
+                {
+                  "pre_financing_cash": 51.454162187514314,
+                  "ending_cash": 60.0,
+                  "core_cash_flow": -60.5198532357483,
+                  "new_growth_debt": 8.670475903599936,
+                  "equity_proceeds": 0.0,
+                  "fees": 0.04335237951799968,
+                  "net_interest": 1.5557293941194754,
+                  "ebit": 24.767262283896144,
+                  "da": 16.795928162878788,
+                  "cash_capex": 72.80000000000001,
+                  "year": 2027,
+                  "quarter": 1,
+                  "lease_principal": 0.5586,
+                  "sbc": 6.25,
+                  "cash_tax": 3.0,
+                  "wc_cash": -30.5,
+                  "known_issue_cash": 0,
+                  "known_issue_principal": 0,
+                  "openai_cash": 0,
+                  "globalstar_cash": 0,
+                  "anthropic_cash": 0.0
+                },
+                {
+                  "pre_financing_cash": 33.29728426039874,
+                  "ending_cash": 60.0,
+                  "core_cash_flow": -20.702715739601263,
+                  "new_growth_debt": 27.09216562039443,
+                  "equity_proceeds": 0.0,
+                  "fees": 0.13546082810197216,
+                  "net_interest": 2.1183904758836967,
+                  "ebit": 25.84409977450032,
+                  "da": 17.52618590909091,
+                  "cash_capex": 62.4,
+                  "year": 2027,
+                  "quarter": 2,
+                  "lease_principal": 0.5586,
+                  "sbc": 6.25,
+                  "cash_tax": 3.0,
+                  "wc_cash": -2.5,
+                  "known_issue_cash": 0,
+                  "known_issue_principal": 0,
+                  "openai_cash": 0,
+                  "globalstar_cash": 6,
+                  "anthropic_cash": 0.0
+                },
+                {
+                  "pre_financing_cash": 41.596401391832636,
+                  "ending_cash": 60.0,
+                  "core_cash_flow": -18.403598608167364,
+                  "new_growth_debt": 18.67200873371451,
+                  "equity_proceeds": 0.0,
+                  "fees": 0.09336004366857255,
+                  "net_interest": 2.547429610453468,
+                  "ebit": 26.920937265104502,
+                  "da": 18.25644365530303,
+                  "cash_capex": 62.4,
+                  "year": 2027,
+                  "quarter": 3,
+                  "lease_principal": 0.5586,
+                  "sbc": 6.25,
+                  "cash_tax": 3.0,
+                  "wc_cash": -1.5,
+                  "known_issue_cash": 0,
+                  "known_issue_principal": 0,
+                  "openai_cash": 0,
+                  "globalstar_cash": 0,
+                  "anthropic_cash": 0.0
+                },
+                {
+                  "pre_financing_cash": 56.6675869385244,
+                  "ending_cash": 59.99999999999999,
+                  "core_cash_flow": -3.3324130614755973,
+                  "new_growth_debt": 3.3810151543189333,
+                  "equity_proceeds": 0.0,
+                  "fees": 0.016905075771594665,
+                  "net_interest": 2.7541767094037812,
+                  "ebit": 30.151449736917044,
+                  "da": 20.447216893939395,
+                  "cash_capex": 62.4,
+                  "year": 2027,
+                  "quarter": 4,
+                  "lease_principal": 0.5586,
+                  "sbc": 6.25,
+                  "cash_tax": 3.0,
+                  "wc_cash": 8.5,
+                  "known_issue_cash": 0,
+                  "known_issue_principal": 0,
+                  "openai_cash": 0,
+                  "globalstar_cash": 0,
+                  "anthropic_cash": 0.0
+                },
+                {
+                  "pre_financing_cash": 16.284976550733155,
+                  "ending_cash": 60.0,
+                  "core_cash_flow": -42.46502344926684,
+                  "new_growth_debt": 44.35259195867277,
+                  "equity_proceeds": 0.0,
+                  "fees": 0.22176295979336386,
+                  "net_interest": 3.5106632760880783,
+                  "ebit": 25.73760009160264,
+                  "da": 20.53983418560606,
+                  "cash_capex": 56.36400000000001,
+                  "year": 2028,
+                  "quarter": 1,
+                  "lease_principal": 0.7836,
+                  "sbc": 6.75,
+                  "cash_tax": 4.0,
+                  "wc_cash": -31.25,
+                  "known_issue_cash": 0,
+                  "known_issue_principal": 0,
+                  "openai_cash": 0,
+                  "globalstar_cash": 0,
+                  "anthropic_cash": 1.25
+                },
+                {
+                  "pre_financing_cash": 53.51742781138671,
+                  "ending_cash": 59.99999999999999,
+                  "core_cash_flow": -5.232572188613293,
+                  "new_growth_debt": 6.577118263653306,
+                  "equity_proceeds": 0.0,
+                  "fees": 0.03288559131826653,
+                  "net_interest": 3.988129309422385,
+                  "ebit": 26.856626182541884,
+                  "da": 21.432870454545455,
+                  "cash_capex": 48.312,
+                  "year": 2028,
+                  "quarter": 2,
+                  "lease_principal": 0.7836,
+                  "sbc": 6.75,
+                  "cash_tax": 4.0,
+                  "wc_cash": -3.25,
+                  "known_issue_cash": 0,
+                  "known_issue_principal": 0,
+                  "openai_cash": 0,
+                  "globalstar_cash": 0,
+                  "anthropic_cash": 1.25
+                },
+                {
+                  "pre_financing_cash": 56.40616920382184,
+                  "ending_cash": 59.99999999999999,
+                  "core_cash_flow": -2.343830796178153,
+                  "new_growth_debt": 3.6462455763380195,
+                  "equity_proceeds": 0.0,
+                  "fees": 0.0182312278816901,
+                  "net_interest": 4.0839733454223035,
+                  "ebit": 27.97565227348113,
+                  "da": 22.32590672348485,
+                  "cash_capex": 48.312,
+                  "year": 2028,
+                  "quarter": 3,
+                  "lease_principal": 0.7836,
+                  "sbc": 6.75,
+                  "cash_tax": 4.0,
+                  "wc_cash": -2.25,
+                  "known_issue_cash": 0,
+                  "known_issue_principal": 0,
+                  "openai_cash": 0,
+                  "globalstar_cash": 0,
+                  "anthropic_cash": 1.25
+                },
+                {
+                  "pre_financing_cash": 72.42582850655911,
+                  "ending_cash": 72.42582850655911,
+                  "core_cash_flow": 13.675828506559126,
+                  "new_growth_debt": 0.0,
+                  "equity_proceeds": 0.0,
+                  "fees": 0.0,
+                  "net_interest": 4.06631757004278,
+                  "ebit": 31.33273054629887,
+                  "da": 25.005015530303034,
+                  "cash_capex": 48.312,
+                  "year": 2028,
+                  "quarter": 4,
+                  "lease_principal": 0.7836,
+                  "sbc": 6.75,
+                  "cash_tax": 4.0,
+                  "wc_cash": 7.75,
+                  "known_issue_cash": 0,
+                  "known_issue_principal": 0,
+                  "openai_cash": 0,
+                  "globalstar_cash": 0,
+                  "anthropic_cash": 1.25
+                },
+                {
+                  "pre_financing_cash": 32.12763672572495,
+                  "ending_cash": 59.99999999999999,
+                  "core_cash_flow": -39.048191780834166,
+                  "new_growth_debt": 28.27887206013956,
+                  "equity_proceeds": 0.0,
+                  "fees": 0.1413943603006978,
+                  "net_interest": 4.610142323548086,
+                  "ebit": 29.216425819422835,
+                  "da": 23.713010297727273,
+                  "cash_capex": 56.4865,
+                  "year": 2029,
+                  "quarter": 1,
+                  "lease_principal": 0.8961000000000001,
+                  "sbc": 7.25,
+                  "cash_tax": 5.5,
+                  "wc_cash": -32.0,
+                  "known_issue_cash": 0,
+                  "known_issue_principal": 0,
+                  "openai_cash": 0,
+                  "globalstar_cash": 0,
+                  "anthropic_cash": 1.25
+                },
+                {
+                  "pre_financing_cash": 57.48799619950245,
+                  "ending_cash": 60.0,
+                  "core_cash_flow": -1.2620038004975425,
+                  "new_growth_debt": 2.5486405077971366,
+                  "equity_proceeds": 0.0,
+                  "fees": 0.012743202538985683,
+                  "net_interest": 4.953513253588686,
+                  "ebit": 30.486705202876,
+                  "da": 24.744010745454545,
+                  "cash_capex": 48.416999999999994,
+                  "year": 2029,
+                  "quarter": 2,
+                  "lease_principal": 0.8961000000000001,
+                  "sbc": 7.25,
+                  "cash_tax": 5.5,
+                  "wc_cash": -4.0,
+                  "known_issue_cash": 0,
+                  "known_issue_principal": 0,
+                  "openai_cash": 0,
+                  "globalstar_cash": 0,
+                  "anthropic_cash": 1.25
+                },
+                {
+                  "pre_financing_cash": 60.742436160629296,
+                  "ending_cash": 60.742436160629296,
+                  "core_cash_flow": 1.992436160629295,
+                  "new_growth_debt": 0.0,
+                  "equity_proceeds": 0.0,
+                  "fees": 0.0,
+                  "net_interest": 4.9764596188817025,
+                  "ebit": 31.756984586329168,
+                  "da": 25.775011193181818,
+                  "cash_capex": 48.416999999999994,
+                  "year": 2029,
+                  "quarter": 3,
+                  "lease_principal": 0.8961000000000001,
+                  "sbc": 7.25,
+                  "cash_tax": 5.5,
+                  "wc_cash": -3.0,
+                  "known_issue_cash": 0,
+                  "known_issue_principal": 0,
+                  "openai_cash": 0,
+                  "globalstar_cash": 0,
+                  "anthropic_cash": 1.25
+                },
+                {
+                  "pre_financing_cash": 78.46916242898965,
+                  "ending_cash": 78.46916242898965,
+                  "core_cash_flow": 18.97672626836036,
+                  "new_growth_debt": 0.0,
+                  "equity_proceeds": 0.0,
+                  "fees": 0.0,
+                  "net_interest": 4.896009004691953,
+                  "ebit": 35.56782273668867,
+                  "da": 28.86801253636364,
+                  "cash_capex": 48.416999999999994,
+                  "year": 2029,
+                  "quarter": 4,
+                  "lease_principal": 0.8961000000000001,
+                  "sbc": 7.25,
+                  "cash_tax": 5.5,
+                  "wc_cash": 7.0,
+                  "known_issue_cash": 0,
+                  "known_issue_principal": 0,
+                  "openai_cash": 0,
+                  "globalstar_cash": 0,
+                  "anthropic_cash": 1.25
+                }
+              ],
+              "annual_summaries": [
+                {
+                  "year": 2026,
+                  "period": "H2",
+                  "ending_cash": 111.97401542326261,
+                  "minimum_pre_financing_cash": 111.56592300226076,
+                  "cash_capex": 123.69,
+                  "core_cash_flow": -20.248409076737392,
+                  "new_growth_debt": 0.0,
+                  "equity_proceeds": 0.0,
+                  "net_interest": 2.547149365280343,
+                  "ebit": 60.73174028854295,
+                  "da": 30.297,
+                  "sbc": 12.93,
+                  "wc_cash": 7.960000000000001,
+                  "cash_tax": 5.0,
+                  "fees": 0.0
+                },
+                {
+                  "year": 2027,
+                  "period": "FY",
+                  "ending_cash": 59.99999999999999,
+                  "minimum_pre_financing_cash": 33.29728426039874,
+                  "cash_capex": 260.0,
+                  "core_cash_flow": -102.95858064499252,
+                  "new_growth_debt": 57.815665412027805,
+                  "equity_proceeds": 0.0,
+                  "net_interest": 8.97572618986042,
+                  "ebit": 107.68374906041801,
+                  "da": 73.02577462121212,
+                  "sbc": 25.0,
+                  "wc_cash": -26.0,
+                  "cash_tax": 12.0,
+                  "fees": 0.28907832706013903
+                },
+                {
+                  "year": 2028,
+                  "period": "FY",
+                  "ending_cash": 72.42582850655911,
+                  "minimum_pre_financing_cash": 16.284976550733155,
+                  "cash_capex": 201.3,
+                  "core_cash_flow": -36.36559792749916,
+                  "new_growth_debt": 54.5759557986641,
+                  "equity_proceeds": 0.0,
+                  "net_interest": 15.649083500975546,
+                  "ebit": 111.90260909392453,
+                  "da": 89.3036268939394,
+                  "sbc": 27.0,
+                  "wc_cash": -29.0,
+                  "cash_tax": 16.0,
+                  "fees": 0.2728797789933205
+                },
+                {
+                  "year": 2029,
+                  "period": "FY",
+                  "ending_cash": 78.46916242898965,
+                  "minimum_pre_financing_cash": 32.12763672572495,
+                  "cash_capex": 201.73749999999998,
+                  "core_cash_flow": -19.341033152342053,
+                  "new_growth_debt": 30.827512567936694,
+                  "equity_proceeds": 0.0,
+                  "net_interest": 19.436124200710427,
+                  "ebit": 127.02793834531667,
+                  "da": 103.10004477272727,
+                  "sbc": 29.0,
+                  "wc_cash": -32.0,
+                  "cash_tax": 22.0,
+                  "fees": 0.15413756283968347
+                }
+              ]
+            },
+            "bridge": {
+              "aws_ev": 1269.295946255737,
+              "retail_ev": 810.848008973663,
+              "cash": 38.46916242898965,
+              "debt": 307.65570077862856,
+              "finance_claims": 27.0548,
+              "investment_net": 166.54,
+              "other_claims": 0,
+              "shares": 11.447399999999996,
+              "common_equity": 1950.4426168797609,
+              "price": 170.3830229466745,
+              "aws_multiple": 16,
+              "retail_multiple": 17
+            }
+          },
+          "Tail": {
+            "aws": [
+              {
+                "core": 148.0,
+                "ai": 27.0,
+                "revenue": 175.0,
+                "contribution_rate": 0.64,
+                "fixed_pre_da_cost": 11.92530971145705,
+                "da": 33.0,
+                "ebit": 67.07469028854295,
+                "margin": 0.38328394450595976,
+                "additions": 192.5,
+                "year": 2026
+              },
+              {
+                "core": 155.0,
+                "ai": 30.0,
+                "revenue": 185.0,
+                "contribution_rate": 0.6,
+                "fixed_pre_da_cost": 16.45178673369533,
+                "da": 45.52577462121212,
+                "ebit": 49.02243864509255,
+                "margin": 0.2649861548383381,
+                "additions": 190.0,
+                "year": 2027
+              },
+              {
+                "core": 167.0,
+                "ai": 38.0,
+                "revenue": 205.0,
+                "contribution_rate": 0.59,
+                "fixed_pre_da_cost": 21.349683905678305,
+                "da": 59.0793518939394,
+                "ebit": 40.52096420038228,
+                "margin": 0.19766324000186478,
+                "additions": 113.025,
+                "year": 2028
+              },
+              {
+                "core": 180.0,
+                "ai": 50.0,
+                "revenue": 230.0,
+                "contribution_rate": 0.6,
+                "fixed_pre_da_cost": 25.230538382731254,
+                "da": 69.81854448863636,
+                "ebit": 42.95091712863238,
+                "margin": 0.18674311795057558,
+                "additions": 112.375,
+                "year": 2029
+              }
+            ],
+            "retail": [
+              {
+                "revenue": 662.5,
+                "na_share": 0.7239245283018868,
+                "na_margin": 0.0765,
+                "intl_margin": 0.0385,
+                "ebit": 43.731049999999996,
+                "additions": 60.0,
+                "da": 24.0,
+                "mix_bps": 0.0,
+                "margin_change_na_bps": 0.0,
+                "margin_change_intl_bps": 0.0,
+                "year": 2026,
+                "categories": {
+                  "Online": 297.1,
+                  "Physical": 23.5,
+                  "ThirdParty": 194.1,
+                  "Advertising": 85,
+                  "Subscription": 55.7,
+                  "Other": 7.1
+                },
+                "na_revenue": 479.6,
+                "intl_revenue": 182.89999999999998
+              },
+              {
+                "revenue": 661.693,
+                "na_share": 0.727,
+                "na_margin": 0.06481740604839005,
+                "intl_margin": 0.026817406048390044,
+                "ebit": 36.02482067837735,
+                "additions": 64.0,
+                "da": 28.0,
+                "mix_bps": 18.17406048390047,
+                "margin_change_na_bps": -116.82593951609954,
+                "margin_change_intl_bps": -116.82593951609954,
+                "year": 2027,
+                "categories": {
+                  "Online": 291.158,
+                  "Physical": 23.03,
+                  "ThirdParty": 196.041,
+                  "Advertising": 87.55,
+                  "Subscription": 56.81400000000001,
+                  "Other": 7.1
+                },
+                "na_revenue": 481.05081099999995,
+                "intl_revenue": 180.64218900000003
+              },
+              {
+                "revenue": 676.92273,
+                "na_share": 0.73,
+                "na_margin": 0.056537126833474324,
+                "intl_margin": 0.01953712683347432,
+                "ebit": 31.508808169771694,
+                "additions": 55.0,
+                "da": 30.0,
+                "mix_bps": 12.197207850842773,
+                "margin_change_na_bps": -82.80279214915723,
+                "margin_change_intl_bps": -72.80279214915723,
+                "year": 2028,
+                "categories": {
+                  "Online": 294.06958000000003,
+                  "Physical": 23.03,
+                  "ThirdParty": 201.92223,
+                  "Advertising": 91.9275,
+                  "Subscription": 58.518420000000006,
+                  "Other": 7.455
+                },
+                "na_revenue": 494.1535929,
+                "intl_revenue": 182.76913710000002
+              },
+              {
+                "revenue": 703.4240684,
+                "na_share": 0.732,
+                "na_margin": 0.05290642748315568,
+                "intl_margin": 0.016906427483155677,
+                "ebit": 30.42901905278774,
+                "additions": 50.0,
+                "da": 31.0,
+                "mix_bps": 8.693006496813593,
+                "margin_change_na_bps": -36.306993503186405,
+                "margin_change_intl_bps": -26.306993503186405,
+                "year": 2029,
+                "categories": {
+                  "Online": 302.8916674,
+                  "Physical": 23.2603,
+                  "ThirdParty": 209.99911920000002,
+                  "Advertising": 98.362425,
+                  "Subscription": 60.85915680000001,
+                  "Other": 8.051400000000001
+                },
+                "na_revenue": 514.9064180688,
+                "intl_revenue": 188.5176503312
+              }
+            ],
+            "capital": {
+              "cash": 71.8790067485007,
+              "debt": 333.31999999999994,
+              "finance_claims": 27.0548,
+              "shares": 12.551806996018387,
+              "cumulative_growth_debt": 168.883433,
+              "cumulative_equity_proceeds": 21.235174900459718,
+              "investment_funded": 5.0,
+              "investment_gross": 73.5,
+              "investment_tax_basis": 80.0,
+              "investment_tax": 0.0,
+              "investment_net": 73.5,
+              "operating_tax_timing_proxy": 33.79717704089674,
+              "minimum_pre_financing_cash": 15.257610910144159,
+              "quarters": [
+                {
+                  "pre_financing_cash": 111.56592300226076,
+                  "ending_cash": 111.56592300226076,
+                  "core_cash_flow": -20.65650149773924,
+                  "new_growth_debt": 0.0,
+                  "equity_proceeds": 0.0,
+                  "fees": 0.0,
+                  "net_interest": 1.2495865395047758,
+                  "ebit": 28.647047305916484,
+                  "da": 14.291037735849056,
+                  "cash_capex": 61.845,
+                  "year": 2026,
+                  "quarter": 3,
+                  "lease_principal": 0.465,
+                  "sbc": 6.465,
+                  "cash_tax": 2.5,
+                  "wc_cash": -4,
+                  "known_issue_cash": 30.5344245,
+                  "known_issue_principal": 30.692875,
+                  "openai_cash": 21.3,
+                  "globalstar_cash": 0,
+                  "anthropic_cash": 0.0
+                },
+                {
+                  "pre_financing_cash": 111.97401542326261,
+                  "ending_cash": 111.97401542326261,
+                  "core_cash_flow": 0.4080924210018476,
+                  "new_growth_debt": 0.0,
+                  "equity_proceeds": 0.0,
+                  "fees": 0.0,
+                  "net_interest": 1.2975628257755671,
+                  "ebit": 32.084692982626464,
+                  "da": 16.005962264150945,
+                  "cash_capex": 61.845,
+                  "year": 2026,
+                  "quarter": 4,
+                  "lease_principal": 0.465,
+                  "sbc": 6.465,
+                  "cash_tax": 2.5,
+                  "wc_cash": 11.96,
+                  "known_issue_cash": 0,
+                  "known_issue_principal": 0,
+                  "openai_cash": 0,
+                  "globalstar_cash": 0,
+                  "anthropic_cash": 0.0
+                },
+                {
+                  "pre_financing_cash": 45.552769548016244,
+                  "ending_cash": 59.99999999999999,
+                  "core_cash_flow": -65.17124587524637,
+                  "new_growth_debt": 14.685875935942827,
+                  "equity_proceeds": 0.0,
+                  "fees": 0.07342937967971414,
+                  "net_interest": 1.6396597868025828,
+                  "ebit": 19.56086964439808,
+                  "da": 16.91092816287879,
+                  "cash_capex": 73.36000000000001,
+                  "year": 2027,
+                  "quarter": 1,
+                  "lease_principal": 0.5586,
+                  "sbc": 6.25,
+                  "cash_tax": 2.0,
+                  "wc_cash": -30.5,
+                  "known_issue_cash": 0,
+                  "known_issue_principal": 0,
+                  "openai_cash": 0,
+                  "globalstar_cash": 0,
+                  "anthropic_cash": 1.25
+                },
+                {
+                  "pre_financing_cash": 27.08666593816497,
+                  "ending_cash": 60.0,
+                  "core_cash_flow": -25.663334061835027,
+                  "new_growth_debt": 33.4570104821703,
+                  "equity_proceeds": 0.0,
+                  "fees": 0.16728505241085148,
+                  "net_interest": 2.4086535764831294,
+                  "ebit": 20.411342237632777,
+                  "da": 17.64618590909091,
+                  "cash_capex": 62.879999999999995,
+                  "year": 2027,
+                  "quarter": 2,
+                  "lease_principal": 0.5586,
+                  "sbc": 6.25,
+                  "cash_tax": 2.0,
+                  "wc_cash": -2.5,
+                  "known_issue_cash": 0,
+                  "known_issue_principal": 0,
+                  "openai_cash": 0,
+                  "globalstar_cash": 6,
+                  "anthropic_cash": 1.25
+                },
+                {
+                  "pre_financing_cash": 34.91961354176297,
+                  "ending_cash": 60.0,
+                  "core_cash_flow": -23.83038645823703,
+                  "new_growth_debt": 25.49467492578097,
+                  "equity_proceeds": 0.0,
+                  "fees": 0.12747337462890485,
+                  "net_interest": 3.0718600373225815,
+                  "ebit": 21.261814830867475,
+                  "da": 18.38144365530303,
+                  "cash_capex": 62.879999999999995,
+                  "year": 2027,
+                  "quarter": 3,
+                  "lease_principal": 0.5586,
+                  "sbc": 6.25,
+                  "cash_tax": 2.0,
+                  "wc_cash": -1.5,
+                  "known_issue_cash": 0,
+                  "known_issue_principal": 0,
+                  "openai_cash": 0,
+                  "globalstar_cash": 0,
+                  "anthropic_cash": 1.25
+                },
+                {
+                  "pre_financing_cash": 49.103174374273365,
+                  "ending_cash": 60.0,
+                  "core_cash_flow": -9.646825625726638,
+                  "new_growth_debt": 11.076824015986414,
+                  "equity_proceeds": 0.0,
+                  "fees": 0.05538412007993207,
+                  "net_interest": 3.483289400417464,
+                  "ebit": 23.813232610571575,
+                  "da": 20.587216893939395,
+                  "cash_capex": 62.879999999999995,
+                  "year": 2027,
+                  "quarter": 4,
+                  "lease_principal": 0.5586,
+                  "sbc": 6.25,
+                  "cash_tax": 2.0,
+                  "wc_cash": 8.5,
+                  "known_issue_cash": 0,
+                  "known_issue_principal": 0,
+                  "openai_cash": 0,
+                  "globalstar_cash": 0,
+                  "anthropic_cash": 1.25
+                },
+                {
+                  "pre_financing_cash": 15.257610910144159,
+                  "ending_cash": 60.0,
+                  "core_cash_flow": -44.74238908985584,
+                  "new_growth_debt": 45.481462861352824,
+                  "equity_proceeds": 0.0,
+                  "fees": 0.2274073143067641,
+                  "net_interest": 4.42855412778753,
+                  "ebit": 16.566847645135415,
+                  "da": 20.488250935606064,
+                  "cash_capex": 49.84700000000001,
+                  "year": 2028,
+                  "quarter": 1,
+                  "lease_principal": 0.7836,
+                  "sbc": 6.75,
+                  "cash_tax": 2.75,
+                  "wc_cash": -31.25,
+                  "known_issue_cash": 0,
+                  "known_issue_principal": 0,
+                  "openai_cash": 0,
+                  "globalstar_cash": 0,
+                  "anthropic_cash": 0.0
+                },
+                {
+                  "pre_financing_cash": 50.96636923840466,
+                  "ending_cash": 60.0,
+                  "core_cash_flow": -9.033630761595338,
+                  "new_growth_debt": 9.182852108356126,
+                  "equity_proceeds": 0.0,
+                  "fees": 0.04591426054178063,
+                  "net_interest": 5.043527671196756,
+                  "ebit": 17.287145368836953,
+                  "da": 21.379044454545458,
+                  "cash_capex": 42.726,
+                  "year": 2028,
+                  "quarter": 2,
+                  "lease_principal": 0.7836,
+                  "sbc": 6.75,
+                  "cash_tax": 2.75,
+                  "wc_cash": -3.25,
+                  "known_issue_cash": 0,
+                  "known_issue_principal": 0,
+                  "openai_cash": 0,
+                  "globalstar_cash": 0,
+                  "anthropic_cash": 0.0
+                },
+                {
+                  "pre_financing_cash": 53.37084630860759,
+                  "ending_cash": 60.0,
+                  "core_cash_flow": -6.629153691392412,
+                  "new_growth_debt": 6.738656865456072,
+                  "equity_proceeds": 0.0,
+                  "fees": 0.03369328432728036,
+                  "net_interest": 5.222644647152143,
+                  "ebit": 18.007443092538495,
+                  "da": 22.26983797348485,
+                  "cash_capex": 42.726,
+                  "year": 2028,
+                  "quarter": 3,
+                  "lease_principal": 0.7836,
+                  "sbc": 6.75,
+                  "cash_tax": 2.75,
+                  "wc_cash": -2.25,
+                  "known_issue_cash": 0,
+                  "known_issue_principal": 0,
+                  "openai_cash": 0,
+                  "globalstar_cash": 0,
+                  "anthropic_cash": 0.0
+                },
+                {
+                  "pre_financing_cash": 68.08543307068226,
+                  "ending_cash": 68.08543307068226,
+                  "core_cash_flow": 8.085433070682253,
+                  "new_growth_debt": 0.0,
+                  "equity_proceeds": 0.0,
+                  "fees": 0.0,
+                  "net_interest": 5.265521723263897,
+                  "ebit": 20.168336263643116,
+                  "da": 24.942218530303034,
+                  "cash_capex": 42.726,
+                  "year": 2028,
+                  "quarter": 4,
+                  "lease_principal": 0.7836,
+                  "sbc": 6.75,
+                  "cash_tax": 2.75,
+                  "wc_cash": 7.75,
+                  "known_issue_cash": 0,
+                  "known_issue_principal": 0,
+                  "openai_cash": 0,
+                  "globalstar_cash": 0,
+                  "anthropic_cash": 0.0
+                },
+                {
+                  "pre_financing_cash": 26.00966885759096,
+                  "ending_cash": 60.0,
+                  "core_cash_flow": -42.0757642130913,
+                  "new_growth_debt": 22.766075804954454,
+                  "equity_proceeds": 11.652466401291548,
+                  "fees": 0.17209271103123003,
+                  "net_interest": 5.800433120010027,
+                  "ebit": 16.877385321726628,
+                  "da": 23.188265232386364,
+                  "cash_capex": 47.201,
+                  "year": 2029,
+                  "quarter": 1,
+                  "lease_principal": 0.8961000000000001,
+                  "sbc": 7.25,
+                  "cash_tax": 3.75,
+                  "wc_cash": -32.0,
+                  "known_issue_cash": 0,
+                  "known_issue_principal": 0,
+                  "openai_cash": 0,
+                  "globalstar_cash": 0,
+                  "anthropic_cash": 0.0
+                },
+                {
+                  "pre_financing_cash": 53.86161011831355,
+                  "ending_cash": 60.0,
+                  "core_cash_flow": -6.138389881686448,
+                  "new_growth_debt": 0.0,
+                  "equity_proceeds": 6.169236061996433,
+                  "fees": 0.030846180309982162,
+                  "net_interest": 6.091925242499999,
+                  "ebit": 17.611184683540827,
+                  "da": 24.196450677272725,
+                  "cash_capex": 40.458,
+                  "year": 2029,
+                  "quarter": 2,
+                  "lease_principal": 0.8961000000000001,
+                  "sbc": 7.25,
+                  "cash_tax": 3.75,
+                  "wc_cash": -4.0,
+                  "known_issue_cash": 0,
+                  "known_issue_principal": 0,
+                  "openai_cash": 0,
+                  "globalstar_cash": 0,
+                  "anthropic_cash": 0.0
+                },
+                {
+                  "pre_financing_cash": 56.60359492501412,
+                  "ending_cash": 60.0,
+                  "core_cash_flow": -3.396405074985877,
+                  "new_growth_debt": 0.0,
+                  "equity_proceeds": 3.413472437171737,
+                  "fees": 0.017067362185858685,
+                  "net_interest": 6.091925242499999,
+                  "ebit": 18.34498404535503,
+                  "da": 25.20463612215909,
+                  "cash_capex": 40.458,
+                  "year": 2029,
+                  "quarter": 3,
+                  "lease_principal": 0.8961000000000001,
+                  "sbc": 7.25,
+                  "cash_tax": 3.75,
+                  "wc_cash": -3.0,
+                  "known_issue_cash": 0,
+                  "known_issue_principal": 0,
+                  "openai_cash": 0,
+                  "globalstar_cash": 0,
+                  "anthropic_cash": 0.0
+                },
+                {
+                  "pre_financing_cash": 71.8790067485007,
+                  "ending_cash": 71.8790067485007,
+                  "core_cash_flow": 11.879006748500705,
+                  "new_growth_debt": 0.0,
+                  "equity_proceeds": 0.0,
+                  "fees": 0.0,
+                  "net_interest": 6.042467839115117,
+                  "ebit": 20.546382130797635,
+                  "da": 28.229192456818183,
+                  "cash_capex": 40.458,
+                  "year": 2029,
+                  "quarter": 4,
+                  "lease_principal": 0.8961000000000001,
+                  "sbc": 7.25,
+                  "cash_tax": 3.75,
+                  "wc_cash": 7.0,
+                  "known_issue_cash": 0,
+                  "known_issue_principal": 0,
+                  "openai_cash": 0,
+                  "globalstar_cash": 0,
+                  "anthropic_cash": 0.0
+                }
+              ],
+              "annual_summaries": [
+                {
+                  "year": 2026,
+                  "period": "H2",
+                  "ending_cash": 111.97401542326261,
+                  "minimum_pre_financing_cash": 111.56592300226076,
+                  "cash_capex": 123.69,
+                  "core_cash_flow": -20.248409076737392,
+                  "new_growth_debt": 0.0,
+                  "equity_proceeds": 0.0,
+                  "net_interest": 2.547149365280343,
+                  "ebit": 60.73174028854295,
+                  "da": 30.297,
+                  "sbc": 12.93,
+                  "wc_cash": 7.960000000000001,
+                  "cash_tax": 5.0,
+                  "fees": 0.0
+                },
+                {
+                  "year": 2027,
+                  "period": "FY",
+                  "ending_cash": 60.0,
+                  "minimum_pre_financing_cash": 27.08666593816497,
+                  "cash_capex": 262.0,
+                  "core_cash_flow": -124.31179202104506,
+                  "new_growth_debt": 84.71438535988051,
+                  "equity_proceeds": 0.0,
+                  "net_interest": 10.603462801025758,
+                  "ebit": 85.0472593234699,
+                  "da": 73.52577462121212,
+                  "sbc": 25.0,
+                  "wc_cash": -26.0,
+                  "cash_tax": 8.0,
+                  "fees": 0.42357192679940253
+                },
+                {
+                  "year": 2028,
+                  "period": "FY",
+                  "ending_cash": 68.08543307068226,
+                  "minimum_pre_financing_cash": 15.257610910144159,
+                  "cash_capex": 178.025,
+                  "core_cash_flow": -52.31974047216134,
+                  "new_growth_debt": 61.40297183516502,
+                  "equity_proceeds": 0.0,
+                  "net_interest": 19.960248169400327,
+                  "ebit": 72.02977237015398,
+                  "da": 89.0793518939394,
+                  "sbc": 27.0,
+                  "wc_cash": -29.0,
+                  "cash_tax": 11.0,
+                  "fees": 0.3070148591758251
+                },
+                {
+                  "year": 2029,
+                  "period": "FY",
+                  "ending_cash": 71.8790067485007,
+                  "minimum_pre_financing_cash": 26.00966885759096,
+                  "cash_capex": 168.575,
+                  "core_cash_flow": -39.73155242126292,
+                  "new_growth_debt": 22.766075804954454,
+                  "equity_proceeds": 21.235174900459718,
+                  "net_interest": 24.02675144412514,
+                  "ebit": 73.37993618142012,
+                  "da": 100.81854448863636,
+                  "sbc": 29.0,
+                  "wc_cash": -32.0,
+                  "cash_tax": 15.0,
+                  "fees": 0.22000625352707087
+                }
+              ]
+            },
+            "bridge": {
+              "aws_ev": 386.55825415769147,
+              "retail_ev": 365.1482286334529,
+              "cash": 31.8790067485007,
+              "debt": 333.31999999999994,
+              "finance_claims": 27.0548,
+              "investment_net": 73.5,
+              "other_claims": 0,
+              "shares": 12.551806996018387,
+              "common_equity": 496.71068953964516,
+              "price": 39.57284315295868,
+              "aws_multiple": 9,
+              "retail_multiple": 12
+            }
+          }
+        },
+        "named_alternatives": {
+          "aws_strong_alternative_fixed_base_pricing": {
+            "title": "AWS较弱、非AWS Base",
+            "source_key": "operating.aws_strong_alternative_fixed_base_pricing",
+            "aws_path": "Bear",
+            "retail_path": "Base",
+            "capital_rules": "Base规则接替代经营输出；不是直接取Base现金/债务",
+            "base_multiple_outcome": {
+              "price": 278.41074602717924,
+              "aws_multiple": 21,
+              "retail_multiple": 22
+            },
+            "own_segment_multiple_outcome": {
+              "price": 243.3004566504273,
+              "aws_multiple": 16,
+              "retail_multiple": 22
+            },
+            "capital": {
+              "cash": 87.44001533493298,
+              "debt": 308.7319839094192,
+              "finance_claims": 27.0548,
+              "shares": 11.297400000000001,
+              "cumulative_growth_debt": 144.29541690941917,
+              "cumulative_equity_proceeds": 0,
+              "investment_net": 219.252225,
+              "minimum_pre_financing_cash": 16.29222090682039
+            },
+            "detail_export": "本包导出替代经营年度表与资金终点/低谷摘要；不从主路径补出未导出的替代季度。"
+          },
+          "retail_weak_fixed_base_pricing": {
+            "title": "非AWS较弱、AWS Base",
+            "source_key": "operating.retail_weak_fixed_base_pricing",
+            "aws_path": "Base",
+            "retail_path": "Bear",
+            "capital_rules": "Base规则接替代经营输出；不是直接取Base现金/债务",
+            "base_multiple_outcome": {
+              "price": 300.3763878141127,
+              "aws_multiple": 21,
+              "retail_multiple": 22
+            },
+            "own_segment_multiple_outcome": {
+              "price": 279.2666892532346,
+              "aws_multiple": 21,
+              "retail_multiple": 17
+            },
+            "capital": {
+              "cash": 101.7779184600819,
+              "debt": 294.8029515520003,
+              "finance_claims": 27.0548,
+              "shares": 11.297400000000001,
+              "cumulative_growth_debt": 130.36638455200026,
+              "cumulative_equity_proceeds": 0,
+              "investment_net": 219.252225,
+              "minimum_pre_financing_cash": 13.887237257714155
+            },
+            "detail_export": "本包导出替代经营年度表与资金终点/低谷摘要；不从主路径补出未导出的替代季度。"
+          },
+          "mixed_aws_strong_retail_weak": {
+            "title": "AWS强、非AWS弱",
+            "source_key": "operating.mixed_aws_strong_retail_weak",
+            "aws_path": "Bull",
+            "retail_path": "Bear",
+            "capital_rules": "Base规则接替代经营输出；不是直接取Base现金/债务",
+            "base_multiple_outcome": {
+              "price": 369.0413995753626,
+              "aws_multiple": 21,
+              "retail_multiple": 22
+            },
+            "own_segment_multiple_outcome": {
+              "price": 415.4219017264131,
+              "aws_multiple": 26,
+              "retail_multiple": 17
+            },
+            "capital": {
+              "cash": 96.42330630787293,
+              "debt": 331.09307403685904,
+              "finance_claims": 27.0548,
+              "shares": 11.297400000000001,
+              "cumulative_growth_debt": 166.656507036859,
+              "cumulative_equity_proceeds": 0,
+              "investment_net": 219.252225,
+              "minimum_pre_financing_cash": 7.684874822033322
+            },
+            "detail_export": "本包导出替代经营年度表与资金终点/低谷摘要；不从主路径补出未导出的替代季度。"
+          },
+          "mixed_aws_weak_retail_strong": {
+            "title": "AWS弱、非AWS强",
+            "source_key": "operating.mixed_aws_weak_retail_strong",
+            "aws_path": "Bear",
+            "retail_path": "Bull",
+            "capital_rules": "Base规则接替代经营输出；不是直接取Base现金/债务",
+            "base_multiple_outcome": {
+              "price": 306.4144985921975,
+              "aws_multiple": 21,
+              "retail_multiple": 22
+            },
+            "own_segment_multiple_outcome": {
+              "price": 301.17973828828775,
+              "aws_multiple": 16,
+              "retail_multiple": 26
+            },
+            "capital": {
+              "cash": 91.96819294335825,
+              "debt": 304.7663028199208,
+              "finance_claims": 27.0548,
+              "shares": 11.297400000000001,
+              "cumulative_growth_debt": 140.3297358199208,
+              "cumulative_equity_proceeds": 0,
+              "investment_net": 219.252225,
+              "minimum_pre_financing_cash": 16.412377067643583
+            },
+            "detail_export": "本包导出替代经营年度表与资金终点/低谷摘要；不从主路径补出未导出的替代季度。"
+          },
+          "ai_delay_core_attach_linked_capital_unchanged": {
+            "title": "AI延后并连带Core；原资本计划保留",
+            "source_key": "operating.ai_delay_core_attach_linked_capital_unchanged",
+            "price": 294.5172639617058,
+            "annualized": 0.04644241453269271,
+            "growth_debt": 163.23615734511785,
+            "equity_proceeds": 0,
+            "shares": 11.297400000000001,
+            "cash": 94.58021174376321,
+            "debt": 327.67272434511784,
+            "minimum_pre_financing_cash": 9.750020926169249,
+            "condition": {
+              "ai": [
+                27,
+                35,
+                58,
+                90
+              ],
+              "core_first": 148,
+              "core_2027_growth": 0.12,
+              "later_growth_from": "Base",
+              "capital_additions": "Base；资本计划不变不代表现金或债务不变"
+            },
+            "detail_export": "冻结敏感性仅保存本项汇总；本包不生成未导出的逐季度路径或改倍数版本。"
+          }
+        },
+        "identity_notes": {
+          "market_debt": "期末有息借款余额（模型口径），不是未来债券市场公允价值",
+          "cash": "期末账面可用现金/证券模型余额，经营保留未被支出",
+          "finance_claims": "融资租赁及融资义务；与有息借款分列",
+          "investment_net": "已扣模型实现税的非经营投资；不是流动性储备",
+          "other_claims": "模型取0；未作全体潜在权利为零的审计结论",
+          "pricing_range": "同一经营/资金路径的定价参数范围；不是置信区间或条件支持",
+          "probability": "主观粗判断，不是统计后验；按钮操作不新增研究证据",
+          "quarters": "每季已继承此前融资；融资前余额不是全期无融资轨迹，也不保证季内资金充足",
+          "quote_vs_cutoff": "9月18日参考进入价格，9月20日研究信息截止；无实际成交或仅用9月18日信息的样本外回测声明。",
+          "share_count_proxy": "11.0274十亿股是冻结模型规划代理：10.783普通股 + 0.2444 outstanding RSU；公司另披露普通股加全部 outstanding stock awards 对应股份约11.0十亿股。该代理不是官方完全稀释股数，也不是EPS加权平均股数。"
+        },
+        "source_map": {
+          "annual_operations": "operating-results.json::{state}.aws/retail",
+          "quarters_and_capital": "model-results.json::scenarios.{state}.capital",
+          "pricing": "sensitivity-results.json::pricing.{pricing_id}.prices/distributions",
+          "alternatives": "sensitivity-results.json::operating.{named_key}",
+          "weights": "model-inputs.json::probabilities.{weight_id}"
+        }
+      }
+    },
+    "reading_resolution": "Use public access.uri and its specified complete unit; the teaching runtime must actually fetch it. Site candidates are not claimed publicly published.",
+    "selected_branch": "aws",
+    "required_readings_by_branch": {
+      "aws": [
+        {
+          "source_id": "PBCD-METHOD-BUSINESS",
+          "title": "业务关系、校准与共同经营状态",
+          "version": "2026-09-21 局部准确摘编",
+          "access": {
+            "kind": "site_body",
+            "uri": "https://ou-liu-red-sugar.github.io/zh/notebook/business-relations-calibrated-states/",
+            "availability": "staged_site_body; accessible after adoption"
+          },
+          "required_unit": {
+            "locator": "pm-business-state-calibration-contract 至 path-capital-check",
+            "scope": "完整三节",
+            "purpose": "区分覆盖与采用、共同状态和资本日期"
+          },
+          "supports": "本站原创方法摘编，规定业务边界、校准与共同资本责任；公开原件各自支持实例，不是完整方法的外部背书。",
+          "authors": [
+            "本站方法"
+          ]
+        },
+        {
+          "source_id": "PBCD-CASE-AMZN",
+          "title": "Amazon：2026-09-20历史条件研究案例",
+          "version": "研究截止2026-09-20；教学摘编2026-09-21",
+          "access": {
+            "kind": "site_body",
+            "uri": "https://ou-liu-red-sugar.github.io/zh/notebook/amzn-research-20260920/",
+            "availability": "staged_site_body; accessible after adoption"
+          },
+          "required_unit": {
+            "locator": "case-amzn-facts、case-amzn-operating、case-amzn-capital",
+            "scope": "事实身份、所选分支4年及Base季度资金段",
+            "purpose": "把实现H1、全年估计和剩余H2分开"
+          },
+          "supports": "原研究的事实/分析代理、四条未来路径、5项具名替代、4套权重与16组已算分布。报价冻结，代表点不是条件均值。",
+          "authors": [
+            "本站历史研究"
+          ]
+        },
+        {
+          "source_id": "src-amzn-2026q2",
+          "title": "Amazon Form 10-Q, quarter ended June 30, 2026",
+          "version": "2026Q2 SEC filing",
+          "access": {
+            "kind": "html_full_text",
+            "uri": "https://www.sec.gov/Archives/edgar/data/1018724/000101872426000026/amzn-20260630.htm"
+          },
+          "required_unit": {
+            "locator": "Note8 pp22–25",
+            "scope": "分部定义、费用分配、收入/OI、PP&E取得/D&A完整单元",
+            "purpose": "不混用广义现金流加回与设备折旧"
+          },
+          "supports": "分部范围与经营费用使用分配、产品收入、PP&E取得和折旧；债务/租赁、SBC/RSU等资本权利实例。未来余额不由当期附注直接给出。",
+          "authors": [
+            "Amazon.com, Inc."
+          ]
+        },
+        {
+          "source_id": "PBCD-IEA-AI-2026-HTML",
+          "title": "Key Questions on Energy and AI — Executive summary",
+          "version": "2026-04-16",
+          "access": {
+            "kind": "html_full_text",
+            "uri": "https://www.iea.org/reports/key-questions-on-energy-and-ai/executive-summary"
+          },
+          "required_unit": {
+            "locator": "Across the AI value chain, a scramble…",
+            "scope": "该小节全文",
+            "purpose": "理解供给和融资前置"
+          },
+          "supports": "AI资本链中的供应/设备/电网与融资限制；采用行业机制，不推AWS具体容量或收益率。",
+          "branch": "aws",
+          "authors": [
+            "International Energy Agency"
+          ]
+        },
+        {
+          "source_id": "PBCD-CMA-CLOUD-2025",
+          "title": "Cloud Infrastructure Services: Final Decision Report",
+          "version": "2025 final report",
+          "access": {
+            "kind": "pdf_full_text",
+            "uri": "https://assets.publishing.service.gov.uk/media/688b8891fdde2b8f73469544/final_decision_report.pdf"
+          },
+          "required_unit": {
+            "locator": "§§6.320–6.325",
+            "scope": "技术迁移与multi-cloud完整指定单元",
+            "purpose": "留存机制不等于固定收入增长"
+          },
+          "supports": "历史英国技术迁移/multi-cloud摩擦及缓解并存；不从这一单元推全球AWS增长或现行费用政策。",
+          "branch": "aws",
+          "authors": [
+            "Competition and Markets Authority"
+          ]
+        }
+      ],
+      "retail": [
+        {
+          "source_id": "PBCD-METHOD-BUSINESS",
+          "title": "业务关系、校准与共同经营状态",
+          "version": "2026-09-21 局部准确摘编",
+          "access": {
+            "kind": "site_body",
+            "uri": "https://ou-liu-red-sugar.github.io/zh/notebook/business-relations-calibrated-states/",
+            "availability": "staged_site_body; accessible after adoption"
+          },
+          "required_unit": {
+            "locator": "pm-business-state-calibration-contract 至 path-capital-check",
+            "scope": "完整三节",
+            "purpose": "区分覆盖与采用、共同状态和资本日期"
+          },
+          "supports": "本站原创方法摘编，规定业务边界、校准与共同资本责任；公开原件各自支持实例，不是完整方法的外部背书。",
+          "authors": [
+            "本站方法"
+          ]
+        },
+        {
+          "source_id": "PBCD-CASE-AMZN",
+          "title": "Amazon：2026-09-20历史条件研究案例",
+          "version": "研究截止2026-09-20；教学摘编2026-09-21",
+          "access": {
+            "kind": "site_body",
+            "uri": "https://ou-liu-red-sugar.github.io/zh/notebook/amzn-research-20260920/",
+            "availability": "staged_site_body; accessible after adoption"
+          },
+          "required_unit": {
+            "locator": "case-amzn-facts、case-amzn-operating、case-amzn-capital",
+            "scope": "事实身份、所选分支4年及Base季度资金段",
+            "purpose": "把实现H1、全年估计和剩余H2分开"
+          },
+          "supports": "原研究的事实/分析代理、四条未来路径、5项具名替代、4套权重与16组已算分布。报价冻结，代表点不是条件均值。",
+          "authors": [
+            "本站历史研究"
+          ]
+        },
+        {
+          "source_id": "src-amzn-2026q2",
+          "title": "Amazon Form 10-Q, quarter ended June 30, 2026",
+          "version": "2026Q2 SEC filing",
+          "access": {
+            "kind": "html_full_text",
+            "uri": "https://www.sec.gov/Archives/edgar/data/1018724/000101872426000026/amzn-20260630.htm"
+          },
+          "required_unit": {
+            "locator": "Note8 pp22–25",
+            "scope": "分部定义、费用分配、收入/OI、PP&E取得/D&A完整单元",
+            "purpose": "不混用广义现金流加回与设备折旧"
+          },
+          "supports": "分部范围与经营费用使用分配、产品收入、PP&E取得和折旧；债务/租赁、SBC/RSU等资本权利实例。未来余额不由当期附注直接给出。",
+          "authors": [
+            "Amazon.com, Inc."
+          ]
+        },
+        {
+          "source_id": "PBCD-IAB-PWC-2025",
+          "title": "Internet Advertising Revenue Report, Full-Year2025",
+          "version": "2026-04",
+          "access": {
+            "kind": "pdf_full_text",
+            "uri": "https://www.iab.com/wp-content/uploads/2026/04/IAB_PwC_Internet_Ad_Revenue_Report_Full_Year_2025_April_2026.pdf"
+          },
+          "required_unit": {
+            "locator": "pp27、32、35",
+            "scope": "commerce media、定义与调查方法完整页",
+            "purpose": "美国市场与全球公司分母边界"
+          },
+          "supports": "美国commerce media收入63.4bn、报告增速18%，并有测量/增量回报约束；范围不是Amazon全球广告。",
+          "branch": "retail",
+          "authors": [
+            "IAB",
+            "PwC"
+          ]
+        }
+      ],
+      "all": [
+        {
+          "source_id": "PBCD-METHOD-BUSINESS",
+          "title": "业务关系、校准与共同经营状态",
+          "version": "2026-09-21 局部准确摘编",
+          "access": {
+            "kind": "site_body",
+            "uri": "https://ou-liu-red-sugar.github.io/zh/notebook/business-relations-calibrated-states/",
+            "availability": "staged_site_body; accessible after adoption"
+          },
+          "required_unit": {
+            "locator": "pm-business-state-calibration-contract 至 path-capital-check",
+            "scope": "完整三节",
+            "purpose": "区分覆盖与采用、共同状态和资本日期"
+          },
+          "supports": "本站原创方法摘编，规定业务边界、校准与共同资本责任；公开原件各自支持实例，不是完整方法的外部背书。",
+          "authors": [
+            "本站方法"
+          ]
+        },
+        {
+          "source_id": "PBCD-CASE-AMZN",
+          "title": "Amazon：2026-09-20历史条件研究案例",
+          "version": "研究截止2026-09-20；教学摘编2026-09-21",
+          "access": {
+            "kind": "site_body",
+            "uri": "https://ou-liu-red-sugar.github.io/zh/notebook/amzn-research-20260920/",
+            "availability": "staged_site_body; accessible after adoption"
+          },
+          "required_unit": {
+            "locator": "case-amzn-facts、case-amzn-operating、case-amzn-capital",
+            "scope": "事实身份、所选分支4年及Base季度资金段",
+            "purpose": "把实现H1、全年估计和剩余H2分开"
+          },
+          "supports": "原研究的事实/分析代理、四条未来路径、5项具名替代、4套权重与16组已算分布。报价冻结，代表点不是条件均值。",
+          "authors": [
+            "本站历史研究"
+          ]
+        },
+        {
+          "source_id": "src-amzn-2026q2",
+          "title": "Amazon Form 10-Q, quarter ended June 30, 2026",
+          "version": "2026Q2 SEC filing",
+          "access": {
+            "kind": "html_full_text",
+            "uri": "https://www.sec.gov/Archives/edgar/data/1018724/000101872426000026/amzn-20260630.htm"
+          },
+          "required_unit": {
+            "locator": "Note8 pp22–25",
+            "scope": "分部定义、费用分配、收入/OI、PP&E取得/D&A完整单元",
+            "purpose": "不混用广义现金流加回与设备折旧"
+          },
+          "supports": "分部范围与经营费用使用分配、产品收入、PP&E取得和折旧；债务/租赁、SBC/RSU等资本权利实例。未来余额不由当期附注直接给出。",
+          "authors": [
+            "Amazon.com, Inc."
+          ]
+        },
+        {
+          "source_id": "PBCD-IEA-AI-2026-HTML",
+          "title": "Key Questions on Energy and AI — Executive summary",
+          "version": "2026-04-16",
+          "access": {
+            "kind": "html_full_text",
+            "uri": "https://www.iea.org/reports/key-questions-on-energy-and-ai/executive-summary"
+          },
+          "required_unit": {
+            "locator": "Across the AI value chain, a scramble…",
+            "scope": "该小节全文",
+            "purpose": "理解供给和融资前置"
+          },
+          "supports": "AI资本链中的供应/设备/电网与融资限制；采用行业机制，不推AWS具体容量或收益率。",
+          "branch": "aws",
+          "authors": [
+            "International Energy Agency"
+          ]
+        },
+        {
+          "source_id": "PBCD-CMA-CLOUD-2025",
+          "title": "Cloud Infrastructure Services: Final Decision Report",
+          "version": "2025 final report",
+          "access": {
+            "kind": "pdf_full_text",
+            "uri": "https://assets.publishing.service.gov.uk/media/688b8891fdde2b8f73469544/final_decision_report.pdf"
+          },
+          "required_unit": {
+            "locator": "§§6.320–6.325",
+            "scope": "技术迁移与multi-cloud完整指定单元",
+            "purpose": "留存机制不等于固定收入增长"
+          },
+          "supports": "历史英国技术迁移/multi-cloud摩擦及缓解并存；不从这一单元推全球AWS增长或现行费用政策。",
+          "branch": "aws",
+          "authors": [
+            "Competition and Markets Authority"
+          ]
+        },
+        {
+          "source_id": "PBCD-IAB-PWC-2025",
+          "title": "Internet Advertising Revenue Report, Full-Year2025",
+          "version": "2026-04",
+          "access": {
+            "kind": "pdf_full_text",
+            "uri": "https://www.iab.com/wp-content/uploads/2026/04/IAB_PwC_Internet_Ad_Revenue_Report_Full_Year_2025_April_2026.pdf"
+          },
+          "required_unit": {
+            "locator": "pp27、32、35",
+            "scope": "commerce media、定义与调查方法完整页",
+            "purpose": "美国市场与全球公司分母边界"
+          },
+          "supports": "美国commerce media收入63.4bn、报告增速18%，并有测量/增量回报约束；范围不是Amazon全球广告。",
+          "branch": "retail",
+          "authors": [
+            "IAB",
+            "PwC"
+          ]
+        }
+      ]
+    },
+    "branch_selection_protocol": "默认AWS。切换零售时以该分支完整数组替换必读，完成对应材料后再教；全部展开才要求两支。共同资金任务必做。",
+    "experiment_ids": [
+      "EXP-P04-CANONICAL-PATH"
+    ]
+  },
+  "experiments": [
+    {
+      "id": "EXP-P04-CANONICAL-PATH",
+      "title": "从校准业务关系到共同经营情景",
+      "anchor": "p04-experiment",
+      "description": "以已实现事实校准同一经营关系，重建资本批次、利润与资金，再比较原状态和具名替代。",
+      "inputs": {
+        "choice": {
+          "allowed": [
+            "Bull",
+            "Base",
+            "Bear",
+            "Tail",
+            "aws_strong_alternative_fixed_base_pricing",
+            "retail_weak_fixed_base_pricing",
+            "mixed_aws_strong_retail_weak",
+            "mixed_aws_weak_retail_strong",
+            "ai_delay_core_attach_linked_capital_unchanged"
+          ],
+          "default": "Base",
+          "type": "exclusive selector"
+        }
+      },
+      "outputs": {
+        "canonical": "four-year AWS/nonAWS table +14quarter cash summary +terminal capital",
+        "named": "own mapped annual branches and capital summary; AI delay compact summary only"
+      },
+      "units": {
+        "money": "USD billion for company amounts; USD per share for outcomes",
+        "shares": "billion",
+        "probabilities": "fractions summing to one"
+      },
+      "identity": "frozen dated research or explicitly marked bounded teaching arithmetic",
+      "static_equivalent": {
+        "reader": "https://ou-liu-red-sugar.github.io/zh/notebook/calibrated-business-scenarios/#p04-experiment",
+        "lab": "https://ou-liu-red-sugar.github.io/notebook/labs/p-bcd/interactions.html#EXP-P04-CANONICAL-PATH",
+        "without_javascript": "默认完整表和主要对照保留；不把参数规格当运行结果"
+      },
+      "algorithm": "engine.path(choice)；只按source_key选已有结果，选择命名替代不再接state/stress，缺季度不插值。",
+      "boundaries": [
+        "未知组合抛错并清空旧结果",
+        "替代中capital规则为Base但余额属于重算结果",
+        "不由GPU/MW/ARR生成新收入"
+      ],
+      "default_values": {
+        "aws_2027_ebit": 83.94243864509258,
+        "cash": 116.40452209404924,
+        "debt": 276.79227253610446
+      },
+      "inputs_uri": "https://ou-liu-red-sugar.github.io/notebook/labs/p-bcd/inputs.json"
+    }
+  ],
+  "status": "candidate_local_review",
+  "provenance": {
+    "source_package": "docs/production/20260921/drafts/p-bcd-v2",
+    "source_version": "2026-09-21-review-v2",
+    "author_review_identity": "same-author xhigh review; not independent",
+    "independent_review": "docs/production/20260921/receipts/p-bcd-independent-draft-review.md",
+    "import_status": "staging_only_awaiting_Lead_adoption_and_UI",
+    "frozen_input_numeric_changes": false
+  },
+  "interactions": [
+    {
+      "id": "EXP-P04-CANONICAL-PATH",
+      "title": "从校准业务关系到共同经营情景",
+      "url": "/notebook/labs/p-bcd/interactions.html#EXP-P04-CANONICAL-PATH",
+      "height": 900,
+      "open": true,
+      "experiment_id": "EXP-P04-CANONICAL-PATH",
+      "experiment_ids": [
+        "EXP-P04-CANONICAL-PATH"
+      ],
+      "inline": true,
+      "static_anchor": "p04-experiment"
+    }
+  ],
+  "references": [
+    {
+      "kind": "source_link",
+      "label": "amzn",
+      "href": "https://www.sec.gov/Archives/edgar/data/1018724/000101872426000026/amzn-20260630.htm",
+      "source_id": "src-amzn-2026q2",
+      "locator": "Amazon，2026Q2 Form 10-Q，Note 8，印刷pp22–25：分部范围、经营费用分配、收入/OI、PP&E取得与折旧表。[原文](https://www.sec.gov/Archives/edgar/data/1018724/000101872426000026/amzn-20260630.htm)。表内million已统一为billion。"
+    },
+    {
+      "kind": "source_link",
+      "label": "case",
+      "href": "/zh/notebook/amzn-research-20260920/#case-amzn-operating",
+      "source_id": "PBCD-CASE-AMZN",
+      "locator": "[CASE-AMZN-20260920](/zh/notebook/amzn-research-20260920/#case-amzn-operating)，历史研究的事实台账、经营代理、年度路径与具名替代。未来金额均保持2026-09-20研究身份。"
+    },
+    {
+      "kind": "source_link",
+      "label": "method",
+      "href": "/zh/notebook/business-relations-calibrated-states/#pm-business-state-calibration-contract",
+      "source_id": "PBCD-METHOD-BUSINESS",
+      "locator": "[业务关系与共同经营状态](/zh/notebook/business-relations-calibrated-states/#pm-business-state-calibration-contract)，本站方法的局部摘编。"
+    },
+    {
+      "kind": "source_link",
+      "label": "cma",
+      "href": "https://assets.publishing.service.gov.uk/media/688b8891fdde2b8f73469544/final_decision_report.pdf",
+      "source_id": "PBCD-CMA-CLOUD-2025",
+      "locator": "CMA，Cloud Infrastructure Services: Final Decision Report，2025，§§6.320–6.325，印刷pp326–327。[原文](https://assets.publishing.service.gov.uk/media/688b8891fdde2b8f73469544/final_decision_report.pdf)。采用历史英国技术迁移机制，不移植市场份额。"
+    },
+    {
+      "kind": "source_link",
+      "label": "iea",
+      "href": "https://www.iea.org/reports/key-questions-on-energy-and-ai/executive-summary",
+      "source_id": "PBCD-IEA-AI-2026-HTML",
+      "locator": "IEA，Key Questions on Energy and AI，2026-04-16，[Executive summary](https://www.iea.org/reports/key-questions-on-energy-and-ai/executive-summary)，完整小节“Across the AI value chain, a scramble…”；提供行业供给与融资机制，不提供AWS特定收入参数。"
+    },
+    {
+      "kind": "source_link",
+      "label": "iab",
+      "href": "https://www.iab.com/wp-content/uploads/2026/04/IAB_PwC_Internet_Ad_Revenue_Report_Full_Year_2025_April_2026.pdf",
+      "source_id": "PBCD-IAB-PWC-2025",
+      "locator": "IAB/PwC，Internet Advertising Revenue Report FY2025，2026-04，p27，定义与方法见pp32、35。[原文](https://www.iab.com/wp-content/uploads/2026/04/IAB_PwC_Internet_Ad_Revenue_Report_Full_Year_2025_April_2026.pdf)。"
+    },
+    {
+      "kind": "source_link",
+      "label": "talen",
+      "href": "https://ir.talenenergy.com/static-files/90cce90c-e281-42c6-b686-ed6010dd8699",
+      "source_id": "PBCD-TALEN-PPA",
+      "locator": "Talen，2025-06-11 Form 8-K，Exhibit 99.1，第1页（PDF第4页）供电数量、爬坡时间；第3页前瞻性说明。[公告原文](https://ir.talenenergy.com/static-files/90cce90c-e281-42c6-b686-ed6010dd8699)。采用公告时的计划身份，不据此确认后续全部交付。"
+    }
+  ]
+}

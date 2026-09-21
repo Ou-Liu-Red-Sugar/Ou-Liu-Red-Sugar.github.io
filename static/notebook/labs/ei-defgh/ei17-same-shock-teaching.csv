@@ -1,0 +1,5 @@
+period,a,K,constrained_price,slack_price,difference,identity
+1,100,80,50,50,0,teaching_only_not_paper_data
+2,120,50,70,60,10,teaching_only_not_paper_data
+3,130,50,80,65,15,teaching_only_not_paper_data
+4,110,80,55,55,0,teaching_only_not_paper_data

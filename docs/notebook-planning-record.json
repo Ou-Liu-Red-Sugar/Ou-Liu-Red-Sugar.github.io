@@ -1,0 +1,238 @@
+{
+  "task": "投资学笔记详细框架、固定模板及资料流程",
+  "date": "2026-09-21",
+  "status": "planning_delivered",
+  "scope": {
+    "website": "C:\\Users\\23980\\Documents\\Ou-Liu-Red-Sugar.github.io",
+    "changed": [
+      "AGENTS.md",
+      "docs/notebook-authoring.md",
+      "docs/investment-notebook-outline.md",
+      "docs/notebook-source-map.md",
+      "docs/notebook-planning-record.json",
+      "docs/notebook-agent-template.md",
+      "docs/notebook-knowledge-graph.md"
+    ],
+    "unchanged_actions": [
+      "网站正文和生成器未重构",
+      "未构建或发布网站",
+      "未改投资研究、历史TeX或账户",
+      "未创建Chat会话或冒称Chat已读本地文件"
+    ],
+    "audience": "数学基础充分的高年级本科生到研究生；金融详略得当、现代与实战优先"
+  },
+  "budget": {
+    "mode": "本轮大纲与资料预检，完成后停止",
+    "initial_estimate_minutes": "30–45",
+    "note": "本轮用户继续补充永续与现代取向、读者层次、Agent 必读文献、业务估值方法及知识图谱，已合并为同一套规划；未启动公司重估、论文完整复现或全站实施。"
+  },
+  "backup": {
+    "directory": "C:\\Users\\23980\\Documents\\Ou-Liu-Red-Sugar.github.io\\.git\\codex-backups\\notebook-framework-20260920-232618",
+    "originals": [
+      "AGENTS.md",
+      "docs/notebook-authoring.md"
+    ],
+    "manifest": "manifest.json",
+    "purpose": "更新前实际旧内容，可恢复；本轮新增规划文档没有旧版本"
+  },
+  "team": [
+    {
+      "agent": "markets_practice",
+      "actual_work": "先检索24项资料，再交22工具+26实战词条与3项补充骨架",
+      "handoff": "C:\\Users\\23980\\Documents\\Ou-Liu-Red-Sugar.github.io\\.git\\notebook-planning\\markets-practice.md",
+      "followup": "新增现代市场9骨架、10来源；其中8新增节点、1重构既有实施节点"
+    },
+    {
+      "agent": "business_industry",
+      "actual_work": "先检索17项资料，再交22企业财务+18经济行业词条、4行业带读；逐篇具体机制理由",
+      "handoff": "C:\\Users\\23980\\Documents\\Ou-Liu-Red-Sugar.github.io\\.git\\notebook-planning\\business-industry.md",
+      "followup": "按新受众复查BF/EI模板与路线，提供3家可读行业资料包"
+    },
+    {
+      "agent": "quant_templates",
+      "actual_work": "检索19项资料并定位指定TeX，交25骨架；再独立交叉检查现行模板及实战先修，给5项修正",
+      "handoff": "C:\\Users\\23980\\Documents\\Ou-Liu-Red-Sugar.github.io\\.git\\notebook-planning\\quant-templates.md",
+      "followup": "按新受众重排数学路线，提供实际阅读协议与QT21 Prompt，另设计知识图谱"
+    },
+    {
+      "agent": "Lead",
+      "actual_work": "统一领域与模板，读各Agent交付；实际补查资料、源例复算、处理重叠与先修；完成正式文档与结构核对",
+      "followup": "读取现行业务模型/Risk-Reward/研究模板全文，重构估值教学；补核ADL及新文献版本；统一正式稿"
+    }
+  ],
+  "decisions": [
+    {
+      "issue": "为什么如此",
+      "adopted": "所有模板含对象、机制理由与条件；期权区分选择权价值、行权价、市场价格和现金支付；T8补评价量为何对应目标"
+    },
+    {
+      "issue": "领域4先修过重",
+      "adopted": "P04/05变公司判断分支，P07不依赖完整企业研究；P17不硬依赖Greeks和平价；P26不硬依赖P25"
+    },
+    {
+      "issue": "重复维护",
+      "adopted": "M21/QT18分经济与正式表示，共用EXP-STATE-01；P26/QT24分策略与计算，共用EXP-HEDGE-01"
+    },
+    {
+      "issue": "三项知识缺口",
+      "adopted": "新增M23市场有效性、P27 CAPM/因子、P28倍数与可比性；Lead补CFA公开材料，正文仍需相关全文"
+    },
+    {
+      "issue": "定价倍数的归属分歧",
+      "agent_proposal": "企业分析为主",
+      "lead_decision": "P28归投资分析，BF-20维护财务口径；定价与投资判断和财务记录各有唯一职责"
+    },
+    {
+      "issue": "严谨证明学习时长",
+      "adopted": "QT11/16/17长证明用独立子单元，不将完整测度论和连续时间证明塞入入门策略先修"
+    },
+    {
+      "issue": "官方例题也有错",
+      "adopted": "CME beta/合约数独立复算；OIC collar按统一现金流符号重建，来源地图保留分歧"
+    },
+    {
+      "issue": "数学充分的高年级本科—研究生定位",
+      "adopted": "10项基础降为可查参考；重排BF/EI/QT路线并加深推演和判断，T10单列短参考；不是只改受众声明"
+    },
+    {
+      "issue": "永续等现代市场",
+      "adopted": "M24–29与P32–33共8新增节点；P07重构联合风险资金成交预算，P08/P09/P23各保留不同职责；不用新兴杂项篮子"
+    },
+    {
+      "issue": "Agent先读参考文献",
+      "adopted": "可读reference与完整阅读单元；发布时可读不等于执行时已读，运行日志为空；读完再教，公开包不能只指本地盘符"
+    },
+    {
+      "issue": "估值明确按现行项目方法",
+      "adopted": "全文读业务与RR技能及研究模板，P04/P05/P28重构，新增P29–31；业务输入、状态、估值组、参照、普通股桥、概率与日期现金同版贯通"
+    },
+    {
+      "issue": "知识图谱",
+      "adopted": "目录/路线/图谱同源，按先修、调用、推导、材料和时点区分边；局部图与内联预览优先，另有独立设计稿"
+    }
+  ],
+  "entry_counts": {
+    "金融市场与金融工具": 29,
+    "企业经营与财务分析": 22,
+    "经济与行业分析": 18,
+    "投资分析与组合管理": 33,
+    "数学、统计与计算方法": 25
+  },
+  "primary_learning_entries": 117,
+  "sources": {
+    "count": 82,
+    "ids": [
+      "BI-S01",
+      "BI-S02",
+      "BI-S03",
+      "BI-S04",
+      "BI-S05",
+      "BI-S06",
+      "BI-S07",
+      "BI-S08",
+      "BI-S09",
+      "BI-S10",
+      "BI-S11",
+      "BI-S12",
+      "BI-S13",
+      "BI-S14",
+      "BI-S15",
+      "BI-S16",
+      "BI-S17",
+      "LD-ADL",
+      "LD-BUSINESS",
+      "LD-CAPM",
+      "LD-CFA",
+      "LD-CME-STYLE",
+      "LD-CORE",
+      "LD-EFFICIENCY",
+      "LD-OIC",
+      "LD-RESEARCH",
+      "LD-RR",
+      "LD-STACKS",
+      "LD-VALUATION",
+      "MOD-BYBIT-FUNDING",
+      "MOD-BYBIT-INVERSE",
+      "MOD-BYBIT-LIQUIDATION",
+      "MOD-BYBIT-PNL",
+      "MOD-CIRCLE-USDC",
+      "MOD-CRYPTO-CARRY",
+      "MOD-LVR",
+      "MOD-MIT-TOKEN",
+      "MOD-PERP-PAPER",
+      "MOD-UNISWAP-V3",
+      "MP-BIS-MARGIN",
+      "MP-BKM",
+      "MP-CBOE",
+      "MP-CFA",
+      "MP-CME-3Y",
+      "MP-CME-BETA-ERR",
+      "MP-CME-GRAIN",
+      "MP-CME-MICRO",
+      "MP-CME-TREAS",
+      "MP-HULL",
+      "MP-MIT-FUT",
+      "MP-MIT-OPT",
+      "MP-OCC",
+      "MP-OIC-CALENDAR",
+      "MP-OIC-CC",
+      "MP-OIC-COLLAR",
+      "MP-OIC-CSP",
+      "MP-OIC-EXERCISE",
+      "MP-OIC-PP",
+      "MP-OIC-STRADDLE",
+      "MP-OIC-VERTICAL",
+      "MP-RESEARCH-CCP",
+      "MP-RESEARCH-VRP",
+      "MP-SEC-SETTLE",
+      "QD01",
+      "QD02",
+      "QL01",
+      "QL02",
+      "QL03",
+      "QL04",
+      "QL05",
+      "QL06",
+      "QO01",
+      "QO02",
+      "QP01",
+      "QP02",
+      "QP03",
+      "QP04",
+      "QP05",
+      "QR01",
+      "QR02",
+      "QS01",
+      "QS02"
+    ],
+    "formal_map": "docs/notebook-source-map.md",
+    "actual_reading": "逐项记录读取范围、版本；现代规则与论文选读；项目业务与Risk-Reward方法及研究模板全文实际读取"
+  },
+  "validation": {
+    "status": "passed",
+    "source_id_coverage": "82 source IDs and formal anchors; references checked in all six documentation files",
+    "internal_links": "534 local file and section links checked",
+    "content_ids": "127 unique content IDs; 10 reference nodes; five domain counts match",
+    "template_codes": "T0–T10 defined; all entry skeletons match canonical template index",
+    "unicode_and_handoffs": "UTF-8 and integrated handoff checks",
+    "backups": "both real pre-revision backup manifests exist",
+    "scope": "documentation consistency only; not website implementation or full article/source validation",
+    "errors": []
+  },
+  "remaining_implementation": "按用户后续范围实施目录/数据模型/模板/内容；本轮无网站成稿验收。",
+  "research_window": "2026-09-20–21",
+  "backup_before_second_revision": "C:\\Users\\23980\\Documents\\Ou-Liu-Red-Sugar.github.io\\.git\\codex-backups\\notebook-framework-modern-audience-20260920",
+  "content_nodes": 127,
+  "reference_entries": [
+    "BF-02",
+    "BF-03",
+    "EI-01",
+    "EI-02",
+    "QT02",
+    "QT03",
+    "QT05",
+    "QT06",
+    "QT09",
+    "QT10"
+  ]
+}

@@ -1,0 +1,62 @@
+{
+  "EXP-QT13-MARKOV-01": {
+    "node_id": "QT13",
+    "source_experiment_id": "EXP-QT13-MARKOV-01",
+    "anchor": "qt13-hidden",
+    "title": "隐藏状态与矩阵"
+  },
+  "EXP-QT14-ARRIVAL-01": {
+    "node_id": "QT14",
+    "source_experiment_id": "EXP-QT14-ARRIVAL-01",
+    "anchor": "qt14-observed",
+    "title": "逐笔计数与内部等待"
+  },
+  "EXP-QT15-17-DIFFUSION-01": {
+    "node_id": "QT15",
+    "source_experiment_id": "EXP-QT15-17-DIFFUSION-01",
+    "anchor": "qt15-experiment",
+    "title": "同一路径的二次变差"
+  },
+  "VIEW-QT16-INTEGRAL": {
+    "node_id": "QT16",
+    "source_experiment_id": "EXP-QT15-17-DIFFUSION-01",
+    "anchor": "qt16-numeric",
+    "title": "左和、右和与积分"
+  },
+  "VIEW-QT16-P1-PROOF": {
+    "node_id": "QT16-P1",
+    "source_experiment_id": null,
+    "anchor": "qt16p1-exercise",
+    "title": "积分构造的证明依赖"
+  },
+  "VIEW-QT17-GBM": {
+    "node_id": "QT17",
+    "source_experiment_id": "EXP-QT15-17-DIFFUSION-01",
+    "anchor": "qt17-moments",
+    "title": "GBM 精确解与 Euler"
+  },
+  "VIEW-QT17-P1-PROOF": {
+    "node_id": "QT17-P1",
+    "source_experiment_id": null,
+    "anchor": "qt17p1-localization",
+    "title": "Itô 公式证明依赖"
+  },
+  "EXP-HEDGE-01": {
+    "node_id": "QT24",
+    "source_experiment_id": "EXP-HEDGE-01",
+    "anchor": "qt24-distribution",
+    "title": "动态对冲同路径分布与资金账"
+  },
+  "VIEW-QT25-A-RESEARCH": {
+    "node_id": "QT25",
+    "source_experiment_id": null,
+    "anchor": "qt25-a-metric",
+    "title": "A：两种 R² 的对象"
+  },
+  "VIEW-QT25-B-RESEARCH": {
+    "node_id": "QT25",
+    "source_experiment_id": null,
+    "anchor": "qt25-b-audit",
+    "title": "B：研究表格与对象核验"
+  }
+}

@@ -1,0 +1,70 @@
+{
+  "lang": "zh",
+  "revised": "2026-09-21",
+  "sources": [
+    "EIDEF-S09"
+  ],
+  "anchors": [],
+  "references": [],
+  "study_time": "材料索引",
+  "prompt": "先实际读取随包指定原件，核材料期间、对象及定位，再回答这份材料怎样支持相邻教学词条。",
+  "agent_packet": {
+    "export_mode": "public",
+    "required_readings": [
+      {
+        "source_id": "EIDEF-S09",
+        "title": "Review of the Federal Reserve’s Supervision and Regulation of Silicon Valley Bank — Executive Summary",
+        "authors": [
+          "Board of Governors of the Federal Reserve System"
+        ],
+        "version": "2023-04-28 historical review",
+        "access": {
+          "kind": "site_body",
+          "uri": "https://www.federalreserve.gov/publications/2023-April-SVB-Executive-Summary.htm",
+          "verified_access_at": "2026-09-21"
+        },
+        "required_unit": {
+          "locator": "Executive Summary；Governance and Risk Management中ILST、CFP及资金操作准备段",
+          "scope": "所列具名单元全文，包含公式、表头、表注及本篇采用结论所需上下文；不要求无关章节。",
+          "purpose": "历史报告记载ILST失败、调整假设和资金准备等问题；不替代现行法规，不作政治或机构优劣评级。"
+        },
+        "supports": "历史报告记载ILST失败、调整假设和资金准备等问题；不替代现行法规，不作政治或机构优劣评级。",
+        "id": "EI-12-READ-3",
+        "retrieved_at": "2026-09-21"
+      }
+    ],
+    "optional_readings": [],
+    "runtime_reading_log": []
+  },
+  "provenance": {
+    "source_package": "docs/production/20260921/drafts/ei-defgh-v3/notebook-EI-DEFGH-20260921-review-v3",
+    "identity": "Dated material registration from the reviewed lesson; no new valuation or company-wide research",
+    "import_status": "integrated_awaiting_browser_acceptance"
+  },
+  "id": "zh-record-svb-financial-group-historical-20260921",
+  "node_id": "CASE-EI12-SVB-LIQUIDITY-2023",
+  "kind": "research",
+  "template": "C1",
+  "slug": "svb-financial-group-historical-material-20260921",
+  "title": "SVB Financial Group（历史报告对象）：具名材料记录",
+  "company_id": "zh-company-svb-financial-group-historical",
+  "cutoff": "2026-09-21",
+  "period": "2022/2023-03",
+  "summary": "观察报告所述内部压力测试与融资操作准备；不把历史复盘当现行法条。",
+  "body_markdown": "## 材料身份\n\n公司：[SVB Financial Group（历史报告对象）](/zh/notebook/svb-financial-group-historical/)。研究截止 2026-09-21；材料期间 2022/2023-03。\n\n采用范围：观察报告所述内部压力测试与融资操作准备；不把历史复盘当现行法条。\n\n原文：[Review of the Federal Reserve’s Supervision and Regulation of Silicon Valley Bank — Executive Summary](https://www.federalreserve.gov/publications/2023-April-SVB-Executive-Summary.htm)。定位：2023-04 Executive Summary, Governance and Risk Management / Liquidity。\n\n采用报告中内部流动性压力测试、治理与风险管理及融资操作准备的具名段落。\n\n## 对应带读\n\n[查看本材料的逐项分析](/zh/notebook/institutions-regulation-market-design/#ei12-history)。\n\n材料时间固定，后续新报告另建记录。",
+  "relations": [
+    {
+      "from": "CASE-EI12-SVB-LIQUIDITY-2023",
+      "relation": "analyzes",
+      "to": "CO-SVBFG-HISTORICAL",
+      "reason": "具名期间的原始披露对象"
+    },
+    {
+      "from": "CASE-EI12-SVB-LIQUIDITY-2023",
+      "relation": "supported_by",
+      "to": "EIDEF-S09",
+      "reason": "观察报告所述内部压力测试与融资操作准备；不把历史复盘当现行法条。",
+      "locator": "2023-04 Executive Summary, Governance and Risk Management / Liquidity"
+    }
+  ]
+}

@@ -1,0 +1,417 @@
+{
+  "task_id": "notebook-P-20260921",
+  "batch": "P-A",
+  "version": "2026-09-21-author-review-v2",
+  "conventions": {
+    "cash_sign": "所有者投入为负、收到为正；组合外部入金反号",
+    "price_return_period": "VFIAX数据为2022/2023日历年披露，教学流为等长子期0/1/2",
+    "money": "P01万元；其余采用教学货币单位",
+    "rates": "JSON用小数，界面百分比；方差用回报小数的平方",
+    "identity": "OBS为事实摘录；SIM为教学假设。输出不是历史成交或实证复现。",
+    "irr": "现金路径结果，不作为股票定价输入"
+  },
+  "OBS-VFIAX-20260630": {
+    "as_of": "2026-06-30",
+    "document_marker": "F0540 062026",
+    "source_id": "P-R07",
+    "source_url": "https://workplace.vanguard.com/iippdf/pdfs/FS540.pdf",
+    "annual_returns": {
+      "2022": -0.1815,
+      "2023": 0.2624
+    },
+    "returns_locator": "p.1 Annual Returns基金行和分配再投资/费用脚注",
+    "top_ten_fraction": 0.379,
+    "holdings_locator": "p.2 Ten Largest Holdings及脚注",
+    "fees": "原披露回报已扣基金费用，不重复扣除",
+    "individual_weights": null
+  },
+  "SIM-P01-CASH-01": {
+    "inputs": {
+      "cash0": 20,
+      "claim90": 80,
+      "pay30": 30,
+      "pay120": 25,
+      "buffer": 5,
+      "reserve365": 25,
+      "project_max": 20,
+      "project_day": 180,
+      "sale_day": 20,
+      "borrow_day": 20,
+      "haircut": 0.02,
+      "loan_apr": 0.06,
+      "loan_fee": 0.1,
+      "day_basis": 365,
+      "same_day_order": "收入后支出",
+      "cash_interest": 0
+    },
+    "default": {
+      "need": 15.0,
+      "sold_face": 15.306122448979592,
+      "sale_cost": 0.3061224489795915,
+      "loan_interest": 0.17260273972602738,
+      "loan_cost": 0.2726027397260274,
+      "cash120_A": 44.69387755102041,
+      "cash120_B_conditional": 44.727397260273975,
+      "terminal_A": 24.693877551020407,
+      "terminal_B_conditional": 24.727397260273975,
+      "max_project_A": 19.693877551020407,
+      "max_project_B_if_timely": 19.727397260273975,
+      "B_on_time": true,
+      "q_limit_20pc_project18": 8.469387755102034
+    },
+    "haircut_5pc": {
+      "need": 15.0,
+      "sold_face": 15.789473684210527,
+      "sale_cost": 0.7894736842105274,
+      "loan_interest": 0.17260273972602738,
+      "loan_cost": 0.2726027397260274,
+      "cash120_A": 44.21052631578947,
+      "cash120_B_conditional": 44.727397260273975,
+      "terminal_A": 24.210526315789473,
+      "terminal_B_conditional": 24.727397260273975,
+      "max_project_A": 19.210526315789473,
+      "max_project_B_if_timely": 19.727397260273975,
+      "B_on_time": true,
+      "q_limit_20pc_project18": 6.052631578947363
+    },
+    "late_loan": {
+      "need": 15.0,
+      "sold_face": 15.306122448979592,
+      "sale_cost": 0.3061224489795915,
+      "loan_interest": 0.13561643835616435,
+      "loan_cost": 0.23561643835616436,
+      "cash120_A": 44.69387755102041,
+      "cash120_B_conditional": 44.76438356164383,
+      "terminal_A": 24.693877551020407,
+      "terminal_B_conditional": 24.764383561643832,
+      "max_project_A": 19.693877551020407,
+      "max_project_B_if_timely": 19.764383561643832,
+      "B_on_time": false,
+      "q_limit_20pc_project18": 8.469387755102034
+    },
+    "stress": {
+      "project": 18,
+      "loss_fraction": 0.2,
+      "q_max": 8.469387755102034,
+      "loss_fraction_40pc_q_max": 4.234693877551017
+    },
+    "author_review_boundaries": {
+      "haircut_60pct": {
+        "sold_face": 37.5,
+        "sale_cost": 22.5,
+        "cash120_A": 22.5,
+        "project_max_A": null,
+        "reason": "取消项目后年末储备仍不足；不显示负项目上限",
+        "stress_q_limit": null,
+        "stress_reason": "固定项目18后即使q=0也不能满足年末储备"
+      },
+      "haircut_80pct": {
+        "sold_face": 75.00000000000001,
+        "sale_cost": 60.000000000000014,
+        "cash120_formula_only": -15.000000000000014,
+        "payment_gap_day120": 15.0,
+        "project_max_A": null,
+        "stress_base_ready": false,
+        "reason": "第120天必要支付失败；后续压力分支停止"
+      },
+      "late_loan_day35": {
+        "payment_gap_day30": 10.0,
+        "project_max_B": null,
+        "reason": "资金在第一支付后才到账，B不可执行"
+      }
+    }
+  },
+  "SIM-P02-FLOWS-01": {
+    "inputs": {
+      "v0": 10000,
+      "r1": -0.1815,
+      "r2": 0.2624,
+      "timing": 1,
+      "additional_amount": 10000
+    },
+    "default": {
+      "initial": 10000.0,
+      "pre": 8185.0,
+      "post": 18185.0,
+      "final": 22956.744,
+      "twr": 0.03327440000000004,
+      "twr_annual": 0.01650105754986808,
+      "mwr": 0.0955169695117628,
+      "investor_cash": [
+        -10000.0,
+        -10000.0,
+        22956.744
+      ]
+    },
+    "no_flow": {
+      "initial": 10000.0,
+      "pre": 8185.0,
+      "post": 8185.0,
+      "final": 10332.744,
+      "twr": 0.03327440000000004,
+      "twr_annual": 0.01650105754986808,
+      "mwr": 0.01650105754986808,
+      "investor_cash": [
+        -10000.0,
+        0,
+        10332.744
+      ]
+    },
+    "add5000": {
+      "initial": 10000.0,
+      "pre": 8185.0,
+      "post": 13185.0,
+      "final": 16644.744,
+      "twr": 0.03327440000000004,
+      "twr_annual": 0.01650105754986808,
+      "mwr": 0.06414397993522769,
+      "investor_cash": [
+        -10000.0,
+        -5000,
+        16644.744
+      ]
+    },
+    "withdraw4000": {
+      "initial": 10000.0,
+      "pre": 8185.0,
+      "post": 4185.0,
+      "final": 5283.144,
+      "twr": 0.03327440000000004,
+      "twr_annual": 0.01650105754986808,
+      "mwr": -0.04613369885635543,
+      "investor_cash": [
+        -10000.0,
+        4000,
+        5283.144
+      ]
+    },
+    "initial_extra10000": {
+      "initial": 20000.0,
+      "pre": 16370.0,
+      "post": 16370.0,
+      "final": 20665.488,
+      "twr": 0.03327440000000004,
+      "twr_annual": 0.01650105754986808,
+      "mwr": 0.01650105754986808,
+      "investor_cash": [
+        -20000.0,
+        0,
+        20665.488
+      ]
+    },
+    "missing_valuation": {
+      "v0": 100,
+      "flow": 100,
+      "final": 240,
+      "pre80_twr": 0.06666666666666665,
+      "pre120_twr": 0.3090909090909091,
+      "mwr": 0.12788205960997057
+    },
+    "multiple_irr": {
+      "cashflows": [
+        -100,
+        230,
+        -132
+      ],
+      "valid_irr_roots": [
+        0.1,
+        0.2
+      ]
+    },
+    "tax_inflation_separate_sim": {
+      "initial": 100,
+      "before_fee_end": 110,
+      "fee": 2,
+      "tax_rate_on_after_fee_gain": 0.2,
+      "tax": 1.6,
+      "end": 106.4,
+      "inflation": 0.05,
+      "real_return": 0.01333333333333342
+    },
+    "timing_semantics": {
+      "timing_1": "边界额外金额：正数=追加，负数=组合建立后的取款",
+      "timing_0": "计量区间开始前调整起始承诺；负数=初始投入较少，不称期间取款"
+    }
+  },
+  "SIM-P03-PATH-01": {
+    "inputs": {
+      "A": [
+        100,
+        120,
+        96
+      ],
+      "B": [
+        100,
+        60,
+        96
+      ],
+      "withdrawal": 50,
+      "target": 40
+    },
+    "A": {
+      "mdd": 0.19999999999999996,
+      "withdrawal": 50,
+      "payment_gap": 0,
+      "remaining_units": 0.5833333333333333,
+      "terminal": 55.99999999999999,
+      "terminal_shortfall": 0
+    },
+    "B": {
+      "mdd": 0.4,
+      "withdrawal": 50,
+      "payment_gap": 0,
+      "remaining_units": 0.16666666666666663,
+      "terminal": 15.999999999999996,
+      "terminal_shortfall": 24.000000000000004
+    },
+    "withdraw70_A": {
+      "mdd": 0.19999999999999996,
+      "withdrawal": 70,
+      "payment_gap": 0,
+      "remaining_units": 0.41666666666666663,
+      "terminal": 40.0,
+      "terminal_shortfall": 0
+    },
+    "withdraw70_B": {
+      "mdd": 0.4,
+      "withdrawal": 70,
+      "payment_gap": 10,
+      "remaining_units": null,
+      "terminal": null,
+      "terminal_shortfall": null
+    }
+  },
+  "SIM-P03-TAIL-01": {
+    "inputs": {
+      "losses": [
+        0,
+        10,
+        100
+      ],
+      "probabilities": [
+        0.94,
+        0.05,
+        0.01
+      ],
+      "confidence": 0.95
+    },
+    "default": {
+      "confidence": 0.95,
+      "max_loss": 100,
+      "var": 10,
+      "es": 27.999999999999982,
+      "mass_above": 0.01,
+      "mass_at_q_used": 0.04000000000000004
+    },
+    "c99": {
+      "confidence": 0.99,
+      "max_loss": 100,
+      "var": 10,
+      "es": 99.99999999999991,
+      "mass_above": 0.01,
+      "mass_at_q_used": 8.673617379884035e-18
+    },
+    "c995": {
+      "confidence": 0.995,
+      "max_loss": 100,
+      "var": 100,
+      "es": 100.0,
+      "mass_above": 0,
+      "mass_at_q_used": 0.0050000000000000044
+    },
+    "max200": {
+      "confidence": 0.95,
+      "max_loss": 200,
+      "var": 10,
+      "es": 47.999999999999964,
+      "mass_above": 0.01,
+      "mass_at_q_used": 0.04000000000000004
+    },
+    "mean_loss": 1.5,
+    "conditional_ge_10": 25,
+    "conditional_gt_10": 100
+  },
+  "SIM-P06-LOOKTHROUGH-01": {
+    "inputs": {
+      "wealth0": 100,
+      "fund_weight": 0.6,
+      "top_group": 0.379,
+      "group_return": -0.3,
+      "rest_return": 0,
+      "cash_return": 0
+    },
+    "group_exposure": 0.2274,
+    "rest_exposure": 0.3726,
+    "return": -0.06821999999999999,
+    "final": 93.17800000000001,
+    "with_rest_down10pc_return": -0.10547999999999999,
+    "with_rest_down10pc_final": 89.45200000000001
+  },
+  "SIM-P06-COV-01": {
+    "inputs": {
+      "wA": 0.6,
+      "wB": 0.4,
+      "sigmaA": 0.2,
+      "sigmaB": 0.1,
+      "rho": -0.5,
+      "period": "one year model"
+    },
+    "default": {
+      "rho": -0.5,
+      "variance": 0.0112,
+      "volatility": 0.10583005244258362,
+      "beta_to_A": 0.4999999999999999,
+      "beta_to_B": -0.19999999999999996
+    },
+    "rho_positive_half": {
+      "rho": 0.5,
+      "variance": 0.0208,
+      "volatility": 0.14422205101855956,
+      "beta_to_A": 0.6999999999999998,
+      "beta_to_B": 1.0
+    },
+    "rho0": {
+      "rho": 0,
+      "variance": 0.016,
+      "volatility": 0.12649110640673517,
+      "beta_to_A": 0.5999999999999999,
+      "beta_to_B": 0.4
+    },
+    "rho_minus_one": {
+      "rho": -1,
+      "variance": 0.0063999999999999994,
+      "volatility": 0.08,
+      "beta_to_A": 0.3999999999999999,
+      "beta_to_B": -0.7999999999999998
+    },
+    "rho_one": {
+      "rho": 1,
+      "variance": 0.0256,
+      "volatility": 0.16,
+      "beta_to_A": 0.7999999999999998,
+      "beta_to_B": 1.6
+    },
+    "negative_corr_balanced": {
+      "rho": -1,
+      "variance": 0.0,
+      "volatility": 0.0,
+      "beta_to_A": -8.673617379884034e-17,
+      "beta_to_B": 0.0
+    },
+    "equal_weight_extension": {
+      "sigma": 0.2,
+      "rho": 0.4,
+      "n1": 0.2,
+      "n10": 0.13564659966250536,
+      "n100": 0.12743625857659194,
+      "limit": 0.1264911064067352
+    },
+    "model_conditions": [
+      "same_horizon",
+      "same_return_definition",
+      "same_numeraire_currency",
+      "finite_second_moments",
+      "fixed_start_weights_for_single_period_identity"
+    ]
+  }
+}

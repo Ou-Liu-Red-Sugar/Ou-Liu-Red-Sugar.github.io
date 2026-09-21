@@ -1,0 +1,6 @@
+{{- /* Escape TeX as HTML text so inequalities cannot become HTML tags. */ -}}
+{{- if eq .Type "block" -}}
+\[{{ .Inner }}\]
+{{- else -}}
+\({{ .Inner }}\)
+{{- end -}}

@@ -1,0 +1,816 @@
+# 离散动态对冲：从现金账到误差分布
+
+沿唯一冻结账本复算手路径与十二设计，区分频率误差、费用和真实合约规则。
+
+Entry: zh-qt24 | Node: QT24 | Language: zh | Editorial revision: 2026-09-21
+
+## Teaching instructions
+你是这篇中文学习单元的教学 Agent。读者具备本包列出的先修：主线只需现金递推、概率与均方误差；定价分支调用 QT17。
+先实际取得 required_readings 中本次所选单元并读完，核对版本、页码与公式；已有同会话同版完整读取可以复用。只取得摘要或目录不得声称完成。指定原件若无法取得，先说明具体缺口；只有本包中已经具名核过等价范围的完整数学证明，才可在对应数学步骤内作为替代，并须实际读完且记录替代正文、版本与支持步骤。若本次必读仍有缺失，就停止依赖该内容的实质讲解；研究样本、训练安排、图表结果与作者主张不得以本站概述替代，也不得声称原件已经读过。runtime_reading_log 是你的实际运行记录，交付的空数组不是已读。
+本篇任务：先让读者用完整手算账本重建起点负现金和终点46.66633061美元；再区分成交后最大借款6647.11422055133与全部现金事件峰值6652.57984794302，并判断5000额度为何在t=0拒绝建仓。默认先读账，定价分支才读取 Gaussian/PDE/Itô 推导。
+先让读者尝试，再按所缺的一步解释，不将全部课文一次复述。完整证明需要标明每项条件在哪一步用到，练习给出完整解析。只采用 supplied_inputs 的本篇切片和已链接全量数据，区分教学模型、真实记录、作者论文结果。图不是证明，模拟不是现实规律；不以预测概率替换定价测度。禁止从分位数拟造分布或另抽浏览器随机数冒充冻结路径。最后问：读者只读完这个词条，真的能学明白吗？用迁移题实际判断，明确剩余能力缺口。
+
+Before substantive teaching, actually retrieve every required reading unit for the selected scope. Read its complete designated section, including necessary assumptions, tables and footnotes. A working URL or an editorial access date is not a runtime reading receipt. Record the actual version, location, scope and what it supports. If unavailable, use a previously verified equivalent source; if the required unit remains unavailable, identify that gap rather than teach it from memory. Start runtime_reading_log empty. Once reading is complete, use a substantive diagnostic or follow the reader's request for direct explanation. Advance one complete reasoning task at a time; skip mastered basics. Distinguish original facts, supplied teaching assumptions and inference.
+
+## Required readings and runtime protocol
+```json
+{
+  "export_mode": "public",
+  "required_readings": [
+    {
+      "source_id": "QGHI-CBOE-XSP",
+      "access": {
+        "kind": "html_full_text",
+        "uri": "https://www.cboe.com/tradable_products/sp_500/mini_spx_options/specifications"
+      },
+      "required_unit": {
+        "locator": "Underlying、Multiplier、Exercise Style、Settlement of Option Exercise",
+        "scope": "完整相关合约条款",
+        "purpose": "核对仅是模型接口，不作真实回测"
+      },
+      "supports": "SPX/10 指数、100 美元乘数、欧式与下一营业日现金交付；不提供真实历史报价、可买卖指数股或券商入账秒。",
+      "title": "Mini-SPX Index Options Contract Specifications",
+      "authors": [
+        "Cboe"
+      ],
+      "version": "Official current page accessed 2026-09-21, not historical rules snapshot",
+      "fallback_source_ids": []
+    },
+    {
+      "source_id": "QGHI-MIT-BS13",
+      "access": {
+        "kind": "pdf_full_text",
+        "uri": "https://ocw.mit.edu/courses/18-s096-topics-in-mathematics-with-applications-in-finance-fall-2013/d19208c017ada04f9261cfb41ab8d702_MIT18_S096F13_lecnote19.pdf"
+      },
+      "required_unit": {
+        "locator": "Slides 13–22",
+        "scope": "call、PDE、复制背景完整单元",
+        "purpose": "仅定价推导分支启用；忽略 slide16 错现金简述，读本篇完整推导"
+      },
+      "supports": "call 公式与复制/PDE背景；不采用 slide16 将再平衡现金误说成确定过程的简述，完整 Gaussian/PDE/自融资核算在 QT24 定价分支。",
+      "branch": "pricing",
+      "title": "Lecture 19: Risk Neutral Pricing / Black–Scholes Formula",
+      "authors": [
+        "Vasily Strela",
+        "MIT"
+      ],
+      "version": "Fall 2013",
+      "fallback_source_ids": []
+    }
+  ],
+  "optional_readings": [
+    {
+      "source_id": "QTDE-MARKOWITZ",
+      "access": {
+        "kind": "pdf_full_text",
+        "uri": "https://web.stanford.edu/~boyd/papers/pdf/markowitz.pdf"
+      },
+      "required_unit": {
+        "locator": "§2.1–2.4、§3.1、§3.4–3.5、§4.1–4.3",
+        "scope": "现金、交易成本和约束完整采用单元",
+        "purpose": "仅成本/约束拓展时启用，不新增实盘结论"
+      },
+      "title": "Markowitz Portfolio Construction at Seventy",
+      "authors": [
+        "Stephen Boyd",
+        "Kasper Johansson",
+        "Ronald Kahn",
+        "Philipp Schiele",
+        "Thomas Schmelzer"
+      ],
+      "version": "manuscript January 5, 2024; journal July 2024 separately identified",
+      "fallback_source_ids": []
+    }
+  ],
+  "runtime_reading_log": [],
+  "supplied_inputs": {
+    "competence": "主线只需现金递推、概率与均方误差；定价分支调用 QT17。",
+    "static_equivalent": "本篇 reader 全部默认表、证明及题解；HTML 禁用脚本仍可读。",
+    "attachments": [
+      {
+        "title": "本篇完整静态阅读、全部题解与证明",
+        "uri": "https://ou-liu-red-sugar.github.io/notebook/labs/qt-ghi/static/QT24.html",
+        "kind": "html"
+      },
+      {
+        "title": "本篇同源 Markdown",
+        "uri": "https://ou-liu-red-sugar.github.io/notebook/labs/qt-ghi/static/QT24.md",
+        "kind": "markdown"
+      },
+      {
+        "title": "hedge-errors.csv",
+        "uri": "https://ou-liu-red-sugar.github.io/notebook/labs/qt-ghi/data/hedge-errors.csv",
+        "kind": "csv",
+        "bytes": 1974784
+      },
+      {
+        "title": "hedge-histograms.json",
+        "uri": "https://ou-liu-red-sugar.github.io/notebook/labs/qt-ghi/data/hedge-histograms.json",
+        "kind": "json",
+        "bytes": 4957
+      },
+      {
+        "title": "default-first-path-ledger.csv",
+        "uri": "https://ou-liu-red-sugar.github.io/notebook/labs/qt-ghi/data/default-first-path-ledger.csv",
+        "kind": "csv",
+        "bytes": 4554
+      },
+      {
+        "title": "hand-path-ledger.csv",
+        "uri": "https://ou-liu-red-sugar.github.io/notebook/labs/qt-ghi/data/hand-path-ledger.csv",
+        "kind": "csv",
+        "bytes": 1093
+      },
+      {
+        "title": "reproduce.py",
+        "uri": "https://ou-liu-red-sugar.github.io/notebook/labs/qt-ghi/compute/reproduce.py",
+        "kind": "py",
+        "bytes": 10867
+      },
+      {
+        "title": "完整实际结果及指定单元",
+        "uri": "https://ou-liu-red-sugar.github.io/notebook/labs/qt-ghi/data/results.json",
+        "kind": "json",
+        "json_pointers": [
+          "/hedge",
+          "/paired",
+          "/hand",
+          "/pricing"
+        ]
+      },
+      {
+        "title": "四个实验的唯一冻结定义",
+        "uri": "https://ou-liu-red-sugar.github.io/notebook/labs/qt-ghi/data/qt-ghi-shared-experiments.json",
+        "kind": "json",
+        "json_pointer": "/experiments/3",
+        "experiment_id": "EXP-HEDGE-01"
+      },
+      {
+        "title": "8192×256 共用正态数组",
+        "uri": "https://ou-liu-red-sugar.github.io/notebook/labs/qt-ghi/data/shared-normal-array.npz",
+        "kind": "npz",
+        "bytes": 16118323
+      },
+      {
+        "title": "8192×12 全部分布数组",
+        "uri": "https://ou-liu-red-sugar.github.io/notebook/labs/qt-ghi/data/hedge-errors.npz",
+        "kind": "npz",
+        "bytes": 744411
+      },
+      {
+        "title": "12 种设计的同一首路径完整账本",
+        "uri": "https://ou-liu-red-sugar.github.io/notebook/labs/qt-ghi/data/first-path-ledgers.json",
+        "kind": "json",
+        "bytes": 670957
+      },
+      {
+        "title": "257 点共用首路径",
+        "uri": "https://ou-liu-red-sugar.github.io/notebook/labs/qt-ghi/data/common-first-path.csv",
+        "kind": "csv",
+        "bytes": 23281
+      }
+    ],
+    "frozen": {
+      "contract": {
+        "position": "short_one_model_european_call",
+        "S0": 100,
+        "K": 100,
+        "multiplier": 100,
+        "sigma": 0.2,
+        "T_years": 0.0821917808219178,
+        "T_exact": "30/365",
+        "r_lend_equals_borrow": 0.03,
+        "rate_convention": "annual continuously compounded",
+        "dividend_yield": 0,
+        "underlying_identity": "Hypothetical tradable GBM asset; not XSP index shares.",
+        "measure": "Q model with drift r"
+      },
+      "path_recipe": {
+        "shared_normal_array_with": "EXP-QT15-17-DIFFUSION-01",
+        "normalized_clock": "u=j/256",
+        "hedge_clock": "t=(30/365)*u",
+        "hedge_brownian_driver": "sqrt(30/365)*W_u",
+        "price": "100*exp((r-sigma^2/2)*t+sigma*sqrt(T)*W_u)",
+        "nested_intervals": [
+          4,
+          16,
+          64,
+          256
+        ],
+        "pair_by": "Identical path index within the shared normal array.",
+        "meaning": "Common random numbers and deterministic time scaling, not a change-of-measure theorem."
+      },
+      "default_display": {
+        "intervals": 16,
+        "half_spread_bps": 5
+      },
+      "comparison_grid": {
+        "intervals": [
+          4,
+          16,
+          64,
+          256
+        ],
+        "half_spread_bps": [
+          0,
+          5,
+          20
+        ]
+      },
+      "initial_model_price_per_unit": 2.409581446079464,
+      "initial_premium_dollars": 240.95814460794642,
+      "holding_rule": "After observation/fill at t_k, q_k=100*Phi(d1) serves (t_k,t_(k+1)]; at T, q_n=0.",
+      "event_order": [
+        "At inception receive model premium with q=0.",
+        "For k>0 accrue previous cash at exp(r*dt).",
+        "Observe S_k and compute target using time-k information.",
+        "Trade dq at model mid plus/minus half-spread.",
+        "Subtract c*S_k*abs(dq) from cash.",
+        "At T flatten all shares, including closing spread.",
+        "Pay model cash payoff at the same T."
+      ],
+      "cash_recursion": "C_k=C_(k-1)*exp(r*dt_k)-S_k*(q_k-q_(k-1))-c*S_k*abs(q_k-q_(k-1))",
+      "model_assumptions": [
+        "fractional shares",
+        "unlimited symmetric borrowing and lending",
+        "no margin constraint",
+        "no dividends",
+        "observation then same-grid assumed fill",
+        "no external funding after inception",
+        "half-spread is an assumed one-way cost, not an observed quote"
+      ],
+      "error_definition": "Cash after terminal hedge liquidation minus call payoff; dollars, not a return rate."
+    },
+    "default_outputs": {
+      "design": "n16_c5",
+      "intervals": 16,
+      "half_spread_bps": 5,
+      "n": 8192,
+      "mean": -11.025472701825556,
+      "sample_sd": 48.5403947822721,
+      "mean_mc_se": 0.5363006611252611,
+      "mse_to_zero": 2477.443355518406,
+      "mse_mc_se": 51.24665443833317,
+      "q05": -92.6979375973376,
+      "q95": 67.19023591443182,
+      "rmse": 49.77392244457338,
+      "mean_nominal_cost": 11.382854902867193,
+      "mean_terminal_cost": 11.39685202252775,
+      "cash_balance_max_residual": 2.6666446828471635e-12,
+      "cost_identity_max_residual": 1.1883827255587676e-11
+    },
+    "hand_path": {
+      "prices": [
+        100,
+        102,
+        101,
+        104
+      ],
+      "ledger": [
+        {
+          "step": 0,
+          "time_years": 0.0,
+          "model_mid": 100.0,
+          "target_shares": 52.85688375454997,
+          "shares_before": 0.0,
+          "filled_shares": 52.85688375454997,
+          "assumed_fill_price": 100.05,
+          "cash_before_interest": 240.95814460794642,
+          "interest": 0.0,
+          "cash_before_trade": 240.95814460794642,
+          "half_spread_cost": 2.6428441877274986,
+          "cash_after_trade": -5047.373075034779,
+          "shares_after": 52.85688375454997,
+          "payoff": 0.0,
+          "cash_after_payoff": -5047.373075034779,
+          "external_flow": 0.0
+        },
+        {
+          "step": 1,
+          "time_years": 0.0273972602739726,
+          "model_mid": 102.0,
+          "target_shares": 68.49211431927395,
+          "shares_before": 52.85688375454997,
+          "filled_shares": 15.635230564723983,
+          "assumed_fill_price": 102.05099999999999,
+          "cash_before_interest": -5047.373075034779,
+          "interest": -4.150231155904294,
+          "cash_before_trade": -5051.523306190683,
+          "half_spread_cost": 0.7973967588009232,
+          "cash_after_trade": -6647.11422055133,
+          "shares_after": 68.49211431927395,
+          "payoff": 0.0,
+          "cash_after_payoff": -6647.11422055133,
+          "external_flow": 0.0
+        },
+        {
+          "step": 2,
+          "time_years": 0.0547945205479452,
+          "model_mid": 101.0,
+          "target_shares": 63.380801897059655,
+          "shares_before": 68.49211431927395,
+          "filled_shares": -5.111312422214297,
+          "assumed_fill_price": 100.9495,
+          "cash_before_interest": -6647.11422055133,
+          "interest": -5.46562739168985,
+          "cash_before_trade": -6652.57984794302,
+          "half_spread_cost": 0.258121277321822,
+          "cash_after_trade": -6136.595414576697,
+          "shares_after": 63.380801897059655,
+          "payoff": 0.0,
+          "cash_after_payoff": -6136.595414576697,
+          "external_flow": 0.0
+        },
+        {
+          "step": 3,
+          "time_years": 0.0821917808219178,
+          "model_mid": 104.0,
+          "target_shares": 0.0,
+          "shares_before": 63.380801897059655,
+          "filled_shares": -63.380801897059655,
+          "assumed_fill_price": 103.94800000000001,
+          "cash_before_interest": -6136.595414576697,
+          "interest": -5.045850406169848,
+          "cash_before_trade": -6141.641264982867,
+          "half_spread_cost": 3.2958016986471024,
+          "cash_after_trade": 446.6663306126902,
+          "shares_after": 0.0,
+          "payoff": 400.0,
+          "cash_after_payoff": 46.66633061269022,
+          "external_flow": 0.0
+        }
+      ],
+      "borrowing_metrics": {
+        "max_borrowing_after_trade": 6647.11422055133,
+        "max_borrowing_over_cash_events": 6652.57984794302,
+        "peak_over_cash_events_step": 2,
+        "peak_event": "after interest before trade",
+        "borrowing_limit_5000_feasible": false,
+        "borrowing_limit_5000_rejection_step": 0
+      }
+    },
+    "full_arrays_are_external": true,
+    "reproduction": {
+      "instructions": "https://ou-liu-red-sugar.github.io/notebook/labs/qt-ghi/README.md",
+      "code": "https://ou-liu-red-sugar.github.io/notebook/labs/qt-ghi/compute/reproduce.py",
+      "array_policy": "全数组为实际复算附件；教学先读当前完整账本及所选设计结果。NPZ需实际用数组工具读取，不由浏览器另抽随机数。"
+    }
+  },
+  "required_readings_by_branch": {
+    "ledger": [
+      {
+        "source_id": "QGHI-CBOE-XSP",
+        "access": {
+          "kind": "html_full_text",
+          "uri": "https://www.cboe.com/tradable_products/sp_500/mini_spx_options/specifications"
+        },
+        "required_unit": {
+          "locator": "Underlying、Multiplier、Exercise Style、Settlement of Option Exercise",
+          "scope": "完整相关合约条款",
+          "purpose": "核对仅是模型接口，不作真实回测"
+        },
+        "supports": "SPX/10 指数、100 美元乘数、欧式与下一营业日现金交付；不提供真实历史报价、可买卖指数股或券商入账秒。",
+        "title": "Mini-SPX Index Options Contract Specifications",
+        "authors": [
+          "Cboe"
+        ],
+        "version": "Official current page accessed 2026-09-21, not historical rules snapshot",
+        "fallback_source_ids": []
+      }
+    ],
+    "pricing": [
+      {
+        "source_id": "QGHI-CBOE-XSP",
+        "access": {
+          "kind": "html_full_text",
+          "uri": "https://www.cboe.com/tradable_products/sp_500/mini_spx_options/specifications"
+        },
+        "required_unit": {
+          "locator": "Underlying、Multiplier、Exercise Style、Settlement of Option Exercise",
+          "scope": "完整相关合约条款",
+          "purpose": "核对仅是模型接口，不作真实回测"
+        },
+        "supports": "SPX/10 指数、100 美元乘数、欧式与下一营业日现金交付；不提供真实历史报价、可买卖指数股或券商入账秒。",
+        "title": "Mini-SPX Index Options Contract Specifications",
+        "authors": [
+          "Cboe"
+        ],
+        "version": "Official current page accessed 2026-09-21, not historical rules snapshot",
+        "fallback_source_ids": []
+      },
+      {
+        "source_id": "QGHI-MIT-BS13",
+        "access": {
+          "kind": "pdf_full_text",
+          "uri": "https://ocw.mit.edu/courses/18-s096-topics-in-mathematics-with-applications-in-finance-fall-2013/d19208c017ada04f9261cfb41ab8d702_MIT18_S096F13_lecnote19.pdf"
+        },
+        "required_unit": {
+          "locator": "Slides 13–22",
+          "scope": "call、PDE、复制背景完整单元",
+          "purpose": "仅定价推导分支启用；忽略 slide16 错现金简述，读本篇完整推导"
+        },
+        "supports": "call 公式与复制/PDE背景；不采用 slide16 将再平衡现金误说成确定过程的简述，完整 Gaussian/PDE/自融资核算在 QT24 定价分支。",
+        "branch": "pricing",
+        "title": "Lecture 19: Risk Neutral Pricing / Black–Scholes Formula",
+        "authors": [
+          "Vasily Strela",
+          "MIT"
+        ],
+        "version": "Fall 2013",
+        "fallback_source_ids": []
+      }
+    ]
+  }
+}
+```
+
+## Supplied entry
+我们卖出一份到期支付随标的价格变化的合约，再不断调整标的持仓来准备这笔支付。对冲是否有效，不能只看一条 delta 曲线：买入标的钱从哪里来、负现金如何计息、最后是否平仓、支付是否只扣一次，都会直接改变结果。本篇先让这些钱逐笔对上，再比较频率与费用。默认学习只需要理解现金流和基本统计；完整定价推导放在末尾的独立分支。
+
+<a id="qt24-contract"></a>
+## 1. 一份明确的模型合同
+
+实验名为 `EXP-HEDGE-01`。假设可交易资产 $S$ 服从一个具名的 $Q$ 模型：$dS_t=rS_tdt+\sigma S_tdW_t$，$S_0=100$，$r=0.03$，$\sigma=0.20$。卖出一份欧式看涨式合约，$K=100$、乘数 $m=100$、期限 $T=30/365$ 年，模型到期支付为 $m(S_T-K)^+$。这里没有真实报价，也没有宣称 $Q$ 是现实涨跌概率。
+
+无分红、允许分数股、允许现金以相同连续复利利率无限借贷、无保证金约束，都是本模型的条件。每个网格点先观察模型价格，再按同格价格加减假设半价差成交；现实订单的排队、部分成交和报告延迟没有被模拟。交易后不从外部补钱。负现金是已经定义的借款，不是偷偷注资。
+
+单份模型权利金为 $240.95814461$ 美元；每单位支付的模型价为 $2.4095814461$。默认将这段期限等分为 16 个区间，半价差设为 5 bps，即 $c=0.0005$，完整买卖价差为 10 bps。这是成本假设，不是交易所实测报价。16 指模型区间数，不是 16 个真实交易日。
+
+设 $\tau=T-t$。调仓所用公式是
+
+$$
+\begin{gathered}
+d_1(t,s)=\frac{\log(s/K)+(r+\sigma^2/2)\tau}{\sigma\sqrt\tau},\\
+q_t=m\Phi(d_1(t,s)),\quad t<T.
+\end{gathered}
+$$
+
+$\Phi$ 是标准正态分布函数。初始每单位 delta 为 $0.5285688375$，因此目标为 $52.85688375$ 股。到期不再调用含零分母的 delta 公式，而是强制清仓 $q_n=0$。这些数来自同一个合同；改变合约乘数要同时改变权利金、股数和支付，不能只改图的纵轴。[^bs]
+
+<a id="qt24-ledger"></a>
+## 2. 一行现金账，固定三种先后关系
+
+用 $C_k$ 表示在 $t_k$ 完成本次交易后的现金，$q_k$ 表示随后持有的股数，服务于 $(t_k,t_{k+1}]$。从上一行到当前行，先让旧现金增长为 $C_{k-1}e^{r\Delta t_k}$，再按当前信息决定目标股数；实际成交变化是 $\Delta q_k=q_k-q_{k-1}$。于是
+
+$$
+\begin{aligned}
+C_k^-&=C_{k-1}e^{r\Delta t_k},\\
+\mathrm{fee}_k&=cS_k|\Delta q_k|,\\
+C_k&=C_k^- -S_k\Delta q_k-\mathrm{fee}_k.
+\end{aligned}
+$$
+
+买入时实际模型成交价是 $S_k(1+c)$，卖出时是 $S_k(1-c)$。这与“中间价交易金额加半价差费用”完全等价；两种记法只能选一种，不能在成交价里已经加了价差后又扣一次同样费用。
+
+同一时点按中间价标记资产，就有
+
+$$
+C_k+q_kS_k=(C_k^-+q_{k-1}S_k)-\mathrm{fee}_k.
+$$
+
+因此换仓本身除了费用，不创造或消灭净资产。借款现金的利息也保留在账上。起点先收取权利金、股数为零，然后开仓并扣费；终点先卖清对冲股票并计入平仓价差，随后扣合约支付。最终误差是
+
+$$
+\varepsilon=C_n-m(S_T-K)^+.
+$$
+
+这是“清算后还差或还剩多少钱”。此时不再减一次初始权利金，因为它早已进入现金递推。也不自动用权利金作收益率分母：组合期间使用了借款和风险敞口，权利金不等于投入资本。
+
+<a id="qt24-hand"></a>
+## 3. 把一条短路径完整算完
+
+先取明确选定的手算路径 $100\to102\to101\to104$，分为三个相等区间，每段 $10/365$ 年，半价差仍为 5 bps。它不是模拟第一条路径，也不是平均路径。
+
+起点买入 $52.85688375$ 股，中间价交易额约 $5285.68837545$，费用约 $2.64284419$。所以
+
+$$
+\begin{aligned}
+C_0&=240.95814461-5285.68837545\\
+&\quad-2.64284419\\
+&=-5047.37307503.
+\end{aligned}
+$$
+
+下一时点，旧借款增加约 $4.15023116$ 美元利息；价格为 102，目标增至 $68.49211432$ 股，因此追加买入 $15.63523056$ 股。我们把全部四行列出来，金额显示作四舍五入，计算和附件保留全精度。
+
+| 步 | 模型中价 | 成交股数 | 利息 | 半价差成本 | 成交后股数 | 成交后现金 | 本步支付 |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| 0 | 100 | 52.85688375 | 0.00000000 | 2.64284419 | 52.85688375 | -5047.37307503 | 0.00 |
+| 1 | 102 | 15.63523056 | -4.15023116 | 0.79739676 | 68.49211432 | -6647.11422055 | 0.00 |
+| 2 | 101 | -5.11131242 | -5.46562739 | 0.25812128 | 63.38080190 | -6136.59541458 | 0.00 |
+| 3 | 104 | -63.38080190 | -5.04585041 | 3.29580170 | 0.00000000 | 446.66633061 | 400.00 |
+
+这张表的“成交后现金”还不是授信监控的全部事件。若只在每次成交完成后看负现金，本路径的最大借款是第 10 天的
+
+$$
+\mathrm{Borrow}^{\mathrm{after\ trade}}_{\max}
+=6647.11422055133\text{ 美元}.
+$$
+
+但第 20 天要先让上一步的负现金计息，再卖出股票。卖出发生以前，现金已经变成
+
+$$
+-6647.11422055133\,e^{0.03(10/365)}
+=-6652.57984794302.
+$$
+
+所以若“最大借款”指整个现金事件序列——包括计息以后、再平衡以前——应报告
+
+$$
+\mathrm{Borrow}^{\mathrm{cash\ events}}_{\max}
+=6652.57984794302\text{ 美元},
+$$
+
+发生在第 20 天、卖出股票以前。两项指标回答不同问题：前者便于检查每次成交后的账面余额；授信是否足够则必须检查后者。它们都由同一冻结账本推得，并没有改变任何交易、价格或终值。
+
+第三行到最后一行，先计旧现金利息，再以模型买卖价差卖清 $63.38080190$ 股。清仓后现金 $446.66633061$；到期支付 $100(104-100)=400$，所以剩余
+
+$$
+\varepsilon=446.66633061-400=46.66633061\text{ 美元}.
+$$
+
+这个正数不说明策略有正期望利润。它只是这条选定路径上的离散对冲误差；另一些路径会资金不足。看误差分布，正是为了避免拿一条漂亮路径代替整个模型表现。
+
+<a id="qt24-comparison"></a>
+## 4. 相同路径上比较频率和费用
+
+这里用 PCG64 的固定种子 15161724 一次生成 $8192\times256$ 个标准正态数。先在归一化时间 $u\in[0,1]$ 上形成最细 Brownian 网格，再用 $t=Tu$、$\sqrt T W_u$ 生成 $Q$ 模型价格。4、16、64、256 个区间都从同一条最细路径抽取；同一行路径索引在十二个设计中始终对应同一段价格历史。
+
+这种共同随机数减少比较中的无关抽样差异，但不构成从 $P$ 到 $Q$ 的换测度证明。QT17 的一年、漂移 $0.08$ 示例是另一生成模型；本账本始终用漂移 $r=0.03$。
+
+下表是 $\sqrt{N^{-1}\sum_{i=1}^N\varepsilon_i^2}$，即相对于完全复制目标零误差的 RMSE，单位美元。它既包含均值偏离，也包含离散程度，不等同于样本标准差。
+
+| 等距模型区间数 | 0 bps RMSE（美元） | 5 bps RMSE（美元） | 20 bps RMSE（美元） |
+| --- | --- | --- | --- |
+| 4 | 93.739527 | 94.552739 | 100.944831 |
+| 16 | 47.916075 | 49.773922 | 68.512317 |
+| 64 | 24.910062 | 31.539889 | 79.353757 |
+| 256 | 12.779218 | 34.913530 | 129.881951 |
+
+无费用时，较细网格在这组实验中使 RMSE 下降。加入成本后，这种改善不再单调：5 bps 下 256 区间的 RMSE 高于 64 区间；20 bps 下频繁调仓的费用更加明显。不能据此把 64 或 16 宣布成真实市场的最优频率，因为我们没有改变策略、资产、借贷限制或成本机制，也没有做真实交易验证。
+
+对于预定的同一个 delta 目标，如果费用没有反过来改变持仓，令 $D_k=C_k^{(0)}-C_k^{(c)}$。两套账相减给
+
+$$
+\begin{gathered}
+D_k=e^{r\Delta t_k}D_{k-1}+\mathrm{fee}_k,\\
+\varepsilon^{(0)}-\varepsilon^{(c)}
+=\sum_{k=0}^n e^{r(T-t_k)}\mathrm{fee}_k.
+\end{gathered}
+$$
+
+初始费用和终点清仓费用都包括在内。这条恒等式逐路径成立，而不只是平均意义成立。一旦增加现金或保证金限制，使有费用方案无法维持原目标股数，便不再能用这条“同持仓差额”解释全部结果。
+
+<a id="qt24-distribution"></a>
+## 5. 误差分布究竟表达什么
+
+默认 16 区间、5 bps 的模型误差均值约为 $-11.0255$ 美元，样本标准差约为 $48.5404$ 美元；5% 和 95% 样本分位数约为 $-92.6979$ 与 $67.1902$ 美元。均值估计的 Monte Carlo 标准误约为 $0.5363$ 美元。这个标准误描述给定模型下有限模拟数量的误差，不描述模型离真实市场有多远。
+
+图使用实际逐路径误差分箱，不由三个分位数拼接曲线。十二个设计均有 8192 个误差，采用共同的美元区间边界；各箱左闭右开，最后一箱包含右端点，箱外计数为零。附件保留完整同索引数组，所以可以独立改变分箱，而不必重新抽路径。
+
+| 误差箱（美元） | 默认 16 区间 / 5 bps 路径数 |
+| --- | --- |
+| [-325, -300) | 1 |
+| [-275, -250) | 2 |
+| [-250, -225) | 4 |
+| [-225, -200) | 9 |
+| [-200, -175) | 17 |
+| [-175, -150) | 38 |
+| [-150, -125) | 91 |
+| [-125, -100) | 172 |
+| [-100, -75) | 371 |
+| [-75, -50) | 736 |
+| [-50, -25) | 1475 |
+| [-25, 0) | 2000 |
+| [0, 25) | 1574 |
+| [25, 50) | 948 |
+| [50, 75) | 464 |
+| [75, 100) | 192 |
+| [100, 125) | 78 |
+| [125, 150) | 19 |
+| [150, 175) | 1 |
+
+配对比较用 $L_i=\varepsilon_{i,256,5}^2-\varepsilon_{i,64,5}^2$。在这8192条共同路径上，其均值为 $224.189981$ 美元²，均值 Monte Carlo 标准误为 $18.953228$ 美元²。这个比较应使用每条路径的差，而不是把两个设计的误差当成相互独立再随意合成标准误。所有样本标准差使用分母 $N-1$；MSE 则按 $N$ 平均平方误差。样本分位数采用线性插值，只是描述约定。
+
+<div data-experiment-slot="EXP-HEDGE-01"></div>
+
+<a id="qt24-real-rules"></a>
+## 6. 真实合约规则是一项对照，不是给模型换个名字
+
+Cboe 的 XSP 规则规定，XSP 是 SPX 的十分之一，乘数为100美元，欧式行权，行权结算产生现金交付，现金在到期后的下一个营业日交付。XSP 本身是指数，不是可以按上述 $q_k$ 买入的“XSP 股票”。[^xsp]
+
+因此，本篇可交易 GBM 资产、同一模型时点平仓并支付的设置不能叫作 XSP 回测。把结算值确定、现金交付和券商账户显示入账混成一个时刻，也没有来源支持。真实对冲若用其他证券或期货，需要另外处理转换比例、基差、分红或展期、实际成交价格与时钟；本实验没有取得这些输入。现代组合模型中的价差、冲击和成交量约束也需要分别建模，而不是从“加入一个费用参数”自动得到。[^cost]
+
+<a id="qt24-exercise"></a>
+## 7. 迁移：费用和资金约束不是同一个变动
+
+在手算路径的第二次调仓时额外扣1美元，但保持原目标股数不变。终点误差会减少多少？再设可用借款额度为 5000 美元、且没有额外初始自有现金，原来的完整手算路径能否建仓？若额度改为 6700 美元，只看这条冻结手算路径时又如何判断？
+
+### 解析
+
+这里“第二次调仓”指定为 $t_1=10/365$，起点开仓记第零次。额外费用会在剩余 $20/365$ 年中积累借款利息，终点误差减少 $e^{0.03(20/365)}$ 美元，而不只是恰好1美元。这是同持仓费用递推的直接应用。
+
+借款额度改变的是可行策略，而且必须从第一个现金事件开始检查。5000 美元额度在 $t=0$ 就不能支持原策略：初始开仓和价差扣除以后需要借 $5047.37307503$ 美元，因此应在建仓时拒绝，而不能等到第 10 天才宣布超限。
+
+若额度为 6700 美元，则不能只比较“成交后最大借款” $6647.11422055$。还要看第 20 天计息后、卖出股票以前的 $6652.57984794$；它仍低于 6700，所以在这条冻结手算路径、并沿本篇同率无限借贷之外仅加这一上限的假设下，额度足以覆盖全部已列现金事件。这里没有重新优化持仓，也没有加入现实保证金规则。若额度不足，就必须重新规定少买、阈值调整或新增资金等规则；新增外部资金又会改变本实验身份。不能只改最终误差，仍宣称执行了相同策略。
+
+<section data-reading-branch="pricing">
+<a id="qt24-pricing"></a>
+## 定价推导分支：从 Gaussian 积分到自融资复制
+
+这一分支需要 [Itô 公式](https://ou-liu-red-sugar.github.io/zh/notebook/qt-ito-formula-gbm/)。我们验证的是此模型中这一份 call 的连续复制，不证明所有连续市场都完备。
+
+在 $Q$ 模型中，给定 $S_t=s$，有
+
+$$
+S_T=s\exp\left((r-\sigma^2/2)\tau+\sigma\sqrt\tau Z\right),
+\qquad Z\sim N(0,1).
+$$
+
+先定义折现支付均值 $C(t,s)=e^{-r\tau}E_Q[(S_T-K)^+\mid S_t=s]$。支付非零的条件是 $Z>-d_2$，其中 $d_2=(\log(s/K)+(r-\sigma^2/2)\tau)/(\sigma\sqrt\tau)$，$d_1=d_2+\sigma\sqrt\tau$。
+
+记正态密度为 $\phi$，用完成平方恒等式 $e^{az-a^2/2}\phi(z)=\phi(z-a)$，第一项积分成为
+
+$$
+e^{-r\tau}E_Q[S_T\mathbf1_{Z>-d_2}]
+=s\int_{-d_2}^{\infty}\phi(z-\sigma\sqrt\tau)dz
+=s\Phi(d_1).
+$$
+
+第二项是 $Ke^{-r\tau}P(Z>-d_2)=Ke^{-r\tau}\Phi(d_2)$。相减得到
+
+$$
+C(t,s)=s\Phi(d_1)-Ke^{-r\tau}\Phi(d_2).
+$$
+
+到这里仍是一个具名模型中的计算。要给它复制含义，还须建立相同价值的自融资持仓。
+
+直接由 $d_1-d_2=\sigma\sqrt\tau$ 可验证 $s\phi(d_1)=Ke^{-r\tau}\phi(d_2)$；代入导数后，正态密度产生的附加项抵消，得
+
+$$
+C_s=\Phi(d_1),\qquad
+C_{ss}=\frac{\phi(d_1)}{s\sigma\sqrt\tau},
+$$
+
+$$
+C_t=-\frac{s\sigma\phi(d_1)}{2\sqrt\tau}
+-rKe^{-r\tau}\Phi(d_2).
+$$
+
+把它们代回即可逐项核对
+
+$$
+C_t+rsC_s+\frac12\sigma^2s^2C_{ss}-rC=0.
+$$
+
+现在即使在漂移为 $\mu$ 的另一个 GBM 模型中应用 Itô 公式，仍有
+
+$$
+\begin{aligned}
+dC
+&=C_s\,dS+\left(C_t+\tfrac12\sigma^2S^2C_{ss}\right)dt\\
+&=\Delta\,dS+r(C-\Delta S)dt.
+\end{aligned}
+$$
+
+令货币账户 $B_t=e^{rt}$，股票数量为 $\Delta_t=C_s(t,S_t)$，现金账户单位为 $\beta_t=(C(t,S_t)-\Delta_tS_t)/B_t$。首先有价值相等 $\Delta_tS_t+\beta_tB_t=C(t,S_t)$；其次上式给 $dC=\Delta_t dS_t+\beta_t dB_t$，即自融资条件。两项一起才说明复制。现金金额 $\beta B=C-\Delta S$ 包含调仓资金，不能误写成它本身只按 $r$ 增长的确定过程。
+
+对 $t<T$ 函数光滑，$0\le\Delta\le1$，常数参数 GBM 有 $E\int_0^TS_t^2dt<\infty$，所以股票增益积分可以合法取到端点；$C(t,S_t)$ 在 $t\uparrow T$ 时连续趋于 $(S_T-K)^+$。现金漂移项也可积，例如 $C-\Delta S=-Ke^{-r\tau}\Phi(d_2)$ 有界。这把复制从每个到期前时点延伸到支付端点。
+
+离散账本不再满足连续再平衡恒等式，费用也破坏上述无摩擦条件，因此其终点有误差。这正是主线需要逐行复算的对象，而不是公式计算“不够准确”。[^pricing]
+</section>
+
+[^bs]: Vasily Strela，MIT 18.S096，Lecture 19，Fall 2013，slides 13–22（尤其 slide19 call/delta 公式）；[公开讲义](https://ocw.mit.edu/courses/18-s096-topics-in-mathematics-with-applications-in-finance-fall-2013/d19208c017ada04f9261cfb41ab8d702_MIT18_S096F13_lecnote19.pdf)。数值参数是本文具名教学模型，不是讲义中的历史报价。
+[^xsp]: Cboe，*XSP Options Product Specification*，Underlying、Multiplier、Exercise Style、Settlement of Option Exercise；[官方规则](https://www.cboe.com/tradable_products/sp_500/mini_spx_options/specifications)，2026-09-21 核对。该规则不支持券商 booking 的精确时点。
+[^cost]: Stephen Boyd、Kasper Johansson、Ronald Kahn、Philipp Schiele、Thomas Schmelzer，*Markowitz Portfolio Construction at Seventy*，2024-01-05 公开稿，§2.2–2.4、§3.4–3.5、§4.1–4.3；[原文](https://web.stanford.edu/~boyd/papers/pdf/markowitz.pdf)。这里只采用成本、预测和约束对象，不引其策略绩效。
+[^pricing]: 上述 Gaussian 积分和 PDE 逐项核对支撑本篇的 call 复制。MIT slide16 对现金过程的简述不作为证明；本篇保留“价值相等”和“自融资”两个条件。一般 Itô 公式及其条件见 [完整证明单元](https://ou-liu-red-sugar.github.io/zh/notebook/qt-ito-formula-proof/)。
+
+
+## Experiment inputs and static equivalents
+```json
+[
+  {
+    "id": "EXP-HEDGE-01",
+    "title": "动态对冲同路径分布与资金账",
+    "anchor": "qt24-distribution",
+    "description": "共享输入的本篇视图；保持 EXP-HEDGE-01 唯一冻结身份。",
+    "inputs": {
+      "uri": "https://ou-liu-red-sugar.github.io/notebook/labs/qt-ghi/data/learning-inputs.json",
+      "json_pointer": "/QT24",
+      "scope": "本篇 supplied_inputs 的完整同源切片；冻结参数和全部结果附件在该切片内定位。"
+    },
+    "outputs": {
+      "design": "n16_c5",
+      "intervals": 16,
+      "half_spread_bps": 5,
+      "n": 8192,
+      "mean": -11.025472701825556,
+      "sample_sd": 48.5403947822721,
+      "mean_mc_se": 0.5363006611252611,
+      "mse_to_zero": 2477.443355518406,
+      "mse_mc_se": 51.24665443833317,
+      "q05": -92.6979375973376,
+      "q95": 67.19023591443182,
+      "rmse": 49.77392244457338,
+      "mean_nominal_cost": 11.382854902867193,
+      "mean_terminal_cost": 11.39685202252775,
+      "cash_balance_max_residual": 2.6666446828471635e-12,
+      "cost_identity_max_residual": 1.1883827255587676e-11
+    },
+    "source_experiment_id": "EXP-HEDGE-01",
+    "static_equivalent": "https://ou-liu-red-sugar.github.io/notebook/labs/qt-ghi/static/QT24.html#qt24-distribution",
+    "result_attachment": {
+      "uri": "https://ou-liu-red-sugar.github.io/notebook/labs/qt-ghi/data/results.json",
+      "json_pointers": [
+        "/hedge",
+        "/paired",
+        "/hand",
+        "/pricing"
+      ]
+    }
+  }
+]
+```
+
+## Sources
+- [Mini-SPX Index Options Contract Specifications](https://www.cboe.com/tradable_products/sp_500/mini_spx_options/specifications): SPX/10 指数、100 美元乘数、欧式与下一营业日现金交付；不提供真实历史报价、可买卖指数股或券商入账秒。
+- [Lecture 19: Risk Neutral Pricing / Black–Scholes Formula](https://ocw.mit.edu/courses/18-s096-topics-in-mathematics-with-applications-in-finance-fall-2013/d19208c017ada04f9261cfb41ab8d702_MIT18_S096F13_lecnote19.pdf): call 公式与复制/PDE背景；不采用 slide16 将再平衡现金误说成确定过程的简述，完整 Gaussian/PDE/自融资核算在 QT24 定价分支。
+
+本批读取范围：delta复制与模型价格；现金实际按明确自融资事件递推。
+
+## Content relations
+```json
+[
+  {
+    "from": "zh-qt24",
+    "relation": "part_of",
+    "to": "quant-processes",
+    "reason": "主要 topic 归属"
+  },
+  {
+    "from": "zh-qt24",
+    "relation": "supported_by",
+    "to": "QGHI-CBOE-XSP",
+    "reason": "SPX/10 指数、100 美元乘数、欧式与下一营业日现金交付；不提供真实历史报价、可买卖指数股或券商入账秒。",
+    "locator": "Underlying、Multiplier、Exercise Style、Settlement of Option Exercise",
+    "scope": "完整相关合约条款"
+  },
+  {
+    "from": "zh-qt24",
+    "relation": "supported_by",
+    "to": "QGHI-MIT-BS13",
+    "reason": "call 公式与复制/PDE背景；不采用 slide16 将再平衡现金误说成确定过程的简述，完整 Gaussian/PDE/自融资核算在 QT24 定价分支。",
+    "locator": "Slides 13–22",
+    "scope": "call、PDE、复制背景完整单元",
+    "branch": "pricing"
+  },
+  {
+    "from": "qt24-pricing",
+    "relation": "uses_method",
+    "to": "qt17-theorem",
+    "reason": "仅定价分支使用 Itô 公式。",
+    "branch": "pricing"
+  },
+  {
+    "from": "qt24-distribution",
+    "relation": "illustrated_by",
+    "to": "EXP-HEDGE-01",
+    "reason": "唯一冻结输入在本篇的对应视图。"
+  },
+  {
+    "from": "qt24-contract",
+    "relation": "supported_by",
+    "to": "QGHI-MIT-BS13",
+    "reason": "对应本段作者已著明脚注；教学模型及本站补全证明的身份沿原脚注保留。",
+    "locator": "Vasily Strela，MIT 18.S096，Lecture 19，Fall 2013，slides 13–22（尤其 slide19 call/delta 公式）；[公开讲义](https://ocw.mit.edu/courses/18-s096-topics-in-mathematics-with-applications-in-finance-fall-2013/d19208c017ada04f9261cfb41ab8d702_MIT18_S096F13_lecnote19.pdf)。数值参数是本文具名教学模型，不是讲义中的历史报价。",
+    "scope": "只支持此处脚注具名的定义、条件、证明或原表单元。",
+    "citation_labels": [
+      "bs"
+    ]
+  },
+  {
+    "from": "qt24-real-rules",
+    "relation": "supported_by",
+    "to": "QGHI-CBOE-XSP",
+    "reason": "对应本段作者已著明脚注；教学模型及本站补全证明的身份沿原脚注保留。",
+    "locator": "Cboe，*XSP Options Product Specification*，Underlying、Multiplier、Exercise Style、Settlement of Option Exercise；[官方规则](https://www.cboe.com/tradable_products/sp_500/mini_spx_options/specifications)，2026-09-21 核对。该规则不支持券商 booking 的精确时点。",
+    "scope": "只支持此处脚注具名的定义、条件、证明或原表单元。",
+    "citation_labels": [
+      "xsp"
+    ]
+  },
+  {
+    "from": "qt24-real-rules",
+    "relation": "supported_by",
+    "to": "QTDE-MARKOWITZ",
+    "reason": "对应本段作者已著明脚注；教学模型及本站补全证明的身份沿原脚注保留。",
+    "locator": "Stephen Boyd、Kasper Johansson、Ronald Kahn、Philipp Schiele、Thomas Schmelzer，*Markowitz Portfolio Construction at Seventy*，2024-01-05 公开稿，§2.2–2.4、§3.4–3.5、§4.1–4.3；[原文](https://web.stanford.edu/~boyd/papers/pdf/markowitz.pdf)。这里只采用成本、预测和约束对象，不引其策略绩效。",
+    "scope": "只支持此处脚注具名的定义、条件、证明或原表单元。",
+    "citation_labels": [
+      "cost"
+    ]
+  }
+]
+```
+
+## Related entries

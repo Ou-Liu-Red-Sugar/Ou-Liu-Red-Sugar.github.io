@@ -1,0 +1,298 @@
+{
+  "id": "zh-qt02",
+  "node_id": "QT02",
+  "slug": "probability-events",
+  "lang": "zh",
+  "title": "情景、事件与概率",
+  "summary": "我们先固定观察期限，再说明期末可能发生哪些结果。",
+  "subject": "quant",
+  "topic": "quant-foundations",
+  "kind": "reference",
+  "template": "T10",
+  "role": "基础参考",
+  "study_time": "按疑点查阅；不凑 10–20 分钟",
+  "revised": "2026-09-21",
+  "content_version": "2026-09-21-review-v2",
+  "status": "accepted_local",
+  "learning_task": "我们先固定观察期限，再说明期末可能发生哪些结果。讨论“未来某次合约结算”与“明天收盘”是不同的问题，不能共用一张未注明期限的情景表。",
+  "audience": "高年级本科至研究生；默认微积分、线性代数和基本概率",
+  "hard_prerequisites": [],
+  "local_references": [],
+  "recommended_next": "QT03",
+  "recommended_next_status": "batch_candidate",
+  "body_markdown": "<span id=\"qt02-definitions\"></span>\n\n## 定义与约定\n\n我们先固定观察期限，再说明期末可能发生哪些结果。讨论“未来某次合约结算”与“明天收盘”是不同的问题，不能共用一张未注明期限的情景表。\n\n**定义。** 令 $\\Omega$ 为非空集合，$\\mathcal F$ 为其上的 $\\sigma$-代数，即包含空集、对补集和可数并封闭的一族子集，则 $\\Omega$ 称为样本空间，$\\omega\\in\\Omega$ 是一个基本结果，$A\\in\\mathcal F$ 称为事件。给定概率测度 $\\mathbb P\\colon\\mathcal F\\to[0,1]$，要求 $\\mathbb P(\\Omega)=1$，且对两两不交的可数事件族满足可列可加性。[^mit]\n\n有限模型中可取 $\\mathcal F=2^\\Omega$。设 $\\Omega=\\{\\omega_1,\\ldots,\\omega_n\\}$，给定 $p_i\\ge0$ 且 $\\sum_i p_i=1$，则 $\\mathbb P(A)=\\sum_{\\omega_i\\in A}p_i$。权重 0 允许出现，不因此删除该结果；“概率为零”与“事件为空”不是同一句话。\n\n<span id=\"qt02-event-example\"></span>\n\n## 一个足以分清边界的例子\n\n约定期限为**教学模型中的一次期末结算 $T$**，不是某个已核挂牌到期日。三个基本结果分别标记为结算值 5,900、6,000、6,100 点，权重为 0.2、0.5、0.3。数值和权重都由教学模型给定，不是观测频率或市场隐含概率。\n\n| 结果 | 结算情景标签（点） | $p_i$ | $A$：不超过 6,000 | $B$：不低于 6,000 |\n|---|---:|---:|---|---|\n| $\\omega_1$ | 5,900 | 0.2 | 是 | 否 |\n| $\\omega_2$ | 6,000 | 0.5 | 是 | 是 |\n| $\\omega_3$ | 6,100 | 0.3 | 否 | 是 |\n\n于是 $\\mathbb P(A)=0.7$、$\\mathbb P(B)=0.8$，但并集概率不是 1.5。两者覆盖全部模型结果，却在 $\\omega_2$ 处重叠。**穷尽不等于互斥。** 三个基本结果在本模型内穷尽，也不等于它们已覆盖现实市场的所有结算可能性。\n\n**命题（二事件容斥）。** 对事件 $A,B$，有 $\\mathbb P(A\\cup B)=\\mathbb P(A)+\\mathbb P(B)-\\mathbb P(A\\cap B)$。\n\n**证明。** 把并集分成两两不交的 $A\\setminus B$、$A\\cap B$、$B\\setminus A$，用可加性求和。分别展开 $\\mathbb P(A)$ 与 $\\mathbb P(B)$，会把中间一块数两遍，减去一次便得到结论。这个证明不要求 $A,B$ 独立。\n\n本例结果为 $0.7+0.8-0.5=1$；补事件 $A^c=\\{\\omega_3\\}$ 的概率为 0.3。事件属于哪些结果，与采用什么权重，是两层输入；改权重不必改变事件集合。\n\n<span id=\"qt02-self-check\"></span>\n\n<div data-experiment-slot=\"lab-qt02\"></div>\n\n## 检查与使用位置\n\n**解释题。** 刚才 $A$、$B$ 的概率和超过 1，是否说明模型权重不合法？\n\n**解析。** 不是。基本结果权重仍非负且和为 1；超过 1 来自重复计入交集。应检查集合重叠，而不是强行把 $0.7,0.8$ 归一化。\n\n**迁移题。** 把 $B$ 改为“严格大于 6,000”。哪些概率改变？\n\n**解析。** $B=\\{\\omega_3\\}$，概率降为 0.3；它与 $A$ 不交，交集概率变成 0；并集仍为全部模型结果，概率仍为 1。变化来自把边界情景 $\\omega_2$ 移出 $B$，不是重新估计了市场概率。\n\n[交互页](/notebook/labs/qt-a/interactions.html#qt02) 可以点选结果组成 $A,B$ 并修改三项权重。权重非法时应停算，不能自动归一化掩盖问题。没有脚本时，上表与两道题的结果就是静态替代。\n\n本页用于 QT03 的映射、QT05 的条件概率，以及 QT07 的信息分组。不要求先读 QT01；只有需要处理真实历史数据时，才按任务调用数据版本方法。概率权重的数学自洽并不证明其经验合理性，市场报价也不在这里自动变成现实发生率。\n\n[^mit]: MIT 6.436J/15.085J，Fall 2018，[Lecture 1: Probabilistic Models and Probability Measures](https://ocw.mit.edu/courses/6-436j-fundamentals-of-probability-fall-2018/c37dc8b61cdf6bde689a627bfa5b4942_MIT6_436JF18_lec01.pdf)。指定范围：§3 Definition 1（p.3），§4 Definition 2（pp.4–5），§5 Definition 3（pp.7–8）、Proposition 2 及两事件公式（pp.9–10，上半页至 Finite Additivity 之前）。本页不需要后续单调类定理。\n",
+  "anchors": [
+    {
+      "id": "qt02-definitions",
+      "title": "定义与约定",
+      "kind": "section",
+      "preview": "我们先固定观察期限，再说明期末可能发生哪些结果。"
+    },
+    {
+      "id": "qt02-event-example",
+      "title": "一个足以分清边界的例子",
+      "kind": "section",
+      "preview": "约定期限为**教学模型中的一次期末结算 $T$**，不是某个已核挂牌到期日。"
+    },
+    {
+      "id": "qt02-self-check",
+      "title": "检查与使用位置",
+      "kind": "section",
+      "preview": "**解释题。"
+    }
+  ],
+  "anchor_aliases": [],
+  "references": [
+    {
+      "kind": "link",
+      "label": "交互页",
+      "href": "/notebook/labs/qt-a/interactions.html#qt02"
+    },
+    {
+      "kind": "link",
+      "label": "Lecture 1: Probabilistic Models and Probability Measures",
+      "href": "https://ocw.mit.edu/courses/6-436j-fundamentals-of-probability-fall-2018/c37dc8b61cdf6bde689a627bfa5b4942_MIT6_436JF18_lec01.pdf"
+    },
+    {
+      "kind": "footnote",
+      "id": "mit",
+      "source_ids": [
+        "QP01-L01"
+      ]
+    }
+  ],
+  "interactions": [
+    {
+      "id": "lab-qt02",
+      "title": "情景、事件与概率",
+      "url": "/notebook/labs/qt-a/interactions.html#qt02",
+      "static_anchor": "qt02-event-example",
+      "open": true,
+      "height": 880
+    }
+  ],
+  "sources": [
+    "QP01-L01"
+  ],
+  "relations": [
+    {
+      "from": "QT02",
+      "relation": "part_of",
+      "to": "quant-foundations",
+      "reason": "有限情景与概率的可查定义",
+      "target_kind": "topic"
+    },
+    {
+      "from": "QT02",
+      "relation": "illustrated_by",
+      "to": "EXP-PAYOFF-MAP-01",
+      "reason": "事件边界与权重分开"
+    },
+    {
+      "from": "QT02",
+      "relation": "supported_by",
+      "to": "QP01-L01",
+      "reason": "概率空间、可加性和容斥公式",
+      "scope": "指定定义与 Proposition 2；两事件证明由本页补全",
+      "locator": "§§1–4，约 pp.1–7；§5 Definition 3、Proposition 2，约 pp.7–10"
+    },
+    {
+      "from": "QT02",
+      "relation": "informs",
+      "to": "QT03",
+      "reason": "提供同一情景集及模型权重"
+    }
+  ],
+  "experiments": [
+    {
+      "id": "EXP-PAYOFF-MAP-01",
+      "title": "同一情景、事件与支付映射",
+      "anchor": "qt02-event-example",
+      "description": "one hypothetical terminal settlement T; no actual listed expiry",
+      "inputs": {
+        "probability": {
+          "experiment_id": "EXP-PAYOFF-MAP-01",
+          "horizon": "one hypothetical terminal settlement T; no actual listed expiry",
+          "status": "teaching_assumption",
+          "states": [
+            "w1",
+            "w2",
+            "w3"
+          ],
+          "settlement_points": [
+            5900,
+            6000,
+            6100
+          ],
+          "weights": [
+            0.2,
+            0.5,
+            0.3
+          ],
+          "event_A": [
+            true,
+            true,
+            false
+          ],
+          "event_B": [
+            false,
+            true,
+            true
+          ]
+        },
+        "payoff": {
+          "status": "real_product_terms_with_hypothetical_strike_prices_probabilities_premium",
+          "contract_source": "CBOE-SPX-20260921",
+          "type": "call",
+          "strike": 6000,
+          "multiplier": 100,
+          "premium_points": 30,
+          "fees": 0,
+          "funding_cost": 0,
+          "tax": 0,
+          "uniform_alternative": {
+            "status": "separate_fixed_teaching_model",
+            "low": 5900,
+            "high": 6100,
+            "strike": 6000,
+            "multiplier": 100,
+            "query_y": 5000
+          },
+          "product_cash_delivery_timing": "business day following expiration (Cboe fact sheet); account booking not modelled"
+        }
+      },
+      "outputs": {
+        "events": {
+          "P_A": 0.7,
+          "P_B": 0.8,
+          "P_intersection": 0.5,
+          "P_union": 1,
+          "P_A_complement": 0.3
+        },
+        "payoff": {
+          "payoff_usd": [
+            0,
+            0,
+            10000
+          ],
+          "net_pnl_usd": [
+            -3000,
+            -3000,
+            7000
+          ],
+          "distribution": [
+            {
+              "value": 0,
+              "mass": 0.7
+            },
+            {
+              "value": 10000,
+              "mass": 0.3
+            }
+          ]
+        },
+        "uniform": {
+          "zero_atom_mass": 0.5,
+          "positive_mass": 0.5,
+          "positive_density_per_usd": 5e-05,
+          "cdf": 0.75
+        }
+      },
+      "outputs_origin": "QT-A review-v2 local Node verification (2026-09-20T18:18:09.193Z; 34/34); independent default recomputation matched",
+      "url": "/notebook/labs/qt-a/interactions.html#qt02"
+    }
+  ],
+  "prompt": "你负责 QT02「情景、事件与概率」，这是按疑点使用的短参考，不是初等概率完整课程。\n先实际读取本页正文，再打开脚注 MIT Lecture 1 的指定定义、Proposition 2 及两事件公式，记录取得的版本和范围。原件容斥证明留作练习，不要伪称原件已给完整证明；使用本页的不交分解证明。来源失败则寻找可核对的等价原文；未取得相应单元前不声称已满足阅读要求。\n请读者直接判断例中 A、B 是否互斥且穷尽，并算出交并概率；若已掌握，跳过重复解释，改问边界从“≥”到“>”怎样影响结果。\n必须检查观察期限、模型结果是否穷尽、权重是否非负归一；不要自动归一化错误输入。用三个不交块解释容斥，不引入未要求的独立性或条件概率课程。\n理解标准：读者能解释 0.7+0.8 为什么不是并集概率，能迁移等号边界，也知道这些是假设权重而不是现实发生率。无需 QT01 先修，不读账户或推荐交易。缺什么就只补什么，不凑满 20 分钟。",
+  "agent_packet": {
+    "entry_id": "zh-qt02",
+    "node_id": "QT02",
+    "content_version": "2026-09-21-review-v2",
+    "export_mode": "public",
+    "audience": "高年级本科至研究生；默认微积分、线性代数和基本概率",
+    "selected_branch": "full_entry",
+    "learning_task": "我们先固定观察期限，再说明期末可能发生哪些结果。讨论“未来某次合约结算”与“明天收盘”是不同的问题，不能共用一张未注明期限的情景表。",
+    "body_source": "body_markdown",
+    "prompt": "你负责 QT02「情景、事件与概率」，这是按疑点使用的短参考，不是初等概率完整课程。\n先实际读取本页正文，再打开脚注 MIT Lecture 1 的指定定义、Proposition 2 及两事件公式，记录取得的版本和范围。原件容斥证明留作练习，不要伪称原件已给完整证明；使用本页的不交分解证明。来源失败则寻找可核对的等价原文；未取得相应单元前不声称已满足阅读要求。\n请读者直接判断例中 A、B 是否互斥且穷尽，并算出交并概率；若已掌握，跳过重复解释，改问边界从“≥”到“>”怎样影响结果。\n必须检查观察期限、模型结果是否穷尽、权重是否非负归一；不要自动归一化错误输入。用三个不交块解释容斥，不引入未要求的独立性或条件概率课程。\n理解标准：读者能解释 0.7+0.8 为什么不是并集概率，能迁移等号边界，也知道这些是假设权重而不是现实发生率。无需 QT01 先修，不读账户或推荐交易。缺什么就只补什么，不凑满 20 分钟。",
+    "required_readings": [
+      {
+        "source_id": "QP01-L01",
+        "title": "Lecture 1: Probabilistic Models and Probability Measures",
+        "authors": [
+          "MIT 6.436J / 15.085J course materials"
+        ],
+        "version": "Fall 2018",
+        "access": {
+          "kind": "pdf_full_text",
+          "uri": "https://ocw.mit.edu/courses/6-436j-fundamentals-of-probability-fall-2018/c37dc8b61cdf6bde689a627bfa5b4942_MIT6_436JF18_lec01.pdf",
+          "verified_access_at": "2026-09-21"
+        },
+        "required_unit": {
+          "locator": "§3 Definition 1（p.3），§4 Definition 2（pp.4–5），§5 Definition 3（pp.7–8）、Proposition 2 及两事件公式（pp.9–10，上半页至 Finite Additivity 之前）",
+          "scope": "MIT 6.436J/15.085J，Fall 2018，[Lecture 1: Probabilistic Models and Probability Measures](https://ocw.mit.edu/courses/6-436j-fundamentals-of-probability-fall-2018/c37dc8b61cdf6bde689a627bfa5b4942_MIT6_436JF18_lec01.pdf)。指定范围：§3 Definition 1（p.3），§4 Definition 2（pp.4–5），§5 Definition 3（pp.7–8）、Proposition 2 及两事件公式（pp.9–10，上半页至 Finite Additivity 之前）。本页不需要后续单调类定理。",
+          "purpose": "概率空间、可加性和容斥公式"
+        },
+        "supports": "概率空间、可加性和容斥公式",
+        "limits": "原文把有限容斥的证明留作练习；QT02 的二事件证明是本篇给出的推导，不冒称原文已完整证明。",
+        "fallback_source_ids": []
+      }
+    ],
+    "optional_readings": [],
+    "reading_protocol": "1. **确认当前学习范围。** 使用所选分支及本篇正文；先修仅诊断本篇确实需要的内容。识别必读材料，选读材料只有被采用时才转成对应问题的必读。\n2. **实际获取。** 用浏览/文件读取工具打开指定 URL 或随包文件。核对返回的标题/版本/范围，发现只有摘要、登录页、目录或文件清单时如实记录，继续找明确可读的正文入口。\n3. **完整读取所需单元。** 分页或分块读取到所需单元结束，包含前文约定、必要表图和脚注。PDF 符号或图表解析不可靠时查看原页；TeX 读取相关宏定义与 include 文件。不能只看搜索命中的几行。\n4. **形成简短内容对应。** 每项记录实际位置、读到的关键设定和它支持哪一步教学。例如“§5.10 的训练集仅含当前预测点之前的观测；该限制需要落实到预处理拟合，不仅是分割最终数据表”。后半句若为本站推论须标为推论。\n5. **满足后才开始该范围的实质教学。** 所有当前必读单元读完之后，基于材料给一项高密度诊断任务或按读者要求直接讲解。引用跟着对应命题或计算，不在末尾堆书名。\n6. **读取失败时自动处理缺口。** 先尝试指定的可读等价版本或作者/机构正式全文，不新造批准步骤。等价性包括版本、条款期间、定义和假设；新的替代来源实际读完后记录采用范围。仍缺失则说明具体缺少哪一个必读单元及原因，不凭训练记忆补成已读讲解，不宣称已完成本篇。\n\n“读取校验”依赖实际取得的内容及其位置、与教学相关的设定复述；不靠让模型报一句“我已阅读”，不引入无意义哈希或重复下载。它不能从技术上保证理解，但能让来源与使用之间可检查。",
+    "supplied_inputs": {
+      "data_version": "2026-09-21-QT-A-review-v2",
+      "inputs": {
+        "probability": {
+          "experiment_id": "EXP-PAYOFF-MAP-01",
+          "horizon": "one hypothetical terminal settlement T; no actual listed expiry",
+          "status": "teaching_assumption",
+          "states": [
+            "w1",
+            "w2",
+            "w3"
+          ],
+          "settlement_points": [
+            5900,
+            6000,
+            6100
+          ],
+          "weights": [
+            0.2,
+            0.5,
+            0.3
+          ],
+          "event_A": [
+            true,
+            true,
+            false
+          ],
+          "event_B": [
+            false,
+            true,
+            true
+          ]
+        }
+      },
+      "default_outputs": {
+        "events": {
+          "P_A": 0.7,
+          "P_B": 0.8,
+          "P_intersection": 0.5,
+          "P_union": 1,
+          "P_A_complement": 0.3
+        }
+      },
+      "outputs_origin": "QT-A review-v2 local Node verification (2026-09-20T18:18:09.193Z; 34/34); independent default recomputation matched"
+    },
+    "runtime_reading_log": []
+  },
+  "agent_markdown": "## 计算输入与默认输出\n\n同源对象为 `experiments.json` 的 `probability`；期限为教学结算 $T$，不存在行情采集声明。\n\n```json\n{\"experiment_id\":\"EXP-PAYOFF-MAP-01\",\"states\":[\"w1\",\"w2\",\"w3\"],\"settlement_points\":[5900,6000,6100],\"weights\":[0.2,0.5,0.3],\"event_A\":[true,true,false],\"event_B\":[false,true,true],\"outputs\":{\"P_A\":0.7,\"P_B\":0.8,\"P_intersection\":0.5,\"P_union\":1,\"P_A_complement\":0.3}}\n```\n\n```text\nP(A) = sum_i weights[i] * Number(event_A[i])\nP(A intersection B) = sum_i weights[i] * Number(event_A[i] && event_B[i])\nP(A union B) = sum_i weights[i] * Number(event_A[i] || event_B[i])\n```\n\nHTML `#qt02` 为每个情景给出 A、B 复选框及有标签的权重输入，显示全部五项概率。默认输出是上面的精确值。接受条件为每项有限、非负且和为 1；浮点校验容差 `1e-12` 只处理机器舍入，不修改输入。错误用文字解释；全不选的事件返回概率 0。静态表常驻，所有操作可用键盘，打印保留默认权重与输出。\n",
+  "provenance": {
+    "source_file": "docs/production/20260921/drafts/qt-a-v2/QT-A-revised/QT02-probability-events.md",
+    "source_package_version": "2026-09-21-review-v2",
+    "source_status": "review_complete_awaiting_lead_adoption",
+    "source_reading_record": "原作者 sources.json 的阅读登记；不是本次或未来教学 Agent 的运行日志",
+    "import_status": "adopted_canonical",
+    "appendix_omitted": "编辑核读进度、教学自查及已落实修正；原文件保持原样",
+    "lead_acceptance": "docs/production/20260921/receipts/first-wave-local-acceptance.md"
+  }
+}

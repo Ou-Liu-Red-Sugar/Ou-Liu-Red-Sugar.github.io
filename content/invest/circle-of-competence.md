@@ -1,4 +1,5 @@
 ---
+aliases: ["/invest/circle-of-competence/"]
 title: "Circle of Competence"
 description: "Where I have edge, where I'm learning, where I should fast-skip."
 date: 2026-05-18

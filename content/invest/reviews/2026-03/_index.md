@@ -1,4 +1,5 @@
 ---
+aliases: ["/invest/reviews/2026-03/"]
 title: "Monthly Review — March 2026"
 description: "First geopolitical stress test: the Iran war, a PGR capitulation that closed a nine-month accumulation, and a TACO ceasefire that broke my single-scenario plan. Discipline held; pre-committed action framework did not."
 date: 2026-03-31

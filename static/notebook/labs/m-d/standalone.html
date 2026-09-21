@@ -1,0 +1,556 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>M-D · 合约与资金实验</title><style>
+:root{color-scheme:light;--ink:#172b3c;--muted:#526574;--line:#cdd9df;--accent:#125d78;--paper:#fff;--bg:#f3f6f6}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.8 system-ui,-apple-system,"Noto Sans CJK SC","Microsoft YaHei",sans-serif}header.site,main,footer{max-width:1160px;margin:auto;padding:24px}h1{font-size:30px;line-height:1.35;margin:10px 0 20px}h2{font-size:26px;line-height:1.4;margin:0 0 12px}.eyebrow{font-size:13px;letter-spacing:.12em;font-weight:700;color:var(--accent);margin:0 0 10px}p{margin:10px 0 18px}nav{display:flex;flex-wrap:wrap;gap:9px;margin:20px 0 6px}a,summary{color:var(--accent)}nav a{padding:5px 10px;background:white;border:1px solid var(--line);border-radius:5px;font-size:14px;text-decoration:none}.lab{background:var(--paper);border:1px solid var(--line);padding:28px;margin-bottom:26px;border-radius:10px;scroll-margin-top:12px}.lab[hidden]{display:none}.fact,.notice{background:#eaf2f4;border-left:4px solid var(--accent);padding:12px 16px;font-size:15px}form{padding:18px 0;border-block:1px solid var(--line)}.fields{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px 18px}label{font-size:14px;font-weight:600;display:flex;flex-direction:column;gap:5px}.check{flex-direction:row;align-items:center;font-weight:500;line-height:1.6}.check input{width:19px;height:19px;flex-shrink:0}input,select,button{font:inherit;min-height:42px;border:1px solid #96acb9;border-radius:5px;background:#fff;color:var(--ink);padding:7px 10px}input,select{width:100%;font-variant-numeric:tabular-nums}button{cursor:pointer;font-size:14px;white-space:normal}button[type=submit]{background:var(--accent);color:#fff;border-color:var(--accent)}.actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}:focus-visible{outline:3px solid #a66815;outline-offset:2px}.output{margin:22px 0}.metrics{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}.metric{border:1px solid var(--line);padding:13px;border-radius:6px;min-width:0}.metric span{display:block;color:var(--muted);font-size:13px}.metric strong{font-variant-numeric:tabular-nums;font-size:22px;overflow-wrap:anywhere;font-weight:700}.status{padding:12px 16px;border-left:4px solid #317353;background:#eef6f0;margin-bottom:14px}.status.blocked{border-color:#a16024;background:#fff5e9}.status.error{border-color:#aa3541;background:#fff0f0}.table-scroll{overflow-x:auto;margin:16px 0;border:1px solid var(--line);border-radius:4px}table{width:100%;border-collapse:collapse;font-size:14px;font-variant-numeric:tabular-nums}caption{padding:10px;text-align:left;font-weight:600;line-height:1.5;background:#eef3f5}th,td{padding:8px 10px;border-bottom:1px solid var(--line);text-align:right;vertical-align:top}th:first-child,td:first-child{text-align:left}th{background:#f4f7f8;font-size:13px;white-space:nowrap}td{min-width:70px}tbody tr:last-child td{border-bottom:0}.static{margin-top:22px}.static summary{cursor:pointer;font-weight:600;font-size:15px}.plot{display:block;width:100%;max-height:280px;margin:15px 0;border:1px solid var(--line);border-radius:5px;background:#fcfefe}.plot text{font:12px system-ui,sans-serif}.plot .axis{stroke:#a4b4bd;stroke-width:1}.plot .series0{fill:none;stroke:#145c77;stroke-width:2.5}.plot .series1{fill:none;stroke:#946034;stroke-width:2;stroke-dasharray:7 5}.plot .series2{fill:none;stroke:#4c6b55;stroke-width:2;stroke-dasharray:2 4}.small{font-size:14px;color:var(--muted)}.event{padding:16px;border:1px solid var(--line);margin:15px 0}.event h3{margin:0;font-size:18px}footer{font-size:13px;color:var(--muted)}body.focused .site h1{font-size:22px}body.focused .site>p:not(.eyebrow){display:none}body.focused .site{padding-bottom:0}body.focused main{padding-top:12px}@media(max-width:650px){body{font-size:16px}header.site,main,footer{padding:14px}.lab{padding:18px 14px}h1{font-size:25px}h2{font-size:23px}.fields{grid-template-columns:1fr 1fr}.metrics{grid-template-columns:1fr}.metric strong{font-size:21px}.check{grid-column:1/-1}table{font-size:13px}.actions button{flex:1 1 140px}nav a{font-size:12px}.plot{min-height:210px}}@media(max-width:360px){.fields{grid-template-columns:1fr}}@media print{body{background:white;font-size:10pt}.site nav,form,.output,footer{display:none!important}.lab,.lab[hidden]{display:block!important;border:0;border-top:1px solid #888;border-radius:0;padding:12px 0;break-inside:auto}main,.site{max-width:none;padding:0}.static{display:block}.static>*{display:block!important}.table-scroll{overflow:visible}table{font-size:9pt}th,td{padding:4px}h2{font-size:17pt}.fact{padding:6px}a{color:inherit}.static summary{list-style:none}.site h1{font-size:18pt}}
+
+body,input,select,button,svg text{font-variant-numeric:lining-nums tabular-nums}
+.embedded header.site,.embedded footer{display:none}.embedded main{padding:0}.embedded .lab{margin:0;border:0;border-radius:0;padding:16px}.static-page{background:white}
+@media print{.embedded .lab[hidden]{display:none!important}.attachments{display:none}}
+
+</style><script defer src="/js/notebook-number-format.js" data-notebook-numbers></script>
+</head><body>
+<header class="site" id="all"><p class="eyebrow">金融市场与金融工具 · M-D</p><h1>合约与现金，是两张需要勾稽的账</h1><p>读条款，算每个时点，再检查能否履约。以下价格与资金变式不是交易指令。</p><nav aria-label="实验导航"><a href="?experiment=exp-md-m10-contract#exp-md-m10-contract">M10 合约、单位与负价格</a><a href="?experiment=exp-md-m11-margin#exp-md-m11-margin">M11 逐日资金与追缴截止</a><a href="?experiment=exp-md-m12-carry#exp-md-m12-carry">M12 持有成本与现金时点</a><a href="?experiment=exp-md-m13-roll#exp-md-m13-roll">M13 交割事件与双合约展期</a><a href="?experiment=exp-md-m14-swap#exp-md-m14-swap">M14 互换两腿与匹配条件</a><a href="?experiment=all#all" class="all-link">显示全部五个实验</a></nav></header>
+<noscript><p class="notice">JavaScript未启用：下方五组静态表保留全部默认结果与主要边界。</p></noscript><main><section class="lab" id="exp-md-m10-contract" data-node="M10" aria-labelledby="m10-heading">
+ <header><p class="eyebrow">M10 · 学习实验</p><h2 id="m10-heading">合约、单位与负价格</h2><p>CL规则是只读原件；75→76为教学价格。历史18.27→−37.63为结算观测配假设持仓。</p></header><p class="fact">只读规格：CL／1,000美制桶每张／0.01美元每桶一跳／取得日2026-09-21。名义量≠初始付款，保证金水平未在本面板提供。</p>
+ <form id="form-m10" class="controls" novalidate><div class="fields"><label for="c-side">方向<select id="c-side"><option value="long">多头</option><option value="short">空头</option></select></label><label for="c-n">张数<input id="c-n" type="number" value="1" min="1" max="50" step="1" required></label><label for="c-entry">起价（美元/桶，教学）<input id="c-entry" type="number" value="75" min="-1000" max="1000" step="0.01" required></label><label for="c-next">后价（美元/桶，教学）<input id="c-next" type="number" value="76" min="-1000" max="1000" step="0.01" required></label></div><div class="actions"><button type="button" data-action="contract-default">教学默认</button><button type="button" data-action="contract-history">历史负价窗口</button><button type="button" data-action="contract-short">三张空头</button><button type="submit">按当前输入重算</button></div></form>
+ <p class="small source-links">原始材料：<a href="https://www.cmegroup.com/content/dam/cmegroup/rulebook/NYMEX/2/200.pdf" target="_blank" rel="noopener">MD-S02 NYMEX Rulebook Chapter 200: Light Sweet Crude Oil Futures</a> · <a href="https://www.cftc.gov/media/5296/InterimStaffReportNYMEX_WTICrudeOil/download" target="_blank" rel="noopener">MD-S03 WTI Interim Staff Report: Trading leading up to, on and around April 20, 2020</a></p><div id="out-m10" class="output" role="region" aria-live="polite" aria-label="M10计算结果"><p>默认结果在下方静态表中。启用JavaScript后可更改教学输入。</p></div>
+ <details class="static" open><summary>静态默认与关键变式（无需JavaScript）</summary><div class="table-scroll" tabindex="0"><table><caption>M10 静态等价：合约、单位和历史边界</caption><thead><tr><th scope="col">字段</th><th scope="col">默认结果</th></tr></thead><tbody><tr><td>CL标准量</td><td>1,000美制桶/张</td></tr><tr><td>tick</td><td>0.01美元/桶 → 10美元/张</td></tr><tr><td>教学75→76，一张多头</td><td>1,000.00美元</td></tr><tr><td>三张空头同路径</td><td>−3,000美元</td></tr><tr><td>18.27→−37.63，一张假设多头</td><td>−55,900美元</td></tr><tr><td>负报价乘数量</td><td>不是建立头寸时可提取的现金</td></tr></tbody></table></div></details>
+ <p class="small attachments"><a href="inputs.json" target="_blank" rel="noopener">本组输入与单位</a> · <a href="static/M10.html" target="_blank" rel="noopener">本篇静态表</a> · <a href="default-results.json" target="_blank" rel="noopener">默认计算结果</a></p>
+</section><section class="lab" id="exp-md-m11-margin" data-node="M11" aria-labelledby="m11-heading">
+ <header><p class="eyebrow">M11 · 学习实验</p><h2 id="m11-heading">逐日资金与追缴截止</h2><p>客户教学账户，非历史CME保证金。相等不触发；已触发要求须补到IM。</p></header><p class="fact">截止规则：结算后检查，Dᵢ前资金到账后才进入下一阶段。迟到或不足时停止；图只画已经资助的阶段，不补造强平。</p>
+ <form id="form-m11" class="controls" novalidate><div class="fields"><label for="m-path">合成路径<select id="m-path"><option value="A">A：先跌后回升</option><option value="B">B：平缓上升</option></select></label><label for="m-n">张数<input id="m-n" type="number" value="1" min="1" max="50" step="1" required></label><label for="m-cash">起点总现金（美元）<input id="m-cash" type="number" value="12000" min="0" max="100000000" step="100" required></label><label for="m-im">每张初始余额要求IM<input id="m-im" type="number" value="8000" min="0" max="10000000" step="100" required></label><label for="m-mm">每张维持线MM<input id="m-mm" type="number" value="6500" min="0" max="10000000" step="100" required></label><label class="check"><input id="m-raised" type="checkbox" >阶段2结算后改为每张IM10,000/MM8,500</label><label class="check"><input id="m-time" type="checkbox" checked >转款赶上模型截止Dᵢ</label></div><div class="actions"><button type="button" data-action="margin-default">路径A默认</button><button type="button" data-action="margin-raised">提高保证金变式</button><button type="button" data-action="margin-lowcash">现金11,000</button><button type="submit">按当前输入重算</button></div></form>
+ <p class="small source-links">原始材料：<a href="https://www.cmegroup.com/clearing/files/CME-Money-Calculations-Futures-and-Options.pdf" target="_blank" rel="noopener">MD-S05 Money Calculations for CME-cleared Futures and Options</a> · <a href="https://www.cmegroup.com/education/courses/understanding-the-benefits-of-futures/the-benefits-of-futures-margins" target="_blank" rel="noopener">MD-S05-MARGIN The Benefits of Futures Margins</a></p><div id="out-m11" class="output" role="region" aria-live="polite" aria-label="M11计算结果"><p>默认结果在下方静态表中。启用JavaScript后可更改教学输入。</p></div>
+ <details class="static" open><summary>静态默认与关键变式（无需JavaScript）</summary><div class="table-scroll" tabindex="0"><table><caption>路径A；教学IM 8,000/MM 6,500；单位美元</caption><thead><tr><th scope="col">阶段</th><th scope="col">价格</th><th scope="col">VM</th><th scope="col">转入前</th><th scope="col">要求</th><th scope="col">实际转入</th><th scope="col">尚欠</th><th scope="col">余额</th><th scope="col">外部现金</th></tr></thead><tbody><tr><td>1</td><td>73.50</td><td>-1,500.00</td><td>6,500.00</td><td>0.00</td><td>0.00</td><td>0.00</td><td>6,500.00</td><td>4,000.00</td></tr><tr><td>2</td><td>74.20</td><td>700.00</td><td>7,200.00</td><td>0.00</td><td>0.00</td><td>0.00</td><td>7,200.00</td><td>4,000.00</td></tr><tr><td>3</td><td>71.80</td><td>-2,400.00</td><td>4,800.00</td><td>3,200.00</td><td>3,200.00</td><td>0.00</td><td>8,000.00</td><td>800.00</td></tr><tr><td>4</td><td>75.60</td><td>3,800.00</td><td>11,800.00</td><td>0.00</td><td>0.00</td><td>0.00</td><td>11,800.00</td><td>800.00</td></tr></tbody></table></div><div class="table-scroll" tabindex="0"><table><caption>关键资金变式</caption><thead><tr><th scope="col">情景</th><th scope="col">最后余额</th><th scope="col">外部现金</th><th scope="col">总额/状态</th></tr></thead><tbody><tr><td>路径A</td><td>11,800</td><td>800</td><td>12,600；完成</td></tr><tr><td>路径B</td><td>8,600</td><td>4,000</td><td>12,600；完成</td></tr><tr><td>A阶段2提高IM/MM</td><td>8,800</td><td>0</td><td>阶段3尚欠1,200；停止，未算后续反弹</td></tr><tr><td>A起点现金11,000</td><td>7,800</td><td>0</td><td>阶段3尚欠200；停止</td></tr></tbody></table></div></details>
+ <p class="small attachments"><a href="inputs.json" target="_blank" rel="noopener">本组输入与单位</a> · <a href="static/M11.html" target="_blank" rel="noopener">本篇静态表</a> · <a href="default-results.json" target="_blank" rel="noopener">默认计算结果</a></p>
+</section><section class="lab" id="exp-md-m12-carry" data-node="M12" aria-labelledby="m12-heading">
+ <header><p class="eyebrow">M12 · 学习实验</p><h2 id="m12-heading">持有成本与现金时点</h2><p>一个可交付1,000桶的教学资金账；价格输入不是市场套利报价，便利服务不记现金。</p></header><p class="fact">固定1,000桶；所有借款按单利ACT/365；保证金和中段正现金报酬均为0。第30天是离散教学中段，不是实际CL结算频次。</p>
+ <form id="form-m12" class="controls" novalidate><div class="fields"><label for="k-spot">现货（美元/桶）<input id="k-spot" type="number" value="75" min="0" max="1000" step="0.01" required></label><label for="k-storage">仓储（美元/桶）<input id="k-storage" type="number" value="1" min="0" max="100" step="0.01" required></label><label for="k-timing">仓储付款时点<select id="k-timing"><option value="upfront">第0天</option><option value="end">到期日</option></select></label><label for="k-handling">末期交付費（美元/桶）<input id="k-handling" type="number" value="0.2" min="0" max="100" step="0.01" required></label><label for="k-rate">融资年率（%）<input id="k-rate" type="number" value="5.0" min="0" max="100" step="0.1" required></label><label for="k-days">总天数（ACT/365）<input id="k-days" type="number" value="90" min="31" max="3650" step="1" required></label><label for="k-forward">远期价/空期货起价<input id="k-forward" type="number" value="78" min="0" max="1000" step="0.01" required></label><label for="k-mid">第30天期货价<input id="k-mid" type="number" value="79" min="0" max="1000" step="0.01" required></label><label for="k-end">末期期货价<input id="k-end" type="number" value="77.5" min="0" max="1000" step="0.01" required></label><label for="k-im">借入的初始保证金<input id="k-im" type="number" value="8000" min="0" max="10000000" step="100" required></label><label class="check"><input id="k-store" type="checkbox" checked >能取得仓储</label><label class="check"><input id="k-fund" type="checkbox" checked >能取得所需融资</label><label class="check"><input id="k-deliver" type="checkbox" checked >满足油品/地点/接入</label></div><div class="actions"><button type="button" data-action="carry-default">默认前付仓储</button><button type="button" data-action="carry-late">仓储后付</button><button type="button" data-action="carry-stress">中段价82</button><button type="submit">按当前输入重算</button></div></form>
+ <p class="small source-links">原始材料：<a href="https://ocw.mit.edu/courses/15-401-finance-theory-i-fall-2008/a66f697aaeb23b8cfd2bda020172feb5_MIT15_401F08_lec08.pdf" target="_blank" rel="noopener">MD-S01 Finance Theory I, Lectures 8–9: Forwards and Futures</a> · <a href="https://www.eia.gov/dnav/pet/hist/RWTCD.htm" target="_blank" rel="noopener">MD-S04 Cushing, OK WTI Spot Price FOB — daily series RWTCD</a></p><div id="out-m12" class="output" role="region" aria-live="polite" aria-label="M12计算结果"><p>默认结果在下方静态表中。启用JavaScript后可更改教学输入。</p></div>
+ <details class="static" open><summary>静态默认与关键变式（无需JavaScript）</summary><div class="table-scroll" tabindex="0"><table><caption>M12 静态默认：全部为可融资、可存、可交付的教学条件</caption><thead><tr><th scope="col">时间/对象</th><th scope="col">金额（美元）</th></tr></thead><tbody><tr><td>起点借购油/仓储款</td><td>76,000.00</td></tr><tr><td>90日借款本息</td><td>76,936.99</td></tr><tr><td>90日交付費</td><td>200.00</td></tr><tr><td>全部终值成本</td><td>77,136.99</td></tr><tr><td>78远期净额</td><td>863.01</td></tr><tr><td>仓储后付：终值成本/净额</td><td>77,124.66 / 875.34</td></tr><tr><td>VM第30/90日</td><td>−1,000 / +1,500</td></tr><tr><td>VM/IM融资成本</td><td>8.22 / 98.63</td></tr><tr><td>期货资金时点变式净额</td><td>756.16</td></tr></tbody></table></div><div class="table-scroll" tabindex="0"><table><caption>非同步的历史日度观测，单位美元/桶</caption><thead><tr><th scope="col">日期2020</th><th scope="col">现货</th><th scope="col">May结算</th><th scope="col">June推算</th><th scope="col">S−F</th></tr></thead><tbody><tr><td>2020-04-17</td><td>18.31</td><td>18.27</td><td>25.03</td><td>0.04</td></tr><tr><td>2020-04-20</td><td>-36.98</td><td>-37.63</td><td>20.43</td><td>0.65</td></tr><tr><td>2020-04-21</td><td>8.91</td><td>10.01</td><td>11.57</td><td>-1.10</td></tr></tbody></table></div></details>
+ <p class="small attachments"><a href="inputs.json" target="_blank" rel="noopener">本组输入与单位</a> · <a href="static/M12.html" target="_blank" rel="noopener">本篇静态表</a> · <a href="default-results.json" target="_blank" rel="noopener">默认计算结果</a></p>
+</section><section class="lab" id="exp-md-m13-roll" data-node="M13" aria-labelledby="m13-heading">
+ <header><p class="eyebrow">M13 · 学习实验</p><h2 id="m13-heading">交割事件与双合约展期</h2><p>2020结算/月差仅作假设交易参考；当前相对交付规则不回填成2020历史日历。</p></header><p class="fact">只读参考：May 18.27／June 25.03（由月差推得）／下一June 20.43，美元/桶。建仓保证金变化未取得，日现金输出不含该项。</p>
+ <form id="form-m13" class="controls" novalidate><div class="fields"><label for="r-n">张数<input id="r-n" type="number" value="1" min="1" max="50" step="1" required></label><label for="r-entry">旧May建仓价（教学）<input id="r-entry" type="number" value="20" min="-1000" max="1000" step="0.01" required></label><label for="r-prev-mode">旧仓前一结算价<select id="r-prev-mode"><option value="unknown">未知：不计算旧仓当日现金</option><option value="known">给定教学前结算价</option></select></label><label for="r-prev">教学前结算价<input id="r-prev" type="number" value="19" min="-1000" max="1000" step="0.01" required></label><label for="r-old-slip">旧卖价不利滑点（美元/桶）<input id="r-old-slip" type="number" value="0" min="0" max="10" step="0.01" required></label><label for="r-new-slip">新买价不利滑点（美元/桶）<input id="r-new-slip" type="number" value="0" min="0" max="10" step="0.01" required></label><label for="r-fee">每腿每张手续费（美元）<input id="r-fee" type="number" value="0" min="0" max="1000" step="1" required></label><label for="r-event">读取当前规则事件<select id="r-event"><option value="last">最后交易日 L</option><option value="intent">L 后第1营业日</option><option value="notice">L 后第2营业日：Notice Day</option><option value="margin">L 后第3营业日</option><option value="physical">交割月首日至末日</option><option value="payment">交割次月20日及规则调整</option><option value="complete">完成通知与保证金退回</option></select></label></div><div class="actions"><button type="button" data-action="roll-default">前结算未知</button><button type="button" data-action="roll-known">前结算19</button><button type="button" data-action="roll-cost">滑点与手续费</button><button type="submit">按当前输入重算</button></div></form>
+ <p class="small source-links">原始材料：<a href="https://www.cmegroup.com/content/dam/cmegroup/rulebook/NYMEX/2/200.pdf" target="_blank" rel="noopener">MD-S02 NYMEX Rulebook Chapter 200: Light Sweet Crude Oil Futures</a> · <a href="https://www.cftc.gov/media/5296/InterimStaffReportNYMEX_WTICrudeOil/download" target="_blank" rel="noopener">MD-S03 WTI Interim Staff Report: Trading leading up to, on and around April 20, 2020</a></p><div id="out-m13" class="output" role="region" aria-live="polite" aria-label="M13计算结果"><p>默认结果在下方静态表中。启用JavaScript后可更改教学输入。</p></div>
+ <details class="static" open><summary>静态默认与关键变式（无需JavaScript）</summary><div class="table-scroll" tabindex="0"><table><caption>M13 静态等价：旧仓、月差、新仓与日现金</caption><thead><tr><th scope="col">对象</th><th scope="col">金额（美元）</th></tr></thead><tbody><tr><td>旧May累计损益</td><td>−1,730</td></tr><tr><td>May/June报价差乘数量</td><td>6,760；不是损失</td></tr><tr><td>新June后续损益</td><td>−4,600</td></tr><tr><td>两段总损益</td><td>−6,330</td></tr><tr><td>默认：旧仓当日现金</td><td>未知；缺前结算价</td></tr><tr><td>教学前结算19：此前/当日旧VM</td><td>−1,000 / −730</td></tr><tr><td>滑点0.02/0.03，费用每腿5</td><td>全期−6,390；已知前结算19时换月当日−790</td></tr></tbody></table></div><div class="table-scroll" tabindex="0"><table><caption>取得日2026-09-21；不是2020历史规则快照</caption><thead><tr><th scope="col">事件</th><th scope="col">当前相对规则</th></tr></thead><tbody><tr><td>最后交易日 L</td><td>交割月前月25日前第三个营业日；若25日非营业日，以其前最近营业日为基准再倒数三个营业日。上市后休业表变更有保留原到期日及前移例外。</td></tr><tr><td>L 后第1营业日</td><td>纽约时间15:00前，持仓清算会员提交接受或交付意向。不要将这一步称作实物已交付。</td></tr><tr><td>L 后第2营业日：Notice Day</td><td>清算所分配通知；收到通知的会员承担相应接受或交付安排，通知不可转让。</td></tr><tr><td>L 后第3营业日</td><td>清算会员须向买方收取等于完整货值的交割保证金；卖方另按交易所规定。另须交付指令及设施接入信息。</td></tr><tr><td>交割月首日至末日</td><td>安排实物交付及初步货权转移确认；调度和接入必须可行，不等于“有仓位就有仓储”。</td></tr><tr><td>交割次月20日及规则调整</td><td>货款基于最终结算价与交付量。周六或非周一休业日前移；周日或周一休业日后移。须依实际交易所/纽约银行日历。</td></tr><tr><td>完成通知与保证金退回</td><td>交付与付款完成并通知交易所后，按规则退回所持保证金；数量差异另依规定调整。不是第二次商品收入。</td></tr></tbody></table></div></details>
+ <p class="small attachments"><a href="inputs.json" target="_blank" rel="noopener">本组输入与单位</a> · <a href="static/M13.html" target="_blank" rel="noopener">本篇静态表</a> · <a href="default-results.json" target="_blank" rel="noopener">默认计算结果</a></p>
+</section><section class="lab" id="exp-md-m14-swap" data-node="M14" aria-labelledby="m14-heading">
+ <header><p class="eyebrow">M14 · 学习实验</p><h2 id="m14-heading">互换两腿与匹配条件</h2><p>AECOM FY2025披露字段＋教学贷款匹配；30/360并非已取得的公司确认书。</p></header><p class="fact">披露：4亿美元名义本金，付固定1.283%、收prevailing one-month SOFR，2023-02至2028-03；教学配用贷款利差1.75%。不是已证明的实际指定套期关系。</p>
+ <form id="form-m14" class="controls" novalidate><div class="fields"><label for="s-loan">教学贷款本金（百万美元）<input id="s-loan" type="number" value="400.0" min="1" max="10000" step="10" required></label><label for="s-notional">互换本金（百万美元；偏离400即教学变式）<input id="s-notional" type="number" value="400.0" min="0" max="10000" step="10" required></label><label for="s-rate">共同浮动率（%）<input id="s-rate" type="number" value="4.0" min="0" max="100" step="0.1" required></label><label for="s-days">教学计息分子（分母360）<input id="s-days" type="number" value="30" min="1" max="366" step="1" required></label><label class="check"><input id="s-index" type="checkbox" checked >同一指数定义</label><label class="check"><input id="s-fixing" type="checkbox" checked >同次重置观察</label><label class="check"><input id="s-payment" type="checkbox" checked >同一付款日</label><label class="check"><input id="s-accrual" type="checkbox" checked >同一计息期间</label></div><div class="actions"><button type="button" data-action="swap-default">匹配默认</button><button type="button" data-action="swap-small">互换减至3亿</button><button type="button" data-action="swap-missing">指数不匹配</button><button type="submit">按当前输入重算</button></div></form>
+ <p class="small source-links">原始材料：<a href="https://www.sec.gov/Archives/edgar/data/868857/000086885725000013/acm-20250930.htm" target="_blank" rel="noopener">MD-S06 AECOM FY2025 Form 10-K: Debt and Derivatives</a> · <a href="https://ocw.mit.edu/courses/18-642-topics-in-mathematics-with-applications-in-finance-fall-2024/1KTK56NCy28KS0Ts53h1gOS6KO51jDctE_transcript.pdf" target="_blank" rel="noopener">MD-S07 18.642 Lecture 7 Version 2 transcript</a></p><div id="out-m14" class="output" role="region" aria-live="polite" aria-label="M14计算结果"><p>默认结果在下方静态表中。启用JavaScript后可更改教学输入。</p></div>
+ <details class="static" open><summary>静态默认与关键变式（无需JavaScript）</summary><div class="table-scroll" tabindex="0"><table><caption>N=4亿、K=1.283%、利差1.75%、30/360；同指数/重置/期间/付款的教学匹配</caption><thead><tr><th scope="col">教学L</th><th scope="col">固定腿付</th><th scope="col">浮动腿收</th><th scope="col">互换净收</th><th scope="col">贷款付</th><th scope="col">合并付</th></tr></thead><tbody><tr><td>4%</td><td>427,666.67</td><td>1,333,333.33</td><td>905,666.67</td><td>1,916,666.67</td><td>1,011,000.00</td></tr><tr><td>2%</td><td>427,666.67</td><td>666,666.67</td><td>239,000.00</td><td>1,250,000.00</td><td>1,011,000.00</td></tr><tr><td>0%</td><td>427,666.67</td><td>0.00</td><td>−427,666.67</td><td>583,333.33</td><td>1,011,000.00</td></tr></tbody></table></div><div class="table-scroll" tabindex="0"><table><caption>M14 静态条件与缺口</caption><thead><tr><th scope="col">边界</th><th scope="col">输出</th></tr></thead><tbody><tr><td>互换3亿、贷款4亿、L4%</td><td>1,237,416.67合并净付；不固定</td></tr><tr><td>同条件L升至5%</td><td>1,320,750；增加83,333.33</td></tr><tr><td>指数/日期不匹配</td><td>尚需独立利率/计息/支付输入；不输出合并金额</td></tr><tr><td>负利率</td><td>互换floor未披露，停止该数值分支</td></tr><tr><td>CSA/每日保证金</td><td>未取得，不生成真实公司曲线</td></tr></tbody></table></div></details>
+ <p class="small attachments"><a href="inputs.json" target="_blank" rel="noopener">本组输入与单位</a> · <a href="static/M14.html" target="_blank" rel="noopener">本篇静态表</a> · <a href="default-results.json" target="_blank" rel="noopener">默认计算结果</a></p>
+</section></main>
+<footer><p>事实字段与教学参数分别标识。所有结果为相应条件下的算术或模型输出，不是实际成交或账户记录。</p></footer>
+<script>
+window.MD_DATA = {
+  "content_version": "2026-09-21-MD-review-v3",
+  "cutoff": "2026-09-21",
+  "frozen": {
+    "schema": "m-d-primary-inputs-v1",
+    "verified_on": "2026-09-21",
+    "money_unit": "USD",
+    "price_unit": "USD per U.S. barrel",
+    "contract": {
+      "code": "CL",
+      "quantity_barrels": "1000",
+      "tick_usd_per_barrel": "0.01",
+      "source_id": "MD-S02",
+      "locator": "200102.B–C",
+      "version": "online rule retrieved 2026-09-21; amendment effective date not supplied"
+    },
+    "historical_window": {
+      "identity": "real_observations_with_derived_june_settlement",
+      "spread_definition": "May settlement minus June settlement",
+      "basis_definition": "EIA Cushing daily close minus May settlement; not synchronous executable quotes",
+      "rows": [
+        {
+          "date": "2020-04-17",
+          "may_settlement": "18.27",
+          "may_minus_june": "-6.76",
+          "spot": "18.31"
+        },
+        {
+          "date": "2020-04-20",
+          "may_settlement": "-37.63",
+          "may_minus_june": "-58.06",
+          "spot": "-36.98"
+        },
+        {
+          "date": "2020-04-21",
+          "may_settlement": "10.01",
+          "may_minus_june": "-1.56",
+          "spot": "8.91"
+        }
+      ],
+      "vm_position": "teaching long one May entered at Apr17 settlement; not an actual account",
+      "missing": [
+        "April2020 IM/MM",
+        "broker and intraday calls",
+        "synchronous executable quotes"
+      ]
+    },
+    "margin_paths": {
+      "identity": "teaching_assumptions_not_historical_CME_margins",
+      "contracts": "1",
+      "direction": "long",
+      "starting_total_cash": "12000",
+      "initial_margin": "8000",
+      "maintenance_margin": "6500",
+      "call_rule": "after variation, strict balance<MM triggers transfer to restore IM; equality does not trigger",
+      "cash_policy": "no interest, withdrawals, fees or intraday calls",
+      "paths": {
+        "A": [
+          "75",
+          "73.5",
+          "74.2",
+          "71.8",
+          "75.6"
+        ],
+        "B": [
+          "75",
+          "75.2",
+          "75.4",
+          "75.5",
+          "75.6"
+        ]
+      },
+      "increased_requirement_variant": {
+        "path": "A",
+        "effective_after_mark_index": 2,
+        "initial_margin": "10000",
+        "maintenance_margin": "8500",
+        "insufficient_cash_action": "stop at unmet call; no invented financing or liquidation price"
+      }
+    },
+    "carry_cash_ledger": {
+      "identity": "teaching_deliverable_lot_not_market_arbitrage_claim",
+      "spot": "75",
+      "upfront_storage_per_barrel": "1",
+      "end_delivery_cost_per_barrel": "0.20",
+      "simple_annual_funding_rate": "0.05",
+      "day_count_denominator": "365",
+      "holding_days": "90",
+      "fixed_forward_delivery_price": "78",
+      "assumptions": [
+        "deliverable grade/location/access",
+        "storage at inception financed with oil",
+        "day90 repayment and handling",
+        "counterparty performs",
+        "other friction set to zero",
+        "convenience service is not cash"
+      ],
+      "futures_cash_timing_variant": {
+        "identity": "sparse discrete teaching account, not actual CL calendar or equilibrium theorem",
+        "marks": [
+          {
+            "day": 0,
+            "price": "78"
+          },
+          {
+            "day": 30,
+            "price": "79"
+          },
+          {
+            "day": 90,
+            "price": "77.5"
+          }
+        ],
+        "cash_purchase_delivery_payment_day": 90,
+        "initial_margin": "8000",
+        "margin_remuneration_rate": "0",
+        "initial_margin_financed": true,
+        "variation_outflow_financed_until_day90": true,
+        "intermediate_unlisted_marks": "none in this discrete teaching model"
+      }
+    },
+    "roll": {
+      "identity": "teaching executions at historical settlements; no actual fills",
+      "old_contract": "May 2020 CL",
+      "new_contract": "June 2020 CL",
+      "old_entry_price_assumption": "20",
+      "roll_date": "2020-04-17",
+      "next_mark_date": "2020-04-20",
+      "costs": "zero defaults; no observed execution costs"
+    },
+    "aecom_swap": {
+      "identity": "disclosed_facts",
+      "as_of": "2025-09-30",
+      "notional": "400000000",
+      "currency": "USD",
+      "fixed_rate_paid": "0.01283",
+      "floating_received_description": "prevailing one-month SOFR",
+      "effective_month": "2023-02",
+      "expiration_month": "2028-03",
+      "source_id": "MD-S06",
+      "not_disclosed": [
+        "confirmation index definition",
+        "fixing/payment/day-count",
+        "swap floor",
+        "specific loan allocation",
+        "CSA and clearing",
+        "actual period payments"
+      ]
+    },
+    "swap_cash_example": {
+      "identity": "conditional_teaching_variant_not_AECOM_actual_settlement",
+      "accrual_numerator_days": "30",
+      "accrual_denominator_days": "360",
+      "floating_rates": [
+        "0.04",
+        "0.02",
+        "0"
+      ],
+      "loan_notional": "400000000",
+      "loan_spread": "0.0175",
+      "matching_assumptions": [
+        "same index/fixing/accrual/payment",
+        "nonnegative floating rates with loan floor inactive",
+        "constant spread",
+        "performance; no fees or collateral modeled"
+      ],
+      "mismatch_variant": {
+        "swap_notional": "300000000",
+        "loan_notional": "400000000",
+        "rate_increase": "0.01",
+        "identity": "not the separate AECOM cap; notional mismatch only"
+      }
+    }
+  },
+  "contract": {
+    "quantity": 1000,
+    "tick": 0.01,
+    "min_contracts": 1,
+    "max_contracts": 50,
+    "rule_access_date": "2026-09-21",
+    "source": "MD-S02"
+  },
+  "history": [
+    {
+      "date": "2020-04-17",
+      "may_settlement": "18.27",
+      "may_minus_june": "-6.76",
+      "spot": 18.31,
+      "may": 18.27,
+      "spread": -6.76
+    },
+    {
+      "date": "2020-04-20",
+      "may_settlement": "-37.63",
+      "may_minus_june": "-58.06",
+      "spot": -36.98,
+      "may": -37.63,
+      "spread": -58.06
+    },
+    {
+      "date": "2020-04-21",
+      "may_settlement": "10.01",
+      "may_minus_june": "-1.56",
+      "spot": 8.91,
+      "may": 10.01,
+      "spread": -1.56
+    }
+  ],
+  "m10": {
+    "identity": "teaching_prices_with_actual_CL_multiplier",
+    "side": "long",
+    "contracts": 1,
+    "entry": 75,
+    "next": 76
+  },
+  "margin": {
+    "identity": "teaching_account_not_CCP_or_historical_margin",
+    "paths": {
+      "A": [
+        75,
+        73.5,
+        74.2,
+        71.8,
+        75.6
+      ],
+      "B": [
+        75,
+        75.2,
+        75.4,
+        75.5,
+        75.6
+      ]
+    },
+    "contracts": 1,
+    "initial_per_contract": 8000,
+    "maintenance_per_contract": 6500,
+    "starting_cash": 12000,
+    "raised_initial_per_contract": 10000,
+    "raised_maintenance_per_contract": 8500,
+    "change_at_mark": 2,
+    "deadline": "model stage D_i after settlement, before next mark; not a real broker deadline",
+    "transfer_on_time": true
+  },
+  "carry": {
+    "identity": "teaching_funded_deliverable_lot",
+    "quantity": 1000,
+    "spot": 75,
+    "storage": 1,
+    "storage_timing": "upfront",
+    "handling": 0.2,
+    "rate": 0.05,
+    "denominator": 365,
+    "days": 90,
+    "forward": 78,
+    "mid": 79,
+    "end": 77.5,
+    "mid_day": 30,
+    "initial_margin": 8000,
+    "margin_rate": 0,
+    "positive_intermediate_cash_rate": 0,
+    "storage_available": true,
+    "funding_available": true,
+    "deliverable": true,
+    "convenience_cash_receipt": 0
+  },
+  "roll": {
+    "identity": "assumed_executions_with_source_settlement_references",
+    "contracts": 1,
+    "old_entry": 20,
+    "old_reference": 18.27,
+    "new_reference": 25.03,
+    "next_new_settlement": 20.43,
+    "previous_settlement": null,
+    "illustrative_previous_settlement": 19,
+    "old_sell_slippage": 0,
+    "new_buy_slippage": 0,
+    "fee_per_leg_per_contract": 0,
+    "settlement_matches_entry_reference": true
+  },
+  "swap": {
+    "identity": "disclosed_inputs_plus_matched_teaching_loan",
+    "loan_notional": 400000000,
+    "swap_notional": 400000000,
+    "fixed": 0.01283,
+    "spread": 0.0175,
+    "rate": 0.04,
+    "accrual_numerator": 30,
+    "accrual_denominator": 360,
+    "same_index": true,
+    "same_fixing": true,
+    "same_payment": true,
+    "same_accrual": true,
+    "loan_floor": 0,
+    "swap_floor": "not disclosed; negative rates not modeled",
+    "missing_rates_action": "null floating/combined outputs; request distinct inputs; do not reuse default rate",
+    "cash_direction": "company receipts positive, payments positive in dedicated payment columns"
+  },
+  "delivery_events": [
+    {
+      "id": "last",
+      "title": "最后交易日 L",
+      "locator": "200102.F",
+      "text": "交割月前月25日前第三个营业日；若25日非营业日，以其前最近营业日为基准再倒数三个营业日。上市后休业表变更有保留原到期日及前移例外。"
+    },
+    {
+      "id": "intent",
+      "title": "L 后第1营业日",
+      "locator": "200105.A/B",
+      "text": "纽约时间15:00前，持仓清算会员提交接受或交付意向。不要将这一步称作实物已交付。"
+    },
+    {
+      "id": "notice",
+      "title": "L 后第2营业日：Notice Day",
+      "locator": "200105.E/F",
+      "text": "清算所分配通知；收到通知的会员承担相应接受或交付安排，通知不可转让。"
+    },
+    {
+      "id": "margin",
+      "title": "L 后第3营业日",
+      "locator": "200105.A.2; 200107.B",
+      "text": "清算会员须向买方收取等于完整货值的交割保证金；卖方另按交易所规定。另须交付指令及设施接入信息。"
+    },
+    {
+      "id": "physical",
+      "title": "交割月首日至末日",
+      "locator": "200106",
+      "text": "安排实物交付及初步货权转移确认；调度和接入必须可行，不等于“有仓位就有仓储”。"
+    },
+    {
+      "id": "payment",
+      "title": "交割次月20日及规则调整",
+      "locator": "200107.A/C",
+      "text": "货款基于最终结算价与交付量。周六或非周一休业日前移；周日或周一休业日后移。须依实际交易所/纽约银行日历。"
+    },
+    {
+      "id": "complete",
+      "title": "完成通知与保证金退回",
+      "locator": "200107.B/C",
+      "text": "交付与付款完成并通知交易所后，按规则退回所持保证金；数量差异另依规定调整。不是第二次商品收入。"
+    }
+  ],
+  "additional_teaching_examples": {
+    "forward": {
+      "quantity": 1500,
+      "price": 78,
+      "terminal_spots": [
+        90,
+        65
+      ],
+      "upfront_or_margin_cash": 0
+    },
+    "transfer_contract_X": {
+      "quantity": 500,
+      "tick": 0.02,
+      "contracts": 2,
+      "price_change": 0.1
+    },
+    "roll_known_previous": 19,
+    "roll_delivery_value": 80000,
+    "roll_execution_variant": {
+      "old_sell_slippage": 0.02,
+      "new_buy_slippage": 0.03,
+      "fee_per_leg_per_contract": 5
+    },
+    "margin_less_cash": 11000,
+    "margin_first_mark_variant": 73.49,
+    "carry_mid_variant": 82,
+    "swap_notional_variant": 300000000
+  }
+};
+
+</script><script>
+/* M-D teaching engine. No network, trades, account reads or persistent writes. */
+(function(root, factory){const api=factory(); if(typeof module==='object'&&module.exports)module.exports=api;else root.MD_ENGINE=api;})(typeof globalThis!=='undefined'?globalThis:this,function(){
+'use strict';
+const finite=(x,n)=>{if(typeof x!=='number'||!Number.isFinite(x))throw new TypeError(n+'必须为有限数值');return x;};
+const range=(x,n,lo,hi)=>{finite(x,n);if(x<lo||x>hi)throw new RangeError(n+'超出教学范围');return x;};
+const integer=(x,n,lo,hi)=>{range(x,n,lo,hi);if(!Number.isInteger(x))throw new RangeError(n+'须为整数');return x;};
+const flag=(x,n)=>{if(typeof x!=='boolean')throw new TypeError(n+'须为布尔值');return x;};
+const choice=(x,n,vals)=>{if(!vals.includes(x))throw new RangeError(n+'不支持该选项');return x;};
+const cent=(x)=>Math.round(x*100)/100;
+const tickPrice=(x,n)=>{range(x,n,-1000,1000);if(Math.abs(x*100-Math.round(x*100))>1e-7)throw new RangeError(n+'须为0.01的整数倍');return x;};
+const clone=x=>JSON.parse(JSON.stringify(x));
+function history(D){let prev=null;return D.history.map(r=>{const out={date:r.date,may:r.may,june:cent(r.may-r.spread),spot:r.spot,spread:r.spread,basis:cent(r.spot-r.may),vm:prev===null?null:cent((r.may-prev)*D.contract.quantity)};prev=r.may;return out;});}
+function contract(D,args={}){
+ const p={...D.m10,...args};choice(p.side,'方向',['long','short']);integer(p.contracts,'张数',1,D.contract.max_contracts);tickPrice(p.entry,'起价');tickPrice(p.next,'后价');
+ const quantity=p.contracts*D.contract.quantity,sign=p.side==='long'?1:-1;
+ return {status:'conditional_price_change',identity:p.identity,inputs:p,quantity,tick_value:cent(quantity*D.contract.tick),signed_sensitivity:sign*quantity,quote_times_quantity:cent(quantity*p.entry),pnl:cent(sign*quantity*(p.next-p.entry)),commodity_purchase_payment_at_entry:0,margin_requirement:null,history:history(D)};
+}
+function margin(D,args={}){
+ const p={...D.margin,path:'A',raised:false,...args};choice(p.path,'路径',['A','B']);integer(p.contracts,'张数',1,50);range(p.starting_cash,'现金',0,1e8);flag(p.raised,'变更要求');flag(p.transfer_on_time,'准时转款');
+ const im0=p.initial_per_contract*p.contracts, mm0=p.maintenance_per_contract*p.contracts;
+ range(p.initial_per_contract,'初始要求',0,1e7);range(p.maintenance_per_contract,'维持要求',0,p.initial_per_contract);
+ range(p.raised_initial_per_contract,'新初始要求',0,1e7);range(p.raised_maintenance_per_contract,'新维持要求',0,p.raised_initial_per_contract);integer(p.change_at_mark,'变更阶段',1,4);
+ const prices=args.prices===undefined?D.margin.paths[p.path]:args.prices;
+ if(!Array.isArray(prices)||prices.length<2||prices.length>31)throw new RangeError('价格路径须有2–31点');prices.forEach((v,i)=>tickPrice(v,'价格'+i));
+ if(p.starting_cash<im0)return {status:'blocked_initial',inputs:p,initial_required:im0,initial_shortfall:cent(im0-p.starting_cash),rows:[],initial_state:null,completed_equity:null,equity_at_stop:p.starting_cash,cumulative_vm:0};
+ let bal=cent(im0),free=cent(p.starting_cash-im0),sum=0,status='completed';const rows=[];
+ const initial_state={stage:0,price:prices[0],balance:bal,free,equity:cent(bal+free)};
+ for(let i=1;i<prices.length;i++){
+  const vm=cent(p.contracts*D.contract.quantity*(prices[i]-prices[i-1]));sum=cent(sum+vm);bal=cent(bal+vm);
+  const raised=p.raised&&i>=p.change_at_mark,im=raised?p.raised_initial_per_contract*p.contracts:im0,mm=raised?p.raised_maintenance_per_contract*p.contracts:mm0;
+  const before=bal,required=bal<mm?cent(im-bal):0,paid=p.transfer_on_time?Math.min(free,required):0;
+  free=cent(free-paid);bal=cent(bal+paid);const shortfall=cent(required-paid);
+  rows.push({stage:i,price:prices[i],vm,initial:im,maintenance:mm,before,required,paid,shortfall,balance:bal,free,equity:cent(bal+free),deadline:'D_'+i,transfer_on_time:p.transfer_on_time});
+  if(shortfall>0){status=p.transfer_on_time?'stopped_at_unmet_call':'stopped_at_deadline';break;}
+ }
+ return {status,inputs:p,initial_state,rows,cumulative_vm:sum,equity_at_stop:cent(bal+free),completed_equity:status==='completed'?cent(bal+free):null,unmodeled_marks:prices.length-1-rows.length,actual_account:false};
+}
+function carry(D,args={}){
+ const p={...D.carry,...args};
+ range(p.spot,'现货价',0,1000);range(p.storage,'仓储',0,100);range(p.handling,'交付费用',0,100);range(p.rate,'融资年率',0,1);range(p.days,'持有天数',31,3650);range(p.initial_margin,'保证金',0,1e7);
+ range(p.forward,'远期/期貨起价',0,1000);range(p.mid,'中段价格',0,1000);range(p.end,'终段价格',0,1000);choice(p.storage_timing,'仓储时点',['upfront','end']);
+ range(p.mid_day,'中段日期',1,p.days-1);flag(p.storage_available,'仓储可用');flag(p.funding_available,'融资可用');flag(p.deliverable,'交付可用');
+ if(p.quantity!==D.contract.quantity||p.denominator!==365||p.margin_rate!==0||p.positive_intermediate_cash_rate!==0)throw new RangeError('数量/ACT365/零报酬条件在本实验只读');
+ const missing=[];if(!p.storage_available)missing.push('仓储服务不可取得，无法保持指定现货腿');if(!p.funding_available)missing.push('融资不可取得，不能完成起点付款及中间资金');if(!p.deliverable)missing.push('油品/地点/接入不满足，无法抵销交付义务');
+ if(missing.length)return {status:'blocked_replication',inputs:p,missing,forward_net:null,futures_net:null,rows:[],historical:history(D)};
+ const Q=p.quantity,up=Q*(p.spot+(p.storage_timing==='upfront'?p.storage:0)),repay=up*(1+p.rate*p.days/p.denominator),late=p.storage_timing==='end'?Q*p.storage:0,handling=Q*p.handling;
+ const allin=repay+late+handling,receipt=Q*p.forward,vm1=Q*(p.forward-p.mid),vm2=Q*(p.mid-p.end),vmloan=Math.max(0,-vm1),idle=Math.max(0,vm1),vmcost=vmloan*p.rate*(p.days-p.mid_day)/p.denominator,imcost=p.initial_margin*p.rate*p.days/p.denominator,invoice=Q*p.end;
+ const final_rows=[['实物出售',invoice],['末次VM',vm2],['中段正VM留存释放',idle],['保证金本金退回',p.initial_margin],['购油/前付仓储本息',-repay],['后付仓储',-late],['交付费用',-handling],['中段VM借款本息',-(vmloan+vmcost)],['保证金借款本息',-(p.initial_margin+imcost)]];
+ return {status:'conditional_funded_ledger',inputs:p,upfront:up,repayment:repay,late_storage:late,handling,all_in:allin,per_unit:allin/Q,forward_receipt:receipt,forward_net:receipt-allin,vm:[vm1,vm2],vm_funding:vmcost,im_funding:imcost,futures_invoice:invoice,futures_net:invoice+vm1+vm2-allin-vmcost-imcost,final_rows,final_cash_sum:final_rows.reduce((a,r)=>a+r[1],0),historical:history(D)};
+}
+function roll(D,args={}){
+ const p={...D.roll,...args};integer(p.contracts,'张数',1,50);tickPrice(p.old_entry,'旧建仓价');range(p.old_sell_slippage,'旧卖出滑点',0,10);range(p.new_buy_slippage,'新买入滑点',0,10);range(p.fee_per_leg_per_contract,'每腿费用',0,1000);
+ tickPrice(p.old_sell_slippage,'卖出滑点');tickPrice(p.new_buy_slippage,'买入滑点');
+ if(p.previous_settlement!==null)tickPrice(p.previous_settlement,'前结算');
+ for(const key of ['old_reference','new_reference','next_new_settlement'])if(p[key]!==D.roll[key])throw new RangeError('历史参考'+key+'只读');
+ const Q=p.contracts*D.contract.quantity,oldExit=cent(p.old_reference-p.old_sell_slippage),newEntry=cent(p.new_reference+p.new_buy_slippage),oldTotal=cent((oldExit-p.old_entry)*Q),gap=cent((p.new_reference-p.old_reference)*Q),newDay=cent((p.new_reference-newEntry)*Q),newNext=cent((p.next_new_settlement-p.new_reference)*Q),newTotal=cent(newDay+newNext),fees=cent(2*p.contracts*p.fee_per_leg_per_contract),prev=p.previous_settlement;
+ const before=prev===null?null:cent((prev-p.old_entry)*Q),oldDay=prev===null?null:cent((oldExit-prev)*Q),dayNet=oldDay===null?null:cent(oldDay+newDay-fees);
+ return {status:'assumed_executions',inputs:p,quantity:Q,old_exit:oldExit,new_entry:newEntry,old_total:oldTotal,quoted_month_gap:gap,new_principal_purchase_payment:0,new_quote_scale:cent(p.new_reference*Q),old_vm_before:before,old_close_day_vm:oldDay,new_entry_day_vm:newDay,new_next_vm:newNext,new_total:newTotal,fees,total_price_pnl:cent(oldTotal+newTotal),net_pnl:cent(oldTotal+newTotal-fees),roll_day_cash:dayNet,margin_change:null,roll_day_cash_includes_margin:false};
+}
+function swap(D,args={}){
+ const p={...D.swap,...args};range(p.loan_notional,'贷款本金',1,1e10);range(p.swap_notional,'互换本金',0,1e10);finite(p.rate,'浮动利率');range(p.accrual_numerator,'计息分子',1,366);if(p.accrual_denominator!==360)throw new RangeError('计息分母在本例固定360');
+ for(const k of ['same_index','same_fixing','same_payment','same_accrual'])flag(p[k],k);
+ if(p.fixed!==D.swap.fixed||p.spread!==D.swap.spread||p.loan_floor!==0)throw new RangeError('披露固定率/贷款利差/floor只读，不能修改为真实新条款');
+ const missing=[];
+ if(!p.same_index)missing.push('贷款与互换各自指数定义、L_L与L_S的独立观察');
+ if(!p.same_fixing)missing.push('各自fixing日期及对应浮动利率');
+ if(!p.same_payment)missing.push('两条付款日程与跨日期现金/融资输入');
+ if(!p.same_accrual)missing.push('贷款与互换各自计息期间及alpha_L、alpha_S');
+ if(p.rate<0)missing.push('负利率下互换floor/确认书；贷款0%floor不能套到互换');
+ if(p.rate>1)throw new RangeError('浮动利率超过本教学范围');
+ if(missing.length)return {status:p.rate<0?'needs_swap_floor':'needs_distinct_inputs',inputs:p,missing,fixed_cash:null,floating_cash:null,swap_net_receipt:null,loan_interest:null,combined_payment:null,fixed_combined_rate:null};
+ const alpha=p.accrual_numerator/p.accrual_denominator,fixedCash=p.swap_notional*p.fixed*alpha,floatCash=p.swap_notional*p.rate*alpha,swapNet=floatCash-fixedCash,loan=p.loan_notional*(Math.max(p.rate,0)+p.spread)*alpha,matched=p.loan_notional===p.swap_notional;
+ return {status:matched?'matched_teaching':'notional_mismatch',inputs:p,alpha,fixed_cash:fixedCash,floating_cash:floatCash,swap_net_receipt:swapNet,loan_interest:loan,combined_payment:loan-swapNet,fixed_combined_rate:matched?p.fixed+p.spread:null,residual_notional:p.loan_notional-p.swap_notional,increment_for_100bp:(p.loan_notional-p.swap_notional)*.01*alpha,swap_mtm:null,collateral_call:null};
+}
+return {history,contract,margin,carry,roll,swap,version:'2026-09-21-MD-draft-v1'};
+});
+
+</script><script>
+(function(){'use strict';
+const E=window.MD_ENGINE,D=window.MD_DATA,$=id=>document.getElementById(id);
+const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const f=(x,d=2)=>x===null||x===undefined?'未知':(Object.is(x,-0)?0:Number(x)).toLocaleString('en-US',{minimumFractionDigits:d,maximumFractionDigits:d});
+const num=id=>$(id).value.trim()===''?NaN:Number($(id).value),on=id=>$(id).checked;
+const status=(text,blocked=false)=>'<p class="status '+(blocked?'blocked':'')+'">'+esc(text)+'</p>';
+const metrics=rows=>'<div class="metrics">'+rows.map(([k,v])=>'<div class="metric"><span>'+esc(k)+'</span><strong>'+esc(v)+'</strong></div>').join('')+'</div>';
+const tab=(heads,rows,cap)=>'<div class="table-scroll" tabindex="0"><table><caption>'+esc(cap)+'</caption><thead><tr>'+heads.map(h=>'<th scope="col">'+esc(h)+'</th>').join('')+'</tr></thead><tbody>'+rows.map(r=>'<tr>'+r.map(c=>'<td>'+esc(c)+'</td>').join('')+'</tr>').join('')+'</tbody></table></div>';
+function chart(xs,series,title){
+ const w=760,h=260,padL=75,padR=22,padT=43,padB=42,values=series.flatMap(s=>s.vals),xmin=Math.min(...xs),xmax=Math.max(...xs),ymin=Math.min(0,...values),ymax=Math.max(0,...values),dx=xmax-xmin||1,dy=ymax-ymin||1;
+ const X=v=>padL+(v-xmin)/dx*(w-padL-padR),Y=v=>h-padB-(v-ymin)/dy*(h-padT-padB);
+ let s='<svg class="plot" role="img" aria-label="'+esc(title)+'；精确数据见同页表格" viewBox="0 0 '+w+' '+h+'"><title>'+esc(title)+'</title>';
+ s+='<text x="'+padL+'" y="19">'+esc(title)+'</text><line class="axis" x1="'+padL+'" x2="'+(w-padR)+'" y1="'+Y(0)+'" y2="'+Y(0)+'"/>';
+ [ymin,ymax].forEach(y=>{s+='<text text-anchor="end" x="'+(padL-7)+'" y="'+(Y(y)+5)+'">'+esc(f(y,0))+'</text>';});
+ xs.forEach(x=>{s+='<text x="'+X(x)+'" y="'+(h-21)+'" text-anchor="middle">'+esc(x)+'</text>';});
+ series.forEach((r,i)=>{s+='<polyline class="series'+i+'" points="'+xs.map((x,j)=>X(x)+','+Y(r.vals[j])).join(' ')+'"/>';s+='<text x="'+(padL+180*i)+'" y="'+(h-3)+'">'+esc((i===0?'实线 ':i===1?'虚线 ':'点线 ')+r.title)+'</text>';});return s+'</svg>';
+}
+function put(id,fn){try{$('out-'+id).innerHTML=fn();}catch(e){$('out-'+id).innerHTML='<p class="status error" role="alert">输入未通过：'+esc(e.message)+'。未据此生成交易结果。</p>';}}
+function render10(){put('m10',()=>{const r=E.contract(D,{side:$('c-side').value,contracts:num('c-n'),entry:num('c-entry'),next:num('c-next')});
+return status('条件价格损益；不是现货购买现金，也不是实际成交记录。')+metrics([['数量尺度（桶）',f(r.quantity,0)],['每跳（美元）',f(r.tick_value)],['本段价格损益（美元）',f(r.pnl)]])+tab(['项目','数值/身份'],[['起点报价×数量（有符号）',f(r.quote_times_quantity)+' 美元'],['每+1美元/桶的方向敏感度',f(r.signed_sensitivity)+' 美元'],['建仓商品购买本金','0；本设定并未买入原油'],['保证金/费用','此面板未给具体规则金额']], '数量、报价尺度与现金不可互换')+chart([-2,-1,0,1,2],[{title:'价格变化→持仓损益',vals:[-2,-1,0,1,2].map(x=>x*r.signed_sensitivity)}],'横轴Δ价格（美元/桶）；纵轴条件损益（美元）');});}
+function render11(){put('m11',()=>{const r=E.margin(D,{path:$('m-path').value,contracts:num('m-n'),starting_cash:num('m-cash'),initial_per_contract:num('m-im'),maintenance_per_contract:num('m-mm'),raised:on('m-raised'),transfer_on_time:on('m-time')});
+if(r.status==='blocked_initial')return status('起点资金不足，尚未建立教学头寸；缺 '+f(r.initial_shortfall)+' 美元。',true);
+const last=r.rows.at(-1),stopped=r.status!=='completed';
+return status(stopped?'在D_'+last.stage+'尚未满足 '+f(last.shortfall)+' 美元。此处停止，未计算后续反弹。':'按教学要求完成全部结算阶段；转入保证金不另记一次费用。',stopped)+metrics([['最后已建模总余额',f(r.equity_at_stop)],['累计已建模VM',f(r.cumulative_vm)],['全路径终点总额',r.completed_equity===null?'未完成，不输出':f(r.completed_equity)]])+tab(['阶段','价格','VM','IM / MM','转入前','要求','实转','尚欠','余额','外部'],r.rows.map(x=>[x.stage,f(x.price),f(x.vm),f(x.initial,0)+' / '+f(x.maintenance,0),f(x.before),f(x.required),f(x.paid),f(x.shortfall),f(x.balance),f(x.free)]),'客户教学资金账；金额美元；仅列已处理阶段')+chart([0,...r.rows.map(x=>x.stage)],[{title:'担保余额',vals:[r.initial_state.balance,...r.rows.map(x=>x.balance)]},{title:'外部可用现金',vals:[r.initial_state.free,...r.rows.map(x=>x.free)]}],'阶段与资金；停止点后不画价格反弹收益')+'<p class="small">两栏合计=初始总现金+已建模累计VM。'+(stopped?'未满足的追缴不会因为部分付款后余额超过MM而自行消失。':'相等MM不触发；一旦触发须补到IM。')+'</p>';});}
+function render12(){put('m12',()=>{const a={spot:num('k-spot'),storage:num('k-storage'),storage_timing:$('k-timing').value,handling:num('k-handling'),rate:num('k-rate')/100,days:num('k-days'),forward:num('k-forward'),mid:num('k-mid'),end:num('k-end'),initial_margin:num('k-im'),storage_available:on('k-store'),funding_available:on('k-fund'),deliverable:on('k-deliver')},r=E.carry(D,a);
+if(r.status==='blocked_replication')return status('复制条件未满足：'+r.missing.join('；')+'。撤下可取得净额；给定价格不能补齐缺少的交易腿。',true);
+const other=E.carry(D,{...a,storage_timing:a.storage_timing==='upfront'?'end':'upfront'});
+return status('各腿在教学条件下可融资并履约。中间正现金不计利息；未覆盖的融资成本只扣一次。')+metrics([['终值持有成本',f(r.all_in)],['远期条件净额',f(r.forward_net)],['期货现金时点变式净额',f(r.futures_net)]])+tab(['项目','美元'],[['起点融资',f(r.upfront)],['购货/前付仓储本息',f(r.repayment)],['后付仓储',f(r.late_storage)],['交付费用',f(r.handling)],['每桶终值成本',f(r.per_unit,5)],['切换另一仓储付款时点：总成本',f(other.all_in)],['两段VM',r.vm.map(x=>f(x)).join(' / ')],['中段VM借款利息',f(r.vm_funding,4)],['保证金融资利息',f(r.im_funding,4)]],'逐笔成本与资金时点')+tab(['末期资金事件','收到为正 / 支付为负'],r.final_rows.map(([k,v])=>[k,f(v,4)]).concat([['合计',f(r.final_cash_sum,4)]]),'完整末期账；与累计VM简写必须相等')+'<p class="small">时间线：第0天购油/仓储/保证金 → 第30天VM及所需借款 → 第'+f(a.days,0)+'天实物收入、VM、保证金退回、所有本息与费用。不是CL实际付款日历。</p>';});}
+function render13(){put('m13',()=>{const known=$('r-prev-mode').value==='known';$('r-prev').disabled=!known;
+const r=E.roll(D,{contracts:num('r-n'),old_entry:num('r-entry'),previous_settlement:known?num('r-prev'):null,old_sell_slippage:num('r-old-slip'),new_buy_slippage:num('r-new-slip'),fee_per_leg_per_contract:num('r-fee')});
+const event=D.delivery_events.find(x=>x.id===$('r-event').value);
+return '<div class="event"><h3>'+esc(event.title)+'</h3><p>'+esc(event.text)+'</p><p class="small">Chapter200 §'+esc(event.locator)+' · 当前规则读取日2026-09-21；未套用2020历史日期。</p></div>'+status(known?'以明确教学前结算价重建旧仓当日VM；金额不含未知保证金变动。':'未给旧仓前一结算价：累计损益可算，旧仓/合计当日现金不能用累计值代替。',!known)+metrics([['两段净损益（含两腿费用）',f(r.net_pnl)],['报价月差×数量（不是损失）',f(r.quoted_month_gap)],['换月日VM及费用现金',r.roll_day_cash===null?'未知；缺前一结算价':f(r.roll_day_cash)]])+tab(['项目','金额（美元）'],[['旧May累计损益',f(r.old_total)],['换月以前旧仓VM',f(r.old_vm_before)],['换月日旧仓VM',f(r.old_close_day_vm)],['新June建仓商品本金','0（保证金未纳入）'],['新June建仓日VM',f(r.new_entry_day_vm)],['下一June结算VM',f(r.new_next_vm)],['新June累计损益',f(r.new_total)],['两腿手续费',f(r.fees)],['全期价格损益',f(r.total_price_pnl)]],'旧/新合约和每个时期独立记录')+'<p class="small">旧实际卖价 '+f(r.old_exit)+'；新实际买价 '+f(r.new_entry)+'，均为指定滑点下的教学执行。参考结算价未因滑点改变。</p>';});}
+function render14(){put('m14',()=>{const r=E.swap(D,{loan_notional:num('s-loan')*1e6,swap_notional:num('s-notional')*1e6,rate:num('s-rate')/100,accrual_numerator:num('s-days'),same_index:on('s-index'),same_fixing:on('s-fixing'),same_payment:on('s-payment'),same_accrual:on('s-accrual')});
+if(r.status==='needs_distinct_inputs'||r.status==='needs_swap_floor')return status('不能继续用同一默认L计算：'+r.missing.join('；')+'。本面板撤下两条浮息与合并金额、固定综合率；不补造第二组输入。',true);
+const fixed=r.fixed_combined_rate===null?'不固定，存在浮动残余':(100*r.fixed_combined_rate).toFixed(3)+'%';
+return status(r.status==='matched_teaching'?'同本金、同指数/重置/期间/付款的教学匹配，不是AECOM真实综合融资报价。':'本金不匹配，现金仍可按共同L计算，但合并率不再固定。',r.status!=='matched_teaching')+metrics([['一期合并净支付（美元）',f(r.combined_payment)],['匹配条件下的固定综合率',fixed],['剩余浮动本金（美元）',f(r.residual_notional,0)]])+tab(['公司视角','一期金额（美元）'],[['互换固定腿付出',f(r.fixed_cash)],['互换浮动腿收到',f(r.floating_cash)],['互换净收到（负=净付）',f(r.swap_net_receipt)],['贷款利息付出',f(r.loan_interest)],['利率上升100bp的本期残余增支',f(r.increment_for_100bp)],['整份互换市值/CSA追缴','未建模，无相应实际输入']],'计息分数 '+f(r.alpha,6)+'；不是本金交换表')+'<p class="small">若观察、期间或日期不匹配，必须提供独立浮息和日程，不把这里共同L的数值继续保留成精确结果。贷款0%floor不代表互换也有同样floor。</p>';});}
+const renders={m10:render10,m11:render11,m12:render12,m13:render13,m14:render14};
+function set(id,v){if(typeof v==='boolean')$(id).checked=v;else $(id).value=v;}
+function reset(key){$('form-'+key).reset();}
+const actions={
+ 'contract-default':()=>{reset('m10');render10();},'contract-history':()=>{reset('m10');set('c-entry',D.history[0].may);set('c-next',D.history[1].may);render10();},'contract-short':()=>{reset('m10');set('c-side','short');set('c-n',3);render10();},
+ 'margin-default':()=>{reset('m11');render11();},'margin-raised':()=>{reset('m11');set('m-raised',true);render11();},'margin-lowcash':()=>{reset('m11');set('m-cash',D.additional_teaching_examples.margin_less_cash);render11();},
+ 'carry-default':()=>{reset('m12');render12();},'carry-late':()=>{reset('m12');set('k-timing','end');render12();},'carry-stress':()=>{reset('m12');set('k-mid',D.additional_teaching_examples.carry_mid_variant);render12();},
+ 'roll-default':()=>{reset('m13');render13();},'roll-known':()=>{reset('m13');set('r-prev-mode','known');render13();},'roll-cost':()=>{reset('m13');set('r-prev-mode','known');set('r-old-slip',D.additional_teaching_examples.roll_execution_variant.old_sell_slippage);set('r-new-slip',D.additional_teaching_examples.roll_execution_variant.new_buy_slippage);set('r-fee',D.additional_teaching_examples.roll_execution_variant.fee_per_leg_per_contract);render13();},
+ 'swap-default':()=>{reset('m14');render14();},'swap-small':()=>{reset('m14');set('s-notional',D.additional_teaching_examples.swap_notional_variant/1e6);render14();},'swap-missing':()=>{reset('m14');set('s-index',false);render14();}
+};
+Object.keys(renders).forEach(k=>{$('form-'+k).addEventListener('submit',e=>{e.preventDefault();renders[k]();});$('form-'+k).addEventListener('input',renders[k]);$('form-'+k).addEventListener('change',renders[k]);renders[k]();});
+document.querySelectorAll('[data-action]').forEach(b=>b.addEventListener('click',()=>actions[b.dataset.action]()));
+document.querySelectorAll('details.static').forEach(d=>d.open=false);
+function requestedExperiment(search,hash){try{const q=new URLSearchParams(search||'').get('experiment');if(q)return decodeURIComponent(q).toLowerCase();return decodeURIComponent((hash||'').replace(/^#/,'')).toLowerCase();}catch(_){return '';}}
+function route(){
+ const id=requestedExperiment(location.search,location.hash),panels=[...document.querySelectorAll('.lab')],match=panels.find(p=>p.id===id);
+ const embedded=window.self!==window.top;
+ document.documentElement.classList.toggle('embedded',embedded);
+ document.body.classList.toggle('focused',!!match);
+ panels.forEach(p=>p.hidden=!!match&&p!==match);
+}
+window.addEventListener('hashchange',route);route();
+let detailStates=[];window.addEventListener('beforeprint',()=>{detailStates=[...document.querySelectorAll('details.static')].map(d=>[d,d.open]);detailStates.forEach(([d])=>d.open=true);});window.addEventListener('afterprint',()=>detailStates.forEach(([d,v])=>d.open=v));
+window.MD_APP={renderAll:()=>Object.values(renders).forEach(f=>f()),route,requestedExperiment};
+})();
+
+</script></body></html>

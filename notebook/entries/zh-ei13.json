@@ -1,0 +1,555 @@
+{
+  "id": "zh-ei13",
+  "node_id": "EI-13",
+  "lang": "zh",
+  "slug": "technology-adoption-value-capture",
+  "title": "技术、创新与产业结构演变",
+  "summary": "沿技术能力、部署、采用、任务效果和价值取得，检验每一层的证据与聚合权重。",
+  "subject": "industry",
+  "topic": "industry-dynamics",
+  "kind": "concept",
+  "template": "T4",
+  "role": "核心",
+  "study_time": "15–20分钟",
+  "revised": "2026-09-21",
+  "content_version": "2026-09-21-review-v2",
+  "body_markdown": "<strong>本篇任务：</strong>从技术能力一路追踪到部署、采用、任务产出和收益归属，学会用合适的权重聚合局部改善。我们用无形资本理论、企业AI使用调查和客服工作研究作三种不同的证据。建议约20分钟。\n\n<a id=\"ei13-structure\"></a>\n\n## 一、技术变化先改变哪些可行的事情\n\n技术可以让同样的人和设备做得更多，改善产品质量，也可以让原先不能完成的任务变得可行。但从“技术能做”到“企业获得利润”，中间还有部署、客户或员工采用、互补投入和竞争。行业分析的任务，是把这些连接具体化。\n\n我们先把路径写完整：\n\n<div class=\"flow\">\n<div>技术能力</div><span>接口、安全、成本</span>\n<div>可部署产品</div><span>流程改造、培训</span>\n<div>组织采用</div><span>真实使用与任务匹配</span>\n<div>任务产出</div><span>价格、成本和收益分配</span>\n<div>企业取得的收益</div>\n</div>\n\n每条箭头都可能有自己的瓶颈。模型回答准确，并不意味着已经接入业务系统；系统接入以后，员工也可能只在部分任务使用；任务时间节省以后，企业还要面对工资、软件收费、客户议价和竞争。我们因此需要不同层次的证据，而不是找到一个“AI提升率”后从头乘到底。\n\n<a id=\"ei13-intangible\"></a>\n\n## 二、无形资源为什么既能扩张，又需要互补投入\n\nCrouzet等人的2022年JEP文章把无形资本视为能够储存并用于生产的信息，例如软件、数据、设计、组织流程。文章特别强调使用中的非竞争性与有限排他性：同一信息能够在多个生产环节同时使用，但创造者未必能独占全部收益。[^jep]\n\n这里要区分信息与载体。复制一段算法不需要把原算法从第一台机器搬走，但第二套服务器、整合服务、权限管理和操作人员仍可能需要新增投入。把知识从一个团队转交给另一个团队，也可能损失语境，因而组织内部的“可复制使用”并不是完全无成本。\n\n文章的生产模型把投资、经营范围和资源配置分成相互联系的选择。范围扩大，一方面让同一信息用于更多生产活动，另一方面也可能增加模仿、协调和收益分享的成本。这正适合用来解释一种常见的行业现象：技术层的复制成本下降，企业却仍需要投入很多部署和组织资源。[^jep]\n\n**非竞争使用**与**网络效应**也应分清。前者说同一资源能否被多处同时使用；后者说新增使用者是否会改变其他使用者的收益。一个内部排班算法可以复制到很多门店，却未必因使用者人数增加而自动变得更有用。不能从“软件可复制”直接推出平台网络效应或垄断结果。\n\n<a id=\"ei13-evidence\"></a>\n\n## 三、两份AI材料：一份测“用了没有”，一份测“任务表现如何”\n\n先读美国人口普查局2026年5月26日的BTOS文章。材料窗口为2025年12月14日至2026年5月3日，问企业是否在最近两周使用AI；5月3日的企业使用比例约19.8%。该调查在2025年11月17日改变了问题表述，把关注范围由商品和服务生产扩展到业务功能，比较历史序列时必须保留这个变化。[^btos]\n\n这份资料可以帮助判断企业使用范围、行业和规模差异，却没有告诉我们每家采用企业投入多少劳动，也没有测出所有采用者的产出提升。因此19.8%的分母是企业总体，不是全经济产出或全部工作时长。\n\n再读Brynjolfsson、Li和Raymond的2025年QJE正式发表版。研究观察一家公司客服工作的分阶段AI辅助部署，完整样本包括5,172名客服人员；关键回归以“人员—月份”为观测单位。[^qje]\n\n| 正式材料定位 | 记录内容 | 应保留的单位 |\n|---|---|---|\n| Table I，p.903 | 全部5,172名客服人员 | 人，而不是回归观测数 |\n| Table II第(3)列，p.907 | 12,295条观测 | 人员—月份 |\n| 同一列处理项系数 | 0.301 | 每小时成功解决问题数的增量 |\n| 正文报告的相对提升 | 约15.2% | 相对处理前基准 |\n| Table II总体因变量均值 | 2.176 | 不自动等于处理前组的分母 |\n\n为什么不能用 $0.301/2.176$ 强制核出15.2%？因为表中总体均值和正文采用的处理前基准不是同一总体、同一时间位置，公开数字还经过舍入。正确做法是先确定分母身份，再重算；若底层未舍入均值未取得，就保留作者报告的相对结果，而不倒造一个“精确基准”。\n\n论文在大规模部署前做过一个约50人的小型随机试验，但本篇采用的主要结果来自随后覆盖5,172名客服人员的**错峰部署**。主部署的先后受到培训容量、预算和经理排期等因素影响，因此不能把整个5,172人样本称为随机试验。Table II 第(3)列的主规格使用年月、地点、人员和工龄固定效应，论文还用事件研究和稳健估计检查动态；把这些结果解释为部署的条件效果仍依赖平行趋势、没有预先反应等识别条件。技能和工龄分组显示改善程度有差异，所以平均结果也不能自动覆盖每个人。[^qje]\n\n两份资料因此各承担一个位置：BTOS描述企业使用的广度；QJE研究某类任务在特定部署下的工作结果。把19.8%直接乘15.2%，会把企业比例、人员任务和产出分母混在一起。\n\n<a id=\"ei13-aggregation\"></a>\n\n## 四、真正能够聚合的，是同一对象下的产出变化\n\n现在不使用两个真实研究的数值，另设一个**完全透明的教学模型**。同一期间内，各单位基期产出为 $y_i\\ge0$；$d_i\\in\\{0,1\\}$ 表示是否采用；采用后的相对产出变化为 $g_i$。假设总投入固定、产出单位可加、没有溢出，也没有因采用而改变未采用者产出。\n\n于是采用后产出是 $y_i(1+d_i g_i)$。总产出增长率为\n\n$$\n\\begin{aligned}\nG&=\\frac{\\sum_i y_i(1+d_i g_i)-\\sum_i y_i}{\\sum_i y_i}\\\\\n &=\\sum_i w_i d_i g_i,\\\\\nw_i&=\\frac{y_i}{\\sum_jy_j}.\n\\end{aligned}\n$$\n\n这里要求总基期产出为正。若所有采用者有相同的相对改善 $g$，才可以写成 $G=a_y g$，其中 $a_y=\\sum_iw_i d_i$ 是**采用者的基期产出份额**。用人数或企业数份额代替它，还需要各单位基期产出相等等额外条件。\n\n把这个条件放到一个很小但有区分力的例子中：两个单位的基期产出分别为1和9，只有一个采用，改善均为10%。\n\n| 谁采用 | 企业／单位数量采用率 | 采用者基期产出份额 | 总产出增长 |\n|---|---:|---:|---:|\n| 产出1的单位 | 50% | 10% | 1% |\n| 产出9的单位 | 50% | 90% | 9% |\n| 误用数量权重 | 50% | 未核 | 错算5% |\n\n第一行采用后总产出为 $1.1+9=10.1$，增长1%；第二行是 $1+9.9=10.9$，增长9%。同样的数量采用率和同样的个人改善，却给出完全不同的总体结果。区别来自谁占原有产出的更多份额，而不是采用技术突然变了。\n\n<div data-experiment-slot=\"exp-ei13-tech-path\"></div>\n\n先在实验中交换两单位的采用状态，再把两个基期产出都设成5。此时数量权重才恰好等于产出权重，只有一家采用时总提升5%。这样我们既看到反例，也知道简化公式什么时候成立。\n\n<a id=\"ei13-capture\"></a>\n\n## 五、任务产出增加后，价值怎样分配\n\n产出加总完成了，仍没有得到企业利润。一个新的流程可能让单位劳动服务更多客户，但节省的价值可以分给员工、软件提供商、集成服务商，也可以通过更低价格转给客户。企业还要负担部署费用、运行费及维护更新。\n\n作为另一条**分析关系**，可以把每期利润变化展开为：\n\n$$\n\\Delta\\Pi=\\Delta(pq)-\\Delta C_{\\mathrm{operating}}\n-\\Delta C_{\\mathrm{deployment}}.\n$$\n\n它并不要求所有部署支出都立即进入当期损益；具体会计确认须另读政策。这里先按一致的经济期间口径比较资源占用。若技术让产出效率提高，客户却尚未增加需求，企业可能得到的是空闲时间而非额外销售；若竞争导致降价，收入提升又可能小于任务产出提升。\n\n因此我们应为每一层选择一个有职责的观察：能力看可完成任务与质量；部署看系统接入、成本和故障；采用看真实使用频率；工作结果看质量调整后的单位投入产出；价值取得看价格、成本、投入及客户行为。一次实验测到了哪层，就先把判断停在那层，再寻找下一条连接的证据。\n\n<a id=\"ei13-exercises\"></a>\n\n## 六、重建与迁移\n\n<strong>任务一：</strong>两单位产出1和9，第一家提升10%，第二家不变，重建总增长。为什么50%乘10%不对？\n\n<strong>解析：</strong>增量是0.1，总基数10，增长1%。50%是单位数量份额，第一家只占基期产出10%，所以正确权重是10%。只有基期产出相同，数量份额才可代替产出份额。\n\n<strong>任务二：</strong>把第二家也设为采用，但它只提升2%。总增长是多少？\n\n<strong>解析：</strong>新产出为 $1.1+9.18=10.28$，总体+2.8%；也可用 $0.1\\times10\\%+0.9\\times2\\%=2.8\\%$。这说明效果异质时还要保留各自 $g_i$，不能先做无权平均。\n\n<strong>任务三：</strong>团队看到BTOS企业采用19.8%与QJE客服效率15.2%，想算全经济AI提升。请指出至少三个缺项。\n\n<strong>解析：</strong>缺同一总体下的产出或工时权重；缺采用者的实际使用强度和任务构成；缺效果从特定客服部署迁移到其他行业的证据；也未处理投入变化和溢出。两个数字都可能准确，但仍不构成可相乘的模型。\n\n<strong>迁移任务：</strong>一项视觉检测技术准确率改善，但工厂需要新相机、数据标注和停线改造。怎样给出不跳步的经营解释？\n\n<strong>解析：</strong>先核任务质量与误报，再核设备及数据能否部署，然后核生产线实际采用和故障率，最后观察良率、人工工时、停线损失及客户验收。技术能力可以先改善，短期成本却因改造上升；只有在一致期间比较新增产出与互补投入，才有资格讨论企业收益。\n\n[^jep]: BFDE-JEP，Crouzet、Eberly、Eisfeldt、Papanikolaou，2022，*The Economics of Intangible Capital*，JEP 36(3):29–52。采用pp.30–34 “Characteristics of Intangibles as Assets”及pp.34–39 “Production with Intangible Capital”；未把代数附录当作已复现。[作者公开发表版](https://www.kellogg.northwestern.edu/faculty/crouzet/html/papers/EconIntan_published.pdf)。\n[^btos]: EIDEF-S12，U.S. Census Bureau，2026-05-26，*AI Use in Businesses*，BTOS窗口2025-12-14至2026-05-03，问题表述变更及19.8%段落。[官方文章](https://www.census.gov/library/stories/2026/05/ai-use-businesses.html)。\n[^qje]: EIDEF-S11，Erik Brynjolfsson、Danielle Li、Lindsey R. Raymond，2025，*Generative AI at Work*，QJE 140(2):889–942。采用pp.901–908 IV.A–C、Tables I–II、Figure II，以及pp.910–915技能／工龄异质性单元。[作者公开最终发表版](https://danielle-li.github.io/assets/docs/GenerativeAIatWork.pdf)。\n\n<script src=\"/notebook/labs/ei-defgh/reader-adapter.js\" defer></script>\n",
+  "prompt": "你正在教授EI-13《技术、创新与产业结构演变》，采用内容版本2026-09-21-review-v2，当前范围：本篇完整学习单元。\n先使用工具实际读取当前required_readings列出的公开原文完整单元，核对标题、版本、表头、单位、脚注和适用范围。来源清单或作者先前读过不等于你本次读过；runtime_reading_log初始为空，按实际结果填写，不预填成功。网页太大时用按页/文本范围的工具；不要用搜索节选顶替完整单元。读取失败时只说明具体缺口并尝试同机构/作者对应版本的开放正文，不能声称已完成依赖该原文的讲解。\n完成读取后，按学习者已有水平选择直接讲解、推导或互动，不强迫重学已掌握的四则运算。诊断任务：两个单位基期产出1与9、只一者采用且效果10%，请先求整体增幅，再讨论为什么企业采用率不足以作权重。\n沿随包完整正文推进一个完整推理任务：先结构和变量，再真实材料/模型设定，再推导和比较，最后迁移与反馈。真实观察、作者估计、本站教学参数必须保持各自身份。通过标准：推导Σy d g/Σy，重建1%/9%反例，能说明QJE与BTOS分母不同并给出价值取得条件。\n使用随包实验的相同输入、算法和静态结果。你可以改变教学参数，但先声明改变哪一条件；不改写冻结观察值，不编造未取得的论文曲线。解释题和迁移题的完整解析已随正文提供，先让读者作答，再对照推理而非只报分数。\n额外约定：EI-10年化不是付息流水；EI-11没有未定义衍生品；EI-12信用额度不得计入30天来源；EI-13基期产出权重；EI-15分支来源仅随所选分支读取；EI-16需求与发电覆盖不同；EI-17 Figure7/9不是同一实验；EI-18来源尺度疑点不替作者静默修正。只适用当前篇相关项。\n",
+  "sources": [
+    "BFDE-JEP",
+    "EIDEF-S11",
+    "EIDEF-S12"
+  ],
+  "anchors": [
+    {
+      "id": "ei13-structure",
+      "title": "一、技术变化先改变哪些可行的事情",
+      "kind": "section",
+      "preview": "技术可以让同样的人和设备做得更多，改善产品质量，也可以让原先不能完成的任务变得可行。但从“技术能做”到“企业获得利润”，中间还有部署、客户或员工采用、互补投入和竞争。行业分析的任务，是把这些连接具体化。"
+    },
+    {
+      "id": "ei13-intangible",
+      "title": "二、无形资源为什么既能扩张，又需要互补投入",
+      "kind": "section",
+      "preview": "Crouzet等人的2022年JEP文章把无形资本视为能够储存并用于生产的信息，例如软件、数据、设计、组织流程。文章特别强调使用中的非竞争性与有限排他性：同一信息能够在多个生产环节同时使用，但创造者未必能独占全部收益。[^jep]"
+    },
+    {
+      "id": "ei13-evidence",
+      "title": "三、两份AI材料：一份测“用了没有”，一份测“任务表现如何”",
+      "kind": "section",
+      "preview": "先读美国人口普查局2026年5月26日的BTOS文章。材料窗口为2025年12月14日至2026年5月3日，问企业是否在最近两周使用AI；5月3日的企业使用比例约19.8%。该调查在2025年11月17日改变了问题表述，把关注范围由商品和服务生产扩展到业务功能，比较历史序列时必须保留这个变化。[^btos]"
+    },
+    {
+      "id": "ei13-aggregation",
+      "title": "四、真正能够聚合的，是同一对象下的产出变化",
+      "kind": "section",
+      "preview": "现在不使用两个真实研究的数值，另设一个**完全透明的教学模型**。同一期间内，各单位基期产出为 $y_i\\ge0$；$d_i\\in\\{0,1\\}$ 表示是否采用；采用后的相对产出变化为 $g_i$。假设总投入固定、产出单位可加、没有溢出，也没有因采用而改变未采用者产出。"
+    },
+    {
+      "id": "ei13-capture",
+      "title": "五、任务产出增加后，价值怎样分配",
+      "kind": "section",
+      "preview": "产出加总完成了，仍没有得到企业利润。一个新的流程可能让单位劳动服务更多客户，但节省的价值可以分给员工、软件提供商、集成服务商，也可以通过更低价格转给客户。企业还要负担部署费用、运行费及维护更新。"
+    },
+    {
+      "id": "ei13-exercises",
+      "title": "六、重建与迁移",
+      "kind": "section",
+      "preview": "**任务一：**两单位产出1和9，第一家提升10%，第二家不变，重建总增长。为什么50%乘10%不对？"
+    }
+  ],
+  "relations": [
+    {
+      "from": "EI-13",
+      "relation": "part_of",
+      "to": "industry-dynamics",
+      "reason": "主要教学归属"
+    },
+    {
+      "from": "EI-13",
+      "relation": "uses_method",
+      "to": "EI-03",
+      "reason": "客户采用和替代"
+    },
+    {
+      "from": "EI-13",
+      "relation": "uses_method",
+      "to": "EI-04",
+      "reason": "部署与有效资源"
+    },
+    {
+      "from": "EI-13",
+      "relation": "uses_method",
+      "to": "EI-07",
+      "reason": "竞争与收益取得"
+    },
+    {
+      "from": "EI-13",
+      "relation": "uses_method",
+      "to": "EI-08",
+      "reason": "互补投入与建设时间"
+    },
+    {
+      "from": "EI-13#ei13-intangible",
+      "relation": "supported_by",
+      "to": "BFDE-JEP",
+      "reason": "信息的存储、使用中非竞争性、有限排他性及经营范围/投入之间的权衡。本文不使用不存在的§2.1编号，也不声称证明附录。",
+      "locator": "印刷pp.30–34 Characteristics of Intangibles as Assets；pp.34–39 Production with Intangible Capital",
+      "scope": "对应段采用的具名单元，不扩称完整论文复现",
+      "at_section": "ei13-intangible"
+    },
+    {
+      "from": "EI-13#ei13-evidence",
+      "relation": "supported_by",
+      "to": "EIDEF-S11",
+      "reason": "5172人是全样本，Table II(3)为12295人月；0.301及15.2%的分母不同于表中总体均值。大规模部署前有约50人的小型RCT；主要5172人结果来自受培训容量、预算和经理排期影响的错峰部署，用DiD/固定效应与event-study等识别，而不是把整个样本称随机试验。",
+      "locator": "印刷pp.901–908 IV.A–C、TablesI–II/FigureII；pp.910–915 skill/tenure；TableII p.907",
+      "scope": "对应段采用的具名单元，不扩称完整论文复现",
+      "at_section": "ei13-evidence"
+    },
+    {
+      "from": "EI-13#ei13-evidence",
+      "relation": "supported_by",
+      "to": "EIDEF-S12",
+      "reason": "企业数量采用率，不是产出或劳动份额；不能与QJE特定任务效果直接相乘。",
+      "locator": "调查窗口、May3 19.8%、2025-11-17问题表述改变的完整段",
+      "scope": "对应段采用的具名单元，不扩称完整论文复现",
+      "at_section": "ei13-evidence"
+    },
+    {
+      "from": "EI-13#ei13-aggregation",
+      "relation": "illustrated_by",
+      "to": "exp-ei13-tech-path",
+      "reason": "y1=1,y2=9,g=10%；只低产出单位采用→总增长1%，只高产出单位采用→9%，数量权重均误报5%。两者全不采用为0；总基期0拒绝。",
+      "at_section": "ei13-aggregation"
+    }
+  ],
+  "agent_packet": {
+    "entry_id": "zh-ei13",
+    "node_id": "EI-13",
+    "content_version": "2026-09-21-review-v2",
+    "export_mode": "public",
+    "selected_branch": "all",
+    "audience": "有微积分、线性代数和基本概率基础的高年级本科生至研究生",
+    "learning_task": "重建基期产出加权的技术效果，比较企业采用调查和任务层研究。",
+    "required_readings": [
+      {
+        "source_id": "BFDE-JEP",
+        "title": "The Economics of Intangible Capital",
+        "authors": [
+          "Nicolas Crouzet",
+          "Janice C. Eberly",
+          "Andrea L. Eisfeldt",
+          "Dimitris Papanikolaou"
+        ],
+        "version": "JEP 36(3), 2022, 29–52",
+        "access": {
+          "kind": "pdf_full_text",
+          "uri": "https://www.kellogg.northwestern.edu/faculty/crouzet/html/papers/EconIntan_published.pdf",
+          "verified_access_at": "2026-09-21"
+        },
+        "required_unit": {
+          "locator": "印刷pp.30–34 Characteristics of Intangibles as Assets；pp.34–39 Production with Intangible Capital",
+          "scope": "所列具名单元全文，包含公式、表头、表注及本篇采用结论所需上下文；不要求无关章节。",
+          "purpose": "信息的存储、使用中非竞争性、有限排他性及经营范围/投入之间的权衡。本文不使用不存在的§2.1编号，也不声称证明附录。"
+        },
+        "supports": "信息的存储、使用中非竞争性、有限排他性及经营范围/投入之间的权衡。本文不使用不存在的§2.1编号，也不声称证明附录。",
+        "id": "EI-13-READ-1",
+        "retrieved_at": "2026-09-21"
+      },
+      {
+        "source_id": "EIDEF-S11",
+        "title": "Generative AI at Work",
+        "authors": [
+          "Erik Brynjolfsson",
+          "Danielle Li",
+          "Lindsey R. Raymond"
+        ],
+        "version": "QJE 140(2), 2025, 889–942",
+        "access": {
+          "kind": "pdf_full_text",
+          "uri": "https://danielle-li.github.io/assets/docs/GenerativeAIatWork.pdf",
+          "verified_access_at": "2026-09-21"
+        },
+        "required_unit": {
+          "locator": "印刷pp.901–908 IV.A–C、TablesI–II/FigureII；pp.910–915 skill/tenure；TableII p.907",
+          "scope": "所列具名单元全文，包含公式、表头、表注及本篇采用结论所需上下文；不要求无关章节。",
+          "purpose": "5172人是全样本，Table II(3)为12295人月；0.301及15.2%的分母不同于表中总体均值。大规模部署前有约50人的小型RCT；主要5172人结果来自受培训容量、预算和经理排期影响的错峰部署，用DiD/固定效应与event-study等识别，而不是把整个样本称随机试验。"
+        },
+        "supports": "5172人是全样本，Table II(3)为12295人月；0.301及15.2%的分母不同于表中总体均值。大规模部署前有约50人的小型RCT；主要5172人结果来自受培训容量、预算和经理排期影响的错峰部署，用DiD/固定效应与event-study等识别，而不是把整个样本称随机试验。",
+        "id": "EI-13-READ-2",
+        "retrieved_at": "2026-09-21"
+      },
+      {
+        "source_id": "EIDEF-S12",
+        "title": "AI Use in Businesses",
+        "authors": [
+          "U.S. Census Bureau"
+        ],
+        "version": "2026-05-26 article; BTOS window 2025-12-14 to 2026-05-03",
+        "access": {
+          "kind": "site_body",
+          "uri": "https://www.census.gov/library/stories/2026/05/ai-use-businesses.html",
+          "verified_access_at": "2026-09-21"
+        },
+        "required_unit": {
+          "locator": "调查窗口、May3 19.8%、2025-11-17问题表述改变的完整段",
+          "scope": "所列具名单元全文，包含公式、表头、表注及本篇采用结论所需上下文；不要求无关章节。",
+          "purpose": "企业数量采用率，不是产出或劳动份额；不能与QJE特定任务效果直接相乘。"
+        },
+        "supports": "企业数量采用率，不是产出或劳动份额；不能与QJE特定任务效果直接相乘。",
+        "id": "EI-13-READ-3",
+        "retrieved_at": "2026-09-21"
+      }
+    ],
+    "optional_readings": [],
+    "runtime_reading_log": [],
+    "supplied_inputs": {
+      "frozen_source_version": "2026-09-21-ei-defgh-preflight-final",
+      "node": {
+        "experiment_id": "exp-ei13-tech-path",
+        "aggregation_formula": "sum(y_i * d_i * g_i) / sum(y_i)",
+        "required_weight": "baseline output share when g_i is a relative output effect",
+        "counterexample": {
+          "baseline_outputs": [
+            1,
+            9
+          ],
+          "relative_gain_if_adopted": 0.1,
+          "number_share_adoption": 0.5,
+          "naive_number_share_times_gain": 0.05,
+          "aggregate_growth_if_low_output_unit_adopts": 0.01,
+          "aggregate_growth_if_high_output_unit_adopts": 0.09
+        },
+        "observed_sources_kept_separate": {
+          "BTOS_business_AI_use_May_3_2026_pct": 19.8,
+          "QJE_total_agents": 5172,
+          "QJE_Table_II_col3_agent_months": 12295,
+          "QJE_Table_II_col3_effect_resolutions_per_hour": 0.301,
+          "QJE_source_reported_pct_effect_from_pretreatment_baseline": 15.2,
+          "QJE_Table_II_overall_DV_mean": 2.176
+        },
+        "prohibited_real_world_product": "Do not multiply BTOS adoption share by QJE treatment effect."
+      },
+      "experiments": [
+        {
+          "id": "exp-ei13-tech-path",
+          "node_id": "EI-13",
+          "title": "数量权重与产出权重",
+          "anchor": "ei13-aggregation",
+          "method": "adoption",
+          "controls": [
+            {
+              "key": "y1",
+              "label": "单位1基期产出",
+              "default": 1,
+              "min": 0,
+              "max": 100,
+              "step": 0.5,
+              "kind": "number"
+            },
+            {
+              "key": "y2",
+              "label": "单位2基期产出",
+              "default": 9,
+              "min": 0,
+              "max": 100,
+              "step": 0.5,
+              "kind": "number"
+            },
+            {
+              "key": "d1",
+              "label": "单位1采用",
+              "default": 1,
+              "min": 0,
+              "max": 100,
+              "step": 1,
+              "kind": "select",
+              "options": [
+                [
+                  0,
+                  "不采用"
+                ],
+                [
+                  1,
+                  "采用"
+                ]
+              ]
+            },
+            {
+              "key": "d2",
+              "label": "单位2采用",
+              "default": 0,
+              "min": 0,
+              "max": 100,
+              "step": 1,
+              "kind": "select",
+              "options": [
+                [
+                  0,
+                  "不采用"
+                ],
+                [
+                  1,
+                  "采用"
+                ]
+              ]
+            },
+            {
+              "key": "g1",
+              "label": "单位1相对提升",
+              "default": 0.1,
+              "min": -1,
+              "max": 1,
+              "step": 0.01,
+              "kind": "number"
+            },
+            {
+              "key": "g2",
+              "label": "单位2相对提升",
+              "default": 0.1,
+              "min": -1,
+              "max": 1,
+              "step": 0.01,
+              "kind": "number"
+            }
+          ],
+          "inputs": {
+            "y1": 1,
+            "y2": 9,
+            "d1": 1,
+            "d2": 0,
+            "g1": 0.1,
+            "g2": 0.1
+          },
+          "algorithm": "总基期Y=y1+y2>0；增量Σyi*di*gi；整体增幅=增量/Y。数量权重比较式Σdi*gi/2只在等基期产出等条件下适用。固定投入、无外溢、一致可加产出。",
+          "static_equivalent": "y1=1,y2=9,g=10%；只低产出单位采用→总增长1%，只高产出单位采用→9%，数量权重均误报5%。两者全不采用为0；总基期0拒绝。",
+          "source_ids": [
+            "BFDE-JEP",
+            "EIDEF-S11",
+            "EIDEF-S12"
+          ],
+          "identity": "teaching_assumption",
+          "description": "数量权重与产出权重",
+          "outputs": {
+            "baseline": 10,
+            "delta": [
+              0.1,
+              0
+            ],
+            "post_output": 10.1,
+            "growth": 0.01,
+            "weights": [
+              0.1,
+              0.9
+            ],
+            "adopter_output_share": 0.1,
+            "adopter_count_share": 0.5,
+            "count_weighted_gain": 0.05,
+            "interpretation": "same population, additive baseline output, fixed inputs/no spillovers; not BTOS × QJE"
+          }
+        }
+      ]
+    },
+    "static_equivalents": [
+      {
+        "experiment_id": "exp-ei13-tech-path",
+        "text": "y1=1,y2=9,g=10%；只低产出单位采用→总增长1%，只高产出单位采用→9%，数量权重均误报5%。两者全不采用为0；总基期0拒绝。",
+        "outputs": {
+          "baseline": 10,
+          "delta": [
+            0.1,
+            0
+          ],
+          "post_output": 10.1,
+          "growth": 0.01,
+          "weights": [
+            0.1,
+            0.9
+          ],
+          "adopter_output_share": 0.1,
+          "adopter_count_share": 0.5,
+          "count_weighted_gain": 0.05,
+          "interpretation": "same population, additive baseline output, fixed inputs/no spillovers; not BTOS × QJE"
+        }
+      }
+    ],
+    "source_id_aliases": {
+      "EIDEF-S10": "BFDE-JEP",
+      "EIDEF-S14": "EIBC-S07M",
+      "EIDEF-S16A": "EIBC-S05A",
+      "EIDEF-S16B": "EIBC-S05B",
+      "EIDEF-S21": "EI-S06-M3-202605"
+    }
+  },
+  "agent_markdown": "### 图表的静态等价与默认结果\n\ny1=1,y2=9,g=10%；只低产出单位采用→总增长1%，只高产出单位采用→9%，数量权重均误报5%。两者全不采用为0；总基期0拒绝。\n\n```json\n{\n  \"baseline\": 10,\n  \"delta\": [\n    0.1,\n    0\n  ],\n  \"post_output\": 10.1,\n  \"growth\": 0.01,\n  \"weights\": [\n    0.1,\n    0.9\n  ],\n  \"adopter_output_share\": 0.1,\n  \"adopter_count_share\": 0.5,\n  \"count_weighted_gain\": 0.05,\n  \"interpretation\": \"same population, additive baseline output, fixed inputs/no spillovers; not BTOS × QJE\"\n}\n```",
+  "experiments": [
+    {
+      "id": "exp-ei13-tech-path",
+      "node_id": "EI-13",
+      "title": "数量权重与产出权重",
+      "anchor": "ei13-aggregation",
+      "method": "adoption",
+      "controls": [
+        {
+          "key": "y1",
+          "label": "单位1基期产出",
+          "default": 1,
+          "min": 0,
+          "max": 100,
+          "step": 0.5,
+          "kind": "number"
+        },
+        {
+          "key": "y2",
+          "label": "单位2基期产出",
+          "default": 9,
+          "min": 0,
+          "max": 100,
+          "step": 0.5,
+          "kind": "number"
+        },
+        {
+          "key": "d1",
+          "label": "单位1采用",
+          "default": 1,
+          "min": 0,
+          "max": 100,
+          "step": 1,
+          "kind": "select",
+          "options": [
+            [
+              0,
+              "不采用"
+            ],
+            [
+              1,
+              "采用"
+            ]
+          ]
+        },
+        {
+          "key": "d2",
+          "label": "单位2采用",
+          "default": 0,
+          "min": 0,
+          "max": 100,
+          "step": 1,
+          "kind": "select",
+          "options": [
+            [
+              0,
+              "不采用"
+            ],
+            [
+              1,
+              "采用"
+            ]
+          ]
+        },
+        {
+          "key": "g1",
+          "label": "单位1相对提升",
+          "default": 0.1,
+          "min": -1,
+          "max": 1,
+          "step": 0.01,
+          "kind": "number"
+        },
+        {
+          "key": "g2",
+          "label": "单位2相对提升",
+          "default": 0.1,
+          "min": -1,
+          "max": 1,
+          "step": 0.01,
+          "kind": "number"
+        }
+      ],
+      "inputs": {
+        "y1": 1,
+        "y2": 9,
+        "d1": 1,
+        "d2": 0,
+        "g1": 0.1,
+        "g2": 0.1
+      },
+      "algorithm": "总基期Y=y1+y2>0；增量Σyi*di*gi；整体增幅=增量/Y。数量权重比较式Σdi*gi/2只在等基期产出等条件下适用。固定投入、无外溢、一致可加产出。",
+      "static_equivalent": "y1=1,y2=9,g=10%；只低产出单位采用→总增长1%，只高产出单位采用→9%，数量权重均误报5%。两者全不采用为0；总基期0拒绝。",
+      "source_ids": [
+        "BFDE-JEP",
+        "EIDEF-S11",
+        "EIDEF-S12"
+      ],
+      "identity": "teaching_assumption",
+      "description": "数量权重与产出权重",
+      "outputs": {
+        "baseline": 10,
+        "delta": [
+          0.1,
+          0
+        ],
+        "post_output": 10.1,
+        "growth": 0.01,
+        "weights": [
+          0.1,
+          0.9
+        ],
+        "adopter_output_share": 0.1,
+        "adopter_count_share": 0.5,
+        "count_weighted_gain": 0.05,
+        "interpretation": "same population, additive baseline output, fixed inputs/no spillovers; not BTOS × QJE"
+      },
+      "input_uri": "https://ou-liu-red-sugar.github.io/notebook/labs/ei-defgh/inputs.json",
+      "implementation": {
+        "html": "/notebook/labs/ei-defgh/interactions.html?embed=1&experiment=exp-ei13-tech-path",
+        "engine": "/notebook/labs/ei-defgh/engine.js",
+        "static_available_without_js": true
+      }
+    }
+  ],
+  "hard_prerequisites": [],
+  "interactions": [
+    {
+      "id": "exp-ei13-tech-path",
+      "title": "数量权重与产出权重",
+      "url": "/notebook/labs/ei-defgh/interactions.html?embed=1&experiment=exp-ei13-tech-path",
+      "height": 1000,
+      "open": true,
+      "experiment_id": "exp-ei13-tech-path",
+      "inline": true,
+      "static_anchor": "ei13-aggregation"
+    }
+  ],
+  "references": [
+    {
+      "kind": "source_link",
+      "label": "jep",
+      "href": "https://www.kellogg.northwestern.edu/faculty/crouzet/html/papers/EconIntan_published.pdf",
+      "source_id": "BFDE-JEP",
+      "locator": "BFDE-JEP，Crouzet、Eberly、Eisfeldt、Papanikolaou，2022，*The Economics of Intangible Capital*，JEP 36(3):29–52。采用pp.30–34 “Characteristics of Intangibles as Assets”及pp.34–39 “Production with Intangible Capital”；未把代数附录当作已复现。[作者公开发表版](https://www.kellogg.northwestern.edu/faculty/crouzet/html/papers/EconIntan_published.pdf)。"
+    },
+    {
+      "kind": "source_link",
+      "label": "btos",
+      "href": "https://www.census.gov/library/stories/2026/05/ai-use-businesses.html",
+      "source_id": "EIDEF-S12",
+      "locator": "EIDEF-S12，U.S. Census Bureau，2026-05-26，*AI Use in Businesses*，BTOS窗口2025-12-14至2026-05-03，问题表述变更及19.8%段落。[官方文章](https://www.census.gov/library/stories/2026/05/ai-use-businesses.html)。"
+    },
+    {
+      "kind": "source_link",
+      "label": "qje",
+      "href": "https://danielle-li.github.io/assets/docs/GenerativeAIatWork.pdf",
+      "source_id": "EIDEF-S11",
+      "locator": "EIDEF-S11，Erik Brynjolfsson、Danielle Li、Lindsey R. Raymond，2025，*Generative AI at Work*，QJE 140(2):889–942。采用pp.901–908 IV.A–C、Tables I–II、Figure II，以及pp.910–915技能／工龄异质性单元。[作者公开最终发表版](https://danielle-li.github.io/assets/docs/GenerativeAIatWork.pdf)。"
+    }
+  ],
+  "provenance": {
+    "source_package": "docs/production/20260921/drafts/ei-defgh-v3/notebook-EI-DEFGH-20260921-review-v3",
+    "author_review_phase": "review-v3 bounded EI15/EI17; remaining six review-v2",
+    "independent_review": "receipts/ei-defgh-fresh-chat-cross-review.md",
+    "import_status": "integrated_awaiting_browser_acceptance",
+    "browser_UI_verified": false,
+    "original_numeric_suites_rerun": false
+  }
+}

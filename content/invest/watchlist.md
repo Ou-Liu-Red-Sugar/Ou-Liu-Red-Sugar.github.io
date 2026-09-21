@@ -1,4 +1,5 @@
 ---
+aliases: ["/invest/watchlist/"]
 title: "Watchlist"
 description: "Candidate pool — names not held but in active monitoring, with explicit trigger conditions."
 date: 2026-05-18

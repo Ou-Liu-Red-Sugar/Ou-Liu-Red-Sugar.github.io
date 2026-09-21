@@ -1,0 +1,157 @@
+{
+  "version": "2026-09-21-QT-A-review-v2",
+  "vintage": {
+    "experiment_id": "EXP-DATA-VINTAGE-01",
+    "series_label": "US real GDP growth, qoq SAAR",
+    "period": "2020Q2",
+    "unit": "percent",
+    "records": [
+      {
+        "version": "advance",
+        "version_order": 1,
+        "release_at": "2020-07-30T08:30:00-04:00",
+        "received_at": null,
+        "value": -32.9,
+        "source_id": "BEA-2020Q2-ADV"
+      },
+      {
+        "version": "second",
+        "version_order": 2,
+        "release_at": "2020-08-27T08:30:00-04:00",
+        "received_at": null,
+        "value": -31.7,
+        "source_id": "BEA-2020Q2-SECOND"
+      }
+    ],
+    "default_cutoff": "2020-08-03T16:00:00-04:00",
+    "default_mode": "public",
+    "threshold_percent": -32,
+    "simulation": {
+      "status": "teaching_assumption",
+      "delay_seconds": 5
+    }
+  },
+  "split": {
+    "status": "teaching_assumption_except_4_for_1_event",
+    "initial_shares": 1,
+    "price_before": 400,
+    "ratio": 4,
+    "price_after": 102,
+    "cash_distribution_per_new_share": 1,
+    "actual_event_source": "AAPL-SPLIT-20200730"
+  },
+  "ledger": {
+    "experiment_id": "EXP-CLOCK-01",
+    "status": "entirely_fictional",
+    "initial_cash": 1000,
+    "target_shares": 2,
+    "filled_shares": 2,
+    "execution_price": 103,
+    "entry_fee_if_filled": 1,
+    "mark_price": 105,
+    "exit_fee_if_position": 1,
+    "wrong_clock_price": 100,
+    "borrowing": false,
+    "short_sales": false,
+    "interest": 0,
+    "tax": 0,
+    "distributions": 0,
+    "exit_price": 105,
+    "timeline": {
+      "status": "teaching_event_order_not_exchange_rule",
+      "observation": "E0",
+      "decision": "E1",
+      "order_submitted": "E2",
+      "execution": "E3",
+      "fill_report_received": "E4",
+      "booked": "E5",
+      "valuation": "E6",
+      "settlement": null,
+      "settlement_status": "not_modelled",
+      "economic_cash_convention": "recognize execution economics at E3 for ex-post teaching ledger; not settled or withdrawable cash"
+    }
+  },
+  "information": {
+    "status": "finite_teaching_model",
+    "states": [
+      "u+",
+      "u-",
+      "d+",
+      "d-"
+    ],
+    "groups": [
+      "u",
+      "u",
+      "d",
+      "d"
+    ],
+    "price_changes": [
+      2,
+      -2,
+      2,
+      -2
+    ],
+    "rule_A": [
+      2,
+      2,
+      0,
+      0
+    ],
+    "rule_B": [
+      1,
+      -1,
+      1,
+      -1
+    ]
+  },
+  "probability": {
+    "experiment_id": "EXP-PAYOFF-MAP-01",
+    "horizon": "one hypothetical terminal settlement T; no actual listed expiry",
+    "status": "teaching_assumption",
+    "states": [
+      "w1",
+      "w2",
+      "w3"
+    ],
+    "settlement_points": [
+      5900,
+      6000,
+      6100
+    ],
+    "weights": [
+      0.2,
+      0.5,
+      0.3
+    ],
+    "event_A": [
+      true,
+      true,
+      false
+    ],
+    "event_B": [
+      false,
+      true,
+      true
+    ]
+  },
+  "payoff": {
+    "status": "real_product_terms_with_hypothetical_strike_prices_probabilities_premium",
+    "contract_source": "CBOE-SPX-20260921",
+    "type": "call",
+    "strike": 6000,
+    "multiplier": 100,
+    "premium_points": 30,
+    "fees": 0,
+    "funding_cost": 0,
+    "tax": 0,
+    "uniform_alternative": {
+      "status": "separate_fixed_teaching_model",
+      "low": 5900,
+      "high": 6100,
+      "strike": 6000,
+      "multiplier": 100,
+      "query_y": 5000
+    },
+    "product_cash_delivery_timing": "business day following expiration (Cboe fact sheet); account booking not modelled"
+  }
+}

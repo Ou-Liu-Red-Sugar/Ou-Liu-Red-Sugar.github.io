@@ -1,0 +1,375 @@
+{
+  "terminal": [
+    {
+      "id": "protective_put_95",
+      "view": "mid",
+      "origin": "existing",
+      "initial_wealth": 12000,
+      "initial_shares": 100,
+      "initial_cash": 2000,
+      "stock_delta": 0,
+      "stock_trade_cash": 0,
+      "stock_spread": 0,
+      "shares": 100,
+      "option_cash": -142,
+      "opening_fee": 0,
+      "cash_after_D1": 1858,
+      "option_mark": 142,
+      "wealth_at_mid_after_entry": 12000,
+      "legs": [
+        {
+          "kind": "put",
+          "strike": 95,
+          "days": 30,
+          "quantity": 1,
+          "mid": 1.42,
+          "bid": 1.4,
+          "ask": 1.44,
+          "fill": 1.42,
+          "fee": 0,
+          "cash": -142
+        }
+      ],
+      "settlement_note": "D0形成仓位与应收应付；D1教学营业日完成权利金/初始股票转换现金。",
+      "spot": 0,
+      "payoffs": [
+        9500
+      ],
+      "stock_mark": 0,
+      "option_payoff": 9500,
+      "wealth": 11358,
+      "pnl": -642,
+      "return_on_initial": -0.05349999999999999,
+      "identity": "到期闭合支付的财富标记；不自动宣称所有实物交割已完成。默认不计最终平股/行权费或税。"
+    },
+    {
+      "id": "protective_put_95",
+      "view": "mid",
+      "origin": "existing",
+      "initial_wealth": 12000,
+      "initial_shares": 100,
+      "initial_cash": 2000,
+      "stock_delta": 0,
+      "stock_trade_cash": 0,
+      "stock_spread": 0,
+      "shares": 100,
+      "option_cash": -142,
+      "opening_fee": 0,
+      "cash_after_D1": 1858,
+      "option_mark": 142,
+      "wealth_at_mid_after_entry": 12000,
+      "legs": [
+        {
+          "kind": "put",
+          "strike": 95,
+          "days": 30,
+          "quantity": 1,
+          "mid": 1.42,
+          "bid": 1.4,
+          "ask": 1.44,
+          "fill": 1.42,
+          "fee": 0,
+          "cash": -142
+        }
+      ],
+      "settlement_note": "D0形成仓位与应收应付；D1教学营业日完成权利金/初始股票转换现金。",
+      "spot": 70,
+      "payoffs": [
+        2500
+      ],
+      "stock_mark": 7000,
+      "option_payoff": 2500,
+      "wealth": 11358,
+      "pnl": -642,
+      "return_on_initial": -0.05349999999999999,
+      "identity": "到期闭合支付的财富标记；不自动宣称所有实物交割已完成。默认不计最终平股/行权费或税。"
+    },
+    {
+      "id": "protective_put_95",
+      "view": "mid",
+      "origin": "existing",
+      "initial_wealth": 12000,
+      "initial_shares": 100,
+      "initial_cash": 2000,
+      "stock_delta": 0,
+      "stock_trade_cash": 0,
+      "stock_spread": 0,
+      "shares": 100,
+      "option_cash": -142,
+      "opening_fee": 0,
+      "cash_after_D1": 1858,
+      "option_mark": 142,
+      "wealth_at_mid_after_entry": 12000,
+      "legs": [
+        {
+          "kind": "put",
+          "strike": 95,
+          "days": 30,
+          "quantity": 1,
+          "mid": 1.42,
+          "bid": 1.4,
+          "ask": 1.44,
+          "fill": 1.42,
+          "fee": 0,
+          "cash": -142
+        }
+      ],
+      "settlement_note": "D0形成仓位与应收应付；D1教学营业日完成权利金/初始股票转换现金。",
+      "spot": 90,
+      "payoffs": [
+        500
+      ],
+      "stock_mark": 9000,
+      "option_payoff": 500,
+      "wealth": 11358,
+      "pnl": -642,
+      "return_on_initial": -0.05349999999999999,
+      "identity": "到期闭合支付的财富标记；不自动宣称所有实物交割已完成。默认不计最终平股/行权费或税。"
+    },
+    {
+      "id": "protective_put_95",
+      "view": "mid",
+      "origin": "existing",
+      "initial_wealth": 12000,
+      "initial_shares": 100,
+      "initial_cash": 2000,
+      "stock_delta": 0,
+      "stock_trade_cash": 0,
+      "stock_spread": 0,
+      "shares": 100,
+      "option_cash": -142,
+      "opening_fee": 0,
+      "cash_after_D1": 1858,
+      "option_mark": 142,
+      "wealth_at_mid_after_entry": 12000,
+      "legs": [
+        {
+          "kind": "put",
+          "strike": 95,
+          "days": 30,
+          "quantity": 1,
+          "mid": 1.42,
+          "bid": 1.4,
+          "ask": 1.44,
+          "fill": 1.42,
+          "fee": 0,
+          "cash": -142
+        }
+      ],
+      "settlement_note": "D0形成仓位与应收应付；D1教学营业日完成权利金/初始股票转换现金。",
+      "spot": 95,
+      "payoffs": [
+        0
+      ],
+      "stock_mark": 9500,
+      "option_payoff": 0,
+      "wealth": 11358,
+      "pnl": -642,
+      "return_on_initial": -0.05349999999999999,
+      "identity": "到期闭合支付的财富标记；不自动宣称所有实物交割已完成。默认不计最终平股/行权费或税。"
+    },
+    {
+      "id": "protective_put_95",
+      "view": "mid",
+      "origin": "existing",
+      "initial_wealth": 12000,
+      "initial_shares": 100,
+      "initial_cash": 2000,
+      "stock_delta": 0,
+      "stock_trade_cash": 0,
+      "stock_spread": 0,
+      "shares": 100,
+      "option_cash": -142,
+      "opening_fee": 0,
+      "cash_after_D1": 1858,
+      "option_mark": 142,
+      "wealth_at_mid_after_entry": 12000,
+      "legs": [
+        {
+          "kind": "put",
+          "strike": 95,
+          "days": 30,
+          "quantity": 1,
+          "mid": 1.42,
+          "bid": 1.4,
+          "ask": 1.44,
+          "fill": 1.42,
+          "fee": 0,
+          "cash": -142
+        }
+      ],
+      "settlement_note": "D0形成仓位与应收应付；D1教学营业日完成权利金/初始股票转换现金。",
+      "spot": 100,
+      "payoffs": [
+        0
+      ],
+      "stock_mark": 10000,
+      "option_payoff": 0,
+      "wealth": 11858,
+      "pnl": -142,
+      "return_on_initial": -0.011833333333333362,
+      "identity": "到期闭合支付的财富标记；不自动宣称所有实物交割已完成。默认不计最终平股/行权费或税。"
+    },
+    {
+      "id": "protective_put_95",
+      "view": "mid",
+      "origin": "existing",
+      "initial_wealth": 12000,
+      "initial_shares": 100,
+      "initial_cash": 2000,
+      "stock_delta": 0,
+      "stock_trade_cash": 0,
+      "stock_spread": 0,
+      "shares": 100,
+      "option_cash": -142,
+      "opening_fee": 0,
+      "cash_after_D1": 1858,
+      "option_mark": 142,
+      "wealth_at_mid_after_entry": 12000,
+      "legs": [
+        {
+          "kind": "put",
+          "strike": 95,
+          "days": 30,
+          "quantity": 1,
+          "mid": 1.42,
+          "bid": 1.4,
+          "ask": 1.44,
+          "fill": 1.42,
+          "fee": 0,
+          "cash": -142
+        }
+      ],
+      "settlement_note": "D0形成仓位与应收应付；D1教学营业日完成权利金/初始股票转换现金。",
+      "spot": 105,
+      "payoffs": [
+        0
+      ],
+      "stock_mark": 10500,
+      "option_payoff": 0,
+      "wealth": 12358,
+      "pnl": 358,
+      "return_on_initial": 0.02983333333333338,
+      "identity": "到期闭合支付的财富标记；不自动宣称所有实物交割已完成。默认不计最终平股/行权费或税。"
+    },
+    {
+      "id": "protective_put_95",
+      "view": "mid",
+      "origin": "existing",
+      "initial_wealth": 12000,
+      "initial_shares": 100,
+      "initial_cash": 2000,
+      "stock_delta": 0,
+      "stock_trade_cash": 0,
+      "stock_spread": 0,
+      "shares": 100,
+      "option_cash": -142,
+      "opening_fee": 0,
+      "cash_after_D1": 1858,
+      "option_mark": 142,
+      "wealth_at_mid_after_entry": 12000,
+      "legs": [
+        {
+          "kind": "put",
+          "strike": 95,
+          "days": 30,
+          "quantity": 1,
+          "mid": 1.42,
+          "bid": 1.4,
+          "ask": 1.44,
+          "fill": 1.42,
+          "fee": 0,
+          "cash": -142
+        }
+      ],
+      "settlement_note": "D0形成仓位与应收应付；D1教学营业日完成权利金/初始股票转换现金。",
+      "spot": 110,
+      "payoffs": [
+        0
+      ],
+      "stock_mark": 11000,
+      "option_payoff": 0,
+      "wealth": 12858,
+      "pnl": 858,
+      "return_on_initial": 0.0714999999999999,
+      "identity": "到期闭合支付的财富标记；不自动宣称所有实物交割已完成。默认不计最终平股/行权费或税。"
+    },
+    {
+      "id": "protective_put_95",
+      "view": "mid",
+      "origin": "existing",
+      "initial_wealth": 12000,
+      "initial_shares": 100,
+      "initial_cash": 2000,
+      "stock_delta": 0,
+      "stock_trade_cash": 0,
+      "stock_spread": 0,
+      "shares": 100,
+      "option_cash": -142,
+      "opening_fee": 0,
+      "cash_after_D1": 1858,
+      "option_mark": 142,
+      "wealth_at_mid_after_entry": 12000,
+      "legs": [
+        {
+          "kind": "put",
+          "strike": 95,
+          "days": 30,
+          "quantity": 1,
+          "mid": 1.42,
+          "bid": 1.4,
+          "ask": 1.44,
+          "fill": 1.42,
+          "fee": 0,
+          "cash": -142
+        }
+      ],
+      "settlement_note": "D0形成仓位与应收应付；D1教学营业日完成权利金/初始股票转换现金。",
+      "spot": 130,
+      "payoffs": [
+        0
+      ],
+      "stock_mark": 13000,
+      "option_payoff": 0,
+      "wealth": 14858,
+      "pnl": 2858,
+      "return_on_initial": 0.23816666666666664,
+      "identity": "到期闭合支付的财富标记；不自动宣称所有实物交割已完成。默认不计最终平股/行权费或税。"
+    }
+  ],
+  "renewal": [
+    {
+      "cycle": 1,
+      "start": 100,
+      "strike": 95,
+      "premium": 142.00000000000003,
+      "cumulative_premium": 142.00000000000003,
+      "end": 96,
+      "put_payoff": 0,
+      "cash": 1858,
+      "wealth": 11458
+    },
+    {
+      "cycle": 2,
+      "start": 96,
+      "strike": 91.19999999999999,
+      "premium": 136.32,
+      "cumulative_premium": 278.32000000000005,
+      "end": 92.16,
+      "put_payoff": 0,
+      "cash": 1721.68,
+      "wealth": 10937.68
+    },
+    {
+      "cycle": 3,
+      "start": 92.16,
+      "strike": 87.55199999999999,
+      "premium": 130.8672,
+      "cumulative_premium": 409.1872000000001,
+      "end": 88.47359999999999,
+      "put_payoff": 0,
+      "cash": 1590.8128000000002,
+      "wealth": 10438.172799999998
+    }
+  ]
+}

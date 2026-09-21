@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.Language.LanguageCode }}">
+<head>{{ partial "head.html" . }}<link rel="stylesheet" href="/notebook/site.css"><script type="module" src="/notebook/site.js"></script></head>
+<body class="notebook-app {{ if and (ne .Section "notebook") (not .IsHome) }}legacy-page{{ end }}" data-lang="{{ .Lang }}">
+<a class="skip-link" href="#main">{{ if eq .Lang "zh" }}跳到正文{{ else }}Skip to content{{ end }}</a>
+{{ partial "notebook/header.html" . }}
+<main id="main" class="site-main" tabindex="-1">{{ block "main" . }}{{ end }}</main>
+<footer class="site-footer"><a href="/{{ .Lang }}/">Ou Liu <span>· 刘欧</span></a><span>{{ if eq .Lang "zh" }}持续学习，保留来路。{{ else }}Notes in progress. Sources in view.{{ end }}</span><a href="/agent/{{ .Lang }}/index.md">Agent index ↗</a></footer>
+{{ partial "notebook/overlays.html" . }}
+{{ partial "extend_footer.html" . }}
+</body></html>
+

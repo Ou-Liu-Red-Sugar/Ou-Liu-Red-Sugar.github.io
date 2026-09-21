@@ -1,0 +1,434 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Itô 公式与几何 Brownian 模型</title><style>:root{color-scheme:light;--ink:#203044;--muted:#536578;--line:#ccd7e1;--paper:#fff;--accent:#245b75;--wash:#f2f6f8;--alt:#9b5732}*{box-sizing:border-box}body{font-family:system-ui,-apple-system,"Microsoft YaHei",sans-serif;color:var(--ink);background:var(--paper);margin:0;line-height:1.8}main{max-width:940px;margin:auto;padding:28px 32px 70px}h1{font-size:1.9rem;line-height:1.4;margin:0 0 1.2rem}h2{font-size:1.38rem;margin-top:2.1rem;border-bottom:1px solid var(--line);padding-bottom:.3rem}h3{font-size:1.12rem}p{margin:.85rem 0}a{color:var(--accent);text-underline-offset:3px}strong{font-weight:650}nav{display:flex;flex-wrap:wrap;gap:12px;padding:12px 0;margin-bottom:15px;font-size:.92rem}button,select,input{font:inherit;min-height:42px;max-width:100%;border:1px solid var(--line);border-radius:5px;padding:5px 10px;background:white;color:var(--ink)}button{cursor:pointer}button:hover,button[aria-pressed=true]{background:var(--wash);border-color:var(--accent)}button:focus-visible,a:focus-visible,select:focus-visible,input:focus-visible{outline:3px solid #c57939;outline-offset:3px}.controls{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin:1rem 0}.controls label{display:flex;flex-wrap:wrap;align-items:center;gap:7px}.result{padding:12px 16px;background:var(--wash);border-left:3px solid var(--accent);overflow-wrap:anywhere}.subtle,small{color:var(--muted)}.table-wrap{width:100%;overflow:auto;margin:14px 0}table{border-collapse:collapse;width:100%;font-size:.92rem}th,td{padding:8px 10px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}th{font-weight:650;background:var(--wash)}td{font-variant-numeric:tabular-nums}pre{white-space:pre-wrap;overflow-wrap:anywhere;padding:12px;background:var(--wash)}code{font-family:ui-monospace,monospace;font-size:.93em}math{font-family:math;font-size:1.05em}math[display=block]{display:block;margin:1em 0;max-width:100%;line-height:1.8}span.math.display{display:block;max-width:100%;margin:1rem 0}section.lab-panel{padding:12px 0 25px;border-bottom:2px solid var(--line)}svg.chart{width:100%;height:auto;display:block;margin:1rem 0}svg text{font:12px system-ui}svg .line{fill:none;stroke:var(--accent);stroke-width:1.8}svg .bar{fill:var(--accent)}svg .line.alt{stroke:var(--alt)}.math-step{padding:10px;border:1px solid var(--line);border-radius:4px}.footnotes{font-size:.9rem;margin-top:3rem;border-top:1px solid var(--line)}iframe{width:100%;border:1px solid var(--line);border-radius:4px;min-height:680px;background:white}details{padding:8px 12px;border:1px solid var(--line);margin:1rem 0}summary{cursor:pointer;font-weight:600}.source-note{font-size:.88rem;overflow-wrap:anywhere}.branch-controls{display:flex;flex-wrap:wrap;gap:8px}.branch-status{font-size:.88rem}.lab-slot{margin:20px 0}.proof-link{padding:8px 0}.sr-only{position:absolute;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0,0,0,0)}[hidden]{display:none!important}
+@media(max-width:540px){main{padding:18px 14px 45px}h1{font-size:1.5rem}h2{font-size:1.2rem}table{font-size:.85rem}th,td{padding:6px 8px}iframe{min-height:790px}.controls{gap:8px}.controls label{max-width:100%}.result{padding:10px}}
+@media print{body{background:white;color:black}main{max-width:none;padding:0}nav,.controls,.branch-controls,button,.lab-slot{display:none!important}iframe{display:none}section[data-reading-branch]{display:block!important}details,details>*{display:block}table{font-size:9pt}h1,h2,h3{break-after:avoid}tr{break-inside:avoid}a{color:black}.table-wrap{overflow:visible}section.lab-panel[hidden]{display:none!important}svg{max-height:300px}}
+
+body,input,select,button,svg text{font-variant-numeric:lining-nums tabular-nums}
+</style><script defer src="/js/notebook-number-format.js" data-notebook-numbers></script>
+</head><body><main><nav><a href="/zh/notebook/models-path/">本批目录</a><a href="QT17.md">Markdown</a><a href="/agent/zh/qt-ito-formula-gbm.md">完整Agent包</a><button id="copy-agent">复制Agent包</button></nav><p id="copy-status" role="status"></p><p class="subtle">15–18 分钟 · 按准确 C1,2 条件验证 GBM，证明线性专例唯一性，区分均值与对数漂移。</p><h1 id="itô-公式与几何-brownian-模型">Itô 公式与几何 Brownian 模型</h1>
+<p><a id="qt17-motivation"></a></p>
+<h2 id="二阶项不是对普通链式法则的小修饰">二阶项不是对普通链式法则的小修饰</h2>
+<p>普通链式法则把一阶增量累加，较高阶项消失；Brownian 增量的平方和却留下非零极限。这就是 Itô 修正项的来源。本篇先给条件完整的一维公式，再把几何 Brownian 运动的显式解、均值、对数漂移和唯一性走通。完整公式证明另在 <a href="/zh/notebook/qt-ito-formula-proof/">一维 Itô 公式的证明</a>，不隐藏在“二阶项自然留下”这句话里。</p>
+<p>先修是连续积分的含义、二次变差，以及对确定函数求偏导。数值实验中的概率 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>P</mi><annotation encoding="application/x-tex">P</annotation></semantics></math> 是人为指定的生成模型，不是从真实收益拟合出来的规律。</p>
+<p><a id="qt17-theorem"></a></p>
+<h2 id="采用的公式及全部条件">采用的公式及全部条件</h2>
+<p>固定 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>T</mi><mo>&lt;</mo><mi>∞</mi></mrow><annotation encoding="application/x-tex">T&lt;\infty</annotation></semantics></math>，通常条件（过滤右连续，且 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>ℱ</mi><mn>0</mn></msub><annotation encoding="application/x-tex">\mathcal F_0</annotation></semantics></math> 包含 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>ℱ</mi><annotation encoding="application/x-tex">\mathcal F</annotation></semantics></math> 中所有 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>P</mi><annotation encoding="application/x-tex">P</annotation></semantics></math> 零集及其子集）的过滤概率空间，<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>W</mi><annotation encoding="application/x-tex">W</annotation></semantics></math> 相对于该过滤为 Brownian。令 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>X</mi><mn>0</mn></msub><annotation encoding="application/x-tex">X_0</annotation></semantics></math> 是有限的 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>ℱ</mi><mn>0</mn></msub><annotation encoding="application/x-tex">\mathcal F_0</annotation></semantics></math> 可测随机变量；<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>a</mi><mo>,</mo><mi>b</mi></mrow><annotation encoding="application/x-tex">a,b</annotation></semantics></math> 渐进可测，满足</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mo>∫</mo><mn>0</mn><mi>T</mi></msubsup><mrow><mo stretchy="true" form="prefix">|</mo><msub><mi>a</mi><mi>s</mi></msub><mo stretchy="true" form="postfix">|</mo></mrow><mi>d</mi><mi>s</mi><mo>+</mo><msubsup><mo>∫</mo><mn>0</mn><mi>T</mi></msubsup><msubsup><mi>b</mi><mi>s</mi><mn>2</mn></msubsup><mi>d</mi><mi>s</mi><mo>&lt;</mo><mi>∞</mi><mspace width="1.0em"></mspace><mtext mathvariant="normal">几乎必然</mtext><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\int_0^T|a_s|ds+\int_0^Tb_s^2ds&lt;\infty\quad\text{几乎必然}.
+</annotation></semantics></math></p>
+<p>定义连续 Itô 过程</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>X</mi><mi>t</mi></msub><mo>=</mo><msub><mi>X</mi><mn>0</mn></msub><mo>+</mo><msubsup><mo>∫</mo><mn>0</mn><mi>t</mi></msubsup><msub><mi>a</mi><mi>s</mi></msub><mi>d</mi><mi>s</mi><mo>+</mo><msubsup><mo>∫</mo><mn>0</mn><mi>t</mi></msubsup><msub><mi>b</mi><mi>s</mi></msub><mi>d</mi><msub><mi>W</mi><mi>s</mi></msub><mi>.</mi></mrow><annotation encoding="application/x-tex">
+X_t=X_0+\int_0^ta_sds+\int_0^tb_sdW_s.
+</annotation></semantics></math></p>
+<p>随机积分必要时按局部平方可积版本解释。若 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo>∈</mo><msup><mi>C</mi><mrow><mn>1</mn><mo>,</mo><mn>2</mn></mrow></msup><mrow><mo stretchy="true" form="prefix">(</mo><mrow><mo stretchy="true" form="prefix">[</mo><mn>0</mn><mo>,</mo><mi>T</mi><mo stretchy="true" form="postfix">]</mo></mrow><mo>×</mo><mi>ℝ</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">f\in C^{1,2}([0,T]\times\mathbb R)</annotation></semantics></math>，即 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo>,</mo><msub><mi>f</mi><mi>t</mi></msub><mo>,</mo><msub><mi>f</mi><mi>x</mi></msub><mo>,</mo><msub><mi>f</mi><mrow><mi>x</mi><mi>x</mi></mrow></msub></mrow><annotation encoding="application/x-tex">f,f_t,f_x,f_{xx}</annotation></semantics></math> 联合连续，时间端点取单侧导数，则在一个共同满测度集合上，对所有 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>t</mi><mo>≤</mo><mi>T</mi></mrow><annotation encoding="application/x-tex">t\le T</annotation></semantics></math>，</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtable><mtr><mtd columnalign="right" style="text-align: right"><mi>f</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>t</mi><mo>,</mo><msub><mi>X</mi><mi>t</mi></msub><mo stretchy="true" form="postfix">)</mo></mrow><mo>−</mo><mi>f</mi><mrow><mo stretchy="true" form="prefix">(</mo><mn>0</mn><mo>,</mo><msub><mi>X</mi><mn>0</mn></msub><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mrow></mrow></mtd><mtd columnalign="left" style="text-align: left"><msubsup><mo>∫</mo><mn>0</mn><mi>t</mi></msubsup><msub><mi>f</mi><mi>t</mi></msub><mrow><mo stretchy="true" form="prefix">(</mo><mi>s</mi><mo>,</mo><msub><mi>X</mi><mi>s</mi></msub><mo stretchy="true" form="postfix">)</mo></mrow><mi>d</mi><mi>s</mi></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right"></mtd><mtd columnalign="left" style="text-align: left"><mi>+</mi><msubsup><mo>∫</mo><mn>0</mn><mi>t</mi></msubsup><msub><mi>a</mi><mi>s</mi></msub><msub><mi>f</mi><mi>x</mi></msub><mrow><mo stretchy="true" form="prefix">(</mo><mi>s</mi><mo>,</mo><msub><mi>X</mi><mi>s</mi></msub><mo stretchy="true" form="postfix">)</mo></mrow><mi>d</mi><mi>s</mi></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right"></mtd><mtd columnalign="left" style="text-align: left"><mi>+</mi><mfrac><mn>1</mn><mn>2</mn></mfrac><msubsup><mo>∫</mo><mn>0</mn><mi>t</mi></msubsup><msubsup><mi>b</mi><mi>s</mi><mn>2</mn></msubsup><msub><mi>f</mi><mrow><mi>x</mi><mi>x</mi></mrow></msub><mrow><mo stretchy="true" form="prefix">(</mo><mi>s</mi><mo>,</mo><msub><mi>X</mi><mi>s</mi></msub><mo stretchy="true" form="postfix">)</mo></mrow><mi>d</mi><mi>s</mi></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right"></mtd><mtd columnalign="left" style="text-align: left"><mi>+</mi><msubsup><mo>∫</mo><mn>0</mn><mi>t</mi></msubsup><msub><mi>b</mi><mi>s</mi></msub><msub><mi>f</mi><mi>x</mi></msub><mrow><mo stretchy="true" form="prefix">(</mo><mi>s</mi><mo>,</mo><msub><mi>X</mi><mi>s</mi></msub><mo stretchy="true" form="postfix">)</mo></mrow><mi>d</mi><msub><mi>W</mi><mi>s</mi></msub><mi>.</mi></mtd></mtr></mtable><annotation encoding="application/x-tex">
+\begin{aligned}
+f(t,X_t)-f(0,X_0)
+={}&amp;\int_0^t f_t(s,X_s)ds\\
+&amp;+\int_0^t a_sf_x(s,X_s)ds\\
+&amp;+\frac12\int_0^t b_s^2f_{xx}(s,X_s)ds\\
+&amp;+\int_0^t b_sf_x(s,X_s)dW_s.
+\end{aligned}
+</annotation></semantics></math></p>
+<p>不要求 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>f</mi><mrow><mi>t</mi><mi>t</mi></mrow></msub><annotation encoding="application/x-tex">f_{tt}</annotation></semantics></math> 或 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>f</mi><mrow><mi>t</mi><mi>x</mi></mrow></msub><annotation encoding="application/x-tex">f_{tx}</annotation></semantics></math> 存在，也不要求 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>E</mi><msup><mrow><mo stretchy="true" form="prefix">|</mo><msub><mi>X</mi><mn>0</mn></msub><mo stretchy="true" form="postfix">|</mo></mrow><mn>2</mn></msup><mo>&lt;</mo><mi>∞</mi></mrow><annotation encoding="application/x-tex">E|X_0|^2&lt;\infty</annotation></semantics></math>。连续路径在有限时间内有界；在其经过的紧区域上，所需导数有界。因此普通积分和局部随机积分合法。这个结论本身不会让最后一项自动成为全局零均值的真鞅。<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
+<p>对 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>x</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><msup><mi>x</mi><mn>2</mn></msup></mrow><annotation encoding="application/x-tex">f(x)=x^2</annotation></semantics></math>，公式给 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>d</mi><mrow><mo stretchy="true" form="prefix">(</mo><msubsup><mi>X</mi><mi>t</mi><mn>2</mn></msubsup><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mn>2</mn><msub><mi>X</mi><mi>t</mi></msub><mspace width="0.167em"></mspace><mi>d</mi><msub><mi>X</mi><mi>t</mi></msub><mo>+</mo><msubsup><mi>b</mi><mi>t</mi><mn>2</mn></msubsup><mi>d</mi><mi>t</mi></mrow><annotation encoding="application/x-tex">d(X_t^2)=2X_t\,dX_t+b_t^2dt</annotation></semantics></math>。当 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>X</mi><mo>=</mo><mi>W</mi></mrow><annotation encoding="application/x-tex">X=W</annotation></semantics></math>，就回到 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>∫</mo><mi>W</mi><mi>d</mi><mi>W</mi><mo>=</mo><mrow><mo stretchy="true" form="prefix">(</mo><msubsup><mi>W</mi><mi>t</mi><mn>2</mn></msubsup><mo>−</mo><mi>t</mi><mo stretchy="true" form="postfix">)</mo></mrow><mi>/</mi><mn>2</mn></mrow><annotation encoding="application/x-tex">\int WdW=(W_t^2-t)/2</annotation></semantics></math>。这既检验系数 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1</mn><mi>/</mi><mn>2</mn></mrow><annotation encoding="application/x-tex">1/2</annotation></semantics></math>，也说明简写 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mrow><mo stretchy="true" form="prefix">(</mo><mi>d</mi><mi>W</mi><mo stretchy="true" form="postfix">)</mo></mrow><mn>2</mn></msup><mo>=</mo><mi>d</mi><mi>t</mi></mrow><annotation encoding="application/x-tex">(dW)^2=dt</annotation></semantics></math> 只能是已证公式的记忆方式。</p>
+<p><a id="qt17-gbm"></a></p>
+<h2 id="从显式函数验证-gbm">从显式函数验证 GBM</h2>
+<p>取常数 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>μ</mi><mo>,</mo><mi>σ</mi></mrow><annotation encoding="application/x-tex">\mu,\sigma</annotation></semantics></math> 和确定 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>S</mi><mn>0</mn></msub><mo>&gt;</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">S_0&gt;0</annotation></semantics></math>，令</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>S</mi><mi>t</mi></msub><mo>=</mo><msub><mi>S</mi><mn>0</mn></msub><mo>exp</mo><mo stretchy="false" form="prefix">{</mo><mrow><mo stretchy="true" form="prefix">(</mo><mi>μ</mi><mo>−</mo><msup><mi>σ</mi><mn>2</mn></msup><mi>/</mi><mn>2</mn><mo stretchy="true" form="postfix">)</mo></mrow><mi>t</mi><mo>+</mo><mi>σ</mi><msub><mi>W</mi><mi>t</mi></msub><mo stretchy="false" form="postfix">}</mo><mi>.</mi></mrow><annotation encoding="application/x-tex">
+S_t=S_0\exp\{(\mu-\sigma^2/2)t+\sigma W_t\}.
+</annotation></semantics></math></p>
+<p>设 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>g</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>t</mi><mo>,</mo><mi>x</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><msub><mi>S</mi><mn>0</mn></msub><msup><mi>e</mi><mrow><mrow><mo stretchy="true" form="prefix">(</mo><mi>μ</mi><mo>−</mo><msup><mi>σ</mi><mn>2</mn></msup><mi>/</mi><mn>2</mn><mo stretchy="true" form="postfix">)</mo></mrow><mi>t</mi><mo>+</mo><mi>σ</mi><mi>x</mi></mrow></msup></mrow><annotation encoding="application/x-tex">g(t,x)=S_0e^{(\mu-\sigma^2/2)t+\sigma x}</annotation></semantics></math>。则</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>g</mi><mi>t</mi></msub><mo>=</mo><mrow><mo stretchy="true" form="prefix">(</mo><mi>μ</mi><mo>−</mo><msup><mi>σ</mi><mn>2</mn></msup><mi>/</mi><mn>2</mn><mo stretchy="true" form="postfix">)</mo></mrow><mi>g</mi><mo>,</mo><mspace width="1.0em"></mspace><msub><mi>g</mi><mi>x</mi></msub><mo>=</mo><mi>σ</mi><mi>g</mi><mo>,</mo><mspace width="1.0em"></mspace><msub><mi>g</mi><mrow><mi>x</mi><mi>x</mi></mrow></msub><mo>=</mo><msup><mi>σ</mi><mn>2</mn></msup><mi>g</mi><mi>.</mi></mrow><annotation encoding="application/x-tex">
+g_t=(\mu-\sigma^2/2)g,
+\quad g_x=\sigma g,
+\quad g_{xx}=\sigma^2g.
+</annotation></semantics></math></p>
+<p>对 Brownian 特例应用公式，两项 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>σ</mi><mn>2</mn></msup><mi>/</mi><mn>2</mn></mrow><annotation encoding="application/x-tex">\sigma^2/2</annotation></semantics></math> 抵消，得到</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>d</mi><msub><mi>S</mi><mi>t</mi></msub><mo>=</mo><mi>μ</mi><msub><mi>S</mi><mi>t</mi></msub><mi>d</mi><mi>t</mi><mo>+</mo><mi>σ</mi><msub><mi>S</mi><mi>t</mi></msub><mi>d</mi><msub><mi>W</mi><mi>t</mi></msub><mi>.</mi></mrow><annotation encoding="application/x-tex">
+dS_t=\mu S_tdt+\sigma S_tdW_t.
+</annotation></semantics></math></p>
+<p>显式函数连续、正值，有限区间上路径有界，故相关局部积分确实存在。反过来，对任一正解应用 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mo>log</mo><annotation encoding="application/x-tex">\log</annotation></semantics></math>，在远离零和无穷的停止区间上有</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>d</mi><mo>log</mo><msub><mi>S</mi><mi>t</mi></msub><mo>=</mo><mrow><mo stretchy="true" form="prefix">(</mo><mi>μ</mi><mo>−</mo><msup><mi>σ</mi><mn>2</mn></msup><mi>/</mi><mn>2</mn><mo stretchy="true" form="postfix">)</mo></mrow><mi>d</mi><mi>t</mi><mo>+</mo><mi>σ</mi><mi>d</mi><msub><mi>W</mi><mi>t</mi></msub><mi>.</mi></mrow><annotation encoding="application/x-tex">
+d\log S_t=(\mu-\sigma^2/2)dt+\sigma dW_t.
+</annotation></semantics></math></p>
+<p>这里 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mo>log</mo><annotation encoding="application/x-tex">\log</annotation></semantics></math> 只在正半轴定义，不能对一个可能穿零的过程不加停止直接应用。</p>
+<p><a id="qt17-unique"></a></p>
+<h2 id="还要说明这是同一驱动下的唯一解">还要说明：这是同一驱动下的唯一解</h2>
+<p>若 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>S</mi><mo>,</mo><mover><mi>S</mi><mo accent="true">̂</mo></mover></mrow><annotation encoding="application/x-tex">S,\widehat S</annotation></semantics></math> 是同一个 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>W</mi><annotation encoding="application/x-tex">W</annotation></semantics></math>、同一起点的两个连续解，令 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>D</mi><mo>=</mo><mi>S</mi><mo>−</mo><mover><mi>S</mi><mo accent="true">̂</mo></mover></mrow><annotation encoding="application/x-tex">D=S-\widehat S</annotation></semantics></math>，并停在</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>τ</mi><mi>m</mi></msub><mo>=</mo><mo>inf</mo><mo stretchy="false" form="prefix">{</mo><mi>t</mi><mo>:</mo><msubsup><mi>S</mi><mi>t</mi><mn>2</mn></msubsup><mo>+</mo><msubsup><mover><mi>S</mi><mo accent="true">̂</mo></mover><mi>t</mi><mn>2</mn></msubsup><mo>≥</mo><mi>m</mi><mo stretchy="false" form="postfix">}</mo><mo>∧</mo><mi>T</mi><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\tau_m=\inf\{t:S_t^2+\widehat S_t^2\ge m\}\wedge T.
+</annotation></semantics></math></p>
+<p>停止后各二阶矩有限，停止规则与差方程给</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>D</mi><mrow><mi>t</mi><mo>∧</mo><msub><mi>τ</mi><mi>m</mi></msub></mrow></msub><mo>=</mo><mi>μ</mi><msubsup><mo>∫</mo><mn>0</mn><mi>t</mi></msubsup><msub><mn>𝟏</mn><mrow><mo stretchy="false" form="prefix">{</mo><mi>s</mi><mo>≤</mo><msub><mi>τ</mi><mi>m</mi></msub><mo stretchy="false" form="postfix">}</mo></mrow></msub><msub><mi>D</mi><mi>s</mi></msub><mi>d</mi><mi>s</mi><mo>+</mo><mi>σ</mi><msubsup><mo>∫</mo><mn>0</mn><mi>t</mi></msubsup><msub><mn>𝟏</mn><mrow><mo stretchy="false" form="prefix">{</mo><mi>s</mi><mo>≤</mo><msub><mi>τ</mi><mi>m</mi></msub><mo stretchy="false" form="postfix">}</mo></mrow></msub><msub><mi>D</mi><mi>s</mi></msub><mi>d</mi><msub><mi>W</mi><mi>s</mi></msub><mi>.</mi></mrow><annotation encoding="application/x-tex">
+D_{t\wedge\tau_m}
+=\mu\int_0^t\mathbf1_{\{s\le\tau_m\}}D_sds
++\sigma\int_0^t\mathbf1_{\{s\le\tau_m\}}D_sdW_s.
+</annotation></semantics></math></p>
+<p>利用 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mrow><mo stretchy="true" form="prefix">(</mo><mi>x</mi><mo>+</mo><mi>y</mi><mo stretchy="true" form="postfix">)</mo></mrow><mn>2</mn></msup><mo>≤</mo><mn>2</mn><msup><mi>x</mi><mn>2</mn></msup><mo>+</mo><mn>2</mn><msup><mi>y</mi><mn>2</mn></msup></mrow><annotation encoding="application/x-tex">(x+y)^2\le2x^2+2y^2</annotation></semantics></math>、Cauchy–Schwarz 与 Itô 等距，若 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>y</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>t</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mi>E</mi><msup><mrow><mo stretchy="true" form="prefix">|</mo><msub><mi>D</mi><mrow><mi>t</mi><mo>∧</mo><msub><mi>τ</mi><mi>m</mi></msub></mrow></msub><mo stretchy="true" form="postfix">|</mo></mrow><mn>2</mn></msup></mrow><annotation encoding="application/x-tex">y(t)=E|D_{t\wedge\tau_m}|^2</annotation></semantics></math>，则</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>y</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>t</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>≤</mo><mn>2</mn><mrow><mo stretchy="true" form="prefix">(</mo><msup><mi>μ</mi><mn>2</mn></msup><mi>T</mi><mo>+</mo><msup><mi>σ</mi><mn>2</mn></msup><mo stretchy="true" form="postfix">)</mo></mrow><msubsup><mo>∫</mo><mn>0</mn><mi>t</mi></msubsup><mi>y</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>s</mi><mo stretchy="true" form="postfix">)</mo></mrow><mi>d</mi><mi>s</mi><mi>.</mi></mrow><annotation encoding="application/x-tex">
+y(t)\le2(\mu^2T+\sigma^2)\int_0^t y(s)ds.
+</annotation></semantics></math></p>
+<p>令 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>F</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>t</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><msubsup><mo>∫</mo><mn>0</mn><mi>t</mi></msubsup><mi>y</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>s</mi><mo stretchy="true" form="postfix">)</mo></mrow><mi>d</mi><mi>s</mi></mrow><annotation encoding="application/x-tex">F(t)=\int_0^t y(s)ds</annotation></semantics></math>。它绝对连续、<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>F</mi><mrow><mo stretchy="true" form="prefix">(</mo><mn>0</mn><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">F(0)=0</annotation></semantics></math>，且 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>F</mi><mi>′</mi><mo>≤</mo><mi>C</mi><mi>F</mi></mrow><annotation encoding="application/x-tex">F&#39;\le CF</annotation></semantics></math>，所以 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mo stretchy="true" form="prefix">(</mo><msup><mi>e</mi><mrow><mi>−</mi><mi>C</mi><mi>t</mi></mrow></msup><mi>F</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>t</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo stretchy="true" form="postfix">)</mo></mrow><mi>′</mi><mo>≤</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">(e^{-Ct}F(t))&#39;\le0</annotation></semantics></math>；非负性迫使 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>F</mi><mo>=</mo><mi>y</mi><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">F=y=0</annotation></semantics></math>。这就是本例需要的 Gronwall 步骤。随 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>m</mi><annotation encoding="application/x-tex">m</annotation></semantics></math> 增大，连续路径在有限区间有界，停时最终等于 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>T</mi><annotation encoding="application/x-tex">T</annotation></semantics></math>。先对有理时点、再用连续性，就得两个解不可分辨。<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a></p>
+<p>如果不先停止，直接写有限的二阶矩不等式，就可能把待证的可积性偷放进证明。显式解的验证与唯一性是不同责任。</p>
+<p><a id="qt17-moments"></a></p>
+<h2 id="mu对数漂移和均值增长不是一个量"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>μ</mi><annotation encoding="application/x-tex">\mu</annotation></semantics></math>、对数漂移和均值增长不是一个量</h2>
+<p>高斯矩母函数给</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>E</mi><mrow><mo stretchy="true" form="prefix">[</mo><msub><mi>S</mi><mi>T</mi></msub><mo stretchy="true" form="postfix">]</mo></mrow><mo>=</mo><msub><mi>S</mi><mn>0</mn></msub><msup><mi>e</mi><mrow><mi>μ</mi><mi>T</mi></mrow></msup><mo>,</mo><mspace width="2.0em"></mspace><mi>E</mi><mo>log</mo><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>S</mi><mi>T</mi></msub><mi>/</mi><msub><mi>S</mi><mn>0</mn></msub><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mrow><mo stretchy="true" form="prefix">(</mo><mi>μ</mi><mo>−</mo><msup><mi>σ</mi><mn>2</mn></msup><mi>/</mi><mn>2</mn><mo stretchy="true" form="postfix">)</mo></mrow><mi>T</mi><mi>.</mi></mrow><annotation encoding="application/x-tex">
+E[S_T]=S_0e^{\mu T},
+\qquad
+E\log(S_T/S_0)=(\mu-\sigma^2/2)T.
+</annotation></semantics></math></p>
+<p>冻结教学模型是 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>S</mi><mn>0</mn></msub><mo>=</mo><mn>100</mn></mrow><annotation encoding="application/x-tex">S_0=100</annotation></semantics></math>、<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>μ</mi><mi>P</mi></msub><mo>=</mo><mn>.08</mn></mrow><annotation encoding="application/x-tex">\mu_P=.08</annotation></semantics></math>、<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>σ</mi><mo>=</mo><mn>.20</mn></mrow><annotation encoding="application/x-tex">\sigma=.20</annotation></semantics></math>、<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>T</mi><mo>=</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">T=1</annotation></semantics></math>。理论一年均值为 108.32870677，对数漂移为 .06；预期简单收益则为 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>e</mi><mn>.08</mn></msup><mo>−</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">e^{.08}-1</annotation></semantics></math>，不是恰好 .08。波动率越高，保持相同 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>μ</mi><annotation encoding="application/x-tex">\mu</annotation></semantics></math> 时典型的对数增长越低，但价格均值增长率仍由 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>μ</mi><annotation encoding="application/x-tex">\mu</annotation></semantics></math> 决定。</p>
+<div class="table-wrap"><table>
+<thead>
+<tr class="header">
+<th>网格区间数</th>
+<th>Euler 与精确终点的 RMSE</th>
+<th>样本中非正 Euler 终点数</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>4</td>
+<td>1.621890529</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td>16</td>
+<td>0.787997031</td>
+<td>0</td>
+</tr>
+<tr class="odd">
+<td>64</td>
+<td>0.390661657</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td>256</td>
+<td>0.196192820</td>
+<td>0</td>
+</tr>
+</tbody>
+</table></div>
+<div class="lab-slot">
+<iframe title="GBM 精确解与 Euler" loading="lazy" src="../interactions.html?experiment=VIEW-QT17-GBM">
+</iframe>
+<p>
+<a href="../interactions.html?experiment=VIEW-QT17-GBM">打开独立实验视图</a>
+</p>
+</div>
+<p>Euler 离散式是 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>S</mi><mrow><mi>j</mi><mo>+</mo><mn>1</mn></mrow><mi>E</mi></msubsup><mo>=</mo><msubsup><mi>S</mi><mi>j</mi><mi>E</mi></msubsup><mrow><mo stretchy="true" form="prefix">(</mo><mn>1</mn><mo>+</mo><mi>μ</mi><mi>Δ</mi><mi>t</mi><mo>+</mo><mi>σ</mi><mi>Δ</mi><msub><mi>W</mi><mi>j</mi></msub><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">S_{j+1}^{E}=S_j^E(1+\mu\Delta t+\sigma\Delta W_j)</annotation></semantics></math>。表中它与显式解使用同一组增量，比较的是同路径终点误差，不是两套独立模拟的差。Euler 理论上可能产生非正值；这次有限样本未出现，也不能将其当作正值保证。四个步长上的下降趋势不是一份收敛阶证明。</p>
+<p>定价实验后来会在一个另述的 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>Q</mi><annotation encoding="application/x-tex">Q</annotation></semantics></math> 模型中用 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>r</mi><annotation encoding="application/x-tex">r</annotation></semantics></math> 作为漂移。共用随机数只是数值耦合，不是证明 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>P</mi><annotation encoding="application/x-tex">P</annotation></semantics></math> 与 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>Q</mi><annotation encoding="application/x-tex">Q</annotation></semantics></math> 的换测度关系，更不能把这里的 .08 随手替换成真实投资的必要回报率。</p>
+<p><a id="qt17-exercise"></a></p>
+<h2 id="迁移题谁增长得更快">迁移题：谁增长得更快？</h2>
+<p><strong>题目。</strong> 在上述一年模型下，比较均值、中位数和预期对数收益。有人忽略二阶修正，写成 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mover><mi>S</mi><mo accent="true">̃</mo></mover><mi>T</mi></msub><mo>=</mo><mn>100</mn><msup><mi>e</mi><mrow><mn>.08</mn><mo>+</mo><mn>.20</mn><msub><mi>W</mi><mi>T</mi></msub></mrow></msup></mrow><annotation encoding="application/x-tex">\widetilde S_T=100e^{.08+.20W_T}</annotation></semantics></math>，求它实际对应的价格漂移，并解释为什么它不再是原模型。</p>
+<p><strong>解析。</strong> 中位数为 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>100</mn><msup><mi>e</mi><mn>.06</mn></msup><mo>≈</mo><mn>106.1837</mn></mrow><annotation encoding="application/x-tex">100e^{.06}\approx106.1837</annotation></semantics></math>，均值为 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>100</mn><msup><mi>e</mi><mn>.08</mn></msup><mo>≈</mo><mn>108.3287</mn></mrow><annotation encoding="application/x-tex">100e^{.08}\approx108.3287</annotation></semantics></math>，预期对数收益为 .06。均值被较大的右尾拉高，不能用均值代表“半数路径以上”。</p>
+<p>对错误式用 Itô 公式，它的价格漂移是 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>.08</mn><mo>+</mo><mn>.5</mn><msup><mrow><mo stretchy="true" form="prefix">(</mo><mn>.20</mn><mo stretchy="true" form="postfix">)</mo></mrow><mn>2</mn></msup><mo>=</mo><mn>.10</mn></mrow><annotation encoding="application/x-tex">.08+.5(.20)^2=.10</annotation></semantics></math>，均值变为 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>100</mn><msup><mi>e</mi><mn>.10</mn></msup><mo>≈</mo><mn>110.5171</mn></mrow><annotation encoding="application/x-tex">100e^{.10}\approx110.5171</annotation></semantics></math>。少掉 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>−</mi><msup><mi>σ</mi><mn>2</mn></msup><mi>/</mi><mn>2</mn></mrow><annotation encoding="application/x-tex">-\sigma^2/2</annotation></semantics></math> 不是一个记号偏好，而是换了模型。纠正方式应回到导数与二阶项，而不是事后把模拟均值强行校到 108.33。</p>
+<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<hr />
+<ol>
+<li id="fn1"><p>Lalley，<a href="https://www.stat.uchicago.edu/~lalley/Courses/385/Old/ItoIntegral-2012.pdf">Notes on the Itô Calculus</a>，2012-05-15，§4.1–4.2、§4.5。一般 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>L</mi><mn>1</mn></msup><mi>/</mi><msup><mi>L</mi><mn>2</mn></msup></mrow><annotation encoding="application/x-tex">L^1/L^2</annotation></semantics></math> 系数的完整传递在本包 QT17-P1 给出，不以原文的简略逼近说明代替。<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>Lalley，<a href="https://galton.uchicago.edu/~lalley/Courses/385/SDE.pdf">Stochastic Differential Equations</a>，2016-12-02，§2.2 的 Gronwall 与 §2.5 的停止唯一性，pp.3、6–7。本文只证明 GBM 的线性专例，不要求先掌握一般 Picard 理论。<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
+<textarea id="agent-text" hidden># QT17 · Reference-first Agent
+
+你是这篇中文学习单元的教学 Agent。读者具备本包列出的先修：Brownian 增量、Itô 积分、基本微分与期望。
+先实际取得 required_readings 中本次所选单元并读完，核对版本、页码与公式；已有同会话同版完整读取可以复用。只取得摘要或目录不得声称完成；无法取得原文时说明具体缺口，可先讲本包完整已给推导，但不得编造原文已读记录。runtime_reading_log 是你的实际运行记录，交付的空数组不是已读。
+本篇任务：先让读者区分 mu=.08、log drift=.06 和 mean level=100exp(.08)，再验证 GBM 和停止后的唯一性；不能以四网格样本证明 Euler 收敛阶。
+先让读者尝试，再按所缺的一步解释，不将全部课文一次复述。完整证明需要标明每项条件在哪一步用到，练习给出完整解析。只采用 supplied_inputs 的本篇切片和已链接全量数据，区分教学模型、真实记录、作者论文结果。图不是证明，模拟不是现实规律；不以预测概率替换定价测度。禁止从分位数拟造分布或另抽浏览器随机数冒充冻结路径。最后问：读者只读完这个词条，真的能学明白吗？用迁移题实际判断，明确剩余能力缺口。
+
+## 可读单元与输入
+
+```json
+{
+  &quot;export_mode&quot;: &quot;public&quot;,
+  &quot;required_readings&quot;: [
+    {
+      &quot;source_id&quot;: &quot;QGHI-LALLEY-ITO12&quot;,
+      &quot;access&quot;: {
+        &quot;kind&quot;: &quot;pdf_full_text&quot;,
+        &quot;uri&quot;: &quot;https://www.stat.uchicago.edu/~lalley/Courses/385/Old/ItoIntegral-2012.pdf&quot;
+      },
+      &quot;required_unit&quot;: {
+        &quot;locator&quot;: &quot;§4.1–4.2 pp.14–16&quot;,
+        &quot;scope&quot;: &quot;C1,2 命题及 Itô 过程条件&quot;,
+        &quot;purpose&quot;: &quot;区分公式与全局期望结论&quot;
+      },
+      &quot;supports&quot;: &quot;渐进可测密度、简单积分等距、延拓、停止、局部化与一维 Itô 公式。p.8 下标和 p.19 漂移步长按正确推导采用；Doob 强 L2 估计及一般系数传递在本站完整展开。&quot;
+    },
+    {
+      &quot;source_id&quot;: &quot;QGHI-LALLEY-SDE16&quot;,
+      &quot;access&quot;: {
+        &quot;kind&quot;: &quot;pdf_full_text&quot;,
+        &quot;uri&quot;: &quot;https://galton.uchicago.edu/~lalley/Courses/385/SDE.pdf&quot;
+      },
+      &quot;required_unit&quot;: {
+        &quot;locator&quot;: &quot;§2.2 p.3；§2.5 pp.6–7&quot;,
+        &quot;scope&quot;: &quot;Gronwall 与停止唯一性&quot;,
+        &quot;purpose&quot;: &quot;只采用 GBM 线性专例，不强制完整 Picard&quot;
+      },
+      &quot;supports&quot;: &quot;SDE 初值和积分条件、Gronwall、停止后唯一性；这里只采用 GBM 的线性专例。&quot;
+    }
+  ],
+  &quot;optional_readings&quot;: [],
+  &quot;runtime_reading_log&quot;: [],
+  &quot;supplied_inputs&quot;: {
+    &quot;competence&quot;: &quot;Brownian 增量、Itô 积分、基本微分与期望。&quot;,
+    &quot;static_equivalent&quot;: &quot;本篇 reader 全部默认表、证明及题解；HTML 禁用脚本仍可读。&quot;,
+    &quot;attachments&quot;: [
+      &quot;data/common-first-path.csv&quot;,
+      &quot;compute/reproduce.py&quot;,
+      &quot;data/shared-normal-array.npz&quot;
+    ],
+    &quot;frozen&quot;: {
+      &quot;rng&quot;: {
+        &quot;library&quot;: &quot;NumPy 2.4.6&quot;,
+        &quot;generator&quot;: &quot;Generator(PCG64(15161724))&quot;,
+        &quot;draw&quot;: &quot;standard_normal((8192,256))&quot;,
+        &quot;seed&quot;: 15161724,
+        &quot;shape&quot;: [
+          8192,
+          256
+        ],
+        &quot;draw_order&quot;: &quot;Exactly as the existing source algorithm; no preceding draws.&quot;
+      },
+      &quot;brownian_horizon&quot;: 1,
+      &quot;finest_intervals&quot;: 256,
+      &quot;nested_intervals&quot;: [
+        4,
+        16,
+        64,
+        256
+      ],
+      &quot;gbm_P_illustration&quot;: {
+        &quot;S0&quot;: 100,
+        &quot;mu_P&quot;: 0.08,
+        &quot;sigma&quot;: 0.2,
+        &quot;T_years&quot;: 1,
+        &quot;identity&quot;: &quot;Teaching physical model; not fitted to observed returns.&quot;
+      }
+    },
+    &quot;default_outputs&quot;: {
+      &quot;grids&quot;: [
+        {
+          &quot;steps&quot;: 4,
+          &quot;first_qv&quot;: 0.7944594147350206,
+          &quot;mean_qv&quot;: 0.9906292333607486,
+          &quot;sample_variance&quot;: 0.506927228120233,
+          &quot;theory_variance&quot;: 0.5,
+          &quot;left&quot;: -0.19728199481057607,
+          &quot;right&quot;: 0.5971774199244447,
+          &quot;integral&quot;: -0.3000522874430651,
+          &quot;integral_mse&quot;: 0.12673828965562223,
+          &quot;theory_mse&quot;: 0.125,
+          &quot;euler_rmse&quot;: 1.6218905290221228,
+          &quot;euler_nonpositive&quot;: 0,
+          &quot;telescoping_max_residual&quot;: 1.865174681370263e-14,
+          &quot;right_left_max_residual&quot;: 4.440892098500626e-15
+        },
+        {
+          &quot;steps&quot;: 16,
+          &quot;first_qv&quot;: 1.0792151299895332,
+          &quot;mean_qv&quot;: 0.9972134638881094,
+          &quot;sample_variance&quot;: 0.12488983556326173,
+          &quot;theory_variance&quot;: 0.125,
+          &quot;left&quot;: -0.33965985243783225,
+          &quot;right&quot;: 0.7395552775517009,
+          &quot;integral&quot;: -0.3000522874430651,
+          &quot;integral_mse&quot;: 0.031220588751377322,
+          &quot;theory_mse&quot;: 0.03125,
+          &quot;euler_rmse&quot;: 0.7879970305170926,
+          &quot;euler_nonpositive&quot;: 0,
+          &quot;telescoping_max_residual&quot;: 1.7763568394002505e-14,
+          &quot;right_left_max_residual&quot;: 1.7763568394002505e-15
+        },
+        {
+          &quot;steps&quot;: 64,
+          &quot;first_qv&quot;: 1.0205748309050482,
+          &quot;mean_qv&quot;: 0.9979784834959156,
+          &quot;sample_variance&quot;: 0.031275134203983666,
+          &quot;theory_variance&quot;: 0.03125,
+          &quot;left&quot;: -0.31033970289559004,
+          &quot;right&quot;: 0.7102351280094583,
+          &quot;integral&quot;: -0.3000522874430651,
+          &quot;integral_mse&quot;: 0.007818850741888548,
+          &quot;theory_mse&quot;: 0.0078125,
+          &quot;euler_rmse&quot;: 0.3906616566182395,
+          &quot;euler_nonpositive&quot;: 0,
+          &quot;telescoping_max_residual&quot;: 1.687538997430238e-14,
+          &quot;right_left_max_residual&quot;: 1.9984014443252818e-15
+        },
+        {
+          &quot;steps&quot;: 256,
+          &quot;first_qv&quot;: 0.9658159774394378,
+          &quot;mean_qv&quot;: 1.0007154342405915,
+          &quot;sample_variance&quot;: 0.007928244277278857,
+          &quot;theory_variance&quot;: 0.0078125,
+          &quot;left&quot;: -0.2829602761627848,
+          &quot;right&quot;: 0.6828557012766532,
+          &quot;integral&quot;: -0.3000522874430651,
+          &quot;integral_mse&quot;: 0.001981947080043741,
+          &quot;theory_mse&quot;: 0.001953125,
+          &quot;euler_rmse&quot;: 0.19619282035111724,
+          &quot;euler_nonpositive&quot;: 0,
+          &quot;telescoping_max_residual&quot;: 1.7763568394002505e-14,
+          &quot;right_left_max_residual&quot;: 1.7763568394002505e-15
+        }
+      ],
+      &quot;terminal&quot;: {
+        &quot;n&quot;: 8192,
+        &quot;mean&quot;: 108.19699073155812,
+        &quot;sample_sd&quot;: 21.797741228015408,
+        &quot;mean_mc_se&quot;: 0.24083329120123867,
+        &quot;mse_to_zero&quot;: 12181.672325334242,
+        &quot;mse_mc_se&quot;: 55.97140472475497,
+        &quot;q05&quot;: 76.595919234743,
+        &quot;q95&quot;: 147.22698979604334
+      },
+      &quot;theory_mean&quot;: 108.32870676749586,
+      &quot;log_drift&quot;: 0.06
+    }
+  }
+}
+```
+
+&lt;!-- READER_BODY_START --&gt;
+# Itô 公式与几何 Brownian 模型
+
+&lt;a id=&quot;qt17-motivation&quot;&gt;&lt;/a&gt;
+## 二阶项不是对普通链式法则的小修饰
+
+普通链式法则把一阶增量累加，较高阶项消失；Brownian 增量的平方和却留下非零极限。这就是 Itô 修正项的来源。本篇先给条件完整的一维公式，再把几何 Brownian 运动的显式解、均值、对数漂移和唯一性走通。完整公式证明另在 [[QT17-P1|一维 Itô 公式的证明]]，不隐藏在“二阶项自然留下”这句话里。
+
+先修是连续积分的含义、二次变差，以及对确定函数求偏导。数值实验中的概率 $P$ 是人为指定的生成模型，不是从真实收益拟合出来的规律。
+
+&lt;a id=&quot;qt17-theorem&quot;&gt;&lt;/a&gt;
+## 采用的公式及全部条件
+
+固定 $T&lt;\infty$，通常条件（过滤右连续，且 $\mathcal F_0$ 包含 $\mathcal F$ 中所有 $P$ 零集及其子集）的过滤概率空间，$W$ 相对于该过滤为 Brownian。令 $X_0$ 是有限的 $\mathcal F_0$ 可测随机变量；$a,b$ 渐进可测，满足
+
+$$
+\int_0^T|a_s|ds+\int_0^Tb_s^2ds&lt;\infty\quad\text{几乎必然}.
+$$
+
+定义连续 Itô 过程
+
+$$
+X_t=X_0+\int_0^ta_sds+\int_0^tb_sdW_s.
+$$
+
+随机积分必要时按局部平方可积版本解释。若 $f\in C^{1,2}([0,T]\times\mathbb R)$，即 $f,f_t,f_x,f_{xx}$ 联合连续，时间端点取单侧导数，则在一个共同满测度集合上，对所有 $t\le T$，
+
+$$
+\begin{aligned}
+f(t,X_t)-f(0,X_0)
+={}&amp;\int_0^t f_t(s,X_s)ds\\
+&amp;+\int_0^t a_sf_x(s,X_s)ds\\
+&amp;+\frac12\int_0^t b_s^2f_{xx}(s,X_s)ds\\
+&amp;+\int_0^t b_sf_x(s,X_s)dW_s.
+\end{aligned}
+$$
+
+不要求 $f_{tt}$ 或 $f_{tx}$ 存在，也不要求 $E|X_0|^2&lt;\infty$。连续路径在有限时间内有界；在其经过的紧区域上，所需导数有界。因此普通积分和局部随机积分合法。这个结论本身不会让最后一项自动成为全局零均值的真鞅。[^ito]
+
+对 $f(x)=x^2$，公式给 $d(X_t^2)=2X_t\,dX_t+b_t^2dt$。当 $X=W$，就回到 $\int WdW=(W_t^2-t)/2$。这既检验系数 $1/2$，也说明简写 $(dW)^2=dt$ 只能是已证公式的记忆方式。
+
+&lt;a id=&quot;qt17-gbm&quot;&gt;&lt;/a&gt;
+## 从显式函数验证 GBM
+
+取常数 $\mu,\sigma$ 和确定 $S_0&gt;0$，令
+
+$$
+S_t=S_0\exp\{(\mu-\sigma^2/2)t+\sigma W_t\}.
+$$
+
+设 $g(t,x)=S_0e^{(\mu-\sigma^2/2)t+\sigma x}$。则
+
+$$
+g_t=(\mu-\sigma^2/2)g,
+\quad g_x=\sigma g,
+\quad g_{xx}=\sigma^2g.
+$$
+
+对 Brownian 特例应用公式，两项 $\sigma^2/2$ 抵消，得到
+
+$$
+dS_t=\mu S_tdt+\sigma S_tdW_t.
+$$
+
+显式函数连续、正值，有限区间上路径有界，故相关局部积分确实存在。反过来，对任一正解应用 $\log$，在远离零和无穷的停止区间上有
+
+$$
+d\log S_t=(\mu-\sigma^2/2)dt+\sigma dW_t.
+$$
+
+这里 $\log$ 只在正半轴定义，不能对一个可能穿零的过程不加停止直接应用。
+
+&lt;a id=&quot;qt17-unique&quot;&gt;&lt;/a&gt;
+## 还要说明：这是同一驱动下的唯一解
+
+若 $S,\widehat S$ 是同一个 $W$、同一起点的两个连续解，令 $D=S-\widehat S$，并停在
+
+$$
+\tau_m=\inf\{t:S_t^2+\widehat S_t^2\ge m\}\wedge T.
+$$
+
+停止后各二阶矩有限，停止规则与差方程给
+
+$$
+D_{t\wedge\tau_m}
+=\mu\int_0^t\mathbf1_{\{s\le\tau_m\}}D_sds
++\sigma\int_0^t\mathbf1_{\{s\le\tau_m\}}D_sdW_s.
+$$
+
+利用 $(x+y)^2\le2x^2+2y^2$、Cauchy–Schwarz 与 Itô 等距，若 $y(t)=E|D_{t\wedge\tau_m}|^2$，则
+
+$$
+y(t)\le2(\mu^2T+\sigma^2)\int_0^t y(s)ds.
+$$
+
+令 $F(t)=\int_0^t y(s)ds$。它绝对连续、$F(0)=0$，且 $F&#x27;\le CF$，所以 $(e^{-Ct}F(t))&#x27;\le0$；非负性迫使 $F=y=0$。这就是本例需要的 Gronwall 步骤。随 $m$ 增大，连续路径在有限区间有界，停时最终等于 $T$。先对有理时点、再用连续性，就得两个解不可分辨。[^sde]
+
+如果不先停止，直接写有限的二阶矩不等式，就可能把待证的可积性偷放进证明。显式解的验证与唯一性是不同责任。
+
+&lt;a id=&quot;qt17-moments&quot;&gt;&lt;/a&gt;
+## $\mu$、对数漂移和均值增长不是一个量
+
+高斯矩母函数给
+
+$$
+E[S_T]=S_0e^{\mu T},
+\qquad
+E\log(S_T/S_0)=(\mu-\sigma^2/2)T.
+$$
+
+冻结教学模型是 $S_0=100$、$\mu_P=.08$、$\sigma=.20$、$T=1$。理论一年均值为 108.32870677，对数漂移为 .06；预期简单收益则为 $e^{.08}-1$，不是恰好 .08。波动率越高，保持相同 $\mu$ 时典型的对数增长越低，但价格均值增长率仍由 $\mu$ 决定。
+
+| 网格区间数 | Euler 与精确终点的 RMSE | 样本中非正 Euler 终点数 |
+| --- | --- | --- |
+| 4 | 1.621890529 | 0 |
+| 16 | 0.787997031 | 0 |
+| 64 | 0.390661657 | 0 |
+| 256 | 0.196192820 | 0 |
+
+&lt;div data-experiment-slot=&quot;VIEW-QT17-GBM&quot;&gt;&lt;/div&gt;
+
+Euler 离散式是 $S_{j+1}^{E}=S_j^E(1+\mu\Delta t+\sigma\Delta W_j)$。表中它与显式解使用同一组增量，比较的是同路径终点误差，不是两套独立模拟的差。Euler 理论上可能产生非正值；这次有限样本未出现，也不能将其当作正值保证。四个步长上的下降趋势不是一份收敛阶证明。
+
+定价实验后来会在一个另述的 $Q$ 模型中用 $r$ 作为漂移。共用随机数只是数值耦合，不是证明 $P$ 与 $Q$ 的换测度关系，更不能把这里的 .08 随手替换成真实投资的必要回报率。
+
+&lt;a id=&quot;qt17-exercise&quot;&gt;&lt;/a&gt;
+## 迁移题：谁增长得更快？
+
+**题目。** 在上述一年模型下，比较均值、中位数和预期对数收益。有人忽略二阶修正，写成 $\widetilde S_T=100e^{.08+.20W_T}$，求它实际对应的价格漂移，并解释为什么它不再是原模型。
+
+**解析。** 中位数为 $100e^{.06}\approx106.1837$，均值为 $100e^{.08}\approx108.3287$，预期对数收益为 .06。均值被较大的右尾拉高，不能用均值代表“半数路径以上”。
+
+对错误式用 Itô 公式，它的价格漂移是 $.08+.5(.20)^2=.10$，均值变为 $100e^{.10}\approx110.5171$。少掉 $-\sigma^2/2$ 不是一个记号偏好，而是换了模型。纠正方式应回到导数与二阶项，而不是事后把模拟均值强行校到 108.33。
+
+[^ito]: Lalley，[Notes on the Itô Calculus](https://www.stat.uchicago.edu/~lalley/Courses/385/Old/ItoIntegral-2012.pdf)，2012-05-15，§4.1–4.2、§4.5。一般 $L^1/L^2$ 系数的完整传递在本包 QT17-P1 给出，不以原文的简略逼近说明代替。
+[^sde]: Lalley，[Stochastic Differential Equations](https://galton.uchicago.edu/~lalley/Courses/385/SDE.pdf)，2016-12-02，§2.2 的 Gronwall 与 §2.5 的停止唯一性，pp.3、6–7。本文只证明 GBM 的线性专例，不要求先掌握一般 Picard 理论。
+
+&lt;!-- READER_BODY_END --&gt;
+</textarea></main><script>(function(){const panels=[...document.querySelectorAll('section[data-reading-branch]')];function branch(b){panels.forEach(s=>s.hidden=b!=='all'&&s.dataset.readingBranch!==b);document.querySelectorAll('[data-select-reading-branch]').forEach(x=>x.setAttribute('aria-pressed',x.dataset.selectReadingBranch===b));}document.querySelectorAll('[data-select-reading-branch]').forEach(x=>x.addEventListener('click',()=>branch(x.dataset.selectReadingBranch)));if(panels.some(x=>x.dataset.readingBranch==='A')){const h=location.hash;branch(h.includes('-b-')?'B':'A');}else if(panels.some(x=>x.dataset.readingBranch==='pricing')){branch(location.hash.includes('qt24-pricing')?'all':'ledger');}const copy=document.getElementById('copy-agent');if(copy)copy.addEventListener('click',async()=>{const text=document.getElementById('agent-text').value;try{await navigator.clipboard.writeText(text);document.getElementById('copy-status').textContent='已复制完整Agent包。';}catch(e){document.getElementById('copy-status').textContent='浏览器未允许剪贴板；请使用相邻的Agent Markdown文件。';}});window.QT_READER_READY=true;})();</script></body></html>

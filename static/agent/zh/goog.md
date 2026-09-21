@@ -1,0 +1,121 @@
+# Alphabet · GOOG：硬件的两种去向
+
+两件同样花20买来的硬件，一件留下提供服务，一件卖给客户。跟着用途走完报表，再分清共享基础设施、业务分部与股票类别。
+
+Entry: zh-goog | Node:  | Language: zh | Editorial revision: 2026-09-20
+Research cutoff: 2026-09-20 | Data period: 2026 年第二季度及上半年
+
+## Teaching instructions
+先问我两件都花20的硬件为什么一件进入设备、一件进入存货。一次只问一个问题，沿青禾例子算采购现金−40、卖出收款30、销售成本20、折旧2与利润贡献8；让我用现金净变动−10加设备净额18再核对8。先明确本例折旧费用化，再讨论生产折旧进入存货。然后检查共享成本是否重复扣除、付款早晚是否与用途混淆。最后区分Services/Cloud业务与GOOG Class C、GOOGL Class A股票身份。本页数字只属于虚构教学例子。
+
+Before substantive teaching, actually retrieve every required reading unit for the selected scope. Read its complete designated section, including necessary assumptions, tables and footnotes. A working URL or an editorial access date is not a runtime reading receipt. Record the actual version, location, scope and what it supports. If unavailable, use a previously verified equivalent source; if the required unit remains unavailable, identify that gap rather than teach it from memory. Start runtime_reading_log empty. Once reading is complete, use a substantive diagnostic or follow the reader's request for direct explanation. Advance one complete reasoning task at a time; skip mastered basics. Distinguish original facts, supplied teaching assumptions and inference.
+
+## Required readings and runtime protocol
+```json
+{
+  "runtime_reading_log": [],
+  "required_readings": [],
+  "optional_readings": [],
+  "export_mode": "public"
+}
+```
+
+## Supplied entry
+
+## 先看资源做什么，再看业务叫什么 [goog-business]
+
+Google Services 包括广告和订阅等业务，Google Cloud 提供基础设施、平台和办公服务等。技术基础设施支撑不同的产品与服务；Alphabet 同时也披露持有待售硬件的存货。因此，看到硬件投入，可以先问：它要留在企业里提供服务，还是准备交给客户？[2026 年第二季度报告](https://www.sec.gov/Archives/edgar/data/1652044/000165204426000071/goog-20260630.htm)
+
+我们借一家虚构的“青禾”公司，拿两张相同金额的采购单慢慢看。先记住 [资产负债表](https://ou-liu-red-sugar.github.io/zh/notebook/balance-sheet/)里的基础：现金、存货和设备都属于资产；收入与已耗用的成本费用共同形成利润，再进入权益。
+
+青禾买入两件硬件，每件成本20：一件留在自己的服务系统中使用，一件由它控制并准备卖给客户。付款与交付同时完成，自用件也已达到可使用状态，其他收支保持不变。以下数字都是教学设定。我们只改变用途，观察报表怎样跟着改变。
+
+## 采购一样，资产的下一站不一样 [goog-assets]
+
+采购使现金减少40，自用件形成设备20，待售件形成存货20。资产总额没有在采购时下降，权益也没有减少40。先沿两条边读：现金20换成自用设备，另一份现金20换成待售存货。
+
+如果继续沿用途走，自用设备会跨期支持服务，其成本按使用期间分摊；待售硬件在售出前留在存货里，销售时把已售部分的账面成本转为销售成本。起点都是20，进入利润的时间却不同。
+
+待售硬件在仓库里放了一段时间，是否就按自用设备的方式折旧？在这个例子的分类下，它仍是等待销售的存货。识别具体用途，再判断成本路径，比给“硬件”这个物品名称固定贴一个科目更有用。回到真实公司时，存货还要结合适用的成本与减值计量规则阅读。
+
+### Illustration — paths and results
+两件成本同为20的硬件，采购先改变资产构成，使用或销售才决定成本如何进入经营结果。
+Formula: 经营事件 → 资源与义务变化 → 收入和成本 → 利润贡献。
+Default: 两条路径并列，按边上的说明追踪；金额属于虚构教学例子。
+Conditions: 教学例子按正文的商品控制、履约与成本去向假设展开。
+自用：保留资源提供服务: 购买自用件20: 现金−20，设备+20 → [开始按使用期分摊成本] 达到可使用状态: 本例服务设备 → [本例折旧2直接费用化] 净额18，费用2: 本期利润减少2
+待售：把资源交给客户: 购买待售件20: 现金−20，存货+20 → [商品出售并完成履约] 向客户交付，收款30: 销售收入30 → [结转已售存货成本] 销售成本20，毛利10: 存货归零
+
+## 把销售与折旧算到最后 [goog-worked-result]
+
+本期，青禾把待售件以30卖出并收款。现金增加30，收入增加30；存货减少20，销售成本增加20。因此这笔销售毛利为30−20=10。像前面的赊销例子一样，收入和交出的资源要同时记录。
+
+自用件本期折旧2。我们约定它服务于当期业务，这2直接计入服务费用，设备净额从20变18。两种用途合起来，已列交易的利润贡献为30−20−2=8。
+
+现在用资产负债表交叉核对。相对于采购前，现金先减少40、后增加30，净减少10；待售存货已经售完，自用设备净额增加18。没有新增负债，净资产变化为−10+18=8，正好与利润贡献相等。
+
+停一下，自己再走一遍：为什么收到30却只贡献8？因为已经交出成本20的存货，还在本期分摊了2的设备使用成本。为什么采购时没有亏40？因为那时取得的资源还留在企业里。
+
+如果自用设备改为生产待售商品，折旧可能先进入存货成本，随商品销售再进入销售成本。本例直接费用化，是由于我们已经说明了它服务当期业务的用途。成本最终去了哪个对象、哪个期间，需要沿着这条线继续追踪。
+
+## 共享资源与付款安排，分开读 [goog-shared-resources]
+
+让青禾的自用设备共同支持两项服务。假设使用份额相同，本期折旧2可以各分1。两条使用关系没有创造两台设备，集团总成本仍是2。把整个2在两项服务中各扣一次，就重复了成本。
+
+这也是阅读 Services、Cloud 与共同基础设施时的一条分析线：业务分类说明企业向外提供什么，资源使用说明成本由哪些活动承担。实际分配需要使用关系和相应口径；仅凭哪边收入大，还不能确定哪边占用了更多基础设施。
+
+再移动付款节点。若先付钱后取得硬件，会先出现预付资产；若先取得硬件后付钱，会先出现应付款。付款安排改变现金与结算项目，却不会把原本待售的硬件自动变成自用设备。
+
+设备可以已经可用而仍未付清，客户也可能按另一份安排先付或后付。读图时把采购结算、资源使用和客户交易分成几条线，再查看实际连接，反而更容易还原经营过程。[主线里的设备用途案例](https://ou-liu-red-sugar.github.io/zh/notebook/goog/#case-goog-assets-20260920)
+
+## 公司业务与股票类别，是两种分类 [goog-security]
+
+GOOG 对应 Alphabet 的 Class C 股票，GOOGL 对应 Class A 股票。两者属于同一个发行公司；Services 和 Cloud 则是公司经营层面的分类。选择不同股票代码，并不是在这两项业务之间切换。[股票类别与公司披露](https://www.sec.gov/Archives/edgar/data/1652044/000165204426000071/goog-20260630.htm)
+
+可以在纸上画一个 Alphabet 节点，从它向外画两组边。一组标“业务”，连到 Services 与 Cloud；另一组标“股票类别”，连到 Class C（GOOG）与 Class A（GOOGL）。沿业务边走是在理解收费与资源，沿股票类别边走是在识别持有的证券及权利。
+
+现在回看两件硬件：采购金额相同，用途决定了不同的成本路径；共同支撑业务时，需要识别分摊关系；最后，公司的业务结果才与持有人所取得的证券权利连接起来。下面的检查题要求你把这三层分开说清。沿主线继续，可进入 [看涨期权](https://ou-liu-red-sugar.github.io/zh/notebook/call-payoff/)，看另一种合约怎样改变持有人的到期结果。
+
+### 两台成本都是20的设备：一台保留提供服务，一台卖给客户。这20分别在什么时候进入费用或成本？
+保留使用的一台形成长期经营资产，在可使用后按使用期分摊折旧；准备卖给客户的一台先是存货，销售确认时将相应账面成本结转为销售成本。成本相同，并不意味着进入当期利润的节奏相同。
+
+### 集团基础设施同时服务Services和Cloud。把全部设备都归入Cloud，能算出可靠的Cloud资产回报吗？
+这样得到的分母包含了服务其他业务的资源，与Cloud利润范围不一致。先确定实际使用关系和披露的分配口径，才有条件构造一致的比率。共享资源的归属依据，是计算之前的一步。
+
+### GOOG与GOOGL代表两套不同的Google业务吗？阅读公司经营与阅读具体股票时，各应核对什么？
+两者对应同一Alphabet集团的不同股份类别：GOOG为Class C，GOOGL为Class A。集团经营资料可以服务于两者的业务理解；具体证券层面要识别类别、表决权和交易价格。公司身份回答“研究哪家企业”，股份类别回答“持有何种权利”。
+
+## 历史教学资料 · 2026-09-20 [goog-historical-teaching-20260920]
+
+以下保存 2026-09-20 版资产负债表词条中使用的教学片段。资料期间、来源、说明与图示沿用该版本。
+
+### GOOG · 设备用途与共享资源 [case-goog-assets-20260920]
+Research cutoff: 2026-09-20 | Data period: 2026 年第二季度及上半年
+
+同样是一台硬件，买来以后准备拿它做什么，会改变整条报表路径。Alphabet 的技术基础设施支持 Services、Cloud 等业务；其披露也包含持有待售硬件的存货。自用基础设施与待售硬件，正好对应前面小公司中的“设备”和“存货”。[季度报告](https://www.sec.gov/Archives/edgar/data/1652044/000165204426000071/goog-20260630.htm)
+
+先假设一台成本20的硬件用于自己提供服务。企业持有这台设备，并在它可使用以后逐期确认折旧；客户付费取得的是服务。再假设另一台成本同为20的硬件准备出售：它在卖出前属于存货，交付客户并确认销售时，20转成相应销售成本。外观可以相似，企业保留的资源和未来收费方式已经不同。图中的20只属于教学例子。
+
+再往前想一步：一座技术基础设施可能服务多个产品。研究时可以先列出 Services 与 Cloud 各自的收费关系，再将共同使用的设施连到两边。要进一步计算某项业务的资产回报，需要与业务利润范围一致的资产资料，以及共同成本如何归属的依据。合并报表给出的资产总数，是这个分析的起点。
+
+**停一下：** 设备卖给客户以后，原企业还拥有它未来全部算力服务收入吗？设备的控制已经转给客户；后续服务收入要看另行提供的服务与合同。把“出售硬件”和“保留硬件提供服务”分开，才能把资源与收入一一对应。继续阅读 [Alphabet 公司词条](https://ou-liu-red-sugar.github.io/zh/notebook/goog/)。
+
+### Illustration — paths and results
+相似硬件的两种用途。按出售资源或持续使用资源区分其进入利润的时点。
+Formula: 资源取得 → 资产用途 → 成本确认；服务交付 → 收入 → 收款。
+Default: 并排阅读两种经营路径，沿箭头观察资源在何时、以什么方式进入当期结果。
+Conditions: 箭头表示经济联系；付款时点取决于结算安排。
+自用基础设施: 取得硬件: 用于自己的服务 → [保留设备，持续使用] 长期经营资产: 达到可使用状态 → [服务跨期交付] 逐期折旧: 成本分配到使用期间
+持有待售硬件: 取得硬件: 准备交付客户 → [等待商品销售] 存货: 卖出前仍持有 → [交付硬件并确认销售] 销售成本: 销售时结转账面成本
+
+## Sources
+- [Alphabet · 2026 Q2 Form 10-Q](https://www.sec.gov/Archives/edgar/data/1652044/000165204426000071/goog-20260630.htm): 来源摘要：截至 2026-06-30 的季度报告。用于核对 Google Services、Google Cloud、技术基础设施与设备用途。报告主体为 Alphabet；GOOG 与 GOOGL 对应不同股份类别。
+
+## Content relations
+```json
+[]
+```
+
+## Related entries
+- [资产负债表：全表结构与行业带读](https://ou-liu-red-sugar.github.io/zh/notebook/balance-sheet/)
+- [Amazon · AMZN：商品、平台与云服务](https://ou-liu-red-sugar.github.io/zh/notebook/amzn/)

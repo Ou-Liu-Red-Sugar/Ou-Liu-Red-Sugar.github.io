@@ -1,4 +1,5 @@
 ---
+aliases: ["/notes/basic-concepts-on-higher-algebra/"]
 title: "Basic Concepts on Higher Algebra"
 date: 2025-09-22
 math: true
@@ -52,7 +53,7 @@ preserves these.
 {{< /proposition >}}
 
 {{< proof >}}
-{{< cite Chu_Haugseng_2021 "Corollary 5.5" >}}
+{{< cite CH21 "Corollary 5.5" >}}
 {{< /proof >}}
 
 {{< definition title="Trivial Pattern" >}}
@@ -151,7 +152,7 @@ More precisely,
 - The elementary objects of $\mathsf{LM}$ are $([0],0)$ (often denoted by $\mathfrak{m}$) and $([1],1)$ (often denoted by $\mathfrak{a}$).
 {{< /definition >}}
 
-{{< remark >}}
+{{< remark id="rmk-right-modules" >}}
 Saying "left" versus "right" is just a convention;
 the same algebraic pattern also encodes right actions.
 {{< /remark >}}

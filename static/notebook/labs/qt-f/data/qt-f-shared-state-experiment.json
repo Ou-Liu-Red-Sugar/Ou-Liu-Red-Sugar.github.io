@@ -1,0 +1,1033 @@
+{
+  "schema": "qt-f-shared-state-experiment-v1",
+  "experiment_id": "EXP-STATE-01",
+  "version": "2026-09-21-v1",
+  "status": "frozen_for_QT-F_and_M21_authoring; not yet a published entry or market observation",
+  "consumer_nodes": [
+    "QT18",
+    "QT18-P1",
+    "QT18-P2",
+    "M21"
+  ],
+  "identity": "Finite frictionless teaching market, independently reconstructed with exact rational arithmetic; no estimated probability or live security quote",
+  "units": {
+    "monetary_unit": "USD, teaching denomination per modeled asset unit",
+    "time": "one abstract period; not annualized",
+    "cash_account_holding": "number of cash-account units; cash value at t equals beta*B_t",
+    "probabilities": "dimensionless; state-price vector is not a probability",
+    "gross_cash_return_symbol": "R=B_1/B_0=51/50; reserve real scalars for mathbb R"
+  },
+  "assumptions": {
+    "time_grid": [
+      0,
+      1
+    ],
+    "F_0": "{empty, Omega}",
+    "F_T": "all subsets of the displayed terminal atoms",
+    "physical_probability": "strictly positive on every terminal atom",
+    "cash_account": "B_0=1, deterministic B_1=51/50 > 0; identical borrowing and lending accumulation",
+    "holdings": "unrestricted finite signed real quantities; fractional positions and short sales allowed",
+    "timing": "holdings for (0,1] chosen from F_0; terminal state cannot be used to choose them",
+    "financing": "V_0=beta*B_0+sum_j h_j*S_0^j over every traded risky asset; in the augmented market this includes the added claim at price c. No external cash flows; its terminal payoff is included once in the portfolio value.",
+    "frictions": "zero transaction costs, no bid/ask spread, no dividends, no margin/liquidity/short-sale constraint"
+  },
+  "two_state": {
+    "state_order": [
+      "up",
+      "down"
+    ],
+    "B_0": {
+      "exact": "1",
+      "decimal": 1.0
+    },
+    "B_1": {
+      "exact": "51/50",
+      "decimal": 1.02
+    },
+    "S_0": {
+      "exact": "100",
+      "decimal": 100.0
+    },
+    "S_1": [
+      {
+        "exact": "120",
+        "decimal": 120.0
+      },
+      {
+        "exact": "90",
+        "decimal": 90.0
+      }
+    ],
+    "strike": {
+      "exact": "105",
+      "decimal": 105.0
+    },
+    "claim": [
+      {
+        "exact": "15",
+        "decimal": 15.0
+      },
+      {
+        "exact": "0",
+        "decimal": 0.0
+      }
+    ],
+    "P_illustrative_not_estimated": [
+      {
+        "exact": "3/5",
+        "decimal": 0.6
+      },
+      {
+        "exact": "2/5",
+        "decimal": 0.4
+      }
+    ],
+    "payoff_matrix_state_rows_asset_columns_B_S": [
+      [
+        {
+          "exact": "51/50",
+          "decimal": 1.02
+        },
+        {
+          "exact": "120",
+          "decimal": 120.0
+        }
+      ],
+      [
+        {
+          "exact": "51/50",
+          "decimal": 1.02
+        },
+        {
+          "exact": "90",
+          "decimal": 90.0
+        }
+      ]
+    ],
+    "initial_price_vector_B_S": [
+      {
+        "exact": "1",
+        "decimal": 1.0
+      },
+      {
+        "exact": "100",
+        "decimal": 100.0
+      }
+    ],
+    "Q": [
+      {
+        "exact": "2/5",
+        "decimal": 0.4
+      },
+      {
+        "exact": "3/5",
+        "decimal": 0.6
+      }
+    ],
+    "state_prices": [
+      {
+        "exact": "20/51",
+        "decimal": 0.39215686274509803
+      },
+      {
+        "exact": "10/17",
+        "decimal": 0.5882352941176471
+      }
+    ],
+    "dQ_dP": [
+      {
+        "exact": "2/3",
+        "decimal": 0.6666666666666666
+      },
+      {
+        "exact": "3/2",
+        "decimal": 1.5
+      }
+    ],
+    "pricing_kernel_m": [
+      {
+        "exact": "100/153",
+        "decimal": 0.6535947712418301
+      },
+      {
+        "exact": "25/17",
+        "decimal": 1.4705882352941178
+      }
+    ],
+    "rank": 2,
+    "P_expected_stock": {
+      "exact": "108",
+      "decimal": 108.0
+    },
+    "Q_expected_stock": {
+      "exact": "102",
+      "decimal": 102.0
+    },
+    "P_expected_claim": {
+      "exact": "9",
+      "decimal": 9.0
+    },
+    "Q_expected_claim": {
+      "exact": "6",
+      "decimal": 6.0
+    },
+    "P_discounted_claim_expectation_not_replication_price": {
+      "exact": "150/17",
+      "decimal": 8.823529411764707
+    },
+    "replication": {
+      "cash_account_units": {
+        "exact": "-750/17",
+        "decimal": -44.11764705882353
+      },
+      "stock_units": {
+        "exact": "1/2",
+        "decimal": 0.5
+      },
+      "initial_cash_value": {
+        "exact": "-750/17",
+        "decimal": -44.11764705882353
+      },
+      "initial_stock_value": {
+        "exact": "50",
+        "decimal": 50.0
+      },
+      "initial_cost": {
+        "exact": "100/17",
+        "decimal": 5.882352941176471
+      },
+      "terminal_cash_value": {
+        "exact": "-45",
+        "decimal": -45.0
+      },
+      "terminal_stock_values": [
+        {
+          "exact": "60",
+          "decimal": 60.0
+        },
+        {
+          "exact": "45",
+          "decimal": 45.0
+        }
+      ],
+      "terminal_values": [
+        {
+          "exact": "15",
+          "decimal": 15.0
+        },
+        {
+          "exact": "0",
+          "decimal": 0.0
+        }
+      ]
+    },
+    "P_change_exercise": {
+      "P": [
+        {
+          "exact": "9/10",
+          "decimal": 0.9
+        },
+        {
+          "exact": "1/10",
+          "decimal": 0.1
+        }
+      ],
+      "Q_unchanged": [
+        {
+          "exact": "2/5",
+          "decimal": 0.4
+        },
+        {
+          "exact": "3/5",
+          "decimal": 0.6
+        }
+      ],
+      "price_unchanged": {
+        "exact": "100/17",
+        "decimal": 5.882352941176471
+      },
+      "new_dQ_dP": [
+        {
+          "exact": "4/9",
+          "decimal": 0.4444444444444444
+        },
+        {
+          "exact": "6",
+          "decimal": 6.0
+        }
+      ],
+      "new_m": [
+        {
+          "exact": "200/459",
+          "decimal": 0.4357298474945534
+        },
+        {
+          "exact": "100/17",
+          "decimal": 5.882352941176471
+        }
+      ]
+    },
+    "stock_simple_returns": [
+      {
+        "exact": "1/5",
+        "decimal": 0.2
+      },
+      {
+        "exact": "-1/10",
+        "decimal": -0.1
+      }
+    ],
+    "cash_simple_return": {
+      "exact": "1/50",
+      "decimal": 0.02
+    }
+  },
+  "three_state_incomplete": {
+    "state_order": [
+      "down",
+      "middle",
+      "up"
+    ],
+    "B_0": {
+      "exact": "1",
+      "decimal": 1.0
+    },
+    "B_1": {
+      "exact": "51/50",
+      "decimal": 1.02
+    },
+    "S_0": {
+      "exact": "100",
+      "decimal": 100.0
+    },
+    "S_1": [
+      {
+        "exact": "80",
+        "decimal": 80.0
+      },
+      {
+        "exact": "100",
+        "decimal": 100.0
+      },
+      {
+        "exact": "120",
+        "decimal": 120.0
+      }
+    ],
+    "call_strike": {
+      "exact": "100",
+      "decimal": 100.0
+    },
+    "call_payoff": [
+      {
+        "exact": "0",
+        "decimal": 0.0
+      },
+      {
+        "exact": "0",
+        "decimal": 0.0
+      },
+      {
+        "exact": "20",
+        "decimal": 20.0
+      }
+    ],
+    "P_illustrative_not_estimated": null,
+    "P_requirement": "Any fixed probability positive on all three terminal atoms; no default physical probabilities assigned",
+    "initial_price_vector_B_S": [
+      {
+        "exact": "1",
+        "decimal": 1.0
+      },
+      {
+        "exact": "100",
+        "decimal": 100.0
+      }
+    ],
+    "payoff_matrix_state_rows_asset_columns_B_S": [
+      [
+        {
+          "exact": "51/50",
+          "decimal": 1.02
+        },
+        {
+          "exact": "80",
+          "decimal": 80.0
+        }
+      ],
+      [
+        {
+          "exact": "51/50",
+          "decimal": 1.02
+        },
+        {
+          "exact": "100",
+          "decimal": 100.0
+        }
+      ],
+      [
+        {
+          "exact": "51/50",
+          "decimal": 1.02
+        },
+        {
+          "exact": "120",
+          "decimal": 120.0
+        }
+      ]
+    ],
+    "rank": 2,
+    "Q_family": {
+      "parameter": "t",
+      "expression": [
+        "t",
+        "9/10 - 2*t",
+        "1/10 + t"
+      ],
+      "open_parameter_interval": {
+        "lower": {
+          "exact": "0",
+          "decimal": 0.0
+        },
+        "upper": {
+          "exact": "9/20",
+          "decimal": 0.45
+        },
+        "endpoints_included": false
+      },
+      "default_t": {
+        "exact": "1/5",
+        "decimal": 0.2
+      },
+      "null_direction": [
+        {
+          "exact": "1",
+          "decimal": 1.0
+        },
+        {
+          "exact": "-2",
+          "decimal": -2.0
+        },
+        {
+          "exact": "1",
+          "decimal": 1.0
+        }
+      ],
+      "samples": [
+        {
+          "t": {
+            "exact": "1/10",
+            "decimal": 0.1
+          },
+          "Q": [
+            {
+              "exact": "1/10",
+              "decimal": 0.1
+            },
+            {
+              "exact": "7/10",
+              "decimal": 0.7
+            },
+            {
+              "exact": "1/5",
+              "decimal": 0.2
+            }
+          ],
+          "state_prices": [
+            {
+              "exact": "5/51",
+              "decimal": 0.09803921568627451
+            },
+            {
+              "exact": "35/51",
+              "decimal": 0.6862745098039216
+            },
+            {
+              "exact": "10/51",
+              "decimal": 0.19607843137254902
+            }
+          ],
+          "claim_price": {
+            "exact": "200/51",
+            "decimal": 3.9215686274509802
+          }
+        },
+        {
+          "t": {
+            "exact": "1/5",
+            "decimal": 0.2
+          },
+          "Q": [
+            {
+              "exact": "1/5",
+              "decimal": 0.2
+            },
+            {
+              "exact": "1/2",
+              "decimal": 0.5
+            },
+            {
+              "exact": "3/10",
+              "decimal": 0.3
+            }
+          ],
+          "state_prices": [
+            {
+              "exact": "10/51",
+              "decimal": 0.19607843137254902
+            },
+            {
+              "exact": "25/51",
+              "decimal": 0.49019607843137253
+            },
+            {
+              "exact": "5/17",
+              "decimal": 0.29411764705882354
+            }
+          ],
+          "claim_price": {
+            "exact": "100/17",
+            "decimal": 5.882352941176471
+          }
+        },
+        {
+          "t": {
+            "exact": "2/5",
+            "decimal": 0.4
+          },
+          "Q": [
+            {
+              "exact": "2/5",
+              "decimal": 0.4
+            },
+            {
+              "exact": "1/10",
+              "decimal": 0.1
+            },
+            {
+              "exact": "1/2",
+              "decimal": 0.5
+            }
+          ],
+          "state_prices": [
+            {
+              "exact": "20/51",
+              "decimal": 0.39215686274509803
+            },
+            {
+              "exact": "5/51",
+              "decimal": 0.09803921568627451
+            },
+            {
+              "exact": "25/51",
+              "decimal": 0.49019607843137253
+            }
+          ],
+          "claim_price": {
+            "exact": "500/51",
+            "decimal": 9.803921568627452
+          }
+        }
+      ]
+    },
+    "claim_price_function": "c(t) = (2 + 20*t)/(51/50)",
+    "claim_arbitrage_free_price_interval": {
+      "lower": {
+        "exact": "100/51",
+        "decimal": 1.9607843137254901
+      },
+      "upper": {
+        "exact": "550/51",
+        "decimal": 10.784313725490197
+      },
+      "endpoints_included": false,
+      "scope": "Claim is added as a freely signed, fractionally tradable asset at t=0, paying H at t=1; prices of cash and stock fixed"
+    },
+    "endpoint_arbitrages": [
+      {
+        "endpoint": "lower",
+        "claim_price": {
+          "exact": "100/51",
+          "decimal": 1.9607843137254901
+        },
+        "holdings_B_S_C": [
+          {
+            "exact": "5000/51",
+            "decimal": 98.03921568627452
+          },
+          {
+            "exact": "-1",
+            "decimal": -1.0
+          },
+          {
+            "exact": "1",
+            "decimal": 1.0
+          }
+        ],
+        "initial_cost": {
+          "exact": "0",
+          "decimal": 0.0
+        },
+        "terminal_payoffs": [
+          {
+            "exact": "20",
+            "decimal": 20.0
+          },
+          {
+            "exact": "0",
+            "decimal": 0.0
+          },
+          {
+            "exact": "0",
+            "decimal": 0.0
+          }
+        ]
+      },
+      {
+        "endpoint": "upper",
+        "claim_price": {
+          "exact": "550/51",
+          "decimal": 10.784313725490197
+        },
+        "holdings_B_S_C": [
+          {
+            "exact": "-2000/51",
+            "decimal": -39.21568627450981
+          },
+          {
+            "exact": "1/2",
+            "decimal": 0.5
+          },
+          {
+            "exact": "-1",
+            "decimal": -1.0
+          }
+        ],
+        "initial_cost": {
+          "exact": "0",
+          "decimal": 0.0
+        },
+        "terminal_payoffs": [
+          {
+            "exact": "0",
+            "decimal": 0.0
+          },
+          {
+            "exact": "10",
+            "decimal": 10.0
+          },
+          {
+            "exact": "0",
+            "decimal": 0.0
+          }
+        ]
+      }
+    ]
+  },
+  "three_state_augmented_complete": {
+    "traded_call_price": {
+      "exact": "6",
+      "decimal": 6.0
+    },
+    "Q": [
+      {
+        "exact": "103/500",
+        "decimal": 0.206
+      },
+      {
+        "exact": "61/125",
+        "decimal": 0.488
+      },
+      {
+        "exact": "153/500",
+        "decimal": 0.306
+      }
+    ],
+    "state_prices": [
+      {
+        "exact": "103/510",
+        "decimal": 0.2019607843137255
+      },
+      {
+        "exact": "122/255",
+        "decimal": 0.47843137254901963
+      },
+      {
+        "exact": "3/10",
+        "decimal": 0.3
+      }
+    ],
+    "payoff_matrix_state_rows_asset_columns_B_S_C": [
+      [
+        {
+          "exact": "51/50",
+          "decimal": 1.02
+        },
+        {
+          "exact": "80",
+          "decimal": 80.0
+        },
+        {
+          "exact": "0",
+          "decimal": 0.0
+        }
+      ],
+      [
+        {
+          "exact": "51/50",
+          "decimal": 1.02
+        },
+        {
+          "exact": "100",
+          "decimal": 100.0
+        },
+        {
+          "exact": "0",
+          "decimal": 0.0
+        }
+      ],
+      [
+        {
+          "exact": "51/50",
+          "decimal": 1.02
+        },
+        {
+          "exact": "120",
+          "decimal": 120.0
+        },
+        {
+          "exact": "20",
+          "decimal": 20.0
+        }
+      ]
+    ],
+    "initial_price_vector_B_S_C": [
+      {
+        "exact": "1",
+        "decimal": 1.0
+      },
+      {
+        "exact": "100",
+        "decimal": 100.0
+      },
+      {
+        "exact": "6",
+        "decimal": 6.0
+      }
+    ],
+    "rank": 3,
+    "determinant": {
+      "exact": "408",
+      "decimal": 408.0
+    },
+    "parameter_t": {
+      "exact": "103/500",
+      "decimal": 0.206
+    },
+    "digital_replications": [
+      {
+        "state": "down",
+        "payoff": [
+          {
+            "exact": "1",
+            "decimal": 1.0
+          },
+          {
+            "exact": "0",
+            "decimal": 0.0
+          },
+          {
+            "exact": "0",
+            "decimal": 0.0
+          }
+        ],
+        "holdings_B_S_C": [
+          {
+            "exact": "250/51",
+            "decimal": 4.901960784313726
+          },
+          {
+            "exact": "-1/20",
+            "decimal": -0.05
+          },
+          {
+            "exact": "1/20",
+            "decimal": 0.05
+          }
+        ],
+        "initial_cost": {
+          "exact": "103/510",
+          "decimal": 0.2019607843137255
+        }
+      },
+      {
+        "state": "middle",
+        "payoff": [
+          {
+            "exact": "0",
+            "decimal": 0.0
+          },
+          {
+            "exact": "1",
+            "decimal": 1.0
+          },
+          {
+            "exact": "0",
+            "decimal": 0.0
+          }
+        ],
+        "holdings_B_S_C": [
+          {
+            "exact": "-200/51",
+            "decimal": -3.9215686274509802
+          },
+          {
+            "exact": "1/20",
+            "decimal": 0.05
+          },
+          {
+            "exact": "-1/10",
+            "decimal": -0.1
+          }
+        ],
+        "initial_cost": {
+          "exact": "122/255",
+          "decimal": 0.47843137254901963
+        }
+      },
+      {
+        "state": "up",
+        "payoff": [
+          {
+            "exact": "0",
+            "decimal": 0.0
+          },
+          {
+            "exact": "0",
+            "decimal": 0.0
+          },
+          {
+            "exact": "1",
+            "decimal": 1.0
+          }
+        ],
+        "holdings_B_S_C": [
+          {
+            "exact": "0",
+            "decimal": 0.0
+          },
+          {
+            "exact": "0",
+            "decimal": 0.0
+          },
+          {
+            "exact": "1/20",
+            "decimal": 0.05
+          }
+        ],
+        "initial_cost": {
+          "exact": "3/10",
+          "decimal": 0.3
+        }
+      }
+    ],
+    "arbitrary_payoff_replication_formula": {
+      "for": [
+        "x_down",
+        "x_middle",
+        "x_up"
+      ],
+      "stock_units": "(x_middle-x_down)/20",
+      "cash_account_units": "(5*x_down-4*x_middle)/(51/50)",
+      "claim_units": "(x_up-2*x_middle+x_down)/20",
+      "initial_cost": "pi_down*x_down + pi_middle*x_middle + pi_up*x_up"
+    }
+  },
+  "formula_contract": {
+    "state_prices": "A^T*pi=s_0; pi_i>0; sum_i pi_i=B_0/B_1=1/R",
+    "martingale_probability": "Q_i=R*pi_i, E_Q[S_1]=R*S_0",
+    "density": "z_i=Q_i/P_i; E_P[z]=1",
+    "pricing_kernel": "m_i=pi_i/P_i=z_i/R; E_P[m]=1/R",
+    "replication": "A*theta=H; price=s_0^T*theta=sum_i pi_i*H_i",
+    "multiperiod_cash_completion": "beta_1=(V_0-h_1 dot S_0)/B_0; beta_(k+1)=(beta_k*B_k+h_k dot S_k-h_(k+1) dot S_k)/B_k",
+    "discounted_wealth": "V_k/B_k=V_0/B_0+sum_(j=1)^k h_j dot (S_j/B_j-S_(j-1)/B_(j-1))",
+    "attainable_space": "K=span{1}+L={a*1+ell:a in real numbers,ell in L}; R is not the scalar field"
+  },
+  "interaction_boundaries": [
+    "Switching full-support P changes dQ/dP and m, but fixed payoffs/prices imply unchanged Q and replication price in the two-state complete model",
+    "Three-state t must be strictly between 0 and 9/20 for an EMM; endpoint demonstrations must be labelled arbitrage cases",
+    "Before adding the claim, Q is a family and a claim price is not fixed; after freely trading it at 6, rank is 3 and Q is unique",
+    "No transaction-cost or constraint toggle under this frictionless theorem; such variations need a different model",
+    "QT08 uses separate EXP-QT08-STOP-01; stopping enumeration is not part of this state-market model"
+  ],
+  "source": {
+    "source_id": "QDEF-EF05",
+    "authors": [
+      "Ruth J. Williams"
+    ],
+    "title": "Finite Market Model, Chapter 3",
+    "url": "https://mathweb.ucsd.edu/~williams/courses/m294notes/chap3.pdf",
+    "version": "Chapter PDF; no reliable revision date stated; retrieved/read 2026-09-21",
+    "required_units": [
+      "Section 3.1, printed pp.40-43 / PDF pp.2-3",
+      "Section 3.2, printed pp.44-50 / PDF pp.4-7, all statements/proofs and Lemmas 3.2.5-3.2.6",
+      "Section 3.3, Theorems 3.3.1-3.3.3, printed pp.51-55 / PDF pp.7-9",
+      "Section 3.6, Theorem 3.6.1 and full proof, printed pp.66-67 / PDF p.15"
+    ],
+    "supports": "Model conventions and finite-market proofs; the exact numerical parameters here are a separately stated teaching construction"
+  },
+  "provenance": {
+    "plan": "receipts/qt-def-reference-plan-v1.md §§4.5,10-12",
+    "lead_scope": "receipts/qt-def-plan-review.md QT-F initial adoption",
+    "prior_candidate": "references/qt-ef-primary-20260921/qt-ef-calculation-results.json:qt18",
+    "independent_review": "receipts/qt-f-proof-plan-independent-review.md",
+    "frozen_source_policy": "This file freezes the parameters for authoring. It does not change the prior candidate, formal catalogue, entries or production state."
+  },
+  "actual_verification": {
+    "date": "2026-09-21",
+    "python": "3.14.2",
+    "libraries": "Python standard library, fractions.Fraction",
+    "random_seed": null,
+    "implementation": "Independent exact Gaussian elimination, state-by-state cash/payoff checks and finite enumeration; did not import prior support script",
+    "shared_state_checks": [
+      {
+        "name": "two_state_Q_positive_probability",
+        "passed": true
+      },
+      {
+        "name": "two_state_Atranspose_pi_equals_prices",
+        "passed": true
+      },
+      {
+        "name": "two_state_replication_all_states",
+        "passed": true
+      },
+      {
+        "name": "two_state_replication_cost_Q_and_state_prices",
+        "passed": true
+      },
+      {
+        "name": "two_state_density_mean_one",
+        "passed": true
+      },
+      {
+        "name": "two_state_kernel_prices_cash",
+        "passed": true
+      },
+      {
+        "name": "two_state_kernel_prices_stock",
+        "passed": true
+      },
+      {
+        "name": "two_state_kernel_prices_claim",
+        "passed": true
+      },
+      {
+        "name": "two_state_expected_stock_P_Q",
+        "passed": true
+      },
+      {
+        "name": "two_state_cash_completion",
+        "passed": true
+      },
+      {
+        "name": "two_state_rank",
+        "passed": true
+      },
+      {
+        "name": "P_change_keeps_Q_price_and_changes_density",
+        "passed": true
+      },
+      {
+        "name": "three_state_old_market_rank_2",
+        "passed": true
+      },
+      {
+        "name": "three_state_claim_not_old_market_replicable",
+        "passed": true
+      },
+      {
+        "name": "three_state_family_positive_and_prices_1/10",
+        "passed": true
+      },
+      {
+        "name": "three_state_family_positive_and_prices_1/5",
+        "passed": true
+      },
+      {
+        "name": "three_state_family_positive_and_prices_2/5",
+        "passed": true
+      },
+      {
+        "name": "three_state_open_range_exact",
+        "passed": true
+      },
+      {
+        "name": "three_state_endpoints_not_equivalent",
+        "passed": true
+      },
+      {
+        "name": "lower_endpoint_zero_initial_cost",
+        "passed": true
+      },
+      {
+        "name": "lower_endpoint_arbitrage_payoffs",
+        "passed": true
+      },
+      {
+        "name": "upper_endpoint_zero_initial_cost",
+        "passed": true
+      },
+      {
+        "name": "upper_endpoint_arbitrage_payoffs",
+        "passed": true
+      },
+      {
+        "name": "augmented_Q_default",
+        "passed": true
+      },
+      {
+        "name": "augmented_Q_positive_probability",
+        "passed": true
+      },
+      {
+        "name": "augmented_all_assets_priced",
+        "passed": true
+      },
+      {
+        "name": "augmented_full_rank",
+        "passed": true
+      },
+      {
+        "name": "down_digital_replication",
+        "passed": true
+      },
+      {
+        "name": "down_digital_cost",
+        "passed": true
+      },
+      {
+        "name": "middle_digital_replication",
+        "passed": true
+      },
+      {
+        "name": "middle_digital_cost",
+        "passed": true
+      },
+      {
+        "name": "up_digital_replication",
+        "passed": true
+      },
+      {
+        "name": "up_digital_cost",
+        "passed": true
+      },
+      {
+        "name": "incomplete_null_direction",
+        "passed": true
+      }
+    ],
+    "passed": 34,
+    "total": 34
+  }
+}

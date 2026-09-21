@@ -1,0 +1,5 @@
+{{ define "main" }}
+{{ $zh := eq .Lang "zh" }}
+<div class="path-shell"><a class="back-link" href="/{{ .Lang }}/notebook/">← {{ if $zh }}主题目录{{ else }}Topic catalogue{{ end }}</a><header class="page-intro"><p class="eyebrow">{{ if $zh }}各领域的独立路线{{ else }}DOMAIN READING PATHS{{ end }}</p><h1>{{ if $zh }}选择一条阅读路线{{ else }}Choose a reading path{{ end }}</h1><p>{{ if $zh }}每条路线围绕一个领域展开。跨领域需要的概念可以就地补充，各路线无需全部依次读完。{{ else }}Each path follows one domain. Cross-domain concepts can be consulted as needed.{{ end }}</p></header>
+{{ range where .Site.Data.notebook.paths "lang" .Lang }}{{ if and .steps (not .deprecated) }}<a class="domain-route" href="{{ .url }}"><span><strong>{{ .title }}</strong>{{ with .summary }}<small>{{ . }}</small>{{ end }}</span><span>→</span></a>{{ end }}{{ end }}</div>
+{{ end }}

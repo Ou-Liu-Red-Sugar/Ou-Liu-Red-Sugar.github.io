@@ -1,4 +1,5 @@
 ---
+aliases: ["/invest/lessons/"]
 title: "Lessons"
 description: "Rules distilled from repeated mistakes, each linked to concrete cases."
 layout: "list"

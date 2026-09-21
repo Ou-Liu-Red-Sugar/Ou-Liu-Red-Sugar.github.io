@@ -1,0 +1,367 @@
+{
+  "entry_id": "zh-ei05",
+  "node_id": "EI-05",
+  "export_mode": "public",
+  "content_version": "2026-09-21-eic-review-v2",
+  "selected_branch": "application",
+  "required_readings": [
+    {
+      "source_id": "EIC-S01",
+      "title": "Concepts and Methods of the U.S. Input-Output Accounts",
+      "authors": [
+        "Karen J. Horowitz",
+        "Mark A. Planting"
+      ],
+      "version": "September 2006; updated April 2009",
+      "access": {
+        "kind": "pdf_full_text",
+        "uri": "https://www.bea.gov/sites/default/files/methodologies/IOmanual_092906.pdf",
+        "verified_access_at": "2026-09-21"
+      },
+      "required_unit": {
+        "locator": "Chapter 1 印刷 pp.1–2..1–4 / PDF 12–14；Chapter 12 印刷 pp.12–9..12–15 / PDF 211–217，Tables 12.5–12.15。",
+        "scope": "使用表、生产表、B/D/W/BW定义、完全需要推导及原例上下文，含Table12.11与12.14",
+        "purpose": "从原表识别系数方向，建立A≡BW，区分三种精度对象"
+      },
+      "supports": "官方方法例的使用表、产品/行业转换、BW直接需要及完全需要表。本站重记A≡BW；展示A求逆与发表圆整R分开。示例不是当前产业系数。",
+      "branch": "common",
+      "id": "EI05-application-READ-01"
+    },
+    {
+      "source_id": "EIC-S02",
+      "title": "Looking for Supply Chain Intel? Explore BEA’s Supply and Use Tables",
+      "authors": [
+        "U.S. Bureau of Economic Analysis"
+      ],
+      "version": "2026-05-04",
+      "access": {
+        "kind": "html_full_text",
+        "uri": "https://www.bea.gov/news/blog/2026-05-04/looking-supply-chain-intel-explore-beas-supply-and-use-tables",
+        "verified_access_at": "2026-09-21"
+      },
+      "required_unit": {
+        "locator": "2026-05-04完整短文，2017 detailed SUT battery example",
+        "scope": "阅读全文及其2017年、use column EK、supply row144、53/47口径",
+        "purpose": "说明采购列和供应行不同职责；不声称读取Excel"
+      },
+      "supports": "官方文章以2017详细表介绍蓄电池投入与来源构成，报告约53%国内/47%进口。只采文章历史摘例；没有逐格读取Excel或独立重建分母。",
+      "branch": "application",
+      "id": "EI05-application-READ-02"
+    }
+  ],
+  "optional_readings": [],
+  "runtime_reading_log": [],
+  "supplied_inputs": {
+    "io": {
+      "identity": "source_example",
+      "source_id": "EIC-S01",
+      "notation": "A is this lesson’s name for BEA BW; BEA D denotes market shares",
+      "labels": [
+        "甲",
+        "乙",
+        "丙"
+      ],
+      "units": "original example common monetary units (no million/billion multiplier supplied)",
+      "A_display": [
+        [
+          0.166,
+          0.29,
+          0.441
+        ],
+        [
+          0.51,
+          0.109,
+          0.215
+        ],
+        [
+          0.173,
+          0.346,
+          0.202
+        ]
+      ],
+      "R_published": [
+        [
+          2.487,
+          1.5,
+          1.778
+        ],
+        [
+          1.736,
+          2.3,
+          1.579
+        ],
+        [
+          1.292,
+          1.322,
+          2.323
+        ]
+      ],
+      "y_default": [
+        40.0,
+        130.0,
+        20.0
+      ],
+      "gross_output_original": [
+        330,
+        400,
+        270
+      ],
+      "source_industry_output": [
+        328,
+        412,
+        265
+      ],
+      "scrap_output": 5,
+      "norm1": 0.8580000000000001,
+      "rho_computed": 0.8155418742605717,
+      "y_range": [
+        0,
+        200
+      ],
+      "round_range": [
+        0,
+        80
+      ],
+      "round_default": 2,
+      "supplier_default": 0,
+      "user_default": 1,
+      "rounds_meaning": "network depth, not elapsed time",
+      "source_output_comparable_only_at_default_y": true
+    },
+    "default_results": {
+      "io": {
+        "direct": [
+          53.16,
+          38.87,
+          55.94
+        ],
+        "A2": [
+          [
+            0.251749,
+            0.232336,
+            0.224638
+          ],
+          [
+            0.17744500000000002,
+            0.234171,
+            0.291775
+          ],
+          [
+            0.240124,
+            0.157776,
+            0.191487
+          ]
+        ],
+        "R_display_inverse": [
+          [
+            2.483519233372658,
+            1.4980275557005047,
+            1.7760750706678579
+          ],
+          [
+            1.7327499819098446,
+            2.2986522577600605,
+            1.5768834303767596
+          ],
+          [
+            1.2896996505191427,
+            1.3214191081718898,
+            2.321883025232955
+          ]
+        ],
+        "display_inverse_output": [
+          329.6058529893291,
+          399.67246139273686,
+          269.81013058777046
+        ],
+        "published_R_output": [
+          330.04,
+          400.02,
+          270.0
+        ],
+        "original_output": [
+          330,
+          400,
+          270
+        ],
+        "delta_y_0_10_0_output": [
+          14.980275557005047,
+          22.986522577600606,
+          13.214191081718898
+        ],
+        "second_round_AB_paths": [
+          0.04814,
+          0.03161,
+          0.152586
+        ],
+        "default_partial": [
+          137.9264,
+          212.24553,
+          109.88558
+        ]
+      }
+    },
+    "selected_branch": "application"
+  },
+  "answer_scope": "共同正文与所选分支的全部题目、解析和静态图表包含在唯一正文中；不从完整作者 Agent 再嵌入第二份正文。",
+  "experiment_reading_boundary": "实验规格列出本节点全部视角；未选分支的原文须在实际启用该视角教学前加入required_readings并读取。",
+  "default_branch": "application",
+  "experiment_ids": [
+    "exp-ei05-io"
+  ],
+  "shared_inputs_uri": "https://ou-liu-red-sugar.github.io/notebook/labs/ei-c/inputs.json",
+  "branch_exports": {
+    "application": "https://ou-liu-red-sugar.github.io/notebook/labs/ei-c/agent/EI-05.application.agent.md",
+    "research": "https://ou-liu-red-sugar.github.io/notebook/labs/ei-c/agent/EI-05.research.agent.md",
+    "all": "https://ou-liu-red-sugar.github.io/notebook/labs/ei-c/agent/EI-05.all.agent.md"
+  },
+  "body_markdown": "**EI-05 · 经济与行业分析 · 核心**  \n**学习任务：**把一项最终需求追到直接和间接投入，算出给定生产结构下的总产出要求，再说明把这个要求变成现实交付还需要哪些条件。共同部分加一条选读分支约 18–20 分钟。\n\n<a id=\"ei05-map\"></a>\n\n## 一、从一家企业的采购，走到整张生产网络\n\n我们先把产业链理解为生产活动之间的交易联系：电池厂采购金属、塑料与化学品，供应这些材料的生产者又采购能源、设备维护和其他材料。一笔下游采购同时是某个上游的销售。把这些联系放到一起，我们关心的就不只是“谁给谁供货”，而是**满足一项最终需求，需要整张网络完成多少生产**。\n\n这里有三个不同对象。企业名单回答谁和谁有交易；产品分类回答交易的是什么；行业分类回答哪些生产活动使用或生产这些产品。一个行业可以生产多种产品，同一种产品也可以来自多个行业。因此，不能把公司的供应商名单直接改名为官方投入产出表，也不能把行业产出当成某家公司的收入。\n\n我们用 BEA 的一组三产品方法例走完计算，再回到电池这个真实行业。方法例来自 2009 年更新的官方手册，不代表某个当前行业的投入系数；字母 A、B、C 是示例标签。下文把产品叫作“甲、乙、丙”，与原表字母逐一对应。[^bea]\n\n**使用表（use table）**的各行列出产品，各列列出使用产品的行业与最终需求。沿一列向下读，是该行业采购了什么；沿一行向右读，是该产品交给哪些行业使用，又有多少交给最终使用者。下面保留原表的主要构成与余额。金额使用原例的统一货币单位，原表未指定百万或十亿。\n\n| 产品或项目／使用者 | 行业甲 | 行业乙 | 行业丙 | 最终需求 | 产品总产出或合计 |\n|:--|--:|--:|--:|--:|--:|\n| 产品甲 | 50 | 120 | 120 | 40 | 330 |\n| 产品乙 | 180 | 30 | 60 | 130 | 400 |\n| 产品丙 | 50 | 150 | 50 | 20 | 270 |\n| 废料（scrap） | 1 | 3 | 1 | 0 | 5 |\n| 增加值 | 47 | 109 | 34 | — | 190 |\n| 行业总产出 | 328 | 412 | 265 | 190 | — |\n\n*原件：BEA Chapter 12，Table 12.5，印刷 p.12–10；中文重排。横杠表示此处没有对应的交叉项目，不是额外的零产出。*\n\n例如行业甲的中间投入为 $50+180+50+1=281$，再加增加值 47，得到行业产出 328；产品甲则有 $50+120+120+40=330$ 的去向。两条等式各自闭合，但 328 和 330 回答的是不同问题。\n\n另一张**生产表（make table）**说明各行业生产了哪些产品。原例中，行业甲生产产品甲 300、产品乙 25 和废料 3，总计 328；三个行业合起来生产产品甲 330。因此“每一元行业甲产出需要什么投入”和“每一元产品甲产出需要什么投入”不会天然相同。[^bea]\n\n<a id=\"ei05-coefficients\"></a>\n\n## 二、把交易金额变成可用于追踪的系数\n\n先从行业的采购配方出发。令 $U_{ij}$ 表示行业 $j$ 使用产品 $i$ 的金额，$g_j>0$ 表示该行业的总产出。**产品对行业的直接需要系数**是 $B_{ij}=U_{ij}/g_j$。于是行业甲每生产一元产出，直接使用的产品甲约为 $50/328=0.152439$ 元。这是在固定计价与生产结构下的比例，而不是供应商毛利率。\n\n为了追踪最终的产品需求，我们还要把“哪些行业生产该产品”纳入计算。BEA 用生产表推导行业市场份额矩阵 $D$，并针对废料等副产品作调整，得到转换矩阵 $W$。在该例采用的行业技术假设下，$W$ 把产品产出要求转换为所需行业产出，再由 $B$ 转为产品投入。**本站将产品对产品的直接需要矩阵记为 $A\\equiv BW$。** 这是教学记号；BEA 原文的 $D$ 仍指市场份额矩阵。\n\n这一步为何有必要？下游只说“需要一元产品甲”，没有指定由哪个行业生产。先按原表给定的生产结构分配到行业，再使用各行业的投入结构，才能算出这一元产品的直接需要。原例的转换还处理废料：它随其他生产产生，不作为独立的最终需求来驱动生产。因此不能把 $W$ 的每个数都当普通企业市场份额。[^bea]\n\n以产品甲需要产品甲的系数为例，使用手册展示的圆整数：\n\n$$\n\\begin{aligned}\nA_{\\text{甲甲}}&\\approx 0.152\\times0.917\\\\\n&\\quad+0.291\\times0.091\\\\\n&=0.165865\\approx0.166.\n\\end{aligned}\n$$\n\n从这里往后，我们直接固定 Table 12.11 展示的三位小数矩阵，不继续用其他圆整表格逐层倒推它：\n\n$$\nA=\\begin{bmatrix}\n0.166&0.290&0.441\\\\\n0.510&0.109&0.215\\\\\n0.173&0.346&0.202\n\\end{bmatrix}.\n$$\n\n**始终先看列，再看行：**$A_{\\text{甲乙}}=0.290$ 表示生产一元产品乙，直接需要 0.290 元产品甲。沿产品实物流的方向，这是“甲供应乙”；沿需求追踪的方向，则是“乙的生产要求引出甲的投入要求”。两种箭头方向相反，描述的关系并不冲突。\n\n这里采用固定比例、固定计价和给定产品结构。若价格相对变化、改换技术、投入替代或企业构成显著变化，旧的金额系数就未必仍然描述新的生产过程。先把条件固定住，才有下面清楚的比较。\n\n<a id=\"ei05-inverse\"></a>\n<a id=\"MODEL-EI05-BEA-CH12-DISPLAY-A\"></a>\n\n## 三、上游也要采购：从一轮需要到完全需要\n\n令 $y_i\\ge0$ 为产品 $i$ 向最终需求的交付，$x_i$ 为其总产出。总产出包括交给其他生产者作投入的部分，也包括最终交付。对每个产品都有\n\n$$\nx_i=\\sum_j A_{ij}x_j+y_i.\n$$\n\n写成向量就是 $x=Ax+y$。如果 $I-A$ 可逆，代数解是 $x=(I-A)^{-1}y$。不过，“矩阵可以求逆”还不足以保证非负、可解释的生产要求。我们在这里使用更明确的充分条件：$A$ 逐项非负，而且 $\\rho(A)<1$。这保证逆矩阵可由非负的各轮需要相加得到。\n\n本例甚至可以直接用列和来验证。矩阵的三个列和为 0.849、0.745、0.858，所以 $\\|A\\|_1=0.858<1$；因而 $\\|A^k\\|_1\\le0.858^k\\to0$。独立数值计算给出的谱半径约为 0.8155418743，与这个充分条件一致。\n\n我们不必把逆矩阵当成黑箱。令\n\n$$\nS_m=I+A+\\cdots+A^m.\n$$\n\n逐项相减有 $(I-A)S_m=I-A^{m+1}$。当 $m\\to\\infty$，右边趋于 $I$，因此\n\n$$\nR_A=(I-A)^{-1}=I+A+A^2+\\cdots,\n$$\n\n$$\nx=R_Ay=y+Ay+A^2y+\\cdots.\n$$\n\n现在每一项都有生产含义：$y$ 是最终交付本身；$Ay$ 是生产这些最终产品所需的直接投入；$A^2y$ 是生产第一轮投入又需要的投入。以 $A^2_{\\text{甲乙}}$ 为例，\n\n$$\n\\begin{aligned}\nA^2_{\\text{甲乙}}&=\\sum_k A_{\\text{甲}k}A_{k\\text{乙}}\\\\\n&=0.048140+0.031610\\\\\n&\\quad+0.152586\\\\\n&=0.232336.\n\\end{aligned}\n$$\n\n三项分别经过中间产品甲、乙、丙。网络中可以绕回同一类产品，因此路径不是一根不分叉的“上游—下游”直线。**轮次是投入关系的层数，不是日历上的生产期数**；要问交货需要几周，还必须加上交期和库存资料。\n\n取原例最终需求 $y=(40,130,20)^\\top$，第一轮投入需要为\n\n$$\nAy=(53.16,38.87,55.94)^\\top.\n$$\n\n其中产品甲的 53.16 来自 $0.166\\times40+0.290\\times130+0.441\\times20$。只准备这些投入还不够，因为它们也要生产。以下把累加过程完整地展示出来：\n\n| 累计范围 | 产品甲 | 产品乙 | 产品丙 |\n|:--|--:|--:|--:|\n| 最终交付 $y$ | 40.000000 | 130.000000 | 20.000000 |\n| $y+Ay$ | 93.160000 | 168.870000 | 75.940000 |\n| $y+Ay+A^2y$ | 137.926400 | 212.245530 | 109.885580 |\n| 累加至 $A^{10}y$ | 292.023770 | 363.032451 | 238.550412 |\n| 全部轮次 $R_Ay$ | 329.605853 | 399.672461 | 269.810131 |\n\n这些数字是同一展示矩阵的重建，单位沿原例。它们是**总产出要求**，不是新增加值。把各环节销售计入总产出本来就会包含中间交易；若把这些金额再当 GDP 相加，就把同一生产过程的中间使用重复当作最终结果。\n\n<a id=\"ei05-precision\"></a>\n\n## 四、同一张原表，为什么会出现三组接近而不同的数\n\n手册 Table 12.14 另外发表了三位小数的完全需要矩阵：\n\n$$\nR_{\\mathrm{pub}}=\\begin{bmatrix}\n2.487&1.500&1.778\\\\\n1.736&2.300&1.579\\\\\n1.292&1.322&2.323\n\\end{bmatrix}.\n$$\n\n用它乘原例 $y$，得到 $(330.04,400.02,270.00)^\\top$；使用表的原产品总产出则是 $(330,400,270)^\\top$。下面三种对象都值得保留，但各自负责不同的核查。[^bea]\n\n| 对象 | 产品甲 | 产品乙 | 产品丙 | 回答的问题 |\n|:--|--:|--:|--:|:--|\n| 展示 $A$ 求逆后乘 $y$ | 329.605853 | 399.672461 | 269.810131 | 本页路径算法收敛到哪里 |\n| 发表的 $R_{\\mathrm{pub}}y$ | 330.040000 | 400.020000 | 270.000000 | 圆整完全需要表怎样重建原例 |\n| 使用表原产品总产出 | 330.000000 | 400.000000 | 270.000000 | 原例记录的总量 |\n\n矩阵求逆会把直接系数的细小差别传到整张网络；先圆整 $A$ 再求逆，与先用更完整精度计算再展示 $R$，是不同操作。这里不把未公开的内部精度补出来，只分别重算可见输入。因此，逐轮动画必须收敛到第一行；第二行的 0.04、0.02 是相对于第三行的差额，并不是同一条动画的剩余项。\n\n再看一处容易读反的系数。$R_{\\mathrm{pub},\\text{甲乙}}=1.500$ 表示每一元产品乙最终需求所引出的产品甲完全需要。因为这是**非对角项**，$I_{\\text{甲乙}}=0$，其中没有“最终交付产品甲自身的一元”。只有对角项，例如 $R_{\\text{乙乙}}$，才含最终交付产品乙本身的那一元。\n\n先用下面实验完成两步：保持 $y$ 不变，逐渐增加路径层数；然后只把产品乙的最终需求从 130 改为 140。使用展示矩阵计算，新增总产出要求为\n\n$$\n\\begin{aligned}\n\\Delta x&=R_A(0,10,0)^\\top\\\\\n&=(14.980276,22.986523,13.214191)^\\top.\n\\end{aligned}\n$$\n\n产品乙需要增加的不止最终交付的 10，因为其他行业为支持这项交付也会反过来需要产品乙。实验里的原表总产出卡仍然是原例快照；改了 $y$ 以后，它不是新情景应当追平的目标。\n\n<div data-experiment-slot=\"exp-ei05-io\"></div>\n\n<a id=\"ei05-branches\"></a>\n\n## 五、回到现实：网络要求怎样变成可交付的供给\n\n前面的计算回答“按这套结构生产，需要多少”，而现实还要回答“谁能在所需时点交出来”。矩阵没有替我们安排生产排程、资金、运输或采购合同。选择下面一条分支，把这一步接上。\n\n\n\n<section data-reading-branch=\"application\">\n\n<a id=\"ei05-battery\"></a>\n<a id=\"CASE-EI05-BATTERY-SUT-2017-ARTICLE\"></a>\n\n### 应用分支：电池的采购列与供应行\n\nBEA 在 2026 年 5 月 4 日的官方文章中，用 **2017 年详细供给使用表**介绍蓄电池制造业。文章让读者沿使用表的 EK 列看金属、塑料、橡胶、化学品等投入，再沿供给表第 144 行看哪些国内行业和进口供应蓄电池，并报告约 53% 国内生产、47% 进口的历史构成。本篇引用的是该官方文章的历史摘例，不把这两个比例改称当前供应结构或独立工作簿复算。[^battery]\n\n这两种阅读方向正好对应两个任务。使用列帮助定位“生产电池依赖什么”；供给行帮助定位“电池还可以从哪里取得”。有替代来源并不意味着它在本周有可用数量，也不意味着其产品已符合客户要求。研究具体公司时，应在这条来源边上补上规格、合同、交期和可替代数量。\n\n用一个明确虚构的采购过程练习。**这里的千克级用量是另行给定的业务物量/BOM 信息，不是由前面的金额投入产出系数直接换算出来。**假设一家工厂每周生产既定数量的产品需 20 千克某投入，原供货降至每周 16 千克，已有可用库存 8 千克；投入比例固定，暂不考虑损耗或其他瓶颈。每周缺口是 4 千克，库存可以维持两周。若新来源要到第 5 周开始才能交货，第 3、4 周仍各缺 4 千克。此时“找到了第二来源”还没有完成交付桥；要维持原产量，还须借调库存、加快认证，或找到这两周可到货的补充供应。\n\n它也说明比较静态和供给约束怎样接合：$R_A\\Delta y$ 给出新增需求的生产要求；采购、库存与可用产能决定这组要求是否可行。若某个产出要求超过容量，不能分别把向量各项截到上限，再称其仍满足 $x=Ax+y$；网络内其他投入与最终交付必须重新协调。\n\n</section>\n\n\n\n<a id=\"ei05-exercises\"></a>\n\n## 六、自己重建一次，再换一个对象\n\n### 任务一：从一个矩阵格走完两层路径\n\n不看前面的展开式，说明 $A_{\\text{甲乙}}$ 的经济方向，再计算 $A^2_{\\text{甲乙}}$。发表的完全需要系数 1.500 能否先减去 1，当作间接需要？\n\n**解析。** 每一元产品乙产出直接需要产品甲 0.290 元。第二层经由甲、乙、丙，分别需要 $0.166\\times0.290=0.048140$、$0.290\\times0.109=0.031610$、$0.441\\times0.346=0.152586$，合计 0.232336。1.500 是非对角完全需要系数，单位阵项本来就是零，不能减去 1。若要区分直接与更高轮次，可以在同一精度对象下减去直接系数；例如展示矩阵自身的完全系数约 1.498028，减 0.290 后约 1.208028 才是第二轮及以后的需要。\n\n### 任务二：增加十元最终需求\n\n产品乙最终需求增加 10，甲和丙不变。用展示 $A$ 计算新增完全需要，再解释为什么产品乙的总产出要求增加超过 10。若产品乙原本恰好只能生产基准需要量，还能照此交付吗？\n\n**解析。** 取 $R_A$ 的第二列乘 10，得到 $(14.980276,22.986523,13.214191)^\\top$。其中乙的 22.986523 包括新增最终交付 10 和网络各层所需的乙投入。若乙没有额外可用容量，这只是需要量，不是可实现量；应重新考虑扩产、替代、库存或减少最终交付，不能把乙独立截断而保留甲丙的原计算结论。\n\n### 任务三：把方法迁移到自己的行业\n\n假设你研究食品加工，一份行业表显示某类包装投入系数很小，但工厂必须取得合格包装才能交货。你已经知道上游供应中断四周。请画出一条可检验的生产路径，并指定最先需要的三项资料。\n\n**解析。** 金额系数小并不排除它成为不可替代的瓶颈。路径应从订单所需产品数量出发，转成包装规格和物量要求，再对照现有合格库存、已确认到货与替代供应的认证时间。最先取得的资料可以是每件产品的包装用量及规格、可用库存和未来四周的确定交付、替代来源通过认证并到货的最早时间。资料齐全后先算周度缺口，再判断对产出、交付和收入确认的影响。这样，投入产出结构负责发现关系，具体业务资料负责判断这条边在研究期限内是否真正限制交付。\n\n回到整张图，我们已经走完“交易记录—直接系数—多轮需要—现实供给条件”。下一步把节点加上国家与所有权属性，就可以进一步讨论[全球生产网络与贸易布局](https://ou-liu-red-sugar.github.io/zh/notebook/global-production-networks-and-trade/)。\n\n[^bea]: EIC-S01。Horowitz、Planting，*Concepts and Methods of the U.S. Input-Output Accounts*，September 2006，updated April 2009。Chapter 1 的定义与比例假设；Chapter 12 Tables 12.5–12.15，印刷 pp.12–10 至12–14（PDF物理页212–216），后续用途解释 p.12–15。本文对已展示系数的计算为本站重建。原文：https://www.bea.gov/sites/default/files/methodologies/IOmanual_092906.pdf\n[^battery]: EIC-S02。BEA，*Looking for Supply Chain Intel? Explore BEA’s Supply and Use Tables*，2026-05-04，全篇短文。引用对象是文章所述2017年详细表的历史例子。https://www.bea.gov/news/blog/2026-05-04/looking-supply-chain-intel-explore-beas-supply-and-use-tables\n",
+  "prompt": "你负责教授 EI-05《产业链、投入产出与上下游联系》，版本2026-09-21-eic-review-v2。先确认 selected_branch，再实际读取 required_readings 的完整指定单元；核作者、版本、页/表和单位。把阅读位置与支持的推导写入运行日志，导出日志初始为空。仅见标题、摘要、搜索节选或下载成功，不算正文已读。失效时寻找同作者同版本的正式可读入口；仍缺必要单元时具体报告缺项，不凭印象补成来源事实。\n先用一项完整诊断：给 A_甲乙=.290，让读者解释方向并列出 A²_甲乙 的三条路径。沿原使用表走到 B、W、本站 A≡BW，再重建 x=Ax+y 与非负级数。读者已掌握基础线性代数时直接用列和范数完成收敛，不逐次考问四则运算。对角有identity1、非对角为0；逐轮使用展示A，极限329.605853/399.672461/269.810131，与发表R及原总量各自分开。\n根据选择，应用分支补2017电池来源及周度采购缺口，研究分支补FEDS2023国内/国外生产者的容量、替代、定价条件。让读者先重建需求+10的向量，再迁移到包装断供。反馈必须指出他混淆的对象、假设或时间，不只说对错。不得把级数层数当周数、把总产出当GDP、把需要量当保证交付量。最终要求读者列出验证现实瓶颈最先需要的三项资料。\n本包所选分支：application。",
+  "agent_markdown": "### 本篇实验静态等价与边界\n\ny=(40,130,20)，Ay=(53.16,38.87,55.94)，累计第2层=(137.9264,212.24553,109.88558)，极限=(329.605853,399.672461,269.810131)。发表R*y=(330.04,400.02,270)，原例=(330,400,270)。格甲乙的第二层三路径=.048140+.031610+.152586=.232336，identity格为0。乙最终需求+10时新增需要=(14.980276,22.986523,13.214191)。\n\n**边界：**输入必须是有限数；y三个分量各0..200，整数层数0..80；矩阵固定且非负、列和最大.858<1。；零最终需求给零需要，不强迫追平原表。；原gross outputs固定不随滑块更新；偏离原例时显示非当前情景。；供给容量不在此模型内：不按容量逐项截断需要向量。；路径层数不解释为交货时长；发表R不是逐轮算法的终点。\n",
+  "experiments": [
+    {
+      "id": "exp-ei05-io",
+      "title": "一项最终需求引出多少生产",
+      "anchor": "ei05-precision",
+      "description": "对固定展示A计算各轮产品需要，独立比较发表R与原表总量，并展开指定矩阵格的中间路径。",
+      "inputs": {
+        "source": "https://ou-liu-red-sugar.github.io/notebook/labs/ei-c/inputs.json#io",
+        "y": {
+          "unit": "original example common monetary units (no million/billion multiplier supplied)",
+          "default": [
+            40,
+            130,
+            20
+          ],
+          "range": [
+            0,
+            200
+          ]
+        },
+        "rounds": {
+          "default": 2,
+          "integer_range": [
+            0,
+            80
+          ],
+          "meaning": "网络层数，不是时间"
+        },
+        "cell": {
+          "supplier": 0,
+          "user": 1,
+          "index_range": [
+            0,
+            2
+          ]
+        }
+      },
+      "algorithm": [
+        "Gaussian partial-pivot solve for each column of I-A; no inverse computed from rounded R_pub",
+        "term_0=y; cumulative_0=y; term_k=A*term_(k-1); cumulative_k=cumulative_(k-1)+term_k",
+        "limit=solve(I-A,y); published=R_pub*y; snapshot remains [330,400,270] for original y only",
+        "cell paths=A[i,k]*A[k,j]; identity=(i==j?1:0)"
+      ],
+      "outputs": {
+        "uri": "https://ou-liu-red-sugar.github.io/notebook/labs/ei-c/default-results.json",
+        "scope": "io"
+      },
+      "boundaries": [
+        "输入必须是有限数；y三个分量各0..200，整数层数0..80；矩阵固定且非负、列和最大.858<1。",
+        "零最终需求给零需要，不强迫追平原表。",
+        "原gross outputs固定不随滑块更新；偏离原例时显示非当前情景。",
+        "供给容量不在此模型内：不按容量逐项截断需要向量。",
+        "路径层数不解释为交货时长；发表R不是逐轮算法的终点。"
+      ],
+      "static_equivalent": {
+        "location": "Additional teaching material; 同一所选分支静态附录"
+      },
+      "accessibility": "控制器有文本label，曲线有产品标签与不同线型，数值表提供完整等价；print使用正文静态表。",
+      "local_url": "/notebook/labs/ei-c/interactions.html?experiment=exp-ei05-io#exp-ei05-io",
+      "implementation_files": [
+        "/notebook/labs/ei-c/interactions.html",
+        "/notebook/labs/ei-c/engine.js",
+        "/notebook/labs/ei-c/inputs.json",
+        "/notebook/labs/ei-c/inputs.js",
+        "/notebook/labs/ei-c/ui.js",
+        "/notebook/labs/ei-c/lab-adapter.js"
+      ],
+      "state": "staging_only_awaiting_Lead_UI"
+    }
+  ],
+  "relations": [
+    {
+      "from": "EI-05",
+      "relation": "part_of",
+      "to": "industry-dynamics",
+      "reason": "产业联系及其结构变化"
+    },
+    {
+      "from": "EI-05#ei05-map",
+      "relation": "requires",
+      "to": "EI-01",
+      "reason": "使用表所需的产出/中间使用/增加值概念",
+      "required_competence": "区分总产出、中间使用、最终需求与增加值；正文提供就地回顾",
+      "at_section": "ei05-map"
+    },
+    {
+      "from": "EI-05#ei05-precision",
+      "relation": "uses_method",
+      "to": "EI-02",
+      "reason": "金额、单位、版本与展示精度",
+      "at_section": "ei05-precision"
+    },
+    {
+      "from": "EI-05#ei05-branches",
+      "relation": "compares_with",
+      "to": "EI-04",
+      "reason": "需要量与可用供给分开",
+      "at_section": "ei05-branches"
+    },
+    {
+      "from": "EI-05#ei05-branches",
+      "relation": "informs",
+      "to": "EI-14",
+      "reason": "直接/间接联系用于跨境分层",
+      "at_section": "ei05-branches"
+    },
+    {
+      "from": "EI-05#ei05-inverse",
+      "relation": "supported_by",
+      "to": "EIC-S01",
+      "reason": "官方方法例的使用表、产品/行业转换、BW直接需要及完全需要表。本站重记A≡BW；展示A求逆与发表圆整R分开。示例不是当前产业系数。",
+      "locator": "Chapter1定义/比例假设；Chapter12 printed pp.12–9..12–15, Tables12.5–12.15",
+      "scope": "使用表、生产表、B/D/W/BW定义、完全需要推导及原例上下文，含Table12.11与12.14",
+      "at_section": "ei05-inverse"
+    },
+    {
+      "from": "EI-05#ei05-battery",
+      "relation": "supported_by",
+      "to": "EIC-S02",
+      "reason": "官方文章以2017详细表介绍蓄电池投入与来源构成，报告约53%国内/47%进口。只采文章历史摘例；没有逐格读取Excel或独立重建分母。",
+      "locator": "2026-05-04完整短文，2017 detailed SUT battery example",
+      "scope": "阅读全文及其2017年、use column EK、supply row144、53/47口径",
+      "at_section": "ei05-battery"
+    },
+    {
+      "from": "EI-05#ei05-inverse",
+      "relation": "illustrated_by",
+      "to": "MODEL-EI05-BEA-CH12-DISPLAY-A",
+      "reason": "官方方法例的本站重建",
+      "at_section": "ei05-inverse"
+    },
+    {
+      "from": "EI-05#ei05-battery",
+      "relation": "illustrated_by",
+      "to": "CASE-EI05-BATTERY-SUT-2017-ARTICLE",
+      "reason": "2017电池历史文章摘例",
+      "at_section": "ei05-battery"
+    },
+    {
+      "from": "EI-05#ei05-precision",
+      "relation": "illustrated_by",
+      "to": "exp-ei05-io",
+      "at_section": "ei05-precision",
+      "reason": "对固定展示A计算各轮产品需要，独立比较发表R与原表总量，并展开指定矩阵格的中间路径。"
+    }
+  ]
+}

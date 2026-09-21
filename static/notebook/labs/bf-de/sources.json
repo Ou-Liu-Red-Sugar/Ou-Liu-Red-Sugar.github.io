@@ -1,0 +1,193 @@
+[
+  {
+    "id": "BF-S-COST-FY2025-PDF",
+    "title": "Costco Wholesale Corporation — FY2025 Annual Report",
+    "authors": [
+      "Costco Wholesale Corporation"
+    ],
+    "version": "FY ended 2025-08-31; comparative 2024-09-01; 52 weeks each",
+    "url": "https://s201.q4cdn.com/287523651/files/doc_financials/2025/ar/COST-Annual-Report-2025.pdf",
+    "access_kind": "pdf_full_text",
+    "alternate_url": "https://www.sec.gov/Archives/edgar/data/909832/000090983225000101/cost-20250831.htm",
+    "body": "完整PP&E结构、租赁五视图与经营周转部件。PP&E现金/存量和租赁费用/特定现金的边界保留，混合应收不作为客户DSO。",
+    "locators": [
+      "IR PDF printed pp35,37,39 / physical pp41,43,45; SEC pp37,39,41",
+      "IR Note1 Receivables pp41–42, PPE pp42–43, leases p43, costs/vendor p46; SEC corresponding +2 printed pages",
+      "IR Note5 pp50–51 / physical pp56–57; SEC Note5 pp52–53"
+    ],
+    "read_scope": "同会话已读指定FS/政策/Note5；本次再次核原页：IR PDF physical48–49及56–57，保留两期金额、年限、负号、可变成本、未开始租赁及转租脚注。非整份年报通读。",
+    "retrieved_at": "2026-09-21",
+    "author_source_id": "BFDE-COST"
+  },
+  {
+    "id": "BBC-C01",
+    "title": "Salesforce, Inc. — FY2026 Form 10-K",
+    "authors": [
+      "Salesforce, Inc."
+    ],
+    "version": "FY ended 2026-01-31; comparison 2025-01-31; filed 2026-03-02",
+    "url": "https://www.sec.gov/Archives/edgar/data/1108524/000110852426000060/crm-20260131.htm",
+    "access_kind": "html_full_text",
+    "body": "研发含SBC、初步Informatica PPA、无形资产与商誉、租赁、单经营分部、具名服务收入与开票收款季节性。1,569累计摊销净变化与1,687费用分别列示。",
+    "locators": [
+      "MD&A Seasonal Nature pp39–40; Research and Development / Sales and Marketing",
+      "Statements p57–58 and notes1–2",
+      "Note1 consolidation/Segments p63; PPE/Leases/intangibles/business combinations pp67–68",
+      "Note2 p70 subscription and support revenue by service offering (incl. footnotes); p71 Unearned Revenue and footnotes",
+      "Note5 p75; Note6 pp75–77",
+      "Note7 pp77–80 (main Informatica pp77–79)",
+      "Note8 pp80–81"
+    ],
+    "read_scope": "同会话逐单元取得上述原表、政策、租赁、PPA、无形资产/商誉滚动及分部和季节性；review-v3另实际重读Note2 p70具名service-offering收入表/脚注及Note6 p77租赁范围说明。采用范围不扩为整份10-K。",
+    "retrieved_at": "2026-09-21",
+    "author_source_id": "BFDE-CRM"
+  },
+  {
+    "id": "BBC-C04",
+    "title": "Caterpillar Inc. — FY2025 Form 10-K",
+    "authors": [
+      "Caterpillar Inc."
+    ],
+    "version": "FY ended 2025-12-31; comparatives recast in this filing after July 1, 2025 organization changes",
+    "url": "https://www.sec.gov/Archives/edgar/data/18230/000001823026000008/cat-20251231.htm",
+    "access_kind": "html_full_text",
+    "body": "制造与出租资产用途、公司历史驱动定义、报告分部到收入/税前利润的完整桥。不得把volume包含的组合效果当结构性贡献率。",
+    "locators": [
+      "Note1D pp64–65; Note9 p89",
+      "MD&A pp31–35; Definitions pp36–38",
+      "Note23 A/B/C pp115–118; profit p120; pretax reconciliation p121"
+    ],
+    "read_scope": "同会话实际读取命名缓存原文单元：Note1D、Note9、Definitions、Note23包括全部采用脚注及两期比较。此次网页直接打开HTML失败；未用失败响应冒充新全文读取，复用同会话已经取得的固定原文。",
+    "retrieved_at": "2026-09-21",
+    "author_source_id": "BFDE-CAT"
+  },
+  {
+    "id": "BFDE-CAT-CHART",
+    "title": "Caterpillar FY2025 Consolidated Operating Profit Comparison",
+    "authors": [
+      "Caterpillar Inc."
+    ],
+    "version": "Full Year 2025 vs Full Year 2024; same FY2025 10-K p33",
+    "url": "https://www.sec.gov/Archives/edgar/data/18230/000001823026000008/cat-20251231_g4.jpg",
+    "access_kind": "image",
+    "body": "期初13,072、八项归因及期末11,151；这是公司历史解释，不是独立因果估计。",
+    "locators": [
+      "MD&A p33 original chart"
+    ],
+    "read_scope": "本次实际打开完整原图，视觉核验八项因素、两端及百万美元单位。",
+    "retrieved_at": "2026-09-21",
+    "author_source_id": "BFDE-CAT-CHART"
+  },
+  {
+    "id": "BFDE-MIT",
+    "title": "MIT OCW 15.515 Session 7 — Accounting for Long-lived Assets",
+    "authors": [
+      "MIT OpenCourseWare"
+    ],
+    "version": "Fall 2003, 14 slides",
+    "url": "https://ocw.mit.edu/courses/15-515-financial-accounting-fall-2003/c14a0767af3d7544d85e4b20eb6be1bb_lec7.pdf",
+    "access_kind": "pdf_full_text",
+    "body": "成本、资源用途、残值、寿命和分摊。采用制造折旧可能先入库存的路径，不采用旧时代普遍性陈述或租赁政策。",
+    "locators": [
+      "Slides2–8,11; matching diagram slide2"
+    ],
+    "read_scope": "同会话讲义读取；本次取得14页解析文本并查看slide2和11原页。",
+    "retrieved_at": "2026-09-21",
+    "author_source_id": "BFDE-MIT"
+  },
+  {
+    "id": "BFDE-FASB",
+    "title": "FASB ASU 2016-02 — Leases (Topic 842), Section A",
+    "authors": [
+      "Financial Accounting Standards Board"
+    ],
+    "version": "February 2016, amendment communication",
+    "url": "https://storage.fasb.org/ASU%202016-02_Section%20A.pdf",
+    "access_kind": "pdf_full_text",
+    "body": "承租人ROU和负债确认的制度理由；两类费用/现金、短期政策选择及可变付款/租期；定义要求控制已识别资产的使用。修订说明非全部现行Codification。",
+    "locators": [
+      "Summary printed pp1–5 / PDF physical pp7–11"
+    ],
+    "read_scope": "同会话Summary pp1–4；本次重新取得pp1–5相关完整说明，新增核租赁定义与nonlease component段。",
+    "retrieved_at": "2026-09-21",
+    "author_source_id": "BFDE-FASB"
+  },
+  {
+    "id": "BFDE-JEP",
+    "title": "The Economics of Intangible Capital",
+    "authors": [
+      "Nicolas Crouzet",
+      "Janice C. Eberly",
+      "Andrea L. Eisfeldt",
+      "Dimitris Papanikolaou"
+    ],
+    "version": "JEP 36(3), Summer2022, pp29–52; DOI10.1257/jep.36.3.29",
+    "url": "https://www.kellogg.northwestern.edu/faculty/crouzet/html/papers/EconIntan_published.pdf",
+    "access_kind": "pdf_full_text",
+    "body": "无形资源的承载、非竞争性使用、有限排他性与过时；本篇未复现后续模型或把Figure1研究量当公司数据。",
+    "locators": [
+      "Introduction and Characteristics of Intangibles as Assets, printed pp29–34, PDF pp1–6"
+    ],
+    "read_scope": "同会话按缓存原文完整读至下一节标题；本次重开同一已发表版。只采用这一特征单元，不扩研究结论。",
+    "retrieved_at": "2026-09-21",
+    "author_source_id": "BFDE-JEP"
+  },
+  {
+    "id": "BFDE-EPW",
+    "title": "Measuring Intangible Capital with Market Prices",
+    "authors": [
+      "Michael Ewens",
+      "Ryan H. Peters",
+      "Sean Wang"
+    ],
+    "version": "Management Science, Articles in Advance, April5 2024, pp1–21; DOI10.1287/mnsc.2021.02058",
+    "url": "https://profsean.wang/papers/ewens-peters-wang-2025-ms.pdf",
+    "access_kind": "pdf_full_text",
+    "body": "退出价格连接历史研发/SG&A与资本存量；资本化比例与折损识别限制、选择/协同/溢付及价格约束。只用设置与局限，不采用摘要效果量或公司参数。",
+    "locators": [
+      "Introduction; §§2,3,3.1,4.1,4.2, printed pp1–7"
+    ],
+    "read_scope": "同会话完整取得所列设置单元至§4.3标题；本次重开版本，文件名2025不改变页眉2024。未读/复算在线附录及§5–8估计验证。",
+    "retrieved_at": "2026-09-21",
+    "author_source_id": "BFDE-EPW"
+  },
+  {
+    "id": "BFDE-FINANCE",
+    "title": "Principles of Finance §19.1 — What Is Working Capital?",
+    "authors": [
+      "Julie Dahlquist",
+      "Rainford Knight",
+      "OpenStax"
+    ],
+    "version": "2022, first-edition URL",
+    "url": "https://openstax.org/books/principles-finance/pages/19-1-what-is-working-capital",
+    "access_kind": "html_full_text",
+    "body": "平均余额、相配流量、现金周期与行业差异。Costco使用364天且DPO为成本代理，不导入教材历史Walmart数据。",
+    "locators": [
+      "§19.1 full section; The Cash Cycle; Working Capital Needs by Industry"
+    ],
+    "read_scope": "同会话全节阅读；本次重开并核平均余额/DSO信用销售/成本代理及行业段。",
+    "retrieved_at": "2026-09-21",
+    "author_source_id": "BFDE-FINANCE"
+  },
+  {
+    "id": "BFDE-CVP",
+    "title": "Principles of Accounting Vol2 §3.5 — Margin of Safety and Operating Leverage",
+    "authors": [
+      "Mitchell Franklin",
+      "Patty Graybeal",
+      "Dixon Cooper",
+      "OpenStax"
+    ],
+    "version": "2019",
+    "url": "https://openstax.org/books/principles-managerial-accounting/pages/3-5-calculate-and-interpret-a-companys-margin-of-safety-and-operating-leverage",
+    "access_kind": "html_full_text",
+    "body": "Company A/B虚构输入与经营杠杆；按原始表复算，不采用网页不一致的1.71、31.9%/46.9%。有限变化精确式由本篇条件推导。",
+    "locators": [
+      "§3.5 full section; Operating Leverage; Company A/B tables and relevant-range discussion"
+    ],
+    "read_scope": "同会话全节阅读；本次核Operating Leverage正文及图的数值描述，确认原始Company A/B与下降情景，网页错误另记采用日志。",
+    "retrieved_at": "2026-09-21",
+    "author_source_id": "BFDE-CVP"
+  }
+]

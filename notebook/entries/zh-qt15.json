@@ -1,0 +1,454 @@
+{
+  "id": "zh-qt15",
+  "node_id": "QT15",
+  "lang": "zh",
+  "slug": "qt-brownian-variation",
+  "title": "Brownian 运动与二次变差",
+  "summary": "证明确定性网格 QV 的 L2 收敛和 dyadic 几乎处处收敛，再排除有限总变差。",
+  "subject": "quant",
+  "topic": "quant-processes",
+  "kind": "concept",
+  "template": "T7",
+  "role": "核心",
+  "study_time": "15–20 分钟",
+  "revised": "2026-09-21",
+  "content_version": "QT-GHI-review-v3",
+  "body_markdown": "<a id=\"qt15-object\"></a>\n## 从增量尺度开始，而不是从一条锯齿线开始\n\n看一条模拟曲线，最多能提出猜想；要知道链式法则为什么多出一项，必须计算小增量的平方总和。本篇会完整证明确定性分割上的 $L^2$ 二次变差收敛，再得到 dyadic 分割上的几乎必然收敛，并反证 Brownian 路径具有有限总变差。先修是高斯分布的矩、方差、概率收敛和基本测度语言。\n\n令 $(\\Omega,\\mathcal F,(\\mathcal F_t),P)$ 为过滤概率空间。相对于此过滤的标准 Brownian 运动 $W$ 满足：$W_0=0$，过程适应且有连续路径，并且对 $s<t$，$W_t-W_s$ 独立于 $\\mathcal F_s$，服从 $N(0,t-s)$。我们采用连续版本。存在性是另一个定理，本篇不以有限网格模拟代替它。[^bm]\n\n“相对于过滤”不能省略。如果把未来的 $W_T$ 塞进 $\\mathcal F_0$，路径和无条件分布都可以不变，但未来增量不再独立于当前信息。后面使用的条件零均值会失效。\n\n<a id=\"qt15-moments\"></a>\n## 平方为什么留下一个非零总量\n\n设 $Z\\sim N(0,1)$，密度为 $\\varphi$，有 $\\varphi'(z)=-z\\varphi(z)$。分部积分的边界项由高斯尾部消失，得到\n\n$$\n\\begin{gathered}\nE[Z^2]=-\\int z\\varphi'(z)\\,dz=1,\\\\\nE[Z^4]=-\\int z^3\\varphi'(z)\\,dz=3.\n\\end{gathered}\n$$\n\n所以若 $\\Delta W\\sim N(0,\\Delta t)$，\n\n$$\nE[(\\Delta W)^2]=\\Delta t,\n\\qquad\n\\operatorname{Var}((\\Delta W)^2)=2(\\Delta t)^2.\n$$\n\n现在固定 $T>0$ 和一个确定性分割 $\\pi:0=t_0<\\cdots<t_n=T$，记\n\n$$\nQ_\\pi=\\sum_{j=0}^{n-1}(W_{t_{j+1}}-W_{t_j})^2,\n\\qquad |\\pi|=\\max_j(t_{j+1}-t_j).\n$$\n\n不交区间增量独立，所以平方也独立，故\n\n$$\nE[Q_\\pi]=T,\n\\qquad\nE[(Q_\\pi-T)^2]\n=2\\sum_j(\\Delta t_j)^2\n\\le2T|\\pi|.\n$$\n\n因此，对任意网格宽度趋于零的确定性分割序列，$Q_\\pi\\to T$ 于 $L^2$，从而也依概率收敛。这是一个完整的误差界，不需要把不同层网格的增量误认成相互独立。[^ito-qv]\n\n<a id=\"qt15-as\"></a>\n## 从均方收敛走到路径结论\n\n若采用 dyadic 网格，$\\Delta t=T/2^m$，则对任意 $\\varepsilon>0$，Chebyshev 给\n\n$$\nP(|Q_m-T|>\\varepsilon)\n\\le\\frac{2T^2}{\\varepsilon^2 2^m}.\n$$\n\n右边对 $m$ 可求和。因此 Borel–Cantelli 的第一部分说明：固定 $\\varepsilon$ 的坏事件只发生有限次。再取可数个 $\\varepsilon=1,1/2,1/3,\\ldots$ 的共同满测度集合，得到 $Q_m\\to T$ 几乎必然。这里只用可求和，不要求不同 $m$ 的误差独立。\n\n注意量词：我们固定了一组 dyadic 分割。没有证明“对所有随机、甚至依赖整条路径的分割，同时几乎必然收敛”。把确定性分割的 $L^2$ 结论与某个固定细化序列的路径结论分开，后面才不会滥用二次变差。\n\n<a id=\"qt15-variation\"></a>\n## 连续但没有有限总变差\n\n对连续函数 $w$，总变差是\n\n$$\n\\operatorname{TV}_{[0,T]}(w)\n=\\sup_\\pi\\sum_j|w(t_{j+1})-w(t_j)|.\n$$\n\n若它有限，则每个分割都有\n\n$$\n\\sum_j(\\Delta w_j)^2\n\\le\\max_j|\\Delta w_j|\\,\n\\operatorname{TV}_{[0,T]}(w).\n$$\n\n连续函数在紧区间上一致连续，故网格趋细时右边趋于零。然而 Brownian 路径在刚才的共同满测度集合上，dyadic 平方和趋于 $T>0$，矛盾。因此在任意预先固定的非退化区间上，Brownian 路径几乎必然不是有限总变差路径。\n\n这说明不能直接把它当作普通有限变差积分的积分器。它不等于“任何形式的路径积分都不可能”，也没有顺便证明处处不可导。我们只使用刚刚建立的结论，为下一篇的均方积分构造留下明确动机。\n\n<a id=\"qt15-experiment\"></a>\n## 同一路径、四层网格\n\n实验固定 PCG64(15161724)，一次生成 $8192\\times256$ 个标准正态数。最细增量为 $Z_j/\\sqrt{256}$，较粗的 4、16、64 步由连续最细增量相加；不是每次切换都另抽一条路径。模型时钟为一年，Brownian 的平方量纲对应时间。\n\n| 网格区间数 | 同一首路径 QV | 8,192 条路径 QV 均值 | 理论方差 $2/n$ |\n| --- | --- | --- | --- |\n| 4 | 0.794459415 | 0.990629233 | 0.500000000 |\n| 16 | 1.079215130 | 0.997213464 | 0.125000000 |\n| 64 | 1.020574831 | 0.997978483 | 0.031250000 |\n| 256 | 0.965815977 | 1.000715434 | 0.007812500 |\n\n<div data-experiment-slot=\"EXP-QT15-17-DIFFUSION-01\"></div>\n\n单条示例路径的平方和不是单调靠近 1：16 步时在 1 上方，256 步时又在下方。收敛不要求每一次细化都改善误差。样本均值更接近 1，也不意味着我们已经从有限数据证明了路径定理；定理来自高斯矩和上面的概率论论证。\n\n在真实日线资料中可以计算 $\\sum(\\Delta\\log P)^2$，但它带着具体日频、复权和缺失处理。它不是获得了价格的全部连续路径，也不能只凭数值相近就断言价格服从 GBM。这里的主实验不把事后调整价当作历史成交价。\n\n<a id=\"qt15-exercise\"></a>\n## 迁移：加入漂移以后平方和怎样变化？\n\n**题目。** 对常数 $a,b$，令 $X_t=at+bW_t$。沿同一组 dyadic 分割，证明平方增量和趋于 $b^2T$，并指出为什么只观察平方和不能恢复漂移 $a$。再解释：改看 $W_{2t}$，其 $[0,1]$ 平方和目标为什么不是 1。\n\n**解析。** 展开平方：\n\n$$\n\\sum(\\Delta X)^2\n=a^2\\sum(\\Delta t)^2\n+2ab\\sum\\Delta t\\,\\Delta W\n+b^2Q_\\pi.\n$$\n\n第一项不超过 $a^2T|\\pi|$。混合项的绝对值不超过\n\n$$\n2|ab|\\left(\\sum(\\Delta t)^2\\right)^{1/2}\nQ_\\pi^{1/2},\n$$\n\n在 dyadic 的满测度收敛集合上趋于零，第三项趋于 $b^2T$。故漂移不进入该极限，并不能由这个量识别 $a$。对 $W_{2t}$，每个时长 $\\Delta t$ 的增量方差为 $2\\Delta t$，相当于系数 $b=\\sqrt2$ 的 Brownian 运动，因此目标为 2。时间尺度也是模型的一部分。\n\n[^bm]: Steven P. Lalley，[Brownian Motion](https://galton.uchicago.edu/~lalley/Courses/385/BrownianMotion.pdf)，未标修订日期，§1.1，物理 pp.1–3 的定义与存在性陈述。\n[^ito-qv]: Steven P. Lalley，[Notes on the Itô Calculus](https://www.stat.uchicago.edu/~lalley/Courses/385/Old/ItoIntegral-2012.pdf)，2012-05-15，§3.3，pp.10–12。本文把高斯矩、$L^2$ 误差界及 dyadic 的 Borel–Cantelli 步骤完整展开。\n",
+  "prompt": "你是这篇中文学习单元的教学 Agent。读者具备本包列出的先修：正态矩、L2/概率收敛、Chebyshev 与 Borel–Cantelli。\n先实际取得 required_readings 中本次所选单元并读完，核对版本、页码与公式；已有同会话同版完整读取可以复用。只取得摘要或目录不得声称完成。指定原件若无法取得，先说明具体缺口；只有本包中已经具名核过等价范围的完整数学证明，才可在对应数学步骤内作为替代，并须实际读完且记录替代正文、版本与支持步骤。若本次必读仍有缺失，就停止依赖该内容的实质讲解；研究样本、训练安排、图表结果与作者主张不得以本站概述替代，也不得声称原件已经读过。runtime_reading_log 是你的实际运行记录，交付的空数组不是已读。\n本篇任务：先问 n=64 到256时，首路径相对二次变差极限 1 的绝对误差从 0.020574830905 增至 0.034184022561，是否反驳收敛。让读者独立写 Gaussian 四阶矩、方差界、dyadic 求和和有限总变差反证。\n先让读者尝试，再按所缺的一步解释，不将全部课文一次复述。完整证明需要标明每项条件在哪一步用到，练习给出完整解析。只采用 supplied_inputs 的本篇切片和已链接全量数据，区分教学模型、真实记录、作者论文结果。图不是证明，模拟不是现实规律；不以预测概率替换定价测度。禁止从分位数拟造分布或另抽浏览器随机数冒充冻结路径。最后问：读者只读完这个词条，真的能学明白吗？用迁移题实际判断，明确剩余能力缺口。",
+  "sources": [
+    "QGHI-LALLEY-BM",
+    "QGHI-LALLEY-ITO12"
+  ],
+  "anchors": [
+    {
+      "id": "qt15-object",
+      "title": "从增量尺度开始，而不是从一条锯齿线开始",
+      "kind": "section",
+      "preview": "看一条模拟曲线，最多能提出猜想；要知道链式法则为什么多出一项，必须计算小增量的平方总和。本篇会完整证明确定性分割上的 $L^2$ 二次变差收敛，再得到 dyadic 分割上的几乎必然收敛，并反证 Brownian 路径具有有限总变差。先修是高斯分布的矩、方差、概率收敛和基本测"
+    },
+    {
+      "id": "qt15-moments",
+      "title": "平方为什么留下一个非零总量",
+      "kind": "section",
+      "preview": "设 $Z\\sim N(0,1)$，密度为 $\\varphi$，有 $\\varphi'(z)=-z\\varphi(z)$。分部积分的边界项由高斯尾部消失，得到 $$ \\begin{gathered} E[Z^2]=-\\int z\\varphi'(z)\\,dz=1,\\\\ E[Z"
+    },
+    {
+      "id": "qt15-as",
+      "title": "从均方收敛走到路径结论",
+      "kind": "section",
+      "preview": "若采用 dyadic 网格，$\\Delta t=T/2^m$，则对任意 $\\varepsilon>0$，Chebyshev 给 $$ P(|Q_m-T|>\\varepsilon) \\le\\frac{2T^2}{\\varepsilon^2 2^m}. $$ 右边对 $m$"
+    },
+    {
+      "id": "qt15-variation",
+      "title": "连续但没有有限总变差",
+      "kind": "section",
+      "preview": "对连续函数 $w$，总变差是 $$ \\operatorname{TV}_{[0,T]}(w) =\\sup_\\pi\\sum_j|w(t_{j+1})-w(t_j)|. $$ 若它有限，则每个分割都有 $$ \\sum_j(\\Delta w_j)^2 \\le\\max_j|\\D"
+    },
+    {
+      "id": "qt15-experiment",
+      "title": "同一路径、四层网格",
+      "kind": "section",
+      "preview": "实验固定 PCG64(15161724)，一次生成 $8192\\times256$ 个标准正态数。最细增量为 $Z_j/\\sqrt{256}$，较粗的 4、16、64 步由连续最细增量相加；不是每次切换都另抽一条路径。模型时钟为一年，Brownian 的平方量纲对应时间。"
+    },
+    {
+      "id": "qt15-exercise",
+      "title": "迁移：加入漂移以后平方和怎样变化？",
+      "kind": "section",
+      "preview": "**题目。** 对常数 $a,b$，令 $X_t=at+bW_t$。沿同一组 dyadic 分割，证明平方增量和趋于 $b^2T$，并指出为什么只观察平方和不能恢复漂移 $a$。再解释：改看 $W_{2t}$，其 $[0,1]$ 平方和目标为什么不是 1。 **解析。**"
+    }
+  ],
+  "relations": [
+    {
+      "from": "QT15",
+      "relation": "part_of",
+      "to": "quant-processes",
+      "reason": "按现行大纲归入严谨过程与金融专题；批次和个别文章标题不是新 topic。"
+    },
+    {
+      "from": "QT15#qt15-moments",
+      "relation": "requires",
+      "to": "QT12",
+      "reason": "该段实际使用所列局部能力。",
+      "required_competence": "L2/概率收敛与 Chebyshev"
+    },
+    {
+      "from": "QT15",
+      "relation": "supported_by",
+      "to": "QGHI-LALLEY-BM",
+      "reason": "标准 Wiener 过程定义及存在性陈述；本稿不重证存在性。",
+      "locator": "§1.1 pp.1–3",
+      "scope": "Wiener 定义与存在性陈述"
+    },
+    {
+      "from": "QT15",
+      "relation": "supported_by",
+      "to": "QGHI-LALLEY-ITO12",
+      "reason": "渐进可测密度、简单积分等距、延拓、停止、局部化与一维 Itô 公式。p.8 下标和 p.19 漂移步长按正确推导采用；Doob 强 L2 估计及一般系数传递在本站完整展开。",
+      "locator": "§3.3 pp.10–12",
+      "scope": "QV 与积分 WdW 完整单元"
+    },
+    {
+      "from": "QT15#qt15-experiment",
+      "relation": "illustrated_by",
+      "to": "EXP-QT15-17-DIFFUSION-01",
+      "reason": "唯一冻结输入在本篇的对应视图。"
+    },
+    {
+      "from": "QT15#qt15-object",
+      "relation": "supported_by",
+      "to": "QGHI-LALLEY-BM",
+      "reason": "对应本段作者已著明脚注；教学模型及本站补全证明的身份沿原脚注保留。",
+      "locator": "Steven P. Lalley，[Brownian Motion](https://galton.uchicago.edu/~lalley/Courses/385/BrownianMotion.pdf)，未标修订日期，§1.1，物理 pp.1–3 的定义与存在性陈述。",
+      "scope": "只支持此处脚注具名的定义、条件、证明或原表单元。",
+      "citation_labels": [
+        "bm"
+      ]
+    },
+    {
+      "from": "QT15#qt15-moments",
+      "relation": "supported_by",
+      "to": "QGHI-LALLEY-ITO12",
+      "reason": "对应本段作者已著明脚注；教学模型及本站补全证明的身份沿原脚注保留。",
+      "locator": "Steven P. Lalley，[Notes on the Itô Calculus](https://www.stat.uchicago.edu/~lalley/Courses/385/Old/ItoIntegral-2012.pdf)，2012-05-15，§3.3，pp.10–12。本文把高斯矩、$L^2$ 误差界及 dyadic 的 Borel–Cantelli 步骤完整展开。",
+      "scope": "只支持此处脚注具名的定义、条件、证明或原表单元。",
+      "citation_labels": [
+        "ito-qv"
+      ]
+    }
+  ],
+  "agent_packet": {
+    "export_mode": "public",
+    "required_readings": [
+      {
+        "source_id": "QGHI-LALLEY-BM",
+        "access": {
+          "kind": "pdf_full_text",
+          "uri": "https://galton.uchicago.edu/~lalley/Courses/385/BrownianMotion.pdf"
+        },
+        "required_unit": {
+          "locator": "§1.1 pp.1–3",
+          "scope": "Wiener 定义与存在性陈述",
+          "purpose": "仅采用定义"
+        },
+        "supports": "标准 Wiener 过程定义及存在性陈述；本稿不重证存在性。",
+        "title": "Brownian Motion",
+        "authors": [
+          "Steven P. Lalley"
+        ],
+        "version": "Undated chapter PDF; no inferred revision year",
+        "fallback_source_ids": []
+      },
+      {
+        "source_id": "QGHI-LALLEY-ITO12",
+        "access": {
+          "kind": "pdf_full_text",
+          "uri": "https://www.stat.uchicago.edu/~lalley/Courses/385/Old/ItoIntegral-2012.pdf"
+        },
+        "required_unit": {
+          "locator": "§3.3 pp.10–12",
+          "scope": "QV 与积分 WdW 完整单元",
+          "purpose": "结合本篇 Gaussian 矩与 dyadic BC 证明"
+        },
+        "supports": "渐进可测密度、简单积分等距、延拓、停止、局部化与一维 Itô 公式。p.8 下标和 p.19 漂移步长按正确推导采用；Doob 强 L2 估计及一般系数传递在本站完整展开。",
+        "title": "Notes on the Itô Calculus",
+        "authors": [
+          "Steven P. Lalley"
+        ],
+        "version": "2012-05-15",
+        "fallback_source_ids": []
+      }
+    ],
+    "optional_readings": [],
+    "runtime_reading_log": [],
+    "supplied_inputs": {
+      "competence": "正态矩、L2/概率收敛、Chebyshev 与 Borel–Cantelli。",
+      "static_equivalent": "本篇 reader 全部默认表、证明及题解；HTML 禁用脚本仍可读。",
+      "attachments": [
+        {
+          "title": "本篇完整静态阅读、全部题解与证明",
+          "uri": "https://ou-liu-red-sugar.github.io/notebook/labs/qt-ghi/static/QT15.html",
+          "kind": "html"
+        },
+        {
+          "title": "本篇同源 Markdown",
+          "uri": "https://ou-liu-red-sugar.github.io/notebook/labs/qt-ghi/static/QT15.md",
+          "kind": "markdown"
+        },
+        {
+          "title": "common-first-path.csv",
+          "uri": "https://ou-liu-red-sugar.github.io/notebook/labs/qt-ghi/data/common-first-path.csv",
+          "kind": "csv",
+          "bytes": 23281
+        },
+        {
+          "title": "reproduce.py",
+          "uri": "https://ou-liu-red-sugar.github.io/notebook/labs/qt-ghi/compute/reproduce.py",
+          "kind": "py",
+          "bytes": 10867
+        },
+        {
+          "title": "shared-normal-array.npz",
+          "uri": "https://ou-liu-red-sugar.github.io/notebook/labs/qt-ghi/data/shared-normal-array.npz",
+          "kind": "npz",
+          "bytes": 16118323
+        },
+        {
+          "title": "完整实际结果及指定单元",
+          "uri": "https://ou-liu-red-sugar.github.io/notebook/labs/qt-ghi/data/results.json",
+          "kind": "json",
+          "json_pointers": [
+            "/diffusion"
+          ]
+        },
+        {
+          "title": "四个实验的唯一冻结定义",
+          "uri": "https://ou-liu-red-sugar.github.io/notebook/labs/qt-ghi/data/qt-ghi-shared-experiments.json",
+          "kind": "json",
+          "json_pointer": "/experiments/2",
+          "experiment_id": "EXP-QT15-17-DIFFUSION-01"
+        }
+      ],
+      "frozen": {
+        "rng": {
+          "library": "NumPy 2.4.6",
+          "generator": "Generator(PCG64(15161724))",
+          "draw": "standard_normal((8192,256))",
+          "seed": 15161724,
+          "shape": [
+            8192,
+            256
+          ],
+          "draw_order": "Exactly as the existing source algorithm; no preceding draws."
+        },
+        "brownian_horizon": 1,
+        "finest_intervals": 256,
+        "nested_intervals": [
+          4,
+          16,
+          64,
+          256
+        ],
+        "gbm_P_illustration": {
+          "S0": 100,
+          "mu_P": 0.08,
+          "sigma": 0.2,
+          "T_years": 1,
+          "identity": "Teaching physical model; not fitted to observed returns."
+        }
+      },
+      "default_outputs": {
+        "grids": [
+          {
+            "steps": 4,
+            "first_qv": 0.7944594147350206,
+            "mean_qv": 0.9906292333607486,
+            "sample_variance": 0.506927228120233,
+            "theory_variance": 0.5,
+            "left": -0.19728199481057607,
+            "right": 0.5971774199244447,
+            "integral": -0.3000522874430651,
+            "integral_mse": 0.12673828965562223,
+            "theory_mse": 0.125,
+            "euler_rmse": 1.6218905290221228,
+            "euler_nonpositive": 0,
+            "telescoping_max_residual": 1.865174681370263e-14,
+            "right_left_max_residual": 4.440892098500626e-15
+          },
+          {
+            "steps": 16,
+            "first_qv": 1.0792151299895332,
+            "mean_qv": 0.9972134638881094,
+            "sample_variance": 0.12488983556326173,
+            "theory_variance": 0.125,
+            "left": -0.33965985243783225,
+            "right": 0.7395552775517009,
+            "integral": -0.3000522874430651,
+            "integral_mse": 0.031220588751377322,
+            "theory_mse": 0.03125,
+            "euler_rmse": 0.7879970305170926,
+            "euler_nonpositive": 0,
+            "telescoping_max_residual": 1.7763568394002505e-14,
+            "right_left_max_residual": 1.7763568394002505e-15
+          },
+          {
+            "steps": 64,
+            "first_qv": 1.0205748309050482,
+            "mean_qv": 0.9979784834959156,
+            "sample_variance": 0.031275134203983666,
+            "theory_variance": 0.03125,
+            "left": -0.31033970289559004,
+            "right": 0.7102351280094583,
+            "integral": -0.3000522874430651,
+            "integral_mse": 0.007818850741888548,
+            "theory_mse": 0.0078125,
+            "euler_rmse": 0.3906616566182395,
+            "euler_nonpositive": 0,
+            "telescoping_max_residual": 1.687538997430238e-14,
+            "right_left_max_residual": 1.9984014443252818e-15
+          },
+          {
+            "steps": 256,
+            "first_qv": 0.9658159774394378,
+            "mean_qv": 1.0007154342405915,
+            "sample_variance": 0.007928244277278857,
+            "theory_variance": 0.0078125,
+            "left": -0.2829602761627848,
+            "right": 0.6828557012766532,
+            "integral": -0.3000522874430651,
+            "integral_mse": 0.001981947080043741,
+            "theory_mse": 0.001953125,
+            "euler_rmse": 0.19619282035111724,
+            "euler_nonpositive": 0,
+            "telescoping_max_residual": 1.7763568394002505e-14,
+            "right_left_max_residual": 1.7763568394002505e-15
+          }
+        ],
+        "terminal": {
+          "n": 8192,
+          "mean": 108.19699073155812,
+          "sample_sd": 21.797741228015408,
+          "mean_mc_se": 0.24083329120123867,
+          "mse_to_zero": 12181.672325334242,
+          "mse_mc_se": 55.97140472475497,
+          "q05": 76.595919234743,
+          "q95": 147.22698979604334
+        },
+        "theory_mean": 108.32870676749586,
+        "log_drift": 0.06
+      }
+    }
+  },
+  "experiments": [
+    {
+      "id": "EXP-QT15-17-DIFFUSION-01",
+      "title": "同一路径的二次变差",
+      "anchor": "qt15-experiment",
+      "description": "共享输入的本篇视图；保持 EXP-QT15-17-DIFFUSION-01 唯一冻结身份。",
+      "inputs": {
+        "uri": "https://ou-liu-red-sugar.github.io/notebook/labs/qt-ghi/data/learning-inputs.json",
+        "json_pointer": "/QT15",
+        "scope": "本篇 supplied_inputs 的完整同源切片；冻结参数和全部结果附件在该切片内定位。"
+      },
+      "outputs": {
+        "grids": [
+          {
+            "steps": 4,
+            "first_qv": 0.7944594147350206,
+            "mean_qv": 0.9906292333607486,
+            "sample_variance": 0.506927228120233,
+            "theory_variance": 0.5,
+            "left": -0.19728199481057607,
+            "right": 0.5971774199244447,
+            "integral": -0.3000522874430651,
+            "integral_mse": 0.12673828965562223,
+            "theory_mse": 0.125,
+            "euler_rmse": 1.6218905290221228,
+            "euler_nonpositive": 0,
+            "telescoping_max_residual": 1.865174681370263e-14,
+            "right_left_max_residual": 4.440892098500626e-15
+          },
+          {
+            "steps": 16,
+            "first_qv": 1.0792151299895332,
+            "mean_qv": 0.9972134638881094,
+            "sample_variance": 0.12488983556326173,
+            "theory_variance": 0.125,
+            "left": -0.33965985243783225,
+            "right": 0.7395552775517009,
+            "integral": -0.3000522874430651,
+            "integral_mse": 0.031220588751377322,
+            "theory_mse": 0.03125,
+            "euler_rmse": 0.7879970305170926,
+            "euler_nonpositive": 0,
+            "telescoping_max_residual": 1.7763568394002505e-14,
+            "right_left_max_residual": 1.7763568394002505e-15
+          },
+          {
+            "steps": 64,
+            "first_qv": 1.0205748309050482,
+            "mean_qv": 0.9979784834959156,
+            "sample_variance": 0.031275134203983666,
+            "theory_variance": 0.03125,
+            "left": -0.31033970289559004,
+            "right": 0.7102351280094583,
+            "integral": -0.3000522874430651,
+            "integral_mse": 0.007818850741888548,
+            "theory_mse": 0.0078125,
+            "euler_rmse": 0.3906616566182395,
+            "euler_nonpositive": 0,
+            "telescoping_max_residual": 1.687538997430238e-14,
+            "right_left_max_residual": 1.9984014443252818e-15
+          },
+          {
+            "steps": 256,
+            "first_qv": 0.9658159774394378,
+            "mean_qv": 1.0007154342405915,
+            "sample_variance": 0.007928244277278857,
+            "theory_variance": 0.0078125,
+            "left": -0.2829602761627848,
+            "right": 0.6828557012766532,
+            "integral": -0.3000522874430651,
+            "integral_mse": 0.001981947080043741,
+            "theory_mse": 0.001953125,
+            "euler_rmse": 0.19619282035111724,
+            "euler_nonpositive": 0,
+            "telescoping_max_residual": 1.7763568394002505e-14,
+            "right_left_max_residual": 1.7763568394002505e-15
+          }
+        ],
+        "terminal": {
+          "n": 8192,
+          "mean": 108.19699073155812,
+          "sample_sd": 21.797741228015408,
+          "mean_mc_se": 0.24083329120123867,
+          "mse_to_zero": 12181.672325334242,
+          "mse_mc_se": 55.97140472475497,
+          "q05": 76.595919234743,
+          "q95": 147.22698979604334
+        },
+        "theory_mean": 108.32870676749586,
+        "log_drift": 0.06
+      },
+      "source_experiment_id": "EXP-QT15-17-DIFFUSION-01",
+      "static_equivalent": "https://ou-liu-red-sugar.github.io/notebook/labs/qt-ghi/static/QT15.html#qt15-experiment",
+      "result_attachment": {
+        "uri": "https://ou-liu-red-sugar.github.io/notebook/labs/qt-ghi/data/results.json",
+        "json_pointers": [
+          "/diffusion"
+        ]
+      }
+    }
+  ],
+  "status": "candidate_local_review",
+  "audience": "高年级本科至研究生；默认微积分、线性代数与基本概率",
+  "hard_prerequisites": [
+    {
+      "from": "QT15#qt15-moments",
+      "relation": "requires",
+      "to": "QT12",
+      "reason": "该段实际使用所列局部能力。",
+      "required_competence": "L2/概率收敛与 Chebyshev"
+    }
+  ],
+  "interactions": [
+    {
+      "id": "EXP-QT15-17-DIFFUSION-01",
+      "title": "同一路径的二次变差",
+      "url": "/notebook/labs/qt-ghi/interactions.html?experiment=EXP-QT15-17-DIFFUSION-01#EXP-QT15-17-DIFFUSION-01",
+      "height": 800,
+      "open": true,
+      "static_anchor": "qt15-experiment",
+      "inline": true,
+      "experiment_ids": [
+        "EXP-QT15-17-DIFFUSION-01"
+      ]
+    }
+  ],
+  "provenance": {
+    "source_package": "docs/production/20260921/drafts/qt-ghi-v3/QT-GHI-review-v3",
+    "content_version": "review-v3-20260921",
+    "independent_review": "docs/production/20260921/receipts/qt-ghi-independent-draft-review.md",
+    "import_status": "accepted_local",
+    "local_acceptance": "docs/production/20260921/receipts/qt-ghi-local-acceptance.md"
+  }
+}

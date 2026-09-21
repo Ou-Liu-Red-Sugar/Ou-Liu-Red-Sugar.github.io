@@ -1,0 +1,1273 @@
+{
+  "version": "2026-09-21.BF-A.lab-2",
+  "checked_at": "2026-09-20T18:49:04.645Z",
+  "scope": "Direct sums, teaching-event states and funding boundary, stated derived metrics, static HTML identities and embedded input parity; no browser checks.",
+  "passed": 195,
+  "failed": 0,
+  "checks": [
+    {
+      "name": "COST/statement_rows/total_current_assets/2025-08-31",
+      "table": "statement_rows",
+      "target": "total_current_assets",
+      "period": "2025-08-31",
+      "computed": 38380,
+      "reported": 38380,
+      "passed": true
+    },
+    {
+      "name": "COST/statement_rows/total_assets/2025-08-31",
+      "table": "statement_rows",
+      "target": "total_assets",
+      "period": "2025-08-31",
+      "computed": 77099,
+      "reported": 77099,
+      "passed": true
+    },
+    {
+      "name": "COST/statement_rows/total_current_liabilities/2025-08-31",
+      "table": "statement_rows",
+      "target": "total_current_liabilities",
+      "period": "2025-08-31",
+      "computed": 37108,
+      "reported": 37108,
+      "passed": true
+    },
+    {
+      "name": "COST/statement_rows/total_liabilities/2025-08-31",
+      "table": "statement_rows",
+      "target": "total_liabilities",
+      "period": "2025-08-31",
+      "computed": 47935,
+      "reported": 47935,
+      "passed": true
+    },
+    {
+      "name": "COST/statement_rows/total_equity/2025-08-31",
+      "table": "statement_rows",
+      "target": "total_equity",
+      "period": "2025-08-31",
+      "computed": 29164,
+      "reported": 29164,
+      "passed": true
+    },
+    {
+      "name": "COST/statement_rows/total_liabilities_equity/2025-08-31",
+      "table": "statement_rows",
+      "target": "total_liabilities_equity",
+      "period": "2025-08-31",
+      "computed": 77099,
+      "reported": 77099,
+      "passed": true
+    },
+    {
+      "name": "COST/statement_rows/total_current_assets/2024-09-01",
+      "table": "statement_rows",
+      "target": "total_current_assets",
+      "period": "2024-09-01",
+      "computed": 34246,
+      "reported": 34246,
+      "passed": true
+    },
+    {
+      "name": "COST/statement_rows/total_assets/2024-09-01",
+      "table": "statement_rows",
+      "target": "total_assets",
+      "period": "2024-09-01",
+      "computed": 69831,
+      "reported": 69831,
+      "passed": true
+    },
+    {
+      "name": "COST/statement_rows/total_current_liabilities/2024-09-01",
+      "table": "statement_rows",
+      "target": "total_current_liabilities",
+      "period": "2024-09-01",
+      "computed": 35464,
+      "reported": 35464,
+      "passed": true
+    },
+    {
+      "name": "COST/statement_rows/total_liabilities/2024-09-01",
+      "table": "statement_rows",
+      "target": "total_liabilities",
+      "period": "2024-09-01",
+      "computed": 46209,
+      "reported": 46209,
+      "passed": true
+    },
+    {
+      "name": "COST/statement_rows/total_equity/2024-09-01",
+      "table": "statement_rows",
+      "target": "total_equity",
+      "period": "2024-09-01",
+      "computed": 23622,
+      "reported": 23622,
+      "passed": true
+    },
+    {
+      "name": "COST/statement_rows/total_liabilities_equity/2024-09-01",
+      "table": "statement_rows",
+      "target": "total_liabilities_equity",
+      "period": "2024-09-01",
+      "computed": 69831,
+      "reported": 69831,
+      "passed": true
+    },
+    {
+      "name": "COST/statement_rows/assets_equal_liabilities_plus_equity/2025-08-31",
+      "table": "statement_rows",
+      "target": "assets_equal_liabilities_plus_equity",
+      "period": "2025-08-31",
+      "computed": 77099,
+      "reported": 77099,
+      "passed": true
+    },
+    {
+      "name": "COST/statement_rows/assets_equal_liabilities_plus_equity/2024-09-01",
+      "table": "statement_rows",
+      "target": "assets_equal_liabilities_plus_equity",
+      "period": "2024-09-01",
+      "computed": 69831,
+      "reported": 69831,
+      "passed": true
+    },
+    {
+      "name": "JPM/statement_rows/investment_securities_net/2025-12-31",
+      "table": "statement_rows",
+      "target": "investment_securities_net",
+      "period": "2025-12-31",
+      "computed": 777332,
+      "reported": 777332,
+      "passed": true
+    },
+    {
+      "name": "JPM/statement_rows/loans_net/2025-12-31",
+      "table": "statement_rows",
+      "target": "loans_net",
+      "period": "2025-12-31",
+      "computed": 1467664,
+      "reported": 1467664,
+      "passed": true
+    },
+    {
+      "name": "JPM/statement_rows/total_assets/2025-12-31",
+      "table": "statement_rows",
+      "target": "total_assets",
+      "period": "2025-12-31",
+      "computed": 4424900,
+      "reported": 4424900,
+      "passed": true
+    },
+    {
+      "name": "JPM/statement_rows/total_liabilities/2025-12-31",
+      "table": "statement_rows",
+      "target": "total_liabilities",
+      "period": "2025-12-31",
+      "computed": 4062462,
+      "reported": 4062462,
+      "passed": true
+    },
+    {
+      "name": "JPM/statement_rows/total_equity/2025-12-31",
+      "table": "statement_rows",
+      "target": "total_equity",
+      "period": "2025-12-31",
+      "computed": 362438,
+      "reported": 362438,
+      "passed": true
+    },
+    {
+      "name": "JPM/statement_rows/total_liabilities_equity/2025-12-31",
+      "table": "statement_rows",
+      "target": "total_liabilities_equity",
+      "period": "2025-12-31",
+      "computed": 4424900,
+      "reported": 4424900,
+      "passed": true
+    },
+    {
+      "name": "JPM/statement_rows/investment_securities_net/2024-12-31",
+      "table": "statement_rows",
+      "target": "investment_securities_net",
+      "period": "2024-12-31",
+      "computed": 681320,
+      "reported": 681320,
+      "passed": true
+    },
+    {
+      "name": "JPM/statement_rows/loans_net/2024-12-31",
+      "table": "statement_rows",
+      "target": "loans_net",
+      "period": "2024-12-31",
+      "computed": 1323643,
+      "reported": 1323643,
+      "passed": true
+    },
+    {
+      "name": "JPM/statement_rows/total_assets/2024-12-31",
+      "table": "statement_rows",
+      "target": "total_assets",
+      "period": "2024-12-31",
+      "computed": 4002814,
+      "reported": 4002814,
+      "passed": true
+    },
+    {
+      "name": "JPM/statement_rows/total_liabilities/2024-12-31",
+      "table": "statement_rows",
+      "target": "total_liabilities",
+      "period": "2024-12-31",
+      "computed": 3658056,
+      "reported": 3658056,
+      "passed": true
+    },
+    {
+      "name": "JPM/statement_rows/total_equity/2024-12-31",
+      "table": "statement_rows",
+      "target": "total_equity",
+      "period": "2024-12-31",
+      "computed": 344758,
+      "reported": 344758,
+      "passed": true
+    },
+    {
+      "name": "JPM/statement_rows/total_liabilities_equity/2024-12-31",
+      "table": "statement_rows",
+      "target": "total_liabilities_equity",
+      "period": "2024-12-31",
+      "computed": 4002814,
+      "reported": 4002814,
+      "passed": true
+    },
+    {
+      "name": "JPM/consolidated_vie_note_a/vie_total_assets/2025-12-31",
+      "table": "consolidated_vie_note_a",
+      "target": "vie_total_assets",
+      "period": "2025-12-31",
+      "computed": 43295,
+      "reported": 43295,
+      "passed": true
+    },
+    {
+      "name": "JPM/consolidated_vie_note_a/vie_total_liabilities/2025-12-31",
+      "table": "consolidated_vie_note_a",
+      "target": "vie_total_liabilities",
+      "period": "2025-12-31",
+      "computed": 28642,
+      "reported": 28642,
+      "passed": true
+    },
+    {
+      "name": "JPM/consolidated_vie_note_a/vie_total_assets/2024-12-31",
+      "table": "consolidated_vie_note_a",
+      "target": "vie_total_assets",
+      "period": "2024-12-31",
+      "computed": 41076,
+      "reported": 41076,
+      "passed": true
+    },
+    {
+      "name": "JPM/consolidated_vie_note_a/vie_total_liabilities/2024-12-31",
+      "table": "consolidated_vie_note_a",
+      "target": "vie_total_liabilities",
+      "period": "2024-12-31",
+      "computed": 27777,
+      "reported": 27777,
+      "passed": true
+    },
+    {
+      "name": "JPM/statement_rows/assets_equal_liabilities_plus_equity/2025-12-31",
+      "table": "statement_rows",
+      "target": "assets_equal_liabilities_plus_equity",
+      "period": "2025-12-31",
+      "computed": 4424900,
+      "reported": 4424900,
+      "passed": true
+    },
+    {
+      "name": "JPM/statement_rows/assets_equal_liabilities_plus_equity/2024-12-31",
+      "table": "statement_rows",
+      "target": "assets_equal_liabilities_plus_equity",
+      "period": "2024-12-31",
+      "computed": 4002814,
+      "reported": 4002814,
+      "passed": true
+    },
+    {
+      "name": "default/S0/cash",
+      "actual": 100,
+      "expected": 100,
+      "passed": true
+    },
+    {
+      "name": "default/S0/receivable",
+      "actual": 0,
+      "expected": 0,
+      "passed": true
+    },
+    {
+      "name": "default/S0/inventory",
+      "actual": 0,
+      "expected": 0,
+      "passed": true
+    },
+    {
+      "name": "default/S0/payable",
+      "actual": 0,
+      "expected": 0,
+      "passed": true
+    },
+    {
+      "name": "default/S0/equity",
+      "actual": 100,
+      "expected": 100,
+      "passed": true
+    },
+    {
+      "name": "default/S0/profit",
+      "actual": 0,
+      "expected": 0,
+      "passed": true
+    },
+    {
+      "name": "default/S0/ocf",
+      "actual": 0,
+      "expected": 0,
+      "passed": true
+    },
+    {
+      "name": "default/S0/A=L+E",
+      "actual": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "name": "default/S0/delta-balance",
+      "actual": 0,
+      "expected": 0,
+      "passed": true
+    },
+    {
+      "name": "default/S0/cash-flow",
+      "actual": 0,
+      "expected": 0,
+      "passed": true
+    },
+    {
+      "name": "default/S1/cash",
+      "actual": 100,
+      "expected": 100,
+      "passed": true
+    },
+    {
+      "name": "default/S1/receivable",
+      "actual": 0,
+      "expected": 0,
+      "passed": true
+    },
+    {
+      "name": "default/S1/inventory",
+      "actual": 100,
+      "expected": 100,
+      "passed": true
+    },
+    {
+      "name": "default/S1/payable",
+      "actual": 100,
+      "expected": 100,
+      "passed": true
+    },
+    {
+      "name": "default/S1/equity",
+      "actual": 100,
+      "expected": 100,
+      "passed": true
+    },
+    {
+      "name": "default/S1/profit",
+      "actual": 0,
+      "expected": 0,
+      "passed": true
+    },
+    {
+      "name": "default/S1/ocf",
+      "actual": 0,
+      "expected": 0,
+      "passed": true
+    },
+    {
+      "name": "default/S1/A=L+E",
+      "actual": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "name": "default/S1/delta-balance",
+      "actual": 100,
+      "expected": 100,
+      "passed": true
+    },
+    {
+      "name": "default/S1/cash-flow",
+      "actual": 0,
+      "expected": 0,
+      "passed": true
+    },
+    {
+      "name": "default/S2/cash",
+      "actual": 100,
+      "expected": 100,
+      "passed": true
+    },
+    {
+      "name": "default/S2/receivable",
+      "actual": 150,
+      "expected": 150,
+      "passed": true
+    },
+    {
+      "name": "default/S2/inventory",
+      "actual": 0,
+      "expected": 0,
+      "passed": true
+    },
+    {
+      "name": "default/S2/payable",
+      "actual": 100,
+      "expected": 100,
+      "passed": true
+    },
+    {
+      "name": "default/S2/equity",
+      "actual": 150,
+      "expected": 150,
+      "passed": true
+    },
+    {
+      "name": "default/S2/profit",
+      "actual": 50,
+      "expected": 50,
+      "passed": true
+    },
+    {
+      "name": "default/S2/ocf",
+      "actual": 0,
+      "expected": 0,
+      "passed": true
+    },
+    {
+      "name": "default/S2/A=L+E",
+      "actual": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "name": "default/S2/delta-balance",
+      "actual": 50,
+      "expected": 50,
+      "passed": true
+    },
+    {
+      "name": "default/S2/cash-flow",
+      "actual": 0,
+      "expected": 0,
+      "passed": true
+    },
+    {
+      "name": "default/S3/cash",
+      "actual": 0,
+      "expected": 0,
+      "passed": true
+    },
+    {
+      "name": "default/S3/receivable",
+      "actual": 150,
+      "expected": 150,
+      "passed": true
+    },
+    {
+      "name": "default/S3/inventory",
+      "actual": 0,
+      "expected": 0,
+      "passed": true
+    },
+    {
+      "name": "default/S3/payable",
+      "actual": 0,
+      "expected": 0,
+      "passed": true
+    },
+    {
+      "name": "default/S3/equity",
+      "actual": 150,
+      "expected": 150,
+      "passed": true
+    },
+    {
+      "name": "default/S3/profit",
+      "actual": 50,
+      "expected": 50,
+      "passed": true
+    },
+    {
+      "name": "default/S3/ocf",
+      "actual": -100,
+      "expected": -100,
+      "passed": true
+    },
+    {
+      "name": "default/S3/A=L+E",
+      "actual": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "name": "default/S3/delta-balance",
+      "actual": -100,
+      "expected": -100,
+      "passed": true
+    },
+    {
+      "name": "default/S3/cash-flow",
+      "actual": -100,
+      "expected": -100,
+      "passed": true
+    },
+    {
+      "name": "default/S4/cash",
+      "actual": 150,
+      "expected": 150,
+      "passed": true
+    },
+    {
+      "name": "default/S4/receivable",
+      "actual": 0,
+      "expected": 0,
+      "passed": true
+    },
+    {
+      "name": "default/S4/inventory",
+      "actual": 0,
+      "expected": 0,
+      "passed": true
+    },
+    {
+      "name": "default/S4/payable",
+      "actual": 0,
+      "expected": 0,
+      "passed": true
+    },
+    {
+      "name": "default/S4/equity",
+      "actual": 150,
+      "expected": 150,
+      "passed": true
+    },
+    {
+      "name": "default/S4/profit",
+      "actual": 50,
+      "expected": 50,
+      "passed": true
+    },
+    {
+      "name": "default/S4/ocf",
+      "actual": 50,
+      "expected": 50,
+      "passed": true
+    },
+    {
+      "name": "default/S4/A=L+E",
+      "actual": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "name": "default/S4/delta-balance",
+      "actual": 0,
+      "expected": 0,
+      "passed": true
+    },
+    {
+      "name": "default/S4/cash-flow",
+      "actual": 50,
+      "expected": 50,
+      "passed": true
+    },
+    {
+      "name": "collect-first/S3/cash",
+      "actual": 250,
+      "expected": 250,
+      "passed": true
+    },
+    {
+      "name": "collect-first/S3/payable",
+      "actual": 100,
+      "expected": 100,
+      "passed": true
+    },
+    {
+      "name": "collect-first/end/cash",
+      "actual": 150,
+      "expected": 150,
+      "passed": true
+    },
+    {
+      "name": "collect-first/end/receivable",
+      "actual": 0,
+      "expected": 0,
+      "passed": true
+    },
+    {
+      "name": "collect-first/end/inventory",
+      "actual": 0,
+      "expected": 0,
+      "passed": true
+    },
+    {
+      "name": "collect-first/end/payable",
+      "actual": 0,
+      "expected": 0,
+      "passed": true
+    },
+    {
+      "name": "collect-first/end/equity",
+      "actual": 150,
+      "expected": 150,
+      "passed": true
+    },
+    {
+      "name": "collect-first/end/profit",
+      "actual": 50,
+      "expected": 50,
+      "passed": true
+    },
+    {
+      "name": "collect-first/end/ocf",
+      "actual": 50,
+      "expected": 50,
+      "passed": true
+    },
+    {
+      "name": "zero-cash/pay-first/completed",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "name": "zero-cash/pay-first/gap",
+      "actual": 100,
+      "expected": 100,
+      "passed": true
+    },
+    {
+      "name": "zero-cash/pay-first/no-overdraft",
+      "actual": 0,
+      "expected": 0,
+      "passed": true
+    },
+    {
+      "name": "zero-cash/pay-first/payable-retained",
+      "actual": 100,
+      "expected": 100,
+      "passed": true
+    },
+    {
+      "name": "zero-cash/pay-first/ocf",
+      "actual": 0,
+      "expected": 0,
+      "passed": true
+    },
+    {
+      "name": "zero-cash/collect-first/completed",
+      "actual": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "name": "zero-cash/collect-first/cash",
+      "actual": 50,
+      "expected": 50,
+      "passed": true
+    },
+    {
+      "name": "zero-cash/collect-first/equity",
+      "actual": 50,
+      "expected": 50,
+      "passed": true
+    },
+    {
+      "name": "zero-cash/collect-first/profit",
+      "actual": 50,
+      "expected": 50,
+      "passed": true
+    },
+    {
+      "name": "zero-cash/collect-first/ocf",
+      "actual": 50,
+      "expected": 50,
+      "passed": true
+    },
+    {
+      "name": "reject-initial-cash/-1",
+      "actual": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "name": "reject-initial-cash/NaN",
+      "actual": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "name": "reject-initial-cash/Infinity",
+      "actual": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "name": "reject-event-index",
+      "actual": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "name": "retail-bridge/oldNet",
+      "actual": -774,
+      "expected": -774,
+      "passed": true
+    },
+    {
+      "name": "retail-bridge/newNet",
+      "actual": -1667,
+      "expected": -1667,
+      "passed": true
+    },
+    {
+      "name": "retail-bridge/delta",
+      "actual": -893,
+      "expected": -893,
+      "passed": true
+    },
+    {
+      "name": "retail-bridge/reverse",
+      "actual": 893,
+      "expected": 893,
+      "passed": true
+    },
+    {
+      "name": "retail-bridge/cfInventory",
+      "actual": 559,
+      "expected": 559,
+      "passed": true
+    },
+    {
+      "name": "retail-bridge/cfPayables",
+      "actual": 404,
+      "expected": 404,
+      "passed": true
+    },
+    {
+      "name": "retail-bridge/cfAdjustment",
+      "actual": 963,
+      "expected": 963,
+      "passed": true
+    },
+    {
+      "name": "retail-bridge/unexplainedDifference",
+      "actual": 70,
+      "expected": 70,
+      "passed": true
+    },
+    {
+      "name": "bank/2025/coverage",
+      "actual": 1.8287251447045756,
+      "expected": 1.8287251447045756,
+      "passed": true
+    },
+    {
+      "name": "bank/2025/all-loans-denominator",
+      "actual": 1.725224299246901,
+      "expected": 1.725224299246901,
+      "passed": true
+    },
+    {
+      "name": "bank/2025/common-equity",
+      "actual": 342393,
+      "expected": 342393,
+      "passed": true
+    },
+    {
+      "name": "bank/2025/shares",
+      "actual": 2696272576,
+      "expected": 2696272576,
+      "passed": true
+    },
+    {
+      "name": "bank/2025/book-value",
+      "actual": 126.98753199053418,
+      "expected": 126.98753199053418,
+      "passed": true
+    },
+    {
+      "name": "bank/2024/book-value",
+      "actual": 116.06578214969201,
+      "expected": 116.06578214969201,
+      "passed": true
+    },
+    {
+      "name": "html/unique-ids",
+      "actual": 104,
+      "expected": 104,
+      "passed": true
+    },
+    {
+      "name": "html/full-row/COST/assets",
+      "actual": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "name": "html/full-row/COST/current_assets",
+      "actual": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "name": "html/full-row/COST/cash",
+      "actual": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "name": "html/full-row/COST/short_term_investments",
+      "actual": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "name": "html/full-row/COST/receivables_net",
+      "actual": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "name": "html/full-row/COST/inventory",
+      "actual": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "name": "html/full-row/COST/other_current_assets",
+      "actual": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "name": "html/full-row/COST/total_current_assets",
+      "actual": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "name": "html/full-row/COST/other_assets",
+      "actual": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "name": "html/full-row/COST/ppe_net",
+      "actual": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "name": "html/full-row/COST/operating_lease_rou",
+      "actual": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "name": "html/full-row/COST/other_long_term_assets",
+      "actual": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "name": "html/full-row/COST/total_assets",
+      "actual": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "name": "html/full-row/COST/liabilities_and_equity",
+      "actual": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "name": "html/full-row/COST/current_liabilities",
+      "actual": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "name": "html/full-row/COST/accounts_payable",
+      "actual": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "name": "html/full-row/COST/accrued_salaries_benefits",
+      "actual": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "name": "html/full-row/COST/accrued_member_rewards",
+      "actual": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "name": "html/full-row/COST/deferred_membership_fees",
+      "actual": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "name": "html/full-row/COST/other_current_liabilities",
+      "actual": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "name": "html/full-row/COST/total_current_liabilities",
+      "actual": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "name": "html/full-row/COST/other_liabilities",
+      "actual": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "name": "html/full-row/COST/long_term_debt",
+      "actual": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "name": "html/full-row/COST/long_term_operating_lease_liabilities",
+      "actual": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "name": "html/full-row/COST/other_long_term_liabilities",
+      "actual": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "name": "html/full-row/COST/total_liabilities",
+      "actual": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "name": "html/full-row/COST/commitments_contingencies",
+      "actual": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "name": "html/full-row/COST/equity",
+      "actual": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "name": "html/full-row/COST/preferred_stock",
+      "actual": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "name": "html/full-row/COST/common_stock",
+      "actual": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "name": "html/full-row/COST/additional_paid_in_capital",
+      "actual": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "name": "html/full-row/COST/aocl",
+      "actual": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "name": "html/full-row/COST/retained_earnings",
+      "actual": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "name": "html/full-row/COST/total_equity",
+      "actual": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "name": "html/full-row/COST/total_liabilities_equity",
+      "actual": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "name": "html/full-row/JPM/assets",
+      "actual": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "name": "html/full-row/JPM/cash_due_from_banks",
+      "actual": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "name": "html/full-row/JPM/deposits_with_banks",
+      "actual": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "name": "html/full-row/JPM/fed_funds_sold_resale",
+      "actual": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "name": "html/full-row/JPM/securities_borrowed",
+      "actual": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "name": "html/full-row/JPM/trading_assets",
+      "actual": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "name": "html/full-row/JPM/afs_securities",
+      "actual": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "name": "html/full-row/JPM/htm_securities",
+      "actual": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "name": "html/full-row/JPM/investment_securities_net",
+      "actual": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "name": "html/full-row/JPM/loans_gross",
+      "actual": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "name": "html/full-row/JPM/allowance_loan_losses",
+      "actual": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "name": "html/full-row/JPM/loans_net",
+      "actual": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "name": "html/full-row/JPM/accrued_interest_receivables",
+      "actual": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "name": "html/full-row/JPM/premises_equipment",
+      "actual": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "name": "html/full-row/JPM/goodwill_msrs_other_intangibles",
+      "actual": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "name": "html/full-row/JPM/other_assets",
+      "actual": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "name": "html/full-row/JPM/total_assets",
+      "actual": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "name": "html/full-row/JPM/liabilities",
+      "actual": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "name": "html/full-row/JPM/customer_deposits",
+      "actual": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "name": "html/full-row/JPM/fed_funds_purchased_repo",
+      "actual": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "name": "html/full-row/JPM/short_term_borrowings",
+      "actual": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "name": "html/full-row/JPM/trading_liabilities",
+      "actual": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "name": "html/full-row/JPM/accounts_payable_other_liabilities",
+      "actual": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "name": "html/full-row/JPM/vie_beneficial_interests",
+      "actual": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "name": "html/full-row/JPM/long_term_debt",
+      "actual": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "name": "html/full-row/JPM/total_liabilities",
+      "actual": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "name": "html/full-row/JPM/commitments_contingencies",
+      "actual": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "name": "html/full-row/JPM/equity",
+      "actual": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "name": "html/full-row/JPM/preferred_stock",
+      "actual": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "name": "html/full-row/JPM/common_stock",
+      "actual": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "name": "html/full-row/JPM/additional_paid_in_capital",
+      "actual": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "name": "html/full-row/JPM/retained_earnings",
+      "actual": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "name": "html/full-row/JPM/aocl",
+      "actual": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "name": "html/full-row/JPM/treasury_stock",
+      "actual": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "name": "html/full-row/JPM/total_equity",
+      "actual": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "name": "html/full-row/JPM/total_liabilities_equity",
+      "actual": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "name": "html/entry-fragment/BS-RETAIL",
+      "actual": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "name": "html/entry-fragment/BS-BANKING",
+      "actual": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "name": "html/entry-fragment/EXP-BF05-EVENTS",
+      "actual": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "name": "html/embedded-input-parity",
+      "passed": true
+    }
+  ]
+}

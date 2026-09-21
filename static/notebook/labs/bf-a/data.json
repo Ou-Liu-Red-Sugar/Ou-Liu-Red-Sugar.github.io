@@ -1,0 +1,3286 @@
+{
+  "version": "2026-09-21.BF-A.lab-2",
+  "statement_experiment": "EXP-BF-STATEMENTS-01",
+  "transaction_experiment": "EXP-BF05-EVENTS",
+  "input_files": [
+    "docs/production/20260921/review/costco-2025-balance-sheet.json",
+    "docs/production/20260921/review/jpm-2025-balance-sheet.json"
+  ],
+  "writing_contract": "docs/production/20260921/drafts/bf-a-v2/notebook-BF-A-20260921-revised/BF-05.md §§4, 配套规格",
+  "event_default": {
+    "initial_cash": 100,
+    "initial_equity": 100,
+    "cost": 100,
+    "sales": 150,
+    "collect_first": false,
+    "unit": "USD"
+  },
+  "datasets": {
+    "COST": {
+      "schema_version": "1.0",
+      "schema_description": {
+        "purpose": "已核历史教学输入；不是新公司研究、实时数据或网站生成器 schema。",
+        "row_order": "statement_rows 按原表显示顺序排列。section_path 与 level 描述层级；金额由 amounts 的时点键读取。",
+        "amount_semantics": "所有数值保留原表符号；括号负数存为负值。空白标题/无主表金额为 null，明确无发行的优先股破折号以 0 记录并保留 original_display。",
+        "aggregation": "只按 aggregation_rules 中列出的直接 component_row_ids 作 signed sum。不得将小计、其明细与最终合计一起累加。supplemental_inputs/footnote_tables 永不自动加入主表。",
+        "derived_metrics": "formula 使用 inputs 的 symbol；inputs 明确表名、行与期间，result 单位单列。ratio 为倍数，percent 为乘 100 后百分数；未格式化实数可由 display_decimals 控制显示。",
+        "pages": "printed_page 是页脚印刷页；physical_pdf_page 从 1 计数。不同文件版本分别存定位。"
+      },
+      "status": "verified_historical_teaching_input",
+      "verification_record": "business-primary-check.md",
+      "verification_date": "2026-09-21",
+      "information_checked_through": "2026-09-21",
+      "currency": "USD",
+      "default_amount_scale": 1000000,
+      "default_unit": "USD_millions",
+      "source_row_signs_preserved": true,
+      "dataset_id": "COST-BS-20250831",
+      "entity": {
+        "name": "Costco Wholesale Corporation",
+        "ticker": "COST",
+        "consolidation_scope": "Costco 与其全资子公司合并；重大集团内部交易抵销。"
+      },
+      "statement_title_original": "CONSOLIDATED BALANCE SHEETS",
+      "statement_title_zh": "合并资产负债表",
+      "data_as_of": "2025-08-31",
+      "periods": [
+        {
+          "key": "2025-08-31",
+          "type": "instant",
+          "as_of": "2025-08-31",
+          "fiscal_year": 2025,
+          "fiscal_weeks": 52
+        },
+        {
+          "key": "2024-09-01",
+          "type": "instant",
+          "as_of": "2024-09-01",
+          "fiscal_year": 2024,
+          "fiscal_weeks": 52
+        }
+      ],
+      "source_documents": [
+        {
+          "id": "COST_10K_BS",
+          "title": "Costco 2025 Form 10-K (SEC HTML)",
+          "url": "https://www.sec.gov/Archives/edgar/data/909832/000090983225000101/cost-20250831.htm",
+          "format": "html",
+          "printed_page": 39,
+          "physical_pdf_page": null,
+          "filing_date": "2025-10-08",
+          "accepted_at_as_displayed": "2025-10-07 21:16:06",
+          "source_map_id": "BI-S05"
+        },
+        {
+          "id": "COST_AR_BS",
+          "title": "Costco Annual Report 2025 (IR shareholder-report PDF)",
+          "url": "https://s201.q4cdn.com/287523651/files/doc_financials/2025/ar/COST-Annual-Report-2025.pdf",
+          "format": "pdf",
+          "printed_page": 37,
+          "physical_pdf_page": 43,
+          "version_note": "表格金额与上述 SEC 10-K 核对一致；排版页码不同。",
+          "shareholder_letter_date": "2025-12-04"
+        },
+        {
+          "id": "COST_AR_CF",
+          "title": "Costco Annual Report 2025 — Consolidated Statements of Cash Flows",
+          "url": "https://s201.q4cdn.com/287523651/files/doc_financials/2025/ar/COST-Annual-Report-2025.pdf",
+          "format": "pdf",
+          "printed_page": 39,
+          "physical_pdf_page": 45
+        }
+      ],
+      "comparative_presentation_note": "2024 比较列采用 2025 年报中的列报；Note 1 披露比较期重分类。",
+      "statement_rows": [
+        {
+          "id": "assets",
+          "label_original": "ASSETS",
+          "label_zh": "资产",
+          "level": 0,
+          "section_path": [
+            "assets"
+          ],
+          "row_kind": "heading",
+          "is_subtotal": false,
+          "is_total": false,
+          "unit": null,
+          "amounts": {
+            "2025-08-31": null,
+            "2024-09-01": null
+          },
+          "source_order": 1,
+          "source_ref": "COST_AR_BS"
+        },
+        {
+          "id": "current_assets",
+          "label_original": "CURRENT ASSETS",
+          "label_zh": "流动资产",
+          "level": 1,
+          "section_path": [
+            "assets",
+            "current_assets"
+          ],
+          "row_kind": "heading",
+          "is_subtotal": false,
+          "is_total": false,
+          "unit": null,
+          "amounts": {
+            "2025-08-31": null,
+            "2024-09-01": null
+          },
+          "source_order": 2,
+          "source_ref": "COST_AR_BS"
+        },
+        {
+          "id": "cash",
+          "label_original": "Cash and cash equivalents",
+          "label_zh": "现金及现金等价物",
+          "level": 2,
+          "section_path": [
+            "assets",
+            "current_assets"
+          ],
+          "row_kind": "detail",
+          "is_subtotal": false,
+          "is_total": false,
+          "unit": "USD_millions",
+          "amounts": {
+            "2025-08-31": 14161,
+            "2024-09-01": 9906
+          },
+          "source_order": 3,
+          "source_ref": "COST_AR_BS"
+        },
+        {
+          "id": "short_term_investments",
+          "label_original": "Short-term investments",
+          "label_zh": "短期投资",
+          "level": 2,
+          "section_path": [
+            "assets",
+            "current_assets"
+          ],
+          "row_kind": "detail",
+          "is_subtotal": false,
+          "is_total": false,
+          "unit": "USD_millions",
+          "amounts": {
+            "2025-08-31": 1123,
+            "2024-09-01": 1238
+          },
+          "source_order": 4,
+          "source_ref": "COST_AR_BS"
+        },
+        {
+          "id": "receivables_net",
+          "label_original": "Receivables, net",
+          "label_zh": "应收款净额",
+          "level": 2,
+          "section_path": [
+            "assets",
+            "current_assets"
+          ],
+          "row_kind": "detail",
+          "is_subtotal": false,
+          "is_total": false,
+          "unit": "USD_millions",
+          "amounts": {
+            "2025-08-31": 3203,
+            "2024-09-01": 2721
+          },
+          "source_order": 5,
+          "source_ref": "COST_AR_BS"
+        },
+        {
+          "id": "inventory",
+          "label_original": "Merchandise inventories",
+          "label_zh": "商品存货",
+          "level": 2,
+          "section_path": [
+            "assets",
+            "current_assets"
+          ],
+          "row_kind": "detail",
+          "is_subtotal": false,
+          "is_total": false,
+          "unit": "USD_millions",
+          "amounts": {
+            "2025-08-31": 18116,
+            "2024-09-01": 18647
+          },
+          "source_order": 6,
+          "source_ref": "COST_AR_BS"
+        },
+        {
+          "id": "other_current_assets",
+          "label_original": "Other current assets",
+          "label_zh": "其他流动资产",
+          "level": 2,
+          "section_path": [
+            "assets",
+            "current_assets"
+          ],
+          "row_kind": "detail",
+          "is_subtotal": false,
+          "is_total": false,
+          "unit": "USD_millions",
+          "amounts": {
+            "2025-08-31": 1777,
+            "2024-09-01": 1734
+          },
+          "source_order": 7,
+          "source_ref": "COST_AR_BS"
+        },
+        {
+          "id": "total_current_assets",
+          "label_original": "Total current assets",
+          "label_zh": "流动资产合计",
+          "level": 1,
+          "section_path": [
+            "assets",
+            "current_assets"
+          ],
+          "row_kind": "subtotal",
+          "is_subtotal": true,
+          "is_total": false,
+          "unit": "USD_millions",
+          "amounts": {
+            "2025-08-31": 38380,
+            "2024-09-01": 34246
+          },
+          "source_order": 8,
+          "source_ref": "COST_AR_BS"
+        },
+        {
+          "id": "other_assets",
+          "label_original": "OTHER ASSETS",
+          "label_zh": "其他资产",
+          "level": 1,
+          "section_path": [
+            "assets",
+            "other_assets"
+          ],
+          "row_kind": "heading",
+          "is_subtotal": false,
+          "is_total": false,
+          "unit": null,
+          "amounts": {
+            "2025-08-31": null,
+            "2024-09-01": null
+          },
+          "source_order": 9,
+          "source_ref": "COST_AR_BS"
+        },
+        {
+          "id": "ppe_net",
+          "label_original": "Property and equipment, net",
+          "label_zh": "物业及设备净额",
+          "level": 2,
+          "section_path": [
+            "assets",
+            "other_assets"
+          ],
+          "row_kind": "detail",
+          "is_subtotal": false,
+          "is_total": false,
+          "unit": "USD_millions",
+          "amounts": {
+            "2025-08-31": 31909,
+            "2024-09-01": 29032
+          },
+          "source_order": 10,
+          "source_ref": "COST_AR_BS"
+        },
+        {
+          "id": "operating_lease_rou",
+          "label_original": "Operating lease right-of-use assets",
+          "label_zh": "经营租赁使用权资产",
+          "level": 2,
+          "section_path": [
+            "assets",
+            "other_assets"
+          ],
+          "row_kind": "detail",
+          "is_subtotal": false,
+          "is_total": false,
+          "unit": "USD_millions",
+          "amounts": {
+            "2025-08-31": 2725,
+            "2024-09-01": 2617
+          },
+          "source_order": 11,
+          "source_ref": "COST_AR_BS"
+        },
+        {
+          "id": "other_long_term_assets",
+          "label_original": "Other long-term assets",
+          "label_zh": "其他长期资产",
+          "level": 2,
+          "section_path": [
+            "assets",
+            "other_assets"
+          ],
+          "row_kind": "detail",
+          "is_subtotal": false,
+          "is_total": false,
+          "unit": "USD_millions",
+          "amounts": {
+            "2025-08-31": 4085,
+            "2024-09-01": 3936
+          },
+          "source_order": 12,
+          "source_ref": "COST_AR_BS"
+        },
+        {
+          "id": "total_assets",
+          "label_original": "TOTAL ASSETS",
+          "label_zh": "总资产",
+          "level": 0,
+          "section_path": [
+            "assets"
+          ],
+          "row_kind": "total",
+          "is_subtotal": false,
+          "is_total": true,
+          "unit": "USD_millions",
+          "amounts": {
+            "2025-08-31": 77099,
+            "2024-09-01": 69831
+          },
+          "source_order": 13,
+          "source_ref": "COST_AR_BS"
+        },
+        {
+          "id": "liabilities_and_equity",
+          "label_original": "LIABILITIES AND EQUITY",
+          "label_zh": "负债与权益",
+          "level": 0,
+          "section_path": [
+            "liabilities_and_equity"
+          ],
+          "row_kind": "heading",
+          "is_subtotal": false,
+          "is_total": false,
+          "unit": null,
+          "amounts": {
+            "2025-08-31": null,
+            "2024-09-01": null
+          },
+          "source_order": 14,
+          "source_ref": "COST_AR_BS"
+        },
+        {
+          "id": "current_liabilities",
+          "label_original": "CURRENT LIABILITIES",
+          "label_zh": "流动负债",
+          "level": 1,
+          "section_path": [
+            "liabilities",
+            "current_liabilities"
+          ],
+          "row_kind": "heading",
+          "is_subtotal": false,
+          "is_total": false,
+          "unit": null,
+          "amounts": {
+            "2025-08-31": null,
+            "2024-09-01": null
+          },
+          "source_order": 15,
+          "source_ref": "COST_AR_BS"
+        },
+        {
+          "id": "accounts_payable",
+          "label_original": "Accounts payable",
+          "label_zh": "应付账款",
+          "level": 2,
+          "section_path": [
+            "liabilities",
+            "current_liabilities"
+          ],
+          "row_kind": "detail",
+          "is_subtotal": false,
+          "is_total": false,
+          "unit": "USD_millions",
+          "amounts": {
+            "2025-08-31": 19783,
+            "2024-09-01": 19421
+          },
+          "source_order": 16,
+          "source_ref": "COST_AR_BS"
+        },
+        {
+          "id": "accrued_salaries_benefits",
+          "label_original": "Accrued salaries and benefits",
+          "label_zh": "应计工资及福利",
+          "level": 2,
+          "section_path": [
+            "liabilities",
+            "current_liabilities"
+          ],
+          "row_kind": "detail",
+          "is_subtotal": false,
+          "is_total": false,
+          "unit": "USD_millions",
+          "amounts": {
+            "2025-08-31": 5205,
+            "2024-09-01": 4794
+          },
+          "source_order": 17,
+          "source_ref": "COST_AR_BS"
+        },
+        {
+          "id": "accrued_member_rewards",
+          "label_original": "Accrued member rewards",
+          "label_zh": "应计会员奖励",
+          "level": 2,
+          "section_path": [
+            "liabilities",
+            "current_liabilities"
+          ],
+          "row_kind": "detail",
+          "is_subtotal": false,
+          "is_total": false,
+          "unit": "USD_millions",
+          "amounts": {
+            "2025-08-31": 2677,
+            "2024-09-01": 2435
+          },
+          "source_order": 18,
+          "source_ref": "COST_AR_BS"
+        },
+        {
+          "id": "deferred_membership_fees",
+          "label_original": "Deferred membership fees",
+          "label_zh": "递延会员费",
+          "level": 2,
+          "section_path": [
+            "liabilities",
+            "current_liabilities"
+          ],
+          "row_kind": "detail",
+          "is_subtotal": false,
+          "is_total": false,
+          "unit": "USD_millions",
+          "amounts": {
+            "2025-08-31": 2854,
+            "2024-09-01": 2501
+          },
+          "source_order": 19,
+          "source_ref": "COST_AR_BS"
+        },
+        {
+          "id": "other_current_liabilities",
+          "label_original": "Other current liabilities",
+          "label_zh": "其他流动负债",
+          "level": 2,
+          "section_path": [
+            "liabilities",
+            "current_liabilities"
+          ],
+          "row_kind": "detail",
+          "is_subtotal": false,
+          "is_total": false,
+          "unit": "USD_millions",
+          "amounts": {
+            "2025-08-31": 6589,
+            "2024-09-01": 6313
+          },
+          "source_order": 20,
+          "source_ref": "COST_AR_BS"
+        },
+        {
+          "id": "total_current_liabilities",
+          "label_original": "Total current liabilities",
+          "label_zh": "流动负债合计",
+          "level": 1,
+          "section_path": [
+            "liabilities",
+            "current_liabilities"
+          ],
+          "row_kind": "subtotal",
+          "is_subtotal": true,
+          "is_total": false,
+          "unit": "USD_millions",
+          "amounts": {
+            "2025-08-31": 37108,
+            "2024-09-01": 35464
+          },
+          "source_order": 21,
+          "source_ref": "COST_AR_BS"
+        },
+        {
+          "id": "other_liabilities",
+          "label_original": "OTHER LIABILITIES",
+          "label_zh": "其他负债",
+          "level": 1,
+          "section_path": [
+            "liabilities",
+            "other_liabilities"
+          ],
+          "row_kind": "heading",
+          "is_subtotal": false,
+          "is_total": false,
+          "unit": null,
+          "amounts": {
+            "2025-08-31": null,
+            "2024-09-01": null
+          },
+          "source_order": 22,
+          "source_ref": "COST_AR_BS"
+        },
+        {
+          "id": "long_term_debt",
+          "label_original": "Long-term debt, excluding current portion",
+          "label_zh": "长期债务，不含流动部分",
+          "level": 2,
+          "section_path": [
+            "liabilities",
+            "other_liabilities"
+          ],
+          "row_kind": "detail",
+          "is_subtotal": false,
+          "is_total": false,
+          "unit": "USD_millions",
+          "amounts": {
+            "2025-08-31": 5713,
+            "2024-09-01": 5794
+          },
+          "source_order": 23,
+          "source_ref": "COST_AR_BS"
+        },
+        {
+          "id": "long_term_operating_lease_liabilities",
+          "label_original": "Long-term operating lease liabilities",
+          "label_zh": "长期经营租赁负债",
+          "level": 2,
+          "section_path": [
+            "liabilities",
+            "other_liabilities"
+          ],
+          "row_kind": "detail",
+          "is_subtotal": false,
+          "is_total": false,
+          "unit": "USD_millions",
+          "amounts": {
+            "2025-08-31": 2460,
+            "2024-09-01": 2375
+          },
+          "source_order": 24,
+          "source_ref": "COST_AR_BS"
+        },
+        {
+          "id": "other_long_term_liabilities",
+          "label_original": "Other long-term liabilities",
+          "label_zh": "其他长期负债",
+          "level": 2,
+          "section_path": [
+            "liabilities",
+            "other_liabilities"
+          ],
+          "row_kind": "detail",
+          "is_subtotal": false,
+          "is_total": false,
+          "unit": "USD_millions",
+          "amounts": {
+            "2025-08-31": 2654,
+            "2024-09-01": 2576
+          },
+          "source_order": 25,
+          "source_ref": "COST_AR_BS"
+        },
+        {
+          "id": "total_liabilities",
+          "label_original": "TOTAL LIABILITIES",
+          "label_zh": "负债合计",
+          "level": 0,
+          "section_path": [
+            "liabilities"
+          ],
+          "row_kind": "total",
+          "is_subtotal": false,
+          "is_total": true,
+          "unit": "USD_millions",
+          "amounts": {
+            "2025-08-31": 47935,
+            "2024-09-01": 46209
+          },
+          "source_order": 26,
+          "source_ref": "COST_AR_BS"
+        },
+        {
+          "id": "commitments_contingencies",
+          "label_original": "COMMITMENTS AND CONTINGENCIES",
+          "label_zh": "承诺及或有事项",
+          "level": 0,
+          "section_path": [
+            "disclosures"
+          ],
+          "row_kind": "disclosure",
+          "is_subtotal": false,
+          "is_total": false,
+          "unit": null,
+          "amounts": {
+            "2025-08-31": null,
+            "2024-09-01": null
+          },
+          "source_order": 27,
+          "source_ref": "COST_AR_BS"
+        },
+        {
+          "id": "equity",
+          "label_original": "EQUITY",
+          "label_zh": "权益",
+          "level": 0,
+          "section_path": [
+            "equity"
+          ],
+          "row_kind": "heading",
+          "is_subtotal": false,
+          "is_total": false,
+          "unit": null,
+          "amounts": {
+            "2025-08-31": null,
+            "2024-09-01": null
+          },
+          "source_order": 28,
+          "source_ref": "COST_AR_BS"
+        },
+        {
+          "id": "preferred_stock",
+          "label_original": "Preferred stock",
+          "label_zh": "优先股",
+          "level": 1,
+          "section_path": [
+            "equity"
+          ],
+          "row_kind": "detail",
+          "is_subtotal": false,
+          "is_total": false,
+          "unit": "USD_millions",
+          "amounts": {
+            "2025-08-31": 0,
+            "2024-09-01": 0
+          },
+          "source_order": 29,
+          "source_ref": "COST_AR_BS",
+          "original_line_text": "Preferred stock $0.005 par value; 100,000,000 shares authorized; no shares issued and outstanding",
+          "original_display": {
+            "2025-08-31": "—",
+            "2024-09-01": "—"
+          }
+        },
+        {
+          "id": "common_stock",
+          "label_original": "Common stock",
+          "label_zh": "普通股账面金额",
+          "level": 1,
+          "section_path": [
+            "equity"
+          ],
+          "row_kind": "detail",
+          "is_subtotal": false,
+          "is_total": false,
+          "unit": "USD_millions",
+          "amounts": {
+            "2025-08-31": 2,
+            "2024-09-01": 2
+          },
+          "source_order": 30,
+          "source_ref": "COST_AR_BS",
+          "original_line_text": "Common stock $0.005 par value; 900,000,000 shares authorized; 443,237,000 and 443,126,000 shares issued and outstanding"
+        },
+        {
+          "id": "additional_paid_in_capital",
+          "label_original": "Additional paid-in capital",
+          "label_zh": "额外实缴资本",
+          "level": 1,
+          "section_path": [
+            "equity"
+          ],
+          "row_kind": "detail",
+          "is_subtotal": false,
+          "is_total": false,
+          "unit": "USD_millions",
+          "amounts": {
+            "2025-08-31": 8282,
+            "2024-09-01": 7829
+          },
+          "source_order": 31,
+          "source_ref": "COST_AR_BS"
+        },
+        {
+          "id": "aocl",
+          "label_original": "Accumulated other comprehensive loss",
+          "label_zh": "累计其他综合损失",
+          "level": 1,
+          "section_path": [
+            "equity"
+          ],
+          "row_kind": "detail",
+          "is_subtotal": false,
+          "is_total": false,
+          "unit": "USD_millions",
+          "amounts": {
+            "2025-08-31": -1770,
+            "2024-09-01": -1828
+          },
+          "source_order": 32,
+          "source_ref": "COST_AR_BS"
+        },
+        {
+          "id": "retained_earnings",
+          "label_original": "Retained earnings",
+          "label_zh": "留存收益",
+          "level": 1,
+          "section_path": [
+            "equity"
+          ],
+          "row_kind": "detail",
+          "is_subtotal": false,
+          "is_total": false,
+          "unit": "USD_millions",
+          "amounts": {
+            "2025-08-31": 22650,
+            "2024-09-01": 17619
+          },
+          "source_order": 33,
+          "source_ref": "COST_AR_BS"
+        },
+        {
+          "id": "total_equity",
+          "label_original": "TOTAL EQUITY",
+          "label_zh": "权益合计",
+          "level": 0,
+          "section_path": [
+            "equity"
+          ],
+          "row_kind": "total",
+          "is_subtotal": false,
+          "is_total": true,
+          "unit": "USD_millions",
+          "amounts": {
+            "2025-08-31": 29164,
+            "2024-09-01": 23622
+          },
+          "source_order": 34,
+          "source_ref": "COST_AR_BS"
+        },
+        {
+          "id": "total_liabilities_equity",
+          "label_original": "TOTAL LIABILITIES AND EQUITY",
+          "label_zh": "负债及权益合计",
+          "level": 0,
+          "section_path": [
+            "liabilities_and_equity"
+          ],
+          "row_kind": "total",
+          "is_subtotal": false,
+          "is_total": true,
+          "unit": "USD_millions",
+          "amounts": {
+            "2025-08-31": 77099,
+            "2024-09-01": 69831
+          },
+          "source_order": 35,
+          "source_ref": "COST_AR_BS"
+        }
+      ],
+      "supplemental_inputs": [
+        {
+          "id": "cf_inventory_change",
+          "label_original": "Merchandise inventories",
+          "label_zh": "经营现金流中的存货变动调整",
+          "unit": "USD_millions",
+          "period_type": "duration",
+          "amounts": {
+            "2025-08-31": 559
+          },
+          "source_ref": "COST_AR_CF",
+          "in_main_statement_aggregation": false,
+          "note": "截至 2025-08-31 的 52 周现金流；并非该日余额。"
+        },
+        {
+          "id": "cf_accounts_payable_change",
+          "label_original": "Accounts payable",
+          "label_zh": "经营现金流中的应付账款变动调整",
+          "unit": "USD_millions",
+          "period_type": "duration",
+          "amounts": {
+            "2025-08-31": 404
+          },
+          "source_ref": "COST_AR_CF",
+          "in_main_statement_aggregation": false,
+          "note": "截至 2025-08-31 的 52 周现金流；并非该日余额。"
+        },
+        {
+          "id": "common_shares_issued_outstanding",
+          "label_original": "Common shares issued and outstanding",
+          "label_zh": "普通股已发行及流通股数",
+          "unit": "shares",
+          "period_type": "instant",
+          "amounts": {
+            "2025-08-31": 443237000,
+            "2024-09-01": 443126000
+          },
+          "source_ref": "COST_AR_BS",
+          "in_main_statement_aggregation": false
+        }
+      ],
+      "footnote_tables": [],
+      "aggregation_rules": [
+        {
+          "target_row_id": "total_current_assets",
+          "component_row_ids": [
+            "cash",
+            "short_term_investments",
+            "receivables_net",
+            "inventory",
+            "other_current_assets"
+          ],
+          "operation": "sum_signed"
+        },
+        {
+          "target_row_id": "total_assets",
+          "component_row_ids": [
+            "total_current_assets",
+            "ppe_net",
+            "operating_lease_rou",
+            "other_long_term_assets"
+          ],
+          "operation": "sum_signed",
+          "note": "使用流动资产小计，不再加入其五个明细。"
+        },
+        {
+          "target_row_id": "total_current_liabilities",
+          "component_row_ids": [
+            "accounts_payable",
+            "accrued_salaries_benefits",
+            "accrued_member_rewards",
+            "deferred_membership_fees",
+            "other_current_liabilities"
+          ],
+          "operation": "sum_signed"
+        },
+        {
+          "target_row_id": "total_liabilities",
+          "component_row_ids": [
+            "total_current_liabilities",
+            "long_term_debt",
+            "long_term_operating_lease_liabilities",
+            "other_long_term_liabilities"
+          ],
+          "operation": "sum_signed"
+        },
+        {
+          "target_row_id": "total_equity",
+          "component_row_ids": [
+            "preferred_stock",
+            "common_stock",
+            "additional_paid_in_capital",
+            "aocl",
+            "retained_earnings"
+          ],
+          "operation": "sum_signed"
+        },
+        {
+          "target_row_id": "total_liabilities_equity",
+          "component_row_ids": [
+            "total_liabilities",
+            "total_equity"
+          ],
+          "operation": "sum_signed"
+        }
+      ],
+      "derived_metrics": [
+        {
+          "id": "inventory_less_payables",
+          "label_zh": "商品存货减应付账款",
+          "unit": "USD_millions",
+          "display_decimals": 0,
+          "interpretation_status": "复算值；不新增研究结论",
+          "note": "仅两项选定余额，不是完整营运资本。",
+          "calculations": [
+            {
+              "period_label": "2025-08-31",
+              "formula": "inventory-payables",
+              "inputs": [
+                {
+                  "symbol": "inventory",
+                  "row_id": "inventory",
+                  "period": "2025-08-31",
+                  "table": "statement_rows",
+                  "value": 18116
+                },
+                {
+                  "symbol": "payables",
+                  "row_id": "accounts_payable",
+                  "period": "2025-08-31",
+                  "table": "statement_rows",
+                  "value": 19783
+                }
+              ],
+              "result": -1667
+            },
+            {
+              "period_label": "2024-09-01",
+              "formula": "inventory-payables",
+              "inputs": [
+                {
+                  "symbol": "inventory",
+                  "row_id": "inventory",
+                  "period": "2024-09-01",
+                  "table": "statement_rows",
+                  "value": 18647
+                },
+                {
+                  "symbol": "payables",
+                  "row_id": "accounts_payable",
+                  "period": "2024-09-01",
+                  "table": "statement_rows",
+                  "value": 19421
+                }
+              ],
+              "result": -774
+            }
+          ]
+        },
+        {
+          "id": "inventory_less_payables_change",
+          "label_zh": "存货减应付的两期变化",
+          "unit": "USD_millions",
+          "display_decimals": 0,
+          "interpretation_status": "复算值；不新增研究结论",
+          "note": "由 2024-09-01 至 2025-08-31 的余额变化，不是期间现金流。",
+          "calculations": [
+            {
+              "period_label": "2025-08-31",
+              "formula": "(inventory_current-payables_current)-(inventory_prior-payables_prior)",
+              "inputs": [
+                {
+                  "symbol": "inventory_current",
+                  "row_id": "inventory",
+                  "period": "2025-08-31",
+                  "table": "statement_rows",
+                  "value": 18116
+                },
+                {
+                  "symbol": "payables_current",
+                  "row_id": "accounts_payable",
+                  "period": "2025-08-31",
+                  "table": "statement_rows",
+                  "value": 19783
+                },
+                {
+                  "symbol": "inventory_prior",
+                  "row_id": "inventory",
+                  "period": "2024-09-01",
+                  "table": "statement_rows",
+                  "value": 18647
+                },
+                {
+                  "symbol": "payables_prior",
+                  "row_id": "accounts_payable",
+                  "period": "2024-09-01",
+                  "table": "statement_rows",
+                  "value": 19421
+                }
+              ],
+              "result": -893
+            }
+          ]
+        },
+        {
+          "id": "reverse_balance_change_for_comparison",
+          "label_zh": "选定余额变动的反向数，用于现金流对照",
+          "unit": "USD_millions",
+          "display_decimals": 0,
+          "interpretation_status": "复算值；不新增研究结论",
+          "note": "893 仅由选定余额计算，不命名为已实现现金释放。",
+          "calculations": [
+            {
+              "period_label": "2025-08-31",
+              "formula": "(inventory_prior-payables_prior)-(inventory_current-payables_current)",
+              "inputs": [
+                {
+                  "symbol": "inventory_current",
+                  "row_id": "inventory",
+                  "period": "2025-08-31",
+                  "table": "statement_rows",
+                  "value": 18116
+                },
+                {
+                  "symbol": "payables_current",
+                  "row_id": "accounts_payable",
+                  "period": "2025-08-31",
+                  "table": "statement_rows",
+                  "value": 19783
+                },
+                {
+                  "symbol": "inventory_prior",
+                  "row_id": "inventory",
+                  "period": "2024-09-01",
+                  "table": "statement_rows",
+                  "value": 18647
+                },
+                {
+                  "symbol": "payables_prior",
+                  "row_id": "accounts_payable",
+                  "period": "2024-09-01",
+                  "table": "statement_rows",
+                  "value": 19421
+                }
+              ],
+              "result": 893
+            }
+          ]
+        },
+        {
+          "id": "inventory_payables_cashflow_adjustment",
+          "label_zh": "现金流表存货及应付变动调整合计",
+          "unit": "USD_millions",
+          "display_decimals": 0,
+          "interpretation_status": "复算值；不新增研究结论",
+          "note": "实际截至 2025-08-31 的 52 周现金流调整为 559 + 404 = 963。",
+          "calculations": [
+            {
+              "period_label": "2025-08-31",
+              "formula": "inventory_adjustment+payables_adjustment",
+              "inputs": [
+                {
+                  "symbol": "inventory_adjustment",
+                  "row_id": "cf_inventory_change",
+                  "period": "2025-08-31",
+                  "table": "supplemental_inputs",
+                  "value": 559
+                },
+                {
+                  "symbol": "payables_adjustment",
+                  "row_id": "cf_accounts_payable_change",
+                  "period": "2025-08-31",
+                  "table": "supplemental_inputs",
+                  "value": 404
+                }
+              ],
+              "result": 963
+            }
+          ]
+        },
+        {
+          "id": "cashflow_vs_reverse_balance_change_difference",
+          "label_zh": "现金流调整与余额反向变化的差额",
+          "unit": "USD_millions",
+          "display_decimals": 0,
+          "interpretation_status": "复算值；不新增研究结论",
+          "note": "差额 70 的完整来源未核齐，不填为猜测的汇兑或非现金项。",
+          "calculations": [
+            {
+              "period_label": "2025-08-31",
+              "formula": "inventory_adjustment+payables_adjustment-((inventory_prior-payables_prior)-(inventory_current-payables_current))",
+              "inputs": [
+                {
+                  "symbol": "inventory_adjustment",
+                  "row_id": "cf_inventory_change",
+                  "period": "2025-08-31",
+                  "table": "supplemental_inputs",
+                  "value": 559
+                },
+                {
+                  "symbol": "payables_adjustment",
+                  "row_id": "cf_accounts_payable_change",
+                  "period": "2025-08-31",
+                  "table": "supplemental_inputs",
+                  "value": 404
+                },
+                {
+                  "symbol": "inventory_current",
+                  "row_id": "inventory",
+                  "period": "2025-08-31",
+                  "table": "statement_rows",
+                  "value": 18116
+                },
+                {
+                  "symbol": "payables_current",
+                  "row_id": "accounts_payable",
+                  "period": "2025-08-31",
+                  "table": "statement_rows",
+                  "value": 19783
+                },
+                {
+                  "symbol": "inventory_prior",
+                  "row_id": "inventory",
+                  "period": "2024-09-01",
+                  "table": "statement_rows",
+                  "value": 18647
+                },
+                {
+                  "symbol": "payables_prior",
+                  "row_id": "accounts_payable",
+                  "period": "2024-09-01",
+                  "table": "statement_rows",
+                  "value": 19421
+                }
+              ],
+              "result": 70
+            }
+          ]
+        },
+        {
+          "id": "current_ratio",
+          "label_zh": "流动比率",
+          "unit": "ratio",
+          "display_decimals": 4,
+          "interpretation_status": "复算值；不新增研究结论",
+          "note": "比较口径，不设置通用安全阈值。",
+          "calculations": [
+            {
+              "period_label": "2025-08-31",
+              "formula": "assets/liabilities",
+              "inputs": [
+                {
+                  "symbol": "assets",
+                  "row_id": "total_current_assets",
+                  "period": "2025-08-31",
+                  "table": "statement_rows",
+                  "value": 38380
+                },
+                {
+                  "symbol": "liabilities",
+                  "row_id": "total_current_liabilities",
+                  "period": "2025-08-31",
+                  "table": "statement_rows",
+                  "value": 37108
+                }
+              ],
+              "result": 1.0342783227336423
+            },
+            {
+              "period_label": "2024-09-01",
+              "formula": "assets/liabilities",
+              "inputs": [
+                {
+                  "symbol": "assets",
+                  "row_id": "total_current_assets",
+                  "period": "2024-09-01",
+                  "table": "statement_rows",
+                  "value": 34246
+                },
+                {
+                  "symbol": "liabilities",
+                  "row_id": "total_current_liabilities",
+                  "period": "2024-09-01",
+                  "table": "statement_rows",
+                  "value": 35464
+                }
+              ],
+              "result": 0.965655312429506
+            }
+          ]
+        },
+        {
+          "id": "ppe_plus_operating_rou",
+          "label_zh": "物业设备净额加经营租赁使用权资产",
+          "unit": "USD_millions",
+          "display_decimals": 0,
+          "interpretation_status": "复算值；不新增研究结论",
+          "note": "两个账面项目的聚合，不是全部经济资源或市场价值。",
+          "calculations": [
+            {
+              "period_label": "2025-08-31",
+              "formula": "ppe+rou",
+              "inputs": [
+                {
+                  "symbol": "ppe",
+                  "row_id": "ppe_net",
+                  "period": "2025-08-31",
+                  "table": "statement_rows",
+                  "value": 31909
+                },
+                {
+                  "symbol": "rou",
+                  "row_id": "operating_lease_rou",
+                  "period": "2025-08-31",
+                  "table": "statement_rows",
+                  "value": 2725
+                }
+              ],
+              "result": 34634
+            },
+            {
+              "period_label": "2024-09-01",
+              "formula": "ppe+rou",
+              "inputs": [
+                {
+                  "symbol": "ppe",
+                  "row_id": "ppe_net",
+                  "period": "2024-09-01",
+                  "table": "statement_rows",
+                  "value": 29032
+                },
+                {
+                  "symbol": "rou",
+                  "row_id": "operating_lease_rou",
+                  "period": "2024-09-01",
+                  "table": "statement_rows",
+                  "value": 2617
+                }
+              ],
+              "result": 31649
+            }
+          ]
+        },
+        {
+          "id": "ppe_plus_rou_asset_share",
+          "label_zh": "物业设备净额与经营租赁使用权占总资产",
+          "unit": "percent",
+          "display_decimals": 4,
+          "interpretation_status": "复算值；不新增研究结论",
+          "note": "百分数已乘 100。",
+          "calculations": [
+            {
+              "period_label": "2025-08-31",
+              "formula": "100*(ppe+rou)/assets",
+              "inputs": [
+                {
+                  "symbol": "ppe",
+                  "row_id": "ppe_net",
+                  "period": "2025-08-31",
+                  "table": "statement_rows",
+                  "value": 31909
+                },
+                {
+                  "symbol": "rou",
+                  "row_id": "operating_lease_rou",
+                  "period": "2025-08-31",
+                  "table": "statement_rows",
+                  "value": 2725
+                },
+                {
+                  "symbol": "assets",
+                  "row_id": "total_assets",
+                  "period": "2025-08-31",
+                  "table": "statement_rows",
+                  "value": 77099
+                }
+              ],
+              "result": 44.92146461043593
+            },
+            {
+              "period_label": "2024-09-01",
+              "formula": "100*(ppe+rou)/assets",
+              "inputs": [
+                {
+                  "symbol": "ppe",
+                  "row_id": "ppe_net",
+                  "period": "2024-09-01",
+                  "table": "statement_rows",
+                  "value": 29032
+                },
+                {
+                  "symbol": "rou",
+                  "row_id": "operating_lease_rou",
+                  "period": "2024-09-01",
+                  "table": "statement_rows",
+                  "value": 2617
+                },
+                {
+                  "symbol": "assets",
+                  "row_id": "total_assets",
+                  "period": "2024-09-01",
+                  "table": "statement_rows",
+                  "value": 69831
+                }
+              ],
+              "result": 45.322278071343675
+            }
+          ]
+        }
+      ],
+      "share_terms": {
+        "unit": "shares_except_USD_par_value",
+        "preferred": {
+          "par_value_usd": 0.005,
+          "authorized_shares": 100000000,
+          "issued_outstanding_shares": 0
+        },
+        "common": {
+          "par_value_usd": 0.005,
+          "authorized_shares": 900000000
+        },
+        "source_ref": "COST_AR_BS",
+        "in_main_statement_aggregation": false
+      },
+      "validation": {
+        "performed_on": "2026-09-21",
+        "all_checks_passed": true,
+        "checks": [
+          {
+            "check": "aggregation",
+            "table": "statement_rows",
+            "target": "total_current_assets",
+            "period": "2025-08-31",
+            "computed": 38380,
+            "reported": 38380,
+            "passed": true
+          },
+          {
+            "check": "aggregation",
+            "table": "statement_rows",
+            "target": "total_current_assets",
+            "period": "2024-09-01",
+            "computed": 34246,
+            "reported": 34246,
+            "passed": true
+          },
+          {
+            "check": "aggregation",
+            "table": "statement_rows",
+            "target": "total_assets",
+            "period": "2025-08-31",
+            "computed": 77099,
+            "reported": 77099,
+            "passed": true
+          },
+          {
+            "check": "aggregation",
+            "table": "statement_rows",
+            "target": "total_assets",
+            "period": "2024-09-01",
+            "computed": 69831,
+            "reported": 69831,
+            "passed": true
+          },
+          {
+            "check": "aggregation",
+            "table": "statement_rows",
+            "target": "total_current_liabilities",
+            "period": "2025-08-31",
+            "computed": 37108,
+            "reported": 37108,
+            "passed": true
+          },
+          {
+            "check": "aggregation",
+            "table": "statement_rows",
+            "target": "total_current_liabilities",
+            "period": "2024-09-01",
+            "computed": 35464,
+            "reported": 35464,
+            "passed": true
+          },
+          {
+            "check": "aggregation",
+            "table": "statement_rows",
+            "target": "total_liabilities",
+            "period": "2025-08-31",
+            "computed": 47935,
+            "reported": 47935,
+            "passed": true
+          },
+          {
+            "check": "aggregation",
+            "table": "statement_rows",
+            "target": "total_liabilities",
+            "period": "2024-09-01",
+            "computed": 46209,
+            "reported": 46209,
+            "passed": true
+          },
+          {
+            "check": "aggregation",
+            "table": "statement_rows",
+            "target": "total_equity",
+            "period": "2025-08-31",
+            "computed": 29164,
+            "reported": 29164,
+            "passed": true
+          },
+          {
+            "check": "aggregation",
+            "table": "statement_rows",
+            "target": "total_equity",
+            "period": "2024-09-01",
+            "computed": 23622,
+            "reported": 23622,
+            "passed": true
+          },
+          {
+            "check": "aggregation",
+            "table": "statement_rows",
+            "target": "total_liabilities_equity",
+            "period": "2025-08-31",
+            "computed": 77099,
+            "reported": 77099,
+            "passed": true
+          },
+          {
+            "check": "aggregation",
+            "table": "statement_rows",
+            "target": "total_liabilities_equity",
+            "period": "2024-09-01",
+            "computed": 69831,
+            "reported": 69831,
+            "passed": true
+          },
+          {
+            "check": "assets_equal_liabilities_plus_equity",
+            "period": "2025-08-31",
+            "assets": 77099,
+            "liabilities_plus_equity": 77099,
+            "passed": true
+          },
+          {
+            "check": "assets_equal_liabilities_plus_equity",
+            "period": "2024-09-01",
+            "assets": 69831,
+            "liabilities_plus_equity": 69831,
+            "passed": true
+          }
+        ],
+        "cashflow_comparison": {
+          "balance_net_change": -893,
+          "reverse_balance_change": 893,
+          "reported_cashflow_adjustment": 963,
+          "difference": 70,
+          "unit": "USD_millions",
+          "not_equal": true,
+          "difference_explanation": "尚未归因，不生成未经核实的调整项。"
+        }
+      }
+    },
+    "JPM": {
+      "schema_version": "1.0",
+      "schema_description": {
+        "purpose": "已核历史教学输入；不是新公司研究、实时数据或网站生成器 schema。",
+        "row_order": "statement_rows 按原表显示顺序排列。section_path 与 level 描述层级；金额由 amounts 的时点键读取。",
+        "amount_semantics": "所有数值保留原表符号；括号负数存为负值。空白标题/无主表金额为 null，明确无发行的优先股破折号以 0 记录并保留 original_display。",
+        "aggregation": "只按 aggregation_rules 中列出的直接 component_row_ids 作 signed sum。不得将小计、其明细与最终合计一起累加。supplemental_inputs/footnote_tables 永不自动加入主表。",
+        "derived_metrics": "formula 使用 inputs 的 symbol；inputs 明确表名、行与期间，result 单位单列。ratio 为倍数，percent 为乘 100 后百分数；未格式化实数可由 display_decimals 控制显示。",
+        "pages": "printed_page 是页脚印刷页；physical_pdf_page 从 1 计数。不同文件版本分别存定位。"
+      },
+      "status": "verified_historical_teaching_input",
+      "verification_record": "business-primary-check.md",
+      "verification_date": "2026-09-21",
+      "information_checked_through": "2026-09-21",
+      "currency": "USD",
+      "default_amount_scale": 1000000,
+      "default_unit": "USD_millions",
+      "source_row_signs_preserved": true,
+      "dataset_id": "JPM-BS-20251231",
+      "entity": {
+        "name": "JPMorgan Chase & Co.",
+        "ticker": "JPM",
+        "consolidation_scope": "JPMorgan Chase & Co. 集团合并表，包括合并子公司和适用 VIE；不是 JPMorgan Chase Bank, N.A. 子公司单体表。"
+      },
+      "statement_title_original": "Consolidated balance sheets",
+      "statement_title_zh": "合并资产负债表",
+      "data_as_of": "2025-12-31",
+      "periods": [
+        {
+          "key": "2025-12-31",
+          "type": "instant",
+          "as_of": "2025-12-31",
+          "fiscal_year": 2025
+        },
+        {
+          "key": "2024-12-31",
+          "type": "instant",
+          "as_of": "2024-12-31",
+          "fiscal_year": 2024
+        }
+      ],
+      "source_documents": [
+        {
+          "id": "JPM_AR_BS",
+          "title": "JPMorgan Chase & Co. 2025 Annual Report — Consolidated balance sheets",
+          "url": "https://www.jpmorganchase.com/content/dam/jpmc/jpmorgan-chase-and-co/investor-relations/documents/annualreport-2025.pdf",
+          "format": "pdf",
+          "printed_page": 167,
+          "physical_pdf_page": 199,
+          "source_map_id": "BI-S07",
+          "underlying_10k_filing_date": "2026-02-13",
+          "filing_index_url": "https://www.sec.gov/Archives/edgar/data/19617/0001628280-26-008131-index.htm"
+        },
+        {
+          "id": "JPM_AR_NOTE12",
+          "title": "2025 Annual Report — Note 12 Loan portfolio",
+          "url": "https://www.jpmorganchase.com/content/dam/jpmc/jpmorgan-chase-and-co/investor-relations/documents/annualreport-2025.pdf",
+          "format": "pdf",
+          "printed_page": 239,
+          "physical_pdf_page": 271
+        },
+        {
+          "id": "JPM_AR_NOTE17",
+          "title": "2025 Annual Report — Note 17 Deposits",
+          "url": "https://www.jpmorganchase.com/content/dam/jpmc/jpmorgan-chase-and-co/investor-relations/documents/annualreport-2025.pdf",
+          "format": "pdf",
+          "printed_page": 277,
+          "physical_pdf_page": 309
+        }
+      ],
+      "presentation_note": "原表未分流动/非流动；按原序保留证券与贷款的构成及净小计。",
+      "statement_rows": [
+        {
+          "id": "assets",
+          "label_original": "Assets",
+          "label_zh": "资产",
+          "level": 0,
+          "section_path": [
+            "assets"
+          ],
+          "row_kind": "heading",
+          "is_subtotal": false,
+          "is_total": false,
+          "unit": null,
+          "amounts": {
+            "2025-12-31": null,
+            "2024-12-31": null
+          },
+          "source_order": 1,
+          "source_ref": "JPM_AR_BS"
+        },
+        {
+          "id": "cash_due_from_banks",
+          "label_original": "Cash and due from banks",
+          "label_zh": "现金及应收银行款",
+          "level": 1,
+          "section_path": [
+            "assets"
+          ],
+          "row_kind": "detail",
+          "is_subtotal": false,
+          "is_total": false,
+          "unit": "USD_millions",
+          "amounts": {
+            "2025-12-31": 21742,
+            "2024-12-31": 23372
+          },
+          "source_order": 2,
+          "source_ref": "JPM_AR_BS"
+        },
+        {
+          "id": "deposits_with_banks",
+          "label_original": "Deposits with banks",
+          "label_zh": "存放银行款项",
+          "level": 1,
+          "section_path": [
+            "assets"
+          ],
+          "row_kind": "detail",
+          "is_subtotal": false,
+          "is_total": false,
+          "unit": "USD_millions",
+          "amounts": {
+            "2025-12-31": 321596,
+            "2024-12-31": 445945
+          },
+          "source_order": 3,
+          "source_ref": "JPM_AR_BS"
+        },
+        {
+          "id": "fed_funds_sold_resale",
+          "label_original": "Federal funds sold and securities purchased under resale agreements",
+          "label_zh": "拆出联邦基金及买入返售证券",
+          "level": 1,
+          "section_path": [
+            "assets"
+          ],
+          "row_kind": "detail",
+          "is_subtotal": false,
+          "is_total": false,
+          "unit": "USD_millions",
+          "amounts": {
+            "2025-12-31": 336426,
+            "2024-12-31": 295001
+          },
+          "source_order": 4,
+          "source_ref": "JPM_AR_BS",
+          "original_line_text": "Federal funds sold and securities purchased under resale agreements (included $327,018 and $286,771 at fair value)"
+        },
+        {
+          "id": "securities_borrowed",
+          "label_original": "Securities borrowed",
+          "label_zh": "借入证券",
+          "level": 1,
+          "section_path": [
+            "assets"
+          ],
+          "row_kind": "detail",
+          "is_subtotal": false,
+          "is_total": false,
+          "unit": "USD_millions",
+          "amounts": {
+            "2025-12-31": 286191,
+            "2024-12-31": 219546
+          },
+          "source_order": 5,
+          "source_ref": "JPM_AR_BS",
+          "original_line_text": "Securities borrowed (included $98,111 and $83,962 at fair value)"
+        },
+        {
+          "id": "trading_assets",
+          "label_original": "Trading assets",
+          "label_zh": "交易资产",
+          "level": 1,
+          "section_path": [
+            "assets"
+          ],
+          "row_kind": "detail",
+          "is_subtotal": false,
+          "is_total": false,
+          "unit": "USD_millions",
+          "amounts": {
+            "2025-12-31": 802873,
+            "2024-12-31": 637784
+          },
+          "source_order": 6,
+          "source_ref": "JPM_AR_BS",
+          "original_line_text": "Trading assets (included assets pledged of $165,927 and $136,070)"
+        },
+        {
+          "id": "afs_securities",
+          "label_original": "Available-for-sale securities",
+          "label_zh": "可供出售证券",
+          "level": 2,
+          "section_path": [
+            "assets",
+            "investment_securities"
+          ],
+          "row_kind": "detail",
+          "is_subtotal": false,
+          "is_total": false,
+          "unit": "USD_millions",
+          "amounts": {
+            "2025-12-31": 507198,
+            "2024-12-31": 406852
+          },
+          "source_order": 7,
+          "source_ref": "JPM_AR_BS",
+          "original_line_text": "Available-for-sale securities (amortized cost of $507,226 and $411,045; included assets pledged of $7,735 and $10,162)"
+        },
+        {
+          "id": "htm_securities",
+          "label_original": "Held-to-maturity securities",
+          "label_zh": "持有至到期证券",
+          "level": 2,
+          "section_path": [
+            "assets",
+            "investment_securities"
+          ],
+          "row_kind": "detail",
+          "is_subtotal": false,
+          "is_total": false,
+          "unit": "USD_millions",
+          "amounts": {
+            "2025-12-31": 270134,
+            "2024-12-31": 274468
+          },
+          "source_order": 8,
+          "source_ref": "JPM_AR_BS"
+        },
+        {
+          "id": "investment_securities_net",
+          "label_original": "Investment securities, net of allowance for credit losses",
+          "label_zh": "投资证券，扣信用损失准备后",
+          "level": 1,
+          "section_path": [
+            "assets",
+            "investment_securities"
+          ],
+          "row_kind": "subtotal",
+          "is_subtotal": true,
+          "is_total": false,
+          "unit": "USD_millions",
+          "amounts": {
+            "2025-12-31": 777332,
+            "2024-12-31": 681320
+          },
+          "source_order": 9,
+          "source_ref": "JPM_AR_BS"
+        },
+        {
+          "id": "loans_gross",
+          "label_original": "Loans",
+          "label_zh": "贷款，未扣贷款损失准备",
+          "level": 2,
+          "section_path": [
+            "assets",
+            "loans"
+          ],
+          "row_kind": "detail",
+          "is_subtotal": false,
+          "is_total": false,
+          "unit": "USD_millions",
+          "amounts": {
+            "2025-12-31": 1493429,
+            "2024-12-31": 1347988
+          },
+          "source_order": 10,
+          "source_ref": "JPM_AR_BS",
+          "original_line_text": "Loans (included $70,684 and $41,350 at fair value)"
+        },
+        {
+          "id": "allowance_loan_losses",
+          "label_original": "Allowance for loan losses",
+          "label_zh": "贷款损失准备",
+          "level": 2,
+          "section_path": [
+            "assets",
+            "loans"
+          ],
+          "row_kind": "detail",
+          "is_subtotal": false,
+          "is_total": false,
+          "unit": "USD_millions",
+          "amounts": {
+            "2025-12-31": -25765,
+            "2024-12-31": -24345
+          },
+          "source_order": 11,
+          "source_ref": "JPM_AR_BS"
+        },
+        {
+          "id": "loans_net",
+          "label_original": "Loans, net of allowance for loan losses",
+          "label_zh": "贷款净额",
+          "level": 1,
+          "section_path": [
+            "assets",
+            "loans"
+          ],
+          "row_kind": "subtotal",
+          "is_subtotal": true,
+          "is_total": false,
+          "unit": "USD_millions",
+          "amounts": {
+            "2025-12-31": 1467664,
+            "2024-12-31": 1323643
+          },
+          "source_order": 12,
+          "source_ref": "JPM_AR_BS"
+        },
+        {
+          "id": "accrued_interest_receivables",
+          "label_original": "Accrued interest and accounts receivable",
+          "label_zh": "应计利息及应收账款",
+          "level": 1,
+          "section_path": [
+            "assets"
+          ],
+          "row_kind": "detail",
+          "is_subtotal": false,
+          "is_total": false,
+          "unit": "USD_millions",
+          "amounts": {
+            "2025-12-31": 111599,
+            "2024-12-31": 101223
+          },
+          "source_order": 13,
+          "source_ref": "JPM_AR_BS"
+        },
+        {
+          "id": "premises_equipment",
+          "label_original": "Premises and equipment",
+          "label_zh": "房屋及设备",
+          "level": 1,
+          "section_path": [
+            "assets"
+          ],
+          "row_kind": "detail",
+          "is_subtotal": false,
+          "is_total": false,
+          "unit": "USD_millions",
+          "amounts": {
+            "2025-12-31": 36244,
+            "2024-12-31": 32223
+          },
+          "source_order": 14,
+          "source_ref": "JPM_AR_BS"
+        },
+        {
+          "id": "goodwill_msrs_other_intangibles",
+          "label_original": "Goodwill, MSRs and other intangible assets",
+          "label_zh": "商誉、按揭服务权及其他无形资产",
+          "level": 1,
+          "section_path": [
+            "assets"
+          ],
+          "row_kind": "detail",
+          "is_subtotal": false,
+          "is_total": false,
+          "unit": "USD_millions",
+          "amounts": {
+            "2025-12-31": 64458,
+            "2024-12-31": 64560
+          },
+          "source_order": 15,
+          "source_ref": "JPM_AR_BS"
+        },
+        {
+          "id": "other_assets",
+          "label_original": "Other assets",
+          "label_zh": "其他资产",
+          "level": 1,
+          "section_path": [
+            "assets"
+          ],
+          "row_kind": "detail",
+          "is_subtotal": false,
+          "is_total": false,
+          "unit": "USD_millions",
+          "amounts": {
+            "2025-12-31": 198775,
+            "2024-12-31": 178197
+          },
+          "source_order": 16,
+          "source_ref": "JPM_AR_BS",
+          "original_line_text": "Other assets (included $15,849 and $15,122 at fair value and assets pledged of $11,984 and $6,288)"
+        },
+        {
+          "id": "total_assets",
+          "label_original": "Total assets",
+          "label_zh": "总资产",
+          "level": 0,
+          "section_path": [
+            "assets"
+          ],
+          "row_kind": "total",
+          "is_subtotal": false,
+          "is_total": true,
+          "unit": "USD_millions",
+          "amounts": {
+            "2025-12-31": 4424900,
+            "2024-12-31": 4002814
+          },
+          "source_order": 17,
+          "source_ref": "JPM_AR_BS",
+          "original_line_text": "Total assets(a)"
+        },
+        {
+          "id": "liabilities",
+          "label_original": "Liabilities",
+          "label_zh": "负债",
+          "level": 0,
+          "section_path": [
+            "liabilities"
+          ],
+          "row_kind": "heading",
+          "is_subtotal": false,
+          "is_total": false,
+          "unit": null,
+          "amounts": {
+            "2025-12-31": null,
+            "2024-12-31": null
+          },
+          "source_order": 18,
+          "source_ref": "JPM_AR_BS"
+        },
+        {
+          "id": "customer_deposits",
+          "label_original": "Deposits",
+          "label_zh": "客户存款",
+          "level": 1,
+          "section_path": [
+            "liabilities"
+          ],
+          "row_kind": "detail",
+          "is_subtotal": false,
+          "is_total": false,
+          "unit": "USD_millions",
+          "amounts": {
+            "2025-12-31": 2559320,
+            "2024-12-31": 2406032
+          },
+          "source_order": 19,
+          "source_ref": "JPM_AR_BS",
+          "original_line_text": "Deposits (included $20,930 and $33,768 at fair value)"
+        },
+        {
+          "id": "fed_funds_purchased_repo",
+          "label_original": "Federal funds purchased and securities loaned or sold under repurchase agreements",
+          "label_zh": "拆入联邦基金及贷出或回购证券",
+          "level": 1,
+          "section_path": [
+            "liabilities"
+          ],
+          "row_kind": "detail",
+          "is_subtotal": false,
+          "is_total": false,
+          "unit": "USD_millions",
+          "amounts": {
+            "2025-12-31": 442396,
+            "2024-12-31": 296835
+          },
+          "source_order": 20,
+          "source_ref": "JPM_AR_BS",
+          "original_line_text": "Federal funds purchased and securities loaned or sold under repurchase agreements (included $360,194 and $226,329 at fair value)"
+        },
+        {
+          "id": "short_term_borrowings",
+          "label_original": "Short-term borrowings",
+          "label_zh": "短期借款",
+          "level": 1,
+          "section_path": [
+            "liabilities"
+          ],
+          "row_kind": "detail",
+          "is_subtotal": false,
+          "is_total": false,
+          "unit": "USD_millions",
+          "amounts": {
+            "2025-12-31": 64776,
+            "2024-12-31": 52893
+          },
+          "source_order": 21,
+          "source_ref": "JPM_AR_BS",
+          "original_line_text": "Short-term borrowings (included $32,460 and $26,521 at fair value)"
+        },
+        {
+          "id": "trading_liabilities",
+          "label_original": "Trading liabilities",
+          "label_zh": "交易负债",
+          "level": 1,
+          "section_path": [
+            "liabilities"
+          ],
+          "row_kind": "detail",
+          "is_subtotal": false,
+          "is_total": false,
+          "unit": "USD_millions",
+          "amounts": {
+            "2025-12-31": 216019,
+            "2024-12-31": 192883
+          },
+          "source_order": 22,
+          "source_ref": "JPM_AR_BS"
+        },
+        {
+          "id": "accounts_payable_other_liabilities",
+          "label_original": "Accounts payable and other liabilities",
+          "label_zh": "应付账款及其他负债",
+          "level": 1,
+          "section_path": [
+            "liabilities"
+          ],
+          "row_kind": "detail",
+          "is_subtotal": false,
+          "is_total": false,
+          "unit": "USD_millions",
+          "amounts": {
+            "2025-12-31": 316794,
+            "2024-12-31": 280672
+          },
+          "source_order": 23,
+          "source_ref": "JPM_AR_BS",
+          "original_line_text": "Accounts payable and other liabilities (included $6,660 and $5,893 at fair value)"
+        },
+        {
+          "id": "vie_beneficial_interests",
+          "label_original": "Beneficial interests issued by consolidated VIEs",
+          "label_zh": "合并 VIE 发行的受益权益",
+          "level": 1,
+          "section_path": [
+            "liabilities"
+          ],
+          "row_kind": "detail",
+          "is_subtotal": false,
+          "is_total": false,
+          "unit": "USD_millions",
+          "amounts": {
+            "2025-12-31": 27951,
+            "2024-12-31": 27323
+          },
+          "source_order": 24,
+          "source_ref": "JPM_AR_BS",
+          "original_line_text": "Beneficial interests issued by consolidated VIEs (included $5 and $1 at fair value)"
+        },
+        {
+          "id": "long_term_debt",
+          "label_original": "Long-term debt",
+          "label_zh": "长期债务",
+          "level": 1,
+          "section_path": [
+            "liabilities"
+          ],
+          "row_kind": "detail",
+          "is_subtotal": false,
+          "is_total": false,
+          "unit": "USD_millions",
+          "amounts": {
+            "2025-12-31": 435206,
+            "2024-12-31": 401418
+          },
+          "source_order": 25,
+          "source_ref": "JPM_AR_BS",
+          "original_line_text": "Long-term debt (included $134,559 and $100,780 at fair value)"
+        },
+        {
+          "id": "total_liabilities",
+          "label_original": "Total liabilities",
+          "label_zh": "负债合计",
+          "level": 0,
+          "section_path": [
+            "liabilities"
+          ],
+          "row_kind": "total",
+          "is_subtotal": false,
+          "is_total": true,
+          "unit": "USD_millions",
+          "amounts": {
+            "2025-12-31": 4062462,
+            "2024-12-31": 3658056
+          },
+          "source_order": 26,
+          "source_ref": "JPM_AR_BS",
+          "original_line_text": "Total liabilities(a)"
+        },
+        {
+          "id": "commitments_contingencies",
+          "label_original": "Commitments and contingencies",
+          "label_zh": "承诺及或有事项",
+          "level": 0,
+          "section_path": [
+            "disclosures"
+          ],
+          "row_kind": "disclosure",
+          "is_subtotal": false,
+          "is_total": false,
+          "unit": null,
+          "amounts": {
+            "2025-12-31": null,
+            "2024-12-31": null
+          },
+          "source_order": 27,
+          "source_ref": "JPM_AR_BS",
+          "original_line_text": "Commitments and contingencies (refer to Notes 28, 29 and 30)"
+        },
+        {
+          "id": "equity",
+          "label_original": "Stockholders’ equity",
+          "label_zh": "股东权益",
+          "level": 0,
+          "section_path": [
+            "equity"
+          ],
+          "row_kind": "heading",
+          "is_subtotal": false,
+          "is_total": false,
+          "unit": null,
+          "amounts": {
+            "2025-12-31": null,
+            "2024-12-31": null
+          },
+          "source_order": 28,
+          "source_ref": "JPM_AR_BS"
+        },
+        {
+          "id": "preferred_stock",
+          "label_original": "Preferred stock",
+          "label_zh": "优先股",
+          "level": 1,
+          "section_path": [
+            "equity"
+          ],
+          "row_kind": "detail",
+          "is_subtotal": false,
+          "is_total": false,
+          "unit": "USD_millions",
+          "amounts": {
+            "2025-12-31": 20045,
+            "2024-12-31": 20050
+          },
+          "source_order": 29,
+          "source_ref": "JPM_AR_BS",
+          "original_line_text": "Preferred stock ($1 par value; authorized 200,000,000 shares: issued 2,005,375 and 2,005,375 shares)"
+        },
+        {
+          "id": "common_stock",
+          "label_original": "Common stock",
+          "label_zh": "普通股账面金额",
+          "level": 1,
+          "section_path": [
+            "equity"
+          ],
+          "row_kind": "detail",
+          "is_subtotal": false,
+          "is_total": false,
+          "unit": "USD_millions",
+          "amounts": {
+            "2025-12-31": 4105,
+            "2024-12-31": 4105
+          },
+          "source_order": 30,
+          "source_ref": "JPM_AR_BS",
+          "original_line_text": "Common stock ($1 par value; authorized 9,000,000,000 shares; issued 4,104,933,895 shares)"
+        },
+        {
+          "id": "additional_paid_in_capital",
+          "label_original": "Additional paid-in capital",
+          "label_zh": "额外实缴资本",
+          "level": 1,
+          "section_path": [
+            "equity"
+          ],
+          "row_kind": "detail",
+          "is_subtotal": false,
+          "is_total": false,
+          "unit": "USD_millions",
+          "amounts": {
+            "2025-12-31": 91114,
+            "2024-12-31": 90911
+          },
+          "source_order": 31,
+          "source_ref": "JPM_AR_BS"
+        },
+        {
+          "id": "retained_earnings",
+          "label_original": "Retained earnings",
+          "label_zh": "留存收益",
+          "level": 1,
+          "section_path": [
+            "equity"
+          ],
+          "row_kind": "detail",
+          "is_subtotal": false,
+          "is_total": false,
+          "unit": "USD_millions",
+          "amounts": {
+            "2025-12-31": 416055,
+            "2024-12-31": 376166
+          },
+          "source_order": 32,
+          "source_ref": "JPM_AR_BS"
+        },
+        {
+          "id": "aocl",
+          "label_original": "Accumulated other comprehensive losses",
+          "label_zh": "累计其他综合损失",
+          "level": 1,
+          "section_path": [
+            "equity"
+          ],
+          "row_kind": "detail",
+          "is_subtotal": false,
+          "is_total": false,
+          "unit": "USD_millions",
+          "amounts": {
+            "2025-12-31": -4290,
+            "2024-12-31": -12456
+          },
+          "source_order": 33,
+          "source_ref": "JPM_AR_BS"
+        },
+        {
+          "id": "treasury_stock",
+          "label_original": "Treasury stock, at cost",
+          "label_zh": "库存股，按成本",
+          "level": 1,
+          "section_path": [
+            "equity"
+          ],
+          "row_kind": "detail",
+          "is_subtotal": false,
+          "is_total": false,
+          "unit": "USD_millions",
+          "amounts": {
+            "2025-12-31": -164591,
+            "2024-12-31": -134018
+          },
+          "source_order": 34,
+          "source_ref": "JPM_AR_BS",
+          "original_line_text": "Treasury stock, at cost (1,408,661,319 and 1,307,313,494 shares)"
+        },
+        {
+          "id": "total_equity",
+          "label_original": "Total stockholders’ equity",
+          "label_zh": "股东权益合计",
+          "level": 0,
+          "section_path": [
+            "equity"
+          ],
+          "row_kind": "total",
+          "is_subtotal": false,
+          "is_total": true,
+          "unit": "USD_millions",
+          "amounts": {
+            "2025-12-31": 362438,
+            "2024-12-31": 344758
+          },
+          "source_order": 35,
+          "source_ref": "JPM_AR_BS"
+        },
+        {
+          "id": "total_liabilities_equity",
+          "label_original": "Total liabilities and stockholders’ equity",
+          "label_zh": "负债及股东权益合计",
+          "level": 0,
+          "section_path": [
+            "liabilities_and_equity"
+          ],
+          "row_kind": "total",
+          "is_subtotal": false,
+          "is_total": true,
+          "unit": "USD_millions",
+          "amounts": {
+            "2025-12-31": 4424900,
+            "2024-12-31": 4002814
+          },
+          "source_order": 36,
+          "source_ref": "JPM_AR_BS"
+        }
+      ],
+      "supplemental_inputs": [
+        {
+          "id": "retained_loans",
+          "label_original": "Retained",
+          "label_zh": "留存贷款",
+          "unit": "USD_millions",
+          "period_type": "instant",
+          "amounts": {
+            "2025-12-31": 1408905,
+            "2024-12-31": 1299590
+          },
+          "source_ref": "JPM_AR_NOTE12",
+          "in_main_statement_aggregation": false
+        },
+        {
+          "id": "hfs_loans",
+          "label_original": "Held-for-sale",
+          "label_zh": "持有待售贷款",
+          "unit": "USD_millions",
+          "period_type": "instant",
+          "amounts": {
+            "2025-12-31": 13840,
+            "2024-12-31": 7048
+          },
+          "source_ref": "JPM_AR_NOTE12",
+          "in_main_statement_aggregation": false
+        },
+        {
+          "id": "fair_value_loans",
+          "label_original": "At fair value",
+          "label_zh": "按公允价值计量贷款",
+          "unit": "USD_millions",
+          "period_type": "instant",
+          "amounts": {
+            "2025-12-31": 70684,
+            "2024-12-31": 41350
+          },
+          "source_ref": "JPM_AR_NOTE12",
+          "in_main_statement_aggregation": false
+        },
+        {
+          "id": "us_noninterest_deposits",
+          "label_original": "U.S. offices — Noninterest-bearing",
+          "label_zh": "美国机构无息存款",
+          "unit": "USD_millions",
+          "period_type": "instant",
+          "amounts": {
+            "2025-12-31": 583342,
+            "2024-12-31": 592500
+          },
+          "source_ref": "JPM_AR_NOTE17",
+          "in_main_statement_aggregation": false
+        },
+        {
+          "id": "non_us_noninterest_deposits",
+          "label_original": "Non-U.S. offices — Noninterest-bearing",
+          "label_zh": "非美国机构无息存款",
+          "unit": "USD_millions",
+          "period_type": "instant",
+          "amounts": {
+            "2025-12-31": 37057,
+            "2024-12-31": 26806
+          },
+          "source_ref": "JPM_AR_NOTE17",
+          "in_main_statement_aggregation": false
+        },
+        {
+          "id": "common_shares_issued",
+          "label_original": "Common stock — issued shares",
+          "label_zh": "普通股已发行股数",
+          "unit": "shares",
+          "period_type": "instant",
+          "amounts": {
+            "2025-12-31": 4104933895,
+            "2024-12-31": 4104933895
+          },
+          "source_ref": "JPM_AR_BS",
+          "in_main_statement_aggregation": false
+        },
+        {
+          "id": "treasury_shares",
+          "label_original": "Treasury stock — shares",
+          "label_zh": "库存股股数",
+          "unit": "shares",
+          "period_type": "instant",
+          "amounts": {
+            "2025-12-31": 1408661319,
+            "2024-12-31": 1307313494
+          },
+          "source_ref": "JPM_AR_BS",
+          "in_main_statement_aggregation": false
+        }
+      ],
+      "footnote_tables": [
+        {
+          "id": "consolidated_vie_note_a",
+          "label_original": "Assets and liabilities related to VIEs consolidated by the Firm",
+          "label_zh": "已合并 VIE 的资产负债说明",
+          "source_ref": "JPM_AR_BS",
+          "already_included_in_main_statement": true,
+          "do_not_add_to_main_totals": true,
+          "note_zh": "该表为合并表内数额的补充说明，排除合并抵销的集团内部余额。",
+          "rows": [
+            {
+              "id": "vie_assets",
+              "label_original": "Assets",
+              "label_zh": "资产",
+              "level": 0,
+              "section_path": [
+                "assets"
+              ],
+              "row_kind": "heading",
+              "is_subtotal": false,
+              "is_total": false,
+              "unit": null,
+              "amounts": {
+                "2025-12-31": null,
+                "2024-12-31": null
+              },
+              "source_order": 1,
+              "source_ref": "JPM_AR_BS"
+            },
+            {
+              "id": "vie_trading_assets",
+              "label_original": "Trading assets",
+              "label_zh": "交易资产",
+              "level": 1,
+              "section_path": [
+                "assets"
+              ],
+              "row_kind": "detail",
+              "is_subtotal": false,
+              "is_total": false,
+              "unit": "USD_millions",
+              "amounts": {
+                "2025-12-31": 4835,
+                "2024-12-31": 3885
+              },
+              "source_order": 2,
+              "source_ref": "JPM_AR_BS"
+            },
+            {
+              "id": "vie_loans",
+              "label_original": "Loans",
+              "label_zh": "贷款",
+              "level": 1,
+              "section_path": [
+                "assets"
+              ],
+              "row_kind": "detail",
+              "is_subtotal": false,
+              "is_total": false,
+              "unit": "USD_millions",
+              "amounts": {
+                "2025-12-31": 37777,
+                "2024-12-31": 36510
+              },
+              "source_order": 3,
+              "source_ref": "JPM_AR_BS"
+            },
+            {
+              "id": "vie_all_other_assets",
+              "label_original": "All other assets",
+              "label_zh": "其他资产",
+              "level": 1,
+              "section_path": [
+                "assets"
+              ],
+              "row_kind": "detail",
+              "is_subtotal": false,
+              "is_total": false,
+              "unit": "USD_millions",
+              "amounts": {
+                "2025-12-31": 683,
+                "2024-12-31": 681
+              },
+              "source_order": 4,
+              "source_ref": "JPM_AR_BS"
+            },
+            {
+              "id": "vie_total_assets",
+              "label_original": "Total assets",
+              "label_zh": "资产合计",
+              "level": 0,
+              "section_path": [
+                "assets"
+              ],
+              "row_kind": "total",
+              "is_subtotal": false,
+              "is_total": true,
+              "unit": "USD_millions",
+              "amounts": {
+                "2025-12-31": 43295,
+                "2024-12-31": 41076
+              },
+              "source_order": 5,
+              "source_ref": "JPM_AR_BS"
+            },
+            {
+              "id": "vie_liabilities",
+              "label_original": "Liabilities",
+              "label_zh": "负债",
+              "level": 0,
+              "section_path": [
+                "liabilities"
+              ],
+              "row_kind": "heading",
+              "is_subtotal": false,
+              "is_total": false,
+              "unit": null,
+              "amounts": {
+                "2025-12-31": null,
+                "2024-12-31": null
+              },
+              "source_order": 6,
+              "source_ref": "JPM_AR_BS"
+            },
+            {
+              "id": "vie_beneficial_interests",
+              "label_original": "Beneficial interests issued by consolidated VIEs",
+              "label_zh": "合并 VIE 发行的受益权益",
+              "level": 1,
+              "section_path": [
+                "liabilities"
+              ],
+              "row_kind": "detail",
+              "is_subtotal": false,
+              "is_total": false,
+              "unit": "USD_millions",
+              "amounts": {
+                "2025-12-31": 27951,
+                "2024-12-31": 27323
+              },
+              "source_order": 7,
+              "source_ref": "JPM_AR_BS"
+            },
+            {
+              "id": "vie_all_other_liabilities",
+              "label_original": "All other liabilities",
+              "label_zh": "其他负债",
+              "level": 1,
+              "section_path": [
+                "liabilities"
+              ],
+              "row_kind": "detail",
+              "is_subtotal": false,
+              "is_total": false,
+              "unit": "USD_millions",
+              "amounts": {
+                "2025-12-31": 691,
+                "2024-12-31": 454
+              },
+              "source_order": 8,
+              "source_ref": "JPM_AR_BS"
+            },
+            {
+              "id": "vie_total_liabilities",
+              "label_original": "Total liabilities",
+              "label_zh": "负债合计",
+              "level": 0,
+              "section_path": [
+                "liabilities"
+              ],
+              "row_kind": "total",
+              "is_subtotal": false,
+              "is_total": true,
+              "unit": "USD_millions",
+              "amounts": {
+                "2025-12-31": 28642,
+                "2024-12-31": 27777
+              },
+              "source_order": 9,
+              "source_ref": "JPM_AR_BS"
+            }
+          ],
+          "aggregation_rules": [
+            {
+              "target_row_id": "vie_total_assets",
+              "component_row_ids": [
+                "vie_trading_assets",
+                "vie_loans",
+                "vie_all_other_assets"
+              ],
+              "operation": "sum_signed"
+            },
+            {
+              "target_row_id": "vie_total_liabilities",
+              "component_row_ids": [
+                "vie_beneficial_interests",
+                "vie_all_other_liabilities"
+              ],
+              "operation": "sum_signed"
+            }
+          ]
+        }
+      ],
+      "aggregation_rules": [
+        {
+          "target_row_id": "investment_securities_net",
+          "component_row_ids": [
+            "afs_securities",
+            "htm_securities"
+          ],
+          "operation": "sum_signed"
+        },
+        {
+          "target_row_id": "loans_net",
+          "component_row_ids": [
+            "loans_gross",
+            "allowance_loan_losses"
+          ],
+          "operation": "sum_signed",
+          "note": "allowance_loan_losses 已带负号，直接相加。"
+        },
+        {
+          "target_row_id": "total_assets",
+          "component_row_ids": [
+            "cash_due_from_banks",
+            "deposits_with_banks",
+            "fed_funds_sold_resale",
+            "securities_borrowed",
+            "trading_assets",
+            "investment_securities_net",
+            "loans_net",
+            "accrued_interest_receivables",
+            "premises_equipment",
+            "goodwill_msrs_other_intangibles",
+            "other_assets"
+          ],
+          "operation": "sum_signed",
+          "note": "只加入投资证券与贷款净小计，不加入其构成；不加入 VIE 脚注金额。"
+        },
+        {
+          "target_row_id": "total_liabilities",
+          "component_row_ids": [
+            "customer_deposits",
+            "fed_funds_purchased_repo",
+            "short_term_borrowings",
+            "trading_liabilities",
+            "accounts_payable_other_liabilities",
+            "vie_beneficial_interests",
+            "long_term_debt"
+          ],
+          "operation": "sum_signed"
+        },
+        {
+          "target_row_id": "total_equity",
+          "component_row_ids": [
+            "preferred_stock",
+            "common_stock",
+            "additional_paid_in_capital",
+            "retained_earnings",
+            "aocl",
+            "treasury_stock"
+          ],
+          "operation": "sum_signed"
+        },
+        {
+          "target_row_id": "total_liabilities_equity",
+          "component_row_ids": [
+            "total_liabilities",
+            "total_equity"
+          ],
+          "operation": "sum_signed"
+        }
+      ],
+      "derived_metrics": [
+        {
+          "id": "gross_loans_to_customer_deposits",
+          "label_zh": "未扣准备贷款与客户存款之比",
+          "unit": "percent",
+          "display_decimals": 4,
+          "interpretation_status": "复算值；不新增研究结论",
+          "note": "分母为负债方客户存款，不能使用资产方 deposits_with_banks。",
+          "calculations": [
+            {
+              "period_label": "2025-12-31",
+              "formula": "100*loans/deposits",
+              "inputs": [
+                {
+                  "symbol": "loans",
+                  "row_id": "loans_gross",
+                  "period": "2025-12-31",
+                  "table": "statement_rows",
+                  "value": 1493429
+                },
+                {
+                  "symbol": "deposits",
+                  "row_id": "customer_deposits",
+                  "period": "2025-12-31",
+                  "table": "statement_rows",
+                  "value": 2559320
+                }
+              ],
+              "result": 58.352570213963084
+            },
+            {
+              "period_label": "2024-12-31",
+              "formula": "100*loans/deposits",
+              "inputs": [
+                {
+                  "symbol": "loans",
+                  "row_id": "loans_gross",
+                  "period": "2024-12-31",
+                  "table": "statement_rows",
+                  "value": 1347988
+                },
+                {
+                  "symbol": "deposits",
+                  "row_id": "customer_deposits",
+                  "period": "2024-12-31",
+                  "table": "statement_rows",
+                  "value": 2406032
+                }
+              ],
+              "result": 56.02535627123829
+            }
+          ]
+        },
+        {
+          "id": "loan_categories_reconcile",
+          "label_zh": "Note 12 贷款三类构成合计",
+          "unit": "USD_millions",
+          "display_decimals": 0,
+          "interpretation_status": "复算值；不新增研究结论",
+          "note": "构成已包含在 loans_gross，不得另加总资产。",
+          "calculations": [
+            {
+              "period_label": "2025-12-31",
+              "formula": "retained+hfs+fair_value",
+              "inputs": [
+                {
+                  "symbol": "retained",
+                  "row_id": "retained_loans",
+                  "period": "2025-12-31",
+                  "table": "supplemental_inputs",
+                  "value": 1408905
+                },
+                {
+                  "symbol": "hfs",
+                  "row_id": "hfs_loans",
+                  "period": "2025-12-31",
+                  "table": "supplemental_inputs",
+                  "value": 13840
+                },
+                {
+                  "symbol": "fair_value",
+                  "row_id": "fair_value_loans",
+                  "period": "2025-12-31",
+                  "table": "supplemental_inputs",
+                  "value": 70684
+                }
+              ],
+              "result": 1493429
+            },
+            {
+              "period_label": "2024-12-31",
+              "formula": "retained+hfs+fair_value",
+              "inputs": [
+                {
+                  "symbol": "retained",
+                  "row_id": "retained_loans",
+                  "period": "2024-12-31",
+                  "table": "supplemental_inputs",
+                  "value": 1299590
+                },
+                {
+                  "symbol": "hfs",
+                  "row_id": "hfs_loans",
+                  "period": "2024-12-31",
+                  "table": "supplemental_inputs",
+                  "value": 7048
+                },
+                {
+                  "symbol": "fair_value",
+                  "row_id": "fair_value_loans",
+                  "period": "2024-12-31",
+                  "table": "supplemental_inputs",
+                  "value": 41350
+                }
+              ],
+              "result": 1347988
+            }
+          ]
+        },
+        {
+          "id": "allowance_to_retained_loans",
+          "label_zh": "贷款损失准备与留存贷款之比",
+          "unit": "percent",
+          "display_decimals": 4,
+          "interpretation_status": "复算值；不新增研究结论",
+          "note": "准备主表行带负号，计算覆盖比例时取正额；分母与 retained loans 适用范围匹配。",
+          "calculations": [
+            {
+              "period_label": "2025-12-31",
+              "formula": "100*(-allowance)/retained",
+              "inputs": [
+                {
+                  "symbol": "allowance",
+                  "row_id": "allowance_loan_losses",
+                  "period": "2025-12-31",
+                  "table": "statement_rows",
+                  "value": -25765
+                },
+                {
+                  "symbol": "retained",
+                  "row_id": "retained_loans",
+                  "period": "2025-12-31",
+                  "table": "supplemental_inputs",
+                  "value": 1408905
+                }
+              ],
+              "result": 1.8287251447045756
+            },
+            {
+              "period_label": "2024-12-31",
+              "formula": "100*(-allowance)/retained",
+              "inputs": [
+                {
+                  "symbol": "allowance",
+                  "row_id": "allowance_loan_losses",
+                  "period": "2024-12-31",
+                  "table": "statement_rows",
+                  "value": -24345
+                },
+                {
+                  "symbol": "retained",
+                  "row_id": "retained_loans",
+                  "period": "2024-12-31",
+                  "table": "supplemental_inputs",
+                  "value": 1299590
+                }
+              ],
+              "result": 1.8732831123662077
+            }
+          ]
+        },
+        {
+          "id": "allowance_to_all_loans_denominator_comparison",
+          "label_zh": "错分母对照：准备除全部贷款",
+          "unit": "percent",
+          "display_decimals": 4,
+          "interpretation_status": "复算值；不新增研究结论",
+          "note": "仅展示分母差异，不能冒充披露的 retained-loan allowance ratio。",
+          "calculations": [
+            {
+              "period_label": "2025-12-31",
+              "formula": "100*(-allowance)/loans",
+              "inputs": [
+                {
+                  "symbol": "allowance",
+                  "row_id": "allowance_loan_losses",
+                  "period": "2025-12-31",
+                  "table": "statement_rows",
+                  "value": -25765
+                },
+                {
+                  "symbol": "loans",
+                  "row_id": "loans_gross",
+                  "period": "2025-12-31",
+                  "table": "statement_rows",
+                  "value": 1493429
+                }
+              ],
+              "result": 1.725224299246901
+            }
+          ]
+        },
+        {
+          "id": "noninterest_deposits",
+          "label_zh": "无息存款合计",
+          "unit": "USD_millions",
+          "display_decimals": 0,
+          "interpretation_status": "复算值；不新增研究结论",
+          "note": "客户存款的构成，不是新增负债。",
+          "calculations": [
+            {
+              "period_label": "2025-12-31",
+              "formula": "us+non_us",
+              "inputs": [
+                {
+                  "symbol": "us",
+                  "row_id": "us_noninterest_deposits",
+                  "period": "2025-12-31",
+                  "table": "supplemental_inputs",
+                  "value": 583342
+                },
+                {
+                  "symbol": "non_us",
+                  "row_id": "non_us_noninterest_deposits",
+                  "period": "2025-12-31",
+                  "table": "supplemental_inputs",
+                  "value": 37057
+                }
+              ],
+              "result": 620399
+            },
+            {
+              "period_label": "2024-12-31",
+              "formula": "us+non_us",
+              "inputs": [
+                {
+                  "symbol": "us",
+                  "row_id": "us_noninterest_deposits",
+                  "period": "2024-12-31",
+                  "table": "supplemental_inputs",
+                  "value": 592500
+                },
+                {
+                  "symbol": "non_us",
+                  "row_id": "non_us_noninterest_deposits",
+                  "period": "2024-12-31",
+                  "table": "supplemental_inputs",
+                  "value": 26806
+                }
+              ],
+              "result": 619306
+            }
+          ]
+        },
+        {
+          "id": "noninterest_deposit_share",
+          "label_zh": "无息存款占客户存款比例",
+          "unit": "percent",
+          "display_decimals": 4,
+          "interpretation_status": "复算值；不新增研究结论",
+          "note": "不由此单独推断未来存款成本或稳定性。",
+          "calculations": [
+            {
+              "period_label": "2025-12-31",
+              "formula": "100*(us+non_us)/deposits",
+              "inputs": [
+                {
+                  "symbol": "us",
+                  "row_id": "us_noninterest_deposits",
+                  "period": "2025-12-31",
+                  "table": "supplemental_inputs",
+                  "value": 583342
+                },
+                {
+                  "symbol": "non_us",
+                  "row_id": "non_us_noninterest_deposits",
+                  "period": "2025-12-31",
+                  "table": "supplemental_inputs",
+                  "value": 37057
+                },
+                {
+                  "symbol": "deposits",
+                  "row_id": "customer_deposits",
+                  "period": "2025-12-31",
+                  "table": "statement_rows",
+                  "value": 2559320
+                }
+              ],
+              "result": 24.24077489333104
+            },
+            {
+              "period_label": "2024-12-31",
+              "formula": "100*(us+non_us)/deposits",
+              "inputs": [
+                {
+                  "symbol": "us",
+                  "row_id": "us_noninterest_deposits",
+                  "period": "2024-12-31",
+                  "table": "supplemental_inputs",
+                  "value": 592500
+                },
+                {
+                  "symbol": "non_us",
+                  "row_id": "non_us_noninterest_deposits",
+                  "period": "2024-12-31",
+                  "table": "supplemental_inputs",
+                  "value": 26806
+                },
+                {
+                  "symbol": "deposits",
+                  "row_id": "customer_deposits",
+                  "period": "2024-12-31",
+                  "table": "statement_rows",
+                  "value": 2406032
+                }
+              ],
+              "result": 25.73972415994467
+            }
+          ]
+        },
+        {
+          "id": "common_equity",
+          "label_zh": "普通股股东权益",
+          "unit": "USD_millions",
+          "display_decimals": 0,
+          "interpretation_status": "复算值；不新增研究结论",
+          "note": "不等于 CET1 或市场价值。",
+          "calculations": [
+            {
+              "period_label": "2025-12-31",
+              "formula": "equity-preferred",
+              "inputs": [
+                {
+                  "symbol": "equity",
+                  "row_id": "total_equity",
+                  "period": "2025-12-31",
+                  "table": "statement_rows",
+                  "value": 362438
+                },
+                {
+                  "symbol": "preferred",
+                  "row_id": "preferred_stock",
+                  "period": "2025-12-31",
+                  "table": "statement_rows",
+                  "value": 20045
+                }
+              ],
+              "result": 342393
+            },
+            {
+              "period_label": "2024-12-31",
+              "formula": "equity-preferred",
+              "inputs": [
+                {
+                  "symbol": "equity",
+                  "row_id": "total_equity",
+                  "period": "2024-12-31",
+                  "table": "statement_rows",
+                  "value": 344758
+                },
+                {
+                  "symbol": "preferred",
+                  "row_id": "preferred_stock",
+                  "period": "2024-12-31",
+                  "table": "statement_rows",
+                  "value": 20050
+                }
+              ],
+              "result": 324708
+            }
+          ]
+        },
+        {
+          "id": "common_shares_outstanding",
+          "label_zh": "普通股流通股数",
+          "unit": "shares",
+          "display_decimals": 0,
+          "interpretation_status": "复算值；不新增研究结论",
+          "note": "股数为 shares，不是百万股。",
+          "calculations": [
+            {
+              "period_label": "2025-12-31",
+              "formula": "issued-treasury",
+              "inputs": [
+                {
+                  "symbol": "issued",
+                  "row_id": "common_shares_issued",
+                  "period": "2025-12-31",
+                  "table": "supplemental_inputs",
+                  "value": 4104933895
+                },
+                {
+                  "symbol": "treasury",
+                  "row_id": "treasury_shares",
+                  "period": "2025-12-31",
+                  "table": "supplemental_inputs",
+                  "value": 1408661319
+                }
+              ],
+              "result": 2696272576
+            },
+            {
+              "period_label": "2024-12-31",
+              "formula": "issued-treasury",
+              "inputs": [
+                {
+                  "symbol": "issued",
+                  "row_id": "common_shares_issued",
+                  "period": "2024-12-31",
+                  "table": "supplemental_inputs",
+                  "value": 4104933895
+                },
+                {
+                  "symbol": "treasury",
+                  "row_id": "treasury_shares",
+                  "period": "2024-12-31",
+                  "table": "supplemental_inputs",
+                  "value": 1307313494
+                }
+              ],
+              "result": 2797620401
+            }
+          ]
+        },
+        {
+          "id": "common_book_value_per_share",
+          "label_zh": "普通股每股账面值",
+          "unit": "USD_per_share",
+          "display_decimals": 4,
+          "interpretation_status": "复算值；不新增研究结论",
+          "note": "1000000 将主表百万美元转为美元；结果不是目标价格。",
+          "calculations": [
+            {
+              "period_label": "2025-12-31",
+              "formula": "1000000*(equity-preferred)/(issued-treasury)",
+              "inputs": [
+                {
+                  "symbol": "equity",
+                  "row_id": "total_equity",
+                  "period": "2025-12-31",
+                  "table": "statement_rows",
+                  "value": 362438
+                },
+                {
+                  "symbol": "preferred",
+                  "row_id": "preferred_stock",
+                  "period": "2025-12-31",
+                  "table": "statement_rows",
+                  "value": 20045
+                },
+                {
+                  "symbol": "issued",
+                  "row_id": "common_shares_issued",
+                  "period": "2025-12-31",
+                  "table": "supplemental_inputs",
+                  "value": 4104933895
+                },
+                {
+                  "symbol": "treasury",
+                  "row_id": "treasury_shares",
+                  "period": "2025-12-31",
+                  "table": "supplemental_inputs",
+                  "value": 1408661319
+                }
+              ],
+              "result": 126.98753199053418
+            },
+            {
+              "period_label": "2024-12-31",
+              "formula": "1000000*(equity-preferred)/(issued-treasury)",
+              "inputs": [
+                {
+                  "symbol": "equity",
+                  "row_id": "total_equity",
+                  "period": "2024-12-31",
+                  "table": "statement_rows",
+                  "value": 344758
+                },
+                {
+                  "symbol": "preferred",
+                  "row_id": "preferred_stock",
+                  "period": "2024-12-31",
+                  "table": "statement_rows",
+                  "value": 20050
+                },
+                {
+                  "symbol": "issued",
+                  "row_id": "common_shares_issued",
+                  "period": "2024-12-31",
+                  "table": "supplemental_inputs",
+                  "value": 4104933895
+                },
+                {
+                  "symbol": "treasury",
+                  "row_id": "treasury_shares",
+                  "period": "2024-12-31",
+                  "table": "supplemental_inputs",
+                  "value": 1307313494
+                }
+              ],
+              "result": 116.06578214969201
+            }
+          ]
+        }
+      ],
+      "share_terms": {
+        "unit": "shares_except_USD_par_value",
+        "preferred": {
+          "par_value_usd": 1,
+          "authorized_shares": 200000000,
+          "issued_shares": {
+            "2025-12-31": 2005375,
+            "2024-12-31": 2005375
+          }
+        },
+        "common": {
+          "par_value_usd": 1,
+          "authorized_shares": 9000000000
+        },
+        "source_ref": "JPM_AR_BS",
+        "in_main_statement_aggregation": false
+      },
+      "validation": {
+        "performed_on": "2026-09-21",
+        "all_checks_passed": true,
+        "checks": [
+          {
+            "check": "aggregation",
+            "table": "statement_rows",
+            "target": "investment_securities_net",
+            "period": "2025-12-31",
+            "computed": 777332,
+            "reported": 777332,
+            "passed": true
+          },
+          {
+            "check": "aggregation",
+            "table": "statement_rows",
+            "target": "investment_securities_net",
+            "period": "2024-12-31",
+            "computed": 681320,
+            "reported": 681320,
+            "passed": true
+          },
+          {
+            "check": "aggregation",
+            "table": "statement_rows",
+            "target": "loans_net",
+            "period": "2025-12-31",
+            "computed": 1467664,
+            "reported": 1467664,
+            "passed": true
+          },
+          {
+            "check": "aggregation",
+            "table": "statement_rows",
+            "target": "loans_net",
+            "period": "2024-12-31",
+            "computed": 1323643,
+            "reported": 1323643,
+            "passed": true
+          },
+          {
+            "check": "aggregation",
+            "table": "statement_rows",
+            "target": "total_assets",
+            "period": "2025-12-31",
+            "computed": 4424900,
+            "reported": 4424900,
+            "passed": true
+          },
+          {
+            "check": "aggregation",
+            "table": "statement_rows",
+            "target": "total_assets",
+            "period": "2024-12-31",
+            "computed": 4002814,
+            "reported": 4002814,
+            "passed": true
+          },
+          {
+            "check": "aggregation",
+            "table": "statement_rows",
+            "target": "total_liabilities",
+            "period": "2025-12-31",
+            "computed": 4062462,
+            "reported": 4062462,
+            "passed": true
+          },
+          {
+            "check": "aggregation",
+            "table": "statement_rows",
+            "target": "total_liabilities",
+            "period": "2024-12-31",
+            "computed": 3658056,
+            "reported": 3658056,
+            "passed": true
+          },
+          {
+            "check": "aggregation",
+            "table": "statement_rows",
+            "target": "total_equity",
+            "period": "2025-12-31",
+            "computed": 362438,
+            "reported": 362438,
+            "passed": true
+          },
+          {
+            "check": "aggregation",
+            "table": "statement_rows",
+            "target": "total_equity",
+            "period": "2024-12-31",
+            "computed": 344758,
+            "reported": 344758,
+            "passed": true
+          },
+          {
+            "check": "aggregation",
+            "table": "statement_rows",
+            "target": "total_liabilities_equity",
+            "period": "2025-12-31",
+            "computed": 4424900,
+            "reported": 4424900,
+            "passed": true
+          },
+          {
+            "check": "aggregation",
+            "table": "statement_rows",
+            "target": "total_liabilities_equity",
+            "period": "2024-12-31",
+            "computed": 4002814,
+            "reported": 4002814,
+            "passed": true
+          },
+          {
+            "check": "aggregation",
+            "table": "consolidated_vie_note_a",
+            "target": "vie_total_assets",
+            "period": "2025-12-31",
+            "computed": 43295,
+            "reported": 43295,
+            "passed": true
+          },
+          {
+            "check": "aggregation",
+            "table": "consolidated_vie_note_a",
+            "target": "vie_total_assets",
+            "period": "2024-12-31",
+            "computed": 41076,
+            "reported": 41076,
+            "passed": true
+          },
+          {
+            "check": "aggregation",
+            "table": "consolidated_vie_note_a",
+            "target": "vie_total_liabilities",
+            "period": "2025-12-31",
+            "computed": 28642,
+            "reported": 28642,
+            "passed": true
+          },
+          {
+            "check": "aggregation",
+            "table": "consolidated_vie_note_a",
+            "target": "vie_total_liabilities",
+            "period": "2024-12-31",
+            "computed": 27777,
+            "reported": 27777,
+            "passed": true
+          },
+          {
+            "check": "assets_equal_liabilities_plus_equity",
+            "period": "2025-12-31",
+            "assets": 4424900,
+            "liabilities_plus_equity": 4424900,
+            "passed": true
+          },
+          {
+            "check": "assets_equal_liabilities_plus_equity",
+            "period": "2024-12-31",
+            "assets": 4002814,
+            "liabilities_plus_equity": 4002814,
+            "passed": true
+          }
+        ]
+      }
+    }
+  }
+}

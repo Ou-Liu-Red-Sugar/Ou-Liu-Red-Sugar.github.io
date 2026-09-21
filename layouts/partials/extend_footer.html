@@ -4,3 +4,4 @@
   {{- $js := resources.Get "js/scroll-restore.js" | minify | fingerprint -}}
   <script defer src="{{ $js.RelPermalink }}"></script>
 {{- end -}}
+

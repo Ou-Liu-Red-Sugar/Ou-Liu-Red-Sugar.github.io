@@ -1,0 +1,3454 @@
+{
+  "id": "zh-balance-sheet",
+  "node_id": "BF-05",
+  "slug": "balance-sheet",
+  "lang": "zh",
+  "title": "资产负债表：全表结构与行业带读",
+  "summary": "在完整资产负债表中定位资源、义务与权益，沿所选行业查附注并解释余额变化。",
+  "learning_task": "在完整资产负债表中定位资源、义务与权益，沿所选行业查附注并解释余额变化。",
+  "subject": "business",
+  "topic": "business-reports",
+  "kind": "concept",
+  "template": "T3",
+  "role": "主线",
+  "study_time": "15–20（共同部分加一条行业分支；另一分支及扩展另读）",
+  "revised": "2026-09-21",
+  "content_version": "2026-09-21.BF-A.rev-1",
+  "status": "accepted_local",
+  "audience": "具有足够数学背景的高年级本科至研究生；会计口径按本篇材料说明",
+  "hard_prerequisites": [],
+  "local_references": [
+    "BF-01",
+    "BF-02",
+    "BF-03"
+  ],
+  "recommended_next": null,
+  "body_markdown": "一家企业已经开展了许多交易，有些结束了，有些仍留下商品、收款权或付款义务。资产负债表把某个时点尚留在账上的这些关系放在一起。因此，我们读的不是“这一年总共赚了多少”，也不是“把公司卖掉能拿多少钱”，而是**在指定日期、指定合并范围和计量规则下，企业确认了哪些资产、负债和权益**。[FASB]、[OPENSTAX-22]\n\n这一篇可以选路阅读。零售分支从商品、供应商结算和门店资源进入；银行分支从资金来源、贷款计量和普通股归属进入。两条路都先给出完整原表，然后围绕几项真正连在一起的关系展开。选一条读完、做完练习，就完成本次学习；另一条可以用来检验哪些方法能够迁移。\n\n<span id=\"bf05-common-structure\"></span>\n\n## 1　共同结构：同一张表的两面\n\n**在本篇采用的 FASB 概念框架中，资产是企业取得经济利益的现时权利；负债是企业转移经济利益的现时义务；权益是在资产扣除负债后的剩余利益。** 这三个定义指向权利与义务，不限于看得见的物品或已经收到的借款。[FASB]（E16、E37、E61–E66）\n\n令某日的已确认资产、负债和权益分别为 $A,L,E$，则账面关系为 $A=L+E$。赊购货物可以使资产和负债同时增加；收回应收款可以只改变资产的构成；交付商品并确认净收益，则可能增加权益。等式要求各项相互衔接，但不会自动告诉我们交易的经济好坏。\n\n| 共同板块 | 通常要区分什么 | 阅读时要补的条件 |\n|---|---|---|\n| 资产 | 现金和收款权、待销售资源、长期使用资源及其他资产 | 归属谁、怎样计量、能否变现或用于履约 |\n| 负债 | 供应商及员工应付、客户相关义务、借款、租赁等 | 欠谁、何时履行、用现金还是商品或服务履行 |\n| 权益 | 股本、其他投入、留存收益、其他综合收益累计额、库存股等 | 总权益中有哪些不同权利；是否还需区分普通股、优先股和其他归属 |\n\n常见的非金融企业列报会再区分流动与非流动，考虑一年或正常经营周期等条件；它不是简单的“短期安全、长期危险”分组。银行可以采用不同列报。下面 JPMorgan 的原表就没有硬分出一组流动资产和流动负债，我们也不替它造一组。[OPENSTAX-22]、[JPM-BS]\n\n还要留下一条界线：定义某种权利是什么、是否在报表确认、按多少金额计量，不是同一个问题。表内的设备净额、贷款净额和证券公允价值，不能因为都以美元表示，就当成按同一种方法测出的市场价值；账面未单列的经营能力，也不能随意估一个金额补进总资产。[FASB]、[JPM-SEC]、[JPM-LOAN]\n\n<nav data-reading-branch-controls aria-label=\"选择资产负债表行业分支\">\n<button type=\"button\" data-select-reading-branch=\"retail\" aria-pressed=\"true\">零售 · Costco</button>\n<button type=\"button\" data-select-reading-branch=\"bank\" aria-pressed=\"false\">银行 · JPMorgan</button>\n<button type=\"button\" data-select-reading-branch=\"all\" aria-pressed=\"false\">全部展开</button>\n</nav>\n\n<section data-reading-branch=\"retail\">\n\n## 2　零售分支：Costco\n\n<a id=\"BS-RETAIL\"></a>\n\n<span id=\"bf05-retail-full-table\"></span>\n\n### 2.1　先看到整张表\n\n**Costco Wholesale Corporation — CONSOLIDATED BALANCE SHEETS。** 合并范围为公司及其全资子公司，重大内部交易抵销。金额为**百万美元**；面值为美元／股，股数为股，不随金额单位缩放。2025与2024比较列均取自2025年报，保留该报的比较期列报。[COST-BS]、[COST-POLICY]\n\n原件定位：**SEC 10-K 印刷p.39**；另一版股东年报PDF为**印刷p.37／物理p.43**，不能混用页码。以下按原序重排为中英对照，保留全部35行、板块和合计。空白表示该行没有金额，不表示零；优先股原表的破折号另由“无已发行及流通股”说明支持。[COST-BS]、[COST-PDF]\n\n| 英文原行 | 中文名称 | 2025-08-31 | 2024-09-01 |\n|---|---|---:|---:|\n| <a id=\"cost-assets\"></a>**ASSETS** | **资产** |  |  |\n| <a id=\"cost-current_assets\"></a>　**CURRENT ASSETS** | **流动资产** |  |  |\n| <a id=\"cost-cash\"></a>　　Cash and cash equivalents | 现金及现金等价物 | 14,161 | 9,906 |\n| <a id=\"cost-short_term_investments\"></a>　　Short-term investments | 短期投资 | 1,123 | 1,238 |\n| <a id=\"cost-receivables_net\"></a>　　Receivables, net | 应收款净额 | 3,203 | 2,721 |\n| <a id=\"cost-inventory\"></a>　　Merchandise inventories | 商品存货 | 18,116 | 18,647 |\n| <a id=\"cost-other_current_assets\"></a>　　Other current assets | 其他流动资产 | 1,777 | 1,734 |\n| <a id=\"cost-total_current_assets\"></a>　**Total current assets** | **流动资产合计** | **38,380** | **34,246** |\n| <a id=\"cost-other_assets\"></a>　**OTHER ASSETS** | **其他资产** |  |  |\n| <a id=\"cost-ppe_net\"></a>　　Property and equipment, net | 物业及设备净额 | 31,909 | 29,032 |\n| <a id=\"cost-operating_lease_rou\"></a>　　Operating lease right-of-use assets | 经营租赁使用权资产 | 2,725 | 2,617 |\n| <a id=\"cost-other_long_term_assets\"></a>　　Other long-term assets | 其他长期资产 | 4,085 | 3,936 |\n| <a id=\"cost-total_assets\"></a>**TOTAL ASSETS** | **总资产** | **77,099** | **69,831** |\n| <a id=\"cost-liabilities_and_equity\"></a>**LIABILITIES AND EQUITY** | **负债与权益** |  |  |\n| <a id=\"cost-current_liabilities\"></a>　**CURRENT LIABILITIES** | **流动负债** |  |  |\n| <a id=\"cost-accounts_payable\"></a>　　Accounts payable | 应付账款 | 19,783 | 19,421 |\n| <a id=\"cost-accrued_salaries_benefits\"></a>　　Accrued salaries and benefits | 应计工资及福利 | 5,205 | 4,794 |\n| <a id=\"cost-accrued_member_rewards\"></a>　　Accrued member rewards | 应计会员奖励 | 2,677 | 2,435 |\n| <a id=\"cost-deferred_membership_fees\"></a>　　Deferred membership fees | 递延会员费 | 2,854 | 2,501 |\n| <a id=\"cost-other_current_liabilities\"></a>　　Other current liabilities | 其他流动负债 | 6,589 | 6,313 |\n| <a id=\"cost-total_current_liabilities\"></a>　**Total current liabilities** | **流动负债合计** | **37,108** | **35,464** |\n| <a id=\"cost-other_liabilities\"></a>　**OTHER LIABILITIES** | **其他负债** |  |  |\n| <a id=\"cost-long_term_debt\"></a>　　Long-term debt, excluding current portion | 长期债务，不含流动部分 | 5,713 | 5,794 |\n| <a id=\"cost-long_term_operating_lease_liabilities\"></a>　　Long-term operating lease liabilities | 长期经营租赁负债 | 2,460 | 2,375 |\n| <a id=\"cost-other_long_term_liabilities\"></a>　　Other long-term liabilities | 其他长期负债 | 2,654 | 2,576 |\n| <a id=\"cost-total_liabilities\"></a>**TOTAL LIABILITIES** | **负债合计** | **47,935** | **46,209** |\n| <a id=\"cost-commitments_contingencies\"></a>COMMITMENTS AND CONTINGENCIES | 承诺及或有事项〔原表无金额〕 |  |  |\n| <a id=\"cost-equity\"></a>**EQUITY** | **权益** |  |  |\n| <a id=\"cost-preferred_stock\"></a>　Preferred stock \\$0.005 par value; 100,000,000 shares authorized; no shares issued and outstanding | 优先股：每股面值0.005美元；授权100,000,000股；无已发行及流通股 | — | — |\n| <a id=\"cost-common_stock\"></a>　Common stock \\$0.005 par value; 900,000,000 shares authorized; 443,237,000 and 443,126,000 shares issued and outstanding | 普通股：每股面值0.005美元；授权900,000,000股；两期已发行及流通443,237,000及443,126,000股 | 2 | 2 |\n| <a id=\"cost-additional_paid_in_capital\"></a>　Additional paid-in capital | 额外实缴资本 | 8,282 | 7,829 |\n| <a id=\"cost-aocl\"></a>　Accumulated other comprehensive loss | 累计其他综合损失 | (1,770) | (1,828) |\n| <a id=\"cost-retained_earnings\"></a>　Retained earnings | 留存收益 | 22,650 | 17,619 |\n| <a id=\"cost-total_equity\"></a>**TOTAL EQUITY** | **权益合计** | **29,164** | **23,622** |\n| <a id=\"cost-total_liabilities_equity\"></a>**TOTAL LIABILITIES AND EQUITY** | **负债及权益合计** | **77,099** | **69,831** |\n\n附注构成合并财务报表的一部分。普通股行中的2是按百万美元列示的股本金额，不是2百万股；“承诺及或有事项”没有主表金额，也不等于不存在相关承诺。[COST-BS]\n\n先核全貌：2025年 `77,099 = 47,935 + 29,164`；2024年 `69,831 = 46,209 + 23,622`。汇总时用流动资产小计加其余资产，不能再把现金、存货等流动资产明细重复加一遍。\n\n<span id=\"bf05-retail-inventory-payables\"></span>\n\n### 2.2　商品已经进来，钱什么时候出去？\n\n我们沿实际经营过程读，而不是按表格顺序逐格念。Costco 的业务说明把快速周转和供应商结算联系起来，并说明其经常能在付款到期前售出商品。这为存货和应付提供了一个阅读方向，但是否在某个时点表现出来，仍要看数。[COST-BUS]\n\n2024年末商品存货18,647，应付账款19,421；2025年末分别为18,116和19,783。只取这两项，定义一个本次分析使用的选定余额 $N=\\text{商品存货}-\\text{应付账款}$。它不是完整营运资本，也不表示两行中的每一笔合同都一一匹配。\n\n$$\nN_{2024}=18,647-19,421=-774,\\qquad\nN_{2025}=18,116-19,783=-1,667.\n$$\n\n所以 $\\Delta N=-893$。这个计算告诉我们：**相对于所列应付，账上的商品存货净占用进一步降低了893。** 它与供应商结算支持商品周转的业务关系相容，却还不能直接改名为“今年释放现金893”。[COST-BS]（本文计算）\n\n现在翻到现金流量表。2025年的存货变动调整是正559，应付账款变动调整是正404，合计963。若只用余额变化取反，会得到893，两者还差70。[COST-CF]\n\n| 对照步骤 | 计算，百万美元 | 本步骤的身份 |\n|---|---:|---|\n| 存货余额减少 | `18,647−18,116=531` | 两期余额差 |\n| 应付余额增加 | `19,783−19,421=362` | 两期余额差 |\n| 选定余额变化取反 | `531+362=893` | 供对照的派生数 |\n| 现金流量表相应调整 | `559+404=963` | 原表期间调整合计 |\n| 尚待归因差额 | `963−893=70` | 不能凭空填成汇率或非现金项目 |\n\n遇到差额，下一步是检查合并范围、重分类、汇兑及非现金变动等口径，而不是让计算“看起来闭合”。这些是待查的可能通道，不是已经证实的70的组成。本次保留差额，仍然已经得到一个重要结果：**相近的报表名称，并不保证余额差就是现金流量表的相应行。**\n\n再看应收净额3,203，也不要自动补上一句“顾客赊账增加”。Note 1 的应收小节列出供应商款项、联名卡激励、再保险、第三方药房等来源；其中供应商应收包括折扣、销量返利等安排，通常与应付款分开列示，部分情形再按协议净额结算。企业是零售商，不代表每一项应收都来自零售顾客。[COST-RECEIVABLES]\n\n<span id=\"bf05-retail-membership-leases\"></span>\n\n### 2.3　会员义务与门店资源，也在这张表里\n\n在商品和应付之外，表里还有递延会员费2,854、应计会员奖励2,677。前者连接尚待确认的会员服务收入；后者连接奖励安排，两者不是同一个“预收款”名称的不同写法。会员费收入按会员期间确认，奖励则按披露政策影响销售额并形成相应义务。[COST-REV]\n\n门店与设施也不能从商品周转图里消失。2025年的物业设备净额31,909，加经营租赁使用权资产2,725，为34,634，占总资产约44.92%。这个比例只描述两个已确认账面项目的分量，既不是全部经营资源，也不是其市场价值。[COST-BS]（本文计算）\n\n**使用权资产**在这里表示合同取得的使用能力；**租赁负债**表示相应付款义务。两者不必在后续每个时点都相等，读表时应分别追到各自的附注。Costco Note 5还告诉我们，融资租赁资产1,488列在**其他长期资产**，不是物业设备净额；因此不能按别家公司的常见位置替它归类。[COST-LEASE]\n\n下面把同一附注的2025年租赁负债展开。它是对主表已有金额的分类说明，**不是额外再添4,147的负债**。\n\n| 租赁义务，百万美元 | 2025金额 | 已包含在主表的什么位置 |\n|---|---:|---|\n| 流动经营租赁负债 | 208 | 其他流动负债 |\n| 流动融资租赁负债 | 78 | 其他流动负债 |\n| 长期经营租赁负债 | 2,460 | 主表单列的长期经营租赁负债 |\n| 长期融资租赁负债 | 1,401 | 其他长期负债 |\n| **租赁负债合计** | **4,147** | `208+78+2,460+1,401` |\n\n来源：[COST-LEASE]，SEC印刷p.53，表下注释(1)–(3)。它让我们得到的不只是一个总数，还得到一张“附注明细已经装在哪个主表项目中”的地图。\n\n<span id=\"bf05-retail-whole-statement\"></span>\n\n### 2.4　回到全表，而不是停在几项比率\n\n现在可以把零售分支合回去：商品和应付解释一部分经营占用，会员余额解释不同性质的客户义务，物业设备和租赁解释长期使用能力。现金、短期投资、其他资产、工资福利应付、债务及权益仍留在全表里，没有因为这次不深入分析就消失。\n\n两期总资产增加7,268，对应负债增加1,726、权益增加5,542。这里回答的是账面规模怎样变动；5,542不能直接叫“本年利润”，因为盈利、分配和其他权益变化还需要回到权益表核对。[COST-BS]\n\n最后检查现金的完整起讫。2025年现金流量表给出：\n\n`9,906 + 13,335 − 5,311 − 3,775 + 6 = 14,161`。\n\n依次是期初现金、经营、投资、筹资和汇率影响，终点接回资产负债表。现金增加4,255，并不是存货与应付调整963，也不是权益增加5,542。这几项本来就在描述不同关系。[COST-CF]\n\n<span id=\"bf05-retail-exercise\"></span>\n\n### 2.5　零售迁移练习\n\n**题目。** 一位读者说：“Costco 2024年流动资产34,246小于流动负债35,464，所以当时无法经营；2025年流动比率超过1，问题就解决了。”请计算两个比率，再用本分支资料说明应怎样改写结论。随后解释为什么不能把4,147租赁负债加到47,935上。\n\n**解析。** 两期流动比率分别为 `34246/35464≈0.9657` 和 `38380/37108≈1.0343`。这只是各时点已列流动项目的比值，不能代替到期时间、销售回款、供应商账期、可用资金和履约方式。会员义务与债务到期付款也不是同一种需求。因此可以说“比值由约0.966升至1.034”，但不能仅据此给出经营能否持续的判断。需要把存货周转、结算和现金流继续连起来。[COST-BS]、[COST-BUS]、[COST-CF]\n\n4,147已分别包含在其他流动负债、长期经营租赁负债和其他长期负债中，再加一次会重复计入。正确动作是按附注重新分类展示，不改变原总负债。这也正是为什么我们要保留完整原表，而不是只摘几个看起来重要的数。[COST-LEASE]\n\n<div data-experiment-slot=\"lab-bf05-retail\"></div>\n\n</section>\n\n<section data-reading-branch=\"bank\">\n\n## 3　银行分支：JPMorgan Chase & Co.\n\n<a id=\"BS-BANKING\"></a>\n\n<span id=\"bf05-bank-full-table\"></span>\n\n### 3.1　先保留银行自己的全表结构\n\n**JPMorgan Chase & Co. — Consolidated balance sheets。** 这是集团合并表，不是 JPMorgan Chase Bank, N.A. 单体表。时点为2025-12-31和2024-12-31；金额为**百万美元**，面值和股数另列。原件为2025 Annual Report，**印刷p.167／物理p.199**。以下保留36行以及全部括注；原表没有流动／非流动小计。[JPM-BS]\n\n| 英文原行 | 中文名称 | 2025-12-31 | 2024-12-31 |\n|---|---|---:|---:|\n| <a id=\"jpm-assets\"></a>**Assets** | **资产** |  |  |\n| <a id=\"jpm-cash_due_from_banks\"></a>　Cash and due from banks | 现金及应收银行款 | 21,742 | 23,372 |\n| <a id=\"jpm-deposits_with_banks\"></a>　Deposits with banks | 存放银行款项 | 321,596 | 445,945 |\n| <a id=\"jpm-fed_funds_sold_resale\"></a>　Federal funds sold and securities purchased under resale agreements (included \\$327,018 and \\$286,771 at fair value) | 拆出联邦基金及买入返售证券〔其中按公允价值计量327,018／286,771〕 | 336,426 | 295,001 |\n| <a id=\"jpm-securities_borrowed\"></a>　Securities borrowed (included \\$98,111 and \\$83,962 at fair value) | 借入证券〔其中按公允价值计量98,111／83,962〕 | 286,191 | 219,546 |\n| <a id=\"jpm-trading_assets\"></a>　Trading assets (included assets pledged of \\$165,927 and \\$136,070) | 交易资产〔其中已质押资产165,927／136,070〕 | 802,873 | 637,784 |\n| <a id=\"jpm-afs_securities\"></a>　　Available-for-sale securities (amortized cost of \\$507,226 and \\$411,045; included assets pledged of \\$7,735 and \\$10,162) | 可供出售证券〔摊余成本507,226／411,045；其中已质押7,735／10,162〕 | 507,198 | 406,852 |\n| <a id=\"jpm-htm_securities\"></a>　　Held-to-maturity securities | 持有至到期证券 | 270,134 | 274,468 |\n| <a id=\"jpm-investment_securities_net\"></a>　**Investment securities, net of allowance for credit losses** | **投资证券，扣除信用损失准备后** | **777,332** | **681,320** |\n| <a id=\"jpm-loans_gross\"></a>　　Loans (included \\$70,684 and \\$41,350 at fair value) | 贷款，未扣贷款损失准备〔其中按公允价值计量70,684／41,350〕 | 1,493,429 | 1,347,988 |\n| <a id=\"jpm-allowance_loan_losses\"></a>　　Allowance for loan losses | 贷款损失准备〔资产减项〕 | (25,765) | (24,345) |\n| <a id=\"jpm-loans_net\"></a>　**Loans, net of allowance for loan losses** | **贷款净额** | **1,467,664** | **1,323,643** |\n| <a id=\"jpm-accrued_interest_receivables\"></a>　Accrued interest and accounts receivable | 应计利息及应收账款 | 111,599 | 101,223 |\n| <a id=\"jpm-premises_equipment\"></a>　Premises and equipment | 房屋及设备 | 36,244 | 32,223 |\n| <a id=\"jpm-goodwill_msrs_other_intangibles\"></a>　Goodwill, MSRs and other intangible assets | 商誉、按揭服务权及其他无形资产 | 64,458 | 64,560 |\n| <a id=\"jpm-other_assets\"></a>　Other assets (included \\$15,849 and \\$15,122 at fair value and assets pledged of \\$11,984 and \\$6,288) | 其他资产〔其中按公允价值计量15,849／15,122；已质押11,984／6,288〕 | 198,775 | 178,197 |\n| <a id=\"jpm-total_assets\"></a>**Total assets(a)** | **总资产〔附注(a)〕** | **4,424,900** | **4,002,814** |\n| <a id=\"jpm-liabilities\"></a>**Liabilities** | **负债** |  |  |\n| <a id=\"jpm-customer_deposits\"></a>　Deposits (included \\$20,930 and \\$33,768 at fair value) | 客户存款〔其中按公允价值计量20,930／33,768〕 | 2,559,320 | 2,406,032 |\n| <a id=\"jpm-fed_funds_purchased_repo\"></a>　Federal funds purchased and securities loaned or sold under repurchase agreements (included \\$360,194 and \\$226,329 at fair value) | 拆入联邦基金及证券借出或回购融资〔其中按公允价值计量360,194／226,329〕 | 442,396 | 296,835 |\n| <a id=\"jpm-short_term_borrowings\"></a>　Short-term borrowings (included \\$32,460 and \\$26,521 at fair value) | 短期借款〔其中按公允价值计量32,460／26,521〕 | 64,776 | 52,893 |\n| <a id=\"jpm-trading_liabilities\"></a>　Trading liabilities | 交易负债 | 216,019 | 192,883 |\n| <a id=\"jpm-accounts_payable_other_liabilities\"></a>　Accounts payable and other liabilities (included \\$6,660 and \\$5,893 at fair value) | 应付账款及其他负债〔其中按公允价值计量6,660／5,893〕 | 316,794 | 280,672 |\n| <a id=\"jpm-vie_beneficial_interests\"></a>　Beneficial interests issued by consolidated VIEs (included \\$5 and \\$1 at fair value) | 合并VIE发行的受益权益〔其中按公允价值计量5／1〕 | 27,951 | 27,323 |\n| <a id=\"jpm-long_term_debt\"></a>　Long-term debt (included \\$134,559 and \\$100,780 at fair value) | 长期债务〔其中按公允价值计量134,559／100,780〕 | 435,206 | 401,418 |\n| <a id=\"jpm-total_liabilities\"></a>**Total liabilities(a)** | **负债合计〔附注(a)〕** | **4,062,462** | **3,658,056** |\n| <a id=\"jpm-commitments_contingencies\"></a>Commitments and contingencies (refer to Notes 28, 29 and 30) | 承诺及或有事项〔参见Notes 28、29、30；原表无金额〕 |  |  |\n| <a id=\"jpm-equity\"></a>**Stockholders’ equity** | **股东权益** |  |  |\n| <a id=\"jpm-preferred_stock\"></a>　Preferred stock (\\$1 par value; authorized 200,000,000 shares: issued 2,005,375 and 2,005,375 shares) | 优先股：面值每股1美元；授权200,000,000股；两期已发行均为2,005,375股 | 20,045 | 20,050 |\n| <a id=\"jpm-common_stock\"></a>　Common stock (\\$1 par value; authorized 9,000,000,000 shares; issued 4,104,933,895 shares) | 普通股：面值每股1美元；授权9,000,000,000股；已发行4,104,933,895股 | 4,105 | 4,105 |\n| <a id=\"jpm-additional_paid_in_capital\"></a>　Additional paid-in capital | 额外实缴资本 | 91,114 | 90,911 |\n| <a id=\"jpm-retained_earnings\"></a>　Retained earnings | 留存收益 | 416,055 | 376,166 |\n| <a id=\"jpm-aocl\"></a>　Accumulated other comprehensive losses | 累计其他综合损失 | (4,290) | (12,456) |\n| <a id=\"jpm-treasury_stock\"></a>　Treasury stock, at cost (1,408,661,319 and 1,307,313,494 shares) | 库存股，按成本〔股数1,408,661,319／1,307,313,494〕 | (164,591) | (134,018) |\n| <a id=\"jpm-total_equity\"></a>**Total stockholders’ equity** | **股东权益合计** | **362,438** | **344,758** |\n| <a id=\"jpm-total_liabilities_equity\"></a>**Total liabilities and stockholders’ equity** | **负债及股东权益合计** | **4,424,900** | **4,002,814** |\n\n**附注(a)：已合并VIE的资产负债。** VIE在这里是依合并规则纳入集团的可变利益实体。原表说明，这些实体的资产用于清偿各自负债；受益权持有人通常不对JPMorganChase的一般信用享有追索。下面披露的是已合并第三方资产和负债，排除了合并时抵销的内部余额，进一步说明见Note 14。<strong>它们已经在上表里，不能再加到总资产或总负债。</strong>[JPM-BS]（附注(a)）\n\n| 英文原行 | 中文名称 | 2025-12-31 | 2024-12-31 |\n|---|---|---:|---:|\n| <a id=\"jpm-vie-assets\"></a>**Assets** | **资产** |  |  |\n| <a id=\"jpm-vie-trading_assets\"></a>　Trading assets | 交易资产 | 4,835 | 3,885 |\n| <a id=\"jpm-vie-loans\"></a>　Loans | 贷款 | 37,777 | 36,510 |\n| <a id=\"jpm-vie-all_other_assets\"></a>　All other assets | 其他资产 | 683 | 681 |\n| <a id=\"jpm-vie-total_assets\"></a>**Total assets** | **资产合计** | **43,295** | **41,076** |\n| <a id=\"jpm-vie-liabilities\"></a>**Liabilities** | **负债** |  |  |\n| <a id=\"jpm-vie-beneficial_interests\"></a>　Beneficial interests issued by consolidated VIEs | 合并VIE发行的受益权益 | 27,951 | 27,323 |\n| <a id=\"jpm-vie-all_other_liabilities\"></a>　All other liabilities | 其他负债 | 691 | 454 |\n| <a id=\"jpm-vie-total_liabilities\"></a>**Total liabilities** | **负债合计** | **28,642** | **27,777** |\n\n主表等式为：2025年 `4,424,900 = 4,062,462 + 362,438`；2024年 `4,002,814 = 3,658,056 + 344,758`。其中投资证券777,332已经包含AFS和HTM两项，贷款净额1,467,664已经包含准备减项。核对总资产时各用一次净小计。\n\n<span id=\"bf05-bank-funding\"></span>\n\n### 3.2　先看资金来自哪里，再看它怎样使用\n\n银行的负债不是一张等待读完资产后再顺带检查的清单。资金来源本身就是经营的重要部分。先在表中对照两行：资产方 `Deposits with banks` 为321,596，负债方 `Deposits` 为2,559,320。前者是集团存放在其他银行的款项，后者是对客户的存款义务。中文都叫“存款”还不够，必须带上权利或义务的方向。[JPM-BS]\n\nNote 17让我们进一步看到，2025年美国机构无息存款583,342，非美国机构无息存款37,057，合计620,399，占客户存款约24.24%；2024年对应合计619,306，占比约25.74%。分子略增而占比下降并不矛盾：总存款的分母也在变化。[JPM-DEPOSITS]\n\n这个分解能帮助我们提出资金成本问题，但“无息”不等于提供服务没有成本，也不直接证明存款一定稳定。需要研究未来资金成本和提款需求时，必须继续看客户、期限、资金行为和其他披露，不能在这一比例后接一个自动的安全评分。\n\n另一边，贷款与存款之比可算成 `1,493,429/2,559,320≈58.35%`，但剩下的41.65%不能直接叫“闲置现金”：全表还包括证券、交易资产、逆回购、其他资金来源和相应负债。这个比值是两项余额关系，不是一份把每一美元存款逐笔分配给资产的资金追踪表。[JPM-BS]（本文计算）\n\n<span id=\"bf05-bank-loan-measurement\"></span>\n\n### 3.3　贷款不是一个只有总额的盒子\n\n贷款先是一项收款权，但怎么放在账上，还取决于它被怎样持有。Note 12把贷款分为留存、持有待售及按公允价值计量三类。这里“留存”指持有用于投资的贷款，不是留存收益。[JPM-LOAN]\n\n就本报告的政策而言，留存贷款按摊余成本记录，并另扣预期信用损失准备；摊余成本会随还本、费用或折溢价摊销等变化，不是每天重新报一个市场价格。持有待售贷款按成本与公允价值孰低计量；选择公允价值选项的贷款则按公允价值计量。后两类的相关估值变化进入非利息收入，不套用留存贷款那一套贷款损失准备处理。所以，下面的分类不仅是把总数分成三个名字，它决定了损失通过什么位置反映。[JPM-LOAN]\n\n**以下只摘Note 12贷款构成表的合计列，单位：百万美元。** 这不是附注全文，也没有把附注各业务组合再重复加到主表。\n\n| 英文原类 | 中文 | 2025-12-31 | 2024-12-31 |\n|---|---|---:|---:|\n| Retained | 留存贷款 | 1,408,905 | 1,299,590 |\n| Held-for-sale | 持有待售贷款 | 13,840 | 7,048 |\n| At fair value | 按公允价值计量贷款 | 70,684 | 41,350 |\n| Total | 未扣贷款损失准备的贷款合计 | 1,493,429 | 1,347,988 |\n\n来源：[JPM-LOAN-TABLE]，印刷p.239。原表脚注说明该组合表不含单列的应计利息应收；不是把所有贷款有关资产都装进了这一列。\n\n我们先回接主表：`1,408,905+13,840+70,684=1,493,429`，再扣准备25,765，得到1,467,664。**贷款损失准备是账面资产的减项，不是一笔锁在另一账户中的现金。** 本期信用损失费用、核销和回收如何使准备余额变化，需要另外的滚动表，不能用两期准备之差直接替代全部期间费用。[JPM-BS]、[JPM-LOAN]\n\n这里还藏着一个分母问题。将准备正额除以对应的留存贷款，2025年为 `25,765/1,408,905≈1.8287%`，2024年为 `24,345/1,299,590≈1.8733%`。若改除全部贷款，2025年会得到约1.7252%。后一计算并非算术错误，却不能冒充前一口径；它把不同计量类别都放入了分母。[JPM-LOAN]、[JPM-LOAN-TABLE]\n\n比值下降本身也不是信用质量改善的证明。它可能需要通过组合构成和估计变化来解释。我们在本篇完成的是计量范围匹配，不是贷款损失预测。\n\n证券部分可以接着用同一读法。主表中的AFS（可供出售）507,198与HTM（持有至到期）270,134合计777,332。Note 10说明，AFS按公允价值列账；作适用的对冲和信用损失调整后，未实现损益反映在累计其他综合收益中。HTM要求有持有至到期的意图和能力，按摊余成本扣除信用损失准备列账。因此，主表的777,332是两种不同计量基础下的账面额相加，并不是把两类证券都重估到同一个“市场价值”口径。2025年还发生44.1 billion，即44,100 million，从AFS到HTM的非现金转移。这提醒我们：类别余额的变化可能同时含采购、到期和重分类，不能把HTM的变化单独当作证券购买现金。[JPM-SEC]\n\n<span id=\"bf05-bank-common-equity\"></span>\n\n### 3.4　普通股股东在哪一层？\n\n全表的股东权益362,438中含优先股20,045。因此，按这份表计算的普通股权益为 `362,438−20,045=342,393`。2024年同口径为324,708。这里是在澄清剩余权益的归属，不是在估算股票价格，也不是直接计算监管普通股一级资本。[JPM-BS]\n\n库存股也要读对方向。2025年的 `(164,591)` 是权益减项，不是银行新增持有的一项普通经营资产。表中还给出已发行普通股4,104,933,895股和库存股1,408,661,319股，两者相减得到流通普通股2,696,272,576股。由此算普通股每股账面值时，必须先把百万美元换成美元：\n\n`342393 * 1000000 / 2696272576 ≈ 126.99 美元/股`。\n\n这个结果能核对金额与股数的接口，不能替代市场定价。尤其不要把“普通股”行的4,105百万美元误当作全部普通股权益；它只是权益构成中的一行。[JPM-BS]（本文计算）\n\n回到全貌：集团资产增加422,086，对应负债增加404,406、权益增加17,680。账面扩张同时涉及资金来源、贷款与证券及其他业务项目。只看“资产很多”或“现金下降”，都还没有完成银行经营分析。\n\n<span id=\"bf05-bank-exercise\"></span>\n\n### 3.5　银行迁移练习\n\n**题目。** 用2024列自行复算贷款净额与普通股权益。另一位读者把VIE脚注资产41,076加到集团资产4,002,814上，又把准备24,345当成额外现金。请逐项说明错在哪里。最后说出为何不能用Costco的“商品存货减应付”直接衡量这家银行。\n\n**解析。** 贷款净额为 `1,347,988−24,345=1,323,643`；普通股权益为 `344,758−20,050=324,708`。VIE脚注明确是合并表中已有项目的说明，再加41,076重复计算；贷款准备是减项，不是额外资金来源。[JPM-BS]\n\n零售那一对余额对应商品采购与供应商结算。银行本例的主要关系是金融权利、资金义务及其计量，且有许多业务类型；硬找两行替代“库存”和“应付”，会丢掉存款、证券和风险计量这些核心关系。正确的迁移是保留“先业务、后口径、再计算”的方法，而不是搬同一个比率。\n\n<div data-experiment-slot=\"lab-bf05-bank\"></div>\n\n</section>\n\n<span id=\"bf05-events\"></span>\n\n## 4　共同事件实验：一张表怎样随交易移动\n\n这组数是**独立教学设定，不是 Costco 或 JPMorgan 的交易记录**。一家小企业期初只有现金100和权益100，没有负债；期初出资已在观察窗口之前完成。依次发生赊购成本100的商品、赊销全部商品150并结转成本100、向供应商付款100、向客户收款150。忽略税、退款、信用损失、运费、其他费用和分配；销售时满足确认条件。\n\n| 步骤完成后 | 现金 | 应收 | 存货 | 总资产 | 应付／总负债 | 权益 | 累计本期利润 | 累计经营现金净额 |\n|---|---:|---:|---:|---:|---:|---:|---:|---:|\n| S0 期初 | 100 | 0 | 0 | 100 | 0 | 100 | 0 | 0 |\n| S1 赊购100 | 100 | 0 | 100 | 200 | 100 | 100 | 0 | 0 |\n| S2 赊销150并结转100 | 100 | 150 | 0 | 250 | 100 | 150 | 50 | 0 |\n| S3 付款100 | 0 | 150 | 0 | 150 | 0 | 150 | 50 | −100 |\n| S4 收款150 | 150 | 0 | 0 | 150 | 0 | 150 | 50 | 50 |\n\n每一条事件箭头必须带完整变化，而不是全部指向权益：\n\n| 箭头 | 现金变化 | 应收变化 | 存货变化 | 负债变化 | 权益变化 | 经济含义 |\n|---|---:|---:|---:|---:|---:|---|\n| S0→S1 赊购 | 0 | 0 | +100 | +100 | 0 | 商品与付款义务同时留下 |\n| S1→S2 销售并结转成本 | 0 | +150 | −100 | 0 | +50 | 收款权替代商品，净收益增加权益 |\n| S2→S3 付款 | −100 | 0 | 0 | −100 | 0 | 清偿旧义务，不重复确认商品成本 |\n| S3→S4 收款 | +150 | −150 | 0 | 0 | 0 | 实现旧收款权，不重复确认销售收入 |\n\n为什么S2的总资产250比S4的150还大，最终利润却没有减少？因为S2还同时保留着100的应付，随后付款消除了现金和负债，净资产不变。总资产变大并不是利润的同义词；现金变化也不是权益变化的同义词。\n\n**迁移题。** 将收款放在付款之前，逐步写出变化。若期初现金改为0，原顺序和新顺序有什么不同？\n\n**解析。** 期初现金100时，销售后先收款，余额成为现金250、应收0、存货0、资产250、负债100、权益150；再付款回到现金150、负债0、权益150，终点相同。若期初现金为0、权益亦为0，先付款会短缺100，不能在禁止透支的模型里执行；先收款则可先得到150，再支付100，终点现金和权益均为50。利润没有因顺序改变，资金可行性却改变了。系统应显示资金缺口，不应偷偷生成一笔未说明的借款。\n\n<div data-experiment-slot=\"lab-bf05-events\"></div>\n\n<section data-reading-branch=\"bank\">\n\n<span id=\"bf05-extensions\"></span>\n\n## 5　扩展层：表内净额与现金口径\n\n以下不计入首次选择一条行业分支的核心任务。\n\n<span id=\"bf05-netting-extension\"></span>\n\n### 5.1　衍生品的三个金额，不是同一层次\n\nJPM Note 5 的2025年应收表可以沿三个层次读：衍生品应收总额606,382，其中只有满足报告所述净额列报条件的部分进入表内抵销；扣除实际表内抵销548,605后，得到表内净应收57,777。再考虑表内不能抵销的担保品28,891，附注给出净额28,886。抵销政策涉及相应协议与法律意见等条件，并非见到两笔相反金额就可以相减。[JPM-NETTING]\n\n| 层次 | 计算，百万美元 | 能怎样称呼 |\n|---|---|---|\n| 未作所列抵销的应收总额 | 606,382 | 衍生品应收总额，不是名义本金 |\n| 表内抵销之后 | `606,382−548,605=57,777` | 表内净应收 |\n| 再考虑所列不能表内抵销的担保品 | `57,777−28,891=28,886` | 本附注相应净额，不改写主表列报 |\n\n**解析。** 把28,886填回主表替代57,777错在跨越了列报层次。附注帮助理解信用风险相关关系，但并不授权分析者改变法定主表。这个净额也不是所有市场、流动性和交易对手风险的统一计量。[JPM-NETTING]\n\n<span id=\"bf05-cashflow-extension\"></span>\n\n### 5.2　银行现金流的终点到底接到哪里\n\nJPM现金流表2025年的期末金额343,338，接的是 `Cash and due from banks 21,742 + Deposits with banks 321,596`，而不只是第一行。[JPM-CF]、[JPM-BS]\n\n完整现金桥为：\n\n`469,317 − 147,782 − 265,565 + 269,533 + 17,835 = 343,338`。\n\n依次为期初、经营、投资、筹资和汇率影响。经营现金流负值里包含交易资产、借入证券等业务项目的变动；MD&A也说明，支持贷款与资本市场活动的经营性资产负债会随客户活动、风险管理和市场状况显著变化。读者应先读组成，再解释经营现金流的意义；不能凭一个负值直接得出与普通商品企业完全相同的结论。[JPM-CF]\n\n</section>\n\n<span id=\"bf05-reading-method\"></span>\n\n## 6　把两条分支合在同一阅读方法里\n\n我们保留的共同方法很简单：先确认整表对象，再找业务关系，沿主表到附注，做能回接的计算，最后把发现放回全表。改变行业时，变的是分析中心，而不是证据标准。\n\n零售分支最重要的收获不是记住−1,667，而是知道这个数来自哪两项、它没有包含什么，以及为什么还要与963对照。银行分支最重要的收获不是记住某个覆盖率，而是理解它的分母为什么必须与计量范围匹配。能把这两点带到另一份真实材料中，就开始具备独立读表的能力了。\n\n<span id=\"bf05-sources\"></span>\n\n## 来源与实际定位\n\n| 原件链接／代号 | 版本与具体定位 |\n|---|---|\n| [FASB] | BF-S-FASB-ELEMENTS；FASB，2021-12；Chapter 4 E16–E70，尤其E16、E37、E61–E66 |\n| [OPENSTAX-22] | BF-S-OPENSTAX-22；OpenStax，Principles of Accounting Vol.1，2019，§2.2 |\n| [COST-BS] | BI-S05；Costco FY2025 SEC 10-K，印刷p.39完整合并资产负债表；两期百万美元，股数/面值除外 |\n| [COST-PDF] | 同一公司股东年报PDF；资产负债表印刷p.37／物理p.43；排版页码与SEC HTML不同 |\n| [COST-POLICY] | BI-S05；Note 1，印刷p.42，Basis of Presentation、Fiscal Year、Reclassification |\n| [COST-BUS] | BI-S05；Item 1 General，印刷pp.3–4，周转与供应商付款关系 |\n| [COST-CF] | BI-S05；完整合并现金流量表印刷p.41；截至2025-08-31的52周，百万美元；股东年报PDF对应印刷p.39／物理p.45 |\n| [COST-RECEIVABLES] | BI-S05；Note 1 Receivables, Net，印刷p.44；应收来源而非顾客赊销假定 |\n| [COST-REV] | BI-S05；Note 1 Revenue Recognition，印刷pp.47–48；会员费与会员奖励分别处理 |\n| [COST-LEASE] | BI-S05；Note 5 Leases，印刷pp.53–54；资产负债分类表及脚注(1)–(3)在p.53 |\n| [JPM-BS] | BI-S07；JPMorgan 2025 Annual Report，印刷p.167／物理p.199；完整表及VIE附注(a) |\n| [JPM-DEPOSITS] | BI-S07；Note 17 Deposits，印刷p.277／物理p.309；含计息/无息、地域和定期存款说明 |\n| [JPM-LOAN] | BI-S07；Note 12 Loan accounting framework，印刷pp.236–238 |\n| [JPM-LOAN-TABLE] | BI-S07；Note 12 Loan portfolio，印刷p.239／物理p.271；本稿摘构成表合计列，脚注(a)(b)保留支持范围 |\n| [JPM-SEC] | BI-S07；Note 10 Investment securities，印刷pp.228–229；44.1bn非现金转移及计量政策在p.228 |\n| [JPM-NETTING] | BI-S07；Note 5 Derivatives netting，印刷pp.207–209；2025应收表在p.208，结合相邻说明与脚注 |\n| [JPM-CF] | BI-S07；合并现金流量表印刷p.169／物理p.201；解释参见MD&A p.58 |\n\n[FASB]: https://storage.fasb.org/Concepts_Statement_8-Chapter_4-Elements.pdf \"BF-S-FASB-ELEMENTS；FASB，2021-12；Chapter 4 E16–E70，尤其E16、E37、E61–E66\"\n[OPENSTAX-22]: https://openstax.org/books/principles-financial-accounting/pages/2-2-define-explain-and-provide-examples-of-current-and-noncurrent-assets-current-and-noncurrent-liabilities-equity-revenues-and-expenses \"BF-S-OPENSTAX-22；OpenStax，Principles of Accounting Vol.1，2019，§2.2\"\n[COST-BS]: https://www.sec.gov/Archives/edgar/data/909832/000090983225000101/cost-20250831.htm \"BI-S05；Costco FY2025 SEC 10-K，印刷p.39完整合并资产负债表；两期百万美元，股数/面值除外\"\n[COST-PDF]: https://s201.q4cdn.com/287523651/files/doc_financials/2025/ar/COST-Annual-Report-2025.pdf#page=43 \"同一公司股东年报PDF；资产负债表印刷p.37／物理p.43；排版页码与SEC HTML不同\"\n[COST-POLICY]: https://www.sec.gov/Archives/edgar/data/909832/000090983225000101/cost-20250831.htm \"BI-S05；Note 1，印刷p.42，Basis of Presentation、Fiscal Year、Reclassification\"\n[COST-BUS]: https://www.sec.gov/Archives/edgar/data/909832/000090983225000101/cost-20250831.htm \"BI-S05；Item 1 General，印刷pp.3–4，周转与供应商付款关系\"\n[COST-CF]: https://www.sec.gov/Archives/edgar/data/909832/000090983225000101/cost-20250831.htm \"BI-S05；完整合并现金流量表印刷p.41；截至2025-08-31的52周，百万美元；股东年报PDF对应印刷p.39／物理p.45\"\n[COST-RECEIVABLES]: https://www.sec.gov/Archives/edgar/data/909832/000090983225000101/cost-20250831.htm \"BI-S05；Note 1 Receivables, Net，印刷p.44；应收来源而非顾客赊销假定\"\n[COST-REV]: https://www.sec.gov/Archives/edgar/data/909832/000090983225000101/cost-20250831.htm \"BI-S05；Note 1 Revenue Recognition，印刷pp.47–48；会员费与会员奖励分别处理\"\n[COST-LEASE]: https://www.sec.gov/Archives/edgar/data/909832/000090983225000101/cost-20250831.htm \"BI-S05；Note 5 Leases，印刷pp.53–54；资产负债分类表及脚注(1)–(3)在p.53\"\n[JPM-BS]: https://www.jpmorganchase.com/content/dam/jpmc/jpmorgan-chase-and-co/investor-relations/documents/annualreport-2025.pdf#page=199 \"BI-S07；JPMorgan 2025 Annual Report，印刷p.167／物理p.199；完整表及VIE附注(a)\"\n[JPM-DEPOSITS]: https://www.jpmorganchase.com/content/dam/jpmc/jpmorgan-chase-and-co/investor-relations/documents/annualreport-2025.pdf#page=309 \"BI-S07；Note 17 Deposits，印刷p.277／物理p.309；含计息/无息、地域和定期存款说明\"\n[JPM-LOAN]: https://www.jpmorganchase.com/content/dam/jpmc/jpmorgan-chase-and-co/investor-relations/documents/annualreport-2025.pdf#page=268 \"BI-S07；Note 12 Loan accounting framework，印刷pp.236–238\"\n[JPM-LOAN-TABLE]: https://www.jpmorganchase.com/content/dam/jpmc/jpmorgan-chase-and-co/investor-relations/documents/annualreport-2025.pdf#page=271 \"BI-S07；Note 12 Loan portfolio，印刷p.239／物理p.271；本稿摘构成表合计列，脚注(a)(b)保留支持范围\"\n[JPM-SEC]: https://www.jpmorganchase.com/content/dam/jpmc/jpmorgan-chase-and-co/investor-relations/documents/annualreport-2025.pdf#page=260 \"BI-S07；Note 10 Investment securities，印刷pp.228–229；44.1bn非现金转移及计量政策在p.228\"\n[JPM-NETTING]: https://www.jpmorganchase.com/content/dam/jpmc/jpmorgan-chase-and-co/investor-relations/documents/annualreport-2025.pdf#page=239 \"BI-S07；Note 5 Derivatives netting，印刷pp.207–209；2025应收表在p.208，结合相邻说明与脚注\"\n[JPM-CF]: https://www.jpmorganchase.com/content/dam/jpmc/jpmorgan-chase-and-co/investor-relations/documents/annualreport-2025.pdf#page=201 \"BI-S07；合并现金流量表印刷p.169／物理p.201；解释参见MD&A p.58\"\n",
+  "anchors": [
+    {
+      "id": "bf05-common-structure",
+      "title": "1　共同结构：同一张表的两面",
+      "kind": "section"
+    },
+    {
+      "id": "BS-RETAIL",
+      "title": "2　零售分支：Costco",
+      "kind": "branch"
+    },
+    {
+      "id": "bf05-retail-full-table",
+      "title": "2.1　先看到整张表",
+      "kind": "section"
+    },
+    {
+      "id": "bf05-retail-inventory-payables",
+      "title": "2.2　商品已经进来，钱什么时候出去？",
+      "kind": "section"
+    },
+    {
+      "id": "bf05-retail-membership-leases",
+      "title": "2.3　会员义务与门店资源，也在这张表里",
+      "kind": "section"
+    },
+    {
+      "id": "bf05-retail-whole-statement",
+      "title": "2.4　回到全表，而不是停在几项比率",
+      "kind": "section"
+    },
+    {
+      "id": "bf05-retail-exercise",
+      "title": "2.5　零售迁移练习",
+      "kind": "section"
+    },
+    {
+      "id": "BS-BANKING",
+      "title": "3　银行分支：JPMorgan Chase & Co.",
+      "kind": "branch"
+    },
+    {
+      "id": "bf05-bank-full-table",
+      "title": "3.1　先保留银行自己的全表结构",
+      "kind": "section"
+    },
+    {
+      "id": "bf05-bank-funding",
+      "title": "3.2　先看资金来自哪里，再看它怎样使用",
+      "kind": "section"
+    },
+    {
+      "id": "bf05-bank-loan-measurement",
+      "title": "3.3　贷款不是一个只有总额的盒子",
+      "kind": "section"
+    },
+    {
+      "id": "bf05-bank-common-equity",
+      "title": "3.4　普通股股东在哪一层？",
+      "kind": "section"
+    },
+    {
+      "id": "bf05-bank-exercise",
+      "title": "3.5　银行迁移练习",
+      "kind": "section"
+    },
+    {
+      "id": "bf05-events",
+      "title": "4　共同事件实验：一张表怎样随交易移动",
+      "kind": "section"
+    },
+    {
+      "id": "bf05-extensions",
+      "title": "5　扩展层：表内净额与现金口径",
+      "kind": "section"
+    },
+    {
+      "id": "bf05-netting-extension",
+      "title": "5.1　衍生品的三个金额，不是同一层次",
+      "kind": "section"
+    },
+    {
+      "id": "bf05-cashflow-extension",
+      "title": "5.2　银行现金流的终点到底接到哪里",
+      "kind": "section"
+    },
+    {
+      "id": "bf05-reading-method",
+      "title": "6　把两条分支合在同一阅读方法里",
+      "kind": "section"
+    },
+    {
+      "id": "cost-assets",
+      "title": "ASSETS · 资产",
+      "kind": "table_row",
+      "preview": "| **ASSETS** | **资产** |  |  |"
+    },
+    {
+      "id": "cost-current_assets",
+      "title": "CURRENT ASSETS · 流动资产",
+      "kind": "table_row",
+      "preview": "| 　**CURRENT ASSETS** | **流动资产** |  |  |"
+    },
+    {
+      "id": "cost-cash",
+      "title": "Cash and cash equivalents · 现金及现金等价物",
+      "kind": "table_row",
+      "preview": "| 　　Cash and cash equivalents | 现金及现金等价物 | 14,161 | 9,906 |"
+    },
+    {
+      "id": "cost-short_term_investments",
+      "title": "Short-term investments · 短期投资",
+      "kind": "table_row",
+      "preview": "| 　　Short-term investments | 短期投资 | 1,123 | 1,238 |"
+    },
+    {
+      "id": "cost-receivables_net",
+      "title": "Receivables, net · 应收款净额",
+      "kind": "table_row",
+      "preview": "| 　　Receivables, net | 应收款净额 | 3,203 | 2,721 |"
+    },
+    {
+      "id": "cost-inventory",
+      "title": "Merchandise inventories · 商品存货",
+      "kind": "table_row",
+      "preview": "| 　　Merchandise inventories | 商品存货 | 18,116 | 18,647 |"
+    },
+    {
+      "id": "cost-other_current_assets",
+      "title": "Other current assets · 其他流动资产",
+      "kind": "table_row",
+      "preview": "| 　　Other current assets | 其他流动资产 | 1,777 | 1,734 |"
+    },
+    {
+      "id": "cost-total_current_assets",
+      "title": "Total current assets · 流动资产合计",
+      "kind": "table_row",
+      "preview": "| 　**Total current assets** | **流动资产合计** | **38,380** | **34,246** |"
+    },
+    {
+      "id": "cost-other_assets",
+      "title": "OTHER ASSETS · 其他资产",
+      "kind": "table_row",
+      "preview": "| 　**OTHER ASSETS** | **其他资产** |  |  |"
+    },
+    {
+      "id": "cost-ppe_net",
+      "title": "Property and equipment, net · 物业及设备净额",
+      "kind": "table_row",
+      "preview": "| 　　Property and equipment, net | 物业及设备净额 | 31,909 | 29,032 |"
+    },
+    {
+      "id": "cost-operating_lease_rou",
+      "title": "Operating lease right-of-use assets · 经营租赁使用权资产",
+      "kind": "table_row",
+      "preview": "| 　　Operating lease right-of-use assets | 经营租赁使用权资产 | 2,725 | 2,617 |"
+    },
+    {
+      "id": "cost-other_long_term_assets",
+      "title": "Other long-term assets · 其他长期资产",
+      "kind": "table_row",
+      "preview": "| 　　Other long-term assets | 其他长期资产 | 4,085 | 3,936 |"
+    },
+    {
+      "id": "cost-total_assets",
+      "title": "TOTAL ASSETS · 总资产",
+      "kind": "table_row",
+      "preview": "| **TOTAL ASSETS** | **总资产** | **77,099** | **69,831** |"
+    },
+    {
+      "id": "cost-liabilities_and_equity",
+      "title": "LIABILITIES AND EQUITY · 负债与权益",
+      "kind": "table_row",
+      "preview": "| **LIABILITIES AND EQUITY** | **负债与权益** |  |  |"
+    },
+    {
+      "id": "cost-current_liabilities",
+      "title": "CURRENT LIABILITIES · 流动负债",
+      "kind": "table_row",
+      "preview": "| 　**CURRENT LIABILITIES** | **流动负债** |  |  |"
+    },
+    {
+      "id": "cost-accounts_payable",
+      "title": "Accounts payable · 应付账款",
+      "kind": "table_row",
+      "preview": "| 　　Accounts payable | 应付账款 | 19,783 | 19,421 |"
+    },
+    {
+      "id": "cost-accrued_salaries_benefits",
+      "title": "Accrued salaries and benefits · 应计工资及福利",
+      "kind": "table_row",
+      "preview": "| 　　Accrued salaries and benefits | 应计工资及福利 | 5,205 | 4,794 |"
+    },
+    {
+      "id": "cost-accrued_member_rewards",
+      "title": "Accrued member rewards · 应计会员奖励",
+      "kind": "table_row",
+      "preview": "| 　　Accrued member rewards | 应计会员奖励 | 2,677 | 2,435 |"
+    },
+    {
+      "id": "cost-deferred_membership_fees",
+      "title": "Deferred membership fees · 递延会员费",
+      "kind": "table_row",
+      "preview": "| 　　Deferred membership fees | 递延会员费 | 2,854 | 2,501 |"
+    },
+    {
+      "id": "cost-other_current_liabilities",
+      "title": "Other current liabilities · 其他流动负债",
+      "kind": "table_row",
+      "preview": "| 　　Other current liabilities | 其他流动负债 | 6,589 | 6,313 |"
+    },
+    {
+      "id": "cost-total_current_liabilities",
+      "title": "Total current liabilities · 流动负债合计",
+      "kind": "table_row",
+      "preview": "| 　**Total current liabilities** | **流动负债合计** | **37,108** | **35,464** |"
+    },
+    {
+      "id": "cost-other_liabilities",
+      "title": "OTHER LIABILITIES · 其他负债",
+      "kind": "table_row",
+      "preview": "| 　**OTHER LIABILITIES** | **其他负债** |  |  |"
+    },
+    {
+      "id": "cost-long_term_debt",
+      "title": "Long-term debt, excluding current portion · 长期债务，不含流动部分",
+      "kind": "table_row",
+      "preview": "| 　　Long-term debt, excluding current portion | 长期债务，不含流动部分 | 5,713 | 5,794 |"
+    },
+    {
+      "id": "cost-long_term_operating_lease_liabilities",
+      "title": "Long-term operating lease liabilities · 长期经营租赁负债",
+      "kind": "table_row",
+      "preview": "| 　　Long-term operating lease liabilities | 长期经营租赁负债 | 2,460 | 2,375 |"
+    },
+    {
+      "id": "cost-other_long_term_liabilities",
+      "title": "Other long-term liabilities · 其他长期负债",
+      "kind": "table_row",
+      "preview": "| 　　Other long-term liabilities | 其他长期负债 | 2,654 | 2,576 |"
+    },
+    {
+      "id": "cost-total_liabilities",
+      "title": "TOTAL LIABILITIES · 负债合计",
+      "kind": "table_row",
+      "preview": "| **TOTAL LIABILITIES** | **负债合计** | **47,935** | **46,209** |"
+    },
+    {
+      "id": "cost-commitments_contingencies",
+      "title": "COMMITMENTS AND CONTINGENCIES · 承诺及或有事项〔原表无金额〕",
+      "kind": "table_row",
+      "preview": "| COMMITMENTS AND CONTINGENCIES | 承诺及或有事项〔原表无金额〕 |  |  |"
+    },
+    {
+      "id": "cost-equity",
+      "title": "EQUITY · 权益",
+      "kind": "table_row",
+      "preview": "| **EQUITY** | **权益** |  |  |"
+    },
+    {
+      "id": "cost-preferred_stock",
+      "title": "Preferred stock \\$0.005 par value; 100,000,000 shares authorized; no shares issued and outstanding · 优先股：每股面值0.005美元；授权100,000,000股；无已发行及流通股",
+      "kind": "table_row",
+      "preview": "| 　Preferred stock \\$0.005 par value; 100,000,000 shares authorized; no shares issued and outstanding | 优先股：每股面值0.005美元；授权100,000,000股；无已发行及流通股 | — | — |"
+    },
+    {
+      "id": "cost-common_stock",
+      "title": "Common stock \\$0.005 par value; 900,000,000 shares authorized; 443,237,000 and 443,126,000 shares issued and outstanding · 普通股：每股面值0.005美元；授权900,000,000股；两期已发行及流通443,237,000及443,126,000股",
+      "kind": "table_row",
+      "preview": "| 　Common stock \\$0.005 par value; 900,000,000 shares authorized; 443,237,000 and 443,126,000 shares issued and outstanding | 普通股：每股面值0.005美元；授权900,000,000股；两期已发行及流通443,237,000及443,126,000股 | 2 | 2 |"
+    },
+    {
+      "id": "cost-additional_paid_in_capital",
+      "title": "Additional paid-in capital · 额外实缴资本",
+      "kind": "table_row",
+      "preview": "| 　Additional paid-in capital | 额外实缴资本 | 8,282 | 7,829 |"
+    },
+    {
+      "id": "cost-aocl",
+      "title": "Accumulated other comprehensive loss · 累计其他综合损失",
+      "kind": "table_row",
+      "preview": "| 　Accumulated other comprehensive loss | 累计其他综合损失 | (1,770) | (1,828) |"
+    },
+    {
+      "id": "cost-retained_earnings",
+      "title": "Retained earnings · 留存收益",
+      "kind": "table_row",
+      "preview": "| 　Retained earnings | 留存收益 | 22,650 | 17,619 |"
+    },
+    {
+      "id": "cost-total_equity",
+      "title": "TOTAL EQUITY · 权益合计",
+      "kind": "table_row",
+      "preview": "| **TOTAL EQUITY** | **权益合计** | **29,164** | **23,622** |"
+    },
+    {
+      "id": "cost-total_liabilities_equity",
+      "title": "TOTAL LIABILITIES AND EQUITY · 负债及权益合计",
+      "kind": "table_row",
+      "preview": "| **TOTAL LIABILITIES AND EQUITY** | **负债及权益合计** | **77,099** | **69,831** |"
+    },
+    {
+      "id": "jpm-assets",
+      "title": "Assets · 资产",
+      "kind": "table_row",
+      "preview": "| **Assets** | **资产** |  |  |"
+    },
+    {
+      "id": "jpm-cash_due_from_banks",
+      "title": "Cash and due from banks · 现金及应收银行款",
+      "kind": "table_row",
+      "preview": "| 　Cash and due from banks | 现金及应收银行款 | 21,742 | 23,372 |"
+    },
+    {
+      "id": "jpm-deposits_with_banks",
+      "title": "Deposits with banks · 存放银行款项",
+      "kind": "table_row",
+      "preview": "| 　Deposits with banks | 存放银行款项 | 321,596 | 445,945 |"
+    },
+    {
+      "id": "jpm-fed_funds_sold_resale",
+      "title": "Federal funds sold and securities purchased under resale agreements (included \\$327,018 and \\$286,771 at fair value) · 拆出联邦基金及买入返售证券〔其中按公允价值计量327,018／286,771〕",
+      "kind": "table_row",
+      "preview": "| 　Federal funds sold and securities purchased under resale agreements (included \\$327,018 and \\$286,771 at fair value) | 拆出联邦基金及买入返售证券〔其中按公允价值计量327,018／286,771〕 | 336,426 | 295,001 |"
+    },
+    {
+      "id": "jpm-securities_borrowed",
+      "title": "Securities borrowed (included \\$98,111 and \\$83,962 at fair value) · 借入证券〔其中按公允价值计量98,111／83,962〕",
+      "kind": "table_row",
+      "preview": "| 　Securities borrowed (included \\$98,111 and \\$83,962 at fair value) | 借入证券〔其中按公允价值计量98,111／83,962〕 | 286,191 | 219,546 |"
+    },
+    {
+      "id": "jpm-trading_assets",
+      "title": "Trading assets (included assets pledged of \\$165,927 and \\$136,070) · 交易资产〔其中已质押资产165,927／136,070〕",
+      "kind": "table_row",
+      "preview": "| 　Trading assets (included assets pledged of \\$165,927 and \\$136,070) | 交易资产〔其中已质押资产165,927／136,070〕 | 802,873 | 637,784 |"
+    },
+    {
+      "id": "jpm-afs_securities",
+      "title": "Available-for-sale securities (amortized cost of \\$507,226 and \\$411,045; included assets pledged of \\$7,735 and \\$10,162) · 可供出售证券〔摊余成本507,226／411,045；其中已质押7,735／10,162〕",
+      "kind": "table_row",
+      "preview": "| 　　Available-for-sale securities (amortized cost of \\$507,226 and \\$411,045; included assets pledged of \\$7,735 and \\$10,162) | 可供出售证券〔摊余成本507,226／411,045；其中已质押7,735／10,162〕 | 507,198 | 406,852 |"
+    },
+    {
+      "id": "jpm-htm_securities",
+      "title": "Held-to-maturity securities · 持有至到期证券",
+      "kind": "table_row",
+      "preview": "| 　　Held-to-maturity securities | 持有至到期证券 | 270,134 | 274,468 |"
+    },
+    {
+      "id": "jpm-investment_securities_net",
+      "title": "Investment securities, net of allowance for credit losses · 投资证券，扣除信用损失准备后",
+      "kind": "table_row",
+      "preview": "| 　**Investment securities, net of allowance for credit losses** | **投资证券，扣除信用损失准备后** | **777,332** | **681,320** |"
+    },
+    {
+      "id": "jpm-loans_gross",
+      "title": "Loans (included \\$70,684 and \\$41,350 at fair value) · 贷款，未扣贷款损失准备〔其中按公允价值计量70,684／41,350〕",
+      "kind": "table_row",
+      "preview": "| 　　Loans (included \\$70,684 and \\$41,350 at fair value) | 贷款，未扣贷款损失准备〔其中按公允价值计量70,684／41,350〕 | 1,493,429 | 1,347,988 |"
+    },
+    {
+      "id": "jpm-allowance_loan_losses",
+      "title": "Allowance for loan losses · 贷款损失准备〔资产减项〕",
+      "kind": "table_row",
+      "preview": "| 　　Allowance for loan losses | 贷款损失准备〔资产减项〕 | (25,765) | (24,345) |"
+    },
+    {
+      "id": "jpm-loans_net",
+      "title": "Loans, net of allowance for loan losses · 贷款净额",
+      "kind": "table_row",
+      "preview": "| 　**Loans, net of allowance for loan losses** | **贷款净额** | **1,467,664** | **1,323,643** |"
+    },
+    {
+      "id": "jpm-accrued_interest_receivables",
+      "title": "Accrued interest and accounts receivable · 应计利息及应收账款",
+      "kind": "table_row",
+      "preview": "| 　Accrued interest and accounts receivable | 应计利息及应收账款 | 111,599 | 101,223 |"
+    },
+    {
+      "id": "jpm-premises_equipment",
+      "title": "Premises and equipment · 房屋及设备",
+      "kind": "table_row",
+      "preview": "| 　Premises and equipment | 房屋及设备 | 36,244 | 32,223 |"
+    },
+    {
+      "id": "jpm-goodwill_msrs_other_intangibles",
+      "title": "Goodwill, MSRs and other intangible assets · 商誉、按揭服务权及其他无形资产",
+      "kind": "table_row",
+      "preview": "| 　Goodwill, MSRs and other intangible assets | 商誉、按揭服务权及其他无形资产 | 64,458 | 64,560 |"
+    },
+    {
+      "id": "jpm-other_assets",
+      "title": "Other assets (included \\$15,849 and \\$15,122 at fair value and assets pledged of \\$11,984 and \\$6,288) · 其他资产〔其中按公允价值计量15,849／15,122；已质押11,984／6,288〕",
+      "kind": "table_row",
+      "preview": "| 　Other assets (included \\$15,849 and \\$15,122 at fair value and assets pledged of \\$11,984 and \\$6,288) | 其他资产〔其中按公允价值计量15,849／15,122；已质押11,984／6,288〕 | 198,775 | 178,197 |"
+    },
+    {
+      "id": "jpm-total_assets",
+      "title": "Total assets(a) · 总资产〔附注(a)〕",
+      "kind": "table_row",
+      "preview": "| **Total assets(a)** | **总资产〔附注(a)〕** | **4,424,900** | **4,002,814** |"
+    },
+    {
+      "id": "jpm-liabilities",
+      "title": "Liabilities · 负债",
+      "kind": "table_row",
+      "preview": "| **Liabilities** | **负债** |  |  |"
+    },
+    {
+      "id": "jpm-customer_deposits",
+      "title": "Deposits (included \\$20,930 and \\$33,768 at fair value) · 客户存款〔其中按公允价值计量20,930／33,768〕",
+      "kind": "table_row",
+      "preview": "| 　Deposits (included \\$20,930 and \\$33,768 at fair value) | 客户存款〔其中按公允价值计量20,930／33,768〕 | 2,559,320 | 2,406,032 |"
+    },
+    {
+      "id": "jpm-fed_funds_purchased_repo",
+      "title": "Federal funds purchased and securities loaned or sold under repurchase agreements (included \\$360,194 and \\$226,329 at fair value) · 拆入联邦基金及证券借出或回购融资〔其中按公允价值计量360,194／226,329〕",
+      "kind": "table_row",
+      "preview": "| 　Federal funds purchased and securities loaned or sold under repurchase agreements (included \\$360,194 and \\$226,329 at fair value) | 拆入联邦基金及证券借出或回购融资〔其中按公允价值计量360,194／226,329〕 | 442,396 | 296,835 |"
+    },
+    {
+      "id": "jpm-short_term_borrowings",
+      "title": "Short-term borrowings (included \\$32,460 and \\$26,521 at fair value) · 短期借款〔其中按公允价值计量32,460／26,521〕",
+      "kind": "table_row",
+      "preview": "| 　Short-term borrowings (included \\$32,460 and \\$26,521 at fair value) | 短期借款〔其中按公允价值计量32,460／26,521〕 | 64,776 | 52,893 |"
+    },
+    {
+      "id": "jpm-trading_liabilities",
+      "title": "Trading liabilities · 交易负债",
+      "kind": "table_row",
+      "preview": "| 　Trading liabilities | 交易负债 | 216,019 | 192,883 |"
+    },
+    {
+      "id": "jpm-accounts_payable_other_liabilities",
+      "title": "Accounts payable and other liabilities (included \\$6,660 and \\$5,893 at fair value) · 应付账款及其他负债〔其中按公允价值计量6,660／5,893〕",
+      "kind": "table_row",
+      "preview": "| 　Accounts payable and other liabilities (included \\$6,660 and \\$5,893 at fair value) | 应付账款及其他负债〔其中按公允价值计量6,660／5,893〕 | 316,794 | 280,672 |"
+    },
+    {
+      "id": "jpm-vie_beneficial_interests",
+      "title": "Beneficial interests issued by consolidated VIEs (included \\$5 and \\$1 at fair value) · 合并VIE发行的受益权益〔其中按公允价值计量5／1〕",
+      "kind": "table_row",
+      "preview": "| 　Beneficial interests issued by consolidated VIEs (included \\$5 and \\$1 at fair value) | 合并VIE发行的受益权益〔其中按公允价值计量5／1〕 | 27,951 | 27,323 |"
+    },
+    {
+      "id": "jpm-long_term_debt",
+      "title": "Long-term debt (included \\$134,559 and \\$100,780 at fair value) · 长期债务〔其中按公允价值计量134,559／100,780〕",
+      "kind": "table_row",
+      "preview": "| 　Long-term debt (included \\$134,559 and \\$100,780 at fair value) | 长期债务〔其中按公允价值计量134,559／100,780〕 | 435,206 | 401,418 |"
+    },
+    {
+      "id": "jpm-total_liabilities",
+      "title": "Total liabilities(a) · 负债合计〔附注(a)〕",
+      "kind": "table_row",
+      "preview": "| **Total liabilities(a)** | **负债合计〔附注(a)〕** | **4,062,462** | **3,658,056** |"
+    },
+    {
+      "id": "jpm-commitments_contingencies",
+      "title": "Commitments and contingencies (refer to Notes 28, 29 and 30) · 承诺及或有事项〔参见Notes 28、29、30；原表无金额〕",
+      "kind": "table_row",
+      "preview": "| Commitments and contingencies (refer to Notes 28, 29 and 30) | 承诺及或有事项〔参见Notes 28、29、30；原表无金额〕 |  |  |"
+    },
+    {
+      "id": "jpm-equity",
+      "title": "Stockholders’ equity · 股东权益",
+      "kind": "table_row",
+      "preview": "| **Stockholders’ equity** | **股东权益** |  |  |"
+    },
+    {
+      "id": "jpm-preferred_stock",
+      "title": "Preferred stock (\\$1 par value; authorized 200,000,000 shares: issued 2,005,375 and 2,005,375 shares) · 优先股：面值每股1美元；授权200,000,000股；两期已发行均为2,005,375股",
+      "kind": "table_row",
+      "preview": "| 　Preferred stock (\\$1 par value; authorized 200,000,000 shares: issued 2,005,375 and 2,005,375 shares) | 优先股：面值每股1美元；授权200,000,000股；两期已发行均为2,005,375股 | 20,045 | 20,050 |"
+    },
+    {
+      "id": "jpm-common_stock",
+      "title": "Common stock (\\$1 par value; authorized 9,000,000,000 shares; issued 4,104,933,895 shares) · 普通股：面值每股1美元；授权9,000,000,000股；已发行4,104,933,895股",
+      "kind": "table_row",
+      "preview": "| 　Common stock (\\$1 par value; authorized 9,000,000,000 shares; issued 4,104,933,895 shares) | 普通股：面值每股1美元；授权9,000,000,000股；已发行4,104,933,895股 | 4,105 | 4,105 |"
+    },
+    {
+      "id": "jpm-additional_paid_in_capital",
+      "title": "Additional paid-in capital · 额外实缴资本",
+      "kind": "table_row",
+      "preview": "| 　Additional paid-in capital | 额外实缴资本 | 91,114 | 90,911 |"
+    },
+    {
+      "id": "jpm-retained_earnings",
+      "title": "Retained earnings · 留存收益",
+      "kind": "table_row",
+      "preview": "| 　Retained earnings | 留存收益 | 416,055 | 376,166 |"
+    },
+    {
+      "id": "jpm-aocl",
+      "title": "Accumulated other comprehensive losses · 累计其他综合损失",
+      "kind": "table_row",
+      "preview": "| 　Accumulated other comprehensive losses | 累计其他综合损失 | (4,290) | (12,456) |"
+    },
+    {
+      "id": "jpm-treasury_stock",
+      "title": "Treasury stock, at cost (1,408,661,319 and 1,307,313,494 shares) · 库存股，按成本〔股数1,408,661,319／1,307,313,494〕",
+      "kind": "table_row",
+      "preview": "| 　Treasury stock, at cost (1,408,661,319 and 1,307,313,494 shares) | 库存股，按成本〔股数1,408,661,319／1,307,313,494〕 | (164,591) | (134,018) |"
+    },
+    {
+      "id": "jpm-total_equity",
+      "title": "Total stockholders’ equity · 股东权益合计",
+      "kind": "table_row",
+      "preview": "| **Total stockholders’ equity** | **股东权益合计** | **362,438** | **344,758** |"
+    },
+    {
+      "id": "jpm-total_liabilities_equity",
+      "title": "Total liabilities and stockholders’ equity · 负债及股东权益合计",
+      "kind": "table_row",
+      "preview": "| **Total liabilities and stockholders’ equity** | **负债及股东权益合计** | **4,424,900** | **4,002,814** |"
+    },
+    {
+      "id": "jpm-vie-assets",
+      "title": "Assets · 资产",
+      "kind": "table_row",
+      "preview": "| **Assets** | **资产** |  |  |"
+    },
+    {
+      "id": "jpm-vie-trading_assets",
+      "title": "Trading assets · 交易资产",
+      "kind": "table_row",
+      "preview": "| 　Trading assets | 交易资产 | 4,835 | 3,885 |"
+    },
+    {
+      "id": "jpm-vie-loans",
+      "title": "Loans · 贷款",
+      "kind": "table_row",
+      "preview": "| 　Loans | 贷款 | 37,777 | 36,510 |"
+    },
+    {
+      "id": "jpm-vie-all_other_assets",
+      "title": "All other assets · 其他资产",
+      "kind": "table_row",
+      "preview": "| 　All other assets | 其他资产 | 683 | 681 |"
+    },
+    {
+      "id": "jpm-vie-total_assets",
+      "title": "Total assets · 资产合计",
+      "kind": "table_row",
+      "preview": "| **Total assets** | **资产合计** | **43,295** | **41,076** |"
+    },
+    {
+      "id": "jpm-vie-liabilities",
+      "title": "Liabilities · 负债",
+      "kind": "table_row",
+      "preview": "| **Liabilities** | **负债** |  |  |"
+    },
+    {
+      "id": "jpm-vie-beneficial_interests",
+      "title": "Beneficial interests issued by consolidated VIEs · 合并VIE发行的受益权益",
+      "kind": "table_row",
+      "preview": "| 　Beneficial interests issued by consolidated VIEs | 合并VIE发行的受益权益 | 27,951 | 27,323 |"
+    },
+    {
+      "id": "jpm-vie-all_other_liabilities",
+      "title": "All other liabilities · 其他负债",
+      "kind": "table_row",
+      "preview": "| 　All other liabilities | 其他负债 | 691 | 454 |"
+    },
+    {
+      "id": "jpm-vie-total_liabilities",
+      "title": "Total liabilities · 负债合计",
+      "kind": "table_row",
+      "preview": "| **Total liabilities** | **负债合计** | **28,642** | **27,777** |"
+    },
+    {
+      "id": "bf05-sources",
+      "title": "来源与实际定位",
+      "kind": "sources"
+    }
+  ],
+  "references": [
+    {
+      "kind": "source_link",
+      "label": "FASB",
+      "href": "https://storage.fasb.org/Concepts_Statement_8-Chapter_4-Elements.pdf",
+      "locator": "BF-S-FASB-ELEMENTS；FASB，2021-12；Chapter 4 E16–E70，尤其E16、E37、E61–E66",
+      "source_id": "BF-S-FASB-ELEMENTS"
+    },
+    {
+      "kind": "source_link",
+      "label": "OPENSTAX-22",
+      "href": "https://openstax.org/books/principles-financial-accounting/pages/2-2-define-explain-and-provide-examples-of-current-and-noncurrent-assets-current-and-noncurrent-liabilities-equity-revenues-and-expenses",
+      "locator": "BF-S-OPENSTAX-22；OpenStax，Principles of Accounting Vol.1，2019，§2.2",
+      "source_id": "BF-S-OPENSTAX-22"
+    },
+    {
+      "kind": "source_link",
+      "label": "COST-BS",
+      "href": "https://www.sec.gov/Archives/edgar/data/909832/000090983225000101/cost-20250831.htm",
+      "locator": "BI-S05；Costco FY2025 SEC 10-K，印刷p.39完整合并资产负债表；两期百万美元，股数/面值除外",
+      "source_id": "BF-S-COST-FY2025-SEC"
+    },
+    {
+      "kind": "source_link",
+      "label": "COST-PDF",
+      "href": "https://s201.q4cdn.com/287523651/files/doc_financials/2025/ar/COST-Annual-Report-2025.pdf#page=43",
+      "locator": "同一公司股东年报PDF；资产负债表印刷p.37／物理p.43；排版页码与SEC HTML不同",
+      "source_id": "BF-S-COST-FY2025-PDF"
+    },
+    {
+      "kind": "source_link",
+      "label": "COST-POLICY",
+      "href": "https://www.sec.gov/Archives/edgar/data/909832/000090983225000101/cost-20250831.htm",
+      "locator": "BI-S05；Note 1，印刷p.42，Basis of Presentation、Fiscal Year、Reclassification",
+      "source_id": "BF-S-COST-FY2025-SEC"
+    },
+    {
+      "kind": "source_link",
+      "label": "COST-BUS",
+      "href": "https://www.sec.gov/Archives/edgar/data/909832/000090983225000101/cost-20250831.htm",
+      "locator": "BI-S05；Item 1 General，印刷pp.3–4，周转与供应商付款关系",
+      "source_id": "BF-S-COST-FY2025-SEC"
+    },
+    {
+      "kind": "source_link",
+      "label": "COST-CF",
+      "href": "https://www.sec.gov/Archives/edgar/data/909832/000090983225000101/cost-20250831.htm",
+      "locator": "BI-S05；完整合并现金流量表印刷p.41；截至2025-08-31的52周，百万美元；股东年报PDF对应印刷p.39／物理p.45",
+      "source_id": "BF-S-COST-FY2025-SEC"
+    },
+    {
+      "kind": "source_link",
+      "label": "COST-RECEIVABLES",
+      "href": "https://www.sec.gov/Archives/edgar/data/909832/000090983225000101/cost-20250831.htm",
+      "locator": "BI-S05；Note 1 Receivables, Net，印刷p.44；应收来源而非顾客赊销假定",
+      "source_id": "BF-S-COST-FY2025-SEC"
+    },
+    {
+      "kind": "source_link",
+      "label": "COST-REV",
+      "href": "https://www.sec.gov/Archives/edgar/data/909832/000090983225000101/cost-20250831.htm",
+      "locator": "BI-S05；Note 1 Revenue Recognition，印刷pp.47–48；会员费与会员奖励分别处理",
+      "source_id": "BF-S-COST-FY2025-SEC"
+    },
+    {
+      "kind": "source_link",
+      "label": "COST-LEASE",
+      "href": "https://www.sec.gov/Archives/edgar/data/909832/000090983225000101/cost-20250831.htm",
+      "locator": "BI-S05；Note 5 Leases，印刷pp.53–54；资产负债分类表及脚注(1)–(3)在p.53",
+      "source_id": "BF-S-COST-FY2025-SEC"
+    },
+    {
+      "kind": "source_link",
+      "label": "JPM-BS",
+      "href": "https://www.jpmorganchase.com/content/dam/jpmc/jpmorgan-chase-and-co/investor-relations/documents/annualreport-2025.pdf#page=199",
+      "locator": "BI-S07；JPMorgan 2025 Annual Report，印刷p.167／物理p.199；完整表及VIE附注(a)",
+      "source_id": "BF-S-JPM-FY2025"
+    },
+    {
+      "kind": "source_link",
+      "label": "JPM-DEPOSITS",
+      "href": "https://www.jpmorganchase.com/content/dam/jpmc/jpmorgan-chase-and-co/investor-relations/documents/annualreport-2025.pdf#page=309",
+      "locator": "BI-S07；Note 17 Deposits，印刷p.277／物理p.309；含计息/无息、地域和定期存款说明",
+      "source_id": "BF-S-JPM-FY2025"
+    },
+    {
+      "kind": "source_link",
+      "label": "JPM-LOAN",
+      "href": "https://www.jpmorganchase.com/content/dam/jpmc/jpmorgan-chase-and-co/investor-relations/documents/annualreport-2025.pdf#page=268",
+      "locator": "BI-S07；Note 12 Loan accounting framework，印刷pp.236–238",
+      "source_id": "BF-S-JPM-FY2025"
+    },
+    {
+      "kind": "source_link",
+      "label": "JPM-LOAN-TABLE",
+      "href": "https://www.jpmorganchase.com/content/dam/jpmc/jpmorgan-chase-and-co/investor-relations/documents/annualreport-2025.pdf#page=271",
+      "locator": "BI-S07；Note 12 Loan portfolio，印刷p.239／物理p.271；本稿摘构成表合计列，脚注(a)(b)保留支持范围",
+      "source_id": "BF-S-JPM-FY2025"
+    },
+    {
+      "kind": "source_link",
+      "label": "JPM-SEC",
+      "href": "https://www.jpmorganchase.com/content/dam/jpmc/jpmorgan-chase-and-co/investor-relations/documents/annualreport-2025.pdf#page=260",
+      "locator": "BI-S07；Note 10 Investment securities，印刷pp.228–229；44.1bn非现金转移及计量政策在p.228",
+      "source_id": "BF-S-JPM-FY2025"
+    },
+    {
+      "kind": "source_link",
+      "label": "JPM-NETTING",
+      "href": "https://www.jpmorganchase.com/content/dam/jpmc/jpmorgan-chase-and-co/investor-relations/documents/annualreport-2025.pdf#page=239",
+      "locator": "BI-S07；Note 5 Derivatives netting，印刷pp.207–209；2025应收表在p.208，结合相邻说明与脚注",
+      "source_id": "BF-S-JPM-FY2025"
+    },
+    {
+      "kind": "source_link",
+      "label": "JPM-CF",
+      "href": "https://www.jpmorganchase.com/content/dam/jpmc/jpmorgan-chase-and-co/investor-relations/documents/annualreport-2025.pdf#page=201",
+      "locator": "BI-S07；合并现金流量表印刷p.169／物理p.201；解释参见MD&A p.58",
+      "source_id": "BF-S-JPM-FY2025"
+    }
+  ],
+  "sources": [
+    "BF-S-FASB-ELEMENTS",
+    "BF-S-OPENSTAX-22",
+    "BF-S-COST-FY2025-SEC",
+    "BF-S-COST-FY2025-PDF",
+    "BF-S-JPM-FY2025"
+  ],
+  "relations": [
+    {
+      "from": "BF-05",
+      "relation": "part_of",
+      "to": "business-reports",
+      "reason": "从完整资产负债表进入行业财务阅读",
+      "target_kind": "topic"
+    },
+    {
+      "from": "BF-05",
+      "relation": "uses_method",
+      "to": "BF-01",
+      "reason": "用业务关系决定读表重点；所需内容已在分支就地提供"
+    },
+    {
+      "from": "BF-05",
+      "relation": "uses_method",
+      "to": "BF-02",
+      "reason": "主表、附注、现金流和权益表导航"
+    },
+    {
+      "from": "BF-05",
+      "relation": "uses_method",
+      "to": "BF-03",
+      "reason": "时点、金额单位、范围与比较期口径"
+    },
+    {
+      "from": "BF-05",
+      "relation": "supported_by",
+      "to": "BF-S-FASB-ELEMENTS",
+      "reason": "资产、负债、权益定义",
+      "scope": "E16–E70；定义与具体计量分开"
+    },
+    {
+      "from": "BF-05",
+      "relation": "illustrated_by",
+      "to": "CASE-COST-FY2025-BS",
+      "reason": "完整零售表、周转余额及门店义务",
+      "at_section": "BS-RETAIL",
+      "status": "planned",
+      "source_at_section": "2"
+    },
+    {
+      "from": "BF-05",
+      "relation": "illustrated_by",
+      "to": "CASE-JPM-FY2025-BS",
+      "reason": "完整银行表、贷款计量及普通股归属",
+      "at_section": "BS-BANKING",
+      "status": "planned",
+      "source_at_section": "3"
+    },
+    {
+      "from": "CASE-COST-FY2025-BS",
+      "relation": "supported_by",
+      "to": "BF-S-COST-FY2025-SEC",
+      "reason": "历史原表及承重附注",
+      "scope": "SEC pp.39、41；Note 1 pp.42–49；Note 5 pp.53–54",
+      "status": "planned"
+    },
+    {
+      "from": "CASE-JPM-FY2025-BS",
+      "relation": "supported_by",
+      "to": "BF-S-JPM-FY2025",
+      "reason": "历史原表、贷款与存款分类",
+      "scope": "pp.167、169；Note 10 pp.228–229；Note 12 pp.236–239；Note 17 p.277；扩展Note 5 pp.207–209",
+      "status": "planned"
+    },
+    {
+      "from": "CASE-COST-FY2025-BS",
+      "relation": "analyzes",
+      "to": "CO-COST",
+      "reason": "Costco固定期间财务案例，不是某日股票定价",
+      "status": "planned"
+    },
+    {
+      "from": "CASE-JPM-FY2025-BS",
+      "relation": "analyzes",
+      "to": "CO-JPM",
+      "reason": "集团合并表，不是银行子公司单体表",
+      "status": "planned"
+    },
+    {
+      "from": "BF-05",
+      "relation": "illustrated_by",
+      "to": "EXP-BF05-EVENTS",
+      "reason": "赊购、销售、付款、收款的余额和资金顺序"
+    },
+    {
+      "from": "CASE-COST-FY2025-BS",
+      "relation": "compares_with",
+      "to": "CASE-JPM-FY2025-BS",
+      "reason": "比较业务、资金来源、计量与归属；不比较统一安全门槛",
+      "status": "planned"
+    }
+  ],
+  "experiments": [
+    {
+      "id": "EXP-BF05-EVENTS",
+      "title": "赊购、赊销、付款与收款",
+      "anchor": "bf05-events",
+      "url": "/notebook/labs/bf-a/interactions.html#EXP-BF05-EVENTS",
+      "description": "原稿独立教学设定；不对应Costco或JPM交易记录。",
+      "inputs": {
+        "initial_cash": 100,
+        "initial_equity": 100,
+        "cost": 100,
+        "sales": 150,
+        "default_collect_first": false
+      },
+      "default_outputs": [
+        {
+          "event_label": "S0 期初",
+          "cash": 100,
+          "receivable": 0,
+          "inventory": 0,
+          "assets": 100,
+          "payable": 0,
+          "equity": 100,
+          "profit": 0,
+          "ocf": 0
+        },
+        {
+          "event_label": "S1 赊购100",
+          "cash": 100,
+          "receivable": 0,
+          "inventory": 100,
+          "assets": 200,
+          "payable": 100,
+          "equity": 100,
+          "profit": 0,
+          "ocf": 0
+        },
+        {
+          "event_label": "S2 赊销150并结转100",
+          "cash": 100,
+          "receivable": 150,
+          "inventory": 0,
+          "assets": 250,
+          "payable": 100,
+          "equity": 150,
+          "profit": 50,
+          "ocf": 0
+        },
+        {
+          "event_label": "S3 付款100",
+          "cash": 0,
+          "receivable": 150,
+          "inventory": 0,
+          "assets": 150,
+          "payable": 0,
+          "equity": 150,
+          "profit": 50,
+          "ocf": -100
+        },
+        {
+          "event_label": "S4 收款150",
+          "cash": 150,
+          "receivable": 0,
+          "inventory": 0,
+          "assets": 150,
+          "payable": 0,
+          "equity": 150,
+          "profit": 50,
+          "ocf": 50
+        }
+      ],
+      "transitions": {
+        "heading": "4　共同事件实验：一张表怎样随交易移动",
+        "headers": [
+          "箭头",
+          "现金变化",
+          "应收变化",
+          "存货变化",
+          "负债变化",
+          "权益变化",
+          "经济含义"
+        ],
+        "rows": [
+          [
+            "S0→S1 赊购",
+            "0",
+            "0",
+            "+100",
+            "+100",
+            "0",
+            "商品与付款义务同时留下"
+          ],
+          [
+            "S1→S2 销售并结转成本",
+            "0",
+            "+150",
+            "−100",
+            "0",
+            "+50",
+            "收款权替代商品，净收益增加权益"
+          ],
+          [
+            "S2→S3 付款",
+            "−100",
+            "0",
+            "0",
+            "−100",
+            "0",
+            "清偿旧义务，不重复确认商品成本"
+          ],
+          [
+            "S3→S4 收款",
+            "+150",
+            "−150",
+            "0",
+            "0",
+            "0",
+            "实现旧收款权，不重复确认销售收入"
+          ]
+        ],
+        "markdown": "| 箭头 | 现金变化 | 应收变化 | 存货变化 | 负债变化 | 权益变化 | 经济含义 |\n|---|---:|---:|---:|---:|---:|---|\n| S0→S1 赊购 | 0 | 0 | +100 | +100 | 0 | 商品与付款义务同时留下 |\n| S1→S2 销售并结转成本 | 0 | +150 | −100 | 0 | +50 | 收款权替代商品，净收益增加权益 |\n| S2→S3 付款 | −100 | 0 | 0 | −100 | 0 | 清偿旧义务，不重复确认商品成本 |\n| S3→S4 收款 | +150 | −150 | 0 | 0 | 0 | 实现旧收款权，不重复确认销售收入 |"
+      },
+      "source_inputs": {
+        "initial_cash": 100,
+        "initial_equity": 100,
+        "purchase_cost": 100,
+        "sale_price": 150,
+        "default_order": [
+          "purchase",
+          "sale",
+          "pay",
+          "collect"
+        ],
+        "alternative_order": [
+          "purchase",
+          "sale",
+          "collect",
+          "pay"
+        ]
+      },
+      "computation_source": {
+        "language": "javascript",
+        "code": "// 纯计算函数；不访问账户、不获取外部数据。与正文同一组教学设定。\nfunction eventLedger(initialCash = 100, collectFirst = false) {\n  if (!Number.isFinite(initialCash) || initialCash < 0) {\n    throw new RangeError('期初现金必须为非负有限数');\n  }\n  if (typeof collectFirst !== 'boolean') {\n    throw new TypeError('collectFirst必须为布尔值');\n  }\n  const s = {cash: initialCash, receivable: 0, inventory: 0,\n             payable: 0, equity: initialCash, profit: 0, ocf: 0};\n  const rows = [];\n  const take = event => {\n    const assets = s.cash + s.receivable + s.inventory;\n    if (Math.abs(assets - s.payable - s.equity) > 1e-9) {\n      throw new Error('资产负债关系不平');\n    }\n    rows.push({event, ...s, assets, balanceResidual: 0});\n  };\n  take('initial');\n  s.inventory += 100; s.payable += 100; take('purchase');\n  s.receivable += 150; s.inventory -= 100;\n  s.equity += 50; s.profit += 50; take('sale');\n  const order = collectFirst ? ['collect', 'pay'] : ['pay', 'collect'];\n  for (const event of order) {\n    if (event === 'pay') {\n      if (s.cash < 100) return {rows, completed: false, fundingGap: 100 - s.cash};\n      s.cash -= 100; s.payable -= 100; s.ocf -= 100;\n    } else {\n      s.cash += 150; s.receivable -= 150; s.ocf += 150;\n    }\n    take(event);\n  }\n  return {rows, completed: true, fundingGap: 0};\n}"
+      },
+      "outputs_origin": "原稿第4节完整静态表；导入未执行该函数"
+    }
+  ],
+  "interactions": [
+    {
+      "id": "lab-bf05-retail",
+      "title": "零售原表与周转关系",
+      "url": "/notebook/labs/bf-a/interactions.html#BS-RETAIL",
+      "static_anchor": "BS-RETAIL",
+      "open": true,
+      "status": "pendingUI"
+    },
+    {
+      "id": "lab-bf05-bank",
+      "title": "银行原表与计量关系",
+      "url": "/notebook/labs/bf-a/interactions.html#BS-BANKING",
+      "static_anchor": "BS-BANKING",
+      "open": true,
+      "status": "pendingUI"
+    },
+    {
+      "id": "lab-bf05-events",
+      "title": "赊购、赊销、付款与收款",
+      "url": "/notebook/labs/bf-a/interactions.html#EXP-BF05-EVENTS",
+      "static_anchor": "bf05-events",
+      "open": true,
+      "status": "pendingUI"
+    }
+  ],
+  "prompt": "你负责 BF-05《资产负债表：全表结构与行业带读》。先让读者选择零售Costco或银行JPM；未选择时默认零售。共同部分加一条分支构成本次任务，另一分支和§5扩展不默认全读。不要先让读者完成三篇通识课。\n\n先实际读取共同必读单元：\nFASB Concepts Statement 8 Chapter 4（2021-12）\nhttps://storage.fasb.org/Concepts_Statement_8-Chapter_4-Elements.pdf\nE16–E70，资产、负债、权益的定义及完整特征单元。注意它不是具体计量规则。\nOpenStax Principles of Accounting Vol.1（2019）§2.2：\nhttps://openstax.org/books/principles-financial-accounting/pages/2-2-define-explain-and-provide-examples-of-current-and-noncurrent-assets-current-and-noncurrent-liabilities-equity-revenues-and-expenses\n读取本节，采用报表结构与交易联系，不把简化措辞当作所有现行准则。\n\n所选零售分支的必读：\nhttps://www.sec.gov/Archives/edgar/data/909832/000090983225000101/cost-20250831.htm\nItem 1 General及Membership相关完整单元；完整资产负债表p.39、现金流量表p.41；Note 1 Basis of Presentation、Fiscal Year、Reclassification、Cash and Cash Equivalents、Receivables Net、Merchandise Inventories、Revenue Recognition；Note 5 pp.53–54全文。\n备选同公司PDF：\nhttps://s201.q4cdn.com/287523651/files/doc_financials/2025/ar/COST-Annual-Report-2025.pdf\n该PDF资产负债表是印刷p.37／物理p.43，不能沿用SEC的p.39。切换版本必须重新核表头、数值、附注标题，不凭页码猜读到什么。\n\n所选银行分支的必读：\nhttps://www.jpmorganchase.com/content/dam/jpmc/jpmorgan-chase-and-co/investor-relations/documents/annualreport-2025.pdf\nMD&A Introduction印刷p.46／物理p.78；完整资产负债表及VIE脚注p.167／物理p.199；Note 10 pp.228–229；Note 12 Loan accounting framework pp.236–238以及Loan portfolio p.239的完整构成表与脚注；Note 17 p.277全文。PDF表格查看原页。\n选择净额列报扩展时再读Note 5 pp.207–209；选择现金流扩展时再读完整p.169及MD&A Cash flows analysis p.58。未读扩展时不声称已具备该处全部阅读。\n\n每项记录标题、版本、实际范围、取得方式和支持当前教学的一句话。运行时读取日志初始为空，只记录本次实际取得的单元；只列书目、只打开链接、看到摘要均不满足。读取失败先找同机构原件或本包提供的已核对等价单元；仍缺就报告具体单元。\n\n材料齐备后，先呈现所选完整原表。保留英文行、中文解释、两期、负数、小计、单位、括注和无金额披露。禁止将小计及明细重复相加，VIE脚注不能再加到主表。\n\n零售诊断：让读者解释为什么库存减应付从−774到−1,667不能直接叫现金释放893。带读至现金流调整963，保留差额70未归因；再让读者用Note 5把租赁义务4,147放回原表，特别指出融资租赁资产在其他长期资产。\n银行诊断：让读者区分两个deposits，再自行回接贷款三类、准备及普通股权益。准备比率匹配retained贷款；分母切换必须改名。不要用该比率直接判风险改善，也不要把普通股权益当CET1。\n\n共同实验必须用正文完整假设，走完期初、赊购100、赊销150并结转100、付款、收款。每步同时显示余额和变化。默认现金100/权益100；现金为0且先付款时显示缺口100，不私自生成透支。让读者解释收款和付款为什么不再改变利润。\n\n最后使用另一年列或另一分支的迁移题。通过标准是：能从整表定位，到附注核口径，完成计算，并说明计算的范围。只背比率或只会相加不算完成。反馈后明确一个已掌握关系和一个具体缺口，避免反复免责式总结。不做估值、不读用户账户。",
+  "agent_markdown": "## 配套规格：原表阅读器、交互与静态等价\n\n### BF05-TABLES：完整原表不因高亮而消失\n\n输入分别绑定`COST-BS-20250831`与`JPM-BS-20251231`，年份顺序固定为较新／较旧，原始金额以百万美元保存。主表行ID就是本稿各行锚点去掉`cost-`或`jpm-`后的部分。完整表、脚注表和附注明细是不同数据层，只有明确的直接子项参加一个小计。\n\n默认显示共同结构和零售完整表；读者可切换银行。折叠只影响可见状态，不删除行或改变加总。全部展开、打印、无脚本模式均能读到两个完整表和说明。提供“定位原文”和“展开附注”按钮；原始值与派生比率区分。空白与原表破折号分开；任何股数、面值和百万美元不得共用同一个缩放开关。\n\n**加总合同。** Costco总资产只加流动资产小计、物业设备、经营租赁使用权和其他长期资产；JPM总资产只加各直接项目，证券用净小计、贷款用净小计，VIE脚注不参与主表。所有减项在数据层保留负号。正文两期合计及VIE内部合计可作为静态验收值。\n\n### BF05-RETAIL：余额变化与现金调整并排\n\n输入：`inventory_2024=18647, inventory_2025=18116, payable_2024=19421, payable_2025=19783, cf_inventory=559, cf_payable=404`。输出：`N_2024=-774, N_2025=-1667, delta_N=-893, reverse_delta=893, CF_adjustment=963, unexplained_difference=70`。默认历史数据不可编辑；“教学变式”另开命名空间，不覆盖历史数。点击差额只展示待查口径，不自动为其归因。静态等价为§2.2全部公式和表。\n\n### BF05-BANK：分子与分母必须一起说明\n\n输入来自§3.3的两期完整构成、准备负数，以及客户存款。默认展示`(-allowance)/retained_loans*100`，2025输出1.8287%；可切换“全部贷款作分母”的对照，输出1.7252%，同时出现“不是原留存贷款口径”的说明。币种不变，百分数仅乘100一次。不得把下降自动着色为风险改善。普通股每股账面值另以美元／股输出126.99和116.07，不与监管指标混名。\n\n### EXP-BF05-EVENTS：可复算状态转移\n\n状态字段为`cash, receivable, inventory, payable, equity, profit, ocf`，其中`profit`和`ocf`分别指本窗口累计利润和累计经营现金净额。期初`cash=equity=100`，其余0；采购成本`cost=100`，售价`sales=150`。允许顺序为`purchase → sale → pay → collect`或`purchase → sale → collect → pay`。付款须满足`cash>=cost`；其他事件不得重复执行。改变期初现金时权益同步改变，不引入未声明负债。\n\n```javascript\n// 纯计算函数；不访问账户、不获取外部数据。与正文同一组教学设定。\nfunction eventLedger(initialCash = 100, collectFirst = false) {\n  if (!Number.isFinite(initialCash) || initialCash < 0) {\n    throw new RangeError('期初现金必须为非负有限数');\n  }\n  if (typeof collectFirst !== 'boolean') {\n    throw new TypeError('collectFirst必须为布尔值');\n  }\n  const s = {cash: initialCash, receivable: 0, inventory: 0,\n             payable: 0, equity: initialCash, profit: 0, ocf: 0};\n  const rows = [];\n  const take = event => {\n    const assets = s.cash + s.receivable + s.inventory;\n    if (Math.abs(assets - s.payable - s.equity) > 1e-9) {\n      throw new Error('资产负债关系不平');\n    }\n    rows.push({event, ...s, assets, balanceResidual: 0});\n  };\n  take('initial');\n  s.inventory += 100; s.payable += 100; take('purchase');\n  s.receivable += 150; s.inventory -= 100;\n  s.equity += 50; s.profit += 50; take('sale');\n  const order = collectFirst ? ['collect', 'pay'] : ['pay', 'collect'];\n  for (const event of order) {\n    if (event === 'pay') {\n      if (s.cash < 100) return {rows, completed: false, fundingGap: 100 - s.cash};\n      s.cash -= 100; s.payable -= 100; s.ocf -= 100;\n    } else {\n      s.cash += 150; s.receivable -= 150; s.ocf += 150;\n    }\n    take(event);\n  }\n  return {rows, completed: true, fundingGap: 0};\n}\n```\n\n静态默认五行及每一步变化见§4。初始现金0且先付款的预期结果为`completed=false, fundingGap=100`；改为先收款则完成，最终现金50、权益50、利润50、经营现金净额50。UI显示余额与变化两层，箭头文字使用§4的完整含义；不把所有事件画到权益。\n\n页面使用可访问标签、键盘和文字状态，不依赖颜色。股票价格、自动安全评分和银行存活概率不在这个交互中。这里给出静态结果和实现规格；网页实现另行完成。",
+  "agent_packet": {
+    "entry_id": "zh-balance-sheet",
+    "node_id": "BF-05",
+    "content_version": "2026-09-21.BF-A.rev-1",
+    "export_mode": "public",
+    "audience": "具有足够数学背景的高年级本科至研究生",
+    "body_source": "body_markdown",
+    "learning_task": "在完整资产负债表中定位资源、义务与权益，沿所选行业查附注并解释余额变化。",
+    "prompt": "你负责 BF-05《资产负债表：全表结构与行业带读》。先让读者选择零售Costco或银行JPM；未选择时默认零售。共同部分加一条分支构成本次任务，另一分支和§5扩展不默认全读。不要先让读者完成三篇通识课。\n\n先实际读取共同必读单元：\nFASB Concepts Statement 8 Chapter 4（2021-12）\nhttps://storage.fasb.org/Concepts_Statement_8-Chapter_4-Elements.pdf\nE16–E70，资产、负债、权益的定义及完整特征单元。注意它不是具体计量规则。\nOpenStax Principles of Accounting Vol.1（2019）§2.2：\nhttps://openstax.org/books/principles-financial-accounting/pages/2-2-define-explain-and-provide-examples-of-current-and-noncurrent-assets-current-and-noncurrent-liabilities-equity-revenues-and-expenses\n读取本节，采用报表结构与交易联系，不把简化措辞当作所有现行准则。\n\n所选零售分支的必读：\nhttps://www.sec.gov/Archives/edgar/data/909832/000090983225000101/cost-20250831.htm\nItem 1 General及Membership相关完整单元；完整资产负债表p.39、现金流量表p.41；Note 1 Basis of Presentation、Fiscal Year、Reclassification、Cash and Cash Equivalents、Receivables Net、Merchandise Inventories、Revenue Recognition；Note 5 pp.53–54全文。\n备选同公司PDF：\nhttps://s201.q4cdn.com/287523651/files/doc_financials/2025/ar/COST-Annual-Report-2025.pdf\n该PDF资产负债表是印刷p.37／物理p.43，不能沿用SEC的p.39。切换版本必须重新核表头、数值、附注标题，不凭页码猜读到什么。\n\n所选银行分支的必读：\nhttps://www.jpmorganchase.com/content/dam/jpmc/jpmorgan-chase-and-co/investor-relations/documents/annualreport-2025.pdf\nMD&A Introduction印刷p.46／物理p.78；完整资产负债表及VIE脚注p.167／物理p.199；Note 10 pp.228–229；Note 12 Loan accounting framework pp.236–238以及Loan portfolio p.239的完整构成表与脚注；Note 17 p.277全文。PDF表格查看原页。\n选择净额列报扩展时再读Note 5 pp.207–209；选择现金流扩展时再读完整p.169及MD&A Cash flows analysis p.58。未读扩展时不声称已具备该处全部阅读。\n\n每项记录标题、版本、实际范围、取得方式和支持当前教学的一句话。运行时读取日志初始为空，只记录本次实际取得的单元；只列书目、只打开链接、看到摘要均不满足。读取失败先找同机构原件或本包提供的已核对等价单元；仍缺就报告具体单元。\n\n材料齐备后，先呈现所选完整原表。保留英文行、中文解释、两期、负数、小计、单位、括注和无金额披露。禁止将小计及明细重复相加，VIE脚注不能再加到主表。\n\n零售诊断：让读者解释为什么库存减应付从−774到−1,667不能直接叫现金释放893。带读至现金流调整963，保留差额70未归因；再让读者用Note 5把租赁义务4,147放回原表，特别指出融资租赁资产在其他长期资产。\n银行诊断：让读者区分两个deposits，再自行回接贷款三类、准备及普通股权益。准备比率匹配retained贷款；分母切换必须改名。不要用该比率直接判风险改善，也不要把普通股权益当CET1。\n\n共同实验必须用正文完整假设，走完期初、赊购100、赊销150并结转100、付款、收款。每步同时显示余额和变化。默认现金100/权益100；现金为0且先付款时显示缺口100，不私自生成透支。让读者解释收款和付款为什么不再改变利润。\n\n最后使用另一年列或另一分支的迁移题。通过标准是：能从整表定位，到附注核口径，完成计算，并说明计算的范围。只背比率或只会相加不算完成。反馈后明确一个已掌握关系和一个具体缺口，避免反复免责式总结。不做估值、不读用户账户。",
+    "selected_branch": "BS-RETAIL",
+    "branch_selection": "共同材料保留；选择银行时以required_readings_by_branch.BS-BANKING替换默认零售行业部分，不要求两家公司同时必读。扩展只在选择该部分时启用。",
+    "required_readings": [
+      {
+        "source_id": "BF-S-FASB-ELEMENTS",
+        "title": "FASB Concepts Statement No. 8 · Chapter 4: Elements of Financial Statements",
+        "authors": [
+          "Financial Accounting Standards Board"
+        ],
+        "version": "2021-12",
+        "access": {
+          "kind": "pdf_full_text",
+          "uri": "https://storage.fasb.org/Concepts_Statement_8-Chapter_4-Elements.pdf",
+          "verified_access_at": "2026-09-21"
+        },
+        "required_unit": {
+          "locator": "FASB Concepts Statement 8 Chapter 4（2021-12）\nE16–E70，资产、负债、权益的定义及完整特征单元。注意它不是具体计量规则。",
+          "scope": "FASB Concepts Statement 8 Chapter 4（2021-12）\nhttps://storage.fasb.org/Concepts_Statement_8-Chapter_4-Elements.pdf\nE16–E70，资产、负债、权益的定义及完整特征单元。注意它不是具体计量规则。",
+          "purpose": "资产、负债、权益的定义及完整特征单元；定义不替代具体计量规则"
+        },
+        "supports": "FASB Concepts Statement 8 Chapter 4（2021-12）\nE16–E70，资产、负债、权益的定义及完整特征单元。注意它不是具体计量规则。",
+        "fallback_source_ids": []
+      },
+      {
+        "source_id": "BF-S-OPENSTAX-22",
+        "title": "OpenStax · Principles of Accounting, Volume 1 · §2.2",
+        "authors": [
+          "OpenStax"
+        ],
+        "version": "2019；§2.2",
+        "access": {
+          "kind": "html_full_text",
+          "uri": "https://openstax.org/books/principles-financial-accounting/pages/2-2-define-explain-and-provide-examples-of-current-and-noncurrent-assets-current-and-noncurrent-liabilities-equity-revenues-and-expenses",
+          "verified_access_at": "2026-09-21"
+        },
+        "required_unit": {
+          "locator": "OpenStax Principles of Accounting Vol.1（2019）§2.2：\n读取本节，采用报表结构与交易联系，不把简化措辞当作所有现行准则。",
+          "scope": "OpenStax Principles of Accounting Vol.1（2019）§2.2：\nhttps://openstax.org/books/principles-financial-accounting/pages/2-2-define-explain-and-provide-examples-of-current-and-noncurrent-assets-current-and-noncurrent-liabilities-equity-revenues-and-expenses\n读取本节，采用报表结构与交易联系，不把简化措辞当作所有现行准则。",
+          "purpose": "共同报表结构与交易联系"
+        },
+        "supports": "OpenStax Principles of Accounting Vol.1（2019）§2.2：\n读取本节，采用报表结构与交易联系，不把简化措辞当作所有现行准则。",
+        "fallback_source_ids": []
+      },
+      {
+        "source_id": "BF-S-COST-FY2025-SEC",
+        "title": "Costco Wholesale Corporation · FY2025 Form 10-K（SEC HTML）",
+        "authors": [
+          "Costco Wholesale Corporation"
+        ],
+        "version": "FY2025；截至2025-08-31；比较列采用同一报告",
+        "access": {
+          "kind": "html_full_text",
+          "uri": "https://www.sec.gov/Archives/edgar/data/909832/000090983225000101/cost-20250831.htm",
+          "verified_access_at": "2026-09-21"
+        },
+        "required_unit": {
+          "locator": "Item 1 General及Membership相关完整单元；完整资产负债表p.39、现金流量表p.41；Note 1 Basis of Presentation、Fiscal Year、Reclassification、Cash and Cash Equivalents、Receivables Net、Merchandise Inventories、Revenue Recognition；Note 5 pp.53–54全文。",
+          "scope": "https://www.sec.gov/Archives/edgar/data/909832/000090983225000101/cost-20250831.htm\nItem 1 General及Membership相关完整单元；完整资产负债表p.39、现金流量表p.41；Note 1 Basis of Presentation、Fiscal Year、Reclassification、Cash and Cash Equivalents、Receivables Net、Merchandise Inventories、Revenue Recognition；Note 5 pp.53–54全文。",
+          "purpose": "零售完整原表、业务及承重附注"
+        },
+        "supports": "Item 1 General及Membership相关完整单元；完整资产负债表p.39、现金流量表p.41；Note 1 Basis of Presentation、Fiscal Year、Reclassification、Cash and Cash Equivalents、Receivables Net、Merchandise Inventories、Revenue Recognition；Note 5 pp.53–54全文。",
+        "fallback_source_ids": [],
+        "for_branch": "BS-RETAIL"
+      }
+    ],
+    "required_readings_by_branch": {
+      "BS-RETAIL": [
+        {
+          "source_id": "BF-S-FASB-ELEMENTS",
+          "title": "FASB Concepts Statement No. 8 · Chapter 4: Elements of Financial Statements",
+          "authors": [
+            "Financial Accounting Standards Board"
+          ],
+          "version": "2021-12",
+          "access": {
+            "kind": "pdf_full_text",
+            "uri": "https://storage.fasb.org/Concepts_Statement_8-Chapter_4-Elements.pdf",
+            "verified_access_at": "2026-09-21"
+          },
+          "required_unit": {
+            "locator": "FASB Concepts Statement 8 Chapter 4（2021-12）\nE16–E70，资产、负债、权益的定义及完整特征单元。注意它不是具体计量规则。",
+            "scope": "FASB Concepts Statement 8 Chapter 4（2021-12）\nhttps://storage.fasb.org/Concepts_Statement_8-Chapter_4-Elements.pdf\nE16–E70，资产、负债、权益的定义及完整特征单元。注意它不是具体计量规则。",
+            "purpose": "资产、负债、权益的定义及完整特征单元；定义不替代具体计量规则"
+          },
+          "supports": "FASB Concepts Statement 8 Chapter 4（2021-12）\nE16–E70，资产、负债、权益的定义及完整特征单元。注意它不是具体计量规则。",
+          "fallback_source_ids": []
+        },
+        {
+          "source_id": "BF-S-OPENSTAX-22",
+          "title": "OpenStax · Principles of Accounting, Volume 1 · §2.2",
+          "authors": [
+            "OpenStax"
+          ],
+          "version": "2019；§2.2",
+          "access": {
+            "kind": "html_full_text",
+            "uri": "https://openstax.org/books/principles-financial-accounting/pages/2-2-define-explain-and-provide-examples-of-current-and-noncurrent-assets-current-and-noncurrent-liabilities-equity-revenues-and-expenses",
+            "verified_access_at": "2026-09-21"
+          },
+          "required_unit": {
+            "locator": "OpenStax Principles of Accounting Vol.1（2019）§2.2：\n读取本节，采用报表结构与交易联系，不把简化措辞当作所有现行准则。",
+            "scope": "OpenStax Principles of Accounting Vol.1（2019）§2.2：\nhttps://openstax.org/books/principles-financial-accounting/pages/2-2-define-explain-and-provide-examples-of-current-and-noncurrent-assets-current-and-noncurrent-liabilities-equity-revenues-and-expenses\n读取本节，采用报表结构与交易联系，不把简化措辞当作所有现行准则。",
+            "purpose": "共同报表结构与交易联系"
+          },
+          "supports": "OpenStax Principles of Accounting Vol.1（2019）§2.2：\n读取本节，采用报表结构与交易联系，不把简化措辞当作所有现行准则。",
+          "fallback_source_ids": []
+        },
+        {
+          "source_id": "BF-S-COST-FY2025-SEC",
+          "title": "Costco Wholesale Corporation · FY2025 Form 10-K（SEC HTML）",
+          "authors": [
+            "Costco Wholesale Corporation"
+          ],
+          "version": "FY2025；截至2025-08-31；比较列采用同一报告",
+          "access": {
+            "kind": "html_full_text",
+            "uri": "https://www.sec.gov/Archives/edgar/data/909832/000090983225000101/cost-20250831.htm",
+            "verified_access_at": "2026-09-21"
+          },
+          "required_unit": {
+            "locator": "Item 1 General及Membership相关完整单元；完整资产负债表p.39、现金流量表p.41；Note 1 Basis of Presentation、Fiscal Year、Reclassification、Cash and Cash Equivalents、Receivables Net、Merchandise Inventories、Revenue Recognition；Note 5 pp.53–54全文。",
+            "scope": "https://www.sec.gov/Archives/edgar/data/909832/000090983225000101/cost-20250831.htm\nItem 1 General及Membership相关完整单元；完整资产负债表p.39、现金流量表p.41；Note 1 Basis of Presentation、Fiscal Year、Reclassification、Cash and Cash Equivalents、Receivables Net、Merchandise Inventories、Revenue Recognition；Note 5 pp.53–54全文。",
+            "purpose": "零售完整原表、业务及承重附注"
+          },
+          "supports": "Item 1 General及Membership相关完整单元；完整资产负债表p.39、现金流量表p.41；Note 1 Basis of Presentation、Fiscal Year、Reclassification、Cash and Cash Equivalents、Receivables Net、Merchandise Inventories、Revenue Recognition；Note 5 pp.53–54全文。",
+          "fallback_source_ids": [],
+          "for_branch": "BS-RETAIL"
+        }
+      ],
+      "BS-BANKING": [
+        {
+          "source_id": "BF-S-FASB-ELEMENTS",
+          "title": "FASB Concepts Statement No. 8 · Chapter 4: Elements of Financial Statements",
+          "authors": [
+            "Financial Accounting Standards Board"
+          ],
+          "version": "2021-12",
+          "access": {
+            "kind": "pdf_full_text",
+            "uri": "https://storage.fasb.org/Concepts_Statement_8-Chapter_4-Elements.pdf",
+            "verified_access_at": "2026-09-21"
+          },
+          "required_unit": {
+            "locator": "FASB Concepts Statement 8 Chapter 4（2021-12）\nE16–E70，资产、负债、权益的定义及完整特征单元。注意它不是具体计量规则。",
+            "scope": "FASB Concepts Statement 8 Chapter 4（2021-12）\nhttps://storage.fasb.org/Concepts_Statement_8-Chapter_4-Elements.pdf\nE16–E70，资产、负债、权益的定义及完整特征单元。注意它不是具体计量规则。",
+            "purpose": "资产、负债、权益的定义及完整特征单元；定义不替代具体计量规则"
+          },
+          "supports": "FASB Concepts Statement 8 Chapter 4（2021-12）\nE16–E70，资产、负债、权益的定义及完整特征单元。注意它不是具体计量规则。",
+          "fallback_source_ids": []
+        },
+        {
+          "source_id": "BF-S-OPENSTAX-22",
+          "title": "OpenStax · Principles of Accounting, Volume 1 · §2.2",
+          "authors": [
+            "OpenStax"
+          ],
+          "version": "2019；§2.2",
+          "access": {
+            "kind": "html_full_text",
+            "uri": "https://openstax.org/books/principles-financial-accounting/pages/2-2-define-explain-and-provide-examples-of-current-and-noncurrent-assets-current-and-noncurrent-liabilities-equity-revenues-and-expenses",
+            "verified_access_at": "2026-09-21"
+          },
+          "required_unit": {
+            "locator": "OpenStax Principles of Accounting Vol.1（2019）§2.2：\n读取本节，采用报表结构与交易联系，不把简化措辞当作所有现行准则。",
+            "scope": "OpenStax Principles of Accounting Vol.1（2019）§2.2：\nhttps://openstax.org/books/principles-financial-accounting/pages/2-2-define-explain-and-provide-examples-of-current-and-noncurrent-assets-current-and-noncurrent-liabilities-equity-revenues-and-expenses\n读取本节，采用报表结构与交易联系，不把简化措辞当作所有现行准则。",
+            "purpose": "共同报表结构与交易联系"
+          },
+          "supports": "OpenStax Principles of Accounting Vol.1（2019）§2.2：\n读取本节，采用报表结构与交易联系，不把简化措辞当作所有现行准则。",
+          "fallback_source_ids": []
+        },
+        {
+          "source_id": "BF-S-JPM-FY2025",
+          "title": "JPMorgan Chase & Co. · 2025 Annual Report",
+          "authors": [
+            "JPMorgan Chase & Co."
+          ],
+          "version": "2025 Annual Report；集团合并，非银行子公司单体",
+          "access": {
+            "kind": "pdf_full_text",
+            "uri": "https://www.jpmorganchase.com/content/dam/jpmc/jpmorgan-chase-and-co/investor-relations/documents/annualreport-2025.pdf",
+            "verified_access_at": "2026-09-21"
+          },
+          "required_unit": {
+            "locator": "MD&A Introduction印刷p.46／物理p.78；完整资产负债表及VIE脚注p.167／物理p.199；Note 10 pp.228–229；Note 12 Loan accounting framework pp.236–238以及Loan portfolio p.239的完整构成表与脚注；Note 17 p.277全文。PDF表格查看原页。",
+            "scope": "https://www.jpmorganchase.com/content/dam/jpmc/jpmorgan-chase-and-co/investor-relations/documents/annualreport-2025.pdf\nMD&A Introduction印刷p.46／物理p.78；完整资产负债表及VIE脚注p.167／物理p.199；Note 10 pp.228–229；Note 12 Loan accounting framework pp.236–238以及Loan portfolio p.239的完整构成表与脚注；Note 17 p.277全文。PDF表格查看原页。",
+            "purpose": "银行完整原表、VIE脚注、贷款与存款等承重附注"
+          },
+          "supports": "MD&A Introduction印刷p.46／物理p.78；完整资产负债表及VIE脚注p.167／物理p.199；Note 10 pp.228–229；Note 12 Loan accounting framework pp.236–238以及Loan portfolio p.239的完整构成表与脚注；Note 17 p.277全文。PDF表格查看原页。",
+          "fallback_source_ids": [],
+          "for_branch": "BS-BANKING"
+        }
+      ]
+    },
+    "optional_readings": [
+      {
+        "source_id": "BF-S-JPM-FY2025",
+        "title": "JPMorgan Chase & Co. · 2025 Annual Report",
+        "authors": [
+          "JPMorgan Chase & Co."
+        ],
+        "version": "2025 Annual Report；集团合并，非银行子公司单体",
+        "access": {
+          "kind": "pdf_full_text",
+          "uri": "https://www.jpmorganchase.com/content/dam/jpmc/jpmorgan-chase-and-co/investor-relations/documents/annualreport-2025.pdf",
+          "verified_access_at": "2026-09-21"
+        },
+        "required_unit": {
+          "locator": "MD&A Introduction印刷p.46／物理p.78；完整资产负债表及VIE脚注p.167／物理p.199；Note 10 pp.228–229；Note 12 Loan accounting framework pp.236–238以及Loan portfolio p.239的完整构成表与脚注；Note 17 p.277全文。PDF表格查看原页。",
+          "scope": "https://www.jpmorganchase.com/content/dam/jpmc/jpmorgan-chase-and-co/investor-relations/documents/annualreport-2025.pdf\nMD&A Introduction印刷p.46／物理p.78；完整资产负债表及VIE脚注p.167／物理p.199；Note 10 pp.228–229；Note 12 Loan accounting framework pp.236–238以及Loan portfolio p.239的完整构成表与脚注；Note 17 p.277全文。PDF表格查看原页。",
+          "purpose": "银行完整原表、VIE脚注、贷款与存款等承重附注"
+        },
+        "supports": "MD&A Introduction印刷p.46／物理p.78；完整资产负债表及VIE脚注p.167／物理p.199；Note 10 pp.228–229；Note 12 Loan accounting framework pp.236–238以及Loan portfolio p.239的完整构成表与脚注；Note 17 p.277全文。PDF表格查看原页。",
+        "fallback_source_ids": [],
+        "for_branch": "BS-BANKING",
+        "required_when_selected": true
+      },
+      {
+        "source_id": "BF-S-COST-FY2025-PDF",
+        "title": "Costco Wholesale Corporation · 2025 Annual Report（股东年报 PDF）",
+        "authors": [
+          "Costco Wholesale Corporation"
+        ],
+        "version": "FY2025；同年报另一排版版本",
+        "access": {
+          "kind": "pdf_full_text",
+          "uri": "https://s201.q4cdn.com/287523651/files/doc_financials/2025/ar/COST-Annual-Report-2025.pdf",
+          "verified_access_at": "2026-09-21"
+        },
+        "required_unit": {
+          "locator": "该PDF资产负债表是印刷p.37／物理p.43，不能沿用SEC的p.39。切换版本必须重新核表头、数值、附注标题，不凭页码猜读到什么。",
+          "scope": "https://s201.q4cdn.com/287523651/files/doc_financials/2025/ar/COST-Annual-Report-2025.pdf\n该PDF资产负债表是印刷p.37／物理p.43，不能沿用SEC的p.39。切换版本必须重新核表头、数值、附注标题，不凭页码猜读到什么。",
+          "purpose": "Costco股东年报PDF备选；转换版本重新核表头、数值与附注标题"
+        },
+        "supports": "该PDF资产负债表是印刷p.37／物理p.43，不能沿用SEC的p.39。切换版本必须重新核表头、数值、附注标题，不凭页码猜读到什么。",
+        "fallback_source_ids": [],
+        "role": "alternative_version",
+        "for_branch": "BS-RETAIL",
+        "equivalent_scope": "原稿仅明确登记资产负债表已核数值相同；其余所需单元仍按标题和范围核对"
+      },
+      {
+        "source_id": "BF-S-JPM-FY2025",
+        "title": "JPMorgan Chase & Co. · 2025 Annual Report",
+        "authors": [
+          "JPMorgan Chase & Co."
+        ],
+        "version": "2025 Annual Report；集团合并，非银行子公司单体",
+        "access": {
+          "kind": "pdf_full_text",
+          "uri": "https://www.jpmorganchase.com/content/dam/jpmc/jpmorgan-chase-and-co/investor-relations/documents/annualreport-2025.pdf",
+          "verified_access_at": "2026-09-21"
+        },
+        "required_unit": {
+          "locator": "选择净额列报扩展时再读Note 5 pp.207–209；选择现金流扩展时再读完整p.169及MD&A Cash flows analysis p.58。未读扩展时不声称已具备该处全部阅读。",
+          "scope": "https://www.jpmorganchase.com/content/dam/jpmc/jpmorgan-chase-and-co/investor-relations/documents/annualreport-2025.pdf\n选择净额列报扩展时再读Note 5 pp.207–209；选择现金流扩展时再读完整p.169及MD&A Cash flows analysis p.58。未读扩展时不声称已具备该处全部阅读。",
+          "purpose": "仅在选择相应扩展时读取净额列报或现金流单元"
+        },
+        "supports": "选择净额列报扩展时再读Note 5 pp.207–209；选择现金流扩展时再读完整p.169及MD&A Cash flows analysis p.58。未读扩展时不声称已具备该处全部阅读。",
+        "fallback_source_ids": [],
+        "role": "extension",
+        "required_when_selected": true,
+        "for_branch": "BS-BANKING"
+      }
+    ],
+    "reading_protocol": "1. **确认当前学习范围。** 使用所选分支及本篇正文；先修仅诊断本篇确实需要的内容。识别必读材料，选读材料只有被采用时才转成对应问题的必读。\n2. **实际获取。** 用浏览/文件读取工具打开指定 URL 或随包文件。核对返回的标题/版本/范围，发现只有摘要、登录页、目录或文件清单时如实记录，继续找明确可读的正文入口。\n3. **完整读取所需单元。** 分页或分块读取到所需单元结束，包含前文约定、必要表图和脚注。PDF 符号或图表解析不可靠时查看原页；TeX 读取相关宏定义与 include 文件。不能只看搜索命中的几行。\n4. **形成简短内容对应。** 每项记录实际位置、读到的关键设定和它支持哪一步教学。例如“§5.10 的训练集仅含当前预测点之前的观测；该限制需要落实到预处理拟合，不仅是分割最终数据表”。后半句若为本站推论须标为推论。\n5. **满足后才开始该范围的实质教学。** 所有当前必读单元读完之后，基于材料给一项高密度诊断任务或按读者要求直接讲解。引用跟着对应命题或计算，不在末尾堆书名。\n6. **读取失败时自动处理缺口。** 先尝试指定的可读等价版本或作者/机构正式全文，不新造批准步骤。等价性包括版本、条款期间、定义和假设；新的替代来源实际读完后记录采用范围。仍缺失则说明具体缺少哪一个必读单元及原因，不凭训练记忆补成已读讲解，不宣称已完成本篇。\n\n“读取校验”依赖实际取得的内容及其位置、与教学相关的设定复述；不靠让模型报一句“我已阅读”，不引入无意义哈希或重复下载。它不能从技术上保证理解，但能让来源与使用之间可检查。",
+    "supplied_inputs": {
+      "source_version": "2026-09-21.BF-A.rev-1",
+      "tables": [
+        {
+          "heading": "1　共同结构：同一张表的两面",
+          "headers": [
+            "共同板块",
+            "通常要区分什么",
+            "阅读时要补的条件"
+          ],
+          "rows": [
+            [
+              "资产",
+              "现金和收款权、待销售资源、长期使用资源及其他资产",
+              "归属谁、怎样计量、能否变现或用于履约"
+            ],
+            [
+              "负债",
+              "供应商及员工应付、客户相关义务、借款、租赁等",
+              "欠谁、何时履行、用现金还是商品或服务履行"
+            ],
+            [
+              "权益",
+              "股本、其他投入、留存收益、其他综合收益累计额、库存股等",
+              "总权益中有哪些不同权利；是否还需区分普通股、优先股和其他归属"
+            ]
+          ],
+          "markdown": "| 共同板块 | 通常要区分什么 | 阅读时要补的条件 |\n|---|---|---|\n| 资产 | 现金和收款权、待销售资源、长期使用资源及其他资产 | 归属谁、怎样计量、能否变现或用于履约 |\n| 负债 | 供应商及员工应付、客户相关义务、借款、租赁等 | 欠谁、何时履行、用现金还是商品或服务履行 |\n| 权益 | 股本、其他投入、留存收益、其他综合收益累计额、库存股等 | 总权益中有哪些不同权利；是否还需区分普通股、优先股和其他归属 |"
+        },
+        {
+          "heading": "2.1　先看到整张表",
+          "headers": [
+            "英文原行",
+            "中文名称",
+            "2025-08-31",
+            "2024-09-01"
+          ],
+          "rows": [
+            [
+              "<a id=\"cost-assets\"></a>**ASSETS**",
+              "**资产**",
+              "",
+              ""
+            ],
+            [
+              "<a id=\"cost-current_assets\"></a>　**CURRENT ASSETS**",
+              "**流动资产**",
+              "",
+              ""
+            ],
+            [
+              "<a id=\"cost-cash\"></a>　　Cash and cash equivalents",
+              "现金及现金等价物",
+              "14,161",
+              "9,906"
+            ],
+            [
+              "<a id=\"cost-short_term_investments\"></a>　　Short-term investments",
+              "短期投资",
+              "1,123",
+              "1,238"
+            ],
+            [
+              "<a id=\"cost-receivables_net\"></a>　　Receivables, net",
+              "应收款净额",
+              "3,203",
+              "2,721"
+            ],
+            [
+              "<a id=\"cost-inventory\"></a>　　Merchandise inventories",
+              "商品存货",
+              "18,116",
+              "18,647"
+            ],
+            [
+              "<a id=\"cost-other_current_assets\"></a>　　Other current assets",
+              "其他流动资产",
+              "1,777",
+              "1,734"
+            ],
+            [
+              "<a id=\"cost-total_current_assets\"></a>　**Total current assets**",
+              "**流动资产合计**",
+              "**38,380**",
+              "**34,246**"
+            ],
+            [
+              "<a id=\"cost-other_assets\"></a>　**OTHER ASSETS**",
+              "**其他资产**",
+              "",
+              ""
+            ],
+            [
+              "<a id=\"cost-ppe_net\"></a>　　Property and equipment, net",
+              "物业及设备净额",
+              "31,909",
+              "29,032"
+            ],
+            [
+              "<a id=\"cost-operating_lease_rou\"></a>　　Operating lease right-of-use assets",
+              "经营租赁使用权资产",
+              "2,725",
+              "2,617"
+            ],
+            [
+              "<a id=\"cost-other_long_term_assets\"></a>　　Other long-term assets",
+              "其他长期资产",
+              "4,085",
+              "3,936"
+            ],
+            [
+              "<a id=\"cost-total_assets\"></a>**TOTAL ASSETS**",
+              "**总资产**",
+              "**77,099**",
+              "**69,831**"
+            ],
+            [
+              "<a id=\"cost-liabilities_and_equity\"></a>**LIABILITIES AND EQUITY**",
+              "**负债与权益**",
+              "",
+              ""
+            ],
+            [
+              "<a id=\"cost-current_liabilities\"></a>　**CURRENT LIABILITIES**",
+              "**流动负债**",
+              "",
+              ""
+            ],
+            [
+              "<a id=\"cost-accounts_payable\"></a>　　Accounts payable",
+              "应付账款",
+              "19,783",
+              "19,421"
+            ],
+            [
+              "<a id=\"cost-accrued_salaries_benefits\"></a>　　Accrued salaries and benefits",
+              "应计工资及福利",
+              "5,205",
+              "4,794"
+            ],
+            [
+              "<a id=\"cost-accrued_member_rewards\"></a>　　Accrued member rewards",
+              "应计会员奖励",
+              "2,677",
+              "2,435"
+            ],
+            [
+              "<a id=\"cost-deferred_membership_fees\"></a>　　Deferred membership fees",
+              "递延会员费",
+              "2,854",
+              "2,501"
+            ],
+            [
+              "<a id=\"cost-other_current_liabilities\"></a>　　Other current liabilities",
+              "其他流动负债",
+              "6,589",
+              "6,313"
+            ],
+            [
+              "<a id=\"cost-total_current_liabilities\"></a>　**Total current liabilities**",
+              "**流动负债合计**",
+              "**37,108**",
+              "**35,464**"
+            ],
+            [
+              "<a id=\"cost-other_liabilities\"></a>　**OTHER LIABILITIES**",
+              "**其他负债**",
+              "",
+              ""
+            ],
+            [
+              "<a id=\"cost-long_term_debt\"></a>　　Long-term debt, excluding current portion",
+              "长期债务，不含流动部分",
+              "5,713",
+              "5,794"
+            ],
+            [
+              "<a id=\"cost-long_term_operating_lease_liabilities\"></a>　　Long-term operating lease liabilities",
+              "长期经营租赁负债",
+              "2,460",
+              "2,375"
+            ],
+            [
+              "<a id=\"cost-other_long_term_liabilities\"></a>　　Other long-term liabilities",
+              "其他长期负债",
+              "2,654",
+              "2,576"
+            ],
+            [
+              "<a id=\"cost-total_liabilities\"></a>**TOTAL LIABILITIES**",
+              "**负债合计**",
+              "**47,935**",
+              "**46,209**"
+            ],
+            [
+              "<a id=\"cost-commitments_contingencies\"></a>COMMITMENTS AND CONTINGENCIES",
+              "承诺及或有事项〔原表无金额〕",
+              "",
+              ""
+            ],
+            [
+              "<a id=\"cost-equity\"></a>**EQUITY**",
+              "**权益**",
+              "",
+              ""
+            ],
+            [
+              "<a id=\"cost-preferred_stock\"></a>　Preferred stock \\$0.005 par value; 100,000,000 shares authorized; no shares issued and outstanding",
+              "优先股：每股面值0.005美元；授权100,000,000股；无已发行及流通股",
+              "—",
+              "—"
+            ],
+            [
+              "<a id=\"cost-common_stock\"></a>　Common stock \\$0.005 par value; 900,000,000 shares authorized; 443,237,000 and 443,126,000 shares issued and outstanding",
+              "普通股：每股面值0.005美元；授权900,000,000股；两期已发行及流通443,237,000及443,126,000股",
+              "2",
+              "2"
+            ],
+            [
+              "<a id=\"cost-additional_paid_in_capital\"></a>　Additional paid-in capital",
+              "额外实缴资本",
+              "8,282",
+              "7,829"
+            ],
+            [
+              "<a id=\"cost-aocl\"></a>　Accumulated other comprehensive loss",
+              "累计其他综合损失",
+              "(1,770)",
+              "(1,828)"
+            ],
+            [
+              "<a id=\"cost-retained_earnings\"></a>　Retained earnings",
+              "留存收益",
+              "22,650",
+              "17,619"
+            ],
+            [
+              "<a id=\"cost-total_equity\"></a>**TOTAL EQUITY**",
+              "**权益合计**",
+              "**29,164**",
+              "**23,622**"
+            ],
+            [
+              "<a id=\"cost-total_liabilities_equity\"></a>**TOTAL LIABILITIES AND EQUITY**",
+              "**负债及权益合计**",
+              "**77,099**",
+              "**69,831**"
+            ]
+          ],
+          "markdown": "| 英文原行 | 中文名称 | 2025-08-31 | 2024-09-01 |\n|---|---|---:|---:|\n| <a id=\"cost-assets\"></a>**ASSETS** | **资产** |  |  |\n| <a id=\"cost-current_assets\"></a>　**CURRENT ASSETS** | **流动资产** |  |  |\n| <a id=\"cost-cash\"></a>　　Cash and cash equivalents | 现金及现金等价物 | 14,161 | 9,906 |\n| <a id=\"cost-short_term_investments\"></a>　　Short-term investments | 短期投资 | 1,123 | 1,238 |\n| <a id=\"cost-receivables_net\"></a>　　Receivables, net | 应收款净额 | 3,203 | 2,721 |\n| <a id=\"cost-inventory\"></a>　　Merchandise inventories | 商品存货 | 18,116 | 18,647 |\n| <a id=\"cost-other_current_assets\"></a>　　Other current assets | 其他流动资产 | 1,777 | 1,734 |\n| <a id=\"cost-total_current_assets\"></a>　**Total current assets** | **流动资产合计** | **38,380** | **34,246** |\n| <a id=\"cost-other_assets\"></a>　**OTHER ASSETS** | **其他资产** |  |  |\n| <a id=\"cost-ppe_net\"></a>　　Property and equipment, net | 物业及设备净额 | 31,909 | 29,032 |\n| <a id=\"cost-operating_lease_rou\"></a>　　Operating lease right-of-use assets | 经营租赁使用权资产 | 2,725 | 2,617 |\n| <a id=\"cost-other_long_term_assets\"></a>　　Other long-term assets | 其他长期资产 | 4,085 | 3,936 |\n| <a id=\"cost-total_assets\"></a>**TOTAL ASSETS** | **总资产** | **77,099** | **69,831** |\n| <a id=\"cost-liabilities_and_equity\"></a>**LIABILITIES AND EQUITY** | **负债与权益** |  |  |\n| <a id=\"cost-current_liabilities\"></a>　**CURRENT LIABILITIES** | **流动负债** |  |  |\n| <a id=\"cost-accounts_payable\"></a>　　Accounts payable | 应付账款 | 19,783 | 19,421 |\n| <a id=\"cost-accrued_salaries_benefits\"></a>　　Accrued salaries and benefits | 应计工资及福利 | 5,205 | 4,794 |\n| <a id=\"cost-accrued_member_rewards\"></a>　　Accrued member rewards | 应计会员奖励 | 2,677 | 2,435 |\n| <a id=\"cost-deferred_membership_fees\"></a>　　Deferred membership fees | 递延会员费 | 2,854 | 2,501 |\n| <a id=\"cost-other_current_liabilities\"></a>　　Other current liabilities | 其他流动负债 | 6,589 | 6,313 |\n| <a id=\"cost-total_current_liabilities\"></a>　**Total current liabilities** | **流动负债合计** | **37,108** | **35,464** |\n| <a id=\"cost-other_liabilities\"></a>　**OTHER LIABILITIES** | **其他负债** |  |  |\n| <a id=\"cost-long_term_debt\"></a>　　Long-term debt, excluding current portion | 长期债务，不含流动部分 | 5,713 | 5,794 |\n| <a id=\"cost-long_term_operating_lease_liabilities\"></a>　　Long-term operating lease liabilities | 长期经营租赁负债 | 2,460 | 2,375 |\n| <a id=\"cost-other_long_term_liabilities\"></a>　　Other long-term liabilities | 其他长期负债 | 2,654 | 2,576 |\n| <a id=\"cost-total_liabilities\"></a>**TOTAL LIABILITIES** | **负债合计** | **47,935** | **46,209** |\n| <a id=\"cost-commitments_contingencies\"></a>COMMITMENTS AND CONTINGENCIES | 承诺及或有事项〔原表无金额〕 |  |  |\n| <a id=\"cost-equity\"></a>**EQUITY** | **权益** |  |  |\n| <a id=\"cost-preferred_stock\"></a>　Preferred stock \\$0.005 par value; 100,000,000 shares authorized; no shares issued and outstanding | 优先股：每股面值0.005美元；授权100,000,000股；无已发行及流通股 | — | — |\n| <a id=\"cost-common_stock\"></a>　Common stock \\$0.005 par value; 900,000,000 shares authorized; 443,237,000 and 443,126,000 shares issued and outstanding | 普通股：每股面值0.005美元；授权900,000,000股；两期已发行及流通443,237,000及443,126,000股 | 2 | 2 |\n| <a id=\"cost-additional_paid_in_capital\"></a>　Additional paid-in capital | 额外实缴资本 | 8,282 | 7,829 |\n| <a id=\"cost-aocl\"></a>　Accumulated other comprehensive loss | 累计其他综合损失 | (1,770) | (1,828) |\n| <a id=\"cost-retained_earnings\"></a>　Retained earnings | 留存收益 | 22,650 | 17,619 |\n| <a id=\"cost-total_equity\"></a>**TOTAL EQUITY** | **权益合计** | **29,164** | **23,622** |\n| <a id=\"cost-total_liabilities_equity\"></a>**TOTAL LIABILITIES AND EQUITY** | **负债及权益合计** | **77,099** | **69,831** |"
+        },
+        {
+          "heading": "2.2　商品已经进来，钱什么时候出去？",
+          "headers": [
+            "对照步骤",
+            "计算，百万美元",
+            "本步骤的身份"
+          ],
+          "rows": [
+            [
+              "存货余额减少",
+              "`18,647−18,116=531`",
+              "两期余额差"
+            ],
+            [
+              "应付余额增加",
+              "`19,783−19,421=362`",
+              "两期余额差"
+            ],
+            [
+              "选定余额变化取反",
+              "`531+362=893`",
+              "供对照的派生数"
+            ],
+            [
+              "现金流量表相应调整",
+              "`559+404=963`",
+              "原表期间调整合计"
+            ],
+            [
+              "尚待归因差额",
+              "`963−893=70`",
+              "不能凭空填成汇率或非现金项目"
+            ]
+          ],
+          "markdown": "| 对照步骤 | 计算，百万美元 | 本步骤的身份 |\n|---|---:|---|\n| 存货余额减少 | `18,647−18,116=531` | 两期余额差 |\n| 应付余额增加 | `19,783−19,421=362` | 两期余额差 |\n| 选定余额变化取反 | `531+362=893` | 供对照的派生数 |\n| 现金流量表相应调整 | `559+404=963` | 原表期间调整合计 |\n| 尚待归因差额 | `963−893=70` | 不能凭空填成汇率或非现金项目 |"
+        },
+        {
+          "heading": "2.3　会员义务与门店资源，也在这张表里",
+          "headers": [
+            "租赁义务，百万美元",
+            "2025金额",
+            "已包含在主表的什么位置"
+          ],
+          "rows": [
+            [
+              "流动经营租赁负债",
+              "208",
+              "其他流动负债"
+            ],
+            [
+              "流动融资租赁负债",
+              "78",
+              "其他流动负债"
+            ],
+            [
+              "长期经营租赁负债",
+              "2,460",
+              "主表单列的长期经营租赁负债"
+            ],
+            [
+              "长期融资租赁负债",
+              "1,401",
+              "其他长期负债"
+            ],
+            [
+              "**租赁负债合计**",
+              "**4,147**",
+              "`208+78+2,460+1,401`"
+            ]
+          ],
+          "markdown": "| 租赁义务，百万美元 | 2025金额 | 已包含在主表的什么位置 |\n|---|---:|---|\n| 流动经营租赁负债 | 208 | 其他流动负债 |\n| 流动融资租赁负债 | 78 | 其他流动负债 |\n| 长期经营租赁负债 | 2,460 | 主表单列的长期经营租赁负债 |\n| 长期融资租赁负债 | 1,401 | 其他长期负债 |\n| **租赁负债合计** | **4,147** | `208+78+2,460+1,401` |"
+        },
+        {
+          "heading": "3.1　先保留银行自己的全表结构",
+          "headers": [
+            "英文原行",
+            "中文名称",
+            "2025-12-31",
+            "2024-12-31"
+          ],
+          "rows": [
+            [
+              "<a id=\"jpm-assets\"></a>**Assets**",
+              "**资产**",
+              "",
+              ""
+            ],
+            [
+              "<a id=\"jpm-cash_due_from_banks\"></a>　Cash and due from banks",
+              "现金及应收银行款",
+              "21,742",
+              "23,372"
+            ],
+            [
+              "<a id=\"jpm-deposits_with_banks\"></a>　Deposits with banks",
+              "存放银行款项",
+              "321,596",
+              "445,945"
+            ],
+            [
+              "<a id=\"jpm-fed_funds_sold_resale\"></a>　Federal funds sold and securities purchased under resale agreements (included \\$327,018 and \\$286,771 at fair value)",
+              "拆出联邦基金及买入返售证券〔其中按公允价值计量327,018／286,771〕",
+              "336,426",
+              "295,001"
+            ],
+            [
+              "<a id=\"jpm-securities_borrowed\"></a>　Securities borrowed (included \\$98,111 and \\$83,962 at fair value)",
+              "借入证券〔其中按公允价值计量98,111／83,962〕",
+              "286,191",
+              "219,546"
+            ],
+            [
+              "<a id=\"jpm-trading_assets\"></a>　Trading assets (included assets pledged of \\$165,927 and \\$136,070)",
+              "交易资产〔其中已质押资产165,927／136,070〕",
+              "802,873",
+              "637,784"
+            ],
+            [
+              "<a id=\"jpm-afs_securities\"></a>　　Available-for-sale securities (amortized cost of \\$507,226 and \\$411,045; included assets pledged of \\$7,735 and \\$10,162)",
+              "可供出售证券〔摊余成本507,226／411,045；其中已质押7,735／10,162〕",
+              "507,198",
+              "406,852"
+            ],
+            [
+              "<a id=\"jpm-htm_securities\"></a>　　Held-to-maturity securities",
+              "持有至到期证券",
+              "270,134",
+              "274,468"
+            ],
+            [
+              "<a id=\"jpm-investment_securities_net\"></a>　**Investment securities, net of allowance for credit losses**",
+              "**投资证券，扣除信用损失准备后**",
+              "**777,332**",
+              "**681,320**"
+            ],
+            [
+              "<a id=\"jpm-loans_gross\"></a>　　Loans (included \\$70,684 and \\$41,350 at fair value)",
+              "贷款，未扣贷款损失准备〔其中按公允价值计量70,684／41,350〕",
+              "1,493,429",
+              "1,347,988"
+            ],
+            [
+              "<a id=\"jpm-allowance_loan_losses\"></a>　　Allowance for loan losses",
+              "贷款损失准备〔资产减项〕",
+              "(25,765)",
+              "(24,345)"
+            ],
+            [
+              "<a id=\"jpm-loans_net\"></a>　**Loans, net of allowance for loan losses**",
+              "**贷款净额**",
+              "**1,467,664**",
+              "**1,323,643**"
+            ],
+            [
+              "<a id=\"jpm-accrued_interest_receivables\"></a>　Accrued interest and accounts receivable",
+              "应计利息及应收账款",
+              "111,599",
+              "101,223"
+            ],
+            [
+              "<a id=\"jpm-premises_equipment\"></a>　Premises and equipment",
+              "房屋及设备",
+              "36,244",
+              "32,223"
+            ],
+            [
+              "<a id=\"jpm-goodwill_msrs_other_intangibles\"></a>　Goodwill, MSRs and other intangible assets",
+              "商誉、按揭服务权及其他无形资产",
+              "64,458",
+              "64,560"
+            ],
+            [
+              "<a id=\"jpm-other_assets\"></a>　Other assets (included \\$15,849 and \\$15,122 at fair value and assets pledged of \\$11,984 and \\$6,288)",
+              "其他资产〔其中按公允价值计量15,849／15,122；已质押11,984／6,288〕",
+              "198,775",
+              "178,197"
+            ],
+            [
+              "<a id=\"jpm-total_assets\"></a>**Total assets(a)**",
+              "**总资产〔附注(a)〕**",
+              "**4,424,900**",
+              "**4,002,814**"
+            ],
+            [
+              "<a id=\"jpm-liabilities\"></a>**Liabilities**",
+              "**负债**",
+              "",
+              ""
+            ],
+            [
+              "<a id=\"jpm-customer_deposits\"></a>　Deposits (included \\$20,930 and \\$33,768 at fair value)",
+              "客户存款〔其中按公允价值计量20,930／33,768〕",
+              "2,559,320",
+              "2,406,032"
+            ],
+            [
+              "<a id=\"jpm-fed_funds_purchased_repo\"></a>　Federal funds purchased and securities loaned or sold under repurchase agreements (included \\$360,194 and \\$226,329 at fair value)",
+              "拆入联邦基金及证券借出或回购融资〔其中按公允价值计量360,194／226,329〕",
+              "442,396",
+              "296,835"
+            ],
+            [
+              "<a id=\"jpm-short_term_borrowings\"></a>　Short-term borrowings (included \\$32,460 and \\$26,521 at fair value)",
+              "短期借款〔其中按公允价值计量32,460／26,521〕",
+              "64,776",
+              "52,893"
+            ],
+            [
+              "<a id=\"jpm-trading_liabilities\"></a>　Trading liabilities",
+              "交易负债",
+              "216,019",
+              "192,883"
+            ],
+            [
+              "<a id=\"jpm-accounts_payable_other_liabilities\"></a>　Accounts payable and other liabilities (included \\$6,660 and \\$5,893 at fair value)",
+              "应付账款及其他负债〔其中按公允价值计量6,660／5,893〕",
+              "316,794",
+              "280,672"
+            ],
+            [
+              "<a id=\"jpm-vie_beneficial_interests\"></a>　Beneficial interests issued by consolidated VIEs (included \\$5 and \\$1 at fair value)",
+              "合并VIE发行的受益权益〔其中按公允价值计量5／1〕",
+              "27,951",
+              "27,323"
+            ],
+            [
+              "<a id=\"jpm-long_term_debt\"></a>　Long-term debt (included \\$134,559 and \\$100,780 at fair value)",
+              "长期债务〔其中按公允价值计量134,559／100,780〕",
+              "435,206",
+              "401,418"
+            ],
+            [
+              "<a id=\"jpm-total_liabilities\"></a>**Total liabilities(a)**",
+              "**负债合计〔附注(a)〕**",
+              "**4,062,462**",
+              "**3,658,056**"
+            ],
+            [
+              "<a id=\"jpm-commitments_contingencies\"></a>Commitments and contingencies (refer to Notes 28, 29 and 30)",
+              "承诺及或有事项〔参见Notes 28、29、30；原表无金额〕",
+              "",
+              ""
+            ],
+            [
+              "<a id=\"jpm-equity\"></a>**Stockholders’ equity**",
+              "**股东权益**",
+              "",
+              ""
+            ],
+            [
+              "<a id=\"jpm-preferred_stock\"></a>　Preferred stock (\\$1 par value; authorized 200,000,000 shares: issued 2,005,375 and 2,005,375 shares)",
+              "优先股：面值每股1美元；授权200,000,000股；两期已发行均为2,005,375股",
+              "20,045",
+              "20,050"
+            ],
+            [
+              "<a id=\"jpm-common_stock\"></a>　Common stock (\\$1 par value; authorized 9,000,000,000 shares; issued 4,104,933,895 shares)",
+              "普通股：面值每股1美元；授权9,000,000,000股；已发行4,104,933,895股",
+              "4,105",
+              "4,105"
+            ],
+            [
+              "<a id=\"jpm-additional_paid_in_capital\"></a>　Additional paid-in capital",
+              "额外实缴资本",
+              "91,114",
+              "90,911"
+            ],
+            [
+              "<a id=\"jpm-retained_earnings\"></a>　Retained earnings",
+              "留存收益",
+              "416,055",
+              "376,166"
+            ],
+            [
+              "<a id=\"jpm-aocl\"></a>　Accumulated other comprehensive losses",
+              "累计其他综合损失",
+              "(4,290)",
+              "(12,456)"
+            ],
+            [
+              "<a id=\"jpm-treasury_stock\"></a>　Treasury stock, at cost (1,408,661,319 and 1,307,313,494 shares)",
+              "库存股，按成本〔股数1,408,661,319／1,307,313,494〕",
+              "(164,591)",
+              "(134,018)"
+            ],
+            [
+              "<a id=\"jpm-total_equity\"></a>**Total stockholders’ equity**",
+              "**股东权益合计**",
+              "**362,438**",
+              "**344,758**"
+            ],
+            [
+              "<a id=\"jpm-total_liabilities_equity\"></a>**Total liabilities and stockholders’ equity**",
+              "**负债及股东权益合计**",
+              "**4,424,900**",
+              "**4,002,814**"
+            ]
+          ],
+          "markdown": "| 英文原行 | 中文名称 | 2025-12-31 | 2024-12-31 |\n|---|---|---:|---:|\n| <a id=\"jpm-assets\"></a>**Assets** | **资产** |  |  |\n| <a id=\"jpm-cash_due_from_banks\"></a>　Cash and due from banks | 现金及应收银行款 | 21,742 | 23,372 |\n| <a id=\"jpm-deposits_with_banks\"></a>　Deposits with banks | 存放银行款项 | 321,596 | 445,945 |\n| <a id=\"jpm-fed_funds_sold_resale\"></a>　Federal funds sold and securities purchased under resale agreements (included \\$327,018 and \\$286,771 at fair value) | 拆出联邦基金及买入返售证券〔其中按公允价值计量327,018／286,771〕 | 336,426 | 295,001 |\n| <a id=\"jpm-securities_borrowed\"></a>　Securities borrowed (included \\$98,111 and \\$83,962 at fair value) | 借入证券〔其中按公允价值计量98,111／83,962〕 | 286,191 | 219,546 |\n| <a id=\"jpm-trading_assets\"></a>　Trading assets (included assets pledged of \\$165,927 and \\$136,070) | 交易资产〔其中已质押资产165,927／136,070〕 | 802,873 | 637,784 |\n| <a id=\"jpm-afs_securities\"></a>　　Available-for-sale securities (amortized cost of \\$507,226 and \\$411,045; included assets pledged of \\$7,735 and \\$10,162) | 可供出售证券〔摊余成本507,226／411,045；其中已质押7,735／10,162〕 | 507,198 | 406,852 |\n| <a id=\"jpm-htm_securities\"></a>　　Held-to-maturity securities | 持有至到期证券 | 270,134 | 274,468 |\n| <a id=\"jpm-investment_securities_net\"></a>　**Investment securities, net of allowance for credit losses** | **投资证券，扣除信用损失准备后** | **777,332** | **681,320** |\n| <a id=\"jpm-loans_gross\"></a>　　Loans (included \\$70,684 and \\$41,350 at fair value) | 贷款，未扣贷款损失准备〔其中按公允价值计量70,684／41,350〕 | 1,493,429 | 1,347,988 |\n| <a id=\"jpm-allowance_loan_losses\"></a>　　Allowance for loan losses | 贷款损失准备〔资产减项〕 | (25,765) | (24,345) |\n| <a id=\"jpm-loans_net\"></a>　**Loans, net of allowance for loan losses** | **贷款净额** | **1,467,664** | **1,323,643** |\n| <a id=\"jpm-accrued_interest_receivables\"></a>　Accrued interest and accounts receivable | 应计利息及应收账款 | 111,599 | 101,223 |\n| <a id=\"jpm-premises_equipment\"></a>　Premises and equipment | 房屋及设备 | 36,244 | 32,223 |\n| <a id=\"jpm-goodwill_msrs_other_intangibles\"></a>　Goodwill, MSRs and other intangible assets | 商誉、按揭服务权及其他无形资产 | 64,458 | 64,560 |\n| <a id=\"jpm-other_assets\"></a>　Other assets (included \\$15,849 and \\$15,122 at fair value and assets pledged of \\$11,984 and \\$6,288) | 其他资产〔其中按公允价值计量15,849／15,122；已质押11,984／6,288〕 | 198,775 | 178,197 |\n| <a id=\"jpm-total_assets\"></a>**Total assets(a)** | **总资产〔附注(a)〕** | **4,424,900** | **4,002,814** |\n| <a id=\"jpm-liabilities\"></a>**Liabilities** | **负债** |  |  |\n| <a id=\"jpm-customer_deposits\"></a>　Deposits (included \\$20,930 and \\$33,768 at fair value) | 客户存款〔其中按公允价值计量20,930／33,768〕 | 2,559,320 | 2,406,032 |\n| <a id=\"jpm-fed_funds_purchased_repo\"></a>　Federal funds purchased and securities loaned or sold under repurchase agreements (included \\$360,194 and \\$226,329 at fair value) | 拆入联邦基金及证券借出或回购融资〔其中按公允价值计量360,194／226,329〕 | 442,396 | 296,835 |\n| <a id=\"jpm-short_term_borrowings\"></a>　Short-term borrowings (included \\$32,460 and \\$26,521 at fair value) | 短期借款〔其中按公允价值计量32,460／26,521〕 | 64,776 | 52,893 |\n| <a id=\"jpm-trading_liabilities\"></a>　Trading liabilities | 交易负债 | 216,019 | 192,883 |\n| <a id=\"jpm-accounts_payable_other_liabilities\"></a>　Accounts payable and other liabilities (included \\$6,660 and \\$5,893 at fair value) | 应付账款及其他负债〔其中按公允价值计量6,660／5,893〕 | 316,794 | 280,672 |\n| <a id=\"jpm-vie_beneficial_interests\"></a>　Beneficial interests issued by consolidated VIEs (included \\$5 and \\$1 at fair value) | 合并VIE发行的受益权益〔其中按公允价值计量5／1〕 | 27,951 | 27,323 |\n| <a id=\"jpm-long_term_debt\"></a>　Long-term debt (included \\$134,559 and \\$100,780 at fair value) | 长期债务〔其中按公允价值计量134,559／100,780〕 | 435,206 | 401,418 |\n| <a id=\"jpm-total_liabilities\"></a>**Total liabilities(a)** | **负债合计〔附注(a)〕** | **4,062,462** | **3,658,056** |\n| <a id=\"jpm-commitments_contingencies\"></a>Commitments and contingencies (refer to Notes 28, 29 and 30) | 承诺及或有事项〔参见Notes 28、29、30；原表无金额〕 |  |  |\n| <a id=\"jpm-equity\"></a>**Stockholders’ equity** | **股东权益** |  |  |\n| <a id=\"jpm-preferred_stock\"></a>　Preferred stock (\\$1 par value; authorized 200,000,000 shares: issued 2,005,375 and 2,005,375 shares) | 优先股：面值每股1美元；授权200,000,000股；两期已发行均为2,005,375股 | 20,045 | 20,050 |\n| <a id=\"jpm-common_stock\"></a>　Common stock (\\$1 par value; authorized 9,000,000,000 shares; issued 4,104,933,895 shares) | 普通股：面值每股1美元；授权9,000,000,000股；已发行4,104,933,895股 | 4,105 | 4,105 |\n| <a id=\"jpm-additional_paid_in_capital\"></a>　Additional paid-in capital | 额外实缴资本 | 91,114 | 90,911 |\n| <a id=\"jpm-retained_earnings\"></a>　Retained earnings | 留存收益 | 416,055 | 376,166 |\n| <a id=\"jpm-aocl\"></a>　Accumulated other comprehensive losses | 累计其他综合损失 | (4,290) | (12,456) |\n| <a id=\"jpm-treasury_stock\"></a>　Treasury stock, at cost (1,408,661,319 and 1,307,313,494 shares) | 库存股，按成本〔股数1,408,661,319／1,307,313,494〕 | (164,591) | (134,018) |\n| <a id=\"jpm-total_equity\"></a>**Total stockholders’ equity** | **股东权益合计** | **362,438** | **344,758** |\n| <a id=\"jpm-total_liabilities_equity\"></a>**Total liabilities and stockholders’ equity** | **负债及股东权益合计** | **4,424,900** | **4,002,814** |"
+        },
+        {
+          "heading": "3.1　先保留银行自己的全表结构",
+          "headers": [
+            "英文原行",
+            "中文名称",
+            "2025-12-31",
+            "2024-12-31"
+          ],
+          "rows": [
+            [
+              "<a id=\"jpm-vie-assets\"></a>**Assets**",
+              "**资产**",
+              "",
+              ""
+            ],
+            [
+              "<a id=\"jpm-vie-trading_assets\"></a>　Trading assets",
+              "交易资产",
+              "4,835",
+              "3,885"
+            ],
+            [
+              "<a id=\"jpm-vie-loans\"></a>　Loans",
+              "贷款",
+              "37,777",
+              "36,510"
+            ],
+            [
+              "<a id=\"jpm-vie-all_other_assets\"></a>　All other assets",
+              "其他资产",
+              "683",
+              "681"
+            ],
+            [
+              "<a id=\"jpm-vie-total_assets\"></a>**Total assets**",
+              "**资产合计**",
+              "**43,295**",
+              "**41,076**"
+            ],
+            [
+              "<a id=\"jpm-vie-liabilities\"></a>**Liabilities**",
+              "**负债**",
+              "",
+              ""
+            ],
+            [
+              "<a id=\"jpm-vie-beneficial_interests\"></a>　Beneficial interests issued by consolidated VIEs",
+              "合并VIE发行的受益权益",
+              "27,951",
+              "27,323"
+            ],
+            [
+              "<a id=\"jpm-vie-all_other_liabilities\"></a>　All other liabilities",
+              "其他负债",
+              "691",
+              "454"
+            ],
+            [
+              "<a id=\"jpm-vie-total_liabilities\"></a>**Total liabilities**",
+              "**负债合计**",
+              "**28,642**",
+              "**27,777**"
+            ]
+          ],
+          "markdown": "| 英文原行 | 中文名称 | 2025-12-31 | 2024-12-31 |\n|---|---|---:|---:|\n| <a id=\"jpm-vie-assets\"></a>**Assets** | **资产** |  |  |\n| <a id=\"jpm-vie-trading_assets\"></a>　Trading assets | 交易资产 | 4,835 | 3,885 |\n| <a id=\"jpm-vie-loans\"></a>　Loans | 贷款 | 37,777 | 36,510 |\n| <a id=\"jpm-vie-all_other_assets\"></a>　All other assets | 其他资产 | 683 | 681 |\n| <a id=\"jpm-vie-total_assets\"></a>**Total assets** | **资产合计** | **43,295** | **41,076** |\n| <a id=\"jpm-vie-liabilities\"></a>**Liabilities** | **负债** |  |  |\n| <a id=\"jpm-vie-beneficial_interests\"></a>　Beneficial interests issued by consolidated VIEs | 合并VIE发行的受益权益 | 27,951 | 27,323 |\n| <a id=\"jpm-vie-all_other_liabilities\"></a>　All other liabilities | 其他负债 | 691 | 454 |\n| <a id=\"jpm-vie-total_liabilities\"></a>**Total liabilities** | **负债合计** | **28,642** | **27,777** |"
+        },
+        {
+          "heading": "3.3　贷款不是一个只有总额的盒子",
+          "headers": [
+            "英文原类",
+            "中文",
+            "2025-12-31",
+            "2024-12-31"
+          ],
+          "rows": [
+            [
+              "Retained",
+              "留存贷款",
+              "1,408,905",
+              "1,299,590"
+            ],
+            [
+              "Held-for-sale",
+              "持有待售贷款",
+              "13,840",
+              "7,048"
+            ],
+            [
+              "At fair value",
+              "按公允价值计量贷款",
+              "70,684",
+              "41,350"
+            ],
+            [
+              "Total",
+              "未扣贷款损失准备的贷款合计",
+              "1,493,429",
+              "1,347,988"
+            ]
+          ],
+          "markdown": "| 英文原类 | 中文 | 2025-12-31 | 2024-12-31 |\n|---|---|---:|---:|\n| Retained | 留存贷款 | 1,408,905 | 1,299,590 |\n| Held-for-sale | 持有待售贷款 | 13,840 | 7,048 |\n| At fair value | 按公允价值计量贷款 | 70,684 | 41,350 |\n| Total | 未扣贷款损失准备的贷款合计 | 1,493,429 | 1,347,988 |"
+        },
+        {
+          "heading": "4　共同事件实验：一张表怎样随交易移动",
+          "headers": [
+            "步骤完成后",
+            "现金",
+            "应收",
+            "存货",
+            "总资产",
+            "应付／总负债",
+            "权益",
+            "累计本期利润",
+            "累计经营现金净额"
+          ],
+          "rows": [
+            [
+              "S0 期初",
+              "100",
+              "0",
+              "0",
+              "100",
+              "0",
+              "100",
+              "0",
+              "0"
+            ],
+            [
+              "S1 赊购100",
+              "100",
+              "0",
+              "100",
+              "200",
+              "100",
+              "100",
+              "0",
+              "0"
+            ],
+            [
+              "S2 赊销150并结转100",
+              "100",
+              "150",
+              "0",
+              "250",
+              "100",
+              "150",
+              "50",
+              "0"
+            ],
+            [
+              "S3 付款100",
+              "0",
+              "150",
+              "0",
+              "150",
+              "0",
+              "150",
+              "50",
+              "−100"
+            ],
+            [
+              "S4 收款150",
+              "150",
+              "0",
+              "0",
+              "150",
+              "0",
+              "150",
+              "50",
+              "50"
+            ]
+          ],
+          "markdown": "| 步骤完成后 | 现金 | 应收 | 存货 | 总资产 | 应付／总负债 | 权益 | 累计本期利润 | 累计经营现金净额 |\n|---|---:|---:|---:|---:|---:|---:|---:|---:|\n| S0 期初 | 100 | 0 | 0 | 100 | 0 | 100 | 0 | 0 |\n| S1 赊购100 | 100 | 0 | 100 | 200 | 100 | 100 | 0 | 0 |\n| S2 赊销150并结转100 | 100 | 150 | 0 | 250 | 100 | 150 | 50 | 0 |\n| S3 付款100 | 0 | 150 | 0 | 150 | 0 | 150 | 50 | −100 |\n| S4 收款150 | 150 | 0 | 0 | 150 | 0 | 150 | 50 | 50 |"
+        },
+        {
+          "heading": "4　共同事件实验：一张表怎样随交易移动",
+          "headers": [
+            "箭头",
+            "现金变化",
+            "应收变化",
+            "存货变化",
+            "负债变化",
+            "权益变化",
+            "经济含义"
+          ],
+          "rows": [
+            [
+              "S0→S1 赊购",
+              "0",
+              "0",
+              "+100",
+              "+100",
+              "0",
+              "商品与付款义务同时留下"
+            ],
+            [
+              "S1→S2 销售并结转成本",
+              "0",
+              "+150",
+              "−100",
+              "0",
+              "+50",
+              "收款权替代商品，净收益增加权益"
+            ],
+            [
+              "S2→S3 付款",
+              "−100",
+              "0",
+              "0",
+              "−100",
+              "0",
+              "清偿旧义务，不重复确认商品成本"
+            ],
+            [
+              "S3→S4 收款",
+              "+150",
+              "−150",
+              "0",
+              "0",
+              "0",
+              "实现旧收款权，不重复确认销售收入"
+            ]
+          ],
+          "markdown": "| 箭头 | 现金变化 | 应收变化 | 存货变化 | 负债变化 | 权益变化 | 经济含义 |\n|---|---:|---:|---:|---:|---:|---|\n| S0→S1 赊购 | 0 | 0 | +100 | +100 | 0 | 商品与付款义务同时留下 |\n| S1→S2 销售并结转成本 | 0 | +150 | −100 | 0 | +50 | 收款权替代商品，净收益增加权益 |\n| S2→S3 付款 | −100 | 0 | 0 | −100 | 0 | 清偿旧义务，不重复确认商品成本 |\n| S3→S4 收款 | +150 | −150 | 0 | 0 | 0 | 实现旧收款权，不重复确认销售收入 |"
+        },
+        {
+          "heading": "5.1　衍生品的三个金额，不是同一层次",
+          "headers": [
+            "层次",
+            "计算，百万美元",
+            "能怎样称呼"
+          ],
+          "rows": [
+            [
+              "未作所列抵销的应收总额",
+              "606,382",
+              "衍生品应收总额，不是名义本金"
+            ],
+            [
+              "表内抵销之后",
+              "`606,382−548,605=57,777`",
+              "表内净应收"
+            ],
+            [
+              "再考虑所列不能表内抵销的担保品",
+              "`57,777−28,891=28,886`",
+              "本附注相应净额，不改写主表列报"
+            ]
+          ],
+          "markdown": "| 层次 | 计算，百万美元 | 能怎样称呼 |\n|---|---|---|\n| 未作所列抵销的应收总额 | 606,382 | 衍生品应收总额，不是名义本金 |\n| 表内抵销之后 | `606,382−548,605=57,777` | 表内净应收 |\n| 再考虑所列不能表内抵销的担保品 | `57,777−28,891=28,886` | 本附注相应净额，不改写主表列报 |"
+        }
+      ],
+      "source_input_schema": "BF-A.rev-1.unified-inputs",
+      "information_cutoff": "2026-09-21",
+      "units_and_limits": [
+        "金额默认单位为USD millions；股数单独使用shares；教学设定另列。",
+        "主表与附注明细分层保存；附注明细不得自动再加到主表总额。",
+        "Costco存货/应付余额反向变化893与现金流调整963之间的70保持未归因。"
+      ],
+      "case_inputs": {
+        "COST-BS-20250831": {
+          "entity": "Costco Wholesale Corporation",
+          "periods": [
+            "2025-08-31",
+            "2024-09-01"
+          ],
+          "statement_rows": [
+            {
+              "id": "assets",
+              "label_original_md": "**ASSETS**",
+              "label_zh_md": "**资产**",
+              "amounts": {
+                "2025-08-31": null,
+                "2024-09-01": null
+              },
+              "original_display": {
+                "2025-08-31": "",
+                "2024-09-01": ""
+              }
+            },
+            {
+              "id": "current_assets",
+              "label_original_md": "**CURRENT ASSETS**",
+              "label_zh_md": "**流动资产**",
+              "amounts": {
+                "2025-08-31": null,
+                "2024-09-01": null
+              },
+              "original_display": {
+                "2025-08-31": "",
+                "2024-09-01": ""
+              }
+            },
+            {
+              "id": "cash",
+              "label_original_md": "Cash and cash equivalents",
+              "label_zh_md": "现金及现金等价物",
+              "amounts": {
+                "2025-08-31": 14161,
+                "2024-09-01": 9906
+              },
+              "original_display": {
+                "2025-08-31": "14,161",
+                "2024-09-01": "9,906"
+              }
+            },
+            {
+              "id": "short_term_investments",
+              "label_original_md": "Short-term investments",
+              "label_zh_md": "短期投资",
+              "amounts": {
+                "2025-08-31": 1123,
+                "2024-09-01": 1238
+              },
+              "original_display": {
+                "2025-08-31": "1,123",
+                "2024-09-01": "1,238"
+              }
+            },
+            {
+              "id": "receivables_net",
+              "label_original_md": "Receivables, net",
+              "label_zh_md": "应收款净额",
+              "amounts": {
+                "2025-08-31": 3203,
+                "2024-09-01": 2721
+              },
+              "original_display": {
+                "2025-08-31": "3,203",
+                "2024-09-01": "2,721"
+              }
+            },
+            {
+              "id": "inventory",
+              "label_original_md": "Merchandise inventories",
+              "label_zh_md": "商品存货",
+              "amounts": {
+                "2025-08-31": 18116,
+                "2024-09-01": 18647
+              },
+              "original_display": {
+                "2025-08-31": "18,116",
+                "2024-09-01": "18,647"
+              }
+            },
+            {
+              "id": "other_current_assets",
+              "label_original_md": "Other current assets",
+              "label_zh_md": "其他流动资产",
+              "amounts": {
+                "2025-08-31": 1777,
+                "2024-09-01": 1734
+              },
+              "original_display": {
+                "2025-08-31": "1,777",
+                "2024-09-01": "1,734"
+              }
+            },
+            {
+              "id": "total_current_assets",
+              "label_original_md": "**Total current assets**",
+              "label_zh_md": "**流动资产合计**",
+              "amounts": {
+                "2025-08-31": 38380,
+                "2024-09-01": 34246
+              },
+              "original_display": {
+                "2025-08-31": "**38,380**",
+                "2024-09-01": "**34,246**"
+              }
+            },
+            {
+              "id": "other_assets",
+              "label_original_md": "**OTHER ASSETS**",
+              "label_zh_md": "**其他资产**",
+              "amounts": {
+                "2025-08-31": null,
+                "2024-09-01": null
+              },
+              "original_display": {
+                "2025-08-31": "",
+                "2024-09-01": ""
+              }
+            },
+            {
+              "id": "ppe_net",
+              "label_original_md": "Property and equipment, net",
+              "label_zh_md": "物业及设备净额",
+              "amounts": {
+                "2025-08-31": 31909,
+                "2024-09-01": 29032
+              },
+              "original_display": {
+                "2025-08-31": "31,909",
+                "2024-09-01": "29,032"
+              }
+            },
+            {
+              "id": "operating_lease_rou",
+              "label_original_md": "Operating lease right-of-use assets",
+              "label_zh_md": "经营租赁使用权资产",
+              "amounts": {
+                "2025-08-31": 2725,
+                "2024-09-01": 2617
+              },
+              "original_display": {
+                "2025-08-31": "2,725",
+                "2024-09-01": "2,617"
+              }
+            },
+            {
+              "id": "other_long_term_assets",
+              "label_original_md": "Other long-term assets",
+              "label_zh_md": "其他长期资产",
+              "amounts": {
+                "2025-08-31": 4085,
+                "2024-09-01": 3936
+              },
+              "original_display": {
+                "2025-08-31": "4,085",
+                "2024-09-01": "3,936"
+              }
+            },
+            {
+              "id": "total_assets",
+              "label_original_md": "**TOTAL ASSETS**",
+              "label_zh_md": "**总资产**",
+              "amounts": {
+                "2025-08-31": 77099,
+                "2024-09-01": 69831
+              },
+              "original_display": {
+                "2025-08-31": "**77,099**",
+                "2024-09-01": "**69,831**"
+              }
+            },
+            {
+              "id": "liabilities_and_equity",
+              "label_original_md": "**LIABILITIES AND EQUITY**",
+              "label_zh_md": "**负债与权益**",
+              "amounts": {
+                "2025-08-31": null,
+                "2024-09-01": null
+              },
+              "original_display": {
+                "2025-08-31": "",
+                "2024-09-01": ""
+              }
+            },
+            {
+              "id": "current_liabilities",
+              "label_original_md": "**CURRENT LIABILITIES**",
+              "label_zh_md": "**流动负债**",
+              "amounts": {
+                "2025-08-31": null,
+                "2024-09-01": null
+              },
+              "original_display": {
+                "2025-08-31": "",
+                "2024-09-01": ""
+              }
+            },
+            {
+              "id": "accounts_payable",
+              "label_original_md": "Accounts payable",
+              "label_zh_md": "应付账款",
+              "amounts": {
+                "2025-08-31": 19783,
+                "2024-09-01": 19421
+              },
+              "original_display": {
+                "2025-08-31": "19,783",
+                "2024-09-01": "19,421"
+              }
+            },
+            {
+              "id": "accrued_salaries_benefits",
+              "label_original_md": "Accrued salaries and benefits",
+              "label_zh_md": "应计工资及福利",
+              "amounts": {
+                "2025-08-31": 5205,
+                "2024-09-01": 4794
+              },
+              "original_display": {
+                "2025-08-31": "5,205",
+                "2024-09-01": "4,794"
+              }
+            },
+            {
+              "id": "accrued_member_rewards",
+              "label_original_md": "Accrued member rewards",
+              "label_zh_md": "应计会员奖励",
+              "amounts": {
+                "2025-08-31": 2677,
+                "2024-09-01": 2435
+              },
+              "original_display": {
+                "2025-08-31": "2,677",
+                "2024-09-01": "2,435"
+              }
+            },
+            {
+              "id": "deferred_membership_fees",
+              "label_original_md": "Deferred membership fees",
+              "label_zh_md": "递延会员费",
+              "amounts": {
+                "2025-08-31": 2854,
+                "2024-09-01": 2501
+              },
+              "original_display": {
+                "2025-08-31": "2,854",
+                "2024-09-01": "2,501"
+              }
+            },
+            {
+              "id": "other_current_liabilities",
+              "label_original_md": "Other current liabilities",
+              "label_zh_md": "其他流动负债",
+              "amounts": {
+                "2025-08-31": 6589,
+                "2024-09-01": 6313
+              },
+              "original_display": {
+                "2025-08-31": "6,589",
+                "2024-09-01": "6,313"
+              }
+            },
+            {
+              "id": "total_current_liabilities",
+              "label_original_md": "**Total current liabilities**",
+              "label_zh_md": "**流动负债合计**",
+              "amounts": {
+                "2025-08-31": 37108,
+                "2024-09-01": 35464
+              },
+              "original_display": {
+                "2025-08-31": "**37,108**",
+                "2024-09-01": "**35,464**"
+              }
+            },
+            {
+              "id": "other_liabilities",
+              "label_original_md": "**OTHER LIABILITIES**",
+              "label_zh_md": "**其他负债**",
+              "amounts": {
+                "2025-08-31": null,
+                "2024-09-01": null
+              },
+              "original_display": {
+                "2025-08-31": "",
+                "2024-09-01": ""
+              }
+            },
+            {
+              "id": "long_term_debt",
+              "label_original_md": "Long-term debt, excluding current portion",
+              "label_zh_md": "长期债务，不含流动部分",
+              "amounts": {
+                "2025-08-31": 5713,
+                "2024-09-01": 5794
+              },
+              "original_display": {
+                "2025-08-31": "5,713",
+                "2024-09-01": "5,794"
+              }
+            },
+            {
+              "id": "long_term_operating_lease_liabilities",
+              "label_original_md": "Long-term operating lease liabilities",
+              "label_zh_md": "长期经营租赁负债",
+              "amounts": {
+                "2025-08-31": 2460,
+                "2024-09-01": 2375
+              },
+              "original_display": {
+                "2025-08-31": "2,460",
+                "2024-09-01": "2,375"
+              }
+            },
+            {
+              "id": "other_long_term_liabilities",
+              "label_original_md": "Other long-term liabilities",
+              "label_zh_md": "其他长期负债",
+              "amounts": {
+                "2025-08-31": 2654,
+                "2024-09-01": 2576
+              },
+              "original_display": {
+                "2025-08-31": "2,654",
+                "2024-09-01": "2,576"
+              }
+            },
+            {
+              "id": "total_liabilities",
+              "label_original_md": "**TOTAL LIABILITIES**",
+              "label_zh_md": "**负债合计**",
+              "amounts": {
+                "2025-08-31": 47935,
+                "2024-09-01": 46209
+              },
+              "original_display": {
+                "2025-08-31": "**47,935**",
+                "2024-09-01": "**46,209**"
+              }
+            },
+            {
+              "id": "commitments_contingencies",
+              "label_original_md": "COMMITMENTS AND CONTINGENCIES",
+              "label_zh_md": "承诺及或有事项〔原表无金额〕",
+              "amounts": {
+                "2025-08-31": null,
+                "2024-09-01": null
+              },
+              "original_display": {
+                "2025-08-31": "",
+                "2024-09-01": ""
+              }
+            },
+            {
+              "id": "equity",
+              "label_original_md": "**EQUITY**",
+              "label_zh_md": "**权益**",
+              "amounts": {
+                "2025-08-31": null,
+                "2024-09-01": null
+              },
+              "original_display": {
+                "2025-08-31": "",
+                "2024-09-01": ""
+              }
+            },
+            {
+              "id": "preferred_stock",
+              "label_original_md": "Preferred stock \\$0.005 par value; 100,000,000 shares authorized; no shares issued and outstanding",
+              "label_zh_md": "优先股：每股面值0.005美元；授权100,000,000股；无已发行及流通股",
+              "amounts": {
+                "2025-08-31": 0,
+                "2024-09-01": 0
+              },
+              "original_display": {
+                "2025-08-31": "—",
+                "2024-09-01": "—"
+              }
+            },
+            {
+              "id": "common_stock",
+              "label_original_md": "Common stock \\$0.005 par value; 900,000,000 shares authorized; 443,237,000 and 443,126,000 shares issued and outstanding",
+              "label_zh_md": "普通股：每股面值0.005美元；授权900,000,000股；两期已发行及流通443,237,000及443,126,000股",
+              "amounts": {
+                "2025-08-31": 2,
+                "2024-09-01": 2
+              },
+              "original_display": {
+                "2025-08-31": "2",
+                "2024-09-01": "2"
+              }
+            },
+            {
+              "id": "additional_paid_in_capital",
+              "label_original_md": "Additional paid-in capital",
+              "label_zh_md": "额外实缴资本",
+              "amounts": {
+                "2025-08-31": 8282,
+                "2024-09-01": 7829
+              },
+              "original_display": {
+                "2025-08-31": "8,282",
+                "2024-09-01": "7,829"
+              }
+            },
+            {
+              "id": "aocl",
+              "label_original_md": "Accumulated other comprehensive loss",
+              "label_zh_md": "累计其他综合损失",
+              "amounts": {
+                "2025-08-31": -1770,
+                "2024-09-01": -1828
+              },
+              "original_display": {
+                "2025-08-31": "(1,770)",
+                "2024-09-01": "(1,828)"
+              }
+            },
+            {
+              "id": "retained_earnings",
+              "label_original_md": "Retained earnings",
+              "label_zh_md": "留存收益",
+              "amounts": {
+                "2025-08-31": 22650,
+                "2024-09-01": 17619
+              },
+              "original_display": {
+                "2025-08-31": "22,650",
+                "2024-09-01": "17,619"
+              }
+            },
+            {
+              "id": "total_equity",
+              "label_original_md": "**TOTAL EQUITY**",
+              "label_zh_md": "**权益合计**",
+              "amounts": {
+                "2025-08-31": 29164,
+                "2024-09-01": 23622
+              },
+              "original_display": {
+                "2025-08-31": "**29,164**",
+                "2024-09-01": "**23,622**"
+              }
+            },
+            {
+              "id": "total_liabilities_equity",
+              "label_original_md": "**TOTAL LIABILITIES AND EQUITY**",
+              "label_zh_md": "**负债及权益合计**",
+              "amounts": {
+                "2025-08-31": 77099,
+                "2024-09-01": 69831
+              },
+              "original_display": {
+                "2025-08-31": "**77,099**",
+                "2024-09-01": "**69,831**"
+              }
+            }
+          ],
+          "supplemental": {
+            "cashflow_2025": {
+              "beginning_cash": 9906,
+              "cfo": 13335,
+              "cfi": -5311,
+              "cff": -3775,
+              "fx": 6,
+              "ending_cash": 14161
+            },
+            "working_balance": {
+              "inventory_2025": 18116,
+              "inventory_2024": 18647,
+              "payables_2025": 19783,
+              "payables_2024": 19421,
+              "cf_inventory_adjustment": 559,
+              "cf_payables_adjustment": 404
+            },
+            "lease_2025": {
+              "current_operating": 208,
+              "current_finance": 78,
+              "long_term_operating": 2460,
+              "long_term_finance": 1401,
+              "finance_lease_assets_other_long_term_assets": 1488
+            }
+          }
+        },
+        "JPM-BS-20251231": {
+          "entity": "JPMorgan Chase & Co.",
+          "periods": [
+            "2025-12-31",
+            "2024-12-31"
+          ],
+          "statement_rows": [
+            {
+              "id": "assets",
+              "label_original_md": "**Assets**",
+              "label_zh_md": "**资产**",
+              "amounts": {
+                "2025-12-31": null,
+                "2024-12-31": null
+              },
+              "original_display": {
+                "2025-12-31": "",
+                "2024-12-31": ""
+              }
+            },
+            {
+              "id": "cash_due_from_banks",
+              "label_original_md": "Cash and due from banks",
+              "label_zh_md": "现金及应收银行款",
+              "amounts": {
+                "2025-12-31": 21742,
+                "2024-12-31": 23372
+              },
+              "original_display": {
+                "2025-12-31": "21,742",
+                "2024-12-31": "23,372"
+              }
+            },
+            {
+              "id": "deposits_with_banks",
+              "label_original_md": "Deposits with banks",
+              "label_zh_md": "存放银行款项",
+              "amounts": {
+                "2025-12-31": 321596,
+                "2024-12-31": 445945
+              },
+              "original_display": {
+                "2025-12-31": "321,596",
+                "2024-12-31": "445,945"
+              }
+            },
+            {
+              "id": "fed_funds_sold_resale",
+              "label_original_md": "Federal funds sold and securities purchased under resale agreements (included \\$327,018 and \\$286,771 at fair value)",
+              "label_zh_md": "拆出联邦基金及买入返售证券〔其中按公允价值计量327,018／286,771〕",
+              "amounts": {
+                "2025-12-31": 336426,
+                "2024-12-31": 295001
+              },
+              "original_display": {
+                "2025-12-31": "336,426",
+                "2024-12-31": "295,001"
+              }
+            },
+            {
+              "id": "securities_borrowed",
+              "label_original_md": "Securities borrowed (included \\$98,111 and \\$83,962 at fair value)",
+              "label_zh_md": "借入证券〔其中按公允价值计量98,111／83,962〕",
+              "amounts": {
+                "2025-12-31": 286191,
+                "2024-12-31": 219546
+              },
+              "original_display": {
+                "2025-12-31": "286,191",
+                "2024-12-31": "219,546"
+              }
+            },
+            {
+              "id": "trading_assets",
+              "label_original_md": "Trading assets (included assets pledged of \\$165,927 and \\$136,070)",
+              "label_zh_md": "交易资产〔其中已质押资产165,927／136,070〕",
+              "amounts": {
+                "2025-12-31": 802873,
+                "2024-12-31": 637784
+              },
+              "original_display": {
+                "2025-12-31": "802,873",
+                "2024-12-31": "637,784"
+              }
+            },
+            {
+              "id": "afs_securities",
+              "label_original_md": "Available-for-sale securities (amortized cost of \\$507,226 and \\$411,045; included assets pledged of \\$7,735 and \\$10,162)",
+              "label_zh_md": "可供出售证券〔摊余成本507,226／411,045；其中已质押7,735／10,162〕",
+              "amounts": {
+                "2025-12-31": 507198,
+                "2024-12-31": 406852
+              },
+              "original_display": {
+                "2025-12-31": "507,198",
+                "2024-12-31": "406,852"
+              }
+            },
+            {
+              "id": "htm_securities",
+              "label_original_md": "Held-to-maturity securities",
+              "label_zh_md": "持有至到期证券",
+              "amounts": {
+                "2025-12-31": 270134,
+                "2024-12-31": 274468
+              },
+              "original_display": {
+                "2025-12-31": "270,134",
+                "2024-12-31": "274,468"
+              }
+            },
+            {
+              "id": "investment_securities_net",
+              "label_original_md": "**Investment securities, net of allowance for credit losses**",
+              "label_zh_md": "**投资证券，扣除信用损失准备后**",
+              "amounts": {
+                "2025-12-31": 777332,
+                "2024-12-31": 681320
+              },
+              "original_display": {
+                "2025-12-31": "**777,332**",
+                "2024-12-31": "**681,320**"
+              }
+            },
+            {
+              "id": "loans_gross",
+              "label_original_md": "Loans (included \\$70,684 and \\$41,350 at fair value)",
+              "label_zh_md": "贷款，未扣贷款损失准备〔其中按公允价值计量70,684／41,350〕",
+              "amounts": {
+                "2025-12-31": 1493429,
+                "2024-12-31": 1347988
+              },
+              "original_display": {
+                "2025-12-31": "1,493,429",
+                "2024-12-31": "1,347,988"
+              }
+            },
+            {
+              "id": "allowance_loan_losses",
+              "label_original_md": "Allowance for loan losses",
+              "label_zh_md": "贷款损失准备〔资产减项〕",
+              "amounts": {
+                "2025-12-31": -25765,
+                "2024-12-31": -24345
+              },
+              "original_display": {
+                "2025-12-31": "(25,765)",
+                "2024-12-31": "(24,345)"
+              }
+            },
+            {
+              "id": "loans_net",
+              "label_original_md": "**Loans, net of allowance for loan losses**",
+              "label_zh_md": "**贷款净额**",
+              "amounts": {
+                "2025-12-31": 1467664,
+                "2024-12-31": 1323643
+              },
+              "original_display": {
+                "2025-12-31": "**1,467,664**",
+                "2024-12-31": "**1,323,643**"
+              }
+            },
+            {
+              "id": "accrued_interest_receivables",
+              "label_original_md": "Accrued interest and accounts receivable",
+              "label_zh_md": "应计利息及应收账款",
+              "amounts": {
+                "2025-12-31": 111599,
+                "2024-12-31": 101223
+              },
+              "original_display": {
+                "2025-12-31": "111,599",
+                "2024-12-31": "101,223"
+              }
+            },
+            {
+              "id": "premises_equipment",
+              "label_original_md": "Premises and equipment",
+              "label_zh_md": "房屋及设备",
+              "amounts": {
+                "2025-12-31": 36244,
+                "2024-12-31": 32223
+              },
+              "original_display": {
+                "2025-12-31": "36,244",
+                "2024-12-31": "32,223"
+              }
+            },
+            {
+              "id": "goodwill_msrs_other_intangibles",
+              "label_original_md": "Goodwill, MSRs and other intangible assets",
+              "label_zh_md": "商誉、按揭服务权及其他无形资产",
+              "amounts": {
+                "2025-12-31": 64458,
+                "2024-12-31": 64560
+              },
+              "original_display": {
+                "2025-12-31": "64,458",
+                "2024-12-31": "64,560"
+              }
+            },
+            {
+              "id": "other_assets",
+              "label_original_md": "Other assets (included \\$15,849 and \\$15,122 at fair value and assets pledged of \\$11,984 and \\$6,288)",
+              "label_zh_md": "其他资产〔其中按公允价值计量15,849／15,122；已质押11,984／6,288〕",
+              "amounts": {
+                "2025-12-31": 198775,
+                "2024-12-31": 178197
+              },
+              "original_display": {
+                "2025-12-31": "198,775",
+                "2024-12-31": "178,197"
+              }
+            },
+            {
+              "id": "total_assets",
+              "label_original_md": "**Total assets(a)**",
+              "label_zh_md": "**总资产〔附注(a)〕**",
+              "amounts": {
+                "2025-12-31": 4424900,
+                "2024-12-31": 4002814
+              },
+              "original_display": {
+                "2025-12-31": "**4,424,900**",
+                "2024-12-31": "**4,002,814**"
+              }
+            },
+            {
+              "id": "liabilities",
+              "label_original_md": "**Liabilities**",
+              "label_zh_md": "**负债**",
+              "amounts": {
+                "2025-12-31": null,
+                "2024-12-31": null
+              },
+              "original_display": {
+                "2025-12-31": "",
+                "2024-12-31": ""
+              }
+            },
+            {
+              "id": "customer_deposits",
+              "label_original_md": "Deposits (included \\$20,930 and \\$33,768 at fair value)",
+              "label_zh_md": "客户存款〔其中按公允价值计量20,930／33,768〕",
+              "amounts": {
+                "2025-12-31": 2559320,
+                "2024-12-31": 2406032
+              },
+              "original_display": {
+                "2025-12-31": "2,559,320",
+                "2024-12-31": "2,406,032"
+              }
+            },
+            {
+              "id": "fed_funds_purchased_repo",
+              "label_original_md": "Federal funds purchased and securities loaned or sold under repurchase agreements (included \\$360,194 and \\$226,329 at fair value)",
+              "label_zh_md": "拆入联邦基金及证券借出或回购融资〔其中按公允价值计量360,194／226,329〕",
+              "amounts": {
+                "2025-12-31": 442396,
+                "2024-12-31": 296835
+              },
+              "original_display": {
+                "2025-12-31": "442,396",
+                "2024-12-31": "296,835"
+              }
+            },
+            {
+              "id": "short_term_borrowings",
+              "label_original_md": "Short-term borrowings (included \\$32,460 and \\$26,521 at fair value)",
+              "label_zh_md": "短期借款〔其中按公允价值计量32,460／26,521〕",
+              "amounts": {
+                "2025-12-31": 64776,
+                "2024-12-31": 52893
+              },
+              "original_display": {
+                "2025-12-31": "64,776",
+                "2024-12-31": "52,893"
+              }
+            },
+            {
+              "id": "trading_liabilities",
+              "label_original_md": "Trading liabilities",
+              "label_zh_md": "交易负债",
+              "amounts": {
+                "2025-12-31": 216019,
+                "2024-12-31": 192883
+              },
+              "original_display": {
+                "2025-12-31": "216,019",
+                "2024-12-31": "192,883"
+              }
+            },
+            {
+              "id": "accounts_payable_other_liabilities",
+              "label_original_md": "Accounts payable and other liabilities (included \\$6,660 and \\$5,893 at fair value)",
+              "label_zh_md": "应付账款及其他负债〔其中按公允价值计量6,660／5,893〕",
+              "amounts": {
+                "2025-12-31": 316794,
+                "2024-12-31": 280672
+              },
+              "original_display": {
+                "2025-12-31": "316,794",
+                "2024-12-31": "280,672"
+              }
+            },
+            {
+              "id": "vie_beneficial_interests",
+              "label_original_md": "Beneficial interests issued by consolidated VIEs (included \\$5 and \\$1 at fair value)",
+              "label_zh_md": "合并VIE发行的受益权益〔其中按公允价值计量5／1〕",
+              "amounts": {
+                "2025-12-31": 27951,
+                "2024-12-31": 27323
+              },
+              "original_display": {
+                "2025-12-31": "27,951",
+                "2024-12-31": "27,323"
+              }
+            },
+            {
+              "id": "long_term_debt",
+              "label_original_md": "Long-term debt (included \\$134,559 and \\$100,780 at fair value)",
+              "label_zh_md": "长期债务〔其中按公允价值计量134,559／100,780〕",
+              "amounts": {
+                "2025-12-31": 435206,
+                "2024-12-31": 401418
+              },
+              "original_display": {
+                "2025-12-31": "435,206",
+                "2024-12-31": "401,418"
+              }
+            },
+            {
+              "id": "total_liabilities",
+              "label_original_md": "**Total liabilities(a)**",
+              "label_zh_md": "**负债合计〔附注(a)〕**",
+              "amounts": {
+                "2025-12-31": 4062462,
+                "2024-12-31": 3658056
+              },
+              "original_display": {
+                "2025-12-31": "**4,062,462**",
+                "2024-12-31": "**3,658,056**"
+              }
+            },
+            {
+              "id": "commitments_contingencies",
+              "label_original_md": "Commitments and contingencies (refer to Notes 28, 29 and 30)",
+              "label_zh_md": "承诺及或有事项〔参见Notes 28、29、30；原表无金额〕",
+              "amounts": {
+                "2025-12-31": null,
+                "2024-12-31": null
+              },
+              "original_display": {
+                "2025-12-31": "",
+                "2024-12-31": ""
+              }
+            },
+            {
+              "id": "equity",
+              "label_original_md": "**Stockholders’ equity**",
+              "label_zh_md": "**股东权益**",
+              "amounts": {
+                "2025-12-31": null,
+                "2024-12-31": null
+              },
+              "original_display": {
+                "2025-12-31": "",
+                "2024-12-31": ""
+              }
+            },
+            {
+              "id": "preferred_stock",
+              "label_original_md": "Preferred stock (\\$1 par value; authorized 200,000,000 shares: issued 2,005,375 and 2,005,375 shares)",
+              "label_zh_md": "优先股：面值每股1美元；授权200,000,000股；两期已发行均为2,005,375股",
+              "amounts": {
+                "2025-12-31": 20045,
+                "2024-12-31": 20050
+              },
+              "original_display": {
+                "2025-12-31": "20,045",
+                "2024-12-31": "20,050"
+              }
+            },
+            {
+              "id": "common_stock",
+              "label_original_md": "Common stock (\\$1 par value; authorized 9,000,000,000 shares; issued 4,104,933,895 shares)",
+              "label_zh_md": "普通股：面值每股1美元；授权9,000,000,000股；已发行4,104,933,895股",
+              "amounts": {
+                "2025-12-31": 4105,
+                "2024-12-31": 4105
+              },
+              "original_display": {
+                "2025-12-31": "4,105",
+                "2024-12-31": "4,105"
+              }
+            },
+            {
+              "id": "additional_paid_in_capital",
+              "label_original_md": "Additional paid-in capital",
+              "label_zh_md": "额外实缴资本",
+              "amounts": {
+                "2025-12-31": 91114,
+                "2024-12-31": 90911
+              },
+              "original_display": {
+                "2025-12-31": "91,114",
+                "2024-12-31": "90,911"
+              }
+            },
+            {
+              "id": "retained_earnings",
+              "label_original_md": "Retained earnings",
+              "label_zh_md": "留存收益",
+              "amounts": {
+                "2025-12-31": 416055,
+                "2024-12-31": 376166
+              },
+              "original_display": {
+                "2025-12-31": "416,055",
+                "2024-12-31": "376,166"
+              }
+            },
+            {
+              "id": "aocl",
+              "label_original_md": "Accumulated other comprehensive losses",
+              "label_zh_md": "累计其他综合损失",
+              "amounts": {
+                "2025-12-31": -4290,
+                "2024-12-31": -12456
+              },
+              "original_display": {
+                "2025-12-31": "(4,290)",
+                "2024-12-31": "(12,456)"
+              }
+            },
+            {
+              "id": "treasury_stock",
+              "label_original_md": "Treasury stock, at cost (1,408,661,319 and 1,307,313,494 shares)",
+              "label_zh_md": "库存股，按成本〔股数1,408,661,319／1,307,313,494〕",
+              "amounts": {
+                "2025-12-31": -164591,
+                "2024-12-31": -134018
+              },
+              "original_display": {
+                "2025-12-31": "(164,591)",
+                "2024-12-31": "(134,018)"
+              }
+            },
+            {
+              "id": "total_equity",
+              "label_original_md": "**Total stockholders’ equity**",
+              "label_zh_md": "**股东权益合计**",
+              "amounts": {
+                "2025-12-31": 362438,
+                "2024-12-31": 344758
+              },
+              "original_display": {
+                "2025-12-31": "**362,438**",
+                "2024-12-31": "**344,758**"
+              }
+            },
+            {
+              "id": "total_liabilities_equity",
+              "label_original_md": "**Total liabilities and stockholders’ equity**",
+              "label_zh_md": "**负债及股东权益合计**",
+              "amounts": {
+                "2025-12-31": 4424900,
+                "2024-12-31": 4002814
+              },
+              "original_display": {
+                "2025-12-31": "**4,424,900**",
+                "2024-12-31": "**4,002,814**"
+              }
+            }
+          ],
+          "vie_note_rows": [
+            {
+              "id": "vie-assets",
+              "label_original_md": "**Assets**",
+              "label_zh_md": "**资产**",
+              "amounts": {
+                "2025-12-31": null,
+                "2024-12-31": null
+              },
+              "original_display": {
+                "2025-12-31": "",
+                "2024-12-31": ""
+              }
+            },
+            {
+              "id": "vie-trading_assets",
+              "label_original_md": "Trading assets",
+              "label_zh_md": "交易资产",
+              "amounts": {
+                "2025-12-31": 4835,
+                "2024-12-31": 3885
+              },
+              "original_display": {
+                "2025-12-31": "4,835",
+                "2024-12-31": "3,885"
+              }
+            },
+            {
+              "id": "vie-loans",
+              "label_original_md": "Loans",
+              "label_zh_md": "贷款",
+              "amounts": {
+                "2025-12-31": 37777,
+                "2024-12-31": 36510
+              },
+              "original_display": {
+                "2025-12-31": "37,777",
+                "2024-12-31": "36,510"
+              }
+            },
+            {
+              "id": "vie-all_other_assets",
+              "label_original_md": "All other assets",
+              "label_zh_md": "其他资产",
+              "amounts": {
+                "2025-12-31": 683,
+                "2024-12-31": 681
+              },
+              "original_display": {
+                "2025-12-31": "683",
+                "2024-12-31": "681"
+              }
+            },
+            {
+              "id": "vie-total_assets",
+              "label_original_md": "**Total assets**",
+              "label_zh_md": "**资产合计**",
+              "amounts": {
+                "2025-12-31": 43295,
+                "2024-12-31": 41076
+              },
+              "original_display": {
+                "2025-12-31": "**43,295**",
+                "2024-12-31": "**41,076**"
+              }
+            },
+            {
+              "id": "vie-liabilities",
+              "label_original_md": "**Liabilities**",
+              "label_zh_md": "**负债**",
+              "amounts": {
+                "2025-12-31": null,
+                "2024-12-31": null
+              },
+              "original_display": {
+                "2025-12-31": "",
+                "2024-12-31": ""
+              }
+            },
+            {
+              "id": "vie-beneficial_interests",
+              "label_original_md": "Beneficial interests issued by consolidated VIEs",
+              "label_zh_md": "合并VIE发行的受益权益",
+              "amounts": {
+                "2025-12-31": 27951,
+                "2024-12-31": 27323
+              },
+              "original_display": {
+                "2025-12-31": "27,951",
+                "2024-12-31": "27,323"
+              }
+            },
+            {
+              "id": "vie-all_other_liabilities",
+              "label_original_md": "All other liabilities",
+              "label_zh_md": "其他负债",
+              "amounts": {
+                "2025-12-31": 691,
+                "2024-12-31": 454
+              },
+              "original_display": {
+                "2025-12-31": "691",
+                "2024-12-31": "454"
+              }
+            },
+            {
+              "id": "vie-total_liabilities",
+              "label_original_md": "**Total liabilities**",
+              "label_zh_md": "**负债合计**",
+              "amounts": {
+                "2025-12-31": 28642,
+                "2024-12-31": 27777
+              },
+              "original_display": {
+                "2025-12-31": "**28,642**",
+                "2024-12-31": "**27,777**"
+              }
+            }
+          ],
+          "supplemental": {
+            "loan_categories_2025": {
+              "retained": 1408905,
+              "held_for_sale": 13840,
+              "fair_value": 70684,
+              "gross_total": 1493429,
+              "allowance": -25765
+            },
+            "loan_categories_2024": {
+              "retained": 1299590,
+              "held_for_sale": 7048,
+              "fair_value": 41350,
+              "gross_total": 1347988,
+              "allowance": -24345
+            },
+            "deposits_2025": {
+              "us_noninterest": 583342,
+              "non_us_noninterest": 37057,
+              "total_deposits": 2559320
+            },
+            "deposits_2024": {
+              "us_noninterest": 592500,
+              "non_us_noninterest": 26806,
+              "total_deposits": 2406032
+            },
+            "securities_2025": {
+              "afs_carrying_fair_value": 507198,
+              "htm_carrying_amortized_cost": 270134,
+              "main_table_total": 777332,
+              "afs_to_htm_transfer_billion": 44.1
+            },
+            "common_equity_2025": {
+              "total_stockholders_equity": 362438,
+              "preferred_stock": 20045,
+              "issued_common_shares": 4104933895,
+              "treasury_shares": 1408661319
+            },
+            "derivative_receivables_2025": {
+              "gross_recognized": 606382,
+              "balance_sheet_netting": 548605,
+              "balance_sheet_net": 57777,
+              "collateral_not_balance_sheet_netted": 28891,
+              "note_net_amount": 28886
+            },
+            "cashflow_2025": {
+              "beginning": 469317,
+              "cfo": -147782,
+              "cfi": -265565,
+              "cff": 269533,
+              "fx": 17835,
+              "ending": 343338
+            }
+          }
+        }
+      },
+      "experiments": [
+        {
+          "id": "EXP-BF05-EVENTS",
+          "title": "赊购、赊销、付款与收款",
+          "anchor": "EXP-BF05-EVENTS",
+          "url": "/notebook/labs/bf-a/interactions.html#EXP-BF05-EVENTS",
+          "description": "原稿独立教学设定；不对应Costco或JPM交易记录。",
+          "inputs": {
+            "initial_cash": 100,
+            "initial_equity": 100,
+            "cost": 100,
+            "sales": 150,
+            "default_collect_first": false
+          },
+          "default_outputs": [
+            {
+              "event_label": "S0 期初",
+              "cash": 100,
+              "receivable": 0,
+              "inventory": 0,
+              "assets": 100,
+              "payable": 0,
+              "equity": 100,
+              "profit": 0,
+              "ocf": 0
+            },
+            {
+              "event_label": "S1 赊购100",
+              "cash": 100,
+              "receivable": 0,
+              "inventory": 100,
+              "assets": 200,
+              "payable": 100,
+              "equity": 100,
+              "profit": 0,
+              "ocf": 0
+            },
+            {
+              "event_label": "S2 赊销150并结转100",
+              "cash": 100,
+              "receivable": 150,
+              "inventory": 0,
+              "assets": 250,
+              "payable": 100,
+              "equity": 150,
+              "profit": 50,
+              "ocf": 0
+            },
+            {
+              "event_label": "S3 付款100",
+              "cash": 0,
+              "receivable": 150,
+              "inventory": 0,
+              "assets": 150,
+              "payable": 0,
+              "equity": 150,
+              "profit": 50,
+              "ocf": -100
+            },
+            {
+              "event_label": "S4 收款150",
+              "cash": 150,
+              "receivable": 0,
+              "inventory": 0,
+              "assets": 150,
+              "payable": 0,
+              "equity": 150,
+              "profit": 50,
+              "ocf": 50
+            }
+          ],
+          "transitions": {
+            "heading": "4　共同事件实验：一张表怎样随交易移动",
+            "headers": [
+              "箭头",
+              "现金变化",
+              "应收变化",
+              "存货变化",
+              "负债变化",
+              "权益变化",
+              "经济含义"
+            ],
+            "rows": [
+              [
+                "S0→S1 赊购",
+                "0",
+                "0",
+                "+100",
+                "+100",
+                "0",
+                "商品与付款义务同时留下"
+              ],
+              [
+                "S1→S2 销售并结转成本",
+                "0",
+                "+150",
+                "−100",
+                "0",
+                "+50",
+                "收款权替代商品，净收益增加权益"
+              ],
+              [
+                "S2→S3 付款",
+                "−100",
+                "0",
+                "0",
+                "−100",
+                "0",
+                "清偿旧义务，不重复确认商品成本"
+              ],
+              [
+                "S3→S4 收款",
+                "+150",
+                "−150",
+                "0",
+                "0",
+                "0",
+                "实现旧收款权，不重复确认销售收入"
+              ]
+            ],
+            "markdown": "| 箭头 | 现金变化 | 应收变化 | 存货变化 | 负债变化 | 权益变化 | 经济含义 |\n|---|---:|---:|---:|---:|---:|---|\n| S0→S1 赊购 | 0 | 0 | +100 | +100 | 0 | 商品与付款义务同时留下 |\n| S1→S2 销售并结转成本 | 0 | +150 | −100 | 0 | +50 | 收款权替代商品，净收益增加权益 |\n| S2→S3 付款 | −100 | 0 | 0 | −100 | 0 | 清偿旧义务，不重复确认商品成本 |\n| S3→S4 收款 | +150 | −150 | 0 | 0 | 0 | 实现旧收款权，不重复确认销售收入 |"
+          },
+          "source_inputs": {
+            "initial_cash": 100,
+            "initial_equity": 100,
+            "purchase_cost": 100,
+            "sale_price": 150,
+            "default_order": [
+              "purchase",
+              "sale",
+              "pay",
+              "collect"
+            ],
+            "alternative_order": [
+              "purchase",
+              "sale",
+              "collect",
+              "pay"
+            ]
+          },
+          "computation_source": {
+            "language": "javascript",
+            "code": "// 纯计算函数；不访问账户、不获取外部数据。与正文同一组教学设定。\nfunction eventLedger(initialCash = 100, collectFirst = false) {\n  if (!Number.isFinite(initialCash) || initialCash < 0) {\n    throw new RangeError('期初现金必须为非负有限数');\n  }\n  if (typeof collectFirst !== 'boolean') {\n    throw new TypeError('collectFirst必须为布尔值');\n  }\n  const s = {cash: initialCash, receivable: 0, inventory: 0,\n             payable: 0, equity: initialCash, profit: 0, ocf: 0};\n  const rows = [];\n  const take = event => {\n    const assets = s.cash + s.receivable + s.inventory;\n    if (Math.abs(assets - s.payable - s.equity) > 1e-9) {\n      throw new Error('资产负债关系不平');\n    }\n    rows.push({event, ...s, assets, balanceResidual: 0});\n  };\n  take('initial');\n  s.inventory += 100; s.payable += 100; take('purchase');\n  s.receivable += 150; s.inventory -= 100;\n  s.equity += 50; s.profit += 50; take('sale');\n  const order = collectFirst ? ['collect', 'pay'] : ['pay', 'collect'];\n  for (const event of order) {\n    if (event === 'pay') {\n      if (s.cash < 100) return {rows, completed: false, fundingGap: 100 - s.cash};\n      s.cash -= 100; s.payable -= 100; s.ocf -= 100;\n    } else {\n      s.cash += 150; s.receivable -= 150; s.ocf += 150;\n    }\n    take(event);\n  }\n  return {rows, completed: true, fundingGap: 0};\n}"
+          },
+          "outputs_origin": "原稿第4节完整静态表；导入未执行该函数"
+        }
+      ],
+      "specification_markdown": "## 配套规格：原表阅读器、交互与静态等价\n\n### BF05-TABLES：完整原表不因高亮而消失\n\n输入分别绑定`COST-BS-20250831`与`JPM-BS-20251231`，年份顺序固定为较新／较旧，原始金额以百万美元保存。主表行ID就是本稿各行锚点去掉`cost-`或`jpm-`后的部分。完整表、脚注表和附注明细是不同数据层，只有明确的直接子项参加一个小计。\n\n默认显示共同结构和零售完整表；读者可切换银行。折叠只影响可见状态，不删除行或改变加总。全部展开、打印、无脚本模式均能读到两个完整表和说明。提供“定位原文”和“展开附注”按钮；原始值与派生比率区分。空白与原表破折号分开；任何股数、面值和百万美元不得共用同一个缩放开关。\n\n**加总合同。** Costco总资产只加流动资产小计、物业设备、经营租赁使用权和其他长期资产；JPM总资产只加各直接项目，证券用净小计、贷款用净小计，VIE脚注不参与主表。所有减项在数据层保留负号。正文两期合计及VIE内部合计可作为静态验收值。\n\n### BF05-RETAIL：余额变化与现金调整并排\n\n输入：`inventory_2024=18647, inventory_2025=18116, payable_2024=19421, payable_2025=19783, cf_inventory=559, cf_payable=404`。输出：`N_2024=-774, N_2025=-1667, delta_N=-893, reverse_delta=893, CF_adjustment=963, unexplained_difference=70`。默认历史数据不可编辑；“教学变式”另开命名空间，不覆盖历史数。点击差额只展示待查口径，不自动为其归因。静态等价为§2.2全部公式和表。\n\n### BF05-BANK：分子与分母必须一起说明\n\n输入来自§3.3的两期完整构成、准备负数，以及客户存款。默认展示`(-allowance)/retained_loans*100`，2025输出1.8287%；可切换“全部贷款作分母”的对照，输出1.7252%，同时出现“不是原留存贷款口径”的说明。币种不变，百分数仅乘100一次。不得把下降自动着色为风险改善。普通股每股账面值另以美元／股输出126.99和116.07，不与监管指标混名。\n\n### EXP-BF05-EVENTS：可复算状态转移\n\n状态字段为`cash, receivable, inventory, payable, equity, profit, ocf`，其中`profit`和`ocf`分别指本窗口累计利润和累计经营现金净额。期初`cash=equity=100`，其余0；采购成本`cost=100`，售价`sales=150`。允许顺序为`purchase → sale → pay → collect`或`purchase → sale → collect → pay`。付款须满足`cash>=cost`；其他事件不得重复执行。改变期初现金时权益同步改变，不引入未声明负债。\n\n```javascript\n// 纯计算函数；不访问账户、不获取外部数据。与正文同一组教学设定。\nfunction eventLedger(initialCash = 100, collectFirst = false) {\n  if (!Number.isFinite(initialCash) || initialCash < 0) {\n    throw new RangeError('期初现金必须为非负有限数');\n  }\n  if (typeof collectFirst !== 'boolean') {\n    throw new TypeError('collectFirst必须为布尔值');\n  }\n  const s = {cash: initialCash, receivable: 0, inventory: 0,\n             payable: 0, equity: initialCash, profit: 0, ocf: 0};\n  const rows = [];\n  const take = event => {\n    const assets = s.cash + s.receivable + s.inventory;\n    if (Math.abs(assets - s.payable - s.equity) > 1e-9) {\n      throw new Error('资产负债关系不平');\n    }\n    rows.push({event, ...s, assets, balanceResidual: 0});\n  };\n  take('initial');\n  s.inventory += 100; s.payable += 100; take('purchase');\n  s.receivable += 150; s.inventory -= 100;\n  s.equity += 50; s.profit += 50; take('sale');\n  const order = collectFirst ? ['collect', 'pay'] : ['pay', 'collect'];\n  for (const event of order) {\n    if (event === 'pay') {\n      if (s.cash < 100) return {rows, completed: false, fundingGap: 100 - s.cash};\n      s.cash -= 100; s.payable -= 100; s.ocf -= 100;\n    } else {\n      s.cash += 150; s.receivable -= 150; s.ocf += 150;\n    }\n    take(event);\n  }\n  return {rows, completed: true, fundingGap: 0};\n}\n```\n\n静态默认五行及每一步变化见§4。初始现金0且先付款的预期结果为`completed=false, fundingGap=100`；改为先收款则完成，最终现金50、权益50、利润50、经营现金净额50。UI显示余额与变化两层，箭头文字使用§4的完整含义；不把所有事件画到权益。\n\n页面使用可访问标签、键盘和文字状态，不依赖颜色。股票价格、自动安全评分和银行存活概率不在这个交互中。这里给出静态结果和实现规格；网页实现另行完成。",
+      "outputs_origin": "原稿静态表、公式和配套规格；本导入仅提取"
+    },
+    "runtime_reading_log": []
+  },
+  "provenance": {
+    "source_file": "docs/production/20260921/drafts/bf-a-v2/notebook-BF-A-20260921-revised/BF-05.md",
+    "source_status": "author_review_complete_pending_lead_independent_check",
+    "import_status": "adopted_canonical",
+    "omitted_sections": "关系JSON、Prompt、交互规格转为对应字段；教学自检与编辑修正不进入读者正文",
+    "source_reading_record": "沿用原作者阅读记录；不写入Agent本次运行日志",
+    "source_review_identity": "same_chat_author_review_not_independent",
+    "legacy_anchor_migration": "仅采用已批准的两条跨页公司历史案例别名；其他旧段落不自动映射",
+    "lead_acceptance": "docs/production/20260921/receipts/first-wave-local-acceptance.md"
+  },
+  "anchor_aliases": [
+    {
+      "id": "case-amzn-assets-20260920",
+      "target": "/zh/notebook/amzn/#case-amzn-assets-20260920"
+    },
+    {
+      "id": "case-goog-assets-20260920",
+      "target": "/zh/notebook/goog/#case-goog-assets-20260920"
+    },
+    {
+      "id": "def-balance-sheet",
+      "target": "bf05-common-structure"
+    }
+  ],
+  "default_branch": "BS-RETAIL",
+  "branches": [
+    {
+      "id": "BS-RETAIL",
+      "title": "零售 · Costco",
+      "anchor": "BS-RETAIL",
+      "default": true,
+      "case_id": "CASE-COST-FY2025-BS",
+      "interaction_url": "/notebook/labs/bf-a/interactions.html#BS-RETAIL"
+    },
+    {
+      "id": "BS-BANKING",
+      "title": "银行 · JPMorgan Chase & Co.",
+      "anchor": "BS-BANKING",
+      "default": false,
+      "case_id": "CASE-JPM-FY2025-BS",
+      "interaction_url": "/notebook/labs/bf-a/interactions.html#BS-BANKING"
+    }
+  ],
+  "case_registry": [
+    {
+      "id": "CASE-COST-FY2025-BS",
+      "entity_ref": "CO-COST",
+      "dataset_ref": "COST-BS-20250831",
+      "periods": [
+        "2025-08-31",
+        "2024-09-01"
+      ],
+      "flow_context": "FY2023–FY2025，按各处实际表头；不是全部科目三期均已取得",
+      "currency": "USD",
+      "amount_unit": "million",
+      "shares_unit": "shares",
+      "cutoff": "2026-09-21",
+      "source": "BF-S-COST-FY2025-SEC",
+      "status": "planned"
+    },
+    {
+      "id": "CASE-JPM-FY2025-BS",
+      "entity_ref": "CO-JPM",
+      "dataset_ref": "JPM-BS-20251231",
+      "periods": [
+        "2025-12-31",
+        "2024-12-31"
+      ],
+      "scope": "JPMorgan Chase & Co.集团合并，不是银行子公司单体",
+      "currency": "USD",
+      "amount_unit": "million",
+      "shares_unit": "shares",
+      "cutoff": "2026-09-21",
+      "source": "BF-S-JPM-FY2025",
+      "status": "planned"
+    }
+  ]
+}

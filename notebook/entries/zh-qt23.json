@@ -1,0 +1,1573 @@
+{
+  "id": "zh-qt23",
+  "node_id": "QT23",
+  "lang": "zh",
+  "slug": "costs-constraints-robust-decisions",
+  "title": "成本、约束与稳健决策",
+  "summary": "由精确费用预算推导不交易带，再用整股佣金枚举检验连续近似的边界。",
+  "subject": "quant",
+  "topic": "quant-estimation",
+  "kind": "concept",
+  "template": "T8",
+  "role": "core",
+  "study_time": "18–20分钟",
+  "revised": "2026-09-21",
+  "content_version": "2026-09-21-QT-DE-review-v2",
+  "body_markdown": "预测给出的是关于结果的判断，决策还要回答“现在允许买多少、花掉哪些现金、愿意承受什么风险”。本篇先完整求解一个比例费用模型，再换成整股委托和实际最低佣金规则。两层使用同一种预算思路，却不是同一个优化问题。读完后，你应能独立核对现金、推导不交易带，并解释为什么最优数量可能不唯一。\n\n<a id=\"qt23-budget\"></a>\n## 1. 决策变量先有分母，成本才有位置\n\n先取一期现金收益 $r_f=0$，调仓前财富为 1，原风险资产金额为 $w_0$。令 $x$ 表示调仓后风险资产的中价金额，仍除以调仓前财富；交易成本为 $C(x)$，从期初现金扣除。无新增资金时\n\n$$\nc=1-x-C(x),\\qquad x+c+C(x)=1.\n$$\n\n$c$ 是留下的现金金额，而非在交易后财富下重新归一化的权重。期初中价标记的剩余财富是 $1-C$，因此真正的交易后权重是 $x/(1-C)$ 与 $c/(1-C)$，两者才合计为 1。把 $x+c=1$ 和另一处“费用已扣掉”同时写入账本，会让同一笔现金出现两次。[^cvx]\n\n若风险资产一期简单收益为 $R$，期末财富是 $x(1+R)+c$，所以以原财富为分母的组合净回报为 $R_p=xR-C$。若另取确定现金收益 $r_f$，相同推导给 $R_p=x(R-r_f)+r_f-(1+r_f)C$；费用在期初支付，会同时失去相应现金利息。本篇固定 $r_f=0$，不把这项时点差异藏进近似。\n\n下面的收益均值、波动、价差和风险参数都是教学设定，不是从 BusEq 历史均值直接宣称得到的预测。只有后面注明的佣金组件来自真实公开规则。\n\n<a id=\"qt23-continuous\"></a>\n## 2. 比例成本为什么产生不交易带？\n\n本实验取 $0\\le w_0,u\\le1$、$0\\le\\kappa<1$、$c_{\\min}\\ge0$，并要求 $\\gamma>0,\\sigma>0$；可能没有可行解，届时先报告预算不成立。取 $E[R]=\\mu$、$\\operatorname{Var}(R)=\\sigma^2$，成本为 $C(x)=\\kappa|x-w_0|$。明确选择一个均值—方差准则：最大化净回报期望减去 $\\gamma/2$ 倍方差。这是本例的决策目标，不宣称代表所有人的效用。[^cvx]\n\n$$\nJ(x)=\\mu x-\\tfrac12\\gamma\\sigma^2x^2-\\kappa|x-w_0|,\n$$\n\n约束为 $0\\le x\\le u$，以及 $1-x-\\kappa|x-w_0|\\ge c_{\\min}$。上限 $u$ 限风险金额，现金约束又会进一步缩小可行范围；它们不是一回事。\n\n令 $a=\\gamma\\sigma^2>0$。目标是连续严格凹函数，可行集若非空且有界，就是一个闭区间，因此存在唯一最优解。这里的一维证明不需要先讲整套 KKT。凸目标的支撑不等式，或等价地凹目标的切线界，保证符合可行方向条件的解是全局最优。[^optimality]\n\n在 $w_0$ 两侧，普通导数分别为\n\n$$\nJ'(x)=\n\\begin{cases}\n\\mu-ax+\\kappa,&x<w_0,\\\\\n\\mu-ax-\\kappa,&x>w_0.\n\\end{cases}\n$$\n\n若 $w_0$ 是可行区间内点，不交易恰好要求左导数非负、右导数非正，于是\n\n$$\n|\\mu-aw_0|\\le\\kappa.\n$$\n\n若 $\\mu-aw_0>\\kappa$，向右买入，先求 $x=(\\mu-\\kappa)/a$；若 $\\mu-aw_0<-\\kappa$，向左卖出，先求 $x=(\\mu+\\kappa)/a$。再将该无约束候选截到可行区间。严格凹性使这一局部导数判断足够：越过最优点后，导数不可能再升回正值。\n\n这个带的经济含义是：小幅改变持仓带来的边际好处，还不足以支付买卖方向上的边际费用。不是所有预测变动都值得下单。但若原持仓本身违反新现金要求，就不能拿内点不等式为“不交易”辩护，只能沿可行方向重新选择。\n\n<a id=\"qt23-default\"></a>\n## 3. 把默认解与资金账一起算出来\n\n固定 $w_0=0.5,\\mu=0.015,\\sigma=0.1,\\gamma=2,\\kappa=0.002,u=0.8,c_{\\min}=0.2$。$a=0.02$，不交易的均值带为 $[0.008,0.012]$。默认均值在带上方，所以\n\n$$\nx^*=\\frac{0.015-0.002}{0.02}=0.65.\n$$\n\n此处候选满足所有约束。费用 $0.002(0.65-0.5)=0.0003$，现金为 $0.3497$，成本后的财富是 $0.9997$。真正的风险权重为 $0.65/0.9997=500/769\\approx0.650195$，不是恰好 65%。\n\n| 默认连续解：均以调仓前财富为基数 | 数值 |\n|---|---:|\n| 风险资产金额 $x$ | 0.65 |\n| 现金 $c$ | 0.3497 |\n| 费用 $C$ | 0.0003 |\n| 名义均值下净回报期望 $\\mu x-C$ | 0.00945 |\n| 风险罚项 $\\gamma\\sigma^2x^2/2$ | 0.004225 |\n| 目标 $J$ | 0.005225 |\n\n目标 0.005225 不是期望净回报，更不是某一期会赚到的回报。三者必须分开。默认可行上界实际为 $\\min(0.8,(1+\\kappa w_0-c_{\\min})/(1+\\kappa))=267/334\\approx0.799401$，所以仅看 $u=0.8$ 会遗漏费用占用。[^calculation]\n\n把风险金额上限收紧到 $u=0.6$，最优点被截到 0.6；不是重新发现了一个不同的市场均值。如果把最低现金改为 0.8，原持仓 0.5 已不可行。卖出侧现金为 $1-\\kappa w_0-(1-\\kappa)x$，因此 $x\\le(1-\\kappa w_0-0.8)/(1-\\kappa)\\approx0.199399$，必须大幅减仓。\n\n<a id=\"qt23-robust\"></a>\n## 4. 预测不确定性怎样进入目标？\n\n现在不改名义 $\\mu$，而是指定一组可能均值 $\\mu+\\delta$，其中 $|\\delta|\\le\\rho$。对 long-only 的 $x\\ge0$，最坏均值是 $\\mu-\\rho$。多资产盒集的计算同样直接：\n\n$$\n\\inf_{|\\delta_i|\\le\\rho_i}(\\mu+\\delta)^Tx\n=\\mu^Tx-\\sum_i\\rho_i|x_i|.\n$$\n\n证明是逐项选择 $\\delta_i=-\\rho_i\\operatorname{sign}(x_i)$；各坐标约束互不耦合，所以可以同时达到这个下界。它来自明确指定的集合，不是把所有未知量统一打折。Boyd 等人的 2024 稿件把这类均值区间放进组合构建，并分开讨论约束、交易成本预测和非凸实施。[^robust]\n\n本例取 $\\rho=0.004$，最坏均值成为 0.011，落入不交易带，所以 $x^*=0.5$。名义净回报期望仍按 0.015 算，是 0.0075；最坏均值下是 0.0055；风险罚项 0.0025；稳健目标为 0.003。不同 $\\rho$ 改变的是所优化的问题，不能比较两次目标的大小，就宣称哪次预测更准确。\n\n若要把 $\\rho$ 称为统计置信半径，必须另外给出估计对象、数据和推断条件。本例没有这样做，也没有把论文中对未来成交量的预测换成事后已知成交量。现金预算仍按这里的精确期初账执行，不沿用忽略费用的权重近似。\n\n<a id=\"qt23-integer\"></a>\n## 5. 真正下整股委托时，连续模型还剩下多少？\n\n换一个独立但同类的教学账户：财富 $W=10000$ 美元、原持仓零，假设中价 100、买价 100.05，$q$ 为 0—80 的整数，最低现金 2000，现金收益为零。假设一期股票收益为 $\\mu\\pm\\sigma$，各概率 $1/2$，其中 $\\mu=0.002,\\sigma=0.02,\\gamma=10$。这些是研究概率下的构造情景，不是报价或定价测度。\n\n作为真实规则组件，2026-09-21 所核 IBKR Pro 美国 Fixed 普通整股单笔委托的佣金写成：下单时\n\n$$\nC_{comm}(q,p)=\\min\\{0.01p|q|,\\;\\max(1,0.005|q|)\\},\n$$\n\n不下单则为零。这里 $p$ 为成交价，规则包括每股费、最低费与成交金额上限。100 股×25 美元收 1 美元；1000 股×25 收 5；1000 股×0.25 收 2.50；10 股×0.20 时上限只有 0.02，即按 0.02 而不是 1 收取。其他监管、交易所等费用、税、冲击及退出交易没有包含，不能称作全部账单。[^commission]\n\n本例还计入假设价差 $0.05q$。令 $C_q=0.05q+C_{comm}(q,100.05)$，于是\n\n$$\n\\begin{aligned}\n\\text{现金}&=W-100q-C_q,\\\\\nx&=100q/W,\\\\\nJ_{\\$}(q)&=100q\\mu-C_q-\\frac{W\\gamma}{2}(x\\sigma)^2.\n\\end{aligned}\n$$\n\n$J_{\\$}$ 是原财富乘以均值—方差准则的美元表示。整数和最低佣金使它不再是前面那个连续凸优化问题；这里只有 81 个候选，逐个枚举即可，无须用求导假装获得唯一整股解。\n\n| 默认整股例 | $q=37$ | $q=38$ |\n|---|---:|---:|\n| 假设价差（美元） | 1.85 | 1.90 |\n| 佣金组件（美元） | 1.00 | 1.00 |\n| 剩余现金（美元） | 6297.15 | 6197.10 |\n| 名义净损益期望（美元） | 4.55 | 4.70 |\n| 风险罚项（美元） | 2.738 | 2.888 |\n| 目标（美元） | 1.812 | 1.812 |\n\n两个股数并列最优。显示 37 只是预先约定的同分取较小股数，不把另一个最优解藏起来。在选中的 $q=37$ 下，两个期末中价标记财富分别为 9930.55 和 10078.55，按原财富计算回报是 −0.6945% 和 0.7855%；平均净损益 4.55。期末尚未发出退出委托，所以不称为往返交易净利。[^calculation]\n\n| 改一项条件 | 全部最优股数 | 最优目标（美元） |\n|---|---|---:|\n| 无费用对照：按中价交易 | 50 | 5 |\n| 只计假设价差 | 37、38 | 2.812 |\n| 价差与佣金组件 | 37、38 | 1.812 |\n| 名义 $\\mu=0.0012$ | 0 | 0 |\n| 指定 $\\rho=0.0006$ | 22、23 | 0.012 |\n| 教学可买数量上限为 10 | 10 | 0.300 |\n| 最低现金为 9000 | 9 | 0.188 |\n\n稳健行的数字是稳健目标，不是实际利润。默认 $q=80$ 的现金只有 1995，现金低于最低要求，即使它没有违反股数上限；最大可行数量是 79，现金为 2095.05。[^calculation]\n\n<div data-experiment-slot=\"EXP-QT23-COST-01\"></div>\n\n先在连续模式指出预计会生效的约束，再改变均值或费用；随后在整数模式同时看所有候选、并列最优、现金和期望净损益。曲线最高的位置必须属于可行集，且目标轴不是利润轴。\n\n<a id=\"qt23-exercises\"></a>\n## 6. 独立重建与解析\n\n解释题。 连续默认解 $x=0.65$，为什么风险权重不是恰好 65%？为什么目标 0.005225 不是净回报期望？\n\n解析。 $x$ 以调仓前财富为分母，费用后财富为 0.9997；重新归一化后风险权重为 $0.65/0.9997$。净回报期望是 $0.015\\times0.65-0.0003=0.00945$，再减风险罚项 0.004225 才得到目标。风险罚项没有付给交易所，也不从现金中再扣一次。\n\n迁移题一。 连续模型改成 $\\mu=0.011$，其余默认，是否交易？若另把最低现金改成 0.8，能否继续使用相同答案？\n\n解析。 原默认可行域下 $|0.011-0.02\\times0.5|=0.001\\le0.002$，原持仓为可行内点，所以不交易。最低现金 0.8 时原持仓不可行，内点条件的前提失效；卖出侧可行上界约为 0.199399；整个可行区间内 $J'(x)=0.011-0.02x+0.002>0$，所以最优点就是该上界，不能继续维持 0.5。\n\n迁移题二。 重算 $q=37$ 的现金、平均净损益和目标；再判断 $q=80$ 是否可行。\n\n解析。 现金 $10000-3700-1.85-1=6297.15$；名义毛损益期望 $3700\\times0.002=7.4$，净期望 $7.4-2.85=4.55$；罚项 $10000\\times10\\times0.37^2\\times0.02^2/2=2.738$；目标 $4.55-2.738=1.812$。$q=80$ 的现金为 $10000-8000-4-1=1995<2000$，不可行。反过来，37 和 38 的目标相同并不表示两者的风险或期望损益相同。\n\n迁移题三。 多资产盒集中有一项 $x_i<0$，为什么最坏均值是 $\\mu_i+\\rho_i$ 而非 $\\mu_i-\\rho_i$？\n\n解析。 负头寸乘以更高收益，贡献更差，因此对手在该坐标选最大均值。最坏贡献统一写作 $\\mu_i x_i-\\rho_i|x_i|$。换成耦合的不确定性集合后不能再逐坐标独立取端点，必须重做极小化。\n\n至此，预测、验证与决策的分工才闭合：预测量需要合适的数据与评价，决策把它当作有不确定性的输入，在实际资金边界内求解。求得最优只说明模型内比较已完成，不能替代对输入和制度的核实。\n\n[^cvx]: Boyd、Vandenberghe，[Convex Optimization](https://web.stanford.edu/~boyd/cvxbook/bv_cvxbook.pdf)，2004，Markowitz portfolio optimization 子节，印刷 pp.155–156。本篇使用明确的期初费用预算，并固定 $r_f=0$。\n[^optimality]: 同书 §4.2.2–4.2.3，pp.138–140，可行凸集上的最优性与完整方向证明；本篇的一维不交易带由左右导数直接证明，不依赖未展开的一般 KKT。\n[^robust]: Boyd 等，[Markowitz Portfolio Construction at Seventy](https://web.stanford.edu/~boyd/papers/pdf/markowitz.pdf)，所读稿为 2024-01-05，§2.1–2.4、§3.4–3.5、§4.1–4.3；盒集最坏均值见 p.23 式(16)。论文发表与稿件日期分开，本篇不采用其绩效主张。\n[^commission]: IBKR，[美国股票 Fixed 佣金表](https://www.interactivebrokers.com/en/pricing/commissions-stocks.php?re=amer)，2026-09-21 取得的 US table、Fixed Examples、最低/最高费用及相关说明。适用对象为普通整股单笔委托的佣金组件，非全部成本。\n[^calculation]: [输入与身份](https://ou-liu-red-sugar.github.io/notebook/labs/qt-de/shared_inputs.json)、[全部精确分数及枚举结果](https://ou-liu-red-sugar.github.io/notebook/labs/qt-de/data/results.json) cost 组、[复算程序](https://ou-liu-red-sugar.github.io/notebook/labs/qt-de/compute/reproduce.py)。教学收益、价差和容量与佣金事实分开。\n",
+  "prompt": "请以具有微积分、线性代数与基本概率背景的高年级本科至研究生为对象，围绕“成本、约束与稳健决策”完成一次学习。先实际取得并读完 required_readings 的完整指定单元，记录实际版本/定位/假设/支持范围；目录、摘要或入口不抵扣阅读。可先读取本篇所有必读以备课，但不要把它们全变成读者额外作业。来源打不开时先尝试同版作者可读入口；仍缺承重单元应说明具体缺口，不伪称已读，也不要求无关新批准。先让读者用调仓前财富写预算，完整推导左右导数与不交易带；再枚举q37/38并拆净期望、风险罚项、目标、现金。最后改最低现金使w0不可行，要求用可行方向而非套内点公式。 先让读者尝试，再根据本文完整解析反馈；引用范围内解释，不把模拟当市场事实、不把最优目标当收益保证。只在读者选择分支时启用 optional_readings。完成后用一项新输入迁移检验，明确其能独立完成什么。",
+  "sources": [
+    "QTDE-CVX",
+    "QTDE-MARKOWITZ",
+    "QTDE-IBKR",
+    "QTDE-COMPUTE"
+  ],
+  "anchors": [
+    {
+      "id": "qt23-budget",
+      "title": "1. 决策变量先有分母，成本才有位置",
+      "kind": "section",
+      "preview": "先取一期现金收益 $r_f=0$，调仓前财富为 1，原风险资产金额为 $w_0$。令 $x$ 表示调仓后风险资产的中价金额，仍除以调仓前财富；交易成本为 $C(x)$，从期初现金扣除。无新增资金时 $$ c=1-x-C(x),\\qquad x+c+C(x)=1. $$ $c$ 是留下的现金金额，而非"
+    },
+    {
+      "id": "qt23-continuous",
+      "title": "2. 比例成本为什么产生不交易带？",
+      "kind": "section",
+      "preview": "本实验取 $0\\le w_0,u\\le1$、$0\\le\\kappa0,\\sigma>0$；可能没有可行解，届时先报告预算不成立。取 $E[R]=\\mu$、$\\operatorname{Var}(R)=\\sigma^2$，成本为 $C(x)=\\kappa|x-w_0|$。明确选择一个均值—方差准则：最"
+    },
+    {
+      "id": "qt23-default",
+      "title": "3. 把默认解与资金账一起算出来",
+      "kind": "section",
+      "preview": "固定 $w_0=0.5,\\mu=0.015,\\sigma=0.1,\\gamma=2,\\kappa=0.002,u=0.8,c_{\\min}=0.2$。$a=0.02$，不交易的均值带为 $[0.008,0.012]$。默认均值在带上方，所以 $$ x^*=\\frac{0.015-0.002}{0.0"
+    },
+    {
+      "id": "qt23-robust",
+      "title": "4. 预测不确定性怎样进入目标？",
+      "kind": "section",
+      "preview": "现在不改名义 $\\mu$，而是指定一组可能均值 $\\mu+\\delta$，其中 $|\\delta|\\le\\rho$。对 long-only 的 $x\\ge0$，最坏均值是 $\\mu-\\rho$。多资产盒集的计算同样直接： $$ \\inf_{|\\delta_i|\\le\\rho_i}(\\mu+\\delt"
+    },
+    {
+      "id": "qt23-integer",
+      "title": "5. 真正下整股委托时，连续模型还剩下多少？",
+      "kind": "section",
+      "preview": "换一个独立但同类的教学账户：财富 $W=10000$ 美元、原持仓零，假设中价 100、买价 100.05，$q$ 为 0—80 的整数，最低现金 2000，现金收益为零。假设一期股票收益为 $\\mu\\pm\\sigma$，各概率 $1/2$，其中 $\\mu=0.002,\\sigma=0.02,\\ga"
+    },
+    {
+      "id": "qt23-exercises",
+      "title": "6. 独立重建与解析",
+      "kind": "section",
+      "preview": "解释题。 连续默认解 $x=0.65$，为什么风险权重不是恰好 65%？为什么目标 0.005225 不是净回报期望？ 解析。 $x$ 以调仓前财富为分母，费用后财富为 0.9997；重新归一化后风险权重为 $0.65/0.9997$。净回报期望是 $0.015\\times0.65-0.0003=0"
+    }
+  ],
+  "relations": [
+    {
+      "from": "QT23",
+      "relation": "part_of",
+      "to": "quant-estimation",
+      "reason": "现行大纲第 108 行及正式目录将 QT20–QT23 归入估计、验证与决策；教学子任务分别保留。"
+    },
+    {
+      "from": "QT23",
+      "relation": "requires",
+      "to": "QT04",
+      "required_competence": "期望、方差与量纲",
+      "reason": "本篇使用该能力，不要求整门随机过程课程。"
+    },
+    {
+      "from": "QT23",
+      "relation": "requires",
+      "to": "QT19",
+      "required_competence": "估计量与指定不确定集的区别",
+      "reason": "本篇使用该能力，不要求整门随机过程课程。"
+    },
+    {
+      "from": "QT23#qt23-integer",
+      "relation": "illustrated_by",
+      "to": "EXP-QT23-COST-01",
+      "reason": "完整输入、默认及静态等价支持本篇独立任务。"
+    },
+    {
+      "from": "QT23",
+      "relation": "supported_by",
+      "to": "QTDE-CVX",
+      "locator": "§4.2.2–4.2.3 pp.138–140；Markowitz子节pp.155–156",
+      "scope": "凸可行集最优性、预算与费用子单元",
+      "reason": "核严格凹直接证明，不补造KKT依赖"
+    },
+    {
+      "from": "QT23",
+      "relation": "supported_by",
+      "to": "QTDE-MARKOWITZ",
+      "locator": "§2.1–2.4 pp.13–18；§3.4–3.5 pp.21–24；§4.1–4.3 pp.24–28",
+      "scope": "交易约束、成本预测、盒集及非凸实施完整采用单元",
+      "reason": "分清论文近似与本站精确预算；区间半径不是已估置信界"
+    },
+    {
+      "from": "QT23",
+      "relation": "supported_by",
+      "to": "QTDE-IBKR",
+      "locator": "US Fixed table、Fixed Examples、minimum/maximum以及相关适用脚注完整单元",
+      "scope": "普通整股单笔佣金组件",
+      "reason": "确认规则日期、上限优先与费用排除"
+    }
+  ],
+  "agent_packet": {
+    "export_mode": "public",
+    "required_readings": [
+      {
+        "source_id": "QTDE-CVX",
+        "access": {
+          "kind": "pdf_full_text",
+          "uri": "https://web.stanford.edu/~boyd/cvxbook/bv_cvxbook.pdf",
+          "verified_access_at": "2026-09-21"
+        },
+        "required_unit": {
+          "locator": "§4.2.2–4.2.3 pp.138–140；Markowitz子节pp.155–156",
+          "scope": "凸可行集最优性、预算与费用子单元",
+          "purpose": "核严格凹直接证明，不补造KKT依赖"
+        },
+        "version": "2004",
+        "supports": "凸可行集最优性、预算与费用子单元"
+      },
+      {
+        "source_id": "QTDE-MARKOWITZ",
+        "access": {
+          "kind": "pdf_full_text",
+          "uri": "https://web.stanford.edu/~boyd/papers/pdf/markowitz.pdf",
+          "verified_access_at": "2026-09-21"
+        },
+        "required_unit": {
+          "locator": "§2.1–2.4 pp.13–18；§3.4–3.5 pp.21–24；§4.1–4.3 pp.24–28",
+          "scope": "交易约束、成本预测、盒集及非凸实施完整采用单元",
+          "purpose": "分清论文近似与本站精确预算；区间半径不是已估置信界"
+        },
+        "version": "manuscript January 5, 2024; journal July 2024 separately identified",
+        "supports": "交易约束、成本预测、盒集及非凸实施完整采用单元"
+      },
+      {
+        "source_id": "QTDE-IBKR",
+        "access": {
+          "kind": "html_full_text",
+          "uri": "https://www.interactivebrokers.com/en/pricing/commissions-stocks.php?re=amer",
+          "verified_access_at": "2026-09-21"
+        },
+        "required_unit": {
+          "locator": "US Fixed table、Fixed Examples、minimum/maximum以及相关适用脚注完整单元",
+          "scope": "普通整股单笔佣金组件",
+          "purpose": "确认规则日期、上限优先与费用排除"
+        },
+        "version": "official page accessed 2026-09-21; not an assumed effective date",
+        "supports": "普通整股单笔佣金组件"
+      }
+    ],
+    "optional_readings": [],
+    "runtime_reading_log": [],
+    "supplied_inputs": {
+      "input_identity": "QT-DE-adopted-inputs-20260921-v1",
+      "config": {
+        "content_version": "2026-09-21-QT-DE-review-v2",
+        "input_version": "QT-DE-adopted-inputs-20260921-v1",
+        "dataset": {
+          "file": "https://ou-liu-red-sugar.github.io/notebook/labs/qt-de/data/BusEq-value-weighted-monthly-199001-202512.csv",
+          "origin_input_version": "QT-C-inputs-20260921-v1",
+          "transport_sha256": "72dd0f35d9437d268971de8553827a5c7a4f85ebcf9712c0c1b85ea2ec7cfa74",
+          "source_url": "https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/ftp/30_Industry_Portfolios_CSV.zip",
+          "source_details_url": "https://mba.tuck.dartmouth.edu/pages/Faculty/ken.french/Data_Library/det_30_ind_port.html",
+          "regime_url": "https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/data_library.html",
+          "vintage": "202607 CRSP database; current CIZ reconstruction",
+          "download_date": "2026-09-21",
+          "block": "Average Value Weighted Returns -- Monthly",
+          "column": "BusEq",
+          "sample": [
+            "199001",
+            "202512"
+          ],
+          "n": 432,
+          "source_lines": [
+            775,
+            1206
+          ],
+          "missing_removed": 0,
+          "missing_codes": [
+            -99.99,
+            -999
+          ],
+          "raw_unit": "percent",
+          "internal_unit": "monthly decimal return",
+          "display_errors": "百分点/月",
+          "annualized": false,
+          "identity": "单一当前重建快照；不是FIZ/CIZ时间拼接，不是逐月当时可见版本。"
+        },
+        "forecast": {
+          "experiment_id": "EXP-QT-D-FORECAST-01",
+          "p_grid": [
+            1,
+            3,
+            12
+          ],
+          "lambda_grid": [
+            0.0,
+            0.1,
+            1.0,
+            10.0
+          ],
+          "default_candidate": "p1-l10",
+          "target": "y_t=r_t",
+          "features": "(r_(t-1),...,r_(t-p))",
+          "warmup": [
+            "199001",
+            "199012"
+          ],
+          "initial_train": [
+            "199101",
+            "200912",
+            228
+          ],
+          "validation": [
+            "201001",
+            "201912",
+            120
+          ],
+          "historical_evaluation": [
+            "202001",
+            "202512",
+            72
+          ],
+          "train_start_index": 12,
+          "objective": "RSS/n + lambda*||beta||^2",
+          "matrix_penalty": "n*lambda*I",
+          "standardization_ddof": 0,
+          "intercept_penalized": false,
+          "selection": "minimum validation SSE including zero and expanding-mean baselines",
+          "tie_rule": "regression grid: smaller p then smaller lambda",
+          "frozen_hyperparameters_after_validation": true,
+          "refit": "每原点用新成熟标签扩展重拟合；不再次选择p或lambda",
+          "availability": "教学月末可知收益假设；French历史真实发布和接收时点未重建",
+          "future_scaling_control": {
+            "p": 12,
+            "lambdas": [
+              0.0,
+              0.1
+            ],
+            "scope": "validation only",
+            "identity": "故意信息越界对照"
+          },
+          "default_clock_month": "201001",
+          "default_clock_lambda": 0.1
+        },
+        "selection": {
+          "experiment_id": "EXP-QT-D-SELECT-01",
+          "B": 5000,
+          "m_grid": [
+            1,
+            10,
+            100,
+            500
+          ],
+          "default_m": 100,
+          "seed_all_null": 2201,
+          "seed_mixed": 2202,
+          "rng": "numpy.random.Generator(PCG64)",
+          "n_development": 120,
+          "n_holdout": 120,
+          "sigma": 0.05,
+          "alpha": 0.05,
+          "hypothesis": "事前单侧H0:mu=0 versus H1:mu>0; sigma known",
+          "pvalue": "0.5*erfc(Z/sqrt(2))",
+          "draw_order": "先取(5000,500)开发Z矩阵，再取独立保留Z矩阵；M为共同500列前缀。mixed另重置2202。",
+          "bh_adopted_comparison": "strict <",
+          "source_pilot_comparison": "<=",
+          "empty_BH": "k=0, no rejections, FDP=0",
+          "mixed": {
+            "m": 100,
+            "signals": 10,
+            "signal_mu": 0.01,
+            "null_mu": 0.0
+          },
+          "identity": "直接模拟正态样本均值的Z分布；不含逐月路径，不是真实策略面板",
+          "equal_example": {
+            "p": [
+              0.025,
+              0.06
+            ],
+            "q": 0.05
+          },
+          "manual_example": {
+            "p": [
+              0.006,
+              0.012,
+              0.601,
+              0.756,
+              0.918
+            ],
+            "q": 0.05
+          }
+        },
+        "cost": {
+          "experiment_id": "EXP-QT23-COST-01",
+          "rf": 0,
+          "continuous_default": {
+            "mu": 0.015,
+            "rho": 0,
+            "sigma": 0.1,
+            "gamma": 2,
+            "w0": 0.5,
+            "kappa": 0.002,
+            "cap": 0.8,
+            "cash_min": 0.2
+          },
+          "integer_default": {
+            "mu": 0.002,
+            "rho": 0,
+            "sigma": 0.02,
+            "gamma": 10,
+            "wealth": 10000,
+            "initial_shares": 0,
+            "mid": 100,
+            "ask": 100.05,
+            "cap": 80,
+            "cash_min": 2000,
+            "mode": "spread_and_commission"
+          },
+          "fee": {
+            "id": "QTDE-IBKR",
+            "url": "https://www.interactivebrokers.com/en/pricing/commissions-stocks.php?re=amer",
+            "accessed_at": "2026-09-21",
+            "scope": "IBKR Pro US Fixed ordinary whole-share single-order commission component only",
+            "formula": "q=0:0; otherwise min(0.01*execution_price*abs(q),max(1,0.005*abs(q)))"
+          },
+          "identity": "收益、波动、风险系数、报价、价差、容量为教学设定；佣金是有日期的实际规则组件",
+          "end_value": "期末中价标记；没有退出委托，非往返净利",
+          "excluded_costs": [
+            "监管/交易所/清算等其他收费",
+            "税",
+            "市场冲击",
+            "持仓融资费",
+            "退出交易费",
+            "零股及改单最低费规则"
+          ]
+        },
+        "clocks": {
+          "view_id": "EXP-QT-D-CLOCK-01",
+          "shared_experiment": "EXP-QT-D-FORECAST-01",
+          "BEA": [
+            {
+              "period": "2020Q2",
+              "vintage": "advance",
+              "release_at": "2020-07-30T08:30:00-04:00",
+              "received_at": null,
+              "value_percent_SAAR": -32.9
+            },
+            {
+              "period": "2020Q2",
+              "vintage": "second",
+              "release_at": "2020-08-27T08:30:00-04:00",
+              "received_at": null,
+              "value_percent_SAAR": -31.7
+            }
+          ],
+          "h3_task": {
+            "formula": "prod(1+r_(s+j),j=1..3)-1",
+            "cutoff": "202003",
+            "latest_mature_origin": "201912",
+            "performance_run": false
+          }
+        },
+        "scale_examples": {
+          "raw_x": [
+            -1,
+            1
+          ],
+          "y": [
+            -1,
+            1
+          ],
+          "lambda": 1.0,
+          "default_feature_scale": 10.0,
+          "response_scale": 100.0
+        },
+        "source_identities": {
+          "d_pilot": {
+            "file": "qt-d-experiment-pilot.py",
+            "sha256": "b8a23b01294d543b3b74c6a153168529db74ab7c84837ea3724a55f5071fd3fb",
+            "read_scope": "1–193"
+          },
+          "ef_pilot": {
+            "file": "qt-ef-calculations.py",
+            "sha256": "28eff60cf87400805af145fabd22d4fe17e2c25bac3708cd9e71506d939acb20",
+            "adopted_scope": "commission, continuous_case, integer_case, decision_calculation"
+          },
+          "approval": {
+            "file": "qt-de-draft-approved.md",
+            "read_scope": "1–7",
+            "sha256": "80e92333d057772de9463d786a9be435c6dc1208744bf828d5eb2a4d2a5e9a48"
+          },
+          "plan_review": {
+            "file": "qt-def-plan-review.md",
+            "read_scope": "1–20",
+            "sha256": "56fddfa847ca0f83ec4822652c506f847e9da4e45f7223c039b31428f3aedfd4"
+          }
+        }
+      },
+      "static_equivalent_html": "<p>rf=0，费用期初现金扣除。连续默认w0=.5, μ=.015, σ=.1, γ=2, κ=.002, u=.8, cmin=.2。收益/报价/容量是教学假设；佣金是2026-09-21官方组件。</p><div class=\"formula\">c=1−x−κ|x−w0|；J=(μ−ρ)x−γσ²x²/2−κ|x−w0|。w0是可行内点时，不交易 iff |μ−ρ−γσ²w0|≤κ。</div><div class=\"table-wrap\" tabindex=\"0\"><table><thead><tr><th>默认连续量</th><th>值</th></tr></thead><tbody><tr><td>x</td><td>0.650000000</td></tr><tr><td>cost</td><td>0.000300000</td></tr><tr><td>cash</td><td>0.349700000</td></tr><tr><td>post_cost_wealth</td><td>0.999700000</td></tr><tr><td>post_weight_risky</td><td>0.650195059</td></tr><tr><td>nominal_expected_net_return</td><td>0.009450000</td></tr><tr><td>risk_penalty</td><td>0.004225000</td></tr><tr><td>objective</td><td>0.005225000</td></tr></tbody></table></div><p>ρ=.004则x=.5；cmin=.8时w0不可行，只能沿可行方向。真实规则组件comm=min(.01p|q|,max(1,.005|q|))，q=0不下单费用零。</p><div class=\"table-wrap\" tabindex=\"0\"><table><thead><tr><th>整股情景</th><th>全部最优q</th><th>目标USD</th><th>最大可行q</th></tr></thead><tbody><tr><td>default</td><td>[37, 38]</td><td>1.812</td><td>79</td></tr><tr><td>no_cost</td><td>[50]</td><td>5.000</td><td>80</td></tr><tr><td>spread_only</td><td>[37, 38]</td><td>2.812</td><td>79</td></tr><tr><td>low_mu</td><td>[0]</td><td>0.000</td><td>79</td></tr><tr><td>box0006</td><td>[22, 23]</td><td>0.012</td><td>79</td></tr><tr><td>cap10</td><td>[10]</td><td>0.300</td><td>10</td></tr><tr><td>cash9000</td><td>[9]</td><td>0.188</td><td>9</td></tr></tbody></table></div><div class=\"table-wrap\" tabindex=\"0\"><table><thead><tr><th>默认q37账本</th><th>USD或明确标注</th></tr></thead><tbody><tr><td>spread</td><td>1.85</td></tr><tr><td>commission</td><td>1.0</td></tr><tr><td>cash</td><td>6297.15</td></tr><tr><td>nominal_expected_net_pnl</td><td>4.55</td></tr><tr><td>risk_penalty_dollars</td><td>2.738</td></tr><tr><td>objective_dollars</td><td>1.812</td></tr><tr><td>terminal_mid_wealth</td><td>[9930.55, 10078.55]</td></tr><tr><td>returns_prewealth</td><td>[-0.006945, 0.007855]</td></tr></tbody></table></div><p>q37/38的目标同为1.812，不代表风险和净期望相同；q80现金1995不可行。风险罚项不是现金收费。期末仅中价标记，不含退出费用。盒集半径不是统计置信区间。</p>",
+      "files": {
+        "frozen_csv": "https://ou-liu-red-sugar.github.io/notebook/labs/qt-de/data/BusEq-value-weighted-monthly-199001-202512.csv",
+        "complete_outputs": "https://ou-liu-red-sugar.github.io/notebook/labs/qt-de/data/results.json",
+        "reproduction": "https://ou-liu-red-sugar.github.io/notebook/labs/qt-de/compute/reproduce.py",
+        "interactive_engine": "https://ou-liu-red-sugar.github.io/notebook/labs/qt-de/engine.js",
+        "selection_arrays": "https://ou-liu-red-sugar.github.io/notebook/labs/qt-de/data/selection-arrays.npz",
+        "shared_inputs": "https://ou-liu-red-sugar.github.io/notebook/labs/qt-de/shared_inputs.json",
+        "sources": "https://ou-liu-red-sugar.github.io/notebook/labs/qt-de/sources.json"
+      },
+      "algorithm_identity": "forecast/selection使用真实计算的冻结网格及PCG64结果；成本和人工边界可重算。完整reader在body_markdown中仅一份。",
+      "reading_base": "公开同源包；按完整 URL 取得冻结输入与复算文件。来源网站后续更新不覆盖本份 202607 快照。",
+      "cost_results_for_teaching": {
+        "continuous": {
+          "default": {
+            "feasible": true,
+            "input": {
+              "mu": {
+                "exact": "3/200",
+                "decimal": 0.015
+              },
+              "rho": {
+                "exact": "0",
+                "decimal": 0.0
+              },
+              "cap": {
+                "exact": "4/5",
+                "decimal": 0.8
+              },
+              "cash_min": {
+                "exact": "1/5",
+                "decimal": 0.2
+              },
+              "kappa": {
+                "exact": "1/500",
+                "decimal": 0.002
+              },
+              "w0": {
+                "exact": "1/2",
+                "decimal": 0.5
+              },
+              "sigma": {
+                "exact": "1/10",
+                "decimal": 0.1
+              },
+              "gamma": {
+                "exact": "2",
+                "decimal": 2.0
+              },
+              "rf": {
+                "exact": "0",
+                "decimal": 0.0
+              }
+            },
+            "upper": {
+              "exact": "267/334",
+              "decimal": 0.7994011976047904
+            },
+            "x": {
+              "exact": "13/20",
+              "decimal": 0.65
+            },
+            "cost": {
+              "exact": "3/10000",
+              "decimal": 0.0003
+            },
+            "cash": {
+              "exact": "3497/10000",
+              "decimal": 0.3497
+            },
+            "post_cost_wealth": {
+              "exact": "9997/10000",
+              "decimal": 0.9997
+            },
+            "post_weight_risky": {
+              "exact": "500/769",
+              "decimal": 0.6501950585175552
+            },
+            "post_weight_cash": {
+              "exact": "269/769",
+              "decimal": 0.34980494148244473
+            },
+            "nominal_expected_net_return": {
+              "exact": "189/20000",
+              "decimal": 0.00945
+            },
+            "worst_expected_net_return": {
+              "exact": "189/20000",
+              "decimal": 0.00945
+            },
+            "risk_penalty": {
+              "exact": "169/40000",
+              "decimal": 0.004225
+            },
+            "objective": {
+              "exact": "209/40000",
+              "decimal": 0.005225
+            },
+            "no_trade_mu_band": [
+              {
+                "exact": "1/125",
+                "decimal": 0.008
+              },
+              {
+                "exact": "3/250",
+                "decimal": 0.012
+              }
+            ],
+            "w0_feasible_interior": true
+          },
+          "cap06": {
+            "feasible": true,
+            "input": {
+              "mu": {
+                "exact": "3/200",
+                "decimal": 0.015
+              },
+              "rho": {
+                "exact": "0",
+                "decimal": 0.0
+              },
+              "cap": {
+                "exact": "3/5",
+                "decimal": 0.6
+              },
+              "cash_min": {
+                "exact": "1/5",
+                "decimal": 0.2
+              },
+              "kappa": {
+                "exact": "1/500",
+                "decimal": 0.002
+              },
+              "w0": {
+                "exact": "1/2",
+                "decimal": 0.5
+              },
+              "sigma": {
+                "exact": "1/10",
+                "decimal": 0.1
+              },
+              "gamma": {
+                "exact": "2",
+                "decimal": 2.0
+              },
+              "rf": {
+                "exact": "0",
+                "decimal": 0.0
+              }
+            },
+            "upper": {
+              "exact": "3/5",
+              "decimal": 0.6
+            },
+            "x": {
+              "exact": "3/5",
+              "decimal": 0.6
+            },
+            "cost": {
+              "exact": "1/5000",
+              "decimal": 0.0002
+            },
+            "cash": {
+              "exact": "1999/5000",
+              "decimal": 0.3998
+            },
+            "post_cost_wealth": {
+              "exact": "4999/5000",
+              "decimal": 0.9998
+            },
+            "post_weight_risky": {
+              "exact": "3000/4999",
+              "decimal": 0.6001200240048009
+            },
+            "post_weight_cash": {
+              "exact": "1999/4999",
+              "decimal": 0.39987997599519903
+            },
+            "nominal_expected_net_return": {
+              "exact": "11/1250",
+              "decimal": 0.0088
+            },
+            "worst_expected_net_return": {
+              "exact": "11/1250",
+              "decimal": 0.0088
+            },
+            "risk_penalty": {
+              "exact": "9/2500",
+              "decimal": 0.0036
+            },
+            "objective": {
+              "exact": "13/2500",
+              "decimal": 0.0052
+            },
+            "no_trade_mu_band": [
+              {
+                "exact": "1/125",
+                "decimal": 0.008
+              },
+              {
+                "exact": "3/250",
+                "decimal": 0.012
+              }
+            ],
+            "w0_feasible_interior": true
+          },
+          "box004": {
+            "feasible": true,
+            "input": {
+              "mu": {
+                "exact": "3/200",
+                "decimal": 0.015
+              },
+              "rho": {
+                "exact": "1/250",
+                "decimal": 0.004
+              },
+              "cap": {
+                "exact": "4/5",
+                "decimal": 0.8
+              },
+              "cash_min": {
+                "exact": "1/5",
+                "decimal": 0.2
+              },
+              "kappa": {
+                "exact": "1/500",
+                "decimal": 0.002
+              },
+              "w0": {
+                "exact": "1/2",
+                "decimal": 0.5
+              },
+              "sigma": {
+                "exact": "1/10",
+                "decimal": 0.1
+              },
+              "gamma": {
+                "exact": "2",
+                "decimal": 2.0
+              },
+              "rf": {
+                "exact": "0",
+                "decimal": 0.0
+              }
+            },
+            "upper": {
+              "exact": "267/334",
+              "decimal": 0.7994011976047904
+            },
+            "x": {
+              "exact": "1/2",
+              "decimal": 0.5
+            },
+            "cost": {
+              "exact": "0",
+              "decimal": 0.0
+            },
+            "cash": {
+              "exact": "1/2",
+              "decimal": 0.5
+            },
+            "post_cost_wealth": {
+              "exact": "1",
+              "decimal": 1.0
+            },
+            "post_weight_risky": {
+              "exact": "1/2",
+              "decimal": 0.5
+            },
+            "post_weight_cash": {
+              "exact": "1/2",
+              "decimal": 0.5
+            },
+            "nominal_expected_net_return": {
+              "exact": "3/400",
+              "decimal": 0.0075
+            },
+            "worst_expected_net_return": {
+              "exact": "11/2000",
+              "decimal": 0.0055
+            },
+            "risk_penalty": {
+              "exact": "1/400",
+              "decimal": 0.0025
+            },
+            "objective": {
+              "exact": "3/1000",
+              "decimal": 0.003
+            },
+            "no_trade_mu_band": [
+              {
+                "exact": "1/125",
+                "decimal": 0.008
+              },
+              {
+                "exact": "3/250",
+                "decimal": 0.012
+              }
+            ],
+            "w0_feasible_interior": true
+          },
+          "w0_infeasible": {
+            "feasible": true,
+            "input": {
+              "mu": {
+                "exact": "3/200",
+                "decimal": 0.015
+              },
+              "rho": {
+                "exact": "0",
+                "decimal": 0.0
+              },
+              "cap": {
+                "exact": "4/5",
+                "decimal": 0.8
+              },
+              "cash_min": {
+                "exact": "4/5",
+                "decimal": 0.8
+              },
+              "kappa": {
+                "exact": "1/500",
+                "decimal": 0.002
+              },
+              "w0": {
+                "exact": "1/2",
+                "decimal": 0.5
+              },
+              "sigma": {
+                "exact": "1/10",
+                "decimal": 0.1
+              },
+              "gamma": {
+                "exact": "2",
+                "decimal": 2.0
+              },
+              "rf": {
+                "exact": "0",
+                "decimal": 0.0
+              }
+            },
+            "upper": {
+              "exact": "199/998",
+              "decimal": 0.19939879759519039
+            },
+            "x": {
+              "exact": "199/998",
+              "decimal": 0.19939879759519039
+            },
+            "cost": {
+              "exact": "3/4990",
+              "decimal": 0.0006012024048096192
+            },
+            "cash": {
+              "exact": "4/5",
+              "decimal": 0.8
+            },
+            "post_cost_wealth": {
+              "exact": "4987/4990",
+              "decimal": 0.9993987975951903
+            },
+            "post_weight_risky": {
+              "exact": "995/4987",
+              "decimal": 0.19951874874674153
+            },
+            "post_weight_cash": {
+              "exact": "3992/4987",
+              "decimal": 0.8004812512532584
+            },
+            "nominal_expected_net_return": {
+              "exact": "477/199600",
+              "decimal": 0.0023897795591182364
+            },
+            "worst_expected_net_return": {
+              "exact": "477/199600",
+              "decimal": 0.0023897795591182364
+            },
+            "risk_penalty": {
+              "exact": "39601/99600400",
+              "decimal": 0.000397598804824077
+            },
+            "objective": {
+              "exact": "99211/49800200",
+              "decimal": 0.0019921807542941593
+            },
+            "no_trade_mu_band": [
+              {
+                "exact": "1/125",
+                "decimal": 0.008
+              },
+              {
+                "exact": "3/250",
+                "decimal": 0.012
+              }
+            ],
+            "w0_feasible_interior": false
+          }
+        },
+        "integer": {
+          "default": {
+            "feasible": true,
+            "input": {
+              "mu": {
+                "exact": "1/500",
+                "decimal": 0.002
+              },
+              "rho": {
+                "exact": "0",
+                "decimal": 0.0
+              },
+              "cash_min": {
+                "exact": "2000",
+                "decimal": 2000.0
+              },
+              "cap": 80,
+              "mode": "spread_and_commission",
+              "wealth": {
+                "exact": "10000",
+                "decimal": 10000.0
+              },
+              "mid": {
+                "exact": "100",
+                "decimal": 100.0
+              },
+              "ask": {
+                "exact": "2001/20",
+                "decimal": 100.05
+              },
+              "sigma": {
+                "exact": "1/50",
+                "decimal": 0.02
+              },
+              "gamma": {
+                "exact": "10",
+                "decimal": 10.0
+              },
+              "rf": 0
+            },
+            "optimal_q_all_ties": [
+              37,
+              38
+            ],
+            "display_q": 37,
+            "largest_feasible_q": 79,
+            "objective": {
+              "exact": "453/250",
+              "decimal": 1.812
+            },
+            "exact_rows_csv": "q,feasible,spread,commission,cost,cash,x,post_cost_wealth,post_weight_risky,expected_gross_pnl,nominal_expected_net_pnl,worst_expected_net_pnl,risk_penalty_dollars,objective_dollars,terminal_mid_wealth,returns_prewealth\n0,True,0,0,0,10000,0,10000,0,0,0,0,0,0,\"[\"\"10000\"\",\"\"10000\"\"]\",\"[\"\"0\"\",\"\"0\"\"]\"\n1,True,1/20,1,21/20,197979/20,1/100,199979/20,2000/199979,1/5,-17/20,-17/20,1/500,-213/250,\"[\"\"199943/20\"\",\"\"200023/20\"\"]\",\"[\"\"-57/200000\"\",\"\"23/200000\"\"]\"\n2,True,1/10,1,11/10,97989/10,1/50,99989/10,2000/99989,2/5,-7/10,-7/10,1/125,-177/250,\"[\"\"99953/10\"\",\"\"100033/10\"\"]\",\"[\"\"-47/100000\"\",\"\"33/100000\"\"]\"\n3,True,3/20,1,23/20,193977/20,3/100,199977/20,2000/66659,3/5,-11/20,-11/20,9/500,-71/125,\"[\"\"199869/20\"\",\"\"200109/20\"\"]\",\"[\"\"-131/200000\"\",\"\"109/200000\"\"]\"\n4,True,1/5,1,6/5,47994/5,1/25,49994/5,1000/24997,4/5,-2/5,-2/5,4/125,-54/125,\"[\"\"49958/5\"\",\"\"50038/5\"\"]\",\"[\"\"-21/25000\"\",\"\"19/25000\"\"]\"\n5,True,1/4,1,5/4,37995/4,1/20,39995/4,400/7999,1,-1/4,-1/4,1/20,-3/10,\"[\"\"39959/4\"\",\"\"40039/4\"\"]\",\"[\"\"-41/40000\"\",\"\"39/40000\"\"]\"\n6,True,3/10,1,13/10,93987/10,3/50,99987/10,2000/33329,6/5,-1/10,-1/10,9/125,-43/250,\"[\"\"99879/10\"\",\"\"100119/10\"\"]\",\"[\"\"-121/100000\"\",\"\"119/100000\"\"]\"\n7,True,7/20,1,27/20,185973/20,7/100,199973/20,14000/199973,7/5,1/20,1/20,49/500,-6/125,\"[\"\"199721/20\"\",\"\"200281/20\"\"]\",\"[\"\"-279/200000\"\",\"\"281/200000\"\"]\"\n8,True,2/5,1,7/5,45993/5,2/25,49993/5,4000/49993,8/5,1/5,1/5,16/125,9/125,\"[\"\"49921/5\"\",\"\"50081/5\"\"]\",\"[\"\"-79/50000\"\",\"\"81/50000\"\"]\"\n9,True,9/20,1,29/20,181971/20,9/100,199971/20,2000/22219,9/5,7/20,7/20,81/500,47/250,\"[\"\"199647/20\"\",\"\"200367/20\"\"]\",\"[\"\"-353/200000\"\",\"\"367/200000\"\"]\"\n10,True,1/2,1,3/2,17997/2,1/10,19997/2,2000/19997,2,1/2,1/2,1/5,3/10,\"[\"\"19961/2\"\",\"\"20041/2\"\"]\",\"[\"\"-39/20000\"\",\"\"41/20000\"\"]\"\n11,True,11/20,1,31/20,177969/20,11/100,199969/20,2000/18179,11/5,13/20,13/20,121/500,51/125,\"[\"\"199573/20\"\",\"\"200453/20\"\"]\",\"[\"\"-427/200000\"\",\"\"453/200000\"\"]\"\n12,True,3/5,1,8/5,43992/5,3/25,49992/5,250/2083,12/5,4/5,4/5,36/125,64/125,\"[\"\"49884/5\"\",\"\"50124/5\"\"]\",\"[\"\"-29/12500\"\",\"\"31/12500\"\"]\"\n13,True,13/20,1,33/20,173967/20,13/100,199967/20,26000/199967,13/5,19/20,19/20,169/500,153/250,\"[\"\"199499/20\"\",\"\"200539/20\"\"]\",\"[\"\"-501/200000\"\",\"\"539/200000\"\"]\"\n14,True,7/10,1,17/10,85983/10,7/50,99983/10,14000/99983,14/5,11/10,11/10,49/125,177/250,\"[\"\"99731/10\"\",\"\"100291/10\"\"]\",\"[\"\"-269/100000\"\",\"\"291/100000\"\"]\"\n15,True,3/4,1,7/4,33993/4,3/20,39993/4,2000/13331,3,5/4,5/4,9/20,4/5,\"[\"\"39885/4\"\",\"\"40125/4\"\"]\",\"[\"\"-23/8000\"\",\"\"1/320\"\"]\"\n16,True,4/5,1,9/5,41991/5,4/25,49991/5,8000/49991,16/5,7/5,7/5,64/125,111/125,\"[\"\"49847/5\"\",\"\"50167/5\"\"]\",\"[\"\"-153/50000\"\",\"\"167/50000\"\"]\"\n17,True,17/20,1,37/20,165963/20,17/100,199963/20,34000/199963,17/5,31/20,31/20,289/500,243/250,\"[\"\"199351/20\"\",\"\"200711/20\"\"]\",\"[\"\"-649/200000\"\",\"\"711/200000\"\"]\"\n18,True,9/10,1,19/10,81981/10,9/50,99981/10,2000/11109,18/5,17/10,17/10,81/125,263/250,\"[\"\"99657/10\"\",\"\"100377/10\"\"]\",\"[\"\"-343/100000\"\",\"\"377/100000\"\"]\"\n19,True,19/20,1,39/20,161961/20,19/100,199961/20,38000/199961,19/5,37/20,37/20,361/500,141/125,\"[\"\"199277/20\"\",\"\"200797/20\"\"]\",\"[\"\"-723/200000\"\",\"\"797/200000\"\"]\"\n20,True,1,1,2,7998,1/5,9998,1000/4999,4,2,2,4/5,6/5,\"[\"\"9962\"\",\"\"10042\"\"]\",\"[\"\"-19/5000\"\",\"\"21/5000\"\"]\"\n21,True,21/20,1,41/20,157959/20,21/100,199959/20,14000/66653,21/5,43/20,43/20,441/500,317/250,\"[\"\"199203/20\"\",\"\"200883/20\"\"]\",\"[\"\"-797/200000\"\",\"\"883/200000\"\"]\"\n22,True,11/10,1,21/10,77979/10,11/50,99979/10,2000/9089,22/5,23/10,23/10,121/125,333/250,\"[\"\"99583/10\"\",\"\"100463/10\"\"]\",\"[\"\"-417/100000\"\",\"\"463/100000\"\"]\"\n23,True,23/20,1,43/20,153957/20,23/100,199957/20,46000/199957,23/5,49/20,49/20,529/500,174/125,\"[\"\"199129/20\"\",\"\"200969/20\"\"]\",\"[\"\"-871/200000\"\",\"\"969/200000\"\"]\"\n24,True,6/5,1,11/5,37989/5,6/25,49989/5,4000/16663,24/5,13/5,13/5,144/125,181/125,\"[\"\"49773/5\"\",\"\"50253/5\"\"]\",\"[\"\"-227/50000\"\",\"\"253/50000\"\"]\"\n25,True,5/4,1,9/4,29991/4,1/4,39991/4,10000/39991,5,11/4,11/4,5/4,3/2,\"[\"\"39811/4\"\",\"\"40211/4\"\"]\",\"[\"\"-189/40000\"\",\"\"211/40000\"\"]\"\n26,True,13/10,1,23/10,73977/10,13/50,99977/10,26000/99977,26/5,29/10,29/10,169/125,387/250,\"[\"\"99509/10\"\",\"\"100549/10\"\"]\",\"[\"\"-491/100000\"\",\"\"549/100000\"\"]\"\n27,True,27/20,1,47/20,145953/20,27/100,199953/20,6000/22217,27/5,61/20,61/20,729/500,199/125,\"[\"\"198981/20\"\",\"\"201141/20\"\"]\",\"[\"\"-1019/200000\"\",\"\"1141/200000\"\"]\"\n28,True,7/5,1,12/5,35988/5,7/25,49988/5,3500/12497,28/5,16/5,16/5,196/125,204/125,\"[\"\"49736/5\"\",\"\"50296/5\"\"]\",\"[\"\"-33/6250\"\",\"\"37/6250\"\"]\"\n29,True,29/20,1,49/20,141951/20,29/100,199951/20,58000/199951,29/5,67/20,67/20,841/500,417/250,\"[\"\"198907/20\"\",\"\"201227/20\"\"]\",\"[\"\"-1093/200000\"\",\"\"1227/200000\"\"]\"\n30,True,3/2,1,5/2,13995/2,3/10,19995/2,400/1333,6,7/2,7/2,9/5,17/10,\"[\"\"19887/2\"\",\"\"20127/2\"\"]\",\"[\"\"-113/20000\"\",\"\"127/20000\"\"]\"\n31,True,31/20,1,51/20,137949/20,31/100,199949/20,62000/199949,31/5,73/20,73/20,961/500,216/125,\"[\"\"198833/20\"\",\"\"201313/20\"\"]\",\"[\"\"-1167/200000\"\",\"\"1313/200000\"\"]\"\n32,True,8/5,1,13/5,33987/5,8/25,49987/5,16000/49987,32/5,19/5,19/5,256/125,219/125,\"[\"\"49699/5\"\",\"\"50339/5\"\"]\",\"[\"\"-301/50000\"\",\"\"339/50000\"\"]\"\n33,True,33/20,1,53/20,133947/20,33/100,199947/20,2000/6059,33/5,79/20,79/20,1089/500,443/250,\"[\"\"198759/20\"\",\"\"201399/20\"\"]\",\"[\"\"-1241/200000\"\",\"\"1399/200000\"\"]\"\n34,True,17/10,1,27/10,65973/10,17/50,99973/10,34000/99973,34/5,41/10,41/10,289/125,447/250,\"[\"\"99361/10\"\",\"\"100721/10\"\"]\",\"[\"\"-639/100000\"\",\"\"721/100000\"\"]\"\n35,True,7/4,1,11/4,25989/4,7/20,39989/4,14000/39989,7,17/4,17/4,49/20,9/5,\"[\"\"39737/4\"\",\"\"40297/4\"\"]\",\"[\"\"-263/40000\"\",\"\"297/40000\"\"]\"\n36,True,9/5,1,14/5,31986/5,9/25,49986/5,1000/2777,36/5,22/5,22/5,324/125,226/125,\"[\"\"49662/5\"\",\"\"50382/5\"\"]\",\"[\"\"-169/25000\"\",\"\"191/25000\"\"]\"\n37,True,37/20,1,57/20,125943/20,37/100,199943/20,74000/199943,37/5,91/20,91/20,1369/500,453/250,\"[\"\"198611/20\"\",\"\"201571/20\"\"]\",\"[\"\"-1389/200000\"\",\"\"1571/200000\"\"]\"\n38,True,19/10,1,29/10,61971/10,19/50,99971/10,38000/99971,38/5,47/10,47/10,361/125,453/250,\"[\"\"99287/10\"\",\"\"100807/10\"\"]\",\"[\"\"-713/100000\"\",\"\"807/100000\"\"]\"\n39,True,39/20,1,59/20,121941/20,39/100,199941/20,26000/66647,39/5,97/20,97/20,1521/500,226/125,\"[\"\"198537/20\"\",\"\"201657/20\"\"]\",\"[\"\"-1463/200000\"\",\"\"1657/200000\"\"]\"\n40,True,2,1,3,5997,2/5,9997,4000/9997,8,5,5,16/5,9/5,\"[\"\"9925\"\",\"\"10085\"\"]\",\"[\"\"-3/400\"\",\"\"17/2000\"\"]\"\n41,True,41/20,1,61/20,117939/20,41/100,199939/20,82000/199939,41/5,103/20,103/20,1681/500,447/250,\"[\"\"198463/20\"\",\"\"201743/20\"\"]\",\"[\"\"-1537/200000\"\",\"\"1743/200000\"\"]\"\n42,True,21/10,1,31/10,57969/10,21/50,99969/10,14000/33323,42/5,53/10,53/10,441/125,443/250,\"[\"\"99213/10\"\",\"\"100893/10\"\"]\",\"[\"\"-787/100000\"\",\"\"893/100000\"\"]\"\n43,True,43/20,1,63/20,113937/20,43/100,199937/20,86000/199937,43/5,109/20,109/20,1849/500,219/125,\"[\"\"198389/20\"\",\"\"201829/20\"\"]\",\"[\"\"-1611/200000\"\",\"\"1829/200000\"\"]\"\n44,True,11/5,1,16/5,27984/5,11/25,49984/5,125/284,44/5,28/5,28/5,484/125,216/125,\"[\"\"49588/5\"\",\"\"50468/5\"\"]\",\"[\"\"-103/12500\"\",\"\"117/12500\"\"]\"\n45,True,9/4,1,13/4,21987/4,9/20,39987/4,2000/4443,9,23/4,23/4,81/20,17/10,\"[\"\"39663/4\"\",\"\"40383/4\"\"]\",\"[\"\"-337/40000\"\",\"\"383/40000\"\"]\"\n46,True,23/10,1,33/10,53967/10,23/50,99967/10,46000/99967,46/5,59/10,59/10,529/125,417/250,\"[\"\"99139/10\"\",\"\"100979/10\"\"]\",\"[\"\"-861/100000\"\",\"\"979/100000\"\"]\"\n47,True,47/20,1,67/20,105933/20,47/100,199933/20,94000/199933,47/5,121/20,121/20,2209/500,204/125,\"[\"\"198241/20\"\",\"\"202001/20\"\"]\",\"[\"\"-1759/200000\"\",\"\"2001/200000\"\"]\"\n48,True,12/5,1,17/5,25983/5,12/25,49983/5,8000/16661,48/5,31/5,31/5,576/125,199/125,\"[\"\"49551/5\"\",\"\"50511/5\"\"]\",\"[\"\"-449/50000\"\",\"\"511/50000\"\"]\"\n49,True,49/20,1,69/20,101931/20,49/100,199931/20,98000/199931,49/5,127/20,127/20,2401/500,387/250,\"[\"\"198167/20\"\",\"\"202087/20\"\"]\",\"[\"\"-1833/200000\"\",\"\"2087/200000\"\"]\"\n50,True,5/2,1,7/2,9993/2,1/2,19993/2,10000/19993,10,13/2,13/2,5,3/2,\"[\"\"19813/2\"\",\"\"20213/2\"\"]\",\"[\"\"-187/20000\"\",\"\"213/20000\"\"]\"\n51,True,51/20,1,71/20,97929/20,51/100,199929/20,34000/66643,51/5,133/20,133/20,2601/500,181/125,\"[\"\"198093/20\"\",\"\"202173/20\"\"]\",\"[\"\"-1907/200000\"\",\"\"2173/200000\"\"]\"\n52,True,13/5,1,18/5,23982/5,13/25,49982/5,13000/24991,52/5,34/5,34/5,676/125,174/125,\"[\"\"49514/5\"\",\"\"50554/5\"\"]\",\"[\"\"-243/25000\"\",\"\"277/25000\"\"]\"\n53,True,53/20,1,73/20,93927/20,53/100,199927/20,106000/199927,53/5,139/20,139/20,2809/500,333/250,\"[\"\"198019/20\"\",\"\"202259/20\"\"]\",\"[\"\"-1981/200000\"\",\"\"2259/200000\"\"]\"\n54,True,27/10,1,37/10,45963/10,27/50,99963/10,6000/11107,54/5,71/10,71/10,729/125,317/250,\"[\"\"98991/10\"\",\"\"101151/10\"\"]\",\"[\"\"-1009/100000\"\",\"\"1151/100000\"\"]\"\n55,True,11/4,1,15/4,17985/4,11/20,39985/4,400/727,11,29/4,29/4,121/20,6/5,\"[\"\"39589/4\"\",\"\"40469/4\"\"]\",\"[\"\"-411/40000\"\",\"\"469/40000\"\"]\"\n56,True,14/5,1,19/5,21981/5,14/25,49981/5,28000/49981,56/5,37/5,37/5,784/125,141/125,\"[\"\"49477/5\"\",\"\"50597/5\"\"]\",\"[\"\"-523/50000\"\",\"\"597/50000\"\"]\"\n57,True,57/20,1,77/20,85923/20,57/100,199923/20,38000/66641,57/5,151/20,151/20,3249/500,263/250,\"[\"\"197871/20\"\",\"\"202431/20\"\"]\",\"[\"\"-2129/200000\"\",\"\"2431/200000\"\"]\"\n58,True,29/10,1,39/10,41961/10,29/50,99961/10,58000/99961,58/5,77/10,77/10,841/125,243/250,\"[\"\"98917/10\"\",\"\"101237/10\"\"]\",\"[\"\"-1083/100000\"\",\"\"1237/100000\"\"]\"\n59,True,59/20,1,79/20,81921/20,59/100,199921/20,118000/199921,59/5,157/20,157/20,3481/500,111/125,\"[\"\"197797/20\"\",\"\"202517/20\"\"]\",\"[\"\"-2203/200000\"\",\"\"2517/200000\"\"]\"\n60,True,3,1,4,3996,3/5,9996,500/833,12,8,8,36/5,4/5,\"[\"\"9888\"\",\"\"10128\"\"]\",\"[\"\"-7/625\"\",\"\"8/625\"\"]\"\n61,True,61/20,1,81/20,77919/20,61/100,199919/20,122000/199919,61/5,163/20,163/20,3721/500,177/250,\"[\"\"197723/20\"\",\"\"202603/20\"\"]\",\"[\"\"-2277/200000\"\",\"\"2603/200000\"\"]\"\n62,True,31/10,1,41/10,37959/10,31/50,99959/10,62000/99959,62/5,83/10,83/10,961/125,153/250,\"[\"\"98843/10\"\",\"\"101323/10\"\"]\",\"[\"\"-1157/100000\"\",\"\"1323/100000\"\"]\"\n63,True,63/20,1,83/20,73917/20,63/100,199917/20,14000/22213,63/5,169/20,169/20,3969/500,64/125,\"[\"\"197649/20\"\",\"\"202689/20\"\"]\",\"[\"\"-2351/200000\"\",\"\"2689/200000\"\"]\"\n64,True,16/5,1,21/5,17979/5,16/25,49979/5,32000/49979,64/5,43/5,43/5,1024/125,51/125,\"[\"\"49403/5\"\",\"\"50683/5\"\"]\",\"[\"\"-597/50000\"\",\"\"683/50000\"\"]\"\n65,True,13/4,1,17/4,13983/4,13/20,39983/4,26000/39983,13,35/4,35/4,169/20,3/10,\"[\"\"39515/4\"\",\"\"40555/4\"\"]\",\"[\"\"-97/8000\"\",\"\"111/8000\"\"]\"\n66,True,33/10,1,43/10,33957/10,33/50,99957/10,2000/3029,66/5,89/10,89/10,1089/125,47/250,\"[\"\"98769/10\"\",\"\"101409/10\"\"]\",\"[\"\"-1231/100000\"\",\"\"1409/100000\"\"]\"\n67,True,67/20,1,87/20,65913/20,67/100,199913/20,134000/199913,67/5,181/20,181/20,4489/500,9/125,\"[\"\"197501/20\"\",\"\"202861/20\"\"]\",\"[\"\"-2499/200000\"\",\"\"2861/200000\"\"]\"\n68,True,17/5,1,22/5,15978/5,17/25,49978/5,17000/24989,68/5,46/5,46/5,1156/125,-6/125,\"[\"\"49366/5\"\",\"\"50726/5\"\"]\",\"[\"\"-317/25000\"\",\"\"363/25000\"\"]\"\n69,True,69/20,1,89/20,61911/20,69/100,199911/20,46000/66637,69/5,187/20,187/20,4761/500,-43/250,\"[\"\"197427/20\"\",\"\"202947/20\"\"]\",\"[\"\"-2573/200000\"\",\"\"2947/200000\"\"]\"\n70,True,7/2,1,9/2,5991/2,7/10,19991/2,14000/19991,14,19/2,19/2,49/5,-3/10,\"[\"\"19739/2\"\",\"\"20299/2\"\"]\",\"[\"\"-261/20000\"\",\"\"299/20000\"\"]\"\n71,True,71/20,1,91/20,57909/20,71/100,199909/20,142000/199909,71/5,193/20,193/20,5041/500,-54/125,\"[\"\"197353/20\"\",\"\"203033/20\"\"]\",\"[\"\"-2647/200000\"\",\"\"3033/200000\"\"]\"\n72,True,18/5,1,23/5,13977/5,18/25,49977/5,4000/5553,72/5,49/5,49/5,1296/125,-71/125,\"[\"\"49329/5\"\",\"\"50769/5\"\"]\",\"[\"\"-671/50000\"\",\"\"769/50000\"\"]\"\n73,True,73/20,1,93/20,53907/20,73/100,199907/20,146000/199907,73/5,199/20,199/20,5329/500,-177/250,\"[\"\"197279/20\"\",\"\"203119/20\"\"]\",\"[\"\"-2721/200000\"\",\"\"3119/200000\"\"]\"\n74,True,37/10,1,47/10,25953/10,37/50,99953/10,74000/99953,74/5,101/10,101/10,1369/125,-213/250,\"[\"\"98621/10\"\",\"\"101581/10\"\"]\",\"[\"\"-1379/100000\"\",\"\"1581/100000\"\"]\"\n75,True,15/4,1,19/4,9981/4,3/4,39981/4,10000/13327,15,41/4,41/4,45/4,-1,\"[\"\"39441/4\"\",\"\"40641/4\"\"]\",\"[\"\"-559/40000\"\",\"\"641/40000\"\"]\"\n76,True,19/5,1,24/5,11976/5,19/25,49976/5,4750/6247,76/5,52/5,52/5,1444/125,-144/125,\"[\"\"49292/5\"\",\"\"50812/5\"\"]\",\"[\"\"-177/12500\"\",\"\"203/12500\"\"]\"\n77,True,77/20,1,97/20,45903/20,77/100,199903/20,14000/18173,77/5,211/20,211/20,5929/500,-327/250,\"[\"\"197131/20\"\",\"\"203291/20\"\"]\",\"[\"\"-2869/200000\"\",\"\"3291/200000\"\"]\"\n78,True,39/10,1,49/10,21951/10,39/50,99951/10,26000/33317,78/5,107/10,107/10,1521/125,-367/250,\"[\"\"98547/10\"\",\"\"101667/10\"\"]\",\"[\"\"-1453/100000\"\",\"\"1667/100000\"\"]\"\n79,True,79/20,1,99/20,41901/20,79/100,199901/20,158000/199901,79/5,217/20,217/20,6241/500,-204/125,\"[\"\"197057/20\"\",\"\"203377/20\"\"]\",\"[\"\"-2943/200000\"\",\"\"3377/200000\"\"]\"\n80,False,4,1,5,1995,4/5,9995,1600/1999,16,11,11,64/5,-9/5,\"[\"\"9851\"\",\"\"10171\"\"]\",\"[\"\"-149/10000\"\",\"\"171/10000\"\"]\"\n",
+            "rows_scope": "All q=0..80, including infeasible candidates",
+            "format": "CSV with header; scalar rationals are exact. Two-state arrays list exact lower/upper values."
+          },
+          "no_cost": {
+            "feasible": true,
+            "input": {
+              "mu": {
+                "exact": "1/500",
+                "decimal": 0.002
+              },
+              "rho": {
+                "exact": "0",
+                "decimal": 0.0
+              },
+              "cash_min": {
+                "exact": "2000",
+                "decimal": 2000.0
+              },
+              "cap": 80,
+              "mode": "no_cost",
+              "wealth": {
+                "exact": "10000",
+                "decimal": 10000.0
+              },
+              "mid": {
+                "exact": "100",
+                "decimal": 100.0
+              },
+              "ask": {
+                "exact": "2001/20",
+                "decimal": 100.05
+              },
+              "sigma": {
+                "exact": "1/50",
+                "decimal": 0.02
+              },
+              "gamma": {
+                "exact": "10",
+                "decimal": 10.0
+              },
+              "rf": 0
+            },
+            "optimal_q_all_ties": [
+              50
+            ],
+            "display_q": 50,
+            "largest_feasible_q": 80,
+            "objective": {
+              "exact": "5",
+              "decimal": 5.0
+            },
+            "exact_rows_csv": "q,feasible,spread,commission,cost,cash,x,post_cost_wealth,post_weight_risky,expected_gross_pnl,nominal_expected_net_pnl,worst_expected_net_pnl,risk_penalty_dollars,objective_dollars,terminal_mid_wealth,returns_prewealth\n0,True,0,0,0,10000,0,10000,0,0,0,0,0,0,\"[\"\"10000\"\",\"\"10000\"\"]\",\"[\"\"0\"\",\"\"0\"\"]\"\n50,True,0,0,0,5000,1/2,10000,1/2,10,10,10,5,5,\"[\"\"9910\"\",\"\"10110\"\"]\",\"[\"\"-9/1000\"\",\"\"11/1000\"\"]\"\n80,True,0,0,0,2000,4/5,10000,4/5,16,16,16,64/5,16/5,\"[\"\"9856\"\",\"\"10176\"\"]\",\"[\"\"-9/625\"\",\"\"11/625\"\"]\"\n",
+            "rows_scope": "q=0, all tied optima, display q and largest feasible q",
+            "format": "CSV with header; scalar rationals are exact. Two-state arrays list exact lower/upper values."
+          },
+          "spread_only": {
+            "feasible": true,
+            "input": {
+              "mu": {
+                "exact": "1/500",
+                "decimal": 0.002
+              },
+              "rho": {
+                "exact": "0",
+                "decimal": 0.0
+              },
+              "cash_min": {
+                "exact": "2000",
+                "decimal": 2000.0
+              },
+              "cap": 80,
+              "mode": "spread_only",
+              "wealth": {
+                "exact": "10000",
+                "decimal": 10000.0
+              },
+              "mid": {
+                "exact": "100",
+                "decimal": 100.0
+              },
+              "ask": {
+                "exact": "2001/20",
+                "decimal": 100.05
+              },
+              "sigma": {
+                "exact": "1/50",
+                "decimal": 0.02
+              },
+              "gamma": {
+                "exact": "10",
+                "decimal": 10.0
+              },
+              "rf": 0
+            },
+            "optimal_q_all_ties": [
+              37,
+              38
+            ],
+            "display_q": 37,
+            "largest_feasible_q": 79,
+            "objective": {
+              "exact": "703/250",
+              "decimal": 2.812
+            },
+            "exact_rows_csv": "q,feasible,spread,commission,cost,cash,x,post_cost_wealth,post_weight_risky,expected_gross_pnl,nominal_expected_net_pnl,worst_expected_net_pnl,risk_penalty_dollars,objective_dollars,terminal_mid_wealth,returns_prewealth\n0,True,0,0,0,10000,0,10000,0,0,0,0,0,0,\"[\"\"10000\"\",\"\"10000\"\"]\",\"[\"\"0\"\",\"\"0\"\"]\"\n37,True,37/20,0,37/20,125963/20,37/100,199963/20,74000/199963,37/5,111/20,111/20,1369/500,703/250,\"[\"\"198631/20\"\",\"\"201591/20\"\"]\",\"[\"\"-1369/200000\"\",\"\"1591/200000\"\"]\"\n38,True,19/10,0,19/10,61981/10,19/50,99981/10,38000/99981,38/5,57/10,57/10,361/125,703/250,\"[\"\"99297/10\"\",\"\"100817/10\"\"]\",\"[\"\"-703/100000\"\",\"\"817/100000\"\"]\"\n79,True,79/20,0,79/20,41921/20,79/100,199921/20,158000/199921,79/5,237/20,237/20,6241/500,-79/125,\"[\"\"197077/20\"\",\"\"203397/20\"\"]\",\"[\"\"-2923/200000\"\",\"\"3397/200000\"\"]\"\n",
+            "rows_scope": "q=0, all tied optima, display q and largest feasible q",
+            "format": "CSV with header; scalar rationals are exact. Two-state arrays list exact lower/upper values."
+          },
+          "low_mu": {
+            "feasible": true,
+            "input": {
+              "mu": {
+                "exact": "3/2500",
+                "decimal": 0.0012
+              },
+              "rho": {
+                "exact": "0",
+                "decimal": 0.0
+              },
+              "cash_min": {
+                "exact": "2000",
+                "decimal": 2000.0
+              },
+              "cap": 80,
+              "mode": "spread_and_commission",
+              "wealth": {
+                "exact": "10000",
+                "decimal": 10000.0
+              },
+              "mid": {
+                "exact": "100",
+                "decimal": 100.0
+              },
+              "ask": {
+                "exact": "2001/20",
+                "decimal": 100.05
+              },
+              "sigma": {
+                "exact": "1/50",
+                "decimal": 0.02
+              },
+              "gamma": {
+                "exact": "10",
+                "decimal": 10.0
+              },
+              "rf": 0
+            },
+            "optimal_q_all_ties": [
+              0
+            ],
+            "display_q": 0,
+            "largest_feasible_q": 79,
+            "objective": {
+              "exact": "0",
+              "decimal": 0.0
+            },
+            "exact_rows_csv": "q,feasible,spread,commission,cost,cash,x,post_cost_wealth,post_weight_risky,expected_gross_pnl,nominal_expected_net_pnl,worst_expected_net_pnl,risk_penalty_dollars,objective_dollars,terminal_mid_wealth,returns_prewealth\n0,True,0,0,0,10000,0,10000,0,0,0,0,0,0,\"[\"\"10000\"\",\"\"10000\"\"]\",\"[\"\"0\"\",\"\"0\"\"]\"\n79,True,79/20,1,99/20,41901/20,79/100,199901/20,158000/199901,237/25,453/100,453/100,6241/500,-994/125,\"[\"\"984653/100\"\",\"\"1016253/100\"\"]\",\"[\"\"-15347/1000000\"\",\"\"16253/1000000\"\"]\"\n",
+            "rows_scope": "q=0, all tied optima, display q and largest feasible q",
+            "format": "CSV with header; scalar rationals are exact. Two-state arrays list exact lower/upper values."
+          },
+          "box0006": {
+            "feasible": true,
+            "input": {
+              "mu": {
+                "exact": "1/500",
+                "decimal": 0.002
+              },
+              "rho": {
+                "exact": "3/5000",
+                "decimal": 0.0006
+              },
+              "cash_min": {
+                "exact": "2000",
+                "decimal": 2000.0
+              },
+              "cap": 80,
+              "mode": "spread_and_commission",
+              "wealth": {
+                "exact": "10000",
+                "decimal": 10000.0
+              },
+              "mid": {
+                "exact": "100",
+                "decimal": 100.0
+              },
+              "ask": {
+                "exact": "2001/20",
+                "decimal": 100.05
+              },
+              "sigma": {
+                "exact": "1/50",
+                "decimal": 0.02
+              },
+              "gamma": {
+                "exact": "10",
+                "decimal": 10.0
+              },
+              "rf": 0
+            },
+            "optimal_q_all_ties": [
+              22,
+              23
+            ],
+            "display_q": 22,
+            "largest_feasible_q": 79,
+            "objective": {
+              "exact": "3/250",
+              "decimal": 0.012
+            },
+            "exact_rows_csv": "q,feasible,spread,commission,cost,cash,x,post_cost_wealth,post_weight_risky,expected_gross_pnl,nominal_expected_net_pnl,worst_expected_net_pnl,risk_penalty_dollars,objective_dollars,terminal_mid_wealth,returns_prewealth\n0,True,0,0,0,10000,0,10000,0,0,0,0,0,0,\"[\"\"10000\"\",\"\"10000\"\"]\",\"[\"\"0\"\",\"\"0\"\"]\"\n22,True,11/10,1,21/10,77979/10,11/50,99979/10,2000/9089,22/5,23/10,49/50,121/125,3/250,\"[\"\"99583/10\"\",\"\"100463/10\"\"]\",\"[\"\"-417/100000\"\",\"\"463/100000\"\"]\"\n23,True,23/20,1,43/20,153957/20,23/100,199957/20,46000/199957,23/5,49/20,107/100,529/500,3/250,\"[\"\"199129/20\"\",\"\"200969/20\"\"]\",\"[\"\"-871/200000\"\",\"\"969/200000\"\"]\"\n79,True,79/20,1,99/20,41901/20,79/100,199901/20,158000/199901,79/5,217/20,611/100,6241/500,-1593/250,\"[\"\"197057/20\"\",\"\"203377/20\"\"]\",\"[\"\"-2943/200000\"\",\"\"3377/200000\"\"]\"\n",
+            "rows_scope": "q=0, all tied optima, display q and largest feasible q",
+            "format": "CSV with header; scalar rationals are exact. Two-state arrays list exact lower/upper values."
+          },
+          "cap10": {
+            "feasible": true,
+            "input": {
+              "mu": {
+                "exact": "1/500",
+                "decimal": 0.002
+              },
+              "rho": {
+                "exact": "0",
+                "decimal": 0.0
+              },
+              "cash_min": {
+                "exact": "2000",
+                "decimal": 2000.0
+              },
+              "cap": 10,
+              "mode": "spread_and_commission",
+              "wealth": {
+                "exact": "10000",
+                "decimal": 10000.0
+              },
+              "mid": {
+                "exact": "100",
+                "decimal": 100.0
+              },
+              "ask": {
+                "exact": "2001/20",
+                "decimal": 100.05
+              },
+              "sigma": {
+                "exact": "1/50",
+                "decimal": 0.02
+              },
+              "gamma": {
+                "exact": "10",
+                "decimal": 10.0
+              },
+              "rf": 0
+            },
+            "optimal_q_all_ties": [
+              10
+            ],
+            "display_q": 10,
+            "largest_feasible_q": 10,
+            "objective": {
+              "exact": "3/10",
+              "decimal": 0.3
+            },
+            "exact_rows_csv": "q,feasible,spread,commission,cost,cash,x,post_cost_wealth,post_weight_risky,expected_gross_pnl,nominal_expected_net_pnl,worst_expected_net_pnl,risk_penalty_dollars,objective_dollars,terminal_mid_wealth,returns_prewealth\n0,True,0,0,0,10000,0,10000,0,0,0,0,0,0,\"[\"\"10000\"\",\"\"10000\"\"]\",\"[\"\"0\"\",\"\"0\"\"]\"\n10,True,1/2,1,3/2,17997/2,1/10,19997/2,2000/19997,2,1/2,1/2,1/5,3/10,\"[\"\"19961/2\"\",\"\"20041/2\"\"]\",\"[\"\"-39/20000\"\",\"\"41/20000\"\"]\"\n",
+            "rows_scope": "q=0, all tied optima, display q and largest feasible q",
+            "format": "CSV with header; scalar rationals are exact. Two-state arrays list exact lower/upper values."
+          },
+          "cash9000": {
+            "feasible": true,
+            "input": {
+              "mu": {
+                "exact": "1/500",
+                "decimal": 0.002
+              },
+              "rho": {
+                "exact": "0",
+                "decimal": 0.0
+              },
+              "cash_min": {
+                "exact": "9000",
+                "decimal": 9000.0
+              },
+              "cap": 80,
+              "mode": "spread_and_commission",
+              "wealth": {
+                "exact": "10000",
+                "decimal": 10000.0
+              },
+              "mid": {
+                "exact": "100",
+                "decimal": 100.0
+              },
+              "ask": {
+                "exact": "2001/20",
+                "decimal": 100.05
+              },
+              "sigma": {
+                "exact": "1/50",
+                "decimal": 0.02
+              },
+              "gamma": {
+                "exact": "10",
+                "decimal": 10.0
+              },
+              "rf": 0
+            },
+            "optimal_q_all_ties": [
+              9
+            ],
+            "display_q": 9,
+            "largest_feasible_q": 9,
+            "objective": {
+              "exact": "47/250",
+              "decimal": 0.188
+            },
+            "exact_rows_csv": "q,feasible,spread,commission,cost,cash,x,post_cost_wealth,post_weight_risky,expected_gross_pnl,nominal_expected_net_pnl,worst_expected_net_pnl,risk_penalty_dollars,objective_dollars,terminal_mid_wealth,returns_prewealth\n0,True,0,0,0,10000,0,10000,0,0,0,0,0,0,\"[\"\"10000\"\",\"\"10000\"\"]\",\"[\"\"0\"\",\"\"0\"\"]\"\n9,True,9/20,1,29/20,181971/20,9/100,199971/20,2000/22219,9/5,7/20,7/20,81/500,47/250,\"[\"\"199647/20\"\",\"\"200367/20\"\"]\",\"[\"\"-353/200000\"\",\"\"367/200000\"\"]\"\n",
+            "rows_scope": "q=0, all tied optima, display q and largest feasible q",
+            "format": "CSV with header; scalar rationals are exact. Two-state arrays list exact lower/upper values."
+          }
+        },
+        "official_commission_examples": [
+          {
+            "q": 100,
+            "price": {
+              "exact": "25",
+              "decimal": 25.0
+            },
+            "commission": {
+              "exact": "1",
+              "decimal": 1.0
+            }
+          },
+          {
+            "q": 1000,
+            "price": {
+              "exact": "25",
+              "decimal": 25.0
+            },
+            "commission": {
+              "exact": "5",
+              "decimal": 5.0
+            }
+          },
+          {
+            "q": 1000,
+            "price": {
+              "exact": "1/4",
+              "decimal": 0.25
+            },
+            "commission": {
+              "exact": "5/2",
+              "decimal": 2.5
+            }
+          },
+          {
+            "q": 10,
+            "price": {
+              "exact": "1/5",
+              "decimal": 0.2
+            },
+            "commission": {
+              "exact": "1/50",
+              "decimal": 0.02
+            }
+          }
+        ],
+        "complete_exact_results": {
+          "uri": "https://ou-liu-red-sugar.github.io/notebook/labs/qt-de/data/results.json",
+          "locator": "cost.integer.<scenario>.rows",
+          "purpose": "Read the selected scenario here when reproducing every candidate with exact fractions. The packet includes all default candidates and exact worked rows for all taught scenarios; full attachment is unchanged."
+        }
+      }
+    },
+    "entry_id": "zh-qt23",
+    "content_version": "2026-09-21-QT-DE-review-v2",
+    "audience": "高年级本科至研究生；默认微积分、线性代数与基本概率",
+    "learning_task": "由精确费用预算推导不交易带，再用整股佣金枚举检验连续近似的边界。"
+  },
+  "experiments": [
+    {
+      "id": "EXP-QT23-COST-01",
+      "title": "成本、约束与稳健决策：可复算实验",
+      "anchor": "qt23-integer",
+      "description": "由精确费用预算推导不交易带，再用整股佣金枚举检验连续近似的边界。",
+      "inputs": {
+        "identity": "QT-DE-adopted-inputs-20260921-v1",
+        "manifest": "https://ou-liu-red-sugar.github.io/notebook/labs/qt-de/shared_inputs.json"
+      },
+      "outputs": {
+        "default_continuous": {
+          "feasible": true,
+          "input": {
+            "mu": {
+              "exact": "3/200",
+              "decimal": 0.015
+            },
+            "rho": {
+              "exact": "0",
+              "decimal": 0.0
+            },
+            "cap": {
+              "exact": "4/5",
+              "decimal": 0.8
+            },
+            "cash_min": {
+              "exact": "1/5",
+              "decimal": 0.2
+            },
+            "kappa": {
+              "exact": "1/500",
+              "decimal": 0.002
+            },
+            "w0": {
+              "exact": "1/2",
+              "decimal": 0.5
+            },
+            "sigma": {
+              "exact": "1/10",
+              "decimal": 0.1
+            },
+            "gamma": {
+              "exact": "2",
+              "decimal": 2.0
+            },
+            "rf": {
+              "exact": "0",
+              "decimal": 0.0
+            }
+          },
+          "upper": {
+            "exact": "267/334",
+            "decimal": 0.7994011976047904
+          },
+          "x": {
+            "exact": "13/20",
+            "decimal": 0.65
+          },
+          "cost": {
+            "exact": "3/10000",
+            "decimal": 0.0003
+          },
+          "cash": {
+            "exact": "3497/10000",
+            "decimal": 0.3497
+          },
+          "post_cost_wealth": {
+            "exact": "9997/10000",
+            "decimal": 0.9997
+          },
+          "post_weight_risky": {
+            "exact": "500/769",
+            "decimal": 0.6501950585175552
+          },
+          "post_weight_cash": {
+            "exact": "269/769",
+            "decimal": 0.34980494148244473
+          },
+          "nominal_expected_net_return": {
+            "exact": "189/20000",
+            "decimal": 0.00945
+          },
+          "worst_expected_net_return": {
+            "exact": "189/20000",
+            "decimal": 0.00945
+          },
+          "risk_penalty": {
+            "exact": "169/40000",
+            "decimal": 0.004225
+          },
+          "objective": {
+            "exact": "209/40000",
+            "decimal": 0.005225
+          },
+          "no_trade_mu_band": [
+            {
+              "exact": "1/125",
+              "decimal": 0.008
+            },
+            {
+              "exact": "3/250",
+              "decimal": 0.012
+            }
+          ],
+          "w0_feasible_interior": true
+        },
+        "default_integer": {
+          "feasible": true,
+          "input": {
+            "mu": {
+              "exact": "1/500",
+              "decimal": 0.002
+            },
+            "rho": {
+              "exact": "0",
+              "decimal": 0.0
+            },
+            "cash_min": {
+              "exact": "2000",
+              "decimal": 2000.0
+            },
+            "cap": 80,
+            "mode": "spread_and_commission",
+            "wealth": {
+              "exact": "10000",
+              "decimal": 10000.0
+            },
+            "mid": {
+              "exact": "100",
+              "decimal": 100.0
+            },
+            "ask": {
+              "exact": "2001/20",
+              "decimal": 100.05
+            },
+            "sigma": {
+              "exact": "1/50",
+              "decimal": 0.02
+            },
+            "gamma": {
+              "exact": "10",
+              "decimal": 10.0
+            },
+            "rf": 0
+          },
+          "optimal_q_all_ties": [
+            37,
+            38
+          ],
+          "display_q": 37,
+          "largest_feasible_q": 79,
+          "objective": {
+            "exact": "453/250",
+            "decimal": 1.812
+          },
+          "all_candidate_rows": "agent_packet.supplied_inputs.cost_results_for_teaching.integer.default.exact_rows_csv",
+          "exact_worked_optima": [
+            {
+              "q": 37,
+              "feasible": true,
+              "spread": {
+                "exact": "37/20",
+                "decimal": 1.85
+              },
+              "commission": {
+                "exact": "1",
+                "decimal": 1.0
+              },
+              "cost": {
+                "exact": "57/20",
+                "decimal": 2.85
+              },
+              "cash": {
+                "exact": "125943/20",
+                "decimal": 6297.15
+              },
+              "x": {
+                "exact": "37/100",
+                "decimal": 0.37
+              },
+              "post_cost_wealth": {
+                "exact": "199943/20",
+                "decimal": 9997.15
+              },
+              "post_weight_risky": {
+                "exact": "74000/199943",
+                "decimal": 0.3701054800618176
+              },
+              "expected_gross_pnl": {
+                "exact": "37/5",
+                "decimal": 7.4
+              },
+              "nominal_expected_net_pnl": {
+                "exact": "91/20",
+                "decimal": 4.55
+              },
+              "worst_expected_net_pnl": {
+                "exact": "91/20",
+                "decimal": 4.55
+              },
+              "risk_penalty_dollars": {
+                "exact": "1369/500",
+                "decimal": 2.738
+              },
+              "objective_dollars": {
+                "exact": "453/250",
+                "decimal": 1.812
+              },
+              "terminal_mid_wealth": [
+                {
+                  "exact": "198611/20",
+                  "decimal": 9930.55
+                },
+                {
+                  "exact": "201571/20",
+                  "decimal": 10078.55
+                }
+              ],
+              "returns_prewealth": [
+                {
+                  "exact": "-1389/200000",
+                  "decimal": -0.006945
+                },
+                {
+                  "exact": "1571/200000",
+                  "decimal": 0.007855
+                }
+              ]
+            },
+            {
+              "q": 38,
+              "feasible": true,
+              "spread": {
+                "exact": "19/10",
+                "decimal": 1.9
+              },
+              "commission": {
+                "exact": "1",
+                "decimal": 1.0
+              },
+              "cost": {
+                "exact": "29/10",
+                "decimal": 2.9
+              },
+              "cash": {
+                "exact": "61971/10",
+                "decimal": 6197.1
+              },
+              "x": {
+                "exact": "19/50",
+                "decimal": 0.38
+              },
+              "post_cost_wealth": {
+                "exact": "99971/10",
+                "decimal": 9997.1
+              },
+              "post_weight_risky": {
+                "exact": "38000/99971",
+                "decimal": 0.3801102319672705
+              },
+              "expected_gross_pnl": {
+                "exact": "38/5",
+                "decimal": 7.6
+              },
+              "nominal_expected_net_pnl": {
+                "exact": "47/10",
+                "decimal": 4.7
+              },
+              "worst_expected_net_pnl": {
+                "exact": "47/10",
+                "decimal": 4.7
+              },
+              "risk_penalty_dollars": {
+                "exact": "361/125",
+                "decimal": 2.888
+              },
+              "objective_dollars": {
+                "exact": "453/250",
+                "decimal": 1.812
+              },
+              "terminal_mid_wealth": [
+                {
+                  "exact": "99287/10",
+                  "decimal": 9928.7
+                },
+                {
+                  "exact": "100807/10",
+                  "decimal": 10080.7
+                }
+              ],
+              "returns_prewealth": [
+                {
+                  "exact": "-713/100000",
+                  "decimal": -0.00713
+                },
+                {
+                  "exact": "807/100000",
+                  "decimal": 0.00807
+                }
+              ]
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "audience": "高年级本科至研究生；默认微积分、线性代数与基本概率",
+  "status": "candidate_local_review",
+  "hard_prerequisites": [
+    "QT04",
+    "QT19"
+  ],
+  "interactions": [
+    {
+      "id": "EXP-QT23-COST-01",
+      "title": "成本、约束与稳健决策：交互",
+      "url": "/notebook/labs/qt-de/interactions.html?experiment=EXP-QT23-COST-01",
+      "height": 950,
+      "open": true,
+      "static_anchor": "qt23-integer",
+      "experiment_ids": [
+        "EXP-QT23-COST-01"
+      ]
+    }
+  ],
+  "provenance": {
+    "source_package": "docs/production/20260921/drafts/qt-de-v2/QT-DE-review-v2",
+    "source_status": "review_v2_complete_pending_lead_acceptance",
+    "original_author_topic": "成本约束优化与稳健决策",
+    "topic_mapping_basis": "docs/investment-notebook-outline.md:108; notebook/catalogue.json quant-estimation",
+    "import_status": "candidate_awaiting_lead_content_and_UI_adoption",
+    "independent_review": "docs/production/20260921/receipts/qt-de-independent-draft-review.md",
+    "numerical_basis": "review-v2 numerical files identical to independently verified draft-v1"
+  }
+}

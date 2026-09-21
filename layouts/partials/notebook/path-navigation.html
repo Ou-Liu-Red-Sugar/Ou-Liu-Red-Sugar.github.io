@@ -1,0 +1,8 @@
+{{ $zh := eq .page.Lang "zh" }}
+{{ with .entry.reading_path }}
+<nav class="path-navigation" aria-label="{{ if $zh }}本领域阅读路线{{ else }}Domain reading path{{ end }}">
+  <a class="path-overview" href="{{ .url }}"><span>{{ if $zh }}可选路线{{ else }}Optional path{{ end }} · {{ .number }} / {{ .total }}</span>{{ .title }} ↗</a>
+  {{ with .next }}{{ with .why }}<p class="path-connection">{{ . }}</p>{{ end }}<a class="path-next" href="{{ .url }}"><small>{{ if $zh }}下一节{{ else }}Next{{ end }}{{ with .label }} · {{ . }}{{ end }}</small><strong>{{ .title }}</strong><span>→</span></a>{{ else }}<p class="path-connection">{{ if $zh }}这是本路线目前已开放的最后一节，可以回到目录选择其他专题。{{ else }}This is the last available entry on this path. Explore another topic from the catalogue.{{ end }}</p>{{ end }}
+  {{ with .previous }}<a class="path-previous" href="{{ .url }}">← {{ if $zh }}上一节：{{ else }}Previous: {{ end }}{{ .title }}</a>{{ end }}
+</nav>
+{{ end }}

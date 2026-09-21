@@ -1,0 +1,33 @@
+{
+  "identity": "Complete selected ID/time projection; all records, not all seven raw columns",
+  "source_original": {
+    "path": "qt-ghi-primary-20260921/ethbtc-trades-20250102-0000-0100-utc.csv",
+    "sha256": "45a97afbe5e89d8a9fc75b36369b39f12e6ed1e8ff68f5b4d0915e06aa5d63da",
+    "original_bytes": 235458,
+    "rows": 3291
+  },
+  "projection": {
+    "file": "ethbtc-trade-times.csv",
+    "columns": [
+      "trade_id",
+      "timestamp_microseconds"
+    ],
+    "rows": 3291,
+    "sha256": "e34ae1770c48225d24b499a2e6030746220947a4a31aa64fffd3450c3667249d"
+  },
+  "method": "Paged actual workspace reads; exact timestamp runs compactly transported, expanded by project_times.py; no record-time interpolation",
+  "checks": [
+    "IDs complete/continuous",
+    "UTC half-open window",
+    "microseconds nondecreasing",
+    "1880 equal adjacent timestamps",
+    "all60 minute counts match byte-exact frozen table",
+    "second variance/2901 zeros/interior gap mean agree"
+  ],
+  "not_claimed": [
+    "Full original seven-column byte-copy",
+    "Whole-day ZIP downloaded in this sandbox",
+    "Independent original-field hash for projected columns"
+  ],
+  "availability": "Day file retrospectively frozen 2026-09-21, not historical received_at series"
+}

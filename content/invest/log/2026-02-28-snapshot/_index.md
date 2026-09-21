@@ -1,4 +1,5 @@
 ---
+aliases: ["/invest/log/2026-02-28-snapshot/"]
 title: "Snapshot — 2026-02-28 (month-end)"
 description: "End-of-month snapshot for February 2026. Structural drift alert: Core ETFs at 17.9%, below 35% floor."
 date: 2026-02-28

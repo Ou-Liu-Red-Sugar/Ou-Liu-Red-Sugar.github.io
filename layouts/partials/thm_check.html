@@ -23,7 +23,7 @@
   {{- $unresolved := slice -}}
   {{- range $id, $_ := $missing -}}
     {{- if not (index $registry $id) -}}
-      {{- $unresolved = append $unresolved $id -}}
+      {{- $unresolved = $unresolved | append $id -}}
     {{- end -}}
   {{- end -}}
 

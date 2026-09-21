@@ -1,4 +1,5 @@
 ---
+aliases: ["/invest/lessons/rotation-is-valid-magnitude-is-the-risk/"]
 title: "Lesson: Rotation Is Valid — Magnitude Is the Risk"
 date: 2026-02-28
 tags: ["lesson", "structure", "allocation", "process", "valuation"]

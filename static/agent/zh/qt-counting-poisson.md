@@ -1,0 +1,587 @@
+# 计数过程与 Poisson 基准
+
+从全部微秒时间记录复算计数和等待，建立有信息条件的 Poisson 基准。
+
+Entry: zh-qt14 | Node: QT14 | Language: zh | Editorial revision: 2026-09-21
+
+## Teaching instructions
+你是这篇中文学习单元的教学 Agent。读者具备本包列出的先修：基本概率、条件期望和过滤；无需强 Markov 定理。
+先实际取得 required_readings 中本次所选单元并读完，核对版本、页码与公式；已有同会话同版完整读取可以复用。只取得摘要或目录不得声称完成。指定原件若无法取得，先说明具体缺口；只有本包中已经具名核过等价范围的完整数学证明，才可在对应数学步骤内作为替代，并须实际读完且记录替代正文、版本与支持步骤。若本次必读仍有缺失，就停止依赖该内容的实质讲解；研究样本、训练安排、图表结果与作者主张不得以本站概述替代，也不得声称原件已经读过。runtime_reading_log 是你的实际运行记录，交付的空数组不是已读。
+本篇任务：先让读者解释两个相同微秒而 ID 不同的行是否重复，以及 N(a,b] 与数据 [a,b) 的区别；再让其重建补偿鞅的条件均值，指出 F0 预知 N60 时的失败。
+先让读者尝试，再按所缺的一步解释，不将全部课文一次复述。完整证明需要标明每项条件在哪一步用到，练习给出完整解析。只采用 supplied_inputs 的本篇切片和已链接全量数据，区分教学模型、真实记录、作者论文结果。图不是证明，模拟不是现实规律；不以预测概率替换定价测度。禁止从分位数拟造分布或另抽浏览器随机数冒充冻结路径。最后问：读者只读完这个词条，真的能学明白吗？用迁移题实际判断，明确剩余能力缺口。
+
+Before substantive teaching, actually retrieve every required reading unit for the selected scope. Read its complete designated section, including necessary assumptions, tables and footnotes. A working URL or an editorial access date is not a runtime reading receipt. Record the actual version, location, scope and what it supports. If unavailable, use a previously verified equivalent source; if the required unit remains unavailable, identify that gap rather than teach it from memory. Start runtime_reading_log empty. Once reading is complete, use a substantive diagnostic or follow the reader's request for direct explanation. Advance one complete reasoning task at a time; skip mastered basics. Distinguish original facts, supplied teaching assumptions and inference.
+
+## Required readings and runtime protocol
+```json
+{
+  "export_mode": "public",
+  "required_readings": [
+    {
+      "source_id": "QGHI-MIT-POISSON15",
+      "access": {
+        "kind": "pdf_full_text",
+        "uri": "https://ocw.mit.edu/courses/18-445-introduction-to-stochastic-processes-spring-2015/06c09371501eb1d7dd4c7c72c74cef5b_MIT18_445S15_lecture20.pdf"
+      },
+      "required_unit": {
+        "locator": "七张教学 slides pp.1–7",
+        "scope": "计数定义、指数间隔、Poisson 条件",
+        "purpose": "不借未证明 strong Markov；本篇联合密度证明自足"
+      },
+      "supports": "到达、计数、Poisson 与指数间隔设置；strong Markov 在原文仅陈述，本文不用它承担构造证明。",
+      "title": "Lecture 20: Poisson process",
+      "authors": [
+        "Hao Wu",
+        "MIT"
+      ],
+      "version": "2015-04-29",
+      "fallback_source_ids": []
+    },
+    {
+      "source_id": "QGHI-BINANCE-DATA",
+      "access": {
+        "kind": "html_full_text",
+        "uri": "https://github.com/binance/binance-public-data"
+      },
+      "required_unit": {
+        "locator": "README Spot/Trades、availability、Updates",
+        "scope": "微秒、七列、日档次日与修订",
+        "purpose": "读取附带全部 ID/time 投影，复算秒/分计数和内部等待"
+      },
+      "supports": "2025 起现货 timestamp 微秒；trades 七列、日档次日可用、可能更新。本文按冻结 first UTC hour 的全部 ID/time 字段复算计数和间隔。",
+      "title": "Binance Public Data README and ETHBTC daily trades",
+      "authors": [
+        "Binance"
+      ],
+      "version": "README/selected archive frozen 2026-09-21; observations 2025-01-02",
+      "fallback_source_ids": []
+    }
+  ],
+  "optional_readings": [],
+  "runtime_reading_log": [],
+  "supplied_inputs": {
+    "competence": "基本概率、条件期望和过滤；无需强 Markov 定理。",
+    "static_equivalent": "本篇 reader 全部默认表、证明及题解；HTML 禁用脚本仍可读。",
+    "attachments": [
+      {
+        "title": "本篇完整静态阅读、全部题解与证明",
+        "uri": "https://ou-liu-red-sugar.github.io/notebook/labs/qt-ghi/static/QT14.html",
+        "kind": "html"
+      },
+      {
+        "title": "本篇同源 Markdown",
+        "uri": "https://ou-liu-red-sugar.github.io/notebook/labs/qt-ghi/static/QT14.md",
+        "kind": "markdown"
+      },
+      {
+        "title": "ethbtc-trade-times.csv",
+        "uri": "https://ou-liu-red-sugar.github.io/notebook/labs/qt-ghi/data/ethbtc-trade-times.csv",
+        "kind": "csv",
+        "bytes": 92181
+      },
+      {
+        "title": "ethbtc-interior-waits.csv",
+        "uri": "https://ou-liu-red-sugar.github.io/notebook/labs/qt-ghi/data/ethbtc-interior-waits.csv",
+        "kind": "csv",
+        "bytes": 101821
+      },
+      {
+        "title": "ethbtc-counts-one-second.csv",
+        "uri": "https://ou-liu-red-sugar.github.io/notebook/labs/qt-ghi/data/ethbtc-counts-one-second.csv",
+        "kind": "csv",
+        "bytes": 27766
+      },
+      {
+        "title": "ethbtc-counts-one-minute.csv",
+        "uri": "https://ou-liu-red-sugar.github.io/notebook/labs/qt-ghi/data/ethbtc-counts-one-minute.csv",
+        "kind": "csv",
+        "bytes": 442
+      },
+      {
+        "title": "完整实际结果及指定单元",
+        "uri": "https://ou-liu-red-sugar.github.io/notebook/labs/qt-ghi/data/results.json",
+        "kind": "json",
+        "json_pointers": [
+          "/arrival"
+        ]
+      },
+      {
+        "title": "四个实验的唯一冻结定义",
+        "uri": "https://ou-liu-red-sugar.github.io/notebook/labs/qt-ghi/data/qt-ghi-shared-experiments.json",
+        "kind": "json",
+        "json_pointer": "/experiments/1",
+        "experiment_id": "EXP-QT14-ARRIVAL-01"
+      }
+    ],
+    "frozen": {
+      "window_utc": {
+        "start_inclusive": "2025-01-02T00:00:00Z",
+        "end_exclusive": "2025-01-02T01:00:00Z"
+      },
+      "timestamp_unit": "Unix microseconds",
+      "bin_closure": "[left,right)",
+      "keep_equal_timestamp_distinct_trade_ids": true,
+      "waiting_times": "Adjacent observed interior events only; left/right window waiting segments are censored.",
+      "model_count_interval": "N(a,b] is a separate mathematical convention."
+    },
+    "default_outputs": {
+      "minute_counts": [
+        6,
+        28,
+        10,
+        4,
+        21,
+        10,
+        23,
+        20,
+        16,
+        14,
+        16,
+        22,
+        11,
+        37,
+        19,
+        61,
+        9,
+        55,
+        16,
+        100,
+        45,
+        35,
+        62,
+        203,
+        531,
+        195,
+        145,
+        54,
+        228,
+        44,
+        139,
+        54,
+        28,
+        59,
+        22,
+        49,
+        52,
+        173,
+        51,
+        33,
+        33,
+        47,
+        21,
+        54,
+        33,
+        3,
+        48,
+        24,
+        51,
+        16,
+        38,
+        41,
+        11,
+        19,
+        19,
+        28,
+        17,
+        48,
+        17,
+        23
+      ],
+      "n": 3291,
+      "mean": 54.85,
+      "sample_variance": 6364.977118644067,
+      "fano": 116.04333853498754,
+      "lambda_per_second": 0.9141666666666667,
+      "seconds_summary_source": "Recomputed from complete 3291-row ID/time projection of the connected frozen CSV",
+      "one_second": {
+        "mean": 0.9141666666666667,
+        "sample_variance": 51.16601208669075,
+        "zero_bins": 2901,
+        "bins": 3600
+      },
+      "interior_waits": {
+        "n": 3290,
+        "zero_gaps": 1880,
+        "mean_seconds": 1.092549620668693,
+        "max_seconds": 42.742328
+      },
+      "waiting_histogram": {
+        "zero_atom": 1880,
+        "positive_bin_edges": [
+          0.0,
+          0.001,
+          0.01,
+          0.1,
+          1.0,
+          5.0,
+          10.0,
+          30.0,
+          60.0
+        ],
+        "counts": [
+          294,
+          167,
+          112,
+          269,
+          337,
+          131,
+          93,
+          7
+        ],
+        "closure": "positive first bin (0,right); subsequent [left,right), final includes right",
+        "total": 3290
+      }
+    }
+  }
+}
+```
+
+## Supplied entry
+<a id="qt14-records"></a>
+## 先数真实记录，再谈模型
+
+我们取 Binance 的 ETHBTC 现货逐笔成交档案，观察 2025 年 1 月 2 日 UTC 的第一个小时：$[00{:}00,01{:}00)$。这是预先指定的一段描述性窗口，不是挑一段像 Poisson 的图。每条记录有 trade ID、价格、数量、报价资产数量、时间戳及两个布尔字段。价格单位是 BTC/ETH，数量单位是 ETH；此日期的现货时间戳用 Unix 微秒，而不是毫秒。不同 ID 即使时间戳相同，也不能删成一条。[^binance]
+
+本篇的任务是从这些字段建立计数、等待时间与时间单位，然后用一个条件明确的 Poisson 模型作比较。只需基本概率、条件期望以及过滤表示信息的含义。
+
+| trade ID | 价格（BTC/ETH） | 数量（ETH） | Unix 微秒 |
+| --- | --- | --- | --- |
+| 482524746 | 0.03553000 | 0.00560000 | 1735776004130016 |
+| 482524747 | 0.03552000 | 1.00000000 | 1735776015196046 |
+
+第一条记录在窗口开始后约 4.130016 秒。这个“4.13 秒”不是我们观测到一个无删失的新等待：窗口开始前的上一笔成交没有包含进来。相同地，窗口结束后的下一笔也未知。数据附件保留这一小时全部 3,291 条记录的 trade ID 与微秒时间字段，并附固定窗口规则、逐秒/逐分钟计数和内部相邻间隔。价格与数量只在上面的实际原行节选中展示；计数和等待实验不需要这些列，也没有给它们补造数值。下列汇总均可从完整时间投影复算，不来自一分钟计数的反推。
+
+<a id="qt14-counts"></a>
+## 两种时间区间约定不要混写
+
+对严格递增的模型到达时刻 $0<T_1<T_2<\cdots\to\infty$，定义
+
+$$
+N_t=\sum_{j\ge1}\mathbf1_{\{T_j\le t\}},
+\qquad N(a,b]=N_b-N_a.
+$$
+
+这是理论右连续计数过程的约定。本数据的截窗和分箱则固定为左闭右开 $[a,b)$：时间戳恰在下一分钟开始处，就归入下一箱。真实记录时间精度有限；模型的严格递增到达时刻与数据库里的重复时间戳不是同一个对象。记录相同只能说明无法用这一字段区分次序，不能证明潜在连续事件真的同时发生。
+
+以窗口起点为 $u_0$，对每条微秒时间戳 $u_i$，计算秒偏移 $t_i=(u_i-u_0)/10^6$。宽度为 $\Delta$ 秒时，箱号是 $\lfloor t_i/\Delta\rfloor$，仅保留 $0\le t_i<3600$。于是
+
+$$
+\widehat\lambda=\frac{3291}{3600}
+=0.914166667\quad\text{笔/秒}.
+$$
+
+这是窗口总数除以时长的描述量。改用分钟，数值为 $54.85$ 笔/分钟；改变的是单位，不是交易强度突然变了六十倍。
+
+<a id="qt14-poisson"></a>
+## Poisson 模型究竟多要求了什么
+
+令 $N_0=0$，$N$ 为右连续计数过程。齐次 Poisson 过程的强度为 $\lambda>0$，是指不相交时间区间的增量独立，而且对 $s<t$，
+
+$$
+P(N_t-N_s=k)
+=e^{-\lambda(t-s)}\frac{[\lambda(t-s)]^k}{k!},
+\qquad k=0,1,\ldots.
+$$
+
+我们采用自然过滤 $\mathcal F_s=\sigma(N_u:u\le s)$。若扩大过滤，必须仍要求未来增量独立于 $\mathcal F_s$。例如一开始就告诉观察者 $N_T$，即使过程无条件的计数分布没变，下面的条件均值结论也可能被破坏。[^poisson]
+
+由独立增量，
+
+$$
+E[N_t-N_s\mid\mathcal F_s]=\lambda(t-s).
+$$
+
+因此 $M_t=N_t-\lambda t$ 适应、可积，且
+
+$$
+E[M_t\mid\mathcal F_s]
+=N_s+\lambda(t-s)-\lambda t=M_s.
+$$
+
+这完整证明了补偿过程为鞅。我们减去的是已指定模型的期望到达量，不是从同一窗口拟合一个均值以后就让真实残差自动变成鞅。
+
+首等待 $T_1$ 的尾概率也立即可算：
+
+$$
+P(T_1>t)=P(N_t=0)=e^{-\lambda t}.
+$$
+
+故 $T_1\sim\operatorname{Exp}(\lambda)$，其均值 $1/\lambda$。关键依据是零计数的完整概率，不是单凭 $E[N_t]=\lambda t$。
+
+<a id="qt14-arrivals-proof"></a>
+## 从指数间隔反过来构造：还要证明联合增量
+
+取独立同分布的 $E_j\sim\operatorname{Exp}(\lambda)$，令 $T_n=E_1+\cdots+E_n$。先排除有限时点发生无穷多次到达。对任何 $\theta>0$，
+
+$$
+\begin{aligned}
+P(T_n\le T)
+&\le e^{\theta T}E[e^{-\theta T_n}]\\
+&=e^{\theta T}
+\left(\frac{\lambda}{\lambda+\theta}\right)^n\longrightarrow0.
+\end{aligned}
+$$
+
+由于 $\{T_n\le T\}$ 递减，所有 $T_n$ 都落在固定 $[0,T]$ 内的概率为零。再对正整数 $T$ 取可数并，得到无爆炸。
+
+现在固定 $0=t_0<\cdots<t_m=T$，要求第 $j$ 段恰好有 $n_j$ 次到达，令 $n=\sum n_j$。对有序到达位置 $0<s_1<\cdots<s_n<T$，前 $n$ 个指数密度相乘，再乘下一次等待超过 $T-s_n$ 的概率，得到
+
+$$
+\lambda^n e^{-\lambda s_n}
+ e^{-\lambda(T-s_n)}=\lambda^n e^{-\lambda T}.
+$$
+
+在每段各自的有序单纯形上积分，体积为 $\prod_j(\Delta t_j)^{n_j}/n_j!$，所以联合概率是
+
+$$
+\prod_{j=1}^m
+ e^{-\lambda\Delta t_j}
+ \frac{(\lambda\Delta t_j)^{n_j}}{n_j!}.
+$$
+
+它同时给出各段的 Poisson 分布和独立性，而不只是终点 $N_T$ 的边际。反过来，计数的所有有限维分布决定到达时刻的联合分布，因为 $\{T_j>t\}=\{N_t<j\}$。因此这个构造也说明 Poisson 过程的间隔具有上述独立指数律。这里不需要调用未证明的 strong Markov 定理。
+
+<a id="qt14-observed"></a>
+## 把基准放回这一小时
+
+| 描述对象 | 箱数/间隔数 | 平均数 | 样本方差/零间隔 |
+| --- | --- | --- | --- |
+| 每秒计数 | 3600 | 0.914166667 | 51.166012087 |
+| 每分钟计数 | 60 | 54.85 | 6364.977118644 |
+| 内部等待时间 | 3290 | 1.092549621 秒 | 1880 个零间隔 |
+
+方差使用“箱数减一”的样本分母。齐次 Poisson 的理论均值与方差相等；这里分钟样本方差远大于均值。1 秒箱中有 $2901/3600\approx80.58\%$ 没有成交，而用全窗估计的强度代入 Poisson，零计数概率约为 $40.09\%$。均值相同绝不等于分布相同。
+
+内部相邻记录共有 3290 个间隔，其中 1880 个为零，平均约 1.09255 秒。不要把这个内部平均数直接当作无删失的 $1/\lambda$ 估计，也不要删除零间隔后悄悄改变研究对象。计数的过度离散可能来自时变强度、共同订单的记录批次、依赖、精度或多个因素；仅凭一个 Fano 比不能识别唯一机制。
+
+<div data-experiment-slot="EXP-QT14-ARRIVAL-01"></div>
+
+先看分钟时间线的峰值，再比较“窗口总数/时长”和逐箱计数。界面中的 Poisson 参照始终是模型预测；真实秒级、分钟级柱子和内部等待分布都从同一份完整时间投影计算。零间隔单列，不用连续密度图把它抹掉。
+
+这个数据档案是后续下载的历史记录。官方说明日档次日可用且可能修订；这里没有重建当日某一交易者收到消息的精确时钟，也不把记录时间戳当作我们的 received time。[^binance]
+
+<a id="qt14-exercise"></a>
+## 迁移题与解析
+
+**题目。** 用每秒强度预测十秒内零成交的概率，然后解释为什么不能把这个概率叫作本窗口已验证的未来预测。再假定 $\mathcal F_0$ 额外包含 $N_{60}$，说明补偿鞅证明哪一步失效。
+
+**解析。** 齐次模型给 $e^{-10\widehat\lambda}\approx0.0001071$。这个数是把拟合强度代回强假设后的计算；窗口分箱已经显示该基准与记录的明显差异，参数拟合和模型检验又用同一数据，尚无独立未来验证。
+
+在扩大后的过滤中，$N_{60}$ 已知，故 $E[N_{60}\mid\mathcal F_0]=N_{60}$，通常不等于固定的 $60\lambda$。独立于过去计数不等于独立于任意额外信息。失效的是条件均值步骤，后面减去 $\lambda t$ 的代数没有错。
+
+[^poisson]: Hao Wu，MIT 18.445，[Lecture 20: Poisson process](https://ocw.mit.edu/courses/18-445-introduction-to-stochastic-processes-spring-2015/06c09371501eb1d7dd4c7c72c74cef5b_MIT18_445S15_lecture20.pdf)，2015-04-29，7 张教学 slides。指数间隔的联合密度证明在本篇完整给出；讲义的 strong Markov 陈述不是这里采用的证明。
+[^binance]: Binance，[Public Data README](https://github.com/binance/binance-public-data)，Spot/Trades、availability、Updates；[2025-01-02 ETHBTC 原日档](https://data.binance.vision/data/spot/daily/trades/ETHBTC/ETHBTC-trades-2025-01-02.zip)。固定窗口统计与分钟计数来自 2026-09-21 冻结档，不能据此保证未来档案永不修订。
+
+
+## Experiment inputs and static equivalents
+```json
+[
+  {
+    "id": "EXP-QT14-ARRIVAL-01",
+    "title": "逐笔计数与内部等待",
+    "anchor": "qt14-observed",
+    "description": "共享输入的本篇视图；保持 EXP-QT14-ARRIVAL-01 唯一冻结身份。",
+    "inputs": {
+      "uri": "https://ou-liu-red-sugar.github.io/notebook/labs/qt-ghi/data/learning-inputs.json",
+      "json_pointer": "/QT14",
+      "scope": "本篇 supplied_inputs 的完整同源切片；冻结参数和全部结果附件在该切片内定位。"
+    },
+    "outputs": {
+      "minute_counts": [
+        6,
+        28,
+        10,
+        4,
+        21,
+        10,
+        23,
+        20,
+        16,
+        14,
+        16,
+        22,
+        11,
+        37,
+        19,
+        61,
+        9,
+        55,
+        16,
+        100,
+        45,
+        35,
+        62,
+        203,
+        531,
+        195,
+        145,
+        54,
+        228,
+        44,
+        139,
+        54,
+        28,
+        59,
+        22,
+        49,
+        52,
+        173,
+        51,
+        33,
+        33,
+        47,
+        21,
+        54,
+        33,
+        3,
+        48,
+        24,
+        51,
+        16,
+        38,
+        41,
+        11,
+        19,
+        19,
+        28,
+        17,
+        48,
+        17,
+        23
+      ],
+      "n": 3291,
+      "mean": 54.85,
+      "sample_variance": 6364.977118644067,
+      "fano": 116.04333853498754,
+      "lambda_per_second": 0.9141666666666667,
+      "seconds_summary_source": "Recomputed from complete 3291-row ID/time projection of the connected frozen CSV",
+      "one_second": {
+        "mean": 0.9141666666666667,
+        "sample_variance": 51.16601208669075,
+        "zero_bins": 2901,
+        "bins": 3600
+      },
+      "interior_waits": {
+        "n": 3290,
+        "zero_gaps": 1880,
+        "mean_seconds": 1.092549620668693,
+        "max_seconds": 42.742328
+      },
+      "waiting_histogram": {
+        "zero_atom": 1880,
+        "positive_bin_edges": [
+          0.0,
+          0.001,
+          0.01,
+          0.1,
+          1.0,
+          5.0,
+          10.0,
+          30.0,
+          60.0
+        ],
+        "counts": [
+          294,
+          167,
+          112,
+          269,
+          337,
+          131,
+          93,
+          7
+        ],
+        "closure": "positive first bin (0,right); subsequent [left,right), final includes right",
+        "total": 3290
+      }
+    },
+    "source_experiment_id": "EXP-QT14-ARRIVAL-01",
+    "static_equivalent": "https://ou-liu-red-sugar.github.io/notebook/labs/qt-ghi/static/QT14.html#qt14-observed",
+    "result_attachment": {
+      "uri": "https://ou-liu-red-sugar.github.io/notebook/labs/qt-ghi/data/results.json",
+      "json_pointers": [
+        "/arrival"
+      ]
+    }
+  }
+]
+```
+
+## Sources
+- [Binance Public Data README and ETHBTC daily trades](https://github.com/binance/binance-public-data): 2025 起现货 timestamp 微秒；trades 七列、日档次日可用、可能更新。本文按冻结 first UTC hour 的全部 ID/time 字段复算计数和间隔。
+- [Lecture 20: Poisson process](https://ocw.mit.edu/courses/18-445-introduction-to-stochastic-processes-spring-2015/06c09371501eb1d7dd4c7c72c74cef5b_MIT18_445S15_lecture20.pdf): 到达、计数、Poisson 与指数间隔设置；strong Markov 在原文仅陈述，本文不用它承担构造证明。
+
+## Content relations
+```json
+[
+  {
+    "from": "zh-qt14",
+    "relation": "part_of",
+    "to": "quant-processes",
+    "reason": "主要 topic 归属"
+  },
+  {
+    "from": "qt14-poisson",
+    "relation": "requires",
+    "to": "zh-qt07",
+    "reason": "该段实际使用所列局部能力。",
+    "required_competence": "过滤与信息时点"
+  },
+  {
+    "from": "zh-qt14",
+    "relation": "supported_by",
+    "to": "QGHI-MIT-POISSON15",
+    "reason": "到达、计数、Poisson 与指数间隔设置；strong Markov 在原文仅陈述，本文不用它承担构造证明。",
+    "locator": "七张教学 slides pp.1–7",
+    "scope": "计数定义、指数间隔、Poisson 条件"
+  },
+  {
+    "from": "zh-qt14",
+    "relation": "supported_by",
+    "to": "QGHI-BINANCE-DATA",
+    "reason": "2025 起现货 timestamp 微秒；trades 七列、日档次日可用、可能更新。本文按冻结 first UTC hour 的全部 ID/time 字段复算计数和间隔。",
+    "locator": "README Spot/Trades、availability、Updates",
+    "scope": "微秒、七列、日档次日与修订"
+  },
+  {
+    "from": "qt14-observed",
+    "relation": "illustrated_by",
+    "to": "EXP-QT14-ARRIVAL-01",
+    "reason": "唯一冻结输入在本篇的对应视图。"
+  },
+  {
+    "from": "qt14-records",
+    "relation": "supported_by",
+    "to": "QGHI-BINANCE-DATA",
+    "reason": "对应本段作者已著明脚注；教学模型及本站补全证明的身份沿原脚注保留。",
+    "locator": "Binance，[Public Data README](https://github.com/binance/binance-public-data)，Spot/Trades、availability、Updates；[2025-01-02 ETHBTC 原日档](https://data.binance.vision/data/spot/daily/trades/ETHBTC/ETHBTC-trades-2025-01-02.zip)。固定窗口统计与分钟计数来自 2026-09-21 冻结档，不能据此保证未来档案永不修订。",
+    "scope": "只支持此处脚注具名的定义、条件、证明或原表单元。",
+    "citation_labels": [
+      "binance"
+    ]
+  },
+  {
+    "from": "qt14-poisson",
+    "relation": "supported_by",
+    "to": "QGHI-MIT-POISSON15",
+    "reason": "对应本段作者已著明脚注；教学模型及本站补全证明的身份沿原脚注保留。",
+    "locator": "Hao Wu，MIT 18.445，[Lecture 20: Poisson process](https://ocw.mit.edu/courses/18-445-introduction-to-stochastic-processes-spring-2015/06c09371501eb1d7dd4c7c72c74cef5b_MIT18_445S15_lecture20.pdf)，2015-04-29，7 张教学 slides。指数间隔的联合密度证明在本篇完整给出；讲义的 strong Markov 陈述不是这里采用的证明。",
+    "scope": "只支持此处脚注具名的定义、条件、证明或原表单元。",
+    "citation_labels": [
+      "poisson"
+    ]
+  },
+  {
+    "from": "qt14-observed",
+    "relation": "supported_by",
+    "to": "QGHI-BINANCE-DATA",
+    "reason": "对应本段作者已著明脚注；教学模型及本站补全证明的身份沿原脚注保留。",
+    "locator": "Binance，[Public Data README](https://github.com/binance/binance-public-data)，Spot/Trades、availability、Updates；[2025-01-02 ETHBTC 原日档](https://data.binance.vision/data/spot/daily/trades/ETHBTC/ETHBTC-trades-2025-01-02.zip)。固定窗口统计与分钟计数来自 2026-09-21 冻结档，不能据此保证未来档案永不修订。",
+    "scope": "只支持此处脚注具名的定义、条件、证明或原表单元。",
+    "citation_labels": [
+      "binance"
+    ]
+  }
+]
+```
+
+## Related entries

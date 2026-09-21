@@ -1,4 +1,5 @@
 ---
+aliases: ["/invest/reviews/2026-02/"]
 title: "Monthly Review — February 2026"
 description: "Valuation rotation during software-mageddon: selling expensive SPX beta for discounted quality names, while cleaning up weak positions. Key debate: was this a smart rotation or a structural violation?"
 date: 2026-02-28

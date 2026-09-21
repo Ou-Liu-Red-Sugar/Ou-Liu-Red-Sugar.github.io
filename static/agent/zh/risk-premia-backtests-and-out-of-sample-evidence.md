@@ -1,0 +1,404 @@
+# 风险溢价、回测与样本外检验
+
+完整辨认一篇期权研究的策略、分母、样本、滞后和断点，不把事后证据称为样本外。
+
+Entry: zh-p25 | Node: P25 | Language: zh | Editorial revision: 2026-09-21
+
+## Teaching instructions
+请先实际读取本篇必读原件的指定完整单元，再围绕“完整辨认一篇期权研究的策略、分母、样本、滞后和断点，不把事后证据称为样本外。”带我完成学习。先让我自己判断方向、对象或基准，再让我逐步重建一项承重计算；不要先把答案全部说出。选读分支只有我选中后才启用对应原件和输入。每次解释都分清真实规则、教学假设、作者报告与本站复算。逐事件核现金、负债、费用和剩余仓位；资金不足时停止已完成结果。使用本包正文里的完整解析反馈我哪里错、为什么、如何迁移。未来runtime_reading_log由你实际读取后填写，不能把作者或支持者日志当成自己的阅读。不要接触账户或更新冻结数据。
+
+Before substantive teaching, actually retrieve every required reading unit for the selected scope. Read its complete designated section, including necessary assumptions, tables and footnotes. A working URL or an editorial access date is not a runtime reading receipt. Record the actual version, location, scope and what it supports. If unavailable, use a previously verified equivalent source; if the required unit remains unavailable, identify that gap rather than teach it from memory. Start runtime_reading_log empty. Once reading is complete, use a substantive diagnostic or follow the reader's request for direct explanation. Advance one complete reasoning task at a time; skip mastered basics. Distinguish original facts, supplied teaching assumptions and inference.
+
+## Required readings and runtime protocol
+```json
+{
+  "export_mode": "public",
+  "entry_id": "zh-p25",
+  "learning_task": "完整辨认一篇期权研究的策略、分母、样本、滞后和断点，不把事后证据称为样本外。",
+  "required_readings": [
+    {
+      "source_id": "PFH-CHIFED2025",
+      "title": "The Decline of the Variance Risk Premium: Evidence from Traded and Synthetic Options",
+      "authors": [
+        "Ian Dew-Becker",
+        "Stefano Giglio"
+      ],
+      "version": "WP2025-17；manuscript 2025-09-04",
+      "access": {
+        "kind": "pdf_full_text",
+        "uri": "https://www.chicagofed.org/-/media/publications/working-papers/2025/wp2025-17.pdf?sc_lang=en",
+        "verified_access_at": "2026-09-21"
+      },
+      "required_unit": {
+        "locator": "§2.3/2.3.1；§3.1；§3.2开头；§4.1/4.1.1；fn25–26；Table2讨论 printedp31/PDFp32",
+        "scope": "滞后估计、样本构造、分母、非线性与风险调整；2012m5为事后断点。",
+        "purpose": "完整辨认一篇期权研究的策略、分母、样本、滞后和断点，不把事后证据称为样本外。"
+      },
+      "supports": "滞后估计、样本构造、分母、非线性与风险调整；2012m5为事后断点。",
+      "limits": "完整Table2未单独定位，不声称核SE/p值；未取得付费原始数据；§4.2证明不采用。"
+    },
+    {
+      "source_id": "QS02-5.10",
+      "title": "Forecasting: Principles and Practice, Time series cross-validation",
+      "authors": [
+        "Rob J Hyndman",
+        "George Athanasopoulos"
+      ],
+      "version": "online third edition",
+      "access": {
+        "kind": "html_full_text",
+        "uri": "https://otexts.com/fpp3/tscv.html",
+        "verified_access_at": "2026-09-21"
+      },
+      "required_unit": {
+        "locator": "§5.10完整滚动预测起点单元",
+        "scope": "先训练、后评价、逐次推进的样本外结构。",
+        "purpose": "正文核心：区分事后分段和真正滚动预测起点的评价。"
+      },
+      "supports": "先训练、后评价、逐次推进的样本外结构。",
+      "limits": "金融数据的发布日期和历史版本仍需独立约束。"
+    }
+  ],
+  "optional_readings": [],
+  "runtime_reading_log": [],
+  "supplied_inputs": {
+    "case_inputs": [
+      {
+        "id": "OBS-PK-VRP-WP2025-17",
+        "owner": "P25",
+        "consumers": [
+          "P25"
+        ],
+        "version": "2025-09-04/final-reading-contract-20260921",
+        "unit": {
+          "returns": "paper-defined",
+          "information_ratio": "CAPM alpha / residual standard deviation"
+        },
+        "identity": "Reading contract for Chicago Fed WP2025-17; no paid raw-data replication.",
+        "required_units": [
+          "§2.3/2.3.1",
+          "§3.1",
+          "§3.2 opening: synthetic return vs market return / conditional mean nonlinearity",
+          "§4.1 and Figure8",
+          "§4.1 footnote26 printed p30/PDF p31 pseudo variance return",
+          "§4.1.1 ex-post break test",
+          "Table2 discussion printed p31/PDF p32"
+        ],
+        "default_results": {
+          "reported_traded_option_information_ratio_early": -0.6,
+          "reported_traded_option_information_ratio_late": 0.09,
+          "break_date": "2012m5",
+          "break_identity": "ex-post break test"
+        },
+        "verification_boundary": {
+          "table2_full_table_reverified": false,
+          "table2_discussion_reverified": true,
+          "do_not_claim": "Full Table2 cells, SEs or p-values independently checked."
+        },
+        "scaling_exercise": {
+          "baseline_denominator": "underlying price",
+          "premium_denominator": "Variable premium/underlying ratio changes series/exposure/weighting; cannot copy results unchanged.",
+          "fixed_positive_scaling": "Same series × fixed c>0 scales alpha and residual SD equally; information ratio unchanged."
+        },
+        "branch_boundaries": {
+          "rolling_oos": "If selected, add FPP3 §5.10 + release/vintage timing.",
+          "section4_2": "Not adopted without full read."
+        }
+      }
+    ],
+    "operational_details": {},
+    "static_default_result": {
+      "reported_identity": "论文Table 2正文讨论，非本地重估的完整表格",
+      "scale": "fixed",
+      "split": "posthoc",
+      "fixed_scale": 100,
+      "ir_unchanged_by_fixed_scale": true,
+      "requires_reestimate": false,
+      "valid_oos_label": false,
+      "description": "同一序列乘固定正常数，alpha与残差标准差同比例变化，IR不变。",
+      "split_explanation": "2012m5由事后断点检验识别，只支持历史分段。",
+      "table2_cells_verified": false
+    },
+    "attachments": [],
+    "default_scope": "core",
+    "branch_rule": "复制或学习只带本篇及所选分支需要的附件，完整大数组只在shared中保存一次。",
+    "case_scopes": {
+      "OBS-PK-VRP-WP2025-17": "core"
+    },
+    "operational_scopes": {},
+    "frozen_inputs_uri": "https://ou-liu-red-sugar.github.io/notebook/labs/p-ijklm/shared/final-shared-inputs.json",
+    "reproduction_data_uri": "https://ou-liu-red-sugar.github.io/notebook/labs/p-ijklm/shared/runtime-inputs.json"
+  },
+  "source_id_aliases": {
+    "PE-CME-MES": "MA-MES",
+    "MP-CME-GRAIN": "MP-CME-GRAIN",
+    "PI-CME-CORN": "PI-CME-CORN",
+    "MP-CME-3Y": "MP-CME-3Y",
+    "MP-CME-TREAS": "MP-CME-TREAS",
+    "MD-S05": "MD-S05",
+    "MD-S08": "MD-S08",
+    "PE-FSB-MARGIN": "MA-FSB",
+    "PI-CME-EUR": "PI-CME-EUR",
+    "PI-MIT-CAPM03": "PI-MIT-CAPM03",
+    "PI-MIT-CAPM08": "P-R04b",
+    "PI-FRENCH-FACTORS": "PI-FRENCH-FACTORS",
+    "QTDE-FRENCH": "QTC-FRENCH30",
+    "QTDE-FRENCH-REGIME": "QTC-FRENCH",
+    "PI-GIPS20": "P-R03",
+    "MEFG-CHICAGOFED-2025": "PFH-CHIFED2025",
+    "QTDE-TSCV": "QS02-5.10",
+    "QGHI-MIT-BS13": "QGHI-MIT-BS13",
+    "MD-S01": "MD-S01",
+    "MOD-CRYPTO-CARRY": "MOD-CRYPTO-CARRY",
+    "MOD-PERP-PAPER": "MOD-PERP-PAPER",
+    "MOD-BYBIT-FUNDING": "MOD-BYBIT-FUNDING",
+    "PI-BYBIT-FEE": "PI-BYBIT-FEE",
+    "MOD-BYBIT-PNL": "MOD-BYBIT-PNL",
+    "PI-CME-MBT": "PI-CME-MBT",
+    "PI-CME-CRYPTO-FAQ": "PI-CME-CRYPTO-FAQ",
+    "MOD-LVR": "MOD-LVR",
+    "MOD-UNISWAP-V3": "MOD-UNISWAP-V3"
+  }
+}
+```
+
+## Supplied entry
+本篇不先问“卖波动能不能赚钱”，而是读一项具体研究怎样提出和检验问题。Ian Dew-Becker与Stefano Giglio的Chicago Fed工作论文比较交易所期权与动态合成期权的收益，并讨论负alpha如何随时间改变。我们采用2025年9月4日版本，目标是重建数据、持仓、分母、信息时间和统计结论的关系，而不是从标题直接得到今天的交易建议。[^cf25]
+
+<a id="p25-question"></a>
+## 1. 先分清理论对象与可交易策略
+
+交易所期权是实际有市场报价的权利；合成期权则通过动态改变市场资产持仓来构造非线性收益。两者的价格、成本、残余风险和可交易条件不必相同。论文用它们研究边际效用与风险补偿的解释，需要满足关于定价、非线性形状和未被市场解释风险的条件。
+
+§2.3.1特别强调：这些解释条件并不直接要求所有投资者在历史上都能便宜地动态复制。动态复制对许多人可能昂贵、费时；但研究仍可问市场价格如何反映风险。因此“合成收益有某种统计性质”和“你能实盘获得同样收益”之间没有自动等号。
+
+对投资者而言，至少还要查成交时点、价差、交易频率、借贷、融资、账户权限和无法继续持仓的规则。它们不是给论文补几个零就能解决的。一个解释价格关系的研究，不必同时是一套适合读者执行的策略。
+
+<a id="p25-method"></a>
+## 2. 把数据构造和信息时点重建出来
+
+论文的合成策略基于每日CRSP市值加权市场收益，无风险收益采用French来源。主分析的delta考虑杠杆效应调整；所需波动率由异质自回归模型预测，以扩展窗口估计。为减轻滞后价格等微观结构偏差，delta使用再滞后一天的信息。扩展窗口解决的是估计不能看到未来，额外一天滞后则针对特定数据时点问题，两者不是同一个操作。[^data25]
+
+交易期权数据把1987–1995年的CME期货期权与1996–2022年的OptionMetrics SPX期权连接起来，按第三个星期五买入并持有到下个月对应到期日。直接比较交易与合成期权时，持有期必须相同；论文的一些合成期权单变量统计则采用21日重叠窗口，以使用更多观测。
+
+重叠窗口并不提供同样多独立样本。今天开始的21天和明天开始的21天共享了大部分市场路径；若把它们当独立日收益，会错误理解标准误、频率和资本周转。§4.1的比较按交易期权相同滚动日期对齐，不能将前面的21日重叠描述不加区分地复制过去。
+
+<figure class="pfh-responsive-figure"><div class="svg-wide"><img src="/notebook/labs/p-ijklm/figures/P25-a.svg" alt="资料和滚动规则时间线：真实期权、合成头寸与重叠统计各有身份。"></div><div class="svg-narrow pfh-native"><p class="pfh-figure-title">先对齐样本与持有期，再读结果</p><p class="pfh-figure-note">作者资料范围，不是本站取得的逐笔交易回测</p><ol class="pfh-flow-steps"><li><strong>合成期权</strong><p>CRSP长期日数据；滞后信息与扩张估计</p><p>单变量统计可用21日重叠窗口</p></li><li><strong>交易期权</strong><p>CME 1987–1995；SPX 1996–2022</p><p>第三个星期五至下一同类日期</p></li><li><strong>直接比较与分期</strong><p>合成回报对齐交易期权换月日</p><p>2012m5是事后识别断点，不是预封存OOS</p></li></ol></div></figure>
+
+<a id="p25-denominator"></a>
+## 3. 分母是标的价格，不是权利金
+
+论文主分析将期权超额支付按标的价格规范化，可以理解成每单位标的风险的保险收益，而不是每一元权利金的回报。比如一笔损益 $\Pi_t$ 用 $S_t$ 作分母，与用期权权利金 $C_t$ 作分母，有
+
+$$
+R_t^{premium}=\frac{\Pi_t}{C_t}
+=\frac{S_t}{C_t}R_t^{underlying}.
+$$
+
+关键在于 $S_t/C_t$ 会随期限、波动率和价内外程度改变，所以这不只是统一把小数换成百分数；它改变了每个观测的缩放、暴露和统计权重。论文结果不能原封不动地搬到“权利金收益率”上。
+
+另一方面，也不能把任何固定单位变化都说成改变风险调整指标。如果同一个超额收益序列统一乘固定 $c>0$，在相同CAPM回归设计中，$\alpha'=c\alpha$，残差 $\epsilon'=c\epsilon$，所以信息比率
+
+$$
+IR'=\frac{c\alpha}{c\operatorname{sd}(\epsilon)}=IR.
+$$
+
+这一区分非常有用：变化的投资规模或分母是一种新策略尺度；固定的正数单位换算不是。
+
+<a id="p25-result"></a>
+## 4. 样本中的变化，究竟改变了哪一部分认识？
+
+§3.2开头考察合成收益相对市场收益的条件均值与非线性关系，不是方差互换的定义。方差伪收益的明确定义在§4.1脚注26：
+
+$$
+R_t^{RV}=\frac{RV_t-VIX_{t-1}^{2}}{VIX_{t-1}^{2}},
+$$
+
+其中 $RV_t$ 是年化已实现月方差，$VIX_{t-1}$ 为前月末VIX。相应信息比率以这条序列的CAPM alpha除以残差标准差。两项波动量必须使用一致单位，不能把20直接与0.04相减。[^result25]
+
+§4.1展示滚动十年比较，讨论交易期权与合成期权的信息比率差异如何变化。§4.1.1又用事后break test识别2012年5月作为早晚样本划分。正文对Table 2的讨论报告，交易期权信息比率由约−0.6变为0.09。这里沿用的是该讨论段落的报告值，不把未单独定位的完整表、标准误或p值冒称为已经逐项复核。
+
+<figure class="pfh-responsive-figure"><div class="svg-wide"><img src="/notebook/labs/p-ijklm/figures/P25-b.svg" alt="结论所需的证据层次：原始回报、风险调整、分期与样本外不能彼此替代。"></div><div class="svg-narrow pfh-native"><p class="pfh-figure-title">每一层结论都需要对应证据</p><p class="pfh-figure-note">不是把历史平均权利金换一个名称</p><ol class="pfh-flow-steps"><li><strong>原始结果</strong><p>净支付 / 明确资本分母</p><p>不能把保费分母和标的分母混用</p></li><li><strong>风险调整</strong><p>CAPM alpha与残差标准差</p><p>IR：固定比例缩放不变，变动比例需重估</p></li><li><strong>后续检验</strong><p>先冻结规则再评价未知时期</p><p>事后断点与真正滚动样本外不同</p></li></ol></div></figure>
+
+论文也明确说明，alpha贡献缩小不等于总方差风险溢价消失：仍可能有与市场beta相联系的风险补偿。更不能把长期权的历史负alpha机械取负，就当成短期权卖方今天可获得的无风险净收益。交易成本、极端路径、借贷和资本占用并没有因为符号翻转而消失。
+
+<a id="p25-oos"></a>
+## 5. 事后断点不是样本外；样本外也不只是切一刀
+
+2012年5月是在分析完整历史后识别出来的，不能说成研究者在2012年之前就预先封存的测试起点。这不使事后结构变化研究失去价值，只是它回答“历史哪里发生了变化”，不同于“未知未来能否预测”。
+
+真正滚动验证要先规定，在每个预测起点只能用什么数据、如何估参数、如何选规则，以及下一段如何评价。FPP3的滚动预测起点单元提供这一结构；金融应用还需叠加数据发布时间、历史版本和可成交时间。[^oos25] 如果先用整个样本挑参数，再把图分成前后两半，后半段并没有因此变成干净测试集。
+
+<div data-experiment-slot="EXP-P25-EVIDENCE"></div>
+
+本实验是证据辨认，不会假装拥有OptionMetrics原始数据重新计算论文回报。先选择“事后断点”或“事先滚动起点”，判断可支持的结论；再切“固定倍数”与“逐笔权利金分母”，检查IR为何可能不变或必须重估。报告层始终只显示论文已经定位的−0.6和0.09，不随开关变造新的样本结果。
+
+若要设计后续验证，应先把交易规则与资料截止写成能执行的清单，再为实际成交、融资和失败路径补数据。本篇已经足以纠正常见解读错误，不需要把尚未取得的付费数据填成模拟“历史”。
+
+<a id="p25-exercises"></a>
+## 6. 自测与解析
+
+**解释题。** “2012年5月以后alpha改善，说明策略通过了样本外检验。”如何修改这句话？
+
+应改为“按作者事后识别的断点进行分期，交易期权风险调整表现发生了变化”。该证据支持历史结构变化，不等于预先冻结规则的样本外结果。真正的样本外要求测试结果没有参与参数、窗口或策略的选择。
+
+**迁移题。** 将同一超额收益序列统一乘100，与逐期改除以期权权利金，有什么不同？
+
+前者只是固定正比例缩放。相同回归设计下，alpha和残差标准差都乘100，IR不变。后者的缩放因子 $S_t/C_t$ 逐期变化，改变回报序列及其与市场的关系，必须重算，不能继续使用原表。不能用“换分母”这个笼统词把两件事混为一谈。
+
+**完成标准。** 能从结论倒追到策略、数据、分母、信息滞后、持有期和验证设计，并明确说出研究尚未证明什么。这比记住“风险溢价下降”这一句更重要。
+
+[^cf25]: Ian Dew-Becker、Stefano Giglio，[The Decline of the Variance Risk Premium: Evidence from Traded and Synthetic Options](https://www.chicagofed.org/-/media/publications/working-papers/2025/wp2025-17.pdf?sc_lang=en)，Chicago Fed WP2025-17，manuscript 2025-09-04，§2.3及§2.3.1。
+[^data25]: 同文§3.1，印刷pp12–13 / PDF pp13–14；§3.2开头是收益非线性而非方差伪收益定义。
+[^result25]: 同文§4.1脚注25（滚动日期对齐）、脚注26（印刷p30 / PDF p31），§4.1.1及Table 2讨论（印刷p31 / PDF p32）。本篇不采用§4.2模型证明或未定位的完整Table 2。
+[^oos25]: Hyndman、Athanasopoulos，[Forecasting: Principles and Practice, §5.10 Time series cross-validation](https://otexts.com/fpp3/tscv.html)，完整滚动起点单元；金融版本信息与实施数据另行约束。
+
+<script src="/notebook/labs/p-ijklm/reader-adapter.js" defer></script>
+
+
+## Experiment inputs and static equivalents
+```json
+[
+  {
+    "id": "EXP-P25-EVIDENCE",
+    "node_id": "P25",
+    "title": "风险溢价、回测与样本外检验",
+    "anchor": "p25-oos",
+    "description": "完整辨认一篇期权研究的策略、分母、样本、滞后和断点，不把事后证据称为样本外。",
+    "inputs": {
+      "frozen_ids": [
+        "OBS-PK-VRP-WP2025-17"
+      ],
+      "operational_keys": [],
+      "units": "逐字段以shared/final-shared-inputs.json与operational-inputs.json为准"
+    },
+    "outputs": {
+      "default_location": "agent_packet.supplied_inputs.static_default_result"
+    },
+    "algorithm": "https://ou-liu-red-sugar.github.io/notebook/labs/p-ijklm/engine.js; P26 consumes QT24 outputs without rerunning simulation.",
+    "views": [
+      "样本及换月日期的证据图",
+      "分母缩放/断点可支持结论"
+    ],
+    "boundaries": [
+      "真实规格不等于当前保证金或成交",
+      "不得从终点补造未提供的资金路径",
+      "输入无效即停止，不能沿用旧结果"
+    ],
+    "static_equivalent": {
+      "figures": [
+        "https://ou-liu-red-sugar.github.io/notebook/labs/p-ijklm/figures/P25-a.svg",
+        "https://ou-liu-red-sugar.github.io/notebook/labs/p-ijklm/figures/P25-b.svg"
+      ],
+      "body_tables": true,
+      "event_data": []
+    },
+    "input_controls": [
+      {
+        "key": "scale",
+        "label": "分母变化",
+        "type": "select",
+        "default": "fixed",
+        "options": [
+          {
+            "value": "fixed",
+            "label": "固定正比例缩放"
+          },
+          {
+            "value": "variable",
+            "label": "逐笔改用权利金分母"
+          }
+        ]
+      },
+      {
+        "key": "split",
+        "label": "验证身份",
+        "type": "select",
+        "default": "posthoc",
+        "options": [
+          {
+            "value": "posthoc",
+            "label": "2012m5事后断点"
+          },
+          {
+            "value": "rolling",
+            "label": "事先冻结的滚动起点"
+          }
+        ]
+      },
+      {
+        "key": "c",
+        "label": "固定正常数c",
+        "type": "number",
+        "default": 100
+      }
+    ],
+    "input_uri": "https://ou-liu-red-sugar.github.io/notebook/labs/p-ijklm/shared/final-shared-inputs.json"
+  }
+]
+```
+
+## Sources
+- [The Decline of the Variance Risk Premium: Evidence from Traded and Synthetic Options](https://www.chicagofed.org/-/media/publications/working-papers/2025/wp2025-17.pdf?sc_lang=en): 数据/持有规则、标的价格收益分母、风险调整alpha与方差溢价区别；不能转成今天卖期权获利保证，也未复现TRACE/OptionMetrics/CRSP原数据。
+
+M-E/F/G 本批采用：区分traded/synthetic、标的价格分母、滞后信息、beta hedge和动态delta；alpha衰减不等于全部风险补偿消失；未复现原始数据或后续均衡模型。
+
+本批读取范围：滞后估计、样本构造、分母、非线性与风险调整；2012m5为事后断点。
+- [Forecasting: Principles and Practice, §5.10 Time series cross-validation](https://otexts.com/fpp3/tscv.html): 时间序列交叉验证以逐步向前的预测起点划分训练与评价：每轮只用该起点之前可得的观测。预测一步与预测多步需要按各自目标设置评价窗口。
+
+本批读取范围：先训练、后评价、逐次推进的样本外结构。
+
+## Content relations
+```json
+[
+  {
+    "from": "zh-p25",
+    "relation": "part_of",
+    "to": "portfolio-models",
+    "reason": "主要 topic 归属"
+  },
+  {
+    "from": "zh-p25",
+    "relation": "requires",
+    "to": "zh-p12",
+    "required_competence": "能够区分金额、回报分母和模型风险调整。",
+    "reason": "这项能力进入本篇主任务，而非推荐阅读顺序。"
+  },
+  {
+    "from": "zh-p25",
+    "relation": "uses_method",
+    "to": "zh-p18",
+    "reason": "调用局部概念；本篇同时给出完成算例所需的最小说明。"
+  },
+  {
+    "from": "zh-p25",
+    "relation": "illustrated_by",
+    "to": "p25-method",
+    "reason": "同一冻结对象和明确身份的算例。"
+  },
+  {
+    "from": "p25-method",
+    "relation": "supported_by",
+    "to": "PFH-CHIFED2025",
+    "reason": "滞后估计、样本构造、分母、非线性与风险调整；2012m5为事后断点。",
+    "locator": "§2.3/2.3.1；§3.1；§3.2开头；§4.1/4.1.1；fn25–26；Table2讨论 printedp31/PDFp32",
+    "scope": "滞后估计、样本构造、分母、非线性与风险调整；2012m5为事后断点。"
+  },
+  {
+    "from": "p25-oos",
+    "relation": "supported_by",
+    "to": "QS02-5.10",
+    "reason": "先训练、后评价、逐次推进的样本外结构。",
+    "locator": "§5.10完整滚动预测起点单元",
+    "scope": "先训练、后评价、逐次推进的样本外结构。"
+  },
+  {
+    "from": "p25-oos",
+    "relation": "illustrated_by",
+    "to": "EXP-P25-EVIDENCE",
+    "reason": "完整辨认一篇期权研究的策略、分母、样本、滞后和断点，不把事后证据称为样本外。"
+  }
+]
+```
+
+## Related entries

@@ -1,4 +1,5 @@
 ---
+aliases: ["/wiki/"]
 title: "Wiki Archive"
 description: "An archived area for earlier mathematical wiki notes. It is currently paused and contains no public entries."
 draft: false

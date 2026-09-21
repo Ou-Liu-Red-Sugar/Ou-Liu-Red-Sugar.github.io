@@ -1,0 +1,1164 @@
+{
+  "id": "zh-p15",
+  "node_id": "P15",
+  "lang": "zh",
+  "slug": "protective-put-floor-and-renewal",
+  "title": "P15 保护性看跌：买下一个有日期的下限",
+  "summary": "逐腿推导指定期限净财富下限，并用三次续保说明参照点重设的累计后果。",
+  "subject": "portfolio",
+  "topic": "portfolio-options",
+  "kind": "concept",
+  "template": "T6",
+  "role": "核心",
+  "study_time": "18–20分钟（含操作与题解）",
+  "revised": "2026-09-21",
+  "content_version": "2026-09-21-PFGH-staging-v3",
+  "body_markdown": "我们已经决定暂时保留股票，现在要为一段明确期限内的下跌付费。本篇会把“95%的保护”拆成执行价、权利金、现金和到期日四件事，并检验一个容易误解的延伸：每个月都买保护，是否就能把整个季度的损失限制在同一比例？\n\n<a id=\"p15-position\"></a>\n## 1. put保护的是交付价格，不是市场报价\n\n先沿用上一节可独立理解的输入：已有100股XYZ，当前每股100，现金2,000，总财富12,000。买入一张30天、执行价95的put，就得到按95卖出100股的权利。低于95时，可以利用这个权利处理股票下跌；但市场仍然可能报价70，put不会让市场价停止下跌。OIC称这种股票加put的组合为protective put。[^pp]\n\n标准未调整ETF期权的100股单位与美式实物行权沿OCC规则。PF-GRID-01的95 put价格则是独立教学输入：mid1.42、bid1.40、ask1.44，每张每次费0.65。主链假定利率与分红为零，30天用ACT/365换算。真实市场选择权的价格由交易形成，我们仅用模型生成一组可追溯的合成报价；这不是实时保险费。[^terms]\n\n建立时已持有的股票仍为100股，不再次支付10,000。mid支出142，D1现金成为1,858，同时得到mid价值142的put，净财富仍为12,000。执行层需按ask付144，另付0.65，现金变成1,855.35；按mid计价的即时财富为11,997.35。\n\n<a id=\"p15-floor\"></a>\n## 2. 从两条腿推导下限与代价\n\n到期时，股票价值$100s$，put支付$100(95-s)^+$。加上剩余现金：\n\n$$\nW_T=1858+100s+100(95-s)^+.\n$$\n\n对$s<95$，把括号展开得到$1858+9500$；对$s\\ge95$，put支付为零。因此\n\n$$\nW_T=1858+100\\max(s,95).\n$$\n\nmid终点下限11,358，对原12,000的最大损失为642。里面包括股票由100跌到95的500，以及买put的142。所谓“95%的执行价”不是“整个账户最多亏5%”：财富中还有2,000现金，保险本身还要付费。执行层下限为11,355.35，对应损失644.65；默认不计最终平股、行权费用及税。\n\n| D30股价 | 只持股财富 | 股票＋put mid财富 | 股票＋put执行层财富 | put单腿毛支付 |\n|---:|---:|---:|---:|---:|\n| 0 | 2,000 | 11,358 | 11,355.35 | 9,500 |\n| 70 | 9,000 | 11,358 | 11,355.35 | 2,500 |\n| 95 | 11,500 | 11,358 | 11,355.35 | 0 |\n| 100 | 12,000 | 11,858 | 11,855.35 | 0 |\n| 130 | 15,000 | 14,858 | 14,855.35 | 0 |\n\n股价上涨时，put未使用并不表示当初购买必定错误。我们买的是某些状态下的选择权，而不是保证以后每条腿都盈利。反过来，put单腿支付2,500也不能说组合赚2,500：股价70时股票亏3,000，整个组合仍亏642。\n\n<figure class=\"pfh-responsive-figure\"><div class=\"svg-wide\"><img src=\"/notebook/labs/p-fgh/figures/P15-payoff.svg\" alt=\"股票＋put的到期下限与仍保留的上行\"></div><div class=\"svg-narrow pfh-native\" data-static-figure=\"P15-payoff-mobile.svg\"><p class=\"pfh-figure-title\">花142 mid权利金，取得指定日期财富下限</p><ul class=\"pfh-legend\"><li><svg viewBox=\"0 0 32 12\" width=\"32\" height=\"12\" aria-hidden=\"true\"><path d=\"M1 6H31\" stroke=\"#145c70\" stroke-width=\"3\"/></svg><span>1. 持有100股</span></li><li><svg viewBox=\"0 0 32 12\" width=\"32\" height=\"12\" aria-hidden=\"true\"><path d=\"M1 6H31\" stroke=\"#a2682d\" stroke-width=\"3\" stroke-dasharray=\"7 4\"/></svg><span>2. 95保护put</span></li></ul><p class=\"pfh-axis-label\">纵轴：共同财富（美元）</p><div class=\"pfh-plot\" style=\"--pfh-y-label-ch:7\"><div class=\"pfh-y-ticks\"><span style=\"top:100%\">1,020</span><span style=\"top:75%\">5,010</span><span style=\"top:50%\">9,000</span><span style=\"top:25%\">12,990</span><span style=\"top:0%\">16,980</span></div><svg class=\"pfh-plot-svg\" viewBox=\"55 155 315 180\" preserveAspectRatio=\"none\" aria-hidden=\"true\"><path d=\"M55 335.00H370\" stroke=\"#e1e6e8\" vector-effect=\"non-scaling-stroke\"/><path d=\"M55 290.00H370\" stroke=\"#e1e6e8\" vector-effect=\"non-scaling-stroke\"/><path d=\"M55 245.00H370\" stroke=\"#e1e6e8\" vector-effect=\"non-scaling-stroke\"/><path d=\"M55 200.00H370\" stroke=\"#e1e6e8\" vector-effect=\"non-scaling-stroke\"/><path d=\"M55 155.00H370\" stroke=\"#e1e6e8\" vector-effect=\"non-scaling-stroke\"/><polyline points=\"55.00,323.95 59.50,321.69 64.00,319.43 68.50,317.18 73.00,314.93 77.50,312.67 82.00,310.41 86.50,308.16 91.00,305.90 95.50,303.65 100.00,301.39 104.50,299.14 109.00,296.88 113.50,294.62 118.00,292.36 122.50,290.12 127.00,287.86 131.50,285.60 136.00,283.34 140.50,281.09 145.00,278.83 149.50,276.58 154.00,274.33 158.50,272.07 163.00,269.81 167.50,267.55 172.00,265.30 176.50,263.05 181.00,260.79 185.50,258.53 190.00,256.28 194.50,254.02 199.00,251.76 203.50,249.51 208.00,247.26 212.50,245.00 217.00,242.74 221.50,240.49 226.00,238.24 230.50,235.98 235.00,233.72 239.50,231.47 244.00,229.21 248.50,226.95 253.00,224.70 257.50,222.45 262.00,220.19 266.50,217.93 271.00,215.67 275.50,213.42 280.00,211.17 284.50,208.91 289.00,206.66 293.50,204.40 298.00,202.14 302.50,199.88 307.00,197.64 311.50,195.38 316.00,193.12 320.50,190.86 325.00,188.61 329.50,186.35 334.00,184.10 338.50,181.84 343.00,179.59 347.50,177.33 352.00,175.07 356.50,172.82 361.00,170.57 365.50,168.31 370.00,166.05\" fill=\"none\" stroke=\"#145c70\" stroke-width=\"2.5\" vector-effect=\"non-scaling-stroke\"/><polyline points=\"55.00,218.41 59.50,218.41 64.00,218.41 68.50,218.41 73.00,218.41 77.50,218.41 82.00,218.41 86.50,218.41 91.00,218.41 95.50,218.41 100.00,218.41 104.50,218.41 109.00,218.41 113.50,218.41 118.00,218.41 122.50,218.41 127.00,218.41 131.50,218.41 136.00,218.41 140.50,218.41 145.00,218.41 149.50,218.41 154.00,218.41 158.50,218.41 163.00,218.41 167.50,218.41 172.00,218.41 176.50,218.41 181.00,218.41 185.50,218.41 190.00,218.41 194.50,218.41 199.00,218.41 203.50,218.41 208.00,218.41 212.50,218.41 217.00,218.41 221.50,218.41 226.00,218.41 230.50,218.41 235.00,218.41 239.50,218.41 244.00,218.41 248.50,218.41 253.00,218.41 257.50,218.41 262.00,218.41 266.50,218.41 271.00,217.28 275.50,215.02 280.00,212.77 284.50,210.51 289.00,208.25 293.50,206.00 298.00,203.75 302.50,201.49 307.00,199.23 311.50,196.97 316.00,194.73 320.50,192.47 325.00,190.21 329.50,187.95 334.00,185.70 338.50,183.44 343.00,181.19 347.50,178.94 352.00,176.68 356.50,174.42 361.00,172.16 365.50,169.91 370.00,167.66\" fill=\"none\" stroke=\"#a2682d\" stroke-width=\"2.5\" stroke-dasharray=\"7 4\" vector-effect=\"non-scaling-stroke\"/></svg><div class=\"pfh-x-ticks\"><span class=\"first\" style=\"left:0%\">0</span><span class=\"\" style=\"left:50%\">70</span><span class=\"last\" style=\"left:100%\">140</span></div></div><p class=\"pfh-axis-label\">横轴：D30标的价格（美元/股）</p><p class=\"pfh-figure-note\">PF-GRID-01合成链 · mid结构；非真实行情</p></div><figcaption>股票＋put的到期下限与仍保留的上行</figcaption></figure>\n\n下限依赖数量、对象和日期匹配。若只买一张却持有200股，另外100股没有获得这份95出售权；若拿指数put保护一家公司的股票，个股与指数之间的差异仍在，不能把这个精确下限照搬。MIT的股票加put图说明了支付相加的形状，但具体合约交付物仍须按原件确认。[^mit]\n\n<a id=\"p15-exit\"></a>\n## 3. 卖put、行权卖股与继续持有是三种动作\n\n在美式put仍有效时，持有人可以按规则选择行权；行权会改变股票数量，并产生执行价现金。卖出put平仓则使用市场bid，保留股票。两者的经济目的不同，不能仅以“put盈利了”混在一起。还有第三个选择：暂不处理，继续保有股票和put，直到未来再判断。[^exercise]\n\n例如中途不再担心原来那项事件，卖put可以将剩余价值转成现金，而不退出股票；若不再愿意持股，则需要一起考虑股票出售、put平仓，或在适当条件下行权。不能默认行权总是优于卖出，因为行权只实现合同内在价值，可能放弃尚存的时间价值。具体比较需要当时的bid、行权条件、费用和资金时间。\n\n到期时也要区分经济标记与完成交付。若按本例严格价内put行权，低于95时100股交出，收到9,500，在教学下一营业日D31完成现金；高于95时put失效，股票仍在。如果D30恰为95且put未行权，我们仍持100股，D30之后再下跌将不再由旧put补偿。\n\n<a id=\"p15-reset\"></a>\n## 4. 三次95%保护，可能一次都不赔\n\n现在不猜真实行情，只取一条明确的三段教学路径：每30天股价下跌4%，并在每段开始时用当时股价的95%重新设put执行价。每次权利金占该段起始股票市值1.42%，数量始终100股；忽略点差和费用，只检查续保与参照点。\n\n| 段 | 起始股价 | 新put执行价 | 本段权利金 | 段末股价 | put支付 | 剩余现金 | 合计财富 |\n|---:|---:|---:|---:|---:|---:|---:|---:|\n| 1 | 100 | 95 | 142.00 | 96 | 0 | 1,858.00 | 11,458.00 |\n| 2 | 96 | 91.20 | 136.32 | 92.16 | 0 | 1,721.68 | 10,937.68 |\n| 3 | 92.16 | 87.552 | 130.8672 | 88.4736 | 0 | 1,590.8128 | 10,438.1728 |\n\n每一段只跌4%，都没有穿过当段95%执行价，三张put都没有到期支付。可原股价已经累计下跌$1-0.96^3=11.5264\\%$。累计权利金为409.1872，再加股票损失1,152.64，总财富减少1,561.8272。旧的95下限并没有一直留在原100的参照点上：第二段降到91.2，第三段又降到87.552。\n\n<figure class=\"pfh-responsive-figure\"><div class=\"svg-wide\"><img src=\"/notebook/labs/p-fgh/figures/P15-renewal.svg\" alt=\"重复续保时，股价、执行价与现金如何一同向下移动\"></div><div class=\"svg-narrow pfh-native\" data-static-figure=\"P15-renewal-mobile.svg\"><p class=\"pfh-figure-title\">每次重设95%执行价，不等于原95一直有效</p><ul class=\"pfh-legend\"><li><svg viewBox=\"0 0 32 12\" width=\"32\" height=\"12\" aria-hidden=\"true\"><path d=\"M1 6H31\" stroke=\"#145c70\" stroke-width=\"3\"/></svg><span>1. 段起点股价</span></li><li><svg viewBox=\"0 0 32 12\" width=\"32\" height=\"12\" aria-hidden=\"true\"><path d=\"M1 6H31\" stroke=\"#a2682d\" stroke-width=\"3\" stroke-dasharray=\"7 4\"/></svg><span>2. 新put执行价</span></li><li><svg viewBox=\"0 0 32 12\" width=\"32\" height=\"12\" aria-hidden=\"true\"><path d=\"M1 6H31\" stroke=\"#607298\" stroke-width=\"3\"/></svg><span>3. 段末股价</span></li></ul><p class=\"pfh-axis-label\">纵轴：美元/股</p><div class=\"pfh-plot\" style=\"--pfh-y-label-ch:4\"><div class=\"pfh-y-ticks\"><span style=\"top:100%\">87</span><span style=\"top:75%\">90</span><span style=\"top:50%\">94</span><span style=\"top:25%\">97</span><span style=\"top:0%\">101</span></div><svg class=\"pfh-plot-svg\" viewBox=\"55 155 315 180\" preserveAspectRatio=\"none\" aria-hidden=\"true\"><path d=\"M55 335.00H370\" stroke=\"#e1e6e8\" vector-effect=\"non-scaling-stroke\"/><path d=\"M55 290.00H370\" stroke=\"#e1e6e8\" vector-effect=\"non-scaling-stroke\"/><path d=\"M55 245.00H370\" stroke=\"#e1e6e8\" vector-effect=\"non-scaling-stroke\"/><path d=\"M55 200.00H370\" stroke=\"#e1e6e8\" vector-effect=\"non-scaling-stroke\"/><path d=\"M55 155.00H370\" stroke=\"#e1e6e8\" vector-effect=\"non-scaling-stroke\"/><polyline points=\"55.00,166.05 212.50,216.79 370.00,265.50\" fill=\"none\" stroke=\"#145c70\" stroke-width=\"2.5\" vector-effect=\"non-scaling-stroke\"/><polyline points=\"55.00,229.47 212.50,277.67 370.00,323.95\" fill=\"none\" stroke=\"#a2682d\" stroke-width=\"2.5\" stroke-dasharray=\"7 4\" vector-effect=\"non-scaling-stroke\"/><polyline points=\"55.00,216.79 212.50,265.50 370.00,312.26\" fill=\"none\" stroke=\"#607298\" stroke-width=\"2.5\" vector-effect=\"non-scaling-stroke\"/></svg><div class=\"pfh-x-ticks\"><span class=\"first\" style=\"left:0%\">1</span><span class=\"\" style=\"left:50%\">2</span><span class=\"last\" style=\"left:100%\">3</span></div></div><p class=\"pfh-axis-label\">横轴：续保段编号；每段30天</p><p class=\"pfh-figure-note\">三张put支付均0；累计premium409.1872；现金1,590.8128；终财富10,438.1728</p></div><figcaption>重复续保时，股价、执行价与现金如何一同向下移动</figcaption></figure>\n\n这不是put失约，也不是证明购买保护从来无效，而是不同期限的承诺被误读为同一长期承诺。AQR作者2021年的论文以脚注6讨论了同类期限问题；其期权研究用季度滚动、单位名义敞口，且相关结果不是本篇股票加put总账户的回报。我们只采用“期限和参照点必须明确”的机制，并在上表独立复算。[^aqr]\n\n<a id=\"p15-lab\"></a>\n## 5. 操作：在一张图上看保护，在另一张图上看重设\n\n<div data-experiment-slot=\"EXP-P15-PROTECTIVE-PUT\"></div>\n\n先选择股价70，说明put单腿毛支付与组合净损失为何同时存在。再切换执行层：下限仅因建立成本而小幅变化，不把真实手续费说成股价风险。最后查看三次续保，用每行新执行价比较当行段末价，不要一直拿95与三个终点比较。\n\n<details data-reading-branch=\"cash-index\"><summary>选读：欧式现金指数put的不同交付</summary>\n\n若改用欧式现金指数put，行权和交付又不同。它可以在相应结算日收到现金，但不提供提前实物卖出这100股XYZ的权利；只有标的风险、数量与结算期匹配时，才可以讨论相应保护。具体现金指数规格见P17/P19的SPXW分支，不把所有期权都视为同一种交割。[^spx]\n\n</details>\n\n<a id=\"p15-exercises\"></a>\n## 6. 解释与迁移\n\n**解释题。** 为什么到期70时，put获得2,500支付，整份账户仍亏642？\n\n**解析。** 原股票从10,000降到7,000，亏3,000；put到期毛支付2,500，但先前花142购买，净帮助2,358。两者合并损失642。若只用put权利金作分母，会放大单腿百分比，却不能说明原股票组合的财富损失。\n\n**迁移题。** 三次−4%路径中，第三段结束时股价88.4736已低于最初95，为什么没有任何一次put赔付？\n\n**解析。** 首份95 put在D30已结束，而当时股价96；后续put的执行价分别为91.2和87.552，各自到期股价又都高于执行价。不能让早已到期的95 put替后面的价格变化支付。要保持原始95下限，须另取得跨整个期限的相应合同，并支付当时真实价格。\n\n**期限题。** 若必须D20用现金，而保护到D30，能否仅凭11,358终点下限承诺按时付款？\n\n**解析。** 不能。需把股票与put在D20的变现方式、可成交价格和结算日放回现金账。价格下限、资产标记与现金到账是三个不同对象。这个判断不要求再猜一个未来收益率，而要求补齐实施资料。\n\n[^pp]: OIC，[Protective Put](https://www.optionseducation.org/strategies/all-strategies/protective-put-married-put)，Description、Max Loss/Gain、Exercise/Expiration相关完整单元。\n[^terms]: OCC，[ETF Options](https://www.theocc.com/clearance-and-settlement/clearing/etf-options)，未调整单位、American exercise及T+1 settlement；报价为本文合成输入。\n[^mit]: Andrew Lo，MIT [Options](https://ocw.mit.edu/courses/15-401-finance-theory-i-fall-2008/c40ecc0cc0dce0fbf2d229bc4027c43b_MIT15_401F08_lec10.pdf)，Fall 2008，slides 10–11。\n[^exercise]: OIC，[Options Exercise FAQ](https://www.optionseducation.org/referencelibrary/faq/options-exercise)，行权与平仓、提前行权与时间价值问答；OCC [ODD](https://www.theocc.com/getmedia/a151a9ae-d784-4a15-bdeb-23a029f50b70/riskstoc.pdf) June 2024 Chapter VIII。\n[^aqr]: McQuinn、Thapar、Villalon，[Portfolio Protection? It's a Long (Term) Story…](https://www.aqr.com/-/media/AQR/Documents/Journal-Articles/Portfolio-Protection-Its-a-Long-Term-Story.pdf?sc_lang=en)，February 2021，印刷5–6页、脚注6及Exhibit 3，印刷14页期权数据定义。三段路径为本站合成例，不是论文回测。\n[^spx]: Cboe，[SPX Fact Sheet](https://cdn.cboe.com/resources/spx/spx-fact-sheet.pdf)，©2026，第2页：SPXW欧式、PM现金结算与下一营业日交付；不采用为XYZ的精确复制。\n",
+  "prompt": "你正在教授P15《P15 保护性看跌：买下一个有日期的下限》。先确认读者选择的分支。实际打开required_readings的公开原文，完整读取指定单元和必要表图；记录标题、版本、位置及其支持的具体步骤。optional_readings只有在分支被选择时转为必读。若只有摘要、目录或访问失败，不能声称完成，也不凭印象补课；可复用本会话已完整读过的相同版本单元并注明。\n\n然后一次给出一项完整诊断任务：逐腿得到11358下限，再完成100到96到92.16到88.4736的三次续保账。 不逐个考四则运算。使用本包全文与PF-GRID-01唯一冻结链，先让读者解释关系，再计算，最后使用本篇迁移题。区分真实契约、模型生成mid、合成执行价和假设事件。反馈标准：单期floor、累计premium409.1872和三期财富10438.1728都能复算；理解执行价参照点重设，不说长期95%保证。\n\n每次现金都带账户/时点，无法支付或未给报价时不制造已经完成的结果。数据没有现实概率，不推断胜率或推荐交易；不访问用户账户。不更新公司估值、不调用真实订单。结束时让读者指出改变哪一个条件会改变结论，输出尚未掌握的具体关系。runtime_reading_log按本次实读填写，导出初始为空。",
+  "sources": [
+    "PFH-PP",
+    "PFH-ETF",
+    "PFH-MIT-OPTIONS",
+    "PFH-EXERCISE",
+    "MA-OCC",
+    "PFH-AQR2021",
+    "MA-SPX"
+  ],
+  "anchors": [
+    {
+      "id": "p15-position",
+      "title": "1. put保护的是交付价格，不是市场报价",
+      "kind": "section",
+      "preview": "先沿用上一节可独立理解的输入：已有100股XYZ，当前每股100，现金2,000，总财富12,000。买入一张30天、执行价95的put，就得到按95卖出100股的权利。低于95时，可以利用这个权利处理股票下跌；但市场仍然可能报价70，put不会让市场价停止下跌。OIC称这种股票加put的组合为protective p"
+    },
+    {
+      "id": "p15-floor",
+      "title": "2. 从两条腿推导下限与代价",
+      "kind": "section",
+      "preview": "到期时，股票价值100s，put支付100(95-s)^+。加上剩余现金："
+    },
+    {
+      "id": "p15-exit",
+      "title": "3. 卖put、行权卖股与继续持有是三种动作",
+      "kind": "section",
+      "preview": "在美式put仍有效时，持有人可以按规则选择行权；行权会改变股票数量，并产生执行价现金。卖出put平仓则使用市场bid，保留股票。两者的经济目的不同，不能仅以“put盈利了”混在一起。还有第三个选择：暂不处理，继续保有股票和put，直到未来再判断。[^exercise]"
+    },
+    {
+      "id": "p15-reset",
+      "title": "4. 三次95%保护，可能一次都不赔",
+      "kind": "section",
+      "preview": "现在不猜真实行情，只取一条明确的三段教学路径：每30天股价下跌4%，并在每段开始时用当时股价的95%重新设put执行价。每次权利金占该段起始股票市值1.42%，数量始终100股；忽略点差和费用，只检查续保与参照点。"
+    },
+    {
+      "id": "p15-lab",
+      "title": "5. 操作：在一张图上看保护，在另一张图上看重设",
+      "kind": "section",
+      "preview": "逐腿推导指定期限净财富下限，并用三次续保说明参照点重设的累计后果。"
+    },
+    {
+      "id": "p15-exercises",
+      "title": "6. 解释与迁移",
+      "kind": "section",
+      "preview": "解释题。 为什么到期70时，put获得2,500支付，整份账户仍亏642？"
+    }
+  ],
+  "relations": [
+    {
+      "from": "P15",
+      "relation": "part_of",
+      "to": "portfolio-options",
+      "reason": "本节点的学科位置，不表示线性先修。"
+    },
+    {
+      "from": "P15",
+      "relation": "illustrated_by",
+      "to": "EXP-OPTIONS-01",
+      "reason": "同一PF-GRID-01合成报价、财富与生命周期约定。"
+    },
+    {
+      "from": "P15",
+      "relation": "uses_method",
+      "to": "P10",
+      "reason": "按本篇所需调用风险目标、现金、成交或多腿方法；正文保留自足局部定义。"
+    },
+    {
+      "from": "P15",
+      "relation": "uses_method",
+      "to": "P08",
+      "reason": "按本篇所需调用风险目标、现金、成交或多腿方法；正文保留自足局部定义。"
+    },
+    {
+      "from": "P15",
+      "relation": "uses_method",
+      "to": "P09",
+      "reason": "按本篇所需调用风险目标、现金、成交或多腿方法；正文保留自足局部定义。"
+    },
+    {
+      "from": "P15#p15-position",
+      "relation": "supported_by",
+      "to": "PFH-PP",
+      "reason": "原件支持本段契约/方法或有日期研究；不证明合成报价为行情。",
+      "locator": "Description至Comments/Related Position的完整策略主文",
+      "scope": "股票+long put的指定期限保护、权利金代价与退出方式；不是永久净财富保证。"
+    },
+    {
+      "from": "P15#p15-position",
+      "relation": "supported_by",
+      "to": "PFH-ETF",
+      "reason": "原件支持本段契约/方法或有日期研究；不证明合成报价为行情。",
+      "locator": "Unit of Trade; Exercise Style; Exercise Settlement Time",
+      "scope": "未调整标准合约通常100股、American exercise与T+1实物交割；调整系列另核。"
+    },
+    {
+      "from": "P15#p15-floor",
+      "relation": "supported_by",
+      "to": "PFH-MIT-OPTIONS",
+      "reason": "原件支持本段契约/方法或有日期研究；不证明合成报价为行情。",
+      "locator": "Slides 10–13完整策略组合单元",
+      "scope": "逐腿相加的保护、价差和跨式支付；不承担现行结算规则。"
+    },
+    {
+      "from": "P15#p15-exit",
+      "relation": "supported_by",
+      "to": "PFH-EXERCISE",
+      "reason": "原件支持本段契约/方法或有日期研究；不证明合成报价为行情。",
+      "locator": "行权与平仓问答; 自动处理、提前行权和分红问答",
+      "scope": "行权、平仓、成员exercise-by-exception与客户指令分开；股息和时间价值影响选择，但不保证每个客户腿自动执行。"
+    },
+    {
+      "from": "P15#p15-exit",
+      "relation": "supported_by",
+      "to": "MA-OCC",
+      "reason": "原件支持本段契约/方法或有日期研究；不证明合成报价为行情。",
+      "locator": "Chapter VIII printed pp55–57 / PDF pp57–59; Chapter IX printed pp58–59 / PDF pp60–61; Chapter X holder/writer units printed pp61–67; Other Risks item 1 printed pp67–68 / PDF pp69–70",
+      "scope": "契约、买卖双方权利义务、权利金/担保品、行权/指派/结算与多腿独立性。不给本链报价、客户截止时点或自动处理保证。"
+    },
+    {
+      "from": "P15#p15-reset",
+      "relation": "supported_by",
+      "to": "PFH-AQR2021",
+      "reason": "原件支持本段契约/方法或有日期研究；不证明合成报价为行情。",
+      "locator": "printed pp5–6 / PDF pp7–8 Options-Based Hedging完整节、footnote6、Exhibit3; printed p14 / PDF p16 option data appendix",
+      "scope": "只采用保护期限/重设执行价机制与研究口径。研究是单位名义纯put而非本篇股票+put，1996-01-05至2020-03-31、季度重设、费用前；不宣称普遍劣势或数据复现。"
+    },
+    {
+      "from": "P15#p15-exit",
+      "relation": "supported_by",
+      "to": "MA-SPX",
+      "reason": "原件支持本段契约/方法或有日期研究；不证明合成报价为行情。",
+      "locator": "PDF pp1–2，尤其p2合约表",
+      "scope": "SPXW欧式、PM、每点100美元、现金于到期后营业日交付；传统SPX AM/SOQ与SPXW分开。无实际报价。"
+    },
+    {
+      "from": "P15#p15-lab",
+      "relation": "illustrated_by",
+      "to": "EXP-P15-PROTECTIVE-PUT",
+      "reason": "逐腿推导指定期限净财富下限，并用三次续保说明参照点重设的累计后果。"
+    }
+  ],
+  "agent_packet": {
+    "export_mode": "public",
+    "entry_id": "zh-p15",
+    "selected_branch": "core",
+    "learning_task": "逐腿得到11358下限，再完成100到96到92.16到88.4736的三次续保账。",
+    "required_readings": [
+      {
+        "source_id": "PFH-PP",
+        "title": "Protective Put (Married Put)",
+        "authors": [
+          "Options Industry Council"
+        ],
+        "version": "未署年月网页；2026-09-21核用",
+        "access": {
+          "kind": "html_full_text",
+          "uri": "https://www.optionseducation.org/strategies/all-strategies/protective-put-married-put",
+          "verified_access_at": "2026-09-21"
+        },
+        "required_unit": {
+          "locator": "Description至Comments/Related Position的完整策略主文",
+          "scope": "完整读取上述具名单元及必要表图、脚注，不以搜索节选或摘要替代。",
+          "purpose": "股票+long put的指定期限保护、权利金代价与退出方式；不是永久净财富保证。"
+        },
+        "supports": "股票+long put的指定期限保护、权利金代价与退出方式；不是永久净财富保证。",
+        "fallback_source_ids": []
+      },
+      {
+        "source_id": "PFH-ETF",
+        "title": "ETF Options Product Specifications",
+        "authors": [
+          "OCC"
+        ],
+        "version": "现行公开规格；读取2026-09-21",
+        "access": {
+          "kind": "html_full_text",
+          "uri": "https://www.theocc.com/clearance-and-settlement/clearing/etf-options",
+          "verified_access_at": "2026-09-21"
+        },
+        "required_unit": {
+          "locator": "Unit of Trade; Exercise Style; Exercise Settlement Time",
+          "scope": "完整读取上述具名单元及必要表图、脚注，不以搜索节选或摘要替代。",
+          "purpose": "未调整标准合约通常100股、American exercise与T+1实物交割；调整系列另核。"
+        },
+        "supports": "未调整标准合约通常100股、American exercise与T+1实物交割；调整系列另核。",
+        "fallback_source_ids": []
+      },
+      {
+        "source_id": "PFH-MIT-OPTIONS",
+        "title": "15.401 Finance Theory I: Lecture 10–11, Options",
+        "authors": [
+          "Andrew W. Lo / MIT OCW"
+        ],
+        "version": "Fall 2008",
+        "access": {
+          "kind": "pdf_full_text",
+          "uri": "https://ocw.mit.edu/courses/15-401-finance-theory-i-fall-2008/c40ecc0cc0dce0fbf2d229bc4027c43b_MIT15_401F08_lec10.pdf",
+          "verified_access_at": "2026-09-21"
+        },
+        "required_unit": {
+          "locator": "Slides 10–13完整策略组合单元",
+          "scope": "完整读取上述具名单元及必要表图、脚注，不以搜索节选或摘要替代。",
+          "purpose": "逐腿相加的保护、价差和跨式支付；不承担现行结算规则。"
+        },
+        "supports": "逐腿相加的保护、价差和跨式支付；不承担现行结算规则。",
+        "fallback_source_ids": []
+      },
+      {
+        "source_id": "PFH-EXERCISE",
+        "title": "Options Exercise FAQ",
+        "authors": [
+          "Options Industry Council"
+        ],
+        "version": "网页；2026-09-21核用",
+        "access": {
+          "kind": "html_full_text",
+          "uri": "https://www.optionseducation.org/referencelibrary/faq/options-exercise",
+          "verified_access_at": "2026-09-21"
+        },
+        "required_unit": {
+          "locator": "行权与平仓问答; 自动处理、提前行权和分红问答",
+          "scope": "完整读取上述具名单元及必要表图、脚注，不以搜索节选或摘要替代。",
+          "purpose": "行权、平仓、成员exercise-by-exception与客户指令分开；股息和时间价值影响选择，但不保证每个客户腿自动执行。"
+        },
+        "supports": "行权、平仓、成员exercise-by-exception与客户指令分开；股息和时间价值影响选择，但不保证每个客户腿自动执行。",
+        "fallback_source_ids": []
+      },
+      {
+        "source_id": "MA-OCC",
+        "title": "Characteristics and Risks of Standardized Options",
+        "authors": [
+          "The Options Clearing Corporation"
+        ],
+        "version": "June 2024",
+        "access": {
+          "kind": "pdf_full_text",
+          "uri": "https://www.theocc.com/getmedia/a151a9ae-d784-4a15-bdeb-23a029f50b70/riskstoc.pdf",
+          "verified_access_at": "2026-09-21"
+        },
+        "required_unit": {
+          "locator": "Chapter VIII printed pp55–57 / PDF pp57–59; Chapter IX printed pp58–59 / PDF pp60–61; Chapter X holder/writer units printed pp61–67; Other Risks item 1 printed pp67–68 / PDF pp69–70",
+          "scope": "完整读取上述具名单元及必要表图、脚注，不以搜索节选或摘要替代。",
+          "purpose": "契约、买卖双方权利义务、权利金/担保品、行权/指派/结算与多腿独立性。不给本链报价、客户截止时点或自动处理保证。"
+        },
+        "supports": "契约、买卖双方权利义务、权利金/担保品、行权/指派/结算与多腿独立性。不给本链报价、客户截止时点或自动处理保证。",
+        "fallback_source_ids": []
+      },
+      {
+        "source_id": "PFH-AQR2021",
+        "title": "Portfolio Protection? It’s a Long (Term) Story…",
+        "authors": [
+          "Nicholas McQuinn",
+          "Ashwin Thapar",
+          "Dan Villalon"
+        ],
+        "version": "Journal of Portfolio Management 47(3)，February 2021",
+        "access": {
+          "kind": "pdf_full_text",
+          "uri": "https://www.aqr.com/-/media/AQR/Documents/Journal-Articles/Portfolio-Protection-Its-a-Long-Term-Story.pdf?sc_lang=en",
+          "verified_access_at": "2026-09-21"
+        },
+        "required_unit": {
+          "locator": "printed pp5–6 / PDF pp7–8 Options-Based Hedging完整节、footnote6、Exhibit3; printed p14 / PDF p16 option data appendix",
+          "scope": "完整读取上述具名单元及必要表图、脚注，不以搜索节选或摘要替代。",
+          "purpose": "只采用保护期限/重设执行价机制与研究口径。研究是单位名义纯put而非本篇股票+put，1996-01-05至2020-03-31、季度重设、费用前；不宣称普遍劣势或数据复现。"
+        },
+        "supports": "只采用保护期限/重设执行价机制与研究口径。研究是单位名义纯put而非本篇股票+put，1996-01-05至2020-03-31、季度重设、费用前；不宣称普遍劣势或数据复现。",
+        "fallback_source_ids": []
+      }
+    ],
+    "optional_readings": [
+      {
+        "source_id": "MA-SPX",
+        "title": "S&P 500 Index Options Fact Sheet",
+        "authors": [
+          "Cboe Global Markets"
+        ],
+        "version": "©2026；WF-451400-KC",
+        "access": {
+          "kind": "pdf_full_text",
+          "uri": "https://cdn.cboe.com/resources/spx/spx-fact-sheet.pdf",
+          "verified_access_at": "2026-09-21"
+        },
+        "required_unit": {
+          "locator": "PDF pp1–2，尤其p2合约表",
+          "scope": "完整读取上述具名单元及必要表图、脚注，不以搜索节选或摘要替代。",
+          "purpose": "SPXW欧式、PM、每点100美元、现金于到期后营业日交付；传统SPX AM/SOQ与SPXW分开。无实际报价。"
+        },
+        "supports": "SPXW欧式、PM、每点100美元、现金于到期后营业日交付；传统SPX AM/SOQ与SPXW分开。无实际报价。",
+        "branch": "cash-index",
+        "activate_when": "只有选择该分支时转为必读；未选不考对应题目。",
+        "fallback_source_ids": []
+      }
+    ],
+    "runtime_reading_log": [],
+    "supplied_inputs": {
+      "shared_experiment_id": "EXP-OPTIONS-01",
+      "frozen_chain": {
+        "schema": "p-fgh-teaching-inputs-frozen-v2",
+        "selected_chain_id": "PF-GRID-01",
+        "frozen_on": "2026-09-21",
+        "decision": "adopt_support_grid_as_common_baseline_with_author_plan_structure_retained",
+        "identity": "Synthetic unadjusted 100-unit equity/ETF option classroom chain. Contract/lifecycle rules are supported by OCC/OIC/Cboe originals; prices, IV, spreads and fees are teaching inputs, not observed quotes or executions.",
+        "real_terms": {
+          "physical": {
+            "unit": 100,
+            "currency": "USD",
+            "exercise_style": "American",
+            "settlement": "physical; exercised standard equity/ETF option stock delivery follows current T+1 rules",
+            "sources": [
+              "MEFG-ODD",
+              "MEFG-OCC-EQUITY",
+              "MEFG-OCC-ETF",
+              "MEFG-OIC-T1"
+            ]
+          },
+          "cash_index_branch": {
+            "product": "SPXW",
+            "unit": 100,
+            "exercise_style": "European",
+            "settlement": "PM cash settlement; cash delivered business day following expiration",
+            "source": "MEFG-SPX",
+            "use": "lifecycle contrast in P17/P19; no SPXW market quote is asserted"
+          }
+        },
+        "clock": {
+          "kind": "relative teaching clock, not a listing calendar",
+          "trade": "D0",
+          "premium_cash": "D1",
+          "near_days": 30,
+          "near_fixing": "D30",
+          "near_exercise_cash": "D31",
+          "far_days": 90,
+          "far_fixing": "D90",
+          "far_exercise_cash": "D91"
+        },
+        "model": {
+          "spot": 100.0,
+          "rate": 0.0,
+          "dividend_yield": 0.0,
+          "volatility": 0.3,
+          "strikes": [
+            90,
+            95,
+            100,
+            105,
+            110
+          ],
+          "tenors_days": [
+            30,
+            90
+          ],
+          "pricing": "Black-Scholes-Merton teaching marks; zero rate/no distributions make European and non-dividend American vanilla values coincide in this baseline only",
+          "round_to_cents": true,
+          "option_half_spread": 0.02,
+          "stock_half_spread": 0.02,
+          "fee_per_contract_per_transaction": 0.65,
+          "fee_identity": "teaching parameter, not broker tariff",
+          "fill_assumption": "buy at ask / sell at bid; simultaneous one-contract fills and displayed size are teaching assumptions",
+          "baseline_wealth": 12000.0,
+          "baseline_shares": 100,
+          "baseline_cash": 2000.0
+        },
+        "terminal_scenarios": [
+          0,
+          70,
+          90,
+          95,
+          100,
+          105,
+          110,
+          130
+        ],
+        "quote_chain": [
+          {
+            "kind": "put",
+            "strike": 95,
+            "days": 30,
+            "raw_model": 1.4216039100326583,
+            "mid": 1.42,
+            "bid": 1.4,
+            "ask": 1.44
+          }
+        ],
+        "strategy_results": {
+          "hold": {
+            "shares": 100,
+            "legs": [],
+            "option_cash_mid": 0,
+            "option_cash_execution": 0,
+            "cash_after_premium_settlement_mid": 2000,
+            "terminal_mid": [
+              {
+                "spot": 0,
+                "terminal_wealth_mid": 2000
+              },
+              {
+                "spot": 70,
+                "terminal_wealth_mid": 9000
+              },
+              {
+                "spot": 90,
+                "terminal_wealth_mid": 11000
+              },
+              {
+                "spot": 95,
+                "terminal_wealth_mid": 11500
+              },
+              {
+                "spot": 100,
+                "terminal_wealth_mid": 12000
+              },
+              {
+                "spot": 105,
+                "terminal_wealth_mid": 12500
+              },
+              {
+                "spot": 110,
+                "terminal_wealth_mid": 13000
+              },
+              {
+                "spot": 130,
+                "terminal_wealth_mid": 15000
+              }
+            ]
+          },
+          "half_stock": {
+            "shares": 50,
+            "legs": [],
+            "option_cash_mid": 0,
+            "option_cash_execution": 0,
+            "cash_after_premium_settlement_mid": 7000,
+            "terminal_mid": [
+              {
+                "spot": 0,
+                "terminal_wealth_mid": 7000
+              },
+              {
+                "spot": 70,
+                "terminal_wealth_mid": 10500
+              },
+              {
+                "spot": 90,
+                "terminal_wealth_mid": 11500
+              },
+              {
+                "spot": 95,
+                "terminal_wealth_mid": 11750
+              },
+              {
+                "spot": 100,
+                "terminal_wealth_mid": 12000
+              },
+              {
+                "spot": 105,
+                "terminal_wealth_mid": 12250
+              },
+              {
+                "spot": 110,
+                "terminal_wealth_mid": 12500
+              },
+              {
+                "spot": 130,
+                "terminal_wealth_mid": 13500
+              }
+            ]
+          },
+          "protective_put_95": {
+            "shares": 100,
+            "legs": [
+              {
+                "kind": "put",
+                "strike": 95,
+                "days": 30,
+                "quantity": 1,
+                "mid": 1.42,
+                "bid": 1.4,
+                "ask": 1.44,
+                "initial_mid_cash": -142.0,
+                "initial_execution_cash_after_fee": -144.65
+              }
+            ],
+            "option_cash_mid": -142.0,
+            "option_cash_execution": -144.65,
+            "cash_after_premium_settlement_mid": 1858.0,
+            "terminal_mid": [
+              {
+                "spot": 0,
+                "terminal_wealth_mid": 11358.0
+              },
+              {
+                "spot": 70,
+                "terminal_wealth_mid": 11358.0
+              },
+              {
+                "spot": 90,
+                "terminal_wealth_mid": 11358.0
+              },
+              {
+                "spot": 95,
+                "terminal_wealth_mid": 11358.0
+              },
+              {
+                "spot": 100,
+                "terminal_wealth_mid": 11858.0
+              },
+              {
+                "spot": 105,
+                "terminal_wealth_mid": 12358.0
+              },
+              {
+                "spot": 110,
+                "terminal_wealth_mid": 12858.0
+              },
+              {
+                "spot": 130,
+                "terminal_wealth_mid": 14858.0
+              }
+            ]
+          }
+        },
+        "rolling_protection": {
+          "cycles": 3,
+          "drop_each_cycle": 0.04,
+          "put_strike_ratio": 0.95,
+          "premium_ratio": 0.0142,
+          "shares": 100,
+          "initial_stock": 100,
+          "initial_cash": 2000,
+          "identity": "three synthetic 30-day resets; no probability/history identity"
+        },
+        "rolling_protection_results": [
+          {
+            "cycle": 1,
+            "start_spot": 100,
+            "strike": 95.0,
+            "premium": 142.00000000000003,
+            "end_spot": 96.0,
+            "put_payoff": 0,
+            "cash": 1858.0,
+            "wealth": 11458.0
+          },
+          {
+            "cycle": 2,
+            "start_spot": 96.0,
+            "strike": 91.19999999999999,
+            "premium": 136.32,
+            "end_spot": 92.16,
+            "put_payoff": 0,
+            "cash": 1721.68,
+            "wealth": 10937.68
+          },
+          {
+            "cycle": 3,
+            "start_spot": 92.16,
+            "strike": 87.55199999999999,
+            "premium": 130.8672,
+            "end_spot": 88.47359999999999,
+            "put_payoff": 0,
+            "cash": 1590.8128000000002,
+            "wealth": 10438.172799999998
+          }
+        ],
+        "source_corrections": {
+          "OIC_legacy_assignment_notice_wording": {
+            "status": "do_not_adopt_exact_Monday_notice_wording_as_current_lifecycle_rule",
+            "use": "use current OCC ODD/T+1 contract mechanics; broker/customer exercise cutoffs remain broker-specific"
+          }
+        }
+      },
+      "default_results": {
+        "terminal": [
+          {
+            "id": "protective_put_95",
+            "view": "mid",
+            "origin": "existing",
+            "initial_wealth": 12000,
+            "initial_shares": 100,
+            "initial_cash": 2000,
+            "stock_delta": 0,
+            "stock_trade_cash": 0,
+            "stock_spread": 0,
+            "shares": 100,
+            "option_cash": -142,
+            "opening_fee": 0,
+            "cash_after_D1": 1858,
+            "option_mark": 142,
+            "wealth_at_mid_after_entry": 12000,
+            "legs": [
+              {
+                "kind": "put",
+                "strike": 95,
+                "days": 30,
+                "quantity": 1,
+                "mid": 1.42,
+                "bid": 1.4,
+                "ask": 1.44,
+                "fill": 1.42,
+                "fee": 0,
+                "cash": -142
+              }
+            ],
+            "settlement_note": "D0形成仓位与应收应付；D1教学营业日完成权利金/初始股票转换现金。",
+            "spot": 0,
+            "payoffs": [
+              9500
+            ],
+            "stock_mark": 0,
+            "option_payoff": 9500,
+            "wealth": 11358,
+            "pnl": -642,
+            "return_on_initial": -0.05349999999999999,
+            "identity": "到期闭合支付的财富标记；不自动宣称所有实物交割已完成。默认不计最终平股/行权费或税。"
+          },
+          {
+            "id": "protective_put_95",
+            "view": "mid",
+            "origin": "existing",
+            "initial_wealth": 12000,
+            "initial_shares": 100,
+            "initial_cash": 2000,
+            "stock_delta": 0,
+            "stock_trade_cash": 0,
+            "stock_spread": 0,
+            "shares": 100,
+            "option_cash": -142,
+            "opening_fee": 0,
+            "cash_after_D1": 1858,
+            "option_mark": 142,
+            "wealth_at_mid_after_entry": 12000,
+            "legs": [
+              {
+                "kind": "put",
+                "strike": 95,
+                "days": 30,
+                "quantity": 1,
+                "mid": 1.42,
+                "bid": 1.4,
+                "ask": 1.44,
+                "fill": 1.42,
+                "fee": 0,
+                "cash": -142
+              }
+            ],
+            "settlement_note": "D0形成仓位与应收应付；D1教学营业日完成权利金/初始股票转换现金。",
+            "spot": 70,
+            "payoffs": [
+              2500
+            ],
+            "stock_mark": 7000,
+            "option_payoff": 2500,
+            "wealth": 11358,
+            "pnl": -642,
+            "return_on_initial": -0.05349999999999999,
+            "identity": "到期闭合支付的财富标记；不自动宣称所有实物交割已完成。默认不计最终平股/行权费或税。"
+          },
+          {
+            "id": "protective_put_95",
+            "view": "mid",
+            "origin": "existing",
+            "initial_wealth": 12000,
+            "initial_shares": 100,
+            "initial_cash": 2000,
+            "stock_delta": 0,
+            "stock_trade_cash": 0,
+            "stock_spread": 0,
+            "shares": 100,
+            "option_cash": -142,
+            "opening_fee": 0,
+            "cash_after_D1": 1858,
+            "option_mark": 142,
+            "wealth_at_mid_after_entry": 12000,
+            "legs": [
+              {
+                "kind": "put",
+                "strike": 95,
+                "days": 30,
+                "quantity": 1,
+                "mid": 1.42,
+                "bid": 1.4,
+                "ask": 1.44,
+                "fill": 1.42,
+                "fee": 0,
+                "cash": -142
+              }
+            ],
+            "settlement_note": "D0形成仓位与应收应付；D1教学营业日完成权利金/初始股票转换现金。",
+            "spot": 90,
+            "payoffs": [
+              500
+            ],
+            "stock_mark": 9000,
+            "option_payoff": 500,
+            "wealth": 11358,
+            "pnl": -642,
+            "return_on_initial": -0.05349999999999999,
+            "identity": "到期闭合支付的财富标记；不自动宣称所有实物交割已完成。默认不计最终平股/行权费或税。"
+          },
+          {
+            "id": "protective_put_95",
+            "view": "mid",
+            "origin": "existing",
+            "initial_wealth": 12000,
+            "initial_shares": 100,
+            "initial_cash": 2000,
+            "stock_delta": 0,
+            "stock_trade_cash": 0,
+            "stock_spread": 0,
+            "shares": 100,
+            "option_cash": -142,
+            "opening_fee": 0,
+            "cash_after_D1": 1858,
+            "option_mark": 142,
+            "wealth_at_mid_after_entry": 12000,
+            "legs": [
+              {
+                "kind": "put",
+                "strike": 95,
+                "days": 30,
+                "quantity": 1,
+                "mid": 1.42,
+                "bid": 1.4,
+                "ask": 1.44,
+                "fill": 1.42,
+                "fee": 0,
+                "cash": -142
+              }
+            ],
+            "settlement_note": "D0形成仓位与应收应付；D1教学营业日完成权利金/初始股票转换现金。",
+            "spot": 95,
+            "payoffs": [
+              0
+            ],
+            "stock_mark": 9500,
+            "option_payoff": 0,
+            "wealth": 11358,
+            "pnl": -642,
+            "return_on_initial": -0.05349999999999999,
+            "identity": "到期闭合支付的财富标记；不自动宣称所有实物交割已完成。默认不计最终平股/行权费或税。"
+          },
+          {
+            "id": "protective_put_95",
+            "view": "mid",
+            "origin": "existing",
+            "initial_wealth": 12000,
+            "initial_shares": 100,
+            "initial_cash": 2000,
+            "stock_delta": 0,
+            "stock_trade_cash": 0,
+            "stock_spread": 0,
+            "shares": 100,
+            "option_cash": -142,
+            "opening_fee": 0,
+            "cash_after_D1": 1858,
+            "option_mark": 142,
+            "wealth_at_mid_after_entry": 12000,
+            "legs": [
+              {
+                "kind": "put",
+                "strike": 95,
+                "days": 30,
+                "quantity": 1,
+                "mid": 1.42,
+                "bid": 1.4,
+                "ask": 1.44,
+                "fill": 1.42,
+                "fee": 0,
+                "cash": -142
+              }
+            ],
+            "settlement_note": "D0形成仓位与应收应付；D1教学营业日完成权利金/初始股票转换现金。",
+            "spot": 100,
+            "payoffs": [
+              0
+            ],
+            "stock_mark": 10000,
+            "option_payoff": 0,
+            "wealth": 11858,
+            "pnl": -142,
+            "return_on_initial": -0.011833333333333362,
+            "identity": "到期闭合支付的财富标记；不自动宣称所有实物交割已完成。默认不计最终平股/行权费或税。"
+          },
+          {
+            "id": "protective_put_95",
+            "view": "mid",
+            "origin": "existing",
+            "initial_wealth": 12000,
+            "initial_shares": 100,
+            "initial_cash": 2000,
+            "stock_delta": 0,
+            "stock_trade_cash": 0,
+            "stock_spread": 0,
+            "shares": 100,
+            "option_cash": -142,
+            "opening_fee": 0,
+            "cash_after_D1": 1858,
+            "option_mark": 142,
+            "wealth_at_mid_after_entry": 12000,
+            "legs": [
+              {
+                "kind": "put",
+                "strike": 95,
+                "days": 30,
+                "quantity": 1,
+                "mid": 1.42,
+                "bid": 1.4,
+                "ask": 1.44,
+                "fill": 1.42,
+                "fee": 0,
+                "cash": -142
+              }
+            ],
+            "settlement_note": "D0形成仓位与应收应付；D1教学营业日完成权利金/初始股票转换现金。",
+            "spot": 105,
+            "payoffs": [
+              0
+            ],
+            "stock_mark": 10500,
+            "option_payoff": 0,
+            "wealth": 12358,
+            "pnl": 358,
+            "return_on_initial": 0.02983333333333338,
+            "identity": "到期闭合支付的财富标记；不自动宣称所有实物交割已完成。默认不计最终平股/行权费或税。"
+          },
+          {
+            "id": "protective_put_95",
+            "view": "mid",
+            "origin": "existing",
+            "initial_wealth": 12000,
+            "initial_shares": 100,
+            "initial_cash": 2000,
+            "stock_delta": 0,
+            "stock_trade_cash": 0,
+            "stock_spread": 0,
+            "shares": 100,
+            "option_cash": -142,
+            "opening_fee": 0,
+            "cash_after_D1": 1858,
+            "option_mark": 142,
+            "wealth_at_mid_after_entry": 12000,
+            "legs": [
+              {
+                "kind": "put",
+                "strike": 95,
+                "days": 30,
+                "quantity": 1,
+                "mid": 1.42,
+                "bid": 1.4,
+                "ask": 1.44,
+                "fill": 1.42,
+                "fee": 0,
+                "cash": -142
+              }
+            ],
+            "settlement_note": "D0形成仓位与应收应付；D1教学营业日完成权利金/初始股票转换现金。",
+            "spot": 110,
+            "payoffs": [
+              0
+            ],
+            "stock_mark": 11000,
+            "option_payoff": 0,
+            "wealth": 12858,
+            "pnl": 858,
+            "return_on_initial": 0.0714999999999999,
+            "identity": "到期闭合支付的财富标记；不自动宣称所有实物交割已完成。默认不计最终平股/行权费或税。"
+          },
+          {
+            "id": "protective_put_95",
+            "view": "mid",
+            "origin": "existing",
+            "initial_wealth": 12000,
+            "initial_shares": 100,
+            "initial_cash": 2000,
+            "stock_delta": 0,
+            "stock_trade_cash": 0,
+            "stock_spread": 0,
+            "shares": 100,
+            "option_cash": -142,
+            "opening_fee": 0,
+            "cash_after_D1": 1858,
+            "option_mark": 142,
+            "wealth_at_mid_after_entry": 12000,
+            "legs": [
+              {
+                "kind": "put",
+                "strike": 95,
+                "days": 30,
+                "quantity": 1,
+                "mid": 1.42,
+                "bid": 1.4,
+                "ask": 1.44,
+                "fill": 1.42,
+                "fee": 0,
+                "cash": -142
+              }
+            ],
+            "settlement_note": "D0形成仓位与应收应付；D1教学营业日完成权利金/初始股票转换现金。",
+            "spot": 130,
+            "payoffs": [
+              0
+            ],
+            "stock_mark": 13000,
+            "option_payoff": 0,
+            "wealth": 14858,
+            "pnl": 2858,
+            "return_on_initial": 0.23816666666666664,
+            "identity": "到期闭合支付的财富标记；不自动宣称所有实物交割已完成。默认不计最终平股/行权费或税。"
+          }
+        ],
+        "renewal": [
+          {
+            "cycle": 1,
+            "start": 100,
+            "strike": 95,
+            "premium": 142.00000000000003,
+            "cumulative_premium": 142.00000000000003,
+            "end": 96,
+            "put_payoff": 0,
+            "cash": 1858,
+            "wealth": 11458
+          },
+          {
+            "cycle": 2,
+            "start": 96,
+            "strike": 91.19999999999999,
+            "premium": 136.32,
+            "cumulative_premium": 278.32000000000005,
+            "end": 92.16,
+            "put_payoff": 0,
+            "cash": 1721.68,
+            "wealth": 10937.68
+          },
+          {
+            "cycle": 3,
+            "start": 92.16,
+            "strike": 87.55199999999999,
+            "premium": 130.8672,
+            "cumulative_premium": 409.1872000000001,
+            "end": 88.47359999999999,
+            "put_payoff": 0,
+            "cash": 1590.8128000000002,
+            "wealth": 10438.172799999998
+          }
+        ]
+      },
+      "input_units_and_bounds": {
+        "terminal_stock": {
+          "default": 70,
+          "min": 0,
+          "max": 200,
+          "unit": "USD/share"
+        },
+        "view": [
+          "mid",
+          "execution"
+        ]
+      },
+      "algorithm": "100 shares + 95put; roll fixes 3 cycles -4%, resets95%strike, charges each premium once.",
+      "boundaries": "续保为独立指定路径，非概率或回测；不把每期floor外推累计floor。",
+      "static_equivalent_markdown": "# P15 默认结果与静态解释\n\nPF-GRID-01合成教学链；真实合约条款与模型/执行价分开。金额为美元，标准单位100；无真实行情。\n\n| 终点股价 | mid财富 | 执行层财富 | mid损益 |\n|---|---|---|---|\n| 0.00 | 11,358.00 | 11,355.35 | -642.00 |\n| 70.00 | 11,358.00 | 11,355.35 | -642.00 |\n| 90.00 | 11,358.00 | 11,355.35 | -642.00 |\n| 95.00 | 11,358.00 | 11,355.35 | -642.00 |\n| 100.00 | 11,858.00 | 11,855.35 | -142.00 |\n| 105.00 | 12,358.00 | 12,355.35 | 358.00 |\n| 110.00 | 12,858.00 | 12,855.35 | 858.00 |\n| 130.00 | 14,858.00 | 14,855.35 | 2,858.00 |\n\n| 续保段 | 起点 | 新strike | 段末价 | premium | 累计premium | 现金 | 财富 |\n|---|---|---|---|---|---|---|---|\n| 1 | 100.0000 | 95.0000 | 96.0000 | 142.0000 | 142.0000 | 1,858.0000 | 11,458.0000 |\n| 2 | 96.0000 | 91.2000 | 92.1600 | 136.3200 | 278.3200 | 1,721.6800 | 10,937.6800 |\n| 3 | 92.1600 | 87.5520 | 88.4736 | 130.8672 | 409.1872 | 1,590.8128 | 10,438.1728 |\n\n三张put支付都为0；执行价参照点逐次下移，不是原95一直存在。\n",
+      "static_figures": [
+        "https://ou-liu-red-sugar.github.io/notebook/labs/p-fgh/figures/P15-payoff.svg",
+        "https://ou-liu-red-sugar.github.io/notebook/labs/p-fgh/figures/P15-renewal.svg"
+      ],
+      "source_id_mapping": {
+        "PFH-ODD": "MA-OCC",
+        "PFH-ETF": "PFH-ETF",
+        "PFH-EQUITY": "PFH-EQUITY",
+        "PFH-T1": "PFH-T1",
+        "PFH-EXERCISE": "PFH-EXERCISE",
+        "PFH-SPXW": "MA-SPX",
+        "PFH-MARGIN": "PFH-MARGIN",
+        "PFH-CC": "PFH-CC",
+        "PFH-CSP": "PFH-CSP",
+        "PFH-PP": "PFH-PP",
+        "PFH-COLLAR": "PFH-COLLAR",
+        "PFH-CALL-SPREAD": "PFH-CALL-SPREAD",
+        "PFH-PUT-SPREAD": "PFH-PUT-SPREAD",
+        "PFH-STRADDLE": "PFH-STRADDLE",
+        "PFH-STRANGLE": "PFH-STRANGLE",
+        "PFH-CALENDAR": "PFH-CALENDAR",
+        "PFH-PARITY": "PFH-PARITY",
+        "PFH-MIT-OPTIONS": "PFH-MIT-OPTIONS",
+        "PFH-MIT-BSM": "PFH-MIT-BSM",
+        "PFH-BXM": "PFH-BXM",
+        "PFH-PUT-INDEX": "PFH-PUT-INDEX",
+        "PFH-CLL": "PFH-CLL",
+        "PFH-AQR2021": "PFH-AQR2021",
+        "PFH-CHIFED2025": "PFH-CHIFED2025",
+        "MEFG-ODD": "MA-OCC",
+        "MP-OCC": "MA-OCC",
+        "MEFG-OCC-ETF": "PFH-ETF",
+        "MEFG-OCC-EQUITY": "PFH-EQUITY",
+        "MEFG-OIC-T1": "PFH-T1",
+        "MEFG-OIC-EXERCISE": "PFH-EXERCISE",
+        "MEFG-SPX": "MA-SPX",
+        "PFGH-CBOE-MARGIN": "PFH-MARGIN",
+        "PFGH-OIC-CC": "PFH-CC",
+        "PFGH-OIC-CSP": "PFH-CSP",
+        "PFGH-OIC-PP": "PFH-PP",
+        "PFGH-OIC-COLLAR": "PFH-COLLAR",
+        "PFGH-OIC-BULL-CALL": "PFH-CALL-SPREAD",
+        "PFGH-OIC-BULL-PUT": "PFH-PUT-SPREAD",
+        "PFGH-OIC-STRADDLE": "PFH-STRADDLE",
+        "PFGH-OIC-STRANGLE": "PFH-STRANGLE",
+        "PFGH-OIC-CALENDAR": "PFH-CALENDAR",
+        "MEFG-MIT-OPTIONS": "PFH-MIT-OPTIONS",
+        "MEFG-MIT-KOGAN": "PFH-MIT-BSM",
+        "PFGH-CBOE-BXM": "PFH-BXM",
+        "PFGH-CBOE-PUT": "PFH-PUT-INDEX",
+        "PFGH-CBOE-COLLAR": "PFH-CLL",
+        "PFGH-AQR-PROTECTION-2021": "PFH-AQR2021",
+        "MEFG-CHICAGOFED-2025": "PFH-CHIFED2025"
+      },
+      "full_frozen_inputs_uri": "https://ou-liu-red-sugar.github.io/notebook/labs/p-fgh/inputs.json",
+      "default_results_uri": "https://ou-liu-red-sugar.github.io/notebook/labs/p-fgh/results/P15.json",
+      "default_results_pointer": "/",
+      "reproduction_instructions": "https://ou-liu-red-sugar.github.io/notebook/labs/p-fgh/reproduce.md",
+      "input_identity": "本篇投影沿作者review-v2；完整PF-GRID-01原字节见公开inputs.json，模型/报价/默认结果未改。"
+    },
+    "content_version": "2026-09-21-PFGH-staging-v3",
+    "branch_selection_protocol": "核心读取required_readings；选择具名选读分支时追加其完整required_unit。实际读完再教，不继承编辑的读取状态。"
+  },
+  "experiments": [
+    {
+      "id": "EXP-P15-PROTECTIVE-PUT",
+      "node_id": "P15",
+      "title": "保护下限与三次重设",
+      "anchor": "p15-lab",
+      "description": "逐腿推导指定期限净财富下限，并用三次续保说明参照点重设的累计后果。",
+      "shared_experiment_id": "EXP-OPTIONS-01",
+      "inputs": {
+        "terminal_stock": {
+          "default": 70,
+          "min": 0,
+          "max": 200,
+          "unit": "USD/share"
+        },
+        "view": [
+          "mid",
+          "execution"
+        ]
+      },
+      "outputs": [
+        "逐腿现金/条件mark",
+        "终点或期间财富",
+        "持仓及可达资金",
+        "缺口或适用边界"
+      ],
+      "algorithm": "100 shares + 95put; roll fixes 3 cycles -4%, resets95%strike, charges each premium once.",
+      "boundaries": "续保为独立指定路径，非概率或回测；不把每期floor外推累计floor。",
+      "views": [
+        "终点保护线",
+        "三次strike、股价与现金轨迹"
+      ],
+      "static_equivalent": {
+        "reader_path": "https://ou-liu-red-sugar.github.io/zh/notebook/protective-put-floor-and-renewal/",
+        "figure_paths": [
+          "https://ou-liu-red-sugar.github.io/notebook/labs/p-fgh/figures/P15-payoff.svg",
+          "https://ou-liu-red-sugar.github.io/notebook/labs/p-fgh/figures/P15-renewal.svg"
+        ],
+        "defaults_location": "agent_packet.supplied_inputs.default_results",
+        "defaults_uri": "https://ou-liu-red-sugar.github.io/notebook/labs/p-fgh/results/P15.json",
+        "defaults_pointer": "/",
+        "static_uri": "https://ou-liu-red-sugar.github.io/notebook/labs/p-fgh/static/P15.md"
+      },
+      "inputs_uri": "https://ou-liu-red-sugar.github.io/notebook/labs/p-fgh/inputs.json",
+      "results_uri": "https://ou-liu-red-sugar.github.io/notebook/labs/p-fgh/results/P15.json",
+      "reproduce_uri": "https://ou-liu-red-sugar.github.io/notebook/labs/p-fgh/reproduce.md"
+    }
+  ],
+  "status": "candidate_local_review",
+  "audience": "高年级本科至研究生；默认数学基础，具体制度与材料按对象解释",
+  "interactions": [
+    {
+      "id": "EXP-P15-PROTECTIVE-PUT",
+      "title": "保护下限与三次重设",
+      "url": "/notebook/labs/p-fgh/interactions.html?experiment=EXP-P15-PROTECTIVE-PUT#EXP-P15-PROTECTIVE-PUT",
+      "height": 1350,
+      "open": true,
+      "experiment_id": "EXP-P15-PROTECTIVE-PUT",
+      "experiment_ids": [
+        "EXP-P15-PROTECTIVE-PUT"
+      ],
+      "static_anchor": "p15-lab",
+      "inline": true
+    }
+  ],
+  "references": [
+    {
+      "kind": "source_link",
+      "label": "pp",
+      "href": "https://www.optionseducation.org/strategies/all-strategies/protective-put-married-put",
+      "source_id": "PFH-PP",
+      "locator": "OIC，[Protective Put](https://www.optionseducation.org/strategies/all-strategies/protective-put-married-put)，Description、Max Loss/Gain、Exercise/Expiration相关完整单元。"
+    },
+    {
+      "kind": "source_link",
+      "label": "terms",
+      "href": "https://www.theocc.com/clearance-and-settlement/clearing/etf-options",
+      "source_id": "PFH-ETF",
+      "locator": "OCC，[ETF Options](https://www.theocc.com/clearance-and-settlement/clearing/etf-options)，未调整单位、American exercise及T+1 settlement；报价为本文合成输入。"
+    },
+    {
+      "kind": "source_link",
+      "label": "mit",
+      "href": "https://ocw.mit.edu/courses/15-401-finance-theory-i-fall-2008/c40ecc0cc0dce0fbf2d229bc4027c43b_MIT15_401F08_lec10.pdf",
+      "source_id": "PFH-MIT-OPTIONS",
+      "locator": "Andrew Lo，MIT [Options](https://ocw.mit.edu/courses/15-401-finance-theory-i-fall-2008/c40ecc0cc0dce0fbf2d229bc4027c43b_MIT15_401F08_lec10.pdf)，Fall 2008，slides 10–11。"
+    },
+    {
+      "kind": "source_link",
+      "label": "exercise",
+      "href": "https://www.optionseducation.org/referencelibrary/faq/options-exercise",
+      "source_id": "PFH-EXERCISE",
+      "locator": "OIC，[Options Exercise FAQ](https://www.optionseducation.org/referencelibrary/faq/options-exercise)，行权与平仓、提前行权与时间价值问答；OCC [ODD](https://www.theocc.com/getmedia/a151a9ae-d784-4a15-bdeb-23a029f50b70/riskstoc.pdf) June 2024 Chapter VIII。"
+    },
+    {
+      "kind": "source_link",
+      "label": "exercise",
+      "href": "https://www.theocc.com/getmedia/a151a9ae-d784-4a15-bdeb-23a029f50b70/riskstoc.pdf",
+      "source_id": "MA-OCC",
+      "locator": "OIC，[Options Exercise FAQ](https://www.optionseducation.org/referencelibrary/faq/options-exercise)，行权与平仓、提前行权与时间价值问答；OCC [ODD](https://www.theocc.com/getmedia/a151a9ae-d784-4a15-bdeb-23a029f50b70/riskstoc.pdf) June 2024 Chapter VIII。"
+    },
+    {
+      "kind": "source_link",
+      "label": "aqr",
+      "href": "https://www.aqr.com/-/media/AQR/Documents/Journal-Articles/Portfolio-Protection-Its-a-Long-Term-Story.pdf?sc_lang=en",
+      "source_id": "PFH-AQR2021",
+      "locator": "McQuinn、Thapar、Villalon，[Portfolio Protection? It's a Long (Term) Story…](https://www.aqr.com/-/media/AQR/Documents/Journal-Articles/Portfolio-Protection-Its-a-Long-Term-Story.pdf?sc_lang=en)，February 2021，印刷5–6页、脚注6及Exhibit 3，印刷14页期权数据定义。三段路径为本站合成例，不是论文回测。"
+    },
+    {
+      "kind": "source_link",
+      "label": "spx",
+      "href": "https://cdn.cboe.com/resources/spx/spx-fact-sheet.pdf",
+      "source_id": "MA-SPX",
+      "locator": "Cboe，[SPX Fact Sheet](https://cdn.cboe.com/resources/spx/spx-fact-sheet.pdf)，©2026，第2页：SPXW欧式、PM现金结算与下一营业日交付；不采用为XYZ的精确复制。"
+    }
+  ],
+  "import_provenance": {
+    "source_package": "docs/production/20260921/drafts/p-fgh-v2/notebook-P-FGH-review-v2-20260921",
+    "source_content_version": "2026-09-21-review-v2",
+    "independent_review": "docs/production/20260921/receipts/p-fgh-independent-draft-review.md",
+    "status": "staging_only_awaiting_Lead_adoption_and_UI",
+    "adaptations": "R1 static exposure percentages; R2 Agent deduplication; current metadata and public asset URLs only"
+  }
+}

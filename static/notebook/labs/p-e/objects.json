@@ -1,0 +1,55 @@
+[
+  {
+    "id": "CASE-PE-SEC-MARGIN",
+    "kind": "official_teaching_case",
+    "source_ids": [
+      "PE-SEC-MARGIN"
+    ],
+    "input_key": "frozen.margin",
+    "identity": "Independent teaching extensions of the SEC example; cash repays debt, sale proceeds repay debt; no price change or fees during the remedy"
+  },
+  {
+    "id": "SIM-PE-EXEC-01",
+    "kind": "synthetic_experiment",
+    "source_ids": [],
+    "input_key": "frozen.execution",
+    "identity": "Entire book, fills, prices and fee are synthetic; no real ticker or historical quotes"
+  },
+  {
+    "id": "SIM-PE-BUDGET-01",
+    "kind": "synthetic_experiment_with_real_contract_spec",
+    "source_ids": [
+      "MA-MES"
+    ],
+    "input_key": "frozen.joint_budget",
+    "identity": "MES multiplier and tick are actual contract specifications; portfolio, futures prices, account amounts, margins, fee, depth and stress paths are teaching inputs"
+  },
+  {
+    "id": "SIM-PE-REBALANCE-01",
+    "kind": "synthetic_experiment",
+    "source_ids": [
+      "PE-VANGUARD-POL",
+      "PE-VANGUARD-RB"
+    ],
+    "input_key": "frozen.rebalance",
+    "identity": "Synthetic cash portfolio applying the threshold/destination distinction in the dated Vanguard policy; not an actual Vanguard portfolio or cost observation"
+  },
+  {
+    "id": "OBS-PE-FEDS-T1A",
+    "kind": "published_summary_observation",
+    "source_ids": [
+      "PE-FEDS-2025049"
+    ],
+    "input_key": "frozen.research_observation",
+    "identity": "Published summary statistics, not raw trade data or a replicated estimate"
+  },
+  {
+    "id": "EVENT-PE-NDX-20230724",
+    "kind": "dated_announcement",
+    "source_ids": [
+      "PE-NASDAQ-NDX"
+    ],
+    "input_key": "frozen.index_event",
+    "identity": "Actual index-rebalance announcement; not ETF executions or a trading backtest"
+  }
+]

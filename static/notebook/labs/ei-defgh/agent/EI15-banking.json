@@ -1,0 +1,134 @@
+{
+  "entry_id": "zh-ei15",
+  "node_id": "EI-15",
+  "content_version": "2026-09-21-review-v3",
+  "export_mode": "public",
+  "selected_branch": "banking",
+  "audience": "有微积分、线性代数和基本概率基础的高年级本科生至研究生",
+  "learning_task": "为具体问题选择有不同职责的指标，核版本、统计构造和总体，再设计下一项检验。",
+  "required_readings": [
+    {
+      "source_id": "EIDEF-S17",
+      "title": "Quarterly Banking Profile — First Quarter 2026",
+      "authors": [
+        "FDIC"
+      ],
+      "version": "Q1 2026; official release 2026-05-27",
+      "access": {
+        "kind": "pdf_full_text",
+        "uri": "https://www.fdic.gov/quarterly-banking-profile/quarterly-banking-profile-first-quarter-2026.pdf",
+        "verified_access_at": "2026-09-21"
+      },
+      "required_unit": {
+        "locator": "Q1 2026官方发布：Net Income、Net Interest Margin、earning-asset yield与cost of funds具名段；QBP Q1 2026对应全行业指标",
+        "scope": "所列具名单元全文，包含公式、表头、表注及本篇采用结论所需上下文；不要求无关章节。",
+        "purpose": "Q1 2026官方资料：4,278家FDIC-insured commercial banks and savings institutions，净收入80.5bn、ROA1.26%、NIM3.31%（环比-8bp）；报告解释earning-asset yield下降21bp而funding cost下降13bp。"
+      },
+      "supports": "Q1 2026官方资料：4,278家FDIC-insured commercial banks and savings institutions，净收入80.5bn、ROA1.26%、NIM3.31%（环比-8bp）；报告解释earning-asset yield下降21bp而funding cost下降13bp。",
+      "branch": "banking",
+      "id": "EI-15-READ-1",
+      "retrieved_at": "2026-09-21"
+    },
+    {
+      "source_id": "EIDEF-S22",
+      "title": "Do Net Interest Margins and Interest Rates Move Together?",
+      "authors": [
+        "Huberto M. Ennis",
+        "Helen Fessenden",
+        "John R. Walter"
+      ],
+      "version": "Richmond Fed Economic Brief No16-05, May2016",
+      "access": {
+        "kind": "site_body",
+        "uri": "https://www.richmondfed.org/publications/research/economic_brief/2016/eb_16-05",
+        "verified_access_at": "2026-09-21"
+      },
+      "required_unit": {
+        "locator": "The Importance of Maturity Mismatch：NIM definition、profits comparison及期限结构段",
+        "scope": "所列具名单元全文，包含公式、表头、表注及本篇采用结论所需上下文；不要求无关章节。",
+        "purpose": "补充净利息/生息资产与综合利润的定义区别；只支持稳定概念，不支持2026 FDIC统计值。"
+      },
+      "supports": "补充净利息/生息资产与综合利润的定义区别；只支持稳定概念，不支持2026 FDIC统计值。",
+      "branch": "banking",
+      "id": "EI-15-READ-2",
+      "retrieved_at": "2026-09-21"
+    }
+  ],
+  "optional_readings": [],
+  "runtime_reading_log": [],
+  "supplied_inputs": {
+    "frozen_source_version": "2026-09-21-ei-defgh-preflight-final",
+    "node": {
+      "bank_branch": {
+        "source": "FDIC Quarterly Banking Profile Q1 2026 / May 27 2026 release",
+        "population": "4,278 FDIC-insured commercial banks and savings institutions in the release",
+        "net_income_billion_USD": 80.5,
+        "ROA_pct": 1.26,
+        "NIM_pct": 3.31,
+        "NIM_qoq_change_bp": -8,
+        "NIM_definition": "interest/dividends earned on interest-bearing assets minus interest paid to depositors and other creditors, expressed relative to average earning assets",
+        "current_driver": "earning-asset yield fell 21 bp while cost of funds fell 13 bp"
+      }
+    },
+    "experiments": [
+      {
+        "id": "exp-ei15-metric-contract",
+        "node_id": "EI-15",
+        "title": "指标的对象与证据职责",
+        "anchor": "ei15-selection",
+        "method": "metrics",
+        "controls": [],
+        "inputs": {
+          "branch": "banking"
+        },
+        "algorithm": "真实数值只读。只使用当前银行分支：前季NIM=本季NIM−qoq bp/100；bp是百分点单位，NIM分母为平均生息资产，不能替代综合利润桥。",
+        "static_equivalent": "银行：前季约3.39%→本季3.31%=−8bp；NIM分母为平均生息资产。",
+        "source_ids": [
+          "EIDEF-S17",
+          "EIDEF-S22"
+        ],
+        "identity": "observed_and_derived",
+        "description": "指标的对象与证据职责",
+        "outputs": {
+          "branch": "banking",
+          "source": "FDIC Quarterly Banking Profile Q1 2026 / May 27 2026 release",
+          "population": "4,278 FDIC-insured commercial banks and savings institutions in the release",
+          "net_income_billion_USD": 80.5,
+          "ROA_pct": 1.26,
+          "NIM_pct": 3.31,
+          "NIM_qoq_change_bp": -8,
+          "NIM_definition": "interest/dividends earned on interest-bearing assets minus interest paid to depositors and other creditors, expressed relative to average earning assets",
+          "current_driver": "earning-asset yield fell 21 bp while cost of funds fell 13 bp",
+          "previousNIMpct": 3.39,
+          "identity": "全行业Q1 2026统计；NIM为净利息／平均生息资产的年化比率"
+        }
+      }
+    ]
+  },
+  "static_equivalents": [
+    {
+      "experiment_id": "exp-ei15-metric-contract",
+      "text": "银行：前季约3.39%→本季3.31%=−8bp；NIM分母为平均生息资产。",
+      "outputs": {
+        "branch": "banking",
+        "source": "FDIC Quarterly Banking Profile Q1 2026 / May 27 2026 release",
+        "population": "4,278 FDIC-insured commercial banks and savings institutions in the release",
+        "net_income_billion_USD": 80.5,
+        "ROA_pct": 1.26,
+        "NIM_pct": 3.31,
+        "NIM_qoq_change_bp": -8,
+        "NIM_definition": "interest/dividends earned on interest-bearing assets minus interest paid to depositors and other creditors, expressed relative to average earning assets",
+        "current_driver": "earning-asset yield fell 21 bp while cost of funds fell 13 bp",
+        "previousNIMpct": 3.39,
+        "identity": "全行业Q1 2026统计；NIM为净利息／平均生息资产的年化比率"
+      }
+    }
+  ],
+  "source_id_aliases": {
+    "EIDEF-S10": "BFDE-JEP",
+    "EIDEF-S14": "EIBC-S07M",
+    "EIDEF-S16A": "EIBC-S05A",
+    "EIDEF-S16B": "EIBC-S05B",
+    "EIDEF-S21": "EI-S06-M3-202605"
+  }
+}

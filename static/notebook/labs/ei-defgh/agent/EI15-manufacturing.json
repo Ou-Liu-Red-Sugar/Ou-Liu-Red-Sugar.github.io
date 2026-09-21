@@ -1,0 +1,120 @@
+{
+  "entry_id": "zh-ei15",
+  "node_id": "EI-15",
+  "content_version": "2026-09-21-review-v3",
+  "export_mode": "public",
+  "selected_branch": "manufacturing",
+  "audience": "有微积分、线性代数和基本概率基础的高年级本科生至研究生",
+  "learning_task": "为具体问题选择有不同职责的指标，核版本、统计构造和总体，再设计下一项检验。",
+  "required_readings": [
+    {
+      "source_id": "EIBC-S07M",
+      "title": "Manufacturers’ Shipments, Inventories, and Orders: Methodology",
+      "authors": [
+        "U.S. Census Bureau"
+      ],
+      "version": "采用单元未显示发表/修订日；2026-09-21访问",
+      "access": {
+        "kind": "pdf_full_text",
+        "uri": "https://www.census.gov/manufacturing/m3/Web_Methodology.pdf",
+        "verified_access_at": "2026-09-21"
+      },
+      "required_unit": {
+        "locator": "Estimation pp.2–3；Seasonal Adjustment pp.3–4；Reliability p.4",
+        "scope": "所列具名单元全文，包含公式、表头、表注及本篇采用结论所需上下文；不要求无关章节。",
+        "purpose": "新订单由出货与未完成订单月差构造；季调亦然，含取消/修改。381是定义性桥，不是3项独立观察。"
+      },
+      "supports": "新订单由出货与未完成订单月差构造；季调亦然，含取消/修改。381是定义性桥，不是3项独立观察。",
+      "branch": "manufacturing",
+      "id": "EI-15-READ-1",
+      "retrieved_at": "2026-09-21"
+    },
+    {
+      "source_id": "EI-S06-M3-202605",
+      "title": "M3 Full Report — May2026",
+      "authors": [
+        "U.S. Census Bureau"
+      ],
+      "version": "2026-07-02 release; CB26-104 M3-2(26)-05",
+      "access": {
+        "kind": "pdf_full_text",
+        "uri": "https://www.census.gov/manufacturing/m3/historical_data/pressreleases/prel/2026/may26prel.pdf",
+        "verified_access_at": "2026-09-21"
+      },
+      "required_unit": {
+        "locator": "PDFp1身份；pp6–9 Tables1–4 Construction machinery row及脚注",
+        "scope": "所列具名单元全文，包含公式、表头、表注及本篇采用结论所需上下文；不要求无关章节。",
+        "purpose": "April revised / May preliminary；SA百万美元；381定义性订单桥、存货+66分开。"
+      },
+      "supports": "April revised / May preliminary；SA百万美元；381定义性订单桥、存货+66分开。",
+      "branch": "manufacturing",
+      "id": "EI-15-READ-2",
+      "retrieved_at": "2026-09-21"
+    }
+  ],
+  "optional_readings": [],
+  "runtime_reading_log": [],
+  "supplied_inputs": {
+    "frozen_source_version": "2026-09-21-ei-defgh-preflight-final",
+    "node": {
+      "manufacturing_branch": {
+        "M3_new_orders_identity": "published new orders are constructed from shipments plus the change in unfilled orders; not an independent third demand observation",
+        "reuse": "EI-B review-v2 M3 methodology correction"
+      }
+    },
+    "experiments": [
+      {
+        "id": "exp-ei15-metric-contract",
+        "node_id": "EI-15",
+        "title": "指标的对象与证据职责",
+        "anchor": "ei15-selection",
+        "method": "metrics",
+        "controls": [],
+        "inputs": {
+          "branch": "manufacturing"
+        },
+        "algorithm": "真实数值只读。只使用M3当前分支：季调新订单N=S+ΔB；381是定义性未完成订单月差，ΔI=66另列，不作为同一订单桥的一部分。",
+        "static_equivalent": "制造：4498+(11595−11214)=4879；ΔB=381是构造桥；库存变化+66单列。",
+        "source_ids": [
+          "EIBC-S07M",
+          "EI-S06-M3-202605"
+        ],
+        "identity": "observed_and_derived",
+        "description": "指标的对象与证据职责",
+        "outputs": {
+          "branch": "manufacturing",
+          "shipments": 4498,
+          "backlogStart": 11214,
+          "backlogEnd": 11595,
+          "backlogChange": 381,
+          "constructedOrders": 4879,
+          "inventoryChange": 66,
+          "identity": "新订单由出货与未完成订单月差构造；不是三份独立观察"
+        }
+      }
+    ]
+  },
+  "static_equivalents": [
+    {
+      "experiment_id": "exp-ei15-metric-contract",
+      "text": "制造：4498+(11595−11214)=4879；ΔB=381是构造桥；库存变化+66单列。",
+      "outputs": {
+        "branch": "manufacturing",
+        "shipments": 4498,
+        "backlogStart": 11214,
+        "backlogEnd": 11595,
+        "backlogChange": 381,
+        "constructedOrders": 4879,
+        "inventoryChange": 66,
+        "identity": "新订单由出货与未完成订单月差构造；不是三份独立观察"
+      }
+    }
+  ],
+  "source_id_aliases": {
+    "EIDEF-S10": "BFDE-JEP",
+    "EIDEF-S14": "EIBC-S07M",
+    "EIDEF-S16A": "EIBC-S05A",
+    "EIDEF-S16B": "EIBC-S05B",
+    "EIDEF-S21": "EI-S06-M3-202605"
+  }
+}
