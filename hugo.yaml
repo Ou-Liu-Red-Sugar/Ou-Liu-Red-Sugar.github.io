@@ -1,70 +1,49 @@
-baseURL: "https://ou-liu-red-sugar.github.io/"
-title: "Ou Liu"
-theme: "PaperMod"
-languageCode: "en-us"
-defaultContentLanguage: "en"
-
+baseURL: https://ou-liu-red-sugar.github.io/
+title: Ou Liu
+theme: PaperMod
+languageCode: en-us
+defaultContentLanguage: zh
 enableInlineShortcodes: true
-
-# Search needs JSON output on home
 outputs:
   home:
-    - HTML
-    - RSS
-    - JSON
+  - HTML
+  - RSS
+  - JSON
   section:
-    - HTML
-    - RSS
-
-# Clean permalinks for sections
+  - HTML
+  - RSS
 permalinks:
   notes: /notes/:sections[1:]/:slug/
   papers: /papers/:slug/
   invest: /invest/:slug/
-  "invest/log": /invest/log/:slug/
-  "invest/lessons": /invest/lessons/:slug/
-  "invest/reviews": /invest/reviews/:slug/
+  invest/log: /invest/log/:slug/
+  invest/lessons: /invest/lessons/:slug/
+  invest/reviews: /invest/reviews/:slug/
   wiki: /wiki/:slug/
-
-menu:
-  main:
-    - identifier: invest
-      name: Investing Lab
-      url: /invest/
-      weight: 10
-    - identifier: learning
-      name: Learning Notes
-      url: /learning/
-      weight: 20
-    - identifier: archive
-      name: Math Archive
-      url: /notes/
-      weight: 30
-    - identifier: about
-      name: About
-      url: /about/
-      weight: 40
-
+menu: {}
 params:
+  assets:
+    favicon: /favicon/favicon.svg
   env: production
-  description: "Learning stochastic processes and financial markets while testing an investing research framework in live practice."
-  author: "Ou Liu"
-
-  # PaperMod UX
-  ShowPostNavLinks: true
+  description: 关于业务、市场与不确定性的持续笔记。
+  author: Ou Liu
+  ShowPostNavLinks: false
   defaultTheme: light
   disableThemeToggle: true
   math: false
-
-  # Reading experience (PaperMod keys are case-sensitive)
   ShowToc: true
   TocOpen: false
   ShowReadingTime: true
   ShowCodeCopyButtons: true
-
+  discussions:
+    enabled: true
+    repo: Ou-Liu-Red-Sugar/Ou-Liu-Red-Sugar.github.io
+    repoId: R_kgDOQt9h3w
+    publicBaseURL: https://ou-liu-red-sugar.github.io/
+    category: Announcements
+    categoryId: DIC_kwDOQt9h384DGD5i
   customCSS:
-    - css/custom.css
-
+  - css/custom.css
 markup:
   goldmark:
     renderer:
@@ -74,15 +53,43 @@ markup:
         enable: true
         delimiters:
           block:
-            - ["\\[", "\\]"]
-            - ["$$", "$$"]
+          - - \[
+            - \]
+          - - $$
+            - $$
           inline:
-            - ["$", "$"]
-            - ["\\(", "\\)"]
-
+          - - $
+            - $
+          - - \(
+            - \)
+  tableOfContents:
+    startLevel: 2
+    endLevel: 3
 enableRobotsTXT: true
-
 sitemap:
   changefreq: weekly
   priority: 0.5
   filename: sitemap.xml
+defaultContentLanguageInSubdir: true
+languages:
+  zh:
+    languageCode: zh-CN
+    languageName: 中文
+    contentDir: content-zh
+    weight: 1
+    title: 刘欧 · 笔记
+  en:
+    languageCode: en-US
+    languageName: English
+    contentDir: content
+    weight: 2
+    title: Ou Liu · Notes
+disableKinds: []
+module:
+  mounts:
+    - source: content-zh
+      target: content
+      lang: zh
+    - source: content
+      target: content
+      lang: en
