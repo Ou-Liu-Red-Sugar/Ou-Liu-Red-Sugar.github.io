@@ -3,7 +3,7 @@
   "node_id": "P14",
   "lang": "zh",
   "slug": "cash-secured-put-funding-and-acquisition",
-  "title": "P14 现金担保看跌：有条件地买股，不是带利息的限价单",
+  "title": "现金担保看跌：接股义务与资金时点",
   "summary": "区分接股总款与有效成本，比较同K平价、限价成交和指派时点.",
   "subject": "portfolio",
   "topic": "portfolio-options",
@@ -11,10 +11,10 @@
   "template": "T6",
   "role": "核心",
   "study_time": "18–20分钟（含操作与题解）",
-  "revised": "2026-09-21",
-  "content_version": "2026-09-21-PFGH-staging-v3",
-  "body_markdown": "我们现在换一个起点：手里有现金，考虑取得股票，但希望买入价格低一些. 现金担保看跌把这种愿望变成一项有期限的义务. 本篇要同时算清三件事：卖put收到多少、需要准备多少接股现金、到期究竟持有股票还是仍持有现金.\n\n<a id=\"p14-goal\"></a>\n## 1. 买入意愿与履约义务并不是同一句话\n\n设账户有12,000美元现金，XYZ现价100，愿意在未来30天按95取得100股. 卖一张95 put，意味着持有人可以按照合同向我们交付100股，我们被指派时需要支付9,500美元. 把相应现金或合格现金等价物准备好，才构成现金担保安排. 权利金是出售选择权收到的价格，不是买股票的订金；合同也不是保证我们一定能取得股票. [^csp]\n\n本篇仍用PF-GRID-01：95 put的mid为1.42，合成bid/ask为1.40/1.44，每张每次费0.65，标准单位100股. 主例没有分红和利息. 用mid建立后，账户现金在D1成为12,142，但尚有142美元短put负债，净财富仍为12,000. 把权利金应收与现金结算分开，是为了避免D0就将还未到达的钱转走. [^t1]\n\nCboe的策略保证金概述将现金账户short put的总执行价担保与期权价款分开；具体可接受资产及更高内部要求由适用规则和券商决定. 本例预留9,500，而不是用某个未取得的保证金百分比替代. [^margin]\n\n<a id=\"p14-accounts\"></a>\n## 2. 先记总支付，再讨论有效取得成本\n\n若到期股价低于95并按约定被指派，账户支付9,500，得到100股，剩余现金2,642. 得到的股票当时值多少，要按当时市场价看，不能因为行权价是95就把它们记为始终值9,500.\n\n| 到期价 | mid路径下最终股票 | mid现金 | 股票市值 | 合计财富 | 相对12,000损益 |\n|---:|---:|---:|---:|---:|---:|\n| 0 | 100股 | 2,642 | 0 | 2,642 | −9,358 |\n| 70 | 100股 | 2,642 | 7,000 | 9,642 | −2,358 |\n| 95 | 本例按未指派处理 | 12,142 | 0 | 12,142 | +142 |\n| 110 | 0股 | 12,142 | 0 | 12,142 | +142 |\n\n表中恰在95时选择“未指派”只为固定一个终点状态；若相反指令导致交割，现金2,642加100股按95标记，也是12,142，但之后的风险不同. 因此平价附近应核实际结果，不能把终点经济等价当成持仓身份等价.\n\n以$s$表示终点股价，整个账户可写为\n\n$$\nW_T=12142-100(95-s)^+.\n$$\n\n低于95时，权利金抵消了一部分取得成本，故常用每股$95-1.42=93.58$描述mid有效取得成本. 但实际交割仍支付95，不是93.58；1.42已经在之前收过，不能在交割时再少付一次. 执行层按bid收140，扣0.65，净现金139.35，有效成本变为93.6065；这也不是对未来亏损的保证.\n\n<figure class=\"pfh-responsive-figure\"><div class=\"svg-wide\"><img src=\"/notebook/labs/p-fgh/figures/P14-payoff.svg\" alt=\"接股与未接股两侧的完整财富\"></div><div class=\"svg-narrow pfh-native\" data-static-figure=\"P14-payoff-mobile.svg\"><p class=\"pfh-figure-title\">准备买股的CSP95：可能接股，也可能一直持现</p><ul class=\"pfh-legend\"><li><svg viewBox=\"0 0 32 12\" width=\"32\" height=\"12\" aria-hidden=\"true\"><path d=\"M1 6H31\" stroke=\"#145c70\" stroke-width=\"3\"/></svg><span>1. CSP95</span></li><li><svg viewBox=\"0 0 32 12\" width=\"32\" height=\"12\" aria-hidden=\"true\"><path d=\"M1 6H31\" stroke=\"#a2682d\" stroke-width=\"3\" stroke-dasharray=\"7 4\"/></svg><span>2. 持有100股</span></li><li><svg viewBox=\"0 0 32 12\" width=\"32\" height=\"12\" aria-hidden=\"true\"><path d=\"M1 6H31\" stroke=\"#607298\" stroke-width=\"3\"/></svg><span>3. 全部现金</span></li></ul><p class=\"pfh-axis-label\">纵轴：共同财富（美元）</p><div class=\"pfh-plot\" style=\"--pfh-y-label-ch:7\"><div class=\"pfh-y-ticks\"><span style=\"top:100%\">1,020</span><span style=\"top:75%\">5,010</span><span style=\"top:50%\">9,000</span><span style=\"top:25%\">12,990</span><span style=\"top:0%\">16,980</span></div><svg class=\"pfh-plot-svg\" viewBox=\"55 155 315 180\" preserveAspectRatio=\"none\" aria-hidden=\"true\"><path d=\"M55 335.00H370\" stroke=\"#e1e6e8\" vector-effect=\"non-scaling-stroke\"/><path d=\"M55 290.00H370\" stroke=\"#e1e6e8\" vector-effect=\"non-scaling-stroke\"/><path d=\"M55 245.00H370\" stroke=\"#e1e6e8\" vector-effect=\"non-scaling-stroke\"/><path d=\"M55 200.00H370\" stroke=\"#e1e6e8\" vector-effect=\"non-scaling-stroke\"/><path d=\"M55 155.00H370\" stroke=\"#e1e6e8\" vector-effect=\"non-scaling-stroke\"/><polyline points=\"55.00,316.71 59.50,314.45 64.00,312.19 68.50,309.94 73.00,307.69 77.50,305.43 82.00,303.17 86.50,300.92 91.00,298.66 95.50,296.40 100.00,294.15 104.50,291.90 109.00,289.64 113.50,287.38 118.00,285.13 122.50,282.87 127.00,280.62 131.50,278.36 136.00,276.11 140.50,273.85 145.00,271.59 149.50,269.33 154.00,267.09 158.50,264.83 163.00,262.57 167.50,260.31 172.00,258.06 176.50,255.80 181.00,253.55 185.50,251.30 190.00,249.04 194.50,246.78 199.00,244.52 203.50,242.27 208.00,240.02 212.50,237.76 217.00,235.50 221.50,233.25 226.00,230.99 230.50,228.74 235.00,226.48 239.50,224.23 244.00,221.97 248.50,219.71 253.00,217.46 257.50,215.21 262.00,212.95 266.50,210.69 271.00,209.56 275.50,209.56 280.00,209.56 284.50,209.56 289.00,209.56 293.50,209.56 298.00,209.56 302.50,209.56 307.00,209.56 311.50,209.56 316.00,209.56 320.50,209.56 325.00,209.56 329.50,209.56 334.00,209.56 338.50,209.56 343.00,209.56 347.50,209.56 352.00,209.56 356.50,209.56 361.00,209.56 365.50,209.56 370.00,209.56\" fill=\"none\" stroke=\"#145c70\" stroke-width=\"2.5\" vector-effect=\"non-scaling-stroke\"/><polyline points=\"55.00,323.95 59.50,321.69 64.00,319.43 68.50,317.18 73.00,314.93 77.50,312.67 82.00,310.41 86.50,308.16 91.00,305.90 95.50,303.65 100.00,301.39 104.50,299.14 109.00,296.88 113.50,294.62 118.00,292.36 122.50,290.12 127.00,287.86 131.50,285.60 136.00,283.34 140.50,281.09 145.00,278.83 149.50,276.58 154.00,274.33 158.50,272.07 163.00,269.81 167.50,267.55 172.00,265.30 176.50,263.05 181.00,260.79 185.50,258.53 190.00,256.28 194.50,254.02 199.00,251.76 203.50,249.51 208.00,247.26 212.50,245.00 217.00,242.74 221.50,240.49 226.00,238.24 230.50,235.98 235.00,233.72 239.50,231.47 244.00,229.21 248.50,226.95 253.00,224.70 257.50,222.45 262.00,220.19 266.50,217.93 271.00,215.67 275.50,213.42 280.00,211.17 284.50,208.91 289.00,206.66 293.50,204.40 298.00,202.14 302.50,199.88 307.00,197.64 311.50,195.38 316.00,193.12 320.50,190.86 325.00,188.61 329.50,186.35 334.00,184.10 338.50,181.84 343.00,179.59 347.50,177.33 352.00,175.07 356.50,172.82 361.00,170.57 365.50,168.31 370.00,166.05\" fill=\"none\" stroke=\"#a2682d\" stroke-width=\"2.5\" stroke-dasharray=\"7 4\" vector-effect=\"non-scaling-stroke\"/><polyline points=\"55.00,211.17 59.50,211.17 64.00,211.17 68.50,211.17 73.00,211.17 77.50,211.17 82.00,211.17 86.50,211.17 91.00,211.17 95.50,211.17 100.00,211.17 104.50,211.17 109.00,211.17 113.50,211.17 118.00,211.17 122.50,211.17 127.00,211.17 131.50,211.17 136.00,211.17 140.50,211.17 145.00,211.17 149.50,211.17 154.00,211.17 158.50,211.17 163.00,211.17 167.50,211.17 172.00,211.17 176.50,211.17 181.00,211.17 185.50,211.17 190.00,211.17 194.50,211.17 199.00,211.17 203.50,211.17 208.00,211.17 212.50,211.17 217.00,211.17 221.50,211.17 226.00,211.17 230.50,211.17 235.00,211.17 239.50,211.17 244.00,211.17 248.50,211.17 253.00,211.17 257.50,211.17 262.00,211.17 266.50,211.17 271.00,211.17 275.50,211.17 280.00,211.17 284.50,211.17 289.00,211.17 293.50,211.17 298.00,211.17 302.50,211.17 307.00,211.17 311.50,211.17 316.00,211.17 320.50,211.17 325.00,211.17 329.50,211.17 334.00,211.17 338.50,211.17 343.00,211.17 347.50,211.17 352.00,211.17 356.50,211.17 361.00,211.17 365.50,211.17 370.00,211.17\" fill=\"none\" stroke=\"#607298\" stroke-width=\"2.5\" vector-effect=\"non-scaling-stroke\"/></svg><div class=\"pfh-x-ticks\"><span class=\"first\" style=\"left:0%\">0</span><span class=\"\" style=\"left:50%\">70</span><span class=\"last\" style=\"left:100%\">140</span></div></div><p class=\"pfh-axis-label\">横轴：D30标的价格（美元/股）</p><p class=\"pfh-figure-note\">PF-GRID-01合成链 · mid结构；非真实行情</p></div><figcaption>接股与未接股两侧的完整财富</figcaption></figure>\n\n现金担保减少的是履约资金的不确定性，不是标的最终归零的可能损失. 另一方面，股票一路上涨时我们可能始终没有买到，只赚有限权利金. 对一个必须及时取得股票的目标，这种“赚钱但没有完成目标”的情况很重要.\n\n<a id=\"p14-parity\"></a>\n## 3. 同执行价才可以谈平价，同终值不等于同资金占用\n\n在零利率、零分红、相同到期和相同执行价$K$的理想条件下，$C-P=S_0-K$. 因此\n\n$$\nS_T-(S_T-K)^+=K-(K-S_T)^+.\n$$\n\n这是股票减call与现金减put的终点支付相同. 再把起点成本配齐，就能比较同一财富. PF-GRID-01中的C105是1.57，P105是6.57，满足$1.57-6.57=100-105$. 于是CC105和现金担保P105从12,000出发，所有到期状态的mid财富一致；CSP95则是另一个取得目标，不能拿它冒充同K平价. [^parity]\n\n利息会让“准备到期执行价”与“现在存足执行价”不同. 考虑独立的一期欧式小例：$S_0=100,K=105$，一期现金毛增长倍数$R=1.01$，call价格2. 无分红无费用时，平价给出\n\n$$\nP=C-S_0+K/R=5.960396.\n$$\n\n股票减call成本为98；到期能长成105的现金现值减put，也等于98：$105/1.01-5.960396=98$. 若现实现金担保规则要求现在就留105，而非$105/R$，就会多占用约1.039604现金. 利息、保证金资格和可用时间不能从终点图中自动读出. 这个小例只解释现值关系，不把主链的利率从零改为1%，也不把它说成某券商的规则.\n\n<a id=\"p14-path\"></a>\n## 4. 限价订单与卖put，需要用路径比较\n\n另设一条无费用、无利息的教学路径：D10的95限价买单已经实际成交100股，而95 put没有提前指派. 两个事件直接作为路径输入；市场触及95本身不能推出订单一定成交，也不能推出put一定被指派.\n\n| D30股价 | 95限价已成交 | CSP95 | D0按100立即买100股 | 持现 |\n|---:|---:|---:|---:|---:|\n| 70 | 9,500 | 9,642 | 9,000 | 12,000 |\n| 110 | 13,500 | 12,142 | 13,000 | 12,000 |\n\n限价路线买完之后已经承担上涨和下跌；put卖方在反弹路径中可能始终没有持股. 两者的条件、时间和持仓都不一样. 还未成交的限价单通常可以请求撤销；已存在的短put则要通过实际平仓或履约终止，不能仅仅取消一个尚未发生的未来买入. 具体订单和期权状态仍须确认.\n\n再看资金路径. 假设施加一次提前指派：XYZ当时75，gross接股义务9,500. 账上总现金可以是12,142，但其中只有9,000能在交割截止前到达指定账户，其余3,142暂时不可用；于是仍缺500. 不能把未付款后的股票当作已完成交割继续算持仓收益. 若按时支付完成，剩余2,642加股票市值7,500，总财富10,142. [^exercise]\n\n<figure class=\"pfh-responsive-figure\"><div class=\"svg-wide\"><img src=\"/notebook/labs/p-fgh/figures/P14-lifecycle.svg\" alt=\"期权义务、及时现金和指派交付的三个时点\"></div><div class=\"svg-narrow pfh-native\" data-static-figure=\"P14-lifecycle-mobile.svg\"><p class=\"pfh-figure-title\">净取得成本不能替代交割总付款</p><ol class=\"pfh-flow-steps\"><li><strong>D1资金与负债</strong><p>现金12,142</p><p>短put负债142</p><p>接股预留9,500</p><p>净财富12,000</p></li><li><strong>提前指派压力</strong><p>股票当时75</p><p>应付总款9,500</p><p>及时可达9,000</p><p>仍缺500，停止</p></li><li><strong>若及时付款完整</strong><p>现金2,642</p><p>100股×75＝7,500</p><p>完整财富10,142</p><p>不是支付净成本9,358</p></li></ol><p class=\"pfh-figure-note\">相同总资产不代表在相同账户/截止时间可以使用. </p></div><figcaption>期权义务、及时现金和指派交付的三个时点</figcaption></figure>\n\n<a id=\"p14-lab\"></a>\n## 5. 操作与真实规则卡\n\n<div data-experiment-slot=\"EXP-P14-CASH-SECURED-PUT\"></div>\n\n先只改终点价，核对收到权利金、是否取得股票、全部财富三列. 然后保持总现金不变，把“截止前可达现金”从9,500降为9,000：财富标记与是否完成交割应当分开，界面应在缺500处停止. 最后比较同K105两条曲线，而不是把95 put和105 call重叠.\n\n<details data-reading-branch=\"benchmark-put\"><summary>选读：PUT基准里的现金并不是闲置背景</summary>\n\nCboe PUT规则用国库券账户配月度SPX put，净值需要扣除当前短put价值，并规定执行价、到期结算与滚动价格. BXM与PUT的实际执行价和滚动时段并不完全相同，所以理想同K等价不能推出两个指数历史回报逐日相等. [^put]\n\n阅读该文件3.0版§3.1时还需做零利率校验：印刷式(4)在零利率时给出1，若再代入式(3)的“1加该值”，会让余额翻倍. 因此这对式子不作为本例的利息计算依据；规则文件在这里用于账户、滚动结构和PUT策略组成，上节现金例则从终点支付独立推导.\n\n</details>\n\n<a id=\"p14-exercises\"></a>\n## 6. 解释与迁移\n\n**解释题.** 有人说“put收了142，所以接股只需9,358现金”. 这句话何时是成本简称，何时是危险的付款计划？\n\n**解析.** 9,358可以是未计费净取得成本，但交割义务是9,500. 若142已经到账并保留，账户可以由原资金和这142共同完成9,500；若它已被转走、被占用或尚未结算，不能再用净成本代替总付款额. 同一权利金不能收到一次、再在结算时抵扣一次.\n\n**迁移题.** 在D10限价已成交、put未指派的路径里，到期110时，为什么不能因CSP仍赚142就说它比限价“多了一笔收入”？\n\n**解析.** 限价路线财富13,500，CSP为12,142，前者多1,358. 所谓额外142，是以不同持股路径换来的，不是叠在相同投资组合之上的免费现金. 比较要保持相同起始12,000并同时计入股票和现金.\n\n**更新题.** XYZ的重要业务依据在D15失效，但价格仍在100附近，原来愿意95取得股票的判断是否自动继续有效？\n\n**解析.** 不自动有效. 行权义务仍在，取得意愿却可能改变. 应重审是否继续承担、买回put或选择其他动作；“最初就是准备接股”不能替代更新后的判断. 若另行直接买股而保留短put，还可能把未来股票数量扩大到200股，须重新检查总敞口.\n\n[^csp]: OIC，[Cash-Secured Put](https://www.optionseducation.org/strategies/all-strategies/cash-secured-put)，Description、Max Loss、Profit/Loss及Assignment Risk，完整策略正文.\n[^t1]: OIC，[The Impact of T+1 on Options](https://www.optionseducation.org/news/understanding-t-1-conversion)，July 2024，Option Trade Settlement；OCC标准合约按具体交割规则执行.\n[^margin]: Cboe，[Strategy-based Margin](https://www.cboe.com/markets/us/options/margin/strategy-based-margin)，Short Put现金账户行及主文；2026-09-21所核单元，非券商个别承诺.\n[^parity]: OIC，[Put/Call Parity](https://www.optionseducation.org/advancedconcepts/put-call-parity)，同标的、执行价和期限条件及利率/分红/提前行权限制；本篇数值与等式为独立教学推导.\n[^exercise]: OCC，[ODD](https://www.theocc.com/getmedia/a151a9ae-d784-4a15-bdeb-23a029f50b70/riskstoc.pdf)，June 2024，Chapter VIII印刷55–57页；OIC [Options Exercise FAQ](https://www.optionseducation.org/referencelibrary/faq/options-exercise)，指派、行权与平仓的完整相应问答.\n[^put]: Cboe，[S&P 500 PutWrite Indices Methodology](https://cdn.cboe.com/api/global/us_indices/governance/Cboe_SP_500_PutWrite_Indices_Methodology.pdf)，3.0版（2025-08-15），§§1–3的PUT部分；§3.1印刷Page 5／PDF第6页式(3)–(4)不用于利息引擎.\n",
-  "prompt": "你正在教授P14《P14 现金担保看跌：有条件地买股，不是带利息的限价单》. 先确认读者选择的分支. 实际打开required_readings的公开原文，完整读取指定单元和必要表图；记录标题、版本、位置及其支持的具体步骤. optional_readings只有在分支被选择时转为必读. 若只有摘要、目录或访问失败，不能声称完成，也不凭印象补课；可复用本会话已完整读过的相同版本单元并注明.\n\n然后一次给出一项完整诊断任务：把9500总交割款与净取得成本分开；同K105重建平价，再比较95限价已成交与put未指派的110终点. 不逐个考四则运算. 使用本包全文与PF-GRID-01唯一冻结链，先让读者解释关系，再计算，最后使用本篇迁移题. 区分真实契约、模型生成mid、合成执行价和假设事件. 反馈标准：不能以9358代替付款额；9000及时现金缺500须停止，CSP95不得拿去冒充CC105同K复制.\n\n每次现金都带账户/时点，无法支付或未给报价时不制造已经完成的结果. 数据没有现实概率，不推断胜率或推荐交易；不访问用户账户. 不更新公司估值、不调用真实订单. 结束时让读者指出改变哪一个条件会改变结论，输出尚未掌握的具体关系. runtime_reading_log按本次实读填写，导出初始为空.",
+  "revised": "2026-09-22",
+  "content_version": "2026-09-22-deep-review",
+  "body_markdown": "现金担保看跌以现金换取权利金，同时承担被指派时按执行价买入股票的义务. 账户需要同时跟踪权利金、接股总付款与到期持仓身份.\n\n<a id=\"p14-goal\"></a>\n## 买入目标与履约义务\n\n账户持有12,000美元现金，XYZ现价100，计划未来30天按95取得100股. 卖一张95 put后，持有人可依合同交付股票，卖方被指派时支付9,500；相应现金或合格等价物用于担保. 权利金为出售选择权的收入，是否接股取决于行权与指派.[^csp]\n\n本篇仍用PF-GRID-01：95 put的mid为1.42，合成bid/ask为1.40/1.44，每张每次费0.65，标准单位100股；主例无分红、无利息. 用mid建立后，D1现金为12,142，同时有142美元短put负债，净财富仍为12,000；D0成交与D1权利金现金结算分开记录. [^t1]\n\nCboe现金账户short put规则按总执行价要求担保. 本例预留9,500，资产资格与内部要求沿适用账户规则.[^margin]\n\n<a id=\"p14-accounts\"></a>\n## 交割付款与净取得成本\n\n低于95且被指派时，支付9,500、取得100股，现金剩2,642，股票按当时市价计值.\n\n| 到期价 | mid路径下最终股票 | mid现金 | 股票市值 | 合计财富 | 相对12,000损益 |\n|---:|---:|---:|---:|---:|---:|\n| 0 | 100股 | 2,642 | 0 | 2,642 | −9,358 |\n| 70 | 100股 | 2,642 | 7,000 | 9,642 | −2,358 |\n| 95 | 本例按未指派处理 | 12,142 | 0 | 12,142 | +142 |\n| 110 | 0股 | 12,142 | 0 | 12,142 | +142 |\n\n本例将恰好95的put记为未指派. 若实际被指派，现金2,642加价值9,500的股票，同样为12,142；之后的敞口由实际持仓决定.\n\n以$s$表示终点股价，整个账户可写为\n\n$$\nW_T=12142-100(95-s)^+.\n$$\n\n净取得成本将先收到的权利金与交割付款合并：mid每股成本 $95-1.42=93.58$，交割日总付款仍为9,500. 执行层净收139.35，每股有效成本约93.607.\n\n<figure class=\"pfh-responsive-figure\"><div class=\"svg-wide\"><img src=\"/notebook/labs/p-fgh/figures/P14-payoff.svg\" alt=\"接股与未接股两侧的完整财富\"></div><div class=\"svg-narrow pfh-native\" data-static-figure=\"P14-payoff-mobile.svg\"><p class=\"pfh-figure-title\">准备买股的CSP95：可能接股，也可能一直持现</p><ul class=\"pfh-legend\"><li><svg viewBox=\"0 0 32 12\" width=\"32\" height=\"12\" aria-hidden=\"true\"><path d=\"M1 6H31\" stroke=\"#145c70\" stroke-width=\"3\"/></svg><span>1. CSP95</span></li><li><svg viewBox=\"0 0 32 12\" width=\"32\" height=\"12\" aria-hidden=\"true\"><path d=\"M1 6H31\" stroke=\"#a2682d\" stroke-width=\"3\" stroke-dasharray=\"7 4\"/></svg><span>2. 持有100股</span></li><li><svg viewBox=\"0 0 32 12\" width=\"32\" height=\"12\" aria-hidden=\"true\"><path d=\"M1 6H31\" stroke=\"#607298\" stroke-width=\"3\"/></svg><span>3. 全部现金</span></li></ul><p class=\"pfh-axis-label\">纵轴：共同财富（美元）</p><div class=\"pfh-plot\" style=\"--pfh-y-label-ch:7\"><div class=\"pfh-y-ticks\"><span style=\"top:100%\">1,020</span><span style=\"top:75%\">5,010</span><span style=\"top:50%\">9,000</span><span style=\"top:25%\">12,990</span><span style=\"top:0%\">16,980</span></div><svg class=\"pfh-plot-svg\" viewBox=\"55 155 315 180\" preserveAspectRatio=\"none\" aria-hidden=\"true\"><path d=\"M55 335.00H370\" stroke=\"#e1e6e8\" vector-effect=\"non-scaling-stroke\"/><path d=\"M55 290.00H370\" stroke=\"#e1e6e8\" vector-effect=\"non-scaling-stroke\"/><path d=\"M55 245.00H370\" stroke=\"#e1e6e8\" vector-effect=\"non-scaling-stroke\"/><path d=\"M55 200.00H370\" stroke=\"#e1e6e8\" vector-effect=\"non-scaling-stroke\"/><path d=\"M55 155.00H370\" stroke=\"#e1e6e8\" vector-effect=\"non-scaling-stroke\"/><polyline points=\"55.00,316.71 59.50,314.45 64.00,312.19 68.50,309.94 73.00,307.69 77.50,305.43 82.00,303.17 86.50,300.92 91.00,298.66 95.50,296.40 100.00,294.15 104.50,291.90 109.00,289.64 113.50,287.38 118.00,285.13 122.50,282.87 127.00,280.62 131.50,278.36 136.00,276.11 140.50,273.85 145.00,271.59 149.50,269.33 154.00,267.09 158.50,264.83 163.00,262.57 167.50,260.31 172.00,258.06 176.50,255.80 181.00,253.55 185.50,251.30 190.00,249.04 194.50,246.78 199.00,244.52 203.50,242.27 208.00,240.02 212.50,237.76 217.00,235.50 221.50,233.25 226.00,230.99 230.50,228.74 235.00,226.48 239.50,224.23 244.00,221.97 248.50,219.71 253.00,217.46 257.50,215.21 262.00,212.95 266.50,210.69 271.00,209.56 275.50,209.56 280.00,209.56 284.50,209.56 289.00,209.56 293.50,209.56 298.00,209.56 302.50,209.56 307.00,209.56 311.50,209.56 316.00,209.56 320.50,209.56 325.00,209.56 329.50,209.56 334.00,209.56 338.50,209.56 343.00,209.56 347.50,209.56 352.00,209.56 356.50,209.56 361.00,209.56 365.50,209.56 370.00,209.56\" fill=\"none\" stroke=\"#145c70\" stroke-width=\"2.5\" vector-effect=\"non-scaling-stroke\"/><polyline points=\"55.00,323.95 59.50,321.69 64.00,319.43 68.50,317.18 73.00,314.93 77.50,312.67 82.00,310.41 86.50,308.16 91.00,305.90 95.50,303.65 100.00,301.39 104.50,299.14 109.00,296.88 113.50,294.62 118.00,292.36 122.50,290.12 127.00,287.86 131.50,285.60 136.00,283.34 140.50,281.09 145.00,278.83 149.50,276.58 154.00,274.33 158.50,272.07 163.00,269.81 167.50,267.55 172.00,265.30 176.50,263.05 181.00,260.79 185.50,258.53 190.00,256.28 194.50,254.02 199.00,251.76 203.50,249.51 208.00,247.26 212.50,245.00 217.00,242.74 221.50,240.49 226.00,238.24 230.50,235.98 235.00,233.72 239.50,231.47 244.00,229.21 248.50,226.95 253.00,224.70 257.50,222.45 262.00,220.19 266.50,217.93 271.00,215.67 275.50,213.42 280.00,211.17 284.50,208.91 289.00,206.66 293.50,204.40 298.00,202.14 302.50,199.88 307.00,197.64 311.50,195.38 316.00,193.12 320.50,190.86 325.00,188.61 329.50,186.35 334.00,184.10 338.50,181.84 343.00,179.59 347.50,177.33 352.00,175.07 356.50,172.82 361.00,170.57 365.50,168.31 370.00,166.05\" fill=\"none\" stroke=\"#a2682d\" stroke-width=\"2.5\" stroke-dasharray=\"7 4\" vector-effect=\"non-scaling-stroke\"/><polyline points=\"55.00,211.17 59.50,211.17 64.00,211.17 68.50,211.17 73.00,211.17 77.50,211.17 82.00,211.17 86.50,211.17 91.00,211.17 95.50,211.17 100.00,211.17 104.50,211.17 109.00,211.17 113.50,211.17 118.00,211.17 122.50,211.17 127.00,211.17 131.50,211.17 136.00,211.17 140.50,211.17 145.00,211.17 149.50,211.17 154.00,211.17 158.50,211.17 163.00,211.17 167.50,211.17 172.00,211.17 176.50,211.17 181.00,211.17 185.50,211.17 190.00,211.17 194.50,211.17 199.00,211.17 203.50,211.17 208.00,211.17 212.50,211.17 217.00,211.17 221.50,211.17 226.00,211.17 230.50,211.17 235.00,211.17 239.50,211.17 244.00,211.17 248.50,211.17 253.00,211.17 257.50,211.17 262.00,211.17 266.50,211.17 271.00,211.17 275.50,211.17 280.00,211.17 284.50,211.17 289.00,211.17 293.50,211.17 298.00,211.17 302.50,211.17 307.00,211.17 311.50,211.17 316.00,211.17 320.50,211.17 325.00,211.17 329.50,211.17 334.00,211.17 338.50,211.17 343.00,211.17 347.50,211.17 352.00,211.17 356.50,211.17 361.00,211.17 365.50,211.17 370.00,211.17\" fill=\"none\" stroke=\"#607298\" stroke-width=\"2.5\" vector-effect=\"non-scaling-stroke\"/></svg><div class=\"pfh-x-ticks\"><span class=\"first\" style=\"left:0%\">0</span><span class=\"\" style=\"left:50%\">70</span><span class=\"last\" style=\"left:100%\">140</span></div></div><p class=\"pfh-axis-label\">横轴：D30标的价格（美元/股）</p><p class=\"pfh-figure-note\">PF-GRID-01教学网格 · mid结构</p></div><figcaption>接股与未接股两侧的完整财富</figcaption></figure>\n\n现金担保解决接股付款来源，股票归零时账户仍损失9,358. 股票上涨且put未被指派时，账户保留现金和有限权利金收入，未形成目标持股.\n\n<a id=\"p14-parity\"></a>\n## 平价与资金占用\n\n在零利率、零分红、相同到期和相同执行价$K$的理想条件下，$C-P=S_0-K$. 因此\n\n$$\nS_T-(S_T-K)^+=K-(K-S_T)^+.\n$$\n\n这是股票减call与现金减put的终点支付相同. 再把起点成本配齐，就能比较同一财富. PF-GRID-01中的C105是1.57，P105是6.57，满足$1.57-6.57=100-105$. 于是CC105和现金担保P105从12,000出发，所有到期状态的mid财富一致；CSP95则是另一个取得目标，不能拿它冒充同K平价. [^parity]\n\n利息会让“准备到期执行价”与“现在存足执行价”不同. 考虑独立的一期欧式小例：$S_0=100,K=105$，一期现金毛增长倍数$R=1.01$，call价格2. 无分红无费用时，平价给出\n\n$$\nP=C-S_0+K/R\\approx5.96.\n$$\n\n股票减call的初始成本为98，等额的到期现金组合成本为 $105/1.01-P=98$. 若担保规则要求现在留足105，额外占用现金 $105-105/1.01\\approx1.04$.\n\n<a id=\"p14-path\"></a>\n## 订单、指派与持股路径\n\n另设无费用、无利息路径：D10的95限价单已成交100股，95 put尚未提前指派. 两条路径据此发展到D30：\n\n| D30股价 | 95限价已成交 | CSP95 | D0按100立即买100股 | 持现 |\n|---:|---:|---:|---:|---:|\n| 70 | 9,500 | 9,642 | 9,000 | 12,000 |\n| 110 | 13,500 | 12,142 | 13,000 | 12,000 |\n\n限价成交后已承担股票涨跌；put卖方在反弹路径中可始终持现. 未成交订单可申请撤销，既有short put则通过平仓、到期或履约终止.\n\n提前指派时，若XYZ为75、账户现金12,142，但截止前仅9,000能到达付款账户，则总接股款9,500尚缺500. 按时付款完成后，现金2,642加股票7,500，财富10,142.[^exercise]\n\n<figure class=\"pfh-responsive-figure\"><div class=\"svg-wide\"><img src=\"/notebook/labs/p-fgh/figures/P14-lifecycle.svg\" alt=\"期权义务、及时现金和指派交付的三个时点\"></div><div class=\"svg-narrow pfh-native\" data-static-figure=\"P14-lifecycle-mobile.svg\"><p class=\"pfh-figure-title\">净取得成本不能替代交割总付款</p><ol class=\"pfh-flow-steps\"><li><strong>D1资金与负债</strong><p>现金12,142</p><p>短put负债142</p><p>接股预留9,500</p><p>净财富12,000</p></li><li><strong>提前指派压力</strong><p>股票当时75</p><p>应付总款9,500</p><p>及时可达9,000</p><p>仍缺500，停止</p></li><li><strong>若及时付款完整</strong><p>现金2,642</p><p>100股×75＝7,500</p><p>完整财富10,142</p><p>不是支付净成本9,358</p></li></ol><p class=\"pfh-figure-note\">相同总资产不代表在相同账户/截止时间可以使用. </p></div><figcaption>期权义务、及时现金和指派交付的三个时点</figcaption></figure>\n\n<a id=\"p14-lab\"></a>\n## 交割与平价实验\n\n<div data-experiment-slot=\"EXP-P14-CASH-SECURED-PUT\"></div>\n\n比较终点价下的权利金、接股状态与财富，再将及时可用现金从9,500降到9,000，识别500缺口. 平价对照采用同一执行价105.\n\n<details data-reading-branch=\"benchmark-put\"><summary>选读：PUT现金账户与滚动</summary>\n\nCboe PUT规则用国库券账户配月度SPX put，净值需要扣除当前短put价值，并规定执行价、到期结算与滚动价格. BXM与PUT的实际执行价和滚动时段并不完全相同，所以理想同K等价不能推出两个指数历史回报逐日相等. [^put]\n\n3.0版§3.1印刷式(4)在零利率时为1，代入式(3)的“1加该值”会使余额翻倍，两式存在口径冲突. 本文利息例采用上面的终点支付推导.\n\n</details>\n\n<a id=\"p14-exercises\"></a>\n## 练习与解析\n\n**解释题.** 有人说“put收了142，所以接股只需9,358现金”. 这句话何时是成本简称，何时是危险的付款计划？\n\n**解析.** 9,358为未计费净成本，9,500为交割总款. 142已到账且可用时可作为付款来源；已转走、占用或未结算时按实际可用现金安排.\n\n**迁移题.** 在D10限价已成交、put未指派的路径里，到期110时，为什么不能因CSP仍赚142就说它比限价“多了一笔收入”？\n\n**解析.** 限价路径财富13,500，CSP为12,142，差额1,358来自不同持股路径. 两者均从12,000开始，比较包括股票与现金.\n\n**更新题.** XYZ的重要业务依据在D15失效，但价格仍在100附近，原来愿意95取得股票的判断是否自动继续有效？\n\n**解析.** 取得意愿随经营判断更新，既有履约义务仍存续. 比较继续持有、买回put及其他安排；若另买100股并保留short put，后续指派可使持股增至200股.\n\n[^csp]: OIC，[Cash-Secured Put](https://www.optionseducation.org/strategies/all-strategies/cash-secured-put)，Description、Max Loss、Profit/Loss及Assignment Risk，完整策略正文.\n[^t1]: OIC，[The Impact of T+1 on Options](https://www.optionseducation.org/news/understanding-t-1-conversion)，July 2024，Option Trade Settlement；OCC标准合约按具体交割规则执行.\n[^margin]: Cboe，[Strategy-based Margin](https://www.cboe.com/markets/us/options/margin/strategy-based-margin)，Short Put现金账户行及主文.\n[^parity]: OIC，[Put/Call Parity](https://www.optionseducation.org/advancedconcepts/put-call-parity)，同标的、执行价和期限条件及利率/分红/提前行权限制；本篇数值与等式为独立教学推导.\n[^exercise]: OCC，[ODD](https://www.theocc.com/getmedia/a151a9ae-d784-4a15-bdeb-23a029f50b70/riskstoc.pdf)，June 2024，Chapter VIII印刷55–57页；OIC [Options Exercise FAQ](https://www.optionseducation.org/referencelibrary/faq/options-exercise)，指派、行权与平仓的完整相应问答.\n[^put]: Cboe，[S&P 500 PutWrite Indices Methodology](https://cdn.cboe.com/api/global/us_indices/governance/Cboe_SP_500_PutWrite_Indices_Methodology.pdf)，3.0版（2025-08-15），§§1–3的PUT部分；§3.1印刷Page 5／PDF第6页式(3)–(4)不用于利息引擎.",
+  "prompt": "读者为有充分数学背景的高年级本科生至研究生. 开始前实际读取 agent_packet.required_readings 指定原文完整单元，所选可选分支再读相应 optional_readings，记录题名、版本、定位和支持内容. 必要单元缺失时先取得等价可读原件，齐全后进入依赖它的讲解. 重建9,500交割付款和净取得成本，比较同K105平价及现金占用. 对照95限价已成交与put未指派的110终点，检查及时现金9,000的500缺口. PUT基准分支核3.0版式(3)–(4)零利率冲突，利息计算沿独立现金推导. 使用PF-GRID-01固定教学网格及对应合约条件，先用完整任务诊断，再让读者解释、推导和计算；已掌握步骤直接跳过. 反馈核对各腿、现金时点及剩余持仓，用迁移题检验. runtime_reading_log记录本次实际读取.",
   "sources": [
     "PFH-CSP",
     "PFH-MARGIN",
@@ -27,39 +27,39 @@
   "anchors": [
     {
       "id": "p14-goal",
-      "title": "1. 买入意愿与履约义务并不是同一句话",
+      "title": "买入目标与履约义务",
       "kind": "section",
-      "preview": "设账户有12,000美元现金，XYZ现价100，愿意在未来30天按95取得100股. 卖一张95 put，意味着持有人可以按照合同向我们交付100股，我们被指派时需要支付9,500美元. 把相应现金或合格现金等价物准备好，才构成现金担保安排. 权利金是出售选择权收到的价格，不是买股票的订金；合同也不是保证我们一定能取得股票."
+      "preview": "账户持有12,000美元现金，XYZ现价100，计划未来30天按95取得100股. 卖一张95 put后，持有人可依合同交付股票，卖方被指派时支付9,500；相应现金或合格等价物用于担保. 权利金为出售选择权的收入，是否接股取决于行权与指派."
     },
     {
       "id": "p14-accounts",
-      "title": "2. 先记总支付，再讨论有效取得成本",
+      "title": "交割付款与净取得成本",
       "kind": "section",
-      "preview": "若到期股价低于95并按约定被指派，账户支付9,500，得到100股，剩余现金2,642. 得到的股票当时值多少，要按当时市场价看，不能因为行权价是95就把它们记为始终值9,500."
+      "preview": "低于95且被指派时，支付9,500、取得100股，现金剩2,642，股票按当时市价计值."
     },
     {
       "id": "p14-parity",
-      "title": "3. 同执行价才可以谈平价，同终值不等于同资金占用",
+      "title": "平价与资金占用",
       "kind": "section",
-      "preview": "在零利率、零分红、相同到期和相同执行价K的理想条件下，C-P=S_0-K. 因此"
+      "preview": "在零利率、零分红、相同到期和相同执行价$K$的理想条件下，$C-P=S_0-K$. 因此"
     },
     {
       "id": "p14-path",
-      "title": "4. 限价订单与卖put，需要用路径比较",
+      "title": "订单、指派与持股路径",
       "kind": "section",
-      "preview": "另设一条无费用、无利息的教学路径：D10的95限价买单已经实际成交100股，而95 put没有提前指派. 这里只是施加两个事件，不以“市场碰到95”证明一定成交或指派."
+      "preview": "另设无费用、无利息路径：D10的95限价单已成交100股，95 put尚未提前指派. 两条路径据此发展到D30："
     },
     {
       "id": "p14-lab",
-      "title": "5. 操作与真实规则卡",
+      "title": "交割与平价实验",
       "kind": "section",
-      "preview": "区分接股总款与有效成本，比较同K平价、限价成交和指派时点."
+      "preview": "比较终点价下的权利金、接股状态与财富，再将及时可用现金从9,500降到9,000，识别500缺口. 平价对照采用同一执行价105."
     },
     {
       "id": "p14-exercises",
-      "title": "6. 解释与迁移",
+      "title": "练习与解析",
       "kind": "section",
-      "preview": "解释题. 有人说“put收了142，所以接股只需9,358现金”. 这句话何时是成本简称，何时是危险的付款计划？"
+      "preview": "**解释题.** 有人说“put收了142，所以接股只需9,358现金”. 这句话何时是成本简称，何时是危险的付款计划？"
     }
   ],
   "relations": [
@@ -99,7 +99,7 @@
       "to": "PFH-CSP",
       "reason": "原件支持本段契约/方法或有日期研究；不证明合成报价为行情.",
       "locator": "Description至Comments/Related Position的完整策略主文",
-      "scope": "接股意愿与义务、现金保留、未取得股票的机会成本；不把净成本等同总交割款."
+      "scope": "接股意愿与义务、现金保留、净成本与交割款、未取得股票的机会成本."
     },
     {
       "from": "P14#p14-goal",
@@ -160,7 +160,7 @@
     "export_mode": "public",
     "entry_id": "zh-p14",
     "selected_branch": "core",
-    "learning_task": "把9500总交割款与净取得成本分开；同K105重建平价，再比较95限价已成交与put未指派的110终点.",
+    "learning_task": "重建9,500交割付款和净取得成本，比较同K105平价及现金占用. 对照95限价已成交与put未指派的110终点，检查及时现金9,000的500缺口. PUT基准分支核3.0版式(3)–(4)零利率冲突，利息计算沿独立现金推导.",
     "required_readings": [
       {
         "source_id": "PFH-CSP",
@@ -1192,7 +1192,7 @@
       "reproduction_instructions": "https://ou-liu-red-sugar.github.io/notebook/labs/p-fgh/reproduce.md",
       "input_identity": "本篇投影沿作者review-v2；完整PF-GRID-01原字节见公开inputs.json，模型/报价/默认结果未改."
     },
-    "content_version": "2026-09-21-PFGH-staging-v3",
+    "content_version": "2026-09-22-deep-review",
     "branch_selection_protocol": "核心读取required_readings；选择具名选读分支时追加其完整required_unit. 实际读完再教，不继承编辑的读取状态."
   },
   "experiments": [
@@ -1272,49 +1272,56 @@
       "label": "csp",
       "href": "https://www.optionseducation.org/strategies/all-strategies/cash-secured-put",
       "source_id": "PFH-CSP",
-      "locator": "OIC，[Cash-Secured Put](https://www.optionseducation.org/strategies/all-strategies/cash-secured-put)，Description、Max Loss、Profit/Loss及Assignment Risk，完整策略正文."
+      "locator": "OIC，[Cash-Secured Put](https://www.optionseducation.org/strategies/all-strategies/cash-secured-put)，Description、Max Loss、Profit/Loss及Assignment Risk，完整策略正文.",
+      "definition_markdown": "[^csp]: OIC，[Cash-Secured Put](https://www.optionseducation.org/strategies/all-strategies/cash-secured-put)，Description、Max Loss、Profit/Loss及Assignment Risk，完整策略正文."
     },
     {
       "kind": "source_link",
       "label": "t1",
       "href": "https://www.optionseducation.org/news/understanding-t-1-conversion",
       "source_id": "PFH-T1",
-      "locator": "OIC，[The Impact of T+1 on Options](https://www.optionseducation.org/news/understanding-t-1-conversion)，July 2024，Option Trade Settlement；OCC标准合约按具体交割规则执行."
+      "locator": "OIC，[The Impact of T+1 on Options](https://www.optionseducation.org/news/understanding-t-1-conversion)，July 2024，Option Trade Settlement；OCC标准合约按具体交割规则执行.",
+      "definition_markdown": "[^t1]: OIC，[The Impact of T+1 on Options](https://www.optionseducation.org/news/understanding-t-1-conversion)，July 2024，Option Trade Settlement；OCC标准合约按具体交割规则执行."
     },
     {
       "kind": "source_link",
       "label": "margin",
       "href": "https://www.cboe.com/markets/us/options/margin/strategy-based-margin",
       "source_id": "PFH-MARGIN",
-      "locator": "Cboe，[Strategy-based Margin](https://www.cboe.com/markets/us/options/margin/strategy-based-margin)，Short Put现金账户行及主文；2026-09-21所核单元，非券商个别承诺."
+      "locator": "Cboe，[Strategy-based Margin](https://www.cboe.com/markets/us/options/margin/strategy-based-margin)，Short Put现金账户行及主文.",
+      "definition_markdown": "[^margin]: Cboe，[Strategy-based Margin](https://www.cboe.com/markets/us/options/margin/strategy-based-margin)，Short Put现金账户行及主文."
     },
     {
       "kind": "source_link",
       "label": "parity",
       "href": "https://www.optionseducation.org/advancedconcepts/put-call-parity",
       "source_id": "PFH-PARITY",
-      "locator": "OIC，[Put/Call Parity](https://www.optionseducation.org/advancedconcepts/put-call-parity)，同标的、执行价和期限条件及利率/分红/提前行权限制；本篇数值与等式为独立教学推导."
+      "locator": "OIC，[Put/Call Parity](https://www.optionseducation.org/advancedconcepts/put-call-parity)，同标的、执行价和期限条件及利率/分红/提前行权限制；本篇数值与等式为独立教学推导.",
+      "definition_markdown": "[^parity]: OIC，[Put/Call Parity](https://www.optionseducation.org/advancedconcepts/put-call-parity)，同标的、执行价和期限条件及利率/分红/提前行权限制；本篇数值与等式为独立教学推导."
     },
     {
       "kind": "source_link",
       "label": "exercise",
       "href": "https://www.theocc.com/getmedia/a151a9ae-d784-4a15-bdeb-23a029f50b70/riskstoc.pdf",
       "source_id": "MA-OCC",
-      "locator": "OCC，[ODD](https://www.theocc.com/getmedia/a151a9ae-d784-4a15-bdeb-23a029f50b70/riskstoc.pdf)，June 2024，Chapter VIII印刷55–57页；OIC [Options Exercise FAQ](https://www.optionseducation.org/referencelibrary/faq/options-exercise)，指派、行权与平仓的完整相应问答."
+      "locator": "OCC，[ODD](https://www.theocc.com/getmedia/a151a9ae-d784-4a15-bdeb-23a029f50b70/riskstoc.pdf)，June 2024，Chapter VIII印刷55–57页；OIC [Options Exercise FAQ](https://www.optionseducation.org/referencelibrary/faq/options-exercise)，指派、行权与平仓的完整相应问答.",
+      "definition_markdown": "[^exercise]: OCC，[ODD](https://www.theocc.com/getmedia/a151a9ae-d784-4a15-bdeb-23a029f50b70/riskstoc.pdf)，June 2024，Chapter VIII印刷55–57页；OIC [Options Exercise FAQ](https://www.optionseducation.org/referencelibrary/faq/options-exercise)，指派、行权与平仓的完整相应问答."
     },
     {
       "kind": "source_link",
       "label": "exercise",
       "href": "https://www.optionseducation.org/referencelibrary/faq/options-exercise",
       "source_id": "PFH-EXERCISE",
-      "locator": "OCC，[ODD](https://www.theocc.com/getmedia/a151a9ae-d784-4a15-bdeb-23a029f50b70/riskstoc.pdf)，June 2024，Chapter VIII印刷55–57页；OIC [Options Exercise FAQ](https://www.optionseducation.org/referencelibrary/faq/options-exercise)，指派、行权与平仓的完整相应问答."
+      "locator": "OCC，[ODD](https://www.theocc.com/getmedia/a151a9ae-d784-4a15-bdeb-23a029f50b70/riskstoc.pdf)，June 2024，Chapter VIII印刷55–57页；OIC [Options Exercise FAQ](https://www.optionseducation.org/referencelibrary/faq/options-exercise)，指派、行权与平仓的完整相应问答.",
+      "definition_markdown": "[^exercise]: OCC，[ODD](https://www.theocc.com/getmedia/a151a9ae-d784-4a15-bdeb-23a029f50b70/riskstoc.pdf)，June 2024，Chapter VIII印刷55–57页；OIC [Options Exercise FAQ](https://www.optionseducation.org/referencelibrary/faq/options-exercise)，指派、行权与平仓的完整相应问答."
     },
     {
       "kind": "source_link",
       "label": "put",
       "href": "https://cdn.cboe.com/api/global/us_indices/governance/Cboe_SP_500_PutWrite_Indices_Methodology.pdf",
       "source_id": "PFH-PUT-INDEX",
-      "locator": "Cboe，[S&P 500 PutWrite Indices Methodology](https://cdn.cboe.com/api/global/us_indices/governance/Cboe_SP_500_PutWrite_Indices_Methodology.pdf)，3.0版（2025-08-15），§§1–3的PUT部分；§3.1印刷Page 5／PDF第6页式(3)–(4)不用于利息引擎."
+      "locator": "Cboe，[S&P 500 PutWrite Indices Methodology](https://cdn.cboe.com/api/global/us_indices/governance/Cboe_SP_500_PutWrite_Indices_Methodology.pdf)，3.0版（2025-08-15），§§1–3的PUT部分；§3.1印刷Page 5／PDF第6页式(3)–(4)不用于利息引擎.",
+      "definition_markdown": "[^put]: Cboe，[S&P 500 PutWrite Indices Methodology](https://cdn.cboe.com/api/global/us_indices/governance/Cboe_SP_500_PutWrite_Indices_Methodology.pdf)，3.0版（2025-08-15），§§1–3的PUT部分；§3.1印刷Page 5／PDF第6页式(3)–(4)不用于利息引擎."
     }
   ],
   "import_provenance": {

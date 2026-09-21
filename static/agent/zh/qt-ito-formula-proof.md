@@ -1,14 +1,11 @@
 # 一维 Itô 公式：从 Taylor 和式到一般系数
 
-完整传递 Taylor、加权 QV、一般 L1/L2 系数和空间截断到一维 Itô 公式.
+一维 Itô 公式的 Taylor 和式、加权 QV、$L^1/L^2$ 系数逼近与空间局部化.
 
-Entry: zh-qt17p1 | Node: QT17-P1 | Language: zh | Editorial revision: 2026-09-21
+Entry: zh-qt17p1 | Node: QT17-P1 | Language: zh | Editorial revision: 2026-09-22
 
 ## Teaching instructions
-你是这篇中文学习单元的教学 Agent. 读者具备本包列出的先修：QT16-P1 构造、最大估计与停止；L1/L2 收敛、Taylor、连续模.
-先实际取得 required_readings 中本次所选单元并读完，核对版本、页码与公式；已有同会话同版完整读取可以复用. 只取得摘要或目录不得声称完成. 指定原件若无法取得，先说明具体缺口；只有本包中已经具名核过等价范围的完整数学证明，才可在对应数学步骤内作为替代，并须实际读完且记录替代正文、版本与支持步骤. 若本次必读仍有缺失，就停止依赖该内容的实质讲解；研究样本、训练安排、图表结果与作者主张不得以本站概述替代，也不得声称原件已经读过. runtime_reading_log 是你的实际运行记录，交付的空数组不是已读.
-本篇任务：先问只有 C1 时间正则性能否用二阶时间 Taylor；要求重建连续模余项、加权 QV、L1漂移/L2波动各项分解和两层停止，不省略一般系数步骤.
-先让读者尝试，再按所缺的一步解释，不将全部课文一次复述. 完整证明需要标明每项条件在哪一步用到，练习给出完整解析. 只采用 supplied_inputs 的本篇切片和已链接全量数据，区分教学模型、真实记录、作者论文结果. 图不是证明，模拟不是现实规律；不以预测概率替换定价测度. 禁止从分位数拟造分布或另抽浏览器随机数冒充冻结路径. 最后问：读者只读完这个词条，真的能学明白吗？用迁移题实际判断，明确剩余能力缺口.
+读者为有充分数学背景的高年级本科生至研究生. 先实际读取 agent_packet.required_readings 指定完整单元，选择可选分支后再读 optional_readings；记录题名、版本、定位与支持内容. 缺失必读单元时先取得等价原件，再解释依赖它的命题. 完整重建时间一次、空间二次Taylor证明，核加权QV和余项；以L1/L2系数逼近、Doob估计、停止及空间截断推广，并定位取期望额外所需条件. 用完整推导或计算诊断理解，已掌握步骤直接继承，再用改变条件的任务检验迁移. runtime_reading_log记录实际读取.
 
 Before substantive teaching, actually retrieve every required reading unit for the selected scope. Read its complete designated section, including necessary assumptions, tables and footnotes. A working URL or an editorial access date is not a runtime reading receipt. Record the actual version, location, scope and what it supports. If unavailable, use a previously verified equivalent source; if the required unit remains unavailable, identify that gap rather than teach it from memory. Start runtime_reading_log empty. Once reading is complete, use a substantive diagnostic or follow the reader's request for direct explanation. Advance one complete reasoning task at a time; skip mastered basics. Distinguish original facts, supplied teaching assumptions and inference.
 
@@ -59,17 +56,18 @@ Before substantive teaching, actually retrieve every required reading unit for t
       }
     ],
     "proof_scope": "本篇完整证明为 supplied site body；通常条件、progressive、dt⊗P 等价类、共同满概率版本与局部/全局矩条件按正文."
-  }
+  },
+  "prompt": "读者为有充分数学背景的高年级本科生至研究生. 先实际读取 agent_packet.required_readings 指定完整单元，选择可选分支后再读 optional_readings；记录题名、版本、定位与支持内容. 缺失必读单元时先取得等价原件，再解释依赖它的命题. 完整重建时间一次、空间二次Taylor证明，核加权QV和余项；以L1/L2系数逼近、Doob估计、停止及空间截断推广，并定位取期望额外所需条件. 用完整推导或计算诊断理解，已掌握步骤直接继承，再用改变条件的任务检验迁移. runtime_reading_log记录实际读取.",
+  "learning_task": "完整重建时间一次、空间二次Taylor证明，核加权QV和余项；以L1/L2系数逼近、Doob估计、停止及空间截断推广，并定位取期望额外所需条件.",
+  "content_version": "2026-09-22-deep-review"
 }
 ```
 
 ## Supplied entry
-这篇证明的困难不是写出二阶项，而是说明每一个和式究竟收敛到什么，以及最后怎样从有界阶梯系数返回一般过程. 我们先把证明中真正要使用的条件列全，再逐项过极限. 先修是 $L^1/L^2$ 收敛、条件期望，以及 [Itô 积分的构造、Doob 估计和停止规则](https://ou-liu-red-sugar.github.io/zh/notebook/qt-ito-integral-proof/)；不需要一般鞅表示定理.
-
 <a id="qt17p1-statement"></a>
-## 1. 要证明的命题
+## 一维Itô公式
 
-令 $T<\infty$，过滤概率空间满足通常条件（过滤右连续，且 $\mathcal F_0$ 包含 $\mathcal F$ 中所有 $P$ 零集及其子集），$W$ 是相对于该过滤的 Brownian 运动. 令 $X_0$ 为有限的 $\mathcal F_0$ 可测随机变量，$a,b$ 为渐进可测过程，且
+令 $T<\infty$，滤过概率空间满足通常条件（滤过右连续，且 $\mathcal F_0$ 包含 $\mathcal F$ 中所有 $P$ 零集及其子集），$W$ 是相对于该滤过的 Brownian 运动. 令 $X_0$ 为有限的 $\mathcal F_0$ 可测随机变量，$a,b$ 为渐进可测过程，且
 
 $$
 \int_0^T|a_s|\,ds+\int_0^T b_s^2\,ds<\infty\quad\text{a.s.}
@@ -87,12 +85,12 @@ f(t,X_t)-f(0,X_0)
 \end{aligned}
 $$
 
-最后一项按局部平方可积积分理解. 因为每条连续 $X$ 路径在有限区间内有界，相关导数沿路径也有界，以上积分的路径可积条件成立. 这里没有假定 $X_0\in L^2$，也没有假定 $f_{tt}$ 或 $f_{tx}$ 存在. Lalley 的一维命题给出这个公式；下面把其证明中略写的一般系数逼近完整展开. [^ito]
+最后一项取局部平方可积积分. 连续 $X$ 路径在有限区间内有界，导数沿路径有界，保证各项路径可积.[^ito]
 
-证明分为三层：先取有界阶梯系数和有界一致连续导数；再传递到积分可积的一般系数；最后用停止和空间截断返回原来的 $f$.
+先证明有界阶梯系数及有界一致连续导数情形，再用系数逼近、停止和空间截断推广.
 
 <a id="qt17p1-taylor"></a>
-## 2. 只用一次时间导数的 Taylor 展开
+## Taylor展开
 
 先假设 $a,b$ 是有界简单可预测过程，且 $f$ 及所需导数有界、一致连续. 对固定 $t\le T$，取确定性分割 $\pi$，使它包含系数的全部跳点. 记 $h_j=t_{j+1}-t_j$、$x_j=X_{t_j}$、$\Delta X_j=X_{t_{j+1}}-X_{t_j}$. 于是
 
@@ -101,7 +99,7 @@ $$
 \qquad a_j,b_j\in\mathcal F_{t_j}.
 $$
 
-不要对 $(t,x)$ 作一个未经条件支持的二阶全变量展开. 我们先在固定 $x_{j+1}$ 时展开时间，再在固定 $t_j$ 时展开空间：
+为只使用一次时间导数，先在固定 $x_{j+1}$ 时展开时间，再在固定 $t_j$ 时展开空间：
 
 $$
 \begin{aligned}
@@ -126,12 +124,12 @@ $$
 \le 2K^2\sum_jh_j^2+2K^2t.
 $$
 
-右边一致有界，因此括号中的随机变量族在概率上有界. 一个趋零于概率的因子乘以一个在概率上有界的因子仍趋零于概率：先把第二因子限制在任意大常数以内，再控制第一因子即可. 故全部余项之和趋零于概率. 这一步只用到时间的一阶连续可微性. [^correction]
+右边一致有界，因此括号中的随机变量族在概率上有界. 一个趋零于概率的因子乘以一个在概率上有界的因子仍趋零于概率：先把第二因子限制在任意大常数以内，再控制第一因子即可. 故全部余项之和趋零于概率. [^correction]
 
 <a id="qt17p1-weighted"></a>
-## 3. 加权平方增量为什么给出二阶项
+## 加权平方增量
 
-先证明一个可反复使用的小结论. 若 $\zeta_j$ 是 $\mathcal F_{t_j}$ 可测且 $|\zeta_j|\le C$，令
+设 $\zeta_j$ 对 $\mathcal F_{t_j}$ 可测、$|\zeta_j|\le C$，令
 
 $$
 \eta_j=\zeta_j\big((\Delta W_j)^2-h_j\big).
@@ -167,10 +165,8 @@ $$
 
 第一因子趋零，第二因子在概率上有界. 即使再乘有界的 $f_{xx}$，相同估计仍成立. 因此二阶和式的极限只有 $\int b^2f_{xx}ds$，没有漂移平方或混合项留下来.
 
-这里得到的是一个有条件的极限结论，不是把普通代数中的 $(dW)^2$ 任意替换成 $dt$.
-
 <a id="qt17p1-first-order"></a>
-## 4. 一次项与共同版本
+## 一次项与共同版本
 
 时间项和漂移项分别趋于 $\int f_tds$ 与 $\int af_xds$. 随机一次项是简单积分
 
@@ -180,10 +176,10 @@ $$
 
 由于 $b$ 有界，且 $f_x$ 有界、一致连续，分割细化后，相应被积过程在 $L^2(dt\otimes P)$ 中趋于 $f_x(s,X_s)b_s$. 这里可以用有界控制收敛：路径连续给点态收敛，统一上界给可积控制. Itô 等距因此把简单积分送到所需随机积分.
 
-将各项极限放回逐路径成立的有限 Taylor 恒等式，得到固定 $t$ 时的公式几乎处处成立. 然后先只取 $[0,T]$ 内的有理数并加上 $T$，合并这个可数集合对应的零测例外；左右各项都有连续版本，所以等式延伸到全部 $t$. 不能直接把“每个固定时点几乎处处”当作“所有时点同时几乎处处”.
+将各项极限放回逐路径成立的有限 Taylor 恒等式，得到固定 $t$ 时的公式几乎处处成立. 然后先只取 $[0,T]$ 内的有理数并加上 $T$，合并这个可数集合对应的零测例外；左右各项都有连续版本，所以等式延伸到全部 $t$.
 
 <a id="qt17p1-general"></a>
-## 5. 一般系数：逐项说明怎样过极限
+## 一般系数逼近
 
 现在仍暂取导数有界一致连续，但不再假定系数有界或为阶梯. 令
 
@@ -209,9 +205,9 @@ $$
 +\sup_{t\le T}\left|\int_0^t(b_s^n-b_s)dW_s\right|.
 $$
 
-第一项趋零于 $L^1$；第二项由 Doob 和等距趋零于 $L^2$. 所以 $X^n\to X$ 一致于概率. 初值在相减时消掉，这正是无需 $\mathbb{E}|X_0|^2<\infty$ 的原因.
+第一项趋零于 $L^1$；第二项由 Doob 和等距趋零于 $L^2$. 所以 $X^n\to X$ 一致于概率. 初值在相减时消去.
 
-令 $\delta_n=\sup_{s\le T}|f_x(s,X_s^n)-f_x(s,X_s)|$. 一致连续性使 $\delta_n\to0$ 于概率；有界性又给 $\mathbb{E}\delta_n\to0$、$\mathbb{E}\delta_n^2\to0$. 对 $f_t,f_{xx}$ 同理. 接下来不是笼统说“连续，所以全部可以传递”，而是分别估计.
+令 $\delta_n=\sup_{s\le T}|f_x(s,X_s^n)-f_x(s,X_s)|$. 一致连续性使 $\delta_n\to0$ 于概率；有界性又给 $\mathbb{E}\delta_n\to0$、$\mathbb{E}\delta_n^2\to0$. 对 $f_t,f_{xx}$ 同理.
 
 漂移项分为
 
@@ -245,10 +241,10 @@ $$
 2\|f_x\|_\infty^2\|b^n-b\|_2^2+2m\mathbb{E}\delta_n^2\longrightarrow0.
 $$
 
-Itô 等距与 Doob 估计再给随机积分的一致概率收敛. 左端 $f(t,X_t^n)$ 也由有界一致连续性传递. 于是有界导数条件下的一般系数公式成立. 注意整个证明只需要漂移的 $L^1$ 逼近，没有暗中要求漂移平方可积. [^approx]
+Itô 等距与 Doob 估计再给随机积分的一致概率收敛. 左端 $f(t,X_t^n)$ 也由有界一致连续性传递. 因此有界导数条件下的一般系数公式成立.. [^approx]
 
 <a id="qt17p1-localization"></a>
-## 6. 返回原来的函数和过程
+## 停止与空间截断
 
 取光滑空间截断 $\chi_R$，在 $[-R,R]$ 上等于一，在更大的有界区间外为零，令 $f^R(t,x)=\chi_R(x)f(t,x)$. 有限时间区间上，$f^R$ 及所需导数有界、一致连续，因此上一节的结论适用.
 
@@ -256,12 +252,10 @@ Itô 等距与 Doob 估计再给随机积分的一致概率收敛. 左端 $f(t,X
 
 对几乎每条路径，$A_T<\infty$，且 $\sup_{t\le T}|X_t|<\infty$. 因此取足够大的整数 $m,R$ 后，这两个停时都等于 $T$，并且 $|X_0|<R$. 在这些可数停止版本上取共同满概率事件，再利用连续性，就得到命题所述整个区间的同一版本. 这完成证明.
 
-这个结论不会额外保证随机项是全局真鞅. 只有局部平方可积条件时，公式中的随机积分仍可能仅为局部鞅；不能仅因它写成 $\int\cdots dW$ 就直接把期望设为零.
-
 <div data-experiment-slot="VIEW-QT17-P1-PROOF"></div>
 
 <a id="qt17p1-exercise"></a>
-## 7. 迁移：哪一个条件真的不可少
+## 练习与解析
 
 令 $t_0\in(0,T)$，取 $f(t,x)=|t-t_0|^{3/2}+x^2$. 先判断此函数能否使用本篇定理，再对一般的 $X$ 写出结果. 最后判断“随机积分没有漂移，所以 $\mathbb{E}[X_t^2]$ 等于右边确定积分的期望”是否已经得到证明.
 
@@ -278,12 +272,11 @@ $$
 \end{aligned}
 $$
 
-消去时间函数，得到 $X_t^2-X_0^2=2\int X_sa_sds+\int b_s^2ds+2\int X_sb_sdW_s$. 各项是已经合法建立的路径恒等式. 要直接取期望并消去最后一项，还要有足够的全局可积条件，例如 $\mathbb{E}\int_0^tX_s^2b_s^2ds<\infty$，并检查其余项的期望存在. 局部公式本身不提供这些额外结论.
+消去时间函数得 $X_t^2-X_0^2=2\int X_sa_sds+\int b_s^2ds+2\int X_sb_sdW_s$. 若 $\mathbb{E}\int_0^tX_s^2b_s^2ds<\infty$，随机项为零均值平方可积鞅；其余项期望存在时可对等式取期望.
 
 [^ito]: Steven P. Lalley, *Notes on the Itô Calculus*, 2012-05-15，§4.1–4.2、§4.5，PDF pp.14–16、18–20；[公开原件](https://www.stat.uchicago.edu/~lalley/Courses/385/Old/ItoIntegral-2012.pdf).
 [^correction]: 同原件 p.19 的漂移步长应为 $\zeta T2^{-n}$，而非印出的 $\zeta2^{-n}T^{-1}$. 本篇分别展开时间和空间，只用 $\Delta t\,\omega(\Delta t+|\Delta X|)$ 控制时间余项.
-[^approx]: Lalley §4.5 将一般系数的步骤概括为逼近；这里的 $L^1/L^2$ 分解、过程估计和停止传递是完整展开，不称为原讲义逐字提供的证明.
-
+[^approx]: Lalley §4.5 将一般系数步骤概括为逼近；本节的 $L^1/L^2$ 分解使用前述密度、等距、Doob 估计与停止规则.
 
 ## Experiment inputs and static equivalents
 ```json

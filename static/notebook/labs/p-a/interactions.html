@@ -32,12 +32,12 @@ footer{padding:2rem 0;font-size:.9rem}button{font:inherit;padding:.35rem .8rem;b
 <noscript><p>脚本未启用. 下列静态默认结果、公式和阅读链接仍可使用.</p></noscript>
 
 <section id="p01"><span class="tag">SIM-P01-CASH-01</span><h2>先完成支付，再讨论投资</h2>
-<p>初始现金20，第90天债权回收80；第30天支付30、第120天支付25，第180天项目最多20. 事件后最低现金5，年末保留25. 金额单位：万元. 方案A第20天转让面值的98%；方案B借入15，第90天还本付息.</p>
+<p>初始现金20，第90天债权回收80；第30天支付30、第120天支付25，第180天项目最多20. 事件后最低现金5，年末保留25. 金额单位：10K CNY. 方案A第20天转让面值的98%；方案B借入15，第90天还本付息.</p>
 <div class="controls">
 <label>转让折价（%）<input id="haircut" type="number" value="2" min="0" max="80" step="0.5"></label>
 <label>借款年单利（%）<input id="apr" type="number" value="6" min="0" max="100" step="0.5"></label>
-<label>借款费用（万元）<input id="fee" type="number" value="0.1" min="0" max="10" step="0.05"></label>
-<label>可选项目（万元）<input id="project" type="number" value="20" min="0" max="20" step="0.1"></label>
+<label>借款费用（10K CNY）<input id="fee" type="number" value="0.1" min="0" max="10" step="0.05"></label>
+<label>可选项目（10K CNY）<input id="project" type="number" value="20" min="0" max="20" step="0.1"></label>
 <label>B借款到账日<select id="borrowDay"><option value="20">第20天：付款前</option><option value="35">第35天：付款后</option></select></label>
 </div>
 <p class="formula">需提前取得 = 30 + 5 − 20 = 15
@@ -46,7 +46,7 @@ B成本 = 15×年单利×(90−到账日)/365 + 费用</p>
 <div id="err-p01" class="error" role="alert"></div>
 <div id="out-p01" aria-live="polite"><p>默认A转让成本0.30612245，B成本0.27260274；满额项目后年末分别剩24.69387755和24.72739726，均低于25.</p></div>
 <h3>压力分支：固定A方案，项目改为18</h3><p class="subtle">该分支始终第20天取得转让款，只继承A的折价；不继承上方项目金额或B到账日. 第120天投入q，第365天变现，现金不计息.</p>
-<div class="controls"><label>投入q（万元）<input id="riskQ" type="number" min="0" value="8" step="0.1"></label><label>压力损失（%）<input id="stressD" type="number" min="0" max="100" value="20" step="5"></label></div>
+<div class="controls"><label>投入q（10K CNY）<input id="riskQ" type="number" min="0" value="8" step="0.1"></label><label>压力损失（%）<input id="stressD" type="number" min="0" max="100" value="20" step="5"></label></div>
 <div id="out-risk" aria-live="polite"><p>默认20%压力下，投入上界8.46938776；这是给定压力的约束，不是安全保证.</p></div>
 <details><summary>静态对照与阅读定位</summary><p>折价5%时，最小转让面值15.78947368，项目上限19.21052632. 若融资条件恶化到即使项目=0仍无法满足必要支付、最低现金或年末储备，应显示“无可行项目金额”，而不是负的上限. B到账推迟到第35天，会先在第30天出现10的付款缺口，不能继续显示为已执行的完整账.</p><p><a href="/zh/notebook/investment-objectives-funding/" target="_top">P01完整正文、三道解析题和Agent Prompt</a></p>
 <p class="source">真实政策对照：UC UCRP §2、§5–6；STIP §2–3、§5–6（2025-07-01生效、07-15修订）. 本页数字不是UC实际资金.<a href="https://regents.universityofcalifornia.edu/policies/6101.pdf">UCRP原件</a> / <a href="https://regents.universityofcalifornia.edu/policies/6109.pdf">STIP原件</a></p></details></section>
@@ -257,7 +257,7 @@ function renderFunding(){
    if(a)lastA=a.cash;if(b)lastB=b.cash;
    return row("第"+day+"天",fmt(lastA,8),fmt(lastB,8),[a?.note,b?.note].filter(Boolean).join(" / "));
  });
- $("out-p01").innerHTML=kpis([["A转让成本（万元）",fmt(z.saleCost,8)],["B条件成本（万元）",fmt(z.loanCost,8)],
+ $("out-p01").innerHTML=kpis([["A转让成本（10K CNY）",fmt(z.saleCost,8)],["B条件成本（10K CNY）",fmt(z.loanCost,8)],
    ["A项目金额上限",cap(z.projectMaxA)],["B项目金额上限",cap(z.projectMaxB)]])+
  table(["事件后","A现金","B现金","事件 / 状态"],rows)+`<p class="status">A：${status(z.A)}.<br>B：${status(z.B)}.</p>`+
  (n("borrowDay")>30?"<p>借款晚于付款；B成本仅是条件报价算术，后续终点不是可执行结果，B项目上限也不计算.</p>":"");

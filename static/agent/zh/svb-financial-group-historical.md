@@ -1,11 +1,11 @@
 # SVB Financial Group（历史报告对象）
 
-业务与已收录材料的公司入口.
+银行控股公司（历史报告对象）；已收录2023年联储对其流动性风险管理与应急融资准备的复盘材料.
 
-Entry: zh-company-svb-financial-group-historical | Node: CO-SVBFG-HISTORICAL | Language: zh | Editorial revision: 2026-09-21
+Entry: zh-company-svb-financial-group-historical | Node: CO-SVBFG-HISTORICAL | Language: zh | Editorial revision: 2026-09-22
 
 ## Teaching instructions
-先实际读取随包指定原件，核材料期间、对象及定位，再回答这份材料怎样支持相邻教学词条.
+先实际阅读 agent_packet.required_readings 指定原文单元，记录题名、版本、定位及支持内容；缺失时取得等价可读原件后再讲解. 依据具名历史材料解释业务、证券权利、日期、计量口径和已列计算. 沿该历史截止日复算，区分披露、模型假设和未来代表点. 先检查读者当前疑点，再以完整计算或条件迁移解释. runtime_reading_log保留实际读取记录.
 
 Before substantive teaching, actually retrieve every required reading unit for the selected scope. Read its complete designated section, including necessary assumptions, tables and footnotes. A working URL or an editorial access date is not a runtime reading receipt. Record the actual version, location, scope and what it supports. If unavailable, use a previously verified equivalent source; if the required unit remains unavailable, identify that gap rather than teach it from memory. Start runtime_reading_log empty. Once reading is complete, use a substantive diagnostic or follow the reader's request for direct explanation. Advance one complete reasoning task at a time; skip mastered basics. Distinguish original facts, supplied teaching assumptions and inference.
 
@@ -32,32 +32,30 @@ Before substantive teaching, actually retrieve every required reading unit for t
       },
       "required_unit": {
         "locator": "Executive Summary；Governance and Risk Management中ILST、CFP及资金操作准备段",
-        "scope": "所列具名单元全文，包含公式、表头、表注及本篇采用结论所需上下文；不要求无关章节.",
-        "purpose": "历史报告记载ILST失败、调整假设和资金准备等问题；不替代现行法规，不作政治或机构优劣评级."
+        "scope": "所列具名单元全文，包含公式、表头、表注及本篇采用结论所需上下文.",
+        "purpose": "适用身份为2023-04历史复盘，记录ILST失败、压力假设调整、CFP与融资操作准备问题；现行规则需另查相应时点的法规文本."
       },
-      "supports": "历史报告记载ILST失败、调整假设和资金准备等问题；不替代现行法规，不作政治或机构优劣评级.",
+      "supports": "适用身份为2023-04历史复盘，记录ILST失败、压力假设调整、CFP与融资操作准备问题；现行规则需另查相应时点的法规文本.",
       "id": "EI-12-READ-3",
       "retrieved_at": "2026-09-21"
     }
   ],
   "optional_readings": [],
-  "runtime_reading_log": []
+  "runtime_reading_log": [],
+  "prompt": "先实际阅读 agent_packet.required_readings 指定原文单元，记录题名、版本、定位及支持内容；缺失时取得等价可读原件后再讲解. 依据具名历史材料解释业务、证券权利、日期、计量口径和已列计算. 沿该历史截止日复算，区分披露、模型假设和未来代表点. 先检查读者当前疑点，再以完整计算或条件迁移解释. runtime_reading_log保留实际读取记录.",
+  "content_version": "2026-09-22-deep-review"
 }
 ```
 
 ## Supplied entry
-## 业务与身份
+## 业务与材料
 
-SVB Financial Group（历史报告对象）；银行控股公司；本文仅采用2023官方复盘.
+SVB Financial Group（历史报告对象）；银行控股公司.
 
-## 有日期的材料
-
-- [本次采用记录（2026-09-21）](/zh/notebook/svb-financial-group-historical-material-20260921/)：2022/2023-03.
-
-原文：[Review of the Federal Reserve’s Supervision and Regulation of Silicon Valley Bank — Executive Summary](https://www.federalreserve.gov/publications/2023-April-SVB-Executive-Summary.htm).
+- [2023年流动性风险复盘记录（研究截止2026-09-21）](/zh/notebook/svb-financial-group-historical-material-20260921/)：材料期间2022/2023-03；原文为 [Review of the Federal Reserve’s Supervision and Regulation of Silicon Valley Bank — Executive Summary](https://www.federalreserve.gov/publications/2023-April-SVB-Executive-Summary.htm)，采用 ILST、CFP 与融资操作准备相关段落.
 
 ## Sources
-- [Review of the Federal Reserve’s Supervision and Regulation of Silicon Valley Bank — Executive Summary](https://www.federalreserve.gov/publications/2023-April-SVB-Executive-Summary.htm): 历史报告记载ILST失败、调整假设和资金准备等问题；不替代现行法规，不作政治或机构优劣评级.
+- [Review of the Federal Reserve’s Supervision and Regulation of Silicon Valley Bank — Executive Summary](https://www.federalreserve.gov/publications/2023-April-SVB-Executive-Summary.htm): 历史报告对 ILST 失败、假设调整和资金准备的记录.
 
 ## Content relations
 ```json

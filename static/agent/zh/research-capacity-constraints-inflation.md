@@ -2,16 +2,10 @@
 
 从互补松弛走到同冲击反事实与非线性交互，分清论文重建和教学模拟.
 
-Entry: zh-ei17 | Node: EI-17 | Language: zh | Editorial revision: 2026-09-21
+Entry: zh-ei17 | Node: EI-17 | Language: zh | Editorial revision: 2026-09-22
 
 ## Teaching instructions
-你正在教授EI-17《现代研究阅读：产能约束与通胀》，采用内容版本2026-09-21-review-v3，当前范围：本篇完整学习单元.
-先使用工具实际读取当前required_readings列出的公开原文完整单元，核对标题、版本、表头、单位、脚注和适用范围. 来源清单或作者先前读过不等于你本次读过；runtime_reading_log初始为空，按实际结果填写，不预填成功. 网页太大时用按页/文本范围的工具；不要用搜索节选顶替完整单元. 读取失败时只说明具体缺口并尝试同机构/作者对应版本的开放正文，不能声称已完成依赖该原文的讲解.
-完成读取后，按学习者已有水平选择直接讲解、推导或互动，不强迫重学已掌握的四则运算. 诊断任务：先解a=100,K=50的乘子边界，再区分“保持同冲击、放松约束”与“联合冲击减容量单独路径”.
-沿随包完整正文推进一个完整推理任务：先结构和变量，再真实材料/模型设定，再推导和比较，最后迁移与反馈. 真实观察、作者估计、本站教学参数必须保持各自身份. 通过标准：互补松弛、恰触边μ=0、同冲击对照、四状态交互公式全部正确；并能区分Figure 7c的2021–2022总体通胀高约1–2pp与Figure 7a的2020Q2–2021Q2商品通胀加速约一半，不能把两者当同一分母，也不能将教学价格称后验通胀或相加为100%.
-使用随包实验的相同输入、算法和静态结果. 你可以改变教学参数，但先声明改变哪一条件；不改写冻结观察值，不编造未取得的论文曲线. 解释题和迁移题的完整解析已随正文提供，先让读者作答，再对照推理而非只报分数.
-额外约定：EI-10年化不是付息流水；EI-11没有未定义衍生品；EI-12信用额度不得计入30天来源；EI-13基期产出权重；EI-15分支来源仅随所选分支读取；EI-16需求与发电覆盖不同；EI-17 Figure7/9不是同一实验；EI-18来源尺度疑点不替作者静默修正. 只适用当前篇相关项.
-
+读者为有充分数学背景的高年级本科生至研究生，内容版本2026-09-22-deep-review. 讲解前按 selected_branch 实际读取 required_readings 的完整指定单元，包含定义、方法、表注与结论条件，记录题名、版本、范围和支持内容. 必要原件缺失时先取得同机构或作者的等价版本，齐全后教学. 从a＝100、K＝50诊断互补松弛和零乘子边界，再重建同冲击约束反事实与四状态交互. Figure 7c的2021–2022总体通胀高1–2 pp，与7a的2020Q2–2021Q2商品通胀加速约一半，分别标清对象及期间. 用公司量价变化提出替代解释. 已掌握的步骤直接跳过；先让读者推导或判断，再用正文解析反馈条件、机制和计算，并用迁移题检验. 真实观察、作者估计和教学参数各自标识；runtime_reading_log记录本次实际读取.
 
 Before substantive teaching, actually retrieve every required reading unit for the selected scope. Read its complete designated section, including necessary assumptions, tables and footnotes. A working URL or an editorial access date is not a runtime reading receipt. Record the actual version, location, scope and what it supports. If unavailable, use a previously verified equivalent source; if the required unit remains unavailable, identify that gap rather than teach it from memory. Start runtime_reading_log empty. Once reading is complete, use a substantive diagnostic or follow the reader's request for direct explanation. Advance one complete reasoning task at a time; skip mastered basics. Distinguish original facts, supplied teaching assumptions and inference.
 
@@ -24,7 +18,7 @@ Before substantive teaching, actually retrieve every required reading unit for t
 {
   "entry_id": "zh-ei17",
   "node_id": "EI-17",
-  "content_version": "2026-09-21-review-v3",
+  "content_version": "2026-09-22-deep-review",
   "export_mode": "public",
   "selected_branch": "all",
   "audience": "有微积分、线性代数和基本概率基础的高年级本科生至研究生",
@@ -353,7 +347,7 @@ Before substantive teaching, actually retrieve every required reading unit for t
   "static_equivalents": [
     {
       "experiment_id": "exp-ei17-static-capacity-complementarity",
-      "text": "K80/a100→120：P,Q均50→60；K50/a120→130：Q50，P70→80，μ20→30；a100,K50：触边μ0.",
+      "text": "单期教学模型 $Q=\\min(a/2,K)$、$P=a-Q$、$\\mu=a-2Q$. $K=80$ 时，$a$ 从100增至120，量价均从50增至60；$K=50$ 时，$a$ 从120增至130，产量50、价格70变80、乘子20变30. $a=100,K=50$ 恰好触边，乘子为零.",
       "outputs": {
         "a": 120,
         "K": 50,
@@ -368,7 +362,7 @@ Before substantive teaching, actually retrieve every required reading unit for t
     },
     {
       "experiment_id": "exp-ei17-fig7-relax-constraints",
-      "text": "scale1时受限价格[50,70,80,55]，松弛[50,60,65,55]，价格差[0,10,15,0]. 均为抽象价格单位.",
+      "text": "教学四期需求100、120、130、110，容量80、50、50、80. 受限价格50、70、80、55；放松上限且保持需求时，价格50、60、65、55；差为0、10、15、0，均为抽象价格单位.",
       "outputs": {
         "rows": [
           {
@@ -421,7 +415,7 @@ Before substantive teaching, actually retrieve every required reading unit for t
     },
     {
       "experiment_id": "exp-ei17-fig9-interaction",
-      "text": "默认价格[50,65,50,80]；单独需求15、容量单独0、容量背景下需求30、交互15. 教学价格，不是作者Figure9数值.",
+      "text": "基准、仅需求冲击、仅容量冲击和联合冲击的教学价格依次50、65、50、80. 需求单独效应15，容量单独效应0，容量背景下需求效应30，交互项15.",
       "outputs": {
         "baseline": {
           "a": 100,
@@ -487,19 +481,15 @@ Before substantive teaching, actually retrieve every required reading unit for t
 ```
 
 ## Supplied entry
-<strong>本篇任务：</strong>重建一篇研究中“约束怎样进入价格、同一组冲击怎样做反事实、不同冲击为什么不能线性分账”的完整关系. 主要读物是Comin、Johnson和Jones的 *Supply Chain Constraints and Inflation*，固定为IMES 2025-E-15、2025年10月版. 正文与三个小实验约20分钟；它们不代替整篇宏观模型及附录的复现. [^paper]
-
 <a id="ei17-question"></a>
 
-## 一、论文真正要区分的，是冲击与约束如何共同作用
+## 冲击与产能约束
 
-价格上涨可以来自需求增加，也可以来自生产或进口受限. 只画一条价格曲线，很难分清这些解释. 论文把国内外生产、投入联系、价格调整和可能生效的产能上限放进同一个动态模型，再用价格与数量数据共同识别. 研究样本是美国1990Q1–2023Q4的季度资料，不是2026年的通胀预测. <strong>它衡量产能约束历史影响的核心反事实，是先在允许约束生效的模型中滤出冲击，再保持同一组冲击，只把约束改成始终松弛来比较路径. </strong>[^data][^counter]
-
-本篇沿三层推进：第一层是优化条件，说明产能影子价格为何改变定价；第二层是Figure 7的**保持同一组冲击、移除约束**实验；第三层是Figure 9的**某类冲击与容量冲击共同作用**实验. 它们分别回答机制、反事实和交互，不应该混成一个“供应链贡献占比”.
+Comin、Johnson、Jones的模型联合国内外生产、投入联系、价格调整和容量上限，使用美国1990Q1–2023Q4季度资料估计. 反事实先在允许容量绑定的模型中滤出冲击，再固定这些冲击、令约束始终松弛，比较两条路径. [^paper][^data][^counter]
 
 <a id="ei17-kkt"></a>
 
-## 二、约束不是一条标签：它有可行性和乘子条件
+## 互补松弛与影子价格
 
 在论文§2.2.2中，企业价格决策要面对产量上限. 简写某期某企业的产量为 $Y$、上限为 $\bar Y$、乘子为 $\mu$，必须同时满足
 
@@ -511,7 +501,7 @@ $$
 
 最后一条是互补松弛：有闲置容量时，乘子必须为0；乘子严格为正时，产量必在上限. 反过来，仅有 $Y=\bar Y$ 并不强迫 $\mu>0$，因为需求恰好把产量推到边界时，增加一点容量也可能没有一阶价值. [^model]
 
-论文的价格一阶条件中，边际成本与产能乘子一起影响最优价格；§2.6.1线性化的国内和进口价格方程额外出现由乘子带来的项. 机制是在同一生产与定价结构下，产能上限改变继续扩大供给的影子成本. 论文同时包含投入替代、国内外来源及粘性价格，因此下面静态例子只隔离这一容量约束机制.[^model]
+论文价格一阶条件将边际成本与产能乘子共同纳入最优价格，线性化的国内及进口定价方程保留乘子项. 上限通过额外一单位供给的影子成本影响价格；模型同时包含投入替代和粘性价格. [^model]
 
 为了手算这三个条件，我们另设一个**静态教学经济**：逆需求 $P=a-Q$，边际生产成本为 $Q$，总产出不得超过 $K>0$. 其竞争配置可由最大化总剩余重建：
 
@@ -534,7 +524,7 @@ P&=a-Q,\\
 \end{aligned}
 $$
 
-这是单期竞争教学例，不是论文的垄断竞争动态模型. 它保留了同样重要的对象区别：成本、容量和影子价格.
+以下单期竞争例隔离成本、容量和影子价格的关系.
 
 | 教学情景 | a | K | Q | P | μ |
 |---|---:|---:|---:|---:|---:|
@@ -544,25 +534,23 @@ $$
 | 已受限后需求继续增加 | 130 | 50 | 50 | 80 | 30 |
 | 恰好触边 | 100 | 50 | 50 | 50 | 0 |
 
-在松弛内点，需求增加使价格和数量都上升；约束已经生效时，需求继续增加可以只推价格、不推数量. 这是给“价格↑、数量↑是需求冲击”直觉加上必要条件，而不是取消供需分析.
+松弛内点中，需求增加同时提高价格和数量；容量生效后，需求增加只提高价格及乘子. 量价组合的解释因约束状态而变化.
 
 <div data-experiment-slot="exp-ei17-static-capacity-complementarity"></div>
 
 <a id="ei17-estimation"></a>
 
-## 三、从不可直接观察的容量走到模型估计
+## 数据映射与约束估计
 
-论文§3使用消费品与服务价格、消费支出、工业生产、劳动生产率以及进口价格和支出等观测，将不同系列映射到模型变量. 原始系列有自己的统计定义；例如工业生产在这里是商品部门产出的代理，不是精确相同的对象. 增长和通胀序列按作者处理去均值. [^data]
+§3将消费价格、支出、工业生产、劳动生产率、进口价格和支出映射到模型变量，工业生产作为商品部门产出的代理，增长及通胀序列按作者方法去均值. [^data]
 
-容量约束是否生效不是直接从一张“全国容量”表读取. 作者用约束持续时间和结构参数刻画分段状态方程，给定候选参数与持续时间后滤出平滑冲击，再检查产生的模型路径是否与候选约束状态相容. 基准先验只允许2020Q2起约束生效，因此更早时期的零乘子并不是由数据自由发现的普遍事实. [^data]
+给定候选参数和约束持续时间后，作者滤出平滑冲击，检验所得路径与候选状态是否相容. 基准先验仅允许2020Q2起约束生效，因此更早的零乘子由这一先验限定. [^data]
 
-这一步告诉我们如何评价研究结果：必须同时看观测、模型映射、先验与近似解. 论文还说明，数值上的分段线性近似可能产生小的负乘子残差；理论KKT要求非负，不应把数值近似误差解释成“真实产能约束具有负影子成本”. [^counter]
-
-我们不在本篇重估后验或重新运行Dynare；但可以准确重建每次实验固定什么、改变什么、最后比较什么. 这已经比只复述“产能影响通胀”多走了最重要的一步.
+分段线性近似可能留下小的负乘子残差，属于数值误差；理论KKT仍要求乘子非负. [^counter]
 
 <a id="ei17-fig7"></a>
 
-## 四、Figure 7：同一组冲击，拿掉约束
+## 同冲击约束反事实
 
 论文§4.2的迭代可用一张流程表重建. 对每次后验抽样 $b$，先得到参数 $\theta^{(b)}$ 和约束持续时间，再在**允许约束生效的模型**中从数据滤出冲击路径 $\hat\varepsilon^{(b)}$. 随后保持这些冲击，改用始终松弛的约束运行模型. [^counter]
 
@@ -575,13 +563,13 @@ X^{(b)}_{\mathrm{slack}}
 \end{aligned}
 $$
 
-这里的 $F$ 是为解释作者求解流程所用的记号. 反事实比较对同一次抽样保持同一组冲击，只改变约束是否允许绑定；这样两条路径的差对应约束制度，而不会混入重新估出的冲击变化.
+$F$ 表示模型求解映射. 两条路径保持参数和滤出冲击相同，差别来自约束是否允许绑定.
 
-Figure 7的纵轴是**去均值的季度通胀年化值**，不是同比通胀. 若季度对数变动为 $\pi_t$，年化尺度是 $4\pi_t$；以百分比显示时还要乘100. 图比较原始数据与反事实中位数，区间来自后验模拟，并保留观测的测量误差处理. 约1000次后验抽样形成的第5至95分位区间，不是本篇静态例子能够生成的置信带. [^counter]
+Figure 7的纵轴为去均值的季度通胀年化值；季度对数变动 $\pi_t$ 以百分比显示时乘400. 图比较数据与反事实中位数，约1000次后验模拟形成第5至95分位区间，并按原文处理测量误差. [^counter]
 
-实际读图要把面板、期间和分母分开.<strong>Figure 7c对应总体（aggregate/headline）消费价格通胀：在2021–2022年，实际路径比始终松弛约束的反事实高约1–2个百分点. </strong>另一方面，**Figure 7a及其正文说“约一半的加速”时，分母是2020Q2–2021Q2的商品价格通胀加速**；正文还另讨论2022年后半年商品通胀回落. 这不是把总体通胀的“2个百分点”除以某个“4个百分点”所得的永久50%比例. 图7的商品、服务和总体面板必须分别读，不能把更窄对象/期间的份额改写成2021–2022总体通胀的固定贡献率. [^counter]
+Figure 7c中，2021–2022总体消费价格通胀的实际路径比松弛反事实高约1–2个百分点. Figure 7a及正文的“约一半”则指2020Q2–2021Q2商品价格通胀的加速. 两个结论分别限定对象和期间. [^counter]
 
-我们用四期**教学变式**演示“同冲击、不同约束”的运算，不抄造论文曲线. 输入需求截距 $a=(100,120,130,110)$，容量 $K=(80,50,50,80)$，逐期使用上一节静态规则；拿掉上限后，同一 $a$ 得到 $P=Q=a/2$.
+另设四期教学需求 $a=(100,120,130,110)$、容量 $K=(80,50,50,80)$，逐期使用静态规则. 放松容量后保持同一 $a$，有 $P=Q=a/2$.
 
 | 教学期 | 相同需求a | 容量K | 受限价格 | 始终松弛价格 | 价格差 |
 |---|---:|---:|---:|---:|---:|
@@ -590,13 +578,13 @@ Figure 7的纵轴是**去均值的季度通胀年化值**，不是同比通胀. 
 | 3 | 130 | 50 | 80 | 65 | 15 |
 | 4 | 110 | 80 | 55 | 55 | 0 |
 
-这里是抽象价格单位，不是通胀百分点；逐期独立的静态重算也没有学习预期或跨期价格调整. 它只让我们亲手确认反事实比较固定的是输入，而不是把一条曲线任意下移.
+这些价格以抽象货币单位记录，各期独立求解.
 
 <div data-experiment-slot="exp-ei17-fig7-relax-constraints"></div>
 
 <a id="ei17-fig9"></a>
 
-## 五、Figure 9：容量改变其他冲击的效果
+## 冲击交互
 
 Figure 9a让各类冲击分别进入模型；Figure 9b则把某类冲击与容量冲击一起放入，再减去容量冲击单独作用的路径. 作者用这一步观察同一种冲击在容量路径不同的背景下怎样表现. [^interaction]
 
@@ -604,7 +592,7 @@ Figure 9a让各类冲击分别进入模型；Figure 9b则把某类冲击与容�
 $$
 G(u,v)-G(0,v),
 $$
-而不是单纯的 $G(u,0)-G(0,0)$. 它们的差是交互项：
+它与单独施加冲击 $u$ 时的变化 $G(u,0)-G(0,0)$ 相减，得到交互项：
 $$
 J=G(u,v)-G(0,v)-G(u,0)+G(0,0).
 $$
@@ -618,15 +606,15 @@ $$
 | 只有容量冲击 | 100 | 50 | 50 |
 | 两者一起 | 130 | 50 | 80 |
 
-单独需求效应是15；在较紧容量下，条件需求效应是 $80-50=30$，交互项为15. 容量冲击单独出现时只是恰好触边，价格变化为0，却不能据此说它与联合结果无关. 这正是非线性的重要之处.
+需求单独效应15，较紧容量背景下需求效应30，交互项15. 容量冲击单独只使产量触边，联合需求冲击后才形成正的容量乘子.
 
-因此把“需求单独贡献15、容量单独贡献0”相加，不能解释联合变化30. 分配交互项需要另外定义归因规则，论文的Figure 9b不是自动加总为100%的分账表. Figure 7改变约束制度而固定全套冲击；Figure 9改变冲击组合并允许约束响应. 两个实验回答不同问题.
+两个单独效应合计15，联合效应30，其余15由交互产生，进一步分配需要指定归因规则. Figure 7比较约束制度，Figure 9比较冲击组合.
 
 <div data-experiment-slot="exp-ei17-fig9-interaction"></div>
 
 <a id="ei17-exercises"></a>
 
-## 六、重建与迁移
+## 重建与迁移
 
 <strong>任务一：</strong>$a=100,K=50$时为什么产量在上限，但乘子为0？把a再提高到110会怎样？
 
@@ -638,150 +626,28 @@ $$
 
 <strong>任务三：</strong>用上一节四格价格重算Figure 9b式差分、无容量冲击的需求效应和交互项.
 
-<strong>解析：</strong>依次为 $80-50=30$、$65-50=15$、$30-15=15$. 它们都是教学价格差，不是研究论文的通胀贡献. 若把三者都作为独立贡献相加，会再次重复计数.
+<strong>解析.</strong> 条件需求效应 $80-50=30$，无容量冲击的需求效应 $65-50=15$，两者差15为交互项，单位均为教学价格差.
 
 <strong>迁移任务：</strong>一家制造商的产品价格上涨，但实物交付持平. 这能否直接识别其产能约束？
 
-<strong>解析：</strong>可以提出容量绑定的候选机制：需求增强时只能涨价、不增产. 但还可能有产品组合、计划检修、配给或价格调整时点等解释. 需要可用产能、排产、实物订单和交期；论文中的宏观模型结果不能直接识别这家公司的瓶颈，更不能直接推出利润. 可迁移的是“把约束和冲击共同建模”的方法，而非某一个宏观份额.
+<strong>解析.</strong> 需求增长且容量绑定可产生价格升、交付平；产品组合、检修、配给或调价时间也可产生类似观察. 可用容量、排产、实物订单及交期能区分这些解释.
 
 [^paper]: EIDEF-S20，Diego Comin、Robert C. Johnson、Callum Jones，*Supply Chain Constraints and Inflation*，IMES Discussion Paper 2025-E-15，2025年10月；固定72页公开版本. [全文](https://www.imes.boj.or.jp/research/papers/english/25-E-15.pdf).
-[^model]: 同源§2.2.2，印刷pp.12–13（PDF物理pp.15–16），生产、价格条件与互补松弛式(6)–(7)；§2.6.1印刷pp.17–18（PDF pp.20–21），定价关系. 本文静态总剩余例是另设教学模型，不是作者企业问题的完整复制.
-[^data]: 同源§3，印刷pp.21–26（PDF pp.24–29），数据、参数、持续时间与先验；季度美国资料1990Q1–2023Q4. 未重新估计底层序列或后验.
-[^counter]: 同源§4.1–4.2，印刷pp.27–30（PDF pp.30–33）；Figure 7位于印刷p.29／PDF p.32，脚注34–35含近似乘子、测量误差说明. 本文保留其反事实流程和图读对象，不提供伪造的作者逐期模拟数据.
+[^model]: 同源§2.2.2，印刷pp.12–13（PDF物理pp.15–16），生产、价格条件与互补松弛式(6)–(7)；§2.6.1印刷pp.17–18（PDF pp.20–21），定价关系.
+[^data]: 同源§3，印刷pp.21–26（PDF pp.24–29），数据、参数、持续时间与先验；季度美国资料1990Q1–2023Q4.
+[^counter]: 同源§4.1–4.2，印刷pp.27–30（PDF pp.30–33）；Figure 7位于印刷p.29／PDF p.32，脚注34–35含近似乘子、测量误差说明.
 [^interaction]: 同源§4.3，印刷pp.31–33（PDF pp.34–36）；Figure 9位于印刷p.32／PDF p.35，图下正文明确“联合冲击路径减容量冲击单独路径”.
 
 <script src="/notebook/labs/ei-defgh/reader-adapter.js" defer></script>
 
-
 ## Additional teaching material
-### 图表的静态等价与默认结果
+## 静态计算
 
-K80/a100→120：P,Q均50→60；K50/a120→130：Q50，P70→80，μ20→30；a100,K50：触边μ0.
+单期教学模型 $Q=\min(a/2,K)$、$P=a-Q$、$\mu=a-2Q$. $K=80$ 时，$a$ 从100增至120，量价均从50增至60；$K=50$ 时，$a$ 从120增至130，产量50、价格70变80、乘子20变30. $a=100,K=50$ 恰好触边，乘子为零.
 
-```json
-{
-  "a": 120,
-  "K": 50,
-  "q": 50,
-  "p": 70,
-  "mu": 20,
-  "slack": 0,
-  "complementarity": 0,
-  "regime": "绑定且乘子为正",
-  "identity": "one-period competitive teaching model; abstract price/output, not the IMES model"
-}
-```
+教学四期需求100、120、130、110，容量80、50、50、80. 受限价格50、70、80、55；放松上限且保持需求时，价格50、60、65、55；差为0、10、15、0，均为抽象价格单位.
 
-scale1时受限价格[50,70,80,55]，松弛[50,60,65,55]，价格差[0,10,15,0]. 均为抽象价格单位.
-
-```json
-{
-  "rows": [
-    {
-      "period": 1,
-      "a": 100,
-      "K": 80,
-      "constrained_q": 50,
-      "constrained_p": 50,
-      "slack_q": 50,
-      "slack_p": 50,
-      "difference": 0,
-      "mu": 0
-    },
-    {
-      "period": 2,
-      "a": 120,
-      "K": 50,
-      "constrained_q": 50,
-      "constrained_p": 70,
-      "slack_q": 60,
-      "slack_p": 60,
-      "difference": 10,
-      "mu": 20
-    },
-    {
-      "period": 3,
-      "a": 130,
-      "K": 50,
-      "constrained_q": 50,
-      "constrained_p": 80,
-      "slack_q": 65,
-      "slack_p": 65,
-      "difference": 15,
-      "mu": 30
-    },
-    {
-      "period": 4,
-      "a": 110,
-      "K": 80,
-      "constrained_q": 55,
-      "constrained_p": 55,
-      "slack_q": 55,
-      "slack_p": 55,
-      "difference": 0,
-      "mu": 0
-    }
-  ],
-  "identity": "same demand sequence, constraint switched off; additional teaching data, not Fig.7 posterior simulation"
-}
-```
-
-默认价格[50,65,50,80]；单独需求15、容量单独0、容量背景下需求30、交互15. 教学价格，不是作者Figure9数值.
-
-```json
-{
-  "baseline": {
-    "a": 100,
-    "K": 80,
-    "q": 50,
-    "p": 50,
-    "mu": 0,
-    "slack": 30,
-    "complementarity": 0,
-    "regime": "松弛",
-    "identity": "one-period competitive teaching model; abstract price/output, not the IMES model"
-  },
-  "demand_only": {
-    "a": 130,
-    "K": 80,
-    "q": 65,
-    "p": 65,
-    "mu": 0,
-    "slack": 15,
-    "complementarity": 0,
-    "regime": "松弛",
-    "identity": "one-period competitive teaching model; abstract price/output, not the IMES model"
-  },
-  "capacity_only": {
-    "a": 100,
-    "K": 50,
-    "q": 50,
-    "p": 50,
-    "mu": 0,
-    "slack": 0,
-    "complementarity": 0,
-    "regime": "恰好触边，乘子为零",
-    "identity": "one-period competitive teaching model; abstract price/output, not the IMES model"
-  },
-  "joint": {
-    "a": 130,
-    "K": 50,
-    "q": 50,
-    "p": 80,
-    "mu": 30,
-    "slack": 0,
-    "complementarity": 0,
-    "regime": "绑定且乘子为正",
-    "identity": "one-period competitive teaching model; abstract price/output, not the IMES model"
-  },
-  "demand_effect_without_capacity": 15,
-  "capacity_alone_effect": 0,
-  "conditional_demand_effect": 30,
-  "interaction": 15,
-  "total_effect": 30,
-  "identity": "price-unit four-state teaching example; difference operation mirrors Fig.9b, not estimated inflation"
-}
-```
+基准、仅需求冲击、仅容量冲击和联合冲击的教学价格依次50、65、50、80. 需求单独效应15，容量单独效应0，容量背景下需求效应30，交互项15.
 
 ## Experiment inputs and static equivalents
 ```json
@@ -807,7 +673,7 @@ scale1时受限价格[50,70,80,55]，松弛[50,60,65,55]，价格差[0,10,15,0].
       "capacityScale": 1
     },
     "algorithm": "新增教学路径a=[100,120,130,110],K=[80,50,50,80]×scale；受限逐期用静态模型，松弛逐期P=Q=a/2. 不是论文通胀，不生成后验置信带. 作者实验流程另列同θ、同smoothed shocks、all-slack反事实及measurement error.",
-    "static_equivalent": "scale1时受限价格[50,70,80,55]，松弛[50,60,65,55]，价格差[0,10,15,0]. 均为抽象价格单位.",
+    "static_equivalent": "教学四期需求100、120、130、110，容量80、50、50、80. 受限价格50、70、80、55；放松上限且保持需求时，价格50、60、65、55；差为0、10、15、0，均为抽象价格单位.",
     "source_ids": [
       "EIDEF-S20"
     ],
@@ -900,7 +766,7 @@ scale1时受限价格[50,70,80,55]，松弛[50,60,65,55]，价格差[0,10,15,0].
       "capacityReduction": 30
     },
     "algorithm": "基准a100,K80；分别计算P(0,0),P(u,0),P(0,v),P(u,v). conditional=P(u,v)−P(0,v)；interaction=conditional−[P(u,0)−P(0,0)]. 非线性不强制贡献加总100%.",
-    "static_equivalent": "默认价格[50,65,50,80]；单独需求15、容量单独0、容量背景下需求30、交互15. 教学价格，不是作者Figure9数值.",
+    "static_equivalent": "基准、仅需求冲击、仅容量冲击和联合冲击的教学价格依次50、65、50、80. 需求单独效应15，容量单独效应0，容量背景下需求效应30，交互项15.",
     "source_ids": [
       "EIDEF-S20"
     ],
@@ -996,7 +862,7 @@ scale1时受限价格[50,70,80,55]，松弛[50,60,65,55]，价格差[0,10,15,0].
       "K": 50
     },
     "algorithm": "最大化aQ−Q²,0≤Q≤K. a≥0,K>0；Q=min(a/2,K),P=a−Q,μ=a−2Q. 显示slack与μ(Q−K)=0. a=0采用Q=P=μ=0. 模型为静态教学经济，不是IMES复现.",
-    "static_equivalent": "K80/a100→120：P,Q均50→60；K50/a120→130：Q50，P70→80，μ20→30；a100,K50：触边μ0.",
+    "static_equivalent": "单期教学模型 $Q=\\min(a/2,K)$、$P=a-Q$、$\\mu=a-2Q$. $K=80$ 时，$a$ 从100增至120，量价均从50增至60；$K=50$ 时，$a$ 从120增至130，产量50、价格70变80、乘子20变30. $a=100,K=50$ 恰好触边，乘子为零.",
     "source_ids": [
       "EIDEF-S20"
     ],
@@ -1024,7 +890,7 @@ scale1时受限价格[50,70,80,55]，松弛[50,60,65,55]，价格差[0,10,15,0].
 ```
 
 ## Sources
-- [Supply Chain Constraints and Inflation](https://www.imes.boj.or.jp/research/papers/english/25-E-15.pdf): 同冲击、改约束的Figure 7反事实：Figure 7c在2021–2022总体消费价格通胀约高1–2pp；Figure 7a“约一半”对应2020Q2–2021Q2商品价格通胀加速，二者不是同一分母. Figure 9联合冲击减容量单独路径是另一运算；近似乘子、先验、测量误差与后验区间保留.
+- [Supply Chain Constraints and Inflation](https://www.imes.boj.or.jp/research/papers/english/25-E-15.pdf): Figure 7 比较同一冲击下改变约束的反事实. 7c 的 1–2 pp 对应 2021–2022 年总体消费价格通胀；7a 的“约一半”对应 2020Q2–2021Q2 商品价格通胀加速. Figure 9 另计算联合冲击路径减去容量单独路径，估计包含先验、测量误差与后验区间.
 
 ## Content relations
 ```json

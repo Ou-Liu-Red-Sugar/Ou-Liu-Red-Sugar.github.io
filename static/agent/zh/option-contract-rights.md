@@ -1,21 +1,15 @@
-# 期权合约：谁拥有选择，谁承担义务
+# 期权合约、权利金与履约义务
 
 从真实股票、ETF与SPXW规格辨认选择权、写出义务和交易单位；解释权利金的价格约束，并分开行权货款.
 
-Entry: zh-m15 | Node: M15 | Language: zh | Editorial revision: 2026-09-21
+Entry: zh-m15 | Node: M15 | Language: zh | Editorial revision: 2026-09-22
 
 ## Teaching instructions
-你正在教M15《期权合约：谁拥有选择，谁承担义务》，内容版本2026-09-21-MEFG-review-v3. 读者已有高年级本科至研究生的数学基础.
+带读《期权合约、权利金与履约义务》，面向有充分数学基础的高年级本科生至研究生. 先实际读取随包 required_readings 的指定原文单元；采用选读分支时也读取对应材料，并记录本次版本与范围. 原文不可读时查找机构的等价全文，仍缺关键单元则指出缺口.
 
-先确认选用本篇共同正文和哪些分支，再实际读取agent_packet列出的当前必读完整原文. PDF需读脚注、表图与符号；只拿到摘要/目录/搜索片段不算完成. 记录实际版本、范围与内容对应，不沿用编辑端“已读”充当本次读取；同会话已完整取得相同版本单元可以复用. 若所需单元失败，尝试机构正式等价全文；仍缺失则指出具体单元，不凭记忆补成已读教学. runtime_reading_log从空开始.
+让我比较采购远期与看涨期权的权利义务，填写股票、ETF和SPXW的乘数、行权时间与交付对象. 分别解释400权利金和10K行权货款，再重建120/90两状态中的半股复制组合. 复制部分先读MIT slides 16–21及EXP-STATE-01的assumptions、units、two_state和formula_contract. 用一份新合约规格检验迁移.
 
-独立学习任务：拿一份未见过的期权规格，独立填写holder/writer、乘数、允许行权时间、最终交付对象和两笔现金.
-专属诊断与正向讲解：先让我说明采购/持仓为何需要选择而不是双向承诺. 给出股票call的4美元报价，追问400和10000分别买到了什么；SPXW改成现金结算时，要求重画交付对象.
-反馈尺度：能够同时说出权利金是市场价格、复制成本约束和卖方不保证获利，而不是只背四个方向.
-
-读者要求直接讲解时，按本篇连贯推导讲清，不反复问已会先修. 静态例、实验、练习必须使用本包同一输入和单位；实例价、合成价、模型价、规则时点不能混换. 练习要给完整解析，不仅打分. 仅当选读分支被采用时，将其optional reading转入当前必读.
-
-复制理由进入教学前，实际读取MIT slides16–21与冻结EXP-STATE-01的assumptions、units、two_state、formula_contract；M15不要求读取three_state分支.
+用一个完整分析任务判断我的起点，已掌握的步骤直接跳过. 沿正文的输入、单位与材料时点讲解，在我作答后给出推导、错误原因和迁移反馈.
 
 Before substantive teaching, actually retrieve every required reading unit for the selected scope. Read its complete designated section, including necessary assumptions, tables and footnotes. A working URL or an editorial access date is not a runtime reading receipt. Record the actual version, location, scope and what it supports. If unavailable, use a previously verified equivalent source; if the required unit remains unavailable, identify that gap rather than teach it from memory. Start runtime_reading_log empty. Once reading is complete, use a substantive diagnostic or follow the reader's request for direct explanation. Advance one complete reasoning task at a time; skip mastered basics. Distinguish original facts, supplied teaching assumptions and inference.
 
@@ -409,7 +403,7 @@ Before substantive teaching, actually retrieve every required reading unit for t
   },
   "entry_id": "zh-m15",
   "node_id": "M15",
-  "content_version": "2026-09-21-MEFG-review-v3",
+  "content_version": "2026-09-22-deep-review",
   "experiment_ids": [
     "EXP-MEFG-M15-CONTRACT"
   ],
@@ -435,13 +429,13 @@ Before substantive teaching, actually retrieve every required reading unit for t
 
 ## Supplied entry
 <a id="m15-purpose"></a>
-## 一、把“将来要交易”与“将来可以选择交易”分开
+## 一、期权的选择权与履约义务
 
-我们先接着远期来看. 假设一家企业三个月后可能需要采购一批资产. 签一份远期，可以现在约定将来按什么条件交换；但如果采购计划取消，远期义务并不会随企业的心情取消. 企业真正需要的也许不是锁住交易，而是保留一种选择：需要时可以买，不需要时可以放弃. 期权就是把这种不对称的决策权写进合约的一类安排. [^MEFG-MIT-OPTIONS]
+一家企业三个月后可能需要采购资产. 远期锁定未来的交换条件，采购计划取消后仍有履约义务；看涨期权则赋予按约定条件买入的权利，持有人可在合约允许时行使，也可放弃. [^MEFG-MIT-OPTIONS]
 
-这里的“选择”不是说交易双方都能随时反悔. **持有人取得合约规定的选择权；建立卖出头寸的一方承担被指派后按约履行的义务.** 谁能决定是否行权，正是它与双向承诺的重要区别. 我们仍沿金融权利的读法，先找对象、数量、条件和时间，不急着给它贴上“高风险”或“保险”的标签.
+**期权持有人拥有合约规定的选择权；卖出开仓者承担被指派后履约的义务.** 合约规定标的、数量、行权价、行权时间及交付方式.
 
-令标的价格为 $S$、行权价为 $K$. 实物交付的看涨期权（call）给持有人按 $K$ 买入规定标的数量的权利；看跌期权（put）给持有人按 $K$ 卖出规定数量的权利. 这两类权利各自可以被买入，也可以被卖出建立义务，所以有四个方向，而不是“call是买、put是卖”两个方向. 现金结算产品则按规定的结算值与 $K$ 的关系支付现金，不交付标的本身. [^MEFG-ODD]
+令标的价格为 $S$、行权价为 $K$. 实物交付的看涨期权（call）给持有人按 $K$ 买入规定标的数量的权利；看跌期权（put）给持有人按 $K$ 卖出规定数量的权利. 这两类权利各自可以被买入，也可以被卖出建立义务，形成买入call、卖出call、买入put和卖出put四个方向. 现金结算产品则按规定的结算值与 $K$ 的关系支付现金，不交付标的本身. [^MEFG-ODD]
 
 | 建立的头寸 | 持有的权利或义务 | 实物交付时的主要现金／标的方向 |
 |---|---|---|
@@ -453,19 +447,19 @@ Before substantive teaching, actually retrieve every required reading unit for t
 “卖出call”也可能只是卖掉已经持有的call来平仓. 这时卖出的是已有权利，不一定形成新的裸卖方义务. 判断账户变化，要连同开仓／平仓标记与原持仓一起看. [^MEFG-ODD]
 
 <a id="m15-price"></a>
-## 二、权利金是选择权的价格，不是一张风险罚单
+## 二、权利金与复制成本约束
 
-现在问一个更根本的问题：为什么取得这项选择通常要付钱？以call为例，到期时若标的低于 $K$，持有人可以不用较高的合约价格买；高于 $K$ 时则可以取得价差. 与必须双向履行的远期相比，持有人保留了有利方向、可以放弃不利交换. 这种支付结构本身就是被交易的资产.
+以call为例，到期标的价格低于$K$时，持有人可放弃按$K$买入；高于$K$时则可取得价差. 这种非对称支付是一项可交易资产，权利金是取得它的价格.
 
-但“卖方有风险，所以随便收一笔风险费”仍然没有解释价格为什么是这个数. 考虑一个简化市场：股票今天100，一期后只有120或90两种可能，现金一期增长到原来的1.02倍. 行权价105的call到期支付为15或0. 买半股需要50，同时借入 $750/17\approx44.12$；到期还45. 两个状态下，半股减去还款恰好是 $60-45=15$ 和 $45-45=0$. 因此复制这个支付只需今天净投入 $100/17\approx5.88$. 在允许这种融资和交易的无摩擦模型内，同样支付的call价格就受这个复制成本约束. 完整的交易和定价权重在后面的复制一篇展开. [^MEFG-MIT-OPTIONS][^MEFG-STATE]
+复制组合给出价格约束. 在一个简化市场中，股票今天100，一期后只有120或90两种可能，现金一期增长到原来的1.02倍. 行权价105的call到期支付为15或0. 买半股需要50，同时借入 $750/17\approx44.12$；到期还45. 两个状态下，半股减去还款恰好是 $60-45=15$ 和 $45-45=0$. 因此复制这个支付只需今天净投入 $100/17\approx5.88$. 在允许这种融资和交易的无摩擦模型内，同样支付的call价格就受这个复制成本约束. 完整的交易和定价权重在后面的复制一篇展开. [^MEFG-MIT-OPTIONS][^MEFG-STATE]
 
-这个小例子也说明，选择权有价格并不等于卖方稳赚. 未对冲卖方的未来支出随状态而变；对冲卖方要把收到的资金投入复制组合，不能把全部权利金立刻当作可消费的利润. 若一个支付在所有可能状态都为零，名称再像期权，也不会单凭“选择权”三个字在这个模型里产生正价值.
+未对冲卖方的未来支出随状态变化；使用复制对冲的卖方，需要将收到的权利金投入复制组合以覆盖到期义务.
 
-实际上市期权的条款由合约规范确定，权利金则通过报价和交易形成. 相同series在不同场所的报价也可能暂时不同. 合约规范告诉你买了什么，交易市场告诉你当时愿意以多少钱交换它；模型给出在特定条件下的价格约束. 三者不能互相替代. [^MEFG-ODD]
+上市期权的权利义务由合约规范确定，权利金通过报价和交易形成；不同场所的同一series可有不同报价，复制模型则给出特定交易条件下的价格约束. [^MEFG-ODD]
 
 <a id="case-mefg-spx-rules-2026"></a>
 <a id="m15-contract"></a>
-## 三、读两种真实规格，而不是把“100”背成万能乘数
+## 三、股票、ETF与SPXW的合约单位
 
 OCC的普通股票期权规格说明，标准合约通常对应100股，行权后发生股票交付；公司行动可能使调整后的合约不再等于100股. Cboe的SPX规格则给出每报价点100美元、欧式行权、现金结算的结构. 两个“100”的单位不一样. [^MEFG-OCC-EQUITY][^MEFG-SPX]
 
@@ -475,12 +469,12 @@ OCC的普通股票期权规格说明，标准合约通常对应100股，行权�
 | ETF份额期权的本篇对照 | 通常100份ETF份额，具体系列需核 | 采用OCC所列美式规格 | ETF份额与行权货款 |
 | SPX／SPXW | 每指数点100美元 | 欧式 | 按指定结算值计算的现金 |
 
-ETF本身持有证券，并不意味着ETF期权必然现金结算. 这里交付的对象是ETF份额. 反过来，SPX是指数，不存在“行权后自动收到100股指数股票”的安排. [^MEFG-OCC-ETF][^MEFG-SPX]
+本例ETF期权行权交付ETF份额；SPX指数期权以现金结算. [^MEFG-OCC-ETF][^MEFG-SPX]
 
 美式表示合约允许在到期前的规定营业日行权，欧式把行权限制在指定到期安排；这不是交易所在地，也不是现金／实物结算的另一种叫法. 同样叫SPX的产品还须区分传统AM结算与SPXW的PM结算. 对于前者，结算值采用到期日成份股开盘价格；本篇采用的SPXW对照按规定的收盘价格形成结算值. 不能拿一个屏幕上的收盘指数读数替代所有系列的最终结算规则. [^MEFG-SPX]
 
 <a id="m15-cash"></a>
-## 四、一份权利对应的三笔钱
+## 四、权利金、行权货款与抵押
 
 用一个明确的教学报价：股票call，$K=100$，每份100股，买入价每股4美元. 买一份的权利金为 $4\times100=400$ 美元. 这400是期权权利的购买价，不是股票的4%首付. 日后行权仍要支付 $100\times100=10,000$ 美元，取得100股；若选择卖出平仓，则是出售期权本身，不发生这笔行权买股. [^MEFG-ODD]
 
@@ -489,19 +483,19 @@ ETF本身持有证券，并不意味着ETF期权必然现金结算. 这里交付
 | 现金对象 | 本教学例中的数 | 它回答的问题 |
 |---|---:|---|
 | 股票call权利金 | 400美元 | 买入权利花了多少 |
-| 股票call行权货款 | 10,000美元 | 真正交换100股需要付多少 |
+| 股票call行权货款 | 10,000美元 | 交换100股的货款 |
 | 卖方所需抵押 | 本节不填统一数值 | 卖方履约要提供什么支持 |
 
-第三栏没有从400或10,000自动推出来. 抵押规则取决于产品、头寸和账户；它也不是卖方可能亏损的上限. 下一篇先比较到期所得与投资损益，再在行权一篇进入账户账本.
+卖方抵押要求取决于产品、头寸与账户规则. 抵押是履约保障，最终损失由合约支付和交易成本决定，可能超过已存抵押.
 
 <a id="m15-explore"></a>
-## 五、沿图读合约
+## 五、到期支付与名义交易损益
 
 <div data-experiment-slot="EXP-MEFG-M15-CONTRACT"></div>
 
-实验把两件事放在同一个面板里. 上方权利卡随产品、call／put与多空方向变化，显示谁拥有选择、谁承担条件义务；下方两条曲线则只针对**当前选中的这一头寸**，分别画到期合约支付与扣除初始权利金后的名义交易损益. 两条曲线之间的垂直差额来自权利金现金，不是“多头与空头互为相反数”的两条支付线. 若切换同一合约的long／short，在其他教学输入不变时，对应支付和名义损益才分别反号. 先把标的价格移到 $K$ 的两侧，再问权利是否有价值，以及权利金怎样把支付变成交易损益.
+同一头寸的到期合约支付与扣除初始权利金后的名义交易损益相差初始权利金现金. 对同一合约切换long／short且其他输入不变时，对应支付与名义损益分别反号；call／put或产品变化时，先按相应权利、义务和乘数重建支付.
 
-无交互时，按 $K=100$、乘数100，直接检查下表即可. 所有金额都是到期经济支付；实物交收另按相应合约流程处理.
+按 $K=100$、乘数100静态核对如下. 所有金额都是到期经济支付；实物交收另按相应合约流程处理.
 
 | 到期标的价格 | 买入call支付 | 买入put支付 | 卖出call支付 | 卖出put支付 |
 |---:|---:|---:|---:|---:|
@@ -510,7 +504,7 @@ ETF本身持有证券，并不意味着ETF期权必然现金结算. 这里交付
 | 110 | 1,000 | 0 | −1,000 | 0 |
 
 <a id="m15-exercises"></a>
-## 六、把权利卡自己填完
+## 六、合约权利与现金流练习
 
 **题一.** 某股票call每份100股，$K=100$，你以4买入一份. 标的升至105，准备行权. 是否只需再付9,600美元？
 
@@ -532,7 +526,7 @@ ETF本身持有证券，并不意味着ETF期权必然现金结算. 这里交付
 
 [^MEFG-ODD]: The Options Clearing Corporation，*Characteristics and Risks of Standardized Options*，June 2024. [原文](https://www.theocc.com/getmedia/a151a9ae-d784-4a15-bdeb-23a029f50b70/riskstoc.pdf). 本篇定位：Ch I printed pp3–5；Ch II vanilla terms pp6–9; Premium/Opening and Closing pp11–12; Intrinsic and Time Value pp14–15；Ch VIII pp55–57; Ch IX pp58–59；Ch X holder pp61–63; writer pp63–67（至所采用第11项）.
 
-[^MEFG-STATE]: QT-F / Lead frozen teaching contract，*EXP-STATE-01 shared finite-market experiment*，2026-09-21-v1. [原文](/notebook/labs/qt-f/data/qt-f-shared-state-experiment.json). 本篇定位：Complete contract; two_state; three_state_incomplete; three_state_augmented_complete; formula_contract; assumptions.
+[^MEFG-STATE]: QT-F / Lead frozen teaching contract，*EXP-STATE-01 shared finite-market experiment*，2026-09-21-v1. [原文](/notebook/labs/qt-f/data/qt-f-shared-state-experiment.json). 本篇定位：assumptions、units、two_state、formula_contract.
 
 [^MEFG-OCC-EQUITY]: OCC，*Equity Options Product Specifications*，Undated public specification; retrieved 2026-09-21. [原文](https://www.theocc.com/clearance-and-settlement/clearing/equity-options-product-specifications). 本篇定位：Full displayed specification body: Unit, Premium, Exercise, Settlement, Minimum Customer Margin.
 
@@ -541,7 +535,6 @@ ETF本身持有证券，并不意味着ETF期权必然现金结算. 这里交付
 [^MEFG-SPX]: Cboe Global Markets，*S&P 500 Index Options (SPX) Fact Sheet*，©2026; WF-451400-KC; no precise issue date shown. [原文](https://cdn.cboe.com/resources/spx/spx-fact-sheet.pdf). 本篇定位：Full physical pp1–2; p2 specifications and relevant footnotes.
 
 <script src="/notebook/labs/m-efg/reader-adapter.js" defer></script>
-
 
 ## Additional teaching material
 ### 本篇默认结果与静态等价
@@ -556,7 +549,7 @@ ETF本身持有证券，并不意味着ETF期权必然现金结算. 这里交付
 <tr><td>扣premium名义损益</td><td>600美元</td></tr>
 <tr><td>若行权：毛款 / 股票</td><td>+100股、支付10,000美元</td></tr>
 </tbody></table></div>
-<p>交互中的两条曲线也是“当前选中头寸”的到期支付与扣权利金后的名义损益；二者相差权利金现金，并不是同屏多空支付.</p>
+
 <div class="table-wrap"><table><thead><tr><th>现金结算SPXW call教学例</th><th>结果</th></tr></thead><tbody>
 <tr><td>K / 结算值 / premium</td><td>5000 / 5025 / 50点</td></tr>
 <tr><td>premium现金</td><td>−5,000美元</td></tr>
@@ -564,7 +557,7 @@ ETF本身持有证券，并不意味着ETF期权必然现金结算. 这里交付
 <tr><td>名义P&amp;L</td><td>−2,500美元</td></tr>
 <tr><td>股票变化 / K×100买股货款</td><td>0股 / 不适用</td></tr>
 </tbody></table></div>
-<p>SPXW持有人取得的是按最终结算值与K计算的正差额现金；写出方承担对应现金义务. 100是美元／指数点乘数，不是股票数.</p>
+
 
 
 完整冻结输入：https://ou-liu-red-sugar.github.io/notebook/labs/m-efg/inputs.json. 来源内的包路径按 source_paths 取得.
@@ -736,21 +729,11 @@ ETF本身持有证券，并不意味着ETF期权必然现金结算. 这里交付
 
 ## Sources
 - [Characteristics and Risks of Standardized Options](https://www.theocc.com/getmedia/a151a9ae-d784-4a15-bdeb-23a029f50b70/riskstoc.pdf): 标准化期权的合约安排、买卖双方权利义务、权利金与担保品、行权与指派、结算，以及多腿组合中各项义务的关系.
-- [SPX Options Fact Sheet](https://cdn.cboe.com/resources/spx/spx-fact-sheet.pdf): 现金结算、欧式行权、100美元乘数及SPX/SPXW结算差别；不采用营销/税务部分.
-
-SPXW欧式、PM、每点100美元、现金于到期后营业日交付；传统SPX AM/SOQ与SPXW分开. 无实际报价.
-
-M-E/F/G 本批采用：SPX/SPXW欧式现金、100美元乘数、最小报价增量及AM/PM结算差别；并非某条历史上市期权链.
+- [SPX Options Fact Sheet](https://cdn.cboe.com/resources/spx/spx-fact-sheet.pdf): SPX与SPXW均为欧式、现金结算，合约乘数为每点100美元. 规格列出最小报价增量，并区分传统SPX的AM结算与SPXW的PM结算；现金在到期后相应营业日交付.
 - [EXP-STATE-01 shared finite-market experiment](https://ou-liu-red-sugar.github.io/notebook/labs/qt-f/data/qt-f-shared-state-experiment.json): 唯一冻结教学市场；二状态K105、三状态K100，允许正负可分持仓、全支持P、同借贷率. 非观测价格.
-- [Equity Options Product Specifications](https://www.theocc.com/clearance-and-settlement/clearing/equity-options-product-specifications): 标准未调整股票期权100股、美元报价、美式行权与实物交割. 只支持合约身份，不代表具体账户可交易或保证金额度.
-
-M-E/F/G 本批采用：普通股票期权通常100股、美式实物交收；裸call最低规则与维持时使用当前期权价值. 非全部ETF/指数或具体账户house margin.
-- [ETF Options Product Specifications](https://www.theocc.com/clearance-and-settlement/clearing/etf-options): 未调整标准合约通常100股、American exercise与T+1实物交割；调整系列另核.
-
-M-E/F/G 本批采用：ETF份额期权的单位、实物交付与行权；不把同类产品的保证金百分比概括为统一数值.
-- [15.401 Finance Theory I: Lecture 10–11, Options](https://ocw.mit.edu/courses/15-401-finance-theory-i-fall-2008/c40ecc0cc0dce0fbf2d229bc4027c43b_MIT15_401F08_lec10.pdf): 逐腿相加的保护、价差和跨式支付；不承担现行结算规则.
-
-M-E/F/G 本批采用：模型内的支付和复制定价；不代替当前产品规则，讲义现金增长记号不能误写成年化净利率.
+- [Equity Options Product Specifications](https://www.theocc.com/clearance-and-settlement/clearing/equity-options-product-specifications): 标准未调整股票期权通常对应100股，按美元报价、美式行权并实物交割. 保证金规则区分初始与维持要求，维持计算使用当前期权价值；券商可另设客户要求.
+- [ETF Options Product Specifications](https://www.theocc.com/clearance-and-settlement/clearing/etf-options): 标准未调整ETF期权通常对应100份基金份额，采用美式行权和T+1实物交割；调整系列按对应合约条款确定单位.
+- [15.401 Finance Theory I: Lecture 10–11, Options](https://ocw.mit.edu/courses/15-401-finance-theory-i-fall-2008/c40ecc0cc0dce0fbf2d229bc4027c43b_MIT15_401F08_lec10.pdf): 保护性组合、价差与跨式的逐腿支付，以及模型内的经济复制和定价. 现金账户的增长因子按讲义定义使用.
 
 ## Content relations
 ```json
@@ -841,7 +824,7 @@ M-E/F/G 本批采用：模型内的支付和复制定价；不代替当前产品
     "from": "m15-contract",
     "relation": "supported_by",
     "to": "PFH-ETF",
-    "reason": "ETF份额期权的单位、实物交付与行权；不把同类产品的保证金百分比概括为统一数值.",
+    "reason": "ETF份额期权的单位、实物交付与行权.",
     "locator": "Full displayed product body",
     "scope": "本段具名采用内容；教学生成数字仍按自身身份",
     "at_section": "m15-contract"

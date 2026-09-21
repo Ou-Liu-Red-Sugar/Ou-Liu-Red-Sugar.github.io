@@ -1,15 +1,15 @@
-# 代币化资产：记录变了，权利和交收的哪一部分也变了
+# 代币化资产：所有权记录、转让与交收最终性
 
 沿真实基金登记和转让，再比较PvP的验证、锁资、完成或取消，分开技术记录与法律最终性.
 
-Entry: zh-m28 | Node: M28 | Language: zh | Editorial revision: 2026-09-21
+Entry: zh-m28 | Node: M28 | Language: zh | Editorial revision: 2026-09-22
 
 ## Teaching instructions
-你在教M28《代币化资产：记录变了，权利和交收的哪一部分也变了》. 先实际读取下列必读原件的完整指定单元，再核输入身份与单位，并把自己的读取记录写入运行时日志；不得把作者日志当你已经读过. 先核文献日期和版本；动态URL若已换版，不能让新版本默默替代这里的具名规则. 资料不足只暂停相关断言，不能用模型记忆补成原件.
+带读《代币化资产：所有权记录、转让与交收最终性》，面向有充分数学背景的高年级本科生至研究生. 先实际读取随包 required_readings 的完整指定单元，记录版本、范围与所支持内容；选择选读分支时，再读取其指定材料. 动态页面换版时保留本文具名版本的身份；缺少原文则寻找正式等价全文，仍缺失时指出该单元.
 
-先以Franklin为主材料区分底层资产、份额、转让代理人、钱包记录和另一支付腿. 算100迁移与12/24份额分配. 再明确一般五阶段并不照搬到PvP；采用三阶段，由预给100USD/90EUR指令步进. 锁资不付款，B80分支取消释放，重复commit不得重复支付. 用三层最终性解释prototype边界；不能声称Franklin使用Agorá或有已核公共交易所上市.
+以Franklin材料说明基金底层资产、份额、转让代理人和钱包记录，计算100份跨链迁移及12/24的股息分配比例. 另用Agorá的PvP三阶段推演预给100 USD/90 EUR指令，以及B仅有80 EUR时的取消释放. 最后区分技术不可逆、跨腿共同结果与法律最终性.
 
-先让读者独立重建一项现金或状态结果，再定位其概念错误. 保留完整题解与条件；不得将教学报价称为实盘，不实施账户交易.
+先用一项完整推导或分析诊断我的起点，跳过已掌握步骤. 让我先计算或判断，再解释错误与机制，最后改变一个条件检验迁移.
 
 Before substantive teaching, actually retrieve every required reading unit for the selected scope. Read its complete designated section, including necessary assumptions, tables and footnotes. A working URL or an editorial access date is not a runtime reading receipt. Record the actual version, location, scope and what it supports. If unavailable, use a previously verified equivalent source; if the required unit remains unavailable, identify that gap rather than teach it from memory. Start runtime_reading_log empty. Once reading is complete, use a substantive diagnostic or follow the reader's request for direct explanation. Advance one complete reasoning task at a time; skip mastered basics. Distinguish original facts, supplied teaching assumptions and inference.
 
@@ -191,7 +191,7 @@ Before substantive teaching, actually retrieve every required reading unit for t
   },
   "entry_id": "zh-m28",
   "node_id": "M28",
-  "content_version": "2026-09-21-MHIJ-review-v3",
+  "content_version": "2026-09-22-deep-review",
   "selected_branch": "all",
   "export_scope": "完整本篇，含明确标为选读的分支；仅在采用选读时升级其具名原文为必读.",
   "source_paths": {
@@ -206,18 +206,18 @@ Before substantive teaching, actually retrieve every required reading unit for t
 
 ## Supplied entry
 <a id="m28-purpose"></a>
-## 一、从一份真正的基金份额开始
+## 一、基金份额与链上记录
 
-“资产已经上链”不能单独回答你持有了什么. 记录可能换了技术载体，但经济权利、登记责任、付款通道和法律关系仍需从真实文件读出. 本篇选择Franklin OnChain U.S. Government Money Fund的2026-08-01招募说明书；它是基金材料，而不是把普通代币的特征套到证券上. [^M28-fund]
+Franklin OnChain U.S. Government Money Fund使用区块链集成系统记录基金份额. 2026-08-01招募说明书规定了持有人权利、转让代理人职责、获准钱包及赎回安排. [^M28-fund]
 
-我们会先沿基金份额的登记与转让走一遍，再用另一个对象——BIS/IIF的2026年Agorá原型——比较两条支付腿如何协调. 两份材料没有共同宣称一项“Franklin的Agorá交易服务”；它们分别帮助我们理解资产一侧和交收协调一侧.
+支付腿的协调另以BIS/IIF 2026年Project Agorá批发跨境支付原型为例.
 
 <a id="m28-record"></a>
-## 二、同一份额有记录，不意味着记录脱离了管理主体
+## 二、转让代理人与正式所有权记录
 
 Franklin文件把基金的底层投资、份额所有权和区块链集成登记系统分开. 转让代理人维护所有权记录，管理获准的钱包，并保留纠正错误或未经授权交易的控制. 公共链可以提供可查的交易历史，但把钱包地址对应到法律持有人的资料并不因此全部公开. [^M28-fund]
 
-这里的关键不是“是否去中心化”的口号，而是**谁能改变哪一项记录，改变后什么权利继续存在**. 文件说明，错误转入某钱包不赋予该接收者相应份额的法律请求权；修正通过后续记录体现，不等于删除过去的区块. 这使技术历史和当前正确权利记录既有关联，又不必逐项等同. [^M28-fund]
+错误转入某钱包并不赋予接收者相应份额的法律请求权. 转让代理人通过后续记录修正错误，原交易历史仍保留，因此当前有效权利记录可以与未经修正的链上历史不同. [^M28-fund]
 
 | 对象 | 本例中负责什么 | 权利与记录边界 |
 |---|---|---|
@@ -227,12 +227,12 @@ Franklin文件把基金的底层投资、份额所有权和区块链集成登记
 | 获准钱包、链上记录 | 提交或记录允许的转让 | 接收资格与法律权利仍取决于规则和正确记录 |
 | 另行约定的支付 | 买卖对价 | 对价到账需由支付记录单独确认 |
 
-这张表与普通基金的共性是：持有人仍须问基金投资什么、份额赋予什么权利. 变化主要发生在记录、可见性和操作路径，而不是只因登记上链就换成了另一种底层资产.
+持有人取得基金份额，收益取决于基金底层投资；链上登记改变的是记录、可见性和转让路径.
 
 <a id="m28-transfer"></a>
-## 三、跨链、转给别人和兑成现金是三种操作
+## 三、跨链迁移、P2P 转让与赎回
 
-招募书的迁移例是原链上记录100份，经批准把它移至另一条支持的链：原记录销毁100，新链铸记并交付100. 最后经济份额仍是100，而不是200. 这里的burn/mint描述记录迁移，不是另一次募集资金. [^M28-fund]
+招募书的迁移例是原链上记录100份，经批准把它移至另一条支持的链：原记录销毁100，新链铸记并交付100. 迁移后的经济份额仍为100，burn/mint改变份额的登记链. [^M28-fund]
 
 $$
 \text{迁移后份额}=100-100+100=100.
@@ -240,7 +240,7 @@ $$
 
 P2P转让则是在获准钱包之间转移份额. 文件允许相应的即时转让请求在不同时间进行，但明确转让代理人不能保证双方另行约定的其他资产支付可靠. 因而“份额已给对方”可能只完成了一条腿；并没有由此自动实现券款对付. [^M28-fund]
 
-文件还用一个24小时NAV周期中的12小时／12小时持有例说明股息分配. 按这个例子，两人各得到该份额本周期分配的50%；它不要求我们先知道当天股息的美元数，也不是说所有NAV周期都固定24小时.
+在招募书的24小时NAV周期例中，两人各持有同一份额12小时，各取得该份额当期分配的50%.
 
 $$
 12/24=50\%.
@@ -248,10 +248,8 @@ $$
 
 最后，向基金赎回与P2P转让不同. 本版Selling Shares写明，赎回请求可随时提交，但只在营业日的正常营业时间处理；收到合格请求后，赎回款在七日内以电子转账发送，ACH款通常在两至三个营业日可用. 对于刚买入的份额，还可能等待原购买资金结清，文中说明这可需要十个日历日. 这些数字分别描述请求、发送、银行可用和购买款结清，不能机械相加成一条固定到账承诺. [^M28-fund]
 
-因此，支持全天某种链上转让，不等于全年每时每刻都按固定NAV兑付银行现金. 先分操作，再比较速度，才不会让“24/7”替代整张现金时间表.
-
 <a id="m28-agora"></a>
-## 四、另一支付腿：先了解一般流程，再换到PvP
+## 四、一般支付流程与 PvP
 
 Agorá报告研究的是批发跨境支付原型. 其代币化准备金和存款仍对应底层央行或商业银行账户；使用代币记录，不自动改写原本的存款法律关系. 参与机构的内部检查、不同司法辖区的账本和共同协调层仍各有职责. [^M28-agora]
 
@@ -263,10 +261,10 @@ Agorá报告研究的是批发跨境支付原型. 其代币化准备金和存款
 | 锁定与授权 | 为这一次支付保留两边资产，并给予有限授权 | 锁定金额不能挪用，但尚未转给对方 |
 | 协调完成或取消 | 所有腿按同一commit/cancel结果处理 | 不是让每条腿独立决定总体是否成功 |
 
-锁定的意义不是把钱提前给出去，而是防止承诺用于这一次交收的余额又被拿去做别的事. 代价也清楚：等待期间的流动性被占用. 若条件失败，取消逻辑必须把已做的准备释放，而不是让某一方留下已经付出本金的结果. [^M28-agora]
+锁定为指定交收保留余额，防止重复使用，并在等待期间占用流动性. 条件失败时，取消流程释放已准备的余额；成功时，再按共同结果转移两条支付腿. [^M28-agora]
 
 <a id="m28-ledger"></a>
-## 五、一笔100美元对90欧元的教学账
+## 五、100 USD / 90 EUR 的锁定与交收
 
 这里的100 USD与90 EUR是**双方预先约定的教学支付指令**，不是合约自行发现的汇率. A初始有120 USD，B有100 EUR，另一币余额均为零. 交易要求A付100 USD，B付90 EUR.
 
@@ -278,21 +276,21 @@ Agorá报告研究的是批发跨境支付原型. 其代币化准备金和存款
 
 在锁定行，A仍拥有其原余额中的120 USD，只是100暂不可另用；B也同样如此. 只有commit行才完成两币资金转移. 逐币看，系统USD总额始终120，EUR总额始终100，不能把两种货币不加转换地合成“220单位钱”.
 
-现在让B初始只有80 EUR. 实验仍从该行真实的初始教学余额开始：如果A已经锁了100美元而B的90欧元锁不能成立，取消后A恢复120自由USD，B仍有80自由EUR，双方都没有收到对方本金. 不是给B自动补10欧元，也不是继续执行A的一条腿. 这是为解释协调取消而构造的小账，不是Agorá真实交易的复现.
+若B初始只有80 EUR，其90 EUR锁定请求失败. 即使A已锁定100 USD，取消后也恢复为120 USD自由余额；B仍有80 EUR，两边均未支付本金.
 
 <div data-experiment-slot="EXP-MHIJ-M28-SETTLEMENT-01"></div>
 
-先验证，再锁定，再commit；重复点击commit不应再次付款. 然后切到B80的情形，沿日志看准备、失败、释放；不要仅看最后一行有没有“成功”标签.
+依次执行验证、锁定和commit可查看现金转移. 重复commit保持原结果；B80分支则经历锁定失败与释放.
 
 <a id="m28-finality"></a>
-## 六、原子结果、技术不可逆与法律最终性不相同
+## 六、原子结果、技术不可逆与法律最终性
 
-“所有腿一起完成或一起取消”是工作流结果的约束；它不宣称不同物理账本在同一纳秒完成更新. 某个账本的确定性技术处理，也不独自证明法律上何时付款不能撤销、是否受破产或其他规则影响. 报告把这些技术与法律问题分别讨论，并保留原型没有完成生产级安全、韧性、性能等全部验证的限制. [^M28-agora]
+原子结果约束跨腿的共同完成或取消；账本技术不可逆描述记录状态；法律最终性则由付款撤销、破产等适用规则确定. 三者需要分别成立，Agorá报告展示的是原型协调机制. [^M28-agora]
 
-因此，原子协调可以针对一腿交付、另一腿未交付的本金风险，却不让锁资等待、替代交易成本、机构依赖和法律问题消失. 回到Franklin：份额记录上的转移解决的是资产腿的一部分；要说另一支付也受到共同控制，必须再有明确的支付安排，而不能由“使用了区块链”自行补出.
+原子协调降低一方已付本金而另一方未付的交收风险，等待锁资、替代交易成本和机构依赖仍在. Franklin的份额转移若要具备券款对付，还需将另一支付腿纳入共同条件.
 
 <a id="m28-exercises"></a>
-## 七、检验：是哪一层已经完成
+## 七、资产腿、支付腿与最终性检验
 
 **题一：原链burn100、新链mint100，基金是不是发行了额外100份？**
 
@@ -314,172 +312,16 @@ Agorá报告研究的是批发跨境支付原型. 其代币化准备金和存款
 
 解析：没有. 它说明工作流如何协调结果；法律最终性依适用规则，生产安全还需报告明确未覆盖的验证. 三个层次分别成立需要各自证据.
 
-[^M28-fund]: **Franklin Templeton Trust，Franklin OnChain U.S. Government Money Fund — Prospectus**，2026-08-01. [原文](https://www.franklintempleton.com/forms-literature/download-preview/9001-P). 定位：印刷/PDF pp5–7、14–19、31–33、36–39；Use of Blockchain、Buying/Selling Shares、Peer-to-Peer Transfer. 采用范围：基金权利、登记管理、钱包、迁移、P2P、股息和赎回时点；排除上市冲突结论.
+[^M28-fund]: **Franklin Templeton Trust，Franklin OnChain U.S. Government Money Fund — Prospectus**，2026-08-01. [原文](https://www.franklintempleton.com/forms-literature/download-preview/9001-P). 定位：印刷/PDF pp5–7、14–19、31–33、36–39；Use of Blockchain、Buying/Selling Shares、Peer-to-Peer Transfer. 采用范围：基金权利、登记管理、钱包、迁移、P2P、股息和赎回时点.
 
 [^M28-agora]: **BIS / IIF，Project Agorá: A shared programmable platform for wholesale cross-border payments**，2026-05-27. [原文](https://www.bis.org/publications/project-agora-shared-programmable-platform-wholesale-cross-border-payments.pdf). 定位：印刷pp.19–23/PDF24–28；pp.50–53/PDF55–58；pp.59–61/PDF64–66；pp.65–66/PDF70–71；pp.82–83/PDF87–88. 用于一般五阶段、PvP三阶段、锁资及三层最终性；该项目材料描述原型.
 
 <script src="/notebook/labs/m-hij/reader-adapter.js" defer></script>
 
-
 ## Additional teaching material
-### 本篇默认结果与静态等价
+### 交互静态结果
 
-<article class="reader">
-<p><a id="m28-purpose"></a></p>
-<h2>一、从一份真正的基金份额开始</h2>
-<p>“资产已经上链”不能单独回答你持有了什么. 记录可能换了技术载体，但经济权利、登记责任、付款通道和法律关系仍需从真实文件读出. 本篇选择Franklin OnChain U.S. Government Money Fund的2026-08-01招募说明书；它是基金材料，而不是把普通代币的特征套到证券上.<sup><a aria-label="来源1" href="#fn-M28-fund">[1]</a></sup></p>
-<p>我们会先沿基金份额的登记与转让走一遍，再用另一个对象——BIS/IIF的2026年Agorá原型——比较两条支付腿如何协调. 两份材料没有共同宣称一项“Franklin的Agorá交易服务”；它们分别帮助我们理解资产一侧和交收协调一侧.</p>
-<p><a id="m28-record"></a></p>
-<h2>二、同一份额有记录，不意味着记录脱离了管理主体</h2>
-<p>Franklin文件把基金的底层投资、份额所有权和区块链集成登记系统分开. 转让代理人维护所有权记录，管理获准的钱包，并保留纠正错误或未经授权交易的控制. 公共链可以提供可查的交易历史，但把钱包地址对应到法律持有人的资料并不因此全部公开.<sup><a aria-label="来源1" href="#fn-M28-fund">[1]</a></sup></p>
-<p>这里的关键不是“是否去中心化”的口号，而是<strong>谁能改变哪一项记录，改变后什么权利继续存在</strong>. 文件说明，错误转入某钱包不赋予该接收者相应份额的法律请求权；修正通过后续记录体现，不等于删除过去的区块. 这使技术历史和当前正确权利记录既有关联，又不必逐项等同.<sup><a aria-label="来源1" href="#fn-M28-fund">[1]</a></sup></p>
-<div class="table-wrap"><table>
-<thead>
-<tr>
-<th>对象</th>
-<th>本例中负责什么</th>
-<th>不能据此推出什么</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>基金底层资产</td>
-<td>形成投资组合及其结果</td>
-<td>持有人逐项直接持有每一张国债</td>
-</tr>
-<tr>
-<td>基金份额</td>
-<td>对基金的投资权利</td>
-<td>它就是银行存款或USDC</td>
-</tr>
-<tr>
-<td>转让代理人及其系统</td>
-<td>维护持有人和份额记录</td>
-<td>公共链记录使管理控制自动消失</td>
-</tr>
-<tr>
-<td>获准钱包、链上记录</td>
-<td>提交或记录允许的转让</td>
-<td>任意钱包都可接收、错误接收也取得合法权利</td>
-</tr>
-<tr>
-<td>另行约定的支付</td>
-<td>买卖对价</td>
-<td>份额转走就证明另一笔钱也到账</td>
-</tr>
-</tbody>
-</table></div>
-<p>这张表与普通基金的共性是：持有人仍须问基金投资什么、份额赋予什么权利. 变化主要发生在记录、可见性和操作路径，而不是只因登记上链就换成了另一种底层资产.</p>
-<p><a id="m28-transfer"></a></p>
-<h2>三、跨链、转给别人和兑成现金是三种操作</h2>
-<p>招募书的迁移例是原链上记录100份，经批准把它移至另一条支持的链：原记录销毁100，新链铸记并交付100. 最后经济份额仍是100，而不是200. 这里的burn/mint描述记录迁移，不是另一次募集资金.<sup><a aria-label="来源1" href="#fn-M28-fund">[1]</a></sup></p>
-<div class="math-display"><mjx-container class="MathJax" display="true" jax="SVG"><svg focusable="false" height="2.149ex" role="img" style="vertical-align: -0.452ex;" viewbox="0 -750 16390 950" width="37.081ex" xmlns="http://www.w3.org/2000/svg"><g fill="currentColor" stroke="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mtext"><text data-variant="normal" font-family="serif" font-size="884px" transform="scale(1,-1)">迁</text><text data-variant="normal" font-family="serif" font-size="884px" transform="translate(1000,0) scale(1,-1)">移</text><text data-variant="normal" font-family="serif" font-size="884px" transform="translate(2000,0) scale(1,-1)">后</text><text data-variant="normal" font-family="serif" font-size="884px" transform="translate(3000,0) scale(1,-1)">份</text><text data-variant="normal" font-family="serif" font-size="884px" transform="translate(4000,0) scale(1,-1)">额</text></g><g data-mml-node="mo" transform="translate(5277.8,0)"><path d="M56 347Q56 360 70 367H707Q722 359 722 347Q722 336 708 328L390 327H72Q56 332 56 347ZM56 153Q56 168 72 173H708Q722 163 722 153Q722 140 707 133H70Q56 140 56 153Z" data-c="3D"></path></g><g data-mml-node="mn" transform="translate(6333.6,0)"><path d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z" data-c="31"></path><path d="M96 585Q152 666 249 666Q297 666 345 640T423 548Q460 465 460 320Q460 165 417 83Q397 41 362 16T301 -15T250 -22Q224 -22 198 -16T137 16T82 83Q39 165 39 320Q39 494 96 585ZM321 597Q291 629 250 629Q208 629 178 597Q153 571 145 525T137 333Q137 175 145 125T181 46Q209 16 250 16Q290 16 318 46Q347 76 354 130T362 333Q362 478 354 524T321 597Z" data-c="30" transform="translate(500,0)"></path><path d="M96 585Q152 666 249 666Q297 666 345 640T423 548Q460 465 460 320Q460 165 417 83Q397 41 362 16T301 -15T250 -22Q224 -22 198 -16T137 16T82 83Q39 165 39 320Q39 494 96 585ZM321 597Q291 629 250 629Q208 629 178 597Q153 571 145 525T137 333Q137 175 145 125T181 46Q209 16 250 16Q290 16 318 46Q347 76 354 130T362 333Q362 478 354 524T321 597Z" data-c="30" transform="translate(1000,0)"></path></g><g data-mml-node="mo" transform="translate(8055.8,0)"><path d="M84 237T84 250T98 270H679Q694 262 694 250T679 230H98Q84 237 84 250Z" data-c="2212"></path></g><g data-mml-node="mn" transform="translate(9056,0)"><path d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z" data-c="31"></path><path d="M96 585Q152 666 249 666Q297 666 345 640T423 548Q460 465 460 320Q460 165 417 83Q397 41 362 16T301 -15T250 -22Q224 -22 198 -16T137 16T82 83Q39 165 39 320Q39 494 96 585ZM321 597Q291 629 250 629Q208 629 178 597Q153 571 145 525T137 333Q137 175 145 125T181 46Q209 16 250 16Q290 16 318 46Q347 76 354 130T362 333Q362 478 354 524T321 597Z" data-c="30" transform="translate(500,0)"></path><path d="M96 585Q152 666 249 666Q297 666 345 640T423 548Q460 465 460 320Q460 165 417 83Q397 41 362 16T301 -15T250 -22Q224 -22 198 -16T137 16T82 83Q39 165 39 320Q39 494 96 585ZM321 597Q291 629 250 629Q208 629 178 597Q153 571 145 525T137 333Q137 175 145 125T181 46Q209 16 250 16Q290 16 318 46Q347 76 354 130T362 333Q362 478 354 524T321 597Z" data-c="30" transform="translate(1000,0)"></path></g><g data-mml-node="mo" transform="translate(10778.2,0)"><path d="M56 237T56 250T70 270H369V420L370 570Q380 583 389 583Q402 583 409 568V270H707Q722 262 722 250T707 230H409V-68Q401 -82 391 -82H389H387Q375 -82 369 -68V230H70Q56 237 56 250Z" data-c="2B"></path></g><g data-mml-node="mn" transform="translate(11778.4,0)"><path d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z" data-c="31"></path><path d="M96 585Q152 666 249 666Q297 666 345 640T423 548Q460 465 460 320Q460 165 417 83Q397 41 362 16T301 -15T250 -22Q224 -22 198 -16T137 16T82 83Q39 165 39 320Q39 494 96 585ZM321 597Q291 629 250 629Q208 629 178 597Q153 571 145 525T137 333Q137 175 145 125T181 46Q209 16 250 16Q290 16 318 46Q347 76 354 130T362 333Q362 478 354 524T321 597Z" data-c="30" transform="translate(500,0)"></path><path d="M96 585Q152 666 249 666Q297 666 345 640T423 548Q460 465 460 320Q460 165 417 83Q397 41 362 16T301 -15T250 -22Q224 -22 198 -16T137 16T82 83Q39 165 39 320Q39 494 96 585ZM321 597Q291 629 250 629Q208 629 178 597Q153 571 145 525T137 333Q137 175 145 125T181 46Q209 16 250 16Q290 16 318 46Q347 76 354 130T362 333Q362 478 354 524T321 597Z" data-c="30" transform="translate(1000,0)"></path></g><g data-mml-node="mo" transform="translate(13556.2,0)"><path d="M56 347Q56 360 70 367H707Q722 359 722 347Q722 336 708 328L390 327H72Q56 332 56 347ZM56 153Q56 168 72 173H708Q722 163 722 153Q722 140 707 133H70Q56 140 56 153Z" data-c="3D"></path></g><g data-mml-node="mn" transform="translate(14612,0)"><path d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z" data-c="31"></path><path d="M96 585Q152 666 249 666Q297 666 345 640T423 548Q460 465 460 320Q460 165 417 83Q397 41 362 16T301 -15T250 -22Q224 -22 198 -16T137 16T82 83Q39 165 39 320Q39 494 96 585ZM321 597Q291 629 250 629Q208 629 178 597Q153 571 145 525T137 333Q137 175 145 125T181 46Q209 16 250 16Q290 16 318 46Q347 76 354 130T362 333Q362 478 354 524T321 597Z" data-c="30" transform="translate(500,0)"></path><path d="M96 585Q152 666 249 666Q297 666 345 640T423 548Q460 465 460 320Q460 165 417 83Q397 41 362 16T301 -15T250 -22Q224 -22 198 -16T137 16T82 83Q39 165 39 320Q39 494 96 585ZM321 597Q291 629 250 629Q208 629 178 597Q153 571 145 525T137 333Q137 175 145 125T181 46Q209 16 250 16Q290 16 318 46Q347 76 354 130T362 333Q362 478 354 524T321 597Z" data-c="30" transform="translate(1000,0)"></path><path d="M78 60Q78 84 95 102T138 120Q162 120 180 104T199 61Q199 36 182 18T139 0T96 17T78 60Z" data-c="2E" transform="translate(1500,0)"></path></g></g></g></svg></mjx-container></div>
-<p>P2P转让则是在获准钱包之间转移份额. 文件允许相应的即时转让请求在不同时间进行，但明确转让代理人不能保证双方另行约定的其他资产支付可靠. 因而“份额已给对方”可能只完成了一条腿；并没有由此自动实现券款对付.<sup><a aria-label="来源1" href="#fn-M28-fund">[1]</a></sup></p>
-<p>文件还用一个24小时NAV周期中的12小时／12小时持有例说明股息分配. 按这个例子，两人各得到该份额本周期分配的50%；它不要求我们先知道当天股息的美元数，也不是说所有NAV周期都固定24小时.</p>
-<div class="math-display"><mjx-container class="MathJax" display="true" jax="SVG"><svg focusable="false" height="2.262ex" role="img" style="vertical-align: -0.566ex;" viewbox="0 -750 5944.6 1000" width="13.449ex" xmlns="http://www.w3.org/2000/svg"><g fill="currentColor" stroke="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mn"><path d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z" data-c="31"></path><path d="M109 429Q82 429 66 447T50 491Q50 562 103 614T235 666Q326 666 387 610T449 465Q449 422 429 383T381 315T301 241Q265 210 201 149L142 93L218 92Q375 92 385 97Q392 99 409 186V189H449V186Q448 183 436 95T421 3V0H50V19V31Q50 38 56 46T86 81Q115 113 136 137Q145 147 170 174T204 211T233 244T261 278T284 308T305 340T320 369T333 401T340 431T343 464Q343 527 309 573T212 619Q179 619 154 602T119 569T109 550Q109 549 114 549Q132 549 151 535T170 489Q170 464 154 447T109 429Z" data-c="32" transform="translate(500,0)"></path></g><g data-mjx-texclass="ORD" data-mml-node="TeXAtom" transform="translate(1000,0)"><g data-mml-node="mo"><path d="M423 750Q432 750 438 744T444 730Q444 725 271 248T92 -240Q85 -250 75 -250Q68 -250 62 -245T56 -231Q56 -221 230 257T407 740Q411 750 423 750Z" data-c="2F"></path></g></g><g data-mml-node="mn" transform="translate(1500,0)"><path d="M109 429Q82 429 66 447T50 491Q50 562 103 614T235 666Q326 666 387 610T449 465Q449 422 429 383T381 315T301 241Q265 210 201 149L142 93L218 92Q375 92 385 97Q392 99 409 186V189H449V186Q448 183 436 95T421 3V0H50V19V31Q50 38 56 46T86 81Q115 113 136 137Q145 147 170 174T204 211T233 244T261 278T284 308T305 340T320 369T333 401T340 431T343 464Q343 527 309 573T212 619Q179 619 154 602T119 569T109 550Q109 549 114 549Q132 549 151 535T170 489Q170 464 154 447T109 429Z" data-c="32"></path><path d="M462 0Q444 3 333 3Q217 3 199 0H190V46H221Q241 46 248 46T265 48T279 53T286 61Q287 63 287 115V165H28V211L179 442Q332 674 334 675Q336 677 355 677H373L379 671V211H471V165H379V114Q379 73 379 66T385 54Q393 47 442 46H471V0H462ZM293 211V545L74 212L183 211H293Z" data-c="34" transform="translate(500,0)"></path></g><g data-mml-node="mo" transform="translate(2777.8,0)"><path d="M56 347Q56 360 70 367H707Q722 359 722 347Q722 336 708 328L390 327H72Q56 332 56 347ZM56 153Q56 168 72 173H708Q722 163 722 153Q722 140 707 133H70Q56 140 56 153Z" data-c="3D"></path></g><g data-mml-node="mn" transform="translate(3833.6,0)"><path d="M164 157Q164 133 148 117T109 101H102Q148 22 224 22Q294 22 326 82Q345 115 345 210Q345 313 318 349Q292 382 260 382H254Q176 382 136 314Q132 307 129 306T114 304Q97 304 95 310Q93 314 93 485V614Q93 664 98 664Q100 666 102 666Q103 666 123 658T178 642T253 634Q324 634 389 662Q397 666 402 666Q410 666 410 648V635Q328 538 205 538Q174 538 149 544L139 546V374Q158 388 169 396T205 412T256 420Q337 420 393 355T449 201Q449 109 385 44T229 -22Q148 -22 99 32T50 154Q50 178 61 192T84 210T107 214Q132 214 148 197T164 157Z" data-c="35"></path><path d="M96 585Q152 666 249 666Q297 666 345 640T423 548Q460 465 460 320Q460 165 417 83Q397 41 362 16T301 -15T250 -22Q224 -22 198 -16T137 16T82 83Q39 165 39 320Q39 494 96 585ZM321 597Q291 629 250 629Q208 629 178 597Q153 571 145 525T137 333Q137 175 145 125T181 46Q209 16 250 16Q290 16 318 46Q347 76 354 130T362 333Q362 478 354 524T321 597Z" data-c="30" transform="translate(500,0)"></path></g><g data-mml-node="mi" transform="translate(4833.6,0)"><path d="M465 605Q428 605 394 614T340 632T319 641Q332 608 332 548Q332 458 293 403T202 347Q145 347 101 402T56 548Q56 637 101 693T202 750Q241 750 272 719Q359 642 464 642Q580 642 650 732Q662 748 668 749Q670 750 673 750Q682 750 688 743T693 726Q178 -47 170 -52Q166 -56 160 -56Q147 -56 142 -45Q137 -36 142 -27Q143 -24 363 304Q469 462 525 546T581 630Q528 605 465 605ZM207 385Q235 385 263 427T292 548Q292 617 267 664T200 712Q193 712 186 709T167 698T147 668T134 615Q132 595 132 548V527Q132 436 165 403Q183 385 203 385H207ZM500 146Q500 234 544 290T647 347Q699 347 737 292T776 146T737 0T646 -56Q590 -56 545 0T500 146ZM651 -18Q679 -18 707 24T736 146Q736 215 711 262T644 309Q637 309 630 306T611 295T591 265T578 212Q577 200 577 146V124Q577 -18 647 -18H651Z" data-c="25"></path></g><g data-mml-node="mo" transform="translate(5666.6,0)"><path d="M78 60Q78 84 95 102T138 120Q162 120 180 104T199 61Q199 36 182 18T139 0T96 17T78 60Z" data-c="2E"></path></g></g></g></svg></mjx-container></div>
-<p>最后，向基金赎回与P2P转让不同. 本版Selling Shares写明，赎回请求可随时提交，但只在营业日的正常营业时间处理；收到合格请求后，赎回款在七日内以电子转账发送，ACH款通常在两至三个营业日可用. 对于刚买入的份额，还可能等待原购买资金结清，文中说明这可需要十个日历日. 这些数字分别描述请求、发送、银行可用和购买款结清，不能机械相加成一条固定到账承诺.<sup><a aria-label="来源1" href="#fn-M28-fund">[1]</a></sup></p>
-<p>因此，支持全天某种链上转让，不等于全年每时每刻都按固定NAV兑付银行现金. 先分操作，再比较速度，才不会让“24/7”替代整张现金时间表.</p>
-<p><a id="m28-agora"></a></p>
-<h2>四、另一支付腿：先了解一般流程，再换到PvP</h2>
-<p>Agorá报告研究的是批发跨境支付原型. 其代币化准备金和存款仍对应底层央行或商业银行账户；使用代币记录，不自动改写原本的存款法律关系. 参与机构的内部检查、不同司法辖区的账本和共同协调层仍各有职责.<sup><a aria-label="来源2" href="#fn-M28-agora">[2]</a></sup></p>
-<p>一般端到端流程分五阶段：确认收款人、确定路径、验证／金额确定／就绪、锁定与授权、协调完成或取消. 这个结构解释的是如何把一笔一般支付组织起来.<strong>本篇数值例采用的PvP不是原样套这五步.</strong> 报告pp51–52专门说明，PvP不需要该流程中的收款人确认、路径发现或跨币金额确定，而使用以下三阶段：</p>
-<div class="table-wrap"><table>
-<thead>
-<tr>
-<th>PvP阶段</th>
-<th>要完成的事</th>
-<th>还没有发生什么</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>验证与就绪</td>
-<td>双方完成必要检查并同意指令</td>
-<td>尚未付款，也未保证每项锁资一定成功</td>
-</tr>
-<tr>
-<td>锁定与授权</td>
-<td>为这一次支付保留两边资产，并给予有限授权</td>
-<td>锁定金额不能挪用，但尚未转给对方</td>
-</tr>
-<tr>
-<td>协调完成或取消</td>
-<td>所有腿按同一commit/cancel结果处理</td>
-<td>不是让每条腿独立决定总体是否成功</td>
-</tr>
-</tbody>
-</table></div>
-<p>锁定的意义不是把钱提前给出去，而是防止承诺用于这一次交收的余额又被拿去做别的事. 代价也清楚：等待期间的流动性被占用. 若条件失败，取消逻辑必须把已做的准备释放，而不是让某一方留下已经付出本金的结果.<sup><a aria-label="来源2" href="#fn-M28-agora">[2]</a></sup></p>
-<p><a id="m28-ledger"></a></p>
-<h2>五、一笔100美元对90欧元的教学账</h2>
-<p>这里的100 USD与90 EUR是<strong>双方预先约定的教学支付指令</strong>，不是合约自行发现的汇率. A初始有120 USD，B有100 EUR，另一币余额均为零. 交易要求A付100 USD，B付90 EUR.</p>
-<div class="table-wrap"><table>
-<thead>
-<tr>
-<th>状态</th>
-<th style="text-align:right">A自由USD</th>
-<th style="text-align:right">A锁定USD</th>
-<th style="text-align:right">A收到EUR</th>
-<th style="text-align:right">B自由EUR</th>
-<th style="text-align:right">B锁定EUR</th>
-<th style="text-align:right">B收到USD</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>初始／验证完成</td>
-<td style="text-align:right">120</td>
-<td style="text-align:right">0</td>
-<td style="text-align:right">0</td>
-<td style="text-align:right">100</td>
-<td style="text-align:right">0</td>
-<td style="text-align:right">0</td>
-</tr>
-<tr>
-<td>两腿锁定</td>
-<td style="text-align:right">20</td>
-<td style="text-align:right">100</td>
-<td style="text-align:right">0</td>
-<td style="text-align:right">10</td>
-<td style="text-align:right">90</td>
-<td style="text-align:right">0</td>
-</tr>
-<tr>
-<td>协调commit</td>
-<td style="text-align:right">20</td>
-<td style="text-align:right">0</td>
-<td style="text-align:right">90</td>
-<td style="text-align:right">10</td>
-<td style="text-align:right">0</td>
-<td style="text-align:right">100</td>
-</tr>
-</tbody>
-</table></div>
-<p>在锁定行，A仍拥有其原余额中的120 USD，只是100暂不可另用；B也同样如此. 只有commit行才完成两币资金转移. 逐币看，系统USD总额始终120，EUR总额始终100，不能把两种货币不加转换地合成“220单位钱”.</p>
-<p>现在让B初始只有80 EUR. 实验仍从该行真实的初始教学余额开始：如果A已经锁了100美元而B的90欧元锁不能成立，取消后A恢复120自由USD，B仍有80自由EUR，双方都没有收到对方本金. 不是给B自动补10欧元，也不是继续执行A的一条腿. 这是为解释协调取消而构造的小账，不是Agorá真实交易的复现.</p>
-<div class="inline-experiment"><a href="https://ou-liu-red-sugar.github.io/notebook/labs/m-hij/interactions.html?experiment=EXP-MHIJ-M28-SETTLEMENT-01">打开这一实验</a><p>不运行脚本时，仍可用下方同源静态结果完成核对.</p><div class="table-wrap"><table><thead><tr><th scope="col">Franklin材料中的事项</th><th scope="col">结果/边界</th></tr></thead><tbody><tr><td>批准迁移</td><td>100−100+100=100份</td></tr><tr><td>24h周期各持12h</td><td>各50%分配份额，未给美元股息</td></tr><tr><td>获准P2P份额转移</td><td>不确认另一支付腿</td></tr><tr><td>赎回</td><td>请求/NAV/银行付款是不同时间</td></tr></tbody></table></div><div class="table-wrap"><table><thead><tr><th scope="col">PvP三阶段/状态</th><th scope="col">A自由USD</th><th scope="col">A锁定USD</th><th scope="col">A的EUR</th><th scope="col">B自由EUR</th><th scope="col">B锁定EUR</th><th scope="col">B的USD</th></tr></thead><tbody><tr><td>初始/验证</td><td>120</td><td>0</td><td>0</td><td>100</td><td>0</td><td>0</td></tr><tr><td>锁定授权</td><td>20</td><td>100</td><td>0</td><td>10</td><td>90</td><td>0</td></tr><tr><td>共同完成</td><td>20</td><td>0</td><td>90</td><td>10</td><td>0</td><td>100</td></tr><tr><td>B80不能锁定→取消</td><td>120</td><td>0</td><td>0</td><td>80</td><td>0</td><td>0</td></tr></tbody></table></div><p>一般端到端支付的五阶段只是背景. 此处PvP只采用验证/就绪、锁定/授权、共同完成/取消. 两币金额预先给定，不发现汇率；每一币种分别守恒，原子结果不证明法律最终性.</p></div>
-<p>先验证，再锁定，再commit；重复点击commit不应再次付款. 然后切到B80的情形，沿日志看准备、失败、释放；不要仅看最后一行有没有“成功”标签.</p>
-<p><a id="m28-finality"></a></p>
-<h2>六、原子结果、技术不可逆与法律最终性不相同</h2>
-<p>“所有腿一起完成或一起取消”是工作流结果的约束；它不宣称不同物理账本在同一纳秒完成更新. 某个账本的确定性技术处理，也不独自证明法律上何时付款不能撤销、是否受破产或其他规则影响. 报告把这些技术与法律问题分别讨论，并保留原型没有完成生产级安全、韧性、性能等全部验证的限制.<sup><a aria-label="来源2" href="#fn-M28-agora">[2]</a></sup></p>
-<p>因此，原子协调可以针对一腿交付、另一腿未交付的本金风险，却不让锁资等待、替代交易成本、机构依赖和法律问题消失. 回到Franklin：份额记录上的转移解决的是资产腿的一部分；要说另一支付也受到共同控制，必须再有明确的支付安排，而不能由“使用了区块链”自行补出.</p>
-<p><a id="m28-exercises"></a></p>
-<h2>七、检验：是哪一层已经完成</h2>
-<p><strong>题一：原链burn100、新链mint100，基金是不是发行了额外100份？</strong></p>
-<p>解析：不是. 在招募书的批准迁移例里，只是同一100份所有权记录换了链. 把两条链分别出现过的历史数字相加，会把历史记录当成并存的当前经济份额.</p>
-<p><strong>题二：基金份额已经转到买方钱包，可否据此说卖方的美元对价也一定收到？</strong></p>
-<p>解析：不能. 转让代理人不保证双方另行协商的其他资产支付. 应查另一支付腿和两腿是否有共同条件；没有就不能宣称券款对付.</p>
-<p><strong>题三：PvP锁定后A只有20美元自由余额，是否已损失或支付100美元？</strong></p>
-<p>解析：尚未. 100仍是为本次交易保留的锁定余额；它不能同时另用，但若取消应释放. 支付发生在commit，不能把lock和payment合成同一事件.</p>
-<p><strong>题四：B只有80欧元，A已锁美元后应如何处理？</strong></p>
-<p>解析：90欧元锁不成立，协议按取消结果释放已经准备的锁，不执行任何本金腿. 最终回到A120美元、B80欧元；不能借用别人的余额或自动融资让例子成功.</p>
-<p><strong>题五：原子交收是否已经证明法律最终性和生产安全？</strong></p>
-<p>解析：没有. 它说明工作流如何协调结果；法律最终性依适用规则，生产安全还需报告明确未覆盖的验证. 三个层次分别成立需要各自证据.</p>
-<div class="footnotes"><h2>原件与定位</h2><ol><li id="fn-M28-fund"><p><strong>Franklin Templeton Trust，Franklin OnChain U.S. Government Money Fund — Prospectus</strong>，2026-08-01.<a href="https://www.franklintempleton.com/forms-literature/download-preview/9001-P">原文</a>. 定位：印刷/PDF pp5–7、14–19、31–33、36–39；Use of Blockchain、Buying/Selling Shares、Peer-to-Peer Transfer. 采用范围：基金权利、登记管理、钱包、迁移、P2P、股息和赎回时点；排除上市冲突结论.</p>
-</li><li id="fn-M28-agora"><p><strong>BIS / IIF，Project Agorá: A shared programmable platform for wholesale cross-border payments</strong>，2026-05-27.<a href="https://www.bis.org/publications/project-agora-shared-programmable-platform-wholesale-cross-border-payments.pdf">原文</a>. 定位：印刷pp19–23/PDF24–28一般流程；pp50–53/PDF55–58锁资与PvP（重点pp51–52）；pp59–61/PDF64–66法律关系；pp65–66/PDF70–71最终性；pp82–83/PDF87–88限制. 采用范围：一般五阶段与PvP三阶段、锁资及三层最终性；仅原型不声称生产可用.</p>
-</li></ol></div></article>
-
-冻结输入：https://ou-liu-red-sugar.github.io/notebook/labs/m-hij/inputs.json. 当前包包含本篇全部分支，不继承任何 Agent 的运行时读取记录.
+<div class="inline-experiment"><a href="https://ou-liu-red-sugar.github.io/notebook/labs/m-hij/interactions.html?experiment=EXP-MHIJ-M28-SETTLEMENT-01">打开这一实验</a><div class="table-wrap"><table><thead><tr><th scope="col">Franklin材料中的事项</th><th scope="col">结果/边界</th></tr></thead><tbody><tr><td>批准迁移</td><td>100−100+100=100份</td></tr><tr><td>24h周期各持12h</td><td>各50%分配份额，未给美元股息</td></tr><tr><td>获准P2P份额转移</td><td>不确认另一支付腿</td></tr><tr><td>赎回</td><td>请求/NAV/银行付款是不同时间</td></tr></tbody></table></div><div class="table-wrap"><table><thead><tr><th scope="col">PvP三阶段/状态</th><th scope="col">A自由USD</th><th scope="col">A锁定USD</th><th scope="col">A的EUR</th><th scope="col">B自由EUR</th><th scope="col">B锁定EUR</th><th scope="col">B的USD</th></tr></thead><tbody><tr><td>初始/验证</td><td>120</td><td>0</td><td>0</td><td>100</td><td>0</td><td>0</td></tr><tr><td>锁定授权</td><td>20</td><td>100</td><td>0</td><td>10</td><td>90</td><td>0</td></tr><tr><td>共同完成</td><td>20</td><td>0</td><td>90</td><td>10</td><td>0</td><td>100</td></tr><tr><td>B80不能锁定→取消</td><td>120</td><td>0</td><td>0</td><td>80</td><td>0</td><td>0</td></tr></tbody></table></div><p>PvP采用验证/就绪、锁定/授权、共同完成/取消三阶段. 两币金额由指令预先给定，各币种分别守恒；法律最终性依适用规则确定.</p></div>
 
 ## Experiment inputs and static equivalents
 ```json

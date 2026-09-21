@@ -1,17 +1,11 @@
 # 条件期望、投影与预测目标
 
-由局部积分定义证明唯一性和塔式性质，再通过截断补齐 L2 投影与均方误差分解.
+由局部积分定义证明唯一性和塔式性质，再用截断建立 $L^2$ 投影与均方误差分解.
 
-Entry: zh-qt11 | Node: QT11 | Language: zh | Editorial revision: 2026-09-21
+Entry: zh-qt11 | Node: QT11 | Language: zh | Editorial revision: 2026-09-22
 
 ## Teaching instructions
-你正在使用一份公开教学包，读者具有高年级本科至研究生的数学背景. 先实际读取 required_readings 中本次采用的完整单元，再进入讲解；记录版本、页/节、关键假设与支持范围. 仅取得目录、摘要或失败链接不算读完. 已在本次会话完整取得的同一版本可以复用. 找不到正文时尝试已核公开等价版本并说明版本变化，仍缺失则明确缺少的单元，不编造已读内容.
-以下正文、输入和解析为共同来源，不能自行改变数字或把教学概率改称样本频率、现实真值或定价测度. 不要访问账户. 每次推进一个完整推理任务；已掌握的基础可跳过讲解，但承重条件不能省略. 静态说明与交互同义；工具不能运行时直接使用完整静态输入与精确计算，不声称运行过实验.
-
-当前词条：QT11《条件期望、投影与预测目标》. 本次只教这个节点及选择的证明分支.
-诊断任务：先给常数 8000 候选，要求只用条件期望定义验证或否定；再让读者在唯一性证明中定位可测性所用的事件.
-通过标准：能重建 eps 集合唯一性、嵌套塔式证明、M∈L2 的截断桥和 L2 检验函数延伸；正确计算三项 MSE，并拒绝非法未来候选.
-先让读者作解释或计算，再依完整解析反馈；最后更换分组、概率或条件做迁移，不能只询问“懂了吗”.
+读者为有充分数学背景的高年级本科生至研究生. 先实际读取 agent_packet.required_readings 指定完整单元，选择可选分支后再读 optional_readings；记录题名、版本、定位与支持内容. 缺失必读单元时先取得等价原件，再解释依赖它的命题. 证明条件期望的a.s.唯一性、塔式性质及L2收缩，经有界函数逼近完成正交投影证明；重算SPX四状态局部积分、误差分解和非嵌套反例. 用完整推导或计算诊断理解，已掌握步骤直接继承，再用改变条件的任务检验迁移. runtime_reading_log记录实际读取.
 
 Before substantive teaching, actually retrieve every required reading unit for the selected scope. Read its complete designated section, including necessary assumptions, tables and footnotes. A working URL or an editorial access date is not a runtime reading receipt. Record the actual version, location, scope and what it supports. If unavailable, use a previously verified equivalent source; if the required unit remains unavailable, identify that gap rather than teach it from memory. Start runtime_reading_log empty. Once reading is complete, use a substantive diagnostic or follow the reader's request for direct explanation. Advance one complete reasoning task at a time; skip mastered basics. Distinguish original facts, supplied teaching assumptions and inference.
 
@@ -598,142 +592,169 @@ Before substantive teaching, actually retrieve every required reading unit for t
       }
     },
     "body_scope": "完整正文、静态核算与题目解析"
-  }
+  },
+  "prompt": "读者为有充分数学背景的高年级本科生至研究生. 先实际读取 agent_packet.required_readings 指定完整单元，选择可选分支后再读 optional_readings；记录题名、版本、定位与支持内容. 缺失必读单元时先取得等价原件，再解释依赖它的命题. 证明条件期望的a.s.唯一性、塔式性质及L2收缩，经有界函数逼近完成正交投影证明；重算SPX四状态局部积分、误差分解和非嵌套反例. 用完整推导或计算诊断理解，已掌握步骤直接继承，再用改变条件的任务检验迁移. runtime_reading_log记录实际读取.",
+  "learning_task": "证明条件期望的a.s.唯一性、塔式性质及L2收缩，经有界函数逼近完成正交投影证明；重算SPX四状态局部积分、误差分解和非嵌套反例.",
+  "content_version": "2026-09-22-deep-review"
 }
 ```
 
 ## Supplied entry
-我们已经知道，信息会限制一个决定能够依赖什么. 现在把问题再推进一步：若只能使用已有信息，怎样用一个可知的量概括仍然未知的结果？条件期望同时回答两个问题：怎样保留每个可辨认事件上的平均；在平方误差有意义时，怎样找到最好的预测.
-
-本篇以可测性、积分和线性代数为基础. 读完后，应能用定义检验候选条件期望，独立证明唯一性与塔式性质，并说明均方最优结论为什么需要比“期望存在”更强的假设. 对可测性或可积性不熟悉的地方，可就地查阅 [可测空间与信息](https://ou-liu-red-sugar.github.io/zh/notebook/measurable-information/)、[积分与可积性](https://ou-liu-red-sugar.github.io/zh/notebook/integration-expectation/).
+固定信息集后，条件期望把未知结果表示为当前信息可辨认的量：它保留每个可辨认事件上的积分；当随机变量平方可积时，同一个量还是 $L^2$ 中的最小均方误差预测. 可测性与可积性的记号沿用 [可测空间与信息](https://ou-liu-red-sugar.github.io/zh/notebook/measurable-information/)、[积分与可积性](https://ou-liu-red-sugar.github.io/zh/notebook/integration-expectation/).
 
 <a id="qt11-definition"></a>
-## 一、不是只保留一个总平均
+## 局部积分定义
 
 固定概率空间 $(\Omega,\mathcal F,P)$、子 $\sigma$-代数 $\mathcal G\subseteq\mathcal F$，以及实值随机变量 $X\in L^1(P)$，即 $\mathbb{E}|X|<\infty$. $\mathcal G$ 表示当前允许使用的信息；$L^1(\mathcal G)$ 中的变量还须 $\mathcal G$-可测.
 
 **定义（条件期望）.** 令上述对象固定，则 **$X$ 关于 $\mathcal G$ 的条件期望**是指满足下列条件的随机变量 $M$：
+
 $$
 M\in L^1(\mathcal G),\qquad
 \int_A M\,dP=\int_A X\,dP\quad\text{对所有 }A\in\mathcal G.
 $$
+
 记作 $M=\mathbb{E}[X\mid\mathcal G]$. 这个记号代表一个几乎处处等价类；选取其中一个具体可测函数，称为一个**版本**. [^ce]
 
-第一个条件说，观察现有信息后能够确定 $M$ 的值. 第二个条件说，不只全体结果上的平均，每个已经能辨认的事件上的加权总量也要保留. 它们缺一不可：$X$ 本身当然保留所有积分，却未必已经可知；常数 $\mathbb{E}X$ 虽然总是可知，也未必保留各个局部事件上的积分.
+可测性使 $M$ 由现有信息确定，积分身份保留每个可辨认事件上的加权总量. 单独取 $X$ 可保留积分，但未必 $\mathcal G$-可测；常数 $\mathbb{E}X$ 可测，却未必保留局部积分.
 
-我们用一张完整的教学情景表检验定义. 采用一份标准 SPX 看涨期权的支付形式：$Z$ 为**合约规定的结算值**，$K=6000$ 点，一张合约的金额为 $X=100(Z-K)^+$ 美元. SPX 的每点 100 美元、欧式行权和现金结算是产品条款；下表的结算情景、概率和提前揭晓的信号则全是人为设定. 它们不是历史频率，也不是从期权价格倒出的概率. [^spx]
+用四状态教学模型检验定义. 采用标准 SPX 看涨期权的支付形式：$Z$ 为**合约规定的结算值**，$K=6000$ 点，一张合约的金额为 $X=100(Z-K)^+$ 美元. SPX 的每点 100 美元、欧式行权和现金结算来自产品条款；表中结算情景、概率和提前揭晓的信号均为教学设定.[^spx]
 
 | 状态 | 模型概率 | 时点 $t_1$ 已收到的信号 | $t_2$ 结算值（点） | 支付 $X$（美元） |
 |---|---:|---|---:|---:|
-| $\omega_1$ | 0.10 | L | 5900 | 0 |
-| $\omega_2$ | 0.30 | L | 6000 | 0 |
-| $\omega_3$ | 0.40 | H | 6100 | 10000 |
-| $\omega_4$ | 0.20 | H | 6200 | 20000 |
+| $\omega_1$ | 0.1 | L | 5900 | 0 |
+| $\omega_2$ | 0.3 | L | 6000 | 0 |
+| $\omega_3$ | 0.4 | H | 6100 | 10000 |
+| $\omega_4$ | 0.2 | H | 6200 | 20000 |
 
-令 $L=\{\omega_1,\omega_2\}$、$H=\{\omega_3,\omega_4\}$、$\mathcal G=\{\varnothing,L,H,\Omega\}$. 在 $t_1$，模型只允许知道 L/H；$t_2$ 才知道结算值. 确定支付金额也不等于账户已经收到现金. 本篇计算支付的平均，尚未建立交易、交收或定价模型.
+令 $L=\{\omega_1,\omega_2\}$、$H=\{\omega_3,\omega_4\}$、$\mathcal G=\{\varnothing,L,H,\Omega\}$. 在 $t_1$，模型只允许知道 L/H；$t_2$ 才知道结算值.
 
 我们有
+
 $$
 \mathbb{E}X=0.10(0)+0.30(0)+0.40(10000)+0.20(20000)=8000.
 $$
+
 候选量
+
 $$
 M=0\,1_L+\frac{40000}{3}\,1_H
 $$
+
 在每组内恒定，所以 $\mathcal G$-可测. 在 $L$ 上，两边积分都是零；在 $H$ 上，
+
 $$
 \mathbb{E}[M1_H]=\frac{40000}{3}(0.60)=8000=\mathbb{E}[X1_H].
 $$
-空集和全空间的等式随之成立，因而它满足完整定义. 反过来，常数 8000 在 $L$ 上的积分是 $8000(0.40)=3200$，并不是零. **保留总平均不等于保留条件平均.**
+
+空集和全空间的等式随之成立，因而它满足完整定义. 反过来，常数 8000 在 $L$ 上的积分是 $8000(0.40)=3200$.
 
 <a id="qt11-uniqueness"></a>
-## 二、为什么只有一个答案，又为什么只能说几乎处处
+## 几乎处处唯一性
 
 **命题（唯一性）.** 若 $M,N\in L^1(\mathcal G)$ 都满足上述积分恒等式，则 $M=N$，$P$-几乎处处. [^ce]
 
 **证明.** 对每个正整数 $n$，令 $A_n=\{M-N>1/n\}$. 因为 $M,N$ 都 $\mathcal G$-可测，$A_n\in\mathcal G$，所以可以把它代入定义：
+
 $$
 0=\int_{A_n}(M-N)\,dP\ge\frac1nP(A_n).
 $$
+
 故 $P(A_n)=0$. 而 $\{M>N\}=\bigcup_{n\ge1}A_n$，可列个零概率事件之并仍为零概率，得到 $P(M>N)=0$. 交换 $M,N$，再得 $P(N>M)=0$，证明完成.
 
-这里可测性不是装饰：若 $A_n$ 不属于 $\mathcal G$，就没有权利把它代入积分恒等式.
+在完整信息空间 $\Omega=\{a,b,c\}$ 上，取 $P(a)=P(b)=1/2$、$P(c)=0$，$X=(2,4,9)$. $(2,4,0)$ 和 $(2,4,100)$ 都满足定义，显示唯一性仅到a.s.等价. 对较小事件域，零概率集上的修改仍须保留 $\mathcal G$-可测性.
 
-“几乎处处”也不能删去. 另取 $\Omega=\{a,b,c\}$、$P(a)=P(b)=1/2$、$P(c)=0$，完整信息下 $X=(2,4,9)$. 函数 $(2,4,0)$ 和 $(2,4,100)$ 都是条件期望版本；在 $c$ 上的值不会改变任何积分. 一般改动还必须保留 $\mathcal G$-可测性，不能因为某集合概率为零就任意拆开一个无法辨认的信息组.
-
-唯一性只说明“若有答案，不会有两个本质不同的答案”. 一般的存在性还需要构造. [条件期望存在性的证明](https://ou-liu-red-sugar.github.io/zh/notebook/conditional-expectation-existence/) 从两个有限测度出发，验证 Radon–Nikodym 定理的适用条件并构造 $M$；因此这里的一般存在性依赖该证明，有限分组公式只是特例.
+[条件期望存在性](https://ou-liu-red-sugar.github.io/zh/notebook/conditional-expectation-existence/)以Radon–Nikodym定理构造满足定义的变量.
 
 <a id="qt11-tower"></a>
-## 三、先按细信息平均，再回到粗信息
+## 塔式性质
 
 **命题（塔式性质）.** 若 $X\in L^1(P)$，且 $\mathcal H\subseteq\mathcal G\subseteq\mathcal F$，则
+
 $$
 \mathbb{E}[\mathbb{E}[X\mid\mathcal G]\mid\mathcal H]=\mathbb{E}[X\mid\mathcal H]\quad\text{a.s.}
 $$
-这对应 Dembo 的 Proposition 4.2.8，印刷页 160.[^tower]
+
+[^tower]
 
 **证明.** 令 $M=\mathbb{E}[X\mid\mathcal G]$、$N=\mathbb{E}[M\mid\mathcal H]$. $N$ 可积且 $\mathcal H$-可测. 对每个 $A\in\mathcal H$，也有 $A\in\mathcal G$，故
+
 $$
 \int_A N\,dP=\int_A M\,dP=\int_A X\,dP.
 $$
+
 $N$ 因而满足 $\mathbb{E}[X\mid\mathcal H]$ 的定义，再用唯一性即可.
 
 特别地，取平凡信息 $\mathcal H=\{\varnothing,\Omega\}$，便得到 $\mathbb{E}[M]=\mathbb{E}X$. 在四状态表中，这就是
+
 $$
 0.40(0)+0.60\left(\frac{40000}{3}\right)=8000.
 $$
-不是把两个组平均再等权平均；两个组的概率不同.
 
-嵌套条件必须真的核对. 另一划分 $\{\omega_1,\omega_3\}/\{\omega_2,\omega_4\}$ 与 L/H 交叉，既不更细也不更粗；不能只因为两者各有两组，就套用塔式性质.
+组均值按组概率加权.
+
+划分 $\{\omega_1,\omega_3\}/\{\omega_2,\omega_4\}$ 与L/H交叉，对应事件域互不包含，不满足嵌套条件.
 
 <a id="qt11-projection"></a>
-## 四、平方误差最优：补齐从 $L^1$ 到 $L^2$ 的桥
+## 正交投影与均方误差
 
 现在加强为 $X\in L^2(P)$，并令 $M=\mathbb{E}[X\mid\mathcal G]$. 我们要证明，对任意 $Y\in L^2(\mathcal G)$，
+
 $$
 \mathbb{E}[(X-Y)^2]=\mathbb{E}[(X-M)^2]+\mathbb{E}[(M-Y)^2]. \tag{1}
 $$
+
 第二项非负，所以 $M$ 最小化均方误差；达到相同最小值的 $Y$ 必须与 $M$ 几乎处处相同. 下面先证明 $M\in L^2$，再由条件期望的定义推导等式.[^projection]
 
 **第一步：从事件推广到有界检验函数.** 定义已给出 $\mathbb{E}[(X-M)1_A]=0$. 有限线性组合说明，对每个 $\mathcal G$-可测简单函数 $V$，有 $\mathbb{E}[(X-M)V]=0$. 若 $V$ 有界，选 $\mathcal G$-可测简单函数 $V_j\to V$，并使 $|V_j|\le \|V\|_\infty+1$. 乘积由 $(\|V\|_\infty+1)|X-M|$ 支配，后者可积. 由支配收敛，
+
 $$
 \mathbb{E}[(X-M)V]=0. \tag{2}
 $$
+
 这一步只用到了 $X,M\in L^1$. [^bounded]
 
-**第二步：证明 $M\in L^2$，不能先用后证.** 取有界检验函数 $V_n=M1_{\{|M|\le n\}}$. 记
+**第二步：$L^2$收缩.** 取有界检验函数 $V_n=M1_{\{|M|\le n\}}$. 记
+
 $$
 a_n=\mathbb{E}[M^2 1_{\{|M|\le n\}}].
 $$
+
 由式 (2) 及 Cauchy–Schwarz，
+
 $$
 a_n=\mathbb{E}[XV_n]\le \|X\|_2\|V_n\|_2=\|X\|_2\sqrt{a_n}.
 $$
+
 $a_n$ 有限；若 $a_n=0$，结论直接成立，否则两边除以 $\sqrt{a_n}$，得 $a_n\le \mathbb{E}[X^2]$. 因为 $M$ 可取处处有限的实值版本，$M^2 1_{\{|M|\le n\}}\uparrow M^2$，单调收敛给出
+
 $$
 \mathbb{E}[M^2]=\lim_n a_n\le \mathbb{E}[X^2]<\infty. \tag{3}
 $$
-这里用截断证明了所需的 $L^2$ 收缩，不必先建立一般条件 Jensen 不等式.
 
 **第三步：推广到所有 $L^2$ 检验函数.** 对 $V\in L^2(\mathcal G)$，取 $V_n=V1_{\{|V|\le n\}}$. 因为
+
 $$
 \mathbb{E}[|V-V_n|^2]=\mathbb{E}[V^2 1_{\{|V|>n\}}]\longrightarrow0,
 $$
+
 所以由式 (2)、式 (3) 与 Cauchy–Schwarz，
+
 $$
 \left|\mathbb{E}[(X-M)(V-V_n)]\right|
 \le \|X-M\|_2\|V-V_n\|_2\longrightarrow0.
 $$
-于是 $\mathbb{E}[(X-M)V]=0$. 所有乘积都有有限绝对期望，极限交换有明确控制.
+
+于是 $\mathbb{E}[(X-M)V]=0$.
 
 **第四步：完成平方展开.** 写成 $X-Y=(X-M)+(M-Y)$. $M-Y\in L^2(\mathcal G)$，上一步使交叉项为零，于是得到式 (1). 若两个预测达到同一最小值，则 $\mathbb{E}[(M-Y)^2]=0$，从而 $M=Y$ a.s.
 
-这就是向 $L^2(\mathcal G)$ 的正交投影. 按 a.s. 等价类识别后，$L^2(\mathcal G)$ 本身完备，包含到 $L^2(\mathcal F)$ 的映射等距，故其像是闭子空间；这里用闭性解释投影视角，条件期望的存在性已经由前面的测度构造给出，不依赖 Hilbert 投影定理.[^closed]
+按a.s.等价类识别后，$L^2(\mathcal G)$ 完备，其到 $L^2(\mathcal F)$ 的包含映射等距，故像为闭子空间. 上述正交关系将条件期望识别为投影.[^closed]
 
 <a id="qt11-experiment"></a>
-## 五、重算误差，然后改一项有意义的条件
+## 四状态误差分解
 
-仍用四状态表，选择只用 L/H 的预测 $Y=0\,1_L+10000\,1_H$. 全部误差都按模型概率加权，不按四行等权平均.
+取 $Y=0\,1_L+10000\,1_H$，按表中概率计算误差：
 
 | 量 | $\omega_1$ | $\omega_2$ | $\omega_3$ | $\omega_4$ |
 |---|---:|---:|---:|---:|
@@ -743,68 +764,65 @@ $$
 | $X-M$（美元） | 0 | 0 | $-10000/3$ | $20000/3$ |
 
 因此
+
 $$
 \mathbb{E}[(X-M)^2]
 =0.4(10000/3)^2+0.2(20000/3)^2
 =\frac{40000000}{3}\ {\rm USD}^2,
 $$
+
 $$
 \mathbb{E}[(M-Y)^2]
 =0.6(10000/3)^2
 =\frac{20000000}{3}\ {\rm USD}^2.
 $$
-两项相加等于 $20000000\ {\rm USD}^2=\mathbb{E}[(X-Y)^2]$. 美元平方是平方误差的单位，不是美元损益，也不是收益率.
+
+两项相加等于 $20000000\ {\rm USD}^2=\mathbb{E}[(X-Y)^2]$. 误差单位为USD².
 
 <div data-experiment-slot="EXP-QTB-PROJECTION-01"></div>
 
-在交互中先只改 H 组预测值 $y_H$. L 组仍预测零，此时
+固定 L 组预测为零，只改变 H 组预测值 $y_H$，此时
+
 $$
 \mathbb{E}[(X-Y)^2]=\frac{40000000}{3}
 +0.6\left(y_H-\frac{40000}{3}\right)^2.
 $$
-所以 $y_H=0,10000,40000/3,20000$ 时，误差依次为 $120000000,20000000,40000000/3,40000000$ 美元平方. 这张静态对照表述也给出了整条误差曲线.
 
-再把候选改成 $Y=X$：误差确实为零，但 H 组里它取两个不同值，在 $t_1$ 并不可知. **一个不在允许集合内的候选，不能推翻允许集合中的最优结论.** 反过来，当信息确实细化到完整状态，$X$ 就成为合法候选，零误差也就成立.
+所以 $y_H=0,10000,40000/3,20000$ 时，误差依次为 $120000000,20000000,40000000/3,40000000$ 美元平方.
 
-| 结论 | 本篇采用的条件 |
-|---|---|
-| 条件期望存在且 a.s. 唯一 | $X\in L^1$，$\mathcal G$ 为子 $\sigma$-代数 |
-| 塔式性质 | 上述条件，另有 $\mathcal H\subseteq\mathcal G$ |
-| 有限均方误差的正交投影 | $X\in L^2$，比较对象 $Y\in L^2(\mathcal G)$ |
-| 从模型平均得到可交易价格或最优策略 | 本篇没有建立；还需要对应的市场与决策模型 |
+若取 $Y=X$，误差为零；但它在 H 组内取两个不同值，因此不是 $\mathcal G$-可测变量，不属于比较集合 $L^2(\mathcal G)$. 信息细化到完整状态后，$X$ 才进入该比较集合，此时零误差成立.
 
-改变损失函数也会改变预测目标. 均方误差选择条件均值；这不意味着同一个量也最小化每一种损失，更不意味着估计出的模型条件均值等于现实中未知的条件均值.
+改变损失函数会改变优化目标. 平方损失选择条件均值；绝对损失则由条件中位数最小化.
 
 <a id="qt11-exercises"></a>
-## 六、检验与迁移
+## 练习与解析
 
 **题一：只有总平均够不够？** 仍用表中信息 $\mathcal G$，验证常数 8000 与候选 $M$ 都有平均 8000，为什么只有后者是条件期望？
 
-**解析.** $\mathbb{E}[8000]=8000=\mathbb{E}M$，但在事件 $L$ 上，前者的积分为 3200，原支付积分为零. 候选 $M$ 在 L/H 两个原子上分别保留积分，因此在全部可辨认事件上都保留积分. 否定候选只需找一个反例事件，证明成立则必须覆盖所有事件.
+**解析.** 两者总均值均为8000，但常数8000在 $L$ 上积分为3200，原支付积分为0. $M$ 在L/H两个原子上保留积分，可加性将等式扩至整个事件域.
 
 **题二：去掉平方可积会怎样？** 令 $X$ 的密度为 $\frac32 x^{-5/2}1_{\{x\ge1\}}$，信息为平凡信息. 条件期望还存在吗？是否仍能用有限均方误差选出唯一常数预测？
 
-**解析.** $\mathbb{E}X=3$、$\mathbb{E}X^2=\infty$，所以 $X\in L^1\setminus L^2$，条件期望仍是 3. 对任意有限常数 $c$，在足够大的 $x$ 上 $(x-c)^2\ge x^2/4$，故 $\mathbb{E}[(X-c)^2]=\infty$. 此处不能靠有限均方误差的比较得到唯一常数最优解. 不是条件期望失效，而是所选优化问题失去原来的有限性.
+**解析.** $\mathbb{E}X=3$、$\mathbb{E}X^2=\infty$，故 $X\in L^1\setminus L^2$，条件期望为3. 对任意有限 $c$，足够大的 $x$ 满足 $(x-c)^2\ge x^2/4$，因此 $\mathbb{E}[(X-c)^2]=\infty$. 所有常数的均方误差均无限，失去唯一最小值的比较.
 
 **题三：非嵌套信息的塔式等式.** 令 $\mathcal K$ 由 $\{\omega_1,\omega_3\}$ 和 $\{\omega_2,\omega_4\}$ 生成. 分别计算 $\mathbb{E}[X\mid\mathcal K]$ 与 $\mathbb{E}[M\mid\mathcal K]$.
 
 **解析.** 两组概率都是 0.5，原支付在两组上的加权总量都为 4000，所以 $\mathbb{E}[X\mid\mathcal K]=8000$. 对 $M$，两组的条件平均分别为
+
 $$
 \frac{0.4(40000/3)}{0.5}=\frac{32000}{3},
 \qquad
 \frac{0.2(40000/3)}{0.5}=\frac{16000}{3}.
 $$
-它们不同于 8000；这里 $\mathcal K\not\subseteq\mathcal G$，不能套用塔式性质.
 
-本篇的三个检验方式可以带到新问题中：用信息决定哪些候选合法，用局部积分确认条件期望，用损失与可积条件确认最优结论的范围.
+它们不同于 8000；这里 $\mathcal K\not\subseteq\mathcal G$，不能套用塔式性质.
 
 [^ce]: Amir Dembo, *Probability Theory: STAT310/MATH230*, 2021-04-15，§4.1.1，Theorem 4.1.2 及证明，印刷页 153–156. [开放原文](https://adembo.su.domains/stat-310b/lnotes.pdf#page=153).
 [^tower]: 同书，Proposition 4.2.8（Tower property），印刷页 160. [原页](https://adembo.su.domains/stat-310b/lnotes.pdf#page=160).
-[^projection]: 同书，§4.3，Proposition 4.3.1 及证明，印刷页 166–167. [原文](https://adembo.su.domains/stat-310b/lnotes.pdf#page=166). 本节对 $L^2$ 假设与截断桥接分别保留.
-[^bounded]: 同书，Proposition 4.2.10，pp.160–161；支配收敛见 Theorem 1.3.34，pp.42–43. 本节使用有界检验函数情形，并在正文给出逼近.
-[^closed]: 同书，Proposition 4.3.7 及证明，pp.168–169；一般 Hilbert 投影定理见 Theorem 4.3.10，pp.169–170.
-[^spx]: Cboe, *SPX Index Options Fact Sheet*，©2026，访问于 2026-09-21，p.2 “Contract Multiplier / Final Settlement Value”. 标准 SPX 的结算值采用到期日成分股开盘成交价计算；SPXW 的口径不同. [产品原件](https://cdn.cboe.com/resources/spx/spx-fact-sheet.pdf#page=2). 本例仅采用产品支付规则；真实挂牌序列、权利金和账户现金时点未指定.
-
+[^projection]: 同书，§4.3，Proposition 4.3.1 及证明，印刷页 166–167. [原文](https://adembo.su.domains/stat-310b/lnotes.pdf#page=166).
+[^bounded]: 同书，Proposition 4.2.1，pp.160–161；支配收敛见 Theorem 1.3.34，pp.42–43.
+[^closed]: 同书，Proposition 4.3.7 及证明，pp.168–169；一般 Hilbert 投影定理见 Theorem 4.3.1，pp.169–170.
+[^spx]: Cboe, *SPX Index Options Fact Sheet*，©2026，访问于 2026-09-21，p.2 “Contract Multiplier / Final Settlement Value”. 标准 SPX 的结算值采用到期日成分股开盘成交价计算；SPXW 的口径不同. [产品原件](https://cdn.cboe.com/resources/spx/spx-fact-sheet.pdf#page=2).
 
 ## Experiment inputs and static equivalents
 ```json

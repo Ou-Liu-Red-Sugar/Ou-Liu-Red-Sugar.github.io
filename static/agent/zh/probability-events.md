@@ -1,15 +1,11 @@
 # 情景、事件与概率
 
-我们先固定观察期限，再说明期末可能发生哪些结果.
+固定观察期限、基本结果与模型权重，再由结果集合定义事件及其交并概率.
 
-Entry: zh-qt02 | Node: QT02 | Language: zh | Editorial revision: 2026-09-21
+Entry: zh-qt02 | Node: QT02 | Language: zh | Editorial revision: 2026-09-22
 
 ## Teaching instructions
-你负责 QT02「情景、事件与概率」，这是按疑点使用的短参考，不是初等概率完整课程.
-先实际读取本页正文，再打开脚注 MIT Lecture 1 的指定定义、Proposition 2 及两事件公式，记录取得的版本和范围. 原件容斥证明留作练习，不要伪称原件已给完整证明；使用本页的不交分解证明. 来源失败则寻找可核对的等价原文；未取得相应单元前不声称已满足阅读要求.
-请读者直接判断例中 A、B 是否互斥且穷尽，并算出交并概率；若已掌握，跳过重复解释，改问边界从“≥”到“>”怎样影响结果.
-必须检查观察期限、模型结果是否穷尽、权重是否非负归一；不要自动归一化错误输入. 用三个不交块解释容斥，不引入未要求的独立性或条件概率课程.
-理解标准：读者能解释 0.7+0.8 为什么不是并集概率，能迁移等号边界，也知道这些是假设权重而不是现实发生率. 无需 QT01 先修，不读账户或推荐交易. 缺什么就只补什么，不凑满 20 分钟.
+读者为有充分数学背景的高年级本科生至研究生. 先实际读取 agent_packet.required_readings 指定完整单元，选择可选分支后再读 optional_readings；记录题名、版本、定位与支持内容. 缺失必读单元时先取得等价原件，再解释依赖它的命题. 从给定有限状态和权重计算事件交并补及边界变化，证明容斥关系，区分零概率与空事件. 用完整推导或计算诊断理解，已掌握步骤直接继承，再用改变条件的任务检验迁移. runtime_reading_log记录实际读取.
 
 Before substantive teaching, actually retrieve every required reading unit for the selected scope. Read its complete designated section, including necessary assumptions, tables and footnotes. A working URL or an editorial access date is not a runtime reading receipt. Record the actual version, location, scope and what it supports. If unavailable, use a previously verified equivalent source; if the required unit remains unavailable, identify that gap rather than teach it from memory. Start runtime_reading_log empty. Once reading is complete, use a substantive diagnostic or follow the reader's request for direct explanation. Advance one complete reasoning task at a time; skip mastered basics. Distinguish original facts, supplied teaching assumptions and inference.
 
@@ -22,13 +18,13 @@ Before substantive teaching, actually retrieve every required reading unit for t
 {
   "entry_id": "zh-qt02",
   "node_id": "QT02",
-  "content_version": "2026-09-21-review-v2",
+  "content_version": "2026-09-22-deep-review",
   "export_mode": "public",
   "audience": "高年级本科至研究生；默认微积分、线性代数和基本概率",
   "selected_branch": "full_entry",
-  "learning_task": "我们先固定观察期限，再说明期末可能发生哪些结果. 讨论“未来某次合约结算”与“明天收盘”是不同的问题，不能共用一张未注明期限的情景表.",
+  "learning_task": "从给定有限状态和权重计算事件交并补及边界变化，证明容斥关系，区分零概率与空事件.",
   "body_source": "body_markdown",
-  "prompt": "你负责 QT02「情景、事件与概率」，这是按疑点使用的短参考，不是初等概率完整课程.\n先实际读取本页正文，再打开脚注 MIT Lecture 1 的指定定义、Proposition 2 及两事件公式，记录取得的版本和范围. 原件容斥证明留作练习，不要伪称原件已给完整证明；使用本页的不交分解证明. 来源失败则寻找可核对的等价原文；未取得相应单元前不声称已满足阅读要求.\n请读者直接判断例中 A、B 是否互斥且穷尽，并算出交并概率；若已掌握，跳过重复解释，改问边界从“≥”到“>”怎样影响结果.\n必须检查观察期限、模型结果是否穷尽、权重是否非负归一；不要自动归一化错误输入. 用三个不交块解释容斥，不引入未要求的独立性或条件概率课程.\n理解标准：读者能解释 0.7+0.8 为什么不是并集概率，能迁移等号边界，也知道这些是假设权重而不是现实发生率. 无需 QT01 先修，不读账户或推荐交易. 缺什么就只补什么，不凑满 20 分钟.",
+  "prompt": "读者为有充分数学背景的高年级本科生至研究生. 先实际读取 agent_packet.required_readings 指定完整单元，选择可选分支后再读 optional_readings；记录题名、版本、定位与支持内容. 缺失必读单元时先取得等价原件，再解释依赖它的命题. 从给定有限状态和权重计算事件交并补及边界变化，证明容斥关系，区分零概率与空事件. 用完整推导或计算诊断理解，已掌握步骤直接继承，再用改变条件的任务检验迁移. runtime_reading_log记录实际读取.",
   "required_readings": [
     {
       "source_id": "QP01-L01",
@@ -108,17 +104,17 @@ Before substantive teaching, actually retrieve every required reading unit for t
 
 ## 定义与约定
 
-我们先固定观察期限，再说明期末可能发生哪些结果. 讨论“未来某次合约结算”与“明天收盘”是不同的问题，不能共用一张未注明期限的情景表.
+概率模型先固定观察期限、基本结果与权重，再由结果集合定义事件；不同期限不能共用一张未注明期限的情景表.
 
 **定义.** 令 $\Omega$ 为非空集合，$\mathcal F$ 为其上的 $\sigma$-代数，即包含空集、对补集和可数并封闭的一族子集，则 $\Omega$ 称为样本空间，$\omega\in\Omega$ 是一个基本结果，$A\in\mathcal F$ 称为事件. 给定概率测度 $\mathbb P\colon\mathcal F\to[0,1]$，要求 $\mathbb P(\Omega)=1$，且对两两不交的可数事件族满足可列可加性. [^mit]
 
-有限模型中可取 $\mathcal F=2^\Omega$. 设 $\Omega=\{\omega_1,\ldots,\omega_n\}$，给定 $p_i\ge0$ 且 $\sum_i p_i=1$，则 $\mathbb P(A)=\sum_{\omega_i\in A}p_i$. 权重 0 允许出现，不因此删除该结果；“概率为零”与“事件为空”不是同一句话.
+有限模型可取 $\mathcal F=2^\Omega$. 给定 $p_i\ge0$、$\sum_i p_i=1$，有 $\mathbb P(A)=\sum_{\omega_i\in A}p_i$. 零概率结果可保留在样本空间中.
 
 <span id="qt02-event-example"></span>
 
-## 一个足以分清边界的例子
+## 有限情景与事件边界
 
-约定期限为**教学模型中的一次期末结算 $T$**，不是某个已核挂牌到期日. 三个基本结果分别标记为结算值 5,900、6,000、6,100 点，权重为 0.2、0.5、0.3. 数值和权重都由教学模型给定，不是观测频率或市场隐含概率.
+约定期限为一次期末结算 $T$. 三个基本结果的结算值分别为 5,900、6,000、6,100 点，模型权重为 0.2、0.5、0.3；这些权重是本例输入.
 
 | 结果 | 结算情景标签（点） | $p_i$ | $A$：不超过 6,000 | $B$：不低于 6,000 |
 |---|---:|---:|---|---|
@@ -126,11 +122,11 @@ Before substantive teaching, actually retrieve every required reading unit for t
 | $\omega_2$ | 6,000 | 0.5 | 是 | 是 |
 | $\omega_3$ | 6,100 | 0.3 | 否 | 是 |
 
-于是 $\mathbb P(A)=0.7$、$\mathbb P(B)=0.8$，但并集概率不是 1.5. 两者覆盖全部模型结果，却在 $\omega_2$ 处重叠. **穷尽不等于互斥.** 三个基本结果在本模型内穷尽，也不等于它们已覆盖现实市场的所有结算可能性.
+$P(A)=0.7$、$P(B)=0.8$，交集为 $\{\omega_2\}$、概率0.5，并集覆盖全空间. 这对事件穷尽且重叠.
 
 **命题（二事件容斥）.** 对事件 $A,B$，有 $\mathbb P(A\cup B)=\mathbb P(A)+\mathbb P(B)-\mathbb P(A\cap B)$.
 
-**证明.** 把并集分成两两不交的 $A\setminus B$、$A\cap B$、$B\setminus A$，用可加性求和. 分别展开 $\mathbb P(A)$ 与 $\mathbb P(B)$，会把中间一块数两遍，减去一次便得到结论. 这个证明不要求 $A,B$ 独立.
+**证明.** 将并集分为两两不交的 $A\setminus B$、$A\cap B$、$B\setminus A$，按可加性求和. $P(A)+P(B)$ 把交集计两遍，减一次即得结论.
 
 本例结果为 $0.7+0.8-0.5=1$；补事件 $A^c=\{\omega_3\}$ 的概率为 0.3. 事件属于哪些结果，与采用什么权重，是两层输入；改权重不必改变事件集合.
 
@@ -138,27 +134,24 @@ Before substantive teaching, actually retrieve every required reading unit for t
 
 <div data-experiment-slot="lab-qt02"></div>
 
-## 检查与使用位置
+## 边界变更
 
 **解释题.** 刚才 $A$、$B$ 的概率和超过 1，是否说明模型权重不合法？
 
-**解析.** 不是. 基本结果权重仍非负且和为 1；超过 1 来自重复计入交集. 应检查集合重叠，而不是强行把 $0.7,0.8$ 归一化.
+**解析.** 基本结果权重合法，0.7与0.8重复计入交集，应按容斥计算.
 
 **迁移题.** 把 $B$ 改为“严格大于 6,000”. 哪些概率改变？
 
-**解析.** $B=\{\omega_3\}$，概率降为 0.3；它与 $A$ 不交，交集概率变成 0；并集仍为全部模型结果，概率仍为 1. 变化来自把边界情景 $\omega_2$ 移出 $B$，不是重新估计了市场概率.
+**解析.** $B=\{\omega_3\}$ 的概率为0.3，与A交集为空，并集仍为全空间. 概率改变来自移出边界状态.
 
-[交互页](/notebook/labs/qt-a/interactions.html#qt02) 可以点选结果组成 $A,B$ 并修改三项权重. 权重非法时应停算，不能自动归一化掩盖问题. 没有脚本时，上表与两道题的结果就是静态替代.
+[事件实验](/notebook/labs/qt-a/interactions.html#qt02)分别改变集合成员和概率权重，展示交集、并集与补集. 权重要求非负且和为1.
 
-本页连接 QT03 的映射、QT05 的条件概率和 QT07 的信息分组；处理真实历史数据时，再调用 QT01 的数据版本方法. 概率权重的数学自洽只说明模型内部一致，经验合理性仍需证据；市场报价也不能直接当作现实发生率.
-
-[^mit]: MIT 6.436J/15.085J，Fall 2018，[Lecture 1: Probabilistic Models and Probability Measures](https://ocw.mit.edu/courses/6-436j-fundamentals-of-probability-fall-2018/c37dc8b61cdf6bde689a627bfa5b4942_MIT6_436JF18_lec01.pdf). 指定范围：§3 Definition 1（p.3），§4 Definition 2（pp.4–5），§5 Definition 3（pp.7–8）、Proposition 2 及两事件公式（pp.9–10，上半页至 Finite Additivity 之前）. 本页不需要后续单调类定理.
-
+[^mit]: MIT 6.436J/15.085J，Fall 2018，[Lecture 1: Probabilistic Models and Probability Measures](https://ocw.mit.edu/courses/6-436j-fundamentals-of-probability-fall-2018/c37dc8b61cdf6bde689a627bfa5b4942_MIT6_436JF18_lec01.pdf). 指定范围：§3 Definition 1（p.3），§4 Definition 2（pp.4–5），§5 Definition 3（pp.7–8）、Proposition 2 及两事件公式（pp.9–10，上半页至 Finite Additivity 之前）.
 
 ## Additional teaching material
 ## 计算输入与默认输出
 
-同源对象为 `experiments.json` 的 `probability`；期限为教学结算 $T$，不存在行情采集声明.
+同源对象为 `experiments.json` 的 `probability`；期限为算例结算 $T$.
 
 ```json
 {"experiment_id":"EXP-PAYOFF-MAP-01","states":["w1","w2","w3"],"settlement_points":[5900,6000,6100],"weights":[0.2,0.5,0.3],"event_A":[true,true,false],"event_B":[false,true,true],"outputs":{"P_A":0.7,"P_B":0.8,"P_intersection":0.5,"P_union":1,"P_A_complement":0.3}}
@@ -171,7 +164,6 @@ P(A union B) = sum_i weights[i] * Number(event_A[i] || event_B[i])
 ```
 
 HTML `#qt02` 为每个情景给出 A、B 复选框及有标签的权重输入，显示全部五项概率. 默认输出是上面的精确值. 接受条件为每项有限、非负且和为 1；浮点校验容差 `1e-12` 只处理机器舍入，不修改输入. 错误用文字解释；全不选的事件返回概率 0. 静态表常驻，所有操作可用键盘，打印保留默认权重与输出.
-
 
 ## Experiment inputs and static equivalents
 ```json

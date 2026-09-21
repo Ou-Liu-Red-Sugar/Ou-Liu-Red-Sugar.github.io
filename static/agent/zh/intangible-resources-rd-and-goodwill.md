@@ -2,14 +2,10 @@
 
 沿研发、初步购买价分摊和集团无形资产滚动识别资源及会计来源；进阶再构建条件明确的资本存量.
 
-Entry: zh-bf14 | Node: BF-14 | Language: zh | Editorial revision: 2026-09-21
+Entry: zh-bf14 | Node: BF-14 | Language: zh | Editorial revision: 2026-09-22
 
 ## Teaching instructions
-你正在教 BF-14《无形资源、研发与商誉》，材料版本2026-09-21. 学习任务：恢复9,636=4,379+5,257，解释3,818、294/36及1,687/1,569的各自身份.
-本篇核心为Salesforce+JEP；EPW只在读者启用进阶测量分支后转为必读. optional只有读者启用后才变为必读. 先实际打开指定公开原文单元，分页读到单元结束，必要表图核原页，记录标题/版本/位置/范围与当前用途. 文献目录、工具返回标题或作者先前已读记录都不能代替本次读取；runtime_reading_log从空数组开始. 读取失败先找同版本正式等价原文，仍缺则说明该单元缺口，不凭摘要补讲.
-诊断任务：{"core": "恢复9,636=4,379+5,257，解释3,818、294/36及1,687/1,569的各自身份."}. 补充任务：给出对价与PPA，让读者先把非商誉净资产从完整资产负债中恢复出来.
-随后沿本包完整正文、实际输入、静态实验与题解推进一个完整任务，先让读者解释或计算再反馈；已会的基础跳过. 默认迁移是换一类资源或调整明确的资本化/折损参数并解释身份；只有读者展开研究分支后才读EPW，不要求另找一个公司期间. 通过尺度：不重复加研发SBC，不把累计净变动当费用；模型初始存量/流量/比例/折损/时序全部可重算.
-保持真实披露、分析计算、教学模型三种身份，参数只改变模型，不反写真实公司数据. 资料不足处不要补造差额或估值. 最后明确：读者已经能独立重建什么，换一份材料时还需先核哪些条件？
+读者为有充分数学背景的高年级本科生至研究生. 你正在教BF-14《无形资源、研发与商誉》，材料版本2026-09-22. 学习任务：恢复9,636=4,379+5,257，解释3,818、294/36及1,687/1,569的各自身份. Salesforce与JEP为核心必读；EPW仅在读者启用进阶测量分支后读取. 讲解前先实际打开指定公开原文单元，分页读到单元结束，必要表图核原页，记录标题、版本、位置、范围与当前用途；runtime_reading_log从空数组开始，不以文献目录、工具标题或先前已读记录代替本次读取. 读取失败先找同版本正式等价原文；仍缺则明确该单元缺口，不以摘要补讲. 诊断：恢复9,636=4,379+5,257，解释3,818、294/36及1,687/1,569的各自身份；先从完整PPA恢复非商誉净资产. 沿本包正文、实际输入、静态实验与题解推进，先让读者解释或计算再反馈；已会步骤跳过. 默认迁移为更换资源类别或调整明确的资本化/折损参数并解释身份；研究分支启用后再读EPW. 通过尺度：不重复加研发SBC，不把累计摊销净变动当期间费用；模型初始存量、流量、形成比例、折损与时序全部可重算. 保持真实披露、分析计算、教学模型三种身份，参数只改变模型，不反写真实公司数据；资料不足处保留缺口.
 
 Before substantive teaching, actually retrieve every required reading unit for the selected scope. Read its complete designated section, including necessary assumptions, tables and footnotes. A working URL or an editorial access date is not a runtime reading receipt. Record the actual version, location, scope and what it supports. If unavailable, use a previously verified equivalent source; if the required unit remains unavailable, identify that gap rather than teach it from memory. Start runtime_reading_log empty. Once reading is complete, use a substantive diagnostic or follow the reader's request for direct explanation. Advance one complete reasoning task at a time; skip mastered basics. Distinguish original facts, supplied teaching assumptions and inference.
 
@@ -1252,7 +1248,7 @@ Before substantive teaching, actually retrieve every required reading unit for t
       }
     }
   },
-  "prompt": "你正在教 BF-14《无形资源、研发与商誉》，材料版本2026-09-21. 学习任务：恢复9,636=4,379+5,257，解释3,818、294/36及1,687/1,569的各自身份.\n本篇核心为Salesforce+JEP；EPW只在读者启用进阶测量分支后转为必读. optional只有读者启用后才变为必读. 先实际打开指定公开原文单元，分页读到单元结束，必要表图核原页，记录标题/版本/位置/范围与当前用途. 文献目录、工具返回标题或作者先前已读记录都不能代替本次读取；runtime_reading_log从空数组开始. 读取失败先找同版本正式等价原文，仍缺则说明该单元缺口，不凭摘要补讲.\n诊断任务：{\"core\": \"恢复9,636=4,379+5,257，解释3,818、294/36及1,687/1,569的各自身份.\"}. 补充任务：给出对价与PPA，让读者先把非商誉净资产从完整资产负债中恢复出来.\n随后沿本包完整正文、实际输入、静态实验与题解推进一个完整任务，先让读者解释或计算再反馈；已会的基础跳过. 默认迁移是换一类资源或调整明确的资本化/折损参数并解释身份；只有读者展开研究分支后才读EPW，不要求另找一个公司期间. 通过尺度：不重复加研发SBC，不把累计净变动当费用；模型初始存量/流量/比例/折损/时序全部可重算.\n保持真实披露、分析计算、教学模型三种身份，参数只改变模型，不反写真实公司数据. 资料不足处不要补造差额或估值. 最后明确：读者已经能独立重建什么，换一份材料时还需先核哪些条件？",
+  "prompt": "读者为有充分数学背景的高年级本科生至研究生. 你正在教BF-14《无形资源、研发与商誉》，材料版本2026-09-22. 学习任务：恢复9,636=4,379+5,257，解释3,818、294/36及1,687/1,569的各自身份. Salesforce与JEP为核心必读；EPW仅在读者启用进阶测量分支后读取. 讲解前先实际打开指定公开原文单元，分页读到单元结束，必要表图核原页，记录标题、版本、位置、范围与当前用途；runtime_reading_log从空数组开始，不以文献目录、工具标题或先前已读记录代替本次读取. 读取失败先找同版本正式等价原文；仍缺则明确该单元缺口，不以摘要补讲. 诊断：恢复9,636=4,379+5,257，解释3,818、294/36及1,687/1,569的各自身份；先从完整PPA恢复非商誉净资产. 沿本包正文、实际输入、静态实验与题解推进，先让读者解释或计算再反馈；已会步骤跳过. 默认迁移为更换资源类别或调整明确的资本化/折损参数并解释身份；研究分支启用后再读EPW. 通过尺度：不重复加研发SBC，不把累计摊销净变动当期间费用；模型初始存量、流量、形成比例、折损与时序全部可重算. 保持真实披露、分析计算、教学模型三种身份，参数只改变模型，不反写真实公司数据；资料不足处保留缺口.",
   "selected_branch": "core",
   "required_readings_by_branch": {
     "core": [
@@ -1350,29 +1346,27 @@ Before substantive teaching, actually retrieve every required reading unit for t
 ```
 
 ## Supplied entry
-企业可以多年使用一套设计、软件、客户关系或组织方法，但这些资源不一定在资产负债表上以同样方式出现. 自己研发、通过收购买入和事后估计“经济资本存量”，是三条不同的路径. 本篇以 Salesforce 的研发与 Informatica 收购为线索，先恢复会计上实际确认的关系，再讨论怎样提出一项有条件的经济资源估计.
-
-主读约 15–20 分钟，完成一份购买价分摊与摊销核对. 无形资本测量的研究分支和参数实验可以另行展开；不需要先读完整论文才能看懂本篇的公司材料.
+内部研发、收购买入的无形资产和商誉进入报表的路径不同. Salesforce的研发费用、Informatica收购及集团无形资产滚动表展示这些差别；进阶分支再用研发与组织资本模型估计报表之外的经济资源.
 
 <a id="bf14-economic-resource"></a>
-## 1. 先问资源怎样工作，再问它怎样入账
+## 1. 无形资源的使用与收益归属
 
 一套软件可以在多个地方重复部署，一种管理流程也可能被不同团队同时使用；但它们需要代码、设备、文档或人员来承载. 可复制不等于收益能被企业完全占有：人员流动、模仿、更新不足和制度安排都会改变收益归属与资源寿命. JEP 2022 对无形资本的讨论，用“非竞争性使用”和“有限排他性”把这两面分开. [^bf14-jep]
 
-这给我们一个可用的阅读框架：先写出资源、承载方式、用途和收益归属，再看报表沿哪条确认路径记录了它. <strong>经营资源、会计资产、研究者估计的资本存量，描述的不是同一个集合. </strong>费用化不等于投入必然没有未来作用；买入形成资产，也不等于这项未来作用已经被证明.
+经营分析识别资源、承载方式、用途和收益归属；会计确认再依据适用规则记录资产或费用，研究模型则通过投入、形成比例和耗损估计资本存量.
 
 <a id="bf14-rd"></a>
-## 2. 内部研发：先恢复投入口径
+## 2. 内部研发与费用
 
 Salesforce FY2026 截至 2026-01-31，研发费用为 5,993 M 美元，其中股权薪酬 1,162 已经包含在内；FY2025 两项分别为 5,493 与 1,091. 研发活动涉及员工与分摊成本，这些金额能够支持“本期投入了什么”的分析. 若想进一步判断形成了多少可持续能力，还需要项目产出、更新需求、留存人员、客户采用和收益证据. [^bf14-crm-fs]
 
-先把一处常见重复去掉：5,993 不能再加 1,162 作为“全部研发投入”. 同样，若把研发费用资本化作分析调整，也不能只把费用从利润表拿走；必须说明形成多少资源、以后如何耗损以及相应成本怎样重新进入期间分析. 我们先看一份实际发生、并且给出了资源分类的收购.
+分析上将研发资本化，需要确定投入形成长期资源的比例、耗损速度，以及各期重新计入成本的金额.
 
 <a id="CASE-BFDE-CRM-BF14-20260921"></a>
 <a id="bf14-ppa"></a>
 ## 3. Informatica：从购买对价到可辨认净资产与商誉
 
-Salesforce 在 2025 年 11 月收购 Informatica. 以下是 FY2026 10-K 当时披露的<strong>初步购买价分摊</strong>，并非后来的最终版本；单位均为 M 美元. 对价首先来自三项：[^bf14-ppa]
+Salesforce于2025年11月收购Informatica. 以下采用FY2026披露的初步购买价分摊，单位：M 美元. 对价由三项组成.[^bf14-ppa]
 
 | 对价原行 | 金额 |
 |---|---:|
@@ -1381,7 +1375,7 @@ Salesforce 在 2025 年 11 月收购 Informatica. 以下是 FY2026 10-K 当时�
 | Fair value of equity plan assumed／承接股权计划中计入对价部分 | 36 |
 | Total／总对价 | 9,636 |
 
-现在把买来的资产和承接的负债都放回来，而不是只拿无形资产与现金对比.
+取得资产和承接负债如下.
 
 | 初步购买价分摊原行 | 金额 |
 |---|---|
@@ -1399,7 +1393,6 @@ Salesforce 在 2025 年 11 月收购 Informatica. 以下是 FY2026 10-K 当时�
 | Deferred tax liability／递延所得税负债 | (443) |
 | Net assets acquired／含商誉的取得净资产 | 9,636 |
 
-
 原表含商誉的净资产总额为 9,636. 将商誉单独取出，其他已确认资产减负债为 4,379，于是 $4,379+5,257=9,636$. 这里 4,379 是<strong>除商誉外的可辨认净资产</strong>，包括其他资产和负债；3,818 才是其中可辨认无形资产的总额.
 
 | 可辨认无形资产原行 | 初步金额 | 估计寿命 |
@@ -1411,14 +1404,14 @@ Salesforce 在 2025 年 11 月收购 Informatica. 以下是 FY2026 10-K 当时�
 | Backlog／订单相关无形资产 | 279 | 2年 |
 | Total intangible assets subject to amortization | 3,818 | — |
 
-这些类别帮助我们问出不同的经营问题：技术需要怎样持续更新，客户关系如何维持，现有订单的服务期又有多长？寿命是用于会计分摊的估计，不是“到那一天资源价值必然归零”的预测. 商誉占对价约 54.56%，它只描述这次初步分摊的结构，不能直接转成企业护城河评分.
+这些类别对应不同的持续投入与服务期：技术需要更新，客户关系需要维持，订单相关无形资产对应现有服务期. 寿命是会计分摊估计. 商誉占对价约54.6%，该比例描述本次初步购买价分摊的结构.
 
-原件还给了一个很有区分力的归属例：承接的股权奖励公允价值为 330，其中 36 初步计入收购对价，294 对应未来服务，并将在剩余服务期费用化. 支付工具相似，并不代表经济归属相同；若把全部 330 计入购买对价，就会与原件中 9,636 的购买对价口径不一致.[^bf14-ppa]
+承接股权奖励的公允价值330中，36初步计入购买对价，294对应未来服务，按剩余服务期费用化.[^bf14-ppa]
 
 <a id="bf14-intangible-roll"></a>
-## 4. 资产净额怎样变化：摊销费用不等于累计净变动
+## 4. 无形资产滚动与摊销费用
 
-集团 Note 8 把购入无形资产分为技术、客户关系及其他. 以下为 FY2026 全部分项重排，金额 M 美元. 原值变动列是 `Additions and retirements, net`；累计摊销变动列是 `Expense and retirements, net`. 保留这两个限定，比把列名缩成“新增”和“摊销”更重要. [^bf14-roll]
+集团Note 8把购入无形资产分为技术、客户关系及其他. 以下为FY2026全部分项重排，金额 M 美元. 原值变动列是 `Additions and retirements, net`；累计摊销变动列是 `Expense and retirements, net`，两列均为净额口径. [^bf14-roll]
 
 | 原分类 | 期初原值 | 增加及退除净额 | 期末原值 | 期初累计摊销正额 | 费用及退除净额正额 | 期末累计摊销正额 | 期初净额 | 期末净额 |
 |---|---|---|---|---|---|---|---|---|
@@ -1427,27 +1420,24 @@ Salesforce 在 2025 年 11 月收购 Informatica. 以下是 FY2026 10-K 当时�
 | Other (1)／其他（商号、未开票订单、区域权利） | 331 | 353 | 684 | 182 | 95 | 277 | 149 | 407 |
 | Total／合计 | 10,183 | 3,956 | 14,139 | 5,755 | 1,569 | 7,324 | 4,428 | 6,815 |
 
-
 先做净额核对：原值 $10,183+3,956=14,139$；累计摊销正额 $5,755+1,569=7,324$；期末净额 $14,139-7,324=6,815$. 等价地，期初净额 4,428 加原值净变动 3,956，再减累计摊销净变动 1,569，得到 6,815.
 
-但本年实际购入无形资产摊销费用，在利润表脚注中是收入成本内 692 加销售营销费用内 995，合计 <strong>1,687</strong>；Note 8 将其概述为约 1.7 billion. 1,569 所在的列把摊销与资产退除的影响净列，不能替换 1,687 当本年费用. 我们已经得到一张闭合的存量桥，却仍保留了正确的期间费用. [^bf14-crm-fs][^bf14-roll]
+本年购入无形资产摊销费用为收入成本内692加销售营销费用内995，共1,687；Note 8概述为约1.7 B 美元. 累计摊销净变动1,569还扣除了资产退除等影响. [^bf14-crm-fs][^bf14-roll]
 
-未来摊销表按 FY2027 至 FY2031 及 thereafter 列为 1,842、1,412、1,104、710、448、1,299，合计 6,815. 这是报告日现存资产对应的未来分摊，不包含以后尚未发生的收购. 商誉则另走一张表：$51,283+704+5,257+697=57,941$；704 为 Regrello，5,257 为 Informatica，697 为其他收购与调整，含汇率及前期计量调整. 商誉与有限寿命无形资产不共享一张机械摊销表.
+未来摊销在FY2027至FY2031及之后分别为1,842、1,412、1,104、710、448、1,299，合计报告日净额6,815. 商誉滚动为 $51,283+704+5,257+697=57,941$：704来自Regrello，5,257来自Informatica，697为其他收购与调整，含汇率及前期计量调整. 商誉不按有限寿命无形资产的方式系统摊销.
 
 <a id="bf14-experiment"></a>
-## 5. 用图把三条路径分开
+## 5. 研发、收购与资本存量
 
 <div data-experiment-slot="EXP-BF14-INTANGIBLE-LAYERS"></div>
 
-默认图从 9,636 对价出发，分成除商誉外净资产 4,379 与商誉 5,257，再允许展开 3,818 的五类无形资产. 切换到存量视图，会看到 4,428 如何走到 6,815，以及单列的实际费用 1,687. 历史数据在这两种视图里不随参数改变.
-
 <a id="bf14-research"></a>
 <details data-agent-option="epw">
-<summary>进阶：把费用流量构造成资本存量，需要什么额外假设？</summary>
+<summary>进阶：无形资本的形成与耗损</summary>
 
-Ewens、Peters、Wang 的 *Measuring Intangible Capital with Market Prices*，本篇采用的是 2024-04-05 Articles in Advance 版本. 作者用退出事件价格连接历史研发和 SG&A 流量；相关设定还要处理商誉中的协同与溢付，以及退出样本选择. 其 §4.1 在设定下不能同时独立识别组织资本的投入比例与折损率，于是固定后一参数来估前者；§4.2 另约束价格与存量的联系. 这是参数化测量问题，不是从某年 SG&A 直接读出一个已知资产. [^bf14-epw]
+Ewens、Peters、Wang的研究用1996–2017年退出事件价格连接历史研发和SG&A流量，并处理商誉中的协同、溢付与样本选择. `4.1的设定无法同时独立识别组织资本形成比例与折损率，因此固定后者估计前者；`4.2约束价格与存量的关系. 参数识别决定历史费用能被转换成怎样的资本估计.[^bf14-epw]
 
-我们用一个更小、完全标明身份的模型理解这一点. 下面的流量<strong>不是 Salesforce 数字，也不是论文估计值</strong>. 知识资本记为 $G$，组织资本记为 $S$；期初存量分别为 0. 每期先折损期初存量，再把本期期末形成的投入加入：
+教学模型：知识资本记为 $G$，组织资本记为 $S$，期初存量均为0；每期先折损期初存量，再把本期期末形成的投入加入：
 
 $$G_t=(1-\delta_G)G_{t-1}+\alpha R_t$$
 $$S_t=(1-\delta_S)S_{t-1}+\gamma M_t$$
@@ -1460,14 +1450,14 @@ $R_t$ 是研发流量，$M_t$ 是明确排除研发、避免重叠的 SG&A 流�
 | T2 | 120 | 60 | 200 | 32.4 | 232.4 |
 | T3 | 80 | 60 | 240 | 43.92 | 283.92 |
 
-例如 T2 的知识资本是 $100\times0.8+120=200$. 把形成比例 $\gamma$ 改成 0.5 后，T3 组织资本为 73.2，总额为 313.2；差额 29.28 完全来自假设变化，不是公司新创造了这笔可观测财富. 初始存量、流量、形成比例、折损和先后次序都可在实验中查看和改变.
+T2知识资本为 $100\times0.8+120=200$. 将形成比例 $\gamma$ 从0.3改为0.5，T3组织资本增至73.2，总资本增至313.2，差额29.28来自该参数变化.
 
-把这套模型用于真实研究，还必须检验历史投入与实际经营能力之间的关系. 全文后续估计与验证、协同调整附录不在这里复现，因此不采用论文摘要的效果量来为 Salesforce 设参数.
+将模型用于真实研究时，需用经营能力、历史投入及退出价格证据校准形成比例、折损率和价格约束.
 
 </details>
 
 <a id="bf14-exercise"></a>
-## 6. 完成一份资源与会计来源卡
+## 6. 无形资源分析练习
 
 <strong>任务. </strong>写出 Informatica 对价、可辨认无形资产、除商誉外净资产和商誉四个金额，并说明各自如何核对. 再写出集团本期无形摊销费用与累计摊销净变动.
 
@@ -1475,22 +1465,21 @@ $R_t$ 是研发流量，$M_t$ 是明确排除研发、避免重叠的 SG&A 流�
 
 <strong>迁移. </strong>某公司内部研发费用很高，但账面无形资产少. 为研究其经营能力，你下一步做什么？
 
-<strong>解析. </strong>先列研发项目、承载资源、持续更新、控制与收益归属的证据；然后判断费用与未来能力的联系. 若另建资本存量，显式给出起始存量、形成比例、折损及验证办法，并保留原始报表. 这样既不把“未入账”当“没有资源”，也不把每笔费用都变成未来资产.
+<strong>解析. </strong>列出研发项目、承载资源、持续更新、控制与收益归属的证据，检验费用如何形成可持续经营能力. 建立资本存量估计时，再说明起始存量、形成比例、折损及验证依据.
 
-[^bf14-jep]: Crouzet, Eberly, Eisfeldt, Papanikolaou (2022), *The Economics of Intangible Capital*, JEP 36(3), pp29–34，完整 “Characteristics of Intangibles as Assets”. [已发表版](https://www.kellogg.northwestern.edu/faculty/crouzet/html/papers/EconIntan_published.pdf). 只采用资源特征；不将图中估计存量当公司数据.
+[^bf14-jep]: Crouzet, Eberly, Eisfeldt, Papanikolaou (2022), *The Economics of Intangible Capital*, JEP 36(3), pp29–34，完整 “Characteristics of Intangibles as Assets”. [已发表版](https://www.kellogg.northwestern.edu/faculty/crouzet/html/papers/EconIntan_published.pdf).
 [^bf14-crm-fs]: Salesforce FY2026 10-K，Consolidated Statements of Operations p58 及脚注1–2，MD&A Research and Development／Sales and Marketing；Note 1 无形资产及业务合并政策 pp67–68. [SEC 原件](https://www.sec.gov/Archives/edgar/data/1108524/000110852426000060/crm-20260131.htm). 取得日 2026-09-21；金额 M 美元.
-[^bf14-ppa]: 同一原件 Note 7，Informatica, Inc.，pp77–79；对价、初步购买价分摊、寿命和承接奖励分配. 材料固定为 FY2026 披露，不把后续最终计量倒填回来.
+[^bf14-ppa]: 同一原件 Note 7，Informatica, Inc.，pp77–79；对价、初步购买价分摊、寿命和承接奖励分配.
 [^bf14-roll]: 同一原件 Note 8，pp80–81；含全部原值、累计摊销、净额、未来摊销和商誉滚动及脚注.
-[^bf14-epw]: Ewens, Peters, Wang, *Measuring Intangible Capital with Market Prices*, Management Science，Articles in Advance，2024-04-05，Introduction、§§2–4.2（pp1–7）. [作者版本](https://profsean.wang/papers/ewens-peters-wang-2025-ms.pdf). 文件名含2025，正文版本为2024；1996–2017退出样本，测量设定与选择局限按原文，不以该模型替换公司会计确认.
+[^bf14-epw]: Ewens, Peters, Wang, *Measuring Intangible Capital with Market Prices*, Management Science，Articles in Advance，2024-04-05，Introduction、§§2–4.2（pp1–7）. [作者版本](https://profsean.wang/papers/ewens-peters-wang-2025-ms.pdf). 1996–2017退出样本.
 
 <script defer src="/notebook/labs/bf-de/reader-adapter.js"></script>
-
 
 ## Additional teaching material
 <a id="EXP-BF14-INTANGIBLE-LAYERS"></a>
 ## BF-14｜无形资源、研发与商誉：静态实验
 
-输入身份 `BFDE-SHARED-20260921-v1`. 公司金额单位为 USD M；教学设备、现金例和资本模型为教学金额；CVP 为美元.
+输入身份 `BFDE-SHARED-20260921-v1`. 公司金额单位为 USD M；教学资本模型为教学金额.
 
 ### 固定历史数
 
@@ -1510,7 +1499,7 @@ $R_t$ 是研发流量，$M_t$ 是明确排除研发、避免重叠的 SG&A 流�
 
 ### 条件明确的存量模型
 
-先折损期初存量，再加期末资本化流量. G、S初始均0；研发100/120/80，剔除研发的SG&A60/60/60；alpha=1，gamma=.3；deltaG=deltaS=.2. 输入为作者教学设定，不是Salesforce或论文估计参数.
+先折损期初存量，再加期末资本化流量. G、S初始均0；研发100/120/80，剔除研发的SG&A60/60/60；alpha=1，gamma=.3；deltaG=deltaS=.2. 输入为教学设定.
 
 #### 默认
 
@@ -1529,7 +1518,6 @@ $R_t$ 是研发流量，$M_t$ 是明确排除研发、避免重叠的 SG&A 流�
 | T3 | 200 | 54 | 80 | 30 | 40 | 10.8 | 240 | 73.2 | 313.2 |
 
 两条流量长度须一致，比例和折损须在[0,1]，初始存量及流量非负且有限. 参数变化只影响教学模型.
-
 
 ## Experiment inputs and static equivalents
 ```json
@@ -2710,10 +2698,8 @@ $R_t$ 是研发流量，$M_t$ 是明确排除研发、避免重叠的 SG&A 流�
 ```
 
 ## Sources
-- [Salesforce, Inc. FY2026 Form 10-K](https://www.sec.gov/Archives/edgar/data/1108524/000110852426000060/crm-20260131.htm): 订阅收入确认、合同余额、完整现金流、权益与EPS、收入CAM及所得税附注. 金额、现金和股数口径保留，不虚构差额调节.
-
-BF-F/G 本批采用：完整收付账、净现金和债务账面/本金、PPA对价及三种回购/股数口径；FX单列.
-- [Measuring Intangible Capital with Market Prices](https://profsean.wang/papers/ewens-peters-wang-2025-ms.pdf): 退出价格连接历史研发/SG&A与资本存量；资本化比例与折损识别限制、选择/协同/溢付及价格约束. 只用设置与局限，不采用摘要效果量或公司参数.
+- [Salesforce, Inc. FY2026 Form 10-K](https://www.sec.gov/Archives/edgar/data/1108524/000110852426000060/crm-20260131.htm): Salesforce FY2026的订阅收入政策、合同余额、现金流、股东权益、EPS、收入关键审计事项及所得税附注. 年报分别披露债务账面金额与本金、并购对价、回购及股数变化和汇兑项目.
+- [Measuring Intangible Capital with Market Prices](https://profsean.wang/papers/ewens-peters-wang-2025-ms.pdf): 以企业退出价格连接历史研发、SG&A与资本存量，分析资本化比例及折损的识别条件，并讨论选择、协同和溢付对估计的影响.
 - [The Economics of Intangible Capital](https://www.kellogg.northwestern.edu/faculty/crouzet/html/papers/EconIntan_published.pdf): 无形资本的信息存储、使用中的非竞争性、有限排他性与过时，以及这些性质怎样影响企业经营范围和投入.
 
 ## Content relations

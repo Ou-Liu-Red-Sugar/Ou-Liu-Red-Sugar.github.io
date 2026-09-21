@@ -1,20 +1,17 @@
 # 经济活动、部门与产业结构
 
-这页用来确认三个常被混用的层次：谁参与经济活动、从事什么生产、以什么实体记录. 居民、企业、政府和境外是分析交易角色的一种概括；行业按生产活动归类；一家公司则可能包含多个业务和统计单位. 部门划分还可以进一步细化，不能拿这里的简述替代某套账户的完整部门分类.
+区分交易角色、行业生产与公司实体，并用总产出—中间投入—增加值关系连接统计口径；同一公司可以跨多个业务和统计单位.
 
-Entry: zh-ei01 | Node: EI-01 | Language: zh | Editorial revision: 2026-09-21
+Entry: zh-ei01 | Node: EI-01 | Language: zh | Editorial revision: 2026-09-22
 
 ## Teaching instructions
-针对读者当前疑点教授EI-01，不强行延长为一课.
+读者为有充分数学背景的高年级本科生至研究生. 针对读者当前疑点教授EI-01.
 先实际读取BEA Industries正文的GDP by Industry、Gross Output by Industry
 和Input-Output Accounts：
 https://www.bea.gov/resources/learning-center/what-to-know-industries
 记录取得范围，说明增加值为何扣中间投入、为什么不同于利润.
-未取得正文时只说明缺失，不能用书目冒充阅读；同会话同版已读可复用.
-随后用本页三道实际生产工序，让读者解释260与120分别计量什么.
-要保留第三道“实际装配”的题设，不把全部零售收入套成一般总产出.
-若已理解，直接做转手迁移题. 通过标准是能区分交易、生产、融资及
-增加值分配，不能仅凭增加值对公司投资价值下结论.
+未取得正文时记录缺失；同会话同版已完整读取可复用.
+随后用三阶段生产例诊断：让读者解释交易额260与增加值120，并说明装配活动、劳动报酬、资本消耗和融资各自的位置. 已掌握时直接做无额外价值的转手迁移题，以能重建交易额及增加值、列出分析股东利润所需材料为完成标准.
 
 Before substantive teaching, actually retrieve every required reading unit for the selected scope. Read its complete designated section, including necessary assumptions, tables and footnotes. A working URL or an editorial access date is not a runtime reading receipt. Record the actual version, location, scope and what it supports. If unavailable, use a previously verified equivalent source; if the required unit remains unavailable, identify that gap rather than teach it from memory. Start runtime_reading_log empty. Once reading is complete, use a substantive diagnostic or follow the reader's request for direct explanation. Advance one complete reasoning task at a time; skip mastered basics. Distinguish original facts, supplied teaching assumptions and inference.
 
@@ -27,12 +24,12 @@ Before substantive teaching, actually retrieve every required reading unit for t
 {
   "entry_id": "zh-ei01",
   "node_id": "EI-01",
-  "content_version": "2026-09-21-review-2",
+  "content_version": "2026-09-22-deep-review",
   "export_mode": "public",
   "audience": "具有足够数学背景的高年级本科至研究生",
-  "learning_task": "这页用来确认三个常被混用的层次：**谁参与经济活动、从事什么生产、以什么实体记录**. 居民、企业、政府和境外是分析交易角色的一种概括；行业按生产活动归类；一家公司则可能包含多个业务和统计单位. 部门划分还可以进一步细化，不能拿这里的简述替代某套账户的完整部门分类.",
+  "learning_task": "区分**交易角色、行业生产与公司实体**，并用总产出—中间投入—增加值关系连接统计口径；同一公司可以跨多个业务和统计单位.",
   "body_source": "body_markdown",
-  "prompt": "针对读者当前疑点教授EI-01，不强行延长为一课.\n先实际读取BEA Industries正文的GDP by Industry、Gross Output by Industry\n和Input-Output Accounts：\nhttps://www.bea.gov/resources/learning-center/what-to-know-industries\n记录取得范围，说明增加值为何扣中间投入、为什么不同于利润.\n未取得正文时只说明缺失，不能用书目冒充阅读；同会话同版已读可复用.\n随后用本页三道实际生产工序，让读者解释260与120分别计量什么.\n要保留第三道“实际装配”的题设，不把全部零售收入套成一般总产出.\n若已理解，直接做转手迁移题. 通过标准是能区分交易、生产、融资及\n增加值分配，不能仅凭增加值对公司投资价值下结论.",
+  "prompt": "读者为有充分数学背景的高年级本科生至研究生. 针对读者当前疑点教授EI-01.\n先实际读取BEA Industries正文的GDP by Industry、Gross Output by Industry\n和Input-Output Accounts：\nhttps://www.bea.gov/resources/learning-center/what-to-know-industries\n记录取得范围，说明增加值为何扣中间投入、为什么不同于利润.\n未取得正文时记录缺失；同会话同版已完整读取可复用.\n随后用三阶段生产例诊断：让读者解释交易额260与增加值120，并说明装配活动、劳动报酬、资本消耗和融资各自的位置. 已掌握时直接做无额外价值的转手迁移题，以能重建交易额及增加值、列出分析股东利润所需材料为完成标准.",
   "selected_branch": "current_question",
   "common_required_readings": [
     {
@@ -152,25 +149,25 @@ Before substantive teaching, actually retrieve every required reading unit for t
 ```
 
 ## Supplied entry
-这页用来确认三个常被混用的层次：**谁参与经济活动、从事什么生产、以什么实体记录**. 居民、企业、政府和境外是分析交易角色的一种概括；行业按生产活动归类；一家公司则可能包含多个业务和统计单位. 部门划分还可以进一步细化，不能拿这里的简述替代某套账户的完整部门分类.
+居民、企业、政府和境外可作为交易角色的概括；行业按生产活动归类，公司实体则可能同时包含多个业务和统计单位.
 
-BEA行业学习页给出了直接可用的入口：GDP by Industry记录行业增加值，Gross Output by Industry记录总产出，Input-Output Accounts把不同生产活动及其使用联系起来. 行业分类通常沿NAICS组织，但公司的收入、行业总产出与全国GDP不是同一个指标. [^bea]
+BEA 按生产活动组织行业统计：GDP by Industry 记录行业增加值，Gross Output by Industry 记录总产出，Input-Output Accounts 连接各行业的生产及使用. 行业通常沿 NAICS 分类. [^bea]
 
 <span id="ei01-definitions"></span>
 
 ## 定义与边界
 
-**总产出 $GO$** 计量特定期间的生产活动；具体统计部门有各自计量规则，不能对所有业务都直接等同公司营业收入. **中间投入 $IC$** 是生产中消耗的购入货物和服务.**增加值 $VA$** 是同口径下总产出减去中间投入，即 $VA=GO-IC$.
+**总产出 $GO$** 计量特定期间的生产活动，各类业务按相应规则计量. **中间投入 $IC$** 为生产消耗的外购货物和服务. **增加值 $VA$** 为同口径总产出扣除中间投入，即 $VA=GO-IC$.
 
-增加值不是净利润. 劳动报酬来自增加值的分配，不能在求增加值时又当作外购中间品扣掉. BEA的行业增加值还按劳动报酬、总营业盈余和相关生产税项等组成呈现. 总量里的“总”与“净”、是否扣固定资本消耗，需要沿原账户口径，不凭日常语言替换. [^bea]
+行业增加值由劳动报酬、总营业盈余及相关生产税净额等组成. 劳动报酬属于增加值分配；总营业盈余包含固定资本消耗，扣除后得到相应净额. 净利润还受融资及税务等项目影响. [^bea]
 
-**存量**记录时点状态，**流量**记录一段期间的活动. 期末存货、未交订单余额属于前者，本月生产、销售和新订单属于后者. 借款本金流入改变融资状态，不因为现金增加就自动构成生产或增加值. 类似地，购买一台供多年使用的生产设备，也不能不分性质地当作本期中间消耗.
+**存量**记录时点状态，如期末存货和未交订单；**流量**记录期间活动，如生产、销售和新订单. 借款本金属于融资流量，供多年使用的设备购买属于资本形成；两者分别影响融资状态与生产资源.
 
 <span id="ei01-value-added"></span>
 
-## 一个能分清交易额与增加值的例子
+## 三阶段生产与增加值
 
-下面是纯教学经济：三道实际生产工序依次形成原料、零件和最终产品；**第三阶段是进一步装配，不是只作商品转售的零售商**. 假设没有进口、存货变动或税价差，所有产品均在期内销售；第一工序没有购入中间投入.
+教学经济包含原料生产、零件加工和最终装配三道工序. 设进口、存货变动与税价差均为零，所有产品期内售出，第一工序无外购中间投入.
 
 | 生产阶段 | 总产出 | 中间投入 | 增加值 |
 |---|---:|---:|---:|
@@ -179,10 +176,7 @@ BEA行业学习页给出了直接可用的入口：GDP by Industry记录行业�
 | 最终装配 | 120 | 100 | 20 |
 | 合计 | 260 | 140 | 120 |
 
-如果把每笔销售40、100、120相加，得到260；这能描述生产链的交易规模，却重复包含了前一道产品的价值. 逐环扣去中间投入，增加值合计为
-$40+(100-40)+(120-100)=120$，等于本例最终产品价值. 这个等式来自完整、封闭且口径一致的核算安排，不意味着任何公司收入都能直接当作GDP.
-
-注意60并不是第二家企业的利润：它还需要在劳动报酬和其他增加值组成之间分配. 原料40也不是“多算了而应被忽略”，它确实是第一阶段的生产；只是不能在每一环都将同一价值再当新增.
+三道销售额相加为40＋100＋120＝260，包含中间产品多次交付的价值. 每道扣除外购中间投入后，增加值合计 $40+(100-40)+(120-100)=120$，等于本例最终产品价值.
 
 <div data-experiment-slot="lab-ei01"></div>
 
@@ -190,22 +184,20 @@ $40+(100-40)+(120-100)=120$，等于本例最终产品价值. 这个等式来自
 
 ## 解释与迁移练习
 
-保持三道生产及最终产品不变，只在原料与零件加工之间插入一次不产生额外价值、成交价仍为40的教学转手. 有人因此把新增40的交易额也加进GDP. 应怎样解释？再说明本表能否直接告诉我们哪家企业最值得投资.
+在原料与零件加工之间增加一次成交价40、无额外服务价值的转手，其他生产活动不变. 交易额和增加值各怎样变化？原表还缺哪些信息，才能从增加值分析股东利润？
 
-**解析.** 多一次支付记录并不自动多出40的新增生产. 必须按照该活动的产出口径核算，不能用全部转售金额反复累计；原生产链的增加值也不能因重复记录同一产品而凭空增加. 本例刻意不给转手环节新增服务价值，故不能新增40的增加值. 即使原三阶段增加值已正确算出，仍缺其劳动报酬、资本消耗、税费、金融费用及普通股权利等信息，不能据40/60/20对企业投资价值排序.
+**解析.** 交易额增加40，该次转手的增加值为零，整条生产链增加值仍为120. 从增加值分析股东利润，还需劳动报酬、资本消耗、税费、融资成本和普通股归属等信息.
 
 <span id="ei01-usage"></span>
 
-## 使用位置与交互
-
-[EI-06](/zh/notebook/industry-boundaries/)在区分统计行业与企业时使用本页；[EI-02](/zh/notebook/industry-data-definitions/)用它确认存量、流量和金额对象；EI-05进一步研究投入产出联系. 它们可以就地调用这页，不要求读者把宏观经济学整门课先修完.
-
-[^bea]: EI-S03-BEA-INDUSTRIES. BEA，Industries，页面最后修改2021-02-24，2026-09-21读取. 原文定位：GDP by Industry、Gross Output by Industry、Input-Output Accounts. 原页没有本篇40/100/120的例子；其为本站教学构造. https://www.bea.gov/resources/learning-center/what-to-know-industries
-
+[^bea]: EI-S03-BEA-INDUSTRIES. BEA，Industries，页面最后修改2021-02-24. 原文定位：GDP by Industry、Gross Output by Industry、Input-Output Accounts. https://www.bea.gov/resources/learning-center/what-to-know-industries
 
 ## Additional teaching material
-## 交互与静态等价规格
-**组件`EI01-value-added`.** 固定教学输入三行`GO=[40,100,120]`、`IC=[0,40,100]`，选择`transactions / value-added`. 前者显示260并标“不可作为本例GDP”；后者逐行相减并显示120. 切换只改变阅读层，不修改活动或数据. 所有边分别标“中间产品交付”和“最终产品交付”，资金反向支付另用文字标出，不把两次箭头相加. 静态等价（零脚本与打印视图）就是上表和完整抵消式；键盘radio与文字标签均保留. 没有GDP动态预测功能.
+## 三阶段生产的静态计算
+
+原料、零件与最终装配的总产出分别40、100、120，中间投入分别0、40、100. 交易额合计260；逐阶段增加值为40、60、20，合计120. 各阶段产品依次交付，支付方向与交付相反.
+
+增加一次价格40、无额外服务价值的转手后，交易额为300，增加值仍为120.
 
 ## Experiment inputs and static equivalents
 ```json

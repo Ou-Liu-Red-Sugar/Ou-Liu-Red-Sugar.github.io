@@ -2,11 +2,10 @@
 
 锁定均值估计目标，对照iid与非循环MBB的条件分布，推导边缘加权中心，再以稳态AR(1)真SE辨认推断边界.
 
-Entry: zh-qt19 | Node: QT19 | Language: zh | Editorial revision: 2026-09-21
+Entry: zh-qt19 | Node: QT19 | Language: zh | Editorial revision: 2026-09-22
 
 ## Teaching instructions
-你教授 QT19《估计误差与预测不确定性》. 先实际读指定Bootstrap、FPP3区块与时间验证单元，以及本篇同源正文、432月冻结输入、AR设定和对应默认结果. 记录版本、完整范围、算法及假设；原文只有STL余项示例，不可把它说成本课非循环原收益MBB的一致性证明. 可读必读缺失时补取经核入口，仍缺就说明缺口，不能拿摘要顶替.
-先让读者命名目标：历史实现值、假定平稳过程的均值mu、估计量抽样误差还是下一月结果？对象没锁定先澄清. 再逐项读一条重抽索引，解释块内连续、块间断开. 推导本例n可被ell整除时的候选块和公式与边缘权重，区分原均值、精确条件中心和5000次均值的平均. 模型/数据切换须同时改变单位；真实收益百分点/月，AR无量纲. AR从独立X0~N(0,1)开始，先由递推推出cov=rho^h，再核真实有限n SE；一次bootstrap输出不是重复覆盖检验. 不得用SE大小评选统计方法有效性. 风险预测研究只在选择分支并实读2019开放稿引言后讲有限机制，不混用正式版页码. 迁移检验使用六点边缘例、B与n的区别、rho=0，以及均值区间为何不是未来预测区间.
+读者为有充分数学背景的高年级本科生至研究生. 先实际读取 agent_packet.required_readings 指定完整单元，选择可选分支后再读 optional_readings；记录题名、版本、定位与支持内容. 缺失必读单元时先取得等价原件，再解释依赖它的命题. 推导iid与非循环MBB均值的精确条件中心和方差，核边缘权重；用同一432月快照和给定AR(1)模型区分过程抽样、条件重抽与Monte Carlo近似，重算边界样本并解释n与B. 用完整推导或计算诊断理解，已掌握步骤直接继承，再用改变条件的任务检验迁移. runtime_reading_log记录实际读取.
 
 Before substantive teaching, actually retrieve every required reading unit for the selected scope. Read its complete designated section, including necessary assumptions, tables and footnotes. A working URL or an editorial access date is not a runtime reading receipt. Record the actual version, location, scope and what it supports. If unavailable, use a previously verified equivalent source; if the required unit remains unavailable, identify that gap rather than teach it from memory. Start runtime_reading_log empty. Once reading is complete, use a substantive diagnostic or follow the reader's request for direct explanation. Advance one complete reasoning task at a time; skip mastered basics. Distinguish original facts, supplied teaching assumptions and inference.
 
@@ -3901,56 +3900,55 @@ Before substantive teaching, actually retrieve every required reading unit for t
     "input_csv": "https://ou-liu-red-sugar.github.io/notebook/labs/qt-c/data/BusEq-value-weighted-monthly-199001-202512.csv",
     "configuration": "https://ou-liu-red-sugar.github.io/notebook/labs/qt-c/data/experiment-config.json"
   },
-  "learning_task": "识别样本/条件重抽/真实过程三层分布，重建MBB有限中心与SE，并区分均值区间和下一期预测区间."
+  "learning_task": "推导iid与非循环MBB均值的精确条件中心和方差，核边缘权重；用同一432月快照和给定AR(1)模型区分过程抽样、条件重抽与Monte Carlo近似，重算边界样本并解释n与B.",
+  "prompt": "读者为有充分数学背景的高年级本科生至研究生. 先实际读取 agent_packet.required_readings 指定完整单元，选择可选分支后再读 optional_readings；记录题名、版本、定位与支持内容. 缺失必读单元时先取得等价原件，再解释依赖它的命题. 推导iid与非循环MBB均值的精确条件中心和方差，核边缘权重；用同一432月快照和给定AR(1)模型区分过程抽样、条件重抽与Monte Carlo近似，重算边界样本并解释n与B. 用完整推导或计算诊断理解，已掌握步骤直接继承，再用改变条件的任务检验迁移. runtime_reading_log记录实际读取.",
+  "content_version": "2026-09-22-deep-review"
 }
 ```
 
 ## Supplied entry
-432 个月的平均收益是 1.3886%：只要数据固定，这个数就固定了. 我们说“平均收益的估计不确定性”时，却是在问另一件事——在某个假定的数据生成过程中，再观察一段同长度记录，估计出来的平均值可能怎样变化？
-
-这一节先锁定这个目标，再比较逐点重抽与非循环移动区块重抽. 你将实际读一组抽样索引，推导重抽分布的中心，最后用一个真值已知的 AR(1) 模型区分**样本分布、条件重抽分布和真实过程中的抽样分布**. 先修是均值、方差以及 [标准误与 Monte Carlo 误差](https://ou-liu-red-sugar.github.io/zh/notebook/convergence-monte-carlo/).
+432个月BusEq记录的均值为1.389%. 该估计量的抽样分布取决于数据生成过程；逐点重抽与区块重抽对时间依赖作出不同处理. 下文对比两种算法，并在真值已知的AR(1)模型中检查差异. 先修见 [标准误与Monte Carlo误差](https://ou-liu-red-sugar.github.io/zh/notebook/convergence-monte-carlo/).
 
 <a id="qt19-estimand"></a>
-## 1. “不确定”必须有一个对象
+## 估计目标与分布
 
-如果假设月收益过程具有不随时间改变的、有限的无条件均值，可以把估计目标写为 $\mu=\mathbb{E}[R_t]$，估计量写为 $\bar R_n$. 观察一份记录后得到实现值 $\bar r_n$. 这里有一个重要条件：若过程的均值随时期改变，一个覆盖 36 年的平均并不天然等于“下一月期望收益”. 先选模型中的目标，再解释估计量，不能反过来因为我们算了一个平均就宣称目标已经明确.
+若月收益过程具有恒定有限均值，可取目标 $\mu=\mathbb{E}[R_t]$、估计量 $\bar R_n$，观察值记为 $\bar r_n$. 均值随时间变化时，36年平均与下一月条件均值对应不同目标.
 
-本例继续用 [BusEq 的 432 月快照](https://ou-liu-red-sugar.github.io/zh/notebook/return-distributions-tail-risk/)：202607 数据库版本、当前 CIZ 方式重建的 1990-01 至 2025-12 历史；无缺失、无删除，内部小数收益，展示时按百分数. 它不是一套逐月当时可见的 vintage. [^data]
+本例继续用 [BusEq 的 432 月快照](https://ou-liu-red-sugar.github.io/zh/notebook/return-distributions-tail-risk/)：202607 数据库版本、当前 CIZ 方式重建的 1990-01 至 2025-12 历史；无缺失、无删除，内部按小数收益运算、展示为百分数.该文件是单一当前重建快照，不提供逐月历史 vintage. [^data]
 
-我们需要区分三个分布.**经验分布**把这 432 个已观察月份各赋权 $1/432$. **条件重抽分布**固定这些数值，再按照某个算法抽取索引；不同算法产生不同分布，记其概率与期望为 $P^*$、$\mathbb{E}^*$. **真实过程中的抽样分布**则来自未知过程重新生成整段记录. Bootstrap 希望用第二个去近似第三个，但只有在相应的过程、统计量和重抽条件下才可能有效，三者不能直接画等号. [^bootstrap]
+经验分布给432个观测各赋权 $1/432$；条件重抽分布固定观测、随机生成索引，记其概率和期望为 $P^*$、$\mathbb{E}^*$；抽样分布由数据生成过程重新产生整段记录. Bootstrap以条件重抽分布近似抽样分布，其有效性依赖过程、统计量和重抽规则.[^bootstrap]
 
 第四个对象是下一月 $R_{n+1}$. 它本身的波动与 $\bar R_n$ 的估计波动也不同. 为了先看清尺度，在一个 iid、有限方差 $\sigma^2$ 的模型里，未来观测独立于历史，因此
 \[
 \operatorname{Var}(R_{n+1}-\bar R_n)
 =\sigma^2+\frac{\sigma^2}{n}.
 \]
-估计均值的不确定性随 $n$ 增加而缩小，未来单次结果的噪声却不会一起消失. 这个等式只说明 iid 对照，不能不加协方差地套到下面的相关过程.
+估计均值的不确定性随 $n$ 增加而缩小，未来单次结果的噪声却不会一起消失. 相关过程的方差另含协方差项.
 
 <a id="qt19-iid"></a>
-## 2. 逐点重抽：固定数据，再让索引随机
+## 独立索引重抽
 
-iid bootstrap 每次独立地从 $\{0,\ldots,n-1\}$ 有放回抽 $n$ 个索引，按索引取数据并计算一个均值；重复 $B=5000$ 次，得到
-$\bar r^{*(1)},\ldots,\bar r^{*(B)}$. 这里“iid”说的是**条件于当前数据后的重抽规则**，不等于我们已经证明历史月份 iid. [^bootstrap]
+iid bootstrap从 $\{0,\ldots,n-1\}$ 独立均匀有放回抽取 $n$ 个索引，计算均值，重复 $B=5000$ 次得到 $\bar r^{*(1)},\ldots,\bar r^{*(B)}$. iid指给定数据后的索引抽取规则.[^bootstrap]
 
-本实验 seed 1901. 对这些重抽均值求分母 $B-1$ 的标准差，得到模拟 bootstrap SE；它不是原始收益的标准差. 默认 BusEq 原始样本标准差为 7.2883%，重抽均值的 SE 则为 **0.3529 个百分点/月**. [^results]
+实验seed1901. 重抽均值按分母B−1计算的标准差为0.353个百分点/月，原收益样本标准差为7.288%.[^results]
 
-由于重抽索引独立均匀，我们甚至可以在不做 5000 次模拟时精确计算这个条件分布：
+由于重抽索引独立均匀，可直接求出条件均值与方差：
 \[
 \mathbb{E}^*[\bar r^*]=\bar r,\qquad
 \operatorname{Var}^*(\bar r^*)=
 \frac{\widehat\sigma_{\rm emp}^2}{n},\qquad
 \widehat\sigma_{\rm emp}^2=\frac1n\sum_t(r_t-\bar r)^2.
 \]
-本例精确条件 SE 是 **0.3503 个百分点/月**. 与模拟值 0.3529 的差异属于有限 $B$ 的 Monte Carlo 误差；它不是“市场真实 SE 与估计 SE 的差”，因为两个数仍都在固定样本的同一重抽模型内部.
+本例精确条件 SE 是 **0.35 个百分点/月**. 与模拟值 0.353 的差异属于有限 $B$ 的 Monte Carlo 误差.
 
-我们另外报告重抽均值分布的 2.5% 与 97.5% **percentile 区间**. 端点采用 NumPy `linear`：将 $B$ 个均值升序记为 $y_0,\ldots,y_{B-1}$，对水平 $u$ 取 $h=(B-1)u$、$j=\lfloor h\rfloor$，用 $(1-h+j)y_j+(h-j)y_{j+1}$ 插值. 它不同于 QT04 计算损失 VaR 时使用的 `inverted_cdf`；对象和约定必须分别写明. 区间能否近似某个总体均值的置信区间，还需要 bootstrap 的有效性条件；“取了两个百分位”本身不保证 95% 覆盖.
+Percentile区间取重抽均值的2.5%和97.5%分位数. NumPy的`linear`约定将排序值记为 $y_0,\ldots,y_{B-1}$，令 $h=(B-1)u$、$j=\lfloor h\rfloor$，按 $(1-h+j)y_j+(h-j)y_{j+1}$ 插值. 95%是条件重抽分布的中央概率质量；总体覆盖率另依赖bootstrap有效性条件.
 
 <a id="qt19-block"></a>
-## 3. 区块重抽保留局部顺序，也改变边缘权重
+## 移动区块与边缘权重
 
-逐点打乱会破坏原序列的局部时间结构. 移动区块 bootstrap（MBB）改为抽取连续片段，再拼接起来. FPP3 用这一想法处理可能有自相关的余项；此处选用的是对原收益序列直接重抽的**非循环** MBB，不是复现其 STL 分解与 bagging 实验. [^block]
+移动区块bootstrap（MBB）抽取连续片段并拼接，保留块内时间次序.[^block] 本节对原收益使用非循环MBB.
 
-固定块长 $\ell$. 候选起点是 $0,\ldots,n-\ell$；均匀、有放回抽 $k=\lceil n/\ell\rceil$ 个起点，各取连续 $\ell$ 项，拼接后截到 $n$ 项. 不循环绕回意味着最后一个月份不会和第一个月份被强行接成一个候选块. 块内顺序保留，**块与块连接处不保留原有邻接关系**.
+固定块长 $\ell$，从 $0,\ldots,n-\ell$ 均匀有放回抽取 $k=\lceil n/\ell\rceil$ 个起点，各取连续 $\ell$ 项，拼接后截至 $n$ 项. 块内保持原邻接关系，块间连接由抽样决定，候选块不绕回序列开头.
 
 本例 $n=432$，$\ell=3,6,12$ 都整除 $n$. 各设计重新初始化 seed 1902；真实收益与 AR(1) 分支复用相同索引. 下面是默认 $\ell=6$ 第一条重抽序列的前两个块，索引从零计数：
 
@@ -3962,14 +3960,14 @@ $\bar r^{*(1)},\ldots,\bar r^{*(B)}$. 这里“iid”说的是**条件于当前�
 | 3 | 366 | 2020-07 | 9.52% |
 | 4 | 367 | 2020-08 | 11.76% |
 | 5 | 368 | 2020-09 | -5.14% |
-| 6 | 208 | 2007-05 | 4.10% |
+| 6 | 208 | 2007-05 | 4.1% |
 | 7 | 209 | 2007-06 | 2.05% |
 | 8 | 210 | 2007-07 | -0.08% |
 | 9 | 211 | 2007-08 | 3.67% |
 | 10 | 212 | 2007-09 | 3.73% |
 | 11 | 213 | 2007-10 | 3.97% |
 
-第一个块的 2020-09 之后跳到第二个块的 2007-05，这个连接是重抽算法产生的，不是原历史的下一月. 图中会显示块边界；完整 432 个索引及重抽数值均可查看.
+首块末尾2020-09接到第二块开头2007-05. 图中标出块边界，附件保留全部432个索引与重抽值.
 
 比“保留顺序”更容易被忽略的是边缘权重. 令 $N=n-\ell+1$，候选块和为
 $S_j=\sum_{h=0}^{\ell-1}r_{j+h}$（$j=0,\ldots,N-1$）. 对本例整块情形 $k=n/\ell$，抽到的块和独立同分布，因此
@@ -3978,35 +3976,32 @@ $S_j=\sum_{h=0}^{\ell-1}r_{j+h}$（$j=0,\ldots,N-1$）. 对本例整块情形 $k
 \operatorname{Var}^*(\bar r^*)=
 \frac{k}{n^2}\frac1N\sum_{j=0}^{N-1}(S_j-\overline S)^2.
 \]
-这是固定有限候选块的精确计算，不是一般 bootstrap 一致性定理.
 
-为什么中心不一定是 $\bar r$？用从 1 开始的原位置 $t$，令 $a_t$ 为包含该位置的候选块数，则
+用从1开始的原位置 $t$，令 $a_t$ 为包含该位置的候选块数，则
 \[
 a_t=\min(t,N)-\max(1,t-\ell+1)+1,\qquad
 \mathbb{E}^*[\bar r^*]=\sum_{t=1}^n\frac{a_t}{\ell N}r_t.
 \]
 首尾位置通常只出现一次，中间位置最多出现 $\ell$ 次. 只有这些权重与数据恰好抵消，中心才等于普通样本均值.
 
-对 BusEq、$\ell=6$，原均值是 **1.3886%/月**，精确重抽中心是 **1.3804%/月**，差 **−0.0083 个百分点/月**. 有限 5000 次所得均值的平均又是约 1.3874%/月. 后两者的差属于模拟误差，前两者的差却由非循环边缘加权产生；增加 $B$ 不会让精确重抽中心自动回到原均值. [^results]
+对 BusEq、$\ell=6$，原均值是 **1.389%/月**，精确重抽中心是 **1.38%/月**，差 **−0.008 个百分点/月**. 有限 5000 次所得均值的平均又是约 1.387%/月. 后两者的差属于模拟误差，前两者的差却由非循环边缘加权产生；增加 $B$ 不会让精确重抽中心自动回到原均值. [^results]
 
 <a id="qt19-results"></a>
-## 4. 同一数据，不同重抽分布
+## 条件重抽结果
 
 | 重抽设计 | 模拟 SE（百分点/月） | 精确条件重抽 SE（百分点/月） | percentile 95% 均值区间（%/月） |
 |---|---:|---:|---|
-| iid | 0.3529 | 0.3503 | [0.6979, 2.0693] |
-| 非循环 MBB，$\ell=3$ | 0.3565 | 0.3548 | [0.6828, 2.0742] |
-| 非循环 MBB，$\ell=6$ | 0.3699 | 0.3611 | [0.6649, 2.0906] |
-| 非循环 MBB，$\ell=12$ | 0.3796 | 0.3750 | [0.5922, 2.1008] |
+| iid | 0.353 | 0.35 | [0.698, 2.069] |
+| 非循环 MBB，$\ell=3$ | 0.357 | 0.355 | [0.683, 2.074] |
+| 非循环 MBB，$\ell=6$ | 0.37 | 0.361 | [0.665, 2.091] |
+| 非循环 MBB，$\ell=12$ | 0.38 | 0.375 | [0.592, 2.101] |
 
 <div data-experiment-slot="EXP-BOOT-01"></div>
 
-界面先显示原序列和一条完整重抽序列，再显示 5000 个均值的分布. 两条中心标记分别是原样本均值和精确条件重抽中心；它们即使很接近，也不是同一个对象. 更改块长时，要同时重读索引、边界、中心、SE 与区间，而不是只看区间宽窄.
-
-这些数值不宣布哪种方法对真实市场“更正确”. 将 MBB 用于推断还需要针对所研究过程、统计量与块长方案建立相应理论条件；FPP3 的教学单元只支持“连续块保留局部次序”这一动机，本节也没有重证一般 block-bootstrap 一致性. 本节的 3、6、12 只是预先固定的敏感性网格，没有通过更宽的区间证明某组条件成立.
+块长3、6、12为预设敏感性网格. 下文比较有限样本的条件重抽分布；将区间用于总体推断，需另有过程依赖及块长增长条件.
 
 <a id="qt19-ar"></a>
-## 5. 用真值已知的过程检查解释是否越界
+## AR(1)对照
 
 现在换一个完全指定的合成模型：
 \[
@@ -4021,53 +4016,52 @@ $\operatorname{Cov}(X_t,X_{t+h})=.6^h$. 展开样本均值的方差，按相隔 
 \operatorname{Var}(\bar X_n)=
 \frac{n+2\sum_{h=1}^{n-1}(n-h).6^h}{n^2}.
 \]
-$n=432$ 时，真 SE 为 **0.096016**；把相同边缘方差误当 iid 会得到 $1/\sqrt{432}=0.048113$. 相关性在这里不是抽象提醒，它直接出现在双重和中.
+$n=432$ 时，真 SE 为 **0.096**；把相同边缘方差误当 iid 会得到 $1/\sqrt{432}=0.048$.
 
-这一次冻结路径的 $X_0=1.467808\ldots$、样本均值为 $-0.055620$，得到：
+这一次冻结路径的 $X_0=1.468\ldots$、样本均值为 $-0.056$，得到：
 
 | 重抽设计 | 这次样本上的模拟 SE | 精确条件重抽 SE |
 |---|---:|---:|
-| iid | 0.04624 | 0.04683 |
-| MBB，$\ell=3$ | 0.06510 | 0.06520 |
-| MBB，$\ell=6$ | 0.07577 | 0.07519 |
-| MBB，$\ell=12$ | 0.08368 | 0.08280 |
+| iid | 0.046 | 0.047 |
+| MBB，$\ell=3$ | 0.065 | 0.065 |
+| MBB，$\ell=6$ | 0.076 | 0.075 |
+| MBB，$\ell=12$ | 0.084 | 0.083 |
 
-这些条件重抽 SE 均不是 0.096016. 较长块在这次结果里向真值靠近，不等于“block-12 已恢复真值”，更不能用一次样本证明方法覆盖率或替金融市场选择最佳块长. 真过程反复生成样本的分布、对一次样本重抽的条件分布，以及仅 5000 次模拟得到的近似，仍然是三层对象.
+这条样本中，较长块的条件SE更接近真实抽样SE. 判断区间覆盖率需反复生成整份样本，再分别重抽；一次样本的条件SE不能提供该频率.
 
 <a id="qt19-boundaries"></a>
-## 6. 带回实际估计：不要把区间换一个名字
+## 均值区间与预测区间
 
-真实收益的均值区间不是下一月收益预测区间. 前者试图描述估计某个 $\mu$ 的误差，后者必须同时处理新结果的过程波动；若还要判断预测能力，则需要按实际可得时间组织训练与未来评价. 时间序列交叉验证的训练集只能包含预测起点以前可用的信息，不由 bootstrap 重抽替代. [^cv]
+均值区间估计总体均值，预测区间还包含新结果波动. 评价预测能力时，训练与未来目标按实际可得时点切分.[^cv]
 
 <details>
 <summary>选读：风险预测本身也经过估计</summary>
 
-估计误差也会进入更复杂的风险检验. Barendse、Kole、van Dijk 专门研究了估计参数所产生的 VaR/ES 预测如何影响后续检验；此处只采用“估计步骤不能被当作已知真值”这一机制，不把其具体模型比较移植成 BusEq 的结论. 可读选读稿是 2019 开放版本，和后来发表的版本分别记录. [^research]
+Barendse、Kole、van Dijk给出参数估计误差进入VaR/ES检验统计量渐近协方差的附加项；这些项依赖估计窗口方案及样本外与样本内长度之比.[^research]
 
 </details>
 
 **题一：手算边缘加权.** 一个无量纲教学样本是 $[0,0,0,0,0,6]$，用非循环 $\ell=3$ 的 MBB，抽两个块. 原均值、精确重抽中心和精确条件 SE 各是多少？
 
-**解析.** 原均值为 1；四个候选块和为 $[0,0,0,6]$，均值 1.5、总体方差 6.75. 故重抽中心为 $2\times1.5/6=.5$，条件方差为 $2\times6.75/6^2=.375$，SE 为 $\sqrt{.375}\approx.61237$. 最后一个较大值的边缘权重低，产生了中心偏移；不需要诉诸“随机运行不够多”.
+**解析.** 原均值为 1；四个候选块和为 $[0,0,0,6]$，均值 1.5、总体方差 6.75. 故重抽中心为 $2\times1.5/6=.5$，条件方差为 $2\times6.75/6^2=.375$，SE 为 $\sqrt{.375}\approx.612$. 最后一个较大值的边缘权重低，产生了中心偏移.
 
 **题二：增加的是 $n$ 还是 $B$？** 保留 432 月数据和 $\ell=6$ 算法，只把重抽次数从 5000 提高到 500000，哪些对象会改变？
 
-**解析.** 原样本均值、候选块及精确条件分布不变，所以其中心 1.3804%/月和精确 SE 0.3611 个百分点/月不变. 模拟均值分布、模拟 SE 与 percentile 端点会更精确地近似这一个条件分布；真实市场假设没有因此被验证，也没有增加 495000 个月的信息.
+**解析.** 样本、候选块与精确条件分布保持不变，中心1.38%/月、精确SE0.361个百分点/月. 增加B减少重抽分布数值近似的Monte Carlo误差.
 
 **题三：换掉相关系数.** 在同样稳态边缘方差为 1 的构造中，改成 $\rho=0$，样本均值真 SE 应如何变化？能否由此证明历史 BusEq 应使用 iid bootstrap？
 
-**解析.** 正滞后协方差全部为零，上式变为 $1/n$，真 SE 是 $1/\sqrt n$. 这是这个特定独立创新模型的结果，并不证明 BusEq 的联合分布满足相同假设. 模型机制例帮助检查推理，不能代替真实过程的证据.
+**解析.** $\rho=0$ 时所有正滞后协方差为0，均值方差为 $1/n$，SE为 $1/\sqrt n$. BusEq是否满足独立性仍需针对其联合分布取证.
 
 [^data]: `QT-C-inputs-20260921-v1`，[432 月原值与来源行号](/notebook/labs/qt-c/data/BusEq-value-weighted-monthly-199001-202512.csv)；[参数合同](/notebook/labs/qt-c/data/experiment-config.json) 的 dataset. 数据生产与版本说明见 [French Data Library](https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/data_library.html)；本例绑定冻结的 202607 重建历史.
 [^bootstrap]: Sergio Bacallado、Jonathan Taylor，Stanford STATS 202，*Bootstrap*（following ISLR 2e），[正文](https://web.stanford.edu/class/stats202/notes/Resampling/Bootstrap.html)，尤其 “Cross-validation vs. the Bootstrap”“Resampling the data from the true distribution”“Computing the standard error”“In reality, we only have n samples”. 本节的有限重抽均值与方差由已定义的索引规则直接推导.
 [^block]: Rob J. Hyndman、George Athanasopoulos，*Forecasting: Principles and Practice* 3e，[§12.5 Bootstrapping and bagging](https://otexts.com/fpp3/bootstrap.html)，尤其 Bootstrapping time series. 这里采用连续块保留局部次序的动机；非循环原收益 MBB、边缘权重与有限条件分布算法由正文明确给出.
 [^results]: [完整结果](/notebook/labs/qt-c/data/results.json) 的 `bootstrap.AR1` 与 `bootstrap.series`；每个设计保存 5000 个均值、第一条完整索引、重抽值和块边界.[复算源](/notebook/labs/qt-c/compute/reproduce.py) 读取唯一配置；不同数据分支复用索引，并保持真实收益百分数与 AR 无量纲值的单位区别.
-[^cv]: Hyndman、Athanasopoulos，[FPP3 §5.10 Time series cross-validation](https://otexts.com/fpp3/tscv.html)，rolling forecasting origin 及多步预测例.
-[^research]: Sander Barendse、Erik Kole、Dick van Dijk，*Backtesting Value-at-Risk and Expected Shortfall in the Presence of Estimation Error*，[Tinbergen 2019-058/III 开放稿](https://papers.tinbergen.nl/19058.pdf)，§1 Introduction（印刷 pp.2–5；PDF pp.4–7）. 相关正式发表版本为 *Journal of Financial Econometrics* 21(2), 2023（[作者出版列表](https://sites.google.com/view/dickvandijk/publications)）；两版页码分开使用. 该文作为估计误差扩展阅读，不承担本节 MBB 一致性证明.
-
+[^cv]: Hyndman、Athanasopoulos，[FPP3 §5.1 Time series cross-validation](https://otexts.com/fpp3/tscv.html)，rolling forecasting origin 及多步预测例.
+[^research]: Sander Barendse、Erik Kole、Dick van Dijk，*Backtesting Value-at-Risk and Expected Shortfall in the Presence of Estimation Error*，[Tinbergen 2019-058/III 开放稿](https://papers.tinbergen.nl/19058.pdf)，§1 Introduction（印刷 pp.2–5；PDF pp.4–7）. 相关正式发表版本为 *Journal of Financial Econometrics* 21(2), 2023（[作者出版列表](https://sites.google.com/view/dickvandijk/publications)）；两版页码分开使用.
 
 ## Additional teaching material
-以下是本篇真正使用的输入与结果；完整随机数组按[完整冻结结果](https://ou-liu-red-sugar.github.io/notebook/labs/qt-c/data/results.json) 的指定路径读取.
+冻结输入与完整随机数组见[完整冻结结果](https://ou-liu-red-sugar.github.io/notebook/labs/qt-c/data/results.json) 的对应路径.
 
 ## Experiment inputs and static equivalents
 ```json
@@ -7867,10 +7861,8 @@ $n=432$ 时，真 SE 为 **0.096016**；把相同边缘方差误当 iid 会得�
 - [Forecasting: Principles and Practice (3e), §12.5](https://otexts.com/fpp3/bootstrap.html): 连续块可保留块内局部顺序；FPP3示例针对STL余项、再组合与bagging. 本课原收益非循环MBB为明确另述算法，有限条件中心/SE自行推导；不以该示例证明一般bootstrap一致性.
 - [Bootstrap — STATS 202](https://web.stanford.edu/class/stats202/notes/Resampling/Bootstrap.html): 经验分布有放回重抽、估计量标准误与交叉验证任务区别. 仅采用对应单元，不把网页广泛的可适用性说明当作金融序列一致性定理.
 - [Forecasting: Principles and Practice (3e), §5.10](https://otexts.com/fpp3/tscv.html): 滚动预测起点的信息边界；只用作bootstrap均值区间不等于未来预测验证的区分.
-- [French Data Library: Current Research Returns](https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/data_library.html): Data Library说明自2025-01发布起使用CIZ文件生成美国研究收益，并说明每次更新会重建完整收益历史；CIZ与旧FIZ的月收益复合/股息再投资安排不同. 本课432月绑定一个202607数据库快照，不能拼接为前段FIZ后段CIZ，也不能称为逐月当时可见数据.
-
-本批读取范围：同版本数据和回溯重建历史的区别.
-- [QT-C 冻结输入：BusEq 月收益、离散支付与重抽结果](https://ou-liu-red-sugar.github.io/notebook/labs/qt-c/data/BusEq-value-weighted-monthly-199001-202512.csv): 原源CSV首个value-weighted monthly区块BusEq，199001–202512、原行775–1206共432月，缺失0. 归档源链接本身可变；实际随包为逐字节核验的432行提取及配置，结果由同样冻结算法在作者沙盒复算. 原全行业ZIP不在此包内. MC/AR是教学模拟而非市场资料.
+- [French Data Library: Current Research Returns](https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/data_library.html): Data Library 自 2025-01 发布起使用 CIZ 文件生成美国研究收益，每次更新会重建完整历史. CIZ 与旧 FIZ 的月收益复合及股息再投资安排不同. 本站 432 个月样本统一使用 202607 数据库快照.
+- [QT-C 冻结输入：BusEq 月收益、离散支付与重抽结果](https://ou-liu-red-sugar.github.io/notebook/labs/qt-c/data/BusEq-value-weighted-monthly-199001-202512.csv): 从原始 CSV 的 value-weighted monthly 区块提取 BusEq，覆盖 1990-01 至 2025-12 的 432 个月，原始行号 775–1206，无缺失值. 配套文件保存提取数据、实验配置及计算算法；MC 和 AR 使用教学模拟数据.
 
 ## Content relations
 ```json
@@ -7901,7 +7893,7 @@ $n=432$ 时，真 SE 为 **0.096016**；把相同边缘方差误当 iid 会得�
     "to": "QTC-BOOT",
     "reason": "支持对应定义、口径或明确限定的研究延伸",
     "locator": "Cross-validation vs. the Bootstrap；Resampling the data from the true distribution；Computing the standard error；In reality, we only have n samples；Comparing Bootstrap sampling to sampling from the true distribution",
-    "scope": "经验分布有放回重抽、估计量标准误与交叉验证任务区别. 仅采用对应单元，不把网页广泛的可适用性说明当作金融序列一致性定理."
+    "scope": "经验分布有放回重抽、估计量标准误与交叉验证的任务区别."
   },
   {
     "from": "zh-qt19",

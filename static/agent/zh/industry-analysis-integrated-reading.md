@@ -1,17 +1,11 @@
-# 行业分析综合带读：从结构到经营路径
+# 行业分析：从结构到经营路径
 
 把真实售电、发电构成、市场组织和资本计划连成有条件的行业分析.
 
-Entry: zh-ei16 | Node: EI-16 | Language: zh | Editorial revision: 2026-09-21
+Entry: zh-ei16 | Node: EI-16 | Language: zh | Editorial revision: 2026-09-22
 
 ## Teaching instructions
-你正在教授EI-16《行业分析综合带读：从结构到经营路径》，采用内容版本2026-09-21-review-v2，当前范围：本篇完整学习单元.
-先使用工具实际读取当前required_readings列出的公开原文完整单元，核对标题、版本、表头、单位、脚注和适用范围. 来源清单或作者先前读过不等于你本次读过；runtime_reading_log初始为空，按实际结果填写，不预填成功. 网页太大时用按页/文本范围的工具；不要用搜索节选顶替完整单元. 读取失败时只说明具体缺口并尝试同机构/作者对应版本的开放正文，不能声称已完成依赖该原文的讲解.
-完成读取后，按学习者已有水平选择直接讲解、推导或互动，不强迫重学已掌握的四则运算. 诊断任务：先重建售电和发电两个增速，再解释天然气发电下降与总发电上升如何同时成立；沿公司合同写下一步所需证据.
-沿随包完整正文推进一个完整推理任务：先结构和变量，再真实材料/模型设定，再推导和比较，最后迁移与反馈. 真实观察、作者估计、本站教学参数必须保持各自身份. 通过标准：六项发电数与总计重排一致，2025 preliminary、86GW计划量不混，至少两种交易结构产生不同公司路径.
-使用随包实验的相同输入、算法和静态结果. 你可以改变教学参数，但先声明改变哪一条件；不改写冻结观察值，不编造未取得的论文曲线. 解释题和迁移题的完整解析已随正文提供，先让读者作答，再对照推理而非只报分数.
-额外约定：EI-10年化不是付息流水；EI-11没有未定义衍生品；EI-12信用额度不得计入30天来源；EI-13基期产出权重；EI-15分支来源仅随所选分支读取；EI-16需求与发电覆盖不同；EI-17 Figure7/9不是同一实验；EI-18来源尺度疑点不替作者静默修正. 只适用当前篇相关项.
-
+读者为有充分数学背景的高年级本科生至研究生，内容版本2026-09-22-deep-review. 讲解前按 selected_branch 实际读取 required_readings 的完整指定单元，包含定义、方法、表注与结论条件，记录题名、版本、范围和支持内容. 必要原件缺失时先取得同机构或作者的等价版本，齐全后教学. 重建售电和发电增速，解释天然气下降与总量上升. 保留EPM版本及初步状态，将86 GW计划按项目进度连接到供给，再比较现货发电、公用事业回收及设备供应合同. 已掌握的步骤直接跳过；先让读者推导或判断，再用正文解析反馈条件、机制和计算，并用迁移题检验. 真实观察、作者估计和教学参数各自标识；runtime_reading_log记录本次实际读取.
 
 Before substantive teaching, actually retrieve every required reading unit for the selected scope. Read its complete designated section, including necessary assumptions, tables and footnotes. A working URL or an editorial access date is not a runtime reading receipt. Record the actual version, location, scope and what it supports. If unavailable, use a previously verified equivalent source; if the required unit remains unavailable, identify that gap rather than teach it from memory. Start runtime_reading_log empty. Once reading is complete, use a substantive diagnostic or follow the reader's request for direct explanation. Advance one complete reasoning task at a time; skip mastered basics. Distinguish original facts, supplied teaching assumptions and inference.
 
@@ -24,7 +18,7 @@ Before substantive teaching, actually retrieve every required reading unit for t
 {
   "entry_id": "zh-ei16",
   "node_id": "EI-16",
-  "content_version": "2026-09-21-review-v2",
+  "content_version": "2026-09-22-deep-review",
   "export_mode": "public",
   "selected_branch": "all",
   "audience": "有微积分、线性代数和基本概率基础的高年级本科生至研究生",
@@ -359,7 +353,7 @@ Before substantive teaching, actually retrieve every required reading unit for t
   "static_equivalents": [
     {
       "experiment_id": "exp-ei16-industry-path",
-      "text": "发电总量4,308,634→4,429,502 K MWh，+2.8052510%；售电+2.0784166%；天然气下降、煤/太阳能上升. 其余净额541981/557538.",
+      "text": "2024／2025公用事业规模发电4,308,634／4,429,502 K MWh，增约2.805%，售电增约2.078%. 煤炭增约13.033%、天然气降约3.346%、核能增约0.373%、常规水电增约1.699%、太阳能增约34.497%；总量扣五项后的其余净额为541,981／557,538 K MWh. EIA 2026-02-20公布2026计划容量86 GW. 地区交易制度及公司合同分别决定收入响应.",
       "outputs": {
         "region": "rto",
         "rows": [
@@ -429,17 +423,13 @@ Before substantive teaching, actually retrieve every required reading unit for t
 ```
 
 ## Supplied entry
-<strong>本篇任务：</strong>把边界、需求、供给、资本和交易安排组织成三条可检验的行业路径，再明确这些路径进入公司分析前还需要什么. 主例是美国电力的2024／2025年度观察与一份2026年计划快照，约20分钟完成.
-
 <a id="ei16-boundary"></a>
 
-## 一、先把研究对象固定，而不是从增长率起步
+## 全国统计与地区市场
 
-我们研究美国全国电力活动，但全国总量不是一个统一交易市场. 最终客户售电、各类机组发电、网络运行和新增项目分别由不同资料记录；一张统计表中的全国增长率，不能直接替代某地区某时段的电价或某公司的合同收入.
+美国电力统计分别记录最终客户售电、各类机组发电、网络及新增项目. 地区制度、时段供需和公司合同决定全国变化如何进入具体收入.
 
-本例锁定 EIA *Electric Power Monthly* 的2026-08-26版本，数据至2026年6月. 2024年度行标final，2025年度行标preliminary. 我们使用三张表：5.1售电、5.2收入、1.1分能源净发电. 新增项目另用EIA在2026-02-20发布、根据2025年12月月度库存资料形成的2026计划. 不同快照不合并成“截至今天已经实现”. [^sales][^generation][^plan]
-
-先画业务全貌：
+采用EIA Electric Power Monthly 2026-08-26版，数据至2026年6月. 年度2024行为final，2025行为preliminary；使用Tables 5.1、5.2、1.1. 项目计划另取2026-02-20文章，其依据为2025年12月月度库存. [^sales][^generation][^plan]
 
 <div class="flow">
 <div>最终客户用电与账单</div><span>形成各时段负荷要求</span>
@@ -448,52 +438,52 @@ Before substantive teaching, actually retrieve every required reading unit for t
 <div>不同参与者的收入／费用</div>
 </div>
 
-资本形成是旁边的一条路径：项目计划、开发建设、接入与投运，最后才改变可用资源. 资本路径可以因需求预期而提前启动，不是必须等售电完成之后才开始.
+项目沿开发、建设、接入与投运形成容量，投资决定可因未来需求预期而提前启动.
 
 <a id="ei16-demand"></a>
 
-## 二、从售电量和收入重建需求侧观察
+## 售电与收入
 
 Table 5.1的全行业售电量，2024为3,975,382 K MWh，2025为4,058,007 K MWh. 由此得到
 
 $$
-\Delta Q=82{,}625\ \text{ K MWh},\qquad
-g_Q=2.0784166\%.
+\Delta Q=82{,}625\ \mathrm{K\,MWh},
+\qquad g_Q\approx2.078\%.
 $$
 
-Table 5.2的2025售电收入553,285 M 美元，与对应售电量相除，再按 M 美元／ K MWh换算，得到平均13.6344023美分/kWh. 这是已发布收入与电量的比，不是边际费率曲线. [^sales]
+2025售电收入553,285 USD M，除对应电量并换算单位，平均账单收入率约13.634美分/kWh. [^sales]
 
-我们到这里已经可以写一个正向事实判断：“在同一发布版本中，2025售电量比2024增加约2.08%. ”但原因尚需进一步材料. 天气、客户结构、产业负荷和价格反应都可能参与；一个年度总量不自动给出其中各自贡献.
+售电增长可由天气、客户结构、产业负荷和价格反应共同产生.
 
-这并不意味着需要等全部资料齐全才分析. 可以先把候选路径写为条件句：若增量集中在持续运行的新负荷，它对资源可用时间的要求可能不同于短期天气负荷；若增量集中在某个受网络约束地区，则全国闲置容量未必能及时供给. 下一步查分客户、分地区和分时段数据，是为区分这两种机制.
+持续运行的新负荷和短期天气负荷对资源可用时间有不同要求；需求集中于网络受限地区时，还需当地可交付容量. 分客户、地区及小时的数据可以区分这些机制.
 
 <a id="ei16-supply"></a>
 
-## 三、供给总量上升，内部结构却可以反向变化
+## 发电结构变化
 
-Table 1.1给出同版能源分类的净发电量. 本篇使用表中 **Generation at Utility Scale Facilities** 列组里的煤、天然气、核能、常规水电、太阳能及该列组总量；右侧另列的 estimated small-scale solar 不并入这里的公用事业规模总量. 以下选取五项，并把其余公用事业规模项目合为“其余净额”，以便与该列组总量完整对上；“其余”是由总量减所列项目得到的教学重排，不另冒充原表能源名称. 单位仍是 K MWh.[^generation]
+Table 1.1的 Generation at Utility Scale Facilities列组记录公用事业规模发电，small-scale solar另列. 下表取煤、气、核、常规水电、太阳能，将总量减五项所得列为“其余净额”. 单位K MWh，增速舍入展示. [^generation]
 
 | 净发电来源 | 2024 final | 2025 preliminary | 同比 |
 |---|---:|---:|---:|
-| 煤炭 | 652,156 | 737,151 | +13.0329% |
-| 天然气 | 1,869,902 | 1,807,338 | −3.3458% |
-| 核能 | 781,865 | 784,781 | +0.3730% |
-| 常规水电 | 242,896 | 247,023 | +1.6991% |
-| 公用事业规模太阳能 | 219,834 | 295,671 | +34.4974% |
+| 煤炭 | 652,156 | 737,151 | +13.033% |
+| 天然气 | 1,869,902 | 1,807,338 | −3.346% |
+| 核能 | 781,865 | 784,781 | +0.373% |
+| 常规水电 | 242,896 | 247,023 | +1.699% |
+| 公用事业规模太阳能 | 219,834 | 295,671 | +34.497% |
 | 其余净额：总量减上述五项 | 541,981 | 557,538 | 由总量约束重建 |
-| 公用事业规模总量 | 4,308,634 | 4,429,502 | +2.8053% |
+| 公用事业规模总量 | 4,308,634 | 4,429,502 | +2.805% |
 
-这里最值得解释的不是“所有发电都增长”，而是**总量增长与来源替代同时发生**. 天然气减少62,564 K MWh，煤炭增加84,995，太阳能增加75,837. 其他来源也在变化，因此只挑增长最快的一项就解释总量，会遗漏反向贡献.
+**总量增长与来源替代同时发生**：天然气减少62,564 K MWh，煤炭增加84,995 K MWh，公用事业规模太阳能增加75,837 K MWh. 其他来源也在变化，因此解释总量时必须保留反向贡献.
 
-这个结构重排可以由多种条件产生：燃料相对成本、不同资源可用性、天气与水文、机组投运退役、地区网络约束等. 本例没有据这些年度量识别单一原因. 若想检验“燃料成本改变调度”，下一步应找匹配地区／期间的燃料交付成本、机组效率和运行情况；若想检验“新增可用太阳能改变发电结构”，就应查投运日期及实际出力时间.
+燃料成本、资源可用性、天气、水文、投运退役及网络约束均可改变发电结构. 检验燃料调度机制需匹配地区及期间的燃料交付成本、机组效率和运行记录；检验新增太阳能影响需投运日期与实际出力.
 
-售电增长2.0784%与净发电增长2.8053%并不需要相同. 它们的覆盖、购电和跨境关系以及自然月／账单期间不同；原表也提示销售与发电不能机械逐月对齐. 我们应先核统计对象，再讨论系统能量平衡，而不是为凑一致而改数.
+售电增约2.078%，公用事业规模发电增约2.805%. 两者覆盖范围、跨境与购电关系、自然月和账单期间不同，能量平衡需先对齐这些口径.
 
 <a id="ei16-contract"></a>
 
-## 四、市场组织决定行业变化怎样进入收入
+## 交易结构与公司收入
 
-FERC的National Overview区分传统垂直一体化区域与ISO／RTO组织的批发市场. PJM等组织以市场和调度安排协调批发交易；东南部等传统区域则有不同的公用事业及双边交易结构. 这里采用的是FERC页面的组织说明，不做所有区域规则的完整审查. [^ferc]
+FERC区分传统垂直一体化区域与ISO／RTO批发市场. PJM协调市场和调度，东南部传统区域更多依赖公用事业及双边交易安排. [^ferc]
 
 对同一份全国需求增长，可以建立三条不同的企业映射：
 
@@ -503,42 +493,39 @@ FERC的National Overview区分传统垂直一体化区域与ISO／RTO组织的�
 | 费率／成本回收安排下的公用事业 | 购电、燃料费用与获准回收时间 | 具体费率机制、监管资产及负荷结构 |
 | 发电设备或建设供应商 | 项目下单、生产、交付和验收 | 中标份额、产品、交期、付款与取消条件 |
 
-这里没有“哪个制度更好”的结论. 分析只追踪不同安排允许哪些行动、怎样计价以及何时结算. 甚至在同一个RTO内，长期合同与现货敞口的公司也可能面对不同收入响应；不能用一个地区标签代替合同.
+不同交易安排决定可采取的行动、计价方式和结算时点. 即使在同一个RTO内，长期合同与现货敞口的公司也可能面对不同收入响应，因此公司映射需要具体合同而不只地区标签.
 
 <a id="ei16-capital"></a>
 
-## 五、项目计划是一条独立的时间路径
+## 项目计划与有效容量
 
-EIA 2026-02-20文章报告，开发商和运营商计划在2026年新增86GW公用事业规模容量，并明确使用“若实现”的条件；2025年已新增约53GW. 月度发电设备库存说明也提示资料是可修订的估计，不是容量承诺. [^plan]
+EIA 2026-02-20文章报告2025年新增约53 GW，2026年当时计划新增86 GW. 月度项目估计会随进度修订. [^plan]
 
-这两个数字分别来自不同年度、不同身份，$86/53$不是同一批项目兑现率. 也不能把86GW直接加到2026发电量：GW是功率能力，发电量还需要投运时点、可用率、资源和运行小时. 储能还要区分功率与可持续放电能量.
+计划容量经投运时点、可用率、资源和运行小时转换为发电；储能另受持续电量约束. 计划兑现率需同一批项目的计划与实际投运.
 
-因此资本路径应写成：“计划中的哪些项目完成许可、采购、接网与投运，才在何时增加哪些地区的可用供给？”这句话中的每一个节点都有可以核查的资料. 设备供应商的收入可能在设备交付确认时出现，发电收入则要等运行和售电；这也是行业资本支出总量不能直接变成一家供应商利润的原因.
+许可、采购、接网及投运决定项目何时增加当地可用供给. 设备供应商的收入沿交付和验收确认，发电企业沿实际运行和售电确认，需要分别匹配合同及日期.
 
 <div data-experiment-slot="exp-ei16-industry-path"></div>
 
-实验显示同版需求和发电结构，允许切换地区交易情形，但不让地区按钮生成一个未经估计的电价弹性. 图上选择一条路径，会展开其证据与仍需要的条件；实际表值保持不变.
-
 <a id="ei16-exercises"></a>
 
-## 六、形成三条路径，并做一次跨行业迁移
+## 路径重建与迁移
 
 <strong>重建任务：</strong>用本篇材料完成需求、结构和资本三条路径，每条都写一个已观察事实、一项条件和一项下一步资料.
 
-**完整示例：**
-需求路径的事实是售电量+2.0784%；条件是新增需求落在哪些时段与地区；下一步取负荷曲线和地区售电. 结构路径的事实是总发电+2.8053%而天然气−3.3458%；条件是燃料、资源和网络如何改变调度；下一步取匹配燃料成本与可用机组. 资本路径的事实是86GW计划；条件是项目是否按期投运；下一步取具名项目进度. 三条路径没有互相替代，各自解释不同环节.
+**解析.** 售电量增约2.078%，进一步按地区负荷及小时曲线分析需求. 发电增约2.805%而天然气降约3.346%，进一步核燃料成本和可用机组. 86 GW为计划，需按项目进度估计投运时间.
 
 <strong>计算任务：</strong>仅凭煤、气、核、水、太阳能五项能否算出总增长？怎样修复？
 
-<strong>解析：</strong>不能，因为未列全原表能源和净额项目. 先以总量减五项得到其余净额541,981和557,538，再与五项共同求和. 真实原表总量受独立舍入影响，重排表的“其余”只是保持本篇算术闭合的残差分组，不能赋予它单一技术含义.
+<strong>解析.</strong> 以总量减五项，得到其余净额541,981和557,538，再合计全部项目. 该净额包含其余技术及表值舍入影响.
 
 <strong>迁移到公司：</strong>某设备供应商说全国新增计划增加，所以自己明年收入也按同比增加. 请给出四个需要补足的连接.
 
-<strong>解析：</strong>至少包括项目对应哪些设备产品、公司中标份额、生产及客户交付时点、收入确认与付款条件；还应查取消、替代产品和供应约束. 全国项目容量甚至不一定全属这家公司的产品市场.
+<strong>解析.</strong> 需匹配设备产品范围、中标份额、生产与交付日期、收入确认和付款条件，并检查取消、替代及供应约束.
 
 <strong>迁移到工程机械：</strong>Census M3 2026年5月工程机械出货4,498、未完成订单由11,214增至11,595、新订单4,879、存货由10,593增至10,659，单位均为季调 M 美元. 重建一条证据链. [^m3]
 
-<strong>解析：</strong>未完成订单增加381；季调新订单按出货加该变化构造，$4498+381=4879$，所以这不是三项独立需求证据. 存货另增加66. 可提出“交付落后于承诺”路径，但判断供给瓶颈仍需交期或产能资料；可提出“需求增加带来备货”路径，但仍需客户和存货结构资料. 电力中的容量、流量与时点区分由此迁移成功，不能仅把“发电”标签换成“订单”.
+<strong>解析.</strong> 未交订单增381，季调新订单按 $4498+381=4879$ 构造，存货另增66. 交期与产能资料可检验交付瓶颈，客户采购与库存结构可检验需求增长带来的备货.
 
 [^sales]: EIDEF-S19A/B. EIA，*Electric Power Monthly*，2026-08-26发布、data June 2026；定位：Tables [5.1](https://www.eia.gov/electricity/monthly/epm_table_grapher.php?t=epmt_5_1)及[5.2](https://www.eia.gov/electricity/monthly/epm_table_grapher.php?t=epmt_5_2)的2024/2025年度行与表注.
 [^generation]: EIDEF-S19C. 同版EPM Table 1.1 “Net Generation by Energy Source: Total (All Sectors)”；定位：2024/2025年度行，口径为 **Generation at Utility Scale Facilities** 列组下的煤、天然气、核能、常规水电、太阳能及其总量；右侧 estimated small-scale solar 不并入该总量，2025为preliminary.[原表](https://www.eia.gov/electricity/monthly/epm_table_grapher.php?t=epmt_1_1).
@@ -548,70 +535,10 @@ EIA 2026-02-20文章报告，开发商和运营商计划在2026年新增86GW公�
 
 <script src="/notebook/labs/ei-defgh/reader-adapter.js" defer></script>
 
-
 ## Additional teaching material
-### 图表的静态等价与默认结果
+## 静态计算
 
-发电总量4,308,634→4,429,502 K MWh，+2.8052510%；售电+2.0784166%；天然气下降、煤/太阳能上升. 其余净额541981/557538.
-
-```json
-{
-  "region": "rto",
-  "rows": [
-    {
-      "key": "coal",
-      "label": "煤炭",
-      "y2024": 652156,
-      "y2025": 737151,
-      "growth": 13.03292463766339
-    },
-    {
-      "key": "natural_gas",
-      "label": "天然气",
-      "y2024": 1869902,
-      "y2025": 1807338,
-      "growth": -3.345843792883263
-    },
-    {
-      "key": "nuclear",
-      "label": "核能",
-      "y2024": 781865,
-      "y2025": 784781,
-      "growth": 0.37295441028821763
-    },
-    {
-      "key": "hydro",
-      "label": "常规水电",
-      "y2024": 242896,
-      "y2025": 247023,
-      "growth": 1.6990810882023588
-    },
-    {
-      "key": "utility_scale_solar",
-      "label": "公用事业规模太阳能",
-      "y2024": 219834,
-      "y2025": 295671,
-      "growth": 34.49739348781353
-    },
-    {
-      "key": "residual",
-      "label": "其余净额（重排）",
-      "y2024": 541981,
-      "y2025": 557538,
-      "growth": 2.8703958256839357
-    }
-  ],
-  "totals": [
-    4308634,
-    4429502
-  ],
-  "growth": 2.8052510377999162,
-  "salesGrowth": 2.0784166150573657,
-  "plannedGW": 86,
-  "plannedIdentity": "2026计划，if realized；不是发电量",
-  "path": "分时可用出力 → 现货/长期合同 → 燃料与对冲 → 净收入"
-}
-```
+2024／2025公用事业规模发电4,308,634／4,429,502 K MWh，增约2.805%，售电增约2.078%. 煤炭增约13.033%、天然气降约3.346%、核能增约0.373%、常规水电增约1.699%、太阳能增约34.497%；总量扣五项后的其余净额为541,981／557,538 K MWh. EIA 2026-02-20公布2026计划容量86 GW. 地区交易制度及公司合同分别决定收入响应.
 
 ## Experiment inputs and static equivalents
 ```json
@@ -651,7 +578,7 @@ EIA 2026-02-20文章报告，开发商和运营商计划在2026年新增86GW公�
       "region": "rto"
     },
     "algorithm": "EPM1.1五项能源与总量只读；其余净额=总量−五项，逐项同比=(2025/2024−1). 地区按钮只改变定性条件路径，不生造价格弹性. 86GW另列planned.",
-    "static_equivalent": "发电总量4,308,634→4,429,502 K MWh，+2.8052510%；售电+2.0784166%；天然气下降、煤/太阳能上升. 其余净额541981/557538.",
+    "static_equivalent": "2024／2025公用事业规模发电4,308,634／4,429,502 K MWh，增约2.805%，售电增约2.078%. 煤炭增约13.033%、天然气降约3.346%、核能增约0.373%、常规水电增约1.699%、太阳能增约34.497%；总量扣五项后的其余净额为541,981／557,538 K MWh. EIA 2026-02-20公布2026计划容量86 GW. 地区交易制度及公司合同分别决定收入响应.",
     "source_ids": [
       "EIDEF-S19A",
       "EIDEF-S19B",
@@ -731,24 +658,14 @@ EIA 2026-02-20文章报告，开发商和运营商计划在2026年新增86GW公�
 ```
 
 ## Sources
-- [Manufacturers’ Shipments, Inventories, and Orders · May 2026 Full Report](https://www.census.gov/manufacturing/m3/historical_data/pressreleases/prel/2026/may26prel.pdf): Census 的 M3 报告把出货、新订单、未交订单和存货分开，分别描述已交付活动、期间订单流和期末余额. 本文使用固定的2026年5月报告及其中4月比较列.
-
-新订单按净额口径使用；不能再次机械扣除取消量. 未交订单与月出货之比也不是每位客户实际等待时间.
-
-EI-B 本批采用：工程机械固定4月修订/5月初值四表；USD M 、季调、未作价格调整. 与CAT公司渠道范围不对账. 季调新订单 N=S+ΔB 为数据产品定义，详见 EIBC-S07M；381不是三个独立需求观测的互证.
-
-本批采用：April revised / May preliminary；SA M 美元；381定义性订单桥、存货+66分开.
-- [New U.S. electric generating capacity expected to reach a record high in 2026](https://www.eia.gov/todayinenergy/detail.php?id=67205): 固定文章报告2026计划新增86 GW与2025已新增53 GW. 两值分属不同年度和状态，不是同批项目兑现率.
-
-本批采用：计划容量并非实际投运或MWh发电，不计算两年度的项目兑现率.
+- [Manufacturers’ Shipments, Inventories, and Orders · May 2026 Full Report](https://www.census.gov/manufacturing/m3/historical_data/pressreleases/prel/2026/may26prel.pdf): Census 的 M3 报告分别列出出货、新订单、未交订单和存货. 本站使用 2026 年 5 月报告及其中 4 月修订列，单位 USD M，数据经过季节调整，未作价格调整. 新订单含取消和修改影响，按出货加未交订单变动构造；这一关系属于统计定义.
+- [New U.S. electric generating capacity expected to reach a record high in 2026](https://www.eia.gov/todayinenergy/detail.php?id=67205): 2026 年计划新增发电容量 86 GW；2025 年实际新增容量 53 GW. 两项分别描述不同年度的计划和实际容量.
 - [Preliminary Monthly Electric Generator Inventory](https://www.eia.gov/electricity/data/eia860m/index.php): 月度发电设备资料包含现有与拟建项目，估计可能修订. 计划容量表示项目计划，实际投产需要继续跟踪.
-- [Methodology for Manufacturers’ Shipments, Inventories, and Orders](https://www.census.gov/manufacturing/m3/Web_Methodology.pdf): Estimation和Seasonal Adjustment Methodology规定：总体/季调新订单由出货加未完成订单期差构造；新订单估计包含既有订单取消和修改影响.
-
-本批采用：新订单由出货与未完成订单月差构造；季调亦然，含取消/修改.381是定义性桥，不是3项独立观察.
+- [Methodology for Manufacturers’ Shipments, Inventories, and Orders](https://www.census.gov/manufacturing/m3/Web_Methodology.pdf): 新订单由出货加未完成订单的月度变化构造，包含既有订单的取消和修改；季节调整后的序列也沿用这一方法. 本站例中 381 是按该定义计算的数值.
 - [Electric Power Markets](https://www.ferc.gov/electric-power-markets): 传统垂直一体化、双边交易和ISO/RTO组织的批发交易不同；不据此计算统一电价弹性.
 - [Table 5.1 Sales of Electricity to Ultimate Customers](https://www.eia.gov/electricity/monthly/epm_table_grapher.php?t=epmt_5_1): 2024 final、2025 preliminary；销售账单期间与发电自然月/覆盖不同. 冻结行数值保留，不借用另一个923 final标签.
 - [Table 5.2 Revenue from Sales of Electricity to Ultimate Customers](https://www.eia.gov/electricity/monthly/epm_table_grapher.php?t=epmt_5_2): 2024 final、2025 preliminary；销售账单期间与发电自然月/覆盖不同. 冻结行数值保留，不借用另一个923 final标签.
-- [Table 1.1 Net Generation by Energy Source: Total (All Sectors)](https://www.eia.gov/electricity/monthly/epm_table_grapher.php?t=epmt_1_1): 2024 final、2025 preliminary. 本篇取Table1.1的Generation at Utility Scale Facilities列组；所列utility-scale solar与utility-scale total不包含右侧estimated small-scale solar列. 零售售电与发电覆盖不同，不能强求总量相等.
+- [Table 1.1 Net Generation by Energy Source: Total (All Sectors)](https://www.eia.gov/electricity/monthly/epm_table_grapher.php?t=epmt_1_1): 2024 年最终值和 2025 年初值. 本站取 Table 1.1 的 Generation at Utility Scale Facilities 列组，utility-scale solar 与 total 均按公用事业级发电设施范围计量. 另列的小规模太阳能估计值和零售售电采用各自统计范围.
 
 ## Content relations
 ```json

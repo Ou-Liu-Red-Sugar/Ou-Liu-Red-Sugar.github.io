@@ -11,10 +11,10 @@
   "template": "T1",
   "role": "选读",
   "study_time": "12–18分钟",
-  "revised": "2026-09-21",
-  "content_version": "bf-bc-staging-v3",
-  "body_markdown": "存货首先是经营过程里的资源，而不是一个等待计算周转率的分母. 材料可能还没投产，零件可能正在加工，机器可能已经完成却尚未交付，零售商品则可能已经摆上货架. 我们要弄清这些资源怎样形成成本、什么时候离开资产、又为什么有时需要调低账面金额.\n\n这一篇先沿制造过程读Caterpillar，再对照Costco. 两家公司的存货不但业务组成不同，成本流和计量政策也有差异. 认识这些差异，比用同一个“库存增长率”给它们贴标签更重要.\n\n<a id=\"bf11-process\"></a>\n## 1. 采购、加工、销售，并不是同一个费用时点\n\n采购形成尚待出售或加工的资源，在满足确认条件时进入存货；制造投入可能把原材料、直接人工及分配的制造费用逐步转入在制品和产成品；销售后，相应账面成本进入销售成本. 对尚未销售的部分，还要按照适用计量政策检查其账面值. [^book]\n\n因此，“已经付款”与“已经成为费用”不能互换. 采购付款可能先形成存货；赊购可能先形成存货和应付. 生产设备的折旧也未必一发生就直接全数进入当期利润表：属于制造成本的部分可能先进入存货，待产品售出再结转. 这里记录的是资源进入交付过程的阶段，不是把所有现金支出按日期排一遍.\n\n在一个已经划定成本范围的模型里，可以写成：\n\n`期初存货 + 本期资本化进入存货的成本 = 已售部分成本 + 减记及其他移出 + 期末存货`.\n\n这个等式提醒我们检查去向，却不保证真实年报已经把每个组成全部披露. 只知道期初期末存货，不能反推出本期采购量、生产成本、损耗和销售成本分别是多少.\n\n<a id=\"bf11-manufacturing\"></a>\n## 2. 制造：同样增加1,308，发生在哪个阶段？\n\nCaterpillar FY2025截至2025年12月31日. 下面是Note 8的完整存货组成，单位** M 美元**. 集团还包括Financial Products；金融应收并不是这张材料—在制品—产成品表里的“库存”. [^cat]\n\n| Note 8原行 | 中文 | 2025-12-31 | 2024-12-31 |\n| --- | --- | --- | --- |\n| Raw materials | 原材料 | 7,434 | 6,681 |\n| Work-in-process | 在制品 | 1,598 | 1,438 |\n| Finished goods | 产成品 | 8,725 | 8,329 |\n| Supplies | 用品 | 378 | 379 |\n| Total inventories | 存货合计 | 18,135 | 16,827 |\n\n\n本期存货合计增加1,308. 其中原材料增加753，在制品增加160，产成品增加396，用品减少1，合起来正好1,308. 首先把增量放回阶段，我们才知道下一步应该分别查什么.\n\n原材料增加可能与未来生产准备、采购批量或成本变化有关；在制品可能受生产节拍和瓶颈影响；产成品则要和交付及经销商等下游资料一起看. 这些都是待检验解释，而不是仅由余额上升就证明的事实. 三类同时增加，也并不等于企业某一项销量增长了同样百分比.\n\n尤其不要把经销商拥有的库存和制造商合并报表存货直接相加后称作公司资产. 要分析整个渠道，可以定义更宽的经营指标；回到资产负债表时，仍要尊重控制、合并范围及原表口径.\n\n<a id=\"bf11-cost-flow\"></a>\n## 3. 成本流假设，改变的是分配给各阶段的账面成本\n\n同一批资源可能在不同时点按不同成本取得. 先进先出（FIFO）和后进先出（LIFO）是把成本分配给已售和留存部分的方法，不能直接当作仓库实际搬运顺序. [^book]\n\n用一组独立教学数字看清这一点：先买10件、每件成本10，再买10件、每件成本14，共20件、成本240；售出12件，无损耗、无减值. FIFO下已售成本是 `10×10+2×14=128`，期末8件成本112；LIFO下已售成本是 `10×14+2×10=160`，期末成本80. 两种分配都满足“已售加期末等于240”，区别在于哪一层成本进入当期损益. 它们不是Caterpillar实际批次.\n\n回到Caterpillar，Note 1说存货**主要采用LIFO**，2025和2024采用该法的比例分别为70%和65%，不是全部存货都用LIFO. Note 8又给出：若采用FIFO，2025和2024存货分别将高4,305和3,864. [^cat]\n\n| 口径（ M 美元） | 2025 | 2024 | 两期变化 |\n| --- | --- | --- | --- |\n| 报告存货（混合方法，主要为LIFO） | 18,135 | 16,827 | 1,308 |\n| 披露的FIFO增加额 | 4,305 | 3,864 | 441 |\n| 按披露调整得到的FIFO可比总额 | 22,440 | 20,691 | 1,749 |\n\n`18,135+4,305=22,440`，`16,827+3,864=20,691`. 两种成本口径下，报告余额增加1,308，FIFO可比余额增加1,749，两者相差441，正好等于披露调整额的变化. 441反映这里的计量口径差异，不是产量变化；报告总额仍是混合方法下的报告额，而不是“纯LIFO库存”.\n\n该公司的现金流量表存货调整为−1,477，简单余额增加1,308的反向数为−1,308，二者差−169. 缺少完整现金和非现金变动调节时，应保留这个差异，而不是把它强行归给汇兑或FIFO调整. 成本方法差异、余额变化与现金支付，是三个需要分别维护的口径. [^cat]\n\n<a id=\"bf11-retail\"></a>\n## 4. 零售对照：看地域与政策，而不是假定不存在加工\n\nCostco在主表列“商品存货”，Note 1按地域展开如下，单位 M 美元. 该表没有单列在制品，但公司有制造及加工等经营活动；**没有WIP行，不等于完全没有生产过程或相关成本**. 教学上的不同在于这里的公开构成首先按商品库存和地域组织，而非Caterpillar那样的生产阶段. [^cost]\n\n| Note 1原行 | 中文 | 2025-08-31 | 2024-09-01 |\n| --- | --- | --- | --- |\n| United States | 美国 | 12,868 | 13,625 |\n| Canada | 加拿大 | 1,907 | 1,895 |\n| Other International | 其他国际 | 3,341 | 3,127 |\n| Merchandise inventories | 商品存货合计 | 18,116 | 18,647 |\n\n\n2025总额比2024减少531. 其中美国减少757，加拿大增加12，其他国际增加214. 这样一拆，就能看出“整体库存下降”不是所有地区同步下降的同义词. 要解释数量、价格和业务范围，仍要继续读相应经营资料.\n\n政策也要逐一保留. Costco披露商品存货按成本与market孰低；美国商品库存使用LIFO，其他地区主要使用FIFO. FY2025因商品成本上升确认142的LIFO调整，记入merchandise costs. 它是成本流计量调整，不能自动改名为商品损坏或滞销减值. Caterpillar的政策使用成本与可变现净值（NRV）表述，不能把两份原文的术语直接互换.[^cost][^cat]\n\n本篇采用的阅读次序是：先问经营对象，再查成本范围和计量方法，最后按该政策解释余额与费用. 行业标签不能代替任何一步.\n\n<a id=\"bf11-write-down\"></a>\n## 5. 留在资产、转入销售成本、发生减记：三条去向\n\n最后再用一个**成本／NRV教学设定**把减记加进来. 企业购入10件同质商品，每件成本10，总成本100；卖出6件，每件售价15；剩下4件，期末每件NRV降至8. 忽略税、额外费用和退货，且不演示减记转回规则.\n\n售出部分收入90、销售成本60. 未售部分原成本40，但按本设定的成本／NRV孰低，期末只保留32，另确认减记8. 因此：\n\n`100 = 已售成本60 + 减记8 + 期末存货32`；\n\n`本期利润 = 收入90 − 已售成本60 − 减记8 = 22`.\n\n因此本年销售成本仍为60，减记8后期末账面存货为32；不能再把取得成本100全部计入本年销售成本，也不能把减记8和期末32同时作为下一期待结转成本. 是否允许转回以及如何处理取决于实际适用准则，本例不设统一的转回规则.\n\n| 成本或结果 | 金额 |\n| --- | --- |\n| 取得存货总成本 | 100 |\n| 出售6件对应成本 | 60 |\n| 剩余4件原成本 | 40 |\n| 剩余4件NRV | 32 |\n| 本期减记 | 8 |\n| 期末账面存货 | 32 |\n| 销售收入 | 90 |\n| 利润 | 22 |\n\n\n<div data-experiment-slot=\"EXP-BF11-INVENTORY-VIEW\"></div>\n\n实验上半部在Caterpillar报告与FIFO可比口径间切换；下半部只改变这组教学商品的销售数量及NRV，检查成本如何在三条去向之间移动. 真实公司的未披露批次不会由滑块自动补出.\n\n<a id=\"bf11-exercise\"></a>\n## 6. 练习与解析\n\n**题一**. Caterpillar存货增加1,308，能否认定“卖不动”？请给出三种竞争解释与区分它们的材料.\n\n**解析**. 不能. 可能是为生产准备增加原材料，需查生产与订单／交付安排；可能是产成品周转变慢，需查销量、渠道库存和交付；也可能是成本层上升，需查成本政策、价格及LIFO/FIFO调节. 三者可以同时存在，单一期末合计不能识别各自贡献.\n\n**题二**. 教学商品尚未卖出任何一件，NRV仍为8，会怎样？若10件全部卖出，又怎样？\n\n**解析**. 零销售时收入和销售成本均为0，剩余成本100、NRV80，减记20、期末库存80、利润−20. 全部卖出时收入150、成本100、剩余库存0、减记0、利润50. 本例只对期末仍在手的商品做NRV比较，不能对已结转销售成本的商品再按期末库存重复减记.\n\n**题三**. 把Costco的142 LIFO调整叫作“本年库存跌价”，有什么问题？\n\n**解析**. 原注将它归于商品成本上升下的LIFO估值调整，不是据滞销、损坏或NRV下降认定的同义减值. 要写分析，必须保留原件的原因和账户位置，不能见到成本费用增加就统一命名.\n\n[^book]: OpenStax，[§10.1存货计价与成本流假设](https://openstax.org/books/principles-financial-accounting/pages/10-1-describe-and-demonstrate-the-basic-inventory-valuation-methods-and-their-cost-flow-assumptions)、[§10.2期末存货与销售成本](https://openstax.org/books/principles-financial-accounting/pages/10-2-calculate-the-cost-of-goods-sold-and-ending-inventory-using-the-periodic-method)（2019）；教学批次由本文设定.\n[^cat]: Caterpillar，[FY2025 10-K](https://www.sec.gov/Archives/edgar/data/18230/000001823026000008/cat-20251231.htm)，Note 1 C. Inventories、Note 8 Inventories（印刷p.89）、Statement 5现金流存货变动行及Item 1；2025／2024采用LIFO比例70%／65%，表内总额为混合方法报告额.\n[^cost]: Costco，[FY2025 10-K](https://www.sec.gov/Archives/edgar/data/909832/000090983225000101/cost-20250831.htm)，Note 1 Merchandise Inventories，p.44；Item 1及资产负债表p.39.142为LIFO计量调整，区别于损坏或滞销减记.\n",
-  "prompt": "你现在教授BF-11《存货、销售成本与减值》. 对象是有微积分、线性代数及基本概率基础，但不假定受过会计训练的高年级本科至研究生. 先确认本篇行业/扩展分支和学习任务. 在讲解前，使用读取工具实际取得agent_packet中common及所选branch的全部required_readings完整单元（含表头、脚注和条件）. optional_readings只有选中相应研究/扩展时才转为必读. 记录标题、版本、实际范围以及支持当前教学的关键设定；runtime_reading_log初始为空，不以编辑访问或参考清单冒充本次已读. 访问失败时尝试同版本官方等价正文；仍缺失就指出具体缺口，不拿摘要代替承重单元. 诊断任务：让读者从CAT四阶段表、70%/65%范围开始，再算FIFO可比总额. 沿当前同源正文、静态表和supplied_inputs逐段推进，先让读者分析再反馈，已会步骤直接跳过. 判断理解的尺度：报告总额不是纯LIFO；成本100分为60销售成本+8减记+32库存；142 LIFO调整不是自动等于跌价. 最后迁移：对库存增长提出量、价、阶段、成本方法和可实现性中至少两种可区分解释与证据. 保留历史观测与教学设定身份、单位、期间、未解释差额；不得从本篇生成新估值或账户建议.",
+  "revised": "2026-09-22",
+  "content_version": "2026-09-22-deep-review",
+  "body_markdown": "存货是经营过程中尚待出售或加工的资源；原材料、在制品、产成品和零售商品处于不同阶段，成本进入、售出与减记的时点也不同. Caterpillar与Costco的存货构成、成本流和计量政策不同，因此余额变化需按业务阶段和计量政策拆解.\n\n<a id=\"bf11-process\"></a>\n## 1. 存货成本的形成与结转\n\n采购形成尚待出售或加工的资源，在满足确认条件时进入存货；制造投入可能把原材料、直接人工及分配的制造费用逐步转入在制品和产成品；销售后，相应账面成本进入销售成本. 对尚未销售的部分，还要按照适用计量政策检查其账面值. [^book]\n\n采购付款可能先形成存货；赊购则同时形成存货和应付. 制造设备折旧中归属生产成本的部分，也先进入存货，待产品售出再结转销售成本.\n\n在一个已经划定成本范围的模型里，可以写成：\n\n`期初存货 + 本期资本化进入存货的成本 = 已售部分成本 + 减记及其他移出 + 期末存货`.\n\n只有期初和期末余额时，上式中的采购、生产投入、损耗和售出成本仍需分别取证.\n\n<a id=\"bf11-manufacturing\"></a>\n## 2. Caterpillar：存货增量的生产阶段\n\nCaterpillar FY2025截至2025年12月31日. Note 8完整存货组成如下，单位：M 美元. [^cat]\n\n| Note 8原行 | 中文 | 2025-12-31 | 2024-12-31 |\n| --- | --- | --- | --- |\n| Raw materials | 原材料 | 7,434 | 6,681 |\n| Work-in-process | 在制品 | 1,598 | 1,438 |\n| Finished goods | 产成品 | 8,725 | 8,329 |\n| Supplies | 用品 | 378 | 379 |\n| Total inventories | 存货合计 | 18,135 | 16,827 |\n\n本期存货合计增加1,308，其中原材料增加753、在制品增加160、产成品增加396、用品减少1，合计1,308. 按阶段拆分后，才能分别检验采购、生产、交付与成本变化.\n\n原材料增加可由备产、采购批量或采购成本变化解释；在制品增加可由生产节拍和瓶颈解释；产成品增加需对照销量、交付和下游经销商库存. 订单、生产数量、单位成本和渠道库存可区分这些机制.\n\n经销商拥有的库存位于制造商合并范围之外，可用于分析渠道供需；公司资产仍按控制与合并范围计入.\n\n<a id=\"bf11-cost-flow\"></a>\n## 3. FIFO与LIFO\n\n同一批资源可能在不同时点按不同成本取得. 先进先出（FIFO）和后进先出（LIFO）是把成本分配给已售和留存部分的方法，不能直接当作仓库实际搬运顺序. [^book]\n\n教学批次：先买10件、每件成本10，再买10件、每件成本14，共20件、成本240；售出12件，无损耗、无减值. FIFO下已售成本为 `10×10+2×14=128`，期末8件成本112；LIFO下已售成本为 `10×14+2×10=160`，期末成本80. 两种分配均满足“已售成本＋期末成本＝240”，但进入当期损益的成本层不同.\n\nCaterpillar披露2025和2024年采用LIFO的存货比例分别为70%和65%；若改用FIFO，两年存货分别将高4,305和3,864. [^cat]\n\n| 口径（ M 美元） | 2025 | 2024 | 两期变化 |\n| --- | --- | --- | --- |\n| 报告存货（混合方法，主要为LIFO） | 18,135 | 16,827 | 1,308 |\n| 披露的FIFO增加额 | 4,305 | 3,864 | 441 |\n| 按披露调整得到的FIFO可比总额 | 22,440 | 20,691 | 1,749 |\n\n`18,135+4,305=22,440`，`16,827+3,864=20,691`. 混合方法报告余额增加1,308，FIFO可比余额增加1,749，两者相差441，等于披露调整额的变化.\n\n现金流量表存货调整为−1,477，比存货余额增加额的反向数−1,308少169. 这169的构成尚需现金与非现金变动调节资料. [^cat]\n\n<a id=\"bf11-retail\"></a>\n## 4. Costco：地域构成与计量政策\n\nCostco在主表列商品存货，并在Note 1按地域展开，单位：M 美元. 公司也有制造和加工活动，相关成本包含在按商品与地域组织的披露中. [^cost]\n\n| Note 1原行 | 中文 | 2025-08-31 | 2024-09-01 |\n| --- | --- | --- | --- |\n| United States | 美国 | 12,868 | 13,625 |\n| Canada | 加拿大 | 1,907 | 1,895 |\n| Other International | 其他国际 | 3,341 | 3,127 |\n| Merchandise inventories | 商品存货合计 | 18,116 | 18,647 |\n\n2025总额减少531，由美国减少757、加拿大增加12、其他国际增加214组成. 各地的数量、单位成本和业务范围变化需结合当地经营资料解释.\n\nCostco商品存货按成本与market孰低计量，美国使用LIFO，其他地区主要使用FIFO. FY2025商品成本上升产生142的LIFO调整，计入merchandise costs. Caterpillar采用成本与可变现净值（NRV）孰低的表述；比较减记须分别沿各自政策.[^cost][^cat]\n\n<a id=\"bf11-write-down\"></a>\n## 5. 期末存货与减记\n\n**成本／NRV教学设定**：购入10件同质商品，每件成本10；售出6件，每件售价15；期末剩余4件，每件NRV为8. 无税、额外费用和退货.\n\n售出部分收入90、销售成本60. 未售部分原成本40，但按本设定的成本／NRV孰低，期末只保留32，另确认减记8. 因此：\n\n`100 = 已售成本60 + 减记8 + 期末存货32`；\n\n`本期利润 = 收入90 − 已售成本60 − 减记8 = 22`.\n\n取得成本100分别进入已售成本60、减记8和期末存货32. 下一期待售存货的账面成本为32.\n\n| 成本或结果 | 金额 |\n| --- | --- |\n| 取得存货总成本 | 100 |\n| 出售6件对应成本 | 60 |\n| 剩余4件原成本 | 40 |\n| 剩余4件NRV | 32 |\n| 本期减记 | 8 |\n| 期末账面存货 | 32 |\n| 销售收入 | 90 |\n| 利润 | 22 |\n\n<div data-experiment-slot=\"EXP-BF11-INVENTORY-VIEW\"></div>\n\n<a id=\"bf11-exercise\"></a>\n## 6. 练习与解析\n\n**题一**. Caterpillar存货增加1,308，能否认定“卖不动”？请给出三种竞争解释与区分它们的材料.\n\n**解析**. 不能. 可能是为生产准备增加原材料，需查生产与订单／交付安排；可能是产成品周转变慢，需查销量、渠道库存和交付；也可能是成本层上升，需查成本政策、价格及LIFO/FIFO调节. 三者可以同时存在，单一期末合计不能识别各自贡献.\n\n**题二**. 教学商品尚未卖出任何一件，NRV仍为8，会怎样？若10件全部卖出，又怎样？\n\n**解析**. 零销售时收入和销售成本均为0，剩余成本100、NRV80，减记20、期末库存80、利润−20. 全部卖出时收入150、成本100、期末库存0、减记0、利润50. NRV比较针对期末仍在手的商品.\n\n**题三**. 把Costco的142 LIFO调整叫作“本年库存跌价”，有什么问题？\n\n**解析**. 142来自商品成本上升下的LIFO计量调整. 损坏、滞销或NRV下降造成的减记，需要对应的数量与可回收金额证据.\n\n[^book]: OpenStax，[§10.1存货计价与成本流假设](https://openstax.org/books/principles-financial-accounting/pages/10-1-describe-and-demonstrate-the-basic-inventory-valuation-methods-and-their-cost-flow-assumptions)、[§10.2期末存货与销售成本](https://openstax.org/books/principles-financial-accounting/pages/10-2-calculate-the-cost-of-goods-sold-and-ending-inventory-using-the-periodic-method)（2019）；教学批次由本文设定.\n[^cat]: Caterpillar，[FY2025 10-K](https://www.sec.gov/Archives/edgar/data/18230/000001823026000008/cat-20251231.htm)，Note 1 C. Inventories、Note 8 Inventories（印刷p.89）、Statement 5现金流存货变动行及Item 1；2025／2024采用LIFO比例70%／65%，表内总额为混合方法报告额.\n[^cost]: Costco，[FY2025 10-K](https://www.sec.gov/Archives/edgar/data/909832/000090983225000101/cost-20250831.htm)，Note 1 Merchandise Inventories，p.44；Item 1及资产负债表p.39.142为LIFO计量调整，区别于损坏或滞销减记.",
+  "prompt": "你现在教授BF-11《存货、销售成本与减值》. 对象是有微积分、线性代数及基本概率基础、但不假定受过会计训练的高年级本科至研究生. 讲解前实际读取agent_packet中common及所选branch的全部required_readings完整单元（含表头、脚注和条件），optional_readings仅在选中相应研究/扩展时读取. 记录标题、版本、实际范围和支持当前教学的关键设定；runtime_reading_log从空数组开始，不以参考清单或先前编辑访问代替本次读取. 读取失败时先找同版本官方等价正文；仍缺失则明确缺口，不以摘要代替承重单元. 诊断：从Caterpillar四阶段表及70%/65% LIFO范围开始，再算FIFO可比总额. 沿同源正文、静态表和supplied_inputs推进，先让读者分析再反馈；已会步骤跳过. 通过尺度：报告总额不是纯LIFO；成本100分为60销售成本+8减记+32库存；142 LIFO调整不等于库存跌价. 迁移：对库存增长提出量、价、阶段、成本方法和可实现性中至少两种可区分解释与证据. 保留历史观测与教学设定身份、单位、期间和未解释差额.",
   "sources": [
     "BBC-S10",
     "BBC-S11",
@@ -24,15 +24,15 @@
   "anchors": [
     {
       "id": "bf11-process",
-      "title": "1. 采购、加工、销售，并不是同一个费用时点",
+      "title": "1. 存货成本的形成与结转",
       "kind": "section",
-      "preview": "采购形成尚待出售或加工的资源，在满足确认条件时进入存货；制造投入可能把原材料、直接人工及分配的制造费用逐步转入在制品和产成品；销售后，相应账面成本进入销售成本. 对尚未销售的部分，还要按照适用计量政策检查其账面值.[^book] 因此，“已经付款”与“已经成为费用”不能互换. 采购付款可能先形成存货；赊购可能先形成存货和应付. 生产设备的折旧也未必一发生就直接全数"
+      "preview": "采购形成尚待出售或加工的资源，在满足确认条件时进入存货；制造投入可能把原材料、直接人工及分配的制造费用逐步转入在制品和产成品；销售后，相应账面成本进入销售成本. 对尚未销售的部分，还要按照适用计量政策检查其账面值. "
     },
     {
       "id": "bf11-manufacturing",
-      "title": "2. 制造：同样增加1,308，发生在哪个阶段？",
+      "title": "2. Caterpillar：存货增量的生产阶段",
       "kind": "case",
-      "preview": "Caterpillar FY2025截至2025年12月31日. 下面是Note 8的完整存货组成，单位** M 美元**. 集团还包括Financial Products；金融应收并不是这张材料—在制品—产成品表里的“库存”.[^cat] | Note 8原行 | 中文 | 2025-12-31 | 2024-12-31 | | --- | --- | --- ",
+      "preview": "Caterpillar FY2025截至2025年12月31日. Note 8完整存货组成如下，单位：M 美元. ",
       "period": "2025/2024",
       "cutoff": "2026-09-21",
       "entity": "Caterpillar",
@@ -40,15 +40,15 @@
     },
     {
       "id": "bf11-cost-flow",
-      "title": "3. 成本流假设，改变的是分配给各阶段的账面成本",
+      "title": "3. FIFO与LIFO",
       "kind": "section",
-      "preview": "同一批资源可能在不同时点按不同成本取得. 先进先出（FIFO）和后进先出（LIFO）是把成本分配给已售和留存部分的方法，不能直接当作仓库实际搬运顺序.[^book] 用一组独立教学数字看清这一点：先买10件、每件成本10，再买10件、每件成本14，共20件、成本240；售出12件，无损耗、无减值. FIFO下已售成本是 `10×10+2×14=128`，期末8件"
+      "preview": "同一批资源可能在不同时点按不同成本取得. 先进先出（FIFO）和后进先出（LIFO）是把成本分配给已售和留存部分的方法，不能直接当作仓库实际搬运顺序. "
     },
     {
       "id": "bf11-retail",
-      "title": "4. 零售对照：看地域与政策，而不是假定不存在加工",
+      "title": "4. Costco：地域构成与计量政策",
       "kind": "case",
-      "preview": "Costco在主表列“商品存货”，Note 1按地域展开如下，单位 M 美元. 该表没有单列在制品，但公司有制造及加工等经营活动；**没有WIP行，不等于完全没有生产过程或相关成本.**教学上的不同在于这里的公开构成首先按商品库存和地域组织，而非Caterpillar那样的生产阶段.[^cost] | Note 1原行 | 中文 | 2025-08-31 | 2",
+      "preview": "Costco在主表列商品存货，并在Note 1按地域展开，单位：M 美元. 公司也有制造和加工活动，相关成本包含在按商品与地域组织的披露中. ",
       "period": "FY2025/FY2024",
       "cutoff": "2026-09-21",
       "entity": "Costco",
@@ -56,15 +56,15 @@
     },
     {
       "id": "bf11-write-down",
-      "title": "5. 留在资产、转入销售成本、发生减记：三条去向",
+      "title": "5. 期末存货与减记",
       "kind": "section",
-      "preview": "最后再用一个**成本／NRV教学设定**把减记加进来. 企业购入10件同质商品，每件成本10，总成本100；卖出6件，每件售价15；剩下4件，期末每件NRV降至8. 忽略税、额外费用和退货，且不演示减记转回规则. 售出部分收入90、销售成本60. 未售部分原成本40，但按本设定的成本／NRV孰低，期末只保留32，另确认减记8. 因此： `100 = 已售成本60 +"
+      "preview": "**成本／NRV教学设定**：购入10件同质商品，每件成本10；售出6件，每件售价15；期末剩余4件，每件NRV为8. 无税、额外费用和退货."
     },
     {
       "id": "bf11-exercise",
       "title": "6. 练习与解析",
       "kind": "section",
-      "preview": "**题一.**Caterpillar存货增加1,308，能否认定“卖不动”？请给出三种竞争解释与区分它们的材料. **解析.**不能. 可能是为生产准备增加原材料，需查生产与订单／交付安排；可能是产成品周转变慢，需查销量、渠道库存和交付；也可能是成本层上升，需查成本政策、价格及LIFO/FIFO调节. 三者可以同时存在，单一期末合计不能识别各自贡献. **题二."
+      "preview": "**题一**. Caterpillar存货增加1,308，能否认定“卖不动”？请给出三种竞争解释与区分它们的材料."
     }
   ],
   "relations": [
@@ -405,7 +405,7 @@
       "data_identity": "historical_observations_and_separately_labelled_teaching_assumptions"
     }
   ],
-  "agent_markdown": "交互算法：FIFO-equivalent=reported total+disclosed uplift. single batch: COGS=sold*cost; writeDown=(units−sold)*max(cost−NRV,0); ending=(units−sold)*min(cost,NRV).\n\n边界：历史混合LIFO/FIFO总额与教学商品分开；不倒推真实采购COGS完整桥；不演示减记转回.\n\n静态结果：https://ou-liu-red-sugar.github.io/notebook/labs/bf-bc/static.html#EXP-BF11-INVENTORY-VIEW. 所有输入保留历史/教学身份；行业选择与打印由配套页面提供.",
+  "agent_markdown": "交互算法：FIFO-equivalent=reported total+disclosed uplift. single batch: COGS=sold*cost; writeDown=(units−sold)*max(cost−NRV,0); ending=(units−sold)*min(cost,NRV).\n\n静态结果：https://ou-liu-red-sugar.github.io/notebook/labs/bf-bc/static.html#EXP-BF11-INVENTORY-VIEW.",
   "status": "candidate_local_review",
   "audience": "高年级本科至研究生；共同框架加所选行业分支",
   "provenance": {
@@ -436,29 +436,33 @@
       "kind": "source_link",
       "label": "book",
       "href": "https://openstax.org/books/principles-financial-accounting/pages/10-1-describe-and-demonstrate-the-basic-inventory-valuation-methods-and-their-cost-flow-assumptions",
-      "locator": "OpenStax，[§10.1存货计价与成本流假设](https://openstax.org/books/principles-financial-accounting/pages/10-1-describe-and-demonstrate-the-basic-inventory-valuation-methods-and-their-cost-flow-assumptions)及[§10.2期末存货与销售成本](https://openstax.org/books/principles-financial-accounting/pages/10-2-calculate-the-cost-of-goods-sold-and-ending-inventory-using-the-periodic-method)（2019）. 教学批次为本文明确设定.",
-      "source_id": "BBC-S10"
+      "locator": "OpenStax，[§10.1存货计价与成本流假设](https://openstax.org/books/principles-financial-accounting/pages/10-1-describe-and-demonstrate-the-basic-inventory-valuation-methods-and-their-cost-flow-assumptions)、[§10.2期末存货与销售成本](https://openstax.org/books/principles-financial-accounting/pages/10-2-calculate-the-cost-of-goods-sold-and-ending-inventory-using-the-periodic-method)（2019）；教学批次由本文设定.",
+      "source_id": "BBC-S10",
+      "definition_markdown": "[^book]: OpenStax，[§10.1存货计价与成本流假设](https://openstax.org/books/principles-financial-accounting/pages/10-1-describe-and-demonstrate-the-basic-inventory-valuation-methods-and-their-cost-flow-assumptions)、[§10.2期末存货与销售成本](https://openstax.org/books/principles-financial-accounting/pages/10-2-calculate-the-cost-of-goods-sold-and-ending-inventory-using-the-periodic-method)（2019）；教学批次由本文设定."
     },
     {
       "kind": "source_link",
       "label": "book",
       "href": "https://openstax.org/books/principles-financial-accounting/pages/10-2-calculate-the-cost-of-goods-sold-and-ending-inventory-using-the-periodic-method",
-      "locator": "OpenStax，[§10.1存货计价与成本流假设](https://openstax.org/books/principles-financial-accounting/pages/10-1-describe-and-demonstrate-the-basic-inventory-valuation-methods-and-their-cost-flow-assumptions)及[§10.2期末存货与销售成本](https://openstax.org/books/principles-financial-accounting/pages/10-2-calculate-the-cost-of-goods-sold-and-ending-inventory-using-the-periodic-method)（2019）. 教学批次为本文明确设定.",
-      "source_id": "BBC-S11"
+      "locator": "OpenStax，[§10.1存货计价与成本流假设](https://openstax.org/books/principles-financial-accounting/pages/10-1-describe-and-demonstrate-the-basic-inventory-valuation-methods-and-their-cost-flow-assumptions)、[§10.2期末存货与销售成本](https://openstax.org/books/principles-financial-accounting/pages/10-2-calculate-the-cost-of-goods-sold-and-ending-inventory-using-the-periodic-method)（2019）；教学批次由本文设定.",
+      "source_id": "BBC-S11",
+      "definition_markdown": "[^book]: OpenStax，[§10.1存货计价与成本流假设](https://openstax.org/books/principles-financial-accounting/pages/10-1-describe-and-demonstrate-the-basic-inventory-valuation-methods-and-their-cost-flow-assumptions)、[§10.2期末存货与销售成本](https://openstax.org/books/principles-financial-accounting/pages/10-2-calculate-the-cost-of-goods-sold-and-ending-inventory-using-the-periodic-method)（2019）；教学批次由本文设定."
     },
     {
       "kind": "source_link",
       "label": "cat",
       "href": "https://www.sec.gov/Archives/edgar/data/18230/000001823026000008/cat-20251231.htm",
-      "locator": "Caterpillar，[FY2025 10-K](https://www.sec.gov/Archives/edgar/data/18230/000001823026000008/cat-20251231.htm)，Note 1 C. Inventories、Note 8 Inventories（印刷p.89）及Statement 5现金流存货变动行；Item 1用于制造与Financial Products范围. 2025／2024采用LIFO比例70%／65%，表内总额为混合方法下的报告额.",
-      "source_id": "BBC-C04"
+      "locator": "Caterpillar，[FY2025 10-K](https://www.sec.gov/Archives/edgar/data/18230/000001823026000008/cat-20251231.htm)，Note 1 C. Inventories、Note 8 Inventories（印刷p.89）、Statement 5现金流存货变动行及Item 1；2025／2024采用LIFO比例70%／65%，表内总额为混合方法报告额.",
+      "source_id": "BBC-C04",
+      "definition_markdown": "[^cat]: Caterpillar，[FY2025 10-K](https://www.sec.gov/Archives/edgar/data/18230/000001823026000008/cat-20251231.htm)，Note 1 C. Inventories、Note 8 Inventories（印刷p.89）、Statement 5现金流存货变动行及Item 1；2025／2024采用LIFO比例70%／65%，表内总额为混合方法报告额."
     },
     {
       "kind": "source_link",
       "label": "cost",
       "href": "https://www.sec.gov/Archives/edgar/data/909832/000090983225000101/cost-20250831.htm",
-      "locator": "Costco，[FY2025 10-K](https://www.sec.gov/Archives/edgar/data/909832/000090983225000101/cost-20250831.htm)，Note 1 Merchandise Inventories，p.44；Item 1有关制造业务与设施；资产负债表p.39.142为LIFO计量调整，不能自动等同损坏或滞销减记.",
-      "source_id": "BF-S-COST-FY2025-SEC"
+      "locator": "Costco，[FY2025 10-K](https://www.sec.gov/Archives/edgar/data/909832/000090983225000101/cost-20250831.htm)，Note 1 Merchandise Inventories，p.44；Item 1及资产负债表p.39.142为LIFO计量调整，区别于损坏或滞销减记.",
+      "source_id": "BF-S-COST-FY2025-SEC",
+      "definition_markdown": "[^cost]: Costco，[FY2025 10-K](https://www.sec.gov/Archives/edgar/data/909832/000090983225000101/cost-20250831.htm)，Note 1 Merchandise Inventories，p.44；Item 1及资产负债表p.39.142为LIFO计量调整，区别于损坏或滞销减记."
     }
   ]
 }

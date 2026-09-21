@@ -1,12 +1,11 @@
 # 大数定律、中心极限定理与 Monte Carlo 误差
 
-完整证明有限方差Chebyshev弱律，沿冻结PCG64前缀核算支付均值、标准误与区间覆盖，分开模拟误差和模型差.
+证明有限方差下的Chebyshev弱律，并以同一PCG64样本前缀计算均值、标准误和区间覆盖.
 
-Entry: zh-qt12 | Node: QT12 | Language: zh | Editorial revision: 2026-09-21
+Entry: zh-qt12 | Node: QT12 | Language: zh | Editorial revision: 2026-09-22
 
 ## Teaching instructions
-你教授 QT12《大数定律、中心极限定理与Monte Carlo误差》. 先实际读MIT Lecture17所指定完整单元、Cboe采用条款和Dembo具名Slutsky条目；读取本篇正文与冻结参数/默认结果. 记录版本、页/节、iid与矩条件及来源支持范围. p5强律旁述笔误不要照抄；不要宣称本节证明了强律. 必读缺正文时补取经核同版本入口，否则明确缺口. runtime_reading_log 起初为空，不能填编辑的读取记录.
-先问：把模拟n增大100倍，哪类误差缩小，哪类不一定改变？据此进入完整Chebyshev证明，要求读者指出交叉项为零的原因；已会的概率基础直接略过. 复算n=1000的四状态计数、样本均值、SE与近似区间. 每次都说明金额为USD的模型支付，不是期权报价，不偷换风险中性测度. 用共同uniform、嵌套前缀解释图；不同n的5000次覆盖率估计相关，覆盖率也有MCSE. 压力模型必须同时报告对本模型的数值误差和对基准的模型差. 不要把固定n区间说成整条路径同时置信带或下一次支付区间. 弱矩研究只在选择对应分支并实际读取完整设定后展开. 最终检验：读者独立求SE<=100所需n，拆分6997-8000的两类误差，并用离散支付说明均值区间不是预测区间.
+读者为有充分数学背景的高年级本科生至研究生. 先实际读取 agent_packet.required_readings 指定完整单元，选择可选分支后再读 optional_readings；记录题名、版本、定位与支持内容. 缺失必读单元时先取得等价原件，再解释依赖它的命题. 由四状态分布计算解析均值方差，证明有限方差弱律和样本方差一致性，解释CLT及Slutsky；复算冻结前缀、重复覆盖率与MCSE，分解模拟误差和模型差. 用完整推导或计算诊断理解，已掌握步骤直接继承，再用改变条件的任务检验迁移. runtime_reading_log记录实际读取.
 
 Before substantive teaching, actually retrieve every required reading unit for the selected scope. Read its complete designated section, including necessary assumptions, tables and footnotes. A working URL or an editorial access date is not a runtime reading receipt. Record the actual version, location, scope and what it supports. If unavailable, use a previously verified equivalent source; if the required unit remains unavailable, identify that gap rather than teach it from memory. Start runtime_reading_log empty. Once reading is complete, use a substantive diagnostic or follow the reader's request for direct explanation. Advance one complete reasoning task at a time; skip mastered basics. Distinguish original facts, supplied teaching assumptions and inference.
 
@@ -434,19 +433,19 @@ Before substantive teaching, actually retrieve every required reading unit for t
     "input_csv": "https://ou-liu-red-sugar.github.io/notebook/labs/qt-c/data/BusEq-value-weighted-monthly-199001-202512.csv",
     "configuration": "https://ou-liu-red-sugar.github.io/notebook/labs/qt-c/data/experiment-config.json"
   },
-  "learning_task": "从指定支付模型与冻结随机序列重建平均、SE和CLT近似区间，并说明增加n不能消去模型差."
+  "learning_task": "由四状态分布计算解析均值方差，证明有限方差弱律和样本方差一致性，解释CLT及Slutsky；复算冻结前缀、重复覆盖率与MCSE，分解模拟误差和模型差.",
+  "prompt": "读者为有充分数学背景的高年级本科生至研究生. 先实际读取 agent_packet.required_readings 指定完整单元，选择可选分支后再读 optional_readings；记录题名、版本、定位与支持内容. 缺失必读单元时先取得等价原件，再解释依赖它的命题. 由四状态分布计算解析均值方差，证明有限方差弱律和样本方差一致性，解释CLT及Slutsky；复算冻结前缀、重复覆盖率与MCSE，分解模拟误差和模型差. 用完整推导或计算诊断理解，已掌握步骤直接继承，再用改变条件的任务检验迁移. runtime_reading_log记录实际读取.",
+  "content_version": "2026-09-22-deep-review"
 }
 ```
 
 ## Supplied entry
-给定一个支付模型，我们可以反复模拟，再把支付平均. 可是“模拟了一万次”仍留下两个问题：这次平均离**该模型的期望**有多远，以及这个模型是否适合描述我们关心的对象. 前一个是数值抽样问题，后一个不会因为电脑多运行几秒就自动解决.
-
-这一节用一个期望可以精确算出的支付分布，比较理论误差、一次模拟路径与重复覆盖实验. 读完后，你应能重建一个 Monte Carlo 估计及其误差说明，知道哪些结论依赖独立性、可积性或有限方差. 先修是随机变量的期望与方差；极限定理只调用下面明确列出的版本.
+Monte Carlo 平均涉及两个不同问题：有限次抽样的均值离当前模型期望有多远，以及当前模型是否适合目标对象. 增加模拟路径只直接作用于前一个问题. 以下用一个期望可精确计算的离散支付分布比较理论误差、冻结路径和重复覆盖实验.
 
 <a id="qt12-target"></a>
-## 1. 先给模拟一个确切目标
+## 模拟目标与基准
 
-我们沿用一张看涨期权式支付表. SPX 产品采用每指数点 100 美元的乘数和现金结算；其支付以合约规定的行权结算值为依据，不随意用盘中最后报价替代. [^spx] 以下行权价 6,000、四个结算情景和概率是**教学设定**，没有对应一笔已核实的挂牌交易或市场报价.
+沿用看涨期权式支付表. SPX 产品采用每指数点 100 美元的乘数和现金结算，支付按合约规定的行权结算值计算.[^spx] 以下行权价 6,000、四个结算情景和概率均为**教学设定**.
 
 令 $Z$ 表示结算值，$X=100(Z-6000)^+$ 表示一张合约对应的到期支付金额：
 
@@ -457,7 +456,7 @@ Before substantive teaching, actually retrieve every required reading unit for t
 | 3 | 6,100 | 10,000 | 0.4 | 0.3 |
 | 4 | 6,200 | 20,000 | 0.2 | 0.2 |
 
-这里是支付，不是扣除权利金和费用后的利润. Cboe 原件明确区分行权结算值的计算与到期后的现金交付：标准 SPX 的结算值按到期日成分股开盘价计算，行权产生的现金在到期后的下一营业日交付. 券商账户内部何时显示 booking/入账并未由这份产品事实表规定，本实验也不自行补一个时点. 本实验只估计金额函数的模型期望，没有建立现金账户，更没有把概率 $p$ 宣布为定价测度. 因此 $\mathbb{E}_pX$ **不是由本表自动得到的今日期权价格**.
+$X$ 表示按结算值计算的一张合约到期支付. Cboe 规定标准 SPX 的结算值按到期日成分股开盘价计算，行权现金在到期后的下一营业日交付. 本节估计的是教学分布下的期望支付 $\mathbb{E}_pX$.
 
 基准模型的精确计算是
 \[
@@ -470,16 +469,12 @@ Before substantive teaching, actually retrieve every required reading unit for t
 \sigma^2=\mathbb{E}_pX^2-\mu^2=56000000\ {\rm USD}^2,
 \qquad \sigma\approx7483.31\ {\rm USD}.
 \]
-有了这两个真值，我们可以直接检查模拟误差，而不必把模拟结果本身当标准答案. 一次市场支付仍只是一个结果；本节的 $n$ 次是电脑在同一指定分布下重复抽样，不能把它们误读为连续 $n$ 天市场记录. [^inputs]
+这两个解析值给出冻结模拟的误差基准. 这里的 $n$ 表示在同一指定分布下的 iid 模拟抽样次数.[^inputs]
 
 <a id="qt12-lln"></a>
-## 2. 平均值为什么会收敛？
+## 弱大数定律与Chebyshev界
 
-令 $X_1,X_2,\ldots$ 在模拟概率空间上独立同分布，$\bar X_n=n^{-1}\sum_{i=1}^nX_i$. 采用的**弱大数定律**是：若 $\mathbb{E}|X_1|<\infty$，则
-$\bar X_n\to \mathbb{E}[X_1]$ 依概率，即对每个 $\varepsilon>0$，
-$P(|\bar X_n-\mathbb{E}[X_1]|>\varepsilon)\to0$. 它没有声称每增加一次抽样，误差都会减小. [^lln]
-
-在本例有限方差的条件下，我们还能完整证明一个误差界.
+令 $X_i$ 独立同分布，$\bar X_n=n^{-1}\sum_{i=1}^nX_i$. **弱大数定律：** 若 $\mathbb{E}|X_1|<\infty$，则 $\bar X_n\to\mathbb{E}X_1$ 依概率，即每个 $\varepsilon>0$ 均满足 $P(|\bar X_n-\mathbb{E}X_1|>\varepsilon)\to0$.[^lln]
 
 **命题.** 若 $X_i$ iid，$\mathbb{E}[X_i]=\mu$、$\operatorname{Var}(X_i)=\sigma^2<\infty$，则
 \[
@@ -499,38 +494,38 @@ $\varepsilon^2\mathbf1_{\{|\bar X_n-\mu|\ge\varepsilon\}}
 \le(\bar X_n-\mu)^2$，
 两边取期望，再除以 $\varepsilon^2$，即得不等式；右边随 $n$ 趋于零，因而得到依概率收敛.
 
-这里把独立性用在交叉项，而不是用在期望线性性. 若样本相关，就要保留协方差项，不能直接把方差除以 $n$. 这个短证明还使用了有限二阶矩；只有有限一阶绝对矩时，弱律仍成立，但不能沿这条方差计算来证明.
+独立性使交叉协方差为0；相关样本的方差需保留这些项. 上述证明使用有限二阶矩，仅有有限一阶绝对矩的弱律另需截断论证.
 
 <a id="qt12-clt"></a>
-## 3. 从标准误到近似区间
+## CLT与标准误
 
-上面的平方误差计算已经给出平均值的标准差
-$\operatorname{SE}(\bar X_n)=\sigma/\sqrt n$. **标准误描述估计量的抽样波动，不是单次支付的标准差.** 本例 $n=1000$ 时，单次支付标准差仍为 7,483.31 美元，平均值的理论标准误则约为 236.64 美元.
+上面的平方误差计算给出平均值的标准差
+$\operatorname{SE}(\bar X_n)=\sigma/\sqrt n$. 标准误是估计量 $\bar X_n$ 的抽样标准差；本例 $n=1000$ 时，单次支付标准差为 7,483.31 美元，平均值的理论标准误约为 236.64 美元.
 
 采用的经典 iid **中心极限定理**进一步要求 $0<\sigma^2<\infty$，结论是
 \[
 \frac{\sqrt n(\bar X_n-\mu)}{\sigma}\ \Rightarrow\ N(0,1).
 \]
-这是标准化误差的分布收敛，不是说每个 $X_i$ 接近正态，也不是有限 $n$ 时的精确正态身份. [^lln]
+收敛对象是标准化均值误差的分布. [^lln]
 
 模拟时通常以
-$s_n^2=(n-1)^{-1}\sum_i(X_i-\bar X_n)^2$ 估计方差. 这个替换也需要理由：有限二阶矩使 $X_i$ 与 $X_i^2$ 都可积，分别应用大数定律，再用
+$s_n^2=(n-1)^{-1}\sum_i(X_i-\bar X_n)^2$ 估计方差. 有限二阶矩使 $X_i$ 与 $X_i^2$ 都可积，分别应用大数定律，再用
 \[
 s_n^2=\frac n{n-1}\left(\frac1n\sum_iX_i^2-\bar X_n^2\right)
 \]
-可得 $s_n^2\to\sigma^2$ 依概率. 由于 $\sigma>0$，Slutsky 定理允许用 $s_n$ 替代标准化分母；它不要求样本均值和样本标准差独立. 这一步不需要额外假设四阶矩有限. [^slutsky]
+可得 $s_n^2\to\sigma^2$ 依概率. 由于 $\sigma>0$，Slutsky 定理允许用 $s_n$ 替代标准化分母； [^slutsky]
 
 于是我们使用近似 95% 区间
 \[
 I_n=\left[\bar X_n-1.96\,\frac{s_n}{\sqrt n},
           \bar X_n+1.96\,\frac{s_n}{\sqrt n}\right].
 \]
-其频率解释是：按同一模型反复生成整份样本，这一构造的区间覆盖固定 $\mu$ 的比例在适用极限下趋近 95%. 它不是下一次支付的预测区间，也不是“观察完这个区间后，固定均值有 95% 概率在里面”. 若某次离散样本恰好全相同、$s_n=0$，计算会给零宽区间；这并不证明总体无波动，只说明这次学生化近似可能失灵.
+频率解释是：按同一模型反复生成整份样本，这一构造覆盖固定 $\mu$ 的比例在适用极限下趋近 95%.  若某次离散样本恰好全相同而 $s_n=0$，公式会给零宽区间，此时学生化近似可能失灵.
 
 <a id="qt12-experiment"></a>
-## 4. 看同一路径，而不是每次换一次实验
+## 路径与覆盖率
 
-冻结实验使用 NumPy `Generator(PCG64(1201))` 一次生成 10,000 个 $[0,1)$ 均匀数，再按累计概率映射四个状态. $n=100,1000,10000$ 都取同一路径的前缀；基准与压力模型也使用同一组均匀数，只有映射阈值改变. [^inputs] 因此切换 $n$ 是延长同一次记录，不是三次独立实验.
+冻结实验使用 NumPy `Generator(PCG64(1201))` 一次生成 10,000 个 $[0,1)$ 均匀数，再按累计概率映射四个状态. $n=100,1000,10000$ 都取同一路径的前缀；基准与压力模型也使用同一组均匀数，只有映射阈值改变. [^inputs] 各样本量共享前缀.
 
 | 模型 | $n$ | 样本均值（美元） | 对本模型的数值误差 | 估计 SE | 理论 SE |
 |---|---:|---:|---:|---:|---:|
@@ -539,31 +534,30 @@ I_n=\left[\bar X_n-1.96\,\frac{s_n}{\sqrt n},
 | 基准 | 10,000 | 7,995.00 | -5.00 | 75.03 | 74.83 |
 | 压力 | 100 | 6,100.00 | -900.00 | 750.69 | 781.02 |
 | 压力 | 1,000 | 6,920.00 | -80.00 | 248.95 | 246.98 |
-| 压力 | 10,000 | 6,997.00 | -3.00 | 78.28 | 78.10 |
+| 压力 | 10,000 | 6,997.00 | -3.00 | 78.28 | 78.1 |
 
 以默认基准 $n=1000$ 为例，四状态次数为 $[95,313,389,203]$，所以
 \[
 \bar X_{1000}=\frac{389(10000)+203(20000)}{1000}=7950.
 \]
-将这组计数代入样本方差公式，得到估计 SE 为 238.65 美元，而模型给出的理论 SE 为 236.64 美元. 两者不必完全相等；前者本身也由随机样本估计. 此次近似区间为 **[7,482.24，8,417.76] 美元**，包含模型均值 8,000.
+将这组计数代入样本方差公式，得到估计 SE 为 238.65 美元，而模型给出的理论 SE 为 236.64 美元. 估计SE随样本变化. 此次近似区间为 **[7,482.24，8,417.76] 美元**，包含模型均值 8,000.
 
 <div data-experiment-slot="EXP-MC-01"></div>
 
-先观察实际支付路径，再看累计平均曲线. 曲线的来回波动不会违反大数定律；上表恰好三次误差逐渐变小，也不能证明每一步都如此. 图中的区间针对当前选定的固定 $n$，没有同时覆盖整条路径的承诺.
+累计平均随新增样本上下波动，图中区间对应当前固定样本量 $n$.
 
 为了检验区间构造，另用 seed 1202 生成 5,000 行独立重复，每行长度 10,000，再各取三个前缀. 每个 $n$ 的 5,000 次重复彼此独立，但**不同 $n$ 的覆盖率结果互相关联**，因为它们共享每行前缀.
 
 | $n$ | 覆盖模型均值的次数 / 5,000 | 覆盖率 | 覆盖率的 MCSE（百分点） |
 |---:|---:|---:|---:|
-| 100 | 4,750 | 95.00% | 0.3082 |
-| 1,000 | 4,792 | 95.84% | 0.2824 |
-| 10,000 | 4,723 | 94.46% | 0.3235 |
+| 100 | 4,750 | 95.00% | 0.308 |
+| 1,000 | 4,792 | 95.84% | 0.282 |
+| 10,000 | 4,723 | 94.46% | 0.324 |
 
-若覆盖率为 $\widehat c$，覆盖指示变量是 0/1，覆盖率自身的 Monte Carlo 标准误估计为
-$\sqrt{\widehat c(1-\widehat c)/5000}$. 因此 95.84% 不等于区间“理论覆盖率被改成了 95.84%”；它是有限次重复所得的随机比例，且区间本来也是有限样本近似. 表中没有把数值强行调整到 95%.
+覆盖指示为0/1，覆盖率估计 $\widehat c$ 的Monte Carlo标准误为 $\sqrt{\widehat c(1-\widehat c)/5000}$. 95.84%是这批重复样本的覆盖比例，变化包含重复实验误差和区间的有限样本近似误差.
 
 <a id="qt12-model-error"></a>
-## 5. 多抽样消不掉模型差异
+## 模拟误差与模型差
 
 压力模型的期望为 7,000 美元、方差为 61,000,000 美元². 默认 $n=1000$ 得到 6,920 美元. 现在有两种误差：
 \[
@@ -571,25 +565,23 @@ $\sqrt{\widehat c(1-\widehat c)/5000}$. 因此 95.84% 不等于区间“理论�
 =\underbrace{(6920-7000)}_{\text{对所模拟模型的数值误差 }-80}
 +\underbrace{(7000-8000)}_{\text{两模型均值差 }-1000}.
 \]
-增加 $n$，第一项会向零收敛，第二项不变. 我们并没有证明基准 $p$ 是现实真相；这个比较只是说明，即使两套模型的差异已知，也不能用更窄的数值误差带把它抹掉.
+增加 $n$，第一项会向零收敛，第二项保持为两模型均值之差.
 
-矩条件同样不会被大样本自动创造. 比如 $P(Y>y)=y^{-1.5}$（$y\ge1$）的 Pareto 分布，均值为 3，二阶矩却无限：普通均值大数定律可以使用，有限方差版 CLT 和 $\sigma/\sqrt n$ 则不能照搬.
+Pareto分布 $P(Y>y)=y^{-1.5}$（$y\ge1$）满足均值3、二阶矩无限. 普通均值弱律成立，有限方差CLT的条件不成立.
 
 <details>
-<summary>选读：没有有限方差时，均值估计并未停止</summary>
+<summary>选读：弱矩条件下的均值估计</summary>
 
-关于更弱矩条件下的均值估计，Cherapanamjeri 等有专门研究；它是另一套条件与方法，不是把本例的标准误公式继续使用的理由. [^weak]
+Cherapanamjeri 等研究更弱矩条件下的均值估计，使用不同的矩条件和估计方法.[^weak]
 
 </details>
 
-把这两项区分带回金融分析：如果不确定的是模型参数与数据生成机制，增加模拟路径只会更精确地算出**当前假设的答案**. 下一节 [估计误差与预测不确定性](https://ou-liu-red-sugar.github.io/zh/notebook/estimation-prediction-uncertainty/)再研究样本信息本身不足所带来的问题.
-
 <a id="qt12-exercises"></a>
-## 6. 检查你能否独立报告模拟结果
+## 练习与解析
 
 **题一：要多少次？** 本例基准模型的理论 SE 要不超过 100 美元，最少需要多少次 iid 抽样？这是保证实际误差不超过 100 美元吗？
 
-**解析.** 由 $\sqrt{56000000/n}\le100$ 得 $n\ge5600$. 它限制的是抽样标准差，不是每一次误差的确定上界. 即使用该 $n$，单次估计仍可能偏离均值超过 100 美元；若需要一个概率界，还要说明采用 Chebyshev 还是 CLT 近似.
+**解析.** $\sqrt{56000000/n}\le100$ 给出 $n\ge5600$，约束抽样标准差. 若要求实际误差的概率界，可用Chebyshev界或满足条件时的CLT近似.
 
 **题二：两个不同的“误差”.** 压力模型 $n=10000$ 的估计是 6,997 美元. 分别计算相对本模型和相对基准模型的差异，并解释再加一百倍路径可能改变什么.
 
@@ -597,19 +589,17 @@ $\sqrt{\widehat c(1-\widehat c)/5000}$. 因此 95.84% 不等于区间“理论�
 
 **题三：区间到底覆盖什么？** 把 [7,482.24，8,417.76] 美元解释为“下一次支付大概率在这里”是否合理？
 
-**解析.** 不合理. 本模型的下一次支付只可能为 0、10,000、20,000 美元，三个数都不在该区间里. 该区间的构造目标是模型**均值** 8,000，而不是未来单次支付. 这个直接反例比一句“置信区间不同于预测区间”更能检验对象是否分清.
+**解析.** 单次支付仅取0、10,000、20,000，均在该区间外. 区间估计的对象是均值8,000.
 
-[^spx]: Cboe，*SPX Index Options Fact Sheet*，©2026，p.2 “Summary Product Specifications”的乘数、结算金额与结算值定义，[原件](https://cdn.cboe.com/resources/spx/spx-fact-sheet.pdf)，访问于 2026-09-21. 标准 SPX 与 SPXW 的结算值计算方式不同；同页还明确行权现金在到期后的下一营业日交付. 券商内部 booking 时点不由该事实表确定.
+[^spx]: Cboe，*SPX Index Options Fact Sheet*，©2026，pp.1–2：欧式现金结算、$100 乘数、标准 SPX 结算值及到期后下一营业日现金交付，[原件](https://cdn.cboe.com/resources/spx/spx-fact-sheet.pdf)，访问于 2026-09-21.
 [^lln]: MIT 6.436J/15.085J，Fall 2018，*Lecture 17: Laws of Large Numbers and Central Limit Theorem*，§1 Markov/Chebyshev 不等式（p.1）、§3 WLLN（pp.5–6）与 §4 CLT（p.7），[完整讲义](https://ocw.mit.edu/courses/6-436j-fundamentals-of-probability-fall-2018/f44fa78f05ac31a4ba2bd82f599dcf60_MIT6_436JF18_lec17.pdf). 讲义 p.5 强律旁述中的 $X_n$ 应读作样本均值.
 [^inputs]: `QT-C-inputs-20260921-v1`，[参数合同](/notebook/labs/qt-c/data/experiment-config.json) 的 `monte_carlo`，[结果](/notebook/labs/qt-c/data/results.json) 的 `Monte_Carlo`. 共同均匀数、全长状态序列、前缀均值/SE 与每次覆盖指示均保留；复算程序见 [compute/reproduce.py](/notebook/labs/qt-c/compute/reproduce.py). 图与表绑定这些冻结路径.
-[^weak]: Y. Cherapanamjeri、N. Tripuraneni、P. L. Bartlett、M. I. Jordan，*Optimal Mean Estimation without a Variance*：[COLT 2022/PMLR 178 扩展摘要](https://proceedings.mlr.press/v178/cherapanamjeri22a.html)；[开放完整预印本 2011.12433v2](https://arxiv.org/html/2011.12433v2) 的 §1（Problem 1.1、主要定理）及 §3 算法概述. 完整预印本版本为 2020 年，与 2022 扩展摘要分开引用；这里只用于说明弱矩条件下需要不同的均值估计方法.
+[^weak]: Y. Cherapanamjeri、N. Tripuraneni、P. L. Bartlett、M. I. Jordan，*Optimal Mean Estimation without a Variance*：[COLT 2022/PMLR 178 扩展摘要](https://proceedings.mlr.press/v178/cherapanamjeri22a.html)；[开放完整预印本 2011.12433v2](https://arxiv.org/html/2011.12433v2) 的 §1（Problem 1.1、主要定理）及 §3 算法概述. 完整预印本版本为 2020 年，与 2022 扩展摘要分开引用.
 
-
-[^slutsky]: Amir Dembo，*Probability Theory: STAT310/MATH230*，2021-04-15 版，Exercise 3.2.8 (a)–(c)，p.106，[公开原文](https://adembo.su.domains/stat-310b/lnotes.pdf). 原文给出趋于常数时的和与积版本；这里对 $\sigma/s_n\to1$ 使用积版本，$\sigma>0$ 是倒数变换所需条件. 它是所调用结果的精确定位，不把练习条目称作书中已经附出的完整证明.
-
+[^slutsky]: Amir Dembo，*Probability Theory: STAT310/MATH230*，2021-04-15 版，Exercise 3.2.8 (a)–(c)，p.106，[公开原文](https://adembo.su.domains/stat-310b/lnotes.pdf). 原文给出趋于常数时的和与积版本；这里对 $\sigma/s_n\to1$ 使用积版本，$\sigma>0$ 是倒数变换所需条件.
 
 ## Additional teaching material
-以下是本篇真正使用的输入与结果；完整随机数组按[完整冻结结果](https://ou-liu-red-sugar.github.io/notebook/labs/qt-c/data/results.json) 的指定路径读取.
+冻结输入与结果见[完整冻结结果](https://ou-liu-red-sugar.github.io/notebook/labs/qt-c/data/results.json)；按本篇指定 JSON 路径读取.
 
 ## Experiment inputs and static equivalents
 ```json
@@ -941,7 +931,7 @@ $\sqrt{\widehat c(1-\widehat c)/5000}$. 因此 95.84% 不等于区间“理论�
 ```
 
 ## Sources
-- [QT-C 冻结输入：BusEq 月收益、离散支付与重抽结果](https://ou-liu-red-sugar.github.io/notebook/labs/qt-c/data/BusEq-value-weighted-monthly-199001-202512.csv): 原源CSV首个value-weighted monthly区块BusEq，199001–202512、原行775–1206共432月，缺失0. 归档源链接本身可变；实际随包为逐字节核验的432行提取及配置，结果由同样冻结算法在作者沙盒复算. 原全行业ZIP不在此包内. MC/AR是教学模拟而非市场资料.
+- [QT-C 冻结输入：BusEq 月收益、离散支付与重抽结果](https://ou-liu-red-sugar.github.io/notebook/labs/qt-c/data/BusEq-value-weighted-monthly-199001-202512.csv): 从原始 CSV 的 value-weighted monthly 区块提取 BusEq，覆盖 1990-01 至 2025-12 的 432 个月，原始行号 775–1206，无缺失值. 配套文件保存提取数据、实验配置及计算算法；MC 和 AR 使用教学模拟数据.
 - [Lecture 17: Laws of Large Numbers and Central Limit Theorem](https://ocw.mit.edu/courses/6-436j-fundamentals-of-probability-fall-2018/f44fa78f05ac31a4ba2bd82f599dcf60_MIT6_436JF18_lec17.pdf): 采用iid L1弱律和有限正方差CLT；正文完整给有限方差Chebyshev短证明. p.5强律旁述的X_n为笔误，应为样本均值；未照抄且未扩写强律证明.
 - [Probability Theory: STAT310/MATH230](https://adembo.su.domains/stat-310b/lnotes.pdf): Exercise 3.2.8：当每个 n 的变量定义在同一概率空间、第二个极限为常数时，给出和与积的 Slutsky 形式；用于解释以样本标准差替代总体标准差.
 - [SPX Index Options Fact Sheet](https://cdn.cboe.com/resources/spx/spx-fact-sheet.pdf): 支持每点100美元、欧式现金结算、行权结算值及到期后下一营业日的现金交付. 四状态未来值、行权价6000与概率均为教学假设；预期支付不自动成为期权现价. 券商账户内部booking时点不由该事实表给出.

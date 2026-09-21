@@ -2,16 +2,10 @@
 
 从同一联合表选对条件分母，重建 Bayes 更新，并分清独立、不相关与因果.
 
-Entry: zh-qt05 | Node: QT05 | Language: zh | Editorial revision: 2026-09-21
+Entry: zh-qt05 | Node: QT05 | Language: zh | Editorial revision: 2026-09-22
 
 ## Teaching instructions
-你正在使用一份公开教学包，读者具有高年级本科至研究生的数学背景. 先实际读取 required_readings 中本次采用的完整单元，再进入讲解；记录版本、页/节、关键假设与支持范围. 仅取得目录、摘要或失败链接不算读完. 已在本次会话完整取得的同一版本可以复用. 找不到正文时尝试已核公开等价版本并说明版本变化，仍缺失则明确缺少的单元，不编造已读内容.
-以下正文、输入和解析为共同来源，不能自行改变数字或把教学概率改称样本频率、现实真值或定价测度. 不要访问账户. 每次推进一个完整推理任务；已掌握的基础可跳过讲解，但承重条件不能省略. 静态说明与交互同义；工具不能运行时直接使用完整静态输入与精确计算，不声称运行过实验.
-
-当前词条：QT05《条件概率、独立性与信息更新》. 本次只教这个节点及选择的证明分支.
-诊断任务：先给四状态表，不给公式，让读者选出计算 P(T|H) 的分母，并问交换 T/H 后是否同一问题.
-通过标准：能算 1/3 与 1，解释 P(B)=0 时无定义；用另一联合表独立重建 Bayes；不从相关性推因果.
-先让读者作解释或计算，再依完整解析反馈；最后更换分组、概率或条件做迁移，不能只询问“懂了吗”.
+读者为有充分数学背景的高年级本科生至研究生. 先实际读取 agent_packet.required_readings 指定完整单元，选择可选分支后再读 optional_readings；记录题名、版本、定位与支持内容. 缺失必读单元时先取得等价原件，再解释依赖它的命题. 由联合概率表推导条件概率和Bayes公式，检查条件事件的正概率要求；用反例区分独立、不相关与条件独立. 用完整推导或计算诊断理解，已掌握步骤直接继承，再用改变条件的任务检验迁移. runtime_reading_log记录实际读取.
 
 Before substantive teaching, actually retrieve every required reading unit for the selected scope. Read its complete designated section, including necessary assumptions, tables and footnotes. A working URL or an editorial access date is not a runtime reading receipt. Record the actual version, location, scope and what it supports. If unavailable, use a previously verified equivalent source; if the required unit remains unavailable, identify that gap rather than teach it from memory. Start runtime_reading_log empty. Once reading is complete, use a substantive diagnostic or follow the reader's request for direct explanation. Advance one complete reasoning task at a time; skip mastered basics. Distinguish original facts, supplied teaching assumptions and inference.
 
@@ -488,69 +482,78 @@ Before substantive teaching, actually retrieve every required reading unit for t
       }
     },
     "body_scope": "完整正文、静态核算与题目解析"
-  }
+  },
+  "learning_task": "由联合概率表推导条件概率和Bayes公式，检查条件事件的正概率要求；用反例区分独立、不相关与条件独立.",
+  "content_version": "2026-09-22-deep-review"
 }
 ```
 
 ## Supplied entry
-这是一页可查参考. 要解决的不是“怎样给一个事件猜概率”，而是：已经给定一份联合分布，收到某项信息后，计算范围和分母怎样改变. 下面的概率都来自明确的教学模型，不是历史样本频率.
+给定一份联合分布后，条件概率把计算范围限制到条件事件，并用该事件的概率重新归一化. 本例的概率是模型输入.
 
 <a id="qt05-definition"></a>
-## 定义：固定条件，重新归一化
+## 条件概率
 
 令 $(\Omega,\mathcal F,P)$ 为概率空间，$A,B\in\mathcal F$ 且 $P(B)>0$，则**给定 $B$ 的条件概率**是指
+
 $$
 P(A\mid B)=\frac{P(A\cap B)}{P(B)}.
 $$
 
-分子只保留同时属于 $A$ 和 $B$ 的结果；分母把整个 $B$ 的质量重新缩放为 $1$. 因此 $P(\,\cdot\mid B)$ 仍是概率测度：全空间的条件概率为 $1$，不交事件的交集部分仍不交，所以可列可加性也保留. $P(B)=0$ 时，这个比值**没有定义**，不能令 $0/0=0$. [^conditional]
+条件概率在B内重新归一化，全空间质量1，交集分解保留可列可加性. $P(B)=0$ 时该比值未定义.[^conditional]
 
 若 $B_1,\ldots,B_m$ 两两不交并覆盖 $\Omega$，则 $A$ 是各个 $A\cap B_i$ 的不交并，故
+
 $$
 P(A)=\sum_{i:P(B_i)>0}P(A\mid B_i)P(B_i).
 $$
+
 零概率项直接对交集取零，不在那里计算条件比值. 进一步，若 $P(A)>0$ 且 $P(B_i)>0$，由 $P(A\cap B_i)=P(A\mid B_i)P(B_i)$ 得到 **Bayes 公式**
+
 $$
 P(B_i\mid A)
 =\frac{P(A\mid B_i)P(B_i)}
 {\sum_{j:P(B_j)>0}P(A\mid B_j)P(B_j)}.
 $$
 
-这不是另一套概率规则，只是用同一个交集概率交换计算方向. 分母仍然是“本次已经知道发生了的事件”的概率.
+Bayes公式用同一交集交换条件方向，分母为所观测事件的概率.
 
 <a id="qt05-example"></a>
-## 一张表，两个不同的问题
+## 条件方向与联合表
 
-我们先固定四个可能结果. 信号 $L/H$ 是模型中先收到的信息，$T$ 是我们关心的尾部状态事件. 信号名称本身不说明经济原因.
+四个模型状态中先收到L/H信号，T表示尾部状态：
 
 | 状态 | 模型概率 | 信号 | 是否属于 $T$ |
 |---|---:|---|---|
-| $\omega_1$ | $0.10$ | $L$ | 否 |
-| $\omega_2$ | $0.30$ | $L$ | 否 |
-| $\omega_3$ | $0.40$ | $H$ | 否 |
-| $\omega_4$ | $0.20$ | $H$ | 是 |
+| $\omega_1$ | $0.1$ | $L$ | 否 |
+| $\omega_2$ | $0.3$ | $L$ | 否 |
+| $\omega_3$ | $0.4$ | $H$ | 否 |
+| $\omega_4$ | $0.2$ | $H$ | 是 |
 
 这里 $H=\{\omega_3,\omega_4\}$，$T=\{\omega_4\}$. 不附加信息时 $P(T)=0.2$；得知 $H$ 以后，只在总质量为 $0.6$ 的后两行中比较：
+
 $$
 P(T\mid H)=\frac{0.2}{0.6}=\frac13.
 $$
+
 反过来，得知 $T$ 以后只剩最后一行，而这一行一定属于 $H$：
+
 $$
 P(H\mid T)=\frac{0.2}{0.2}=1.
 $$
 
-Bayes 重算前一结果是 $1\times0.2/0.6=1/3$. 两个条件概率不同并不矛盾：一个问“看见 $H$ 后有多大概率处于 $T$”，另一个问“处于 $T$ 时会不会看见 $H$”.
+Bayes给 $P(T\mid H)=1\times0.2/0.6=1/3$；$P(H\mid T)=1$ 则来自T包含于H.
 
 <div data-experiment-slot="EXP-QTB-EVENTS-01"></div>
 
-操作时先选事件，再选条件事件. 核算顺序始终是“筛出条件行—算交集质量—除以条件质量”. 默认结果如下，离开交互也能复算：
+计算顺序是“筛出条件行—算交集质量—除以条件质量”. 默认模型结果如下：
 
 | 对象 | $P(T)$ | $P(H)$ | $P(T\cap H)$ | $P(T\mid H)$ | $P(H\mid T)$ |
 |---|---:|---:|---:|---:|---:|
 | 默认模型 | $0.2$ | $0.6$ | $0.2$ | $1/3$ | $1$ |
 
 <a id="qt05-independence"></a>
-## 独立、不相关与条件变化
+## 独立与不相关
 
 令 $A,B$ 为事件，则二者**独立**是指 $P(A\cap B)=P(A)P(B)$. 这个乘法定义不需要除法，也适用于零概率事件. 只有当 $P(B)>0$ 时，才可等价改写为 $P(A\mid B)=P(A)$. 上述例中 $0.2\ne0.2\times0.6$，因此 $T$ 与 $H$ 不独立. [^independence]
 
@@ -558,24 +561,21 @@ Bayes 重算前一结果是 $1\times0.2/0.6=1/3$. 两个条件概率不同并不
 
 同样，独立性要连同条件一起看. 两枚独立公平硬币原本独立；给定“两次结果相同”后，只剩 $HH,TT$ 两个等概率结果. 此时已知第一枚正面，就确定第二枚也是正面. 原分布独立，不代表条件分布仍独立.
 
-这里的更新都在既定联合分布内部完成. 表中出现相关或条件概率变化，并没有定义“人为改变信号”时会怎样改变结果；因而不能单凭这张表，把 $H$ 解释为导致 $T$ 的原因.
+这些更新只改变既定联合分布下的条件集合；若要讨论干预 $H$ 对 $T$ 的因果效应，还需要额外的因果结构.
 
 <a id="qt05-tests"></a>
-## 自检与解析
+## 练习与解析
 
 **题 1.** 默认表中，得知 $L$ 后 $T$ 的概率是多少？若把 $H$ 两行的概率都改为零，还能计算 $P(T\mid H)$ 吗？
 
-**解析.** $P(L)=0.4$ 且 $T\cap L=\varnothing$，故 $P(T\mid L)=0/0.4=0$. 但 $P(H)=0$ 时的条件比值没有定义. 前一种零是有定义的计算结果，后一种是缺少合法分母；二者不能用同一个数表示.
+**解析.** $P(L)=0.4$、$T\cap L=\varnothing$，所以 $P(T\mid L)=0$. $P(H)=0$ 时条件比值未定义.
 
 **题 2.** 另一模型有 $P(T)=0.1$、$P(H\mid T)=0.8$、$P(H\mid T^c)=0.2$. 收到 $H$ 后 $T$ 的概率是多少？
 
-**解析.** 先用不交分解得到 $P(H)=0.8(0.1)+0.2(0.9)=0.26$，再得 $P(T\mid H)=0.08/0.26=4/13$. 不能直接答 $0.8$，因为那是相反方向的条件概率. 也不能仅凭更新后的 $4/13$ 判断干预 $H$ 的因果效果.
+**解析.** $P(H)=0.8(0.1)+0.2(0.9)=0.26$，故 $P(T\mid H)=0.08/0.26=4/13$.
 
-需要把每个事件中的概率更新变成一个随信息变化的数值预测时，继续看 [按已有信息分组平均](https://ou-liu-red-sugar.github.io/zh/notebook/conditional-expectation/).
-
-[^conditional]: MIT 6.436J/15.085J, *Lecture 3: Conditioning and Independence*，Fall 2018，§1、pp.1–3：条件概率、全概率与 Bayes 公式. 本文联合表为另设的教学构造. [公开讲义](https://ocw.mit.edu/courses/6-436j-fundamentals-of-probability-fall-2018/5ba99e3803701c145f1d06c26dcf61b8_MIT6_436JF18_lec03.pdf).
-[^independence]: 同讲义 §2 开头、pp.3–4 的独立性定义. 本文的三点随机变量与硬币条件例直接按该定义核算，不是经验调查结论.
-
+[^conditional]: MIT 6.436J/15.085J, *Lecture 3: Conditioning and Independence*，Fall 2018，§1、pp.1–3：条件概率、全概率与 Bayes 公式. [公开讲义](https://ocw.mit.edu/courses/6-436j-fundamentals-of-probability-fall-2018/5ba99e3803701c145f1d06c26dcf61b8_MIT6_436JF18_lec03.pdf).
+[^independence]: 同讲义 §2 开头、pp.3–4 的独立性定义.
 
 ## Experiment inputs and static equivalents
 ```json
@@ -794,7 +794,7 @@ Bayes 重算前一结果是 $1\times0.2/0.6=1/3$. 两个条件概率不同并不
 ```
 
 ## Sources
-- [Lecture 3: Conditioning and Independence](https://ocw.mit.edu/courses/6-436j-fundamentals-of-probability-fall-2018/5ba99e3803701c145f1d06c26dcf61b8_MIT6_436JF18_lec03.pdf): 支持正概率事件的条件概率、Bayes 与独立性的定义. 四状态表与三点不相关反例为本包自行构造，不是讲义中的金融数据.
+- [Lecture 3: Conditioning and Independence](https://ocw.mit.edu/courses/6-436j-fundamentals-of-probability-fall-2018/5ba99e3803701c145f1d06c26dcf61b8_MIT6_436JF18_lec03.pdf): 正概率事件下的条件概率、Bayes 公式与独立性的定义.
 
 ## Content relations
 ```json

@@ -2,10 +2,10 @@
 
 Separate the value of the contract at expiry from the result after paying the premium.
 
-Entry: en-call-payoff | Node:  | Language: en | Editorial revision: 2026-09-20
+Entry: en-call-payoff | Node:  | Language: en | Editorial revision: 2026-09-22
 
 ## Teaching instructions
-First ask me what strike100 and premium8 represent. Ask one question at a time. Derive the payoff from the exercise right, then work through90,100,105,108,120, asking for both payoff and profit. Let me predict the effect of changing the premium before using the graph. Use a pre-expiry sale at12 to distinguish market price, cost basis and expiry payoff. Finish with equally likely terminal prices90 and120 and ask why expected payoff is10 rather than5. Explain each answer after I attempt it.
+Read the reference units supplied with this entry before teaching; record the version and sections actually read. Assume upper-undergraduate mathematical preparation. Ask me to distinguish the strike of 100 and premium of 8, derive the expiry payoff, and compare payoff with profit at 105 and 120. Use a sale at 12 before expiry to distinguish original cost from opportunity cost. Finish with equally likely terminal prices of 90 and 120 and ask why expected payoff is 10 while payoff at the expected price is 5. Use my first answer to skip familiar steps, and explain the reasoning after each attempt.
 
 Before substantive teaching, actually retrieve every required reading unit for the selected scope. Read its complete designated section, including necessary assumptions, tables and footnotes. A working URL or an editorial access date is not a runtime reading receipt. Record the actual version, location, scope and what it supports. If unavailable, use a previously verified equivalent source; if the required unit remains unavailable, identify that gap rather than teach it from memory. Start runtime_reading_log empty. Once reading is complete, use a substantive diagnostic or follow the reader's request for direct explanation. Advance one complete reasoning task at a time; skip mastered basics. Distinguish original facts, supplied teaching assumptions and inference.
 
@@ -25,15 +25,15 @@ Write expectation as \mathbb{E}, conditional expectation as \mathbb{E}[X\mid\mat
 
 ## Supplied entry
 
-## Start with the right you bought [en-q-call-right]
+## The call right and its purchase price [en-q-call-right]
 
-A financial asset is a set of rights. A call option makes that idea particularly useful: the right can have positive value at expiry while the trade still loses money. To understand why, separate what the contract delivers from what you paid to acquire it.
+A call option can have positive value at expiry while the trade still loses money. The distinction is between what the contract delivers at expiry and what you paid earlier to acquire the right.
 
 Consider one European call on one unit of an underlying asset. Its strike is 100, and you pay a premium of 8 when you buy it. Hold it until expiry, ignore fees, taxes and financing costs, and measure the exercise outcome in cash-equivalent terms. There is no additional contract multiplier in this example.
 
 The call gives you the right to buy the underlying for 100 at expiry. The strike is the purchase condition if you exercise; the premium is what you paid earlier to obtain that choice. Letting the right expire does not refund the premium. Keep the two dates in view: at purchase you pay 8; at expiry you receive whatever economic value the right then provides. [The contract and its terms](https://www.optionseducation.org/optionsoverview/options-basics)
 
-## Derive the payoff before calculating profit [en-def-call-payoff]
+## Expiry payoff and trade profit [en-def-call-payoff]
 
 Write $S_T$ for the underlying price at expiry. Below 100, buying through the option offers no advantage over buying in the market, so you can let the right expire. Above 100, buying an asset worth $S_T$ for 100 produces a difference of $S_T-100$.
 
@@ -43,13 +43,13 @@ When the asset is worth 120, the payoff is 20. Obtaining the asset through exerc
 
 To calculate the whole trade's profit or loss, include the premium:
 $$\Pi_T=\max(S_T-100,0)-8.$$
-Subtracting 8 accounts for the initial payment. It does not represent a second premium charged at expiry. Trace the relationship aloud: terminal underlying price determines contractual payoff; combining that payoff with the initial premium gives trading profit or loss. The payoff is nonnegative, but profit need not be.
+Subtracting 8 accounts for the initial payment. Terminal underlying price determines contractual payoff, and combining that payoff with the initial premium gives trading profit or loss. The payoff is nonnegative, but profit need not be.
 
-## Work through five outcomes, then change the diagram [en-q-premium]
+## Strike, break-even, and sunk premium [en-q-premium]
 
 At $S_T=90$, exercise offers no positive difference. Payoff is 0 and profit is −8. At 100 the difference is still zero, so both figures stay the same. At 105, payoff is 5 but profit is −3. The option is in the money and has a positive payoff, yet the trade loses money.
 
-At 108, payoff is 8 and profit is zero. At 120, payoff is 20 and profit is 12. Keep the two columns separate as you work through the table.
+At 108, payoff is 8 and profit is zero. At 120, payoff is 20 and profit is 12.
 
 | Terminal price | Payoff | Premium paid | Profit |
 | --- | ---: | ---: | ---: |
@@ -61,42 +61,42 @@ At 108, payoff is 8 and profit is zero. At 120, payoff is 20 and profit is 12. K
 
 The strike of 100 marks where positive intrinsic value begins. The break-even price is 108 because $S_T-100-8=0$ there.
 
-Pause at 105. Why take the exercise value if the trade still loses 3? Abandoning a value of 5 would leave a loss of 8 instead. The premium has already been paid; the expiry choice is between value of 5 and zero.
+At 105, taking the exercise value of 5 leaves a loss of 3; abandoning it would leave a loss of 8. The premium is already paid, so the expiry choice is between value of 5 and zero.
 
-Spend two minutes with the controls. First reproduce 105 and 108. Then change only the premium from 8 to 12. Predict which line moves before looking at it, find the new break-even point, and restore the original parameters.
+
 
 ### Illustration — paths and results
 The horizontal axis is terminal underlying price. Teal is expiry payoff; orange is profit after premium. At the default S_T=120, payoff=20 and profit=12; break-even=108.
 Formula: payoff=max(S_T-K,0); profit=payoff-premium; break-even=K+premium
 Default: K=100; premium=8; S_T=120; quantity=1.
-Conditions: European long call held to expiry; one underlying unit; excludes fees, taxes, financing and subsequent underlying holdings. Not a current option price.
+Conditions: European long call held to expiry; one underlying unit; excludes fees, taxes, financing and subsequent underlying holdings.
 
-## An expiry diagram is not a current price chart [en-q-option-quote]
+## Pre-expiry price and opportunity cost [en-q-option-quote]
 
 With $S_T$ on the horizontal axis, payoff stays at zero below the strike and rises with slope one above it. The profit line sits 8 lower and crosses zero at 108. The horizontal axis shows alternative expiry outcomes, not the passage of time. Moving the marker to 120 asks what happens if the underlying finishes at 120.
 
 Suppose the option trades at 12 before expiry. Selling then produces a profit of 12−8=4 for the original buyer. The payment comes from the buyer taking over the position; the seller no longer holds its later expiry payoff.
 
-That quote does not change the function $\max(S_T-100,0)$. A new buyer paying 12 has a different cost basis and therefore a different profit line. If you retain the position, your total profit measured from the original purchase still subtracts 8. If instead you compare holding now with selling now,12 is the sale proceeds you forgo. The starting point determines which comparison you are making.
+That quote does not change the function $\max(S_T-100,0)$. A new buyer paying 12 has a different cost basis and therefore a different profit line. If you retain the position, your total profit measured from the original purchase still subtracts 8. If instead you compare holding now with selling now, 12 is the sale proceeds you forgo. The starting point determines which comparison you are making.
 
-## Check the states before taking an average [en-q-option-boundaries]
+## Nonlinear payoff and state averages [en-q-option-boundaries]
 
 Moving the expiry underlying price from 90 to 100 changes the call payoff by zero. Moving it from 110 to 120 changes payoff by 10. Equal changes in the underlying do not always produce equal changes in the option outcome.
 
 Now suppose, purely for this probability example, that expiry prices of 90 and 120 are equally likely. Their average is 105. But the call payoffs are 0 and 20, whose average is 10—not the payoff of 5 obtained by inserting the average price into the formula. Averaging before applying a nonlinear function is different from averaging its outcomes.
 
-Expected expiry profit in this example is 10−8=2. The 10 is an average future payoff under the stated probabilities;8 is the initial purchase price. The average still leaves a possible realised loss of 8 in the lower-price state.
+Expected expiry profit in this example is 10−8=2. The 10 is an average future payoff under the stated probabilities; 8 is the initial purchase price. The average still leaves a possible realised loss of 8 in the lower-price state.
 
-Try the following questions without looking back at the table. Explain the calculation in words as well as numbers. We now have a payoff for each state; the next idea is conditional expectation, which asks how to average those outcomes when information changes the relevant states and their weights.
+Conditional expectation extends this step by updating which states remain relevant and how their weights change when new information arrives.
 
 ### With K=100 and a premium of 8, what are payoff and profit at a terminal price of 105?
 The right is worth 105−100=5. Subtract the 8 paid to acquire it: profit is −3. A positive payoff has recovered only part of the initial premium.
 
 ### Keep K=100 but increase the premium to 12. Which line changes, and what happens at S_T=120?
-The payoff line stays unchanged. The profit line moves down by 4, break-even rises to 112, and profit at 120 becomes20−12=8.
+The payoff line stays unchanged. The profit line moves down by 4, break-even rises to 112, and profit at 120 becomes 20−12=8.
 
 ### You paid 8. Before expiry the option trades at 12. Compare selling now with holding until expiry. Which premium belongs in your original trade P&L?
-Selling now realises12−8=4 before costs. If you continue holding, total trade P&L still subtracts the original8. The current12 is the opportunity cost of choosing to hold rather than sell today; it answers a different question with a different starting date.
+Selling now realises 12−8=4 before costs. If you continue holding, total trade P&L still subtracts the original 8. The current 12 is the opportunity cost of choosing to hold rather than sell today; it answers a different question with a different starting date.
 
 ## Sources
 - [Options Industry Council · Options basics](https://www.optionseducation.org/optionsoverview/options-basics): 来源摘要：期权给予持有人按约定条件买入或卖出的权利，权利金是取得该权利的价格. 本词条的数值全部是教学假设.

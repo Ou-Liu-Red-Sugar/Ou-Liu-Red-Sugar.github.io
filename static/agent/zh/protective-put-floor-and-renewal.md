@@ -1,15 +1,11 @@
-# P15 保护性看跌：买下一个有日期的下限
+# 保护性看跌：价格下限与保护期限
 
 逐腿推导指定期限净财富下限，并用三次续保说明参照点重设的累计后果.
 
-Entry: zh-p15 | Node: P15 | Language: zh | Editorial revision: 2026-09-21
+Entry: zh-p15 | Node: P15 | Language: zh | Editorial revision: 2026-09-22
 
 ## Teaching instructions
-你正在教授P15《P15 保护性看跌：买下一个有日期的下限》. 先确认读者选择的分支. 实际打开required_readings的公开原文，完整读取指定单元和必要表图；记录标题、版本、位置及其支持的具体步骤. optional_readings只有在分支被选择时转为必读. 若只有摘要、目录或访问失败，不能声称完成，也不凭印象补课；可复用本会话已完整读过的相同版本单元并注明.
-
-然后一次给出一项完整诊断任务：逐腿得到11358下限，再完成100到96到92.16到88.4736的三次续保账. 不逐个考四则运算. 使用本包全文与PF-GRID-01唯一冻结链，先让读者解释关系，再计算，最后使用本篇迁移题. 区分真实契约、模型生成mid、合成执行价和假设事件. 反馈标准：单期floor、累计premium409.1872和三期财富10438.1728都能复算；理解执行价参照点重设，不说长期95%保证.
-
-每次现金都带账户/时点，无法支付或未给报价时不制造已经完成的结果. 数据没有现实概率，不推断胜率或推荐交易；不访问用户账户. 不更新公司估值、不调用真实订单. 结束时让读者指出改变哪一个条件会改变结论，输出尚未掌握的具体关系. runtime_reading_log按本次实读填写，导出初始为空.
+读者为有充分数学背景的高年级本科生至研究生. 开始前实际读取 agent_packet.required_readings 指定原文完整单元，所选可选分支再读相应 optional_readings，记录题名、版本、定位和支持内容. 必要单元缺失时先取得等价可读原件，齐全后进入依赖它的讲解. 逐腿推导11,358的mid下限，再重建连续三段−4%、每段重设95%执行价的续保账. 比较到期支付、提前平仓和D20付款条件，以期限错配迁移. 使用PF-GRID-01固定教学网格及对应合约条件，先用完整任务诊断，再让读者解释、推导和计算；已掌握步骤直接跳过. 反馈核对各腿、现金时点及剩余持仓，用迁移题检验. runtime_reading_log记录本次实际读取.
 
 Before substantive teaching, actually retrieve every required reading unit for the selected scope. Read its complete designated section, including necessary assumptions, tables and footnotes. A working URL or an editorial access date is not a runtime reading receipt. Record the actual version, location, scope and what it supports. If unavailable, use a previously verified equivalent source; if the required unit remains unavailable, identify that gap rather than teach it from memory. Start runtime_reading_log empty. Once reading is complete, use a substantive diagnostic or follow the reader's request for direct explanation. Advance one complete reasoning task at a time; skip mastered basics. Distinguish original facts, supplied teaching assumptions and inference.
 
@@ -23,7 +19,7 @@ Before substantive teaching, actually retrieve every required reading unit for t
   "export_mode": "public",
   "entry_id": "zh-p15",
   "selected_branch": "core",
-  "learning_task": "逐腿得到11358下限，再完成100到96到92.16到88.4736的三次续保账.",
+  "learning_task": "逐腿推导11,358的mid下限，再重建连续三段−4%、每段重设95%执行价的续保账. 比较到期支付、提前平仓和D20付款条件，以期限错配迁移.",
   "required_readings": [
     {
       "source_id": "PFH-PP",
@@ -898,25 +894,25 @@ Before substantive teaching, actually retrieve every required reading unit for t
     "reproduction_instructions": "https://ou-liu-red-sugar.github.io/notebook/labs/p-fgh/reproduce.md",
     "input_identity": "本篇投影沿作者review-v2；完整PF-GRID-01原字节见公开inputs.json，模型/报价/默认结果未改."
   },
-  "content_version": "2026-09-21-PFGH-staging-v3",
+  "content_version": "2026-09-22-deep-review",
   "branch_selection_protocol": "核心读取required_readings；选择具名选读分支时追加其完整required_unit. 实际读完再教，不继承编辑的读取状态."
 }
 ```
 
 ## Supplied entry
-我们已经决定暂时保留股票，现在要为一段明确期限内的下跌付费. 本篇会把“95%的保护”拆成执行价、权利金、现金和到期日四件事，并检验一个容易误解的延伸：每个月都买保护，是否就能把整个季度的损失限制在同一比例？
+保护性看跌在持有股票的同时买入一段明确期限内的卖出权. “95%的保护”要拆成执行价、权利金、现金和到期日；续保时执行价会随新的参照点重新设定.
 
 <a id="p15-position"></a>
-## 1. put保护的是交付价格，不是市场报价
+## 持股与出售权
 
-先沿用上一节可独立理解的输入：已有100股XYZ，当前每股100，现金2,000，总财富12,000. 买入一张30天、执行价95的put，就得到按95卖出100股的权利. 低于95时，可以利用这个权利处理股票下跌；但市场仍然可能报价70，put不会让市场价停止下跌. OIC称这种股票加put的组合为protective put. [^pp]
+已有100股XYZ，当前每股100，现金2,000，总财富12,000. 买入30天、执行价95的put，取得按95出售100股的权利，组合称为保护性看跌.[^pp]
 
-标准未调整ETF期权的100股单位与美式实物行权沿OCC规则. PF-GRID-01的95 put价格则是独立教学输入：mid1.42、bid1.40、ask1.44，每张每次费0.65. 主链假定利率与分红为零，30天用ACT/365换算. 真实市场选择权的价格由交易形成，我们仅用模型生成一组可追溯的合成报价；这不是实时保险费. [^terms]
+标准未调整ETF期权采用100股单位、美式实物行权.[^terms] PF-GRID-01教学网格给95 put的mid1.42、bid1.40、ask1.44，每张每次费用0.65；利率与分红为0，时间按ACT/365.
 
-建立时已持有的股票仍为100股，不再次支付10,000. mid支出142，D1现金成为1,858，同时得到mid价值142的put，净财富仍为12,000. 执行层需按ask付144，另付0.65，现金变成1,855.35；按mid计价的即时财富为11,997.35.
+已有股票保持100股. mid买put付142，D1现金1,858，put价值142，净财富仍12,000. 执行层支付144.65，现金1,855.35；按mid计净财富11,997.35.
 
 <a id="p15-floor"></a>
-## 2. 从两条腿推导下限与代价
+## 到期下限与成本
 
 到期时，股票价值$100s$，put支付$100(95-s)^+$. 加上剩余现金：
 
@@ -930,7 +926,7 @@ $$
 W_T=1858+100\max(s,95).
 $$
 
-mid终点下限11,358，对原12,000的最大损失为642. 里面包括股票由100跌到95的500，以及买put的142. 所谓“95%的执行价”不是“整个账户最多亏5%”：财富中还有2,000现金，保险本身还要付费. 执行层下限为11,355.35，对应损失644.65；默认不计最终平股、行权费用及税.
+mid财富下限11,358，较12,000减少642，其中股票从100跌至95损失500，权利金142. 执行层下限11,355.35，最大损失644.65；这里未计最终平股、行权费用及税.
 
 | D30股价 | 只持股财富 | 股票＋put mid财富 | 股票＋put执行层财富 | put单腿毛支付 |
 |---:|---:|---:|---:|---:|
@@ -940,73 +936,72 @@ mid终点下限11,358，对原12,000的最大损失为642. 里面包括股票由
 | 100 | 12,000 | 11,858 | 11,855.35 | 0 |
 | 130 | 15,000 | 14,858 | 14,855.35 | 0 |
 
-股价上涨时，put未使用并不表示当初购买必定错误. 我们买的是某些状态下的选择权，而不是保证以后每条腿都盈利. 反过来，put单腿支付2,500也不能说组合赚2,500：股价70时股票亏3,000，整个组合仍亏642.
+股价70时，股票损失3,000，put毛支付2,500，再计已付权利金142，组合净损失642.
 
-<figure class="pfh-responsive-figure"><div class="svg-wide"><img src="/notebook/labs/p-fgh/figures/P15-payoff.svg" alt="股票＋put的到期下限与仍保留的上行"></div><div class="svg-narrow pfh-native" data-static-figure="P15-payoff-mobile.svg"><p class="pfh-figure-title">花142 mid权利金，取得指定日期财富下限</p><ul class="pfh-legend"><li><svg viewBox="0 0 32 12" width="32" height="12" aria-hidden="true"><path d="M1 6H31" stroke="#145c70" stroke-width="3"/></svg><span>1. 持有100股</span></li><li><svg viewBox="0 0 32 12" width="32" height="12" aria-hidden="true"><path d="M1 6H31" stroke="#a2682d" stroke-width="3" stroke-dasharray="7 4"/></svg><span>2. 95保护put</span></li></ul><p class="pfh-axis-label">纵轴：共同财富（美元）</p><div class="pfh-plot" style="--pfh-y-label-ch:7"><div class="pfh-y-ticks"><span style="top:100%">1,020</span><span style="top:75%">5,010</span><span style="top:50%">9,000</span><span style="top:25%">12,990</span><span style="top:0%">16,980</span></div><svg class="pfh-plot-svg" viewBox="55 155 315 180" preserveAspectRatio="none" aria-hidden="true"><path d="M55 335.00H370" stroke="#e1e6e8" vector-effect="non-scaling-stroke"/><path d="M55 290.00H370" stroke="#e1e6e8" vector-effect="non-scaling-stroke"/><path d="M55 245.00H370" stroke="#e1e6e8" vector-effect="non-scaling-stroke"/><path d="M55 200.00H370" stroke="#e1e6e8" vector-effect="non-scaling-stroke"/><path d="M55 155.00H370" stroke="#e1e6e8" vector-effect="non-scaling-stroke"/><polyline points="55.00,323.95 59.50,321.69 64.00,319.43 68.50,317.18 73.00,314.93 77.50,312.67 82.00,310.41 86.50,308.16 91.00,305.90 95.50,303.65 100.00,301.39 104.50,299.14 109.00,296.88 113.50,294.62 118.00,292.36 122.50,290.12 127.00,287.86 131.50,285.60 136.00,283.34 140.50,281.09 145.00,278.83 149.50,276.58 154.00,274.33 158.50,272.07 163.00,269.81 167.50,267.55 172.00,265.30 176.50,263.05 181.00,260.79 185.50,258.53 190.00,256.28 194.50,254.02 199.00,251.76 203.50,249.51 208.00,247.26 212.50,245.00 217.00,242.74 221.50,240.49 226.00,238.24 230.50,235.98 235.00,233.72 239.50,231.47 244.00,229.21 248.50,226.95 253.00,224.70 257.50,222.45 262.00,220.19 266.50,217.93 271.00,215.67 275.50,213.42 280.00,211.17 284.50,208.91 289.00,206.66 293.50,204.40 298.00,202.14 302.50,199.88 307.00,197.64 311.50,195.38 316.00,193.12 320.50,190.86 325.00,188.61 329.50,186.35 334.00,184.10 338.50,181.84 343.00,179.59 347.50,177.33 352.00,175.07 356.50,172.82 361.00,170.57 365.50,168.31 370.00,166.05" fill="none" stroke="#145c70" stroke-width="2.5" vector-effect="non-scaling-stroke"/><polyline points="55.00,218.41 59.50,218.41 64.00,218.41 68.50,218.41 73.00,218.41 77.50,218.41 82.00,218.41 86.50,218.41 91.00,218.41 95.50,218.41 100.00,218.41 104.50,218.41 109.00,218.41 113.50,218.41 118.00,218.41 122.50,218.41 127.00,218.41 131.50,218.41 136.00,218.41 140.50,218.41 145.00,218.41 149.50,218.41 154.00,218.41 158.50,218.41 163.00,218.41 167.50,218.41 172.00,218.41 176.50,218.41 181.00,218.41 185.50,218.41 190.00,218.41 194.50,218.41 199.00,218.41 203.50,218.41 208.00,218.41 212.50,218.41 217.00,218.41 221.50,218.41 226.00,218.41 230.50,218.41 235.00,218.41 239.50,218.41 244.00,218.41 248.50,218.41 253.00,218.41 257.50,218.41 262.00,218.41 266.50,218.41 271.00,217.28 275.50,215.02 280.00,212.77 284.50,210.51 289.00,208.25 293.50,206.00 298.00,203.75 302.50,201.49 307.00,199.23 311.50,196.97 316.00,194.73 320.50,192.47 325.00,190.21 329.50,187.95 334.00,185.70 338.50,183.44 343.00,181.19 347.50,178.94 352.00,176.68 356.50,174.42 361.00,172.16 365.50,169.91 370.00,167.66" fill="none" stroke="#a2682d" stroke-width="2.5" stroke-dasharray="7 4" vector-effect="non-scaling-stroke"/></svg><div class="pfh-x-ticks"><span class="first" style="left:0%">0</span><span class="" style="left:50%">70</span><span class="last" style="left:100%">140</span></div></div><p class="pfh-axis-label">横轴：D30标的价格（美元/股）</p><p class="pfh-figure-note">PF-GRID-01合成链 · mid结构；非真实行情</p></div><figcaption>股票＋put的到期下限与仍保留的上行</figcaption></figure>
+<figure class="pfh-responsive-figure"><div class="svg-wide"><img src="/notebook/labs/p-fgh/figures/P15-payoff.svg" alt="股票＋put的到期下限与仍保留的上行"></div><div class="svg-narrow pfh-native" data-static-figure="P15-payoff-mobile.svg"><p class="pfh-figure-title">花142 mid权利金，取得指定日期财富下限</p><ul class="pfh-legend"><li><svg viewBox="0 0 32 12" width="32" height="12" aria-hidden="true"><path d="M1 6H31" stroke="#145c70" stroke-width="3"/></svg><span>1. 持有100股</span></li><li><svg viewBox="0 0 32 12" width="32" height="12" aria-hidden="true"><path d="M1 6H31" stroke="#a2682d" stroke-width="3" stroke-dasharray="7 4"/></svg><span>2. 95保护put</span></li></ul><p class="pfh-axis-label">纵轴：共同财富（美元）</p><div class="pfh-plot" style="--pfh-y-label-ch:7"><div class="pfh-y-ticks"><span style="top:100%">1,020</span><span style="top:75%">5,010</span><span style="top:50%">9,000</span><span style="top:25%">12,990</span><span style="top:0%">16,980</span></div><svg class="pfh-plot-svg" viewBox="55 155 315 180" preserveAspectRatio="none" aria-hidden="true"><path d="M55 335.00H370" stroke="#e1e6e8" vector-effect="non-scaling-stroke"/><path d="M55 290.00H370" stroke="#e1e6e8" vector-effect="non-scaling-stroke"/><path d="M55 245.00H370" stroke="#e1e6e8" vector-effect="non-scaling-stroke"/><path d="M55 200.00H370" stroke="#e1e6e8" vector-effect="non-scaling-stroke"/><path d="M55 155.00H370" stroke="#e1e6e8" vector-effect="non-scaling-stroke"/><polyline points="55.00,323.95 59.50,321.69 64.00,319.43 68.50,317.18 73.00,314.93 77.50,312.67 82.00,310.41 86.50,308.16 91.00,305.90 95.50,303.65 100.00,301.39 104.50,299.14 109.00,296.88 113.50,294.62 118.00,292.36 122.50,290.12 127.00,287.86 131.50,285.60 136.00,283.34 140.50,281.09 145.00,278.83 149.50,276.58 154.00,274.33 158.50,272.07 163.00,269.81 167.50,267.55 172.00,265.30 176.50,263.05 181.00,260.79 185.50,258.53 190.00,256.28 194.50,254.02 199.00,251.76 203.50,249.51 208.00,247.26 212.50,245.00 217.00,242.74 221.50,240.49 226.00,238.24 230.50,235.98 235.00,233.72 239.50,231.47 244.00,229.21 248.50,226.95 253.00,224.70 257.50,222.45 262.00,220.19 266.50,217.93 271.00,215.67 275.50,213.42 280.00,211.17 284.50,208.91 289.00,206.66 293.50,204.40 298.00,202.14 302.50,199.88 307.00,197.64 311.50,195.38 316.00,193.12 320.50,190.86 325.00,188.61 329.50,186.35 334.00,184.10 338.50,181.84 343.00,179.59 347.50,177.33 352.00,175.07 356.50,172.82 361.00,170.57 365.50,168.31 370.00,166.05" fill="none" stroke="#145c70" stroke-width="2.5" vector-effect="non-scaling-stroke"/><polyline points="55.00,218.41 59.50,218.41 64.00,218.41 68.50,218.41 73.00,218.41 77.50,218.41 82.00,218.41 86.50,218.41 91.00,218.41 95.50,218.41 100.00,218.41 104.50,218.41 109.00,218.41 113.50,218.41 118.00,218.41 122.50,218.41 127.00,218.41 131.50,218.41 136.00,218.41 140.50,218.41 145.00,218.41 149.50,218.41 154.00,218.41 158.50,218.41 163.00,218.41 167.50,218.41 172.00,218.41 176.50,218.41 181.00,218.41 185.50,218.41 190.00,218.41 194.50,218.41 199.00,218.41 203.50,218.41 208.00,218.41 212.50,218.41 217.00,218.41 221.50,218.41 226.00,218.41 230.50,218.41 235.00,218.41 239.50,218.41 244.00,218.41 248.50,218.41 253.00,218.41 257.50,218.41 262.00,218.41 266.50,218.41 271.00,217.28 275.50,215.02 280.00,212.77 284.50,210.51 289.00,208.25 293.50,206.00 298.00,203.75 302.50,201.49 307.00,199.23 311.50,196.97 316.00,194.73 320.50,192.47 325.00,190.21 329.50,187.95 334.00,185.70 338.50,183.44 343.00,181.19 347.50,178.94 352.00,176.68 356.50,174.42 361.00,172.16 365.50,169.91 370.00,167.66" fill="none" stroke="#a2682d" stroke-width="2.5" stroke-dasharray="7 4" vector-effect="non-scaling-stroke"/></svg><div class="pfh-x-ticks"><span class="first" style="left:0%">0</span><span class="" style="left:50%">70</span><span class="last" style="left:100%">140</span></div></div><p class="pfh-axis-label">横轴：D30标的价格（美元/股）</p><p class="pfh-figure-note">PF-GRID-01教学网格 · mid结构</p></div><figcaption>股票＋put的到期下限与仍保留的上行</figcaption></figure>
 
-下限依赖数量、对象和日期匹配. 若只买一张却持有200股，另外100股没有获得这份95出售权；若拿指数put保护一家公司的股票，个股与指数之间的差异仍在，不能把这个精确下限照搬. MIT的股票加put图说明了支付相加的形状，但具体合约交付物仍须按原件确认. [^mit]
+精确下限要求标的、数量和日期匹配. 200股配一张100股put时，剩余100股继续承担下跌；指数put对个股的保护还取决于两者的相对变化.[^mit]
 
 <a id="p15-exit"></a>
-## 3. 卖put、行权卖股与继续持有是三种动作
+## 平仓、行权与续持
 
-在美式put仍有效时，持有人可以按规则选择行权；行权会改变股票数量，并产生执行价现金. 卖出put平仓则使用市场bid，保留股票. 两者的经济目的不同，不能仅以“put盈利了”混在一起. 还有第三个选择：暂不处理，继续保有股票和put，直到未来再判断. [^exercise]
+卖put平仓按市场bid收款并保留股票；行权按执行价卖出相应股票；继续持有则保留两条腿. 三种动作分别改变现金、股数和后续选择权.[^exercise]
 
-例如中途不再担心原来那项事件，卖put可以将剩余价值转成现金，而不退出股票；若不再愿意持股，则需要一起考虑股票出售、put平仓，或在适当条件下行权. 不能默认行权总是优于卖出，因为行权只实现合同内在价值，可能放弃尚存的时间价值. 具体比较需要当时的bid、行权条件、费用和资金时间.
+卖出put可回收剩余价值，行权取得内在价值并可能放弃时间价值. 提前退出比较当时bid、行权条件、费用及到账日期.
 
 到期时也要区分经济标记与完成交付. 若按本例严格价内put行权，低于95时100股交出，收到9,500，在教学下一营业日D31完成现金；高于95时put失效，股票仍在. 如果D30恰为95且put未行权，我们仍持100股，D30之后再下跌将不再由旧put补偿.
 
 <a id="p15-reset"></a>
-## 4. 三次95%保护，可能一次都不赔
+## 执行价重置与续保
 
-现在不猜真实行情，只取一条明确的三段教学路径：每30天股价下跌4%，并在每段开始时用当时股价的95%重新设put执行价. 每次权利金占该段起始股票市值1.42%，数量始终100股；忽略点差和费用，只检查续保与参照点.
+三段教学路径中，每30天股价下跌4%，各段开始按现价95%重新设put执行价. 每次权利金为该段初始股票市值的1.42%，数量始终100股，忽略点差与费用.
 
 | 段 | 起始股价 | 新put执行价 | 本段权利金 | 段末股价 | put支付 | 剩余现金 | 合计财富 |
 |---:|---:|---:|---:|---:|---:|---:|---:|
 | 1 | 100 | 95 | 142.00 | 96 | 0 | 1,858.00 | 11,458.00 |
 | 2 | 96 | 91.20 | 136.32 | 92.16 | 0 | 1,721.68 | 10,937.68 |
-| 3 | 92.16 | 87.552 | 130.8672 | 88.4736 | 0 | 1,590.8128 | 10,438.1728 |
+| 3 | 92.16 | 87.552 | ≈130.867 | ≈88.474 | 0 | ≈1,590.813 | ≈10,438.173 |
 
-每一段只跌4%，都没有穿过当段95%执行价，三张put都没有到期支付. 可原股价已经累计下跌$1-0.96^3=11.5264\%$. 累计权利金为409.1872，再加股票损失1,152.64，总财富减少1,561.8272. 旧的95下限并没有一直留在原100的参照点上：第二段降到91.2，第三段又降到87.552.
+每一段只跌4%，都没有穿过当段95%执行价，三张put都没有到期支付. 原股价累计下跌$1-0.96^3\approx11.526\%$；累计权利金约409.187，加上股票损失1,152.64，总财富减少约1,561.827. 续保后执行价参照点从95降到91.2，再降到87.552.
 
-<figure class="pfh-responsive-figure"><div class="svg-wide"><img src="/notebook/labs/p-fgh/figures/P15-renewal.svg" alt="重复续保时，股价、执行价与现金如何一同向下移动"></div><div class="svg-narrow pfh-native" data-static-figure="P15-renewal-mobile.svg"><p class="pfh-figure-title">每次重设95%执行价，不等于原95一直有效</p><ul class="pfh-legend"><li><svg viewBox="0 0 32 12" width="32" height="12" aria-hidden="true"><path d="M1 6H31" stroke="#145c70" stroke-width="3"/></svg><span>1. 段起点股价</span></li><li><svg viewBox="0 0 32 12" width="32" height="12" aria-hidden="true"><path d="M1 6H31" stroke="#a2682d" stroke-width="3" stroke-dasharray="7 4"/></svg><span>2. 新put执行价</span></li><li><svg viewBox="0 0 32 12" width="32" height="12" aria-hidden="true"><path d="M1 6H31" stroke="#607298" stroke-width="3"/></svg><span>3. 段末股价</span></li></ul><p class="pfh-axis-label">纵轴：美元/股</p><div class="pfh-plot" style="--pfh-y-label-ch:4"><div class="pfh-y-ticks"><span style="top:100%">87</span><span style="top:75%">90</span><span style="top:50%">94</span><span style="top:25%">97</span><span style="top:0%">101</span></div><svg class="pfh-plot-svg" viewBox="55 155 315 180" preserveAspectRatio="none" aria-hidden="true"><path d="M55 335.00H370" stroke="#e1e6e8" vector-effect="non-scaling-stroke"/><path d="M55 290.00H370" stroke="#e1e6e8" vector-effect="non-scaling-stroke"/><path d="M55 245.00H370" stroke="#e1e6e8" vector-effect="non-scaling-stroke"/><path d="M55 200.00H370" stroke="#e1e6e8" vector-effect="non-scaling-stroke"/><path d="M55 155.00H370" stroke="#e1e6e8" vector-effect="non-scaling-stroke"/><polyline points="55.00,166.05 212.50,216.79 370.00,265.50" fill="none" stroke="#145c70" stroke-width="2.5" vector-effect="non-scaling-stroke"/><polyline points="55.00,229.47 212.50,277.67 370.00,323.95" fill="none" stroke="#a2682d" stroke-width="2.5" stroke-dasharray="7 4" vector-effect="non-scaling-stroke"/><polyline points="55.00,216.79 212.50,265.50 370.00,312.26" fill="none" stroke="#607298" stroke-width="2.5" vector-effect="non-scaling-stroke"/></svg><div class="pfh-x-ticks"><span class="first" style="left:0%">1</span><span class="" style="left:50%">2</span><span class="last" style="left:100%">3</span></div></div><p class="pfh-axis-label">横轴：续保段编号；每段30天</p><p class="pfh-figure-note">三张put支付均0；累计premium409.1872；现金1,590.8128；终财富10,438.1728</p></div><figcaption>重复续保时，股价、执行价与现金如何一同向下移动</figcaption></figure>
+<figure class="pfh-responsive-figure"><div class="svg-wide"><img src="/notebook/labs/p-fgh/figures/P15-renewal.svg" alt="重复续保时，股价、执行价与现金如何一同向下移动"></div><div class="svg-narrow pfh-native" data-static-figure="P15-renewal-mobile.svg"><p class="pfh-figure-title">每次重设95%执行价，不等于原95一直有效</p><ul class="pfh-legend"><li><svg viewBox="0 0 32 12" width="32" height="12" aria-hidden="true"><path d="M1 6H31" stroke="#145c70" stroke-width="3"/></svg><span>1. 段起点股价</span></li><li><svg viewBox="0 0 32 12" width="32" height="12" aria-hidden="true"><path d="M1 6H31" stroke="#a2682d" stroke-width="3" stroke-dasharray="7 4"/></svg><span>2. 新put执行价</span></li><li><svg viewBox="0 0 32 12" width="32" height="12" aria-hidden="true"><path d="M1 6H31" stroke="#607298" stroke-width="3"/></svg><span>3. 段末股价</span></li></ul><p class="pfh-axis-label">纵轴：美元/股</p><div class="pfh-plot" style="--pfh-y-label-ch:4"><div class="pfh-y-ticks"><span style="top:100%">87</span><span style="top:75%">90</span><span style="top:50%">94</span><span style="top:25%">97</span><span style="top:0%">101</span></div><svg class="pfh-plot-svg" viewBox="55 155 315 180" preserveAspectRatio="none" aria-hidden="true"><path d="M55 335.00H370" stroke="#e1e6e8" vector-effect="non-scaling-stroke"/><path d="M55 290.00H370" stroke="#e1e6e8" vector-effect="non-scaling-stroke"/><path d="M55 245.00H370" stroke="#e1e6e8" vector-effect="non-scaling-stroke"/><path d="M55 200.00H370" stroke="#e1e6e8" vector-effect="non-scaling-stroke"/><path d="M55 155.00H370" stroke="#e1e6e8" vector-effect="non-scaling-stroke"/><polyline points="55.00,166.05 212.50,216.79 370.00,265.50" fill="none" stroke="#145c70" stroke-width="2.5" vector-effect="non-scaling-stroke"/><polyline points="55.00,229.47 212.50,277.67 370.00,323.95" fill="none" stroke="#a2682d" stroke-width="2.5" stroke-dasharray="7 4" vector-effect="non-scaling-stroke"/><polyline points="55.00,216.79 212.50,265.50 370.00,312.26" fill="none" stroke="#607298" stroke-width="2.5" vector-effect="non-scaling-stroke"/></svg><div class="pfh-x-ticks"><span class="first" style="left:0%">1</span><span class="" style="left:50%">2</span><span class="last" style="left:100%">3</span></div></div><p class="pfh-axis-label">横轴：续保段编号；每段30天</p><p class="pfh-figure-note">三张put支付均0；累计权利金约409.187；现金约1,590.813；终财富约10,438.173</p></div><figcaption>重复续保时，股价、执行价与现金如何一同向下移动</figcaption></figure>
 
-这里的问题是把不同期限的承诺误读成同一长期承诺，而不是put是否履约. AQR作者2021年的论文在脚注6讨论了同类期限问题；其期权研究采用季度滚动和单位名义敞口，相关结果与本篇股票加put总账户的回报不是同一对象. 这里采用的是“期限和参照点必须明确”这一机制，并在上表独立复算.[^aqr]
+AQR 2021脚注6说明，保护幅度只有在回报期限与期权到期匹配时才对应同一保护；其示例采用季度滚动的10%/20% OTM、单位名义put. 本篇借用“期限与执行价参照点必须明确”的机制，上表为股票加put总账户的独立路径.[^aqr]
 
 <a id="p15-lab"></a>
-## 5. 操作：在一张图上看保护，在另一张图上看重设
+## 保护与续保实验
 
 <div data-experiment-slot="EXP-P15-PROTECTIVE-PUT"></div>
 
-先选择股价70，说明put单腿毛支付与组合净损失为何同时存在. 再切换执行层：下限仅因建立成本而小幅变化，不把真实手续费说成股价风险. 最后查看三次续保，用每行新执行价比较当行段末价，不要一直拿95与三个终点比较.
+比较股价70时的put支付和组合净损失，再切换执行成本. 续保分支按每段自己的执行价及到期价计算支付.
 
 <details data-reading-branch="cash-index"><summary>选读：欧式现金指数put的不同交付</summary>
 
-若改用欧式现金指数put，行权和交付又不同. 它可以在相应结算日收到现金，但不提供提前实物卖出这100股XYZ的权利；只有标的风险、数量与结算期匹配时，才可以讨论相应保护. 具体现金指数规格见P17/P19的SPXW分支，不把所有期权都视为同一种交割. [^spx]
+欧式现金指数put在结算时按指数差额付现，保护效果取决于指数与持仓风险、数量及期限的匹配. SPXW合约规格见对应结算分支.[^spx]
 
 </details>
 
 <a id="p15-exercises"></a>
-## 6. 解释与迁移
+## 练习与解析
 
 **解释题.** 为什么到期70时，put获得2,500支付，整份账户仍亏642？
 
-**解析.** 原股票从10,000降到7,000，亏3,000；put到期毛支付2,500，但先前花142购买，净帮助2,358. 两者合并损失642. 若只用put权利金作分母，会放大单腿百分比，却不能说明原股票组合的财富损失.
+**解析.** 股票损失3,000，put毛支付2,500，扣先前权利金142后净贡献2,358，组合损失642.
 
-**迁移题.** 三次−4%路径中，第三段结束时股价88.4736已低于最初95，为什么没有任何一次put赔付？
+**迁移题.** 三次−4%路径中，第三段结束时股价约88.474已低于最初95，为什么没有任何一次put赔付？
 
-**解析.** 首份95 put在D30已结束，而当时股价96；后续put的执行价分别为91.2和87.552，各自到期股价又都高于执行价. 不能让早已到期的95 put替后面的价格变化支付. 要保持原始95下限，须另取得跨整个期限的相应合同，并支付当时真实价格.
+**解析.** 95 put在第一段股价96时到期；第二、三段执行价降为91.2、87.552，到期股价均高于各自执行价. 维持原始95下限需要覆盖整个期限的相应合同.
 
 **期限题.** 若必须D20用现金，而保护到D30，能否仅凭11,358终点下限承诺按时付款？
 
-**解析.** 不能. 需把股票与put在D20的变现方式、可成交价格和结算日放回现金账. 价格下限、资产标记与现金到账是三个不同对象. 这个判断不要求再猜一个未来收益率，而要求补齐实施资料.
+**解析.** 需要D20股票与put的变现价格、操作方式、费用及结算日，才能计算按期可用现金.
 
 [^pp]: OIC，[Protective Put](https://www.optionseducation.org/strategies/all-strategies/protective-put-married-put)，Description、Max Loss/Gain、Exercise/Expiration相关完整单元.
 [^terms]: OCC，[ETF Options](https://www.theocc.com/clearance-and-settlement/clearing/etf-options)，未调整单位、American exercise及T+1 settlement；报价为本文合成输入.
 [^mit]: Andrew Lo，MIT [Options](https://ocw.mit.edu/courses/15-401-finance-theory-i-fall-2008/c40ecc0cc0dce0fbf2d229bc4027c43b_MIT15_401F08_lec10.pdf)，Fall 2008，slides 10–11.
 [^exercise]: OIC，[Options Exercise FAQ](https://www.optionseducation.org/referencelibrary/faq/options-exercise)，行权与平仓、提前行权与时间价值问答；OCC [ODD](https://www.theocc.com/getmedia/a151a9ae-d784-4a15-bdeb-23a029f50b70/riskstoc.pdf) June 2024 Chapter VIII.
-[^aqr]: McQuinn、Thapar、Villalon，[Portfolio Protection? It's a Long (Term) Story…](https://www.aqr.com/-/media/AQR/Documents/Journal-Articles/Portfolio-Protection-Its-a-Long-Term-Story.pdf?sc_lang=en)，February 2021，印刷5–6页、脚注6及Exhibit 3，印刷14页期权数据定义. 三段路径为本站合成例，不是论文回测.
-[^spx]: Cboe，[SPX Fact Sheet](https://cdn.cboe.com/resources/spx/spx-fact-sheet.pdf)，©2026，第2页：SPXW欧式、PM现金结算与下一营业日交付；不采用为XYZ的精确复制.
-
+[^aqr]: McQuinn、Thapar、Villalon，[Portfolio Protection? It's a Long (Term) Story…](https://www.aqr.com/-/media/AQR/Documents/Journal-Articles/Portfolio-Protection-Its-a-Long-Term-Story.pdf?sc_lang=en)，February 2021，印刷5–6页、脚注6及Exhibit 3，印刷14页期权数据定义.
+[^spx]: Cboe，[SPX Fact Sheet](https://cdn.cboe.com/resources/spx/spx-fact-sheet.pdf)，©2026，第2页：SPXW欧式、PM现金结算与下一营业日交付.
 
 ## Experiment inputs and static equivalents
 ```json
@@ -1062,22 +1057,12 @@ mid终点下限11,358，对原12,000的最大损失为642. 里面包括股票由
 
 ## Sources
 - [Characteristics and Risks of Standardized Options](https://www.theocc.com/getmedia/a151a9ae-d784-4a15-bdeb-23a029f50b70/riskstoc.pdf): 标准化期权的合约安排、买卖双方权利义务、权利金与担保品、行权与指派、结算，以及多腿组合中各项义务的关系.
-- [SPX Options Fact Sheet](https://cdn.cboe.com/resources/spx/spx-fact-sheet.pdf): 现金结算、欧式行权、100美元乘数及SPX/SPXW结算差别；不采用营销/税务部分.
-
-SPXW欧式、PM、每点100美元、现金于到期后营业日交付；传统SPX AM/SOQ与SPXW分开. 无实际报价.
-
-M-E/F/G 本批采用：SPX/SPXW欧式现金、100美元乘数、最小报价增量及AM/PM结算差别；并非某条历史上市期权链.
-- [Portfolio Protection? It’s a Long (Term) Story…](https://www.aqr.com/-/media/AQR/Documents/Journal-Articles/Portfolio-Protection-Its-a-Long-Term-Story.pdf?sc_lang=en): 只采用保护期限/重设执行价机制与研究口径. 研究是单位名义纯put而非本篇股票+put，1996-01-05至2020-03-31、季度重设、费用前；不宣称普遍劣势或数据复现.
-- [ETF Options Product Specifications](https://www.theocc.com/clearance-and-settlement/clearing/etf-options): 未调整标准合约通常100股、American exercise与T+1实物交割；调整系列另核.
-
-M-E/F/G 本批采用：ETF份额期权的单位、实物交付与行权；不把同类产品的保证金百分比概括为统一数值.
-- [Options Exercise FAQ](https://www.optionseducation.org/referencelibrary/faq/options-exercise): 行权、平仓、成员exercise-by-exception与客户指令分开；股息和时间价值影响选择，但不保证每个客户腿自动执行.
-
-M-E/F/G 本批采用：行权vs平仓、ex-by-ex与客户指令、提前行权和分红；不提供任何个人券商统一截止.
-- [15.401 Finance Theory I: Lecture 10–11, Options](https://ocw.mit.edu/courses/15-401-finance-theory-i-fall-2008/c40ecc0cc0dce0fbf2d229bc4027c43b_MIT15_401F08_lec10.pdf): 逐腿相加的保护、价差和跨式支付；不承担现行结算规则.
-
-M-E/F/G 本批采用：模型内的支付和复制定价；不代替当前产品规则，讲义现金增长记号不能误写成年化净利率.
-- [Protective Put (Married Put)](https://www.optionseducation.org/strategies/all-strategies/protective-put-married-put): 股票+long put的指定期限保护、权利金代价与退出方式；不是永久净财富保证.
+- [SPX Options Fact Sheet](https://cdn.cboe.com/resources/spx/spx-fact-sheet.pdf): SPX与SPXW均为欧式、现金结算，合约乘数为每点100美元. 规格列出最小报价增量，并区分传统SPX的AM结算与SPXW的PM结算；现金在到期后相应营业日交付.
+- [Portfolio Protection? It’s a Long (Term) Story…](https://www.aqr.com/-/media/AQR/Documents/Journal-Articles/Portfolio-Protection-Its-a-Long-Term-Story.pdf?sc_lang=en): 研究1996-01-05至2020-03-31的单位名义看跌期权，采用季度重设、费用前口径，分析保护期限和执行价重设对结果的影响.
+- [ETF Options Product Specifications](https://www.theocc.com/clearance-and-settlement/clearing/etf-options): 标准未调整ETF期权通常对应100份基金份额，采用美式行权和T+1实物交割；调整系列按对应合约条款确定单位.
+- [Options Exercise FAQ](https://www.optionseducation.org/referencelibrary/faq/options-exercise): 行权、卖出平仓、OCC与清算会员层的exercise-by-exception，以及客户指令分别处理. 股息、时间价值和行权截止安排影响持有人的选择.
+- [15.401 Finance Theory I: Lecture 10–11, Options](https://ocw.mit.edu/courses/15-401-finance-theory-i-fall-2008/c40ecc0cc0dce0fbf2d229bc4027c43b_MIT15_401F08_lec10.pdf): 保护性组合、价差与跨式的逐腿支付，以及模型内的经济复制和定价. 现金账户的增长因子按讲义定义使用.
+- [Protective Put (Married Put)](https://www.optionseducation.org/strategies/all-strategies/protective-put-married-put): 持股加看跌期权在指定期限内的保护范围、权利金成本与退出方式.
 
 ## Content relations
 ```json
@@ -1158,7 +1143,7 @@ M-E/F/G 本批采用：模型内的支付和复制定价；不代替当前产品
     "to": "PFH-AQR2021",
     "reason": "原件支持本段契约/方法或有日期研究；不证明合成报价为行情.",
     "locator": "printed pp5–6 / PDF pp7–8 Options-Based Hedging完整节、footnote6、Exhibit3; printed p14 / PDF p16 option data appendix",
-    "scope": "只采用保护期限/重设执行价机制与研究口径. 研究是单位名义纯put而非本篇股票+put，1996-01-05至2020-03-31、季度重设、费用前；不宣称普遍劣势或数据复现."
+    "scope": "保护期限与重设执行价机制. 研究采用单位名义纯put，样本1996-01-05至2020-03-31，季度重设、费用前；本文持有股票与put的组合."
   },
   {
     "from": "p15-exit",

@@ -1,11 +1,11 @@
 # Expeditors International of Washington, Inc.
 
-业务与已收录材料的公司入口.
+国际货运代理与物流服务；已收录2025年外汇风险材料.
 
-Entry: zh-company-expeditors | Node: CO-EXPD | Language: zh | Editorial revision: 2026-09-21
+Entry: zh-company-expeditors | Node: CO-EXPD | Language: zh | Editorial revision: 2026-09-22
 
 ## Teaching instructions
-先实际读取随包指定原件，核材料期间、对象及定位，再回答这份材料怎样支持相邻教学词条.
+先实际阅读 agent_packet.required_readings 指定原文单元，记录题名、版本、定位及支持内容；缺失时取得等价可读原件后再讲解. 依据具名历史材料解释业务、证券权利、日期、计量口径和已列计算. 沿该历史截止日复算，区分披露、模型假设和未来代表点. 先检查读者当前疑点，再以完整计算或条件迁移解释. runtime_reading_log保留实际读取记录.
 
 Before substantive teaching, actually retrieve every required reading unit for the selected scope. Read its complete designated section, including necessary assumptions, tables and footnotes. A working URL or an editorial access date is not a runtime reading receipt. Record the actual version, location, scope and what it supports. If unavailable, use a previously verified equivalent source; if the required unit remains unavailable, identify that gap rather than teach it from memory. Start runtime_reading_log empty. Once reading is complete, use a substantive diagnostic or follow the reader's request for direct explanation. Advance one complete reasoning task at a time; skip mastered basics. Distinguish original facts, supplied teaching assumptions and inference.
 
@@ -32,7 +32,7 @@ Before substantive teaching, actually retrieve every required reading unit for t
       },
       "required_unit": {
         "locator": "Item7A，SEC印刷pp.41–42；Note1J/1K，F-13–F-14",
-        "scope": "所列具名单元全文，包含公式、表头、表注及本篇采用结论所需上下文；不要求无关章节.",
+        "scope": "所列具名单元全文，包含公式、表头、表注及本篇采用结论所需上下文.",
         "purpose": "交易币种、功能货币和报告货币分开；2025交易损失约28m与税后折算约49m不同. 假设敏感度不含运输模式变化."
       },
       "supports": "交易币种、功能货币和报告货币分开；2025交易损失约28m与税后折算约49m不同. 假设敏感度不含运输模式变化.",
@@ -41,20 +41,18 @@ Before substantive teaching, actually retrieve every required reading unit for t
     }
   ],
   "optional_readings": [],
-  "runtime_reading_log": []
+  "runtime_reading_log": [],
+  "prompt": "先实际阅读 agent_packet.required_readings 指定原文单元，记录题名、版本、定位及支持内容；缺失时取得等价可读原件后再讲解. 依据具名历史材料解释业务、证券权利、日期、计量口径和已列计算. 沿该历史截止日复算，区分披露、模型假设和未来代表点. 先检查读者当前疑点，再以完整计算或条件迁移解释. runtime_reading_log保留实际读取记录.",
+  "content_version": "2026-09-22-deep-review"
 }
 ```
 
 ## Supplied entry
-## 业务与身份
+## 业务与材料
 
 Expeditors International of Washington, Inc.；国际货运代理与物流服务.
 
-## 有日期的材料
-
-- [本次采用记录（2026-09-21）](/zh/notebook/expeditors-material-20260921/)：2025-01-01/2025-12-31.
-
-原文：[Expeditors International 2025 Form 10-K](https://www.sec.gov/Archives/edgar/data/746515/000119312526071569/expd-20251231.htm).
+- [2025年外汇风险记录（研究截止2026-09-21）](/zh/notebook/expeditors-material-20260921/)：材料期间2025-01-01/2025-12-31；原文为 [Expeditors International 2025 Form 10-K](https://www.sec.gov/Archives/edgar/data/746515/000119312526071569/expd-20251231.htm)，定位 Item 7A 与 Note 1J/1K.
 
 ## Sources
 - [Expeditors International 2025 Form 10-K](https://www.sec.gov/Archives/edgar/data/746515/000119312526071569/expd-20251231.htm): 交易币种、功能货币和报告货币分开；2025交易损失约28m与税后折算约49m不同. 假设敏感度不含运输模式变化.

@@ -1,16 +1,11 @@
 # 有限期完备性与唯一等价鞅测度
 
-用可复制空间与严格正扰动证明完备性定理，并构造全部数字支付和任意支付的复制.
+可复制空间、严格正概率扰动与数字支付复制给出有限期完备性定理.
 
-Entry: zh-qt18p2 | Node: QT18-P2 | Language: zh | Editorial revision: 2026-09-21
+Entry: zh-qt18p2 | Node: QT18-P2 | Language: zh | Editorial revision: 2026-09-22
 
 ## Teaching instructions
-你是 QT18-P2《有限期完备性与唯一等价鞅测度》的数学助教. 面向有微积分、线性代数与基本概率背景的高年级本科或研究生.
-先实际取得并读完 required_readings 中与当前任务对应的 Williams 官方 PDF 完整单元，记录版本、页/节、条件与读取失败；文件入口或摘要不算全文. 同一官方 URL 已于 2026-09-21 通过正常 TLS 校验的普通 HTTP 下载取得完整 PDF，但这不替代本次课堂运行的实际读取；若本次无法取得原件，须如实说明缺口. 阅读成功后的课堂运行才填写 runtime_reading_log，本导出中保持空.
-本次诊断与推演：从K=span{1}+L的双向可实现性开始，再推完备到事件概率唯一. 反向必须给非零正交方向及epsilon幅度、归一化、严格正性和EMM检查. 最后让读者自己解中间数字与(2,-1,3)支付.
-先让读者独立作答，再逐步反馈，最后换一个条件做迁移. 反馈标准：通过须区分EMM唯一与持仓唯一；不能只报矩阵rank. 多期复制作信息原子指标基，再补足现金，不能把一期常数theta当作全部动态策略.
-严格区分已证结论、引用定理、教学模型与算术验证；有限枚举不是一般证明. 只使用 supplied_inputs 中当前单元的冻结市场切片，输入时点与单位不改写；不得另造第二套 EXP-STATE-01，也不得把 QT08 的抛币实验混入市场证明. 不采用原件已说明的排印错误. 界面只展示当前视图，静态默认表与题解同样可完成任务.
-结束时问：读者只读完这个词条，真的能学明白吗？请用其独立完成的证明或计算回答，给具体缺口，不以复述结论代替理解.
+读者为有充分数学背景的高年级本科生至研究生. 先实际读取 agent_packet.required_readings 指定完整单元，选择可选分支后再读 optional_readings；记录题名、版本、定位与支持内容. 缺失必读单元时先取得等价原件，再解释依赖它的命题. 由现金补足识别可复制空间，证明完备与唯一EMM等价；构造正概率扰动并检查条件鞅，将一期矩阵扩至多期信息原子向量，区分财富与持仓唯一性. 用完整推导或计算诊断理解，已掌握步骤直接继承，再用改变条件的任务检验迁移. runtime_reading_log记录实际读取.
 
 Before substantive teaching, actually retrieve every required reading unit for the selected scope. Read its complete designated section, including necessary assumptions, tables and footnotes. A working URL or an editorial access date is not a runtime reading receipt. Record the actual version, location, scope and what it supports. If unavailable, use a previously verified equivalent source; if the required unit remains unavailable, identify that gap rather than teach it from memory. Start runtime_reading_log empty. Once reading is complete, use a substantive diagnostic or follow the reader's request for direct explanation. Advance one complete reasoning task at a time; skip mastered basics. Distinguish original facts, supplied teaching assumptions and inference.
 
@@ -562,26 +557,25 @@ Before substantive teaching, actually retrieve every required reading unit for t
         ]
       }
     ]
-  }
+  },
+  "prompt": "读者为有充分数学背景的高年级本科生至研究生. 先实际读取 agent_packet.required_readings 指定完整单元，选择可选分支后再读 optional_readings；记录题名、版本、定位与支持内容. 缺失必读单元时先取得等价原件，再解释依赖它的命题. 由现金补足识别可复制空间，证明完备与唯一EMM等价；构造正概率扰动并检查条件鞅，将一期矩阵扩至多期信息原子向量，区分财富与持仓唯一性. 用完整推导或计算诊断理解，已掌握步骤直接继承，再用改变条件的任务检验迁移. runtime_reading_log记录实际读取.",
+  "learning_task": "由现金补足识别可复制空间，证明完备与唯一EMM等价；构造正概率扰动并检查条件鞅，将一期矩阵扩至多期信息原子向量，区分财富与持仓唯一性.",
+  "content_version": "2026-09-22-deep-review"
 }
 ```
 
 ## Supplied entry
-无套利让我们找到了至少一种不会遗漏任何状态的定价权重，但还没有保证这组权重唯一. 完备性问的是另一件事：利用已有资产和允许的动态交易，能不能做出每一种终端支付？这篇将证明两者的精确联系，并把“可复制”落实为持仓和初始成本.
-
-先修是 QT18-P1 中已经证明的三项结果：现金补足、贴现财富鞅性质，以及指标持仓恢复条件鞅的判据. 本篇会写出它们在何处使用，不再另借一个未展开的鞅表示定理.
-
 <a id="qt18p2-model"></a>
 
-## 1. 终端信息决定“全部支付”的范围
+## 终端支付与完备性
 
 仍取有限状态 $\Omega=\{\omega_1,\ldots,\omega_m\}$，$\mathcal F=2^\Omega$，$P$ 对所有状态严格正，$\mathcal F_0$ 平凡、$\mathcal F_T=\mathcal F$，有限交易时点为 $0,\ldots,T$. 现金账户 $B_k$ 确定且严格正，借贷同率；风险价格适应，持有于 $(k-1,k]$ 的仓位在 $\mathcal F_{k-1}$ 可知. 允许任意有限有符号实数仓位，交易无摩擦、无分红、无外部资金流、无额外持仓限制，并假设市场无套利. [^w-model]
 
-一个终端支付是任意实值 $\mathcal F_T$ 可测变量 $X$；它可由自融资策略在每个状态满足 $V_T=X$，就称可复制. 若每个这样的 $X$ 都可复制，市场就是完备的. 若终端信息只区分原始空间中的一些原子，就应把这些原子当作本模型的状态，而不是对未观测的额外细分也宣称测度唯一. [^w-completeness]
+终端支付 $X$ 为实值 $\mathcal F_T$-可测变量. 自融资策略逐状态满足 $V_T=X$ 时称 $X$ 可复制；所有终端支付均可复制时称市场完备.[^w-completeness]
 
 <a id="qt18p2-space"></a>
 
-## 2. 可复制空间里，常数项不能漏掉
+## 可复制贴现终值
 
 令 $L$ 为全部零初始贴现终端增益组成的线性空间. 允许任意初始财富后，全部可复制贴现终值组成
 
@@ -592,9 +586,9 @@ K&=\operatorname{span}\{\mathbf1\}+L\\
 \end{aligned}
 $$
 
-这里的 $\operatorname{span}\{\mathbf1\}$ 是所有实数倍的常数向量；它不是固定现金增长因子 $R$ 乘以一次 $\mathbf1$.
+$\operatorname{span}\{\mathbf1\}$ 为全部实常数向量，系数对应初始贴现财富.
 
-我们把这条刻画的两个方向都核对. 任意自融资策略满足
+由贴现财富恒等式，
 
 $$
 V_T/B_T=V_0/B_0+\sum_{k=1}^T h_k\cdot\Delta\widetilde S_k,
@@ -606,13 +600,13 @@ $$
 \text{市场完备}\quad\Longleftrightarrow\quad K=\mathbb R^m.
 $$
 
-现金补足在这里完成了“向量属于一个空间”到“存在可实施交易策略”的最后一步. [^w-space]
+[^w-space]
 
 <a id="qt18p2-theorem"></a>
 
-## 3. 完备当且仅当 EMM 唯一
+## 第二基本定理
 
-定理（有限期第二资产定价基本定理）. 在第 1 节全部条件下，市场完备，当且仅当等价鞅测度唯一. 无套利假设保证至少有一个 EMM；“唯一”不是在一个空集合中讨论. [^w-completeness]
+定理（有限期第二资产定价基本定理）. 在第 1 节全部条件下，市场完备，当且仅当等价鞅测度唯一. 无套利假设由第一基本定理保证 EMM 集合非空. [^w-completeness]
 
 先作一个准备. 若策略复制 $X$，则在任何 EMM $Q$ 下，贴现财富为鞅，故
 
@@ -620,7 +614,7 @@ $$
 V_k/B_k=\mathbb{E}_Q[X/B_T\mid\mathcal F_k].
 $$
 
-左边是一套已经选定的持仓沿已给价格计值的过程，根本不随我们挑哪个 EMM 改变. 因此所有 EMM 给这个可复制支付相同价值；所有复制它的策略也有相同价值过程. 这不要求复制仓位唯一：有冗余资产时，不同仓位可能产生同一财富过程. [^w-value]
+同一持仓沿给定资产价格计值，因此所有EMM给可复制支付相同价值，所有复制策略也有相同财富过程. 存在冗余资产时，复制持仓仍可不唯一.[^w-value]
 
 证明“完备 $\Rightarrow$ 唯一”. 设 $Q,Q'$ 都是 EMM. 对任意终端事件 $A$，完备性给出复制 $\mathbf1_A$ 的策略，其初始贴现财富满足
 
@@ -630,11 +624,11 @@ $$
 =\mathbb{E}_{Q'}[\mathbf1_A/B_T].
 $$
 
-$B_T$ 是确定的正数，乘回它得到 $Q(A)=Q'(A)$. 因为 $A$ 遍历 $\mathcal F_T=2^\Omega$，故 $Q=Q'$. 这条证明用的是模型中的确定现金条件，并不是在断言随机正计价资产下不存在其他形式的完备性定理.
+$B_T$ 是确定的正数，乘回它得到 $Q(A)=Q'(A)$. 因为 $A$ 遍历 $\mathcal F_T=2^\Omega$，故 $Q=Q'$. 这里从贴现事件支付的价格相等恢复事件概率相等，使用了 $B_T$ 的确定性.
 
 <a id="qt18p2-perturbation"></a>
 
-## 4. 不完备留下的方向，怎样生成另一概率
+## 概率扰动
 
 另一方向用逆否命题. 若市场不完备，第 2 节给 $K\subsetneq\mathbb R^m$. 有限维线性代数因此提供非零向量 $z\in K^\perp$. 由于 $\mathbf1\in K$ 且 $L\subseteq K$，
 
@@ -668,7 +662,7 @@ $$
 
 故各贴现价格在 $Q'$ 下仍是鞅. 于是市场不完备便存在至少两个 EMM，逆否命题完成. [^w-space]
 
-这一证明也解释了“未被资产价格约束的方向”：$z$ 与全部可复制贴现支付正交，微调概率时这些支付的价格看不出变化；只有某些不可复制支付可能看到区别.
+$z$ 与全部可复制贴现支付正交，沿此方向扰动概率保持这些支付的价格；不可复制支付的加权值则可改变.
 
 在同一个三状态市场、未加入新资产时，可以取
 
@@ -676,15 +670,15 @@ $$
 q=\left(\frac{1}{5},\frac{1}{2},\frac{3}{10}\right),\qquad z=\left(1,-2,1\right).
 $$
 
-由上述公式得到一个安全幅度 $\varepsilon=\frac{1}{10}$，从而 $q'=\left(\frac{3}{10},\frac{3}{10},\frac{2}{5}\right)$. 新旧两组权重都正确定价现金和股票，但对看涨式支付的价格不同. 这里改变的是定价测度的选择，没有改动股票、现金或支付定义.
+取 $\varepsilon=1/10$，得 $q^\prime=(3/10,3/10,2/5)$. 两组权重均满足现金与股票价格约束，对看涨式支付给出不同价格.
 
 <a id="qt18p2-replication"></a>
 
-## 5. 从矩阵满秩走到真实持仓
+## 一期复制矩阵
 
 在一期市场，把各资产终端支付组成矩阵 $A$，状态为行、资产为列. 若 $\operatorname{rank}(A)=m$，任意支付向量 $x$ 都能求解 $A\theta=x$；初始成本为 $s_0^T\theta$，终值逐行相等. 反过来，若每个状态数字支付 $e_i$ 都可复制，所有 $e_i$ 都在列空间内，矩阵必为满行秩.
 
-采用 EXP-STATE-01 的三状态分支，将看涨式支付以初价 $6$ 加入交易. 矩阵行列式为 $408$，因此我们现在不仅知道能复制，而且可以逐一解出：
+三状态分支加入初价6的看涨式支付后，矩阵行列式408. 各数字支付的复制持仓为：
 
 | 数字支付 | 持仓 $(\beta,\Delta,\gamma)$ | 初始成本 |
 |---|---|---|
@@ -700,7 +694,7 @@ $$
 | 中间 | $-4$ | $5$ | $0$ | $1$ |
 | 上涨 | $-4$ | $6$ | $-2$ | $0$ |
 
-每一行加总都达到目标，初始成本为 $\frac{122}{255}$. 表里的现金列仍是 $\beta B_1$；不能把现金账户单位 $\beta$ 直接当作美元终值.
+每行合计达到目标，初始成本 $122/255$，现金终值为 $\beta B_1$.
 
 对任意支付 $x=(x_d,x_m,x_u)$，线性组合三种数字支付即可复制. 把矩阵相邻行相减，也能直接得到
 
@@ -721,11 +715,9 @@ $$
 
 <div data-experiment-slot="EXP-STATE-01--complete-proof"></div>
 
-先在界面选三个数字支付之一，再输入一个含正负分量的支付. 它会重新求解持仓并逐状态乘回，而不是只显示“秩等于 3”.
-
 <a id="qt18p2-multiperiod"></a>
 
-## 6. 多期复制怎样计算：仓位会随信息改变
+## 多期动态复制
 
 多期不能继续用一组从头持有到尾的常数 $\theta$ 表示全部策略. 对每个时点 $k$、每个风险资产 $i$ 和 $\mathcal F_{k-1}$ 的每个原子 $A$，定义向量
 
@@ -742,11 +734,9 @@ $$
 
 找到系数后，在事件 $A$ 上、第 $k$ 期持有资产 $i$ 的数量就是 $\alpha_{k,i,A}$，即 $h_k^i=\sum_A\alpha_{k,i,A}\mathbf1_A$. 初始财富为 $aB_0$，然后逐期补足现金. 贴现财富恒等式保证终值等于 $X$. 完备性保证该有限系统对所有 $X$ 可解；冗余列可能让持仓解不唯一. [^w-representation]
 
-这段构造把一般证明真正落到了信息树上的计算：不是让今天的仓位依赖最终状态，而是让明天的仓位依赖到明天已经可知的分组.
-
 <a id="qt18p2-exercises"></a>
 
-## 7. 迁移：复制一个支付，再检查一个符号错误
+## 练习与解析
 
 问题一. 在已加入初价 $6$ 看涨式资产的三状态市场中，复制 $x=\left(2,-1,3\right)$. 计算持仓、三个终值与初始成本.
 
@@ -758,7 +748,7 @@ $$
 | 中间 | $14$ | $-15$ | $0$ | $-1$ |
 | 上涨 | $14$ | $-18$ | $7$ | $3$ |
 
-初始成本为 $\frac{421}{510}\approx0.8254902$，也等于 $\pi\cdot x$. 支付含负分量并不妨碍线性复制；它表示该状态下组合需要支付而非收到资金，不是“概率为负”.
+初始成本为 $421/510\approx0.825$，等于 $\pi\cdot x$. 负支付分量表示该状态下需付出资金.
 
 问题二. 有人把可复制空间写成 $K=R\mathbf1+L$，这里 $R=\frac{51}{50}$ 是现金增长因子，并继续使用 $K^\perp$. 哪里出了问题？
 
@@ -766,14 +756,13 @@ $$
 
 问题三. 若加入一列与原现金账户完全相同的资产，复制仓位不唯一，是否意味着 EMM 不唯一？
 
-解析. 不意味着. 复制全部支付对应满行秩；持仓唯一还需要列没有冗余. 重复列不改变列空间，因此不会破坏原有完备性或 EMM 唯一性，却使持仓可以在两列相同资产之间自由挪动. 定理中的两个“唯一”不能混淆.
+**解析.** 重复列不改变列空间，保留完备性与EMM唯一性；两列之间可任意转移持仓，使复制持仓不唯一.
 
-[^w-model]: Ruth J. Williams, [Finite Market Model, Chapter 3](https://mathweb.ucsd.edu/~williams/courses/m294notes/chap3.pdf#page=2)，§3.1，印刷 pp.40–43 / PDF pp.2–3. 章节无可靠修订日期；本文显式保留终端全信息、初始平凡信息和确定正现金条件.
-[^w-completeness]: 同章 §3.3，完备性定义及 Theorem 3.3.2，印刷 pp.50–54 / PDF pp.7–9；一般证明在本篇完整展开.
-[^w-value]: 同章 Theorem 3.3.1，印刷 p.51 / PDF p.7. 复制价值与持仓唯一性是不同问题.
-[^w-space]: 同章 Theorem 3.3.2 的反向证明，尤其 (3.37)–(3.45)，印刷 pp.52–54 / PDF pp.8–9；本文把全部可复制贴现支付空间记为 $K$，并明确给出严格正扰动幅度.
-[^w-representation]: 同章 Lemma 3.2.5，印刷 pp.48–49 / PDF p.6，以及 Theorem 3.3.3 及完整证明，印刷 pp.54–55 / PDF p.9. 本文直接用信息原子的指标向量实现有限维求解与现金补足.
-
+[^w-model]: Ruth J. Williams, [Finite Market Model, Chapter 3](https://mathweb.ucsd.edu/~williams/courses/m294notes/chap3.pdf#page=2)，§3.1，印刷 pp.40–43 / PDF pp.2–3. 章节无可靠修订日期.
+[^w-completeness]: 同章 §3.3，完备性定义及 Theorem 3.3.2，印刷 pp.50–54 / PDF pp.7–9.
+[^w-value]: 同章 Theorem 3.3.1，印刷 p.51 / PDF p.7.
+[^w-space]: 同章 Theorem 3.3.2 的反向证明，尤其 (3.37)–(3.45)，印刷 pp.52–54 / PDF pp.8–9.
+[^w-representation]: 同章 Lemma 3.2.5，印刷 pp.48–49 / PDF p.6，以及 Theorem 3.3.3 及完整证明，印刷 pp.54–55 / PDF p.9.
 
 ## Experiment inputs and static equivalents
 ```json

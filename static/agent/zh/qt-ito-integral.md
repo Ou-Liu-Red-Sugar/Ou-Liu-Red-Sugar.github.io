@@ -2,13 +2,10 @@
 
 从左端点持仓和式证明简单等距与鞅，并计算积分 W dW.
 
-Entry: zh-qt16 | Node: QT16 | Language: zh | Editorial revision: 2026-09-21
+Entry: zh-qt16 | Node: QT16 | Language: zh | Editorial revision: 2026-09-22
 
 ## Teaching instructions
-你是这篇中文学习单元的教学 Agent. 读者具备本包列出的先修：条件期望、时空 L2 范数与 QT15 的 QV.
-先实际取得 required_readings 中本次所选单元并读完，核对版本、页码与公式；已有同会话同版完整读取可以复用. 只取得摘要或目录不得声称完成. 指定原件若无法取得，先说明具体缺口；只有本包中已经具名核过等价范围的完整数学证明，才可在对应数学步骤内作为替代，并须实际读完且记录替代正文、版本与支持步骤. 若本次必读仍有缺失，就停止依赖该内容的实质讲解；研究样本、训练安排、图表结果与作者主张不得以本站概述替代，也不得声称原件已经读过. runtime_reading_log 是你的实际运行记录，交付的空数组不是已读.
-本篇任务：先比较左右端点系数的信息时点；要求以条件期望而不是“收益独立”消交叉项，再由 telescoping 与 QV 算 WdW.
-先让读者尝试，再按所缺的一步解释，不将全部课文一次复述. 完整证明需要标明每项条件在哪一步用到，练习给出完整解析. 只采用 supplied_inputs 的本篇切片和已链接全量数据，区分教学模型、真实记录、作者论文结果. 图不是证明，模拟不是现实规律；不以预测概率替换定价测度. 禁止从分位数拟造分布或另抽浏览器随机数冒充冻结路径. 最后问：读者只读完这个词条，真的能学明白吗？用迁移题实际判断，明确剩余能力缺口.
+读者为有充分数学背景的高年级本科生至研究生. 先实际读取 agent_packet.required_readings 指定完整单元，选择可选分支后再读 optional_readings；记录题名、版本、定位与支持内容. 缺失必读单元时先取得等价原件，再解释依赖它的命题. 推导简单可预测积分的等距与鞅性质，检查交叉项的可积性；从左阶梯逼近计算积分W dW，并用右端和及线性被积过程检验信息条件与二阶矩. 用完整推导或计算诊断理解，已掌握步骤直接继承，再用改变条件的任务检验迁移. runtime_reading_log记录实际读取.
 
 Before substantive teaching, actually retrieve every required reading unit for the selected scope. Read its complete designated section, including necessary assumptions, tables and footnotes. A working URL or an editorial access date is not a runtime reading receipt. Record the actual version, location, scope and what it supports. If unavailable, use a previously verified equivalent source; if the required unit remains unavailable, identify that gap rather than teach it from memory. Start runtime_reading_log empty. Once reading is complete, use a substantive diagnostic or follow the reader's request for direct explanation. Advance one complete reasoning task at a time; skip mastered basics. Distinguish original facts, supplied teaching assumptions and inference.
 
@@ -199,20 +196,23 @@ Before substantive teaching, actually retrieve every required reading unit for t
       "theory_mean": 108.32870676749586,
       "log_drift": 0.06
     }
-  }
+  },
+  "prompt": "读者为有充分数学背景的高年级本科生至研究生. 先实际读取 agent_packet.required_readings 指定完整单元，选择可选分支后再读 optional_readings；记录题名、版本、定位与支持内容. 缺失必读单元时先取得等价原件，再解释依赖它的命题. 推导简单可预测积分的等距与鞅性质，检查交叉项的可积性；从左阶梯逼近计算积分W dW，并用右端和及线性被积过程检验信息条件与二阶矩. 用完整推导或计算诊断理解，已掌握步骤直接继承，再用改变条件的任务检验迁移. runtime_reading_log记录实际读取.",
+  "learning_task": "推导简单可预测积分的等距与鞅性质，检查交叉项的可积性；从左阶梯逼近计算积分W dW，并用右端和及线性被积过程检验信息条件与二阶矩.",
+  "content_version": "2026-09-22-deep-review"
 }
 ```
 
 ## Supplied entry
 <a id="qt16-question"></a>
-## 先决定系数，再接受下一段变化
+## 简单可预测积分
 
-离散交易中的累计变化写成“前一时点决定的持仓，乘以后一区间的价格增量”. 这一先后顺序到了连续时间不会消失. 本篇先在有限个区间上定义积分，完整证明等距与鞅性质，再亲手重建 $\int W\,dW$. 一般积分的密度、连续版本与停止规则在独立单元 [Itô 积分的完整构造](https://ou-liu-red-sugar.github.io/zh/notebook/qt-ito-integral-proof/) 中证明.
+Itô 积分先在简单可预测过程上定义：每个区间的系数在区间左端已经可知. 一般过程的密度、连续版本与停止规则见 [Itô 积分的完整构造](https://ou-liu-red-sugar.github.io/zh/notebook/qt-ito-integral-proof/).
 
-固定有限 $T$ 和通常条件下的过滤概率空间；通常条件是过滤右连续，并且 $\mathcal F_0$ 包含概率空间中的全部零测子集. $W$ 相对于这个过滤为 Brownian 运动. 先修为条件期望、$L^2$ 范数及上一单元的二次变差.
+固定有限 $T$，滤过满足通常条件：右连续，且 $\mathcal F_0$ 包含 $\mathcal F$ 中所有零测集及其子集. $W$ 相对于该滤过为Brownian运动.
 
 <a id="qt16-simple"></a>
-## 可以直接算的积分
+## 分段定义
 
 令 $0=t_0<\cdots<t_n=T$ 为确定性分割. 一个简单可预测过程写作
 
@@ -230,10 +230,8 @@ $$
 
 它对分割的细分不变：把一个区间分成两半但保持相同系数，两个增量会加回原增量. 因此不同的分段表示不会改变积分. 它也立即是线性的、适应的，并具有连续路径. [^ito-simple]
 
-系数可以随机，不必是常数；关键是不能偷用下一时点的值. 我们并不说每个随机持仓的收益相互独立，接下来只需要条件期望.
-
 <a id="qt16-isometry"></a>
-## 等距：交叉项为什么为零
+## Itô等距
 
 记 $A_j=\xi_j\Delta W_j$. 因为未来增量独立于 $\mathcal F_{t_j}$，有
 
@@ -262,10 +260,10 @@ $$
 =\mathbb{E}\int_0^T H_t^2\,dt.
 $$
 
-这就是简单过程的 Itô 等距：被积过程的时空均方范数，变成积分终点的均方范数. 它不只是一个方便算方差的技巧；它告诉我们应该用什么距离延拓积分.
+这就是简单过程的 Itô 等距：被积过程的时空均方范数等于积分终点的均方范数，并据此确定向一般过程延拓时采用的 $\mathcal H_T^2$ 距离.
 
 <a id="qt16-martingale"></a>
-## 从终点均值到整个过程的鞅性质
+## 鞅性质
 
 固定 $s<t$，把分割加上 $s,t$. 处在同一原区间内时，系数在较早的左端点已知，因此在新左端点仍已知. 对新分段中的每个未来增量，条件均值为零. 逐段用塔式性质，得到
 
@@ -273,12 +271,12 @@ $$
 \mathbb{E}[I_t(H)-I_s(H)\mid\mathcal F_s]=0.
 $$
 
-适应性和可积性已经核过，故 $I(H)$ 是连续平方可积鞅. 未来区间的系数未必在 $s$ 已知；我们是在各个区间自己的左端点条件化，再退回 $\mathcal F_s$，不是把全部未来系数一口气提出.
+因此 $I(H)$ 是连续平方可积鞅. 各未来段先在自身左端条件化，再通过塔式性质回到 $\mathcal F_s$.
 
 <a id="qt16-extension"></a>
-## 一般过程需要哪一种可测性
+## 渐进可测与均方空间
 
-渐进可测（progressive）的意思是：对每个 $u\le T$，$(t,\omega)\mapsto H_t(\omega)$ 在 $[0,u]\times\Omega$ 上相对于 $\mathcal B([0,u])\otimes\mathcal F_u$ 可测. 这同时提供时间和样本的联合可测性；单说每个 $H_t$ 适应并不够.
+渐进可测指每个 $u\le T$ 下，$(t,\omega)\mapsto H_t(\omega)$ 在 $[0,u]\times\Omega$ 上对 $\mathcal B([0,u])\otimes\mathcal F_u$ 可测，同时规定时间与样本的联合可测性.
 
 采用空间
 
@@ -287,14 +285,14 @@ $$
 =\{H\text{ 渐进可测}:\mathbb{E}\int_0^T H_t^2dt<\infty\},
 $$
 
-并把 $dt\otimes P$ 几乎处处相等的过程视为同一元素. 简单左阶梯在这个空间稠密. 若 $H^m\to H$ 于此范数，等距使 $I_T(H^m)$ 在 $L^2(P)$ 中收敛；但终点收敛还没有自动构造一条连续路径. QT16-P1 进一步用 Doob 最大不等式建立连续过程的极限，证明逼近无关、鞅性质与停止规则. [^ito-extension]
+按 $dt\otimes P$ a.e.相等取商. 简单左阶梯在该空间稠密，等距使逼近序列的终点积分在 $L^2(P)$ 中收敛. [完整构造](https://ou-liu-red-sugar.github.io/zh/notebook/qt-ito-integral-proof/)进一步通过Doob最大不等式获得连续过程极限及停止规则.[^ito-extension]
 
 最终的连续积分过程按不可分辨性（indistinguishability）识别：存在一个共同满测度集合，其上所有时点都相等. 这比逐个固定时点的几乎必然相等，量词更强.
 
-若只有 $\int_0^T H_t^2dt<\infty$ 几乎必然，却没有期望有限，则须局部化，自动得到的是连续局部鞅，不可直接声称全局零均值或有限二阶矩.
+若仅有 $\int_0^T H_t^2dt<\infty$ a.s.，则局部化得到连续局部鞅；全局零均值与有限二阶矩需另有可积性条件.
 
 <a id="qt16-wdw"></a>
-## 从定义算一次：为什么不是 $W_T^2/2$
+## Brownian自积分
 
 $W$ 本身属于 $\mathcal H_T^2$，因为 $\mathbb{E}\int_0^T W_t^2dt=T^2/2$. 用左端点阶梯 $H_t^\pi=W_{t_j}$ 逼近它，则
 
@@ -325,26 +323,26 @@ $$
 -\sum_jW_{t_j}\Delta W_j=Q_\pi.
 $$
 
-故右端点和趋于 $(W_T^2+T)/2$. 这是不同信息约定造成的实质差别，不是数值显示误差. 右端点系数一般不在区间开始时可知，所以它不属于我们刚定义的简单可预测积分.
+右端点和趋于 $(W_T^2+T)/2$，与左端点和相差 $T$. 右端点系数通常在区间开始时尚不可知，不满足简单可预测积分的定义.
 
 <a id="qt16-numeric"></a>
-## 同一路径上的左、右和式
+## 左端与右端和
 
-实验仍使用上一单元同一个 $8192\times256$ 正态数组，$T=1$. 对每条路径从最细网格聚合，不另抽随机数.
+实验复用上一单元 $8192\times256$ 正态数组，$T=1$，粗网格由相邻细增量聚合.
 
 | 网格区间数 | 首路径左和 | 首路径右和 | 模拟 MSE | 理论 MSE |
 | --- | --- | --- | --- | --- |
-| 4 | -0.197281995 | 0.597177420 | 0.126738290 | 0.125000000 |
-| 16 | -0.339659852 | 0.739555278 | 0.031220589 | 0.031250000 |
-| 64 | -0.310339703 | 0.710235128 | 0.007818851 | 0.007812500 |
-| 256 | -0.282960276 | 0.682855701 | 0.001981947 | 0.001953125 |
+| 4 | -0.197 | 0.597 | 0.127 | 0.125 |
+| 16 | -0.34 | 0.74 | 0.031 | 0.031 |
+| 64 | -0.31 | 0.71 | 0.008 | 0.008 |
+| 256 | -0.283 | 0.683 | 0.002 | 0.002 |
 
 <div data-experiment-slot="VIEW-QT16-INTEGRAL"></div>
 
-表中的理论均方误差为 $1/(2n)$，它可直接由刚才的逼近误差和等距得到；不是对模拟结果拟合出来的收敛率. 单条路径误差可以来回变化，而多路径均方量回答的是另一个问题.
+理论MSE为 $1/(2n)$，由被积过程逼近误差和Itô等距得到. 表中模拟MSE按8,192条路径平均.
 
 <a id="qt16-exercise"></a>
-## 迁移：线性被积过程
+## 练习与解析
 
 **题目.** 对实常数 $a,b$，计算 $J=\int_0^T(a+bW_t)dW_t$ 的期望与方差，并说明 $W_T$ 与 $W_T^2-T$ 不相关是否意味着它们独立.
 
@@ -360,11 +358,10 @@ $$
 \operatorname{Var}(J)=a^2T+\frac{b^2T^2}{2}.
 $$
 
-从等距也得到 $\int_0^T \mathbb{E}[(a+bW_t)^2]dt$，结果相同. 不过第二个变量是第一个变量的函数；一般并不独立. 不相关足以完成这次二阶矩计算，却不能代替更强的独立性断言.
+等距也给出同一结果 $\int_0^T\mathbb{E}[(a+bW_t)^2]dt$. 对 $T>0$，$W_T^2-T$ 是 $W_T$ 的非退化函数，故两者虽不相关，却不独立.
 
 [^ito-simple]: Lalley，[Notes on the Itô Calculus](https://www.stat.uchicago.edu/~lalley/Courses/385/Old/ItoIntegral-2012.pdf)，2012-05-15，§3.1，pp.7–8. 原 p.8 的一步过程下标混用；本文按 $\xi\in\mathcal F_s$、$\xi(W_t-W_s)$ 的正确区间表达推导.
-[^ito-extension]: 同讲义 §1.1–1.2、§3.2–3.5，pp.1–4、9–13；完整过程构造与停止传递见本包 QT16-P1，而非只引用终点 $L^2$ 极限.
-
+[^ito-extension]: 同讲义 §1.1–1.2、§3.2–3.5，pp.1–4、9–13；连续过程构造与停止传递见 [Itô 积分的完整构造](https://ou-liu-red-sugar.github.io/zh/notebook/qt-ito-integral-proof/).
 
 ## Experiment inputs and static equivalents
 ```json

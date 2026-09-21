@@ -4,17 +4,17 @@
   "lang": "zh",
   "slug": "qt-counting-poisson",
   "title": "计数过程与 Poisson 基准",
-  "summary": "从全部微秒时间记录复算计数和等待，建立有信息条件的 Poisson 基准.",
+  "summary": "从完整微秒成交记录复算计数与内部等待，并在给定过滤下建立 Poisson 基准.",
   "subject": "quant",
   "topic": "quant-processes",
   "kind": "concept",
   "template": "T1",
   "role": "核心",
   "study_time": "15–18 分钟",
-  "revised": "2026-09-21",
-  "content_version": "QT-GHI-review-v3",
-  "body_markdown": "<a id=\"qt14-records\"></a>\n## 先数真实记录，再谈模型\n\n我们取 Binance 的 ETHBTC 现货逐笔成交档案，观察 2025 年 1 月 2 日 UTC 的第一个小时：$[00{:}00,01{:}00)$. 这是预先指定的一段描述性窗口，不是挑一段像 Poisson 的图. 每条记录有 trade ID、价格、数量、报价资产数量、时间戳及两个布尔字段. 价格单位是 BTC/ETH，数量单位是 ETH；此日期的现货时间戳用 Unix 微秒，而不是毫秒. 不同 ID 即使时间戳相同，也不能删成一条. [^binance]\n\n本篇的任务是从这些字段建立计数、等待时间与时间单位，然后用一个条件明确的 Poisson 模型作比较. 只需基本概率、条件期望以及过滤表示信息的含义.\n\n| trade ID | 价格（BTC/ETH） | 数量（ETH） | Unix 微秒 |\n| --- | --- | --- | --- |\n| 482524746 | 0.03553000 | 0.00560000 | 1735776004130016 |\n| 482524747 | 0.03552000 | 1.00000000 | 1735776015196046 |\n\n第一条记录在窗口开始后约 4.130016 秒. 这个“4.13 秒”不是我们观测到一个无删失的新等待：窗口开始前的上一笔成交没有包含进来. 相同地，窗口结束后的下一笔也未知. 数据附件保留这一小时全部 3,291 条记录的 trade ID 与微秒时间字段，并附固定窗口规则、逐秒/逐分钟计数和内部相邻间隔. 价格与数量只在上面的实际原行节选中展示；计数和等待实验不使用这些列. 下列汇总均可从完整时间投影复算，不来自一分钟计数的反推.\n\n<a id=\"qt14-counts\"></a>\n## 两种时间区间约定不要混写\n\n对严格递增的模型到达时刻 $0<T_1<T_2<\\cdots\\to\\infty$，定义\n\n$$\nN_t=\\sum_{j\\ge1}\\mathbf1_{\\{T_j\\le t\\}},\n\\qquad N(a,b]=N_b-N_a.\n$$\n\n这是理论右连续计数过程的约定. 本数据的截窗和分箱则固定为左闭右开 $[a,b)$：时间戳恰在下一分钟开始处，就归入下一箱. 真实记录时间精度有限；模型的严格递增到达时刻与数据库里的重复时间戳不是同一个对象. 记录相同只能说明无法用这一字段区分次序，不能证明潜在连续事件真的同时发生.\n\n以窗口起点为 $u_0$，对每条微秒时间戳 $u_i$，计算秒偏移 $t_i=(u_i-u_0)/10^6$. 宽度为 $\\Delta$ 秒时，箱号是 $\\lfloor t_i/\\Delta\\rfloor$，仅保留 $0\\le t_i<3600$. 于是\n\n$$\n\\widehat\\lambda=\\frac{3291}{3600}\n=0.914166667\\quad\\text{笔/秒}.\n$$\n\n这是窗口总数除以时长的描述量. 改用分钟，数值为 $54.85$ 笔/分钟；改变的是单位，不是交易强度突然变了六十倍.\n\n<a id=\"qt14-poisson\"></a>\n## Poisson 模型究竟多要求了什么\n\n令 $N_0=0$，$N$ 为右连续计数过程. 齐次 Poisson 过程的强度为 $\\lambda>0$，是指不相交时间区间的增量独立，而且对 $s<t$，\n\n$$\nP(N_t-N_s=k)\n=e^{-\\lambda(t-s)}\\frac{[\\lambda(t-s)]^k}{k!},\n\\qquad k=0,1,\\ldots.\n$$\n\n我们采用自然过滤 $\\mathcal F_s=\\sigma(N_u:u\\le s)$. 若扩大过滤，必须仍要求未来增量独立于 $\\mathcal F_s$. 例如一开始就告诉观察者 $N_T$，即使过程无条件的计数分布没变，下面的条件均值结论也可能被破坏.[^poisson]\n\n由独立增量，\n\n$$\n\\mathbb{E}[N_t-N_s\\mid\\mathcal F_s]=\\lambda(t-s).\n$$\n\n因此 $M_t=N_t-\\lambda t$ 适应、可积，且\n\n$$\n\\mathbb{E}[M_t\\mid\\mathcal F_s]\n=N_s+\\lambda(t-s)-\\lambda t=M_s.\n$$\n\n这完整证明了补偿过程为鞅. 我们减去的是已指定模型的期望到达量，不是从同一窗口拟合一个均值以后就让真实残差自动变成鞅.\n\n首等待 $T_1$ 的尾概率也立即可算：\n\n$$\nP(T_1>t)=P(N_t=0)=e^{-\\lambda t}.\n$$\n\n故 $T_1\\sim\\operatorname{Exp}(\\lambda)$，其均值 $1/\\lambda$. 关键依据是零计数的完整概率，不是单凭 $\\mathbb{E}[N_t]=\\lambda t$.\n\n<a id=\"qt14-arrivals-proof\"></a>\n## 从指数间隔反过来构造：还要证明联合增量\n\n取独立同分布的 $E_j\\sim\\operatorname{Exp}(\\lambda)$，令 $T_n=E_1+\\cdots+E_n$. 先排除有限时点发生无穷多次到达. 对任何 $\\theta>0$，\n\n$$\n\\begin{aligned}\nP(T_n\\le T)\n&\\le e^{\\theta T}\\mathbb{E}[e^{-\\theta T_n}]\\\\\n&=e^{\\theta T}\n\\left(\\frac{\\lambda}{\\lambda+\\theta}\\right)^n\\longrightarrow0.\n\\end{aligned}\n$$\n\n由于 $\\{T_n\\le T\\}$ 递减，所有 $T_n$ 都落在固定 $[0,T]$ 内的概率为零. 再对正整数 $T$ 取可数并，得到无爆炸.\n\n现在固定 $0=t_0<\\cdots<t_m=T$，要求第 $j$ 段恰好有 $n_j$ 次到达，令 $n=\\sum n_j$. 对有序到达位置 $0<s_1<\\cdots<s_n<T$，前 $n$ 个指数密度相乘，再乘下一次等待超过 $T-s_n$ 的概率，得到\n\n$$\n\\lambda^n e^{-\\lambda s_n}\n e^{-\\lambda(T-s_n)}=\\lambda^n e^{-\\lambda T}.\n$$\n\n在每段各自的有序单纯形上积分，体积为 $\\prod_j(\\Delta t_j)^{n_j}/n_j!$，所以联合概率是\n\n$$\n\\prod_{j=1}^m\n e^{-\\lambda\\Delta t_j}\n \\frac{(\\lambda\\Delta t_j)^{n_j}}{n_j!}.\n$$\n\n它同时给出各段的 Poisson 分布和独立性，而不只是终点 $N_T$ 的边际. 反过来，计数的所有有限维分布决定到达时刻的联合分布，因为 $\\{T_j>t\\}=\\{N_t<j\\}$. 因此这个构造已经足以推出 Poisson 过程间隔的独立指数律，无须另用 strong Markov 定理.\n\n<a id=\"qt14-observed\"></a>\n## 把基准放回这一小时\n\n| 描述对象 | 箱数/间隔数 | 平均数 | 样本方差/零间隔 |\n| --- | --- | --- | --- |\n| 每秒计数 | 3600 | 0.914166667 | 51.166012087 |\n| 每分钟计数 | 60 | 54.85 | 6364.977118644 |\n| 内部等待时间 | 3290 | 1.092549621 秒 | 1880 个零间隔 |\n\n方差使用“箱数减一”的样本分母. 齐次 Poisson 的理论均值与方差相等；这里分钟样本方差远大于均值. 1 秒箱中有 $2901/3600\\approx80.58\\%$ 没有成交，而用全窗估计的强度代入 Poisson，零计数概率约为 $40.09\\%$. 均值相同绝不等于分布相同.\n\n内部相邻记录共有 3290 个间隔，其中 1880 个为零，平均约 1.09255 秒. 不要把这个内部平均数直接当作无删失的 $1/\\lambda$ 估计，也不要删除零间隔后悄悄改变研究对象. 计数的过度离散可能来自时变强度、共同订单的记录批次、依赖、精度或多个因素；仅凭一个 Fano 比不能识别唯一机制.\n\n<div data-experiment-slot=\"EXP-QT14-ARRIVAL-01\"></div>\n\n先看分钟时间线的峰值，再比较“窗口总数/时长”和逐箱计数. 界面中的 Poisson 参照始终是模型预测；真实秒级、分钟级柱子和内部等待分布都从同一份完整时间投影计算. 零间隔单列，不用连续密度图把它抹掉.\n\n该档案是事后下载的历史记录. 官方说明日档次日可用且可能修订，因此档案时间戳不能替代某位交易者当日实际收到数据的 received time.[^binance]\n\n<a id=\"qt14-exercise\"></a>\n## 迁移题与解析\n\n**题目.** 用每秒强度预测十秒内零成交的概率，然后解释为什么不能把这个概率叫作本窗口已验证的未来预测. 再假定 $\\mathcal F_0$ 额外包含 $N_{60}$，说明补偿鞅证明哪一步失效.\n\n**解析.** 齐次模型给 $e^{-10\\widehat\\lambda}\\approx0.0001071$. 这个数是把拟合强度代回强假设后的计算；窗口分箱已经显示该基准与记录的明显差异，参数拟合和模型检验又用同一数据，尚无独立未来验证.\n\n在扩大后的过滤中，$N_{60}$ 已知，故 $\\mathbb{E}[N_{60}\\mid\\mathcal F_0]=N_{60}$，通常不等于固定的 $60\\lambda$. 独立于过去计数不等于独立于任意额外信息. 失效的是条件均值步骤，后面减去 $\\lambda t$ 的代数没有错.\n\n[^poisson]: Hao Wu，MIT 18.445，[Lecture 20: Poisson process](https://ocw.mit.edu/courses/18-445-introduction-to-stochastic-processes-spring-2015/06c09371501eb1d7dd4c7c72c74cef5b_MIT18_445S15_lecture20.pdf)，2015-04-29，7 张教学 slides.\n[^binance]: Binance，[Public Data README](https://github.com/binance/binance-public-data)，Spot/Trades、availability、Updates；[2025-01-02 ETHBTC 原日档](https://data.binance.vision/data/spot/daily/trades/ETHBTC/ETHBTC-trades-2025-01-02.zip). 固定窗口统计与分钟计数绑定 2026-09-21 冻结档；官方档案仍可能后续修订.\n",
-  "prompt": "你是这篇中文学习单元的教学 Agent. 读者具备本包列出的先修：基本概率、条件期望和过滤；无需强 Markov 定理.\n先实际取得 required_readings 中本次所选单元并读完，核对版本、页码与公式；已有同会话同版完整读取可以复用. 只取得摘要或目录不得声称完成. 指定原件若无法取得，先说明具体缺口；只有本包中已经具名核过等价范围的完整数学证明，才可在对应数学步骤内作为替代，并须实际读完且记录替代正文、版本与支持步骤. 若本次必读仍有缺失，就停止依赖该内容的实质讲解；研究样本、训练安排、图表结果与作者主张不得以本站概述替代，也不得声称原件已经读过. runtime_reading_log 是你的实际运行记录，交付的空数组不是已读.\n本篇任务：先让读者解释两个相同微秒而 ID 不同的行是否重复，以及 N(a,b] 与数据 [a,b) 的区别；再让其重建补偿鞅的条件均值，指出 F0 预知 N60 时的失败.\n先让读者尝试，再按所缺的一步解释，不将全部课文一次复述. 完整证明需要标明每项条件在哪一步用到，练习给出完整解析. 只采用 supplied_inputs 的本篇切片和已链接全量数据，区分教学模型、真实记录、作者论文结果. 图不是证明，模拟不是现实规律；不以预测概率替换定价测度. 禁止从分位数拟造分布或另抽浏览器随机数冒充冻结路径. 最后问：读者只读完这个词条，真的能学明白吗？用迁移题实际判断，明确剩余能力缺口.",
+  "revised": "2026-09-22",
+  "content_version": "2026-09-22-deep-review",
+  "body_markdown": "<a id=\"qt14-records\"></a>\n## ETHBTC成交记录\n\n取 Binance 的 ETHBTC 现货逐笔成交档案，固定观察 2025 年 1 月 2 日 UTC 的第一个小时 $[00{:}00,01{:}00)$. 每条记录有 trade ID、价格、数量、报价资产数量、时间戳及两个布尔字段. 价格单位为 BTC/ETH，数量单位为 ETH；该日期的现货时间戳使用 Unix 微秒. 时间戳相同而 trade ID 不同的记录仍分别计数.[^binance]\n\n| trade ID | 价格（mBTC/ETH） | 数量（mETH） | Unix微秒 |\n|---|---:|---:|---|\n| 482524746 | 35.53 | 5.6 | 1735776004130016 |\n| 482524747 | 35.52 | 1,000 | 1735776015196046 |\n\n第一笔在窗口开始后约4.13秒. 窗口外相邻成交未纳入，因此边界等待被截断. 附件保留一小时3,291笔的trade ID、微秒时间及分箱统计；上表价格与数量分别换算为mBTC和mETH，1m单位等于0.001原单位.\n\n<a id=\"qt14-counts\"></a>\n## 计数与分箱\n\n对严格递增的模型到达时刻 $0<T_1<T_2<\\cdots\\to\\infty$，定义\n\n$$\nN_t=\\sum_{j\\ge1}\\mathbf1_{\\{T_j\\le t\\}},\n\\qquad N(a,b]=N_b-N_a.\n$$\n\n理论计数采用 $(a,b]$，数据截窗与分箱采用 $[a,b)$，恰落在下一分钟起点的记录进入下一箱. 重复时间戳表示当前精度无法区分到达先后，逐笔记录仍分别计数.\n\n以窗口起点为 $u_0$，对每条微秒时间戳 $u_i$，计算秒偏移 $t_i=(u_i-u_0)/10^6$. 宽度为 $\\Delta$ 秒时，箱号是 $\\lfloor t_i/\\Delta\\rfloor$，仅保留 $0\\le t_i<3600$. 于是\n\n$$\n\\widehat\\lambda=\\frac{3291}{3600}\n\\approx0.914\\quad\\text{笔/秒}.\n$$\n\n同一窗口强度换算为54.85笔/分钟.\n\n<a id=\"qt14-poisson\"></a>\n## Poisson过程与补偿鞅\n\n令 $N_0=0$，$N$ 为右连续计数过程. 齐次 Poisson 过程的强度为 $\\lambda>0$，是指不相交时间区间的增量独立，而且对 $s<t$，\n\n$$\nP(N_t-N_s=k)\n=e^{-\\lambda(t-s)}\\frac{[\\lambda(t-s)]^k}{k!},\n\\qquad k=0,1,\\ldots.\n$$\n\n取自然滤过 $\\mathcal F_s=\\sigma(N_u:u\\le s)$. 扩大滤过后若仍要使用独立增量的条件期望，需要未来增量独立于新增信息.[^poisson]\n\n由独立增量，\n\n$$\n\\mathbb{E}[N_t-N_s\\mid\\mathcal F_s]=\\lambda(t-s).\n$$\n\n因此 $M_t=N_t-\\lambda t$ 适应、可积，且\n\n$$\n\\mathbb{E}[M_t\\mid\\mathcal F_s]\n=N_s+\\lambda(t-s)-\\lambda t=M_s.\n$$\n\n这证明模型中的补偿过程是鞅. 经验残差 $N_t-\\widehat\\lambda t$ 使用同窗估计参数，其条件均值需另行检验.\n\n首等待 $T_1$ 的尾概率也立即可算：\n\n$$\nP(T_1>t)=P(N_t=0)=e^{-\\lambda t}.\n$$\n\n故 $T_1\\sim\\operatorname{Exp}(\\lambda)$，均值为 $1/\\lambda$.\n\n<a id=\"qt14-arrivals-proof\"></a>\n## 指数间隔构造\n\n取独立同分布的 $E_j\\sim\\operatorname{Exp}(\\lambda)$，令 $T_n=E_1+\\cdots+E_n$. 先排除有限时点发生无穷多次到达. 对任何 $\\theta>0$，\n\n$$\n\\begin{aligned}\nP(T_n\\le T)\n&\\le e^{\\theta T}\\mathbb{E}[e^{-\\theta T_n}]\\\\\n&=e^{\\theta T}\n\\left(\\frac{\\lambda}{\\lambda+\\theta}\\right)^n\\longrightarrow0.\n\\end{aligned}\n$$\n\n由于 $\\{T_n\\le T\\}$ 递减，所有 $T_n$ 都落在固定 $[0,T]$ 内的概率为零. 再对正整数 $T$ 取可数并，得到无爆炸.\n\n现在固定 $0=t_0<\\cdots<t_m=T$，要求第 $j$ 段恰好有 $n_j$ 次到达，令 $n=\\sum n_j$. 对有序到达位置 $0<s_1<\\cdots<s_n<T$，前 $n$ 个指数密度相乘，再乘下一次等待超过 $T-s_n$ 的概率，得到\n\n$$\n\\lambda^n e^{-\\lambda s_n}\n e^{-\\lambda(T-s_n)}=\\lambda^n e^{-\\lambda T}.\n$$\n\n在每段各自的有序单纯形上积分，体积为 $\\prod_j(\\Delta t_j)^{n_j}/n_j!$，所以联合概率是\n\n$$\n\\prod_{j=1}^m\n e^{-\\lambda\\Delta t_j}\n \\frac{(\\lambda\\Delta t_j)^{n_j}}{n_j!}.\n$$\n\n联合概率分解给出各段Poisson分布及独立性. 反向地，$\\{T_j>t\\}=\\{N_t<j\\}$ 使计数的有限维分布确定到达时刻的联合分布，故Poisson过程的间隔为iid指数变量.\n\n<a id=\"qt14-observed\"></a>\n## 观察记录与模型基准\n\n| 描述对象 | 箱数/间隔数 | 平均数 | 样本方差/零间隔 |\n| --- | --- | --- | --- |\n| 每秒计数 | 3600 | 0.914 | 51.166 |\n| 每分钟计数 | 60 | 54.85 | 6364.977 |\n| 内部等待时间 | 3290 | 1.093 秒 | 1880 个零间隔 |\n\n样本方差分母取箱数减1. 齐次Poisson的均值等于方差，而分钟记录的方差远大于均值. 每秒空箱占 $2901/3600\\approx80.583\\%$；代入全窗强度的Poisson空箱概率约40.085%.\n\n3,290个内部间隔中有1,880个为零，均值约1.093秒；边界截断和时间精度改变了等待样本. 时变强度、共同订单的记录批次与到达依赖均可造成过度离散，区分这些机制需更细事件记录或分时检验.\n\n<div data-experiment-slot=\"EXP-QT14-ARRIVAL-01\"></div>\n\n<a id=\"qt14-exercise\"></a>\n## 练习与解析\n\n**题目.** 用每秒强度计算齐次Poisson模型十秒零成交概率，并与样本分箱特征比较. 若 $\\mathcal F_0$ 额外包含 $N_{60}$，补偿鞅证明的哪一步改变？\n\n**解析.** $e^{-10\\widehat\\lambda}\\approx1.07\\times10^{-4}$. 该拟合基准的每秒零计数概率远低于观测空箱比例，单一恒定强度无法解释现有分箱特征.\n\n加入 $N_{60}$ 后，$\\mathbb{E}[N_{60}\\mid\\mathcal F_0]=N_{60}$，通常异于 $60\\lambda$；未来增量已不独立于初始信息，补偿鞅的条件期望等式失效.\n\n[^poisson]: Hao Wu，MIT 18.445，[Lecture 20: Poisson process](https://ocw.mit.edu/courses/18-445-introduction-to-stochastic-processes-spring-2015/06c09371501eb1d7dd4c7c72c74cef5b_MIT18_445S15_lecture20.pdf)，2015-04-29，7 张教学 slides.\n[^binance]: Binance，[Public Data README](https://github.com/binance/binance-public-data)，Spot/Trades、availability、Updates；[2025-01-02 ETHBTC 原日档](https://data.binance.vision/data/spot/daily/trades/ETHBTC/ETHBTC-trades-2025-01-02.zip). 固定窗口统计与分钟计数绑定 2026-09-21 冻结档；官方档案仍可能后续修订.",
+  "prompt": "读者为有充分数学背景的高年级本科生至研究生. 先实际读取 agent_packet.required_readings 指定完整单元，选择可选分支后再读 optional_readings；记录题名、版本、定位与支持内容. 缺失必读单元时先取得等价原件，再解释依赖它的命题. 从ETHBTC逐笔时间重建分箱与内部间隔；证明Poisson补偿鞅、指数间隔与独立增量的等价，比较样本离散度、空箱率及扩大滤过后的条件期望. 用完整推导或计算诊断理解，已掌握步骤直接继承，再用改变条件的任务检验迁移. runtime_reading_log记录实际读取.",
   "sources": [
     "QGHI-MIT-POISSON15",
     "QGHI-BINANCE-DATA"
@@ -22,39 +22,39 @@
   "anchors": [
     {
       "id": "qt14-records",
-      "title": "先数真实记录，再谈模型",
+      "title": "ETHBTC成交记录",
       "kind": "section",
-      "preview": "我们取 Binance 的 ETHBTC 现货逐笔成交档案，观察 2025 年 1 月 2 日 UTC 的第一个小时：$[00{:}00,01{:}00)$. 这是预先指定的一段描述性窗口，不是挑一段像 Poisson 的图. 每条记录有 trade ID、价格、数量、报价资产数"
+      "preview": "取 Binance 的 ETHBTC 现货逐笔成交档案，固定观察 2025 年 1 月 2 日 UTC 的第一个小时 $[00{:}00,01{:}00)$. 每条记录有 trade ID、价格、数量、报价资产数量、时间戳及两个布尔字段. 价格单位为 BTC/ETH，数量单位为 ETH；该日期的现货时间戳使用 Unix 微秒. 时间戳相同而 trade ID 不同的记录仍分别计数."
     },
     {
       "id": "qt14-counts",
-      "title": "两种时间区间约定不要混写",
+      "title": "计数与分箱",
       "kind": "section",
-      "preview": "对严格递增的模型到达时刻 $0<T_1<T_2<\\cdots\\to\\infty$，定义 $$ N_t=\\sum_{j\\ge1}\\mathbf1_{\\{T_j\\le t\\}}, \\qquad N(a,b]=N_b-N_a. $$ 这是理论右连续计数过程的约定. 本数据的截窗和"
+      "preview": "对严格递增的模型到达时刻 $0<T_1<T_2<\\cdots\\to\\infty$，定义"
     },
     {
       "id": "qt14-poisson",
-      "title": "Poisson 模型究竟多要求了什么",
+      "title": "Poisson过程与补偿鞅",
       "kind": "section",
-      "preview": "令 $N_0=0$，$N$ 为右连续计数过程. 齐次 Poisson 过程的强度为 $\\lambda>0$，是指不相交时间区间的增量独立，而且对 $s<t$， $$ P(N_t-N_s=k) =e^{-\\lambda(t-s)}\\frac{[\\lambda(t-s)]^k}{"
+      "preview": "令 $N_0=0$，$N$ 为右连续计数过程. 齐次 Poisson 过程的强度为 $\\lambda>0$，是指不相交时间区间的增量独立，而且对 $s<t$，"
     },
     {
       "id": "qt14-arrivals-proof",
-      "title": "从指数间隔反过来构造：还要证明联合增量",
+      "title": "指数间隔构造",
       "kind": "section",
-      "preview": "取独立同分布的 $E_j\\sim\\operatorname{Exp}(\\lambda)$，令 $T_n=E_1+\\cdots+E_n$. 先排除有限时点发生无穷多次到达. 对任何 $\\theta>0$， $$ \\begin{aligned} P(T_n\\le T) &\\le e"
+      "preview": "取独立同分布的 $E_j\\sim\\operatorname{Exp}(\\lambda)$，令 $T_n=E_1+\\cdots+E_n$. 先排除有限时点发生无穷多次到达. 对任何 $\\theta>0$，"
     },
     {
       "id": "qt14-observed",
-      "title": "把基准放回这一小时",
+      "title": "观察记录与模型基准",
       "kind": "section",
-      "preview": "| 描述对象 | 箱数/间隔数 | 平均数 | 样本方差/零间隔 | | --- | --- | --- | --- | | 每秒计数 | 3600 | 0.914166667 | 51.166012087 | | 每分钟计数 | 60 | 54.85 | 6364.9771"
+      "preview": "样本方差分母取箱数减1. 齐次Poisson的均值等于方差，而分钟记录的方差远大于均值. 每秒空箱占 $2901/3600\\approx80.583\\%$；代入全窗强度的Poisson空箱概率约40.085%."
     },
     {
       "id": "qt14-exercise",
-      "title": "迁移题与解析",
+      "title": "练习与解析",
       "kind": "section",
-      "preview": "**题目.** 用每秒强度预测十秒内零成交的概率，然后解释为什么不能把这个概率叫作本窗口已验证的未来预测. 再假定 $\\mathcal F_0$ 额外包含 $N_{60}$，说明补偿鞅证明哪一步失效. **解析.** 齐次模型给 $e^{-10\\widehat\\lambda}"
+      "preview": "**题目.** 用每秒强度计算齐次Poisson模型十秒零成交概率，并与样本分箱特征比较. 若 $\\mathcal F_0$ 额外包含 $N_{60}$，补偿鞅证明的哪一步改变？"
     }
   ],
   "relations": [
@@ -345,7 +345,10 @@
           "total": 3290
         }
       }
-    }
+    },
+    "prompt": "读者为有充分数学背景的高年级本科生至研究生. 先实际读取 agent_packet.required_readings 指定完整单元，选择可选分支后再读 optional_readings；记录题名、版本、定位与支持内容. 缺失必读单元时先取得等价原件，再解释依赖它的命题. 从ETHBTC逐笔时间重建分箱与内部间隔；证明Poisson补偿鞅、指数间隔与独立增量的等价，比较样本离散度、空箱率及扩大滤过后的条件期望. 用完整推导或计算诊断理解，已掌握步骤直接继承，再用改变条件的任务检验迁移. runtime_reading_log记录实际读取.",
+    "learning_task": "从ETHBTC逐笔时间重建分箱与内部间隔；证明Poisson补偿鞅、指数间隔与独立增量的等价，比较样本离散度、空箱率及扩大滤过后的条件期望.",
+    "content_version": "2026-09-22-deep-review"
   },
   "experiments": [
     {

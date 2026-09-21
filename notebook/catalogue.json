@@ -273,7 +273,7 @@
       ],
       "version": "Fall 2008；文件版权2007–2008",
       "url": "https://ocw.mit.edu/courses/15-401-finance-theory-i-fall-2008/1aea40b063cad5a335e980ecf30d84b7_MIT15_401F08_lec07.pdf",
-      "body": "普通股、发行与二级转售的结构；不采用后续股票估值单元.",
+      "body": "普通股的权利结构，以及发行和已有证券转售的经济关系.",
       "locators": [
         "slides 3–4；本会话首轮另看slide 5但不采用其历史统计"
       ],
@@ -382,7 +382,7 @@
       ],
       "version": "报告期截至2025-12-31；2026年提交",
       "url": "https://www.sec.gov/Archives/edgar/data/1652044/000165204426000018/goog-20251231.htm",
-      "body": "股份类别/交易代码、投票差异和股东权益披露；不是完整公司研究.",
+      "body": "股份类别、交易代码、投票权差异和股东权益披露.",
       "locators": [
         "Item 5，印刷p.25；Note 11 Stockholders’ Equity，印刷pp.78–79"
       ],
@@ -508,7 +508,7 @@
       ],
       "version": "两页事实表，页脚©2026；取得2026-09-21；版权年不当作每条规则的生效日",
       "url": "https://cdn.cboe.com/resources/spx/spx-fact-sheet.pdf",
-      "body": "现金结算、欧式行权、100美元乘数及SPX/SPXW结算差别；不采用营销/税务部分.\n\nSPXW欧式、PM、每点100美元、现金于到期后营业日交付；传统SPX AM/SOQ与SPXW分开. 无实际报价.\n\nM-E/F/G 本批采用：SPX/SPXW欧式现金、100美元乘数、最小报价增量及AM/PM结算差别；并非某条历史上市期权链.",
+      "body": "SPX与SPXW均为欧式、现金结算，合约乘数为每点100美元. 规格列出最小报价增量，并区分传统SPX的AM结算与SPXW的PM结算；现金在到期后相应营业日交付.",
       "locators": [
         "PDF pp.1–2，尤其第2页 SPX / SPXW 规格表；已看原页",
         "PDF pp1–2，尤其p2合约表",
@@ -577,7 +577,7 @@
       ],
       "version": "招股书日期2024-03-20；424B4于2024-03-21提交",
       "url": "https://www.sec.gov/Archives/edgar/data/1713445/000162828024012380/reddit-final424b4.htm",
-      "body": "不含超额配售的基准发行两部分及其扣佣金、其他费用前金额；不是最终完成总量或公司净融资.",
+      "body": "基准发行包括公司发行的新股与现有股东出售的股份. 表中金额未计超额配售、承销佣金和其他费用.",
       "locators": [
         "封面全文及发行/佣金表、Before expenses脚注和超额配售权段"
       ],
@@ -622,7 +622,7 @@
       ],
       "version": "初发2017-07-12；页面明确更新2026-08-18",
       "url": "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins-14",
-      "body": "订单语义、分档执行、限价与成交保证的区别；投资者教学而非规则正文；各券商细则仍可能不同.\n\nP-E 使用范围：订单的价格/成交保证区别与有效期；本篇盘口和执行数列另为合成数据.",
+      "body": "市价单、限价单的价格与成交条件，以及Day、GTC和IOC等有效期安排.",
       "locators": [
         "Market Order、Limit Order；Timing Restrictions中的Day、GTC、IOC完整单元. 其他止损/条件订单已阅但本篇不展开",
         "Market, Limit and Stop Orders",
@@ -705,7 +705,7 @@
       ],
       "version": "作者复核日2026-09-21；eCFR Title 17页面标示内容更新至2026-09-17，页面本次读取显示last amended 2026-09-16；该条来源注88 FR 13952",
       "url": "https://www.ecfr.gov/current/title-17/chapter-II/part-240/subject-group-ECFRc8401dcba174f73/section-240.15c6-1",
-      "body": "适用范围、下一营业日标准、明示另约及排除/发行例外. eCFR是持续更新的电子文本，不是正式印本.",
+      "body": "美国证券交易的标准交收周期、明示另约及适用例外. eCFR 提供持续更新的规则电子文本.",
       "locators": [
         "(a)–(d)全条"
       ],
@@ -793,7 +793,7 @@
       ],
       "version": "封面As of July 14, 2026",
       "url": "https://files.dtcc.com/download/assets/nscc_rules.pdf/85bda02a369211f0a3ae820bd5ac0897",
-      "body": "会员净额、义务承接阶段、存管指令、额外盯市与清算基金用途；未核全部违约规则和保证金模型.",
+      "body": "CNS按会员和证券形成净头寸；Rule 11规定义务承接、存管指令及追加盯市的处理阶段，Rule 4规定清算基金安排.",
       "locators": [
         "Rule 11 §§1–6，印刷pp.112–114/PDF物理119–121；Rule 4 §§1–2，印刷pp.83–84/PDF物理90–91；均已看原页"
       ],
@@ -815,7 +815,7 @@
       ],
       "version": "封面As of June 10, 2026",
       "url": "https://files.dtcc.com/download/assets/Settlement.pdf/c83a99be369a11f093d0c204a2f8334f",
-      "body": "参与人层记账、款项交收与风险约束；CM不是零售账户余额.",
+      "body": "DTC 参与人层面的证券记账、款项交收与风险约束.",
       "locators": [
         "印刷pp.9–10 Overview/Settlement Transactions；pp.68–71 Risk Management Controls、Collateralization、Collateral Monitor、Net Debit Caps开头；Recycle Processing / Reasons for Recycling见PDF物理页59–60；p.70算例已看原图"
       ],
@@ -879,7 +879,7 @@
       ],
       "version": "2023-03-06历史切换安排；只采用美国日期",
       "url": "https://www.dtcc.com/insights/2023/accelerating-to-t-1-a-global-custodians-perspective",
-      "body": "2024-05-24/28/29及Memorial Day的切换日历；文章当时的加拿大预期不采用.",
+      "body": "美国2024年5月由T+2切换至T+1的营业日日历，含5月24日、28日、29日和Memorial Day.",
       "locators": [
         "Key Dates and Rules、Preparing for Changes；读取全文"
       ],
@@ -901,7 +901,7 @@
       ],
       "version": "2026-09-21访问；网页部分表例标2023-02-01，不当作当前行情",
       "url": "https://www.cmegroup.com/articles/faqs/micro-e-mini-equity-index-futures-frequently-asked-questions.html",
-      "body": "MES每指数点5美元及结算/保证金基本安排；本篇价格和保证金金额均为教学设定.\n\nP-E 使用范围：MES每点5美元、0.25点跳动、代码/结算与保证金可变；不提供本文教学费率或当前保证金.\n\n本批读取范围：MES乘数、tick、结算与保证金的不同身份.",
+      "body": "MES乘数为每指数点5美元，最小价格跳动为0.25点. FAQ分别说明合约代码、结算和保证金安排.",
       "locators": [
         "Q1–Q19主体；教学采用Q2、Q5、Q6、Q9、Q10、Q14",
         "Q2",
@@ -1068,7 +1068,7 @@
       ],
       "version": "FY2025；截至2025-08-31；比较列采用同一报告",
       "url": "https://www.sec.gov/Archives/edgar/data/909832/000090983225000101/cost-20250831.htm",
-      "body": "Costco 的 2025 财年末合并资产为77,099 M 美元，负债47,935，权益29,164. 业务说明把商品快速周转与供应商付款安排联系起来；会员费的确认则需要结合收入政策和递延余额.\n\n本组带读将存货与应付的两期余额变化接到现金流量表. 两种计算并不完全相同，差额留待附注和其他口径解释.\n\nEI-B 本批采用：会员制度、尾随续费率定义、会员费收入及合并营业利润桥. USD M 转换为 B 美元；全球公司边界不等于美国单一零售市场.\n\nBF-F/G 本批采用：零售利润/现金/普通股及债务时间的历史原件. SEC具名表定位优先；不混用IR PDF页码.",
+      "body": "Costco 2025财年末合并资产77,099M美元、负债47,935M美元、权益29,164M美元. 业务说明、收入政策及附注解释商品周转、供应商付款、会员费确认和递延余额. 现金流量表与两期资产负债表共同呈现存货、应付及现金变化；年报另列续费率定义、普通股和债务信息.",
       "locators": [
         "BI-S05；Costco FY2025 10-K；Item 1 Business，General / Membership，印刷pp.3–7",
         "BI-S05；合并利润表印刷p.37；截至2025-08-31及2024-09-01的52周； M 美元",
@@ -1378,7 +1378,7 @@
       ],
       "version": "2025 Annual Report；集团合并，非银行子公司单体",
       "url": "https://www.jpmorganchase.com/content/dam/jpmc/jpmorgan-chase-and-co/investor-relations/documents/annualreport-2025.pdf",
-      "body": "JPMorgan 的 2025 年末集团合并表没有照普通工业企业划分流动／非流动. 证券和贷款各有计量类别；贷款损失准备是贷款账面余额的减项，表下注明的合并VIE金额已包含在集团总额内.\n\n从总权益到普通股权益，还要扣除优先股；每股账面值的股数使用已发行股数减库存股. 原表、附注和普通股权利因此要连在一起读.\n\nBF-F/G 本批采用：集团季度平均LCR、期末资产和有条件融资能力分别记录；银行法人另列；完整主表支持综合带读.",
+      "body": "JPMorgan 2025年末集团合并表按银行业务项目列示资产和负债；证券与贷款采用各自计量类别，贷款损失准备抵减贷款余额，披露的合并VIE金额已包含于集团总额. 普通股权益由总权益扣除优先股所得，每股账面值使用已发行股数减库存股. 流动性披露分别给出季度平均LCR、期末资产及附条件融资能力，并区分集团与银行法人.",
       "locators": [
         "BI-S07；2025 Annual Report；MD&A Introduction，印刷p.46／物理p.78",
         "BI-S07；合并资产负债表印刷p.167／物理p.199；2025-12-31及2024-12-31； M 美元，股数另标",
@@ -1682,7 +1682,7 @@
       ],
       "version": "原稿登记：2014发布、2017复核；采用结构导航单元",
       "url": "https://www.sec.gov/about/reports-publications/beginners-guide-financial-statements",
-      "body": "主表给出汇总数字，附注补充会计政策、组成和承诺，管理层讨论解释经营变化，审计意见说明审计结论. 读一个财务数字时，可以沿“主表行—相关附注—管理层解释”寻找它的含义.\n\nBF-F/G 本批采用：综合材料地图，不替代行业分支机制.",
+      "body": "主表汇总数字，附注说明会计政策、组成和承诺，管理层讨论解释经营变化，审计意见报告审计结论. 财务数字的含义可由主表行、相关附注和管理层解释相互核对.",
       "locators": [
         "BF-S-SEC-GUIDE；SEC公开指南，2014发布、2017复核；Financial Statements、Footnotes、MD&A等相关单元",
         "四张报表、Footnotes、MD&A、Bringing It All Together"
@@ -1774,7 +1774,7 @@
       "additional_urls": [
         "https://ocw.mit.edu/courses/14-271-industrial-organization-i-fall-2022/mit14_271_f22_lec7slides.pdf"
       ],
-      "body": "离散选择需求模型需要先界定消费者能选择的产品集合、外部选项和市场大小. 相同的销售数字，放到不同选择集合和分母中，会给出不同的份额与替代关系. 这里采用模型的对象与边界，不采用讲义中的估计值.",
+      "body": "离散选择需求模型通过产品集合、外部选项和市场大小定义消费者选择. 销售份额及替代关系随所选产品集合和分母而变化.",
       "locators": [
         "EI-S02-MIT-L7-2022. Tobias Salz，*Introduction to Empirical Models of Demand*，MIT 14.271 Fall 2022 Lecture 7，页脚 slides 8/34–10/34（PDF物理页约18–21），包含离散选择、outside option 与市场大小决定. 本篇不采用该模型的估计数值. https://ocw.mit.edu/courses/14-271-industrial-organization-i-fall-2022/mit14_271_f22_lec7slides.pdf",
         "EI-S02-MIT-L7-2022. Tobias Salz，MIT14.271 Fall2022 Lecture7，slides6、19–21. 本文的100/20截距、±2斜率及协方差算例是本站教学构造，不是讲义实证结果. https://ocw.mit.edu/courses/14-271-industrial-organization-i-fall-2022/mit14_271_f22_lec7slides.pdf"
@@ -1942,7 +1942,7 @@
       "additional_urls": [
         "https://www.census.gov/manufacturing/m3/historical_data/pressreleases/prel/2026/may26prel.pdf"
       ],
-      "body": "Census 的 M3 报告把出货、新订单、未交订单和存货分开，分别描述已交付活动、期间订单流和期末余额. 本文使用固定的2026年5月报告及其中4月比较列.\n\n新订单按净额口径使用；不能再次机械扣除取消量. 未交订单与月出货之比也不是每位客户实际等待时间.\n\nEI-B 本批采用：工程机械固定4月修订/5月初值四表；USD M 、季调、未作价格调整. 与CAT公司渠道范围不对账. 季调新订单 N=S+ΔB 为数据产品定义，详见 EIBC-S07M；381不是三个独立需求观测的互证.\n\n本批采用：April revised / May preliminary；SA M 美元；381定义性订单桥、存货+66分开.",
+      "body": "Census 的 M3 报告分别列出出货、新订单、未交订单和存货. 本站使用 2026 年 5 月报告及其中 4 月修订列，单位 USD M，数据经过季节调整，未作价格调整. 新订单含取消和修改影响，按出货加未交订单变动构造；这一关系属于统计定义.",
       "locators": [
         "EI-S06-M3-202605. U.S. Census Bureau，*Manufacturers’ Shipments, Inventories, and Orders — May 2026 Full Report*，2026-07-02 10:00 AM EDT发布，CB 26-104 M3-2 (26)-05. 固定报告第1页核身份，第3–4页核调查说明，第6–9页为Tables 1–4. https://www.census.gov/manufacturing/m3/historical_data/pressreleases/prel/2026/may26prel.pdf",
         "EI-S06-M3-202605. U.S. Census Bureau，May 2026 Full Report，2026-07-02发布；固定报告第1页核身份，第3–4页核调查定义，第6–9页为四张制造表. 本文设备分支只把这些金额作为制造环节观察，不把它们当设备台数或客户作业需求. https://www.census.gov/manufacturing/m3/historical_data/pressreleases/prel/2026/may26prel.pdf",
@@ -2206,7 +2206,7 @@
           "reading_provenance": "P-IJKLM review-v2 actual named-unit reading and fresh independent xhigh review; P25 FPP3 re-read in bounded v3. Import is not a new source-reading claim."
         }
       ],
-      "body": "GIPS Standards Handbook for Firms\n\n本批读取范围：外部现金流、TWR/MWR、净费用方法和费用应计/付款."
+      "body": "GIPS对外部现金流、时间加权回报、资金加权回报、费用处理以及费用应计与付款的规定."
     },
     {
       "id": "P-R04a",
@@ -2277,7 +2277,7 @@
           "reading_provenance": "P-IJKLM review-v2 actual named-unit reading and fresh independent xhigh review; P25 FPP3 re-read in bounded v3. Import is not a new source-reading claim."
         }
       ],
-      "body": "MIT 15.401, Lecture 15–17: The CAPM and APT\n\n本批读取范围：beta、因子投影与绩效评价的模型身份."
+      "body": "CAPM与APT中的beta、因子投影及绩效评价方法."
     },
     {
       "id": "P-R05",
@@ -2597,7 +2597,7 @@
       ],
       "version": "Third edition, online; access snapshot 2026-09-21",
       "url": "https://otexts.com/fpp3/tscv.html",
-      "body": "时间序列交叉验证以逐步向前的预测起点划分训练与评价：每轮只用该起点之前可得的观测. 预测一步与预测多步需要按各自目标设置评价窗口.\n\n本批读取范围：先训练、后评价、逐次推进的样本外结构.",
+      "body": "时间序列交叉验证逐步向前移动预测起点，每轮训练仅使用该起点前可得的观测. 一步和多步预测分别设置评价窗口.",
       "locators": [
         "§5.10 全节；rolling forecasting origin、单步/多步、Google 2015 代码例",
         "§5.10完整滚动预测起点单元；先训练、后评价、逐次推进的样本外结构."
@@ -2752,7 +2752,7 @@
       ],
       "version": "Fall 2018",
       "url": "https://ocw.mit.edu/courses/6-436j-fundamentals-of-probability-fall-2018/5ba99e3803701c145f1d06c26dcf61b8_MIT6_436JF18_lec03.pdf",
-      "body": "支持正概率事件的条件概率、Bayes 与独立性的定义. 四状态表与三点不相关反例为本包自行构造，不是讲义中的金融数据.",
+      "body": "正概率事件下的条件概率、Bayes 公式与独立性的定义.",
       "retrieved_at": "2026-09-21",
       "locators": [
         "条件概率及 Bayes: §1，pp.1–3",
@@ -2772,7 +2772,7 @@
       ],
       "version": "Fall 2018",
       "url": "https://ocw.mit.edu/courses/6-436j-fundamentals-of-probability-fall-2018/c1ab69cb198badcebee42d5880784439_MIT6_436JF18_rec3.pdf",
-      "body": "支持离散条件平均、全期望和条件期望本身为随机变量. 讲义部分 g(Y) 表述简写，本文额外保留所需可积/有界条件，不采用无条件的乘积期望断言.",
+      "body": "离散条件平均、全期望及条件期望作为随机变量的定义. 涉及可测乘子的条件期望恒等式需满足相应可积性或有界条件.",
       "retrieved_at": "2026-09-21",
       "locators": [
         "离散条件平均: §1.1，pp.1–4",
@@ -2867,7 +2867,7 @@
       ],
       "version": "截至2025-09-27",
       "url": "https://www.sec.gov/Archives/edgar/data/320193/000032019325000079/a10-kexhibit4109272025.htm",
-      "body": "单一普通股类别对照；一股一票、条件分配、剩余清算及无优先认购/转换/赎回权. 不是只有一种证券.",
+      "body": "普通股的一股一票、附条件分配和剩余清算权；该类普通股不附优先认购、转换或赎回权.",
       "retrieved_at": "2026-09-21",
       "locators": [
         "开头已注册证券范围",
@@ -2883,7 +2883,7 @@
       ],
       "version": "2026-04-28基础版；配合7月补充文件",
       "url": "https://www.sec.gov/Archives/edgar/data/36405/000003640526000197/f44849d1.htm",
-      "body": "VTI是基金的ETF类别；0.03%费率、5%假设费用例、抽样、二级交易与AP权限. 不是完整法定招募书/SAI或实际交易篮子.",
+      "body": "VTI 的 ETF 份额类别、0.03% 费率、假设年回报 5% 的费用示例、抽样复制、二级市场交易和授权参与人权限.",
       "retrieved_at": "2026-09-21",
       "locators": [
         "封面与Investment Objective",
@@ -2918,7 +2918,7 @@
       ],
       "version": "2023-02-23",
       "url": "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins-24",
-      "body": "投资者教育说明：主动/指数、NAV、零售/AP路径、双向申赎、通用50,000份例和价差；通用机制可涉及证券篮子或相应安排下的现金等价. 不是SEC规则或VTI单位.",
+      "body": "SEC 的 ETF 投资者教育材料：主动与指数基金、NAV、零售交易和授权参与人申赎、买卖价差. 50,000 份是材料使用的通用申赎单位示例.",
       "retrieved_at": "2026-09-21",
       "locators": [
         "What is an ETF",
@@ -2936,7 +2936,7 @@
       ],
       "version": "网页无独立版本号；访问2026-09-21",
       "url": "https://indexes.morningstar.com/morningstar-market-indexes",
-      "body": "市场覆盖、按市值覆盖分段和实施设计；不是完整方法手册，不支持精确门槛、重组时间或持仓事实.",
+      "body": "Morningstar 市场指数的覆盖范围、市值分段与实施设计.",
       "retrieved_at": "2026-09-21",
       "locators": [
         "Key Features",
@@ -2956,7 +2956,7 @@
       ],
       "version": "May 2025",
       "url": "https://www.fca.org.uk/publication/occasional-papers/op68-etf-mispricing.pdf",
-      "body": "本篇只采用研究问题、AP角色与两市场数据结构、样本身份；不讲模型、回归系数或因果结论. 结论段仅作下一步读物导航.",
+      "body": "研究AP库存与ETF定价，连接一级申赎记录和二级交易报告. 样本为2018年1月至2022年10月的128只主要在LSE交易的实物ETF，包括50只股票型和78只债券型.",
       "retrieved_at": "2026-09-21",
       "locators": [
         "§2 Institutional Background，印刷pp.6–7 / PDF物理pp.7–8，含图2",
@@ -3025,7 +3025,7 @@
       ],
       "version": "OpenStax 2019",
       "url": "https://openstax.org/books/principles-financial-accounting/pages/6-6-describe-and-prepare-multi-step-and-simple-income-statements-for-merchandising-companies",
-      "body": "商品企业的多层利润结构；不作为银行的默认模板.",
+      "body": "商品企业利润表的单步式与多步式结构，包括销售收入、销售成本、毛利及期间费用.",
       "retrieved_at": "2026-09-21",
       "locators": [
         "§6.6完整单元"
@@ -3223,7 +3223,7 @@
       ],
       "version": "Fiscal year ended 2026-01-31",
       "url": "https://www.sec.gov/Archives/edgar/data/1108524/000110852426000060/crm-20260131.htm",
-      "body": "订阅收入确认、合同余额、完整现金流、权益与EPS、收入CAM及所得税附注. 金额、现金和股数口径保留，不虚构差额调节.\n\nBF-F/G 本批采用：完整收付账、净现金和债务账面/本金、PPA对价及三种回购/股数口径；FX单列.",
+      "body": "Salesforce FY2026的订阅收入政策、合同余额、现金流、股东权益、EPS、收入关键审计事项及所得税附注. 年报分别披露债务账面金额与本金、并购对价、回购及股数变化和汇兑项目.",
       "retrieved_at": "2026-09-21",
       "locators": [
         "Auditor Revenue Recognition CAM pp.54–55",
@@ -3351,7 +3351,7 @@
       ],
       "version": "Official standard page checked 2026-09-21",
       "url": "https://pcaobus.org/oversight/standards/auditing-standards/details/AS3101",
-      "body": "CAM定义、判断因素及沟通要求；CAM不是单独意见，也不改变总体意见.",
+      "body": "关键审计事项（CAM）的定义、判断因素和沟通要求；CAM在总体审计意见之外说明具体审计事项，不构成对该事项的单独意见.",
       "retrieved_at": "2026-09-21",
       "locators": [
         ".01–.05",
@@ -3377,7 +3377,7 @@
       ],
       "version": "December 2023",
       "url": "https://storage.fasb.org/ASU%202023-09.pdf",
-      "body": "所得税披露更新：税率调节与现金税辖区两种5%门槛、生效期和追溯选项. 不是完整税务计量准则.",
+      "body": "所得税披露更新：税率调节与现金税辖区的两种 5% 门槛、生效期和追溯选项.",
       "retrieved_at": "2026-09-21",
       "locators": [
         "740-10-50-10A/10B,11A,12–12C,22–23;65-9",
@@ -3427,7 +3427,7 @@
       ],
       "version": "September 2025 working paper",
       "url": "https://business.columbia.edu/sites/default/files-efs/imce-uploads/ADP/Spring%202026/1.%20Henry%20Laurion.pdf",
-      "body": "股权薪酬和同期回购的经济叙述研究；本篇只采用研究设计与关联性/内生性边界，不判定Salesforce动机.",
+      "body": "研究股权薪酬与同期回购的经济关系，并讨论观测关联与内生性对解释的限制.",
       "retrieved_at": "2026-09-21",
       "locators": [
         "Introduction; sample construction 2010–2021; principal analyses; conclusion/limitations"
@@ -3454,7 +3454,7 @@
       ],
       "version": "2026, Review of Accounting Studies 31,1481–1520",
       "url": "https://link.springer.com/article/10.1007/s11142-026-09938-3",
-      "body": "CAM实施中的组织行为质性证据；30位高层审计人员、七家事务所，不代表随机项目总体.",
+      "body": "对七家事务所的30位高层审计人员开展质性访谈，研究CAM实施中的组织行为.",
       "retrieved_at": "2026-09-21",
       "locators": [
         "Introduction; method/sample; implementation findings; conclusion"
@@ -3506,7 +3506,7 @@
       ],
       "version": "MIT 15.401, Fall 2008, lecture file 2007–2008",
       "url": "https://ocw.mit.edu/courses/15-401-finance-theory-i-fall-2008/df418b972d36cd53ae5c375b8af61e53_MIT15_401F08_lec04.pdf",
-      "body": "零息利率、票息债券现金流、YTM、久期与凸性. 采用独立导数校验；不采用forward=预测的简化及slide41末项错号.",
+      "body": "零息利率、票息债券现金流、YTM、久期和凸性. slide 41凸性末项的符号由本文所列导数推导校正；远期利率与未来现货利率预测分别需要定价和预期条件.",
       "retrieved_at": "2026-09-21",
       "locators": [
         "slides 12–19",
@@ -3523,7 +3523,7 @@
       ],
       "version": "网页；取得2026-09-21",
       "url": "https://www.treasurydirect.gov/marketable-securities/treasury-notes/",
-      "body": "票息国债期限、半年付息与持有/出售的产品层结构；不是某CUSIP的报价.",
+      "body": "美国票息国债的期限、半年付息及持有和出售安排.",
       "retrieved_at": "2026-09-21",
       "locators": [
         "主体及 Notes at a Glance 全表"
@@ -3598,7 +3598,7 @@
       ],
       "version": "2026-07-15; CUSIP06749HU29",
       "url": "https://www.sec.gov/Archives/edgar/data/312070/000191870426020298/form424b2.htm",
-      "body": "票息5.25%、30/360、年付、2029-07-17起可按季全额或部分赎回及受托人通知；无担保信用、非存款、做市无保证. 不作完整bail-in法律解读.",
+      "body": "票息 5.25%、30/360 日数惯例、每年付息，自 2029-07-17 起可按季全部或部分赎回，附受托人通知安排. 证券为无担保债务，不属于存款；文件未承诺持续做市.",
       "retrieved_at": "2026-09-21",
       "locators": [
         "PS-1–PS-3条款与文件链",
@@ -3699,7 +3699,7 @@
       ],
       "version": "FEDS Notes,2025-02-14",
       "url": "https://www.federalreserve.gov/econres/notes/feds-notes/proportionate-margining-for-repo-transactions-20250214.html",
-      "body": "h=(证券价值−现金)/现金及融资风险/流动性权衡. 研究分析不是SRP规则；不采用未复现VaR/组合数值.",
+      "body": "以现金为分母计算 haircut：h=(证券价值−现金)/现金，并分析融资风险与流动性的关系.",
       "retrieved_at": "2026-09-21",
       "locators": [
         "Introduction",
@@ -3716,7 +3716,7 @@
       ],
       "version": "固定发布2026-09-14",
       "url": "https://www.federalreserve.gov/releases/h10/20260914/",
-      "body": "EUR单位USD/EUR、JPY单位JPY/USD、ND非零；参考观察不是bid/ask或成交保证.",
+      "body": "汇率参考观察：欧元按 USD/EUR、日元按 JPY/USD 报价；ND 表示缺失. 数据用于计价换算，实际买卖使用相应 bid/ask.",
       "retrieved_at": "2026-09-21",
       "locators": [
         "周表2026-09-07至09-11的EUR/JPY",
@@ -3763,7 +3763,7 @@
       ],
       "version": "2026–2030表；更新2026-07-08",
       "url": "https://www.federalreserve.gov/aboutthefed/k8.htm",
-      "body": "2026-02-16为Washington’s Birthday联储休业日；与星期日2026-02-15及支付规则结合，推算财政部规则付款日2026-02-17；不是持有人账户到账记录.",
+      "body": "2026-02-16 是 Washington’s Birthday，联储休业. 结合星期日 2026-02-15 及国债付款规则，对应付款日顺延至 2026-02-17.",
       "retrieved_at": "2026-09-21",
       "locators": [
         "2026列及周末观察规则、注释"
@@ -3838,7 +3838,7 @@
       ],
       "version": "在线说明，2026-09-21访问",
       "url": "https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/data_library.html",
-      "body": "Data Library说明自2025-01发布起使用CIZ文件生成美国研究收益，并说明每次更新会重建完整收益历史；CIZ与旧FIZ的月收益复合/股息再投资安排不同. 本课432月绑定一个202607数据库快照，不能拼接为前段FIZ后段CIZ，也不能称为逐月当时可见数据.\n\n本批读取范围：同版本数据和回溯重建历史的区别.",
+      "body": "Data Library 自 2025-01 发布起使用 CIZ 文件生成美国研究收益，每次更新会重建完整历史. CIZ 与旧 FIZ 的月收益复合及股息再投资安排不同. 本站 432 个月样本统一使用 202607 数据库快照.",
       "retrieved_at": "2026-09-21",
       "locators": [
         "Current Research Returns 开头生产格式说明",
@@ -3877,7 +3877,7 @@
       ],
       "version": "在线详情；数据快照202607",
       "url": "https://mba.tuck.dartmouth.edu/pages/Faculty/ken.french/Data_Library/det_30_ind_port.html",
-      "body": "行业组合、Monthly Returns与Construction口径；用于标识BusEq不是一家公司或一只可直接交易的基金.\n\n本批读取范围：固定120个月研究组合的身份.",
+      "body": "30 个行业研究组合的构造与月收益口径，包括 BusEq 组合的行业身份.",
       "retrieved_at": "2026-09-21",
       "locators": [
         "Monthly Returns",
@@ -3916,7 +3916,7 @@
       ],
       "version": "QT-C-inputs-20260921-v1；CRSP vintage202607",
       "url": "https://ou-liu-red-sugar.github.io/notebook/labs/qt-c/data/BusEq-value-weighted-monthly-199001-202512.csv",
-      "body": "原源CSV首个value-weighted monthly区块BusEq，199001–202512、原行775–1206共432月，缺失0. 归档源链接本身可变；实际随包为逐字节核验的432行提取及配置，结果由同样冻结算法在作者沙盒复算. 原全行业ZIP不在此包内. MC/AR是教学模拟而非市场资料.",
+      "body": "从原始 CSV 的 value-weighted monthly 区块提取 BusEq，覆盖 1990-01 至 2025-12 的 432 个月，原始行号 775–1206，无缺失值. 配套文件保存提取数据、实验配置及计算算法；MC 和 AR 使用教学模拟数据.",
       "retrieved_at": "2026-09-21",
       "locators": [
         "source CSV title line11/header12, BusEq index23 including date",
@@ -4086,7 +4086,7 @@
       ],
       "version": "2026-09-21 局部准确摘编",
       "url": "https://ou-liu-red-sugar.github.io/zh/notebook/business-relations-calibrated-states/",
-      "body": "本站原创方法摘编，规定业务边界、校准与共同资本责任；公开原件各自支持实例，不是完整方法的外部背书.",
+      "body": "本站业务模型方法：业务边界、经营关系校准、共同资本与股东权利的归属.",
       "retrieved_at": "2026-09-21",
       "locators": [
         "business-boundaries",
@@ -4131,7 +4131,7 @@
       ],
       "version": "研究截止2026-09-20；教学摘编2026-09-21",
       "url": "https://ou-liu-red-sugar.github.io/zh/notebook/amzn-research-20260920/",
-      "body": "原研究的事实/分析代理、四条未来路径、5项具名替代、4套权重与16组已算分布. 报价冻结，代表点不是条件均值.",
+      "body": "Amazon 历史研究的事实、分析代理、四条未来路径、5 项替代、4 套权重和 16 组已算分布. 价格使用固定研究时点报价；各情景数值是代表点.",
       "retrieved_at": "2026-09-21",
       "locators": [
         "case-amzn-facts",
@@ -4253,7 +4253,7 @@
       ],
       "version": "2026-08-20",
       "url": "https://stock.walmart.com/sec-filings/all-sec-filings/content/0000104169-26-000145/earningspresentationfy27.htm",
-      "body": "ROI reconciliation第一行TTM营业利润32.280及旧FY29.825；不采用调整后ROI分子50.285作EBIT.",
+      "body": "ROI reconciliation列示TTM营业利润32.280B美元、对照期29.825B美元；调整后ROI分子另为50.285B美元，组成与营业利润不同.",
       "retrieved_at": "2026-09-21",
       "locators": [
         "slide26 Calculation of Return on Investment"
@@ -4291,7 +4291,7 @@
       ],
       "version": "2026-04",
       "url": "https://www.iab.com/wp-content/uploads/2026/04/IAB_PwC_Internet_Ad_Revenue_Report_Full_Year_2025_April_2026.pdf",
-      "body": "美国commerce media收入63.4bn、报告增速18%，并有测量/增量回报约束；范围不是Amazon全球广告.",
+      "body": "美国 commerce media 收入 63.4 B 美元，报告增速 18%，附测量与增量回报的讨论. 统计范围为美国市场.",
       "retrieved_at": "2026-09-21",
       "locators": [
         "p27 commerce media",
@@ -4369,7 +4369,7 @@
       ],
       "version": "Machine Learning112,2023,DOI10.1007/s10994-023-06336-7",
       "url": "https://link.springer.com/article/10.1007/s10994-023-06336-7",
-      "body": "多分类概率校准、未除以2的Brier及properness；单次得分不是校准直接证明，分类器论文不生成公司主观权重.",
+      "body": "多分类概率校准、未除以 2 的 Brier 分数及 properness. 概率校准考察一系列预测与实际频率的关系.",
       "retrieved_at": "2026-09-21",
       "locators": [
         "§2.3",
@@ -4392,7 +4392,7 @@
       ],
       "version": "First Printing July 5, 2023",
       "url": "https://drive.google.com/uc?export=download&id=1ajFkHO6zjrdGNqhqW1jKBZdiNGh_8YQ1",
-      "body": "采用单元的完整镜像原文已在规划轮读取. Ridge 的截距、尺度、参数选择；有效p值、FWER、Bonferroni及BH. BH一般控制定理是引用，原书不提供证明. 正文采用严格<；不采用任意相关p值也有效的扩展.",
+      "body": "Ridge的截距、变量尺度及参数选择；有效p值、FWER、Bonferroni和BH方法. 书中引用BH控制定理，本文按对应条件与严格不等式展开其应用.",
       "retrieved_at": "2026-09-21",
       "locators": [
         "§6.2.1 pp.240–244 (PDF248–252)",
@@ -4423,7 +4423,7 @@
       ],
       "version": "3e online; accessed 2026-09-21",
       "url": "https://otexts.com/fpp3/accuracy.html",
-      "body": "完整单元支持预测误差不同于残差，RMSE/MAE与mean/median的关系；书中实例不是本站交易绩效.",
+      "body": "预测误差与残差的区别，RMSE、MAE 分别与条件均值、条件中位数的关系.",
       "retrieved_at": "2026-09-21",
       "locators": [
         "§5.8 全节：训练/测试、误差、尺度指标及示例"
@@ -4472,7 +4472,7 @@
       ],
       "version": "frozen CRSP database vintage 202607; CIZ reconstruction",
       "url": "https://mba.tuck.dartmouth.edu/pages/Faculty/ken.french/Data_Library/det_30_ind_port.html",
-      "body": "冻结原件摘取的432个连续月；百分数除100. 来自当前重建历史，不是各月当时可见vintage；无样本期缺失.",
+      "body": "同一数据版本的 432 个连续月，百分数除以 100 后用于计算，样本期内无缺失. 数据来自重新构建的历史序列.",
       "retrieved_at": "2026-09-21",
       "locators": [
         "Average Value Weighted Returns -- Monthly；BusEq；源行775–1206；199001–202512"
@@ -4497,7 +4497,7 @@
       ],
       "version": "accessed 2026-09-21; source transition 2025-01",
       "url": "https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/data_library.html",
-      "body": "生产链转换与股息复投口径；本批坚持单次202607重建快照，未拼接旧vintage.",
+      "body": "Fama–French数据生产方式和股息再投资口径变化. 本文使用2026年7月重建的单一历史快照，保持各期数据来源一致.",
       "retrieved_at": "2026-09-21",
       "locators": [
         "CRSP FIZ/CIZ description at page introduction"
@@ -4571,7 +4571,7 @@
       ],
       "version": "Journal of Finance 79(1), 459–503, February 2024",
       "url": "https://economics.yale.edu/sites/default/files/2024-01/The%20Journal%20of%20Finance%20-%202023%20-%20KELLY%20-%20The%20Virtue%20of%20Complexity%20in%20Return%20Prediction%20%281%29.pdf",
-      "body": "已读完整实证设置单元，用于配对研究选读：随机特征、训练窗口、信息日期约定、R²分母. 未验证前部理论或附录，未复现论文，具体作者结果不普遍化.",
+      "body": "研究中的随机特征、训练窗口、信息日期和 R² 分母，供配对研究阅读使用.",
       "retrieved_at": "2026-09-21",
       "locators": [
         "§V.A–C printed487–493/PDF29–35，脚注33、38–41、Figures7–10",
@@ -4775,7 +4775,7 @@
       ],
       "version": "Fall 2008; copyright 2007–2008",
       "url": "https://ocw.mit.edu/courses/15-401-finance-theory-i-fall-2008/a66f697aaeb23b8cfd2bda020172feb5_MIT15_401F08_lec08.pdf",
-      "body": "契约比较及cash-and-carry结构. 旧讲义暂忽略远期/期货差异；不采用无条件零现金/零对手方风险的简化.\n\n本批读取范围：远期/期货与融资carry概念.",
+      "body": "远期与期货契约、融资、仓储、现金收益及便利服务的carry关系. 现金流时点与复制所需交易条件决定各公式的适用范围.",
       "retrieved_at": "2026-09-21",
       "locators": [
         "slides 9–16",
@@ -4813,7 +4813,7 @@
       ],
       "version": "online retrieved 2026-09-21; amendment date not stated",
       "url": "https://www.cmegroup.com/content/dam/cmegroup/rulebook/NYMEX/2/200.pdf",
-      "body": "CL合约单位、价格刻度和相对交割事件. 当前在线规则不是2020历史规则版；未复核通则全部依赖，不构成实盘交割操作手册.",
+      "body": "当前在线 CL 期货合约的单位、最小价格变动和相对交割日程.",
       "retrieved_at": "2026-09-21",
       "locators": [
         "§§200100–200109; 6 pages"
@@ -4846,7 +4846,7 @@
       ],
       "version": "2020-04 historical rows; retrieved 2026-09-21",
       "url": "https://www.eia.gov/dnav/pet/hist/RWTCD.htm",
-      "body": "美元/桶的历史日度现货观测；不是与期货同步的可成交报价.",
+      "body": "以美元/桶计量的历史日度现货价格序列.",
       "retrieved_at": "2026-09-21",
       "locators": [
         "table header",
@@ -4879,7 +4879,7 @@
       ],
       "version": "updated 2015-06-11",
       "url": "https://www.cmegroup.com/clearing/files/CME-Money-Calculations-Futures-and-Options.pdf",
-      "body": "当日成交与期初头寸的结算现金及正常舍入；不采用无关分数报价例的印刷错误，不提供CL保证金水平.\n\n本批读取范围：逐日价格变动、乘数、现金与结算口径.",
+      "body": "CME逐日结算金额的计算：当日成交头寸按成交价至结算价计量，期初头寸按前结算价至本结算价计量，并按相应合约单位和舍入规则换算现金.",
       "retrieved_at": "2026-09-21",
       "locators": [
         "pp1–3 normal futures variation",
@@ -4931,7 +4931,7 @@
       ],
       "version": "FY ended 2025-09-30; filed 2025-11-19",
       "url": "https://www.sec.gov/Archives/edgar/data/868857/000086885725000013/acm-20250930.htm",
-      "body": "$400m付1.283%收one-month SOFR；Term B利差1.75%另披露. 教学匹配不代表真实指定借款；缺confirmation/CSA；公允价值表并非该swap独有.",
+      "body": "AECOM披露名义本金400M美元、付固定1.283%并收一个月SOFR的互换；Term B贷款利差1.75%另列. 财报的公允价值表合并包含多项衍生工具，具体借款与互换的对应关系需查交易确认及担保安排.",
       "retrieved_at": "2026-09-21",
       "locators": [
         "Note8 Credit Agreement pp78–79",
@@ -4949,7 +4949,7 @@
       ],
       "version": "Fall 2024",
       "url": "https://ocw.mit.edu/courses/18-642-topics-in-mathematics-with-applications-in-finance-fall-2024/1KTK56NCy28KS0Ts53h1gOS6KO51jDctE_transcript.pdf",
-      "body": "IRS现金日程、两腿估值与平价利率. 不是AECOM交易确认；不照抄口述中的市场规模或历史起源.",
+      "body": "利率互换的现金日程、固定与浮动两腿估值及平价互换利率.",
       "retrieved_at": "2026-09-21",
       "locators": [
         "PDF pp10–14; stop at next yield-curve section"
@@ -4966,7 +4966,7 @@
       ],
       "version": "BIS Quarterly Review, March 2023",
       "url": "https://www.bis.org/publications/perceptions-risk-and-policy-outlook-drive-markets_1.pdf",
-      "body": "假想一年期USD付固定与GBP收固定IRS；VM五日累计/IM五日closeout，讨论模型重校准与流动性. 未复现Clarus曲线，不替代AECOM CSA或CL客户账户.\n\n本批读取范围：VM与模型IM在压力中共同变化；VM图为五日累计.",
+      "body": "以假想一年期美元付固定与英镑收固定互换，比较VM五日累计与IM五日平仓窗口下的变化，分析模型重校准及流动性需求.",
       "retrieved_at": "2026-09-21",
       "locators": [
         "Box A printed pp5–6; Graph A1 and footnotes",
@@ -5005,7 +5005,7 @@
       "version": "Full Year 2025 vs Full Year 2024; same FY2025 10-K p33",
       "url": "https://www.sec.gov/Archives/edgar/data/18230/000001823026000008/cat-20251231_g4.jpg",
       "access_kind": "image",
-      "body": "期初13,072、八项归因及期末11,151；这是公司历史解释，不是独立因果估计.",
+      "body": "公司对历史销售变动的归因：期初 13,072、八项归因及期末 11,151.",
       "locators": [
         "MD&A p33 original chart"
       ],
@@ -5022,7 +5022,7 @@
       "version": "Fall 2003, 14 slides",
       "url": "https://ocw.mit.edu/courses/15-515-financial-accounting-fall-2003/c14a0767af3d7544d85e4b20eb6be1bb_lec7.pdf",
       "access_kind": "pdf_full_text",
-      "body": "成本、资源用途、残值、寿命和分摊. 采用制造折旧可能先入库存的路径，不采用旧时代普遍性陈述或租赁政策.",
+      "body": "长期资产的成本、资源用途、残值、寿命与费用分摊；制造用资产的折旧可先计入存货，再随销售结转.",
       "locators": [
         "Slides2–8,11; matching diagram slide2"
       ],
@@ -5107,7 +5107,7 @@
       "version": "Management Science, Articles in Advance, April5 2024, pp1–21; DOI10.1287/mnsc.2021.02058",
       "url": "https://profsean.wang/papers/ewens-peters-wang-2025-ms.pdf",
       "access_kind": "pdf_full_text",
-      "body": "退出价格连接历史研发/SG&A与资本存量；资本化比例与折损识别限制、选择/协同/溢付及价格约束. 只用设置与局限，不采用摘要效果量或公司参数.",
+      "body": "以企业退出价格连接历史研发、SG&A与资本存量，分析资本化比例及折损的识别条件，并讨论选择、协同和溢付对估计的影响.",
       "locators": [
         "Introduction; §§2,3,3.1,4.1,4.2, printed pp1–7"
       ],
@@ -5146,7 +5146,7 @@
       "version": "2019",
       "url": "https://openstax.org/books/principles-managerial-accounting/pages/3-5-calculate-and-interpret-a-companys-margin-of-safety-and-operating-leverage",
       "access_kind": "html_full_text",
-      "body": "Company A/B虚构输入与经营杠杆；按原始表复算，不采用网页不一致的1.71、31.9%/46.9%. 有限变化精确式由本篇条件推导.",
+      "body": "虚构Company A/B的固定成本、单位变动成本、销量与营业利润关系；经营杠杆及有限销量变化的结果由完整输入复算.",
       "locators": [
         "§3.5 full section; Operating Leverage; Company A/B tables and relevant-range discussion"
       ],
@@ -5195,7 +5195,7 @@
         "(d)(1)"
       ],
       "read_scope": "maintenance long-margin minimum and house margin provisions",
-      "body": "适用普通长仓(c)(1)最低维持与(d)(1)内部要求；不是全部工具统一百分比.",
+      "body": "普通长仓的最低维持保证金要求见 (c)(1)，券商内部要求见 (d)(1).",
       "retrieved_at": "2026-09-21",
       "supports_nodes": [
         "P08"
@@ -5399,7 +5399,7 @@
       ],
       "version": "MIT 6.436J/15.085J, Fall 2018",
       "url": "https://ocw.mit.edu/courses/6-436j-fundamentals-of-probability-fall-2018/d734a5f3c245eef581b2937b53d8e6dd_MIT6_436JF18_lec25.pdf",
-      "body": "鞅定义、Doob构造、停时、停止过程、有界停止背景及UI延伸. 本文两停时条件定理用完整增量证明；不采用股票在现实P下必为鞅的旁述.",
+      "body": "离散鞅、Doob构造、停时、停止过程、有界停止及一致可积延伸.",
       "retrieved_at": "2026-09-21",
       "locators": [
         "§1 PDF2–4",
@@ -5500,7 +5500,7 @@
       ],
       "version": "Year ended 2026-01-31",
       "url": "https://www.sec.gov/Archives/edgar/data/104169/000010416926000055/wmt-20260131.htm",
-      "body": "Sam’s Club U.S.分部，会员与其他收入含other，净销售加该项才是总收入；损益层级支持重建而不支持会员利润归因.\n\nBF-F/G 本批采用：零售迁移：三分部、年结差异、资本用途与FCF范围；FY25 capex为23783.",
+      "body": "Sam’s Club U.S.分部的净销售、会员与其他收入及损益层级；会员与其他收入包含other项目. Walmart年报另列三分部、资本用途及FCF口径，FY2025资本支出为23,783M美元.",
       "retrieved_at": "2026-09-21",
       "period": "FY ended 2026-01-31",
       "locators": [
@@ -5562,7 +5562,7 @@
       ],
       "version": "Published 2026-02-20",
       "url": "https://www.eia.gov/todayinenergy/detail.php?id=67205",
-      "body": "固定文章报告2026计划新增86 GW与2025已新增53 GW. 两值分属不同年度和状态，不是同批项目兑现率.\n\n本批采用：计划容量并非实际投运或MWh发电，不计算两年度的项目兑现率.",
+      "body": "2026 年计划新增发电容量 86 GW；2025 年实际新增容量 53 GW. 两项分别描述不同年度的计划和实际容量.",
       "retrieved_at": "2026-09-21",
       "period": "2025 realized additions / 2026 plans as reported 2026-02-20",
       "locators": [
@@ -5674,7 +5674,7 @@
       ],
       "version": "AER 111(2), 2021, pp.547–579; 33-page version of record",
       "url": "https://discovery.ucl.ac.uk/id/eprint/10109806/1/Sterk_aer.20190748.pdf",
-      "body": "§I平衡面板对数就业横截面方差分解；正文age0约85%、age20约40%，后者为外推. 与引言90%+不一致. 只作进入异质性选读，不作成功概率或项目校准.",
+      "body": "§I 用平衡面板分解对数就业的横截面方差. 正文报告 age 0 约 85%、age 20 约 40%，后一数值来自外推；引言另有超过 90% 的表述.",
       "retrieved_at": "2026-09-21",
       "period": "LBD 1979–2012; baseline ages 0–19 balanced panel",
       "locators": [
@@ -5708,7 +5708,7 @@
       ],
       "version": "Publication/revision date not displayed in adopted unit; accessed 2026-09-21",
       "url": "https://www.census.gov/manufacturing/m3/Web_Methodology.pdf",
-      "body": "Estimation和Seasonal Adjustment Methodology规定：总体/季调新订单由出货加未完成订单期差构造；新订单估计包含既有订单取消和修改影响.\n\n本批采用：新订单由出货与未完成订单月差构造；季调亦然，含取消/修改.381是定义性桥，不是3项独立观察.",
+      "body": "新订单由出货加未完成订单的月度变化构造，包含既有订单的取消和修改；季节调整后的序列也沿用这一方法. 本站例中 381 是按该定义计算的数值.",
       "retrieved_at": "2026-09-21",
       "period": null,
       "locators": [
@@ -5951,7 +5951,7 @@
       ],
       "version": "Last Update 2022-12-13",
       "url": "https://www.sec.gov/rules-regulations/staff-guidance/corporation-finance-interpretations/non-gaap-financial-measures",
-      "body": "发行人披露的透明度、一致性、名称/计量、GAAP显著性、FCF及税项边界；不是公司质量评级.",
+      "body": "发行人非 GAAP 指标披露的透明度、一致性、名称与计量，GAAP 的显著呈现，以及 FCF 和税项披露要求.",
       "retrieved_at": "2026-09-21",
       "locators": [
         "100.01–100.06",
@@ -5998,7 +5998,7 @@
       ],
       "version": "RAST31(2026),1567–1637；published 2026-07-24",
       "url": "https://link.springer.com/article/10.1007/s11142-026-09971-2",
-      "body": "透明度、项目持续性、分母和其他披露的联读框架；18家公司试用是2024Q2，不是Salesforce FY26评价.",
+      "body": "联读调整项目的持续性、分母及其他披露的框架. 材料中的 18 家公司试用覆盖 2024Q2.",
       "retrieved_at": "2026-09-21",
       "locators": [
         "Introduction",
@@ -6043,7 +6043,7 @@
       ],
       "version": "现行公开规格；读取2026-09-21",
       "url": "https://www.theocc.com/clearance-and-settlement/clearing/etf-options",
-      "body": "未调整标准合约通常100股、American exercise与T+1实物交割；调整系列另核.\n\nM-E/F/G 本批采用：ETF份额期权的单位、实物交付与行权；不把同类产品的保证金百分比概括为统一数值.",
+      "body": "标准未调整ETF期权通常对应100份基金份额，采用美式行权和T+1实物交割；调整系列按对应合约条款确定单位.",
       "retrieved_at": "2026-09-21",
       "locators": [
         "Unit of Trade",
@@ -6097,7 +6097,7 @@
       ],
       "version": "现行公开规格；同会话读取2026-09-21",
       "url": "https://www.theocc.com/clearance-and-settlement/clearing/equity-options-product-specifications",
-      "body": "标准未调整股票期权100股、美元报价、美式行权与实物交割. 只支持合约身份，不代表具体账户可交易或保证金额度.\n\nM-E/F/G 本批采用：普通股票期权通常100股、美式实物交收；裸call最低规则与维持时使用当前期权价值. 非全部ETF/指数或具体账户house margin.",
+      "body": "标准未调整股票期权通常对应100股，按美元报价、美式行权并实物交割. 保证金规则区分初始与维持要求，维持计算使用当前期权价值；券商可另设客户要求.",
       "retrieved_at": "2026-09-21",
       "locators": [
         "Specification body: unit, premium quotation, exercise and settlement",
@@ -6149,7 +6149,7 @@
       ],
       "version": "July 2024",
       "url": "https://www.optionseducation.org/news/understanding-t-1-conversion",
-      "body": "仓位形成与权利金现金结算不同；行权后股票交割T+1. 不是通用客户通知截止表.\n\nM-E/F/G 本批采用：期权成交头寸记账、权利金现金和行权股票交收时间有别；2024-05-28转换.",
+      "body": "期权成交形成头寸，权利金现金与行权后的股票按交收安排转移. 2024-05-28 起适用的 T+1 周期及转换说明.",
       "retrieved_at": "2026-09-21",
       "locators": [
         "全文：Option Trade Settlement及exercise settlement",
@@ -6201,7 +6201,7 @@
       ],
       "version": "网页；2026-09-21核用",
       "url": "https://www.optionseducation.org/referencelibrary/faq/options-exercise",
-      "body": "行权、平仓、成员exercise-by-exception与客户指令分开；股息和时间价值影响选择，但不保证每个客户腿自动执行.\n\nM-E/F/G 本批采用：行权vs平仓、ex-by-ex与客户指令、提前行权和分红；不提供任何个人券商统一截止.",
+      "body": "行权、卖出平仓、OCC与清算会员层的exercise-by-exception，以及客户指令分别处理. 股息、时间价值和行权截止安排影响持有人的选择.",
       "retrieved_at": "2026-09-21",
       "locators": [
         "行权与平仓问答",
@@ -6278,7 +6278,7 @@
       ],
       "version": "未署年月网页；2026-09-21核用",
       "url": "https://www.optionseducation.org/strategies/all-strategies/covered-call-buy-write",
-      "body": "股票下行仍在、call交付义务与上行让渡；不采用无条件“没有额外风险”措辞或旧Monday通知时点.",
+      "body": "备兑看涨由股票多头和看涨期权空头构成，保留股票下跌暴露，并以让渡部分上涨所得换取权利金；指派时须交付相应股票.",
       "retrieved_at": "2026-09-21",
       "locators": [
         "Description至Comments/Related Position的完整策略主文"
@@ -6320,7 +6320,7 @@
       ],
       "version": "未署年月网页；2026-09-21核用",
       "url": "https://www.optionseducation.org/strategies/all-strategies/protective-put-married-put",
-      "body": "股票+long put的指定期限保护、权利金代价与退出方式；不是永久净财富保证.",
+      "body": "持股加看跌期权在指定期限内的保护范围、权利金成本与退出方式.",
       "retrieved_at": "2026-09-21",
       "locators": [
         "Description至Comments/Related Position的完整策略主文"
@@ -6341,7 +6341,7 @@
       ],
       "version": "未署年月网页；2026-09-21核用",
       "url": "https://www.optionseducation.org/strategies/all-strategies/collar-protective-collar",
-      "body": "三腿结构、floor/cap与指派. 紧凑最大损失横幅的debit/credit符号不采用，逐腿重建.",
+      "body": "领口的股票、看跌多头和看涨空头三腿结构，以及到期所得上下限和指派安排. 净权利金按各腿付款与收款相加.",
       "retrieved_at": "2026-09-21",
       "locators": [
         "Description至Comments/Related Position的完整策略主文"
@@ -6362,7 +6362,7 @@
       ],
       "version": "未署年月网页；2026-09-21核用",
       "url": "https://www.optionseducation.org/strategies/all-strategies/bull-call-spread-debit-call-spread",
-      "body": "同到期call价差、资金与指派差异；不采用恒负theta或long leg必自动行权说法.",
+      "body": "同到期看涨价差的支付、盈亏、资金及指派安排；期间价格敏感度随标的、时间和波动率变化.",
       "retrieved_at": "2026-09-21",
       "locators": [
         "Description至Comments/Related Position的完整策略主文"
@@ -6383,7 +6383,7 @@
       ],
       "version": "未署年月网页；2026-09-21核用",
       "url": "https://www.optionseducation.org/strategies/all-strategies/bull-put-spread-credit-put-spread",
-      "body": "put credit价差、匹配到期边界；不采用恒正theta或客户固定Monday通知.",
+      "body": "看跌信用价差的权利金、同到期支付边界和行权指派安排；各腿期限与数量共同决定组合结果.",
       "retrieved_at": "2026-09-21",
       "locators": [
         "Description至Comments/Related Position的完整策略主文"
@@ -6467,7 +6467,7 @@
       ],
       "version": "网页；2026-09-21核用",
       "url": "https://www.optionseducation.org/advancedconcepts/put-call-parity",
-      "body": "同标的/同K/同到期及资金、分红、行权方式条件；独立R=1.01例为本站推导.\n\nM-E/F/G 本批采用：合成支付与融资条件；简写合成表遗漏的行权价现金腿须补齐，美式不能一律套欧式等式.",
+      "body": "看涨与看跌期权平价关系中的标的、行权价、期限、资金、分红和行权方式条件；合成组合包含行权价现金腿.",
       "retrieved_at": "2026-09-21",
       "locators": [
         "平价定义、匹配条件及现实限制完整单元",
@@ -6517,7 +6517,7 @@
       ],
       "version": "Fall 2008",
       "url": "https://ocw.mit.edu/courses/15-401-finance-theory-i-fall-2008/c40ecc0cc0dce0fbf2d229bc4027c43b_MIT15_401F08_lec10.pdf",
-      "body": "逐腿相加的保护、价差和跨式支付；不承担现行结算规则.\n\nM-E/F/G 本批采用：模型内的支付和复制定价；不代替当前产品规则，讲义现金增长记号不能误写成年化净利率.",
+      "body": "保护性组合、价差与跨式的逐腿支付，以及模型内的经济复制和定价. 现金账户的增长因子按讲义定义使用.",
       "retrieved_at": "2026-09-21",
       "locators": [
         "Slides 10–13完整策略组合单元",
@@ -6574,7 +6574,7 @@
       ],
       "version": "Fall 2010",
       "url": "https://ocw.mit.edu/courses/15-450-analytics-of-finance-fall-2010/0d1260b891a96241316d883d4f5bfaec_MIT15_450F10_lec02.pdf",
-      "body": "无分红、常利率/常波动率模型、复制、PDE与BSM公式；本例采用r=0，非一般American模型或实际概率.\n\nM-E/F/G 本批采用：常参数、无股息模型条件下价格/偏导与Q；本批数值只采用q=0版本，不把非零股息扩展归给该读取单元；不宣称完整连续时间定理证明.",
+      "body": "无股息、常利率与常波动率条件下的连续复制、PDE、BSM公式及风险中性定价；相关数值例采用q=0.",
       "retrieved_at": "2026-09-21",
       "locators": [
         "Slides 16–21完整BSM建模与公式单元",
@@ -6698,7 +6698,7 @@
       ],
       "version": "Journal of Portfolio Management 47(3)，February 2021",
       "url": "https://www.aqr.com/-/media/AQR/Documents/Journal-Articles/Portfolio-Protection-Its-a-Long-Term-Story.pdf?sc_lang=en",
-      "body": "只采用保护期限/重设执行价机制与研究口径. 研究是单位名义纯put而非本篇股票+put，1996-01-05至2020-03-31、季度重设、费用前；不宣称普遍劣势或数据复现.",
+      "body": "研究1996-01-05至2020-03-31的单位名义看跌期权，采用季度重设、费用前口径，分析保护期限和执行价重设对结果的影响.",
       "retrieved_at": "2026-09-21",
       "locators": [
         "printed pp5–6 / PDF pp7–8 Options-Based Hedging完整节、footnote6、Exhibit3",
@@ -6721,7 +6721,7 @@
       ],
       "version": "Chicago Fed WP2025-17，2025-09-04",
       "url": "https://www.chicagofed.org/-/media/publications/working-papers/2025/wp2025-17.pdf?sc_lang=en",
-      "body": "数据/持有规则、标的价格收益分母、风险调整alpha与方差溢价区别；不能转成今天卖期权获利保证，也未复现TRACE/OptionMetrics/CRSP原数据.\n\nM-E/F/G 本批采用：区分traded/synthetic、标的价格分母、滞后信息、beta hedge和动态delta；alpha衰减不等于全部风险补偿消失；未复现原始数据或后续均衡模型.\n\n本批读取范围：滞后估计、样本构造、分母、非线性与风险调整；2012m5为事后断点.",
+      "body": "期权研究的样本、持有规则、滞后估计、标的价格回报分母、非线性敞口与风险调整；区分实交易和合成策略、beta 对冲和动态 delta 对冲. 2012m5 在研究中作为事后断点.",
       "retrieved_at": "2026-09-21",
       "locators": [
         "§3.1完整数据单元",
@@ -6826,7 +6826,7 @@
       ],
       "version": "Undated; retrieved 2026-09-21",
       "url": "https://www.optionseducation.org/advancedconcepts/delta",
-      "body": "局部价格敏感度和对冲单位；概率近似不能升级成P下概率恒等.",
+      "body": "Delta 的局部价格敏感度及换算为标的持有数量的对冲单位.",
       "retrieved_at": "2026-09-21",
       "locators": [
         "Full main concept body"
@@ -6876,7 +6876,7 @@
       ],
       "version": "Undated; retrieved 2026-09-21",
       "url": "https://www.optionseducation.org/advancedconcepts/vega",
-      "body": "波动率参数的偏导和每百分点单位；IV不是独立的P下预测.",
+      "body": "Vega 是期权价格对波动率参数的偏导，常按波动率变化 1 个百分点报价.",
       "retrieved_at": "2026-09-21",
       "locators": [
         "Full main concept body"
@@ -6926,7 +6926,7 @@
       ],
       "version": "v6.0, revised 2026-02-26",
       "url": "https://cdn.cboe.com/api/global/us_indices/governance/Volatility_Index_Methodology_Cboe_Volatility_Index.pdf",
-      "body": "VIX产品筛选、期限定常与SOQ区别；13.93是官方假设计算例，不是当日行情.",
+      "body": "VIX 的产品筛选、固定期限计算及 SOQ 结算方法；13.93 是官方假设计算例的结果.",
       "retrieved_at": "2026-09-21",
       "locators": [
         "Sections 1–5 and Appendices 1–3; physical pp3–14, stop before Appendix4 strip",
@@ -7039,7 +7039,7 @@
       ],
       "version": "Spring 2003",
       "url": "https://ocw.mit.edu/courses/15-433-investments-spring-2003/4491842813dd9719421bce96c282b39c_1543322marketefficiency.pdf",
-      "body": "信息集、检验基准与实施成本的基本框架；历史基金绩效不是当前市场事实.",
+      "body": "市场有效性检验中的信息集、比较基准、实施成本与历史基金绩效.",
       "retrieved_at": "2026-09-21",
       "locators": [
         "Full physical pp1–11; p2 information sets, pp4–6 event/cost/limits, p9 framing"
@@ -7091,7 +7091,7 @@
       "version": "September 2006; updated April 2009",
       "url": "https://www.bea.gov/sites/default/files/methodologies/IOmanual_092906.pdf",
       "access_kind": "pdf_full_text",
-      "body": "官方方法例的使用表、产品/行业转换、BW直接需要及完全需要表. 本站重记A≡BW；展示A求逆与发表圆整R分开. 示例不是当前产业系数.",
+      "body": "官方方法示例中的使用表、产品与行业转换、BW 直接需要及完全需要表. 本站记 A≡BW，计算时区分展示精度的 A 与原文公布的舍入 R.",
       "locators": [
         "Chapter 1 pp.1–2至1–4",
         "Chapter 12 pp.12–9至12–15; Tables 12.5–12.15",
@@ -7147,7 +7147,7 @@
       "version": "FEDS 2023-075; October 2023",
       "url": "https://www.federalreserve.gov/econres/feds/files/2023075pap.pdf",
       "access_kind": "pdf_full_text",
-      "body": "国内/国外生产者的投入替代、容量约束与定价，为静态IO之外的调整条件提供对照. 不采用通胀分解或未核估计.",
+      "body": "国内与国外生产者的投入替代、容量约束和定价调整，补充静态投入产出分析的适用条件.",
       "locators": [
         "Sections 2.2.1–2.3.2; printed pp.11–15; PDF physical pp.13–17",
         "Equations 8–19, only capacity/slackness and substitution mechanisms used"
@@ -7200,7 +7200,7 @@
       "version": "2017 and 2022 annual tables; retrieved 2026-09-21",
       "url": "https://www.census.gov/foreign-trade/balance/c5700.html",
       "access_kind": "html_full_text",
-      "body": "美国商品进口的中国来源金额；名义 M 美元、未季调. 固定2017/2022 TOTAL Imports，不是论文Comtrade产品回归输入.",
+      "body": "美国自中国进口商品的名义金额，单位 USD M，未作季节调整；本站使用 2017、2022 年 TOTAL Imports.",
       "locators": [
         "2017 and 2022 year headings, notes and TOTAL rows, Imports column"
       ],
@@ -7345,7 +7345,7 @@
       ],
       "version": "Fall 2013",
       "url": "https://ocw.mit.edu/courses/18-s096-topics-in-mathematics-with-applications-in-finance-fall-2013/d19208c017ada04f9261cfb41ab8d702_MIT18_S096F13_lecnote19.pdf",
-      "body": "call 公式与复制/PDE背景；不采用 slide16 将再平衡现金误说成确定过程的简述，完整 Gaussian/PDE/自融资核算在 QT24 定价分支.\n\n本批读取范围：delta复制与模型价格；现金实际按明确自融资事件递推.",
+      "body": "看涨期权公式、Delta复制与PDE背景. 再平衡现金由自融资交易逐次确定；完整高斯积分、PDE和自融资推导见QT24.",
       "locators": [
         "Slides 13–22, especially 16/19",
         "slides13–22；特别是16/19；delta复制与模型价格；现金实际按明确自融资事件递推."
@@ -7444,7 +7444,7 @@
       ],
       "version": "arXiv 2310.11771v2; posted 2024-09-04; manuscript 2024-09-03",
       "url": "https://arxiv.org/pdf/2310.11771v2",
-      "body": "两币种现金账户、风险中性条件现金与有限递推. 不给出未验证的无穷期证明；inverse方向须映射.\n\n本批读取范围：线性永续价格变化与资金费现金流的模型对象.",
+      "body": "永续合约的两币种现金账户、价格变化与资金费现金流，风险中性条件下的有限递推及反向合约的计价方向.",
       "retrieved_at": "2026-09-21",
       "locators": [
         "离散时间§2完整模型；§3一周期现金、有限递推及终端余项；无泡沫/可积性只作边界；§4开头至逆向现金与Q_b为M25选读",
@@ -7495,7 +7495,7 @@
       ],
       "version": "updated 2026-05-22 13:52:11",
       "url": "https://www.bybit.com/en/help-center/article/Introduction-to-Funding-Rate",
-      "body": "资金费率的利息、加权溢价、两层clamp及正常min限额；场所规则与论文线性模型不同.\n\n本批读取范围：交易所funding系数的规则，频率可变.",
+      "body": "Bybit资金费率由利息、加权溢价、两层clamp及相应限额规则形成；资金费频率按场所规则调整.",
       "retrieved_at": "2026-09-21",
       "locators": [
         "Funding Rate Calculation；Interest Rate；Average Premium Index及分钟加权；Funding Rate Upper/Lower Limit与min限制",
@@ -7544,7 +7544,7 @@
       ],
       "version": "updated 2026-05-12 12:38:20",
       "url": "https://www.bybit.com/en/help-center/article/Funding-fee-calculation",
-      "body": "事件资格、正负现金方向、扣款和线性/反向fee例；触限后改频与±5秒不确定.\n\n本批读取范围：持仓×标记价×费率、付款方向、时间资格与可用余额.",
+      "body": "资金费事件的持仓资格、付款方向和扣款顺序，以及线性与反向合约的金额计算. 文档说明结算时点前后约5秒的资格不确定性及触限后的频率调整.",
       "retrieved_at": "2026-09-21",
       "locators": [
         "What Is/When Is/How Is Funding Fee；资格±5秒说明；扣款顺序；USDT与Inverse费用例；Trade History符号及触限改频说明",
@@ -7592,7 +7592,7 @@
       ],
       "version": "updated 2026-08-12 12:24:42",
       "url": "https://www.bybit.com/en/help-center/article/FAQ-Profit-Loss-Calculation",
-      "body": "合约规定的价格P&L与币种，杠杆并非固定size价格损益的乘数.\n\n本批读取范围：线性USDT价格盈亏和完整成本口径.",
+      "body": "线性与反向合约按各自单位计算价格损益，已实现结果计入相应费用. 固定头寸数量时，杠杆改变保证金和ROI分母，价格损益仍由头寸及价差决定.",
       "retrieved_at": "2026-09-21",
       "locators": [
         "线性与反向多空P&L、未实现/已实现、显示价格、费用与杠杆/ROI问答",
@@ -7634,7 +7634,7 @@
       ],
       "version": "updated 2026-08-05 14:29:08",
       "url": "https://www.bybit.com/en/help-center/article/Inverse-Contract-FAQ",
-      "body": "USD数量、BTC结算/保证金与账户币种安排；不能将全仓多资产规则套逐仓.",
+      "body": "反向合约以 USD 表示数量，以 BTC 结算并计保证金；账户规则按逐仓、全仓等具体模式读取.",
       "retrieved_at": "2026-09-21",
       "locators": [
         "合约symbol、quantity与position value；结算资产、margin modes与抵押/借款说明"
@@ -7724,7 +7724,7 @@
       ],
       "version": "updated 2026-04-16",
       "url": "https://www.bybit.com/en/help-center/article/Maintenance-Margin-USDT-Contract",
-      "body": "边际档位与扣减，92.5是当前示例需求不是最大亏损.",
+      "body": "维持保证金的边际档位与扣减方法，官方示例的需求金额为 92.5.",
       "retrieved_at": "2026-09-21",
       "locators": [
         "分档边际维持率、MM deduction及3,500名义额例；关闭费说明"
@@ -7843,7 +7843,7 @@
       ],
       "version": "non-EEA; updated 2025-12-12",
       "url": "https://www.circle.com/legal/usdc-terms",
-      "body": "USDC的条件性权利、直接赎回服务与第三方/通道风险；不是账户开户意见.",
+      "body": "USDC 持有人的条件性权利、直接赎回服务，以及第三方和通道安排.",
       "retrieved_at": "2026-09-21",
       "locators": [
         "非EEA版序言、完整§1–2与§13–19；Type A/B、赎回、风险、第三方、费用/暂停/延迟"
@@ -7865,7 +7865,7 @@
       ],
       "version": "page 2023-03-13; dateline 2023-03-12; reserve composition as of 2023-03-11",
       "url": "https://www.circle.com/pressroom/3-3-billion-of-usdc-reserve-risk-removed-dollar-de-peg-closes",
-      "body": "指定历史时点发行人储备/银行敞口披露；不是独立审计、价格带或损失估计.",
+      "body": "发行人在 2023-03-12 对储备及银行敞口的披露.",
       "retrieved_at": "2026-09-21",
       "locators": [
         "新闻稿全文；页面03-13、dateline03-12、截至03-11的储备组成与银行现金可达性"
@@ -7939,7 +7939,7 @@
       ],
       "version": "March 2021",
       "url": "https://app.uniswap.org/whitepaper-v3.pdf",
-      "body": "集中区间的真实/虚拟储备与有限交换；手续费增长公式以固定代码作局部单位校正.\n\n本批读取范围：集中区间实际库存、出区间状态与费用独立记账.",
+      "body": "集中流动性区间内的真实与虚拟储备、有限交换及出区间库存状态. 手续费增长按单位活动流动性计量，相关单位可与固定版本合约代码对应.",
       "retrieved_at": "2026-09-21",
       "locators": [
         "§2–3.2集中流动性/区间；§6.1–6.3库存、手续费及区间内交换；PDF p6式6.9的每单位L口径",
@@ -8204,7 +8204,7 @@
       ],
       "version": "2023-04-28 historical review",
       "url": "https://www.federalreserve.gov/publications/2023-April-SVB-Executive-Summary.htm",
-      "body": "历史报告记载ILST失败、调整假设和资金准备等问题；不替代现行法规，不作政治或机构优劣评级.",
+      "body": "历史报告对 ILST 失败、假设调整和资金准备的记录.",
       "retrieved_at": "2026-09-21",
       "locators": [
         "Executive Summary；Governance and Risk Management中ILST、CFP及资金操作准备段"
@@ -8226,7 +8226,7 @@
       ],
       "version": "QJE 140(2), 2025, 889–942",
       "url": "https://danielle-li.github.io/assets/docs/GenerativeAIatWork.pdf",
-      "body": "5172人是全样本，Table II(3)为12295人月；0.301及15.2%的分母不同于表中总体均值. 大规模部署前有约50人的小型RCT；主要5172人结果来自受培训容量、预算和经理排期影响的错峰部署，用DiD/固定效应与event-study等识别，而不是把整个样本称随机试验.",
+      "body": "主要研究样本为5,172人，采用受培训容量、预算和经理排期影响的错峰部署，以DiD、固定效应及event-study等识别；此前另有约50人的小型RCT. Table II(3)包含12,295人月，0.301与15.2%的分母分别按表中模型和对应基准解释.",
       "retrieved_at": "2026-09-21",
       "locators": [
         "印刷pp.901–908 IV.A–C、TablesI–II/FigureII；pp.910–915 skill/tenure；TableII p.907"
@@ -8246,7 +8246,7 @@
       ],
       "version": "2026-05-26 article; BTOS window 2025-12-14 to 2026-05-03",
       "url": "https://www.census.gov/library/stories/2026/05/ai-use-businesses.html",
-      "body": "企业数量采用率，不是产出或劳动份额；不能与QJE特定任务效果直接相乘.",
+      "body": "按企业数量统计的采用率；该口径衡量采用企业的比例.",
       "retrieved_at": "2026-09-21",
       "locators": [
         "调查窗口、May3 19.8%、2025-11-17问题表述改变的完整段"
@@ -8266,7 +8266,7 @@
       ],
       "version": "Annual Revision released 2025-04-25",
       "url": "https://www.census.gov/retail/mrts/www/NAICS_Restatement_Summary.pdf",
-      "body": "同一2022期原雇主+非雇主与重述雇主口径不同；不是从2025April观测才发生的需求下降.",
+      "body": "2022 年数据的原雇主加非雇主口径，以及后续重述的雇主口径；比较两个版本前需统一企业覆盖范围.",
       "retrieved_at": "2026-09-21",
       "locators": [
         "PDF pp.1–2说明；p.3 Restated Annual Retail Sales / End-of-Year Inventories，NAICS44–45总行"
@@ -8371,7 +8371,7 @@
       ],
       "version": "Electric Power Monthly；data June2026；release2026-08-26",
       "url": "https://www.eia.gov/electricity/monthly/epm_table_grapher.php?t=epmt_1_1",
-      "body": "2024 final、2025 preliminary. 本篇取Table1.1的Generation at Utility Scale Facilities列组；所列utility-scale solar与utility-scale total不包含右侧estimated small-scale solar列. 零售售电与发电覆盖不同，不能强求总量相等.",
+      "body": "2024 年最终值和 2025 年初值. 本站取 Table 1.1 的 Generation at Utility Scale Facilities 列组，utility-scale solar 与 total 均按公用事业级发电设施范围计量. 另列的小规模太阳能估计值和零售售电采用各自统计范围.",
       "retrieved_at": "2026-09-21",
       "locators": [
         "2024/2025年度煤/气/核/水/utility solar/utility total列与表注"
@@ -8393,7 +8393,7 @@
       ],
       "version": "IMES DP2025-E-15, October2025",
       "url": "https://www.imes.boj.or.jp/research/papers/english/25-E-15.pdf",
-      "body": "同冲击、改约束的Figure 7反事实：Figure 7c在2021–2022总体消费价格通胀约高1–2pp；Figure 7a“约一半”对应2020Q2–2021Q2商品价格通胀加速，二者不是同一分母. Figure 9联合冲击减容量单独路径是另一运算；近似乘子、先验、测量误差与后验区间保留.",
+      "body": "Figure 7 比较同一冲击下改变约束的反事实. 7c 的 1–2 pp 对应 2021–2022 年总体消费价格通胀；7a 的“约一半”对应 2020Q2–2021Q2 商品价格通胀加速. Figure 9 另计算联合冲击路径减去容量单独路径，估计包含先验、测量误差与后验区间.",
       "retrieved_at": "2026-09-21",
       "locators": [
         "§2.2.2 printed12–13；§2.6.1 printed17–18；§3 printed21–26；§4.1–4.3 printed27–33；Fig7 p29/PDF32；Fig9 p32/PDF35"

@@ -1,18 +1,14 @@
 # 盈利质量、调整口径与比较
 
-完整复算Salesforce官方GAAP/non-GAAP调节，辨清税额、SBC范围和分母；自选区只改变经营利润与利润率.
+复算Salesforce的GAAP/non-GAAP调节，核对税额、SBC与股数；改变经营利润调整后比较利润率.
 
-Entry: zh-bf20 | Node: BF-20 | Language: zh | Editorial revision: 2026-09-21
+Entry: zh-bf20 | Node: BF-20 | Language: zh | Editorial revision: 2026-09-22
 
 ## Teaching instructions
-你教授BF-20《盈利质量、调整口径与比较》，版本2026-09-21-review-v3，面对有微积分、线性代数与基本概率基础的高年级本科至研究生. 使用本包同源全文，不另造一套事实.
-本篇只有core主线，不要求选择不存在的行业. 先读required_readings；研究框为可选，只有启用时才补读对应optional_readings.
-先实际打开每项公开URL，读完required_unit包含的正文/表/脚注；记录标题、版本、定位、得到的关键设定. runtime_reading_log初始为空，不能把编辑的阅读回执当本次已读. 只有摘要、登录页或访问失败不算完成；尝试正式等价入口，仍缺则说明具体单元并停止该范围的实质讲解.
-当前分支任务：{"core": "先恢复官方经营桥与净利润桥；保留SBC后得10676，只剔摊销得10018. 解释3480+29=3509，拒绝把完整税额-1313留给自选子集."}
-用一项完整真实材料任务诊断，不把四则运算拆成逐句考试. 让读者先完成关系和解释，再对照同源题解反馈；已会内容直接跳过. 实验的历史、分析计算和教学合同身份分开，所有默认输入来自supplied_inputs. 解释必须包含原表定位、时间/单位和任务的正向完成.
-最后问“读者只读完这个词条，真的能学明白吗？”用独立产出与迁移答案作检验，而不是给自评分. 数字正确但混用时间、主体、税额或现金/股数时，指出具体误解并让读者修一份完整结果. 不要把过程记录写进读者正文.
-
-本篇特有边界：自选开关只重算OI和margin. 官方NI/EPS/FCF固定. 禁止按项目比例分摊-1313；22%属于FY26，20.5%属于FY27；3480+29=3509.
+你教授 BF-20《盈利质量、调整口径与比较》，版本2026-09-22-deep-review，面向有微积分、线性代数与基本概率基础的高年级本科至研究生. 本篇只有 core；research 仅在启用后读取 optional_readings.
+开始实质讲解前，先实际打开 required_readings，读完 required_unit 的正文、表和脚注；记录标题、版本、定位和关键设定到从空数组开始的 runtime_reading_log. 正式入口失败时先找同版本正式等价原文；仍缺则标明单元并停止依赖该材料的讲解.
+先恢复官方 OI、NI、EPS、FCF 四桥. 必须得到：保留SBC时 OI=10,676；只剔摊销时 OI=10,018；3,480+29=3,509 的范围关系；官方完整税额−1,313只属于整套税后桥. 自选组合只重算 OI 与同一收入分母下的 margin，官方 NI/EPS/FCF 固定；FY26 non-GAAP税率22%，FY27为20.5%.
+通过尺度：时间、税额、SBC范围、现金和股数身份均不混用；research 启用时保留2024Q2试用的样本筛选与编码限制.
 
 Before substantive teaching, actually retrieve every required reading unit for the selected scope. Read its complete designated section, including necessary assumptions, tables and footnotes. A working URL or an editorial access date is not a runtime reading receipt. Record the actual version, location, scope and what it supports. If unavailable, use a previously verified equivalent source; if the required unit remains unavailable, identify that gap rather than teach it from memory. Start runtime_reading_log empty. Once reading is complete, use a substantive diagnostic or follow the reader's request for direct explanation. Advance one complete reasoning task at a time; skip mastered basics. Distinguish original facts, supplied teaching assumptions and inference.
 
@@ -25,7 +21,7 @@ Before substantive teaching, actually retrieve every required reading unit for t
 {
   "export_mode": "public",
   "node_id": "BF-20",
-  "content_version": "2026-09-21-review-v3",
+  "content_version": "2026-09-22-deep-review",
   "default_branch": "core",
   "branch_options": [
     "core"
@@ -1389,21 +1385,21 @@ Before substantive teaching, actually retrieve every required reading unit for t
 ```
 
 ## Supplied entry
-读到一家公司同时给出两种利润，我们不必先选“相信哪一个”. 更有效的起点是问：它们各自计入了什么，为了回答什么问题，又有哪些事项被留在了图外？这篇用Salesforce FY2026的原始业绩公告，把经营利润、净利润、每股收益和自由现金流四组调节走完，再由读者撤销一项调整. 完整学习约15–20分钟；研究选读可后看.
+同一公司给出 GAAP 与 non-GAAP 利润时，先比较各口径纳入、排除和调节的项目. Salesforce FY2026 公告可以完整复算经营利润、净利润、每股收益与自由现金流四条桥，再检验撤销一项调整如何改变观察口径.
 
 <a id="bf20-purpose"></a>
-## 1. 一项调整先要有一个分析目的
+## 1. 报告质量、持续性与可比性
 
-<strong>报告质量</strong>关心计量、披露和呈现能否让人理解经营事实；<strong>盈利的持续性</strong>关心某个项目今后是否还会发生；<strong>可比性</strong>关心两期或两家公司是否使用相同口径. 三者相关，却不是同一个尺度. 某项费用真实发生、披露清楚，仍可能在下一年不再发生；某项没有当期现金支付的费用，也可能每年继续发生并改变股东权利.
+<strong>报告质量</strong>涉及计量、披露与呈现是否足以理解经营事实；<strong>盈利持续性</strong>涉及项目今后是否继续发生；<strong>可比性</strong>涉及两期或两家公司是否采用一致口径. 一笔披露清楚的费用可以只发生一次，一笔没有同期现金付款的费用也可以持续发生并改变股东权利.
 
-因此我们从GAAP原值出发，保留一条可逆路径：原利润，加减具名项目，得到明确命名的补充指标. 调整不是抹去事实，而是让某个比较更清楚. 例如，要观察收购无形资产摊销前的经营结果，可以单独列出该摊销；但要判断现有收入由哪些资源支持，又必须回到取得这些资产的成本、使用寿命和未来投入. 一个视角提供信息，不代表它取代了其他视角.
+补充指标从 GAAP 利润加减具名项目得到. 剔除购入无形资产摊销可观察摊销前经营结果；评价支持这些收入的资源，则还需取得成本、使用寿命与未来投入.
 
-SEC对发行人的non-GAAP披露解释也围绕这些关系：原值及调节应清楚，名称不能歪曲计算，跨期处理要解释，税务影响要与指标匹配. 经常性项目、现金项目或单方面只调坏消息，需要结合具体事实判断. 它们是发行人披露要求，不是禁止读者自行研究的指令；我们这里采用的是保留原值和解释调整目的的方法. [^sec]
+SEC对发行人的non-GAAP披露解释要求原值及调节清楚、名称不歪曲计算、跨期处理可解释，税务影响与指标匹配；经常性项目、现金项目或单方面只调坏消息需结合具体事实判断. [^sec]
 
 <a id="bf20-official-oi"></a>
-## 2. 先完整恢复公司的经营利润桥
+## 2. Salesforce 经营利润调节
 
-采用2026-02-25发布的FY2026 Q4及全年业绩公告Exhibit 99.1. 下面摘选<strong>完整年度列</strong>，不混入同张原表的季度列. FY2026截至2026-01-31，FY2025截至2025-01-31；金额单位为 USD M. [^release]
+采用2026-02-25发布的 FY2026 Q4及全年业绩公告 Exhibit 99.1，摘录年度列. FY2026截至2026-01-31，FY2025截至2025-01-31；单位：USD M. [^release]
 
 | 原行名称 | 中文读法 | FY2026 | FY2025 |
 |---|---|---:|---:|
@@ -1418,18 +1414,18 @@ SEC对发行人的non-GAAP披露解释也围绕这些关系：原值及调节应
 
 单位：USD M. 年度期间截至相应年份1月31日，非日历年；利润率是公司展示的取整百分数. SBC脚注(3)：FY26/FY25重组项内的29/2不在本表SBC剔除行，已经纳入重组与收购行.
 
-FY2026原经营利润8,331；加回1,687的购入无形资产摊销、3,480的特定范围股权薪酬，以及658的重组与收购相关成本，得到14,156. 分母仍是同一份GAAP收入41,525. 因此，金额复算的两种利润率分别为20.0626%和34.0903%，对应公告展示的20.1%和34.1%.
+FY2026原经营利润8,331；加回1,687的购入无形资产摊销、3,480的特定范围股权薪酬，以及658的重组与收购相关成本，得到14,156. 分母仍是同一份GAAP收入41,525. 因此，金额复算的两种利润率约为20.063%和34.09%，对应公告展示的20.1%和34.1%.
 
-先看两期，而不是只看加回后较大的数. FY2025同类三项为1,651、3,181和461，官方补充利润为12,498. 由此可以确认这些调整类别并非只在FY2026出现；但“类别连续出现”仍不能替代对具体收购、奖励和重组事项的分析. 持续性应在项目层面判断，不能仅凭表里写了“调整”就把它认作一次性.
+FY2025同类调整分别为1,651、3,181和461，补充经营利润12,498. 三类调整连续两年出现，其持续性需结合具体收购、奖励和重组计划判断.
 
-### 三项加回分别把什么移出了观察窗口
+### 摊销、股权薪酬与重组费用
 
-购入无形资产摊销是已取得资源的期间分摊；它没有在摊销当期重复发生同额收购现金支出，但这些技术和客户关系仍参与形成收入. 公司自己的说明也承认它们支持收入. 如果拿摊销前利润与内部研发企业比较，还须注意后者的研发或销售投入可能已直接费用化；仅移掉一边的资源成本，并不会自动得到更好的可比口径. [^release]
+购入无形资产摊销将已取得技术、客户关系等资源的成本分配到使用期间. 这些资源继续支持收入，而收购现金支出发生在取得时. 与内部研发企业比较时，应同时检查对方已费用化的研发或销售投入，避免只剔除其中一方的资源成本. [^release]
 
-股权薪酬对应员工服务和可能的股东权利变化. 把它从经营指标中排除，可以形成公司选定的补充视角，但不能把薪酬安排及股数影响一并删掉. 重组与收购相关成本则可能同时含现金付款、非现金减值和其他成本；要判断它今后会否发生，应读所对应计划、交易和履行情况，而不只看科目名.
+股权薪酬对应员工服务，并影响股东权利；经营指标剔除这项费用后，股数与奖励条款仍决定普通股所得. 重组和收购相关成本可包含现金付款、非现金减值及其他成本，具体计划、交易与履行进度决定后续费用.
 
 <a id="bf20-official-ni"></a>
-## 3. 净利润和每股桥必须连同税与分母一起读
+## 3. 税后调整与每股分母
 
 经营利润桥只处理这一层的费用. 走到净利润时，公司还调整所得税，以下保留整条官方桥. [^release]
 
@@ -1442,9 +1438,9 @@ FY2026原经营利润8,331；加回1,687的购入无形资产摊销、3,480的�
 | Income tax effects and adjustments | 所得税影响及调整 | (1,313) | (1,560) |
 | <strong>Non-GAAP net income</strong> | <strong>公司non-GAAP净利润</strong> | <strong>11,969</strong> | <strong>9,930</strong> |
 
-单位：USD M. 这是官方完整组合；税额不作为可任意拆分的单项税收属性.
+单位：USD M. 税务调节对应下列完整调整组合.
 
-FY2026的计算为7,457＋1,687＋3,480＋658−1,313＝11,969. 这一税额是整套指标的组成部分，不是可以随意留在任意三个开关后的“共同扣项”. 公司的方法说明，FY2025和FY2026使用22.0%的长期预计non-GAAP税率，20.5%属于FY2027，不能前移到本期. [^taxmethod]
+FY2026净利润桥为7,457＋1,687＋3,480＋658−1,313＝11,969. 公司 FY2025与 FY2026方法采用22%的长期预计 non-GAAP 税率，FY2027改为20.5%. [^taxmethod]
 
 我们可以用本期税前利润9,520和GAAP税费2,063检查整桥的量级：
 
@@ -1454,7 +1450,7 @@ FY2026的计算为7,457＋1,687＋3,480＋658−1,313＝11,969. 这一税额是�
 相对GAAP税费增加 = 3,375.9 − 2,063 = 1,312.9 ≈ 1,313
 ```
 
-这解释了为什么−1,313不能固定跟随任何子集. 若三个经营调整都关闭却仍扣它，会得到6,144，既不是GAAP7,457，也不是官方non-GAAP11,969. 若未来要研究自选的税后口径，需要另给适用期间、税收假设和分母，而不是按加回金额比例分配这条税额.
+若变更经营调整组合，税后口径需重新设定相应税务处理. 例如关闭三个经营调整却保留−1,313，会使净利润成为6,144，无法回到 GAAP 的7,457.
 
 | 原行名称 | 中文读法 | FY2026 | FY2025 |
 |---|---|---:|---:|
@@ -1467,14 +1463,14 @@ FY2026的计算为7,457＋1,687＋3,480＋658−1,313＝11,969. 这一税额是�
 | Shares used in computing basic net income per share | GAAP与non-GAAP基本分母（ M 股） | 950 | 962 |
 | Shares used in computing diluted net income per share | GAAP与non-GAAP稀释分母（ M 股） | 956 | 974 |
 
-单位：USD/share；分母行另为million shares. 每股调整分别取整；FY26/FY25官方两种稀释EPS分别使用同一956/974 M 股分母.
+单位：USD/share；分母单位：M股. 每股调整分别取整；FY2026、FY2025的两种稀释 EPS 分别采用同一956、974 M股分母.
 
-官方FY2026的两种稀释EPS都用956 M 股：7,457÷956约7.80，11,969÷956约12.52. 每股调节各行经过取整，比较时首先保留原表. 年度基本分母950和稀释分母956又不同于期末在外929 M 股；前两者是期间加权数量，最后一个是时点数量. 换分母会同时换问题. [^shares]
+FY2026：7,457÷956≈7.8，11,969÷956≈12.52. 年度基本和稀释加权平均股数分别950、956 M股，期末在外股数929 M股. 前两者按持有期间加权，后者记录期末状态. [^shares]
 
 <a id="bf20-scope"></a>
-## 4. 一处脚注能避免怎样的重复计算
+## 4. 股权薪酬调整范围
 
-在现金流量表中，FY2026股权薪酬加回为3,509；业绩公告的剔除行却是3,480. 乍看像冲突，但公告脚注(3)明确说明：另有29已包含在重组项中，所以3,480＋29＝3,509. 如果把3,509全部填进经营利润桥，再保留完整658，就会把29重复加回. [^release]
+FY2026现金流量表股权薪酬加回3,509，公告剔除行3,480. 公告脚注(3)说明另外29已进入重组项，故3,480＋29＝3,509. 若以3,509替换经营利润桥的3,480而保留完整658，会重复加回29. [^release]
 
 | 事项 | 在这份调节中的位置 | 还要回到哪份材料 |
 |---|---|---|
@@ -1483,10 +1479,10 @@ FY2026的计算为7,457＋1,687＋3,480＋658−1,313＝11,969. 这一税额是�
 | 重组与收购成本 | 加回658，含上述29 | 具体计划、交易范围、现金及非现金组成 |
 | 税额 | 整套官方净利润调整−1,313 | FY2026的22%方法与GAAP税前/税费 |
 
-现金流中的加回并不消除员工服务成本. Salesforce现金流还单列股权奖励净额结算相关税款351和回购现金12,596；薪酬费用、现金分类和股数因此要作为三组证据联读.[^cfs]
+现金流还单列股权奖励净额结算相关税款351、回购现金12,596. 这些现金项目与薪酬费用、股份变化采用各自确认时间和范围. [^cfs]
 
 <a id="bf20-fcf"></a>
-## 5. 自由现金流也有自己的定义边界
+## 5. 自由现金流口径
 
 | 原行名称 | 中文读法 | FY2026 | FY2025 |
 |---|---|---:|---:|
@@ -1496,18 +1492,18 @@ FY2026的计算为7,457＋1,687＋3,480＋658−1,313＝11,969. 这一税额是�
 
 单位：USD M.
 
-公司这里将FCF定义为经营现金流减资本支出，14,996−594＝14,402. 这个等式能完整复算，但它没有扣去本年9,268的企业合并净现金支出，也不替代债务、分红或其他融资安排. FCF不是从所有义务中扣剩的“任意可分配资金”. SEC的相关解释特别要求说明定义与调节，并提醒不同公司的FCF口径可能不同. [^fcf]
+公司将 FCF 定义为经营现金流减资本支出：14,996−594＝14,402. 企业合并净现金支出9,268及债务、股息等安排位于这一定义之外. 跨公司比较应先按各自定义和调节表统一范围. [^fcf]
 
-这也说明盈利质量不能只用“净利润与FCF接近不接近”判断. 订阅业务的开票、收款与履约时间，以及合同取得成本资本化等项目，会进入经营现金流；收购形成的资源则在另一类现金流里. 比较之前先恢复这些路径，才知道差额在说明什么.
+净利润与 FCF 的差额还受订阅开票、收款、履约时间和合同取得成本资本化影响；收购资源支出则列入投资活动. 判断现金与盈利的关系，需要分解这些项目的时间及分类.
 
 <a id="bf20-experiment"></a>
-## 6. 现在撤销一项，写出自己的理由
+## 6. 自选经营利润口径
 
-实验固定显示四条官方桥；读者自选区只重算经营利润和收入分母下的利润率. 默认启用全部三项，得到公司官方经营口径. 将股权薪酬排除开关关闭，相当于把该费用重新纳入：14,156−3,480＝10,676，利润率25.7098%. 全部关闭则回到8,331和20.0626%.
+四条官方桥保持固定；自选组合只重算经营利润和同一收入分母下的利润率. 保留股权薪酬费用时，14,156−3,480＝10,676，利润率约25.71%；不剔除三项时回到8,331和约20.063%.
 
 <div data-experiment-slot="EXP-BF20-REVERSIBLE-ADJUSTMENTS"></div>
 
-与开关一同写下的应是一句目的说明. 例如：“为了观察保留员工薪酬后的经营结果，我保留股权薪酬费用，同时暂时剔除购入无形资产摊销和重组/收购项；所得10,676是这个特定比较口径，不代表它已完成未来盈利正常化. ”下一步再追问剔除项的持续性，才会从算术走向分析.
+例如，为比较保留员工薪酬后的经营结果，可剔除购入无形资产摊销和重组、收购项，得到10,676. 估计未来盈利时，还需判断剔除项目将如何变化.
 
 <a id="bf20-exercise"></a>
 ## 7. 解释题与跨期迁移
@@ -1516,35 +1512,34 @@ FY2026的计算为7,457＋1,687＋3,480＋658−1,313＝11,969. 这一税额是�
 
 <strong>任务二：</strong>对FY2025也采用“保留股权薪酬、剔除其他两项”的同一口径，计算两期经营利润. 两者比较改善了什么，又还没解决什么？
 
-<strong>任务三：</strong>有人把现金流的3,509填进non-GAAP桥，结果比14,156多29. 找出错误，并说明为何不能简单把某张表判为不可靠.
+<strong>任务三：</strong>将现金流的3,509填入 non-GAAP 桥会使结果多29. 根据脚注恢复费用范围.
 
 <details><summary>展开完整解析</summary>
 
-任务一：8,331＋1,687＝10,018；10,018÷41,525＝24.1252%. −1,313是官方完整三项组合与公司税率方法共同产生的税后调节，不是摊销这一项的独立税收属性. 本任务不生成自选净利润或EPS.
+任务一：8,331＋1,687＝10,018；10,018÷41,525≈24.125%. 官方税务调节1,313对应三项调整及整套税率方法，单独剔除摊销需另算相应税务影响.
 
-任务二：FY2025为12,498−3,181＝9,317；FY2026为10,676，增加1,359，约14.59%. 统一处理改善了指标口径的一致性，却还没有证明重组成本永不重复、并购摊销与内部资源投入经济上完全等价. 它也没有改变真实现金或股数. 可以把同口径结果当作后续经营状态分析的输入，不把它自动命名为未来正常盈利.
+任务二：FY2025为12,498−3,181＝9,317，FY2026为10,676，增加1,359，约14.587%. 统一剔除范围后，两期仍需比较重组活动及资源取得方式：并购无形资产摊销与内部研发费用对应不同取得路径.
 
-任务三：29已进入658重组/收购项. 再用3,509取代3,480会重复剔除29. 应按脚注恢复3,480＋29＝3,509的范围关系，而不是凭两个接近的数字宣告原件冲突.
+任务三：29已进入658重组、收购项. 按脚注将3,509分成3,480与29，分别放回相应调整行.
 
 </details>
 
-<details data-agent-option="research"><summary>研究选读：透明度、持续性和分母为什么要一起读</summary>
+<details data-agent-option="research"><summary>研究选读：披露评价与测量</summary>
 <a id="bf20-research"></a>
 
-Dechow、Ge、Loh和McVay（2026）的披露质量框架把调节透明度、剔除项目、分母和其他披露渠道联系起来，也承认non-GAAP既可能提供信息，也可能掩盖经营成本. 其18家公司试用对应2024Q2，虽含Salesforce和Adobe，却不是本篇FY2026的公司评价；某些难编码指标还未进入试用评分. 这里借用的是联读问题，不是一个自动质量分数. [^research]
+Dechow、Ge、Loh和McVay（2026）将调节透明度、剔除项目、分母与其他披露渠道结合评价. §8以2024Q2的18家公司试用框架：在 S&P 500、MidCap 400、SmallCap 600 中，分别按三个行业各取两家同行，样本包含 Salesforce 和 Adobe. 部分难编码指标未进入试用计算，因此所得评价覆盖的是实际可测项目. [^research]
 
 </details>
 
 [^sec]: SEC Division of Corporation Finance，[Non-GAAP Financial Measures CFIs](https://www.sec.gov/rules-regulations/staff-guidance/corporation-finance-interpretations/non-gaap-financial-measures)，100.01–100.06、102.05–102.07、102.10(a–c)、102.11；页面Last Update 2022-12-13.
 [^release]: [Salesforce FY2026 Q4/FY Results，Exhibit 99.1](https://www.sec.gov/Archives/edgar/data/1108524/000110852426000056/crm-q4fy26xexhibit991.htm)，2026-02-25，GAAP Results Reconciled to Non-GAAP Results的完整年度列、费用明细及脚注(1)–(3).
-[^taxmethod]: 同份[Exhibit 99.1](https://www.sec.gov/Archives/edgar/data/1108524/000110852426000056/crm-q4fy26xexhibit991.htm)，Non-GAAP Financial Measures—Income Tax Effects and Adjustments；FY2025/FY2026 22%，FY2027 20.5%. 配合[FY2026 10-K](https://www.sec.gov/Archives/edgar/data/1108524/000110852426000060/crm-20260131.htm)利润表及Note 12的9,520/2,063，仅用于本例整桥核对.
+[^taxmethod]: 同份[Exhibit 99.1](https://www.sec.gov/Archives/edgar/data/1108524/000110852426000056/crm-q4fy26xexhibit991.htm)，Non-GAAP Financial Measures—Income Tax Effects and Adjustments；FY2025/FY2026 22%，FY2027 20.5%. 配合[FY2026 10-K](https://www.sec.gov/Archives/edgar/data/1108524/000110852426000060/crm-20260131.htm)利润表及Note 12的9,520/2,063.
 [^shares]: [Exhibit 99.1](https://www.sec.gov/Archives/edgar/data/1108524/000110852426000056/crm-q4fy26xexhibit991.htm)，Computation of Basic and Diluted GAAP and Non-GAAP Net Income Per Share；[10-K](https://www.sec.gov/Archives/edgar/data/1108524/000110852426000060/crm-20260131.htm)权益表及Note 13.  M 股与美元/股分开.
 [^cfs]: [Salesforce FY2026 10-K](https://www.sec.gov/Archives/edgar/data/1108524/000110852426000060/crm-20260131.htm)，Consolidated Statements of Cash Flows，FY2026列；股权奖励现金税、回购与经营加回分别保留.
-[^fcf]: [Exhibit 99.1](https://www.sec.gov/Archives/edgar/data/1108524/000110852426000056/crm-q4fy26xexhibit991.htm)，Computation of Free Cash Flow及定义；[SEC CFIs](https://www.sec.gov/rules-regulations/staff-guidance/corporation-finance-interpretations/non-gaap-financial-measures)，102.07. 公司FCF是补充指标而非所有剩余资金.
+[^fcf]: [Exhibit 99.1](https://www.sec.gov/Archives/edgar/data/1108524/000110852426000056/crm-q4fy26xexhibit991.htm)，Computation of Free Cash Flow及定义；[SEC CFIs](https://www.sec.gov/rules-regulations/staff-guidance/corporation-finance-interpretations/non-gaap-financial-measures)，102.07.
 [^research]: Dechow、Ge、Loh、McVay，[Beyond earnings quality: evaluating the quality of corporate disclosure practices](https://link.springer.com/article/10.1007/s11142-026-09971-2)，Review of Accounting Studies 31（2026），1567–1637，§3.2–3.3及§8的2024Q2试用范围；2026-07-24出版.
 
 <script src="/notebook/labs/bf-fg/reader-adapter.js" defer></script>
-
 
 ## Additional teaching material
 ## 利润调整：八个可选组合与固定官方税后桥
@@ -1553,17 +1548,16 @@ Dechow、Ge、Loh和McVay（2026）的披露质量框架把调节透明度、剔
 
 | 摊销 | SBC | 重组/收购 | 自选OI | 利润率% |
 |---|---|---|---|---|
-| 否 | 否 | 否 | 8331 | 20.0626 |
-| 是 | 否 | 否 | 10018 | 24.1252 |
-| 否 | 是 | 否 | 11811 | 28.4431 |
-| 是 | 是 | 否 | 13498 | 32.5057 |
-| 否 | 否 | 是 | 8989 | 21.6472 |
-| 是 | 否 | 是 | 10676 | 25.7098 |
-| 否 | 是 | 是 | 12469 | 30.0277 |
-| 是 | 是 | 是 | 14156 | 34.0903 |
+| 否 | 否 | 否 | 8331 | ≈20.063 |
+| 是 | 否 | 否 | 10018 | ≈24.125 |
+| 否 | 是 | 否 | 11811 | ≈28.443 |
+| 是 | 是 | 否 | 13498 | ≈32.506 |
+| 否 | 否 | 是 | 8989 | ≈21.647 |
+| 是 | 否 | 是 | 10676 | ≈25.71 |
+| 否 | 是 | 是 | 12469 | ≈30.028 |
+| 是 | 是 | 是 | 14156 | ≈34.09 |
 
-官方完整净利润7,457＋1,687＋3,480＋658−1,313＝11,969；官方稀释EPS11,969÷956≈12.52. 两者不随自选开关改变，不能作为自选组合的税后结果. FY26为22%方法，FY27的20.5%不得前移. 3,480＋29＝3,509. 公司FCF14,996−594＝14,402.
-
+官方完整净利润7,457＋1,687＋3,480＋658−1,313＝11,969；官方稀释EPS11,969÷956≈12.52. 税务调节对应官方完整组合. FY2026方法采用22%，FY2027改为20.5%. 3,480＋29＝3,509. 公司FCF14,996−594＝14,402.
 
 ## Experiment inputs and static equivalents
 ```json
@@ -1891,7 +1885,7 @@ Dechow、Ge、Loh和McVay（2026）的披露质量框架把调节透明度、剔
         }
       ]
     },
-    "static_equivalent": "## 利润调整：八个可选组合与固定官方税后桥\n\n以下三个布尔值分别表示剔除摊销、股权薪酬、重组/收购费用. 收入分母始终41,525.\n\n| 摊销 | SBC | 重组/收购 | 自选OI | 利润率% |\n|---|---|---|---|---|\n| 否 | 否 | 否 | 8331 | 20.0626 |\n| 是 | 否 | 否 | 10018 | 24.1252 |\n| 否 | 是 | 否 | 11811 | 28.4431 |\n| 是 | 是 | 否 | 13498 | 32.5057 |\n| 否 | 否 | 是 | 8989 | 21.6472 |\n| 是 | 否 | 是 | 10676 | 25.7098 |\n| 否 | 是 | 是 | 12469 | 30.0277 |\n| 是 | 是 | 是 | 14156 | 34.0903 |\n\n官方完整净利润7,457＋1,687＋3,480＋658−1,313＝11,969；官方稀释EPS11,969÷956≈12.52. 两者不随自选开关改变，不能作为自选组合的税后结果. FY26为22%方法，FY27的20.5%不得前移. 3,480＋29＝3,509. 公司FCF14,996−594＝14,402.\n",
+    "static_equivalent": "## 利润调整：八个可选组合与固定官方税后桥\n\n以下三个布尔值分别表示剔除摊销、股权薪酬、重组/收购费用. 收入分母始终41,525.\n\n| 摊销 | SBC | 重组/收购 | 自选OI | 利润率% |\n|---|---|---|---|---|\n| 否 | 否 | 否 | 8331 | ≈20.063 |\n| 是 | 否 | 否 | 10018 | ≈24.125 |\n| 否 | 是 | 否 | 11811 | ≈28.443 |\n| 是 | 是 | 否 | 13498 | ≈32.506 |\n| 否 | 否 | 是 | 8989 | ≈21.647 |\n| 是 | 否 | 是 | 10676 | ≈25.71 |\n| 否 | 是 | 是 | 12469 | ≈30.028 |\n| 是 | 是 | 是 | 14156 | ≈34.09 |\n\n官方完整净利润7,457＋1,687＋3,480＋658−1,313＝11,969；官方稀释EPS11,969÷956≈12.52. 税务调节对应官方完整组合. FY2026方法采用22%，FY2027改为20.5%. 3,480＋29＝3,509. 公司FCF14,996−594＝14,402.\n",
     "source_id_aliases": {
       "BFFG-C01": "BF-S-COST-FY2025-SEC",
       "BFFG-C02": "BF-S-JPM-FY2025",
@@ -1905,12 +1899,10 @@ Dechow、Ge、Loh和McVay（2026）的披露质量框架把调节透明度、剔
 ```
 
 ## Sources
-- [Salesforce, Inc. FY2026 Form 10-K](https://www.sec.gov/Archives/edgar/data/1108524/000110852426000060/crm-20260131.htm): 订阅收入确认、合同余额、完整现金流、权益与EPS、收入CAM及所得税附注. 金额、现金和股数口径保留，不虚构差额调节.
-
-BF-F/G 本批采用：完整收付账、净现金和债务账面/本金、PPA对价及三种回购/股数口径；FX单列.
+- [Salesforce, Inc. FY2026 Form 10-K](https://www.sec.gov/Archives/edgar/data/1108524/000110852426000060/crm-20260131.htm): Salesforce FY2026的订阅收入政策、合同余额、现金流、股东权益、EPS、收入关键审计事项及所得税附注. 年报分别披露债务账面金额与本金、并购对价、回购及股数变化和汇兑项目.
 - [Salesforce Announces Fourth Quarter and Fiscal Year 2026 Results — Exhibit 99.1](https://www.sec.gov/Archives/edgar/data/1108524/000110852426000056/crm-q4fy26xexhibit991.htm): FY26税率22%，FY27为20.5%；公司完整税后桥固定；SBC3480+重组29=3509.
-- [Beyond earnings quality: evaluating the quality of corporate disclosure practices](https://link.springer.com/article/10.1007/s11142-026-09971-2): 透明度、项目持续性、分母和其他披露的联读框架；18家公司试用是2024Q2，不是Salesforce FY26评价.
-- [Non-GAAP Financial Measures — Compliance & Disclosure Interpretations](https://www.sec.gov/rules-regulations/staff-guidance/corporation-finance-interpretations/non-gaap-financial-measures): 发行人披露的透明度、一致性、名称/计量、GAAP显著性、FCF及税项边界；不是公司质量评级.
+- [Beyond earnings quality: evaluating the quality of corporate disclosure practices](https://link.springer.com/article/10.1007/s11142-026-09971-2): 联读调整项目的持续性、分母及其他披露的框架. 材料中的 18 家公司试用覆盖 2024Q2.
+- [Non-GAAP Financial Measures — Compliance & Disclosure Interpretations](https://www.sec.gov/rules-regulations/staff-guidance/corporation-finance-interpretations/non-gaap-financial-measures): 发行人非 GAAP 指标披露的透明度、一致性、名称与计量，GAAP 的显著呈现，以及 FCF 和税项披露要求.
 
 ## Content relations
 ```json
@@ -1973,7 +1965,7 @@ BF-F/G 本批采用：完整收付账、净现金和债务账面/本金、PPA对
     "from": "bf20-purpose",
     "relation": "supported_by",
     "to": "BFFG-S03",
-    "reason": "发行人披露的透明度、一致性、名称/计量、GAAP显著性、FCF及税项边界；不是公司质量评级.",
+    "reason": "发行人披露的透明度、一致性、名称、计量、GAAP显著性、FCF及税项.",
     "locator": [
       "100.01–100.06",
       "102.05–102.07",
@@ -1987,7 +1979,7 @@ BF-F/G 本批采用：完整收付账、净现金和债务账面/本金、PPA对
     "from": "bf20-research",
     "relation": "supported_by",
     "to": "BFFG-R02",
-    "reason": "透明度、项目持续性、分母和其他披露的联读框架；18家公司试用是2024Q2，不是Salesforce FY26评价.",
+    "reason": "透明度、持续性、分母与其他披露的联合评价；2024Q2的18家公司试用.",
     "locator": [
       "Introduction",
       "§3.2–3.3",
@@ -2014,14 +2006,14 @@ BF-F/G 本批采用：完整收付账、净现金和债务账面/本金、PPA对
     "from": "bf20-exercise",
     "relation": "informs",
     "to": "zh-p28",
-    "reason": "透明会计调整提供输入，不替代经营状态和条件定价",
+    "reason": "同口径财务指标作为经营状态与条件定价的输入",
     "at_section": "bf20-exercise"
   },
   {
     "from": "bf20-exercise",
     "relation": "informs",
     "to": "zh-p29",
-    "reason": "透明会计调整提供输入，不替代经营状态和条件定价",
+    "reason": "同口径财务指标作为经营状态与条件定价的输入",
     "at_section": "bf20-exercise"
   },
   {

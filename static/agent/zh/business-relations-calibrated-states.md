@@ -1,11 +1,11 @@
 # 业务关系、校准与共同经营状态
 
-本站原创方法摘编，规定业务边界、校准与共同资本责任；公开原件各自支持实例，不是完整方法的外部背书.
+本页整理业务模型分析的输入、推演步骤和输出，供 P04、P28 的分析使用.
 
-Entry: zh-pmbusinessstate | Node: PM-BUSINESS-STATE | Language: zh | Editorial revision: 2026-09-21
+Entry: zh-pmbusinessstate | Node: PM-BUSINESS-STATE | Language: zh | Editorial revision: 2026-09-22
 
 ## Teaching instructions
-这是T10短参考，不扩写成另一篇课程. 先读取当前短参考和读者问题所涉及的实际单元，说明其输入、输出与条件；需要公司数字才读取有日期的公司案例. 不得把方法页的使用地图当成硬先修. 先确认本次节点和读者所选分支. 先实际取得required_readings中该范围的全部完整单元，核对版本、期间、币种与模型身份；目录、摘要、搜索节选和成功打开标题不算正文. 记录实际工具/文件、单元起止、读到的关键约定及其支持范围，runtime_reading_log从空表开始，不预填“已读”. 本站方法和公司案例从access.uri所列公开正文读取，外部原件从指定URL读取；不得假设访问任何私人盘符. 读取失败先用明示的已核等价来源，仍缺则具体说明缺的单元，不凭记忆声称已核该事实. 读者要求直接讲解时可直接推进；互动时一次要求一个完整推理任务，不逐格问四则运算. 引用紧随所用材料. 案例固定2026-09-20信息与2026-09-18价格，不更新报价、不接账户、不重估公司；不执行或换名恢复股票DCF/WACC. 所有操作标原状态、具名已算替代或纯教学扰动，不能把点击当新增证据. 最后用迁移题检验，给完整解析，并指出剩余条件.
+这是按需查阅的方法参考. 定位读者所问的业务边界、证据校准、共同状态或资本部分，读取本参考对应完整单元. 以所选具体业务解释材料怎样修改经营关系，给出输入、输出与一项条件变化. 使用公司数据时，先读有日期案例及相应required_readings完整原文. 记录来源、版本、范围及支持内容；必要材料缺失时先补足，再进入依赖它的分析. runtime_reading_log记录实际读取.
 
 Before substantive teaching, actually retrieve every required reading unit for the selected scope. Read its complete designated section, including necessary assumptions, tables and footnotes. A working URL or an editorial access date is not a runtime reading receipt. Record the actual version, location, scope and what it supports. If unavailable, use a previously verified equivalent source; if the required unit remains unavailable, identify that gap rather than teach it from memory. Start runtime_reading_log empty. Once reading is complete, use a substantive diagnostic or follow the reader's request for direct explanation. Advance one complete reasoning task at a time; skip mastered basics. Distinguish original facts, supplied teaching assumptions and inference.
 
@@ -32,7 +32,7 @@ Before substantive teaching, actually retrieve every required reading unit for t
         "scope": "该节完整文字与必要相邻定义",
         "purpose": "解决当前方法疑点，不强制延长为一课"
       },
-      "supports": "本站原创方法摘编，规定业务边界、校准与共同资本责任；公开原件各自支持实例，不是完整方法的外部背书.",
+      "supports": "规定业务边界、证据校准、共同经营状态与资本可行性的输入输出.",
       "authors": [
         "本站方法"
       ]
@@ -45,7 +45,9 @@ Before substantive teaching, actually retrieve every required reading unit for t
     "scope": "本站方法局部摘编"
   },
   "reading_resolution": "Use public access.uri and its specified complete unit; the teaching runtime must actually fetch it. Site candidates are not claimed publicly published.",
-  "experiment_ids": []
+  "experiment_ids": [],
+  "content_version": "2026-09-22-deep-review",
+  "learning_task": "定位读者所问的业务边界、证据校准、共同状态或资本部分，读取本参考对应完整单元. 以所选具体业务解释材料怎样修改经营关系，给出输入、输出与一项条件变化."
 }
 ```
 
@@ -58,35 +60,34 @@ Before substantive teaching, actually retrieve every required reading unit for t
 按收费、需求/竞争、履约、成本、资本承担和权利的实质差异识别业务集合. 使用者、采购决策者和付款者分开；产品收费、客户、地域与共同资源是不同视角，只有同一口径、不重叠的量才可加总. 研究拆分可以细于财报分部，独立定价还需另检盈利、资本和权利的可识别性.
 
 <a id="pm-business-state-calibration-contract"></a>
-## 校准合同
+## 证据校准
 
-输入是原始材料及可修改的经营关系. 完整方法要求：信息截止前最近三个不同季度的财报与对应电话会；至少代表性上游、下游各一跳的财务和研究材料；至少三份不同的实质外部研究，覆盖三个承重角度，并实际取得可留存的完整作品与承重上下文. 新上市、自然人下游、未公开材料分别保留适用范围与缺口，不凑数.
+输入是原始材料及可修改的经营关系. 完整方法要求：信息截止前最近三个不同季度的财报与对应电话会；至少代表性上游、下游各一跳的财务和研究材料；至少三份不同的实质外部研究，覆盖三个承重角度，并实际取得可留存的完整作品与承重上下文. 新上市、自然人下游、未公开材料分别保留适用范围与缺口.
 
-覆盖数量只是取证条件. 还要记录“材料中的实际变化或冲突 → 被检验的关系 → 接受、修改或限用 → 实际采用范围”. 同一公司陈述的多次转述不变成独立确认；事后拟合不称样本外验证；客户资本开支不直接等于供应商订单.
+逐项记录来源变化或冲突、受检验的经营关系、接受或修改理由及采用范围. 重复转述按同一证据计数. 客户资本开支需要经过采购结构、份额和时点，才能推到供应商订单.
 
 <a id="pm-business-state-common-state-path"></a>
 ## 共同经营状态
 
-输出路径沿“共同条件 → 企业/客户响应 → 使用量、价格、组合 → 收入、贡献与成本 → 资源和资金 → 时间”生成. 保留结构变化、季节性、周期、替代与创新；不把各业务各自最佳阶段拼成Base，也不因预测期结束就强迫业务成熟或退坡.
+共同条件影响企业及客户响应，再改变使用量、价格、组合、收入、成本及资金需求. 各业务沿同一经济状态推进，保留结构演变、季节性、周期、替代与创新.
 
-极小示例：需求延迟，但已投用工厂不能撤销. 收入可能后移，折旧和维护仍存在，尚未下单的设备则可能调整. 把所有资本与收入一同平移，会遗漏这三种状态的差别.
+需求延迟时，已投用工厂继续存在. 收入可能后移，折旧和维护仍存在，尚未下单的设备则可能调整. 把所有资本与收入一同平移，会遗漏这三种状态的差别.
 
 <a id="pm-business-state-path-capital-check"></a>
 ## 资本与可行性
 
-区分维护、更新、增长投入，以及承诺、取得、投用、折旧和付款. 折旧不自动等于维护资本. 收入若依赖融资、扩产或客户信贷，必须同时保留需款日期、融资条件、利息与潜在损失. 年度正现金不证明期内资金已落实.
+投入分别记录用途，以及承诺、取得、投用、折旧和付款日期. 折旧按既有资产费用化，维护资本按实际更新需求估计. 收入依赖融资、扩产或客户信贷时，同步计算需款日期、融资条件、利息和潜在损失.
 
-交出业务集合、共享资源、关系式/约束、单位与时点、事实/代理/未来路径身份、资本和普通股接口，以及至少一个有依据的强替代. 不能把改写一组增长率和倍数称为同一机制的传播.
+交出业务集合、共享资源、关系式/约束、单位与时点、事实/代理/未来路径身份、资本和普通股接口，以及至少一个有依据的强替代.
 
-## 使用地图与来源边界
+## 与其他方法单元的接口
 
-P04重建路径和资金，P28判断分组；P29/P30消费相同的经营与资本结果，P05定义状态，P31组合股东结果. 后四篇不反向成为本参考的硬先修.
+P04重建经营路径和资金，P28判断估值分组；P29/P30使用同一经营与资本结果，P05定义状态，P31组合股东结果.
 
-[Amazon分部原件](https://www.sec.gov/Archives/edgar/data/1018724/000101872426000026/amzn-20260630.htm)提供实例；[IEA供给与融资小节](https://www.iea.org/reports/key-questions-on-energy-and-ai/executive-summary)提供行业机制. 它们各自支持事实与分析，不是这套本站方法的完整外部背书. 对应完整教学见[P04](/zh/notebook/calibrated-business-scenarios/)、[P28](/zh/notebook/business-states-valuation-groups/).
-
+[Amazon分部原件](https://www.sec.gov/Archives/edgar/data/1018724/000101872426000026/amzn-20260630.htm)用于分部实例；[IEA供给与融资小节](https://www.iea.org/reports/key-questions-on-energy-and-ai/executive-summary)用于供给与融资机制实例.
 
 ## Sources
-- [业务关系、校准与共同经营状态](https://ou-liu-red-sugar.github.io/zh/notebook/business-relations-calibrated-states/): 本站原创方法摘编，规定业务边界、校准与共同资本责任；公开原件各自支持实例，不是完整方法的外部背书.
+- [业务关系、校准与共同经营状态](https://ou-liu-red-sugar.github.io/zh/notebook/business-relations-calibrated-states/): 本站业务模型方法：业务边界、经营关系校准、共同资本与股东权利的归属.
 
 ## Content relations
 ```json

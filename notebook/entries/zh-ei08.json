@@ -11,10 +11,10 @@
   "template": "T4",
   "role": "核心",
   "study_time": "阅读与练习 · 约 18–20 分钟；研究与比较分支按需选读",
-  "revised": "2026-09-21",
-  "content_version": "2026-09-21-review-v2",
-  "body_markdown": "> 建议学习时间：18–20 分钟. 共同部分完成“进入数量—利润—项目时点”的重建；企业异质性研究作为选读. 先修只要求理解数量、单价、成本和利润，文中的进入模型会从头推导.\n\n<div data-reading-branch-controls aria-label=\"选择阅读分支\">\n<button type=\"button\" data-select-reading-branch=\"common\">共同主线</button>\n<button type=\"button\" data-select-reading-branch=\"research\">研究选读</button>\n<button type=\"button\" data-select-reading-branch=\"all\">全部展开</button>\n</div>\n\n<a id=\"ei08-process\"></a>\n\n## 一、进入者买的是未来经营机会\n\n在[[EI-07|竞争、差异化与利润分配]]中，我们暂时固定了企业集合. 现在把潜在进入者放进来. 它看到的高利润来自现有企业，而自己要先付出投入，再在未来面对客户和竞争对手. 因此，进入不是“看到利润就立即增产”，而是**用当前投入换取未来有条件的经营机会**.\n\n把过程按经济含义写出来：预期需求与竞争 → 决定是否进入 → 支付或承诺投入 → 建设与调试 → 投运 → 在当时条件下生产. 进入后还可能扩张、暂停或退出. 技术建成与经济可行也各有自己的门槛：设备具备生产能力，并不保证届时每单位销售都能覆盖应承担的费用.\n\n这条时间线里要区分三种投入. 可以通过转卖或其他用途回收的部分，会影响退出选择；一旦支付无法回收的部分，成为沉没投入；尚未支付的继续经营支出，则仍能通过暂停或退出避免. 它们都可能在进入前影响决策，但进入后不应再以相同方式处理.\n\n<a id=\"ei08-cournot\"></a>\n\n## 二、先把未来竞争算出来\n\nMIT 的进入讲义采用两阶段结构：第一阶段选择进入并支付成本 $K$，第二阶段由已进入企业竞争. 我们先用一个只有一个经营期的教学版本，明确 $K$ 与经营利润采用同一货币单位；这里没有跨多年贴现，也没有把 $K$ 校准成电厂成本. [^entry]\n\n本篇在每个进入数量下采用下述对称经营续局，第一阶段的进入集合以这个续局为条件.\n\n设有 $\\bar N$ 家潜在企业. 若 $N\\ge1$ 家进入，它们生产同质产品，边际成本均为 $c\\ge0$，同时选择非负数量. 需求在正价格区域为 $P=a-Q$，$Q=\\sum_iq_i$，$a\\ge0$；价格下界为0. 先处理 $a>c$ 的正产量情形. 给定其他企业总产量 $Q_{-i}$，企业 $i$ 选择 $q_i$，其经营期变动利润为\n\n$$\n\\pi_i^v=(a-Q_{-i}-q_i-c)q_i.\n$$\n\n一阶导数为 $a-c-Q_{-i}-2q_i$，二阶导数为 $-2$. 在正产量均衡中，所有企业取相同数量 $q$，于是 $Q_{-i}=(N-1)q$. 代回一阶条件：\n\n$$\na-c-(N+1)q=0,\\qquad\nq_i^*=\\frac{a-c}{N+1}.\n$$\n\n再由价格定义得到\n\n$$\nQ^*=\\frac{N(a-c)}{N+1},\\qquad\nP^*=c+\\frac{a-c}{N+1},\\qquad\n\\pi^v(N)=\\frac{(a-c)^2}{(N+1)^2}.\n$$\n\n这是经营阶段扣除可变成本、**尚未扣进入成本**的利润. 企业增加时，每家数量和价差都下降，故每家利润比数量下降得更快. 对称结果落在非负数量、正价格区域；偏离到零产量只得0，偏离到总供给使价格为0也不会改善正利润结果. 这是讲义 Cournot 框架的完整数值化教学例. [^pricing]\n\n<a id=\"ei08-entryset\"></a>\n\n## 三、倒过来判断谁愿意进入\n\n现在回到第一阶段. 若已有 $N$ 家进入，每家净所得为 $\\pi^v(N)-K$. 一组进入决定要稳定，必须同时满足两件事：已进入者不因改选不进入而获得更高所得，未进入者也不能因成为第 $N+1$ 家而获得严格正净所得. 因此，在 $0<N<\\bar N$ 时：\n\n$$\n\\pi^v(N)\\ge K,\\qquad \\pi^v(N+1)\\le K.\n$$\n\n这是**弱最优条件**. 等号时，一家企业可能进入，也可能不进入. 我们寻找的是所有满足条件的企业数构成的集合，不是自动选最大整数. [^entry]\n\n取 $a=120,c=0,\\bar N=10$. 先列出经营利润，再放入进入成本：\n\n| 已进入企业数 $N$ | 每家产量 | 均衡价格 | 每家变动利润 $\\pi^v(N)$ |\n|---:|---:|---:|---:|\n| 1 | 60 | 60 | 3,600 |\n| 2 | 40 | 40 | 1,600 |\n| 3 | 30 | 30 | 900 |\n| 4 | 24 | 24 | 576 |\n| 5 | 20 | 20 | 400 |\n| 6 | 17.142857 | 17.142857 | 293.877551 |\n\n当 $K=800$ 时，三家进入各有100净利润，第四家若进入只得 $576-800<0$. 两家并不稳定，因为第三家进入仍可获利；四家也不稳定，因为已有企业愿意改为不进入. 均衡企业数集合因此是 $\\{3\\}$.\n\n把 $K$ 降到350，五家时每家有50净利润，第六家则亏损，集合变为 $\\{5\\}$. 需求和技术没有变，仅进入成本改变，就使未来竞争和利润空间改变了.\n\n边界同样有经济内容. $K=900$ 时，若已有两家，第三家净利恰为0，它可以选择不进入，因此两家稳定；若三家都进入，各家也都无意以退出换取更高所得. 故集合是 $\\{2,3\\}$. 同理，$K=400$ 给 $\\{4,5\\}$.\n\n| $K$ | 弱均衡企业数集合 | 含义 |\n|---:|---|---|\n| 800 | $\\{3\\}$ | 唯一默认例 |\n| 350 | $\\{5\\}$ | 较低进入成本 |\n| 900 | $\\{2,3\\}$ | 第三家零净利，进入与否均可 |\n| 400 | $\\{4,5\\}$ | 第五家零净利，进入与否均可 |\n\n**潜在企业上限也必须进入判断.** 当 $N=\\bar N$ 时，只检查现有企业不亏，不再检查不存在的下一家. 若上限只有2而 $K=800$，两家都不亏，结果就是受上限约束的 $\\{2\\}$. 若 $\\bar N=0$，直接得到 $\\{0\\}$；若上限大于0，零家进入稳定的条件是第一家单独进入也没有严格正净利，即 $\\pi^v(1)\\le K$.\n\n还有一个数量角点：当 $a\\le c$ 时，我们采用各企业不生产的经营阶段续局，变动利润为0，不允许内点公式生成负销量. 此时 $K>0$ 只剩 $\\{0\\}$；$K=0$ 则从0到 $\\bar N$ 的所有进入数都无差异. $a=c=0$ 的退化情形同样采用不生产续局，绝不把无价、无需求支持的产量称为正经营机会. 没有成交时，界面不展示“实际成交价”.\n\n<a id=\"ei08-experiment\"></a>\n\n## 四、让进入成本改变竞争，而不是只改变一行费用\n\n<div data-experiment-slot=\"exp-ei08-entry\"></div>\n\n先用800与350两个默认情形，看企业数、每家数量和净所得怎样一起变化；再切到900，观察集合为什么出现两个元素. 最后把潜在进入上限改成2，看看“没人还能进入”和“下一家进入不赚钱”是两种不同约束.\n\n这个模型没有主张现实行业存在可直接填入的统一 $K$. 它让我们知道收集什么资料：谁有可能进入、这些主体要支付什么不可回收投入、投产后会用什么方式竞争. 进入成本若只是把资金从今天移到明天的会计标签，而未改变真实承诺和资源，就不能直接套用这里的比较.\n\n<a id=\"ei08-capital\"></a>\n<a id=\"CASE-EI08-EIA-GENERATOR-PLAN-2026\"></a>\n\n## 五、电力资料中的计划、建设与有效供给\n\nEIA 在2026年2月20日的文章中，依据当时的月度发电机组资料报告：开发商和运营商计划在2026年新增86 GW公用事业规模电力容量，前提是这些计划实现；文章同时报告2025年新增约53 GW.860M说明月度数为初步估计、可能修订，这些计划容量也不是设施的容量承诺.[^eia][^inventory]\n\n| 同一篇历史文章中的数值 | 材料期间 | 状态 | 本例用途 |\n|---|---|---|---|\n| 53 GW | 2025年 | 文章报告的已新增量 | 回看上年交付 |\n| 86 GW | 2026年 | 当时计划量，尚待实现 | 识别未来潜在供给 |\n\n53与86不属于“同批项目的计划与完成”分子分母，不能相除得到兑现率. 这里也没有从86 GW推导企业数：一种是设备容量，另一种是进入主体数量.\n\n把现实项目放入下面的静态过程，就能定位每一项资料：\n\n```text\n预期需求与未来竞争\n      │ 形成投资理由\n      ▼\n投资决定 ──资金、许可、设备和场址安排──▶ 建设、调试\n                                            │ 达到运行条件\n                                            ▼\n                                        投入运行\n                                            │ 原料、人员、网络与运行状态\n                                            ▼\n                                        可用供给\n```\n\n建设时点很重要. 新增项目可能在看到需求信号时就启动，等几年后投运才改变供给；期间需求、成本和其他进入者都可能变化. 因此，今天利润高和几年后利润低并不矛盾. 反过来，只有纸面计划增加，也不足以判断近端紧张已经解除. 逐项目跟踪时应分开记录当时预计的投入、关键进度和实际投运；本例只使用已核的计划／实现身份，不假定一套通用状态码.\n\n退出的判断则从“现在还能改变什么”开始. 一个明确虚构的单期例子：过去已付且收不回的建厂费为900；从现在继续到期末可取得营业净现金流120、残值30；现在清算可取得100. 所有数值已折成同一决策时点单位，忽略其他义务. 继续价值为150，高于立即退出的100，所以继续有利，尽管最初900尚未赚回. 若未来净现金流改为40，继续价值70低于100，退出更有利. 900影响最初是否应建厂，却不会因今天继续或退出而改变；可回收残值和未来可避免支出才改变当前选择.\n\n<section data-reading-branch=\"research\">\n<a id=\"ei08-research\"></a>\n<details>\n<summary>选读：真实进入者为什么未必像模型中一样</summary>\n\n模型故意给所有企业相同成本与能力. Sterk、Sedláček、Pugsley 的2021年正式 AER 论文，则用美国企业纵向数据研究企业起点差异与后续冲击如何影响**对数就业的横截面方差**. 基准估计使用观察到年龄0–19的存活企业平衡面板；§I.E与Figure 4中，事前异质性份额在年龄0约85%，年龄20约40%，后者属于估计区间外的参数外推. 它不是创业成功概率. [^sterk]\n\n这项结果提示我们把进入者能力、目标规模和成本分布列入现实证据，而不应给所有潜在企业同一个经营利润. 它没有替我们估计电力项目的成本. 原文引言的“超过90%”与正文约85%存在差异；本例引用正文和图表，不把两个数拼成一条年龄曲线.\n\n**小练习.** “85%的企业命运在成立时已决定”错在哪里？它把一个特定样本和统计模型中的方差分解，改成对每家企业成败的判断，又忽略存活面板和外推边界. 可保留的结论是：起点异质性在该模型中解释了相当部分企业规模差异，因此同质进入模型有明确适用边界.\n\n</details>\n</section>\n\n<a id=\"ei08-exercises\"></a>\n\n## 六、从进入集合迁移到一个建设项目\n\n**任务一：重建多解，而不是记住答案.** 取 $a=120,c=0,K=400,\\bar N=10$，逐一解释4家与5家为何都稳定，再说明6家为什么不稳定.\n\n**解析.** 四家现有企业各得 $576-400=176$，第五家进入后的净利润为0，因此可以不进. 五家现有企业各得0，第六家只能得 $293.877551-400<0$. 六家时已有企业亏损，改为不进入所得0更好. 因此集合为 $\\{4,5\\}$. 若只保留最大值5，相当于另外规定零净利润的潜在企业一定进入，而不是原弱条件自动给出的结论.\n\n**任务二：没有正产量时，进入与生产还一样吗？** 取 $a=20,c=30,\\bar N=3$，比较 $K=10$ 与 $K=0$.\n\n**解析.** 非负数量最优续局为0，变动利润0. $K=10$ 时任何进入都亏10，集合为 $\\{0\\}$. $K=0$ 时进入与不进入所得相同，集合为 $\\{0,1,2,3\\}$，但各自都没有正产量. 进入主体数与已形成的有效供给要分开.\n\n**迁移题.** 某工业企业称“当前订单利润率高，已宣布一座三年后投产的新厂”. 专用安装无法回收，设备可二手转售，投入尚未全部支付. 请写出进入前、建设中、投运后三个不同问题，并给一项下一步证据.\n\n**解析.** 进入前比较未来竞争条件下的经营价值与全部投入承诺，不能用当期利润率直接乘三年. 建设中比较从当前继续的增量价值、尚可避免的付款以及暂停／转售所得；已付专用安装费属于沉没部分. 投运后还需核订单交付、可用资源与边际经营收益. 下一步可选设备采购合同及付款节点、项目调试进展，或能约束投运后需求的客户承诺. 证据应对应所讨论的时点；“宣布了项目”不能代替三个时点的全部判断.\n\n本篇把进入条件放回未来竞争和资本形成. [[EI-09|库存周期、产能周期与结构变化]]接着区分另一类更快的过程：订单、交货和库存可以在新厂尚未建成时就已经发生显著变化.\n\n[^entry]: EIBC-S02. Glenn Ellison，MIT 14.271 Fall 2022，Lecture 16《Entry》；定位：slides2–3的两阶段进入和弱条件，slide11的学习／退出概念背景.[原讲义](https://ocw.mit.edu/courses/14-271-industrial-organization-i-fall-2022/mit14_271_f22_lec16slides.pdf).\n[^pricing]: EIBC-S01. MIT 14.271 Fall 2022 Lecture 5；定位：slides3–4的Cournot数量竞争设置. $a,c,K,\\bar N$ 和所有数值为教学假设.[原讲义](https://ocw.mit.edu/courses/14-271-industrial-organization-i-fall-2022/mit14_271_f22_lec5slides.pdf).\n[^eia]: EIBC-S05A. EIA，2026-02-20，《New U.S. electric generating capacity expected to reach a record high in 2026》；定位：正文开篇及图的数据期注释，区分2025已新增与2026计划容量.[原文](https://www.eia.gov/todayinenergy/detail.php?id=67205).\n[^inventory]: EIBC-S05B. EIA，*Preliminary Monthly Electric Generator Inventory*；定位：页面方法说明及“not meant to be capacity commitments”段.[方法原页](https://www.eia.gov/electricity/data/eia860m/index.php).\n[^sterk]: EIBC-S06. Vincent Sterk、Petr Sedláček、Benjamin Pugsley，*The Nature of Firm Growth*，AER 111(2)，2021；定位：§I.A–F、Table1、Figure4（印刷pp.550–559），引言p.548与正文p.558的百分比差异按原文保留.[开放正式版](https://discovery.ucl.ac.uk/id/eprint/10109806/1/Sterk_aer.20190748.pdf).\n\n<script src=\"/notebook/labs/ei-b/reader-adapter.js\" defer></script>\n",
-  "prompt": "你正在教 EI-08《进入、退出与产业资本投入》. 使用同源正文、真实EIA时点和教学输入.\n先实际读取核心 required_readings. 读者选择research分支时，才实际读取正式33页AER的§I.A–F、Table1、Figure4. 把读取日志从空数组按实填写，未读图表不能称已核.\n诊断让读者解释K=900时为什么{2,3}而非唯一3. 先推经营阶段非负Cournot数量、价格与变动利润，再倒推进入者和非进入者的偏离激励. 默认K800->{3}、压力350->{5}；所有成本收益同一经营期单位.\n检查cap0->{0}；到cap不检查不存在的下一家；a<=c选零产量续局，K>0只0、K=0全0..cap；无成交没有成交价. 不把最大N选择规则藏进弱不等式.\n让读者将EIA的2025已新增53GW与2026当时计划86GW放回2026-02-20文章，不计算同批兑现率或把GW当企业数. 用沉没/可回收/未来可避免支出解释退出例，清楚区分进入前与进入后.\n研究分支只采用有样本和模型条件的对数就业方差约85%/约40%及age20外推；原文引言90%+不混入，绝不转成成功概率.\n最后迁移到三年后投产项目：必须指出当前订单、未来竞争、付款承诺与可回收价值各负责哪一步，并选下一项新证据.\n以当前 selected_branch 和 required_readings 为准；共同正文必读，选中分支的完整单元同时成为必读. 保留完整同源正文一次及附带静态说明、输入和解析；runtime_reading_log 本次从空开始.",
+  "revised": "2026-09-22",
+  "content_version": "2026-09-22-deep-review",
+  "body_markdown": "<div data-reading-branch-controls aria-label=\"选择阅读分支\">\n<button type=\"button\" data-select-reading-branch=\"common\">共同主线</button>\n<button type=\"button\" data-select-reading-branch=\"research\">研究选读</button>\n<button type=\"button\" data-select-reading-branch=\"all\">全部展开</button>\n</div>\n\n<a id=\"ei08-process\"></a>\n\n## 进入与未来经营机会\n\n进入者先投入资源，再在投产时的需求和竞争条件下经营. 建设期间，成本、客户选择和其他企业的容量都可能变化.\n\n可转卖或转作他用的资源具有回收价值；已付且无法回收的投入成为沉没成本；尚未支付、可通过暂停或退出避免的支出仍影响当前选择. 三者在进入前共同影响投资决策，进入后分别进入继续与退出的比较.\n\n<a id=\"ei08-cournot\"></a>\n\n## 经营阶段的数量竞争\n\n采用两阶段教学模型：第一阶段决定是否进入并支付 $K\\ge0$，第二阶段由已进入企业竞争. 经营期只有一期，$K$ 与经营利润采用同一货币单位. [^entry]\n\n本篇在每个进入数量下采用下述对称经营续局，第一阶段的进入集合以这个续局为条件.\n\n设有 $\\bar N$ 家潜在企业. 若 $N\\ge1$ 家进入，它们生产同质产品，边际成本均为 $c\\ge0$，同时选择非负数量. 需求在正价格区域为 $P=a-Q$，$Q=\\sum_iq_i$，$a\\ge0$；价格下界为0. 先处理 $a>c$ 的正产量情形. 给定其他企业总产量 $Q_{-i}$，企业 $i$ 选择 $q_i$，其经营期变动利润为\n\n$$\n\\pi_i^v=(a-Q_{-i}-q_i-c)q_i.\n$$\n\n一阶导数为 $a-c-Q_{-i}-2q_i$，二阶导数为 $-2$. 在正产量均衡中，所有企业取相同数量 $q$，于是 $Q_{-i}=(N-1)q$. 代回一阶条件：\n\n$$\na-c-(N+1)q=0,\\qquad\nq_i^*=\\frac{a-c}{N+1}.\n$$\n\n再由价格定义得到\n\n$$\nQ^*=\\frac{N(a-c)}{N+1},\\qquad\nP^*=c+\\frac{a-c}{N+1},\\qquad\n\\pi^v(N)=\\frac{(a-c)^2}{(N+1)^2}.\n$$\n\n该利润扣除可变成本，进入成本另在第一阶段扣除. 企业数增加使每家产量和价差同时下降. 对称解落在正产量、正价格区域；零产量得零利润，令总供给进入零价格区域所得至多为零，因此角点偏离均不改善正利润解. [^pricing]\n\n<a id=\"ei08-entryset\"></a>\n\n## 进入均衡集合\n\n若 $0<N<\\bar N$，稳定的进入决定要求已进入者所得 $\\pi^v(N)-K\\ge0$，下一家进入后的所得 $\\pi^v(N+1)-K\\le0$，即\n\n$$\n\\pi^v(N)\\ge K,\\qquad \\pi^v(N+1)\\le K.\n$$\n\n这是弱最优条件：净利润为零时，进入与不进入均为最佳选择，均衡企业数因此可以有多个. [^entry]\n\n取 $a=120,c=0,\\bar N=10$. 先列出经营利润，再放入进入成本：\n\n| 已进入企业数 $N$ | 每家产量 | 均衡价格 | 每家变动利润 $\\pi^v(N)$（显示值舍入） |\n|---:|---:|---:|---:|\n| 1 | 60 | 60 | 3,600 |\n| 2 | 40 | 40 | 1,600 |\n| 3 | 30 | 30 | 900 |\n| 4 | 24 | 24 | 576 |\n| 5 | 20 | 20 | 400 |\n| 6 | 17.143 | 17.143 | 293.878 |\n\n当 $K=800$ 时，三家进入各有100净利润，第四家若进入只得 $576-800<0$. 两家并不稳定，因为第三家进入仍可获利；四家也不稳定，因为已有企业愿意改为不进入. 均衡企业数集合因此是 $\\{3\\}$.\n\n$K=350$ 时，五家各有净利润50，第六家进入将亏损，均衡集合为 $\\{5\\}$. 较低的进入成本改变了未来竞争强度及利润空间.\n\n$K=900$ 时，第三家进入恰得零净利，可以选择进入或不进入，均衡集合为 $\\{2,3\\}$；同理，$K=400$ 对应 $\\{4,5\\}$.\n\n| $K$ | 弱均衡企业数集合 | 含义 |\n|---:|---|---|\n| 800 | $\\{3\\}$ | 唯一默认例 |\n| 350 | $\\{5\\}$ | 较低进入成本 |\n| 900 | $\\{2,3\\}$ | 第三家零净利，进入与否均可 |\n| 400 | $\\{4,5\\}$ | 第五家零净利，进入与否均可 |\n\n若 $N=\\bar N$，只需已进入者所得非负；上限为2且 $K=800$ 时，集合为 $\\{2\\}$. 若 $\\bar N=0$，集合为 $\\{0\\}$；上限为正时，零家进入稳定的条件是 $\\pi^v(1)\\le K$.\n\n当 $a\\le c$ 时，选择各企业零产量、零变动利润的经营续局. 此时 $K>0$ 对应 $\\{0\\}$，$K=0$ 对应从0到 $\\bar N$ 的全部进入数量. $a=c=0$ 时也采用该续局，以此确定第一阶段所得.\n\n<a id=\"ei08-experiment\"></a>\n\n## 进入成本与竞争\n\n<div data-experiment-slot=\"exp-ei08-entry\"></div>\n\n应用该比较需要潜在进入者、不可回收投入及投产后竞争方式的信息.\n\n<a id=\"ei08-capital\"></a>\n<a id=\"CASE-EI08-EIA-GENERATOR-PLAN-2026\"></a>\n\n## 电力容量的计划与投运\n\nEIA 2026年2月20日文章报告2025年已新增约53 GW公用事业规模容量，并公布当时2026年计划新增86 GW. 计划来自月度发电机组调查，属于可修订的初步信息；项目的承诺状态需另查. [^eia][^inventory]\n\n| 同一篇历史文章中的数值 | 材料期间 | 状态 | 本例用途 |\n|---|---|---|---|\n| 53 GW | 2025年 | 文章报告的已新增量 | 回看上年交付 |\n| 86 GW | 2026年 | 当时计划量，尚待实现 | 识别未来潜在供给 |\n\n计算计划兑现率，需要将同一批项目的原计划与实际投运逐一匹配.\n\n```text\n预期需求与未来竞争\n      │ 形成投资理由\n      ▼\n投资决定 ──资金、许可、设备和场址安排──▶ 建设、调试\n                                            │ 达到运行条件\n                                            ▼\n                                        投入运行\n                                            │ 原料、人员、网络与运行状态\n                                            ▼\n                                        可用供给\n```\n\n建设使供给响应滞后于投资决定. 当前高利润可吸引多个项目，数年后集中投运又压缩利润. 评估未来供给时，需沿项目的融资、许可、设备交付、调试和投运时间更新可用容量.\n\n教学例中，建厂已支付且无法回收的900为沉没成本. 从现在继续经营可得净现金流120及残值30，立即清算可得100；所有金额按同一决策时点计量，无其他义务. 继续所得150高于100. 若未来净现金流降为40，继续所得70低于100，应退出. 两种选择均无法改变过去900的支出，可回收价值和未来现金流决定当前取舍.\n\n<section data-reading-branch=\"research\">\n<a id=\"ei08-research\"></a>\n<details>\n<summary>选读：进入者异质性</summary>\n\nSterk、Sedláček、Pugsley（2021）用美国企业纵向数据分解对数就业的横截面方差. 基准估计采用年龄0–19岁的存活企业平衡面板；§I.E 和 Figure 4 中，事前异质性份额在年龄0约85%，年龄20约40%，后者为估计区间外的参数外推. [^sterk]\n\n**练习.** “85%的企业命运在成立时决定”如何误读该结果？原结果分解指定样本的规模方差；企业成败需要另行定义结果变量和样本，存活企业面板尤其没有覆盖全部退出企业.\n\n</details>\n</section>\n\n<a id=\"ei08-exercises\"></a>\n\n## 进入与退出练习\n\n**任务一：弱条件与多解.** 取 $a=120,c=0,K=400,\\bar N=10$，解释4家、5家稳定而6家不稳定的原因.\n\n**解析.** 四家各得 $576-400=176$，第五家进入恰得零净利，可选择不进；五家各得零净利，第六家进入净利约为 $293.878-400<0$. 六家时已有企业愿意改为不进入. 故集合为 $\\{4,5\\}$. 若额外约定零净利润时总选择进入，则选出5家.\n\n**任务二：零产量续局.** 取 $a=20,c=30,\\bar N=3$，比较 $K=10$ 和 $K=0$.\n\n**解析.** 两种情况均选择零产量、零变动利润. $K=10$ 时进入亏10，集合为 $\\{0\\}$；$K=0$ 时进入与不进入所得相同，集合为 $\\{0,1,2,3\\}$.\n\n**迁移题.** 某工业企业称“当前订单利润率高，已宣布一座三年后投产的新厂”. 专用安装无法回收，设备可二手转售，投入尚未全部支付. 请写出进入前、建设中、投运后三个不同问题，并给一项下一步证据.\n\n**解析.** 进入前比较未来竞争下的经营所得与全部投入承诺. 建设中比较从当前继续的增量所得、可避免付款及暂停或转售所得，已付专用安装费按沉没成本处理. 投运后比较可交付订单的收益、边际成本和资源约束. 分别可查需求合同、未付设备合同及产线调试和交付记录.\n\n[^entry]: EIBC-S02. Glenn Ellison，MIT 14.271 Fall 2022，Lecture 16《Entry》；定位：slides2–3的两阶段进入和弱条件，slide11的学习／退出概念背景.[原讲义](https://ocw.mit.edu/courses/14-271-industrial-organization-i-fall-2022/mit14_271_f22_lec16slides.pdf).\n[^pricing]: EIBC-S01. MIT 14.271 Fall 2022 Lecture 5；定位：slides3–4的Cournot数量竞争设置. $a,c,K,\\bar N$ 和所有数值为教学假设.[原讲义](https://ocw.mit.edu/courses/14-271-industrial-organization-i-fall-2022/mit14_271_f22_lec5slides.pdf).\n[^eia]: EIBC-S05A. EIA，2026-02-20，《New U.S. electric generating capacity expected to reach a record high in 2026》；定位：正文开篇及图的数据期注释，区分2025已新增与2026计划容量.[原文](https://www.eia.gov/todayinenergy/detail.php?id=67205).\n[^inventory]: EIBC-S05B. EIA，*Preliminary Monthly Electric Generator Inventory*；定位：页面方法说明及“not meant to be capacity commitments”段.[方法原页](https://www.eia.gov/electricity/data/eia860m/index.php).\n[^sterk]: EIBC-S06. Vincent Sterk、Petr Sedláček、Benjamin Pugsley，*The Nature of Firm Growth*，AER 111(2)，2021；定位：§I.A–F、Table1、Figure4（印刷pp.550–559），年龄0–19为估计区间，年龄20为参数外推.[开放正式版](https://discovery.ucl.ac.uk/id/eprint/10109806/1/Sterk_aer.20190748.pdf).\n\n<script src=\"/notebook/labs/ei-b/reader-adapter.js\" defer></script>",
+  "prompt": "读者为有充分数学背景的高年级本科生至研究生. 先按所选分支实际读取本包 required_readings 完整指定单元，记录题名、版本、范围及支持内容. 必读齐全后教学；缺失时先补齐原文. 诊断：解释K＝900的均衡集合{2,3}. 推导经营续局，核进入和未进入的弱最优条件、上限及零产量情形. 将EIA53 GW、86 GW分别放回2025新增与2026当时计划，比较沉没、可回收及未来可避免支出. 研究分支说明对数就业方差分解的样本和年龄20外推. 最后分析三年后投产项目的竞争、付款承诺及回收价值，并选择判别证据. 已掌握步骤直接跳过，先让读者作答，再按正文完整解析反馈条件、计算和机制. runtime_reading_log 记录本次实际读取.",
   "sources": [
     "EIBC-S01",
     "EIBC-S02",
@@ -25,51 +25,51 @@
   "anchors": [
     {
       "id": "ei08-process",
-      "title": "一、进入者买的是未来经营机会",
+      "title": "进入与未来经营机会",
       "kind": "section",
-      "preview": "一、进入者买的是未来经营机会 在[[EI-07|竞争、差异化与利润分配]]中，我们暂时固定了企业集合. 现在把潜在进入者放进来. 它看到的高利润来自现有企业，而自己要先付出投入，再在未来面对客户和竞争对手. 因此，进入不是“看到利润就立即增产”，而是用当前投入换取未来有条件的经营机会. 把过程按经济含义写出来：预期需求与竞争 → 决定是否进入 →"
+      "preview": "进入者先投入资源，再在投产时的需求和竞争条件下经营. 建设期间，成本、客户选择和其他企业的容量都可能变化."
     },
     {
       "id": "ei08-cournot",
-      "title": "二、先把未来竞争算出来",
+      "title": "经营阶段的数量竞争",
       "kind": "section",
-      "preview": "二、先把未来竞争算出来 MIT 的进入讲义采用两阶段结构：第一阶段选择进入并支付成本 $K$，第二阶段由已进入企业竞争. 我们先用一个只有一个经营期的教学版本，明确 $K$ 与经营利润采用同一货币单位；这里没有跨多年贴现，也没有把 $K$ 校准成电厂成本.[^entry] 设有 $\\bar N$ 家潜在企业. 若 $N\\ge1$ 家进入，它们生产同质产"
+      "preview": "采用两阶段教学模型：第一阶段决定是否进入并支付 $K\\ge0$，第二阶段由已进入企业竞争. 经营期只有一期，$K$ 与经营利润采用同一货币单位. "
     },
     {
       "id": "ei08-entryset",
-      "title": "三、倒过来判断谁愿意进入",
+      "title": "进入均衡集合",
       "kind": "section",
-      "preview": "三、倒过来判断谁愿意进入 现在回到第一阶段. 若已有 $N$ 家进入，每家净所得为 $\\pi^v(N)-K$. 一组进入决定要稳定，必须同时满足两件事：已进入者不因改选不进入而获得更高所得，未进入者也不能因成为第 $N+1$ 家而获得严格正净所得. 因此，在 $0<N<\\bar N$ 时： $$ \\pi^v(N)\\ge K,\\qquad \\pi^v(N+"
+      "preview": "若 $0<N<\\bar N$，稳定的进入决定要求已进入者所得 $\\pi^v(N)-K\\ge0$，下一家进入后的所得 $\\pi^v(N+1)-K\\le0$，即"
     },
     {
       "id": "ei08-experiment",
-      "title": "四、让进入成本改变竞争，而不是只改变一行费用",
+      "title": "进入成本与竞争",
       "kind": "section",
-      "preview": "四、让进入成本改变竞争，而不是只改变一行费用  先用800与350两个默认情形，看企业数、每家数量和净所得怎样一起变化；再切到900，观察集合为什么出现两个元素. 最后把潜在进入上限改成2，看看“没人还能进入”和“下一家进入不赚钱”是两种不同约束. 这"
+      "preview": "应用该比较需要潜在进入者、不可回收投入及投产后竞争方式的信息."
     },
     {
       "id": "ei08-capital",
-      "title": "五、电力资料中的计划、建设与有效供给",
+      "title": "电力容量的计划与投运",
       "kind": "section",
-      "preview": "五、电力资料中的计划、建设与有效供给 EIA 在2026年2月20日的文章中，依据当时的月度发电机组资料报告：开发商和运营商计划在2026年新增86 GW公用事业规模电力容量，措辞保留“若实现”；文章同时报告2025年新增约53 GW.860M说明月度数为初步估计、可能修订，公布容量也不构成设施的容量承诺.[^eia][^inventory] | "
+      "preview": "EIA 2026年2月20日文章报告2025年已新增约53 GW公用事业规模容量，并公布当时2026年计划新增86 GW. 计划来自月度发电机组调查，属于可修订的初步信息；项目的承诺状态需另查. "
     },
     {
       "id": "ei08-research",
-      "title": "选读：真实进入者异质性",
+      "title": "选读：进入者异质性",
       "kind": "section",
-      "preview": "模型故意给所有企业相同成本与能力. Sterk、Sedláček、Pugsley 的2021年正式 AER 论文，则用美国企业纵向数据研究企业起点差异与后续冲击如何影响对数就业的横截面方差. 基准估计使用观察到年龄0–19的存活企业平衡面板；§I.E与Figure 4中，事前异质性份额在年龄0约85%，年龄20约40%，后者属于估计区间外的参数外推. 它不"
+      "preview": "Sterk、Sedláček、Pugsley（2021）用美国企业纵向数据分解对数就业的横截面方差. 基准估计采用年龄0–19岁的存活企业平衡面板；§I.E 和 Figure 4 中，事前异质性份额在年龄0约85%，年龄20约40%，后者为估计区间外的参数外推. "
     },
     {
       "id": "ei08-exercises",
-      "title": "六、从进入集合迁移到一个建设项目",
+      "title": "进入与退出练习",
       "kind": "section",
-      "preview": "六、从进入集合迁移到一个建设项目 任务一：重建多解，而不是记住答案. 取 $a=120,c=0,K=400,\\bar N=10$，逐一解释4家与5家为何都稳定，再说明6家为什么不稳定. 解析. 四家现有企业各得 $576-400=176$，第五家进入后的净利润为0，因此可以不进. 五家现有企业各得0，第六家只能得 $293.87755"
+      "preview": "**任务一：弱条件与多解.** 取 $a=120,c=0,K=400,\\bar N=10$，解释4家、5家稳定而6家不稳定的原因."
     },
     {
       "id": "CASE-EI08-EIA-GENERATOR-PLAN-2026",
       "title": "EIA 2026-02-20：2025已新增与2026当时计划",
       "kind": "case",
-      "preview": "U.S. utility-scale capacity additions as reported by fixed EIA article",
+      "preview": "EIA 2026年2月20日文章报告2025年已新增约53 GW公用事业规模容量，并公布当时2026年计划新增86 GW. 计划来自月度发电机组调查，属于可修订的初步信息；项目的承诺状态需另查. ",
       "period": "2025已新增；2026当时计划",
       "cutoff": "2026-02-20",
       "sources": [
@@ -181,7 +181,7 @@
           "scope": "Cournot设定与一阶条件",
           "purpose": "完整推出经营阶段收益"
         },
-        "supports": "静态Cournot、Bertrand和Hotelling的条件与一阶条件；本包无退出选项的覆盖市场、数值和角点验证为教学改写，并非会员公司参数估计.",
+        "supports": "Cournot 数量竞争的设定与一阶条件；EI-08 的 $a,c,K,\\bar N$ 及数值为进入模型的教学输入.",
         "version": "MIT 14.271 Fall 2022; Lecture 5",
         "id": "EI08-READ-01",
         "title": "Static Competition and Models of Differentiation, Part 1",
@@ -572,7 +572,7 @@
     },
     "entry_id": "zh-ei08",
     "node_id": "EI-08",
-    "content_version": "2026-09-21-review-v2",
+    "content_version": "2026-09-22-deep-review",
     "selected_branch": "common",
     "default_branch": "common",
     "required_readings_all_branches": [
@@ -1577,7 +1577,7 @@
     }
   ],
   "company_record_refs": [],
-  "agent_markdown": "### 本篇实验静态等价与计算说明\n\na=120,c=0，潜在上限10，默认K=800.\nN=1..6变动利润：3600,1600,900,576,400,293.877551.\n均衡集合：K800->{3}；350->{5}；900->{2,3}；400->{4,5}.\n默认N3时每家q30，价格30，变动利润900，净利润100；\nK350时N5，每家q20，价格20，变动利润400，净利润50.\n\n算法枚举N=0..cap. a,c,K、cap均为合法范围内整数.\ng=max(a-c,0)，正N变动利润g²/(N+1)².\n现有企业条件：N=0或g²>=K(N+1)².\n外部条件：N=cap或g²<=K(N+2)².\n用整数BigInt比较，保留零净利润等号.\ncap0->{0}；a<=c,K>0->{0}；a<=c,K0->{0,1,...,cap}，采用零产量续局.\n无成交时成交价null，不显示未发生的交易价格.\na/c合法0..200，K0..20000，cap0..20. 到cap不再检查不存在的下一家.\n\nEIA静态卡：2026-02-20文章报告2025新增53GW、2026当时计划86GW. 不能当同批兑现率，不能当模型N或K.\n退出例：过去沉没900；继续现金120+残值30=150，立即清算100，选择继续；\n未来现金降为40时，继续70<100，选择退出. 各值已统一决策时点的教学单位.\n",
+  "agent_markdown": "## 进入与退出的静态计算\n\n$a=120,c=0,\\bar N=10$ 时，1至6家企业的每家变动利润分别3600、1600、900、576、400、约293.878. $K=800$ 的均衡集合为 $\\{3\\}$，$K=350$ 为 $\\{5\\}$，$K=900$ 为 $\\{2,3\\}$，$K=400$ 为 $\\{4,5\\}$.\n\n枚举 $0\\le N\\le\\bar N$，令 $g=\\max(a-c,0)$. 当 $N>0$，已进入条件为 $g^2\\ge K(N+1)^2$；当 $N<\\bar N$，未进入条件为 $g^2\\le K(N+2)^2$. 参数为整数时直接比较整数积，保留等号. $a\\le c$ 选择零产量续局：$K>0$ 仅零家进入，$K=0$ 则全部允许数量均稳定.\n\nEIA 2026-02-20文章记录2025年新增53 GW、2026年当时计划86 GW. 退出教学例中，已付沉没900，继续所得120＋30＝150超过立即清算100；未来现金降为40时，继续所得70低于100.",
   "study_time_details": {
     "minutes_min": 18,
     "minutes_max": 20,
@@ -1601,36 +1601,41 @@
       "kind": "source_link",
       "label": "entry",
       "href": "https://ocw.mit.edu/courses/14-271-industrial-organization-i-fall-2022/mit14_271_f22_lec16slides.pdf",
-      "locator": "EIBC-S02，Glenn Ellison，MIT 14.271 Fall 2022，Lecture 16《Entry》，slides2–3为两阶段进入和弱条件；slide11只作学习／退出的概念背景.[原讲义](https://ocw.mit.edu/courses/14-271-industrial-organization-i-fall-2022/mit14_271_f22_lec16slides.pdf).",
-      "source_id": "EIBC-S02"
+      "locator": "EIBC-S02. Glenn Ellison，MIT 14.271 Fall 2022，Lecture 16《Entry》；定位：slides2–3的两阶段进入和弱条件，slide11的学习／退出概念背景.[原讲义](https://ocw.mit.edu/courses/14-271-industrial-organization-i-fall-2022/mit14_271_f22_lec16slides.pdf).",
+      "source_id": "EIBC-S02",
+      "definition_markdown": "[^entry]: EIBC-S02. Glenn Ellison，MIT 14.271 Fall 2022，Lecture 16《Entry》；定位：slides2–3的两阶段进入和弱条件，slide11的学习／退出概念背景.[原讲义](https://ocw.mit.edu/courses/14-271-industrial-organization-i-fall-2022/mit14_271_f22_lec16slides.pdf)."
     },
     {
       "kind": "source_link",
       "label": "pricing",
       "href": "https://ocw.mit.edu/courses/14-271-industrial-organization-i-fall-2022/mit14_271_f22_lec5slides.pdf",
-      "locator": "EIBC-S01，MIT Lecture5，slides3–4的Cournot数量竞争设置. 本篇 $a,c,K,\\bar N$ 和所有数值为教学假设，不是现实项目校准.[原讲义](https://ocw.mit.edu/courses/14-271-industrial-organization-i-fall-2022/mit14_271_f22_lec5slides.pdf).",
-      "source_id": "EIBC-S01"
+      "locator": "EIBC-S01. MIT 14.271 Fall 2022 Lecture 5；定位：slides3–4的Cournot数量竞争设置. $a,c,K,\\bar N$ 和所有数值为教学假设.[原讲义](https://ocw.mit.edu/courses/14-271-industrial-organization-i-fall-2022/mit14_271_f22_lec5slides.pdf).",
+      "source_id": "EIBC-S01",
+      "definition_markdown": "[^pricing]: EIBC-S01. MIT 14.271 Fall 2022 Lecture 5；定位：slides3–4的Cournot数量竞争设置. $a,c,K,\\bar N$ 和所有数值为教学假设.[原讲义](https://ocw.mit.edu/courses/14-271-industrial-organization-i-fall-2022/mit14_271_f22_lec5slides.pdf)."
     },
     {
       "kind": "source_link",
       "label": "eia",
       "href": "https://www.eia.gov/todayinenergy/detail.php?id=67205",
-      "locator": "EIBC-S05A，EIA，2026-02-20《New U.S. electric generating capacity expected to reach a record high in 2026》，正文开篇及图的数据期注释. 此处固定文章当时的历史信息，不将其计划值改称截至现在已实现容量.[原文](https://www.eia.gov/todayinenergy/detail.php?id=67205).",
-      "source_id": "EIBC-S05A"
+      "locator": "EIBC-S05A. EIA，2026-02-20，《New U.S. electric generating capacity expected to reach a record high in 2026》；定位：正文开篇及图的数据期注释，区分2025已新增与2026计划容量.[原文](https://www.eia.gov/todayinenergy/detail.php?id=67205).",
+      "source_id": "EIBC-S05A",
+      "definition_markdown": "[^eia]: EIBC-S05A. EIA，2026-02-20，《New U.S. electric generating capacity expected to reach a record high in 2026》；定位：正文开篇及图的数据期注释，区分2025已新增与2026计划容量.[原文](https://www.eia.gov/todayinenergy/detail.php?id=67205)."
     },
     {
       "kind": "source_link",
       "label": "inventory",
       "href": "https://www.eia.gov/electricity/data/eia860m/index.php",
-      "locator": "EIBC-S05B，EIA《Preliminary Monthly Electric Generator Inventory》，页面方法说明与“not meant to be capacity commitments”段；这里不使用未读工作簿状态码.[方法原页](https://www.eia.gov/electricity/data/eia860m/index.php).",
-      "source_id": "EIBC-S05B"
+      "locator": "EIBC-S05B. EIA，*Preliminary Monthly Electric Generator Inventory*；定位：页面方法说明及“not meant to be capacity commitments”段.[方法原页](https://www.eia.gov/electricity/data/eia860m/index.php).",
+      "source_id": "EIBC-S05B",
+      "definition_markdown": "[^inventory]: EIBC-S05B. EIA，*Preliminary Monthly Electric Generator Inventory*；定位：页面方法说明及“not meant to be capacity commitments”段.[方法原页](https://www.eia.gov/electricity/data/eia860m/index.php)."
     },
     {
       "kind": "source_link",
       "label": "sterk",
       "href": "https://discovery.ucl.ac.uk/id/eprint/10109806/1/Sterk_aer.20190748.pdf",
-      "locator": "EIBC-S06，Vincent Sterk、Petr Sedláček、Benjamin Pugsley，《The Nature of Firm Growth》，AER 111(2)，2021，正式33页版.§I.A–F、Table1、Figure4（印刷pp.550–559）；引言p.548与正文p.558的百分比差异按原文保留. 没有重新估计受限微观数据，也未采用§II完整结构模型.[开放正式版](https://discovery.ucl.ac.uk/id/eprint/10109806/1/Sterk_aer.20190748.pdf).",
-      "source_id": "EIBC-S06"
+      "locator": "EIBC-S06. Vincent Sterk、Petr Sedláček、Benjamin Pugsley，*The Nature of Firm Growth*，AER 111(2)，2021；定位：§I.A–F、Table1、Figure4（印刷pp.550–559），年龄0–19为估计区间，年龄20为参数外推.[开放正式版](https://discovery.ucl.ac.uk/id/eprint/10109806/1/Sterk_aer.20190748.pdf).",
+      "source_id": "EIBC-S06",
+      "definition_markdown": "[^sterk]: EIBC-S06. Vincent Sterk、Petr Sedláček、Benjamin Pugsley，*The Nature of Firm Growth*，AER 111(2)，2021；定位：§I.A–F、Table1、Figure4（印刷pp.550–559），年龄0–19为估计区间，年龄20为参数外推.[开放正式版](https://discovery.ucl.ac.uk/id/eprint/10109806/1/Sterk_aer.20190748.pdf)."
     }
   ],
   "provenance": {

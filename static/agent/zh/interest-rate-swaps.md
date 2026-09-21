@@ -2,15 +2,14 @@
 
 从AECOM真实互换披露建立两腿教学账，解释精确抵销、错配、价值与抵押的边界.
 
-Entry: zh-m14 | Node: M14 | Language: zh | Editorial revision: 2026-09-21
+Entry: zh-m14 | Node: M14 | Language: zh | Editorial revision: 2026-09-22
 
 ## Teaching instructions
-你正在带读《互换与风险交换》（M14，2026-09-21-MD-review-v3）. 对象为有微积分/线性代数/基础概率的高年级本科至研究生.
-本次任务：证明3.033%只在明确匹配条件下成立，资料缺失时指出所需独立浮息和日程.
-先确认选择核心或研究分支. 必须实际读取required_readings的指定完整单元，核标题、版本、页/节、必要表图；图像未读不得猜. 运行日志起始为空，记录本次实际范围和支持的一步，不把编辑端reading_log当成自己已读. 选研究分支时对应optional单元转为必读. 只能取得目录/摘要/错误页时继续找正式可读入口；仍缺关键原文就说明具体缺口，不凭印象补课.
-先让学习者完成一项完整诊断，而非逐个考四则运算. 已会内容跳过；在同一原件与同源输入上推进：
-先从AECOM Note8/9逐项标已披露/缺确认书：400m、pay1.283%、receive prevailing one-month SOFR及月份；不能据此认定与Term B的真实指定套期. 对教学同本金/指数/重置/期间/付款，给4/2/0%三行，让学习者推得1,011,000净付和3.033%条件率. 改swap300m时须保留100m浮动残余；+100bp多付83,333.33，不再固定. 若指数、fixing、付款或计息期不匹配而未给两条独立输入，则输出缺什么，不可沿用同一L或报告精确合并金额；负利率须先补swap floor. 区分期间支付、剩余合约MTM与CSA保证金；不得从BIS假想IRS或合计fair-value表补造公司每日抵押.
-核每个金额的主体、单位、时点和身份；事实、由事实推算与教学条件分别说清. 读者完成后须能独立解释与迁移，不能只报正确数字. 逐题使用正文完整解析反馈，必要时把失败条件放回算法；未建立融资/履约路径不输出已经实现的收益. 公共包不假定能访问用户硬盘.
+带读《互换与风险交换》，面向有充分数学基础的高年级本科生至研究生. 先实际读取随包 required_readings 的指定原文单元；采用选读分支时也读取对应材料，并记录本次版本与范围. 原文不可读时查找机构的等价全文，仍缺关键单元则指出缺口.
+
+让我从AECOM FY2025 Notes 8–9提取本金、固定率、浮动基准、利差与期间，标出教学匹配假设. 先推导400 M完全匹配时的3.033%，再将互换本金降至300 M计算残留浮息. 对不同fixing、计息期间或floor，写出各腿独立变量和所需材料.
+
+用一个完整分析任务判断我的起点，已掌握的步骤直接跳过. 沿正文的输入、单位与材料时点讲解，在我作答后给出推导、错误原因和迁移反馈.
 
 Before substantive teaching, actually retrieve every required reading unit for the selected scope. Read its complete designated section, including necessary assumptions, tables and footnotes. A working URL or an editorial access date is not a runtime reading receipt. Record the actual version, location, scope and what it supports. If unavailable, use a previously verified equivalent source; if the required unit remains unavailable, identify that gap rather than teach it from memory. Start runtime_reading_log empty. Once reading is complete, use a substantive diagnostic or follow the reader's request for direct explanation. Advance one complete reasoning task at a time; skip mastered basics. Distinguish original facts, supplied teaching assumptions and inference.
 
@@ -22,7 +21,7 @@ Before substantive teaching, actually retrieve every required reading unit for t
 ```json
 {
   "export_mode": "public",
-  "content_version": "2026-09-21-MD-review-v3",
+  "content_version": "2026-09-22-deep-review",
   "selected_branch": "core",
   "learning_task": "证明3.033%只在明确匹配条件下成立，资料缺失时指出所需独立浮息和日程.",
   "required_readings": [
@@ -484,22 +483,20 @@ Before substantive teaching, actually retrieve every required reading unit for t
 ```
 
 ## Supplied entry
-用约20分钟，从一份企业披露写出互换两条利息腿，再判断它何时能抵销贷款的浮动利息. 可以从[金融权利与义务](https://ou-liu-red-sugar.github.io/zh/notebook/financial-claims/)直接进入；需要时调用利率现金流和[履约担保](https://ou-liu-red-sugar.github.io/zh/notebook/clearing-settlement-collateral/)的语言.
-
 <a id="m14-purpose"></a>
-## 一、为什么不重借一笔钱，也能改变利率暴露
+## 一、利率互换改变利率暴露的机制
 
 一家公司已有浮动利率借款. 它希望利息更稳定，却未必愿意提前清偿贷款、重新签一份固定利率融资. 它可以另外签一份协议：向对手方支付固定利息，同时收取浮动利息. 若收到的那条浮动腿与贷款要付的浮动部分足够匹配，两者合看，原来的浮动部分就可以抵销.
 
-**利率互换**在这里指按约定期间和基准交换利息现金流的安排. **名义本金**是用于计算利息的参考金额，不应看到“400 M 美元互换”就画成双方在建立时各支付400 M 美元. 贷款本金仍是贷款的义务；签互换没有把这笔本金注销. 互换还可以与没有同额借款的资产或其他风险相配，不能把“互换”定义成某一种对冲策略. [^MD-S07]
+**利率互换**在这里指按约定期间和基准交换利息现金流的安排. **名义本金**是用于计算利息的参考金额；本例400 M美元互换只交换利息差额，贷款本金仍按贷款合同偿还. 互换可用于管理借款、资产或其他利率敞口. [^MD-S07]
 
-从对手方看，它可能有相反的利率暴露，也可能通过其他交易管理所承接的风险. 双方愿意交换，不需要一方确信另一方将判断错误. 真正要读清楚的是各期交换条件以及交易对价，而不是先给产品贴上“稳健”标签.
+从对手方看，它可能有相反的利率暴露，也可能通过其他交易管理所承接的风险. 双方愿意交换，不需要一方确信另一方将判断错误.
 
 <a id="case-md-aecom-fy2025"></a>
 <a id="m14-source"></a>
-## 二、读AECOM披露：哪些字段有，哪些还没有
+## 二、AECOM披露与未披露字段
 
-AECOM截至2025年9月30日的年报Note 9给出一组利率互换. 下面保留文件时点，不把它称作2026年9月的最新敞口. [^MD-S06]
+AECOM截至2025年9月30日的年报Note 9披露以下利率互换字段. [^MD-S06]
 
 | 字段 | 披露内容 | 本篇使用方式 |
 |---|---|---|
@@ -509,14 +506,14 @@ AECOM截至2025年9月30日的年报Note 9给出一组利率互换. 下面保留
 | 生效/终止 | 2023年2月／2028年3月 | 只按披露的月份使用 |
 | 所需但未完整取得的字段 | fixing、付款日、日数惯例、互换floor、具体借款归属、CSA/清算安排 | 不从年报简述补成确认书 |
 
-同一份年报Note 8另披露New Term B按Term SOFR加1.75%计息，SOFR floor为0%，调整项为0. 它给我们一个真实的贷款利差字段，但**没有由此证明这400 M 美元互换逐笔对准该项贷款**. 下面把两种已披露字段组合成明确的教学匹配例，而不是宣布AECOM实际已锁定某个综合贷款利率.
+同一份年报Note 8另披露New Term B按Term SOFR加1.75%计息，SOFR floor为0%，调整项为0. Note 8与Note 9没有把这400 M美元互换逐笔指定为New Term B的对应套期；下面只把两组已披露字段组合成教学匹配例.
 
-日数和日期为何如此重要？利率是按一定期间应用于本金的比例. 若一条腿按月初重置、另一条按期间末观察，或者付款日不同，即使都出现“SOFR”，也未必是同一现金流. MIT 2024利率课从日程再到固定/浮动两腿估值的顺序，正适合提醒我们：先列期间，后做抵销. [^MD-S07]
+若贷款与互换采用不同的重置日、观察窗口或付款日，即使基准都称SOFR，两条浮动现金流也可能不同. 匹配需要逐一核对本金、指数、观察期、计息分数和付款日期. [^MD-S07]
 
 <a id="m14-cash"></a>
-## 三、先按一个共同期间算出两条腿
+## 三、共同期间下的两条腿
 
-本例设贷款和互换本金都为$N=400{,}000{,}000$，固定率$K=0.01283$、贷款利差$s=0.0175$. 计息分数取$\alpha=30/360=1/12$；同指数、同次重置、同计息分数、同付款日，双方均履约，无费用及抵押现金，浮动利率$L\geq0$. **30/360与这一整套匹配关系都是教学假设.**
+本例设贷款和互换本金都为$N=400{,}000{,}000$，固定率$K=1.283\%$、贷款利差$s=1.75\%$. 计息分数取$\alpha=30/360=1/12$；同指数、同次重置、同计息分数、同付款日，双方均履约，无费用及抵押现金，浮动利率$L\geq0$. **30/360与这一整套匹配关系都是教学假设.**
 
 从公司视角分别写三笔金额：
 
@@ -534,7 +531,7 @@ $$
 N(L+s)\alpha-N(L-K)\alpha=N(K+s)\alpha.
 $$
 
-这次相消不是因为“互换天然降低融资成本”，而是因为两个$NL\alpha$的指数、期间和数量被明确设成相同.
+两个浮动项使用相同的本金、指数和计息期间，因此在合并现金流中抵销.
 
 | 教学浮动率$L$ | 固定腿支付 | 浮动腿收到 | 互换净收到 | 贷款利息支付 | 合并净支付 |
 |---:|---:|---:|---:|---:|---:|
@@ -542,18 +539,16 @@ $$
 | 2% | 427,666.67 | 666,666.67 | 239,000.00 | 1,250,000.00 | **1,011,000.00** |
 | 0% | 427,666.67 | 0.00 | −427,666.67 | 583,333.33 | **1,011,000.00** |
 
-单位均为美元，内部先完整计算再显示到分. 共同本金与共同期间下，合并年化率是$K+s=3.033\%$. 它是**匹配教学模型的条件结果**，不是从两段年报文字中直接读出的真实综合借款价格.
+单位均为美元. 在共同本金与共同期间下，合并年化率为$K+s=3.033\%$.
 
-4%时收到905,666.67并不意味着互换给公司“免费赚了这笔钱”：同时贷款利息为1,916,666.67. 0%时公司反而向互换对手方净付款，但合并利息仍相同. 付固定的安排交换的是利率敏感性，不保证每一期都收到正现金.
+4%时互换净收905,666.67，抵减1,916,666.67的贷款利息；0%时互换净付427,666.67，与583,333.33的贷款利息相加. 两种情形的合并净支付相同.
 
 <div data-experiment-slot="EXP-MD-M14-SWAP"></div>
 
-先用4%、2%、0%重建三行，再只把互换本金改小. 界面会保留每期现金，但撤掉“完全固定”的标签；若关闭指数或日期匹配，则列出缺少的独立输入，不再沿用默认同一个$L$假装抵销.
-
 <a id="m14-mismatch"></a>
-## 四、固定结果怎样失效：数量错配与资料缺失要分开
+## 四、数量错配与输入缺失
 
-先处理一个仍可完整计算的变式：贷款本金$N_L=400$ M 美元，互换本金$N_S=300$ M 美元，其余匹配条件相同. 它不是AECOM另有的利率上限合约，只是把本例互换数量改小.
+先处理一个仍可完整计算的变式：贷款本金$N_L=400$ M 美元，互换本金$N_S=300$ M 美元，其余匹配条件相同.
 
 $$
 \text{合并净支付}
@@ -573,14 +568,14 @@ $$
 | 互换净收到 | 679,250.00 | 929,250.00 |
 | 合并净支付 | 1,237,416.67 | 1,320,750.00 |
 
-这些金额能算，因为共同$L$和共同期间仍有定义. 但不能给合并结果标上“固定3.033%”：残留项随$L$变.
+共同$L$与期间保持不变时，可以计算上述合并金额；残留的100 M美元使其随$L$变化.
 
-另一类问题不是数量错配，而是**输入根本不够**. 若贷款和互换指数定义或fixing不同，我们需要$L_L$和$L_S$各自的观察；若日期和计息期间不同，还要分别给$\alpha_L,\alpha_S$及各付款日. 一个“不同指数”开关并不会凭空提供第二条利率. 缺少这些时，交互显示尚需材料，合并净支付与固定综合率均不输出.
+另一类问题来自**输入不足**. 若贷款和互换指数定义或fixing不同，需要$L_L$和$L_S$各自的观察；若日期和计息期间不同，还要分别给$\alpha_L,\alpha_S$及各付款日. 缺少这些输入时，合并净支付与固定综合率保持未知.
 
-同理，本实验不开放负浮动率. 已披露贷款0% floor可以写成$\max(L_L,0)$，但互换floor没有取得，不能让互换腿也自动截到0再宣称抵销. 若以后要研究负利率，应先补确认书并显式建模两条腿，而不是靠界面下限猜条款.
+负利率下，已披露贷款的0% floor使其浮动基准成为$\max(L_L,0)$. 互换应按自身floor条款计算；贷款下限不能决定互换的下限，抵销结果因而需要互换条款这一额外输入.
 
 <a id="m14-value"></a>
-## 五、每期支付、整份互换价值、抵押现金分别问
+## 五、期间支付、合约价值与抵押现金
 
 到这里我们算的是某一期、在给定浮动率下的支付. 整份互换在今天值多少，还要看剩余各期的固定和浮动现金、对应日期与定价输入. AECOM Note 9也说明其利率衍生品估值使用利率曲线等可观察市场输入；表中interest-rate contracts还包括其他合约，不能把合计金额全部归给这400 M 美元互换. [^MD-S06]
 
@@ -589,15 +584,15 @@ $$
 抵押又是第三个问题. 即使期末利息预算相对稳定，合约在到期前的市值仍可能变动；实际是否追缴、何时追缴、允许什么抵押物，需要CSA或清算规则. 一个期间净收到905,666.67的数字，既不是整份互换的市值，也不是当天应收的保证金.
 
 <details>
-<summary>选读：用BIS研究理解资金要求，别把它当公司账户</summary>
+<summary>选读：保证金模型与流动性需求</summary>
 
 BIS 2023 Box A比较假想美元付固定与英镑收固定IRS的压力路径，模型中的VM与IM可能先后增加. 图中VM是五日累计、IM使用五日平仓期. [^MD-S08] 读者应先辨认“已经发生的变动现金”与“为潜在未来敞口准备的担保”，再讨论波动重校准的影响.
 
-这能帮助我们理解为什么降低信用敞口仍可能需要及时筹钱，却不能替AECOM补出一条真实每日保证金曲线. 它也不是只要写了“套期保值”，所有信用、基差和流动性风险就都消失的证据.
+追加抵押降低了未担保信用敞口，同时要求付出现金的一方及时筹资.
 </details>
 
 <a id="m14-exercises"></a>
-## 六、先证明抵销条件，再报告综合结果
+## 六、抵销条件与综合结果练习
 
 **题一：4%那一行.** 独立算两腿和贷款，解释为何最终是1,011,000而非905,666.67.
 
@@ -622,7 +617,6 @@ BIS 2023 Box A比较假想美元付固定与英镑收固定IRS的压力路径，
 [^MD-S06]: AECOM，FY2025 Form 10-K，2025-09-30期末、2025-11-19提交；Note 8 Credit Agreement，印刷pp.78–79；Note 9 Cash Flow Hedges与估值，pp.81–82. [原文](https://www.sec.gov/Archives/edgar/data/868857/000086885725000013/acm-20250930.htm).
 [^MD-S07]: Andrew Gunstensen，MIT 18.642，Lecture 7 transcript，Fall 2024，PDF pp.10–14，互换引入、日程、两腿及par-rate讨论，止于下一收益率曲线单元. [原文](https://ocw.mit.edu/courses/18-642-topics-in-mathematics-with-applications-in-finance-fall-2024/1KTK56NCy28KS0Ts53h1gOS6KO51jDctE_transcript.pdf).
 [^MD-S08]: Cohen、Tracol，BIS Quarterly Review，March 2023，Box A，pp.5–6与Graph A1脚注. [原文](https://www.bis.org/publications/perceptions-risk-and-policy-outlook-drive-markets_1.pdf).
-
 
 ## Experiment inputs and static equivalents
 ```json
@@ -776,11 +770,9 @@ BIS 2023 Box A比较假想美元付固定与英镑收固定IRS的压力路径，
 ```
 
 ## Sources
-- [AECOM FY2025 Form 10-K: Debt and Derivatives](https://www.sec.gov/Archives/edgar/data/868857/000086885725000013/acm-20250930.htm): $400m付1.283%收one-month SOFR；Term B利差1.75%另披露. 教学匹配不代表真实指定借款；缺confirmation/CSA；公允价值表并非该swap独有.
-- [18.642 Lecture 7 Version 2 transcript](https://ocw.mit.edu/courses/18-642-topics-in-mathematics-with-applications-in-finance-fall-2024/1KTK56NCy28KS0Ts53h1gOS6KO51jDctE_transcript.pdf): IRS现金日程、两腿估值与平价利率. 不是AECOM交易确认；不照抄口述中的市场规模或历史起源.
-- [Market turbulence and soaring margins: lessons from two recent episodes — Box A](https://www.bis.org/publications/perceptions-risk-and-policy-outlook-drive-markets_1.pdf): 假想一年期USD付固定与GBP收固定IRS；VM五日累计/IM五日closeout，讨论模型重校准与流动性. 未复现Clarus曲线，不替代AECOM CSA或CL客户账户.
-
-本批读取范围：VM与模型IM在压力中共同变化；VM图为五日累计.
+- [AECOM FY2025 Form 10-K: Debt and Derivatives](https://www.sec.gov/Archives/edgar/data/868857/000086885725000013/acm-20250930.htm): AECOM披露名义本金400M美元、付固定1.283%并收一个月SOFR的互换；Term B贷款利差1.75%另列. 财报的公允价值表合并包含多项衍生工具，具体借款与互换的对应关系需查交易确认及担保安排.
+- [18.642 Lecture 7 Version 2 transcript](https://ocw.mit.edu/courses/18-642-topics-in-mathematics-with-applications-in-finance-fall-2024/1KTK56NCy28KS0Ts53h1gOS6KO51jDctE_transcript.pdf): 利率互换的现金日程、固定与浮动两腿估值及平价互换利率.
+- [Market turbulence and soaring margins: lessons from two recent episodes — Box A](https://www.bis.org/publications/perceptions-risk-and-policy-outlook-drive-markets_1.pdf): 以假想一年期美元付固定与英镑收固定互换，比较VM五日累计与IM五日平仓窗口下的变化，分析模型重校准及流动性需求.
 
 ## Content relations
 ```json

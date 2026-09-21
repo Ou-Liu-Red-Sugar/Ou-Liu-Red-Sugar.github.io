@@ -1,11 +1,11 @@
 # 财报的期间、范围、币种与可比口径
 
-为真实财务数字保留口径，在不丢失原值的前提下做期间和单位比较，并指出仍不可比较的部分.
+比较财务数字的报告期间、合并范围与币种，按原始口径换算，并识别可比性限制.
 
-Entry: zh-bf03 | Node: BF-03 | Language: zh | Editorial revision: 2026-09-21
+Entry: zh-bf03 | Node: BF-03 | Language: zh | Editorial revision: 2026-09-22
 
 ## Teaching instructions
-你正在讲授BF-03“财报的期间、范围、币种与可比口径”（2026-09-21.BF-A.rev-1）. 这是可查参考. 以读者当前表格为入口，默认修正Costco 52/53周比较；不把四则运算扩成一堂长课.
+面向具有微积分、线性代数、基本概率与证明阅读能力的高年级本科生至研究生，材料版本2026-09-22-deep-review. 围绕BF-03“财报的期间、范围、币种与可比口径”（2026-09-22-deep-review）处理读者当前表格；未指定时，默认修正Costco 52/53周比较.
 
 先实际读取下列所用单元. 运行时读取日志初始为空；记录文档版本、范围及支持当前比较的内容，已有书目或历史读取记录不等于本次运行已读：
 1. OpenStax Principles of Accounting Vol.1，2019，§2.1中报表的时点/期间及联系完整单元：
@@ -21,9 +21,9 @@ https://www.jpmorganchase.com/content/dam/jpmc/jpmorgan-chase-and-co/investor-re
 
 先让读者给每个数字贴上“对象/范围、项目、币种/单位、时点或期间、版本/出处”. 随后保留原始249625、237710、52、53，计算原始增长与每周平均增长. 必须解释7.03%为何不是同店增长，也不能用于把期末存货除以周数.
 
-单位练习使用44.1billion=44100million；每股练习使用342393million、2696272576shares，转换得到126.99USD/share. 区分期末股数、加权平均股数和市场价格. 不得把类别转移当成购入现金流.
+单位练习使用44.1 B=44,100 M；每股练习使用342393 M、2696272576shares，转换得到126.99USD/share. 区分期末股数、加权平均股数和市场价格. 不得把类别转移当成购入现金流.
 
-最后换成明确虚构的累计100、230，让读者求第二季度单季130并说明适用条件. 完整反馈既核公式，也核比较名称和仍未解决的范围差异；不要因算术正确就宣布比较有效. 当前疑点解决后返回原词条，不引入股票DCF、报价或个人账户.
+最后换成明确虚构的累计100、230，让读者求第二季度单季130并说明适用条件. 完整反馈既核公式，也核比较名称和仍未解决的范围差异；算术正确不代表比较口径有效. 当前疑点解决后返回原词条.
 
 Before substantive teaching, actually retrieve every required reading unit for the selected scope. Read its complete designated section, including necessary assumptions, tables and footnotes. A working URL or an editorial access date is not a runtime reading receipt. Record the actual version, location, scope and what it supports. If unavailable, use a previously verified equivalent source; if the required unit remains unavailable, identify that gap rather than teach it from memory. Start runtime_reading_log empty. Once reading is complete, use a substantive diagnostic or follow the reader's request for direct explanation. Advance one complete reasoning task at a time; skip mastered basics. Distinguish original facts, supplied teaching assumptions and inference.
 
@@ -36,12 +36,12 @@ Before substantive teaching, actually retrieve every required reading unit for t
 {
   "entry_id": "zh-bf03",
   "node_id": "BF-03",
-  "content_version": "2026-09-21.BF-A.rev-1",
+  "content_version": "2026-09-22-deep-review",
   "export_mode": "public",
   "audience": "具有足够数学背景的高年级本科至研究生",
   "body_source": "body_markdown",
   "learning_task": "为真实财务数字保留口径，在不丢失原值的前提下做期间和单位比较，并指出仍不可比较的部分.",
-  "prompt": "你正在讲授BF-03“财报的期间、范围、币种与可比口径”（2026-09-21.BF-A.rev-1）. 这是可查参考. 以读者当前表格为入口，默认修正Costco 52/53周比较；不把四则运算扩成一堂长课.\n\n先实际读取下列所用单元. 运行时读取日志初始为空；记录文档版本、范围及支持当前比较的内容，已有书目或历史读取记录不等于本次运行已读：\n1. OpenStax Principles of Accounting Vol.1，2019，§2.1中报表的时点/期间及联系完整单元：\nhttps://openstax.org/books/principles-financial-accounting/pages/2-1-describe-the-income-statement-statement-of-owners-equity-balance-sheet-and-statement-of-cash-flows-and-how-they-interrelate\n2. Costco FY2025 SEC 10-K：\nhttps://www.sec.gov/Archives/edgar/data/909832/000090983225000101/cost-20250831.htm\n读取Item 1 p.3财年与季度构成段；完整利润表p.37、资产负债表p.39；Note 1 p.42的Basis of Presentation、Fiscal Year、Reclassification、Cash and Cash Equivalents完整小节. 若需要同店指标，须另读MD&A中该指标完整定义，不能把每周增长直接改名.\n3. 使用银行单位/每股例子时，读取JPMorgan 2025 Annual Report：\nhttps://www.jpmorganchase.com/content/dam/jpmc/jpmorgan-chase-and-co/investor-relations/documents/annualreport-2025.pdf\n完整资产负债表p.167/物理p.199及股份括注；Note 10 pp.228–229，尤其类别转移、单位与计量说明；采用现金比较时再读p.169/物理p.201. PDF表格查看原页.\n\n只取得目录或摘要不满足承重数据读取. 失败时找同机构原件或已核等价版；仍缺就说明缺少的具体单元，不填一组相似数字.\n\n先让读者给每个数字贴上“对象/范围、项目、币种/单位、时点或期间、版本/出处”. 随后保留原始249625、237710、52、53，计算原始增长与每周平均增长. 必须解释7.03%为何不是同店增长，也不能用于把期末存货除以周数.\n\n单位练习使用44.1billion=44100million；每股练习使用342393million、2696272576shares，转换得到126.99USD/share. 区分期末股数、加权平均股数和市场价格. 不得把类别转移当成购入现金流.\n\n最后换成明确虚构的累计100、230，让读者求第二季度单季130并说明适用条件. 完整反馈既核公式，也核比较名称和仍未解决的范围差异；不要因算术正确就宣布比较有效. 当前疑点解决后返回原词条，不引入股票DCF、报价或个人账户.",
+  "prompt": "面向具有微积分、线性代数、基本概率与证明阅读能力的高年级本科生至研究生，材料版本2026-09-22-deep-review. 围绕BF-03“财报的期间、范围、币种与可比口径”（2026-09-22-deep-review）处理读者当前表格；未指定时，默认修正Costco 52/53周比较.\n\n先实际读取下列所用单元. 运行时读取日志初始为空；记录文档版本、范围及支持当前比较的内容，已有书目或历史读取记录不等于本次运行已读：\n1. OpenStax Principles of Accounting Vol.1，2019，§2.1中报表的时点/期间及联系完整单元：\nhttps://openstax.org/books/principles-financial-accounting/pages/2-1-describe-the-income-statement-statement-of-owners-equity-balance-sheet-and-statement-of-cash-flows-and-how-they-interrelate\n2. Costco FY2025 SEC 10-K：\nhttps://www.sec.gov/Archives/edgar/data/909832/000090983225000101/cost-20250831.htm\n读取Item 1 p.3财年与季度构成段；完整利润表p.37、资产负债表p.39；Note 1 p.42的Basis of Presentation、Fiscal Year、Reclassification、Cash and Cash Equivalents完整小节. 若需要同店指标，须另读MD&A中该指标完整定义，不能把每周增长直接改名.\n3. 使用银行单位/每股例子时，读取JPMorgan 2025 Annual Report：\nhttps://www.jpmorganchase.com/content/dam/jpmc/jpmorgan-chase-and-co/investor-relations/documents/annualreport-2025.pdf\n完整资产负债表p.167/物理p.199及股份括注；Note 10 pp.228–229，尤其类别转移、单位与计量说明；采用现金比较时再读p.169/物理p.201. PDF表格查看原页.\n\n只取得目录或摘要不满足承重数据读取. 失败时找同机构原件或已核等价版；仍缺就说明缺少的具体单元，不填一组相似数字.\n\n先让读者给每个数字贴上“对象/范围、项目、币种/单位、时点或期间、版本/出处”. 随后保留原始249625、237710、52、53，计算原始增长与每周平均增长. 必须解释7.03%为何不是同店增长，也不能用于把期末存货除以周数.\n\n单位练习使用44.1 B=44,100 M；每股练习使用342393 M、2696272576shares，转换得到126.99USD/share. 区分期末股数、加权平均股数和市场价格. 不得把类别转移当成购入现金流.\n\n最后换成明确虚构的累计100、230，让读者求第二季度单季130并说明适用条件. 完整反馈既核公式，也核比较名称和仍未解决的范围差异；算术正确不代表比较口径有效. 当前疑点解决后返回原词条.",
   "selected_branch": "current_task",
   "required_readings": [
     {
@@ -1341,13 +1341,13 @@ Before substantive teaching, actually retrieve every required reading unit for t
 ```
 
 ## Supplied entry
-两个数字都写着“2025”和“美元”，还不足以直接比较. 一个可能是8月末的余额，另一个是截至12月的全年流量；一个可能是集团合并值，另一个只是子公司. 先把口径写完整，不是计算前额外增加的手续，而是在确定我们究竟算什么.
+财务数字的比较依赖项目、范围、期间和计量口径. 同为美元金额，期末余额与全年流量、集团合并值与子公司值分别对应不同对象.
 
 <span id="bf03-observation-scope"></span>
 
 ## 1　随数字保存的最小口径
 
-**一个用于比较的财务观测，至少要连同对象与合并范围、项目定义、币种与金额单位、时点或期间、计量及列报口径、原始出处一起保存.** 这是本笔记的数据约定，不是声称所有报告使用同一个数据格式. 时点与期间的基本区别见 [BF-02](/zh/notebook/financial-report-map/). [OPENSTAX-21]
+**一个用于比较的财务观测，至少要连同对象与合并范围、项目定义、币种与金额单位、时点或期间、计量及列报口径、原始出处一起保存.** 这是本笔记用于保持比较口径的数据约定；时点与期间的基本区别见 [BF-02](/zh/notebook/financial-report-map/). [OPENSTAX-21]
 
 | 字段 | 本例应保存什么 | 最容易发生的错位 |
 |---|---|---|
@@ -1358,15 +1358,15 @@ Before substantive teaching, actually retrieve every required reading unit for t
 | 比较版本 | 使用2025年报中列示的2024比较数 | 把旧版与本期重分类后的比较列拼接 |
 | 来源与可得时间 | 文档、原表行、页码及该版本何时可取得 | 把财年末当成年报发布日或研究读取日 |
 
-前两家公司的合并范围分别由Costco Note 1和JPM集团报告限定. Costco还明确说明将2024资产负债表作了重分类以配合本期列报. 因此，本批两期表采用同一份2025报告中的比较列；该披露本身没有给出我们想象中的全部调整明细. [COST-POLICY]、[JPM-BS]
+前两家公司的合并范围分别由Costco Note 1和JPM集团报告限定. Costco还明确说明将2024资产负债表作了重分类以配合本期列报. 因此，本批两期表采用同一份2025报告中的比较列. [COST-POLICY]、[JPM-BS]
 
 <span id="bf03-reporting-periods"></span>
 
-## 2　先比较同样长的一段时间，但别把它当作全部解释
+## 2　52/53周期间的可比调整
 
 Costco FY2025、FY2024各52周，FY2023为53周，年末是最接近8月31日的星期日. 它的前三季度各12周，第四季度通常16周，53周财年则为17周；不能把年报机械平均成四个等长季度. [COST-CALENDAR]
 
-下表保留原始数字，全部来自**同一份2025年报的合并利润表**，单位 M 美元. 它不是同店销售表. [COST-IS]
+下表保留原始数字，全部来自**同一份2025年报的合并利润表**，单位 M 美元. [COST-IS]
 
 | 财年 | 期间截至日 | 周数 | Net sales／净销售额 |
 |---|---|---:|---:|
@@ -1374,35 +1374,35 @@ Costco FY2025、FY2024各52周，FY2023为53周，年末是最接近8月31日的
 | FY2024 | 2024-09-01 | 52 | 249,625 |
 | FY2025 | 2025-08-31 | 52 | 269,912 |
 
-2024相对2023的原始增长为 `249625 / 237710 - 1 = 5.0124%`. 若只想去掉“多了一周”的机械差异，可以另外计算每周平均净销售额：`249625 / 52 = 4800.4808`，`237710 / 53 = 4485.0943`，其增长为 `((249625 / 52) / (237710 / 53) - 1) = 7.032%`，约7.03%. 原始5.01%与按周7.03%都保留，并分别命名. [COST-IS]（本文计算）
+2024相对2023的净销售额增长为 `249625 / 237710 − 1 ≈ 5.012%`. 两年的每周平均净销售额分别为 `249625 / 52 ≈ 4800.481`、`237710 / 53 ≈ 4485.094`，因此每周平均增长为 `((249625 / 52) / (237710 / 53) − 1) ≈ 7.032%`. [COST-IS]（本文计算）
 
-这还不是“经营真实增长”的最终答案：平均数没有控制季节性、开店、关闭、商品组合或汇率等影响，也没有把公司全部门店改成可比门店样本. 调整只解决它明确处理的问题，不能因为做过一次调整，就替指标换上更强的名称.
+每周平均增长只调整了52/53周的长度差异. 季节性、开店、关闭、商品组合和汇率仍可能影响结果；同店增长另需按公司定义选取可比门店.
 
-反过来，2024-09-01的存货18,647与2025-08-31的存货18,116都是时点余额. **给余额除以52或53，不会得到有意义的同口径期末存货.** 要研究周转，应另选期间成本与适当平均存货，这是BF-16的任务，不是把任何数都除以周数. [COST-BS]
+2024-09-01的存货18,647与2025-08-31的存货18,116均为时点余额，应直接保留对应时点. 周转分析则需将期间成本与适当的平均存货匹配，见BF-16. [COST-BS]
 
 <span id="bf03-units-and-shares"></span>
 
-## 3　单位可以换，原值与含义不能丢
+## 3　单位换算与每股分母
 
-JPM证券附注写出的44.1 **billion**，换到主表的 **million** 单位是44,100，不是44.1. 单位换算关系是 `x_million = 1000 * x_billion`. 本例金额指证券由AFS转为HTM的类别转移，并不是同额的新购证券现金支出；数值换对以后，事项性质仍要从附注读. [JPM-SEC]
+JPM证券附注中的44.1 B美元等于主表单位下的44,100 M美元. 该金额是证券由AFS转入HTM的类别转移，现金流仍需按证券实际买卖另行识别. [JPM-SEC]
 
-每股口径还多了一层分母. JPM 2025年末普通股权益为342,393 M 美元，期末普通股流通股数为2,696,272,576股，所以每股账面值为 `342393 * 1000000 / 2696272576 = 126.9875` 美元/股，约126.99. 这里乘1 M 是在把 M 美元换成美元；分母是期末股数，不是算全年每股收益所用的加权平均股数，结果也不是市场价格. [JPM-BS]（本文计算）
+JPM 2025年末普通股权益为342,393 M美元，期末普通股流通股数为2,696,272,576股，每股账面值为 `342393 × 1000000 / 2696272576 ≈ 126.988` 美元/股. 分子先换成美元，分母采用期末股数；期间每股收益则使用相应的期间加权平均股数. [JPM-BS]（本文计算）
 
-同理，不能只因为两个行名都含 `cash` 就自动认定现金范围相同. Costco Note 1 的现金及现金等价物包含一定结算期内的卡交易待收款；JPM现金流末端有它自己的两行构成. 先核定义，再决定能否比较；本页不制造一个未经资料支持的“统一现金”调整数. [COST-CASH]、[JPM-CF]
+现金范围按各公司附注界定. Costco的现金及现金等价物包含一定结算期内的卡交易待收款；JPM现金流末端对应现金及应收银行款、存放银行款两行. 比较时需保留这些范围差异. [COST-CASH]、[JPM-CF]
 
 <span id="bf03-exercises"></span>
 
-## 4　练习：修好一张比较表
+## 4　比较表修正练习
 
 **解释题.** 一张表写道：“Costco 2024销售真实增长7.03%，因此2024期末存货也应先除以52再和2023比. ”请保留有用的计算，改写错误的结论.
 
 **解析.** 保留“2024相对2023的每周平均净销售额增长约7.03%”，并同时列出原始净销售增长约5.01%. 删除“真实增长”，因为周数调整未控制其他因素；删除对期末存货的周数标准化，因为余额不是在52周内累计产生的销售流量. 要比较库存，保留相应时点、计量和范围，并另行查找周转需要的分母. [COST-IS]、[COST-CALENDAR]、[COST-BS]
 
-**迁移题.** 下面是明确虚构的另一家公司：第一季度收入100，上半年累计收入230，币种和合并范围相同，且无重述. 有人说第二季度收入230、比一季度增长130%. 应怎样修正？若上半年发生了合并范围变化，答案又应如何限定？
+**迁移题.** 教学设定：一家公司的第一季度收入100，上半年累计收入230，币种和合并范围相同，且无重述. 有人说第二季度收入230、比一季度增长130%. 应怎样修正？若上半年发生了合并范围变化，答案又应如何限定？
 
-**解析.** 在题设可比条件下，第二季度单季收入为 `230 - 100 = 130`，相对第一季度增长 `130 / 100 - 1 = 30%`. 230是上半年累计，不是第二季度单季. 若范围变化，上半年累计减一季度累计仍可能得到报告口径的第二季度流量，但30%不能直接解释为同范围经营增长；必须说明新增合并业务的影响，无法拆分就标记不可比部分. 这是期间减法的应用，不是该虚构企业的实际经营资料.
+**解析.** 在题设可比条件下，第二季度单季收入为 `230 - 100 = 130`，相对第一季度增长 `130 / 100 - 1 = 30%`. 230是上半年累计，不是第二季度单季. 若范围变化，上半年累计减一季度累计仍可能得到报告口径的第二季度流量，但30%不能直接解释为同范围经营增长；必须说明新增合并业务的影响，无法拆分就标记不可比部分.
 
-还有一个时间边界：本例中的报告期末描述业务和报表对应的时间，而信息截止日描述本次材料集合允许使用到哪一天. 若要还原某个过去交易日的判断，须另外核验当时已经发布了哪些版本，不能把后来才发布的年报写回过去的信息集.
+报告期末是报表描述的业务时点，信息截止日限定可以使用的已发布材料. 还原过去交易日的判断时，采用当时已发布的版本.
 
 <span id="bf03-sources"></span>
 
@@ -1430,31 +1430,18 @@ JPM证券附注写出的44.1 **billion**，换到主表的 **million** 单位是
 [JPM-SEC]: https://www.jpmorganchase.com/content/dam/jpmc/jpmorgan-chase-and-co/investor-relations/documents/annualreport-2025.pdf#page=260 "BI-S07；Note 10 Investment securities，印刷pp.228–229；44.1billion类别转移在p.228"
 [JPM-CF]: https://www.jpmorganchase.com/content/dam/jpmc/jpmorgan-chase-and-co/investor-relations/documents/annualreport-2025.pdf#page=201 "BI-S07；完整现金流量表p.169／物理p.201；现金与存放银行款的期末构成"
 
-
 ## Additional teaching material
-## 交互、计算和静态等价
+## 期间与单位实验
 
-`BF03-PERIOD-UNIT` 的默认状态为Costco FY2024对FY2023，显示上面的两期原始销售、52/53周、5.0124%原始增长和约7.03%按周增长. 切换“原始／每周平均”只新增一列派生值，不覆盖原始数据，也不把图题改成同店增长. 静态表与§2算式提供完整默认结果.
+Costco FY2024／FY2023：净销售额249,625／237,710 M美元，52／53周. 原始增长约5.012%，每周平均增长约7.032%；周数调整保留季节性、门店和产品组合等差异.
 
-单位切换保留基础存储单位USD_millions；显示为billion时全部金额除以1000，回切时乘以1000. 股数shares及每股USD_per_share不参与同一金额转换. 以44,100million／44.1billion作为固定核对项. 余额行不提供“除以周数”按钮；若通过接口调用该操作，返回“该操作仅用于所选期间流量”，不得静默计算.
+44.1 B美元=44,100 M美元. 股数与每股金额分别按自己的单位计算. 期间流量可按期间长度比较，期末余额保留对应时点.
 
-累计／单季演示仅使用上面的**教学数据**，默认100、230、导出单季130. 输入必须是相同项目、币种、范围和兼容版本的累计值；财报自身未提供的数据不插值伪造. 允许收入调整为负的实际情况，所以不把所有负结果一律判错；应检查输入与披露，而非以数值正负替代业务解释.
-
-每次调整显示 `原值—单位/期间—公式—结果—剩余不可比因素`. 键盘、窄屏及打印保留全部五项，图不是唯一入口. 这里给出静态等价和交互规格；网页实现另行完成.
+教学累计收入：第一季度100，上半年230；同项目、币种、范围和兼容版本下，第二季度单季为130. 收入调整可以导致负数，解释应回到具体披露与范围.
 
 ## Sources
-- [Costco Wholesale Corporation · FY2025 Form 10-K（SEC HTML）](https://www.sec.gov/Archives/edgar/data/909832/000090983225000101/cost-20250831.htm): Costco 的 2025 财年末合并资产为77,099 M 美元，负债47,935，权益29,164. 业务说明把商品快速周转与供应商付款安排联系起来；会员费的确认则需要结合收入政策和递延余额.
-
-本组带读将存货与应付的两期余额变化接到现金流量表. 两种计算并不完全相同，差额留待附注和其他口径解释.
-
-EI-B 本批采用：会员制度、尾随续费率定义、会员费收入及合并营业利润桥. USD M 转换为 B 美元；全球公司边界不等于美国单一零售市场.
-
-BF-F/G 本批采用：零售利润/现金/普通股及债务时间的历史原件. SEC具名表定位优先；不混用IR PDF页码.
-- [JPMorgan Chase & Co. · 2025 Annual Report](https://www.jpmorganchase.com/content/dam/jpmc/jpmorgan-chase-and-co/investor-relations/documents/annualreport-2025.pdf): JPMorgan 的 2025 年末集团合并表没有照普通工业企业划分流动／非流动. 证券和贷款各有计量类别；贷款损失准备是贷款账面余额的减项，表下注明的合并VIE金额已包含在集团总额内.
-
-从总权益到普通股权益，还要扣除优先股；每股账面值的股数使用已发行股数减库存股. 原表、附注和普通股权利因此要连在一起读.
-
-BF-F/G 本批采用：集团季度平均LCR、期末资产和有条件融资能力分别记录；银行法人另列；完整主表支持综合带读.
+- [Costco Wholesale Corporation · FY2025 Form 10-K（SEC HTML）](https://www.sec.gov/Archives/edgar/data/909832/000090983225000101/cost-20250831.htm): Costco 2025财年末合并资产77,099M美元、负债47,935M美元、权益29,164M美元. 业务说明、收入政策及附注解释商品周转、供应商付款、会员费确认和递延余额. 现金流量表与两期资产负债表共同呈现存货、应付及现金变化；年报另列续费率定义、普通股和债务信息.
+- [JPMorgan Chase & Co. · 2025 Annual Report](https://www.jpmorganchase.com/content/dam/jpmc/jpmorgan-chase-and-co/investor-relations/documents/annualreport-2025.pdf): JPMorgan 2025年末集团合并表按银行业务项目列示资产和负债；证券与贷款采用各自计量类别，贷款损失准备抵减贷款余额，披露的合并VIE金额已包含于集团总额. 普通股权益由总权益扣除优先股所得，每股账面值使用已发行股数减库存股. 流动性披露分别给出季度平均LCR、期末资产及附条件融资能力，并区分集团与银行法人.
 - [OpenStax · Principles of Accounting, Volume 1 · §2.1](https://openstax.org/books/principles-financial-accounting/pages/2-1-describe-the-income-statement-statement-of-owners-equity-balance-sheet-and-statement-of-cash-flows-and-how-they-interrelate): 利润表解释一个期间的收入、费用和净收益；权益变动表把期间结果和所有者交易接回权益；资产负债表给出期末余额；现金流量表解释现金在期间怎样变化. 四张表的连接需要使用相同企业范围和相匹配的期间.
 
 ## Content relations

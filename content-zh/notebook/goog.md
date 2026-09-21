@@ -1,6 +1,6 @@
 {
-  "title": "Alphabet · GOOG：硬件的两种去向",
-  "description": "两件同样花20买来的硬件，一件留下提供服务，一件卖给客户. 跟着用途走完报表，再分清共享基础设施、业务分部与股票类别.",
+  "title": "Alphabet · GOOG：硬件用途、共享基础设施与股份类别",
+  "description": "用自用设备与待售硬件对照成本路径，再区分共享基础设施、Services/Cloud 经营分部与 GOOG/GOOGL 股份类别.",
   "layout": "entry",
   "notebookid": "zh-goog",
   "math": true,

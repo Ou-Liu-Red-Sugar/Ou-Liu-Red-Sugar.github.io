@@ -11,10 +11,10 @@
   "template": "T1",
   "role": "选读",
   "study_time": "12–18分钟；研究选读另计",
-  "revised": "2026-09-21",
-  "content_version": "bf-bc-staging-v3",
-  "body_markdown": "客户签了合同，是否已经有收入？公司还没开票，是否一定没有应收？客户已经付款，是否说明义务已经结束？这些问题不能用一条“合同—开票—收款”的单向箭头回答，因为履约、收款权利成立和收付款可以在不同日期发生.\n\n这一篇把判断中心放在**权利与义务**. 我们先说清几种余额为什么存在，再读Salesforce的真实合同披露，最后对照Costco：同样叫零售，一笔商品销售和一年的会员服务也可能有不同节奏.\n\n<a id=\"bf10-rights\"></a>\n## 1. 分界不是发票，而是权利所附条件\n\n**应收款**表示无条件的对价收取权：取得这笔对价只需等待约定的付款时间经过. **合同资产**则对应已经向客户转移商品或服务、但对价权利仍附有其他条件的情形，并排除已列作应收的部分. 合同负债是已收到或已到期应收的对价中，仍需向客户交付商品或服务的义务. [^rights]\n\n这里有两个看起来相反、其实都很正常的情况. 第一，发票尚未开出，但收款权已无条件成立，仍可以是应收. 第二，企业已经履约并确认收入，但收款还要等另一项条件满足，先形成合同资产. 未开票金额和合同资产不是同义词；“开了票”也不能脱离条款自动证明全部对价已经无条件到期.\n\n还要区分确认与收回风险. 权利已经无条件成立，不意味着客户不会违约；应收的信用损失另按适用政策处理. Salesforce披露，其坏账准备考虑历史损失、逾期天数、特定收款风险和可支持的经济预测等；对已确认收入部分的准备进入相应费用，超过该部分的增量可能冲减未赚取收入. 这是该公司的具体披露，不能把“信用风险”拿来替代“权利是否有其他履约条件”的判断. [^ar]\n\n<a id=\"bf10-timeline\"></a>\n## 2. 四份条款明确的合同\n\n以下均为教学设定，总对价120，忽略成本、税费、信用损失、退款、可变对价和融资成分；不是Salesforce的实际合同样本. 日期属于2026年，金额是教学货币单位.\n\n**A：提前年度收费**. 1月1日付款已无条件到期并开票，1月5日收款；全年每个月均匀履约10. 1月1日应收120与合同负债120并存，3月末已收现金120、累计收入30、合同负债90.\n\n**B：先交付、后行政开票**. 1月10日交付完成即取得无条件收款权，2月1日只是开票手续，2月28日付款. 所以1月末已确认收入120、应收120，合同资产为0. 把发票延后，不会把一项本来无条件的权利改成有条件权利.\n\n**C：首项已交付，收款还取决于第二项交付**. 两个可区分的承诺各分配60，1月10日和2月10日分别完成. 合同约定第二项完成后才取得整笔无条件收款权；第一项控制权已在1月10日转移，不另附会推迟该项收入确认的实质验收条件. 1月末收入60、合同资产60；2月10日第二项也完成，累计收入120，收款条件解除，余额转成应收120. 2月11日开票、3月1日收款只是后续步骤.\n\n**D：当面交易**. 1月10日交货、权利成立、开具收据并当场付清，当天最终状态是现金120、收入120，没有剩余应收或合同余额.\n\n| 观察时点 | 累计收入 | 现金 | 应收 | 合同资产 | 合同负债 |\n| --- | --- | --- | --- | --- | --- |\n| A：1月1日开票后 | 0 | 0 | 120 | 0 | 120 |\n| A：3月31日 | 30 | 120 | 0 | 0 | 90 |\n| B：1月31日、仍未开票 | 120 | 0 | 120 | 0 | 0 |\n| C：1月31日 | 60 | 0 | 0 | 60 | 0 |\n| C：2月10日条件解除后 | 120 | 0 | 120 | 0 | 0 |\n| C：3月1日收款后 | 120 | 120 | 0 | 0 | 0 |\n| D：1月10日全部完成后 | 120 | 120 | 0 | 0 | 0 |\n\n\n这张表里，B与C在1月末都还没开票，却出现不同资产. 区别只来自合同赋予的权利，而不是我们挑选了不同账户名称. 如果没有C的“第二项完成后才无条件收款”条款，就不能凭“先履约后开票”四个字把60划成合同资产.\n\n<div data-experiment-slot=\"EXP-BF10-CONTRACT-TIMING\"></div>\n\n实验允许在四份合同间切换，并分别修改**首个／唯一履约日、无条件收款权成立日、开票日和实际收款日**. 开票事件本身不会生成权利；无条件权利日的调整则明确表示我们改变了教学合同的权利条件. 比如在合同B里，若履约仍是1月10日而无条件权利推迟到2月10日，1月末会出现合同资产而不是应收；若只把2月1日的发票提前到1月5日，收入和权利状态都不会凭发票自动提前. 系统按实际日期排序事件，若收款早于履约则显示预收义务，不会为了得到某个账户而固定执行顺序.\n\n<a id=\"bf10-salesforce\"></a>\n## 3. 把判断方法带回Salesforce\n\nSalesforce通常按年度提前开票，付款条件一般要求在开票后30天内付款. 公司说明，已开票金额根据控制权是否已经转移，记入应收及未赚取收入或收入. 这个描述可以解释其常见合同，却不取消前述一般判断：我们仍要检查交易的具体权利与履约条件. [^policy]\n\n截至2026年1月31日，应收净额14,339 M 美元，上年11,945；合同资产818，上年724. 公司将合同资产包含在预付及其他流动资产、递延税及其他资产净额等项目中. 它们是主表相关项目的组成，不是可以再加一次的资产. [^contract]\n\n未赚取收入的完整两期滚动如下. 减少额以括号显示，单位 M 美元. [^contract]\n\n| 原行／含义 | FY2026 | FY2025 |\n| --- | --- | --- |\n| Beginning balance／期初 | 20,743 | 19,003 |\n| Billings and other／开票及其他 | 45,099 | 39,635 |\n| Revenue recognized over time／期间确认 | (39,041) | (35,628) |\n| Revenue recognized at a point in time／时点确认 | (2,484) | (2,267) |\n| Ending balance／期末 | 24,317 | 20,743 |\n\n\n表中45,099不只包含开票；脚注还有汇兑、合同资产及企业合并，包含Informatica收购日651的未赚取收入. 整张表帮助我们理解余额怎样转为收入，却不能直接从45,099倒算当年的收款. 我们在[[BF-04|权责发生与跨表联系]]中已经走过这条时间关系；这里要增加的是对各项权利和义务边界的判断.\n\n### RPO不是应收款的另一个名字\n\n同日披露的剩余履约义务（RPO）是72.4 B 美元，其中预计未来12个月确认的current RPO为35.1，之后的为37.3. 它描述尚未确认的已签约未来收入，包括未赚取收入及未开票合同金额. [^rpo]\n\n于是，`72.4 − 24.317 ≈ 48.1 B 美元`不能叫“已经确认但没收到的钱”. 首先，RPO本来是尚未确认的收入口径；其次，RPO以0.1 B 美元显示，这个差额本来就没有 M 美元级的精度；最后，应收和合同资产讨论的是已经形成的权利及其条件，不是把两个大数相减就能得到的同义余额.\n\ncurrent RPO的“current”在这里指预计未来12个月确认的部分，也不是现在能提取的现金. 合同期限、续约时点、许可交付、汇率和并购等都会影响RPO，公司也相应披露了这些因素. 用它研究未来业务，需要继续检查交付和转换条件，而不能把72.4整体写进下一年收入预测.\n\n<a id=\"bf10-retail\"></a>\n## 4. 对照零售：一家公司里也有不同节奏\n\nCostco FY2025确认会员费收入5,323 M 美元，期末递延会员费2,854，上期2,501. 前者是一年的收入流量，后者是尚待履约的时点负债；两者不能相加成“本年会员收入”. 公司按会员期限分期确认会员费. [^cost]\n\n商品销售的节奏则不同：大部分交易在销售点确认，电商等还要依控制权转移安排. 先看一种典型当面交易，商品交给客户并收款，很接近教学合同D；再看全年会员服务，就更接近A. 公司名字没有变化，业务对象和履约期间却已经变了. 因此，“这是零售公司，收入都应当即时确认”是把行业标签当作了合同条款.\n\n这种对照也会改变我们看应收增加的方式. 如果客户通常迅速付款，余额上升可能来自交易量、结算周期、交易对手构成或其他业务，而不是必然来自顾客赊销. 应收行的名称只是入口，组成和政策才告诉我们它实际是什么.\n\n<a id=\"bf10-research\"></a>\n<details>\n<summary>研究选读：确认规则改变后，外部使用者怎样反应？</summary>\n\nLee、Lee与Sadka发表于2026年的研究，以ASC 606采用及公司披露的重大会计影响区分研究对象，比较收入不确定性和债务融资相关结果，并分别讨论短期与较长时期. [^research]\n\n这种设计说明“收入规则如何影响报表使用者”可以成为可检验问题. 但分组并非随机，适用范围也不是Salesforce FY2026的单一合同. 阅读时要核对受影响公司的定义、采用前后样本、结果指标和替代解释；不能把论文的总体关系移植成“此公司的当前债务成本因某项确认政策变动了多少”.\n\n</details>\n\n<a id=\"bf10-exercise\"></a>\n## 5. 练习与解析\n\n**题一**. 合同B在1月末尚未开票，为什么应收120而不是合同资产120？若发票提早到1月5日，又会自动提前确认收入吗？\n\n**解析**. 1月10日交付已经使收款权无条件成立；收款只待时间经过，所以1月末列应收. 提早开具行政单据也不会改变控制权转移日期和合同权利，收入不会凭发票提前. 我们的实验将发票、履约与权利事件分开，正是为了保留这个条件.\n\n**题二**. 合同C在1月末确认收入60，却没有应收. 这是不是矛盾？\n\n**解析**. 不是. 第一项可区分履约义务已完成，所以形成收入；对价权还取决于第二项交付，故列合同资产. 若所谓验收其实阻止第一项控制权转移，那么第一项收入是否已经满足条件也要重新判断，不能直接套本例.\n\n**题三**. RPO增加，是否证明收款加快？\n\n**解析**. 不能. RPO是未确认的合同收入存量，不是收款速度；合同期限延长、签约与续约季节性、组合及并购都可能改变它. 收款速度还要看应收、开票、逾期和现金流. 要比较，先保持业务范围和期间，再寻找能区分这些解释的材料.\n\n[^rights]: FASB，[ASU 2016-13所载ASC 606-10-45-3、45-4](https://storage.fasb.org/ASU%202016-13.pdf)，印刷pp.173–174／PDF物理179–180页. 用于合同资产与无条件收款权界线；合同负债与企业政策结合理解，不把历史修订文档当整套现行准则.\n[^ar]: Salesforce，[FY2026 10-K](https://www.sec.gov/Archives/edgar/data/1108524/000110852426000060/crm-20260131.htm)，Note 1 “Concentrations of Credit Risk”，pp.63–64，应收及备抵政策完整小节.\n[^policy]: 同份[10-K](https://www.sec.gov/Archives/edgar/data/1108524/000110852426000060/crm-20260131.htm)，Note 1 Revenue Recognition，pp.64–65；MD&A “Seasonal Nature of Unearned Revenue, Accounts Receivable and Operating Cash Flow”.\n[^contract]: 同份[10-K](https://www.sec.gov/Archives/edgar/data/1108524/000110852426000060/crm-20260131.htm)，合并资产负债表p.57、Note 2 Contract Balances与Unearned Revenue及脚注p.71，金额 M 美元.\n[^rpo]: 同份[10-K](https://www.sec.gov/Archives/edgar/data/1108524/000110852426000060/crm-20260131.htm)，Note 2 “Remaining Performance Obligation”，pp.71–72；金额按公司以 B 美元一位小数披露，current表示预计未来12个月确认.\n[^cost]: Costco，[FY2025 10-K](https://www.sec.gov/Archives/edgar/data/909832/000090983225000101/cost-20250831.htm)，利润表p.37、资产负债表p.39、Note 1 Revenue Recognition／Membership Fees，pp.47–48. 商品与会员服务的确认方式分别阅读.\n[^research]: [ASC 606, revenue uncertainty, and cost of debt: short-term and long-term consequences](https://link.springer.com/article/10.1007/s11142-026-09936-5)，Lee、Lee与Sadka，2026，*Review of Accounting Studies* 31:1019–1050；研究设计、受影响分组、短期与长期分析及结论. 只作为研究方法选读.\n",
-  "prompt": "你现在教授BF-10《收入、应收与合同余额》. 对象是有微积分、线性代数及基本概率基础，但不假定受过会计训练的高年级本科至研究生. 先确认本篇学习任务. 在讲解前，使用读取工具实际取得agent_packet中common及所选branch的全部required_readings完整单元（含表头、脚注和条件）. optional_readings只有选中相应研究/扩展时才转为必读. 记录标题、版本、实际范围以及支持当前教学的关键设定；runtime_reading_log初始为空，不以编辑访问或参考清单冒充本次已读. 访问失败时尝试同版本官方等价正文；仍缺失就指出具体缺口，不拿摘要代替承重单元. 诊断任务：同为未开票，让读者比较B合同为什么在1月末是应收120，而C合同是合同资产60；答案必须落到无条件收款权是否已成立，而不是billed标签. 随后使用实验在B合同中保持1月10日履约不变，把无条件权利日从1月10日移到2月10日，再分别改变发票日，观察1月31日AR/CA；这样把权利条件与行政开票拆开. 沿当前同源正文、静态表和supplied_inputs逐段推进，先让读者分析再反馈，已会步骤直接跳过. 判断理解的尺度：B默认1月末AR120、C默认CA60；B若权利延至2月10日则1月末CA120；只改发票日不应改变权利分类；RPO减预收也不能当成应收. 最后迁移：给一个新的先履约后开票合同，要求列出还缺的收款权事实，再决定应收、合同资产或合同负债. 保留历史观测与教学设定身份、单位、期间、未解释差额；不得从本篇生成新估值或账户建议.",
+  "revised": "2026-09-22",
+  "content_version": "2026-09-22-deep-review",
+  "body_markdown": "收入确认、无条件收款权、开票与收款可以发生在不同日期，因此应收、合同资产与合同负债必须按履约和权利条件区分. Salesforce与Costco的披露也说明，同一家公司内不同业务对象可以对应不同确认节奏.\n\n<a id=\"bf10-rights\"></a>\n## 1. 对价权利与履约条件\n\n**应收款**表示无条件的对价收取权：取得这笔对价只需等待约定的付款时间经过. **合同资产**则对应已经向客户转移商品或服务、但对价权利仍附有其他条件的情形，并排除已列作应收的部分. 合同负债是已收到或已到期应收的对价中，仍需向客户交付商品或服务的义务. [^rights]\n\n未开票金额可以已经形成无条件应收款；已确认收入也可能仍附有另一项交付条件，形成合同资产. 分类取决于合同权利，发票日期本身不足以区分两者.\n\n无条件收款权还面临客户违约风险，信用损失另按适用政策处理. Salesforce坏账准备考虑历史损失、逾期天数、特定收款风险和可支持的经济预测；已确认收入部分的准备进入相应费用，超过该部分的增量可能冲减未赚取收入. [^ar]\n\n<a id=\"bf10-timeline\"></a>\n## 2. 合同事件与余额\n\n以下为教学设定：总对价120，日期属于2026年，金额为教学货币单位；忽略成本、税费、信用损失、退款、可变对价和融资成分.\n\n**A：提前年度收费**. 1月1日付款已无条件到期并开票，1月5日收款；全年每个月均匀履约10. 1月1日应收120与合同负债120并存，3月末已收现金120、累计收入30、合同负债90.\n\n**B：先交付、后行政开票**. 1月10日交付完成即取得无条件收款权，2月1日开票，2月28日付款. 1月末已确认收入120、应收120，合同资产为0.\n\n**C：首项已交付，收款还取决于第二项交付**. 两个可区分的承诺各分配60，1月10日和2月10日分别完成. 合同约定第二项完成后才取得整笔无条件收款权；第一项控制权已在1月10日转移，不另附会推迟该项收入确认的实质验收条件. 1月末收入60、合同资产60；2月10日第二项也完成，累计收入120，收款条件解除，余额转成应收120. 2月11日开票、3月1日收款只是后续步骤.\n\n**D：当面交易**. 1月10日交货、权利成立、开具收据并当场付清，当天最终状态是现金120、收入120，没有剩余应收或合同余额.\n\n| 观察时点 | 累计收入 | 现金 | 应收 | 合同资产 | 合同负债 |\n| --- | --- | --- | --- | --- | --- |\n| A：1月1日开票后 | 0 | 0 | 120 | 0 | 120 |\n| A：3月31日 | 30 | 120 | 0 | 0 | 90 |\n| B：1月31日、仍未开票 | 120 | 0 | 120 | 0 | 0 |\n| C：1月31日 | 60 | 0 | 0 | 60 | 0 |\n| C：2月10日条件解除后 | 120 | 0 | 120 | 0 | 0 |\n| C：3月1日收款后 | 120 | 120 | 0 | 0 | 0 |\n| D：1月10日全部完成后 | 120 | 120 | 0 | 0 | 0 |\n\nB与C在1月末均未开票. B已取得无条件收款权；C的收款权仍取决于第二项交付，因此分别列作应收款和合同资产.\n\n<div data-experiment-slot=\"EXP-BF10-CONTRACT-TIMING\"></div>\n\n<a id=\"bf10-salesforce\"></a>\n## 3. Salesforce：应收、合同资产与未赚取收入\n\nSalesforce通常按年度提前开票，一般要求在开票后30天内付款. 已开票金额根据控制权是否转移，记入应收及未赚取收入或收入. [^policy]\n\n截至2026年1月31日，应收净额14,339 M 美元，上年11,945；合同资产818，上年724. 合同资产已包含在预付及其他流动资产、递延税及其他资产净额等主表项目中. [^contract]\n\n未赚取收入的完整两期滚动如下. 减少额以括号显示，单位 M 美元. [^contract]\n\n| 原行／含义 | FY2026 | FY2025 |\n| --- | --- | --- |\n| Beginning balance／期初 | 20,743 | 19,003 |\n| Billings and other／开票及其他 | 45,099 | 39,635 |\n| Revenue recognized over time／期间确认 | (39,041) | (35,628) |\n| Revenue recognized at a point in time／时点确认 | (2,484) | (2,267) |\n| Ending balance／期末 | 24,317 | 20,743 |\n\n45,099包括开票及汇兑、合同资产、企业合并等其他变动，其中Informatica收购日带入未赚取收入651. 开票流量与现金收款的衔接还需应收变动及其调整项，见[[BF-04|权责发生与跨表联系]].\n\n### 剩余履约义务\n\n同日披露的剩余履约义务（RPO）是72.4 B 美元，其中预计未来12个月确认的current RPO为35.1，之后的为37.3. 它描述尚未确认的已签约未来收入，包括未赚取收入及未开票合同金额. [^rpo]\n\nRPO减未赚取收入得到约48.1 B 美元，对应剩余履约义务中尚未计入未赚取收入的部分. RPO按0.1 B 美元披露，差额沿用这一精度. 应收与合同资产则按已经形成的对价权利及其条件分类.\n\ncurrent RPO指预计未来12个月确认收入的部分. 合同期限、续约时点、许可交付、汇率和并购都会改变RPO，预测收入时需把这些因素与预计交付时间结合.\n\n<a id=\"bf10-retail\"></a>\n## 4. Costco商品与会员服务\n\nCostco FY2025会员费收入为5,323 M 美元，期末递延会员费为2,854，上期2,501. 会员费按会员期限分期确认，递延余额对应期末尚待履约的义务. [^cost]\n\n商品销售大多在销售点确认，电商等业务依控制权转移安排. 当面交货收款接近教学合同D，全年会员服务接近A；两类业务的履约期间不同.\n\n应收余额变化还可能来自交易量、结算周期及交易对手构成. 分析时需先拆应收组成，再将客户货款与对应销售、收款记录匹配.\n\n<a id=\"bf10-research\"></a>\n<details>\n<summary>研究选读：收入规则与债务融资</summary>\n\nLee、Lee与Sadka发表于2026年的研究，以ASC 606采用及公司披露的重大会计影响区分研究对象，比较收入不确定性和债务融资相关结果，并分别讨论短期与较长时期. [^research]\n\n研究将披露ASC 606具有重大会计影响的公司列为受影响组，采用差分中的差分设计. 分组依据企业披露，解释因果效应依赖平行趋势等识别条件；研究估计针对该样本与采用事件. [^research]\n\n</details>\n\n<a id=\"bf10-exercise\"></a>\n## 5. 练习与解析\n\n**题一**. 合同B在1月末尚未开票，为什么应收120而不是合同资产120？若发票提早到1月5日，又会自动提前确认收入吗？\n\n**解析**. 1月10日交付使收款权无条件成立，故1月末列应收. 行政开票日期不改变本例的控制权转移与合同权利.\n\n**题二**. 合同C在1月末确认收入60，却没有应收. 这是不是矛盾？\n\n**解析**. 第一项可区分履约义务已完成，收入确认60；对价权仍取决于第二项交付，故列合同资产. 若验收条件阻止第一项控制权转移，收入确认日期也随之改变.\n\n**题三**. RPO增加，是否证明收款加快？\n\n**解析**. RPO是未确认的合同收入存量. 合同期限延长、签约与续约季节性、业务组合及并购都可能使其增加；收款速度需匹配应收、开票、逾期和现金流资料.\n\n[^rights]: FASB，[ASU 2016-13所载ASC 606-10-45-3、45-4](https://storage.fasb.org/ASU%202016-13.pdf)，印刷pp.173–174／PDF物理179–180页. 合同资产与无条件收款权定义.\n[^ar]: Salesforce，[FY2026 10-K](https://www.sec.gov/Archives/edgar/data/1108524/000110852426000060/crm-20260131.htm)，Note 1 “Concentrations of Credit Risk”，pp.63–64，应收及备抵政策完整小节.\n[^policy]: 同份[10-K](https://www.sec.gov/Archives/edgar/data/1108524/000110852426000060/crm-20260131.htm)，Note 1 Revenue Recognition，pp.64–65；MD&A “Seasonal Nature of Unearned Revenue, Accounts Receivable and Operating Cash Flow”.\n[^contract]: 同份[10-K](https://www.sec.gov/Archives/edgar/data/1108524/000110852426000060/crm-20260131.htm)，合并资产负债表p.57、Note 2 Contract Balances与Unearned Revenue及脚注p.71，金额 M 美元.\n[^rpo]: 同份[10-K](https://www.sec.gov/Archives/edgar/data/1108524/000110852426000060/crm-20260131.htm)，Note 2 “Remaining Performance Obligation”，pp.71–72；金额按公司以 B 美元一位小数披露，current表示预计未来12个月确认.\n[^cost]: Costco，[FY2025 10-K](https://www.sec.gov/Archives/edgar/data/909832/000090983225000101/cost-20250831.htm)，利润表p.37、资产负债表p.39、Note 1 Revenue Recognition／Membership Fees，pp.47–48. 商品与会员服务的确认方式分别阅读.\n[^research]: [ASC 606, revenue uncertainty, and cost of debt: short-term and long-term consequences](https://link.springer.com/article/10.1007/s11142-026-09936-5)，Lee、Lee与Sadka，2026，*Review of Accounting Studies* 31:1019–1050；研究设计、受影响分组、短期与长期分析及结论.",
+  "prompt": "你现在教授BF-10《收入、应收与合同余额》. 对象是有微积分、线性代数及基本概率基础、但不假定受过会计训练的高年级本科至研究生. 讲解前实际读取agent_packet中common及所选branch的全部required_readings完整单元（含表头、脚注和条件），optional_readings仅在选中相应研究/扩展时读取. 记录标题、版本、实际范围和支持当前教学的关键设定；runtime_reading_log从空数组开始，不以参考清单或先前编辑访问代替本次读取. 读取失败时先找同版本官方等价正文；仍缺失则明确缺口，不以摘要代替承重单元. 诊断：比较同为未开票时B合同1月末为何是应收120、C合同为何是合同资产60，答案必须落到无条件收款权是否成立. 在B合同保持1月10日履约不变，把无条件权利日从1月10日移到2月10日，再分别改变发票日，观察1月31日AR/CA. 沿同源正文、静态表和supplied_inputs推进，先让读者分析再反馈；已会步骤跳过. 通过尺度：B默认AR120、C默认CA60；B权利延至2月10日则1月末CA120；只改发票日不改变权利分类；RPO减预收不能当成应收. 迁移：给一个新的先履约后开票合同，要求列出仍缺的收款权事实，再决定应收、合同资产或合同负债. 保留历史观测与教学设定身份、单位、期间和未解释差额.",
   "sources": [
     "BBC-S19",
     "BBC-C01",
@@ -24,21 +24,21 @@
   "anchors": [
     {
       "id": "bf10-rights",
-      "title": "1. 分界不是发票，而是权利所附条件",
+      "title": "1. 对价权利与履约条件",
       "kind": "section",
-      "preview": "**应收款**表示无条件的对价收取权：取得这笔对价只需等待约定的付款时间经过.**合同资产**则对应已经向客户转移商品或服务、但对价权利仍附有其他条件的情形，并排除已列作应收的部分. 合同负债是已收到或已到期应收的对价中，仍需向客户交付商品或服务的义务.[^rights] 这里有两个看起来相反、其实都很正常的情况. 第一，发票尚未开出，但收款权已无条件成立，仍可"
+      "preview": "**应收款**表示无条件的对价收取权：取得这笔对价只需等待约定的付款时间经过. **合同资产**则对应已经向客户转移商品或服务、但对价权利仍附有其他条件的情形，并排除已列作应收的部分. 合同负债是已收到或已到期应收的对价中，仍需向客户交付商品或服务的义务. "
     },
     {
       "id": "bf10-timeline",
-      "title": "2. 四份条款明确的合同",
+      "title": "2. 合同事件与余额",
       "kind": "section",
-      "preview": "以下均为教学设定，总对价120，忽略成本、税费、信用损失、退款、可变对价和融资成分；不是Salesforce的实际合同样本. 日期属于2026年，金额是教学货币单位. **A：提前年度收费.**1月1日付款已无条件到期并开票，1月5日收款；全年每个月均匀履约10.1月1日应收120与合同负债120并存，3月末已收现金120、累计收入30、合同负债90. **B"
+      "preview": "以下为教学设定：总对价120，日期属于2026年，金额为教学货币单位；忽略成本、税费、信用损失、退款、可变对价和融资成分."
     },
     {
       "id": "bf10-salesforce",
-      "title": "3. 把判断方法带回Salesforce",
+      "title": "3. Salesforce：应收、合同资产与未赚取收入",
       "kind": "case",
-      "preview": "Salesforce通常按年度提前开票，付款条件一般要求在开票后30天内付款. 公司说明，已开票金额根据控制权是否已经转移，记入应收及未赚取收入或收入. 这个描述可以解释其常见合同，却不取消前述一般判断：我们仍要检查交易的具体权利与履约条件.[^policy] 截至2026年1月31日，应收净额14,339 M 美元，上年11,945；合同资产818，上年724.",
+      "preview": "Salesforce通常按年度提前开票，一般要求在开票后30天内付款. 已开票金额根据控制权是否转移，记入应收及未赚取收入或收入. ",
       "period": "FY2026/FY2025",
       "cutoff": "2026-09-21",
       "entity": "Salesforce",
@@ -46,9 +46,9 @@
     },
     {
       "id": "bf10-retail",
-      "title": "4. 对照零售：一家公司里也有不同节奏",
+      "title": "4. Costco商品与会员服务",
       "kind": "case",
-      "preview": "Costco FY2025确认会员费收入5,323 M 美元，期末递延会员费2,854，上期2,501. 前者是一年的收入流量，后者是尚待履约的时点负债；两者不能相加成“本年会员收入”. 公司按会员期限分期确认会员费.[^cost] 商品销售的节奏则不同：大部分交易在销售点确认，电商等还要依控制权转移安排. 先看一种典型当面交易，商品交给客户并收款，很接近教学合同D",
+      "preview": "Costco FY2025会员费收入为5,323 M 美元，期末递延会员费为2,854，上期2,501. 会员费按会员期限分期确认，递延余额对应期末尚待履约的义务. ",
       "period": "FY2025",
       "cutoff": "2026-09-21",
       "entity": "Costco",
@@ -56,15 +56,15 @@
     },
     {
       "id": "bf10-research",
-      "title": "研究选读：确认规则改变后，外部使用者怎样反应？",
+      "title": "研究选读：收入规则与债务融资",
       "kind": "section",
-      "preview": "研究选读：确认规则改变后，外部使用者怎样反应？ Lee、Lee与Sadka发表于2026年的研究，以ASC 606采用及公司披露的重大会计影响区分研究对象，比较收入不确定性和债务融资相关结果，并分别讨论短期与较长时期.[^research] 这种设计说明“收入规则如何影响报表使用者”可以成为可检验问题. 但分组并非随机，适用范围也不是Salesforce FY"
+      "preview": "Lee、Lee与Sadka发表于2026年的研究，以ASC 606采用及公司披露的重大会计影响区分研究对象，比较收入不确定性和债务融资相关结果，并分别讨论短期与较长时期. "
     },
     {
       "id": "bf10-exercise",
       "title": "5. 练习与解析",
       "kind": "section",
-      "preview": "**题一.**合同B在1月末尚未开票，为什么应收120而不是合同资产120？若发票提早到1月5日，又会自动提前确认收入吗？ **解析.**1月10日交付已经使收款权无条件成立；收款只待时间经过，所以1月末列应收. 提早开具行政单据也不会改变控制权转移日期和合同权利，收入不会凭发票提前. 我们的实验将发票、履约与权利事件分开，正是为了保留这个条件. **题二.**"
+      "preview": "**题一**. 合同B在1月末尚未开票，为什么应收120而不是合同资产120？若发票提早到1月5日，又会自动提前确认收入吗？"
     }
   ],
   "relations": [
@@ -642,7 +642,7 @@
       "data_identity": "historical_observations_and_separately_labelled_teaching_assumptions"
     }
   ],
-  "agent_markdown": "交互算法：bounded contract events 按日期排序；同日显示顺序为 performance → right → invoice → cash. R=累计履约，U=已成立无条件收款权，C=已收现金；AR=max(U-C,0)；X=R-max(U,C)；CA=max(X,0)；CL=max(-X,0).\n\n可改变：首个／唯一履约日、无条件收款权成立日、开票日、收款日和观察日. 改变权利日代表教学合同的权利事实改变；单独改发票日不应偷改AR/合同资产分类.\n\n静态结果：https://ou-liu-red-sugar.github.io/notebook/labs/bf-bc/static.html#EXP-BF10-CONTRACT-TIMING. 所有输入保留历史/教学身份.",
+  "agent_markdown": "交互算法：bounded contract events 按日期排序；同日显示顺序为 performance → right → invoice → cash. R=累计履约，U=已成立无条件收款权，C=已收现金；AR=max(U-C,0)；X=R-max(U,C)；CA=max(X,0)；CL=max(-X,0).\n\n可改变：首个／唯一履约日、无条件收款权成立日、开票日、收款日和观察日. 改变权利日代表教学合同的权利事实改变；单独改变发票日不改变AR/合同资产分类.\n\n静态结果：https://ou-liu-red-sugar.github.io/notebook/labs/bf-bc/static.html#EXP-BF10-CONTRACT-TIMING.",
   "status": "candidate_local_review",
   "audience": "高年级本科至研究生；共同框架加所选行业分支",
   "provenance": {
@@ -673,50 +673,57 @@
       "kind": "source_link",
       "label": "rights",
       "href": "https://storage.fasb.org/ASU%202016-13.pdf",
-      "locator": "FASB，[ASU 2016-13所载ASC 606-10-45-3、45-4](https://storage.fasb.org/ASU%202016-13.pdf)，印刷pp.173–174／PDF物理179–180页. 用于合同资产与无条件收款权界线；合同负债与企业政策结合理解，不把历史修订文档当整套现行准则.",
-      "source_id": "BBC-S19"
+      "locator": "FASB，[ASU 2016-13所载ASC 606-10-45-3、45-4](https://storage.fasb.org/ASU%202016-13.pdf)，印刷pp.173–174／PDF物理179–180页. 合同资产与无条件收款权定义.",
+      "source_id": "BBC-S19",
+      "definition_markdown": "[^rights]: FASB，[ASU 2016-13所载ASC 606-10-45-3、45-4](https://storage.fasb.org/ASU%202016-13.pdf)，印刷pp.173–174／PDF物理179–180页. 合同资产与无条件收款权定义."
     },
     {
       "kind": "source_link",
       "label": "ar",
       "href": "https://www.sec.gov/Archives/edgar/data/1108524/000110852426000060/crm-20260131.htm",
       "locator": "Salesforce，[FY2026 10-K](https://www.sec.gov/Archives/edgar/data/1108524/000110852426000060/crm-20260131.htm)，Note 1 “Concentrations of Credit Risk”，pp.63–64，应收及备抵政策完整小节.",
-      "source_id": "BBC-C01"
+      "source_id": "BBC-C01",
+      "definition_markdown": "[^ar]: Salesforce，[FY2026 10-K](https://www.sec.gov/Archives/edgar/data/1108524/000110852426000060/crm-20260131.htm)，Note 1 “Concentrations of Credit Risk”，pp.63–64，应收及备抵政策完整小节."
     },
     {
       "kind": "source_link",
       "label": "policy",
       "href": "https://www.sec.gov/Archives/edgar/data/1108524/000110852426000060/crm-20260131.htm",
       "locator": "同份[10-K](https://www.sec.gov/Archives/edgar/data/1108524/000110852426000060/crm-20260131.htm)，Note 1 Revenue Recognition，pp.64–65；MD&A “Seasonal Nature of Unearned Revenue, Accounts Receivable and Operating Cash Flow”.",
-      "source_id": "BBC-C01"
+      "source_id": "BBC-C01",
+      "definition_markdown": "[^policy]: 同份[10-K](https://www.sec.gov/Archives/edgar/data/1108524/000110852426000060/crm-20260131.htm)，Note 1 Revenue Recognition，pp.64–65；MD&A “Seasonal Nature of Unearned Revenue, Accounts Receivable and Operating Cash Flow”."
     },
     {
       "kind": "source_link",
       "label": "contract",
       "href": "https://www.sec.gov/Archives/edgar/data/1108524/000110852426000060/crm-20260131.htm",
       "locator": "同份[10-K](https://www.sec.gov/Archives/edgar/data/1108524/000110852426000060/crm-20260131.htm)，合并资产负债表p.57、Note 2 Contract Balances与Unearned Revenue及脚注p.71，金额 M 美元.",
-      "source_id": "BBC-C01"
+      "source_id": "BBC-C01",
+      "definition_markdown": "[^contract]: 同份[10-K](https://www.sec.gov/Archives/edgar/data/1108524/000110852426000060/crm-20260131.htm)，合并资产负债表p.57、Note 2 Contract Balances与Unearned Revenue及脚注p.71，金额 M 美元."
     },
     {
       "kind": "source_link",
       "label": "rpo",
       "href": "https://www.sec.gov/Archives/edgar/data/1108524/000110852426000060/crm-20260131.htm",
       "locator": "同份[10-K](https://www.sec.gov/Archives/edgar/data/1108524/000110852426000060/crm-20260131.htm)，Note 2 “Remaining Performance Obligation”，pp.71–72；金额按公司以 B 美元一位小数披露，current表示预计未来12个月确认.",
-      "source_id": "BBC-C01"
+      "source_id": "BBC-C01",
+      "definition_markdown": "[^rpo]: 同份[10-K](https://www.sec.gov/Archives/edgar/data/1108524/000110852426000060/crm-20260131.htm)，Note 2 “Remaining Performance Obligation”，pp.71–72；金额按公司以 B 美元一位小数披露，current表示预计未来12个月确认."
     },
     {
       "kind": "source_link",
       "label": "cost",
       "href": "https://www.sec.gov/Archives/edgar/data/909832/000090983225000101/cost-20250831.htm",
       "locator": "Costco，[FY2025 10-K](https://www.sec.gov/Archives/edgar/data/909832/000090983225000101/cost-20250831.htm)，利润表p.37、资产负债表p.39、Note 1 Revenue Recognition／Membership Fees，pp.47–48. 商品与会员服务的确认方式分别阅读.",
-      "source_id": "BF-S-COST-FY2025-SEC"
+      "source_id": "BF-S-COST-FY2025-SEC",
+      "definition_markdown": "[^cost]: Costco，[FY2025 10-K](https://www.sec.gov/Archives/edgar/data/909832/000090983225000101/cost-20250831.htm)，利润表p.37、资产负债表p.39、Note 1 Revenue Recognition／Membership Fees，pp.47–48. 商品与会员服务的确认方式分别阅读."
     },
     {
       "kind": "source_link",
       "label": "research",
       "href": "https://link.springer.com/article/10.1007/s11142-026-09936-5",
-      "locator": "[ASC 606, revenue uncertainty, and cost of debt: short-term and long-term consequences](https://link.springer.com/article/10.1007/s11142-026-09936-5)，Lee、Lee与Sadka，2026，*Review of Accounting Studies* 31:1019–1050；研究设计、受影响分组、短期与长期分析及结论. 只作为研究方法选读.",
-      "source_id": "BBC-R03"
+      "locator": "[ASC 606, revenue uncertainty, and cost of debt: short-term and long-term consequences](https://link.springer.com/article/10.1007/s11142-026-09936-5)，Lee、Lee与Sadka，2026，*Review of Accounting Studies* 31:1019–1050；研究设计、受影响分组、短期与长期分析及结论.",
+      "source_id": "BBC-R03",
+      "definition_markdown": "[^research]: [ASC 606, revenue uncertainty, and cost of debt: short-term and long-term consequences](https://link.springer.com/article/10.1007/s11142-026-09936-5)，Lee、Lee与Sadka，2026，*Review of Accounting Studies* 31:1019–1050；研究设计、受影响分组、短期与长期分析及结论."
     }
   ]
 }

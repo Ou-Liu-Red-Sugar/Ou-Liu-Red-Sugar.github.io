@@ -11,8 +11,8 @@
   "template": "T1",
   "role": "核心",
   "study_time": "正文、算例与自检约 20 分钟",
-  "revised": "2026-09-21",
-  "content_version": "2026-09-21-review-v2",
+  "revised": "2026-09-22",
+  "content_version": "2026-09-22-deep-review",
   "status": "accepted_local",
   "learning_task": "追踪发行与转让中的现金和权利，区分交易对手、服务机构和持有记录.",
   "audience": "具有足够数学背景的高年级本科至研究生",
@@ -33,43 +33,43 @@
   ],
   "recommended_next": "M03",
   "recommended_next_status": "batch_candidate",
-  "body_markdown": "一张证券权利卡说明“持有人拿到了什么”，却还没有说明“钱是怎样走过去的”. 这一步值得单独做：同样是买入一张证券，钱可能作为发行对价流向发行证券的经济收款主体，也可能只是从新持有人转到旧持有人. 把两者混在一起，容易把市场成交额误当成企业融资额.\n\n本篇继续使用912797RD1国库券，沿发行、转售和到期追踪现金；再用一份真实股票招股书检验这套区分. 最后，我们把发行人、券商、交易场所、清算机构和登记托管放回各自的位置.\n\n<span id=\"m02-issue-transfer\"></span>\n## 一、先看两条线：现金往哪里走，权利归给谁\n\n先回顾一个足够的起点：证券是持有人取得的一组权利，交易价格是取得这组权利的对价. **发行形成或向投资者提供相应证券权利；二级转让则让已有权利换一个持有人.** 在典型发行融资中，经济收款主体通常是发行人或政府发行主体；承销商、券商、清算与支付安排可以参与资金路径，但不能因此自动成为这笔融资的最终经济收款人. 在投资者之间的转让中，收款者则是出售已有权利的原持有人. MIT的股票讲义和OpenStax融资单元都把这一区别放在理解市场的前面. [^MIT-EQ][^OS17]\n\n这不是一个“第一手交易比较重要、后续换手不重要”的排序. 转让市场让资金提供者不必一直持有到债券到期，也让希望继续持有的人能够接手. 正因为权利可以转移，持有期限和证券期限才可以不同. 这里是从契约和交易结构作出的经济解释，并不意味着每一笔转让都一定容易成交.\n\n为了避免箭头含糊，我们约定每一步都画两条线：一条表示现金支付，另一条表示证券权利的取得或转移. 付款方向与权利方向通常相反，而提供服务的机构另外标出. 券商替客户执行订单，并不因此在所有交易中都成为最终经济买方或卖方.\n\n<span id=\"m02-bill-lifecycle\"></span>\n## 二、沿同一笔国库券走完生命周期\n\n真实材料仍是2025年9月18日的拍卖公告：912797RD1，9月23日发行，10月21日到期，价格每100面值99.685778美元. 我们设甲获配10,000美元面值. 发行付款为9,968.5778美元；这些数字的出处和教学持有量的身份不要混淆. [^TB-AUC]\n\n接下来新增一项**教学变式**：甲在发行后、到期前，把全部权利以每100面值99.80转给乙. 这里没有实际成交日期或历史成交证据，也不加任何真实账户信息. 暂不计费用，三步的现金与证券变化如下.\n\n| 事件 | 现金路径 | 权利路径 | 此步改变了什么 |\n|---|---|---|---|\n| 发行 | 甲 → 国库券发行/结算路径：9,968.5778美元；本例经济收款主体为美国财政部 | 形成甲持有的10,000面值国库券 | 财政部取得该份额对应发行对价，投资者取得权利；中介服务不改变经济收款主体 |\n| 假设转售 | 乙 → 甲：9,980美元 | 甲 → 乙：同一10,000面值权利 | 持有人与取得对价改变，条款中的到期面值不变 |\n| 按约到期支付 | 财政部 → 到期持有人乙：10,000美元 | 到期债权得到偿付 | 不是甲再收到一笔10,000美元 |\n\n为什么转售时财政部没有再取得9,980美元？因为乙此时买的是甲已经持有的权利. 甲交出权利，获得乙的付款；财政部仍负担该证券约定的到期支付. 把两步交易加起来说“这张国库券为发行人融了19,948.5778美元”，就把不同收款人的钱合并了.\n\n甲的未计费价差为$9,980-9,968.5778=11.4222$美元. 乙若按约持有到期，面值差为$10,000-9,980=20$美元. 这两个差额相加仍为31.4222美元：\n\n$$\n(9{,}980-9{,}968.5778)+(10{,}000-9{,}980)\n=10{,}000-9{,}968.5778.\n$$\n\n中间的转售价格在这项加总中抵消了. 这个等式不是在说两人承担了相同风险、占用了相同时间，也不是说可以不计交易费用；它只是帮助我们核对：没有把同一笔到期现金算给两个人.\n\n本篇显示到美分时，发行付款为9,968.58、甲价差11.42、乙差额20.00；底层继续保存上述精度.\n\n<span id=\"m02-holding-channel\"></span>\n## 三、权利可以转让，不等于任意持有渠道都能马上出售\n\n刚才的转售有一个容易被图形省掉的条件：甲通过什么渠道持有证券？\n\nTreasuryDirect的现行说明要求，新购证券在系统中持有至少45天才能转出或出售；因此，放在TreasuryDirect中的新购四周券，不能按“到期前转出给券商再卖”的路径完成我们这项安排. 通过银行、券商的商业记账系统持有，则是另一条交易渠道. [^TB-SELL]\n\n所以，上面的可转售演示明确选择**银行或券商的商业记账渠道**. 切换为TreasuryDirect新购四周券时，界面必须在转出/转售这一步停下，而不是仍画一条畅通箭头.\n\n注意我们组合了两个有日期的材料：证券条款来自2025年的真实发行，操作规则来自2026年9月21日实际读取的网页. 这是“历史契约＋已核操作规则”的教学比较，没有声称重现一笔2025年的实际转售. 规则限制的意义在于：不仅要问“这项证券有没有转让市场”，还要问“当前持有人能否通过这个渠道、在这个时点进入该市场”.\n\n这一点也解释了为什么市场参与者不只是可以省略的中间名字. 账户、登记和指令路径，直接关系到持有人能做什么.\n\n<div data-experiment-slot=\"INT-M02-FLOWS\"></div>\n\n<span id=\"m02-ipo-split\"></span>\n<span id=\"CASE-MA-REDDIT-IPO-20240325-CLOSE\"></span>\n<span id=\"CASE-MA-REDDIT-IPO-20240320\"></span>\n## 四、真实股票发行也可能有两种收款人\n\n现在换一份材料，检验前面的区分是否可迁移. Reddit日期为2024年3月20日的最终招股书封面列明：发行人出售15,276,527股，出售股东出售6,723,473股，每股发行价34美元；公司不取得这些出售股东的售股所得. [^REDDIT-IPO]\n\n这份发行面向公众出售22,000,000股，但不能因此说“公司融资了22,000,000×34”. 我们把封面基准发行拆开，**不包括可能行使的超额配售权**.\n\n| 基准发行组成 | 股数 × 每股价格 | 金额（美元） | 谁的所得 |\n|---|---:|---:|---|\n| 发行人出售部分毛额 | 15,276,527 × 34 | 519,401,918 | 发行人对应部分，尚未扣费用 |\n| 原股东出售部分毛额 | 6,723,473 × 34 | 228,598,082 | 出售股东对应部分，不进入公司发行所得 |\n| 向公众出售总额 | 22,000,000 × 34 | 748,000,000 | 两部分合计，不是公司净融资 |\n\n封面还列每股1.70美元承销折扣和佣金，因而每股扣佣金后为32.30美元. 对发行人部分计算，得到$15,276,527\\times32.30=493,431,822.10$美元；对出售股东部分计算，得到217,168,177.90美元. 原表按美元取整，两项分别显示493,431,822与217,168,178. 它们仍是**其他发行费用前**的金额，不能直接改名为全部费用后的公司净融资. [^REDDIT-IPO]\n\n这个例子带来的修正很具体：“IPO”描述首次公开发行安排，并不保证封面全部出售股份都是公司新发给公众、全部款项都进公司. 我们必须读每个出售部分的主体. 反过来，后来的公司增发仍可以给公司带来发行资金，不能把“第一次之后”全部归成投资者之间的二级换手.\n\n这里使用的是招股书基准安排，不是核定最终完成数量. 为了把“发行文件里的基准安排”和“后来实际完成”也分开，我们再看一份完成后的原件：Reddit于2024年3月26日提交的8-K/A说明，3月25日完成IPO时合计出售25,300,000股，其中公司出售18,576,527股（包括承销商全额行使3,300,000股额外购买权），出售股东仍为6,723,473股；公司毛所得更正为631,601,918美元，仍是承销折扣、佣金和估计发行费用前的口径. [^REDDIT-CLOSE]\n\n这条完成记录**不改写上面的基准发行表**. 它形成第二个有日期的状态：3月20日招股书告诉我们基准安排，3月25日完成记录告诉我们额外购买权实际被全额行使. 把两者分开，正好训练“文件时点、出售主体和金额口径”三件事同时对齐. 其2024年3月日期也早于美国2024年5月的T+1切换，不拿后来的标准周期反推它当时的交收条款.\n\n<div data-experiment-slot=\"INT-M02-IPO\"></div>\n\n<span id=\"m02-participants-records\"></span>\n## 五、把机构放回具体动作，不把它们画成一条流水线\n\n从投资者视角看，“券商里出现了股票”似乎是一件事；从履约和记录看，却可以拆成不同职责.\n\n| 参与者/系统 | 本篇需要识别的职责 | 不应与什么混同 |\n|---|---|---|\n| 发行人及登记/过户安排 | 确认证券类别、发行及股东登记等事项 | 每笔二级成交的收款人 |\n| 券商 | 接收指令、安排执行，并按账户关系记录客户权益 | 必然是最终买卖对手；必然直接进入单一交易所 |\n| 交易场所、交易商等执行来源 | 提供报价、撮合或与订单成交 | 自动完成所有后续交收 |\n| 清算机构 | 在适用制度下处理会员义务、净额和履约风险 | 股东名册或客户账本 |\n| 证券存管与交收系统 | 按指令移转参与人层记录，处理交收 | 决定每一客户的投资目标或交易价格 |\n\n券商可以把订单路由到不同执行来源，而不是每一单都直达同一个交易所. 后续是否进入某种清算服务，也取决于证券、交易和参与机构是否适用. [^EXEC] 因此，这张表是职责图，不是一条声称全球所有市场都必须经过的固定流水线.\n\n以美国股票常见的间接持有结构作具体观察：发行人层可能登记中介或名义持有人，例如DTC的名义人Cede & Co.；DTC维护参与人层记录；券商维护客户作为受益持有人的明细. 非直接参与人的券商还可能通过其他承载机构连接. SEC/FINRA的持有方式说明正是把这些记录层分开. [^HOLD]\n\n静态记录图可读成：\n\n**发行人层名义登记 ⇄ 存管参与人层头寸 ⇄ 券商客户明细 ⇄ 客户享有的相应权利.**\n\n这些双向连接表示记录和传递关系，不表示同一份证券被创造了四次. 股息、信息或指令可以沿中介链传递；名字未直接列在发行人名册，也不能仅据此断言客户没有经济权利. 关于具体客户保护和交收风险，仍需看适用账户与制度，而不是凭图形猜结论.\n\n在下一篇，我们把焦点放回券商收到的一张订单，计算它在给定报价下能成交多少. 再下一篇才检查成交后尚未履行的款券义务.\n\n<span id=\"m02-exercises\"></span>\n## 六、检验理解：不要只认“发行”两个字\n\n### 练习一：转售为何不等于再融资？\n\n按本篇国库券变式，乙向甲支付9,980美元. 有人把这笔金额加入财政部的发行收入，也把到期10,000美元加入甲的所得. 请分别修正.\n\n**解析.** 乙的付款给甲，购买已有权利，不是再向财政部认购新权利. 甲已经转出债权，到期收款者是乙. 分别按主体列账：甲为−9,968.5778、+9,980；乙为−9,980、按约+10,000；发行人的本例证券融资/到期现金为+9,968.5778、−10,000. 把不同主体或持有阶段混在一张收益表里，才会发生双重计算. 这里的“发行人”在国库券例中具体就是美国财政部；经纪、清算或付款服务机构即使参与流程，也不因此取得这笔国库券融资的经济所得.\n\n### 练习二：748,000,000美元能否叫公司净融资？\n\n使用Reddit封面基准安排，说明从向公众出售总额到公司净所得，至少要做哪两项分离.\n\n**解析.** 先从总额中分出原股东出售部分228,598,082美元，剩下发行人毛额519,401,918美元. 再分开承销佣金和其他发行费用. 扣发行人部分佣金25,970,095.90后为493,431,822.10美元，仍在其他费用前. 不能把整笔37,400,000佣金全部从公司部分扣，也不能把全部公开出售额当作公司收入. 若切换到完成记录，还要另用18,576,527股与更正后的公司毛所得631,601,918美元，不能把这个后来的完成口径倒灌进上面的基准发行表.\n\n### 练习三：公司出现在买方，是否推翻二级市场的解释？\n\n如果公司回购已有股票，钱往哪里走？若先把购回股份记作库存股而未注销，能否说法定“已发行股数”必然马上减少？\n\n**解析.** 回购中公司向出售股东支付资金，方向与发行融资相反；这说明交易主体需要逐笔识别，并不推翻投资者之间转售的解释. 回购的股份通常不再属于外部投资者持有的发行在外股份，但“发行在外”与法律/会计口径的“已发行”不能混用；是否注销、如何列报还需读相应安排. 本题为分类教学变式，不给特定公司的库存股规则作概括. 详细股数与每股权利变化交给M05.\n\n### 练习四：换渠道后，哪一步失效？\n\n把国库券路径改为“在TreasuryDirect新购四周券，发行10天后转给券商出售”，保持其他数字不变. 先指出路径问题，再决定是否计算价差.\n\n**解析.** 按本篇采用的已核操作说明，45天持有要求使这条四周券到期前转出路径不可执行. 先应停在转出步骤，不能继续把99.80乘面值、再称得到了可实现的利润. 若明确改用商业记账渠道，可以重开可转售的教学分支，但仍需要真实报价与执行才能认定实际成交.\n\n[^MIT-EQ]: **Andrew W. Lo / MIT OpenCourseWare，15.401 Finance Theory I — Lecture 7: Equities**. Fall 2008；文件版权2007–2008. [原文](https://ocw.mit.edu/courses/15-401-finance-theory-i-fall-2008/1aea40b063cad5a335e980ecf30d84b7_MIT15_401F08_lec07.pdf). 定位：slides 3–4.\n\n[^OS17]: **Steven A. Greenlaw、David Shapiro、Daniel MacDonald / OpenStax，Principles of Economics 3e — §17.1 How Businesses Raise Financial Capital**. 第3版，2022-12-14.[原文](https://openstax.org/books/principles-economics-3e/pages/17-1-how-businesses-raise-financial-capital). 定位：§17.1，尤其 Borrowing: Banks and Bonds、Corporate Stock and Public Firms、How Firms Choose between Financial Capital Sources.\n\n[^TB-AUC]: **U.S. Department of the Treasury，Treasury Auction Results — 28-Day Bill, CUSIP 912797RD1**. 2025-09-18公告；发行2025-09-23；到期2025-10-21. [原文](https://www.treasurydirect.gov/instit/annceresult/press/preanre/2025/R_20250918_1.pdf). 定位：单页表格中的 Security Term、CUSIP、Issue Date、Maturity Date、High Rate、Price.\n\n[^TB-SELL]: **TreasuryDirect / Bureau of the Fiscal Service，Selling Your Treasury Marketable Securities**. 现行操作说明，2026-09-21访问；未取得2025年网页存档.[原文](https://www.treasurydirect.gov/marketable-securities/selling-marketable-securities/). 定位：In TreasuryDirect、In the Commercial Book-Entry System；用于45天持有要求、四周券转出限制与商业记账渠道.\n\n[^REDDIT-IPO]: **Reddit, Inc.，Reddit, Inc. Final Prospectus — Class A Common Stock**. 招股书日期2024-03-20；424B4于2024-03-21提交. [原文](https://www.sec.gov/Archives/edgar/data/1713445/000162828024012380/reddit-final424b4.htm). 定位：封面、发行/佣金表、Before expenses脚注和超额配售权段；基准发行金额为扣承销折扣、佣金及其他费用前口径.\n\n[^REDDIT-CLOSE]: <strong>Reddit, Inc.，Form 8-K/A (Amendment No. 1)</strong>. Date of Report 2024-03-25；2024-03-26提交. [原文](https://www.sec.gov/Archives/edgar/data/1713445/000162828024012983/reddit-8xka.htm). 定位：Explanatory Note与Item 8.01；披露完成IPO的25,300,000股拆分、3,300,000股额外购买权全额行使及更正后的公司毛所得631,601,918美元，均为承销折扣、佣金和估计发行费用前.\n\n[^EXEC]: **SEC Investor.gov，Executing an Order**. 现行教学网页，2026-09-21访问.[原文](https://www.investor.gov/introduction-investing/investing-basics/how-stock-markets-work/executing-order). 定位：主体全文中的订单路由、执行场所及报价时效/数量.\n\n[^HOLD]: **SEC OIEA / FINRA，Investor Bulletin: Holding Your Securities**. 2023-07-12.[原文](https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins-97). 定位：开头两种持有方式、Street Name Registration及Direct Registration.",
+  "body_markdown": "发行与二级转让都交换现金和证券权利. 在发行融资中，发行人出售证券并取得资金；投资者之间的二级转让则把付款交给原持有人，转移已有权利. 两者的收款主体不同，市场成交额因此不能计作发行人的融资额.\n\n<span id=\"m02-issue-transfer\"></span>\n## 一、发行与转让的现金和权利\n\n发行向投资者提供证券权利，转让使已有权利更换持有人. 在发行融资中，发行人或政府发行主体取得资金；承销商、券商和支付系统参与交付. 在投资者之间的转让中，原持有人出售已有权利并取得价款.[^MIT-EQ][^OS17]\n\n二级市场使证券期限与投资者持有期可以分离；实际能否转让还取决于持有渠道和可得市场流动性.\n\n现金与权利分别记录：现金流向收款者，证券权利流向取得者；参与执行、清算与支付的机构按具体职责列出.\n\n<span id=\"m02-bill-lifecycle\"></span>\n## 二、国库券的发行、转让与到期\n\n912797RD1于2025年9月23日发行、10月21日到期，公告价格约为每100面值99.686美元. 设甲获配USD 10 K面值，发行付款为USD 9,968.578.[^TB-AUC]\n\n设甲在发行后、到期前，以每100面值99.80的价格把全部债权转给乙，费用为零. 现金与证券变化如下.\n\n| 事件 | 现金路径 | 权利路径 | 此步改变了什么 |\n|---|---|---|---|\n| 发行 | 甲 → 国库券发行/结算路径：9,968.578美元；本例经济收款主体为美国财政部 | 形成甲持有的10,000面值国库券 | 财政部取得该份额对应发行对价，投资者取得权利；中介服务不改变经济收款主体 |\n| 假设转售 | 乙 → 甲：9,980美元 | 甲 → 乙：同一10,000面值权利 | 持有人与取得对价改变，条款中的到期面值不变 |\n| 按约到期支付 | 财政部 → 到期持有人乙：10,000美元 | 到期债权得到偿付 | 不是甲再收到一笔10,000美元 |\n\n转售时，乙用9,980美元购买甲已经持有的同一权利，付款归甲；财政部继续承担该证券约定的到期支付，不再取得这笔二级转让对价. 因此，9,980美元不能再计入财政部的发行融资.\n\n甲的未计费价差为$9,980-9,968.578=11.422$美元. 乙若按约持有到期，面值差为$10,000-9,980=20$美元. 这两个差额相加仍为31.422美元：\n\n$$\n(9{,}980-9{,}968.578)+(10{,}000-9{,}980)\n=10{,}000-9{,}968.578.\n$$\n\n中间转售价格在加总中抵消，两位持有人取得的价差合计等于面值减发行付款. 各自回报率还取决于买入成本和持有时间.\n\n<span id=\"m02-holding-channel\"></span>\n## 三、持有渠道与转售可达性\n\n持有渠道影响转售能否在到期前完成.\n\nTreasuryDirect的现行说明要求，新购证券在系统中持有至少45天才能转出或出售；因此，放在TreasuryDirect中的新购四周券，不能按“到期前转出给券商再卖”的路径完成我们这项安排. 通过银行、券商的商业记账系统持有，则是另一条交易渠道. [^TB-SELL]\n\n上述转售设在银行或券商的商业记账渠道中. 切换为TreasuryDirect新购四周券时，45天持有要求阻止到期前转出.\n\n本例采用2025年的证券条款和2026-09-21的持有渠道规则，比较同一证券在不同渠道中的转让条件.\n\n<div data-experiment-slot=\"INT-M02-FLOWS\"></div>\n\n<span id=\"m02-ipo-split\"></span>\n<span id=\"CASE-MA-REDDIT-IPO-20240325-CLOSE\"></span>\n<span id=\"CASE-MA-REDDIT-IPO-20240320\"></span>\n## 四、股票发行中的两类收款人\n\nReddit于2024年3月20日发布的最终招股书列明：公司出售15,276,527股，原股东出售6,723,473股，发行价每股USD 34. 两部分所得分别归公司与出售股东.[^REDDIT-IPO]\n\n封面基准发行共向公众出售22,000,000股，其中公司融资毛额只对应其出售的15,276,527股；下表**不包括可能行使的超额配售权**.\n\n| 基准发行组成 | 股数 × 每股价格 | 金额（美元） | 谁的所得 |\n|---|---:|---:|---|\n| 发行人出售部分毛额 | 15,276,527 × 34 | 519,401,918 | 发行人对应部分，尚未扣费用 |\n| 原股东出售部分毛额 | 6,723,473 × 34 | 228,598,082 | 出售股东对应部分，不进入公司发行所得 |\n| 向公众出售总额 | 22,000,000 × 34 | 748,000,000 | 两部分合计，不是公司净融资 |\n\n封面还列每股1.70美元承销折扣和佣金，因而每股扣佣金后为32.30美元. 对发行人部分计算，得到$15,276,527\\times32.30=493,431,822.10$美元；对出售股东部分计算，得到217,168,177.90美元. 原表按美元取整，两项分别显示493,431,822与217,168,178. 它们仍是**其他发行费用前**的金额，不能直接改名为全部费用后的公司净融资. [^REDDIT-IPO]\n\nIPO中的公开出售可以同时包含公司发行与原股东转售. 后续增发同样可以给公司带来融资；资金归属由出售主体与交易安排决定.\n\n招股书记录基准发行安排；Reddit于2024年3月26日提交的8-K/A记录3月25日实际完成状态：合计出售25,300,000股，其中公司出售18,576,527股（包括承销商全额行使3,300,000股额外购买权），出售股东仍为6,723,473股；公司毛所得更正为631,601,918美元，仍是承销折扣、佣金和估计发行费用前的口径. [^REDDIT-CLOSE]\n\n3月20日招股书记录基准安排，3月25日完成记录反映额外购买权全额行使后的数量和所得. 两个日期分别对应计划与完成状态.\n\n<div data-experiment-slot=\"INT-M02-IPO\"></div>\n\n<span id=\"m02-participants-records\"></span>\n## 五、执行、清算与持有记录的职责\n\n执行、清算与持有记录由不同职责构成.\n\n| 参与者/系统 | 本篇需要识别的职责 | 不应与什么混同 |\n|---|---|---|\n| 发行人及登记/过户安排 | 确认证券类别、发行及股东登记等事项 | 每笔二级成交的收款人 |\n| 券商 | 接收指令、安排执行，并按账户关系记录客户权益 | 必然是最终买卖对手；必然直接进入单一交易所 |\n| 交易场所、交易商等执行来源 | 提供报价、撮合或与订单成交 | 自动完成所有后续交收 |\n| 清算机构 | 在适用制度下处理会员义务、净额和履约风险 | 股东名册或客户账本 |\n| 证券存管与交收系统 | 按指令移转参与人层记录，处理交收 | 决定每一客户的投资目标或交易价格 |\n\n券商将订单路由到适用的交易所、交易商或其他执行来源；证券和参与机构决定后续适用的清算服务.[^EXEC]\n\n以美国股票常见的间接持有结构作具体观察：发行人层可能登记中介或名义持有人，例如DTC的名义人Cede & Co.；DTC维护参与人层记录；券商维护客户作为受益持有人的明细. 非直接参与人的券商还可能通过其他承载机构连接. SEC/FINRA的持有方式说明正是把这些记录层分开. [^HOLD]\n\n**发行人层名义登记 ⇄ 存管参与人层头寸 ⇄ 券商客户明细 ⇄ 客户享有的相应权利.**\n\n这些连接传递记录、股息、信息和指令. 客户作为受益持有人享有相应权利，发行人股东名册可以登记其名义持有人.\n\n<span id=\"m02-exercises\"></span>\n## 六、练习与解析\n\n### 练习一·转让后的收款权\n\n按本篇国库券变式，乙向甲支付9,980美元. 有人把这笔金额加入财政部的发行收入，也把到期10,000美元加入甲的所得. 请分别修正.\n\n**解析.** 乙的付款给甲，购买已有权利，不是再向财政部认购新权利. 甲已经转出债权，到期收款者是乙. 分别按主体列账：甲为−9,968.578、+9,980；乙为−9,980、按约+10,000；发行人的本例证券融资/到期现金为+9,968.578、−10,000. 把不同主体或持有阶段混在一张收益表里，才会发生双重计算. 这里的“发行人”在国库券例中具体就是美国财政部；经纪、清算或付款服务机构即使参与流程，也不因此取得这笔国库券融资的经济所得.\n\n### 练习二·发行金额的归属\n\n使用Reddit封面基准安排，说明从向公众出售总额到公司净所得，至少要做哪两项分离.\n\n**解析.** 先从总额中分出原股东出售部分228,598,082美元，剩下发行人毛额519,401,918美元. 再分开承销佣金和其他发行费用. 扣发行人部分佣金25,970,095.90后为493,431,822.10美元，仍在其他费用前. 不能把整笔37,400,000佣金全部从公司部分扣，也不能把全部公开出售额当作公司收入. 若切换到完成记录，还要另用18,576,527股与更正后的公司毛所得631,601,918美元，不能把这个后来的完成口径倒灌进上面的基准发行表.\n\n### 练习三·持有渠道\n\n如果公司回购已有股票，钱往哪里走？若先把购回股份记作库存股而未注销，能否说法定“已发行股数”必然马上减少？\n\n**解析.** 回购中公司向出售股东支付资金，方向与发行融资相反；这说明交易主体需要逐笔识别，并不推翻投资者之间转售的解释. 回购的股份通常不再属于外部投资者持有的发行在外股份，但“发行在外”与法律/会计口径的“已发行”不能混用；是否注销、如何列报还需读相应安排. 本题为分类教学变式，不给特定公司的库存股规则作概括. 详细股数与每股权利变化交给M05.\n\n### 练习四·登记与受益持有\n\n把国库券路径改为“在TreasuryDirect新购四周券，发行10天后转给券商出售”，保持其他数字不变. 先指出路径问题，再决定是否计算价差.\n\n**解析.** 按本篇采用的已核操作说明，45天持有要求使这条四周券到期前转出路径不可执行. 先应停在转出步骤，不能继续把99.80乘面值、再称得到了可实现的利润. 若明确改用商业记账渠道，可以重开可转售的教学分支，但仍需要真实报价与执行才能认定实际成交.\n\n[^MIT-EQ]: **Andrew W. Lo / MIT OpenCourseWare，15.401 Finance Theory I — Lecture 7: Equities**. Fall 2008；文件版权2007–2008. [原文](https://ocw.mit.edu/courses/15-401-finance-theory-i-fall-2008/1aea40b063cad5a335e980ecf30d84b7_MIT15_401F08_lec07.pdf). 定位：slides 3–4.\n\n[^OS17]: **Steven A. Greenlaw、David Shapiro、Daniel MacDonald / OpenStax，Principles of Economics 3e — §17.1 How Businesses Raise Financial Capital**. 第3版，2022-12-14.[原文](https://openstax.org/books/principles-economics-3e/pages/17-1-how-businesses-raise-financial-capital). 定位：§17.1，尤其 Borrowing: Banks and Bonds、Corporate Stock and Public Firms、How Firms Choose between Financial Capital Sources.\n\n[^TB-AUC]: **U.S. Department of the Treasury，Treasury Auction Results — 28-Day Bill, CUSIP 912797RD1**. 2025-09-18公告；发行2025-09-23；到期2025-10-21. [原文](https://www.treasurydirect.gov/instit/annceresult/press/preanre/2025/R_20250918_1.pdf). 定位：单页表格中的 Security Term、CUSIP、Issue Date、Maturity Date、High Rate、Price.\n\n[^TB-SELL]: **TreasuryDirect / Bureau of the Fiscal Service，Selling Your Treasury Marketable Securities**. 现行操作说明，2026-09-21访问；未取得2025年网页存档.[原文](https://www.treasurydirect.gov/marketable-securities/selling-marketable-securities/). 定位：In TreasuryDirect、In the Commercial Book-Entry System；用于45天持有要求、四周券转出限制与商业记账渠道.\n\n[^REDDIT-IPO]: **Reddit, Inc.，Reddit, Inc. Final Prospectus — Class A Common Stock**. 招股书日期2024-03-20；424B4于2024-03-21提交. [原文](https://www.sec.gov/Archives/edgar/data/1713445/000162828024012380/reddit-final424b4.htm). 定位：封面、发行/佣金表、Before expenses脚注和超额配售权段；基准发行金额为扣承销折扣、佣金及其他费用前口径.\n\n[^REDDIT-CLOSE]: <strong>Reddit, Inc.，Form 8-K/A (Amendment No. 1)</strong>. Date of Report 2024-03-25；2024-03-26提交. [原文](https://www.sec.gov/Archives/edgar/data/1713445/000162828024012983/reddit-8xka.htm). 定位：Explanatory Note与Item 8.01；披露完成IPO的25,300,000股拆分、3,300,000股额外购买权全额行使及更正后的公司毛所得631,601,918美元，均为承销折扣、佣金和估计发行费用前.\n\n[^EXEC]: **SEC Investor.gov，Executing an Order**. 现行教学网页，2026-09-21访问.[原文](https://www.investor.gov/introduction-investing/investing-basics/how-stock-markets-work/executing-order). 定位：主体全文中的订单路由、执行场所及报价时效/数量.\n\n[^HOLD]: **SEC OIEA / FINRA，Investor Bulletin: Holding Your Securities**. 2023-07-12.[原文](https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins-97). 定位：开头两种持有方式、Street Name Registration及Direct Registration.",
   "anchors": [
     {
       "id": "m02-issue-transfer",
-      "title": "一、先看两条线：现金往哪里走，权利归给谁",
+      "title": "一、发行与转让的现金和权利",
       "kind": "section",
-      "preview": "追踪发行与转让中的现金和权利，区分交易对手、服务机构和持有记录."
+      "preview": "发行增加发行人的融资；已有证券转让将现金交给出售者，并转移持有权利."
     },
     {
       "id": "m02-bill-lifecycle",
-      "title": "二、沿同一笔国库券走完生命周期",
+      "title": "二、国库券的发行、转让与到期",
       "kind": "section",
-      "preview": "追踪发行与转让中的现金和权利，区分交易对手、服务机构和持有记录."
+      "preview": "按发行、转售、到期三个阶段，分别记录买卖双方和发行人的现金变化."
     },
     {
       "id": "m02-holding-channel",
-      "title": "三、权利可以转让，不等于任意持有渠道都能马上出售",
+      "title": "三、持有渠道与转售可达性",
       "kind": "section",
-      "preview": "追踪发行与转让中的现金和权利，区分交易对手、服务机构和持有记录."
+      "preview": "TreasuryDirect新购证券的45天持有要求约束四周券的转出路径."
     },
     {
       "id": "m02-ipo-split",
-      "title": "四、真实股票发行也可能有两种收款人",
+      "title": "四、股票发行中的两类收款人",
       "kind": "section",
-      "preview": "追踪发行与转让中的现金和权利，区分交易对手、服务机构和持有记录."
+      "preview": "Reddit基准IPO中，公司新发股份与股东出售已有股份对应两组收款人."
     },
     {
       "id": "m02-participants-records",
-      "title": "五、把机构放回具体动作，不把它们画成一条流水线",
+      "title": "五、执行、清算与持有记录的职责",
       "kind": "section",
-      "preview": "追踪发行与转让中的现金和权利，区分交易对手、服务机构和持有记录."
+      "preview": "券商执行订单，清算和存管机构处理机构间义务，客户明细记录受益持有."
     },
     {
       "id": "m02-exercises",
-      "title": "六、检验理解：不要只认“发行”两个字",
+      "title": "六、练习与解析",
       "kind": "section",
-      "preview": "追踪发行与转让中的现金和权利，区分交易对手、服务机构和持有记录."
+      "preview": "比较发行收入、转让所得及不同持有渠道的可达路径."
     },
     {
       "id": "CASE-MA-REDDIT-IPO-20240320",
@@ -77,11 +77,11 @@
       "kind": "case",
       "period": "2024-03-20基准招股书",
       "cutoff": "2026-09-21",
-      "cutoff_role": "教学材料的作者取证截止日，非公司完整研究日期",
+      "cutoff_role": "教学材料取证截止日",
       "sources": [
         "MA-REDDIT-IPO"
       ],
-      "preview": "不含超额配售的基准发行两部分及其扣佣金、其他费用前金额；不是最终完成总量或公司净融资.",
+      "preview": "2024-03-20招股书的基准出售数量、每股34美元价格及承销费用.",
       "synthetic_extensions": []
     },
     {
@@ -90,25 +90,25 @@
       "kind": "case",
       "period": "2024-03-25 completion; 8-K/A filed 2024-03-26",
       "cutoff": "2026-09-21",
-      "cutoff_role": "教学材料的作者取证截止日，非公司完整研究日期",
+      "cutoff_role": "教学材料取证截止日",
       "sources": [
         "MA-REDDIT-CLOSE"
       ],
-      "preview": "Completed IPO share split, full exercise of the 3.3m additional-share option, and corrected issuer gross proceeds of $631,601,918 before underwriting discounts, commissions and estimated offering expenses.",
+      "preview": "2024-03-25完成25.3M股发行，包括额外购买权3.3M股；更正后的公司毛所得约631.602M美元.",
       "synthetic_extensions": []
     }
   ],
   "anchor_aliases": [],
-  "prompt": "你在教M02，版本2026-09-21-review-v2. 先实际读取上表及本篇脚注给出的URL，\n保留源版本、实际读取单元和支持任务的内容. 不要把IPO封面基准数量\n说成最终完成数量，不要给99.80教学价格补一个虚假的行情时间戳.\n\n读完以后，让我用三列（甲、乙、发行人）重建国库券发行/转售/到期的现金，\n再画相反方向的权利变化. 不先给三列答案；若我把到期钱同时分给甲乙，\n提示我检查转让后的权利持有人.\n然后让我从Reddit招股书封面解释748,000,000为何不是公司净融资，\n要求把出售股东、佣金及其他费用逐项分开；随后切换8-K/A完成记录，让我说明为什么18,576,527股与631,601,918美元不能倒灌回招股书基准表.\n最后切换TreasuryDirect持有渠道，问我哪一步不再可达；\n再用发行人名义登记—DTC参与人—券商客户明细图检验“钱给谁、谁记录什么”.\n参与者名称可就地解释，不做机构缩写背诵考试.\n以正确画出资金、权利和记录三种关系为通过标准；完整解析取自本篇，\n读取失败时先处理材料缺口，不凭常识填具体渠道规则.",
+  "prompt": "用M02《发行、交易与市场参与者》带我追踪资金和权利. 先通过本篇 reference 包中的公开链接，实际读完 required_readings 指定单元，记录来源、版本、读取范围和支持当前讲解的内容. PDF 表格与公式核对原页. 读取失败时从原机构查找同版材料；仍缺关键单元则指出受影响的任务，补齐后再讲解. 根据一次完整任务诊断我的水平，跳过已掌握的步骤；反馈先给定位提示，再展开解析.\n让我按甲、乙、发行人三列，重建国库券发行、转售和到期的现金变化及权利转移；99.80为教学转售价. 再读Reddit招股书的基准发行表，把748M美元总额分到发行人、出售股东、承销费用及其他发行费用，随后与3月25日完成发行的8-K/A记录比较，保留两份材料各自的数量和时点. 换用TreasuryDirect新购持有渠道，要求我依据45天规则判断转售路径. 最后说明发行人名册、DTC参与人和券商客户明细各记录什么. 通过标准是正确区分收款主体、权利持有人和记录机构.",
   "agent_packet": {
     "entry_id": "zh-m02",
     "node_id": "M02",
-    "content_version": "2026-09-21-review-v2",
+    "content_version": "2026-09-22-deep-review",
     "export_mode": "public",
     "selected_branch": "full_entry",
     "body_source": "body_markdown",
     "learning_task": "追踪发行与转让中的现金和权利，区分交易对手、服务机构和持有记录.",
-    "prompt": "你在教M02，版本2026-09-21-review-v2. 先实际读取上表及本篇脚注给出的URL，\n保留源版本、实际读取单元和支持任务的内容. 不要把IPO封面基准数量\n说成最终完成数量，不要给99.80教学价格补一个虚假的行情时间戳.\n\n读完以后，让我用三列（甲、乙、发行人）重建国库券发行/转售/到期的现金，\n再画相反方向的权利变化. 不先给三列答案；若我把到期钱同时分给甲乙，\n提示我检查转让后的权利持有人.\n然后让我从Reddit招股书封面解释748,000,000为何不是公司净融资，\n要求把出售股东、佣金及其他费用逐项分开；随后切换8-K/A完成记录，让我说明为什么18,576,527股与631,601,918美元不能倒灌回招股书基准表.\n最后切换TreasuryDirect持有渠道，问我哪一步不再可达；\n再用发行人名义登记—DTC参与人—券商客户明细图检验“钱给谁、谁记录什么”.\n参与者名称可就地解释，不做机构缩写背诵考试.\n以正确画出资金、权利和记录三种关系为通过标准；完整解析取自本篇，\n读取失败时先处理材料缺口，不凭常识填具体渠道规则.",
+    "prompt": "用M02《发行、交易与市场参与者》带我追踪资金和权利. 先通过本篇 reference 包中的公开链接，实际读完 required_readings 指定单元，记录来源、版本、读取范围和支持当前讲解的内容. PDF 表格与公式核对原页. 读取失败时从原机构查找同版材料；仍缺关键单元则指出受影响的任务，补齐后再讲解. 根据一次完整任务诊断我的水平，跳过已掌握的步骤；反馈先给定位提示，再展开解析.\n让我按甲、乙、发行人三列，重建国库券发行、转售和到期的现金变化及权利转移；99.80为教学转售价. 再读Reddit招股书的基准发行表，把748M美元总额分到发行人、出售股东、承销费用及其他发行费用，随后与3月25日完成发行的8-K/A记录比较，保留两份材料各自的数量和时点. 换用TreasuryDirect新购持有渠道，要求我依据45天规则判断转售路径. 最后说明发行人名册、DTC参与人和券商客户明细各记录什么. 通过标准是正确区分收款主体、权利持有人和记录机构.",
     "required_readings": [
       {
         "source_id": "MA-OS17",
@@ -340,13 +340,13 @@
         }
       }
     },
-    "reading_scope_notes": "公开Agent包不假设可访问本地F盘；本篇来源均提供可实际读取的公开入口.",
+    "reading_scope_notes": "",
     "experiment_ids": [
       "EXP-MA-BILL-FLOWS-v1",
       "EXP-MA-IPO-SNAPSHOTS-v1"
     ]
   },
-  "agent_markdown": "### 交互规范：`INT-M02-FLOWS`\n\n控件：`case=bill/ipo`（默认bill）；`step=issue/transfer/maturity`；`channel=commercial/treasurydirect_new`（默认commercial）；面值默认10000美元，100至100000、步长100；转售价固定教学99.80，不开放成“历史价格”. IPO分支增加只读的`ipo_view=prospectus_base/completed_close`：默认`prospectus_base`并允许切换`component=issuer/selling_holders/combined`；`completed_close`只展示3月25日完成数量和更正后的公司毛所得，不把两时点数据合成一张无日期的表.\n\n**国库券状态机.** 所有账户值是本例的现金变动和面值权利，不是实际账户余额.\n\n| 状态 | 甲累计现金变动 | 乙累计现金变动 | 本例义务主体（财政部）累计现金变动 | 甲/乙面值权利 |\n|---|---:|---:|---:|---:|\n| 发行动作完成（设定） | −9968.5778 | 0 | +9968.5778 | 10000 / 0 |\n| 可达转售动作完成（设定） | +11.4222 | −9980 | +9968.5778 | 0 / 10000 |\n| 按约到期支付（条件结果） | +11.4222 | +20 | −31.4222 | 0 / 0 |\n\n财政部列仅跟踪本例面值份额，不是财政部全部财务；支付、清算或经纪中介没有被错误合并成经济收款主体. 各行三方现金变化之和为0. 所有小数按内部精度核算，显示到美分.\n\n若`channel=treasurydirect_new`，转售动作被阻止：保留发行状态，说明45天条件与四周期限的冲突. 点击到期可走“未转售，甲按约收款”的另一分支：甲累计+31.4222、乙0、发行人−31.4222. 不可先显示不可能的转售，再悄悄恢复甲的持有.\n\nIPO的`prospectus_base`分支用整数股数及每股34、佣金1.70：输出本篇基准发行金额关系；`combined`清楚写“公开出售总额”，不能标“公司净融资”.`completed_close`是独立只读状态：25,300,000股合计、公司18,576,527股、出售股东6,723,473股、公司毛所得631,601,918美元，并显示“完成记录/更正8-K/A”. 不提供把超额配售开关任意拨回基准表的伪历史.\n\nDOM：`section#INT-M02-FLOWS`，按钮带阶段名称与`aria-pressed`；每条边有“付款/权利转移/记录”文本；不可达路径显示原因文字，不仅变灰. 表格始终可打开. 打印展开商业渠道、受限渠道和IPO三个静态状态. 禁止生成客户姓名、账户号码或“已到账”真实性标记.\n\n### 指定阅读单元\n\n| 必读来源 | 完整单元 | 目的 |\n|---|---|---|\n| OS17、MIT-EQ | §17.1；slides 3–4 | 发行和转售的经济关系 |\n| TB-AUC、TB-SELL | 拍卖单页；销售/转出说明全文 | 同券路径与持有渠道 |\n| REDDIT-IPO、REDDIT-CLOSE | 招股书封面及发行/费用表；8-K/A Item 8.01完整段 | 区分基准安排、完成状态，以及发行人和出售股东两笔钱 |\n| EXEC、HOLD | 执行订单主体；持有方式开头及Street Name完整说明 | 交易来源、机构职责和记录层 |\n\n### 阅读范围说明\n\n公开Agent包不假设可访问本地F盘；本篇来源均提供可实际读取的公开入口.\n",
+  "agent_markdown": "",
   "sources": [
     "MA-MIT-EQ",
     "MA-OS17",
@@ -362,49 +362,49 @@
       "label": "MIT-EQ",
       "source_id": "MA-MIT-EQ",
       "kind": "footnote",
-      "definition_markdown": "[^MIT-EQ]: **Andrew W. Lo / MIT OpenCourseWare，15.401 Finance Theory I — Lecture 7: Equities**. Fall 2008；文件版权2007–2008.[原文](https://ocw.mit.edu/courses/15-401-finance-theory-i-fall-2008/1aea40b063cad5a335e980ecf30d84b7_MIT15_401F08_lec07.pdf). 定位：slides 3–4；本会话首轮另看slide 5但不采用其历史统计. 采用边界：普通股、发行与二级转售的结构；不采用后续股票估值单元."
+      "definition_markdown": "[^MIT-EQ]: **Andrew W. Lo / MIT OpenCourseWare，15.401 Finance Theory I — Lecture 7: Equities**. Fall 2008；文件版权2007–2008. [原文](https://ocw.mit.edu/courses/15-401-finance-theory-i-fall-2008/1aea40b063cad5a335e980ecf30d84b7_MIT15_401F08_lec07.pdf). 定位：slides 3–4."
     },
     {
       "label": "OS17",
       "source_id": "MA-OS17",
       "kind": "footnote",
-      "definition_markdown": "[^OS17]: **Steven A. Greenlaw、David Shapiro、Daniel MacDonald / OpenStax，Principles of Economics 3e — §17.1 How Businesses Raise Financial Capital**. 第3版，2022-12-14；在线单元于2026-09-21取得.[原文](https://openstax.org/books/principles-economics-3e/pages/17-1-how-businesses-raise-financial-capital). 定位：§17.1 全节；教学采用 Borrowing: Banks and Bonds、Corporate Stock and Public Firms、How Firms Choose between Financial Capital Sources. 采用边界：融资与权利的经济关系；具体股份类别和现行规则另据原件. 教材概括不覆盖所有股份类别."
+      "definition_markdown": "[^OS17]: **Steven A. Greenlaw、David Shapiro、Daniel MacDonald / OpenStax，Principles of Economics 3e — §17.1 How Businesses Raise Financial Capital**. 第3版，2022-12-14.[原文](https://openstax.org/books/principles-economics-3e/pages/17-1-how-businesses-raise-financial-capital). 定位：§17.1，尤其 Borrowing: Banks and Bonds、Corporate Stock and Public Firms、How Firms Choose between Financial Capital Sources."
     },
     {
       "label": "TB-AUC",
       "source_id": "MA-TB-AUC",
       "kind": "footnote",
-      "definition_markdown": "[^TB-AUC]: **U.S. Department of the Treasury，Treasury Auction Results — 28-Day Bill, CUSIP 912797RD1**.2025-09-18公告；发行2025-09-23；到期2025-10-21.[原文](https://www.treasurydirect.gov/instit/annceresult/press/preanre/2025/R_20250918_1.pdf). 定位：单页全文及原表：Security Term、CUSIP、Issue Date、Maturity Date、High Rate、Price. 采用边界：具名历史发行条款与公布发行价格；不证明某个账户的获配或实际到账."
+      "definition_markdown": "[^TB-AUC]: **U.S. Department of the Treasury，Treasury Auction Results — 28-Day Bill, CUSIP 912797RD1**. 2025-09-18公告；发行2025-09-23；到期2025-10-21. [原文](https://www.treasurydirect.gov/instit/annceresult/press/preanre/2025/R_20250918_1.pdf). 定位：单页表格中的 Security Term、CUSIP、Issue Date、Maturity Date、High Rate、Price."
     },
     {
       "label": "TB-SELL",
       "source_id": "MA-TB-SELL",
       "kind": "footnote",
-      "definition_markdown": "[^TB-SELL]: **TreasuryDirect / Bureau of the Fiscal Service，Selling Your Treasury Marketable Securities**. 现行操作说明，取得2026-09-21；未取得2025年网页存档.[原文](https://www.treasurydirect.gov/marketable-securities/selling-marketable-securities/). 定位：全文，重点 In TreasuryDirect、In the Commercial Book-Entry System. 采用边界：新购证券45天持有要求、四周券转出限制和商业记账渠道；本例不冒充2025年真实转售操作记录."
+      "definition_markdown": "[^TB-SELL]: **TreasuryDirect / Bureau of the Fiscal Service，Selling Your Treasury Marketable Securities**. 现行操作说明，2026-09-21访问；未取得2025年网页存档.[原文](https://www.treasurydirect.gov/marketable-securities/selling-marketable-securities/). 定位：In TreasuryDirect、In the Commercial Book-Entry System；用于45天持有要求、四周券转出限制与商业记账渠道."
     },
     {
       "label": "REDDIT-IPO",
       "source_id": "MA-REDDIT-IPO",
       "kind": "footnote",
-      "definition_markdown": "[^REDDIT-IPO]: **Reddit, Inc.，Reddit, Inc. Final Prospectus — Class A Common Stock**. 招股书日期2024-03-20；424B4于2024-03-21提交.[原文](https://www.sec.gov/Archives/edgar/data/1713445/000162828024012380/reddit-final424b4.htm). 定位：封面全文及发行/佣金表、Before expenses脚注和超额配售权段. 采用边界：不含超额配售的基准发行两部分及其扣佣金、其他费用前金额；不是最终完成总量或公司净融资."
+      "definition_markdown": "[^REDDIT-IPO]: **Reddit, Inc.，Reddit, Inc. Final Prospectus — Class A Common Stock**. 招股书日期2024-03-20；424B4于2024-03-21提交. [原文](https://www.sec.gov/Archives/edgar/data/1713445/000162828024012380/reddit-final424b4.htm). 定位：封面、发行/佣金表、Before expenses脚注和超额配售权段；基准发行金额为扣承销折扣、佣金及其他费用前口径."
     },
     {
       "label": "REDDIT-CLOSE",
       "source_id": "MA-REDDIT-CLOSE",
       "kind": "footnote",
-      "definition_markdown": "[^REDDIT-CLOSE]: **Reddit, Inc.，Form 8-K/A (Amendment No. 1)**. Date of Report 2024-03-25；2024-03-26提交.[原文](https://www.sec.gov/Archives/edgar/data/1713445/000162828024012983/reddit-8xka.htm). 定位：Explanatory Note与Item 8.01完整段. 采用边界：完成IPO的25,300,000股拆分、承销商全额行使3,300,000股额外购买权，以及更正后的公司毛所得631,601,918美元；仍是承销折扣、佣金和估计发行费用前. 原始8-K中的错误毛所得不采用."
+      "definition_markdown": "[^REDDIT-CLOSE]: <strong>Reddit, Inc.，Form 8-K/A (Amendment No. 1)</strong>. Date of Report 2024-03-25；2024-03-26提交. [原文](https://www.sec.gov/Archives/edgar/data/1713445/000162828024012983/reddit-8xka.htm). 定位：Explanatory Note与Item 8.01；披露完成IPO的25,300,000股拆分、3,300,000股额外购买权全额行使及更正后的公司毛所得631,601,918美元，均为承销折扣、佣金和估计发行费用前."
     },
     {
       "label": "EXEC",
       "source_id": "MA-EXEC",
       "kind": "footnote",
-      "definition_markdown": "[^EXEC]: **SEC Investor.gov，Executing an Order**. 现行教学网页；取得2026-09-21.[原文](https://www.investor.gov/introduction-investing/investing-basics/how-stock-markets-work/executing-order). 定位：主体全文，路由与不同执行场所、报价时效/数量. 采用边界：券商路由和执行路径；非同一时点真实盘口."
+      "definition_markdown": "[^EXEC]: **SEC Investor.gov，Executing an Order**. 现行教学网页，2026-09-21访问.[原文](https://www.investor.gov/introduction-investing/investing-basics/how-stock-markets-work/executing-order). 定位：主体全文中的订单路由、执行场所及报价时效/数量."
     },
     {
       "label": "HOLD",
       "source_id": "MA-HOLD",
       "kind": "footnote",
-      "definition_markdown": "[^HOLD]: **SEC OIEA / FINRA，Investor Bulletin: Holding Your Securities**.2023-07-12.[原文](https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins-97). 定位：开头两种持有方式；Street Name Registration说明及主要考虑事项；Direct Registration对照. 采用边界：名义登记、受益持有与客户记录层次；不推论所有法域的破产结果."
+      "definition_markdown": "[^HOLD]: **SEC OIEA / FINRA，Investor Bulletin: Holding Your Securities**. 2023-07-12.[原文](https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins-97). 定位：开头两种持有方式、Street Name Registration及Direct Registration."
     }
   ],
   "relations": [
