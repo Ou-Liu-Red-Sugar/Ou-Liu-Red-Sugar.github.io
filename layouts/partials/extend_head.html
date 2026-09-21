@@ -13,7 +13,8 @@
 <script defer src="{{ "js/notebook-number-format.js" | relURL }}?v={{ $v }}" data-notebook-numbers></script>
 {{- end -}}
 
-{{- if eq .Params.math true }}
+{{- /* Notebook indexes also display TeX in reference and notation previews. */ -}}
+{{- if or (eq .Params.math true) (eq .Section "notebook") }}
 <script>
   window.MathJax = {
     loader: {
