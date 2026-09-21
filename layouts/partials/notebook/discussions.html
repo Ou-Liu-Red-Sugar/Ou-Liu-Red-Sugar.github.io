@@ -7,12 +7,12 @@
 {{- $identity := $entry.node_id | default $entry.id -}}
 {{- $url := printf "%s%s" (strings.TrimSuffix "/" ($settings.publicBaseURL | default $page.Site.BaseURL)) $entry.url -}}
 {{- $config := dict "repo" $settings.repo "repoId" $settings.repoId "category" $settings.category "categoryId" $settings.categoryId "ready" (not (not $ready)) "nodeId" $identity "lang" $page.Lang "title" $entry.title "version" ($entry.content_version | default $entry.revised) "url" $url "anchors" ($entry.anchors | default slice) -}}
-<link rel="stylesheet" href="{{ "notebook/discussions.css" | relURL }}">
+<link rel="stylesheet" href="{{ partial "notebook/asset.html" "/notebook/discussions.css" }}">
 <section class="entry-discussion" id="entry-discussion" aria-labelledby="entry-discussion-title">
-  <p class="eyebrow">{{ if $zh }}READ TOGETHER{{ else }}DISCUSSION{{ end }}</p>
-  <h2 id="entry-discussion-title">{{ if $zh }}一起读，也一起把问题说清楚.{{ else }}Read together. Work through the questions.{{ end }}</h2>
-  <p>{{ if $zh }}关于整篇的想法留在这里；某个推导、算例或表格的问题，可以点小节旁的“章说”，在原处展开讨论.{{ else }}Discuss the entry here, or use “Discuss” beside a section to ask about a particular argument, example or table.{{ end }}</p>
-  <div class="discussion-entry-actions"><button type="button" class="primary-button" data-discuss-entry>{{ if $zh }}查看／参与本篇讨论{{ else }}Read or join the discussion{{ end }} <span aria-hidden="true">↗</span></button><span>{{ if $zh }}使用 GitHub 账号参与{{ else }}Join with your GitHub account{{ end }}</span></div>
+  <p class="eyebrow">DISCUSSION</p>
+  <h2 id="entry-discussion-title">{{ if $zh }}评论与章说{{ else }}Comments{{ end }}</h2>
+  <p>{{ if $zh }}在这里评论整篇文章，或点击小节旁的“章说”讨论具体内容.{{ else }}Comment on this entry, or use “Discuss” beside a heading to comment on that section.{{ end }}</p>
+  <div class="discussion-entry-actions"><button type="button" class="primary-button" data-discuss-entry>{{ if $zh }}查看评论{{ else }}View comments{{ end }} <span aria-hidden="true">↗</span></button><span>{{ if $zh }}使用 GitHub 账号参与{{ else }}Join with your GitHub account{{ end }}</span></div>
   <noscript><p><a href="https://github.com/{{ $settings.repo }}/discussions">{{ if $zh }}到 GitHub 查看讨论{{ else }}View discussions on GitHub{{ end }} ↗</a></p></noscript>
 </section>
 <dialog id="discussion-dialog" class="discussion-dialog" aria-labelledby="discussion-title">

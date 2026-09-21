@@ -1,12 +1,24 @@
 <!DOCTYPE html>
 <html lang="{{ .Site.Language.LanguageCode }}">
-<head>{{ partial "head.html" . }}<link rel="stylesheet" href="/notebook/site.css"><script type="module" src="/notebook/site.js"></script></head>
-<body class="notebook-app {{ if and (ne .Section "notebook") (not .IsHome) }}legacy-page{{ end }}" data-lang="{{ .Lang }}">
+<head>
+  {{ partial "head.html" . }}
+  {{ range slice "site" "chrome" "reading" "overlays" }}<link rel="stylesheet" href="{{ partial "notebook/asset.html" (printf "/notebook/%s.css" .) }}">{{ end }}
+  <script type="module" src="{{ partial "notebook/asset.html" "/notebook/site.js" }}"></script>
+  {{ if .IsHome }}<link rel="stylesheet" href="{{ partial "notebook/asset.html" "/notebook/home.css" }}"><script type="module" src="{{ partial "notebook/asset.html" "/notebook/home.js" }}"></script>{{ end }}
+</head>
+<body class="notebook-app {{ if and (ne .Section "notebook") (not .IsHome) }}legacy-page{{ end }}{{ if .IsHome }} is-home{{ end }}" data-lang="{{ .Lang }}">
 <a class="skip-link" href="#main">{{ if eq .Lang "zh" }}跳到正文{{ else }}Skip to content{{ end }}</a>
 {{ partial "notebook/header.html" . }}
 <main id="main" class="site-main" tabindex="-1">{{ block "main" . }}{{ end }}</main>
-<footer class="site-footer"><a href="/{{ .Lang }}/">Ou Liu <span>· 刘欧</span></a><span>{{ if eq .Lang "zh" }}持续学习，保留来路。{{ else }}Notes in progress. Sources in view.{{ end }}</span><a href="/agent/{{ .Lang }}/index.md">Agent index ↗</a></footer>
+<footer class="site-colophon">
+  <a class="colophon-brand" href="/{{ .Lang }}/"><img src="/notebook/brand/mark.svg" width="32" height="32" alt=""><span>Ou Liu <small>刘欧</small></span></a>
+  <p>{{ if eq .Lang "zh" }}个人主页{{ else }}Personal website{{ end }}</p>
+  <nav aria-label="{{ if eq .Lang "zh" }}页尾导航{{ else }}Footer navigation{{ end }}"><a href="/{{ .Lang }}/about/">{{ if eq .Lang "zh" }}关于{{ else }}About{{ end }}</a><a href="https://github.com/Ou-Liu-Red-Sugar/Ou-Liu-Red-Sugar.github.io">GitHub</a><a href="/agent/{{ .Lang }}/index.md">Agent index {{ partial "notebook/icon.html" (dict "name" "arrow-up-right") }}</a></nav>
+</footer>
+{{ $readings := slice }}
+{{ range .Sites }}{{ range where .RegularPages "Section" "notes" }}{{ $readings = $readings | append (dict "id" (printf "lecture-%s-%s" .Lang .File.ContentBaseName) "title" .Title "summary" (.Description | plainify) "text" (.Plain | truncate 5000) "url" .RelPermalink "lang" .Lang "kind" "lecture" "subject" "mathematics") }}{{ end }}{{ end }}
+{{ range .Site.Data.notes_pdfs }}{{ $readings = $readings | append (dict "id" (printf "pdf-%s-%s" .lang (.title | urlize)) "title" .title "summary" (.description | plainify) "text" .description "url" .pdf "lang" .lang "kind" "lecture" "format" "PDF" "subject" "mathematics") }}{{ end }}
+<script id="reading-search-pages" type="application/json">{{ $readings | jsonify | safeJS }}</script>
 {{ partial "notebook/overlays.html" . }}
 {{ partial "extend_footer.html" . }}
 </body></html>
-

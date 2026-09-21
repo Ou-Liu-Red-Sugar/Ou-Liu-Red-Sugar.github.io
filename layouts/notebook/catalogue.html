@@ -1,12 +1,15 @@
 {{ define "main" }}
 {{ $page := . }}{{ $zh := eq .Lang "zh" }}{{ $book := .Site.Data.notebook }}{{ $all := where $book.entries "lang" .Lang }}{{ $entries := where $all "kind" "not in" (slice "company" "research") }}{{ $companies := where $all "kind" "company" }}
-<div class="catalogue-shell">
-  <header class="page-intro"><p class="eyebrow">THE NOTEBOOK</p><h1>{{ .Title }}</h1><p>{{ if $zh }}按领域与主题进入，每个领域都有自己的阅读路线. 需要补充的概念、实例和来源可以就地查阅.{{ else }}Explore by domain and topic, with a reading path for each domain. Concepts, examples and sources remain within reach.{{ end }}</p><a href="/{{ .Lang }}/notebook/notation/" data-reference="notation-{{ .Lang }}">{{ if $zh }}符号与单位{{ else }}Notation & units{{ end }} ↗</a></header>
-  {{ with $companies }}<a class="company-library-link" href="/{{ $page.Lang }}/notebook/companies/"><span><strong>{{ if $zh }}公司资料与研究{{ else }}Company profiles & research{{ end }}</strong><small>{{ if $zh }}查看企业业务与有日期的研究材料{{ else }}Explore businesses and dated research{{ end }}</small></span><span>{{ len . }} →</span></a>{{ end }}
+<div class="catalogue-shell notebook-catalogue">
+  <header class="page-intro catalogue-intro">
+    <div class="catalogue-heading"><p class="eyebrow">INVESTMENT NOTEBOOK <span>/ {{ len $entries }} {{ if $zh }}篇词条{{ else }}ENTRIES{{ end }}</span></p><h1>{{ .Title }}</h1></div>
+    <div class="catalogue-description"><p>{{ if $zh }}按领域和主题浏览投资学词条. 每个领域提供阅读路线，公司资料另设目录.{{ else }}English-language investment notes, organised by subject.{{ end }}</p><a class="catalogue-notation" href="/{{ .Lang }}/notebook/notation/" data-reference="notation-{{ .Lang }}">{{ if $zh }}符号与单位{{ else }}Notation & units{{ end }} <span aria-hidden="true">↗</span></a></div>
+  </header>
+  <div class="catalogue-section-heading"><h2>{{ if $zh }}知识领域{{ else }}Subjects{{ end }}</h2><span>{{ if $zh }}展开领域，查看路线与词条{{ else }}Open a subject to see its entries{{ end }}</span></div>
   <div class="catalogue-accordion" id="paths">
-    {{ range $book.subjects }}{{ $subject := . }}{{ $items := where $entries "subject" .id }}{{ if $items }}
+    {{ $number := 0 }}{{ range $book.subjects }}{{ $subject := . }}{{ $items := where $entries "subject" .id }}{{ if $items }}{{ $number = add $number 1 }}
     <details id="{{ .id }}" class="subject-group">
-      <summary><span><strong>{{ if $zh }}{{ .zh }}{{ else }}{{ .en }}{{ end }}</strong><small>{{ if $zh }}{{ .desc_zh }}{{ else }}{{ .desc_en }}{{ end }}</small></span><span class="subject-count">{{ len $items }}</span></summary>
+      <summary><span class="subject-number" aria-hidden="true">{{ printf "%02d" $number }}</span><span class="subject-heading"><strong>{{ if $zh }}{{ .zh }}{{ else }}{{ .en }}{{ end }}</strong><small>{{ if $zh }}{{ .desc_zh }}{{ else }}{{ .desc_en }}{{ end }}</small></span><span class="subject-count">{{ len $items }} <span>{{ if $zh }}篇{{ else }}entries{{ end }}</span></span><span class="subject-toggle" aria-hidden="true"></span></summary>
       <div class="subject-content">
         {{ range where (where $book.paths "lang" $page.Lang) "subject" $subject.id }}{{ if and .steps (not .deprecated) }}<a class="domain-route" href="{{ .url }}"><span><small>{{ if $zh }}本领域推荐路线{{ else }}Suggested domain path{{ end }}</small><strong>{{ .title }}</strong></span><span>→</span></a>{{ end }}{{ end }}
         {{ $assigned := slice }}
@@ -16,5 +19,6 @@
       </div>
     </details>{{ end }}{{ end }}
   </div>
+  {{ with $companies }}<a class="company-library-link" href="/{{ $page.Lang }}/notebook/companies/"><span class="company-library-mark" aria-hidden="true">↗</span><span><strong>{{ if $zh }}公司资料与研究{{ else }}Company profiles & research{{ end }}</strong><small>{{ if $zh }}查看企业业务与有日期的研究材料{{ else }}Company profiles and dated research notes{{ end }}</small></span><span class="company-library-count">{{ len . }} <span>{{ if $zh }}家公司{{ else }}companies{{ end }}</span></span><span aria-hidden="true">→</span></a>{{ end }}
 </div>
 {{ end }}

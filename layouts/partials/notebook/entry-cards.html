@@ -1,7 +1,7 @@
 {{ $zh := .zh }}
 <div class="entry-grid">{{ range .items }}
   <a class="entry-card" href="{{ .url }}">
-    <div class="card-meta"><span>{{ with .node_id }}{{ . }}{{ else }}{{ if eq .kind "company" }}{{ if $zh }}公司资料{{ else }}COMPANY{{ end }}{{ else }}{{ if $zh }}学习词条{{ else }}ENTRY{{ end }}{{ end }}{{ end }}</span><span>↗</span></div>
+    <div class="card-meta"><span>{{ with .node_id }}{{ . }}{{ else }}{{ if eq .kind "company" }}{{ if $zh }}公司资料{{ else }}COMPANY{{ end }}{{ else }}{{ if $zh }}学习词条{{ else }}ENTRY{{ end }}{{ end }}{{ end }}</span><span class="card-arrow" aria-hidden="true">↗</span></div>
     <h3>{{ .title }}</h3><p>{{ .summary }}</p>
     <div class="card-bottom">{{ if .cutoff }}{{ if $zh }}研究截至{{ else }}Research as of{{ end }} {{ .cutoff }}{{ else }}{{ with .study_time }}{{ . }}{{ else }}{{ if $zh }}互动阅读 · Agent 教学{{ else }}Interactive · Agent teaching{{ end }}{{ end }}{{ end }}</div>
   </a>

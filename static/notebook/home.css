@@ -1,0 +1,118 @@
+/* Homepage: separate mathematics and investment entrances, routes and lectures. */
+.homepage { max-width:1264px; margin:0 auto; padding:0 48px; }
+.section-kicker { display:flex; align-items:center; gap:9px; font:600 10px/1.6 var(--sans); letter-spacing:.16em; color:var(--muted); margin:0 0 22px; }
+.section-kicker>span:empty { width:6px; height:6px; border-radius:50%; background:var(--warm); }
+.home-intro { display:grid; grid-template-columns:minmax(0,1.45fr) minmax(280px,1fr); align-items:center; gap:9%; padding:84px 0 78px; }
+.home-intro h1 { font:600 clamp(40px,4.5vw,62px)/1.3 var(--sans); letter-spacing:-.065em; margin:0 0 25px; color:var(--ink); }
+.home-intro h1>span { color:var(--warm); }
+[data-lang=en] .home-intro h1 { font:500 clamp(42px,4.7vw,65px)/1.12 var(--display); letter-spacing:-.055em; }
+.home-description p { margin:0 0 10px; }
+.home-description { font-size:15px; line-height:1.95; color:var(--muted); margin:0; max-width:520px; }
+.home-intro-actions { display:flex; align-items:center; flex-wrap:wrap; gap:25px; margin-top:30px; }
+
+
+.text-link { display:inline-flex; align-items:center; gap:10px; color:var(--accent); font-size:13px; font-weight:500; }
+.text-link:hover { text-decoration:underline; text-underline-offset:5px; }
+.text-link .ui-icon { width:17px; height:17px; }
+
+.opening-notes { padding:23px 24px 16px; border:1px solid var(--rule); border-radius:9px; background:#f3f3ed; }
+
+.opening-label { display:flex; align-items:center; justify-content:space-between; color:var(--muted); font-size:10px; letter-spacing:.1em; padding-bottom:18px; border-bottom:1px solid #d5dbd2; }
+.opening-label .ui-icon { width:18px; height:18px; color:var(--accent); }
+.opening-note { display:flex; gap:14px; align-items:baseline; padding:21px 0; border-bottom:1px solid #d5dbd2; }
+.opening-number { flex-shrink:0; color:var(--warm); font:italic 14px var(--display); }
+.opening-note>span:nth-child(2) { min-width:0; }
+.opening-note small { display:block; font-size:10px; color:var(--muted); margin-bottom:7px; }
+.opening-note strong { font-size:16px; line-height:1.7; font-weight:500; letter-spacing:-.02em; display:block; }
+.opening-note>.ui-icon { margin-left:auto; width:15px; height:15px; align-self:center; color:#8c998f; transition:transform .18s; }
+.opening-note:hover strong { color:var(--accent); }.opening-note:hover>.ui-icon { transform:translate(2px,-2px); }
+
+
+
+.home-portals { padding-bottom:8px; }.home-portals .opening-note { padding:27px 0; }.home-portals .opening-note:last-child { border-bottom:0; }.home-portals strong { font-size:21px; }.home-portals small { font-size:11px; line-height:1.8; margin:9px 0 0; }.home-portals .opening-number { align-self:center; }
+.home-section-head { display:flex; align-items:end; justify-content:space-between; gap:35px; margin-bottom:35px; }
+.home-section-head .section-kicker { margin-bottom:12px; }
+.home-section-head h2 { margin:0; font:600 28px/1.4 var(--sans); letter-spacing:-.04em; }
+[data-lang=en] .home-section-head h2 { font:500 33px/1.3 var(--display); }
+.home-section-head>p { max-width:380px; margin:0; color:var(--muted); font-size:13px; line-height:1.9; }
+.home-paths,.home-mathematics { padding:49px 0 64px; border-top:1px solid var(--rule); scroll-margin-top:32px; }
+.path-explorer { display:grid; grid-template-columns:310px minmax(0,1fr); border:1px solid var(--rule); border-radius:8px; overflow:hidden; }
+.path-tabs { padding:18px 0; background:#f2f3ed; border-right:1px solid var(--rule); }
+.path-tabs[hidden] { display:none; }
+.path-tabs button { display:flex; width:100%; align-items:center; gap:15px; min-height:67px; padding:14px 23px; border:0; background:none; color:var(--muted); text-align:left; font-size:13px; cursor:pointer; position:relative; }
+.path-tab-number { font-size:10px; color:#8e9b91; }
+.path-tabs button>.ui-icon { width:16px; height:16px; margin-left:auto; opacity:0; }
+.path-tabs button:hover { color:var(--ink); background:#e9eee5; }
+.path-tabs button[aria-selected=true] { color:var(--accent); font-weight:600; background:var(--paper); }
+.path-tabs button[aria-selected=true]::before { content:""; position:absolute; top:17px; bottom:17px; width:3px; background:var(--accent); left:0; }
+.path-tabs button[aria-selected=true]>.ui-icon { opacity:1; }
+.path-panels { min-width:0; }
+.path-panel { padding:30px 38px; min-height:372px; }
+.path-panel[hidden] { display:none; }
+.path-panel-meta { display:flex; gap:20px; justify-content:space-between; font-size:10px; color:var(--muted); letter-spacing:.03em; }
+.path-panel h3 { font-size:24px; font-weight:550; letter-spacing:-.04em; margin:17px 0 10px; }
+.path-panel-summary { font-size:14px; line-height:1.85; color:var(--muted); max-width:610px; min-height:45px; margin:0 0 18px; }
+.path-preview { list-style:none; padding:0; margin:0; counter-reset:path-preview; }
+.path-preview li { counter-increment:path-preview; display:flex; align-items:baseline; gap:12px; border-top:1px solid var(--rule); }
+.path-preview li::before { content:counter(path-preview,decimal-leading-zero); font-size:9px; color:var(--warm); }
+.path-preview a { display:flex; flex:1; align-items:center; justify-content:space-between; gap:12px; padding:10px 0; font-size:14px; }
+.path-preview .ui-icon { width:14px; height:14px; color:#9ba49b; }
+.path-preview a:hover { color:var(--accent); }
+.path-panel-actions { display:flex; align-items:center; gap:24px; margin-top:19px; }
+.path-panel-actions .text-link { font-size:12px; }
+.path-full-link { color:var(--muted); font-size:11px; text-decoration:underline; }
+.home-paths:not(.paths-ready) .path-explorer { display:block; }
+.home-paths:not(.paths-ready) .path-panel+.path-panel { border-top:1px solid var(--rule); }
+.math-note-grid { display:grid; grid-template-columns:1fr 1fr; gap:0 45px; }
+.math-note-grid>a { position:relative; border-top:1px solid var(--rule); padding:28px 0; }
+.math-note-number { color:var(--warm); font-size:11px; }
+.math-note-grid h3 { font:500 27px/1.3 var(--display); margin:14px 0; }
+.math-note-grid p { font-size:13px; line-height:1.8; color:var(--muted); }
+.math-note-grid .text-link { margin-top:10px; }
+.home-library { padding:47px 0 62px; border-top:1px solid var(--rule); }
+.library-layout { display:grid; grid-template-columns:minmax(0,1.95fr) minmax(230px,1fr); gap:48px; }
+.featured-lecture { display:grid; grid-template-columns:200px minmax(0,1fr); gap:30px; align-items:center; }
+.lecture-cover { background:#285044; color:#fff; height:280px; padding:24px 22px 19px; display:flex; flex-direction:column; border-radius:3px 7px 7px 3px; box-shadow:inset 5px 0 0 #193e33,0 8px 17px #273b2f0c; overflow:hidden; transition:transform .2s; }
+.lecture-cover:hover { transform:translateY(-4px); }
+.cover-kicker { font-size:7px; color:#c1d0bd; letter-spacing:.11em; }
+.lecture-cover>strong { font:500 24px/1.45 var(--sans); letter-spacing:-.03em; margin-top:22px; position:relative; z-index:1; }
+[data-lang=en] .lecture-cover>strong { font:400 28px/1.2 var(--display); }
+.cover-lines { position:relative; flex:1; min-height:50px; margin:20px -25px 13px; overflow:hidden; }
+.cover-lines i { display:block; position:absolute; border:1px solid #bbccac65; border-radius:50%; width:180px; height:100px; transform:rotate(-23deg); left:40px; top:10px; }
+.cover-lines i:nth-child(2) { left:20px;top:21px; }.cover-lines i:nth-child(3) { left:0;top:32px; }.cover-lines i:nth-child(4) { left:-20px;top:43px; }.cover-lines i:nth-child(5) { left:-40px;top:54px; }
+.cover-bottom { display:flex; justify-content:space-between; align-items:center; color:#c1d0bd; font-size:8px; letter-spacing:.08em; }
+.cover-bottom .ui-icon { width:12px; height:12px; }
+.lecture-detail .section-kicker { margin-bottom:13px; font-size:9px; }
+.lecture-detail h3 { font:550 22px/1.5 var(--sans); margin:0 0 13px; letter-spacing:-.04em; }
+[data-lang=en] .lecture-detail h3 { font:500 25px/1.25 var(--display); }
+.lecture-detail>p:not(.section-kicker) { font-size:12px; line-height:1.95; color:var(--muted); }
+.lecture-detail .lecture-meta { margin-top:18px; font-size:10px!important; }
+.lecture-actions { display:flex; flex-wrap:wrap; align-items:center; gap:20px; margin-top:18px; font-size:11px; }
+.lecture-actions .text-link { font-size:12px; }
+.library-shelf { border-top:1px solid var(--rule); }
+.library-shelf>a { position:relative; display:block; border-bottom:1px solid var(--rule); padding:19px 25px 18px 0; }
+.shelf-meta { font-size:9px; color:var(--muted); letter-spacing:.07em; }
+.library-shelf h3 { font-size:15px; font-weight:500; line-height:1.6; margin:8px 0 0; }
+.library-shelf .ui-icon { position:absolute; right:0; top:50%; width:16px; height:16px; color:var(--muted); }
+.library-shelf a:hover h3 { color:var(--accent); }
+.home-tools { display:grid; grid-template-columns:1fr 1fr; border-top:1px solid var(--rule); }
+.home-tools>a { display:flex; gap:18px; align-items:center; padding:30px 0; }.home-tools>a+ a { padding-left:40px; border-left:1px solid var(--rule); }
+.home-tools>a>.ui-icon:first-child { color:var(--warm); width:23px; height:23px; }
+.home-tools>a>.ui-icon:last-child { margin-left:auto; margin-right:32px; color:var(--muted); width:17px; height:17px; }
+.home-tools h3 { margin:0 0 6px; font-size:15px; font-weight:550; }.home-tools p { font-size:11px; color:var(--muted); margin:0; line-height:1.9; }
+.home-tools a:hover h3 { color:var(--accent); }
+@media(min-width:1400px) { .homepage { max-width:1360px; } .home-intro { padding:94px 0 88px; }.home-intro h1 { font-size:67px; }.opening-notes { max-width:425px; } }
+@media(max-width:1100px) { .home-intro { gap:6%; }.home-intro h1 { font-size:48px; }.path-explorer { grid-template-columns:270px minmax(0,1fr); }.path-tabs button { padding:14px 19px; gap:11px; font-size:12px; }.path-panel { padding:28px; }.path-panel h3 { font-size:23px; }.library-layout { gap:30px; }.featured-lecture { grid-template-columns:160px minmax(0,1fr); gap:22px; }.lecture-cover { height:255px; padding:20px 18px; }.lecture-cover>strong { font-size:21px; } }
+@media(max-width:850px) { .homepage { padding:0 32px; }.home-intro { grid-template-columns:1fr 300px; gap:30px; padding:60px 0; }.home-intro h1 { font-size:38px; }.home-description p { margin:0 0 10px; }
+.home-description { font-size:13px; }.desktop-break { display:none; }.home-intro-actions { gap:18px; }.opening-notes { padding:20px; }.opening-note { padding:17px 0; }.opening-note strong { font-size:14px; }.home-section-head h2 { font-size:25px; }.home-section-head>p { font-size:11px; }.path-explorer { grid-template-columns:235px minmax(0,1fr); }.path-tabs button { font-size:11px; gap:9px; }.path-tabs button>.ui-icon { display:none; }.path-panel { padding:25px; }.path-panel h3 { font-size:21px; }.path-panel-summary { font-size:11px; }.path-preview a { font-size:12px; }.library-layout { grid-template-columns:1fr; gap:30px; }.featured-lecture { grid-template-columns:200px 1fr; gap:35px; }.lecture-cover { height:270px; }.lecture-detail h3 { font-size:24px; }.lecture-detail>p:not(.section-kicker) { font-size:14px; }.library-shelf { display:grid; grid-template-columns:repeat(3,1fr); gap:25px; }.library-shelf>a { padding:22px 20px 20px 0; }.library-shelf h3 { font-size:14px; }.home-tools>a { gap:12px; }.home-tools>a+ a { padding-left:25px; }.home-tools>a>.ui-icon:last-child { margin-right:15px; } }
+@media(max-width:650px) {
+  .homepage { padding:0 22px; }.home-intro { grid-template-columns:1fr; gap:35px; padding:45px 0 40px; }.home-intro .section-kicker { margin-bottom:20px; font-size:9px; }.home-intro h1 { font-size:clamp(37px,9vw,51px); line-height:1.3; margin-bottom:20px; letter-spacing:-.06em; }[data-lang=en] .home-intro h1 { font-size:46px; }.home-description p { margin:0 0 10px; }
+.home-description { font-size:13px; }.home-intro-actions { margin-top:23px; }
+  .opening-notes { transform:none; padding:18px 20px 14px; }.opening-notes>* { transform:none; }.opening-label { font-size:10px; padding-bottom:13px; }.opening-note { padding:14px 0; gap:13px; }.opening-note strong { font-size:14px; }.opening-note small { font-size:9px; margin-bottom:3px; }
+
+  .home-section-head { display:block; margin-bottom:25px; }.home-section-head h2 { font-size:24px; }.home-section-head>p { margin-top:13px; font-size:12px; }.home-section-head>.text-link { margin-top:14px; font-size:12px; }.section-kicker { font-size:9px; }.home-paths,.home-mathematics { padding:34px 0 40px; scroll-margin-top:20px; }
+  .path-explorer { display:block; }.path-tabs { display:grid; grid-template-columns:1fr 1fr; padding:6px; gap:3px; border-right:0; border-bottom:1px solid var(--rule); }.path-tabs button { min-height:48px; padding:9px 10px; font-size:11px; gap:7px; border-radius:4px; }.path-tab-number { font-size:9px; }.path-tabs button[aria-selected=true] { background:var(--accent); color:white; }.path-tabs button[aria-selected=true] .path-tab-number { color:#bed0c3; }.path-tabs button[aria-selected=true]::before { display:none; }.path-tabs button:last-child { grid-column:1/-1; }.path-panel { padding:24px 21px; min-height:380px; }.path-panel-meta { font-size:9px; }.path-panel h3 { font-size:21px; margin-top:20px; }.path-panel-summary { font-size:14px; line-height:1.8; min-height:64px; }.path-preview a { font-size:12px; line-height:1.6; padding:11px 0; }.path-preview li::before { font-size:9px; }.path-panel-actions { margin-top:20px; }
+  .home-library { padding:34px 0 40px; }.featured-lecture { grid-template-columns:130px 1fr; gap:22px; align-items:start; }.lecture-cover { height:215px; padding:19px 15px; }.cover-kicker { font-size:5px; }.lecture-cover>strong { font-size:19px; margin-top:20px; }.cover-bottom { font-size:6px; }.cover-lines { margin-top:13px; }.lecture-detail .section-kicker { font-size:8px; margin-bottom:9px; }.lecture-detail h3 { font-size:17px; margin-bottom:10px; }.lecture-detail>p:not(.section-kicker) { font-size:11px; line-height:1.9; }.lecture-detail .lecture-meta { font-size:9px!important; margin-top:10px; }.lecture-actions { margin-top:12px; gap:10px; font-size:10px; }.lecture-actions .text-link { font-size:11px; }.library-shelf { display:block; }.library-shelf>a { padding:18px 24px 17px 0; }.library-shelf h3 { font-size:15px; margin:5px 0 0; }
+  .home-tools { display:block; }.home-tools>a { padding:23px 0; gap:16px; }.home-tools>a+ a { padding-left:0; border-left:0; border-top:1px solid var(--rule); }.home-tools h3 { font-size:14px; }.home-tools p { font-size:10px; }.home-tools>a>.ui-icon:last-child { margin-right:0; }
+  .math-note-grid { display:block; }.math-note-grid h3 { font-size:26px; }.home-section-head h2 { line-height:1.4; }.math-note-grid p { font-size:13px; }.math-note-grid>a { display:block; }.home-mathematics .home-section-head h2 { font-size:29px; }
+}

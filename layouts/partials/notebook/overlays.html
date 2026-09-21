@@ -1,17 +1,56 @@
 {{ $zh := eq .Lang "zh" }}
-<dialog id="search-dialog" aria-labelledby="search-title"><div class="dialog-top"><h2 id="search-title">{{ if $zh }}搜索笔记{{ else }}Search notes{{ end }}</h2><button data-close-dialog aria-label="{{ if $zh }}关闭搜索{{ else }}Close search{{ end }}">×</button></div><div class="search-fields"><input id="search-query" type="search" placeholder="{{ if $zh }}概念、公司、代码……{{ else }}Concept, company, ticker…{{ end }}" aria-label="{{ if $zh }}搜索内容{{ else }}Search query{{ end }}"><select id="search-lang" aria-label="{{ if $zh }}搜索语言{{ else }}Search language{{ end }}"><option value="zh" {{ if $zh }}selected{{ end }}>中文</option><option value="en" {{ if not $zh }}selected{{ end }}>English</option><option value="all">{{ if $zh }}全部语言{{ else }}All languages{{ end }}</option></select></div><p id="search-status" role="status"></p><div id="search-results"></div></dialog>
-<dialog id="teach-dialog" aria-labelledby="teach-title"><div class="dialog-top"><h2 id="teach-title">{{ if $zh }}让 Agent 教我{{ else }}Learn with an Agent{{ end }}</h2><button data-close-dialog aria-label="{{ if $zh }}关闭教学材料{{ else }}Close teaching material{{ end }}">×</button></div><p>{{ if $zh }}这里包含专属 Prompt 及本次学习范围的正文、案例、来源和图表说明，分支内容以当前选择为准. 复制后粘贴到你常用的 Agent.{{ else }}Includes the tailored prompt and the text, examples, sources and diagram explanations for this learning scope, with branch content based on your current selection. Paste into your preferred Agent.{{ end }}</p><textarea id="teach-copy-text" readonly aria-label="{{ if $zh }}完整教学材料{{ else }}Complete teaching material{{ end }}"></textarea><button class="primary-button" id="copy-teaching">{{ if $zh }}复制 Prompt 与材料{{ else }}Copy prompt and material{{ end }}</button><p id="copy-status" role="status"></p></dialog>
-<aside id="reference-panel" role="dialog" aria-labelledby="reference-title" hidden><div class="dialog-top"><span class="eyebrow">{{ if $zh }}原处阅读{{ else }}READ IN CONTEXT{{ end }}</span><div><button id="reference-back" aria-label="{{ if $zh }}上一个引用{{ else }}Previous reference{{ end }}">←</button><button id="reference-close" aria-label="{{ if $zh }}关闭引用{{ else }}Close reference{{ end }}">×</button></div></div><div id="reference-content"></div></aside>
+<dialog id="search-dialog" class="reader-dialog" aria-labelledby="search-title">
+  <div class="dialog-top">
+    <div><span class="dialog-kicker">{{ if $zh }}全站搜索{{ else }}SEARCH{{ end }}</span><h2 id="search-title">{{ if $zh }}搜索笔记与讲义{{ else }}Search notes{{ end }}</h2></div>
+    <button class="dialog-close" type="button" data-close-dialog aria-label="{{ if $zh }}关闭搜索{{ else }}Close search{{ end }}"><svg aria-hidden="true"><use href="/notebook/brand/icons.svg#close"></use></svg></button>
+  </div>
+  <div class="search-fields">
+    <label class="search-input-wrap"><svg aria-hidden="true"><use href="/notebook/brand/icons.svg#search"></use></svg><input id="search-query" type="search" autocomplete="off" spellcheck="false" placeholder="{{ if $zh }}主题、公司、讲义、词条编号…{{ else }}Topic, company, lecture, or entry ID…{{ end }}" aria-label="{{ if $zh }}搜索笔记和讲义{{ else }}Search notes and lectures{{ end }}" aria-controls="search-results" aria-describedby="search-keyboard-hint"></label>
+    <select id="search-lang" aria-label="{{ if $zh }}搜索语言{{ else }}Search language{{ end }}"><option value="zh" {{ if $zh }}selected{{ end }}>中文</option><option value="en" {{ if not $zh }}selected{{ end }}>English</option><option value="all">{{ if $zh }}全部语言{{ else }}All languages{{ end }}</option></select>
+  </div>
+  <div class="search-filter-row">
+    <div class="search-type-filters" role="group" aria-label="{{ if $zh }}内容类型{{ else }}Content type{{ end }}">
+      <button type="button" data-search-kind="all" aria-pressed="true">{{ if $zh }}全部{{ else }}All{{ end }}</button>
+      <button type="button" data-search-kind="notebook" aria-pressed="false">{{ if $zh }}投资笔记{{ else }}Investment notes{{ end }}</button>
+      <button type="button" data-search-kind="lecture" aria-pressed="false">{{ if $zh }}笔记与讲义{{ else }}Notes & lectures{{ end }}</button>
+    </div>
+    <p id="search-status" role="status" aria-live="polite"></p>
+  </div>
+  <nav id="search-results" aria-label="{{ if $zh }}搜索结果{{ else }}Search results{{ end }}"></nav>
+  <div class="search-footer"><span id="search-keyboard-hint"><kbd>↑</kbd><kbd>↓</kbd> {{ if $zh }}选择{{ else }}choose{{ end }} <kbd>↵</kbd> {{ if $zh }}打开{{ else }}open{{ end }}</span><span><kbd>esc</kbd> {{ if $zh }}关闭{{ else }}close{{ end }}</span></div>
+</dialog>
+
+<dialog id="teach-dialog" class="reader-dialog" aria-labelledby="teach-title">
+  <div class="dialog-top">
+    <div><span class="dialog-kicker">{{ if $zh }}教学材料{{ else }}TEACHING MATERIAL{{ end }}</span><h2 id="teach-title">{{ if $zh }}教学 Prompt{{ else }}Teaching prompt{{ end }}</h2></div>
+    <button class="dialog-close" type="button" data-close-dialog aria-label="{{ if $zh }}关闭教学材料{{ else }}Close teaching material{{ end }}"><svg aria-hidden="true"><use href="/notebook/brand/icons.svg#close"></use></svg></button>
+  </div>
+  <p class="teach-intro">{{ if $zh }}复制后粘贴到 Agent. 材料包括本篇正文、参考文献，以及先阅读文献再讲解的教学要求.{{ else }}Paste this material into your Agent. It includes the entry, references and instructions to read the sources before teaching.{{ end }}</p>
+  <div class="teach-material-label"><label for="teach-copy-text">{{ if $zh }}Prompt · 正文 · 参考文献 · 图表说明{{ else }}Prompt · Text · References · Diagram notes{{ end }}</label><span>{{ if $zh }}含当前所选分支{{ else }}Includes your selected branch{{ end }}</span></div>
+  <textarea id="teach-copy-text" readonly aria-label="{{ if $zh }}完整教学材料{{ else }}Complete teaching material{{ end }}"></textarea>
+  <div class="teach-footer"><p id="copy-status" role="status" aria-live="polite"></p><button class="primary-button" type="button" id="copy-teaching">{{ if $zh }}复制完整材料{{ else }}Copy complete material{{ end }} <span aria-hidden="true">↗</span></button></div>
+</dialog>
+
+<div id="reference-backdrop" aria-hidden="true" hidden></div>
+<aside id="reference-panel" role="dialog" aria-labelledby="reference-title" hidden>
+  <div class="dialog-top">
+    <span class="dialog-kicker">{{ if $zh }}引用预览{{ else }}REFERENCE PREVIEW{{ end }}</span>
+    <div class="reference-controls"><button type="button" id="reference-back" disabled><span aria-hidden="true">←</span> <span>{{ if $zh }}返回{{ else }}Back{{ end }}</span></button><button type="button" class="dialog-close" id="reference-close" aria-label="{{ if $zh }}关闭引用{{ else }}Close reference{{ end }}"><svg aria-hidden="true"><use href="/notebook/brand/icons.svg#close"></use></svg></button></div>
+  </div>
+  <div id="reference-content"></div>
+</aside>
 <div id="reference-templates" hidden>
 {{ range $id,$r := .Site.Data.notebook.references }}
 <template data-ref="{{ $id }}" data-url="{{ $r.url }}"{{ with $r.additional_urls }} data-additional-urls="{{ . | jsonify }}"{{ end }}>
-<div class="reference-label">{{ if eq $r.kind "source" }}{{ if $zh }}参考文献{{ else }}REFERENCE{{ end }}{{ else if eq $r.kind "notation" }}{{ if $zh }}符号与单位{{ else }}NOTATION & UNITS{{ end }}{{ else }}{{ if $zh }}关联内容{{ else }}RELATED NOTE{{ end }}{{ end }}{{ with $r.cutoff }} · {{ . }}{{ end }}</div>
-<h2 id="reference-title">{{ $r.title }}</h2>
-{{ with $r.period }}<p>{{ . }}</p>{{ end }}
-{{ with $r.version }}<p class="reference-meta">{{ if $zh }}版本：{{ else }}Version: {{ end }}{{ . }}</p>{{ end }}
+<header class="reference-heading">
+<div class="reference-label">{{ if eq $r.kind "source" }}{{ if $zh }}参考文献{{ else }}REFERENCE{{ end }}{{ else if eq $r.kind "notation" }}{{ if $zh }}符号与单位{{ else }}NOTATION & UNITS{{ end }}{{ else }}{{ if $zh }}关联词条{{ else }}RELATED NOTE{{ end }}{{ end }}{{ with $r.cutoff }}<span>{{ . }}</span>{{ end }}</div>
+<h2 data-reference-title tabindex="-1">{{ $r.title }}</h2>
+{{ with $r.period }}<p class="reference-meta">{{ . }}</p>{{ end }}
+{{ with $r.version }}<p class="reference-meta">{{ if $zh }}版本 {{ else }}Version {{ end }}{{ . }}</p>{{ end }}
+</header>
 <div class="prose{{ if eq $r.kind "notation" }} notation-reference{{ end }}">{{ $r.body | markdownify }}</div>
-{{ with $r.locators }}<details><summary>{{ if $zh }}本书使用的原文位置{{ else }}Source locations used in these notes{{ end }}</summary><ul>{{ range . }}<li>{{ . }}</li>{{ end }}</ul></details>{{ end }}
-<a class="reference-open" href="{{ $r.url }}">{{ if $zh }}打开完整词条 / 来源{{ else }}Open full entry / source{{ end }} ↗</a>
+{{ with $r.locators }}<details class="reference-locators"><summary>{{ if $zh }}原文定位{{ else }}Source locations{{ end }}</summary><ul>{{ range . }}<li>{{ . }}</li>{{ end }}</ul></details>{{ end }}
+<a class="reference-open" href="{{ $r.url }}"><span>{{ if eq $r.kind "source" }}{{ if $zh }}阅读原始文献{{ else }}Read the original source{{ end }}{{ else if eq $r.kind "notation" }}{{ if $zh }}打开完整符号表{{ else }}Open the complete notation guide{{ end }}{{ else }}{{ if $zh }}阅读全文{{ else }}Read the full entry{{ end }}{{ end }}</span><svg aria-hidden="true"><use href="/notebook/brand/icons.svg#arrow-up-right"></use></svg></a>
 </template>
 {{ end }}
 </div>

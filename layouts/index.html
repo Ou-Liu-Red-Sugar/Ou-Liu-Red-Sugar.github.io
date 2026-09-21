@@ -1,41 +1,72 @@
 {{ define "main" }}
 {{ $page := . }}{{ $zh := eq .Lang "zh" }}{{ $book := .Site.Data.notebook }}
-<div class="home-shell">
-  <section class="hero">
-    <div>
-      <p class="eyebrow">OU LIU / OPEN NOTEBOOK</p>
-      <h1>{{ if $zh }}理解业务，<br>也理解<span>不确定性。</span>{{ else }}Mathematics,<br><span>one idea at a time.</span>{{ end }}</h1>
-      <p class="hero-intro">{{ if $zh }}市场、企业、行业、投资与数学，各有一条阅读路线。<br>从感兴趣的领域进入，结合真实材料、推导和交互实验学习。{{ else }}Notes on higher algebra, sheaves and category theory.<br>Follow definitions, proofs and references through each topic.{{ end }}</p>
-      <a class="primary-link" href="{{ if $zh }}#learning-paths{{ else }}/en/notes/{{ end }}">{{ if $zh }}选择一条领域路线{{ else }}Read the mathematics notes{{ end }} <span>↗</span></a>
+<div class="homepage">
+  <section class="home-intro" aria-labelledby="home-title">
+    <div class="home-intro-copy">
+      <p class="section-kicker"><span></span>OU LIU / PERSONAL NOTES</p>
+      <h1 id="home-title">{{ if $zh }}笔记、讲义<br>与研究资料{{ else }}Notes, lectures<br>&amp; research{{ end }}</h1>
+      <div class="home-description"><p>{{ if $zh }}这里整理和公开我的讲义、学习笔记与研究资料，供在线阅读、查阅和下载.{{ else }}This site collects my lecture notes, study notes and research material, available to read online or download.{{ end }}</p><p>{{ if $zh }}数学与投资各有独立目录，中英文内容分别收录.{{ else }}Mathematics and investing have their own sections. Chinese and English material is listed separately.{{ end }}</p></div>
+      <div class="home-intro-actions"><a class="text-link" href="/{{ .Lang }}/about/">{{ if $zh }}关于我{{ else }}About me{{ end }}{{ partial "notebook/icon.html" (dict "name" "arrow-up-right") }}</a></div>
     </div>
-    <div class="hero-art" aria-hidden="true"><svg viewBox="0 0 420 310"><defs><pattern id="grid" width="28" height="28" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r="1" fill="#bbc5bd"/></pattern></defs><rect width="420" height="310" fill="url(#grid)"/><path d="M35 248H394M58 275V32" stroke="#a8b5ae" fill="none"/><path d="M58 229C114 239 142 215 174 186S243 199 274 131 342 131 388 50" stroke="#b8c9b9" fill="none" stroke-width="3"/><path d="M58 239L137 239 212 165 285 165 375 73" stroke="#1f6356" fill="none" stroke-width="4"/><circle cx="212" cy="165" r="7" fill="#b87951"/><circle cx="375" cy="73" r="7" fill="#1f6356"/><text x="230" y="149" fill="#596d64" font-size="14">information → understanding</text><text x="74" y="285" fill="#718077" font-size="12">{{ if $zh }}BUSINESS · MARKETS · MATHEMATICS{{ else }}DEFINITIONS · PROOFS · CONNECTIONS{{ end }}</text></svg><span class="art-caption">01 / CONNECT THE IDEAS</span></div>
+    <aside class="opening-notes home-portals" aria-label="{{ if $zh }}阅读入口{{ else }}Notebook sections{{ end }}">
+      <div class="opening-label"><span>{{ if $zh }}阅读入口{{ else }}THE NOTEBOOKS{{ end }}</span>{{ partial "notebook/icon.html" (dict "name" "book-open") }}</div>
+      <a class="opening-note" href="/{{ .Lang }}/notes/"><span class="opening-number">01</span><span><strong>{{ if $zh }}数学笔记与讲义{{ else }}Mathematics{{ end }}</strong><small>{{ if $zh }}课程讲义与讨论班笔记 · 网页和 PDF{{ else }}Lecture notes and seminar talks · HTML & PDF{{ end }}</small></span>{{ partial "notebook/icon.html" (dict "name" "arrow-up-right") }}</a>
+      <a class="opening-note" href="/{{ .Lang }}/notebook/"><span class="opening-number">02</span><span><strong>{{ if $zh }}投资学笔记{{ else }}Investment notebook{{ end }}</strong><small>{{ if $zh }}主题词条、公司资料与交互案例{{ else }}Topics, company research and interactive examples{{ end }}</small></span>{{ partial "notebook/icon.html" (dict "name" "arrow-up-right") }}</a>
+    </aside>
   </section>
+
   {{ if $zh }}
-  <section class="home-start" id="learning-paths">
-    <div><p class="eyebrow">按领域开始</p><h2>五个领域，<br>各自展开。</h2><p>每条路线选择本领域的核心词条，按推荐顺序阅读。补充概念随时查阅，真实材料与交互实验穿插在正文中。</p><p>公司资料单独收录。跨领域的先修、方法和证据，在每篇词条的知识关系中说明。</p></div>
-    <div class="featured-list">
-      {{ range $book.subjects }}{{ $subject := . }}
-        {{ range where (where $book.paths "lang" $page.Lang) "subject" $subject.id }}{{ if and .steps (not .deprecated) }}
-          <a href="{{ .url }}"><span class="feature-label">{{ $subject.zh }}</span><h3>{{ .title }} <span>↗</span></h3><p>{{ .summary }}</p></a>
-        {{ end }}{{ end }}
-      {{ end }}
+  <section class="home-paths" id="learning-paths" aria-labelledby="paths-heading" data-path-selector>
+    <header class="home-section-head"><div><p class="section-kicker">INVESTMENT NOTEBOOK</p><h2 id="paths-heading">投资学阅读路线.</h2></div><p>每个领域都有自己的阅读顺序.<br>从第一篇开始，或直接查阅词条.</p></header>
+    <div class="path-explorer">
+      <div class="path-tabs" role="tablist" aria-label="选择学习领域" aria-orientation="vertical" hidden>
+        {{ range $i, $subject := $book.subjects }}{{ range where (where $book.paths "lang" "zh") "subject" .id }}{{ if and .steps (not .deprecated) }}
+        <button type="button" role="tab" id="path-tab-{{ $subject.id }}" aria-controls="path-panel-{{ $subject.id }}" aria-selected="false" tabindex="-1"><span class="path-tab-number">{{ printf "%02d" (add $i 1) }}</span><span>{{ $subject.zh }}</span>{{ partial "notebook/icon.html" (dict "name" "arrow-right") }}</button>
+        {{ end }}{{ end }}{{ end }}
+      </div>
+      <div class="path-panels">
+        {{ range $i, $subject := $book.subjects }}{{ range where (where $book.paths "lang" "zh") "subject" .id }}{{ if and .steps (not .deprecated) }}
+        <section class="path-panel" id="path-panel-{{ $subject.id }}" data-path-panel>
+          <div class="path-panel-meta"><span>阅读路线 / {{ printf "%02d" (add $i 1) }}</span><span>{{ len .steps }} 篇主线词条</span></div>
+          <h3>{{ $subject.zh }}</h3><p class="path-panel-summary">{{ .summary }}</p>
+          <ol class="path-preview">{{ range first 3 .steps }}<li><a href="{{ .url }}"><span>{{ .title }}</span>{{ partial "notebook/icon.html" (dict "name" "arrow-up-right") }}</a></li>{{ end }}</ol>
+          <div class="path-panel-actions">{{ with index .steps 0 }}<a class="text-link" href="{{ .url }}">从第一篇开始{{ partial "notebook/icon.html" (dict "name" "arrow-right") }}</a>{{ end }}<a class="path-full-link" href="{{ .url }}">完整路线</a></div>
+        </section>
+        {{ end }}{{ end }}{{ end }}
+      </div>
     </div>
-  </section>
-  <section class="home-collections" aria-label="其他阅读入口">
-    <a href="/zh/notebook/"><span class="eyebrow">01 / TOPICS</span><h2>词条目录</h2><p>按领域与主题查找概念、方法和可查基础，也可以回到本领域的阅读路线。</p><span>查看全部词条 ↗</span></a>
-    <a href="/zh/notebook/companies/"><span class="eyebrow">02 / COMPANIES</span><h2>公司资料与研究</h2><p>查看企业业务与带时间的研究记录，再回到具体主题对照分析。</p><span>进入公司资料库 ↗</span></a>
-    <a href="/zh/notebook/financial-claims/#connections"><span class="eyebrow">03 / CONNECTIONS</span><h2>知识关系图</h2><p>从“金融权利”开始查看相邻概念、实例与来源。每篇词条都有自己的关系图。</p><span>查看金融权利的知识关系 ↗</span></a>
-    <a href="/zh/notes/"><span class="eyebrow">04 / 笔记与讲义</span><h2>中文笔记与讲义</h2><p>随机过程与金融市场、代数几何、谱与范畴论。阅读完整讲义，沿章节展开推导。</p><span>查看中文笔记与讲义 ↗</span></a>
   </section>
   {{ else }}
-  <section class="home-start">
-    <div><p class="eyebrow">MATHEMATICS · ENGLISH</p><h2>Definitions, proofs<br>and their connections.</h2><p>The English archive brings together notes on higher algebra, sheaf cohomology and category theory. Choose a topic and read at your own pace.</p></div>
-    <div class="featured-list">{{ range (where .Site.RegularPages "Section" "notes").ByTitle }}<a href="{{ .RelPermalink }}"><span class="feature-label">MATHEMATICS</span><h3>{{ .Title }} <span>↗</span></h3></a>{{ end }}</div>
-  </section>
-  <section class="home-collections" aria-label="More notebooks">
-    <a href="/en/notebook/"><span class="eyebrow">01 / FINANCE · EN</span><h2>Investment &amp; finance</h2><p>Available English entries, with interactive examples and teaching prompts.</p><span>Browse English entries ↗</span></a>
-    <a href="/zh/notebook/" lang="zh"><span class="eyebrow">02 / FINANCE · 中文</span><h2>中文投资学笔记</h2><p>金融市场、企业财报、行业、投资与组合、数学方法，五个领域各有阅读路线。</p><span>进入中文词条目录 ↗</span></a>
+  <section class="home-mathematics" id="mathematics-notes" aria-labelledby="math-heading">
+    <header class="home-section-head"><div><p class="section-kicker">MATHEMATICS</p><h2 id="math-heading">Mathematics notes.</h2></div><p>Algebra, geometry, topology and category theory.</p></header>
+    <div class="math-note-grid">{{ range $i, $note := (where .Site.RegularPages "Section" "notes").ByTitle }}<a href="{{ .RelPermalink }}"><span class="math-note-number">{{ printf "%02d" (add $i 1) }}</span><h3>{{ .Title }}</h3><p>{{ with .Description }}{{ . }}{{ else }}{{ .Summary | plainify | truncate 145 }}{{ end }}</p><span class="text-link">Read the note {{ partial "notebook/icon.html" (dict "name" "arrow-up-right") }}</span></a>{{ end }}</div>
   </section>
   {{ end }}
+
+  {{ $pdfs := sort (where .Site.Data.notes_pdfs "lang" .Lang) "weight" }}
+  {{ with $pdfs }}
+  <section class="home-library" aria-labelledby="library-heading">
+    <header class="home-section-head"><div><p class="section-kicker">LECTURE &amp; SEMINAR NOTES</p><h2 id="library-heading">{{ if $zh }}讲义与讲稿.{{ else }}Lecture and seminar notes.{{ end }}</h2></div><a class="text-link" href="/{{ $page.Lang }}/notes/">{{ if $zh }}全部笔记与讲义{{ else }}All notes &amp; lectures{{ end }}{{ partial "notebook/icon.html" (dict "name" "arrow-up-right") }}</a></header>
+    <div class="library-layout">
+      {{ with index . 0 }}
+      <article class="featured-lecture">
+        <a class="lecture-cover" href="{{ .pdf }}" target="_blank" rel="noopener" aria-label="{{ .title }} · PDF"><span class="cover-kicker">OU LIU / LECTURE NOTES</span><strong>{{ .title }}</strong><div class="cover-lines" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div><span class="cover-bottom">{{ if $zh }}讲义{{ else }}LECTURE NOTES{{ end }}<span>PDF {{ partial "notebook/icon.html" (dict "name" "arrow-up-right") }}</span></span></a>
+        <div class="lecture-detail"><p class="section-kicker">{{ if $zh }}讲义选读{{ else }}FEATURED NOTES{{ end }}</p><h3>{{ .title }}</h3><p>{{ .description }}</p><p class="lecture-meta">PDF{{ with .pages }} · {{ . }} {{ if $zh }}页{{ else }}pages{{ end }}{{ end }}{{ with .updated }} · {{ . }}{{ end }}</p><div class="lecture-actions"><a class="text-link" href="{{ .pdf }}" target="_blank" rel="noopener">{{ if $zh }}阅读 PDF{{ else }}Read PDF{{ end }}{{ partial "notebook/icon.html" (dict "name" "arrow-up-right") }}</a>{{ with .online_ref }}{{ with $page.Site.GetPage . }}<a href="{{ .RelPermalink }}">{{ if $zh }}讲义介绍{{ else }}Online version{{ end }}</a>{{ end }}{{ end }}</div></div>
+      </article>
+      {{ end }}
+      <div class="library-shelf">{{ range first 3 (after 1 .) }}<a href="{{ .pdf }}" target="_blank" rel="noopener"><span class="shelf-meta">PDF{{ with .updated }} / {{ . }}{{ end }}</span><h3>{{ .title }}</h3>{{ partial "notebook/icon.html" (dict "name" "arrow-up-right") }}</a>{{ end }}</div>
+    </div>
+  </section>
+  {{ end }}
+
+  <section class="home-tools" aria-label="{{ if $zh }}其他目录{{ else }}Other sections{{ end }}">
+    {{ if $zh }}
+    <a href="/zh/notebook/companies/">{{ partial "notebook/icon.html" (dict "name" "building") }}<div><h3>公司资料库</h3><p>企业业务、原始材料与带时间的研究.</p></div>{{ partial "notebook/icon.html" (dict "name" "arrow-up-right") }}</a>
+    <a href="/zh/notebook/financial-claims/#connections">{{ partial "notebook/icon.html" (dict "name" "network") }}<div><h3>投资学知识关系</h3><p>查看投资词条之间的引用与先修关系.</p></div>{{ partial "notebook/icon.html" (dict "name" "arrow-up-right") }}</a>
+    {{ else }}
+    <a href="/en/notebook/">{{ partial "notebook/icon.html" (dict "name" "book-open") }}<div><h3>Investment &amp; finance</h3><p>English entries, interactive examples and teaching prompts.</p></div>{{ partial "notebook/icon.html" (dict "name" "arrow-up-right") }}</a>
+    <a href="/en/about/">{{ partial "notebook/icon.html" (dict "name" "list") }}<div><h3>About me</h3><p>Background, interests and contact details.</p></div>{{ partial "notebook/icon.html" (dict "name" "arrow-up-right") }}</a>
+    {{ end }}
+  </section>
 </div>
 {{ end }}

@@ -1,9 +1,9 @@
 {{ $page := .page }}{{ $e := .entry }}{{ $zh := eq $page.Lang "zh" }}{{ $book := $page.Site.Data.notebook }}{{ $all := where $book.entries "lang" $page.Lang }}{{ $entries := where $all "kind" "not in" (slice "company" "research") }}
 <details class="subject-tree">
-  <summary>{{ if $zh }}知识目录{{ else }}Subjects{{ end }}</summary>
+  <summary><span>{{ if $zh }}知识目录{{ else }}Subjects{{ end }}</span><span class="tree-toggle" aria-hidden="true"></span></summary>
   {{ range $book.subjects }}{{ $subject := . }}{{ $items := where $entries "subject" .id }}{{ if $items }}
   <details class="subject-branch">
-    <summary>{{ if $zh }}{{ .zh }}{{ else }}{{ .en }}{{ end }} <small>{{ len $items }}</small></summary>
+    <summary><span>{{ if $zh }}{{ .zh }}{{ else }}{{ .en }}{{ end }}</span><small>{{ len $items }}</small></summary>
     {{ range where (where $book.paths "lang" $page.Lang) "subject" $subject.id }}{{ if and .steps (not .deprecated) }}<a class="tree-route" href="{{ .url }}">{{ if $zh }}沿本领域路线阅读{{ else }}Follow this domain's path{{ end }} →</a>{{ end }}{{ end }}
     {{ $assigned := slice }}
     {{ range where ($book.topics | default slice) "subject" $subject.id }}{{ $topicItems := where $items "topic" .id }}{{ if $topicItems }}<details class="topic-branch"><summary>{{ if $zh }}{{ .zh }}{{ else }}{{ .en }}{{ end }}</summary>{{ range $topicItems }}<a href="{{ .url }}" {{ if eq .id $e.id }}aria-current="page"{{ end }}>{{ .title }}</a>{{ $assigned = $assigned | append .id }}{{ end }}</details>{{ end }}{{ end }}

@@ -1,0 +1,87 @@
+/* Shared identity, navigation and archive surfaces. */
+:root {
+  --paper:#faf9f6; --ink:#252b28; --muted:#69736d; --rule:#dedfd8;
+  --accent:#28594b; --warm:#b66547;
+  --sans:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI","Microsoft YaHei",sans-serif;
+  --serif:Georgia,"Noto Serif SC","Source Han Serif SC","Songti SC",SimSun,serif;
+  --display:Fraunces,Georgia,serif;
+  color-scheme:light;
+}
+body.notebook-app { font-family:var(--sans); background:var(--paper); color:var(--ink); font-variant-numeric:lining-nums tabular-nums; -webkit-font-smoothing:antialiased; }
+.notebook-app button,.notebook-app input,.notebook-app select,.notebook-app textarea { font:inherit; }
+.notebook-app a { text-underline-offset:4px; }
+.notebook-app :focus-visible { outline:2px solid var(--accent); outline-offset:5px; }
+.notebook-app button { -webkit-tap-highlight-color:transparent; }
+.notebook-app ::selection { color:#173e32; background:#dbe7dc; }
+.ui-icon { flex-shrink:0; display:inline-block; width:20px; height:20px; vertical-align:middle; fill:none; stroke:currentColor; stroke-width:1.7; stroke-linecap:round; stroke-linejoin:round; }
+.masthead { max-width:1360px; margin:0 auto; padding:25px 48px; min-height:96px; display:flex; align-items:center; gap:40px; border-bottom:1px solid var(--rule); }
+.masthead-brand { display:inline-flex; align-items:center; gap:12px; flex-shrink:0; text-decoration:none; }
+.masthead-brand>span { font:500 26px/1.1 var(--display); letter-spacing:-.6px; }
+.masthead-brand small { display:block; margin-top:6px; color:var(--muted); font:11px/1.2 var(--sans); letter-spacing:1.1px; }
+.masthead-brand img { width:42px; height:42px; }
+.masthead-nav { display:flex; gap:30px; margin-left:auto; font-size:14px; }
+.masthead-nav a { color:var(--muted); padding:10px 0; position:relative; white-space:nowrap; transition:color .18s; }
+.masthead-nav a:hover,.masthead-nav a[aria-current] { color:var(--ink); }
+.masthead-nav a[aria-current]::after { content:""; position:absolute; bottom:1px; left:0; right:0; height:2px; background:var(--accent); }
+.masthead-actions { display:flex; gap:18px; align-items:center; font-size:13px; }
+.masthead-search { display:flex; align-items:center; gap:9px; border:1px solid var(--rule); background:transparent; color:var(--muted); padding:9px 11px; border-radius:6px; cursor:pointer; }
+.masthead-search:hover { color:var(--accent); border-color:#aebcb3; background:#f1f2ec; }
+.masthead-search .ui-icon { width:17px; height:17px; }
+.masthead-search kbd { background:none; border:0; margin-left:14px; padding:0; font:11px var(--sans); color:var(--muted); }
+.masthead-language { display:inline-flex; align-items:center; gap:4px; font-weight:600; white-space:nowrap; }
+.masthead-language .ui-icon { width:13px; height:13px; }
+.site-colophon { max-width:1264px; margin:90px auto 0; padding:30px 0 38px; border-top:1px solid var(--rule); display:flex; gap:26px; align-items:center; color:var(--muted); font-size:12px; }
+.colophon-brand { display:flex; align-items:center; gap:9px; color:var(--ink); flex-shrink:0; }
+.colophon-brand>span { font:500 18px var(--display); }
+.colophon-brand small { font:11px var(--sans); margin-left:5px; color:var(--muted); }
+.site-colophon p { margin:0; }
+.site-colophon nav { margin-left:auto; display:flex; flex-shrink:0; gap:22px; }
+.site-colophon nav a:hover { color:var(--accent); }
+.site-colophon .ui-icon { width:13px; height:13px; }
+.legacy-page .site-main { max-width:1120px; margin:0 auto; padding:0 40px; }
+.legacy-page .ou-section-landing { max-width:none; margin:0; padding:65px 0 0; }
+.legacy-page .ou-section-head { margin:0 0 45px; padding-bottom:32px; border-bottom:1px solid var(--rule); }
+.legacy-page .ou-section-eyebrow { font:600 11px/1.5 var(--sans); letter-spacing:.12em; color:var(--accent); }
+.legacy-page .ou-section-head h1 { margin:18px 0 22px; font:600 clamp(32px,4vw,48px)/1.25 var(--sans); letter-spacing:-.035em; }
+.legacy-page .ou-section-desc { max-width:680px; color:var(--muted); font-size:16px; line-height:1.9; }
+.legacy-page .ou-section-landing>h2 { font:600 21px var(--sans); margin:40px 0 20px; }
+.legacy-page .ou-notes-pdfs { padding:0; margin:0; list-style:none; }
+.legacy-page .ou-notes-pdfs>li { padding:27px 0; border:0; border-bottom:1px solid var(--rule); background:none; border-radius:0; box-shadow:none; }
+.legacy-page .ou-notes-pdfs .row { display:flex; align-items:baseline; justify-content:space-between; gap:22px; }
+.legacy-page .ou-notes-pdfs .t { font-size:20px; font-weight:600; color:var(--ink); margin:0; }
+.legacy-page .ou-notes-pdfs .meta { font-size:11px; line-height:1.8; color:var(--muted); flex-shrink:0; }
+.legacy-page .ou-notes-pdfs .d { max-width:780px; font-size:14px; line-height:1.9; color:var(--muted); margin:12px 0; }
+.legacy-page .ou-notes-pdfs .l { display:flex; flex-wrap:wrap; gap:24px; margin:16px 0 0; font-size:13px; }
+.legacy-page .ou-notes-pdfs .l a { color:var(--accent); border:0; background:none; padding:0; text-decoration:none; }
+.legacy-page .ou-notes-pdfs .l a:hover { text-decoration:underline; }
+.legacy-page .post-single { max-width:780px; margin:0 auto; padding-top:42px; }
+.legacy-page .post-title { font-family:var(--sans); font-size:clamp(30px,4vw,45px); line-height:1.3; }
+.legacy-page .post-description,.legacy-page .post-meta { color:var(--muted); }
+.legacy-page .post-content { font-size:17px; line-height:1.95; }
+.legacy-page[data-lang=en] .post-content { font-family:"Source Serif 4",Georgia,serif; font-size:18px; }
+.legacy-page .post-content h2,.legacy-page .post-content h3 { font-family:var(--sans); }
+.legacy-page .toc { background:#f1f3ed; border:1px solid var(--rule); border-radius:6px; padding:16px 22px; }
+@media(min-width:1500px) { .masthead { max-width:1420px; } }
+@media(max-width:1359px) { .site-colophon { margin-left:48px; margin-right:48px; } }
+@media(max-width:1000px) { .masthead { padding:22px 32px; gap:24px; } .masthead-nav { gap:20px; } .masthead-search kbd { display:none; } .site-colophon { flex-wrap:wrap; } .site-colophon nav { margin-left:auto; } .legacy-page .ou-notes-pdfs .row { display:block; } .legacy-page .ou-notes-pdfs .meta { display:block; margin-top:8px; } }
+@media(max-width:720px) {
+  .masthead { padding:18px 22px 0; gap:18px; flex-wrap:wrap; }
+  .masthead-brand { gap:9px; }.masthead-brand img { width:35px; height:35px; }.masthead-brand>span { font-size:23px; }.masthead-brand small { font-size:10px; }
+  .masthead-actions { margin-left:auto; gap:15px; }.masthead-search { padding:8px; border:0; }.masthead-search span { display:none; }.masthead-search .ui-icon { width:20px; height:20px; }
+  .masthead-nav { order:3; width:100%; margin:0; gap:30px; font-size:13px; }.masthead-nav a { padding:9px 0 15px; }.masthead-nav a[aria-current]::after { bottom:0; }
+  .site-colophon { margin:60px 22px 0; padding:26px 0; gap:16px 24px; }.site-colophon p { order:3; width:100%; font-size:11px; }.site-colophon nav { gap:16px; font-size:11px; }.colophon-brand img { width:27px; height:27px; }.colophon-brand small { display:none; }
+  .legacy-page .site-main { padding:0 22px; }.legacy-page .ou-section-landing { padding-top:40px; }.legacy-page .ou-section-head { margin-bottom:26px; }.legacy-page .ou-section-head h1 { margin:16px 0; }.legacy-page .ou-notes-pdfs .t { font-size:18px; }.legacy-page .post-content { font-size:16px; }
+}
+@media(prefers-reduced-motion:reduce) { *,*::before,*::after { scroll-behavior:auto!important; transition:none!important; animation:none!important; } }
+
+/* Secondary collections use the same typography as the main catalogue. */
+.company-catalogue { max-width:1200px; padding:0 40px; }
+.company-catalogue>.back-link { display:inline-block; margin-top:32px; font-size:12px; color:var(--accent); }
+.company-catalogue .page-intro { padding:38px 0 35px; }
+.company-catalogue .page-intro h1,.path-shell .page-intro h1 { font:600 clamp(30px,4vw,42px)/1.4 var(--sans); letter-spacing:-.035em; }
+.company-catalogue .page-intro>p:last-child { max-width:720px; font-size:14px; line-height:1.9; }
+.company-catalogue .company-filter { border:0; background:none; padding:26px 0; }
+.company-catalogue .company-filter input { background:#fff; padding:12px 15px; border:1px solid var(--rule); border-radius:5px; }
+.path-shell .reading-steps h2,.path-shell .path-end h2 { font-family:var(--sans); font-weight:550; }
+@media(max-width:650px) { .company-catalogue { padding:0 22px; }.company-catalogue .page-intro { padding-top:25px; }.path-shell .reading-steps h2 { font-size:21px; } }
+@media print { .masthead,.site-colophon { display:none!important; }.notebook-app .site-main { min-height:0; } }

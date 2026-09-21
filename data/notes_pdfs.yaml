@@ -43,8 +43,8 @@
   lang: en
   language: English
 - title: 'Algebraic Geometry: A Functor-of-Points Viewpoint'
-  description: 'Completed lecture notes for Algebraic Geometry I and II, developed from lectures by Marc Hoyois
-    and written from a functor-of-points viewpoint. The final archived version was proofread and polished with Codex.
+  description: 'Lecture notes for Algebraic Geometry I and II, based on the courses by Marc Hoyois and organised around
+    the functor-of-points approach.
 
     '
   seminar:
@@ -66,9 +66,8 @@
   weight: 41
   lang: zh
 - title: Motivic Homotopy Theory
-  description: 'Revised archived draft notes on motivic homotopy theory and motivic cohomology, based on the Oberseminar
-    "Motivic cohomology of schemes". This version improves readability and makes the main line of the notes more
-    explicit.
+  description: 'Notes on motivic homotopy theory and motivic cohomology, based on the Oberseminar
+    "Motivic cohomology of schemes".
 
     '
   seminar:
