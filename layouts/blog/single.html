@@ -1,0 +1,19 @@
+{{ define "main" }}
+<article class="post-single blog-post">
+  <a class="blog-return" href="{{ .CurrentSection.RelPermalink }}">{{ partial "notebook/icon.html" (dict "name" "arrow-left") }} Blog</a>
+  <header class="post-header">
+    <p class="blog-meta"><time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2006-01-02" }}</time></p>
+    <h1 class="post-title">{{ .Title }}</h1>
+    {{ with .Description }}<div class="post-description">{{ . }}</div>{{ end }}
+  </header>
+  {{ if and (.Param "ShowToc") (not .Params.disableToc) }}
+  {{ with .Fragments.Headings }}
+  <details class="toc">
+    <summary>目录</summary>
+    <div class="inner">{{ $.TableOfContents }}</div>
+  </details>
+  {{ end }}
+  {{ end }}
+  <div class="post-content">{{ .Content }}</div>
+</article>
+{{ end }}

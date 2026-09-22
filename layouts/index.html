@@ -12,6 +12,7 @@
       <div class="opening-label"><span>{{ if $zh }}阅读入口{{ else }}THE NOTEBOOKS{{ end }}</span>{{ partial "notebook/icon.html" (dict "name" "book-open") }}</div>
       <a class="opening-note" href="/{{ .Lang }}/notes/"><span class="opening-number">01</span><span><strong>{{ if $zh }}数学笔记与讲义{{ else }}Mathematics{{ end }}</strong><small>{{ if $zh }}课程讲义与讨论班笔记 · 网页和 PDF{{ else }}Lecture notes and seminar talks · HTML & PDF{{ end }}</small></span>{{ partial "notebook/icon.html" (dict "name" "arrow-up-right") }}</a>
       <a class="opening-note" href="/{{ .Lang }}/notebook/"><span class="opening-number">02</span><span><strong>{{ if $zh }}投资学笔记{{ else }}Investment notebook{{ end }}</strong><small>{{ if $zh }}主题词条、公司资料与交互案例{{ else }}Topics, company research and interactive examples{{ end }}</small></span>{{ partial "notebook/icon.html" (dict "name" "arrow-up-right") }}</a>
+      <a class="opening-note" href="/zh/blog/"><span class="opening-number">03</span><span><strong>Blog{{ if not $zh }} <span lang="zh">中文</span>{{ end }}</strong><small>{{ if $zh }}写作、研究与 Agent 协作{{ else }}Writing, research and working with agents · in Chinese{{ end }}</small></span>{{ partial "notebook/icon.html" (dict "name" "arrow-up-right") }}</a>
     </aside>
   </section>
 
@@ -57,6 +58,15 @@
       <div class="library-shelf">{{ range first 3 (after 1 .) }}<a href="{{ .pdf }}" target="_blank" rel="noopener"><span class="shelf-meta">PDF{{ with .updated }} / {{ . }}{{ end }}</span><h3>{{ .title }}</h3>{{ partial "notebook/icon.html" (dict "name" "arrow-up-right") }}</a>{{ end }}</div>
     </div>
   </section>
+  {{ end }}
+
+  {{ if $zh }}
+  {{ with where .Site.RegularPages "Section" "blog" }}
+  <section class="home-blog" aria-labelledby="blog-heading">
+    <header class="home-section-head"><div><p class="section-kicker">BLOG</p><h2 id="blog-heading">最近文章.</h2></div><a class="text-link" href="/zh/blog/">全部文章{{ partial "notebook/icon.html" (dict "name" "arrow-up-right") }}</a></header>
+    {{ partial "blog/entries.html" (first 3 .ByDate.Reverse) }}
+  </section>
+  {{ end }}
   {{ end }}
 
   <section class="home-tools" aria-label="{{ if $zh }}其他目录{{ else }}Other sections{{ end }}">

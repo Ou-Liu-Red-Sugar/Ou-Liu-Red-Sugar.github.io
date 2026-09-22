@@ -5,10 +5,11 @@
   <nav class="masthead-nav" aria-label="{{ if $zh }}主导航{{ else }}Main navigation{{ end }}">
     <a href="/{{ .Lang }}/notes/" {{ if eq .Section "notes" }}aria-current="true"{{ end }}>{{ if $zh }}数学笔记{{ else }}Mathematics{{ end }}</a>
     <a href="/{{ .Lang }}/notebook/" {{ if eq .Section "notebook" }}aria-current="true"{{ end }}>{{ if $zh }}投资学笔记{{ else }}Investing{{ end }}</a>
+    <a href="/zh/blog/" {{ if eq .Section "blog" }}aria-current="true"{{ end }}>Blog{{ if not $zh }} <span lang="zh">中文</span>{{ end }}</a>
     <a href="/{{ .Lang }}/about/" {{ if $isAbout }}aria-current="page"{{ end }}>{{ if $zh }}关于{{ else }}About{{ end }}</a>
   </nav>
   <div class="masthead-actions">
-    <button class="masthead-search" type="button" data-open-search aria-label="{{ if $zh }}搜索词条与讲义{{ else }}Search entries and lectures{{ end }}">{{ partial "notebook/icon.html" (dict "name" "search") }}<span>{{ if $zh }}搜索{{ else }}Search{{ end }}</span><kbd aria-hidden="true" data-search-shortcut>Ctrl K</kbd></button>
+    <button class="masthead-search" type="button" data-open-search aria-label="{{ if $zh }}全站搜索{{ else }}Search the site{{ end }}">{{ partial "notebook/icon.html" (dict "name" "search") }}<span>{{ if $zh }}搜索{{ else }}Search{{ end }}</span><kbd aria-hidden="true" data-search-shortcut>Ctrl K</kbd></button>
     {{ $other := cond $zh "en" "zh" }}{{ $link := printf "/%s/" $other }}
     {{ if eq .Section "notes" }}{{ $link = printf "/%s/notes/" $other }}{{ end }}
     {{ if eq .Section "notebook" }}{{ $link = printf "/%s/notebook/" $other }}{{ end }}

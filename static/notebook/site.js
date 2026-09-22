@@ -367,7 +367,7 @@ async function loadIndex(){
       fetchJSON('/notebook/search.json'),
       ...['zh','en'].map(async lang=>(await fetchJSON('/'+lang+'/index.json')).filter(e=>!new URL(e.permalink,location.origin).pathname.includes('/notebook/')).map(e=>({
         lang,title:e.title,summary:new DOMParser().parseFromString(e.summary||'','text/html').body.textContent.trim().slice(0,180),text:e.content,url:new URL(e.permalink,location.origin).pathname,
-        kind:new URL(e.permalink,location.origin).pathname.includes('/notes/')?'lecture':'page'
+        kind:new URL(e.permalink,location.origin).pathname.includes('/notes/')?'lecture':new URL(e.permalink,location.origin).pathname.includes('/blog/')?'blog':'page'
       })))
     ]);
     indexIncomplete=resources.some(result=>result.status==='rejected');
@@ -387,12 +387,12 @@ async function loadIndex(){
   })();
   try{return await indexRequest;}finally{indexRequest=null;}
 }
-const kindLabel=kind=>({lecture:t('笔记与讲义','Notes & lectures'),company:t('公司资料','Company'),research:t('研究记录','Research'),reference:t('基础参考','Reference'),page:t('页面','Page')}[kind]||t('投资词条','Investment note'));
+const kindLabel=kind=>({blog:'Blog',lecture:t('笔记与讲义','Notes & lectures'),company:t('公司资料','Company'),research:t('研究记录','Research'),reference:t('基础参考','Reference'),page:t('页面','Page')}[kind]||t('投资词条','Investment note'));
 const subjectLabel=subject=>({markets:t('金融市场与工具','Markets & instruments'),business:t('企业经营与财务','Business & finance'),industry:t('经济与行业','Economy & industries'),portfolio:t('投资与组合','Investing & portfolios'),quant:t('数学、统计与计算','Mathematics & computation'),mathematics:t('数学','Mathematics')}[subject]||'');
 function search(){
   const terms=normalize(searchInput.value.trim()).split(/\s+/).filter(Boolean),lang=searchLang.value;
   const score=e=>terms.reduce((total,term)=>total+(e._title===term?60:e._title.includes(term)?20:e._summary.includes(term)?4:1),0);
-  const rows=(searchIndex||[]).filter(e=>(lang==='all'||e.lang===lang)&&(searchKind==='all'||(searchKind==='lecture'?e.kind==='lecture':e.url.includes('/notebook/')))&&terms.every(term=>e._text.includes(term))).sort((a,b)=>score(b)-score(a));
+  const rows=(searchIndex||[]).filter(e=>(lang==='all'||e.lang===lang)&&(searchKind==='all'||(searchKind==='notebook'?e.url.includes('/notebook/'):e.kind===searchKind))&&terms.every(term=>e._text.includes(term))).sort((a,b)=>score(b)-score(a));
   searchResults.replaceChildren(...rows.map(e=>{
     const a=document.createElement('a');a.href=e.url;a.className='search-result';
     const meta=document.createElement('span');meta.className='search-result-meta';
