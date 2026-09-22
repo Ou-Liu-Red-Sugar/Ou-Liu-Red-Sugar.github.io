@@ -4,7 +4,7 @@
   "slug": "financial-claims",
   "lang": "zh",
   "title": "金融资产、权利与经济事项",
-  "summary": "从真实材料写出权利卡，区分契约约定、交易价格与实际所得.",
+  "summary": "从国库券的原始条款计算持有现金流，再比较股份的治理与分配权、期权的或有支付.",
   "subject": "markets",
   "topic": "markets-claims",
   "kind": "concept",
@@ -12,9 +12,9 @@
   "role": "核心",
   "study_time": "正文、算例与自检约 18 分钟",
   "revised": "2026-09-22",
-  "content_version": "2026-09-22-deep-review",
+  "content_version": "2026-09-22-coherence",
   "status": "accepted_local",
-  "learning_task": "从真实材料写出权利卡，区分契约约定、交易价格与实际所得.",
+  "learning_task": "读取证券的义务主体、付款条件、时间和单位，计算取得成本及持有结果，并将同一读法用于股份与期权.",
   "audience": "具有足够数学背景的高年级本科至研究生",
   "prerequisite_note": "无金融学硬先修；使用比例和百分比.",
   "reading_route": {
@@ -24,43 +24,43 @@
   "hard_prerequisites": [],
   "recommended_next": "M02",
   "recommended_next_status": "batch_candidate",
-  "body_markdown": "金融资产是持有人取得的一项金融权利：债权约定支付，股权参与公司剩余分配，衍生合约按约定条件产生权利与义务. 价格是取得这些权利的对价.\n\n<span id=\"m01-rights-structure\"></span>\n## 一、经营活动与金融权利\n\n企业购买设备、雇用人员、生产和销售，构成经营活动. 资金提供者通过债权或股权参与融资，取得相应支付、分配及决策权利. 同一业务采用不同融资方式，会改变支付条件、损失承担顺位和控制权.[^OS17]\n\n**本篇所说的金融资产，是从持有人一侧观察的一项可识别的金融权利.** 这里重点研究债权、股权和衍生合约中的权利.\n\n金融权利可以包含现金分配、投票和行权等内容. 公司持有经营资源，股东持有公司的股份；两者通过经营结果及分配安排联系. 研究业务解释资源怎样产生收入与现金，研究证券则解释持有人在何种条件下取得哪些结果.\n\n识别一项金融权利需要以下字段.\n\n| 权利卡字段 | 要回答的问题 |\n|---|---|\n| 证券与主体 | 哪一证券、哪一类别或系列？发行人是谁？谁承担相关义务？ |\n| 持有人与记录 | 谁享有权利？通过什么持有记录识别？ |\n| 经济事项 | 还本、分红、清算分配、投票，还是按价格条件结算？ |\n| 条件与时间 | 什么条件触发？什么时候可以要求履约？ |\n| 数量与币种 | 一份到底是多少？报价单位和现金单位是否相同？ |\n| 顺位与限制 | 哪些其他权利优先？是否有期限、转换或转让限制？ |\n\n预计回报另需交易价格、未来状态和持有方式等输入；权利卡只记录契约与持有层面的权利条件.\n\n<span id=\"m01-bill-case\"></span>\n<span id=\"CASE-MA-TBILL-912797RD1\"></span>\n## 二、国库券权利与付款\n\n美国财政部2025年9月18日的国库券拍卖结果如下.[^TB-AUC]\n\n| 原始字段 | 公告数值（金额显示至三位小数） |\n|---|---|\n| Security Term | 28-Day Bill |\n| CUSIP | 912797RD1 |\n| Issue Date | 2025-09-23 |\n| Maturity Date | 2025-10-21 |\n| Price | 每100美元面值99.686美元 |\n| High Rate | 4.040% |\n\n该国库券到期支付面值. 设持有量为面值USD 10 K，按公告单价计算，发行付款为\n\n$$\nC=10{,}000\\left(1-4.04\\%\\times\\frac{28}{360}\\right)\n  \\approx9{,}968.578\\text{ 美元}.\n$$\n\n按约持有至到期可收到USD 10 K，比发行付款多USD 31.422. 国库券以面值与发行价格之差支付利息，不另付票息.[^TB-PRICE]\n\n这份国库券的发行人为美国财政部，权利按美元面值计量，到期日为2025年10月21日. 取得成本USD 9,968.578与到期面值USD 10 K分别对应买入付款和到期收款.\n\n### 4.040%的贴现报价与28天持有回报\n\n公告中的 High Rate 使用国库券贴现报价惯例. 令面值为$F$、年化贴现率为$d$、期限天数为$n$，其价格关系为$C=F(1-dn/360)$. 代入$d=4.04\\%$和$n=28$，每100面值的价格约99.686美元. [^TB-PRICE]\n\n而我们这次持有的回报率，分母是付出的资金：\n\n$$\nR=\\frac{F-C}{C}\n \\approx\\frac{31.422}{9{,}968.578}\n \\approx0.315\\%.\n$$\n\n贴现率以面值为分母，并按360天年化；本例持有期回报率以买入资金为分母，覆盖28天.\n\n<span id=\"m01-three-levels\"></span>\n## 三、约定、价格与实际所得\n\n契约规定支付条件，成交价格确定取得成本，持有过程决定实际现金流. 三者在不同环节形成.\n\n| 信息 | 国库券中的对应内容 | 决定因素 |\n|---|---|---|\n| 契约 | 面值、到期日与支付义务 | 发行条款 |\n| 价格 | 取得同一面值权利的付款 | 买入时的交易价格 |\n| 所得 | 持有期间收取的现金与转让价款 | 持有期间、卖出价格、费用及履约 |\n\n再作一个有区分力的变式：假设同一笔10,000面值权利，在到期前以每100面值99.80的价格转让. 新买方付出9,980美元；如果仍按原条款持有到期，其面值差是20美元. **到期面值没有变，改变的是取得同一权利所付的价格，以及剩余持有期间.** 99.80是教学价格；转售日未设，因此这里不年化新买方的回报.\n\n<span id=\"m01-rights-comparison\"></span>\n<span id=\"CASE-MA-SPX-SPEC-2026\"></span>\n<span id=\"CASE-MA-ALPHABET-RIGHTS-2025\"></span>\n## 四、股权与期权的权利结构\n\n### 股权的经济权利与分配条件\n\nAlphabet 的2025年报区分了 Class A（GOOGL）与 Class C（GOOG）；类别及证券代码是证券身份的一部分. 年报和所引用证券说明显示，A类通常每股一票，C类除法律要求外没有投票权. [^GOOG-10K]\n\n两类股份均有经济权利. 证券说明的Dividends小节规定股息依董事会宣派及相关优先权分配；Liquidation Rights规定清算前C类转为A类，并按顺位参与剩余资产分配.[^GOOG-RIGHTS]\n\n股份没有国库券式的固定到期还本安排. 公司取得利润、董事会决定分配和股东收到现金，是不同事件.\n\n### 期权的指数参照与现金结算\n\nSPX指数期权采用欧式行权和现金结算，每指数点的合约乘数为USD 100. 标准SPX与SPXW的到期结算时点不同，具体系列决定何时取结算值.[^SPX] 持有人取得按合约结算的权利，指数提供参照值.\n\n设一份看涨期权的权利金为4点，未计费对价为$4\\times100=400$美元. 买方支付权利金取得选择权，卖方承担相应履约义务；券商、清算会员和清算安排连接持有人与履约过程.[^OCC]\n\n### 三张权利卡的静态对照\n\n| 对象 | 持有人权利 | 付款或分配条件 | 计量单位 |\n|---|---|---|---|\n| 912797RD1国库券 | 到期收取面值 | 2025-10-21到期支付 | 美元面值；每100面值报价 |\n| Alphabet A/C股份 | 类别对应的经济及治理权利 | 股息宣派、清算及相关顺位 | 股，保留类别 |\n| SPX期权 | 选择权及现金结算权利 | 系列行权与结算规则 | 份；USD 100/指数点 |\n\n<span id=\"m01-guided-use\"></span>\n## 五、权利与资金变式\n\n权利图分别连接参照对象与履约关系：国库券连接财政部的支付义务，Alphabet股份连接对应类别的股东权利；SPX连接指数作为参照，连接合约及清算安排作为履约关系.\n\n把国库券的取得价格从99.686切换到99.80，每USD 10 K面值的付款从USD 9,968.578变为USD 9,980，到期面值差从USD 31.422变为USD 20. 到期日与面值保持不变. 切换Alphabet A/C类别，则改变治理权利.\n\n<div data-experiment-slot=\"INT-M01-RIGHTS\"></div>\n\n<span id=\"m01-exercises\"></span>\n## 六、练习与解析\n\n### 练习一·取得价格与转让\n\n甲按公告单价取得10,000面值国库券，后来按教学价格99.80转给乙. 暂不计费用. 请分别写出甲的付款、乙的付款、甲的价差，以及转让后财政部的到期面值义务.\n\n**解析.** 甲付款USD 9,968.578，乙付款USD 9,980，甲取得价差USD 11.422. 转让后，乙持有USD 10 K面值的债权，取得到期收款权. 转让改变持有人及其买入成本，面值保持不变.\n\n### 练习二·表决与经济权利\n\n有人读到GOOG通常不附投票权，认为它只是一张价格凭证，不具有股东经济权利. 请指出这个判断漏读了证券说明的哪些部分.\n\n**解析.** 该判断遗漏了Dividends和Liquidation Rights. 投票权属于治理权利，分红及清算分配属于经济权利；C类通常没有投票权，仍按相应条件参与经济分配.\n\n### 练习三·报价与合约单位\n\n一张材料只写“SPX，看涨，报价4”. 能否据此说购买成本是4美元，或者可以算出到期现金？\n\n**解析.** 不能. 已知SPX乘数后，若4确为每点权利金报价、数量为一份，则未计费对价是400美元. 但还缺具体系列的执行价、期限和结算安排；计算到期现金还需该系列的结算值.\n\n[^OS17]: **Steven A. Greenlaw、David Shapiro、Daniel MacDonald / OpenStax，Principles of Economics 3e — §17.1 How Businesses Raise Financial Capital**. 第3版，2022-12-14.[原文](https://openstax.org/books/principles-economics-3e/pages/17-1-how-businesses-raise-financial-capital). 定位：§17.1，尤其 Borrowing: Banks and Bonds、Corporate Stock and Public Firms、How Firms Choose between Financial Capital Sources.\n\n[^TB-AUC]: **U.S. Department of the Treasury，Treasury Auction Results — 28-Day Bill, CUSIP 912797RD1**. 2025-09-18公告；发行2025-09-23；到期2025-10-21. [原文](https://www.treasurydirect.gov/instit/annceresult/press/preanre/2025/R_20250918_1.pdf). 定位：单页表格中的 Security Term、CUSIP、Issue Date、Maturity Date、High Rate、Price.\n\n[^TB-PRICE]: **TreasuryDirect / Bureau of the Fiscal Service，Understanding Pricing and Interest Rates**. 现行网页，2026-09-21访问.[原文](https://www.treasurydirect.gov/marketable-securities/understanding-pricing/). 定位：Bills 小节及贴现公式；其中贴现率口径与持有期回报率需区分.\n\n[^GOOG-10K]: **Alphabet Inc.，Alphabet Inc. 2025 Form 10-K**. 报告期截至2025-12-31；2026年提交. [原文](https://www.sec.gov/Archives/edgar/data/1652044/000165204426000018/goog-20251231.htm). 定位：Item 5，印刷p.25；Note 11 Stockholders’ Equity，印刷pp.78–79.\n\n[^GOOG-RIGHTS]: **Alphabet Inc.，Description of Securities — Exhibit 4.20**.2023年提交的证券说明，由2025年报引用.[原文](https://www.sec.gov/Archives/edgar/data/1652044/000165204423000016/googexhibit420q42022.htm). 定位：Voting Rights、Dividends、Liquidation Rights、Conversion、Equal Status.\n\n[^SPX]: **Cboe，SPX Options Fact Sheet**. 两页事实表，页脚©2026.[原文](https://cdn.cboe.com/resources/spx/spx-fact-sheet.pdf). 定位：PDF pp.1–2，尤其第2页 SPX / SPXW 规格表.\n\n[^OCC]: **The Options Clearing Corporation，Characteristics and Risks of Standardized Options**. June 2024.[原文](https://www.theocc.com/getmedia/a151a9ae-d784-4a15-bdeb-23a029f50b70/riskstoc.pdf). 定位：Ch.I印刷pp.3–5；Ch.II印刷pp.6–8、11–12；Ch.IX印刷pp.58–59.",
+  "body_markdown": "金融资产的条款规定持有人可以向谁提出什么要求、在什么条件下提出，以及数量和时间怎样确定. 价格是取得这些权利的对价；投资者的现金收付还取决于持有期间和转让安排. 债券、股份和期权的差别，可以从各自赋予持有人的权利读出来.[^OS17]\n\n<span id=\"m01-rights-structure\"></span>\n## 一、权利条款\n\n<span id=\"m01-bill-case\"></span>\n<span id=\"CASE-MA-TBILL-912797RD1\"></span>\n\n美国财政部2025年9月18日公布了以下28天国库券的拍卖结果.[^TB-AUC]\n\n| 原始字段 | 公告内容 |\n|---|---|\n| Security Term | 28-Day Bill |\n| CUSIP | 912797RD1 |\n| Issue Date | 2025-09-23 |\n| Maturity Date | 2025-10-21 |\n| Price | 每USD 100面值约USD 99.686 |\n| High Rate | 4.04% |\n\n这项证券的义务主体是美国财政部. 持有USD 100面值，就取得到期收取USD 100的权利；国库券期间没有另付票息. CUSIP识别具体证券，发行日与到期日确定这次发行的28天期限. 表中的Price按每USD 100面值报价，所以面值既是到期付款的计量单位，也是读懂报价的基数.[^TB-PRICE]\n\n购买人交付资金，财政部承担未来支付义务，这构成债权融资. 面值说明这笔债权有多大；买入价格说明取得它要付多少钱. 本次发行价格低于面值，两者的差额在持有到期时构成利息收入.\n\n<span id=\"m01-three-levels\"></span>\n## 二、价格与持有现金流\n\n设购买USD 10 K面值并持有到期，暂不计费用. 公告的High Rate采用国库券贴现报价惯例：以面值为基数，按360天计算年化贴现额. 令面值为$F$、年化贴现率为$d$、期限天数为$n$，取得成本为[^TB-PRICE]\n\n$$\n\\begin{aligned}\nC&=F\\left(1-d\\frac{n}{360}\\right)\\\\\n &=10{,}000\\left(1-\\frac{4.04}{100}\\frac{28}{360}\\right)\\\\\n &\\approx9{,}968.578\\text{ 美元}.\n\\end{aligned}\n$$\n\n到期收到USD 10 K，与取得成本相差USD 31.422. 这28天的持有期回报率以实际投入资金为分母：\n\n$$\nR=\\frac{F-C}{C}\\approx0.315\\%.\n$$\n\n4.04%和0.315%分别使用面值与投入资金作分母，分别覆盖年化报价期间与28天持有期间. 比较收益率时，分母和期间都要一致. 页面数值最多显示三位小数，计算使用未舍入输入.\n\n再设这笔USD 10 K面值的债权提前按每USD 100面值USD 99.80转让. 新买方支付USD 9,980，随后持有到期可取得USD 10 K，两者相差USD 20. 转让改变了持有人和取得价格，财政部在2025年10月21日按面值付款的条款仍然相同. 原买方的现金路径以转让收款结束，新买方的现金路径从支付转让价开始；两人的收益要分别从各自的买入和退出金额计算.\n\n<span id=\"m01-rights-comparison\"></span>\n## 三、股权与或有权利\n\n国库券的到期日期和付款金额已经写入条款. 普通股把投资者的所得与企业的分配和剩余资产联系起来，同时赋予相应的治理权利；阅读股份时，证券类别也成为权利识别的一部分.\n\n<span id=\"CASE-MA-ALPHABET-RIGHTS-2025\"></span>\n\nAlphabet的2025年报将Class A和Class C的交易代码分别列为GOOGL和GOOG. A类通常每股一票，C类除法律要求外通常没有投票权.[^GOOG-10K] 两类股份的股息都取决于董事会宣派及相关优先权；清算时，证券说明规定C类先转换为A类，再按相应顺位参与剩余资产分配.[^GOOG-RIGHTS] 因此，投票权回答股东如何参与公司治理，股息和清算条款回答股东在什么条件下取得分配. 普通股没有国库券式的到期还本安排，买入价格也不能直接给出未来分配金额.\n\n<span id=\"CASE-MA-SPX-SPEC-2026\"></span>\n\n期权把支付与约定条件联系起来. SPX看涨期权以标普500指数为结算参照，采用欧式行权和现金结算，乘数为USD 100/指数点. 令$K$为执行价、$I_T$为该系列规定的到期结算值，一份看涨期权对应的现金支付为\n\n$$\nX_T=100\\max(I_T-K,0)\\text{ 美元}.\n$$\n\n当$I_T\\le K$时，买方可让期权到期而不行权；当$I_T>K$时，买方取得差额支付. 这项选择使买方取得上行支付而不承担对称的下行支付，卖方则承担相应履约义务，买方为取得这项权利支付权利金.[^OCC] 具体系列还决定结算值的取法：标准SPX使用成分股开盘价格计算，SPXW使用相应收盘价格计算；行权现金在到期后的下一个营业日交付.[^SPX]\n\n若一份合约的教学权利金报价为4点，取得成本就是$4\\times100=400$美元，未计费用. 这笔支出在买入时发生，$X_T$则由到期结算值决定. 忽略资金时间成本且持有到期，买方盈亏为$X_T-400$；支付为正仍可能不足以覆盖买入成本. 指数在这里决定支付数额，指数的成分公司不因此向期权持有人支付这笔结算款.\n\n| 对象 | 持有人权利 | 付款条件与时间 | 数量与报价单位 |\n|---|---|---|---|\n| 912797RD1国库券 | 对美国财政部的面值债权 | 2025-10-21到期付款 | 美元面值；每USD 100面值报价 |\n| Alphabet A/C股份 | 相应类别的治理、股息及清算分配权 | 股息宣派、清算及相关顺位条件 | 股，并保留股份类别 |\n| SPX看涨期权 | 按结算值与执行价之差取得或有支付 | 具体系列规定结算值和行权现金交付日 | 份；USD 100/指数点 |\n\n<span id=\"m01-guided-use\"></span>\n\n<div data-experiment-slot=\"INT-M01-RIGHTS\"></div>\n\n在交互中改变国库券价格、Alphabet股份类别或SPX合约数量，分别观察取得成本、治理权利和权利金金额怎样变化.\n\n<span id=\"m01-exercises\"></span>\n## 四、练习与解析\n\n**取得价格与转让.** 甲按上述拍卖价格取得USD 10 K面值的912797RD1，后来按99.80转给乙，暂不计费用. 甲的转让价差是多少？乙持有到期所得的价差是多少？两笔价差相加后，与原发行价至面值的差额有什么关系？\n\n**解析.** 甲取得USD 9,980的转让款，减去成本USD 9,968.578，价差约USD 11.422；乙的价差为USD 20. 两者合计约USD 31.422，恰好等于面值减原取得成本. 转让价决定这段总差额在两名持有人之间如何分配，债务人的到期付款仍为USD 10 K.\n\n**表决与分配.** 从GOOGL换成相同股数的GOOG，哪些权利需要重新核对？没有投票权能否推出没有股息和清算分配权？\n\n**解析.** 应核对股份类别的Voting Rights、Dividends和Liquidation Rights. A/C的通常投票安排不同；C类仍按证券说明参加股息和清算分配. 治理权利与经济权利由各自条款规定.[^GOOG-RIGHTS]\n\n**或有支付与盈亏.** 买入一份权利金4点的SPX看涨期权. 教学情景中，到期结算值高于执行价3点. 未计费用和资金时间成本，结算收入与盈亏各是多少？\n\n**解析.** 结算收入为$3\\times100=300$美元，盈亏为$300-400=-100$美元. 期权取得了正的结算支付，但支付低于取得成本. 两个数分别来自合约支付规则和买入价格.\n\n[^OS17]: **Steven A. Greenlaw、David Shapiro、Daniel MacDonald / OpenStax，Principles of Economics 3e — §17.1 How Businesses Raise Financial Capital**. 第3版，2022-12-14.[原文](https://openstax.org/books/principles-economics-3e/pages/17-1-how-businesses-raise-financial-capital). 定位：§17.1，尤其 Borrowing: Banks and Bonds、Corporate Stock and Public Firms、How Firms Choose between Financial Capital Sources.\n\n[^TB-AUC]: **U.S. Department of the Treasury，Treasury Auction Results — 28-Day Bill, CUSIP 912797RD1**. 2025-09-18公告；发行2025-09-23；到期2025-10-21. [原文](https://www.treasurydirect.gov/instit/annceresult/press/preanre/2025/R_20250918_1.pdf). 定位：单页表格中的 Security Term、CUSIP、Issue Date、Maturity Date、High Rate、Price.\n\n[^TB-PRICE]: **TreasuryDirect / Bureau of the Fiscal Service，Understanding Pricing and Interest Rates**. 现行网页，2026-09-21访问.[原文](https://www.treasurydirect.gov/marketable-securities/understanding-pricing/). 定位：Bills 小节及贴现公式.\n\n[^GOOG-10K]: **Alphabet Inc.，Alphabet Inc. 2025 Form 10-K**. 报告期截至2025-12-31；2026年提交. [原文](https://www.sec.gov/Archives/edgar/data/1652044/000165204426000018/goog-20251231.htm). 定位：Item 5，印刷p.25；Note 11 Stockholders’ Equity，印刷pp.78–79.\n\n[^GOOG-RIGHTS]: **Alphabet Inc.，Description of Securities — Exhibit 4.20**.2023年提交的证券说明，由2025年报引用.[原文](https://www.sec.gov/Archives/edgar/data/1652044/000165204423000016/googexhibit420q42022.htm). 定位：Voting Rights、Dividends、Liquidation Rights、Conversion、Equal Status.\n\n[^SPX]: **Cboe，SPX Options Fact Sheet**. 两页事实表，页脚©2026.[原文](https://cdn.cboe.com/resources/spx/spx-fact-sheet.pdf). 定位：PDF pp.1–2，尤其第2页 SPX / SPXW 规格表.\n\n[^OCC]: **The Options Clearing Corporation，Characteristics and Risks of Standardized Options**. June 2024.[原文](https://www.theocc.com/getmedia/a151a9ae-d784-4a15-bdeb-23a029f50b70/riskstoc.pdf). 定位：Ch.I印刷pp.3–5；Ch.II印刷pp.6–8、11–12；Ch.IX印刷pp.58–59.",
   "anchors": [
     {
       "id": "m01-rights-structure",
-      "title": "一、经营活动与金融权利",
+      "title": "一、权利条款",
       "kind": "section",
-      "preview": "融资使资金提供者取得债权、股权或特定条件下的支付权利."
+      "preview": "从912797RD1原件识别义务主体、持有人权利、触发时点以及面值与报价单位."
     },
     {
       "id": "m01-bill-case",
-      "title": "二、国库券权利与付款",
+      "title": "一、权利条款：912797RD1",
       "kind": "section",
-      "preview": "912797RD1的面值、价格、发行日和到期日，以及28天贴现与持有期回报的计算."
+      "preview": "读取912797RD1的期限、CUSIP、发行日、到期日、原始价格与High Rate，并据此重建债权条款."
     },
     {
       "id": "m01-three-levels",
-      "title": "三、约定、价格与实际所得",
+      "title": "二、价格与持有现金流",
       "kind": "section",
-      "preview": "契约确定支付安排，交易价格确定取得成本，履约记录给出实际所得."
+      "preview": "用原始价格约99.686计算取得成本和28天持有回报，再以99.80转售价区分条款、价格与持有现金流."
     },
     {
       "id": "m01-rights-comparison",
-      "title": "四、股权与期权的权利结构",
+      "title": "三、股权与或有权利",
       "kind": "section",
-      "preview": "Alphabet各类股份的表决与经济权利；SPX的选择权、合约乘数和现金结算."
+      "preview": "把国库券的条款分析迁移到Alphabet A/C股份和SPX期权，增加治理、剩余分配、参照对象与或有支付."
     },
     {
       "id": "m01-guided-use",
-      "title": "五、权利与资金变式",
+      "title": "三、股权与或有权利：交互变式",
       "kind": "section",
-      "preview": "在权利字段固定时，比较取得价格、股份类别和合约数量对现金的影响."
+      "preview": "保持证券条款中相应字段固定，改变国库券价格、A/C类别或SPX数量与权利金，观察权利和现金怎样变化."
     },
     {
       "id": "m01-exercises",
-      "title": "六、练习与解析",
+      "title": "四、练习与解析",
       "kind": "section",
-      "preview": "从国库券、股份和SPX条款重建单位、义务与条件支付."
+      "preview": "计算转让价差的分配，核对A/C股份权利，区分SPX期权的结算收入与买方盈亏."
     },
     {
       "id": "CASE-MA-TBILL-912797RD1",
@@ -72,7 +72,7 @@
       "sources": [
         "MA-TB-AUC"
       ],
-      "preview": "2025-09-18公布的28天国库券发行条款与拍卖价格.",
+      "preview": "2025-09-18公布的28天国库券条款、原始价格约99.686与持有现金流计算.",
       "synthetic_extensions": [
         "10000美元持有量",
         "99.80转售价",
@@ -90,7 +90,7 @@
         "MA-GOOG-10K",
         "MA-GOOG-RIGHTS"
       ],
-      "preview": "Alphabet A、B、C类的表决、分配、清算及转换条款.",
+      "preview": "Alphabet A/C类的表决、股息和清算权利及其条件.",
       "synthetic_extensions": []
     },
     {
@@ -104,7 +104,7 @@
         "MA-SPX",
         "MA-OCC"
       ],
-      "preview": "SPX与SPXW的欧式行权、现金结算、每点100美元乘数及结算时点.",
+      "preview": "SPX与SPXW的欧式行权、现金结算、USD 100/指数点乘数及结算时点差异.",
       "synthetic_extensions": []
     }
   ],
@@ -130,16 +130,16 @@
       "target": "m01-exercises"
     }
   ],
-  "prompt": "用M01《金融资产、权利与经济事项》带我阅读金融契约. 先通过本篇 reference 包中的公开链接，实际读完 required_readings 指定单元，记录来源、版本、读取范围和支持当前讲解的内容. PDF 表格与公式核对原页. 读取失败时从原机构查找同版材料；仍缺关键单元则指出受影响的任务，补齐后再讲解. 根据一次完整任务诊断我的水平，跳过已掌握的步骤；反馈先给定位提示，再展开解析.\n给我912797RD1的拍卖结果，让我识别义务主体、面值单位、取得价格、支付日期和到期金额，并区分合约支付与履约记录. 接着比较Alphabet A、B、C类的表决、分配和清算权，说明C类的经济权利. 最后以SPX报价4点为迁移题，让我查出合约乘数、行权期限与结算方式，计算一份合约的权利金. 通过标准是能够从原件重建权利关系，并正确解释价格与支付的区别.",
+  "prompt": "用M01《金融资产、权利与经济事项》带我阅读金融契约. 先通过本篇reference包中的公开链接，实际读完required_readings指定单元，记录来源、版本、读取范围和支持当前讲解的内容. PDF表格与公式核对原页. 读取失败时从原机构查找同版材料；仍缺关键单元则指出受影响的任务，补齐后再讲解. 根据一次完整任务诊断我的水平，跳过已掌握的步骤；反馈先给定位提示，再展开解析.\n给我912797RD1的拍卖结果，让我从原件识别义务主体、面值与报价单位、发行日、到期日和到期权利，再用原始价格99.685778计算USD 10 K教学持有量的取得成本与28天持有期回报，并解释它与4.040%贴现报价的分母和期间差异. 接着用教学转售价99.80让我判断哪些条款保持不变、哪些现金流改变. 再比较Alphabet A/C类股份的投票、分配和清算权，说明C类仍具有的经济权利. 最后以SPX看涨期权权利金4点为迁移题，让我查出合约乘数、行权与结算方式，计算一份合约的权利金，再用到期结算值高于执行价3点的教学情景，分别计算结算收入与未计费盈亏. 通过标准是能够从原件重建权利关系，区分证券条款、取得价格与给定持有过程的现金结果，并说明换成股份或期权时新增了什么关系.",
   "agent_packet": {
     "entry_id": "zh-financial-claims",
     "node_id": "M01",
-    "content_version": "2026-09-22-deep-review",
+    "content_version": "2026-09-22-coherence",
     "export_mode": "public",
     "selected_branch": "full_entry",
     "body_source": "body_markdown",
-    "learning_task": "从真实材料写出权利卡，区分契约约定、交易价格与实际所得.",
-    "prompt": "用M01《金融资产、权利与经济事项》带我阅读金融契约. 先通过本篇 reference 包中的公开链接，实际读完 required_readings 指定单元，记录来源、版本、读取范围和支持当前讲解的内容. PDF 表格与公式核对原页. 读取失败时从原机构查找同版材料；仍缺关键单元则指出受影响的任务，补齐后再讲解. 根据一次完整任务诊断我的水平，跳过已掌握的步骤；反馈先给定位提示，再展开解析.\n给我912797RD1的拍卖结果，让我识别义务主体、面值单位、取得价格、支付日期和到期金额，并区分合约支付与履约记录. 接着比较Alphabet A、B、C类的表决、分配和清算权，说明C类的经济权利. 最后以SPX报价4点为迁移题，让我查出合约乘数、行权期限与结算方式，计算一份合约的权利金. 通过标准是能够从原件重建权利关系，并正确解释价格与支付的区别.",
+    "learning_task": "读取证券的义务主体、付款条件、时间和单位，计算取得成本及持有结果，并将同一读法用于股份与期权.",
+    "prompt": "用M01《金融资产、权利与经济事项》带我阅读金融契约. 先通过本篇reference包中的公开链接，实际读完required_readings指定单元，记录来源、版本、读取范围和支持当前讲解的内容. PDF表格与公式核对原页. 读取失败时从原机构查找同版材料；仍缺关键单元则指出受影响的任务，补齐后再讲解. 根据一次完整任务诊断我的水平，跳过已掌握的步骤；反馈先给定位提示，再展开解析.\n给我912797RD1的拍卖结果，让我从原件识别义务主体、面值与报价单位、发行日、到期日和到期权利，再用原始价格99.685778计算USD 10 K教学持有量的取得成本与28天持有期回报，并解释它与4.040%贴现报价的分母和期间差异. 接着用教学转售价99.80让我判断哪些条款保持不变、哪些现金流改变. 再比较Alphabet A/C类股份的投票、分配和清算权，说明C类仍具有的经济权利. 最后以SPX看涨期权权利金4点为迁移题，让我查出合约乘数、行权与结算方式，计算一份合约的权利金，再用到期结算值高于执行价3点的教学情景，分别计算结算收入与未计费盈亏. 通过标准是能够从原件重建权利关系，区分证券条款、取得价格与给定持有过程的现金结果，并说明换成股份或期权时新增了什么关系.",
     "required_readings": [
       {
         "source_id": "MA-OS17",
@@ -156,11 +156,11 @@
         },
         "required_unit": {
           "locator": "§17.1 全节",
-          "scope": "融资与权利的经济关系；具体股份类别和现行规则另据原件. 教材概括不覆盖所有股份类别.",
+          "scope": "债权、股权融资与资金提供者权利的经济关系.",
           "purpose": "融资安排的经济位置"
         },
-        "supports": "融资与权利的经济关系；具体股份类别和现行规则另据原件. 教材概括不覆盖所有股份类别.",
-        "limits": "融资与权利的经济关系；具体股份类别和现行规则另据原件. 教材概括不覆盖所有股份类别.",
+        "supports": "债权、股权融资与资金提供者权利的经济关系.",
+        "limits": "",
         "fallback_source_ids": []
       },
       {
@@ -178,11 +178,11 @@
         },
         "required_unit": {
           "locator": "2025-09-18 拍卖公告单页全文及原表",
-          "scope": "具名历史发行条款与公布发行价格；不证明某个账户的获配或实际到账.",
+          "scope": "912797RD1的历史发行日期、期限、面值报价和拍卖结果.",
           "purpose": "具名权利、期间、面值报价"
         },
-        "supports": "具名历史发行条款与公布发行价格；不证明某个账户的获配或实际到账.",
-        "limits": "具名历史发行条款与公布发行价格；不证明某个账户的获配或实际到账.",
+        "supports": "912797RD1的历史发行日期、期限、面值报价和拍卖结果.",
+        "limits": "",
         "fallback_source_ids": []
       },
       {
@@ -200,11 +200,11 @@
         },
         "required_unit": {
           "locator": "Bills 小节全文及公式",
-          "scope": "国库券贴现率、面值、天数与价格的关系；不把贴现率当持有期回报率.",
+          "scope": "国库券贴现率、面值、期限与取得价格的关系.",
           "purpose": "报价基数与条件付款"
         },
-        "supports": "国库券贴现率、面值、天数与价格的关系；不把贴现率当持有期回报率.",
-        "limits": "国库券贴现率、面值、天数与价格的关系；不把贴现率当持有期回报率.",
+        "supports": "国库券贴现率、面值、期限与取得价格的关系.",
+        "limits": "",
         "fallback_source_ids": []
       },
       {
@@ -222,11 +222,11 @@
         },
         "required_unit": {
           "locator": "Note 11 Stockholders’ Equity，印刷 pp.78–79",
-          "scope": "股份类别/交易代码、投票差异和股东权益披露；不是完整公司研究.",
+          "scope": "Alphabet股份类别、交易代码、投票安排与股东权益披露.",
           "purpose": "股份类别与条件"
         },
-        "supports": "股份类别/交易代码、投票差异和股东权益披露；不是完整公司研究.",
-        "limits": "股份类别/交易代码、投票差异和股东权益披露；不是完整公司研究.",
+        "supports": "Alphabet股份类别、交易代码、投票安排与股东权益披露.",
+        "limits": "",
         "fallback_source_ids": []
       },
       {
@@ -244,11 +244,11 @@
         },
         "required_unit": {
           "locator": "Voting Rights、Dividends、Liquidation Rights 完整小节",
-          "scope": "类别权利及其条件；正文不声称已逐条核完章程和所有相关法律.",
+          "scope": "A/C股份的投票、股息与清算权利及其成立条件.",
           "purpose": "权利条件与证券身份"
         },
-        "supports": "类别权利及其条件；正文不声称已逐条核完章程和所有相关法律.",
-        "limits": "类别权利及其条件；正文不声称已逐条核完章程和所有相关法律.",
+        "supports": "A/C股份的投票、股息与清算权利及其成立条件.",
+        "limits": "",
         "fallback_source_ids": []
       },
       {
@@ -266,11 +266,11 @@
         },
         "required_unit": {
           "locator": "Ch.I 印刷 pp.3–5；Ch.II 交易单位及 Premium 对应完整小节",
-          "scope": "本会话实际读取的指定单元，不是96页全文；支持权利、单位、权利金、费用和保证金的区分.",
+          "scope": "选择权、现金结算、合约单位与权利金的含义.",
           "purpose": "选择权、单位与权利金"
         },
-        "supports": "本会话实际读取的指定单元，不是96页全文；支持权利、单位、权利金、费用和保证金的区分.",
-        "limits": "本会话实际读取的指定单元，不是96页全文；支持权利、单位、权利金、费用和保证金的区分.",
+        "supports": "选择权、现金结算、合约单位与权利金的含义.",
+        "limits": "",
         "fallback_source_ids": []
       },
       {
@@ -288,11 +288,11 @@
         },
         "required_unit": {
           "locator": "两页事实表全文，核看第2页 SPX / SPXW 规格表",
-          "scope": "现金结算、欧式行权、100美元乘数及SPX/SPXW结算差别；不采用营销/税务部分.",
+          "scope": "现金结算、欧式行权、USD 100乘数、SPX/SPXW结算值取法及现金交付日.",
           "purpose": "参照对象、现金结算及乘数"
         },
-        "supports": "现金结算、欧式行权、100美元乘数及SPX/SPXW结算差别；不采用营销/税务部分.",
-        "limits": "现金结算、欧式行权、100美元乘数及SPX/SPXW结算差别；不采用营销/税务部分.",
+        "supports": "现金结算、欧式行权、USD 100乘数、SPX/SPXW结算值取法及现金交付日.",
+        "limits": "",
         "fallback_source_ids": []
       }
     ],
@@ -301,7 +301,7 @@
     "local_required_units": [
       {
         "locator": "本篇正文与交互静态输入、算法、边界及默认验算表",
-        "scope": "仅所列教学数据和规则；不补不存在的盘口或账户流水",
+        "scope": "本篇所列具名发行、股份和合约条款，以及明确设定的数量、转让价格和期权情景.",
         "purpose": "重建练习与交互的计算"
       }
     ],
@@ -448,7 +448,7 @@
     {
       "id": "INT-M01-RIGHTS",
       "status": "specification_and_static_equivalent",
-      "markdown": "### 交互规范：`INT-M01-RIGHTS`\n\n**目的：** 保持契约字段固定，观察工具、类别、数量和取得价格怎样改变权利图与条件资金表. 不是报价终端，不提供真实成交按钮.\n\n| 控件/状态 | 类型、单位与默认值 | 允许范围 |\n|---|---|---|\n| `instrument` | 单选；默认`bill` | `bill / alphabet_A / alphabet_C / spx` |\n| `bill_face` | 数值，美元面值，默认10000 | 100至100000，步长100；仅教学规模 |\n| `bill_quote_mode` | 单选；默认`auction` | `auction / synthetic_99_80` |\n| `share_count` | 整数，股，默认1 | 1至1000 |\n| `option_count` | 整数，份，默认1 | 1至100 |\n| `option_premium_points` | 数值，点，默认4.00 | 0.10至100，步长0.10；教学设定 |\n| 权利、日期、乘数 | 只读 | 来自本篇固定版本，不让读者拖动成另一真实合约 |\n\n计算：国库券`cost=face*quote/100`；`conditional_gap=face-cost`；`holding_return=gap/cost`. 仅`auction`模式显示已知28天的持有期间；转售模式不填未给出的剩余期限或年化率. 期权只算`premium_cash=count*100*premium_points`，不在缺少系列/结算值时输出payoff. 股份输出类别文字与数量，不自动估分红.\n\n默认输出：国库券10000、99.685778、9968.5778、31.4222、0.3152124669%；转售模式10000、99.80、9980、20、0.2004008016%，期限“未设定”. 期权默认400美元. 股份类别切换只更新有来源支持的权利字段.\n\nDOM：外层`section#INT-M01-RIGHTS`；所有输入有`label`；结果使用`output`和可复制表；关系线提供文字邻接表. 改动后焦点留在原控件，以`aria-live=\"polite\"`简报更新. 不得只以颜色表示“义务/参照”. 移动端和打印展开全部三张卡.\n\n边界：拒绝NaN、负数、超范围或单位不符；不生成未知到期支付；不能把演示数量写成账户持仓. 舍入只作用于显示，内部使用十进制定点. 测试应核：数量翻倍时资金翻倍；价格切换不改面值/到期日；股份类别切换不生造固定支付. 静态等价为正文§二–五的表格、公式及默认/变式数值.",
+      "markdown": "### 交互规范：`INT-M01-RIGHTS`\n\n**目的：** 保持契约字段固定，观察工具、类别、数量和取得价格怎样改变权利图与条件资金表. \n\n| 控件/状态 | 类型、单位与默认值 | 允许范围 |\n|---|---|---|\n| `instrument` | 单选；默认`bill` | `bill / alphabet_A / alphabet_C / spx` |\n| `bill_face` | 数值，美元面值，默认10000 | 100至100000，步长100；仅教学规模 |\n| `bill_quote_mode` | 单选；默认`auction` | `auction / synthetic_99_80` |\n| `share_count` | 整数，股，默认1 | 1至1000 |\n| `option_count` | 整数，份，默认1 | 1至100 |\n| `option_premium_points` | 数值，点，默认4.00 | 0.10至100，步长0.10；教学设定 |\n| 权利、日期、乘数 | 只读 | 来自本篇固定版本，不让读者拖动成另一真实合约 |\n\n计算：国库券`cost=face*quote/100`；`conditional_gap=face-cost`；`holding_return=gap/cost`. 仅`auction`模式显示已知28天的持有期间；转售模式不填未给出的剩余期限或年化率. 期权只算`premium_cash=count*100*premium_points`，不在缺少系列/结算值时输出payoff. 股份输出类别文字与数量，不自动估分红.\n\n默认输出：国库券10000、99.685778、9968.5778、31.4222、0.3152124669%；转售模式10000、99.80、9980、20、0.2004008016%，期限“未设定”. 期权默认400美元. 股份类别切换只更新有来源支持的权利字段.\n\nDOM：外层`section#INT-M01-RIGHTS`；所有输入有`label`；结果使用`output`和可复制表；关系线提供文字邻接表. 改动后焦点留在原控件，以`aria-live=\"polite\"`简报更新. 不得只以颜色表示“义务/参照”. 移动端和打印展开全部三张卡.\n\n边界：拒绝NaN、负数、超范围或单位不符；不生成未知到期支付；不能把演示数量写成账户持仓. 舍入只作用于显示，内部使用十进制定点. 测试应核：数量翻倍时资金翻倍；价格切换不改面值/到期日；股份类别切换不生造固定支付. 静态等价见m01-three-levels、m01-rights-comparison和m01-exercises中的表格、公式与练习；交互仅计算权利金，正文练习另给到期结算条件.",
       "inputs": {
         "bill": {
           "cusip": "912797RD1",
@@ -505,6 +505,12 @@
       "Insert implemented lab slots beside the corresponding teaching explanation"
     ],
     "import_status": "adopted_canonical",
-    "lead_acceptance": "docs/production/20260921/receipts/first-wave-local-acceptance.md"
+    "lead_acceptance": "docs/production/20260921/receipts/first-wave-local-acceptance.md",
+    "coherence_revision": {
+      "date": "2026-09-22",
+      "baseline": "099d88024d6cd47176eb78b5dfa7cac3b5e293f3",
+      "record": "docs/notebook-coherence-review-20260922.md",
+      "scope": "整篇组织与正文重写；同步Prompt、锚点预览及对应Agent阅读范围"
+    }
   }
 }
