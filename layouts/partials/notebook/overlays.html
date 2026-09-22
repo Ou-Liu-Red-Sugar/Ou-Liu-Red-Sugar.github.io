@@ -1,11 +1,11 @@
 {{ $zh := eq .Lang "zh" }}
 <dialog id="search-dialog" class="reader-dialog" aria-labelledby="search-title">
   <div class="dialog-top">
-    <div><span class="dialog-kicker">{{ if $zh }}全站搜索{{ else }}SEARCH{{ end }}</span><h2 id="search-title">{{ if $zh }}搜索笔记与讲义{{ else }}Search notes{{ end }}</h2></div>
+    <div><span class="dialog-kicker">{{ if $zh }}全站搜索{{ else }}SEARCH{{ end }}</span><h2 id="search-title">{{ if $zh }}搜索笔记、讲义与 Blog{{ else }}Search notes & Blog{{ end }}</h2></div>
     <button class="dialog-close" type="button" data-close-dialog aria-label="{{ if $zh }}关闭搜索{{ else }}Close search{{ end }}"><svg aria-hidden="true"><use href="/notebook/brand/icons.svg#close"></use></svg></button>
   </div>
   <div class="search-fields">
-    <label class="search-input-wrap"><svg aria-hidden="true"><use href="/notebook/brand/icons.svg#search"></use></svg><input id="search-query" type="search" autocomplete="off" spellcheck="false" placeholder="{{ if $zh }}主题、公司、讲义、词条编号…{{ else }}Topic, company, lecture, or entry ID…{{ end }}" aria-label="{{ if $zh }}搜索笔记和讲义{{ else }}Search notes and lectures{{ end }}" aria-controls="search-results" aria-describedby="search-keyboard-hint"></label>
+    <label class="search-input-wrap"><svg aria-hidden="true"><use href="/notebook/brand/icons.svg#search"></use></svg><input id="search-query" type="search" autocomplete="off" spellcheck="false" placeholder="{{ if $zh }}主题、公司、讲义、文章…{{ else }}Topic, company, lecture, or article…{{ end }}" aria-label="{{ if $zh }}搜索笔记、讲义和 Blog{{ else }}Search notes, lectures and Blog{{ end }}" aria-controls="search-results" aria-describedby="search-keyboard-hint"></label>
     <select id="search-lang" aria-label="{{ if $zh }}搜索语言{{ else }}Search language{{ end }}"><option value="zh" {{ if $zh }}selected{{ end }}>中文</option><option value="en" {{ if not $zh }}selected{{ end }}>English</option><option value="all">{{ if $zh }}全部语言{{ else }}All languages{{ end }}</option></select>
   </div>
   <div class="search-filter-row">
@@ -13,6 +13,7 @@
       <button type="button" data-search-kind="all" aria-pressed="true">{{ if $zh }}全部{{ else }}All{{ end }}</button>
       <button type="button" data-search-kind="notebook" aria-pressed="false">{{ if $zh }}投资笔记{{ else }}Investment notes{{ end }}</button>
       <button type="button" data-search-kind="lecture" aria-pressed="false">{{ if $zh }}笔记与讲义{{ else }}Notes & lectures{{ end }}</button>
+      <button type="button" data-search-kind="blog" aria-pressed="false">Blog</button>
     </div>
     <p id="search-status" role="status" aria-live="polite"></p>
   </div>

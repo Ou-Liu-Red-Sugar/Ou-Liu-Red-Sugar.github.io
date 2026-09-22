@@ -1,0 +1,10 @@
+{{ define "main" }}
+<section class="ou-section-landing blog-index" aria-labelledby="blog-title">
+  <header class="ou-section-head">
+    <p class="ou-section-eyebrow">OU LIU / BLOG</p>
+    <h1 id="blog-title">{{ .Title }}</h1>
+    {{ with .Description }}<p class="ou-section-desc">{{ . }}</p>{{ end }}
+  </header>
+  {{ partial "blog/entries.html" .RegularPages.ByDate.Reverse }}
+</section>
+{{ end }}

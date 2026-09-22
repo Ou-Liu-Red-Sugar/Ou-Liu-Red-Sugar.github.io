@@ -5,6 +5,7 @@
   {{ range slice "site" "chrome" "reading" "overlays" }}<link rel="stylesheet" href="{{ partial "notebook/asset.html" (printf "/notebook/%s.css" .) }}">{{ end }}
   <script type="module" src="{{ partial "notebook/asset.html" "/notebook/site.js" }}"></script>
   {{ if .IsHome }}<link rel="stylesheet" href="{{ partial "notebook/asset.html" "/notebook/home.css" }}"><script type="module" src="{{ partial "notebook/asset.html" "/notebook/home.js" }}"></script>{{ end }}
+  {{ if or .IsHome (eq .Section "blog") }}<link rel="stylesheet" href="{{ partial "notebook/asset.html" "/notebook/blog.css" }}">{{ end }}
 </head>
 <body class="notebook-app {{ if and (ne .Section "notebook") (not .IsHome) }}legacy-page{{ end }}{{ if .IsHome }} is-home{{ end }}" data-lang="{{ .Lang }}">
 <a class="skip-link" href="#main">{{ if eq .Lang "zh" }}跳到正文{{ else }}Skip to content{{ end }}</a>
@@ -17,6 +18,7 @@
 </footer>
 {{ $readings := slice }}
 {{ range .Sites }}{{ range where .RegularPages "Section" "notes" }}{{ $readings = $readings | append (dict "id" (printf "lecture-%s-%s" .Lang .File.ContentBaseName) "title" .Title "summary" (.Description | plainify) "text" (.Plain | truncate 5000) "url" .RelPermalink "lang" .Lang "kind" "lecture" "subject" "mathematics") }}{{ end }}{{ end }}
+{{ range .Sites }}{{ range where .RegularPages "Section" "blog" }}{{ $readings = $readings | append (dict "id" (printf "blog-%s-%s" .Lang .File.ContentBaseName) "title" .Title "summary" (.Description | plainify) "text" (.Plain | truncate 5000) "url" .RelPermalink "lang" .Lang "kind" "blog") }}{{ end }}{{ end }}
 {{ range .Site.Data.notes_pdfs }}{{ $readings = $readings | append (dict "id" (printf "pdf-%s-%s" .lang (.title | urlize)) "title" .title "summary" (.description | plainify) "text" .description "url" .pdf "lang" .lang "kind" "lecture" "format" "PDF" "subject" "mathematics") }}{{ end }}
 <script id="reading-search-pages" type="application/json">{{ $readings | jsonify | safeJS }}</script>
 {{ partial "notebook/overlays.html" . }}

@@ -68,7 +68,7 @@ body.notebook-app { font-family:var(--sans); background:var(--paper); color:var(
   .masthead { padding:18px 22px 0; gap:18px; flex-wrap:wrap; }
   .masthead-brand { gap:9px; }.masthead-brand img { width:35px; height:35px; }.masthead-brand>span { font-size:23px; }.masthead-brand small { font-size:10px; }
   .masthead-actions { margin-left:auto; gap:15px; }.masthead-search { padding:8px; border:0; }.masthead-search span { display:none; }.masthead-search .ui-icon { width:20px; height:20px; }
-  .masthead-nav { order:3; width:100%; margin:0; gap:30px; font-size:13px; }.masthead-nav a { padding:9px 0 15px; }.masthead-nav a[aria-current]::after { bottom:0; }
+  .masthead-nav { order:3; width:100%; margin:0; gap:0 clamp(16px,4vw,30px); font-size:13px; flex-wrap:wrap; }.masthead-nav a { padding:9px 0 15px; }.masthead-nav a[aria-current]::after { bottom:0; }
   .site-colophon { margin:60px 22px 0; padding:26px 0; gap:16px 24px; }.site-colophon p { order:3; width:100%; font-size:11px; }.site-colophon nav { gap:16px; font-size:11px; }.colophon-brand img { width:27px; height:27px; }.colophon-brand small { display:none; }
   .legacy-page .site-main { padding:0 22px; }.legacy-page .ou-section-landing { padding-top:40px; }.legacy-page .ou-section-head { margin-bottom:26px; }.legacy-page .ou-section-head h1 { margin:16px 0; }.legacy-page .ou-notes-pdfs .t { font-size:18px; }.legacy-page .post-content { font-size:16px; }
 }

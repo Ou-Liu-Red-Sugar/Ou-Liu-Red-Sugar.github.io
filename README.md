@@ -3,6 +3,7 @@
 Current source guide: [Notebook authoring](docs/notebook-authoring.md).
 
 - Chinese collection: `content-zh/`; English and preserved archive: `content/`.
+- Blog posts: `content-zh/blog/*.md`, with `title`, `description` and `date` in front matter. Posts appear automatically in the Blog directory, the Chinese homepage's recent articles and site search.
 - Optional reading route: `/zh/notebook/reading-path/`; the route sequence and transitions live in `notebook/catalogue.json`.
 - New entry source: `notebook/entries/*.json`; subject/source registry: `notebook/catalogue.json`.
 - Generate pages, local search and complete Agent exports: `python tools/build_notebook.py`.
