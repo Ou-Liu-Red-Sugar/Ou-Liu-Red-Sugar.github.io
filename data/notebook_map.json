@@ -1,0 +1,1454 @@
+{
+  "title": "Agent 时代的基本面投资",
+  "description": "以股票和基本面研究为主线，从投资常识、独立判断走向 Agent 辅助研究与资产配置。",
+  "default_node": "S",
+  "groups": [
+    {
+      "id": "foundations",
+      "title": "投资者与市场环境",
+      "rows": [
+        [
+          "A",
+          "B",
+          "C"
+        ]
+      ]
+    },
+    {
+      "id": "assets",
+      "title": "投资对象 · 股票为核心",
+      "rows": [
+        [
+          "S"
+        ],
+        [
+          "R",
+          "U",
+          "X"
+        ]
+      ]
+    },
+    {
+      "id": "vehicles",
+      "title": "持有载体与合约工具",
+      "rows": [
+        [
+          "V"
+        ],
+        [
+          "G",
+          "K",
+          "L",
+          "H"
+        ]
+      ]
+    },
+    {
+      "id": "decisions",
+      "title": "从公司经营到投资决定",
+      "rows": [
+        [
+          "D",
+          "E"
+        ],
+        [
+          "F",
+          "P"
+        ]
+      ]
+    },
+    {
+      "id": "agents",
+      "title": "Agent 辅助与持续改进",
+      "rows": [
+        [
+          "I",
+          "J"
+        ]
+      ]
+    },
+    {
+      "id": "allocation",
+      "title": "综合应用",
+      "rows": [
+        [
+          "M"
+        ]
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "from": "A",
+      "to": "S",
+      "kind": "main",
+      "label": "先明确资金用途，再进入股票投资"
+    },
+    {
+      "from": "S",
+      "to": "D",
+      "kind": "main",
+      "label": "从股票回报追到公司的经营活动"
+    },
+    {
+      "from": "D",
+      "to": "E",
+      "kind": "main",
+      "label": "沿经营活动阅读利润、现金与资本需要"
+    },
+    {
+      "from": "E",
+      "to": "F",
+      "kind": "main",
+      "label": "由财务和每股结果转到买价与持有回报"
+    },
+    {
+      "from": "F",
+      "to": "P",
+      "kind": "main",
+      "label": "将单项投资判断用于组合取舍"
+    },
+    {
+      "from": "P",
+      "to": "I",
+      "kind": "main",
+      "label": "在已有投资判断基础上学习Agent辅助"
+    },
+    {
+      "from": "I",
+      "to": "J",
+      "kind": "main",
+      "label": "从一次辅助研究走向复用和持续更新"
+    },
+    {
+      "from": "J",
+      "to": "M",
+      "kind": "main",
+      "label": "将持续研究运用于Agent资产配置"
+    },
+    {
+      "from": "A",
+      "to": "F",
+      "kind": "decision",
+      "label": "期限、币种、资金追加与现实替代决定怎样比较回报"
+    },
+    {
+      "from": "A",
+      "to": "P",
+      "kind": "decision",
+      "label": "资金用途、需款时间和损失承受能力约束资产与仓位选择"
+    },
+    {
+      "from": "A",
+      "to": "M",
+      "kind": "decision",
+      "label": "当前目标、可用资金与义务约束Agent配置方案"
+    },
+    {
+      "from": "B",
+      "to": "S",
+      "kind": "knowledge",
+      "label": "区分发行募集资金与二级交易，理解股价、费用和交收"
+    },
+    {
+      "from": "B",
+      "to": "R",
+      "kind": "knowledge",
+      "label": "区分发行认购、交易报价、净价与应计利息、成交和交收"
+    },
+    {
+      "from": "B",
+      "to": "U",
+      "kind": "knowledge",
+      "label": "按存款、赎回型工具和短债分别理解计息、支取或交易到账"
+    },
+    {
+      "from": "B",
+      "to": "X",
+      "kind": "knowledge",
+      "label": "按现货、实物交收和议价交易理解报价、费用及退出流动性"
+    },
+    {
+      "from": "B",
+      "to": "V",
+      "kind": "knowledge",
+      "label": "区分净值、申赎价格和场内成交价，解释ETF折溢价与流动性"
+    },
+    {
+      "from": "B",
+      "to": "G",
+      "kind": "knowledge",
+      "label": "理解期权报价、价差、成交和结算，区分市场价格与模型估计"
+    },
+    {
+      "from": "B",
+      "to": "K",
+      "kind": "knowledge",
+      "label": "区分成交价与结算价，连接清算、保证金收付和交割"
+    },
+    {
+      "from": "B",
+      "to": "L",
+      "kind": "knowledge",
+      "label": "区分成交价、指数价和标记价，核对资金费与风险处置规则"
+    },
+    {
+      "from": "B",
+      "to": "H",
+      "kind": "knowledge",
+      "label": "按平台机制理解事件合约的报价、交易、费用和结算"
+    },
+    {
+      "from": "B",
+      "to": "F",
+      "kind": "economic",
+      "label": "实际成交价格和交易费用进入可实现的持有回报"
+    },
+    {
+      "from": "B",
+      "to": "P",
+      "kind": "decision",
+      "label": "流动性、交收时间和交易成本约束调仓与执行"
+    },
+    {
+      "from": "C",
+      "to": "D",
+      "kind": "economic",
+      "label": "利率、信用和汇率经客户需求、投入成本与融资条件影响企业"
+    },
+    {
+      "from": "C",
+      "to": "E",
+      "kind": "economic",
+      "label": "融资利率和汇率变化进入财务费用、报表换算及现金结果"
+    },
+    {
+      "from": "C",
+      "to": "R",
+      "kind": "economic",
+      "label": "利率影响价格和再投资，信用条件影响偿付与回收"
+    },
+    {
+      "from": "C",
+      "to": "U",
+      "kind": "economic",
+      "label": "利率、通胀与汇率影响资金停放的所得和购买力"
+    },
+    {
+      "from": "C",
+      "to": "X",
+      "kind": "economic",
+      "label": "需求和融资条件影响商品供需、房地产收入及持有成本"
+    },
+    {
+      "from": "C",
+      "to": "F",
+      "kind": "economic",
+      "label": "金融条件改变资金替代、定价参照和跨币种回报"
+    },
+    {
+      "from": "C",
+      "to": "P",
+      "kind": "economic",
+      "label": "经济变化通过已有的利率、汇率、信用和需求暴露改变组合结果"
+    },
+    {
+      "from": "S",
+      "to": "F",
+      "kind": "economic",
+      "label": "股东所得、股数、买入价格和持有期限形成股票回报"
+    },
+    {
+      "from": "R",
+      "to": "F",
+      "kind": "economic",
+      "label": "票息、偿付或出售款、买价和持有时间形成债券结果"
+    },
+    {
+      "from": "U",
+      "to": "F",
+      "kind": "economic",
+      "label": "净利息、费用、可用时间和购买力形成资金停放结果"
+    },
+    {
+      "from": "X",
+      "to": "F",
+      "kind": "economic",
+      "label": "买卖价格、租金等收入及维护储存成本形成持有结果"
+    },
+    {
+      "from": "V",
+      "to": "F",
+      "kind": "economic",
+      "label": "底层资产结果经过费用、分配和交易价格形成基金持有人回报"
+    },
+    {
+      "from": "G",
+      "to": "F",
+      "kind": "economic",
+      "label": "权利金、平仓收付或行权交收及费用共同形成期权交易结果"
+    },
+    {
+      "from": "K",
+      "to": "F",
+      "kind": "economic",
+      "label": "累计结算损益、交易费用和展期后的持有路径形成期货结果"
+    },
+    {
+      "from": "L",
+      "to": "F",
+      "kind": "economic",
+      "label": "价格损益、资金费及交易或强平费用形成结果；保证金追加另列资金安排"
+    },
+    {
+      "from": "H",
+      "to": "F",
+      "kind": "knowledge",
+      "label": "合约收付用于回报比较；事件报价与研究概率作对照"
+    },
+    {
+      "from": "V",
+      "to": "S",
+      "kind": "knowledge",
+      "label": "穿透识别实际股票持仓、指数规则与集中度"
+    },
+    {
+      "from": "V",
+      "to": "R",
+      "kind": "knowledge",
+      "label": "穿透识别实际债券、信用和期限暴露"
+    },
+    {
+      "from": "V",
+      "to": "U",
+      "kind": "knowledge",
+      "label": "货币基金需结合实际资产、费用和赎回条件理解"
+    },
+    {
+      "from": "V",
+      "to": "X",
+      "kind": "knowledge",
+      "label": "辨认商品或房地产载体究竟持有什么"
+    },
+    {
+      "from": "V",
+      "to": "G",
+      "kind": "knowledge",
+      "label": "采用期权的基金需要进一步理解实际策略及收益让渡"
+    },
+    {
+      "from": "V",
+      "to": "K",
+      "kind": "knowledge",
+      "label": "使用期货的基金需要进一步理解合约敞口和展期"
+    },
+    {
+      "from": "R",
+      "to": "U",
+      "kind": "knowledge",
+      "label": "短债的期限、价格风险与到账条件决定其资金停放用途"
+    },
+    {
+      "from": "S",
+      "to": "G",
+      "kind": "knowledge",
+      "label": "股票和股票指数可作为期权标的"
+    },
+    {
+      "from": "R",
+      "to": "G",
+      "kind": "knowledge",
+      "label": "债券或利率期权需对应相应标的与价格敏感性"
+    },
+    {
+      "from": "X",
+      "to": "G",
+      "kind": "knowledge",
+      "label": "先辨认商品期权对应现货还是期货，再理解标的价格如何影响期权结果"
+    },
+    {
+      "from": "S",
+      "to": "K",
+      "kind": "knowledge",
+      "label": "股指期货对应权益市场敞口"
+    },
+    {
+      "from": "R",
+      "to": "K",
+      "kind": "knowledge",
+      "label": "利率和债券期货对应相应期限及利率风险"
+    },
+    {
+      "from": "X",
+      "to": "K",
+      "kind": "knowledge",
+      "label": "商品期货连接现货、基差和交割条件"
+    },
+    {
+      "from": "K",
+      "to": "L",
+      "kind": "knowledge",
+      "label": "比较到期交割、展期与永续资金费的持有机制"
+    },
+    {
+      "from": "S",
+      "to": "P",
+      "kind": "decision",
+      "label": "比较个股配置与指数基金等现实替代"
+    },
+    {
+      "from": "R",
+      "to": "P",
+      "kind": "decision",
+      "label": "按固定收益、信用、期限和资金目标安排债券"
+    },
+    {
+      "from": "U",
+      "to": "P",
+      "kind": "decision",
+      "label": "现金承担备付、缓冲或等待的具体用途"
+    },
+    {
+      "from": "X",
+      "to": "P",
+      "kind": "decision",
+      "label": "按回报来源、流动性和共同风险比较实物资产"
+    },
+    {
+      "from": "V",
+      "to": "P",
+      "kind": "decision",
+      "label": "基金提供配置方式、持仓暴露和主动研究的比较基准"
+    },
+    {
+      "from": "G",
+      "to": "P",
+      "kind": "economic",
+      "label": "期权策略改变组合损益、权利金成本及可能的后续需款"
+    },
+    {
+      "from": "K",
+      "to": "P",
+      "kind": "economic",
+      "label": "期货调整敞口，同时带入保证金、基差和展期风险"
+    },
+    {
+      "from": "L",
+      "to": "P",
+      "kind": "economic",
+      "label": "永续调整敞口，同时带入资金费、强平和抵押品影响"
+    },
+    {
+      "from": "P",
+      "to": "G",
+      "kind": "decision",
+      "label": "组合目的、期限和风险预算决定期权策略选择"
+    },
+    {
+      "from": "P",
+      "to": "K",
+      "kind": "decision",
+      "label": "对冲对象及资金条件决定期货合约和头寸"
+    },
+    {
+      "from": "P",
+      "to": "L",
+      "kind": "decision",
+      "label": "持有期限、对冲目标和资金条件决定永续合约采用"
+    },
+    {
+      "from": "X",
+      "to": "D",
+      "kind": "economic",
+      "label": "原料、能源和地产条件影响具体业务的成本与需求"
+    },
+    {
+      "from": "E",
+      "to": "D",
+      "kind": "research",
+      "label": "报表和现金变化支持、修正或否定原有业务解释"
+    },
+    {
+      "from": "D",
+      "to": "F",
+      "kind": "economic",
+      "label": "需求、竞争和周期关系约束经营情景与定价判断"
+    },
+    {
+      "from": "E",
+      "to": "R",
+      "kind": "knowledge",
+      "label": "现金、债务和到期资金帮助分析发行人的偿债能力"
+    },
+    {
+      "from": "D",
+      "to": "P",
+      "kind": "knowledge",
+      "label": "共同客户、供应链和需求帮助识别跨公司的经营暴露"
+    },
+    {
+      "from": "H",
+      "to": "D",
+      "kind": "economic",
+      "label": "合约所描述的事件经具体渠道改变经营条件"
+    },
+    {
+      "from": "H",
+      "to": "C",
+      "kind": "economic",
+      "label": "宏观或政策类合约所指的事件可能改变金融条件"
+    },
+    {
+      "from": "D",
+      "to": "I",
+      "kind": "research",
+      "label": "经营疑问决定上下游和竞争研究的搜索方向"
+    },
+    {
+      "from": "E",
+      "to": "I",
+      "kind": "research",
+      "label": "财报差异和口径问题决定需要补取的资料"
+    },
+    {
+      "from": "F",
+      "to": "I",
+      "kind": "research",
+      "label": "影响投资取舍的未知决定研究优先级和停止点"
+    },
+    {
+      "from": "I",
+      "to": "D",
+      "kind": "research",
+      "label": "上下游及跨来源搜索补充和修正业务解释"
+    },
+    {
+      "from": "I",
+      "to": "E",
+      "kind": "research",
+      "label": "整理并连接经营与财务资料，辅助必要计算"
+    },
+    {
+      "from": "I",
+      "to": "F",
+      "kind": "research",
+      "label": "比较证据、解释和条件结果，支持判断"
+    },
+    {
+      "from": "I",
+      "to": "H",
+      "kind": "research",
+      "label": "搜索相关事件合约并核对事件依据"
+    },
+    {
+      "from": "P",
+      "to": "J",
+      "kind": "research",
+      "label": "持有记录和新事实进入持续跟踪"
+    },
+    {
+      "from": "J",
+      "to": "D",
+      "kind": "research",
+      "label": "新信息更新仍被使用的业务关系"
+    },
+    {
+      "from": "J",
+      "to": "E",
+      "kind": "research",
+      "label": "新披露和口径变化更新数据及计算输入"
+    },
+    {
+      "from": "J",
+      "to": "F",
+      "kind": "research",
+      "label": "复盘修订假设、判断和方法"
+    },
+    {
+      "from": "J",
+      "to": "P",
+      "kind": "research",
+      "label": "研究变化和持有反馈触发组合复评"
+    },
+    {
+      "from": "J",
+      "to": "I",
+      "kind": "research",
+      "label": "保留的证据、分歧和任务状态支持下一次研究"
+    },
+    {
+      "from": "F",
+      "to": "M",
+      "kind": "decision",
+      "label": "同口径的价格、情景与Risk-Reward支持资本比较"
+    },
+    {
+      "from": "P",
+      "to": "M",
+      "kind": "knowledge",
+      "label": "配置原则、资金安排和风险比较交给Agent协助实施"
+    },
+    {
+      "from": "I",
+      "to": "M",
+      "kind": "research",
+      "label": "Agent汇集已有研究，比较持仓、候选与现金"
+    },
+    {
+      "from": "M",
+      "to": "P",
+      "kind": "decision",
+      "label": "经人工取舍的方案接回实际持有、资金安排和再平衡"
+    },
+    {
+      "from": "M",
+      "to": "I",
+      "kind": "research",
+      "label": "配置比较暴露的研究缺口形成有边界的补充任务"
+    },
+    {
+      "from": "M",
+      "to": "J",
+      "kind": "research",
+      "label": "配置选择与后续结果进入跟踪、复盘和方法改进"
+    }
+  ],
+  "nodes": [
+    {
+      "id": "A",
+      "title": "投资者的资金、目标与风险",
+      "short": "资金与风险",
+      "description": "明确自己要解决的投资问题，理解收益与代价。"
+    },
+    {
+      "id": "B",
+      "title": "市场机制、交易与结算",
+      "short": "市场机制",
+      "description": "按具体工具理解资金、报价、成交和结算的联系。"
+    },
+    {
+      "id": "C",
+      "title": "经济环境与金融条件",
+      "short": "经济环境",
+      "description": "沿需求、成本与资金解释影响，形成有条件的判断。"
+    },
+    {
+      "id": "S",
+      "title": "股票：从公司到持有回报",
+      "short": "股票",
+      "description": "贯通公司经营、每股结果、价格和持有回报，是全书的核心对象。"
+    },
+    {
+      "id": "R",
+      "title": "债券与固定收益投资",
+      "short": "债券",
+      "description": "理解利息从哪里来、价格为何变化，以及何时能够取得资金。"
+    },
+    {
+      "id": "U",
+      "title": "现金、存款与短期工具",
+      "short": "现金工具",
+      "description": "把现金当作有具体工具、条件和用途的资本选择。"
+    },
+    {
+      "id": "X",
+      "title": "商品、黄金与房地产",
+      "short": "实物资产",
+      "description": "作为理解产业和资产配置的比较对象，按实际需要展开。"
+    },
+    {
+      "id": "V",
+      "title": "基金、ETF与投资载体",
+      "short": "基金与ETF",
+      "description": "从产品名称追到实际持仓，比较成本和可替代的投资方式。"
+    },
+    {
+      "id": "G",
+      "title": "期权价格、策略与对冲",
+      "short": "期权",
+      "description": "解释价格和交易结果，再按组合目标比较策略及其代价。"
+    },
+    {
+      "id": "K",
+      "title": "期货机制与投资用途",
+      "short": "期货",
+      "description": "看清合约怎样改变价格暴露、现金需求和持有结果。"
+    },
+    {
+      "id": "L",
+      "title": "永续合约、资金费与持有风险",
+      "short": "永续合约",
+      "description": "从完整持有过程理解价格、资金费和强平；具体规则随所用合约核实。"
+    },
+    {
+      "id": "H",
+      "title": "预测市场与事件合约",
+      "short": "预测市场",
+      "description": "同时理解交易机制和事件信息怎样用于基本面研究。"
+    },
+    {
+      "id": "D",
+      "title": "企业经营与产业关系",
+      "short": "企业与产业",
+      "description": "解释公司怎样赚钱，哪些条件支持增长或使原判断改变。"
+    },
+    {
+      "id": "E",
+      "title": "财报、资本与每股所得",
+      "short": "财报与资本",
+      "description": "从经营结果追到现金与每股所得，保留必要的财务关系。"
+    },
+    {
+      "id": "F",
+      "title": "定价、情景与回报比较",
+      "short": "价格与回报",
+      "description": "重点讲股票基本面定价；各工具保留自身现金流和风险，再按共同口径比较。"
+    },
+    {
+      "id": "P",
+      "title": "资产配置、组合与实际持有",
+      "short": "配置与持有",
+      "description": "把研究转成符合自身目标的资金安排，并在持有中持续判断。"
+    },
+    {
+      "id": "I",
+      "title": "Agent辅助的基本面研究",
+      "short": "Agent研究",
+      "description": "扩大有经济意义的信息覆盖，把资料接回实际判断。"
+    },
+    {
+      "id": "J",
+      "title": "持续运行与方法迭代",
+      "short": "运行与迭代",
+      "description": "将有效研究积累成可复用流程，结合笔记与实践继续改进。"
+    },
+    {
+      "id": "M",
+      "title": "通过 Agent 进行资产配置",
+      "short": "Agent资产配置",
+      "description": "让 Agent 整合研究、比较方案和维护组合，读者理解依据并作出资本取舍。"
+    }
+  ],
+  "entries": [
+    {
+      "id": "NB-A01",
+      "node": "A",
+      "title": "投资回报的来源",
+      "goal": "让读者先看清投入资金以后，所得可能来自哪些变化。",
+      "status": "planned",
+      "url": null
+    },
+    {
+      "id": "NB-A02",
+      "node": "A",
+      "title": "投资期限与现金需要",
+      "goal": "理解一笔钱能用多久，怎样限制可选择的投资。",
+      "status": "planned",
+      "url": null
+    },
+    {
+      "id": "NB-A03",
+      "node": "A",
+      "title": "亏损、波动与持有能力",
+      "goal": "区分价格波动、持有损失与被迫卖出，并理解自己的承受条件。",
+      "status": "planned",
+      "url": null
+    },
+    {
+      "id": "NB-A04",
+      "node": "A",
+      "title": "复利、通胀与机会成本",
+      "goal": "用共同期限和购买力比较资金的不同用途。",
+      "status": "planned",
+      "url": null
+    },
+    {
+      "id": "NB-A05",
+      "node": "A",
+      "title": "信息、不确定性与判断习惯",
+      "goal": "学会区分已知事实、解释和未来判断，说明自己为什么采用一种看法。",
+      "status": "planned",
+      "url": null
+    },
+    {
+      "id": "NB-B01",
+      "node": "B",
+      "title": "发行、交易与资金流向",
+      "goal": "弄清发行融资和投资者买卖时，钱分别去了哪里。",
+      "status": "planned",
+      "url": null
+    },
+    {
+      "id": "NB-B02",
+      "node": "B",
+      "title": "报价、订单与实际成交",
+      "goal": "解释屏幕价格为何可能不同于自己整笔订单的成交价格。",
+      "status": "planned",
+      "url": null
+    },
+    {
+      "id": "NB-B03",
+      "node": "B",
+      "title": "清算、交收与账户资金",
+      "goal": "区分已经成交、持有记录更新和资金可用的不同时间。",
+      "status": "planned",
+      "url": null
+    },
+    {
+      "id": "NB-B04",
+      "node": "B",
+      "title": "流动性与交易成本",
+      "goal": "理解成交难易、价格让步和费用怎样影响投资实施。",
+      "status": "planned",
+      "url": null
+    },
+    {
+      "id": "NB-C01",
+      "node": "C",
+      "title": "利率、信用与融资",
+      "goal": "理解资金价格怎样影响存款、债券和企业借款。",
+      "status": "planned",
+      "url": null
+    },
+    {
+      "id": "NB-C02",
+      "node": "C",
+      "title": "通胀、需求与企业成本",
+      "goal": "把宏观变化接到客户购买、企业成本和实际回报。",
+      "status": "planned",
+      "url": null
+    },
+    {
+      "id": "NB-C03",
+      "node": "C",
+      "title": "汇率与跨境投资",
+      "goal": "区分账户计价变化与企业本身的汇率暴露。",
+      "status": "planned",
+      "url": null
+    },
+    {
+      "id": "NB-C04",
+      "node": "C",
+      "title": "经济变化与资产表现",
+      "goal": "沿具体渠道分析经济环境，避免把宏观标签直接当成投资结论。",
+      "status": "planned",
+      "url": null
+    },
+    {
+      "id": "NB-S01",
+      "node": "S",
+      "title": "股票、公司与股价",
+      "goal": "建立股票投资的对象感，并引出研究公司经营的需要。",
+      "status": "planned",
+      "url": null
+    },
+    {
+      "id": "NB-S02",
+      "node": "S",
+      "title": "股东回报与分红",
+      "goal": "把股价变化和期间分配放进同一笔持有结果。",
+      "status": "planned",
+      "url": null
+    },
+    {
+      "id": "NB-S03",
+      "node": "S",
+      "title": "增发、回购与每股所得",
+      "goal": "理解公司规模变化与每股结果为什么可能不同。",
+      "status": "planned",
+      "url": null
+    },
+    {
+      "id": "NB-S04",
+      "node": "S",
+      "title": "市场预期与股价变化",
+      "goal": "解释好消息、经营改善与股价表现之间的关系。",
+      "status": "planned",
+      "url": null
+    },
+    {
+      "id": "NB-S05",
+      "node": "S",
+      "title": "个股选择、指数与比较基准",
+      "goal": "让读者把主动研究与现实可用的替代方案放在一起考虑。",
+      "status": "planned",
+      "url": null
+    },
+    {
+      "id": "NB-R01",
+      "node": "R",
+      "title": "债券的现金流与收益",
+      "goal": "看懂利息、本金、买价与持有收益各表示什么。",
+      "status": "planned",
+      "url": null
+    },
+    {
+      "id": "NB-R02",
+      "node": "R",
+      "title": "利率变化与债券价格",
+      "goal": "解释固定现金流的债券为什么会随市场利率改变价格。",
+      "status": "planned",
+      "url": null
+    },
+    {
+      "id": "NB-R03",
+      "node": "R",
+      "title": "信用、违约与偿债能力",
+      "goal": "把债券约定的收付与发行人实际还钱的能力联系起来。",
+      "status": "planned",
+      "url": null
+    },
+    {
+      "id": "NB-U01",
+      "node": "U",
+      "title": "存款、货币基金与短债",
+      "goal": "分清常见资金停放工具的实际所得与使用方式。",
+      "status": "planned",
+      "url": null
+    },
+    {
+      "id": "NB-U02",
+      "node": "U",
+      "title": "现金的可用时间与配置用途",
+      "goal": "说明保留现金在具体资金安排中承担什么任务。",
+      "status": "planned",
+      "url": null
+    },
+    {
+      "id": "NB-X01",
+      "node": "X",
+      "title": "商品、黄金与回报来源",
+      "goal": "认识实物资产不同于企业盈利的主要回报来源和影响因素。",
+      "status": "planned",
+      "url": null
+    },
+    {
+      "id": "NB-X02",
+      "node": "X",
+      "title": "房地产、租金与持有成本",
+      "goal": "把房产收入、维护投入和买卖价格放在同一持有过程。",
+      "status": "planned",
+      "url": null
+    },
+    {
+      "id": "NB-X03",
+      "node": "X",
+      "title": "实物资产、基金与期货的持有差别",
+      "goal": "理解同名资产通过不同工具持有时，回报为何可能不同。",
+      "status": "planned",
+      "url": null
+    },
+    {
+      "id": "NB-V01",
+      "node": "V",
+      "title": "基金、ETF与实际持仓",
+      "goal": "从产品名称追到基金实际持有的资产。",
+      "status": "planned",
+      "url": null
+    },
+    {
+      "id": "NB-V02",
+      "node": "V",
+      "title": "指数规则、权重与集中度",
+      "goal": "解释一个指数怎样形成，以及持仓权重怎样变化。",
+      "status": "planned",
+      "url": null
+    },
+    {
+      "id": "NB-V03",
+      "node": "V",
+      "title": "费用、跟踪结果与折溢价",
+      "goal": "区分基金持仓结果、管理费用与投资者的实际成交结果。",
+      "status": "planned",
+      "url": null
+    },
+    {
+      "id": "NB-V04",
+      "node": "V",
+      "title": "主动管理与被动投资",
+      "goal": "理解不同管理方式要求投资者判断哪些事情。",
+      "status": "planned",
+      "url": null
+    },
+    {
+      "id": "NB-D01",
+      "node": "D",
+      "title": "客户、产品与收费方式",
+      "goal": "从客户为什么付款开始，解释一门生意怎样取得收入。",
+      "status": "planned",
+      "url": null
+    },
+    {
+      "id": "NB-D02",
+      "node": "D",
+      "title": "收入增长的来源",
+      "goal": "拆开销量、价格、产品组合与客户变化，解释增长来自哪里。",
+      "status": "planned",
+      "url": null
+    },
+    {
+      "id": "NB-D03",
+      "node": "D",
+      "title": "成本结构与经营杠杆",
+      "goal": "解释销售变化为什么会放大或削弱利润变化。",
+      "status": "planned",
+      "url": null
+    },
+    {
+      "id": "NB-D04",
+      "node": "D",
+      "title": "竞争、定价权与替代",
+      "goal": "从客户的选择判断公司为什么能保留利润。",
+      "status": "planned",
+      "url": null
+    },
+    {
+      "id": "NB-D05",
+      "node": "D",
+      "title": "上下游分工与利润分配",
+      "goal": "理解一条产业链中谁创造价值、谁承担投入、谁取得利润。",
+      "status": "planned",
+      "url": null
+    },
+    {
+      "id": "NB-D06",
+      "node": "D",
+      "title": "需求、库存与产能周期",
+      "goal": "区分最终使用增长、采购变化与扩产波动。",
+      "status": "planned",
+      "url": null
+    },
+    {
+      "id": "NB-D07",
+      "node": "D",
+      "title": "技术创新与商业化",
+      "goal": "解释技术进步经过哪些条件才可能改变收入、成本和竞争。",
+      "status": "planned",
+      "url": null
+    },
+    {
+      "id": "NB-D08",
+      "node": "D",
+      "title": "业务集合与共享资源",
+      "goal": "把多业务公司分清，同时保留业务之间的共同投入和联系。",
+      "status": "planned",
+      "url": null
+    },
+    {
+      "id": "NB-E01",
+      "node": "E",
+      "title": "三张财报与经营活动",
+      "goal": "把利润表、资产负债表和现金流量表放回同一经营过程。",
+      "status": "planned",
+      "url": null
+    },
+    {
+      "id": "NB-E02",
+      "node": "E",
+      "title": "收入、回款与营运资本",
+      "goal": "解释收入增长为什么未必同步增加现金。",
+      "status": "planned",
+      "url": null
+    },
+    {
+      "id": "NB-E03",
+      "node": "E",
+      "title": "利润、资本开支与现金",
+      "goal": "理解维持和扩大经营需要的投入怎样影响可用现金。",
+      "status": "planned",
+      "url": null
+    },
+    {
+      "id": "NB-E04",
+      "node": "E",
+      "title": "分部、共同成本与合并",
+      "goal": "学会使用分部资料，并把研究结果接回公司整体。",
+      "status": "planned",
+      "url": null
+    },
+    {
+      "id": "NB-E05",
+      "node": "E",
+      "title": "债务、融资与现金低谷",
+      "goal": "判断企业能否在经营结果兑现前满足资金需要。",
+      "status": "planned",
+      "url": null
+    },
+    {
+      "id": "NB-E06",
+      "node": "E",
+      "title": "盈利质量与可比口径",
+      "goal": "看懂报表调整后，哪些经营变化仍然成立。",
+      "status": "planned",
+      "url": null
+    },
+    {
+      "id": "NB-E07",
+      "node": "E",
+      "title": "资本配置、激励与每股结果",
+      "goal": "评价企业怎样使用赚到的钱，以及普通股股东得到什么。",
+      "status": "planned",
+      "url": null
+    },
+    {
+      "id": "NB-F01",
+      "node": "F",
+      "title": "价格、价值与投资回报",
+      "goal": "把关于资产的判断与实际买入价格、收付和期限区分开来。",
+      "status": "planned",
+      "url": null
+    },
+    {
+      "id": "NB-F02",
+      "node": "F",
+      "title": "经营情景与概率判断",
+      "goal": "用能够共同成立的条件讨论未来，而不只给单一路径。",
+      "status": "planned",
+      "url": null
+    },
+    {
+      "id": "NB-F03",
+      "node": "F",
+      "title": "盈利状态与定价参照",
+      "goal": "理解倍数在乘什么，以及什么参照适用于当前业务状态。",
+      "status": "planned",
+      "url": null
+    },
+    {
+      "id": "NB-F04",
+      "node": "F",
+      "title": "企业结果与普通股所得",
+      "goal": "把业务定价与公司的债务、现金和股数接起来。",
+      "status": "planned",
+      "url": null
+    },
+    {
+      "id": "NB-F05",
+      "node": "F",
+      "title": "买入价格与Risk-Reward",
+      "goal": "将经营解释、财务与每股结果、买入价格和资金条件连成一份完整的初步投资判断。",
+      "status": "planned",
+      "url": null
+    },
+    {
+      "id": "NB-F06",
+      "node": "F",
+      "title": "反证、替代选择与判断更新",
+      "goal": "说明什么变化足以改变投资决定，以及下一步应查什么。",
+      "status": "planned",
+      "url": null
+    },
+    {
+      "id": "NB-P01",
+      "node": "P",
+      "title": "分散投资与共同风险",
+      "goal": "看清不同持仓是否真正依赖不同的收益来源。",
+      "status": "planned",
+      "url": null
+    },
+    {
+      "id": "NB-P02",
+      "node": "P",
+      "title": "仓位、现金与资金安排",
+      "goal": "把单项机会的吸引力与自己能承担的规模联系起来。",
+      "status": "planned",
+      "url": null
+    },
+    {
+      "id": "NB-P03",
+      "node": "P",
+      "title": "股票、债券与基金的配置",
+      "goal": "比较实际可用的资产组合，形成有理由的初步安排。",
+      "status": "planned",
+      "url": null
+    },
+    {
+      "id": "NB-P04",
+      "node": "P",
+      "title": "对冲目标与工具选择",
+      "goal": "先确定要改变哪种风险，再比较期权、期货及其他办法。",
+      "status": "planned",
+      "url": null
+    },
+    {
+      "id": "NB-P05",
+      "node": "P",
+      "title": "再平衡、加减仓与退出",
+      "goal": "区分因比例变化而调整与因投资判断变化而调整。",
+      "status": "planned",
+      "url": null
+    },
+    {
+      "id": "NB-P06",
+      "node": "P",
+      "title": "执行记录与投资复盘",
+      "goal": "把原判断、真实持有和后续结果放在一起理解。",
+      "status": "planned",
+      "url": null
+    },
+    {
+      "id": "NB-G01",
+      "node": "G",
+      "title": "期权交易与权利金的流向",
+      "goal": "沿一笔期权交易说明谁付款、谁收款，以及后续可能发生什么。",
+      "status": "planned",
+      "url": null
+    },
+    {
+      "id": "NB-G02",
+      "node": "G",
+      "title": "期权支付、盈亏与退出",
+      "goal": "区分合约支付、交易盈亏和退出方式。",
+      "status": "planned",
+      "url": null
+    },
+    {
+      "id": "NB-G03",
+      "node": "G",
+      "title": "期权价格与定价模型",
+      "goal": "解释市场报价怎样形成，以及模型在计算什么。",
+      "status": "planned",
+      "url": null
+    },
+    {
+      "id": "NB-G04",
+      "node": "G",
+      "title": "时间、波动率与期权价值",
+      "goal": "看清方向判断、剩余时间和波动预期怎样共同影响期权。",
+      "status": "planned",
+      "url": null
+    },
+    {
+      "id": "NB-G05",
+      "node": "G",
+      "title": "保护性看跌与备兑",
+      "goal": "把期权放回股票持仓，比较保护和收益让渡的代价。",
+      "status": "planned",
+      "url": null
+    },
+    {
+      "id": "NB-G06",
+      "node": "G",
+      "title": "价差组合与策略选择",
+      "goal": "从投资目的选择组合，理解多腿交易怎样共同改变结果。",
+      "status": "planned",
+      "url": null
+    },
+    {
+      "id": "NB-K01",
+      "node": "K",
+      "title": "期货合约与价格暴露",
+      "goal": "理解期货怎样用合约数量形成市场敞口。",
+      "status": "planned",
+      "url": null
+    },
+    {
+      "id": "NB-K02",
+      "node": "K",
+      "title": "保证金、逐日结算与资金",
+      "goal": "解释期货持有期间现金怎样变化，以及为什么会提前需要补款。",
+      "status": "planned",
+      "url": null
+    },
+    {
+      "id": "NB-K03",
+      "node": "K",
+      "title": "基差、交割与展期",
+      "goal": "把期货价格接回现货和具体持有方式。",
+      "status": "planned",
+      "url": null
+    },
+    {
+      "id": "NB-K04",
+      "node": "K",
+      "title": "期货对冲与组合结果",
+      "goal": "把期货盈亏与被对冲的资产或经营支出合起来观察。",
+      "status": "planned",
+      "url": null
+    },
+    {
+      "id": "NB-L01",
+      "node": "L",
+      "title": "永续合约与价格锚定",
+      "goal": "通过与现货、到期期货比较，解释永续合约维持价格联系的办法。",
+      "status": "planned",
+      "url": null
+    },
+    {
+      "id": "NB-L02",
+      "node": "L",
+      "title": "资金费与持有成本",
+      "goal": "把资金费收付放进完整持有结果，理解它随时间和市场条件变化。",
+      "status": "planned",
+      "url": null
+    },
+    {
+      "id": "NB-L03",
+      "node": "L",
+      "title": "标记价格、保证金与强平",
+      "goal": "区分实际成交、风险计价和现金结算，解释途中资金约束。",
+      "status": "planned",
+      "url": null
+    },
+    {
+      "id": "NB-L04",
+      "node": "L",
+      "title": "合约计价与完整持有结果",
+      "goal": "理解保证金币种和合约形式怎样改变所得、损失与对冲。",
+      "status": "planned",
+      "url": null
+    },
+    {
+      "id": "NB-H01",
+      "node": "H",
+      "title": "事件合约与预测市场",
+      "goal": "认识事件合约怎样交易和结算。",
+      "status": "planned",
+      "url": null
+    },
+    {
+      "id": "NB-H02",
+      "node": "H",
+      "title": "合约价格与概率",
+      "goal": "解释为何常把事件价格读成概率，以及怎样理解这种对照。",
+      "status": "planned",
+      "url": null
+    },
+    {
+      "id": "NB-H03",
+      "node": "H",
+      "title": "事件证据与判断更新",
+      "goal": "跟踪新证据出现时，自己的判断和市场预期怎样变化。",
+      "status": "planned",
+      "url": null
+    },
+    {
+      "id": "NB-H04",
+      "node": "H",
+      "title": "预测市场与公司研究",
+      "goal": "把事件合约的信息接入公司经营，而不直接替换整家公司情景。",
+      "status": "planned",
+      "url": null
+    },
+    {
+      "id": "NB-I01",
+      "node": "I",
+      "title": "从投资疑问到Agent研究任务",
+      "goal": "从公开线索识别值得研究的对象，把影响投资取舍的疑问转成范围清楚的Agent任务。",
+      "status": "planned",
+      "url": null
+    },
+    {
+      "id": "NB-I02",
+      "node": "I",
+      "title": "原始资料搜索与跨来源比较",
+      "goal": "让搜索围绕正在解释的关系，理解不同来源各能提供什么。",
+      "status": "planned",
+      "url": null
+    },
+    {
+      "id": "NB-I03",
+      "node": "I",
+      "title": "上下游一至两跳的业务研究",
+      "goal": "借助Agent扩大经营信息覆盖，再把结果接回目标公司的判断。",
+      "status": "planned",
+      "url": null
+    },
+    {
+      "id": "NB-I04",
+      "node": "I",
+      "title": "竞争、技术与制度的专题搜索",
+      "goal": "寻找足以改变原经营解释的新信息与替代方案。",
+      "status": "planned",
+      "url": null
+    },
+    {
+      "id": "NB-I05",
+      "node": "I",
+      "title": "Agent辅助财报整理与情景计算",
+      "goal": "把重复整理和计算交给工具，同时保留读者能够理解的经营联系。",
+      "status": "planned",
+      "url": null
+    },
+    {
+      "id": "NB-I06",
+      "node": "I",
+      "title": "多Agent分工与研究整合",
+      "goal": "按问题组织协作，把不同分支接成同一份研究。",
+      "status": "planned",
+      "url": null
+    },
+    {
+      "id": "NB-J01",
+      "node": "J",
+      "title": "证据、假设与研究档案",
+      "goal": "保存足够的信息，使后续研究能够取回并继续使用已有判断。",
+      "status": "planned",
+      "url": null
+    },
+    {
+      "id": "NB-J02",
+      "node": "J",
+      "title": "观察清单与局部更新",
+      "goal": "让后续信息围绕投资理由进入研究，更新真正受影响的部分。",
+      "status": "planned",
+      "url": null
+    },
+    {
+      "id": "NB-J03",
+      "node": "J",
+      "title": "前向记录与方法迭代",
+      "goal": "区分回看解释与事前判断，并据实际使用结果改进方法。",
+      "status": "planned",
+      "url": null
+    },
+    {
+      "id": "NB-J04",
+      "node": "J",
+      "title": "可重复运行的研究流程",
+      "goal": "将已有工作组织成可继续使用、能够发现失败并恢复的流程。",
+      "status": "planned",
+      "url": null
+    },
+    {
+      "id": "NB-M01",
+      "node": "M",
+      "title": "配置任务与账户起点",
+      "goal": "让Agent从真实目标和当前资金状态开始理解配置问题。",
+      "status": "planned",
+      "url": null
+    },
+    {
+      "id": "NB-M02",
+      "node": "M",
+      "title": "研究、持仓与候选的统一比较",
+      "goal": "把已有研究转成同一口径下可比较的资本用途。",
+      "status": "planned",
+      "url": null
+    },
+    {
+      "id": "NB-M03",
+      "node": "M",
+      "title": "组合共同情景与配置方案",
+      "goal": "在同一经济环境和资金约束下比较可采取的配置。",
+      "status": "planned",
+      "url": null
+    },
+    {
+      "id": "NB-M04",
+      "node": "M",
+      "title": "对冲、流动性与执行衔接",
+      "goal": "把需要的风险调整和交易安排纳入完整配置。",
+      "status": "planned",
+      "url": null
+    },
+    {
+      "id": "NB-M05",
+      "node": "M",
+      "title": "Agent辅助再平衡与持续配置",
+      "goal": "完成一次从新信息到配置复评、采用及跟踪的完整过程。",
+      "status": "planned",
+      "url": null
+    }
+  ]
+}

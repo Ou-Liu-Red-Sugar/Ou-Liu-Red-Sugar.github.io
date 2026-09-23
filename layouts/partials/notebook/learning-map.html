@@ -1,0 +1,65 @@
+{{ $map := .Site.Data.notebook_map }}
+{{ $nodes := dict }}{{ range $map.nodes }}{{ $nodes = merge $nodes (dict .id .) }}{{ end }}
+{{ $relations := dict "main" "学习衔接" "knowledge" "知识支持" "economic" "经济联系" "decision" "决策用途" "research" "研究与反馈" }}
+{{ $available := where $map.entries "status" "available" }}
+<link rel="stylesheet" href="{{ partial "notebook/asset.html" "/notebook/learning-map.css" }}">
+<script type="module" src="{{ partial "notebook/asset.html" "/notebook/learning-map.js" }}"></script>
+<div class="catalogue-shell notebook-catalogue learning-map" data-learning-map>
+  <header class="page-intro catalogue-intro">
+    <div class="catalogue-heading"><p class="eyebrow">INVESTMENT NOTEBOOK <span>/ {{ len $available }} 篇已写 · {{ len $map.entries }} 篇规划</span></p><h1>{{ .Title }}</h1></div>
+    <div class="catalogue-description"><p>{{ $map.description }}</p><a class="catalogue-notation" href="/zh/notebook/notation/" data-reference="notation-zh">符号与单位 <span aria-hidden="true">↗</span></a></div>
+  </header>
+  <div class="learning-map-heading"><h2>{{ $map.title }}</h2><p>选择主题，查看词条与相关知识。</p></div>
+  <div class="learning-map-layout">
+    <div class="learning-map-overview">
+      <div class="learning-map-toolbar"><button type="button" data-map-reset>全图</button><span data-map-focus-label>股票主线与相关专题</span><span class="learning-map-toolbar-note">选择主题后，相关知识向它靠近。</span></div>
+      <nav class="learning-map-graph" aria-label="投资学主题">
+        <svg class="learning-map-edges" aria-hidden="true" focusable="false"></svg>
+        {{ range $map.groups }}
+        <section class="learning-map-group" aria-labelledby="map-group-{{ .id }}">
+          <h3 id="map-group-{{ .id }}">{{ .title }}</h3>
+          {{ range .rows }}
+          <div class="learning-map-row" data-columns="{{ len . }}">
+            {{ range . }}{{ $node := index $nodes . }}{{ $items := where $map.entries "node" . }}{{ $ready := where $items "status" "available" }}
+            <a id="map-node-{{ . }}" class="learning-map-node{{ if eq . "S" }} learning-map-stock{{ end }}" href="#topic-{{ . }}" data-map-node="{{ . }}" aria-controls="topic-{{ . }}"><strong>{{ $node.short }}</strong><small>{{ len $ready }} / {{ len $items }} 篇已写</small></a>
+            {{ end }}
+          </div>
+          {{ end }}
+        </section>
+        {{ end }}
+      </nav>
+      <div class="learning-map-inspector">
+        <label for="map-relation-choice">查看关系 <select id="map-relation-choice" data-map-edge-choice><option value="">选择一条连线</option></select></label>
+        <div class="learning-map-edge-detail" data-map-edge-detail aria-live="polite"><p>选择连线，查看起点、作用与终点。</p></div>
+        <p class="learning-map-direction-note">箭头表示关系方向，不代表必修先后。</p>
+      </div>
+    </div>
+    <div class="learning-map-details" aria-label="主题词条与关系">
+      {{ range $map.nodes }}{{ $node := . }}{{ $items := where $map.entries "node" .id }}{{ $ready := where $items "status" "available" }}
+      <section class="learning-map-panel" id="topic-{{ .id }}" data-map-panel="{{ .id }}" aria-labelledby="map-title-{{ .id }}" tabindex="-1">
+        <header class="learning-map-panel-heading"><p class="learning-map-count">{{ len $ready }} 篇已写 · {{ len $items }} 篇规划</p><h2 id="map-title-{{ .id }}">{{ .title }}</h2><p>{{ .description }}</p></header>
+        {{ if $items }}
+        <ol class="learning-map-entries" aria-label="{{ .short }}词条">
+          {{ range $items }}
+          <li data-entry-id="{{ .id }}" data-status="{{ .status }}">
+            {{ if and (eq .status "available") .url }}<a class="learning-map-entry-title" href="{{ .url }}">{{ .title }} <span aria-hidden="true">↗</span></a><span class="learning-map-entry-state is-available">已写</span>{{ else }}<span class="learning-map-entry-title">{{ .title }}</span><span class="learning-map-entry-state">待写</span>{{ end }}
+            {{ with .goal }}<p>{{ . }}</p>{{ end }}
+          </li>
+          {{ end }}
+        </ol>
+        {{ else }}<p class="learning-map-empty">本主题词条待安排。</p>{{ end }}
+        <details class="learning-map-relations">
+          <summary>与其他主题的联系</summary>
+          <ul>
+            {{ range $map.edges }}{{ if or (eq .from $node.id) (eq .to $node.id) }}{{ $from := index $nodes .from }}{{ $to := index $nodes .to }}
+            <li data-map-relation="{{ .from }}-{{ .to }}" data-kind="{{ .kind }}"><div class="learning-map-relation-title"><a href="#topic-{{ .from }}" data-map-select="{{ .from }}">{{ $from.short }}</a><span aria-hidden="true"> → </span><span class="learning-map-sr-only">指向</span><a href="#topic-{{ .to }}" data-map-select="{{ .to }}">{{ $to.short }}</a></div><p><span class="learning-map-relation-kind">{{ index $relations .kind }}</span> · {{ .label }}</p></li>
+            {{ end }}{{ end }}
+          </ul>
+        </details>
+      </section>
+      {{ end }}
+    </div>
+  </div>
+  <p class="learning-map-sr-only" data-map-status role="status" aria-live="polite" aria-atomic="true"></p>
+  <script type="application/json" data-map-data>{{ $map | jsonify | safeJS }}</script>
+</div>

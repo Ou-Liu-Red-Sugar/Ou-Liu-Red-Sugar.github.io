@@ -1,4 +1,7 @@
 {{ define "main" }}
+{{ if and (eq .Lang "zh") .Site.Data.notebook_map }}
+{{ partial "notebook/learning-map.html" . }}
+{{ else }}
 {{ $page := . }}{{ $zh := eq .Lang "zh" }}{{ $book := .Site.Data.notebook }}{{ $all := where $book.entries "lang" .Lang }}{{ $entries := where $all "kind" "not in" (slice "company" "research") }}{{ $companies := where $all "kind" "company" }}
 <div class="catalogue-shell notebook-catalogue">
   <header class="page-intro catalogue-intro">
@@ -23,4 +26,5 @@
   {{ end }}
   {{ with $companies }}<a class="company-library-link" href="/{{ $page.Lang }}/notebook/companies/"><span class="company-library-mark" aria-hidden="true">↗</span><span><strong>{{ if $zh }}公司资料与研究{{ else }}Company profiles & research{{ end }}</strong><small>{{ if $zh }}查看企业业务与有日期的研究材料{{ else }}Company profiles and dated research notes{{ end }}</small></span><span class="company-library-count">{{ len . }} <span>{{ if $zh }}家公司{{ else }}companies{{ end }}</span></span><span aria-hidden="true">→</span></a>{{ end }}
 </div>
+{{ end }}
 {{ end }}

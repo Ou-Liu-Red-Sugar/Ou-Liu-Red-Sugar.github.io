@@ -2,13 +2,14 @@
 
 Current source guide: [Notebook authoring](docs/notebook-authoring.md).
 
-The investment notebook was archived on 2026-09-23 at the author's request. The local source now starts with zero entries and an empty catalogue. New work proceeds one article at a time; the former outline, routes, company examples and production assignments are historical material. The first new article has not been selected.
+The investment notebook was archived on 2026-09-23 at the author's request. Its new [writing outline](docs/investment-notebook-outline.md) follows the agreed knowledge map, with stocks and fundamental investing as the main thread and Agent-assisted asset allocation as the final application. There are currently zero finished entries. New work proceeds one article at a time; the former outline, routes, company examples and production assignments are historical material.
 
 - Chinese collection: `content-zh/`; English and preserved archive: `content/`.
 - Blog posts: `content-zh/blog/*.md`, with `title`, `description` and `date` in front matter. Posts appear automatically in the Blog directory, the Chinese homepage's recent articles and site search.
 - New entry source: `notebook/entries/*.json`; subjects, sources and any future routes: `notebook/catalogue.json`. Add them when an actual article needs them.
+- Navigation and planning source: `notebook/learning-plan.json`; the compiler generates `data/notebook_map.json` and the writing outline from it. Planned topics do not create article pages. A Chinese article becomes available in the map only when its `node_id` matches the plan entry ID.
 - Generate pages, local search and complete Agent exports: `python tools/build_notebook.py`.
-- Check the generator and catalogue constraints: `python tools/test_build_notebook.py`.
+- Check the plan, article mapping and generator constraints from `tools/`: `python -m unittest test_notebook_learning_plan.py test_build_notebook.py`.
 - Check interactive calculations and numeric display: `node --test tools/notebook-math.test.mjs tools/notebook-number-format.test.cjs`.
 - Preview: `hugo server --destination .git/notebook-preview --disableFastRender`.
 - Build into a fresh temporary directory without overwriting existing public changes: `hugo --destination .git/notebook-build`, then `python tools/check_notebook.py --build-dir .git/notebook-build`.

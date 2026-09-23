@@ -11,6 +11,7 @@ import re
 from pathlib import Path
 from urllib.parse import urljoin
 from notebook_notation import load_notation, notation_markdown, notation_instruction
+from notebook_learning_plan import learning_plan_outputs
 
 ROOT = Path(__file__).resolve().parents[1]
 BASE_URL = "https://ou-liu-red-sugar.github.io/"
@@ -539,6 +540,8 @@ def compile_notebook(source_root=ROOT, output_root=None):
         agent_index = f"# Agent notebook\n\n- [{notation_title}]({BASE_URL}agent/{lang}/notation.md)\n" + "\n".join(
             f'- [{entry["title"]}]({urljoin(BASE_URL, entry["agent"])})' for entry in entries if entry["lang"] == lang)
         write(f"static/agent/{lang}/index.md", agent_index.rstrip() + "\n")
+    for path, value in learning_plan_outputs(source_root, entries).items():
+        write(path, value)
     # Validation is complete before the first generated file is written.
     for path, value in files.items():
         target = output_root / path
