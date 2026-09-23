@@ -3,8 +3,9 @@
 <div class="catalogue-shell notebook-catalogue">
   <header class="page-intro catalogue-intro">
     <div class="catalogue-heading"><p class="eyebrow">INVESTMENT NOTEBOOK <span>/ {{ len $entries }} {{ if $zh }}篇词条{{ else }}ENTRIES{{ end }}</span></p><h1>{{ .Title }}</h1></div>
-    <div class="catalogue-description"><p>{{ if $zh }}按领域和主题浏览投资学词条. 每个领域提供阅读路线，公司资料另设目录.{{ else }}English-language investment notes, organised by subject.{{ end }}</p><a class="catalogue-notation" href="/{{ .Lang }}/notebook/notation/" data-reference="notation-{{ .Lang }}">{{ if $zh }}符号与单位{{ else }}Notation & units{{ end }} <span aria-hidden="true">↗</span></a></div>
+    <div class="catalogue-description"><p>{{ if $all }}{{ if $zh }}按领域和主题浏览投资学词条. 每个领域提供阅读路线，公司资料另设目录.{{ else }}English-language investment notes, organised by subject.{{ end }}{{ else }}{{ if $zh }}当前暂无投资学词条.{{ else }}There are no investment entries yet.{{ end }}{{ end }}</p><a class="catalogue-notation" href="/{{ .Lang }}/notebook/notation/" data-reference="notation-{{ .Lang }}">{{ if $zh }}符号与单位{{ else }}Notation & units{{ end }} <span aria-hidden="true">↗</span></a></div>
   </header>
+  {{ if $entries }}
   <div class="catalogue-section-heading"><h2>{{ if $zh }}知识领域{{ else }}Subjects{{ end }}</h2><span>{{ if $zh }}展开领域，查看路线与词条{{ else }}Open a subject to see its entries{{ end }}</span></div>
   <div class="catalogue-accordion" id="paths">
     {{ $number := 0 }}{{ range $book.subjects }}{{ $subject := . }}{{ $items := where $entries "subject" .id }}{{ if $items }}{{ $number = add $number 1 }}
@@ -19,6 +20,7 @@
       </div>
     </details>{{ end }}{{ end }}
   </div>
+  {{ end }}
   {{ with $companies }}<a class="company-library-link" href="/{{ $page.Lang }}/notebook/companies/"><span class="company-library-mark" aria-hidden="true">↗</span><span><strong>{{ if $zh }}公司资料与研究{{ else }}Company profiles & research{{ end }}</strong><small>{{ if $zh }}查看企业业务与有日期的研究材料{{ else }}Company profiles and dated research notes{{ end }}</small></span><span class="company-library-count">{{ len . }} <span>{{ if $zh }}家公司{{ else }}companies{{ end }}</span></span><span aria-hidden="true">→</span></a>{{ end }}
 </div>
 {{ end }}

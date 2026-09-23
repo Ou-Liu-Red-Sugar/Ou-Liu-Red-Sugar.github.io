@@ -536,8 +536,9 @@ def compile_notebook(source_root=ROOT, output_root=None):
         if any(entry["kind"] in COMPANY_KINDS and entry["lang"] == lang for entry in entries):
             require((lang, "companies") not in document_keys, "Company index collides with an entry/path")
             page(f"{folder}/notebook/companies.md", dict(title="公司资料库" if lang == "zh" else "Company library", layout="companies"))
-        write(f"static/agent/{lang}/index.md", f"# Agent notebook\n\n- [{notation_title}]({BASE_URL}agent/{lang}/notation.md)\n" + "\n".join(
-            f'- [{entry["title"]}]({urljoin(BASE_URL, entry["agent"])})' for entry in entries if entry["lang"] == lang) + "\n")
+        agent_index = f"# Agent notebook\n\n- [{notation_title}]({BASE_URL}agent/{lang}/notation.md)\n" + "\n".join(
+            f'- [{entry["title"]}]({urljoin(BASE_URL, entry["agent"])})' for entry in entries if entry["lang"] == lang)
+        write(f"static/agent/{lang}/index.md", agent_index.rstrip() + "\n")
     # Validation is complete before the first generated file is written.
     for path, value in files.items():
         target = output_root / path

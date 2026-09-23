@@ -4,8 +4,10 @@ import json
 import tempfile
 import unittest
 from pathlib import Path
+from unittest.mock import patch
 
 from build_notebook import compile_notebook
+from check_notebook import Validator
 
 
 def reading():
@@ -30,6 +32,8 @@ class CompilerTests(unittest.TestCase):
         self.root = Path(self.temp.name) / "source"
         self.out = Path(self.temp.name) / "generated"
         (self.root / "notebook/entries").mkdir(parents=True)
+        notation = Path(__file__).resolve().parents[1] / "notebook/notation.json"
+        (self.root / "notebook/notation.json").write_text(notation.read_text(encoding="utf-8"), encoding="utf-8")
         self.catalogue = {
             "subjects": [
                 {"id": "quant", "zh": "数学、统计与计算方法", "en": "Quantitative methods",
@@ -170,6 +174,66 @@ class CompilerTests(unittest.TestCase):
         alias = next(e for e in book["entries"] if e["id"] == "zh-qt01")["anchor_aliases"][0]
         self.assertEqual(alias["url"], url)
         self.assertEqual(alias["target"], case_id)
+
+
+class EmptyNotebookTests(unittest.TestCase):
+    def setUp(self):
+        self.temp = tempfile.TemporaryDirectory()
+        self.addCleanup(self.temp.cleanup)
+        self.root = Path(self.temp.name)
+        self.build = self.root / "site"
+        self.catalogue = {"subjects": [], "sources": [], "paths": []}
+        self.book = dict(self.catalogue, entries=[], references={}, graph={"nodes": [], "edges": []})
+        (self.root / "notebook/entries").mkdir(parents=True)
+        self.write("docs/legacy-urls.json", "[]")
+        for lang in ("zh", "en"):
+            self.write(f"site/{lang}/notebook/index.html", "<h1>No entries</h1>")
+            self.write(f"site/{lang}/notebook/notation/index.html", "<h1>Notation</h1>")
+            self.write(f"site/agent/{lang}/index.md", "# Agent index\n")
+            self.write(f"site/agent/{lang}/notation.md", "# Notation\n")
+
+    def write(self, relative, text):
+        target = self.root / relative
+        target.parent.mkdir(parents=True, exist_ok=True)
+        target.write_text(text, encoding="utf-8")
+
+    def validate(self):
+        self.write("notebook/catalogue.json", json.dumps(self.catalogue))
+        self.write("data/notebook.json", json.dumps(self.book))
+        with patch("check_notebook.ROOT", self.root):
+            return Validator(self.build).run()
+
+    def test_empty_notebook_keeps_directory_and_agent_indexes(self):
+        report = self.validate()
+        self.assertTrue(report["passed"], report["errors"])
+
+    def test_subjects_follow_catalogue_without_requiring_five_routes(self):
+        subjects = [{"id": "one"}, {"id": "two"}]
+        self.catalogue["subjects"] = subjects
+        self.book["subjects"] = subjects
+        report = self.validate()
+        self.assertTrue(report["passed"], report["errors"])
+
+    def test_declared_route_cannot_disappear_from_compiled_data(self):
+        self.catalogue["paths"] = [{"id": "declared", "lang": "zh", "slug": "route",
+                                    "steps": [{"entry": "QT01"}]}]
+        report = self.validate()
+        self.assertFalse(report["passed"])
+        self.assertIn("DECLARED_ROUTES", {error["code"] for error in report["errors"]})
+
+    def test_empty_notebook_still_checks_agent_indexes(self):
+        (self.build / "agent/en/index.md").unlink()
+        report = self.validate()
+        self.assertFalse(report["passed"])
+        self.assertTrue(any(error["context"] == "Agent index" for error in report["errors"]))
+
+    def test_empty_notebook_still_checks_local_links_and_legacy_urls(self):
+        self.write("site/zh/notebook/index.html", '<a href="/missing/">Missing</a>')
+        self.write("docs/legacy-urls.json", '["/en/invest/"]')
+        report = self.validate()
+        self.assertFalse(report["passed"])
+        self.assertIn("LOST_LEGACY_URL", {error["code"] for error in report["errors"]})
+        self.assertTrue(any("/missing/" in error["message"] for error in report["errors"]))
 
 
 if __name__ == "__main__":

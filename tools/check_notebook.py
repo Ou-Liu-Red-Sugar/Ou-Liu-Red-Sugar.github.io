@@ -422,12 +422,20 @@ class Validator:
         return False
 
     def check_routes_and_graph(self):
-        subjects = {row["id"] for row in self.book["subjects"]}
+        subjects = Counter(row["id"] for row in self.book["subjects"])
+        declared_subjects = Counter(row["id"] for row in self.catalogue["subjects"])
+        self.require(subjects == declared_subjects, "DECLARED_SUBJECTS", "catalogue",
+                     "Compiled subjects differ from the current catalogue")
         active = [path for path in self.book.get("paths", []) if not path.get("deprecated") and path.get("steps")]
-        self.require(len(subjects) == 5, "DOMAIN_COUNT", "catalogue", f"Expected five domains, got {len(subjects)}")
-        chinese = [path for path in active if path["lang"] == "zh"]
-        self.require(Counter(path.get("subject") for path in chinese) == Counter({sid: 1 for sid in subjects}), "FIVE_DOMAIN_ROUTES", "catalogue", "Expected one existing Chinese route for each domain")
         canonical_paths = {path["id"]: path for path in self.catalogue.get("paths", [])}
+        self.require(Counter(path["id"] for path in self.book.get("paths", [])) ==
+                     Counter(path["id"] for path in self.catalogue.get("paths", [])),
+                     "DECLARED_ROUTES", "catalogue", "Compiled routes differ from the current catalogue")
+        declared_active = {path["id"] for path in canonical_paths.values()
+                           if not path.get("deprecated") and
+                           any(step.get("status") != "planned" for step in path.get("steps", []))}
+        self.require({path["id"] for path in active} == declared_active, "ACTIVE_ROUTES", "catalogue",
+                     "Active routes differ from the catalogue's available steps")
         seen = set()
         for path in active:
             self.stats["reading_routes"] += 1
@@ -446,7 +454,9 @@ class Validator:
                     continue
                 self.require(entry["id"] not in seen, "MULTIPLE_PRIMARY_ROUTES", pid, entry["id"])
                 seen.add(entry["id"])
-                self.require(entry["kind"] not in COMPANY_KINDS and entry.get("subject") == path.get("subject") and entry["lang"] == path["lang"], "ROUTE_DOMAIN", pid, entry["id"])
+                self.require(entry["kind"] not in COMPANY_KINDS and
+                             (not path.get("subject") or entry.get("subject") == path["subject"]) and
+                             entry["lang"] == path["lang"], "ROUTE_DOMAIN", pid, entry["id"])
                 position = entry.get("reading_path", {})
                 self.require(position.get("id") == pid and position.get("number") == index + 1 and position.get("total") == len(steps), "ROUTE_POSITION", entry["id"], str(position))
                 for key, neighbor in (("previous", index - 1), ("next", index + 1)):
@@ -519,12 +529,15 @@ class Validator:
             self.require(target is not None and target.is_file(), "LOST_LEGACY_URL", "legacy URLs", url)
             self.internal_link("/", url, "legacy URL")
             self.stats["legacy_urls"] += 1
-        for slug in ("financial-claims", "balance-sheet", "amzn", "goog", "reading-path"):
-            self.internal_link("/", f"/zh/notebook/{slug}/", "retained notebook URL")
+        index = self.catalogue.get("path_index")
+        if index:
+            self.internal_link("/", f'/{index["lang"]}/notebook/{index["slug"]}/', "declared path index")
 
     def run(self):
         for lang in ("zh", "en"):
+            self.page_for(f"/{lang}/notebook/")
             self.page_for(f"/{lang}/notebook/notation/")
+            self.internal_link("/", f"/agent/{lang}/index.md", "Agent index")
             self.internal_link("/", f"/agent/{lang}/notation.md", "notation export")
         self.check_entries()
         self.check_routes_and_graph()

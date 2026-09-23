@@ -1,5 +1,7 @@
 {{ define "main" }}
 {{ $page := . }}{{ $zh := eq .Lang "zh" }}{{ $book := .Site.Data.notebook }}
+{{ $entries := where $book.entries "lang" .Lang }}{{ $companies := where $entries "kind" "in" (slice "company" "research") }}{{ $graphEntry := where $entries "slug" "financial-claims" }}
+{{ $routes := slice }}{{ range $book.paths }}{{ if and (eq .lang "zh") .steps (not .deprecated) }}{{ $routes = $routes | append . }}{{ end }}{{ end }}
 <div class="homepage">
   <section class="home-intro" aria-labelledby="home-title">
     <div class="home-intro-copy">
@@ -11,12 +13,13 @@
     <aside class="opening-notes home-portals" aria-label="{{ if $zh }}阅读入口{{ else }}Notebook sections{{ end }}">
       <div class="opening-label"><span>{{ if $zh }}阅读入口{{ else }}THE NOTEBOOKS{{ end }}</span>{{ partial "notebook/icon.html" (dict "name" "book-open") }}</div>
       <a class="opening-note" href="/{{ .Lang }}/notes/"><span class="opening-number">01</span><span><strong>{{ if $zh }}数学笔记与讲义{{ else }}Mathematics{{ end }}</strong><small>{{ if $zh }}课程讲义与讨论班笔记 · 网页和 PDF{{ else }}Lecture notes and seminar talks · HTML & PDF{{ end }}</small></span>{{ partial "notebook/icon.html" (dict "name" "arrow-up-right") }}</a>
-      <a class="opening-note" href="/{{ .Lang }}/notebook/"><span class="opening-number">02</span><span><strong>{{ if $zh }}投资学笔记{{ else }}Investment notebook{{ end }}</strong><small>{{ if $zh }}主题词条、公司资料与交互案例{{ else }}Topics, company research and interactive examples{{ end }}</small></span>{{ partial "notebook/icon.html" (dict "name" "arrow-up-right") }}</a>
+      <a class="opening-note" href="/{{ .Lang }}/notebook/"><span class="opening-number">02</span><span><strong>{{ if $zh }}投资学笔记{{ else }}Investment notebook{{ end }}</strong><small>{{ if $entries }}{{ if $zh }}主题词条、公司资料与交互案例{{ else }}Topics, company research and interactive examples{{ end }}{{ else }}{{ if $zh }}当前暂无词条{{ else }}No entries yet{{ end }}{{ end }}</small></span>{{ partial "notebook/icon.html" (dict "name" "arrow-up-right") }}</a>
       <a class="opening-note" href="/zh/blog/"><span class="opening-number">03</span><span><strong>Blog{{ if not $zh }} <span lang="zh">中文</span>{{ end }}</strong><small>{{ if $zh }}写作、研究与 Agent 协作{{ else }}Writing, research and working with agents · in Chinese{{ end }}</small></span>{{ partial "notebook/icon.html" (dict "name" "arrow-up-right") }}</a>
     </aside>
   </section>
 
   {{ if $zh }}
+  {{ if $routes }}
   <section class="home-paths" id="learning-paths" aria-labelledby="paths-heading" data-path-selector>
     <header class="home-section-head"><div><p class="section-kicker">INVESTMENT NOTEBOOK</p><h2 id="paths-heading">投资学阅读路线.</h2></div><p>每个领域都有自己的阅读顺序.<br>从第一篇开始，或直接查阅词条.</p></header>
     <div class="path-explorer">
@@ -37,6 +40,7 @@
       </div>
     </div>
   </section>
+  {{ end }}
   {{ else }}
   <section class="home-mathematics" id="mathematics-notes" aria-labelledby="math-heading">
     <header class="home-section-head"><div><p class="section-kicker">MATHEMATICS</p><h2 id="math-heading">Mathematics notes.</h2></div><p>Algebra, geometry, topology and category theory.</p></header>
@@ -69,14 +73,20 @@
   {{ end }}
   {{ end }}
 
+  {{ if or (not $zh) $companies $graphEntry }}
   <section class="home-tools" aria-label="{{ if $zh }}其他目录{{ else }}Other sections{{ end }}">
     {{ if $zh }}
+    {{ if $companies }}
     <a href="/zh/notebook/companies/">{{ partial "notebook/icon.html" (dict "name" "building") }}<div><h3>公司资料库</h3><p>企业业务、原始材料与带时间的研究.</p></div>{{ partial "notebook/icon.html" (dict "name" "arrow-up-right") }}</a>
+    {{ end }}
+    {{ if $graphEntry }}
     <a href="/zh/notebook/financial-claims/#connections">{{ partial "notebook/icon.html" (dict "name" "network") }}<div><h3>投资学知识关系</h3><p>查看投资词条之间的引用与先修关系.</p></div>{{ partial "notebook/icon.html" (dict "name" "arrow-up-right") }}</a>
+    {{ end }}
     {{ else }}
-    <a href="/en/notebook/">{{ partial "notebook/icon.html" (dict "name" "book-open") }}<div><h3>Investment &amp; finance</h3><p>English entries, interactive examples and teaching prompts.</p></div>{{ partial "notebook/icon.html" (dict "name" "arrow-up-right") }}</a>
+    <a href="/en/notebook/">{{ partial "notebook/icon.html" (dict "name" "book-open") }}<div><h3>Investment &amp; finance</h3><p>{{ if $entries }}English entries, interactive examples and teaching prompts.{{ else }}No entries yet.{{ end }}</p></div>{{ partial "notebook/icon.html" (dict "name" "arrow-up-right") }}</a>
     <a href="/en/about/">{{ partial "notebook/icon.html" (dict "name" "list") }}<div><h3>About me</h3><p>Background, interests and contact details.</p></div>{{ partial "notebook/icon.html" (dict "name" "arrow-up-right") }}</a>
     {{ end }}
   </section>
+  {{ end }}
 </div>
 {{ end }}
