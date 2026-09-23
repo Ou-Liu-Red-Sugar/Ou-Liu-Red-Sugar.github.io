@@ -1,0 +1,8 @@
+{{- /* Machine-readable discovery; generated from current canonical notebook prose. */ -}}
+<link rel="alternate" type="text/plain" title="LLM content index" href="{{ "llms.txt" | absURL }}">
+<link rel="alternate" type="text/plain" title="Notebook full text" href="{{ "llms-full.txt" | absURL }}">
+{{- with .Params.notebookid -}}
+  {{- range where site.Data.notebook.entries "id" . -}}
+    {{- with .markdown }}<link rel="alternate" type="text/markdown" title="Plain Markdown" href="{{ . | absURL }}">{{ end -}}
+  {{- end -}}
+{{- end -}}

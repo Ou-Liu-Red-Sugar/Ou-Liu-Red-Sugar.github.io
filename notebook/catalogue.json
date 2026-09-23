@@ -1,5 +1,264 @@
 {
-  "subjects": [],
-  "sources": [],
+  "subjects": [
+    {
+      "id": "topic-A",
+      "zh": "资金、目标与风险",
+      "en": "Capital, goals and risk",
+      "desc_zh": "从资金用途、投资目标和风险认识开始学习。"
+    }
+  ],
+  "sources": [
+    {
+      "source_id": "nb-a01-source-01",
+      "title": "FINRA：Stocks",
+      "url": "https://www.finra.org/investors/investing/investment-products/stocks",
+      "body": "本篇采用的公开资料：FINRA：Stocks。具体采用范围见文章脚注与 Agent 阅读材料。",
+      "version": "本篇查阅日期：2026-09-23",
+      "authors": [
+        "FINRA"
+      ]
+    },
+    {
+      "source_id": "nb-a01-source-02",
+      "title": "GE Vernova：2023年 EnBW 发电项目订单公告",
+      "url": "https://www.gevernova.com/news/press-releases/ge-vernova-secures-two-h-class-combined-cycle-equipment-orders-hydrogen-capability",
+      "body": "本篇采用的公开资料：GE Vernova：2023年 EnBW 发电项目订单公告。具体采用范围见文章脚注与 Agent 阅读材料。",
+      "version": "本篇查阅日期：2026-09-23",
+      "authors": [
+        "GE Vernova"
+      ]
+    },
+    {
+      "source_id": "nb-a01-source-03",
+      "title": "GE Vernova：Gas Power Suppliers",
+      "url": "https://www.gevernova.com/gas-power/about/suppliers",
+      "body": "本篇采用的公开资料：GE Vernova：Gas Power Suppliers。具体采用范围见文章脚注与 Agent 阅读材料。",
+      "version": "本篇查阅日期：2026-09-23",
+      "authors": [
+        "GE Vernova"
+      ]
+    },
+    {
+      "source_id": "nb-a01-source-04",
+      "title": "GE Vernova：2025年报",
+      "url": "https://www.gevernova.com/sites/default/files/gevernova_2025_annual_report.pdf#page=56",
+      "body": "本篇采用的公开资料：GE Vernova：2025年报。具体采用范围见文章脚注与 Agent 阅读材料。",
+      "version": "本篇查阅日期：2026-09-23",
+      "authors": [
+        "GE Vernova"
+      ]
+    },
+    {
+      "source_id": "nb-a01-source-05",
+      "title": "FINRA：What Is Earnings Season?",
+      "url": "https://syndication.finra.org/content/what-earnings-season",
+      "body": "本篇采用的公开资料：FINRA：What Is Earnings Season?。具体采用范围见文章脚注与 Agent 阅读材料。",
+      "version": "本篇查阅日期：2026-09-23",
+      "authors": [
+        "FINRA"
+      ]
+    },
+    {
+      "source_id": "nb-a01-source-06",
+      "title": "FINRA—Bank Products",
+      "url": "https://www.finra.org/investors/investing/investment-products/bank-products",
+      "body": "本篇采用的公开资料：FINRA—Bank Products。具体采用范围见文章脚注与 Agent 阅读材料。",
+      "version": "本篇查阅日期：2026-09-23",
+      "authors": [
+        "FINRA"
+      ]
+    },
+    {
+      "source_id": "nb-a01-source-07",
+      "title": "FINRA—Bonds",
+      "url": "https://www.finra.org/investors/investing/investment-products/bonds",
+      "body": "本篇采用的公开资料：FINRA—Bonds。具体采用范围见文章脚注与 Agent 阅读材料。",
+      "version": "本篇查阅日期：2026-09-23",
+      "authors": [
+        "FINRA"
+      ]
+    },
+    {
+      "source_id": "nb-a01-source-08",
+      "title": "ASIC Moneysmart—Buying an investment property",
+      "url": "https://moneysmart.gov.au/property-investment/buying-an-investment-property",
+      "body": "本篇采用的公开资料：ASIC Moneysmart—Buying an investment property。具体采用范围见文章脚注与 Agent 阅读材料。",
+      "version": "本篇查阅日期：2026-09-23",
+      "authors": [
+        "ASIC Moneysmart"
+      ]
+    },
+    {
+      "source_id": "nb-a01-source-09",
+      "title": "FINRA—Futures and Commodities",
+      "url": "https://www.finra.org/investors/investing/investment-products/futures-and-commodities",
+      "body": "本篇采用的公开资料：FINRA—Futures and Commodities。具体采用范围见文章脚注与 Agent 阅读材料。",
+      "version": "本篇查阅日期：2026-09-23",
+      "authors": [
+        "FINRA"
+      ]
+    },
+    {
+      "source_id": "nb-a01-source-10",
+      "title": "World Gold Council—Gold Demand Sectors",
+      "url": "https://www.gold.org/about-gold/gold-demand/by-sector",
+      "body": "本篇采用的公开资料：World Gold Council—Gold Demand Sectors。具体采用范围见文章脚注与 Agent 阅读材料。",
+      "version": "本篇查阅日期：2026-09-23",
+      "authors": [
+        "World Gold Council"
+      ]
+    },
+    {
+      "source_id": "nb-a01-source-11",
+      "title": "The challenge",
+      "url": "https://www.gold.org/goldhub/research/golds-long-term-expected-returns/the-challenge",
+      "body": "本篇采用的公开资料：The challenge。具体采用范围见文章脚注与 Agent 阅读材料。",
+      "version": "本篇查阅日期：2026-09-23",
+      "authors": [
+        "World Gold Council"
+      ]
+    },
+    {
+      "source_id": "nb-a01-source-12",
+      "title": "FINRA/CFTC 实物贵金属说明",
+      "url": "https://syndication.finra.org/content/investor-bulletin-10-things-ask-buying-physical-gold-silver-or-other-metals",
+      "body": "本篇采用的公开资料：FINRA/CFTC 实物贵金属说明。具体采用范围见文章脚注与 Agent 阅读材料。",
+      "version": "本篇查阅日期：2026-09-23",
+      "authors": [
+        "FINRA",
+        "CFTC"
+      ]
+    },
+    {
+      "source_id": "nb-a01-source-13",
+      "title": "FINRA—Crypto Assets",
+      "url": "https://www.finra.org/investors/investing/investment-products/crypto-assets",
+      "body": "本篇采用的公开资料：FINRA—Crypto Assets。具体采用范围见文章脚注与 Agent 阅读材料。",
+      "version": "本篇查阅日期：2026-09-23",
+      "authors": [
+        "FINRA"
+      ]
+    },
+    {
+      "source_id": "nb-a01-source-14",
+      "title": "Ethereum.org—Staking",
+      "url": "https://ethereum.org/staking/",
+      "body": "本篇采用的公开资料：Ethereum.org—Staking。具体采用范围见文章脚注与 Agent 阅读材料。",
+      "version": "本篇查阅日期：2026-09-23",
+      "authors": [
+        "Ethereum.org"
+      ]
+    },
+    {
+      "source_id": "nb-a01-source-15",
+      "title": "Investor.gov—Crypto Asset Interest-bearing Accounts",
+      "url": "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins/investor-bulletin-crypto-asset-interest-bearing-accounts",
+      "body": "本篇采用的公开资料：Investor.gov—Crypto Asset Interest-bearing Accounts。具体采用范围见文章脚注与 Agent 阅读材料。",
+      "version": "本篇查阅日期：2026-09-23",
+      "authors": [
+        "U.S. Securities and Exchange Commission"
+      ]
+    },
+    {
+      "source_id": "nb-a01-source-16",
+      "title": "Investor.gov—International Investing",
+      "url": "https://www.investor.gov/introduction-investing/investing-basics/investment-products/international-investing",
+      "body": "本篇采用的公开资料：Investor.gov—International Investing。具体采用范围见文章脚注与 Agent 阅读材料。",
+      "version": "本篇查阅日期：2026-09-23",
+      "authors": [
+        "U.S. Securities and Exchange Commission"
+      ]
+    },
+    {
+      "source_id": "nb-a01-source-17",
+      "title": "FINRA—Exchange-Traded Funds and Products",
+      "url": "https://www.finra.org/investors/investing/investment-products/exchange-traded-funds-and-products",
+      "body": "本篇采用的公开资料：FINRA—Exchange-Traded Funds and Products。具体采用范围见文章脚注与 Agent 阅读材料。",
+      "version": "本篇查阅日期：2026-09-23",
+      "authors": [
+        "FINRA"
+      ]
+    },
+    {
+      "source_id": "nb-a01-source-18",
+      "title": "Investor.gov—Real Estate Investment Trusts",
+      "url": "https://www.investor.gov/introduction-investing/investing-basics/investment-products/real-estate-investment-trusts-reits",
+      "body": "本篇采用的公开资料：Investor.gov—Real Estate Investment Trusts。具体采用范围见文章脚注与 Agent 阅读材料。",
+      "version": "本篇查阅日期：2026-09-23",
+      "authors": [
+        "U.S. Securities and Exchange Commission"
+      ]
+    },
+    {
+      "source_id": "nb-a01-source-19",
+      "title": "FINRA—Options",
+      "url": "https://www.finra.org/investors/investing/investment-products/options",
+      "body": "本篇采用的公开资料：FINRA—Options。具体采用范围见文章脚注与 Agent 阅读材料。",
+      "version": "本篇查阅日期：2026-09-23",
+      "authors": [
+        "FINRA"
+      ]
+    },
+    {
+      "source_id": "nb-a01-source-20",
+      "title": "CFTC—Basics of Futures Trading",
+      "url": "https://www.cftc.gov/LearnAndProtect/AdvisoriesAndArticles/FuturesMarketBasics/index.htm",
+      "body": "本篇采用的公开资料：CFTC—Basics of Futures Trading。具体采用范围见文章脚注与 Agent 阅读材料。",
+      "version": "本篇查阅日期：2026-09-23",
+      "authors": [
+        "CFTC"
+      ]
+    },
+    {
+      "source_id": "nb-a01-source-21",
+      "title": "CME—Margin: Know What's Needed",
+      "url": "https://www.cmegroup.com/education/courses/introduction-to-futures/margin-know-what-is-needed",
+      "body": "本篇采用的公开资料：CME—Margin: Know What's Needed。具体采用范围见文章脚注与 Agent 阅读材料。",
+      "version": "本篇查阅日期：2026-09-23",
+      "authors": [
+        "CME Group"
+      ]
+    },
+    {
+      "source_id": "nb-a01-source-22",
+      "title": "Coinbase—Understand perpetuals trading",
+      "url": "https://www.coinbase.com/advanced-perpetuals",
+      "body": "本篇采用的公开资料：Coinbase—Understand perpetuals trading。具体采用范围见文章脚注与 Agent 阅读材料。",
+      "version": "本篇查阅日期：2026-09-23",
+      "authors": [
+        "Coinbase"
+      ]
+    },
+    {
+      "source_id": "nb-a01-source-23",
+      "title": "Funding rates",
+      "url": "https://help.coinbase.com/en/coinbase/derivatives/funding-rate",
+      "body": "本篇采用的公开资料：Funding rates。具体采用范围见文章脚注与 Agent 阅读材料。",
+      "version": "本篇查阅日期：2026-09-23",
+      "authors": [
+        "Coinbase"
+      ]
+    },
+    {
+      "source_id": "nb-a01-source-24",
+      "title": "CFTC—Understanding Prediction Markets and Event Contracts",
+      "url": "https://www.cftc.gov/LearnandProtect/PredictionMarkets",
+      "body": "本篇采用的公开资料：CFTC—Understanding Prediction Markets and Event Contracts。具体采用范围见文章脚注与 Agent 阅读材料。",
+      "version": "本篇查阅日期：2026-09-23",
+      "authors": [
+        "CFTC"
+      ]
+    },
+    {
+      "source_id": "nb-a01-source-25",
+      "title": "FINRA：Return and Rate of Return",
+      "url": "https://syndication.finra.org/content/key-concepts-return-and-rate-return",
+      "body": "本篇采用的公开资料：FINRA：Return and Rate of Return。具体采用范围见文章脚注与 Agent 阅读材料。",
+      "version": "本篇查阅日期：2026-09-23",
+      "authors": [
+        "FINRA"
+      ]
+    }
+  ],
   "paths": []
 }

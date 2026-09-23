@@ -1,0 +1,364 @@
+/* Small explanations within the notebook's existing reading measure. */
+.asset-overview {
+  margin: 28px 0;
+  padding: 20px 0;
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  font-family: var(--sans);
+}
+
+.asset-overview nav {
+  display: none;
+}
+
+.asset-overview.is-enhanced nav {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+  margin: 0 0 9px;
+}
+
+.asset-overview .asset-group-label {
+  flex: 0 0 7em;
+  font-size: 12px;
+  color: var(--muted);
+  white-space: nowrap;
+}
+
+.asset-overview button[data-asset-choice] {
+  min-height: 34px;
+  padding: 5px 10px;
+  border: 1px solid var(--rule);
+  border-radius: 4px;
+  background: var(--paper);
+  color: var(--ink);
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.asset-overview button[data-asset-choice]:hover {
+  border-color: var(--accent);
+  background: color-mix(in srgb, var(--accent) 7%, var(--paper));
+}
+
+.asset-overview button[data-asset-choice][aria-pressed="true"] {
+  border-color: var(--accent);
+  background: var(--accent);
+  color: var(--paper);
+}
+
+.entry-body .asset-overview [data-asset-panel] > h3 {
+  margin: 23px 0 10px;
+  font-size: 18px;
+  line-height: 1.5;
+}
+
+.entry-article .asset-overview .notebook-table-scroll {
+  margin: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  overflow: visible;
+}
+
+.entry-article .asset-overview table {
+  width: 100%;
+  min-width: 0;
+  margin: 0;
+  table-layout: fixed;
+  font-size: 14px;
+  line-height: 1.85;
+}
+
+.entry-article .asset-overview th {
+  width: 7em;
+  padding: 11px 12px 11px 0;
+  background: transparent;
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.entry-article .asset-overview td {
+  padding: 11px 0;
+  overflow-wrap: anywhere;
+  word-break: normal;
+}
+
+.entry-article .asset-overview tr:hover {
+  background: transparent;
+}
+
+.business-chain {
+  margin: 30px 0;
+  container-type: inline-size;
+  font-family: var(--sans);
+}
+
+.business-chain figcaption {
+  margin: 0 0 18px;
+  color: var(--ink);
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.business-chain .business-network {
+  display: grid;
+  grid-template-columns: minmax(92px, 1fr) 56px minmax(132px, 1.2fr) 72px minmax(104px, 1fr) 76px minmax(96px, 1fr);
+  align-items: center;
+}
+
+.business-chain .business-node {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-width: 0;
+  min-height: 115px;
+  padding: 15px 9px;
+  border: 1px solid var(--rule);
+  border-radius: 6px;
+  background: color-mix(in srgb, var(--accent) 3%, var(--paper));
+  text-align: center;
+}
+
+.business-chain .business-role {
+  display: block;
+  margin-bottom: 10px;
+  color: var(--muted);
+  font-size: 11px;
+  line-height: 1.5;
+  letter-spacing: .04em;
+}
+
+.business-chain .business-node strong {
+  display: block;
+  color: var(--ink);
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.65;
+}
+
+.business-chain .business-node-focus {
+  min-height: 148px;
+  padding: 15px 10px;
+  border-color: var(--accent);
+  background: var(--accent);
+  color: var(--paper);
+}
+
+.business-chain .business-node-focus .business-role {
+  margin-bottom: 6px;
+  color: color-mix(in srgb, var(--paper) 78%, var(--accent));
+}
+
+.business-chain .business-node-focus strong {
+  color: var(--paper);
+  font-size: 23px;
+  font-weight: 600;
+  line-height: 1.3;
+  letter-spacing: .025em;
+}
+
+.business-chain .business-node-description {
+  display: block;
+  margin-top: 7px;
+  font-size: 12px;
+  line-height: 1.65;
+}
+
+.business-chain .business-exchange {
+  display: grid;
+  gap: 15px;
+  min-width: 0;
+  padding: 0 3px;
+}
+
+.business-chain .business-flow {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  color: var(--accent);
+  font-size: 11px;
+  line-height: 1.5;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.business-chain .business-flow-return {
+  color: var(--muted);
+}
+
+.business-chain .business-arrow {
+  display: block;
+  position: relative;
+  width: 100%;
+  height: 8px;
+  color: inherit;
+}
+
+.business-chain .business-arrow::before {
+  content: "";
+  position: absolute;
+  top: calc(50% - .75px);
+  right: 0;
+  left: 0;
+  height: 1.5px;
+  background: currentColor;
+}
+
+.business-chain .business-arrow::after {
+  content: "";
+  position: absolute;
+  top: calc(50% - 3px);
+  right: 0;
+  width: 6px;
+  height: 6px;
+  border-top: 1.5px solid currentColor;
+  border-right: 1.5px solid currentColor;
+  transform: rotate(45deg);
+}
+
+.business-chain .business-flow-return .business-arrow::after {
+  right: auto;
+  left: 0;
+  transform: rotate(225deg);
+}
+
+.business-chain .business-flow-context {
+  color: var(--muted);
+  font-size: 11px;
+  white-space: normal;
+}
+
+.business-chain .business-chain-return {
+  margin: 16px 0 0;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.8;
+}
+
+@media print {
+  .asset-overview.is-enhanced nav {
+    display: none;
+  }
+
+  .asset-overview [data-asset-panel][hidden] {
+    display: block !important;
+  }
+}
+
+@media (pointer: coarse) {
+  .asset-overview button[data-asset-choice] {
+    min-height: 44px;
+  }
+}
+
+@media (max-width: 640px) {
+  .asset-overview .asset-group-label {
+    flex-basis: 100%;
+    margin: 4px 0 1px;
+  }
+
+  .asset-overview.is-enhanced nav {
+    margin-bottom: 12px;
+  }
+}
+
+@container (max-width: 650px) {
+  .business-chain .business-network {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .business-chain .business-node {
+    display: grid;
+    grid-template-columns: 58px minmax(0, 1fr);
+    align-items: center;
+    gap: 0 12px;
+    min-height: 67px;
+    padding: 12px 16px;
+    text-align: left;
+  }
+
+  .business-chain .business-role {
+    margin: 0;
+  }
+
+  .business-chain .business-node strong {
+    font-size: 14px;
+  }
+
+  .business-chain .business-node br {
+    display: none;
+  }
+
+  .business-chain .business-node-focus {
+    min-height: 90px;
+  }
+
+  .business-chain .business-node-focus .business-role {
+    grid-row: 1 / 3;
+    margin: 0;
+  }
+
+  .business-chain .business-node-focus strong {
+    grid-column: 2;
+    font-size: 22px;
+  }
+
+  .business-chain .business-node-description {
+    grid-column: 2;
+    margin-top: 3px;
+  }
+
+  .business-chain .business-exchange {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+    height: 64px;
+    padding: 4px 0;
+  }
+
+  .business-chain .business-flow {
+    flex-direction: row;
+    gap: 10px;
+  }
+
+  .business-chain .business-arrow {
+    flex: 0 0 8px;
+    width: 8px;
+    height: 50px;
+  }
+
+  .business-chain .business-arrow::before {
+    top: 0;
+    right: auto;
+    bottom: 0;
+    left: calc(50% - .75px);
+    width: 1.5px;
+    height: auto;
+  }
+
+  .business-chain .business-arrow::after {
+    top: auto;
+    right: auto;
+    bottom: 0;
+    left: calc(50% - 3px);
+    transform: rotate(135deg);
+  }
+
+  .business-chain .business-flow-return .business-arrow::after {
+    top: 0;
+    bottom: auto;
+    left: calc(50% - 3px);
+    transform: rotate(315deg);
+  }
+
+  .business-chain .business-flow-context {
+    max-width: 6em;
+    font-size: 11px;
+  }
+}

@@ -1,0 +1,14 @@
+{{ define "main" }}
+<div class="reader-layout">
+  <aside class="reader-nav" aria-label="笔记导航">
+    <a class="back-link" href="/{{ .Lang }}/notebook/"><span aria-hidden="true">←</span> 投资学笔记</a>
+  </aside>
+  <article class="entry-article"{{ with .Params.planid }} data-entry-id="{{ . }}"{{ end }}>
+    <header class="entry-header">
+      <p class="eyebrow entry-kicker"><span>写作中 · 大纲</span>{{ with .Params.planid }}<span class="entry-id">{{ . }}</span>{{ end }}</p>
+      <h1>{{ .Title }}</h1>
+    </header>
+    <div class="prose entry-body">{{ .Content }}</div>
+  </article>
+</div>
+{{ end }}

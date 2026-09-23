@@ -11,8 +11,8 @@
 <section class="entry-discussion" id="entry-discussion" aria-labelledby="entry-discussion-title">
   <p class="eyebrow">DISCUSSION</p>
   <h2 id="entry-discussion-title">{{ if $zh }}评论与章说{{ else }}Comments{{ end }}</h2>
-  <p>{{ if $zh }}在这里评论整篇文章，或点击小节旁的“章说”讨论具体内容.{{ else }}Comment on this entry, or use “Discuss” beside a heading to comment on that section.{{ end }}</p>
-  <div class="discussion-entry-actions"><button type="button" class="primary-button" data-discuss-entry>{{ if $zh }}查看评论{{ else }}View comments{{ end }} <span aria-hidden="true">↗</span></button><span>{{ if $zh }}使用 GitHub 账号参与{{ else }}Join with your GitHub account{{ end }}</span></div>
+  <p>{{ if $zh }}在这里评论整篇文章，或点击小节旁的“章说”讨论具体内容。{{ else }}Comment on this entry, or use “Discuss” beside a heading to comment on that section.{{ end }}</p>
+  <div class="discussion-entry-actions"><button type="button" class="primary-button" data-discuss-entry aria-haspopup="dialog" aria-controls="discussion-dialog">{{ if $zh }}查看评论{{ else }}View comments{{ end }} <span aria-hidden="true">↗</span></button><span>{{ if $zh }}使用 GitHub 账号参与{{ else }}Join with your GitHub account{{ end }}</span></div>
   <noscript><p><a href="https://github.com/{{ $settings.repo }}/discussions">{{ if $zh }}到 GitHub 查看讨论{{ else }}View discussions on GitHub{{ end }} ↗</a></p></noscript>
 </section>
 <dialog id="discussion-dialog" class="discussion-dialog" aria-labelledby="discussion-title">
@@ -26,5 +26,5 @@
   </div>
 </dialog>
 <script type="application/json" id="discussion-config">{{ $config | jsonify | safeJS }}</script>
-<script type="module" src="{{ "notebook/discussions.js" | relURL }}"></script>
+<script type="module" src="{{ partial "notebook/asset.html" "/notebook/discussions.js" }}"></script>
 {{- end -}}

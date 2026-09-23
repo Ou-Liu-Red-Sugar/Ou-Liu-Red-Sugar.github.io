@@ -34,10 +34,14 @@ jobs:
         run: python3 tools/build_notebook.py
       - name: Check interactive calculations
         run: node --test tools/notebook-math.test.mjs tools/notebook-number-format.test.cjs
+      - name: Check Markdown export preservation
+        run: python3 -m unittest discover -s tools -p test_llms_export.py
       - name: Build with Hugo
         run: hugo --minify --destination "${{ runner.temp }}/site"
       - name: Check site links and Agent exports
         run: python3 tools/check_notebook.py --build-dir "${{ runner.temp }}/site"
+      - name: Check LLMS text and URLs
+        run: python3 tools/check_llms.py --build-dir "${{ runner.temp }}/site"
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3

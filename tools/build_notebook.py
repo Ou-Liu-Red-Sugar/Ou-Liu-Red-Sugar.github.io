@@ -12,6 +12,7 @@ from pathlib import Path
 from urllib.parse import urljoin
 from notebook_notation import load_notation, notation_markdown, notation_instruction
 from notebook_learning_plan import learning_plan_outputs
+from llms_export import exportable, llms_outputs, markdown_url, prune_obsolete_markdown
 
 ROOT = Path(__file__).resolve().parents[1]
 BASE_URL = "https://ou-liu-red-sugar.github.io/"
@@ -120,7 +121,7 @@ def compile_notebook(source_root=ROOT, output_root=None):
         files[relative] = value
 
     def page(path, metadata, body=""):
-        write(path, json.dumps(metadata, ensure_ascii=False, indent=2) + "\n\n" + body + ("\n" if body else ""))
+        write(path, json.dumps(metadata, ensure_ascii=False, indent=2) + "\n\n" + (body.rstrip() + "\n" if body else ""))
 
     def add(key, data):
         require(key and key not in refs, f"Duplicate stable ID: {key}")
@@ -401,7 +402,7 @@ def compile_notebook(source_root=ROOT, output_root=None):
             require(any(readings for _, readings in groups), f'{entry["id"]}: new learning entry needs common or named branch required_readings')
         return packet
 
-    search, used_sources = [], set()
+    search, used_sources, plain_bodies = [], set(), {}
     for entry in entries:
         lang = entry["lang"]
         packet = reading_packet(entry)
@@ -430,6 +431,9 @@ def compile_notebook(source_root=ROOT, output_root=None):
         if entry["body_format"] == "markdown":
             raw_body = entry["body_markdown"]
             lines.append(resolve(raw_body, lang, False))
+            if exportable(entry):
+                entry["markdown"] = markdown_url(entry)
+                plain_bodies[entry["id"]] = resolve(raw_body, lang, False)
             public_body = resolve(raw_body, lang)
             search_body = raw_body
         else:
@@ -527,10 +531,12 @@ def compile_notebook(source_root=ROOT, output_root=None):
     book["graph"] = dict(nodes=graph_nodes, edges=graph_edges)
     write("data/notebook.json", json.dumps(book, ensure_ascii=False, indent=2))
     write("static/notebook/search.json", json.dumps(search, ensure_ascii=False))
+    notation_documents = []
     for lang, folder, title in [("zh", "content-zh", "投资与金融笔记"), ("en", "content", "Finance notebook")]:
         page(f"{folder}/notebook/_index.md", dict(title=title, layout="catalogue"))
         notation_title = notation["text"][lang]["title"]
         notation_body = notation_markdown(notation, lang)
+        notation_documents.append((lang, notation_title, notation_body))
         page(f"{folder}/notebook/notation.md", dict(title=notation_title, layout="notation", math=True,
              translationKey="notebook-notation"), notation_body.rstrip())
         write(f"static/agent/{lang}/notation.md", f"# {notation_title}\n\n" + notation_body)
@@ -542,11 +548,14 @@ def compile_notebook(source_root=ROOT, output_root=None):
         write(f"static/agent/{lang}/index.md", agent_index.rstrip() + "\n")
     for path, value in learning_plan_outputs(source_root, entries).items():
         write(path, value)
+    for path, value in llms_outputs(source_root, entries, plain_bodies, notation_documents, BASE_URL).items():
+        write(path, value)
     # Validation is complete before the first generated file is written.
     for path, value in files.items():
         target = output_root / path
         target.parent.mkdir(parents=True, exist_ok=True)
         target.write_text(value, encoding="utf-8")
+    prune_obsolete_markdown(output_root, files)
     return book
 
 

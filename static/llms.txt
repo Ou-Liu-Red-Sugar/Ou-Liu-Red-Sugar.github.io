@@ -1,0 +1,30 @@
+# 刘欧 · 笔记 / Ou Liu · Notes
+
+> 中文数学与投资笔记、讲义及研究资料。Chinese and English notes and teaching material.
+
+全文范围：当前正式投资学词条与符号约定，保留原语言并优先列中文。互动图表以正文中的文字和完整表格展开，不执行交互。数学讲义、Blog、论文、wiki 及独立 Investing Lab 仅提供栏目入口，尚未转换全文；写作计划、草稿、工作记录与历史归档不在全文中。本文件与单篇 Markdown 不包含 Agent 教学指令，教学包另见 Agent 索引。
+
+## 正文 Markdown / Full-text Markdown
+
+- [Agent 时代的基本面投资](https://ou-liu-red-sugar.github.io/llms/zh/notebook/investment-returns.md): 从资金用途出发，以一项业务看清企业经营、事件计价与 Agent 辅助研究。
+- [符号与单位](https://ou-liu-red-sugar.github.io/llms/zh/notebook/notation.md): 共用符号与单位 / Shared notation and units
+- [Notation and units](https://ou-liu-red-sugar.github.io/llms/en/notebook/notation.md): 共用符号与单位 / Shared notation and units
+
+## 汇总与教学包 / Bundle and teaching packets
+
+- [全文汇总 / Full-text bundle](https://ou-liu-red-sugar.github.io/llms-full.txt): 仅含上述正文，脚注按篇编号。
+- [中文 Agent 教学包](https://ou-liu-red-sugar.github.io/agent/zh/index.md): 教学指令、原文阅读要求与资料。
+- [English Agent packets](https://ou-liu-red-sugar.github.io/agent/en/index.md): Teaching instructions and reading requirements.
+
+## 全站栏目 / Site sections
+
+- [中文首页](https://ou-liu-red-sugar.github.io/zh/)
+- [English home](https://ou-liu-red-sugar.github.io/en/)
+- [投资学笔记](https://ou-liu-red-sugar.github.io/zh/notebook/): 含当前正文与明确标识的写作计划；计划不计入全文。
+- [English investment notebook](https://ou-liu-red-sugar.github.io/en/notebook/)
+- [数学笔记与讲义](https://ou-liu-red-sugar.github.io/zh/notes/): 网页／PDF 栏目，未纳入全文汇总。
+- [Mathematics notes](https://ou-liu-red-sugar.github.io/en/notes/): 网页／PDF 栏目，未纳入全文汇总。
+- [Blog](https://ou-liu-red-sugar.github.io/zh/blog/): 网页／PDF 栏目，未纳入全文汇总。
+- [Papers](https://ou-liu-red-sugar.github.io/en/papers/): 网页／PDF 栏目，未纳入全文汇总。
+- [Wiki](https://ou-liu-red-sugar.github.io/en/wiki/): 网页／PDF 栏目，未纳入全文汇总。
+- [Independent Investing Lab](https://ou-liu-red-sugar.github.io/en/invest/): 网页／PDF 栏目，未纳入全文汇总。

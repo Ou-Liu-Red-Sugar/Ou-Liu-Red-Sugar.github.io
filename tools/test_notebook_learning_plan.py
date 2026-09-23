@@ -134,6 +134,29 @@ class LearningPlanTests(unittest.TestCase):
         self.assertEqual(data["NB-S01"]["status"], "planned")
         self.assertIsNone(data["NB-S01"]["url"])
 
+    def test_explicit_outline_is_linked_without_becoming_a_completed_article(self):
+        self.plan["entries"][0]["outline_page"] = {
+            "slug": "first-outline", "sections": [{"title": "主要资产", "items": ["股票与债券"]}]}
+        book = self.compile()
+        row = self.generated_map()["entries"][0]
+        self.assertEqual((row["status"], row["url"]), ("outline", "/zh/notebook/first-outline/"))
+        page = (self.out / "content-zh/notebook/first-outline.md").read_text(encoding="utf-8")
+        self.assertIn('"layout": "outline"', page)
+        self.assertIn("## 主要资产\n\n- 股票与债券", page)
+        self.assertEqual(book["entries"], [])
+        self.assertEqual(json.loads((self.out / "static/notebook/search.json").read_text(encoding="utf-8")), [])
+        self.assertFalse((self.out / "static/agent/zh/first-outline.md").exists())
+
+    def test_completed_article_replaces_its_outline_at_the_same_address(self):
+        self.plan["entries"][0]["outline_page"] = {
+            "slug": "actual-article", "sections": [{"title": "主要资产", "items": ["股票与债券"]}]}
+        self.compile([article_fixture()])
+        row = self.generated_map()["entries"][0]
+        self.assertEqual(row["status"], "available")
+        page = (self.out / "content-zh/notebook/actual-article.md").read_text(encoding="utf-8")
+        self.assertIn('"layout": "entry"', page)
+        self.assertNotIn("## 主要资产", page)
+
     def test_outline_preserves_phase_and_article_details_from_plan(self):
         self.compile()
         outline = (self.out / "docs/investment-notebook-outline.md").read_text(encoding="utf-8")

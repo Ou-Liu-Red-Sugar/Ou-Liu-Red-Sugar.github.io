@@ -2,12 +2,12 @@
 
 Current source guide: [Notebook authoring](docs/notebook-authoring.md).
 
-The investment notebook was archived on 2026-09-23 at the author's request. Its new [writing outline](docs/investment-notebook-outline.md) follows the agreed knowledge map, with stocks and fundamental investing as the main thread and Agent-assisted asset allocation as the final application. There are currently zero finished entries. New work proceeds one article at a time; the former outline, routes, company examples and production assignments are historical material.
+The investment notebook was archived on 2026-09-23 at the author's request. Its new [writing outline](docs/investment-notebook-outline.md) follows the agreed knowledge map, with stocks and fundamental investing as the main thread and Agent-assisted asset allocation as the final application. The first complete local article is now “Agent 时代的基本面投资” (NB-A01). New work proceeds one article at a time; the former outline, routes, company examples and production assignments are historical material.
 
 - Chinese collection: `content-zh/`; English and preserved archive: `content/`.
 - Blog posts: `content-zh/blog/*.md`, with `title`, `description` and `date` in front matter. Posts appear automatically in the Blog directory, the Chinese homepage's recent articles and site search.
 - New entry source: `notebook/entries/*.json`; subjects, sources and any future routes: `notebook/catalogue.json`. Add them when an actual article needs them.
-- Navigation and planning source: `notebook/learning-plan.json`; the compiler generates `data/notebook_map.json` and the writing outline from it. Planned topics do not create article pages. A Chinese article becomes available in the map only when its `node_id` matches the plan entry ID.
+- Navigation and planning source: `notebook/learning-plan.json`; the compiler generates `data/notebook_map.json` and the writing outline from it. Planned entries link only to explicitly generated outline pages or completed articles. A Chinese article becomes available in the map only when its `node_id` matches the plan entry ID; outline pages remain a separate status.
 - Generate pages, local search and complete Agent exports: `python tools/build_notebook.py`.
 - Check the plan, article mapping and generator constraints from `tools/`: `python -m unittest test_notebook_learning_plan.py test_build_notebook.py`.
 - Check interactive calculations and numeric display: `node --test tools/notebook-math.test.mjs tools/notebook-number-format.test.cjs`.
@@ -20,6 +20,16 @@ The archive identifier is `investment-notebook-20260923`. On the author's machin
 
 Mathematics notes, Blog, papers, wiki, the separate Investing Lab section (`content/invest/`) and shared site assets remain in place. Chinese writing methods and calibration records are preserved. This reset is local; publishing requires explicit authorization.
 
+
+## LLM-readable text
+
+The notebook compiler also produces `/llms.txt`, `/llms-full.txt` and one plain Markdown file per complete, published notebook article at `/llms/{lang}/notebook/{slug}.md`. The index lists the exact full-text scope and links to the site's other sections. Chinese content is retained and listed first. Drafts, planned articles, editorial packets and historical archives are excluded; the current mathematics, Blog, papers, wiki and separate Investing Lab sections have navigation links but are not claimed as converted full text.
+
+This is a Hugo-native adaptation of the output pattern in [vitepress-plugin-llms](https://github.com/okineadev/vitepress-plugin-llms), not an installation of its Vite/VitePress plugin. It uses the existing canonical notebook source and build command; no VitePress runtime or dependency is added. The existing `/agent/` files remain separate teaching packets. Teaching instructions are not repeated in the full-text bundle.
+
+`tools/llms_export.py` preserves Markdown prose, TeX and footnotes, converts authored HTML tables and diagrams to text, and expands all asset panels rather than only the selected panel. CSS arrow diagrams use their complete accessible relationship labels. The converter does not execute interactive JavaScript or interpret legacy Hugo shortcodes. Merged table cells or an SVG without text require an authored text equivalent. Only the exporter's dedicated `static/llms/` Markdown files are pruned when their canonical article is withdrawn.
+
+Run `python -m unittest discover -s tools -p test_llms_export.py` for preservation checks. After the normal notebook compilation and a fresh Hugo build, run `python tools/check_llms.py --build-dir <build-directory>` to check output scope, local links, fragments, footnotes and diagram/table text. For an isolated compiler output, also supply `--generated-root <compiler-output-directory>`. CI runs these checks before deployment. The head includes machine-readable discovery links, and completed notebook pages expose their plain Markdown URL alongside the teaching packet.
 
 ## Mathematical toolchain
 

@@ -5,6 +5,7 @@ all notebook and plan validation has succeeded.
 """
 import copy
 import json
+import re
 from pathlib import Path
 
 
@@ -89,12 +90,28 @@ def validate_learning_plan(plan):
     # constrain the article sequence.
     entries = indexed_rows(plan.get("entries"), "entry")
     entry_nodes = set()
+    outline_slugs = set()
     for entry in entries.values():
         for key in ("node", "title", "goal", "example", "visual"):
             text(entry.get(key), f"entry {entry['id']} {key}")
         require(entry["node"] in nodes, f"entry {entry['id']} references an unknown node")
         entry_nodes.add(entry["node"])
         text_list(entry.get("scope"), f"entry {entry['id']} scope")
+        if "outline_page" in entry:
+            outline = entry["outline_page"]
+            require(isinstance(outline, dict), f"entry {entry['id']} outline_page must be an object")
+            slug = outline.get("slug")
+            require(isinstance(slug, str) and re.fullmatch(r"[a-z0-9]+(?:-[a-z0-9]+)*", slug),
+                    f"entry {entry['id']} outline slug must be a local page name")
+            require(slug not in outline_slugs and slug not in {"notation", "companies"},
+                    f"duplicate or reserved outline slug: {slug}")
+            outline_slugs.add(slug)
+            require(isinstance(outline.get("sections"), list) and outline["sections"],
+                    f"entry {entry['id']} outline needs sections")
+            for section in outline["sections"]:
+                require(isinstance(section, dict), "outline section must be an object")
+                text(section.get("title"), "outline section title")
+                text_list(section.get("items"), "outline section items")
         prerequisites = entry.get("prerequisites", [])
         text_list(prerequisites, f"entry {entry['id']} prerequisites", allow_empty=True)
         require(len(prerequisites) == len(set(prerequisites)),
@@ -146,7 +163,7 @@ def validate_learning_plan(plan):
 
 
 def compile_learning_map(plan, published_entries):
-    """Use exact Chinese article node_id matches, never a planned or guessed URL."""
+    """Link actual Chinese articles or explicitly requested generated outline pages."""
     available = {}
     for entry in published_entries:
         if entry.get("lang") != "zh" or not entry.get("node_id") or not entry.get("published", True):
@@ -161,12 +178,25 @@ def compile_learning_map(plan, published_entries):
     result["entries"] = []
     for planned in plan["entries"]:
         actual = available.get(planned["id"])
+        outline = planned.get("outline_page")
         if actual:
             text(actual.get("url"), f"available entry {actual.get('id')} url")
         result["entries"].append(dict(
             id=planned["id"], node=planned["node"], title=planned["title"], goal=planned["goal"],
-            status="available" if actual else "planned", url=actual["url"] if actual else None))
+            status="available" if actual else "outline" if outline else "planned",
+            url=actual["url"] if actual else f"/zh/notebook/{outline['slug']}/" if outline else None))
     return result
+
+
+def outline_page_markdown(entry):
+    metadata = dict(title=entry["title"], description=entry["goal"],
+                    layout="outline", planid=entry["id"])
+    lines = [json.dumps(metadata, ensure_ascii=False, indent=2), "", ""]
+    for section in entry["outline_page"]["sections"]:
+        lines += [f"## {section['title']}", ""]
+        lines += [f"- {item}" for item in section["items"]]
+        lines.append("")
+    return "\n".join(lines).rstrip() + "\n"
 
 
 def table_cell(value):
@@ -252,8 +282,15 @@ def learning_plan_outputs(source_root, published_entries):
     if not path.exists():
         return {}
     plan = validate_learning_plan(json.loads(path.read_text(encoding="utf-8-sig")))
-    return {
-        "data/notebook_map.json": json.dumps(compile_learning_map(plan, published_entries),
+    learning_map = compile_learning_map(plan, published_entries)
+    outputs = {
+        "data/notebook_map.json": json.dumps(learning_map,
                                             ensure_ascii=False, indent=2) + "\n",
         "docs/investment-notebook-outline.md": outline_markdown(plan),
     }
+    by_id = {entry["id"]: entry for entry in plan["entries"]}
+    for row in learning_map["entries"]:
+        if row["status"] == "outline":
+            entry = by_id[row["id"]]
+            outputs[f"content-zh/notebook/{entry['outline_page']['slug']}.md"] = outline_page_markdown(entry)
+    return outputs

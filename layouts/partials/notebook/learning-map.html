@@ -42,7 +42,12 @@
         <ol class="learning-map-entries" aria-label="{{ .short }}词条">
           {{ range $items }}
           <li data-entry-id="{{ .id }}" data-status="{{ .status }}">
-            {{ if and (eq .status "available") .url }}<a class="learning-map-entry-title" href="{{ .url }}">{{ .title }} <span aria-hidden="true">↗</span></a><span class="learning-map-entry-state is-available">已写</span>{{ else }}<span class="learning-map-entry-title">{{ .title }}</span><span class="learning-map-entry-state">待写</span>{{ end }}
+            {{ if and (in (slice "available" "outline") .status) .url }}
+            <a class="learning-map-entry-title" href="{{ .url }}">{{ .title }} <span aria-hidden="true">↗</span></a>
+            {{ else }}
+            <span class="learning-map-entry-title">{{ .title }}</span>
+            {{ end }}
+            {{ if eq .status "available" }}<span class="learning-map-entry-state is-available">已写</span>{{ else if eq .status "outline" }}<span class="learning-map-entry-state">大纲</span>{{ else }}<span class="learning-map-entry-state">待写</span>{{ end }}
             {{ with .goal }}<p>{{ . }}</p>{{ end }}
           </li>
           {{ end }}
