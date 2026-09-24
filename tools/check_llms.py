@@ -6,6 +6,8 @@ from html.parser import HTMLParser
 from pathlib import Path
 from urllib.parse import unquote, urlsplit
 
+from llms_export import namespace_footnotes
+
 ROOT = Path(__file__).resolve().parents[1]
 LOCAL_ORIGIN = "ou-liu-red-sugar.github.io"
 CODE = re.compile(r"(?ms)^`{3,}[^\n]*\n.*?^`{3,}[ \t]*(?:\n|$)|^~{3,}[^\n]*\n.*?^~{3,}[ \t]*(?:\n|$)|`+[^`\n]+`+")
@@ -134,7 +136,8 @@ def check(build_dir, generated_root=ROOT):
         for value in evidence.texts:
             # Markdown emphasis and links may surround the original visible text.
             for label, text in ((entry["id"], body), ("llms-full", full)):
-                if compact(value) not in compact(text):
+                expected_value = namespace_footnotes(value, entry["id"]) if label == "llms-full" else value
+                if compact(expected_value) not in compact(text):
                     errors.append(f"Missing authored diagram/table text in {label}: {value[:90]}")
         source_notes = re.findall(r"(?m)^\[\^([^\]]+)\]:", entry["body_markdown"])
         for note in source_notes:

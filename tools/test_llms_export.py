@@ -10,6 +10,40 @@ PAGE = "https://example.test/zh/notebook/article/"
 
 
 class MarkdownExportTests(unittest.TestCase):
+    def test_text_versions_export_the_full_sentence_without_controls(self):
+        body = ('<span data-text-versions>买入债券'
+                '<span data-text-detail hidden>（每年付息一次）</span>'
+                '，到期还本。<button data-text-version-toggle hidden>详细版</button></span>')
+        self.assertEqual(plain_markdown(body, PAGE).strip(), '买入债券（每年付息一次），到期还本。')
+
+    def test_table_footnote_evidence_uses_bundle_namespace(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            build = root / "site"
+            (root / "data").mkdir()
+            entry = dict(id="zh-one", title="Example", markdown="/llms/zh/notebook/one.md",
+                         body_markdown='<table><tr><td>Visible explanation[^detail]</td></tr></table>\n\n[^detail]: Full explanation\n')
+            (root / "data/notebook.json").write_text(json.dumps({"entries": [entry]}), encoding="utf-8")
+            documents = {"llms/zh/notebook/one.md": "# Example\n\nVisible explanation[^detail]\n\n[^detail]: Full explanation\n",
+                         "llms/zh/notebook/notation.md": "# Notation\n",
+                         "llms/en/notebook/notation.md": "# Notation\n"}
+            for name, text in documents.items():
+                target = build / name
+                target.parent.mkdir(parents=True, exist_ok=True)
+                target.write_text(text, encoding="utf-8")
+            (build / "llms.txt").write_text("尚未转换全文；历史归档不纳入。\n" +
+                                           "\n".join(f"[Text](/{name})" for name in documents), encoding="utf-8")
+            bundle = build / "llms-full.txt"
+            full = namespace_footnotes(documents["llms/zh/notebook/one.md"], "zh-one")
+            bundle.write_text(full, encoding="utf-8")
+            report = check(build, root)
+            self.assertTrue(report["passed"], report["errors"])
+            bundle.write_text(full.replace("Visible explanation", "Omitted"), encoding="utf-8")
+            report = check(build, root)
+            self.assertFalse(report["passed"])
+            self.assertTrue(any("Missing authored diagram/table text in llms-full" in error
+                                for error in report["errors"]))
+
     def test_fragment_check_accepts_minified_ids_but_rejects_missing_anchor(self):
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory)

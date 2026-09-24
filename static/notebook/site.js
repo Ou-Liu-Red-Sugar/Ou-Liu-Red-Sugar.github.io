@@ -6,6 +6,24 @@ const t=(a,b)=>zh?a:b;
 const searchShortcut=q('[data-search-shortcut]');
 if(searchShortcut)searchShortcut.textContent=/Mac|iPhone|iPad/.test(navigator.platform)?'⌘ K':'Ctrl K';
 
+// Keep the complete sentence in the source; only supplementary spans collapse.
+for(const [index,group] of qa('[data-text-versions]').entries()){
+  const details=qa('[data-text-detail]',group),button=q('[data-text-version-toggle]',group);
+  if(!details.length||!button)continue;
+  details.forEach((part,partIndex)=>part.id||=(group.id||'text-versions-'+(index+1))+'-detail-'+(partIndex+1));
+  button.setAttribute('aria-controls',details.map(part=>part.id).join(' '));
+  let expanded=false;
+  const show=value=>{
+    expanded=value;
+    details.forEach(part=>part.hidden=!expanded);
+    button.setAttribute('aria-expanded',String(expanded));
+    button.textContent=expanded?t('（简明版）','(Brief)'):t('（详细版）','(Details)');
+  };
+  button.addEventListener('click',()=>show(!expanded));
+  show(false);
+  button.hidden=false;
+}
+
 // Each experiment is rendered once, then placed beside its explanation.
 // Without scripting it remains a complete, linked disclosure at the page end.
 for(const slot of qa('[data-experiment-slot]')){

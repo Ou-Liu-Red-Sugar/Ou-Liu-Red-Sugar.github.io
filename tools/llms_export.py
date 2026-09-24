@@ -165,6 +165,8 @@ class Markdown:
         if tag == "hr":
             return "\n\n---\n\n"
         if tag == "span":
+            if "data-text-versions" in node.attrs or "data-text-detail" in node.attrs:
+                return content
             return content + (" " if content else "")
         if tag in BLOCKS:
             return "\n\n" + content.strip() + "\n\n"

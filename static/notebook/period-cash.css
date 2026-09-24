@@ -1,0 +1,6 @@
+/* Keep the two cash-flow comparisons as full-width native tables. */
+.entry-article[data-entry-id="zh-investment-horizon-cash"] .entry-body table {
+  display: table;
+  width: 100%;
+  min-width: 0;
+}

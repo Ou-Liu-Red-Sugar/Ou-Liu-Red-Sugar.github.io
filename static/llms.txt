@@ -6,7 +6,10 @@
 
 ## 正文 Markdown / Full-text Markdown
 
+- [投资期限与现金需要](https://ou-liu-red-sugar.github.io/llms/zh/notebook/investment-horizon-cash.md): 从债券与期权的期限出发，理解期间付款、过桥现金和退出安排。
 - [Agent 时代的基本面投资](https://ou-liu-red-sugar.github.io/llms/zh/notebook/investment-returns.md): 从资金用途出发，以一项业务看清企业经营、事件计价与 Agent 辅助研究。
+- [股票的类型、发行与交易形式](https://ou-liu-red-sugar.github.io/llms/zh/notebook/stock-types-issuance-trading.md): 从股份权利、发行与员工股权报酬出发，理解归属和解禁，再比较 ADR、代币化产品、个股期货与股票永续。
+- [股票、公司与股价](https://ou-liu-red-sugar.github.io/llms/zh/notebook/stocks-company-price.md): 从买公司的一部分出发，结合苹果、NVIDIA 与 SK 海力士的实例，理解基本面、股份、股价与市值。
 - [符号与单位](https://ou-liu-red-sugar.github.io/llms/zh/notebook/notation.md): 共用符号与单位 / Shared notation and units
 - [Notation and units](https://ou-liu-red-sugar.github.io/llms/en/notebook/notation.md): 共用符号与单位 / Shared notation and units
 

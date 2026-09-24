@@ -742,9 +742,9 @@
       "id": "NB-A02",
       "node": "A",
       "title": "投资期限与现金需要",
-      "goal": "理解一笔钱能用多久，怎样限制可选择的投资。",
-      "status": "planned",
-      "url": null
+      "goal": "理解合约期限、期间收付款与退出选择，并形成投资中的期限与现金意识。",
+      "status": "available",
+      "url": "/zh/notebook/investment-horizon-cash/"
     },
     {
       "id": "NB-A03",
@@ -773,10 +773,10 @@
     {
       "id": "NB-B01",
       "node": "B",
-      "title": "发行、交易与资金流向",
-      "goal": "弄清发行融资和投资者买卖时，钱分别去了哪里。",
-      "status": "planned",
-      "url": null
+      "title": "股票的类型、发行与交易形式",
+      "goal": "辨认具体股份的权利、取得与出售条件，以及围绕同一股票形成的不同持有和交易安排。",
+      "status": "available",
+      "url": "/zh/notebook/stock-types-issuance-trading/"
     },
     {
       "id": "NB-B02",
@@ -839,8 +839,8 @@
       "node": "S",
       "title": "股票、公司与股价",
       "goal": "建立股票投资的对象感，并引出研究公司经营的需要。",
-      "status": "planned",
-      "url": null
+      "status": "available",
+      "url": "/zh/notebook/stocks-company-price/"
     },
     {
       "id": "NB-S02",

@@ -2,7 +2,7 @@
 
 Current source guide: [Notebook authoring](docs/notebook-authoring.md).
 
-The investment notebook was archived on 2026-09-23 at the author's request. Its new [writing outline](docs/investment-notebook-outline.md) follows the agreed knowledge map, with stocks and fundamental investing as the main thread and Agent-assisted asset allocation as the final application. The first complete local article is now “Agent 时代的基本面投资” (NB-A01). New work proceeds one article at a time; the former outline, routes, company examples and production assignments are historical material.
+The investment notebook was archived on 2026-09-23 at the author's request. Its new [writing outline](docs/investment-notebook-outline.md) follows the agreed knowledge map, with stocks and fundamental investing as the main thread and Agent-assisted asset allocation as the final application. The completed articles are “Agent 时代的基本面投资” (NB-A01), “投资期限与现金需要” (NB-A02), “股票、公司与股价” (NB-S01), and “股票的类型、发行与交易形式” (NB-B01). New work proceeds one article at a time; the former outline, routes, company examples and production assignments are historical material.
 
 - Chinese collection: `content-zh/`; English and preserved archive: `content/`.
 - Blog posts: `content-zh/blog/*.md`, with `title`, `description` and `date` in front matter. Posts appear automatically in the Blog directory, the Chinese homepage's recent articles and site search.

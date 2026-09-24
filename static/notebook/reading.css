@@ -677,6 +677,43 @@ html[lang^="zh"] .entry-article .prose {
   line-height: 1.8;
 }
 
+.entry-article [data-text-detail] {
+  color: #74706a;
+}
+
+.entry-article button.text-version-toggle {
+  display: inline;
+  margin-inline-start: .35em;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: none;
+  box-shadow: none;
+  color: var(--accent);
+  font: inherit;
+  font-size: .88em;
+  line-height: inherit;
+  vertical-align: baseline;
+  white-space: nowrap;
+}
+
+.entry-article button.text-version-toggle:hover {
+  background: none;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+@media print {
+  .entry-article [data-text-detail][hidden] {
+    display: inline !important;
+    color: inherit;
+  }
+
+  .entry-article button.text-version-toggle {
+    display: none !important;
+  }
+}
+
 .entry-toc {
   padding-top: 2px;
   padding-left: 19px;

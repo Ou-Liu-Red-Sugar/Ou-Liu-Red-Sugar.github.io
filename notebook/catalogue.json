@@ -5,6 +5,18 @@
       "zh": "资金、目标与风险",
       "en": "Capital, goals and risk",
       "desc_zh": "从资金用途、投资目标和风险认识开始学习。"
+    },
+    {
+      "id": "topic-S",
+      "zh": "股票：从公司到持有回报",
+      "en": "Stocks: from companies to holding returns",
+      "desc_zh": "连接公司经营、股份、价格与股东持有回报。"
+    },
+    {
+      "id": "topic-B",
+      "zh": "市场、交易与融资",
+      "en": "Markets, trading and financing",
+      "desc_zh": "辨认股份发行、交易形式、参与者和资金流向。"
     }
   ],
   "sources": [
@@ -257,6 +269,395 @@
       "version": "本篇查阅日期：2026-09-23",
       "authors": [
         "FINRA"
+      ]
+    },
+    {
+      "source_id": "nb-a02-source-bond-terms",
+      "title": "SEC：What Are Corporate Bonds?",
+      "url": "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins/what-are",
+      "authors": [
+        "SEC Office of Investor Education and Advocacy"
+      ],
+      "version": "本篇实际阅读日期：2026-09-24",
+      "body": "债券面值、票息、还本时点及履约和提前赎回条件；本文数值为独立教学设定。",
+      "locators": [
+        "What are the financial terms of a bond?；Credit/default Risk；Call Risk"
+      ],
+      "published": "2013-06-04"
+    },
+    {
+      "source_id": "nb-a02-source-credit",
+      "title": "FINRA：Securities-Backed Lines of Credit Explained",
+      "url": "https://www.finra.org/investors/insights/securities-backed-lines-credit",
+      "authors": [
+        "FINRA"
+      ],
+      "version": "本篇实际阅读日期：2026-09-24",
+      "body": "保留资产取得现金仍有融资成本和合同要求。SBLOC不得用于购买或交易证券；本文借款为独立教学设定。",
+      "locators": [
+        "What Are SBLOCs?；Interest Rates and Repayment；问题4、8"
+      ],
+      "published": "2024-01-03"
+    },
+    {
+      "source_id": "nb-a02-source-long-call",
+      "title": "OIC：Long Call",
+      "url": "https://www.optionseducation.org/strategies/all-strategies/long-call",
+      "authors": [
+        "Options Industry Council / OCC"
+      ],
+      "version": "本篇实际阅读日期：2026-09-24",
+      "body": "买入看涨期权的权利金、有限有效期、到期失效与行权购股资金。",
+      "locators": [
+        "Description；Max Loss；Profit/Loss；Expiration Risk"
+      ]
+    },
+    {
+      "source_id": "nb-a02-source-settlement",
+      "title": "SEC：New T+1 Settlement Cycle – What Investors Need To Know",
+      "url": "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins/new-t1-settlement-cycle-what-investors-need-know-investor-bulletin",
+      "authors": [
+        "SEC Office of Investor Education and Advocacy"
+      ],
+      "version": "本篇实际阅读日期：2026-09-24",
+      "body": "成交与证券、款项正式交付的区别；本文不推广美国特定周期。",
+      "locators": [
+        "What is Settlement?"
+      ],
+      "published": "2024-03-27"
+    },
+    {
+      "source_id": "nb-s01-source-stocks",
+      "title": "Investor.gov：Stocks",
+      "url": "https://www.investor.gov/introduction-investing/investing-basics/investment-products/stocks",
+      "body": "股票代表公司所有权的定义；本篇采用范围见正文脚注与指定阅读单元。",
+      "version": "本篇查阅日期：2026-09-24；页面未标正文日期",
+      "authors": [
+        "SEC"
+      ]
+    },
+    {
+      "source_id": "nb-s01-source-apple-faq",
+      "title": "Apple：Investor Relations FAQ",
+      "url": "https://investor.apple.com/faq/",
+      "body": "Apple普通股在Nasdaq交易，股票代码为AAPL。",
+      "version": "本篇查阅日期：2026-09-24；页面未标统一正文日期",
+      "authors": [
+        "Apple"
+      ]
+    },
+    {
+      "source_id": "nb-s01-source-apple-10q",
+      "title": "Apple：2025 财年第二季度 Form 10-Q",
+      "url": "https://www.sec.gov/Archives/edgar/data/320193/000032019325000057/aapl-20250329.htm",
+      "body": "AAPL 上市身份、2025年4月18日在外普通股数量及损益表支出类别。",
+      "version": "报告期末：2025-03-29；股数日期：2025-04-18；提交日期：2025-05-02",
+      "authors": [
+        "Apple"
+      ]
+    },
+    {
+      "source_id": "nb-s01-source-apple-business",
+      "title": "Apple：2025 Form 10-K，Item 1 Business",
+      "url": "https://www.sec.gov/Archives/edgar/data/320193/000032019325000079/aapl-20250927.htm",
+      "body": "Apple 的产品与服务，用于把公司业务和股票权益联系起来。",
+      "version": "报告期末：2025-09-27；本篇查阅日期：2026-09-24",
+      "authors": [
+        "Apple"
+      ]
+    },
+    {
+      "source_id": "nb-s01-source-apple-dividend",
+      "title": "Apple：Dividend History",
+      "url": "https://investor.apple.com/dividend-history/",
+      "body": "2025年5月的一次实际现金分红，每股0.26美元。",
+      "version": "采用宣告日2025-05-01、登记日2025-05-12、支付日2025-05-15记录；查阅日期2026-09-24",
+      "authors": [
+        "Apple"
+      ]
+    },
+    {
+      "source_id": "nb-s01-source-apple-price",
+      "title": "Nasdaq：Nasdaq-100 Weekly Commentary，2025-04-28",
+      "url": "https://www.nasdaq.com/docs/ndx-weekly-earnings-update-april-28-2025",
+      "body": "2025年4月25日 AAPL 收盘价209.28美元，与邻近日期在外股数配合解释市值。",
+      "version": "文件日期：2025-04-28；报价日期：2025-04-25；表中来源：Nasdaq、FactSet",
+      "authors": [
+        "Nasdaq"
+      ]
+    },
+    {
+      "source_id": "nb-s01-source-nvidia-split",
+      "title": "NVIDIA：2024 Stock Split FAQ",
+      "url": "https://investor.nvidia.com/files/doc_downloads/2024/06/nvidia-2024-stock-split_faq_investors.pdf",
+      "body": "2024年一拆十的比例、实施时点，以及拆股本身与持股比例的关系。",
+      "version": "文件版本：2024-06-11",
+      "authors": [
+        "NVIDIA"
+      ]
+    },
+    {
+      "source_id": "nb-s01-source-nvidia-results",
+      "title": "NVIDIA：2025 财年第一季度业绩公告",
+      "url": "https://nvidianews.nvidia.com/news/nvidia-announces-financial-results-for-first-quarter-fiscal-2025",
+      "body": "同一公告中的截至2024年4月28日财季收入约260亿美元及一拆十安排。",
+      "version": "公告日期：2024-05-22；财季截至2024-04-28",
+      "authors": [
+        "NVIDIA"
+      ]
+    },
+    {
+      "source_id": "nb-s01-source-adr-definition",
+      "title": "SEC：Investor Bulletin—American Depositary Receipts",
+      "url": "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins-88",
+      "body": "ADR、ADS与托管境外公司股份之间的对应关系。",
+      "version": "发布日期：2012-08-17；本篇查阅日期：2026-09-24",
+      "authors": [
+        "SEC"
+      ]
+    },
+    {
+      "source_id": "nb-s01-source-skhy-citi",
+      "title": "Citi：SK hynix 美国存托证券项目资料",
+      "url": "https://depositaryreceipts.citi.com/adr/guides/estfee.aspx?cusip=78392B206&pageId=15&subpageID=114",
+      "body": "SKHY、Nasdaq、CUSIP 78392B206、底层普通股ISIN与每ADS对应1/10股的项目字段。",
+      "version": "本篇查阅日期：2026-09-24",
+      "authors": [
+        "Citi"
+      ]
+    },
+    {
+      "source_id": "nb-s01-source-skhy-premium",
+      "title": "IBKR：A Quick Primer on ADRs and SKHY",
+      "url": "https://www.interactivebrokers.com/campus/traders-insight/ibkr-market-insights/although-economic-conditions-did-not-change-much-between-the-first-and-second-quarters-investors-were-far-more-bullish-in-the-second-quarter/",
+      "body": "2026年7月16日作者记录的SKHY盘中报价、汇率及韩股前次收盘价，可复算约30%的历史价差。",
+      "version": "发布日期：2026-07-16；历史盘中观察",
+      "authors": [
+        "Steve Sosnick",
+        "Interactive Brokers"
+      ]
+    },
+    {
+      "source_id": "nb-s01-source-dtc-announcement",
+      "title": "DTCC：Paving the Way to Tokenized DTC-Custodied Assets",
+      "url": "https://www.dtcc.com/press-releases/2025/paving-the-way-to-tokenized-dtc-custodied-assets",
+      "body": "DTC于2025年12月11日公布的限定范围证券代币化试点方案。",
+      "version": "公告日期：2025-12-11；采用当时公开方案，未核后续全面上线状态",
+      "authors": [
+        "DTCC"
+      ]
+    },
+    {
+      "source_id": "nb-s01-source-dtc-letter",
+      "title": "SEC：致DTC不采取执法行动函及所附申请",
+      "url": "https://www.sec.gov/files/tm/no-action/dtc-nal-121125.pdf",
+      "body": "DTC方案中参与者证券权益的代币化记录，以及底层证券登记与原有权利安排。",
+      "version": "函件及申请日期：2025-12-11",
+      "authors": [
+        "SEC",
+        "DTC"
+      ]
+    },
+    {
+      "source_id": "nb-s01-source-ge-reverse",
+      "title": "GE：Reverse Stock Split Frequently Asked Questions",
+      "url": "https://www.ge.com/sites/default/files/GE_Reverse_Stock_Split_FAQs.pdf",
+      "body": "2021年八合一、7月30日完成、8月2日起按新单位交易；业务剥离后使股数符合公司规模的目的；零股现金处理",
+      "version": "2021-09-21版本",
+      "authors": [
+        "GE"
+      ]
+    },
+    {
+      "source_id": "nb-s01-source-split-liquidity",
+      "title": "Nasdaq：Analyzing the 2022 Stock Splits",
+      "url": "https://www.nasdaq.com/articles/analyzing-the-2022-stock-splits",
+      "body": "整股门槛、相对买卖价差、成交金额与流动性改善；采用历史样本的关系，不将样本结果写为NVDA2024实测",
+      "version": "2022-09-08",
+      "authors": [
+        "Phil Mackintosh",
+        "Nasdaq"
+      ]
+    },
+    {
+      "source_id": "nb-s01-source-reverse-purpose",
+      "title": "Investor.gov：Reverse Stock Splits",
+      "url": "https://www.investor.gov/introduction-investing/investing-basics/glossary/reverse-stock-splits",
+      "body": "并股换股比例；提高报价以吸引投资者或争取满足交易所最低买价要求",
+      "version": "本篇查阅日期：2026-09-24",
+      "authors": [
+        "SEC"
+      ]
+    },
+    {
+      "source_id": "nb-s01-source-ge-healthcare-spinoff",
+      "title": "GE：完成 GE HealthCare 分拆",
+      "url": "https://www.ge.com/news/press-releases/ge-completes-separation-of-ge-healthcare",
+      "body": "医疗业务分拆完成、GEHC独立上市、原GE股东按方案收到新公司股票",
+      "version": "2023-01-04",
+      "authors": [
+        "GE"
+      ]
+    },
+    {
+      "source_id": "nb-s01-source-ge-vernova-spinoff",
+      "title": "GE Aerospace：GE Vernova 分拆完成后独立运营",
+      "url": "https://www.geaerospace.com/news/press-releases/ge-aerospace-launches-independent-investment-grade-public-company-following-0",
+      "body": "GE Vernova分拆完成、GE Aerospace继续以GE代码交易、向GE股东分配GEV股份",
+      "version": "2024-04-02",
+      "authors": [
+        "GE"
+      ]
+    },
+    {
+      "source_id": "nb-b01-source-alphabet",
+      "title": "Alphabet 2025 Form 10-K",
+      "url": "https://www.sec.gov/Archives/edgar/data/1652044/000165204426000018/goog-20251231.htm",
+      "body": "Alphabet 2025 Form 10-K，Item 5、Note 11、Note 12；股份权利说明，Voting Rights、Liquidation Rights、Conversion。",
+      "version": "本篇材料核查日期：2026-09-24；具体版本与采用范围见正文脚注。",
+      "authors": [
+        "Alphabet"
+      ]
+    },
+    {
+      "source_id": "nb-b01-source-alphabet-2",
+      "title": "股份权利说明",
+      "url": "https://www.sec.gov/Archives/edgar/data/1652044/000165204423000016/googexhibit420q42022.htm",
+      "body": "Alphabet 2025 Form 10-K，Item 5、Note 11、Note 12；股份权利说明，Voting Rights、Liquidation Rights、Conversion。",
+      "version": "本篇材料核查日期：2026-09-24；具体版本与采用范围见正文脚注。",
+      "authors": [
+        "Alphabet"
+      ]
+    },
+    {
+      "source_id": "nb-b01-source-reddit-ipo",
+      "title": "Reddit：首次公开发行定价公告",
+      "url": "https://investor.redditinc.com/news-events/news-releases/news-details/2024/Reddit-Announces-Pricing-of-Initial-Public-Offering/default.aspx",
+      "body": "Reddit：首次公开发行定价公告，2024-03-20；Investor.gov：Investing in an IPO，2022-10-14，IPO、承销机构与售股股东说明。",
+      "version": "本篇材料核查日期：2026-09-24；具体版本与采用范围见正文脚注。",
+      "authors": [
+        "Reddit"
+      ]
+    },
+    {
+      "source_id": "nb-b01-source-reddit-ipo-2",
+      "title": "Investor.gov：Investing in an IPO",
+      "url": "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins-17",
+      "body": "Reddit：首次公开发行定价公告，2024-03-20；Investor.gov：Investing in an IPO，2022-10-14，IPO、承销机构与售股股东说明。",
+      "version": "本篇材料核查日期：2026-09-24；具体版本与采用范围见正文脚注。",
+      "authors": [
+        "SEC"
+      ]
+    },
+    {
+      "source_id": "nb-b01-source-sbc",
+      "title": "SEC：Common Startup Securities",
+      "url": "https://www.sec.gov/resources-small-businesses/capital-raising-building-blocks/common-startup-securities",
+      "body": "SEC：Common Startup Securities，Stock、Stock Option、Restricted Stock；Reddit 的实际股权报酬与结算见下引 2024 年第二季度报告。持股比例变化采用持有股数除以总股数的关系。",
+      "version": "本篇材料核查日期：2026-09-24；具体版本与采用范围见正文脚注。",
+      "authors": [
+        "SEC"
+      ]
+    },
+    {
+      "source_id": "nb-b01-source-sbc-example-2",
+      "title": "Reddit 2024 招股书",
+      "url": "https://www.sec.gov/Archives/edgar/data/1713445/000162828024012380/reddit-final424b4.htm",
+      "body": "SEC：Common Startup Securities；Reddit 2024 招股书，Equity Compensation，第 171–172 页；Restricted Stock Units，第 205 页。本文选取以股份结算的 RSU。",
+      "version": "本篇材料核查日期：2026-09-24；具体版本与采用范围见正文脚注。",
+      "authors": [
+        "Reddit"
+      ]
+    },
+    {
+      "source_id": "nb-b01-source-reddit-rsu",
+      "title": "Reddit 2024 年第二季度 Form 10-Q",
+      "url": "https://s203.q4cdn.com/380862485/files/doc_financials/2024/q2/04d62450-250b-47c1-9af2-5f7aac9f4d40.pdf",
+      "body": "Reddit 2024 年第二季度 Form 10-Q，2024-08-06，Note 2 — Initial Public Offering，报告第 12 页、PDF 第 13 页。",
+      "version": "本篇材料核查日期：2026-09-24；具体版本与采用范围见正文脚注。",
+      "authors": [
+        "Reddit"
+      ]
+    },
+    {
+      "source_id": "nb-b01-source-skhy-terms",
+      "title": "SKHY 的 F-6 所附公开存托协议格式",
+      "url": "https://www.sec.gov/Archives/edgar/data/2120882/000119380526000898/e665622_ex99-a.htm",
+      "body": "SKHY 的 F-6 所附公开存托协议格式，2026-07-01 提交；定义 1.4、1.12、1.16，条款 2.2–2.8、4.1、4.9–4.10、4.13，附录 A、B。采用公开协议格式中的存股、托管、发行、分配、投票及注销机制，未将其标作最终签署协议。ADR 是凭证名称，ADS 是凭证所代表的美国存托股份额，正文按每份 SKHY 对应权益讲解。",
+      "version": "本篇材料核查日期：2026-09-24；具体版本与采用范围见正文脚注。",
+      "authors": [
+        "SK hynix",
+        "Citibank"
+      ]
+    },
+    {
+      "source_id": "nb-b01-source-xstocks",
+      "title": "Apple xStock 产品页",
+      "url": "https://assets.backed.fi/products/apple-xstock",
+      "body": "Apple xStock 产品页；Apple xStock Final Terms and Summary，2026-05-08，发行者、参考资产及 Rights attached / Collateralization 条款。",
+      "version": "本篇材料核查日期：2026-09-24；具体版本与采用范围见正文脚注。",
+      "authors": [
+        "Backed Assets (JE) Limited"
+      ]
+    },
+    {
+      "source_id": "nb-b01-source-xstocks-2",
+      "title": "Apple xStock Final Terms and Summary",
+      "url": "https://sppdownloaddocumentservice.l-p-a.com/api/DownloadDocument/UPI/CH1436219187/BF%20Final%20Terms%20AND%20Summary%20%28PDF%29",
+      "body": "Apple xStock 产品页；Apple xStock Final Terms and Summary，2026-05-08，发行者、参考资产及 Rights attached / Collateralization 条款。",
+      "version": "本篇材料核查日期：2026-09-24；具体版本与采用范围见正文脚注。",
+      "authors": [
+        "Backed Assets (JE) Limited"
+      ]
+    },
+    {
+      "source_id": "nb-b01-source-xstocks-dividends",
+      "title": "Kraken：xStocks FAQ",
+      "url": "https://support.kraken.com/articles/xstocks-faq",
+      "body": "Kraken：xStocks FAQ，2026-09-18 更新，Multiplier、Price and dividends。本文采用净分红再投资及有效余额调整机制。",
+      "version": "本篇材料核查日期：2026-09-24；具体版本与采用范围见正文脚注。",
+      "authors": [
+        "Kraken"
+      ]
+    },
+    {
+      "source_id": "nb-b01-source-cme",
+      "title": "CME：Single Stock Futures FAQ",
+      "url": "https://www.cmegroup.com/articles/faqs/faq-single-stock-futures.html",
+      "body": "CME：Single Stock Futures FAQ，2026-09-24 读取，第 1、3、5、7–11、14–15、19 问；合约资料卡，第 1 页规格、第 2 页 SAAPL。每股变动 1 美元用于展示乘数计算，未采用当前股价。",
+      "version": "本篇材料核查日期：2026-09-24；具体版本与采用范围见正文脚注。",
+      "authors": [
+        "CME Group"
+      ]
+    },
+    {
+      "source_id": "nb-b01-source-cme-2",
+      "title": "合约资料卡",
+      "url": "https://www.cmegroup.com/markets/equities/files/single-stock-futures-fact-card.pdf",
+      "body": "CME：Single Stock Futures FAQ，2026-09-24 读取，第 1、3、5、7–11、14–15、19 问；合约资料卡，第 1 页规格、第 2 页 SAAPL。每股变动 1 美元用于展示乘数计算，未采用当前股价。",
+      "version": "本篇材料核查日期：2026-09-24；具体版本与采用范围见正文脚注。",
+      "authors": [
+        "CME Group"
+      ]
+    },
+    {
+      "source_id": "nb-b01-source-perpetual",
+      "title": "Kraken：What are xStocks perps?",
+      "url": "https://www.kraken.com/learn/futures-trading-what-are-xstocks-perps",
+      "body": "Kraken：What are xStocks perps?，定义、AAPLx、参考价格、保证金及现金结算说明。",
+      "version": "本篇材料核查日期：2026-09-24；具体版本与采用范围见正文脚注。",
+      "authors": [
+        "Kraken"
+      ]
+    },
+    {
+      "source_id": "nb-b01-source-perpetual-spec",
+      "title": "Kraken：Multi-Collateral Derivatives Contract Specifications",
+      "url": "https://support.kraken.com/in/articles/4844359082772-linear-multi-collateral-derivatives-contract-specifications",
+      "body": "Kraken：Multi-Collateral Derivatives Contract Specifications，2026-09-08 更新，PF_AAPLXUSD、Perpetual Contract Funding Rate Information、PnL 与抵押物说明；采用其通用规格。",
+      "version": "本篇材料核查日期：2026-09-24；具体版本与采用范围见正文脚注。",
+      "authors": [
+        "Kraken"
       ]
     }
   ],
