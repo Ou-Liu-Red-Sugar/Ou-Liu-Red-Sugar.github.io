@@ -19,7 +19,9 @@
   </section>
 
   {{ if $zh }}
-  {{ if $routes }}
+  {{ if .Site.Data.notebook_map.reading_route }}
+  {{ partial "notebook/reading-route.html" . }}
+  {{ else if $routes }}
   <section class="home-paths" id="learning-paths" aria-labelledby="paths-heading" data-path-selector>
     <header class="home-section-head"><div><p class="section-kicker">INVESTMENT NOTEBOOK</p><h2 id="paths-heading">投资学阅读路线.</h2></div><p>每个领域都有自己的阅读顺序.<br>从第一篇开始，或直接查阅词条.</p></header>
     <div class="path-explorer">

@@ -1,0 +1,258 @@
+# 股东回报：分红、回购与增发
+
+从 AAPL 的分红与回购、Alphabet（GOOGL／GOOG）的权益融资出发，理解市场买盘、税务时点、净股数变化和每股所得。
+
+Entry: zh-shareholder-returns-buybacks-issuance | Node: NB-S02 | Language: zh | Editorial revision: 2026-09-25
+
+## Teaching instructions
+沿公司现金用途与净股数变化解释股东回报。回购买盘能支持股价，继续持有者也可能受益；结合执行、价格和公司资金代价理解效果。Apple 采用截至2025-12-27的财季，现金流量表回购付款与回购交易金额分开；期初期末股数减少70,557,000股，不用单项RSU归属量拼股数桥。税务采用美国普通应税账户中收付实现制个人：股息再投资仍需申报，本人未处置股票的普通公开市场回购通常不使本人实现资本利得。Alphabet采用截至2026-06-30的披露，496亿美元为普通股与强制可转换优先股融资合计净额；400亿美元ATM截至该日未执行，上半年没有回购A/C股，695亿美元为未用授权。其他笔记写明篇名和链接，必要背景在本篇解释，不假设读者按顺序读过。
+
+Before substantive teaching, actually retrieve every required reading unit for the selected scope. Read its complete designated section, including necessary assumptions, tables and footnotes. A working URL or an editorial access date is not a runtime reading receipt. Record the actual version, location, scope and what it supports. If unavailable, use a previously verified equivalent source; if the required unit remains unavailable, identify that gap rather than teach it from memory. Start runtime_reading_log empty. Once reading is complete, use a substantive diagnostic or follow the reader's request for direct explanation. Advance one complete reasoning task at a time; skip mastered basics. Distinguish original facts, supplied teaching assumptions and inference.
+
+## Shared notation and writing conventions
+数学期望统一写成 \mathbb{E}，条件期望用 \mathbb{E}[X\mid\mathcal{G}]，需要时注明测度 P 或 Q. 保留局部变量的明确定义. 金额与数量使用 K=10^3、M=10^6、B=10^9；表格标明币种、量级与期间，变更量级时同步换算数值. 展示小数最多三位，计算保留原始精度. 直接解释对象、机制与推理；保留影响结论的假设和事实来源，把编辑流程留在记录中. 句末使用英文句点 .，包括定义、命题、证明和解析等标签. 基础定义与推导直接讲内容，出处放在紧邻脚注；来源读取、复审和采用范围等编辑经过留在记录中.
+[Notation and units](https://ou-liu-red-sugar.github.io/agent/zh/notation.md)
+
+## Required readings and runtime protocol
+```json
+{
+  "required_readings": [
+    {
+      "source_id": "nb-s02-source-apple-1",
+      "access": {
+        "kind": "selected_chapters",
+        "uri": "https://www.sec.gov/Archives/edgar/data/320193/000032019326000006/aapl-20251227.htm"
+      },
+      "required_unit": {
+        "locator": "Apple：2026 财年第一季度 Form 10-Q，季度截至 2025-12-27。现金流量表的股息及股息等价物支付、普通股回购付款；资产负债表的发行在外普通股；Note 7 与 Part II Item 2 的回购披露。本文的净股数变化由两个资产负债表时点相减，未将单项 RSU 归属量直接作为新增普通股量。",
+        "scope": "Apple：2026 财年第一季度 Form 10-Q，季度截至 2025-12-27。现金流量表的股息及股息等价物支付、普通股回购付款；资产负债表的发行在外普通股；Note 7 与 Part II Item 2 的回购披露。本文的净股数变化由两个资产负债表时点相减，未将单项 RSU 归属量直接作为新增普通股量。",
+        "purpose": "核对正文引用的实际事实、时点及适用关系。"
+      },
+      "title": "Apple：2026 财年第一季度 Form 10-Q",
+      "authors": [
+        "Apple"
+      ],
+      "version": "本篇核对日期：2026-09-25；各财报期间见标题与采用范围"
+    },
+    {
+      "source_id": "nb-s02-source-berkshire-1",
+      "access": {
+        "kind": "selected_chapters",
+        "uri": "https://www.berkshirehathaway.com/letters/2012ltr.pdf"
+      },
+      "required_unit": {
+        "locator": "Berkshire Hathaway：2012 年股东信，Dividends 部分，讨论业务投入、收购、回购价格与股东分配的取舍；本文采用资金用途与回购价格的比较关系，不沿用其中的估值假设或历史回购门槛。",
+        "scope": "Berkshire Hathaway：2012 年股东信，Dividends 部分，讨论业务投入、收购、回购价格与股东分配的取舍；本文采用资金用途与回购价格的比较关系，不沿用其中的估值假设或历史回购门槛。",
+        "purpose": "核对正文引用的实际事实、时点及适用关系。"
+      },
+      "title": "Berkshire Hathaway：2012 年股东信",
+      "authors": [
+        "Berkshire Hathaway"
+      ],
+      "version": "本篇核对日期：2026-09-25；各财报期间见标题与采用范围"
+    },
+    {
+      "source_id": "nb-s02-source-dividends-1",
+      "access": {
+        "kind": "selected_chapters",
+        "uri": "https://www.investor.gov/introduction-investing/investing-basics/glossary/ex-dividend-dates-when-are-you-entitled-stock-and"
+      },
+      "required_unit": {
+        "locator": "Investor.gov：Ex-Dividend Dates—When Are You Entitled to Stock and Cash Dividends，普通现金股息的除息与支付说明。",
+        "scope": "Investor.gov：Ex-Dividend Dates—When Are You Entitled to Stock and Cash Dividends，普通现金股息的除息与支付说明。",
+        "purpose": "核对正文引用的实际事实、时点及适用关系。"
+      },
+      "title": "Investor.gov：Ex-Dividend Dates—When Are You Entitled to Stock and Cash Dividends",
+      "authors": [
+        "Investor.gov"
+      ],
+      "version": "本篇核对日期：2026-09-25；各财报期间见标题与采用范围"
+    },
+    {
+      "source_id": "nb-s02-source-tax-1",
+      "access": {
+        "kind": "selected_chapters",
+        "uri": "https://www.irs.gov/publications/p538"
+      },
+      "required_unit": {
+        "locator": "IRS Publication 538，Cash Method—Income、Constructive receipt；IRS Publication 550，Dividends Used To Buy More Stock、What Is a Sale or Trade?、Redemption of stock、Capital Gains and Losses。未出售者的表述是将处置规则用于普通公开市场回购的情形。",
+        "scope": "IRS Publication 538，Cash Method—Income、Constructive receipt；IRS Publication 550，Dividends Used To Buy More Stock、What Is a Sale or Trade?、Redemption of stock、Capital Gains and Losses。未出售者的表述是将处置规则用于普通公开市场回购的情形。",
+        "purpose": "核对正文引用的实际事实、时点及适用关系。"
+      },
+      "title": "IRS Publication 538",
+      "authors": [
+        "IRS"
+      ],
+      "version": "本篇核对日期：2026-09-25；各财报期间见标题与采用范围"
+    },
+    {
+      "source_id": "nb-s02-source-tax-2",
+      "access": {
+        "kind": "selected_chapters",
+        "uri": "https://www.irs.gov/publications/p550"
+      },
+      "required_unit": {
+        "locator": "IRS Publication 538，Cash Method—Income、Constructive receipt；IRS Publication 550，Dividends Used To Buy More Stock、What Is a Sale or Trade?、Redemption of stock、Capital Gains and Losses。未出售者的表述是将处置规则用于普通公开市场回购的情形。",
+        "scope": "IRS Publication 538，Cash Method—Income、Constructive receipt；IRS Publication 550，Dividends Used To Buy More Stock、What Is a Sale or Trade?、Redemption of stock、Capital Gains and Losses。未出售者的表述是将处置规则用于普通公开市场回购的情形。",
+        "purpose": "核对正文引用的实际事实、时点及适用关系。"
+      },
+      "title": "IRS Publication 550",
+      "authors": [
+        "IRS"
+      ],
+      "version": "本篇核对日期：2026-09-25；各财报期间见标题与采用范围"
+    },
+    {
+      "source_id": "nb-s02-source-alphabet-release-1",
+      "access": {
+        "kind": "selected_chapters",
+        "uri": "https://www.sec.gov/Archives/edgar/data/1652044/000165204426000066/googexhibit991q22026.htm"
+      },
+      "required_unit": {
+        "locator": "Alphabet：2026 年第二季度业绩公告，Equity Capital Raise。",
+        "scope": "Alphabet：2026 年第二季度业绩公告，Equity Capital Raise。",
+        "purpose": "核对正文引用的实际事实、时点及适用关系。"
+      },
+      "title": "Alphabet：2026 年第二季度业绩公告",
+      "authors": [
+        "Alphabet"
+      ],
+      "version": "本篇核对日期：2026-09-25；各财报期间见标题与采用范围"
+    },
+    {
+      "source_id": "nb-s02-source-alphabet-1",
+      "access": {
+        "kind": "selected_chapters",
+        "uri": "https://www.sec.gov/Archives/edgar/data/1652044/000165204426000071/goog-20260630.htm"
+      },
+      "required_unit": {
+        "locator": "Alphabet：截至 2026-06-30 的 Form 10-Q，Note 11、Equity Capital Raise、ATM Program、Share Repurchases；采用已完成融资、披露的资金用途、期末未执行发行额度及上半年回购状态。",
+        "scope": "Alphabet：截至 2026-06-30 的 Form 10-Q，Note 11、Equity Capital Raise、ATM Program、Share Repurchases；采用已完成融资、披露的资金用途、期末未执行发行额度及上半年回购状态。",
+        "purpose": "核对正文引用的实际事实、时点及适用关系。"
+      },
+      "title": "Alphabet：截至 2026-06-30 的 Form 10-Q",
+      "authors": [
+        "Alphabet"
+      ],
+      "version": "本篇核对日期：2026-09-25；各财报期间见标题与采用范围"
+    }
+  ],
+  "runtime_reading_log": [],
+  "optional_readings": [],
+  "export_mode": "public"
+}
+```
+
+## Supplied entry
+[《股票、公司与股价》](/zh/notebook/stocks-company-price/)用 Apple（AAPL）分红介绍了一种股东回报：公司把部分现金分给持有股票的人。AAPL 的资金安排中，用于回购股票的钱还要多得多。在 2026 财年第一季度，AAPL 支付了约 39 亿美元的股息及股息等价物，用于回购普通股的现金则约为 247 亿美元。两笔钱都从公司流出，影响股东的方式却有所不同。[^apple]
+
+分红时，只要符合领取条件，股东就会收到现金。回购时，公司把钱付给卖出股票的人；我们即使一直没有卖股，也仍然可能从回购形成的买盘、股数变化和每股权益中受益。这就值得沿着实际交易继续看一看。
+
+## 回购、市场买盘与每股份额 {#nb-s02-buybacks}
+
+公司回购自己的股票，首先意味着市场上多了一个使用公司资金的买家。当回购在公开市场持续执行时，公司会接下一部分卖盘，为股价提供支持。对于准备长期持有的人，这种支持同样有经济意义：虽然没有直接收到公司的回购款，自己持有的股票仍然受到买卖力量变化的影响。
+
+我们平时说大公司的回购有“托市”作用，说的就是这层关系。回购形成的买盘有多大、能持续多久，需要放在实际成交和公司的资金安排中观察；同一时期的经营消息、其他投资者的买卖，也会共同影响价格。
+
+<link rel="stylesheet" href="/notebook/capital-returns.css">
+<figure class="capital-flow" aria-labelledby="nb-s02-buyback-flow-title">
+<figcaption id="nb-s02-buyback-flow-title">回购：公司付出现金，收回股份</figcaption>
+<div class="capital-flow-row"><strong>公司</strong><div class="capital-flow-arrows"><span>现金 →</span><span>← 股份</span></div><strong>售股者</strong></div>
+<p>未参与出售的股东继续持有原来的股份，回购仍会影响市场买盘与公司的股份数量。</p>
+</figure>
+
+<span data-text-versions id="nb-s02-text-1">不过，读到一项回购计划时，我们还要看看公司已经买了多少。授权额度规定了可以使用的范围，实际买入才会形成相应的股票需求。AAPL 在上述季度买回约 9,300 万股，报告同时披露了尚未使用的回购额度<span data-text-detail>（这里的季度截至 2025 年 12 月 27 日。AAPL 披露的回购交易金额约为 250 亿美元，现金流量表中当期支付的回购款为 247.01 亿美元；正文比较现金收付时采用后者。回购计划允许公司按情况执行，没有最低购买数量义务）</span>。把计划与执行分开，才能知道公司这一时期究竟向市场投入了多少买盘。[^apple]<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>
+
+回购的影响还会留在公司股本里。若发行在外的股份净减少，而我们持有的股数没变，持股比例就会上升。同样的公司利润，由更少的股份共同分享，每股对应的利润也会提高。因此，公司经营增长与股份数量变化，都关系到最后落在每一股上的所得。
+
+<span data-text-versions id="nb-s02-text-2">公司回购股票的同时，也可能通过员工奖励交付、员工购股计划或其他发行增加股份。其中，以股票或相关权利支付员工报酬的安排，通常称为股权报酬（SBC），具体形式见[《股票的类型、发行与交易形式》](/zh/notebook/stock-types-issuance-trading/)。因此，我们还要看这些变化合起来以后，股数究竟减少了多少。AAPL 这一季度买回约 9,300 万股，但期末发行在外股数比期初少了约 7,060 万股，两者并不相等<span data-text-detail>（资产负债表列示，2025 年 9 月 27 日发行在外普通股为 14,773,260,000 股，12 月 27 日为 14,702,703,000 股，减少 70,557,000 股。此处比较期初与期末股数；正式每股收益另按相应期间的加权平均股数及摊薄规则计算）</span>。所以，回购金额告诉我们公司花了多少钱，净股数变化则进一步告诉我们，剩余股份的比例怎样改变。[^apple]<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>
+
+同一笔资金能买回多少股份，还取决于买入价格。价格越高，收回同样数量的股票就要花更多钱，而这些钱原本还可以留在公司经营、投资或偿债。对继续持有者来说，判断回购的效果，需要把股价支持、股份减少和公司付出的资源放在一起。企业买回自己的股份，也同样面临买得是否划算的问题。[^berkshire]
+
+## 分红、纳税时点与持有选择 {#nb-s02-dividends-tax}
+
+分红把公司的部分现金直接交给股东。股票仍然留在账户里，股东另外取得一笔可以使用的资金；需要安排生活支出的人，常常会关心这种现金来源。
+
+<span data-text-versions id="nb-s02-text-3">但收到分红时，还要把股票和现金合起来看。公司付出现金以后，留在企业中的资产也相应减少；常规现金股息除息后，买入股票的人不再取得这一期股息，因此分红前后的股价需要按相同权益基础比较<span data-text-detail>（本文讨论普通现金股息。除息日划分这次交易是否附带本期股息权利，支付日才是公司实际付款的日期；特殊分配可能采用不同规则。除息形成的价格调整还会和当天的市场行情叠加，实际成交价不会只由股息金额决定）</span>。已经取得股息领取权利，与钱已经到账，是不同的时点；安排用钱时间时，还要等到支付日。这也对应[《投资期限与现金需要》](/zh/notebook/investment-horizon-cash/)讨论的资金安排：先看现金何时可用，再考虑怎样使用。[^dividends]<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>
+
+对暂时不需要这笔现金的股东，接下来还会遇到税务问题。以美国普通应税账户中的个人投资者为例，现金股息通常在实际收到或可以支配的年度计入收入；即使券商自动用分红买入更多股票，这笔股息一般仍需要申报。资金先分出来，再由股东投入，可能已经经过了一次纳税。[^tax]
+
+公司在公开市场回购其他人的股份时，我们没有出售自己的股票，也没有因此实现自己的资本利得。股票可以继续持有，将来何时卖出、卖出多少，通常仍有自己的安排。对于准备长期投资的人，延后实现资本利得，也就保留了延后纳税的空间。
+
+<span data-text-versions id="nb-s02-text-4">这正是长期股东可能更偏好回购的一个实际理由：公司用资金支持股票的市场需求、调整每股权益，自己可以继续持有，而不必因为公司统一派发现金就立即处理一笔股息收入<span data-text-detail>（这里采用美国联邦个人所得税下、收付实现制个人通过普通应税账户直接持股的情形，讨论本人没有出售、交换或被赎回股份的普通公开市场回购。合格股息与资本利得的适用税率、退休账户和跨境投资另有规则；本段比较的是纳税时点，不预设每位投资者最终的税率）</span>。当然，需要现金的股东仍然可以领取分红，或按自己的需要卖出部分股票。两种偏好背后，是不同的用钱时间与持有安排。[^tax]<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>
+
+| 对继续持有者的影响 | 现金分红 | 公司公开市场回购 |
+|---|---|---|
+| 现金怎样到手 | 符合条件的股东直接收到分配 | 公司把现金付给实际售股者 |
+| 原来的股票 | 可以继续持有 | 未出售的股份继续持有，比例取决于净股数变化 |
+| 收益受到什么影响 | 取得现金，同时观察除息后的股票价值 | 市场买盘、回购价格及每股权益的变化 |
+| 本文税务场景 | 股息收到后一般形成当期收入，再投资也需申报 | 未出售者通常不因这项回购实现自己的资本利得 |
+
+## 增发、稀释与新增资本 {#nb-s02-issuance}
+
+再把目光放回公司。企业有资金可以返还给股东，也会遇到需要增加投入的时候。经营规模扩大、设备采购和新项目建设，都可能改变原先的资金安排。Alphabet（GOOGL／GOOG）在 2026 年的融资，就提供了一个实际例子。
+
+<span data-text-versions id="nb-s02-text-5">公司披露，2026 年 6 月通过发行 Class A、Class C 股票及强制可转换优先股，合计取得约 496 亿美元净募集资金，资金用途包括扩充 AI 基础设施和全球算力<span data-text-detail>（这项金额是上述权益融资合计的净所得，并非全部来自普通股发行。强制可转换优先股先以优先股形式存在，再按条款转换为普通股，其分红权利与未来转股另有安排，不能直接把全部融资额换算成当期新增普通股）</span>。这些股票与优先股的权利区别，可参阅[《股票的类型、发行与交易形式》](/zh/notebook/stock-types-issuance-trading/)；这里先沿着融资所得，看它们怎样进入公司的资金安排。[^alphabet-release][^alphabet]<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>
+
+<figure class="capital-flow" aria-labelledby="nb-s02-issuance-flow-title">
+<figcaption id="nb-s02-issuance-flow-title">普通股增发：公司取得资金，认购者取得新股</figcaption>
+<div class="capital-flow-row"><strong>公司</strong><div class="capital-flow-arrows"><span>← 认购资金</span><span>新股 →</span></div><strong>认购者</strong></div>
+<p>认购款进入公司，原有股东共同拥有的业务取得了新资金，股份数量也随之增加。</p>
+</figure>
+
+普通股增发以后，没有同步增加持股的老股东，所占比例会下降，这就是持股比例的稀释。但公司也取得了新资金。要判断这次融资给原股东带来什么，我们还得接着看：以什么价格发行了多少股份，这笔资金准备投入哪里，投入以后能带来怎样的经营成果。
+
+如果新增资金帮助公司扩大有盈利能力的业务，未来总利润与现金流的增长就可能超过股数增加的影响；资金使用效果较差时，每股对应的所得也会受到拖累。持股比例与每股价值因此需要一起观察，不能看到公司规模变大，就直接推定每一股也得到了相同比例的增长。
+
+<span data-text-versions id="nb-s02-text-6">公司还设立了最高 400 亿美元的 ATM 发行安排，允许公司按计划在市场上陆续出售新股。但截至 2026 年 6 月 30 日，这个安排尚未实际售出股份<span data-text-detail>（ATM 即 at-the-market offering。公司披露，该项未来发行所得主要拟用于员工股权奖励相关的税款义务；这里采用截至 6 月底的披露状态，不将额度计入已经完成的融资，也不据此推定后续月份的执行情况）</span>。这与前面的回购授权相似：允许进行一项交易，与交易已经发生，需要分别看。[^alphabet]<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>
+
+同一份报告还显示，Alphabet 在 2026 年上半年没有回购 Class A 或 Class C 股票，而此前回购计划仍有约 695 亿美元额度可用。有授权，并不妨碍公司根据当时的投入和融资需要调整执行；股东所面对的实际资金流向，也会随之改变。[^alphabet]
+
+## 从公司动作看到持有结果 {#nb-s02-holding-return}
+
+走到这里，回购与增发就能接回同一件事：公司怎样在经营投入、现金分配和股份数量之间作安排。回购会付出公司资金、形成买盘，并可能减少在外股份；增发让新资金进入公司，也让更多股份参与未来的经营结果。股权报酬也要一并考虑，因为向员工交付股份，同样可能改变净股数。
+
+| 公司动作 | 资金主要流向 | 股东继续持有时要看什么 |
+|---|---|---|
+| 现金分红 | 公司付给符合条件的股东 | 实际到账、税务与剩余股票价值 |
+| 回购 | 公司付给售股者 | 买盘支持、回购价格与净股数变化 |
+| 普通股增发 | 认购者付给公司 | 发行价格、份额变化与新增资金用途 |
+| 股权报酬 | 公司以股票或相关权利支付部分报酬 | 奖励交付和其他资本动作合起来怎样影响股数 |
+
+对我们自己的投资，仍然要把持有期间取得的现金与期末剩余股份的价值合起来看，再和原先投入比较。回购的价格支撑和每股权益变化，就在这份股票价值中发生作用；分红则另外形成现金收付，两者也有不同的税务时点。
+
+因此，读到公司公布利润、分红、回购或增发时，可以继续往下追一步：经营所得最后怎样使用，股份数量怎样变化，这些钱和这些股份又怎样共同影响自己持有的每一股。[《股票、公司与股价》](/zh/notebook/stocks-company-price/)把公司经营作为理解股票价值的起点；沿着资金用途与股份变化，我们又能继续看到，经营成果怎样影响股东的实际回报。
+
+[^apple]: [Apple：2026 财年第一季度 Form 10-Q](https://www.sec.gov/Archives/edgar/data/320193/000032019326000006/aapl-20251227.htm)，季度截至 2025-12-27。现金流量表的股息及股息等价物支付、普通股回购付款；资产负债表的发行在外普通股；Note 7 与 Part II Item 2 的回购披露。本文的净股数变化由两个资产负债表时点相减，未将单项 RSU 归属量直接作为新增普通股量。
+[^berkshire]: [Berkshire Hathaway：2012 年股东信](https://www.berkshirehathaway.com/letters/2012ltr.pdf)，Dividends 部分，讨论业务投入、收购、回购价格与股东分配的取舍；本文采用资金用途与回购价格的比较关系，不沿用其中的估值假设或历史回购门槛。
+[^dividends]: [Investor.gov：Ex-Dividend Dates—When Are You Entitled to Stock and Cash Dividends](https://www.investor.gov/introduction-investing/investing-basics/glossary/ex-dividend-dates-when-are-you-entitled-stock-and)，普通现金股息的除息与支付说明。
+[^tax]: [IRS Publication 538](https://www.irs.gov/publications/p538)，Cash Method—Income、Constructive receipt；[IRS Publication 550](https://www.irs.gov/publications/p550)，Dividends Used To Buy More Stock、What Is a Sale or Trade?、Redemption of stock、Capital Gains and Losses。未出售者的表述是将处置规则用于普通公开市场回购的情形。
+[^alphabet-release]: [Alphabet：2026 年第二季度业绩公告](https://www.sec.gov/Archives/edgar/data/1652044/000165204426000066/googexhibit991q22026.htm)，Equity Capital Raise。
+[^alphabet]: [Alphabet：截至 2026-06-30 的 Form 10-Q](https://www.sec.gov/Archives/edgar/data/1652044/000165204426000071/goog-20260630.htm)，Note 11、Equity Capital Raise、ATM Program、Share Repurchases；采用已完成融资、披露的资金用途、期末未执行发行额度及上半年回购状态。
+
+
+## Sources
+- [Alphabet：截至 2026-06-30 的 Form 10-Q](https://www.sec.gov/Archives/edgar/data/1652044/000165204426000071/goog-20260630.htm): Alphabet：截至 2026-06-30 的 Form 10-Q，Note 11、Equity Capital Raise、ATM Program、Share Repurchases；采用已完成融资、披露的资金用途、期末未执行发行额度及上半年回购状态。
+- [Alphabet：2026 年第二季度业绩公告](https://www.sec.gov/Archives/edgar/data/1652044/000165204426000066/googexhibit991q22026.htm): Alphabet：2026 年第二季度业绩公告，Equity Capital Raise。
+- [Apple：2026 财年第一季度 Form 10-Q](https://www.sec.gov/Archives/edgar/data/320193/000032019326000006/aapl-20251227.htm): Apple：2026 财年第一季度 Form 10-Q，季度截至 2025-12-27。现金流量表的股息及股息等价物支付、普通股回购付款；资产负债表的发行在外普通股；Note 7 与 Part II Item 2 的回购披露。本文的净股数变化由两个资产负债表时点相减，未将单项 RSU 归属量直接作为新增普通股量。
+- [Berkshire Hathaway：2012 年股东信](https://www.berkshirehathaway.com/letters/2012ltr.pdf): Berkshire Hathaway：2012 年股东信，Dividends 部分，讨论业务投入、收购、回购价格与股东分配的取舍；本文采用资金用途与回购价格的比较关系，不沿用其中的估值假设或历史回购门槛。
+- [Investor.gov：Ex-Dividend Dates—When Are You Entitled to Stock and Cash Dividends](https://www.investor.gov/introduction-investing/investing-basics/glossary/ex-dividend-dates-when-are-you-entitled-stock-and): Investor.gov：Ex-Dividend Dates—When Are You Entitled to Stock and Cash Dividends，普通现金股息的除息与支付说明。
+- [IRS Publication 538](https://www.irs.gov/publications/p538): IRS Publication 538，Cash Method—Income、Constructive receipt；IRS Publication 550，Dividends Used To Buy More Stock、What Is a Sale or Trade?、Redemption of stock、Capital Gains and Losses。未出售者的表述是将处置规则用于普通公开市场回购的情形。
+- [IRS Publication 550](https://www.irs.gov/publications/p550): IRS Publication 538，Cash Method—Income、Constructive receipt；IRS Publication 550，Dividends Used To Buy More Stock、What Is a Sale or Trade?、Redemption of stock、Capital Gains and Losses。未出售者的表述是将处置规则用于普通公开市场回购的情形。
+
+## Content relations
+```json
+[
+  {
+    "from": "zh-shareholder-returns-buybacks-issuance",
+    "relation": "part_of",
+    "to": "topic-S",
+    "reason": "主要 topic 归属"
+  }
+]
+```
+
+## Related entries
+- [股票、公司与股价](https://ou-liu-red-sugar.github.io/zh/notebook/stocks-company-price/)
+- [股票的类型、发行与交易形式](https://ou-liu-red-sugar.github.io/zh/notebook/stock-types-issuance-trading/)
+- [投资期限与现金需要](https://ou-liu-red-sugar.github.io/zh/notebook/investment-horizon-cash/)

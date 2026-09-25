@@ -173,6 +173,64 @@ class LearningPlanTests(unittest.TestCase):
         self.assertFalse((self.out / "data/notebook_map.json").exists())
         self.assertFalse((self.out / "docs/investment-notebook-outline.md").exists())
 
+    def add_reading_route(self, count=1):
+        self.plan["reading_route"] = {
+            "title": "顺序阅读", "description": "从资金进入股票。", "intro_count": count,
+            "credits": [{"entry_ids": self.plan["sequence"][:count], "writer": "Codex GPT-6 Astra"}],
+            "writing_method": "Chinese-writing", "participation": "本站作者仅参与大纲内容讨论。",
+        }
+        for entry in self.plan["entries"]:
+            entry["reading_note"] = "衔接：" + entry["goal"]
+
+    def test_route_uses_sequence_without_linking_an_unwritten_outline(self):
+        self.add_reading_route()
+        self.plan["entries"][1]["outline_page"] = {
+            "slug": "stock-outline", "sections": [{"title": "股份", "items": ["股东权利"]}]}
+        self.compile([article_fixture()])
+        route = self.generated_map()["reading_route"]
+        self.assertEqual([step["id"] for step in route["steps"]], ["NB-A01"])
+        self.assertEqual(route["steps"][0]["url"], "/zh/notebook/actual-article/")
+        self.assertEqual(route["next"]["id"], "NB-S01")
+        self.assertEqual(route["next"]["status"], "planned")
+        self.assertIsNone(route["next"]["url"])
+        self.assertIsNone(route["navigation"]["NB-A01"]["previous"])
+        self.assertIsNone(route["navigation"]["NB-A01"]["next"]["url"])
+        # An explicit outline remains available in the separate knowledge map.
+        stock = next(e for e in self.generated_map()["entries"] if e["id"] == "NB-S01")
+        self.assertEqual(stock["url"], "/zh/notebook/stock-outline/")
+
+    def test_route_neighbours_and_authorship_update_with_real_articles(self):
+        self.add_reading_route(count=2)
+        self.plan["reading_route"]["credits"] = [
+            {"entry_ids": ["NB-A01"], "writer": "Codex GPT-6 Astra"},
+            {"entry_ids": ["NB-S01"], "writer": "Chat 模式"}]
+        self.compile([article_fixture()])
+        route = self.generated_map()["reading_route"]
+        self.assertEqual(route["available_count"], 1)
+        self.assertEqual([credit["writer"] for credit in route["credits"]], ["Codex GPT-6 Astra"])
+        self.compile([article_fixture(), article_fixture("NB-S01", slug="actual-stock")])
+        route = self.generated_map()["reading_route"]
+        self.assertEqual(route["available_count"], 2)
+        self.assertEqual(route["intro_available_count"], 2)
+        first, second = (route["navigation"][key] for key in self.plan["sequence"])
+        self.assertEqual(first["next"], second["current"])
+        self.assertEqual(second["previous"], first["current"])
+        self.assertEqual(first["next"]["url"], "/zh/notebook/actual-stock/")
+        self.assertIsNone(second["next"])
+        self.assertIsNone(route["next"])
+        self.assertEqual(route["credits"][1], {"label": "第 2 篇", "writer": "Chat 模式"})
+        self.assertEqual([phase["available_count"] for phase in route["phases"]], [1, 1])
+
+    def test_route_rejects_missing_transitions_and_inaccurate_credit_coverage(self):
+        self.add_reading_route()
+        missing_note = copy.deepcopy(self.plan)
+        del missing_note["entries"][1]["reading_note"]
+        with self.assertRaisesRegex(ValueError, "NB-S01 reading_note"):
+            validate_learning_plan(missing_note)
+        self.plan["reading_route"]["credits"][0]["entry_ids"].append("NB-S01")
+        with self.assertRaisesRegex(ValueError, "credits must cover"):
+            validate_learning_plan(self.plan)
+
     def test_graph_feedback_cycles_are_not_article_prerequisites(self):
         self.assertIs(validate_learning_plan(self.plan), self.plan)
         self.plan["entries"][0]["prerequisites"] = ["NB-S01"]

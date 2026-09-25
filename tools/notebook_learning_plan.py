@@ -19,7 +19,7 @@ EDITORIAL_TITLES = {
     "writing": "写作安排",
     "cadence_notes": "推进节奏",
 }
-ENTRY_NOTE_TITLES = {"sources": "资料方向", "weight": "篇幅安排"}
+ENTRY_NOTE_TITLES = {"sources": "资料方向", "weight": "篇幅安排", "reading_note": "阅读衔接"}
 
 
 def require(condition, message):
@@ -97,6 +97,8 @@ def validate_learning_plan(plan):
         require(entry["node"] in nodes, f"entry {entry['id']} references an unknown node")
         entry_nodes.add(entry["node"])
         text_list(entry.get("scope"), f"entry {entry['id']} scope")
+        if "reading_note" in entry:
+            text(entry["reading_note"], f"entry {entry['id']} reading_note")
         if "outline_page" in entry:
             outline = entry["outline_page"]
             require(isinstance(outline, dict), f"entry {entry['id']} outline_page must be an object")
@@ -139,6 +141,26 @@ def validate_learning_plan(plan):
                 f"phase {phase['id']} references an unknown entry")
         phase_entries.extend(phase["entry_ids"])
     require(phase_entries == sequence, "phase entry_ids must follow and cover sequence exactly once")
+
+    route = plan.get("reading_route")
+    if route is not None:
+        require(isinstance(route, dict), "reading_route must be an object")
+        for key in ("title", "description", "writing_method", "participation"):
+            text(route.get(key), f"reading_route {key}")
+        count = route.get("intro_count")
+        require(type(count) is int and 0 < count <= len(sequence),
+                "reading_route intro_count must fit sequence")
+        for entry_id in sequence[:count + 1]:
+            text(entries[entry_id].get("reading_note"), f"entry {entry_id} reading_note")
+        require(isinstance(route.get("credits"), list), "reading_route credits must be a list")
+        credited = []
+        for credit in route["credits"]:
+            require(isinstance(credit, dict), "reading_route credit must be an object")
+            text(credit.get("writer"), "reading_route writer")
+            text_list(credit.get("entry_ids"), "reading_route credit entry_ids")
+            credited.extend(credit["entry_ids"])
+        require(len(credited) == len(set(credited)) and set(credited) == set(sequence[:count]),
+                "reading_route credits must cover introduction entries exactly once")
 
     editorial = plan.get("editorial")
     require(isinstance(editorial, dict), "editorial must be an object")
@@ -185,7 +207,48 @@ def compile_learning_map(plan, published_entries):
             id=planned["id"], node=planned["node"], title=planned["title"], goal=planned["goal"],
             status="available" if actual else "outline" if outline else "planned",
             url=actual["url"] if actual else f"/zh/notebook/{outline['slug']}/" if outline else None))
+    if "reading_route" in plan:
+        result["reading_route"] = compile_reading_route(plan, result["entries"])
     return result
+
+
+def compile_reading_route(plan, mapped_entries):
+    """Use the plan sequence and real publication state for both route and neighbours."""
+    route = plan["reading_route"]
+    planned = {entry["id"]: entry for entry in plan["entries"]}
+    mapped = {entry["id"]: entry for entry in mapped_entries}
+    steps = []
+    for number, entry_id in enumerate(plan["sequence"], 1):
+        row = mapped[entry_id]
+        steps.append(dict(id=entry_id, number=number, title=row["title"],
+                          note=planned[entry_id].get("reading_note", row["goal"]),
+                          status="available" if row["status"] == "available" else "planned",
+                          url=row["url"] if row["status"] == "available" else None))
+    count = route["intro_count"]
+    available = [step for step in steps if step["status"] == "available"]
+    navigation = {}
+    for index, step in enumerate(steps):
+        if step["status"] == "available":
+            navigation[step["id"]] = dict(current=step,
+                previous=steps[index - 1] if index else None,
+                next=steps[index + 1] if index + 1 < len(steps) else None)
+    credits = []
+    for credit in route["credits"]:
+        numbers = [step["number"] for step in available if step["id"] in credit["entry_ids"]]
+        if numbers:
+            label = (str(numbers[0]) if len(numbers) == 1 else
+                     f"{numbers[0]}–{numbers[-1]}" if numbers == list(range(numbers[0], numbers[-1] + 1))
+                     else "、".join(map(str, numbers)))
+            credits.append(dict(label=f"第 {label} 篇", writer=credit["writer"]))
+    return dict(title=route["title"], description=route["description"],
+                steps=steps[:count], next=steps[count] if count < len(steps) else None,
+                available_count=len(available), intro_available_count=sum(
+                    step["status"] == "available" for step in steps[:count]),
+                navigation=navigation, credits=credits, writing_method=route["writing_method"],
+                participation=route["participation"],
+                phases=[dict(id=p["id"], title=p["title"], goal=p["goal"],
+                             available_count=sum(mapped[e]["status"] == "available" for e in p["entry_ids"]),
+                             total=len(p["entry_ids"])) for p in plan["phases"]])
 
 
 def outline_page_markdown(entry):

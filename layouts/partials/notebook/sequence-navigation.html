@@ -1,0 +1,36 @@
+{{ $page := .page }}
+{{ if eq $page.Lang "zh" }}
+{{ with $page.Site.Data.notebook_map.reading_route }}
+{{ $route := . }}
+{{ with index .navigation ($.entry.node_id | default "") }}
+  {{ if eq $.position "top" }}
+  <link rel="stylesheet" href="{{ partial "notebook/asset.html" "/notebook/reading-route.css" }}">
+  <div class="route-position" data-route-current="{{ .current.id }}">
+    <a href="/zh/notebook/#reading-route">阅读路线 <span aria-hidden="true">↗</span></a>
+    <span aria-current="step">第 {{ .current.number }} 篇 · 目前已写 {{ $route.available_count }} 篇</span>
+    <p>{{ .current.note }}</p>
+  </div>
+  {{ else }}
+  <nav class="sequence-navigation" aria-label="按计划顺序继续阅读" data-route-current="{{ .current.id }}">
+    <a class="sequence-overview" href="/zh/notebook/#reading-route">{{ $route.title }} · 第 {{ .current.number }} 篇</a>
+    <div class="sequence-neighbours">
+      {{ with .previous }}
+      <div class="sequence-neighbour" data-route-previous="{{ .id }}">
+        <span>上一篇{{ if ne .status "available" }} · 规划中{{ end }}</span>
+        {{ if .url }}<a href="{{ .url }}" rel="prev">← {{ .title }}</a>{{ else }}<strong>{{ .title }}</strong>{{ end }}
+        <p>{{ .note }}</p>
+      </div>
+      {{ end }}
+      {{ with .next }}
+      <div class="sequence-neighbour sequence-next" data-route-next="{{ .id }}" data-status="{{ .status }}">
+        <span>下一篇{{ if ne .status "available" }} · 规划中{{ end }}</span>
+        {{ if .url }}<a href="{{ .url }}" rel="next">{{ .title }} →</a>{{ else }}<strong>{{ .title }}</strong>{{ end }}
+        <p>{{ .note }}</p>
+      </div>
+      {{ end }}
+    </div>
+  </nav>
+  {{ end }}
+{{ end }}
+{{ end }}
+{{ end }}

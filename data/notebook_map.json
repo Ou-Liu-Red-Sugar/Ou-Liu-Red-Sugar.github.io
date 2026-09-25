@@ -750,9 +750,9 @@
       "id": "NB-A03",
       "node": "A",
       "title": "亏损、波动与持有能力",
-      "goal": "区分价格波动、持有损失与被迫卖出，并理解自己的承受条件。",
-      "status": "planned",
-      "url": null
+      "goal": "结合行业、基本面和交易心理重新判断亏损，用 Risk–Reward 与资金条件理解持有和退出。",
+      "status": "available",
+      "url": "/zh/notebook/loss-volatility-holding-capacity/"
     },
     {
       "id": "NB-A04",
@@ -845,10 +845,10 @@
     {
       "id": "NB-S02",
       "node": "S",
-      "title": "股东回报与分红",
-      "goal": "把股价变化和期间分配放进同一笔持有结果。",
-      "status": "planned",
-      "url": null
+      "title": "股东回报：分红、回购与增发",
+      "goal": "比较分红、回购与增发怎样改变公司资金、每股权益和持有人的总回报。",
+      "status": "available",
+      "url": "/zh/notebook/shareholder-returns-buybacks-issuance/"
     },
     {
       "id": "NB-S03",
@@ -1449,6 +1449,289 @@
       "goal": "完成一次从新信息到配置复评、采用及跟踪的完整过程。",
       "status": "planned",
       "url": null
+    },
+    {
+      "id": "NB-B05",
+      "node": "B",
+      "title": "指标与趋势交易",
+      "goal": "把价格和成交量的观察转成明确的趋势判断与进出场规则。",
+      "status": "planned",
+      "url": null
+    },
+    {
+      "id": "NB-B06",
+      "node": "B",
+      "title": "量化交易",
+      "goal": "把交易假设写成可重复执行的规则，并用历史数据、成本和样本外表现检验。",
+      "status": "planned",
+      "url": null
     }
-  ]
+  ],
+  "reading_route": {
+    "title": "从资金安排到持有判断",
+    "description": "从钱的用途与时间出发，认识股票、交易和股东回报，再把这些认识用在持有与退出的判断上。",
+    "steps": [
+      {
+        "id": "NB-A01",
+        "number": 1,
+        "title": "Agent 时代的基本面投资",
+        "note": "从资金用途和公司业务认识基本面投资，再把投资目标落实到具体的用钱时间。",
+        "status": "available",
+        "url": "/zh/notebook/investment-returns/"
+      },
+      {
+        "id": "NB-A02",
+        "number": 2,
+        "title": "投资期限与现金需要",
+        "note": "梳理收付款的时间与退出选择，再看股票这项没有固定到期日的资产。",
+        "status": "available",
+        "url": "/zh/notebook/investment-horizon-cash/"
+      },
+      {
+        "id": "NB-S01",
+        "number": 3,
+        "title": "股票、公司与股价",
+        "note": "把股份、公司经营和股价联系起来，接着辨认买到的具体权利与交易形式。",
+        "status": "available",
+        "url": "/zh/notebook/stocks-company-price/"
+      },
+      {
+        "id": "NB-B01",
+        "number": 4,
+        "title": "股票的类型、发行与交易形式",
+        "note": "辨认股份权利，分清发行与转手的资金去向，再看公司怎样分配现金和调整股数。",
+        "status": "available",
+        "url": "/zh/notebook/stock-types-issuance-trading/"
+      },
+      {
+        "id": "NB-S02",
+        "number": 5,
+        "title": "股东回报：分红、回购与增发",
+        "note": "比较分红、回购和增发怎样改变持有人所得，再追问波动与亏损会怎样影响继续持有。",
+        "status": "available",
+        "url": "/zh/notebook/shareholder-returns-buybacks-issuance/"
+      },
+      {
+        "id": "NB-A03",
+        "number": 6,
+        "title": "亏损、波动与持有能力",
+        "note": "把亏损后的判断落实到未来得失与资金条件，再比较不同期限和替代用途的回报。",
+        "status": "available",
+        "url": "/zh/notebook/loss-volatility-holding-capacity/"
+      }
+    ],
+    "next": {
+      "id": "NB-A04",
+      "number": 7,
+      "title": "复利、通胀与机会成本",
+      "note": "用复利与购买力比较不同期限的结果，再把资金的替代用途放进判断。",
+      "status": "planned",
+      "url": null
+    },
+    "available_count": 6,
+    "intro_available_count": 6,
+    "navigation": {
+      "NB-A01": {
+        "current": {
+          "id": "NB-A01",
+          "number": 1,
+          "title": "Agent 时代的基本面投资",
+          "note": "从资金用途和公司业务认识基本面投资，再把投资目标落实到具体的用钱时间。",
+          "status": "available",
+          "url": "/zh/notebook/investment-returns/"
+        },
+        "previous": null,
+        "next": {
+          "id": "NB-A02",
+          "number": 2,
+          "title": "投资期限与现金需要",
+          "note": "梳理收付款的时间与退出选择，再看股票这项没有固定到期日的资产。",
+          "status": "available",
+          "url": "/zh/notebook/investment-horizon-cash/"
+        }
+      },
+      "NB-A02": {
+        "current": {
+          "id": "NB-A02",
+          "number": 2,
+          "title": "投资期限与现金需要",
+          "note": "梳理收付款的时间与退出选择，再看股票这项没有固定到期日的资产。",
+          "status": "available",
+          "url": "/zh/notebook/investment-horizon-cash/"
+        },
+        "previous": {
+          "id": "NB-A01",
+          "number": 1,
+          "title": "Agent 时代的基本面投资",
+          "note": "从资金用途和公司业务认识基本面投资，再把投资目标落实到具体的用钱时间。",
+          "status": "available",
+          "url": "/zh/notebook/investment-returns/"
+        },
+        "next": {
+          "id": "NB-S01",
+          "number": 3,
+          "title": "股票、公司与股价",
+          "note": "把股份、公司经营和股价联系起来，接着辨认买到的具体权利与交易形式。",
+          "status": "available",
+          "url": "/zh/notebook/stocks-company-price/"
+        }
+      },
+      "NB-S01": {
+        "current": {
+          "id": "NB-S01",
+          "number": 3,
+          "title": "股票、公司与股价",
+          "note": "把股份、公司经营和股价联系起来，接着辨认买到的具体权利与交易形式。",
+          "status": "available",
+          "url": "/zh/notebook/stocks-company-price/"
+        },
+        "previous": {
+          "id": "NB-A02",
+          "number": 2,
+          "title": "投资期限与现金需要",
+          "note": "梳理收付款的时间与退出选择，再看股票这项没有固定到期日的资产。",
+          "status": "available",
+          "url": "/zh/notebook/investment-horizon-cash/"
+        },
+        "next": {
+          "id": "NB-B01",
+          "number": 4,
+          "title": "股票的类型、发行与交易形式",
+          "note": "辨认股份权利，分清发行与转手的资金去向，再看公司怎样分配现金和调整股数。",
+          "status": "available",
+          "url": "/zh/notebook/stock-types-issuance-trading/"
+        }
+      },
+      "NB-B01": {
+        "current": {
+          "id": "NB-B01",
+          "number": 4,
+          "title": "股票的类型、发行与交易形式",
+          "note": "辨认股份权利，分清发行与转手的资金去向，再看公司怎样分配现金和调整股数。",
+          "status": "available",
+          "url": "/zh/notebook/stock-types-issuance-trading/"
+        },
+        "previous": {
+          "id": "NB-S01",
+          "number": 3,
+          "title": "股票、公司与股价",
+          "note": "把股份、公司经营和股价联系起来，接着辨认买到的具体权利与交易形式。",
+          "status": "available",
+          "url": "/zh/notebook/stocks-company-price/"
+        },
+        "next": {
+          "id": "NB-S02",
+          "number": 5,
+          "title": "股东回报：分红、回购与增发",
+          "note": "比较分红、回购和增发怎样改变持有人所得，再追问波动与亏损会怎样影响继续持有。",
+          "status": "available",
+          "url": "/zh/notebook/shareholder-returns-buybacks-issuance/"
+        }
+      },
+      "NB-S02": {
+        "current": {
+          "id": "NB-S02",
+          "number": 5,
+          "title": "股东回报：分红、回购与增发",
+          "note": "比较分红、回购和增发怎样改变持有人所得，再追问波动与亏损会怎样影响继续持有。",
+          "status": "available",
+          "url": "/zh/notebook/shareholder-returns-buybacks-issuance/"
+        },
+        "previous": {
+          "id": "NB-B01",
+          "number": 4,
+          "title": "股票的类型、发行与交易形式",
+          "note": "辨认股份权利，分清发行与转手的资金去向，再看公司怎样分配现金和调整股数。",
+          "status": "available",
+          "url": "/zh/notebook/stock-types-issuance-trading/"
+        },
+        "next": {
+          "id": "NB-A03",
+          "number": 6,
+          "title": "亏损、波动与持有能力",
+          "note": "把亏损后的判断落实到未来得失与资金条件，再比较不同期限和替代用途的回报。",
+          "status": "available",
+          "url": "/zh/notebook/loss-volatility-holding-capacity/"
+        }
+      },
+      "NB-A03": {
+        "current": {
+          "id": "NB-A03",
+          "number": 6,
+          "title": "亏损、波动与持有能力",
+          "note": "把亏损后的判断落实到未来得失与资金条件，再比较不同期限和替代用途的回报。",
+          "status": "available",
+          "url": "/zh/notebook/loss-volatility-holding-capacity/"
+        },
+        "previous": {
+          "id": "NB-S02",
+          "number": 5,
+          "title": "股东回报：分红、回购与增发",
+          "note": "比较分红、回购和增发怎样改变持有人所得，再追问波动与亏损会怎样影响继续持有。",
+          "status": "available",
+          "url": "/zh/notebook/shareholder-returns-buybacks-issuance/"
+        },
+        "next": {
+          "id": "NB-A04",
+          "number": 7,
+          "title": "复利、通胀与机会成本",
+          "note": "用复利与购买力比较不同期限的结果，再把资金的替代用途放进判断。",
+          "status": "planned",
+          "url": null
+        }
+      }
+    },
+    "credits": [
+      {
+        "label": "第 1–6 篇",
+        "writer": "Codex GPT-6 Astra"
+      }
+    ],
+    "writing_method": "Chinese-writing",
+    "participation": "本站作者参与大纲与内容讨论，并提供个别表述。",
+    "phases": [
+      {
+        "id": "foundations",
+        "title": "认识投资与市场",
+        "goal": "解释股票、基金和现金工具的持有结果，理解一次交易怎样完成。",
+        "available_count": 6,
+        "total": 15
+      },
+      {
+        "id": "business",
+        "title": "理解企业与财务",
+        "goal": "连起客户、收入、竞争、利润、投入和每股结果。",
+        "available_count": 0,
+        "total": 16
+      },
+      {
+        "id": "judgment",
+        "title": "形成投资判断与基础配置",
+        "goal": "在经济条件和资金约束下比较经营情景、投资价格及现实替代。",
+        "available_count": 0,
+        "total": 22
+      },
+      {
+        "id": "tools",
+        "title": "工具比较与风险调整",
+        "goal": "讲清实物资产和合约工具的回报形成，并把它们接回投资目的。",
+        "available_count": 0,
+        "total": 24
+      },
+      {
+        "id": "agent_research",
+        "title": "Agent 辅助研究与持续更新",
+        "goal": "借助搜索扩展业务认识，并积累可复用的证据、判断和更新流程。",
+        "available_count": 0,
+        "total": 10
+      },
+      {
+        "id": "agent_allocation",
+        "title": "通过 Agent 进行资产配置",
+        "goal": "在明确目标、账户与资金约束下，整合研究形成配置并持续复评。",
+        "available_count": 0,
+        "total": 5
+      }
+    ]
+  }
 }

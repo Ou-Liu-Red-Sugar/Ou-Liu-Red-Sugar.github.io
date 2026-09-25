@@ -340,7 +340,7 @@
       "source_id": "nb-s01-source-apple-faq",
       "title": "Apple：Investor Relations FAQ",
       "url": "https://investor.apple.com/faq/",
-      "body": "Apple普通股在Nasdaq交易，股票代码为AAPL。",
+      "body": "Apple 普通股在Nasdaq交易，股票代码为AAPL。",
       "version": "本篇查阅日期：2026-09-24；页面未标统一正文日期",
       "authors": [
         "Apple"
@@ -658,6 +658,336 @@
       "version": "本篇材料核查日期：2026-09-24；具体版本与采用范围见正文脚注。",
       "authors": [
         "Kraken"
+      ]
+    },
+    {
+      "source_id": "nb-s02-source-apple-1",
+      "title": "Apple：2026 财年第一季度 Form 10-Q",
+      "url": "https://www.sec.gov/Archives/edgar/data/320193/000032019326000006/aapl-20251227.htm",
+      "body": "Apple：2026 财年第一季度 Form 10-Q，季度截至 2025-12-27。现金流量表的股息及股息等价物支付、普通股回购付款；资产负债表的发行在外普通股；Note 7 与 Part II Item 2 的回购披露。本文的净股数变化由两个资产负债表时点相减，未将单项 RSU 归属量直接作为新增普通股量。",
+      "version": "本篇核对日期：2026-09-25；各财报期间见标题与采用范围",
+      "authors": [
+        "Apple"
+      ]
+    },
+    {
+      "source_id": "nb-s02-source-berkshire-1",
+      "title": "Berkshire Hathaway：2012 年股东信",
+      "url": "https://www.berkshirehathaway.com/letters/2012ltr.pdf",
+      "body": "Berkshire Hathaway：2012 年股东信，Dividends 部分，讨论业务投入、收购、回购价格与股东分配的取舍；本文采用资金用途与回购价格的比较关系，不沿用其中的估值假设或历史回购门槛。",
+      "version": "本篇核对日期：2026-09-25；各财报期间见标题与采用范围",
+      "authors": [
+        "Berkshire Hathaway"
+      ]
+    },
+    {
+      "source_id": "nb-s02-source-dividends-1",
+      "title": "Investor.gov：Ex-Dividend Dates—When Are You Entitled to Stock and Cash Dividends",
+      "url": "https://www.investor.gov/introduction-investing/investing-basics/glossary/ex-dividend-dates-when-are-you-entitled-stock-and",
+      "body": "Investor.gov：Ex-Dividend Dates—When Are You Entitled to Stock and Cash Dividends，普通现金股息的除息与支付说明。",
+      "version": "本篇核对日期：2026-09-25；各财报期间见标题与采用范围",
+      "authors": [
+        "Investor.gov"
+      ]
+    },
+    {
+      "source_id": "nb-s02-source-tax-1",
+      "title": "IRS Publication 538",
+      "url": "https://www.irs.gov/publications/p538",
+      "body": "IRS Publication 538，Cash Method—Income、Constructive receipt；IRS Publication 550，Dividends Used To Buy More Stock、What Is a Sale or Trade?、Redemption of stock、Capital Gains and Losses。未出售者的表述是将处置规则用于普通公开市场回购的情形。",
+      "version": "本篇核对日期：2026-09-25；各财报期间见标题与采用范围",
+      "authors": [
+        "IRS"
+      ]
+    },
+    {
+      "source_id": "nb-s02-source-tax-2",
+      "title": "IRS Publication 550",
+      "url": "https://www.irs.gov/publications/p550",
+      "body": "IRS Publication 538，Cash Method—Income、Constructive receipt；IRS Publication 550，Dividends Used To Buy More Stock、What Is a Sale or Trade?、Redemption of stock、Capital Gains and Losses。未出售者的表述是将处置规则用于普通公开市场回购的情形。",
+      "version": "本篇核对日期：2026-09-25；各财报期间见标题与采用范围",
+      "authors": [
+        "IRS"
+      ]
+    },
+    {
+      "source_id": "nb-s02-source-alphabet-release-1",
+      "title": "Alphabet：2026 年第二季度业绩公告",
+      "url": "https://www.sec.gov/Archives/edgar/data/1652044/000165204426000066/googexhibit991q22026.htm",
+      "body": "Alphabet：2026 年第二季度业绩公告，Equity Capital Raise。",
+      "version": "本篇核对日期：2026-09-25；各财报期间见标题与采用范围",
+      "authors": [
+        "Alphabet"
+      ]
+    },
+    {
+      "source_id": "nb-s02-source-alphabet-1",
+      "title": "Alphabet：截至 2026-06-30 的 Form 10-Q",
+      "url": "https://www.sec.gov/Archives/edgar/data/1652044/000165204426000071/goog-20260630.htm",
+      "body": "Alphabet：截至 2026-06-30 的 Form 10-Q，Note 11、Equity Capital Raise、ATM Program、Share Repurchases；采用已完成融资、披露的资金用途、期末未执行发行额度及上半年回购状态。",
+      "version": "本篇核对日期：2026-09-25；各财报期间见标题与采用范围",
+      "authors": [
+        "Alphabet"
+      ]
+    },
+    {
+      "source_id": "nb-a03-source-bands-1",
+      "title": "Fidelity：Bollinger Bands",
+      "url": "https://www.fidelity.com/learning-center/trading-investing/technical-analysis/technical-indicator-guide/bollinger-bands",
+      "body": "Fidelity：Bollinger Bands，Description、How this indicator works、Calculation。本文采用 20 个交易日均值及上下 2 倍标准差，不将指标当成情绪的直接测量或反弹保证。",
+      "version": "本篇查阅日期：2026-09-25；历史事实日期见采用范围",
+      "authors": [
+        "Fidelity"
+      ]
+    },
+    {
+      "source_id": "nb-a03-source-macd-1",
+      "title": "Fidelity：MACD",
+      "url": "https://www.fidelity.com/learning-center/trading-investing/technical-analysis/technical-indicator-guide/macd",
+      "body": "Fidelity：MACD，Description、Calculation，采用趋势、动量与 12／26／9 常见参数的说明。",
+      "version": "本篇查阅日期：2026-09-25；历史事实日期见采用范围",
+      "authors": [
+        "Fidelity"
+      ]
+    },
+    {
+      "source_id": "nb-a03-source-kdj-1",
+      "title": "Moomoo：KDJ 随机指标",
+      "url": "https://www.moomoo.com/ca/hans/support/topic3_142",
+      "body": "Moomoo：KDJ 随机指标，简介与计算公式，采用近期高低价、收盘位置、K／D 平滑及 J 的关系。",
+      "version": "本篇查阅日期：2026-09-25；历史事实日期见采用范围",
+      "authors": [
+        "Moomoo"
+      ]
+    },
+    {
+      "source_id": "nb-a03-source-settlement-1",
+      "title": "SEC：T+1 交收实施公告",
+      "url": "https://www.sec.gov/newsroom/press-releases/2024-62",
+      "body": "SEC：T+1 交收实施公告，2024-05-21，说明美国多数证券交易自 2024-05-28 由 T+2 转为 T+1。",
+      "version": "本篇查阅日期：2026-09-25；历史事实日期见采用范围",
+      "authors": [
+        "SEC"
+      ]
+    },
+    {
+      "source_id": "nb-a03-source-margin-1",
+      "title": "FINRA：Brokerage Accounts",
+      "url": "https://www.finra.org/investors/investing/investment-accounts/brokerage-accounts",
+      "body": "FINRA：Brokerage Accounts，Margin Requirements、Firm Practices、Know Before You Trade。采用净权益、维持保证金、券商自行提高要求及强制处置的规则；正文价格、借款和 30% 比例为教学设定。",
+      "version": "本篇查阅日期：2026-09-25；历史事实日期见采用范围",
+      "authors": [
+        "FINRA"
+      ]
+    },
+    {
+      "source_id": "nb-a01-source-enbw-stock",
+      "title": "EnBW：Share",
+      "url": "https://www.enbw.com/investors/share/",
+      "body": "Key figures of the EnBW share：德国市场代码 EBK。",
+      "version": "查阅日期：2026-09-25",
+      "authors": [
+        "EnBW"
+      ]
+    },
+    {
+      "source_id": "nb-a03-complete-wsj-1",
+      "title": "Spencer Jakab：How to Tell Whether a Plunging Stock Will Keep Plunging",
+      "url": "https://www.wsj.com/finance/stocks/how-to-tell-whether-a-plunging-stock-will-keep-plunging-bf0be3ed",
+      "body": "Spencer Jakab：How to Tell Whether a Plunging Stock Will Keep Plunging，WSJ，2026-09-18，Missing the bounce 部分。采用 GLP-1 担忧下食品饮料股的修复案例及相对行业比较的思路。",
+      "version": "本篇核对日期：2026-09-25；采用期间见正文脚注",
+      "authors": [
+        "Spencer Jakab"
+      ]
+    },
+    {
+      "source_id": "nb-a03-complete-prices-ko-1",
+      "title": "KO",
+      "url": "https://finance.yahoo.com/quote/KO/history/",
+      "body": "Yahoo Finance：KO、PEP、XLP，2023-09-29 至 2023-12-29 日收盘价。KO 三个文中时点分别为 55.98、52.38、58.93 美元，其中 52.38 为 10 月 5 日收盘价。数列见数据表。",
+      "version": "本篇核对日期：2026-09-25；采用期间见正文脚注",
+      "authors": [
+        "KO"
+      ]
+    },
+    {
+      "source_id": "nb-a03-complete-prices-ko-2",
+      "title": "PEP",
+      "url": "https://finance.yahoo.com/quote/PEP/history/",
+      "body": "Yahoo Finance：KO、PEP、XLP，2023-09-29 至 2023-12-29 日收盘价。KO 三个文中时点分别为 55.98、52.38、58.93 美元，其中 52.38 为 10 月 5 日收盘价。数列见数据表。",
+      "version": "本篇核对日期：2026-09-25；采用期间见正文脚注",
+      "authors": [
+        "PEP"
+      ]
+    },
+    {
+      "source_id": "nb-a03-complete-prices-ko-3",
+      "title": "XLP",
+      "url": "https://finance.yahoo.com/quote/XLP/history/",
+      "body": "Yahoo Finance：KO、PEP、XLP，2023-09-29 至 2023-12-29 日收盘价。KO 三个文中时点分别为 55.98、52.38、58.93 美元，其中 52.38 为 10 月 5 日收盘价。数列见数据表。",
+      "version": "本篇核对日期：2026-09-25；采用期间见正文脚注",
+      "authors": [
+        "XLP"
+      ]
+    },
+    {
+      "source_id": "nb-a03-complete-prices-fisv-1",
+      "title": "FISV",
+      "url": "https://finance.yahoo.com/quote/FISV/history/",
+      "body": "Yahoo Finance：FISV、FIS、GPN，观察期为 2025-01-02 至 2026-09-24，按共同有报价的交易日比较。FISV 在 2025-10-28、10-29 与 2026-09-24 的收盘价分别为 126.17、70.60 与 45.98 美元，对应单日约 −44.0% 及其后约 −34.9%。数列见数据表。",
+      "version": "本篇核对日期：2026-09-25；采用期间见正文脚注",
+      "authors": [
+        "FISV"
+      ]
+    },
+    {
+      "source_id": "nb-a03-complete-prices-fisv-2",
+      "title": "FIS",
+      "url": "https://finance.yahoo.com/quote/FIS/history/",
+      "body": "Yahoo Finance：FISV、FIS、GPN，观察期为 2025-01-02 至 2026-09-24，按共同有报价的交易日比较。FISV 在 2025-10-28、10-29 与 2026-09-24 的收盘价分别为 126.17、70.60 与 45.98 美元，对应单日约 −44.0% 及其后约 −34.9%。数列见数据表。",
+      "version": "本篇核对日期：2026-09-25；采用期间见正文脚注",
+      "authors": [
+        "FIS"
+      ]
+    },
+    {
+      "source_id": "nb-a03-complete-prices-fisv-3",
+      "title": "GPN",
+      "url": "https://finance.yahoo.com/quote/GPN/history/",
+      "body": "Yahoo Finance：FISV、FIS、GPN，观察期为 2025-01-02 至 2026-09-24，按共同有报价的交易日比较。FISV 在 2025-10-28、10-29 与 2026-09-24 的收盘价分别为 126.17、70.60 与 45.98 美元，对应单日约 −44.0% 及其后约 −34.9%。数列见数据表。",
+      "version": "本篇核对日期：2026-09-25；采用期间见正文脚注",
+      "authors": [
+        "GPN"
+      ]
+    },
+    {
+      "source_id": "nb-a03-complete-ticker-1",
+      "title": "Nasdaq：Fiserv 上市与交易代码公告",
+      "url": "https://www.nasdaqtrader.com/TraderNews.aspx?id=DTN2025-32",
+      "body": "Nasdaq：Fiserv 上市与交易代码公告，自 2025-11-11 起使用 FISV，此前使用 FI。",
+      "version": "本篇核对日期：2026-09-25；采用期间见正文脚注",
+      "authors": [
+        "Nasdaq"
+      ]
+    },
+    {
+      "source_id": "nb-a03-complete-ko-results-1",
+      "title": "Coca-Cola：2023 年第三季度业绩公告",
+      "url": "https://www.coca-colacompany.com/media-center/coca-cola-reports-third-quarter-2023-results",
+      "body": "Coca-Cola：2023 年第三季度业绩公告，2023-10-24，季度截至 2023-09-29。采用全球销量、营业利润及全年有机收入增长指引；销量为公司披露的 unit case volume。",
+      "version": "本篇核对日期：2026-09-25；采用期间见正文脚注",
+      "authors": [
+        "Coca-Cola"
+      ]
+    },
+    {
+      "source_id": "nb-a03-complete-fiserv-q2-1",
+      "title": "Fiserv：2025 年第二季度业绩公告",
+      "url": "https://www.sec.gov/Archives/edgar/data/798354/000079835425000161/fiq225earningsrelease.htm",
+      "body": "Fiserv：2025 年第二季度业绩公告，2025-07-23，2025 年全年指引及两个业务部门的有机收入增长。",
+      "version": "本篇核对日期：2026-09-25；采用期间见正文脚注",
+      "authors": [
+        "Fiserv"
+      ]
+    },
+    {
+      "source_id": "nb-a03-complete-fiserv-q3-1",
+      "title": "Fiserv：2025 年第三季度业绩公告",
+      "url": "https://investors.fiserv.com/news-releases/news-release-details/fiserv-reports-third-quarter-2025-results",
+      "body": "Fiserv：2025 年第三季度业绩公告，2025-10-29，全年指引重设、季度有机收入与调整后每股收益。",
+      "version": "本篇核对日期：2026-09-25；采用期间见正文脚注",
+      "authors": [
+        "Fiserv"
+      ]
+    },
+    {
+      "source_id": "nb-a03-complete-fiserv-2026-1",
+      "title": "Fiserv：2026 年第二季度业绩公告",
+      "url": "https://investors.fiserv.com/news-releases/news-release-details/fiserv-reports-second-quarter-2026-results",
+      "body": "Fiserv：2026 年第二季度业绩公告，2026-08-06，季度有机收入与调整后每股收益的同比变化。",
+      "version": "本篇核对日期：2026-09-25；采用期间见正文脚注",
+      "authors": [
+        "Fiserv"
+      ]
+    },
+    {
+      "source_id": "nb-a03-complete-volume-1",
+      "title": "Charles Schwab：How to Use Volume-Weighted Indicators in Trading",
+      "url": "https://www.schwab.com/learn/story/how-to-use-volume-weighted-indicators-trading",
+      "body": "Charles Schwab：How to Use Volume-Weighted Indicators in Trading，日内 VWAP 的成交量权重与计算时段。",
+      "version": "本篇核对日期：2026-09-25；采用期间见正文脚注",
+      "authors": [
+        "Charles Schwab"
+      ]
+    },
+    {
+      "source_id": "nb-a03-complete-msft-results-1",
+      "title": "Microsoft：FY26 Q4 业绩公告",
+      "url": "https://www.microsoft.com/en-us/investor/earnings/fy-2026-q4/press-release-webcast",
+      "body": "Microsoft：FY26 Q4 业绩公告，2026-07-29，收入及 Azure 与其他云服务收入增长；财报发布时间公告，确认盘后发布。",
+      "version": "本篇核对日期：2026-09-25；采用期间见正文脚注",
+      "authors": [
+        "Microsoft"
+      ]
+    },
+    {
+      "source_id": "nb-a03-complete-msft-results-2",
+      "title": "财报发布时间公告",
+      "url": "https://news.microsoft.com/source/2026/07/08/microsoft-announces-quarterly-earnings-release-date-68/",
+      "body": "Microsoft：FY26 Q4 业绩公告，2026-07-29，收入及 Azure 与其他云服务收入增长；财报发布时间公告，确认盘后发布。",
+      "version": "本篇核对日期：2026-09-25；采用期间见正文脚注",
+      "authors": [
+        "财报发布时间公告"
+      ]
+    },
+    {
+      "source_id": "nb-a03-complete-msft-prices-1",
+      "title": "Yahoo Finance：MSFT 历史行情",
+      "url": "https://finance.yahoo.com/quote/MSFT/history/",
+      "body": "Yahoo Finance：MSFT 历史行情。2026-07-29 收盘 390.54 美元，7 月 30 日收盘 451.10 美元，变化约 15.5%；两个交易日成交量分别为 47,209,000 股、110,160,700 股。图与旧上轨的计算输入见数据表。",
+      "version": "本篇核对日期：2026-09-25；采用期间见正文脚注",
+      "authors": [
+        "Yahoo Finance"
+      ]
+    },
+    {
+      "source_id": "nb-a03-complete-ipay-1",
+      "title": "Amplify：Digital Payments ETF（IPAY）",
+      "url": "https://amplifyetfs.com/ipay/",
+      "body": "Amplify：Digital Payments ETF（IPAY），跟踪 Nasdaq CTA Global Digital Payments Index，覆盖支付网络、基础设施与软件、处理商及解决方案公司。",
+      "version": "本篇核对日期：2026-09-26；采用期间见正文脚注",
+      "authors": [
+        "Amplify"
+      ]
+    },
+    {
+      "source_id": "nb-a03-complete-prices-fisv-2-2",
+      "title": "IPAY",
+      "url": "https://finance.yahoo.com/quote/IPAY/history/",
+      "body": "Yahoo Finance：FISV、IPAY，观察期为 2025-01-02 至 2026-09-24，按共同有报价的交易日比较。FISV 在 2025-10-28、10-29 与 2026-09-24 的收盘价分别为 126.17、70.60 与 45.98 美元，对应单日约 −44.0% 及其后约 −34.9%；完整观察期内 FISV、IPAY 的价格变化分别约为 −77.7%、−18.1%。数列见数据表。",
+      "version": "本篇核对日期：2026-09-26；采用期间见正文脚注",
+      "authors": [
+        "IPAY"
+      ]
+    },
+    {
+      "source_id": "nb-a03-complete-indicator-data-1",
+      "title": "Yahoo Finance：SPY 历史行情",
+      "url": "https://finance.yahoo.com/quote/SPY/history/",
+      "body": "Yahoo Finance：SPY 历史行情。采用日线 OHLCV，计算起点为 2026-01-02，图中展示 7 月 13 日至 8 月 21 日结果；计算参数见各段详细版。指数均线以首个收盘价初始化，K、D 初值为 50，从首个完整九日窗口开始更新。日线输入与指标数列保留计算结果。",
+      "version": "本篇核对日期：2026-09-26；采用期间见正文脚注",
+      "authors": [
+        "Yahoo Finance"
+      ]
+    },
+    {
+      "source_id": "nb-a03-complete-spy-1",
+      "title": "State Street：SPDR S&P 500 ETF Trust（SPY）",
+      "url": "https://www.ssga.com/us/en/individual/etfs/state-street-spdr-sp-500-etf-trust-spy",
+      "body": "State Street：SPDR S&P 500 ETF Trust（SPY），基金目标为跟踪 S&P 500 指数的价格与收益表现。",
+      "version": "本篇核对日期：2026-09-26；采用期间见正文脚注",
+      "authors": [
+        "State Street"
       ]
     }
   ],

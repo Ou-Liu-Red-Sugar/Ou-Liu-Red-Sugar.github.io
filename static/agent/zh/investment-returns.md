@@ -2,7 +2,7 @@
 
 从资金用途出发，以一项业务看清企业经营、事件计价与 Agent 辅助研究。
 
-Entry: zh-investment-returns | Node: NB-A01 | Language: zh | Editorial revision: 2026-09-24
+Entry: zh-investment-returns | Node: NB-A01 | Language: zh | Editorial revision: 2026-09-25
 
 ## Teaching instructions
 这是整套笔记的总起篇。按读者的问题，说明资金用途、基本面方向、企业业务、事件与市场预期，以及 Agent 辅助研究的关系。GEV 案例保持在一项业务及上下游层面，区分订单、收入、利润和现金，不引入未核实数字或投资推荐。先读取共同资料，展开某类资产或特定业务问题时再读取相应分支资料；资料读取范围与实际问题对应。可从文章中的资产概览和相关写作计划引导后续学习。
@@ -50,6 +50,23 @@ Before substantive teaching, actually retrieve every required reading unit for t
         "FINRA"
       ],
       "version": "本篇查阅日期：2026-09-23"
+    },
+    {
+      "source_id": "nb-a01-source-enbw-stock",
+      "access": {
+        "kind": "selected_chapters",
+        "uri": "https://www.enbw.com/investors/share/"
+      },
+      "required_unit": {
+        "locator": "Key figures of the EnBW share",
+        "scope": "Symbol EBK 与上市市场",
+        "purpose": "核对案例客户的股票代码与市场。"
+      },
+      "title": "EnBW：Share",
+      "authors": [
+        "EnBW"
+      ],
+      "version": "查阅日期：2026-09-25"
     }
   ],
   "required_readings_by_branch": {
@@ -513,7 +530,7 @@ Before substantive teaching, actually retrieve every required reading unit for t
 
 买入股票，就持有了企业的一部分股份。一家公司可能同时经营多项业务，它们面对的客户、竞争者和资金需要各不相同。所以研究一家公司的时候，我们可以先把业务拆开来看，弄清每项业务为谁提供什么、怎样赚钱，再把它们放回公司整体，判断最后能给股东带来什么。[^stocks]
 
-我们拿 GE Vernova（股票代码 GEV）的燃气发电设备业务来看。2023 年，GEV 宣布取得德国能源公司 EnBW 的两项设备订单，相关项目计划替换燃煤机组，同时提供电力和供热。GEV 与工程合作方共同参与，供应范围包括燃气轮机、配套发电机等设备，以及工程建设和后续维护服务。把这项业务中的几方放在一起，就能看到下面的联系：[^gev-order]
+我们拿 GE Vernova（GEV）的燃气发电设备业务来看。2023 年，GEV 宣布取得德国能源公司 EnBW（EBK，德国）的两项设备订单，相关项目计划替换燃煤机组，同时提供电力和供热。GEV 与工程合作方共同参与，供应范围包括燃气轮机、配套发电机等设备，以及工程建设和后续维护服务。把这项业务中的几方放在一起，就能看到下面的联系：[^gev-order][^enbw-share]
 
 <figure class="business-chain" aria-labelledby="gev-business-caption">
   <figcaption id="gev-business-caption">业务生态图</figcaption>
@@ -556,7 +573,7 @@ Before substantive teaching, actually retrieve every required reading unit for t
 
 有了订单以后，GEV 还要组织采购、制造和交付，并按合同履约情况确认收入，也就是把相应的收入金额记入财务报表。不过客户实际付款的时间可能与确认收入的时间不同；GEV 什么时候向供应商付款，也有相应的合同安排。这样一来，我们既要比较收入与采购、生产、服务等成本，判断这项业务能赚多少钱，也要沿着收付款的时间看下去，判断是否需要先垫入资金，以及资金会被占用多久。[^gev-annual]
 
-等到设备投入使用以后，业务还可能继续。前述 EnBW 订单就包含十年的维护和服务。已有设备的保养、检修和零部件更换，都可能带来后续服务收入。因此研究这项业务时，我们既要看新设备的需求，也要看已有设备的运行与维护需要。[^gev-order][^gev-annual]
+等到设备投入使用以后，业务还可能继续。前述 EBK 订单就包含十年的维护和服务。已有设备的保养、检修和零部件更换，都可能带来后续服务收入。因此研究这项业务时，我们既要看新设备的需求，也要看已有设备的运行与维护需要。[^gev-order][^gev-annual]
 
 不过一项业务的结果还要放回公司整体来看。其他业务的盈亏、公司的共同费用和税费，都会影响公司整体的盈利；债务收付和再投资安排又会影响现金怎样使用。至于股东实际收到多少，还要看公司的分配决定。把这些因素合在一起，再考虑股份数量，我们就能在每股的尺度上继续讨论这份股权可能带来的所得，以及自己愿意付出什么价格。[^stocks]
 
@@ -688,6 +705,8 @@ Before substantive teaching, actually retrieve every required reading unit for t
 
 <script type="module" src="/notebook/intro-interactions.js"></script>
 
+[^enbw-share]: [EnBW：Share](https://www.enbw.com/investors/share/)，Key figures of the EnBW share，德国市场代码 EBK。
+
 
 ## Sources
 - [FINRA：Stocks](https://www.finra.org/investors/investing/investment-products/stocks): 本篇采用的公开资料：FINRA：Stocks。具体采用范围见文章脚注与 Agent 阅读材料。
@@ -715,6 +734,7 @@ Before substantive teaching, actually retrieve every required reading unit for t
 - [Funding rates](https://help.coinbase.com/en/coinbase/derivatives/funding-rate): 本篇采用的公开资料：Funding rates。具体采用范围见文章脚注与 Agent 阅读材料。
 - [CFTC—Understanding Prediction Markets and Event Contracts](https://www.cftc.gov/LearnandProtect/PredictionMarkets): 本篇采用的公开资料：CFTC—Understanding Prediction Markets and Event Contracts。具体采用范围见文章脚注与 Agent 阅读材料。
 - [FINRA：Return and Rate of Return](https://syndication.finra.org/content/key-concepts-return-and-rate-return): 本篇采用的公开资料：FINRA：Return and Rate of Return。具体采用范围见文章脚注与 Agent 阅读材料。
+- [EnBW：Share](https://www.enbw.com/investors/share/): Key figures of the EnBW share：德国市场代码 EBK。
 
 ## Content relations
 ```json

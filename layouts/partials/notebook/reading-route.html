@@ -1,0 +1,29 @@
+{{ with .Site.Data.notebook_map.reading_route }}
+<link rel="stylesheet" href="{{ partial "notebook/asset.html" "/notebook/reading-route.css" }}">
+<section class="notebook-route" id="reading-route" aria-labelledby="reading-route-title">
+  <header class="route-heading">
+    <div><p class="eyebrow">顺序阅读 · 目前已写 {{ .available_count }} 篇</p><h2 id="reading-route-title">{{ .title }}</h2></div>
+    <p>{{ .description }}</p>
+  </header>
+  <ol class="route-steps" aria-label="起步阅读顺序">
+    {{ range .steps }}
+    <li data-route-entry="{{ .id }}" data-status="{{ .status }}">
+      <div class="route-step-meta"><span class="route-step-number">{{ printf "%02d" (int .number) }}</span><span>{{ if eq .status "available" }}已写{{ else }}规划中{{ end }}</span></div>
+      <h3>{{ if .url }}<a href="{{ .url }}">{{ .title }} <span aria-hidden="true">↗</span></a>{{ else }}{{ .title }}{{ end }}</h3>
+      <p>{{ .note }}</p>
+    </li>
+    {{ end }}
+  </ol>
+  {{ with .next }}
+  <div class="route-upcoming" data-route-entry="{{ .id }}" data-status="{{ .status }}">
+    <span class="route-upcoming-state">接下来 · {{ if eq .status "available" }}已写{{ else }}规划中{{ end }}</span>
+    <div><h3>{{ if .url }}<a href="{{ .url }}">{{ .title }} <span aria-hidden="true">↗</span></a>{{ else }}{{ .title }}{{ end }}</h3><p>{{ .note }}</p></div>
+  </div>
+  {{ end }}
+  <details class="route-phases">
+    <summary>后续学习阶段</summary>
+    <ol>{{ range .phases }}<li><h3>{{ .title }}</h3><p>{{ .goal }}</p><span>{{ .available_count }} / {{ .total }} 篇已写</span></li>{{ end }}</ol>
+  </details>
+  {{ with .credits }}<p class="route-authorship">{{ range $i, $credit := . }}{{ if $i }}；{{ end }}{{ .label }}由 {{ .writer }} 撰写{{ end }}，均使用 {{ $.Site.Data.notebook_map.reading_route.writing_method }}。{{ $.Site.Data.notebook_map.reading_route.participation }}</p>{{ end }}
+</section>
+{{ end }}

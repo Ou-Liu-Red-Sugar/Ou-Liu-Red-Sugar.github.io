@@ -77,7 +77,7 @@
 
 网页 / HTML: [Agent 时代的基本面投资](https://ou-liu-red-sugar.github.io/zh/notebook/investment-returns/)
 
-语言 / Language: zh · 更新 / Revised: 2026-09-24
+语言 / Language: zh · 更新 / Revised: 2026-09-25
 
 ## 投资目标与方法 {#nb-a01-goals}
 
@@ -91,7 +91,7 @@
 
 买入股票，就持有了企业的一部分股份。一家公司可能同时经营多项业务，它们面对的客户、竞争者和资金需要各不相同。所以研究一家公司的时候，我们可以先把业务拆开来看，弄清每项业务为谁提供什么、怎样赚钱，再把它们放回公司整体，判断最后能给股东带来什么。[^zh-investment-returns--stocks]
 
-我们拿 GE Vernova（股票代码 GEV）的燃气发电设备业务来看。2023 年，GEV 宣布取得德国能源公司 EnBW 的两项设备订单，相关项目计划替换燃煤机组，同时提供电力和供热。GEV 与工程合作方共同参与，供应范围包括燃气轮机、配套发电机等设备，以及工程建设和后续维护服务。把这项业务中的几方放在一起，就能看到下面的联系：[^zh-investment-returns--gev-order]
+我们拿 GE Vernova（GEV）的燃气发电设备业务来看。2023 年，GEV 宣布取得德国能源公司 EnBW（EBK，德国）的两项设备订单，相关项目计划替换燃煤机组，同时提供电力和供热。GEV 与工程合作方共同参与，供应范围包括燃气轮机、配套发电机等设备，以及工程建设和后续维护服务。把这项业务中的几方放在一起，就能看到下面的联系：[^zh-investment-returns--gev-order][^zh-investment-returns--enbw-share]
 
 **业务生态图**
 
@@ -126,7 +126,7 @@ GEV 向电厂项目与运营商提供设备和服务；客户依约下单并付�
 
 有了订单以后，GEV 还要组织采购、制造和交付，并按合同履约情况确认收入，也就是把相应的收入金额记入财务报表。不过客户实际付款的时间可能与确认收入的时间不同；GEV 什么时候向供应商付款，也有相应的合同安排。这样一来，我们既要比较收入与采购、生产、服务等成本，判断这项业务能赚多少钱，也要沿着收付款的时间看下去，判断是否需要先垫入资金，以及资金会被占用多久。[^zh-investment-returns--gev-annual]
 
-等到设备投入使用以后，业务还可能继续。前述 EnBW 订单就包含十年的维护和服务。已有设备的保养、检修和零部件更换，都可能带来后续服务收入。因此研究这项业务时，我们既要看新设备的需求，也要看已有设备的运行与维护需要。[^zh-investment-returns--gev-order][^zh-investment-returns--gev-annual]
+等到设备投入使用以后，业务还可能继续。前述 EBK 订单就包含十年的维护和服务。已有设备的保养、检修和零部件更换，都可能带来后续服务收入。因此研究这项业务时，我们既要看新设备的需求，也要看已有设备的运行与维护需要。[^zh-investment-returns--gev-order][^zh-investment-returns--gev-annual]
 
 不过一项业务的结果还要放回公司整体来看。其他业务的盈亏、公司的共同费用和税费，都会影响公司整体的盈利；债务收付和再投资安排又会影响现金怎样使用。至于股东实际收到多少，还要看公司的分配决定。把这些因素合在一起，再考虑股份数量，我们就能在每股的尺度上继续讨论这份股权可能带来的所得，以及自己愿意付出什么价格。[^zh-investment-returns--stocks]
 
@@ -278,6 +278,301 @@ GEV 向电厂项目与运营商提供设备和服务；客户依约下单并付�
 [^zh-investment-returns--asset-overview]: 现金与存款：[FINRA—Bank Products](https://www.finra.org/investors/investing/investment-products/bank-products)；债券：[FINRA—Bonds](https://www.finra.org/investors/investing/investment-products/bonds)，尤其是 Total Return 与 Zero-Coupon Bond 词条；股权：[FINRA—Stocks](https://www.finra.org/investors/investing/investment-products/stocks)；房地产：[ASIC Moneysmart—Buying an investment property](https://moneysmart.gov.au/property-investment/buying-an-investment-property)；商品：[FINRA—Futures and Commodities](https://www.finra.org/investors/investing/investment-products/futures-and-commodities)；黄金：[World Gold Council—Gold Demand Sectors](https://www.gold.org/about-gold/gold-demand/by-sector)、[The challenge](https://www.gold.org/goldhub/research/golds-long-term-expected-returns/the-challenge) 开篇关于实物黄金现金流的说明，以及 [FINRA/CFTC 实物贵金属说明](https://syndication.finra.org/content/investor-bulletin-10-things-ask-buying-physical-gold-silver-or-other-metals)第5–8项；数字资产：[FINRA—Crypto Assets](https://www.finra.org/investors/investing/investment-products/crypto-assets)、[Ethereum.org—Staking](https://ethereum.org/staking/) 中的“What is staking?”及 [Investor.gov—Crypto Asset Interest-bearing Accounts](https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins/investor-bulletin-crypto-asset-interest-bearing-accounts)；外币：[Investor.gov—International Investing](https://www.investor.gov/introduction-investing/investing-basics/investment-products/international-investing) 中的汇率变化说明；基金与 ETF：[FINRA—Exchange-Traded Funds and Products](https://www.finra.org/investors/investing/investment-products/exchange-traded-funds-and-products)；REITs：[Investor.gov—Real Estate Investment Trusts](https://www.investor.gov/introduction-investing/investing-basics/investment-products/real-estate-investment-trusts-reits)；期权：[FINRA—Options](https://www.finra.org/investors/investing/investment-products/options)；期货：[CFTC—Basics of Futures Trading](https://www.cftc.gov/LearnAndProtect/AdvisoriesAndArticles/FuturesMarketBasics/index.htm) 及 [CME—Margin: Know What's Needed](https://www.cmegroup.com/education/courses/introduction-to-futures/margin-know-what-is-needed)；永续合约：[Coinbase—Understand perpetuals trading](https://www.coinbase.com/advanced-perpetuals) 及 [Funding rates](https://help.coinbase.com/en/coinbase/derivatives/funding-rate)；预测市场：[CFTC—Understanding Prediction Markets and Event Contracts](https://www.cftc.gov/LearnandProtect/PredictionMarkets)。
 [^zh-investment-returns--returns]: [FINRA：Return and Rate of Return](https://syndication.finra.org/content/key-concepts-return-and-rate-return)。
 
+[^zh-investment-returns--enbw-share]: [EnBW：Share](https://www.enbw.com/investors/share/)，Key figures of the EnBW share，德国市场代码 EBK。
+
+
+---
+
+# 亏损、波动与持有能力
+
+从 KO 的修复与 FISV 的失利出发，结合行业比较、Risk–Reward、量价观察和资金安排，理解持有与退出。
+
+网页 / HTML: [亏损、波动与持有能力](https://ou-liu-red-sugar.github.io/zh/notebook/loss-volatility-holding-capacity/)
+
+语言 / Language: zh · 更新 / Revised: 2026-09-26
+
+亏损以后，我们常常会想：已经跌了这么多，再等一等，也许就能回本。要是价格又稍稍回升了一些，我们就更容易觉得反弹已经开始了，于是原先准备减仓的打算也变成了“再看看”。这样一来，等回本就逐渐成了持有的理由，原先为什么买入、后来又发生了什么变化，反倒容易被放到一边。
+
+不过，在决定要不要继续等之前，我们还得先把这笔投资的得失看清楚，再看看从现在开始，继续持有还有怎样的前景。同样经历下跌，有的股票后来修复了，有的却继续落后。要理解它们为什么会走向不同的结果，就得把目光从自己的成本移向行业和公司，看看下跌期间究竟发生了什么。
+
+## 亏损与回本预期 {#nb-a03-loss}
+
+先把几种常见说法放在一笔持仓里。假设一股股票买入时花了 100 美元，后来涨到 120 美元，现在跌到 80 美元：相对买入成本，它亏损了 20%；相对此前的高点，它回撤了约 33%。前一个数字记录这笔投资的得失，后一个数字描述从高处回落的幅度。价格在持有期间还会反复变化，而我们怎样理解这些变化，又会影响接下来的选择。
+
+尚未卖出的亏损，通常叫浮亏。股票虽然还在账户里，持仓的市场价值却已经减少了；卖出以后，相应股份换成现金，这部分盈亏也就实现了。若期间还收到过分红，就要像[《股东回报：分红、回购与增发》](https://ou-liu-red-sugar.github.io/zh/notebook/shareholder-returns-buybacks-issuance/)所讨论的那样，把已经收到的现金与剩余股份的价值合起来看。
+
+把过去的得失算清以后，我们还要再往前看。市场并不会因为自己在 100 美元买入，就更有理由从 80 美元涨回去；另一位投资者即使是在 60 美元买入，接下来面对的也是同一家公司和同一段价格变化。买入价仍然用于记录盈亏，但是否值得继续持有，还得看眼前的价格与今后的所得。
+
+## 行业参照与两种结果 {#nb-a03-industry}
+
+我们先从 Coca-Cola（KO）的一次下跌看起。2023 年秋天，GLP-1 减肥药引发了市场对食品饮料消费减少的担忧：如果人们吃得更少、喝得更少，相关公司的增长会不会受到影响？KO 与多家食品饮料公司的股价都受到了冲击，后来又逐步修复。这个过程也是 WSJ 在讨论下跌后的持有选择时使用的例子。[^zh-loss-volatility-holding-capacity--wsj]
+
+从实际行情看，KO 在 2023 年 9 月底收于约 56 美元，10 月初一度跌到约 52 美元，到了年底又回到约 59 美元。图中用消费必需品 ETF XLP 作参照：KO 在 10 月初的下跌更急，后来逐渐修复，到年底，两者相对 9 月底都上涨了约 5%。接下来要查的，就是当时的担忧与实际经营之间有多大距离。[^zh-loss-volatility-holding-capacity--prices-ko]
+
+![2023年9月29日至12月29日，KO和消费必需品ETF XLP收盘价均以期初为100。KO在10月初下跌后逐步修复，期末KO上涨约5.3%，XLP上涨约4.7%；标记10月24日的财报发布。](https://ou-liu-red-sugar.github.io/notebook/holding/ko-recovery.svg)
+
+**KO 的修复过程与消费必需品板块的同期表现。两条线各自从 100 起步，比较价格变化；[查看数据](https://ou-liu-red-sugar.github.io/notebook/holding/ko-recovery.csv)。**
+
+再看提供支付处理和金融技术服务的 Fiserv（FISV，案例初期代码为 FI）。起初，公司给出了较高的增长与盈利预期，可后来却大幅下调指引。2025 年 10 月 29 日公布财报后，股价当天下跌约 44%；到 2026 年 9 月 24 日，价格又比这次暴跌后的收盘价低了约 35%。第一次大跌以后，继续等待仍然经历了进一步的损失。[^zh-loss-volatility-holding-capacity--prices-fisv][^zh-loss-volatility-holding-capacity--ticker]
+
+为了判断这段下跌的分量，我们再把它与支付行业 ETF IPAY 放在一起。IPAY 覆盖支付网络、支付处理及相关技术服务公司，可以提供一组支付业务的参照。从 2025 年首个交易日到 2026 年 9 月 24 日，IPAY 下跌约 18%，FISV 却下跌了约 78%。支付板块的价格也在下跌，但 FISV 落后的幅度明显更大，我们因而要回到公司披露，看看它的经营与盈利预期发生了什么变化。[^zh-loss-volatility-holding-capacity--ipay][^zh-loss-volatility-holding-capacity--prices-fisv]
+
+![2025年1月2日至2026年9月24日，FISV和支付行业ETF IPAY收盘价均以期初为100。期末FISV下跌约77.7%，IPAY下跌约18.1%；FISV在2025年10月指引大幅下修时暴跌，随后仍持续承压。](https://ou-liu-red-sugar.github.io/notebook/holding/fiserv-underperformance.svg)
+
+**FISV 相对支付行业 ETF IPAY 的明显落后。虚线标出几次公司披露，区间末的数字为相对期初的价格变化；[查看数据](https://ou-liu-red-sugar.github.io/notebook/holding/fiserv-underperformance.csv)。**
+
+一般而言，当行业里的公司一起下跌，自己的持仓也大致同步时，我们就不必单凭亏损怀疑它出了独有的问题；若在一段时间里明显落后于行业，便应该重点检查需求、竞争位置和盈利前景是否也相对转弱了。即使公司还在增长，原先的增长预期也可能已经落空（KO 图观察 2023 年 9 月 29 日至 12 月 29 日；FISV 图观察 2025 年 1 月 2 日至 2026 年 9 月 24 日。两图使用拆股调整后的收盘价，各自以期初为 100，不计分红。XLP 覆盖美国消费必需品板块，IPAY 覆盖全球数字支付相关公司，业务范围均比对应单一公司更广；相对股价还受起始估值及市场预期变化影响）。有了这个线索，我们再沿着公司的披露，看看经营变化与股价落后是怎样联系起来的。
+
+## 基本面变化与 Risk–Reward {#nb-a03-risk-reward}
+
+要看清这种差别，我们得先回到消息刚出现的时候。对于 KO，市场已经开始担心消费减少，那么公司当时披露的经营情况是什么样的？2023 年 10 月 24 日发布的第三季度报告显示，全球销量同比增长 2%，营业利润增长 6%；公司同时上调全年有机收入增长预期至 10%—11%。财报呈现的是截至 9 月底仍在增长的业务基础，公司对全年增长的判断也没有随着市场担忧一起转弱。[^zh-loss-volatility-holding-capacity--ko-results]
+
+这就给了持有人可以继续观察的具体依据：销量能不能保持，产品和定价是否仍有竞争力，全年盈利预期是否需要调整。面对同一轮担忧，我们既要理解它可能怎样影响业务，也要看这种影响已经发展到了哪一步。后来股价修复，让我们看见了这段持有过程的结果；当时作判断时，能够使用的则是已经披露的经营情况与对未来的估计。
+
+再回到 FISV，我们就要带着原先的预期去看后来的变化。2025 年 7 月，公司还预计全年有机收入增长约 10%，调整后每股收益为 10.15—10.30 美元；到 10 月，这两项预期分别降至 3.5%—4% 和 8.50—8.60 美元。原先期待的增长没有按计划兑现，持有依据也就需要随之修改。[^zh-loss-volatility-holding-capacity--fiserv-q2][^zh-loss-volatility-holding-capacity--fiserv-q3]
+
+问题也出现在实际经营中。FISV 的商户业务有机收入增速，从第二季度的 9% 放缓到第三季度的 5%；金融服务业务则从增长 7% 转为下降 3%。第三季度调整后每股收益同比下降 11%。到 2026 年第二季度，公司有机收入同比下降 5%，调整后每股收益下降 26%，经营压力仍然没有消失。公司还在赚钱，可当初期待的增长与盈利路径已经改变了。[^zh-loss-volatility-holding-capacity--fiserv-q2][^zh-loss-volatility-holding-capacity--fiserv-q3][^zh-loss-volatility-holding-capacity--fiserv-2026]
+
+这些变化最后还会影响股东能够分享的所得。这也接上了[《股票、公司与股价》](https://ou-liu-red-sugar.github.io/zh/notebook/stocks-company-price/)中的认识：持有公司的股份，就要看它的业务最终能带来什么。一项业务受到冲击时，要看它在公司利润中有多大份量、压力可能持续多久，其他业务又能提供多少支撑，再把共同费用、债务和资金投入放进去，估计整体的盈利前景（本节的有机收入增长及调整后每股收益，采用各公司披露的非 GAAP 口径；比较始终在同一家公司、同一指标内进行，所述季度同比变化与全年指引分别保留各自期间）。所以，重新判断持仓时，我们既要更新对未来所得的估计，也得看看眼前的股价已经变到了哪里。
+
+至于价格下跌以后是否更值得持有，还得看未来所得的预期怎样变化。经营预期仍有支持、价格却降下来了，相同的潜在所得就对应更少的资金投入；若经营前景下调得更多，即使股价已经更低，这笔投资也未必更划算。为了把这两边的变化放在一起，我们就要用到 Risk–Reward，比较可能取得的回报与需要承担的损失。
+
+我们不妨用一组简化数字，把这个比较具体展开。设当前股价为 100 美元，观察两年后的结果，期间累计每股分红按 2 美元计算。经营顺利时，需求增加，利润增长；中性情景下，业务大致维持；不利时，需求和利润都转弱。这里用“年每股收益 × 市盈率”估计期末价格，也就是先估计每股对应的一年利润，再考虑市场愿意给这些利润多少倍的价格。
+
+| 两年后的情景 | 经营变化 | 年每股收益 × 市盈率 | 情景期末股价 | 期间分红 | 情景持有回报 |
+|---|---|---:|---:|---:|---:|
+| 顺利 | 需求增加，利润增长 | 6 美元 × 25 倍 | 150 美元 | 2 美元 | +52% |
+| 中性 | 业务大致维持 | 5 美元 × 20 倍 | 100 美元 | 2 美元 | +2% |
+| 不利 | 需求转弱，利润下降 | 3 美元 × 20 倍 | 60 美元 | 2 美元 | −38% |
+
+假设期间收到的分红先留作现金，那么从当前价格继续持有，情景回报就可以写为：
+
+\[
+\text{情景持有回报}
+=\frac{\text{情景期末股价}+\text{期间每股分红}-\text{当前股价}}{\text{当前股价}}.
+\]
+
+顺利情景下，期末股票与分红合起来是 152 美元，相对当前的 100 美元，上行空间为 52%；不利情景下，两项所得合计 62 美元，下行空间为 38%。于是，上行空间与下行空间之比约为 1.37∶1。这个比例把两边的幅度放在了一起，接下来还要看各种情景有多大机会发生，以及我们需要等多久。
+
+经营情景不变，当前价格改变
+
+当前股价：100 美元
+
+顺利情景 **+52.0%**
+
+中性情景 **+2.0%**
+
+不利情景 **−38.0%**
+
+上行空间∶下行空间 = 1.37∶1
+
+两年后的每股所得保持为 152、102、62 美元，仅改变今天的价格。
+
+把当前价格改为 80 美元，顺利情景的回报就提高到 90%，不利情景的损失则收窄到 22.5%；改为 130 美元，上行空间只剩约 17%，下行空间却扩大到约 52%。公司在这几种比较中的经营假设完全相同，持有的吸引力却已经随价格发生了变化。因此，企业经营良好时，也可能因为价格过高而值得减仓。
+
+反过来，经营情景本身也会改变。假如中性情景的年每股收益从 5 美元下调到 4 美元，仍按 20 倍市盈率计算，期末股价的估计就从 100 美元降到了 80 美元。即使眼前股价也跌到 80 美元，中性情景下两年的回报仍只有分红带来的 2.5%。过去已经跌掉的部分，并不会自动变成从现在开始的上行空间。
+
+把幅度算出来以后，我们还要看看，乐观结果依赖的需求增长能否兑现，不利情景由什么因素触发，以及等待期间有没有更合适的资金用途。同样的累计回报，等两年与等十年，吸引力也不同（本例每个情景均假设两年累计每股分红 2 美元，暂不计税费、融资成本及分红再投资；没有给情景指定概率。表中的不利情景只对应所列经营结果）。原来的理由仍有支持、当前价格的 Risk–Reward 也合意时，继续持有就有了依据；若这些条件已经改变，也就可以在尚未回本之前调整持仓。
+
+## 交易心理与短期指标 {#nb-a03-indicators}
+
+不过，从今天走到情景所对应的时点，我们还会经历许多短期涨跌。有人因亏损急着止损，有人看到反弹开始追入，也有人等着价格回到成本附近再卖。急于成交的人会接受不同的报价，这些买卖又会影响后来者的预期：下跌可能使人更害怕，回升也可能让原先观望的人开始行动。交易心理便通过这些实际行为参与了价格形成。
+
+这些交易会留下价格和成交量的记录，技术指标便是整理这些记录的工具。我们用跟踪 S&P 500 的 SPY 看一段先回落、再转强的行情：前三张图都从 2026 年 7 月 13 日画到 8 月 21 日，便于比较不同指标怎样回应同一段变化；VWAP 再放到其中一天的日内走势里看。[^zh-loss-volatility-holding-capacity--spy]
+
+前三张图里的每根 K 线代表一个交易日，绿色表示收盘高于开盘，红色则相反（实体两端是开盘价和收盘价，细线两端是当日最高价和最低价；颜色比较的是当日开盘与收盘，并非相对前一日收盘的涨跌）。先沿着 K 线看价格，再顺着图中的编号，观察相应的指标变化。
+
+**布林带：区间、突破与回归。** 布林带以一条平均价格线为中轨，再按近期波动幅度画出上下轨。轨道间距越大，意味着用于计算的这段时间里，收盘价分散得越开。下图把 K 线和轨道叠在一起，我们可以同时看到价格偏离均值的程度，以及价格是否重新回到了区间内。[^zh-loss-volatility-holding-capacity--indicators]
+
+[![SPY在2026年7月13日至8月21日的K线与布林带。标记1为7月29日跌破下轨，次日回到区间内；标记2为8月4日突破上轨，随后数日仍维持较高价格。](https://ou-liu-red-sugar.github.io/notebook/holding/spy-bollinger.svg)](https://ou-liu-red-sugar.github.io/notebook/holding/spy-bollinger.svg)
+
+**① 跌破下轨后收回；② 突破上轨后维持高位。[查看大图](https://ou-liu-red-sugar.github.io/notebook/holding/spy-bollinger.svg) · [数据](https://ou-liu-red-sugar.github.io/notebook/holding/spy-daily-indicators.csv)。**
+
+图中①处，7 月 29 日 SPY 收于约 729 美元，已经低于约 733 美元的下轨；第二天回到约 742 美元，又收进了带内。到了②处，8 月 4 日的收盘价约为 771 美元，高于约 765 美元的上轨，随后几个交易日却仍保持在较高位置。我们因而要把“触及轨道”与接下来的走势连起来看：价格是重新回到原区间，还是在突破后继续保持强势？只凭碰到上轨或下轨，就很难区分这两种过程（采用 20 日收盘价简单平均值，上下各加减 2 倍总体标准差。7 月 29 日收盘价/下轨为 729.46/733.32 美元，7 月 30 日收盘 741.69 美元；8 月 4 日收盘价/上轨为 771.33/764.60 美元）。[^zh-loss-volatility-holding-capacity--indicator-data]
+
+**MACD：趋势动量的转弱与转强。** MACD 用快慢两条移动均线的差值 DIF 观察动量，再用一条更平滑的 DEA 线作比较。蓝色 DIF 线上穿橙色 DEA 线，通常称为金叉；向下穿过则称为死叉。下图的柱体表示两条线的差，柱体由负转正，也就对应着 DIF 从 DEA 下方来到上方。[^zh-loss-volatility-holding-capacity--indicators]
+
+[![SPY价格与MACD副图共用日期轴。标记1为7月17日DIF下穿DEA，标记2为8月3日DIF上穿DEA，标记3为8月20日再次下穿；上图对应先下跌、再回升及后续回落。](https://ou-liu-red-sugar.github.io/notebook/holding/spy-macd.svg)](https://ou-liu-red-sugar.github.io/notebook/holding/spy-macd.svg)
+
+**沿竖虚线对照价格与指标：① 7/17 转弱；② 8/03 转强；③ 8/20 再次转弱。[查看大图](https://ou-liu-red-sugar.github.io/notebook/holding/spy-macd.svg) · [数据](https://ou-liu-red-sugar.github.io/notebook/holding/spy-daily-indicators.csv)。**
+
+这段行情里，7 月 17 日先出现了①处的死叉，接下来价格继续回落；7 月底开始反弹以后，DIF 也逐渐回升，到 8 月 3 日形成②处的金叉。随后上行动量增强，正柱体扩大，等到 8 月中旬价格转弱，柱体又逐渐缩短，最终在③处转为负值。这样一来，我们就把“感觉涨得没那么有力了”，转成了可以持续观察的均线差与动量变化。图中也能看见，价格先发生变化，指标才逐步跟上（采用 MACD（12，26，9）：DIF＝12 日指数移动平均−26 日指数移动平均，DEA 为 DIF 的 9 日指数平均，柱体＝2×（DIF−DEA）。三个标记日的 DIF/DEA 分别约为 2.76/2.90、0.47/0.05、6.23/6.79）。[^zh-loss-volatility-holding-capacity--indicator-data]
+
+**KDJ：近期区间中的强弱变化。** KDJ 先看收盘价处在最近一段高低区间的什么位置，再把它平滑成 K、D 两条线，J 线则进一步放大两者的差异。一般会用 20 和 80 作为低位与高位的观察参照，再结合 K、D 的交叉，看看强弱是否正在变化。[^zh-loss-volatility-holding-capacity--indicators]
+
+[![SPY价格与KDJ副图。标记1为7月30日K从低位回升并上穿D；标记2为8月中旬K和D均高于80且价格仍维持高位；标记3为8月17日K下穿D，随后价格回落。](https://ou-liu-red-sugar.github.io/notebook/holding/spy-kdj.svg)](https://ou-liu-red-sugar.github.io/notebook/holding/spy-kdj.svg)
+
+**① 低位回升；② 高位延续；③ K 下穿 D。[查看大图](https://ou-liu-red-sugar.github.io/notebook/holding/spy-kdj.svg) · [数据](https://ou-liu-red-sugar.github.io/notebook/holding/spy-daily-indicators.csv)。**
+
+7 月 29 日下跌后，K 已经降到约 19；第二天价格回升，K 也上穿 D，形成①处的低位转强信号。再往右看，8 月 11—14 日 K、D 都高于 80，价格却仍然保持在较高位置，这就是高位指标可以随着强势走势持续一阵的例子。等到③处 K 向下穿过 D，后续回落才更明显地展开。对于这段行情，KDJ 在 8 月 17 日就表现出高位转弱，MACD 则到 8 月 20 日才出现死叉，两种指标的反应速度也就有了具体的对照（采用 KDJ（9，3，3）：RSV＝100×（收盘价−近 9 日最低价）÷（近 9 日最高价−近 9 日最低价）；K＝前一日 K×2/3＋当日 RSV/3，D＝前一日 D×2/3＋当日 K/3，J＝3K−2D。7 月 29、30 日 K/D 分别约为 18.78/28.83、32.58/30.08；8 月 17 日为 73.14/81.81。J 可以超出 0—100 的范围）。[^zh-loss-volatility-holding-capacity--indicator-data]
+
+**VWAP：日内价格相对成交均价的位置。** 前面几个指标主要整理价格，VWAP 则把成交量也纳入计算。它用当天截至当前的成交金额除以成交量，得到成交量加权平均价：某个价格上的成交越多，它在均价中的权重也就越大。我们再放大到 8 月 3 日这一天，看看反弹过程中的日内交易。[^zh-loss-volatility-holding-capacity--volume]
+
+[![SPY在2026年8月3日的五分钟收盘价、累计VWAP与成交量。价格整体上行，各根五分钟收盘价保持在VWAP上方；标记1为纽约时间12点05分，价格756.00美元，VWAP约753.82美元。](https://ou-liu-red-sugar.github.io/notebook/holding/spy-vwap.svg)](https://ou-liu-red-sugar.github.io/notebook/holding/spy-vwap.svg)
+
+**绿色价格线在橙色 VWAP 上方延续，午间回落仍未收破均价。下方同时保留成交量。[查看大图](https://ou-liu-red-sugar.github.io/notebook/holding/spy-vwap.svg) · [数据](https://ou-liu-red-sugar.github.io/notebook/holding/spy-vwap-20260803.csv)。**
+
+图中价格虽有小幅回落，各根五分钟收盘价却一直高于 VWAP。到①处，也就是纽约时间 12:05，价格约为 756 美元，仍高于约 754 美元的日内成交均价。因此，这些小回落还没有打断价格保持在均价上方的状态，盘中的强势仍在延续。交易者可以继续观察，后续回落是否跌破 VWAP、跌破后能否重新站上，以及这些变化伴随着多少成交（12:00—12:05 这根五分钟 K 线的收盘价为 756.00 美元，累计 VWAP 近似值为 753.82 美元。VWAP 用常规交易时段内各根五分钟 K 线的“最高价、最低价与收盘价的平均值”乘成交量，再累计加权；它与逐笔成交计算值会有差异。图上标记 K 线结束时刻，日内累计 VWAP 每个交易日重新起算）。[^zh-loss-volatility-holding-capacity--vwap-data]
+
+这些图让我们能够具体地说出价格处在什么位置、走势怎样变化。但当我们正亏着钱、盼着反弹时，一次转强信号也常常正好符合自己的愿望。均线开始转向、价格重新站上 VWAP，都可以成为观察线索；接下来还要看，行业情况、经营预期和当前价格下的 Risk–Reward 是否也有了相应的改善。几个由同一段价格计算出来的指标一起转强，也可能只是反映了同一次价格变化。
+
+**重大信息与重新定价。** 前面观察的是日常行情中的变化，遇到足以改变经营预期的新信息时，原来的价格区间却可能很快失去参照意义。Microsoft（MSFT）在 2026 年 7 月 29 日盘后公布 FY26 Q4 财报，当季收入同比增长 18%，Azure 及其他云服务收入增长 43%；下一交易日，收盘价从约 391 美元升至 451 美元，上涨约 15.5%，成交量也增至前一天的约 2.3 倍。[^zh-loss-volatility-holding-capacity--msft-results][^zh-loss-volatility-holding-capacity--msft-prices]
+
+![MSFT在2026年7月29日盘后发布FY26 Q4财报，次日收盘价上升到451.10美元并明显放量；图中虚线保留财报前约401.7美元的上轨作对照。](https://ou-liu-red-sugar.github.io/notebook/holding/msft-repricing.svg)
+
+**财报后的新价格与旧区间。虚线固定在财报前的上轨位置作对照，下方显示成交量；[查看数据](https://ou-liu-red-sugar.github.io/notebook/holding/msft-repricing.csv)。**
+
+这时再因为“已经碰到旧上轨”就认定价格应当回落，便容易忽略新信息正在改变市场愿意支付的价格。即使将财报次日的大涨纳入计算，当天约 422 美元的上轨仍然低于 451 美元的收盘价。我们需要先更新对经营前景的判断，再观察新的量价关系怎样形成（图中旧上轨约为 401.68 美元，采用截至 7 月 29 日的 20 个交易日收盘价均值，加上 2 倍总体标准差；财报发布后仍固定在原位置作对照。7 月 30 日实际更新后的上轨为 422.16 美元）。FY26 Q4 的财年命名与自然季度之间的关系，留到《三张财报与经营活动》展开。
+
+《指标与趋势交易》会继续展开怎样用这些量价观察形成趋势判断和进出场规则；《量化交易》则进一步讨论，怎样把规则写清楚，用历史数据检验，并计入实际交易的成本。
+
+## 资金、心态与持有能力 {#nb-a03-capacity}
+
+判断值得继续持有以后，还得看看自己有没有资金把这段时间接续下去。[《投资期限与现金需要》](https://ou-liu-red-sugar.github.io/zh/notebook/investment-horizon-cash/)讨论了投资回款与期间付款的衔接；放到一笔正在亏损的持仓中，我们也要先看，预期兑现之前还有没有必须支付的款项。
+
+假设有 12,000 美元可以安排，股票买入价为 100 美元，几个月后还有一笔已经约定的 2,000 美元支出。我们可以先留出付款现金，也可以把钱全部买成股票，等需要时再卖出一部分。到了付款前，若股价恰好跌到 80 美元，两种安排就会出现下面的区别：
+
+| 资金安排 | 买入时 | 付款办法 | 付款后仍持有 |
+|---|---|---|---|
+| 先留出现金 | 100 股＋2,000 美元现金 | 使用预留现金 | 100 股，市值 8,000 美元 |
+| 全部买成股票 | 120 股，无现金 | 卖出 25 股取得 2,000 美元 | 95 股，市值 7,600 美元 |
+
+付款到期以后，第二种安排就需要取得现金。若不另行借款或补入资金，便要出售部分股份。即使后来出现了原先预计的结果，自己还能持有多少股份，也已经受到途中资金安排的影响了。预留现金会减少最初参与股票涨跌的金额，但也给期间用钱和后续调整留下了余地。
+
+一旦需要卖股筹钱，我们还要接着看，能以什么价格成交，以及卖出以后还要等多久才能用到钱。账户缺现金时，可以考虑出售资产；若市场上合适的买盘也不足，急于成交又可能需要接受更低的价格。成交以后，证券与款项的交收、银行转账还各有处理时间（上表假设可以按 80 美元成交，暂不计税费。美国多数证券交易采用 T+1 标准交收，资金转出还需按账户及银行的安排衔接）。因此安排付款时，还得把这段取得现金的时间留出来。[^zh-loss-volatility-holding-capacity--settlement]
+
+若买股时还借了钱，资金安排就又多了一层约束。自有资金为 10,000 美元时，全额用它买股，股价下跌 20% 后还剩 8,000 美元；若另借 10,000 美元，一共买入 20,000 美元股票，同样下跌 20% 后，股票市值还剩 16,000 美元，扣掉需要归还的借款本金，自有资金就只剩 6,000 美元了。股票跌了 20%，自己的资金却损失了 40%，还没有计入利息。
+
+保证金要求还可能使退出提前发生。沿用这笔 10,000 美元借款，若券商要求净权益至少占持仓市值的 30%，持仓市值降到约 14,286 美元时，净权益就只够这个比例；继续下跌，账户便会出现保证金不足，需要补入资金或处置持仓（这里采用单一股票账户，暂不计其他担保品和利息；临界关系为“持仓市值−10,000＝30%×持仓市值”。30% 为本例采用的券商要求。FINRA 的一般股票维持保证金最低要求为 25%，券商可以设更高要求，并可能直接处置证券）。等到资金要求触发处置时，原先打算再等多久，也就无法完全由自己决定了。[^zh-loss-volatility-holding-capacity--margin]
+
+除了资金，我们还要给自己的情绪留一点余地。频繁打开行情，每一次下跌都可能重新牵动回本的愿望，一点反弹又让人忍不住调整判断。屏幕上的变化越来越多，真正影响公司经营的新信息却未必同样频繁。减少这种反复刺激，也有助于按已经想清楚的依据行动。当然，放下手机和电脑，去做点别的事散散心，也是一种非常好的提升持有能力的举动。
+
+有了资金和心态上的余地，我们也就更容易按自己的判断持有或调整。KO 的修复与 FISV 的失利提醒我们，等待本身会通向不同的结果，还要看等待期间的依据怎样变化。所以，决定继续拿着一只股票时，我们既要看未来回报是否值得承担风险，也要看自己能否承受这段持有过程；当这些条件变了，减仓和退出也就应该重新进入考虑。
+
+[^zh-loss-volatility-holding-capacity--wsj]: [Spencer Jakab：How to Tell Whether a Plunging Stock Will Keep Plunging](https://www.wsj.com/finance/stocks/how-to-tell-whether-a-plunging-stock-will-keep-plunging-bf0be3ed)，WSJ，2026-09-18，Missing the bounce 部分。采用 GLP-1 担忧下食品饮料股的修复案例及相对行业比较的思路。
+[^zh-loss-volatility-holding-capacity--prices-ko]: Yahoo Finance：[KO](https://finance.yahoo.com/quote/KO/history/)、[XLP](https://finance.yahoo.com/quote/XLP/history/)，2023-09-29 至 2023-12-29 日收盘价。KO 三个文中时点分别为 55.98、52.38、58.93 美元，其中 52.38 为 10 月 5 日收盘价。KO、XLP 在该区间的价格变化分别约为 +5.3%、+4.7%。数列见[数据表](https://ou-liu-red-sugar.github.io/notebook/holding/ko-recovery.csv)。
+[^zh-loss-volatility-holding-capacity--ipay]: [Amplify：Digital Payments ETF（IPAY）](https://amplifyetfs.com/ipay/)，跟踪 Nasdaq CTA Global Digital Payments Index，覆盖支付网络、基础设施与软件、处理商及解决方案公司。
+[^zh-loss-volatility-holding-capacity--prices-fisv]: Yahoo Finance：[FISV](https://finance.yahoo.com/quote/FISV/history/)、[IPAY](https://finance.yahoo.com/quote/IPAY/history/)，观察期为 2025-01-02 至 2026-09-24，按共同有报价的交易日比较。FISV 在 2025-10-28、10-29 与 2026-09-24 的收盘价分别为 126.17、70.60 与 45.98 美元，对应单日约 −44.0% 及其后约 −34.9%；完整观察期内 FISV、IPAY 的价格变化分别约为 −77.7%、−18.1%。数列见[数据表](https://ou-liu-red-sugar.github.io/notebook/holding/fiserv-underperformance.csv)。
+[^zh-loss-volatility-holding-capacity--ticker]: [Nasdaq：Fiserv 上市与交易代码公告](https://www.nasdaqtrader.com/TraderNews.aspx?id=DTN2025-32)，自 2025-11-11 起使用 FISV，此前使用 FI。
+[^zh-loss-volatility-holding-capacity--ko-results]: [Coca-Cola：2023 年第三季度业绩公告](https://www.coca-colacompany.com/media-center/coca-cola-reports-third-quarter-2023-results)，2023-10-24，季度截至 2023-09-29。采用全球销量、营业利润及全年有机收入增长指引；销量为公司披露的 unit case volume。
+[^zh-loss-volatility-holding-capacity--fiserv-q2]: [Fiserv：2025 年第二季度业绩公告](https://www.sec.gov/Archives/edgar/data/798354/000079835425000161/fiq225earningsrelease.htm)，2025-07-23，2025 年全年指引及两个业务部门的有机收入增长。
+[^zh-loss-volatility-holding-capacity--fiserv-q3]: [Fiserv：2025 年第三季度业绩公告](https://investors.fiserv.com/news-releases/news-release-details/fiserv-reports-third-quarter-2025-results)，2025-10-29，全年指引重设、季度有机收入与调整后每股收益。
+[^zh-loss-volatility-holding-capacity--fiserv-2026]: [Fiserv：2026 年第二季度业绩公告](https://investors.fiserv.com/news-releases/news-release-details/fiserv-reports-second-quarter-2026-results)，2026-08-06，季度有机收入与调整后每股收益的同比变化。
+[^zh-loss-volatility-holding-capacity--indicators]: [Fidelity：Bollinger Bands](https://www.fidelity.com/learning-center/trading-investing/technical-analysis/technical-indicator-guide/bollinger-bands)、[MACD](https://www.fidelity.com/learning-center/trading-investing/technical-analysis/technical-indicator-guide/macd)；[Moomoo：KDJ 随机指标](https://www.moomoo.com/ca/hans/support/topic3_142)，指标定义与计算对象。
+[^zh-loss-volatility-holding-capacity--volume]: [Charles Schwab：How to Use Volume-Weighted Indicators in Trading](https://www.schwab.com/learn/story/how-to-use-volume-weighted-indicators-trading)，日内 VWAP 的成交量权重与计算时段。
+[^zh-loss-volatility-holding-capacity--msft-results]: [Microsoft：FY26 Q4 业绩公告](https://www.microsoft.com/en-us/investor/earnings/fy-2026-q4/press-release-webcast)，2026-07-29，收入及 Azure 与其他云服务收入增长；[财报发布时间公告](https://news.microsoft.com/source/2026/07/08/microsoft-announces-quarterly-earnings-release-date-68/)，确认盘后发布。
+[^zh-loss-volatility-holding-capacity--msft-prices]: [Yahoo Finance：MSFT 历史行情](https://finance.yahoo.com/quote/MSFT/history/)。2026-07-29 收盘 390.54 美元，7 月 30 日收盘 451.10 美元，变化约 15.5%；两个交易日成交量分别为 47,209,000 股、110,160,700 股。图与旧上轨的计算输入见[数据表](https://ou-liu-red-sugar.github.io/notebook/holding/msft-repricing.csv)。
+[^zh-loss-volatility-holding-capacity--indicator-data]: [Yahoo Finance：SPY 历史行情](https://finance.yahoo.com/quote/SPY/history/)。采用日线 OHLCV，计算起点为 2026-01-02，图中展示 7 月 13 日至 8 月 21 日结果；计算参数见各段详细版。指数均线以首个收盘价初始化，K、D 初值为 50，从首个完整九日窗口开始更新。[日线输入与指标数列](https://ou-liu-red-sugar.github.io/notebook/holding/spy-daily-indicators.csv)保留计算结果。
+[^zh-loss-volatility-holding-capacity--vwap-data]: 采用 Yahoo Finance 的 SPY 2026-08-03 常规交易时段五分钟 OHLCV，共 78 根 K 线；[日内输入与 VWAP 近似值](https://ou-liu-red-sugar.github.io/notebook/holding/spy-vwap-20260803.csv)中的时间为纽约时间，各行标记五分钟区间的开始时刻，图示横轴标记结束时刻。
+[^zh-loss-volatility-holding-capacity--settlement]: [SEC：T+1 交收实施公告](https://www.sec.gov/newsroom/press-releases/2024-62)，美国多数证券交易自 2024-05-28 起由 T+2 改为 T+1。
+[^zh-loss-volatility-holding-capacity--margin]: [FINRA：Brokerage Accounts](https://www.finra.org/investors/investing/investment-accounts/brokerage-accounts)，Margin Requirements、Firm Practices、Know Before You Trade。
+
+[^zh-loss-volatility-holding-capacity--spy]: [State Street：SPDR S&P 500 ETF Trust（SPY）](https://www.ssga.com/us/en/individual/etfs/state-street-spdr-sp-500-etf-trust-spy)，基金目标为跟踪 S&P 500 指数的价格与收益表现。
+
+
+---
+
+# 股东回报：分红、回购与增发
+
+从 AAPL 的分红与回购、Alphabet（GOOGL／GOOG）的权益融资出发，理解市场买盘、税务时点、净股数变化和每股所得。
+
+网页 / HTML: [股东回报：分红、回购与增发](https://ou-liu-red-sugar.github.io/zh/notebook/shareholder-returns-buybacks-issuance/)
+
+语言 / Language: zh · 更新 / Revised: 2026-09-25
+
+[《股票、公司与股价》](https://ou-liu-red-sugar.github.io/zh/notebook/stocks-company-price/)用 Apple（AAPL）分红介绍了一种股东回报：公司把部分现金分给持有股票的人。AAPL 的资金安排中，用于回购股票的钱还要多得多。在 2026 财年第一季度，AAPL 支付了约 39 亿美元的股息及股息等价物，用于回购普通股的现金则约为 247 亿美元。两笔钱都从公司流出，影响股东的方式却有所不同。[^zh-shareholder-returns-buybacks-issuance--apple]
+
+分红时，只要符合领取条件，股东就会收到现金。回购时，公司把钱付给卖出股票的人；我们即使一直没有卖股，也仍然可能从回购形成的买盘、股数变化和每股权益中受益。这就值得沿着实际交易继续看一看。
+
+## 回购、市场买盘与每股份额 {#nb-s02-buybacks}
+
+公司回购自己的股票，首先意味着市场上多了一个使用公司资金的买家。当回购在公开市场持续执行时，公司会接下一部分卖盘，为股价提供支持。对于准备长期持有的人，这种支持同样有经济意义：虽然没有直接收到公司的回购款，自己持有的股票仍然受到买卖力量变化的影响。
+
+我们平时说大公司的回购有“托市”作用，说的就是这层关系。回购形成的买盘有多大、能持续多久，需要放在实际成交和公司的资金安排中观察；同一时期的经营消息、其他投资者的买卖，也会共同影响价格。
+
+**回购：公司付出现金，收回股份**
+
+**公司**
+
+现金 → ← 股份
+
+**售股者**
+
+未参与出售的股东继续持有原来的股份，回购仍会影响市场买盘与公司的股份数量。
+
+不过，读到一项回购计划时，我们还要看看公司已经买了多少。授权额度规定了可以使用的范围，实际买入才会形成相应的股票需求。AAPL 在上述季度买回约 9,300 万股，报告同时披露了尚未使用的回购额度（这里的季度截至 2025 年 12 月 27 日。AAPL 披露的回购交易金额约为 250 亿美元，现金流量表中当期支付的回购款为 247.01 亿美元；正文比较现金收付时采用后者。回购计划允许公司按情况执行，没有最低购买数量义务）。把计划与执行分开，才能知道公司这一时期究竟向市场投入了多少买盘。[^zh-shareholder-returns-buybacks-issuance--apple]
+
+回购的影响还会留在公司股本里。若发行在外的股份净减少，而我们持有的股数没变，持股比例就会上升。同样的公司利润，由更少的股份共同分享，每股对应的利润也会提高。因此，公司经营增长与股份数量变化，都关系到最后落在每一股上的所得。
+
+公司回购股票的同时，也可能通过员工奖励交付、员工购股计划或其他发行增加股份。其中，以股票或相关权利支付员工报酬的安排，通常称为股权报酬（SBC），具体形式见[《股票的类型、发行与交易形式》](https://ou-liu-red-sugar.github.io/zh/notebook/stock-types-issuance-trading/)。因此，我们还要看这些变化合起来以后，股数究竟减少了多少。AAPL 这一季度买回约 9,300 万股，但期末发行在外股数比期初少了约 7,060 万股，两者并不相等（资产负债表列示，2025 年 9 月 27 日发行在外普通股为 14,773,260,000 股，12 月 27 日为 14,702,703,000 股，减少 70,557,000 股。此处比较期初与期末股数；正式每股收益另按相应期间的加权平均股数及摊薄规则计算）。所以，回购金额告诉我们公司花了多少钱，净股数变化则进一步告诉我们，剩余股份的比例怎样改变。[^zh-shareholder-returns-buybacks-issuance--apple]
+
+同一笔资金能买回多少股份，还取决于买入价格。价格越高，收回同样数量的股票就要花更多钱，而这些钱原本还可以留在公司经营、投资或偿债。对继续持有者来说，判断回购的效果，需要把股价支持、股份减少和公司付出的资源放在一起。企业买回自己的股份，也同样面临买得是否划算的问题。[^zh-shareholder-returns-buybacks-issuance--berkshire]
+
+## 分红、纳税时点与持有选择 {#nb-s02-dividends-tax}
+
+分红把公司的部分现金直接交给股东。股票仍然留在账户里，股东另外取得一笔可以使用的资金；需要安排生活支出的人，常常会关心这种现金来源。
+
+但收到分红时，还要把股票和现金合起来看。公司付出现金以后，留在企业中的资产也相应减少；常规现金股息除息后，买入股票的人不再取得这一期股息，因此分红前后的股价需要按相同权益基础比较（本文讨论普通现金股息。除息日划分这次交易是否附带本期股息权利，支付日才是公司实际付款的日期；特殊分配可能采用不同规则。除息形成的价格调整还会和当天的市场行情叠加，实际成交价不会只由股息金额决定）。已经取得股息领取权利，与钱已经到账，是不同的时点；安排用钱时间时，还要等到支付日。这也对应[《投资期限与现金需要》](https://ou-liu-red-sugar.github.io/zh/notebook/investment-horizon-cash/)讨论的资金安排：先看现金何时可用，再考虑怎样使用。[^zh-shareholder-returns-buybacks-issuance--dividends]
+
+对暂时不需要这笔现金的股东，接下来还会遇到税务问题。以美国普通应税账户中的个人投资者为例，现金股息通常在实际收到或可以支配的年度计入收入；即使券商自动用分红买入更多股票，这笔股息一般仍需要申报。资金先分出来，再由股东投入，可能已经经过了一次纳税。[^zh-shareholder-returns-buybacks-issuance--tax]
+
+公司在公开市场回购其他人的股份时，我们没有出售自己的股票，也没有因此实现自己的资本利得。股票可以继续持有，将来何时卖出、卖出多少，通常仍有自己的安排。对于准备长期投资的人，延后实现资本利得，也就保留了延后纳税的空间。
+
+这正是长期股东可能更偏好回购的一个实际理由：公司用资金支持股票的市场需求、调整每股权益，自己可以继续持有，而不必因为公司统一派发现金就立即处理一笔股息收入（这里采用美国联邦个人所得税下、收付实现制个人通过普通应税账户直接持股的情形，讨论本人没有出售、交换或被赎回股份的普通公开市场回购。合格股息与资本利得的适用税率、退休账户和跨境投资另有规则；本段比较的是纳税时点，不预设每位投资者最终的税率）。当然，需要现金的股东仍然可以领取分红，或按自己的需要卖出部分股票。两种偏好背后，是不同的用钱时间与持有安排。[^zh-shareholder-returns-buybacks-issuance--tax]
+
+| 对继续持有者的影响 | 现金分红 | 公司公开市场回购 |
+|---|---|---|
+| 现金怎样到手 | 符合条件的股东直接收到分配 | 公司把现金付给实际售股者 |
+| 原来的股票 | 可以继续持有 | 未出售的股份继续持有，比例取决于净股数变化 |
+| 收益受到什么影响 | 取得现金，同时观察除息后的股票价值 | 市场买盘、回购价格及每股权益的变化 |
+| 本文税务场景 | 股息收到后一般形成当期收入，再投资也需申报 | 未出售者通常不因这项回购实现自己的资本利得 |
+
+## 增发、稀释与新增资本 {#nb-s02-issuance}
+
+再把目光放回公司。企业有资金可以返还给股东，也会遇到需要增加投入的时候。经营规模扩大、设备采购和新项目建设，都可能改变原先的资金安排。Alphabet（GOOGL／GOOG）在 2026 年的融资，就提供了一个实际例子。
+
+公司披露，2026 年 6 月通过发行 Class A、Class C 股票及强制可转换优先股，合计取得约 496 亿美元净募集资金，资金用途包括扩充 AI 基础设施和全球算力（这项金额是上述权益融资合计的净所得，并非全部来自普通股发行。强制可转换优先股先以优先股形式存在，再按条款转换为普通股，其分红权利与未来转股另有安排，不能直接把全部融资额换算成当期新增普通股）。这些股票与优先股的权利区别，可参阅[《股票的类型、发行与交易形式》](https://ou-liu-red-sugar.github.io/zh/notebook/stock-types-issuance-trading/)；这里先沿着融资所得，看它们怎样进入公司的资金安排。[^zh-shareholder-returns-buybacks-issuance--alphabet-release][^zh-shareholder-returns-buybacks-issuance--alphabet]
+
+**普通股增发：公司取得资金，认购者取得新股**
+
+**公司**
+
+← 认购资金 新股 →
+
+**认购者**
+
+认购款进入公司，原有股东共同拥有的业务取得了新资金，股份数量也随之增加。
+
+普通股增发以后，没有同步增加持股的老股东，所占比例会下降，这就是持股比例的稀释。但公司也取得了新资金。要判断这次融资给原股东带来什么，我们还得接着看：以什么价格发行了多少股份，这笔资金准备投入哪里，投入以后能带来怎样的经营成果。
+
+如果新增资金帮助公司扩大有盈利能力的业务，未来总利润与现金流的增长就可能超过股数增加的影响；资金使用效果较差时，每股对应的所得也会受到拖累。持股比例与每股价值因此需要一起观察，不能看到公司规模变大，就直接推定每一股也得到了相同比例的增长。
+
+公司还设立了最高 400 亿美元的 ATM 发行安排，允许公司按计划在市场上陆续出售新股。但截至 2026 年 6 月 30 日，这个安排尚未实际售出股份（ATM 即 at-the-market offering。公司披露，该项未来发行所得主要拟用于员工股权奖励相关的税款义务；这里采用截至 6 月底的披露状态，不将额度计入已经完成的融资，也不据此推定后续月份的执行情况）。这与前面的回购授权相似：允许进行一项交易，与交易已经发生，需要分别看。[^zh-shareholder-returns-buybacks-issuance--alphabet]
+
+同一份报告还显示，Alphabet 在 2026 年上半年没有回购 Class A 或 Class C 股票，而此前回购计划仍有约 695 亿美元额度可用。有授权，并不妨碍公司根据当时的投入和融资需要调整执行；股东所面对的实际资金流向，也会随之改变。[^zh-shareholder-returns-buybacks-issuance--alphabet]
+
+## 从公司动作看到持有结果 {#nb-s02-holding-return}
+
+走到这里，回购与增发就能接回同一件事：公司怎样在经营投入、现金分配和股份数量之间作安排。回购会付出公司资金、形成买盘，并可能减少在外股份；增发让新资金进入公司，也让更多股份参与未来的经营结果。股权报酬也要一并考虑，因为向员工交付股份，同样可能改变净股数。
+
+| 公司动作 | 资金主要流向 | 股东继续持有时要看什么 |
+|---|---|---|
+| 现金分红 | 公司付给符合条件的股东 | 实际到账、税务与剩余股票价值 |
+| 回购 | 公司付给售股者 | 买盘支持、回购价格与净股数变化 |
+| 普通股增发 | 认购者付给公司 | 发行价格、份额变化与新增资金用途 |
+| 股权报酬 | 公司以股票或相关权利支付部分报酬 | 奖励交付和其他资本动作合起来怎样影响股数 |
+
+对我们自己的投资，仍然要把持有期间取得的现金与期末剩余股份的价值合起来看，再和原先投入比较。回购的价格支撑和每股权益变化，就在这份股票价值中发生作用；分红则另外形成现金收付，两者也有不同的税务时点。
+
+因此，读到公司公布利润、分红、回购或增发时，可以继续往下追一步：经营所得最后怎样使用，股份数量怎样变化，这些钱和这些股份又怎样共同影响自己持有的每一股。[《股票、公司与股价》](https://ou-liu-red-sugar.github.io/zh/notebook/stocks-company-price/)把公司经营作为理解股票价值的起点；沿着资金用途与股份变化，我们又能继续看到，经营成果怎样影响股东的实际回报。
+
+[^zh-shareholder-returns-buybacks-issuance--apple]: [Apple：2026 财年第一季度 Form 10-Q](https://www.sec.gov/Archives/edgar/data/320193/000032019326000006/aapl-20251227.htm)，季度截至 2025-12-27。现金流量表的股息及股息等价物支付、普通股回购付款；资产负债表的发行在外普通股；Note 7 与 Part II Item 2 的回购披露。本文的净股数变化由两个资产负债表时点相减，未将单项 RSU 归属量直接作为新增普通股量。
+[^zh-shareholder-returns-buybacks-issuance--berkshire]: [Berkshire Hathaway：2012 年股东信](https://www.berkshirehathaway.com/letters/2012ltr.pdf)，Dividends 部分，讨论业务投入、收购、回购价格与股东分配的取舍；本文采用资金用途与回购价格的比较关系，不沿用其中的估值假设或历史回购门槛。
+[^zh-shareholder-returns-buybacks-issuance--dividends]: [Investor.gov：Ex-Dividend Dates—When Are You Entitled to Stock and Cash Dividends](https://www.investor.gov/introduction-investing/investing-basics/glossary/ex-dividend-dates-when-are-you-entitled-stock-and)，普通现金股息的除息与支付说明。
+[^zh-shareholder-returns-buybacks-issuance--tax]: [IRS Publication 538](https://www.irs.gov/publications/p538)，Cash Method—Income、Constructive receipt；[IRS Publication 550](https://www.irs.gov/publications/p550)，Dividends Used To Buy More Stock、What Is a Sale or Trade?、Redemption of stock、Capital Gains and Losses。未出售者的表述是将处置规则用于普通公开市场回购的情形。
+[^zh-shareholder-returns-buybacks-issuance--alphabet-release]: [Alphabet：2026 年第二季度业绩公告](https://www.sec.gov/Archives/edgar/data/1652044/000165204426000066/googexhibit991q22026.htm)，Equity Capital Raise。
+[^zh-shareholder-returns-buybacks-issuance--alphabet]: [Alphabet：截至 2026-06-30 的 Form 10-Q](https://www.sec.gov/Archives/edgar/data/1652044/000165204426000071/goog-20260630.htm)，Note 11、Equity Capital Raise、ATM Program、Share Repurchases；采用已完成融资、披露的资金用途、期末未执行发行额度及上半年回购状态。
+
 
 ---
 
@@ -307,11 +602,11 @@ GEV 向电厂项目与运营商提供设备和服务；客户依约下单并付�
 
 认清股份带来的权利以后，再看这些股份怎样到投资者手中。公司需要资金时，可以发行新股，由认购者出资，公司取得融资；原股东希望出售持股时，则可以把已有股份转让给买方，售股款归原股东所有。两种交易都可能让买方成为股东，钱的去向却不同。
 
-Reddit 在 2024 年的首次公开发行中，就同时出现了这两种安排。首次公开发行通常简称 IPO，指公司首次向公众发售股份，常与进入交易所上市交易相连。Reddit 当次发售既有公司出售的新股，也有原股东出售的已有股份，公司不会收到原股东售股部分的款项。承销机构参与组织发售、定价和配售。沿着股份与现金的方向，可以把两条路径列出来：[^zh-stock-types-issuance-trading--reddit-ipo]
+Reddit（RDDT）在 2024 年的首次公开发行中，就同时出现了这两种安排。首次公开发行通常简称 IPO，指公司首次向公众发售股份，常与进入交易所上市交易相连。RDDT 当次发售既有公司出售的新股，也有原股东出售的已有股份，公司不会收到原股东售股部分的款项。承销机构参与组织发售、定价和配售。沿着股份与现金的方向，可以把两条路径列出来：[^zh-stock-types-issuance-trading--reddit-ipo]
 
 | 发售安排 | 股份交给谁 | 认购款流向谁 |
 |---|---|---|
-| Reddit 发行新股 | 认购者取得公司新发股份 | Reddit |
+| RDDT 发行新股 | 认购者取得公司新发股份 | RDDT |
 | 原股东出售已有股份 | 认购者取得原股东转让的股份 | 售股股东 |
 
 上表展示资金流向，未列承销费用。等到股份开始在市场上交易，投资者之间还可以继续转让：买方支付成交款，卖方交出已有股份，这笔钱归卖方，相应股份的持有人发生了变化。取得公司的一部分权益，并不表示每笔买入款都成为公司的新增资金。IPO 发行价对应那次发售，此后市场上的成交价则由各次买卖形成，两者可以不同。[^zh-stock-types-issuance-trading--ipo-trading]
@@ -324,11 +619,11 @@ Reddit 在 2024 年的首次公开发行中，就同时出现了这两种安排�
 
 这就要沿着奖励安排，把授予、归属和实际取得股份的时点分别看清。公司授予奖励，先确定员工可以按什么约定取得报酬；奖励还可能要求员工完成一定服务年限、达到业绩目标，或满足其他约定条件。以这里的员工期权和 RSU 来说，满足相应归属条件后，期权还要经过行权，RSU 还要按安排交付股份。而已经持有股份的人，也可能在一段时间内受到出售限制，例如创始人、早期投资者和员工在 IPO 时约定的锁定。奖励是否已经归属，与股份能否出售，需要分别看。[^zh-stock-types-issuance-trading--vesting-lockup]
 
-Reddit 的员工 RSU 提供了一个实际例子。部分奖励既要求完成服务，也要求达到上市条件。已经满足服务条件的那部分奖励，在 IPO 注册生效、上市条件满足后进入结算，公司随后交付了股份（Reddit 在 2024 年第二季度报告中披露了这次已经发生的结算，同时扣留部分股份用于处理相关税款；这里的上市条件满足时点是 IPO 注册生效，区别于首日交易和发行完成）。这段经过说明，授予奖励、满足服务条件和实际收到股份，可以发生在不同时间。[^zh-stock-types-issuance-trading--reddit-rsu]
+RDDT 的员工 RSU 提供了一个实际例子。部分奖励既要求完成服务，也要求达到上市条件。已经满足服务条件的那部分奖励，在 IPO 注册生效、上市条件满足后进入结算，公司随后交付了股份（RDDT 在 2024 年第二季度报告中披露了这次已经发生的结算，同时扣留部分股份用于处理相关税款；这里的上市条件满足时点是 IPO 注册生效，区别于首日交易和发行完成）。这段经过说明，授予奖励、满足服务条件和实际收到股份，可以发生在不同时间。[^zh-stock-types-issuance-trading--reddit-rsu]
 
-收到股份以后，能否马上卖出还要看出售限制。Reddit 的 IPO 锁定条款允许既有期权行权和 RSU 结算，但由此取得的股份仍受锁定。这样，奖励可以继续按约定执行，出售股份却还需要等待锁定期结束，或符合相应例外（一般锁定期限为 2024 年第二季度业绩公开后第三个交易日开市，或招股书日期后 180 日，两者取较早者；IPO 售股和某些处理税款的交易另有例外）。把取得与出售这两件事分开，时间关系就清楚了：[^zh-stock-types-issuance-trading--reddit-lockup]
+收到股份以后，能否马上卖出还要看出售限制。RDDT 的 IPO 锁定条款允许既有期权行权和 RSU 结算，但由此取得的股份仍受锁定。这样，奖励可以继续按约定执行，出售股份却还需要等待锁定期结束，或符合相应例外（一般锁定期限为 2024 年第二季度业绩公开后第三个交易日开市，或招股书日期后 180 日，两者取较早者；IPO 售股和某些处理税款的交易另有例外）。把取得与出售这两件事分开，时间关系就清楚了：[^zh-stock-types-issuance-trading--reddit-lockup]
 
-| 观察的问题 | Reddit 例子中的安排 |
+| 观察的问题 | RDDT 例子中的安排 |
 |---|---|
 | 员工怎样取得股份 | 按奖励约定满足服务及其他条件，再通过期权行权或 RSU 结算取得股份 |
 | 这些股份何时可以出售 | 行权或结算所得股份仍受 IPO 锁定，出售还要符合锁定期限或例外安排 |
@@ -339,9 +634,9 @@ Reddit 的员工 RSU 提供了一个实际例子。部分奖励既要求完成�
 
 ### ADR 与存托安排 {#nb-b01-adr}
 
-前面讨论了股份怎样取得、何时能够出售；进入不同市场交易时，我们还会遇到代表这些股份的存托凭证。第三篇的 SKHY 就是一个例子。它以 SK 海力士的韩国普通股为基础，由存托银行发行在美国市场交易的存托证券，每份对应十分之一股韩国普通股。投资者因此可以在美国市场买卖与这部分股份对应的权益。[^zh-stock-types-issuance-trading--adr][^zh-stock-types-issuance-trading--skhy]
+前面讨论了股份怎样取得、何时能够出售；进入不同市场交易时，我们还会遇到代表这些股份的存托凭证。[《股票、公司与股价》](https://ou-liu-red-sugar.github.io/zh/notebook/stocks-company-price/)中的 SKHY 就是一个例子。它以 SK hynix（000660）的韩国普通股为基础，由存托银行发行在美国市场交易的存托证券，每份对应十分之一股韩国普通股。投资者因此可以在美国市场买卖与这部分股份对应的权益。[^zh-stock-types-issuance-trading--adr][^zh-stock-types-issuance-trading--skhy]
 
-这层联系由托管和存托安排维持。韩国原股进入当地托管安排，托管机构确认存入的股份后，存托银行据此发行相应的存托证券。在 SKHY 的公开存托文件中，Citibank 是存托银行，Korea Securities Depository 是韩国托管机构。投资者买入已有的 SKHY，持有的是存托证券，买款付给卖方；原股仍在托管安排中。这也接上了前面的资金流向：在市场上转让已有凭证，同样不等于 SK 海力士取得一笔新增融资。[^zh-stock-types-issuance-trading--skhy-terms]
+这层联系由托管和存托安排维持。韩国原股进入当地托管安排，托管机构确认存入的股份后，存托银行据此发行相应的存托证券。在 SKHY 的公开存托文件中，Citibank 是存托银行，Korea Securities Depository 是韩国托管机构。投资者买入已有的 SKHY，持有的是存托证券，买款付给卖方；原股仍在托管安排中。这也接上了前面的资金流向：在市场上转让已有凭证，同样不等于 SK hynix 取得一笔新增融资。[^zh-stock-types-issuance-trading--skhy-terms]
 
 存托机构还要处理持有期间的事务。公司支付现金分红后，款项经托管与存托安排处理，再分配给存托证券持有人；公司信息和投票事项也通过这条渠道传递，持有人按通知发出投票指示，再由存托机构依约办理（SKHY 公开存托文件规定，现金分红换成美元、扣除有关税费后分配；投票指示须及时提交，并对应整股股份。费用、汇兑和投票程序会影响持有人实际收到的现金及权利行使）。所以，原股带来的经济利益和治理权利，会经过存托安排传到凭证持有人手中。[^zh-stock-types-issuance-trading--skhy-terms]
 
@@ -351,17 +646,17 @@ Reddit 的员工 RSU 提供了一个实际例子。部分奖励既要求完成�
 
 把权益记录放到链上以后，同样需要沿着提供者和具体安排往回看。第三篇提到的 DTC 方案，就是用代币记录参与者对托管证券的权益，证券仍由原有存管体系保存（这里沿用 2025 年 12 月 11 日公布的方案：底层证券仍登记在 Cede & Co. 名下，代币转移对应参与者权益记录的更新）。在这类安排中，变化的是权益的记录与转移方式；另一类产品则由第三方发行，用产品条款规定持有人怎样参与某只股票的价格变化。[^zh-stock-types-issuance-trading--tokenized]
 
-Apple xStock（AAPLx）就是后一类产品。它由 Backed Assets (JE) Limited 发行，是以苹果股票为参考资产的追踪凭证，并由托管的底层资产支持。持有人取得的是这项产品约定的合同权益，苹果是参考股票的发行公司，Backed 则是追踪凭证的发行者；买入 AAPLx 因而不会取得苹果直接股东的投票权。[^zh-stock-types-issuance-trading--xstocks]
+Apple xStock（AAPLx）就是后一类产品。它由 Backed Assets (JE) Limited 发行，是以 Apple（AAPL）股票为参考资产的追踪凭证，并由托管的底层资产支持。持有人取得的是这项产品约定的合同权益，Apple 是参考股票的发行公司，Backed 则是追踪凭证的发行者；买入 AAPLx 因而不会取得 AAPL 直接股东的投票权。[^zh-stock-types-issuance-trading--xstocks]
 
-底层股票的分红也通过产品安排传递经济效果。按 Kraken 对 xStocks 的说明，净分红用于再投资，并通过余额调整反映在持有人账户中（调整采用乘数机制，平台显示的有效持有余额与链上代币枚数需要区分；持有人并非直接领取苹果支付的现金股息）。将 AAPLx 与前面的 ADR 放在一起，两者都需要追踪底层股票与中间机构，但实际持有物和权利传递方式不同：SKHY 依存托安排对应韩国原股，AAPLx 则按 Backed 发行的追踪凭证条款运行。[^zh-stock-types-issuance-trading--xstocks-dividends]
+底层股票的分红也通过产品安排传递经济效果。按 Kraken 对 xStocks 的说明，净分红用于再投资，并通过余额调整反映在持有人账户中（调整采用乘数机制，平台显示的有效持有余额与链上代币枚数需要区分；持有人并非直接领取 AAPL 支付的现金股息）。将 AAPLx 与前面的 ADR 放在一起，两者都需要追踪底层股票与中间机构，但实际持有物和权利传递方式不同：SKHY 依存托安排对应韩国原股，AAPLx 则按 Backed 发行的追踪凭证条款运行。[^zh-stock-types-issuance-trading--xstocks-dividends]
 
 ### CME 个股期货与股票永续 {#nb-b01-futures}
 
 围绕一只股票，人们还可以交易按价格变化计算盈亏的合约，用来表达对价格方向的判断，或对冲已有持仓的价格风险。CME 新推出的美股个股期货就属于这种工具：合约以单只股票为标的，到期用现金结算，持有期货不会因此取得公司的股份。[^zh-stock-types-issuance-trading--cme]
 
-以苹果标准个股期货 SAAPL 为例，一份合约的乘数为 100 股。合约报价每股上涨 1 美元，一份多头的盈亏就增加 100 美元；报价每股下跌 1 美元，盈亏则减少 100 美元。交易者按要求存入保证金来开仓和维持持仓，保证金只占合约名义金额的一部分，盈亏仍按合约乘数计算（这里计算的是价格变化造成的毛盈亏，未扣费用；名义金额等于期货报价乘以 100。该合约到期按标的股票主上市交易所的官方收盘价，以美元现金结算）。持有期间若亏损使账户资金不足，就需要补充资金或调整持仓；最初交纳的保证金也不能用来界定最大损失。[^zh-stock-types-issuance-trading--cme][^zh-stock-types-issuance-trading--margin]
+以 AAPL 标准个股期货 SAAPL 为例，一份合约的乘数为 100 股。合约报价每股上涨 1 美元，一份多头的盈亏就增加 100 美元；报价每股下跌 1 美元，盈亏则减少 100 美元。交易者按要求存入保证金来开仓和维持持仓，保证金只占合约名义金额的一部分，盈亏仍按合约乘数计算（这里计算的是价格变化造成的毛盈亏，未扣费用；名义金额等于期货报价乘以 100。该合约到期按标的股票主上市交易所的官方收盘价，以美元现金结算）。持有期间若亏损使账户资金不足，就需要补充资金或调整持仓；最初交纳的保证金也不能用来界定最大损失。[^zh-stock-types-issuance-trading--cme][^zh-stock-types-issuance-trading--margin]
 
-股票永续采用另一套到期和持有安排。以 Kraken 的 AAPLx 永续合约为例，苹果股票的代码是 AAPL，前面介绍的追踪凭证是 AAPLx，而这里买卖的是参考 AAPLx 价格的永续合约。持有这份合约会形成相应盈亏，合约不会交付苹果股票或 AAPLx 代币；持有人也不直接取得前面 AAPLx 持有人的分红再投资余额。[^zh-stock-types-issuance-trading--perpetual]
+股票永续采用另一套到期和持有安排。以 Kraken 的 AAPLx 永续合约为例，底层股票的代码是 AAPL，前面介绍的追踪凭证是 AAPLx，而这里买卖的是参考 AAPLx 价格的永续合约。持有这份合约会形成相应盈亏，合约不会交付 AAPL 股票或 AAPLx 代币；持有人也不直接取得前面 AAPLx 持有人的分红再投资余额。[^zh-stock-types-issuance-trading--perpetual]
 
 这份永续合约没有固定到期日，但持仓需要持续满足保证金要求，并按资金费安排收付资金。资金费在多空双方之间转移：费率为正时，多头向空头支付；费率为负时，空头向多头支付（本文采用 Kraken 合约代码 PF_AAPLXUSD 的通用规格；资金费持续计提，在每小时末或持仓净额变化时结算。合约盈亏以美元计值、默认用美元结算，平台允许的抵押物可以包括多种资产）。所以，与有到期日的 CME 个股期货相比，永续合约不以固定到期日限定持有时间，期间的资金安排却仍需接续。第二篇讨论的现金需要，在这里表现为能否承受持仓盈亏、准备保证金，以及处理资金费收付。[^zh-stock-types-issuance-trading--perpetual-spec]
 
@@ -371,8 +666,8 @@ Apple xStock（AAPLx）就是后一类产品。它由 Backed Assets (JE) Limited
 |---|---|---|---|
 | 直接股票 | 公司发行的股份 | 买股时支付价款 | 参与公司权益 |
 | ADR，例如 SKHY | 存托银行发行的存托证券 | 购买凭证，持有及转换涉及相应费用 | 在另一市场持有对应的存托权益 |
-| AAPLx | Backed 发行的追踪凭证 | 购买产品，按其条款处理分红经济效果 | 通过链上产品参与苹果股票的价格变化 |
-| CME 苹果个股期货 | 按 CME 规则交易的期货合约 | 保证金、持仓盈亏及到期现金结算 | 表达价格判断或对冲价格风险 |
+| AAPLx | Backed 发行的追踪凭证 | 购买产品，按其条款处理分红经济效果 | 通过链上产品参与 AAPL 股票的价格变化 |
+| CME AAPL 个股期货 | 按 CME 规则交易的期货合约 | 保证金、持仓盈亏及到期现金结算 | 表达价格判断或对冲价格风险 |
 | Kraken AAPLx 永续 | 平台提供的永续合约 | 保证金、持仓盈亏和资金费 | 持续表达价格判断或对冲价格风险 |
 | 本文的股票看涨期权买方 | 合约规定的购股权利 | 先付权利金，行权时另付购股款 | 在有效期内保留按约定价格买股的选择 |
 
@@ -405,52 +700,52 @@ Apple xStock（AAPLx）就是后一类产品。它由 Backed Assets (JE) Limited
 
 # 股票、公司与股价
 
-从买公司的一部分出发，结合苹果、NVIDIA 与 SK 海力士的实例，理解基本面、股份、股价与市值。
+从买公司的一部分出发，结合 Apple（AAPL）、NVIDIA（NVDA）与 SK hynix（000660／SKHY）的实例，理解基本面、股份、股价与市值。
 
 网页 / HTML: [股票、公司与股价](https://ou-liu-red-sugar.github.io/zh/notebook/stocks-company-price/)
 
-语言 / Language: zh · 更新 / Revised: 2026-09-24
+语言 / Language: zh · 更新 / Revised: 2026-09-25
 
 ## 股份与公司经营 {#nb-s01-ownership}
 
-股票是证券市场的主要交易品种之一，代表着持有人在一家公司的股权。比如苹果公司的普通股就在纳斯达克交易，代码是 AAPL。投资者买入 AAPL，取得的就是苹果公司的股份，也就成为了苹果的股东。我们说“买股票就是买公司的一部分”，说的就是这层关系。[^zh-stocks-company-price--stock]
+股票是证券市场的主要交易品种之一，代表着持有人在一家公司的股权。比如 Apple（AAPL）的普通股就在 Nasdaq 交易。投资者买入 AAPL，取得的就是 Apple 的股份，也就成为了公司的股东。我们说“买股票就是买公司的一部分”，说的就是这层关系。[^zh-stocks-company-price--stock]
 
-既然已经成了股东，我们自然会关心这家公司是怎样做生意的。苹果会向客户销售 iPhone、Mac 等产品，也会通过 App Store、Apple Music 等服务取得收入。有了收入，还要扣除生产、研发、销售等成本费用和税款，才能知道公司最后赚了多少钱。公司可以留存盈利，用于后续经营和再投资；在安排好经营和偿债等资金需要后，也可以通过现金分红，把钱分给股东。苹果在 2025 年 5 月的一次现金分红中，每股就支付了 0.26 美元。对于符合领取条件的股东来说，持有 100 股便会收到税前 26 美元，这就是股东从公司取得现金的一种具体方式。[^zh-stocks-company-price--apple-business][^zh-stocks-company-price--apple-dividend]
+既然已经成了股东，我们自然会关心这家公司是怎样做生意的。AAPL 会向客户销售 iPhone、Mac 等产品，也会通过 App Store、Apple Music 等服务取得收入。有了收入，还要扣除生产、研发、销售等成本费用和税款，才能知道公司最后赚了多少钱。公司可以留存盈利，用于后续经营和再投资；在安排好经营和偿债等资金需要后，也可以通过现金分红，把钱分给股东。AAPL 在 2025 年 5 月的一次现金分红中，每股就支付了 0.26 美元。对于符合领取条件的股东来说，持有 100 股便会收到税前 26 美元，这就是股东从公司取得现金的一种具体方式。[^zh-stocks-company-price--apple-business][^zh-stocks-company-price--apple-dividend]
 
-不过，股东关心的还不止已经拿到手的分红。如果以后购买苹果产品的人更多、公司能保持产品竞争力，经营就有机会继续增长；如果需求转弱、竞争加剧，盈利也会受到影响。公司还会怎样使用赚到的钱，是继续投入业务，还是留出更多资金回报股东，也关系到持有这些股份以后能得到什么。公司的业务、盈利能力、竞争地位和资金使用，以及由此形成的经营前景，就是我们要研究的公司基本面。以买入公司一部分的眼光看股票，基本面也就成为判断投资价值最重要的锚点，接上了第一篇介绍的[基本面投资](https://ou-liu-red-sugar.github.io/zh/notebook/investment-returns/)。
+不过，股东关心的还不止已经拿到手的分红。如果以后购买 Apple 产品的人更多、公司能保持产品竞争力，经营就有机会继续增长；如果需求转弱、竞争加剧，盈利也会受到影响。公司还会怎样使用赚到的钱，是继续投入业务，还是留出更多资金回报股东，也关系到持有这些股份以后能得到什么。公司的业务、盈利能力、竞争地位和资金使用，以及由此形成的经营前景，就是我们要研究的公司基本面。以买入公司一部分的眼光看股票，基本面也就成为判断投资价值最重要的锚点，接上了第一篇介绍的[基本面投资](https://ou-liu-red-sugar.github.io/zh/notebook/investment-returns/)。
 
 ## 股价、股数与市值 {#nb-s01-price}
 
 知道自己买的是什么以后，还要看取得这份股权需要付出什么价格。股票可以在投资者之间转让，股价就是一股股票的交易价格。2025 年 4 月 25 日，AAPL 的收盘价是每股 209.28 美元。我们用这个真实价格算一算：100 股对应的金额就是 100 × 209.28 = 20,928 美元。把每股价格乘以持有股数，就得到了这笔持仓的市值。[^zh-stocks-company-price--apple-price]
 
-如果我们想进一步了解公司全部股权的市场定价，就还要知道公司一共有多少股。苹果当时约有 149.36 亿股在外普通股，把它乘以每股价格，就能估算股票市值，也就是按这个股价计算的全部普通股的总价（这里采用 2025 年 4 月 25 日的收盘价和 4 月 18 日的 14,935,826,000 股在外普通股；股数于 5 月 2 日披露，因此本文是结合邻近时点的真实记录作事后估算）。把这两个数放在一起，得到：[^zh-stocks-company-price--apple-shares]
+如果我们想进一步了解公司全部股权的市场定价，就还要知道公司一共有多少股。AAPL 当时约有 149.36 亿股在外普通股，把它乘以每股价格，就能估算股票市值，也就是按这个股价计算的全部普通股的总价（这里采用 2025 年 4 月 25 日的收盘价和 4 月 18 日的 14,935,826,000 股在外普通股；股数于 5 月 2 日披露，因此本文是结合邻近时点的真实记录作事后估算）。把这两个数放在一起，得到：[^zh-stocks-company-price--apple-shares]
 
 \[
 209.28\text{ 美元/股}\times149.36\text{ 亿股}\approx3.13\text{ 万亿美元}.
 \]
 
-这约 3.13 万亿美元说的是全部普通股按市场价格合计值多少钱，并不表示苹果账上有同样多的现金。
+这约 3.13 万亿美元说的是全部普通股按市场价格合计值多少钱，并不表示 AAPL 账上有同样多的现金。
 
 ## 拆股与并股 {#nb-s01-splits}
 
-不过，每股价格还会随着股份的划分方式改变。公司可以把原来的一股拆成多股，也可以把原来的多股合成一股，分别称为拆股和并股。NVIDIA 和 GE 就有两个实际例子：
+不过，每股价格还会随着股份的划分方式改变。公司可以把原来的一股拆成多股，也可以把原来的多股合成一股，分别称为拆股和并股。NVIDIA（NVDA）和当时的 General Electric（GE）就有两个实际例子：
 
 | 公司与调整 | 调整前股数 | 调整后股数 | 每股价格的对应调整 |
 |---|---:|---:|---|
-| NVIDIA，2024 年一拆十[^zh-stocks-company-price--nvda-split] | 1 股 | 10 股 | 调整为原来的十分之一 |
+| NVDA，2024 年一拆十[^zh-stocks-company-price--nvda-split] | 1 股 | 10 股 | 调整为原来的十分之一 |
 | GE，2021 年八合一[^zh-stocks-company-price--ge-reverse] | 8 股 | 1 股 | 调整为原来的八倍 |
 
 以一拆十为例，股东原来持有的一股会变成十股，公司总股数也会增加到原来的十倍。持股比例等于持有股数除以公司总股数，分子和分母同时乘以十，比例便保持不变。并股沿相反方向调整：股东的持股数与公司总股数同比例减少，每一股所代表的份额相应扩大（这里比较拆股、并股的比例调整本身，市场交易仍会使价格变化；GE 并股后不足一股的部分，登记股东按方案取得现金替代，经纪商托管账户依其具体安排处理）。这样一来，股东持有的公司比例保持不变，每一股所代表的公司份额却已经变了。
 
-那为什么还要拆股呢？对每股价格比较高的股票来说，拆股以后，买入一整股所需的资金就会减少。一拆十会把这个金额降到原来的十分之一，小额资金因而更容易参与，投资者也能按较小金额买卖和调整仓位。NVIDIA 公布这次拆股时，就说明希望让员工和投资者更容易持有公司股票。[^zh-stocks-company-price--nvda-split] 一般来说，拆股有利于交易，也有助于改善流动性，让股票更容易买卖，而不明显推高或压低价格（观察流动性是否改善，可以看买卖价差相对股价的大小、成交金额，或相同交易金额造成的价格影响；比较成交股数时，要先换到相同的股份计量单位）。[^zh-stocks-company-price--split-liquidity]
+那为什么还要拆股呢？对每股价格比较高的股票来说，拆股以后，买入一整股所需的资金就会减少。一拆十会把这个金额降到原来的十分之一，小额资金因而更容易参与，投资者也能按较小金额买卖和调整仓位。NVDA 公布这次拆股时，就说明希望让员工和投资者更容易持有公司股票。[^zh-stocks-company-price--nvda-split] 一般来说，拆股有利于交易，也有助于改善流动性，让股票更容易买卖，而不明显推高或压低价格（观察流动性是否改善，可以看买卖价差相对股价的大小、成交金额，或相同交易金额造成的价格影响；比较成交股数时，要先换到相同的股份计量单位）。[^zh-stocks-company-price--split-liquidity]
 
 并股的目的又有所不同。GE 此前已经剥离了多项业务，股份数量却没有相应减少。于是公司在 2021 年实施八合一，希望让在外股数与转型后的公司规模和业务范围更加相称（这次并股于 7 月 30 日完成，自 8 月 2 日起按调整后的股份单位交易）。[^zh-stocks-company-price--ge-reverse] 另一些公司则会在股价过低时借助并股提高每股报价，争取重新满足交易所的最低报价要求，以维持上市。[^zh-stocks-company-price--reverse-purpose]
 
-说到 GE，还可以顺带认识公司分拆。2023 年，GE 的医疗业务以 GE HealthCare 独立上市；2024 年，GE Vernova 也完成了分拆，留下的航空业务以 GE Aerospace 继续经营。原 GE 股东在两次分拆中都按方案取得了新公司的股份，[第一篇提到的 GEV](https://ou-liu-red-sugar.github.io/zh/notebook/investment-returns/#nb-a01-business)就是 GE Vernova 的股票代码。公司分拆改变了业务归属，股东会分别持有不同公司的权益；拆股和并股调整的则是同一家公司的股份单位。[^zh-stocks-company-price--ge-spinoffs]
+说到 GE，还可以顺带认识公司分拆。2023 年，GE 的医疗业务以 GE HealthCare（GEHC）独立上市；2024 年，GE Vernova（GEV）也完成了分拆，留下的航空业务以 GE Aerospace（GE）继续经营。原 GE 股东在两次分拆中都按方案取得了新公司的股份，[第一篇提到的 GEV](https://ou-liu-red-sugar.github.io/zh/notebook/investment-returns/#nb-a01-business)就是 GE Vernova 的股票代码。公司分拆改变了业务归属，股东会分别持有不同公司的权益；拆股和并股调整的则是同一家公司的股份单位。[^zh-stocks-company-price--ge-spinoffs]
 
 ## 经营信息与交易预期 {#nb-s01-expectations}
 
-了解了这些股份安排，我们再回到公司的经营。NVIDIA 在 2024 年 5 月宣布那次一拆十时，也在同一份财报公告里披露，上一财季的收入已经达到约 260 亿美元。拆股告诉我们股份单位怎样变化，收入则让我们看到公司做了多大规模的生意。不过要判断今后的经营前景，还得接着了解需求来自哪里、成本和费用有多少，以及业务能否持续。把这些问题联系起来，我们才能从已经取得的收入，进一步判断未来的盈利，以及持股可能带来的收益。[^zh-stocks-company-price--nvda-results]
+了解了这些股份安排，我们再回到公司的经营。NVDA 在 2024 年 5 月宣布那次一拆十时，也在同一份财报公告里披露，上一财季的收入已经达到约 260 亿美元。拆股告诉我们股份单位怎样变化，收入则让我们看到公司做了多大规模的生意。不过要判断今后的经营前景，还得接着了解需求来自哪里、成本和费用有多少，以及业务能否持续。把这些问题联系起来，我们才能从已经取得的收入，进一步判断未来的盈利，以及持股可能带来的收益。[^zh-stocks-company-price--nvda-results]
 
 当投资者读到这样的财报时，也会形成各自的判断。有人认为未来的业务和盈利会继续增长，因而愿意出更高的价格；也有人对增长预期较低，愿意付出的价格便会低一些。同时，投资者还要安排自己的资金。正如上一篇[投资期限与现金需要](https://ou-liu-red-sugar.github.io/zh/notebook/investment-horizon-cash/)所讨论的，即使对公司经营的看法没有改变，等到一笔已经约定的付款临近，也可能需要卖出股票来准备现金。这些判断和资金安排会影响投资者愿意以什么价格买入或卖出；当买卖双方接受同一个价格并成交时，市场上就形成了这一笔交易的价格。
 
@@ -460,7 +755,7 @@ Apple xStock（AAPLx）就是后一类产品。它由 Backed Assets (JE) Limited
 
 有时，同一家公司的权益还会以不同的证券形式出现在不同市场。公司的股份可以在本国市场交易，存托银行也可以以托管的境外股票为基础，发行在另一个市场交易的存托凭证。投资者持有这些凭证，就取得了与托管股份对应的权益。
 
-在美国市场上，这类证券通常称为美国存托凭证（ADR）。拿 SK 海力士来说，它在韩国市场的股票代码是 000660，美国市场上的 SKHY 则是对应其普通股的存托证券（ADR 指存托凭证，ADS 指凭证所代表的美国存托股份额，两种称呼常通用；本文按每份 SKHY 对应十分之一股韩国普通股换算）。虽然交易代码和市场不同，两者仍通过具体的股份对应关系联系在一起。[^zh-stocks-company-price--adr][^zh-stocks-company-price--skhy]
+在美国市场上，这类证券通常称为美国存托凭证（ADR）。以 SK hynix（韩国普通股：000660）为例，美国市场上的 SKHY 是对应其普通股的存托证券（ADR 指存托凭证，ADS 指凭证所代表的美国存托股份额，两种称呼常通用；本文按每份 SKHY 对应十分之一股韩国普通股换算）。虽然交易代码和市场不同，两者仍通过具体的股份对应关系联系在一起。[^zh-stocks-company-price--adr][^zh-stocks-company-price--skhy]
 
 有了这层对应关系，我们就可以把两个市场的价格换算后再比较。IBKR 在 2026 年 7 月 16 日记录过这样一个实例：统一对应股数和币种后，SKHY 当时的盘中价格，相对韩国普通股前一次收盘价高出约 30%（SKHY 盘中价为 160.69 美元；韩国普通股前次收盘价为 1,830,000 韩元，按 1 美元兑 1,480 韩元及每份 SKHY 对应十分之一股换算，相当于每份 123.65 美元。160.69 ÷ 123.65 − 1 约为 30%）。因此，即使已经认出了同一家公司，我们也还要看看通过什么证券、在哪个市场买入，会付出怎样的价格。[^zh-stocks-company-price--skhy-price]
 
