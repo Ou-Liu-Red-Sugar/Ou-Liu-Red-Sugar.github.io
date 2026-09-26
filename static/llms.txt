@@ -11,6 +11,7 @@
 - [Agent 时代的基本面投资](https://ou-liu-red-sugar.github.io/llms/zh/notebook/investment-returns.md): 从资金用途出发，以一项业务看清企业经营、事件计价与 Agent 辅助研究。
 - [亏损、波动与持有能力](https://ou-liu-red-sugar.github.io/llms/zh/notebook/loss-volatility-holding-capacity.md): 从 KO 的修复与 FISV 的失利出发，结合行业比较、Risk–Reward、量价观察和资金安排，理解持有与退出。
 - [报价、订单与实际成交](https://ou-liu-red-sugar.github.io/llms/zh/notebook/quotes-orders-execution.md): 从盘口和挂单读懂流动性与实际成交，再看做市商怎样管理库存，以及期货对冲中的保证金与现金需要。
+- [投资组合、保证金与对冲策略](https://ou-liu-red-sugar.github.io/llms/zh/notebook/settlement-margin-cash.md): 从业务与 Risk-Reward 建立组合，理解 beta 对冲的范围，由 Agent 结合市场状态比较期货、Put 与减持，再把保证金、盯市和交收接到现金安排。
 - [股东回报：分红、回购与增发](https://ou-liu-red-sugar.github.io/llms/zh/notebook/shareholder-returns-buybacks-issuance.md): 从 AAPL 的分红与回购、Alphabet（GOOGL／GOOG）的权益融资出发，理解市场买盘、税务时点、净股数变化和每股所得。
 - [股票的类型、发行与交易形式](https://ou-liu-red-sugar.github.io/llms/zh/notebook/stock-types-issuance-trading.md): 从股份权利、发行与员工股权报酬出发，理解归属和解禁，再比较 ADR、代币化产品、个股期货与股票永续。
 - [股票、公司与股价](https://ou-liu-red-sugar.github.io/llms/zh/notebook/stocks-company-price.md): 从买公司的一部分出发，结合 Apple（AAPL）、NVIDIA（NVDA）与 SK hynix（000660／SKHY）的实例，理解基本面、股份、股价与市值。

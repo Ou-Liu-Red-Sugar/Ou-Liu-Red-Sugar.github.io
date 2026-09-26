@@ -198,7 +198,7 @@ ETF 多头
 
 资金安排也会反过来影响交易。当承接更多库存需要占用更多资金，而对冲或融资的成本又上升时，参与者可能缩减愿意提供的数量。于是，流动性不仅体现眼前有多少挂单，也和交易者持续承接买卖的能力有关。
 
-从屏幕报价到实际成交，我们最终要确定的是自己以哪些价格取得了多少持仓，以及这些持仓接下来会占用或要求多少资金。成交以后证券和现金何时完成交付，再由《清算、交收与账户资金》继续展开。
+从屏幕报价到实际成交，我们最终要确定的是自己以哪些价格取得了多少持仓，以及这些持仓接下来会占用或要求多少资金。成交以后证券和现金何时完成交付，再由《投资组合、保证金与对冲策略》继续展开。
 
 [^quotes]: [Nasdaq：Why Real-Time Data Matters When Trading Stocks](https://www.nasdaq.com/articles/why-real-time-data-matters-when-trading-stocks)，2024-03-25，Last、Bid、Ask、Size 和 Trading Volume。正文数值盘口为独立构造的简化模型。
 [^orders]: [SEC Investor.gov：Types of Orders](https://www.investor.gov/introduction-investing/investing-basics/how-stock-markets-work/types-orders)，市价、限价和买卖方向的定义。

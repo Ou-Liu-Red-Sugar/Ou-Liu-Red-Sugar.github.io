@@ -1,0 +1,57 @@
+{
+  "capital": 200000,
+  "observed_at": "2026-09-25 13:06 EDT",
+  "observations": {
+    "VOO": 710.47998046875,
+    "MES": 7800.75,
+    "put": 10.37,
+    "AMZN": 250.38499450683594,
+    "GOOGL": 343.7900085449219
+  },
+  "base_shares": {
+    "VOO": 100,
+    "AMZN": 200,
+    "GOOGL": 100
+  },
+  "option": {
+    "symbol": "VOO261218P00685000",
+    "strike": 685,
+    "days": 84,
+    "r": 0.04,
+    "q": 0.012,
+    "steps": 400,
+    "multiplier": 100
+  },
+  "future": {
+    "symbol": "MESZ6",
+    "multiplier": 5,
+    "initial": 2875.64,
+    "maintenance": 2614.22,
+    "cash_per_contract": 5000
+  },
+  "fees_assumed": {
+    "stock_adjustment": 5,
+    "future_per_contract": 2.5,
+    "option_per_contract": 1
+  },
+  "cash_need": 20000,
+  "cash_need_days": 30,
+  "beta_target": 0.45,
+  "history": {
+    "cutoff": "2026-08-28",
+    "market_proxy": "VOO total return",
+    "riskfree": "Kenneth French daily RF; August 2026 file",
+    "windows": {
+      "d1": "2025-08-29",
+      "d3": "2024-08-30",
+      "w3": "2024-08-30"
+    }
+  },
+  "scenario_conventions": "30日价格情景；股票分红、现金利息及融资利息设为0；各策略在t0建立，合约价格按给定路径变化。证券价款按已交收起点记；增量交易费用为自设。每节点期货完成盯市及必要划转，冻结公开保证金参考。",
+  "sources": {
+    "stock_history": "https://query1.finance.yahoo.com/v8/finance/chart/{symbol}",
+    "rf": "https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/ftp/F-F_Research_Data_Factors_daily_CSV.zip",
+    "option": "https://cdn.cboe.com/api/global/delayed_quotes/options/VOO.json",
+    "margin": "https://portal.interactivebrokers.com/en/trading/margin-futures-fops.php?ex=us&hm=us&pm=0&rgt=0&rsk=1&rst=101004110808"
+  }
+}

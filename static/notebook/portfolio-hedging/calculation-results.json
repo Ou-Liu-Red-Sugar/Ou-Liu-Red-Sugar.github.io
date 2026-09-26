@@ -1,0 +1,4175 @@
+{
+  "inputs": {
+    "capital": 200000,
+    "observed_at": "2026-09-25 13:06 EDT",
+    "observations": {
+      "VOO": 710.47998046875,
+      "MES": 7800.75,
+      "put": 10.37,
+      "AMZN": 250.38499450683594,
+      "GOOGL": 343.7900085449219
+    },
+    "base_shares": {
+      "VOO": 100,
+      "AMZN": 200,
+      "GOOGL": 100
+    },
+    "option": {
+      "symbol": "VOO261218P00685000",
+      "strike": 685,
+      "days": 84,
+      "r": 0.04,
+      "q": 0.012,
+      "steps": 400,
+      "multiplier": 100
+    },
+    "future": {
+      "symbol": "MESZ6",
+      "multiplier": 5,
+      "initial": 2875.64,
+      "maintenance": 2614.22,
+      "cash_per_contract": 5000
+    },
+    "fees_assumed": {
+      "stock_adjustment": 5,
+      "future_per_contract": 2.5,
+      "option_per_contract": 1
+    },
+    "cash_need": 20000,
+    "cash_need_days": 30,
+    "beta_target": 0.45,
+    "history": {
+      "cutoff": "2026-08-28",
+      "market_proxy": "VOO total return",
+      "riskfree": "Kenneth French daily RF; August 2026 file",
+      "windows": {
+        "d1": "2025-08-29",
+        "d3": "2024-08-30",
+        "w3": "2024-08-30"
+      }
+    },
+    "scenario_conventions": "30日价格情景；股票分红、现金利息及融资利息设为0；各策略在t0建立，合约价格按给定路径变化。证券价款按已交收起点记；增量交易费用为自设。每节点期货完成盯市及必要划转，冻结公开保证金参考。",
+    "sources": {
+      "stock_history": "https://query1.finance.yahoo.com/v8/finance/chart/{symbol}",
+      "rf": "https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/ftp/F-F_Research_Data_Factors_daily_CSV.zip",
+      "option": "https://cdn.cboe.com/api/global/delayed_quotes/options/VOO.json",
+      "margin": "https://portal.interactivebrokers.com/en/trading/margin-futures-fops.php?ex=us&hm=us&pm=0&rgt=0&rsk=1&rst=101004110808"
+    }
+  },
+  "beta": [
+    {
+      "mode": "d1",
+      "symbol": "AMZN",
+      "beta": 1.434763312649464,
+      "intercept_pct": -0.02169910524511278,
+      "alpha_per_period": -0.0002169910524511278,
+      "r2": 0.27846070978794046,
+      "n": 250,
+      "volatility_pct": 2.1833240038333597,
+      "residual_volatility_pct": 1.8545911453284758,
+      "volatility_reduction": 0.15056531139112328,
+      "start": "2025-09-02",
+      "end": "2026-08-28",
+      "covariance": 9.251668046438598e-05,
+      "market_variance": 6.44821899533678e-05,
+      "sharpe_per_period": 0.031116335099600132
+    },
+    {
+      "mode": "d1",
+      "symbol": "GOOGL",
+      "beta": 1.3778634894937094,
+      "intercept_pct": 0.11516921612747799,
+      "alpha_per_period": 0.00115169216127478,
+      "r2": 0.28842616181488334,
+      "n": 250,
+      "volatility_pct": 2.0601970281115443,
+      "residual_volatility_pct": 1.7378758274255113,
+      "volatility_reduction": 0.15645163850250032,
+      "start": "2025-09-02",
+      "end": "2026-08-28",
+      "covariance": 8.884765525934357e-05,
+      "market_variance": 6.44821899533678e-05,
+      "sharpe_per_period": 0.09768511017529359
+    },
+    {
+      "mode": "d3",
+      "symbol": "AMZN",
+      "beta": 1.4017351102626137,
+      "intercept_pct": 0.008812155816122734,
+      "alpha_per_period": 8.812155816122734e-05,
+      "r2": 0.43435025669935995,
+      "n": 499,
+      "volatility_pct": 2.1523083525870734,
+      "residual_volatility_pct": 1.6187444345464024,
+      "volatility_reduction": 0.2479031024524564,
+      "start": "2024-09-03",
+      "end": "2026-08-28",
+      "covariance": 0.0001435433617599951,
+      "market_variance": 0.00010240405673587102,
+      "sharpe_per_period": 0.039581965338704915
+    },
+    {
+      "mode": "d3",
+      "symbol": "GOOGL",
+      "beta": 1.1601791430550155,
+      "intercept_pct": 0.09128982173275443,
+      "alpha_per_period": 0.0009128982173275444,
+      "r2": 0.3406065160161744,
+      "n": 499,
+      "volatility_pct": 2.011671941565548,
+      "residual_volatility_pct": 1.6335389119170853,
+      "volatility_reduction": 0.18796953013829254,
+      "start": "2024-09-03",
+      "end": "2026-08-28",
+      "covariance": 0.00011880705078918003,
+      "market_variance": 0.00010240405673587102,
+      "sharpe_per_period": 0.07680571130062563
+    },
+    {
+      "mode": "w3",
+      "symbol": "AMZN",
+      "beta": 1.488891682292194,
+      "intercept_pct": 0.020193503565340894,
+      "alpha_per_period": 0.00020193503565340892,
+      "r2": 0.4589142252005928,
+      "n": 104,
+      "volatility_pct": 4.695100111256823,
+      "residual_volatility_pct": 3.4536467554291503,
+      "volatility_reduction": 0.2644146719792414,
+      "start": "2024-09-06",
+      "end": "2026-08-28",
+      "covariance": 0.0006794509811394199,
+      "market_variance": 0.0004563468177170447,
+      "sharpe_per_period": 0.08678419644318901
+    },
+    {
+      "mode": "w3",
+      "symbol": "GOOGL",
+      "beta": 1.2403020201944928,
+      "intercept_pct": 0.4263755728614386,
+      "alpha_per_period": 0.004263755728614386,
+      "r2": 0.33801916923553044,
+      "n": 104,
+      "volatility_pct": 4.557265169763298,
+      "residual_volatility_pct": 3.70789140326184,
+      "volatility_reduction": 0.18637795582686578,
+      "start": "2024-09-06",
+      "end": "2026-08-28",
+      "covariance": 0.0005660078799237785,
+      "market_variance": 0.0004563468177170447,
+      "sharpe_per_period": 0.16434930060703978
+    }
+  ],
+  "strategies": [
+    {
+      "id": "A",
+      "label": "维持",
+      "description": "按基础组合继续持有",
+      "shares": {
+        "VOO": 100,
+        "AMZN": 200,
+        "GOOGL": 100
+      },
+      "puts": 0,
+      "futures": 0,
+      "opening_fees": 0.0,
+      "opening_cash": 44496.002197265625,
+      "holdings": "VOO 100股 · AMZN 200股 · GOOGL 100股 · Put 0张 · MES空头 0张",
+      "opening_requirements": {
+        "sec_initial": 77751.99890136719,
+        "sec_maintenance": 38875.999450683594,
+        "sec_scan": 18352.239807128906
+      }
+    },
+    {
+      "id": "B",
+      "label": "减持",
+      "description": "少持有50股GOOGL，留作现金",
+      "shares": {
+        "VOO": 100,
+        "AMZN": 200,
+        "GOOGL": 50
+      },
+      "puts": 0,
+      "futures": 0,
+      "opening_fees": 5.0,
+      "opening_cash": 61680.50262451172,
+      "holdings": "VOO 100股 · AMZN 200股 · GOOGL 50股 · Put 0张 · MES空头 0张",
+      "opening_requirements": {
+        "sec_initial": 69157.24868774414,
+        "sec_maintenance": 34578.62434387207,
+        "sec_scan": 15773.814743041992
+      }
+    },
+    {
+      "id": "C",
+      "label": "MES",
+      "description": "卖出3张MES，调整市场暴露",
+      "shares": {
+        "VOO": 100,
+        "AMZN": 200,
+        "GOOGL": 100
+      },
+      "puts": 0,
+      "futures": 3,
+      "opening_fees": 7.5,
+      "opening_cash": 44488.502197265625,
+      "holdings": "VOO 100股 · AMZN 200股 · GOOGL 100股 · Put 0张 · MES空头 3张",
+      "opening_requirements": {
+        "sec_initial": 77751.99890136719,
+        "sec_maintenance": 38875.999450683594,
+        "sec_scan": 18352.239807128906
+      }
+    },
+    {
+      "id": "D",
+      "label": "Put",
+      "description": "买入1张VOO Put",
+      "shares": {
+        "VOO": 100,
+        "AMZN": 200,
+        "GOOGL": 100
+      },
+      "puts": 1,
+      "futures": 0,
+      "opening_fees": 1.0,
+      "opening_cash": 43458.002197265625,
+      "holdings": "VOO 100股 · AMZN 200股 · GOOGL 100股 · Put 1张 · MES空头 0张",
+      "opening_requirements": {
+        "sec_initial": 77751.99890136719,
+        "sec_maintenance": 30511.997985839844,
+        "sec_scan": 16253.39801025391
+      }
+    },
+    {
+      "id": "E",
+      "label": "搭配",
+      "description": "卖出2张MES＋买入1张Put",
+      "shares": {
+        "VOO": 100,
+        "AMZN": 200,
+        "GOOGL": 100
+      },
+      "puts": 1,
+      "futures": 2,
+      "opening_fees": 6.0,
+      "opening_cash": 43453.002197265625,
+      "holdings": "VOO 100股 · AMZN 200股 · GOOGL 100股 · Put 1张 · MES空头 2张",
+      "opening_requirements": {
+        "sec_initial": 77751.99890136719,
+        "sec_maintenance": 30511.997985839844,
+        "sec_scan": 16253.39801025391
+      }
+    }
+  ],
+  "scenarios": [
+    {
+      "id": "market_down",
+      "label": "市场回落",
+      "description": "30日设定：VOO −10%，AMZN −15%，GOOGL −14%；波动率升至基准的1.5倍。",
+      "voo": [
+        0,
+        -0.04,
+        -0.08,
+        -0.1
+      ],
+      "amzn": [
+        0,
+        -0.07,
+        -0.12,
+        -0.15
+      ],
+      "googl": [
+        0,
+        -0.05,
+        -0.11,
+        -0.14
+      ],
+      "vol": [
+        1,
+        1.25,
+        1.4,
+        1.5
+      ]
+    },
+    {
+      "id": "market_up",
+      "label": "市场上涨",
+      "description": "30日设定：VOO +10%，AMZN +16%，GOOGL +14%；波动率降至基准的0.8倍。",
+      "voo": [
+        0,
+        0.04,
+        0.07,
+        0.1
+      ],
+      "amzn": [
+        0,
+        0.06,
+        0.11,
+        0.16
+      ],
+      "googl": [
+        0,
+        0.05,
+        0.1,
+        0.14
+      ],
+      "vol": [
+        1,
+        0.9,
+        0.85,
+        0.8
+      ]
+    },
+    {
+      "id": "company_down",
+      "label": "个股承压",
+      "description": "假设GOOGL经营兑现受挫：30日GOOGL −25%，VOO不变，AMZN +2%。这是未来压力设定。",
+      "voo": [
+        0,
+        -0.01,
+        0,
+        0
+      ],
+      "amzn": [
+        0,
+        -0.02,
+        0.01,
+        0.02
+      ],
+      "googl": [
+        0,
+        -0.1,
+        -0.18,
+        -0.25
+      ],
+      "vol": [
+        1,
+        1.1,
+        1.1,
+        1
+      ]
+    },
+    {
+      "id": "rise_fall",
+      "label": "先涨后跌",
+      "description": "VOO先涨10%，最终跌5%；与“先跌后回升”使用相同终点价格、期限与波动率。",
+      "voo": [
+        0,
+        0.1,
+        0.04,
+        -0.05
+      ],
+      "amzn": [
+        0,
+        0.16,
+        0.05,
+        -0.08
+      ],
+      "googl": [
+        0,
+        0.14,
+        0.04,
+        -0.07
+      ],
+      "vol": [
+        1,
+        0.8,
+        1.1,
+        1.3
+      ]
+    },
+    {
+      "id": "fall_rise",
+      "label": "先跌后回升",
+      "description": "VOO先跌10%，最终跌5%；终点与“先涨后跌”相同，观察途中现金。",
+      "voo": [
+        0,
+        -0.1,
+        -0.07,
+        -0.05
+      ],
+      "amzn": [
+        0,
+        -0.15,
+        -0.1,
+        -0.08
+      ],
+      "googl": [
+        0,
+        -0.14,
+        -0.1,
+        -0.07
+      ],
+      "vol": [
+        1,
+        1.5,
+        1.4,
+        1.3
+      ]
+    },
+    {
+      "id": "stress",
+      "label": "共同压力",
+      "description": "30日设定：VOO −25%，AMZN −40%，GOOGL −35%，波动率升至2倍；期货保证金参考自第10日起提高50%。",
+      "voo": [
+        0,
+        -0.1,
+        -0.18,
+        -0.25
+      ],
+      "amzn": [
+        0,
+        -0.18,
+        -0.3,
+        -0.4
+      ],
+      "googl": [
+        0,
+        -0.16,
+        -0.27,
+        -0.35
+      ],
+      "vol": [
+        1,
+        1.5,
+        1.8,
+        2
+      ]
+    }
+  ],
+  "results": {
+    "market_down": {
+      "A": {
+        "pnl": -19429.40975952149,
+        "ending_nav": 180570.59024047852,
+        "cash": 44496.002197265625,
+        "initial_margin": 68037.29402160645,
+        "maintenance_margin": 34018.64701080322,
+        "margin_scan": 15935.164329528809,
+        "peak_transfer": 0.0,
+        "contributions": [
+          {
+            "label": "VOO",
+            "value": -7104.799804687502
+          },
+          {
+            "label": "AMZN",
+            "value": -7511.549835205079
+          },
+          {
+            "label": "GOOGL",
+            "value": -4813.060119628909
+          },
+          {
+            "label": "Put",
+            "value": 0.0
+          },
+          {
+            "label": "MES",
+            "value": 0.0
+          },
+          {
+            "label": "费用",
+            "value": -0.0
+          }
+        ],
+        "path": [
+          {
+            "day": 0,
+            "nav": 200000.0,
+            "cash": 44496.002197265625,
+            "securities_cash": 44496.002197265625,
+            "futures_cash": 0.0,
+            "transfer": 0.0,
+            "variation": 0.0,
+            "futures_before_transfer": 0.0,
+            "futures_initial": 0.0,
+            "futures_maintenance": 0.0,
+            "put_price": 10.37,
+            "prices": {
+              "VOO": 710.47998046875,
+              "AMZN": 250.38499450683594,
+              "GOOGL": 343.7900085449219
+            },
+            "future": 7800.75
+          },
+          {
+            "day": 10,
+            "nav": 191933.7401123047,
+            "cash": 44496.002197265625,
+            "securities_cash": 44496.002197265625,
+            "futures_cash": 0.0,
+            "transfer": 0.0,
+            "variation": -0.0,
+            "futures_before_transfer": 0.0,
+            "futures_initial": 0.0,
+            "futures_maintenance": 0.0,
+            "put_price": 25.13916996034289,
+            "prices": {
+              "VOO": 682.06078125,
+              "AMZN": 232.8580448913574,
+              "GOOGL": 326.60050811767576
+            },
+            "future": 7488.719999999999
+          },
+          {
+            "day": 20,
+            "nav": 184525.2301940918,
+            "cash": 44496.002197265625,
+            "securities_cash": 44496.002197265625,
+            "futures_cash": 0.0,
+            "transfer": 0.0,
+            "variation": -0.0,
+            "futures_before_transfer": 0.0,
+            "futures_initial": 0.0,
+            "futures_maintenance": 0.0,
+            "put_price": 42.663392690983564,
+            "prices": {
+              "VOO": 653.64158203125,
+              "AMZN": 220.33879516601561,
+              "GOOGL": 305.9731076049805
+            },
+            "future": 7176.6900000000005
+          },
+          {
+            "day": 30,
+            "nav": 180570.59024047852,
+            "cash": 44496.002197265625,
+            "securities_cash": 44496.002197265625,
+            "futures_cash": 0.0,
+            "transfer": 0.0,
+            "variation": -0.0,
+            "futures_before_transfer": 0.0,
+            "futures_initial": 0.0,
+            "futures_maintenance": 0.0,
+            "put_price": 52.60993079649092,
+            "prices": {
+              "VOO": 639.431982421875,
+              "AMZN": 212.82724533081054,
+              "GOOGL": 295.6594073486328
+            },
+            "future": 7020.675
+          }
+        ],
+        "securities_initial": 68037.29402160645,
+        "securities_maintenance": 34018.64701080322,
+        "securities_scan": 15935.164329528809,
+        "futures_initial": 0.0,
+        "futures_maintenance": 0.0,
+        "min_total_cash": 44496.002197265625,
+        "cash_after_futures_reserve": 44496.002197265625,
+        "notes": [
+          "情景幅度与增量费用为设定；先建立方案，再经历所选30日价格路径。",
+          "普通保证金使用公开规则示例；风险扫描为证券分组压力加期货维持要求，不是券商PM预估。"
+        ]
+      },
+      "B": {
+        "pnl": -17027.879699707035,
+        "ending_nav": 182972.12030029297,
+        "cash": 61680.50262451172,
+        "initial_margin": 60645.808837890625,
+        "maintenance_margin": 30322.904418945312,
+        "margin_scan": 13717.718774414061,
+        "peak_transfer": 0.0,
+        "contributions": [
+          {
+            "label": "VOO",
+            "value": -7104.799804687502
+          },
+          {
+            "label": "AMZN",
+            "value": -7511.549835205079
+          },
+          {
+            "label": "GOOGL",
+            "value": -2406.5300598144545
+          },
+          {
+            "label": "Put",
+            "value": 0.0
+          },
+          {
+            "label": "MES",
+            "value": 0.0
+          },
+          {
+            "label": "费用",
+            "value": -5.0
+          }
+        ],
+        "path": [
+          {
+            "day": 0,
+            "nav": 199995.0,
+            "cash": 61680.50262451172,
+            "securities_cash": 61680.50262451172,
+            "futures_cash": 0.0,
+            "transfer": 0.0,
+            "variation": 0.0,
+            "futures_before_transfer": 0.0,
+            "futures_initial": 0.0,
+            "futures_maintenance": 0.0,
+            "put_price": 10.37,
+            "prices": {
+              "VOO": 710.47998046875,
+              "AMZN": 250.38499450683594,
+              "GOOGL": 343.7900085449219
+            },
+            "future": 7800.75
+          },
+          {
+            "day": 10,
+            "nav": 192788.215133667,
+            "cash": 61680.50262451172,
+            "securities_cash": 61680.50262451172,
+            "futures_cash": 0.0,
+            "transfer": 0.0,
+            "variation": -0.0,
+            "futures_before_transfer": 0.0,
+            "futures_initial": 0.0,
+            "futures_maintenance": 0.0,
+            "put_price": 25.13916996034289,
+            "prices": {
+              "VOO": 682.06078125,
+              "AMZN": 232.8580448913574,
+              "GOOGL": 326.60050811767576
+            },
+            "future": 7488.719999999999
+          },
+          {
+            "day": 20,
+            "nav": 186411.07524108887,
+            "cash": 61680.50262451172,
+            "securities_cash": 61680.50262451172,
+            "futures_cash": 0.0,
+            "transfer": 0.0,
+            "variation": -0.0,
+            "futures_before_transfer": 0.0,
+            "futures_initial": 0.0,
+            "futures_maintenance": 0.0,
+            "put_price": 42.663392690983564,
+            "prices": {
+              "VOO": 653.64158203125,
+              "AMZN": 220.33879516601561,
+              "GOOGL": 305.9731076049805
+            },
+            "future": 7176.6900000000005
+          },
+          {
+            "day": 30,
+            "nav": 182972.12030029297,
+            "cash": 61680.50262451172,
+            "securities_cash": 61680.50262451172,
+            "futures_cash": 0.0,
+            "transfer": 0.0,
+            "variation": -0.0,
+            "futures_before_transfer": 0.0,
+            "futures_initial": 0.0,
+            "futures_maintenance": 0.0,
+            "put_price": 52.60993079649092,
+            "prices": {
+              "VOO": 639.431982421875,
+              "AMZN": 212.82724533081054,
+              "GOOGL": 295.6594073486328
+            },
+            "future": 7020.675
+          }
+        ],
+        "securities_initial": 60645.808837890625,
+        "securities_maintenance": 30322.904418945312,
+        "securities_scan": 13717.718774414061,
+        "futures_initial": 0.0,
+        "futures_maintenance": 0.0,
+        "min_total_cash": 61680.50262451172,
+        "cash_after_futures_reserve": 61680.50262451172,
+        "notes": [
+          "情景幅度与增量费用为设定；先建立方案，再经历所选30日价格路径。",
+          "普通保证金使用公开规则示例；风险扫描为证券分组压力加期货维持要求，不是券商PM预估。"
+        ]
+      },
+      "C": {
+        "pnl": -7735.7847595214935,
+        "ending_nav": 192264.21524047852,
+        "cash": 56189.627197265625,
+        "initial_margin": 76664.21402160644,
+        "maintenance_margin": 41861.307010803226,
+        "margin_scan": 23777.82432952881,
+        "peak_transfer": 0.0,
+        "contributions": [
+          {
+            "label": "VOO",
+            "value": -7104.799804687502
+          },
+          {
+            "label": "AMZN",
+            "value": -7511.549835205079
+          },
+          {
+            "label": "GOOGL",
+            "value": -4813.060119628909
+          },
+          {
+            "label": "Put",
+            "value": 0.0
+          },
+          {
+            "label": "MES",
+            "value": 11701.124999999996
+          },
+          {
+            "label": "费用",
+            "value": -7.5
+          }
+        ],
+        "path": [
+          {
+            "day": 0,
+            "nav": 199992.5,
+            "cash": 44488.502197265625,
+            "securities_cash": 29488.502197265625,
+            "futures_cash": 15000.0,
+            "transfer": 0.0,
+            "variation": -0.0,
+            "futures_before_transfer": 15000.0,
+            "futures_initial": 8626.92,
+            "futures_maintenance": 7842.66,
+            "put_price": 10.37,
+            "prices": {
+              "VOO": 710.47998046875,
+              "AMZN": 250.38499450683594,
+              "GOOGL": 343.7900085449219
+            },
+            "future": 7800.75
+          },
+          {
+            "day": 10,
+            "nav": 196606.6901123047,
+            "cash": 49168.95219726564,
+            "securities_cash": 29488.502197265625,
+            "futures_cash": 19680.45000000001,
+            "transfer": 0.0,
+            "variation": 4680.45000000001,
+            "futures_before_transfer": 19680.45000000001,
+            "futures_initial": 8626.92,
+            "futures_maintenance": 7842.66,
+            "put_price": 25.13916996034289,
+            "prices": {
+              "VOO": 682.06078125,
+              "AMZN": 232.8580448913574,
+              "GOOGL": 326.60050811767576
+            },
+            "future": 7488.719999999999
+          },
+          {
+            "day": 20,
+            "nav": 193878.6301940918,
+            "cash": 53849.40219726562,
+            "securities_cash": 29488.502197265625,
+            "futures_cash": 24360.899999999994,
+            "transfer": 0.0,
+            "variation": 4680.4499999999825,
+            "futures_before_transfer": 24360.899999999994,
+            "futures_initial": 8626.92,
+            "futures_maintenance": 7842.66,
+            "put_price": 42.663392690983564,
+            "prices": {
+              "VOO": 653.64158203125,
+              "AMZN": 220.33879516601561,
+              "GOOGL": 305.9731076049805
+            },
+            "future": 7176.6900000000005
+          },
+          {
+            "day": 30,
+            "nav": 192264.21524047852,
+            "cash": 56189.627197265625,
+            "securities_cash": 29488.502197265625,
+            "futures_cash": 26701.125,
+            "transfer": 0.0,
+            "variation": 2340.225000000005,
+            "futures_before_transfer": 26701.125,
+            "futures_initial": 8626.92,
+            "futures_maintenance": 7842.66,
+            "put_price": 52.60993079649092,
+            "prices": {
+              "VOO": 639.431982421875,
+              "AMZN": 212.82724533081054,
+              "GOOGL": 295.6594073486328
+            },
+            "future": 7020.675
+          }
+        ],
+        "securities_initial": 68037.29402160645,
+        "securities_maintenance": 34018.64701080322,
+        "securities_scan": 15935.164329528809,
+        "futures_initial": 8626.92,
+        "futures_maintenance": 7842.66,
+        "min_total_cash": 44488.502197265625,
+        "cash_after_futures_reserve": 47562.70719726563,
+        "notes": [
+          "情景幅度与增量费用为设定；先建立方案，再经历所选30日价格路径。",
+          "普通保证金使用公开规则示例；风险扫描为证券分组压力加期货维持要求，不是券商PM预估。"
+        ]
+      },
+      "D": {
+        "pnl": -15206.416679872396,
+        "ending_nav": 184793.5833201276,
+        "cash": 43458.002197265625,
+        "initial_margin": 68037.29402160645,
+        "maintenance_margin": 24882.847450256348,
+        "margin_scan": 11523.899791990405,
+        "peak_transfer": 0.0,
+        "contributions": [
+          {
+            "label": "VOO",
+            "value": -7104.799804687502
+          },
+          {
+            "label": "AMZN",
+            "value": -7511.549835205079
+          },
+          {
+            "label": "GOOGL",
+            "value": -4813.060119628909
+          },
+          {
+            "label": "Put",
+            "value": 4223.993079649093
+          },
+          {
+            "label": "MES",
+            "value": 0.0
+          },
+          {
+            "label": "费用",
+            "value": -1.0
+          }
+        ],
+        "path": [
+          {
+            "day": 0,
+            "nav": 199999.0,
+            "cash": 43458.002197265625,
+            "securities_cash": 43458.002197265625,
+            "futures_cash": 0.0,
+            "transfer": 0.0,
+            "variation": 0.0,
+            "futures_before_transfer": 0.0,
+            "futures_initial": 0.0,
+            "futures_maintenance": 0.0,
+            "put_price": 10.37,
+            "prices": {
+              "VOO": 710.47998046875,
+              "AMZN": 250.38499450683594,
+              "GOOGL": 343.7900085449219
+            },
+            "future": 7800.75
+          },
+          {
+            "day": 10,
+            "nav": 193409.657108339,
+            "cash": 43458.002197265625,
+            "securities_cash": 43458.002197265625,
+            "futures_cash": 0.0,
+            "transfer": 0.0,
+            "variation": -0.0,
+            "futures_before_transfer": 0.0,
+            "futures_initial": 0.0,
+            "futures_maintenance": 0.0,
+            "put_price": 25.13916996034289,
+            "prices": {
+              "VOO": 682.06078125,
+              "AMZN": 232.8580448913574,
+              "GOOGL": 326.60050811767576
+            },
+            "future": 7488.719999999999
+          },
+          {
+            "day": 20,
+            "nav": 187753.56946319016,
+            "cash": 43458.002197265625,
+            "securities_cash": 43458.002197265625,
+            "futures_cash": 0.0,
+            "transfer": 0.0,
+            "variation": -0.0,
+            "futures_before_transfer": 0.0,
+            "futures_initial": 0.0,
+            "futures_maintenance": 0.0,
+            "put_price": 42.663392690983564,
+            "prices": {
+              "VOO": 653.64158203125,
+              "AMZN": 220.33879516601561,
+              "GOOGL": 305.9731076049805
+            },
+            "future": 7176.6900000000005
+          },
+          {
+            "day": 30,
+            "nav": 184793.5833201276,
+            "cash": 43458.002197265625,
+            "securities_cash": 43458.002197265625,
+            "futures_cash": 0.0,
+            "transfer": 0.0,
+            "variation": -0.0,
+            "futures_before_transfer": 0.0,
+            "futures_initial": 0.0,
+            "futures_maintenance": 0.0,
+            "put_price": 52.60993079649092,
+            "prices": {
+              "VOO": 639.431982421875,
+              "AMZN": 212.82724533081054,
+              "GOOGL": 295.6594073486328
+            },
+            "future": 7020.675
+          }
+        ],
+        "securities_initial": 68037.29402160645,
+        "securities_maintenance": 24882.847450256348,
+        "securities_scan": 11523.899791990405,
+        "futures_initial": 0.0,
+        "futures_maintenance": 0.0,
+        "min_total_cash": 43458.002197265625,
+        "cash_after_futures_reserve": 43458.002197265625,
+        "notes": [
+          "情景幅度与增量费用为设定；先建立方案，再经历所选30日价格路径。",
+          "普通保证金使用公开规则示例；风险扫描为证券分组压力加期货维持要求，不是券商PM预估。"
+        ]
+      },
+      "E": {
+        "pnl": -7410.666679872399,
+        "ending_nav": 192589.3333201276,
+        "cash": 51253.752197265625,
+        "initial_margin": 73788.57402160644,
+        "maintenance_margin": 30111.287450256346,
+        "margin_scan": 16752.339791990406,
+        "peak_transfer": 0.0,
+        "contributions": [
+          {
+            "label": "VOO",
+            "value": -7104.799804687502
+          },
+          {
+            "label": "AMZN",
+            "value": -7511.549835205079
+          },
+          {
+            "label": "GOOGL",
+            "value": -4813.060119628909
+          },
+          {
+            "label": "Put",
+            "value": 4223.993079649093
+          },
+          {
+            "label": "MES",
+            "value": 7800.749999999998
+          },
+          {
+            "label": "费用",
+            "value": -6.0
+          }
+        ],
+        "path": [
+          {
+            "day": 0,
+            "nav": 199994.0,
+            "cash": 43453.002197265625,
+            "securities_cash": 33453.002197265625,
+            "futures_cash": 10000.0,
+            "transfer": 0.0,
+            "variation": -0.0,
+            "futures_before_transfer": 10000.0,
+            "futures_initial": 5751.28,
+            "futures_maintenance": 5228.44,
+            "put_price": 10.37,
+            "prices": {
+              "VOO": 710.47998046875,
+              "AMZN": 250.38499450683594,
+              "GOOGL": 343.7900085449219
+            },
+            "future": 7800.75
+          },
+          {
+            "day": 10,
+            "nav": 196524.95710833897,
+            "cash": 46573.30219726563,
+            "securities_cash": 33453.002197265625,
+            "futures_cash": 13120.300000000007,
+            "transfer": 0.0,
+            "variation": 3120.3000000000065,
+            "futures_before_transfer": 13120.300000000007,
+            "futures_initial": 5751.28,
+            "futures_maintenance": 5228.44,
+            "put_price": 25.13916996034289,
+            "prices": {
+              "VOO": 682.06078125,
+              "AMZN": 232.8580448913574,
+              "GOOGL": 326.60050811767576
+            },
+            "future": 7488.719999999999
+          },
+          {
+            "day": 20,
+            "nav": 193989.16946319013,
+            "cash": 49693.602197265616,
+            "securities_cash": 33453.002197265625,
+            "futures_cash": 16240.599999999995,
+            "transfer": 0.0,
+            "variation": 3120.2999999999884,
+            "futures_before_transfer": 16240.599999999995,
+            "futures_initial": 5751.28,
+            "futures_maintenance": 5228.44,
+            "put_price": 42.663392690983564,
+            "prices": {
+              "VOO": 653.64158203125,
+              "AMZN": 220.33879516601561,
+              "GOOGL": 305.9731076049805
+            },
+            "future": 7176.6900000000005
+          },
+          {
+            "day": 30,
+            "nav": 192589.3333201276,
+            "cash": 51253.752197265625,
+            "securities_cash": 33453.002197265625,
+            "futures_cash": 17800.75,
+            "transfer": 0.0,
+            "variation": 1560.1500000000033,
+            "futures_before_transfer": 17800.75,
+            "futures_initial": 5751.28,
+            "futures_maintenance": 5228.44,
+            "put_price": 52.60993079649092,
+            "prices": {
+              "VOO": 639.431982421875,
+              "AMZN": 212.82724533081054,
+              "GOOGL": 295.6594073486328
+            },
+            "future": 7020.675
+          }
+        ],
+        "securities_initial": 68037.29402160645,
+        "securities_maintenance": 24882.847450256348,
+        "securities_scan": 11523.899791990405,
+        "futures_initial": 5751.28,
+        "futures_maintenance": 5228.44,
+        "min_total_cash": 43453.002197265625,
+        "cash_after_futures_reserve": 45502.472197265626,
+        "notes": [
+          "情景幅度与增量费用为设定；先建立方案，再经历所选30日价格路径。",
+          "普通保证金使用公开规则示例；风险扫描为证券分组压力加期货维持要求，不是券商PM预估。"
+        ]
+      }
+    },
+    "market_up": {
+      "A": {
+        "pnl": 19930.179748535153,
+        "ending_nav": 219930.17974853516,
+        "cash": 44496.002197265625,
+        "initial_margin": 87717.08877563477,
+        "maintenance_margin": 43858.54438781738,
+        "margin_scan": 20844.430783081054,
+        "peak_transfer": 0.0,
+        "contributions": [
+          {
+            "label": "VOO",
+            "value": 7104.799804687502
+          },
+          {
+            "label": "AMZN",
+            "value": 8012.319824218741
+          },
+          {
+            "label": "GOOGL",
+            "value": 4813.060119628909
+          },
+          {
+            "label": "Put",
+            "value": -0.0
+          },
+          {
+            "label": "MES",
+            "value": 0.0
+          },
+          {
+            "label": "费用",
+            "value": -0.0
+          }
+        ],
+        "path": [
+          {
+            "day": 0,
+            "nav": 200000.0,
+            "cash": 44496.002197265625,
+            "securities_cash": 44496.002197265625,
+            "futures_cash": 0.0,
+            "transfer": 0.0,
+            "variation": 0.0,
+            "futures_before_transfer": 0.0,
+            "futures_initial": 0.0,
+            "futures_maintenance": 0.0,
+            "put_price": 10.37,
+            "prices": {
+              "VOO": 710.47998046875,
+              "AMZN": 250.38499450683594,
+              "GOOGL": 343.7900085449219
+            },
+            "future": 7800.75
+          },
+          {
+            "day": 10,
+            "nav": 207565.48989868164,
+            "cash": 44496.002197265625,
+            "securities_cash": 44496.002197265625,
+            "futures_cash": 0.0,
+            "transfer": 0.0,
+            "variation": 0.0,
+            "futures_before_transfer": 0.0,
+            "futures_initial": 0.0,
+            "futures_maintenance": 0.0,
+            "put_price": 2.6202751772297224,
+            "prices": {
+              "VOO": 738.8991796875,
+              "AMZN": 265.4080941772461,
+              "GOOGL": 360.979508972168
+            },
+            "future": 8112.780000000001
+          },
+          {
+            "day": 20,
+            "nav": 213919.72982788086,
+            "cash": 44496.002197265625,
+            "securities_cash": 44496.002197265625,
+            "futures_cash": 0.0,
+            "transfer": 0.0,
+            "variation": 0.0,
+            "futures_before_transfer": 0.0,
+            "futures_initial": 0.0,
+            "futures_maintenance": 0.0,
+            "put_price": 0.5346116810102418,
+            "prices": {
+              "VOO": 760.2135791015626,
+              "AMZN": 277.9273439025879,
+              "GOOGL": 378.1690093994141
+            },
+            "future": 8346.8025
+          },
+          {
+            "day": 30,
+            "nav": 219930.17974853516,
+            "cash": 44496.002197265625,
+            "securities_cash": 44496.002197265625,
+            "futures_cash": 0.0,
+            "transfer": 0.0,
+            "variation": 0.0,
+            "futures_before_transfer": 0.0,
+            "futures_initial": 0.0,
+            "futures_maintenance": 0.0,
+            "put_price": 0.04321359532734514,
+            "prices": {
+              "VOO": 781.527978515625,
+              "AMZN": 290.44659362792964,
+              "GOOGL": 391.92060974121097
+            },
+            "future": 8580.825
+          }
+        ],
+        "securities_initial": 87717.08877563477,
+        "securities_maintenance": 43858.54438781738,
+        "securities_scan": 20844.430783081054,
+        "futures_initial": 0.0,
+        "futures_maintenance": 0.0,
+        "min_total_cash": 44496.002197265625,
+        "cash_after_futures_reserve": 44496.002197265625,
+        "notes": [
+          "情景幅度与增量费用为设定；先建立方案，再经历所选30日价格路径。",
+          "普通保证金使用公开规则示例；风险扫描为证券分组压力加期货维持要求，不是券商PM预估。"
+        ]
+      },
+      "B": {
+        "pnl": 17518.649688720696,
+        "ending_nav": 217518.6496887207,
+        "cash": 61680.50262451172,
+        "initial_margin": 77919.07353210449,
+        "maintenance_margin": 38959.536766052246,
+        "margin_scan": 17905.026210021973,
+        "peak_transfer": 0.0,
+        "contributions": [
+          {
+            "label": "VOO",
+            "value": 7104.799804687502
+          },
+          {
+            "label": "AMZN",
+            "value": 8012.319824218741
+          },
+          {
+            "label": "GOOGL",
+            "value": 2406.5300598144545
+          },
+          {
+            "label": "Put",
+            "value": -0.0
+          },
+          {
+            "label": "MES",
+            "value": 0.0
+          },
+          {
+            "label": "费用",
+            "value": -5.0
+          }
+        ],
+        "path": [
+          {
+            "day": 0,
+            "nav": 199995.0,
+            "cash": 61680.50262451172,
+            "securities_cash": 61680.50262451172,
+            "futures_cash": 0.0,
+            "transfer": 0.0,
+            "variation": 0.0,
+            "futures_before_transfer": 0.0,
+            "futures_initial": 0.0,
+            "futures_maintenance": 0.0,
+            "put_price": 10.37,
+            "prices": {
+              "VOO": 710.47998046875,
+              "AMZN": 250.38499450683594,
+              "GOOGL": 343.7900085449219
+            },
+            "future": 7800.75
+          },
+          {
+            "day": 10,
+            "nav": 206701.01487731934,
+            "cash": 61680.50262451172,
+            "securities_cash": 61680.50262451172,
+            "futures_cash": 0.0,
+            "transfer": 0.0,
+            "variation": 0.0,
+            "futures_before_transfer": 0.0,
+            "futures_initial": 0.0,
+            "futures_maintenance": 0.0,
+            "put_price": 2.6202751772297224,
+            "prices": {
+              "VOO": 738.8991796875,
+              "AMZN": 265.4080941772461,
+              "GOOGL": 360.979508972168
+            },
+            "future": 8112.780000000001
+          },
+          {
+            "day": 20,
+            "nav": 212195.77978515625,
+            "cash": 61680.50262451172,
+            "securities_cash": 61680.50262451172,
+            "futures_cash": 0.0,
+            "transfer": 0.0,
+            "variation": 0.0,
+            "futures_before_transfer": 0.0,
+            "futures_initial": 0.0,
+            "futures_maintenance": 0.0,
+            "put_price": 0.5346116810102418,
+            "prices": {
+              "VOO": 760.2135791015626,
+              "AMZN": 277.9273439025879,
+              "GOOGL": 378.1690093994141
+            },
+            "future": 8346.8025
+          },
+          {
+            "day": 30,
+            "nav": 217518.6496887207,
+            "cash": 61680.50262451172,
+            "securities_cash": 61680.50262451172,
+            "futures_cash": 0.0,
+            "transfer": 0.0,
+            "variation": 0.0,
+            "futures_before_transfer": 0.0,
+            "futures_initial": 0.0,
+            "futures_maintenance": 0.0,
+            "put_price": 0.04321359532734514,
+            "prices": {
+              "VOO": 781.527978515625,
+              "AMZN": 290.44659362792964,
+              "GOOGL": 391.92060974121097
+            },
+            "future": 8580.825
+          }
+        ],
+        "securities_initial": 77919.07353210449,
+        "securities_maintenance": 38959.536766052246,
+        "securities_scan": 17905.026210021973,
+        "futures_initial": 0.0,
+        "futures_maintenance": 0.0,
+        "min_total_cash": 61680.50262451172,
+        "cash_after_futures_reserve": 61680.50262451172,
+        "notes": [
+          "情景幅度与增量费用为设定；先建立方案，再经历所选30日价格路径。",
+          "普通保证金使用公开规则示例；风险扫描为证券分组压力加期货维持要求，不是券商PM预估。"
+        ]
+      },
+      "C": {
+        "pnl": 8221.554748535142,
+        "ending_nav": 208221.55474853516,
+        "cash": 32787.37719726561,
+        "initial_margin": 96344.00877563476,
+        "maintenance_margin": 51701.204387817386,
+        "margin_scan": 28687.090783081054,
+        "peak_transfer": 5328.045000000011,
+        "contributions": [
+          {
+            "label": "VOO",
+            "value": 7104.799804687502
+          },
+          {
+            "label": "AMZN",
+            "value": 8012.319824218741
+          },
+          {
+            "label": "GOOGL",
+            "value": 4813.060119628909
+          },
+          {
+            "label": "Put",
+            "value": -0.0
+          },
+          {
+            "label": "MES",
+            "value": -11701.125000000011
+          },
+          {
+            "label": "费用",
+            "value": -7.5
+          }
+        ],
+        "path": [
+          {
+            "day": 0,
+            "nav": 199992.5,
+            "cash": 44488.502197265625,
+            "securities_cash": 29488.502197265625,
+            "futures_cash": 15000.0,
+            "transfer": 0.0,
+            "variation": -0.0,
+            "futures_before_transfer": 15000.0,
+            "futures_initial": 8626.92,
+            "futures_maintenance": 7842.66,
+            "put_price": 10.37,
+            "prices": {
+              "VOO": 710.47998046875,
+              "AMZN": 250.38499450683594,
+              "GOOGL": 343.7900085449219
+            },
+            "future": 7800.75
+          },
+          {
+            "day": 10,
+            "nav": 202877.53989868163,
+            "cash": 39808.05219726561,
+            "securities_cash": 29488.502197265625,
+            "futures_cash": 10319.54999999999,
+            "transfer": 0.0,
+            "variation": -4680.45000000001,
+            "futures_before_transfer": 10319.54999999999,
+            "futures_initial": 8626.92,
+            "futures_maintenance": 7842.66,
+            "put_price": 2.6202751772297224,
+            "prices": {
+              "VOO": 738.8991796875,
+              "AMZN": 265.4080941772461,
+              "GOOGL": 360.979508972168
+            },
+            "future": 8112.780000000001
+          },
+          {
+            "day": 20,
+            "nav": 205721.44232788085,
+            "cash": 36297.71469726563,
+            "securities_cash": 27670.79469726563,
+            "futures_cash": 8626.92,
+            "transfer": 1817.7074999999968,
+            "variation": -3510.337499999987,
+            "futures_before_transfer": 6809.212500000003,
+            "futures_initial": 8626.92,
+            "futures_maintenance": 7842.66,
+            "put_price": 0.5346116810102418,
+            "prices": {
+              "VOO": 760.2135791015626,
+              "AMZN": 277.9273439025879,
+              "GOOGL": 378.1690093994141
+            },
+            "future": 8346.8025
+          },
+          {
+            "day": 30,
+            "nav": 208221.55474853516,
+            "cash": 32787.37719726561,
+            "securities_cash": 24160.457197265612,
+            "futures_cash": 8626.92,
+            "transfer": 3510.337500000014,
+            "variation": -3510.337500000014,
+            "futures_before_transfer": 5116.582499999986,
+            "futures_initial": 8626.92,
+            "futures_maintenance": 7842.66,
+            "put_price": 0.04321359532734514,
+            "prices": {
+              "VOO": 781.527978515625,
+              "AMZN": 290.44659362792964,
+              "GOOGL": 391.92060974121097
+            },
+            "future": 8580.825
+          }
+        ],
+        "securities_initial": 87717.08877563477,
+        "securities_maintenance": 43858.54438781738,
+        "securities_scan": 20844.430783081054,
+        "futures_initial": 8626.92,
+        "futures_maintenance": 7842.66,
+        "min_total_cash": 32787.37719726561,
+        "cash_after_futures_reserve": 24160.457197265612,
+        "notes": [
+          "情景幅度与增量费用为设定；先建立方案，再经历所选30日价格路径。",
+          "普通保证金使用公开规则示例；风险扫描为证券分组压力加期货维持要求，不是券商PM预估。"
+        ]
+      },
+      "D": {
+        "pnl": 18896.501108067885,
+        "ending_nav": 218896.5011080679,
+        "cash": 43458.002197265625,
+        "initial_margin": 87717.08877563477,
+        "maintenance_margin": 40823.14277648926,
+        "margin_scan": 20848.748704443493,
+        "peak_transfer": 0.0,
+        "contributions": [
+          {
+            "label": "VOO",
+            "value": 7104.799804687502
+          },
+          {
+            "label": "AMZN",
+            "value": 8012.319824218741
+          },
+          {
+            "label": "GOOGL",
+            "value": 4813.060119628909
+          },
+          {
+            "label": "Put",
+            "value": -1032.6786404672655
+          },
+          {
+            "label": "MES",
+            "value": 0.0
+          },
+          {
+            "label": "费用",
+            "value": -1.0
+          }
+        ],
+        "path": [
+          {
+            "day": 0,
+            "nav": 199999.0,
+            "cash": 43458.002197265625,
+            "securities_cash": 43458.002197265625,
+            "futures_cash": 0.0,
+            "transfer": 0.0,
+            "variation": 0.0,
+            "futures_before_transfer": 0.0,
+            "futures_initial": 0.0,
+            "futures_maintenance": 0.0,
+            "put_price": 10.37,
+            "prices": {
+              "VOO": 710.47998046875,
+              "AMZN": 250.38499450683594,
+              "GOOGL": 343.7900085449219
+            },
+            "future": 7800.75
+          },
+          {
+            "day": 10,
+            "nav": 206789.51741640462,
+            "cash": 43458.002197265625,
+            "securities_cash": 43458.002197265625,
+            "futures_cash": 0.0,
+            "transfer": 0.0,
+            "variation": 0.0,
+            "futures_before_transfer": 0.0,
+            "futures_initial": 0.0,
+            "futures_maintenance": 0.0,
+            "put_price": 2.6202751772297224,
+            "prices": {
+              "VOO": 738.8991796875,
+              "AMZN": 265.4080941772461,
+              "GOOGL": 360.979508972168
+            },
+            "future": 8112.780000000001
+          },
+          {
+            "day": 20,
+            "nav": 212935.1909959819,
+            "cash": 43458.002197265625,
+            "securities_cash": 43458.002197265625,
+            "futures_cash": 0.0,
+            "transfer": 0.0,
+            "variation": 0.0,
+            "futures_before_transfer": 0.0,
+            "futures_initial": 0.0,
+            "futures_maintenance": 0.0,
+            "put_price": 0.5346116810102418,
+            "prices": {
+              "VOO": 760.2135791015626,
+              "AMZN": 277.9273439025879,
+              "GOOGL": 378.1690093994141
+            },
+            "future": 8346.8025
+          },
+          {
+            "day": 30,
+            "nav": 218896.5011080679,
+            "cash": 43458.002197265625,
+            "securities_cash": 43458.002197265625,
+            "futures_cash": 0.0,
+            "transfer": 0.0,
+            "variation": 0.0,
+            "futures_before_transfer": 0.0,
+            "futures_initial": 0.0,
+            "futures_maintenance": 0.0,
+            "put_price": 0.04321359532734514,
+            "prices": {
+              "VOO": 781.527978515625,
+              "AMZN": 290.44659362792964,
+              "GOOGL": 391.92060974121097
+            },
+            "future": 8580.825
+          }
+        ],
+        "securities_initial": 87717.08877563477,
+        "securities_maintenance": 40823.14277648926,
+        "securities_scan": 20848.748704443493,
+        "futures_initial": 0.0,
+        "futures_maintenance": 0.0,
+        "min_total_cash": 43458.002197265625,
+        "cash_after_futures_reserve": 43458.002197265625,
+        "notes": [
+          "情景幅度与增量费用为设定；先建立方案，再经历所选30日价格路径。",
+          "普通保证金使用公开规则示例；风险扫描为证券分组压力加期货维持要求，不是券商PM预估。"
+        ]
+      },
+      "E": {
+        "pnl": 11090.75110806788,
+        "ending_nav": 211090.7511080679,
+        "cash": 35652.25219726562,
+        "initial_margin": 93468.36877563476,
+        "maintenance_margin": 46051.58277648926,
+        "margin_scan": 26077.18870444349,
+        "peak_transfer": 3552.030000000007,
+        "contributions": [
+          {
+            "label": "VOO",
+            "value": 7104.799804687502
+          },
+          {
+            "label": "AMZN",
+            "value": 8012.319824218741
+          },
+          {
+            "label": "GOOGL",
+            "value": 4813.060119628909
+          },
+          {
+            "label": "Put",
+            "value": -1032.6786404672655
+          },
+          {
+            "label": "MES",
+            "value": -7800.750000000007
+          },
+          {
+            "label": "费用",
+            "value": -6.0
+          }
+        ],
+        "path": [
+          {
+            "day": 0,
+            "nav": 199994.0,
+            "cash": 43453.002197265625,
+            "securities_cash": 33453.002197265625,
+            "futures_cash": 10000.0,
+            "transfer": 0.0,
+            "variation": -0.0,
+            "futures_before_transfer": 10000.0,
+            "futures_initial": 5751.28,
+            "futures_maintenance": 5228.44,
+            "put_price": 10.37,
+            "prices": {
+              "VOO": 710.47998046875,
+              "AMZN": 250.38499450683594,
+              "GOOGL": 343.7900085449219
+            },
+            "future": 7800.75
+          },
+          {
+            "day": 10,
+            "nav": 203664.21741640463,
+            "cash": 40332.70219726562,
+            "securities_cash": 33453.002197265625,
+            "futures_cash": 6879.699999999993,
+            "transfer": 0.0,
+            "variation": -3120.3000000000065,
+            "futures_before_transfer": 6879.699999999993,
+            "futures_initial": 5751.28,
+            "futures_maintenance": 5228.44,
+            "put_price": 2.6202751772297224,
+            "prices": {
+              "VOO": 738.8991796875,
+              "AMZN": 265.4080941772461,
+              "GOOGL": 360.979508972168
+            },
+            "future": 8112.780000000001
+          },
+          {
+            "day": 20,
+            "nav": 207469.6659959819,
+            "cash": 37992.47719726563,
+            "securities_cash": 32241.19719726563,
+            "futures_cash": 5751.28,
+            "transfer": 1211.8049999999976,
+            "variation": -2340.2249999999913,
+            "futures_before_transfer": 4539.475000000002,
+            "futures_initial": 5751.28,
+            "futures_maintenance": 5228.44,
+            "put_price": 0.5346116810102418,
+            "prices": {
+              "VOO": 760.2135791015626,
+              "AMZN": 277.9273439025879,
+              "GOOGL": 378.1690093994141
+            },
+            "future": 8346.8025
+          },
+          {
+            "day": 30,
+            "nav": 211090.7511080679,
+            "cash": 35652.25219726562,
+            "securities_cash": 29900.97219726562,
+            "futures_cash": 5751.28,
+            "transfer": 2340.2250000000095,
+            "variation": -2340.2250000000095,
+            "futures_before_transfer": 3411.0549999999903,
+            "futures_initial": 5751.28,
+            "futures_maintenance": 5228.44,
+            "put_price": 0.04321359532734514,
+            "prices": {
+              "VOO": 781.527978515625,
+              "AMZN": 290.44659362792964,
+              "GOOGL": 391.92060974121097
+            },
+            "future": 8580.825
+          }
+        ],
+        "securities_initial": 87717.08877563477,
+        "securities_maintenance": 40823.14277648926,
+        "securities_scan": 20848.748704443493,
+        "futures_initial": 5751.28,
+        "futures_maintenance": 5228.44,
+        "min_total_cash": 35652.25219726562,
+        "cash_after_futures_reserve": 29900.97219726562,
+        "notes": [
+          "情景幅度与增量费用为设定；先建立方案，再经历所选30日价格路径。",
+          "普通保证金使用公开规则示例；风险扫描为证券分组压力加期货维持要求，不是券商PM预估。"
+        ]
+      }
+    },
+    "company_down": {
+      "A": {
+        "pnl": -7593.2102355956995,
+        "ending_nav": 192406.7897644043,
+        "cash": 44496.002197265625,
+        "initial_margin": 73955.39378356934,
+        "maintenance_margin": 36977.69689178467,
+        "margin_scan": 17213.25827178955,
+        "peak_transfer": 0.0,
+        "contributions": [
+          {
+            "label": "VOO",
+            "value": 0.0
+          },
+          {
+            "label": "AMZN",
+            "value": 1001.5399780273469
+          },
+          {
+            "label": "GOOGL",
+            "value": -8594.750213623047
+          },
+          {
+            "label": "Put",
+            "value": -0.0
+          },
+          {
+            "label": "MES",
+            "value": 0.0
+          },
+          {
+            "label": "费用",
+            "value": -0.0
+          }
+        ],
+        "path": [
+          {
+            "day": 0,
+            "nav": 200000.0,
+            "cash": 44496.002197265625,
+            "securities_cash": 44496.002197265625,
+            "futures_cash": 0.0,
+            "transfer": 0.0,
+            "variation": 0.0,
+            "futures_before_transfer": 0.0,
+            "futures_initial": 0.0,
+            "futures_maintenance": 0.0,
+            "put_price": 10.37,
+            "prices": {
+              "VOO": 710.47998046875,
+              "AMZN": 250.38499450683594,
+              "GOOGL": 343.7900085449219
+            },
+            "future": 7800.75
+          },
+          {
+            "day": 10,
+            "nav": 194850.0799560547,
+            "cash": 44496.002197265625,
+            "securities_cash": 44496.002197265625,
+            "futures_cash": 0.0,
+            "transfer": 0.0,
+            "variation": -0.0,
+            "futures_before_transfer": 0.0,
+            "futures_initial": 0.0,
+            "futures_maintenance": 0.0,
+            "put_price": 13.37043102758017,
+            "prices": {
+              "VOO": 703.3751806640624,
+              "AMZN": 245.3772946166992,
+              "GOOGL": 309.4110076904297
+            },
+            "future": 7722.7425
+          },
+          {
+            "day": 20,
+            "nav": 194312.54983520508,
+            "cash": 44496.002197265625,
+            "securities_cash": 44496.002197265625,
+            "futures_cash": 0.0,
+            "transfer": 0.0,
+            "variation": 0.0,
+            "futures_before_transfer": 0.0,
+            "futures_initial": 0.0,
+            "futures_maintenance": 0.0,
+            "put_price": 9.889637927434903,
+            "prices": {
+              "VOO": 710.47998046875,
+              "AMZN": 252.8888444519043,
+              "GOOGL": 281.907807006836
+            },
+            "future": 7800.75
+          },
+          {
+            "day": 30,
+            "nav": 192406.7897644043,
+            "cash": 44496.002197265625,
+            "securities_cash": 44496.002197265625,
+            "futures_cash": 0.0,
+            "transfer": 0.0,
+            "variation": 0.0,
+            "futures_before_transfer": 0.0,
+            "futures_initial": 0.0,
+            "futures_maintenance": 0.0,
+            "put_price": 7.081724115380673,
+            "prices": {
+              "VOO": 710.47998046875,
+              "AMZN": 255.39269439697267,
+              "GOOGL": 257.8425064086914
+            },
+            "future": 7800.75
+          }
+        ],
+        "securities_initial": 73955.39378356934,
+        "securities_maintenance": 36977.69689178467,
+        "securities_scan": 17213.25827178955,
+        "futures_initial": 0.0,
+        "futures_maintenance": 0.0,
+        "min_total_cash": 44496.002197265625,
+        "cash_after_futures_reserve": 44496.002197265625,
+        "notes": [
+          "情景幅度与增量费用为设定；先建立方案，再经历所选30日价格路径。",
+          "普通保证金使用公开规则示例；风险扫描为证券分组压力加期货维持要求，不是券商PM预估。"
+        ]
+      },
+      "B": {
+        "pnl": -3300.8351287841765,
+        "ending_nav": 196699.16487121582,
+        "cash": 61680.50262451172,
+        "initial_margin": 67509.33112335205,
+        "maintenance_margin": 33754.665561676025,
+        "margin_scan": 15279.439473724366,
+        "peak_transfer": 0.0,
+        "contributions": [
+          {
+            "label": "VOO",
+            "value": 0.0
+          },
+          {
+            "label": "AMZN",
+            "value": 1001.5399780273469
+          },
+          {
+            "label": "GOOGL",
+            "value": -4297.375106811523
+          },
+          {
+            "label": "Put",
+            "value": -0.0
+          },
+          {
+            "label": "MES",
+            "value": 0.0
+          },
+          {
+            "label": "费用",
+            "value": -5.0
+          }
+        ],
+        "path": [
+          {
+            "day": 0,
+            "nav": 199995.0,
+            "cash": 61680.50262451172,
+            "securities_cash": 61680.50262451172,
+            "futures_cash": 0.0,
+            "transfer": 0.0,
+            "variation": 0.0,
+            "futures_before_transfer": 0.0,
+            "futures_initial": 0.0,
+            "futures_maintenance": 0.0,
+            "put_price": 10.37,
+            "prices": {
+              "VOO": 710.47998046875,
+              "AMZN": 250.38499450683594,
+              "GOOGL": 343.7900085449219
+            },
+            "future": 7800.75
+          },
+          {
+            "day": 10,
+            "nav": 196564.0299987793,
+            "cash": 61680.50262451172,
+            "securities_cash": 61680.50262451172,
+            "futures_cash": 0.0,
+            "transfer": 0.0,
+            "variation": -0.0,
+            "futures_before_transfer": 0.0,
+            "futures_initial": 0.0,
+            "futures_maintenance": 0.0,
+            "put_price": 13.37043102758017,
+            "prices": {
+              "VOO": 703.3751806640624,
+              "AMZN": 245.3772946166992,
+              "GOOGL": 309.4110076904297
+            },
+            "future": 7722.7425
+          },
+          {
+            "day": 20,
+            "nav": 197401.65991210938,
+            "cash": 61680.50262451172,
+            "securities_cash": 61680.50262451172,
+            "futures_cash": 0.0,
+            "transfer": 0.0,
+            "variation": 0.0,
+            "futures_before_transfer": 0.0,
+            "futures_initial": 0.0,
+            "futures_maintenance": 0.0,
+            "put_price": 9.889637927434903,
+            "prices": {
+              "VOO": 710.47998046875,
+              "AMZN": 252.8888444519043,
+              "GOOGL": 281.907807006836
+            },
+            "future": 7800.75
+          },
+          {
+            "day": 30,
+            "nav": 196699.16487121582,
+            "cash": 61680.50262451172,
+            "securities_cash": 61680.50262451172,
+            "futures_cash": 0.0,
+            "transfer": 0.0,
+            "variation": 0.0,
+            "futures_before_transfer": 0.0,
+            "futures_initial": 0.0,
+            "futures_maintenance": 0.0,
+            "put_price": 7.081724115380673,
+            "prices": {
+              "VOO": 710.47998046875,
+              "AMZN": 255.39269439697267,
+              "GOOGL": 257.8425064086914
+            },
+            "future": 7800.75
+          }
+        ],
+        "securities_initial": 67509.33112335205,
+        "securities_maintenance": 33754.665561676025,
+        "securities_scan": 15279.439473724366,
+        "futures_initial": 0.0,
+        "futures_maintenance": 0.0,
+        "min_total_cash": 61680.50262451172,
+        "cash_after_futures_reserve": 61680.50262451172,
+        "notes": [
+          "情景幅度与增量费用为设定；先建立方案，再经历所选30日价格路径。",
+          "普通保证金使用公开规则示例；风险扫描为证券分组压力加期货维持要求，不是券商PM预估。"
+        ]
+      },
+      "C": {
+        "pnl": -7600.7102355956995,
+        "ending_nav": 192399.2897644043,
+        "cash": 44488.502197265625,
+        "initial_margin": 82582.31378356933,
+        "maintenance_margin": 44820.35689178467,
+        "margin_scan": 25055.91827178955,
+        "peak_transfer": 0.0,
+        "contributions": [
+          {
+            "label": "VOO",
+            "value": 0.0
+          },
+          {
+            "label": "AMZN",
+            "value": 1001.5399780273469
+          },
+          {
+            "label": "GOOGL",
+            "value": -8594.750213623047
+          },
+          {
+            "label": "Put",
+            "value": -0.0
+          },
+          {
+            "label": "MES",
+            "value": 0.0
+          },
+          {
+            "label": "费用",
+            "value": -7.5
+          }
+        ],
+        "path": [
+          {
+            "day": 0,
+            "nav": 199992.5,
+            "cash": 44488.502197265625,
+            "securities_cash": 29488.502197265625,
+            "futures_cash": 15000.0,
+            "transfer": 0.0,
+            "variation": -0.0,
+            "futures_before_transfer": 15000.0,
+            "futures_initial": 8626.92,
+            "futures_maintenance": 7842.66,
+            "put_price": 10.37,
+            "prices": {
+              "VOO": 710.47998046875,
+              "AMZN": 250.38499450683594,
+              "GOOGL": 343.7900085449219
+            },
+            "future": 7800.75
+          },
+          {
+            "day": 10,
+            "nav": 196012.69245605468,
+            "cash": 45658.61469726562,
+            "securities_cash": 29488.502197265625,
+            "futures_cash": 16170.112499999996,
+            "transfer": 0.0,
+            "variation": 1170.1124999999956,
+            "futures_before_transfer": 16170.112499999996,
+            "futures_initial": 8626.92,
+            "futures_maintenance": 7842.66,
+            "put_price": 13.37043102758017,
+            "prices": {
+              "VOO": 703.3751806640624,
+              "AMZN": 245.3772946166992,
+              "GOOGL": 309.4110076904297
+            },
+            "future": 7722.7425
+          },
+          {
+            "day": 20,
+            "nav": 194305.04983520508,
+            "cash": 44488.502197265625,
+            "securities_cash": 29488.502197265625,
+            "futures_cash": 15000.0,
+            "transfer": 0.0,
+            "variation": -1170.1124999999956,
+            "futures_before_transfer": 15000.0,
+            "futures_initial": 8626.92,
+            "futures_maintenance": 7842.66,
+            "put_price": 9.889637927434903,
+            "prices": {
+              "VOO": 710.47998046875,
+              "AMZN": 252.8888444519043,
+              "GOOGL": 281.907807006836
+            },
+            "future": 7800.75
+          },
+          {
+            "day": 30,
+            "nav": 192399.2897644043,
+            "cash": 44488.502197265625,
+            "securities_cash": 29488.502197265625,
+            "futures_cash": 15000.0,
+            "transfer": 0.0,
+            "variation": -0.0,
+            "futures_before_transfer": 15000.0,
+            "futures_initial": 8626.92,
+            "futures_maintenance": 7842.66,
+            "put_price": 7.081724115380673,
+            "prices": {
+              "VOO": 710.47998046875,
+              "AMZN": 255.39269439697267,
+              "GOOGL": 257.8425064086914
+            },
+            "future": 7800.75
+          }
+        ],
+        "securities_initial": 73955.39378356934,
+        "securities_maintenance": 36977.69689178467,
+        "securities_scan": 17213.25827178955,
+        "futures_initial": 8626.92,
+        "futures_maintenance": 7842.66,
+        "min_total_cash": 44488.502197265625,
+        "cash_after_futures_reserve": 35861.58219726563,
+        "notes": [
+          "情景幅度与增量费用为设定；先建立方案，再经历所选30日价格路径。",
+          "普通保证金使用公开规则示例；风险扫描为证券分组压力加期货维持要求，不是券商PM预估。"
+        ]
+      },
+      "D": {
+        "pnl": -7923.037824057633,
+        "ending_nav": 192076.96217594238,
+        "cash": 43458.002197265625,
+        "initial_margin": 73955.39378356934,
+        "maintenance_margin": 28613.695426940918,
+        "margin_scan": 14785.588886452624,
+        "peak_transfer": 0.0,
+        "contributions": [
+          {
+            "label": "VOO",
+            "value": 0.0
+          },
+          {
+            "label": "AMZN",
+            "value": 1001.5399780273469
+          },
+          {
+            "label": "GOOGL",
+            "value": -8594.750213623047
+          },
+          {
+            "label": "Put",
+            "value": -328.8275884619326
+          },
+          {
+            "label": "MES",
+            "value": 0.0
+          },
+          {
+            "label": "费用",
+            "value": -1.0
+          }
+        ],
+        "path": [
+          {
+            "day": 0,
+            "nav": 199999.0,
+            "cash": 43458.002197265625,
+            "securities_cash": 43458.002197265625,
+            "futures_cash": 0.0,
+            "transfer": 0.0,
+            "variation": 0.0,
+            "futures_before_transfer": 0.0,
+            "futures_initial": 0.0,
+            "futures_maintenance": 0.0,
+            "put_price": 10.37,
+            "prices": {
+              "VOO": 710.47998046875,
+              "AMZN": 250.38499450683594,
+              "GOOGL": 343.7900085449219
+            },
+            "future": 7800.75
+          },
+          {
+            "day": 10,
+            "nav": 195149.1230588127,
+            "cash": 43458.002197265625,
+            "securities_cash": 43458.002197265625,
+            "futures_cash": 0.0,
+            "transfer": 0.0,
+            "variation": -0.0,
+            "futures_before_transfer": 0.0,
+            "futures_initial": 0.0,
+            "futures_maintenance": 0.0,
+            "put_price": 13.37043102758017,
+            "prices": {
+              "VOO": 703.3751806640624,
+              "AMZN": 245.3772946166992,
+              "GOOGL": 309.4110076904297
+            },
+            "future": 7722.7425
+          },
+          {
+            "day": 20,
+            "nav": 194263.51362794856,
+            "cash": 43458.002197265625,
+            "securities_cash": 43458.002197265625,
+            "futures_cash": 0.0,
+            "transfer": 0.0,
+            "variation": 0.0,
+            "futures_before_transfer": 0.0,
+            "futures_initial": 0.0,
+            "futures_maintenance": 0.0,
+            "put_price": 9.889637927434903,
+            "prices": {
+              "VOO": 710.47998046875,
+              "AMZN": 252.8888444519043,
+              "GOOGL": 281.907807006836
+            },
+            "future": 7800.75
+          },
+          {
+            "day": 30,
+            "nav": 192076.96217594238,
+            "cash": 43458.002197265625,
+            "securities_cash": 43458.002197265625,
+            "futures_cash": 0.0,
+            "transfer": 0.0,
+            "variation": 0.0,
+            "futures_before_transfer": 0.0,
+            "futures_initial": 0.0,
+            "futures_maintenance": 0.0,
+            "put_price": 7.081724115380673,
+            "prices": {
+              "VOO": 710.47998046875,
+              "AMZN": 255.39269439697267,
+              "GOOGL": 257.8425064086914
+            },
+            "future": 7800.75
+          }
+        ],
+        "securities_initial": 73955.39378356934,
+        "securities_maintenance": 28613.695426940918,
+        "securities_scan": 14785.588886452624,
+        "futures_initial": 0.0,
+        "futures_maintenance": 0.0,
+        "min_total_cash": 43458.002197265625,
+        "cash_after_futures_reserve": 43458.002197265625,
+        "notes": [
+          "情景幅度与增量费用为设定；先建立方案，再经历所选30日价格路径。",
+          "普通保证金使用公开规则示例；风险扫描为证券分组压力加期货维持要求，不是券商PM预估。"
+        ]
+      },
+      "E": {
+        "pnl": -7928.037824057633,
+        "ending_nav": 192071.96217594238,
+        "cash": 43453.002197265625,
+        "initial_margin": 79706.67378356933,
+        "maintenance_margin": 33842.13542694092,
+        "margin_scan": 20014.028886452623,
+        "peak_transfer": 0.0,
+        "contributions": [
+          {
+            "label": "VOO",
+            "value": 0.0
+          },
+          {
+            "label": "AMZN",
+            "value": 1001.5399780273469
+          },
+          {
+            "label": "GOOGL",
+            "value": -8594.750213623047
+          },
+          {
+            "label": "Put",
+            "value": -328.8275884619326
+          },
+          {
+            "label": "MES",
+            "value": 0.0
+          },
+          {
+            "label": "费用",
+            "value": -6.0
+          }
+        ],
+        "path": [
+          {
+            "day": 0,
+            "nav": 199994.0,
+            "cash": 43453.002197265625,
+            "securities_cash": 33453.002197265625,
+            "futures_cash": 10000.0,
+            "transfer": 0.0,
+            "variation": -0.0,
+            "futures_before_transfer": 10000.0,
+            "futures_initial": 5751.28,
+            "futures_maintenance": 5228.44,
+            "put_price": 10.37,
+            "prices": {
+              "VOO": 710.47998046875,
+              "AMZN": 250.38499450683594,
+              "GOOGL": 343.7900085449219
+            },
+            "future": 7800.75
+          },
+          {
+            "day": 10,
+            "nav": 195924.1980588127,
+            "cash": 44233.07719726562,
+            "securities_cash": 33453.002197265625,
+            "futures_cash": 10780.074999999997,
+            "transfer": 0.0,
+            "variation": 780.0749999999971,
+            "futures_before_transfer": 10780.074999999997,
+            "futures_initial": 5751.28,
+            "futures_maintenance": 5228.44,
+            "put_price": 13.37043102758017,
+            "prices": {
+              "VOO": 703.3751806640624,
+              "AMZN": 245.3772946166992,
+              "GOOGL": 309.4110076904297
+            },
+            "future": 7722.7425
+          },
+          {
+            "day": 20,
+            "nav": 194258.51362794856,
+            "cash": 43453.002197265625,
+            "securities_cash": 33453.002197265625,
+            "futures_cash": 10000.0,
+            "transfer": 0.0,
+            "variation": -780.0749999999971,
+            "futures_before_transfer": 10000.0,
+            "futures_initial": 5751.28,
+            "futures_maintenance": 5228.44,
+            "put_price": 9.889637927434903,
+            "prices": {
+              "VOO": 710.47998046875,
+              "AMZN": 252.8888444519043,
+              "GOOGL": 281.907807006836
+            },
+            "future": 7800.75
+          },
+          {
+            "day": 30,
+            "nav": 192071.96217594238,
+            "cash": 43453.002197265625,
+            "securities_cash": 33453.002197265625,
+            "futures_cash": 10000.0,
+            "transfer": 0.0,
+            "variation": -0.0,
+            "futures_before_transfer": 10000.0,
+            "futures_initial": 5751.28,
+            "futures_maintenance": 5228.44,
+            "put_price": 7.081724115380673,
+            "prices": {
+              "VOO": 710.47998046875,
+              "AMZN": 255.39269439697267,
+              "GOOGL": 257.8425064086914
+            },
+            "future": 7800.75
+          }
+        ],
+        "securities_initial": 73955.39378356934,
+        "securities_maintenance": 28613.695426940918,
+        "securities_scan": 14785.588886452624,
+        "futures_initial": 5751.28,
+        "futures_maintenance": 5228.44,
+        "min_total_cash": 43453.002197265625,
+        "cash_after_futures_reserve": 37701.722197265626,
+        "notes": [
+          "情景幅度与增量费用为设定；先建立方案，再经历所选30日价格路径。",
+          "普通保证金使用公开规则示例；风险扫描为证券分组压力加期货维持要求，不是券商PM预估。"
+        ]
+      }
+    },
+    "rise_fall": {
+      "A": {
+        "pnl": -9965.089874267585,
+        "ending_nav": 190034.91012573242,
+        "cash": 44496.002197265625,
+        "initial_margin": 72769.4539642334,
+        "maintenance_margin": 36384.7269821167,
+        "margin_scan": 17106.14431915283,
+        "peak_transfer": 0.0,
+        "contributions": [
+          {
+            "label": "VOO",
+            "value": -3552.399902343757
+          },
+          {
+            "label": "AMZN",
+            "value": -4006.1599121093705
+          },
+          {
+            "label": "GOOGL",
+            "value": -2406.5300598144577
+          },
+          {
+            "label": "Put",
+            "value": 0.0
+          },
+          {
+            "label": "MES",
+            "value": 0.0
+          },
+          {
+            "label": "费用",
+            "value": -0.0
+          }
+        ],
+        "path": [
+          {
+            "day": 0,
+            "nav": 200000.0,
+            "cash": 44496.002197265625,
+            "securities_cash": 44496.002197265625,
+            "futures_cash": 0.0,
+            "transfer": 0.0,
+            "variation": 0.0,
+            "futures_before_transfer": 0.0,
+            "futures_initial": 0.0,
+            "futures_maintenance": 0.0,
+            "put_price": 10.37,
+            "prices": {
+              "VOO": 710.47998046875,
+              "AMZN": 250.38499450683594,
+              "GOOGL": 343.7900085449219
+            },
+            "future": 7800.75
+          },
+          {
+            "day": 10,
+            "nav": 219930.17974853516,
+            "cash": 44496.002197265625,
+            "securities_cash": 44496.002197265625,
+            "futures_cash": 0.0,
+            "transfer": 0.0,
+            "variation": 0.0,
+            "futures_before_transfer": 0.0,
+            "futures_initial": 0.0,
+            "futures_maintenance": 0.0,
+            "put_price": 0.15618094525950568,
+            "prices": {
+              "VOO": 781.527978515625,
+              "AMZN": 290.44659362792964,
+              "GOOGL": 391.92060974121097
+            },
+            "future": 8580.825
+          },
+          {
+            "day": 20,
+            "nav": 206720.92990112305,
+            "cash": 44496.002197265625,
+            "securities_cash": 44496.002197265625,
+            "futures_cash": 0.0,
+            "transfer": 0.0,
+            "variation": -0.0,
+            "futures_before_transfer": 0.0,
+            "futures_initial": 0.0,
+            "futures_maintenance": 0.0,
+            "put_price": 4.054446151258858,
+            "prices": {
+              "VOO": 738.8991796875,
+              "AMZN": 262.90424423217775,
+              "GOOGL": 357.54160888671873
+            },
+            "future": 8112.780000000001
+          },
+          {
+            "day": 30,
+            "nav": 190034.91012573242,
+            "cash": 44496.002197265625,
+            "securities_cash": 44496.002197265625,
+            "futures_cash": 0.0,
+            "transfer": 0.0,
+            "variation": -0.0,
+            "futures_before_transfer": 0.0,
+            "futures_initial": 0.0,
+            "futures_maintenance": 0.0,
+            "put_price": 26.428519517168603,
+            "prices": {
+              "VOO": 674.9559814453124,
+              "AMZN": 230.35419494628908,
+              "GOOGL": 319.7247079467773
+            },
+            "future": 7410.7125
+          }
+        ],
+        "securities_initial": 72769.4539642334,
+        "securities_maintenance": 36384.7269821167,
+        "securities_scan": 17106.14431915283,
+        "futures_initial": 0.0,
+        "futures_maintenance": 0.0,
+        "min_total_cash": 44496.002197265625,
+        "cash_after_futures_reserve": 44496.002197265625,
+        "notes": [
+          "情景幅度与增量费用为设定；先建立方案，再经历所选30日价格路径。",
+          "普通保证金使用公开规则示例；风险扫描为证券分组压力加期货维持要求，不是券商PM预估。"
+        ]
+      },
+      "B": {
+        "pnl": -8766.824844360355,
+        "ending_nav": 191233.17515563965,
+        "cash": 61680.50262451172,
+        "initial_margin": 64776.336265563965,
+        "maintenance_margin": 32388.168132781982,
+        "margin_scan": 14708.209009552003,
+        "peak_transfer": 0.0,
+        "contributions": [
+          {
+            "label": "VOO",
+            "value": -3552.399902343757
+          },
+          {
+            "label": "AMZN",
+            "value": -4006.1599121093705
+          },
+          {
+            "label": "GOOGL",
+            "value": -1203.2650299072288
+          },
+          {
+            "label": "Put",
+            "value": 0.0
+          },
+          {
+            "label": "MES",
+            "value": 0.0
+          },
+          {
+            "label": "费用",
+            "value": -5.0
+          }
+        ],
+        "path": [
+          {
+            "day": 0,
+            "nav": 199995.0,
+            "cash": 61680.50262451172,
+            "securities_cash": 61680.50262451172,
+            "futures_cash": 0.0,
+            "transfer": 0.0,
+            "variation": 0.0,
+            "futures_before_transfer": 0.0,
+            "futures_initial": 0.0,
+            "futures_maintenance": 0.0,
+            "put_price": 10.37,
+            "prices": {
+              "VOO": 710.47998046875,
+              "AMZN": 250.38499450683594,
+              "GOOGL": 343.7900085449219
+            },
+            "future": 7800.75
+          },
+          {
+            "day": 10,
+            "nav": 217518.6496887207,
+            "cash": 61680.50262451172,
+            "securities_cash": 61680.50262451172,
+            "futures_cash": 0.0,
+            "transfer": 0.0,
+            "variation": 0.0,
+            "futures_before_transfer": 0.0,
+            "futures_initial": 0.0,
+            "futures_maintenance": 0.0,
+            "put_price": 0.15618094525950568,
+            "prices": {
+              "VOO": 781.527978515625,
+              "AMZN": 290.44659362792964,
+              "GOOGL": 391.92060974121097
+            },
+            "future": 8580.825
+          },
+          {
+            "day": 20,
+            "nav": 206028.3498840332,
+            "cash": 61680.50262451172,
+            "securities_cash": 61680.50262451172,
+            "futures_cash": 0.0,
+            "transfer": 0.0,
+            "variation": -0.0,
+            "futures_before_transfer": 0.0,
+            "futures_initial": 0.0,
+            "futures_maintenance": 0.0,
+            "put_price": 4.054446151258858,
+            "prices": {
+              "VOO": 738.8991796875,
+              "AMZN": 262.90424423217775,
+              "GOOGL": 357.54160888671873
+            },
+            "future": 8112.780000000001
+          },
+          {
+            "day": 30,
+            "nav": 191233.17515563965,
+            "cash": 61680.50262451172,
+            "securities_cash": 61680.50262451172,
+            "futures_cash": 0.0,
+            "transfer": 0.0,
+            "variation": -0.0,
+            "futures_before_transfer": 0.0,
+            "futures_initial": 0.0,
+            "futures_maintenance": 0.0,
+            "put_price": 26.428519517168603,
+            "prices": {
+              "VOO": 674.9559814453124,
+              "AMZN": 230.35419494628908,
+              "GOOGL": 319.7247079467773
+            },
+            "future": 7410.7125
+          }
+        ],
+        "securities_initial": 64776.336265563965,
+        "securities_maintenance": 32388.168132781982,
+        "securities_scan": 14708.209009552003,
+        "futures_initial": 0.0,
+        "futures_maintenance": 0.0,
+        "min_total_cash": 61680.50262451172,
+        "cash_after_futures_reserve": 61680.50262451172,
+        "notes": [
+          "情景幅度与增量费用为设定；先建立方案，再经历所选30日价格路径。",
+          "普通保证金使用公开规则示例；风险扫描为证券分组压力加期货维持要求，不是券商PM预估。"
+        ]
+      },
+      "C": {
+        "pnl": -4122.02737426758,
+        "ending_nav": 195877.97262573242,
+        "cash": 50339.064697265625,
+        "initial_margin": 81396.3739642334,
+        "maintenance_margin": 44227.3869821167,
+        "margin_scan": 24948.80431915283,
+        "peak_transfer": 5328.045000000011,
+        "contributions": [
+          {
+            "label": "VOO",
+            "value": -3552.399902343757
+          },
+          {
+            "label": "AMZN",
+            "value": -4006.1599121093705
+          },
+          {
+            "label": "GOOGL",
+            "value": -2406.5300598144577
+          },
+          {
+            "label": "Put",
+            "value": 0.0
+          },
+          {
+            "label": "MES",
+            "value": 5850.5625000000055
+          },
+          {
+            "label": "费用",
+            "value": -7.5
+          }
+        ],
+        "path": [
+          {
+            "day": 0,
+            "nav": 199992.5,
+            "cash": 44488.502197265625,
+            "securities_cash": 29488.502197265625,
+            "futures_cash": 15000.0,
+            "transfer": 0.0,
+            "variation": -0.0,
+            "futures_before_transfer": 15000.0,
+            "futures_initial": 8626.92,
+            "futures_maintenance": 7842.66,
+            "put_price": 10.37,
+            "prices": {
+              "VOO": 710.47998046875,
+              "AMZN": 250.38499450683594,
+              "GOOGL": 343.7900085449219
+            },
+            "future": 7800.75
+          },
+          {
+            "day": 10,
+            "nav": 208221.55474853516,
+            "cash": 32787.37719726561,
+            "securities_cash": 24160.457197265612,
+            "futures_cash": 8626.92,
+            "transfer": 5328.045000000011,
+            "variation": -11701.125000000011,
+            "futures_before_transfer": 3298.874999999989,
+            "futures_initial": 8626.92,
+            "futures_maintenance": 7842.66,
+            "put_price": 0.15618094525950568,
+            "prices": {
+              "VOO": 781.527978515625,
+              "AMZN": 290.44659362792964,
+              "GOOGL": 391.92060974121097
+            },
+            "future": 8580.825
+          },
+          {
+            "day": 20,
+            "nav": 202032.97990112304,
+            "cash": 39808.05219726561,
+            "securities_cash": 24160.457197265612,
+            "futures_cash": 15647.595000000001,
+            "transfer": 0.0,
+            "variation": 7020.675000000001,
+            "futures_before_transfer": 15647.595000000001,
+            "futures_initial": 8626.92,
+            "futures_maintenance": 7842.66,
+            "put_price": 4.054446151258858,
+            "prices": {
+              "VOO": 738.8991796875,
+              "AMZN": 262.90424423217775,
+              "GOOGL": 357.54160888671873
+            },
+            "future": 8112.780000000001
+          },
+          {
+            "day": 30,
+            "nav": 195877.97262573242,
+            "cash": 50339.064697265625,
+            "securities_cash": 24160.457197265612,
+            "futures_cash": 26178.607500000016,
+            "transfer": 0.0,
+            "variation": 10531.012500000015,
+            "futures_before_transfer": 26178.607500000016,
+            "futures_initial": 8626.92,
+            "futures_maintenance": 7842.66,
+            "put_price": 26.428519517168603,
+            "prices": {
+              "VOO": 674.9559814453124,
+              "AMZN": 230.35419494628908,
+              "GOOGL": 319.7247079467773
+            },
+            "future": 7410.7125
+          }
+        ],
+        "securities_initial": 72769.4539642334,
+        "securities_maintenance": 36384.7269821167,
+        "securities_scan": 17106.14431915283,
+        "futures_initial": 8626.92,
+        "futures_maintenance": 7842.66,
+        "min_total_cash": 32787.37719726561,
+        "cash_after_futures_reserve": 41712.14469726563,
+        "notes": [
+          "情景幅度与增量费用为设定；先建立方案，再经历所选30日价格路径。",
+          "普通保证金使用公开规则示例；风险扫描为证券分组压力加期货维持要求，不是券商PM预估。"
+        ]
+      },
+      "D": {
+        "pnl": -8360.237922550725,
+        "ending_nav": 191639.76207744927,
+        "cash": 43458.002197265625,
+        "initial_margin": 72769.4539642334,
+        "maintenance_margin": 26360.827445983887,
+        "margin_scan": 13344.94656383844,
+        "peak_transfer": 0.0,
+        "contributions": [
+          {
+            "label": "VOO",
+            "value": -3552.399902343757
+          },
+          {
+            "label": "AMZN",
+            "value": -4006.1599121093705
+          },
+          {
+            "label": "GOOGL",
+            "value": -2406.5300598144577
+          },
+          {
+            "label": "Put",
+            "value": 1605.8519517168606
+          },
+          {
+            "label": "MES",
+            "value": 0.0
+          },
+          {
+            "label": "费用",
+            "value": -1.0
+          }
+        ],
+        "path": [
+          {
+            "day": 0,
+            "nav": 199999.0,
+            "cash": 43458.002197265625,
+            "securities_cash": 43458.002197265625,
+            "futures_cash": 0.0,
+            "transfer": 0.0,
+            "variation": 0.0,
+            "futures_before_transfer": 0.0,
+            "futures_initial": 0.0,
+            "futures_maintenance": 0.0,
+            "put_price": 10.37,
+            "prices": {
+              "VOO": 710.47998046875,
+              "AMZN": 250.38499450683594,
+              "GOOGL": 343.7900085449219
+            },
+            "future": 7800.75
+          },
+          {
+            "day": 10,
+            "nav": 218907.7978430611,
+            "cash": 43458.002197265625,
+            "securities_cash": 43458.002197265625,
+            "futures_cash": 0.0,
+            "transfer": 0.0,
+            "variation": 0.0,
+            "futures_before_transfer": 0.0,
+            "futures_initial": 0.0,
+            "futures_maintenance": 0.0,
+            "put_price": 0.15618094525950568,
+            "prices": {
+              "VOO": 781.527978515625,
+              "AMZN": 290.44659362792964,
+              "GOOGL": 391.92060974121097
+            },
+            "future": 8580.825
+          },
+          {
+            "day": 20,
+            "nav": 206088.37451624894,
+            "cash": 43458.002197265625,
+            "securities_cash": 43458.002197265625,
+            "futures_cash": 0.0,
+            "transfer": 0.0,
+            "variation": -0.0,
+            "futures_before_transfer": 0.0,
+            "futures_initial": 0.0,
+            "futures_maintenance": 0.0,
+            "put_price": 4.054446151258858,
+            "prices": {
+              "VOO": 738.8991796875,
+              "AMZN": 262.90424423217775,
+              "GOOGL": 357.54160888671873
+            },
+            "future": 8112.780000000001
+          },
+          {
+            "day": 30,
+            "nav": 191639.76207744927,
+            "cash": 43458.002197265625,
+            "securities_cash": 43458.002197265625,
+            "futures_cash": 0.0,
+            "transfer": 0.0,
+            "variation": -0.0,
+            "futures_before_transfer": 0.0,
+            "futures_initial": 0.0,
+            "futures_maintenance": 0.0,
+            "put_price": 26.428519517168603,
+            "prices": {
+              "VOO": 674.9559814453124,
+              "AMZN": 230.35419494628908,
+              "GOOGL": 319.7247079467773
+            },
+            "future": 7410.7125
+          }
+        ],
+        "securities_initial": 72769.4539642334,
+        "securities_maintenance": 26360.827445983887,
+        "securities_scan": 13344.94656383844,
+        "futures_initial": 0.0,
+        "futures_maintenance": 0.0,
+        "min_total_cash": 43458.002197265625,
+        "cash_after_futures_reserve": 43458.002197265625,
+        "notes": [
+          "情景幅度与增量费用为设定；先建立方案，再经历所选30日价格路径。",
+          "普通保证金使用公开规则示例；风险扫描为证券分组压力加期货维持要求，不是券商PM预估。"
+        ]
+      },
+      "E": {
+        "pnl": -4464.862922550721,
+        "ending_nav": 195535.13707744927,
+        "cash": 47353.377197265625,
+        "initial_margin": 78520.7339642334,
+        "maintenance_margin": 31589.267445983885,
+        "margin_scan": 18573.38656383844,
+        "peak_transfer": 3552.030000000007,
+        "contributions": [
+          {
+            "label": "VOO",
+            "value": -3552.399902343757
+          },
+          {
+            "label": "AMZN",
+            "value": -4006.1599121093705
+          },
+          {
+            "label": "GOOGL",
+            "value": -2406.5300598144577
+          },
+          {
+            "label": "Put",
+            "value": 1605.8519517168606
+          },
+          {
+            "label": "MES",
+            "value": 3900.3750000000036
+          },
+          {
+            "label": "费用",
+            "value": -6.0
+          }
+        ],
+        "path": [
+          {
+            "day": 0,
+            "nav": 199994.0,
+            "cash": 43453.002197265625,
+            "securities_cash": 33453.002197265625,
+            "futures_cash": 10000.0,
+            "transfer": 0.0,
+            "variation": -0.0,
+            "futures_before_transfer": 10000.0,
+            "futures_initial": 5751.28,
+            "futures_maintenance": 5228.44,
+            "put_price": 10.37,
+            "prices": {
+              "VOO": 710.47998046875,
+              "AMZN": 250.38499450683594,
+              "GOOGL": 343.7900085449219
+            },
+            "future": 7800.75
+          },
+          {
+            "day": 10,
+            "nav": 211102.0478430611,
+            "cash": 35652.25219726562,
+            "securities_cash": 29900.97219726562,
+            "futures_cash": 5751.28,
+            "transfer": 3552.030000000007,
+            "variation": -7800.750000000007,
+            "futures_before_transfer": 2199.2499999999927,
+            "futures_initial": 5751.28,
+            "futures_maintenance": 5228.44,
+            "put_price": 0.15618094525950568,
+            "prices": {
+              "VOO": 781.527978515625,
+              "AMZN": 290.44659362792964,
+              "GOOGL": 391.92060974121097
+            },
+            "future": 8580.825
+          },
+          {
+            "day": 20,
+            "nav": 202963.07451624895,
+            "cash": 40332.70219726562,
+            "securities_cash": 29900.97219726562,
+            "futures_cash": 10431.73,
+            "transfer": 0.0,
+            "variation": 4680.450000000001,
+            "futures_before_transfer": 10431.73,
+            "futures_initial": 5751.28,
+            "futures_maintenance": 5228.44,
+            "put_price": 4.054446151258858,
+            "prices": {
+              "VOO": 738.8991796875,
+              "AMZN": 262.90424423217775,
+              "GOOGL": 357.54160888671873
+            },
+            "future": 8112.780000000001
+          },
+          {
+            "day": 30,
+            "nav": 195535.13707744927,
+            "cash": 47353.377197265625,
+            "securities_cash": 29900.97219726562,
+            "futures_cash": 17452.40500000001,
+            "transfer": 0.0,
+            "variation": 7020.67500000001,
+            "futures_before_transfer": 17452.40500000001,
+            "futures_initial": 5751.28,
+            "futures_maintenance": 5228.44,
+            "put_price": 26.428519517168603,
+            "prices": {
+              "VOO": 674.9559814453124,
+              "AMZN": 230.35419494628908,
+              "GOOGL": 319.7247079467773
+            },
+            "future": 7410.7125
+          }
+        ],
+        "securities_initial": 72769.4539642334,
+        "securities_maintenance": 26360.827445983887,
+        "securities_scan": 13344.94656383844,
+        "futures_initial": 5751.28,
+        "futures_maintenance": 5228.44,
+        "min_total_cash": 35652.25219726562,
+        "cash_after_futures_reserve": 41602.097197265626,
+        "notes": [
+          "情景幅度与增量费用为设定；先建立方案，再经历所选30日价格路径。",
+          "普通保证金使用公开规则示例；风险扫描为证券分组压力加期货维持要求，不是券商PM预估。"
+        ]
+      }
+    },
+    "fall_rise": {
+      "A": {
+        "pnl": -9965.089874267585,
+        "ending_nav": 190034.91012573242,
+        "cash": 44496.002197265625,
+        "initial_margin": 72769.4539642334,
+        "maintenance_margin": 36384.7269821167,
+        "margin_scan": 17106.14431915283,
+        "peak_transfer": 0.0,
+        "contributions": [
+          {
+            "label": "VOO",
+            "value": -3552.399902343757
+          },
+          {
+            "label": "AMZN",
+            "value": -4006.1599121093705
+          },
+          {
+            "label": "GOOGL",
+            "value": -2406.5300598144577
+          },
+          {
+            "label": "Put",
+            "value": 0.0
+          },
+          {
+            "label": "MES",
+            "value": 0.0
+          },
+          {
+            "label": "费用",
+            "value": -0.0
+          }
+        ],
+        "path": [
+          {
+            "day": 0,
+            "nav": 200000.0,
+            "cash": 44496.002197265625,
+            "securities_cash": 44496.002197265625,
+            "futures_cash": 0.0,
+            "transfer": 0.0,
+            "variation": 0.0,
+            "futures_before_transfer": 0.0,
+            "futures_initial": 0.0,
+            "futures_maintenance": 0.0,
+            "put_price": 10.37,
+            "prices": {
+              "VOO": 710.47998046875,
+              "AMZN": 250.38499450683594,
+              "GOOGL": 343.7900085449219
+            },
+            "future": 7800.75
+          },
+          {
+            "day": 10,
+            "nav": 180570.59024047852,
+            "cash": 44496.002197265625,
+            "securities_cash": 44496.002197265625,
+            "futures_cash": 0.0,
+            "transfer": 0.0,
+            "variation": -0.0,
+            "futures_before_transfer": 0.0,
+            "futures_initial": 0.0,
+            "futures_maintenance": 0.0,
+            "put_price": 55.480934988130066,
+            "prices": {
+              "VOO": 639.431982421875,
+              "AMZN": 212.82724533081054,
+              "GOOGL": 295.6594073486328
+            },
+            "future": 7020.675
+          },
+          {
+            "day": 20,
+            "nav": 186581.0401611328,
+            "cash": 44496.002197265625,
+            "securities_cash": 44496.002197265625,
+            "futures_cash": 0.0,
+            "transfer": 0.0,
+            "variation": 0.0,
+            "futures_before_transfer": 0.0,
+            "futures_initial": 0.0,
+            "futures_maintenance": 0.0,
+            "put_price": 38.13338401224647,
+            "prices": {
+              "VOO": 660.7463818359374,
+              "AMZN": 225.34649505615235,
+              "GOOGL": 309.4110076904297
+            },
+            "future": 7254.697499999999
+          },
+          {
+            "day": 30,
+            "nav": 190034.91012573242,
+            "cash": 44496.002197265625,
+            "securities_cash": 44496.002197265625,
+            "futures_cash": 0.0,
+            "transfer": 0.0,
+            "variation": 0.0,
+            "futures_before_transfer": 0.0,
+            "futures_initial": 0.0,
+            "futures_maintenance": 0.0,
+            "put_price": 26.428519517168603,
+            "prices": {
+              "VOO": 674.9559814453124,
+              "AMZN": 230.35419494628908,
+              "GOOGL": 319.7247079467773
+            },
+            "future": 7410.7125
+          }
+        ],
+        "securities_initial": 72769.4539642334,
+        "securities_maintenance": 36384.7269821167,
+        "securities_scan": 17106.14431915283,
+        "futures_initial": 0.0,
+        "futures_maintenance": 0.0,
+        "min_total_cash": 44496.002197265625,
+        "cash_after_futures_reserve": 44496.002197265625,
+        "notes": [
+          "情景幅度与增量费用为设定；先建立方案，再经历所选30日价格路径。",
+          "普通保证金使用公开规则示例；风险扫描为证券分组压力加期货维持要求，不是券商PM预估。"
+        ]
+      },
+      "B": {
+        "pnl": -8766.824844360355,
+        "ending_nav": 191233.17515563965,
+        "cash": 61680.50262451172,
+        "initial_margin": 64776.336265563965,
+        "maintenance_margin": 32388.168132781982,
+        "margin_scan": 14708.209009552003,
+        "peak_transfer": 0.0,
+        "contributions": [
+          {
+            "label": "VOO",
+            "value": -3552.399902343757
+          },
+          {
+            "label": "AMZN",
+            "value": -4006.1599121093705
+          },
+          {
+            "label": "GOOGL",
+            "value": -1203.2650299072288
+          },
+          {
+            "label": "Put",
+            "value": 0.0
+          },
+          {
+            "label": "MES",
+            "value": 0.0
+          },
+          {
+            "label": "费用",
+            "value": -5.0
+          }
+        ],
+        "path": [
+          {
+            "day": 0,
+            "nav": 199995.0,
+            "cash": 61680.50262451172,
+            "securities_cash": 61680.50262451172,
+            "futures_cash": 0.0,
+            "transfer": 0.0,
+            "variation": 0.0,
+            "futures_before_transfer": 0.0,
+            "futures_initial": 0.0,
+            "futures_maintenance": 0.0,
+            "put_price": 10.37,
+            "prices": {
+              "VOO": 710.47998046875,
+              "AMZN": 250.38499450683594,
+              "GOOGL": 343.7900085449219
+            },
+            "future": 7800.75
+          },
+          {
+            "day": 10,
+            "nav": 182972.12030029297,
+            "cash": 61680.50262451172,
+            "securities_cash": 61680.50262451172,
+            "futures_cash": 0.0,
+            "transfer": 0.0,
+            "variation": -0.0,
+            "futures_before_transfer": 0.0,
+            "futures_initial": 0.0,
+            "futures_maintenance": 0.0,
+            "put_price": 55.480934988130066,
+            "prices": {
+              "VOO": 639.431982421875,
+              "AMZN": 212.82724533081054,
+              "GOOGL": 295.6594073486328
+            },
+            "future": 7020.675
+          },
+          {
+            "day": 20,
+            "nav": 188294.99020385742,
+            "cash": 61680.50262451172,
+            "securities_cash": 61680.50262451172,
+            "futures_cash": 0.0,
+            "transfer": 0.0,
+            "variation": 0.0,
+            "futures_before_transfer": 0.0,
+            "futures_initial": 0.0,
+            "futures_maintenance": 0.0,
+            "put_price": 38.13338401224647,
+            "prices": {
+              "VOO": 660.7463818359374,
+              "AMZN": 225.34649505615235,
+              "GOOGL": 309.4110076904297
+            },
+            "future": 7254.697499999999
+          },
+          {
+            "day": 30,
+            "nav": 191233.17515563965,
+            "cash": 61680.50262451172,
+            "securities_cash": 61680.50262451172,
+            "futures_cash": 0.0,
+            "transfer": 0.0,
+            "variation": 0.0,
+            "futures_before_transfer": 0.0,
+            "futures_initial": 0.0,
+            "futures_maintenance": 0.0,
+            "put_price": 26.428519517168603,
+            "prices": {
+              "VOO": 674.9559814453124,
+              "AMZN": 230.35419494628908,
+              "GOOGL": 319.7247079467773
+            },
+            "future": 7410.7125
+          }
+        ],
+        "securities_initial": 64776.336265563965,
+        "securities_maintenance": 32388.168132781982,
+        "securities_scan": 14708.209009552003,
+        "futures_initial": 0.0,
+        "futures_maintenance": 0.0,
+        "min_total_cash": 61680.50262451172,
+        "cash_after_futures_reserve": 61680.50262451172,
+        "notes": [
+          "情景幅度与增量费用为设定；先建立方案，再经历所选30日价格路径。",
+          "普通保证金使用公开规则示例；风险扫描为证券分组压力加期货维持要求，不是券商PM预估。"
+        ]
+      },
+      "C": {
+        "pnl": -4122.02737426758,
+        "ending_nav": 195877.97262573242,
+        "cash": 50339.064697265625,
+        "initial_margin": 81396.3739642334,
+        "maintenance_margin": 44227.3869821167,
+        "margin_scan": 24948.80431915283,
+        "peak_transfer": 0.0,
+        "contributions": [
+          {
+            "label": "VOO",
+            "value": -3552.399902343757
+          },
+          {
+            "label": "AMZN",
+            "value": -4006.1599121093705
+          },
+          {
+            "label": "GOOGL",
+            "value": -2406.5300598144577
+          },
+          {
+            "label": "Put",
+            "value": 0.0
+          },
+          {
+            "label": "MES",
+            "value": 5850.562500000005
+          },
+          {
+            "label": "费用",
+            "value": -7.5
+          }
+        ],
+        "path": [
+          {
+            "day": 0,
+            "nav": 199992.5,
+            "cash": 44488.502197265625,
+            "securities_cash": 29488.502197265625,
+            "futures_cash": 15000.0,
+            "transfer": 0.0,
+            "variation": -0.0,
+            "futures_before_transfer": 15000.0,
+            "futures_initial": 8626.92,
+            "futures_maintenance": 7842.66,
+            "put_price": 10.37,
+            "prices": {
+              "VOO": 710.47998046875,
+              "AMZN": 250.38499450683594,
+              "GOOGL": 343.7900085449219
+            },
+            "future": 7800.75
+          },
+          {
+            "day": 10,
+            "nav": 192264.21524047852,
+            "cash": 56189.627197265625,
+            "securities_cash": 29488.502197265625,
+            "futures_cash": 26701.124999999996,
+            "transfer": 0.0,
+            "variation": 11701.124999999996,
+            "futures_before_transfer": 26701.124999999996,
+            "futures_initial": 8626.92,
+            "futures_maintenance": 7842.66,
+            "put_price": 55.480934988130066,
+            "prices": {
+              "VOO": 639.431982421875,
+              "AMZN": 212.82724533081054,
+              "GOOGL": 295.6594073486328
+            },
+            "future": 7020.675
+          },
+          {
+            "day": 20,
+            "nav": 194764.32766113282,
+            "cash": 52679.28969726563,
+            "securities_cash": 29488.502197265625,
+            "futures_cash": 23190.78750000001,
+            "transfer": 0.0,
+            "variation": -3510.337499999987,
+            "futures_before_transfer": 23190.78750000001,
+            "futures_initial": 8626.92,
+            "futures_maintenance": 7842.66,
+            "put_price": 38.13338401224647,
+            "prices": {
+              "VOO": 660.7463818359374,
+              "AMZN": 225.34649505615235,
+              "GOOGL": 309.4110076904297
+            },
+            "future": 7254.697499999999
+          },
+          {
+            "day": 30,
+            "nav": 195877.97262573242,
+            "cash": 50339.064697265625,
+            "securities_cash": 29488.502197265625,
+            "futures_cash": 20850.562500000004,
+            "transfer": 0.0,
+            "variation": -2340.225000000005,
+            "futures_before_transfer": 20850.562500000004,
+            "futures_initial": 8626.92,
+            "futures_maintenance": 7842.66,
+            "put_price": 26.428519517168603,
+            "prices": {
+              "VOO": 674.9559814453124,
+              "AMZN": 230.35419494628908,
+              "GOOGL": 319.7247079467773
+            },
+            "future": 7410.7125
+          }
+        ],
+        "securities_initial": 72769.4539642334,
+        "securities_maintenance": 36384.7269821167,
+        "securities_scan": 17106.14431915283,
+        "futures_initial": 8626.92,
+        "futures_maintenance": 7842.66,
+        "min_total_cash": 44488.502197265625,
+        "cash_after_futures_reserve": 41712.14469726563,
+        "notes": [
+          "情景幅度与增量费用为设定；先建立方案，再经历所选30日价格路径。",
+          "普通保证金使用公开规则示例；风险扫描为证券分组压力加期货维持要求，不是券商PM预估。"
+        ]
+      },
+      "D": {
+        "pnl": -8360.237922550725,
+        "ending_nav": 191639.76207744927,
+        "cash": 43458.002197265625,
+        "initial_margin": 72769.4539642334,
+        "maintenance_margin": 26360.827445983887,
+        "margin_scan": 13344.94656383844,
+        "peak_transfer": 0.0,
+        "contributions": [
+          {
+            "label": "VOO",
+            "value": -3552.399902343757
+          },
+          {
+            "label": "AMZN",
+            "value": -4006.1599121093705
+          },
+          {
+            "label": "GOOGL",
+            "value": -2406.5300598144577
+          },
+          {
+            "label": "Put",
+            "value": 1605.8519517168606
+          },
+          {
+            "label": "MES",
+            "value": 0.0
+          },
+          {
+            "label": "费用",
+            "value": -1.0
+          }
+        ],
+        "path": [
+          {
+            "day": 0,
+            "nav": 199999.0,
+            "cash": 43458.002197265625,
+            "securities_cash": 43458.002197265625,
+            "futures_cash": 0.0,
+            "transfer": 0.0,
+            "variation": 0.0,
+            "futures_before_transfer": 0.0,
+            "futures_initial": 0.0,
+            "futures_maintenance": 0.0,
+            "put_price": 10.37,
+            "prices": {
+              "VOO": 710.47998046875,
+              "AMZN": 250.38499450683594,
+              "GOOGL": 343.7900085449219
+            },
+            "future": 7800.75
+          },
+          {
+            "day": 10,
+            "nav": 185080.68373929153,
+            "cash": 43458.002197265625,
+            "securities_cash": 43458.002197265625,
+            "futures_cash": 0.0,
+            "transfer": 0.0,
+            "variation": -0.0,
+            "futures_before_transfer": 0.0,
+            "futures_initial": 0.0,
+            "futures_maintenance": 0.0,
+            "put_price": 55.480934988130066,
+            "prices": {
+              "VOO": 639.431982421875,
+              "AMZN": 212.82724533081054,
+              "GOOGL": 295.6594073486328
+            },
+            "future": 7020.675
+          },
+          {
+            "day": 20,
+            "nav": 189356.37856235745,
+            "cash": 43458.002197265625,
+            "securities_cash": 43458.002197265625,
+            "futures_cash": 0.0,
+            "transfer": 0.0,
+            "variation": 0.0,
+            "futures_before_transfer": 0.0,
+            "futures_initial": 0.0,
+            "futures_maintenance": 0.0,
+            "put_price": 38.13338401224647,
+            "prices": {
+              "VOO": 660.7463818359374,
+              "AMZN": 225.34649505615235,
+              "GOOGL": 309.4110076904297
+            },
+            "future": 7254.697499999999
+          },
+          {
+            "day": 30,
+            "nav": 191639.76207744927,
+            "cash": 43458.002197265625,
+            "securities_cash": 43458.002197265625,
+            "futures_cash": 0.0,
+            "transfer": 0.0,
+            "variation": 0.0,
+            "futures_before_transfer": 0.0,
+            "futures_initial": 0.0,
+            "futures_maintenance": 0.0,
+            "put_price": 26.428519517168603,
+            "prices": {
+              "VOO": 674.9559814453124,
+              "AMZN": 230.35419494628908,
+              "GOOGL": 319.7247079467773
+            },
+            "future": 7410.7125
+          }
+        ],
+        "securities_initial": 72769.4539642334,
+        "securities_maintenance": 26360.827445983887,
+        "securities_scan": 13344.94656383844,
+        "futures_initial": 0.0,
+        "futures_maintenance": 0.0,
+        "min_total_cash": 43458.002197265625,
+        "cash_after_futures_reserve": 43458.002197265625,
+        "notes": [
+          "情景幅度与增量费用为设定；先建立方案，再经历所选30日价格路径。",
+          "普通保证金使用公开规则示例；风险扫描为证券分组压力加期货维持要求，不是券商PM预估。"
+        ]
+      },
+      "E": {
+        "pnl": -4464.862922550721,
+        "ending_nav": 195535.13707744927,
+        "cash": 47353.37719726563,
+        "initial_margin": 78520.7339642334,
+        "maintenance_margin": 31589.267445983885,
+        "margin_scan": 18573.38656383844,
+        "peak_transfer": 0.0,
+        "contributions": [
+          {
+            "label": "VOO",
+            "value": -3552.399902343757
+          },
+          {
+            "label": "AMZN",
+            "value": -4006.1599121093705
+          },
+          {
+            "label": "GOOGL",
+            "value": -2406.5300598144577
+          },
+          {
+            "label": "Put",
+            "value": 1605.8519517168606
+          },
+          {
+            "label": "MES",
+            "value": 3900.3750000000036
+          },
+          {
+            "label": "费用",
+            "value": -6.0
+          }
+        ],
+        "path": [
+          {
+            "day": 0,
+            "nav": 199994.0,
+            "cash": 43453.002197265625,
+            "securities_cash": 33453.002197265625,
+            "futures_cash": 10000.0,
+            "transfer": 0.0,
+            "variation": -0.0,
+            "futures_before_transfer": 10000.0,
+            "futures_initial": 5751.28,
+            "futures_maintenance": 5228.44,
+            "put_price": 10.37,
+            "prices": {
+              "VOO": 710.47998046875,
+              "AMZN": 250.38499450683594,
+              "GOOGL": 343.7900085449219
+            },
+            "future": 7800.75
+          },
+          {
+            "day": 10,
+            "nav": 192876.43373929153,
+            "cash": 51253.752197265625,
+            "securities_cash": 33453.002197265625,
+            "futures_cash": 17800.75,
+            "transfer": 0.0,
+            "variation": 7800.749999999998,
+            "futures_before_transfer": 17800.75,
+            "futures_initial": 5751.28,
+            "futures_maintenance": 5228.44,
+            "put_price": 55.480934988130066,
+            "prices": {
+              "VOO": 639.431982421875,
+              "AMZN": 212.82724533081054,
+              "GOOGL": 295.6594073486328
+            },
+            "future": 7020.675
+          },
+          {
+            "day": 20,
+            "nav": 194811.90356235747,
+            "cash": 48913.527197265634,
+            "securities_cash": 33453.002197265625,
+            "futures_cash": 15460.525000000009,
+            "transfer": 0.0,
+            "variation": -2340.2249999999913,
+            "futures_before_transfer": 15460.525000000009,
+            "futures_initial": 5751.28,
+            "futures_maintenance": 5228.44,
+            "put_price": 38.13338401224647,
+            "prices": {
+              "VOO": 660.7463818359374,
+              "AMZN": 225.34649505615235,
+              "GOOGL": 309.4110076904297
+            },
+            "future": 7254.697499999999
+          },
+          {
+            "day": 30,
+            "nav": 195535.13707744927,
+            "cash": 47353.37719726563,
+            "securities_cash": 33453.002197265625,
+            "futures_cash": 13900.375000000005,
+            "transfer": 0.0,
+            "variation": -1560.1500000000033,
+            "futures_before_transfer": 13900.375000000005,
+            "futures_initial": 5751.28,
+            "futures_maintenance": 5228.44,
+            "put_price": 26.428519517168603,
+            "prices": {
+              "VOO": 674.9559814453124,
+              "AMZN": 230.35419494628908,
+              "GOOGL": 319.7247079467773
+            },
+            "future": 7410.7125
+          }
+        ],
+        "securities_initial": 72769.4539642334,
+        "securities_maintenance": 26360.827445983887,
+        "securities_scan": 13344.94656383844,
+        "futures_initial": 5751.28,
+        "futures_maintenance": 5228.44,
+        "min_total_cash": 43453.002197265625,
+        "cash_after_futures_reserve": 41602.09719726563,
+        "notes": [
+          "情景幅度与增量费用为设定；先建立方案，再经历所选30日价格路径。",
+          "普通保证金使用公开规则示例；风险扫描为证券分组压力加期货维持要求，不是券商PM预估。"
+        ]
+      }
+    },
+    "stress": {
+      "A": {
+        "pnl": -49825.44937133789,
+        "ending_nav": 150174.5506286621,
+        "cash": 44496.002197265625,
+        "initial_margin": 52839.27421569824,
+        "maintenance_margin": 26419.63710784912,
+        "margin_scan": 12121.762367248535,
+        "peak_transfer": 0.0,
+        "contributions": [
+          {
+            "label": "VOO",
+            "value": -17761.99951171875
+          },
+          {
+            "label": "AMZN",
+            "value": -20030.799560546875
+          },
+          {
+            "label": "GOOGL",
+            "value": -12032.650299072264
+          },
+          {
+            "label": "Put",
+            "value": 0.0
+          },
+          {
+            "label": "MES",
+            "value": 0.0
+          },
+          {
+            "label": "费用",
+            "value": -0.0
+          }
+        ],
+        "path": [
+          {
+            "day": 0,
+            "nav": 200000.0,
+            "cash": 44496.002197265625,
+            "securities_cash": 44496.002197265625,
+            "futures_cash": 0.0,
+            "transfer": 0.0,
+            "variation": 0.0,
+            "futures_before_transfer": 0.0,
+            "futures_initial": 0.0,
+            "futures_maintenance": 0.0,
+            "put_price": 10.37,
+            "prices": {
+              "VOO": 710.47998046875,
+              "AMZN": 250.38499450683594,
+              "GOOGL": 343.7900085449219
+            },
+            "future": 7800.75
+          },
+          {
+            "day": 10,
+            "nav": 178380.70025634766,
+            "cash": 44496.002197265625,
+            "securities_cash": 44496.002197265625,
+            "futures_cash": 0.0,
+            "transfer": 0.0,
+            "variation": -0.0,
+            "futures_before_transfer": 0.0,
+            "futures_initial": 0.0,
+            "futures_maintenance": 0.0,
+            "put_price": 55.480934988130066,
+            "prices": {
+              "VOO": 639.431982421875,
+              "AMZN": 205.3156954956055,
+              "GOOGL": 288.7836071777344
+            },
+            "future": 7020.675
+          },
+          {
+            "day": 20,
+            "nav": 162905.93045043945,
+            "cash": 44496.002197265625,
+            "securities_cash": 44496.002197265625,
+            "futures_cash": 0.0,
+            "transfer": 0.0,
+            "variation": -0.0,
+            "futures_before_transfer": 0.0,
+            "futures_initial": 0.0,
+            "futures_maintenance": 0.0,
+            "put_price": 104.20143880385723,
+            "prices": {
+              "VOO": 582.5935839843751,
+              "AMZN": 175.26949615478514,
+              "GOOGL": 250.96670623779298
+            },
+            "future": 6396.615000000001
+          },
+          {
+            "day": 30,
+            "nav": 150174.5506286621,
+            "cash": 44496.002197265625,
+            "securities_cash": 44496.002197265625,
+            "futures_cash": 0.0,
+            "transfer": 0.0,
+            "variation": -0.0,
+            "futures_before_transfer": 0.0,
+            "futures_initial": 0.0,
+            "futures_maintenance": 0.0,
+            "put_price": 152.1400146484375,
+            "prices": {
+              "VOO": 532.8599853515625,
+              "AMZN": 150.23099670410156,
+              "GOOGL": 223.46350555419923
+            },
+            "future": 5850.5625
+          }
+        ],
+        "securities_initial": 52839.27421569824,
+        "securities_maintenance": 26419.63710784912,
+        "securities_scan": 12121.762367248535,
+        "futures_initial": 0.0,
+        "futures_maintenance": 0.0,
+        "min_total_cash": 44496.002197265625,
+        "cash_after_futures_reserve": 44496.002197265625,
+        "notes": [
+          "情景幅度与增量费用为设定；先建立方案，再经历所选30日价格路径。",
+          "普通保证金使用公开规则示例；风险扫描为证券分组压力加期货维持要求，不是券商PM预估。"
+        ]
+      },
+      "B": {
+        "pnl": -43814.12422180176,
+        "ending_nav": 156185.87577819824,
+        "cash": 61680.50262451172,
+        "initial_margin": 47252.68657684326,
+        "maintenance_margin": 23626.34328842163,
+        "margin_scan": 10445.786075592041,
+        "peak_transfer": 0.0,
+        "contributions": [
+          {
+            "label": "VOO",
+            "value": -17761.99951171875
+          },
+          {
+            "label": "AMZN",
+            "value": -20030.799560546875
+          },
+          {
+            "label": "GOOGL",
+            "value": -6016.325149536132
+          },
+          {
+            "label": "Put",
+            "value": 0.0
+          },
+          {
+            "label": "MES",
+            "value": 0.0
+          },
+          {
+            "label": "费用",
+            "value": -5.0
+          }
+        ],
+        "path": [
+          {
+            "day": 0,
+            "nav": 199995.0,
+            "cash": 61680.50262451172,
+            "securities_cash": 61680.50262451172,
+            "futures_cash": 0.0,
+            "transfer": 0.0,
+            "variation": 0.0,
+            "futures_before_transfer": 0.0,
+            "futures_initial": 0.0,
+            "futures_maintenance": 0.0,
+            "put_price": 10.37,
+            "prices": {
+              "VOO": 710.47998046875,
+              "AMZN": 250.38499450683594,
+              "GOOGL": 343.7900085449219
+            },
+            "future": 7800.75
+          },
+          {
+            "day": 10,
+            "nav": 181126.02032470703,
+            "cash": 61680.50262451172,
+            "securities_cash": 61680.50262451172,
+            "futures_cash": 0.0,
+            "transfer": 0.0,
+            "variation": -0.0,
+            "futures_before_transfer": 0.0,
+            "futures_initial": 0.0,
+            "futures_maintenance": 0.0,
+            "put_price": 55.480934988130066,
+            "prices": {
+              "VOO": 639.431982421875,
+              "AMZN": 205.3156954956055,
+              "GOOGL": 288.7836071777344
+            },
+            "future": 7020.675
+          },
+          {
+            "day": 20,
+            "nav": 167542.0955657959,
+            "cash": 61680.50262451172,
+            "securities_cash": 61680.50262451172,
+            "futures_cash": 0.0,
+            "transfer": 0.0,
+            "variation": -0.0,
+            "futures_before_transfer": 0.0,
+            "futures_initial": 0.0,
+            "futures_maintenance": 0.0,
+            "put_price": 104.20143880385723,
+            "prices": {
+              "VOO": 582.5935839843751,
+              "AMZN": 175.26949615478514,
+              "GOOGL": 250.96670623779298
+            },
+            "future": 6396.615000000001
+          },
+          {
+            "day": 30,
+            "nav": 156185.87577819824,
+            "cash": 61680.50262451172,
+            "securities_cash": 61680.50262451172,
+            "futures_cash": 0.0,
+            "transfer": 0.0,
+            "variation": -0.0,
+            "futures_before_transfer": 0.0,
+            "futures_initial": 0.0,
+            "futures_maintenance": 0.0,
+            "put_price": 152.1400146484375,
+            "prices": {
+              "VOO": 532.8599853515625,
+              "AMZN": 150.23099670410156,
+              "GOOGL": 223.46350555419923
+            },
+            "future": 5850.5625
+          }
+        ],
+        "securities_initial": 47252.68657684326,
+        "securities_maintenance": 23626.34328842163,
+        "securities_scan": 10445.786075592041,
+        "futures_initial": 0.0,
+        "futures_maintenance": 0.0,
+        "min_total_cash": 61680.50262451172,
+        "cash_after_futures_reserve": 61680.50262451172,
+        "notes": [
+          "情景幅度与增量费用为设定；先建立方案，再经历所选30日价格路径。",
+          "普通保证金使用公开规则示例；风险扫描为证券分组压力加期货维持要求，不是券商PM预估。"
+        ]
+      },
+      "C": {
+        "pnl": -20580.13687133789,
+        "ending_nav": 179419.8631286621,
+        "cash": 73741.31469726562,
+        "initial_margin": 65779.65421569825,
+        "maintenance_margin": 38183.62710784912,
+        "margin_scan": 23885.752367248533,
+        "peak_transfer": 0.0,
+        "contributions": [
+          {
+            "label": "VOO",
+            "value": -17761.99951171875
+          },
+          {
+            "label": "AMZN",
+            "value": -20030.799560546875
+          },
+          {
+            "label": "GOOGL",
+            "value": -12032.650299072264
+          },
+          {
+            "label": "Put",
+            "value": 0.0
+          },
+          {
+            "label": "MES",
+            "value": 29252.812499999996
+          },
+          {
+            "label": "费用",
+            "value": -7.5
+          }
+        ],
+        "path": [
+          {
+            "day": 0,
+            "nav": 199992.5,
+            "cash": 44488.502197265625,
+            "securities_cash": 29488.502197265625,
+            "futures_cash": 15000.0,
+            "transfer": 0.0,
+            "variation": -0.0,
+            "futures_before_transfer": 15000.0,
+            "futures_initial": 8626.92,
+            "futures_maintenance": 7842.66,
+            "put_price": 10.37,
+            "prices": {
+              "VOO": 710.47998046875,
+              "AMZN": 250.38499450683594,
+              "GOOGL": 343.7900085449219
+            },
+            "future": 7800.75
+          },
+          {
+            "day": 10,
+            "nav": 190074.32525634766,
+            "cash": 56189.627197265625,
+            "securities_cash": 29488.502197265625,
+            "futures_cash": 26701.124999999996,
+            "transfer": 0.0,
+            "variation": 11701.124999999996,
+            "futures_before_transfer": 26701.124999999996,
+            "futures_initial": 12940.380000000001,
+            "futures_maintenance": 11763.99,
+            "put_price": 55.480934988130066,
+            "prices": {
+              "VOO": 639.431982421875,
+              "AMZN": 205.3156954956055,
+              "GOOGL": 288.7836071777344
+            },
+            "future": 7020.675
+          },
+          {
+            "day": 20,
+            "nav": 183960.45545043945,
+            "cash": 65550.52719726562,
+            "securities_cash": 29488.502197265625,
+            "futures_cash": 36062.02499999999,
+            "transfer": 0.0,
+            "variation": 9360.899999999992,
+            "futures_before_transfer": 36062.02499999999,
+            "futures_initial": 12940.380000000001,
+            "futures_maintenance": 11763.99,
+            "put_price": 104.20143880385723,
+            "prices": {
+              "VOO": 582.5935839843751,
+              "AMZN": 175.26949615478514,
+              "GOOGL": 250.96670623779298
+            },
+            "future": 6396.615000000001
+          },
+          {
+            "day": 30,
+            "nav": 179419.8631286621,
+            "cash": 73741.31469726562,
+            "securities_cash": 29488.502197265625,
+            "futures_cash": 44252.8125,
+            "transfer": 0.0,
+            "variation": 8190.78750000001,
+            "futures_before_transfer": 44252.8125,
+            "futures_initial": 12940.380000000001,
+            "futures_maintenance": 11763.99,
+            "put_price": 152.1400146484375,
+            "prices": {
+              "VOO": 532.8599853515625,
+              "AMZN": 150.23099670410156,
+              "GOOGL": 223.46350555419923
+            },
+            "future": 5850.5625
+          }
+        ],
+        "securities_initial": 52839.27421569824,
+        "securities_maintenance": 26419.63710784912,
+        "securities_scan": 12121.762367248535,
+        "futures_initial": 12940.380000000001,
+        "futures_maintenance": 11763.99,
+        "min_total_cash": 44488.502197265625,
+        "cash_after_futures_reserve": 60800.93469726562,
+        "notes": [
+          "情景幅度与增量费用为设定；先建立方案，再经历所选30日价格路径。",
+          "普通保证金使用公开规则示例；风险扫描为证券分组压力加期货维持要求，不是券商PM预估。"
+        ]
+      },
+      "D": {
+        "pnl": -35649.44790649414,
+        "ending_nav": 164350.55209350586,
+        "cash": 43458.002197265625,
+        "initial_margin": 52839.27421569824,
+        "maintenance_margin": 19948.13747406006,
+        "margin_scan": 7896.382484436035,
+        "peak_transfer": 0.0,
+        "contributions": [
+          {
+            "label": "VOO",
+            "value": -17761.99951171875
+          },
+          {
+            "label": "AMZN",
+            "value": -20030.799560546875
+          },
+          {
+            "label": "GOOGL",
+            "value": -12032.650299072264
+          },
+          {
+            "label": "Put",
+            "value": 14177.00146484375
+          },
+          {
+            "label": "MES",
+            "value": 0.0
+          },
+          {
+            "label": "费用",
+            "value": -1.0
+          }
+        ],
+        "path": [
+          {
+            "day": 0,
+            "nav": 199999.0,
+            "cash": 43458.002197265625,
+            "securities_cash": 43458.002197265625,
+            "futures_cash": 0.0,
+            "transfer": 0.0,
+            "variation": 0.0,
+            "futures_before_transfer": 0.0,
+            "futures_initial": 0.0,
+            "futures_maintenance": 0.0,
+            "put_price": 10.37,
+            "prices": {
+              "VOO": 710.47998046875,
+              "AMZN": 250.38499450683594,
+              "GOOGL": 343.7900085449219
+            },
+            "future": 7800.75
+          },
+          {
+            "day": 10,
+            "nav": 182890.79375516067,
+            "cash": 43458.002197265625,
+            "securities_cash": 43458.002197265625,
+            "futures_cash": 0.0,
+            "transfer": 0.0,
+            "variation": -0.0,
+            "futures_before_transfer": 0.0,
+            "futures_initial": 0.0,
+            "futures_maintenance": 0.0,
+            "put_price": 55.480934988130066,
+            "prices": {
+              "VOO": 639.431982421875,
+              "AMZN": 205.3156954956055,
+              "GOOGL": 288.7836071777344
+            },
+            "future": 7020.675
+          },
+          {
+            "day": 20,
+            "nav": 172288.07433082518,
+            "cash": 43458.002197265625,
+            "securities_cash": 43458.002197265625,
+            "futures_cash": 0.0,
+            "transfer": 0.0,
+            "variation": -0.0,
+            "futures_before_transfer": 0.0,
+            "futures_initial": 0.0,
+            "futures_maintenance": 0.0,
+            "put_price": 104.20143880385723,
+            "prices": {
+              "VOO": 582.5935839843751,
+              "AMZN": 175.26949615478514,
+              "GOOGL": 250.96670623779298
+            },
+            "future": 6396.615000000001
+          },
+          {
+            "day": 30,
+            "nav": 164350.55209350586,
+            "cash": 43458.002197265625,
+            "securities_cash": 43458.002197265625,
+            "futures_cash": 0.0,
+            "transfer": 0.0,
+            "variation": -0.0,
+            "futures_before_transfer": 0.0,
+            "futures_initial": 0.0,
+            "futures_maintenance": 0.0,
+            "put_price": 152.1400146484375,
+            "prices": {
+              "VOO": 532.8599853515625,
+              "AMZN": 150.23099670410156,
+              "GOOGL": 223.46350555419923
+            },
+            "future": 5850.5625
+          }
+        ],
+        "securities_initial": 52839.27421569824,
+        "securities_maintenance": 19948.13747406006,
+        "securities_scan": 7896.382484436035,
+        "futures_initial": 0.0,
+        "futures_maintenance": 0.0,
+        "min_total_cash": 43458.002197265625,
+        "cash_after_futures_reserve": 43458.002197265625,
+        "notes": [
+          "情景幅度与增量费用为设定；先建立方案，再经历所选30日价格路径。",
+          "普通保证金使用公开规则示例；风险扫描为证券分组压力加期货维持要求，不是券商PM预估。"
+        ]
+      },
+      "E": {
+        "pnl": -16152.572906494139,
+        "ending_nav": 183847.42709350586,
+        "cash": 62954.877197265625,
+        "initial_margin": 61466.19421569824,
+        "maintenance_margin": 27790.79747406006,
+        "margin_scan": 15739.042484436035,
+        "peak_transfer": 0.0,
+        "contributions": [
+          {
+            "label": "VOO",
+            "value": -17761.99951171875
+          },
+          {
+            "label": "AMZN",
+            "value": -20030.799560546875
+          },
+          {
+            "label": "GOOGL",
+            "value": -12032.650299072264
+          },
+          {
+            "label": "Put",
+            "value": 14177.00146484375
+          },
+          {
+            "label": "MES",
+            "value": 19501.875
+          },
+          {
+            "label": "费用",
+            "value": -6.0
+          }
+        ],
+        "path": [
+          {
+            "day": 0,
+            "nav": 199994.0,
+            "cash": 43453.002197265625,
+            "securities_cash": 33453.002197265625,
+            "futures_cash": 10000.0,
+            "transfer": 0.0,
+            "variation": -0.0,
+            "futures_before_transfer": 10000.0,
+            "futures_initial": 5751.28,
+            "futures_maintenance": 5228.44,
+            "put_price": 10.37,
+            "prices": {
+              "VOO": 710.47998046875,
+              "AMZN": 250.38499450683594,
+              "GOOGL": 343.7900085449219
+            },
+            "future": 7800.75
+          },
+          {
+            "day": 10,
+            "nav": 190686.54375516067,
+            "cash": 51253.752197265625,
+            "securities_cash": 33453.002197265625,
+            "futures_cash": 17800.75,
+            "transfer": 0.0,
+            "variation": 7800.749999999998,
+            "futures_before_transfer": 17800.75,
+            "futures_initial": 8626.92,
+            "futures_maintenance": 7842.66,
+            "put_price": 55.480934988130066,
+            "prices": {
+              "VOO": 639.431982421875,
+              "AMZN": 205.3156954956055,
+              "GOOGL": 288.7836071777344
+            },
+            "future": 7020.675
+          },
+          {
+            "day": 20,
+            "nav": 186324.42433082516,
+            "cash": 57494.352197265616,
+            "securities_cash": 33453.002197265625,
+            "futures_cash": 24041.349999999995,
+            "transfer": 0.0,
+            "variation": 6240.599999999995,
+            "futures_before_transfer": 24041.349999999995,
+            "futures_initial": 8626.92,
+            "futures_maintenance": 7842.66,
+            "put_price": 104.20143880385723,
+            "prices": {
+              "VOO": 582.5935839843751,
+              "AMZN": 175.26949615478514,
+              "GOOGL": 250.96670623779298
+            },
+            "future": 6396.615000000001
+          },
+          {
+            "day": 30,
+            "nav": 183847.42709350586,
+            "cash": 62954.877197265625,
+            "securities_cash": 33453.002197265625,
+            "futures_cash": 29501.875,
+            "transfer": 0.0,
+            "variation": 5460.525000000007,
+            "futures_before_transfer": 29501.875,
+            "futures_initial": 8626.92,
+            "futures_maintenance": 7842.66,
+            "put_price": 152.1400146484375,
+            "prices": {
+              "VOO": 532.8599853515625,
+              "AMZN": 150.23099670410156,
+              "GOOGL": 223.46350555419923
+            },
+            "future": 5850.5625
+          }
+        ],
+        "securities_initial": 52839.27421569824,
+        "securities_maintenance": 19948.13747406006,
+        "securities_scan": 7896.382484436035,
+        "futures_initial": 8626.92,
+        "futures_maintenance": 7842.66,
+        "min_total_cash": 43453.002197265625,
+        "cash_after_futures_reserve": 54327.95719726563,
+        "notes": [
+          "情景幅度与增量费用为设定；先建立方案，再经历所选30日价格路径。",
+          "普通保证金使用公开规则示例；风险扫描为证券分组压力加期货维持要求，不是券商PM预估。"
+        ]
+      }
+    }
+  }
+}

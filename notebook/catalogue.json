@@ -1279,6 +1279,356 @@
       "authors": [
         "FINRA"
       ]
+    },
+    {
+      "source_id": "nb-b03-quotes-1",
+      "title": "Yahoo Finance：VOO",
+      "url": "https://finance.yahoo.com/quote/VOO/",
+      "body": "Yahoo Finance：VOO、VOO261218P00685000、MESZ26.CME；Cboe：VOO 期权公开快照。本篇保存的 2026-09-25 13:06 EDT 分钟输入与 Put 13:06:43 成交对应，动态网页的后续报价会变化。",
+      "version": "本篇核对日期：2026-09-26；各输入时点及采用范围见正文",
+      "authors": [
+        "Yahoo Finance"
+      ]
+    },
+    {
+      "source_id": "nb-b03-quotes-2",
+      "title": "VOO261218P00685000",
+      "url": "https://finance.yahoo.com/quote/VOO261218P00685000/",
+      "body": "Yahoo Finance：VOO、VOO261218P00685000、MESZ26.CME；Cboe：VOO 期权公开快照。本篇保存的 2026-09-25 13:06 EDT 分钟输入与 Put 13:06:43 成交对应，动态网页的后续报价会变化。",
+      "version": "本篇核对日期：2026-09-26；各输入时点及采用范围见正文",
+      "authors": [
+        "VOO261218P00685000"
+      ]
+    },
+    {
+      "source_id": "nb-b03-quotes-3",
+      "title": "MESZ26.CME",
+      "url": "https://finance.yahoo.com/quote/MESZ26.CME/",
+      "body": "Yahoo Finance：VOO、VOO261218P00685000、MESZ26.CME；Cboe：VOO 期权公开快照。本篇保存的 2026-09-25 13:06 EDT 分钟输入与 Put 13:06:43 成交对应，动态网页的后续报价会变化。",
+      "version": "本篇核对日期：2026-09-26；各输入时点及采用范围见正文",
+      "authors": [
+        "MESZ26.CME"
+      ]
+    },
+    {
+      "source_id": "nb-b03-quotes-4",
+      "title": "Cboe：VOO 期权公开快照",
+      "url": "https://cdn.cboe.com/api/global/delayed_quotes/options/VOO.json",
+      "body": "Yahoo Finance：VOO、VOO261218P00685000、MESZ26.CME；Cboe：VOO 期权公开快照。本篇保存的 2026-09-25 13:06 EDT 分钟输入与 Put 13:06:43 成交对应，动态网页的后续报价会变化。",
+      "version": "本篇核对日期：2026-09-26；各输入时点及采用范围见正文",
+      "authors": [
+        "Cboe"
+      ]
+    },
+    {
+      "source_id": "nb-b03-contracts-1",
+      "title": "OCC：ETF Options",
+      "url": "https://www.theocc.com/clearance-and-settlement/clearing/etf-options",
+      "body": "OCC：ETF Options，标准合约单位、美式行权与实物交付；CME：Micro E-mini FAQ，MES 每点 5 美元及合约月份。",
+      "version": "本篇核对日期：2026-09-26；各输入时点及采用范围见正文",
+      "authors": [
+        "OCC"
+      ]
+    },
+    {
+      "source_id": "nb-b03-contracts-2",
+      "title": "CME：Micro E-mini FAQ",
+      "url": "https://www.cmegroup.com/articles/faqs/micro-e-mini-equity-index-futures-frequently-asked-questions.html",
+      "body": "OCC：ETF Options，标准合约单位、美式行权与实物交付；CME：Micro E-mini FAQ，MES 每点 5 美元及合约月份。",
+      "version": "本篇核对日期：2026-09-26；各输入时点及采用范围见正文",
+      "authors": [
+        "CME"
+      ]
+    },
+    {
+      "source_id": "nb-b03-futures-2",
+      "title": "CME：Performance Bonds FAQ",
+      "url": "https://www.cmegroup.com/solutions/risk-management/performance-bonds-margins/faq-performance-bonds-margins.html",
+      "body": "CME：Money Calculations for Futures and Options；CME：Performance Bonds FAQ，盯市收付、初始与维持要求。",
+      "version": "本篇核对日期：2026-09-26；各输入时点及采用范围见正文",
+      "authors": [
+        "CME"
+      ]
+    },
+    {
+      "source_id": "nb-b03-mes-margin-1",
+      "title": "IBKR：US Futures Margin",
+      "url": "https://portal.interactivebrokers.com/en/trading/margin-futures-fops.php?ex=us&hm=us&pm=0&rgt=0&rsk=1&rst=101004110808",
+      "body": "IBKR：US Futures Margin，2026-09-26 读取的 MES 空头隔夜初始 2,875.64 美元、维持 2,614.22 美元，本文固定为参考参数。",
+      "version": "本篇核对日期：2026-09-26；各输入时点及采用范围见正文",
+      "authors": [
+        "IBKR"
+      ]
+    },
+    {
+      "source_id": "nb-b03-ordinary-1",
+      "title": "IBKR：US Stocks Margin",
+      "url": "https://portal.interactivebrokers.com/en/trading/margin-stocks.php?ex=us&hm=us&pm=1&rgt=1&rsk=0&rst=101004100808",
+      "body": "IBKR：US Stocks Margin，Reg T 日终初始与股票维持要求；IBKR：US Options Margin，Protective Put 与多头期权规则。",
+      "version": "本篇核对日期：2026-09-26；各输入时点及采用范围见正文",
+      "authors": [
+        "IBKR"
+      ]
+    },
+    {
+      "source_id": "nb-b03-ordinary-2",
+      "title": "IBKR：US Options Margin",
+      "url": "https://portal.interactivebrokers.com/en/trading/margin-options.php?ex=us&hm=us&pm=1&rgt=1&rsk=0&rst=101004100808",
+      "body": "IBKR：US Stocks Margin，Reg T 日终初始与股票维持要求；IBKR：US Options Margin，Protective Put 与多头期权规则。",
+      "version": "本篇核对日期：2026-09-26；各输入时点及采用范围见正文",
+      "authors": [
+        "IBKR"
+      ]
+    },
+    {
+      "source_id": "nb-b03-pm-1",
+      "title": "FINRA：Rule 4210(g)",
+      "url": "https://www.finra.org/rules-guidance/rulebooks/finra-rules/4210",
+      "body": "FINRA：Rule 4210(g)，情景点与最低额规则；IBKR/CBOE：Portfolio Margin 教材，广基 ETF 风险情景；IBKR：US Stocks Margin，Portfolio Margin Mechanics 部分的组合抵销、波动率压力及附加要求。本文风险扫描按这些公开机制设置，未取得该账户真实 PM 预估。",
+      "version": "本篇核对日期：2026-09-26；各输入时点及采用范围见正文",
+      "authors": [
+        "FINRA"
+      ]
+    },
+    {
+      "source_id": "nb-b03-pm-2",
+      "title": "IBKR/CBOE：Portfolio Margin 教材",
+      "url": "https://www.interactivebrokers.com/webinars/WB_1569_CBOE_Portfolio_Margin_Option_Positions.pdf",
+      "body": "FINRA：Rule 4210(g)，情景点与最低额规则；IBKR/CBOE：Portfolio Margin 教材，广基 ETF 风险情景；IBKR：US Stocks Margin，Portfolio Margin Mechanics 部分的组合抵销、波动率压力及附加要求。本文风险扫描按这些公开机制设置，未取得该账户真实 PM 预估。",
+      "version": "本篇核对日期：2026-09-26；各输入时点及采用范围见正文",
+      "authors": [
+        "IBKR/CBOE"
+      ]
+    },
+    {
+      "source_id": "nb-b03-accounts-1",
+      "title": "IBKR：Account Balances",
+      "url": "https://www.ibkrguides.com/traderworkstation/account-balances.htm",
+      "body": "IBKR：Account Balances、Available for Trading、Portfolio Margin Account Summary，权益口径、证券与期货分部；Excess Funds Sweep，分部划转。",
+      "version": "本篇核对日期：2026-09-26；各输入时点及采用范围见正文",
+      "authors": [
+        "IBKR"
+      ]
+    },
+    {
+      "source_id": "nb-b03-accounts-2",
+      "title": "Available for Trading",
+      "url": "https://www.ibkrguides.com/traderworkstation/available-for-trading.htm",
+      "body": "IBKR：Account Balances、Available for Trading、Portfolio Margin Account Summary，权益口径、证券与期货分部；Excess Funds Sweep，分部划转。",
+      "version": "本篇核对日期：2026-09-26；各输入时点及采用范围见正文",
+      "authors": [
+        "Available for Trading"
+      ]
+    },
+    {
+      "source_id": "nb-b03-accounts-3",
+      "title": "Portfolio Margin Account Summary",
+      "url": "https://www.ibkrguides.com/reportingreference/reportguide/marginsummaryportfoliomarginaccounts.htm",
+      "body": "IBKR：Account Balances、Available for Trading、Portfolio Margin Account Summary，权益口径、证券与期货分部；Excess Funds Sweep，分部划转。",
+      "version": "本篇核对日期：2026-09-26；各输入时点及采用范围见正文",
+      "authors": [
+        "Portfolio Margin Account Summary"
+      ]
+    },
+    {
+      "source_id": "nb-b03-accounts-4",
+      "title": "Excess Funds Sweep",
+      "url": "https://www.ibkrguides.com/brokerportal/excessfundssweep.htm",
+      "body": "IBKR：Account Balances、Available for Trading、Portfolio Margin Account Summary，权益口径、证券与期货分部；Excess Funds Sweep，分部划转。",
+      "version": "本篇核对日期：2026-09-26；各输入时点及采用范围见正文",
+      "authors": [
+        "Excess Funds Sweep"
+      ]
+    },
+    {
+      "source_id": "nb-b03-options-1",
+      "title": "OIC：The Impact of T+1 on Options",
+      "url": "https://www.optionseducation.org/news/understanding-t-1-conversion",
+      "body": "OIC：The Impact of T+1 on Options，交易权利金与行权交收；OIC：All Strategies，现金担保看跌等资金关系。",
+      "version": "本篇核对日期：2026-09-26；各输入时点及采用范围见正文",
+      "authors": [
+        "OIC"
+      ]
+    },
+    {
+      "source_id": "nb-b03-options-2",
+      "title": "OIC：All Strategies",
+      "url": "https://prd-web.optionseducation.org/strategies/all-strategies-en",
+      "body": "OIC：The Impact of T+1 on Options，交易权利金与行权交收；OIC：All Strategies，现金担保看跌等资金关系。",
+      "version": "本篇核对日期：2026-09-26；各输入时点及采用范围见正文",
+      "authors": [
+        "OIC"
+      ]
+    },
+    {
+      "source_id": "nb-b03-perpetual-1",
+      "title": "Bybit：Funding Fee Calculation",
+      "url": "https://www.bybit.com/en/help-center/article/Funding-fee-calculation",
+      "body": "Bybit：Funding Fee Calculation，USDT 永续资金费公式与方向。本文 10,000 USDT 和 0.01% 为说明收付关系的设定，实际费率及周期按具体合约。",
+      "version": "本篇核对日期：2026-09-26；各输入时点及采用范围见正文",
+      "authors": [
+        "Bybit"
+      ]
+    },
+    {
+      "source_id": "nb-b03-settlement-2",
+      "title": "DTCC：CNS",
+      "url": "https://www.dtcc.com/products-and-services/clearing-settlement-services/equities-clearing/cns",
+      "body": "SEC Investor.gov：T+1 Settlement，营业日交收；DTCC：CNS，清算、净额与 DTC 簿记交付；上交所投资者问答，仅取 T+0 回转交易术语。",
+      "version": "本篇核对日期：2026-09-26；各输入时点及采用范围见正文",
+      "authors": [
+        "DTCC"
+      ]
+    },
+    {
+      "source_id": "nb-b03-settlement-3",
+      "title": "上交所投资者问答",
+      "url": "https://edu.sse.com.cn/best/article/mcontent/c/4731123.shtml",
+      "body": "SEC Investor.gov：T+1 Settlement，营业日交收；DTCC：CNS，清算、净额与 DTC 簿记交付；上交所投资者问答，仅取 T+0 回转交易术语。",
+      "version": "本篇核对日期：2026-09-26；各输入时点及采用范围见正文",
+      "authors": [
+        "上交所投资者问答"
+      ]
+    },
+    {
+      "source_id": "nb-b03-cash-account-1",
+      "title": "Fidelity：About Your Account",
+      "url": "https://www.fidelity.com/trading/faqs-about-account",
+      "body": "Fidelity：About Your Account 与 Trading Restrictions，现金账户的可交易、已交收、可提款金额与付款关系。",
+      "version": "本篇核对日期：2026-09-26；各输入时点及采用范围见正文",
+      "authors": [
+        "Fidelity"
+      ]
+    },
+    {
+      "source_id": "nb-b03-cash-account-2",
+      "title": "Trading Restrictions",
+      "url": "https://www.fidelity.com/trading/faqs-trading-restrictions",
+      "body": "Fidelity：About Your Account 与 Trading Restrictions，现金账户的可交易、已交收、可提款金额与付款关系。",
+      "version": "本篇核对日期：2026-09-26；各输入时点及采用范围见正文",
+      "authors": [
+        "Trading Restrictions"
+      ]
+    },
+    {
+      "source_id": "nb-b03-integrated-quotes-2",
+      "title": "AMZN",
+      "url": "https://finance.yahoo.com/quote/AMZN/",
+      "body": "Yahoo Finance：VOO、AMZN、GOOGL、MESZ26.CME；Cboe VOO 期权快照。正文使用 2026-09-25 13:06 EDT 分钟观察，Put 的实际成交发生于 13:06:43，当日仅成交 1 张；历史观察与模型情景的身份分别保留。",
+      "version": "本篇材料核对：2026-09-26；历史样本、研究及情景时点分别见正文",
+      "authors": [
+        "AMZN"
+      ]
+    },
+    {
+      "source_id": "nb-b03-integrated-quotes-3",
+      "title": "GOOGL",
+      "url": "https://finance.yahoo.com/quote/GOOGL/",
+      "body": "Yahoo Finance：VOO、AMZN、GOOGL、MESZ26.CME；Cboe VOO 期权快照。正文使用 2026-09-25 13:06 EDT 分钟观察，Put 的实际成交发生于 13:06:43，当日仅成交 1 张；历史观察与模型情景的身份分别保留。",
+      "version": "本篇材料核对：2026-09-26；历史样本、研究及情景时点分别见正文",
+      "authors": [
+        "GOOGL"
+      ]
+    },
+    {
+      "source_id": "nb-b03-integrated-amzn-1",
+      "title": "Amazon Q2 2026 Results",
+      "url": "https://ir.aboutamazon.com/news-release/news-release-details/2026/Amazon-com-Announces-Second-Quarter-Results/default.aspx?mode=light",
+      "body": "Amazon Q2 2026 Results，2026-07-30，季度分部表及过去十二个月现金流说明。",
+      "version": "本篇材料核对：2026-09-26；历史样本、研究及情景时点分别见正文",
+      "authors": [
+        "Amazon Q2 2026 Results"
+      ]
+    },
+    {
+      "source_id": "nb-b03-integrated-research-1",
+      "title": "本项目 2026-09-20 研究快照及采用范围",
+      "url": "/notebook/portfolio-hedging/research-snapshot.md",
+      "body": "本项目 2026-09-20 研究快照及采用范围，AMZN 与 GOOGL 的条件结果、粗权重与反向检验；该快照为研究判断，非发行人指引。",
+      "version": "本篇材料核对：2026-09-26；历史样本、研究及情景时点分别见正文",
+      "authors": [
+        "本项目 2026-09-20 研究快照及采用范围"
+      ]
+    },
+    {
+      "source_id": "nb-b03-integrated-voo-1",
+      "title": "Vanguard：VOO Portfolio Composition",
+      "url": "https://investor.vanguard.com/investment-products/etfs/profile/voo#portfolio-composition",
+      "body": "Vanguard：VOO Portfolio Composition，基金穿透持股用于识别与直接持股的重叠；正文未采用一个未经同步核对的固定持仓百分比。",
+      "version": "本篇材料核对：2026-09-26；历史样本、研究及情景时点分别见正文",
+      "authors": [
+        "Vanguard"
+      ]
+    },
+    {
+      "source_id": "nb-b03-integrated-beta-data-1",
+      "title": "Kenneth R. French Data Library",
+      "url": "https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/data_library.html",
+      "body": "Kenneth R. French Data Library，2026 年 8 月文件中的日频 RF；该文件将一月国库券利率折为日收益。股票总回报近似来自 Yahoo 调整收盘价，回归基准为 VOO，没有采用 French 市场因子替代 VOO。",
+      "version": "本篇材料核对：2026-09-26；历史样本、研究及情景时点分别见正文",
+      "authors": [
+        "Kenneth R. French Data Library"
+      ]
+    },
+    {
+      "source_id": "nb-b03-integrated-horizon-1",
+      "title": "Handa、Kothari、Wasley，1989",
+      "url": "https://doi.org/10.1016/0304-405X%2889%2990006-8",
+      "body": "Handa、Kothari、Wasley（1989），收益采样间隔与 beta 的关系；本篇采用其摘要支持估计口径的区别。",
+      "version": "本篇材料核对：2026-09-26；历史样本、研究及情景时点分别见正文",
+      "authors": [
+        "Handa、Kothari、Wasley，1989"
+      ]
+    },
+    {
+      "source_id": "nb-b03-integrated-horizon-2",
+      "title": "Chen、Lee、Shrestha，2004",
+      "url": "https://ir.lib.nycu.edu.tw/server/api/core/bitstreams/35c195a6-adc8-4e07-8f16-132758488eb9/content",
+      "body": "Handa、Kothari、Wasley，198990006-8)，收益间隔与 beta；Chen、Lee、Shrestha，2004，正文 363—365 页的对冲期限与估计；Engle，Dynamic Conditional Beta，第 1—5 页的条件协方差与时变参数。",
+      "version": "本篇材料核对：2026-09-26；历史样本、研究及情景时点分别见正文",
+      "authors": [
+        "Chen、Lee、Shrestha，2004"
+      ]
+    },
+    {
+      "source_id": "nb-b03-integrated-horizon-3",
+      "title": "Engle，Dynamic Conditional Beta",
+      "url": "https://www.frbsf.org/wp-content/uploads/Thu_1340_Engle.pdf",
+      "body": "Handa、Kothari、Wasley，198990006-8)，收益间隔与 beta；Chen、Lee、Shrestha，2004，正文 363—365 页的对冲期限与估计；Engle，Dynamic Conditional Beta，第 1—5 页的条件协方差与时变参数。",
+      "version": "本篇材料核对：2026-09-26；历史样本、研究及情景时点分别见正文",
+      "authors": [
+        "Engle，Dynamic Conditional Beta"
+      ]
+    },
+    {
+      "source_id": "nb-b03-integrated-performance-1",
+      "title": "CFA Institute：Portfolio Risk and Return, Part II",
+      "url": "https://www.cfainstitute.org/insights/professional-learning/refresher-readings/2026/portfolio-risk-return-part-2",
+      "body": "CFA Institute：Portfolio Risk and Return, Part II，beta、Jensen alpha 与风险调整表现；William F. Sharpe：The Sharpe Ratio，同频超额收益与时间口径。",
+      "version": "本篇材料核对：2026-09-26；历史样本、研究及情景时点分别见正文",
+      "authors": [
+        "CFA Institute"
+      ]
+    },
+    {
+      "source_id": "nb-b03-integrated-futures-hedge-1",
+      "title": "CME：Understanding Stock Index Futures",
+      "url": "https://www.cmegroup.com/education/files/understanding-stock-index-futures.pdf",
+      "body": "CME：Understanding Stock Index Futures，目标 beta 与期货名义金额换算；本文张数使用本例输入重新计算。",
+      "version": "本篇材料核对：2026-09-26；历史样本、研究及情景时点分别见正文",
+      "authors": [
+        "CME"
+      ]
+    },
+    {
+      "source_id": "nb-b03-integrated-perpetual-1",
+      "title": "Bybit：Margin Modes",
+      "url": "https://www.bybit.com/en/help-center/article/Differences-Between-the-Margin-Modes-Under-the-Unified-Trading-Account",
+      "body": "Bybit：Margin Modes 与 Funding Fee Calculation，逐仓、全仓及资金费；10,000 USDT 与 0.01% 为本文的一次收付设定。",
+      "version": "本篇材料核对：2026-09-26；历史样本、研究及情景时点分别见正文",
+      "authors": [
+        "Bybit"
+      ]
     }
   ],
   "paths": []

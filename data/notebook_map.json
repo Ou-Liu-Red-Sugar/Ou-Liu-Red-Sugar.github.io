@@ -789,18 +789,10 @@
     {
       "id": "NB-B03",
       "node": "B",
-      "title": "清算、交收与账户资金",
-      "goal": "区分已经成交、持有记录更新和资金可用的不同时间。",
-      "status": "planned",
-      "url": null
-    },
-    {
-      "id": "NB-B04",
-      "node": "B",
-      "title": "流动性与交易成本",
-      "goal": "理解成交难易、价格让步和费用怎样影响投资实施。",
-      "status": "planned",
-      "url": null
+      "title": "投资组合、保证金与对冲策略",
+      "goal": "从基本面与 Risk-Reward 建立组合，由 Agent 判断共同风险与对冲取舍，并理解保证金、盯市和交收怎样约束资金。",
+      "status": "available",
+      "url": "/zh/notebook/settlement-margin-cash/"
     },
     {
       "id": "NB-C05",
@@ -949,8 +941,8 @@
     {
       "id": "NB-V01",
       "node": "V",
-      "title": "基金、ETF 与实际持仓",
-      "goal": "从产品名称追到基金实际持有的资产。",
+      "title": "指数、基金与 ETF",
+      "goal": "区分指数、基金与 ETF，理解市场基准、基金份额及交易形式之间的关系。",
       "status": "planned",
       "url": null
     },
@@ -1499,13 +1491,21 @@
         "id": "NB-S01",
         "number": 3,
         "title": "股票、公司与股价",
-        "note": "把股份、公司经营和股价联系起来，接着辨认买到的具体权利与交易形式。",
+        "note": "把股份、公司经营和股价联系起来，再认识指数、基金与 ETF 这些常用概念。",
         "status": "available",
         "url": "/zh/notebook/stocks-company-price/"
       },
       {
-        "id": "NB-B01",
+        "id": "NB-V01",
         "number": 4,
+        "title": "指数、基金与 ETF",
+        "note": "从股票进入指数与基金的基本关系，再继续辨认股份权利和交易形式。",
+        "status": "planned",
+        "url": null
+      },
+      {
+        "id": "NB-B01",
+        "number": 5,
         "title": "股票的类型、发行与交易形式",
         "note": "辨认股份权利，分清发行与转手的资金去向，再看公司怎样分配现金和调整股数。",
         "status": "available",
@@ -1513,7 +1513,7 @@
       },
       {
         "id": "NB-S02",
-        "number": 5,
+        "number": 6,
         "title": "股东回报：分红、回购与增发",
         "note": "比较分红、回购和增发怎样改变持有人所得，再追问波动与亏损会怎样影响继续持有。",
         "status": "available",
@@ -1521,7 +1521,7 @@
       },
       {
         "id": "NB-A03",
-        "number": 6,
+        "number": 7,
         "title": "亏损、波动与持有能力",
         "note": "把亏损后的判断落实到未来得失与资金条件，再比较不同期限和替代用途的回报。",
         "status": "available",
@@ -1529,7 +1529,7 @@
       },
       {
         "id": "NB-A04",
-        "number": 7,
+        "number": 8,
         "title": "复利、通胀与机会成本",
         "note": "用复利与购买力比较不同期限的结果，再把资金的替代用途放进判断。",
         "status": "available",
@@ -1537,23 +1537,31 @@
       },
       {
         "id": "NB-B02",
-        "number": 8,
+        "number": 9,
         "title": "报价、订单与实际成交",
         "note": "把买卖意图落实到报价、订单与实际成交，再理解成交以后的交收与可用资金。",
         "status": "available",
         "url": "/zh/notebook/quotes-orders-execution/"
+      },
+      {
+        "id": "NB-B03",
+        "number": 10,
+        "title": "投资组合、保证金与对冲策略",
+        "note": "从组合的风险与资金安排，进一步比较指数的权重规则与集中风险。",
+        "status": "available",
+        "url": "/zh/notebook/settlement-margin-cash/"
       }
     ],
     "next": {
-      "id": "NB-B03",
-      "number": 9,
-      "title": "清算、交收与账户资金",
-      "note": "跟随成交后的证券与现金，分清账户显示、交收完成和资金可用的时间。",
+      "id": "NB-V02",
+      "number": 11,
+      "title": "指数规则、权重与集中度",
+      "note": "进一步理解指数的成分与权重，再观察基金费用、跟踪结果与折溢价。",
       "status": "planned",
       "url": null
     },
-    "available_count": 8,
-    "intro_available_count": 8,
+    "available_count": 9,
+    "intro_available_count": 9,
     "navigation": {
       "NB-A01": {
         "current": {
@@ -1595,7 +1603,7 @@
           "id": "NB-S01",
           "number": 3,
           "title": "股票、公司与股价",
-          "note": "把股份、公司经营和股价联系起来，接着辨认买到的具体权利与交易形式。",
+          "note": "把股份、公司经营和股价联系起来，再认识指数、基金与 ETF 这些常用概念。",
           "status": "available",
           "url": "/zh/notebook/stocks-company-price/"
         }
@@ -1605,7 +1613,7 @@
           "id": "NB-S01",
           "number": 3,
           "title": "股票、公司与股价",
-          "note": "把股份、公司经营和股价联系起来，接着辨认买到的具体权利与交易形式。",
+          "note": "把股份、公司经营和股价联系起来，再认识指数、基金与 ETF 这些常用概念。",
           "status": "available",
           "url": "/zh/notebook/stocks-company-price/"
         },
@@ -1618,34 +1626,34 @@
           "url": "/zh/notebook/investment-horizon-cash/"
         },
         "next": {
-          "id": "NB-B01",
+          "id": "NB-V01",
           "number": 4,
-          "title": "股票的类型、发行与交易形式",
-          "note": "辨认股份权利，分清发行与转手的资金去向，再看公司怎样分配现金和调整股数。",
-          "status": "available",
-          "url": "/zh/notebook/stock-types-issuance-trading/"
+          "title": "指数、基金与 ETF",
+          "note": "从股票进入指数与基金的基本关系，再继续辨认股份权利和交易形式。",
+          "status": "planned",
+          "url": null
         }
       },
       "NB-B01": {
         "current": {
           "id": "NB-B01",
-          "number": 4,
+          "number": 5,
           "title": "股票的类型、发行与交易形式",
           "note": "辨认股份权利，分清发行与转手的资金去向，再看公司怎样分配现金和调整股数。",
           "status": "available",
           "url": "/zh/notebook/stock-types-issuance-trading/"
         },
         "previous": {
-          "id": "NB-S01",
-          "number": 3,
-          "title": "股票、公司与股价",
-          "note": "把股份、公司经营和股价联系起来，接着辨认买到的具体权利与交易形式。",
-          "status": "available",
-          "url": "/zh/notebook/stocks-company-price/"
+          "id": "NB-V01",
+          "number": 4,
+          "title": "指数、基金与 ETF",
+          "note": "从股票进入指数与基金的基本关系，再继续辨认股份权利和交易形式。",
+          "status": "planned",
+          "url": null
         },
         "next": {
           "id": "NB-S02",
-          "number": 5,
+          "number": 6,
           "title": "股东回报：分红、回购与增发",
           "note": "比较分红、回购和增发怎样改变持有人所得，再追问波动与亏损会怎样影响继续持有。",
           "status": "available",
@@ -1655,7 +1663,7 @@
       "NB-S02": {
         "current": {
           "id": "NB-S02",
-          "number": 5,
+          "number": 6,
           "title": "股东回报：分红、回购与增发",
           "note": "比较分红、回购和增发怎样改变持有人所得，再追问波动与亏损会怎样影响继续持有。",
           "status": "available",
@@ -1663,7 +1671,7 @@
         },
         "previous": {
           "id": "NB-B01",
-          "number": 4,
+          "number": 5,
           "title": "股票的类型、发行与交易形式",
           "note": "辨认股份权利，分清发行与转手的资金去向，再看公司怎样分配现金和调整股数。",
           "status": "available",
@@ -1671,7 +1679,7 @@
         },
         "next": {
           "id": "NB-A03",
-          "number": 6,
+          "number": 7,
           "title": "亏损、波动与持有能力",
           "note": "把亏损后的判断落实到未来得失与资金条件，再比较不同期限和替代用途的回报。",
           "status": "available",
@@ -1681,7 +1689,7 @@
       "NB-A03": {
         "current": {
           "id": "NB-A03",
-          "number": 6,
+          "number": 7,
           "title": "亏损、波动与持有能力",
           "note": "把亏损后的判断落实到未来得失与资金条件，再比较不同期限和替代用途的回报。",
           "status": "available",
@@ -1689,7 +1697,7 @@
         },
         "previous": {
           "id": "NB-S02",
-          "number": 5,
+          "number": 6,
           "title": "股东回报：分红、回购与增发",
           "note": "比较分红、回购和增发怎样改变持有人所得，再追问波动与亏损会怎样影响继续持有。",
           "status": "available",
@@ -1697,7 +1705,7 @@
         },
         "next": {
           "id": "NB-A04",
-          "number": 7,
+          "number": 8,
           "title": "复利、通胀与机会成本",
           "note": "用复利与购买力比较不同期限的结果，再把资金的替代用途放进判断。",
           "status": "available",
@@ -1707,7 +1715,7 @@
       "NB-A04": {
         "current": {
           "id": "NB-A04",
-          "number": 7,
+          "number": 8,
           "title": "复利、通胀与机会成本",
           "note": "用复利与购买力比较不同期限的结果，再把资金的替代用途放进判断。",
           "status": "available",
@@ -1715,7 +1723,7 @@
         },
         "previous": {
           "id": "NB-A03",
-          "number": 6,
+          "number": 7,
           "title": "亏损、波动与持有能力",
           "note": "把亏损后的判断落实到未来得失与资金条件，再比较不同期限和替代用途的回报。",
           "status": "available",
@@ -1723,7 +1731,7 @@
         },
         "next": {
           "id": "NB-B02",
-          "number": 8,
+          "number": 9,
           "title": "报价、订单与实际成交",
           "note": "把买卖意图落实到报价、订单与实际成交，再理解成交以后的交收与可用资金。",
           "status": "available",
@@ -1733,7 +1741,7 @@
       "NB-B02": {
         "current": {
           "id": "NB-B02",
-          "number": 8,
+          "number": 9,
           "title": "报价、订单与实际成交",
           "note": "把买卖意图落实到报价、订单与实际成交，再理解成交以后的交收与可用资金。",
           "status": "available",
@@ -1741,7 +1749,7 @@
         },
         "previous": {
           "id": "NB-A04",
-          "number": 7,
+          "number": 8,
           "title": "复利、通胀与机会成本",
           "note": "用复利与购买力比较不同期限的结果，再把资金的替代用途放进判断。",
           "status": "available",
@@ -1749,9 +1757,35 @@
         },
         "next": {
           "id": "NB-B03",
+          "number": 10,
+          "title": "投资组合、保证金与对冲策略",
+          "note": "从组合的风险与资金安排，进一步比较指数的权重规则与集中风险。",
+          "status": "available",
+          "url": "/zh/notebook/settlement-margin-cash/"
+        }
+      },
+      "NB-B03": {
+        "current": {
+          "id": "NB-B03",
+          "number": 10,
+          "title": "投资组合、保证金与对冲策略",
+          "note": "从组合的风险与资金安排，进一步比较指数的权重规则与集中风险。",
+          "status": "available",
+          "url": "/zh/notebook/settlement-margin-cash/"
+        },
+        "previous": {
+          "id": "NB-B02",
           "number": 9,
-          "title": "清算、交收与账户资金",
-          "note": "跟随成交后的证券与现金，分清账户显示、交收完成和资金可用的时间。",
+          "title": "报价、订单与实际成交",
+          "note": "把买卖意图落实到报价、订单与实际成交，再理解成交以后的交收与可用资金。",
+          "status": "available",
+          "url": "/zh/notebook/quotes-orders-execution/"
+        },
+        "next": {
+          "id": "NB-V02",
+          "number": 11,
+          "title": "指数规则、权重与集中度",
+          "note": "进一步理解指数的成分与权重，再观察基金费用、跟踪结果与折溢价。",
           "status": "planned",
           "url": null
         }
@@ -1759,7 +1793,7 @@
     },
     "credits": [
       {
-        "label": "第 1–8 篇",
+        "label": "第 1、2、3、5、6、7、8、9、10 篇",
         "writer": "Codex GPT-6 Astra"
       }
     ],
@@ -1770,8 +1804,8 @@
         "id": "foundations",
         "title": "认识投资与市场",
         "goal": "解释股票、基金和现金工具的持有结果，理解一次交易怎样完成。",
-        "available_count": 8,
-        "total": 15
+        "available_count": 9,
+        "total": 14
       },
       {
         "id": "business",

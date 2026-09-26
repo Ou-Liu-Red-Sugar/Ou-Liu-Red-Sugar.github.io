@@ -1,0 +1,975 @@
+# 投资组合、保证金与对冲策略
+
+从业务与 Risk-Reward 建立组合，理解 beta 对冲的范围，由 Agent 结合市场状态比较期货、Put 与减持，再把保证金、盯市和交收接到现金安排。
+
+Entry: zh-settlement-margin-cash | Node: NB-B03 | Language: zh | Editorial revision: 2026-09-26
+
+## Teaching instructions
+从200000美元假设资金、VOO100份、AMZN200股、GOOGL100股及现金出发。保留9/20公司研究快照与9/25观察价的不同身份，不将2029条件价格用于30日行情。用真实AdjClose和French RF讲beta/alpha/Sharpe；统一样本截至8/28，日频一年250、两年499、周频两年104。结合R²解释beta对冲范围：个股约.28，按当前权重合成组合约.60；样本内抵销市场分量后波动率降幅不是实际MES策略效果。Agent承担语义理解、经营机制、状态判断、假设及策略取舍，程序核算；不宣称前瞻beta或Agent优越性已验证。按既定beta目标.45比较2和3MES，三张约.366；E是2MES加一张Put，不能套用忽略Put的组合beta。五种策略先在同一时点建立再走未来路径；结果来自明确价格/波动率/费用设定，无联合概率。普通保证金、风险扫描和期货维持分清；扫描不是实际PM。现金按节点结算及分部划转；累计补入不是费用或最大单次。T+0回转与T+1交收分开，旧PDT不进入。详细Greeks留后续。先解释读者需要的机制再使用图表，简明/详细版沿全文内容。计算源见/notebook/portfolio-hedging/inputs.json、history.csv、model.py和calculation-results.csv。
+
+Before substantive teaching, actually retrieve every required reading unit for the selected scope. Read its complete designated section, including necessary assumptions, tables and footnotes. A working URL or an editorial access date is not a runtime reading receipt. Record the actual version, location, scope and what it supports. If unavailable, use a previously verified equivalent source; if the required unit remains unavailable, identify that gap rather than teach it from memory. Start runtime_reading_log empty. Once reading is complete, use a substantive diagnostic or follow the reader's request for direct explanation. Advance one complete reasoning task at a time; skip mastered basics. Distinguish original facts, supplied teaching assumptions and inference.
+
+## Shared notation and writing conventions
+数学期望统一写成 \mathbb{E}，条件期望用 \mathbb{E}[X\mid\mathcal{G}]，需要时注明测度 P 或 Q. 保留局部变量的明确定义. 金额与数量使用 K=10^3、M=10^6、B=10^9；表格标明币种、量级与期间，变更量级时同步换算数值. 展示小数最多三位，计算保留原始精度. 直接解释对象、机制与推理；保留影响结论的假设和事实来源，把编辑流程留在记录中. 句末使用英文句点 .，包括定义、命题、证明和解析等标签. 基础定义与推导直接讲内容，出处放在紧邻脚注；来源读取、复审和采用范围等编辑经过留在记录中.
+[Notation and units](https://ou-liu-red-sugar.github.io/agent/zh/notation.md)
+
+## Required readings and runtime protocol
+```json
+{
+  "required_readings": [
+    {
+      "source_id": "nb-b03-quotes-1",
+      "access": {
+        "kind": "selected_chapters",
+        "uri": "https://finance.yahoo.com/quote/VOO/"
+      },
+      "required_unit": {
+        "locator": "Yahoo Finance：VOO、AMZN、GOOGL、MESZ26.CME；Cboe VOO 期权快照。正文使用 2026-09-25 13:06 EDT 分钟观察，Put 的实际成交发生于 13:06:43，当日仅成交 1 张；历史观察与模型情景的身份分别保留。",
+        "scope": "Yahoo Finance：VOO、AMZN、GOOGL、MESZ26.CME；Cboe VOO 期权快照。正文使用 2026-09-25 13:06 EDT 分钟观察，Put 的实际成交发生于 13:06:43，当日仅成交 1 张；历史观察与模型情景的身份分别保留。",
+        "purpose": "读取本篇实际采用的业务、收益估计、对冲及资金规则。"
+      },
+      "title": "Yahoo Finance：VOO",
+      "authors": [
+        "Yahoo Finance"
+      ],
+      "version": "本篇核对日期：2026-09-26；各输入时点及采用范围见正文"
+    },
+    {
+      "source_id": "nb-b03-integrated-quotes-2",
+      "access": {
+        "kind": "selected_chapters",
+        "uri": "https://finance.yahoo.com/quote/AMZN/"
+      },
+      "required_unit": {
+        "locator": "Yahoo Finance：VOO、AMZN、GOOGL、MESZ26.CME；Cboe VOO 期权快照。正文使用 2026-09-25 13:06 EDT 分钟观察，Put 的实际成交发生于 13:06:43，当日仅成交 1 张；历史观察与模型情景的身份分别保留。",
+        "scope": "Yahoo Finance：VOO、AMZN、GOOGL、MESZ26.CME；Cboe VOO 期权快照。正文使用 2026-09-25 13:06 EDT 分钟观察，Put 的实际成交发生于 13:06:43，当日仅成交 1 张；历史观察与模型情景的身份分别保留。",
+        "purpose": "读取本篇实际采用的业务、收益估计、对冲及资金规则。"
+      },
+      "title": "AMZN",
+      "authors": [
+        "AMZN"
+      ],
+      "version": "本篇材料核对：2026-09-26；历史样本、研究及情景时点分别见正文"
+    },
+    {
+      "source_id": "nb-b03-integrated-quotes-3",
+      "access": {
+        "kind": "selected_chapters",
+        "uri": "https://finance.yahoo.com/quote/GOOGL/"
+      },
+      "required_unit": {
+        "locator": "Yahoo Finance：VOO、AMZN、GOOGL、MESZ26.CME；Cboe VOO 期权快照。正文使用 2026-09-25 13:06 EDT 分钟观察，Put 的实际成交发生于 13:06:43，当日仅成交 1 张；历史观察与模型情景的身份分别保留。",
+        "scope": "Yahoo Finance：VOO、AMZN、GOOGL、MESZ26.CME；Cboe VOO 期权快照。正文使用 2026-09-25 13:06 EDT 分钟观察，Put 的实际成交发生于 13:06:43，当日仅成交 1 张；历史观察与模型情景的身份分别保留。",
+        "purpose": "读取本篇实际采用的业务、收益估计、对冲及资金规则。"
+      },
+      "title": "GOOGL",
+      "authors": [
+        "GOOGL"
+      ],
+      "version": "本篇材料核对：2026-09-26；历史样本、研究及情景时点分别见正文"
+    },
+    {
+      "source_id": "nb-b03-quotes-3",
+      "access": {
+        "kind": "selected_chapters",
+        "uri": "https://finance.yahoo.com/quote/MESZ26.CME/"
+      },
+      "required_unit": {
+        "locator": "Yahoo Finance：VOO、AMZN、GOOGL、MESZ26.CME；Cboe VOO 期权快照。正文使用 2026-09-25 13:06 EDT 分钟观察，Put 的实际成交发生于 13:06:43，当日仅成交 1 张；历史观察与模型情景的身份分别保留。",
+        "scope": "Yahoo Finance：VOO、AMZN、GOOGL、MESZ26.CME；Cboe VOO 期权快照。正文使用 2026-09-25 13:06 EDT 分钟观察，Put 的实际成交发生于 13:06:43，当日仅成交 1 张；历史观察与模型情景的身份分别保留。",
+        "purpose": "读取本篇实际采用的业务、收益估计、对冲及资金规则。"
+      },
+      "title": "MESZ26.CME",
+      "authors": [
+        "MESZ26.CME"
+      ],
+      "version": "本篇核对日期：2026-09-26；各输入时点及采用范围见正文"
+    },
+    {
+      "source_id": "nb-b03-quotes-4",
+      "access": {
+        "kind": "selected_chapters",
+        "uri": "https://cdn.cboe.com/api/global/delayed_quotes/options/VOO.json"
+      },
+      "required_unit": {
+        "locator": "Yahoo Finance：VOO、AMZN、GOOGL、MESZ26.CME；Cboe VOO 期权快照。正文使用 2026-09-25 13:06 EDT 分钟观察，Put 的实际成交发生于 13:06:43，当日仅成交 1 张；历史观察与模型情景的身份分别保留。",
+        "scope": "Yahoo Finance：VOO、AMZN、GOOGL、MESZ26.CME；Cboe VOO 期权快照。正文使用 2026-09-25 13:06 EDT 分钟观察，Put 的实际成交发生于 13:06:43，当日仅成交 1 张；历史观察与模型情景的身份分别保留。",
+        "purpose": "读取本篇实际采用的业务、收益估计、对冲及资金规则。"
+      },
+      "title": "Cboe：VOO 期权公开快照",
+      "authors": [
+        "Cboe"
+      ],
+      "version": "本篇核对日期：2026-09-26；各输入时点及采用范围见正文"
+    },
+    {
+      "source_id": "nb-b03-integrated-amzn-1",
+      "access": {
+        "kind": "selected_chapters",
+        "uri": "https://ir.aboutamazon.com/news-release/news-release-details/2026/Amazon-com-Announces-Second-Quarter-Results/default.aspx?mode=light"
+      },
+      "required_unit": {
+        "locator": "Amazon Q2 2026 Results，2026-07-30，季度分部表及过去十二个月现金流说明。",
+        "scope": "Amazon Q2 2026 Results，2026-07-30，季度分部表及过去十二个月现金流说明。",
+        "purpose": "读取本篇实际采用的业务、收益估计、对冲及资金规则。"
+      },
+      "title": "Amazon Q2 2026 Results",
+      "authors": [
+        "Amazon Q2 2026 Results"
+      ],
+      "version": "本篇材料核对：2026-09-26；历史样本、研究及情景时点分别见正文"
+    },
+    {
+      "source_id": "nb-s02-source-alphabet-release-1",
+      "access": {
+        "kind": "selected_chapters",
+        "uri": "https://www.sec.gov/Archives/edgar/data/1652044/000165204426000066/googexhibit991q22026.htm"
+      },
+      "required_unit": {
+        "locator": "Alphabet Q2 2026 Earnings Release，资本付款、经营现金与融资；2026-06-30 Form 10-Q，财报页 11—12 的托管、TPU 与库存，页 27 的未投用资产。",
+        "scope": "Alphabet Q2 2026 Earnings Release，资本付款、经营现金与融资；2026-06-30 Form 10-Q，财报页 11—12 的托管、TPU 与库存，页 27 的未投用资产。",
+        "purpose": "读取本篇实际采用的业务、收益估计、对冲及资金规则。"
+      },
+      "title": "Alphabet：2026 年第二季度业绩公告",
+      "authors": [
+        "Alphabet"
+      ],
+      "version": "本篇核对日期：2026-09-25；各财报期间见标题与采用范围"
+    },
+    {
+      "source_id": "nb-s02-source-alphabet-1",
+      "access": {
+        "kind": "selected_chapters",
+        "uri": "https://www.sec.gov/Archives/edgar/data/1652044/000165204426000071/goog-20260630.htm"
+      },
+      "required_unit": {
+        "locator": "Alphabet Q2 2026 Earnings Release，资本付款、经营现金与融资；2026-06-30 Form 10-Q，财报页 11—12 的托管、TPU 与库存，页 27 的未投用资产。",
+        "scope": "Alphabet Q2 2026 Earnings Release，资本付款、经营现金与融资；2026-06-30 Form 10-Q，财报页 11—12 的托管、TPU 与库存，页 27 的未投用资产。",
+        "purpose": "读取本篇实际采用的业务、收益估计、对冲及资金规则。"
+      },
+      "title": "Alphabet：截至 2026-06-30 的 Form 10-Q",
+      "authors": [
+        "Alphabet"
+      ],
+      "version": "本篇核对日期：2026-09-25；各财报期间见标题与采用范围"
+    },
+    {
+      "source_id": "nb-b03-integrated-research-1",
+      "access": {
+        "kind": "site_full_text",
+        "uri": "/notebook/portfolio-hedging/research-snapshot.md"
+      },
+      "required_unit": {
+        "locator": "本项目 2026-09-20 研究快照及采用范围，AMZN 与 GOOGL 的条件结果、粗权重与反向检验；该快照为研究判断，非发行人指引。",
+        "scope": "本项目 2026-09-20 研究快照及采用范围，AMZN 与 GOOGL 的条件结果、粗权重与反向检验；该快照为研究判断，非发行人指引。",
+        "purpose": "读取本篇实际采用的业务、收益估计、对冲及资金规则。"
+      },
+      "title": "本项目 2026-09-20 研究快照及采用范围",
+      "authors": [
+        "本项目 2026-09-20 研究快照及采用范围"
+      ],
+      "version": "本篇材料核对：2026-09-26；历史样本、研究及情景时点分别见正文"
+    },
+    {
+      "source_id": "nb-b03-integrated-voo-1",
+      "access": {
+        "kind": "selected_chapters",
+        "uri": "https://investor.vanguard.com/investment-products/etfs/profile/voo#portfolio-composition"
+      },
+      "required_unit": {
+        "locator": "Vanguard：VOO Portfolio Composition，基金穿透持股用于识别与直接持股的重叠；正文未采用一个未经同步核对的固定持仓百分比。",
+        "scope": "Vanguard：VOO Portfolio Composition，基金穿透持股用于识别与直接持股的重叠；正文未采用一个未经同步核对的固定持仓百分比。",
+        "purpose": "读取本篇实际采用的业务、收益估计、对冲及资金规则。"
+      },
+      "title": "Vanguard：VOO Portfolio Composition",
+      "authors": [
+        "Vanguard"
+      ],
+      "version": "本篇材料核对：2026-09-26；历史样本、研究及情景时点分别见正文"
+    },
+    {
+      "source_id": "nb-b03-integrated-beta-data-1",
+      "access": {
+        "kind": "selected_chapters",
+        "uri": "https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/data_library.html"
+      },
+      "required_unit": {
+        "locator": "Kenneth R. French Data Library，2026 年 8 月文件中的日频 RF；该文件将一月国库券利率折为日收益。股票总回报近似来自 Yahoo 调整收盘价，回归基准为 VOO，没有采用 French 市场因子替代 VOO。",
+        "scope": "Kenneth R. French Data Library，2026 年 8 月文件中的日频 RF；该文件将一月国库券利率折为日收益。股票总回报近似来自 Yahoo 调整收盘价，回归基准为 VOO，没有采用 French 市场因子替代 VOO。",
+        "purpose": "读取本篇实际采用的业务、收益估计、对冲及资金规则。"
+      },
+      "title": "Kenneth R. French Data Library",
+      "authors": [
+        "Kenneth R. French Data Library"
+      ],
+      "version": "本篇材料核对：2026-09-26；历史样本、研究及情景时点分别见正文"
+    },
+    {
+      "source_id": "nb-b03-integrated-horizon-1",
+      "access": {
+        "kind": "selected_chapters",
+        "uri": "https://doi.org/10.1016/0304-405X%2889%2990006-8"
+      },
+      "required_unit": {
+        "locator": "Handa、Kothari、Wasley，1989，收益间隔与 beta；Chen、Lee、Shrestha，2004，正文 363—365 页的对冲期限与估计；Engle，Dynamic Conditional Beta，第 1—5 页的条件协方差与时变参数。",
+        "scope": "Handa、Kothari、Wasley，1989，收益间隔与 beta；Chen、Lee、Shrestha，2004，正文 363—365 页的对冲期限与估计；Engle，Dynamic Conditional Beta，第 1—5 页的条件协方差与时变参数。",
+        "purpose": "读取本篇实际采用的业务、收益估计、对冲及资金规则。"
+      },
+      "title": "Handa、Kothari、Wasley，1989",
+      "authors": [
+        "Handa、Kothari、Wasley，1989"
+      ],
+      "version": "本篇材料核对：2026-09-26；历史样本、研究及情景时点分别见正文"
+    },
+    {
+      "source_id": "nb-b03-integrated-horizon-2",
+      "access": {
+        "kind": "selected_chapters",
+        "uri": "https://ir.lib.nycu.edu.tw/server/api/core/bitstreams/35c195a6-adc8-4e07-8f16-132758488eb9/content"
+      },
+      "required_unit": {
+        "locator": "Handa、Kothari、Wasley，1989，收益间隔与 beta；Chen、Lee、Shrestha，2004，正文 363—365 页的对冲期限与估计；Engle，Dynamic Conditional Beta，第 1—5 页的条件协方差与时变参数。",
+        "scope": "Handa、Kothari、Wasley，1989，收益间隔与 beta；Chen、Lee、Shrestha，2004，正文 363—365 页的对冲期限与估计；Engle，Dynamic Conditional Beta，第 1—5 页的条件协方差与时变参数。",
+        "purpose": "读取本篇实际采用的业务、收益估计、对冲及资金规则。"
+      },
+      "title": "Chen、Lee、Shrestha，2004",
+      "authors": [
+        "Chen、Lee、Shrestha，2004"
+      ],
+      "version": "本篇材料核对：2026-09-26；历史样本、研究及情景时点分别见正文"
+    },
+    {
+      "source_id": "nb-b03-integrated-horizon-3",
+      "access": {
+        "kind": "selected_chapters",
+        "uri": "https://www.frbsf.org/wp-content/uploads/Thu_1340_Engle.pdf"
+      },
+      "required_unit": {
+        "locator": "Handa、Kothari、Wasley，1989，收益间隔与 beta；Chen、Lee、Shrestha，2004，正文 363—365 页的对冲期限与估计；Engle，Dynamic Conditional Beta，第 1—5 页的条件协方差与时变参数。",
+        "scope": "Handa、Kothari、Wasley，1989，收益间隔与 beta；Chen、Lee、Shrestha，2004，正文 363—365 页的对冲期限与估计；Engle，Dynamic Conditional Beta，第 1—5 页的条件协方差与时变参数。",
+        "purpose": "读取本篇实际采用的业务、收益估计、对冲及资金规则。"
+      },
+      "title": "Engle，Dynamic Conditional Beta",
+      "authors": [
+        "Engle，Dynamic Conditional Beta"
+      ],
+      "version": "本篇材料核对：2026-09-26；历史样本、研究及情景时点分别见正文"
+    },
+    {
+      "source_id": "nb-b03-integrated-performance-1",
+      "access": {
+        "kind": "selected_chapters",
+        "uri": "https://www.cfainstitute.org/insights/professional-learning/refresher-readings/2026/portfolio-risk-return-part-2"
+      },
+      "required_unit": {
+        "locator": "CFA Institute：Portfolio Risk and Return, Part II，beta、Jensen alpha 与风险调整表现；William F. Sharpe：The Sharpe Ratio，同频超额收益与时间口径。",
+        "scope": "CFA Institute：Portfolio Risk and Return, Part II，beta、Jensen alpha 与风险调整表现；William F. Sharpe：The Sharpe Ratio，同频超额收益与时间口径。",
+        "purpose": "读取本篇实际采用的业务、收益估计、对冲及资金规则。"
+      },
+      "title": "CFA Institute：Portfolio Risk and Return, Part II",
+      "authors": [
+        "CFA Institute"
+      ],
+      "version": "本篇材料核对：2026-09-26；历史样本、研究及情景时点分别见正文"
+    },
+    {
+      "source_id": "nb-a04-sharpe-1",
+      "access": {
+        "kind": "selected_chapters",
+        "uri": "https://web.stanford.edu/~wfsharpe/art/sr/SR.htm"
+      },
+      "required_unit": {
+        "locator": "CFA Institute：Portfolio Risk and Return, Part II，beta、Jensen alpha 与风险调整表现；William F. Sharpe：The Sharpe Ratio，同频超额收益与时间口径。",
+        "scope": "CFA Institute：Portfolio Risk and Return, Part II，beta、Jensen alpha 与风险调整表现；William F. Sharpe：The Sharpe Ratio，同频超额收益与时间口径。",
+        "purpose": "读取本篇实际采用的业务、收益估计、对冲及资金规则。"
+      },
+      "title": "The Sharpe Ratio",
+      "authors": [
+        "The Sharpe Ratio"
+      ],
+      "version": "本篇核对日期：2026-09-26；历史期间见正文脚注"
+    },
+    {
+      "source_id": "nb-b03-contracts-2",
+      "access": {
+        "kind": "selected_chapters",
+        "uri": "https://www.cmegroup.com/articles/faqs/micro-e-mini-equity-index-futures-frequently-asked-questions.html"
+      },
+      "required_unit": {
+        "locator": "CME：Micro E-mini FAQ，MES 乘数；OCC：ETF Options，标准合约单位、美式行权与实物交付。",
+        "scope": "CME：Micro E-mini FAQ，MES 乘数；OCC：ETF Options，标准合约单位、美式行权与实物交付。",
+        "purpose": "读取本篇实际采用的业务、收益估计、对冲及资金规则。"
+      },
+      "title": "CME：Micro E-mini FAQ",
+      "authors": [
+        "CME"
+      ],
+      "version": "本篇核对日期：2026-09-26；各输入时点及采用范围见正文"
+    },
+    {
+      "source_id": "nb-b03-contracts-1",
+      "access": {
+        "kind": "selected_chapters",
+        "uri": "https://www.theocc.com/clearance-and-settlement/clearing/etf-options"
+      },
+      "required_unit": {
+        "locator": "CME：Micro E-mini FAQ，MES 乘数；OCC：ETF Options，标准合约单位、美式行权与实物交付。",
+        "scope": "CME：Micro E-mini FAQ，MES 乘数；OCC：ETF Options，标准合约单位、美式行权与实物交付。",
+        "purpose": "读取本篇实际采用的业务、收益估计、对冲及资金规则。"
+      },
+      "title": "OCC：ETF Options",
+      "authors": [
+        "OCC"
+      ],
+      "version": "本篇核对日期：2026-09-26；各输入时点及采用范围见正文"
+    },
+    {
+      "source_id": "nb-b03-integrated-futures-hedge-1",
+      "access": {
+        "kind": "selected_chapters",
+        "uri": "https://www.cmegroup.com/education/files/understanding-stock-index-futures.pdf"
+      },
+      "required_unit": {
+        "locator": "CME：Understanding Stock Index Futures，目标 beta 与期货名义金额换算；本文张数使用本例输入重新计算。",
+        "scope": "CME：Understanding Stock Index Futures，目标 beta 与期货名义金额换算；本文张数使用本例输入重新计算。",
+        "purpose": "读取本篇实际采用的业务、收益估计、对冲及资金规则。"
+      },
+      "title": "CME：Understanding Stock Index Futures",
+      "authors": [
+        "CME"
+      ],
+      "version": "本篇材料核对：2026-09-26；历史样本、研究及情景时点分别见正文"
+    },
+    {
+      "source_id": "nb-b03-ordinary-1",
+      "access": {
+        "kind": "selected_chapters",
+        "uri": "https://portal.interactivebrokers.com/en/trading/margin-stocks.php?ex=us&hm=us&pm=1&rgt=1&rsk=0&rst=101004100808"
+      },
+      "required_unit": {
+        "locator": "IBKR：US Stocks Margin 与 US Options Margin，普通股票及 Protective Put 规则；按正文所述适用条件计算。",
+        "scope": "IBKR：US Stocks Margin 与 US Options Margin，普通股票及 Protective Put 规则；按正文所述适用条件计算。",
+        "purpose": "读取本篇实际采用的业务、收益估计、对冲及资金规则。"
+      },
+      "title": "IBKR：US Stocks Margin",
+      "authors": [
+        "IBKR"
+      ],
+      "version": "本篇核对日期：2026-09-26；各输入时点及采用范围见正文"
+    },
+    {
+      "source_id": "nb-b03-ordinary-2",
+      "access": {
+        "kind": "selected_chapters",
+        "uri": "https://portal.interactivebrokers.com/en/trading/margin-options.php?ex=us&hm=us&pm=1&rgt=1&rsk=0&rst=101004100808"
+      },
+      "required_unit": {
+        "locator": "IBKR：US Stocks Margin 与 US Options Margin，普通股票及 Protective Put 规则；按正文所述适用条件计算。",
+        "scope": "IBKR：US Stocks Margin 与 US Options Margin，普通股票及 Protective Put 规则；按正文所述适用条件计算。",
+        "purpose": "读取本篇实际采用的业务、收益估计、对冲及资金规则。"
+      },
+      "title": "IBKR：US Options Margin",
+      "authors": [
+        "IBKR"
+      ],
+      "version": "本篇核对日期：2026-09-26；各输入时点及采用范围见正文"
+    },
+    {
+      "source_id": "nb-b03-pm-1",
+      "access": {
+        "kind": "selected_chapters",
+        "uri": "https://www.finra.org/rules-guidance/rulebooks/finra-rules/4210"
+      },
+      "required_unit": {
+        "locator": "FINRA Rule 4210(g)；IBKR/CBOE Portfolio Margin 教材，证券压力类别、广基 ETF 与期权重估。本文风险扫描未取得真实券商 PM 预估。",
+        "scope": "FINRA Rule 4210(g)；IBKR/CBOE Portfolio Margin 教材，证券压力类别、广基 ETF 与期权重估。本文风险扫描未取得真实券商 PM 预估。",
+        "purpose": "读取本篇实际采用的业务、收益估计、对冲及资金规则。"
+      },
+      "title": "FINRA：Rule 4210(g)",
+      "authors": [
+        "FINRA"
+      ],
+      "version": "本篇核对日期：2026-09-26；各输入时点及采用范围见正文"
+    },
+    {
+      "source_id": "nb-b03-pm-2",
+      "access": {
+        "kind": "selected_chapters",
+        "uri": "https://www.interactivebrokers.com/webinars/WB_1569_CBOE_Portfolio_Margin_Option_Positions.pdf"
+      },
+      "required_unit": {
+        "locator": "FINRA Rule 4210(g)；IBKR/CBOE Portfolio Margin 教材，证券压力类别、广基 ETF 与期权重估。本文风险扫描未取得真实券商 PM 预估。",
+        "scope": "FINRA Rule 4210(g)；IBKR/CBOE Portfolio Margin 教材，证券压力类别、广基 ETF 与期权重估。本文风险扫描未取得真实券商 PM 预估。",
+        "purpose": "读取本篇实际采用的业务、收益估计、对冲及资金规则。"
+      },
+      "title": "IBKR/CBOE：Portfolio Margin 教材",
+      "authors": [
+        "IBKR/CBOE"
+      ],
+      "version": "本篇核对日期：2026-09-26；各输入时点及采用范围见正文"
+    },
+    {
+      "source_id": "nb-b03-accounts-1",
+      "access": {
+        "kind": "selected_chapters",
+        "uri": "https://www.ibkrguides.com/traderworkstation/account-balances.htm"
+      },
+      "required_unit": {
+        "locator": "IBKR Account Balances 与 Available for Trading，证券权益、现金与维持余量；Excess Funds Sweep，分部资金划转。",
+        "scope": "IBKR Account Balances 与 Available for Trading，证券权益、现金与维持余量；Excess Funds Sweep，分部资金划转。",
+        "purpose": "读取本篇实际采用的业务、收益估计、对冲及资金规则。"
+      },
+      "title": "IBKR：Account Balances",
+      "authors": [
+        "IBKR"
+      ],
+      "version": "本篇核对日期：2026-09-26；各输入时点及采用范围见正文"
+    },
+    {
+      "source_id": "nb-b03-accounts-2",
+      "access": {
+        "kind": "selected_chapters",
+        "uri": "https://www.ibkrguides.com/traderworkstation/available-for-trading.htm"
+      },
+      "required_unit": {
+        "locator": "IBKR Account Balances 与 Available for Trading，证券权益、现金与维持余量；Excess Funds Sweep，分部资金划转。",
+        "scope": "IBKR Account Balances 与 Available for Trading，证券权益、现金与维持余量；Excess Funds Sweep，分部资金划转。",
+        "purpose": "读取本篇实际采用的业务、收益估计、对冲及资金规则。"
+      },
+      "title": "Available for Trading",
+      "authors": [
+        "Available for Trading"
+      ],
+      "version": "本篇核对日期：2026-09-26；各输入时点及采用范围见正文"
+    },
+    {
+      "source_id": "nb-b03-accounts-4",
+      "access": {
+        "kind": "selected_chapters",
+        "uri": "https://www.ibkrguides.com/brokerportal/excessfundssweep.htm"
+      },
+      "required_unit": {
+        "locator": "IBKR Account Balances 与 Available for Trading，证券权益、现金与维持余量；Excess Funds Sweep，分部资金划转。",
+        "scope": "IBKR Account Balances 与 Available for Trading，证券权益、现金与维持余量；Excess Funds Sweep，分部资金划转。",
+        "purpose": "读取本篇实际采用的业务、收益估计、对冲及资金规则。"
+      },
+      "title": "Excess Funds Sweep",
+      "authors": [
+        "Excess Funds Sweep"
+      ],
+      "version": "本篇核对日期：2026-09-26；各输入时点及采用范围见正文"
+    },
+    {
+      "source_id": "nb-b03-mes-margin-1",
+      "access": {
+        "kind": "selected_chapters",
+        "uri": "https://portal.interactivebrokers.com/en/trading/margin-futures-fops.php?ex=us&hm=us&pm=0&rgt=0&rsk=1&rst=101004110808"
+      },
+      "required_unit": {
+        "locator": "IBKR US Futures Margin，读取于 2026-09-26，MES 空头隔夜初始 2,875.64、维持 2,614.22 美元／张。",
+        "scope": "IBKR US Futures Margin，读取于 2026-09-26，MES 空头隔夜初始 2,875.64、维持 2,614.22 美元／张。",
+        "purpose": "读取本篇实际采用的业务、收益估计、对冲及资金规则。"
+      },
+      "title": "IBKR：US Futures Margin",
+      "authors": [
+        "IBKR"
+      ],
+      "version": "本篇核对日期：2026-09-26；各输入时点及采用范围见正文"
+    },
+    {
+      "source_id": "nb-b02-margin-2",
+      "access": {
+        "kind": "selected_chapters",
+        "uri": "https://www.cmegroup.com/education/articles-and-reports/money-calculations-for-futures-and-options"
+      },
+      "required_unit": {
+        "locator": "CME：Money Calculations for Futures and Options，期货现金盯市；CME：Margin—Know What's Needed，初始、维持与后续资金处理。",
+        "scope": "CME：Money Calculations for Futures and Options，期货现金盯市；CME：Margin—Know What's Needed，初始、维持与后续资金处理。",
+        "purpose": "读取本篇实际采用的业务、收益估计、对冲及资金规则。"
+      },
+      "title": "CME：Money Calculations for Futures and Options",
+      "authors": [
+        "CME"
+      ],
+      "version": "本篇核对日期：2026-09-26；资料时点见正文脚注"
+    },
+    {
+      "source_id": "nb-a01-source-21",
+      "access": {
+        "kind": "selected_chapters",
+        "uri": "https://www.cmegroup.com/education/courses/introduction-to-futures/margin-know-what-is-needed"
+      },
+      "required_unit": {
+        "locator": "CME：Money Calculations for Futures and Options，期货现金盯市；CME：Margin—Know What's Needed，初始、维持与后续资金处理。",
+        "scope": "CME：Money Calculations for Futures and Options，期货现金盯市；CME：Margin—Know What's Needed，初始、维持与后续资金处理。",
+        "purpose": "读取本篇实际采用的业务、收益估计、对冲及资金规则。"
+      },
+      "title": "CME—Margin: Know What's Needed",
+      "authors": [
+        "CME Group"
+      ],
+      "version": "本篇查阅日期：2026-09-23"
+    },
+    {
+      "source_id": "nb-b03-options-2",
+      "access": {
+        "kind": "selected_chapters",
+        "uri": "https://prd-web.optionseducation.org/strategies/all-strategies-en"
+      },
+      "required_unit": {
+        "locator": "OIC：All Strategies，保护性 Put、现金担保 Put 等不同持仓方向与义务。",
+        "scope": "OIC：All Strategies，保护性 Put、现金担保 Put 等不同持仓方向与义务。",
+        "purpose": "读取本篇实际采用的业务、收益估计、对冲及资金规则。"
+      },
+      "title": "OIC：All Strategies",
+      "authors": [
+        "OIC"
+      ],
+      "version": "本篇核对日期：2026-09-26；各输入时点及采用范围见正文"
+    },
+    {
+      "source_id": "nb-b03-integrated-perpetual-1",
+      "access": {
+        "kind": "selected_chapters",
+        "uri": "https://www.bybit.com/en/help-center/article/Differences-Between-the-Margin-Modes-Under-the-Unified-Trading-Account"
+      },
+      "required_unit": {
+        "locator": "Bybit：Margin Modes 与 Funding Fee Calculation，逐仓、全仓及资金费；10,000 USDT 与 0.01% 为本文的一次收付设定。",
+        "scope": "Bybit：Margin Modes 与 Funding Fee Calculation，逐仓、全仓及资金费；10,000 USDT 与 0.01% 为本文的一次收付设定。",
+        "purpose": "读取本篇实际采用的业务、收益估计、对冲及资金规则。"
+      },
+      "title": "Bybit：Margin Modes",
+      "authors": [
+        "Bybit"
+      ],
+      "version": "本篇材料核对：2026-09-26；历史样本、研究及情景时点分别见正文"
+    },
+    {
+      "source_id": "nb-b03-perpetual-1",
+      "access": {
+        "kind": "selected_chapters",
+        "uri": "https://www.bybit.com/en/help-center/article/Funding-fee-calculation"
+      },
+      "required_unit": {
+        "locator": "Bybit：Margin Modes 与 Funding Fee Calculation，逐仓、全仓及资金费；10,000 USDT 与 0.01% 为本文的一次收付设定。",
+        "scope": "Bybit：Margin Modes 与 Funding Fee Calculation，逐仓、全仓及资金费；10,000 USDT 与 0.01% 为本文的一次收付设定。",
+        "purpose": "读取本篇实际采用的业务、收益估计、对冲及资金规则。"
+      },
+      "title": "Bybit：Funding Fee Calculation",
+      "authors": [
+        "Bybit"
+      ],
+      "version": "本篇核对日期：2026-09-26；各输入时点及采用范围见正文"
+    },
+    {
+      "source_id": "nb-a02-source-settlement",
+      "access": {
+        "kind": "selected_chapters",
+        "uri": "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins/new-t1-settlement-cycle-what-investors-need-know-investor-bulletin"
+      },
+      "required_unit": {
+        "locator": "SEC：T+1 Settlement；OIC：The Impact of T+1 on Options，美国通常证券交易的交收周期。",
+        "scope": "SEC：T+1 Settlement；OIC：The Impact of T+1 on Options，美国通常证券交易的交收周期。",
+        "purpose": "读取本篇实际采用的业务、收益估计、对冲及资金规则。"
+      },
+      "title": "SEC：New T+1 Settlement Cycle – What Investors Need To Know",
+      "authors": [
+        "SEC Office of Investor Education and Advocacy"
+      ],
+      "version": "本篇实际阅读日期：2026-09-24"
+    },
+    {
+      "source_id": "nb-b03-options-1",
+      "access": {
+        "kind": "selected_chapters",
+        "uri": "https://www.optionseducation.org/news/understanding-t-1-conversion"
+      },
+      "required_unit": {
+        "locator": "SEC：T+1 Settlement；OIC：The Impact of T+1 on Options，美国通常证券交易的交收周期。",
+        "scope": "SEC：T+1 Settlement；OIC：The Impact of T+1 on Options，美国通常证券交易的交收周期。",
+        "purpose": "读取本篇实际采用的业务、收益估计、对冲及资金规则。"
+      },
+      "title": "OIC：The Impact of T+1 on Options",
+      "authors": [
+        "OIC"
+      ],
+      "version": "本篇核对日期：2026-09-26；各输入时点及采用范围见正文"
+    },
+    {
+      "source_id": "nb-b03-cash-account-1",
+      "access": {
+        "kind": "selected_chapters",
+        "uri": "https://www.fidelity.com/trading/faqs-about-account"
+      },
+      "required_unit": {
+        "locator": "Fidelity：About Your Account 与 Trading Restrictions，现金账户已交收资金、可交易与可提款余额的不同用途。",
+        "scope": "Fidelity：About Your Account 与 Trading Restrictions，现金账户已交收资金、可交易与可提款余额的不同用途。",
+        "purpose": "读取本篇实际采用的业务、收益估计、对冲及资金规则。"
+      },
+      "title": "Fidelity：About Your Account",
+      "authors": [
+        "Fidelity"
+      ],
+      "version": "本篇核对日期：2026-09-26；各输入时点及采用范围见正文"
+    },
+    {
+      "source_id": "nb-b03-cash-account-2",
+      "access": {
+        "kind": "selected_chapters",
+        "uri": "https://www.fidelity.com/trading/faqs-trading-restrictions"
+      },
+      "required_unit": {
+        "locator": "Fidelity：About Your Account 与 Trading Restrictions，现金账户已交收资金、可交易与可提款余额的不同用途。",
+        "scope": "Fidelity：About Your Account 与 Trading Restrictions，现金账户已交收资金、可交易与可提款余额的不同用途。",
+        "purpose": "读取本篇实际采用的业务、收益估计、对冲及资金规则。"
+      },
+      "title": "Trading Restrictions",
+      "authors": [
+        "Trading Restrictions"
+      ],
+      "version": "本篇核对日期：2026-09-26；各输入时点及采用范围见正文"
+    }
+  ],
+  "runtime_reading_log": [],
+  "optional_readings": [],
+  "export_mode": "public"
+}
+```
+
+## Supplied entry
+看好一家公司的业务以后，我们还要决定买多少、准备持有多久，以及愿意经历多大的价格变化。企业兑现预期需要时间，股票却会先受到市场和行业变化的影响；账户里的钱也可能要用于生活、调仓，或者支付衍生品的期间亏损。怎样让这些持仓共同服务于投资目标，又能留出足够资金持有下去，就要从整个组合来考虑。
+
+## 持仓理由与组合建立 {#nb-b03-portfolio}
+
+假设现在有 200,000 美元，准备持有 VOO 和两只经过研究的股票，未来一个月还希望留有 20,000 美元现金可供安排。我们先拿出一组可以调整的配置：Vanguard S&P 500 ETF（VOO）100 份、Amazon（AMZN）200 股、Alphabet（GOOGL）100 股，其余保留为美元现金。这里的数量是讨论起点，接下来要用投资理由、共同风险和资金需要检验它。
+
+| 资产 | 数量 | 观察价格 | 金额 | 占 200,000 美元的比例 |
+|---|---:|---:|---:|---:|
+| VOO | 100 份 | 710.48 | 71,048 | 35.5% |
+| AMZN | 200 股 | 250.385 | 50,077 | 25.0% |
+| GOOGL | 100 股 | 343.79 | 34,379 | 17.2% |
+| 美元现金 | — | — | 44,496 | 22.2% |
+
+<span data-text-versions id="nb-b03-text-1">这组证券价格取自 2026 年 9 月 25 日纽约时间 13:06—13:07 的同一分钟行情，三笔证券合计约 155,504 美元，剩下约 44,496 美元现金<span data-text-detail>（使用 Yahoo Finance 分钟线收盘值；数量与 200,000 美元预算为本文设定，基础证券建仓费用在共同起点取零。表中比例分别取一位小数，显示合计可能有舍入差。期权后文采用该分钟的一笔实际成交，所有观察价都不表示可以按该价无限量成交。原始输入和后续增量费用在文末计算材料中保留）</span>。[^quotes]<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>
+
+VOO 用来参与较广泛的股票市场，个股则需要更具体的持仓理由。我们可以先请 Agent 读取已有公司研究，结合业务前景、经营路径和买入价格，判断是否纳入以及配置多少。AMZN 与 GOOGL 都受到 AI 和云计算需求影响，增长怎样变成现金、当前价格又留下多少回报空间，却需要分别研究。
+
+以 AMZN 为例，AWS 的需求要经过供电、设备安装和客户实际使用，才会逐渐变成收入。2026 年第二季度，AWS 收入约为 422 亿美元、营业利润约为 166 亿美元；与此同时，AMZN 过去十二个月的经营现金流约为 1,614 亿美元，自由现金流却为流出约 76 亿美元，资本开支吸收了大量现金。Agent 需要同时理解增长与投入，再判断更强需求能否按时兑现。[^amzn]
+
+GOOGL 也要先为基础设施付出现金，但云托管服务与 TPU 系统交付又有不同的收入确认、库存和利润结构。第二季度资本购买支出约为 449 亿美元，超过同期约 391 亿美元的经营现金流；6 月的普通股与强制可转优先股融资，也改变了集团资金及普通股权利。Agent 因此还要追踪资本付款和融资，判断更高收入最终能给普通股股东留下多少。[^googl]
+
+按照项目的研究流程，Agent 会先用财报、业绩会、上下游事实和外部研究校准业务关系，再在共同条件下展开 Bull、Base、Bear、Tail，连接经营结果、资本与股数、条件价格和 Risk-Reward。这里可以直接复用 9 月 20 日已经完成的两份研究，看看相同的行业方向怎样形成不同的取舍。
+
+| 9 月 20 日研究快照（金额：美元／股） | AMZN | GOOGL |
+|---|---:|---:|
+| 9 月 18 日参考收盘价 | 253.71 | 349.54 |
+| 2029 年末 Bull 条件价（粗概率） | 556.44（31%） | 623.74（20%） |
+| 2029 年末 Base 条件价（粗概率） | 347.45（44%） | 432.65（45%） |
+| 2029 年末 Bear 条件价（粗概率） | 170.38（20%） | 257.93（25%） |
+| 2029 年末 Tail 条件价（粗概率） | 39.57（5%） | 106.66（10%） |
+| 四代表点加权终财富 | 361.43 | 397.45 |
+| 上述终财富对应的机械年化 | 约 11.4% | 约 4.0% |
+| 原研究判断 | 有条件上行，依赖 AWS 兑现与资本约束 | 增长仍强，参考价格下补偿较薄 |
+
+<span data-text-versions id="nb-b03-text-2">这张表保留的是原研究的价格、期限与判断。它让我们有理由把“少配一些 GOOGL、留下更多现金”纳入比较，也提醒我们继续检查 AMZN 的资本压力<span data-text-detail>（两份研究的信息截止日均为 2026 年 9 月 20 日、观察终点为 2029 年 12 月 31 日；没有将其回报改称 9 月 25 日买入的回报。GOOGL 终财富含原模型预计的 2.86 美元分红，AMZN 模型未设股息。权重是当时有依据的粗略研究判断，代表点不等于类内均值；完整状态和替代结果见研究快照。两家公司各自的同名状态也不能直接拼成组合的联合概率）</span>。[^research]<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>
+
+同样一个持仓判断，投入多少还会改变它对账户的影响。AMZN 从 200 股减为 100 股，相关价格变化带来的盈亏也减半，同时多留约 25,039 美元现金；代价是少参与一半的后续上涨。再看 GOOGL，100 股与 50 股之间相差约 17,190 美元。Agent 还要判断这些潜在回报是否值得投入相应资金，共同下跌会带来多大损失，剩余现金又能否满足用钱需要。
+
+VOO 本身也持有 AMZN 和 GOOGL，增加这两只股票的直接持仓，会进一步增加对这两家公司的暴露。两家公司还共同受到云客户预算、AI 建设和资本投入等条件的影响。这些业务依赖让我们需要考虑几笔持仓同时承压的情形；至于价格中有多少与广泛市场共同变化，则可以先从历史收益里观察。[^voo]
+
+## 市场状态、beta 与收益理解 {#nb-b03-beta}
+
+这里先用 VOO 代表广泛市场，观察两只个股过去怎样随它变化。即使投入相同金额，两只股票对同一次市场涨跌的反应也可能不同。把每期股票收益减去同期无风险收益，得到股票的超额收益，再与 VOO 的同期超额收益逐期配对。下面的横轴表示 VOO，纵轴表示所选个股，每个点都对应同一天或同一周。
+
+
+<figure class="ph-figure" data-portfolio-hedging="beta" id="nb-b03-beta-chart">
+<span class="ph-kicker">同频超额收益 · 历史样本</span>
+<h3>个股与市场的联动</h3>
+<div class="ph-controls" hidden="">
+<label>股票<select aria-label="选择股票" data-ph-ticker=""></select></label>
+<label>估计口径<select aria-label="选择估计口径" data-ph-mode=""></select></label>
+</div>
+<div class="ph-chart" data-ph-beta-chart=""><img alt="AMZN与VOO的日超额收益散点；beta约1.43，R平方约0.278" src="/notebook/portfolio-hedging/beta-default.svg"/></div>
+<dl class="ph-metrics">
+<div><dt>历史 beta</dt><dd data-ph-metric="beta">1.43</dd></div>
+<div><dt>样本数</dt><dd data-ph-metric="n">250</dd></div>
+<div><dt>样本内解释率 R²</dt><dd data-ph-metric="r2">0.278</dd></div>
+<div><dt>组合 beta</dt><dd data-ph-metric="portfolio">0.95</dd></div>
+</dl>
+<p class="ph-note" data-ph-beta-decomposition="">AMZN 日波动率 2.18% → 抵销市场分量后 1.85%；整个组合 R² 0.600。</p>
+<p class="ph-note">以上为样本内线性分解，未计交易成本，不是实际策略回测。</p>
+<p aria-live="polite" class="ph-status" data-ph-beta-status="" role="status">AMZN · 近一年日频 · 2025-09-02 至 2026-08-28</p>
+<figcaption>每个点表示同一期市场与个股的超额收益，线表示该样本内的拟合结果。组合 beta 沿当前估计口径汇总，权重包含现金。</figcaption>
+</figure>
+
+
+散点中的拟合线概括了这段样本里的共同变化，斜率就是 beta。以图中的一年日频估计为例，AMZN 的 beta 约为 1.43，GOOGL 约为 1.38；它们描述样本内的线性联动，每一次实际涨跌仍会偏离这条线。
+
+记股票和市场的超额收益分别为 \(x_i=r_i-r_f\)、\(x_m=r_m-r_f\)，则样本 beta 可以写为：
+
+\[
+\widehat\beta_i=\frac{\operatorname{Cov}(x_i,x_m)}{\operatorname{Var}(x_m)}.
+\]
+
+在 AMZN 这组一年日频样本中，协方差约为 0.00009252，VOO 超额收益的方差约为 0.00006448，两者相除便得到约 1.4348。前者衡量共同变化，后者提供市场自身变化的尺度。[^beta-data]
+
+<span data-text-versions id="nb-b03-text-3">图里使用同一截止日的三组估计：近一年日频、近两年日频和近两年周频。GOOGL 的结果依次约为 1.38、1.16 和 1.24，AMZN 则约为 1.43、1.40 和 1.49<span data-text-detail>（统一截至 2026 年 8 月 28 日，保证周频区间完整，并与已发布的 Kenneth French 日频 RF 对齐。股票与 VOO 使用 Yahoo 调整收盘价计算的含分红总回报近似，日收益减同日 RF；周收益与周 RF 各自复利汇总后相减。三组分别有 250、499、104 个观察值。日频一年、两年的起始基准日分别为 2025 年 8 月 29 日、2024 年 8 月 30 日；历史收益、原始来源与计算均可下载）</span>。改变回看窗口或采样间隔，取得的关系也会有所变化。[^horizon]<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>
+
+接着回到整个账户。采用一年日频估计，VOO 相对自身的 beta 为 1，现金近似取 0，便有：
+
+\[
+\widehat\beta_p
+=\frac{71,048\times1+50,077\times1.4348+34,379\times1.3779}{200,000}
+\approx0.95.
+\]
+
+现金也在分母里，所以股票占账户约 77.8%，并不意味着账户 beta 就等于 0.778。两笔个股在这段样本中具有更高的市场敏感度，把加权结果推到了约 0.95。
+
+同一回归还可以写出 alpha：
+
+\[
+r_i-r_f=\alpha_i+\beta_i(r_m-r_f)+\varepsilon_i.
+\]
+
+alpha 是这套模型里的截距，残差 \(\varepsilon_i\) 则保留当期尚未由前两项解释的变化。在上述一年日频样本中，GOOGL 的截距约为每日 0.115%，AMZN 约为每日 −0.022%。这些数值描述的是那段历史，不能直接拿来填未来每天的收益；看到 GOOGL 跑赢以后，Agent 还要回到经营和价格资料，辨认其来源以及当前价格已经反映了多少。
+
+若要将超额收益与整体波动一起比较，可以接回[《复利、通胀与机会成本》](/zh/notebook/compounding-inflation-opportunity-cost/)中的 Sharpe。同一日频口径下，用样本平均超额收益除以其标准差，AMZN 约为 0.031，GOOGL 约为 0.098；两项都是日频数值，尚未年化。beta 描述市场联动，alpha 概括模型调整后的平均表现，Sharpe 则使用总波动评价超额收益。[^performance]
+
+beta 降低多少，还不能直接告诉我们总波动会减少多少。一年样本里，两只股票与 VOO 的回归 \(R^2\) 都在 0.28 左右，也就是这条市场回归解释了约 28% 的样本超额收益方差。即使在同一样本内按拟合结果完全抵销市场分量，仍会留下约 72% 的方差，换算成标准差，降幅大约只有 15%。所以，管理市场联动以后，个股仍可能保留相当大的波动。
+
+| 同一组一年日频样本 | 市场回归 \(R^2\) | 原超额收益日波动率 | 抵销样本内市场分量后 |
+|---|---:|---:|---:|
+| AMZN | 0.278 | 2.18% | 1.85% |
+| GOOGL | 0.288 | 2.06% | 1.74% |
+| 按本例权重合成的组合 | 0.600 | 0.99% | 0.62% |
+
+<span data-text-versions id="nb-b03-text-10">整个组合还包括 VOO，各笔持仓的共同变化和残差也会在加权后合并，所以不能拿个股的 \(R^2\) 直接代替组合结果。本例按固定权重合成后，组合 \(R^2\) 约为 0.600；同样在样本内理想地抵销全部拟合市场分量，日波动率会从约 0.99% 降到 0.62%，降幅约为 36.7%<span data-text-detail>（这里用本例当前权重合成历史超额收益，现金按同期 RF 计收益，再作同一样本内的含截距回归，并非固定股数在这段历史中的买入持有表现。残差标准差与原标准差之比为 \(\sqrt{1-R^2}\)。这是连续头寸、无成本下的样本内线性分解，尚未用逐期可得估计建立实际对冲回测。剩余波动可以包含公司、行业、非线性反应及噪声，单凭残差还不能分清各自的作用）</span>。指数对冲可以管理其中的市场部分；余下的风险，还需要 Agent 回到行业需求、公司信息和市场状态中辨认。<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>
+
+拿 AI 建设这阵行业季风来说，短期可能同时出现订单乐观、资本先付和投资者重新衡量回报的情形；长期结果则取决于设备能否投用、客户能否持续使用，以及增长能留下多少利润和现金。Agent 需要沿这些关系判断历史 beta 还能用到哪里，提出有条件的市场敏感度看法，并说明什么新证据会改变判断。增长前景和市场联动仍要分别研究，看好企业并不能直接给出一个更高或更低的 beta。
+
+<span data-text-versions id="nb-b03-text-4">准备对冲时，还要分别写明收益采样间隔、历史估计窗口、保护期限和调整频率。本例有较长的业务持有理由，但未来一个月还希望留有 20,000 美元现金；因此，这次先为这段时间选择保护，判断哪些暴露值得保留、哪些需要减轻<span data-text-detail>（研究已经发现收益间隔和对冲期限可能影响估计结果，条件 beta 方法也允许联动随状态变化；这些文献没有为本组合指定唯一窗口。本文把历史估计用于数量参照，短期情景幅度另行设定，既不将 2029 年条件价格搬进一个月的路径，也不宣称 Agent 的前瞻 beta 已得到验证）</span>。[^horizon]<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>
+
+## Agent 的情景判断与对冲选择 {#nb-b03-hedging}
+
+在这段保护期里，如果 AMZN 与 GOOGL 的经营依据仍然成立，只是短期市场压力增加，就可以考虑保留股票、减少部分市场暴露；若公司自己的经营依据已经改变，则要同时考虑调整个股仓位。Agent 负责读材料、判断当前属于哪种情况，再据此提出方案，程序随后计算各方案的金额。
+
+先比较五种安排。它们都从相同的 200,000 美元出发，在行情发生以前建立：A 维持基础组合；B 少持有 50 股 GOOGL，把对应资金留下；C 保持股票，卖出 3 张 MES；D 保持股票，买入 1 张 VOO Put；E 保持股票，卖出 2 张 MES，同时买入 1 张 Put。
+
+MES 是 Micro E-mini S&P 500 期货，每指数点对应 5 美元。在观察价格 7,800.75 点附近，一张名义金额约为 39,004 美元；指数上涨时空头亏损，下跌时则盈利。这个名义金额用来衡量暴露，账户实际需要准备的保证金在下一节计算。[^contracts]
+
+如果先希望把组合 beta 从约 0.95 降到 0.45 附近，按照 MES 相对该市场代理的 beta 近似为 1，可估算需要卖出的张数：
+
+\[
+N\approx\frac{(0.9513-0.45)\times200,000}{7,800.75\times5}\approx2.57.
+\]
+
+合约按整张交易，2 张对应的组合 beta 约为 0.56，3 张约为 0.37，因此 C 先采用更接近目标的 3 张作比较。目标 beta 规定的是希望保留多少市场联动，公司、行业和非线性风险仍需另看；前表完全抵销市场分量后的波动降幅，也不能当作这三张 MES 的实际效果。Agent 随后还要比较不同状态下的损益、成本与现金，决定是否接受这组数量。[^futures-hedge]
+
+Put 提供另一种安排。这里使用 2026 年 12 月 18 日到期、行权价 685 美元的 VOO 看跌期权，一张对应 100 份 VOO，观察成交价为每份 10.37 美元，整张权利金 1,037 美元。它让持有人可以按合约条件，以每份 685 美元卖出 100 份 VOO。[^contracts]
+
+<span data-text-versions id="nb-b03-text-5">到期时，这张 Put 与 100 份 VOO 配在一起，为这部分持仓设下了保护：VOO 低于 685 美元后，进一步下跌由 Put 的到期所得抵补；高于行权价时，股票继续参与上涨，组合承担已经付出的权利金<span data-text-detail>（只看这 100 份 VOO 和 1 张 Put，以本例买入价及另设的 1 美元期权费用计算，到期损益下限约为 −3,586 美元；其他税费、执行差异、股息和融资均不计入。本张期权是美式、实物交付。该保护针对 VOO，AMZN 与 GOOGL 的个股风险仍单独保留）</span>。<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>
+
+![100份VOO在到期时的损益：直接持有与加买一张685美元Put的比较](/notebook/portfolio-hedging/payoff.svg)
+
+在到期之前，Put 需要按当时的标的价格、剩余期限和波动率估值。E 中的两张 MES 用来降低一部分共同市场暴露，Put 则保护 VOO 这部分持仓；每换一个情景，就要重新计算各项持仓的价值，才能知道整个组合留下多少盈亏。
+
+下面先设定三种未来 30 日的行情。它们用于比较工具职责：市场回落时，VOO、AMZN、GOOGL 分别下跌 10%、15%、14%；市场上涨时分别上涨 10%、16%、14%；个股承压时，假设 GOOGL 的业务兑现受挫、股价下跌 25%，VOO 期末不变，AMZN 上涨 2%。MES 沿 VOO 的百分比变化，Put 再按相应时间和波动率重估。
+
+| 方案 | 市场回落 | 市场上涨 | 个股承压 |
+|---|---:|---:|---:|
+| A：维持 | −19,429 | +19,930 | −7,593 |
+| B：少持有 50 股 GOOGL | −17,028 | +17,519 | −3,301 |
+| C：3 张 MES 空头 | −7,736 | +8,222 | −7,601 |
+| D：1 张 VOO Put | −15,206 | +18,896 | −7,923 |
+| E：2 张 MES＋1 张 Put | −7,411 | +11,091 | −7,928 |
+
+<span data-text-versions id="nb-b03-text-6">表中金额为整个账户在这些设定下的损益，已扣各方案的增量费用。C 在市场下跌时提供了明显抵补，上涨时也抵掉较多所得；D 付出权利金，保护的范围集中在 100 份 VOO；E 则结合了两种效果<span data-text-detail>（三组均先建仓、后走 30 日路径。增量费用设为股票调整 5 美元、每张 MES 2.50 美元、每张 Put 1 美元；股息、现金利息和融资利息在这些价格情景中取零。Put 用 400 步美式二叉树，以 84 天、连续利率 4%、股息率参数 1.2% 配合 10.37 的成交反解模型波动率约 16.55%；30 日后剩 54 天，三情景波动率分别为初始的 1.5、0.8、1 倍。股息率是模型定价参数，与情景现金账的零分配假设分别记录。幅度和费用均为设定，未赋予发生概率）</span>。<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>
+
+再看个股承压这一列。VOO 终点没有下跌，MES 无法抵补 GOOGL 的大部分损失，VOO Put 也没有覆盖这家公司的经营变化；B 因为少持有 50 股 GOOGL，损失便明显减少。回到前面 \(R^2\) 留下的问题，市场分量以外的风险还要用相应的经营情景检验，Agent 才能判断该减哪笔持仓、该用哪一种保护。
+
+## 保证金账户与资金支持 {#nb-b03-margin}
+
+前面的表合计了股票和对冲工具的盈亏，但它们未必同时变成现金。例如 C，股票上涨形成的增值可能仍留在持仓里，MES 空头的亏损却需要结算支付。要判断这个方案能否持有到预定期限，就得先看账户承认哪些担保，以及付款时能调用哪些资金。
+
+证券现金账户使用自有资金支付交易；证券保证金账户允许按相应条件借款，也会用账户权益支持持仓。本例股票与 Put 都以现有资金支付，使用保证金账户并不意味着已经发生借款。
+
+在证券保证金账户中，普通保证金与投资组合保证金（Portfolio Margin，PM）采用不同的计算方式。普通规则按持仓以及认可的组合规定要求；PM 在规定的价格和波动率情景中重估相关持仓，观察组合可能损失多少。普通规则也会识别保护性 Put，不能把所有风险抵扣都归给 PM。[^ordinary]<sup>, </sup>[^pm]
+
+以本例的证券部分比较，按 IBKR 公开普通规则的设定，未买 Put 时维持要求约为 38,876 美元；买入一张 Put 后，100 份 VOO 得到对应规则的保护，证券维持要求降至约 30,512 美元。AMZN 与 GOOGL 仍按各自股票要求计算。
+
+| 同一组证券持仓 | 普通证券维持要求 | 分组风险扫描示意 |
+|---|---:|---:|
+| VOO 100＋AMZN 200＋GOOGL 100 | 38,876 | 18,352 |
+| 上述股票＋1 张 VOO Put | 30,512 | 16,253 |
+
+<span data-text-versions id="nb-b03-text-7">右栏让我们观察按组合风险计算的思路：VOO 与 Put 放在同一类中重估，AMZN 与 GOOGL 则分别进行个股价格压力计算，再合计结果<span data-text-detail>（VOO 类使用 −8% 至 +6% 的十个价格点，期权波动率乘 0.25、1 或 1.75，保留对应期权最低额；两只个股分别扫描 ±15%，此处不采用跨类别抵扣。该式未重建券商的全部历史压力、集中度及其他调整，因此名称保持“分组风险扫描示意”。左栏股票维持比例取 25%，保护性 Put 部分按公开公式取较低额；Reg T 日终初始要求另为股票市值的 50%，基准约 77,752 美元。具体证券的 house 要求可能不同，本例固定这些公开公式进行比较）</span>。[^ordinary]<sup>, </sup>[^pm]<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>
+
+这些要求需要与账户权益比较。本例普通证券的担保权益口径（EWL）计入证券现金和股票价值，不计美国多头 Put 的市值。A 按这个口径合计为 200,000 美元，减去约 38,876 美元的普通维持要求，得到约 161,124 美元权益余量；账户实际现金仍只有约 44,496 美元。已经付清的股票参与担保，所以保证金余量可以远大于现金余额。[^balances]
+
+MES 则放在期货分部，需要留出履约保证金，并结算持有期间的盈亏。本例固定采用 9 月 26 日读取的 IBKR 公开 MES 空头隔夜参考：每张初始约 2,876 美元、维持约 2,614 美元。C 的 3 张空头需要初始约 8,627 美元、维持约 7,843 美元，我们先把 15,000 美元分配到期货分部，其余现金留在证券分部。划转只是改变钱在哪个分部，合计现金不会因此减少。[^mes-margin]
+
+<span data-text-versions id="nb-b03-text-8">初始要求用于建立相应持仓，维持要求用于判断能否继续持有。期货盯市亏损会减少现金，余额不足时就需要补入资金或调整头寸；期货的名义金额与保证金之间的差额，也没有因此自动成为券商贷款<span data-text-detail>（本文每节点先结算期货损益，低于冻结的维持参考时，从证券分部补到初始参考。每张采用 2,875.64／2,614.22 美元，不是观察分钟的真实账户预估；“共同压力”情景另设第 10 日起两项要求提高 50%。证券 PM 的示意没有自动抵扣 MES，图中合计只把证券要求与期货要求相加展示）</span>。[^mes-margin]<sup>, </sup>[^futures]<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>
+
+对于前面已经买入的 Put，权利金已经从现金中支付，后来卖出这张期权是结束多头、收回卖款。若改为卖出期权开仓，就会产生另一种履约义务；比如现金担保看跌期权收到权利金以后，还需要保留支持潜在买股义务的资金。读到“卖出”时，要先看原来持有什么。[^options]
+
+永续合约的逐仓与全仓，则回答哪些资金共同支持持仓。以 Bybit 的 USDT 合约模式为例，逐仓主要围绕分配给相应仓位的保证金；全仓按账户规则共享可用担保。合约还可能发生资金费收付：若某次结算时多头名义价值为 10,000 USDT、资金费率为正 0.01%，多头向空头支付 1 USDT。头寸数量没有改变，余额也已经发生变化。[^perpetual]
+
+这样，普通与 PM 区分计算方式，初始与维持区分持仓阶段，逐仓与全仓区分哪些资金共同承担风险。
+
+## 持有期间的现金变化 {#nb-b03-cash}
+
+这些要求会随着持仓的建立和结束而变化，现金又会怎样变？先只看 C 的三张 MES 平仓：假设平仓价与刚才结算价相同，暂不计平仓费，就能排除新增价格损益，单独观察担保要求解除后的余额。期货分部已有 15,000 美元，买入三张相同月份的 MES，就能结束原来的空头；此后不再需要为这笔头寸保留约 8,627 美元的初始保证金，15,000 美元现金仍在期货分部。等到划回证券分部，两边的余额会改变，合计仍是同一笔钱。
+
+再从 C 建好后的起点出发，按模型的三个观察节点看上涨过程。VOO 在第 10、20、30 日相对起点分别上涨 4%、7%、10%，MES 同幅变化；本例在每个节点先结算期货盈亏，再检查余额。
+
+| 时点与动作 | 本段期货收付 | 本次证券转入期货 | 处理后证券现金 | 处理后期货现金 |
+|---|---:|---:|---:|---:|
+| 建好 C | — | — | 29,489 | 15,000 |
+| 第 10 日：累计上涨 4% | −4,680 | 0 | 29,489 | 10,320 |
+| 第 20 日：累计上涨 7% | −3,510 | 1,818 | 27,671 | 8,627 |
+| 第 30 日：累计上涨 10% | −3,510 | 3,510 | 24,160 | 8,627 |
+
+第 20 日结算后，期货现金先降到约 6,809 美元，低于约 7,843 美元的维持参考；从证券分部转入约 1,818 美元后，才恢复到初始要求。第 30 日又有一笔约 3,510 美元的盯市亏损，所以还要继续调拨。整个路径累计补入约 5,328 美元，期末总现金约为 32,787 美元。
+
+这时 C 的整个账户仍盈利约 8,222 美元，因为股票增值超过了期货亏损。股票增值还留在持仓里，期货亏损却已经用现金支付。为期货留足约 8,627 美元以后，证券分部还剩约 24,160 美元现金，高于本例希望准备的 20,000 美元；这笔钱的来源和沿途去向，都能从上面的几步追溯。
+
+换到“先涨后跌”和“先跌后回升”，两条路径都以 VOO 下跌 5% 结束，其他股票、剩余期限和期权波动率的终点也保持相同。C 在两条路径的期末损益均约为 −4,122 美元，但先涨的路径中累计调入了约 5,328 美元，先跌的路径没有发生这项补入。终点结果相同，途中需要准备的钱仍然不同。
+
+证券卖出还要经过交收。若在这个没有额外假日的周五卖出 50 股 GOOGL，成交先确定约 17,190 美元价款，按通常 T+1 在下一营业日、也就是周一完成交收。卖款显示在交易记录里、成为已交收现金、再转入银行，是几个可以分别确认的时点。[^settlement]
+
+<span data-text-versions id="nb-b03-text-9">T+0 回转交易是在说当天买入后可以当天卖出；交收周期中的 T+0、T+1，则分别指交易当日、下一营业日完成交付。美股日内买卖与 T+1 交收可以同时存在，能否继续使用卖款要结合账户的付款安排<span data-text-detail>（例如现金账户用已交收资金买入后当日卖出，与再拿未交收卖款买另一只证券并在付款资金交收前卖出，存在不同的付款条件；是否还有其他已交收资金也会影响判断。美国股票、ETF 和标准股票期权的通常交易交收按 T+1，期货盯市、期权行权及永续资金费分别依合约处理。图中的初始现金按各方案所需建仓交收已经完成的共同起点记录；此处单独说明之后调仓卖款的等待）</span>。[^settlement]<sup>, </sup>[^cash-account]<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>
+
+## 条件变化、方案取舍与基本面 {#nb-b03-decision}
+
+回到最初的目标，我们希望保留值得承担的业务机会，未来一个月还要有 20,000 美元现金可供安排。因此，选择方案时既要比较损失受到怎样的保护，也要看途中需付多少现金、计划用钱时有多少钱已经可以使用。
+
+下面的操作树把这些结果接到各项方案。先选行情，再选一种方案，下方就会显示这项方案的净值路径、损益和逐节点现金；读完以后，再保持行情不变，切换到另一项比较。
+
+
+<figure class="ph-figure" data-portfolio-hedging="operations" id="nb-b03-integrated-operations">
+<span class="ph-kicker">同一起点建立方案 · 金额单位：美元</span>
+<h3>对冲方案与持有过程</h3>
+<div class="ph-tree-root">原组合与同一笔初始资金</div>
+<div aria-label="选择一个对冲方案" class="ph-branches" role="group">
+<button aria-controls="nb-b03-selected-strategy" aria-pressed="true" class="ph-node" data-ph-strategy="A" disabled="" type="button">A 维持</button>
+<button aria-controls="nb-b03-selected-strategy" aria-pressed="false" class="ph-node" data-ph-strategy="B" disabled="" type="button">B 减持</button>
+<button aria-controls="nb-b03-selected-strategy" aria-pressed="false" class="ph-node" data-ph-strategy="C" disabled="" type="button">C MES</button>
+<button aria-controls="nb-b03-selected-strategy" aria-pressed="false" class="ph-node" data-ph-strategy="D" disabled="" type="button">D Put</button>
+<button aria-controls="nb-b03-selected-strategy" aria-pressed="false" class="ph-node" data-ph-strategy="E" disabled="" type="button">E 搭配</button>
+</div>
+<div class="ph-controls" hidden=""><label>未来行情<select aria-label="选择未来行情" data-ph-scenario=""></select></label></div>
+<p class="ph-note" data-ph-scenario-description="">30日设定：VOO −10%，AMZN −15%，GOOGL −14%；波动率升至基准的1.5倍。</p>
+<section aria-label="当前所选方案" id="nb-b03-selected-strategy">
+<h4 class="ph-selected-heading" data-ph-selected-label="">A 维持</h4>
+<p class="ph-description" data-ph-description="">按基础组合继续持有</p>
+<p class="ph-holdings" data-ph-holdings="">VOO 100股 · AMZN 200股 · GOOGL 100股 · Put 0张 · MES空头 0张</p>
+<p class="ph-note" data-ph-opening="">建仓后现金约 44,496 美元；增量费用 0.00 美元。</p>
+<h4>净值路径</h4>
+<div class="ph-chart" data-ph-nav-chart=""><table class="ph-table"><thead><tr><th>经过天数</th><th>所选方案净值（美元）</th></tr></thead><tbody><tr><td>0</td><td>200,000</td></tr><tr><td>10</td><td>191,934</td></tr><tr><td>20</td><td>184,525</td></tr><tr><td>30</td><td>180,571</td></tr></tbody></table></div>
+<p class="ph-legend"><span><i aria-hidden="true"></i><b data-ph-selected-legend="">A 维持</b></span><span data-ph-baseline-legend="" hidden=""><i aria-hidden="true" class="ph-legend-baseline"></i>维持组合 A</span></p>
+<div class="ph-result-columns">
+<div><h4>各项持仓损益</h4><div class="ph-table-wrap" data-ph-contributions=""><table class="ph-table"><thead><tr><th>持仓贡献</th><th>损益（美元）</th></tr></thead><tbody><tr><td>VOO</td><td>-7,105</td></tr><tr><td>AMZN</td><td>-7,512</td></tr><tr><td>GOOGL</td><td>-4,813</td></tr><tr><td>Put</td><td>0</td></tr><tr><td>MES</td><td>0</td></tr><tr><td>费用</td><td>-0</td></tr></tbody></table></div></div>
+<div><h4>保证金与现金</h4><div class="ph-table-wrap" data-ph-summary=""><table class="ph-table"><thead><tr><th>项目</th><th>所选方案</th></tr></thead><tbody><tr><td>合计损益</td><td>-19,429</td></tr><tr><td>期末净值</td><td>180,571</td></tr><tr><td>总现金</td><td>44,496</td></tr><tr><td>普通维持要求</td><td>34,019</td></tr><tr><td>扫描示意</td><td>15,935</td></tr><tr><td>期货累计补入</td><td>0</td></tr></tbody></table></div></div>
+</div>
+<h4>逐节点现金</h4>
+<div class="ph-table-wrap" data-ph-cash=""><table class="ph-table"><thead><tr><th>经过天数</th><th>证券现金</th><th>期货现金</th><th>合计现金</th><th>本次划转</th></tr></thead><tbody><tr><td>0</td><td>44,496</td><td>0</td><td>44,496</td><td>0</td></tr><tr><td>10</td><td>44,496</td><td>0</td><td>44,496</td><td>0</td></tr><tr><td>20</td><td>44,496</td><td>0</td><td>44,496</td><td>0</td></tr><tr><td>30</td><td>44,496</td><td>0</td><td>44,496</td><td>0</td></tr></tbody></table></div>
+<p class="ph-note">每行显示结算与划转后的余额。分部划转为正，表示从证券分部划入期货分部；转回时记为负。内部划转不增加合计现金。</p>
+<ul class="ph-notes" data-ph-notes="" hidden=""></ul>
+</section>
+<p aria-live="polite" class="ph-status" data-ph-operation-status="" role="status">默认：市场回落 · A 维持。</p>
+<figcaption>净值路径以同一行情下的维持组合 A 作比较。普通维持要求合计证券与期货维持要求；扫描示意合计分组证券风险扫描与期货维持要求，实际 PM 要求另依券商预估。期货累计补入记录沿途从证券分部补入的资金。表内金额按美元取整。</figcaption>
+</figure>
+
+
+在我们设定的共同市场回落中，C 和 E 都显著减轻损失；市场上涨时，E 留下的收益多于 C。再把共同压力扩大到 VOO −25%、AMZN −40%、GOOGL −35%，并提高期货保证金参考，A 的损失约为 49,825 美元，C 约为 20,580 美元，E 约为 16,153 美元。Put 在更低价格下的作用，也使 E 的结果与固定比例对冲逐渐拉开。
+
+这里比较的 30 日路径，是一组共同条件下的保护效果。若进一步计算整个组合的期望回报，还要研究共同情景的概率、各类状态中的结果差异及合理替代权重。前面两家公司各自的研究概率可以提供依据，不能直接相乘或平均来代替这一步。完整 Risk-Reward 需要把这些判断实际用于财富、亏损与 Tail 比较；缺少联合依据时，先保留眼前已经能够解释的条件结果。
+
+新的信息到来以后，Agent 会先找出它改变了哪项判断。如果客户使用与现金兑现仍支持原来的经营路径，而市场压力开始缓和，就重新衡量继续对冲的成本；若订单转化、利润或资金条件已经改变了持仓理由，就重新评估股票本身。仍然有效的研究继续复用，再按受影响的业务关系更新条件价格、风险和资金需求。
+
+我们也可以保存 Agent 当时读到的资料、首先作出的判断和愿意改变意见的条件，再用后来的信息核对。定向培养的重点是能否读懂语义、识别传导和作出取舍；Python 等程序则负责把假设算成可复查的金额。一次股价涨跌不能独自评价这些判断，保护付出的成本、保留的机会和期间承受都要接回原目标。
+
+对本例而言，如果这一个月主要想减轻广泛市场风险、继续持有股票，并愿意支付约 1,038 美元的 Put 成本，E 就值得进一步比较：它在所列两种共同下行情景中提供了保护，在上涨路径末尾留足期货初始保证金后，还能留下约 29,901 美元现金，高于设定的 20,000 美元目标。若主要担忧 GOOGL 自身的业务兑现，B 则更直接地减少这项暴露。
+
+<link rel="stylesheet" href="/notebook/portfolio-hedging/ui.css?v=20260926-3">
+<script src="/notebook/portfolio-hedging/ui.js?v=20260926-3" defer></script>
+
+计算材料：[行情、持仓与设定](/notebook/portfolio-hedging/inputs.json) · [历史价格与 RF](/notebook/portfolio-hedging/history.csv) · [全部情景结果](/notebook/portfolio-hedging/calculation-results.csv) · [复算程序](/notebook/portfolio-hedging/model.py)。
+
+[^quotes]: [Yahoo Finance：VOO](https://finance.yahoo.com/quote/VOO/)、[AMZN](https://finance.yahoo.com/quote/AMZN/)、[GOOGL](https://finance.yahoo.com/quote/GOOGL/)、[MESZ26.CME](https://finance.yahoo.com/quote/MESZ26.CME/)；[Cboe VOO 期权快照](https://cdn.cboe.com/api/global/delayed_quotes/options/VOO.json)。正文使用 2026-09-25 13:06 EDT 分钟观察，Put 的实际成交发生于 13:06:43，当日仅成交 1 张；历史观察与模型情景的身份分别保留。
+[^amzn]: [Amazon Q2 2026 Results](https://ir.aboutamazon.com/news-release/news-release-details/2026/Amazon-com-Announces-Second-Quarter-Results/default.aspx?mode=light)，2026-07-30，季度分部表及过去十二个月现金流说明。
+[^googl]: [Alphabet Q2 2026 Earnings Release](https://www.sec.gov/Archives/edgar/data/1652044/000165204426000066/googexhibit991q22026.htm)，资本付款、经营现金与融资；[2026-06-30 Form 10-Q](https://www.sec.gov/Archives/edgar/data/1652044/000165204426000071/goog-20260630.htm)，财报页 11—12 的托管、TPU 与库存，页 27 的未投用资产。
+[^research]: [本项目 2026-09-20 研究快照及采用范围](/notebook/portfolio-hedging/research-snapshot.md)，AMZN 与 GOOGL 的条件结果、粗权重与反向检验；该快照为研究判断，非发行人指引。
+[^voo]: [Vanguard：VOO Portfolio Composition](https://investor.vanguard.com/investment-products/etfs/profile/voo#portfolio-composition)，基金穿透持股用于识别与直接持股的重叠；正文未采用一个未经同步核对的固定持仓百分比。
+[^beta-data]: [Kenneth R. French Data Library](https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/data_library.html)，2026 年 8 月文件中的日频 RF；该文件将一月国库券利率折为日收益。股票总回报近似来自 Yahoo 调整收盘价，回归基准为 VOO，没有采用 French 市场因子替代 VOO。
+[^horizon]: [Handa、Kothari、Wasley，1989](https://doi.org/10.1016/0304-405X%2889%2990006-8)，收益间隔与 beta；[Chen、Lee、Shrestha，2004](https://ir.lib.nycu.edu.tw/server/api/core/bitstreams/35c195a6-adc8-4e07-8f16-132758488eb9/content)，正文 363—365 页的对冲期限与估计；[Engle，Dynamic Conditional Beta](https://www.frbsf.org/wp-content/uploads/Thu_1340_Engle.pdf)，第 1—5 页的条件协方差与时变参数。
+[^performance]: [CFA Institute：Portfolio Risk and Return, Part II](https://www.cfainstitute.org/insights/professional-learning/refresher-readings/2026/portfolio-risk-return-part-2)，beta、Jensen alpha 与风险调整表现；[William F. Sharpe：The Sharpe Ratio](https://web.stanford.edu/~wfsharpe/art/sr/SR.htm)，同频超额收益与时间口径。
+[^contracts]: [CME：Micro E-mini FAQ](https://www.cmegroup.com/articles/faqs/micro-e-mini-equity-index-futures-frequently-asked-questions.html)，MES 乘数；[OCC：ETF Options](https://www.theocc.com/clearance-and-settlement/clearing/etf-options)，标准合约单位、美式行权与实物交付。
+[^futures-hedge]: [CME：Understanding Stock Index Futures](https://www.cmegroup.com/education/files/understanding-stock-index-futures.pdf)，目标 beta 与期货名义金额换算；本文张数使用本例输入重新计算。
+[^ordinary]: [IBKR：US Stocks Margin](https://portal.interactivebrokers.com/en/trading/margin-stocks.php?ex=us&hm=us&pm=1&rgt=1&rsk=0&rst=101004100808) 与 [US Options Margin](https://portal.interactivebrokers.com/en/trading/margin-options.php?ex=us&hm=us&pm=1&rgt=1&rsk=0&rst=101004100808)，普通股票及 Protective Put 规则；按正文所述适用条件计算。
+[^pm]: [FINRA Rule 4210(g)](https://www.finra.org/rules-guidance/rulebooks/finra-rules/4210)；[IBKR/CBOE Portfolio Margin 教材](https://www.interactivebrokers.com/webinars/WB_1569_CBOE_Portfolio_Margin_Option_Positions.pdf)，证券压力类别、广基 ETF 与期权重估。本文风险扫描未取得真实券商 PM 预估。
+[^balances]: [IBKR Account Balances](https://www.ibkrguides.com/traderworkstation/account-balances.htm) 与 [Available for Trading](https://www.ibkrguides.com/traderworkstation/available-for-trading.htm)，证券权益、现金与维持余量；[Excess Funds Sweep](https://www.ibkrguides.com/brokerportal/excessfundssweep.htm)，分部资金划转。
+[^mes-margin]: [IBKR US Futures Margin](https://portal.interactivebrokers.com/en/trading/margin-futures-fops.php?ex=us&hm=us&pm=0&rgt=0&rsk=1&rst=101004110808)，读取于 2026-09-26，MES 空头隔夜初始 2,875.64、维持 2,614.22 美元／张。
+[^futures]: [CME：Money Calculations for Futures and Options](https://www.cmegroup.com/education/articles-and-reports/money-calculations-for-futures-and-options)，期货现金盯市；[CME：Margin—Know What's Needed](https://www.cmegroup.com/education/courses/introduction-to-futures/margin-know-what-is-needed)，初始、维持与后续资金处理。
+[^options]: [OIC：All Strategies](https://prd-web.optionseducation.org/strategies/all-strategies-en)，保护性 Put、现金担保 Put 等不同持仓方向与义务。
+[^perpetual]: [Bybit：Margin Modes](https://www.bybit.com/en/help-center/article/Differences-Between-the-Margin-Modes-Under-the-Unified-Trading-Account) 与 [Funding Fee Calculation](https://www.bybit.com/en/help-center/article/Funding-fee-calculation)，逐仓、全仓及资金费；10,000 USDT 与 0.01% 为本文的一次收付设定。
+[^settlement]: [SEC：T+1 Settlement](https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins/new-t1-settlement-cycle-what-investors-need-know-investor-bulletin)；[OIC：The Impact of T+1 on Options](https://www.optionseducation.org/news/understanding-t-1-conversion)，美国通常证券交易的交收周期。
+[^cash-account]: [Fidelity：About Your Account](https://www.fidelity.com/trading/faqs-about-account) 与 [Trading Restrictions](https://www.fidelity.com/trading/faqs-trading-restrictions)，现金账户已交收资金、可交易与可提款余额的不同用途。
+
+
+## Sources
+- [CME—Margin: Know What's Needed](https://www.cmegroup.com/education/courses/introduction-to-futures/margin-know-what-is-needed): 本篇采用的公开资料：CME—Margin: Know What's Needed。具体采用范围见文章脚注与 Agent 阅读材料。
+- [SEC：New T+1 Settlement Cycle – What Investors Need To Know](https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins/new-t1-settlement-cycle-what-investors-need-know-investor-bulletin): 成交与证券、款项正式交付的区别；本文不推广美国特定周期。
+- [The Sharpe Ratio](https://web.stanford.edu/~wfsharpe/art/sr/SR.htm): William F. Sharpe，The Sharpe Ratio，The Ratio、Time Dependence、Related Measures。X/Y与半仓Y的比较均来自原文假设，所有收益和标准差采用同一期口径。
+- [CME：Money Calculations for Futures and Options](https://www.cmegroup.com/education/articles-and-reports/money-calculations-for-futures-and-options): CME：The Benefits of Futures Margins，初始与维持保证金；CME：Money Calculations for Futures and Options，期货盯市盈亏的每日现金收付。
+- [IBKR：Account Balances](https://www.ibkrguides.com/traderworkstation/account-balances.htm): IBKR：Account Balances、Available for Trading、Portfolio Margin Account Summary，权益口径、证券与期货分部；Excess Funds Sweep，分部划转。
+- [Available for Trading](https://www.ibkrguides.com/traderworkstation/available-for-trading.htm): IBKR：Account Balances、Available for Trading、Portfolio Margin Account Summary，权益口径、证券与期货分部；Excess Funds Sweep，分部划转。
+- [Excess Funds Sweep](https://www.ibkrguides.com/brokerportal/excessfundssweep.htm): IBKR：Account Balances、Available for Trading、Portfolio Margin Account Summary，权益口径、证券与期货分部；Excess Funds Sweep，分部划转。
+- [Fidelity：About Your Account](https://www.fidelity.com/trading/faqs-about-account): Fidelity：About Your Account 与 Trading Restrictions，现金账户的可交易、已交收、可提款金额与付款关系。
+- [Trading Restrictions](https://www.fidelity.com/trading/faqs-trading-restrictions): Fidelity：About Your Account 与 Trading Restrictions，现金账户的可交易、已交收、可提款金额与付款关系。
+- [OCC：ETF Options](https://www.theocc.com/clearance-and-settlement/clearing/etf-options): OCC：ETF Options，标准合约单位、美式行权与实物交付；CME：Micro E-mini FAQ，MES 每点 5 美元及合约月份。
+- [CME：Micro E-mini FAQ](https://www.cmegroup.com/articles/faqs/micro-e-mini-equity-index-futures-frequently-asked-questions.html): OCC：ETF Options，标准合约单位、美式行权与实物交付；CME：Micro E-mini FAQ，MES 每点 5 美元及合约月份。
+- [Amazon Q2 2026 Results](https://ir.aboutamazon.com/news-release/news-release-details/2026/Amazon-com-Announces-Second-Quarter-Results/default.aspx?mode=light): Amazon Q2 2026 Results，2026-07-30，季度分部表及过去十二个月现金流说明。
+- [Kenneth R. French Data Library](https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/data_library.html): Kenneth R. French Data Library，2026 年 8 月文件中的日频 RF；该文件将一月国库券利率折为日收益。股票总回报近似来自 Yahoo 调整收盘价，回归基准为 VOO，没有采用 French 市场因子替代 VOO。
+- [CME：Understanding Stock Index Futures](https://www.cmegroup.com/education/files/understanding-stock-index-futures.pdf): CME：Understanding Stock Index Futures，目标 beta 与期货名义金额换算；本文张数使用本例输入重新计算。
+- [Handa、Kothari、Wasley，1989](https://doi.org/10.1016/0304-405X%2889%2990006-8): Handa、Kothari、Wasley（1989），收益采样间隔与 beta 的关系；本篇采用其摘要支持估计口径的区别。
+- [Chen、Lee、Shrestha，2004](https://ir.lib.nycu.edu.tw/server/api/core/bitstreams/35c195a6-adc8-4e07-8f16-132758488eb9/content): Handa、Kothari、Wasley，198990006-8)，收益间隔与 beta；Chen、Lee、Shrestha，2004，正文 363—365 页的对冲期限与估计；Engle，Dynamic Conditional Beta，第 1—5 页的条件协方差与时变参数。
+- [Engle，Dynamic Conditional Beta](https://www.frbsf.org/wp-content/uploads/Thu_1340_Engle.pdf): Handa、Kothari、Wasley，198990006-8)，收益间隔与 beta；Chen、Lee、Shrestha，2004，正文 363—365 页的对冲期限与估计；Engle，Dynamic Conditional Beta，第 1—5 页的条件协方差与时变参数。
+- [CFA Institute：Portfolio Risk and Return, Part II](https://www.cfainstitute.org/insights/professional-learning/refresher-readings/2026/portfolio-risk-return-part-2): CFA Institute：Portfolio Risk and Return, Part II，beta、Jensen alpha 与风险调整表现；William F. Sharpe：The Sharpe Ratio，同频超额收益与时间口径。
+- [Bybit：Margin Modes](https://www.bybit.com/en/help-center/article/Differences-Between-the-Margin-Modes-Under-the-Unified-Trading-Account): Bybit：Margin Modes 与 Funding Fee Calculation，逐仓、全仓及资金费；10,000 USDT 与 0.01% 为本文的一次收付设定。
+- [AMZN](https://finance.yahoo.com/quote/AMZN/): Yahoo Finance：VOO、AMZN、GOOGL、MESZ26.CME；Cboe VOO 期权快照。正文使用 2026-09-25 13:06 EDT 分钟观察，Put 的实际成交发生于 13:06:43，当日仅成交 1 张；历史观察与模型情景的身份分别保留。
+- [GOOGL](https://finance.yahoo.com/quote/GOOGL/): Yahoo Finance：VOO、AMZN、GOOGL、MESZ26.CME；Cboe VOO 期权快照。正文使用 2026-09-25 13:06 EDT 分钟观察，Put 的实际成交发生于 13:06:43，当日仅成交 1 张；历史观察与模型情景的身份分别保留。
+- [本项目 2026-09-20 研究快照及采用范围](https://ou-liu-red-sugar.github.io/notebook/portfolio-hedging/research-snapshot.md): 本项目 2026-09-20 研究快照及采用范围，AMZN 与 GOOGL 的条件结果、粗权重与反向检验；该快照为研究判断，非发行人指引。
+- [Vanguard：VOO Portfolio Composition](https://investor.vanguard.com/investment-products/etfs/profile/voo#portfolio-composition): Vanguard：VOO Portfolio Composition，基金穿透持股用于识别与直接持股的重叠；正文未采用一个未经同步核对的固定持仓百分比。
+- [IBKR：US Futures Margin](https://portal.interactivebrokers.com/en/trading/margin-futures-fops.php?ex=us&hm=us&pm=0&rgt=0&rsk=1&rst=101004110808): IBKR：US Futures Margin，2026-09-26 读取的 MES 空头隔夜初始 2,875.64 美元、维持 2,614.22 美元，本文固定为参考参数。
+- [OIC：The Impact of T+1 on Options](https://www.optionseducation.org/news/understanding-t-1-conversion): OIC：The Impact of T+1 on Options，交易权利金与行权交收；OIC：All Strategies，现金担保看跌等资金关系。
+- [OIC：All Strategies](https://prd-web.optionseducation.org/strategies/all-strategies-en): OIC：The Impact of T+1 on Options，交易权利金与行权交收；OIC：All Strategies，现金担保看跌等资金关系。
+- [IBKR：US Stocks Margin](https://portal.interactivebrokers.com/en/trading/margin-stocks.php?ex=us&hm=us&pm=1&rgt=1&rsk=0&rst=101004100808): IBKR：US Stocks Margin，Reg T 日终初始与股票维持要求；IBKR：US Options Margin，Protective Put 与多头期权规则。
+- [IBKR：US Options Margin](https://portal.interactivebrokers.com/en/trading/margin-options.php?ex=us&hm=us&pm=1&rgt=1&rsk=0&rst=101004100808): IBKR：US Stocks Margin，Reg T 日终初始与股票维持要求；IBKR：US Options Margin，Protective Put 与多头期权规则。
+- [Bybit：Funding Fee Calculation](https://www.bybit.com/en/help-center/article/Funding-fee-calculation): Bybit：Funding Fee Calculation，USDT 永续资金费公式与方向。本文 10,000 USDT 和 0.01% 为说明收付关系的设定，实际费率及周期按具体合约。
+- [FINRA：Rule 4210(g)](https://www.finra.org/rules-guidance/rulebooks/finra-rules/4210): FINRA：Rule 4210(g)，情景点与最低额规则；IBKR/CBOE：Portfolio Margin 教材，广基 ETF 风险情景；IBKR：US Stocks Margin，Portfolio Margin Mechanics 部分的组合抵销、波动率压力及附加要求。本文风险扫描按这些公开机制设置，未取得该账户真实 PM 预估。
+- [IBKR/CBOE：Portfolio Margin 教材](https://www.interactivebrokers.com/webinars/WB_1569_CBOE_Portfolio_Margin_Option_Positions.pdf): FINRA：Rule 4210(g)，情景点与最低额规则；IBKR/CBOE：Portfolio Margin 教材，广基 ETF 风险情景；IBKR：US Stocks Margin，Portfolio Margin Mechanics 部分的组合抵销、波动率压力及附加要求。本文风险扫描按这些公开机制设置，未取得该账户真实 PM 预估。
+- [Yahoo Finance：VOO](https://finance.yahoo.com/quote/VOO/): Yahoo Finance：VOO、VOO261218P00685000、MESZ26.CME；Cboe：VOO 期权公开快照。本篇保存的 2026-09-25 13:06 EDT 分钟输入与 Put 13:06:43 成交对应，动态网页的后续报价会变化。
+- [MESZ26.CME](https://finance.yahoo.com/quote/MESZ26.CME/): Yahoo Finance：VOO、VOO261218P00685000、MESZ26.CME；Cboe：VOO 期权公开快照。本篇保存的 2026-09-25 13:06 EDT 分钟输入与 Put 13:06:43 成交对应，动态网页的后续报价会变化。
+- [Cboe：VOO 期权公开快照](https://cdn.cboe.com/api/global/delayed_quotes/options/VOO.json): Yahoo Finance：VOO、VOO261218P00685000、MESZ26.CME；Cboe：VOO 期权公开快照。本篇保存的 2026-09-25 13:06 EDT 分钟输入与 Put 13:06:43 成交对应，动态网页的后续报价会变化。
+- [Alphabet：截至 2026-06-30 的 Form 10-Q](https://www.sec.gov/Archives/edgar/data/1652044/000165204426000071/goog-20260630.htm): Alphabet：截至 2026-06-30 的 Form 10-Q，Note 11、Equity Capital Raise、ATM Program、Share Repurchases；采用已完成融资、披露的资金用途、期末未执行发行额度及上半年回购状态。
+- [Alphabet：2026 年第二季度业绩公告](https://www.sec.gov/Archives/edgar/data/1652044/000165204426000066/googexhibit991q22026.htm): Alphabet：2026 年第二季度业绩公告，Equity Capital Raise。
+
+## Content relations
+```json
+[
+  {
+    "from": "zh-settlement-margin-cash",
+    "relation": "part_of",
+    "to": "topic-B",
+    "reason": "主要 topic 归属"
+  }
+]
+```
+
+## Related entries
+- [报价、订单与实际成交](https://ou-liu-red-sugar.github.io/zh/notebook/quotes-orders-execution/)
+- [投资期限与现金需要](https://ou-liu-red-sugar.github.io/zh/notebook/investment-horizon-cash/)
+- [Agent 时代的基本面投资](https://ou-liu-red-sugar.github.io/zh/notebook/investment-returns/)
+- [复利、通胀与机会成本](https://ou-liu-red-sugar.github.io/zh/notebook/compounding-inflation-opportunity-cost/)
+- [股票、公司与股价](https://ou-liu-red-sugar.github.io/zh/notebook/stocks-company-price/)
