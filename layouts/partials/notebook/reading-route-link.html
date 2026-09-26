@@ -1,0 +1,10 @@
+{{ with .Site.Data.notebook_map.reading_route }}
+<link rel="stylesheet" href="{{ partial "notebook/asset.html" "/notebook/reading-route.css" }}">
+<div class="route-entry" id="reading-route">
+  <a class="route-entry-link" href="/zh/notebook/reading-route/">
+    <span class="route-entry-copy"><strong>顺序阅读</strong><span>从第一篇开始，沿路线逐步阅读。</span></span>
+    <span class="route-entry-action"><span>已写 {{ .available_count }} 篇</span><span aria-hidden="true">→</span></span>
+  </a>
+  {{ partial "notebook/reading-route-credit.html" . }}
+</div>
+{{ end }}

@@ -1,0 +1,9 @@
+{{ define "main" }}
+<div class="catalogue-shell reading-route-page">
+  <header class="route-page-intro">
+    <a class="back-link" href="/zh/notebook/"><span aria-hidden="true">←</span> 投资学笔记</a>
+    <h1>{{ .Title }}</h1>
+  </header>
+  {{ partial "notebook/reading-route.html" . }}
+</div>
+{{ end }}

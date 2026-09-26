@@ -758,9 +758,9 @@
       "id": "NB-A04",
       "node": "A",
       "title": "复利、通胀与机会成本",
-      "goal": "用共同期限和购买力比较资金的不同用途。",
-      "status": "planned",
-      "url": null
+      "goal": "理解比例累积、购买力和现实替代，用时间、净回报与风险补偿比较投资。",
+      "status": "available",
+      "url": "/zh/notebook/compounding-inflation-opportunity-cost/"
     },
     {
       "id": "NB-A05",
@@ -782,9 +782,9 @@
       "id": "NB-B02",
       "node": "B",
       "title": "报价、订单与实际成交",
-      "goal": "解释屏幕价格为何可能不同于自己整笔订单的成交价格。",
-      "status": "planned",
-      "url": null
+      "goal": "理解报价、流动性和订单条件如何形成实际成交，并认识做市、对冲与保证金的联系。",
+      "status": "available",
+      "url": "/zh/notebook/quotes-orders-execution/"
     },
     {
       "id": "NB-B03",
@@ -801,6 +801,14 @@
       "goal": "理解成交难易、价格让步和费用怎样影响投资实施。",
       "status": "planned",
       "url": null
+    },
+    {
+      "id": "NB-C05",
+      "node": "C",
+      "title": "美联储与货币政策",
+      "goal": "理解美联储的政策目标、决策与操作，并将政策预期接到通胀、利率和金融条件。",
+      "status": "outline",
+      "url": "/zh/notebook/federal-reserve-monetary-policy/"
     },
     {
       "id": "NB-C01",
@@ -1518,18 +1526,34 @@
         "note": "把亏损后的判断落实到未来得失与资金条件，再比较不同期限和替代用途的回报。",
         "status": "available",
         "url": "/zh/notebook/loss-volatility-holding-capacity/"
+      },
+      {
+        "id": "NB-A04",
+        "number": 7,
+        "title": "复利、通胀与机会成本",
+        "note": "用复利与购买力比较不同期限的结果，再把资金的替代用途放进判断。",
+        "status": "available",
+        "url": "/zh/notebook/compounding-inflation-opportunity-cost/"
+      },
+      {
+        "id": "NB-B02",
+        "number": 8,
+        "title": "报价、订单与实际成交",
+        "note": "把买卖意图落实到报价、订单与实际成交，再理解成交以后的交收与可用资金。",
+        "status": "available",
+        "url": "/zh/notebook/quotes-orders-execution/"
       }
     ],
     "next": {
-      "id": "NB-A04",
-      "number": 7,
-      "title": "复利、通胀与机会成本",
-      "note": "用复利与购买力比较不同期限的结果，再把资金的替代用途放进判断。",
+      "id": "NB-B03",
+      "number": 9,
+      "title": "清算、交收与账户资金",
+      "note": "跟随成交后的证券与现金，分清账户显示、交收完成和资金可用的时间。",
       "status": "planned",
       "url": null
     },
-    "available_count": 6,
-    "intro_available_count": 6,
+    "available_count": 8,
+    "intro_available_count": 8,
     "navigation": {
       "NB-A01": {
         "current": {
@@ -1676,6 +1700,58 @@
           "number": 7,
           "title": "复利、通胀与机会成本",
           "note": "用复利与购买力比较不同期限的结果，再把资金的替代用途放进判断。",
+          "status": "available",
+          "url": "/zh/notebook/compounding-inflation-opportunity-cost/"
+        }
+      },
+      "NB-A04": {
+        "current": {
+          "id": "NB-A04",
+          "number": 7,
+          "title": "复利、通胀与机会成本",
+          "note": "用复利与购买力比较不同期限的结果，再把资金的替代用途放进判断。",
+          "status": "available",
+          "url": "/zh/notebook/compounding-inflation-opportunity-cost/"
+        },
+        "previous": {
+          "id": "NB-A03",
+          "number": 6,
+          "title": "亏损、波动与持有能力",
+          "note": "把亏损后的判断落实到未来得失与资金条件，再比较不同期限和替代用途的回报。",
+          "status": "available",
+          "url": "/zh/notebook/loss-volatility-holding-capacity/"
+        },
+        "next": {
+          "id": "NB-B02",
+          "number": 8,
+          "title": "报价、订单与实际成交",
+          "note": "把买卖意图落实到报价、订单与实际成交，再理解成交以后的交收与可用资金。",
+          "status": "available",
+          "url": "/zh/notebook/quotes-orders-execution/"
+        }
+      },
+      "NB-B02": {
+        "current": {
+          "id": "NB-B02",
+          "number": 8,
+          "title": "报价、订单与实际成交",
+          "note": "把买卖意图落实到报价、订单与实际成交，再理解成交以后的交收与可用资金。",
+          "status": "available",
+          "url": "/zh/notebook/quotes-orders-execution/"
+        },
+        "previous": {
+          "id": "NB-A04",
+          "number": 7,
+          "title": "复利、通胀与机会成本",
+          "note": "用复利与购买力比较不同期限的结果，再把资金的替代用途放进判断。",
+          "status": "available",
+          "url": "/zh/notebook/compounding-inflation-opportunity-cost/"
+        },
+        "next": {
+          "id": "NB-B03",
+          "number": 9,
+          "title": "清算、交收与账户资金",
+          "note": "跟随成交后的证券与现金，分清账户显示、交收完成和资金可用的时间。",
           "status": "planned",
           "url": null
         }
@@ -1683,7 +1759,7 @@
     },
     "credits": [
       {
-        "label": "第 1–6 篇",
+        "label": "第 1–8 篇",
         "writer": "Codex GPT-6 Astra"
       }
     ],
@@ -1694,7 +1770,7 @@
         "id": "foundations",
         "title": "认识投资与市场",
         "goal": "解释股票、基金和现金工具的持有结果，理解一次交易怎样完成。",
-        "available_count": 6,
+        "available_count": 8,
         "total": 15
       },
       {
@@ -1709,7 +1785,7 @@
         "title": "形成投资判断与基础配置",
         "goal": "在经济条件和资金约束下比较经营情景、投资价格及现实替代。",
         "available_count": 0,
-        "total": 22
+        "total": 23
       },
       {
         "id": "tools",

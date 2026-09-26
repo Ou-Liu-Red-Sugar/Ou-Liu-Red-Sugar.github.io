@@ -989,6 +989,296 @@
       "authors": [
         "State Street"
       ]
+    },
+    {
+      "source_id": "nb-a04-buffett-1989-1",
+      "title": "Berkshire Hathaway 1989 年股东信",
+      "url": "https://www.berkshirehathaway.com/letters/1989.html",
+      "body": "Warren Buffett，Berkshire Hathaway 1989 年股东信，Mistakes of the First Twenty-five Years：优秀企业、合理价格与时间的关系。",
+      "version": "本篇核对日期：2026-09-26；历史期间见正文脚注",
+      "authors": [
+        "Berkshire Hathaway 1989 年股东信"
+      ]
+    },
+    {
+      "source_id": "nb-a04-buffett-2022-1",
+      "title": "2022 年股东信",
+      "url": "https://www.berkshirehathaway.com/letters/2022ltr.pdf",
+      "body": "Warren Buffett，2022 年股东信，The Secret Sauce：KO 长期持股与年度现金股息。文中金额为 Berkshire 收到的年度分红，分别对应 1994 年与 2022 年。",
+      "version": "本篇核对日期：2026-09-26；历史期间见正文脚注",
+      "authors": [
+        "2022 年股东信"
+      ]
+    },
+    {
+      "source_id": "nb-a04-compound-1",
+      "title": "Compound interest",
+      "url": "https://math.nyu.edu/~goodman/teaching/MathFin2019/handouts/CompoundInterest.pdf",
+      "body": "Jonathan Goodman，NYU Courant，Compound interest：离散与连续复利、指数及对数的一阶近似。",
+      "version": "本篇核对日期：2026-09-26；历史期间见正文脚注",
+      "authors": [
+        "Compound interest"
+      ]
+    },
+    {
+      "source_id": "nb-a04-voo-1",
+      "title": "VOO 官方资料",
+      "url": "https://fund-docs.vanguard.com/F0968.pdf",
+      "body": "Vanguard，VOO 官方资料，基金跟踪对象及分配再投资、税前与扣除基金费用后的业绩口径。本文历史曲线采用下一条列明的市场数据。",
+      "version": "本篇核对日期：2026-09-26；历史期间见正文脚注",
+      "authors": [
+        "VOO 官方资料"
+      ]
+    },
+    {
+      "source_id": "nb-a04-voo-data-1",
+      "title": "Yahoo Finance：VOO 历史行情",
+      "url": "https://finance.yahoo.com/quote/VOO/history/",
+      "body": "Yahoo Finance：VOO 历史行情，读取于 2026-09-26。2015-12-31 至 2025-12-31，调整后收盘价由 156.8276978 至 623.3413696，累计增长约 297.47%；2023-06-15 至 2024-06-13 的对应值为 389.5532837、484.7463074，增长约 24.44%。每日输入与月末资金路径及购买力计算供复算。",
+      "version": "本篇核对日期：2026-09-26；历史期间见正文脚注",
+      "authors": [
+        "Yahoo Finance"
+      ]
+    },
+    {
+      "source_id": "nb-a04-fees-1",
+      "title": "How Fees and Expenses Affect Your Investment Portfolio",
+      "url": "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins/updated",
+      "body": "SEC Investor.gov，How Fees and Expenses Affect Your Investment Portfolio，持续费用与后续投资本金。本文金额按所列假设自行计算。",
+      "version": "本篇核对日期：2026-09-26；历史期间见正文脚注",
+      "authors": [
+        "How Fees and Expenses Affect Your Investment Portfolio"
+      ]
+    },
+    {
+      "source_id": "nb-a04-cpi-1",
+      "title": "Purchasing power and constant dollars",
+      "url": "https://www.bls.gov/cpi/factsheets/purchasing-power-constant-dollars.htm",
+      "body": "BLS，Purchasing power and constant dollars及CUUR0000SA0 数据，美国城市消费者、全项目、未季调 CPI。2015年12月为236.525，2025年12月为324.054。2025年10月因拨款中断未提供数据，购买力曲线在该月留空；计算输入。",
+      "version": "本篇核对日期：2026-09-26；历史期间见正文脚注",
+      "authors": [
+        "Purchasing power and constant dollars"
+      ]
+    },
+    {
+      "source_id": "nb-a04-cpi-2",
+      "title": "CUUR0000SA0 数据",
+      "url": "https://data.bls.gov/timeseries/CUUR0000SA0",
+      "body": "BLS，Purchasing power and constant dollars及CUUR0000SA0 数据，美国城市消费者、全项目、未季调 CPI。2015年12月为236.525，2025年12月为324.054。2025年10月因拨款中断未提供数据，购买力曲线在该月留空；计算输入。",
+      "version": "本篇核对日期：2026-09-26；历史期间见正文脚注",
+      "authors": [
+        "CUUR0000SA0 数据"
+      ]
+    },
+    {
+      "source_id": "nb-a04-fed-1",
+      "title": "Statement on Longer-Run Goals and Monetary Policy Strategy",
+      "url": "https://www.federalreserve.gov/monetarypolicy/files/fomc_longerrungoals.pdf",
+      "body": "Federal Reserve，Statement on Longer-Run Goals and Monetary Policy Strategy，2026-01-27 再确认；长期 2% 通胀目标说明。",
+      "version": "本篇核对日期：2026-09-26；历史期间见正文脚注",
+      "authors": [
+        "Statement on Longer-Run Goals and Monetary Policy Strategy"
+      ]
+    },
+    {
+      "source_id": "nb-a04-fed-2",
+      "title": "长期 2% 通胀目标说明",
+      "url": "https://www.federalreserve.gov/faqs/economy_14400.htm",
+      "body": "Federal Reserve，Statement on Longer-Run Goals and Monetary Policy Strategy，2026-01-27 再确认；长期 2% 通胀目标说明。",
+      "version": "本篇核对日期：2026-09-26；历史期间见正文脚注",
+      "authors": [
+        "长期 2% 通胀目标说明"
+      ]
+    },
+    {
+      "source_id": "nb-a04-bill-1",
+      "title": "2023-06-13 拍卖结果",
+      "url": "https://www.treasurydirect.gov/instit/annceresult/press/preanre/2023/R_20230613_2.pdf",
+      "body": "TreasuryDirect，2023-06-13 拍卖结果及发行公告：364 天国债，CUSIP 912797FS1，每100美元面值价格95.015222，2023-06-15发行，2024-06-13到期。10,500美元面值的成本取到分为9,976.60美元。",
+      "version": "本篇核对日期：2026-09-26；历史期间见正文脚注",
+      "authors": [
+        "2023-06-13 拍卖结果"
+      ]
+    },
+    {
+      "source_id": "nb-a04-bill-2",
+      "title": "发行公告",
+      "url": "https://www.treasurydirect.gov/instit/annceresult/press/preanre/2023/A_20230608_2.pdf",
+      "body": "TreasuryDirect，2023-06-13 拍卖结果及发行公告：364 天国债，CUSIP 912797FS1，每100美元面值价格95.015222，2023-06-15发行，2024-06-13到期。10,500美元面值的成本取到分为9,976.60美元。",
+      "version": "本篇核对日期：2026-09-26；历史期间见正文脚注",
+      "authors": [
+        "发行公告"
+      ]
+    },
+    {
+      "source_id": "nb-a04-sharpe-1",
+      "title": "The Sharpe Ratio",
+      "url": "https://web.stanford.edu/~wfsharpe/art/sr/SR.htm",
+      "body": "William F. Sharpe，The Sharpe Ratio，The Ratio、Time Dependence、Related Measures。X/Y与半仓Y的比较均来自原文假设，所有收益和标准差采用同一期口径。",
+      "version": "本篇核对日期：2026-09-26；历史期间见正文脚注",
+      "authors": [
+        "The Sharpe Ratio"
+      ]
+    },
+    {
+      "source_id": "nb-a04-voo-adjustment-1",
+      "title": "Yahoo：What is the adjusted close?",
+      "url": "https://help.yahoo.com/kb/SLN28256.html",
+      "body": "Yahoo：What is the adjusted close?，调整后收盘价包含分红与拆股调整。本文原始数据中有40次分红事件，以除息日前一交易日价格计算分红调整因子；这与逐笔按实际成交价再投资的规则不同。起止普通收盘价为186.9299927、627.1300049美元，仅价格变化对应的期末金额为33,548.92美元；分红事件与复算输入列出两种再投资口径及现金分红。",
+      "version": "本篇核对日期：2026-09-26；历史期间见正文脚注",
+      "authors": [
+        "Yahoo"
+      ]
+    },
+    {
+      "source_id": "nb-a04-cpi-3",
+      "title": "缺失数据与后续处理说明",
+      "url": "https://www.bls.gov/cpi/additional-resources/2025-federal-government-shutdown-impact-cpi-faq.htm",
+      "body": "BLS，Purchasing power and constant dollars及CUUR0000SA0 数据，美国城市消费者、全项目、未季调 CPI。2015年12月为236.525，2025年12月为324.054。截至2026-09-26复核，本图所用未季调全项目CPI-U的2025年10月官方值仍缺失。BLS为季调计算采用了9月与11月指数的几何平均估补，并补发部分非调查分项；这与发布本系列10月正式值有别，见缺失数据与后续处理说明第2、3、12项。图中虚线连接相邻已知月份，数据表中该月仍留空；计算输入。",
+      "version": "本篇核对日期：2026-09-26；历史期间见正文脚注",
+      "authors": [
+        "缺失数据与后续处理说明"
+      ]
+    },
+    {
+      "source_id": "nb-b02-quotes-1",
+      "title": "Nasdaq：Why Real-Time Data Matters When Trading Stocks",
+      "url": "https://www.nasdaq.com/articles/why-real-time-data-matters-when-trading-stocks",
+      "body": "Nasdaq：Why Real-Time Data Matters When Trading Stocks，2024-03-25，Last、Bid、Ask、Size 和 Trading Volume。正文数值盘口为独立构造的简化模型。",
+      "version": "本篇核对日期：2026-09-26；资料时点见正文脚注",
+      "authors": [
+        "Nasdaq"
+      ]
+    },
+    {
+      "source_id": "nb-b02-orders-1",
+      "title": "SEC Investor.gov：Types of Orders",
+      "url": "https://www.investor.gov/introduction-investing/investing-basics/how-stock-markets-work/types-orders",
+      "body": "SEC Investor.gov：Types of Orders，市价、限价和买卖方向的定义。",
+      "version": "本篇核对日期：2026-09-26；资料时点见正文脚注",
+      "authors": [
+        "SEC Investor.gov"
+      ]
+    },
+    {
+      "source_id": "nb-b02-liquidity-1",
+      "title": "IBKR：NASDAQ/Island Exchange Fees",
+      "url": "https://investors.interactivebrokers.com/en/index.php?f=936",
+      "body": "IBKR：NASDAQ/Island Exchange Fees，Notes 1–2 关于添加和消耗流动性的说明；本文不采用该页费率。",
+      "version": "本篇核对日期：2026-09-26；资料时点见正文脚注",
+      "authors": [
+        "IBKR"
+      ]
+    },
+    {
+      "source_id": "nb-b02-time-1",
+      "title": "FINRA：Trading Terms — Time Parameters and Qualifiers on Stock Orders",
+      "url": "https://www.finra.org/investors/insights/time-parameters-qualifiers-stock-orders",
+      "body": "FINRA：Trading Terms — Time Parameters and Qualifiers on Stock Orders，2024-07-17 更新，Day、GTC、IOC 与 FOK，以及订单路由。",
+      "version": "本篇核对日期：2026-09-26；资料时点见正文脚注",
+      "authors": [
+        "FINRA"
+      ]
+    },
+    {
+      "source_id": "nb-b02-stop-1",
+      "title": "SEC：Trading Basics",
+      "url": "https://www.sec.gov/files/trading101basics.pdf",
+      "body": "SEC：Trading Basics，2011-03，第 2 页，Stop 和 Stop-limit 的触发与成交区别；正文跳价路径为简化示意。",
+      "version": "本篇核对日期：2026-09-26；资料时点见正文脚注",
+      "authors": [
+        "SEC"
+      ]
+    },
+    {
+      "source_id": "nb-b02-linked-1",
+      "title": "Charles Schwab：How to Use Advanced Stock Order Types",
+      "url": "https://www.schwab.com/learn/story/how-to-use-advanced-stock-order-types",
+      "body": "Charles Schwab：How to Use Advanced Stock Order Types，2025-05-21，OCO、Bracket 与 Trailing stop。",
+      "version": "本篇核对日期：2026-09-26；资料时点见正文脚注",
+      "authors": [
+        "Charles Schwab"
+      ]
+    },
+    {
+      "source_id": "nb-b02-makers-1",
+      "title": "Citadel Securities：Equities",
+      "url": "https://www.citadelsecurities.com/what-we-do/equities/",
+      "body": "Citadel Securities：Equities，股票、ETF 与做市业务；SEC：Market Centers — Buying and Selling Stock，订单经券商送往交易所或做市商执行的说明。",
+      "version": "本篇核对日期：2026-09-26；资料时点见正文脚注",
+      "authors": [
+        "Citadel Securities"
+      ]
+    },
+    {
+      "source_id": "nb-b02-makers-2",
+      "title": "SEC：Market Centers — Buying and Selling Stock",
+      "url": "https://www.sec.gov/answers/market.htm",
+      "body": "Citadel Securities：Equities，股票、ETF 与做市业务；SEC：Market Centers — Buying and Selling Stock，订单经券商送往交易所或做市商执行的说明。",
+      "version": "本篇核对日期：2026-09-26；资料时点见正文脚注",
+      "authors": [
+        "SEC"
+      ]
+    },
+    {
+      "source_id": "nb-b02-hedge-1",
+      "title": "Cboe 作者 Ross Pullen：How ETF market making works",
+      "url": "https://www.stockbrokers.org.au/industry-insights/how-etf-market-making-works",
+      "body": "Cboe 作者 Ross Pullen：How ETF market making works，2023-03-23，ETF 库存、股指期货对冲及库存出售后的头寸调整；采用其机制，未移用澳大利亚准入和申赎规则。CME：E-mini S&P 500 Futures，ES 产品身份。",
+      "version": "本篇核对日期：2026-09-26；资料时点见正文脚注",
+      "authors": [
+        "Cboe 作者 Ross Pullen"
+      ]
+    },
+    {
+      "source_id": "nb-b02-hedge-2",
+      "title": "CME：E-mini S&P 500 Futures",
+      "url": "https://www.cmegroup.com/markets/equities/sp/e-mini-sandp500.contractSpecs.html",
+      "body": "Cboe 作者 Ross Pullen：How ETF market making works，2023-03-23，ETF 库存、股指期货对冲及库存出售后的头寸调整；采用其机制，未移用澳大利亚准入和申赎规则。CME：E-mini S&P 500 Futures，ES 产品身份。",
+      "version": "本篇核对日期：2026-09-26；资料时点见正文脚注",
+      "authors": [
+        "CME"
+      ]
+    },
+    {
+      "source_id": "nb-b02-single-1",
+      "title": "CME：Single Stock Futures",
+      "url": "https://www.cmegroup.com/markets/equities/single-stock-futures",
+      "body": "CME：Single Stock Futures，2026-09-26 核读的产品页和 FAQ，单只美股期货已上线及 TSLA、MSFT 示例。",
+      "version": "本篇核对日期：2026-09-26；资料时点见正文脚注",
+      "authors": [
+        "CME"
+      ]
+    },
+    {
+      "source_id": "nb-b02-margin-1",
+      "title": "CME：The Benefits of Futures Margins",
+      "url": "https://www.cmegroup.com/education/courses/understanding-the-benefits-of-futures/the-benefits-of-futures-margins",
+      "body": "CME：The Benefits of Futures Margins，初始与维持保证金；CME：Money Calculations for Futures and Options，期货盯市盈亏的每日现金收付。",
+      "version": "本篇核对日期：2026-09-26；资料时点见正文脚注",
+      "authors": [
+        "CME"
+      ]
+    },
+    {
+      "source_id": "nb-b02-margin-2",
+      "title": "CME：Money Calculations for Futures and Options",
+      "url": "https://www.cmegroup.com/education/articles-and-reports/money-calculations-for-futures-and-options",
+      "body": "CME：The Benefits of Futures Margins，初始与维持保证金；CME：Money Calculations for Futures and Options，期货盯市盈亏的每日现金收付。",
+      "version": "本篇核对日期：2026-09-26；资料时点见正文脚注",
+      "authors": [
+        "CME"
+      ]
+    },
+    {
+      "source_id": "nb-b02-stock-margin-1",
+      "title": "FINRA：Rule 2264 — Margin Disclosure Statement",
+      "url": "https://www.finra.org/rules-guidance/rulebooks/finra-rules/2264",
+      "body": "FINRA：Rule 2264 — Margin Disclosure Statement，融资买入中的券商借款、抵押和账户权益要求。",
+      "version": "本篇核对日期：2026-09-26；资料时点见正文脚注",
+      "authors": [
+        "FINRA"
+      ]
     }
   ],
   "paths": []

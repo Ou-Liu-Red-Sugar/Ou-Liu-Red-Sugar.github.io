@@ -58,7 +58,8 @@ class Evidence(HTMLParser):
                 break
 
     def handle_data(self, data):
-        if self.exchange_depth is not None:
+        # Export omits UI buttons; their labels are not authored diagram evidence.
+        if self.exchange_depth is not None or "button" in self.stack:
             return
         if data.strip() and any(tag in {"td", "th", "h3", "figure"} for tag in self.stack):
             self.texts.append(data.strip())

@@ -105,7 +105,7 @@ def validate_learning_plan(plan):
             slug = outline.get("slug")
             require(isinstance(slug, str) and re.fullmatch(r"[a-z0-9]+(?:-[a-z0-9]+)*", slug),
                     f"entry {entry['id']} outline slug must be a local page name")
-            require(slug not in outline_slugs and slug not in {"notation", "companies"},
+            require(slug not in outline_slugs and slug not in {"notation", "companies", "reading-route"},
                     f"duplicate or reserved outline slug: {slug}")
             outline_slugs.add(slug)
             require(isinstance(outline.get("sections"), list) and outline["sections"],

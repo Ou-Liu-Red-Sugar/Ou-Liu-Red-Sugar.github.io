@@ -1,0 +1,10 @@
+.comp-figure{margin:28px 0;padding:18px 0;border-top:1px solid var(--rule,#d5dbcf);border-bottom:1px solid var(--rule,#d5dbcf);scroll-margin-top:24px}
+.comp-figure img{display:block;width:100%;height:auto;max-width:100%!important;min-width:0;margin:0!important}
+.comp-controls{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 18px}
+.comp-controls button{font:inherit;font-size:13px;line-height:1.5;padding:7px 14px;color:var(--accent,#365940);border:1px solid var(--rule,#d5dbcf);border-radius:4px;background:#fbfcf8;cursor:pointer}
+.comp-controls button:hover{background:#edf2e7}
+.comp-controls button[aria-pressed=true]{color:#fff;background:#365940;border-color:#365940}
+.comp-controls button:focus-visible{outline:2px solid var(--accent,#365940);outline-offset:3px}
+.comp-figure figcaption{margin:12px 0 0;line-height:1.85;font-size:13px;color:var(--muted,#647064)}
+@media(max-width:600px){.comp-controls button{padding:7px 11px}.comp-figure{padding:14px 0}.comp-figure figcaption{font-size:12px}}
+@media print{.comp-controls{display:none}.comp-figure{break-inside:avoid}}

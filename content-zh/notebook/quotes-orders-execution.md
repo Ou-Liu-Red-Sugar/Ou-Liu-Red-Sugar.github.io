@@ -1,0 +1,164 @@
+{
+  "title": "报价、订单与实际成交",
+  "description": "从盘口和挂单读懂流动性与实际成交，再看做市商怎样管理库存，以及期货对冲中的保证金与现金需要。",
+  "layout": "entry",
+  "notebookid": "zh-quotes-orders-execution",
+  "math": true,
+  "body_format": "markdown",
+  "translationKey": "zh-quotes-orders-execution"
+}
+
+我们算投资回报时，常常会先设定一个买入价格；到了真正准备交易的时候，屏幕上却会同时出现最新成交价、买价和卖价。想买的数量一多，整笔订单还可能以几个不同的价格成交。从[《复利、通胀与机会成本》](/zh/notebook/compounding-inflation-opportunity-cost/)里的回报比较走到这里，我们还需要知道，计划中的价格怎样变成自己实际付出的金额。
+
+## 报价、盘口与流动性 {#nb-b02-quotes}
+
+以我们前面用过的 Vanguard S&P 500 ETF（VOO）为例，读行情时，除了价格曲线，还会接触到 Last、Bid 和 Ask 这些字段。Last 是最近一笔交易的成交价格；Bid 是当前买方报出的最高买价，Ask 则是卖方报出的最低卖价。准备立即买入时，我们先看卖方愿意以什么价格卖出；准备立即卖出时，就看买方愿意出到什么价格。[^quotes]
+
+下面用一组假设的报价，把这几个字段放在一起。价格单位为美元／股，数量直接按股数显示：
+
+| 字段 | 显示内容 | 怎样理解 |
+|---|---:|---|
+| 最新成交 Last | 100.00 | 最近一笔交易以这个价格完成 |
+| 最优买价 Bid | 99.98，100 股 | 当前这一档买方愿意买入的价格和数量 |
+| 最优卖价 Ask | 100.02，100 股 | 当前这一档卖方愿意卖出的价格和数量 |
+
+这里的买卖价差是 0.04 美元。上一笔交易虽然发生在 100 美元，接下来愿意卖出的那 100 股却挂在 100.02 美元，所以最新成交价不能直接替我们确定下一笔买入的价格。
+
+把报价展开，还能看到其他价位上的挂单，合起来称为**订单簿**，交易界面也常把这部分叫作盘口。100.02 美元处有 100 股可卖，100.05 美元处还有 200 股，再往上也可能有更多卖量。买 50 股和买 300 股，面对的就已经是不同的成交过程：前者可以由最优一档满足，后者还需要后面的卖量。
+
+我们希望买卖的数量，能否较快地以接近当前报价的价格成交，体现了这笔交易面对的**流动性**。一般而言，买卖价差较窄、附近可成交的数量较多时，大一些的订单也更容易完成。把同一笔订单放进较薄的盘口，为了找到足够数量，就可能需要接受更远的价格。成交价偏离下单时所用的参照价格，这种差异通常称为**滑点**；买入时价格变高，便是不利的滑点。
+
+<span data-text-versions id="nb-b02-text-1">盘口还会不断变化。新的限价单进入，已经挂出的订单被成交或撤回，都会改变眼下能交易的数量。因此，读盘口时要把价格、数量和时点放在一起：成交量记录一段时间内已经成交多少，市场深度则描述不同价位上当前可见的数量<span data-text-detail>（可见盘口的覆盖范围取决于行情来源；单一交易场所的深度不等于所有场所的总量，隐藏或储备数量也未必全部显示。行情延迟时，页面上的那一档还可能已经发生变化）</span>。大额买单在当时增加了可见买量，之后也可能撤回，不能单凭它认定价格一定会守在这里。[^quotes]<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>
+
+## 常见订单与挂单结构 {#nb-b02-orders}
+
+看懂了市场上的报价，接下来就轮到我们给出自己的条件：买多少，愿意付到什么价格，以及愿意等多久。**市价单**以当前可执行的报价寻求成交；**限价单**则先划定价格范围，买入限价规定最高愿意支付的价格，卖出限价规定最低愿意接受的价格。[^orders]
+
+下面沿用刚才的价格，补上买卖两侧各三档数量。先保持“厚盘口”，比较买入 50 股、300 股和 600 股的结果；再把数量调回 50 股，切换厚薄盘口，就能比较同样买足 50 股时的成交均价。也可以切换到限价单，看看价格上限怎样影响成交数量。每次操作都从同一份原始挂单开始，方便我们看清是哪一项条件改变了成交。
+
+<figure class="trade-figure" id="nb-b02-order-book" data-trade-demo>
+<div class="trade-heading"><span class="trade-kicker">简化盘口 · 价格：美元 / 股 · 数量：股</span><h3>逐档成交</h3></div>
+<form class="trade-form" data-trade-form hidden>
+<div class="trade-fields">
+<label>方向<select name="direction"><option value="buy" selected>买入</option><option value="sell">卖出</option></select></label>
+<label>数量（股）<input name="quantity" type="number" min="1" max="1000000" step="1" value="300" required inputmode="numeric"></label>
+<label>订单类型<select name="type"><option value="market" selected>市价单</option><option value="limit">限价单</option></select></label>
+<label>限价（美元 / 股）<input name="limit" type="number" min="0.01" max="1000000" step="0.01" value="100.05" required inputmode="decimal" disabled></label>
+<label>盘口深度<select name="depth"><option value="thick" selected>厚盘口</option><option value="thin">薄盘口</option></select></label>
+</div>
+<div class="trade-actions"><button type="submit">执行比较</button><button type="button" data-trade-reset>重置</button><span class="trade-form-hint" data-trade-hint role="status">每次执行都从原始盘口开始比较。</span></div>
+</form>
+<div class="trade-book-head"><strong data-trade-order-label>厚盘口 · 市价买入 300 股</strong><span>着色行显示此次成交</span></div>
+<div class="trade-books">
+<div class="trade-book" data-trade-side="bid"><h4>买方报价 · 卖出时依次成交</h4><table aria-label="买方报价与本次成交"><thead><tr><th scope="col">报价</th><th scope="col">原有</th><th scope="col">成交</th><th scope="col">剩余</th></tr></thead><tbody><tr><td>99.98</td><td>100</td><td>0</td><td>100</td></tr><tr><td>99.95</td><td>200</td><td>0</td><td>200</td></tr><tr><td>99.90</td><td>500</td><td>0</td><td>500</td></tr></tbody></table></div>
+<div class="trade-book" data-trade-side="ask"><h4>卖方报价 · 买入时依次成交</h4><table aria-label="卖方报价与本次成交"><thead><tr><th scope="col">报价</th><th scope="col">原有</th><th scope="col">成交</th><th scope="col">剩余</th></tr></thead><tbody><tr class="is-filled"><td>100.02</td><td>100</td><td>100</td><td>0</td></tr><tr class="is-filled"><td>100.05</td><td>200</td><td>200</td><td>0</td></tr><tr><td>100.10</td><td>500</td><td>0</td><td>500</td></tr></tbody></table></div>
+</div>
+<dl class="trade-results"><div><dt>成交数量</dt><dd data-trade-filled>300 股</dd></div><div><dt>成交总额（美元）</dt><dd data-trade-amount>30,012.00</dd></div><div><dt>成交均价（美元 / 股）</dt><dd data-trade-average>100.04</dd></div><div><dt>未成交数量</dt><dd data-trade-unfilled>0 股</dd></div></dl>
+<p class="trade-status" data-trade-status role="status">已在显示的报价中成交全部 300 股。</p>
+<p class="trade-calculation" data-trade-calculation>100 × 100.02 + 200 × 100.05 = 30,012.00 美元</p>
+<figcaption>每次比较使用同一组原始报价。厚盘口各档为 100、200、500 股，薄盘口缩为 10、20、50 股；按价格优先撮合，忽略费用及期间新增、撤回的报价。限价单未成交部分等待后续报价。</figcaption>
+</figure>
+<!-- /B02:book -->
+
+买入 300 股的市价单，会先取得 100.02 美元处的 100 股，再取得 100.05 美元处的 200 股，总金额为 30,012 美元，平均成交价便是 100.04 美元。把数量增加到 600 股，还需要在 100.10 美元处再买 300 股，平均成交价就升到了 100.07 美元。两笔订单看到的是同一个最优卖价，最后的均价却不同。
+
+<span data-text-versions id="nb-b02-text-2">现在仍买 600 股，但把买入限价设为 100.05 美元。前两档共 300 股可以成交，100.10 美元超过我们的价格上限，剩余 300 股便暂时留下。这里，限价 100.05 美元是我们愿意接受的上限，已经成交的部分仍分别按 100.02 和 100.05 美元计算<span data-text-detail>（图中按价格从优到次逐档撮合，处理过程中没有新订单或撤单，也不计费用。平均成交价等于各档成交金额之和除以已成交股数；超过所显示档位的市价订单余量，其后续结果留待更多报价，不能据这三档推定整笔成交结果）</span>。<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>
+
+在这个例子中，限价单也立刻成交了一部分。买入限价已经覆盖当前卖价时，订单会主动与可执行的卖单成交，消耗卖方的流动性；价格尚不满足条件、留在簿中等待别人来成交的部分，则在提供流动性。同一笔限价单的不同部分，就可以先后起到这两种作用。[^liquidity]
+
+<span data-text-versions id="nb-b02-text-3">剩下的数量还可以等多久，要看订单的有效期。Day 通常表示当日有效，当天结束以后未成交部分失效；GTC 则允许订单跨交易日继续保留，直到成交、撤销或达到券商规定的期限<span data-text-detail>（是否覆盖盘前、盘后交易需要另看时段设置。IOC 要求立即成交可执行部分，并取消剩余数量；FOK 则要求立即全部成交，否则不成交。它们改变的是执行条件，不改变买入限价或卖出限价的方向）</span>。[^time]<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>
+
+愿意等价格回落后分批买入时，也可以把总数量拆成几笔不同价位的限价单。例如，计划买入 300 股，分别在 99、98 和 97 美元挂出 100 股买单，就形成了常见的分层挂单结构。价格先回到 99 美元、只完成第一笔时，我们持有的是 100 股，另外 200 股仍在等待。如果市场随后上涨，剩下的买单没有成交，持仓也就停留在实际买到的 100 股。
+
+已经持有股票以后，我们还可以预先约定：价格跌到某个位置，就启动卖出订单。**止损市价单**达到触发条件后转为市价单，**止损限价单**则转为限价单。前者触发后寻求按市价卖出，后者还要求卖价满足限价，因此即使设置了相同的止损价，接下来的成交结果也可能不同。[^stop]
+
+<figure class="trade-figure" id="nb-b02-stop-orders">
+<div class="trade-heading"><span class="trade-kicker">持仓卖出 · 价格单位：美元 / 股</span><h3>触发价与成交价</h3></div>
+<svg class="trade-path" viewBox="0 0 440 200" role="img" aria-labelledby="nb-b02-stop-title nb-b02-stop-desc"><title id="nb-b02-stop-title">价格从 100 跌到 96，再跳到 94，跨过 95 的触发价。</title><desc id="nb-b02-stop-desc">前两笔价格没有触发止损；下一笔跳到 94 后触发。图中连线仅连接依次出现的价格，95 未必有成交。</desc><path class="trade-trigger" d="M15 131.83H425"></path><text class="trade-trigger-label" x="18" y="121.83">95 触发位</text><path class="trade-path-line" d="M50 36L210 112.67L355 151"></path><circle class="trade-path-dot" cx="50" cy="36" r="6"></circle><circle class="trade-path-dot" cx="210" cy="112.67" r="6"></circle><circle class="trade-path-dot trade-path-last" cx="355" cy="151" r="7"></circle><text class="trade-price-label" x="72" y="42">100</text><text class="trade-price-label" x="230" y="100">96</text><text class="trade-price-label" x="379" y="156">94</text><text x="28" y="188">起点</text><text x="182" y="188">未触发</text><text x="302" y="188">跳价后触发</text></svg>
+<div class="trade-pair">
+<div class="trade-card trade-execution"><span class="trade-card-label">卖出止损市价单 · Stop-market</span><strong>触发后，按市价卖出</strong><p>若此时 94 美元的买单数量足够，就可以在 94 美元成交。</p></div>
+<div class="trade-card trade-waiting"><span class="trade-card-label">卖出止损限价单 · Stop-limit</span><strong>触发后，限价 94.50</strong><p>若最高买价只有 94 美元，便不满足卖价下限，订单继续等待后续报价。</p></div>
+</div>
+<figcaption>两单的触发价都为 95 美元。本例用依次出现的成交价触发，100、96、94 是三笔价格；95 美元未必有过成交。</figcaption>
+</figure>
+<!-- /B02:stop -->
+
+<span data-text-versions id="nb-b02-text-4">假设持仓价格从 100 美元回落，止损触发价设为 95 美元。当价格从 96 美元直接跳到 94 美元时，止损条件已经触发：市价单会按届时可执行的买价卖出；若止损限价单同时设有 94.50 美元的卖出下限，而眼下买方只愿出 94 美元，订单就暂时无法成交<span data-text-detail>（图中用成交价触发，触发后的买价设为 94 美元，并假定该价位的数量足以承接示意订单。实际触发基准、有效时段和平台处理方式随订单规则而定）</span>。95 美元在这里决定何时启动，最终成交仍要看启动以后能接受哪些报价。<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>
+
+刚才的止损价固定在 95 美元。让止损线跟着有利方向的价格变化，就形成了**移动止损**。对多头持仓，若采用距价格高点 5 美元的移动止损，价格从 100 美元涨到 110 美元时，触发线便可从 95 美元上移到 105 美元；随后价格回落，这条线会留在 105 美元，等价格触发后再执行相应订单。移动距离可以用固定金额或百分比表示，触发后仍要按所选的市价或限价方式执行。[^linked]
+
+买入、止盈和止损也可以在下单时一并安排。<strong>括号单（Bracket）</strong>把开仓单与后续的止盈、止损安排放在一起；开仓成交后，才启用相应数量的退出订单。两笔退出单通常采用 **OCO（One Cancels the Other）** 关联，一笔成交后，系统便按规则取消另一笔。Schwab 的 thinkorswim 就提供这类订单组合。[^linked]
+
+<figure class="trade-figure" id="nb-b02-bracket">
+<div class="trade-heading"><span class="trade-kicker">Bracket · 一组持仓的开仓与退出安排</span><h3>开仓与退出的先后</h3></div>
+<div class="trade-bracket-entry"><span>① 开仓阶段</span><strong>100 美元限价买入</strong><span>此时两张退出单尚未启用</span></div>
+<div class="trade-activation">开仓单全部成交后，进入持仓阶段</div>
+<div class="trade-pair trade-exits">
+<div class="trade-card"><span class="trade-card-label">② 同时启用 · 止盈</span><strong>110 美元限价卖出</strong><p>等待买价达到 110 美元或更高。</p></div>
+<div class="trade-card"><span class="trade-card-label">② 同时启用 · 止损</span><strong>95 美元触发市价卖出</strong><p>触发后按当时买价成交。</p></div>
+</div>
+<p class="trade-oco"><strong>OCO</strong>：一张退出单全部成交，另一张随之取消。</p>
+<figcaption>两张退出单服务于同一笔持仓；本图按全部成交示意先后关系。</figcaption>
+</figure>
+<!-- /B02:bracket -->
+
+<span data-text-versions id="nb-b02-text-5">图中，100 美元的买入订单成交以后，110 美元的止盈卖单与 95 美元的止损单才开始生效。前者若先完成卖出，后者就不再需要；反过来也一样。这里，括号单描述开仓与退出的先后关系，OCO 描述两笔订单之间的相互取消关系<span data-text-detail>（示意按开仓全部成交后启用退出单、一笔退出单全部成交后取消另一笔处理。部分成交后的数量调整、撤单传播和平台是否提供成交保护，需要依所用券商规则确认；独立提交两张卖单并不会自动形成 OCO）</span>。<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>
+
+无论采用哪种安排，提交订单以后，还要看它执行到了哪一步。价格触及限价时，同价可能已有别人的订单排在前面，也可能只有一小部分数量成交；发出撤单请求之后，原订单在确认撤销以前也仍可能成交。因此，我们要从成交回报中确认买卖了多少、分别以什么价格成交，再查看剩余数量是继续挂着，还是已经取消。
+
+## 做市商与期货对冲 {#nb-b02-makers}
+
+我们买到证券时，另一方也同时卖出了证券。盘口里既有其他投资者的挂单，也有专门提供买卖报价的**做市商**。像 Citadel Securities 这样的机构，就会在股票和 ETF 市场承接交易。订单经券商送出后，可以进入交易所，也可能由做市商在场外执行；我们的成交对手并不总是另一位恰好同时下单的个人投资者。[^makers]
+
+做市商承接交易以后，自己的持仓也会发生变化，这些为交易准备或因交易留下的证券，就是这里所说的**库存**。假如它以 99.98 美元买入，又以 100.02 美元卖出相同数量，两个价格之间有 0.04 美元的差额。不过这两笔交易通常不会恰好同时完成；买入后价格下跌，库存损失就可能超过价差所得，交易与对冲也有成本。
+
+当买卖来得不均衡时，做市商可以调整报价和数量，也可以用相关工具对冲留下的风险。拿 VOO 这样跟踪 S&P 500 的 ETF 来说，做市商买入一批份额后，可以卖出相应的股指期货，例如 CME 的 E-mini S&P 500 futures（ES）。期货多头的盈亏随合约价格上涨而增加，空头则相反；当 ETF 与对应股指期货同向变化时，两边的部分盈亏就能相互抵消。[^hedge]
+
+<span data-text-versions id="nb-b02-text-6">沿这笔库存继续往下看，ETF 买得多了，做市商便可以增加相应的期货空头，降低大盘涨跌对组合的影响；后来 ETF 逐步卖给其他买方，原有的期货空头也就可以相应减掉<span data-text-detail>（这里以已经持有 ETF 多头、使用空头期货对冲为例。实际规模还取决于合约金额和持仓敏感度；ETF 与期货之间的基差、费用及调整时点也会影响合并结果）</span>。<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>
+
+换成个股持仓，也可以寻找相应的期货来对冲。CME 已推出包括 TSLA、MSFT 在内的单只美股期货，它们直接联系各自标的股票的价格；采用股指期货时，则主要调整股票随共同市场因素变化的那部分敞口，公司自身的经营变化仍会影响结果。对冲哪一部分、配多少合约，放在《期货对冲与组合结果》中继续展开。[^single]
+
+再回到报价，做市商能否方便地处理库存，也会影响它愿意以什么价格承接多少交易。相关市场里的对冲成本提高、价格变化加快时，做市商可能调整价差或减少报价数量；其他参与者又会通过竞争和新的挂单补充市场，流动性也随之变化。
+
+## 保证金与现金需要 {#nb-b02-margin}
+
+期货对冲建立以后，还要有资金支持这份持仓。**期货保证金**是为履约提供的担保，开仓时通常只占合约名义金额的一部分，而合约价格变化带来的盈亏仍按实际持仓计算。保证金占用少于名义金额，也意味着相对于投入的保证金，盈亏变化可以很大，亏损还可能超过起初缴入的金额。[^margin]
+
+<span data-text-versions id="nb-b02-text-7">融资买股也常使用“保证金”这个词，不过它涉及向券商借钱购买证券，并以账户里的资产提供担保；期货保证金则担保合约的履行，合约名义金额与保证金之间的差额不因此成为一笔借款<span data-text-detail>（融资账户的净资产低于维持要求时，券商可以要求补充资金或卖出资产，也可能不事先联系客户便处置资产）</span>。[^stock-margin]<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>
+
+<span data-text-versions id="nb-b02-text-8">期货开仓时要满足**初始保证金**要求，持有过程中还要满足**维持保证金**要求。随着价格变化，期货会盯市结算，盈利记入账户，亏损则需要支付；账户权益不足时，就要追加资金或减少持仓<span data-text-detail>（交易所和清算机构设定相应要求，券商可以提出更高要求或更早处置。具体结算时点、可用抵押品和组合抵扣方式依账户安排而定；保证金要求本身也会随市场条件调整）</span>。这就把对冲带回了[《投资期限与现金需要》](/zh/notebook/investment-horizon-cash/)中的问题：钱要在什么时候准备好。[^margin]<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>
+
+回到刚才的 ETF 多头和期货空头。市场上涨时，ETF 的市值增加，期货空头却会出现亏损。两边的价值变化可以部分抵消，资金收付的时间却未必一致：ETF 的浮盈还留在资产里，期货一侧可能已经需要支付现金。
+
+<figure class="trade-figure" id="nb-b02-hedge-cash">
+<div class="trade-heading"><span class="trade-kicker">ETF 多头 + 股指期货空头</span><h3>损益抵消与现金支付</h3></div>
+<p class="trade-hedge-market">同一段市场上涨</p>
+<div class="trade-pair">
+<div class="trade-card"><span class="trade-card-label">ETF 多头</span><div class="trade-direction"><b aria-hidden="true">↑</b><strong>市值上升，形成浮盈</strong></div><p>继续持有时，这部分浮盈仍留在持仓里。</p><p class="trade-cash">若通过出售 ETF 筹集现金，还要考虑卖出与结算的时间。</p></div>
+<div class="trade-card"><span class="trade-card-label">股指期货空头</span><div class="trade-direction trade-outflow"><b aria-hidden="true">↓</b><strong>产生亏损，需要付现</strong></div><p>上涨造成的盯市亏损，需要按结算安排支付。</p><p class="trade-cash">届时需要账户已有现金或及时补入的资金。</p></div>
+</div>
+<p class="trade-offset">两端持仓的盈亏可以部分抵消，现金却未必在同一时点到位。</p>
+<figcaption>示意 ETF 与所用股指期货共同上涨的情形；实际抵消程度取决于两端的标的与规模。</figcaption>
+</figure>
+<!-- /B02:hedge -->
+
+<span data-text-versions id="nb-b02-text-9">要支付这笔钱，持仓的人可以动用预留现金、调拨资金，或按账户安排取得融资。等到出售 ETF，才会把相应市值变成出售所得。组合对市场涨跌的敏感度已经降低，途中资金仍然需要安排<span data-text-detail>（示意分开观察现货市值与期货现金收付，没有假定现货浮盈能够实时用于另一个账户的保证金。实际资金需求取决于结算时间、抵押和跨账户调拨条件）</span>。<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>
+
+资金安排也会反过来影响交易。当承接更多库存需要占用更多资金，而对冲或融资的成本又上升时，参与者可能缩减愿意提供的数量。于是，流动性不仅体现眼前有多少挂单，也和交易者持续承接买卖的能力有关。
+
+从屏幕报价到实际成交，我们最终要确定的是自己以哪些价格取得了多少持仓，以及这些持仓接下来会占用或要求多少资金。成交以后证券和现金何时完成交付，再由《清算、交收与账户资金》继续展开。
+
+<link rel="stylesheet" href="/notebook/trading.css?v=20260926-1">
+<script src="/notebook/trading.js?v=20260926-1" defer></script>
+
+[^quotes]: [Nasdaq：Why Real-Time Data Matters When Trading Stocks](https://www.nasdaq.com/articles/why-real-time-data-matters-when-trading-stocks)，2024-03-25，Last、Bid、Ask、Size 和 Trading Volume。正文数值盘口为独立构造的简化模型。
+[^orders]: [SEC Investor.gov：Types of Orders](https://www.investor.gov/introduction-investing/investing-basics/how-stock-markets-work/types-orders)，市价、限价和买卖方向的定义。
+[^liquidity]: [IBKR：NASDAQ/Island Exchange Fees](https://investors.interactivebrokers.com/en/index.php?f=936)，Notes 1–2 关于添加和消耗流动性的说明；本文不采用该页费率。
+[^time]: [FINRA：Trading Terms — Time Parameters and Qualifiers on Stock Orders](https://www.finra.org/investors/insights/time-parameters-qualifiers-stock-orders)，2024-07-17 更新，Day、GTC、IOC 与 FOK，以及订单路由。
+[^stop]: [SEC：Trading Basics](https://www.sec.gov/files/trading101basics.pdf)，2011-03，第 2 页，Stop 和 Stop-limit 的触发与成交区别；正文跳价路径为简化示意。
+[^linked]: [Charles Schwab：How to Use Advanced Stock Order Types](https://www.schwab.com/learn/story/how-to-use-advanced-stock-order-types)，2025-05-21，OCO、Bracket 与 Trailing stop。
+[^makers]: [Citadel Securities：Equities](https://www.citadelsecurities.com/what-we-do/equities/)，股票、ETF 与做市业务；[SEC：Market Centers — Buying and Selling Stock](https://www.sec.gov/answers/market.htm)，订单经券商送往交易所或做市商执行的说明。
+[^hedge]: [Cboe 作者 Ross Pullen：How ETF market making works](https://www.stockbrokers.org.au/industry-insights/how-etf-market-making-works)，2023-03-23，ETF 库存、股指期货对冲及库存出售后的头寸调整；采用其机制，未移用澳大利亚准入和申赎规则。[CME：E-mini S&P 500 Futures](https://www.cmegroup.com/markets/equities/sp/e-mini-sandp500.contractSpecs.html)，ES 产品身份。
+[^single]: [CME：Single Stock Futures](https://www.cmegroup.com/markets/equities/single-stock-futures)，2026-09-26 核读的产品页和 FAQ，单只美股期货已上线及 TSLA、MSFT 示例。
+[^margin]: [CME：The Benefits of Futures Margins](https://www.cmegroup.com/education/courses/understanding-the-benefits-of-futures/the-benefits-of-futures-margins)，初始与维持保证金；[CME：Money Calculations for Futures and Options](https://www.cmegroup.com/education/articles-and-reports/money-calculations-for-futures-and-options)，期货盯市盈亏的每日现金收付。
+[^stock-margin]: [FINRA：Rule 2264 — Margin Disclosure Statement](https://www.finra.org/rules-guidance/rulebooks/finra-rules/2264)，融资买入中的券商借款、抵押和账户权益要求。

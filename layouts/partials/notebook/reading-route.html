@@ -24,6 +24,6 @@
     <summary>后续学习阶段</summary>
     <ol>{{ range .phases }}<li><h3>{{ .title }}</h3><p>{{ .goal }}</p><span>{{ .available_count }} / {{ .total }} 篇已写</span></li>{{ end }}</ol>
   </details>
-  {{ with .credits }}<p class="route-authorship">{{ range $i, $credit := . }}{{ if $i }}；{{ end }}{{ .label }}由 {{ .writer }} 撰写{{ end }}，均使用 {{ $.Site.Data.notebook_map.reading_route.writing_method }}。{{ $.Site.Data.notebook_map.reading_route.participation }}</p>{{ end }}
+  {{ partial "notebook/reading-route-credit.html" . }}
 </section>
 {{ end }}

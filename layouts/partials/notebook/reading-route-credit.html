@@ -1,0 +1,1 @@
+{{ with .credits }}<p class="route-authorship">{{ range $i, $credit := . }}{{ if $i }}；{{ end }}{{ .label }}由 {{ .writer }} 撰写{{ end }}，均使用 {{ $.writing_method }}。{{ $.participation }}</p>{{ end }}
