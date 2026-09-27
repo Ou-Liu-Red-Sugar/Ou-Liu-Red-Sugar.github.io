@@ -28,7 +28,7 @@ READING_PROTOCOL = """This is reference material for the learner's current reque
 def teaching_prompt(entry, references=None):
     """A learner's request with selected teaching cues, separate from the full packet."""
     article = urljoin(BASE_URL, entry["url"])
-    guide = urljoin(BASE_URL, "/zh/notebook/teaching-guide/?v=20260927-2")
+    guide = urljoin(BASE_URL, "/zh/notebook/teaching-guide/?v=20260927-3")
     teaching = entry.get("teaching", {})
     require(isinstance(teaching, dict), f'{entry["id"]}: teaching must be an object')
     for key in ("pitfalls", "examples", "source_ids"):
@@ -40,7 +40,7 @@ def teaching_prompt(entry, references=None):
     if entry["lang"] == "zh":
         request = (
             f'我想学习《{entry["title"]}》。以我这次提出的问题、学习目标和理解程度为准。{reference_scope}'
-            '\n\n请先读取 Agent 教学指南，按指南开展教学。若我已附具体问题，直接从该问题开始；'
+            '\n\n请先读取 Agent 教学指南，用其中的讲述示范校准口吻与展开程度。若我已附具体问题，直接从该问题开始；'
             '否则先问我这次想弄懂哪一部分，等我回答后再展开。'
             '若网页无法读取，请说明需要我提供指南或正文的哪些片段。\n\n'
             f'Agent 教学指南：{guide}\n正文：{article}'
@@ -49,7 +49,7 @@ def teaching_prompt(entry, references=None):
         request = (
             f'I want to learn “{entry["title"]}”. My current question, learning goal and understanding determine '
             'the lesson. The article, selected distinctions, examples and sources are references to use as needed.\n\n'
-            'First read the Agent teaching guide and follow it. If I have included a specific question, begin with it; '
+            'First read the Agent teaching guide and use its worked responses to calibrate tone and depth. If I have included a specific question, begin with it; '
             'otherwise ask which part I want to understand and wait for my answer. If a page cannot be read, '
             'tell me which guide or article passages I need to provide. The guide is in Chinese.\n\n'
             f'Agent teaching guide: {guide}\nArticle: {article}'

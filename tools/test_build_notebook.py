@@ -114,7 +114,7 @@ class CompilerTests(unittest.TestCase):
         prompt = compiled["teaching_context"]
         self.assertTrue(prompt.startswith("我想学习《报价、订单与实际成交》。"))
         self.assertIn("以我这次提出的问题、学习目标和理解程度为准", prompt)
-        self.assertIn("请先读取 Agent 教学指南，按指南开展教学", prompt)
+        self.assertIn("请先读取 Agent 教学指南，用其中的讲述示范校准口吻与展开程度", prompt)
         self.assertIn("若我已附具体问题，直接从该问题开始", prompt)
         self.assertIn("否则先问我这次想弄懂哪一部分，等我回答后再展开", prompt)
         self.assertLess(prompt.index("请先读取 Agent 教学指南"), prompt.index("若我已附具体问题"))
@@ -138,7 +138,7 @@ class CompilerTests(unittest.TestCase):
 
     def test_english_prompt_keeps_its_article_language(self):
         prompt = self.compile([entry(lang="en")])["entries"][0]["teaching_context"]
-        self.assertIn("First read the Agent teaching guide and follow it", prompt)
+        self.assertIn("First read the Agent teaching guide and use its worked responses to calibrate tone and depth", prompt)
         self.assertIn("otherwise ask which part I want to understand and wait for my answer", prompt)
         self.assertLess(prompt.index("Agent teaching guide: https://"), prompt.index("Article: https://"))
         self.assertNotIn("Choose a small table", prompt)
