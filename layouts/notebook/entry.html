@@ -9,6 +9,7 @@
       <p class="eyebrow entry-kicker"><span>{{ if in (slice "company" "research") $e.kind }}{{ if $zh }}公司库{{ else }}Companies{{ end }}{{ else }}{{ range where .Site.Data.notebook.subjects "id" $e.subject }}{{ if $zh }}{{ .zh }}{{ else }}{{ .en }}{{ end }}{{ end }}{{ end }}</span>{{ with $e.node_id }}<span class="entry-id">{{ . }}</span>{{ end }}</p>
       <h1>{{ $e.title }}</h1><p class="entry-deck">{{ $e.summary }}</p>
       <div class="entry-meta">
+        {{ partial "notebook/reading-profile.html" $e.reading_profile }}
         {{ if not (in (slice "company" "research") $e.kind) }}<span class="read-time">{{ with $e.study_time }}{{ . }}{{ else }}{{ if eq $e.template "T10" }}{{ if $zh }}按需查阅{{ else }}Quick reference{{ end }}{{ else }}{{ if $zh }}阅读与练习 · 约 10–20 分钟{{ else }}Reading & practice · about 10–20 min{{ end }}{{ end }}{{ end }}</span>{{ end }}
         {{ with $e.revised }}<span>{{ if $zh }}编辑{{ else }}Edited{{ end }} {{ . }}</span>{{ end }}{{ with $e.cutoff }}<span>{{ if $zh }}研究截至{{ else }}Research cutoff{{ end }} {{ . }}</span>{{ end }}
       </div>
@@ -43,6 +44,7 @@
     {{ if $sequenceNavigation }}{{ partial "notebook/sequence-navigation.html" (dict "page" $page "entry" $e "position" "bottom") }}{{ else }}{{ partial "notebook/path-navigation.html" (dict "page" $page "entry" $e) }}{{ end }}
     {{ if in (slice "company" "research") $e.kind }}<p class="company-return"><a href="/{{ .Lang }}/notebook/companies/">← {{ if $zh }}公司资料与研究{{ else }}Company profiles and research{{ end }}</a></p>{{ end }}
     {{ with $e.teaching_context }}<section class="teaching-card"><p class="eyebrow">LEARN WITH AN AGENT</p><h2>{{ if $zh }}教学 Prompt{{ else }}Teaching prompt{{ end }}</h2><p>{{ if $zh }}复制开课指令，让 Agent 先了解你这次想学什么，再按需要选用本篇例子、图表和资料。{{ else }}Copy a learning request. Your Agent will first ask what you want to understand, then choose examples, visuals and references to fit your needs.{{ end }}</p><button class="primary-button" data-teach>{{ if $zh }}打开教学 Prompt{{ else }}Open teaching prompt{{ end }}</button></section><textarea id="teaching-context" data-agent-url="{{ $e.agent }}" hidden>{{ . }}</textarea>{{ end }}
+    {{ with $e.teaching_context_by_branch }}<script type="application/json" id="teaching-context-by-branch">{{ . | jsonify | safeJS }}</script>{{ end }}
     {{ partial "notebook/discussions.html" (dict "page" $page "entry" $e) }}
   </article>
   <aside class="entry-toc" aria-label="{{ if $zh }}本页目录{{ else }}On this page{{ end }}"><p class="eyebrow">{{ if $zh }}本页目录{{ else }}ON THIS PAGE{{ end }}</p>{{ if $e.body_markdown }}{{ .TableOfContents }}{{ else }}{{ range $e.sections }}<a href="#{{ .id }}">{{ .title }}</a>{{ end }}<a href="#sources">{{ if $zh }}来源与延伸{{ else }}Sources{{ end }}</a>{{ end }}{{ with $e.interactions }}<a href="#experiments">{{ if $zh }}交互实验{{ else }}Experiments{{ end }}</a>{{ end }}<p class="toc-tip">{{ if $zh }}概念引用与脚注可在原处展开.{{ else }}Concept links and footnotes open alongside the text.{{ end }}</p></aside>

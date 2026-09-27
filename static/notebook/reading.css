@@ -1349,3 +1349,8 @@ html[lang^="zh"] .entry-article .prose {
     padding: 8px;
   }
 }
+
+/* Reading expectations shared by article, route and topic lists. */
+.reading-profile{display:inline-flex;align-items:center;gap:5px;padding:3px 8px;border:1px solid #d7dfd1;border-radius:4px;background:#edf2e8;color:#476246;font-size:11px;line-height:1.5;white-space:nowrap}
+.learning-map-entries .reading-profile{margin-top:8px}
+.entry-meta .reading-profile{padding:2px 7px}

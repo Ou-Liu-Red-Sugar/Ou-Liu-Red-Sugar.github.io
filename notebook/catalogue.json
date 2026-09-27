@@ -29,6 +29,12 @@
       "zh": "投资组合与资金安排",
       "en": "Portfolios and funding",
       "desc_zh": "从共同暴露、仓位、对冲与期间现金理解投资组合。"
+    },
+    {
+      "id": "topic-D",
+      "zh": "企业经营与产业关系",
+      "en": "Businesses and industry relationships",
+      "desc_zh": "从客户、产品、收费与产业联系研究一门业务。"
     }
   ],
   "sources": [
@@ -1890,6 +1896,383 @@
       "version": "2026-09-27 核对；持仓、方法与招募书日期分别见正文",
       "authors": [
         "共同基金费用与最低投资额"
+      ]
+    },
+    {
+      "source_id": "nb-d01-nke",
+      "title": "NIKE FY2025 Form 10-K — Business and Revenue Recognition",
+      "url": "https://www.sec.gov/Archives/edgar/data/320187/000032018725000047/nke-20250531.htm",
+      "body": "NKE 设计、开发及销售商品，绝大部分产品由独立承包商制造。；自有门店和数字渠道直营与批发并存；批发交货和消费者购入是不同交易阶段。；批发与直营的控制转移、付款和退货折扣安排存在差别。",
+      "authors": [
+        "NIKE"
+      ],
+      "version": "财年截至 2025-05-31",
+      "locators": [
+        "Item 1，HTML 行 143—175；Revenue Recognition，行 1952—1955；批发客户信用，行 423—426"
+      ]
+    },
+    {
+      "source_id": "nb-d01-wmt",
+      "title": "Walmart FY2025 Form 10-K — Business; Membership and Other Income",
+      "url": "https://stock.walmart.com/sec-filings/all-sec-filings/content/0000104169-25-000021/wmt-20250131.htm",
+      "body": "WMT 有商品零售和会员服务，会员收费对应期间权益。；同一购物活动可以涉及商品价款与会员费两种不同收费。",
+      "authors": [
+        "Walmart"
+      ],
+      "version": "财年截至 2025-01-31；申报 2025-03-14",
+      "locators": [
+        "业务概述行 226—248；Sam’s Club 行 303—318；会员收入行 1929—1931"
+      ]
+    },
+    {
+      "source_id": "nb-d01-msft",
+      "title": "Microsoft 2025 Annual Report — Microsoft 365 and Licensing Options",
+      "url": "https://www.microsoft.com/investor/reports/ar25/index.html",
+      "body": "Microsoft 365 商业云、Office 本地许可和持续服务对应不同交付。；企业可以在批量许可协议下购买多份软件许可和云服务；用户数量、购买功能及使用范围需要区别。；软件保障可以提供合同期内的新版本、升级和支持权益。",
+      "authors": [
+        "Microsoft"
+      ],
+      "version": "FY2025 年报",
+      "locators": [
+        "行 258—276，Microsoft 365 Commercial、Dynamics；行 392—400，Licensing Options"
+      ]
+    },
+    {
+      "source_id": "nb-d01-aws",
+      "title": "AWS Product and Service Pricing",
+      "url": "https://aws.amazon.com/pricing/",
+      "body": "AWS 多数云服务采用按用量计费，也有固定套餐和承诺安排。；客户具体工作负载、所用资源和购买安排共同影响账单。",
+      "authors": [
+        "Amazon Web Services"
+      ],
+      "version": "动态官方页面，读取于 2026-09-27",
+      "locators": [
+        "How does AWS pricing work；How do you pay for AWS，行 239—254 及价格方式标题"
+      ]
+    },
+    {
+      "source_id": "nb-d01-netflix",
+      "title": "Netflix consolidates relational database infrastructure on Amazon Aurora, achieving up to 75% improved performance",
+      "url": "https://aws.amazon.com/blogs/database/netflix-consolidates-relational-database-infrastructure-on-amazon-aurora-achieving-up-to-75-improved-performance/",
+      "body": "Netflix ODS 团队此前在 AWS EC2 上自管 PostgreSQL 兼容数据库，随后把若干应用迁到 Aurora PostgreSQL。；案例将降低许可和维护负担、简化运行管理与成本效率联系起来；客户降本可以伴随同一云商内部的服务组合变化。",
+      "authors": [
+        "Netflix 与 AWS 工程团队"
+      ],
+      "version": "2025-11-26；迁移结果截至 2025 年 10 月",
+      "locators": [
+        "Business challenge；Achieving cost-efficiency；Migration results；About the authors，行 237—276、299—316"
+      ]
+    },
+    {
+      "source_id": "nb-d01-talen",
+      "title": "Talen Energy Expands Nuclear Energy Relationship with Amazon; Q2 2026 AWS PPA update",
+      "url": "https://ir.talenenergy.com/static-files/90cce90c-e281-42c6-b686-ed6010dd8699",
+      "body": "2025 年扩展 PPA 约定供电随时间分阶段增加。；原公告把输电改造与供电结构转换相连，后续 10-Q 确认修订 PPA 于 2026 年 4 月转换。；合同、具体供电节点和客户机房可用容量应分别核对。",
+      "authors": [
+        "Talen Energy"
+      ],
+      "version": "合同公告 2025-06-11；进展披露 2026-08-05",
+      "locators": [
+        "2025 8-K 附件 99.1，PDF 第 4 页，行 55—67；2026 Q2 10-Q，PDF 第 46 页 AWS PPA 术语，行 2054—2059"
+      ]
+    },
+    {
+      "source_id": "nb-d01-talen-support-1",
+      "title": "Talen Q2 2026 Form 10-Q",
+      "url": "https://talenenergy.gcs-web.com/static-files/649bfa16-a54e-4997-914b-a8a5d2e00900",
+      "body": "PDF 第 46 页 AWS PPA",
+      "authors": [
+        "Talen Energy"
+      ],
+      "version": "合同公告 2025-06-11；进展披露 2026-08-05",
+      "locators": [
+        "PDF 第 46 页 AWS PPA"
+      ]
+    },
+    {
+      "source_id": "nb-d01-seller",
+      "title": "Sell on Amazon — How much does it cost to sell on Amazon?",
+      "url": "https://sell.amazon.com/pricing/",
+      "body": "第三方商家向平台购买销售服务，可能另选平台仓储配送。；商家服务费用与消费者购买商品的价款是不同交易关系。",
+      "authors": [
+        "Amazon"
+      ],
+      "version": "美国官方卖家页面，读取于 2026-09-27",
+      "locators": [
+        "Selling plans、FBA/merchant fulfillment 选项、Referral fees，行 180—258、294—308"
+      ]
+    },
+    {
+      "source_id": "nb-d01-bkng",
+      "title": "Booking Holdings 2025 Form 10-K — Marketing",
+      "url": "https://www.sec.gov/Archives/edgar/data/1075531/000107553126000009/bkng-20251231.htm",
+      "body": "BKNG 披露其效果营销主要使用搜索引擎，尤其 Google，以及联盟、比价和社交渠道。；其营销效率受点击成本、转化、取消和渠道组合等影响。",
+      "authors": [
+        "Booking Holdings"
+      ],
+      "version": "年度截至 2025-12-31",
+      "locators": [
+        "行 855—864，performance marketing expenses and efficiency"
+      ]
+    },
+    {
+      "source_id": "nb-d01-nvda",
+      "title": "NVIDIA FY2026 Form 10-K — Markets, Manufacturing and Customers",
+      "url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000021/nvda-20260125.htm",
+      "body": "NVDA 的计算平台可以以机架系统、子系统、模块及相关软件服务交付。；直接采购者与实际部署使用者可以不同。；公司采用晶圆代工和合同制造，明确提到 TSMC 制造晶圆与 CoWoS 封装技术。",
+      "authors": [
+        "NVIDIA"
+      ],
+      "version": "财年截至 2026-01-25",
+      "locators": [
+        "行 187—207；Manufacturing 行 284—289；直接/间接客户行 1279—1288"
+      ]
+    },
+    {
+      "source_id": "nb-d01-tsmc",
+      "title": "TSMC 2025 Annual Report Website — About TSMC and Shareholder Letter",
+      "url": "https://investor.tsmc.com/static/annualReports/2025/english/index.html",
+      "body": "TSMC 以制造客户产品的纯代工模式经营，并提供先进封装等技术。；制造和封装需要公司进行相应技术及产能投入。；2330 为台湾上市股票代码，TSM 为美国存托股份交易代码。",
+      "authors": [
+        "TSMC"
+      ],
+      "version": "2025 年度报告",
+      "locators": [
+        "股东信行 18—24；About TSMC 行 64—77"
+      ]
+    },
+    {
+      "source_id": "nb-d01-asml",
+      "title": "ASML — About the company",
+      "url": "https://www.asml.com/en/company",
+      "body": "ASML 为芯片制造商提供在硅片上制造图案所用的光刻设备、软件和服务。",
+      "authors": [
+        "ASML"
+      ],
+      "version": "动态公司页面，读取于 2026-09-27",
+      "locators": [
+        "公司概述，行 138"
+      ]
+    },
+    {
+      "source_id": "nb-d01-coreweave",
+      "title": "CoreWeave Q2 2026 Earnings Call — Corrected Transcript",
+      "url": "https://s205.q4cdn.com/133937190/files/doc_financials/2026/q2/CRWV-US-CORRECTED-TRANSCRIPT-CoreWeave-Q2-2026-Earnings-Call-11August2026.pdf",
+      "body": "管理层称新签了一份延续到 2029 年的 A100 算力服务合同。；旧代设备可以继续承接付费服务，存量设备使用与购买新硬件需分别观察。",
+      "authors": [
+        "CoreWeave；FactSet 转录"
+      ],
+      "version": "2026-08-11",
+      "locators": [
+        "PDF 第 8 页 A100 合同；问答中续约范围，既有文本行 576—590"
+      ]
+    },
+    {
+      "source_id": "nb-d01-aws-gpu",
+      "title": "Amazon Q1 2026 Earnings Release — AI chip deployment highlights",
+      "url": "https://s2.q4cdn.com/299287126/files/doc_earnings/2026/q1/earnings-result/AMZN-Q1-2026-Earnings-Release.pdf",
+      "body": "AWS 同时使用自研 Trainium 并公开宣布从 2026 年开始部署更多 NVIDIA GPU 的安排。；云客户增加计算服务时，采购可以落到不同类型的芯片。",
+      "authors": [
+        "Amazon"
+      ],
+      "version": "2026-04-29",
+      "locators": [
+        "PDF 第 2 页，AI chips / Trainium / NVIDIA 条目，行 35—42"
+      ]
+    },
+    {
+      "source_id": "nb-d01-kgi",
+      "title": "KGI TSMC Company Update — 3Q25 preview: AI outlook has turned more promising",
+      "url": "https://www.kgi.com.hk/en/-/media/files/kgishk/research-reports/tw-reports/tsmc_2330-tt_01102025e.pdf",
+      "body": "报告以当时 AI 客户计划及交易安排为依据，上调 2026 年 CoWoS 需求和产能预测。；其对 2027 年短缺的判断以客户维持当时需求水平为条件，可用来演示研报假设如何等待后续公司材料校准。",
+      "authors": [
+        "KGI"
+      ],
+      "version": "2025-10-01",
+      "locators": [
+        "PDF 第 1 页：Revise up 2026 CoWoS estimates；Early 2027 outlook；第 10 页材料使用说明"
+      ]
+    },
+    {
+      "source_id": "nb-d01-otis",
+      "title": "Otis Worldwide 2025 Form 10-K — New Equipment and Service",
+      "url": "https://www.sec.gov/Archives/edgar/data/1781335/000178133526000011/otis-20251231.htm",
+      "body": "新设备客户包括开发商、总承包商和政府机构；通常有预付和按里程碑付款。；维保客户通常为业主和设施管理方，可以不同于原设备采购者。；OTIS 维护自家和其他厂商设备，服务还包含维修与改造。",
+      "authors": [
+        "Otis Worldwide"
+      ],
+      "version": "年度截至 2025-12-31",
+      "locators": [
+        "Item 1，行 172—178、205—222"
+      ]
+    },
+    {
+      "source_id": "nb-d01-fluor",
+      "title": "Fluor 2025 Form 10-K — Business and Types of Contracts",
+      "url": "https://www.sec.gov/Archives/edgar/data/1124198/000112419826000007/flr-20251231.htm",
+      "body": "FLR 提供工程、采购、施工和项目管理服务。；可报销合同按商定费率/费用结算，总价合同需要承包方估算工作和成本；成本超支的承担不同。",
+      "authors": [
+        "Fluor"
+      ],
+      "version": "年度截至 2025-12-31",
+      "locators": [
+        "行 205—208；Types of Contracts，行 310、323—333"
+      ]
+    },
+    {
+      "source_id": "nb-d01-gev-support-1",
+      "title": "EnBW Heilbronn combined heat and power plant — Project phases",
+      "url": "https://www.enbw.com/company/topics/coal-phaseout/heilbronn-combined-heat-and-power-plant/",
+      "body": "Project phases；德语版同表可确认英文 Q23 排版笔误实际为 Q3/Q4",
+      "authors": [
+        "EnBW"
+      ],
+      "version": "供应方公告 2023-11-06；业主动态项目页读取于 2026-09-27",
+      "locators": [
+        "Project phases；德语版同表可确认英文 Q23 排版笔误实际为 Q3/Q4"
+      ]
+    },
+    {
+      "source_id": "nb-d01-gev-support-2",
+      "title": "EnBW Heilbronn — Projektphasen",
+      "url": "https://www.enbw.com/unternehmen/themen/kohleausstieg/heizkraftwerk-heilbronn/",
+      "body": "2026-09-27 V3核验读取Projektphasen，行44，暂定Q3/Q4 2027商业投运安排。",
+      "authors": [
+        "EnBW"
+      ],
+      "version": "供应方公告 2023-11-06；业主动态项目页读取于 2026-09-27",
+      "locators": [
+        "2026-09-27 V3核验读取Projektphasen，行44，暂定Q3/Q4 2027商业投运安排。"
+      ]
+    },
+    {
+      "source_id": "nb-d01-jnj",
+      "title": "Johnson & Johnson 2025 Form 10-K — Innovative Medicine and MedTech",
+      "url": "https://www.sec.gov/Archives/edgar/data/200406/000020040626000016/jnj-20251228.htm",
+      "body": "JNJ 同时经营药品与医疗器械。；药品可经零售商、批发商、分销商、医院和专业人员分销；器械有对应专业用途与机构采购渠道。；临床使用者、机构买方与最终支付方需要分别识别。",
+      "authors": [
+        "Johnson & Johnson"
+      ],
+      "version": "财年截至 2025-12-28",
+      "locators": [
+        "Item 1，行 214—217、225—235；收入确认既有定位见 health-finance-branches.json"
+      ]
+    },
+    {
+      "source_id": "nb-d01-hca",
+      "title": "HCA Healthcare 2025 Annual Report to Shareholders — Note 1 Revenues",
+      "url": "https://s23.q4cdn.com/949900249/files/doc_financials/2024/ar/HCA-2025-Annual-Report-to-Shareholders-FINAL.pdf",
+      "body": "HCA 提供住院和门诊服务，多数患者合同还涉及政府项目、商业保险或管理式医疗等第三方付款者。；支付可按病例、日或服务项目等约定，服务交付、收入确认与收款需要区别。",
+      "authors": [
+        "HCA Healthcare"
+      ],
+      "version": "2025 年度；URL 目录含 2024，报告正文为 2025",
+      "locators": [
+        "PDF 第 104—105 页，Note 1 Revenues，行 4898—4945"
+      ]
+    },
+    {
+      "source_id": "nb-d01-jpm",
+      "title": "JPMorgan Chase 2025 Annual Report — Consumer & Community Banking",
+      "url": "https://www.jpmorganchase.com/content/dam/jpmc/jpmorgan-chase-and-co/investor-relations/documents/annualreport-2025.pdf",
+      "body": "JPM 的消费与社区银行服务个人和小企业，包含存款、贷款、账户和支付服务。；客户存入的本金、银行放出的贷款本金、利息及服务费用承担不同权利和义务。",
+      "authors": [
+        "JPMorgan Chase"
+      ],
+      "version": "2025 年度",
+      "locators": [
+        "PDF 第 97 页/报告第 65 页，行 8140—8172"
+      ]
+    },
+    {
+      "source_id": "nb-d01-visa",
+      "title": "Visa FY2025 Form 10-K — Network Model and Transaction Processing",
+      "url": "https://www.sec.gov/Archives/edgar/data/1403161/000140316125000089/v-20250930.htm",
+      "body": "V 向支付体系参与者提供网络处理服务，本身不发卡或向持卡人授信。；交换费一般由收单方向发卡方支付，商户收单费用与 V 对机构收取的费用需区分。；网络流经金额不等同 V 的营业收入。",
+      "authors": [
+        "Visa"
+      ],
+      "version": "财年截至 2025-09-30",
+      "locators": [
+        "业务模式行 181—219；Note 1 Organization，行 1960—1961；结算资金责任沿既有 F2 短段记录复用"
+      ]
+    },
+    {
+      "source_id": "nb-d01-chubb",
+      "title": "Chubb 2025 Letter to Shareholders; Commercial Property Insurance",
+      "url": "https://about.chubb.com/stories/2025-chubb-letter-to-shareholders.html",
+      "body": "Chubb 为企业和个人承保风险，也经营寿险业务。；其商业财产险可以约定财产损坏及损坏后的营业中断保障，赔付依保单及理赔核定。；公司把损失准备金与履行赔付能力联系起来；收取保费以后仍可能承担后续义务。",
+      "authors": [
+        "Chubb"
+      ],
+      "version": "2025 年度股东信；官方产品页读取于 2026-09-27",
+      "locators": [
+        "股东信行 224、234—250；英国商业财产险产品页行 348—392"
+      ]
+    },
+    {
+      "source_id": "nb-d01-chubb-support-1",
+      "title": "Chubb Commercial Property Insurance — UK",
+      "url": "https://www.chubb.com/uk-en/business/products/property-insurance.html",
+      "body": "Who it’s for；What it covers；claims handling",
+      "authors": [
+        "Chubb"
+      ],
+      "version": "2025 年度股东信；官方产品页读取于 2026-09-27",
+      "locators": [
+        "Who it’s for；What it covers；claims handling"
+      ]
+    },
+    {
+      "source_id": "nb-d01-chubb-support-2",
+      "title": "Chubb FY2025 Form 10-K — Unpaid losses and loss expenses, and Future policy benefits",
+      "url": "https://www.sec.gov/Archives/edgar/data/896159/000089615926000005/R17.htm",
+      "body": "V3专业核验：行7、64、86—90，未付赔款责任、估计与长期索赔；未取金额表。",
+      "authors": [
+        "Chubb"
+      ],
+      "version": "2025 年度股东信；官方产品页读取于 2026-09-27",
+      "locators": [
+        "V3专业核验：行7、64、86—90，未付赔款责任、估计与长期索赔；未取金额表。"
+      ]
+    },
+    {
+      "source_id": "nb-d01-xom",
+      "title": "ExxonMobil — Business divisions",
+      "url": "https://corporate.exxonmobil.com/who-we-are/our-global-organization/business-divisions",
+      "body": "XOM 同时有油气生产、下游燃料及化工业务，最终服务不同用途。；从开采、加工及商品销售切面识别业务，有助于分别研究产品价格和加工关系。",
+      "authors": [
+        "ExxonMobil"
+      ],
+      "version": "动态公司业务页面，读取于 2026-09-27",
+      "locators": [
+        "行 29—55：Upstream、Product Solutions、Low Carbon Solutions"
+      ]
+    },
+    {
+      "source_id": "nb-d01-kmi",
+      "title": "Kinder Morgan — Products Pipelines; Condensate Processing Facility",
+      "url": "https://www.kindermorgan.com/Operations/Products/Index",
+      "body": "KMI 提供成品油等运输、储存与调和服务。；其 Galena Park 附近凝析油加工设施由与 BP North America 的长期收费协议支持。；同样处理能源商品，企业也可以通过提供加工服务取得收费。",
+      "authors": [
+        "Kinder Morgan"
+      ],
+      "version": "动态公司业务页面，读取于 2026-09-27",
+      "locators": [
+        "Overview 行 19—21；Kinder Morgan Condensate Processing Facility 行 272—278"
+      ]
+    },
+    {
+      "source_id": "nb-d01-cma",
+      "title": "CMA Cloud Infrastructure Services — Final decision report",
+      "url": "https://assets.publishing.service.gov.uk/media/688b8891fdde2b8f73469544/final_decision_report.pdf",
+      "body": "云客户支出改变可能来自存量用量变化、成本优化、工作负载转移或新增负载。；外部研究可以帮助比较已有系统迁移和新增工作负载选择。",
+      "authors": [
+        "CMA"
+      ],
+      "version": "2025-07-31 报告；公布版 2025-08-01",
+      "locators": [
+        "本轮 PDF 第 109 页 §§3.236—3.237 关于新增客户/负载和存量变动的区别；第 269 页 §6.70；既有本地迁移阅读见 external-sources.md E2"
       ]
     }
   ],

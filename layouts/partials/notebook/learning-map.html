@@ -6,7 +6,7 @@
 <script type="module" src="{{ partial "notebook/asset.html" "/notebook/learning-map.js" }}"></script>
 <div class="catalogue-shell notebook-catalogue learning-map" data-learning-map>
   <header class="page-intro catalogue-intro">
-    <div class="catalogue-heading"><p class="eyebrow">INVESTMENT NOTEBOOK <span>/ {{ len $available }} 篇已写 · {{ len $map.entries }} 篇规划</span></p><h1>{{ .Title }}</h1></div>
+    <div class="catalogue-heading"><p class="eyebrow">INVESTMENT NOTEBOOK <span>/ {{ len $available }} 篇可读 · 共 {{ len $map.entries }} 篇</span></p><h1>{{ .Title }}</h1></div>
     <div class="catalogue-description"><p>{{ $map.description }}</p><a class="catalogue-notation" href="/zh/notebook/notation/" data-reference="notation-zh">符号与单位 <span aria-hidden="true">↗</span></a></div>
   </header>
   {{ partial "notebook/reading-route-link.html" . }}
@@ -22,7 +22,7 @@
           {{ range .rows }}
           <div class="learning-map-row" data-columns="{{ len . }}">
             {{ range . }}{{ $node := index $nodes . }}{{ $items := where $map.entries "node" . }}{{ $ready := where $items "status" "available" }}
-            <a id="map-node-{{ . }}" class="learning-map-node{{ if eq . "S" }} learning-map-stock{{ end }}" href="#topic-{{ . }}" data-map-node="{{ . }}" aria-controls="topic-{{ . }}"><strong>{{ $node.short }}</strong><small>{{ len $ready }} / {{ len $items }} 篇已写</small></a>
+            <a id="map-node-{{ . }}" class="learning-map-node{{ if eq . "S" }} learning-map-stock{{ end }}" href="#topic-{{ . }}" data-map-node="{{ . }}" aria-controls="topic-{{ . }}"><strong>{{ $node.short }}</strong><small>{{ len $ready }} / {{ len $items }} 篇可读</small></a>
             {{ end }}
           </div>
           {{ end }}
@@ -38,7 +38,7 @@
     <div class="learning-map-details" aria-label="主题词条与关系">
       {{ range $map.nodes }}{{ $node := . }}{{ $items := where $map.entries "node" .id }}{{ $ready := where $items "status" "available" }}
       <section class="learning-map-panel" id="topic-{{ .id }}" data-map-panel="{{ .id }}" aria-labelledby="map-title-{{ .id }}" tabindex="-1">
-        <header class="learning-map-panel-heading"><p class="learning-map-count">{{ len $ready }} 篇已写 · {{ len $items }} 篇规划</p><h2 id="map-title-{{ .id }}">{{ .title }}</h2><p>{{ .description }}</p></header>
+        <header class="learning-map-panel-heading"><p class="learning-map-count">{{ len $ready }} 篇可读 · 共 {{ len $items }} 篇</p><h2 id="map-title-{{ .id }}">{{ .title }}</h2><p>{{ .description }}</p></header>
         {{ if $items }}
         <ol class="learning-map-entries" aria-label="{{ .short }}词条">
           {{ range $items }}
@@ -48,7 +48,7 @@
             {{ else }}
             <span class="learning-map-entry-title">{{ .title }}</span>
             {{ end }}
-            {{ if eq .status "available" }}<span class="learning-map-entry-state is-available">已写</span>{{ else if eq .status "outline" }}<span class="learning-map-entry-state">大纲</span>{{ else }}<span class="learning-map-entry-state">待写</span>{{ end }}
+            {{ if eq .status "available" }}{{ partial "notebook/reading-profile.html" .reading_profile }}{{ else if eq .status "outline" }}<span class="learning-map-entry-state">大纲</span>{{ else }}<span class="learning-map-entry-state">待写</span>{{ end }}
             {{ with .goal }}<p>{{ . }}</p>{{ end }}
           </li>
           {{ end }}

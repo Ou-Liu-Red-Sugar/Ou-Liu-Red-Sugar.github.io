@@ -8,6 +8,7 @@ import copy
 import html
 import json
 import re
+from html.parser import HTMLParser
 from pathlib import Path
 from urllib.parse import urljoin
 from notebook_notation import load_notation, notation_markdown, notation_instruction
@@ -25,21 +26,58 @@ READABLE_KINDS = {"html_full_text", "pdf_full_text", "tex_full_text", "publisher
 READING_PROTOCOL = """This is reference material for the learner's current request. Use the supplied entry to teach the selected concept. Retrieve the relevant original unit when explaining a claim that depends on its assumptions, figures or rules; the reading list is a map for that work, not a prerequisite to the first lesson. Keep facts, supplied examples and inference distinct. Editorial access dates describe the author's work. The empty runtime_reading_log is an optional record field, not a requested response. Author-supplied scope notes below constrain factual use of the material; the learner's request determines the teaching task and first response."""
 
 
-def teaching_prompt(entry, references=None):
+class ReadingBranchParser(HTMLParser):
+    """Use the authored branch IDs for links in the selected learning request."""
+
+    def __init__(self, body):
+        super().__init__()
+        self.branches = {}
+        self.feed(body)
+
+    def handle_starttag(self, tag, attrs):
+        attrs = dict(attrs)
+        if attrs.get("data-reading-branch") and attrs.get("id"):
+            self.branches.setdefault(attrs["data-reading-branch"], attrs["id"])
+
+
+def teaching_prompt(entry, references=None, branch=None):
     """A learner's request with selected teaching cues, separate from the full packet."""
     article = urljoin(BASE_URL, entry["url"])
     guide = urljoin(BASE_URL, "/zh/notebook/teaching-guide/?v=20260927-3")
     teaching = entry.get("teaching", {})
     require(isinstance(teaching, dict), f'{entry["id"]}: teaching must be an object')
-    for key in ("pitfalls", "examples", "source_ids"):
-        values = teaching.get(key, [])
-        require(isinstance(values, list) and all(isinstance(value, str) and value.strip() for value in values),
-                f'{entry["id"]}: teaching.{key} must be a list of nonempty strings')
+    branches = teaching.get("branches", {})
+    require(isinstance(branches, dict), f'{entry["id"]}: teaching.branches must be an object')
+    for key, cues in [(None, teaching), *branches.items()]:
+        context = f'teaching.branches.{key}' if key is not None else "teaching"
+        require(isinstance(cues, dict), f'{entry["id"]}: {context} must be an object')
+        if key is not None:
+            require(isinstance(key, str) and key.strip() and key != "all",
+                    f'{entry["id"]}: teaching branch needs a named key other than all')
+            require(isinstance(cues.get("label"), str) and cues["label"].strip(),
+                    f'{entry["id"]}: {context} needs a label')
+        for field in ("pitfalls", "examples", "source_ids"):
+            values = cues.get(field, [])
+            require(isinstance(values, list) and all(isinstance(value, str) and value.strip() for value in values),
+                    f'{entry["id"]}: {context}.{field} must be a list of nonempty strings')
+    branch_request = ""
+    if branch is not None:
+        require(branch in branches, f'{entry["id"]}: unknown teaching branch {branch}')
+        anchor = ReadingBranchParser(entry.get("body_markdown", "")).branches.get(branch)
+        require(anchor, f'{entry["id"]}: teaching branch {branch} needs a body section with an id')
+        selected = branches[branch]
+        article += "#" + anchor
+        branch_request = (f'我选择的行业是“{selected["label"]}”，请结合本篇共用说明与该行业内容展开。'
+                          if entry["lang"] == "zh" else
+                          f'I have selected “{selected["label"]}”; use the shared explanations and this industry section. ')
+        teaching = {key: list(dict.fromkeys(teaching.get(key, []) + selected.get(key, [])))
+                    for key in ("pitfalls", "examples", "source_ids")}
+    has_cues = any(teaching.get(key) for key in ("pitfalls", "examples", "source_ids"))
     reference_scope = ('本篇易混点、例子和文献都是参考，请按需选用。'
-                       if teaching else '本文内容按需参考。')
+                       if has_cues else '本文内容按需参考。')
     if entry["lang"] == "zh":
         request = (
-            f'我想学习《{entry["title"]}》。以我这次提出的问题、学习目标和理解程度为准。{reference_scope}'
+            f'我想学习《{entry["title"]}》。{branch_request}以我这次提出的问题、学习目标和理解程度为准。{reference_scope}'
             '\n\n请先读取 Agent 教学指南，用其中的讲述示范校准口吻与展开程度。若我已附具体问题，直接从该问题开始；'
             '否则先问我这次想弄懂哪一部分，等我回答后再展开。'
             '若网页无法读取，请说明需要我提供指南或正文的哪些片段。\n\n'
@@ -47,14 +85,14 @@ def teaching_prompt(entry, references=None):
         )
     else:
         request = (
-            f'I want to learn “{entry["title"]}”. My current question, learning goal and understanding determine '
+            f'I want to learn “{entry["title"]}”. {branch_request}My current question, learning goal and understanding determine '
             'the lesson. The article, selected distinctions, examples and sources are references to use as needed.\n\n'
             'First read the Agent teaching guide and use its worked responses to calibrate tone and depth. If I have included a specific question, begin with it; '
             'otherwise ask which part I want to understand and wait for my answer. If a page cannot be read, '
             'tell me which guide or article passages I need to provide. The guide is in Chinese.\n\n'
             f'Agent teaching guide: {guide}\nArticle: {article}'
         )
-    if not teaching:
+    if not has_cues:
         return request
     zh = entry["lang"] == "zh"
     cues = [request, "本篇讲解参考（按需选用）" if zh else "Selected teaching references (use as needed)"]
@@ -64,8 +102,12 @@ def teaching_prompt(entry, references=None):
             cues.append(label.rstrip() + "\n" + "\n".join("- " + item for item in teaching[key]))
     packet = entry.get("agent_packet", {})
     readings = list(packet.get("required_readings", []))
-    for branch in packet.get("required_readings_by_branch", {}).values():
-        readings.extend(branch)
+    reading_branches = packet.get("required_readings_by_branch", {})
+    if branches:
+        readings.extend(reading_branches.get(branch, []))
+    else:
+        for branch_readings in reading_branches.values():
+            readings.extend(branch_readings)
     by_source = {reading["source_id"]: reading for reading in readings}
     sources = []
     for sid in dict.fromkeys(teaching.get("source_ids", [])):
@@ -547,6 +589,11 @@ def compile_notebook(source_root=ROOT, output_root=None):
         agent = "\n".join(lines) + "\n"
         write(Path("static") / entry["agent"].lstrip("/"), agent)
         entry["teaching_context"] = teaching_prompt(entry, refs)
+        if entry.get("teaching", {}).get("branches"):
+            entry["teaching_context_by_branch"] = {
+                branch: teaching_prompt(entry, refs, branch)
+                for branch in entry["teaching"]["branches"]
+            }
         if entry["body_format"] == "sections":
             for section in entry["sections"]:
                 section["body"] = resolve(section["body"], lang)

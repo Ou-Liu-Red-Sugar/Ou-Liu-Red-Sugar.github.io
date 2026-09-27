@@ -1,0 +1,171 @@
+/* NB-D01: authored text stays complete; JavaScript only chooses a reading view. */
+.entry-body .reading-branch-controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 9px;
+  padding: 18px;
+  margin: 30px 0 34px;
+  border: 1px solid var(--line, #d2ddd0);
+}
+
+.entry-body .reading-branch-controls > span {
+  flex-basis: 100%;
+  font-size: 14px;
+  line-height: 1.7;
+  margin-bottom: 3px;
+}
+
+.entry-body .reading-branch-controls button {
+  min-height: 44px;
+  padding: 10px 13px;
+  font: 500 13px/1.5 var(--sans, system-ui, sans-serif);
+  white-space: normal;
+  text-align: left;
+}
+
+.entry-body .reading-branch-controls button:focus-visible {
+  outline: 2px solid var(--accent, #365b46);
+  outline-offset: 3px;
+}
+
+.entry-body [data-reading-branch] {
+  scroll-margin-top: 90px;
+}
+
+.entry-body figure.business-flow {
+  margin: 28px 0;
+  padding: 20px;
+  border: 1px solid var(--line, #d2ddd0);
+  border-radius: 7px;
+  background: #f4f6f0;
+}
+
+.business-flow-grid {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(0, 1fr);
+  align-items: stretch;
+  gap: 12px;
+}
+
+.business-flow-grid + .business-flow-grid {
+  margin-top: 14px;
+}
+
+.entry-body .business-flow-route-title {
+  margin: 0 0 14px;
+  font: 600 14px/1.6 var(--sans, system-ui, sans-serif);
+  color: #365b46;
+}
+
+.business-flow-route + .business-flow-route {
+  margin-top: 24px;
+  padding-top: 22px;
+  border-top: 1px solid #c9d3c3;
+}
+
+.business-flow-grid:has(> .business-flow-node:nth-child(4)) {
+  grid-auto-flow: row;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.business-flow-grid:has(> .business-flow-edge) {
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+.business-flow-node {
+  flex: 1 1 0;
+  min-width: 0;
+  padding: 15px 16px;
+  border: 1px solid #d7dfd1;
+  border-radius: 5px;
+  background: #fffefa;
+}
+
+.business-flow-node small,
+.business-flow-node strong {
+  display: block;
+  font-family: var(--sans, system-ui, sans-serif);
+  overflow-wrap: anywhere;
+}
+
+.business-flow-node small {
+  margin-bottom: 5px;
+  font-size: 12px;
+  color: #52624e;
+}
+
+.business-flow-node strong {
+  font-size: 17px;
+  line-height: 1.6;
+}
+
+.entry-body .business-flow-node p {
+  margin: 8px 0 0;
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+.entry-body .business-flow-edge {
+  display: flex;
+  flex-direction: column;
+  flex: 0 1 85px;
+  min-width: 52px;
+  gap: 9px;
+  align-items: center;
+  justify-content: center;
+  align-self: center;
+  margin: 0;
+  font: 500 12px/1.8 var(--sans, system-ui, sans-serif);
+  color: #52624e;
+  text-align: center;
+  overflow-wrap: anywhere;
+}
+
+.entry-body .business-flow-edge::after {
+  content: "";
+  display: block;
+  flex: none;
+  width: 100%;
+  height: 12px;
+  background: currentColor;
+  clip-path: polygon(0 calc(50% - 1px), calc(100% - 8px) calc(50% - 1px), calc(100% - 8px) 0, 100% 50%, calc(100% - 8px) 100%, calc(100% - 8px) calc(50% + 1px), 0 calc(50% + 1px));
+  print-color-adjust: exact;
+}
+
+.entry-body :is([data-reading-branch="consumer"], [data-reading-branch="platform"]) .business-flow-edge::after,
+.entry-body .business-flow-edge[data-flow-direction="both"]::after {
+  clip-path: polygon(0 50%, 8px 0, 8px calc(50% - 1px), calc(100% - 8px) calc(50% - 1px), calc(100% - 8px) 0, 100% 50%, calc(100% - 8px) 100%, calc(100% - 8px) calc(50% + 1px), 8px calc(50% + 1px), 8px 100%);
+}
+
+.entry-body figure.business-flow figcaption {
+  margin-top: 14px;
+  font-size: 13px;
+  line-height: 1.8;
+  text-align: left;
+  color: #52624e;
+}
+
+@media (max-width: 600px) {
+  .entry-body .reading-branch-controls { gap: 7px; padding: 13px; }
+  .entry-body .reading-branch-controls button { flex: 1 1 calc(50% - 7px); }
+  .entry-body figure.business-flow { padding: 14px; }
+  .business-flow-grid { display: flex; flex-direction: column; }
+  .business-flow-node { flex-basis: auto; }
+  .entry-body .business-flow-edge { flex-basis: auto; }
+  .entry-body .business-flow-edge::after {
+    width: 60px;
+    margin: 24px 0;
+    transform: rotate(90deg);
+  }
+}
+
+@media print {
+  .entry-body .reading-branch-controls { display: none !important; }
+  .entry-body [data-reading-branch][hidden] { display: block !important; }
+  .entry-body [data-reading-branch-footnote][hidden] { display: list-item !important; }
+  .entry-body [data-reading-branch-backlink][hidden] { display: inline !important; }
+  .entry-body figure.business-flow { break-inside: avoid; background: transparent; }
+}

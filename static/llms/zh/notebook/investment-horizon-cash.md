@@ -51,9 +51,11 @@
 
 ## 期限与现金意识 {#nb-a02-awareness}
 
-有了这些例子，以后再看一项投资时，我们就可以顺着它的整个持有过程想一遍：资金能够投入多久，期间会不会另有付款，如果提前退出会付出什么代价，卖出后又要等多久才能用到钱（实际交易中，成交、证券与款项的正式交付，以及资金转出有各自的处理时间，需要按实际市场和账户安排衔接）。预期回报合意时，我们还要有资金把这段持有过程接续下去。[^settlement]
+有了这些例子，以后再看一项投资时，我们就可以顺着它的整个持有过程想一遍：资金能够投入多久，期间会不会另有付款，如果提前退出会付出什么代价，卖出后又要等多久才能用到钱（实际交易中，成交、证券与款项的正式交付，以及资金转出有各自的处理时间，需要按实际市场和账户安排衔接）。预期回报符合自己的要求时，我们还要有资金把这段持有过程接续下去。[^settlement]
 
-当几项投资放在一起时，还要再看它们的收付款能不能相互配合。几笔付款集中在相近的日期，回款却都要更晚才来，现金缺口就会一起出现。预留现金可以支持已经承诺的付款、应对回款延后，也给后来的调整和投资机会留下空间。随着新的交易和付款安排出现，我们也要重新看看各笔收付款的时间和金额，提前准备可能出现的现金缺口。
+当几项投资放在一起时，还要再看它们的收付款能不能相互配合。几笔付款集中在相近的日期，回款却都要更晚才来，现金缺口就会一起出现。预留现金可以支持已经承诺的付款、应对回款延后，也给后来的调整和投资机会留下空间。随着新的交易和付款安排出现，我们也要重新看看各笔收付款的时间和金额，提前为可能出现的现金缺口做好安排。
+
+现金安排关系到我们能否完成付款、维持持有；要判断一笔股票投资是否值得，还需要理解买到的公司权益，以及付出的价格怎样影响回报。[《股票、公司与股价》](https://ou-liu-red-sugar.github.io/zh/notebook/stocks-company-price/)会从股份与公司经营的关系讲起。
 
 [^bond]: [SEC：What Are Corporate Bonds?](https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins/what-are)，What are the financial terms of a bond?、Credit/default Risk、Call Risk。本文金额与条款为教学设定。
 [^sale]: [FINRA：Bonds](https://www.finra.org/investors/investing/investment-products/bonds)，Selling Before the Maturity Date、Bond Pricing。970 美元为本例设定的实际净成交款。

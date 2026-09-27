@@ -285,7 +285,7 @@ This is reference material for the learner's current request. Use the supplied e
 ## Supplied entry
 我们生活在一个复利世界。留在账户里的利息会进入新的本金，企业的增长接在已有的业务规模上，物价也在上一期的水平上继续变化。许多事情都是这样，一段时间的结果，又成了下一段时间的起点。
 
-所以讨论一笔投资赚了多少，我们还得把时间放进去。同样的盈利，一年取得和多年以后才取得，会留下不同的再投资机会，也会经历不同程度的物价变化。在[《亏损、波动与持有能力》](/zh/notebook/loss-volatility-holding-capacity/)里，我们已经把目光从买入成本移向未来所得；接下来就沿着这笔钱的变化，看看怎样比较等待的结果。
+所以讨论一笔投资赚了多少，我们还得把时间放进去。同样的盈利，一年取得和多年以后才取得，会留下不同的再投资机会，也会经历不同程度的物价变化。[《亏损、波动与持有能力》](/zh/notebook/loss-volatility-holding-capacity/)讨论了怎样从未来前景判断是否继续持有；接下来就沿着一笔钱的变化，看看怎样比较不同持有期限的回报。
 
 ## 复利世界与回报的累积 {#nb-a04-compounding}
 
@@ -307,7 +307,7 @@ V(t)=V(0)\exp(rt).
 
 <span id="nb-a04-discount">我们也可以把刚才的计算倒过来：按同一利率，将一笔未来收款折算到今天。这个逆向换算叫<strong>贴现</strong>，折回今天的金额就是<strong>现值</strong>，即 \(V(0)=V(t)\exp(-rt)\)。例如，连续复利率为 5% 时，一年后的 100 美元折到今天约为 95.12 美元。这样，收款日期不同的金额就可以先换到同一个时点，再作比较。</span>
 
-前面的计息账户采用固定利率，真实投资的回报却常常每期都不同。要把它们接起来，累计结果就需要由一串不同的增长因子相乘得到；自然对数恰好能把这串乘法变成加法。我们把一期增长因子的自然对数记为 \(g_t\)，也就是这一期的对数收益：
+前面的计息账户采用固定利率，真实投资的回报却常常每期都不同。要把这些回报接起来，我们就要将各期的增长因子依次相乘；自然对数恰好能把这串乘法变成加法。我们把一期增长因子的自然对数记为 \(g_t\)，也就是这一期的对数收益：
 
 \[
 g_t=\ln(1+R_t),\qquad
@@ -389,7 +389,7 @@ R_{\text{年化}}
 =\frac{\text{平均超额收益}}{\text{超额收益的标准差}}.
 \]
 
-回看历史时，我们用实际数据计算这两个量；比较未来时，也可以采用明确的预期与假设。William F. Sharpe 在介绍这一比率的文章里，就给过一个简单对照：设同一期间的无风险收益率为 3%，两只基金的预期收益与波动如下。[^sharpe]
+回看历史时，我们用实际数据计算这两个量；比较未来时，也可以采用明确的预期与假设。William F. Sharpe 在介绍这一比率的文章里，给过一个简单对照。设同一期间的无风险收益率为 3%，两只基金的预期收益与波动如下：[^sharpe]
 
 | 原文中的假设基金 | 预期收益率 | 收益标准差 | 预期超额收益 | Sharpe |
 |---|---:|---:|---:|---:|
@@ -408,12 +408,12 @@ Y 的波动是 X 的两倍，预期超额收益却是 X 的 2.5 倍，因此每�
 [^compound]: Jonathan Goodman，NYU Courant，[Compound interest](https://math.nyu.edu/~goodman/teaching/MathFin2019/handouts/CompoundInterest.pdf)：离散与连续复利、指数及对数的一阶近似。
 [^voo]: Vanguard，[VOO 官方资料](https://fund-docs.vanguard.com/F0968.pdf)，基金跟踪对象及分配再投资、税前与扣除基金费用后的业绩口径。本文历史曲线采用下一条列明的市场数据。
 [^voo-data]: [Yahoo Finance：VOO 历史行情](https://finance.yahoo.com/quote/VOO/history/)，读取于 2026-09-26。2015-12-31 至 2025-12-31，调整后收盘价由 156.8276978 至 623.3413696，累计增长约 297.47%；2023-06-15 至 2024-06-13 的对应值为 389.5532837、484.7463074，增长约 24.44%。[每日输入](/notebook/compounding/voo-daily.csv)与[月末资金路径及购买力计算](/notebook/compounding/voo-growth-purchasing-power.csv)供复算。
-[^voo-adjustment]: [Yahoo：What is the adjusted close?](https://help.yahoo.com/kb/SLN28256.html)，调整后收盘价包含分红与拆股调整。本文原始数据中有 40 次分红事件，以除息日前一交易日价格计算分红调整因子；这与逐笔按实际成交价再投资的规则不同。起止普通收盘价为186.9299927、627.1300049美元，仅价格变化对应的期末金额为33,548.92美元；[分红事件与复算输入](/notebook/compounding/voo-dividends.csv)列出两种再投资口径及现金分红。
+[^voo-adjustment]: [Yahoo：What is the adjusted close?](https://help.yahoo.com/kb/SLN28256.html)，调整后收盘价包含分红与拆股调整。本文原始数据中有 40 次分红事件，以除息日前一交易日价格计算分红调整因子；这与逐笔按实际成交价再投资的规则不同。起止普通收盘价分别为 186.9299927、627.1300049 美元，仅价格变化对应的期末金额为 33,548.92 美元；[分红事件与复算输入](/notebook/compounding/voo-dividends.csv)列出两种再投资口径及现金分红。
 [^fees]: SEC Investor.gov，[How Fees and Expenses Affect Your Investment Portfolio](https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins/updated)，持续费用与后续投资本金。本文金额按所列假设自行计算。
-[^cpi]: BLS，[Purchasing power and constant dollars](https://www.bls.gov/cpi/factsheets/purchasing-power-constant-dollars.htm)及[CUUR0000SA0 数据](https://data.bls.gov/timeseries/CUUR0000SA0)，美国城市消费者、全项目、未季调 CPI。2015 年 12 月为 236.525，2025 年 12 月为 324.054。截至 2026-09-26 复核，本图所用未季调全项目CPI-U 的2025 年 10 月官方值仍缺失。BLS 为季调计算采用了9 月与 11 月指数的几何平均估补，并补发部分非调查分项；这与发布本系列 10 月正式值有别，见[缺失数据与后续处理说明](https://www.bls.gov/cpi/additional-resources/2025-federal-government-shutdown-impact-cpi-faq.htm)第2、3、12项。图中虚线连接相邻已知月份，数据表中该月仍留空；[计算输入](/notebook/compounding/voo-growth-purchasing-power.csv)。
+[^cpi]: BLS，[Purchasing power and constant dollars](https://www.bls.gov/cpi/factsheets/purchasing-power-constant-dollars.htm)及[CUUR0000SA0 数据](https://data.bls.gov/timeseries/CUUR0000SA0)，美国城市消费者、全项目、未季调 CPI。2015 年 12 月为 236.525，2025 年 12 月为 324.054。截至 2026-09-26 复核，本图所用未季调全项目 CPI-U 的 2025 年 10 月官方值仍缺失。BLS 为季调计算采用了 9 月与 11 月指数的几何平均估补，并补发部分非调查分项；这与发布本系列 10 月正式值有别，见[缺失数据与后续处理说明](https://www.bls.gov/cpi/additional-resources/2025-federal-government-shutdown-impact-cpi-faq.htm)第 2、3、12 项。图中虚线连接相邻已知月份，数据表中该月仍留空；[计算输入](/notebook/compounding/voo-growth-purchasing-power.csv)。
 [^fed]: Federal Reserve，[Statement on Longer-Run Goals and Monetary Policy Strategy](https://www.federalreserve.gov/monetarypolicy/files/fomc_longerrungoals.pdf)，2026-01-27 再确认；[长期 2% 通胀目标说明](https://www.federalreserve.gov/faqs/economy_14400.htm)。
-[^bill]: TreasuryDirect，[2023-06-13 拍卖结果](https://www.treasurydirect.gov/instit/annceresult/press/preanre/2023/R_20230613_2.pdf)及[发行公告](https://www.treasurydirect.gov/instit/annceresult/press/preanre/2023/A_20230608_2.pdf)：364 天国债，CUSIP 912797FS1，每 100 美元面值价格 95.015222，2023-06-15 发行，2024-06-13 到期。10,500美元面值的成本取到分为9,976.60美元。
-[^sharpe]: William F. Sharpe，[The Sharpe Ratio](https://web.stanford.edu/~wfsharpe/art/sr/SR.htm)，The Ratio、Time Dependence、Related Measures。X/Y与半仓Y的比较均来自原文假设，所有收益和标准差采用同一期口径。
+[^bill]: TreasuryDirect，[2023-06-13 拍卖结果](https://www.treasurydirect.gov/instit/annceresult/press/preanre/2023/R_20230613_2.pdf)及[发行公告](https://www.treasurydirect.gov/instit/annceresult/press/preanre/2023/A_20230608_2.pdf)：364 天国债，CUSIP 912797FS1，每 100 美元面值价格 95.015222，2023-06-15 发行，2024-06-13 到期。10,500 美元面值的成本按美分取整，为 9,976.60 美元。
+[^sharpe]: William F. Sharpe，[The Sharpe Ratio](https://web.stanford.edu/~wfsharpe/art/sr/SR.htm)，The Ratio、Time Dependence、Related Measures。X、Y 以及半仓 Y 的比较均来自原文假设，所有收益和标准差采用同一期口径。
 
 
 ## Sources

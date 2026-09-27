@@ -65,7 +65,7 @@
 
 有了订单以后，GEV 还要组织采购、制造和交付，并按合同履约情况确认收入，也就是把相应的收入金额记入财务报表。不过客户实际付款的时间可能与确认收入的时间不同；GEV 什么时候向供应商付款，也有相应的合同安排。这样一来，我们既要比较收入与采购、生产、服务等成本，判断这项业务能赚多少钱，也要沿着收付款的时间看下去，判断是否需要先垫入资金，以及资金会被占用多久。[^gev-annual]
 
-等到设备投入使用以后，业务还可能继续。前述 EBK 订单就包含十年的维护和服务。已有设备的保养、检修和零部件更换，都可能带来后续服务收入。因此研究这项业务时，我们既要看新设备的需求，也要看已有设备的运行与维护需要。[^gev-order]<sup>，</sup>[^gev-annual]
+等到设备投入使用以后，GEV 还可能继续提供服务。前述 EBK 订单就包含十年的维护和服务。已有设备的保养、检修和零部件更换，都可能带来后续服务收入。因此研究这项业务时，我们既要看新设备的需求，也要看已有设备的运行与维护需要。[^gev-order]<sup>，</sup>[^gev-annual]
 
 这项业务最终能给股东留下多少，还要放回公司整体来看。其他业务的盈亏、公司的共同费用和税费，都会影响公司整体的盈利；债务收付和再投资安排又会影响现金怎样使用。至于股东实际收到多少，还要看公司的分配决定。把这些因素合在一起，再考虑股份数量，我们就能在每股的尺度上继续讨论这份股权可能带来的所得，以及自己愿意付出什么价格。[^stocks]
 
@@ -83,7 +83,7 @@
 
 要把这样的研究持续做下去，就需要不断取得和核对材料。相关依据分散在公司披露、客户的项目安排、供应商资料和竞争者的信息里，沿着这些业务关系查下去，常常会有新的问题需要回答。Agent 可以参与这些工作，和我们一起围绕具体问题查找、对照和更新材料。
 
-仍以 GEV 的设备订单为例，我们可以请 Agent 查找客户的建设计划，了解这次采购的用途和时间；查找上游供货与产能信息，核对按期交付需要哪些条件；再比较其他设备供应商的产品与服务，理解客户有哪些选择。查到这些资料以后，就把它们带回 GEV 的这项业务：客户的项目安排是否支持我们原先判断的设备需求？供货和产能条件，又会怎样影响交付与成本？这样，每一步取得的材料都能用于回答具体的经营问题。
+仍以 GEV 的设备订单为例，我们可以请 Agent 查找客户的建设计划，了解这次采购的用途和时间；查找上游供货与产能信息，核对按期交付需要哪些条件；再比较其他设备供应商的产品与服务，理解客户有哪些选择。查到这些资料以后，我们再结合 GEV 的这项业务来判断：客户的项目安排是否支持我们原先判断的设备需求？供货和产能条件，又会怎样影响交付与成本？这样，每一步取得的材料都能用于回答具体的经营问题。
 
 资料拿到以后，我们还要分清哪些是已经发生的事实，哪些是公司的预期，哪些是研究中作出的假设，并比较不同来源的依据能否相互支持。在研究过程中，可以让 Agent 把来源和当时的判断保留下来；等到新的财报或项目消息出现，再一起对照原先的依据，看看哪些认识已经得到支持，哪些需要调整。经过这样的积累，我们就能看清判断为什么发生变化，也知道下一步还需要研究什么。
 
@@ -115,7 +115,7 @@
 <section data-asset-panel="cash"><h3>现金与存款</h3><table><tbody>
 <tr><th scope="row">是什么</th><td>现金用于支付和保留可用资金；银行存款则按账户约定存放、支取或计息。</td></tr>
 <tr><th scope="row">回报从哪里来</th><td>现金本身不计息，计息存款取得利息。比较实际结果时，还要考虑费用与购买力变化。</td></tr>
-<tr><th scope="row">相关词条</th><td><a href="/zh/notebook/#topic-U" data-planned-entry="NB-U01">存款、货币基金与短债</a>；<a href="/zh/notebook/#topic-U" data-planned-entry="NB-U01">存款、货币基金与短债</a></td></tr>
+<tr><th scope="row">相关词条</th><td><a href="/zh/notebook/#topic-U" data-planned-entry="NB-U01">存款、货币基金与短债</a></td></tr>
 </tbody></table></section>
 <section data-asset-panel="debt"><h3>债券</h3><table><tbody>
 <tr><th scope="row">是什么</th><td>债券代表一笔按约定付息或偿还的债务，政府和企业都可以发行债券融资。</td></tr>
@@ -125,7 +125,7 @@
 <section data-asset-panel="equity"><h3>股票与非上市股权</h3><table><tbody>
 <tr><th scope="row">是什么</th><td>持有股权，就是拥有企业的一部分股份。上市股票可以在交易所买卖，非上市股权有不同的交易与退出安排。</td></tr>
 <tr><th scope="row">回报从哪里来</th><td>公司分配与股权价格变化共同影响持有结果；企业赚到的利润还可能留在公司继续经营。</td></tr>
-<tr><th scope="row">相关词条</th><td><a href="/zh/notebook/#topic-S" data-planned-entry="NB-S01">股票、公司与股价</a>；<a href="/zh/notebook/#topic-S" data-planned-entry="NB-S02">股东回报：分红、回购与增发</a></td></tr>
+<tr><th scope="row">相关词条</th><td><a href="/zh/notebook/stocks-company-price/">股票、公司与股价</a>；<a href="/zh/notebook/shareholder-returns-buybacks-issuance/">股东回报：分红、回购与增发</a></td></tr>
 </tbody></table></section>
 <section data-asset-panel="property"><h3>房地产</h3><table><tbody>
 <tr><th scope="row">是什么</th><td>投资者可以直接持有房产，取得出租或出售的所得。</td></tr>
@@ -145,37 +145,37 @@
 <section data-asset-panel="currency"><h3>外币</h3><table><tbody>
 <tr><th scope="row">是什么</th><td>外币是相对于生活所用币种的另一种货币，也可以用于持有存款、债券等资产。</td></tr>
 <tr><th scope="row">回报从哪里来</th><td>换回生活所用货币时，汇率变化影响结果；能否取得利息等收入，取决于具体持有方式。</td></tr>
-<tr><th scope="row">相关词条</th><td><a href="/zh/notebook/#topic-U" data-planned-entry="NB-U01">存款、货币基金与短债</a>；<a href="/zh/notebook/#topic-A" data-planned-entry="NB-A04">复利、通胀与机会成本</a></td></tr>
+<tr><th scope="row">相关词条</th><td><a href="/zh/notebook/#topic-U" data-planned-entry="NB-U01">存款、货币基金与短债</a>；<a href="/zh/notebook/compounding-inflation-opportunity-cost/">复利、通胀与机会成本</a></td></tr>
 </tbody></table></section>
 <section data-asset-panel="funds"><h3>基金与 ETF</h3><table><tbody>
 <tr><th scope="row">是什么</th><td>基金汇集资金投资资产或执行策略；ETF 是可以在交易所交易的一类基金。</td></tr>
 <tr><th scope="row">回报从哪里来</th><td>底层资产、投资策略和费用共同影响结果。判断投资风险，要看基金实际持有什么以及怎样运作。</td></tr>
-<tr><th scope="row">相关词条</th><td><a href="/zh/notebook/#topic-V" data-planned-entry="NB-V01">指数、基金与 ETF</a>；<a href="/zh/notebook/#topic-V" data-planned-entry="NB-V03">基金跟踪与投资者回报</a></td></tr>
+<tr><th scope="row">相关词条</th><td><a href="/zh/notebook/indices-funds-etfs/">指数、基金与 ETF</a>；<a href="/zh/notebook/#topic-V" data-planned-entry="NB-V03">基金跟踪与投资者回报</a></td></tr>
 </tbody></table></section>
 <section data-asset-panel="reits"><h3>REITs</h3><table><tbody>
 <tr><th scope="row">是什么</th><td>REITs（房地产投资信托）提供参与经营性房地产或房地产融资的证券投资途径。</td></tr>
 <tr><th scope="row">回报从哪里来</th><td>房地产经营或相关融资的所得支持分配，证券价格也会变化；费用和融资成本影响持有人结果。</td></tr>
-<tr><th scope="row">相关词条</th><td><a href="/zh/notebook/#topic-X" data-planned-entry="NB-X02">房地产、租金与持有成本</a>；<a href="/zh/notebook/#topic-V" data-planned-entry="NB-V01">指数、基金与 ETF</a></td></tr>
+<tr><th scope="row">相关词条</th><td><a href="/zh/notebook/#topic-X" data-planned-entry="NB-X02">房地产、租金与持有成本</a>；<a href="/zh/notebook/indices-funds-etfs/">指数、基金与 ETF</a></td></tr>
 </tbody></table></section>
 <section data-asset-panel="options"><h3>期权</h3><table><tbody>
 <tr><th scope="row">是什么</th><td><span data-text-versions id="nb-a01-options-text">买方付费，取得按约定条件<span data-text-detail>（包括期限和价格）</span>买入或卖出特定对象<span data-text-detail>（称为标的）</span>的权利；卖方承担相应义务。<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span></td></tr>
-<tr><th scope="row">回报从哪里来</th><td>盈亏取决于期权的买卖或结算结果、购买期权所付的权利金与其他费用。</td></tr>
-<tr><th scope="row">相关词条</th><td><a href="/zh/notebook/#topic-G" data-planned-entry="NB-G01">期权权利、盈亏与退出</a>；<a href="/zh/notebook/#topic-G" data-planned-entry="NB-G01">期权权利、盈亏与退出</a></td></tr>
+<tr><th scope="row">回报从哪里来</th><td>买方支付、卖方收取权利金；各自的盈亏还要结合后续买卖、行权或到期结算的结果，以及相关费用来计算。</td></tr>
+<tr><th scope="row">相关词条</th><td><a href="/zh/notebook/#topic-G" data-planned-entry="NB-G01">期权权利、盈亏与退出</a></td></tr>
 </tbody></table></section>
 <section data-asset-panel="futures"><h3>期货</h3><table><tbody>
 <tr><th scope="row">是什么</th><td>期货约定在未来按合约规则交付或结算，可涉及商品、股指、利率等对象。</td></tr>
 <tr><th scope="row">回报从哪里来</th><td>合约价格变化形成持仓盈亏，并通过结算影响账户资金；保证金用于履约，投入的保证金不代表最大可能损失。</td></tr>
-<tr><th scope="row">相关词条</th><td><a href="/zh/notebook/#topic-K" data-planned-entry="NB-B01">股票的类型、发行与交易形式</a>；<a href="/zh/notebook/#topic-K" data-planned-entry="NB-B03">投资组合、保证金与对冲策略</a></td></tr>
+<tr><th scope="row">相关词条</th><td><a href="/zh/notebook/stock-types-issuance-trading/">股票的类型、发行与交易形式</a>；<a href="/zh/notebook/settlement-margin-cash/">投资组合、保证金与对冲策略</a></td></tr>
 </tbody></table></section>
 <section data-asset-panel="perpetuals"><h3>永续合约</h3><table><tbody>
 <tr><th scope="row">是什么</th><td>永续合约通常没有固定到期日，常见设计通过资金费等安排使价格与现货保持联系。</td></tr>
 <tr><th scope="row">回报从哪里来</th><td>价格变化、资金费收付与交易费用共同影响结果；持仓需要满足保证金要求，保证金不足可能触发强制平仓。</td></tr>
-<tr><th scope="row">相关词条</th><td><a href="/zh/notebook/#topic-L" data-planned-entry="NB-L01">永续合约的价格锚定与资金费</a>；<a href="/zh/notebook/#topic-L" data-planned-entry="NB-L01">永续合约的价格锚定与资金费</a></td></tr>
+<tr><th scope="row">相关词条</th><td><a href="/zh/notebook/#topic-L" data-planned-entry="NB-L01">永续合约的价格锚定与资金费</a></td></tr>
 </tbody></table></section>
 <section data-asset-panel="prediction"><h3>预测市场</h3><table><tbody>
 <tr><th scope="row">是什么</th><td>参与者交易按具名事件及约定条件结算的合约。</td></tr>
 <tr><th scope="row">回报从哪里来</th><td>买卖或结算所得减去投入与费用，形成持有盈亏；结果取决于合约规定的事件与判定方式。</td></tr>
-<tr><th scope="row">相关词条</th><td><a href="/zh/notebook/#topic-H" data-planned-entry="NB-H01">事件合约与概率报价</a>；<a href="/zh/notebook/#topic-H" data-planned-entry="NB-H01">事件合约与概率报价</a></td></tr>
+<tr><th scope="row">相关词条</th><td><a href="/zh/notebook/#topic-H" data-planned-entry="NB-H01">事件合约与概率报价</a></td></tr>
 </tbody></table></section>
 </div></div>
 

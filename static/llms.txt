@@ -7,6 +7,7 @@
 ## 正文 Markdown / Full-text Markdown
 
 - [复利、通胀与机会成本](https://ou-liu-red-sugar.github.io/llms/zh/notebook/compounding-inflation-opportunity-cost.md): 从企业与资金的复利累积出发，用指数、对数、购买力和现实替代理解持有回报，并引入 Sharpe 比较。
+- [客户、产品与收费方式](https://ou-liu-red-sugar.github.io/llms/zh/notebook/customers-products-pricing.md): 从客户付款和企业交付认清一门生意，选择行业继续拆解业务，再沿上下游、具体订单与企业研报核验需求。
 - [指数、基金与 ETF](https://ou-liu-red-sugar.github.io/llms/zh/notebook/indices-funds-etfs.md): 从自己建立股票组合与通过基金投资出发，理解指数定义、权重与定期再平衡，再认识基金净值、ETF 交易、主动与主题投资以及各项费用。
 - [投资期限与现金需要](https://ou-liu-red-sugar.github.io/llms/zh/notebook/investment-horizon-cash.md): 从债券与期权的期限出发，理解期间付款、过桥现金和退出安排。
 - [Agent 时代的基本面投资](https://ou-liu-red-sugar.github.io/llms/zh/notebook/investment-returns.md): 从资金用途出发，以一项业务看清企业经营、事件计价与 Agent 辅助研究。

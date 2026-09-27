@@ -173,6 +173,95 @@ class CompilerTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "teaching source UNKNOWN"):
             self.compile([entry(teaching={"source_ids": ["UNKNOWN"]})])
 
+    def test_branch_prompts_keep_common_and_selected_material_with_real_entry_links(self):
+        self.catalogue["sources"].extend([
+            {"id": "CONSUMER", "title": "Consumer report", "url": "https://example.org/consumer/"},
+            {"id": "SOFTWARE", "title": "Software report", "url": "https://example.org/software/"}])
+        body = ('Shared body.[^common]\n\n'
+                '<section data-reading-branch="consumer" id="nb-d01-consumer">\n\n'
+                '## Consumer\n\nCONSUMER_BODY.[^consumer]\n\n</section>\n\n'
+                '<section id="nb-d01-software" data-reading-branch="software">\n\n'
+                '## Software\n\nSOFTWARE_BODY.[^software]\n\n</section>\n\n'
+                '[^common]: Common source.\n[^consumer]: Consumer source.\n[^software]: Software source.\n')
+        item = entry("NB-D01", slug="customers-products-pricing", body_markdown=body, teaching={
+            "pitfalls": ["COMMON_DISTINCTION"], "examples": ["COMMON_EXAMPLE"], "source_ids": ["QS02-5.10"],
+            "branches": {
+                "consumer": {"label": "消费品与零售", "pitfalls": ["CONSUMER_DISTINCTION"],
+                             "examples": ["CONSUMER_EXAMPLE"], "source_ids": ["CONSUMER", "QS02-5.10"]},
+                "software": {"label": "软件与云服务", "pitfalls": ["SOFTWARE_DISTINCTION"],
+                             "examples": ["SOFTWARE_EXAMPLE"], "source_ids": ["SOFTWARE"]}}})
+        book = self.compile([item])
+        compiled = book["entries"][0]
+        common = compiled["teaching_context"]
+        self.assertEqual(common, teaching_prompt(compiled, book["references"]))
+        self.assertIn("COMMON_DISTINCTION", common)
+        self.assertIn("COMMON_EXAMPLE", common)
+        for excluded in ("CONSUMER_", "SOFTWARE_", "我选择的行业", "Consumer report", "Software report"):
+            self.assertNotIn(excluded, common)
+        contexts = compiled["teaching_context_by_branch"]
+        self.assertEqual(set(contexts), {"consumer", "software"})
+        for key, other, label in (("consumer", "software", "消费品与零售"), ("software", "consumer", "软件与云服务")):
+            with self.subTest(branch=key):
+                prompt = contexts[key]
+                self.assertIn(f'我选择的行业是“{label}”', prompt)
+                self.assertIn(f'https://ou-liu-red-sugar.github.io/zh/notebook/customers-products-pricing/#nb-d01-{key}', prompt)
+                self.assertIn("COMMON_DISTINCTION", prompt)
+                self.assertIn("COMMON_EXAMPLE", prompt)
+                self.assertIn(key.upper() + "_DISTINCTION", prompt)
+                self.assertIn(key.upper() + "_EXAMPLE", prompt)
+                self.assertIn(f'https://example.org/{key}/', prompt)
+                self.assertNotIn(other.upper() + "_", prompt)
+                self.assertNotIn(f'https://example.org/{other}/', prompt)
+                self.assertNotIn("_BODY", prompt)
+                self.assertEqual(prompt.count("https://otexts.com/fpp3/tscv.html"), 1)
+        for output in ("content-zh/notebook/customers-products-pricing.md",
+                       "static/agent/zh/customers-products-pricing.md",
+                       "static/llms/zh/notebook/customers-products-pricing.md"):
+            rendered = (self.out / output).read_text(encoding="utf-8")
+            for marker in ("CONSUMER_BODY", "SOFTWARE_BODY", "[^consumer]:", "[^software]:"):
+                self.assertIn(marker, rendered)
+
+    def test_branch_prompt_resolves_source_unit_from_selected_packet_branch(self):
+        item = entry(body_markdown='<section id="consumer" data-reading-branch="consumer"></section>'
+                     '<section data-reading-branch="software" id="software"></section>', teaching={
+                         "source_ids": ["QS02-5.10"], "branches": {
+                             "consumer": {"label": "Consumer"}, "software": {"label": "Software"}}})
+        item["agent_packet"]["required_readings_by_branch"] = {}
+        for key in ("consumer", "software"):
+            unit = reading()
+            unit["title"] = key + " selected unit"
+            unit["access"]["uri"] = "https://example.org/report/#" + key
+            item["agent_packet"]["required_readings_by_branch"][key] = [unit]
+        compiled = self.compile([item])["entries"][0]
+        self.assertIn("https://otexts.com/fpp3/tscv.html", compiled["teaching_context"])
+        for key, other in (("consumer", "software"), ("software", "consumer")):
+            prompt = compiled["teaching_context_by_branch"][key]
+            self.assertIn(key + " selected unit: https://example.org/report/#" + key, prompt)
+            self.assertNotIn(other + " selected unit", prompt)
+
+    def test_branch_teaching_requires_existing_entry_and_known_sources(self):
+        item = entry(teaching={"branches": {"consumer": {"label": "Consumer"}}})
+        with self.assertRaisesRegex(ValueError, "consumer needs a body section with an id"):
+            self.compile([item])
+        self.assertFalse(self.out.exists(), "Invalid branch must not write generated outputs")
+        item["body_markdown"] = '<section data-reading-branch="consumer" id="consumer"></section>'
+        item["teaching"]["branches"]["consumer"]["source_ids"] = ["UNKNOWN"]
+        with self.assertRaisesRegex(ValueError, "teaching source UNKNOWN"):
+            self.compile([item])
+        item["teaching"]["branches"]["consumer"]["source_ids"] = []
+        compiled = self.compile([item])["entries"][0]
+        with self.assertRaisesRegex(ValueError, "unknown teaching branch missing"):
+            teaching_prompt(compiled, branch="missing")
+
+    def test_english_branch_prompt_keeps_selected_article_language(self):
+        item = entry(lang="en", body_markdown='<section id="software" data-reading-branch="software"></section>',
+                     teaching={"branches": {"software": {"label": "Software and cloud services"}}})
+        compiled = self.compile([item])["entries"][0]
+        prompt = compiled["teaching_context_by_branch"]["software"]
+        self.assertIn('I have selected “Software and cloud services”', prompt)
+        self.assertIn('https://ou-liu-red-sugar.github.io/en/notebook/qt01/#software', prompt)
+        self.assertNotIn("我选择的行业", prompt)
+
     def test_typed_edges_shared_experiments_and_planned_nodes(self):
         owner = entry(body_markdown='<span id="experiment"></span>\n\n## An experiment',
                       anchors=[{"id": "experiment", "title": "Experiment"}],

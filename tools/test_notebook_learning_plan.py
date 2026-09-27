@@ -201,6 +201,7 @@ class LearningPlanTests(unittest.TestCase):
 
     def test_route_neighbours_and_authorship_update_with_real_articles(self):
         self.add_reading_route(count=2)
+        profile = {"difficulty": "入门", "depth": "概览", "note": "从概念开始，无额外先修。"}
         self.plan["reading_route"]["credits"] = [
             {"entry_ids": ["NB-A01"], "writer": "Codex GPT-6 Astra"},
             {"entry_ids": ["NB-S01"], "writer": "Chat 模式"}]
@@ -208,13 +209,16 @@ class LearningPlanTests(unittest.TestCase):
         route = self.generated_map()["reading_route"]
         self.assertEqual(route["available_count"], 1)
         self.assertEqual([credit["writer"] for credit in route["credits"]], ["Codex GPT-6 Astra"])
-        self.compile([article_fixture(), article_fixture("NB-S01", slug="actual-stock")])
+        self.compile([article_fixture(reading_profile=profile), article_fixture("NB-S01", slug="actual-stock")])
         route = self.generated_map()["reading_route"]
         self.assertEqual(route["available_count"], 2)
         self.assertEqual(route["intro_available_count"], 2)
         first, second = (route["navigation"][key] for key in self.plan["sequence"])
         self.assertEqual(first["next"], second["current"])
         self.assertEqual(second["previous"], first["current"])
+        self.assertEqual(first["current"]["reading_profile"], profile)
+        self.assertEqual(self.generated_map()["entries"][0]["reading_profile"], profile)
+        self.assertNotIn("reading_profile", second["current"])
         self.assertEqual(first["next"]["url"], "/zh/notebook/actual-stock/")
         self.assertIsNone(second["next"])
         self.assertIsNone(route["next"])

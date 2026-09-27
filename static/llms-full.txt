@@ -14,7 +14,7 @@
 
 我们生活在一个复利世界。留在账户里的利息会进入新的本金，企业的增长接在已有的业务规模上，物价也在上一期的水平上继续变化。许多事情都是这样，一段时间的结果，又成了下一段时间的起点。
 
-所以讨论一笔投资赚了多少，我们还得把时间放进去。同样的盈利，一年取得和多年以后才取得，会留下不同的再投资机会，也会经历不同程度的物价变化。在[《亏损、波动与持有能力》](https://ou-liu-red-sugar.github.io/zh/notebook/loss-volatility-holding-capacity/)里，我们已经把目光从买入成本移向未来所得；接下来就沿着这笔钱的变化，看看怎样比较等待的结果。
+所以讨论一笔投资赚了多少，我们还得把时间放进去。同样的盈利，一年取得和多年以后才取得，会留下不同的再投资机会，也会经历不同程度的物价变化。[《亏损、波动与持有能力》](https://ou-liu-red-sugar.github.io/zh/notebook/loss-volatility-holding-capacity/)讨论了怎样从未来前景判断是否继续持有；接下来就沿着一笔钱的变化，看看怎样比较不同持有期限的回报。
 
 ## 复利世界与回报的累积 {#nb-a04-compounding}
 
@@ -36,7 +36,7 @@ V(t)=V(0)\exp(rt).
 
 我们也可以把刚才的计算倒过来：按同一利率，将一笔未来收款折算到今天。这个逆向换算叫**贴现** ，折回今天的金额就是**现值** ，即 \(V(0)=V(t)\exp(-rt)\)。例如，连续复利率为 5% 时，一年后的 100 美元折到今天约为 95.12 美元。这样，收款日期不同的金额就可以先换到同一个时点，再作比较。
 
-前面的计息账户采用固定利率，真实投资的回报却常常每期都不同。要把它们接起来，累计结果就需要由一串不同的增长因子相乘得到；自然对数恰好能把这串乘法变成加法。我们把一期增长因子的自然对数记为 \(g_t\)，也就是这一期的对数收益：
+前面的计息账户采用固定利率，真实投资的回报却常常每期都不同。要把这些回报接起来，我们就要将各期的增长因子依次相乘；自然对数恰好能把这串乘法变成加法。我们把一期增长因子的自然对数记为 \(g_t\)，也就是这一期的对数收益：
 
 \[
 g_t=\ln(1+R_t),\qquad
@@ -114,7 +114,7 @@ R_{\text{年化}}
 =\frac{\text{平均超额收益}}{\text{超额收益的标准差}}.
 \]
 
-回看历史时，我们用实际数据计算这两个量；比较未来时，也可以采用明确的预期与假设。William F. Sharpe 在介绍这一比率的文章里，就给过一个简单对照：设同一期间的无风险收益率为 3%，两只基金的预期收益与波动如下。[^zh-compounding-inflation-opportunity-cost--sharpe]
+回看历史时，我们用实际数据计算这两个量；比较未来时，也可以采用明确的预期与假设。William F. Sharpe 在介绍这一比率的文章里，给过一个简单对照。设同一期间的无风险收益率为 3%，两只基金的预期收益与波动如下：[^zh-compounding-inflation-opportunity-cost--sharpe]
 
 | 原文中的假设基金 | 预期收益率 | 收益标准差 | 预期超额收益 | Sharpe |
 |---|---:|---:|---:|---:|
@@ -130,12 +130,442 @@ Y 的波动是 X 的两倍，预期超额收益却是 X 的 2.5 倍，因此每�
 [^zh-compounding-inflation-opportunity-cost--compound]: Jonathan Goodman，NYU Courant，[Compound interest](https://math.nyu.edu/~goodman/teaching/MathFin2019/handouts/CompoundInterest.pdf)：离散与连续复利、指数及对数的一阶近似。
 [^zh-compounding-inflation-opportunity-cost--voo]: Vanguard，[VOO 官方资料](https://fund-docs.vanguard.com/F0968.pdf)，基金跟踪对象及分配再投资、税前与扣除基金费用后的业绩口径。本文历史曲线采用下一条列明的市场数据。
 [^zh-compounding-inflation-opportunity-cost--voo-data]: [Yahoo Finance：VOO 历史行情](https://finance.yahoo.com/quote/VOO/history/)，读取于 2026-09-26。2015-12-31 至 2025-12-31，调整后收盘价由 156.8276978 至 623.3413696，累计增长约 297.47%；2023-06-15 至 2024-06-13 的对应值为 389.5532837、484.7463074，增长约 24.44%。[每日输入](https://ou-liu-red-sugar.github.io/notebook/compounding/voo-daily.csv)与[月末资金路径及购买力计算](https://ou-liu-red-sugar.github.io/notebook/compounding/voo-growth-purchasing-power.csv)供复算。
-[^zh-compounding-inflation-opportunity-cost--voo-adjustment]: [Yahoo：What is the adjusted close?](https://help.yahoo.com/kb/SLN28256.html)，调整后收盘价包含分红与拆股调整。本文原始数据中有 40 次分红事件，以除息日前一交易日价格计算分红调整因子；这与逐笔按实际成交价再投资的规则不同。起止普通收盘价为186.9299927、627.1300049美元，仅价格变化对应的期末金额为33,548.92美元；[分红事件与复算输入](https://ou-liu-red-sugar.github.io/notebook/compounding/voo-dividends.csv)列出两种再投资口径及现金分红。
+[^zh-compounding-inflation-opportunity-cost--voo-adjustment]: [Yahoo：What is the adjusted close?](https://help.yahoo.com/kb/SLN28256.html)，调整后收盘价包含分红与拆股调整。本文原始数据中有 40 次分红事件，以除息日前一交易日价格计算分红调整因子；这与逐笔按实际成交价再投资的规则不同。起止普通收盘价分别为 186.9299927、627.1300049 美元，仅价格变化对应的期末金额为 33,548.92 美元；[分红事件与复算输入](https://ou-liu-red-sugar.github.io/notebook/compounding/voo-dividends.csv)列出两种再投资口径及现金分红。
 [^zh-compounding-inflation-opportunity-cost--fees]: SEC Investor.gov，[How Fees and Expenses Affect Your Investment Portfolio](https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins/updated)，持续费用与后续投资本金。本文金额按所列假设自行计算。
-[^zh-compounding-inflation-opportunity-cost--cpi]: BLS，[Purchasing power and constant dollars](https://www.bls.gov/cpi/factsheets/purchasing-power-constant-dollars.htm)及[CUUR0000SA0 数据](https://data.bls.gov/timeseries/CUUR0000SA0)，美国城市消费者、全项目、未季调 CPI。2015 年 12 月为 236.525，2025 年 12 月为 324.054。截至 2026-09-26 复核，本图所用未季调全项目CPI-U 的2025 年 10 月官方值仍缺失。BLS 为季调计算采用了9 月与 11 月指数的几何平均估补，并补发部分非调查分项；这与发布本系列 10 月正式值有别，见[缺失数据与后续处理说明](https://www.bls.gov/cpi/additional-resources/2025-federal-government-shutdown-impact-cpi-faq.htm)第2、3、12项。图中虚线连接相邻已知月份，数据表中该月仍留空；[计算输入](https://ou-liu-red-sugar.github.io/notebook/compounding/voo-growth-purchasing-power.csv)。
+[^zh-compounding-inflation-opportunity-cost--cpi]: BLS，[Purchasing power and constant dollars](https://www.bls.gov/cpi/factsheets/purchasing-power-constant-dollars.htm)及[CUUR0000SA0 数据](https://data.bls.gov/timeseries/CUUR0000SA0)，美国城市消费者、全项目、未季调 CPI。2015 年 12 月为 236.525，2025 年 12 月为 324.054。截至 2026-09-26 复核，本图所用未季调全项目 CPI-U 的 2025 年 10 月官方值仍缺失。BLS 为季调计算采用了 9 月与 11 月指数的几何平均估补，并补发部分非调查分项；这与发布本系列 10 月正式值有别，见[缺失数据与后续处理说明](https://www.bls.gov/cpi/additional-resources/2025-federal-government-shutdown-impact-cpi-faq.htm)第 2、3、12 项。图中虚线连接相邻已知月份，数据表中该月仍留空；[计算输入](https://ou-liu-red-sugar.github.io/notebook/compounding/voo-growth-purchasing-power.csv)。
 [^zh-compounding-inflation-opportunity-cost--fed]: Federal Reserve，[Statement on Longer-Run Goals and Monetary Policy Strategy](https://www.federalreserve.gov/monetarypolicy/files/fomc_longerrungoals.pdf)，2026-01-27 再确认；[长期 2% 通胀目标说明](https://www.federalreserve.gov/faqs/economy_14400.htm)。
-[^zh-compounding-inflation-opportunity-cost--bill]: TreasuryDirect，[2023-06-13 拍卖结果](https://www.treasurydirect.gov/instit/annceresult/press/preanre/2023/R_20230613_2.pdf)及[发行公告](https://www.treasurydirect.gov/instit/annceresult/press/preanre/2023/A_20230608_2.pdf)：364 天国债，CUSIP 912797FS1，每 100 美元面值价格 95.015222，2023-06-15 发行，2024-06-13 到期。10,500美元面值的成本取到分为9,976.60美元。
-[^zh-compounding-inflation-opportunity-cost--sharpe]: William F. Sharpe，[The Sharpe Ratio](https://web.stanford.edu/~wfsharpe/art/sr/SR.htm)，The Ratio、Time Dependence、Related Measures。X/Y与半仓Y的比较均来自原文假设，所有收益和标准差采用同一期口径。
+[^zh-compounding-inflation-opportunity-cost--bill]: TreasuryDirect，[2023-06-13 拍卖结果](https://www.treasurydirect.gov/instit/annceresult/press/preanre/2023/R_20230613_2.pdf)及[发行公告](https://www.treasurydirect.gov/instit/annceresult/press/preanre/2023/A_20230608_2.pdf)：364 天国债，CUSIP 912797FS1，每 100 美元面值价格 95.015222，2023-06-15 发行，2024-06-13 到期。10,500 美元面值的成本按美分取整，为 9,976.60 美元。
+[^zh-compounding-inflation-opportunity-cost--sharpe]: William F. Sharpe，[The Sharpe Ratio](https://web.stanford.edu/~wfsharpe/art/sr/SR.htm)，The Ratio、Time Dependence、Related Measures。X、Y 以及半仓 Y 的比较均来自原文假设，所有收益和标准差采用同一期口径。
+
+
+---
+
+# 客户、产品与收费方式
+
+从客户付款和企业交付认清一门生意，选择行业继续拆解业务，再沿上下游、具体订单与企业研报核验需求。
+
+网页 / HTML: [客户、产品与收费方式](https://ou-liu-red-sugar.github.io/zh/notebook/customers-products-pricing/)
+
+语言 / Language: zh · 更新 / Revised: 2026-09-27
+
+同样是客户付款，买一件商品、使用一段时间的算力和购买一份保险，得到的东西并不相同。商品可以在交货时转到客户手中，云服务需要供应方持续运行设备，保险则让公司承担约定的未来责任。研究一家公司时，我们就要先认清它做的是哪些生意，再看每门生意怎样取得收入。
+
+[《投资组合、保证金与对冲策略》](https://ou-liu-red-sugar.github.io/zh/notebook/settlement-margin-cash/)中的持仓取舍，也依赖对这些生意的判断。一家公司受到什么影响，客户还会不会购买，往往要回到具体的经营关系才能解释。从一笔交易往下看，产品、客户与收费方式就会逐渐联系起来。
+
+## 从客户付款认出业务 {#nb-d01-business}
+
+知道客户买到了什么，还要看谁在使用、谁作出采购决定，以及谁来付款。个人到商店买鞋时，这几种角色可以由同一个人承担；企业给员工采购软件时，使用者与付款者就分开了。到了医疗服务，患者接受诊疗，还可能由保险或政府项目支付部分费用。同一家公司面对不同客户时，也可能提供不同的交付和收费安排。
+
+下面可以选择一个行业，沿着其中的业务过程继续读。每条路径都会从客户和交付走到需求与证据；想比较不同生意时，可以切换行业，也可以显示全部。
+
+## 消费品与零售：商品、渠道与库存 {#nb-d01-consumer-story}
+
+### 从品牌出货到消费者购买 {#nb-d01-consumer-channels}
+
+我们先看 NIKE（NKE）的一件商品怎样到达消费者手中。NKE 设计、营销商品，并主要由独立制造商生产；商品随后可以批发给零售客户，也可以通过自有门店和网站直接卖给消费者。批发时，零售客户向 NKE 采购，再把商品卖给顾客；直营时，顾客直接向 NKE 付款。两条路径最后都服务消费者，但 NKE 面对的直接客户和收款环节已经不同了。[^zh-customers-products-pricing--nke]
+
+批发路径
+
+品牌方**NIKE（NKE）**
+
+组织产品与供货。
+
+批发：向零售客户交货并结算
+
+零售客户**备货与销售**
+
+持有商品并面向消费者销售。
+
+终端：消费者购买商品并付款
+
+使用与购买**消费者**
+
+取得所购买的商品。
+
+直营路径
+
+品牌直营**NIKE（NKE）**
+
+通过自有门店或网站销售。
+
+NKE 交付商品；消费者直接付款
+
+直接购买**消费者**
+
+向品牌购买并取得商品。
+
+**批发路径中，NKE 的直接客户是零售商；直营时，NKE 直接面向消费者。**
+
+沿着这两条销售路径继续看，库存留在哪一方、后续工作由谁承担，也会有所不同。批发商品交给零售客户后，零售客户还要备货、陈列，等待消费者购买。直营则把这些零售工作也留给 NKE，包括经营门店、处理线上订单、配送和售后。商品交到下一方手中以后，具体的退货、折扣和付款安排还要按合同辨认（退货权、促销补贴和结算期限会影响各方最终收到的钱，以及库存和销售变化由谁承担；这里的两条路径只说明基本买卖关系）。所以我们既要看商品卖了多少，也要辨认这个“卖出”发生在品牌、零售还是消费者这一端。
+
+再看 Walmart（WMT），它采购商品后向消费者销售，同时也提供会员服务。顾客买走一件商品，取得的是这件商品；支付会费，则取得一定期间内的购物、配送等权益。两者可以服务于同一次购物活动，WMT 需要完成的工作却有不同的时间跨度：商品要交付，会员权益还要在约定期间持续提供。至于第三方商家在平台上卖货，则还会多出平台向商家收费的关系，我们可以在互联网平台版本里继续比较。[^zh-customers-products-pricing--wmt]
+
+### 从订单追到实际需求 {#nb-d01-consumer-demand}
+
+回到 NKE 的批发与直营，再读“订单增加”就有了可以追问的对象。零售客户多进货，可能因为顾客买得更多，也可能是在补回此前较低的库存。如果货已经送进渠道，却还没有被消费者买走，品牌出货和终端购买就处在不同阶段。我们还要看零售客户的库存、促销和后续补货：折价卖出同样能清理库存，但它说明的购买意愿与原价畅销不同。等到商品已经被消费者买走，后续补货又能持续，需求判断才多了一层依据。
+
+Agent 可以先查 NKE 的渠道说明，再沿有据的销售关系读取零售客户的材料，比较进货、库存与售出是否相接。研究直营时，就直接看消费者的购买，并用相关品类的消费资料帮助解释变化。企业研报若把出货增加解释成品牌需求增强，也要说明依据来自终端售出、渠道补库还是净售价。这些资料最终要回到消费者是否继续购买，以及这种购买怎样支持 NKE 在相应渠道取得收入。
+
+## 软件与云服务：使用、许可与账单 {#nb-d01-software-story}
+
+### 从使用功能到购买服务 {#nb-d01-software-contracts}
+
+员工每天打开一套办公软件，企业为此购买的可能是一组账号和一段持续服务。Microsoft（MSFT）的企业应用订阅，就把可使用的功能、付费用户和套餐联系在一起：采购部门确定购买范围，员工使用相应账号，供应商继续提供运行、更新和支持。企业有多少员工、开通了多少账号，以及愿意继续为哪些功能付费，需要分别看。员工增加会扩大潜在使用范围，实际采购还取决于哪些人需要软件、选择什么套餐，以及原有许可怎样安排。[^zh-customers-products-pricing--msft]
+
+软件也可以交给客户在自己的设施中运行。这时，客户取得软件使用权，并自行准备较多运行条件；供应商则交付软件，再按约定提供升级、维护或支持。许可与维护可以按不同期限组合在一份合同中（软件许可可能有期限，也可能允许客户长期使用某个版本；后续升级和支持又有各自的合同期间。同一企业协议还可能同时包含本地许可和云服务，要按客户实际取得的权利分别理解）。转到云服务，客户还可以直接付费使用供应商提供的计算资源。
+
+Amazon（AMZN）的 AWS 提供计算、存储、数据库等服务，客户可以按所用资源及合同安排付费。一个应用开始运行以后，会使用计算资源、保存数据，也可能调用数据库；这些服务各有计量方式，随后进入客户的账单。AWS 需要先准备可用的设备和运行条件；客户随后使用多少、使用哪些服务，则会按合同安排体现到账单中。按用量计费还可以与套餐或消费承诺结合（按量、承诺折扣和固定套餐对应不同付款安排，不能把某一种服务的计量单位用于全部云业务。合同承诺、容量上线、实际使用和收款也需要分别定位）。[^zh-customers-products-pricing--aws]
+
+客户**业务工作负载**
+
+运行应用、保存数据、处理计算。
+
+使用计算、存储或数据库服务
+
+云服务方**可用容量**
+
+准备设备、电力和运行服务。
+
+按使用和合同计费
+
+付款安排**客户账单**
+
+计量单位、套餐和承诺共同影响金额。
+
+**客户的工作负载形成资源使用，供应方的设备和电力形成服务能力；账单按所用服务及合同安排计算。**
+
+### 把客户需求与供给条件接起来 {#nb-d01-software-demand}
+
+客户希望少花钱，也未必就要离开原来的供应商。Netflix（NFLX）与 AWS 工程师在一份联合案例中介绍，团队原来在 AWS EC2 上自行管理一批关系数据库，后来把其中若干应用迁到 Aurora 托管服务，以减轻许可证和运行维护负担。服务组合变了，客户仍在使用同一家云供应商。许可证、内部维护和云服务又是不同支出，因此 Agent 读到“客户降低成本”时，还要继续辨认省下的是哪笔钱，以及新的服务由谁提供。[^zh-customers-products-pricing--netflix]
+
+客户要扩大使用，供应方也得按时提供所需容量。Talen Energy（TLN）在 2025 年公布与 AWS 的扩展供电安排，约定分阶段增加供电。有了长期合同，还要继续核对配套建设怎样推进、各阶段供电何时可用；电力又要与机房、设备及客户使用相接。我们就可以把客户的采用安排与这些建设进度放在一起，看它们在时间上能不能接上。[^zh-customers-products-pricing--talen]
+
+沿着这些关系核验，客户侧要解释为什么续用或扩用，供应方则要交出相应资源。若某个客户增加计算，是为了向自己的客户提供付费服务，Agent 还可以再查这一层业务如何产生使用。外部研究也能帮助比较解释：英国竞争与市场管理局（CMA）在 2025 年的云市场研究中，区分了原有业务用量变化、成本优化、迁移和新增工作负载。客户支出增加可能对应不同变化，既有应用留在原供应商，也不等于每一项新任务都会交给它。把这些区别带回采购和使用材料，关于云需求的判断就同时有了购买理由和可交付条件。[^zh-customers-products-pricing--cma]
+
+## 互联网平台与广告：参与者与付款关系 {#nb-d01-platform-story}
+
+### 一次交易中的不同客户 {#nb-d01-platform-participants}
+
+在 Amazon（AMZN）的第三方商家店铺购买商品时，买家购买的是商家的货，商家则在使用平台提供的服务。商家把商品放到平台上销售，按所选销售计划和交易安排付费；如果还需要平台仓储、配送，又会购买相应的履约服务。顺着这笔交易看下去，同一平台上就出现了两种购买关系：消费者为商品付款，商家为平台服务付款。[^zh-customers-products-pricing--seller]
+
+商品买家**消费者**
+
+向第三方商家购买商品。
+
+商品交付与商品价款
+
+商品卖家**第三方商家**
+
+提供商品，并选择所需平台服务。
+
+平台服务与相应费用
+
+服务提供者**平台**
+
+提供交易支持，以及可选的履约、广告等服务。
+
+**商品交易与平台服务分别发生：买家向商家买商品，商家再按安排购买平台服务。**
+
+商品放在平台仓库里，也要分清商品所有权和仓储服务（由谁拥有货物、谁保管货物、谁代收货款，以及谁负责退货，各有相应安排。使用平台仓库并不能单独证明商品已被平台买下；交易额和平台收取的费用也属于不同口径）。所以研究平台时，只知道“网上卖了多少货”还不够，还要认出平台在这一笔交易中承担了哪些工作，向谁收取哪一笔费用。
+
+广告又带来了另一类付款者。Alphabet（GOOGL／GOOG）的搜索和视频服务吸引用户，广告主则希望通过这些服务接触用户。用户搜索信息、观看 YouTube 视频，广告主购买相关的展示、观看或互动机会，平台再按具体广告产品的投放和计量安排收费。自有服务之外，广告网络还会连接外部网站和应用；这些合作方提供广告位置，并按安排取得分成。广告主付了多少钱，与平台最终保留多少，因而也需要分开看。[^zh-customers-products-pricing--alphabet]
+
+愿意直接购买内容或功能的用户，也可以成为订阅客户。YouTube 的订阅和 Google One 等服务，让用户按套餐与周期付款，取得内容、存储或功能的持续使用权益。订阅与广告可以共享用户和基础设施，但客户买到的东西不同，平台接下来的内容与服务责任也不同。因此研究一项平台业务时，要先确定正在讨论的是哪一类客户和哪一种收费。
+
+### 沿广告主的生意验证需求 {#nb-d01-platform-demand}
+
+平台卖出了广告，广告主还要看这笔支出给自己的生意带来了什么。Booking Holdings（BKNG）在营销说明中把 Google 列为重要渠道，并讨论点击成本、流量转成预订的效果，以及预订取消对营销效率的影响。一个人点击了广告，还要继续完成预订；预订又可能在后来取消。因此，平台已经卖出的点击与 BKNG 最后取得的业务结果，需要按各自时点观察。广告主自己的业务结果会反过来影响它愿意继续投入多少预算。[^zh-customers-products-pricing--bkng]
+
+如果 Agent 要判断 GOOGL 的广告需求，就可以先沿这项已知采购关系读取 BKNG 的营销材料，再比较预算和预订发生了什么变化。需要解释旅游需求时，再追到实际旅行活动；企业研报关于获客成本、渠道竞争或广告回报的解释，也应与这些材料相对照。这样，我们就能把平台的使用情况与客户的付费理由接起来，继续判断这些收费能否维持。
+
+## 半导体与硬件：生产、交付与使用 {#nb-d01-semiconductor-story}
+
+### 一项计算能力怎样成为产品 {#nb-d01-semiconductor-production}
+
+NVIDIA（NVDA）提供的产品，既可以进入数据中心，也可以用于个人电脑和专业工作。图形处理器（GPU）是其中一类产品；数据中心客户需要计算和互连能力，采购的可能是芯片、模块，也可能是由硬件、软件与配套部件组成的系统。个人电脑产品则可能先交给电脑厂商、板卡商或销售渠道，再由最终用户购买。直接采购方与最终使用者未必是同一个主体，要把这些产品交给客户，还得让制造、封装和配套环节按时接续。[^zh-customers-products-pricing--nvda]
+
+沿着交付继续看，TSMC（TSM／2330）按客户设计提供晶圆制造和封装，ASML Holding（ASML）则为芯片制造商提供光刻设备、软件和相关服务。设计企业安排产品研发与采购，晶圆厂准备工艺、厂房和设备，设备供应商再完成自己的制造、交付和维护。这里按各家公司交付的东西区分业务（TSM 是在美国交易的存托证券代码，2330 是台湾上市普通股代码，二者对应同一家 TSMC。晶圆制造与封装服务由客户设计和生产要求引出，不等于代工企业直接销售自有品牌芯片）。同一项终端需要，到了不同企业手中，会变成不同的订单与交付。[^zh-customers-products-pricing--tsmc]，[^zh-customers-products-pricing--asml]
+
+产品制造与交付
+
+产品与系统**芯片设计和产品企业**
+
+提出设计与生产要求，安排采购。
+
+产品企业委托并付款；服务商制造、封装并交付
+
+制造与封装**晶圆及封装服务商**
+
+按客户设计完成约定的生产与交付。
+
+生产设备与服务
+
+设备使用者**晶圆制造企业**
+
+建设和运行产线，采购所需设备与服务。
+
+制造企业采购并付款；供应商交付设备与服务
+
+设备供给**设备及装机服务商**
+
+提供设备、维护和升级等服务。
+
+**生产委托与设备采购分属不同交易：产品企业取得制造和封装交付，制造企业则采购生产设备及相应服务。**
+
+这些交付还各自需要资金。NVDA 需要投入研发、安排制造采购并持有相应库存；晶圆厂需要建设和运行产线；购买计算设备的客户则要准备机房及运行条件。客户采购了设备以后，还要完成部署，才能在自己的工作中使用。沿产业链观察时，应当辨认这些相接的阶段，避免把同一项需要在不同环节出现的金额重复相加。
+
+### 从终端使用追到新增采购 {#nb-d01-semiconductor-demand}
+
+客户已经在使用的设备，也会影响后续采购。CoreWeave（CRWV）管理层在 2026 年 8 月的电话会上披露，公司新签了一份延续至 2029 年的 A100 算力服务合同。这个案例说明旧代设备仍能承接付费服务。客户的服务业务增长以后，可能先利用现有设备或提高效率，也可能增加新设备；我们还要看客户作出了哪一种选择，才能判断供应商是否获得新的采购机会。[^zh-customers-products-pricing--coreweave]
+
+以 Amazon（AMZN）的 AWS 为例，新增的计算需求还可能落到不同产品上。AMZN 在 2026 年 4 月的公告中介绍了自研 Trainium 芯片的落地情况，同时公布了从 2026 年起部署更多 NVDA GPU 的计划。自研与外购可以同时存在，已经采用的产品与未来部署计划也各有时点。Agent 就需要沿产品选择和采购安排，判断目标公司实际承担哪一部分交付，再核这些产品何时在客户那里上线使用。[^zh-customers-products-pricing--aws-gpu]
+
+企业研报可以帮助我们检查这条关系中的假设。KGI 在 2025 年 10 月 1 日的 TSMC 报告中，根据当时客户的计划，上调了先进封装的需求和产能预测；它对后续短缺的判断，又以客户维持当时需求水平为条件。读到这样的预测，就有了继续核验的对象：客户是否仍按原计划采购，工厂是否交出了预计容量，设备又是否顺利部署。把报告与后来的建设、采购和交付材料放在一起，可以继续检验哪些解释仍然适用、哪些需要更新。[^zh-customers-products-pricing--kgi]
+
+## 工业设备与工程服务：从安装到持续运行 {#nb-d01-industrial-story}
+
+### 同一台设备，不同阶段的生意 {#nb-d01-industrial-lifecycle}
+
+Otis Worldwide（OTIS）既交付新电梯，也为已经安装的设备提供维保、维修和改造。建设一栋楼时，开发商或总承包商等客户采购设备，OTIS 需要制造、供货，再配合现场进度完成安装与调试。客户可以先支付预付款，再按材料到场、安装等进度支付后续款项。等到设备开始使用，业主或设施管理人接下来关心的事情也会改变：电梯能否按要求运行，出现问题时由谁检查、维修，零件怎样更换，都会进入持续服务。[^zh-customers-products-pricing--otis]
+
+这时，客户购买的是一段期间内的维护及约定服务。OTIS 也维护其他厂商的设备，因此一台设备由谁制造，与后来由谁提供付费维保，需要分别辨认。维保合同的覆盖范围会影响后续工作和收费（检查、保养、故障处理和零件更换可以有不同的合同范围；某项维修是否已包含在服务价内，要回到相应条款。装机设备、在保设备和付费维保设备也各有计数范围）。再过一段时间，业主可能还会为升级部件或系统另做预算，这就进入了设备改造的业务，需要重新安排施工范围和停机时间。
+
+建设阶段**新设备采购者**
+
+购买设备、安装与调试。
+
+设备投入使用后
+
+运行阶段**业主或管理人**
+
+购买约定范围的维保和维修。
+
+出现升级需要时
+
+更新阶段**改造采购者**
+
+安排预算和停机，购买部件或系统升级。
+
+**同一台设备在不同阶段可能对应不同采购者。新设备、维保和改造分别以实际合同为准。**
+
+大型工程还会把设备、施工和管理组织在一份项目安排中。Fluor（FLR）提供工程设计、采购、施工及项目管理等服务，承包范围由合同规定。可报销合同通常按约定的成本和费用安排结算，总价合同则围绕约定工作范围确定价格。两种安排会改变客户与承包商各自承担的成本责任（可报销合同仍有可报销范围、费率和履约条件；总价或最高限价合同也需连同范围变更、索赔和其他条款理解，另有混合合同。项目总投资、承包金额和承包商最终取得的收入各有范围）。[^zh-customers-products-pricing--fluor]比较这类订单时，就还要看合同金额对应多少工作、哪些支出由谁承担。
+
+### 让订单回到项目进度 {#nb-d01-industrial-demand}
+
+拿到订单以后，项目还需要按计划推进。签约、取得开工通知、制造或施工、交付验收和付款，分别说明项目已经走到哪里。GE Vernova（GEV）的一份 2023 年订单公告，就介绍了为业主 EnBW 提供设备、建设及后续服务的安排。再读业主的 Heilbronn 项目页，可以看到主要部件交付、启动和商业投运的后续计划。把供应方最初的计划与业主后来的安排对照，就能发现预期投运时间发生了变化（2023 年 11 月的供应方公告预计于 2026 年底投运；2026 年 9 月 27 日读取的业主项目表暂定于 2027 年下半年投入商业运行）。[^zh-customers-products-pricing--gev]核对项目进度时，我们就需要辨认这笔订单已经走到了哪一步，接下来还要完成什么。
+
+Agent 可以先查直接采购方和供应方：采购方的项目是否推进，设备或分包工作是否能够按时交付。如果订单来自总包，而项目资金或建设安排仍不清楚，再查背后的业主。维保业务则要回到实际合同续签和服务覆盖，改造要回到业主预算及实施安排。企业研报若用订单增长推算后续收入，就要交代这些订单怎样转成实际工作；若用装机基础推算服务增长，则要解释哪些设备会继续成为付费客户。这时，新设备订单、既有设备运行和改造需求就能各自找到相应的依据。
+
+## 医药与医疗服务：采用、采购与支付 {#nb-d01-healthcare-story}
+
+### 一次诊疗中的不同交付 {#nb-d01-healthcare-delivery}
+
+我们以美国医疗市场为例，先把患者接受的服务与机构之间的采购分开看。患者需要诊疗，医生参与选择治疗办法，医疗机构组织人员与设施，同时采购所需药品和器械。患者接受服务以后，费用还可能由商业保险、政府项目和患者分别承担。治疗需要怎样落实为采购和付款，要沿具体的产品与服务继续辨认。
+
+Johnson & Johnson（JNJ）的业务包括药品和医疗器械。药品可以经批发商、药房或医疗机构进入患者治疗，药厂的直接买方与最终使用者因而可能分开；器械可以由机构采购，也可以经批发或零售渠道交付，随后由相应人员使用。器械内部还有设备、植入产品和耗材之别：一台可持续使用的设备，与随诊疗消耗的材料，对应不同的采购与补货过程。同一项诊疗需要，可能同时带来不同供应方的产品交付。[^zh-customers-products-pricing--jnj]
+
+医疗机构采购药品或器械，再把它们用于患者的诊疗，产品买卖与医疗服务因而对应不同的交付（机构直接向药厂采购时，药厂售价与机构采购价就是同一笔交易的两端；经分销渠道采购时，则要分清各环节的买卖。药品销售的返利、折扣和退货会影响净收入；器械究竟按设备出售、租赁、耗材或服务收费，需按所选产品合同确认）。
+
+HCA Healthcare（HCA）则组织医院与门诊设施提供医疗服务。患者接受住院、门诊或手术等服务，医院需要准备医护人员、场所和耗材，付款来源包括政府医疗项目、保险计划和患者。支付金额取决于相应项目或合同的安排（相关支付可以按病例、诊断、住院日或服务项目计算；Medicare、Medicaid、商业保险和患者自付各有适用关系。医院账单标价、预计可收金额和最后收到的现金需要分别辨认）。[^zh-customers-products-pricing--hca]HCA 随医疗服务的履行确认收入，现金到账又是另一个环节，还需要跟进支付核定和实际收款。
+
+直接采购药品或器械
+
+产品供给**药品与器械企业**
+
+直接向医疗机构供应药品或器械。
+
+向机构供货；机构按采购安排付款
+
+采购与采用**医疗机构**
+
+采购相应产品，供诊疗使用。
+
+诊疗与患者自付
+
+服务提供者**医疗机构与医护团队**
+
+组织人员、设施和所需药械。
+
+向患者提供诊疗；患者按安排支付自付部分
+
+接受服务**患者**
+
+接受诊疗，承担约定的自付费用。
+
+第三方支付
+
+费用支付方**保险与政府项目**
+
+按适用项目和合同核定费用。
+
+按项目与合同向医疗机构支付
+
+服务提供者**医疗机构**
+
+提供相应服务，并办理结算。
+
+**按美国医疗业务的关系示意：图中展示机构直接采购，产品也可以经分销渠道供货。诊疗与支付再按各自合同或项目安排完成。**
+
+### 从临床需要到可支付的使用 {#nb-d01-healthcare-demand}
+
+患者有治疗需要以后，还要找到能够采用、供货和支付的具体路径。某个产品获准销售，说明它取得了相应准入；医疗机构愿意采用，还涉及诊疗安排、采购与人员使用；患者最终用得上，又要看实际获得服务和支付覆盖。这些材料回答的问题不同。Agent 因而要先选定产品和市场，再沿渠道、机构及付款关系核对。
+
+如果药厂的直接客户是批发商，Agent 可以先看其采购与库存，再核医院或药房的实际使用；研究医院服务，则要分别看患者活动与支付方的结算安排。企业研报中关于患者人数或市场空间的估计，也要接到这种采用过程：有多少需要能够进入治疗，机构怎样采购，目标公司最后按什么条件取得收入。只有把这些环节接起来，我们才能知道一项医疗需求会怎样进入所研究公司的业务。
+
+## 银行、支付与保险：资金与未来承诺 {#nb-d01-finance-story}
+
+### 账户、贷款与支付各自提供什么 {#nb-d01-finance-services}
+
+把钱存入银行、向银行借款和通过银行卡付款，是几种不同的交易。以 JPMorgan Chase（JPM）的消费银行业务为例，存款客户使用账户，把钱存入银行，并保留按相应条款提款的权利；借款客户取得融资，随后需要还本付息。同一个人可以同时承担这两种角色，但存款本金、贷款本金和银行收取的利息、服务费，各有不同的含义。因此客户交来的钱和银行取得的收入，需要沿各自的权利与付款责任分别理解。[^zh-customers-products-pricing--jpm]
+
+银行还需要为这些承诺准备资金，负担资金成本，并承担借款人不能按约偿付造成的损失。存款越多或贷款越多，只说明业务规模的一部分；研究新增贷款时，还要看借款人为什么需要钱，靠什么还款。JPM 同时经营其他金融业务，这里先用账户与贷款认清消费银行中的基本关系。
+
+再看 Visa（V），它为发卡、收单等参与者提供网络处理服务。消费者用卡付款，发卡方服务持卡人，收单方服务商户，支付网络帮助完成授权、清算和结算等处理。商户承担的费用、机构间的交换费和 V 的网络收入，需要分别辨认（交换费通常由收单方向发卡方支付；网络收费涉及支付金额、处理笔数、跨境和增值服务等安排，并受客户激励影响。V 不提供发卡行的持卡人消费信贷，但仍有自己的结算资金责任）。[^zh-customers-products-pricing--visa]交易流经多少金额，与网络最终收取多少费用，便是两个不同的观察对象。
+
+银行：存款与贷款
+
+存款客户**储户**
+
+使用账户，保留按条款提款的权利。
+
+储户存入本金；银行按约办理提款
+
+账户与融资**银行**
+
+提供账户和贷款，负担资金成本与信用损失。
+
+银行发放贷款；借款人还本付息
+
+融资客户**借款人**
+
+使用借款，并按约偿还。
+
+支付网络：处理服务
+
+网络客户**发卡、收单等机构**
+
+为持卡人或商户服务，并使用支付网络。
+
+机构按约付费；网络提供处理服务
+
+网络服务方**支付网络**
+
+帮助完成授权、清算和结算等处理。
+
+保险：保费与未来责任
+
+购买保险**投保人**
+
+按合同购买保障并支付保费。
+
+向承保公司支付保费
+
+承担责任**承保公司**
+
+收取保费，并承担合同约定的责任。
+
+在约定情形出现时赔付或给付
+
+取得赔付或给付**合同约定的收款方**
+
+依保单确定相应的收款权利。
+
+**银行分别与储户、借款人交易；支付网络和保险各有自己的客户与责任。本金、服务费与保费分别理解，保险收款方及条件由合同确定。**
+
+### 收取保费以后的责任 {#nb-d01-finance-insurance}
+
+保险提供的是另一种承诺。Chubb（CB）的业务包括财产与责任保险，以及寿险等类别。投保人支付保费，购买约定期间和范围内的保障；承保公司则在合同约定的情形出现时承担相应赔付。例如，CB 英国商业财产险的产品介绍就列出了财产损坏，以及损坏后的营业中断保障。经纪人或代理人可以帮助客户购买保险，承担赔付的承保人又是另一个角色。保费收到以后，约定的保障和未来赔付责任还会持续。[^zh-customers-products-pricing--chubb]
+
+不同保险产品承诺的时间和条件不同，收到保费与最终履约之间可能相隔很久。公司需要估计后续赔付，确认相应负债，并以资产和资本支持履约（损失准备金反映对尚未支付的赔款及相关费用的估计，属于保险负债。保单的保障期间与赔付持续时间也可能不同，部分已发生事故的理赔会在保障期结束后继续）。[^zh-customers-products-pricing--chubb]研究这类业务时，我们就要把客户购买保障的需要，与公司承担承诺的条件一起看。
+
+Agent 沿不同业务核需求时，追问的对象也会改变。银行要同时看借款与偿付来源；支付网络要分清实际交易增加，还是客户换了支付方式或交易路由；保险则要区分保费变化来自费率、保障范围、投保价值还是客户数量，再接到相应赔付。企业研报若只写“规模增长”，这些关系仍需展开。规模变化只有回到相应业务里，才会显示它对收费和履约的实际含义。
+
+## 能源与原材料：商品、加工与输运 {#nb-d01-energy-story}
+
+### 同一批资源可以形成不同生意 {#nb-d01-energy-products}
+
+以油气业务为例，公司可以开采并出售资源，也可以把买来的原料加工成燃料或化工产品。ExxonMobil（XOM）的业务就涉及油气生产、下游加工与化工等活动。资源生产面对的是接收油气的买方，加工业务再把原料转成适合具体用途的产品，客户购买的东西已经不同。因此研究它的客户需求时，就要先确定正在看哪一种产品和哪一个环节。[^zh-customers-products-pricing--xom]
+
+资源开采需要先开发和建设，再逐步生产；加工企业则要准备装置、采购原料，并组织产品销售。自购原料再出售产品时，公司既面对原料价格，也面对产品售价，还要承担能源、加工和库存等工作。原料价格与产品售价之差，可以帮助观察加工业务，但还需要结合实际加工成本（产品收率、能源消耗、运输、检修及库存等会影响结果；商品交付的品质、地点和时间也应与合同对应。这里只说明收入与成本的关系，不用一个商品报价代替整项业务的经营结果）。材料到了客户手中，还可能继续加工，最终进入交通、制造或其他用途。
+
+Kinder Morgan（KMI）提供管道、储运等服务，其业务介绍还列出与 BP North America 的长期收费加工安排。客户按协议购买加工服务，KMI 则提供相应的设施和处理能力。看起来同样在加工或运输商品，客户买到的却可能是一项服务。[^zh-customers-products-pricing--kmi]
+
+自购原料，再出售产品
+
+原料供给**原料供应方**
+
+按合同交付约定原料。
+
+供应方交原料；加工企业支付采购款
+
+购买与加工**加工企业**
+
+采购原料、组织加工，再销售产品。
+
+加工企业交产品；客户支付货款
+
+产品购买**产品客户**
+
+接收产品，用于后续加工或使用。
+
+按加工或输运服务收费
+
+服务采购**服务客户**
+
+购买合同约定的加工或输运等服务。
+
+客户支付服务费；服务商提供约定服务
+
+提供能力**加工或输运服务商**
+
+运行设施，按合同处理或输运物料。
+
+**自购自销围绕原料与产品买卖；服务收费围绕加工或输运等服务。两条路径分别核对付款、交付与实际使用。**
+
+这也会改变我们看需求的方法。出售产品，要看谁愿意按相应条件接货；提供输运或加工服务，则要看客户预订什么能力、实际使用多少，以及合同怎样收费。容量预订、实际吞吐和服务期间可以分别进入收费安排（按容量还是实际数量付费、有无最低承诺、货物所有权由谁保留，都要以具体合同为准。一项设施的收费安排不能推广到该公司的全部业务）。商品价格、加工价差和服务费于是各有要解释的对象。
+
+### 沿客户提货与实际用途核需求 {#nb-d01-energy-demand}
+
+生产企业接到采购以后，还要按安排把产品交给买方；加工客户的订单，则需要结合其生产和库存理解。若贸易商增加提货，商品可能进入后续使用，也可能暂时停留在库存中；若客户预订了运输或储存能力，实际使用还要看后续货物流转。Agent 可以先核直接买方或托运人，再根据当前问题决定是否追到下一环节的实际使用。
+
+企业研报对同一次行业变化也可能给出不同解释。油气需求变化可以影响产品销售，原料与成品价格的相对变化又会影响加工关系，运输服务还要回到具体路线和容量合同。将这些解释同客户订单、提货、库存及设施使用材料相对照，就可以辨认影响落在哪个环节。这样，一项能源或材料需求就能沿着具体产品与合同，逐步接到目标公司的交付和收入。
+
+## 把业务判断接到证据 {#nb-d01-evidence}
+
+公司交付什么、向谁收费，以及收款后还需承担什么责任，会决定我们接下来该找哪些证据。客户有需要，说明购买有了理由；实际采购或采用，说明客户作出了相应选择；公司完成交付，又使业务向前走了一步。持续服务、支付网络和保险各有自己的合同及使用证据，核对时要让材料对应正在讨论的环节。
+
+Agent 可以把公司的解释与客户、供应商的材料及企业研报放在一起读。几份材料谈的是不是同一个产品或项目，发生时间能不能接上，需要先认清；随后再比较需求扩大、提前采购、补库存或更换供应商等解释。沿真实交易关系找到直接客户或供应商，就有了继续核对的对象；还有具体问题未解时，再向相邻的一方追下去。材料不足的地方先保留问题，已经形成的判断则写清依据和改变它的条件。
+
+这些依据还要实际用到判断中。客户的材料支持原有解释，就保留相应判断；若采购对象、交付时间或使用范围变了，就修改对应部分。研报在某个日期作出的预测，也应与后来发生的事情分别保存。当新的订单、采用或交付信息出现时，我们就能沿着原来的业务关系继续更新。
+
+有了这些认识，下一步便可以讨论收入怎样增长。《收入增长的来源》将继续比较客户增加、用量扩大、价格变化和产品组合的作用；它们各自意味着什么，都要从本篇认出的生意出发。
+
+[^zh-customers-products-pricing--nke]: [NIKE FY2025 Form 10-K — Business and Revenue Recognition](https://www.sec.gov/Archives/edgar/data/320187/000032018725000047/nke-20250531.htm)。财年截至 2025-05-31；Item 1，HTML 行 143—175；Revenue Recognition，行 1952—1955；批发客户信用，行 423—426。
+[^zh-customers-products-pricing--wmt]: [Walmart FY2025 Form 10-K — Business; Membership and Other Income](https://stock.walmart.com/sec-filings/all-sec-filings/content/0000104169-25-000021/wmt-20250131.htm)。财年截至 2025-01-31；申报 2025-03-14；业务概述行 226—248；Sam’s Club 行 303—318；会员收入行 1929—1931。
+[^zh-customers-products-pricing--msft]: [Microsoft 2025 Annual Report — Microsoft 365 and Licensing Options](https://www.microsoft.com/investor/reports/ar25/index.html)。FY2025 年报；行 258—276，Microsoft 365 Commercial、Dynamics；行 392—400，Licensing Options。
+[^zh-customers-products-pricing--aws]: [AWS Product and Service Pricing](https://aws.amazon.com/pricing/)。动态官方页面，读取于 2026-09-27；How does AWS pricing work；How do you pay for AWS，行 239—254 及价格方式标题。
+[^zh-customers-products-pricing--netflix]: [Netflix consolidates relational database infrastructure on Amazon Aurora, achieving up to 75% improved performance](https://aws.amazon.com/blogs/database/netflix-consolidates-relational-database-infrastructure-on-amazon-aurora-achieving-up-to-75-improved-performance/)。2025-11-26；迁移结果截至 2025 年 10 月；Business challenge；Achieving cost-efficiency；Migration results；About the authors，行 237—276、299—316。
+[^zh-customers-products-pricing--talen]: [Talen Energy Expands Nuclear Energy Relationship with Amazon; Q2 2026 AWS PPA update](https://ir.talenenergy.com/static-files/90cce90c-e281-42c6-b686-ed6010dd8699)；[Talen Q2 2026 Form 10-Q](https://talenenergy.gcs-web.com/static-files/649bfa16-a54e-4997-914b-a8a5d2e00900)。合同公告 2025-06-11；进展披露 2026-08-05；2025 8-K 附件 99.1，PDF 第 4 页，行 55—67；2026 Q2 10-Q，PDF 第 46 页 AWS PPA 术语，行 2054—2059。
+[^zh-customers-products-pricing--seller]: [Sell on Amazon — How much does it cost to sell on Amazon?](https://sell.amazon.com/pricing/)。美国官方卖家页面，读取于 2026-09-27；Selling plans、FBA/merchant fulfillment 选项、Referral fees，行 180—258、294—308。
+[^zh-customers-products-pricing--alphabet]: [Alphabet 2025 Form 10-K — Google Services; Cost of Revenues](https://www.sec.gov/Archives/edgar/data/1652044/000165204426000018/goog-20251231.htm)。年度截至 2025-12-31；How We Make Money，行 227—239；TAC 与内容采购，行 959—976。
+[^zh-customers-products-pricing--bkng]: [Booking Holdings 2025 Form 10-K — Marketing](https://www.sec.gov/Archives/edgar/data/1075531/000107553126000009/bkng-20251231.htm)。年度截至 2025-12-31；行 855—864，performance marketing expenses and efficiency。
+[^zh-customers-products-pricing--nvda]: [NVIDIA FY2026 Form 10-K — Markets, Manufacturing and Customers](https://www.sec.gov/Archives/edgar/data/1045810/000104581026000021/nvda-20260125.htm)。财年截至 2026-01-25；行 187—207；Manufacturing 行 284—289；直接/间接客户行 1279—1288。
+[^zh-customers-products-pricing--tsmc]: [TSMC 2025 Annual Report Website — About TSMC and Shareholder Letter](https://investor.tsmc.com/static/annualReports/2025/english/index.html)。2025 年度报告；股东信行 18—24；About TSMC 行 64—77。
+[^zh-customers-products-pricing--asml]: [ASML — About the company](https://www.asml.com/en/company)。动态公司页面，读取于 2026-09-27；公司概述，行 138。
+[^zh-customers-products-pricing--coreweave]: [CoreWeave Q2 2026 Earnings Call — Corrected Transcript](https://s205.q4cdn.com/133937190/files/doc_financials/2026/q2/CRWV-US-CORRECTED-TRANSCRIPT-CoreWeave-Q2-2026-Earnings-Call-11August2026.pdf)。2026-08-11；PDF 第 8 页 A100 合同；问答中续约范围，既有文本行 576—590。
+[^zh-customers-products-pricing--aws-gpu]: [Amazon Q1 2026 Earnings Release — AI chip deployment highlights](https://s2.q4cdn.com/299287126/files/doc_earnings/2026/q1/earnings-result/AMZN-Q1-2026-Earnings-Release.pdf)。2026-04-29；PDF 第 2 页，AI chips / Trainium / NVIDIA 条目，行 35—42。
+[^zh-customers-products-pricing--kgi]: [KGI TSMC Company Update — 3Q25 preview: AI outlook has turned more promising](https://www.kgi.com.hk/en/-/media/files/kgishk/research-reports/tw-reports/tsmc_2330-tt_01102025e.pdf)。2025-10-01；PDF 第 1 页：Revise up 2026 CoWoS estimates；Early 2027 outlook；第 10 页材料使用说明。
+[^zh-customers-products-pricing--otis]: [Otis Worldwide 2025 Form 10-K — New Equipment and Service](https://www.sec.gov/Archives/edgar/data/1781335/000178133526000011/otis-20251231.htm)。年度截至 2025-12-31；Item 1，行 172—178、205—222。
+[^zh-customers-products-pricing--fluor]: [Fluor 2025 Form 10-K — Business and Types of Contracts](https://www.sec.gov/Archives/edgar/data/1124198/000112419826000007/flr-20251231.htm)。年度截至 2025-12-31；行 205—208；Types of Contracts，行 310、323—333。
+[^zh-customers-products-pricing--gev]: [GE Vernova secures two H-class combined cycle equipment orders from EnBW](https://www.gevernova.com/news/press-releases/ge-vernova-secures-two-h-class-combined-cycle-equipment-orders-hydrogen-capability)；[EnBW Heilbronn combined heat and power plant — Project phases](https://www.enbw.com/company/topics/coal-phaseout/heilbronn-combined-heat-and-power-plant/)；[EnBW Heilbronn — Projektphasen](https://www.enbw.com/unternehmen/themen/kohleausstieg/heizkraftwerk-heilbronn/)。供应方公告 2023-11-06；业主动态项目页读取于 2026-09-27；公告行 68—72；EnBW Heilbronn 页面 Project phases、Project diary，行 40—59。
+[^zh-customers-products-pricing--jnj]: [Johnson & Johnson 2025 Form 10-K — Innovative Medicine and MedTech](https://www.sec.gov/Archives/edgar/data/200406/000020040626000016/jnj-20251228.htm)。财年截至 2025-12-28；Item 1，行 214—217、225—235；收入确认既有定位见 health-finance-branches.json。
+[^zh-customers-products-pricing--hca]: [HCA Healthcare 2025 Annual Report to Shareholders — Note 1 Revenues](https://s23.q4cdn.com/949900249/files/doc_financials/2024/ar/HCA-2025-Annual-Report-to-Shareholders-FINAL.pdf)。2025 年度；URL 目录含 2024，报告正文为 2025；PDF 第 104—105 页，Note 1 Revenues，行 4898—4945。
+[^zh-customers-products-pricing--jpm]: [JPMorgan Chase 2025 Annual Report — Consumer & Community Banking](https://www.jpmorganchase.com/content/dam/jpmc/jpmorgan-chase-and-co/investor-relations/documents/annualreport-2025.pdf)。2025 年度；PDF 第 97 页/报告第 65 页，行 8140—8172。
+[^zh-customers-products-pricing--visa]: [Visa FY2025 Form 10-K — Network Model and Transaction Processing](https://www.sec.gov/Archives/edgar/data/1403161/000140316125000089/v-20250930.htm)。财年截至 2025-09-30；业务模式行 181—219；Note 1 Organization，行 1960—1961；结算资金责任沿既有 F2 短段记录复用。
+[^zh-customers-products-pricing--chubb]: [Chubb 2025 Letter to Shareholders; Commercial Property Insurance](https://about.chubb.com/stories/2025-chubb-letter-to-shareholders.html)；[Chubb Commercial Property Insurance — UK](https://www.chubb.com/uk-en/business/products/property-insurance.html)；[Chubb FY2025 Form 10-K — Unpaid losses and loss expenses, and Future policy benefits](https://www.sec.gov/Archives/edgar/data/896159/000089615926000005/R17.htm)。2025 年度股东信；官方产品页读取于 2026-09-27；股东信行 224、234—250；英国商业财产险产品页行 348—392。
+[^zh-customers-products-pricing--xom]: [ExxonMobil — Business divisions](https://corporate.exxonmobil.com/who-we-are/our-global-organization/business-divisions)。动态公司业务页面，读取于 2026-09-27；行 29—55：Upstream、Product Solutions、Low Carbon Solutions。
+[^zh-customers-products-pricing--kmi]: [Kinder Morgan — Products Pipelines; Condensate Processing Facility](https://www.kindermorgan.com/Operations/Products/Index)。动态公司业务页面，读取于 2026-09-27；Overview 行 19—21；Kinder Morgan Condensate Processing Facility 行 272—278。
+[^zh-customers-products-pricing--cma]: [CMA Cloud Infrastructure Services — Final decision report](https://assets.publishing.service.gov.uk/media/688b8891fdde2b8f73469544/final_decision_report.pdf)。2025-07-31 报告；公布版 2025-08-01；本轮 PDF 第 109 页 §§3.236—3.237 关于新增客户/负载和存量变动的区别；第 269 页 §6.70；既有本地迁移阅读见 external-sources.md E2。
 
 
 ---
@@ -290,7 +720,7 @@ VOO · 2026 年 6 月 30 日
 
 回到 VOO，我们在交易软件里看到的买卖报价，就是它的场内价格。买卖双方的出价决定市场成交，基金持有的资产则决定其净值，因此两者可能出现差距：市价高于净值称为溢价，低于净值称为折价。
 
-假设某时点一份 ETF 对应的资产价值估算为 10 美元，市价为 10.10 美元，就相当于按高出 1% 的价格买入这份资产。即使底层股票的价格暂时不变，后来的溢价收窄也会影响这笔投资的回报。
+假设某时点一份 ETF 对应的资产价值估算为 10 美元，市价为 10.10 美元，就相当于以 1% 的溢价买入 ETF 份额。即使底层股票的价格暂时不变，后来的溢价收窄也会影响这笔投资的回报。
 
 ETF 的申购、赎回机制把场内份额与对应资产联系起来，也会影响市价与资产价值的差距。能够直接与基金进行大额申赎的机构称为授权参与商（AP）。当差价足以覆盖成本时，AP 可以分别采取以下交易：[^zh-indices-funds-etfs--etf]
 
@@ -369,9 +799,9 @@ VOO 的 0.02% 管理费已经包含在 0.03% 总费用率里，不能再加一�
 
 一次性买入收费与每年的持续费用，会在不同阶段减少可供投资的资金。同一只基金的不同份额和销售安排，也可能对应不同成本（这里的 0.55% 已包含 0.23% 管理费、0.08% 其他费用和 0.24% 的持续销售服务费用。费用取自 AIVSX 产品页，该页标注最近招募书日期为 2026 年 3 月 1 日。5.75% 是最高前端销售费，具体适用金额、折扣、豁免及合并账户资格按销售安排确定；0.24% 属于美国 12b-1 费用，已计入 0.55%。一次性销售费与年度持续费的计费时点、分母不同，不能相加称为每年 6.30%）。
 
-不过，场外交易本身并不决定费率高低。Vanguard 的自家共同基金不收前端或后端销售负担，仍会承担各自的持续费用；少数产品还可能有特定买入、赎回费用。因此，比较费用时，我们要看具体产品、份额和购买渠道。场内 ETF 同样有持续费用和交易成本，而“免佣金”也只是免去了其中一项。[^zh-indices-funds-etfs--vanguard-fees]，[^zh-indices-funds-etfs--fee-rules]
+不过，场外交易本身并不决定费率高低。Vanguard 的自家共同基金不收前端或后端销售费，仍会承担各自的持续费用；少数产品还可能有特定买入、赎回费用。因此，比较费用时，我们要看具体产品、份额和购买渠道。场内 ETF 同样有持续费用和交易成本，而“免佣金”也只是免去了其中一项。[^zh-indices-funds-etfs--vanguard-fees]，[^zh-indices-funds-etfs--fee-rules]
 
-持有一组股票时，指数可以帮助我们观察市场、比较业绩，也可以提供安排持仓的规则。至于实际投资，我们可以自己建立并管理组合，也可以持有基金份额，把管理交给基金管理人；ETF 则为基金份额提供了在交易所买卖的形式。选择基金以后，底层公司的经营与股票买入价格仍然影响回报，管理人的取舍和各项费用则继续影响最终留给我们的所得。
+持有一组股票时，指数可以帮助我们观察市场、比较业绩，也可以提供安排持仓的规则。至于实际投资，我们可以自己建立并管理组合，也可以持有基金份额，把管理交给基金管理人；ETF 则为基金份额提供了在交易所买卖的形式。选择基金以后，底层公司的经营与股票买入价格仍然影响回报，管理人的取舍和各项费用则继续影响最终留给我们的所得。至于底层股票具体附带哪些权利、又怎样发行和转手，[《股票的类型、发行与交易形式》](https://ou-liu-red-sugar.github.io/zh/notebook/stock-types-issuance-trading/)会继续展开。
 
 [^zh-indices-funds-etfs--sp-method]: S&P Dow Jones Indices，[S&P U.S. Indices Methodology](https://www.spglobal.com/spdji/en/documents/methodologies/methodology-sp-us-indices.pdf)，2026 年 7 月，选样、自由流通市值加权、公司多股类及再平衡。正文只列所需条件类型。
 [^zh-indices-funds-etfs--msci]: MSCI，[MSCI World Index factsheet](https://www.msci.com/documents/10199/255599/msci-world-index-usd-net.pdf)，2026-08-31，23 个发达市场的大中盘范围及覆盖比例。
@@ -447,9 +877,11 @@ VOO 的 0.02% 管理费已经包含在 0.03% 总费用率里，不能再加一�
 
 ## 期限与现金意识 {#nb-a02-awareness}
 
-有了这些例子，以后再看一项投资时，我们就可以顺着它的整个持有过程想一遍：资金能够投入多久，期间会不会另有付款，如果提前退出会付出什么代价，卖出后又要等多久才能用到钱（实际交易中，成交、证券与款项的正式交付，以及资金转出有各自的处理时间，需要按实际市场和账户安排衔接）。预期回报合意时，我们还要有资金把这段持有过程接续下去。[^zh-investment-horizon-cash--settlement]
+有了这些例子，以后再看一项投资时，我们就可以顺着它的整个持有过程想一遍：资金能够投入多久，期间会不会另有付款，如果提前退出会付出什么代价，卖出后又要等多久才能用到钱（实际交易中，成交、证券与款项的正式交付，以及资金转出有各自的处理时间，需要按实际市场和账户安排衔接）。预期回报符合自己的要求时，我们还要有资金把这段持有过程接续下去。[^zh-investment-horizon-cash--settlement]
 
-当几项投资放在一起时，还要再看它们的收付款能不能相互配合。几笔付款集中在相近的日期，回款却都要更晚才来，现金缺口就会一起出现。预留现金可以支持已经承诺的付款、应对回款延后，也给后来的调整和投资机会留下空间。随着新的交易和付款安排出现，我们也要重新看看各笔收付款的时间和金额，提前准备可能出现的现金缺口。
+当几项投资放在一起时，还要再看它们的收付款能不能相互配合。几笔付款集中在相近的日期，回款却都要更晚才来，现金缺口就会一起出现。预留现金可以支持已经承诺的付款、应对回款延后，也给后来的调整和投资机会留下空间。随着新的交易和付款安排出现，我们也要重新看看各笔收付款的时间和金额，提前为可能出现的现金缺口做好安排。
+
+现金安排关系到我们能否完成付款、维持持有；要判断一笔股票投资是否值得，还需要理解买到的公司权益，以及付出的价格怎样影响回报。[《股票、公司与股价》](https://ou-liu-red-sugar.github.io/zh/notebook/stocks-company-price/)会从股份与公司经营的关系讲起。
 
 [^zh-investment-horizon-cash--bond]: [SEC：What Are Corporate Bonds?](https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins/what-are)，What are the financial terms of a bond?、Credit/default Risk、Call Risk。本文金额与条款为教学设定。
 [^zh-investment-horizon-cash--sale]: [FINRA：Bonds](https://www.finra.org/investors/investing/investment-products/bonds)，Selling Before the Maturity Date、Bond Pricing。970 美元为本例设定的实际净成交款。
@@ -516,7 +948,7 @@ GEV 向电厂项目与运营商提供设备和服务；客户依约下单并付�
 
 有了订单以后，GEV 还要组织采购、制造和交付，并按合同履约情况确认收入，也就是把相应的收入金额记入财务报表。不过客户实际付款的时间可能与确认收入的时间不同；GEV 什么时候向供应商付款，也有相应的合同安排。这样一来，我们既要比较收入与采购、生产、服务等成本，判断这项业务能赚多少钱，也要沿着收付款的时间看下去，判断是否需要先垫入资金，以及资金会被占用多久。[^zh-investment-returns--gev-annual]
 
-等到设备投入使用以后，业务还可能继续。前述 EBK 订单就包含十年的维护和服务。已有设备的保养、检修和零部件更换，都可能带来后续服务收入。因此研究这项业务时，我们既要看新设备的需求，也要看已有设备的运行与维护需要。[^zh-investment-returns--gev-order]，[^zh-investment-returns--gev-annual]
+等到设备投入使用以后，GEV 还可能继续提供服务。前述 EBK 订单就包含十年的维护和服务。已有设备的保养、检修和零部件更换，都可能带来后续服务收入。因此研究这项业务时，我们既要看新设备的需求，也要看已有设备的运行与维护需要。[^zh-investment-returns--gev-order]，[^zh-investment-returns--gev-annual]
 
 这项业务最终能给股东留下多少，还要放回公司整体来看。其他业务的盈亏、公司的共同费用和税费，都会影响公司整体的盈利；债务收付和再投资安排又会影响现金怎样使用。至于股东实际收到多少，还要看公司的分配决定。把这些因素合在一起，再考虑股份数量，我们就能在每股的尺度上继续讨论这份股权可能带来的所得，以及自己愿意付出什么价格。[^zh-investment-returns--stocks]
 
@@ -534,7 +966,7 @@ GEV 向电厂项目与运营商提供设备和服务；客户依约下单并付�
 
 要把这样的研究持续做下去，就需要不断取得和核对材料。相关依据分散在公司披露、客户的项目安排、供应商资料和竞争者的信息里，沿着这些业务关系查下去，常常会有新的问题需要回答。Agent 可以参与这些工作，和我们一起围绕具体问题查找、对照和更新材料。
 
-仍以 GEV 的设备订单为例，我们可以请 Agent 查找客户的建设计划，了解这次采购的用途和时间；查找上游供货与产能信息，核对按期交付需要哪些条件；再比较其他设备供应商的产品与服务，理解客户有哪些选择。查到这些资料以后，就把它们带回 GEV 的这项业务：客户的项目安排是否支持我们原先判断的设备需求？供货和产能条件，又会怎样影响交付与成本？这样，每一步取得的材料都能用于回答具体的经营问题。
+仍以 GEV 的设备订单为例，我们可以请 Agent 查找客户的建设计划，了解这次采购的用途和时间；查找上游供货与产能信息，核对按期交付需要哪些条件；再比较其他设备供应商的产品与服务，理解客户有哪些选择。查到这些资料以后，我们再结合 GEV 的这项业务来判断：客户的项目安排是否支持我们原先判断的设备需求？供货和产能条件，又会怎样影响交付与成本？这样，每一步取得的材料都能用于回答具体的经营问题。
 
 资料拿到以后，我们还要分清哪些是已经发生的事实，哪些是公司的预期，哪些是研究中作出的假设，并比较不同来源的依据能否相互支持。在研究过程中，可以让 Agent 把来源和当时的判断保留下来；等到新的财报或项目消息出现，再一起对照原先的依据，看看哪些认识已经得到支持，哪些需要调整。经过这样的积累，我们就能看清判断为什么发生变化，也知道下一步还需要研究什么。
 
@@ -552,7 +984,7 @@ GEV 向电厂项目与运营商提供设备和服务；客户依约下单并付�
 | --- | --- |
 | 是什么 | 现金用于支付和保留可用资金；银行存款则按账户约定存放、支取或计息。 |
 | 回报从哪里来 | 现金本身不计息，计息存款取得利息。比较实际结果时，还要考虑费用与购买力变化。 |
-| 相关词条 | [存款、货币基金与短债](https://ou-liu-red-sugar.github.io/zh/notebook/#topic-U)；[存款、货币基金与短债](https://ou-liu-red-sugar.github.io/zh/notebook/#topic-U) |
+| 相关词条 | [存款、货币基金与短债](https://ou-liu-red-sugar.github.io/zh/notebook/#topic-U) |
 
 #### 债券
 
@@ -568,7 +1000,7 @@ GEV 向电厂项目与运营商提供设备和服务；客户依约下单并付�
 | --- | --- |
 | 是什么 | 持有股权，就是拥有企业的一部分股份。上市股票可以在交易所买卖，非上市股权有不同的交易与退出安排。 |
 | 回报从哪里来 | 公司分配与股权价格变化共同影响持有结果；企业赚到的利润还可能留在公司继续经营。 |
-| 相关词条 | [股票、公司与股价](https://ou-liu-red-sugar.github.io/zh/notebook/#topic-S)；[股东回报：分红、回购与增发](https://ou-liu-red-sugar.github.io/zh/notebook/#topic-S) |
+| 相关词条 | [股票、公司与股价](https://ou-liu-red-sugar.github.io/zh/notebook/stocks-company-price/)；[股东回报：分红、回购与增发](https://ou-liu-red-sugar.github.io/zh/notebook/shareholder-returns-buybacks-issuance/) |
 
 #### 房地产
 
@@ -600,7 +1032,7 @@ GEV 向电厂项目与运营商提供设备和服务；客户依约下单并付�
 | --- | --- |
 | 是什么 | 外币是相对于生活所用币种的另一种货币，也可以用于持有存款、债券等资产。 |
 | 回报从哪里来 | 换回生活所用货币时，汇率变化影响结果；能否取得利息等收入，取决于具体持有方式。 |
-| 相关词条 | [存款、货币基金与短债](https://ou-liu-red-sugar.github.io/zh/notebook/#topic-U)；[复利、通胀与机会成本](https://ou-liu-red-sugar.github.io/zh/notebook/#topic-A) |
+| 相关词条 | [存款、货币基金与短债](https://ou-liu-red-sugar.github.io/zh/notebook/#topic-U)；[复利、通胀与机会成本](https://ou-liu-red-sugar.github.io/zh/notebook/compounding-inflation-opportunity-cost/) |
 
 ### 基金与合约
 
@@ -610,7 +1042,7 @@ GEV 向电厂项目与运营商提供设备和服务；客户依约下单并付�
 | --- | --- |
 | 是什么 | 基金汇集资金投资资产或执行策略；ETF 是可以在交易所交易的一类基金。 |
 | 回报从哪里来 | 底层资产、投资策略和费用共同影响结果。判断投资风险，要看基金实际持有什么以及怎样运作。 |
-| 相关词条 | [指数、基金与 ETF](https://ou-liu-red-sugar.github.io/zh/notebook/#topic-V)；[基金跟踪与投资者回报](https://ou-liu-red-sugar.github.io/zh/notebook/#topic-V) |
+| 相关词条 | [指数、基金与 ETF](https://ou-liu-red-sugar.github.io/zh/notebook/indices-funds-etfs/)；[基金跟踪与投资者回报](https://ou-liu-red-sugar.github.io/zh/notebook/#topic-V) |
 
 #### REITs
 
@@ -618,15 +1050,15 @@ GEV 向电厂项目与运营商提供设备和服务；客户依约下单并付�
 | --- | --- |
 | 是什么 | REITs（房地产投资信托）提供参与经营性房地产或房地产融资的证券投资途径。 |
 | 回报从哪里来 | 房地产经营或相关融资的所得支持分配，证券价格也会变化；费用和融资成本影响持有人结果。 |
-| 相关词条 | [房地产、租金与持有成本](https://ou-liu-red-sugar.github.io/zh/notebook/#topic-X)；[指数、基金与 ETF](https://ou-liu-red-sugar.github.io/zh/notebook/#topic-V) |
+| 相关词条 | [房地产、租金与持有成本](https://ou-liu-red-sugar.github.io/zh/notebook/#topic-X)；[指数、基金与 ETF](https://ou-liu-red-sugar.github.io/zh/notebook/indices-funds-etfs/) |
 
 #### 期权
 
 | 项目 | 说明 |
 | --- | --- |
 | 是什么 | 买方付费，取得按约定条件（包括期限和价格）买入或卖出特定对象（称为标的）的权利；卖方承担相应义务。 |
-| 回报从哪里来 | 盈亏取决于期权的买卖或结算结果、购买期权所付的权利金与其他费用。 |
-| 相关词条 | [期权权利、盈亏与退出](https://ou-liu-red-sugar.github.io/zh/notebook/#topic-G)；[期权权利、盈亏与退出](https://ou-liu-red-sugar.github.io/zh/notebook/#topic-G) |
+| 回报从哪里来 | 买方支付、卖方收取权利金；各自的盈亏还要结合后续买卖、行权或到期结算的结果，以及相关费用来计算。 |
+| 相关词条 | [期权权利、盈亏与退出](https://ou-liu-red-sugar.github.io/zh/notebook/#topic-G) |
 
 #### 期货
 
@@ -634,7 +1066,7 @@ GEV 向电厂项目与运营商提供设备和服务；客户依约下单并付�
 | --- | --- |
 | 是什么 | 期货约定在未来按合约规则交付或结算，可涉及商品、股指、利率等对象。 |
 | 回报从哪里来 | 合约价格变化形成持仓盈亏，并通过结算影响账户资金；保证金用于履约，投入的保证金不代表最大可能损失。 |
-| 相关词条 | [股票的类型、发行与交易形式](https://ou-liu-red-sugar.github.io/zh/notebook/#topic-K)；[投资组合、保证金与对冲策略](https://ou-liu-red-sugar.github.io/zh/notebook/#topic-K) |
+| 相关词条 | [股票的类型、发行与交易形式](https://ou-liu-red-sugar.github.io/zh/notebook/stock-types-issuance-trading/)；[投资组合、保证金与对冲策略](https://ou-liu-red-sugar.github.io/zh/notebook/settlement-margin-cash/) |
 
 #### 永续合约
 
@@ -642,7 +1074,7 @@ GEV 向电厂项目与运营商提供设备和服务；客户依约下单并付�
 | --- | --- |
 | 是什么 | 永续合约通常没有固定到期日，常见设计通过资金费等安排使价格与现货保持联系。 |
 | 回报从哪里来 | 价格变化、资金费收付与交易费用共同影响结果；持仓需要满足保证金要求，保证金不足可能触发强制平仓。 |
-| 相关词条 | [永续合约的价格锚定与资金费](https://ou-liu-red-sugar.github.io/zh/notebook/#topic-L)；[永续合约的价格锚定与资金费](https://ou-liu-red-sugar.github.io/zh/notebook/#topic-L) |
+| 相关词条 | [永续合约的价格锚定与资金费](https://ou-liu-red-sugar.github.io/zh/notebook/#topic-L) |
 
 #### 预测市场
 
@@ -650,7 +1082,7 @@ GEV 向电厂项目与运营商提供设备和服务；客户依约下单并付�
 | --- | --- |
 | 是什么 | 参与者交易按具名事件及约定条件结算的合约。 |
 | 回报从哪里来 | 买卖或结算所得减去投入与费用，形成持有盈亏；结果取决于合约规定的事件与判定方式。 |
-| 相关词条 | [事件合约与概率报价](https://ou-liu-red-sugar.github.io/zh/notebook/#topic-H)；[事件合约与概率报价](https://ou-liu-red-sugar.github.io/zh/notebook/#topic-H) |
+| 相关词条 | [事件合约与概率报价](https://ou-liu-red-sugar.github.io/zh/notebook/#topic-H) |
 
 这些资产和工具各有不同的收付款方式。我们先回到前面讨论的普通股票，看看怎样把一笔投资的结果算完整：期间收到的现金、仍持有股份的价值与最初投入，都要一起考虑，并扣除相应费用。后面的词条会分别解释各类资产的收付关系，再讨论怎样让它们共同服务自己的资金目标。[^zh-investment-returns--returns]
 
@@ -683,7 +1115,7 @@ GEV 向电厂项目与运营商提供设备和服务；客户依约下单并付�
 
 亏损以后，我们常常会想：已经跌了这么多，再等一等，也许就能回本。要是价格又稍稍回升了一些，我们就更容易觉得反弹已经开始了，于是原先准备减仓的打算也变成了“再看看”。这样一来，等回本就逐渐成了持有的理由，原先为什么买入、后来又发生了什么变化，反倒容易被放到一边。
 
-不过，在决定要不要继续等之前，我们还得先把这笔投资的得失看清楚，再看看从现在开始，继续持有还有怎样的前景。同样经历下跌，有的股票后来修复了，有的却继续落后。要理解它们为什么会走向不同的结果，就得把目光从自己的成本移向行业和公司，看看下跌期间究竟发生了什么。
+不过在决定要不要继续等之前，我们还得先把这笔投资的得失看清楚，再看看从现在开始继续持有，还有怎样的前景。同样经历下跌，有的股票后来修复了，有的却继续落后。要理解它们为什么会走向不同的结果，就得把目光从自己的成本移向行业和公司，看看下跌期间究竟发生了什么。
 
 ## 亏损与回本预期 {#nb-a03-loss}
 
@@ -711,11 +1143,11 @@ GEV 向电厂项目与运营商提供设备和服务；客户依约下单并付�
 
 **FISV 相对支付行业 ETF IPAY 的明显落后。虚线标出几次公司披露，区间末的数字为相对期初的价格变化；[查看数据](https://ou-liu-red-sugar.github.io/notebook/holding/fiserv-underperformance.csv)。**
 
-一般而言，当行业里的公司一起下跌，自己的持仓也大致同步时，我们就不必单凭亏损怀疑它出了独有的问题；若在一段时间里明显落后于行业，便应该重点检查需求、竞争位置和盈利前景是否也相对转弱了。即使公司还在增长，原先的增长预期也可能已经落空（KO 图观察 2023 年 9 月 29 日至 12 月 29 日；FISV 图观察 2025 年 1 月 2 日至 2026 年 9 月 24 日。两图使用拆股调整后的收盘价，各自以期初为 100，不计分红。XLP 覆盖美国消费必需品板块，IPAY 覆盖全球数字支付相关公司，业务范围均比对应单一公司更广；相对股价还受起始估值及市场预期变化影响）。有了这个线索，我们再沿着公司的披露，看看经营变化与股价落后是怎样联系起来的。
+一般而言，当行业里的公司一起下跌，自己的持仓也大致同步时，我们就不必单凭亏损怀疑它出了独有的问题；若在一段时间里明显落后于行业，便应该重点检查需求、竞争位置和盈利前景是否也相对转弱了。即使公司还在增长，原先的增长预期也可能已经落空（KO 图观察 2023 年 9 月 29 日至 12 月 29 日；FISV 图观察 2025 年 1 月 2 日至 2026 年 9 月 24 日。两图使用拆股调整后的收盘价，各自以期初为 100，不计分红。XLP 覆盖美国消费必需品板块，IPAY 覆盖全球数字支付相关公司，业务范围均比对应单一公司更广；相对股价还受起始估值及市场预期变化影响）。相对行业的表现提供了查证的方向，接下来就要用公司披露的经营情况检验：当时担心的业务变化是否已经出现，原来的增长预期又兑现了多少。
 
 ## 基本面变化与 Risk-Reward {#nb-a03-risk-reward}
 
-要看清这种差别，我们得先回到消息刚出现的时候。对于 KO，市场已经开始担心消费减少，那么公司当时披露的经营情况是什么样的？2023 年 10 月 24 日发布的第三季度报告显示，全球销量同比增长 2%，营业利润增长 6%；公司同时上调全年有机收入增长预期至 10%—11%。财报呈现的是截至 9 月底仍在增长的业务基础，公司对全年增长的判断也没有随着市场担忧一起转弱。[^zh-loss-volatility-holding-capacity--ko-results]
+先看 KO 在这轮下跌中披露了什么。市场开始担心消费减少以后，公司随后公布的财报能为这一担忧提供怎样的参照？2023 年 10 月 24 日发布的第三季度报告显示，全球销量同比增长 2%，营业利润增长 6%；公司同时上调全年有机收入增长预期至 10%—11%。财报呈现的是截至 9 月底仍在增长的业务基础，公司对全年增长的判断也没有随着市场担忧一起转弱。[^zh-loss-volatility-holding-capacity--ko-results]
 
 这就给了持有人可以继续观察的具体依据：销量能不能保持，产品和定价是否仍有竞争力，全年盈利预期是否需要调整。面对同一轮担忧，我们既要理解它可能怎样影响业务，也要看这种影响已经发展到了哪一步。后来股价修复，让我们看见了这段持有过程的结果；当时作判断时，能够使用的则是已经披露的经营情况与对未来的估计。
 
@@ -723,7 +1155,7 @@ GEV 向电厂项目与运营商提供设备和服务；客户依约下单并付�
 
 问题也出现在实际经营中。FISV 的商户业务有机收入增速，从第二季度的 9% 放缓到第三季度的 5%；金融服务业务则从增长 7% 转为下降 3%。第三季度调整后每股收益同比下降 11%。到 2026 年第二季度，公司有机收入同比下降 5%，调整后每股收益下降 26%，经营压力仍然没有消失。公司还在赚钱，可当初期待的增长与盈利路径已经改变了。[^zh-loss-volatility-holding-capacity--fiserv-q2]，[^zh-loss-volatility-holding-capacity--fiserv-q3]，[^zh-loss-volatility-holding-capacity--fiserv-2026]
 
-这些变化最后还会影响股东能够分享的所得。这也接上了[《股票、公司与股价》](https://ou-liu-red-sugar.github.io/zh/notebook/stocks-company-price/)中的认识：持有公司的股份，就要看它的业务最终能带来什么。一项业务受到冲击时，要看它在公司利润中有多大份量、压力可能持续多久，其他业务又能提供多少支撑，再把共同费用、债务和资金投入放进去，估计整体的盈利前景（本节的有机收入增长及调整后每股收益，采用各公司披露的非 GAAP 口径；比较始终在同一家公司、同一指标内进行，所述季度同比变化与全年指引分别保留各自期间）。所以，重新判断持仓时，我们既要更新对未来所得的估计，也得看看眼前的股价已经变到了哪里。
+经营与盈利预期的变化，还会改变我们对股东未来所得的估计。这也接上了[《股票、公司与股价》](https://ou-liu-red-sugar.github.io/zh/notebook/stocks-company-price/)中的认识：持有公司的股份，就要看它的业务最终能带来什么。一项业务受到冲击时，要看它在公司利润中有多大份量、压力可能持续多久，其他业务又能提供多少支撑，再把共同费用、债务和资金投入放进去，估计整体的盈利前景（本节的有机收入增长及调整后每股收益，采用各公司披露的非 GAAP 口径；比较始终在同一家公司、同一指标内进行，所述季度同比变化与全年指引分别保留各自期间）。所以，重新判断持仓时，我们既要更新对未来所得的估计，也得看看眼前的股价已经变到了哪里。
 
 至于价格下跌以后是否更值得持有，还得看未来所得的预期怎样变化。经营预期仍有支持、价格却降下来了，相同的潜在所得就对应更少的资金投入；若经营前景下调得更多，即使股价已经更低，这笔投资也未必更划算。为了把这两边的变化放在一起，我们就要用到 Risk-Reward，比较可能取得的回报与需要承担的损失。
 
@@ -762,7 +1194,7 @@ GEV 向电厂项目与运营商提供设备和服务；客户依约下单并付�
 
 反过来，经营情景本身也会改变。假如中性情景的年每股收益从 5 美元下调到 4 美元，仍按 20 倍市盈率计算，期末股价的估计就从 100 美元降到了 80 美元。即使眼前股价也跌到 80 美元，中性情景下两年的回报仍只有分红带来的 2.5%。过去已经跌掉的部分，并不会自动变成从现在开始的上行空间。
 
-把幅度算出来以后，我们还要看看，乐观结果依赖的需求增长能否兑现，不利情景由什么因素触发，以及等待期间有没有更合适的资金用途。同样的累计回报，等两年与等十年，吸引力也不同（本例每个情景均假设两年累计每股分红 2 美元，暂不计税费、融资成本及分红再投资；没有给情景指定概率。表中的不利情景只对应所列经营结果）。原来的理由仍有支持、当前价格的 Risk-Reward 也合意时，继续持有就有了依据；若这些条件已经改变，也就可以在尚未回本之前调整持仓。
+把幅度算出来以后，我们还要看看乐观结果依赖的需求增长能否兑现、不利情景由什么因素触发，以及等待期间有没有更合适的资金用途。同样的累计回报，等两年与等十年，吸引力也不同（本例每个情景均假设两年累计每股分红 2 美元，暂不计税费、融资成本及分红再投资；没有给情景指定概率。表中的不利情景只对应所列经营结果）。原来的理由仍有支持、当前价格的 Risk-Reward 也合意时，继续持有就有了依据；若这些条件已经改变，也就可以在尚未回本之前调整持仓。
 
 ## 交易心理与短期指标 {#nb-a03-indicators}
 
@@ -784,7 +1216,7 @@ GEV 向电厂项目与运营商提供设备和服务；客户依约下单并付�
 
 ### MACD：趋势动量的转弱与转强
 
-MACD 用快慢两条移动均线的差值 DIF 观察动量，再用一条更平滑的 DEA 线作比较。蓝色 DIF 线上穿橙色 DEA 线，通常称为金叉；向下穿过则称为死叉。下图的柱体表示两条线的差，柱体由负转正，也就对应着 DIF 从 DEA 下方来到上方。[^zh-loss-volatility-holding-capacity--indicators]
+MACD 用快慢两条移动均线的差值 DIF 观察动量，再用一条更平滑的 DEA 线作比较。蓝色 DIF 线上穿橙色 DEA 线，通常称为金叉；向下穿过则称为死叉。下图的柱体表示 DIF 与 DEA 差值的两倍，柱体由负转正，也就对应着 DIF 从 DEA 下方来到上方。[^zh-loss-volatility-holding-capacity--indicators]
 
 [![SPY价格与MACD副图共用日期轴。标记1为7月17日DIF下穿DEA，标记2为8月3日DIF上穿DEA，标记3为8月20日再次下穿；上图对应先下跌、再回升及后续回落。](https://ou-liu-red-sugar.github.io/notebook/holding/spy-macd.svg)](https://ou-liu-red-sugar.github.io/notebook/holding/spy-macd.svg)
 
@@ -800,7 +1232,7 @@ KDJ 先看收盘价处在最近一段高低区间的什么位置，再把它平�
 
 **① 低位回升；② 高位延续；③ K 下穿 D。[查看大图](https://ou-liu-red-sugar.github.io/notebook/holding/spy-kdj.svg) · [数据](https://ou-liu-red-sugar.github.io/notebook/holding/spy-daily-indicators.csv)。**
 
-7 月 29 日下跌后，K 已经降到约 19；第二天价格回升，K 也上穿 D，形成①处的低位转强信号。再往右看，8 月 11—14 日 K、D 都高于 80，价格却仍然保持在较高位置，这就是高位指标可以随着强势走势持续一阵的例子。等到③处 K 向下穿过 D，后续回落才更明显地展开。对于这段行情，KDJ 在 8 月 17 日就表现出高位转弱，MACD 则到 8 月 20 日才出现死叉，两种指标的反应速度也就有了具体的对照（采用 KDJ（9，3，3）：RSV＝100×（收盘价−近 9 日最低价）÷（近 9 日最高价−近 9 日最低价）；K＝前一日 K×2/3＋当日 RSV/3，D＝前一日 D×2/3＋当日 K/3，J＝3K−2D。7 月 29、30 日 K/D 分别约为 18.78/28.83、32.58/30.08；8 月 17 日为 73.14/81.81。J 可以超出 0—100 的范围）。[^zh-loss-volatility-holding-capacity--indicator-data]
+7 月 29 日下跌后，K 已经降到约 19；第二天价格回升，K 也上穿 D，形成①处的低位转强信号。再往右看，8 月 11—14 日 K、D 都高于 80，价格却仍然保持在较高位置，这就是高位指标可以随着强势走势持续一阵的例子。到了③处，K 向下穿过 D，随后价格回落也变得更明显。对于这段行情，KDJ 在 8 月 17 日就表现出高位转弱，MACD 则到 8 月 20 日才出现死叉，两种指标的反应速度也就有了具体的对照（采用 KDJ（9，3，3）：RSV＝100×（收盘价−近 9 日最低价）÷（近 9 日最高价−近 9 日最低价）；K＝前一日 K×2/3＋当日 RSV/3，D＝前一日 D×2/3＋当日 K/3，J＝3K−2D。7 月 29、30 日 K/D 分别约为 18.78/28.83、32.58/30.08；8 月 17 日为 73.14/81.81。J 可以超出 0—100 的范围）。[^zh-loss-volatility-holding-capacity--indicator-data]
 
 ### VWAP：日内价格相对成交均价的位置
 
@@ -810,7 +1242,7 @@ KDJ 先看收盘价处在最近一段高低区间的什么位置，再把它平�
 
 **绿色价格线在橙色 VWAP 上方延续，午间回落仍未收破均价。下方同时保留成交量。[查看大图](https://ou-liu-red-sugar.github.io/notebook/holding/spy-vwap.svg) · [数据](https://ou-liu-red-sugar.github.io/notebook/holding/spy-vwap-20260803.csv)。**
 
-这一天的五分钟收盘价始终高于日内 VWAP；到①处，也就是纽约时间 12:05，价格约为 756 美元，高于约 754 美元的均价。接下来可以观察，回落是否跌破 VWAP、能否重新站上，以及伴随的成交量（12:00—12:05 这根五分钟 K 线的收盘价为 756.00 美元，累计 VWAP 近似值为 753.82 美元。VWAP 用常规交易时段内各根五分钟 K 线的“最高价、最低价与收盘价的平均值”乘成交量，再累计加权；它与逐笔成交计算值会有差异。图上标记 K 线结束时刻，日内累计 VWAP 每个交易日重新起算）。[^zh-loss-volatility-holding-capacity--vwap-data]
+这一天的五分钟收盘价始终高于日内 VWAP；到①处，也就是纽约时间 12:05，价格约为 756 美元，高于约 754 美元的均价。接下来可以观察回落时能否守住 VWAP；若跌破，再看能否重新站上，以及这些变化伴随怎样的成交量（12:00—12:05 这根五分钟 K 线的收盘价为 756.00 美元，累计 VWAP 近似值为 753.82 美元。VWAP 用常规交易时段内各根五分钟 K 线的“最高价、最低价与收盘价的平均值”乘成交量，再累计加权；它与逐笔成交计算值会有差异。图上标记 K 线结束时刻，日内累计 VWAP 每个交易日重新起算）。[^zh-loss-volatility-holding-capacity--vwap-data]
 
 这些图让我们能够具体地说出价格处在什么位置、走势怎样变化。但当我们正亏着钱、盼着反弹时，一次转强信号也常常正好符合自己的愿望。均线开始转向、价格重新站上 VWAP，都可以成为观察线索；接下来还要看，行业情况、经营预期和当前价格下的 Risk-Reward 是否也有了相应的改善。几个由同一段价格计算出来的指标一起转强，也可能只是反映了同一次价格变化。
 
@@ -828,7 +1260,7 @@ KDJ 先看收盘价处在最近一段高低区间的什么位置，再把它平�
 
 ## 资金、心态与持有能力 {#nb-a03-capacity}
 
-判断值得继续持有以后，还得看看自己有没有资金把这段时间接续下去。[《投资期限与现金需要》](https://ou-liu-red-sugar.github.io/zh/notebook/investment-horizon-cash/)讨论了投资回款与期间付款的衔接；放到一笔正在亏损的持仓中，我们也要先看，预期兑现之前还有没有必须支付的款项。
+即使经营前景与当前价格仍支持继续持有，我们还得有资金等到预期兑现。[《投资期限与现金需要》](https://ou-liu-red-sugar.github.io/zh/notebook/investment-horizon-cash/)讨论了投资回款与期间付款的衔接；放到一笔正在亏损的持仓中，我们也要先看，预期兑现之前还有没有必须支付的款项。
 
 假设有 12,000 美元可以安排，股票买入价为 100 美元，几个月后还有一笔已经约定的 2,000 美元支出。我们可以先留出付款现金，也可以把钱全部买成股票，等需要时再卖出一部分。到了付款前，若股价恰好跌到 80 美元，两种安排就会出现下面的区别：
 
@@ -847,7 +1279,7 @@ KDJ 先看收盘价处在最近一段高低区间的什么位置，再把它平�
 
 除了资金，我们还要给自己的情绪留一点余地。频繁打开行情，每一次下跌都可能重新牵动回本的愿望，一点反弹又让人忍不住调整判断。屏幕上的变化越来越多，真正影响公司经营的新信息却未必同样频繁。减少这种反复刺激，也有助于按已经想清楚的依据行动。当然，放下手机和电脑，去做点别的事散散心，也是一种非常好的提升持有能力的举动。
 
-有了资金和心态上的余地，我们也就更容易按自己的判断持有或调整。KO 的修复与 FISV 的失利提醒我们，等待本身会通向不同的结果，还要看等待期间的依据怎样变化。所以，决定继续拿着一只股票时，我们既要看未来回报是否值得承担风险，也要看自己能否承受这段持有过程；当这些条件变了，减仓和退出也就应该重新进入考虑。
+资金和心态上的余地，让我们更容易按判断持有或调整。至于等待多久，还要看依据怎样变化：KO 的修复与 FISV 的失利，展示了不同经营变化下的持有结果。决定继续拿着一只股票时，我们既要比较未来回报与可能损失，也要把等待时间和期间的现金需要算进去；当这些条件变了，减仓和退出也就应该重新进入考虑。
 
 [^zh-loss-volatility-holding-capacity--wsj]: [Spencer Jakab：How to Tell Whether a Plunging Stock Will Keep Plunging](https://www.wsj.com/finance/stocks/how-to-tell-whether-a-plunging-stock-will-keep-plunging-bf0be3ed)，WSJ，2026-09-18，Missing the bounce 部分。采用 GLP-1 担忧下食品饮料股的修复案例及相对行业比较的思路。
 [^zh-loss-volatility-holding-capacity--prices-ko]: Yahoo Finance：[KO](https://finance.yahoo.com/quote/KO/history/)、[XLP](https://finance.yahoo.com/quote/XLP/history/)，2023-09-29 至 2023-12-29 日收盘价。KO 三个文中时点分别为 55.98、52.38、58.93 美元，其中 52.38 为 10 月 5 日收盘价。KO、XLP 在该区间的价格变化分别约为 +5.3%、+4.7%。数列见[数据表](https://ou-liu-red-sugar.github.io/notebook/holding/ko-recovery.csv)。
@@ -884,9 +1316,9 @@ KDJ 先看收盘价处在最近一段高低区间的什么位置，再把它平�
 
 ## 报价、盘口与流动性 {#nb-b02-quotes}
 
-以我们前面用过的 Vanguard S&P 500 ETF（VOO）为例，读行情时，除了价格曲线，还会接触到 Last、Bid 和 Ask 这些字段。Last 是最近一笔交易的成交价格；Bid 是当前买方报出的最高买价，Ask 则是卖方报出的最低卖价。准备立即买入时，我们先看卖方愿意以什么价格卖出；准备立即卖出时，就看买方愿意出到什么价格。[^zh-quotes-orders-execution--quotes]
+以 Vanguard S&P 500 ETF（VOO）为例，读行情时，除了价格曲线，还会接触到 Last、Bid 和 Ask 这些字段。Last 是最近一笔交易的成交价格；Bid 是当前买方报出的最高买价，Ask 则是卖方报出的最低卖价。准备立即买入时，我们先看卖方愿意以什么价格卖出；准备立即卖出时，就看买方愿意出到什么价格。[^zh-quotes-orders-execution--quotes]
 
-下面用一组假设的报价，把这几个字段放在一起。价格单位为美元／股，数量直接按股数显示：
+下面换成一只假设股票，把这几个字段放在一起。价格单位为美元／股，数量直接按股数显示：
 
 | 字段 | 显示内容 | 怎样理解 |
 |---|---:|---|
@@ -898,7 +1330,7 @@ KDJ 先看收盘价处在最近一段高低区间的什么位置，再把它平�
 
 把报价展开，还能看到其他价位上的挂单，合起来称为**订单簿**，交易界面也常把这部分叫作盘口。100.02 美元处有 100 股可卖，100.05 美元处还有 200 股，再往上也可能有更多卖量。买 50 股和买 300 股，面对的就已经是不同的成交过程：前者可以由最优一档满足，后者还需要后面的卖量。
 
-我们希望买卖的数量，能否较快地以接近当前报价的价格成交，体现了这笔交易面对的**流动性**。一般而言，买卖价差较窄、附近可成交的数量较多时，大一些的订单也更容易完成。把同一笔订单放进较薄的盘口，为了找到足够数量，就可能需要接受更远的价格。成交价偏离下单时所用的参照价格，这种差异通常称为**滑点**；买入时价格变高，便是不利的滑点。
+我们买卖一定数量的证券时，能否较快地以接近当前报价的价格成交，体现了当时市场的**流动性**。一般而言，买卖价差较窄、附近可成交的数量较多时，大一些的订单也更容易完成。把同一笔订单放进较薄的盘口，为了找到足够数量，就可能需要接受更远的价格。成交价偏离下单时所用的参照价格，这种差异通常称为**滑点**；买入时价格变高，便是不利的滑点。
 
 盘口还会不断变化。新的限价单进入，已经挂出的订单被成交或撤回，都会改变眼下能交易的数量。因此，读盘口时要把价格、数量和时点放在一起：成交量记录一段时间内已经成交多少，市场深度则描述不同价位上当前可见的数量（可见盘口的覆盖范围取决于行情来源；单一交易场所的深度不等于所有场所的总量，隐藏或储备数量也未必全部显示。行情延迟时，页面上的那一档还可能已经发生变化）。一笔较大的限价买单若挂在簿中，会增加当时的可见买量；但它之后仍可能成交、修改或撤回，不能单凭这一档数量认定价格一定会守在这里。[^zh-quotes-orders-execution--quotes]
 
@@ -906,7 +1338,7 @@ KDJ 先看收盘价处在最近一段高低区间的什么位置，再把它平�
 
 看懂了市场上的报价，接下来就轮到我们给出自己的条件：买多少，愿意付到什么价格，以及愿意等多久。**市价单**以当前可执行的报价寻求成交；**限价单**则先划定价格范围，买入限价规定最高愿意支付的价格，卖出限价规定最低愿意接受的价格。[^zh-quotes-orders-execution--orders]
 
-下面把买卖两侧各展开三档。先在厚盘口中比较买入 50、300、600 股的成交均价，再用同样的 50 股订单比较厚薄盘口。每次都从原始挂单开始；切到限价单以后，还可以看价格上限会留下多少未成交数量。
+下面把买卖两侧各展开三档。先在厚盘口中比较买入 50、300、600 股的成交均价，再用同样的 50 股订单比较厚薄盘口。每次比较都从同一组原始挂单开始；切到限价单以后，还可以看价格上限会留下多少未成交数量。
 
 简化盘口 · 价格：美元 / 股 · 数量：股
 
@@ -1024,7 +1456,7 @@ Bracket · 一组持仓的开仓与退出安排
 
 做市商承接交易以后，自己的持仓也会发生变化，这些为交易准备或因交易留下的证券，就是这里所说的**库存**。假如它以 99.98 美元买入，又以 100.02 美元卖出相同数量，两个价格之间有 0.04 美元的差额。不过这两笔交易通常不会恰好同时完成；买入后价格下跌，库存损失就可能超过价差所得，交易与对冲也有成本。
 
-当买卖来得不均衡时，做市商可以调整报价和数量，也可以用相关工具对冲留下的风险。拿 VOO 这样跟踪 S&P 500 的 ETF 来说，做市商买入一批份额后，可以卖出相应的股指期货，例如 CME 的 E-mini S&P 500 futures（ES）。期货多头的盈亏随合约价格上涨而增加，空头则相反；当 ETF 与对应股指期货同向变化时，两边的部分盈亏就能相互抵消。[^zh-quotes-orders-execution--hedge]
+当承接的买单和卖单不均衡时，做市商可以调整报价和数量，也可以用相关工具对冲留下的风险。拿 VOO 这样跟踪 S&P 500 的 ETF 来说，做市商买入一批份额后，可以卖出相应的股指期货，例如 CME 的 E-mini S&P 500 futures（ES）。期货多头的盈亏随合约价格上涨而增加，空头则相反；当 ETF 与对应股指期货同向变化时，两边的部分盈亏就能相互抵消。[^zh-quotes-orders-execution--hedge]
 
 沿这笔库存继续往下看，ETF 买得多了，做市商便可以增加相应的期货空头，降低大盘涨跌对组合的影响；后来把已有 ETF 卖给其他买方，是在减少多头库存，原有的期货空头也就可以相应减掉（这里以已经持有 ETF 多头、使用空头期货对冲为例。实际规模还取决于合约金额和持仓敏感度；ETF 与期货之间的基差、费用及调整时点也会影响合并结果）。
 
@@ -1101,7 +1533,7 @@ ETF 多头
 
 ## 持仓理由与组合建立 {#nb-b03-portfolio}
 
-假设现在有 200,000 美元，准备持有 VOO 和两只经过研究的股票，未来一个月还希望留有 20,000 美元现金可供安排。我们先拿出一组可以调整的配置：Vanguard S&P 500 ETF（VOO）100 份、Amazon（AMZN）200 股、Alphabet（GOOGL）100 股，其余保留为美元现金。这里的数量是讨论起点，接下来要用投资理由、共同风险和资金需要检验它。
+假设现在有 200,000 美元，准备持有 VOO 和两只经过研究的股票，未来一个月还希望留有 20,000 美元现金可供安排。我们先拿出一组可以调整的配置：Vanguard S&P 500 ETF（VOO）100 份、Amazon（AMZN）200 股、Alphabet（GOOGL）100 股，其余保留为美元现金。这里的数量是讨论起点，接下来要用投资理由、共同风险和资金需要检验这组配置。下表价格按每股或每份列示，金额单位为美元。
 
 | 资产 | 数量 | 观察价格 | 金额 | 占 200,000 美元的比例 |
 |---|---:|---:|---:|---:|
@@ -1120,7 +1552,7 @@ GOOGL 也要先为基础设施付出现金，但云托管服务与 TPU 系统交
 
 我们可以请 Agent 用财报、业绩会、上下游材料和外部研究逐项核实业务判断，再考虑较好、中性、较差及严重不利的情景，将经营结果、资金投入和股数变化连到每股可能对应的价格。下面采用 9 月 20 日完成的两份研究，看看相近的行业机会为什么会形成不同的持仓取舍。
 
-表中把四类情景依次记作 Bull、Base、Bear、Tail，列出各自的条件价格与概率估计；加权后的金额概括这组研究设定。
+表中把四类情景依次记作 Bull、Base、Bear、Tail，列出各自的条件价格与概率估计。加权后的期末每股所得及其年化换算，用来比较这两组研究设定。
 
 | 9 月 20 日研究快照（金额：美元／股） | AMZN | GOOGL |
 |---|---:|---:|
@@ -1133,7 +1565,7 @@ GOOGL 也要先为基础设施付出现金，但云托管服务与 TPU 系统交
 | 相对参考股价的年化换算 | 约 11.4% | 约 4.0% |
 | 原研究判断 | 有条件上行，依赖 AWS 兑现与资本约束 | 增长仍强，参考价格下补偿较薄 |
 
-这张表保留的是原研究的价格、期限与判断。它让我们有理由把“少配一些 GOOGL、留下更多现金”纳入比较，也提醒我们继续检查 AMZN 的资本压力（两份研究的信息截止日均为 2026 年 9 月 20 日、观察终点为 2029 年 12 月 31 日；没有将其回报改称 9 月 25 日买入的回报。GOOGL 终财富含原模型预计的 2.86 美元分红，AMZN 模型未设股息。权重是当时有依据的粗略研究判断，代表点不等于类内均值；完整状态和替代结果见研究快照。两家公司各自的同名状态也不能直接拼成组合的联合概率）。[^zh-settlement-margin-cash--research]
+在这组研究设定下，GOOGL 相对参考价格的回报补偿较薄，因此“少配一些 GOOGL、留下更多现金”值得纳入比较。AMZN 的回报空间较大，但仍依赖 AWS 兑现，我们还要继续检查它的资本压力（两份研究的信息截止日均为 2026 年 9 月 20 日、观察终点为 2029 年 12 月 31 日；没有将其回报改称 9 月 25 日买入的回报。GOOGL 终财富含原模型预计的 2.86 美元分红，AMZN 模型未设股息。权重是当时有依据的粗略研究判断，代表点不等于类内均值；完整状态和替代结果见研究快照。两家公司各自的同名状态也不能直接拼成组合的联合概率）。[^zh-settlement-margin-cash--research]
 
 同样一个持仓判断，投入多少还会改变它对账户的影响。AMZN 从 200 股减为 100 股，相关价格变化带来的盈亏也减半，同时多留约 25,039 美元现金；代价是少参与一半的后续上涨。再看 GOOGL，100 股与 50 股之间相差约 17,190 美元。Agent 还要判断这些潜在回报是否值得投入相应资金，共同下跌会带来多大损失，剩余现金又能否满足用钱需要。
 
@@ -1180,7 +1612,7 @@ beta 把个股与市场的共同变化，放到市场自身波动的尺度上衡
 
 图里使用同一截止日的三组估计：近一年日频、近两年日频和近两年周频。GOOGL 的结果依次约为 1.38、1.16 和 1.24，AMZN 则约为 1.43、1.40 和 1.49（统一截至 2026 年 8 月 28 日，保证周频区间完整，并与已发布的 Kenneth French 日频 RF 对齐。股票与 VOO 使用 Yahoo 调整收盘价计算的含分红总回报近似，日收益减同日 RF；周收益与周 RF 各自复利汇总后相减。三组分别有 250、499、104 个观察值。日频一年、两年的起始基准日分别为 2025 年 8 月 29 日、2024 年 8 月 30 日；历史收益、原始来源与计算均可下载）。改变回看窗口或采样间隔，取得的关系也会有所变化。[^zh-settlement-margin-cash--horizon]
 
-接着回到整个账户。采用一年日频估计，VOO 相对自身的 beta 为 1，现金近似取 0，便有：
+接着回到整个账户，按各项资产占账户的比例加权，就能估计组合的 beta。采用一年日频结果，VOO 相对自身的 beta 为 1，现金近似取 0，计算如下：
 
 \[
 \widehat\beta_p
@@ -1190,7 +1622,7 @@ beta 把个股与市场的共同变化，放到市场自身波动的尺度上衡
 
 现金也在分母里，所以股票占账户约 77.8%，并不意味着账户 beta 就等于 0.778。两笔个股在这段样本中具有更高的市场敏感度，把加权结果推到了约 0.95。
 
-同一回归还可以写出 alpha：
+个股与 VOO 的拟合线除了斜率，还有截距；再加上每期偏离拟合线的部分，就能写出完整的回归关系：
 
 \[
 r_i-r_f=\alpha_i+\beta_i(r_m-r_f)+\varepsilon_i.
@@ -1238,7 +1670,7 @@ Put 提供另一种安排。这里使用 2026 年 12 月 18 日到期、行权�
 
 在到期之前，Put 需要按当时的标的价格、剩余期限和波动率估值。E 中的两张 MES 用来降低一部分共同市场暴露，Put 则保护 VOO 这部分持仓；每换一个情景，就要重新计算各项持仓的价值，才能知道整个组合留下多少盈亏。
 
-下面先设定三种未来 30 日的行情。它们用于比较工具职责：市场回落时，VOO、AMZN、GOOGL 分别下跌 10%、15%、14%；市场上涨时分别上涨 10%、16%、14%；个股承压时，假设 GOOGL 的业务兑现受挫、股价下跌 25%，VOO 期末不变，AMZN 上涨 2%。MES 沿 VOO 的百分比变化，Put 再按相应时间和波动率重估。
+下面先设定三种未来 30 日的行情。它们用于比较工具职责：市场回落时，VOO、AMZN、GOOGL 分别下跌 10%、15%、14%；市场上涨时分别上涨 10%、16%、14%；个股承压时，假设 GOOGL 的业务兑现受挫、股价下跌 25%，VOO 期末不变，AMZN 上涨 2%。MES 沿 VOO 的百分比变化，Put 再按相应时间和波动率重估。下表比较整个账户的损益，金额单位为美元，已扣各方案的增量费用。
 
 | 方案 | 市场回落 | 市场上涨 | 个股承压 |
 |---|---:|---:|---:|
@@ -1248,7 +1680,7 @@ Put 提供另一种安排。这里使用 2026 年 12 月 18 日到期、行权�
 | D：1 张 VOO Put | −15,206 | +18,896 | −7,923 |
 | E：2 张 MES＋1 张 Put | −7,411 | +11,091 | −7,928 |
 
-表中金额为整个账户在这些设定下的损益，已扣各方案的增量费用。C 在市场下跌时提供了明显抵补，上涨时也抵掉较多所得；D 付出权利金，保护的范围集中在 100 份 VOO；E 则结合了两种效果（三组均先建仓、后走 30 日路径。增量费用设为股票调整 5 美元、每张 MES 2.50 美元、每张 Put 1 美元；股息、现金利息和融资利息在这些价格情景中取零。Put 用 400 步美式二叉树，以 84 天、连续利率 4%、股息率参数 1.2% 配合 10.37 的成交反解模型波动率约 16.55%；30 日后剩 54 天，三情景波动率分别为初始的 1.5、0.8、1 倍。股息率是模型定价参数，与情景现金账的零分配假设分别记录。幅度和费用均为设定，未赋予发生概率）。
+C 在市场下跌时提供了明显抵补，上涨时也抵掉较多所得；D 付出权利金，保护的范围集中在 100 份 VOO；E 则结合了两种效果（三组均先建仓、后走 30 日路径。增量费用设为股票调整 5 美元、每张 MES 2.50 美元、每张 Put 1 美元；股息、现金利息和融资利息在这些价格情景中取零。Put 用 400 步美式二叉树，以 84 天、连续利率 4%、股息率参数 1.2% 配合 10.37 的成交反解模型波动率约 16.55%；30 日后剩 54 天，三情景波动率分别为初始的 1.5、0.8、1 倍。股息率是模型定价参数，与情景现金账的零分配假设分别记录。幅度和费用均为设定，未赋予发生概率）。
 
 再看个股承压这一列。VOO 终点没有下跌，MES 无法抵补 GOOGL 的大部分损失，VOO Put 也没有覆盖这家公司的经营变化；B 因为少持有 50 股 GOOGL，损失便明显减少。回到前面 \(R^2\) 留下的问题，市场分量以外的风险还要用相应的经营情景检验，Agent 才能判断该减哪笔持仓、该用哪一种保护。
 
@@ -1258,9 +1690,9 @@ Put 提供另一种安排。这里使用 2026 年 12 月 18 日到期、行权�
 
 证券现金账户使用自有资金支付交易；证券保证金账户允许按相应条件借款，也会用账户权益支持持仓。本例股票与 Put 都以现有资金支付，使用保证金账户并不意味着已经发生借款。
 
-在证券保证金账户中，普通保证金与投资组合保证金（Portfolio Margin，PM）采用不同的计算方式。普通规则按持仓以及认可的组合规定要求；PM 在规定的价格和波动率情景中重估相关持仓，观察组合可能损失多少。普通规则也会识别保护性 Put，不能把所有风险抵扣都归给 PM。[^zh-settlement-margin-cash--ordinary]，[^zh-settlement-margin-cash--pm]
+在证券保证金账户中，普通保证金与投资组合保证金（Portfolio Margin，PM）采用不同的计算方式。普通规则根据各项持仓及认可的组合确定保证金要求，其中也包括保护性 Put 的抵扣；PM 则在规定的价格和波动率情景中重估相关持仓，观察组合可能损失多少。[^zh-settlement-margin-cash--ordinary]，[^zh-settlement-margin-cash--pm]
 
-以本例的证券部分比较，按 IBKR 公开普通规则的设定，未买 Put 时维持要求约为 38,876 美元；买入一张 Put 后，100 份 VOO 得到对应规则的保护，证券维持要求降至约 30,512 美元。AMZN 与 GOOGL 仍按各自股票要求计算。
+以本例的证券部分比较，按 IBKR 公开普通规则的设定，未买 Put 时维持要求约为 38,876 美元；买入一张 Put 后，100 份 VOO 得到对应规则的保护，证券维持要求降至约 30,512 美元。AMZN 与 GOOGL 仍按各自股票要求计算。下表金额单位为美元：
 
 | 同一组证券持仓 | 普通证券维持要求 | 分组风险扫描示意 |
 |---|---:|---:|
@@ -1283,9 +1715,9 @@ MES 则放在期货分部，需要留出履约保证金，并结算持有期间�
 
 ## 持有期间的现金变化 {#nb-b03-cash}
 
-这些要求会随着持仓的建立和结束而变化，现金又会怎样变？先只看 C 的三张 MES 平仓：假设平仓价与刚才结算价相同，暂不计平仓费，就能排除新增价格损益，单独观察担保要求解除后的余额。期货分部已有 15,000 美元，买入三张相同月份的 MES，就能结束原来的空头；此后不再需要为这笔头寸保留约 8,627 美元的初始保证金，15,000 美元现金仍在期货分部。等到划回证券分部，两边的余额会改变，合计仍是同一笔钱。
+持仓结束后，担保要求会随之解除，现金又会怎样变？先看 C 的三张 MES：假设按上一次盯市结算价平仓，暂不计平仓费，就能排除新增价格损益，单独观察担保要求解除后的余额。期货分部已有 15,000 美元，买入三张相同月份的 MES，就能结束原来的空头；此后不再需要为这笔头寸保留约 8,627 美元的初始保证金，15,000 美元现金仍在期货分部。等到划回证券分部，两边的余额会改变，合计仍是同一笔钱。
 
-再从 C 建好后的起点出发，按模型的三个观察节点看上涨过程。VOO 在第 10、20、30 日相对起点分别上涨 4%、7%、10%，MES 同幅变化；本例在每个节点先结算期货盈亏，再检查余额。
+再从 C 建好后的起点出发，按模型的三个观察节点看上涨过程。VOO 在第 10、20、30 日相对起点分别上涨 4%、7%、10%，MES 同幅变化；本例在每个节点先结算期货盈亏，再检查余额。下表逐步记录这几次收付与划转，金额单位为美元：
 
 | 时点与动作 | 本段期货收付 | 本次证券转入期货 | 处理后证券现金 | 处理后期货现金 |
 |---|---:|---:|---:|---:|
@@ -1300,7 +1732,7 @@ MES 则放在期货分部，需要留出履约保证金，并结算持有期间�
 
 换到“先涨后跌”和“先跌后回升”，两条路径都以 VOO 下跌 5% 结束，其他股票、剩余期限和期权波动率的终点也保持相同。C 在两条路径的期末损益均约为 −4,122 美元，但先涨的路径中累计调入了约 5,328 美元，先跌的路径没有发生这项补入。终点结果相同，途中需要准备的钱仍然不同。
 
-证券卖出还要经过交收。若在这个没有额外假日的周五卖出 50 股 GOOGL，成交先确定约 17,190 美元价款，按通常 T+1 在下一营业日、也就是周一完成交收。卖款显示在交易记录里、成为已交收现金、再转入银行，是几个可以分别确认的时点。[^zh-settlement-margin-cash--settlement]
+如果要靠卖出股票补足现金，还得把交收时间算进去。若在本例报价所在的周五卖出 50 股 GOOGL，且之后没有额外假日，成交先确定约 17,190 美元价款，按通常 T+1 在下一营业日、也就是周一完成交收。卖款显示在交易记录里、成为已交收现金、再转入银行，是几个可以分别确认的时点。[^zh-settlement-margin-cash--settlement]
 
 T+0 回转交易是在说当天买入后可以当天卖出；交收周期中的 T+0、T+1，则分别指交易当日、下一营业日完成交付。美股日内买卖与 T+1 交收可以同时存在，能否继续使用卖款要结合账户的付款安排（例如现金账户用已交收资金买入后当日卖出，与再拿未交收卖款买另一只证券并在付款资金交收前卖出，存在不同的付款条件；是否还有其他已交收资金也会影响判断。美国股票、ETF 和标准股票期权的通常交易交收按 T+1，期货盯市、期权行权及永续资金费分别依合约处理。图中的初始现金按各方案所需建仓交收已经完成的共同起点记录；此处单独说明之后调仓卖款的等待）。[^zh-settlement-margin-cash--settlement]，[^zh-settlement-margin-cash--cash-account]
 
@@ -1382,9 +1814,11 @@ VOO 100份 · AMZN 200股 · GOOGL 100股 · Put 0张 · MES空头 0张
 
 新的信息到来以后，Agent 会先找出它改变了哪项判断。如果客户使用与现金兑现仍支持原来的经营路径，而市场压力开始缓和，就重新衡量继续对冲的成本；若订单转化、利润或资金条件已经改变了持仓理由，就重新评估股票本身。仍然有效的研究继续复用，再按受影响的业务关系更新条件价格、风险和资金需求。
 
-我们也可以保存 Agent 当时读到的资料、作出的判断和改变意见的条件，再用后来的信息核对它是否认清了经营变化。这种持续比较，有助于改进它对语义、业务联系和投资取舍的判断；Python 等程序则负责把假设算成可复查的金额。评价这些判断时，还要把保护成本、保留的机会和期间资金需要接回原目标，不能只看某一次股价涨跌。
+我们也可以保存 Agent 当时读到的资料、作出的判断和改变意见的条件，再用后来的信息核对它是否认清了经营变化。把查明的错因和修正办法用于后续研究，可以逐步校准 Agent 对材料含义、业务联系和投资取舍的判断；Python 等程序则负责把假设算成可复查的金额。评价这些判断时，还要把保护成本、保留的机会和期间资金需要接回原目标，不能只看某一次股价涨跌。
 
 对本例而言，如果这一个月主要想减轻广泛市场风险、继续持有股票，并愿意支付约 1,038 美元的 Put 成本，E 就值得进一步比较：它在所列两种共同下行情景中提供了保护，在上涨路径末尾留足期货初始保证金后，还能留下约 29,901 美元现金，高于设定的 20,000 美元目标。若主要担忧 GOOGL 自身的业务兑现，B 则更直接地减少这项暴露。
+
+这些取舍都依赖对公司业务的判断。接下来的《客户、产品与收费方式》将从客户为什么付款、公司交付什么开始，展开收入背后的经营关系。
 
 计算材料：[行情、持仓与设定](https://ou-liu-red-sugar.github.io/notebook/portfolio-hedging/inputs.json) · [历史价格与 RF](https://ou-liu-red-sugar.github.io/notebook/portfolio-hedging/history.csv) · [全部情景结果](https://ou-liu-red-sugar.github.io/notebook/portfolio-hedging/calculation-results.csv) · [复算程序](https://ou-liu-red-sugar.github.io/notebook/portfolio-hedging/model.py)。
 
@@ -1419,7 +1853,7 @@ VOO 100份 · AMZN 200股 · GOOGL 100股 · Put 0张 · MES空头 0张
 
 语言 / Language: zh · 更新 / Revised: 2026-09-27
 
-[《股票、公司与股价》](https://ou-liu-red-sugar.github.io/zh/notebook/stocks-company-price/)用 Apple（AAPL）分红介绍了一种股东回报：公司把部分现金分给持有股票的人。AAPL 的资金安排中，用于回购股票的钱还要多得多。在 2026 财年第一季度，AAPL 支付了约 39 亿美元的股息及股息等价物，用于回购普通股的现金则约为 247 亿美元。两笔钱都从公司流出，影响股东的方式却有所不同。[^zh-shareholder-returns-buybacks-issuance--apple]
+公司向股东返还现金，可以派发分红，也可以回购股票。以[《股票、公司与股价》](https://ou-liu-red-sugar.github.io/zh/notebook/stocks-company-price/)介绍过的 Apple（AAPL）为例，公司用于回购股票的钱，比现金分红多得多。在 2026 财年第一季度，AAPL 支付了约 39 亿美元的股息及股息等价物，用于回购普通股的现金则约为 247 亿美元。两笔钱都从公司流出，影响股东的方式却有所不同。[^zh-shareholder-returns-buybacks-issuance--apple]
 
 分红时，只要符合领取条件，股东就会收到现金。回购时，公司把钱付给卖出股票的人；我们即使一直没有卖股，也仍然可能从回购形成的买盘、股数变化和每股权益中受益。
 
@@ -1439,11 +1873,11 @@ VOO 100份 · AMZN 200股 · GOOGL 100股 · Put 0张 · MES空头 0张
 
 未参与出售的股东继续持有原来的股份，回购仍会影响市场买盘与公司的股份数量。
 
-不过，读到一项回购计划时，我们还要看看公司已经买了多少。授权额度规定了可以使用的范围，实际买入才会形成相应的股票需求。AAPL 在上述季度买回约 9,300 万股，报告同时披露了尚未使用的回购额度（这里的季度截至 2025 年 12 月 27 日。AAPL 披露的回购交易金额约为 250 亿美元，现金流量表中当期支付的回购款为 247.01 亿美元；正文比较现金收付时采用后者。回购计划允许公司按情况执行，没有最低购买数量义务）。把计划与执行分开，才能知道公司这一时期究竟向市场投入了多少买盘。[^zh-shareholder-returns-buybacks-issuance--apple]
+不过读到一项回购计划时，我们还要看看公司已经买了多少。授权额度规定了公司可以动用多少资金，实际买入才会形成相应的股票需求。AAPL 在上述季度买回约 9,300 万股，报告同时披露了尚未使用的回购额度（这里的季度截至 2025 年 12 月 27 日。AAPL 披露的回购交易金额约为 250 亿美元，现金流量表中当期支付的回购款为 247.01 亿美元；正文比较现金收付时采用后者。回购计划允许公司按情况执行，没有最低购买数量义务）。把计划与执行分开，才能知道公司这一时期究竟向市场投入了多少买盘。[^zh-shareholder-returns-buybacks-issuance--apple]
 
 回购的影响还会留在公司股本里。若发行在外的股份净减少，而我们持有的股数没变，持股比例就会上升。同样的公司利润，由更少的股份共同分享，每股对应的利润也会提高。
 
-公司回购股票的同时，也可能通过员工奖励交付、员工购股计划或其他发行增加股份。其中，以股票或相关权利支付员工报酬的安排，通常称为股权报酬（SBC），具体形式见[《股票的类型、发行与交易形式》](https://ou-liu-red-sugar.github.io/zh/notebook/stock-types-issuance-trading/)。因此，我们还要看这些变化合起来以后，股数究竟减少了多少。AAPL 这一季度买回约 9,300 万股，但期末发行在外股数比期初少了约 7,060 万股，两者并不相等（资产负债表列示，2025 年 9 月 27 日发行在外普通股为 14,773,260,000 股，12 月 27 日为 14,702,703,000 股，减少 70,557,000 股。此处比较期初与期末股数；正式每股收益另按相应期间的加权平均股数及摊薄规则计算）。所以，回购金额告诉我们公司花了多少钱，净股数变化则进一步告诉我们，剩余股份的比例怎样改变。[^zh-shareholder-returns-buybacks-issuance--apple]
+公司回购股票的同时，也可能通过员工奖励交付、员工购股计划或其他发行增加股份。其中，以股票或相关权利支付员工报酬的安排，通常称为股权报酬（SBC），具体形式见[《股票的类型、发行与交易形式》](https://ou-liu-red-sugar.github.io/zh/notebook/stock-types-issuance-trading/)。因此我们还要把回购与新增股份合起来，看发行在外股数究竟怎样变化。AAPL 这一季度买回约 9,300 万股，但期末发行在外股数比期初少了约 7,060 万股，两者并不相等（资产负债表列示，2025 年 9 月 27 日发行在外普通股为 14,773,260,000 股，12 月 27 日为 14,702,703,000 股，减少 70,557,000 股。此处比较期初与期末股数；正式每股收益另按相应期间的加权平均股数及摊薄规则计算）。所以，回购金额告诉我们公司花了多少钱，净股数变化则进一步告诉我们，剩余股份的比例怎样改变。[^zh-shareholder-returns-buybacks-issuance--apple]
 
 同一笔资金能买回多少股份，还取决于买入价格。价格越高，收回同样数量的股票就要花更多钱，而这些钱原本还可以留在公司经营、投资或偿债。对继续持有者来说，判断回购的效果，需要把股价支持、股份减少和公司付出的资源放在一起。企业买回自己的股份，也同样面临买得是否划算的问题。[^zh-shareholder-returns-buybacks-issuance--berkshire]
 
@@ -1451,9 +1885,9 @@ VOO 100份 · AMZN 200股 · GOOGL 100股 · Put 0张 · MES空头 0张
 
 分红把公司的部分现金直接交给股东。股票仍然留在账户里，股东另外取得一笔可以使用的资金；需要安排生活支出的人，常常会关心这种现金来源。
 
-但收到分红时，还要把股票和现金合起来看。公司付出现金以后，留在企业中的资产也相应减少；常规现金股息除息后，买入股票的人不再取得这一期股息，因此分红前后的股价需要按相同权益基础比较（本文讨论普通现金股息。除息日划分这次交易是否附带本期股息权利，支付日才是公司实际付款的日期；特殊分配可能采用不同规则。除息形成的价格调整还会和当天的市场行情叠加，实际成交价不会只由股息金额决定）。已经取得股息领取权利，与钱已经到账，是不同的时点；安排用钱时间时，还要等到支付日。这也对应[《投资期限与现金需要》](https://ou-liu-red-sugar.github.io/zh/notebook/investment-horizon-cash/)讨论的资金安排：先看现金何时可用，再考虑怎样使用。[^zh-shareholder-returns-buybacks-issuance--dividends]
+但收到分红时，还要把股票和现金合起来看。公司付出现金以后，留在企业中的资产也相应减少；常规现金股息除息后，买入股票的人不再取得这一期股息，因此分红前后的股价需要按相同权益基础比较（本文讨论普通现金股息。除息日划分这次交易是否附带本期股息权利，支付日才是公司实际付款的日期；特殊分配可能采用不同规则。除息形成的价格调整还会和当天的市场行情叠加，实际成交价不会只由股息金额决定）。取得股息领取权利后，还要等到支付日，公司才会实际付款。这也对应[《投资期限与现金需要》](https://ou-liu-red-sugar.github.io/zh/notebook/investment-horizon-cash/)讨论的资金安排：先看现金何时可用，再考虑怎样使用。[^zh-shareholder-returns-buybacks-issuance--dividends]
 
-对暂时不需要这笔现金的股东，接下来还会遇到税务问题。以美国普通应税账户中的个人投资者为例，现金股息通常在实际收到或可以支配的年度计入收入；即使券商自动用分红买入更多股票，这笔股息一般仍需要申报。资金先分出来，再由股东投入，可能已经经过了一次纳税。[^zh-shareholder-returns-buybacks-issuance--tax]
+收到分红以后，还要考虑税务；即使暂时不需要这笔现金、打算把它重新投入，也会遇到这个问题。以美国普通应税账户中的个人投资者为例，现金股息通常在实际收到或可以支配的年度计入收入；即使券商自动用分红买入更多股票，这笔股息一般仍需要申报。资金先分出来，再由股东投入，可能已经经过了一次纳税。[^zh-shareholder-returns-buybacks-issuance--tax]
 
 公司在公开市场回购其他人的股份时，我们没有出售自己的股票，也没有因此实现自己的资本利得。股票可以继续持有，将来何时卖出、卖出多少，通常仍有自己的安排。对于准备长期投资的人，延后实现资本利得，也就保留了延后纳税的空间。
 
@@ -1470,7 +1904,7 @@ VOO 100份 · AMZN 200股 · GOOGL 100股 · Put 0张 · MES空头 0张
 
 再把目光放回公司。企业有资金可以返还给股东，也会遇到需要增加投入的时候。经营规模扩大、设备采购和新项目建设，都可能改变原先的资金安排。Alphabet（GOOGL／GOOG）在 2026 年的融资，就提供了一个实际例子。
 
-公司披露，2026 年 6 月通过发行 Class A、Class C 股票及强制可转换优先股，合计取得约 496 亿美元净募集资金，资金用途包括扩充 AI 基础设施和全球算力（这项金额是上述权益融资合计的净所得，并非全部来自普通股发行。强制可转换优先股先以优先股形式存在，再按条款转换为普通股，其分红权利与未来转股另有安排，不能直接把全部融资额换算成当期新增普通股）。这些股票与优先股的权利区别，可参阅[《股票的类型、发行与交易形式》](https://ou-liu-red-sugar.github.io/zh/notebook/stock-types-issuance-trading/)；这里先沿着融资所得，看它们怎样进入公司的资金安排。[^zh-shareholder-returns-buybacks-issuance--alphabet-release]，[^zh-shareholder-returns-buybacks-issuance--alphabet]
+公司披露，2026 年 6 月通过发行 Class A、Class C 股票及强制可转换优先股，合计取得约 496 亿美元净募集资金，资金用途包括扩充 AI 基础设施和全球算力（这项金额是上述权益融资合计的净所得，并非全部来自普通股发行。强制可转换优先股先以优先股形式存在，再按条款转换为普通股，其分红权利与未来转股另有安排，不能直接把全部融资额换算成当期新增普通股）。普通股与优先股的权利区别，可参阅[《股票的类型、发行与交易形式》](https://ou-liu-red-sugar.github.io/zh/notebook/stock-types-issuance-trading/)；这里先沿着融资所得，看它们怎样进入公司的资金安排。[^zh-shareholder-returns-buybacks-issuance--alphabet-release]，[^zh-shareholder-returns-buybacks-issuance--alphabet]
 
 **普通股增发：公司取得资金，认购者取得新股**
 
@@ -1492,7 +1926,7 @@ VOO 100份 · AMZN 200股 · GOOGL 100股 · Put 0张 · MES空头 0张
 
 ## 从公司动作看到持有结果 {#nb-s02-holding-return}
 
-走到这里，回购与增发就能接回同一件事：公司怎样在经营投入、现金分配和股份数量之间作安排。回购会付出公司资金、形成买盘，并可能减少在外股份；增发让新资金进入公司，也让更多股份参与未来的经营结果。股权报酬也要一并考虑，因为向员工交付股份，同样可能改变净股数。
+把分红、回购、增发和股权报酬放在一起，我们就能比较公司现金与股份数量的变化怎样影响持有结果：
 
 | 公司动作 | 资金主要流向 | 股东继续持有时要看什么 |
 |---|---|---|
@@ -1523,9 +1957,9 @@ VOO 100份 · AMZN 200股 · GOOGL 100股 · Put 0张 · MES空头 0张
 
 ## 股份的类型与权利 {#nb-b01-rights}
 
-买入一家公司的股票以后，我们还要看自己持有的是哪一种股份。股东能否参与投票、公司怎样向这类股份分配收益，以及公司清算时能够按什么顺序取得财产，都与股份的具体权利有关。同一家公司的不同股份，在这些安排上也可能有所不同。
+直接买入一家公司的股票时，我们还要看买到的是哪一种股份。股东能否参与投票、公司怎样向这类股份分配收益，以及公司清算时能够按什么顺序取得财产，都与股份的具体权利有关。同一家公司的不同股份，在这些安排上也可能有所不同。
 
-先把普通股与优先股放在一起看：普通股通常让股东参与公司治理和收益分配，清算时取得偿还债务、完成优先分配后的剩余；优先股则在约定的股息或清算分配上排在普通股之前。这里的“优先”有具体的比较对象，可以按下面三个方面区分：[^zh-stock-types-issuance-trading--stock-types]
+先把普通股与优先股放在一起看：普通股通常让股东参与公司治理和收益分配，清算时取得偿还债务、完成优先分配后的剩余财产；优先股则在约定的股息或清算分配上排在普通股之前。这里的“优先”有具体的比较对象，可以按下面三个方面区分：[^zh-stock-types-issuance-trading--stock-types]
 
 | 权利 | 普通股 | 优先股 |
 |---|---|---|
@@ -1533,7 +1967,7 @@ VOO 100份 · AMZN 200股 · GOOGL 100股 · Put 0张 · MES空头 0张
 | 分配 | 参与公司决定的股息分配 | 按股份条款享有优先分配安排 |
 | 清算 | 偿还债务并完成优先股的优先分配后，取得剩余 | 排在债权人之后、普通股之前，按约定受偿 |
 
-公司还可以设置不同类别的股份。比如 Alphabet 的 A 类以 GOOGL 交易，每股一票；B 类不上市交易，每股十票；C 类以 GOOG 交易，通常没有投票权。这三类股份的每股股息和清算权益相同，投票能力却不同（C 类的正式名称是 Class C capital stock，法律要求时仍有相应投票权；B 类转让通常会一比一转为 A 类，章程规定的特定转让除外）。所以，同样参与 Alphabet 的经营成果，持有不同类别股份的人，在公司治理中拥有的表决权可以相差很大。[^zh-stock-types-issuance-trading--alphabet]
+公司还可以设置不同类别的股份。比如 Alphabet 的 A 类以 GOOGL 交易，每股一票；B 类不上市交易，每股十票；C 类以 GOOG 交易，通常没有投票权。这三类股份的每股股息和清算权益相同，投票能力却不同（C 类的正式名称是 Class C capital stock，法律要求时仍有相应投票权；B 类转让通常会一比一转为 A 类，章程规定的特定转让除外）。[^zh-stock-types-issuance-trading--alphabet]
 
 ## 股份发行与分配 {#nb-b01-issuance}
 
@@ -1550,11 +1984,11 @@ Reddit（RDDT）在 2024 年的首次公开发行中，就同时出现了这两�
 
 公司还可以把股份或相关权利用于员工报酬，这类安排通常称为股权报酬，英文是 stock-based compensation，简称 SBC。员工以服务取得报酬，股份因此也能从公司流向员工。对于员工，要看拿到的是股票，还是今后取得或购买股票的权利；对于原有股东，则要看奖励安排怎样影响股份总数和自己的持股比例。公司用新股支付奖励时，若原有股东的股数不变、总股数增加，其持股比例就会下降。公司同时取得了员工的服务，这些服务又可能影响经营成果，因此还要把股份数量与经营变化放在一起，理解每股能够分到什么。[^zh-stock-types-issuance-trading--sbc]
 
-以员工期权和限制性股票单位（RSU）为例，两者取得股票的过程就不同。员工期权给予按约定行权价购买股票的权利，员工行权时要支付购股款；本篇所说的 RSU 则由公司在条件满足后交付股份，授予时员工尚未拿到对应股票。[《投资期限与现金需要》](https://ou-liu-red-sugar.github.io/zh/notebook/investment-horizon-cash/)已经介绍了行权购股所需的现金，这里可以接着理解员工期权的付款。不过得到一项奖励以后，还要等到哪些条件满足，才能取得相应股份？[^zh-stock-types-issuance-trading--sbc-example]
+以员工期权和限制性股票单位（RSU）为例，两者取得股票的过程就不同。员工期权给予按约定行权价购买股票的权利，员工行权时要支付购股款；本篇所说的 RSU 则由公司在条件满足后交付股份，授予时员工尚未拿到对应股票。[《投资期限与现金需要》](https://ou-liu-red-sugar.github.io/zh/notebook/investment-horizon-cash/)已经介绍了行权购股所需的现金，员工期权行权时也有这笔付款。不过，在实际取得股份之前，员工还需要满足奖励约定的条件。[^zh-stock-types-issuance-trading--sbc-example]
 
 ## 归属、锁定与解禁 {#nb-b01-vesting}
 
-这就要沿着奖励安排，把授予、归属和实际取得股份的时点分别看清。公司授予奖励，先确定员工可以按什么约定取得报酬；奖励还可能要求员工完成一定服务年限、达到业绩目标，或满足其他约定条件。以这里的员工期权和 RSU 来说，满足相应归属条件后，期权还要经过行权，RSU 还要按安排交付股份。而已经持有股份的人，也可能在一段时间内受到出售限制，例如创始人、早期投资者和员工在 IPO 时约定的锁定。奖励是否已经归属，与股份能否出售，需要分别看。[^zh-stock-types-issuance-trading--vesting-lockup]
+沿着奖励安排，我们可以把授予、归属和实际取得股份的时点分别看清。公司授予奖励，先确定员工可以按什么约定取得报酬；奖励还可能要求员工完成一定服务年限、达到业绩目标，或满足其他约定条件。以这里的员工期权和 RSU 来说，满足相应归属条件后，期权还要经过行权，RSU 还要按安排交付股份。而已经持有股份的人，也可能在一段时间内受到出售限制，例如创始人、早期投资者和员工在 IPO 时约定的锁定。奖励是否已经归属，与股份能否出售，需要分别看。[^zh-stock-types-issuance-trading--vesting-lockup]
 
 RDDT 的员工 RSU 提供了一个实际例子。部分奖励既要求完成服务，也要求达到上市条件。已经满足服务条件的那部分奖励，在 IPO 注册生效、上市条件满足后进入结算，公司随后交付了股份（RDDT 在 2024 年第二季度报告中披露了这次已经发生的结算，同时扣留部分股份用于处理相关税款；这里的上市条件满足时点是 IPO 注册生效，区别于首日交易和发行完成）。这段经过说明，授予奖励、满足服务条件和实际收到股份，可以发生在不同时间。[^zh-stock-types-issuance-trading--reddit-rsu]
 
@@ -1565,17 +1999,17 @@ RDDT 的员工 RSU 提供了一个实际例子。部分奖励既要求完成服�
 | 员工怎样取得股份 | 按奖励约定满足服务及其他条件，再通过期权行权或 RSU 结算取得股份 |
 | 这些股份何时可以出售 | 行权或结算所得股份仍受 IPO 锁定，出售还要符合锁定期限或例外安排 |
 
-锁定期结束、相关出售限制解除，通常称为解禁。再把这些安排放回市场，就能区分几种不同的变化：发行新股增加公司在外股份；已有股份解禁扩大可以出售的范围；持有人实际卖出，才形成一笔交易。因此，解禁消息首先告诉我们哪些人的哪些股份获得了出售机会，实际增加多少卖盘，还要看持有人是否出售、卖出多少。股价也会受买方需求和市场原有预期影响，不能仅由解禁股数推出其后的涨跌。[^zh-stock-types-issuance-trading--lockup]
+锁定期结束、相关出售限制解除，通常称为解禁。再把这些安排放回市场，就能区分几种不同的变化：发行新股增加公司发行在外的股份；已有股份解禁扩大可以出售的范围；持有人实际卖出，才形成一笔交易。因此，解禁消息首先告诉我们哪些人的哪些股份获得了出售机会，实际增加多少卖盘，还要看持有人是否出售、卖出多少。股价也会受买方需求和市场原有预期影响，不能仅由解禁股数推出其后的涨跌。[^zh-stock-types-issuance-trading--lockup]
 
 ## 围绕股票的持有与交易形式 {#nb-b01-forms}
 
 ### ADR 与存托安排 {#nb-b01-adr}
 
-[《股票、公司与股价》](https://ou-liu-red-sugar.github.io/zh/notebook/stocks-company-price/)中的 SKHY 在美国市场交易，每份对应十分之一股 SK hynix（000660）韩国普通股。这层对应关系怎样维持，还要沿着托管和存托安排继续看。[^zh-stock-types-issuance-trading--adr]，[^zh-stock-types-issuance-trading--skhy]
+在市场上买卖的对象，也可能是对应股票权益的存托证券。[《股票、公司与股价》](https://ou-liu-red-sugar.github.io/zh/notebook/stocks-company-price/)介绍的 SKHY 就在美国市场交易，每份对应十分之一股 SK hynix（000660）韩国普通股。这层对应关系怎样维持，还要沿着托管和存托安排继续看。[^zh-stock-types-issuance-trading--adr]，[^zh-stock-types-issuance-trading--skhy]
 
 韩国原股进入当地托管安排，托管机构确认存入的股份后，存托银行据此发行相应的存托证券。在 SKHY 的公开存托文件中，Citibank 是存托银行，Korea Securities Depository 是韩国托管机构。投资者买入已有的 SKHY，持有的是存托证券，买款付给卖方；原股仍在托管安排中。这也接上了前面的资金流向：在市场上转让已有凭证，同样不等于 SK hynix 取得一笔新增融资。[^zh-stock-types-issuance-trading--skhy-terms]
 
-存托机构还要处理持有期间的事务。公司支付现金分红后，款项经托管与存托安排处理，再分配给存托证券持有人；公司信息和投票事项也通过这条渠道传递，持有人按通知发出投票指示，再由存托机构依约办理（SKHY 公开存托文件规定，现金分红换成美元、扣除有关税费后分配；投票指示须及时提交，并对应整股股份。费用、汇兑和投票程序会影响持有人实际收到的现金及权利行使）。所以，原股带来的经济利益和治理权利，会经过存托安排传到凭证持有人手中。[^zh-stock-types-issuance-trading--skhy-terms]
+存托机构还要处理持有期间的事务。公司支付现金分红后，款项经托管与存托安排处理，再分配给存托证券持有人；公司信息和投票事项也通过这条渠道传递，持有人按通知发出投票指示，再由存托机构依约办理（SKHY 公开存托文件规定，现金分红换成美元、扣除有关税费后分配；投票指示须及时提交，并对应整股股份。费用、汇兑和投票程序会影响持有人实际收到的现金及权利行使）。[^zh-stock-types-issuance-trading--skhy-terms]
 
 存托凭证与原股之间还可以按规定转换：存入原股可以形成相应凭证，交回凭证注销则可以提取对应原股。实际办理要满足存托项目的程序，并看经纪商是否提供这项服务（办理还涉及文件、税费、适用规则和处理时间；发行或注销费用之外，也可能有登记、通讯及汇兑成本）。有了这层联系，就可以继续比较[《股票、公司与股价》](https://ou-liu-red-sugar.github.io/zh/notebook/stocks-company-price/)中的两地价格：除了统一股数和币种，还要考虑买卖时点、转换条件与交易成本，两个市场显示的价差才有具体含义。[^zh-stock-types-issuance-trading--skhy-terms]
 
@@ -1591,7 +2025,7 @@ Apple xStock（AAPLx）就是后一类产品。它由 Backed Assets (JE) Limited
 
 围绕一只股票，人们还可以交易按价格变化计算盈亏的合约，用来表达对价格方向的判断，或对冲已有持仓的价格风险。CME 的美股个股期货就属于这种工具：合约以单只股票为标的，到期用现金结算，持有期货不会因此取得公司的股份。[^zh-stock-types-issuance-trading--cme]
 
-以 AAPL 标准个股期货 SAAPL 为例，一份合约的乘数为 100 股。合约报价每股上涨 1 美元，一份多头的盈亏就增加 100 美元；报价每股下跌 1 美元，盈亏则减少 100 美元。交易者按要求存入保证金来开仓和维持持仓，保证金只占合约名义金额的一部分，盈亏仍按合约乘数计算（这里计算的是价格变化造成的毛盈亏，未扣费用；名义金额等于期货报价乘以 100。该合约到期按标的股票主上市交易所的官方收盘价，以美元现金结算）。持有期间若亏损使账户资金不足，就需要补充资金或调整持仓；最初交纳的保证金也不能用来界定最大损失。[^zh-stock-types-issuance-trading--cme]，[^zh-stock-types-issuance-trading--margin]
+以 AAPL 标准个股期货 SAAPL 为例，一份合约的乘数为 100 股。合约每股报价上涨 1 美元，一份多头的盈亏就增加 100 美元；每股报价下跌 1 美元，盈亏则减少 100 美元。交易者按要求存入保证金来开仓和维持持仓，保证金只占合约名义金额的一部分，盈亏仍按合约乘数计算（这里计算的是价格变化造成的毛盈亏，未扣费用；名义金额等于期货报价乘以 100。该合约到期按标的股票主上市交易所的官方收盘价，以美元现金结算）。持有期间若亏损使账户资金不足，就需要补充资金或调整持仓；最初交纳的保证金也不能用来界定最大损失。[^zh-stock-types-issuance-trading--cme]，[^zh-stock-types-issuance-trading--margin]
 
 股票永续采用另一套到期和持有安排。以 Kraken 的 AAPLx 永续合约为例，底层股票的代码是 AAPL，前面介绍的追踪凭证是 AAPLx，而这里买卖的是参考 AAPLx 价格的永续合约。持有这份合约会形成相应盈亏，合约不会交付 AAPL 股票或 AAPLx 代币；持有人也不直接取得前面 AAPLx 持有人的分红再投资余额。[^zh-stock-types-issuance-trading--perpetual]
 
@@ -1665,7 +2099,7 @@ Apple xStock（AAPLx）就是后一类产品。它由 Backed Assets (JE) Limited
 
 ## 拆股与并股 {#nb-s01-splits}
 
-股价和股数还会随着股份的划分方式一起改变。公司可以把原来的一股拆成多股，也可以把原来的多股合成一股，分别称为拆股和并股。NVIDIA（NVDA）和当时的 General Electric（GE）就有两个实际例子：
+股价和股数还会随着股份的划分方式一起改变。公司可以把原来的一股拆成多股，也可以把原来的多股合成一股，分别称为拆股和并股。NVIDIA（NVDA）和当时的 General Electric（GE）分别进行过拆股与并股：
 
 | 公司与调整 | 调整前股数 | 调整后股数 | 每股价格的对应调整 |
 |---|---:|---:|---|
@@ -1674,7 +2108,7 @@ Apple xStock（AAPLx）就是后一类产品。它由 Backed Assets (JE) Limited
 
 以一拆十为例，股东原来持有的一股会变成十股，公司总股数也会增加到原来的十倍。持股比例等于持有股数除以公司总股数，分子和分母同时乘以十，比例便保持不变。并股沿相反方向调整：股东的持股数与公司总股数同比例减少，每一股所代表的份额相应扩大（这里比较拆股、并股的比例调整本身，市场交易仍会使价格变化；GE 并股后不足一股的部分，登记股东按方案取得现金替代，经纪商托管账户依其具体安排处理）。同样的公司权益，也就换成了不同的股份计量单位。
 
-那为什么还要拆股呢？对每股价格比较高的股票来说，拆股以后，买入一整股所需的资金就会减少。一拆十会把这个金额降到原来的十分之一，小额资金因而更容易参与，投资者也能按较小金额买卖和调整仓位。NVDA 公布这次拆股时，就说明希望让员工和投资者更容易持有公司股票。[^zh-stocks-company-price--nvda-split] 一般来说，拆股有利于交易，也有助于改善流动性，让股票更容易买卖，而不明显推高或压低价格（观察流动性是否改善，可以看买卖价差相对股价的大小、成交金额，或相同交易金额造成的价格影响；比较成交股数时，要先换到相同的股份计量单位）。[^zh-stocks-company-price--split-liquidity]
+那为什么还要拆股呢？对每股价格比较高的股票来说，拆股以后，买入一整股所需的资金就会减少。一拆十会把这个金额降到原来的十分之一，小额资金因而更容易参与，投资者也能按较小金额买卖和调整仓位。NVDA 公布这次拆股时，就说明希望让员工和投资者更容易持有公司股票。[^zh-stocks-company-price--nvda-split] 一般来说，拆股有利于交易，也有助于改善流动性，让投资者更容易买卖，并减轻较大订单对价格的冲击（观察流动性是否改善，可以看买卖价差相对股价的大小、成交金额，或相同交易金额造成的价格影响；比较成交股数时，要先换到相同的股份计量单位）。[^zh-stocks-company-price--split-liquidity]
 
 并股的目的又有所不同。GE 此前已经剥离了多项业务，股份数量却没有相应减少。于是公司在 2021 年实施八合一，希望让在外股数与转型后的公司规模和业务范围更加相称（这次并股于 7 月 30 日完成，自 8 月 2 日起按调整后的股份单位交易）。[^zh-stocks-company-price--ge-reverse] 另一些公司则会在股价过低时借助并股提高每股报价，争取重新满足交易所的最低报价要求，以维持上市。[^zh-stocks-company-price--reverse-purpose]
 
@@ -1694,7 +2128,7 @@ Apple xStock（AAPLx）就是后一类产品。它由 Backed Assets (JE) Limited
 
 在美国市场上，这类证券通常称为美国存托凭证（ADR）。以 SK hynix（韩国普通股：000660）为例，美国市场上的 SKHY 是对应其普通股的存托证券（ADR 指存托凭证，ADS 指凭证所代表的美国存托股份额，两种称呼常通用；本文按每份 SKHY 对应十分之一股韩国普通股换算）。虽然交易代码和市场不同，两者仍通过具体的股份对应关系联系在一起。[^zh-stocks-company-price--adr]，[^zh-stocks-company-price--skhy]
 
-有了这层对应关系，我们就可以把两个市场的价格换算后再比较。IBKR 在 2026 年 7 月 16 日记录过这样一个实例：统一对应股数和币种后，SKHY 当时的盘中价格，相对韩国普通股前一次收盘价高出约 30%（SKHY 盘中价为 160.69 美元；韩国普通股前次收盘价为 1,830,000 韩元，按 1 美元兑 1,480 韩元及每份 SKHY 对应十分之一股换算，相当于每份 123.65 美元。160.69 ÷ 123.65 − 1 约为 30%）。因此，即使已经认出了同一家公司，我们也还要看看通过什么证券、在哪个市场买入，会付出怎样的价格。[^zh-stocks-company-price--skhy-price]
+有了这层对应关系，我们就可以把两个市场的价格换算后再比较。Interactive Brokers（IBKR）在 2026 年 7 月 16 日记录过这样一个实例：统一对应股数和币种后，SKHY 当时的盘中价格相对韩国普通股前一次收盘价高出约 30%（SKHY 盘中价为 160.69 美元；韩国普通股前次收盘价为 1,830,000 韩元，按 1 美元兑 1,480 韩元及每份 SKHY 对应十分之一股换算，相当于每份 123.65 美元。160.69 ÷ 123.65 − 1 约为 30%）。因此，即使已经认出了同一家公司，我们也还要看看通过什么证券、在哪个市场买入，会付出怎样的价格。[^zh-stocks-company-price--skhy-price]
 
 证券权益的记录方式也在变化。比如美国证券存管机构 DTC 在 2025 年 12 月 11 日公布了一项代币化试点方案，提出用区块链上的代币记录和转移证券权益（本方案记录的是参与者对 DTC 托管证券的权益；底层证券仍登记在其名义持有人 Cede & Co. 名下，适用的法律框架不因记录形式改变）。技术形式在变化，我们仍然要沿着这些记录和安排，认清自己实际持有的权益。[^zh-stocks-company-price--dtc]
 

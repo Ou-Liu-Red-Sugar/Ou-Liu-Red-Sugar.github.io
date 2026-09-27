@@ -1,0 +1,677 @@
+{
+  "id": "zh-customers-products-pricing",
+  "node_id": "NB-D01",
+  "lang": "zh",
+  "slug": "customers-products-pricing",
+  "title": "客户、产品与收费方式",
+  "summary": "从客户付款和企业交付认清一门生意，选择行业继续拆解业务，再沿上下游、具体订单与企业研报核验需求。",
+  "kind": "concept",
+  "revised": "2026-09-27",
+  "content_version": "2026-09-27.nb-d01.1",
+  "study_time": "每个行业约 12–18 分钟 · 行业切换与关系图",
+  "hide_knowledge_graph": true,
+  "subject": "topic-D",
+  "related": [
+    "zh-settlement-margin-cash",
+    "zh-investment-returns",
+    "zh-stocks-company-price",
+    "zh-shareholder-returns-buybacks-issuance"
+  ],
+  "sources": [
+    "nb-d01-nke",
+    "nb-d01-wmt",
+    "nb-d01-msft",
+    "nb-d01-aws",
+    "nb-d01-netflix",
+    "nb-d01-talen",
+    "nb-d01-talen-support-1",
+    "nb-d01-seller",
+    "nb-b01-source-alphabet",
+    "nb-d01-bkng",
+    "nb-d01-nvda",
+    "nb-d01-tsmc",
+    "nb-d01-asml",
+    "nb-d01-coreweave",
+    "nb-d01-aws-gpu",
+    "nb-d01-kgi",
+    "nb-d01-otis",
+    "nb-d01-fluor",
+    "nb-a01-source-02",
+    "nb-d01-gev-support-1",
+    "nb-d01-gev-support-2",
+    "nb-d01-jnj",
+    "nb-d01-hca",
+    "nb-d01-jpm",
+    "nb-d01-visa",
+    "nb-d01-chubb",
+    "nb-d01-chubb-support-1",
+    "nb-d01-chubb-support-2",
+    "nb-d01-xom",
+    "nb-d01-kmi",
+    "nb-d01-cma"
+  ],
+  "agent_packet": {
+    "required_readings": [],
+    "required_readings_by_branch": {
+      "consumer": [
+        {
+          "source_id": "nb-d01-nke",
+          "access": {
+            "kind": "selected_chapters",
+            "uri": "https://www.sec.gov/Archives/edgar/data/320187/000032018725000047/nke-20250531.htm"
+          },
+          "required_unit": {
+            "locator": "Item 1，HTML 行 143—175；Revenue Recognition，行 1952—1955；批发客户信用，行 423—426",
+            "scope": "NKE 设计、开发及销售商品，绝大部分产品由独立承包商制造。；自有门店和数字渠道直营与批发并存；批发交货和消费者购入是不同交易阶段。；批发与直营的控制转移、付款和退货折扣安排存在差别。",
+            "purpose": "按所选行业的当前问题读取对应原文，核对业务关系或案例；其余资料按需参考。"
+          }
+        },
+        {
+          "source_id": "nb-d01-wmt",
+          "access": {
+            "kind": "selected_chapters",
+            "uri": "https://stock.walmart.com/sec-filings/all-sec-filings/content/0000104169-25-000021/wmt-20250131.htm"
+          },
+          "required_unit": {
+            "locator": "业务概述行 226—248；Sam’s Club 行 303—318；会员收入行 1929—1931",
+            "scope": "WMT 有商品零售和会员服务，会员收费对应期间权益。；同一购物活动可以涉及商品价款与会员费两种不同收费。",
+            "purpose": "按所选行业的当前问题读取对应原文，核对业务关系或案例；其余资料按需参考。"
+          }
+        }
+      ],
+      "software": [
+        {
+          "source_id": "nb-d01-msft",
+          "access": {
+            "kind": "selected_chapters",
+            "uri": "https://www.microsoft.com/investor/reports/ar25/index.html"
+          },
+          "required_unit": {
+            "locator": "行 258—276，Microsoft 365 Commercial、Dynamics；行 392—400，Licensing Options",
+            "scope": "Microsoft 365 商业云、Office 本地许可和持续服务对应不同交付。；企业可以在批量许可协议下购买多份软件许可和云服务；用户数量、购买功能及使用范围需要区别。；软件保障可以提供合同期内的新版本、升级和支持权益。",
+            "purpose": "按所选行业的当前问题读取对应原文，核对业务关系或案例；其余资料按需参考。"
+          }
+        },
+        {
+          "source_id": "nb-d01-aws",
+          "access": {
+            "kind": "selected_chapters",
+            "uri": "https://aws.amazon.com/pricing/"
+          },
+          "required_unit": {
+            "locator": "How does AWS pricing work；How do you pay for AWS，行 239—254 及价格方式标题",
+            "scope": "AWS 多数云服务采用按用量计费，也有固定套餐和承诺安排。；客户具体工作负载、所用资源和购买安排共同影响账单。",
+            "purpose": "按所选行业的当前问题读取对应原文，核对业务关系或案例；其余资料按需参考。"
+          }
+        },
+        {
+          "source_id": "nb-d01-netflix",
+          "access": {
+            "kind": "selected_chapters",
+            "uri": "https://aws.amazon.com/blogs/database/netflix-consolidates-relational-database-infrastructure-on-amazon-aurora-achieving-up-to-75-improved-performance/"
+          },
+          "required_unit": {
+            "locator": "Business challenge；Achieving cost-efficiency；Migration results；About the authors，行 237—276、299—316",
+            "scope": "Netflix ODS 团队此前在 AWS EC2 上自管 PostgreSQL 兼容数据库，随后把若干应用迁到 Aurora PostgreSQL。；案例将降低许可和维护负担、简化运行管理与成本效率联系起来；客户降本可以伴随同一云商内部的服务组合变化。",
+            "purpose": "按所选行业的当前问题读取对应原文，核对业务关系或案例；其余资料按需参考。"
+          }
+        },
+        {
+          "source_id": "nb-d01-talen",
+          "access": {
+            "kind": "selected_chapters",
+            "uri": "https://ir.talenenergy.com/static-files/90cce90c-e281-42c6-b686-ed6010dd8699"
+          },
+          "required_unit": {
+            "locator": "2025 8-K 附件 99.1，PDF 第 4 页，行 55—67；2026 Q2 10-Q，PDF 第 46 页 AWS PPA 术语，行 2054—2059",
+            "scope": "2025 年扩展 PPA 约定供电随时间分阶段增加。；原公告把输电改造与供电结构转换相连，后续 10-Q 确认修订 PPA 于 2026 年 4 月转换。；合同、具体供电节点和客户机房可用容量应分别核对。",
+            "purpose": "按所选行业的当前问题读取对应原文，核对业务关系或案例；其余资料按需参考。"
+          }
+        },
+        {
+          "source_id": "nb-d01-talen-support-1",
+          "access": {
+            "kind": "selected_chapters",
+            "uri": "https://talenenergy.gcs-web.com/static-files/649bfa16-a54e-4997-914b-a8a5d2e00900"
+          },
+          "required_unit": {
+            "locator": "PDF 第 46 页 AWS PPA",
+            "scope": "Talen Q2 2026 Form 10-Q",
+            "purpose": "核对正文涉及的后续进展或具体产品说明。"
+          }
+        },
+        {
+          "source_id": "nb-d01-cma",
+          "access": {
+            "kind": "selected_chapters",
+            "uri": "https://assets.publishing.service.gov.uk/media/688b8891fdde2b8f73469544/final_decision_report.pdf"
+          },
+          "required_unit": {
+            "locator": "本轮 PDF 第 109 页 §§3.236—3.237 关于新增客户/负载和存量变动的区别；第 269 页 §6.70；既有本地迁移阅读见 external-sources.md E2",
+            "scope": "云客户支出改变可能来自存量用量变化、成本优化、工作负载转移或新增负载。；外部研究可以帮助比较已有系统迁移和新增工作负载选择。",
+            "purpose": "按所选行业的当前问题读取对应原文，核对业务关系或案例；其余资料按需参考。"
+          }
+        }
+      ],
+      "platform": [
+        {
+          "source_id": "nb-d01-seller",
+          "access": {
+            "kind": "selected_chapters",
+            "uri": "https://sell.amazon.com/pricing/"
+          },
+          "required_unit": {
+            "locator": "Selling plans、FBA/merchant fulfillment 选项、Referral fees，行 180—258、294—308",
+            "scope": "第三方商家向平台购买销售服务，可能另选平台仓储配送。；商家服务费用与消费者购买商品的价款是不同交易关系。",
+            "purpose": "按所选行业的当前问题读取对应原文，核对业务关系或案例；其余资料按需参考。"
+          }
+        },
+        {
+          "source_id": "nb-b01-source-alphabet",
+          "access": {
+            "kind": "selected_chapters",
+            "uri": "https://www.sec.gov/Archives/edgar/data/1652044/000165204426000018/goog-20251231.htm"
+          },
+          "required_unit": {
+            "locator": "How We Make Money，行 227—239；TAC 与内容采购，行 959—976",
+            "scope": "平台使用者与广告付款者可以不同；Google 自有位置和合作伙伴位置都可以承载广告。；YouTube 服务与 Google One 等也有消费者订阅收入。；广告分销、网络合作方和内容提供者存在不同付款关系。",
+            "purpose": "按所选行业的当前问题读取对应原文，核对业务关系或案例；其余资料按需参考。"
+          }
+        },
+        {
+          "source_id": "nb-d01-bkng",
+          "access": {
+            "kind": "selected_chapters",
+            "uri": "https://www.sec.gov/Archives/edgar/data/1075531/000107553126000009/bkng-20251231.htm"
+          },
+          "required_unit": {
+            "locator": "行 855—864，performance marketing expenses and efficiency",
+            "scope": "BKNG 披露其效果营销主要使用搜索引擎，尤其 Google，以及联盟、比价和社交渠道。；其营销效率受点击成本、转化、取消和渠道组合等影响。",
+            "purpose": "按所选行业的当前问题读取对应原文，核对业务关系或案例；其余资料按需参考。"
+          }
+        }
+      ],
+      "semiconductor": [
+        {
+          "source_id": "nb-d01-nvda",
+          "access": {
+            "kind": "selected_chapters",
+            "uri": "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000021/nvda-20260125.htm"
+          },
+          "required_unit": {
+            "locator": "行 187—207；Manufacturing 行 284—289；直接/间接客户行 1279—1288",
+            "scope": "NVDA 的计算平台可以以机架系统、子系统、模块及相关软件服务交付。；直接采购者与实际部署使用者可以不同。；公司采用晶圆代工和合同制造，明确提到 TSMC 制造晶圆与 CoWoS 封装技术。",
+            "purpose": "按所选行业的当前问题读取对应原文，核对业务关系或案例；其余资料按需参考。"
+          }
+        },
+        {
+          "source_id": "nb-d01-tsmc",
+          "access": {
+            "kind": "selected_chapters",
+            "uri": "https://investor.tsmc.com/static/annualReports/2025/english/index.html"
+          },
+          "required_unit": {
+            "locator": "股东信行 18—24；About TSMC 行 64—77",
+            "scope": "TSMC 以制造客户产品的纯代工模式经营，并提供先进封装等技术。；制造和封装需要公司进行相应技术及产能投入。；2330 为台湾上市股票代码，TSM 为美国存托股份交易代码。",
+            "purpose": "按所选行业的当前问题读取对应原文，核对业务关系或案例；其余资料按需参考。"
+          }
+        },
+        {
+          "source_id": "nb-d01-asml",
+          "access": {
+            "kind": "selected_chapters",
+            "uri": "https://www.asml.com/en/company"
+          },
+          "required_unit": {
+            "locator": "公司概述，行 138",
+            "scope": "ASML 为芯片制造商提供在硅片上制造图案所用的光刻设备、软件和服务。",
+            "purpose": "按所选行业的当前问题读取对应原文，核对业务关系或案例；其余资料按需参考。"
+          }
+        },
+        {
+          "source_id": "nb-d01-coreweave",
+          "access": {
+            "kind": "selected_chapters",
+            "uri": "https://s205.q4cdn.com/133937190/files/doc_financials/2026/q2/CRWV-US-CORRECTED-TRANSCRIPT-CoreWeave-Q2-2026-Earnings-Call-11August2026.pdf"
+          },
+          "required_unit": {
+            "locator": "PDF 第 8 页 A100 合同；问答中续约范围，既有文本行 576—590",
+            "scope": "管理层称新签了一份延续到 2029 年的 A100 算力服务合同。；旧代设备可以继续承接付费服务，存量设备使用与购买新硬件需分别观察。",
+            "purpose": "按所选行业的当前问题读取对应原文，核对业务关系或案例；其余资料按需参考。"
+          }
+        },
+        {
+          "source_id": "nb-d01-aws-gpu",
+          "access": {
+            "kind": "selected_chapters",
+            "uri": "https://s2.q4cdn.com/299287126/files/doc_earnings/2026/q1/earnings-result/AMZN-Q1-2026-Earnings-Release.pdf"
+          },
+          "required_unit": {
+            "locator": "PDF 第 2 页，AI chips / Trainium / NVIDIA 条目，行 35—42",
+            "scope": "AWS 同时使用自研 Trainium 并公开宣布从 2026 年开始部署更多 NVIDIA GPU 的安排。；云客户增加计算服务时，采购可以落到不同类型的芯片。",
+            "purpose": "按所选行业的当前问题读取对应原文，核对业务关系或案例；其余资料按需参考。"
+          }
+        },
+        {
+          "source_id": "nb-d01-kgi",
+          "access": {
+            "kind": "selected_chapters",
+            "uri": "https://www.kgi.com.hk/en/-/media/files/kgishk/research-reports/tw-reports/tsmc_2330-tt_01102025e.pdf"
+          },
+          "required_unit": {
+            "locator": "PDF 第 1 页：Revise up 2026 CoWoS estimates；Early 2027 outlook；第 10 页材料使用说明",
+            "scope": "报告以当时 AI 客户计划及交易安排为依据，上调 2026 年 CoWoS 需求和产能预测。；其对 2027 年短缺的判断以客户维持当时需求水平为条件，可用来演示研报假设如何等待后续公司材料校准。",
+            "purpose": "按所选行业的当前问题读取对应原文，核对业务关系或案例；其余资料按需参考。"
+          }
+        }
+      ],
+      "industrial": [
+        {
+          "source_id": "nb-d01-otis",
+          "access": {
+            "kind": "selected_chapters",
+            "uri": "https://www.sec.gov/Archives/edgar/data/1781335/000178133526000011/otis-20251231.htm"
+          },
+          "required_unit": {
+            "locator": "Item 1，行 172—178、205—222",
+            "scope": "新设备客户包括开发商、总承包商和政府机构；通常有预付和按里程碑付款。；维保客户通常为业主和设施管理方，可以不同于原设备采购者。；OTIS 维护自家和其他厂商设备，服务还包含维修与改造。",
+            "purpose": "按所选行业的当前问题读取对应原文，核对业务关系或案例；其余资料按需参考。"
+          }
+        },
+        {
+          "source_id": "nb-d01-fluor",
+          "access": {
+            "kind": "selected_chapters",
+            "uri": "https://www.sec.gov/Archives/edgar/data/1124198/000112419826000007/flr-20251231.htm"
+          },
+          "required_unit": {
+            "locator": "行 205—208；Types of Contracts，行 310、323—333",
+            "scope": "FLR 提供工程、采购、施工和项目管理服务。；可报销合同按商定费率/费用结算，总价合同需要承包方估算工作和成本；成本超支的承担不同。",
+            "purpose": "按所选行业的当前问题读取对应原文，核对业务关系或案例；其余资料按需参考。"
+          }
+        },
+        {
+          "source_id": "nb-a01-source-02",
+          "access": {
+            "kind": "selected_chapters",
+            "uri": "https://www.gevernova.com/news/press-releases/ge-vernova-secures-two-h-class-combined-cycle-equipment-orders-hydrogen-capability"
+          },
+          "required_unit": {
+            "locator": "公告行 68—72；EnBW Heilbronn 页面 Project phases、Project diary，行 40—59",
+            "scope": "GE Vernova 2023 年公告取得 EnBW 两个项目订单，范围包括设备、建设、软件与后续服务，并由国际联合体执行。；业主项目页分别更新建设、主要部件交付、启动和商业投运节点，足以示范订单之后继续追进度。",
+            "purpose": "按所选行业的当前问题读取对应原文，核对业务关系或案例；其余资料按需参考。"
+          }
+        },
+        {
+          "source_id": "nb-d01-gev-support-1",
+          "access": {
+            "kind": "selected_chapters",
+            "uri": "https://www.enbw.com/company/topics/coal-phaseout/heilbronn-combined-heat-and-power-plant/"
+          },
+          "required_unit": {
+            "locator": "Project phases；德语版同表可确认英文 Q23 排版笔误实际为 Q3/Q4",
+            "scope": "EnBW Heilbronn combined heat and power plant — Project phases",
+            "purpose": "核对正文涉及的后续进展或具体产品说明。"
+          }
+        },
+        {
+          "source_id": "nb-d01-gev-support-2",
+          "access": {
+            "kind": "selected_chapters",
+            "uri": "https://www.enbw.com/unternehmen/themen/kohleausstieg/heizkraftwerk-heilbronn/"
+          },
+          "required_unit": {
+            "locator": "2026-09-27 V3核验读取Projektphasen，行44，暂定Q3/Q4 2027商业投运安排。",
+            "scope": "EnBW Heilbronn — Projektphasen",
+            "purpose": "核对正文涉及的后续进展或具体产品说明。"
+          }
+        }
+      ],
+      "healthcare": [
+        {
+          "source_id": "nb-d01-jnj",
+          "access": {
+            "kind": "selected_chapters",
+            "uri": "https://www.sec.gov/Archives/edgar/data/200406/000020040626000016/jnj-20251228.htm"
+          },
+          "required_unit": {
+            "locator": "Item 1，行 214—217、225—235；收入确认既有定位见 health-finance-branches.json",
+            "scope": "JNJ 同时经营药品与医疗器械。；药品可经零售商、批发商、分销商、医院和专业人员分销；器械有对应专业用途与机构采购渠道。；临床使用者、机构买方与最终支付方需要分别识别。",
+            "purpose": "按所选行业的当前问题读取对应原文，核对业务关系或案例；其余资料按需参考。"
+          }
+        },
+        {
+          "source_id": "nb-d01-hca",
+          "access": {
+            "kind": "selected_chapters",
+            "uri": "https://s23.q4cdn.com/949900249/files/doc_financials/2024/ar/HCA-2025-Annual-Report-to-Shareholders-FINAL.pdf"
+          },
+          "required_unit": {
+            "locator": "PDF 第 104—105 页，Note 1 Revenues，行 4898—4945",
+            "scope": "HCA 提供住院和门诊服务，多数患者合同还涉及政府项目、商业保险或管理式医疗等第三方付款者。；支付可按病例、日或服务项目等约定，服务交付、收入确认与收款需要区别。",
+            "purpose": "按所选行业的当前问题读取对应原文，核对业务关系或案例；其余资料按需参考。"
+          }
+        }
+      ],
+      "finance": [
+        {
+          "source_id": "nb-d01-jpm",
+          "access": {
+            "kind": "selected_chapters",
+            "uri": "https://www.jpmorganchase.com/content/dam/jpmc/jpmorgan-chase-and-co/investor-relations/documents/annualreport-2025.pdf"
+          },
+          "required_unit": {
+            "locator": "PDF 第 97 页/报告第 65 页，行 8140—8172",
+            "scope": "JPM 的消费与社区银行服务个人和小企业，包含存款、贷款、账户和支付服务。；客户存入的本金、银行放出的贷款本金、利息及服务费用承担不同权利和义务。",
+            "purpose": "按所选行业的当前问题读取对应原文，核对业务关系或案例；其余资料按需参考。"
+          }
+        },
+        {
+          "source_id": "nb-d01-visa",
+          "access": {
+            "kind": "selected_chapters",
+            "uri": "https://www.sec.gov/Archives/edgar/data/1403161/000140316125000089/v-20250930.htm"
+          },
+          "required_unit": {
+            "locator": "业务模式行 181—219；Note 1 Organization，行 1960—1961；结算资金责任沿既有 F2 短段记录复用",
+            "scope": "V 向支付体系参与者提供网络处理服务，本身不发卡或向持卡人授信。；交换费一般由收单方向发卡方支付，商户收单费用与 V 对机构收取的费用需区分。；网络流经金额不等同 V 的营业收入。",
+            "purpose": "按所选行业的当前问题读取对应原文，核对业务关系或案例；其余资料按需参考。"
+          }
+        },
+        {
+          "source_id": "nb-d01-chubb",
+          "access": {
+            "kind": "selected_chapters",
+            "uri": "https://about.chubb.com/stories/2025-chubb-letter-to-shareholders.html"
+          },
+          "required_unit": {
+            "locator": "股东信行 224、234—250；英国商业财产险产品页行 348—392",
+            "scope": "Chubb 为企业和个人承保风险，也经营寿险业务。；其商业财产险可以约定财产损坏及损坏后的营业中断保障，赔付依保单及理赔核定。；公司把损失准备金与履行赔付能力联系起来；收取保费以后仍可能承担后续义务。",
+            "purpose": "按所选行业的当前问题读取对应原文，核对业务关系或案例；其余资料按需参考。"
+          }
+        },
+        {
+          "source_id": "nb-d01-chubb-support-1",
+          "access": {
+            "kind": "selected_chapters",
+            "uri": "https://www.chubb.com/uk-en/business/products/property-insurance.html"
+          },
+          "required_unit": {
+            "locator": "Who it’s for；What it covers；claims handling",
+            "scope": "Chubb Commercial Property Insurance — UK",
+            "purpose": "核对正文涉及的后续进展或具体产品说明。"
+          }
+        },
+        {
+          "source_id": "nb-d01-chubb-support-2",
+          "access": {
+            "kind": "selected_chapters",
+            "uri": "https://www.sec.gov/Archives/edgar/data/896159/000089615926000005/R17.htm"
+          },
+          "required_unit": {
+            "locator": "V3专业核验：行7、64、86—90，未付赔款责任、估计与长期索赔；未取金额表。",
+            "scope": "Chubb FY2025 Form 10-K — Unpaid losses and loss expenses, and Future policy benefits",
+            "purpose": "核对正文涉及的后续进展或具体产品说明。"
+          }
+        }
+      ],
+      "energy": [
+        {
+          "source_id": "nb-d01-xom",
+          "access": {
+            "kind": "selected_chapters",
+            "uri": "https://corporate.exxonmobil.com/who-we-are/our-global-organization/business-divisions"
+          },
+          "required_unit": {
+            "locator": "行 29—55：Upstream、Product Solutions、Low Carbon Solutions",
+            "scope": "XOM 同时有油气生产、下游燃料及化工业务，最终服务不同用途。；从开采、加工及商品销售切面识别业务，有助于分别研究产品价格和加工关系。",
+            "purpose": "按所选行业的当前问题读取对应原文，核对业务关系或案例；其余资料按需参考。"
+          }
+        },
+        {
+          "source_id": "nb-d01-kmi",
+          "access": {
+            "kind": "selected_chapters",
+            "uri": "https://www.kindermorgan.com/Operations/Products/Index"
+          },
+          "required_unit": {
+            "locator": "Overview 行 19—21；Kinder Morgan Condensate Processing Facility 行 272—278",
+            "scope": "KMI 提供成品油等运输、储存与调和服务。；其 Galena Park 附近凝析油加工设施由与 BP North America 的长期收费协议支持。；同样处理能源商品，企业也可以通过提供加工服务取得收费。",
+            "purpose": "按所选行业的当前问题读取对应原文，核对业务关系或案例；其余资料按需参考。"
+          }
+        }
+      ]
+    },
+    "runtime_reading_log": []
+  },
+  "body_markdown": "同样是客户付款，买一件商品、使用一段时间的算力和购买一份保险，得到的东西并不相同。商品可以在交货时转到客户手中，云服务需要供应方持续运行设备，保险则让公司承担约定的未来责任。研究一家公司时，我们就要先认清它做的是哪些生意，再看每门生意怎样取得收入。\n\n[《投资组合、保证金与对冲策略》](/zh/notebook/settlement-margin-cash/)中的持仓取舍，也依赖对这些生意的判断。一家公司受到什么影响，客户还会不会购买，往往要回到具体的经营关系才能解释。从一笔交易往下看，产品、客户与收费方式就会逐渐联系起来。\n\n## 从客户付款认出业务 {#nb-d01-business}\n\n知道客户买到了什么，还要看谁在使用、谁作出采购决定，以及谁来付款。个人到商店买鞋时，这几种角色可以由同一个人承担；企业给员工采购软件时，使用者与付款者就分开了。到了医疗服务，患者接受诊疗，还可能由保险或政府项目支付部分费用。同一家公司面对不同客户时，也可能提供不同的交付和收费安排。\n\n下面可以选择一个行业，沿着其中的业务过程继续读。每条路径都会从客户和交付走到需求与证据；想比较不同生意时，可以切换行业，也可以显示全部。\n\n<div data-reading-branch-controls hidden></div>\n\n<section data-reading-branch=\"consumer\" data-branch-label=\"消费品与零售\" id=\"nb-d01-consumer\">\n\n## 消费品与零售：商品、渠道与库存 {#nb-d01-consumer-story}\n\n### 从品牌出货到消费者购买 {#nb-d01-consumer-channels}\n\n我们先看 NIKE（NKE）的一件商品怎样到达消费者手中。NKE 设计、营销商品，并主要由独立制造商生产；商品随后可以批发给零售客户，也可以通过自有门店和网站直接卖给消费者。批发时，零售客户向 NKE 采购，再把商品卖给顾客；直营时，顾客直接向 NKE 付款。两条路径最后都服务消费者，但 NKE 面对的直接客户和收款环节已经不同了。[^nke]\n\n<figure class=\"business-flow\"><div class=\"business-flow-route\"><p class=\"business-flow-route-title\">批发路径</p><div class=\"business-flow-grid\"><div class=\"business-flow-node\"><small>品牌方</small><strong>NIKE（NKE）</strong><p>组织产品与供货。</p></div><p class=\"business-flow-edge\">批发：向零售客户交货并结算</p><div class=\"business-flow-node\"><small>零售客户</small><strong>备货与销售</strong><p>持有商品并面向消费者销售。</p></div><p class=\"business-flow-edge\">终端：消费者购买商品并付款</p><div class=\"business-flow-node\"><small>使用与购买</small><strong>消费者</strong><p>取得所购买的商品。</p></div></div></div><div class=\"business-flow-route\"><p class=\"business-flow-route-title\">直营路径</p><div class=\"business-flow-grid\"><div class=\"business-flow-node\"><small>品牌直营</small><strong>NIKE（NKE）</strong><p>通过自有门店或网站销售。</p></div><p class=\"business-flow-edge\">NKE 交付商品；消费者直接付款</p><div class=\"business-flow-node\"><small>直接购买</small><strong>消费者</strong><p>向品牌购买并取得商品。</p></div></div></div><figcaption>批发路径中，NKE 的直接客户是零售商；直营时，NKE 直接面向消费者。</figcaption></figure>\n\n沿着这两条销售路径继续看，库存留在哪一方、后续工作由谁承担，也会有所不同。批发商品交给零售客户后，零售客户还要备货、陈列，等待消费者购买。直营则把这些零售工作也留给 NKE，包括经营门店、处理线上订单、配送和售后。<span data-text-versions id=\"nb-d01-consumer-text-1\">商品交到下一方手中以后，具体的退货、折扣和付款安排还要按合同辨认<span data-text-detail>（退货权、促销补贴和结算期限会影响各方最终收到的钱，以及库存和销售变化由谁承担；这里的两条路径只说明基本买卖关系）</span>。<button type=\"button\" class=\"text-version-toggle\" data-text-version-toggle hidden></button></span>所以我们既要看商品卖了多少，也要辨认这个“卖出”发生在品牌、零售还是消费者这一端。\n\n再看 Walmart（WMT），它采购商品后向消费者销售，同时也提供会员服务。顾客买走一件商品，取得的是这件商品；支付会费，则取得一定期间内的购物、配送等权益。两者可以服务于同一次购物活动，WMT 需要完成的工作却有不同的时间跨度：商品要交付，会员权益还要在约定期间持续提供。至于第三方商家在平台上卖货，则还会多出平台向商家收费的关系，我们可以在互联网平台版本里继续比较。[^wmt]\n\n### 从订单追到实际需求 {#nb-d01-consumer-demand}\n\n回到 NKE 的批发与直营，再读“订单增加”就有了可以追问的对象。零售客户多进货，可能因为顾客买得更多，也可能是在补回此前较低的库存。如果货已经送进渠道，却还没有被消费者买走，品牌出货和终端购买就处在不同阶段。我们还要看零售客户的库存、促销和后续补货：折价卖出同样能清理库存，但它说明的购买意愿与原价畅销不同。等到商品已经被消费者买走，后续补货又能持续，需求判断才多了一层依据。\n\nAgent 可以先查 NKE 的渠道说明，再沿有据的销售关系读取零售客户的材料，比较进货、库存与售出是否相接。研究直营时，就直接看消费者的购买，并用相关品类的消费资料帮助解释变化。企业研报若把出货增加解释成品牌需求增强，也要说明依据来自终端售出、渠道补库还是净售价。这些资料最终要回到消费者是否继续购买，以及这种购买怎样支持 NKE 在相应渠道取得收入。\n\n</section>\n\n<section data-reading-branch=\"software\" data-branch-label=\"软件与云服务\" id=\"nb-d01-software\">\n\n## 软件与云服务：使用、许可与账单 {#nb-d01-software-story}\n\n### 从使用功能到购买服务 {#nb-d01-software-contracts}\n\n员工每天打开一套办公软件，企业为此购买的可能是一组账号和一段持续服务。Microsoft（MSFT）的企业应用订阅，就把可使用的功能、付费用户和套餐联系在一起：采购部门确定购买范围，员工使用相应账号，供应商继续提供运行、更新和支持。企业有多少员工、开通了多少账号，以及愿意继续为哪些功能付费，需要分别看。员工增加会扩大潜在使用范围，实际采购还取决于哪些人需要软件、选择什么套餐，以及原有许可怎样安排。[^msft]\n\n软件也可以交给客户在自己的设施中运行。这时，客户取得软件使用权，并自行准备较多运行条件；供应商则交付软件，再按约定提供升级、维护或支持。<span data-text-versions id=\"nb-d01-software-text-1\">许可与维护可以按不同期限组合在一份合同中<span data-text-detail>（软件许可可能有期限，也可能允许客户长期使用某个版本；后续升级和支持又有各自的合同期间。同一企业协议还可能同时包含本地许可和云服务，要按客户实际取得的权利分别理解）</span>。<button type=\"button\" class=\"text-version-toggle\" data-text-version-toggle hidden></button></span>转到云服务，客户还可以直接付费使用供应商提供的计算资源。\n\nAmazon（AMZN）的 AWS 提供计算、存储、数据库等服务，客户可以按所用资源及合同安排付费。一个应用开始运行以后，会使用计算资源、保存数据，也可能调用数据库；这些服务各有计量方式，随后进入客户的账单。AWS 需要先准备可用的设备和运行条件；客户随后使用多少、使用哪些服务，则会按合同安排体现到账单中。<span data-text-versions id=\"nb-d01-software-text-2\">按用量计费还可以与套餐或消费承诺结合<span data-text-detail>（按量、承诺折扣和固定套餐对应不同付款安排，不能把某一种服务的计量单位用于全部云业务。合同承诺、容量上线、实际使用和收款也需要分别定位）</span>。[^aws]<button type=\"button\" class=\"text-version-toggle\" data-text-version-toggle hidden></button></span>\n\n<figure class=\"business-flow\"><div class=\"business-flow-grid\"><div class=\"business-flow-node\"><small>客户</small><strong>业务工作负载</strong><p>运行应用、保存数据、处理计算。</p></div><p class=\"business-flow-edge\">使用计算、存储或数据库服务</p><div class=\"business-flow-node\"><small>云服务方</small><strong>可用容量</strong><p>准备设备、电力和运行服务。</p></div><p class=\"business-flow-edge\">按使用和合同计费</p><div class=\"business-flow-node\"><small>付款安排</small><strong>客户账单</strong><p>计量单位、套餐和承诺共同影响金额。</p></div></div><figcaption>客户的工作负载形成资源使用，供应方的设备和电力形成服务能力；账单按所用服务及合同安排计算。</figcaption></figure>\n\n### 把客户需求与供给条件接起来 {#nb-d01-software-demand}\n\n客户希望少花钱，也未必就要离开原来的供应商。Netflix（NFLX）与 AWS 工程师在一份联合案例中介绍，团队原来在 AWS EC2 上自行管理一批关系数据库，后来把其中若干应用迁到 Aurora 托管服务，以减轻许可证和运行维护负担。服务组合变了，客户仍在使用同一家云供应商。许可证、内部维护和云服务又是不同支出，因此 Agent 读到“客户降低成本”时，还要继续辨认省下的是哪笔钱，以及新的服务由谁提供。[^netflix]\n\n客户要扩大使用，供应方也得按时提供所需容量。Talen Energy（TLN）在 2025 年公布与 AWS 的扩展供电安排，约定分阶段增加供电。有了长期合同，还要继续核对配套建设怎样推进、各阶段供电何时可用；电力又要与机房、设备及客户使用相接。我们就可以把客户的采用安排与这些建设进度放在一起，看它们在时间上能不能接上。[^talen]\n\n沿着这些关系核验，客户侧要解释为什么续用或扩用，供应方则要交出相应资源。若某个客户增加计算，是为了向自己的客户提供付费服务，Agent 还可以再查这一层业务如何产生使用。外部研究也能帮助比较解释：英国竞争与市场管理局（CMA）在 2025 年的云市场研究中，区分了原有业务用量变化、成本优化、迁移和新增工作负载。客户支出增加可能对应不同变化，既有应用留在原供应商，也不等于每一项新任务都会交给它。把这些区别带回采购和使用材料，关于云需求的判断就同时有了购买理由和可交付条件。[^cma]\n\n</section>\n\n<section data-reading-branch=\"platform\" data-branch-label=\"互联网平台与广告\" id=\"nb-d01-platform\">\n\n## 互联网平台与广告：参与者与付款关系 {#nb-d01-platform-story}\n\n### 一次交易中的不同客户 {#nb-d01-platform-participants}\n\n在 Amazon（AMZN）的第三方商家店铺购买商品时，买家购买的是商家的货，商家则在使用平台提供的服务。商家把商品放到平台上销售，按所选销售计划和交易安排付费；如果还需要平台仓储、配送，又会购买相应的履约服务。顺着这笔交易看下去，同一平台上就出现了两种购买关系：消费者为商品付款，商家为平台服务付款。[^seller]\n\n<figure class=\"business-flow\"><div class=\"business-flow-grid\"><div class=\"business-flow-node\"><small>商品买家</small><strong>消费者</strong><p>向第三方商家购买商品。</p></div><p class=\"business-flow-edge\">商品交付与商品价款</p><div class=\"business-flow-node\"><small>商品卖家</small><strong>第三方商家</strong><p>提供商品，并选择所需平台服务。</p></div><p class=\"business-flow-edge\">平台服务与相应费用</p><div class=\"business-flow-node\"><small>服务提供者</small><strong>平台</strong><p>提供交易支持，以及可选的履约、广告等服务。</p></div></div><figcaption>商品交易与平台服务分别发生：买家向商家买商品，商家再按安排购买平台服务。</figcaption></figure>\n\n<span data-text-versions id=\"nb-d01-platform-text-1\">商品放在平台仓库里，也要分清商品所有权和仓储服务<span data-text-detail>（由谁拥有货物、谁保管货物、谁代收货款，以及谁负责退货，各有相应安排。使用平台仓库并不能单独证明商品已被平台买下；交易额和平台收取的费用也属于不同口径）</span>。<button type=\"button\" class=\"text-version-toggle\" data-text-version-toggle hidden></button></span>所以研究平台时，只知道“网上卖了多少货”还不够，还要认出平台在这一笔交易中承担了哪些工作，向谁收取哪一笔费用。\n\n广告又带来了另一类付款者。Alphabet（GOOGL／GOOG）的搜索和视频服务吸引用户，广告主则希望通过这些服务接触用户。用户搜索信息、观看 YouTube 视频，广告主购买相关的展示、观看或互动机会，平台再按具体广告产品的投放和计量安排收费。自有服务之外，广告网络还会连接外部网站和应用；这些合作方提供广告位置，并按安排取得分成。广告主付了多少钱，与平台最终保留多少，因而也需要分开看。[^alphabet]\n\n愿意直接购买内容或功能的用户，也可以成为订阅客户。YouTube 的订阅和 Google One 等服务，让用户按套餐与周期付款，取得内容、存储或功能的持续使用权益。订阅与广告可以共享用户和基础设施，但客户买到的东西不同，平台接下来的内容与服务责任也不同。因此研究一项平台业务时，要先确定正在讨论的是哪一类客户和哪一种收费。\n\n### 沿广告主的生意验证需求 {#nb-d01-platform-demand}\n\n平台卖出了广告，广告主还要看这笔支出给自己的生意带来了什么。Booking Holdings（BKNG）在营销说明中把 Google 列为重要渠道，并讨论点击成本、流量转成预订的效果，以及预订取消对营销效率的影响。一个人点击了广告，还要继续完成预订；预订又可能在后来取消。因此，平台已经卖出的点击与 BKNG 最后取得的业务结果，需要按各自时点观察。广告主自己的业务结果会反过来影响它愿意继续投入多少预算。[^bkng]\n\n如果 Agent 要判断 GOOGL 的广告需求，就可以先沿这项已知采购关系读取 BKNG 的营销材料，再比较预算和预订发生了什么变化。需要解释旅游需求时，再追到实际旅行活动；企业研报关于获客成本、渠道竞争或广告回报的解释，也应与这些材料相对照。这样，我们就能把平台的使用情况与客户的付费理由接起来，继续判断这些收费能否维持。\n\n</section>\n\n<section data-reading-branch=\"semiconductor\" data-branch-label=\"半导体与硬件\" id=\"nb-d01-semiconductor\">\n\n## 半导体与硬件：生产、交付与使用 {#nb-d01-semiconductor-story}\n\n### 一项计算能力怎样成为产品 {#nb-d01-semiconductor-production}\n\nNVIDIA（NVDA）提供的产品，既可以进入数据中心，也可以用于个人电脑和专业工作。图形处理器（GPU）是其中一类产品；数据中心客户需要计算和互连能力，采购的可能是芯片、模块，也可能是由硬件、软件与配套部件组成的系统。个人电脑产品则可能先交给电脑厂商、板卡商或销售渠道，再由最终用户购买。直接采购方与最终使用者未必是同一个主体，要把这些产品交给客户，还得让制造、封装和配套环节按时接续。[^nvda]\n\n沿着交付继续看，TSMC（TSM／2330）按客户设计提供晶圆制造和封装，ASML Holding（ASML）则为芯片制造商提供光刻设备、软件和相关服务。设计企业安排产品研发与采购，晶圆厂准备工艺、厂房和设备，设备供应商再完成自己的制造、交付和维护。<span data-text-versions id=\"nb-d01-semiconductor-text-1\">这里按各家公司交付的东西区分业务<span data-text-detail>（TSM 是在美国交易的存托证券代码，2330 是台湾上市普通股代码，二者对应同一家 TSMC。晶圆制造与封装服务由客户设计和生产要求引出，不等于代工企业直接销售自有品牌芯片）</span>。<button type=\"button\" class=\"text-version-toggle\" data-text-version-toggle hidden></button></span>同一项终端需要，到了不同企业手中，会变成不同的订单与交付。[^tsmc]<sup>，</sup>[^asml]\n\n<figure class=\"business-flow\"><div class=\"business-flow-route\"><p class=\"business-flow-route-title\">产品制造与交付</p><div class=\"business-flow-grid\"><div class=\"business-flow-node\"><small>产品与系统</small><strong>芯片设计和产品企业</strong><p>提出设计与生产要求，安排采购。</p></div><p class=\"business-flow-edge\" data-flow-direction=\"both\">产品企业委托并付款；服务商制造、封装并交付</p><div class=\"business-flow-node\"><small>制造与封装</small><strong>晶圆及封装服务商</strong><p>按客户设计完成约定的生产与交付。</p></div></div></div><div class=\"business-flow-route\"><p class=\"business-flow-route-title\">生产设备与服务</p><div class=\"business-flow-grid\"><div class=\"business-flow-node\"><small>设备使用者</small><strong>晶圆制造企业</strong><p>建设和运行产线，采购所需设备与服务。</p></div><p class=\"business-flow-edge\" data-flow-direction=\"both\">制造企业采购并付款；供应商交付设备与服务</p><div class=\"business-flow-node\"><small>设备供给</small><strong>设备及装机服务商</strong><p>提供设备、维护和升级等服务。</p></div></div></div><figcaption>生产委托与设备采购分属不同交易：产品企业取得制造和封装交付，制造企业则采购生产设备及相应服务。</figcaption></figure>\n\n这些交付还各自需要资金。NVDA 需要投入研发、安排制造采购并持有相应库存；晶圆厂需要建设和运行产线；购买计算设备的客户则要准备机房及运行条件。客户采购了设备以后，还要完成部署，才能在自己的工作中使用。沿产业链观察时，应当辨认这些相接的阶段，避免把同一项需要在不同环节出现的金额重复相加。\n\n### 从终端使用追到新增采购 {#nb-d01-semiconductor-demand}\n\n客户已经在使用的设备，也会影响后续采购。CoreWeave（CRWV）管理层在 2026 年 8 月的电话会上披露，公司新签了一份延续至 2029 年的 A100 算力服务合同。这个案例说明旧代设备仍能承接付费服务。客户的服务业务增长以后，可能先利用现有设备或提高效率，也可能增加新设备；我们还要看客户作出了哪一种选择，才能判断供应商是否获得新的采购机会。[^coreweave]\n\n以 Amazon（AMZN）的 AWS 为例，新增的计算需求还可能落到不同产品上。AMZN 在 2026 年 4 月的公告中介绍了自研 Trainium 芯片的落地情况，同时公布了从 2026 年起部署更多 NVDA GPU 的计划。自研与外购可以同时存在，已经采用的产品与未来部署计划也各有时点。Agent 就需要沿产品选择和采购安排，判断目标公司实际承担哪一部分交付，再核这些产品何时在客户那里上线使用。[^aws-gpu]\n\n企业研报可以帮助我们检查这条关系中的假设。KGI 在 2025 年 10 月 1 日的 TSMC 报告中，根据当时客户的计划，上调了先进封装的需求和产能预测；它对后续短缺的判断，又以客户维持当时需求水平为条件。读到这样的预测，就有了继续核验的对象：客户是否仍按原计划采购，工厂是否交出了预计容量，设备又是否顺利部署。把报告与后来的建设、采购和交付材料放在一起，可以继续检验哪些解释仍然适用、哪些需要更新。[^kgi]\n\n</section>\n\n<section data-reading-branch=\"industrial\" data-branch-label=\"工业设备与工程服务\" id=\"nb-d01-industrial\">\n\n## 工业设备与工程服务：从安装到持续运行 {#nb-d01-industrial-story}\n\n### 同一台设备，不同阶段的生意 {#nb-d01-industrial-lifecycle}\n\nOtis Worldwide（OTIS）既交付新电梯，也为已经安装的设备提供维保、维修和改造。建设一栋楼时，开发商或总承包商等客户采购设备，OTIS 需要制造、供货，再配合现场进度完成安装与调试。客户可以先支付预付款，再按材料到场、安装等进度支付后续款项。等到设备开始使用，业主或设施管理人接下来关心的事情也会改变：电梯能否按要求运行，出现问题时由谁检查、维修，零件怎样更换，都会进入持续服务。[^otis]\n\n这时，客户购买的是一段期间内的维护及约定服务。OTIS 也维护其他厂商的设备，因此一台设备由谁制造，与后来由谁提供付费维保，需要分别辨认。<span data-text-versions id=\"nb-d01-industrial-text-1\">维保合同的覆盖范围会影响后续工作和收费<span data-text-detail>（检查、保养、故障处理和零件更换可以有不同的合同范围；某项维修是否已包含在服务价内，要回到相应条款。装机设备、在保设备和付费维保设备也各有计数范围）</span>。<button type=\"button\" class=\"text-version-toggle\" data-text-version-toggle hidden></button></span>再过一段时间，业主可能还会为升级部件或系统另做预算，这就进入了设备改造的业务，需要重新安排施工范围和停机时间。\n\n<figure class=\"business-flow\"><div class=\"business-flow-grid\"><div class=\"business-flow-node\"><small>建设阶段</small><strong>新设备采购者</strong><p>购买设备、安装与调试。</p></div><p class=\"business-flow-edge\">设备投入使用后</p><div class=\"business-flow-node\"><small>运行阶段</small><strong>业主或管理人</strong><p>购买约定范围的维保和维修。</p></div><p class=\"business-flow-edge\">出现升级需要时</p><div class=\"business-flow-node\"><small>更新阶段</small><strong>改造采购者</strong><p>安排预算和停机，购买部件或系统升级。</p></div></div><figcaption>同一台设备在不同阶段可能对应不同采购者。新设备、维保和改造分别以实际合同为准。</figcaption></figure>\n\n大型工程还会把设备、施工和管理组织在一份项目安排中。Fluor（FLR）提供工程设计、采购、施工及项目管理等服务，承包范围由合同规定。可报销合同通常按约定的成本和费用安排结算，总价合同则围绕约定工作范围确定价格。<span data-text-versions id=\"nb-d01-industrial-text-2\">两种安排会改变客户与承包商各自承担的成本责任<span data-text-detail>（可报销合同仍有可报销范围、费率和履约条件；总价或最高限价合同也需连同范围变更、索赔和其他条款理解，另有混合合同。项目总投资、承包金额和承包商最终取得的收入各有范围）</span>。[^fluor]<button type=\"button\" class=\"text-version-toggle\" data-text-version-toggle hidden></button></span>比较这类订单时，就还要看合同金额对应多少工作、哪些支出由谁承担。\n\n### 让订单回到项目进度 {#nb-d01-industrial-demand}\n\n拿到订单以后，项目还需要按计划推进。签约、取得开工通知、制造或施工、交付验收和付款，分别说明项目已经走到哪里。GE Vernova（GEV）的一份 2023 年订单公告，就介绍了为业主 EnBW 提供设备、建设及后续服务的安排。再读业主的 Heilbronn 项目页，可以看到主要部件交付、启动和商业投运的后续计划。<span data-text-versions id=\"nb-d01-industrial-text-3\">把供应方最初的计划与业主后来的安排对照，就能发现预期投运时间发生了变化<span data-text-detail>（2023 年 11 月的供应方公告预计于 2026 年底投运；2026 年 9 月 27 日读取的业主项目表暂定于 2027 年下半年投入商业运行）</span>。[^gev]<button type=\"button\" class=\"text-version-toggle\" data-text-version-toggle hidden></button></span>核对项目进度时，我们就需要辨认这笔订单已经走到了哪一步，接下来还要完成什么。\n\nAgent 可以先查直接采购方和供应方：采购方的项目是否推进，设备或分包工作是否能够按时交付。如果订单来自总包，而项目资金或建设安排仍不清楚，再查背后的业主。维保业务则要回到实际合同续签和服务覆盖，改造要回到业主预算及实施安排。企业研报若用订单增长推算后续收入，就要交代这些订单怎样转成实际工作；若用装机基础推算服务增长，则要解释哪些设备会继续成为付费客户。这时，新设备订单、既有设备运行和改造需求就能各自找到相应的依据。\n\n</section>\n\n<section data-reading-branch=\"healthcare\" data-branch-label=\"医药与医疗服务\" id=\"nb-d01-healthcare\">\n\n## 医药与医疗服务：采用、采购与支付 {#nb-d01-healthcare-story}\n\n### 一次诊疗中的不同交付 {#nb-d01-healthcare-delivery}\n\n我们以美国医疗市场为例，先把患者接受的服务与机构之间的采购分开看。患者需要诊疗，医生参与选择治疗办法，医疗机构组织人员与设施，同时采购所需药品和器械。患者接受服务以后，费用还可能由商业保险、政府项目和患者分别承担。治疗需要怎样落实为采购和付款，要沿具体的产品与服务继续辨认。\n\nJohnson & Johnson（JNJ）的业务包括药品和医疗器械。药品可以经批发商、药房或医疗机构进入患者治疗，药厂的直接买方与最终使用者因而可能分开；器械可以由机构采购，也可以经批发或零售渠道交付，随后由相应人员使用。器械内部还有设备、植入产品和耗材之别：一台可持续使用的设备，与随诊疗消耗的材料，对应不同的采购与补货过程。同一项诊疗需要，可能同时带来不同供应方的产品交付。[^jnj]\n\n<span data-text-versions id=\"nb-d01-healthcare-text-1\">医疗机构采购药品或器械，再把它们用于患者的诊疗，产品买卖与医疗服务因而对应不同的交付<span data-text-detail>（机构直接向药厂采购时，药厂售价与机构采购价就是同一笔交易的两端；经分销渠道采购时，则要分清各环节的买卖。药品销售的返利、折扣和退货会影响净收入；器械究竟按设备出售、租赁、耗材或服务收费，需按所选产品合同确认）</span>。<button type=\"button\" class=\"text-version-toggle\" data-text-version-toggle hidden></button></span>\n\nHCA Healthcare（HCA）则组织医院与门诊设施提供医疗服务。患者接受住院、门诊或手术等服务，医院需要准备医护人员、场所和耗材，付款来源包括政府医疗项目、保险计划和患者。<span data-text-versions id=\"nb-d01-healthcare-text-2\">支付金额取决于相应项目或合同的安排<span data-text-detail>（相关支付可以按病例、诊断、住院日或服务项目计算；Medicare、Medicaid、商业保险和患者自付各有适用关系。医院账单标价、预计可收金额和最后收到的现金需要分别辨认）</span>。[^hca]<button type=\"button\" class=\"text-version-toggle\" data-text-version-toggle hidden></button></span>HCA 随医疗服务的履行确认收入，现金到账又是另一个环节，还需要跟进支付核定和实际收款。\n\n<figure class=\"business-flow\"><div class=\"business-flow-route\"><p class=\"business-flow-route-title\">直接采购药品或器械</p><div class=\"business-flow-grid\"><div class=\"business-flow-node\"><small>产品供给</small><strong>药品与器械企业</strong><p>直接向医疗机构供应药品或器械。</p></div><p class=\"business-flow-edge\" data-flow-direction=\"both\">向机构供货；机构按采购安排付款</p><div class=\"business-flow-node\"><small>采购与采用</small><strong>医疗机构</strong><p>采购相应产品，供诊疗使用。</p></div></div></div><div class=\"business-flow-route\"><p class=\"business-flow-route-title\">诊疗与患者自付</p><div class=\"business-flow-grid\"><div class=\"business-flow-node\"><small>服务提供者</small><strong>医疗机构与医护团队</strong><p>组织人员、设施和所需药械。</p></div><p class=\"business-flow-edge\" data-flow-direction=\"both\">向患者提供诊疗；患者按安排支付自付部分</p><div class=\"business-flow-node\"><small>接受服务</small><strong>患者</strong><p>接受诊疗，承担约定的自付费用。</p></div></div></div><div class=\"business-flow-route\"><p class=\"business-flow-route-title\">第三方支付</p><div class=\"business-flow-grid\"><div class=\"business-flow-node\"><small>费用支付方</small><strong>保险与政府项目</strong><p>按适用项目和合同核定费用。</p></div><p class=\"business-flow-edge\" data-flow-direction=\"forward\">按项目与合同向医疗机构支付</p><div class=\"business-flow-node\"><small>服务提供者</small><strong>医疗机构</strong><p>提供相应服务，并办理结算。</p></div></div></div><figcaption>按美国医疗业务的关系示意：图中展示机构直接采购，产品也可以经分销渠道供货。诊疗与支付再按各自合同或项目安排完成。</figcaption></figure>\n\n### 从临床需要到可支付的使用 {#nb-d01-healthcare-demand}\n\n患者有治疗需要以后，还要找到能够采用、供货和支付的具体路径。某个产品获准销售，说明它取得了相应准入；医疗机构愿意采用，还涉及诊疗安排、采购与人员使用；患者最终用得上，又要看实际获得服务和支付覆盖。这些材料回答的问题不同。Agent 因而要先选定产品和市场，再沿渠道、机构及付款关系核对。\n\n如果药厂的直接客户是批发商，Agent 可以先看其采购与库存，再核医院或药房的实际使用；研究医院服务，则要分别看患者活动与支付方的结算安排。企业研报中关于患者人数或市场空间的估计，也要接到这种采用过程：有多少需要能够进入治疗，机构怎样采购，目标公司最后按什么条件取得收入。只有把这些环节接起来，我们才能知道一项医疗需求会怎样进入所研究公司的业务。\n\n</section>\n\n<section data-reading-branch=\"finance\" data-branch-label=\"银行、支付与保险\" id=\"nb-d01-finance\">\n\n## 银行、支付与保险：资金与未来承诺 {#nb-d01-finance-story}\n\n### 账户、贷款与支付各自提供什么 {#nb-d01-finance-services}\n\n把钱存入银行、向银行借款和通过银行卡付款，是几种不同的交易。以 JPMorgan Chase（JPM）的消费银行业务为例，存款客户使用账户，把钱存入银行，并保留按相应条款提款的权利；借款客户取得融资，随后需要还本付息。同一个人可以同时承担这两种角色，但存款本金、贷款本金和银行收取的利息、服务费，各有不同的含义。因此客户交来的钱和银行取得的收入，需要沿各自的权利与付款责任分别理解。[^jpm]\n\n银行还需要为这些承诺准备资金，负担资金成本，并承担借款人不能按约偿付造成的损失。存款越多或贷款越多，只说明业务规模的一部分；研究新增贷款时，还要看借款人为什么需要钱，靠什么还款。JPM 同时经营其他金融业务，这里先用账户与贷款认清消费银行中的基本关系。\n\n再看 Visa（V），它为发卡、收单等参与者提供网络处理服务。消费者用卡付款，发卡方服务持卡人，收单方服务商户，支付网络帮助完成授权、清算和结算等处理。<span data-text-versions id=\"nb-d01-finance-text-1\">商户承担的费用、机构间的交换费和 V 的网络收入，需要分别辨认<span data-text-detail>（交换费通常由收单方向发卡方支付；网络收费涉及支付金额、处理笔数、跨境和增值服务等安排，并受客户激励影响。V 不提供发卡行的持卡人消费信贷，但仍有自己的结算资金责任）</span>。[^visa]<button type=\"button\" class=\"text-version-toggle\" data-text-version-toggle hidden></button></span>交易流经多少金额，与网络最终收取多少费用，便是两个不同的观察对象。\n\n<figure class=\"business-flow\"><div class=\"business-flow-route\"><p class=\"business-flow-route-title\">银行：存款与贷款</p><div class=\"business-flow-grid\"><div class=\"business-flow-node\"><small>存款客户</small><strong>储户</strong><p>使用账户，保留按条款提款的权利。</p></div><p class=\"business-flow-edge\" data-flow-direction=\"both\">储户存入本金；银行按约办理提款</p><div class=\"business-flow-node\"><small>账户与融资</small><strong>银行</strong><p>提供账户和贷款，负担资金成本与信用损失。</p></div><p class=\"business-flow-edge\" data-flow-direction=\"both\">银行发放贷款；借款人还本付息</p><div class=\"business-flow-node\"><small>融资客户</small><strong>借款人</strong><p>使用借款，并按约偿还。</p></div></div></div><div class=\"business-flow-route\"><p class=\"business-flow-route-title\">支付网络：处理服务</p><div class=\"business-flow-grid\"><div class=\"business-flow-node\"><small>网络客户</small><strong>发卡、收单等机构</strong><p>为持卡人或商户服务，并使用支付网络。</p></div><p class=\"business-flow-edge\" data-flow-direction=\"both\">机构按约付费；网络提供处理服务</p><div class=\"business-flow-node\"><small>网络服务方</small><strong>支付网络</strong><p>帮助完成授权、清算和结算等处理。</p></div></div></div><div class=\"business-flow-route\"><p class=\"business-flow-route-title\">保险：保费与未来责任</p><div class=\"business-flow-grid\"><div class=\"business-flow-node\"><small>购买保险</small><strong>投保人</strong><p>按合同购买保障并支付保费。</p></div><p class=\"business-flow-edge\" data-flow-direction=\"forward\">向承保公司支付保费</p><div class=\"business-flow-node\"><small>承担责任</small><strong>承保公司</strong><p>收取保费，并承担合同约定的责任。</p></div><p class=\"business-flow-edge\" data-flow-direction=\"forward\">在约定情形出现时赔付或给付</p><div class=\"business-flow-node\"><small>取得赔付或给付</small><strong>合同约定的收款方</strong><p>依保单确定相应的收款权利。</p></div></div></div><figcaption>银行分别与储户、借款人交易；支付网络和保险各有自己的客户与责任。本金、服务费与保费分别理解，保险收款方及条件由合同确定。</figcaption></figure>\n\n### 收取保费以后的责任 {#nb-d01-finance-insurance}\n\n保险提供的是另一种承诺。Chubb（CB）的业务包括财产与责任保险，以及寿险等类别。投保人支付保费，购买约定期间和范围内的保障；承保公司则在合同约定的情形出现时承担相应赔付。例如，CB 英国商业财产险的产品介绍就列出了财产损坏，以及损坏后的营业中断保障。经纪人或代理人可以帮助客户购买保险，承担赔付的承保人又是另一个角色。保费收到以后，约定的保障和未来赔付责任还会持续。[^chubb]\n\n不同保险产品承诺的时间和条件不同，收到保费与最终履约之间可能相隔很久。<span data-text-versions id=\"nb-d01-finance-text-2\">公司需要估计后续赔付，确认相应负债，并以资产和资本支持履约<span data-text-detail>（损失准备金反映对尚未支付的赔款及相关费用的估计，属于保险负债。保单的保障期间与赔付持续时间也可能不同，部分已发生事故的理赔会在保障期结束后继续）</span>。[^chubb]<button type=\"button\" class=\"text-version-toggle\" data-text-version-toggle hidden></button></span>研究这类业务时，我们就要把客户购买保障的需要，与公司承担承诺的条件一起看。\n\nAgent 沿不同业务核需求时，追问的对象也会改变。银行要同时看借款与偿付来源；支付网络要分清实际交易增加，还是客户换了支付方式或交易路由；保险则要区分保费变化来自费率、保障范围、投保价值还是客户数量，再接到相应赔付。企业研报若只写“规模增长”，这些关系仍需展开。规模变化只有回到相应业务里，才会显示它对收费和履约的实际含义。\n\n</section>\n\n<section data-reading-branch=\"energy\" data-branch-label=\"能源与原材料\" id=\"nb-d01-energy\">\n\n## 能源与原材料：商品、加工与输运 {#nb-d01-energy-story}\n\n### 同一批资源可以形成不同生意 {#nb-d01-energy-products}\n\n以油气业务为例，公司可以开采并出售资源，也可以把买来的原料加工成燃料或化工产品。ExxonMobil（XOM）的业务就涉及油气生产、下游加工与化工等活动。资源生产面对的是接收油气的买方，加工业务再把原料转成适合具体用途的产品，客户购买的东西已经不同。因此研究它的客户需求时，就要先确定正在看哪一种产品和哪一个环节。[^xom]\n\n资源开采需要先开发和建设，再逐步生产；加工企业则要准备装置、采购原料，并组织产品销售。自购原料再出售产品时，公司既面对原料价格，也面对产品售价，还要承担能源、加工和库存等工作。<span data-text-versions id=\"nb-d01-energy-text-1\">原料价格与产品售价之差，可以帮助观察加工业务，但还需要结合实际加工成本<span data-text-detail>（产品收率、能源消耗、运输、检修及库存等会影响结果；商品交付的品质、地点和时间也应与合同对应。这里只说明收入与成本的关系，不用一个商品报价代替整项业务的经营结果）</span>。<button type=\"button\" class=\"text-version-toggle\" data-text-version-toggle hidden></button></span>材料到了客户手中，还可能继续加工，最终进入交通、制造或其他用途。\n\nKinder Morgan（KMI）提供管道、储运等服务，其业务介绍还列出与 BP North America 的长期收费加工安排。客户按协议购买加工服务，KMI 则提供相应的设施和处理能力。看起来同样在加工或运输商品，客户买到的却可能是一项服务。[^kmi]\n\n<figure class=\"business-flow\"><div class=\"business-flow-route\"><p class=\"business-flow-route-title\">自购原料，再出售产品</p><div class=\"business-flow-grid\"><div class=\"business-flow-node\"><small>原料供给</small><strong>原料供应方</strong><p>按合同交付约定原料。</p></div><p class=\"business-flow-edge\" data-flow-direction=\"both\">供应方交原料；加工企业支付采购款</p><div class=\"business-flow-node\"><small>购买与加工</small><strong>加工企业</strong><p>采购原料、组织加工，再销售产品。</p></div><p class=\"business-flow-edge\" data-flow-direction=\"both\">加工企业交产品；客户支付货款</p><div class=\"business-flow-node\"><small>产品购买</small><strong>产品客户</strong><p>接收产品，用于后续加工或使用。</p></div></div></div><div class=\"business-flow-route\"><p class=\"business-flow-route-title\">按加工或输运服务收费</p><div class=\"business-flow-grid\"><div class=\"business-flow-node\"><small>服务采购</small><strong>服务客户</strong><p>购买合同约定的加工或输运等服务。</p></div><p class=\"business-flow-edge\" data-flow-direction=\"both\">客户支付服务费；服务商提供约定服务</p><div class=\"business-flow-node\"><small>提供能力</small><strong>加工或输运服务商</strong><p>运行设施，按合同处理或输运物料。</p></div></div></div><figcaption>自购自销围绕原料与产品买卖；服务收费围绕加工或输运等服务。两条路径分别核对付款、交付与实际使用。</figcaption></figure>\n\n这也会改变我们看需求的方法。出售产品，要看谁愿意按相应条件接货；提供输运或加工服务，则要看客户预订什么能力、实际使用多少，以及合同怎样收费。<span data-text-versions id=\"nb-d01-energy-text-2\">容量预订、实际吞吐和服务期间可以分别进入收费安排<span data-text-detail>（按容量还是实际数量付费、有无最低承诺、货物所有权由谁保留，都要以具体合同为准。一项设施的收费安排不能推广到该公司的全部业务）</span>。<button type=\"button\" class=\"text-version-toggle\" data-text-version-toggle hidden></button></span>商品价格、加工价差和服务费于是各有要解释的对象。\n\n### 沿客户提货与实际用途核需求 {#nb-d01-energy-demand}\n\n生产企业接到采购以后，还要按安排把产品交给买方；加工客户的订单，则需要结合其生产和库存理解。若贸易商增加提货，商品可能进入后续使用，也可能暂时停留在库存中；若客户预订了运输或储存能力，实际使用还要看后续货物流转。Agent 可以先核直接买方或托运人，再根据当前问题决定是否追到下一环节的实际使用。\n\n企业研报对同一次行业变化也可能给出不同解释。油气需求变化可以影响产品销售，原料与成品价格的相对变化又会影响加工关系，运输服务还要回到具体路线和容量合同。将这些解释同客户订单、提货、库存及设施使用材料相对照，就可以辨认影响落在哪个环节。这样，一项能源或材料需求就能沿着具体产品与合同，逐步接到目标公司的交付和收入。\n\n</section>\n\n## 把业务判断接到证据 {#nb-d01-evidence}\n\n公司交付什么、向谁收费，以及收款后还需承担什么责任，会决定我们接下来该找哪些证据。客户有需要，说明购买有了理由；实际采购或采用，说明客户作出了相应选择；公司完成交付，又使业务向前走了一步。持续服务、支付网络和保险各有自己的合同及使用证据，核对时要让材料对应正在讨论的环节。\n\nAgent 可以把公司的解释与客户、供应商的材料及企业研报放在一起读。几份材料谈的是不是同一个产品或项目，发生时间能不能接上，需要先认清；随后再比较需求扩大、提前采购、补库存或更换供应商等解释。沿真实交易关系找到直接客户或供应商，就有了继续核对的对象；还有具体问题未解时，再向相邻的一方追下去。材料不足的地方先保留问题，已经形成的判断则写清依据和改变它的条件。\n\n这些依据还要实际用到判断中。客户的材料支持原有解释，就保留相应判断；若采购对象、交付时间或使用范围变了，就修改对应部分。研报在某个日期作出的预测，也应与后来发生的事情分别保存。当新的订单、采用或交付信息出现时，我们就能沿着原来的业务关系继续更新。\n\n有了这些认识，下一步便可以讨论收入怎样增长。《收入增长的来源》将继续比较客户增加、用量扩大、价格变化和产品组合的作用；它们各自意味着什么，都要从本篇认出的生意出发。\n\n<link rel=\"stylesheet\" href=\"/notebook/business-branches.css\">\n\n[^nke]: [NIKE FY2025 Form 10-K — Business and Revenue Recognition](https://www.sec.gov/Archives/edgar/data/320187/000032018725000047/nke-20250531.htm)。财年截至 2025-05-31；Item 1，HTML 行 143—175；Revenue Recognition，行 1952—1955；批发客户信用，行 423—426。\n[^wmt]: [Walmart FY2025 Form 10-K — Business; Membership and Other Income](https://stock.walmart.com/sec-filings/all-sec-filings/content/0000104169-25-000021/wmt-20250131.htm)。财年截至 2025-01-31；申报 2025-03-14；业务概述行 226—248；Sam’s Club 行 303—318；会员收入行 1929—1931。\n[^msft]: [Microsoft 2025 Annual Report — Microsoft 365 and Licensing Options](https://www.microsoft.com/investor/reports/ar25/index.html)。FY2025 年报；行 258—276，Microsoft 365 Commercial、Dynamics；行 392—400，Licensing Options。\n[^aws]: [AWS Product and Service Pricing](https://aws.amazon.com/pricing/)。动态官方页面，读取于 2026-09-27；How does AWS pricing work；How do you pay for AWS，行 239—254 及价格方式标题。\n[^netflix]: [Netflix consolidates relational database infrastructure on Amazon Aurora, achieving up to 75% improved performance](https://aws.amazon.com/blogs/database/netflix-consolidates-relational-database-infrastructure-on-amazon-aurora-achieving-up-to-75-improved-performance/)。2025-11-26；迁移结果截至 2025 年 10 月；Business challenge；Achieving cost-efficiency；Migration results；About the authors，行 237—276、299—316。\n[^talen]: [Talen Energy Expands Nuclear Energy Relationship with Amazon; Q2 2026 AWS PPA update](https://ir.talenenergy.com/static-files/90cce90c-e281-42c6-b686-ed6010dd8699)；[Talen Q2 2026 Form 10-Q](https://talenenergy.gcs-web.com/static-files/649bfa16-a54e-4997-914b-a8a5d2e00900)。合同公告 2025-06-11；进展披露 2026-08-05；2025 8-K 附件 99.1，PDF 第 4 页，行 55—67；2026 Q2 10-Q，PDF 第 46 页 AWS PPA 术语，行 2054—2059。\n[^seller]: [Sell on Amazon — How much does it cost to sell on Amazon?](https://sell.amazon.com/pricing/)。美国官方卖家页面，读取于 2026-09-27；Selling plans、FBA/merchant fulfillment 选项、Referral fees，行 180—258、294—308。\n[^alphabet]: [Alphabet 2025 Form 10-K — Google Services; Cost of Revenues](https://www.sec.gov/Archives/edgar/data/1652044/000165204426000018/goog-20251231.htm)。年度截至 2025-12-31；How We Make Money，行 227—239；TAC 与内容采购，行 959—976。\n[^bkng]: [Booking Holdings 2025 Form 10-K — Marketing](https://www.sec.gov/Archives/edgar/data/1075531/000107553126000009/bkng-20251231.htm)。年度截至 2025-12-31；行 855—864，performance marketing expenses and efficiency。\n[^nvda]: [NVIDIA FY2026 Form 10-K — Markets, Manufacturing and Customers](https://www.sec.gov/Archives/edgar/data/1045810/000104581026000021/nvda-20260125.htm)。财年截至 2026-01-25；行 187—207；Manufacturing 行 284—289；直接/间接客户行 1279—1288。\n[^tsmc]: [TSMC 2025 Annual Report Website — About TSMC and Shareholder Letter](https://investor.tsmc.com/static/annualReports/2025/english/index.html)。2025 年度报告；股东信行 18—24；About TSMC 行 64—77。\n[^asml]: [ASML — About the company](https://www.asml.com/en/company)。动态公司页面，读取于 2026-09-27；公司概述，行 138。\n[^coreweave]: [CoreWeave Q2 2026 Earnings Call — Corrected Transcript](https://s205.q4cdn.com/133937190/files/doc_financials/2026/q2/CRWV-US-CORRECTED-TRANSCRIPT-CoreWeave-Q2-2026-Earnings-Call-11August2026.pdf)。2026-08-11；PDF 第 8 页 A100 合同；问答中续约范围，既有文本行 576—590。\n[^aws-gpu]: [Amazon Q1 2026 Earnings Release — AI chip deployment highlights](https://s2.q4cdn.com/299287126/files/doc_earnings/2026/q1/earnings-result/AMZN-Q1-2026-Earnings-Release.pdf)。2026-04-29；PDF 第 2 页，AI chips / Trainium / NVIDIA 条目，行 35—42。\n[^kgi]: [KGI TSMC Company Update — 3Q25 preview: AI outlook has turned more promising](https://www.kgi.com.hk/en/-/media/files/kgishk/research-reports/tw-reports/tsmc_2330-tt_01102025e.pdf)。2025-10-01；PDF 第 1 页：Revise up 2026 CoWoS estimates；Early 2027 outlook；第 10 页材料使用说明。\n[^otis]: [Otis Worldwide 2025 Form 10-K — New Equipment and Service](https://www.sec.gov/Archives/edgar/data/1781335/000178133526000011/otis-20251231.htm)。年度截至 2025-12-31；Item 1，行 172—178、205—222。\n[^fluor]: [Fluor 2025 Form 10-K — Business and Types of Contracts](https://www.sec.gov/Archives/edgar/data/1124198/000112419826000007/flr-20251231.htm)。年度截至 2025-12-31；行 205—208；Types of Contracts，行 310、323—333。\n[^gev]: [GE Vernova secures two H-class combined cycle equipment orders from EnBW](https://www.gevernova.com/news/press-releases/ge-vernova-secures-two-h-class-combined-cycle-equipment-orders-hydrogen-capability)；[EnBW Heilbronn combined heat and power plant — Project phases](https://www.enbw.com/company/topics/coal-phaseout/heilbronn-combined-heat-and-power-plant/)；[EnBW Heilbronn — Projektphasen](https://www.enbw.com/unternehmen/themen/kohleausstieg/heizkraftwerk-heilbronn/)。供应方公告 2023-11-06；业主动态项目页读取于 2026-09-27；公告行 68—72；EnBW Heilbronn 页面 Project phases、Project diary，行 40—59。\n[^jnj]: [Johnson & Johnson 2025 Form 10-K — Innovative Medicine and MedTech](https://www.sec.gov/Archives/edgar/data/200406/000020040626000016/jnj-20251228.htm)。财年截至 2025-12-28；Item 1，行 214—217、225—235；收入确认既有定位见 health-finance-branches.json。\n[^hca]: [HCA Healthcare 2025 Annual Report to Shareholders — Note 1 Revenues](https://s23.q4cdn.com/949900249/files/doc_financials/2024/ar/HCA-2025-Annual-Report-to-Shareholders-FINAL.pdf)。2025 年度；URL 目录含 2024，报告正文为 2025；PDF 第 104—105 页，Note 1 Revenues，行 4898—4945。\n[^jpm]: [JPMorgan Chase 2025 Annual Report — Consumer & Community Banking](https://www.jpmorganchase.com/content/dam/jpmc/jpmorgan-chase-and-co/investor-relations/documents/annualreport-2025.pdf)。2025 年度；PDF 第 97 页/报告第 65 页，行 8140—8172。\n[^visa]: [Visa FY2025 Form 10-K — Network Model and Transaction Processing](https://www.sec.gov/Archives/edgar/data/1403161/000140316125000089/v-20250930.htm)。财年截至 2025-09-30；业务模式行 181—219；Note 1 Organization，行 1960—1961；结算资金责任沿既有 F2 短段记录复用。\n[^chubb]: [Chubb 2025 Letter to Shareholders; Commercial Property Insurance](https://about.chubb.com/stories/2025-chubb-letter-to-shareholders.html)；[Chubb Commercial Property Insurance — UK](https://www.chubb.com/uk-en/business/products/property-insurance.html)；[Chubb FY2025 Form 10-K — Unpaid losses and loss expenses, and Future policy benefits](https://www.sec.gov/Archives/edgar/data/896159/000089615926000005/R17.htm)。2025 年度股东信；官方产品页读取于 2026-09-27；股东信行 224、234—250；英国商业财产险产品页行 348—392。\n[^xom]: [ExxonMobil — Business divisions](https://corporate.exxonmobil.com/who-we-are/our-global-organization/business-divisions)。动态公司业务页面，读取于 2026-09-27；行 29—55：Upstream、Product Solutions、Low Carbon Solutions。\n[^kmi]: [Kinder Morgan — Products Pipelines; Condensate Processing Facility](https://www.kindermorgan.com/Operations/Products/Index)。动态公司业务页面，读取于 2026-09-27；Overview 行 19—21；Kinder Morgan Condensate Processing Facility 行 272—278。\n[^cma]: [CMA Cloud Infrastructure Services — Final decision report](https://assets.publishing.service.gov.uk/media/688b8891fdde2b8f73469544/final_decision_report.pdf)。2025-07-31 报告；公布版 2025-08-01；本轮 PDF 第 109 页 §§3.236—3.237 关于新增客户/负载和存量变动的区别；第 269 页 §6.70；既有本地迁移阅读见 external-sources.md E2。\n",
+  "anchors": [
+    {
+      "id": "nb-d01-consumer",
+      "title": "消费品与零售",
+      "kind": "section",
+      "preview": "品牌出货、渠道接货与消费者买走是同一件商品的不同环节；批发与直营的客户、库存和收款不同。"
+    },
+    {
+      "id": "nb-d01-software",
+      "title": "软件与云服务",
+      "kind": "section",
+      "preview": "付费账号、实际使用、容量上线和合同承诺分别观察；客户节省总成本未必等于供应方账单同比例减少。"
+    },
+    {
+      "id": "nb-d01-platform",
+      "title": "互联网平台与广告",
+      "kind": "section",
+      "preview": "使用者、商家和广告主可能是不同参与者；交易额、广告付款及平台保留收入保持各自含义。"
+    },
+    {
+      "id": "nb-d01-semiconductor",
+      "title": "半导体与硬件",
+      "kind": "section",
+      "preview": "产业角色与终端用途是不同拆分角度；已有设备提供服务与新设备采购分别核验，研报预测保留其日期和条件。"
+    },
+    {
+      "id": "nb-d01-industrial",
+      "title": "工业设备与工程服务",
+      "kind": "section",
+      "preview": "新设备采购、付费维保和改造可以面对不同客户；项目总金额、承包范围、收入与收款分别观察。"
+    },
+    {
+      "id": "nb-d01-healthcare",
+      "title": "医药与医疗服务",
+      "kind": "section",
+      "preview": "本文用美国案例区分患者需要、医生采用、机构采购与支付；药品/器械销售和医院服务是不同交易。"
+    },
+    {
+      "id": "nb-d01-finance",
+      "title": "银行、支付与保险",
+      "kind": "section",
+      "preview": "存贷款本金、支付流经金额与保险保费各有不同责任；JPM 与 V 用作业务角色对照。"
+    },
+    {
+      "id": "nb-d01-energy",
+      "title": "能源与原材料",
+      "kind": "section",
+      "preview": "自有商品销售、加工产品销售与为客户收费加工/输运分别理解，价格、价差和服务费对应不同业务。"
+    },
+    {
+      "id": "nb-d01-business",
+      "title": "从客户付款认出业务",
+      "kind": "section",
+      "preview": "从客户付款认出业务"
+    },
+    {
+      "id": "nb-d01-consumer-story",
+      "title": "消费品与零售：商品、渠道与库存",
+      "kind": "section",
+      "preview": "消费品与零售：商品、渠道与库存"
+    },
+    {
+      "id": "nb-d01-software-story",
+      "title": "软件与云服务：使用、许可与账单",
+      "kind": "section",
+      "preview": "软件与云服务：使用、许可与账单"
+    },
+    {
+      "id": "nb-d01-platform-story",
+      "title": "互联网平台与广告：参与者与付款关系",
+      "kind": "section",
+      "preview": "互联网平台与广告：参与者与付款关系"
+    },
+    {
+      "id": "nb-d01-semiconductor-story",
+      "title": "半导体与硬件：生产、交付与使用",
+      "kind": "section",
+      "preview": "半导体与硬件：生产、交付与使用"
+    },
+    {
+      "id": "nb-d01-industrial-story",
+      "title": "工业设备与工程服务：从安装到持续运行",
+      "kind": "section",
+      "preview": "工业设备与工程服务：从安装到持续运行"
+    },
+    {
+      "id": "nb-d01-healthcare-story",
+      "title": "医药与医疗服务：采用、采购与支付",
+      "kind": "section",
+      "preview": "医药与医疗服务：采用、采购与支付"
+    },
+    {
+      "id": "nb-d01-finance-story",
+      "title": "银行、支付与保险：资金与未来承诺",
+      "kind": "section",
+      "preview": "银行、支付与保险：资金与未来承诺"
+    },
+    {
+      "id": "nb-d01-energy-story",
+      "title": "能源与原材料：商品、加工与输运",
+      "kind": "section",
+      "preview": "能源与原材料：商品、加工与输运"
+    },
+    {
+      "id": "nb-d01-evidence",
+      "title": "把业务判断接到证据",
+      "kind": "section",
+      "preview": "把业务判断接到证据"
+    }
+  ],
+  "prompt": "按读者选定行业使用本篇。各行业可独立读，使用者、采购者、付款者与交付收费分别辨认；上下游只沿有依据的业务关系延伸。本文的案例支持相应业务机制，不预设需求增长、订单兑现或投资回报。企业研报保留预测时点及条件，实际来源和阶段按正文及脚注。医疗使用美国关系案例，保险具体条款依产品；产业角色图不自动形成具名交易。后续收入增长、成本利润和财报确认由对应词条展开。",
+  "teaching": {
+    "pitfalls": [
+      "使用者、采购者与付款者可能不同；需求、采购、交付、使用和收款有各自的证据。"
+    ],
+    "examples": [],
+    "source_ids": [],
+    "branches": {
+      "consumer": {
+        "label": "消费品与零售",
+        "pitfalls": [
+          "品牌出货、渠道接货与消费者买走是同一件商品的不同环节；批发与直营的客户、库存和收款不同。"
+        ],
+        "examples": [
+          "NKE 的批发与直营、WMT 的商品销售与会员服务。"
+        ],
+        "source_ids": [
+          "nb-d01-nke",
+          "nb-d01-wmt"
+        ]
+      },
+      "software": {
+        "label": "软件与云服务",
+        "pitfalls": [
+          "付费账号、实际使用、容量上线和合同承诺分别观察；客户节省总成本未必等于供应方账单同比例减少。"
+        ],
+        "examples": [
+          "MSFT 应用与许可、AWS 用量、Netflix 数据库迁移和供电安排。"
+        ],
+        "source_ids": [
+          "nb-d01-aws",
+          "nb-d01-netflix"
+        ]
+      },
+      "platform": {
+        "label": "互联网平台与广告",
+        "pitfalls": [
+          "使用者、商家和广告主可能是不同参与者；交易额、广告付款及平台保留收入保持各自含义。"
+        ],
+        "examples": [
+          "AMZN 第三方商家收费、GOOGL 广告和 BKNG 获客。"
+        ],
+        "source_ids": [
+          "nb-d01-seller",
+          "nb-d01-bkng"
+        ]
+      },
+      "semiconductor": {
+        "label": "半导体与硬件",
+        "pitfalls": [
+          "产业角色与终端用途是不同拆分角度；已有设备提供服务与新设备采购分别核验，研报预测保留其日期和条件。"
+        ],
+        "examples": [
+          "NVDA、TSMC、ASML 的交付角色；云客户旧设备续用和 KGI 研报校准。"
+        ],
+        "source_ids": [
+          "nb-d01-nvda",
+          "nb-d01-kgi"
+        ]
+      },
+      "industrial": {
+        "label": "工业设备与工程服务",
+        "pitfalls": [
+          "新设备采购、付费维保和改造可以面对不同客户；项目总金额、承包范围、收入与收款分别观察。"
+        ],
+        "examples": [
+          "OTIS 电梯安装、运行与改造，FLR 可报销和总价工程合同。"
+        ],
+        "source_ids": [
+          "nb-d01-otis",
+          "nb-d01-fluor"
+        ]
+      },
+      "healthcare": {
+        "label": "医药与医疗服务",
+        "pitfalls": [
+          "本文用美国案例区分患者需要、医生采用、机构采购与支付；药品/器械销售和医院服务是不同交易。"
+        ],
+        "examples": [
+          "JNJ 药品与器械、HCA 医院和门诊服务的产品与付款关系。"
+        ],
+        "source_ids": [
+          "nb-d01-jnj",
+          "nb-d01-hca"
+        ]
+      },
+      "finance": {
+        "label": "银行、支付与保险",
+        "pitfalls": [
+          "存贷款本金、支付流经金额与保险保费各有不同责任；JPM 与 V 用作业务角色对照。"
+        ],
+        "examples": [
+          "银行账户与贷款、支付网络服务、财产责任险和长期给付。"
+        ],
+        "source_ids": [
+          "nb-d01-visa",
+          "nb-d01-chubb"
+        ]
+      },
+      "energy": {
+        "label": "能源与原材料",
+        "pitfalls": [
+          "自有商品销售、加工产品销售与为客户收费加工/输运分别理解，价格、价差和服务费对应不同业务。"
+        ],
+        "examples": [
+          "XOM 油气与加工，KMI 产品输运及收费加工的合同关系。"
+        ],
+        "source_ids": [
+          "nb-d01-xom",
+          "nb-d01-kmi"
+        ]
+      }
+    }
+  },
+  "reading_profile": {
+    "difficulty": "入门",
+    "depth": "详解",
+    "note": "从熟悉的交易进入，按所选行业解释客户、交付、收费与需求依据；无需先掌握财务模型。"
+  }
+}

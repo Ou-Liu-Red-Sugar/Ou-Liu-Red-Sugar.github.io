@@ -7,6 +7,7 @@ const searchShortcut=q('[data-search-shortcut]');
 if(searchShortcut)searchShortcut.textContent=/Mac|iPhone|iPad/.test(navigator.platform)?'⌘ K':'Ctrl K';
 
 // Keep the complete sentence in the source; only supplementary spans collapse.
+const textVersionControllers=new Map();
 for(const [index,group] of qa('[data-text-versions]').entries()){
   const details=qa('[data-text-detail]',group),button=q('[data-text-version-toggle]',group);
   if(!details.length||!button)continue;
@@ -20,6 +21,7 @@ for(const [index,group] of qa('[data-text-versions]').entries()){
     button.textContent=expanded?t('（简明版）','(Brief)'):t('（详细版）','(Details)');
   };
   button.addEventListener('click',()=>show(!expanded));
+  details.forEach(part=>textVersionControllers.set(part,show));
   show(false);
   button.hidden=false;
 }
@@ -62,10 +64,25 @@ for(const frame of qa('.experiment-frame')){
 // Industry branches preserve the full original text and work as normal reading
 // sections until enhancement succeeds. Deep links reveal the relevant branch.
 const readingBranchControllers=new Map();
+const readingFootnoteControllers=new Map();
+const teachingContext=q('#teaching-context'),defaultTeachingContext=teachingContext?.value||'';
+let teachingContextsByBranch={},activeTeachingBranch='all';
+try{teachingContextsByBranch=JSON.parse(q('#teaching-context-by-branch')?.textContent||'{}')||{};}catch{}
+function syncTeachingContext(branch=activeTeachingBranch){
+  activeTeachingBranch=branch;
+  const selected=teachingContextsByBranch[branch];
+  const prompt=typeof selected==='string'&&selected.trim()?selected:defaultTeachingContext;
+  if(teachingContext)teachingContext.value=prompt;
+  const copy=q('#teach-copy-text');if(copy)copy.value=prompt;
+}
+function hashElement(hash=location.hash){
+  try{return document.getElementById(decodeURIComponent(hash.replace(/^#/,'')));}catch{return null;}
+}
 for(const body of qa('.entry-body')){
   const branches=qa('[data-reading-branch]',body);if(branches.length<2)continue;
   let controls=q('[data-reading-branch-controls]',body);
   if(!controls){controls=document.createElement('div');controls.dataset.readingBranchControls='';branches[0].before(controls);}
+  controls.id||='reading-branches-'+(body.closest('[data-entry-id]')?.dataset.entryId||'entry');
   controls.classList.add('reading-branch-controls');controls.setAttribute('role','group');controls.setAttribute('aria-label',t('选择行业带读','Choose an industry branch'));
   if(!q('[data-select-reading-branch]',controls)){
     const label=document.createElement('span');label.textContent=t('选择一个行业深入读：','Choose an industry to read:');controls.append(label);
@@ -84,26 +101,52 @@ for(const body of qa('.entry-body')){
     branch.id=id;
   });
   let activeBranch=branches[0].dataset.readingBranch;
+  const footnotes=new Map();
+  for(const reference of qa('a[role="doc-noteref"],a.footnote-ref',body)){
+    const note=hashElement(reference.hash);if(!note||!body.contains(note))continue;
+    if(!footnotes.has(note))footnotes.set(note,[]);
+    footnotes.get(note).push(reference.closest('[data-reading-branch]'));
+    note.dataset.readingBranchFootnote='';
+  }
+  const backlinks=qa('a[role="doc-backlink"],a.footnote-backref',body);
+  backlinks.forEach(link=>link.dataset.readingBranchBacklink='');
   const branchFrames=qa('iframe',body);
   function syncBranchFrame(frame){
     if(new URL(frame.src,location.href).origin===location.origin)
       frame.contentWindow?.postMessage({type:'notebook-reading-branch',branch:activeBranch},location.origin);
   }
   branchFrames.forEach(frame=>frame.addEventListener('load',()=>syncBranchFrame(frame)));
-  function activateBranch(key){
+  function activateBranch(key,changeHash=false){
+    if(key!=='all'&&!branches.some(branch=>branch.dataset.readingBranch===key))return;
     activeBranch=key;
     branches.forEach(branch=>{branch.hidden=key!=='all'&&branch.dataset.readingBranch!==key;});
     buttons.forEach(button=>{button.setAttribute('aria-pressed',String(button.dataset.selectReadingBranch===key));button.setAttribute('aria-controls',branches.filter(branch=>button.dataset.selectReadingBranch==='all'||branch.dataset.readingBranch===button.dataset.selectReadingBranch).map(branch=>branch.id).join(' '));});
     branchFrames.forEach(syncBranchFrame);
+    for(const [note,owners] of footnotes){
+      note.hidden=key!=='all'&&!owners.some(owner=>!owner||owner.dataset.readingBranch===key);
+    }
+    backlinks.forEach(link=>{link.hidden=!!hashElement(link.hash)?.closest('[data-reading-branch]')?.hidden;});
+    syncTeachingContext(key);
     for(const link of qa(':is(.entry-toc,.entry-mobile-toc) a[href^="#"]')){
       let id;try{id=decodeURIComponent(link.hash.slice(1));}catch{continue;}
       const branch=document.getElementById(id)?.closest('[data-reading-branch]');
       if(branches.includes(branch)){const item=link.closest('li')||link;item.hidden=branch.hidden;}
     }
+    if(changeHash){
+      const id=key==='all'?controls.id:branches.find(branch=>branch.dataset.readingBranch===key).id;
+      history.replaceState(history.state,'','#'+encodeURIComponent(id));
+    }
   }
   branches.forEach(branch=>readingBranchControllers.set(branch,activateBranch));
-  buttons.forEach(button=>button.addEventListener('click',()=>activateBranch(button.dataset.selectReadingBranch)));
-  controls.hidden=false;activateBranch(branches[0].dataset.readingBranch);
+  readingBranchControllers.set(controls,activateBranch);
+  for(const [note,owners] of footnotes){
+    readingFootnoteControllers.set(note,()=>{
+      if(note.hidden){const owner=owners.find(Boolean);if(owner)activateBranch(owner.dataset.readingBranch);}
+    });
+  }
+  buttons.forEach(button=>button.addEventListener('click',()=>activateBranch(button.dataset.selectReadingBranch,true)));
+  const target=hashElement(),initialBranch=target?.closest('[data-reading-branch]');
+  controls.hidden=false;activateBranch(target===controls?'all':branches.includes(initialBranch)?initialBranch.dataset.readingBranch:activeBranch);
 }
 
 // Cases are all readable until enhancement succeeds.
@@ -207,8 +250,14 @@ function openHashTarget(){
     if(destination.origin===location.origin&&destination.pathname===location.pathname)target=document.getElementById(target.dataset.anchorTarget.replace(/^#/,''))||target;
   }
   if(!target)return;
+  const branchControls=target.closest('[data-reading-branch-controls]');
+  if(branchControls)readingBranchControllers.get(branchControls)?.('all');
+  const footnote=target.closest('[data-reading-branch-footnote]');
+  if(footnote)readingFootnoteControllers.get(footnote)?.();
   const readingBranch=target.closest('[data-reading-branch]');
-  if(readingBranch?.hidden)readingBranchControllers.get(readingBranch)?.(readingBranch.dataset.readingBranch);
+  if(readingBranch)readingBranchControllers.get(readingBranch)?.(readingBranch.dataset.readingBranch);
+  const textDetail=target.closest('[data-text-detail]');
+  if(textDetail)textVersionControllers.get(textDetail)?.(true);
   for(let ancestor=target;ancestor;ancestor=ancestor.parentElement){if(ancestor instanceof HTMLDetailsElement)ancestor.open=true;}
   const card=target.closest('.case-card');
   if(card?.hidden){const tab=qa('[data-case]',card.closest('.case-group')).find(button=>button.dataset.case===card.id);tab?.click();}
@@ -348,6 +397,7 @@ document.addEventListener('keydown',event=>{
 // Copy the learner's request; complete reference material stays behind its own link.
 qa('[data-teach]').forEach(b=>b.addEventListener('click',()=>{
   closeReference();
+  syncTeachingContext();
   const context=q('#teaching-context');
   q('#teach-copy-text').value=context.value;
   q('#teach-reference-link').href=context.dataset.agentUrl;
@@ -483,7 +533,7 @@ window.addEventListener('beforeprint',()=>{
   printDisclosures=qa('.learning-check details, .diagram-description, .entry-body details, .graph-relations').filter(d=>!d.open);
   printDisclosures.forEach(d=>d.open=true);
   printRelations=qa('.graph-relations li[hidden]');printRelations.forEach(row=>row.hidden=false);
-  printBranches=qa('[data-reading-branch][hidden]');printBranches.forEach(branch=>branch.hidden=false);
+  printBranches=qa('[data-reading-branch][hidden],[data-reading-branch-footnote][hidden],[data-reading-branch-backlink][hidden]');printBranches.forEach(branch=>branch.hidden=false);
 });
 window.addEventListener('afterprint',()=>{
   printDisclosures.forEach(d=>d.open=false);printDisclosures=[];

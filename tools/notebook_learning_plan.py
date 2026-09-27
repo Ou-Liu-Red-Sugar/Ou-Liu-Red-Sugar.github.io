@@ -203,10 +203,18 @@ def compile_learning_map(plan, published_entries):
         outline = planned.get("outline_page")
         if actual:
             text(actual.get("url"), f"available entry {actual.get('id')} url")
-        result["entries"].append(dict(
+        row = dict(
             id=planned["id"], node=planned["node"], title=planned["title"], goal=planned["goal"],
             status="available" if actual else "outline" if outline else "planned",
-            url=actual["url"] if actual else f"/zh/notebook/{outline['slug']}/" if outline else None))
+            url=actual["url"] if actual else f"/zh/notebook/{outline['slug']}/" if outline else None)
+        if actual and "reading_profile" in actual:
+            profile = actual["reading_profile"]
+            require(isinstance(profile, dict), f"{planned['id']}: reading_profile must be an object")
+            require(profile.get("difficulty") in {"入门", "进阶"}, f"{planned['id']}: unknown reading difficulty")
+            require(profile.get("depth") in {"概览", "详解"}, f"{planned['id']}: unknown reading depth")
+            text(profile.get("note"), f"{planned['id']}: reading profile explanation")
+            row["reading_profile"] = copy.deepcopy(profile)
+        result["entries"].append(row)
     if "reading_route" in plan:
         result["reading_route"] = compile_reading_route(plan, result["entries"])
     return result
@@ -220,10 +228,13 @@ def compile_reading_route(plan, mapped_entries):
     steps = []
     for number, entry_id in enumerate(plan["sequence"], 1):
         row = mapped[entry_id]
-        steps.append(dict(id=entry_id, number=number, title=row["title"],
+        step = dict(id=entry_id, number=number, title=row["title"],
                           note=planned[entry_id].get("reading_note", row["goal"]),
                           status="available" if row["status"] == "available" else "planned",
-                          url=row["url"] if row["status"] == "available" else None))
+                          url=row["url"] if row["status"] == "available" else None)
+        if "reading_profile" in row:
+            step["reading_profile"] = copy.deepcopy(row["reading_profile"])
+        steps.append(step)
     count = route["intro_count"]
     available = [step for step in steps if step["status"] == "available"]
     navigation = {}
