@@ -28,7 +28,7 @@ READING_PROTOCOL = """This is reference material for the learner's current reque
 def teaching_prompt(entry, references=None):
     """A learner's request with selected teaching cues, separate from the full packet."""
     article = urljoin(BASE_URL, entry["url"])
-    guide = urljoin(BASE_URL, "/zh/notebook/teaching-guide/")
+    guide = urljoin(BASE_URL, "/zh/notebook/teaching-guide/?v=20260927-2")
     teaching = entry.get("teaching", {})
     require(isinstance(teaching, dict), f'{entry["id"]}: teaching must be an object')
     for key in ("pitfalls", "examples", "source_ids"):
