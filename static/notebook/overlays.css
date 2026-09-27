@@ -74,6 +74,9 @@
 .notebook-app #teach-dialog .teach-material-label label{color:#414b42;font-weight:550}
 .notebook-app #teach-copy-text{display:block;flex:1;min-height:180px;height:38dvh;width:calc(100% - 56px);margin:0 28px;padding:18px;border:1px solid #dedfd8;border-radius:6px;resize:none;background:#f2f2ed;color:#525d52;font-family:var(--mono,ui-monospace,SFMono-Regular,Consolas,monospace);font-size:11px;line-height:1.9;tab-size:2}
 .notebook-app #teach-dialog .teach-footer{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:20px 28px 24px;flex:none}
+.notebook-app #teach-dialog .teach-guide-button{display:inline-flex;align-items:center;justify-content:center;gap:10px;flex:none;padding:10px 14px;border:1px solid #cbd3c8;border-radius:5px;color:#526451;background:transparent;font-size:12px;line-height:1.5;text-decoration:none}
+.notebook-app #teach-dialog .teach-guide-button:hover{background:#edf1e9;border-color:#94a88e;color:#28594b}
+.notebook-app #teach-dialog .teach-guide-button:focus-visible{outline:2px solid #28594b;outline-offset:3px}
 .notebook-app #teach-dialog #copy-status{font-size:12px;line-height:1.7;margin:0;color:#28594b}
 .notebook-app #teach-dialog #copy-teaching{display:inline-flex;align-items:center;justify-content:center;gap:25px;flex:none;margin-left:auto;padding:11px 18px;border:1px solid #28594b;border-radius:5px;background:#28594b;color:#fff;font:inherit;font-size:13px;cursor:pointer}
 .notebook-app #teach-dialog #copy-teaching:hover{background:#1d463a;border-color:#1d463a}

@@ -30,7 +30,7 @@
   <p id="teach-preview-note" hidden>{{ if $zh }}本地改动发布后，Chat 才能从公开链接读取；当前可粘贴所需正文段落。{{ else }}Chat can read local changes from public links after publication; for now, paste the passage you need.{{ end }}</p>
   <div class="teach-material-label"><label for="teach-copy-text">{{ if $zh }}开课指令与网页入口{{ else }}Learning request and web links{{ end }}</label><a id="teach-reference-link" href="#">{{ if $zh }}完整 Agent 参考材料{{ else }}Complete Agent reference material{{ end }}</a></div>
   <textarea id="teach-copy-text" readonly aria-label="{{ if $zh }}简短开课指令{{ else }}Short learning request{{ end }}"></textarea>
-  <div class="teach-footer"><p id="copy-status" role="status" aria-live="polite"></p><button class="primary-button" type="button" id="copy-teaching">{{ if $zh }}复制开课指令{{ else }}Copy learning request{{ end }} <span aria-hidden="true">↗</span></button></div>
+  <div class="teach-footer"><a class="teach-guide-button" href="/zh/notebook/teaching-guide/" target="_blank" rel="noopener">{{ if $zh }}Agent 教学指南{{ else }}Teaching guide (Chinese){{ end }} <span aria-hidden="true">↗</span></a><p id="copy-status" role="status" aria-live="polite"></p><button class="primary-button" type="button" id="copy-teaching">{{ if $zh }}复制开课指令{{ else }}Copy learning request{{ end }} <span aria-hidden="true">↗</span></button></div>
 </dialog>
 
 <div id="reference-backdrop" aria-hidden="true" hidden></div>
