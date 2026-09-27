@@ -257,7 +257,7 @@ class Validator:
         self.require(entry["prompt"] in agent, "AGENT_PROMPT_LOSS", eid, "Tailored prompt is absent or altered")
         self.require(not LOCAL_DRIVE.search(agent), "PRIVATE_PATH", eid, "Public Agent export contains a local drive path")
         teaching = page.ids.get("teaching-context")
-        self.require(teaching is not None and teaching.text.strip() == agent.strip(), "PROMPT_COPY_MISMATCH", eid, "Rendered copy packet differs from downloadable Agent file")
+        self.require(teaching is not None and teaching.text.strip() == entry.get("teaching_context", "").strip(), "PROMPT_COPY_MISMATCH", eid, "Rendered learning request differs from the compiled short prompt")
         match = re.search(r"(?m)^## Required readings and runtime protocol\s+```json[ \t]*\r?\n([\s\S]*?)^```[ \t]*\r?$", agent)
         if not self.require(match is not None, "AGENT_PACKET_MISSING", eid, "Structured reading packet missing"):
             return

@@ -345,17 +345,20 @@ document.addEventListener('keydown',event=>{
   }
 });
 
-// Prompt and full content travel together.
+// Copy the learner's request; complete reference material stays behind its own link.
 qa('[data-teach]').forEach(b=>b.addEventListener('click',()=>{
   closeReference();
-  q('#teach-copy-text').value=q('#teaching-context').value;
+  const context=q('#teaching-context');
+  q('#teach-copy-text').value=context.value;
+  q('#teach-reference-link').href=context.dataset.agentUrl;
+  q('#teach-preview-note').hidden=location.protocol!=='file:'&&!['localhost','127.0.0.1','[::1]'].includes(location.hostname);
   q('#copy-status').textContent='';q('#teach-dialog').showModal();syncOverlayScroll();
   q('#copy-teaching').focus();
 }));
 q('#copy-teaching').addEventListener('click',async()=>{
   const text=q('#teach-copy-text');
-  try{await navigator.clipboard.writeText(text.value);q('#copy-status').textContent=t('完整材料已复制.','Complete material copied.');}
-  catch{ text.focus();text.select();q('#copy-status').textContent=t('材料已选中，按 Ctrl/⌘C 复制.','Material selected. Press Ctrl/⌘C to copy.');}
+  try{await navigator.clipboard.writeText(text.value);q('#copy-status').textContent=t('开课指令已复制。','Learning request copied.');}
+  catch{ text.focus();text.select();q('#copy-status').textContent=t('开课指令已选中，按 Ctrl/⌘C 复制。','Learning request selected. Press Ctrl/⌘C to copy.');}
 });
 qa('[data-close-dialog]').forEach(b=>b.addEventListener('click',()=>b.closest('dialog').close()));
 qa('.reader-dialog').forEach(dialog=>{

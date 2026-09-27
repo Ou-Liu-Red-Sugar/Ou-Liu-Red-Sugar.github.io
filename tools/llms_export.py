@@ -15,7 +15,7 @@ SCOPE = ("全文范围：当前正式投资学词条与符号约定，保留原�
          "互动图表以正文中的文字和完整表格展开，不执行交互。"
          "数学讲义、Blog、论文、wiki 及独立 Investing Lab 仅提供栏目入口，尚未转换全文；"
          "写作计划、草稿、工作记录与历史归档不在全文中。"
-         "本文件与单篇 Markdown 不包含 Agent 教学指令，教学包另见 Agent 索引。")
+         "本文件与单篇 Markdown 不包含 Agent 教学指令，教学指南与参考材料另见 Agent 索引。")
 PROTECTED = re.compile(
     r"(?P<fence>^`{3,}[^\n]*\n.*?^`{3,}[ \t]*(?:\n|$)|^~{3,}[^\n]*\n.*?^~{3,}[ \t]*(?:\n|$))"
     r"|(?P<code>`+[^`\n]+`+)"
@@ -239,10 +239,12 @@ def llms_outputs(source_root, entries, bodies, notation_documents, base_url):
     index = ["# 刘欧 · 笔记 / Ou Liu · Notes", "", "> 中文数学与投资笔记、讲义及研究资料。Chinese and English notes and teaching material.",
              "", SCOPE, "", "## 正文 Markdown / Full-text Markdown", ""]
     index += [f'- [{title}]({urljoin(base_url, url)}): {summary}' for _, title, summary, url, _ in documents]
-    index += ["", "## 汇总与教学包 / Bundle and teaching packets", "",
+    index += ["", "## 汇总与教学参考 / Bundle and teaching references", "",
               f'- [全文汇总 / Full-text bundle]({urljoin(base_url, "/llms-full.txt")}): 仅含上述正文，脚注按篇编号。',
-              f'- [中文 Agent 教学包]({urljoin(base_url, "/agent/zh/index.md")}): 教学指令、原文阅读要求与资料。',
-              f'- [English Agent packets]({urljoin(base_url, "/agent/en/index.md")}): Teaching instructions and reading requirements.',
+              f'- [Agent 教学指南]({urljoin(base_url, "/zh/notebook/teaching-guide/")}): 需求承接、讲解方法、教学工具与反馈。',
+              f'- [教学基准与示范]({urljoin(base_url, "/zh/notebook/teaching-benchmarks/")}): 具体学习任务、示范与核对依据。',
+              f'- [中文 Agent 参考材料]({urljoin(base_url, "/agent/zh/index.md")}): 正文、事实口径、实验输入与来源。',
+              f'- [English Agent packets]({urljoin(base_url, "/agent/en/index.md")}): Article text, factual scope, experiment inputs and sources.',
               "", "## 全站栏目 / Site sections", "",
               f'- [中文首页]({urljoin(base_url, "/zh/")})',
               f'- [English home]({urljoin(base_url, "/en/")})',

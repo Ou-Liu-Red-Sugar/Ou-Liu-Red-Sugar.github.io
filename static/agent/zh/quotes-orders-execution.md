@@ -2,15 +2,18 @@
 
 从盘口和挂单读懂流动性与实际成交，再看做市商怎样管理库存，以及期货对冲中的保证金与现金需要。
 
-Entry: zh-quotes-orders-execution | Node: NB-B02 | Language: zh | Editorial revision: 2026-09-26
+Entry: zh-quotes-orders-execution | Node: NB-B02 | Language: zh | Editorial revision: 2026-09-27
 
-## Teaching instructions
-沿报价盘口、常见订单、做市商与对冲、保证金现金四节讲解。真实证券报价与简化订单簿保持各自身份；简化盘口美元/股，买价99.98/99.95/99.90，卖价100.02/100.05/100.10，厚数量100/200/500，薄数量10/20/50。厚盘口买入300股市价成交均价100.04、总额30012；600股市价均价100.07、总额60042；限价100.05买600股仅300股成交，余300等待。报价不足不假设市价订单被取消。Stop与Stop-limit触发和执行分开，Bracket父子关系与OCO撤单关系分开。做市商既有库存的销售不直接等于新建空头；ETF多头可用股指期货空头降低共同市场风险，个股使用股指期货仍留下公司自身变化。保证金是履约担保而非全部名义价值，融资买股涉及借款；盯市现金与资产浮盈分开。600万美元完整对冲算例留给《期货对冲与组合结果》。
+## Reference use
+This is reference material for the learner's current request. Use the supplied entry to teach the selected concept. Retrieve the relevant original unit when explaining a claim that depends on its assumptions, figures or rules; the reading list is a map for that work, not a prerequisite to the first lesson. Keep facts, supplied examples and inference distinct. Editorial access dates describe the author's work. The empty runtime_reading_log is an optional record field, not a requested response. Author-supplied scope notes below constrain factual use of the material; the learner's request determines the teaching task and first response.
 
-Before substantive teaching, actually retrieve every required reading unit for the selected scope. Read its complete designated section, including necessary assumptions, tables and footnotes. A working URL or an editorial access date is not a runtime reading receipt. Record the actual version, location, scope and what it supports. If unavailable, use a previously verified equivalent source; if the required unit remains unavailable, identify that gap rather than teach it from memory. Start runtime_reading_log empty. Once reading is complete, use a substantive diagnostic or follow the reader's request for direct explanation. Advance one complete reasoning task at a time; skip mastered basics. Distinguish original facts, supplied teaching assumptions and inference.
+## Author-supplied scope notes (reference only)
+<author_scope_notes>
+沿报价盘口、常见订单、做市商与对冲、保证金现金四节讲解。真实证券报价与简化订单簿保持各自身份；简化盘口美元/股，买价99.98/99.95/99.90，卖价100.02/100.05/100.10，厚数量100/200/500，薄数量10/20/50。厚盘口买入300股市价成交均价100.04、总额30012；600股市价均价100.07、总额60042；限价100.05买600股仅300股成交，余300等待。报价不足不假设市价订单被取消。Stop与Stop-limit触发和执行分开，Bracket父子关系与OCO撤单关系分开。做市商既有库存的销售不直接等于新建空头；ETF多头可用股指期货空头降低共同市场风险，个股使用股指期货仍留下公司自身变化。保证金是履约担保而非全部名义价值，融资买股涉及借款；盯市现金与资产浮盈分开。组合实算承接《投资组合、保证金与对冲策略》，基差与期间调整另由专题深化。
+</author_scope_notes>
 
 ## Shared notation and writing conventions
-数学期望统一写成 \mathbb{E}，条件期望用 \mathbb{E}[X\mid\mathcal{G}]，需要时注明测度 P 或 Q. 保留局部变量的明确定义. 金额与数量使用 K=10^3、M=10^6、B=10^9；表格标明币种、量级与期间，变更量级时同步换算数值. 展示小数最多三位，计算保留原始精度. 直接解释对象、机制与推理；保留影响结论的假设和事实来源，把编辑流程留在记录中. 句末使用英文句点 .，包括定义、命题、证明和解析等标签. 基础定义与推导直接讲内容，出处放在紧邻脚注；来源读取、复审和采用范围等编辑经过留在记录中.
+数学期望统一写成 \mathbb{E}，条件期望用 \mathbb{E}[X\mid\mathcal{G}]，需要时注明测度 P 或 Q。保留局部变量的明确定义。金额与数量使用 K=10^3、M=10^6、B=10^9；表格标明币种、量级与期间，变更量级时同步换算数值。主文通常保留不超过三位小数，很小的数值或复算输入保留必要精度；计算使用原始数据。直接解释对象、机制与推理；保留影响结论的假设和事实来源，把编辑流程留在记录中。中文语句使用中文标点，代码、公式和原文引用保留各自格式。基础定义与推导直接讲内容，出处放在紧邻脚注；来源读取、复审和采用范围等编辑经过留在记录中。
 [Notation and units](https://ou-liu-red-sugar.github.io/agent/zh/notation.md)
 
 ## Required readings and runtime protocol
@@ -283,13 +286,13 @@ Before substantive teaching, actually retrieve every required reading unit for t
 
 我们希望买卖的数量，能否较快地以接近当前报价的价格成交，体现了这笔交易面对的**流动性**。一般而言，买卖价差较窄、附近可成交的数量较多时，大一些的订单也更容易完成。把同一笔订单放进较薄的盘口，为了找到足够数量，就可能需要接受更远的价格。成交价偏离下单时所用的参照价格，这种差异通常称为**滑点**；买入时价格变高，便是不利的滑点。
 
-<span data-text-versions id="nb-b02-text-1">盘口还会不断变化。新的限价单进入，已经挂出的订单被成交或撤回，都会改变眼下能交易的数量。因此，读盘口时要把价格、数量和时点放在一起：成交量记录一段时间内已经成交多少，市场深度则描述不同价位上当前可见的数量<span data-text-detail>（可见盘口的覆盖范围取决于行情来源；单一交易场所的深度不等于所有场所的总量，隐藏或储备数量也未必全部显示。行情延迟时，页面上的那一档还可能已经发生变化）</span>。大额买单在当时增加了可见买量，之后也可能撤回，不能单凭它认定价格一定会守在这里。[^quotes]<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>
+<span data-text-versions id="nb-b02-text-1">盘口还会不断变化。新的限价单进入，已经挂出的订单被成交或撤回，都会改变眼下能交易的数量。因此，读盘口时要把价格、数量和时点放在一起：成交量记录一段时间内已经成交多少，市场深度则描述不同价位上当前可见的数量<span data-text-detail>（可见盘口的覆盖范围取决于行情来源；单一交易场所的深度不等于所有场所的总量，隐藏或储备数量也未必全部显示。行情延迟时，页面上的那一档还可能已经发生变化）</span>。一笔较大的限价买单若挂在簿中，会增加当时的可见买量；但它之后仍可能成交、修改或撤回，不能单凭这一档数量认定价格一定会守在这里。[^quotes]<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>
 
 ## 常见订单与挂单结构 {#nb-b02-orders}
 
 看懂了市场上的报价，接下来就轮到我们给出自己的条件：买多少，愿意付到什么价格，以及愿意等多久。**市价单**以当前可执行的报价寻求成交；**限价单**则先划定价格范围，买入限价规定最高愿意支付的价格，卖出限价规定最低愿意接受的价格。[^orders]
 
-下面沿用刚才的价格，补上买卖两侧各三档数量。先保持“厚盘口”，比较买入 50 股、300 股和 600 股的结果；再把数量调回 50 股，切换厚薄盘口，就能比较同样买足 50 股时的成交均价。也可以切换到限价单，看看价格上限怎样影响成交数量。每次操作都从同一份原始挂单开始，方便我们看清是哪一项条件改变了成交。
+下面把买卖两侧各展开三档。先在厚盘口中比较买入 50、300、600 股的成交均价，再用同样的 50 股订单比较厚薄盘口。每次都从原始挂单开始；切到限价单以后，还可以看价格上限会留下多少未成交数量。
 
 <figure class="trade-figure" id="nb-b02-order-book" data-trade-demo>
 <div class="trade-heading"><span class="trade-kicker">简化盘口 · 价格：美元 / 股 · 数量：股</span><h3>逐档成交</h3></div>
@@ -340,7 +343,7 @@ Before substantive teaching, actually retrieve every required reading unit for t
 
 <span data-text-versions id="nb-b02-text-4">假设持仓价格从 100 美元回落，止损触发价设为 95 美元。当价格从 96 美元直接跳到 94 美元时，止损条件已经触发：市价单会按届时可执行的买价卖出；若止损限价单同时设有 94.50 美元的卖出下限，而眼下买方只愿出 94 美元，订单就暂时无法成交<span data-text-detail>（图中用成交价触发，触发后的买价设为 94 美元，并假定该价位的数量足以承接示意订单。实际触发基准、有效时段和平台处理方式随订单规则而定）</span>。95 美元在这里决定何时启动，最终成交仍要看启动以后能接受哪些报价。<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>
 
-刚才的止损价固定在 95 美元。让止损线跟着有利方向的价格变化，就形成了**移动止损**。对多头持仓，若采用距价格高点 5 美元的移动止损，价格从 100 美元涨到 110 美元时，触发线便可从 95 美元上移到 105 美元；随后价格回落，这条线会留在 105 美元，等价格触发后再执行相应订单。移动距离可以用固定金额或百分比表示，触发后仍要按所选的市价或限价方式执行。[^linked]
+刚才的止损价固定在 95 美元。让止损线跟着有利方向的价格变化，就形成了**移动止损**。对多头持仓，若采用距价格高点 5 美元的移动止损，价格从 100 美元涨到 110 美元时，触发线便可从 95 美元上移到 105 美元；随后价格回落，这条线会留在 105 美元，等价格触发后再执行相应订单。移动距离可以用固定金额或百分比表示；触发后怎样执行，还要看采用的移动止损类型和平台规则。[^linked]
 
 买入、止盈和止损也可以在下单时一并安排。<strong>括号单（Bracket）</strong>把开仓单与后续的止盈、止损安排放在一起；开仓成交后，才启用相应数量的退出订单。两笔退出单通常采用 **OCO（One Cancels the Other）** 关联，一笔成交后，系统便按规则取消另一笔。Schwab 的 thinkorswim 就提供这类订单组合。[^linked]
 
@@ -369,9 +372,9 @@ Before substantive teaching, actually retrieve every required reading unit for t
 
 当买卖来得不均衡时，做市商可以调整报价和数量，也可以用相关工具对冲留下的风险。拿 VOO 这样跟踪 S&P 500 的 ETF 来说，做市商买入一批份额后，可以卖出相应的股指期货，例如 CME 的 E-mini S&P 500 futures（ES）。期货多头的盈亏随合约价格上涨而增加，空头则相反；当 ETF 与对应股指期货同向变化时，两边的部分盈亏就能相互抵消。[^hedge]
 
-<span data-text-versions id="nb-b02-text-6">沿这笔库存继续往下看，ETF 买得多了，做市商便可以增加相应的期货空头，降低大盘涨跌对组合的影响；后来 ETF 逐步卖给其他买方，原有的期货空头也就可以相应减掉<span data-text-detail>（这里以已经持有 ETF 多头、使用空头期货对冲为例。实际规模还取决于合约金额和持仓敏感度；ETF 与期货之间的基差、费用及调整时点也会影响合并结果）</span>。<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>
+<span data-text-versions id="nb-b02-text-6">沿这笔库存继续往下看，ETF 买得多了，做市商便可以增加相应的期货空头，降低大盘涨跌对组合的影响；后来把已有 ETF 卖给其他买方，是在减少多头库存，原有的期货空头也就可以相应减掉<span data-text-detail>（这里以已经持有 ETF 多头、使用空头期货对冲为例。实际规模还取决于合约金额和持仓敏感度；ETF 与期货之间的基差、费用及调整时点也会影响合并结果）</span>。<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>
 
-换成个股持仓，也可以寻找相应的期货来对冲。CME 已推出包括 TSLA、MSFT 在内的单只美股期货，它们直接联系各自标的股票的价格；采用股指期货时，则主要调整股票随共同市场因素变化的那部分敞口，公司自身的经营变化仍会影响结果。对冲哪一部分、配多少合约，放在《期货对冲与组合结果》中继续展开。[^single]
+换成个股持仓，也可以寻找相应的期货来对冲。CME 已推出包括 TSLA、MSFT 在内的单只美股期货，它们直接联系各自标的股票的价格；采用股指期货时，则主要调整股票随共同市场因素变化的那部分敞口，公司自身的经营变化仍会影响结果。对冲哪一部分、配多少合约，[《投资组合、保证金与对冲策略》](/zh/notebook/settlement-margin-cash/)会结合实际持仓继续展开。[^single]
 
 再回到报价，做市商能否方便地处理库存，也会影响它愿意以什么价格承接多少交易。相关市场里的对冲成本提高、价格变化加快时，做市商可能调整价差或减少报价数量；其他参与者又会通过竞争和新的挂单补充市场，流动性也随之变化。
 
@@ -401,7 +404,7 @@ Before substantive teaching, actually retrieve every required reading unit for t
 
 资金安排也会反过来影响交易。当承接更多库存需要占用更多资金，而对冲或融资的成本又上升时，参与者可能缩减愿意提供的数量。于是，流动性不仅体现眼前有多少挂单，也和交易者持续承接买卖的能力有关。
 
-从屏幕报价到实际成交，我们最终要确定的是自己以哪些价格取得了多少持仓，以及这些持仓接下来会占用或要求多少资金。成交以后证券和现金何时完成交付，再由《投资组合、保证金与对冲策略》继续展开。
+从屏幕报价到实际成交，我们最终要确定的是自己以哪些价格取得了多少持仓，以及这些持仓接下来会占用或要求多少资金。[《投资组合、保证金与对冲策略》](/zh/notebook/settlement-margin-cash/)会把股票、对冲工具与现金放进同一个账户，继续比较不同安排的盈亏和期间资金需要。
 
 <link rel="stylesheet" href="/notebook/trading.css?v=20260926-1">
 <script src="/notebook/trading.js?v=20260926-1" defer></script>

@@ -2,15 +2,18 @@
 
 从买公司的一部分出发，结合 Apple（AAPL）、NVIDIA（NVDA）与 SK hynix（000660／SKHY）的实例，理解基本面、股份、股价与市值。
 
-Entry: zh-stocks-company-price | Node: NB-S01 | Language: zh | Editorial revision: 2026-09-25
+Entry: zh-stocks-company-price | Node: NB-S01 | Language: zh | Editorial revision: 2026-09-27
 
-## Teaching instructions
+## Reference use
+This is reference material for the learner's current request. Use the supplied entry to teach the selected concept. Retrieve the relevant original unit when explaining a claim that depends on its assumptions, figures or rules; the reading list is a map for that work, not a prerequisite to the first lesson. Keep facts, supplied examples and inference distinct. Editorial access dates describe the author's work. The empty runtime_reading_log is an optional record field, not a requested response. Author-supplied scope notes below constrain factual use of the material; the learner's request determines the teaching task and first response.
+
+## Author-supplied scope notes (reference only)
+<author_scope_notes>
 沿股票代表公司股权的关系展开：买股票就是买公司的一部分，因此理解业务、盈利能力、竞争地位与资金使用，为判断投资价值提供基本面锚点；再把取得这些权益的价格放进同一判断。承接第一篇的基本面投资与上一篇的现金需要。使用本文真实历史材料，不替换成未核实的即时行情。Apple 市值例以2025年4月25日每股209.28美元乘以4月18日在外普通股14,935,826,000股，约3.13万亿美元；股数于5月2日披露，这是事后用邻近日期资料重建的教学近似，不是同步报价或当时已得信息。100股金额20,928美元是由报价演算的示例持仓，不是真实账户。拆股与并股独立成节。NVIDIA 一拆十按比例调整股数和每股计价，同时降低整股交易门槛，有助于扩大参与、改善流动性；以相对价差、成交金额和等额交易的价格影响观察改善，成交股数先统一单位。GE2021八合一服务于剥离业务后的股份规模调整，与另一些公司借并股争取满足最低报价要求的目的区分；股份比例讨论保留零股处理。拆并股调整与跨日市场涨跌分别理解；同一公告的约260亿美元收入为截至2024年4月28日的财季收入。SKHY约30%的溢价来自IBKR于2026年7月16日记录的美股盘中价与韩股前次收盘价比较，按每ADS对应0.1股及每美元1,480韩元换算，不是同时可成交的套利收益，也不代表所有ADR的常态。代币化只采用DTC于2025年12月11日公布的试点方案，说明其证券权益记录形式，不推定已经全面上线。简明版讲清关系，详细版在原段补足日期、单位与权益层次；更详细的股票类型、发行、存托转换和套利限制留到下一篇。 GE公司分拆短注采用2023年GE HealthCare与2024年GE Vernova的完成公告：原股东按方案取得新公司股票，余下业务以GE Aerospace继续。区分公司分拆改变业务归属与拆股、并股调整股份单位；不将2021并股写成后续公司分拆的原因。 本轮100股每股0.26美元的分红合计为税前26美元，是满足领取条件的教学持仓算例，不能转述成用户账户已经到账。
-
-Before substantive teaching, actually retrieve every required reading unit for the selected scope. Read its complete designated section, including necessary assumptions, tables and footnotes. A working URL or an editorial access date is not a runtime reading receipt. Record the actual version, location, scope and what it supports. If unavailable, use a previously verified equivalent source; if the required unit remains unavailable, identify that gap rather than teach it from memory. Start runtime_reading_log empty. Once reading is complete, use a substantive diagnostic or follow the reader's request for direct explanation. Advance one complete reasoning task at a time; skip mastered basics. Distinguish original facts, supplied teaching assumptions and inference.
+</author_scope_notes>
 
 ## Shared notation and writing conventions
-数学期望统一写成 \mathbb{E}，条件期望用 \mathbb{E}[X\mid\mathcal{G}]，需要时注明测度 P 或 Q. 保留局部变量的明确定义. 金额与数量使用 K=10^3、M=10^6、B=10^9；表格标明币种、量级与期间，变更量级时同步换算数值. 展示小数最多三位，计算保留原始精度. 直接解释对象、机制与推理；保留影响结论的假设和事实来源，把编辑流程留在记录中. 句末使用英文句点 .，包括定义、命题、证明和解析等标签. 基础定义与推导直接讲内容，出处放在紧邻脚注；来源读取、复审和采用范围等编辑经过留在记录中.
+数学期望统一写成 \mathbb{E}，条件期望用 \mathbb{E}[X\mid\mathcal{G}]，需要时注明测度 P 或 Q。保留局部变量的明确定义。金额与数量使用 K=10^3、M=10^6、B=10^9；表格标明币种、量级与期间，变更量级时同步换算数值。主文通常保留不超过三位小数，很小的数值或复算输入保留必要精度；计算使用原始数据。直接解释对象、机制与推理；保留影响结论的假设和事实来源，把编辑流程留在记录中。中文语句使用中文标点，代码、公式和原文引用保留各自格式。基础定义与推导直接讲内容，出处放在紧邻脚注；来源读取、复审和采用范围等编辑经过留在记录中。
 [Notation and units](https://ou-liu-red-sugar.github.io/agent/zh/notation.md)
 
 ## Required readings and runtime protocol
@@ -348,9 +351,9 @@ Before substantive teaching, actually retrieve every required reading unit for t
 
 股票是证券市场的主要交易品种之一，代表着持有人在一家公司的股权。比如 Apple（AAPL）的普通股就在 Nasdaq 交易。投资者买入 AAPL，取得的就是 Apple 的股份，也就成为了公司的股东。我们说“买股票就是买公司的一部分”，说的就是这层关系。[^stock]
 
-既然已经成了股东，我们自然会关心这家公司是怎样做生意的。AAPL 会向客户销售 iPhone、Mac 等产品，也会通过 App Store、Apple Music 等服务取得收入。有了收入，还要扣除生产、研发、销售等成本费用和税款，才能知道公司最后赚了多少钱。公司可以留存盈利，用于后续经营和再投资；在安排好经营和偿债等资金需要后，也可以通过现金分红，把钱分给股东。AAPL 在 2025 年 5 月的一次现金分红中，每股就支付了 0.26 美元。对于符合领取条件的股东来说，持有 100 股便会收到税前 26 美元，这就是股东从公司取得现金的一种具体方式。[^apple-business][^apple-dividend]
+既然已经成了股东，我们自然会关心这家公司是怎样做生意的。AAPL 会向客户销售 iPhone、Mac 等产品，也会通过 App Store、Apple Music 等服务取得收入。有了收入，还要扣除生产、研发、销售等成本费用和税款，才能知道公司最后赚了多少钱。公司可以留存盈利，用于后续经营和再投资；在安排好经营和偿债等资金需要后，也可以通过现金分红，把钱分给股东。AAPL 在 2025 年 5 月的一次现金分红中，每股就支付了 0.26 美元。对于符合领取条件的股东来说，持有 100 股便会收到税前 26 美元，这就是股东从公司取得现金的一种具体方式。[^apple-business]<sup>，</sup>[^apple-dividend]
 
-不过，股东关心的还不止已经拿到手的分红。如果以后购买 Apple 产品的人更多、公司能保持产品竞争力，经营就有机会继续增长；如果需求转弱、竞争加剧，盈利也会受到影响。公司还会怎样使用赚到的钱，是继续投入业务，还是留出更多资金回报股东，也关系到持有这些股份以后能得到什么。公司的业务、盈利能力、竞争地位和资金使用，以及由此形成的经营前景，就是我们要研究的公司基本面。以买入公司一部分的眼光看股票，基本面也就成为判断投资价值最重要的锚点，接上了第一篇介绍的[基本面投资](/zh/notebook/investment-returns/)。
+不过，股东关心的还不止已经拿到手的分红。如果以后购买 Apple 产品的人更多、公司能保持产品竞争力，经营就有机会继续增长；如果需求转弱、竞争加剧，盈利也会受到影响。公司还会怎样使用赚到的钱，是继续投入业务，还是留出更多资金回报股东，也关系到持有这些股份以后能得到什么。公司的业务、盈利能力、竞争地位和资金使用，以及由此形成的经营前景，就是我们要研究的公司基本面。以买入公司一部分的眼光看股票，基本面也就成为判断投资价值最重要的锚点，这也是[《Agent 时代的基本面投资》](/zh/notebook/investment-returns/)采用的研究起点。
 
 ## 股价、股数与市值 {#nb-s01-price}
 
@@ -366,26 +369,26 @@ Before substantive teaching, actually retrieve every required reading unit for t
 
 ## 拆股与并股 {#nb-s01-splits}
 
-不过，每股价格还会随着股份的划分方式改变。公司可以把原来的一股拆成多股，也可以把原来的多股合成一股，分别称为拆股和并股。NVIDIA（NVDA）和当时的 General Electric（GE）就有两个实际例子：
+股价和股数还会随着股份的划分方式一起改变。公司可以把原来的一股拆成多股，也可以把原来的多股合成一股，分别称为拆股和并股。NVIDIA（NVDA）和当时的 General Electric（GE）就有两个实际例子：
 
 | 公司与调整 | 调整前股数 | 调整后股数 | 每股价格的对应调整 |
 |---|---:|---:|---|
 | NVDA，2024 年一拆十[^nvda-split] | 1 股 | 10 股 | 调整为原来的十分之一 |
 | GE，2021 年八合一[^ge-reverse] | 8 股 | 1 股 | 调整为原来的八倍 |
 
-<span data-text-versions id="nb-s01-text-2">以一拆十为例，股东原来持有的一股会变成十股，公司总股数也会增加到原来的十倍。持股比例等于持有股数除以公司总股数，分子和分母同时乘以十，比例便保持不变。并股沿相反方向调整：股东的持股数与公司总股数同比例减少，每一股所代表的份额相应扩大<span data-text-detail>（这里比较拆股、并股的比例调整本身，市场交易仍会使价格变化；GE 并股后不足一股的部分，登记股东按方案取得现金替代，经纪商托管账户依其具体安排处理）</span>。这样一来，股东持有的公司比例保持不变，每一股所代表的公司份额却已经变了。<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>
+<span data-text-versions id="nb-s01-text-2">以一拆十为例，股东原来持有的一股会变成十股，公司总股数也会增加到原来的十倍。持股比例等于持有股数除以公司总股数，分子和分母同时乘以十，比例便保持不变。并股沿相反方向调整：股东的持股数与公司总股数同比例减少，每一股所代表的份额相应扩大<span data-text-detail>（这里比较拆股、并股的比例调整本身，市场交易仍会使价格变化；GE 并股后不足一股的部分，登记股东按方案取得现金替代，经纪商托管账户依其具体安排处理）</span>。同样的公司权益，也就换成了不同的股份计量单位。<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>
 
 <span data-text-versions id="nb-s01-text-6">那为什么还要拆股呢？对每股价格比较高的股票来说，拆股以后，买入一整股所需的资金就会减少。一拆十会把这个金额降到原来的十分之一，小额资金因而更容易参与，投资者也能按较小金额买卖和调整仓位。NVDA 公布这次拆股时，就说明希望让员工和投资者更容易持有公司股票。[^nvda-split] 一般来说，拆股有利于交易，也有助于改善流动性，让股票更容易买卖，而不明显推高或压低价格<span data-text-detail>（观察流动性是否改善，可以看买卖价差相对股价的大小、成交金额，或相同交易金额造成的价格影响；比较成交股数时，要先换到相同的股份计量单位）</span>。[^split-liquidity]<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>
 
 <span data-text-versions id="nb-s01-text-7">并股的目的又有所不同。GE 此前已经剥离了多项业务，股份数量却没有相应减少。于是公司在 2021 年实施八合一，希望让在外股数与转型后的公司规模和业务范围更加相称<span data-text-detail>（这次并股于 7 月 30 日完成，自 8 月 2 日起按调整后的股份单位交易）</span>。[^ge-reverse] 另一些公司则会在股价过低时借助并股提高每股报价，争取重新满足交易所的最低报价要求，以维持上市。[^reverse-purpose]<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>
 
-说到 GE，还可以顺带认识公司分拆。2023 年，GE 的医疗业务以 GE HealthCare（GEHC）独立上市；2024 年，GE Vernova（GEV）也完成了分拆，留下的航空业务以 GE Aerospace（GE）继续经营。原 GE 股东在两次分拆中都按方案取得了新公司的股份，[第一篇提到的 GEV](/zh/notebook/investment-returns/#nb-a01-business)就是 GE Vernova 的股票代码。公司分拆改变了业务归属，股东会分别持有不同公司的权益；拆股和并股调整的则是同一家公司的股份单位。[^ge-spinoffs]
+说到 GE，还可以顺带认识公司分拆。2023 年，GE 的医疗业务以 GE HealthCare（GEHC）独立上市；2024 年，GE Vernova（GEV）也完成了分拆，留下的航空业务以 GE Aerospace（GE）继续经营。原 GE 股东在两次分拆中都按方案取得了新公司的股份，[《Agent 时代的基本面投资》中的 GEV 业务案例](/zh/notebook/investment-returns/#nb-a01-business)讨论的正是这家公司。公司分拆改变了业务归属，股东会分别持有不同公司的权益；拆股和并股调整的则是同一家公司的股份单位。[^ge-spinoffs]
 
 ## 经营信息与交易预期 {#nb-s01-expectations}
 
 了解了这些股份安排，我们再回到公司的经营。NVDA 在 2024 年 5 月宣布那次一拆十时，也在同一份财报公告里披露，上一财季的收入已经达到约 260 亿美元。拆股告诉我们股份单位怎样变化，收入则让我们看到公司做了多大规模的生意。不过要判断今后的经营前景，还得接着了解需求来自哪里、成本和费用有多少，以及业务能否持续。把这些问题联系起来，我们才能从已经取得的收入，进一步判断未来的盈利，以及持股可能带来的收益。[^nvda-results]
 
-当投资者读到这样的财报时，也会形成各自的判断。有人认为未来的业务和盈利会继续增长，因而愿意出更高的价格；也有人对增长预期较低，愿意付出的价格便会低一些。同时，投资者还要安排自己的资金。正如上一篇[投资期限与现金需要](/zh/notebook/investment-horizon-cash/)所讨论的，即使对公司经营的看法没有改变，等到一笔已经约定的付款临近，也可能需要卖出股票来准备现金。这些判断和资金安排会影响投资者愿意以什么价格买入或卖出；当买卖双方接受同一个价格并成交时，市场上就形成了这一笔交易的价格。
+当投资者读到这样的财报时，也会形成各自的判断。有人认为未来的业务和盈利会继续增长，因而愿意出更高的价格；也有人对增长预期较低，愿意付出的价格便会低一些。同时，投资者还要安排自己的资金。正如[《投资期限与现金需要》](/zh/notebook/investment-horizon-cash/)所讨论的，即使对公司经营的看法没有改变，等到一笔已经约定的付款临近，也可能需要卖出股票来准备现金。这些判断和资金安排会影响投资者愿意以什么价格买入或卖出；当买卖双方接受同一个价格并成交时，市场上就形成了这一笔交易的价格。
 
 所以，我们最终还要把公司可能带来的收益和眼前的买入价格放在一起看。在相同持有期里，如果未来取得的分红和卖出所得相同，起初付出的价格越高，投资回报就越低。这样，我们研究的既是公司会怎样经营，也是自己准备以什么价格参与其中。
 
@@ -393,13 +396,13 @@ Before substantive teaching, actually retrieve every required reading unit for t
 
 有时，同一家公司的权益还会以不同的证券形式出现在不同市场。公司的股份可以在本国市场交易，存托银行也可以以托管的境外股票为基础，发行在另一个市场交易的存托凭证。投资者持有这些凭证，就取得了与托管股份对应的权益。
 
-<span data-text-versions id="nb-s01-text-3">在美国市场上，这类证券通常称为美国存托凭证（ADR）。以 SK hynix（韩国普通股：000660）为例，美国市场上的 SKHY 是对应其普通股的存托证券<span data-text-detail>（ADR 指存托凭证，ADS 指凭证所代表的美国存托股份额，两种称呼常通用；本文按每份 SKHY 对应十分之一股韩国普通股换算）</span>。虽然交易代码和市场不同，两者仍通过具体的股份对应关系联系在一起。[^adr][^skhy]<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>
+<span data-text-versions id="nb-s01-text-3">在美国市场上，这类证券通常称为美国存托凭证（ADR）。以 SK hynix（韩国普通股：000660）为例，美国市场上的 SKHY 是对应其普通股的存托证券<span data-text-detail>（ADR 指存托凭证，ADS 指凭证所代表的美国存托股份额，两种称呼常通用；本文按每份 SKHY 对应十分之一股韩国普通股换算）</span>。虽然交易代码和市场不同，两者仍通过具体的股份对应关系联系在一起。[^adr]<sup>，</sup>[^skhy]<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>
 
 <span data-text-versions id="nb-s01-text-4">有了这层对应关系，我们就可以把两个市场的价格换算后再比较。IBKR 在 2026 年 7 月 16 日记录过这样一个实例：统一对应股数和币种后，SKHY 当时的盘中价格，相对韩国普通股前一次收盘价高出约 30%<span data-text-detail>（SKHY 盘中价为 160.69 美元；韩国普通股前次收盘价为 1,830,000 韩元，按 1 美元兑 1,480 韩元及每份 SKHY 对应十分之一股换算，相当于每份 123.65 美元。160.69 ÷ 123.65 − 1 约为 30%）</span>。因此，即使已经认出了同一家公司，我们也还要看看通过什么证券、在哪个市场买入，会付出怎样的价格。[^skhy-price]<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>
 
 <span data-text-versions id="nb-s01-text-5">证券权益的记录方式也在变化。比如美国证券存管机构 DTC 在 2025 年 12 月 11 日公布了一项代币化试点方案，提出用区块链上的代币记录和转移证券权益<span data-text-detail>（本方案记录的是参与者对 DTC 托管证券的权益；底层证券仍登记在其名义持有人 Cede & Co. 名下，适用的法律框架不因记录形式改变）</span>。技术形式在变化，我们仍然要沿着这些记录和安排，认清自己实际持有的权益。[^dtc]<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>
 
-认清证券与公司的对应关系以后，我们还会遇到两个更具体的问题：不同股份分别赋予股东什么权利，发行和买卖股份时的钱又流向哪里？下一篇就从股份类型和发行讲起。
+从持有一家公司的股份，转向持有一组公司的股票，我们会接触[《指数、基金与 ETF》](/zh/notebook/indices-funds-etfs/)中的市场指标与基金份额。至于不同股份的权利、发行和转手时的资金去向，[《股票的类型、发行与交易形式》](/zh/notebook/stock-types-issuance-trading/)会继续展开。
 
 [^stock]: [Investor.gov：Stocks](https://www.investor.gov/introduction-investing/investing-basics/investment-products/stocks)，What are stocks?；[Apple：Investor Relations FAQ](https://investor.apple.com/faq/)，Stock 部分。
 [^apple-business]: [Apple 2025 Form 10-K](https://www.sec.gov/Archives/edgar/data/320193/000032019325000079/aapl-20250927.htm)，Item 1 Business；[Apple 2025 财年第二季度 Form 10-Q](https://www.sec.gov/Archives/edgar/data/320193/000032019325000057/aapl-20250329.htm)，损益表。

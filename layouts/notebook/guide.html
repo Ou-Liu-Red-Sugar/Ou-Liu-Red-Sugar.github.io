@@ -1,0 +1,19 @@
+{{ define "main" }}
+<div class="reader-layout">
+  <aside class="reader-nav" aria-label="教学参考">
+    <a class="back-link" href="/zh/notebook/">← 投资学笔记</a>
+    <a href="/zh/notebook/teaching-guide/"{{ if eq .File.ContentBaseName "teaching-guide" }} aria-current="page"{{ end }}>Agent 教学指南</a>
+    <a href="/zh/notebook/teaching-benchmarks/"{{ if eq .File.ContentBaseName "teaching-benchmarks" }} aria-current="page"{{ end }}>教学基准与示范</a>
+  </aside>
+  <article class="entry-article">
+    <header class="entry-header">
+      <p class="eyebrow">教学参考</p>
+      <h1>{{ .Title }}</h1>
+      <p class="entry-deck">{{ .Description }}</p>
+      <div class="entry-actions"><button data-print>打印</button></div>
+    </header>
+    <div class="prose entry-body">{{ .Content }}</div>
+  </article>
+  <aside class="entry-toc" aria-label="本页目录"><p class="eyebrow">本页目录</p>{{ .TableOfContents }}</aside>
+</div>
+{{ end }}

@@ -17,6 +17,18 @@
       "zh": "市场、交易与融资",
       "en": "Markets, trading and financing",
       "desc_zh": "辨认股份发行、交易形式、参与者和资金流向。"
+    },
+    {
+      "id": "topic-V",
+      "zh": "基金、ETF 与投资载体",
+      "en": "Funds, ETFs and investment vehicles",
+      "desc_zh": "理解指数、基金资产、管理方式、交易价格与费用。"
+    },
+    {
+      "id": "topic-P",
+      "zh": "投资组合与资金安排",
+      "en": "Portfolios and funding",
+      "desc_zh": "从共同暴露、仓位、对冲与期间现金理解投资组合。"
     }
   ],
   "sources": [
@@ -1628,6 +1640,256 @@
       "version": "本篇材料核对：2026-09-26；历史样本、研究及情景时点分别见正文",
       "authors": [
         "Bybit"
+      ]
+    },
+    {
+      "source_id": "nb-v01-sp-method-1",
+      "title": "S&P U.S. Indices Methodology",
+      "url": "https://www.spglobal.com/spdji/en/documents/methodologies/methodology-sp-us-indices.pdf",
+      "body": "S&P Dow Jones Indices，S&P U.S. Indices Methodology，2026 年 7 月，选样、自由流通市值加权、公司多股类及再平衡。正文只列所需条件类型。",
+      "version": "2026-09-27 核对；持仓、方法与招募书日期分别见正文",
+      "authors": [
+        "S&P U.S. Indices Methodology"
+      ]
+    },
+    {
+      "source_id": "nb-v01-msci-1",
+      "title": "MSCI World Index factsheet",
+      "url": "https://www.msci.com/documents/10199/255599/msci-world-index-usd-net.pdf",
+      "body": "MSCI，MSCI World Index factsheet，2026-08-31，23 个发达市场的大中盘范围及覆盖比例。",
+      "version": "2026-09-27 核对；持仓、方法与招募书日期分别见正文",
+      "authors": [
+        "MSCI World Index factsheet"
+      ]
+    },
+    {
+      "source_id": "nb-v01-index-math-1",
+      "title": "S&P U.S. Indices Methodology",
+      "url": "https://www.spglobal.com/spdji/en/documents/methodologies/methodology-sp-us-indices.pdf",
+      "body": "S&P Dow Jones Indices，S&P U.S. Indices Methodology，2026 年 7 月，第 16 页 Index Calculations、第 21 页 Calculation Return Types，指数计算与价格、总回报口径。",
+      "version": "2026-09-27 核对；持仓、方法与招募书日期分别见正文",
+      "authors": [
+        "S&P U.S. Indices Methodology"
+      ]
+    },
+    {
+      "source_id": "nb-v01-equal-1",
+      "title": "S&P 500 Equal Weight Index",
+      "url": "https://www.spglobal.com/spdji/en/indices/equity/sp-500-equal-weight-index/",
+      "body": "S&P Dow Jones Indices，S&P 500 Equal Weight Index与等权指数 FAQ，按公司等权、季度再平衡；具体定权参考日与生效规则采用前列 2026 年 7 月方法书。",
+      "version": "2026-09-27 核对；持仓、方法与招募书日期分别见正文",
+      "authors": [
+        "S&P 500 Equal Weight Index"
+      ]
+    },
+    {
+      "source_id": "nb-v01-equal-2",
+      "title": "等权指数 FAQ",
+      "url": "https://www.spglobal.com/spdji/en/education/article/sp-500-equal-weight-index-faq/",
+      "body": "S&P Dow Jones Indices，S&P 500 Equal Weight Index与等权指数 FAQ，按公司等权、季度再平衡；具体定权参考日与生效规则采用前列 2026 年 7 月方法书。",
+      "version": "2026-09-27 核对；持仓、方法与招募书日期分别见正文",
+      "authors": [
+        "等权指数 FAQ"
+      ]
+    },
+    {
+      "source_id": "nb-v01-voo-sheet-1",
+      "title": "VOO 官方季度资料",
+      "url": "https://fund-docs.vanguard.com/F0968.pdf",
+      "body": "Vanguard，VOO 官方季度资料，2026-06-30，第 2 页持仓公司与行业分布。前十大公司合计 37.9% 采用源表合计。图表输入和设定计算见本篇数据与计算结果。",
+      "version": "2026-09-27 核对；持仓、方法与招募书日期分别见正文",
+      "authors": [
+        "VOO 官方季度资料"
+      ]
+    },
+    {
+      "source_id": "nb-v01-voo-sheet-2",
+      "title": "本篇数据",
+      "url": "/notebook/index-funds/inputs.json",
+      "body": "Vanguard，VOO 官方季度资料，2026-06-30，第 2 页持仓公司与行业分布。前十大公司合计 37.9% 采用源表合计。图表输入和设定计算见本篇数据与计算结果。",
+      "version": "2026-09-27 核对；持仓、方法与招募书日期分别见正文",
+      "authors": [
+        "本篇数据"
+      ]
+    },
+    {
+      "source_id": "nb-v01-voo-sheet-3",
+      "title": "计算结果",
+      "url": "/notebook/index-funds/calculations.csv",
+      "body": "Vanguard，VOO 官方季度资料，2026-06-30，第 2 页持仓公司与行业分布。前十大公司合计 37.9% 采用源表合计。图表输入和设定计算见本篇数据与计算结果。",
+      "version": "2026-09-27 核对；持仓、方法与招募书日期分别见正文",
+      "authors": [
+        "计算结果"
+      ]
+    },
+    {
+      "source_id": "nb-v01-voo-prospectus-1",
+      "title": "VOO Summary Prospectus",
+      "url": "https://www.sec.gov/Archives/edgar/data/36405/000003640526000183/f44783d1.htm",
+      "body": "Vanguard，VOO Summary Prospectus，2026-04-28，投资目标、策略和费用表：管理 0.02%、其他 0.01%、合计 0.03%。",
+      "version": "2026-09-27 核对；持仓、方法与招募书日期分别见正文",
+      "authors": [
+        "VOO Summary Prospectus"
+      ]
+    },
+    {
+      "source_id": "nb-v01-nav-1",
+      "title": "Net Asset Value",
+      "url": "https://www.investor.gov/introduction-investing/investing-basics/glossary/net-asset-value",
+      "body": "SEC Investor.gov，Net Asset Value，净资产及每份净值定义，2026-09-27 查阅。",
+      "version": "2026-09-27 核对；持仓、方法与招募书日期分别见正文",
+      "authors": [
+        "Net Asset Value"
+      ]
+    },
+    {
+      "source_id": "nb-v01-fund-structure-1",
+      "title": "Characteristics of Mutual Funds and Exchange-Traded Funds",
+      "url": "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/characteristics-mutual-funds-exchange-traded-funds",
+      "body": "SEC Investor.gov，Characteristics of Mutual Funds and Exchange-Traded Funds，2025-04-29，份额买卖及定价；申请后定价的机制另见 SEC 共同基金定价规则背景说明，只采用其对 forward pricing 的背景解释。",
+      "version": "2026-09-27 核对；持仓、方法与招募书日期分别见正文",
+      "authors": [
+        "Characteristics of Mutual Funds and Exchange-Traded Funds"
+      ]
+    },
+    {
+      "source_id": "nb-v01-fund-structure-2",
+      "title": "共同基金定价规则背景说明",
+      "url": "https://www.sec.gov/rules-regulations/2003/12/amendments-rules-governing-pricing-mutual-fund-shares",
+      "body": "SEC Investor.gov，Characteristics of Mutual Funds and Exchange-Traded Funds，2025-04-29，份额买卖及定价；申请后定价的机制另见 SEC 共同基金定价规则背景说明，只采用其对 forward pricing 的背景解释。",
+      "version": "2026-09-27 核对；持仓、方法与招募书日期分别见正文",
+      "authors": [
+        "共同基金定价规则背景说明"
+      ]
+    },
+    {
+      "source_id": "nb-v01-etf-1",
+      "title": "Updated Investor Bulletin: Exchange-Traded Funds",
+      "url": "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins-24",
+      "body": "SEC Investor.gov，Updated Investor Bulletin: Exchange-Traded Funds，2023-02-23，AP、大额申赎、证券篮子或现金与份额的交换。",
+      "version": "2026-09-27 核对；持仓、方法与招募书日期分别见正文",
+      "authors": [
+        "Updated Investor Bulletin: Exchange-Traded Funds"
+      ]
+    },
+    {
+      "source_id": "nb-v01-rsp-1",
+      "title": "RSP 产品资料",
+      "url": "https://www.invesco.com/us/financial-products/etfs/product-detail?audienceType=Investor&ticker=RSP",
+      "body": "Invesco，RSP 产品资料，跟踪 S&P 500 等权指数与季度再平衡，2026-09-27 查阅。",
+      "version": "2026-09-27 核对；持仓、方法与招募书日期分别见正文",
+      "authors": [
+        "RSP 产品资料"
+      ]
+    },
+    {
+      "source_id": "nb-v01-urth-1",
+      "title": "URTH 产品资料",
+      "url": "https://www.ishares.com/us/products/239696/URTH",
+      "body": "iShares，URTH 产品资料，跟踪发达市场股票指数的目标，2026-09-27 查阅。",
+      "version": "2026-09-27 核对；持仓、方法与招募书日期分别见正文",
+      "authors": [
+        "URTH 产品资料"
+      ]
+    },
+    {
+      "source_id": "nb-v01-cgdv-1",
+      "title": "CGDV Summary Prospectus",
+      "url": "https://www.sec.gov/Archives/edgar/data/1870128/000005193126000736/cgdv497k.htm",
+      "body": "Capital Group，CGDV Summary Prospectus，2026-08-01，投资目标、主动持仓与 0.33% 总费用率；CGDV 产品资料，主要业绩比较基准为 S&P 500。",
+      "version": "2026-09-27 核对；持仓、方法与招募书日期分别见正文",
+      "authors": [
+        "CGDV Summary Prospectus"
+      ]
+    },
+    {
+      "source_id": "nb-v01-cgdv-2",
+      "title": "CGDV 产品资料",
+      "url": "https://www.capitalgroup.com/advisor/investments/exchange-traded-funds/details/cgdv",
+      "body": "Capital Group，CGDV Summary Prospectus，2026-08-01，投资目标、主动持仓与 0.33% 总费用率；CGDV 产品资料，主要业绩比较基准为 S&P 500。",
+      "version": "2026-09-27 核对；持仓、方法与招募书日期分别见正文",
+      "authors": [
+        "CGDV 产品资料"
+      ]
+    },
+    {
+      "source_id": "nb-v01-roundhill-1",
+      "title": "CHAT",
+      "url": "https://www.roundhillinvestments.com/etf/chat/",
+      "body": "Roundhill，CHAT、HUMN、OZEM产品页，主题与主动管理身份，2026-09-27 查阅；例中持仓采用网页标注的 2026-06-30 Top 5 Holdings，HUMN/Optimus 对应其官网业务说明。",
+      "version": "2026-09-27 核对；持仓、方法与招募书日期分别见正文",
+      "authors": [
+        "CHAT"
+      ]
+    },
+    {
+      "source_id": "nb-v01-roundhill-2",
+      "title": "HUMN",
+      "url": "https://www.roundhillinvestments.com/etf/humn/",
+      "body": "Roundhill，CHAT、HUMN、OZEM产品页，主题与主动管理身份，2026-09-27 查阅；例中持仓采用网页标注的 2026-06-30 Top 5 Holdings，HUMN/Optimus 对应其官网业务说明。",
+      "version": "2026-09-27 核对；持仓、方法与招募书日期分别见正文",
+      "authors": [
+        "HUMN"
+      ]
+    },
+    {
+      "source_id": "nb-v01-roundhill-3",
+      "title": "OZEM",
+      "url": "https://www.roundhillinvestments.com/etf/ozem/",
+      "body": "Roundhill，CHAT、HUMN、OZEM产品页，主题与主动管理身份，2026-09-27 查阅；例中持仓采用网页标注的 2026-06-30 Top 5 Holdings，HUMN/Optimus 对应其官网业务说明。",
+      "version": "2026-09-27 核对；持仓、方法与招募书日期分别见正文",
+      "authors": [
+        "OZEM"
+      ]
+    },
+    {
+      "source_id": "nb-v01-fee-rules-1",
+      "title": "Mutual Fund and ETF Fees and Expenses",
+      "url": "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins/mutual-fund-and-etf-fees-and-expenses-investor-bulletin",
+      "body": "SEC Investor.gov，Mutual Fund and ETF Fees and Expenses，2025-07-23，持续费用、销售费用、基金资产扣费及费率表外的交易和中介成本。",
+      "version": "2026-09-27 核对；持仓、方法与招募书日期分别见正文",
+      "authors": [
+        "Mutual Fund and ETF Fees and Expenses"
+      ]
+    },
+    {
+      "source_id": "nb-v01-chat-fee-1",
+      "title": "CHAT Prospectus",
+      "url": "https://www.sec.gov/Archives/edgar/data/1924868/000199937126018651/chat-485bpos_082526.htm",
+      "body": "Roundhill，CHAT Prospectus，2026-08-27，管理费及年度总费用率均为 0.75%。",
+      "version": "2026-09-27 核对；持仓、方法与招募书日期分别见正文",
+      "authors": [
+        "CHAT Prospectus"
+      ]
+    },
+    {
+      "source_id": "nb-v01-aivsx-1",
+      "title": "AIVSX 产品与费用表",
+      "url": "https://www.capitalgroup.com/individual/investments/mutual-funds/details/ica-a",
+      "body": "Capital Group，AIVSX 产品与费用表，产品页标注最近招募书日期为 2026-03-01，费用数据取自该页；Class A 销售费及折扣。最高前端费 5.75%，持续总费用 0.55%，适用收费依销售安排和资格确定。",
+      "version": "2026-09-27 核对；持仓、方法与招募书日期分别见正文",
+      "authors": [
+        "AIVSX 产品与费用表"
+      ]
+    },
+    {
+      "source_id": "nb-v01-aivsx-2",
+      "title": "Class A 销售费及折扣",
+      "url": "https://www.capitalgroup.com/individual/investments/share-class-information/reducing-sales-charges.html",
+      "body": "Capital Group，AIVSX 产品与费用表，产品页标注最近招募书日期为 2026-03-01，费用数据取自该页；Class A 销售费及折扣。最高前端费 5.75%，持续总费用 0.55%，适用收费依销售安排和资格确定。",
+      "version": "2026-09-27 核对；持仓、方法与招募书日期分别见正文",
+      "authors": [
+        "Class A 销售费及折扣"
+      ]
+    },
+    {
+      "source_id": "nb-v01-vanguard-fees-1",
+      "title": "共同基金费用与最低投资额",
+      "url": "https://investor.vanguard.com/investment-products/mutual-funds/fees",
+      "body": "Vanguard，共同基金费用与最低投资额，不收前后端销售负担，持续费用及部分买入/赎回费用另列，2026-09-27 查阅。",
+      "version": "2026-09-27 核对；持仓、方法与招募书日期分别见正文",
+      "authors": [
+        "共同基金费用与最低投资额"
       ]
     }
   ],

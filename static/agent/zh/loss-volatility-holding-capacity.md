@@ -2,15 +2,18 @@
 
 从 KO 的修复与 FISV 的失利出发，结合行业比较、Risk–Reward、量价观察和资金安排，理解持有与退出。
 
-Entry: zh-loss-volatility-holding-capacity | Node: NB-A03 | Language: zh | Editorial revision: 2026-09-26
+Entry: zh-loss-volatility-holding-capacity | Node: NB-A03 | Language: zh | Editorial revision: 2026-09-27
 
-## Teaching instructions
+## Reference use
+This is reference material for the learner's current request. Use the supplied entry to teach the selected concept. Retrieve the relevant original unit when explaining a claim that depends on its assumptions, figures or rules; the reading list is a map for that work, not a prerequisite to the first lesson. Keep facts, supplied examples and inference distinct. Editorial access dates describe the author's work. The empty runtime_reading_log is an optional record field, not a requested response. Author-supplied scope notes below constrain factual use of the material; the learner's request determines the teaching task and first response.
+
+## Author-supplied scope notes (reference only)
+<author_scope_notes>
 从亏损后的回本预期出发，先比较各自行业中的价格变化，再核经营与盈利预期，最后用当前价格下的Risk-Reward及资金条件讨论持有或退出。KO在2023年GLP-1担忧中的修复为成功过程，FISV在2025—2026年预期下修及相对失利为失败过程；二者分别与行业ETF XLP、IPAY比较。KO图为2023-09-29至12-29，FISV图为2025-01-02至2026-09-24，均采用拆股调整后的Close，不含分红。XLP和IPAY提供消费必需品及全球数字支付行业参照；业务覆盖比单一公司更广。FISV旧代码FI，自2025-11-11改为FISV。公司已披露数据与指引分别保留期间及GAAP/非GAAP身份。情景算例用一组简化数字：两年、当前100美元、年EPS6/5/3与倍数25/20/20，累计分红各2美元；从当前价格计算，结合发生可能性及等待时间。布林带、MACD、KDJ各配SPY 2026-07-13至08-21日线K线和指标图：布林带观察7月29日跌破下轨后收回与8月4日突破上轨后延续，MACD观察7月17日转弱、8月3日转强及8月20日再转弱，KDJ观察7月30日低位转强、8月11至14日高位延续及8月17日转弱。VWAP配SPY 8月3日日内图，五分钟收盘价持续高于累计VWAP，12:05价格756.00与累计近似VWAP753.82。四种一般情况的指标例子在先，MSFT财报重定价反例独立置于后面。日内近似值按五分钟典型价乘成交量累计，不混用全天收盘价。计算输入和结果附CSV。MSFT于2026-07-29盘后发布FY26 Q4财报，下一交易日收盘上涨约15.5%；旧上轨约401.7美元为财报前20个交易日均值加2倍总体标准差，固定原位置用于对照，不能伪装成财报后实时滚动上轨。财年与自然季度的关系留给《三张财报与经营活动》。完整展开现金安排与杠杆的影响，并采用作者提供的放下设备散心句子。首次英文名加代码，后文优先代码；必要条件只在对应位置说明一次。
-
-Before substantive teaching, actually retrieve every required reading unit for the selected scope. Read its complete designated section, including necessary assumptions, tables and footnotes. A working URL or an editorial access date is not a runtime reading receipt. Record the actual version, location, scope and what it supports. If unavailable, use a previously verified equivalent source; if the required unit remains unavailable, identify that gap rather than teach it from memory. Start runtime_reading_log empty. Once reading is complete, use a substantive diagnostic or follow the reader's request for direct explanation. Advance one complete reasoning task at a time; skip mastered basics. Distinguish original facts, supplied teaching assumptions and inference.
+</author_scope_notes>
 
 ## Shared notation and writing conventions
-数学期望统一写成 \mathbb{E}，条件期望用 \mathbb{E}[X\mid\mathcal{G}]，需要时注明测度 P 或 Q. 保留局部变量的明确定义. 金额与数量使用 K=10^3、M=10^6、B=10^9；表格标明币种、量级与期间，变更量级时同步换算数值. 展示小数最多三位，计算保留原始精度. 直接解释对象、机制与推理；保留影响结论的假设和事实来源，把编辑流程留在记录中. 句末使用英文句点 .，包括定义、命题、证明和解析等标签. 基础定义与推导直接讲内容，出处放在紧邻脚注；来源读取、复审和采用范围等编辑经过留在记录中.
+数学期望统一写成 \mathbb{E}，条件期望用 \mathbb{E}[X\mid\mathcal{G}]，需要时注明测度 P 或 Q。保留局部变量的明确定义。金额与数量使用 K=10^3、M=10^6、B=10^9；表格标明币种、量级与期间，变更量级时同步换算数值。主文通常保留不超过三位小数，很小的数值或复算输入保留必要精度；计算使用原始数据。直接解释对象、机制与推理；保留影响结论的假设和事实来源，把编辑流程留在记录中。中文语句使用中文标点，代码、公式和原文引用保留各自格式。基础定义与推导直接讲内容，出处放在紧邻脚注；来源读取、复审和采用范围等编辑经过留在记录中。
 [Notation and units](https://ou-liu-red-sugar.github.io/agent/zh/notation.md)
 
 ## Required readings and runtime protocol
@@ -413,7 +416,7 @@ Before substantive teaching, actually retrieve every required reading unit for t
 
 ## 行业参照与两种结果 {#nb-a03-industry}
 
-我们先从 Coca-Cola（KO）的一次下跌看起。2023 年秋天，GLP-1 减肥药引发了市场对食品饮料消费减少的担忧：如果人们吃得更少、喝得更少，相关公司的增长会不会受到影响？KO 与多家食品饮料公司的股价都受到了冲击，后来又逐步修复。这个过程也是 WSJ 在讨论下跌后的持有选择时使用的例子。[^wsj]
+我们先从 Coca-Cola（KO）的一次下跌看起。2023 年秋天，GLP-1 减肥药引发了市场对食品饮料消费减少的担忧：如果人们吃得更少、喝得更少，相关公司的增长会不会受到影响？KO 与多家食品饮料公司的股价都受到了冲击，后来又逐步修复。[^wsj]
 
 从实际行情看，KO 在 2023 年 9 月底收于约 56 美元，10 月初一度跌到约 52 美元，到了年底又回到约 59 美元。图中用消费必需品 ETF XLP 作参照：KO 在 10 月初的下跌更急，后来逐渐修复，到年底，两者相对 9 月底都上涨了约 5%。接下来要查的，就是当时的担忧与实际经营之间有多大距离。[^prices-ko]
 
@@ -422,9 +425,9 @@ Before substantive teaching, actually retrieve every required reading unit for t
 <figcaption>KO 的修复过程与消费必需品板块的同期表现。两条线各自从 100 起步，比较价格变化；<a href="/notebook/holding/ko-recovery.csv">查看数据</a>。</figcaption>
 </figure>
 
-再看提供支付处理和金融技术服务的 Fiserv（FISV，案例初期代码为 FI）。起初，公司给出了较高的增长与盈利预期，可后来却大幅下调指引。2025 年 10 月 29 日公布财报后，股价当天下跌约 44%；到 2026 年 9 月 24 日，价格又比这次暴跌后的收盘价低了约 35%。第一次大跌以后，继续等待仍然经历了进一步的损失。[^prices-fisv][^ticker]
+再看提供支付处理和金融技术服务的 Fiserv（FISV，案例初期代码为 FI）。起初，公司给出了较高的增长与盈利预期，可后来却大幅下调指引。2025 年 10 月 29 日公布财报后，股价当天下跌约 44%；到 2026 年 9 月 24 日，价格又比这次暴跌后的收盘价低了约 35%。第一次大跌以后，继续等待仍然经历了进一步的损失。[^prices-fisv]<sup>，</sup>[^ticker]
 
-为了判断这段下跌的分量，我们再把它与支付行业 ETF IPAY 放在一起。IPAY 覆盖支付网络、支付处理及相关技术服务公司，可以提供一组支付业务的参照。从 2025 年首个交易日到 2026 年 9 月 24 日，IPAY 下跌约 18%，FISV 却下跌了约 78%。支付板块的价格也在下跌，但 FISV 落后的幅度明显更大，我们因而要回到公司披露，看看它的经营与盈利预期发生了什么变化。[^ipay][^prices-fisv]
+为了判断这段下跌的分量，我们再把它与支付行业 ETF IPAY 放在一起。IPAY 覆盖支付网络、支付处理及相关技术服务公司，可以提供一组支付业务的参照。从 2025 年首个交易日到 2026 年 9 月 24 日，IPAY 下跌约 18%，FISV 却下跌了约 78%。支付板块的价格也在下跌，但 FISV 落后的幅度明显更大，我们因而要回到公司披露，看看它的经营与盈利预期发生了什么变化。[^ipay]<sup>，</sup>[^prices-fisv]
 
 <figure class="holding-figure">
 <img src="/notebook/holding/fiserv-underperformance.svg" alt="2025年1月2日至2026年9月24日，FISV和支付行业ETF IPAY收盘价均以期初为100。期末FISV下跌约77.7%，IPAY下跌约18.1%；FISV在2025年10月指引大幅下修时暴跌，随后仍持续承压。" width="820" height="430" loading="lazy">
@@ -433,19 +436,19 @@ Before substantive teaching, actually retrieve every required reading unit for t
 
 <span data-text-versions id="nb-a03-text-1">一般而言，当行业里的公司一起下跌，自己的持仓也大致同步时，我们就不必单凭亏损怀疑它出了独有的问题；若在一段时间里明显落后于行业，便应该重点检查需求、竞争位置和盈利前景是否也相对转弱了。即使公司还在增长，原先的增长预期也可能已经落空<span data-text-detail>（KO 图观察 2023 年 9 月 29 日至 12 月 29 日；FISV 图观察 2025 年 1 月 2 日至 2026 年 9 月 24 日。两图使用拆股调整后的收盘价，各自以期初为 100，不计分红。XLP 覆盖美国消费必需品板块，IPAY 覆盖全球数字支付相关公司，业务范围均比对应单一公司更广；相对股价还受起始估值及市场预期变化影响）</span>。有了这个线索，我们再沿着公司的披露，看看经营变化与股价落后是怎样联系起来的。<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>
 
-## 基本面变化与 Risk–Reward {#nb-a03-risk-reward}
+## 基本面变化与 Risk-Reward {#nb-a03-risk-reward}
 
 要看清这种差别，我们得先回到消息刚出现的时候。对于 KO，市场已经开始担心消费减少，那么公司当时披露的经营情况是什么样的？2023 年 10 月 24 日发布的第三季度报告显示，全球销量同比增长 2%，营业利润增长 6%；公司同时上调全年有机收入增长预期至 10%—11%。财报呈现的是截至 9 月底仍在增长的业务基础，公司对全年增长的判断也没有随着市场担忧一起转弱。[^ko-results]
 
 这就给了持有人可以继续观察的具体依据：销量能不能保持，产品和定价是否仍有竞争力，全年盈利预期是否需要调整。面对同一轮担忧，我们既要理解它可能怎样影响业务，也要看这种影响已经发展到了哪一步。后来股价修复，让我们看见了这段持有过程的结果；当时作判断时，能够使用的则是已经披露的经营情况与对未来的估计。
 
-再回到 FISV，我们就要带着原先的预期去看后来的变化。2025 年 7 月，公司还预计全年有机收入增长约 10%，调整后每股收益为 10.15—10.30 美元；到 10 月，这两项预期分别降至 3.5%—4% 和 8.50—8.60 美元。原先期待的增长没有按计划兑现，持有依据也就需要随之修改。[^fiserv-q2][^fiserv-q3]
+再回到 FISV，我们就要带着原先的预期去看后来的变化。2025 年 7 月，公司还预计全年有机收入增长约 10%，调整后每股收益为 10.15—10.30 美元；到 10 月，这两项预期分别降至 3.5%—4% 和 8.50—8.60 美元。原先期待的增长没有按计划兑现，持有依据也就需要随之修改。[^fiserv-q2]<sup>，</sup>[^fiserv-q3]
 
-问题也出现在实际经营中。FISV 的商户业务有机收入增速，从第二季度的 9% 放缓到第三季度的 5%；金融服务业务则从增长 7% 转为下降 3%。第三季度调整后每股收益同比下降 11%。到 2026 年第二季度，公司有机收入同比下降 5%，调整后每股收益下降 26%，经营压力仍然没有消失。公司还在赚钱，可当初期待的增长与盈利路径已经改变了。[^fiserv-q2][^fiserv-q3][^fiserv-2026]
+问题也出现在实际经营中。FISV 的商户业务有机收入增速，从第二季度的 9% 放缓到第三季度的 5%；金融服务业务则从增长 7% 转为下降 3%。第三季度调整后每股收益同比下降 11%。到 2026 年第二季度，公司有机收入同比下降 5%，调整后每股收益下降 26%，经营压力仍然没有消失。公司还在赚钱，可当初期待的增长与盈利路径已经改变了。[^fiserv-q2]<sup>，</sup>[^fiserv-q3]<sup>，</sup>[^fiserv-2026]
 
 <span data-text-versions id="nb-a03-text-2">这些变化最后还会影响股东能够分享的所得。这也接上了[《股票、公司与股价》](/zh/notebook/stocks-company-price/)中的认识：持有公司的股份，就要看它的业务最终能带来什么。一项业务受到冲击时，要看它在公司利润中有多大份量、压力可能持续多久，其他业务又能提供多少支撑，再把共同费用、债务和资金投入放进去，估计整体的盈利前景<span data-text-detail>（本节的有机收入增长及调整后每股收益，采用各公司披露的非 GAAP 口径；比较始终在同一家公司、同一指标内进行，所述季度同比变化与全年指引分别保留各自期间）</span>。所以，重新判断持仓时，我们既要更新对未来所得的估计，也得看看眼前的股价已经变到了哪里。<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>
 
-至于价格下跌以后是否更值得持有，还得看未来所得的预期怎样变化。经营预期仍有支持、价格却降下来了，相同的潜在所得就对应更少的资金投入；若经营前景下调得更多，即使股价已经更低，这笔投资也未必更划算。为了把这两边的变化放在一起，我们就要用到 Risk–Reward，比较可能取得的回报与需要承担的损失。
+至于价格下跌以后是否更值得持有，还得看未来所得的预期怎样变化。经营预期仍有支持、价格却降下来了，相同的潜在所得就对应更少的资金投入；若经营前景下调得更多，即使股价已经更低，这笔投资也未必更划算。为了把这两边的变化放在一起，我们就要用到 Risk-Reward，比较可能取得的回报与需要承担的损失。
 
 我们不妨用一组简化数字，把这个比较具体展开。设当前股价为 100 美元，观察两年后的结果，期间累计每股分红按 2 美元计算。经营顺利时，需求增加，利润增长；中性情景下，业务大致维持；不利时，需求和利润都转弱。这里用“年每股收益 × 市盈率”估计期末价格，也就是先估计每股对应的一年利润，再考虑市场愿意给这些利润多少倍的价格。
 
@@ -478,7 +481,7 @@ Before substantive teaching, actually retrieve every required reading unit for t
 
 反过来，经营情景本身也会改变。假如中性情景的年每股收益从 5 美元下调到 4 美元，仍按 20 倍市盈率计算，期末股价的估计就从 100 美元降到了 80 美元。即使眼前股价也跌到 80 美元，中性情景下两年的回报仍只有分红带来的 2.5%。过去已经跌掉的部分，并不会自动变成从现在开始的上行空间。
 
-<span data-text-versions id="nb-a03-text-3">把幅度算出来以后，我们还要看看，乐观结果依赖的需求增长能否兑现，不利情景由什么因素触发，以及等待期间有没有更合适的资金用途。同样的累计回报，等两年与等十年，吸引力也不同<span data-text-detail>（本例每个情景均假设两年累计每股分红 2 美元，暂不计税费、融资成本及分红再投资；没有给情景指定概率。表中的不利情景只对应所列经营结果）</span>。原来的理由仍有支持、当前价格的 Risk–Reward 也合意时，继续持有就有了依据；若这些条件已经改变，也就可以在尚未回本之前调整持仓。<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>
+<span data-text-versions id="nb-a03-text-3">把幅度算出来以后，我们还要看看，乐观结果依赖的需求增长能否兑现，不利情景由什么因素触发，以及等待期间有没有更合适的资金用途。同样的累计回报，等两年与等十年，吸引力也不同<span data-text-detail>（本例每个情景均假设两年累计每股分红 2 美元，暂不计税费、融资成本及分红再投资；没有给情景指定概率。表中的不利情景只对应所列经营结果）</span>。原来的理由仍有支持、当前价格的 Risk-Reward 也合意时，继续持有就有了依据；若这些条件已经改变，也就可以在尚未回本之前调整持仓。<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>
 
 ## 交易心理与短期指标 {#nb-a03-indicators}
 
@@ -488,7 +491,9 @@ Before substantive teaching, actually retrieve every required reading unit for t
 
 <span data-text-versions id="nb-a03-text-11">前三张图里的每根 K 线代表一个交易日，绿色表示收盘高于开盘，红色则相反<span data-text-detail>（实体两端是开盘价和收盘价，细线两端是当日最高价和最低价；颜色比较的是当日开盘与收盘，并非相对前一日收盘的涨跌）</span>。先沿着 K 线看价格，再顺着图中的编号，观察相应的指标变化。<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>
 
-<strong>布林带：区间、突破与回归。</strong>布林带以一条平均价格线为中轨，再按近期波动幅度画出上下轨。轨道间距越大，意味着用于计算的这段时间里，收盘价分散得越开。下图把 K 线和轨道叠在一起，我们可以同时看到价格偏离均值的程度，以及价格是否重新回到了区间内。[^indicators]
+### 布林带：区间、突破与回归
+
+布林带以一条平均价格线为中轨，再按近期波动幅度画出上下轨。轨道间距越大，意味着用于计算的这段时间里，收盘价分散得越开。下图把 K 线和轨道叠在一起，我们可以同时看到价格偏离均值的程度，以及价格是否重新回到了区间内。[^indicators]
 
 <figure class="holding-figure">
 <a href="/notebook/holding/spy-bollinger.svg" target="_blank" rel="noopener" aria-label="打开布林带大图"><img src="/notebook/holding/spy-bollinger.svg" alt="SPY在2026年7月13日至8月21日的K线与布林带。标记1为7月29日跌破下轨，次日回到区间内；标记2为8月4日突破上轨，随后数日仍维持较高价格。" width="1000" height="560" loading="lazy"></a>
@@ -497,16 +502,20 @@ Before substantive teaching, actually retrieve every required reading unit for t
 
 <span data-text-versions id="nb-a03-text-4">图中①处，7 月 29 日 SPY 收于约 729 美元，已经低于约 733 美元的下轨；第二天回到约 742 美元，又收进了带内。到了②处，8 月 4 日的收盘价约为 771 美元，高于约 765 美元的上轨，随后几个交易日却仍保持在较高位置。我们因而要把“触及轨道”与接下来的走势连起来看：价格是重新回到原区间，还是在突破后继续保持强势？只凭碰到上轨或下轨，就很难区分这两种过程<span data-text-detail>（采用 20 日收盘价简单平均值，上下各加减 2 倍总体标准差。7 月 29 日收盘价/下轨为 729.46/733.32 美元，7 月 30 日收盘 741.69 美元；8 月 4 日收盘价/上轨为 771.33/764.60 美元）</span>。[^indicator-data]<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>
 
-<strong>MACD：趋势动量的转弱与转强。</strong>MACD 用快慢两条移动均线的差值 DIF 观察动量，再用一条更平滑的 DEA 线作比较。蓝色 DIF 线上穿橙色 DEA 线，通常称为金叉；向下穿过则称为死叉。下图的柱体表示两条线的差，柱体由负转正，也就对应着 DIF 从 DEA 下方来到上方。[^indicators]
+### MACD：趋势动量的转弱与转强
+
+MACD 用快慢两条移动均线的差值 DIF 观察动量，再用一条更平滑的 DEA 线作比较。蓝色 DIF 线上穿橙色 DEA 线，通常称为金叉；向下穿过则称为死叉。下图的柱体表示两条线的差，柱体由负转正，也就对应着 DIF 从 DEA 下方来到上方。[^indicators]
 
 <figure class="holding-figure">
 <a href="/notebook/holding/spy-macd.svg" target="_blank" rel="noopener" aria-label="打开 MACD 大图"><img src="/notebook/holding/spy-macd.svg" alt="SPY价格与MACD副图共用日期轴。标记1为7月17日DIF下穿DEA，标记2为8月3日DIF上穿DEA，标记3为8月20日再次下穿；上图对应先下跌、再回升及后续回落。" width="1000" height="700" loading="lazy"></a>
 <figcaption>沿竖虚线对照价格与指标：① 7/17 转弱；② 8/03 转强；③ 8/20 再次转弱。<a href="/notebook/holding/spy-macd.svg" target="_blank" rel="noopener">查看大图</a> · <a href="/notebook/holding/spy-daily-indicators.csv">数据</a>。</figcaption>
 </figure>
 
-<span data-text-versions id="nb-a03-text-7">这段行情里，7 月 17 日先出现了①处的死叉，接下来价格继续回落；7 月底开始反弹以后，DIF 也逐渐回升，到 8 月 3 日形成②处的金叉。随后上行动量增强，正柱体扩大，等到 8 月中旬价格转弱，柱体又逐渐缩短，最终在③处转为负值。这样一来，我们就把“感觉涨得没那么有力了”，转成了可以持续观察的均线差与动量变化。图中也能看见，价格先发生变化，指标才逐步跟上<span data-text-detail>（采用 MACD（12，26，9）：DIF＝12 日指数移动平均−26 日指数移动平均，DEA 为 DIF 的 9 日指数平均，柱体＝2×（DIF−DEA）。三个标记日的 DIF/DEA 分别约为 2.76/2.90、0.47/0.05、6.23/6.79）</span>。[^indicator-data]<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>
+<span data-text-versions id="nb-a03-text-7">这段行情里，7 月 17 日先出现了①处的死叉，接下来价格继续回落；7 月底开始反弹以后，DIF 也逐渐回升，到 8 月 3 日形成②处的金叉。随后上行动量增强，正柱体扩大，等到 8 月中旬价格转弱，柱体又逐渐缩短，最终在③处转为负值。沿着这些日期对照价格与指标，还能看见价格先发生变化，均线及其差值随后才逐步跟上<span data-text-detail>（采用 MACD（12，26，9）：DIF＝12 日指数移动平均−26 日指数移动平均，DEA 为 DIF 的 9 日指数平均，柱体＝2×（DIF−DEA）。三个标记日的 DIF/DEA 分别约为 2.76/2.90、0.47/0.05、6.23/6.79）</span>。[^indicator-data]<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>
 
-<strong>KDJ：近期区间中的强弱变化。</strong>KDJ 先看收盘价处在最近一段高低区间的什么位置，再把它平滑成 K、D 两条线，J 线则进一步放大两者的差异。一般会用 20 和 80 作为低位与高位的观察参照，再结合 K、D 的交叉，看看强弱是否正在变化。[^indicators]
+### KDJ：近期区间中的强弱变化
+
+KDJ 先看收盘价处在最近一段高低区间的什么位置，再把它平滑成 K、D 两条线，J 线则进一步放大两者的差异。一般会用 20 和 80 作为低位与高位的观察参照，再结合 K、D 的交叉，看看强弱是否正在变化。[^indicators]
 
 <figure class="holding-figure">
 <a href="/notebook/holding/spy-kdj.svg" target="_blank" rel="noopener" aria-label="打开 KDJ 大图"><img src="/notebook/holding/spy-kdj.svg" alt="SPY价格与KDJ副图。标记1为7月30日K从低位回升并上穿D；标记2为8月中旬K和D均高于80且价格仍维持高位；标记3为8月17日K下穿D，随后价格回落。" width="1000" height="700" loading="lazy"></a>
@@ -515,18 +524,22 @@ Before substantive teaching, actually retrieve every required reading unit for t
 
 <span data-text-versions id="nb-a03-text-8">7 月 29 日下跌后，K 已经降到约 19；第二天价格回升，K 也上穿 D，形成①处的低位转强信号。再往右看，8 月 11—14 日 K、D 都高于 80，价格却仍然保持在较高位置，这就是高位指标可以随着强势走势持续一阵的例子。等到③处 K 向下穿过 D，后续回落才更明显地展开。对于这段行情，KDJ 在 8 月 17 日就表现出高位转弱，MACD 则到 8 月 20 日才出现死叉，两种指标的反应速度也就有了具体的对照<span data-text-detail>（采用 KDJ（9，3，3）：RSV＝100×（收盘价−近 9 日最低价）÷（近 9 日最高价−近 9 日最低价）；K＝前一日 K×2/3＋当日 RSV/3，D＝前一日 D×2/3＋当日 K/3，J＝3K−2D。7 月 29、30 日 K/D 分别约为 18.78/28.83、32.58/30.08；8 月 17 日为 73.14/81.81。J 可以超出 0—100 的范围）</span>。[^indicator-data]<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>
 
-<strong>VWAP：日内价格相对成交均价的位置。</strong>前面几个指标主要整理价格，VWAP 则把成交量也纳入计算。它用当天截至当前的成交金额除以成交量，得到成交量加权平均价：某个价格上的成交越多，它在均价中的权重也就越大。我们再放大到 8 月 3 日这一天，看看反弹过程中的日内交易。[^volume]
+### VWAP：日内价格相对成交均价的位置
+
+前面几个指标主要整理价格，VWAP 则把成交量也纳入计算。它用当天截至当前的成交金额除以成交量，得到成交量加权平均价：某个价格上的成交越多，它在均价中的权重也就越大。我们再放大到 8 月 3 日这一天，看看反弹过程中的日内交易。[^volume]
 
 <figure class="holding-figure">
 <a href="/notebook/holding/spy-vwap.svg" target="_blank" rel="noopener" aria-label="打开 VWAP 大图"><img src="/notebook/holding/spy-vwap.svg" alt="SPY在2026年8月3日的五分钟收盘价、累计VWAP与成交量。价格整体上行，各根五分钟收盘价保持在VWAP上方；标记1为纽约时间12点05分，价格756.00美元，VWAP约753.82美元。" width="1000" height="700" loading="lazy"></a>
 <figcaption>绿色价格线在橙色 VWAP 上方延续，午间回落仍未收破均价。下方同时保留成交量。<a href="/notebook/holding/spy-vwap.svg" target="_blank" rel="noopener">查看大图</a> · <a href="/notebook/holding/spy-vwap-20260803.csv">数据</a>。</figcaption>
 </figure>
 
-<span data-text-versions id="nb-a03-text-9">图中价格虽有小幅回落，各根五分钟收盘价却一直高于 VWAP。到①处，也就是纽约时间 12:05，价格约为 756 美元，仍高于约 754 美元的日内成交均价。因此，这些小回落还没有打断价格保持在均价上方的状态，盘中的强势仍在延续。交易者可以继续观察，后续回落是否跌破 VWAP、跌破后能否重新站上，以及这些变化伴随着多少成交<span data-text-detail>（12:00—12:05 这根五分钟 K 线的收盘价为 756.00 美元，累计 VWAP 近似值为 753.82 美元。VWAP 用常规交易时段内各根五分钟 K 线的“最高价、最低价与收盘价的平均值”乘成交量，再累计加权；它与逐笔成交计算值会有差异。图上标记 K 线结束时刻，日内累计 VWAP 每个交易日重新起算）</span>。[^vwap-data]<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>
+<span data-text-versions id="nb-a03-text-9">这一天的五分钟收盘价始终高于日内 VWAP；到①处，也就是纽约时间 12:05，价格约为 756 美元，高于约 754 美元的均价。接下来可以观察，回落是否跌破 VWAP、能否重新站上，以及伴随的成交量<span data-text-detail>（12:00—12:05 这根五分钟 K 线的收盘价为 756.00 美元，累计 VWAP 近似值为 753.82 美元。VWAP 用常规交易时段内各根五分钟 K 线的“最高价、最低价与收盘价的平均值”乘成交量，再累计加权；它与逐笔成交计算值会有差异。图上标记 K 线结束时刻，日内累计 VWAP 每个交易日重新起算）</span>。[^vwap-data]<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>
 
-这些图让我们能够具体地说出价格处在什么位置、走势怎样变化。但当我们正亏着钱、盼着反弹时，一次转强信号也常常正好符合自己的愿望。均线开始转向、价格重新站上 VWAP，都可以成为观察线索；接下来还要看，行业情况、经营预期和当前价格下的 Risk–Reward 是否也有了相应的改善。几个由同一段价格计算出来的指标一起转强，也可能只是反映了同一次价格变化。
+这些图让我们能够具体地说出价格处在什么位置、走势怎样变化。但当我们正亏着钱、盼着反弹时，一次转强信号也常常正好符合自己的愿望。均线开始转向、价格重新站上 VWAP，都可以成为观察线索；接下来还要看，行业情况、经营预期和当前价格下的 Risk-Reward 是否也有了相应的改善。几个由同一段价格计算出来的指标一起转强，也可能只是反映了同一次价格变化。
 
-<strong>重大信息与重新定价。</strong>前面观察的是日常行情中的变化，遇到足以改变经营预期的新信息时，原来的价格区间却可能很快失去参照意义。Microsoft（MSFT）在 2026 年 7 月 29 日盘后公布 FY26 Q4 财报，当季收入同比增长 18%，Azure 及其他云服务收入增长 43%；下一交易日，收盘价从约 391 美元升至 451 美元，上涨约 15.5%，成交量也增至前一天的约 2.3 倍。[^msft-results][^msft-prices]
+### 重大信息与重新定价
+
+前面观察的是日常行情中的变化，遇到足以改变经营预期的新信息时，原来的价格区间却可能很快失去参照意义。Microsoft（MSFT）在 2026 年 7 月 29 日盘后公布 FY26 Q4 财报，当季收入同比增长 18%，Azure 及其他云服务收入增长 43%；下一交易日，收盘价从约 391 美元升至 451 美元，上涨约 15.5%，成交量也增至前一天的约 2.3 倍。[^msft-results]<sup>，</sup>[^msft-prices]
 
 <figure class="holding-figure">
 <img src="/notebook/holding/msft-repricing.svg" alt="MSFT在2026年7月29日盘后发布FY26 Q4财报，次日收盘价上升到451.10美元并明显放量；图中虚线保留财报前约401.7美元的上轨作对照。" width="820" height="490" loading="lazy">

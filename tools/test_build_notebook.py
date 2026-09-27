@@ -1,12 +1,13 @@
 """Regression checks for complete Markdown, language IDs and the publication graph."""
 import copy
 import json
+import re
 import tempfile
 import unittest
 from pathlib import Path
 from unittest.mock import patch
 
-from build_notebook import compile_notebook
+from build_notebook import compile_notebook, teaching_prompt
 from check_notebook import Validator
 
 
@@ -104,6 +105,73 @@ class CompilerTests(unittest.TestCase):
         item["agent_packet"]["required_readings"][0]["access"]["kind"] = "abstract"
         with self.assertRaisesRegex(ValueError, "readable public text"):
             self.compile([item])
+
+    def test_copy_prompt_starts_learning_and_keeps_materials_separate(self):
+        item = entry(title="报价、订单与实际成交", prompt="AUTHOR_SCOPE_ONLY",
+                     body_markdown="## 第一节\n\nBODY_ONLY",
+                     agent_markdown="EXPERIMENT_DETAILS_ONLY")
+        compiled = self.compile([item])["entries"][0]
+        prompt = compiled["teaching_context"]
+        self.assertTrue(prompt.startswith("我想学习《报价、订单与实际成交》。"))
+        self.assertIn("以我这次提出的问题、学习目标和理解程度为准", prompt)
+        self.assertIn("请先读取 Agent 教学指南，按指南开展教学", prompt)
+        self.assertIn("若我已附具体问题，直接从该问题开始", prompt)
+        self.assertIn("否则先问我这次想弄懂哪一部分，等我回答后再展开", prompt)
+        self.assertLess(prompt.index("请先读取 Agent 教学指南"), prompt.index("若我已附具体问题"))
+        self.assertLess(prompt.index("Agent 教学指南：https://"), prompt.index("正文：https://"))
+        self.assertNotIn("选用小表", prompt)
+        self.assertNotIn("教学口吻参考", prompt)
+        self.assertNotIn("正文第一节", prompt)
+        self.assertNotIn("讲完出一道", prompt)
+        self.assertIn("若网页无法读取，请说明需要我提供指南或正文的哪些片段", prompt)
+        self.assertEqual(len(re.findall(r"https://[^\s]+", prompt)), 2)
+        self.assertIn("https://ou-liu-red-sugar.github.io/zh/notebook/qt01/", prompt)
+        self.assertIn("https://ou-liu-red-sugar.github.io/zh/notebook/teaching-guide/", prompt)
+        for reference_only in ("AUTHOR_SCOPE_ONLY", "BODY_ONLY", "EXPERIMENT_DETAILS_ONLY", "runtime_reading_log", "```", "<html"):
+            self.assertNotIn(reference_only, prompt)
+        agent = (self.out / "static/agent/zh/qt01.md").read_text(encoding="utf-8")
+        for material in ("AUTHOR_SCOPE_ONLY", "BODY_ONLY", "EXPERIMENT_DETAILS_ONLY"):
+            self.assertIn(material, agent)
+        self.assertIn("## Author-supplied scope notes (reference only)", agent)
+        self.assertNotIn("Before substantive teaching", agent)
+        self.assertNotIn("use a substantive diagnostic", agent)
+
+    def test_english_prompt_keeps_its_article_language(self):
+        prompt = self.compile([entry(lang="en")])["entries"][0]["teaching_context"]
+        self.assertIn("First read the Agent teaching guide and follow it", prompt)
+        self.assertIn("otherwise ask which part I want to understand and wait for my answer", prompt)
+        self.assertLess(prompt.index("Agent teaching guide: https://"), prompt.index("Article: https://"))
+        self.assertNotIn("Choose a small table", prompt)
+        self.assertIn("https://ou-liu-red-sugar.github.io/en/notebook/qt01/", prompt)
+        self.assertNotIn("Reasoning.[^unit]", prompt)
+
+    def test_selected_teaching_cues_and_sources_survive_without_full_packet(self):
+        self.catalogue["sources"].extend([
+            {"id": "ORDERS", "title": "Types of Orders", "url": "https://example.org/orders/"},
+            {"id": "UNSELECTED", "title": "Other Reading", "url": "https://example.org/other/"}])
+        item = entry(title="报价、订单与实际成交", prompt="AUTHOR_SCOPE_ONLY",
+                     body_markdown="BODY_ONLY", teaching={
+                         "pitfalls": ["屏幕报价与最终成交价分开", "触发止损与实际成交分开"],
+                         "examples": ["600股订单逐档消耗卖单", "限价订单部分成交后继续等待"],
+                         "source_ids": ["QS02-5.10", "ORDERS"]})
+        compiled = self.compile([item])["entries"][0]
+        prompt = compiled["teaching_context"]
+        self.assertIn("本篇易混点、例子和文献都是参考，请按需选用", prompt)
+        self.assertIn("本篇讲解参考（按需选用）", prompt)
+        for cue in item["teaching"]["pitfalls"] + item["teaching"]["examples"]:
+            self.assertIn(cue, prompt)
+        self.assertIn("Time series cross-validation: https://otexts.com/fpp3/tscv.html", prompt)
+        self.assertIn("Types of Orders: https://example.org/orders/", prompt)
+        self.assertNotIn("Other Reading", prompt)
+        for excluded in ("AUTHOR_SCOPE_ONLY", "BODY_ONLY", "runtime_reading_log", "```json"):
+            self.assertNotIn(excluded, prompt)
+        self.assertEqual(len(re.findall(r"https://[^\s]+", prompt)), 4)
+        compiled["teaching"]["source_ids"] = ["QS02-5.10"]
+        self.assertIn("https://otexts.com/fpp3/tscv.html", teaching_prompt(compiled))
+
+    def test_unknown_selected_teaching_source_is_reported(self):
+        with self.assertRaisesRegex(ValueError, "teaching source UNKNOWN"):
+            self.compile([entry(teaching={"source_ids": ["UNKNOWN"]})])
 
     def test_typed_edges_shared_experiments_and_planned_nodes(self):
         owner = entry(body_markdown='<span id="experiment"></span>\n\n## An experiment',

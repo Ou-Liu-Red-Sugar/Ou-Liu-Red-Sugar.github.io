@@ -4,7 +4,7 @@
 
 网页 / HTML: [复利、通胀与机会成本](https://ou-liu-red-sugar.github.io/zh/notebook/compounding-inflation-opportunity-cost/)
 
-语言 / Language: zh · 更新 / Revised: 2026-09-26
+语言 / Language: zh · 更新 / Revised: 2026-09-27
 
 我们生活在一个复利世界。留在账户里的利息会进入新的本金，企业的增长接在已有的业务规模上，物价也在上一期的水平上继续变化。许多事情都是这样，一段时间的结果，又成了下一段时间的起点。
 
@@ -14,7 +14,7 @@
 
 先从企业本身看这种积累。当企业把赚到的钱继续投入仍有良好回报的业务，经营基础便能随着再投资扩大；客户、产品和竞争优势的积累，也可能让盈利与现金创造能力进一步改善。随着这些成果兑现，我们对未来每股所得的预期也可能随之上调。Buffett 在 1989 年股东信里表达了以合理价格买入优秀企业的偏好，并指出时间有利于优秀的企业。[^buffett-1989]
 
-一个具体的例子是 Berkshire Hathaway（BRK.A／BRK.B）长期持有 Coca-Cola（KO）。Buffett 在 2022 年股东信里回顾，Berkshire 从 KO 收到的年度现金股息，由 1994 年的 7,500 万美元增加到了 2022 年的 7.04 亿美元。同一笔长期持股，后来每年带来的现金已经更多了。这也接上了[《股票、公司与股价》](https://ou-liu-red-sugar.github.io/zh/notebook/stocks-company-price/)中的认识：买入股份以后，我们仍然在参与一家不断变化的企业，经营与预期的演进，会和买入价格、后续市场定价一起影响持有回报。[^buffett-2022]
+一个具体的例子是 Berkshire Hathaway（BRK.A／BRK.B）长期持有 Coca-Cola（KO）。Buffett 在 2022 年股东信里回顾，Berkshire 从 KO 收到的年度现金股息，由 1994 年的 7,500 万美元增加到了 2022 年的 7.04 亿美元。同一笔长期持股，后来每年带来的现金已经更多了。[^buffett-2022]
 
 要把各期回报接成一段持有结果，我们还得看计算的基数怎样变化。100 美元上涨 10%，变成 110 美元；下一期再上涨 10%，增加的就是 11 美元，结果变成了 121 美元。两次都是 10%，第二次增加的金额却更多，因为它已经在上一次的结果上继续增长了。用 \(1+R\) 表示一期过后的资金倍数，这两期就是连续乘上两个 \(1.1\)。
 
@@ -61,7 +61,7 @@ R_{\text{年化}}
 
 也就是说，先把整段对数收益按年平均，再换回普通收益口径，我们便有了比较不同持有期限的一把尺子。同样累计上涨 20%，一年取得对应年化 20%，五年取得则只相当于年化约 3.7%。
 
-再把这种年化速度放回一项真实投资。Vanguard S&P 500 ETF（VOO）跟踪 S&P 500，持有人既会经历份额价格的变化，也会收到基金分红。这里采用税前、分红再投资的口径：分红继续参与投资，新取得的份额也会带来后续回报。按 2015 年底至 2025 年底的分红调整行情估算，初始 1 万美元在期末约为 39,747 美元，十年的复合年化约为 14.8%。[^voo][^voo-data]
+再把这种年化速度放回一项真实投资。Vanguard S&P 500 ETF（VOO）跟踪 S&P 500，持有人既会经历份额价格的变化，也会收到基金分红。这里采用税前、分红再投资的口径：分红继续参与投资，新取得的份额也会带来后续回报。按 2015 年底至 2025 年底的分红调整行情估算，初始 10,000 美元在期末约为 39,747 美元，十年的复合年化约为 14.8%。[^voo]，[^voo-data]
 
 这笔结果已经包括分红。如果只用起止价格计算，原来份额的期末市值约为 33,549 美元；分红及其继续参与投资的影响，则体现在含分红的回报里。在下图的“实际路径与年化”视图中，两条线采用相同的含分红口径，从同一个起点走到同一个终点，月末路径还显示了途中各月的涨跌。[^voo-adjustment]
 
@@ -69,13 +69,11 @@ R_{\text{年化}}
 
 **按含分红再投资口径估算的月末路径与等效年化路径，十年后都到达约 39,747 美元。  大图：[实际路径与年化](https://ou-liu-red-sugar.github.io/notebook/compounding/voo-nominal.svg?v=20260926-4) · [金额与购买力](https://ou-liu-red-sugar.github.io/notebook/compounding/voo-real.svg?v=20260926-4)；[查看数据](https://ou-liu-red-sugar.github.io/notebook/compounding/voo-growth-purchasing-power.csv)。**
 
-例如，VOO 在 2022 年的全年含分红回报约为 −18.2%，和十年年化 14.8% 相差很大。年化概括了整段结果，实际每年怎样走，仍要沿着真实曲线看；期间需要用钱时，我们能够动用的也只能是当时的持仓价值（图中采用 Yahoo Finance 的调整后收盘价，分红与拆股调整已包含其中，以其比例近似分红再投资总回报，不再额外加一次分红。每月取最后一个交易日，基期为 2015 年 12 月 31 日，终点为 2025 年 12 月 31 日，按十个完整年度年化。允许分数份额，不计投资者税费，基金运营费用已反映在价格中。按期间40次分红逐次以除息日收盘价再投，期末约39,721美元，与图中估计相差约25美元；若分红留作不计息现金，股票与现金合计约36,525美元）。[^voo-data][^voo-adjustment]
+例如，VOO 在 2022 年的全年含分红回报约为 −18.2%，和十年年化 14.8% 相差很大。年化概括了整段结果，实际每年怎样走，仍要沿着真实曲线看；期间需要用钱时，我们能够动用的也只能是当时的持仓价值（图中采用 Yahoo Finance 的调整后收盘价，分红与拆股调整已包含其中，以其比例近似分红再投资总回报，不再额外加一次分红。每月取最后一个交易日，基期为 2015 年 12 月 31 日，终点为 2025 年 12 月 31 日，按十个完整年度年化。允许分数份额，不计投资者税费，基金运营费用已反映在价格中。按期间 40 次分红逐次以除息日收盘价再投，期末约 39,721 美元，与图中估计相差约 25 美元；若分红留作不计息现金，股票与现金合计约 36,525 美元）。[^voo-data]，[^voo-adjustment]
 
 ## 净所得与实际购买力 {#nb-a04-purchasing-power}
 
-把收到的分红继续投入，就能让这部分资金参与后续收益；费用则会从中扣走一部分。同样是 1 万美元，假设扣费前年回报均为 8%，每年末按资产金额扣费：年费率为 0.25% 时，二十年后约剩 44,334 美元；费率为 1% 时，则约剩 38,122 美元。不到一个百分点的费率差，最后形成了约 6,211 美元的差额。
-
-原因就在前面的本金变化里：今天少留下的一部分资金，往后也就少了一份参与收益的机会，费用的影响会随时间继续累积（在这一假设下，期末金额为 \(10000[(1+8\%)(1-f)]^{20}\)，\(f\) 为年费率）。[^fees]
+把收到的分红继续投入，就能让这部分资金参与后续收益；持续费用则会减少以后参与收益的本金。这种差别怎样随时间累积，可以结合[《指数、基金与 ETF》](https://ou-liu-red-sugar.github.io/zh/notebook/indices-funds-etfs/#nb-v01-fees)中的费用图来看（再用一组设定比较：初始 10,000 美元，费用前年回报为 8%，每年末按资产扣费。年费率为 0.25% 时，20 年后约剩 44,334 美元；费率为 1% 时，约剩 38,122 美元，差约 6,211 美元。期末金额为 \(10000[(1+8\%)(1-f)]^{20}\)，其中 \(f\) 为年费率）。[^fees]
 
 算清账户最终留下的金额以后，我们还得看看这些钱能够买到多少东西。物价也是在上一期的水平上继续变化：若账户金额上涨了 10%，同期物价上涨了 8%，原来需要 100 美元购买的东西，如今需要 108 美元；账户中的 110 美元就只能买到原来数量的约 1.0185 倍。名义金额增加了 10%，购买力实际只增加了约 1.85%。这里按物价换算的是能够购买的数量，前面的贴现则按利率将收款金额换到同一个时点。
 
@@ -91,7 +89,7 @@ R_{\text{年化}}
 
 知道一笔投资留下了多少购买力以后，我们还可以把它与其他资金用途放在一起比较。先把期间要用的钱留足，再看余下的资金：继续持股、转入期限匹配的短债，或者留在能够随时取用的现金中，各自会得到什么？这也接回[《投资期限与现金需要》](https://ou-liu-red-sugar.github.io/zh/notebook/investment-horizon-cash/)的认识，先确认哪些用途符合自己的时间安排，再比较回报。
 
-我们取一笔真实发行的美国国债来看。2023 年 6 月 13 日拍卖的 52 周国债，6 月 15 日发行，2024 年 6 月 13 日到期，每 100 美元面值的拍卖价格约为 95.015 美元。这也呼应了前面的贴现：今天支付较少的金额，换取约定的到期收款。用 1 万美元预算，可以买到 10,500 美元面值，支付约 9,976.60 美元，另留 23.40 美元现金；到期收回面值，合计就有 10,523.40 美元。[^bill]
+我们取一笔真实发行的美国国债来看。2023 年 6 月 13 日拍卖的 52 周国债，6 月 15 日发行，2024 年 6 月 13 日到期，每 100 美元面值的拍卖价格约为 95.015 美元。这也呼应了前面的贴现：今天支付较少的金额，换取约定的到期收款。用 10,000 美元预算，可以买到 10,500 美元面值，支付约 9,976.60 美元，另留 23.40 美元现金；到期收回面值，合计就有 10,523.40 美元。[^bill]
 
 | 同一笔 10,000 美元的安排 | 2023 年 6 月 15 日至 2024 年 6 月 13 日的结果 | 作决定时能够依据什么 |
 |---|---:|---|
@@ -99,7 +97,7 @@ R_{\text{年化}}
 | 持有这笔短债至到期，另留余额 | 约 10,523 美元 | 买入价、面值与到期日已经给定 |
 | 持有 VOO，分配再投资 | 约 12,444 美元 | 根据经营与价格形成预期，途中承受市场波动 |
 
-这段行情里，VOO 最后实现了较高的回报；但在 2023 年作决定时，我们能够从短债条件里确定到期收款，却还不知道 VOO 一年后的市场价格。机会成本的比较，需要放在当时可取得的条件和能够形成的预期上。放弃的最佳可行替代所能带来的价值，就是这项选择的机会成本（表中短债 CUSIP 为 912797FS1，期限 364 天，按每 100 美元面值认购，留存现金不计息；不计投资者税费。VOO 按相同起止日期的调整后收盘价比例估算含分红回报，允许分数份额，采用事后数据。拍卖结果中的 5.208% Investment Rate 采用等价票息收益率口径，表内现金结果直接按价格与面值计算）。[^bill][^voo-data]
+这段行情里，VOO 最后实现了较高的回报；但在 2023 年作决定时，我们能够从短债条件里确定到期收款，却还不知道 VOO 一年后的市场价格。机会成本的比较，需要放在当时可取得的条件和能够形成的预期上。放弃的最佳可行替代所能带来的价值，就是这项选择的机会成本（表中短债 CUSIP 为 912797FS1，期限 364 天，按每 100 美元面值认购，留存现金不计息；不计投资者税费。VOO 按相同起止日期的调整后收盘价比例估算含分红回报，允许分数份额，采用事后数据。拍卖结果中的 5.208% Investment Rate 采用等价票息收益率口径，表内现金结果直接按价格与面值计算）。[^bill]，[^voo-data]
 
 有了短债的收益作参照，转向股票时，我们会希望多取得一部分收益，来补偿持有期间的波动与其他不确定性。而现金保留的取用便利，也可能是当时需要的条件。把这些因素放到同一资金安排里，我们才有依据判断等待是否值得。
 
@@ -126,9 +124,9 @@ Y 的波动是 X 的两倍，预期超额收益却是 X 的 2.5 倍，因此每�
 [^compound]: Jonathan Goodman，NYU Courant，[Compound interest](https://math.nyu.edu/~goodman/teaching/MathFin2019/handouts/CompoundInterest.pdf)：离散与连续复利、指数及对数的一阶近似。
 [^voo]: Vanguard，[VOO 官方资料](https://fund-docs.vanguard.com/F0968.pdf)，基金跟踪对象及分配再投资、税前与扣除基金费用后的业绩口径。本文历史曲线采用下一条列明的市场数据。
 [^voo-data]: [Yahoo Finance：VOO 历史行情](https://finance.yahoo.com/quote/VOO/history/)，读取于 2026-09-26。2015-12-31 至 2025-12-31，调整后收盘价由 156.8276978 至 623.3413696，累计增长约 297.47%；2023-06-15 至 2024-06-13 的对应值为 389.5532837、484.7463074，增长约 24.44%。[每日输入](https://ou-liu-red-sugar.github.io/notebook/compounding/voo-daily.csv)与[月末资金路径及购买力计算](https://ou-liu-red-sugar.github.io/notebook/compounding/voo-growth-purchasing-power.csv)供复算。
-[^voo-adjustment]: [Yahoo：What is the adjusted close?](https://help.yahoo.com/kb/SLN28256.html)，调整后收盘价包含分红与拆股调整。本文原始数据中有40次分红事件，以除息日前一交易日价格计算分红调整因子；这与逐笔按实际成交价再投资的规则不同。起止普通收盘价为186.9299927、627.1300049美元，仅价格变化对应的期末金额为33,548.92美元；[分红事件与复算输入](https://ou-liu-red-sugar.github.io/notebook/compounding/voo-dividends.csv)列出两种再投资口径及现金分红。
+[^voo-adjustment]: [Yahoo：What is the adjusted close?](https://help.yahoo.com/kb/SLN28256.html)，调整后收盘价包含分红与拆股调整。本文原始数据中有 40 次分红事件，以除息日前一交易日价格计算分红调整因子；这与逐笔按实际成交价再投资的规则不同。起止普通收盘价为186.9299927、627.1300049美元，仅价格变化对应的期末金额为33,548.92美元；[分红事件与复算输入](https://ou-liu-red-sugar.github.io/notebook/compounding/voo-dividends.csv)列出两种再投资口径及现金分红。
 [^fees]: SEC Investor.gov，[How Fees and Expenses Affect Your Investment Portfolio](https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins/updated)，持续费用与后续投资本金。本文金额按所列假设自行计算。
-[^cpi]: BLS，[Purchasing power and constant dollars](https://www.bls.gov/cpi/factsheets/purchasing-power-constant-dollars.htm)及[CUUR0000SA0 数据](https://data.bls.gov/timeseries/CUUR0000SA0)，美国城市消费者、全项目、未季调 CPI。2015年12月为236.525，2025年12月为324.054。截至2026-09-26复核，本图所用未季调全项目CPI-U的2025年10月官方值仍缺失。BLS为季调计算采用了9月与11月指数的几何平均估补，并补发部分非调查分项；这与发布本系列10月正式值有别，见[缺失数据与后续处理说明](https://www.bls.gov/cpi/additional-resources/2025-federal-government-shutdown-impact-cpi-faq.htm)第2、3、12项。图中虚线连接相邻已知月份，数据表中该月仍留空；[计算输入](https://ou-liu-red-sugar.github.io/notebook/compounding/voo-growth-purchasing-power.csv)。
+[^cpi]: BLS，[Purchasing power and constant dollars](https://www.bls.gov/cpi/factsheets/purchasing-power-constant-dollars.htm)及[CUUR0000SA0 数据](https://data.bls.gov/timeseries/CUUR0000SA0)，美国城市消费者、全项目、未季调 CPI。2015 年 12 月为 236.525，2025 年 12 月为 324.054。截至 2026-09-26 复核，本图所用未季调全项目CPI-U 的2025 年 10 月官方值仍缺失。BLS 为季调计算采用了9 月与 11 月指数的几何平均估补，并补发部分非调查分项；这与发布本系列 10 月正式值有别，见[缺失数据与后续处理说明](https://www.bls.gov/cpi/additional-resources/2025-federal-government-shutdown-impact-cpi-faq.htm)第2、3、12项。图中虚线连接相邻已知月份，数据表中该月仍留空；[计算输入](https://ou-liu-red-sugar.github.io/notebook/compounding/voo-growth-purchasing-power.csv)。
 [^fed]: Federal Reserve，[Statement on Longer-Run Goals and Monetary Policy Strategy](https://www.federalreserve.gov/monetarypolicy/files/fomc_longerrungoals.pdf)，2026-01-27 再确认；[长期 2% 通胀目标说明](https://www.federalreserve.gov/faqs/economy_14400.htm)。
-[^bill]: TreasuryDirect，[2023-06-13 拍卖结果](https://www.treasurydirect.gov/instit/annceresult/press/preanre/2023/R_20230613_2.pdf)及[发行公告](https://www.treasurydirect.gov/instit/annceresult/press/preanre/2023/A_20230608_2.pdf)：364 天国债，CUSIP 912797FS1，每100美元面值价格95.015222，2023-06-15发行，2024-06-13到期。10,500美元面值的成本取到分为9,976.60美元。
+[^bill]: TreasuryDirect，[2023-06-13 拍卖结果](https://www.treasurydirect.gov/instit/annceresult/press/preanre/2023/R_20230613_2.pdf)及[发行公告](https://www.treasurydirect.gov/instit/annceresult/press/preanre/2023/A_20230608_2.pdf)：364 天国债，CUSIP 912797FS1，每 100 美元面值价格 95.015222，2023-06-15 发行，2024-06-13 到期。10,500美元面值的成本取到分为9,976.60美元。
 [^sharpe]: William F. Sharpe，[The Sharpe Ratio](https://web.stanford.edu/~wfsharpe/art/sr/SR.htm)，The Ratio、Time Dependence、Related Measures。X/Y与半仓Y的比较均来自原文假设，所有收益和标准差采用同一期口径。

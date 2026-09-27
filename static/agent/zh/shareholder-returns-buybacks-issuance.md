@@ -2,15 +2,18 @@
 
 从 AAPL 的分红与回购、Alphabet（GOOGL／GOOG）的权益融资出发，理解市场买盘、税务时点、净股数变化和每股所得。
 
-Entry: zh-shareholder-returns-buybacks-issuance | Node: NB-S02 | Language: zh | Editorial revision: 2026-09-25
+Entry: zh-shareholder-returns-buybacks-issuance | Node: NB-S02 | Language: zh | Editorial revision: 2026-09-27
 
-## Teaching instructions
+## Reference use
+This is reference material for the learner's current request. Use the supplied entry to teach the selected concept. Retrieve the relevant original unit when explaining a claim that depends on its assumptions, figures or rules; the reading list is a map for that work, not a prerequisite to the first lesson. Keep facts, supplied examples and inference distinct. Editorial access dates describe the author's work. The empty runtime_reading_log is an optional record field, not a requested response. Author-supplied scope notes below constrain factual use of the material; the learner's request determines the teaching task and first response.
+
+## Author-supplied scope notes (reference only)
+<author_scope_notes>
 沿公司现金用途与净股数变化解释股东回报。回购买盘能支持股价，继续持有者也可能受益；结合执行、价格和公司资金代价理解效果。Apple 采用截至2025-12-27的财季，现金流量表回购付款与回购交易金额分开；期初期末股数减少70,557,000股，不用单项RSU归属量拼股数桥。税务采用美国普通应税账户中收付实现制个人：股息再投资仍需申报，本人未处置股票的普通公开市场回购通常不使本人实现资本利得。Alphabet采用截至2026-06-30的披露，496亿美元为普通股与强制可转换优先股融资合计净额；400亿美元ATM截至该日未执行，上半年没有回购A/C股，695亿美元为未用授权。其他笔记写明篇名和链接，必要背景在本篇解释，不假设读者按顺序读过。
-
-Before substantive teaching, actually retrieve every required reading unit for the selected scope. Read its complete designated section, including necessary assumptions, tables and footnotes. A working URL or an editorial access date is not a runtime reading receipt. Record the actual version, location, scope and what it supports. If unavailable, use a previously verified equivalent source; if the required unit remains unavailable, identify that gap rather than teach it from memory. Start runtime_reading_log empty. Once reading is complete, use a substantive diagnostic or follow the reader's request for direct explanation. Advance one complete reasoning task at a time; skip mastered basics. Distinguish original facts, supplied teaching assumptions and inference.
+</author_scope_notes>
 
 ## Shared notation and writing conventions
-数学期望统一写成 \mathbb{E}，条件期望用 \mathbb{E}[X\mid\mathcal{G}]，需要时注明测度 P 或 Q. 保留局部变量的明确定义. 金额与数量使用 K=10^3、M=10^6、B=10^9；表格标明币种、量级与期间，变更量级时同步换算数值. 展示小数最多三位，计算保留原始精度. 直接解释对象、机制与推理；保留影响结论的假设和事实来源，把编辑流程留在记录中. 句末使用英文句点 .，包括定义、命题、证明和解析等标签. 基础定义与推导直接讲内容，出处放在紧邻脚注；来源读取、复审和采用范围等编辑经过留在记录中.
+数学期望统一写成 \mathbb{E}，条件期望用 \mathbb{E}[X\mid\mathcal{G}]，需要时注明测度 P 或 Q。保留局部变量的明确定义。金额与数量使用 K=10^3、M=10^6、B=10^9；表格标明币种、量级与期间，变更量级时同步换算数值。主文通常保留不超过三位小数，很小的数值或复算输入保留必要精度；计算使用原始数据。直接解释对象、机制与推理；保留影响结论的假设和事实来源，把编辑流程留在记录中。中文语句使用中文标点，代码、公式和原文引用保留各自格式。基础定义与推导直接讲内容，出处放在紧邻脚注；来源读取、复审和采用范围等编辑经过留在记录中。
 [Notation and units](https://ou-liu-red-sugar.github.io/agent/zh/notation.md)
 
 ## Required readings and runtime protocol
@@ -146,7 +149,7 @@ Before substantive teaching, actually retrieve every required reading unit for t
 ## Supplied entry
 [《股票、公司与股价》](/zh/notebook/stocks-company-price/)用 Apple（AAPL）分红介绍了一种股东回报：公司把部分现金分给持有股票的人。AAPL 的资金安排中，用于回购股票的钱还要多得多。在 2026 财年第一季度，AAPL 支付了约 39 亿美元的股息及股息等价物，用于回购普通股的现金则约为 247 亿美元。两笔钱都从公司流出，影响股东的方式却有所不同。[^apple]
 
-分红时，只要符合领取条件，股东就会收到现金。回购时，公司把钱付给卖出股票的人；我们即使一直没有卖股，也仍然可能从回购形成的买盘、股数变化和每股权益中受益。这就值得沿着实际交易继续看一看。
+分红时，只要符合领取条件，股东就会收到现金。回购时，公司把钱付给卖出股票的人；我们即使一直没有卖股，也仍然可能从回购形成的买盘、股数变化和每股权益中受益。
 
 ## 回购、市场买盘与每股份额 {#nb-s02-buybacks}
 
@@ -163,7 +166,7 @@ Before substantive teaching, actually retrieve every required reading unit for t
 
 <span data-text-versions id="nb-s02-text-1">不过，读到一项回购计划时，我们还要看看公司已经买了多少。授权额度规定了可以使用的范围，实际买入才会形成相应的股票需求。AAPL 在上述季度买回约 9,300 万股，报告同时披露了尚未使用的回购额度<span data-text-detail>（这里的季度截至 2025 年 12 月 27 日。AAPL 披露的回购交易金额约为 250 亿美元，现金流量表中当期支付的回购款为 247.01 亿美元；正文比较现金收付时采用后者。回购计划允许公司按情况执行，没有最低购买数量义务）</span>。把计划与执行分开，才能知道公司这一时期究竟向市场投入了多少买盘。[^apple]<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>
 
-回购的影响还会留在公司股本里。若发行在外的股份净减少，而我们持有的股数没变，持股比例就会上升。同样的公司利润，由更少的股份共同分享，每股对应的利润也会提高。因此，公司经营增长与股份数量变化，都关系到最后落在每一股上的所得。
+回购的影响还会留在公司股本里。若发行在外的股份净减少，而我们持有的股数没变，持股比例就会上升。同样的公司利润，由更少的股份共同分享，每股对应的利润也会提高。
 
 <span data-text-versions id="nb-s02-text-2">公司回购股票的同时，也可能通过员工奖励交付、员工购股计划或其他发行增加股份。其中，以股票或相关权利支付员工报酬的安排，通常称为股权报酬（SBC），具体形式见[《股票的类型、发行与交易形式》](/zh/notebook/stock-types-issuance-trading/)。因此，我们还要看这些变化合起来以后，股数究竟减少了多少。AAPL 这一季度买回约 9,300 万股，但期末发行在外股数比期初少了约 7,060 万股，两者并不相等<span data-text-detail>（资产负债表列示，2025 年 9 月 27 日发行在外普通股为 14,773,260,000 股，12 月 27 日为 14,702,703,000 股，减少 70,557,000 股。此处比较期初与期末股数；正式每股收益另按相应期间的加权平均股数及摊薄规则计算）</span>。所以，回购金额告诉我们公司花了多少钱，净股数变化则进一步告诉我们，剩余股份的比例怎样改变。[^apple]<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>
 
@@ -179,7 +182,7 @@ Before substantive teaching, actually retrieve every required reading unit for t
 
 公司在公开市场回购其他人的股份时，我们没有出售自己的股票，也没有因此实现自己的资本利得。股票可以继续持有，将来何时卖出、卖出多少，通常仍有自己的安排。对于准备长期投资的人，延后实现资本利得，也就保留了延后纳税的空间。
 
-<span data-text-versions id="nb-s02-text-4">这正是长期股东可能更偏好回购的一个实际理由：公司用资金支持股票的市场需求、调整每股权益，自己可以继续持有，而不必因为公司统一派发现金就立即处理一笔股息收入<span data-text-detail>（这里采用美国联邦个人所得税下、收付实现制个人通过普通应税账户直接持股的情形，讨论本人没有出售、交换或被赎回股份的普通公开市场回购。合格股息与资本利得的适用税率、退休账户和跨境投资另有规则；本段比较的是纳税时点，不预设每位投资者最终的税率）</span>。当然，需要现金的股东仍然可以领取分红，或按自己的需要卖出部分股票。两种偏好背后，是不同的用钱时间与持有安排。[^tax]<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>
+<span data-text-versions id="nb-s02-text-4">这正是长期股东可能更偏好回购的一个实际理由：公司用资金支持股票的市场需求、调整每股权益，自己可以继续持有，而不必因为公司统一派发现金就立即处理一笔股息收入<span data-text-detail>（这里采用美国联邦个人所得税下、收付实现制个人通过普通应税账户直接持股的情形，讨论本人没有出售、交换或被赎回股份的普通公开市场回购。合格股息与资本利得的适用税率、退休账户和跨境投资另有规则；本段比较的是纳税时点，不预设每位投资者最终的税率）</span>。需要定期现金的股东则可能更偏好分红，也可以按自己的需要卖出部分股票。两种偏好背后，是不同的用钱时间与持有安排。[^tax]<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>
 
 | 对继续持有者的影响 | 现金分红 | 公司公开市场回购 |
 |---|---|---|
@@ -192,7 +195,7 @@ Before substantive teaching, actually retrieve every required reading unit for t
 
 再把目光放回公司。企业有资金可以返还给股东，也会遇到需要增加投入的时候。经营规模扩大、设备采购和新项目建设，都可能改变原先的资金安排。Alphabet（GOOGL／GOOG）在 2026 年的融资，就提供了一个实际例子。
 
-<span data-text-versions id="nb-s02-text-5">公司披露，2026 年 6 月通过发行 Class A、Class C 股票及强制可转换优先股，合计取得约 496 亿美元净募集资金，资金用途包括扩充 AI 基础设施和全球算力<span data-text-detail>（这项金额是上述权益融资合计的净所得，并非全部来自普通股发行。强制可转换优先股先以优先股形式存在，再按条款转换为普通股，其分红权利与未来转股另有安排，不能直接把全部融资额换算成当期新增普通股）</span>。这些股票与优先股的权利区别，可参阅[《股票的类型、发行与交易形式》](/zh/notebook/stock-types-issuance-trading/)；这里先沿着融资所得，看它们怎样进入公司的资金安排。[^alphabet-release][^alphabet]<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>
+<span data-text-versions id="nb-s02-text-5">公司披露，2026 年 6 月通过发行 Class A、Class C 股票及强制可转换优先股，合计取得约 496 亿美元净募集资金，资金用途包括扩充 AI 基础设施和全球算力<span data-text-detail>（这项金额是上述权益融资合计的净所得，并非全部来自普通股发行。强制可转换优先股先以优先股形式存在，再按条款转换为普通股，其分红权利与未来转股另有安排，不能直接把全部融资额换算成当期新增普通股）</span>。这些股票与优先股的权利区别，可参阅[《股票的类型、发行与交易形式》](/zh/notebook/stock-types-issuance-trading/)；这里先沿着融资所得，看它们怎样进入公司的资金安排。[^alphabet-release]<sup>，</sup>[^alphabet]<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>
 
 <figure class="capital-flow" aria-labelledby="nb-s02-issuance-flow-title">
 <figcaption id="nb-s02-issuance-flow-title">普通股增发：公司取得资金，认购者取得新股</figcaption>
@@ -221,7 +224,7 @@ Before substantive teaching, actually retrieve every required reading unit for t
 
 对我们自己的投资，仍然要把持有期间取得的现金与期末剩余股份的价值合起来看，再和原先投入比较。回购的价格支撑和每股权益变化，就在这份股票价值中发生作用；分红则另外形成现金收付，两者也有不同的税务时点。
 
-因此，读到公司公布利润、分红、回购或增发时，可以继续往下追一步：经营所得最后怎样使用，股份数量怎样变化，这些钱和这些股份又怎样共同影响自己持有的每一股。[《股票、公司与股价》](/zh/notebook/stocks-company-price/)把公司经营作为理解股票价值的起点；沿着资金用途与股份变化，我们又能继续看到，经营成果怎样影响股东的实际回报。
+
 
 [^apple]: [Apple：2026 财年第一季度 Form 10-Q](https://www.sec.gov/Archives/edgar/data/320193/000032019326000006/aapl-20251227.htm)，季度截至 2025-12-27。现金流量表的股息及股息等价物支付、普通股回购付款；资产负债表的发行在外普通股；Note 7 与 Part II Item 2 的回购披露。本文的净股数变化由两个资产负债表时点相减，未将单项 RSU 归属量直接作为新增普通股量。
 [^berkshire]: [Berkshire Hathaway：2012 年股东信](https://www.berkshirehathaway.com/letters/2012ltr.pdf)，Dividends 部分，讨论业务投入、收购、回购价格与股东分配的取舍；本文采用资金用途与回购价格的比较关系，不沿用其中的估值假设或历史回购门槛。

@@ -2,6 +2,7 @@
 
 - [符号与单位](https://ou-liu-red-sugar.github.io/agent/zh/notation.md)
 - [复利、通胀与机会成本](https://ou-liu-red-sugar.github.io/agent/zh/compounding-inflation-opportunity-cost.md)
+- [指数、基金与 ETF](https://ou-liu-red-sugar.github.io/agent/zh/indices-funds-etfs.md)
 - [投资期限与现金需要](https://ou-liu-red-sugar.github.io/agent/zh/investment-horizon-cash.md)
 - [Agent 时代的基本面投资](https://ou-liu-red-sugar.github.io/agent/zh/investment-returns.md)
 - [亏损、波动与持有能力](https://ou-liu-red-sugar.github.io/agent/zh/loss-volatility-holding-capacity.md)

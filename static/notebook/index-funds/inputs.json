@@ -1,0 +1,181 @@
+{
+  "concentration": {
+    "title": "VOO concentration snapshot",
+    "as_of": "2026-06-30",
+    "retrieved_on": "2026-09-27",
+    "identity": "Vanguard S&P 500 ETF factsheet; fund holdings, not direct index weights",
+    "source_url": "https://fund-docs.vanguard.com/F0968.pdf",
+    "source_page": 2,
+    "holdings_basis": "Ten largest holdings and percent of total net assets; company-level names as reported; temporary cash investments and equity index products excluded from listed holdings",
+    "top_ten_reported_percent": 37.9,
+    "other_net_assets_derived_percent": 62.1,
+    "top_ten": [
+      {
+        "name": "NVIDIA Corp.",
+        "ticker_label": "NVDA",
+        "weight_percent": 7.5,
+        "sector": "Information Technology",
+        "industry": "Semiconductors"
+      },
+      {
+        "name": "Apple Inc.",
+        "ticker_label": "AAPL",
+        "weight_percent": 6.6,
+        "sector": "Information Technology",
+        "industry": "Technology Hardware, Storage & Peripherals"
+      },
+      {
+        "name": "Alphabet Inc.",
+        "ticker_label": "GOOGL + GOOG",
+        "weight_percent": 5.8,
+        "sector": "Communication Services",
+        "industry": "Interactive Media & Services"
+      },
+      {
+        "name": "Microsoft Corp.",
+        "ticker_label": "MSFT",
+        "weight_percent": 4.3,
+        "sector": "Information Technology",
+        "industry": "Systems Software"
+      },
+      {
+        "name": "Amazon.com Inc.",
+        "ticker_label": "AMZN",
+        "weight_percent": 3.6,
+        "sector": "Consumer Discretionary",
+        "industry": "Broadline Retail"
+      },
+      {
+        "name": "Broadcom Inc.",
+        "ticker_label": "AVGO",
+        "weight_percent": 2.8,
+        "sector": "Information Technology",
+        "industry": "Semiconductors"
+      },
+      {
+        "name": "Micron Technology Inc.",
+        "ticker_label": "MU",
+        "weight_percent": 2.0,
+        "sector": "Information Technology",
+        "industry": "Semiconductors"
+      },
+      {
+        "name": "Meta Platforms Inc.",
+        "ticker_label": "META",
+        "weight_percent": 1.9,
+        "sector": "Communication Services",
+        "industry": "Interactive Media & Services"
+      },
+      {
+        "name": "Tesla Inc.",
+        "ticker_label": "TSLA",
+        "weight_percent": 1.8,
+        "sector": "Consumer Discretionary",
+        "industry": "Automobiles"
+      },
+      {
+        "name": "Eli Lilly & Co.",
+        "ticker_label": "LLY",
+        "weight_percent": 1.5,
+        "sector": "Health Care",
+        "industry": "Pharmaceuticals"
+      }
+    ],
+    "rounding_note": "Published company rows sum to 37.8 percent after rounding; use the source reported aggregate 37.9 percent rather than recomputing it from rounded rows.",
+    "sectors": [
+      {
+        "name": "Information Technology",
+        "weight_percent": 38.0
+      },
+      {
+        "name": "Financials",
+        "weight_percent": 11.8
+      },
+      {
+        "name": "Communication Services",
+        "weight_percent": 9.7
+      },
+      {
+        "name": "Consumer Discretionary",
+        "weight_percent": 9.3
+      },
+      {
+        "name": "Health Care",
+        "weight_percent": 8.9
+      },
+      {
+        "name": "Industrials",
+        "weight_percent": 8.8
+      },
+      {
+        "name": "Consumer Staples",
+        "weight_percent": 4.6
+      },
+      {
+        "name": "Energy",
+        "weight_percent": 3.0
+      },
+      {
+        "name": "Utilities",
+        "weight_percent": 2.2
+      },
+      {
+        "name": "Materials",
+        "weight_percent": 1.8
+      },
+      {
+        "name": "Real Estate",
+        "weight_percent": 1.8
+      },
+      {
+        "name": "Other",
+        "weight_percent": 0.1
+      }
+    ],
+    "sector_basis": "Vanguard factsheet Sector Diversification; GICS except Other; treat as its reported sector weights and do not present this table as a direct index calculation.",
+    "classification_sources": {
+      "retrieved_on": "2026-09-27",
+      "scope": "Only classifications are added; fund weights remain the 2026-06-30 snapshot. The displayed gray group combines other sectors.",
+      "technology_semiconductors": "https://advisors.vanguard.com/investments/products/vgt/vanguard-information-technology-etf",
+      "communication": "https://www.ssga.com/se/en_gb/intermediary/library-content/products/factsheets/etfs/emea/factsheet-emea-en_gb-xlc.pdf",
+      "consumer_discretionary": "https://www.spglobal.com/spdji/en/indices/equity/consumer-discretionary-select-sector-index/",
+      "health_care": "https://www.ssga.com/us/en/individual/etfs/state-street-health-care-select-sector-spdr-etf-xlv"
+    }
+  },
+  "weight_example": {
+    "identity": "Explicit four-stock setting, not historical returns",
+    "initial_wealth_each": 10000,
+    "cap_weights": [
+      0.4,
+      0.3,
+      0.2,
+      0.1
+    ],
+    "equal_weights": [
+      0.25,
+      0.25,
+      0.25,
+      0.25
+    ],
+    "default_returns": [
+      0.4,
+      -0.1,
+      0,
+      0.1
+    ],
+    "assumptions": "Constant component shares and investable proportions; no dividends, tax or trading fees; equal weights reset instantly on the illustrative scheduled rebalance day"
+  },
+  "fee_example": {
+    "identity": "Equal assumed gross return across three fee levels; not a forecast or fund-performance comparison",
+    "principal": 10000,
+    "gross_annual_return": 0.06,
+    "rates": [
+      0.0003,
+      0.0033,
+      0.0075
+    ],
+    "years": 20,
+    "formula": "principal * ((1 + gross_annual_return) * (1 - annual_fee)) ** years",
+    "timing": "annual charge at each year end; no external flows or investor taxes"
+  }
+}

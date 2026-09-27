@@ -2,15 +2,18 @@
 
 从股份权利、发行与员工股权报酬出发，理解归属和解禁，再比较 ADR、代币化产品、个股期货与股票永续。
 
-Entry: zh-stock-types-issuance-trading | Node: NB-B01 | Language: zh | Editorial revision: 2026-09-25
+Entry: zh-stock-types-issuance-trading | Node: NB-B01 | Language: zh | Editorial revision: 2026-09-27
 
-## Teaching instructions
+## Reference use
+This is reference material for the learner's current request. Use the supplied entry to teach the selected concept. Retrieve the relevant original unit when explaining a claim that depends on its assumptions, figures or rules; the reading list is a map for that work, not a prerequisite to the first lesson. Keep facts, supplied examples and inference distinct. Editorial access dates describe the author's work. The empty runtime_reading_log is an optional record field, not a requested response. Author-supplied scope notes below constrain factual use of the material; the learner's request determines the teaching task and first response.
+
+## Author-supplied scope notes (reference only)
+<author_scope_notes>
 沿股份权利、取得与出售过程、存托和相关交易形式讲解。承接前三篇实际正文。简明版讲清对象、机构、动作、资金去向与用途，条款补充保留在原句的详细版。Reddit 的发行、员工奖励和锁定分别依已核原件说明，不把授予、归属、行权或交付、解禁和实际卖出合成一条普遍流程。SKHY 按每份对应十分之一股韩国普通股，公开存托协议格式不称为最终签署文本。DTC沿用2025-12-11公布的具名方案，不把它转述成当前全面上线状态。AAPLx是Backed发行的追踪凭证，实际权利和分红经济效果按产品条款说明。CME采用美股SAAPL个股期货，每份乘数100股、到期现金结算；每股变动1美元的例子是毛盈亏计算，不是即时报价。Kraken AAPLx永续与 Apple 股份、AAPLx代币分别辨认，资金费与保证金接回第二篇。期权仅简短回接前篇的交股结算看涨期权。教学案例用于理解机制，不代表用户账户或交易安排。
-
-Before substantive teaching, actually retrieve every required reading unit for the selected scope. Read its complete designated section, including necessary assumptions, tables and footnotes. A working URL or an editorial access date is not a runtime reading receipt. Record the actual version, location, scope and what it supports. If unavailable, use a previously verified equivalent source; if the required unit remains unavailable, identify that gap rather than teach it from memory. Start runtime_reading_log empty. Once reading is complete, use a substantive diagnostic or follow the reader's request for direct explanation. Advance one complete reasoning task at a time; skip mastered basics. Distinguish original facts, supplied teaching assumptions and inference.
+</author_scope_notes>
 
 ## Shared notation and writing conventions
-数学期望统一写成 \mathbb{E}，条件期望用 \mathbb{E}[X\mid\mathcal{G}]，需要时注明测度 P 或 Q. 保留局部变量的明确定义. 金额与数量使用 K=10^3、M=10^6、B=10^9；表格标明币种、量级与期间，变更量级时同步换算数值. 展示小数最多三位，计算保留原始精度. 直接解释对象、机制与推理；保留影响结论的假设和事实来源，把编辑流程留在记录中. 句末使用英文句点 .，包括定义、命题、证明和解析等标签. 基础定义与推导直接讲内容，出处放在紧邻脚注；来源读取、复审和采用范围等编辑经过留在记录中.
+数学期望统一写成 \mathbb{E}，条件期望用 \mathbb{E}[X\mid\mathcal{G}]，需要时注明测度 P 或 Q。保留局部变量的明确定义。金额与数量使用 K=10^3、M=10^6、B=10^9；表格标明币种、量级与期间，变更量级时同步换算数值。主文通常保留不超过三位小数，很小的数值或复算输入保留必要精度；计算使用原始数据。直接解释对象、机制与推理；保留影响结论的假设和事实来源，把编辑流程留在记录中。中文语句使用中文标点，代码、公式和原文引用保留各自格式。基础定义与推导直接讲内容，出处放在紧邻脚注；来源读取、复审和采用范围等编辑经过留在记录中。
 [Notation and units](https://ou-liu-red-sugar.github.io/agent/zh/notation.md)
 
 ## Required readings and runtime protocol
@@ -456,7 +459,7 @@ Reddit（RDDT）在 2024 年的首次公开发行中，就同时出现了这两�
 
 公司还可以把股份或相关权利用于员工报酬，这类安排通常称为股权报酬，英文是 stock-based compensation，简称 SBC。员工以服务取得报酬，股份因此也能从公司流向员工。对于员工，要看拿到的是股票，还是今后取得或购买股票的权利；对于原有股东，则要看奖励安排怎样影响股份总数和自己的持股比例。公司用新股支付奖励时，若原有股东的股数不变、总股数增加，其持股比例就会下降。公司同时取得了员工的服务，这些服务又可能影响经营成果，因此还要把股份数量与经营变化放在一起，理解每股能够分到什么。[^sbc]
 
-以员工期权和限制性股票单位（RSU）为例，两者取得股票的过程就不同。员工期权给予按约定行权价购买股票的权利，员工行权时要支付购股款；本篇所说的 RSU 则由公司在条件满足后交付股份，授予时员工尚未拿到对应股票。第二篇已经介绍过行权购股所需的现金，这里可以接着理解员工期权的付款。不过得到一项奖励以后，还要等到哪些条件满足，才能取得相应股份？[^sbc-example]
+以员工期权和限制性股票单位（RSU）为例，两者取得股票的过程就不同。员工期权给予按约定行权价购买股票的权利，员工行权时要支付购股款；本篇所说的 RSU 则由公司在条件满足后交付股份，授予时员工尚未拿到对应股票。[《投资期限与现金需要》](/zh/notebook/investment-horizon-cash/)已经介绍了行权购股所需的现金，这里可以接着理解员工期权的付款。不过得到一项奖励以后，还要等到哪些条件满足，才能取得相应股份？[^sbc-example]
 
 ## 归属、锁定与解禁 {#nb-b01-vesting}
 
@@ -477,17 +480,17 @@ Reddit（RDDT）在 2024 年的首次公开发行中，就同时出现了这两�
 
 ### ADR 与存托安排 {#nb-b01-adr}
 
-前面讨论了股份怎样取得、何时能够出售；进入不同市场交易时，我们还会遇到代表这些股份的存托凭证。[《股票、公司与股价》](/zh/notebook/stocks-company-price/)中的 SKHY 就是一个例子。它以 SK hynix（000660）的韩国普通股为基础，由存托银行发行在美国市场交易的存托证券，每份对应十分之一股韩国普通股。投资者因此可以在美国市场买卖与这部分股份对应的权益。[^adr][^skhy]
+[《股票、公司与股价》](/zh/notebook/stocks-company-price/)中的 SKHY 在美国市场交易，每份对应十分之一股 SK hynix（000660）韩国普通股。这层对应关系怎样维持，还要沿着托管和存托安排继续看。[^adr]<sup>，</sup>[^skhy]
 
-这层联系由托管和存托安排维持。韩国原股进入当地托管安排，托管机构确认存入的股份后，存托银行据此发行相应的存托证券。在 SKHY 的公开存托文件中，Citibank 是存托银行，Korea Securities Depository 是韩国托管机构。投资者买入已有的 SKHY，持有的是存托证券，买款付给卖方；原股仍在托管安排中。这也接上了前面的资金流向：在市场上转让已有凭证，同样不等于 SK hynix 取得一笔新增融资。[^skhy-terms]
+韩国原股进入当地托管安排，托管机构确认存入的股份后，存托银行据此发行相应的存托证券。在 SKHY 的公开存托文件中，Citibank 是存托银行，Korea Securities Depository 是韩国托管机构。投资者买入已有的 SKHY，持有的是存托证券，买款付给卖方；原股仍在托管安排中。这也接上了前面的资金流向：在市场上转让已有凭证，同样不等于 SK hynix 取得一笔新增融资。[^skhy-terms]
 
 <span data-text-versions id="nb-b01-text-4">存托机构还要处理持有期间的事务。公司支付现金分红后，款项经托管与存托安排处理，再分配给存托证券持有人；公司信息和投票事项也通过这条渠道传递，持有人按通知发出投票指示，再由存托机构依约办理<span data-text-detail>（SKHY 公开存托文件规定，现金分红换成美元、扣除有关税费后分配；投票指示须及时提交，并对应整股股份。费用、汇兑和投票程序会影响持有人实际收到的现金及权利行使）</span>。所以，原股带来的经济利益和治理权利，会经过存托安排传到凭证持有人手中。[^skhy-terms]<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>
 
-<span data-text-versions id="nb-b01-text-5">存托凭证与原股之间还可以按规定转换：存入原股可以形成相应凭证，交回凭证注销则可以提取对应原股。实际办理要满足存托项目的程序，并看经纪商是否提供这项服务<span data-text-detail>（办理还涉及文件、税费、适用规则和处理时间；发行或注销费用之外，也可能有登记、通讯及汇兑成本）</span>。有了这层联系，我们才能继续理解第三篇比较过的价格：除了统一股数和币种，还要考虑买卖时点、转换条件与交易成本，两个市场显示的价差才有具体含义。[^skhy-terms]<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>
+<span data-text-versions id="nb-b01-text-5">存托凭证与原股之间还可以按规定转换：存入原股可以形成相应凭证，交回凭证注销则可以提取对应原股。实际办理要满足存托项目的程序，并看经纪商是否提供这项服务<span data-text-detail>（办理还涉及文件、税费、适用规则和处理时间；发行或注销费用之外，也可能有登记、通讯及汇兑成本）</span>。有了这层联系，就可以继续比较[《股票、公司与股价》](/zh/notebook/stocks-company-price/)中的两地价格：除了统一股数和币种，还要考虑买卖时点、转换条件与交易成本，两个市场显示的价差才有具体含义。[^skhy-terms]<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>
 
 ### 代币化与实际持有的权益 {#nb-b01-tokenization}
 
-<span data-text-versions id="nb-b01-text-6">把权益记录放到链上以后，同样需要沿着提供者和具体安排往回看。第三篇提到的 DTC 方案，就是用代币记录参与者对托管证券的权益，证券仍由原有存管体系保存<span data-text-detail>（这里沿用 2025 年 12 月 11 日公布的方案：底层证券仍登记在 Cede & Co. 名下，代币转移对应参与者权益记录的更新）</span>。在这类安排中，变化的是权益的记录与转移方式；另一类产品则由第三方发行，用产品条款规定持有人怎样参与某只股票的价格变化。[^tokenized]<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>
+<span data-text-versions id="nb-b01-text-6">把权益记录放到链上以后，同样需要沿着提供者和具体安排往回看。[《股票、公司与股价》](/zh/notebook/stocks-company-price/)提到的 DTC 方案，就是用代币记录参与者对托管证券的权益，证券仍由原有存管体系保存<span data-text-detail>（这里沿用 2025 年 12 月 11 日公布的方案：底层证券仍登记在 Cede & Co. 名下，代币转移对应参与者权益记录的更新）</span>。在这类安排中，变化的是权益的记录与转移方式；另一类产品则由第三方发行，用产品条款规定持有人怎样参与某只股票的价格变化。[^tokenized]<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>
 
 Apple xStock（AAPLx）就是后一类产品。它由 Backed Assets (JE) Limited 发行，是以 Apple（AAPL）股票为参考资产的追踪凭证，并由托管的底层资产支持。持有人取得的是这项产品约定的合同权益，Apple 是参考股票的发行公司，Backed 则是追踪凭证的发行者；买入 AAPLx 因而不会取得 AAPL 直接股东的投票权。[^xstocks]
 
@@ -495,15 +498,15 @@ Apple xStock（AAPLx）就是后一类产品。它由 Backed Assets (JE) Limited
 
 ### CME 个股期货与股票永续 {#nb-b01-futures}
 
-围绕一只股票，人们还可以交易按价格变化计算盈亏的合约，用来表达对价格方向的判断，或对冲已有持仓的价格风险。CME 新推出的美股个股期货就属于这种工具：合约以单只股票为标的，到期用现金结算，持有期货不会因此取得公司的股份。[^cme]
+围绕一只股票，人们还可以交易按价格变化计算盈亏的合约，用来表达对价格方向的判断，或对冲已有持仓的价格风险。CME 的美股个股期货就属于这种工具：合约以单只股票为标的，到期用现金结算，持有期货不会因此取得公司的股份。[^cme]
 
-<span data-text-versions id="nb-b01-text-8">以 AAPL 标准个股期货 SAAPL 为例，一份合约的乘数为 100 股。合约报价每股上涨 1 美元，一份多头的盈亏就增加 100 美元；报价每股下跌 1 美元，盈亏则减少 100 美元。交易者按要求存入保证金来开仓和维持持仓，保证金只占合约名义金额的一部分，盈亏仍按合约乘数计算<span data-text-detail>（这里计算的是价格变化造成的毛盈亏，未扣费用；名义金额等于期货报价乘以 100。该合约到期按标的股票主上市交易所的官方收盘价，以美元现金结算）</span>。持有期间若亏损使账户资金不足，就需要补充资金或调整持仓；最初交纳的保证金也不能用来界定最大损失。[^cme][^margin]<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>
+<span data-text-versions id="nb-b01-text-8">以 AAPL 标准个股期货 SAAPL 为例，一份合约的乘数为 100 股。合约报价每股上涨 1 美元，一份多头的盈亏就增加 100 美元；报价每股下跌 1 美元，盈亏则减少 100 美元。交易者按要求存入保证金来开仓和维持持仓，保证金只占合约名义金额的一部分，盈亏仍按合约乘数计算<span data-text-detail>（这里计算的是价格变化造成的毛盈亏，未扣费用；名义金额等于期货报价乘以 100。该合约到期按标的股票主上市交易所的官方收盘价，以美元现金结算）</span>。持有期间若亏损使账户资金不足，就需要补充资金或调整持仓；最初交纳的保证金也不能用来界定最大损失。[^cme]<sup>，</sup>[^margin]<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>
 
 股票永续采用另一套到期和持有安排。以 Kraken 的 AAPLx 永续合约为例，底层股票的代码是 AAPL，前面介绍的追踪凭证是 AAPLx，而这里买卖的是参考 AAPLx 价格的永续合约。持有这份合约会形成相应盈亏，合约不会交付 AAPL 股票或 AAPLx 代币；持有人也不直接取得前面 AAPLx 持有人的分红再投资余额。[^perpetual]
 
-<span data-text-versions id="nb-b01-text-9">这份永续合约没有固定到期日，但持仓需要持续满足保证金要求，并按资金费安排收付资金。资金费在多空双方之间转移：费率为正时，多头向空头支付；费率为负时，空头向多头支付<span data-text-detail>（本文采用 Kraken 合约代码 PF_AAPLXUSD 的通用规格；资金费持续计提，在每小时末或持仓净额变化时结算。合约盈亏以美元计值、默认用美元结算，平台允许的抵押物可以包括多种资产）</span>。所以，与有到期日的 CME 个股期货相比，永续合约不以固定到期日限定持有时间，期间的资金安排却仍需接续。第二篇讨论的现金需要，在这里表现为能否承受持仓盈亏、准备保证金，以及处理资金费收付。[^perpetual-spec]<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>
+<span data-text-versions id="nb-b01-text-9">这份永续合约没有固定到期日，但持仓需要持续满足保证金要求，并按资金费安排收付资金。资金费在多空双方之间转移：费率为正时，多头向空头支付；费率为负时，空头向多头支付<span data-text-detail>（本文采用 Kraken 合约代码 PF_AAPLXUSD 的通用规格；资金费持续计提，在每小时末或持仓净额变化时结算。合约盈亏以美元计值、默认用美元结算，平台允许的抵押物可以包括多种资产）</span>。所以，与有到期日的 CME 个股期货相比，永续合约不以固定到期日限定持有时间，期间的资金安排却仍需接续。[《投资期限与现金需要》](/zh/notebook/investment-horizon-cash/)讨论的期间付款，在这里表现为能否承受持仓盈亏、准备保证金，以及处理资金费收付。[^perpetual-spec]<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>
 
-回到第二篇的看涨期权，我们还可以围绕同一只股票交易购股权利：买方先付权利金，取得在约定期限内按约定价格购股的权利，选择行权时再准备购股款；卖方则承担对应的履约义务。把本篇已经出现的形式放在一起，可以作如下比较：[^options]
+回到[《投资期限与现金需要》](/zh/notebook/investment-horizon-cash/)中的看涨期权，我们还可以围绕同一只股票交易购股权利：买方先付权利金，取得在约定期限内按约定价格购股的权利，选择行权时再准备购股款；卖方则承担对应的履约义务。把本篇已经出现的形式放在一起，可以作如下比较：[^options]
 
 | 形式 | 实际持有物及提供者 | 主要资金安排 | 本文说明的用途 |
 |---|---|---|---|
@@ -536,7 +539,7 @@ Apple xStock（AAPLx）就是后一类产品。它由 Backed Assets (JE) Limited
 [^margin]: [CME：Margin—Know What's Needed](https://www.cmegroup.com/education/courses/introduction-to-futures/margin-know-what-is-needed)，Understanding Margin、Types of Futures Margin。
 [^perpetual]: [Kraken：What are xStocks perps?](https://www.kraken.com/learn/futures-trading-what-are-xstocks-perps)，定义、AAPLx、参考价格、保证金及现金结算说明。
 [^perpetual-spec]: [Kraken：Multi-Collateral Derivatives Contract Specifications](https://support.kraken.com/in/articles/4844359082772-linear-multi-collateral-derivatives-contract-specifications)，2026-09-08 更新，PF_AAPLXUSD、Perpetual Contract Funding Rate Information、PnL 与抵押物说明；采用其通用规格。
-[^options]: [FINRA：Options](https://www.finra.org/investors/investing/investment-products/options)，Essentials、Calls/Puts、Equity Options；本篇接续第二篇可行权购股的看涨期权设定。
+[^options]: [FINRA：Options](https://www.finra.org/investors/investing/investment-products/options)，Essentials、Calls/Puts、Equity Options；本篇接续《投资期限与现金需要》中可行权购股的看涨期权设定。
 
 
 ## Sources

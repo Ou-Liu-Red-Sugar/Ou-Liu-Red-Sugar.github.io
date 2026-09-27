@@ -2,15 +2,18 @@
 
 从债券与期权的期限出发，理解期间付款、过桥现金和退出安排。
 
-Entry: zh-investment-horizon-cash | Node: NB-A02 | Language: zh | Editorial revision: 2026-09-24
+Entry: zh-investment-horizon-cash | Node: NB-A02 | Language: zh | Editorial revision: 2026-09-27
 
-## Teaching instructions
+## Reference use
+This is reference material for the learner's current request. Use the supplied entry to teach the selected concept. Retrieve the relevant original unit when explaining a claim that depends on its assumptions, figures or rules; the reading list is a map for that work, not a prerequisite to the first lesson. Keep facts, supplied examples and inference distinct. Editorial access dates describe the author's work. The empty runtime_reading_log is an optional record field, not a requested response. Author-supplied scope notes below constrain factual use of the material; the learner's request determines the teaching task and first response.
+
+## Author-supplied scope notes (reference only)
+<author_scope_notes>
 本篇默认用简明版建立期限与现金意识，按读者需要展开精确条款。先理解同一债券的收付款，再比较已承诺付款下的融资与出售，之后区分期权到期、平仓及行权购股资金。所有数值为教学设定。首年40已用于付款，借款只补860；137与110为完成同一付款后的余额，不是总投资利润。不要将独立融资设定直接套用为SBLOC产品，不把尚未行权的看涨期权买方写成已欠购股款。结尾联系多项投资的收付款错位和调整余地，不展开交易建议或配置比例。
-
-Before substantive teaching, actually retrieve every required reading unit for the selected scope. Read its complete designated section, including necessary assumptions, tables and footnotes. A working URL or an editorial access date is not a runtime reading receipt. Record the actual version, location, scope and what it supports. If unavailable, use a previously verified equivalent source; if the required unit remains unavailable, identify that gap rather than teach it from memory. Start runtime_reading_log empty. Once reading is complete, use a substantive diagnostic or follow the reader's request for direct explanation. Advance one complete reasoning task at a time; skip mastered basics. Distinguish original facts, supplied teaching assumptions and inference.
+</author_scope_notes>
 
 ## Shared notation and writing conventions
-数学期望统一写成 \mathbb{E}，条件期望用 \mathbb{E}[X\mid\mathcal{G}]，需要时注明测度 P 或 Q. 保留局部变量的明确定义. 金额与数量使用 K=10^3、M=10^6、B=10^9；表格标明币种、量级与期间，变更量级时同步换算数值. 展示小数最多三位，计算保留原始精度. 直接解释对象、机制与推理；保留影响结论的假设和事实来源，把编辑流程留在记录中. 句末使用英文句点 .，包括定义、命题、证明和解析等标签. 基础定义与推导直接讲内容，出处放在紧邻脚注；来源读取、复审和采用范围等编辑经过留在记录中.
+数学期望统一写成 \mathbb{E}，条件期望用 \mathbb{E}[X\mid\mathcal{G}]，需要时注明测度 P 或 Q。保留局部变量的明确定义。金额与数量使用 K=10^3、M=10^6、B=10^9；表格标明币种、量级与期间，变更量级时同步换算数值。主文通常保留不超过三位小数，很小的数值或复算输入保留必要精度；计算使用原始数据。直接解释对象、机制与推理；保留影响结论的假设和事实来源，把编辑流程留在记录中。中文语句使用中文标点，代码、公式和原文引用保留各自格式。基础定义与推导直接讲内容，出处放在紧邻脚注；来源读取、复审和采用范围等编辑经过留在记录中。
 [Notation and units](https://ou-liu-red-sugar.github.io/agent/zh/notation.md)
 
 ## Required readings and runtime protocol
@@ -139,7 +142,7 @@ Before substantive teaching, actually retrieve every required reading unit for t
 
 ## 期限与现金回收 {#nb-a02-dates}
 
-许多投资和交易都有明确的期限安排。债券约定什么时候付息还本；期权规定买卖权利在多长时间内有效；一笔已经成交的交易也有付款和交付的时间。上一篇从钱的用途谈起，到了具体投资中，我们还要把这些时间和自己用钱的时间放在一起，看什么时候会收到钱，什么时候又需要付款。
+许多投资和交易都有明确的期限安排。债券约定什么时候付息还本；期权规定买卖权利在多长时间内有效；一笔已经成交的交易也有付款和交付的时间。[《Agent 时代的基本面投资》](/zh/notebook/investment-returns/)从钱的用途谈起。到了具体投资中，我们还要把合同的收付款时间与自己用钱的时间放在一起，看什么时候收到钱，什么时候又需要付款。
 
 <span data-text-versions id="nb-a02-text-1">先看一张两年期债券：假设我们用 1,000 美元买入这张债券<span data-text-detail>（买价等于面值，也就是约定到期偿还的本金；固定年票息率为 4%，每年付息一次，买入时恰好刚结束一次付息）</span>，每年收到 40 美元利息。等到第二年末，发行人按约归还 1,000 美元本金，并付出最后一次 40 美元利息，我们当次共收到 1,040 美元<span data-text-detail>（本例不允许发行人自行提前还本、结束后续付息；计算忽略税费，收到的利息不再投资）</span>。把买入和收款的过程放在一起，可以列成下面这张表：[^bond]<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>
 
@@ -155,7 +158,7 @@ Before substantive teaching, actually retrieve every required reading unit for t
 
 现在假设我们刚收到第一年的 40 美元利息，就有另一笔已经约定的 900 美元付款需要履行。先用这 40 美元抵付，还缺 860 美元，而债券要到第二年末才还本。钱还没回来，付款时间却已经到了，这时就需要安排眼前的现金。
 
-<span data-text-versions id="nb-a02-text-2">一种做法是先借入 860 美元，连同收到的利息完成付款，把债券继续留着，等到回款以后再还借款。这样临时接上收付款间隔的钱，就是过桥现金。假设这笔一年借款的利息为 43 美元，届时一共要还 903 美元<span data-text-detail>（本例借款净到账 860 美元，固定年利率为 5%，利息为 860 × 5% = 43 美元；没有其他融资费用，本息均在一年后一次支付，且借款允许用于这笔付款）</span>。另一种做法是现在卖出债券：假设在收息后实际净得 970 美元，就可以连同那 40 美元利息付清 900 美元，余下 110 美元；不过卖出以后，这张债券后续的利息和本金也就归买方了。[^sale]<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>
+<span data-text-versions id="nb-a02-text-2">一种做法是先借入 860 美元，连同收到的利息完成付款，把债券继续留着，等到回款以后再还借款。这 860 美元先帮助我们完成眼前的付款，等债券回款后再归还，就是这里所说的过桥现金。假设这笔一年借款的利息为 43 美元，届时一共要还 903 美元<span data-text-detail>（本例借款净到账 860 美元，固定年利率为 5%，利息为 860 × 5% = 43 美元；没有其他融资费用，本息均在一年后一次支付，且借款允许用于这笔付款）</span>。另一种做法是现在卖出债券：假设在收息后实际净得 970 美元，就可以连同那 40 美元利息付清 900 美元，余下 110 美元；不过卖出以后，这张债券后续的利息和本金也就归买方了。[^sale]<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>
 
 两种办法都完成了眼前的付款，接下来再看第二年末各自会留下多少现金：
 

@@ -2,15 +2,18 @@
 
 从资金用途出发，以一项业务看清企业经营、事件计价与 Agent 辅助研究。
 
-Entry: zh-investment-returns | Node: NB-A01 | Language: zh | Editorial revision: 2026-09-25
+Entry: zh-investment-returns | Node: NB-A01 | Language: zh | Editorial revision: 2026-09-27
 
-## Teaching instructions
+## Reference use
+This is reference material for the learner's current request. Use the supplied entry to teach the selected concept. Retrieve the relevant original unit when explaining a claim that depends on its assumptions, figures or rules; the reading list is a map for that work, not a prerequisite to the first lesson. Keep facts, supplied examples and inference distinct. Editorial access dates describe the author's work. The empty runtime_reading_log is an optional record field, not a requested response. Author-supplied scope notes below constrain factual use of the material; the learner's request determines the teaching task and first response.
+
+## Author-supplied scope notes (reference only)
+<author_scope_notes>
 这是整套笔记的总起篇。按读者的问题，说明资金用途、基本面方向、企业业务、事件与市场预期，以及 Agent 辅助研究的关系。GEV 案例保持在一项业务及上下游层面，区分订单、收入、利润和现金，不引入未核实数字或投资推荐。先读取共同资料，展开某类资产或特定业务问题时再读取相应分支资料；资料读取范围与实际问题对应。可从文章中的资产概览和相关写作计划引导后续学习。
-
-Before substantive teaching, actually retrieve every required reading unit for the selected scope. Read its complete designated section, including necessary assumptions, tables and footnotes. A working URL or an editorial access date is not a runtime reading receipt. Record the actual version, location, scope and what it supports. If unavailable, use a previously verified equivalent source; if the required unit remains unavailable, identify that gap rather than teach it from memory. Start runtime_reading_log empty. Once reading is complete, use a substantive diagnostic or follow the reader's request for direct explanation. Advance one complete reasoning task at a time; skip mastered basics. Distinguish original facts, supplied teaching assumptions and inference.
+</author_scope_notes>
 
 ## Shared notation and writing conventions
-数学期望统一写成 \mathbb{E}，条件期望用 \mathbb{E}[X\mid\mathcal{G}]，需要时注明测度 P 或 Q. 保留局部变量的明确定义. 金额与数量使用 K=10^3、M=10^6、B=10^9；表格标明币种、量级与期间，变更量级时同步换算数值. 展示小数最多三位，计算保留原始精度. 直接解释对象、机制与推理；保留影响结论的假设和事实来源，把编辑流程留在记录中. 句末使用英文句点 .，包括定义、命题、证明和解析等标签. 基础定义与推导直接讲内容，出处放在紧邻脚注；来源读取、复审和采用范围等编辑经过留在记录中.
+数学期望统一写成 \mathbb{E}，条件期望用 \mathbb{E}[X\mid\mathcal{G}]，需要时注明测度 P 或 Q。保留局部变量的明确定义。金额与数量使用 K=10^3、M=10^6、B=10^9；表格标明币种、量级与期间，变更量级时同步换算数值。主文通常保留不超过三位小数，很小的数值或复算输入保留必要精度；计算使用原始数据。直接解释对象、机制与推理；保留影响结论的假设和事实来源，把编辑流程留在记录中。中文语句使用中文标点，代码、公式和原文引用保留各自格式。基础定义与推导直接讲内容，出处放在紧邻脚注；来源读取、复审和采用范围等编辑经过留在记录中。
 [Notation and units](https://ou-liu-red-sugar.github.io/agent/zh/notation.md)
 
 ## Required readings and runtime protocol
@@ -520,7 +523,7 @@ Before substantive teaching, actually retrieve every required reading unit for t
 
 ## 投资目标与方法 {#nb-a01-goals}
 
-开始投资之前，我们首先要想清楚，这笔钱准备用来做什么，又会在什么时候用到。如果希望用投资所得补充日常收入，我们就会关心现金什么时候到账；如果是为多年后的支出积累资金，则会更关注较长时间里的财富增长。目标和用钱的时间不同，适合自己的资金安排也会有所不同。
+开始投资之前，我们首先要想清楚，这笔钱准备用来做什么，又会在什么时候用到。希望用投资所得补充日常收入时，我们会关心现金什么时候到账；为多年后的支出积累资金，则会更关注较长时间里的财富增长。目标和用钱的时间不同，适合自己的资金安排也会有所不同。
 
 除了钱的用途，还要看看自己有多少资金，愿意花多少时间研究和管理投资，以及能够使用哪些资源。比如资金量较大时，要考虑市场能否容纳自己的买卖；如果准备频繁交易，就要为研究和交易留出相应的时间。常见的投资方法也各有侧重：短线交易关注较短时间里的买卖机会；量化投资借助数据和规则组织判断与执行；价值投资则重视企业价值与买入价格的关系。这些做法可以交叉。先把自己的条件想清楚，我们才更容易判断怎样选择和运用。
 
@@ -530,7 +533,7 @@ Before substantive teaching, actually retrieve every required reading unit for t
 
 买入股票，就持有了企业的一部分股份。一家公司可能同时经营多项业务，它们面对的客户、竞争者和资金需要各不相同。所以研究一家公司的时候，我们可以先把业务拆开来看，弄清每项业务为谁提供什么、怎样赚钱，再把它们放回公司整体，判断最后能给股东带来什么。[^stocks]
 
-我们拿 GE Vernova（GEV）的燃气发电设备业务来看。2023 年，GEV 宣布取得德国能源公司 EnBW（EBK，德国）的两项设备订单，相关项目计划替换燃煤机组，同时提供电力和供热。GEV 与工程合作方共同参与，供应范围包括燃气轮机、配套发电机等设备，以及工程建设和后续维护服务。把这项业务中的几方放在一起，就能看到下面的联系：[^gev-order][^enbw-share]
+我们拿 GE Vernova（GEV）的燃气发电设备业务来看。2023 年，GEV 宣布取得德国能源公司 EnBW（EBK，德国）的两项设备订单，相关项目计划替换燃煤机组，同时提供电力和供热。GEV 与工程合作方共同参与，供应范围包括燃气轮机、配套发电机等设备，以及工程建设和后续维护服务。把这项业务中的几方放在一起，就能看到下面的联系：[^gev-order]<sup>，</sup>[^enbw-share]
 
 <figure class="business-chain" aria-labelledby="gev-business-caption">
   <figcaption id="gev-business-caption">业务生态图</figcaption>
@@ -573,9 +576,9 @@ Before substantive teaching, actually retrieve every required reading unit for t
 
 有了订单以后，GEV 还要组织采购、制造和交付，并按合同履约情况确认收入，也就是把相应的收入金额记入财务报表。不过客户实际付款的时间可能与确认收入的时间不同；GEV 什么时候向供应商付款，也有相应的合同安排。这样一来，我们既要比较收入与采购、生产、服务等成本，判断这项业务能赚多少钱，也要沿着收付款的时间看下去，判断是否需要先垫入资金，以及资金会被占用多久。[^gev-annual]
 
-等到设备投入使用以后，业务还可能继续。前述 EBK 订单就包含十年的维护和服务。已有设备的保养、检修和零部件更换，都可能带来后续服务收入。因此研究这项业务时，我们既要看新设备的需求，也要看已有设备的运行与维护需要。[^gev-order][^gev-annual]
+等到设备投入使用以后，业务还可能继续。前述 EBK 订单就包含十年的维护和服务。已有设备的保养、检修和零部件更换，都可能带来后续服务收入。因此研究这项业务时，我们既要看新设备的需求，也要看已有设备的运行与维护需要。[^gev-order]<sup>，</sup>[^gev-annual]
 
-不过一项业务的结果还要放回公司整体来看。其他业务的盈亏、公司的共同费用和税费，都会影响公司整体的盈利；债务收付和再投资安排又会影响现金怎样使用。至于股东实际收到多少，还要看公司的分配决定。把这些因素合在一起，再考虑股份数量，我们就能在每股的尺度上继续讨论这份股权可能带来的所得，以及自己愿意付出什么价格。[^stocks]
+这项业务最终能给股东留下多少，还要放回公司整体来看。其他业务的盈亏、公司的共同费用和税费，都会影响公司整体的盈利；债务收付和再投资安排又会影响现金怎样使用。至于股东实际收到多少，还要看公司的分配决定。把这些因素合在一起，再考虑股份数量，我们就能在每股的尺度上继续讨论这份股权可能带来的所得，以及自己愿意付出什么价格。[^stocks]
 
 ## 事件、预期与市场计价 {#nb-a01-events}
 
@@ -599,7 +602,7 @@ Before substantive teaching, actually retrieve every required reading unit for t
 
 把公司研究用于自己的资金安排时，我们还会遇到股票以外的选择。回到开头的资金目标，有些钱要为近期支出留作现金，有些钱可以用于较长期的投资；安排这些资金时，我们既要比较不同资产，也要了解基金和合约工具怎样改变所承担的风险。这套笔记因此还会介绍它们各自怎样运作。
 
-下面的互动表提供一个初步概览。选择名称，就可以查看它是什么、回报从哪里来，以及后续的相关词条。相关词条链接通向笔记目录中的学习安排，便于继续查阅。[^asset-overview]
+在下面的互动表中选择一个名称，就能查看它怎样运作、回报从哪里来，以及对应的学习安排。[^asset-overview]
 
 <div class="asset-overview" data-asset-overview>
 <nav aria-label="主要资产与币种"><span class="asset-group-label">主要资产与币种</span>
@@ -623,7 +626,7 @@ Before substantive teaching, actually retrieve every required reading unit for t
 <section data-asset-panel="cash"><h3>现金与存款</h3><table><tbody>
 <tr><th scope="row">是什么</th><td>现金用于支付和保留可用资金；银行存款则按账户约定存放、支取或计息。</td></tr>
 <tr><th scope="row">回报从哪里来</th><td>现金本身不计息，计息存款取得利息。比较实际结果时，还要考虑费用与购买力变化。</td></tr>
-<tr><th scope="row">相关词条</th><td><a href="/zh/notebook/#topic-U" data-planned-entry="NB-U01">存款、货币基金与短债</a>；<a href="/zh/notebook/#topic-U" data-planned-entry="NB-U02">现金的可用时间与配置用途</a></td></tr>
+<tr><th scope="row">相关词条</th><td><a href="/zh/notebook/#topic-U" data-planned-entry="NB-U01">存款、货币基金与短债</a>；<a href="/zh/notebook/#topic-U" data-planned-entry="NB-U01">存款、货币基金与短债</a></td></tr>
 </tbody></table></section>
 <section data-asset-panel="debt"><h3>债券</h3><table><tbody>
 <tr><th scope="row">是什么</th><td>债券代表一笔按约定付息或偿还的债务，政府和企业都可以发行债券融资。</td></tr>
@@ -633,7 +636,7 @@ Before substantive teaching, actually retrieve every required reading unit for t
 <section data-asset-panel="equity"><h3>股票与非上市股权</h3><table><tbody>
 <tr><th scope="row">是什么</th><td>持有股权，就是拥有企业的一部分股份。上市股票可以在交易所买卖，非上市股权有不同的交易与退出安排。</td></tr>
 <tr><th scope="row">回报从哪里来</th><td>公司分配与股权价格变化共同影响持有结果；企业赚到的利润还可能留在公司继续经营。</td></tr>
-<tr><th scope="row">相关词条</th><td><a href="/zh/notebook/#topic-S" data-planned-entry="NB-S01">股票、公司与股价</a>；<a href="/zh/notebook/#topic-S" data-planned-entry="NB-S02">股东回报与分红</a></td></tr>
+<tr><th scope="row">相关词条</th><td><a href="/zh/notebook/#topic-S" data-planned-entry="NB-S01">股票、公司与股价</a>；<a href="/zh/notebook/#topic-S" data-planned-entry="NB-S02">股东回报：分红、回购与增发</a></td></tr>
 </tbody></table></section>
 <section data-asset-panel="property"><h3>房地产</h3><table><tbody>
 <tr><th scope="row">是什么</th><td>投资者可以直接持有房产，取得出租或出售的所得。</td></tr>
@@ -648,7 +651,7 @@ Before substantive teaching, actually retrieve every required reading unit for t
 <section data-asset-panel="digital"><h3>数字资产</h3><table><tbody>
 <tr><th scope="row">是什么</th><td>比特币等原生代币与稳定币具有不同的设计。稳定币通常尝试维持与某种货币或资产的价值联系。</td></tr>
 <tr><th scope="row">回报从哪里来</th><td>现货价格变化影响持有结果；质押、借贷等额外收益需要另看具体机制。稳定币的实际价格也可能偏离它所跟踪的价值。</td></tr>
-<tr><th scope="row">相关词条</th><td><a href="/zh/notebook/#topic-L" data-planned-entry="NB-L01">永续合约与价格锚定</a>；<a href="/zh/notebook/#topic-L" data-planned-entry="NB-L04">合约计价与完整持有结果</a>（相关工具）</td></tr>
+<tr><th scope="row">相关词条</th><td><a href="/zh/notebook/#topic-L" data-planned-entry="NB-L01">永续合约的价格锚定与资金费</a>；<a href="/zh/notebook/#topic-L" data-planned-entry="NB-L04">合约计价与完整持有结果</a>（相关工具）</td></tr>
 </tbody></table></section>
 <section data-asset-panel="currency"><h3>外币</h3><table><tbody>
 <tr><th scope="row">是什么</th><td>外币是相对于生活所用币种的另一种货币，也可以用于持有存款、债券等资产。</td></tr>
@@ -658,32 +661,32 @@ Before substantive teaching, actually retrieve every required reading unit for t
 <section data-asset-panel="funds"><h3>基金与 ETF</h3><table><tbody>
 <tr><th scope="row">是什么</th><td>基金汇集资金投资资产或执行策略；ETF 是可以在交易所交易的一类基金。</td></tr>
 <tr><th scope="row">回报从哪里来</th><td>底层资产、投资策略和费用共同影响结果。判断投资风险，要看基金实际持有什么以及怎样运作。</td></tr>
-<tr><th scope="row">相关词条</th><td><a href="/zh/notebook/#topic-V" data-planned-entry="NB-V01">基金、ETF 与实际持仓</a>；<a href="/zh/notebook/#topic-V" data-planned-entry="NB-V03">费用、跟踪结果与折溢价</a></td></tr>
+<tr><th scope="row">相关词条</th><td><a href="/zh/notebook/#topic-V" data-planned-entry="NB-V01">指数、基金与 ETF</a>；<a href="/zh/notebook/#topic-V" data-planned-entry="NB-V03">基金跟踪与投资者回报</a></td></tr>
 </tbody></table></section>
 <section data-asset-panel="reits"><h3>REITs</h3><table><tbody>
 <tr><th scope="row">是什么</th><td>REITs（房地产投资信托）提供参与经营性房地产或房地产融资的证券投资途径。</td></tr>
 <tr><th scope="row">回报从哪里来</th><td>房地产经营或相关融资的所得支持分配，证券价格也会变化；费用和融资成本影响持有人结果。</td></tr>
-<tr><th scope="row">相关词条</th><td><a href="/zh/notebook/#topic-X" data-planned-entry="NB-X02">房地产、租金与持有成本</a>；<a href="/zh/notebook/#topic-V" data-planned-entry="NB-V01">基金、ETF 与实际持仓</a></td></tr>
+<tr><th scope="row">相关词条</th><td><a href="/zh/notebook/#topic-X" data-planned-entry="NB-X02">房地产、租金与持有成本</a>；<a href="/zh/notebook/#topic-V" data-planned-entry="NB-V01">指数、基金与 ETF</a></td></tr>
 </tbody></table></section>
 <section data-asset-panel="options"><h3>期权</h3><table><tbody>
 <tr><th scope="row">是什么</th><td><span data-text-versions id="nb-a01-options-text">买方付费，取得按约定条件<span data-text-detail>（包括期限和价格）</span>买入或卖出特定对象<span data-text-detail>（称为标的）</span>的权利；卖方承担相应义务。<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span></td></tr>
 <tr><th scope="row">回报从哪里来</th><td>盈亏取决于期权的买卖或结算结果、购买期权所付的权利金与其他费用。</td></tr>
-<tr><th scope="row">相关词条</th><td><a href="/zh/notebook/#topic-G" data-planned-entry="NB-G01">期权交易与权利金的流向</a>；<a href="/zh/notebook/#topic-G" data-planned-entry="NB-G02">期权支付、盈亏与退出</a></td></tr>
+<tr><th scope="row">相关词条</th><td><a href="/zh/notebook/#topic-G" data-planned-entry="NB-G01">期权权利、盈亏与退出</a>；<a href="/zh/notebook/#topic-G" data-planned-entry="NB-G01">期权权利、盈亏与退出</a></td></tr>
 </tbody></table></section>
 <section data-asset-panel="futures"><h3>期货</h3><table><tbody>
 <tr><th scope="row">是什么</th><td>期货约定在未来按合约规则交付或结算，可涉及商品、股指、利率等对象。</td></tr>
 <tr><th scope="row">回报从哪里来</th><td>合约价格变化形成持仓盈亏，并通过结算影响账户资金；保证金用于履约，投入的保证金不代表最大可能损失。</td></tr>
-<tr><th scope="row">相关词条</th><td><a href="/zh/notebook/#topic-K" data-planned-entry="NB-K01">期货合约与价格暴露</a>；<a href="/zh/notebook/#topic-K" data-planned-entry="NB-K02">保证金、逐日结算与资金</a></td></tr>
+<tr><th scope="row">相关词条</th><td><a href="/zh/notebook/#topic-K" data-planned-entry="NB-B01">股票的类型、发行与交易形式</a>；<a href="/zh/notebook/#topic-K" data-planned-entry="NB-B03">投资组合、保证金与对冲策略</a></td></tr>
 </tbody></table></section>
 <section data-asset-panel="perpetuals"><h3>永续合约</h3><table><tbody>
 <tr><th scope="row">是什么</th><td>永续合约通常没有固定到期日，常见设计通过资金费等安排使价格与现货保持联系。</td></tr>
 <tr><th scope="row">回报从哪里来</th><td>价格变化、资金费收付与交易费用共同影响结果；持仓需要满足保证金要求，保证金不足可能触发强制平仓。</td></tr>
-<tr><th scope="row">相关词条</th><td><a href="/zh/notebook/#topic-L" data-planned-entry="NB-L01">永续合约与价格锚定</a>；<a href="/zh/notebook/#topic-L" data-planned-entry="NB-L02">资金费与持有成本</a></td></tr>
+<tr><th scope="row">相关词条</th><td><a href="/zh/notebook/#topic-L" data-planned-entry="NB-L01">永续合约的价格锚定与资金费</a>；<a href="/zh/notebook/#topic-L" data-planned-entry="NB-L01">永续合约的价格锚定与资金费</a></td></tr>
 </tbody></table></section>
 <section data-asset-panel="prediction"><h3>预测市场</h3><table><tbody>
 <tr><th scope="row">是什么</th><td>参与者交易按具名事件及约定条件结算的合约。</td></tr>
 <tr><th scope="row">回报从哪里来</th><td>买卖或结算所得减去投入与费用，形成持有盈亏；结果取决于合约规定的事件与判定方式。</td></tr>
-<tr><th scope="row">相关词条</th><td><a href="/zh/notebook/#topic-H" data-planned-entry="NB-H01">事件合约与预测市场</a>；<a href="/zh/notebook/#topic-H" data-planned-entry="NB-H02">合约价格与概率</a></td></tr>
+<tr><th scope="row">相关词条</th><td><a href="/zh/notebook/#topic-H" data-planned-entry="NB-H01">事件合约与概率报价</a>；<a href="/zh/notebook/#topic-H" data-planned-entry="NB-H01">事件合约与概率报价</a></td></tr>
 </tbody></table></section>
 </div></div>
 
@@ -693,7 +696,7 @@ Before substantive teaching, actually retrieve every required reading unit for t
 
 沿着刚才的业务例子，我们也能逐渐看清接下来需要学些什么。要看懂订单，就要了解客户为什么采购、企业怎样满足这些需要；要分清收入、利润和现金，就要学习它们怎样进入财务报表，以及各自反映了什么；要判断经营前景是否值得当前价格，还需要学习怎样比较可能的回报与损失。这些知识会帮助我们把一条条材料连成对公司的认识。
 
-随着这些认识逐步建立，我们就可以和 Agent 一起核实资料、跟踪事件、更新公司研究，再比较不同的持仓选择，安排自己的资金。这条学习路径仍从资金用途出发。下一篇，我们先看[投资期限与现金需要](/zh/notebook/investment-horizon-cash/)，弄清一笔钱能够投入多久，以及什么时候需要收回资金、什么时候还要另行准备现金。
+这些研究最后要用到自己的资金安排中。[《投资期限与现金需要》](/zh/notebook/investment-horizon-cash/)从一笔钱能够投入多久讲起，再看什么时候收回资金、什么时候还要另备现金。
 
 [^stocks]: [FINRA：Stocks](https://www.finra.org/investors/investing/investment-products/stocks)。
 [^gev-order]: [GE Vernova：2023年 EnBW 发电项目订单公告](https://www.gevernova.com/news/press-releases/ge-vernova-secures-two-h-class-combined-cycle-equipment-orders-hydrogen-capability)。

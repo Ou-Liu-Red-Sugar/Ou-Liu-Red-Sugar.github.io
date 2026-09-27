@@ -2,11 +2,12 @@
 
 > 中文数学与投资笔记、讲义及研究资料。Chinese and English notes and teaching material.
 
-全文范围：当前正式投资学词条与符号约定，保留原语言并优先列中文。互动图表以正文中的文字和完整表格展开，不执行交互。数学讲义、Blog、论文、wiki 及独立 Investing Lab 仅提供栏目入口，尚未转换全文；写作计划、草稿、工作记录与历史归档不在全文中。本文件与单篇 Markdown 不包含 Agent 教学指令，教学包另见 Agent 索引。
+全文范围：当前正式投资学词条与符号约定，保留原语言并优先列中文。互动图表以正文中的文字和完整表格展开，不执行交互。数学讲义、Blog、论文、wiki 及独立 Investing Lab 仅提供栏目入口，尚未转换全文；写作计划、草稿、工作记录与历史归档不在全文中。本文件与单篇 Markdown 不包含 Agent 教学指令，教学指南与参考材料另见 Agent 索引。
 
 ## 正文 Markdown / Full-text Markdown
 
 - [复利、通胀与机会成本](https://ou-liu-red-sugar.github.io/llms/zh/notebook/compounding-inflation-opportunity-cost.md): 从企业与资金的复利累积出发，用指数、对数、购买力和现实替代理解持有回报，并引入 Sharpe 比较。
+- [指数、基金与 ETF](https://ou-liu-red-sugar.github.io/llms/zh/notebook/indices-funds-etfs.md): 从自己建立股票组合与通过基金投资出发，理解指数定义、权重与定期再平衡，再认识基金净值、ETF 交易、主动与主题投资以及各项费用。
 - [投资期限与现金需要](https://ou-liu-red-sugar.github.io/llms/zh/notebook/investment-horizon-cash.md): 从债券与期权的期限出发，理解期间付款、过桥现金和退出安排。
 - [Agent 时代的基本面投资](https://ou-liu-red-sugar.github.io/llms/zh/notebook/investment-returns.md): 从资金用途出发，以一项业务看清企业经营、事件计价与 Agent 辅助研究。
 - [亏损、波动与持有能力](https://ou-liu-red-sugar.github.io/llms/zh/notebook/loss-volatility-holding-capacity.md): 从 KO 的修复与 FISV 的失利出发，结合行业比较、Risk–Reward、量价观察和资金安排，理解持有与退出。
@@ -18,11 +19,13 @@
 - [符号与单位](https://ou-liu-red-sugar.github.io/llms/zh/notebook/notation.md): 共用符号与单位 / Shared notation and units
 - [Notation and units](https://ou-liu-red-sugar.github.io/llms/en/notebook/notation.md): 共用符号与单位 / Shared notation and units
 
-## 汇总与教学包 / Bundle and teaching packets
+## 汇总与教学参考 / Bundle and teaching references
 
 - [全文汇总 / Full-text bundle](https://ou-liu-red-sugar.github.io/llms-full.txt): 仅含上述正文，脚注按篇编号。
-- [中文 Agent 教学包](https://ou-liu-red-sugar.github.io/agent/zh/index.md): 教学指令、原文阅读要求与资料。
-- [English Agent packets](https://ou-liu-red-sugar.github.io/agent/en/index.md): Teaching instructions and reading requirements.
+- [Agent 教学指南](https://ou-liu-red-sugar.github.io/zh/notebook/teaching-guide/): 需求承接、讲解方法、教学工具与反馈。
+- [教学基准与示范](https://ou-liu-red-sugar.github.io/zh/notebook/teaching-benchmarks/): 具体学习任务、示范与核对依据。
+- [中文 Agent 参考材料](https://ou-liu-red-sugar.github.io/agent/zh/index.md): 正文、事实口径、实验输入与来源。
+- [English Agent packets](https://ou-liu-red-sugar.github.io/agent/en/index.md): Article text, factual scope, experiment inputs and sources.
 
 ## 全站栏目 / Site sections
 

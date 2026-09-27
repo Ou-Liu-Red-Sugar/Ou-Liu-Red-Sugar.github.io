@@ -23,13 +23,14 @@
 
 <dialog id="teach-dialog" class="reader-dialog" aria-labelledby="teach-title">
   <div class="dialog-top">
-    <div><span class="dialog-kicker">{{ if $zh }}教学材料{{ else }}TEACHING MATERIAL{{ end }}</span><h2 id="teach-title">{{ if $zh }}教学 Prompt{{ else }}Teaching prompt{{ end }}</h2></div>
+    <div><span class="dialog-kicker">{{ if $zh }}开始学习{{ else }}START LEARNING{{ end }}</span><h2 id="teach-title">{{ if $zh }}教学 Prompt{{ else }}Teaching prompt{{ end }}</h2></div>
     <button class="dialog-close" type="button" data-close-dialog aria-label="{{ if $zh }}关闭教学材料{{ else }}Close teaching material{{ end }}"><svg aria-hidden="true"><use href="/notebook/brand/icons.svg#close"></use></svg></button>
   </div>
-  <p class="teach-intro">{{ if $zh }}复制后粘贴到 Agent. 材料包括本篇正文、参考文献，以及先阅读文献再讲解的教学要求.{{ else }}Paste this material into your Agent. It includes the entry, references and instructions to read the sources before teaching.{{ end }}</p>
-  <div class="teach-material-label"><label for="teach-copy-text">{{ if $zh }}Prompt · 正文 · 参考文献 · 图表说明{{ else }}Prompt · Text · References · Diagram notes{{ end }}</label><span>{{ if $zh }}含当前所选分支{{ else }}Includes your selected branch{{ end }}</span></div>
-  <textarea id="teach-copy-text" readonly aria-label="{{ if $zh }}完整教学材料{{ else }}Complete teaching material{{ end }}"></textarea>
-  <div class="teach-footer"><p id="copy-status" role="status" aria-live="polite"></p><button class="primary-button" type="button" id="copy-teaching">{{ if $zh }}复制完整材料{{ else }}Copy complete material{{ end }} <span aria-hidden="true">↗</span></button></div>
+  <p class="teach-intro">{{ if $zh }}复制到 Chat 或其他 Agent 即可开课，也可以接着写出你想先学的问题。正文、实验与数据从链接按需读取。{{ else }}Paste into Chat or another Agent to start learning. You can add the question you want to begin with. The article, experiments and data are read from links as needed.{{ end }}</p>
+  <p id="teach-preview-note" hidden>{{ if $zh }}本地改动发布后，Chat 才能从公开链接读取；当前可粘贴所需正文段落。{{ else }}Chat can read local changes from public links after publication; for now, paste the passage you need.{{ end }}</p>
+  <div class="teach-material-label"><label for="teach-copy-text">{{ if $zh }}开课指令与网页入口{{ else }}Learning request and web links{{ end }}</label><a id="teach-reference-link" href="#">{{ if $zh }}完整 Agent 参考材料{{ else }}Complete Agent reference material{{ end }}</a></div>
+  <textarea id="teach-copy-text" readonly aria-label="{{ if $zh }}简短开课指令{{ else }}Short learning request{{ end }}"></textarea>
+  <div class="teach-footer"><p id="copy-status" role="status" aria-live="polite"></p><button class="primary-button" type="button" id="copy-teaching">{{ if $zh }}复制开课指令{{ else }}Copy learning request{{ end }} <span aria-hidden="true">↗</span></button></div>
 </dialog>
 
 <div id="reference-backdrop" aria-hidden="true" hidden></div>

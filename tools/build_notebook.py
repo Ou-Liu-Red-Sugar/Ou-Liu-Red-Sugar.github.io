@@ -22,7 +22,63 @@ RELATIONS = {"part_of", "requires", "uses_method", "derived_from", "has_mechanis
 COMPANY_KINDS = {"company", "research"}
 READABLE_KINDS = {"html_full_text", "pdf_full_text", "tex_full_text", "publisher_full_text",
                   "supplied_excerpt", "selected_chapters", "site_body", "site_full_text"}
-READING_PROTOCOL = """Before substantive teaching, actually retrieve every required reading unit for the selected scope. Read its complete designated section, including necessary assumptions, tables and footnotes. A working URL or an editorial access date is not a runtime reading receipt. Record the actual version, location, scope and what it supports. If unavailable, use a previously verified equivalent source; if the required unit remains unavailable, identify that gap rather than teach it from memory. Start runtime_reading_log empty. Once reading is complete, use a substantive diagnostic or follow the reader's request for direct explanation. Advance one complete reasoning task at a time; skip mastered basics. Distinguish original facts, supplied teaching assumptions and inference."""
+READING_PROTOCOL = """This is reference material for the learner's current request. Use the supplied entry to teach the selected concept. Retrieve the relevant original unit when explaining a claim that depends on its assumptions, figures or rules; the reading list is a map for that work, not a prerequisite to the first lesson. Keep facts, supplied examples and inference distinct. Editorial access dates describe the author's work. The empty runtime_reading_log is an optional record field, not a requested response. Author-supplied scope notes below constrain factual use of the material; the learner's request determines the teaching task and first response."""
+
+
+def teaching_prompt(entry, references=None):
+    """A learner's request with selected teaching cues, separate from the full packet."""
+    article = urljoin(BASE_URL, entry["url"])
+    guide = urljoin(BASE_URL, "/zh/notebook/teaching-guide/")
+    teaching = entry.get("teaching", {})
+    require(isinstance(teaching, dict), f'{entry["id"]}: teaching must be an object')
+    for key in ("pitfalls", "examples", "source_ids"):
+        values = teaching.get(key, [])
+        require(isinstance(values, list) and all(isinstance(value, str) and value.strip() for value in values),
+                f'{entry["id"]}: teaching.{key} must be a list of nonempty strings')
+    reference_scope = ('本篇易混点、例子和文献都是参考，请按需选用。'
+                       if teaching else '本文内容按需参考。')
+    if entry["lang"] == "zh":
+        request = (
+            f'我想学习《{entry["title"]}》。以我这次提出的问题、学习目标和理解程度为准。{reference_scope}'
+            '\n\n请先读取 Agent 教学指南，按指南开展教学。若我已附具体问题，直接从该问题开始；'
+            '否则先问我这次想弄懂哪一部分，等我回答后再展开。'
+            '若网页无法读取，请说明需要我提供指南或正文的哪些片段。\n\n'
+            f'Agent 教学指南：{guide}\n正文：{article}'
+        )
+    else:
+        request = (
+            f'I want to learn “{entry["title"]}”. My current question, learning goal and understanding determine '
+            'the lesson. The article, selected distinctions, examples and sources are references to use as needed.\n\n'
+            'First read the Agent teaching guide and follow it. If I have included a specific question, begin with it; '
+            'otherwise ask which part I want to understand and wait for my answer. If a page cannot be read, '
+            'tell me which guide or article passages I need to provide. The guide is in Chinese.\n\n'
+            f'Agent teaching guide: {guide}\nArticle: {article}'
+        )
+    if not teaching:
+        return request
+    zh = entry["lang"] == "zh"
+    cues = [request, "本篇讲解参考（按需选用）" if zh else "Selected teaching references (use as needed)"]
+    for key, label in (("pitfalls", "讲解时重点区分：" if zh else "Distinctions to explain: "),
+                       ("examples", "可用例子：" if zh else "Available examples: ")):
+        if teaching.get(key):
+            cues.append(label.rstrip() + "\n" + "\n".join("- " + item for item in teaching[key]))
+    packet = entry.get("agent_packet", {})
+    readings = list(packet.get("required_readings", []))
+    for branch in packet.get("required_readings_by_branch", {}).values():
+        readings.extend(branch)
+    by_source = {reading["source_id"]: reading for reading in readings}
+    sources = []
+    for sid in dict.fromkeys(teaching.get("source_ids", [])):
+        reading = by_source.get(sid, {})
+        source = (references or {}).get(sid, {})
+        title = reading.get("title") or source.get("title")
+        uri = reading.get("access", {}).get("uri") or source.get("url")
+        require(title and uri, f'{entry["id"]}: teaching source {sid} needs a known title and public URL')
+        sources.append(f'- {title}: {urljoin(BASE_URL, uri)}')
+    if sources:
+        cues.append(("参考文献（其余见正文来源）：" if zh else "Selected sources (more in the article):") +
+                    "\n" + "\n".join(sources))
+    return "\n\n".join(cues)
 
 
 def require(condition, message):
@@ -417,7 +473,9 @@ def compile_notebook(source_root=ROOT, output_root=None):
                  f'Entry: {entry["id"]} | Node: {entry.get("node_id", "")} | Language: {lang} | Editorial revision: {entry["revised"]}']
         if entry.get("cutoff"):
             lines += [f'Research cutoff: {entry["cutoff"]} | Data period: {entry.get("period", "")}']
-        lines += ["", "## Teaching instructions", entry["prompt"], "", READING_PROTOCOL,
+        lines += ["", "## Reference use", READING_PROTOCOL,
+                  "", "## Author-supplied scope notes (reference only)",
+                  "<author_scope_notes>", entry["prompt"], "</author_scope_notes>",
                   "", "## Shared notation and writing conventions", notation_instruction(notation, lang),
                   f'[Notation and units]({BASE_URL}agent/{lang}/notation.md)',
                   "", "## Required readings and runtime protocol", "```json",
@@ -488,7 +546,7 @@ def compile_notebook(source_root=ROOT, output_root=None):
             entry["translation_url"] = target["url"]
         agent = "\n".join(lines) + "\n"
         write(Path("static") / entry["agent"].lstrip("/"), agent)
-        entry["teaching_context"] = agent
+        entry["teaching_context"] = teaching_prompt(entry, refs)
         if entry["body_format"] == "sections":
             for section in entry["sections"]:
                 section["body"] = resolve(section["body"], lang)

@@ -106,7 +106,7 @@ def build():
         fee=(fees['stock_adjustment'] if st['id']=='B' else 0)+st['puts']*fees['option_per_contract']+st['futures']*fees['future_per_contract']
         st['opening_fees']=fee
         st['opening_cash']=capital-sum(st['shares'][s]*obs[s] for s in q)-100*st['puts']*obs['put']-fee
-        st['holdings']=' · '.join([f'{s} {st["shares"][s]}股' for s in q]+[f'Put {st["puts"]}张',f'MES空头 {st["futures"]}张'])
+        st['holdings']=' · '.join([f'{s} {st["shares"][s]}'+('份' if s=='VOO' else '股') for s in q]+[f'Put {st["puts"]}张',f'MES空头 {st["futures"]}张'])
         st['opening_requirements']=requirements(st['shares'],st['puts'],obs,obs['put'],o['days'],sigma,inp)
     results={};flat=[]
     scens=scenarios()
