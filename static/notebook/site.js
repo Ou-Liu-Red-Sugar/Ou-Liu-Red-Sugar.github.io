@@ -101,6 +101,14 @@ for(const body of qa('.entry-body')){
     branch.id=id;
   });
   let activeBranch=branches[0].dataset.readingBranch;
+  // Keep endnote numbers aligned with references when other industries are hidden.
+  for(const list of qa('.footnotes ol',body)){
+    let number=list.start||1;
+    for(const note of [...list.children].filter(item=>item.tagName==='LI')){
+      if(note.hasAttribute('value'))number=note.value;
+      note.value=number++;
+    }
+  }
   const footnotes=new Map();
   for(const reference of qa('a[role="doc-noteref"],a.footnote-ref',body)){
     const note=hashElement(reference.hash);if(!note||!body.contains(note))continue;
