@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 645" role="img" aria-labelledby="title desc"><title id="title">MRVL：事前门槛与后来结果</title><desc id="desc">3月5日管理层给出FY2027全年数据中心增长约40%的展望，5月26日记录两个单季门槛合约的YES价格，5月27日公司公布单季数据中心收入18.327亿美元。</desc>
+<style>text{font-family:Inter,"Microsoft YaHei","Noto Sans CJK SC",sans-serif;fill:#1e3440}.muted{fill:#607581}.small{font-size:17px}.label{font-size:20px}.headline{font-size:27px;font-weight:650}.num{font-size:24px;font-weight:650}</style>
+<rect width="1000" height="645" fill="#f8faf9" rx="16"/>
+<text x="36" y="47" class="headline" >MRVL · 事前门槛与后来结果</text>
+<text x="36" y="78" class="small muted" >合约对象：FY2027 Q1 数据中心收入 · 截至 2026-05-02 的三个月</text>
+<defs><marker id="a" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0 0L8 4L0 8" fill="none" stroke="#89a0a6" stroke-width="1.5"/></marker></defs>
+<rect x="36" y="111" width="280" height="154" rx="9" fill="#edf3f1"/>
+<text x="54" y="140" class="small muted" >2026-03-05</text>
+<text x="54" y="178" class="label" >公司全年展望</text>
+<text x="54" y="211" class="small" >FY2027 全年</text>
+<text x="54" y="242" class="small" >数据中心增长约 40%</text>
+<path d="M324 187H346" stroke="#89a0a6" stroke-width="2" marker-end="url(#a)"/>
+<rect x="360" y="111" width="280" height="154" rx="9" fill="#edf3f1"/>
+<text x="378" y="140" class="small muted" >2026-05-26</text>
+<text x="378" y="178" class="label" >财报前的市场记录</text>
+<text x="378" y="211" class="small" >单季门槛 YES 价格</text>
+<text x="378" y="242" class="small" >39.5¢ 与 18.5¢</text>
+<path d="M648 187H670" stroke="#89a0a6" stroke-width="2" marker-end="url(#a)"/>
+<rect x="684" y="111" width="280" height="154" rx="9" fill="#edf3f1"/>
+<text x="702" y="140" class="small muted" >2026-05-27</text>
+<text x="702" y="178" class="label" >公司报告结果</text>
+<text x="702" y="211" class="small" >单季收入 18.327 亿美元</text>
+<text x="702" y="242" class="small" >同比约 +27.22%</text>
+<text x="36" y="314" class="label" >单季门槛与事前价格</text>
+<text x="36" y="345" class="small muted" >YES 历史价格记录：2026-05-26 12:00:04 EDT</text>
+<text x="36" y="393" class="small muted" >严格超过的收入</text>
+<text x="295" y="393" class="small muted" >对应同比增长边界</text>
+<text x="562" y="393" class="small muted" >YES 历史价格</text>
+<text x="800" y="393" class="small muted" >后来结果</text>
+<line x1="36" x2="964" y1="408" y2="408" stroke="#dce5e3"/>
+<text x="36" y="438" class="label" >18.5 亿美元</text>
+<text x="295" y="438" class="label" >约 28.42%</text>
+<text x="562" y="438" class="label" >39.5¢</text>
+<text x="800" y="438" class="label" >No</text>
+<line x1="36" x2="964" y1="459" y2="459" stroke="#dce5e3"/>
+<text x="36" y="489" class="label" >19 亿美元</text>
+<text x="295" y="489" class="label" >约 31.89%</text>
+<text x="562" y="489" class="label" >18.5¢</text>
+<text x="800" y="489" class="label" >No</text>
+<text x="36" y="545" class="small" >同比基期：去年同季 14.406 亿美元。全年展望不能直接替代单季门槛。</text>
+<text x="36" y="578" class="small muted" >历史价格提供概率报价线索；该时点买卖两侧和深度未恢复。</text>
+<text x="36" y="614" class="small muted" >来源：MRVL 公司公告与演示；Polymarket 合约规则和 CLOB 历史记录。</text>
+</svg>

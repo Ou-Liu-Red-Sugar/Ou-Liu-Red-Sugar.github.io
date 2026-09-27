@@ -572,15 +572,15 @@ This is reference material for the learner's current request. Use the supplied e
 ```
 
 ## Supplied entry
-同样是客户付款，买一件商品、使用一段时间的算力和购买一份保险，得到的东西并不相同。商品可以在交货时转到客户手中，云服务需要供应方持续运行设备，保险则让公司承担约定的未来责任。研究一家公司时，我们就要先认清它做的是哪些生意，再看每门生意怎样取得收入。
+客户付钱，买到的可能是一件商品、一段时间的算力，也可能是一份保险。卖商品要交货，提供云服务要持续运行设备，保险公司则要按合同承担未来的赔付责任。研究一家公司时，我们就要先弄清它做的是哪些生意：客户买到了什么，公司需要做什么，又按什么方式收费。
 
-[《投资组合、保证金与对冲策略》](/zh/notebook/settlement-margin-cash/)中的持仓取舍，也依赖对这些生意的判断。一家公司受到什么影响，客户还会不会购买，往往要回到具体的经营关系才能解释。从一笔交易往下看，产品、客户与收费方式就会逐渐联系起来。
+[《投资组合、保证金与对冲策略》](/zh/notebook/settlement-margin-cash/)讨论了怎样安排持仓与对冲；要判断该持有哪些股票，还得进一步理解背后的生意。客户为什么愿意购买、订单增加是否意味着需求变强，都需要从具体交易中寻找答案。
 
-## 从客户付款认出业务 {#nb-d01-business}
+## 使用者、采购者与付款者 {#nb-d01-business}
 
-知道客户买到了什么，还要看谁在使用、谁作出采购决定，以及谁来付款。个人到商店买鞋时，这几种角色可以由同一个人承担；企业给员工采购软件时，使用者与付款者就分开了。到了医疗服务，患者接受诊疗，还可能由保险或政府项目支付部分费用。同一家公司面对不同客户时，也可能提供不同的交付和收费安排。
+知道客户买到了什么，还要分清谁在使用、谁作出采购决定，以及谁来付款。个人给自己买鞋时，选购、使用和付款都由自己完成；企业给员工采购软件时，使用者与付款者就分开了。医疗服务中，患者接受诊疗，还可能由保险或政府项目支付部分费用。即便是同一家公司，面向不同客户时，提供的产品或服务、收取费用的方式也可能不同。
 
-下面可以选择一个行业，沿着其中的业务过程继续读。每条路径都会从客户和交付走到需求与证据；想比较不同生意时，可以切换行业，也可以显示全部。
+可以先选一个熟悉的行业，从具体例子读起。我们会先看这门生意怎样运转，再讨论怎样核实客户的需求；想对照不同生意时，可以切换行业或展开全部。
 
 <div data-reading-branch-controls hidden></div>
 
@@ -590,19 +590,19 @@ This is reference material for the learner's current request. Use the supplied e
 
 ### 从品牌出货到消费者购买 {#nb-d01-consumer-channels}
 
-我们先看 NIKE（NKE）的一件商品怎样到达消费者手中。NKE 设计、营销商品，并主要由独立制造商生产；商品随后可以批发给零售客户，也可以通过自有门店和网站直接卖给消费者。批发时，零售客户向 NKE 采购，再把商品卖给顾客；直营时，顾客直接向 NKE 付款。两条路径最后都服务消费者，但 NKE 面对的直接客户和收款环节已经不同了。[^nke]
+我们先看 NIKE（NKE）的一件商品怎样到达消费者手中。NKE 负责商品的设计和营销，生产则主要交给独立制造商；商品随后可以批发给零售客户，也可以通过自有门店和网站直接卖给消费者。批发时，零售客户向 NKE 采购，再把商品卖给顾客；直营时，顾客直接向 NKE 付款。两条路径最终都把商品交给消费者，但 NKE 面对的直接客户和收款环节不同。[^nke]
 
 <figure class="business-flow"><div class="business-flow-route"><p class="business-flow-route-title">批发路径</p><div class="business-flow-grid"><div class="business-flow-node"><small>品牌方</small><strong>NIKE（NKE）</strong><p>组织产品与供货。</p></div><p class="business-flow-edge">批发：向零售客户交货并结算</p><div class="business-flow-node"><small>零售客户</small><strong>备货与销售</strong><p>持有商品并面向消费者销售。</p></div><p class="business-flow-edge">终端：消费者购买商品并付款</p><div class="business-flow-node"><small>使用与购买</small><strong>消费者</strong><p>取得所购买的商品。</p></div></div></div><div class="business-flow-route"><p class="business-flow-route-title">直营路径</p><div class="business-flow-grid"><div class="business-flow-node"><small>品牌直营</small><strong>NIKE（NKE）</strong><p>通过自有门店或网站销售。</p></div><p class="business-flow-edge">NKE 交付商品；消费者直接付款</p><div class="business-flow-node"><small>直接购买</small><strong>消费者</strong><p>向品牌购买并取得商品。</p></div></div></div><figcaption>批发路径中，NKE 的直接客户是零售商；直营时，NKE 直接面向消费者。</figcaption></figure>
 
-沿着这两条销售路径继续看，库存留在哪一方、后续工作由谁承担，也会有所不同。批发商品交给零售客户后，零售客户还要备货、陈列，等待消费者购买。直营则把这些零售工作也留给 NKE，包括经营门店、处理线上订单、配送和售后。<span data-text-versions id="nb-d01-consumer-text-1">商品交到下一方手中以后，具体的退货、折扣和付款安排还要按合同辨认<span data-text-detail>（退货权、促销补贴和结算期限会影响各方最终收到的钱，以及库存和销售变化由谁承担；这里的两条路径只说明基本买卖关系）</span>。<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>所以我们既要看商品卖了多少，也要辨认这个“卖出”发生在品牌、零售还是消费者这一端。
+沿着这两条销售路径继续看，谁持有库存、谁承担后续工作，也会有所不同。批发时，零售客户接货后还要储存、陈列商品，等待消费者购买。采用直营方式时，NKE 还要承担经营门店、处理线上订单、配送和售后等工作。<span data-text-versions id="nb-d01-consumer-text-1">商品交给下一方后，退货、折扣和付款怎样安排，还要看具体合同<span data-text-detail>（退货权、促销补贴和结算期限会影响各方最终收到多少钱，以及各自承担哪些库存和销售责任）</span>。<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>所以我们既要看商品卖了多少，也要分清这里说的是品牌向零售客户出货，还是商品已经卖到了消费者手中。
 
-再看 Walmart（WMT），它采购商品后向消费者销售，同时也提供会员服务。顾客买走一件商品，取得的是这件商品；支付会费，则取得一定期间内的购物、配送等权益。两者可以服务于同一次购物活动，WMT 需要完成的工作却有不同的时间跨度：商品要交付，会员权益还要在约定期间持续提供。至于第三方商家在平台上卖货，则还会多出平台向商家收费的关系，我们可以在互联网平台版本里继续比较。[^wmt]
+再看 Walmart（WMT），它采购商品后向消费者销售，同时也提供会员服务。顾客买走一件商品，取得的是这件商品；支付会费，则取得一定期间内的购物、配送等权益。两者可以服务于同一次购物活动，WMT 既要交付顾客买下的商品，还要在约定期间持续提供会员权益。至于第三方商家在平台上卖货，还会涉及商家向平台支付服务费，我们可以在“互联网平台与广告”一节继续比较。[^wmt]
 
 ### 从订单追到实际需求 {#nb-d01-consumer-demand}
 
-回到 NKE 的批发与直营，再读“订单增加”就有了可以追问的对象。零售客户多进货，可能因为顾客买得更多，也可能是在补回此前较低的库存。如果货已经送进渠道，却还没有被消费者买走，品牌出货和终端购买就处在不同阶段。我们还要看零售客户的库存、促销和后续补货：折价卖出同样能清理库存，但它说明的购买意愿与原价畅销不同。等到商品已经被消费者买走，后续补货又能持续，需求判断才多了一层依据。
+回到 NKE 的批发业务，订单增加还要结合零售客户的销售情况来理解。零售客户多进货，可能因为顾客买得更多，也可能是在库存较低时补货。如果货已经送进渠道，却还没有被消费者买走，品牌出货和终端购买就处在不同阶段。我们还要看零售客户的库存、促销和后续补货：同样是商品售出，依靠折价清库存与按原价畅销，反映的购买意愿也不同。等到商品已经被消费者买走，零售客户又能持续补货，需求判断才多了一层依据。
 
-Agent 可以先查 NKE 的渠道说明，再沿有据的销售关系读取零售客户的材料，比较进货、库存与售出是否相接。研究直营时，就直接看消费者的购买，并用相关品类的消费资料帮助解释变化。企业研报若把出货增加解释成品牌需求增强，也要说明依据来自终端售出、渠道补库还是净售价。这些资料最终要回到消费者是否继续购买，以及这种购买怎样支持 NKE 在相应渠道取得收入。
+Agent 可以先查 NKE 的渠道说明，再沿已经确认的销售关系读取零售客户的材料，核对零售客户进了多少货、库存怎样变化、又卖出了多少。研究直营时，就直接看消费者的购买，并用相关品类的消费资料帮助解释变化。企业研报若把销售收入增长解释成品牌需求增强，我们也要分别核对终端销量、渠道补货和净售价的变化，看增长究竟来自哪里。这些材料最终要帮助我们判断，消费者是否持续购买，以及这种购买怎样支持 NKE 在各个渠道的销售。
 
 </section>
 
@@ -612,21 +612,21 @@ Agent 可以先查 NKE 的渠道说明，再沿有据的销售关系读取零售
 
 ### 从使用功能到购买服务 {#nb-d01-software-contracts}
 
-员工每天打开一套办公软件，企业为此购买的可能是一组账号和一段持续服务。Microsoft（MSFT）的企业应用订阅，就把可使用的功能、付费用户和套餐联系在一起：采购部门确定购买范围，员工使用相应账号，供应商继续提供运行、更新和支持。企业有多少员工、开通了多少账号，以及愿意继续为哪些功能付费，需要分别看。员工增加会扩大潜在使用范围，实际采购还取决于哪些人需要软件、选择什么套餐，以及原有许可怎样安排。[^msft]
+员工每天使用一套办公软件，企业为此购买的可能是一定数量的账号和订阅期内的服务。企业采购 Microsoft（MSFT）的应用订阅时，要先确定使用范围，再选择套餐、开通账号。员工通过这些账号使用软件，供应商则持续提供运行、更新和支持。企业有多少员工、开通了多少账号，以及愿意继续为哪些功能付费，需要分别看。员工增加可能带来更多使用需求，实际采购还要看哪些人需要软件、选择什么套餐，以及原有许可怎样安排。[^msft]
 
-软件也可以交给客户在自己的设施中运行。这时，客户取得软件使用权，并自行准备较多运行条件；供应商则交付软件，再按约定提供升级、维护或支持。<span data-text-versions id="nb-d01-software-text-1">许可与维护可以按不同期限组合在一份合同中<span data-text-detail>（软件许可可能有期限，也可能允许客户长期使用某个版本；后续升级和支持又有各自的合同期间。同一企业协议还可能同时包含本地许可和云服务，要按客户实际取得的权利分别理解）</span>。<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>转到云服务，客户还可以直接付费使用供应商提供的计算资源。
+软件也可以交给客户在自己的设施中运行。这时，客户要准备本地运行所需的设施，供应商则交付软件使用权，再按约定提供升级、维护或支持。<span data-text-versions id="nb-d01-software-text-1">软件使用权与后续维护服务的期限，可以在同一份合同中分别约定<span data-text-detail>（软件许可可能有期限，也可能允许客户长期使用某个版本；后续升级和支持又有各自的合同期间。同一企业协议还可能同时包含本地许可和云服务，要按客户实际取得的权利分别理解）</span>。<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>云服务还提供了另一种安排：客户直接付费使用供应商提供的计算资源。
 
-Amazon（AMZN）的 AWS 提供计算、存储、数据库等服务，客户可以按所用资源及合同安排付费。一个应用开始运行以后，会使用计算资源、保存数据，也可能调用数据库；这些服务各有计量方式，随后进入客户的账单。AWS 需要先准备可用的设备和运行条件；客户随后使用多少、使用哪些服务，则会按合同安排体现到账单中。<span data-text-versions id="nb-d01-software-text-2">按用量计费还可以与套餐或消费承诺结合<span data-text-detail>（按量、承诺折扣和固定套餐对应不同付款安排，不能把某一种服务的计量单位用于全部云业务。合同承诺、容量上线、实际使用和收款也需要分别定位）</span>。[^aws]<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>
+Amazon（AMZN）的 AWS 提供计算、存储、数据库等服务。AWS 需要先准备可用的设备和运行条件；客户运行应用时，会使用计算资源、保存数据，也可能调用数据库。AWS 按照客户选择的服务、实际用量和合同中的计费约定计算费用。<span data-text-versions id="nb-d01-software-text-2">按用量计费还可以与套餐或消费承诺结合<span data-text-detail>（按量、承诺折扣和固定套餐对应不同付款安排，不能把某一种服务的计量单位用于全部云业务。签下合同承诺、容量可用、实际使用和收款，也要按各自发生的时间观察）</span>。[^aws]<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>
 
-<figure class="business-flow"><div class="business-flow-grid"><div class="business-flow-node"><small>客户</small><strong>业务工作负载</strong><p>运行应用、保存数据、处理计算。</p></div><p class="business-flow-edge">使用计算、存储或数据库服务</p><div class="business-flow-node"><small>云服务方</small><strong>可用容量</strong><p>准备设备、电力和运行服务。</p></div><p class="business-flow-edge">按使用和合同计费</p><div class="business-flow-node"><small>付款安排</small><strong>客户账单</strong><p>计量单位、套餐和承诺共同影响金额。</p></div></div><figcaption>客户的工作负载形成资源使用，供应方的设备和电力形成服务能力；账单按所用服务及合同安排计算。</figcaption></figure>
+<figure class="business-flow"><div class="business-flow-grid"><div class="business-flow-node"><small>客户</small><strong>应用与计算任务</strong><p>运行应用、保存数据、执行计算。</p></div><p class="business-flow-edge">使用计算、存储或数据库服务</p><div class="business-flow-node"><small>云服务方</small><strong>可用容量</strong><p>准备设备、电力和运行服务。</p></div><p class="business-flow-edge">按使用和合同计费</p><div class="business-flow-node"><small>付款安排</small><strong>客户账单</strong><p>计量单位、套餐和承诺共同影响金额。</p></div></div><figcaption>客户运行应用和执行计算任务时，会使用相应资源；供应方准备设备和电力，提供服务能力。费用按所用服务及合同安排计算。</figcaption></figure>
 
 ### 把客户需求与供给条件接起来 {#nb-d01-software-demand}
 
-客户希望少花钱，也未必就要离开原来的供应商。Netflix（NFLX）与 AWS 工程师在一份联合案例中介绍，团队原来在 AWS EC2 上自行管理一批关系数据库，后来把其中若干应用迁到 Aurora 托管服务，以减轻许可证和运行维护负担。服务组合变了，客户仍在使用同一家云供应商。许可证、内部维护和云服务又是不同支出，因此 Agent 读到“客户降低成本”时，还要继续辨认省下的是哪笔钱，以及新的服务由谁提供。[^netflix]
+客户希望少花钱，也未必就要离开原来的供应商。Netflix（NFLX）与 AWS 工程师在一份联合案例中介绍，NFLX 团队原来在 AWS EC2 上自行管理一批关系型数据库，后来把其中若干应用迁到 Aurora 托管服务，以减少许可费用和运行维护负担。服务组合变了，客户仍在使用同一家云供应商。软件许可、内部维护和云服务各有相应费用，因此 Agent 读到“客户降低成本”时，还要继续辨认省下的是哪笔钱，以及新的服务由谁提供。[^netflix]
 
-客户要扩大使用，供应方也得按时提供所需容量。Talen Energy（TLN）在 2025 年公布与 AWS 的扩展供电安排，约定分阶段增加供电。有了长期合同，还要继续核对配套建设怎样推进、各阶段供电何时可用；电力又要与机房、设备及客户使用相接。我们就可以把客户的采用安排与这些建设进度放在一起，看它们在时间上能不能接上。[^talen]
+云客户要增加用量，AWS 也得按时准备好相应的服务能力。以电力为例，Talen Energy（TLN）在 2025 年公布与 AWS 的扩展供电安排，约定分阶段增加供电。签订长期合同以后，还要核对配套工程何时完成、各阶段供电何时开始。再把这些时间与机房和设备的建设进度、客户的使用计划相对照，我们就能检查供电是否跟得上服务需求。[^talen]
 
-沿着这些关系核验，客户侧要解释为什么续用或扩用，供应方则要交出相应资源。若某个客户增加计算，是为了向自己的客户提供付费服务，Agent 还可以再查这一层业务如何产生使用。外部研究也能帮助比较解释：英国竞争与市场管理局（CMA）在 2025 年的云市场研究中，区分了原有业务用量变化、成本优化、迁移和新增工作负载。客户支出增加可能对应不同变化，既有应用留在原供应商，也不等于每一项新任务都会交给它。把这些区别带回采购和使用材料，关于云需求的判断就同时有了购买理由和可交付条件。[^cma]
+核验云需求时，我们既要知道客户为什么继续使用或增加用量，也要看供应商能否按时提供服务。如果一家企业为了向自己的客户提供付费服务而增加算力，Agent 还可以进一步查看它的业务为什么需要这些计算资源。外部研究也能帮助我们区分不同的使用变化：英国竞争与市场管理局（CMA）在 2025 年的云市场研究中，区分了原有应用的用量变化、成本优化、应用迁移和新增任务。因此，客户是否继续为已有应用购买服务、又把新的应用或计算任务交给哪家供应商，需要分别核对。[^cma]
 
 </section>
 
@@ -640,17 +640,17 @@ Amazon（AMZN）的 AWS 提供计算、存储、数据库等服务，客户可�
 
 <figure class="business-flow"><div class="business-flow-grid"><div class="business-flow-node"><small>商品买家</small><strong>消费者</strong><p>向第三方商家购买商品。</p></div><p class="business-flow-edge">商品交付与商品价款</p><div class="business-flow-node"><small>商品卖家</small><strong>第三方商家</strong><p>提供商品，并选择所需平台服务。</p></div><p class="business-flow-edge">平台服务与相应费用</p><div class="business-flow-node"><small>服务提供者</small><strong>平台</strong><p>提供交易支持，以及可选的履约、广告等服务。</p></div></div><figcaption>商品交易与平台服务分别发生：买家向商家买商品，商家再按安排购买平台服务。</figcaption></figure>
 
-<span data-text-versions id="nb-d01-platform-text-1">商品放在平台仓库里，也要分清商品所有权和仓储服务<span data-text-detail>（由谁拥有货物、谁保管货物、谁代收货款，以及谁负责退货，各有相应安排。使用平台仓库并不能单独证明商品已被平台买下；交易额和平台收取的费用也属于不同口径）</span>。<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>所以研究平台时，只知道“网上卖了多少货”还不够，还要认出平台在这一笔交易中承担了哪些工作，向谁收取哪一笔费用。
+<span data-text-versions id="nb-d01-platform-text-1">商家使用平台仓库时，还要看货物属于谁、平台负责哪些工作<span data-text-detail>（由谁拥有货物、谁保管货物、谁代收货款，以及谁负责退货，各有相应安排。使用平台仓库并不能单独证明商品已被平台买下；交易额和平台收取的费用也属于不同口径）</span>。<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>所以研究平台收入时，要看每笔交易中平台提供了哪些服务、向谁收费。
 
-广告又带来了另一类付款者。Alphabet（GOOGL／GOOG）的搜索和视频服务吸引用户，广告主则希望通过这些服务接触用户。用户搜索信息、观看 YouTube 视频，广告主购买相关的展示、观看或互动机会，平台再按具体广告产品的投放和计量安排收费。自有服务之外，广告网络还会连接外部网站和应用；这些合作方提供广告位置，并按安排取得分成。广告主付了多少钱，与平台最终保留多少，因而也需要分开看。[^alphabet]
+广告又带来了另一类付款者。Alphabet（GOOGL／GOOG）的搜索和视频服务吸引用户，广告主则希望通过这些服务接触用户。用户搜索信息、观看 YouTube 视频，广告主购买相关的展示、观看或互动机会，平台再按具体广告产品的投放和计量安排收费。广告还可以出现在合作方的网站和应用里，由 GOOGL 的广告网络连接广告主与这些广告位置。合作方提供广告位置，并按约定取得分成，所以广告主支付的金额与平台最终保留的金额也要分开看。[^alphabet]
 
-愿意直接购买内容或功能的用户，也可以成为订阅客户。YouTube 的订阅和 Google One 等服务，让用户按套餐与周期付款，取得内容、存储或功能的持续使用权益。订阅与广告可以共享用户和基础设施，但客户买到的东西不同，平台接下来的内容与服务责任也不同。因此研究一项平台业务时，要先确定正在讨论的是哪一类客户和哪一种收费。
+用户也可以直接付费，成为订阅客户。订阅 YouTube 或 Google One 等服务时，用户按套餐和订阅周期付款，取得内容、存储或功能的持续使用权益。订阅与广告可以共享用户和基础设施，但付费者购买的东西不同，平台也要分别提供相应的内容和服务。研究一项平台业务时，也就要分清正在讨论的是哪一类客户、哪一种收费。
 
 ### 沿广告主的生意验证需求 {#nb-d01-platform-demand}
 
-平台卖出了广告，广告主还要看这笔支出给自己的生意带来了什么。Booking Holdings（BKNG）在营销说明中把 Google 列为重要渠道，并讨论点击成本、流量转成预订的效果，以及预订取消对营销效率的影响。一个人点击了广告，还要继续完成预订；预订又可能在后来取消。因此，平台已经卖出的点击与 BKNG 最后取得的业务结果，需要按各自时点观察。广告主自己的业务结果会反过来影响它愿意继续投入多少预算。[^bkng]
+平台收取广告费之后，广告主还要看这笔支出给自己的生意带来了什么。Booking Holdings（BKNG）在营销说明中把 Google 列为重要渠道，并讨论点击成本、流量转成预订的效果，以及预订取消对营销效率的影响。用户点击广告以后，是否完成预订、后来是否取消，都会影响 BKNG 的投放效果，进而影响它愿意继续投入多少预算。[^bkng]
 
-如果 Agent 要判断 GOOGL 的广告需求，就可以先沿这项已知采购关系读取 BKNG 的营销材料，再比较预算和预订发生了什么变化。需要解释旅游需求时，再追到实际旅行活动；企业研报关于获客成本、渠道竞争或广告回报的解释，也应与这些材料相对照。这样，我们就能把平台的使用情况与客户的付费理由接起来，继续判断这些收费能否维持。
+如果 Agent 要判断 GOOGL 的广告需求，就可以先沿这项已知采购关系读取 BKNG 的营销材料，比较广告预算和预订怎样变化。需要解释旅游需求时，再查看实际旅行活动；企业研报关于获客成本、渠道竞争或广告回报的解释，也应与这些材料相对照。
 
 </section>
 
@@ -658,11 +658,11 @@ Amazon（AMZN）的 AWS 提供计算、存储、数据库等服务，客户可�
 
 ## 半导体与硬件：生产、交付与使用 {#nb-d01-semiconductor-story}
 
-### 一项计算能力怎样成为产品 {#nb-d01-semiconductor-production}
+### 计算需求与产品交付 {#nb-d01-semiconductor-production}
 
-NVIDIA（NVDA）提供的产品，既可以进入数据中心，也可以用于个人电脑和专业工作。图形处理器（GPU）是其中一类产品；数据中心客户需要计算和互连能力，采购的可能是芯片、模块，也可能是由硬件、软件与配套部件组成的系统。个人电脑产品则可能先交给电脑厂商、板卡商或销售渠道，再由最终用户购买。直接采购方与最终使用者未必是同一个主体，要把这些产品交给客户，还得让制造、封装和配套环节按时接续。[^nvda]
+NVIDIA（NVDA）提供的产品，既可以进入数据中心，也可以用于个人电脑和专业工作。图形处理器（GPU）是其中一类产品；数据中心客户需要计算和互连能力，采购的可能是芯片、模块，也可能是由硬件、软件与配套部件组成的系统。面向个人电脑的产品则可能先交给电脑厂商、板卡商或销售渠道，再由最终用户购买。直接采购方与最终使用者未必是同一个主体。不论最终用在哪里，NVDA 要把产品交给客户，都需要制造、封装和配套工作按时完成。[^nvda]
 
-沿着交付继续看，TSMC（TSM／2330）按客户设计提供晶圆制造和封装，ASML Holding（ASML）则为芯片制造商提供光刻设备、软件和相关服务。设计企业安排产品研发与采购，晶圆厂准备工艺、厂房和设备，设备供应商再完成自己的制造、交付和维护。<span data-text-versions id="nb-d01-semiconductor-text-1">这里按各家公司交付的东西区分业务<span data-text-detail>（TSM 是在美国交易的存托证券代码，2330 是台湾上市普通股代码，二者对应同一家 TSMC。晶圆制造与封装服务由客户设计和生产要求引出，不等于代工企业直接销售自有品牌芯片）</span>。<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>同一项终端需要，到了不同企业手中，会变成不同的订单与交付。[^tsmc]<sup>，</sup>[^asml]
+在芯片生产中，TSMC（TSM／2330）按客户设计提供晶圆制造和封装服务，ASML Holding（ASML）则为芯片制造商提供光刻设备、软件和相关服务。设计企业负责产品研发并安排生产采购，晶圆厂开发工艺、建设厂房并购置设备，设备供应商则制造和交付设备，并提供后续维护。<span data-text-versions id="nb-d01-semiconductor-text-1">这些企业为客户提供的产品和服务各不相同<span data-text-detail>（TSM 是在美国交易的存托证券代码，2330 是台湾上市普通股代码，二者对应同一家 TSMC。TSMC 根据客户设计和生产要求提供制造与封装服务，不直接销售自有品牌芯片）</span>。[^tsmc]<sup>，</sup>[^asml]<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>
 
 <figure class="business-flow"><div class="business-flow-route"><p class="business-flow-route-title">产品制造与交付</p><div class="business-flow-grid"><div class="business-flow-node"><small>产品与系统</small><strong>芯片设计和产品企业</strong><p>提出设计与生产要求，安排采购。</p></div><p class="business-flow-edge" data-flow-direction="both">产品企业委托并付款；服务商制造、封装并交付</p><div class="business-flow-node"><small>制造与封装</small><strong>晶圆及封装服务商</strong><p>按客户设计完成约定的生产与交付。</p></div></div></div><div class="business-flow-route"><p class="business-flow-route-title">生产设备与服务</p><div class="business-flow-grid"><div class="business-flow-node"><small>设备使用者</small><strong>晶圆制造企业</strong><p>建设和运行产线，采购所需设备与服务。</p></div><p class="business-flow-edge" data-flow-direction="both">制造企业采购并付款；供应商交付设备与服务</p><div class="business-flow-node"><small>设备供给</small><strong>设备及装机服务商</strong><p>提供设备、维护和升级等服务。</p></div></div></div><figcaption>生产委托与设备采购分属不同交易：产品企业取得制造和封装交付，制造企业则采购生产设备及相应服务。</figcaption></figure>
 
@@ -670,11 +670,11 @@ NVIDIA（NVDA）提供的产品，既可以进入数据中心，也可以用于�
 
 ### 从终端使用追到新增采购 {#nb-d01-semiconductor-demand}
 
-客户已经在使用的设备，也会影响后续采购。CoreWeave（CRWV）管理层在 2026 年 8 月的电话会上披露，公司新签了一份延续至 2029 年的 A100 算力服务合同。这个案例说明旧代设备仍能承接付费服务。客户的服务业务增长以后，可能先利用现有设备或提高效率，也可能增加新设备；我们还要看客户作出了哪一种选择，才能判断供应商是否获得新的采购机会。[^coreweave]
+客户已经在使用的设备，也会影响后续采购。CoreWeave（CRWV）管理层在 2026 年 8 月的电话会上披露，公司新签了一份延续至 2029 年的 A100 算力服务合同。这个案例说明，旧代设备仍能用于提供收费服务。客户的服务业务增长以后，可能先利用现有设备或提高效率，也可能购置新设备；要判断设备供应商能否拿到新订单，还得看客户具体选择了哪种办法。[^coreweave]
 
-以 Amazon（AMZN）的 AWS 为例，新增的计算需求还可能落到不同产品上。AMZN 在 2026 年 4 月的公告中介绍了自研 Trainium 芯片的落地情况，同时公布了从 2026 年起部署更多 NVDA GPU 的计划。自研与外购可以同时存在，已经采用的产品与未来部署计划也各有时点。Agent 就需要沿产品选择和采购安排，判断目标公司实际承担哪一部分交付，再核这些产品何时在客户那里上线使用。[^aws-gpu]
+以 Amazon（AMZN）的 AWS 为例，新增计算需求也可能由不同的芯片满足。AMZN 在 2026 年 4 月的公告中，既介绍了已经部署的自研 Trainium 芯片，也公布了从 2026 年起部署更多 NVDA GPU 的计划。同一家云服务商可以同时采用自研与外购芯片。Agent 因而需要查看产品选择和采购安排，判断哪些采购与所研究的公司有关，再分别核对产品交付和客户部署的进度。[^aws-gpu]
 
-企业研报可以帮助我们检查这条关系中的假设。KGI 在 2025 年 10 月 1 日的 TSMC 报告中，根据当时客户的计划，上调了先进封装的需求和产能预测；它对后续短缺的判断，又以客户维持当时需求水平为条件。读到这样的预测，就有了继续核验的对象：客户是否仍按原计划采购，工厂是否交出了预计容量，设备又是否顺利部署。把报告与后来的建设、采购和交付材料放在一起，可以继续检验哪些解释仍然适用、哪些需要更新。[^kgi]
+企业研报中的预测，也可以沿这些采购和生产安排逐项核对。KGI 在 2025 年 10 月 1 日的 TSMC 报告中，根据当时客户的计划，上调了先进封装的需求和产能预测；它对后续短缺的判断，又以客户维持当时需求水平为条件。接下来就要核对：客户是否仍按原计划采购，封装产能是否按预期增加，客户买到的设备又是否顺利部署。用后来披露的建设、采购和交付材料对照这些预测，可以继续判断原来的需求假设是否仍然成立、产能预测是否需要调整。[^kgi]
 
 </section>
 
@@ -684,19 +684,19 @@ NVIDIA（NVDA）提供的产品，既可以进入数据中心，也可以用于�
 
 ### 同一台设备，不同阶段的生意 {#nb-d01-industrial-lifecycle}
 
-Otis Worldwide（OTIS）既交付新电梯，也为已经安装的设备提供维保、维修和改造。建设一栋楼时，开发商或总承包商等客户采购设备，OTIS 需要制造、供货，再配合现场进度完成安装与调试。客户可以先支付预付款，再按材料到场、安装等进度支付后续款项。等到设备开始使用，业主或设施管理人接下来关心的事情也会改变：电梯能否按要求运行，出现问题时由谁检查、维修，零件怎样更换，都会进入持续服务。[^otis]
+Otis Worldwide（OTIS）既交付新电梯，也为已经安装的设备提供维保、维修和改造。建设一栋楼时，开发商或总承包商等客户采购设备，OTIS 需要制造、供货，再配合现场进度完成安装与调试。客户可以先支付预付款，再按材料到场、安装等进度支付后续款项。等到设备开始使用，业主或设施管理人就要考虑：电梯能否按要求运行，出现问题时由谁检查、维修，零件怎样更换。[^otis]
 
-这时，客户购买的是一段期间内的维护及约定服务。OTIS 也维护其他厂商的设备，因此一台设备由谁制造，与后来由谁提供付费维保，需要分别辨认。<span data-text-versions id="nb-d01-industrial-text-1">维保合同的覆盖范围会影响后续工作和收费<span data-text-detail>（检查、保养、故障处理和零件更换可以有不同的合同范围；某项维修是否已包含在服务价内，要回到相应条款。装机设备、在保设备和付费维保设备也各有计数范围）</span>。<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>再过一段时间，业主可能还会为升级部件或系统另做预算，这就进入了设备改造的业务，需要重新安排施工范围和停机时间。
+这时，客户购买的是一定期间内的维保服务。OTIS 也维护其他厂商的设备，因此一台设备由谁制造，与后来由谁提供付费维保，需要分别辨认。<span data-text-versions id="nb-d01-industrial-text-1">维保合同的覆盖范围会影响后续工作和收费<span data-text-detail>（检查、保养、故障处理和零件更换各有相应的合同约定；某项维修是否已包含在服务价内，要回到相应条款。装机设备、在保设备和付费维保设备也各有计数范围）</span>。<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>设备使用一段时间后，业主还可能为升级部件或系统另做预算。这类设备改造需要重新确定施工范围，并安排停机时间。
 
 <figure class="business-flow"><div class="business-flow-grid"><div class="business-flow-node"><small>建设阶段</small><strong>新设备采购者</strong><p>购买设备、安装与调试。</p></div><p class="business-flow-edge">设备投入使用后</p><div class="business-flow-node"><small>运行阶段</small><strong>业主或管理人</strong><p>购买约定范围的维保和维修。</p></div><p class="business-flow-edge">出现升级需要时</p><div class="business-flow-node"><small>更新阶段</small><strong>改造采购者</strong><p>安排预算和停机，购买部件或系统升级。</p></div></div><figcaption>同一台设备在不同阶段可能对应不同采购者。新设备、维保和改造分别以实际合同为准。</figcaption></figure>
 
-大型工程还会把设备、施工和管理组织在一份项目安排中。Fluor（FLR）提供工程设计、采购、施工及项目管理等服务，承包范围由合同规定。可报销合同通常按约定的成本和费用安排结算，总价合同则围绕约定工作范围确定价格。<span data-text-versions id="nb-d01-industrial-text-2">两种安排会改变客户与承包商各自承担的成本责任<span data-text-detail>（可报销合同仍有可报销范围、费率和履约条件；总价或最高限价合同也需连同范围变更、索赔和其他条款理解，另有混合合同。项目总投资、承包金额和承包商最终取得的收入各有范围）</span>。[^fluor]<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>比较这类订单时，就还要看合同金额对应多少工作、哪些支出由谁承担。
+大型工程还需要统筹设备采购、施工和项目管理。Fluor（FLR）提供工程设计、采购、施工及项目管理等服务，承包范围由合同规定。采用可报销合同时，客户按约定报销相应成本，并支付费用；采用总价合同时，承包商则按约定价格完成规定范围内的工作。<span data-text-versions id="nb-d01-industrial-text-2">两种安排会改变客户与承包商各自承担的成本责任<span data-text-detail>（可报销合同仍有可报销范围、费率和履约条件；总价或最高限价合同也需连同范围变更、索赔和其他条款理解，另有混合合同。项目总投资、承包金额和承包商最终取得的收入各有范围）</span>。[^fluor]<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>比较这类订单时，就还要看合同金额对应多少工作、哪些支出由谁承担。
 
-### 让订单回到项目进度 {#nb-d01-industrial-demand}
+### 订单与项目进度 {#nb-d01-industrial-demand}
 
 拿到订单以后，项目还需要按计划推进。签约、取得开工通知、制造或施工、交付验收和付款，分别说明项目已经走到哪里。GE Vernova（GEV）的一份 2023 年订单公告，就介绍了为业主 EnBW 提供设备、建设及后续服务的安排。再读业主的 Heilbronn 项目页，可以看到主要部件交付、启动和商业投运的后续计划。<span data-text-versions id="nb-d01-industrial-text-3">把供应方最初的计划与业主后来的安排对照，就能发现预期投运时间发生了变化<span data-text-detail>（2023 年 11 月的供应方公告预计于 2026 年底投运；2026 年 9 月 27 日读取的业主项目表暂定于 2027 年下半年投入商业运行）</span>。[^gev]<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>核对项目进度时，我们就需要辨认这笔订单已经走到了哪一步，接下来还要完成什么。
 
-Agent 可以先查直接采购方和供应方：采购方的项目是否推进，设备或分包工作是否能够按时交付。如果订单来自总包，而项目资金或建设安排仍不清楚，再查背后的业主。维保业务则要回到实际合同续签和服务覆盖，改造要回到业主预算及实施安排。企业研报若用订单增长推算后续收入，就要交代这些订单怎样转成实际工作；若用装机基础推算服务增长，则要解释哪些设备会继续成为付费客户。这时，新设备订单、既有设备运行和改造需求就能各自找到相应的依据。
+Agent 可以先读直接采购方和供应方的材料，看采购方的项目是否在推进，设备或分包工作能否按时交付。如果订单来自总包，而项目资金或建设安排仍不清楚，再查背后的业主。研究维保业务，要看合同是否续签、服务覆盖哪些设备；研究改造业务，则要看业主预算及实施安排。企业研报若用订单增长推算后续收入，就要交代订单中的工作怎样按项目进度完成；若用装机基础推算服务增长，则要解释哪些设备会继续由客户付费维保。
 
 </section>
 
@@ -706,21 +706,21 @@ Agent 可以先查直接采购方和供应方：采购方的项目是否推进�
 
 ### 一次诊疗中的不同交付 {#nb-d01-healthcare-delivery}
 
-我们以美国医疗市场为例，先把患者接受的服务与机构之间的采购分开看。患者需要诊疗，医生参与选择治疗办法，医疗机构组织人员与设施，同时采购所需药品和器械。患者接受服务以后，费用还可能由商业保险、政府项目和患者分别承担。治疗需要怎样落实为采购和付款，要沿具体的产品与服务继续辨认。
+我们以美国医疗市场为例，先把患者接受的服务与机构之间的采购分开看。患者需要诊疗，医生参与选择治疗办法，医疗机构组织人员与设施，同时采购所需药品和器械。患者接受服务以后，费用还可能由商业保险、政府项目和患者分别承担。这些治疗需要怎样带来采购和付款，要看诊疗所需的产品与服务分别由谁提供。
 
-Johnson & Johnson（JNJ）的业务包括药品和医疗器械。药品可以经批发商、药房或医疗机构进入患者治疗，药厂的直接买方与最终使用者因而可能分开；器械可以由机构采购，也可以经批发或零售渠道交付，随后由相应人员使用。器械内部还有设备、植入产品和耗材之别：一台可持续使用的设备，与随诊疗消耗的材料，对应不同的采购与补货过程。同一项诊疗需要，可能同时带来不同供应方的产品交付。[^jnj]
+Johnson & Johnson（JNJ）的业务包括药品和医疗器械。药品可以通过批发商、药房或医疗机构等渠道，最终用于患者治疗，药厂的直接买方与最终使用者因而未必是同一方；器械可以由机构采购，也可以经批发或零售渠道交付，随后由相应人员使用。医疗器械中又有设备、植入产品和耗材等不同类型：一台可持续使用的设备，与随诊疗消耗的材料，对应不同的采购与补货过程。同一项诊疗需要，可能同时带来不同供应方的产品交付。[^jnj]
 
 <span data-text-versions id="nb-d01-healthcare-text-1">医疗机构采购药品或器械，再把它们用于患者的诊疗，产品买卖与医疗服务因而对应不同的交付<span data-text-detail>（机构直接向药厂采购时，药厂售价与机构采购价就是同一笔交易的两端；经分销渠道采购时，则要分清各环节的买卖。药品销售的返利、折扣和退货会影响净收入；器械究竟按设备出售、租赁、耗材或服务收费，需按所选产品合同确认）</span>。<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>
 
-HCA Healthcare（HCA）则组织医院与门诊设施提供医疗服务。患者接受住院、门诊或手术等服务，医院需要准备医护人员、场所和耗材，付款来源包括政府医疗项目、保险计划和患者。<span data-text-versions id="nb-d01-healthcare-text-2">支付金额取决于相应项目或合同的安排<span data-text-detail>（相关支付可以按病例、诊断、住院日或服务项目计算；Medicare、Medicaid、商业保险和患者自付各有适用关系。医院账单标价、预计可收金额和最后收到的现金需要分别辨认）</span>。[^hca]<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>HCA 随医疗服务的履行确认收入，现金到账又是另一个环节，还需要跟进支付核定和实际收款。
+HCA Healthcare（HCA）则通过医院与门诊设施提供医疗服务。患者接受住院、门诊或手术等服务，医院需要准备医护人员、场所和耗材，付款来源包括政府医疗项目、保险计划和患者。<span data-text-versions id="nb-d01-healthcare-text-2">支付金额取决于相应项目或合同的安排<span data-text-detail>（相关支付可以按病例、诊断、住院日或服务项目计算；Medicare、Medicaid、商业保险和患者自付各有适用关系。医院账单标价、预计可收金额和最后收到的现金需要分别辨认）</span>。[^hca]<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>HCA 随着医疗服务的提供确认收入，现金到账又是另一个环节，我们还需要跟进支付核定和实际收款。
 
 <figure class="business-flow"><div class="business-flow-route"><p class="business-flow-route-title">直接采购药品或器械</p><div class="business-flow-grid"><div class="business-flow-node"><small>产品供给</small><strong>药品与器械企业</strong><p>直接向医疗机构供应药品或器械。</p></div><p class="business-flow-edge" data-flow-direction="both">向机构供货；机构按采购安排付款</p><div class="business-flow-node"><small>采购与采用</small><strong>医疗机构</strong><p>采购相应产品，供诊疗使用。</p></div></div></div><div class="business-flow-route"><p class="business-flow-route-title">诊疗与患者自付</p><div class="business-flow-grid"><div class="business-flow-node"><small>服务提供者</small><strong>医疗机构与医护团队</strong><p>组织人员、设施和所需药械。</p></div><p class="business-flow-edge" data-flow-direction="both">向患者提供诊疗；患者按安排支付自付部分</p><div class="business-flow-node"><small>接受服务</small><strong>患者</strong><p>接受诊疗，承担约定的自付费用。</p></div></div></div><div class="business-flow-route"><p class="business-flow-route-title">第三方支付</p><div class="business-flow-grid"><div class="business-flow-node"><small>费用支付方</small><strong>保险与政府项目</strong><p>按适用项目和合同核定费用。</p></div><p class="business-flow-edge" data-flow-direction="forward">按项目与合同向医疗机构支付</p><div class="business-flow-node"><small>服务提供者</small><strong>医疗机构</strong><p>提供相应服务，并办理结算。</p></div></div></div><figcaption>按美国医疗业务的关系示意：图中展示机构直接采购，产品也可以经分销渠道供货。诊疗与支付再按各自合同或项目安排完成。</figcaption></figure>
 
-### 从临床需要到可支付的使用 {#nb-d01-healthcare-demand}
+### 治疗需要、产品采用与支付 {#nb-d01-healthcare-demand}
 
-患者有治疗需要以后，还要找到能够采用、供货和支付的具体路径。某个产品获准销售，说明它取得了相应准入；医疗机构愿意采用，还涉及诊疗安排、采购与人员使用；患者最终用得上，又要看实际获得服务和支付覆盖。这些材料回答的问题不同。Agent 因而要先选定产品和市场，再沿渠道、机构及付款关系核对。
+从患者需要治疗，到实际用上某个产品，中间还有采用、供货和支付的安排。产品获准销售，说明它取得了相应准入；医疗机构是否愿意采用，还涉及诊疗安排、采购与人员使用；患者最后能否用上，又要看能否获得相应服务，以及费用能否得到支付。Agent 核对时就要先选定产品和市场，再沿渠道、机构及付款关系逐项查证。
 
-如果药厂的直接客户是批发商，Agent 可以先看其采购与库存，再核医院或药房的实际使用；研究医院服务，则要分别看患者活动与支付方的结算安排。企业研报中关于患者人数或市场空间的估计，也要接到这种采用过程：有多少需要能够进入治疗，机构怎样采购，目标公司最后按什么条件取得收入。只有把这些环节接起来，我们才能知道一项医疗需求会怎样进入所研究公司的业务。
+如果药厂的直接客户是批发商，Agent 可以先看其采购与库存，再看医院的用药情况，或药房的销售、配药情况；研究医院服务，则要分别看患者实际接受的诊疗与支付方的结算安排。企业研报中关于患者人数或市场空间的估计，也要结合前面的采用过程来理解：有多少治疗需要能够得到满足，机构怎样采购，目标公司最后按什么条件取得收入。
 
 </section>
 
@@ -730,21 +730,21 @@ HCA Healthcare（HCA）则组织医院与门诊设施提供医疗服务。患者
 
 ### 账户、贷款与支付各自提供什么 {#nb-d01-finance-services}
 
-把钱存入银行、向银行借款和通过银行卡付款，是几种不同的交易。以 JPMorgan Chase（JPM）的消费银行业务为例，存款客户使用账户，把钱存入银行，并保留按相应条款提款的权利；借款客户取得融资，随后需要还本付息。同一个人可以同时承担这两种角色，但存款本金、贷款本金和银行收取的利息、服务费，各有不同的含义。因此客户交来的钱和银行取得的收入，需要沿各自的权利与付款责任分别理解。[^jpm]
+把钱存入银行、向银行借款和通过银行卡付款，是几种不同的交易。以 JPMorgan Chase（JPM）的消费银行业务为例，存款客户使用账户，把钱存入银行，并保留按相应条款提款的权利；借款客户取得融资，随后需要还本付息。同一个人可以同时承担这两种角色，但存款本金、贷款本金和银行收取的利息、服务费，各有不同的含义。[^jpm]
 
-银行还需要为这些承诺准备资金，负担资金成本，并承担借款人不能按约偿付造成的损失。存款越多或贷款越多，只说明业务规模的一部分；研究新增贷款时，还要看借款人为什么需要钱，靠什么还款。JPM 同时经营其他金融业务，这里先用账户与贷款认清消费银行中的基本关系。
+银行还需要为这些承诺准备资金，负担资金成本，并承担借款人不能按约偿付造成的损失。存款和贷款金额只能反映业务规模的一部分；研究新增贷款时，还要看借款人为什么需要钱，靠什么还款。JPM 同时经营其他金融业务，这里先用账户与贷款认清消费银行中的基本关系。
 
-再看 Visa（V），它为发卡、收单等参与者提供网络处理服务。消费者用卡付款，发卡方服务持卡人，收单方服务商户，支付网络帮助完成授权、清算和结算等处理。<span data-text-versions id="nb-d01-finance-text-1">商户承担的费用、机构间的交换费和 V 的网络收入，需要分别辨认<span data-text-detail>（交换费通常由收单方向发卡方支付；网络收费涉及支付金额、处理笔数、跨境和增值服务等安排，并受客户激励影响。V 不提供发卡行的持卡人消费信贷，但仍有自己的结算资金责任）</span>。[^visa]<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>交易流经多少金额，与网络最终收取多少费用，便是两个不同的观察对象。
+再看 Visa（V），它为发卡、收单等参与者提供网络处理服务。消费者用卡付款，发卡方服务持卡人，收单方服务商户，支付网络帮助完成授权、清算和结算等处理。<span data-text-versions id="nb-d01-finance-text-1">商户承担的费用、机构间的交换费和 V 的网络收入，需要分别辨认<span data-text-detail>（交换费通常由收单方向发卡方支付；网络收费涉及支付金额、处理笔数、跨境和增值服务等安排，并受客户激励影响。V 不提供发卡行的持卡人消费信贷，但仍有自己的结算资金责任）</span>。[^visa]<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>交易金额有多大，网络最终收取的费用有多少，是两个不同的观察对象。
 
 <figure class="business-flow"><div class="business-flow-route"><p class="business-flow-route-title">银行：存款与贷款</p><div class="business-flow-grid"><div class="business-flow-node"><small>存款客户</small><strong>储户</strong><p>使用账户，保留按条款提款的权利。</p></div><p class="business-flow-edge" data-flow-direction="both">储户存入本金；银行按约办理提款</p><div class="business-flow-node"><small>账户与融资</small><strong>银行</strong><p>提供账户和贷款，负担资金成本与信用损失。</p></div><p class="business-flow-edge" data-flow-direction="both">银行发放贷款；借款人还本付息</p><div class="business-flow-node"><small>融资客户</small><strong>借款人</strong><p>使用借款，并按约偿还。</p></div></div></div><div class="business-flow-route"><p class="business-flow-route-title">支付网络：处理服务</p><div class="business-flow-grid"><div class="business-flow-node"><small>网络客户</small><strong>发卡、收单等机构</strong><p>为持卡人或商户服务，并使用支付网络。</p></div><p class="business-flow-edge" data-flow-direction="both">机构按约付费；网络提供处理服务</p><div class="business-flow-node"><small>网络服务方</small><strong>支付网络</strong><p>帮助完成授权、清算和结算等处理。</p></div></div></div><div class="business-flow-route"><p class="business-flow-route-title">保险：保费与未来责任</p><div class="business-flow-grid"><div class="business-flow-node"><small>购买保险</small><strong>投保人</strong><p>按合同购买保障并支付保费。</p></div><p class="business-flow-edge" data-flow-direction="forward">向承保公司支付保费</p><div class="business-flow-node"><small>承担责任</small><strong>承保公司</strong><p>收取保费，并承担合同约定的责任。</p></div><p class="business-flow-edge" data-flow-direction="forward">在约定情形出现时赔付或给付</p><div class="business-flow-node"><small>取得赔付或给付</small><strong>合同约定的收款方</strong><p>依保单确定相应的收款权利。</p></div></div></div><figcaption>银行分别与储户、借款人交易；支付网络和保险各有自己的客户与责任。本金、服务费与保费分别理解，保险收款方及条件由合同确定。</figcaption></figure>
 
 ### 收取保费以后的责任 {#nb-d01-finance-insurance}
 
-保险提供的是另一种承诺。Chubb（CB）的业务包括财产与责任保险，以及寿险等类别。投保人支付保费，购买约定期间和范围内的保障；承保公司则在合同约定的情形出现时承担相应赔付。例如，CB 英国商业财产险的产品介绍就列出了财产损坏，以及损坏后的营业中断保障。经纪人或代理人可以帮助客户购买保险，承担赔付的承保人又是另一个角色。保费收到以后，约定的保障和未来赔付责任还会持续。[^chubb]
+保险提供的是另一种承诺。Chubb（CB）的业务包括财产与责任保险，以及寿险等类别。投保人支付保费，购买约定期间和范围内的保障；承保公司则在合同约定的情形出现时承担相应的赔付责任。例如，CB 英国商业财产险的产品介绍就列出了财产损坏保障，以及损坏后的营业中断保障。经纪人或代理人可以帮助客户购买保险。保费收到以后，约定的保障和未来赔付责任还会持续。[^chubb]
 
-不同保险产品承诺的时间和条件不同，收到保费与最终履约之间可能相隔很久。<span data-text-versions id="nb-d01-finance-text-2">公司需要估计后续赔付，确认相应负债，并以资产和资本支持履约<span data-text-detail>（损失准备金反映对尚未支付的赔款及相关费用的估计，属于保险负债。保单的保障期间与赔付持续时间也可能不同，部分已发生事故的理赔会在保障期结束后继续）</span>。[^chubb]<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>研究这类业务时，我们就要把客户购买保障的需要，与公司承担承诺的条件一起看。
+不同保险产品承诺的时间和条件不同，收到保费与最终履约之间可能相隔很久。<span data-text-versions id="nb-d01-finance-text-2">公司需要估计后续赔付，确认相应负债，并以资产和资本支持履约<span data-text-detail>（损失准备金反映对尚未支付的赔款及相关费用的估计，属于保险负债。保单的保障期间与赔付持续时间也可能不同，部分已发生事故的理赔会在保障期结束后继续）</span>。[^chubb]<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>研究这类业务时，我们就要把客户购买保障的需要，与公司履行承诺的条件一起看。
 
-Agent 沿不同业务核需求时，追问的对象也会改变。银行要同时看借款与偿付来源；支付网络要分清实际交易增加，还是客户换了支付方式或交易路由；保险则要区分保费变化来自费率、保障范围、投保价值还是客户数量，再接到相应赔付。企业研报若只写“规模增长”，这些关系仍需展开。规模变化只有回到相应业务里，才会显示它对收费和履约的实际含义。
+Agent 核对不同业务的需求时，追问的对象也会改变。银行要看客户为什么借款、靠什么还款；支付网络要分清实际交易增加，还是客户换了支付方式或交易路由；保险则要区分保费变化来自费率、保障范围、投保价值还是客户数量，再看这些变化怎样影响相应的赔付责任。企业研报若只写“规模增长”，我们就还要弄清增长来自哪里，以及它怎样改变收费和履约责任。
 
 </section>
 
@@ -754,33 +754,33 @@ Agent 沿不同业务核需求时，追问的对象也会改变。银行要同�
 
 ### 同一批资源可以形成不同生意 {#nb-d01-energy-products}
 
-以油气业务为例，公司可以开采并出售资源，也可以把买来的原料加工成燃料或化工产品。ExxonMobil（XOM）的业务就涉及油气生产、下游加工与化工等活动。资源生产面对的是接收油气的买方，加工业务再把原料转成适合具体用途的产品，客户购买的东西已经不同。因此研究它的客户需求时，就要先确定正在看哪一种产品和哪一个环节。[^xom]
+以油气业务为例，公司可以开采并出售资源，也可以把买来的原料加工成燃料或化工产品。ExxonMobil（XOM）的业务就涉及油气生产、下游加工与化工等活动。生产业务出售开采出来的油气，加工业务则把原料转成适合具体用途的产品，两类客户购买的东西已经不同。因此研究 XOM 的客户需求时，就要先确定正在看哪一种产品和哪一个环节。[^xom]
 
-资源开采需要先开发和建设，再逐步生产；加工企业则要准备装置、采购原料，并组织产品销售。自购原料再出售产品时，公司既面对原料价格，也面对产品售价，还要承担能源、加工和库存等工作。<span data-text-versions id="nb-d01-energy-text-1">原料价格与产品售价之差，可以帮助观察加工业务，但还需要结合实际加工成本<span data-text-detail>（产品收率、能源消耗、运输、检修及库存等会影响结果；商品交付的品质、地点和时间也应与合同对应。这里只说明收入与成本的关系，不用一个商品报价代替整项业务的经营结果）</span>。<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>材料到了客户手中，还可能继续加工，最终进入交通、制造或其他用途。
+资源开采需要先开发和建设，再逐步生产；加工企业则要准备装置、采购原料，并组织产品销售。自购原料再出售产品时，公司既面对原料价格，也面对产品售价，还要安排能源供应、组织加工和管理库存。<span data-text-versions id="nb-d01-energy-text-1">产品售价与原料价格之间的差额，可以帮助我们理解加工业务，但还需要结合实际加工成本<span data-text-detail>（产品收率、能源消耗、运输、检修及库存等会影响结果；商品交付的品质、地点和时间也应与合同对应。这里只说明收入与成本的关系，不用一个商品报价代替整项业务的经营结果）</span>。<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>产品到了客户手中，还可能经过进一步加工，最终用于交通、制造或其他领域。
 
-Kinder Morgan（KMI）提供管道、储运等服务，其业务介绍还列出与 BP North America 的长期收费加工安排。客户按协议购买加工服务，KMI 则提供相应的设施和处理能力。看起来同样在加工或运输商品，客户买到的却可能是一项服务。[^kmi]
+Kinder Morgan（KMI）提供管道、储运等服务，其业务介绍还列出与 BP North America 的长期加工服务安排。客户按协议购买加工服务，KMI 则提供相应的设施和处理能力，并收取服务费。[^kmi]
 
 <figure class="business-flow"><div class="business-flow-route"><p class="business-flow-route-title">自购原料，再出售产品</p><div class="business-flow-grid"><div class="business-flow-node"><small>原料供给</small><strong>原料供应方</strong><p>按合同交付约定原料。</p></div><p class="business-flow-edge" data-flow-direction="both">供应方交原料；加工企业支付采购款</p><div class="business-flow-node"><small>购买与加工</small><strong>加工企业</strong><p>采购原料、组织加工，再销售产品。</p></div><p class="business-flow-edge" data-flow-direction="both">加工企业交产品；客户支付货款</p><div class="business-flow-node"><small>产品购买</small><strong>产品客户</strong><p>接收产品，用于后续加工或使用。</p></div></div></div><div class="business-flow-route"><p class="business-flow-route-title">按加工或输运服务收费</p><div class="business-flow-grid"><div class="business-flow-node"><small>服务采购</small><strong>服务客户</strong><p>购买合同约定的加工或输运等服务。</p></div><p class="business-flow-edge" data-flow-direction="both">客户支付服务费；服务商提供约定服务</p><div class="business-flow-node"><small>提供能力</small><strong>加工或输运服务商</strong><p>运行设施，按合同处理或输运物料。</p></div></div></div><figcaption>自购自销围绕原料与产品买卖；服务收费围绕加工或输运等服务。两条路径分别核对付款、交付与实际使用。</figcaption></figure>
 
-这也会改变我们看需求的方法。出售产品，要看谁愿意按相应条件接货；提供输运或加工服务，则要看客户预订什么能力、实际使用多少，以及合同怎样收费。<span data-text-versions id="nb-d01-energy-text-2">容量预订、实际吞吐和服务期间可以分别进入收费安排<span data-text-detail>（按容量还是实际数量付费、有无最低承诺、货物所有权由谁保留，都要以具体合同为准。一项设施的收费安排不能推广到该公司的全部业务）</span>。<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>商品价格、加工价差和服务费于是各有要解释的对象。
+这也会改变我们看需求的方法。出售产品，要看谁愿意按相应条件接货；提供输运或加工服务，则要看客户购买什么服务、预订多少容量、实际使用多少，以及合同怎样收费。<span data-text-versions id="nb-d01-energy-text-2">服务收费可以分别依据预订容量、实际吞吐量或服务期间计算<span data-text-detail>（按容量还是实际数量付费、有无最低承诺、货物所有权由谁保留，都要以具体合同为准。一项设施的收费安排不能推广到该公司的全部业务）</span>。<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>
 
 ### 沿客户提货与实际用途核需求 {#nb-d01-energy-demand}
 
-生产企业接到采购以后，还要按安排把产品交给买方；加工客户的订单，则需要结合其生产和库存理解。若贸易商增加提货，商品可能进入后续使用，也可能暂时停留在库存中；若客户预订了运输或储存能力，实际使用还要看后续货物流转。Agent 可以先核直接买方或托运人，再根据当前问题决定是否追到下一环节的实际使用。
+生产企业接到订单以后，还要按安排把产品交给买方；研究加工企业的原料采购时，则要结合它的生产和库存变化。若贸易商增加提货，商品可能进入后续使用，也可能暂时停留在库存中；若客户预订了运输或储存能力，实际使用还要看后续货物流转。Agent 可以先核对直接买方或托运人的采购与使用情况，再根据当前问题决定是否追到下一环节的实际使用。
 
-企业研报对同一次行业变化也可能给出不同解释。油气需求变化可以影响产品销售，原料与成品价格的相对变化又会影响加工关系，运输服务还要回到具体路线和容量合同。将这些解释同客户订单、提货、库存及设施使用材料相对照，就可以辨认影响落在哪个环节。这样，一项能源或材料需求就能沿着具体产品与合同，逐步接到目标公司的交付和收入。
+企业研报对同一次行业变化也可能给出不同解释，我们可以先看这些解释分别涉及哪一类业务。油气需求变化可以影响产品销售，原料与成品价格的相对变化又会影响加工业务的收入与成本；分析运输服务的变化，还要看具体路线和容量合同。将这些解释同客户订单、提货、库存及设施使用材料相对照，就可以辨认影响落在哪个环节。
 
 </section>
 
-## 把业务判断接到证据 {#nb-d01-evidence}
+## 需求判断与证据核对 {#nb-d01-evidence}
 
-公司交付什么、向谁收费，以及收款后还需承担什么责任，会决定我们接下来该找哪些证据。客户有需要，说明购买有了理由；实际采购或采用，说明客户作出了相应选择；公司完成交付，又使业务向前走了一步。持续服务、支付网络和保险各有自己的合同及使用证据，核对时要让材料对应正在讨论的环节。
+公司的业务模式不同，核验需求时要找的证据也不同。客户是否决定购买，要看采购或采用记录；供应方是否满足了需求，则要看实际交付或使用情况。对于收款以后还需持续提供服务或承担责任的业务，也要继续看合同怎样履行。
 
-Agent 可以把公司的解释与客户、供应商的材料及企业研报放在一起读。几份材料谈的是不是同一个产品或项目，发生时间能不能接上，需要先认清；随后再比较需求扩大、提前采购、补库存或更换供应商等解释。沿真实交易关系找到直接客户或供应商，就有了继续核对的对象；还有具体问题未解时，再向相邻的一方追下去。材料不足的地方先保留问题，已经形成的判断则写清依据和改变它的条件。
+Agent 可以同时读取公司、客户和供应商的材料，再与企业研报中的分析对照。先核对它们谈的是不是同一项产品或项目、对应的是哪段时间，再比较需求扩大、提前采购、补库存或更换供应商等解释。调查可以从直接客户或供应商开始；若关键问题还解释不清，再查客户的客户、供应商的供应商。材料不足的地方先记下待核问题；已有判断则写清依据，以及出现什么变化时需要重新考虑。
 
-这些依据还要实际用到判断中。客户的材料支持原有解释，就保留相应判断；若采购对象、交付时间或使用范围变了，就修改对应部分。研报在某个日期作出的预测，也应与后来发生的事情分别保存。当新的订单、采用或交付信息出现时，我们就能沿着原来的业务关系继续更新。
+材料支持原来的解释，就保留相应判断；采购对象、交付时间或使用范围发生变化时，再更新受影响的部分。研报当时作出的预测与后来发生的结果也应分别保存。等到新订单、采用或交付信息出现，Agent 就能追溯原先的判断依据，检查这些依据是否仍然成立。
 
-有了这些认识，下一步便可以讨论收入怎样增长。《收入增长的来源》将继续比较客户增加、用量扩大、价格变化和产品组合的作用；它们各自意味着什么，都要从本篇认出的生意出发。
+弄清一门生意怎样取得收入以后，我们就能进一步讨论它为什么增长。下一篇[《收入增长与市场预期》](/zh/notebook/revenue-growth-expectations/)将比较客户数量、用量、价格和产品组合变化带来的影响。
 
 <link rel="stylesheet" href="/notebook/business-branches.css">
 

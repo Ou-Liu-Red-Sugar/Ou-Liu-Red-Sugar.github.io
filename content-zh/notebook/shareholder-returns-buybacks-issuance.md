@@ -25,11 +25,11 @@
 <p>未参与出售的股东继续持有原来的股份，回购仍会影响市场买盘与公司的股份数量。</p>
 </figure>
 
-<span data-text-versions id="nb-s02-text-1">不过读到一项回购计划时，我们还要看看公司已经买了多少。授权额度规定了公司可以动用多少资金，实际买入才会形成相应的股票需求。AAPL 在上述季度买回约 9,300 万股，报告同时披露了尚未使用的回购额度<span data-text-detail>（这里的季度截至 2025 年 12 月 27 日。AAPL 披露的回购交易金额约为 250 亿美元，现金流量表中当期支付的回购款为 247.01 亿美元；正文比较现金收付时采用后者。回购计划允许公司按情况执行，没有最低购买数量义务）</span>。把计划与执行分开，才能知道公司这一时期究竟向市场投入了多少买盘。[^apple]<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>
+<span data-text-versions id="nb-s02-text-1">不过读到一项回购计划时，我们还要看看公司已经买了多少。授权额度规定了公司可以动用多少资金，实际买入才会形成相应的股票需求。AAPL 在上述季度买回约 9,300 万股，报告同时披露了尚未使用的回购额度<span data-text-detail>（这里的季度截至 2025 年 12 月 27 日。AAPL 披露的回购交易金额约为 250 亿美元，现金流量表中当期支付的回购款为 247.01 亿美元；正文比较现金收付时采用后者。回购计划允许公司按情况执行，没有最低购买数量义务）</span>。把计划与执行分开，才能知道公司这一时期实际形成了多大的买盘。[^apple]<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>
 
-回购的影响还会留在公司股本里。若发行在外的股份净减少，而我们持有的股数没变，持股比例就会上升。同样的公司利润，由更少的股份共同分享，每股对应的利润也会提高。
+回购还会影响发行在外的股份数量。若发行在外的股份净减少，而我们持有的股数没变，持股比例就会上升。同样的公司利润，由更少的股份共同分享，每股对应的利润也会提高。
 
-<span data-text-versions id="nb-s02-text-2">公司回购股票的同时，也可能通过员工奖励交付、员工购股计划或其他发行增加股份。其中，以股票或相关权利支付员工报酬的安排，通常称为股权报酬（SBC），具体形式见[《股票的类型、发行与交易形式》](/zh/notebook/stock-types-issuance-trading/)。因此我们还要把回购与新增股份合起来，看发行在外股数究竟怎样变化。AAPL 这一季度买回约 9,300 万股，但期末发行在外股数比期初少了约 7,060 万股，两者并不相等<span data-text-detail>（资产负债表列示，2025 年 9 月 27 日发行在外普通股为 14,773,260,000 股，12 月 27 日为 14,702,703,000 股，减少 70,557,000 股。此处比较期初与期末股数；正式每股收益另按相应期间的加权平均股数及摊薄规则计算）</span>。所以，回购金额告诉我们公司花了多少钱，净股数变化则进一步告诉我们，剩余股份的比例怎样改变。[^apple]<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>
+<span data-text-versions id="nb-s02-text-2">公司回购股票的同时，也可能通过员工奖励交付、员工购股计划或其他发行增加股份。其中，以股票或相关权利支付员工报酬的安排，通常称为股权报酬（SBC），具体形式见[《股票的类型、发行与交易形式》](/zh/notebook/stock-types-issuance-trading/)。因此我们还要把回购与新增股份合起来，看发行在外股数究竟怎样变化。AAPL 这一季度买回约 9,300 万股，但期末发行在外股数比期初少了约 7,060 万股，两者并不相等<span data-text-detail>（资产负债表列示，2025 年 9 月 27 日发行在外普通股为 14,773,260,000 股，12 月 27 日为 14,702,703,000 股，减少 70,557,000 股。此处比较期初与期末股数；正式每股收益另按相应期间的加权平均股数及摊薄规则计算）</span>。所以，回购金额告诉我们公司花了多少钱，净股数变化则进一步告诉我们，继续持有者的持股比例怎样改变。[^apple]<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>
 
 同一笔资金能买回多少股份，还取决于买入价格。价格越高，收回同样数量的股票就要花更多钱，而这些钱原本还可以留在公司经营、投资或偿债。对继续持有者来说，判断回购的效果，需要把股价支持、股份减少和公司付出的资源放在一起。企业买回自己的股份，也同样面临买得是否划算的问题。[^berkshire]
 
@@ -56,7 +56,7 @@
 
 再把目光放回公司。企业有资金可以返还给股东，也会遇到需要增加投入的时候。经营规模扩大、设备采购和新项目建设，都可能改变原先的资金安排。Alphabet（GOOGL／GOOG）在 2026 年的融资，就提供了一个实际例子。
 
-<span data-text-versions id="nb-s02-text-5">公司披露，2026 年 6 月通过发行 Class A、Class C 股票及强制可转换优先股，合计取得约 496 亿美元净募集资金，资金用途包括扩充 AI 基础设施和全球算力<span data-text-detail>（这项金额是上述权益融资合计的净所得，并非全部来自普通股发行。强制可转换优先股先以优先股形式存在，再按条款转换为普通股，其分红权利与未来转股另有安排，不能直接把全部融资额换算成当期新增普通股）</span>。普通股与优先股的权利区别，可参阅[《股票的类型、发行与交易形式》](/zh/notebook/stock-types-issuance-trading/)；这里先沿着融资所得，看它们怎样进入公司的资金安排。[^alphabet-release]<sup>，</sup>[^alphabet]<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>
+<span data-text-versions id="nb-s02-text-5">公司披露，2026 年 6 月通过发行 Class A、Class C 股票及强制可转换优先股，合计取得约 496 亿美元净募集资金，资金用途包括扩充 AI 基础设施和全球算力<span data-text-detail>（这项金额是上述权益融资合计的净所得，并非全部来自普通股发行。强制可转换优先股先以优先股形式存在，再按条款转换为普通股，其分红权利与未来转股另有安排，不能直接把全部融资额换算成当期新增普通股）</span>。普通股与优先股的权利区别，可参阅[《股票的类型、发行与交易形式》](/zh/notebook/stock-types-issuance-trading/)；这里先看公司准备怎样使用融资所得。[^alphabet-release]<sup>，</sup>[^alphabet]<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>
 
 <figure class="capital-flow" aria-labelledby="nb-s02-issuance-flow-title">
 <figcaption id="nb-s02-issuance-flow-title">普通股增发：公司取得资金，认购者取得新股</figcaption>
@@ -70,7 +70,7 @@
 
 <span data-text-versions id="nb-s02-text-6">公司还设立了最高 400 亿美元的 ATM 发行安排，允许公司按计划在市场上陆续出售新股。但截至 2026 年 6 月 30 日，这个安排尚未实际售出股份<span data-text-detail>（ATM 即 at-the-market offering。公司披露，该项未来发行所得主要拟用于员工股权奖励相关的税款义务；这里采用截至 6 月底的披露状态，不将额度计入已经完成的融资，也不据此推定后续月份的执行情况）</span>。这与前面的回购授权相似：允许进行一项交易，与交易已经发生，需要分别看。[^alphabet]<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>
 
-同一份报告还显示，Alphabet 在 2026 年上半年没有回购 Class A 或 Class C 股票，而此前回购计划仍有约 695 亿美元额度可用。有授权，并不妨碍公司根据当时的投入和融资需要调整执行；股东所面对的实际资金流向，也会随之改变。[^alphabet]
+同一份报告还显示，Alphabet 在 2026 年上半年没有回购 Class A 或 Class C 股票，而此前回购计划仍有约 695 亿美元额度可用。公司可以根据当时的投入和融资需要，调整回购计划的执行安排；股东所面对的实际资金流向，也会随之改变。[^alphabet]
 
 ## 从公司动作看到持有结果 {#nb-s02-holding-return}
 

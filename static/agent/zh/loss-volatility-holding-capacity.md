@@ -425,7 +425,7 @@ This is reference material for the learner's current request. Use the supplied e
 <figcaption>KO 的修复过程与消费必需品板块的同期表现。两条线各自从 100 起步，比较价格变化；<a href="/notebook/holding/ko-recovery.csv">查看数据</a>。</figcaption>
 </figure>
 
-再看提供支付处理和金融技术服务的 Fiserv（FISV，案例初期代码为 FI）。起初，公司给出了较高的增长与盈利预期，可后来却大幅下调指引。2025 年 10 月 29 日公布财报后，股价当天下跌约 44%；到 2026 年 9 月 24 日，价格又比这次暴跌后的收盘价低了约 35%。第一次大跌以后，继续等待仍然经历了进一步的损失。[^prices-fisv]<sup>，</sup>[^ticker]
+再看提供支付处理和金融技术服务的 Fiserv（FISV，案例初期代码为 FI）。起初，公司给出了较高的增长与盈利预期，可后来却大幅下调指引。2025 年 10 月 29 日公布财报后，股价当天下跌约 44%；到 2026 年 9 月 24 日，价格又比这次暴跌后的收盘价低了约 35%。第一次大跌以后，继续持有的投资者仍然经历了进一步的损失。[^prices-fisv]<sup>，</sup>[^ticker]
 
 为了判断这段下跌的分量，我们再把它与支付行业 ETF IPAY 放在一起。IPAY 覆盖支付网络、支付处理及相关技术服务公司，可以提供一组支付业务的参照。从 2025 年首个交易日到 2026 年 9 月 24 日，IPAY 下跌约 18%，FISV 却下跌了约 78%。支付板块的价格也在下跌，但 FISV 落后的幅度明显更大，我们因而要回到公司披露，看看它的经营与盈利预期发生了什么变化。[^ipay]<sup>，</sup>[^prices-fisv]
 
@@ -446,7 +446,7 @@ This is reference material for the learner's current request. Use the supplied e
 
 问题也出现在实际经营中。FISV 的商户业务有机收入增速，从第二季度的 9% 放缓到第三季度的 5%；金融服务业务则从增长 7% 转为下降 3%。第三季度调整后每股收益同比下降 11%。到 2026 年第二季度，公司有机收入同比下降 5%，调整后每股收益下降 26%，经营压力仍然没有消失。公司还在赚钱，可当初期待的增长与盈利路径已经改变了。[^fiserv-q2]<sup>，</sup>[^fiserv-q3]<sup>，</sup>[^fiserv-2026]
 
-<span data-text-versions id="nb-a03-text-2">经营与盈利预期的变化，还会改变我们对股东未来所得的估计。这也接上了[《股票、公司与股价》](/zh/notebook/stocks-company-price/)中的认识：持有公司的股份，就要看它的业务最终能带来什么。一项业务受到冲击时，要看它在公司利润中有多大份量、压力可能持续多久，其他业务又能提供多少支撑，再把共同费用、债务和资金投入放进去，估计整体的盈利前景<span data-text-detail>（本节的有机收入增长及调整后每股收益，采用各公司披露的非 GAAP 口径；比较始终在同一家公司、同一指标内进行，所述季度同比变化与全年指引分别保留各自期间）</span>。所以，重新判断持仓时，我们既要更新对未来所得的估计，也得看看眼前的股价已经变到了哪里。<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>
+<span data-text-versions id="nb-a03-text-2">经营与盈利预期的变化，还会改变我们对股东未来所得的估计。正如[《股票、公司与股价》](/zh/notebook/stocks-company-price/)所讨论的，持有公司的股份，就要看它的业务最终能带来什么。一项业务受到冲击时，要看它在公司利润中占多大比重、压力可能持续多久，其他业务又能提供多少支撑，再计入共同费用、债务和资金投入的影响，估计整体的盈利前景<span data-text-detail>（本节的有机收入增长及调整后每股收益，采用各公司披露的非 GAAP 口径；比较始终在同一家公司、同一指标内进行，所述季度同比变化与全年指引分别保留各自期间）</span>。所以，重新判断持仓时，我们既要更新对未来所得的估计，也得看看眼前的股价已经变到了哪里。<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>
 
 至于价格下跌以后是否更值得持有，还得看未来所得的预期怎样变化。经营预期仍有支持、价格却降下来了，相同的潜在所得就对应更少的资金投入；若经营前景下调得更多，即使股价已经更低，这笔投资也未必更划算。为了把这两边的变化放在一起，我们就要用到 Risk-Reward，比较可能取得的回报与需要承担的损失。
 
@@ -500,7 +500,7 @@ This is reference material for the learner's current request. Use the supplied e
 <figcaption>① 跌破下轨后收回；② 突破上轨后维持高位。<a href="/notebook/holding/spy-bollinger.svg" target="_blank" rel="noopener">查看大图</a> · <a href="/notebook/holding/spy-daily-indicators.csv">数据</a>。</figcaption>
 </figure>
 
-<span data-text-versions id="nb-a03-text-4">图中①处，7 月 29 日 SPY 收于约 729 美元，已经低于约 733 美元的下轨；第二天回到约 742 美元，又收进了带内。到了②处，8 月 4 日的收盘价约为 771 美元，高于约 765 美元的上轨，随后几个交易日却仍保持在较高位置。我们因而要把“触及轨道”与接下来的走势连起来看：价格是重新回到原区间，还是在突破后继续保持强势？只凭碰到上轨或下轨，就很难区分这两种过程<span data-text-detail>（采用 20 日收盘价简单平均值，上下各加减 2 倍总体标准差。7 月 29 日收盘价/下轨为 729.46/733.32 美元，7 月 30 日收盘 741.69 美元；8 月 4 日收盘价/上轨为 771.33/764.60 美元）</span>。[^indicator-data]<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>
+<span data-text-versions id="nb-a03-text-4">图中①处，7 月 29 日 SPY 收于约 729 美元，已经低于约 733 美元的下轨；第二天回到约 742 美元，又收进了带内。到了②处，8 月 4 日的收盘价约为 771 美元，高于约 765 美元的上轨，随后几个交易日仍保持在较高位置。我们因而要把“触及轨道”与接下来的走势连起来看：价格是重新回到原区间，还是在突破后继续保持强势？只凭碰到上轨或下轨，就很难区分这两种过程<span data-text-detail>（采用 20 日收盘价简单平均值，上下各加减 2 倍总体标准差。7 月 29 日收盘价/下轨为 729.46/733.32 美元，7 月 30 日收盘 741.69 美元；8 月 4 日收盘价/上轨为 771.33/764.60 美元）</span>。[^indicator-data]<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>
 
 ### MACD：趋势动量的转弱与转强
 
@@ -522,7 +522,7 @@ KDJ 先看收盘价处在最近一段高低区间的什么位置，再把它平�
 <figcaption>① 低位回升；② 高位延续；③ K 下穿 D。<a href="/notebook/holding/spy-kdj.svg" target="_blank" rel="noopener">查看大图</a> · <a href="/notebook/holding/spy-daily-indicators.csv">数据</a>。</figcaption>
 </figure>
 
-<span data-text-versions id="nb-a03-text-8">7 月 29 日下跌后，K 已经降到约 19；第二天价格回升，K 也上穿 D，形成①处的低位转强信号。再往右看，8 月 11—14 日 K、D 都高于 80，价格却仍然保持在较高位置，这就是高位指标可以随着强势走势持续一阵的例子。到了③处，K 向下穿过 D，随后价格回落也变得更明显。对于这段行情，KDJ 在 8 月 17 日就表现出高位转弱，MACD 则到 8 月 20 日才出现死叉，两种指标的反应速度也就有了具体的对照<span data-text-detail>（采用 KDJ（9，3，3）：RSV＝100×（收盘价−近 9 日最低价）÷（近 9 日最高价−近 9 日最低价）；K＝前一日 K×2/3＋当日 RSV/3，D＝前一日 D×2/3＋当日 K/3，J＝3K−2D。7 月 29、30 日 K/D 分别约为 18.78/28.83、32.58/30.08；8 月 17 日为 73.14/81.81。J 可以超出 0—100 的范围）</span>。[^indicator-data]<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>
+<span data-text-versions id="nb-a03-text-8">7 月 29 日下跌后，K 已经降到约 19；第二天价格回升，K 也上穿 D，形成①处的低位转强信号。再往右看，8 月 11—14 日 K、D 都高于 80，价格也仍然保持在较高位置，这就是高位指标可以随着强势走势持续一阵的例子。到了③处，K 向下穿过 D，随后价格回落也变得更明显。对于这段行情，KDJ 在 8 月 17 日就表现出高位转弱，MACD 则到 8 月 20 日才出现死叉<span data-text-detail>（采用 KDJ（9，3，3）：RSV＝100×（收盘价−近 9 日最低价）÷（近 9 日最高价−近 9 日最低价）；K＝前一日 K×2/3＋当日 RSV/3，D＝前一日 D×2/3＋当日 K/3，J＝3K−2D。7 月 29、30 日 K/D 分别约为 18.78/28.83、32.58/30.08；8 月 17 日为 73.14/81.81。J 可以超出 0—100 的范围）</span>。[^indicator-data]<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>
 
 ### VWAP：日内价格相对成交均价的位置
 
@@ -530,7 +530,7 @@ KDJ 先看收盘价处在最近一段高低区间的什么位置，再把它平�
 
 <figure class="holding-figure">
 <a href="/notebook/holding/spy-vwap.svg" target="_blank" rel="noopener" aria-label="打开 VWAP 大图"><img src="/notebook/holding/spy-vwap.svg" alt="SPY在2026年8月3日的五分钟收盘价、累计VWAP与成交量。价格整体上行，各根五分钟收盘价保持在VWAP上方；标记1为纽约时间12点05分，价格756.00美元，VWAP约753.82美元。" width="1000" height="700" loading="lazy"></a>
-<figcaption>绿色价格线在橙色 VWAP 上方延续，午间回落仍未收破均价。下方同时保留成交量。<a href="/notebook/holding/spy-vwap.svg" target="_blank" rel="noopener">查看大图</a> · <a href="/notebook/holding/spy-vwap-20260803.csv">数据</a>。</figcaption>
+<figcaption>绿色价格线在橙色 VWAP 上方延续，午间回落仍未收破均价。下方同时显示成交量。<a href="/notebook/holding/spy-vwap.svg" target="_blank" rel="noopener">查看大图</a> · <a href="/notebook/holding/spy-vwap-20260803.csv">数据</a>。</figcaption>
 </figure>
 
 <span data-text-versions id="nb-a03-text-9">这一天的五分钟收盘价始终高于日内 VWAP；到①处，也就是纽约时间 12:05，价格约为 756 美元，高于约 754 美元的均价。接下来可以观察回落时能否守住 VWAP；若跌破，再看能否重新站上，以及这些变化伴随怎样的成交量<span data-text-detail>（12:00—12:05 这根五分钟 K 线的收盘价为 756.00 美元，累计 VWAP 近似值为 753.82 美元。VWAP 用常规交易时段内各根五分钟 K 线的“最高价、最低价与收盘价的平均值”乘成交量，再累计加权；它与逐笔成交计算值会有差异。图上标记 K 线结束时刻，日内累计 VWAP 每个交易日重新起算）</span>。[^vwap-data]<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>
@@ -562,17 +562,17 @@ KDJ 先看收盘价处在最近一段高低区间的什么位置，再把它平�
 | 先留出现金 | 100 股＋2,000 美元现金 | 使用预留现金 | 100 股，市值 8,000 美元 |
 | 全部买成股票 | 120 股，无现金 | 卖出 25 股取得 2,000 美元 | 95 股，市值 7,600 美元 |
 
-付款到期以后，第二种安排就需要取得现金。若不另行借款或补入资金，便要出售部分股份。即使后来出现了原先预计的结果，自己还能持有多少股份，也已经受到途中资金安排的影响了。预留现金会减少最初参与股票涨跌的金额，但也给期间用钱和后续调整留下了余地。
+到了付款时，第二种安排就需要筹集现金。若不另行借款或补入资金，便要出售部分股份。即使后来出现了原先预计的结果，自己还能持有多少股份，也已经受到途中资金安排的影响了。预留现金会减少最初参与股票涨跌的金额，但也给期间用钱和后续调整留下了余地。
 
 <span data-text-versions id="nb-a03-text-5">一旦需要卖股筹钱，我们还要接着看，能以什么价格成交，以及卖出以后还要等多久才能用到钱。账户缺现金时，可以考虑出售资产；若市场上合适的买盘也不足，急于成交又可能需要接受更低的价格。成交以后，证券与款项的交收、银行转账还各有处理时间<span data-text-detail>（上表假设可以按 80 美元成交，暂不计税费。美国多数证券交易采用 T+1 标准交收，资金转出还需按账户及银行的安排衔接）</span>。因此安排付款时，还得把这段取得现金的时间留出来。[^settlement]<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>
 
 若买股时还借了钱，资金安排就又多了一层约束。自有资金为 10,000 美元时，全额用它买股，股价下跌 20% 后还剩 8,000 美元；若另借 10,000 美元，一共买入 20,000 美元股票，同样下跌 20% 后，股票市值还剩 16,000 美元，扣掉需要归还的借款本金，自有资金就只剩 6,000 美元了。股票跌了 20%，自己的资金却损失了 40%，还没有计入利息。
 
-<span data-text-versions id="nb-a03-text-6">保证金要求还可能使退出提前发生。沿用这笔 10,000 美元借款，若券商要求净权益至少占持仓市值的 30%，持仓市值降到约 14,286 美元时，净权益就只够这个比例；继续下跌，账户便会出现保证金不足，需要补入资金或处置持仓<span data-text-detail>（这里采用单一股票账户，暂不计其他担保品和利息；临界关系为“持仓市值−10,000＝30%×持仓市值”。30% 为本例采用的券商要求。FINRA 的一般股票维持保证金最低要求为 25%，券商可以设更高要求，并可能直接处置证券）</span>。等到资金要求触发处置时，原先打算再等多久，也就无法完全由自己决定了。[^margin]<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>
+<span data-text-versions id="nb-a03-text-6">保证金要求还可能使退出提前发生。沿用这笔 10,000 美元借款，若券商要求净权益至少占持仓市值的 30%，持仓市值降到约 14,286 美元时，净权益占持仓市值的比例就恰好达到要求；继续下跌，账户便会出现保证金不足，需要补入资金或处置持仓<span data-text-detail>（这里采用单一股票账户，暂不计其他担保品和利息；临界关系为“持仓市值−10,000＝30%×持仓市值”。30% 为本例采用的券商要求。FINRA 的一般股票维持保证金最低要求为 25%，券商可以设更高要求，并可能直接处置证券）</span>。等到资金要求触发处置时，原先打算再等多久，也就无法完全由自己决定了。[^margin]<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>
 
 除了资金，我们还要给自己的情绪留一点余地。频繁打开行情，每一次下跌都可能重新牵动回本的愿望，一点反弹又让人忍不住调整判断。屏幕上的变化越来越多，真正影响公司经营的新信息却未必同样频繁。减少这种反复刺激，也有助于按已经想清楚的依据行动。当然，放下手机和电脑，去做点别的事散散心，也是一种非常好的提升持有能力的举动。
 
-资金和心态上的余地，让我们更容易按判断持有或调整。至于等待多久，还要看依据怎样变化：KO 的修复与 FISV 的失利，展示了不同经营变化下的持有结果。决定继续拿着一只股票时，我们既要比较未来回报与可能损失，也要把等待时间和期间的现金需要算进去；当这些条件变了，减仓和退出也就应该重新进入考虑。
+资金和心态上的余地，让我们更容易按判断持有或调整。至于等待多久，还要看依据怎样变化：KO 的修复与 FISV 的失利，展示了不同经营变化下的持有结果。决定继续拿着一只股票时，我们既要比较未来回报与可能损失，也要把等待时间和期间的现金需要算进去；当这些条件变了，我们也就应该重新考虑是否减仓或退出。
 
 <link rel="stylesheet" href="/notebook/holding.css?v=20260926">
 <script src="/notebook/holding.js" defer></script>

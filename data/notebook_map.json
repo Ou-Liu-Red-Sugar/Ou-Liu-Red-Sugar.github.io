@@ -876,10 +876,15 @@
     {
       "id": "NB-D02",
       "node": "D",
-      "title": "收入增长的来源",
-      "goal": "从客户和交易变化解释收入增长来自哪里以及能否延续。",
-      "status": "planned",
-      "url": null
+      "title": "收入增长与市场预期",
+      "goal": "解释收入增长，并用经营证据检验公开预期和股价对应的增长要求。",
+      "status": "available",
+      "url": "/zh/notebook/revenue-growth-expectations/",
+      "reading_profile": {
+        "difficulty": "进阶",
+        "depth": "详解",
+        "note": "从收入驱动进入期间比较、事件价格和条件反推，需要同时保持业务、利润与每股口径。"
+      }
     },
     {
       "id": "NB-D03",
@@ -1500,18 +1505,31 @@
           "depth": "详解",
           "note": "从熟悉的交易进入，按所选行业解释客户、交付、收费与需求依据；无需先掌握财务模型。"
         }
+      },
+      {
+        "id": "NB-D02",
+        "number": 12,
+        "title": "收入增长与市场预期",
+        "note": "拆开销量、净价、客户和产品组合，用真实业绩与预测市场辨认增长预期，再从股价反推所需收入，交给经营证据检验。",
+        "status": "available",
+        "url": "/zh/notebook/revenue-growth-expectations/",
+        "reading_profile": {
+          "difficulty": "进阶",
+          "depth": "详解",
+          "note": "从收入驱动进入期间比较、事件价格和条件反推，需要同时保持业务、利润与每股口径。"
+        }
       }
     ],
     "next": {
-      "id": "NB-D02",
-      "number": 12,
-      "title": "收入增长的来源",
-      "note": "从客户和交易变化解释收入增长来自哪里以及能否延续。",
+      "id": "NB-D03",
+      "number": 13,
+      "title": "成本结构与经营杠杆",
+      "note": "解释收入变化怎样通过成本和产能形成不同利润结果。",
       "status": "planned",
       "url": null
     },
-    "available_count": 11,
-    "intro_available_count": 11,
+    "available_count": 12,
+    "intro_available_count": 12,
     "navigation": {
       "NB-A01": {
         "current": {
@@ -1941,8 +1959,49 @@
         "next": {
           "id": "NB-D02",
           "number": 12,
-          "title": "收入增长的来源",
-          "note": "从客户和交易变化解释收入增长来自哪里以及能否延续。",
+          "title": "收入增长与市场预期",
+          "note": "拆开销量、净价、客户和产品组合，用真实业绩与预测市场辨认增长预期，再从股价反推所需收入，交给经营证据检验。",
+          "status": "available",
+          "url": "/zh/notebook/revenue-growth-expectations/",
+          "reading_profile": {
+            "difficulty": "进阶",
+            "depth": "详解",
+            "note": "从收入驱动进入期间比较、事件价格和条件反推，需要同时保持业务、利润与每股口径。"
+          }
+        }
+      },
+      "NB-D02": {
+        "current": {
+          "id": "NB-D02",
+          "number": 12,
+          "title": "收入增长与市场预期",
+          "note": "拆开销量、净价、客户和产品组合，用真实业绩与预测市场辨认增长预期，再从股价反推所需收入，交给经营证据检验。",
+          "status": "available",
+          "url": "/zh/notebook/revenue-growth-expectations/",
+          "reading_profile": {
+            "difficulty": "进阶",
+            "depth": "详解",
+            "note": "从收入驱动进入期间比较、事件价格和条件反推，需要同时保持业务、利润与每股口径。"
+          }
+        },
+        "previous": {
+          "id": "NB-D01",
+          "number": 11,
+          "title": "客户、产品与收费方式",
+          "note": "认清每门生意的客户、交付与收费，再沿实际关系检查需求依据。",
+          "status": "available",
+          "url": "/zh/notebook/customers-products-pricing/",
+          "reading_profile": {
+            "difficulty": "入门",
+            "depth": "详解",
+            "note": "从熟悉的交易进入，按所选行业解释客户、交付、收费与需求依据；无需先掌握财务模型。"
+          }
+        },
+        "next": {
+          "id": "NB-D03",
+          "number": 13,
+          "title": "成本结构与经营杠杆",
+          "note": "解释收入变化怎样通过成本和产能形成不同利润结果。",
           "status": "planned",
           "url": null
         }
@@ -1950,7 +2009,7 @@
     },
     "credits": [
       {
-        "label": "第 1–11 篇",
+        "label": "第 1–12 篇",
         "writer": "Codex GPT-6 Astra"
       }
     ],
@@ -1968,7 +2027,7 @@
         "id": "business",
         "title": "理解企业与财务",
         "goal": "连起客户、收入、竞争、利润、投入与每股结果。",
-        "available_count": 1,
+        "available_count": 2,
         "total": 15
       },
       {

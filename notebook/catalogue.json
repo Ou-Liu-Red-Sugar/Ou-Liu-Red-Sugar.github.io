@@ -2274,6 +2274,146 @@
       "locators": [
         "本轮 PDF 第 109 页 §§3.236—3.237 关于新增客户/负载和存量变动的区别；第 269 页 §6.70；既有本地迁移阅读见 external-sources.md E2"
       ]
+    },
+    {
+      "source_id": "nb-d02-ko-q2-2025",
+      "title": "The Coca-Cola Company — Second Quarter 2025 Earnings Release",
+      "url": "https://www.coca-colacompany.com/content/dam/corporate/us/en/media-center/Coca-Cola-2025-Q2-Earnings-Release-Full-Release-7.22.25.pdf",
+      "body": "全球报表净营收同比增长1%，有机净营收增长5%；收入表现包含price/mix增长6%及concentrate sales下降1%，unit case volume亦下降1%。；同用标准箱等价单位，不保证统计的是同一销售环节或同一时点；亚太两个量指标相差2个百分点，公司解释为浓缩液发货时点。；报表收入与有机收入之间的FX和范围调整属于口径区别。",
+      "version": "2025-07-22",
+      "authors": [
+        "The Coca-Cola Company"
+      ]
+    },
+    {
+      "source_id": "nb-d02-snow-q2fy2026",
+      "title": "Snowflake Inc. — Form 10-Q for the quarter ended July 31, 2025",
+      "url": "https://d18rn0p25nwr6d.cloudfront.net/CIK-0001640147/1ced529d-f536-4668-bc46-6996092be424.pdf",
+      "body": "Q2 FY2026产品收入为1,090.496m，可显示1,090.5m，同比报告为32%；NRR为125%。；125%表示所定义同一cohort在第二个12个月窗口的产品收入相对第一个窗口增长25%，包含该组扩张、收缩和不再使用的净结果。；32%与25%不能直接相减取得新客户贡献：观察期间、客户总体及比较分母不相同。即使期间统一，也要知道该cohort在总基期收入中的权重。；RPO既含递延收入也含未开票合同额；它不能完整反映未来usage增长及其发生时间，超出已承诺capacity的消费与新增采购未必已经进入现有RPO。",
+      "version": "本篇核读：2026-09-27",
+      "authors": [
+        "Snowflake Inc."
+      ]
+    },
+    {
+      "source_id": "nb-d02-ko-fy2025-base",
+      "title": "The Coca-Cola Company — Fourth Quarter and Full Year 2025 Earnings Release",
+      "url": "https://www.coca-colacompany.com/content/dam/corporate/us/en/media-center/Coca-Cola%20Q4%202025%20Earnings%20Release_Full%20Release_2.10.26.pdf",
+      "body": "GAAP净营收为47,941m；另列的可比净营收为48,062m，不能不加标签地交换。；可比归属股东净利润12,958m和可比稀释EPS显示值3.00均来自公司非GAAP调节表；GAAP对应归属股东净利13,107m、稀释EPS3.04。；4,313m为2025全年稀释加权平均股数，不是2025年末股数。；本篇同口径净利率proxy采用12,958/48,062；EPS用12,958/4,313核对，公司显示3.00是取整数。",
+      "version": "2026-02-10",
+      "authors": [
+        "The Coca-Cola Company"
+      ]
+    },
+    {
+      "source_id": "nb-d02-dbs-ko-multiple",
+      "title": "DBS US Equity Research — Coca-Cola: The world remains thirsty for Coke",
+      "url": "https://www.dbs.com/content/article/pdf/US_clover/CocaCola.pdf",
+      "body": "当前URL取得的本地PDF实际为2026-05-04版，报告列示2026-04-30收盘价78.76。；26倍是分析师为其目标价选择的forward PE；本篇可把这个已公开数值作为有出处、可调整的条件输入。",
+      "version": "2026-05-04",
+      "authors": [
+        "DBS"
+      ]
+    },
+    {
+      "source_id": "nb-d02-pm-contracts",
+      "title": "Polymarket Gamma: MRVL FY2027 Q1 Data Center event and five markets",
+      "url": "https://gamma-api.polymarket.com/events?slug=will-marvell-q1-data-center-revenue-be-above",
+      "body": "读取五个子合约完整description、题目、token映射、结束及关闭字段、当前解析状态；完整JSON保留。",
+      "version": "Retrieved 2026-09-27; markets created/opened May 2026",
+      "authors": [
+        "Polymarket"
+      ]
+    },
+    {
+      "source_id": "nb-d02-pm-history-1850",
+      "title": "Official CLOB YES price history: Will Marvell Q1 Data Center revenue be above USD 1.85B?",
+      "url": "https://clob.polymarket.com/prices-history?market=15444808016939390136366603813937420398362508425617427546284721604674110774890&startTs=1778716800&endTs=1779926400&fidelity=60",
+      "body": "读取311条记录的起止、事前样本、公布日前后状态；采用2026-05-26同一UTC时点，不用历史结果替代报价。",
+      "version": "2026-05-14 to 2026-05-28, hourly request",
+      "authors": [
+        "Polymarket"
+      ]
+    },
+    {
+      "source_id": "nb-d02-pm-history-1900",
+      "title": "Official CLOB YES price history: Will Marvell Q1 Data Center revenue be above USD 1.9B?",
+      "url": "https://clob.polymarket.com/prices-history?market=17371423556770029879189222365137773013648929593752442002979764677862763408752&startTs=1778716800&endTs=1779926400&fidelity=60",
+      "body": "读取311条记录的起止、事前样本、公布日前后状态；采用2026-05-26同一UTC时点，不用历史结果替代报价。",
+      "version": "2026-05-14 to 2026-05-28, hourly request",
+      "authors": [
+        "Polymarket"
+      ]
+    },
+    {
+      "source_id": "nb-d02-mrvl-q1fy2027",
+      "title": "Marvell FY2027 Q1 earnings release / 8-K Exhibit 99.1",
+      "url": "https://investor.marvell.com/sec-filings/all-sec-filings/content/0001835632-26-000014/q127_8kx522026ex-991.htm",
+      "body": "读取收入终端市场定义表、当前/前季/去年同季收入表、收购纳入范围及发布日期；未重建全套利润和现金流。",
+      "version": "2026-05-27; quarter ended 2026-05-02",
+      "authors": [
+        "Marvell Technology"
+      ]
+    },
+    {
+      "source_id": "nb-d02-mrvl-q1fy2027-10q",
+      "title": "Marvell quarter ended May 2 2026 Form 10-Q",
+      "url": "https://investor.marvell.com/sec-filings/all-sec-filings/content/0001835632-26-000019/mrvl-20260502.htm",
+      "body": "读取终端市场收入表、唯一报告分部说明、数据中心产品需求解释及并购纳入；与前日8-K按同一数字对照。",
+      "version": "2026-05-28; quarter ended 2026-05-02",
+      "authors": [
+        "Marvell Technology"
+      ]
+    },
+    {
+      "source_id": "nb-d02-mrvl-base",
+      "title": "Marvell FY2026 Q1 earnings release / 8-K Exhibit 99.1",
+      "url": "https://investor.marvell.com/sec-filings/all-sec-filings/content/0001835632-25-000115/q126_8kx532025ex-991.htm",
+      "body": "读取当年已披露Data center 1,440.6百万美元及季度期间；与最新表所列同季数一致。",
+      "version": "2025-05-29; quarter ended 2025-05-03",
+      "authors": [
+        "Marvell Technology"
+      ]
+    },
+    {
+      "source_id": "nb-d02-mrvl-guidance",
+      "title": "Marvell FY2026 Q4 earnings release / FY2027 Q1 outlook",
+      "url": "https://investor.marvell.com/sec-filings/all-sec-filings/content/0001835632-26-000006/q426_8kx1312026ex-991.htm",
+      "body": "读取全公司收入指引2,400百万美元±5%、预计包括两项新收购、数据中心增长方向及前季Data center实际1,651.3百万美元。",
+      "version": "2026-03-05",
+      "authors": [
+        "Marvell Technology"
+      ]
+    },
+    {
+      "source_id": "nb-d02-mrvl-guidance-deck",
+      "title": "Marvell FY26 and Q4 FY26 Financial and Business Results",
+      "url": "https://d1io3yog0oux5.cloudfront.net/_6b3a348c4b3086f910c6504b5c8068c0/marvell/db/3735/35341/file/2026_03_05_Marvell_Q4_FY26_financial_business_results_FINAL.pdf",
+      "body": "实际读p6全年数据中心约40%增长预期、p13产品/需求背景、p15收入类别变更脚注及p16全公司Q1指引；完整45页原件保存但不称通读。",
+      "version": "2026-03-05",
+      "authors": [
+        "Marvell Technology"
+      ]
+    },
+    {
+      "source_id": "nb-d02-pm-price-doc",
+      "title": "Polymarket Prices & Orderbook",
+      "url": "https://docs.polymarket.com/concepts/prices-orderbook",
+      "body": "读取显示价格与实际成交区分；此一般显示说明不被冒充某个历史p点的明确构造证明。",
+      "version": "Official documentation retrieved 2026-09-27",
+      "authors": [
+        "Polymarket"
+      ]
+    },
+    {
+      "source_id": "nb-d02-chubb-premiums",
+      "title": "Chubb Limited Annual Report 2025 — Premiums; Financial Highlights",
+      "url": "https://www.chubb.com/content/dam/annual-corporate-governance/2026/a-chubb-limited/chubb-limited-annual-report-2025.pdf",
+      "body": "保费定义跨页完整读取，经营增长说明读取对应段落；其他命中页只作定位上下文，不作为新增研究内容。未称304页全文已审读。",
+      "version": "本篇核读：2026-09-27",
+      "authors": [
+        "Chubb Limited"
+      ]
     }
   ],
   "paths": []

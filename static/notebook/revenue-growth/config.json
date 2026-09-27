@@ -1,0 +1,73 @@
+{
+  "schemaVersion": 1,
+  "status": "sourced",
+  "company": { "name": "The Coca-Cola Company", "ticker": "KO" },
+  "currency": "美元",
+  "labels": {
+    "revenue": "可比净营收",
+    "profit": "可比归属股东净利润",
+    "eps": "可比稀释 EPS",
+    "margin": "预测期可比净利率"
+  },
+  "scenarioNote": "2026 全年是本篇指定的盈利窗口。将 26 倍 PE 用于这一窗口及可比口径，是本篇条件；净利率和稀释股数默认维持 2025 水平。",
+  "display": {
+    "amountScale": 100000000,
+    "amountUnit": "亿美元",
+    "amountDigits": 2,
+    "shareScale": 100000000,
+    "shareUnit": "亿股",
+    "shareDigits": 2
+  },
+  "price": {
+    "value": 78.76,
+    "asOf": "2026-04-30",
+    "reportedOn": "2026-05-04",
+    "label": "历史收盘价与日期",
+    "basis": "78.76 美元为 DBS 2026-05-04 报告列示的 2026-04-30 历史收盘价。本篇使用随后取得的材料对该报价作条件反推，报告中的选择不视为价格日当时已知的信息。",
+    "sourceIds": ["dbs-ko-20260504"]
+  },
+  "forecast": {
+    "period": "2026 全年",
+    "shares": 4313000000,
+    "shareBasis": "2025 全年稀释加权平均股数为 4,313 百万股；本篇默认 2026 全年维持这一水平，属于可调整假设。该数不代表 2025 年末股数。",
+    "sourceIds": ["ko-fy2025"]
+  },
+  "baseRevenue": {
+    "value": 48062000000,
+    "period": "2025 全年",
+    "basis": "公司非 GAAP 可比净营收为 48,062 百万美元。基期和所需收入均采用这一可比口径；该增长不等同于公司有机增长或汇率中性增长。",
+    "sourceIds": ["ko-fy2025"]
+  },
+  "assumptions": {
+    "netMargin": {
+      "ratio": { "numerator": 12958, "denominator": 48062 },
+      "min": 0.2, "max": 0.35, "step": 0.005,
+      "basis": "参照比率由 2025 全年可比归属股东净利润 12,958 百万美元除以可比净营收 48,062 百万美元计算，约为 26.9610087%。这是本篇计算的比率，默认 2026 年维持该比率是实验假设。计算使用精确比值，不将显示值 27.0% 回填；20%—35% 的滑动范围及每档 0.5 个百分点均为本篇敏感性条件。",
+      "sourceIds": ["ko-fy2025"]
+    },
+    "forwardPE": {
+      "value": 26, "min": 18, "max": 34, "step": 1,
+      "basis": "26 倍取自 DBS 2026-05-04 报告第 1 页的分析师选择。该页未完整说明 forward PE 的盈利窗口及可比口径，本篇将这一数值用于 2026 全年公司可比盈利，属于实验约定，不复现报告的 12 个月目标价。18—34 倍的可调范围用于比较条件，未被识别为市场共识区间。",
+      "sourceIds": ["dbs-ko-20260504"]
+    },
+    "shareChanges": [
+      { "label": "维持所设预测股数", "value": 0 },
+      { "label": "预测股数增加 10%", "value": 0.1 },
+      { "label": "预测股数减少 10%", "value": -0.1 }
+    ]
+  },
+  "sources": [
+    {
+      "id": "ko-fy2025",
+      "title": "The Coca-Cola Company — Fourth Quarter and Full Year 2025 Earnings Release",
+      "url": "https://www.coca-colacompany.com/content/dam/corporate/us/en/media-center/Coca-Cola%20Q4%202025%20Earnings%20Release_Full%20Release_2.10.26.pdf",
+      "locator": "2026-02-10 发布；PDF 第 10 页稀释加权平均股数，第 22 页可比净营收，第 23 页可比归属股东净利润及脚注 3。"
+    },
+    {
+      "id": "dbs-ko-20260504",
+      "title": "DBS — Coca-Cola: The world remains thirsty for Coke",
+      "url": "https://www.dbs.com/content/article/pdf/US_clover/CocaCola.pdf",
+      "locator": "本篇采用 2026-05-04 版 PDF 第 1 页：2026-04-30 收盘价 78.76 美元、26 倍 forward PE。原链接可能更新。"
+    }
+  ]
+}

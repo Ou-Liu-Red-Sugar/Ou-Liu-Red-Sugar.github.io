@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>给定报价与所需收入</title>
+  <link rel="stylesheet" href="price-in.css">
+  <script type="module" src="price-in.js"></script>
+</head>
+<body>
+<main class="revenue-lab">
+  <header>
+    <p class="kicker">条件反推</p>
+    <h1>给定报价与所需收入</h1>
+    <p class="intro">固定所列报价，改变净利率与前瞻 PE 参照，比较相应的收入条件。</p>
+  </header>
+  <p id="load-status" role="status" hidden>正在载入资料……</p>
+  <noscript><p>启用 JavaScript 后可调整条件。计算关系见下方公式，案例资料保存在同目录的 config.json。</p></noscript>
+  <div id="experiment" hidden>
+    <p id="development-note" class="development" hidden>开发示例 · 所有输入均为合成设定，尚未接入真实公司资料。</p>
+    <dl class="fixed-facts">
+      <div><dt>公司</dt><dd id="company"></dd></div>
+      <div><dt id="price-label">报价与日期</dt><dd id="price"></dd><dd class="subtle" id="price-date"></dd></div>
+      <div><dt id="base-period"></dt><dd id="base-revenue"></dd></div>
+    </dl>
+    <p id="period-note" class="period-note"></p>
+    <form id="conditions" class="controls">
+      <label for="net-margin"><span id="margin-label">预测期普通股净利率</span><output id="net-margin-value" for="net-margin"></output>
+        <input id="net-margin" type="range" aria-describedby="period-note margin-step-note" disabled>
+        <small id="margin-step-note" class="control-note"></small>
+      </label>
+      <label for="forward-pe">前瞻 PE 参照 <output id="forward-pe-value" for="forward-pe"></output>
+        <input id="forward-pe" type="range" aria-describedby="period-note pe-step-note" disabled>
+        <small id="pe-step-note" class="control-note"></small>
+      </label>
+      <label for="share-change" id="share-control" class="share-control">预测股数情景
+        <select id="share-change" disabled></select>
+      </label>
+      <button id="reset-conditions" type="button" disabled>恢复初始条件</button>
+    </form>
+    <section class="results" aria-live="polite" aria-atomic="true" aria-label="反推结果">
+      <div><h2 id="revenue-label">所需收入</h2><p class="result-number" id="required-revenue"></p></div>
+      <div><h2>较 2025 全年变化</h2><p class="result-number" id="revenue-growth"></p></div>
+      <p id="derived-values" class="derived-values"></p>
+    </section>
+    <p class="scope-note">结果只说明所选条件之间的数量关系，不代表已经识别出的市场共识。</p>
+  </div>
+  <details class="calculation-details">
+    <summary>计算口径与资料</summary>
+    <div class="detail-body">
+      <div class="formulas">
+        <p>所需每股收益 EPS = P ÷ M</p>
+        <p>所需普通股利润 = P × N ÷ M</p>
+        <p>所需收入 R = P × N ÷ (M × m)</p>
+        <p>相对基期的累计变化 = R ÷ R₀ − 1</p>
+      </div>
+      <p>P 为所列日期的每股报价；M 为本篇对该报价和指定预测盈利期间采用的前瞻 PE 条件。N 为该期间与 EPS 同口径的加权平均普通股数；m 为归属于普通股股东的利润除以收入。股数情景按所设预测股数增减。</p>
+      <p>基期收入 R₀ 与预测收入须采用相同币种、公司范围及期间长度。这里显示两期之间的累计变化。净利率和 PE 为正时，才使用这组反推公式。</p>
+      <dl id="input-basis" class="input-basis"></dl>
+      <ul id="source-list" class="source-list"></ul>
+    </div>
+  </details>
+</main>
+</body>
+</html>
