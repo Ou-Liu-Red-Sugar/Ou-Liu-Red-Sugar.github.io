@@ -219,7 +219,7 @@ MES 则放在期货分部，需要留出履约保证金，并结算持有期间�
 在下面的操作树中，可以比较各方案的持有过程。先选行情，再选一种方案，下方就会显示这项方案的净值路径、损益和逐节点现金；读完以后，再保持行情不变，切换到另一项比较。
 
 
-<figure class="ph-figure" data-portfolio-hedging="operations" id="nb-b03-integrated-operations">
+<figure class="ph-figure" data-portfolio-hedging="operations" id="nb-b03-integrated-operations" data-ff-views>
 <span class="ph-kicker">同一起点建立方案 · 金额单位：美元</span>
 <h3>对冲方案与持有过程</h3>
 <div class="ph-tree-root">原组合与同一笔初始资金</div>
@@ -237,20 +237,19 @@ MES 则放在期货分部，需要留出履约保证金，并结算持有期间�
 <p class="ph-description" data-ph-description="">按基础组合继续持有</p>
 <p class="ph-holdings" data-ph-holdings="">VOO 100份 · AMZN 200股 · GOOGL 100股 · Put 0张 · MES空头 0张</p>
 <p class="ph-note" data-ph-opening="">建仓后现金约 44,496 美元；增量费用 0.00 美元。</p>
-<h4>净值路径</h4>
+<div class="ff-switch" role="group" aria-label="选择查看的结果" hidden><button type="button" data-ff-view-choice="nav" aria-pressed="true">净值路径</button><button type="button" data-ff-view-choice="pnl" aria-pressed="false">持仓损益</button><button type="button" data-ff-view-choice="margin" aria-pressed="false">保证金</button><button type="button" data-ff-view-choice="cash" aria-pressed="false">节点现金</button></div>
+<div data-ff-only="nav"><h4>净值路径</h4>
 <div class="ph-chart" data-ph-nav-chart=""><table class="ph-table"><thead><tr><th>经过天数</th><th>所选方案净值（美元）</th></tr></thead><tbody><tr><td>0</td><td>200,000</td></tr><tr><td>10</td><td>191,934</td></tr><tr><td>20</td><td>184,525</td></tr><tr><td>30</td><td>180,571</td></tr></tbody></table></div>
-<p class="ph-legend"><span><i aria-hidden="true"></i><b data-ph-selected-legend="">A 维持</b></span><span data-ph-baseline-legend="" hidden=""><i aria-hidden="true" class="ph-legend-baseline"></i>维持组合 A</span></p>
-<div class="ph-result-columns">
-<div><h4>各项持仓损益</h4><div class="ph-table-wrap" data-ph-contributions=""><table class="ph-table"><thead><tr><th>持仓贡献</th><th>损益（美元）</th></tr></thead><tbody><tr><td>VOO</td><td>-7,105</td></tr><tr><td>AMZN</td><td>-7,512</td></tr><tr><td>GOOGL</td><td>-4,813</td></tr><tr><td>Put</td><td>0</td></tr><tr><td>MES</td><td>0</td></tr><tr><td>费用</td><td>-0</td></tr></tbody></table></div></div>
-<div><h4>保证金与现金</h4><div class="ph-table-wrap" data-ph-summary=""><table class="ph-table"><thead><tr><th>项目</th><th>所选方案</th></tr></thead><tbody><tr><td>合计损益</td><td>-19,429</td></tr><tr><td>期末净值</td><td>180,571</td></tr><tr><td>总现金</td><td>44,496</td></tr><tr><td>普通维持要求</td><td>34,019</td></tr><tr><td>扫描示意</td><td>15,935</td></tr><tr><td>期货累计补入</td><td>0</td></tr></tbody></table></div></div>
-</div>
-<h4>逐节点现金</h4>
+<p class="ph-legend"><span><i aria-hidden="true"></i><b data-ph-selected-legend="">A 维持</b></span><span data-ph-baseline-legend="" hidden=""><i aria-hidden="true" class="ph-legend-baseline"></i>维持组合 A</span></p><p class="ph-note">净值路径以同一行情下的维持组合 A 作比较。</p></div>
+<div data-ff-only="pnl"><h4>各项持仓损益</h4><div class="ph-table-wrap" data-ph-contributions=""><table class="ph-table"><thead><tr><th>持仓贡献</th><th>损益（美元）</th></tr></thead><tbody><tr><td>VOO</td><td>-7,105</td></tr><tr><td>AMZN</td><td>-7,512</td></tr><tr><td>GOOGL</td><td>-4,813</td></tr><tr><td>Put</td><td>0</td></tr><tr><td>MES</td><td>0</td></tr><tr><td>费用</td><td>-0</td></tr></tbody></table></div></div>
+<div data-ff-only="margin"><h4>保证金与现金</h4><div class="ph-table-wrap" data-ph-summary=""><table class="ph-table"><thead><tr><th>项目</th><th>所选方案</th></tr></thead><tbody><tr><td>合计损益</td><td>-19,429</td></tr><tr><td>期末净值</td><td>180,571</td></tr><tr><td>总现金</td><td>44,496</td></tr><tr><td>普通维持要求</td><td>34,019</td></tr><tr><td>扫描示意</td><td>15,935</td></tr><tr><td>期货累计补入</td><td>0</td></tr></tbody></table></div><p class="ph-note">普通维持要求合计证券与期货维持要求；扫描示意合计分组证券风险扫描与期货维持要求，实际 PM 要求另依券商预估。期货累计补入记录沿途从证券分部补入的资金。</p></div>
+<div data-ff-only="cash"><h4>逐节点现金</h4>
 <div class="ph-table-wrap" data-ph-cash=""><table class="ph-table"><thead><tr><th>经过天数</th><th>证券现金</th><th>期货现金</th><th>合计现金</th><th>本次划转</th></tr></thead><tbody><tr><td>0</td><td>44,496</td><td>0</td><td>44,496</td><td>0</td></tr><tr><td>10</td><td>44,496</td><td>0</td><td>44,496</td><td>0</td></tr><tr><td>20</td><td>44,496</td><td>0</td><td>44,496</td><td>0</td></tr><tr><td>30</td><td>44,496</td><td>0</td><td>44,496</td><td>0</td></tr></tbody></table></div>
-<p class="ph-note">每行显示结算与划转后的余额。分部划转为正，表示从证券分部划入期货分部；转回时记为负。内部划转不增加合计现金。</p>
+<p class="ph-note">每行显示结算与划转后的余额。分部划转为正，表示从证券分部划入期货分部；转回时记为负。内部划转不增加合计现金。</p></div>
 <ul class="ph-notes" data-ph-notes="" hidden=""></ul>
 </section>
 <p aria-live="polite" class="ph-status" data-ph-operation-status="" role="status">默认：市场回落 · A 维持。</p>
-<figcaption>净值路径以同一行情下的维持组合 A 作比较。普通维持要求合计证券与期货维持要求；扫描示意合计分组证券风险扫描与期货维持要求，实际 PM 要求另依券商预估。期货累计补入记录沿途从证券分部补入的资金。表内金额按美元取整。</figcaption>
+<figcaption>表内金额按美元取整。</figcaption>
 </figure>
 
 
@@ -266,8 +265,10 @@ MES 则放在期货分部，需要留出履约保证金，并结算持有期间�
 
 这些取舍都依赖对公司业务的判断。接下来的《客户、产品与收费方式》将从客户为什么付款、公司交付什么开始，展开收入背后的经营关系。
 
-<link rel="stylesheet" href="/notebook/portfolio-hedging/ui.css?v=20260926-3">
+<link rel="stylesheet" href="/notebook/portfolio-hedging/ui.css?v=20261011">
 <script src="/notebook/portfolio-hedging/ui.js?v=20260926-3" defer></script>
+<link rel="stylesheet" href="/notebook/flow-figures.css?v=20261011-11">
+<script src="/notebook/flow-figures.js?v=20261011-11" defer></script>
 
 计算材料：[行情、持仓与设定](/notebook/portfolio-hedging/inputs.json) · [历史价格与 RF](/notebook/portfolio-hedging/history.csv) · [全部情景结果](/notebook/portfolio-hedging/calculation-results.csv) · [复算程序](/notebook/portfolio-hedging/model.py)。
 
