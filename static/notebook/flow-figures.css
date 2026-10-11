@@ -274,6 +274,7 @@
 .flow-figure .cc-foot strong { color: var(--ff-ink); }
 
 .flow-figure [hidden] { display: none !important; }
+[data-ff-views] [data-ff-only][hidden] { display: none !important; }
 
 /* View switch: show one authored view at a time; every view stays in the page source. */
 .flow-figure .ff-switch { display: flex; flex-wrap: wrap; gap: 6px; }
