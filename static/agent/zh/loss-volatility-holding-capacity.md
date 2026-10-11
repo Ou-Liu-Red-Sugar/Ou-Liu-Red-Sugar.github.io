@@ -295,6 +295,20 @@ This is reference material for the learner's current request. Use the supplied e
 
 把过去的得失算清以后，我们还要再往前看。市场并不会因为自己在 100 美元买入，就更有理由从 80 美元涨回去；另一位投资者即使是在 60 美元买入，接下来面对的也是同一家公司和同一段价格变化。买入价仍然用于记录盈亏，但是否值得继续持有，还得看眼前的价格与今后的所得。
 
+<figure class="flow-figure path-chart" id="nb-a03-cost-bases">
+<div class="ff-head"><p class="ff-title">同一个现价，三种买入成本</p><span class="ff-sub">示意，美元／股</span></div>
+<div class="pc-plot business-exchange" aria-label="示意：股价从 100 美元涨到 120 美元，再跌到 80 美元。在 100 美元买入的人亏损 20%；在 120 美元高点买入的人亏损约 33%，这也是从高点算起的回撤；在 60 美元买入的人盈利约 33%。从现在起，三个人持有的是同一只 80 美元的股票，面对同一段未来的价格变化。">
+<svg viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><polyline class="pc-fixed" points="0,87.50 70,87.50"/><polyline class="pc-fixed" points="0,37.50 70,37.50"/><polyline class="pc-fixed" points="0,12.50 70,12.50"/><polyline class="pc-price" points="0,37.50 20,27.50 35,12.50 55,32.50 70,62.50"/><polyline class="pc-stop" points="70,62.50 100,62.50"/></svg>
+<span class="pc-y" style="top:87.50%">60</span><span class="pc-y" style="top:62.50%">80</span><span class="pc-y" style="top:37.50%">100</span><span class="pc-y" style="top:12.50%">120</span>
+<span class="pc-dot" style="left:70%;top:62.50%;--c:var(--ff-cash)"></span>
+<span class="pc-note" style="left:2px;top:calc(37.50% + 6px)">100 买入：<strong>−20%</strong></span>
+<span class="pc-note" style="left:calc(35% - 30px);top:calc(12.50% - 20px)">120 高点买入：<strong>−33%</strong>，即回撤</span>
+<span class="pc-note" style="left:2px;top:calc(87.50% - 18px)">60 买入：<strong>+33%</strong></span>
+<span class="pc-note pc-warm" style="left:calc(70% + 8px);top:calc(62.50% + 8px)">现价 80<br>此后涨跌三人相同</span>
+<span class="pc-x" style="left:0%">买入</span><span class="pc-x" style="left:70%">现在</span><span class="pc-x" style="left:100%">以后</span>
+</div>
+</figure>
+
 ## 行业参照与两种结果 {#nb-a03-industry}
 
 我们先从 Coca-Cola（KO）的一次下跌看起。2023 年秋天，GLP-1 减肥药引发了市场对食品饮料消费减少的担忧：如果人们吃得更少、喝得更少，相关公司的增长会不会受到影响？KO 与多家食品饮料公司的股价都受到了冲击，后来又逐步修复。[^wsj]
@@ -326,6 +340,19 @@ This is reference material for the learner's current request. Use the supplied e
 再回到 FISV，我们就要带着原先的预期去看后来的变化。2025 年 7 月，公司还预计全年有机收入增长约 10%，调整后每股收益为 10.15—10.30 美元；到 10 月，这两项预期分别降至 3.5%—4% 和 8.50—8.60 美元。原先期待的增长没有按计划兑现，持有依据也就需要随之修改。[^fiserv-q2]<sup>，</sup>[^fiserv-q3]
 
 问题也出现在实际经营中。FISV 的商户业务有机收入增速，从第二季度的 9% 放缓到第三季度的 5%；金融服务业务则从增长 7% 转为下降 3%。第三季度调整后每股收益同比下降 11%。到 2026 年第二季度，公司有机收入同比下降 5%，调整后每股收益下降 26%，经营压力仍然没有消失。公司还在赚钱，可当初期待的增长与盈利路径已经改变了。[^fiserv-q2]<sup>，</sup>[^fiserv-q3]<sup>，</sup>[^fiserv-2026]
+
+<figure class="flow-figure shift-rows" id="nb-a03-fisv-reset">
+<div class="ff-head"><p class="ff-title">FISV 的预期与经营怎样被改写</p><p class="ff-legend"><span style="--c:#8a978e" class="sh-key-old">原先</span><span class="ff-key-cash">后来</span></p></div>
+<div class="sh-grid">
+<span class="sh-sep">全年指引：2025 年 7 月 → 10 月</span>
+<span class="sh-name">有机收入增长<small>2025 年全年</small></span><span class="sh-val">约 10% → <strong>3.5%–4%</strong></span><div class="sh-track business-exchange" aria-label="2025 年全年有机收入增长指引，从 7 月的约 10% 下调到 10 月的 3.5%—4%。"><i class="sh-line" style="--from:31.2%;--w:52.1%"></i><i class="sh-old" style="--from:83.3%;--w:0.0%;--shift:-6px"></i><i class="sh-new" style="--from:29.2%;--w:4.2%;--shift:0px"></i></div>
+<span class="sh-name">调整后每股收益<small>2025 年全年，美元</small></span><span class="sh-val">10.15–10.30 → <strong>8.50–8.60</strong></span><div class="sh-track business-exchange" aria-label="2025 年全年调整后每股收益指引，从 7 月的 10.15—10.30 美元下调到 10 月的 8.50—8.60 美元。"><i class="sh-line" style="--from:18.3%;--w:55.8%"></i><i class="sh-old" style="--from:71.7%;--w:5.0%;--shift:0px"></i><i class="sh-new" style="--from:16.7%;--w:3.3%;--shift:0px"></i></div>
+<span class="sh-sep">季度有机收入增长：第二季度 → 第三季度</span>
+<span class="sh-name">商户业务<small>2025 年</small></span><span class="sh-val">9% → <strong>5%</strong></span><div class="sh-track business-exchange" aria-label="商户业务有机收入增速从 2025 年第二季度的 9% 放缓到第三季度的 5%。"><span class="sh-zero" style="--x:33.3%"></span><i class="sh-line" style="--from:61.1%;--w:22.2%"></i><i class="sh-old" style="--from:83.3%;--w:0.0%;--shift:-6px"></i><i class="sh-new" style="--from:61.1%;--w:0.0%;--shift:-6px"></i></div>
+<span class="sh-name">金融服务业务<small>2025 年</small></span><span class="sh-val">7% → <strong>−3%</strong></span><div class="sh-track business-exchange" aria-label="金融服务业务有机收入从 2025 年第二季度增长 7% 转为第三季度下降 3%。"><span class="sh-zero" style="--x:33.3%"></span><i class="sh-line" style="--from:16.7%;--w:55.6%"></i><i class="sh-old" style="--from:72.2%;--w:0.0%;--shift:-6px"></i><i class="sh-new" style="--from:16.7%;--w:0.0%;--shift:-6px"></i></div>
+</div>
+<figcaption>空心标记为原先的数字，实心为后来的数字；每行各用自己的刻度，竖虚线为 0%。均为公司披露的非 GAAP 口径。</figcaption>
+</figure>
 
 <span data-text-versions id="nb-a03-text-2">经营与盈利预期的变化，还会改变我们对股东未来所得的估计。正如[《股票、公司与股价》](/zh/notebook/stocks-company-price/)所讨论的，持有公司的股份，就要看它的业务最终能带来什么。一项业务受到冲击时，要看它在公司利润中占多大比重、压力可能持续多久，其他业务又能提供多少支撑，再计入共同费用、债务和资金投入的影响，估计整体的盈利前景<span data-text-detail>（本节的有机收入增长及调整后每股收益，采用各公司披露的非 GAAP 口径；比较始终在同一家公司、同一指标内进行，所述季度同比变化与全年指引分别保留各自期间）</span>。所以，重新判断持仓时，我们既要更新对未来所得的估计，也得看看眼前的股价已经变到了哪里。<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>
 
@@ -387,6 +414,19 @@ This is reference material for the learner's current request. Use the supplied e
 
 若买股时还借了钱，资金安排就又多了一层约束。自有资金为 10,000 美元时，全额用它买股，股价下跌 20% 后还剩 8,000 美元；若另借 10,000 美元，一共买入 20,000 美元股票，同样下跌 20% 后，股票市值还剩 16,000 美元，扣掉需要归还的借款本金，自有资金就只剩 6,000 美元了。股票跌了 20%，自己的资金却损失了 40%，还没有计入利息。
 
+<figure class="flow-figure leverage-bars" id="nb-a03-leverage">
+<div class="ff-head"><p class="ff-title">借款不随股价变化，自有资金承担全部跌幅</p><p class="ff-legend"><span class="lv-key-own">自有资金</span><span class="lv-key-loan">借款 10,000</span></p></div>
+<div class="lv-grid">
+<span class="lv-name">不借款<small>买入 10,000</small></span><span class="lv-val">自有 <strong>10,000</strong></span><div class="lv-bar business-exchange" aria-label="不借款：用 10,000 美元自有资金买入股票。"><i class="lv-own" style="--w:50.00%"></i></div>
+<span class="lv-name">不借款，跌 20%</span><span class="lv-val">自有 <strong class="lv-bad">8,000</strong>，−20%</span><div class="lv-bar business-exchange" aria-label="不借款时股价下跌 20%，持仓和自有资金都剩 8,000 美元，损失 20%。"><i class="lv-own" style="--w:40.00%"></i><i class="lv-gone" style="--w:10.00%"></i></div>
+<span class="lv-sep"></span>
+<span class="lv-name">再借 10,000<small>买入 20,000</small></span><span class="lv-val">自有 <strong>10,000</strong></span><div class="lv-bar business-exchange" aria-label="另借 10,000 美元，一共买入 20,000 美元股票，其中自有资金 10,000 美元。"><i class="lv-own" style="--w:50.00%"></i><i class="lv-loan" style="--w:50.00%"></i></div>
+<span class="lv-name">借款，跌 20%</span><span class="lv-val">自有 <strong class="lv-bad">6,000</strong>，−40%</span><div class="lv-bar business-exchange" aria-label="借款时股价下跌 20%，持仓剩 16,000 美元，扣除 10,000 美元借款，自有资金只剩 6,000 美元，损失 40%。"><i class="lv-own" style="--w:30.00%"></i><i class="lv-loan" style="--w:50.00%"></i><i class="lv-gone" style="--w:20.00%"></i></div>
+<span class="lv-name">保证金临界<small>持仓约 14,286</small></span><span class="lv-val">自有 <strong class="lv-bad">约 4,286</strong>，占 30%</span><div class="lv-bar business-exchange" aria-label="若券商要求净权益至少占持仓市值的 30%，持仓市值跌到约 14,286 美元时，自有资金约 4,286 美元，恰好达到要求；再跌就需要补入资金或被处置持仓。"><i class="lv-own" style="--w:21.43%"></i><i class="lv-loan" style="--w:50.00%"></i><i class="lv-gone" style="--w:28.57%"></i></div>
+</div>
+<figcaption>整条长度按 20,000 美元绘制，虚线框是已经跌掉的市值。不计利息；30% 为本例采用的券商要求。</figcaption>
+</figure>
+
 <span data-text-versions id="nb-a03-text-6">保证金要求还可能使退出提前发生。沿用这笔 10,000 美元借款，若券商要求净权益至少占持仓市值的 30%，持仓市值降到约 14,286 美元时，净权益占持仓市值的比例就恰好达到要求；继续下跌，账户便会出现保证金不足，需要补入资金或处置持仓<span data-text-detail>（这里采用单一股票账户，暂不计其他担保品和利息；临界关系为“持仓市值−10,000＝30%×持仓市值”。30% 为本例采用的券商要求。FINRA 的一般股票维持保证金最低要求为 25%，券商可以设更高要求，并可能直接处置证券）</span>。等到资金要求触发处置时，原先打算再等多久，也就无法完全由自己决定了。[^margin]<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>
 
 除了资金，我们还要给自己的情绪留一点余地。频繁打开行情，每一次下跌都可能重新牵动回本的愿望，一点反弹又让人忍不住调整判断。屏幕上的变化越来越多，真正影响公司经营的新信息却未必同样频繁。减少这种反复刺激，也有助于按已经想清楚的依据行动。当然，放下手机和电脑，去做点别的事散散心，也是一种非常好的提升持有能力的举动。
@@ -395,8 +435,8 @@ This is reference material for the learner's current request. Use the supplied e
 
 这里看的是单独一笔持仓。手里同时有几只股票和基金时，它们常常会一起涨跌，现金也要在几项持仓之间分配；下一篇[《投资组合：集中、分散与现金》](/zh/notebook/#topic-P)把这些持仓放在一起来看。
 
-<link rel="stylesheet" href="/notebook/flow-figures.css?v=20261011-8">
-<script src="/notebook/flow-figures.js?v=20261011-8" defer></script>
+<link rel="stylesheet" href="/notebook/flow-figures.css?v=20261011-9">
+<script src="/notebook/flow-figures.js?v=20261011-9" defer></script>
 <link rel="stylesheet" href="/notebook/holding.css?v=20260926">
 <script src="/notebook/holding.js" defer></script>
 
