@@ -520,7 +520,7 @@ This is reference material for the learner's current request. Use the supplied e
 
 ## Supplied entry
 <link rel="stylesheet" href="/notebook/intro-interactions.css">
-<link rel="stylesheet" href="/notebook/flow-figures.css?v=20261011-2">
+<link rel="stylesheet" href="/notebook/flow-figures.css?v=20261011-3">
 
 ## 投资目标与方法 {#nb-a01-goals}
 
@@ -775,7 +775,7 @@ This is reference material for the learner's current request. Use the supplied e
 [^returns]: [FINRA：Return and Rate of Return](https://syndication.finra.org/content/key-concepts-return-and-rate-return)。
 
 <script type="module" src="/notebook/intro-interactions.js"></script>
-<script src="/notebook/flow-figures.js?v=20261011-2" defer></script>
+<script src="/notebook/flow-figures.js?v=20261011-3" defer></script>
 
 [^enbw-share]: [EnBW：Share](https://www.enbw.com/investors/share/)，Key figures of the EnBW share，德国市场代码 EBK。
 
