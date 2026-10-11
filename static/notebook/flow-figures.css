@@ -1355,6 +1355,39 @@
 .fan-out .fo-out strong { font-size: 14px; color: var(--ff-ink); }
 .fan-out .fo-out small { font-size: 11.5px; line-height: 1.4; color: var(--ff-muted); }
 
+/* Payout paths: the same cash returned as a dividend or through a buyback, ending at the same holding. */
+.flow-figure .ff-bars .fb-name small { display: block; font-size: 11px; line-height: 1.35; color: var(--ff-muted); }
+.payout-paths .pp-grid { display: grid; grid-template-columns: 44px minmax(0, 1fr) minmax(0, .95fr) minmax(0, 1fr) minmax(0, .8fr) minmax(0, 1.05fr); column-gap: 8px; row-gap: 14px; align-items: center; }
+.payout-paths .pp-lane { grid-column: 1; grid-row: var(--l); font-size: 12.5px; font-weight: 600; color: var(--ff-ink); }
+.payout-paths .pp-tile, .payout-paths .pp-step { grid-row: var(--l); grid-column: var(--c) / span var(--s, 1); }
+.payout-paths .pp-tile { display: grid; gap: 3px; padding: 6px; border: 1px solid var(--ff-rule); border-radius: 7px; background: var(--ff-card); text-align: center; }
+.payout-paths .pp-tile > span { padding: 2px 4px; border-radius: 5px; font-size: 12px; }
+.payout-paths .pp-tile strong { font-size: 13.5px; }
+.payout-paths .pp-stock { background: #f3f8f4; color: var(--ff-ink); }
+.payout-paths .pp-cash { background: var(--ff-cash-bg); color: var(--ff-cash-text); }
+.payout-paths .pp-tile small { font-size: 11px; line-height: 1.35; color: var(--ff-muted); }
+.payout-paths .pp-tile small b { display: block; font-weight: 600; color: var(--ff-share); }
+.payout-paths .pp-end { border-color: #b9d0c2; }
+.payout-paths .pp-step { position: relative; padding: 0 4px 12px; font-size: 11.5px; line-height: 1.35; text-align: center; color: var(--ff-share); }
+.payout-paths .pp-step small { display: block; font-size: 10.5px; color: var(--ff-muted); }
+.payout-paths .pp-step::after { content: ""; position: absolute; left: 4px; right: 8px; bottom: 4px; height: 2px; background: currentColor; }
+.payout-paths .pp-step::before { content: ""; position: absolute; right: 2px; bottom: 0; border: 5px solid transparent; border-left: 7px solid currentColor; border-right: 0; }
+
+/* Price effect: per-share value after a buyback or an issue at three prices, as change from the pre-trade value. */
+.price-effect .pe-panels { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px 22px; }
+.price-effect .pe-title { margin: 0 0 4px; font-size: 12.5px; font-weight: 650; color: var(--ff-ink); }
+.price-effect .pe-title small { display: block; font-size: 11px; font-weight: 400; color: var(--ff-muted); }
+.price-effect .pe-row { display: grid; grid-template-columns: 50px 70px minmax(0, 1fr) 52px; align-items: center; gap: 8px; padding: 5px 0; border-top: 1px solid var(--ff-rule); font-size: 12px; }
+.price-effect .pe-price { font-weight: 600; color: var(--ff-ink); white-space: nowrap; }
+.price-effect .pe-qty { font-size: 11.5px; color: var(--ff-muted); white-space: nowrap; }
+.price-effect .pe-bar { position: relative; height: 14px; }
+.price-effect .pe-bar::before { content: ""; position: absolute; left: 50%; top: -4px; bottom: -4px; width: 1px; background: #b8c2bb; }
+.price-effect .pe-bar i { position: absolute; top: 0; bottom: 0; width: calc(var(--w) / 2); }
+.price-effect .pe-bar i.pe-up { left: 50%; border-radius: 0 4px 4px 0; background: var(--ff-share); }
+.price-effect .pe-bar i.pe-down { right: 50%; border-radius: 4px 0 0 4px; background: var(--ff-cash); }
+.price-effect .pe-val { font-size: 13px; font-weight: 650; line-height: 1.2; text-align: right; color: var(--ff-ink); }
+.price-effect .pe-val small { display: block; font-size: 11px; font-weight: 400; color: var(--ff-muted); }
+
 @media (max-width: 640px) {
   .flow-figure { padding: 14px 12px 12px; margin: 22px 0 26px; }
   .flow-figure .ff-row {
@@ -1599,6 +1632,13 @@
   .fan-out .fo-fork::before, .fan-out .fo-fork i { display: none; }
   .fan-out .fo-fork em { left: 28px; top: 2px; width: 2px; height: 14px; }
   .fan-out .fo-outs { padding-left: 18px; border-left: 2px solid var(--ff-share); margin-left: 28px; }
+  .payout-paths .pp-grid { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); column-gap: 10px; row-gap: 6px; align-items: stretch; }
+  .payout-paths .pp-lane { grid-row: 1; grid-column: var(--l); padding-bottom: 4px; border-bottom: 1px solid var(--ff-rule); text-align: center; }
+  .payout-paths .pp-tile, .payout-paths .pp-step { grid-column: var(--l); grid-row: var(--c) / span var(--s, 1); }
+  .payout-paths .pp-step { display: flex; flex-direction: column; justify-content: center; padding: 4px 0 4px 18px; text-align: left; }
+  .payout-paths .pp-step::after { left: 6px; right: auto; top: 2px; bottom: 8px; width: 2px; height: auto; }
+  .payout-paths .pp-step::before { left: 2px; right: auto; bottom: 2px; border: 5px solid transparent; border-top: 7px solid currentColor; border-bottom: 0; }
+  .price-effect .pe-panels { grid-template-columns: minmax(0, 1fr); }
   .flow-figure .cc-control { grid-template-columns: minmax(0, 1fr) auto; }
   .flow-figure .cc-control input[type=range] { grid-column: 1 / -1; grid-row: 2; }
   .flow-figure .cc-head { display: none; }

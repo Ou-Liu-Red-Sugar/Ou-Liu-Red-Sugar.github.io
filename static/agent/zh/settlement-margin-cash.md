@@ -899,8 +899,8 @@ MES 则放在期货分部，需要留出履约保证金，并结算持有期间�
 
 <link rel="stylesheet" href="/notebook/portfolio-hedging/ui.css?v=20261011">
 <script src="/notebook/portfolio-hedging/ui.js?v=20260926-3" defer></script>
-<link rel="stylesheet" href="/notebook/flow-figures.css?v=20261011-14">
-<script src="/notebook/flow-figures.js?v=20261011-14" defer></script>
+<link rel="stylesheet" href="/notebook/flow-figures.css?v=20261011-15">
+<script src="/notebook/flow-figures.js?v=20261011-15" defer></script>
 
 计算材料：[行情、持仓与设定](/notebook/portfolio-hedging/inputs.json) · [历史价格与 RF](/notebook/portfolio-hedging/history.csv) · [全部情景结果](/notebook/portfolio-hedging/calculation-results.csv) · [复算程序](/notebook/portfolio-hedging/model.py)。
 
