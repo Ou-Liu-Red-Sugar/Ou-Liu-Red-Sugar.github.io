@@ -259,23 +259,6 @@ This is reference material for the learner's current request. Use the supplied e
       "version": "本篇核对日期：2026-09-25；采用期间见正文脚注"
     },
     {
-      "source_id": "nb-a03-source-settlement-1",
-      "access": {
-        "kind": "selected_chapters",
-        "uri": "https://www.sec.gov/newsroom/press-releases/2024-62"
-      },
-      "required_unit": {
-        "locator": "SEC：T+1 交收实施公告，美国多数证券交易自 2024-05-28 起由 T+2 改为 T+1。",
-        "scope": "SEC：T+1 交收实施公告，美国多数证券交易自 2024-05-28 起由 T+2 改为 T+1。",
-        "purpose": "核对本篇采用的行情、经营信息、指标定义或资金规则。"
-      },
-      "title": "SEC：T+1 交收实施公告",
-      "authors": [
-        "SEC"
-      ],
-      "version": "本篇查阅日期：2026-09-25；历史事实日期见采用范围"
-    },
-    {
       "source_id": "nb-a03-source-margin-1",
       "access": {
         "kind": "selected_chapters",
@@ -399,18 +382,7 @@ This is reference material for the learner's current request. Use the supplied e
 
 ## 资金、心态与持有能力 {#nb-a03-capacity}
 
-即使经营前景与当前价格仍支持继续持有，我们还得有资金等到预期兑现。[《投资期限与现金需要》](/zh/notebook/investment-horizon-cash/)讨论了投资回款与期间付款的衔接；放到一笔正在亏损的持仓中，我们也要先看，预期兑现之前还有没有必须支付的款项。
-
-假设有 12,000 美元可以安排，股票买入价为 100 美元，几个月后还有一笔已经约定的 2,000 美元支出。我们可以先留出付款现金，也可以把钱全部买成股票，等需要时再卖出一部分。到了付款前，若股价恰好跌到 80 美元，两种安排就会出现下面的区别：
-
-| 资金安排 | 买入时 | 付款办法 | 付款后仍持有 |
-|---|---|---|---|
-| 先留出现金 | 100 股＋2,000 美元现金 | 使用预留现金 | 100 股，市值 8,000 美元 |
-| 全部买成股票 | 120 股，无现金 | 卖出 25 股取得 2,000 美元 | 95 股，市值 7,600 美元 |
-
-到了付款时，第二种安排就需要筹集现金。若不另行借款或补入资金，便要出售部分股份。即使后来出现了原先预计的结果，自己还能持有多少股份，也已经受到途中资金安排的影响了。预留现金会减少最初参与股票涨跌的金额，但也给期间用钱和后续调整留下了余地。
-
-<span data-text-versions id="nb-a03-text-5">一旦需要卖股筹钱，我们还要接着看，能以什么价格成交，以及卖出以后还要等多久才能用到钱。账户缺现金时，可以考虑出售资产；若市场上合适的买盘也不足，急于成交又可能需要接受更低的价格。成交以后，证券与款项的交收、银行转账还各有处理时间<span data-text-detail>（上表假设可以按 80 美元成交，暂不计税费。美国多数证券交易采用 T+1 标准交收，资金转出还需按账户及银行的安排衔接）</span>。因此安排付款时，还得把这段取得现金的时间留出来。[^settlement]<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>
+即使经营前景与当前价格仍支持继续持有，我们还得有资金等到预期兑现。[《投资期限与现金需要》](/zh/notebook/investment-horizon-cash/)用 VOO 在 2022 年的下跌比较过：付款日正赶上低位时，全部买入的安排要卖出份额凑钱，这部分份额也就错过了后来的回升。放到一笔正在亏损的个股上，情形也一样。沿用前面的情景算例，若股价跌到 80 美元时要筹集 2,000 美元，就得卖出 25 股；即使之后出现了顺利情景，这 25 股也分不到从 80 美元算起约 90% 的那部分回报。所以在预期兑现之前还有必须支付的款项时，我们要先把这笔钱留出来，再判断余下的持仓能等多久。
 
 若买股时还借了钱，资金安排就又多了一层约束。自有资金为 10,000 美元时，全额用它买股，股价下跌 20% 后还剩 8,000 美元；若另借 10,000 美元，一共买入 20,000 美元股票，同样下跌 20% 后，股票市值还剩 16,000 美元，扣掉需要归还的借款本金，自有资金就只剩 6,000 美元了。股票跌了 20%，自己的资金却损失了 40%，还没有计入利息。
 
@@ -436,7 +408,6 @@ This is reference material for the learner's current request. Use the supplied e
 [^fiserv-2026]: [Fiserv：2026 年第二季度业绩公告](https://investors.fiserv.com/news-releases/news-release-details/fiserv-reports-second-quarter-2026-results)，2026-08-06，季度有机收入与调整后每股收益的同比变化。
 [^msft-results]: [Microsoft：FY26 Q4 业绩公告](https://www.microsoft.com/en-us/investor/earnings/fy-2026-q4/press-release-webcast)，2026-07-29，收入及 Azure 与其他云服务收入增长；[财报发布时间公告](https://news.microsoft.com/source/2026/07/08/microsoft-announces-quarterly-earnings-release-date-68/)，确认盘后发布。
 [^msft-prices]: [Yahoo Finance：MSFT 历史行情](https://finance.yahoo.com/quote/MSFT/history/)。2026-07-29 收盘 390.54 美元，7 月 30 日收盘 451.10 美元，变化约 15.5%；两个交易日成交量分别为 47,209,000 股、110,160,700 股。图与旧上轨的计算输入见[数据表](/notebook/holding/msft-repricing.csv)。
-[^settlement]: [SEC：T+1 交收实施公告](https://www.sec.gov/newsroom/press-releases/2024-62)，美国多数证券交易自 2024-05-28 起由 T+2 改为 T+1。
 [^margin]: [FINRA：Brokerage Accounts](https://www.finra.org/investors/investing/investment-accounts/brokerage-accounts)，Margin Requirements、Firm Practices、Know Before You Trade。
 
 
@@ -457,7 +428,6 @@ This is reference material for the learner's current request. Use the supplied e
 - [Nasdaq：Fiserv 上市与交易代码公告](https://www.nasdaqtrader.com/TraderNews.aspx?id=DTN2025-32): Nasdaq：Fiserv 上市与交易代码公告，自 2025-11-11 起使用 FISV，此前使用 FI。
 - [Spencer Jakab：How to Tell Whether a Plunging Stock Will Keep Plunging](https://www.wsj.com/finance/stocks/how-to-tell-whether-a-plunging-stock-will-keep-plunging-bf0be3ed): Spencer Jakab：How to Tell Whether a Plunging Stock Will Keep Plunging，WSJ，2026-09-18，Missing the bounce 部分。采用 GLP-1 担忧下食品饮料股的修复案例及相对行业比较的思路。
 - [FINRA：Brokerage Accounts](https://www.finra.org/investors/investing/investment-accounts/brokerage-accounts): FINRA：Brokerage Accounts，Margin Requirements、Firm Practices、Know Before You Trade。采用净权益、维持保证金、券商自行提高要求及强制处置的规则；正文价格、借款和 30% 比例为教学设定。
-- [SEC：T+1 交收实施公告](https://www.sec.gov/newsroom/press-releases/2024-62): SEC：T+1 交收实施公告，2024-05-21，说明美国多数证券交易自 2024-05-28 由 T+2 转为 T+1。
 
 ## Content relations
 ```json
