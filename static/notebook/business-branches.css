@@ -140,6 +140,18 @@
   clip-path: polygon(0 50%, 8px 0, 8px calc(50% - 1px), calc(100% - 8px) calc(50% - 1px), calc(100% - 8px) 0, 100% 50%, calc(100% - 8px) 100%, calc(100% - 8px) calc(50% + 1px), 8px calc(50% + 1px), 8px 100%);
 }
 
+.entry-body figure.business-flow .ff-switch { display: flex; flex-wrap: wrap; gap: 6px; margin: 0 0 14px; }
+.entry-body figure.business-flow .ff-switch button {
+  padding: 3px 10px;
+  border: 1px solid #c3cfbf;
+  border-radius: 6px;
+  background: #fffefa;
+  color: #365b46;
+  font: 500 12.5px/1.6 var(--sans, system-ui, sans-serif);
+  cursor: pointer;
+}
+.entry-body figure.business-flow .ff-switch button[aria-pressed=true] { background: #365b46; border-color: #365b46; color: #fff; }
+.entry-body figure.business-flow[data-ff-views].is-switching .business-flow-route { margin-top: 0; padding-top: 0; border-top: 0; }
 .entry-body figure.business-flow figcaption {
   margin-top: 14px;
   font-size: 13px;
@@ -151,13 +163,32 @@
 @media (max-width: 600px) {
   .entry-body .reading-branch-controls { gap: 7px; padding: 13px; }
   .entry-body .reading-branch-controls button { flex: 1 1 calc(50% - 7px); }
-  .entry-body figure.business-flow { padding: 14px; }
-  .business-flow-grid { display: flex; flex-direction: column; }
-  .business-flow-node { flex-basis: auto; }
-  .entry-body .business-flow-edge { flex-basis: auto; }
+  .entry-body figure.business-flow { padding: 12px; }
+  .business-flow-grid { display: flex; flex-direction: column; gap: 2px; }
+  .business-flow-grid + .business-flow-grid { margin-top: 10px; }
+  .business-flow-route + .business-flow-route { margin-top: 14px; padding-top: 12px; }
+  .entry-body .business-flow-route-title { margin-bottom: 8px; font-size: 13px; }
+  .business-flow-node { flex-basis: auto; padding: 8px 11px; }
+  .business-flow-node small { margin-bottom: 1px; font-size: 11px; }
+  .business-flow-node strong { font-size: 14.5px; line-height: 1.45; }
+  .entry-body .business-flow-node p { margin-top: 2px; font-size: 12.5px; line-height: 1.55; }
+  .entry-body .business-flow-edge {
+    flex: none;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-self: stretch;
+    gap: 12px;
+    min-height: 34px;
+    padding-left: 14px;
+    font-size: 11.5px;
+    line-height: 1.45;
+    text-align: left;
+  }
   .entry-body .business-flow-edge::after {
-    width: 60px;
-    margin: 24px 0;
+    order: -1;
+    width: 26px;
+    height: 10px;
+    margin: 8px -8px;
     transform: rotate(90deg);
   }
 }
@@ -168,4 +199,6 @@
   .entry-body [data-reading-branch-footnote][hidden] { display: list-item !important; }
   .entry-body [data-reading-branch-backlink][hidden] { display: inline !important; }
   .entry-body figure.business-flow { break-inside: avoid; background: transparent; }
+  .entry-body figure.business-flow .ff-switch { display: none !important; }
+  .entry-body figure.business-flow [data-ff-only][hidden] { display: block !important; }
 }
