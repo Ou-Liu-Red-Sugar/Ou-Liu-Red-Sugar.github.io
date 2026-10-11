@@ -333,11 +333,22 @@ This is reference material for the learner's current request. Use the supplied e
 
 我们不妨用一组简化数字，把这个比较具体展开。设当前股价为 100 美元，观察两年后的结果，期间累计每股分红按 2 美元计算。经营顺利时，需求增加，利润增长；中性情景下，业务大致维持；不利时，需求和利润都转弱。这里用“年每股收益 × 市盈率”估计期末价格，也就是先估计每股对应的一年利润，再考虑市场愿意给这些利润多少倍的价格。
 
-| 两年后的情景 | 经营变化 | 年每股收益 × 市盈率 | 情景期末股价 | 期间分红 | 情景持有回报 |
-|---|---|---:|---:|---:|---:|
-| 顺利 | 需求增加，利润增长 | 6 美元 × 25 倍 | 150 美元 | 2 美元 | +52% |
-| 中性 | 业务大致维持 | 5 美元 × 20 倍 | 100 美元 | 2 美元 | +2% |
-| 不利 | 需求转弱，利润下降 | 3 美元 × 20 倍 | 60 美元 | 2 美元 | −38% |
+<figure class="flow-figure" id="nb-a03-scenario-chain" data-calc-chain>
+<div class="ff-head"><p class="ff-title">从经营情景到持有回报</p><p class="ff-legend"><span class="ff-key-share">上行</span><span class="ff-key-cash">下行</span></p></div>
+<div class="cc-control">
+<label for="nb-a03-price">当前股价 <output for="nb-a03-price" data-cc-price-output>100</output> 美元</label>
+<input id="nb-a03-price" type="range" min="70" max="140" step="1" value="100" disabled>
+<div class="cc-presets" hidden><button type="button" data-cc-price="80">80</button><button type="button" data-cc-price="100" aria-pressed="true">100</button><button type="button" data-cc-price="130">130</button></div>
+</div>
+<div class="cc-table">
+<div class="cc-head" aria-hidden="true"><span>两年后的经营情景</span><span>年每股收益 × 市盈率</span><span>期末股价</span><span>＋分红</span><span>＝每股所得</span><span>相对当前股价</span></div>
+<div class="cc-lane" data-cc-outcome="152" data-cc-role="up"><div class="cc-name"><strong>顺利</strong><small>需求增加，利润增长</small></div><div class="cc-step cc-eps">6 <em>美元</em> × 25 <em>倍</em></div><div class="cc-step cc-price">150</div><div class="cc-step cc-div cc-step-cash">＋2</div><div class="cc-step cc-total cc-step-total">152</div><div class="cc-return" data-cc-return><div class="cc-bar cc-up" style="width:43.3%"></div><span class="cc-value cc-up" style="left:calc(50% + 21.7% + 6px)">+52.0%</span></div></div>
+<div class="cc-lane" data-cc-outcome="102"><div class="cc-name"><strong>中性</strong><small>业务大致维持</small></div><div class="cc-step cc-eps">5 <em>美元</em> × 20 <em>倍</em></div><div class="cc-step cc-price">100</div><div class="cc-step cc-div cc-step-cash">＋2</div><div class="cc-step cc-total cc-step-total">102</div><div class="cc-return" data-cc-return><div class="cc-bar cc-up" style="width:1.7%"></div><span class="cc-value cc-up" style="left:calc(50% + 0.8% + 6px)">+2.0%</span></div></div>
+<div class="cc-lane" data-cc-outcome="62" data-cc-role="down"><div class="cc-name"><strong>不利</strong><small>需求转弱，利润下降</small></div><div class="cc-step cc-eps">3 <em>美元</em> × 20 <em>倍</em></div><div class="cc-step cc-price">60</div><div class="cc-step cc-div cc-step-cash">＋2</div><div class="cc-step cc-total cc-step-total">62</div><div class="cc-return" data-cc-return><div class="cc-bar cc-down" style="width:31.7%"></div><span class="cc-value cc-down" style="right:calc(50% + 15.8% + 6px)">−38.0%</span></div></div>
+</div>
+<div class="cc-foot"><span>每股所得 ÷ 当前股价 − 1，即从今天起的情景回报；金额单位为美元／股。</span><span>上行∶下行 = <strong data-cc-ratio>1.37∶1</strong></span></div>
+<figcaption>简化教学设定：观察两年，期间每股分红合计 2 美元并留作现金；三个情景没有指定概率。</figcaption>
+</figure>
 
 假设期间收到的分红先留作现金，那么从当前价格继续持有，情景回报就可以写为：
 
@@ -348,21 +359,11 @@ This is reference material for the learner's current request. Use the supplied e
 
 顺利情景下，期末股票与分红合起来是 152 美元，相对当前的 100 美元，上行空间为 52%；不利情景下，两项所得合计 62 美元，下行空间为 38%。于是，上行空间与下行空间之比约为 1.37∶1。这个比例把两边的幅度放在了一起，接下来还要看各种情景有多大机会发生，以及我们需要等多久。
 
-<div class="holding-scenario" data-holding-scenario>
-<p class="holding-scenario-title">经营情景不变，当前价格改变</p>
-<label for="holding-price">当前股价：<output id="holding-price-value" for="holding-price">100</output> 美元</label>
-<input id="holding-price" type="range" min="70" max="140" step="1" value="100">
-<div class="holding-presets"><button type="button" data-price="80">80 美元</button><button type="button" data-price="100">100 美元</button><button type="button" data-price="130">130 美元</button></div>
-<div class="holding-results" aria-live="polite"><div><span>顺利情景</span><strong data-scenario="152">+52.0%</strong></div><div><span>中性情景</span><strong data-scenario="102">+2.0%</strong></div><div><span>不利情景</span><strong data-scenario="62">−38.0%</strong></div></div>
-<p data-ratio>上行空间∶下行空间 = 1.37∶1</p>
-<p class="holding-annotation">两年后的每股所得保持为 152、102、62 美元，仅改变今天的价格。</p>
-</div>
-
-把当前价格改为 80 美元，顺利情景的回报就提高到 90%，不利情景的损失则收窄到 22.5%；改为 130 美元，上行空间只剩约 17%，下行空间却扩大到约 52%。公司在这几种比较中的经营假设完全相同，持有的吸引力却已经随价格发生了变化。因此，企业经营良好时，也可能因为价格过高而值得减仓。
+在上图中把当前价格改为 80 美元，顺利情景的回报就提高到 90%，不利情景的损失则收窄到 22.5%；改为 130 美元，上行空间只剩约 17%，下行空间却扩大到约 52%。公司在这几种比较中的经营假设完全相同，持有的吸引力却已经随价格发生了变化。因此，企业经营良好时，也可能因为价格过高而值得减仓。
 
 反过来，经营情景本身也会改变。假如中性情景的年每股收益从 5 美元下调到 4 美元，仍按 20 倍市盈率计算，期末股价的估计就从 100 美元降到了 80 美元。即使眼前股价也跌到 80 美元，中性情景下两年的回报仍只有分红带来的 2.5%。过去已经跌掉的部分，并不会自动变成从现在开始的上行空间。
 
-<span data-text-versions id="nb-a03-text-3">把幅度算出来以后，我们还要看看乐观结果依赖的需求增长能否兑现、不利情景由什么因素触发，以及等待期间有没有更合适的资金用途。同样的累计回报，等两年与等十年，吸引力也不同<span data-text-detail>（本例每个情景均假设两年累计每股分红 2 美元，暂不计税费、融资成本及分红再投资；没有给情景指定概率。表中的不利情景只对应所列经营结果）</span>。原来的理由仍有支持、当前价格的 Risk-Reward 也合意时，继续持有就有了依据；若这些条件已经改变，也就可以在尚未回本之前调整持仓。<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>
+<span data-text-versions id="nb-a03-text-3">把幅度算出来以后，我们还要看看乐观结果依赖的需求增长能否兑现、不利情景由什么因素触发，以及等待期间有没有更合适的资金用途。同样的累计回报，等两年与等十年，吸引力也不同<span data-text-detail>（本例每个情景均假设两年累计每股分红 2 美元，暂不计税费、融资成本及分红再投资；没有给情景指定概率。图中的不利情景只对应所列经营结果）</span>。原来的理由仍有支持、当前价格的 Risk-Reward 也合意时，继续持有就有了依据；若这些条件已经改变，也就可以在尚未回本之前调整持仓。<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>
 
 ## 交易心理与重新定价 {#nb-a03-repricing}
 
@@ -394,6 +395,8 @@ This is reference material for the learner's current request. Use the supplied e
 
 这里看的是单独一笔持仓。手里同时有几只股票和基金时，它们常常会一起涨跌，现金也要在几项持仓之间分配；下一篇[《投资组合：集中、分散与现金》](/zh/notebook/#topic-P)把这些持仓放在一起来看。
 
+<link rel="stylesheet" href="/notebook/flow-figures.css?v=20261011">
+<script src="/notebook/flow-figures.js?v=20261011" defer></script>
 <link rel="stylesheet" href="/notebook/holding.css?v=20260926">
 <script src="/notebook/holding.js" defer></script>
 
