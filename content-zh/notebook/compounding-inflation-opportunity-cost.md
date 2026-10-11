@@ -182,7 +182,7 @@ Y 的波动是 X 的两倍，预期超额收益却是 X 的 2.5 倍，因此每�
 
 <link rel="stylesheet" href="/notebook/compounding.css?v=20260926">
 <script src="/notebook/compounding.js?v=20260926-4" defer></script>
-<link rel="stylesheet" href="/notebook/flow-figures.css?v=20261011-11">
+<link rel="stylesheet" href="/notebook/flow-figures.css?v=20261011-12">
 
 [^buffett-1989]: Warren Buffett，[Berkshire Hathaway 1989 年股东信](https://www.berkshirehathaway.com/letters/1989.html)，Mistakes of the First Twenty-five Years：优秀企业、合理价格与时间的关系。
 [^buffett-2022]: Warren Buffett，[2022 年股东信](https://www.berkshirehathaway.com/letters/2022ltr.pdf)，The Secret Sauce：KO 长期持股与年度现金股息。文中金额为 Berkshire 收到的年度分红，分别对应 1994 年与 2022 年。
