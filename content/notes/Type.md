@@ -2,6 +2,7 @@
 title: "Synthetic category theory and type theory"
 date: 2025-12-24
 math: true
+description: "How dependent type theory can be read within synthetic category theory, organised around two questions: how to understand isofibrations there, and whether a weak factorization system is still available."
 tags:
   - Synthetic Category Theory
   - Type Theory

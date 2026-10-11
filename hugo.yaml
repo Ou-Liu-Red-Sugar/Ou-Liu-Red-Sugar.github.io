@@ -25,7 +25,6 @@ params:
   assets:
     favicon: /favicon/favicon.svg
   env: production
-  description: 关于业务、市场与不确定性的持续笔记。
   author: Ou Liu
   ShowPostNavLinks: false
   defaultTheme: light
@@ -78,12 +77,16 @@ languages:
     contentDir: content-zh
     weight: 1
     title: 刘欧 · 笔记
+    params:
+      description: 刘欧的个人笔记：数学讲义与讨论班笔记、投资学笔记和 Blog。
   en:
     languageCode: en-US
     languageName: English
     contentDir: content
     weight: 2
     title: Ou Liu · Notes
+    params:
+      description: "Ou Liu's personal notes: mathematics lecture and seminar notes, plus an investment notebook and a blog in Chinese."
 disableKinds: []
 module:
   mounts:
