@@ -1,6 +1,6 @@
 # 股票的类型、发行与交易形式
 
-从股份权利、发行与员工股权报酬出发，理解归属和解禁，再看 ADR 怎样通过存托安排对应境外原股。
+从同样一股 RDDT 的钱流向谁说起，理解股份类别与权利、新股与旧股、员工股份的归属与解禁，再看 ADR 怎样对应境外原股。
 
 Entry: zh-stock-types-issuance-trading | Node: NB-B01 | Language: zh | Editorial revision: 2026-10-11
 
@@ -240,11 +240,13 @@ This is reference material for the learner's current request. Use the supplied e
 ```
 
 ## Supplied entry
+同样买到一股 Reddit（RDDT），付出的钱却可能流向不同的人。2024 年 3 月首次公开发行时，认购公司新发的股份，钱进入公司；认购原股东出售的已有股份，钱归这些原股东；上市以后在交易所买入，钱则付给卖出的投资者。股份还分不同类别，员工手里的股份要经过授予、归属和解禁才能卖出，境外公司的股份还可以通过存托凭证在另一个市场交易。这些安排决定了我们实际买到的是什么，钱又流向了谁。[^reddit-ipo]
+
 ## 股份的类型与权利 {#nb-b01-rights}
 
-直接买入一家公司的股票时，我们还要看买到的是哪一种股份。股东能否参与投票、公司怎样向这类股份分配收益，以及公司清算时能够按什么顺序取得财产，都与股份的具体权利有关。同一家公司的不同股份，在这些安排上也可能有所不同。
+买入股票之前，我们还要看买到的是哪一种股份。股东能否投票、公司怎样向这类股份分配收益、公司清算时按什么次序取得财产，都由股份的具体权利决定；同一家公司的不同股份，在这些安排上也可以不同。
 
-先把普通股与优先股放在一起看：普通股通常让股东参与公司治理和收益分配，清算时取得偿还债务、完成优先分配后的剩余财产；优先股则在约定的股息或清算分配上排在普通股之前。这里的“优先”有具体的比较对象，可以按下面三个方面区分：[^stock-types]
+先把普通股与优先股放在一起看。普通股通常让股东参与公司治理和收益分配，清算时取得偿还债务、完成优先分配以后的剩余财产；优先股则在约定的股息或清算分配上排在普通股之前。这里的“优先”有具体的比较对象，可以按三个方面区分：[^stock-types]
 
 | 权利 | 普通股 | 优先股 |
 |---|---|---|
@@ -266,11 +268,21 @@ This is reference material for the learner's current request. Use the supplied e
 
 <span data-text-versions id="nb-b01-text-1">公司还可以设置不同类别的股份。比如 Alphabet 的 A 类以 GOOGL 交易，每股一票；B 类不上市交易，每股十票；C 类以 GOOG 交易，通常没有投票权。这三类股份的每股股息和清算权益相同，投票能力却不同<span data-text-detail>（C 类的正式名称是 Class C capital stock，法律要求时仍有相应投票权；B 类转让通常会一比一转为 A 类，章程规定的特定转让除外）</span>。[^alphabet]<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>
 
-## 股份发行与分配 {#nb-b01-issuance}
+<figure class="flow-figure" id="nb-b01-share-classes">
+<div class="ff-head"><p class="ff-title">Alphabet 的三类股份</p><span class="ff-sub">每股股息与清算权益相同</span></div>
+<div class="ff-bars business-exchange" aria-label="Alphabet 的 A 类股份以 GOOGL 交易，每股一票；B 类股份不上市交易，每股十票；C 类股份以 GOOG 交易，通常没有投票权。三类股份的每股股息和清算权益相同。">
+<span class="fb-name">A 类 · GOOGL</span><span class="fb-bar"><i style="--w:10%"></i></span><span class="fb-val">每股 1 票</span>
+<span class="fb-name">B 类 · 不上市</span><span class="fb-bar"><i style="--w:100%"></i></span><span class="fb-val">每股 10 票</span>
+<span class="fb-name">C 类 · GOOG</span><span class="fb-bar"><i style="--w:0%"></i></span><span class="fb-val">通常没有</span>
+</div>
+<figcaption>条形长度表示每股的票数。</figcaption>
+</figure>
 
-认清股份带来的权利以后，再看这些股份怎样到投资者手中。公司需要资金时，可以发行新股，由认购者出资，公司取得融资；原股东希望出售持股时，则可以把已有股份转让给买方，售股款归原股东所有。两种交易都可能让买方成为股东，钱的去向却不同。
+## 新股与旧股：发行和转手 {#nb-b01-issuance}
 
-Reddit（RDDT）在 2024 年的首次公开发行中，就同时出现了这两种安排。首次公开发行通常简称 IPO，指公司首次向公众发售股份，常与进入交易所上市交易相连。RDDT 当次发售既有公司出售的新股，也有原股东出售的已有股份，公司不会收到原股东售股部分的款项。承销机构参与组织发售、定价和配售。按股份与款项各自的流向，可以把两条路径画出来：[^reddit-ipo]
+认清了股份的权利，再看这些股份怎样到投资者手中。公司需要资金时，可以发行新股，由认购者出资，公司取得融资；原股东想出售持股时，则把已有股份转让给买方，售股款归原股东。两种交易都能让买方成为股东，钱的去向却不同。
+
+RDDT 的首次公开发行同时用了这两种安排。首次公开发行通常简称 IPO，指公司首次向公众发售股份，常与进入交易所上市交易相连。RDDT 那次发售既有公司出售的新股，也有原股东出售的已有股份，公司收不到原股东售股部分的款项；承销机构则参与组织发售、定价和配售。按股份与款项各自的流向，可以把几条路径画出来：[^reddit-ipo]
 
 <figure class="flow-figure" id="nb-b01-ipo-flow">
 <div class="ff-head"><p class="ff-title">RDDT 首次公开发行：股份交给谁，款项流向谁</p><p class="ff-legend"><span class="ff-key-share">股份</span><span class="ff-key-cash">款项</span></p></div>
@@ -291,15 +303,15 @@ Reddit（RDDT）在 2024 年的首次公开发行中，就同时出现了这两�
 <figcaption>图中只列股份与款项的去向。承销机构参与组织发售、定价和配售，承销费用未列。</figcaption>
 </figure>
 
-等到股份开始在市场上交易，投资者之间还可以继续转让：买方支付成交款，卖方交出已有股份，这笔钱归卖方，相应股份的持有人发生了变化。取得公司的一部分权益，并不表示每笔买入款都成为公司的新增资金。IPO 发行价对应那次发售，此后市场上的成交价则由各次买卖形成，两者可以不同。[^ipo-trading]
+股份开始在市场上交易以后，投资者之间还会继续转让：买方支付成交款，卖方交出已有股份，这笔钱归卖方，相应股份换了持有人。所以取得公司的一部分权益，并不表示买入款成了公司的新增资金。IPO 发行价对应的是那次发售，此后的成交价由各次买卖形成，两者可以相差很远。[^ipo-trading]
 
-公司还可以把股份或相关权利用于员工报酬，这类安排通常称为股权报酬，英文是 stock-based compensation，简称 SBC。员工以服务取得报酬，股份因此也能从公司流向员工。对于员工，要看拿到的是股票，还是今后取得或购买股票的权利；对于原有股东，则要看奖励安排怎样影响股份总数和自己的持股比例。公司用新股支付奖励时，若原有股东的股数不变、总股数增加，其持股比例就会下降。公司同时取得了员工的服务，这些服务又可能影响经营成果，因此还要把股份数量与经营变化放在一起，理解每股能够分到什么。[^sbc]
+## 员工股份：授予、归属与解禁 {#nb-b01-vesting}
 
-以员工期权和限制性股票单位（RSU）为例，两者取得股票的过程就不同。员工期权给予按约定行权价购买股票的权利，员工行权时要支付购股款；本篇所说的 RSU 则由公司在条件满足后交付股份，授予时员工尚未拿到对应股票。不过在实际取得股份之前，员工还需要满足奖励约定的条件。[^sbc-example]
+股份也可以作为报酬发给员工，这类安排通常称为股权报酬（stock-based compensation，SBC）。员工提供服务，公司以股票或今后取得、购买股票的权利支付一部分报酬。公司用新股支付奖励时，总股数增加、原有股东的股数不变，持股比例就会下降；公司同时取得了员工的服务，这些服务又可能改善经营，所以还要把股份数量与经营变化放在一起，判断每股能分到什么。[^sbc]
 
-## 归属、锁定与解禁 {#nb-b01-vesting}
+员工期权和限制性股票单位（RSU）取得股票的方式不同。员工期权给予按约定行权价购买股票的权利，行权时员工要支付购股款；本篇所说的 RSU 则在条件满足后由公司交付股份，授予时员工还没有拿到对应的股票。[^sbc-example]
 
-沿着奖励安排，我们可以把授予、归属和实际取得股份的时点分别看清。公司授予奖励，先确定员工可以按什么约定取得报酬；奖励还可能要求员工完成一定服务年限、达到业绩目标，或满足其他约定条件。以这里的员工期权和 RSU 来说，满足相应归属条件后，期权还要经过行权，RSU 还要按安排交付股份。而已经持有股份的人，也可能在一段时间内受到出售限制，例如创始人、早期投资者和员工在 IPO 时约定的锁定。奖励是否已经归属，与股份能否出售，需要分别看。[^vesting-lockup]
+从授予到能够卖出，中间还隔着几道关口。奖励可能要求员工完成一定的服务年限、达到业绩目标或满足其他条件；条件满足以后，期权还要行权，RSU 还要交付股份。已经持有股份的人，也可能在一段时间内不能出售，比如创始人、早期投资者和员工在 IPO 时约定的锁定。奖励是否已经归属，与股份能否出售，需要分别看。[^vesting-lockup]
 
 <span data-text-versions id="nb-b01-text-2">RDDT 的员工 RSU 提供了一个实际例子。部分奖励既要求完成服务，也要求达到上市条件。已经满足服务条件的那部分奖励，在 IPO 注册生效、上市条件满足后进入结算，公司随后交付了股份<span data-text-detail>（RDDT 在 2024 年第二季度报告中披露了这次已经发生的结算，同时扣留部分股份用于处理相关税款；这里的上市条件满足时点是 IPO 注册生效，区别于首日交易和发行完成）</span>。这段经过说明，授予奖励、满足服务条件和实际收到股份，可以发生在不同时间。[^reddit-rsu]<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>
 
@@ -326,7 +338,7 @@ Reddit（RDDT）在 2024 年的首次公开发行中，就同时出现了这两�
 <figcaption>各阶段的宽度不代表实际时长。图中只画已经满足服务条件、在 IPO 后结算的那部分奖励。</figcaption>
 </figure>
 
-锁定期结束、相关出售限制解除，通常称为解禁。再把这些安排放回市场，就能区分几种不同的变化：发行新股增加公司发行在外的股份；已有股份解禁扩大可以出售的范围；持有人实际卖出，才形成一笔交易。因此，解禁消息首先告诉我们哪些人的哪些股份获得了出售机会，实际增加多少卖盘，还要看持有人是否出售、卖出多少。股价也会受买方需求和市场原有预期影响，不能仅由解禁股数推出其后的涨跌。[^lockup]
+锁定期结束、相关出售限制解除，通常称为解禁。把这些安排放回市场，就能分清几种不同的变化：发行新股增加公司发行在外的股份；已有股份解禁，扩大了可以出售的范围；持有人实际卖出，才形成一笔交易。所以，解禁消息首先告诉我们哪些人的哪些股份获得了出售的机会；实际增加多少卖盘，还要看持有人是否出售、卖出多少。股价同时受买方需求和市场原有预期影响，不能单凭解禁股数推出此后的涨跌。[^lockup]
 
 <figure class="flow-figure share-layers" id="nb-b01-share-layers">
 <div class="ff-head"><p class="ff-title">三种变化分别改变哪一层（示意）</p><p class="ff-legend"><span class="sl-key-out">发行在外</span><span class="sl-key-free">可以出售</span><span class="sl-key-sold">实际卖出</span><span class="sl-key-delta">本次变化</span></p></div>
@@ -364,8 +376,8 @@ Reddit（RDDT）在 2024 年的首次公开发行中，就同时出现了这两�
 
 回到直接持有的股份，公司还会通过分红、回购和增发改变每股能分到什么。下一篇[《股东回报：分红、回购与增发》](/zh/notebook/shareholder-returns-buybacks-issuance/)从 AAPL 的分红与回购讲起。
 
-<link rel="stylesheet" href="/notebook/flow-figures.css?v=20261011-13">
-<script src="/notebook/flow-figures.js?v=20261011-13" defer></script>
+<link rel="stylesheet" href="/notebook/flow-figures.css?v=20261011-14">
+<script src="/notebook/flow-figures.js?v=20261011-14" defer></script>
 
 [^stock-types]: [Investor.gov：Stocks](https://www.investor.gov/introduction-investing/investing-basics/investment-products/stocks)，What kinds of stocks are there? 及清算顺序说明。
 [^alphabet]: [Alphabet 2025 Form 10-K](https://www.sec.gov/Archives/edgar/data/1652044/000165204426000018/goog-20251231.htm)，Item 5、Note 11、Note 12；[股份权利说明](https://www.sec.gov/Archives/edgar/data/1652044/000165204423000016/googexhibit420q42022.htm)，Voting Rights、Liquidation Rights、Conversion。

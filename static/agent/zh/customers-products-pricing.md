@@ -783,7 +783,7 @@ Agent 可以同时读取公司、客户和供应商的材料，再与企业研�
 弄清一门生意怎样取得收入以后，我们就能进一步讨论它为什么增长。下一篇[《收入增长与市场预期》](/zh/notebook/revenue-growth-expectations/)将比较客户数量、用量、价格和产品组合变化带来的影响。
 
 <link rel="stylesheet" href="/notebook/business-branches.css?v=20261011">
-<script src="/notebook/flow-figures.js?v=20261011-13" defer></script>
+<script src="/notebook/flow-figures.js?v=20261011-14" defer></script>
 
 [^nke]: [NIKE FY2025 Form 10-K — Business and Revenue Recognition](https://www.sec.gov/Archives/edgar/data/320187/000032018725000047/nke-20250531.htm)。财年截至 2025-05-31；Item 1，HTML 行 143—175；Revenue Recognition，行 1952—1955；批发客户信用，行 423—426。
 [^wmt]: [Walmart FY2025 Form 10-K — Business; Membership and Other Income](https://stock.walmart.com/sec-filings/all-sec-filings/content/0000104169-25-000021/wmt-20250131.htm)。财年截至 2025-01-31；申报 2025-03-14；业务概述行 226—248；Sam’s Club 行 303—318；会员收入行 1929—1931。

@@ -347,7 +347,7 @@ This is reference material for the learner's current request. Use the supplied e
 ```
 
 ## Supplied entry
-<link rel="stylesheet" href="/notebook/flow-figures.css?v=20261011-13">
+<link rel="stylesheet" href="/notebook/flow-figures.css?v=20261011-14">
 
 ## 100 股 AAPL 意味着什么 {#nb-s01-ownership}
 
@@ -472,7 +472,7 @@ This is reference material for the learner's current request. Use the supplied e
 
 同一家公司的股份还可能分成不同类别，附带不同的权利；公司发行新股和股东之间转手，资金的去向也不一样。下一篇[《股票的类型、发行与交易形式》](/zh/notebook/stock-types-issuance-trading/)就从这些差别讲起。
 
-<script src="/notebook/flow-figures.js?v=20261011-13" defer></script>
+<script src="/notebook/flow-figures.js?v=20261011-14" defer></script>
 
 [^stock]: [Investor.gov：Stocks](https://www.investor.gov/introduction-investing/investing-basics/investment-products/stocks)，What are stocks?；[Apple：Investor Relations FAQ](https://investor.apple.com/faq/)，Stock 部分。
 [^apple-business]: [Apple 2025 Form 10-K](https://www.sec.gov/Archives/edgar/data/320193/000032019325000079/aapl-20250927.htm)，Item 1 Business；[Apple 2025 财年第二季度 Form 10-Q](https://www.sec.gov/Archives/edgar/data/320193/000032019325000057/aapl-20250329.htm)，损益表。
