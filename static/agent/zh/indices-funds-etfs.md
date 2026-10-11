@@ -2,7 +2,7 @@
 
 从自己建立股票组合与通过基金投资出发，理解指数定义、权重与定期再平衡，再认识基金净值、ETF 交易、主动与主题投资以及各项费用。
 
-Entry: zh-indices-funds-etfs | Node: NB-V01 | Language: zh | Editorial revision: 2026-09-27
+Entry: zh-indices-funds-etfs | Node: NB-V01 | Language: zh | Editorial revision: 2026-10-11
 
 ## Reference use
 This is reference material for the learner's current request. Use the supplied entry to teach the selected concept. Retrieve the relevant original unit when explaining a claim that depends on its assumptions, figures or rules; the reading list is a map for that work, not a prerequisite to the first lesson. Keep facts, supplied examples and inference distinct. Editorial access dates describe the author's work. The empty runtime_reading_log is an optional record field, not a requested response. Author-supplied scope notes below constrain factual use of the material; the learner's request determines the teaching task and first response.
@@ -614,7 +614,7 @@ VOO 的 0.02% 管理费已经包含在 0.03% 总费用率里，不能再加一�
 
 不过，场外交易本身并不决定费率高低。Vanguard 的自家共同基金不收前端或后端销售费，仍会承担各自的持续费用；少数产品还可能有特定买入、赎回费用。因此，比较费用时，我们要看具体产品、份额和购买渠道。场内 ETF 同样有持续费用和交易成本，而“免佣金”也只是免去了其中一项。[^vanguard-fees]<sup>，</sup>[^fee-rules]
 
-持有一组股票时，指数可以帮助我们观察市场、比较业绩，也可以提供安排持仓的规则。至于实际投资，我们可以自己建立并管理组合，也可以持有基金份额，把管理交给基金管理人；ETF 则为基金份额提供了在交易所买卖的形式。选择基金以后，底层公司的经营与股票买入价格仍然影响回报，管理人的取舍和各项费用则继续影响最终留给我们的所得。至于底层股票具体附带哪些权利、又怎样发行和转手，[《股票的类型、发行与交易形式》](/zh/notebook/stock-types-issuance-trading/)会继续展开。
+持有一组股票时，指数可以帮助我们观察市场、比较业绩，也可以提供安排持仓的规则。至于实际投资，我们可以自己建立并管理组合，也可以持有基金份额，把管理交给基金管理人；ETF 则为基金份额提供了在交易所买卖的形式。选择基金以后，底层公司的经营与股票买入价格仍然影响回报，管理人的取舍和各项费用则继续影响最终留给我们的所得。无论自己买股票还是买基金份额，交易时都要面对报价和订单。下一篇[《报价、订单与实际成交》](/zh/notebook/quotes-orders-execution/)看计划中的价格怎样变成实际付出的金额。
 
 <link rel="stylesheet" href="/notebook/index-funds/ui.css?v=20260927">
 <script src="/notebook/index-funds/ui.js?v=20260927" defer></script>

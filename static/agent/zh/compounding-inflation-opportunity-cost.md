@@ -2,7 +2,7 @@
 
 从企业与资金的复利累积出发，用指数、对数、购买力和现实替代理解持有回报，并引入 Sharpe 比较。
 
-Entry: zh-compounding-inflation-opportunity-cost | Node: NB-A04 | Language: zh | Editorial revision: 2026-09-27
+Entry: zh-compounding-inflation-opportunity-cost | Node: NB-A04 | Language: zh | Editorial revision: 2026-10-11
 
 ## Reference use
 This is reference material for the learner's current request. Use the supplied entry to teach the selected concept. Retrieve the relevant original unit when explaining a claim that depends on its assumptions, figures or rules; the reading list is a map for that work, not a prerequisite to the first lesson. Keep facts, supplied examples and inference distinct. Editorial access dates describe the author's work. The empty runtime_reading_log is an optional record field, not a requested response. Author-supplied scope notes below constrain factual use of the material; the learner's request determines the teaching task and first response.
@@ -285,7 +285,7 @@ This is reference material for the learner's current request. Use the supplied e
 ## Supplied entry
 我们生活在一个复利世界。留在账户里的利息会进入新的本金，企业的增长建立在已有的业务规模上，物价也在上一期的水平上继续变化。许多事情都是这样，一段时间的结果，又成了下一段时间的起点。
 
-所以讨论一笔投资赚了多少，我们还得把时间放进去。同样的盈利，一年取得和多年以后才取得，会留下不同的再投资机会，也会经历不同程度的物价变化。[《亏损、波动与持有能力》](/zh/notebook/loss-volatility-holding-capacity/)讨论了怎样从未来前景判断是否继续持有；接下来就沿着一笔钱的变化，看看怎样比较不同持有期限的回报。
+所以讨论一笔投资赚了多少，我们还得把时间放进去。同样的盈利，一年取得和多年以后才取得，会留下不同的再投资机会，也会经历不同程度的物价变化。接下来我们就沿着一笔钱的变化，看看怎样比较不同持有期限的回报。
 
 ## 复利世界与回报的累积 {#nb-a04-compounding}
 
@@ -368,7 +368,7 @@ R_{\text{年化}}
 
 ## 机会成本与风险补偿 {#nb-a04-opportunity-cost}
 
-知道一笔投资留下了多少购买力以后，我们还可以把它与其他资金用途放在一起比较。先把期间要用的钱留足，再看余下的资金：继续持股、转入期限匹配的短债，或者以能够随时取用的现金形式保留，各自会得到什么？这也接回[《投资期限与现金需要》](/zh/notebook/investment-horizon-cash/)的认识，先确认哪些用途符合自己的时间安排，再比较回报。
+知道一笔投资留下了多少购买力以后，我们还可以把它与其他资金用途放在一起比较。先把期间要用的钱留足，再看余下的资金：继续持股、转入期限匹配的短债，或者以能够随时取用的现金形式保留，各自会得到什么？怎样按用钱的时间划分资金，[《投资期限与现金需要》](/zh/notebook/investment-horizon-cash/)会专门讨论；这里先比较同一笔钱在三种安排下的结果。
 
 我们取一笔真实发行的美国国债来看。2023 年 6 月 13 日拍卖的 52 周国债，6 月 15 日发行，2024 年 6 月 13 日到期，每 100 美元面值的拍卖价格约为 95.015 美元。这也呼应了前面的贴现：今天支付较少的金额，换取约定的到期收款。用 10,000 美元预算，可以买到 10,500 美元面值，支付约 9,976.60 美元，另留 23.40 美元现金；到期收回面值，合计就有 10,523.40 美元。[^bill]
 
@@ -399,6 +399,8 @@ R_{\text{年化}}
 Y 的波动是 X 的两倍，预期超额收益却是 X 的 2.5 倍，因此每单位波动对应的额外收益更高。把一半资金放在 Y、一半放在无风险资产里，组合的标准差便降到 10%，和 X 相同，预期收益却为 5.5%。有了无风险资产参与组合，我们就能把两项选择调整到相同的波动水平，再比较预期收益。
 
 <span data-text-versions id="nb-a04-text-10">回到自己的投资，Sharpe 提供了一个比较收益与波动的角度；我们还要结合基本面前景、资金的取用时间和眼前的价格，判断是否继续持有<span data-text-detail>（标准 Sharpe 使用同频普通超额收益，不能直接把复合年化收益率或平均对数收益代入分子。原文算例采用固定的无风险收益率，因此超额收益的标准差等于基金收益标准差；半仓组合沿同一期、无交易成本的假设计算。历史样本通常使用样本均值与样本标准差，换算年度口径还需处理收益相关性）</span>。<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>
+
+其中资金的取用时间，决定了一笔钱能投入多久、期间要不要准备付款。下一篇[《投资期限与现金需要》](/zh/notebook/investment-horizon-cash/)就从资金用途和付款时间讲起。
 
 <link rel="stylesheet" href="/notebook/compounding.css?v=20260926">
 <script src="/notebook/compounding.js?v=20260926-4" defer></script>

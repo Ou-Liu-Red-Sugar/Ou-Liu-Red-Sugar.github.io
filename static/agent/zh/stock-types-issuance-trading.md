@@ -1,15 +1,15 @@
 # 股票的类型、发行与交易形式
 
-从股份权利、发行与员工股权报酬出发，理解归属和解禁，再比较 ADR、代币化产品、个股期货与股票永续。
+从股份权利、发行与员工股权报酬出发，理解归属和解禁，再看 ADR 怎样通过存托安排对应境外原股。
 
-Entry: zh-stock-types-issuance-trading | Node: NB-B01 | Language: zh | Editorial revision: 2026-09-27
+Entry: zh-stock-types-issuance-trading | Node: NB-B01 | Language: zh | Editorial revision: 2026-10-11
 
 ## Reference use
 This is reference material for the learner's current request. Use the supplied entry to teach the selected concept. Retrieve the relevant original unit when explaining a claim that depends on its assumptions, figures or rules; the reading list is a map for that work, not a prerequisite to the first lesson. Keep facts, supplied examples and inference distinct. Editorial access dates describe the author's work. The empty runtime_reading_log is an optional record field, not a requested response. Author-supplied scope notes below constrain factual use of the material; the learner's request determines the teaching task and first response.
 
 ## Author-supplied scope notes (reference only)
 <author_scope_notes>
-沿股份权利、取得与出售过程、存托和相关交易形式讲解。承接前三篇实际正文。简明版讲清对象、机构、动作、资金去向与用途，条款补充保留在原句的详细版。Reddit 的发行、员工奖励和锁定分别依已核原件说明，不把授予、归属、行权或交付、解禁和实际卖出合成一条普遍流程。SKHY 按每份对应十分之一股韩国普通股，公开存托协议格式不称为最终签署文本。DTC沿用2025-12-11公布的具名方案，不把它转述成当前全面上线状态。AAPLx是Backed发行的追踪凭证，实际权利和分红经济效果按产品条款说明。CME采用美股SAAPL个股期货，每份乘数100股、到期现金结算；每股变动1美元的例子是毛盈亏计算，不是即时报价。Kraken AAPLx永续与 Apple 股份、AAPLx代币分别辨认，资金费与保证金接回第二篇。期权仅简短回接前篇的交股结算看涨期权。教学案例用于理解机制，不代表用户账户或交易安排。
+沿股份权利、取得与出售过程和存托安排讲解。承接前两篇实际正文。简明版讲清对象、机构、动作、资金去向与用途，条款补充保留在原句的详细版。Reddit 的发行、员工奖励和锁定分别依已核原件说明，不把授予、归属、行权或交付、解禁和实际卖出合成一条普遍流程。SKHY 按每份对应十分之一股韩国普通股，公开存托协议格式不称为最终签署文本。代币化产品、个股期货与股票永续属于按需专题，本篇只指出它们的位置。教学案例用于理解机制，不代表用户账户或交易安排。
 </author_scope_notes>
 
 ## Shared notation and writing conventions
@@ -178,7 +178,7 @@ This is reference material for the learner's current request. Use the supplied e
         "version": "本篇材料核查日期：2026-09-24；具体版本与采用范围见正文脚注。"
       }
     ],
-    "存托与代币化": [
+    "存托安排": [
       {
         "source_id": "nb-s01-source-adr-definition",
         "access": {
@@ -230,196 +230,6 @@ This is reference material for the learner's current request. Use the supplied e
           "Citibank"
         ],
         "version": "本篇材料核查日期：2026-09-24；具体版本与采用范围见正文脚注。"
-      },
-      {
-        "source_id": "nb-s01-source-dtc-announcement",
-        "access": {
-          "kind": "selected_chapters",
-          "uri": "https://www.dtcc.com/press-releases/2025/paving-the-way-to-tokenized-dtc-custodied-assets"
-        },
-        "required_unit": {
-          "locator": "DTCC：Paving the Way to Tokenized DTC-Custodied Assets，2025-12-11；SEC 不采取执法行动函及 DTC 申请，PDF 第 2–3、13–14 页。本文采用这项已公布方案。",
-          "scope": "DTCC：Paving the Way to Tokenized DTC-Custodied Assets，2025-12-11；SEC 不采取执法行动函及 DTC 申请，PDF 第 2–3、13–14 页。本文采用这项已公布方案。",
-          "purpose": "追踪底层股份、提供机构、投资者权益及分配和转换机制。"
-        },
-        "title": "DTCC：Paving the Way to Tokenized DTC-Custodied Assets",
-        "authors": [
-          "DTCC"
-        ],
-        "version": "公告日期：2025-12-11；采用当时公开方案，未核后续全面上线状态"
-      },
-      {
-        "source_id": "nb-s01-source-dtc-letter",
-        "access": {
-          "kind": "selected_chapters",
-          "uri": "https://www.sec.gov/files/tm/no-action/dtc-nal-121125.pdf"
-        },
-        "required_unit": {
-          "locator": "DTCC：Paving the Way to Tokenized DTC-Custodied Assets，2025-12-11；SEC 不采取执法行动函及 DTC 申请，PDF 第 2–3、13–14 页。本文采用这项已公布方案。",
-          "scope": "DTCC：Paving the Way to Tokenized DTC-Custodied Assets，2025-12-11；SEC 不采取执法行动函及 DTC 申请，PDF 第 2–3、13–14 页。本文采用这项已公布方案。",
-          "purpose": "追踪底层股份、提供机构、投资者权益及分配和转换机制。"
-        },
-        "title": "SEC：致DTC不采取执法行动函及所附申请",
-        "authors": [
-          "SEC",
-          "DTC"
-        ],
-        "version": "函件及申请日期：2025-12-11"
-      },
-      {
-        "source_id": "nb-b01-source-xstocks",
-        "access": {
-          "kind": "selected_chapters",
-          "uri": "https://assets.backed.fi/products/apple-xstock"
-        },
-        "required_unit": {
-          "locator": "Apple xStock 产品页；Apple xStock Final Terms and Summary，2026-05-08，发行者、参考资产及 Rights attached / Collateralization 条款。",
-          "scope": "Apple xStock 产品页；Apple xStock Final Terms and Summary，2026-05-08，发行者、参考资产及 Rights attached / Collateralization 条款。",
-          "purpose": "追踪底层股份、提供机构、投资者权益及分配和转换机制。"
-        },
-        "title": "Apple xStock 产品页",
-        "authors": [
-          "Backed Assets (JE) Limited"
-        ],
-        "version": "本篇材料核查日期：2026-09-24；具体版本与采用范围见正文脚注。"
-      },
-      {
-        "source_id": "nb-b01-source-xstocks-2",
-        "access": {
-          "kind": "selected_chapters",
-          "uri": "https://sppdownloaddocumentservice.l-p-a.com/api/DownloadDocument/UPI/CH1436219187/BF%20Final%20Terms%20AND%20Summary%20%28PDF%29"
-        },
-        "required_unit": {
-          "locator": "Apple xStock 产品页；Apple xStock Final Terms and Summary，2026-05-08，发行者、参考资产及 Rights attached / Collateralization 条款。",
-          "scope": "Apple xStock 产品页；Apple xStock Final Terms and Summary，2026-05-08，发行者、参考资产及 Rights attached / Collateralization 条款。",
-          "purpose": "追踪底层股份、提供机构、投资者权益及分配和转换机制。"
-        },
-        "title": "Apple xStock Final Terms and Summary",
-        "authors": [
-          "Backed Assets (JE) Limited"
-        ],
-        "version": "本篇材料核查日期：2026-09-24；具体版本与采用范围见正文脚注。"
-      },
-      {
-        "source_id": "nb-b01-source-xstocks-dividends",
-        "access": {
-          "kind": "selected_chapters",
-          "uri": "https://support.kraken.com/articles/xstocks-faq"
-        },
-        "required_unit": {
-          "locator": "Kraken：xStocks FAQ，2026-09-18 更新，Multiplier、Price and dividends。本文采用净分红再投资及有效余额调整机制。",
-          "scope": "Kraken：xStocks FAQ，2026-09-18 更新，Multiplier、Price and dividends。本文采用净分红再投资及有效余额调整机制。",
-          "purpose": "追踪底层股份、提供机构、投资者权益及分配和转换机制。"
-        },
-        "title": "Kraken：xStocks FAQ",
-        "authors": [
-          "Kraken"
-        ],
-        "version": "本篇材料核查日期：2026-09-24；具体版本与采用范围见正文脚注。"
-      }
-    ],
-    "股票相关合约": [
-      {
-        "source_id": "nb-b01-source-cme",
-        "access": {
-          "kind": "selected_chapters",
-          "uri": "https://www.cmegroup.com/articles/faqs/faq-single-stock-futures.html"
-        },
-        "required_unit": {
-          "locator": "CME：Single Stock Futures FAQ，2026-09-24 读取，第 1、3、5、7–11、14–15、19 问；合约资料卡，第 1 页规格、第 2 页 SAAPL。每股变动 1 美元用于展示乘数计算，未采用当前股价。",
-          "scope": "CME：Single Stock Futures FAQ，2026-09-24 读取，第 1、3、5、7–11、14–15、19 问；合约资料卡，第 1 页规格、第 2 页 SAAPL。每股变动 1 美元用于展示乘数计算，未采用当前股价。",
-          "purpose": "核对所选合约的标的、乘数、结算、保证金和持续现金需要。"
-        },
-        "title": "CME：Single Stock Futures FAQ",
-        "authors": [
-          "CME Group"
-        ],
-        "version": "本篇材料核查日期：2026-09-24；具体版本与采用范围见正文脚注。"
-      },
-      {
-        "source_id": "nb-b01-source-cme-2",
-        "access": {
-          "kind": "selected_chapters",
-          "uri": "https://www.cmegroup.com/markets/equities/files/single-stock-futures-fact-card.pdf"
-        },
-        "required_unit": {
-          "locator": "CME：Single Stock Futures FAQ，2026-09-24 读取，第 1、3、5、7–11、14–15、19 问；合约资料卡，第 1 页规格、第 2 页 SAAPL。每股变动 1 美元用于展示乘数计算，未采用当前股价。",
-          "scope": "CME：Single Stock Futures FAQ，2026-09-24 读取，第 1、3、5、7–11、14–15、19 问；合约资料卡，第 1 页规格、第 2 页 SAAPL。每股变动 1 美元用于展示乘数计算，未采用当前股价。",
-          "purpose": "核对所选合约的标的、乘数、结算、保证金和持续现金需要。"
-        },
-        "title": "合约资料卡",
-        "authors": [
-          "CME Group"
-        ],
-        "version": "本篇材料核查日期：2026-09-24；具体版本与采用范围见正文脚注。"
-      },
-      {
-        "source_id": "nb-a01-source-21",
-        "access": {
-          "kind": "selected_chapters",
-          "uri": "https://www.cmegroup.com/education/courses/introduction-to-futures/margin-know-what-is-needed"
-        },
-        "required_unit": {
-          "locator": "CME：Margin—Know What's Needed，Understanding Margin、Types of Futures Margin。",
-          "scope": "CME：Margin—Know What's Needed，Understanding Margin、Types of Futures Margin。",
-          "purpose": "核对所选合约的标的、乘数、结算、保证金和持续现金需要。"
-        },
-        "title": "CME—Margin: Know What's Needed",
-        "authors": [
-          "CME Group"
-        ],
-        "version": "本篇查阅日期：2026-09-23"
-      },
-      {
-        "source_id": "nb-b01-source-perpetual",
-        "access": {
-          "kind": "selected_chapters",
-          "uri": "https://www.kraken.com/learn/futures-trading-what-are-xstocks-perps"
-        },
-        "required_unit": {
-          "locator": "Kraken：What are xStocks perps?，定义、AAPLx、参考价格、保证金及现金结算说明。",
-          "scope": "Kraken：What are xStocks perps?，定义、AAPLx、参考价格、保证金及现金结算说明。",
-          "purpose": "核对所选合约的标的、乘数、结算、保证金和持续现金需要。"
-        },
-        "title": "Kraken：What are xStocks perps?",
-        "authors": [
-          "Kraken"
-        ],
-        "version": "本篇材料核查日期：2026-09-24；具体版本与采用范围见正文脚注。"
-      },
-      {
-        "source_id": "nb-b01-source-perpetual-spec",
-        "access": {
-          "kind": "selected_chapters",
-          "uri": "https://support.kraken.com/in/articles/4844359082772-linear-multi-collateral-derivatives-contract-specifications"
-        },
-        "required_unit": {
-          "locator": "Kraken：Multi-Collateral Derivatives Contract Specifications，2026-09-08 更新，PF_AAPLXUSD、Perpetual Contract Funding Rate Information、PnL 与抵押物说明；采用其通用规格。",
-          "scope": "Kraken：Multi-Collateral Derivatives Contract Specifications，2026-09-08 更新，PF_AAPLXUSD、Perpetual Contract Funding Rate Information、PnL 与抵押物说明；采用其通用规格。",
-          "purpose": "核对所选合约的标的、乘数、结算、保证金和持续现金需要。"
-        },
-        "title": "Kraken：Multi-Collateral Derivatives Contract Specifications",
-        "authors": [
-          "Kraken"
-        ],
-        "version": "本篇材料核查日期：2026-09-24；具体版本与采用范围见正文脚注。"
-      },
-      {
-        "source_id": "nb-a01-source-19",
-        "access": {
-          "kind": "selected_chapters",
-          "uri": "https://www.finra.org/investors/investing/investment-products/options"
-        },
-        "required_unit": {
-          "locator": "FINRA：Options，Essentials、Calls/Puts、Equity Options；本篇接续第二篇可行权购股的看涨期权设定。",
-          "scope": "FINRA：Options，Essentials、Calls/Puts、Equity Options；本篇接续第二篇可行权购股的看涨期权设定。",
-          "purpose": "核对所选合约的标的、乘数、结算、保证金和持续现金需要。"
-        },
-        "title": "FINRA—Options",
-        "authors": [
-          "FINRA"
-        ],
-        "version": "本篇查阅日期：2026-09-23"
       }
     ]
   },
@@ -459,7 +269,7 @@ Reddit（RDDT）在 2024 年的首次公开发行中，就同时出现了这两�
 
 公司还可以把股份或相关权利用于员工报酬，这类安排通常称为股权报酬，英文是 stock-based compensation，简称 SBC。员工以服务取得报酬，股份因此也能从公司流向员工。对于员工，要看拿到的是股票，还是今后取得或购买股票的权利；对于原有股东，则要看奖励安排怎样影响股份总数和自己的持股比例。公司用新股支付奖励时，若原有股东的股数不变、总股数增加，其持股比例就会下降。公司同时取得了员工的服务，这些服务又可能影响经营成果，因此还要把股份数量与经营变化放在一起，理解每股能够分到什么。[^sbc]
 
-以员工期权和限制性股票单位（RSU）为例，两者取得股票的过程就不同。员工期权给予按约定行权价购买股票的权利，员工行权时要支付购股款；本篇所说的 RSU 则由公司在条件满足后交付股份，授予时员工尚未拿到对应股票。[《投资期限与现金需要》](/zh/notebook/investment-horizon-cash/)已经介绍了行权购股所需的现金，员工期权行权时也有这笔付款。不过，在实际取得股份之前，员工还需要满足奖励约定的条件。[^sbc-example]
+以员工期权和限制性股票单位（RSU）为例，两者取得股票的过程就不同。员工期权给予按约定行权价购买股票的权利，员工行权时要支付购股款；本篇所说的 RSU 则由公司在条件满足后交付股份，授予时员工尚未拿到对应股票。不过在实际取得股份之前，员工还需要满足奖励约定的条件。[^sbc-example]
 
 ## 归属、锁定与解禁 {#nb-b01-vesting}
 
@@ -476,9 +286,7 @@ Reddit（RDDT）在 2024 年的首次公开发行中，就同时出现了这两�
 
 锁定期结束、相关出售限制解除，通常称为解禁。再把这些安排放回市场，就能区分几种不同的变化：发行新股增加公司发行在外的股份；已有股份解禁扩大可以出售的范围；持有人实际卖出，才形成一笔交易。因此，解禁消息首先告诉我们哪些人的哪些股份获得了出售机会，实际增加多少卖盘，还要看持有人是否出售、卖出多少。股价也会受买方需求和市场原有预期影响，不能仅由解禁股数推出其后的涨跌。[^lockup]
 
-## 围绕股票的持有与交易形式 {#nb-b01-forms}
-
-### ADR 与存托安排 {#nb-b01-adr}
+## ADR 与存托安排 {#nb-b01-adr}
 
 在市场上买卖的对象，也可能是对应股票权益的存托证券。[《股票、公司与股价》](/zh/notebook/stocks-company-price/)介绍的 SKHY 就在美国市场交易，每份对应十分之一股 SK hynix（000660）韩国普通股。这层对应关系怎样维持，还要沿着托管和存托安排继续看。[^adr]<sup>，</sup>[^skhy]
 
@@ -488,36 +296,9 @@ Reddit（RDDT）在 2024 年的首次公开发行中，就同时出现了这两�
 
 <span data-text-versions id="nb-b01-text-5">存托凭证与原股之间还可以按规定转换：存入原股可以形成相应凭证，交回凭证注销则可以提取对应原股。实际办理要满足存托项目的程序，并看经纪商是否提供这项服务<span data-text-detail>（办理还涉及文件、税费、适用规则和处理时间；发行或注销费用之外，也可能有登记、通讯及汇兑成本）</span>。有了这层联系，就可以继续比较[《股票、公司与股价》](/zh/notebook/stocks-company-price/)中的两地价格：除了统一股数和币种，还要考虑买卖时点、转换条件与交易成本，两个市场显示的价差才有具体含义。[^skhy-terms]<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>
 
-### 代币化与实际持有的权益 {#nb-b01-tokenization}
+认清底层是哪家公司以后，我们还要弄清实际持有的是什么。直接持有的股份由公司发行，权利按股份类别确定；SKHY 这样的存托证券由存托银行发行，分红、投票和转换都要经过存托安排。围绕同一只股票，市场上还有代币化产品、个股期货和股票永续等形式，持有人取得的权益和要准备的资金又各不相同，按需专题[《个股期货、股票永续与代币化股票》](/zh/notebook/#topic-K)会把它们放在一起比较。
 
-<span data-text-versions id="nb-b01-text-6">把权益记录放到链上以后，我们还要看谁提供这套安排、记录代表什么权益。[《股票、公司与股价》](/zh/notebook/stocks-company-price/)提到的 DTC 方案，就是用代币记录参与者对托管证券的权益，证券仍由原有存管体系保存<span data-text-detail>（这里沿用 2025 年 12 月 11 日公布的方案：底层证券仍登记在 Cede & Co. 名下，代币转移对应参与者权益记录的更新）</span>。在这类安排中，变化的是权益的记录与转移方式；另一类产品则由第三方发行，用产品条款规定持有人怎样参与某只股票的价格变化。[^tokenized]<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>
-
-Apple xStock（AAPLx）就是后一类产品。它由 Backed Assets (JE) Limited 发行，是以 Apple（AAPL）股票为参考资产的追踪凭证，并由托管的底层资产支持。持有人取得的是这项产品约定的合同权益，Apple 是参考股票的发行公司，Backed 则是追踪凭证的发行者；买入 AAPLx 因而不会取得 AAPL 直接股东的投票权。[^xstocks]
-
-<span data-text-versions id="nb-b01-text-7">底层股票支付分红后，持有人怎样受益，也取决于产品安排。按 Kraken 对 xStocks 的说明，净分红用于再投资，并通过余额调整反映在持有人账户中<span data-text-detail>（调整采用乘数机制，平台显示的有效持有余额与链上代币枚数需要区分；持有人并非直接领取 AAPL 支付的现金股息）</span>。AAPLx 与前面的 ADR 都涉及底层股票和中间机构，但实际持有物和权利传递方式不同：SKHY 依存托安排对应韩国原股，AAPLx 则按 Backed 发行的追踪凭证条款运行。[^xstocks-dividends]<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>
-
-### CME 个股期货与股票永续 {#nb-b01-futures}
-
-围绕一只股票，人们还可以交易按价格变化计算盈亏的合约，用来表达对价格方向的判断，或对冲已有持仓的价格风险。CME 的美股个股期货就属于这种工具：合约以单只股票为标的，到期用现金结算，持有期货不会因此取得公司的股份。[^cme]
-
-<span data-text-versions id="nb-b01-text-8">以 AAPL 标准个股期货 SAAPL 为例，一份合约的乘数为 100 股。合约每股报价上涨 1 美元，一份多头的盈亏就增加 100 美元；每股报价下跌 1 美元，盈亏则减少 100 美元。交易者按要求存入保证金来开仓和维持持仓，保证金只占合约名义金额的一部分，盈亏仍按合约乘数计算<span data-text-detail>（这里计算的是价格变化造成的毛盈亏，未扣费用；名义金额等于期货报价乘以 100。该合约到期按标的股票主上市交易所的官方收盘价，以美元现金结算）</span>。持有期间若亏损使账户资金不足，就需要补充资金或调整持仓；最初交纳的保证金也不能用来界定最大损失。[^cme]<sup>，</sup>[^margin]<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>
-
-股票永续采用另一套到期和持有安排。以 Kraken 的 AAPLx 永续合约为例，底层股票的代码是 AAPL，前面介绍的追踪凭证是 AAPLx，而这里买卖的是参考 AAPLx 价格的永续合约。持有这份合约会形成相应盈亏，合约不会交付 AAPL 股票或 AAPLx 代币；持有人也不直接取得前面 AAPLx 持有人的分红再投资余额。[^perpetual]
-
-<span data-text-versions id="nb-b01-text-9">这份永续合约没有固定到期日，但持仓需要持续满足保证金要求，并按资金费安排收付资金。资金费在多空双方之间转移：费率为正时，多头向空头支付；费率为负时，空头向多头支付<span data-text-detail>（本文采用 Kraken 合约代码 PF_AAPLXUSD 的通用规格；资金费持续计提，在每小时末或持仓净额变化时结算。合约盈亏以美元计值、默认用美元结算，平台允许的抵押物可以包括多种资产）</span>。所以，与有到期日的 CME 个股期货相比，永续合约不以固定到期日限定持有时间，持有人却仍需为持仓期间的付款准备资金。[《投资期限与现金需要》](/zh/notebook/investment-horizon-cash/)讨论的期间付款，在这里表现为能否承受持仓盈亏、准备保证金，以及处理资金费收付。[^perpetual-spec]<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>
-
-回到[《投资期限与现金需要》](/zh/notebook/investment-horizon-cash/)中的看涨期权，我们还可以围绕同一只股票交易购股权利：买方先付权利金，取得在约定期限内按约定价格购股的权利，选择行权时再准备购股款；卖方则承担对应的履约义务。把本篇已经出现的形式放在一起，可以作如下比较：[^options]
-
-| 形式 | 实际持有物及提供者 | 主要资金安排 | 本文说明的用途 |
-|---|---|---|---|
-| 直接股票 | 公司发行的股份 | 买股时支付价款 | 参与公司权益 |
-| ADR，例如 SKHY | 存托银行发行的存托证券 | 购买凭证，持有及转换涉及相应费用 | 在另一市场持有对应的存托权益 |
-| AAPLx | Backed 发行的追踪凭证 | 购买产品，按其条款处理分红经济效果 | 通过链上产品参与 AAPL 股票的价格变化 |
-| CME AAPL 个股期货 | 按 CME 规则交易的期货合约 | 保证金、持仓盈亏及到期现金结算 | 表达价格判断或对冲价格风险 |
-| Kraken AAPLx 永续 | 平台提供的永续合约 | 保证金、持仓盈亏和资金费 | 持续表达价格判断或对冲价格风险 |
-| 本文的股票看涨期权买方 | 合约规定的购股权利 | 先付权利金，行权时另付购股款 | 在有效期内保留按约定价格买股的选择 |
-
-认清底层是哪家公司以后，我们还要弄清实际持有的是什么，它附带哪些权利，又怎样交易和付款。同样关注一家公司的前景，选择直接持股、持有对应凭证或交易价格合约，取得收益、承担损失及准备现金的方式也会不同。
+回到直接持有的股份，公司还会通过分红、回购和增发改变每股能分到什么。下一篇[《股东回报：分红、回购与增发》](/zh/notebook/shareholder-returns-buybacks-issuance/)从 AAPL 的分红与回购讲起。
 
 [^stock-types]: [Investor.gov：Stocks](https://www.investor.gov/introduction-investing/investing-basics/investment-products/stocks)，What kinds of stocks are there? 及清算顺序说明。
 [^alphabet]: [Alphabet 2025 Form 10-K](https://www.sec.gov/Archives/edgar/data/1652044/000165204426000018/goog-20251231.htm)，Item 5、Note 11、Note 12；[股份权利说明](https://www.sec.gov/Archives/edgar/data/1652044/000165204423000016/googexhibit420q42022.htm)，Voting Rights、Liquidation Rights、Conversion。
@@ -532,37 +313,18 @@ Apple xStock（AAPLx）就是后一类产品。它由 Backed Assets (JE) Limited
 [^adr]: [SEC：Investor Bulletin—American Depositary Receipts](https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins-88)，2012-08-17。
 [^skhy]: [Citi：SK hynix 存托项目](https://depositaryreceipts.citi.com/adr/guides/estfee.aspx?cusip=78392B206&pageId=15&subpageID=114)，SKHY、普通股 ISIN KR7000660001、ORD:DR 1:10；2026-09-24 读取。
 [^skhy-terms]: [SKHY 的 F-6 所附公开存托协议格式](https://www.sec.gov/Archives/edgar/data/2120882/000119380526000898/e665622_ex99-a.htm)，2026-07-01 提交；定义 1.4、1.12、1.16，条款 2.2–2.8、4.1、4.9–4.10、4.13，附录 A、B。采用公开协议格式中的存股、托管、发行、分配、投票及注销机制，未将其标作最终签署协议。ADR 是凭证名称，ADS 是凭证所代表的美国存托股份额，正文按每份 SKHY 对应权益讲解。
-[^tokenized]: [DTCC：Paving the Way to Tokenized DTC-Custodied Assets](https://www.dtcc.com/press-releases/2025/paving-the-way-to-tokenized-dtc-custodied-assets)，2025-12-11；[SEC 不采取执法行动函及 DTC 申请](https://www.sec.gov/files/tm/no-action/dtc-nal-121125.pdf)，PDF 第 2–3、13–14 页。本文采用这项已公布方案。
-[^xstocks]: [Apple xStock 产品页](https://assets.backed.fi/products/apple-xstock)；[Apple xStock Final Terms and Summary](https://sppdownloaddocumentservice.l-p-a.com/api/DownloadDocument/UPI/CH1436219187/BF%20Final%20Terms%20AND%20Summary%20%28PDF%29)，2026-05-08，发行者、参考资产及 Rights attached / Collateralization 条款。
-[^xstocks-dividends]: [Kraken：xStocks FAQ](https://support.kraken.com/articles/xstocks-faq)，2026-09-18 更新，Multiplier、Price and dividends。本文采用净分红再投资及有效余额调整机制。
-[^cme]: [CME：Single Stock Futures FAQ](https://www.cmegroup.com/articles/faqs/faq-single-stock-futures.html)，2026-09-24 读取，第 1、3、5、7–11、14–15、19 问；[合约资料卡](https://www.cmegroup.com/markets/equities/files/single-stock-futures-fact-card.pdf)，第 1 页规格、第 2 页 SAAPL。每股变动 1 美元用于展示乘数计算，未采用当前股价。
-[^margin]: [CME：Margin—Know What's Needed](https://www.cmegroup.com/education/courses/introduction-to-futures/margin-know-what-is-needed)，Understanding Margin、Types of Futures Margin。
-[^perpetual]: [Kraken：What are xStocks perps?](https://www.kraken.com/learn/futures-trading-what-are-xstocks-perps)，定义、AAPLx、参考价格、保证金及现金结算说明。
-[^perpetual-spec]: [Kraken：Multi-Collateral Derivatives Contract Specifications](https://support.kraken.com/in/articles/4844359082772-linear-multi-collateral-derivatives-contract-specifications)，2026-09-08 更新，PF_AAPLXUSD、Perpetual Contract Funding Rate Information、PnL 与抵押物说明；采用其通用规格。
-[^options]: [FINRA：Options](https://www.finra.org/investors/investing/investment-products/options)，Essentials、Calls/Puts、Equity Options；本篇接续《投资期限与现金需要》中可行权购股的看涨期权设定。
 
 
 ## Sources
-- [FINRA—Options](https://www.finra.org/investors/investing/investment-products/options): 本篇采用的公开资料：FINRA—Options。具体采用范围见文章脚注与 Agent 阅读材料。
-- [CME—Margin: Know What's Needed](https://www.cmegroup.com/education/courses/introduction-to-futures/margin-know-what-is-needed): 本篇采用的公开资料：CME—Margin: Know What's Needed。具体采用范围见文章脚注与 Agent 阅读材料。
 - [Alphabet 2025 Form 10-K](https://www.sec.gov/Archives/edgar/data/1652044/000165204426000018/goog-20251231.htm): Alphabet 2025 Form 10-K，Item 5、Note 11、Note 12；股份权利说明，Voting Rights、Liquidation Rights、Conversion。
 - [股份权利说明](https://www.sec.gov/Archives/edgar/data/1652044/000165204423000016/googexhibit420q42022.htm): Alphabet 2025 Form 10-K，Item 5、Note 11、Note 12；股份权利说明，Voting Rights、Liquidation Rights、Conversion。
-- [CME：Single Stock Futures FAQ](https://www.cmegroup.com/articles/faqs/faq-single-stock-futures.html): CME：Single Stock Futures FAQ，2026-09-24 读取，第 1、3、5、7–11、14–15、19 问；合约资料卡，第 1 页规格、第 2 页 SAAPL。每股变动 1 美元用于展示乘数计算，未采用当前股价。
-- [合约资料卡](https://www.cmegroup.com/markets/equities/files/single-stock-futures-fact-card.pdf): CME：Single Stock Futures FAQ，2026-09-24 读取，第 1、3、5、7–11、14–15、19 问；合约资料卡，第 1 页规格、第 2 页 SAAPL。每股变动 1 美元用于展示乘数计算，未采用当前股价。
-- [Kraken：What are xStocks perps?](https://www.kraken.com/learn/futures-trading-what-are-xstocks-perps): Kraken：What are xStocks perps?，定义、AAPLx、参考价格、保证金及现金结算说明。
-- [Kraken：Multi-Collateral Derivatives Contract Specifications](https://support.kraken.com/in/articles/4844359082772-linear-multi-collateral-derivatives-contract-specifications): Kraken：Multi-Collateral Derivatives Contract Specifications，2026-09-08 更新，PF_AAPLXUSD、Perpetual Contract Funding Rate Information、PnL 与抵押物说明；采用其通用规格。
 - [Reddit：首次公开发行定价公告](https://investor.redditinc.com/news-events/news-releases/news-details/2024/Reddit-Announces-Pricing-of-Initial-Public-Offering/default.aspx): Reddit：首次公开发行定价公告，2024-03-20；Investor.gov：Investing in an IPO，2022-10-14，IPO、承销机构与售股股东说明。
 - [Investor.gov：Investing in an IPO](https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins-17): Reddit：首次公开发行定价公告，2024-03-20；Investor.gov：Investing in an IPO，2022-10-14，IPO、承销机构与售股股东说明。
 - [Reddit 2024 年第二季度 Form 10-Q](https://s203.q4cdn.com/380862485/files/doc_financials/2024/q2/04d62450-250b-47c1-9af2-5f7aac9f4d40.pdf): Reddit 2024 年第二季度 Form 10-Q，2024-08-06，Note 2 — Initial Public Offering，报告第 12 页、PDF 第 13 页。
 - [SEC：Common Startup Securities](https://www.sec.gov/resources-small-businesses/capital-raising-building-blocks/common-startup-securities): SEC：Common Startup Securities，Stock、Stock Option、Restricted Stock；Reddit 的实际股权报酬与结算见下引 2024 年第二季度报告。持股比例变化采用持有股数除以总股数的关系。
 - [Reddit 2024 招股书](https://www.sec.gov/Archives/edgar/data/1713445/000162828024012380/reddit-final424b4.htm): SEC：Common Startup Securities；Reddit 2024 招股书，Equity Compensation，第 171–172 页；Restricted Stock Units，第 205 页。本文选取以股份结算的 RSU。
 - [SKHY 的 F-6 所附公开存托协议格式](https://www.sec.gov/Archives/edgar/data/2120882/000119380526000898/e665622_ex99-a.htm): SKHY 的 F-6 所附公开存托协议格式，2026-07-01 提交；定义 1.4、1.12、1.16，条款 2.2–2.8、4.1、4.9–4.10、4.13，附录 A、B。采用公开协议格式中的存股、托管、发行、分配、投票及注销机制，未将其标作最终签署协议。ADR 是凭证名称，ADS 是凭证所代表的美国存托股份额，正文按每份 SKHY 对应权益讲解。
-- [Apple xStock 产品页](https://assets.backed.fi/products/apple-xstock): Apple xStock 产品页；Apple xStock Final Terms and Summary，2026-05-08，发行者、参考资产及 Rights attached / Collateralization 条款。
-- [Apple xStock Final Terms and Summary](https://sppdownloaddocumentservice.l-p-a.com/api/DownloadDocument/UPI/CH1436219187/BF%20Final%20Terms%20AND%20Summary%20%28PDF%29): Apple xStock 产品页；Apple xStock Final Terms and Summary，2026-05-08，发行者、参考资产及 Rights attached / Collateralization 条款。
-- [Kraken：xStocks FAQ](https://support.kraken.com/articles/xstocks-faq): Kraken：xStocks FAQ，2026-09-18 更新，Multiplier、Price and dividends。本文采用净分红再投资及有效余额调整机制。
 - [SEC：Investor Bulletin—American Depositary Receipts](https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins-88): ADR、ADS与托管境外公司股份之间的对应关系。
-- [DTCC：Paving the Way to Tokenized DTC-Custodied Assets](https://www.dtcc.com/press-releases/2025/paving-the-way-to-tokenized-dtc-custodied-assets): DTC于2025年12月11日公布的限定范围证券代币化试点方案。
-- [SEC：致DTC不采取执法行动函及所附申请](https://www.sec.gov/files/tm/no-action/dtc-nal-121125.pdf): DTC方案中参与者证券权益的代币化记录，以及底层证券登记与原有权利安排。
 - [Citi：SK hynix 美国存托证券项目资料](https://depositaryreceipts.citi.com/adr/guides/estfee.aspx?cusip=78392B206&pageId=15&subpageID=114): SKHY、Nasdaq、CUSIP 78392B206、底层普通股ISIN与每ADS对应1/10股的项目字段。
 - [Investor.gov：Stocks](https://www.investor.gov/introduction-investing/investing-basics/investment-products/stocks): 股票代表公司所有权的定义；本篇采用范围见正文脚注与指定阅读单元。
 
@@ -580,4 +342,4 @@ Apple xStock（AAPLx）就是后一类产品。它由 Backed Assets (JE) Limited
 
 ## Related entries
 - [股票、公司与股价](https://ou-liu-red-sugar.github.io/zh/notebook/stocks-company-price/)
-- [投资期限与现金需要](https://ou-liu-red-sugar.github.io/zh/notebook/investment-horizon-cash/)
+- [股东回报：分红、回购与增发](https://ou-liu-red-sugar.github.io/zh/notebook/shareholder-returns-buybacks-issuance/)

@@ -4,7 +4,7 @@
 
 网页 / HTML: [指数、基金与 ETF](https://ou-liu-red-sugar.github.io/zh/notebook/indices-funds-etfs/)
 
-语言 / Language: zh · 更新 / Revised: 2026-09-27
+语言 / Language: zh · 更新 / Revised: 2026-10-11
 
 买入一只股票，我们持有的是一家公司的部分股权；而想同时投资多家公司，可以自己买入一组股票、建立投资组合，也可以购买股票基金的份额，由基金管理人组织投资。
 
@@ -229,7 +229,7 @@ VOO 的 0.02% 管理费已经包含在 0.03% 总费用率里，不能再加一�
 
 不过，场外交易本身并不决定费率高低。Vanguard 的自家共同基金不收前端或后端销售费，仍会承担各自的持续费用；少数产品还可能有特定买入、赎回费用。因此，比较费用时，我们要看具体产品、份额和购买渠道。场内 ETF 同样有持续费用和交易成本，而“免佣金”也只是免去了其中一项。[^vanguard-fees]，[^fee-rules]
 
-持有一组股票时，指数可以帮助我们观察市场、比较业绩，也可以提供安排持仓的规则。至于实际投资，我们可以自己建立并管理组合，也可以持有基金份额，把管理交给基金管理人；ETF 则为基金份额提供了在交易所买卖的形式。选择基金以后，底层公司的经营与股票买入价格仍然影响回报，管理人的取舍和各项费用则继续影响最终留给我们的所得。至于底层股票具体附带哪些权利、又怎样发行和转手，[《股票的类型、发行与交易形式》](https://ou-liu-red-sugar.github.io/zh/notebook/stock-types-issuance-trading/)会继续展开。
+持有一组股票时，指数可以帮助我们观察市场、比较业绩，也可以提供安排持仓的规则。至于实际投资，我们可以自己建立并管理组合，也可以持有基金份额，把管理交给基金管理人；ETF 则为基金份额提供了在交易所买卖的形式。选择基金以后，底层公司的经营与股票买入价格仍然影响回报，管理人的取舍和各项费用则继续影响最终留给我们的所得。无论自己买股票还是买基金份额，交易时都要面对报价和订单。下一篇[《报价、订单与实际成交》](https://ou-liu-red-sugar.github.io/zh/notebook/quotes-orders-execution/)看计划中的价格怎样变成实际付出的金额。
 
 [^sp-method]: S&P Dow Jones Indices，[S&P U.S. Indices Methodology](https://www.spglobal.com/spdji/en/documents/methodologies/methodology-sp-us-indices.pdf)，2026 年 7 月，选样、自由流通市值加权、公司多股类及再平衡。正文只列所需条件类型。
 [^msci]: MSCI，[MSCI World Index factsheet](https://www.msci.com/documents/10199/255599/msci-world-index-usd-net.pdf)，2026-08-31，23 个发达市场的大中盘范围及覆盖比例。
