@@ -1126,7 +1126,8 @@
 .fee-gap .fg-ends strong { display: block; margin-top: 2px; font-size: 15px; color: var(--ff-ink); }
 
 /* Step chain with four nodes. */
-.step-chain.sc-4 .sc-track { grid-template-columns: minmax(0, 1fr) 78px minmax(0, 1fr) 78px minmax(0, 1fr) 78px minmax(0, 1fr); }
+.step-chain.sc-4 .sc-track { grid-template-columns: minmax(0, 1fr) 92px minmax(0, 1fr) 92px minmax(0, 1fr) 92px minmax(0, 1fr); }
+.step-chain.sc-4 .sc-link { white-space: normal; text-align: center; font-size: 11px; }
 
 /* Three-stage lanes. */
 .stage-lanes.rs-3 .rs-grid { grid-template-columns: 70px repeat(3, minmax(0, 1fr)); }
@@ -1313,6 +1314,17 @@
 .leverage-bars .ff-legend .lv-key-own::before { background: var(--ff-share); }
 .leverage-bars .ff-legend .lv-key-loan::before { background: repeating-linear-gradient(135deg, #c7cec5 0 3px, #e6eae3 3px 6px); }
 .leverage-bars .lv-sep { grid-column: 1 / -1; border-top: 1px dashed #cfd8cc; }
+
+/* Stack rows: one stacked bar per period with the derived result beside it. */
+.stack-rows .sr-grid { display: grid; grid-template-columns: 64px minmax(0, 1fr) 150px; grid-auto-flow: row dense; align-items: center; gap: 10px 12px; }
+.stack-rows .sr-name { grid-column: 1; font-size: 12.5px; font-weight: 600; color: var(--ff-ink); }
+.stack-rows .sr-bar { grid-column: 2; display: flex; gap: 2px; height: 26px; }
+.stack-rows .sr-val { grid-column: 3; font-size: 12px; line-height: 1.4; text-align: right; color: var(--ff-text); }
+.stack-rows .sr-val strong { color: var(--ff-ink); }
+.stack-rows .sr-bar i { display: flex; align-items: center; justify-content: center; width: var(--w); font-size: 11.5px; font-style: normal; white-space: nowrap; color: #fff; background: var(--c); }
+.stack-rows .sr-bar i:first-child { border-radius: 4px 0 0 4px; }
+.stack-rows .sr-bar i:last-child { border-radius: 0 4px 4px 0; }
+.stack-rows .ff-legend span::before { width: 12px; height: 10px; border-radius: 2px; background: var(--c); }
 
 @media (max-width: 640px) {
   .flow-figure { padding: 14px 12px 12px; margin: 22px 0 26px; }
@@ -1546,6 +1558,10 @@
   .leverage-bars .lv-name { grid-column: 1; }
   .leverage-bars .lv-val { grid-column: 2; }
   .leverage-bars .lv-bar { grid-column: 1 / -1; margin-bottom: 8px; }
+  .stack-rows .sr-grid { grid-template-columns: minmax(0, 1fr) auto; gap: 4px 8px; }
+  .stack-rows .sr-name { grid-column: 1; }
+  .stack-rows .sr-val { grid-column: 2; }
+  .stack-rows .sr-bar { grid-column: 1 / -1; margin-bottom: 8px; }
   .flow-figure .cc-control { grid-template-columns: minmax(0, 1fr) auto; }
   .flow-figure .cc-control input[type=range] { grid-column: 1 / -1; grid-row: 2; }
   .flow-figure .cc-head { display: none; }
