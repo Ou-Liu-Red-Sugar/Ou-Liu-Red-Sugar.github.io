@@ -48,3 +48,18 @@
     update();
   });
 })();
+
+// View switches: show one authored view at a time; every view stays in the page source.
+// Elements marked data-ff-series stay visible as outlines when their view is not selected.
+(() => {
+  document.querySelectorAll('[data-ff-views]').forEach(figure => {
+    const buttons = figure.querySelectorAll('[data-ff-view-choice]');
+    const show = view => {
+      figure.querySelectorAll('[data-ff-only]').forEach(el => { el.hidden = el.dataset.ffOnly !== view; });
+      figure.querySelectorAll('[data-ff-series]').forEach(el => el.classList.toggle('is-ghost', el.dataset.ffSeries !== view));
+      buttons.forEach(button => button.setAttribute('aria-pressed', String(button.dataset.ffViewChoice === view)));
+    };
+    buttons.forEach(button => button.addEventListener('click', () => show(button.dataset.ffViewChoice)));
+    figure.querySelector('.ff-switch')?.removeAttribute('hidden');
+  });
+})();
