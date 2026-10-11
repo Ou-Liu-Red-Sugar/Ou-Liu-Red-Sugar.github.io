@@ -638,7 +638,10 @@ def compile_notebook(source_root=ROOT, output_root=None):
     write("static/notebook/search.json", json.dumps(search, ensure_ascii=False))
     notation_documents = []
     for lang, folder, title in [("zh", "content-zh", "投资与金融笔记"), ("en", "content", "Finance notebook")]:
-        page(f"{folder}/notebook/_index.md", dict(title=title, layout="catalogue"))
+        index_meta = dict(title=title, layout="catalogue")
+        if lang == "zh":
+            index_meta["description"] = "关于业务、市场与不确定性的持续笔记。"
+        page(f"{folder}/notebook/_index.md", index_meta)
         notation_title = notation["text"][lang]["title"]
         notation_body = notation_markdown(notation, lang)
         notation_documents.append((lang, notation_title, notation_body))
