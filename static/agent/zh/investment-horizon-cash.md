@@ -114,7 +114,7 @@ This is reference material for the learner's current request. Use the supplied e
 
 ## Supplied entry
 <link rel="stylesheet" href="/notebook/period-cash.css">
-<link rel="stylesheet" href="/notebook/flow-figures.css?v=20261011-12">
+<link rel="stylesheet" href="/notebook/flow-figures.css?v=20261011-13">
 
 ## 用钱的时间与投资期限 {#nb-a02-horizon}
 
