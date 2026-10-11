@@ -147,7 +147,18 @@ This is reference material for the learner's current request. Use the supplied e
 ```
 
 ## Supplied entry
+<link rel="stylesheet" href="/notebook/flow-figures.css?v=20261011-4">
+
 公司向股东返还现金，可以派发分红，也可以回购股票。以[《股票、公司与股价》](/zh/notebook/stocks-company-price/)介绍过的 Apple（AAPL）为例，公司用于回购股票的钱，比现金分红多得多。在 2026 财年第一季度，AAPL 支付了约 39 亿美元的股息及股息等价物，用于回购普通股的现金则约为 247 亿美元。两笔钱都从公司流出，影响股东的方式却有所不同。[^apple]
+
+<figure class="flow-figure" id="nb-s02-returns">
+<div class="ff-head"><p class="ff-title">AAPL 2026 财年第一季度返还给股东的现金</p></div>
+<div class="ff-bars business-exchange" aria-label="AAPL 2026 财年第一季度支付股息及股息等价物约 39 亿美元，回购普通股支付约 247 亿美元，回购约为股息的 6.3 倍。">
+<span class="fb-name">股息及股息等价物</span><span class="fb-bar"><i class="fb-cash" style="--w:15.8%"></i></span><span class="fb-val">约 39 亿美元</span>
+<span class="fb-name">回购普通股</span><span class="fb-bar"><i class="fb-cash" style="--w:100%"></i></span><span class="fb-val">约 247 亿美元</span>
+</div>
+<figcaption>季度截至 2025 年 12 月 27 日，金额取自现金流量表中的实际付款。</figcaption>
+</figure>
 
 分红时，只要符合领取条件，股东就会收到现金。回购时，公司把钱付给卖出股票的人；我们即使一直没有卖股，也仍然可能从回购形成的买盘、股数变化和每股权益中受益。
 
@@ -157,11 +168,14 @@ This is reference material for the learner's current request. Use the supplied e
 
 我们平时说大公司的回购有“托市”作用，说的就是这层关系。回购形成的买盘有多大、能持续多久，需要放在实际成交和公司的资金安排中观察；同一时期的经营消息、其他投资者的买卖，也会共同影响价格。
 
-<link rel="stylesheet" href="/notebook/capital-returns.css">
-<figure class="capital-flow" aria-labelledby="nb-s02-buyback-flow-title">
-<figcaption id="nb-s02-buyback-flow-title">回购：公司付出现金，收回股份</figcaption>
-<div class="capital-flow-row"><strong>公司</strong><div class="capital-flow-arrows"><span>现金 →</span><span>← 股份</span></div><strong>售股者</strong></div>
-<p>未参与出售的股东继续持有原来的股份，回购仍会影响市场买盘与公司的股份数量。</p>
+<figure class="flow-figure" id="nb-s02-buyback-flow">
+<div class="ff-head"><p class="ff-title">回购：公司付出现金，收回股份</p><p class="ff-legend"><span class="ff-key-share">股份</span><span class="ff-key-cash">现金</span></p></div>
+<div class="ff-row ff-row-2">
+<div class="ff-party ff-party-focus"><strong>AAPL</strong><small>在市场上买回自己的股票</small></div>
+<div class="ff-exchange business-exchange" aria-label="AAPL 在 2026 财年第一季度向卖出股票的投资者支付约 247 亿美元，买回约 9,300 万股。"><div class="ff-arrow ff-cash ff-right"><span>约 247 亿美元</span></div><div class="ff-arrow ff-left"><span>约 9,300 万股</span></div></div>
+<div class="ff-party"><strong>售股者</strong><small>这一季度卖出股票的投资者</small><span class="ff-result">收到回购款</span></div>
+</div>
+<p class="ff-aside"><strong>未出售的股东</strong>：没有收到这笔钱，股数不变；回购影响的是市场买盘、公司的股份数量和每股权益。</p>
 </figure>
 
 <span data-text-versions id="nb-s02-text-1">不过读到一项回购计划时，我们还要看看公司已经买了多少。授权额度规定了公司可以动用多少资金，实际买入才会形成相应的股票需求。AAPL 在上述季度买回约 9,300 万股，报告同时披露了尚未使用的回购额度<span data-text-detail>（这里的季度截至 2025 年 12 月 27 日。AAPL 披露的回购交易金额约为 250 亿美元，现金流量表中当期支付的回购款为 247.01 亿美元；正文比较现金收付时采用后者。回购计划允许公司按情况执行，没有最低购买数量义务）</span>。把计划与执行分开，才能知道公司这一时期实际形成了多大的买盘。[^apple]<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>
@@ -170,6 +184,20 @@ This is reference material for the learner's current request. Use the supplied e
 
 <span data-text-versions id="nb-s02-text-2">公司回购股票的同时，也可能通过员工奖励交付、员工购股计划或其他发行增加股份。其中，以股票或相关权利支付员工报酬的安排，通常称为股权报酬（SBC），具体形式见[《股票的类型、发行与交易形式》](/zh/notebook/stock-types-issuance-trading/)。因此我们还要把回购与新增股份合起来，看发行在外股数究竟怎样变化。AAPL 这一季度买回约 9,300 万股，但期末发行在外股数比期初少了约 7,060 万股，两者并不相等<span data-text-detail>（资产负债表列示，2025 年 9 月 27 日发行在外普通股为 14,773,260,000 股，12 月 27 日为 14,702,703,000 股，减少 70,557,000 股。此处比较期初与期末股数；正式每股收益另按相应期间的加权平均股数及摊薄规则计算）</span>。所以，回购金额告诉我们公司花了多少钱，净股数变化则进一步告诉我们，继续持有者的持股比例怎样改变。[^apple]<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>
 
+<figure class="flow-figure share-bridge" id="nb-s02-share-bridge">
+<div class="ff-head"><p class="ff-title">AAPL 发行在外股数的变化</p></div>
+<div class="business-exchange" aria-label="AAPL 发行在外普通股从 2025 年 9 月 27 日的 14,773,260,000 股减少到 12 月 27 日的 14,702,703,000 股，净减少 70,557,000 股。同期回购约 9,300 万股，两者的差额约 2,240 万股，是同期新增的股份等其他变化。">
+<p class="sb-zero"><span>期初 <strong>147.73 亿股</strong>（2025 年 9 月 27 日）</span><span>期末 <strong>147.03 亿股</strong>（12 月 27 日）</span></p>
+<div class="sb-cols">
+<div class="sb-col sb-buy"><i style="--top:0%;--h:100%;--link-b:0"></i><span class="sb-val" style="--top:0%;--h:100%">−约 9,300 万</span></div>
+<div class="sb-col sb-add sb-up"><i style="--top:75.87%;--h:24.13%;--link:0"></i><span class="sb-val" style="--top:75.87%;--h:24.13%">+约 2,240 万</span></div>
+<div class="sb-col sb-net"><i style="--top:0%;--h:75.87%"></i><span class="sb-val" style="--top:0%;--h:75.87%">−7,056 万</span></div>
+</div>
+<div class="sb-names"><span><strong>回购买回</strong>本季度</span><span><strong>其他变化</strong>新增股份等，由差额推算</span><span><strong>净变化</strong>期末减期初</span></div>
+</div>
+<figcaption>横线是期初股数，柱子是相对期初的变化。</figcaption>
+</figure>
+
 同一笔资金能买回多少股份，还取决于买入价格。价格越高，收回同样数量的股票就要花更多钱，而这些钱原本还可以留在公司经营、投资或偿债。对继续持有者来说，判断回购的效果，需要把股价支持、股份减少和公司付出的资源放在一起。企业买回自己的股份，也同样面临买得是否划算的问题。[^berkshire]
 
 ## 分红、纳税时点与持有选择 {#nb-s02-dividends-tax}
@@ -177,6 +205,18 @@ This is reference material for the learner's current request. Use the supplied e
 分红把公司的部分现金直接交给股东。股票仍然留在账户里，股东另外取得一笔可以使用的资金；需要安排生活支出的人，常常会关心这种现金来源。
 
 <span data-text-versions id="nb-s02-text-3">但收到分红时，还要把股票和现金合起来看。公司付出现金以后，留在企业中的资产也相应减少；常规现金股息除息后，买入股票的人不再取得这一期股息，因此分红前后的股价需要按相同权益基础比较<span data-text-detail>（本文讨论普通现金股息。除息日划分这次交易是否附带本期股息权利，支付日才是公司实际付款的日期；特殊分配可能采用不同规则。除息形成的价格调整还会和当天的市场行情叠加，实际成交价不会只由股息金额决定）</span>。取得股息领取权利后，还要等到支付日，公司才会实际付款；打算用这笔钱安排开支，就要以支付日为准。[^dividends]<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>
+
+<figure class="flow-figure value-tiles" id="nb-s02-dividend-dates">
+<div class="ff-head"><p class="ff-title">除息日与支付日前后，持有人手里有什么（示意）</p></div>
+<div class="vt-grid business-exchange" aria-label="示意：每股价格 100、每股股息 1。除息日之前，持有人有价值 100 的股票；除息日以后，股价按股息调整为 99，持有人另有尚未到账的股息 1，合计仍为 100；支付日以后，股息 1 作为现金到账，股票价值 99。">
+<div class="vt-col"><span class="vt-when">除息日之前</span><span class="vt-tile vt-stock">股票 <strong>100</strong></span><span class="vt-sum">合计 100</span></div>
+<div class="vt-step">除息 <br>价格按股息调整</div>
+<div class="vt-col"><span class="vt-when">除息日至支付日</span><span class="vt-tile vt-stock">股票 <strong>99</strong></span><span class="vt-tile vt-due">股息 <strong>1</strong>，未到账</span><span class="vt-sum">合计 100</span></div>
+<div class="vt-step">支付 <br>股息到账</div>
+<div class="vt-col"><span class="vt-when">支付日以后</span><span class="vt-tile vt-stock">股票 <strong>99</strong></span><span class="vt-tile vt-cash">现金 <strong>1</strong></span><span class="vt-sum">合计 100</span></div>
+</div>
+<figcaption>数字为假设，不计税费；除息日的实际价格还会受当天行情影响。</figcaption>
+</figure>
 
 收到分红以后，还要考虑税务；即使暂时不需要这笔现金、打算把它重新投入，也会遇到这个问题。以美国普通应税账户中的个人投资者为例，现金股息通常在实际收到或可以支配的年度计入收入；即使券商自动用分红买入更多股票，这笔股息一般仍需要申报。资金先分出来，再由股东投入，可能已经经过了一次纳税。[^tax]
 
@@ -197,10 +237,14 @@ This is reference material for the learner's current request. Use the supplied e
 
 <span data-text-versions id="nb-s02-text-5">公司披露，2026 年 6 月通过发行 Class A、Class C 股票及强制可转换优先股，合计取得约 496 亿美元净募集资金，资金用途包括扩充 AI 基础设施和全球算力<span data-text-detail>（这项金额是上述权益融资合计的净所得，并非全部来自普通股发行。强制可转换优先股先以优先股形式存在，再按条款转换为普通股，其分红权利与未来转股另有安排，不能直接把全部融资额换算成当期新增普通股）</span>。普通股与优先股的权利区别，可参阅[《股票的类型、发行与交易形式》](/zh/notebook/stock-types-issuance-trading/)；这里先看公司准备怎样使用融资所得。[^alphabet-release]<sup>，</sup>[^alphabet]<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>
 
-<figure class="capital-flow" aria-labelledby="nb-s02-issuance-flow-title">
-<figcaption id="nb-s02-issuance-flow-title">普通股增发：公司取得资金，认购者取得新股</figcaption>
-<div class="capital-flow-row"><strong>公司</strong><div class="capital-flow-arrows"><span>← 认购资金</span><span>新股 →</span></div><strong>认购者</strong></div>
-<p>认购款进入公司，原有股东共同拥有的业务取得了新资金，股份数量也随之增加。</p>
+<figure class="flow-figure" id="nb-s02-issuance-flow">
+<div class="ff-head"><p class="ff-title">增发：公司取得资金，认购者取得新证券</p><p class="ff-legend"><span class="ff-key-share">证券</span><span class="ff-key-cash">资金</span></p></div>
+<div class="ff-row ff-row-2">
+<div class="ff-party ff-party-focus"><strong>Alphabet</strong><small>2026 年 6 月权益融资</small><span class="ff-result">净募集约 496 亿美元</span></div>
+<div class="ff-exchange business-exchange" aria-label="2026 年 6 月，认购者向 Alphabet 支付认购款，Alphabet 合计取得约 496 亿美元净募集资金；认购者取得新发行的 Class A、Class C 股票和强制可转换优先股。"><div class="ff-arrow ff-cash ff-left"><span>认购款</span></div><div class="ff-arrow ff-right"><span>新发行的证券</span></div></div>
+<div class="ff-party"><strong>认购者</strong><small>取得新发行的证券</small></div>
+</div>
+<p class="ff-aside"><strong>没有认购的老股东</strong>：股数不变，持股比例随普通股增加而下降；公司则多了一笔可以投入业务的资金。</p>
 </figure>
 
 普通股增发以后，没有同步增加持股的老股东，所占比例会下降，这就是持股比例的稀释。但公司也取得了新资金。要判断这次融资给原股东带来什么，我们还得接着看：以什么价格发行了多少股份，这笔资金准备投入哪里，投入以后能带来怎样的经营成果。
@@ -215,12 +259,16 @@ This is reference material for the learner's current request. Use the supplied e
 
 把分红、回购、增发和股权报酬放在一起，我们就能比较公司现金与股份数量的变化怎样影响持有结果：
 
-| 公司动作 | 资金主要流向 | 股东继续持有时要看什么 |
-|---|---|---|
-| 现金分红 | 公司付给符合条件的股东 | 实际到账、税务与剩余股票价值 |
-| 回购 | 公司付给售股者 | 买盘支持、回购价格与净股数变化 |
-| 普通股增发 | 认购者付给公司 | 发行价格、份额变化与新增资金用途 |
-| 股权报酬 | 公司以股票或相关权利支付部分报酬 | 奖励交付和其他资本动作合起来怎样影响股数 |
+<figure class="flow-figure action-flows" id="nb-s02-actions">
+<div class="ff-head"><p class="ff-title">四种公司动作的流向</p><p class="ff-legend"><span class="ff-key-share">股份与服务</span><span class="ff-key-cash">现金</span></p></div>
+<div class="af-grid">
+<span class="af-head">动作</span><span class="af-head"></span><span class="af-head">流向</span><span class="af-head"></span><span class="af-head">继续持有时要看</span>
+<div class="af-row business-exchange" aria-label="现金分红：公司把现金付给符合条件的股东。继续持有时，要看实际到账、税务与剩余股票价值。"><span class="af-name">现金分红</span><span class="af-party"><span>公司</span></span><div class="af-x"><div class="af-line af-cash af-r"><span>现金</span></div></div><span class="af-party"><span>股东</span></span><span class="af-watch">实际到账、税务与剩余股票价值</span></div>
+<div class="af-row business-exchange" aria-label="回购：公司把现金付给售股者，收回股份。继续持有时，要看买盘支持、回购价格与净股数变化。"><span class="af-name">回购</span><span class="af-party"><span>公司</span></span><div class="af-x"><div class="af-line af-cash af-r"><span>现金</span></div><div class="af-line af-l"><span>股份</span></div></div><span class="af-party"><span>售股者</span></span><span class="af-watch">买盘支持、回购价格与净股数变化</span></div>
+<div class="af-row business-exchange" aria-label="普通股增发：认购者把资金付给公司，取得新股。继续持有时，要看发行价格、份额变化与新增资金用途。"><span class="af-name">普通股增发</span><span class="af-party"><span>公司</span></span><div class="af-x"><div class="af-line af-cash af-l"><span>资金</span></div><div class="af-line af-r"><span>新股</span></div></div><span class="af-party"><span>认购者</span></span><span class="af-watch">发行价格、份额变化与新增资金用途</span></div>
+<div class="af-row business-exchange" aria-label="股权报酬：公司以股票或相关权利支付员工的部分报酬，员工提供服务。继续持有时，要看奖励交付和其他资本动作合起来怎样影响股数。"><span class="af-name">股权报酬</span><span class="af-party"><span>公司</span></span><div class="af-x"><div class="af-line af-r"><span>股票或相关权利</span></div><div class="af-line af-l"><span>服务</span></div></div><span class="af-party"><span>员工</span></span><span class="af-watch">奖励交付和其他资本动作合起来怎样影响股数</span></div>
+</div>
+</figure>
 
 对我们自己的投资，仍然要把持有期间取得的现金与期末剩余股份的价值合起来看，再和原先投入比较。回购的价格支撑和每股权益变化，就在这份股票价值中发生作用；分红则另外形成现金收付，两者也有不同的税务时点。
 
