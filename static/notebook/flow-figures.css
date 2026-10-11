@@ -886,6 +886,7 @@
   border-left: 6px solid var(--ff-share);
   border-right: 0;
 }
+.stage-lanes .rs-step.rs-start::before, .stage-lanes .rs-step.rs-start::after { display: none; }
 .stage-lanes .rs-wait { border-style: dashed; background: #f1f3ee; color: var(--ff-muted); }
 .stage-lanes .rs-lock { border-color: #ead9c4; background: var(--ff-cash-bg); color: var(--ff-cash-text); }
 .stage-lanes .rs-free { border-color: #b9d0c2; background: #f3f8f4; }
@@ -1238,6 +1239,40 @@
 #nb-a04-sharpe .pc-plot { margin-top: 34px; }
 .path-chart .pc-line { stroke: var(--ff-share); stroke-width: 1.5; stroke-dasharray: 6 4; }
 
+/* Return strips: histograms of holding-period returns on one shared axis. */
+.return-strips .rs-row { display: grid; grid-template-columns: 70px minmax(0, 1fr); align-items: end; column-gap: 10px; margin-top: 10px; }
+.return-strips .rs-name { align-self: center; font-size: 12.5px; font-weight: 650; color: var(--ff-ink); }
+.return-strips .rs-name small { display: block; font-size: 11px; font-weight: 400; color: var(--ff-muted); }
+.return-strips .rs-bins { position: relative; display: grid; grid-template-columns: repeat(var(--n), minmax(0, 1fr)); align-items: end; gap: 0 2px; height: 76px; border-bottom: 1px solid #b9c4b8; }
+.return-strips .rs-bins i { display: block; height: var(--h); min-height: 1px; border-radius: 2px 2px 0 0; background: var(--ff-share); }
+.return-strips .rs-bins i.rs-neg { background: var(--ff-cash); }
+.return-strips .rs-bins i.rs-empty { background: none; }
+.return-strips .rs-zero { position: absolute; top: -6px; bottom: -4px; left: var(--x); border-left: 1px dashed #7d8a82; }
+.return-strips .rs-sum { position: absolute; right: 0; top: -2px; font-size: 12px; text-align: right; color: var(--ff-text); }
+.return-strips .rs-sum strong { color: var(--ff-cash-text); }
+.return-strips .rs-sum strong.rs-good { color: var(--ff-share); }
+.return-strips .rs-axis { position: relative; height: 18px; margin-left: 80px; font-size: 11px; color: var(--ff-muted); }
+.return-strips .rs-axis span { position: absolute; left: var(--x); transform: translateX(-50%); top: 3px; white-space: nowrap; }
+.return-strips .rs-axis span:first-child { transform: none; }
+
+/* Shaded spans on a path chart. */
+.path-chart .pc-span { position: absolute; top: 0; bottom: 0; left: var(--from); width: var(--w); background: rgba(168, 116, 63, .13); border-left: 1px solid rgba(168, 116, 63, .45); }
+
+/* Horizon bands: money layers placed on a time axis, with where each layer is held. */
+.horizon-bands .hb-grid { display: grid; grid-template-columns: 82px minmax(0, 1fr) 150px; align-items: center; gap: 10px 12px; }
+.horizon-bands .hb-name { font-size: 13px; font-weight: 650; color: var(--ff-ink); }
+.horizon-bands .hb-name small { display: block; font-size: 11px; font-weight: 400; color: var(--ff-muted); }
+.horizon-bands .hb-track { position: relative; height: 26px; border-radius: 4px; background: #f0f2ed; }
+.horizon-bands .hb-track i { position: absolute; top: 4px; bottom: 4px; left: var(--from); width: var(--w); border-radius: 3px; background: var(--c); }
+.horizon-bands .hb-track b { position: absolute; top: 50%; left: var(--x); width: 10px; height: 10px; margin: -5px 0 0 -5px; border-radius: 50%; background: var(--c); box-shadow: 0 0 0 2px #fbfbf6; }
+.horizon-bands .hb-track i.hb-any { background: repeating-linear-gradient(90deg, var(--c) 0 6px, transparent 6px 10px); }
+.horizon-bands .hb-where { font-size: 12px; line-height: 1.4; color: var(--ff-text); }
+.horizon-bands .hb-where small { display: block; font-size: 11px; color: var(--ff-muted); }
+.horizon-bands .hb-axis { grid-column: 2; position: relative; height: 16px; font-size: 11px; color: var(--ff-muted); }
+.horizon-bands .hb-axis span { position: absolute; left: var(--x); transform: translateX(-50%); white-space: nowrap; }
+.horizon-bands .hb-axis span:first-child { transform: none; }
+.horizon-bands .hb-axis span:last-child { transform: translateX(-100%); }
+
 @media (max-width: 640px) {
   .flow-figure { padding: 14px 12px 12px; margin: 22px 0 26px; }
   .flow-figure .ff-row {
@@ -1453,6 +1488,15 @@
   .outcomes .oc-bar { grid-row: 2; grid-column: 1 / -1; }
   .outcomes .oc-basis { grid-row: 3; grid-column: 1 / -1; font-size: 11.5px; }
   .outcomes .oc-axis { grid-column: 1; }
+  .return-strips .rs-row { grid-template-columns: minmax(0, 1fr); row-gap: 4px; }
+  .return-strips .rs-name small { display: inline; margin-left: 6px; }
+  .return-strips .rs-bins { height: 64px; gap: 0 1px; }
+  .return-strips .rs-axis { margin-left: 0; }
+  .return-strips .rs-sum { font-size: 11px; }
+  .horizon-bands .hb-grid { grid-template-columns: minmax(0, 1fr); gap: 4px; }
+  .horizon-bands .hb-name small { display: inline; margin-left: 6px; }
+  .horizon-bands .hb-where { margin-bottom: 8px; }
+  .horizon-bands .hb-axis { grid-column: 1; grid-row: 1; margin-bottom: 4px; }
   .flow-figure .cc-control { grid-template-columns: minmax(0, 1fr) auto; }
   .flow-figure .cc-control input[type=range] { grid-column: 1 / -1; grid-row: 2; }
   .flow-figure .cc-head { display: none; }
