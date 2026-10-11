@@ -60,6 +60,9 @@
       buttons.forEach(button => button.setAttribute('aria-pressed', String(button.dataset.ffViewChoice === view)));
     };
     buttons.forEach(button => button.addEventListener('click', () => show(button.dataset.ffViewChoice)));
+    const pressed = [...buttons].find(button => button.getAttribute('aria-pressed') === 'true');
+    if (pressed) show(pressed.dataset.ffViewChoice);
     figure.querySelector('.ff-switch')?.removeAttribute('hidden');
+    figure.classList.add('is-switching');
   });
 })();

@@ -9,7 +9,7 @@
 }
 
 <link rel="stylesheet" href="/notebook/intro-interactions.css">
-<link rel="stylesheet" href="/notebook/flow-figures.css?v=20261011-9">
+<link rel="stylesheet" href="/notebook/flow-figures.css?v=20261011-10">
 
 ## 投资目标与方法 {#nb-a01-goals}
 
@@ -264,6 +264,6 @@
 [^returns]: [FINRA：Return and Rate of Return](https://syndication.finra.org/content/key-concepts-return-and-rate-return)。
 
 <script type="module" src="/notebook/intro-interactions.js"></script>
-<script src="/notebook/flow-figures.js?v=20261011-9" defer></script>
+<script src="/notebook/flow-figures.js?v=20261011-10" defer></script>
 
 [^enbw-share]: [EnBW：Share](https://www.enbw.com/investors/share/)，Key figures of the EnBW share，德国市场代码 EBK。

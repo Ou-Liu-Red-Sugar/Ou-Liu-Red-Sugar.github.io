@@ -173,7 +173,7 @@
 
 <link rel="stylesheet" href="/notebook/trading.css?v=20261011-1">
 <script src="/notebook/trading.js?v=20260926-1" defer></script>
-<link rel="stylesheet" href="/notebook/flow-figures.css?v=20261011-9">
+<link rel="stylesheet" href="/notebook/flow-figures.css?v=20261011-10">
 
 [^quotes]: [Nasdaq：Why Real-Time Data Matters When Trading Stocks](https://www.nasdaq.com/articles/why-real-time-data-matters-when-trading-stocks)，2024-03-25，Last、Bid、Ask、Size 和 Trading Volume。正文数值盘口为独立构造的简化模型。
 [^orders]: [SEC Investor.gov：Types of Orders](https://www.investor.gov/introduction-investing/investing-basics/how-stock-markets-work/types-orders)，市价、限价和买卖方向的定义。
