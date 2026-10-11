@@ -417,6 +417,15 @@ R=\sum_i q_i p_i.
 
 再把两期放在一起，我们就能分别观察卖出的数量、同类商品的净价和销售组合怎样变化。即使每款商品都没涨价，高价商品在销量中的占比提高，也能推高整体平均售价。因此，看到“平均卖得更贵了”，我们还需要继续拆解，才能知道是同款提价，还是顾客买了不同的东西。这些因素也会相互影响：提价可能使部分顾客减少购买，新产品则可能同时带来更多销量和更高的平均售价。
 
+<figure class="flow-figure stack-rows" id="nb-d02-mix">
+<div class="ff-head"><p class="ff-title">每款都不涨价，平均售价也能上升（示意）</p><p class="ff-legend"><span style="--c:#8db39c">A 款，每件 10 元</span><span style="--c:#24664f">B 款，每件 20 元</span></p></div>
+<div class="sr-grid">
+<span class="sr-name">第一期</span><span class="sr-val">收入 <strong>1,200 元</strong><br>平均售价 12 元</span><div class="sr-bar business-exchange" aria-label="第一期卖出 100 件：A 款 80 件、B 款 20 件，收入 1,200 元，平均售价 12 元。"><i style="--w:80%;--c:#8db39c">A 80 件</i><i style="--w:20%;--c:#24664f">B 20 件</i></div>
+<span class="sr-name">第二期</span><span class="sr-val">收入 <strong>1,400 元</strong><br>平均售价 <strong>14 元，+16.7%</strong></span><div class="sr-bar business-exchange" aria-label="第二期同样卖出 100 件，每款价格不变，但 B 款增加到 40 件、A 款减少到 60 件，收入 1,400 元，平均售价 14 元，上升约 16.7%。"><i style="--w:60%;--c:#8db39c">A 60 件</i><i style="--w:40%;--c:#24664f">B 40 件</i></div>
+</div>
+<figcaption>两期都卖出 100 件，A、B 两款的价格也都没变；平均售价上升，全部来自高价商品占比的提高。</figcaption>
+</figure>
+
 不同生意需要选不同的观察单位。下面沿用前篇的行业选择，看看收入增加时各自该查什么。
 
 <div data-reading-branch-controls hidden></div>
@@ -559,15 +568,20 @@ R_{\mathrm{要求}}=\frac{PN}{Mm}.
 
 先把实际数据与计算条件摆出来。沿用公司调整后的可比口径，KO 的 2025 年净营收为 480.62 亿美元，归属股东净利润为 129.58 亿美元，由此算出的净利率约为 27.0%；全年稀释加权平均股数为 43.13 亿股。[^ko-base]这些是本次反推的基期参照。
 
-| 输入 | 本次采用 | 身份 |
-|---|---:|---|
-| 股价 | 78.76 美元 | 2026 年 4 月 30 日收盘价，由 5 月 4 日 DBS 报告列示 |
-| 基期可比净营收 | 480.62 亿美元 | KO 披露的 2025 年数据 |
-| 基期可比归属股东净利润 | 129.58 亿美元 | KO 披露的 2025 年数据 |
-| 预计盈利期间 | 2026 全年 | 本篇指定 |
-| 预计净利率 | 约 27.0% | 假设保持 2025 年上述比率 |
-| 预计稀释加权平均股数 | 43.13 亿股 | 假设保持 2025 年股数 |
-| 前瞻 PE | 26 倍 | 借用 DBS 用于目标价的倍数，作为本篇条件 |
+<figure class="flow-figure step-chain sc-4" id="nb-d02-reverse-chain">
+<div class="ff-head"><p class="ff-title">从 KO 的股价反推 2026 年的收入要求</p><span class="ff-sub">可比口径，美元</span></div>
+<div class="sc-track">
+<div class="sc-node"><strong>78.76</strong><small>股价，2026 年 4 月 30 日收盘</small></div>
+<div class="sc-link business-exchange" aria-label="股价 78.76 美元除以借用自 DBS 报告的 26 倍前瞻 PE，得到 2026 年所需的每股收益约 3.03 美元。"><span>÷ 26 倍 PE</span><span>借用 DBS 的倍数</span></div>
+<div class="sc-node"><strong>3.03</strong><small>2026 年所需每股收益</small></div>
+<div class="sc-link business-exchange" aria-label="每股收益乘以 43.13 亿股稀释加权平均股数，假设股数保持 2025 年水平，所需归属股东净利润约 130.7 亿美元。"><span>× 43.13 亿股</span><span>假设保持 2025 年</span></div>
+<div class="sc-node"><strong>130.7 亿</strong><small>所需净利润</small></div>
+<div class="sc-link business-exchange" aria-label="所需净利润除以约 27.0% 的净利率，假设保持 2025 年的比率，所需可比净营收约 484.6 亿美元。"><span>÷ 27.0%</span><span>净利率，假设保持</span></div>
+<div class="sc-node sc-focus"><strong>484.6 亿</strong><small>所需净营收</small></div>
+</div>
+<p class="ff-aside business-exchange" aria-label="2025 年同口径净营收为 480.62 亿美元，所需净营收约 484.6 亿美元，需要增长约 0.8%。"><strong>与 2025 年的 480.62 亿美元相比</strong>：需要增长约 0.8%。</p>
+<figcaption>净利率按 2025 年可比口径计算：129.58 ÷ 480.62 ≈ 27.0%。股价为实际收盘价，PE、股数与净利率都是本篇设定的条件，2026 全年为本篇指定的盈利期间。</figcaption>
+</figure>
 
 <span data-text-versions id="nb-d02-price-text-1">DBS 在这份报告中为目标价选用了 26 倍前瞻 PE；我们借用这个倍数，并明确把它用于 KO 的 2026 全年可比盈利<span data-text-detail>（报告没有在该处完整定义其 forward PE 的盈利期间，本篇的年度安排不用于复刻报告目标价。可比收入与可比利润属于公司非 GAAP 口径，与前面的有机增长也不同；计算用 129.58／480.62 的精确比率，约 27.0% 仅用于显示。股数采用全年稀释加权平均股数，未来保持不变是本篇条件）</span>。[^dbs]<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>
 
@@ -584,6 +598,7 @@ R_{\mathrm{要求}}=\frac{PN}{Mm}.
 MRVL 的例子让我们看到，收入增长与超过预期门槛是两件事；KO 的反推又说明，所需增长会随利润率、股数和定价倍数而变化。要继续判断这些条件能否成立，我们还得看取得收入时需要增加哪些投入。下一篇《成本结构与经营杠杆》将继续讨论：收入增加以后，哪些成本随之变化，又能留下多少利润。
 
 <link rel="stylesheet" href="/notebook/business-branches.css?v=20261011">
+<link rel="stylesheet" href="/notebook/flow-figures.css?v=20261011-11">
 
 
 [^ko-growth]: [The Coca-Cola Company — Second Quarter 2025 Earnings Release](https://www.coca-colacompany.com/content/dam/corporate/us/en/media-center/Coca-Cola-2025-Q2-Earnings-Release-Full-Release-7.22.25.pdf)。PDF p1 标题与 Quarterly Performance / Revenues；PDF p3 Revenues and Volume，Consolidated 行及 rounding 注；PDF p8 Notes，unit case、unit case volume、concentrate sales、price/mix；PDF p15 Definitions；p25 Net Operating Revenues 调节表；PDF p3 Asia Pacific 行；p5 Asia Pacific 第二段。

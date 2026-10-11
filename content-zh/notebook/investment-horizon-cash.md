@@ -9,7 +9,7 @@
 }
 
 <link rel="stylesheet" href="/notebook/period-cash.css">
-<link rel="stylesheet" href="/notebook/flow-figures.css?v=20261011-10">
+<link rel="stylesheet" href="/notebook/flow-figures.css?v=20261011-11">
 
 ## 用钱的时间与投资期限 {#nb-a02-horizon}
 
