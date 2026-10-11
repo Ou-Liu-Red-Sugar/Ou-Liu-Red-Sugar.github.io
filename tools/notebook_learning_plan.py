@@ -247,9 +247,13 @@ def compile_reading_route(plan, mapped_entries):
     for credit in route["credits"]:
         numbers = [step["number"] for step in available if step["id"] in credit["entry_ids"]]
         if numbers:
-            label = (str(numbers[0]) if len(numbers) == 1 else
-                     f"{numbers[0]}–{numbers[-1]}" if numbers == list(range(numbers[0], numbers[-1] + 1))
-                     else "、".join(map(str, numbers)))
+            runs = []
+            for number in numbers:
+                if runs and number == runs[-1][-1] + 1:
+                    runs[-1][-1] = number
+                else:
+                    runs.append([number, number])
+            label = "、".join(str(a) if a == b else f"{a}–{b}" for a, b in runs)
             credits.append(dict(label=f"第 {label} 篇", writer=credit["writer"]))
     return dict(title=route["title"], description=route["description"],
                 steps=steps[:count], next=steps[count] if count < len(steps) else None,

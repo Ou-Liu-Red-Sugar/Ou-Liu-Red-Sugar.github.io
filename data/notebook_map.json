@@ -112,7 +112,7 @@
       "from": "P",
       "to": "I",
       "kind": "knowledge",
-      "label": "已写组合暴露出需要 Agent 深入研究的经营和资金问题"
+      "label": "组合中的共同风险暴露出需要 Agent 深入研究的经营和资金问题"
     },
     {
       "from": "I",
@@ -586,7 +586,7 @@
       "from": "P",
       "to": "M",
       "kind": "knowledge",
-      "label": "沿已写组合实算深化研究整合、共同情景和资本取舍"
+      "label": "沿 P01 的组合认识深化研究整合、共同情景和资本取舍"
     },
     {
       "from": "I",
@@ -642,7 +642,7 @@
       "id": "R",
       "title": "债券收益、价格与信用",
       "short": "债券",
-      "description": "接续 A02/A04 的债券例子，按用途深化收益、价格和偿付。"
+      "description": "接续 A04 的短债参照，按用途深化收益、价格和偿付。"
     },
     {
       "id": "U",
@@ -666,13 +666,13 @@
       "id": "G",
       "title": "期权权利、定价与策略",
       "short": "期权",
-      "description": "沿 A02/B03 的实际期权例子补齐合约、价格和策略机制。"
+      "description": "沿 B03 的保护性 Put 补齐合约、价格和策略机制。"
     },
     {
       "id": "K",
       "title": "期货基差、展期与对冲调整",
       "short": "期货深化",
-      "description": "沿 B01/B03 已讲的暴露、保证金和现金，深化基差及调整机制。"
+      "description": "沿 K05 与 B03 已讲的暴露、保证金和现金，深化基差及调整机制。"
     },
     {
       "id": "L",
@@ -702,13 +702,13 @@
       "id": "F",
       "title": "经营情景、条件定价与 Risk-Reward",
       "short": "定价与判断",
-      "description": "在 A03 的回报比较和 B03 的研究快照基础上形成完整研究判断。"
+      "description": "在 A03 的回报比较基础上形成完整研究判断。"
     },
     {
       "id": "P",
       "title": "投资组合、保证金与对冲",
       "short": "投资组合",
-      "description": "以已写 B03 承担实际组合入口，连接公司研究与 Agent 资本配置。"
+      "description": "以 P01 建立组合认识，B03 补充保证金与对冲，连接公司研究与 Agent 资本配置。"
     },
     {
       "id": "I",
@@ -726,7 +726,7 @@
       "id": "M",
       "title": "Agent 资本取舍与持续配置",
       "short": "Agent 资产配置",
-      "description": "承接 B03 的组合实算，深化研究整合、共同情景和持续资本取舍。"
+      "description": "承接 P01 的组合认识，深化研究整合、共同情景和持续资本取舍。"
     }
   ],
   "entries": [
@@ -744,19 +744,6 @@
       }
     },
     {
-      "id": "NB-A02",
-      "node": "A",
-      "title": "投资期限与现金需要",
-      "goal": "理解合约期限、期间收付款与退出选择，并形成投资中的期限与现金意识。",
-      "status": "available",
-      "url": "/zh/notebook/investment-horizon-cash/",
-      "reading_profile": {
-        "difficulty": "入门",
-        "depth": "详解",
-        "note": "从逐笔现金和简单算术讲清期限、融资与期权行权需要，概念从头说明，例子展开充分。"
-      }
-    },
-    {
       "id": "NB-S01",
       "node": "S",
       "title": "股票、公司与股价",
@@ -770,23 +757,10 @@
       }
     },
     {
-      "id": "NB-V01",
-      "node": "V",
-      "title": "指数、基金与 ETF",
-      "goal": "区分指数、基金与 ETF，理解成分选择、权重与集中度怎样形成投资暴露，并比较基金管理方式、费用和场内外交易。",
-      "status": "available",
-      "url": "/zh/notebook/indices-funds-etfs/",
-      "reading_profile": {
-        "difficulty": "入门",
-        "depth": "详解",
-        "note": "虽包含权重漂移、AP 与费用复利，但都从定义和可跟随的例子讲起；篇幅与覆盖面对应详解，不应据此把学习难度标成进阶。"
-      }
-    },
-    {
       "id": "NB-B01",
       "node": "B",
       "title": "股票的类型、发行与交易形式",
-      "goal": "辨认具体股份的权利、取得与出售条件，以及围绕同一股票形成的不同持有和交易安排。",
+      "goal": "辨认具体股份的权利、取得与出售条件，以及同一公司股份在不同市场的上市与存托形式。",
       "status": "available",
       "url": "/zh/notebook/stock-types-issuance-trading/",
       "reading_profile": {
@@ -809,16 +783,29 @@
       }
     },
     {
-      "id": "NB-A03",
-      "node": "A",
-      "title": "亏损、波动与持有能力",
-      "goal": "结合行业、基本面和交易心理重新判断亏损，用 Risk–Reward 与资金条件理解持有和退出。",
+      "id": "NB-V01",
+      "node": "V",
+      "title": "指数、基金与 ETF",
+      "goal": "区分指数、基金与 ETF，理解成分选择、权重与集中度怎样形成投资暴露，并比较基金管理方式、费用和场内外交易。",
       "status": "available",
-      "url": "/zh/notebook/loss-volatility-holding-capacity/",
+      "url": "/zh/notebook/indices-funds-etfs/",
       "reading_profile": {
-        "difficulty": "进阶",
+        "difficulty": "入门",
         "depth": "详解",
-        "note": "需把相对行业表现、经营预期、情景回报、技术指标及资金约束结合起来判断持有，且提供完整案例、公式和图示比较。"
+        "note": "虽包含权重漂移、AP 与费用复利，但都从定义和可跟随的例子讲起；篇幅与覆盖面对应详解，不应据此把学习难度标成进阶。"
+      }
+    },
+    {
+      "id": "NB-B02",
+      "node": "B",
+      "title": "报价、订单与实际成交",
+      "goal": "理解报价、流动性和订单条件如何形成实际成交，并认识交易成本与交收时间。",
+      "status": "available",
+      "url": "/zh/notebook/quotes-orders-execution/",
+      "reading_profile": {
+        "difficulty": "入门",
+        "depth": "详解",
+        "note": "从 Last、Bid、Ask 和逐档成交开始，例子可直接读懂，算术限于数量与单价；订单、做市和资金需要展开较全。"
       }
     },
     {
@@ -835,30 +822,38 @@
       }
     },
     {
-      "id": "NB-B02",
-      "node": "B",
-      "title": "报价、订单与实际成交",
-      "goal": "理解报价、流动性和订单条件如何形成实际成交，并认识做市、对冲与保证金的联系。",
+      "id": "NB-A02",
+      "node": "A",
+      "title": "投资期限与现金需要",
+      "goal": "按资金用途和付款时间安排可投资资金，理解期限、流动性与被迫卖出的关系。",
       "status": "available",
-      "url": "/zh/notebook/quotes-orders-execution/",
+      "url": "/zh/notebook/investment-horizon-cash/",
       "reading_profile": {
         "difficulty": "入门",
         "depth": "详解",
-        "note": "从 Last、Bid、Ask 和逐档成交开始，例子可直接读懂，算术限于数量与单价；订单、做市和资金需要展开较全。"
+        "note": "从逐笔现金和简单算术讲清期限、融资与期权行权需要，概念从头说明，例子展开充分。"
       }
     },
     {
-      "id": "NB-B03",
-      "node": "P",
-      "title": "投资组合、保证金与对冲策略",
-      "goal": "从基本面与 Risk-Reward 建立组合，由 Agent 判断共同风险与对冲取舍，并理解保证金、盯市和交收怎样约束资金。",
+      "id": "NB-A03",
+      "node": "A",
+      "title": "亏损、波动与持有能力",
+      "goal": "结合行业和基本面重新判断亏损，用 Risk–Reward 与资金条件理解持有和退出。",
       "status": "available",
-      "url": "/zh/notebook/settlement-margin-cash/",
+      "url": "/zh/notebook/loss-volatility-holding-capacity/",
       "reading_profile": {
         "difficulty": "进阶",
         "depth": "详解",
-        "note": "需要同时理解 beta 回归、期权和期货的保护范围、账户担保口径与现金路径，并在同一组合中比较多项方案。"
+        "note": "需把相对行业表现、经营预期、情景回报、技术指标及资金约束结合起来判断持有，且提供完整案例、公式和图示比较。"
       }
+    },
+    {
+      "id": "NB-P01",
+      "node": "P",
+      "title": "投资组合：集中、分散与现金",
+      "goal": "从各项持仓理由出发组成组合，理解仓位、集中度、共同风险与现金比例怎样决定整体结果。",
+      "status": "planned",
+      "url": null
     },
     {
       "id": "NB-D01",
@@ -1239,6 +1234,27 @@
       "url": null
     },
     {
+      "id": "NB-B03",
+      "node": "P",
+      "title": "保证金、对冲与期间现金",
+      "goal": "理解保证金借款、对冲工具和盯市交收怎样改变组合的风险与沿途资金需要。",
+      "status": "available",
+      "url": "/zh/notebook/settlement-margin-cash/",
+      "reading_profile": {
+        "difficulty": "进阶",
+        "depth": "详解",
+        "note": "需要同时理解 beta 回归、期权和期货的保护范围、账户担保口径与现金路径，并在同一组合中比较多项方案。"
+      }
+    },
+    {
+      "id": "NB-K05",
+      "node": "K",
+      "title": "个股期货、股票永续与代币化股票",
+      "goal": "区分围绕同一股票形成的合约与代币化产品，辨认持有人实际取得的权益、保证金和结算安排。",
+      "status": "planned",
+      "url": null
+    },
+    {
       "id": "NB-X01",
       "node": "X",
       "title": "商品、黄金与回报来源",
@@ -1377,21 +1393,8 @@
         }
       },
       {
-        "id": "NB-A02",
-        "number": 2,
-        "title": "投资期限与现金需要",
-        "note": "把投资回款与期间付款放在一条时间线上，比较继续持有、退出和准备现金的安排。",
-        "status": "available",
-        "url": "/zh/notebook/investment-horizon-cash/",
-        "reading_profile": {
-          "difficulty": "入门",
-          "depth": "详解",
-          "note": "从逐笔现金和简单算术讲清期限、融资与期权行权需要，概念从头说明，例子展开充分。"
-        }
-      },
-      {
         "id": "NB-S01",
-        "number": 3,
+        "number": 2,
         "title": "股票、公司与股价",
         "note": "把股份、公司经营、每股价格与市值联系起来，再辨认股份单位和交易载体。",
         "status": "available",
@@ -1403,23 +1406,10 @@
         }
       },
       {
-        "id": "NB-V01",
-        "number": 4,
-        "title": "指数、基金与 ETF",
-        "note": "从一组股票认识指数规则、基金份额与 ETF，理解权重、管理方式和费用怎样影响结果。",
-        "status": "available",
-        "url": "/zh/notebook/indices-funds-etfs/",
-        "reading_profile": {
-          "difficulty": "入门",
-          "depth": "详解",
-          "note": "虽包含权重漂移、AP 与费用复利，但都从定义和可跟随的例子讲起；篇幅与覆盖面对应详解，不应据此把学习难度标成进阶。"
-        }
-      },
-      {
         "id": "NB-B01",
-        "number": 5,
+        "number": 3,
         "title": "股票的类型、发行与交易形式",
-        "note": "辨认股份权利，分清发行与转手的资金去向，并比较存托凭证和价格合约。",
+        "note": "辨认股份权利，分清发行与转手的资金去向，并认识存托凭证和多地上市。",
         "status": "available",
         "url": "/zh/notebook/stock-types-issuance-trading/",
         "reading_profile": {
@@ -1430,7 +1420,7 @@
       },
       {
         "id": "NB-S02",
-        "number": 6,
+        "number": 4,
         "title": "股东回报：分红、回购与增发",
         "note": "比较分红、回购、增发与净股数变化，追踪经营所得怎样影响每一股。",
         "status": "available",
@@ -1442,21 +1432,34 @@
         }
       },
       {
-        "id": "NB-A03",
-        "number": 7,
-        "title": "亏损、波动与持有能力",
-        "note": "将亏损后的判断转向经营前景、当前价格及资金和心理上的持有能力。",
+        "id": "NB-V01",
+        "number": 5,
+        "title": "指数、基金与 ETF",
+        "note": "从一组股票认识指数规则、基金份额与 ETF，理解权重、管理方式和费用怎样影响结果。",
         "status": "available",
-        "url": "/zh/notebook/loss-volatility-holding-capacity/",
+        "url": "/zh/notebook/indices-funds-etfs/",
         "reading_profile": {
-          "difficulty": "进阶",
+          "difficulty": "入门",
           "depth": "详解",
-          "note": "需把相对行业表现、经营预期、情景回报、技术指标及资金约束结合起来判断持有，且提供完整案例、公式和图示比较。"
+          "note": "虽包含权重漂移、AP 与费用复利，但都从定义和可跟随的例子讲起；篇幅与覆盖面对应详解，不应据此把学习难度标成进阶。"
+        }
+      },
+      {
+        "id": "NB-B02",
+        "number": 6,
+        "title": "报价、订单与实际成交",
+        "note": "读懂报价与订单怎样形成实际成交，再看交易成本和交收怎样决定资金何时可用。",
+        "status": "available",
+        "url": "/zh/notebook/quotes-orders-execution/",
+        "reading_profile": {
+          "difficulty": "入门",
+          "depth": "详解",
+          "note": "从 Last、Bid、Ask 和逐档成交开始，例子可直接读懂，算术限于数量与单价；订单、做市和资金需要展开较全。"
         }
       },
       {
         "id": "NB-A04",
-        "number": 8,
+        "number": 7,
         "title": "复利、通胀与机会成本",
         "note": "用复利、年化和购买力比较不同期限的结果，再考虑替代用途与风险补偿。",
         "status": "available",
@@ -1468,30 +1471,38 @@
         }
       },
       {
-        "id": "NB-B02",
-        "number": 9,
-        "title": "报价、订单与实际成交",
-        "note": "读懂报价与订单怎样形成实际成交，再看做市库存、对冲和期间付现的联系。",
+        "id": "NB-A02",
+        "number": 8,
+        "title": "投资期限与现金需要",
+        "note": "按资金用途和付款时间安排投资，比较市场下跌时继续持有、卖出与借款的结果。",
         "status": "available",
-        "url": "/zh/notebook/quotes-orders-execution/",
+        "url": "/zh/notebook/investment-horizon-cash/",
         "reading_profile": {
           "difficulty": "入门",
           "depth": "详解",
-          "note": "从 Last、Bid、Ask 和逐档成交开始，例子可直接读懂，算术限于数量与单价；订单、做市和资金需要展开较全。"
+          "note": "从逐笔现金和简单算术讲清期限、融资与期权行权需要，概念从头说明，例子展开充分。"
         }
       },
       {
-        "id": "NB-B03",
-        "number": 10,
-        "title": "投资组合、保证金与对冲策略",
-        "note": "把股票、对冲工具与现金放进同一个组合，比较共同风险、保证金及沿途资金需要。",
+        "id": "NB-A03",
+        "number": 9,
+        "title": "亏损、波动与持有能力",
+        "note": "将亏损后的判断转向经营前景、当前价格及资金和心理上的持有能力。",
         "status": "available",
-        "url": "/zh/notebook/settlement-margin-cash/",
+        "url": "/zh/notebook/loss-volatility-holding-capacity/",
         "reading_profile": {
           "difficulty": "进阶",
           "depth": "详解",
-          "note": "需要同时理解 beta 回归、期权和期货的保护范围、账户担保口径与现金路径，并在同一组合中比较多项方案。"
+          "note": "需把相对行业表现、经营预期、情景回报、技术指标及资金约束结合起来判断持有，且提供完整案例、公式和图示比较。"
         }
+      },
+      {
+        "id": "NB-P01",
+        "number": 10,
+        "title": "投资组合：集中、分散与现金",
+        "note": "把几项持仓放进同一个组合，比较仓位、集中度、共同风险和现金怎样决定整体结果。",
+        "status": "planned",
+        "url": null
       },
       {
         "id": "NB-D01",
@@ -1529,7 +1540,7 @@
       "url": null
     },
     "available_count": 12,
-    "intro_available_count": 12,
+    "intro_available_count": 11,
     "navigation": {
       "NB-A01": {
         "current": {
@@ -1547,31 +1558,31 @@
         },
         "previous": null,
         "next": {
-          "id": "NB-A02",
+          "id": "NB-S01",
           "number": 2,
-          "title": "投资期限与现金需要",
-          "note": "把投资回款与期间付款放在一条时间线上，比较继续持有、退出和准备现金的安排。",
+          "title": "股票、公司与股价",
+          "note": "把股份、公司经营、每股价格与市值联系起来，再辨认股份单位和交易载体。",
           "status": "available",
-          "url": "/zh/notebook/investment-horizon-cash/",
+          "url": "/zh/notebook/stocks-company-price/",
           "reading_profile": {
             "difficulty": "入门",
             "depth": "详解",
-            "note": "从逐笔现金和简单算术讲清期限、融资与期权行权需要，概念从头说明，例子展开充分。"
+            "note": "先定义股权、价格与市值，再以真实案例解释股份单位和证券载体，读者可独立读入。"
           }
         }
       },
-      "NB-A02": {
+      "NB-S01": {
         "current": {
-          "id": "NB-A02",
+          "id": "NB-S01",
           "number": 2,
-          "title": "投资期限与现金需要",
-          "note": "把投资回款与期间付款放在一条时间线上，比较继续持有、退出和准备现金的安排。",
+          "title": "股票、公司与股价",
+          "note": "把股份、公司经营、每股价格与市值联系起来，再辨认股份单位和交易载体。",
           "status": "available",
-          "url": "/zh/notebook/investment-horizon-cash/",
+          "url": "/zh/notebook/stocks-company-price/",
           "reading_profile": {
             "difficulty": "入门",
             "depth": "详解",
-            "note": "从逐笔现金和简单算术讲清期限、融资与期权行权需要，概念从头说明，例子展开充分。"
+            "note": "先定义股权、价格与市值，再以真实案例解释股份单位和证券载体，读者可独立读入。"
           }
         },
         "previous": {
@@ -1588,92 +1599,10 @@
           }
         },
         "next": {
-          "id": "NB-S01",
-          "number": 3,
-          "title": "股票、公司与股价",
-          "note": "把股份、公司经营、每股价格与市值联系起来，再辨认股份单位和交易载体。",
-          "status": "available",
-          "url": "/zh/notebook/stocks-company-price/",
-          "reading_profile": {
-            "difficulty": "入门",
-            "depth": "详解",
-            "note": "先定义股权、价格与市值，再以真实案例解释股份单位和证券载体，读者可独立读入。"
-          }
-        }
-      },
-      "NB-S01": {
-        "current": {
-          "id": "NB-S01",
-          "number": 3,
-          "title": "股票、公司与股价",
-          "note": "把股份、公司经营、每股价格与市值联系起来，再辨认股份单位和交易载体。",
-          "status": "available",
-          "url": "/zh/notebook/stocks-company-price/",
-          "reading_profile": {
-            "difficulty": "入门",
-            "depth": "详解",
-            "note": "先定义股权、价格与市值，再以真实案例解释股份单位和证券载体，读者可独立读入。"
-          }
-        },
-        "previous": {
-          "id": "NB-A02",
-          "number": 2,
-          "title": "投资期限与现金需要",
-          "note": "把投资回款与期间付款放在一条时间线上，比较继续持有、退出和准备现金的安排。",
-          "status": "available",
-          "url": "/zh/notebook/investment-horizon-cash/",
-          "reading_profile": {
-            "difficulty": "入门",
-            "depth": "详解",
-            "note": "从逐笔现金和简单算术讲清期限、融资与期权行权需要，概念从头说明，例子展开充分。"
-          }
-        },
-        "next": {
-          "id": "NB-V01",
-          "number": 4,
-          "title": "指数、基金与 ETF",
-          "note": "从一组股票认识指数规则、基金份额与 ETF，理解权重、管理方式和费用怎样影响结果。",
-          "status": "available",
-          "url": "/zh/notebook/indices-funds-etfs/",
-          "reading_profile": {
-            "difficulty": "入门",
-            "depth": "详解",
-            "note": "虽包含权重漂移、AP 与费用复利，但都从定义和可跟随的例子讲起；篇幅与覆盖面对应详解，不应据此把学习难度标成进阶。"
-          }
-        }
-      },
-      "NB-V01": {
-        "current": {
-          "id": "NB-V01",
-          "number": 4,
-          "title": "指数、基金与 ETF",
-          "note": "从一组股票认识指数规则、基金份额与 ETF，理解权重、管理方式和费用怎样影响结果。",
-          "status": "available",
-          "url": "/zh/notebook/indices-funds-etfs/",
-          "reading_profile": {
-            "difficulty": "入门",
-            "depth": "详解",
-            "note": "虽包含权重漂移、AP 与费用复利，但都从定义和可跟随的例子讲起；篇幅与覆盖面对应详解，不应据此把学习难度标成进阶。"
-          }
-        },
-        "previous": {
-          "id": "NB-S01",
-          "number": 3,
-          "title": "股票、公司与股价",
-          "note": "把股份、公司经营、每股价格与市值联系起来，再辨认股份单位和交易载体。",
-          "status": "available",
-          "url": "/zh/notebook/stocks-company-price/",
-          "reading_profile": {
-            "difficulty": "入门",
-            "depth": "详解",
-            "note": "先定义股权、价格与市值，再以真实案例解释股份单位和证券载体，读者可独立读入。"
-          }
-        },
-        "next": {
           "id": "NB-B01",
-          "number": 5,
+          "number": 3,
           "title": "股票的类型、发行与交易形式",
-          "note": "辨认股份权利，分清发行与转手的资金去向，并比较存托凭证和价格合约。",
+          "note": "辨认股份权利，分清发行与转手的资金去向，并认识存托凭证和多地上市。",
           "status": "available",
           "url": "/zh/notebook/stock-types-issuance-trading/",
           "reading_profile": {
@@ -1686,9 +1615,9 @@
       "NB-B01": {
         "current": {
           "id": "NB-B01",
-          "number": 5,
+          "number": 3,
           "title": "股票的类型、发行与交易形式",
-          "note": "辨认股份权利，分清发行与转手的资金去向，并比较存托凭证和价格合约。",
+          "note": "辨认股份权利，分清发行与转手的资金去向，并认识存托凭证和多地上市。",
           "status": "available",
           "url": "/zh/notebook/stock-types-issuance-trading/",
           "reading_profile": {
@@ -1698,21 +1627,21 @@
           }
         },
         "previous": {
-          "id": "NB-V01",
-          "number": 4,
-          "title": "指数、基金与 ETF",
-          "note": "从一组股票认识指数规则、基金份额与 ETF，理解权重、管理方式和费用怎样影响结果。",
+          "id": "NB-S01",
+          "number": 2,
+          "title": "股票、公司与股价",
+          "note": "把股份、公司经营、每股价格与市值联系起来，再辨认股份单位和交易载体。",
           "status": "available",
-          "url": "/zh/notebook/indices-funds-etfs/",
+          "url": "/zh/notebook/stocks-company-price/",
           "reading_profile": {
             "difficulty": "入门",
             "depth": "详解",
-            "note": "虽包含权重漂移、AP 与费用复利，但都从定义和可跟随的例子讲起；篇幅与覆盖面对应详解，不应据此把学习难度标成进阶。"
+            "note": "先定义股权、价格与市值，再以真实案例解释股份单位和证券载体，读者可独立读入。"
           }
         },
         "next": {
           "id": "NB-S02",
-          "number": 6,
+          "number": 4,
           "title": "股东回报：分红、回购与增发",
           "note": "比较分红、回购、增发与净股数变化，追踪经营所得怎样影响每一股。",
           "status": "available",
@@ -1727,7 +1656,7 @@
       "NB-S02": {
         "current": {
           "id": "NB-S02",
-          "number": 6,
+          "number": 4,
           "title": "股东回报：分红、回购与增发",
           "note": "比较分红、回购、增发与净股数变化，追踪经营所得怎样影响每一股。",
           "status": "available",
@@ -1740,9 +1669,9 @@
         },
         "previous": {
           "id": "NB-B01",
-          "number": 5,
+          "number": 3,
           "title": "股票的类型、发行与交易形式",
-          "note": "辨认股份权利，分清发行与转手的资金去向，并比较存托凭证和价格合约。",
+          "note": "辨认股份权利，分清发行与转手的资金去向，并认识存托凭证和多地上市。",
           "status": "available",
           "url": "/zh/notebook/stock-types-issuance-trading/",
           "reading_profile": {
@@ -1752,36 +1681,36 @@
           }
         },
         "next": {
-          "id": "NB-A03",
-          "number": 7,
-          "title": "亏损、波动与持有能力",
-          "note": "将亏损后的判断转向经营前景、当前价格及资金和心理上的持有能力。",
+          "id": "NB-V01",
+          "number": 5,
+          "title": "指数、基金与 ETF",
+          "note": "从一组股票认识指数规则、基金份额与 ETF，理解权重、管理方式和费用怎样影响结果。",
           "status": "available",
-          "url": "/zh/notebook/loss-volatility-holding-capacity/",
+          "url": "/zh/notebook/indices-funds-etfs/",
           "reading_profile": {
-            "difficulty": "进阶",
+            "difficulty": "入门",
             "depth": "详解",
-            "note": "需把相对行业表现、经营预期、情景回报、技术指标及资金约束结合起来判断持有，且提供完整案例、公式和图示比较。"
+            "note": "虽包含权重漂移、AP 与费用复利，但都从定义和可跟随的例子讲起；篇幅与覆盖面对应详解，不应据此把学习难度标成进阶。"
           }
         }
       },
-      "NB-A03": {
+      "NB-V01": {
         "current": {
-          "id": "NB-A03",
-          "number": 7,
-          "title": "亏损、波动与持有能力",
-          "note": "将亏损后的判断转向经营前景、当前价格及资金和心理上的持有能力。",
+          "id": "NB-V01",
+          "number": 5,
+          "title": "指数、基金与 ETF",
+          "note": "从一组股票认识指数规则、基金份额与 ETF，理解权重、管理方式和费用怎样影响结果。",
           "status": "available",
-          "url": "/zh/notebook/loss-volatility-holding-capacity/",
+          "url": "/zh/notebook/indices-funds-etfs/",
           "reading_profile": {
-            "difficulty": "进阶",
+            "difficulty": "入门",
             "depth": "详解",
-            "note": "需把相对行业表现、经营预期、情景回报、技术指标及资金约束结合起来判断持有，且提供完整案例、公式和图示比较。"
+            "note": "虽包含权重漂移、AP 与费用复利，但都从定义和可跟随的例子讲起；篇幅与覆盖面对应详解，不应据此把学习难度标成进阶。"
           }
         },
         "previous": {
           "id": "NB-S02",
-          "number": 6,
+          "number": 4,
           "title": "股东回报：分红、回购与增发",
           "note": "比较分红、回购、增发与净股数变化，追踪经营所得怎样影响每一股。",
           "status": "available",
@@ -1793,8 +1722,49 @@
           }
         },
         "next": {
+          "id": "NB-B02",
+          "number": 6,
+          "title": "报价、订单与实际成交",
+          "note": "读懂报价与订单怎样形成实际成交，再看交易成本和交收怎样决定资金何时可用。",
+          "status": "available",
+          "url": "/zh/notebook/quotes-orders-execution/",
+          "reading_profile": {
+            "difficulty": "入门",
+            "depth": "详解",
+            "note": "从 Last、Bid、Ask 和逐档成交开始，例子可直接读懂，算术限于数量与单价；订单、做市和资金需要展开较全。"
+          }
+        }
+      },
+      "NB-B02": {
+        "current": {
+          "id": "NB-B02",
+          "number": 6,
+          "title": "报价、订单与实际成交",
+          "note": "读懂报价与订单怎样形成实际成交，再看交易成本和交收怎样决定资金何时可用。",
+          "status": "available",
+          "url": "/zh/notebook/quotes-orders-execution/",
+          "reading_profile": {
+            "difficulty": "入门",
+            "depth": "详解",
+            "note": "从 Last、Bid、Ask 和逐档成交开始，例子可直接读懂，算术限于数量与单价；订单、做市和资金需要展开较全。"
+          }
+        },
+        "previous": {
+          "id": "NB-V01",
+          "number": 5,
+          "title": "指数、基金与 ETF",
+          "note": "从一组股票认识指数规则、基金份额与 ETF，理解权重、管理方式和费用怎样影响结果。",
+          "status": "available",
+          "url": "/zh/notebook/indices-funds-etfs/",
+          "reading_profile": {
+            "difficulty": "入门",
+            "depth": "详解",
+            "note": "虽包含权重漂移、AP 与费用复利，但都从定义和可跟随的例子讲起；篇幅与覆盖面对应详解，不应据此把学习难度标成进阶。"
+          }
+        },
+        "next": {
           "id": "NB-A04",
-          "number": 8,
+          "number": 7,
           "title": "复利、通胀与机会成本",
           "note": "用复利、年化和购买力比较不同期限的结果，再考虑替代用途与风险补偿。",
           "status": "available",
@@ -1809,7 +1779,7 @@
       "NB-A04": {
         "current": {
           "id": "NB-A04",
-          "number": 8,
+          "number": 7,
           "title": "复利、通胀与机会成本",
           "note": "用复利、年化和购买力比较不同期限的结果，再考虑替代用途与风险补偿。",
           "status": "available",
@@ -1821,8 +1791,77 @@
           }
         },
         "previous": {
-          "id": "NB-A03",
+          "id": "NB-B02",
+          "number": 6,
+          "title": "报价、订单与实际成交",
+          "note": "读懂报价与订单怎样形成实际成交，再看交易成本和交收怎样决定资金何时可用。",
+          "status": "available",
+          "url": "/zh/notebook/quotes-orders-execution/",
+          "reading_profile": {
+            "difficulty": "入门",
+            "depth": "详解",
+            "note": "从 Last、Bid、Ask 和逐档成交开始，例子可直接读懂，算术限于数量与单价；订单、做市和资金需要展开较全。"
+          }
+        },
+        "next": {
+          "id": "NB-A02",
+          "number": 8,
+          "title": "投资期限与现金需要",
+          "note": "按资金用途和付款时间安排投资，比较市场下跌时继续持有、卖出与借款的结果。",
+          "status": "available",
+          "url": "/zh/notebook/investment-horizon-cash/",
+          "reading_profile": {
+            "difficulty": "入门",
+            "depth": "详解",
+            "note": "从逐笔现金和简单算术讲清期限、融资与期权行权需要，概念从头说明，例子展开充分。"
+          }
+        }
+      },
+      "NB-A02": {
+        "current": {
+          "id": "NB-A02",
+          "number": 8,
+          "title": "投资期限与现金需要",
+          "note": "按资金用途和付款时间安排投资，比较市场下跌时继续持有、卖出与借款的结果。",
+          "status": "available",
+          "url": "/zh/notebook/investment-horizon-cash/",
+          "reading_profile": {
+            "difficulty": "入门",
+            "depth": "详解",
+            "note": "从逐笔现金和简单算术讲清期限、融资与期权行权需要，概念从头说明，例子展开充分。"
+          }
+        },
+        "previous": {
+          "id": "NB-A04",
           "number": 7,
+          "title": "复利、通胀与机会成本",
+          "note": "用复利、年化和购买力比较不同期限的结果，再考虑替代用途与风险补偿。",
+          "status": "available",
+          "url": "/zh/notebook/compounding-inflation-opportunity-cost/",
+          "reading_profile": {
+            "difficulty": "进阶",
+            "depth": "详解",
+            "note": "主线已经进入连续复利、对数收益、年化与 Sharpe 的相互换算，需要跟随公式和口径区别；难度来自计算关系，而非篇幅。"
+          }
+        },
+        "next": {
+          "id": "NB-A03",
+          "number": 9,
+          "title": "亏损、波动与持有能力",
+          "note": "将亏损后的判断转向经营前景、当前价格及资金和心理上的持有能力。",
+          "status": "available",
+          "url": "/zh/notebook/loss-volatility-holding-capacity/",
+          "reading_profile": {
+            "difficulty": "进阶",
+            "depth": "详解",
+            "note": "需把相对行业表现、经营预期、情景回报、技术指标及资金约束结合起来判断持有，且提供完整案例、公式和图示比较。"
+          }
+        }
+      },
+      "NB-A03": {
+        "current": {
+          "id": "NB-A03",
+          "number": 9,
           "title": "亏损、波动与持有能力",
           "note": "将亏损后的判断转向经营前景、当前价格及资金和心理上的持有能力。",
           "status": "available",
@@ -1833,100 +1872,26 @@
             "note": "需把相对行业表现、经营预期、情景回报、技术指标及资金约束结合起来判断持有，且提供完整案例、公式和图示比较。"
           }
         },
-        "next": {
-          "id": "NB-B02",
-          "number": 9,
-          "title": "报价、订单与实际成交",
-          "note": "读懂报价与订单怎样形成实际成交，再看做市库存、对冲和期间付现的联系。",
-          "status": "available",
-          "url": "/zh/notebook/quotes-orders-execution/",
-          "reading_profile": {
-            "difficulty": "入门",
-            "depth": "详解",
-            "note": "从 Last、Bid、Ask 和逐档成交开始，例子可直接读懂，算术限于数量与单价；订单、做市和资金需要展开较全。"
-          }
-        }
-      },
-      "NB-B02": {
-        "current": {
-          "id": "NB-B02",
-          "number": 9,
-          "title": "报价、订单与实际成交",
-          "note": "读懂报价与订单怎样形成实际成交，再看做市库存、对冲和期间付现的联系。",
-          "status": "available",
-          "url": "/zh/notebook/quotes-orders-execution/",
-          "reading_profile": {
-            "difficulty": "入门",
-            "depth": "详解",
-            "note": "从 Last、Bid、Ask 和逐档成交开始，例子可直接读懂，算术限于数量与单价；订单、做市和资金需要展开较全。"
-          }
-        },
         "previous": {
-          "id": "NB-A04",
+          "id": "NB-A02",
           "number": 8,
-          "title": "复利、通胀与机会成本",
-          "note": "用复利、年化和购买力比较不同期限的结果，再考虑替代用途与风险补偿。",
+          "title": "投资期限与现金需要",
+          "note": "按资金用途和付款时间安排投资，比较市场下跌时继续持有、卖出与借款的结果。",
           "status": "available",
-          "url": "/zh/notebook/compounding-inflation-opportunity-cost/",
-          "reading_profile": {
-            "difficulty": "进阶",
-            "depth": "详解",
-            "note": "主线已经进入连续复利、对数收益、年化与 Sharpe 的相互换算，需要跟随公式和口径区别；难度来自计算关系，而非篇幅。"
-          }
-        },
-        "next": {
-          "id": "NB-B03",
-          "number": 10,
-          "title": "投资组合、保证金与对冲策略",
-          "note": "把股票、对冲工具与现金放进同一个组合，比较共同风险、保证金及沿途资金需要。",
-          "status": "available",
-          "url": "/zh/notebook/settlement-margin-cash/",
-          "reading_profile": {
-            "difficulty": "进阶",
-            "depth": "详解",
-            "note": "需要同时理解 beta 回归、期权和期货的保护范围、账户担保口径与现金路径，并在同一组合中比较多项方案。"
-          }
-        }
-      },
-      "NB-B03": {
-        "current": {
-          "id": "NB-B03",
-          "number": 10,
-          "title": "投资组合、保证金与对冲策略",
-          "note": "把股票、对冲工具与现金放进同一个组合，比较共同风险、保证金及沿途资金需要。",
-          "status": "available",
-          "url": "/zh/notebook/settlement-margin-cash/",
-          "reading_profile": {
-            "difficulty": "进阶",
-            "depth": "详解",
-            "note": "需要同时理解 beta 回归、期权和期货的保护范围、账户担保口径与现金路径，并在同一组合中比较多项方案。"
-          }
-        },
-        "previous": {
-          "id": "NB-B02",
-          "number": 9,
-          "title": "报价、订单与实际成交",
-          "note": "读懂报价与订单怎样形成实际成交，再看做市库存、对冲和期间付现的联系。",
-          "status": "available",
-          "url": "/zh/notebook/quotes-orders-execution/",
+          "url": "/zh/notebook/investment-horizon-cash/",
           "reading_profile": {
             "difficulty": "入门",
             "depth": "详解",
-            "note": "从 Last、Bid、Ask 和逐档成交开始，例子可直接读懂，算术限于数量与单价；订单、做市和资金需要展开较全。"
+            "note": "从逐笔现金和简单算术讲清期限、融资与期权行权需要，概念从头说明，例子展开充分。"
           }
         },
         "next": {
-          "id": "NB-D01",
-          "number": 11,
-          "title": "客户、产品与收费方式",
-          "note": "认清每门生意的客户、交付与收费，再沿实际关系检查需求依据。",
-          "status": "available",
-          "url": "/zh/notebook/customers-products-pricing/",
-          "reading_profile": {
-            "difficulty": "入门",
-            "depth": "详解",
-            "note": "从熟悉的交易进入，按所选行业解释客户、交付、收费与需求依据；无需先掌握财务模型。"
-          }
+          "id": "NB-P01",
+          "number": 10,
+          "title": "投资组合：集中、分散与现金",
+          "note": "把几项持仓放进同一个组合，比较仓位、集中度、共同风险和现金怎样决定整体结果。",
+          "status": "planned",
+          "url": null
         }
       },
       "NB-D01": {
@@ -1944,17 +1909,12 @@
           }
         },
         "previous": {
-          "id": "NB-B03",
+          "id": "NB-P01",
           "number": 10,
-          "title": "投资组合、保证金与对冲策略",
-          "note": "把股票、对冲工具与现金放进同一个组合，比较共同风险、保证金及沿途资金需要。",
-          "status": "available",
-          "url": "/zh/notebook/settlement-margin-cash/",
-          "reading_profile": {
-            "difficulty": "进阶",
-            "depth": "详解",
-            "note": "需要同时理解 beta 回归、期权和期货的保护范围、账户担保口径与现金路径，并在同一组合中比较多项方案。"
-          }
+          "title": "投资组合：集中、分散与现金",
+          "note": "把几项持仓放进同一个组合，比较仓位、集中度、共同风险和现金怎样决定整体结果。",
+          "status": "planned",
+          "url": null
         },
         "next": {
           "id": "NB-D02",
@@ -2005,11 +1965,42 @@
           "status": "planned",
           "url": null
         }
+      },
+      "NB-B03": {
+        "current": {
+          "id": "NB-B03",
+          "number": 57,
+          "title": "保证金、对冲与期间现金",
+          "note": "按相应工具或判断问题选读。在已有组合上比较保证金、对冲工具和期间现金需要。",
+          "status": "available",
+          "url": "/zh/notebook/settlement-margin-cash/",
+          "reading_profile": {
+            "difficulty": "进阶",
+            "depth": "详解",
+            "note": "需要同时理解 beta 回归、期权和期货的保护范围、账户担保口径与现金路径，并在同一组合中比较多项方案。"
+          }
+        },
+        "previous": {
+          "id": "NB-B06",
+          "number": 56,
+          "title": "量化交易",
+          "note": "按相应工具或判断问题选读。用历史数据、成本和样本外结果检验可重复执行的交易规则。",
+          "status": "planned",
+          "url": null
+        },
+        "next": {
+          "id": "NB-K05",
+          "number": 58,
+          "title": "个股期货、股票永续与代币化股票",
+          "note": "按相应工具或判断问题选读。区分围绕同一股票形成的合约与代币化产品，辨认实际取得的权益和资金安排。",
+          "status": "planned",
+          "url": null
+        }
       }
     },
     "credits": [
       {
-        "label": "第 1–12 篇",
+        "label": "第 1–9、11–12 篇",
         "writer": "Codex GPT-6 Astra"
       }
     ],
@@ -2018,9 +2009,9 @@
     "phases": [
       {
         "id": "foundations",
-        "title": "认识投资、市场与组合",
-        "goal": "十篇已写内容建立投资对象、持有回报、交易和组合资金的共同认识。",
-        "available_count": 10,
+        "title": "认识股票、市场与组合",
+        "goal": "从资金用途进入股票、基金和交易，再以复利、期限、亏损与组合建立持有判断。",
+        "available_count": 9,
         "total": 10
       },
       {
@@ -2047,7 +2038,7 @@
       {
         "id": "agent_allocation",
         "title": "Agent 资本取舍与持续配置",
-        "goal": "在 B03 已有组合基础上完成研究整合、共同情景和持续配置。",
+        "goal": "在 P01 的组合基础上完成研究整合、共同情景和持续配置。",
         "available_count": 0,
         "total": 3
       },
@@ -2070,6 +2061,13 @@
         "title": "按需专题：趋势规则与量化检验",
         "goal": "将已有量价观察转成规则，检验成本和样本外结果。",
         "available_count": 0,
+        "total": 2
+      },
+      {
+        "id": "optional_leverage",
+        "title": "按需专题：保证金、对冲与股票合约",
+        "goal": "解释保证金借款、对冲工具和围绕股票的合约形式怎样改变资金与风险。",
+        "available_count": 1,
         "total": 2
       },
       {
