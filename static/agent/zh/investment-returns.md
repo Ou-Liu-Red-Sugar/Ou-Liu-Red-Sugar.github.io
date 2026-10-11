@@ -520,6 +520,7 @@ This is reference material for the learner's current request. Use the supplied e
 
 ## Supplied entry
 <link rel="stylesheet" href="/notebook/intro-interactions.css">
+<link rel="stylesheet" href="/notebook/flow-figures.css?v=20261011-2">
 
 ## 投资目标与方法 {#nb-a01-goals}
 
@@ -574,11 +575,47 @@ This is reference material for the learner's current request. Use the supplied e
 
 我们先看客户为什么需要这套设备。一般来说，电厂可能要增加供电能力，也可能要替换原有机组；建设计划、资金安排和设备要求，都会影响客户采购哪些设备，以及要求何时交货。在这项业务中，电厂运营商负责发电和供电，GEV 提供设备与服务。如果要理解 GEV 的设备需求，我们也就要继续了解客户正在建设什么、为什么建设，以及这些项目能不能按计划推进。
 
-有了订单以后，GEV 还要组织采购、制造和交付，并按合同履约情况确认收入，也就是把相应的收入金额记入财务报表。不过客户实际付款的时间可能与确认收入的时间不同；GEV 什么时候向供应商付款，也有相应的合同安排。这样一来，我们既要比较收入与采购、生产、服务等成本，判断这项业务能赚多少钱，也要沿着收付款的时间看下去，判断是否需要先垫入资金，以及资金会被占用多久。[^gev-annual]
+有了订单以后，GEV 还要组织采购、制造和交付，并按合同履约情况确认收入，也就是把相应的收入金额记入财务报表。不过客户实际付款的时间可能与确认收入的时间不同；GEV 什么时候向供应商付款，也有相应的合同安排。[^gev-annual]下图用一笔假设的订单比较两种收款安排：
+
+<figure class="flow-figure cash-timeline" id="nb-a01-cash-timeline" data-ff-views>
+<div class="ff-head"><p class="ff-title">一笔订单的利润与现金（示意）</p><div class="ff-switch" role="group" aria-label="选择客户付款安排" hidden><button type="button" data-ff-view-choice="advance" aria-pressed="true">预收进度款</button><button type="button" data-ff-view-choice="after" aria-pressed="false">交付后收款</button></div></div>
+<div class="ct-grid">
+<div class="ct-label">客户付款</div>
+<div class="ct-row business-exchange" data-ff-only="advance" aria-label="预收进度款：客户在签约时付 20，第 6 个月付 30，第 12 个月交付时付 40，第 15 个月付清余下的 10。"><span class="ct-at ct-chip" style="--m:0">+20</span><span class="ct-at ct-chip" style="--m:6">+30</span><span class="ct-at ct-chip" style="--m:12">+40</span><span class="ct-at ct-chip" style="--m:15">+10</span></div>
+<div class="ct-row business-exchange" data-ff-only="after" aria-label="交付后收款：客户在交付两个月后的第 14 个月一次付清 100。" hidden><span class="ct-at ct-chip" style="--m:14">+100</span></div>
+<div class="ct-label">采购与制造</div>
+<div class="ct-row business-exchange" aria-label="两种安排下，GEV 都在第 2 至第 11 个月向供应商付款并组织制造，每月付出 8，共 80。"><span class="ct-span" style="--from:2;--to:11">每月 −8，共 −80</span></div>
+<div class="ct-label">利润表</div>
+<div class="ct-row business-exchange" aria-label="两种安排下，GEV 都在第 12 个月交付设备，确认收入 100、成本 80，利润 20。"><span class="ct-at ct-mark" style="--m:12">交付：收入 100，利润 20</span></div>
+<div class="ct-label">累计现金 <small>虚框为另一种安排</small></div>
+<div class="ct-row ct-chart business-exchange" aria-label="预收进度款下，这笔订单带来的累计现金：第 0–1 个月 20，第 2 个月 12，第 3 个月 4，第 4 个月 −4，第 5 个月 −12，第 6 个月 10，第 7 个月 2，第 8 个月 −6，第 9 个月 −14，第 10 个月 −22，第 11 个月 −30，第 12–14 个月 10，第 15 个月 20。交付后收款下，这笔订单带来的累计现金：第 0–1 个月 0，第 2 个月 −8，第 3 个月 −16，第 4 个月 −24，第 5 个月 −32，第 6 个月 −40，第 7 个月 −48，第 8 个月 −56，第 9 个月 −64，第 10 个月 −72，第 11–13 个月 −80，第 14–15 个月 20。"><div class="ct-plot"><span class="ct-zero">0</span><i data-ff-series="after" class="is-ghost ct-neg" style="--m:2;--h:8"></i><i data-ff-series="after" class="is-ghost ct-neg" style="--m:3;--h:16"></i><i data-ff-series="after" class="is-ghost ct-neg" style="--m:4;--h:24"></i><i data-ff-series="after" class="is-ghost ct-neg" style="--m:5;--h:32"></i><i data-ff-series="after" class="is-ghost ct-neg" style="--m:6;--h:40"></i><i data-ff-series="after" class="is-ghost ct-neg" style="--m:7;--h:48"></i><i data-ff-series="after" class="is-ghost ct-neg" style="--m:8;--h:56"></i><i data-ff-series="after" class="is-ghost ct-neg" style="--m:9;--h:64"></i><i data-ff-series="after" class="is-ghost ct-neg" style="--m:10;--h:72"></i><i data-ff-series="after" class="is-ghost ct-neg" style="--m:11;--h:80"></i><i data-ff-series="after" class="is-ghost ct-neg" style="--m:12;--h:80"></i><i data-ff-series="after" class="is-ghost ct-neg" style="--m:13;--h:80"></i><i data-ff-series="after" class="is-ghost ct-pos" style="--m:14;--h:20"></i><i data-ff-series="after" class="is-ghost ct-pos" style="--m:15;--h:20"></i><b data-ff-series="after" class="is-ghost ct-neg" style="--m:11;--h:80">−80</b><b data-ff-series="after" class="is-ghost ct-pos" style="--m:15;--h:20">+20</b><i data-ff-series="advance" class="ct-pos" style="--m:0;--h:20"></i><i data-ff-series="advance" class="ct-pos" style="--m:1;--h:20"></i><i data-ff-series="advance" class="ct-pos" style="--m:2;--h:12"></i><i data-ff-series="advance" class="ct-pos" style="--m:3;--h:4"></i><i data-ff-series="advance" class="ct-neg" style="--m:4;--h:4"></i><i data-ff-series="advance" class="ct-neg" style="--m:5;--h:12"></i><i data-ff-series="advance" class="ct-pos" style="--m:6;--h:10"></i><i data-ff-series="advance" class="ct-pos" style="--m:7;--h:2"></i><i data-ff-series="advance" class="ct-neg" style="--m:8;--h:6"></i><i data-ff-series="advance" class="ct-neg" style="--m:9;--h:14"></i><i data-ff-series="advance" class="ct-neg" style="--m:10;--h:22"></i><i data-ff-series="advance" class="ct-neg" style="--m:11;--h:30"></i><i data-ff-series="advance" class="ct-pos" style="--m:12;--h:10"></i><i data-ff-series="advance" class="ct-pos" style="--m:13;--h:10"></i><i data-ff-series="advance" class="ct-pos" style="--m:14;--h:10"></i><i data-ff-series="advance" class="ct-pos" style="--m:15;--h:20"></i><b data-ff-series="advance" class="ct-neg" style="--m:11;--h:30">−30</b><b data-ff-series="advance" class="ct-pos" style="--m:15;--h:20">+20</b></div></div>
+<div class="ct-label">月份</div>
+<div class="ct-row ct-axis business-exchange" aria-label="横轴是签约后的月份，从第 0 个月到第 15 个月。"><span class="ct-at" style="--m:0">0</span><span class="ct-at" style="--m:3">3</span><span class="ct-at" style="--m:6">6</span><span class="ct-at" style="--m:9">9</span><span class="ct-at" style="--m:12">12</span><span class="ct-at" style="--m:15">15</span></div>
+<span class="ct-delivery" aria-hidden="true"></span>
+</div>
+<p class="ct-result" data-ff-only="advance">预收进度款：最多先垫入 <strong>30</strong>，累计现金为负的月份共 6 个。</p>
+<p class="ct-result" data-ff-only="after" hidden>交付后收款：最多先垫入 <strong>80</strong>，从第 2 个月一直持续到第 13 个月。</p>
+<figcaption>合同额 100、成本 80 和各期付款都是假设数字，不代表 GEV 的实际合同条款。虚线标出交付并确认收入的月份。</figcaption>
+</figure>
+
+两种安排下，利润表都在交付时记下同样的收入和利润，订单带来的现金却走出了不同的路径。客户分期预付时，GEV 最多先垫入 30；客户在交付以后才付款，GEV 就要先垫入 80，并且垫上一年左右。所以我们既要比较收入与采购、生产、服务等成本，判断这项业务能赚多少钱，也要沿着收付款的时间看下去，判断是否需要先垫入资金，以及资金会被占用多久。
 
 等到设备投入使用以后，GEV 还可能继续提供服务。前述 EBK 订单就包含十年的维护和服务。已有设备的保养、检修和零部件更换，都可能带来后续服务收入。因此研究这项业务时，我们既要看新设备的需求，也要看已有设备的运行与维护需要。[^gev-order]<sup>，</sup>[^gev-annual]
 
 这项业务最终能给股东留下多少，还要放回公司整体来看。其他业务的盈亏、公司的共同费用和税费，都会影响公司整体的盈利；债务收付和再投资安排又会影响现金怎样使用。至于股东实际收到多少，还要看公司的分配决定。把这些因素合在一起，再考虑股份数量，我们就能按每股来衡量这份股权可能带来的所得，再考虑自己愿意付出什么价格。[^stocks]
+
+<figure class="flow-figure step-chain" id="nb-a01-per-share">
+<div class="ff-head"><p class="ff-title">从一项业务到每股所得</p></div>
+<div class="sc-track">
+<div class="sc-node"><strong>设备业务的利润</strong><small>收入减去采购、生产与服务成本</small></div>
+<div class="sc-link business-exchange" aria-label="设备业务的利润，加上其他业务的盈亏，再减去公司的共同费用和税费，成为公司整体的盈利。"><span>＋其他业务盈亏</span><span>−共同费用</span><span>−税费</span></div>
+<div class="sc-node"><strong>公司整体盈利</strong></div>
+<div class="sc-link business-exchange" aria-label="公司按分配决定安排这部分盈利。"><span>分配决定</span></div>
+<div class="sc-node sc-split"><div><strong>留在公司</strong><small>偿还债务、再投资</small></div><div><strong>分给股东</strong><small>分红、回购</small></div></div>
+<div class="sc-link business-exchange" aria-label="一部分留在公司偿还债务或再投资，一部分通过分红、回购分给股东；两部分都按股份数量折算到每股。"><span>÷ 股份数量</span></div>
+<div class="sc-node sc-focus"><strong>每股所得</strong><small>与愿意付出的价格比较</small></div>
+</div>
+</figure>
 
 ## 事件、预期与市场计价 {#nb-a01-events}
 
@@ -587,6 +624,24 @@ This is reference material for the learner's current request. Use the supplied e
 如果 GEV 又公布了一笔设备订单，我们就可以沿着前面的关系继续看。它是否说明客户的需求正在扩大？GEV 能不能利用现有产能完成交付，还是需要追加投入？上游供货、人工与服务成本会不会随之改变？订单金额告诉我们这笔交易的规模；至于能给 GEV 带来多少利润、需要占用多少资金，还要结合这些经营条件来判断。
 
 除了判断这笔订单会怎样影响经营，我们还要把它和市场原来的预期放在一起比较。投资者会根据对未来的判断买卖股票，因此在消息公布之前，一部分预期就已经反映在价格里了。如果市场早已期待这笔订单，公告可能只是兑现预期；如果订单带来了关于需求、价格或交付条件的新信息，投资者就有新的依据调整判断。财报也有类似情况：公司公布了好业绩，股价未必就会上涨，市场还会比较此前的预期和公司对未来的展望。[^earnings]
+
+<figure class="flow-figure expect-path" id="nb-a01-expectation">
+<div class="ff-head"><p class="ff-title">订单公告前后的股价（示意）</p></div>
+<div class="ep-plot business-exchange" aria-label="示意图：市场预期 GEV 会取得这笔订单，公告前股价已经逐步上涨，这部分预期已经计入价格。公告时，如果订单内容高于原有预期，价格继续上调；与预期相符，价格变化有限；低于预期，价格下调。">
+<div class="ep-chart">
+<svg viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><polyline class="ep-start" points="0,84 60,84"/><polyline class="ep-before" points="0,84 6,82 12,83 18,78 24,75 30,72 36,73.6 42,64 48,59 54,54 60,48"/><polyline class="ep-up" points="60,48 64,28 100,22"/><polyline class="ep-flat" points="60,48 64,46.8 100,49.2"/><polyline class="ep-down" points="60,48 64,70 100,74"/></svg>
+<span class="ep-event"><span>订单公告</span></span>
+<span class="ep-priced"></span>
+<span class="ep-priced-label">预期已计入价格</span>
+<span class="ep-end ep-end-up" style="top:22%"><strong>高于预期</strong>价格继续上调</span>
+<span class="ep-end ep-end-flat" style="top:49%"><strong>与预期相符</strong>变化有限</span>
+<span class="ep-end ep-end-down" style="top:74%"><strong>低于预期</strong>价格下调</span>
+<span class="ep-time" style="left:0">公告前几周</span>
+<span class="ep-time" style="left:calc(60% + 6px)">公告后</span>
+</div>
+</div>
+<figcaption>示意图，不对应某家公司的实际股价。公告以后的价格还会受到同期其他消息的影响。</figcaption>
+</figure>
 
 所以我们会一边了解已经发生的经营结果，一边根据新增材料修正对需求、竞争、盈利和资金安排的认识。在这些认识的基础上，再判断当前价格下的潜在回报和损失。新的经营结果和消息还会不断出现，对公司的研究也就需要持续更新。
 
@@ -597,6 +652,17 @@ This is reference material for the learner's current request. Use the supplied e
 仍以 GEV 的设备订单为例，我们可以请 Agent 查找客户的建设计划，了解这次采购的用途和时间；查找上游供货与产能信息，核对按期交付需要哪些条件；再比较其他设备供应商的产品与服务，理解客户有哪些选择。查到这些资料以后，我们再结合 GEV 的这项业务来判断：客户的项目安排是否支持我们原先判断的设备需求？供货和产能条件，又会怎样影响交付与成本？这样，每一步取得的材料都能用于回答具体的经营问题。
 
 资料拿到以后，我们还要分清哪些是已经发生的事实，哪些是公司的预期，哪些是研究中作出的假设，并比较不同来源的依据能否相互支持。在研究过程中，可以让 Agent 把来源和当时的判断保留下来；等到新的财报或项目消息出现，再一起对照原先的依据，看看哪些认识已经得到支持，哪些需要调整。经过这样的积累，我们就能看清判断为什么发生变化，也知道下一步还需要研究什么。
+
+<figure class="flow-figure research-loop" id="nb-a01-research-loop">
+<div class="ff-head"><p class="ff-title">Agent 参与的研究循环</p></div>
+<ol class="rl-steps">
+<li><span class="rl-who">我们</span><strong>提出经营问题</strong><small>例如客户的项目安排是否支持设备需求</small></li>
+<li><span class="rl-who rl-who-agent">Agent</span><strong>查找与对照材料</strong><small>公司披露、客户项目、供应商与竞争者</small></li>
+<li><span class="rl-who rl-who-both">一起</span><strong>区分依据</strong><small>已发生的事实、公司的预期、研究假设</small></li>
+<li><span class="rl-who rl-who-agent">Agent</span><strong>保留来源与判断</strong><small>记下当时的依据和结论</small></li>
+</ol>
+<div class="rl-return"><span>新的财报或项目消息出现：对照原先依据，调整判断，提出下一步问题</span></div>
+</figure>
 
 ## 主要资产与投资工具 {#nb-a01-assets}
 
@@ -709,6 +775,7 @@ This is reference material for the learner's current request. Use the supplied e
 [^returns]: [FINRA：Return and Rate of Return](https://syndication.finra.org/content/key-concepts-return-and-rate-return)。
 
 <script type="module" src="/notebook/intro-interactions.js"></script>
+<script src="/notebook/flow-figures.js?v=20261011-2" defer></script>
 
 [^enbw-share]: [EnBW：Share](https://www.enbw.com/investors/share/)，Key figures of the EnBW share，德国市场代码 EBK。
 
