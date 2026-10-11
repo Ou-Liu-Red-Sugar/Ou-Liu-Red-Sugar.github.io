@@ -1187,6 +1187,57 @@
 /* Four-stage lanes. */
 .stage-lanes.rs-4 .rs-grid { grid-template-columns: 56px repeat(4, minmax(0, 1fr)); }
 
+/* Mini chains: short rows of values joined by labelled steps. */
+.mini-chain .mc-row { display: grid; grid-template-columns: 74px repeat(5, auto) minmax(0, 1fr); align-items: center; column-gap: 6px; padding: 8px 0; }
+.mini-chain .mc-row + .mc-row { border-top: 1px solid var(--ff-rule); }
+.mini-chain .mc-name { font-size: 12.5px; font-weight: 600; color: var(--ff-ink); }
+.mini-chain .mc-val { min-width: 56px; padding: 4px 10px; border: 1px solid var(--ff-rule); border-radius: 6px; background: var(--ff-card); font-size: 14px; font-weight: 650; text-align: center; color: var(--ff-ink); }
+.mini-chain .mc-step { position: relative; min-width: 74px; padding: 0 4px 12px; font-size: 12px; line-height: 1.3; text-align: center; color: var(--ff-share); }
+.mini-chain .mc-step small { display: block; font-size: 11px; color: var(--ff-muted); }
+.mini-chain .mc-step.mc-loss { color: var(--ff-cash-text); }
+.mini-chain .mc-step::after { content: ""; position: absolute; left: 4px; right: 8px; bottom: 4px; height: 2px; background: currentColor; }
+.mini-chain .mc-step::before { content: ""; position: absolute; right: 2px; bottom: 0; border: 5px solid transparent; border-left: 7px solid currentColor; border-right: 0; }
+.mini-chain .mc-note { padding-left: 10px; font-size: 12px; line-height: 1.45; color: var(--ff-muted); }
+
+/* Log map: a product of growth factors above, the matching sum of log returns below. */
+.log-map .lm-grid { display: grid; grid-template-columns: 96px minmax(0, 1fr) 36px minmax(0, 1fr) 36px minmax(0, 1fr); align-items: center; row-gap: 0; text-align: center; }
+.log-map .lm-name { font-size: 12px; font-weight: 600; text-align: left; color: var(--ff-muted); }
+.log-map .lm-val { margin: 0 4px; padding: 6px 4px; border: 1px solid var(--ff-rule); border-radius: 6px; background: var(--ff-card); font-size: 14px; font-weight: 650; color: var(--ff-ink); }
+.log-map .lm-log .lm-val { border-color: #c9dccf; background: #f3f8f4; }
+.log-map .lm-op { font-size: 16px; color: var(--ff-muted); }
+.log-map .lm-arrow { position: relative; height: 40px; font-size: 11.5px; color: var(--ff-share); }
+.log-map .lm-arrow::before { content: ""; position: absolute; left: calc(50% - 1px); top: 4px; bottom: 4px; width: 2px; background: currentColor; }
+.log-map .lm-arrow::after { content: ""; position: absolute; left: calc(50% - 5px); border: 5px solid transparent; }
+.log-map .lm-down::after { bottom: 0; border-top: 7px solid currentColor; border-bottom: 0; }
+.log-map .lm-up { color: var(--ff-cash-text); }
+.log-map .lm-up::after { top: 0; border-bottom: 7px solid currentColor; border-top: 0; }
+.log-map .lm-arrow span { position: absolute; left: calc(50% + 8px); top: 50%; transform: translateY(-50%); white-space: nowrap; }
+
+/* Three-node step chain. */
+.step-chain.sc-3 .sc-track { grid-template-columns: minmax(0, 1fr) 112px minmax(0, 1fr) 112px minmax(0, 1fr); }
+
+/* Outcome bars with what was known when deciding. */
+.outcomes .oc-grid { display: grid; grid-template-columns: 128px minmax(0, 1fr) 84px minmax(0, 1.15fr); align-items: center; gap: 10px 12px; }
+.outcomes .oc-row { display: contents; }
+.outcomes .oc-name { font-size: 12.5px; line-height: 1.35; color: var(--ff-ink); }
+.outcomes .oc-bar { position: relative; height: 18px; }
+.outcomes .oc-bar i { position: absolute; top: 0; bottom: 0; left: 0; width: var(--w); border-radius: 0 4px 4px 0; background: var(--c); }
+.outcomes .oc-bar i.oc-after { background: repeating-linear-gradient(135deg, var(--c) 0 4px, #e9f1ec 4px 7px); outline: 1px solid var(--c); }
+.outcomes .oc-val { font-size: 13px; font-weight: 650; text-align: right; color: var(--ff-ink); }
+.outcomes .oc-basis { font-size: 12px; line-height: 1.4; color: var(--ff-text); }
+.outcomes .oc-basis b { display: inline-block; margin-right: 6px; padding: 0 6px; border-radius: 8px; font-size: 11px; font-weight: 600; background: var(--ff-share-bg); color: var(--ff-share); }
+.outcomes .oc-basis b.oc-unknown { background: var(--ff-cash-bg); color: var(--ff-cash-text); }
+.outcomes .oc-axis { grid-column: 2; display: flex; justify-content: space-between; font-size: 10.5px; color: var(--ff-muted); }
+
+/* Scatter with a line: points placed in percent, labels in HTML. */
+.path-chart .pc-pt { position: absolute; width: 12px; height: 12px; margin: -6px 0 0 -6px; border-radius: 50%; background: var(--c, #51665a); box-shadow: 0 0 0 2px #fbfbf6; }
+.path-chart .pc-xlab { position: absolute; bottom: -20px; transform: translateX(-50%); font-size: 11px; color: var(--ff-muted); }
+.path-chart .pc-axis-x { position: absolute; left: 0; right: 0; bottom: 0; border-top: 1px solid #b9c4b8; }
+.path-chart .pc-axis-y { position: absolute; left: 0; top: 0; bottom: 0; border-left: 1px solid #b9c4b8; }
+.path-chart .pc-axis-name { position: absolute; font-size: 11px; color: var(--ff-muted); white-space: nowrap; }
+#nb-a04-sharpe .pc-plot { margin-top: 34px; }
+.path-chart .pc-line { stroke: var(--ff-share); stroke-width: 1.5; stroke-dasharray: 6 4; }
+
 @media (max-width: 640px) {
   .flow-figure { padding: 14px 12px 12px; margin: 22px 0 26px; }
   .flow-figure .ff-row {
@@ -1370,7 +1421,7 @@
   .quote-line .ql-mark small { font-size: 10.5px; }
   .quote-line .ql-uses { grid-template-columns: 1fr; font-size: 12px; }
   .path-chart .pc-plot { height: 200px; margin-left: 30px; }
-  .path-chart .pc-note { font-size: 11px; }
+  .path-chart .pc-note { font-size: 10.5px; }
   .route .rt-grid { grid-template-columns: minmax(0, 1fr); }
   .route .rt-arrow { width: 2px; height: 26px; margin: 4px auto; }
   .route .rt-arrow::after { right: auto; left: -4px; top: auto; bottom: -2px; border: 5px solid transparent; border-top: 8px solid var(--ff-share); border-bottom: 0; }
@@ -1385,6 +1436,23 @@
   .route .rt-fork i::after { right: auto; left: -4px; top: auto; bottom: -4px; border: 5px solid transparent; border-top: 7px solid var(--ff-share); border-bottom: 0; }
   .route .rt-arrow span { font-size: 10.5px; }
   .stage-lanes.rs-4 .rs-grid { grid-template-columns: 74px minmax(0, 1fr) minmax(0, 1fr); }
+  .mini-chain .mc-row { grid-template-columns: repeat(5, auto); justify-content: start; row-gap: 4px; }
+  .mini-chain .mc-name { grid-column: 1 / -1; }
+  .mini-chain .mc-note { grid-column: 1 / -1; padding: 0; }
+  .mini-chain .mc-val { min-width: 44px; padding: 3px 6px; font-size: 13px; }
+  .mini-chain .mc-step { min-width: 58px; font-size: 11px; }
+  .log-map .lm-grid { grid-template-columns: 52px minmax(0, 1fr) 18px minmax(0, 1fr) 18px minmax(0, 1fr); }
+  .log-map .lm-name { font-size: 11px; }
+  .log-map .lm-val { margin: 0 2px; font-size: 12.5px; }
+  .log-map .lm-arrow span { font-size: 10.5px; }
+  .step-chain.sc-3 .sc-track { grid-template-columns: minmax(0, 1fr); }
+  .outcomes .oc-grid { grid-template-columns: minmax(0, 1fr); gap: 12px; }
+  .outcomes .oc-row { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 4px 8px; }
+  .outcomes .oc-name { grid-row: 1; grid-column: 1; }
+  .outcomes .oc-val { grid-row: 1; grid-column: 2; }
+  .outcomes .oc-bar { grid-row: 2; grid-column: 1 / -1; }
+  .outcomes .oc-basis { grid-row: 3; grid-column: 1 / -1; font-size: 11.5px; }
+  .outcomes .oc-axis { grid-column: 1; }
   .flow-figure .cc-control { grid-template-columns: minmax(0, 1fr) auto; }
   .flow-figure .cc-control input[type=range] { grid-column: 1 / -1; grid-row: 2; }
   .flow-figure .cc-head { display: none; }

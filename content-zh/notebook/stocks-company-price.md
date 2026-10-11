@@ -8,7 +8,7 @@
   "translationKey": "zh-stocks-company-price"
 }
 
-<link rel="stylesheet" href="/notebook/flow-figures.css?v=20261011-6">
+<link rel="stylesheet" href="/notebook/flow-figures.css?v=20261011-7">
 
 ## 股份与公司经营 {#nb-s01-ownership}
 
@@ -120,4 +120,4 @@
 [^reverse-purpose]: [Investor.gov：Reverse Stock Splits](https://www.investor.gov/introduction-investing/investing-basics/glossary/reverse-stock-splits)，定义及最低报价要求的用途说明。
 [^ge-spinoffs]: [GE：完成 GE HealthCare 分拆](https://www.ge.com/news/press-releases/ge-completes-separation-of-ge-healthcare)，2023-01-04；[GE Aerospace：在 GE Vernova 分拆完成后作为独立上市公司运营](https://www.geaerospace.com/news/press-releases/ge-aerospace-launches-independent-investment-grade-public-company-following-0)，2024-04-02。
 
-<script src="/notebook/flow-figures.js?v=20261011-6" defer></script>
+<script src="/notebook/flow-figures.js?v=20261011-7" defer></script>
