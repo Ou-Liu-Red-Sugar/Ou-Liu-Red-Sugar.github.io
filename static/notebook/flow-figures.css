@@ -1134,6 +1134,59 @@
 .stage-lanes .rs-cell li::before { content: ""; position: absolute; left: 2px; top: .62em; width: 5px; height: 5px; border-radius: 50%; background: var(--ff-cash); }
 .stage-lanes .rs-cell.rs-list { justify-content: flex-start; }
 
+/* Quote line: bid, last and ask on one price axis with the spread between them. */
+.quote-line { --ql-buy: #286b59; --ql-sell: #a55035; }
+.quote-line .ql-axis { position: relative; height: 150px; margin: 4px 14px 0; }
+.quote-line .ql-axis::before { content: ""; position: absolute; left: 0; right: 0; top: 74px; height: 2px; background: #c3cdc2; }
+.quote-line .ql-spread { position: absolute; left: 25%; width: 50%; top: 66px; height: 18px; border-radius: 4px; background: #eef1ec; border: 1px dashed #b7c2b6; }
+.quote-line .ql-spread span { position: absolute; left: 0; right: 0; top: 26px; font-size: 12px; text-align: center; color: var(--ff-muted); }
+.quote-line .ql-mark { position: absolute; left: var(--x); top: 0; bottom: 0; transform: translateX(-50%); width: 160px; text-align: center; }
+.quote-line .ql-mark::before { content: ""; position: absolute; left: calc(50% - 6px); top: 69px; width: 12px; height: 12px; border-radius: 50%; background: var(--c); box-shadow: 0 0 0 3px #fbfbf6; }
+.quote-line .ql-mark strong { display: block; font-size: 15px; color: var(--ff-ink); }
+.quote-line .ql-mark small { display: block; font-size: 11.5px; line-height: 1.4; color: var(--ff-muted); }
+.quote-line .ql-top { position: absolute; left: 0; right: 0; top: 0; }
+.quote-line .ql-bottom { position: absolute; left: 0; right: 0; top: 100px; }
+.quote-line .ql-key { font-size: 12px; font-weight: 650; color: var(--c); }
+.quote-line .ql-bid { --c: var(--ql-buy); }
+.quote-line .ql-last { --c: #8a978e; }
+.quote-line .ql-ask { --c: var(--ql-sell); }
+.quote-line .ql-uses { display: grid; grid-template-columns: 1fr 1fr; gap: 8px 16px; margin-top: 8px; font-size: 12.5px; color: var(--ff-text); }
+.quote-line .ql-uses span { padding: 6px 10px; border-radius: 6px; background: #f1f4ec; }
+.quote-line .ql-uses strong { color: var(--ff-ink); }
+
+/* Path chart: SVG lines with non-scaling strokes and HTML labels placed in percent. */
+.path-chart .pc-plot { position: relative; height: 220px; margin: 18px 0 22px 34px; }
+.path-chart svg { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
+.path-chart svg * { fill: none; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; vector-effect: non-scaling-stroke; }
+.path-chart .pc-price { stroke: #51665a; }
+.path-chart .pc-stop { stroke: var(--ff-cash); stroke-dasharray: 5 4; }
+.path-chart .pc-fixed { stroke: #c2cbc1; stroke-width: 1.5; stroke-dasharray: 2 4; }
+.path-chart .pc-grid { stroke: #e3e8e0; stroke-width: 1; }
+.path-chart .pc-y { position: absolute; left: -34px; transform: translateY(-50%); font-size: 11px; color: var(--ff-muted); }
+.path-chart .pc-note { position: absolute; font-size: 12px; line-height: 1.35; white-space: nowrap; color: var(--ff-text); }
+.path-chart .pc-note strong { color: var(--ff-ink); }
+.path-chart .pc-note.pc-warm { color: var(--ff-cash-text); }
+.path-chart .pc-dot { position: absolute; width: 10px; height: 10px; margin: -5px 0 0 -5px; border-radius: 50%; background: var(--c, #51665a); box-shadow: 0 0 0 2px #fbfbf6; }
+.path-chart .pc-x { position: absolute; bottom: -20px; font-size: 11px; color: var(--ff-muted); transform: translateX(-50%); white-space: nowrap; }
+
+/* Route: one party hands an order to an intermediary, which can send it to one of two venues. */
+.route .rt-grid { display: grid; grid-template-columns: minmax(0, .8fr) 54px minmax(0, .9fr) 54px minmax(0, 1.6fr); align-items: center; }
+.route .rt-arrow { position: relative; height: 2px; background: var(--ff-share); margin: 0 6px; }
+.route .rt-arrow::after { content: ""; position: absolute; right: -2px; top: -4px; border: 5px solid transparent; border-left: 8px solid var(--ff-share); border-right: 0; }
+.route .rt-arrow span { position: absolute; left: -6px; right: -6px; bottom: 5px; font-size: 11px; text-align: center; white-space: nowrap; color: var(--ff-share); }
+.route .rt-fork { position: relative; align-self: stretch; }
+.route .rt-fork::before { content: ""; position: absolute; left: 6px; top: 25%; bottom: 25%; width: 2px; background: var(--ff-share); }
+.route .rt-fork i { position: absolute; left: 6px; right: 6px; height: 2px; background: var(--ff-share); }
+.route .rt-fork i::after { content: ""; position: absolute; right: -2px; top: -4px; border: 5px solid transparent; border-left: 8px solid var(--ff-share); border-right: 0; }
+.route .rt-fork i:nth-of-type(1) { top: 25%; }
+.route .rt-fork i:nth-of-type(2) { top: 75%; }
+.route .rt-fork em { position: absolute; left: 0; width: 8px; top: 50%; height: 2px; background: var(--ff-share); }
+.route .rt-venues { display: grid; gap: 10px; }
+.route .rt-venues .ff-party { text-align: left; }
+
+/* Four-stage lanes. */
+.stage-lanes.rs-4 .rs-grid { grid-template-columns: 56px repeat(4, minmax(0, 1fr)); }
+
 @media (max-width: 640px) {
   .flow-figure { padding: 14px 12px 12px; margin: 22px 0 26px; }
   .flow-figure .ff-row {
@@ -1309,6 +1362,29 @@
   .fee-gap .fg-ends strong { font-size: 13.5px; }
   .stage-lanes.rs-3 .rs-grid { grid-template-columns: 62px minmax(0, 1fr) minmax(0, 1fr); }
   .step-chain.sc-4 .sc-track { grid-template-columns: minmax(0, 1fr); }
+  .quote-line .ql-axis { margin: 4px 0 0; }
+  .quote-line .ql-mark { width: 84px; }
+  .quote-line .ql-key { font-size: 11px; }
+  .quote-line .ql-bottom { top: 112px; }
+  .quote-line .ql-mark strong { font-size: 13.5px; }
+  .quote-line .ql-mark small { font-size: 10.5px; }
+  .quote-line .ql-uses { grid-template-columns: 1fr; font-size: 12px; }
+  .path-chart .pc-plot { height: 200px; margin-left: 30px; }
+  .path-chart .pc-note { font-size: 11px; }
+  .route .rt-grid { grid-template-columns: minmax(0, 1fr); }
+  .route .rt-arrow { width: 2px; height: 26px; margin: 4px auto; }
+  .route .rt-arrow::after { right: auto; left: -4px; top: auto; bottom: -2px; border: 5px solid transparent; border-top: 8px solid var(--ff-share); border-bottom: 0; }
+  .route .rt-arrow span { left: 10px; right: auto; bottom: auto; top: 50%; transform: translateY(-50%); }
+  .route .rt-venues { grid-template-columns: 1fr 1fr; }
+  .route .rt-fork { height: 30px; }
+  .route .rt-fork::before { left: 25%; right: 25%; top: 12px; bottom: auto; width: auto; height: 2px; }
+  .route .rt-fork em { left: calc(50% - 1px); top: 0; width: 2px; height: 12px; }
+  .route .rt-fork i { top: 12px !important; width: 2px; height: 14px; right: auto; }
+  .route .rt-fork i:nth-of-type(1) { left: 25%; }
+  .route .rt-fork i:nth-of-type(2) { left: 75%; }
+  .route .rt-fork i::after { right: auto; left: -4px; top: auto; bottom: -4px; border: 5px solid transparent; border-top: 7px solid var(--ff-share); border-bottom: 0; }
+  .route .rt-arrow span { font-size: 10.5px; }
+  .stage-lanes.rs-4 .rs-grid { grid-template-columns: 74px minmax(0, 1fr) minmax(0, 1fr); }
   .flow-figure .cc-control { grid-template-columns: minmax(0, 1fr) auto; }
   .flow-figure .cc-control input[type=range] { grid-column: 1 / -1; grid-row: 2; }
   .flow-figure .cc-head { display: none; }
