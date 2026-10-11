@@ -26,14 +26,28 @@
 
 认清股份带来的权利以后，再看这些股份怎样到投资者手中。公司需要资金时，可以发行新股，由认购者出资，公司取得融资；原股东希望出售持股时，则可以把已有股份转让给买方，售股款归原股东所有。两种交易都可能让买方成为股东，钱的去向却不同。
 
-Reddit（RDDT）在 2024 年的首次公开发行中，就同时出现了这两种安排。首次公开发行通常简称 IPO，指公司首次向公众发售股份，常与进入交易所上市交易相连。RDDT 当次发售既有公司出售的新股，也有原股东出售的已有股份，公司不会收到原股东售股部分的款项。承销机构参与组织发售、定价和配售。按股份与现金各自的流向，可以把两条路径列出来：[^reddit-ipo]
+Reddit（RDDT）在 2024 年的首次公开发行中，就同时出现了这两种安排。首次公开发行通常简称 IPO，指公司首次向公众发售股份，常与进入交易所上市交易相连。RDDT 当次发售既有公司出售的新股，也有原股东出售的已有股份，公司不会收到原股东售股部分的款项。承销机构参与组织发售、定价和配售。按股份与款项各自的流向，可以把两条路径画出来：[^reddit-ipo]
 
-| 发售安排 | 股份交给谁 | 认购款流向谁 |
-|---|---|---|
-| RDDT 发行新股 | 认购者取得公司新发股份 | RDDT |
-| 原股东出售已有股份 | 认购者取得原股东转让的股份 | 售股股东 |
+<figure class="flow-figure" id="nb-b01-ipo-flow">
+<div class="ff-head"><p class="ff-title">RDDT 首次公开发行：股份交给谁，款项流向谁</p><p class="ff-legend"><span class="ff-key-share">股份</span><span class="ff-key-cash">款项</span></p></div>
+<div class="ff-row">
+<div class="ff-party"><strong>RDDT</strong><small>公司发行新股</small><span class="ff-result">取得融资</span></div>
+<div class="ff-exchange business-exchange" aria-label="RDDT 把新发股份交给认购者；认购者把认购款付给 RDDT，公司由此取得融资"><div class="ff-arrow ff-right"><span>新发股份</span></div><div class="ff-arrow ff-cash ff-left"><span>认购款</span></div></div>
+<div class="ff-party ff-party-focus"><strong>认购者</strong><small>在 IPO 中认购股份</small></div>
+<div class="ff-exchange business-exchange" aria-label="售股股东把已有股份转让给认购者；认购者把这部分款项付给售股股东，RDDT 收不到这笔钱"><div class="ff-arrow ff-left"><span>已有股份</span></div><div class="ff-arrow ff-cash ff-right"><span>售股款</span></div></div>
+<div class="ff-party"><strong>售股股东</strong><small>原股东出售已有股份</small><span class="ff-result">取得售股款</span></div>
+</div>
+<div class="ff-later">
+<p class="ff-later-label">上市以后</p>
+<div class="ff-party"><strong>卖方</strong><small>已有股东</small></div>
+<div class="ff-exchange business-exchange" aria-label="上市以后，卖方把已有股份交给买方；买方把成交款付给卖方，RDDT 收不到这笔成交款"><div class="ff-arrow ff-right"><span>已有股份</span></div><div class="ff-arrow ff-cash ff-left"><span>成交款</span></div></div>
+<div class="ff-party"><strong>买方</strong><small>其他投资者</small></div>
+</div>
+<p class="ff-note">股份换了持有人，RDDT 收不到这笔成交款。</p>
+<figcaption>图中只列股份与款项的去向。承销机构参与组织发售、定价和配售，承销费用未列。</figcaption>
+</figure>
 
-上表展示资金流向，未列承销费用。等到股份开始在市场上交易，投资者之间还可以继续转让：买方支付成交款，卖方交出已有股份，这笔钱归卖方，相应股份的持有人发生了变化。取得公司的一部分权益，并不表示每笔买入款都成为公司的新增资金。IPO 发行价对应那次发售，此后市场上的成交价则由各次买卖形成，两者可以不同。[^ipo-trading]
+等到股份开始在市场上交易，投资者之间还可以继续转让：买方支付成交款，卖方交出已有股份，这笔钱归卖方，相应股份的持有人发生了变化。取得公司的一部分权益，并不表示每笔买入款都成为公司的新增资金。IPO 发行价对应那次发售，此后市场上的成交价则由各次买卖形成，两者可以不同。[^ipo-trading]
 
 公司还可以把股份或相关权利用于员工报酬，这类安排通常称为股权报酬，英文是 stock-based compensation，简称 SBC。员工以服务取得报酬，股份因此也能从公司流向员工。对于员工，要看拿到的是股票，还是今后取得或购买股票的权利；对于原有股东，则要看奖励安排怎样影响股份总数和自己的持股比例。公司用新股支付奖励时，若原有股东的股数不变、总股数增加，其持股比例就会下降。公司同时取得了员工的服务，这些服务又可能影响经营成果，因此还要把股份数量与经营变化放在一起，理解每股能够分到什么。[^sbc]
 
@@ -67,6 +81,8 @@ Reddit（RDDT）在 2024 年的首次公开发行中，就同时出现了这两�
 认清底层是哪家公司以后，我们还要弄清实际持有的是什么。直接持有的股份由公司发行，权利按股份类别确定；SKHY 这样的存托证券由存托银行发行，分红、投票和转换都要经过存托安排。围绕同一只股票，市场上还有代币化产品、个股期货和股票永续等形式，持有人取得的权益和要准备的资金又各不相同，按需专题[《个股期货、股票永续与代币化股票》](/zh/notebook/#topic-K)会把它们放在一起比较。
 
 回到直接持有的股份，公司还会通过分红、回购和增发改变每股能分到什么。下一篇[《股东回报：分红、回购与增发》](/zh/notebook/shareholder-returns-buybacks-issuance/)从 AAPL 的分红与回购讲起。
+
+<link rel="stylesheet" href="/notebook/flow-figures.css?v=20261011">
 
 [^stock-types]: [Investor.gov：Stocks](https://www.investor.gov/introduction-investing/investing-basics/investment-products/stocks)，What kinds of stocks are there? 及清算顺序说明。
 [^alphabet]: [Alphabet 2025 Form 10-K](https://www.sec.gov/Archives/edgar/data/1652044/000165204426000018/goog-20251231.htm)，Item 5、Note 11、Note 12；[股份权利说明](https://www.sec.gov/Archives/edgar/data/1652044/000165204423000016/googexhibit420q42022.htm)，Voting Rights、Liquidation Rights、Conversion。
