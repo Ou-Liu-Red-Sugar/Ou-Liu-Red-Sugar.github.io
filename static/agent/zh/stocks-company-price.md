@@ -2,7 +2,7 @@
 
 从买公司的一部分出发，结合 Apple（AAPL）、NVIDIA（NVDA）与 SK hynix（000660／SKHY）的实例，理解基本面、股份、股价与市值。
 
-Entry: zh-stocks-company-price | Node: NB-S01 | Language: zh | Editorial revision: 2026-09-27
+Entry: zh-stocks-company-price | Node: NB-S01 | Language: zh | Editorial revision: 2026-10-11
 
 ## Reference use
 This is reference material for the learner's current request. Use the supplied entry to teach the selected concept. Retrieve the relevant original unit when explaining a claim that depends on its assumptions, figures or rules; the reading list is a map for that work, not a prerequisite to the first lesson. Keep facts, supplied examples and inference distinct. Editorial access dates describe the author's work. The empty runtime_reading_log is an optional record field, not a requested response. Author-supplied scope notes below constrain factual use of the material; the learner's request determines the teaching task and first response.
@@ -388,7 +388,7 @@ This is reference material for the learner's current request. Use the supplied e
 
 了解了这些股份安排，我们再回到公司的经营。NVDA 在 2024 年 5 月宣布那次一拆十时，也在同一份财报公告里披露，上一财季的收入已经达到约 260 亿美元。拆股告诉我们股份单位怎样变化，收入则让我们看到公司做了多大规模的生意。不过要判断今后的经营前景，还得接着了解需求来自哪里、成本和费用有多少，以及业务能否持续。把这些问题联系起来，我们才能从已经取得的收入，进一步判断未来的盈利，以及持股可能带来的收益。[^nvda-results]
 
-当投资者读到这样的财报时，也会形成各自的判断。有人认为未来的业务和盈利会继续增长，因而愿意出更高的价格；也有人对增长预期较低，愿意付出的价格便会低一些。同时，投资者还要安排自己的资金。正如[《投资期限与现金需要》](/zh/notebook/investment-horizon-cash/)所讨论的，即使对公司经营的看法没有改变，等到一笔已经约定的付款临近，也可能需要卖出股票来准备现金。这些判断和资金安排会影响投资者愿意以什么价格买入或卖出；当买卖双方接受同一个价格并成交时，市场上就形成了这一笔交易的价格。
+当投资者读到这样的财报时，也会形成各自的判断。有人认为未来的业务和盈利会继续增长，因而愿意出更高的价格；也有人对增长预期较低，愿意付出的价格便会低一些。同时，投资者还要安排自己的资金。即使对公司经营的看法没有改变，等到一笔已经约定的付款临近，也可能需要卖出股票来准备现金；[《投资期限与现金需要》](/zh/notebook/investment-horizon-cash/)会专门讨论这类安排。这些判断和资金安排会影响投资者愿意以什么价格买入或卖出；当买卖双方接受同一个价格并成交时，市场上就形成了这一笔交易的价格。
 
 所以，我们最终还要把公司可能带来的收益和眼前的买入价格放在一起看。在相同持有期里，如果未来取得的分红和卖出所得相同，起初付出的价格越高，投资回报就越低。这样，我们研究的既是公司会怎样经营，也是自己准备以什么价格参与其中。
 
@@ -402,7 +402,7 @@ This is reference material for the learner's current request. Use the supplied e
 
 <span data-text-versions id="nb-s01-text-5">证券权益的记录方式也在变化。比如美国证券存管机构 DTC 在 2025 年 12 月 11 日公布了一项代币化试点方案，提出用区块链上的代币记录和转移证券权益<span data-text-detail>（本方案记录的是参与者对 DTC 托管证券的权益；底层证券仍登记在其名义持有人 Cede & Co. 名下，适用的法律框架不因记录形式改变）</span>。理解这项方案时，我们仍要看代币记录的是谁对哪些证券的权益。[^dtc]<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>
 
-从持有一家公司的股份，转向持有一组公司的股票，我们会接触[《指数、基金与 ETF》](/zh/notebook/indices-funds-etfs/)中的市场指标与基金份额。至于不同股份的权利、发行和转手时的资金去向，[《股票的类型、发行与交易形式》](/zh/notebook/stock-types-issuance-trading/)会继续展开。
+同一家公司的股份还可能分成不同类别，附带不同的权利；公司发行新股和股东之间转手，资金的去向也不一样。下一篇[《股票的类型、发行与交易形式》](/zh/notebook/stock-types-issuance-trading/)就从这些差别讲起。
 
 [^stock]: [Investor.gov：Stocks](https://www.investor.gov/introduction-investing/investing-basics/investment-products/stocks)，What are stocks?；[Apple：Investor Relations FAQ](https://investor.apple.com/faq/)，Stock 部分。
 [^apple-business]: [Apple 2025 Form 10-K](https://www.sec.gov/Archives/edgar/data/320193/000032019325000079/aapl-20250927.htm)，Item 1 Business；[Apple 2025 财年第二季度 Form 10-Q](https://www.sec.gov/Archives/edgar/data/320193/000032019325000057/aapl-20250329.htm)，损益表。

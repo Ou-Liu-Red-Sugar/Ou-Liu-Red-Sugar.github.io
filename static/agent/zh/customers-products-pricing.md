@@ -2,7 +2,7 @@
 
 从客户付款和企业交付认清一门生意，选择行业继续拆解业务，再沿上下游、具体订单与企业研报核验需求。
 
-Entry: zh-customers-products-pricing | Node: NB-D01 | Language: zh | Editorial revision: 2026-09-27
+Entry: zh-customers-products-pricing | Node: NB-D01 | Language: zh | Editorial revision: 2026-10-11
 
 ## Reference use
 This is reference material for the learner's current request. Use the supplied entry to teach the selected concept. Retrieve the relevant original unit when explaining a claim that depends on its assumptions, figures or rules; the reading list is a map for that work, not a prerequisite to the first lesson. Keep facts, supplied examples and inference distinct. Editorial access dates describe the author's work. The empty runtime_reading_log is an optional record field, not a requested response. Author-supplied scope notes below constrain factual use of the material; the learner's request determines the teaching task and first response.
@@ -574,7 +574,7 @@ This is reference material for the learner's current request. Use the supplied e
 ## Supplied entry
 客户付钱，买到的可能是一件商品、一段时间的算力，也可能是一份保险。卖商品要交货，提供云服务要持续运行设备，保险公司则要按合同承担未来的赔付责任。研究一家公司时，我们就要先弄清它做的是哪些生意：客户买到了什么，公司需要做什么，又按什么方式收费。
 
-[《投资组合、保证金与对冲策略》](/zh/notebook/settlement-margin-cash/)讨论了怎样安排持仓与对冲；要判断该持有哪些股票，还得进一步理解背后的生意。客户为什么愿意购买、订单增加是否意味着需求变强，都需要从具体交易中寻找答案。
+前面的笔记从持有人的角度认识了股票、交易和组合；要判断该持有哪些股票，还得进一步理解背后的生意。客户为什么愿意购买、订单增加是否意味着需求变强，都需要从具体交易中寻找答案。
 
 ## 使用者、采购者与付款者 {#nb-d01-business}
 

@@ -1,15 +1,15 @@
 # 亏损、波动与持有能力
 
-从 KO 的修复与 FISV 的失利出发，结合行业比较、Risk–Reward、量价观察和资金安排，理解持有与退出。
+从 KO 的修复与 FISV 的失利出发，结合行业比较、Risk–Reward、重新定价和资金安排，理解持有与退出。
 
-Entry: zh-loss-volatility-holding-capacity | Node: NB-A03 | Language: zh | Editorial revision: 2026-09-27
+Entry: zh-loss-volatility-holding-capacity | Node: NB-A03 | Language: zh | Editorial revision: 2026-10-11
 
 ## Reference use
 This is reference material for the learner's current request. Use the supplied entry to teach the selected concept. Retrieve the relevant original unit when explaining a claim that depends on its assumptions, figures or rules; the reading list is a map for that work, not a prerequisite to the first lesson. Keep facts, supplied examples and inference distinct. Editorial access dates describe the author's work. The empty runtime_reading_log is an optional record field, not a requested response. Author-supplied scope notes below constrain factual use of the material; the learner's request determines the teaching task and first response.
 
 ## Author-supplied scope notes (reference only)
 <author_scope_notes>
-从亏损后的回本预期出发，先比较各自行业中的价格变化，再核经营与盈利预期，最后用当前价格下的Risk-Reward及资金条件讨论持有或退出。KO在2023年GLP-1担忧中的修复为成功过程，FISV在2025—2026年预期下修及相对失利为失败过程；二者分别与行业ETF XLP、IPAY比较。KO图为2023-09-29至12-29，FISV图为2025-01-02至2026-09-24，均采用拆股调整后的Close，不含分红。XLP和IPAY提供消费必需品及全球数字支付行业参照；业务覆盖比单一公司更广。FISV旧代码FI，自2025-11-11改为FISV。公司已披露数据与指引分别保留期间及GAAP/非GAAP身份。情景算例用一组简化数字：两年、当前100美元、年EPS6/5/3与倍数25/20/20，累计分红各2美元；从当前价格计算，结合发生可能性及等待时间。布林带、MACD、KDJ各配SPY 2026-07-13至08-21日线K线和指标图：布林带观察7月29日跌破下轨后收回与8月4日突破上轨后延续，MACD观察7月17日转弱、8月3日转强及8月20日再转弱，KDJ观察7月30日低位转强、8月11至14日高位延续及8月17日转弱。VWAP配SPY 8月3日日内图，五分钟收盘价持续高于累计VWAP，12:05价格756.00与累计近似VWAP753.82。四种一般情况的指标例子在先，MSFT财报重定价反例独立置于后面。日内近似值按五分钟典型价乘成交量累计，不混用全天收盘价。计算输入和结果附CSV。MSFT于2026-07-29盘后发布FY26 Q4财报，下一交易日收盘上涨约15.5%；旧上轨约401.7美元为财报前20个交易日均值加2倍总体标准差，固定原位置用于对照，不能伪装成财报后实时滚动上轨。财年与自然季度的关系留给《三张财报与经营活动》。完整展开现金安排与杠杆的影响，并采用作者提供的放下设备散心句子。首次英文名加代码，后文优先代码；必要条件只在对应位置说明一次。
+从亏损后的回本预期出发，先比较各自行业中的价格变化，再核经营与盈利预期，最后用当前价格下的Risk-Reward及资金条件讨论持有或退出。KO在2023年GLP-1担忧中的修复为成功过程，FISV在2025—2026年预期下修及相对失利为失败过程；二者分别与行业ETF XLP、IPAY比较。KO图为2023-09-29至12-29，FISV图为2025-01-02至2026-09-24，均采用拆股调整后的Close，不含分红。XLP和IPAY提供消费必需品及全球数字支付行业参照；业务覆盖比单一公司更广。FISV旧代码FI，自2025-11-11改为FISV。公司已披露数据与指引分别保留期间及GAAP/非GAAP身份。情景算例用一组简化数字：两年、当前100美元、年EPS6/5/3与倍数25/20/20，累计分红各2美元；从当前价格计算，结合发生可能性及等待时间。技术指标只作简短交代，布林带、MACD、KDJ 与 VWAP 的读法属于按需专题《指标与趋势交易》。MSFT于2026-07-29盘后发布FY26 Q4财报，下一交易日收盘上涨约15.5%；旧上轨约401.7美元为财报前20个交易日均值加2倍总体标准差，固定原位置用于对照，不能伪装成财报后实时滚动上轨。财年与自然季度的关系留给《三张财报与经营活动》。完整展开现金安排与杠杆的影响，并采用作者提供的放下设备散心句子。首次英文名加代码，后文优先代码；必要条件只在对应位置说明一次。
 </author_scope_notes>
 
 ## Shared notation and writing conventions
@@ -208,74 +208,6 @@ This is reference material for the learner's current request. Use the supplied e
       "version": "本篇核对日期：2026-09-25；采用期间见正文脚注"
     },
     {
-      "source_id": "nb-a03-source-bands-1",
-      "access": {
-        "kind": "selected_chapters",
-        "uri": "https://www.fidelity.com/learning-center/trading-investing/technical-analysis/technical-indicator-guide/bollinger-bands"
-      },
-      "required_unit": {
-        "locator": "Fidelity：Bollinger Bands、MACD；Moomoo：KDJ 随机指标，指标定义与计算对象。",
-        "scope": "Fidelity：Bollinger Bands、MACD；Moomoo：KDJ 随机指标，指标定义与计算对象。",
-        "purpose": "核对本篇采用的行情、经营信息、指标定义或资金规则。"
-      },
-      "title": "Fidelity：Bollinger Bands",
-      "authors": [
-        "Fidelity"
-      ],
-      "version": "本篇查阅日期：2026-09-25；历史事实日期见采用范围"
-    },
-    {
-      "source_id": "nb-a03-source-macd-1",
-      "access": {
-        "kind": "selected_chapters",
-        "uri": "https://www.fidelity.com/learning-center/trading-investing/technical-analysis/technical-indicator-guide/macd"
-      },
-      "required_unit": {
-        "locator": "Fidelity：Bollinger Bands、MACD；Moomoo：KDJ 随机指标，指标定义与计算对象。",
-        "scope": "Fidelity：Bollinger Bands、MACD；Moomoo：KDJ 随机指标，指标定义与计算对象。",
-        "purpose": "核对本篇采用的行情、经营信息、指标定义或资金规则。"
-      },
-      "title": "Fidelity：MACD",
-      "authors": [
-        "Fidelity"
-      ],
-      "version": "本篇查阅日期：2026-09-25；历史事实日期见采用范围"
-    },
-    {
-      "source_id": "nb-a03-source-kdj-1",
-      "access": {
-        "kind": "selected_chapters",
-        "uri": "https://www.moomoo.com/ca/hans/support/topic3_142"
-      },
-      "required_unit": {
-        "locator": "Fidelity：Bollinger Bands、MACD；Moomoo：KDJ 随机指标，指标定义与计算对象。",
-        "scope": "Fidelity：Bollinger Bands、MACD；Moomoo：KDJ 随机指标，指标定义与计算对象。",
-        "purpose": "核对本篇采用的行情、经营信息、指标定义或资金规则。"
-      },
-      "title": "Moomoo：KDJ 随机指标",
-      "authors": [
-        "Moomoo"
-      ],
-      "version": "本篇查阅日期：2026-09-25；历史事实日期见采用范围"
-    },
-    {
-      "source_id": "nb-a03-complete-volume-1",
-      "access": {
-        "kind": "selected_chapters",
-        "uri": "https://www.schwab.com/learn/story/how-to-use-volume-weighted-indicators-trading"
-      },
-      "required_unit": {
-        "locator": "Charles Schwab：How to Use Volume-Weighted Indicators in Trading，日内 VWAP 的成交量权重与计算时段。",
-        "scope": "Charles Schwab：How to Use Volume-Weighted Indicators in Trading，日内 VWAP 的成交量权重与计算时段。",
-        "purpose": "核对本篇采用的行情、经营信息、指标定义或资金规则。"
-      },
-      "title": "Charles Schwab：How to Use Volume-Weighted Indicators in Trading",
-      "authors": [
-        "Charles Schwab"
-      ],
-      "version": "本篇核对日期：2026-09-25；采用期间见正文脚注"
-    },
-    {
       "source_id": "nb-a03-complete-msft-results-1",
       "access": {
         "kind": "selected_chapters",
@@ -327,23 +259,6 @@ This is reference material for the learner's current request. Use the supplied e
       "version": "本篇核对日期：2026-09-25；采用期间见正文脚注"
     },
     {
-      "source_id": "nb-a03-complete-indicator-data-1",
-      "access": {
-        "kind": "selected_chapters",
-        "uri": "https://finance.yahoo.com/quote/SPY/history/"
-      },
-      "required_unit": {
-        "locator": "Yahoo Finance：SPY 历史行情。采用日线 OHLCV，计算起点为 2026-01-02，图中展示 7 月 13 日至 8 月 21 日结果；计算参数见各段详细版。指数均线以首个收盘价初始化，K、D 初值为 50，从首个完整九日窗口开始更新。日线输入与指标数列保留计算结果。",
-        "scope": "Yahoo Finance：SPY 历史行情。采用日线 OHLCV，计算起点为 2026-01-02，图中展示 7 月 13 日至 8 月 21 日结果；计算参数见各段详细版。指数均线以首个收盘价初始化，K、D 初值为 50，从首个完整九日窗口开始更新。日线输入与指标数列保留计算结果。",
-        "purpose": "核对本篇采用的行情、经营信息、指标定义或资金规则。"
-      },
-      "title": "Yahoo Finance：SPY 历史行情",
-      "authors": [
-        "Yahoo Finance"
-      ],
-      "version": "本篇核对日期：2026-09-26；采用期间见正文脚注"
-    },
-    {
       "source_id": "nb-a03-source-settlement-1",
       "access": {
         "kind": "selected_chapters",
@@ -376,23 +291,6 @@ This is reference material for the learner's current request. Use the supplied e
         "FINRA"
       ],
       "version": "本篇查阅日期：2026-09-25；历史事实日期见采用范围"
-    },
-    {
-      "source_id": "nb-a03-complete-spy-1",
-      "access": {
-        "kind": "selected_chapters",
-        "uri": "https://www.ssga.com/us/en/individual/etfs/state-street-spdr-sp-500-etf-trust-spy"
-      },
-      "required_unit": {
-        "locator": "State Street：SPDR S&P 500 ETF Trust（SPY），基金目标为跟踪 S&P 500 指数的价格与收益表现。",
-        "scope": "State Street：SPDR S&P 500 ETF Trust（SPY），基金目标为跟踪 S&P 500 指数的价格与收益表现。",
-        "purpose": "核对本篇采用的行情、经营信息、指标定义或资金规则。"
-      },
-      "title": "State Street：SPDR S&P 500 ETF Trust（SPY）",
-      "authors": [
-        "State Street"
-      ],
-      "version": "本篇核对日期：2026-09-26；采用期间见正文脚注"
     }
   ],
   "runtime_reading_log": [],
@@ -483,72 +381,20 @@ This is reference material for the learner's current request. Use the supplied e
 
 <span data-text-versions id="nb-a03-text-3">把幅度算出来以后，我们还要看看乐观结果依赖的需求增长能否兑现、不利情景由什么因素触发，以及等待期间有没有更合适的资金用途。同样的累计回报，等两年与等十年，吸引力也不同<span data-text-detail>（本例每个情景均假设两年累计每股分红 2 美元，暂不计税费、融资成本及分红再投资；没有给情景指定概率。表中的不利情景只对应所列经营结果）</span>。原来的理由仍有支持、当前价格的 Risk-Reward 也合意时，继续持有就有了依据；若这些条件已经改变，也就可以在尚未回本之前调整持仓。<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>
 
-## 交易心理与短期指标 {#nb-a03-indicators}
+## 交易心理与重新定价 {#nb-a03-repricing}
 
 不过，从今天走到情景所对应的时点，我们还会经历许多短期涨跌。有人因亏损急着止损，有人看到反弹开始追入，也有人等着价格回到成本附近再卖。急于成交的人会接受不同的报价，这些买卖又会影响后来者的预期：下跌可能使人更害怕，回升也可能让原先观望的人开始行动。交易心理便通过这些实际行为参与了价格形成。
 
-这些交易会留下价格和成交量的记录，技术指标便是整理这些记录的工具。我们用跟踪 S&P 500 的 SPY 看一段先回落、再转强的行情：前三张图都从 2026 年 7 月 13 日画到 8 月 21 日，便于比较不同指标怎样回应同一段变化；VWAP 再放到其中一天的日内走势里看。[^spy]
+这些交易会留下价格和成交量的记录。技术指标就是整理这些记录的工具，能帮助我们具体说出价格处在近期区间的什么位置、走势是在转强还是转弱；布林带、MACD、KDJ 与 VWAP 的读法，放在按需专题[《指标与趋势交易》](/zh/notebook/#topic-B)中展开。但当我们正亏着钱、盼着反弹时，一次转强信号也常常正好符合自己的愿望。均线开始转向、价格回到某个区间，都可以作为观察线索；接下来还要看，行业情况、经营预期和当前价格下的 Risk-Reward 是否也有了相应的改善。几个由同一段价格算出来的指标一起转强，也可能只是反映了同一次价格变化。
 
-<span data-text-versions id="nb-a03-text-11">前三张图里的每根 K 线代表一个交易日，绿色表示收盘高于开盘，红色则相反<span data-text-detail>（实体两端是开盘价和收盘价，细线两端是当日最高价和最低价；颜色比较的是当日开盘与收盘，并非相对前一日收盘的涨跌）</span>。先沿着 K 线看价格，再顺着图中的编号，观察相应的指标变化。<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>
-
-### 布林带：区间、突破与回归
-
-布林带以一条平均价格线为中轨，再按近期波动幅度画出上下轨。轨道间距越大，意味着用于计算的这段时间里，收盘价分散得越开。下图把 K 线和轨道叠在一起，我们可以同时看到价格偏离均值的程度，以及价格是否重新回到了区间内。[^indicators]
+日常行情中的这些变化之外，遇到足以改变经营预期的新信息时，原来的价格区间还可能很快失去参照意义。Microsoft（MSFT）在 2026 年 7 月 29 日盘后公布 FY26 Q4 财报，当季收入同比增长 18%，Azure 及其他云服务收入增长 43%；下一交易日，收盘价从约 391 美元升至 451 美元，上涨约 15.5%，成交量也增至前一天的约 2.3 倍。[^msft-results]<sup>，</sup>[^msft-prices]
 
 <figure class="holding-figure">
-<a href="/notebook/holding/spy-bollinger.svg" target="_blank" rel="noopener" aria-label="打开布林带大图"><img src="/notebook/holding/spy-bollinger.svg" alt="SPY在2026年7月13日至8月21日的K线与布林带。标记1为7月29日跌破下轨，次日回到区间内；标记2为8月4日突破上轨，随后数日仍维持较高价格。" width="1000" height="560" loading="lazy"></a>
-<figcaption>① 跌破下轨后收回；② 突破上轨后维持高位。<a href="/notebook/holding/spy-bollinger.svg" target="_blank" rel="noopener">查看大图</a> · <a href="/notebook/holding/spy-daily-indicators.csv">数据</a>。</figcaption>
+<img src="/notebook/holding/msft-repricing.svg" alt="MSFT在2026年7月29日盘后发布FY26 Q4财报，次日收盘价上升到451.10美元并明显放量；图中虚线保留财报前约401.7美元的区间上沿作对照。" width="820" height="490" loading="lazy">
+<figcaption>财报后的新价格与旧区间。虚线固定在财报前按近 20 个交易日收盘价画出的区间上沿，下方显示成交量；<a href="/notebook/holding/msft-repricing.csv">查看数据</a>。</figcaption>
 </figure>
 
-<span data-text-versions id="nb-a03-text-4">图中①处，7 月 29 日 SPY 收于约 729 美元，已经低于约 733 美元的下轨；第二天回到约 742 美元，又收进了带内。到了②处，8 月 4 日的收盘价约为 771 美元，高于约 765 美元的上轨，随后几个交易日仍保持在较高位置。我们因而要把“触及轨道”与接下来的走势连起来看：价格是重新回到原区间，还是在突破后继续保持强势？只凭碰到上轨或下轨，就很难区分这两种过程<span data-text-detail>（采用 20 日收盘价简单平均值，上下各加减 2 倍总体标准差。7 月 29 日收盘价/下轨为 729.46/733.32 美元，7 月 30 日收盘 741.69 美元；8 月 4 日收盘价/上轨为 771.33/764.60 美元）</span>。[^indicator-data]<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>
-
-### MACD：趋势动量的转弱与转强
-
-MACD 用快慢两条移动均线的差值 DIF 观察动量，再用一条更平滑的 DEA 线作比较。蓝色 DIF 线上穿橙色 DEA 线，通常称为金叉；向下穿过则称为死叉。下图的柱体表示 DIF 与 DEA 差值的两倍，柱体由负转正，也就对应着 DIF 从 DEA 下方来到上方。[^indicators]
-
-<figure class="holding-figure">
-<a href="/notebook/holding/spy-macd.svg" target="_blank" rel="noopener" aria-label="打开 MACD 大图"><img src="/notebook/holding/spy-macd.svg" alt="SPY价格与MACD副图共用日期轴。标记1为7月17日DIF下穿DEA，标记2为8月3日DIF上穿DEA，标记3为8月20日再次下穿；上图对应先下跌、再回升及后续回落。" width="1000" height="700" loading="lazy"></a>
-<figcaption>沿竖虚线对照价格与指标：① 7/17 转弱；② 8/03 转强；③ 8/20 再次转弱。<a href="/notebook/holding/spy-macd.svg" target="_blank" rel="noopener">查看大图</a> · <a href="/notebook/holding/spy-daily-indicators.csv">数据</a>。</figcaption>
-</figure>
-
-<span data-text-versions id="nb-a03-text-7">这段行情里，7 月 17 日先出现了①处的死叉，接下来价格继续回落；7 月底开始反弹以后，DIF 也逐渐回升，到 8 月 3 日形成②处的金叉。随后上行动量增强，正柱体扩大，等到 8 月中旬价格转弱，柱体又逐渐缩短，最终在③处转为负值。沿着这些日期对照价格与指标，还能看见价格先发生变化，均线及其差值随后才逐步跟上<span data-text-detail>（采用 MACD（12，26，9）：DIF＝12 日指数移动平均−26 日指数移动平均，DEA 为 DIF 的 9 日指数平均，柱体＝2×（DIF−DEA）。三个标记日的 DIF/DEA 分别约为 2.76/2.90、0.47/0.05、6.23/6.79）</span>。[^indicator-data]<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>
-
-### KDJ：近期区间中的强弱变化
-
-KDJ 先看收盘价处在最近一段高低区间的什么位置，再把它平滑成 K、D 两条线，J 线则进一步放大两者的差异。一般会用 20 和 80 作为低位与高位的观察参照，再结合 K、D 的交叉，看看强弱是否正在变化。[^indicators]
-
-<figure class="holding-figure">
-<a href="/notebook/holding/spy-kdj.svg" target="_blank" rel="noopener" aria-label="打开 KDJ 大图"><img src="/notebook/holding/spy-kdj.svg" alt="SPY价格与KDJ副图。标记1为7月30日K从低位回升并上穿D；标记2为8月中旬K和D均高于80且价格仍维持高位；标记3为8月17日K下穿D，随后价格回落。" width="1000" height="700" loading="lazy"></a>
-<figcaption>① 低位回升；② 高位延续；③ K 下穿 D。<a href="/notebook/holding/spy-kdj.svg" target="_blank" rel="noopener">查看大图</a> · <a href="/notebook/holding/spy-daily-indicators.csv">数据</a>。</figcaption>
-</figure>
-
-<span data-text-versions id="nb-a03-text-8">7 月 29 日下跌后，K 已经降到约 19；第二天价格回升，K 也上穿 D，形成①处的低位转强信号。再往右看，8 月 11—14 日 K、D 都高于 80，价格也仍然保持在较高位置，这就是高位指标可以随着强势走势持续一阵的例子。到了③处，K 向下穿过 D，随后价格回落也变得更明显。对于这段行情，KDJ 在 8 月 17 日就表现出高位转弱，MACD 则到 8 月 20 日才出现死叉<span data-text-detail>（采用 KDJ（9，3，3）：RSV＝100×（收盘价−近 9 日最低价）÷（近 9 日最高价−近 9 日最低价）；K＝前一日 K×2/3＋当日 RSV/3，D＝前一日 D×2/3＋当日 K/3，J＝3K−2D。7 月 29、30 日 K/D 分别约为 18.78/28.83、32.58/30.08；8 月 17 日为 73.14/81.81。J 可以超出 0—100 的范围）</span>。[^indicator-data]<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>
-
-### VWAP：日内价格相对成交均价的位置
-
-前面几个指标主要整理价格，VWAP 则把成交量也纳入计算。它用当天截至当前的成交金额除以成交量，得到成交量加权平均价：某个价格上的成交越多，它在均价中的权重也就越大。我们再放大到 8 月 3 日这一天，看看反弹过程中的日内交易。[^volume]
-
-<figure class="holding-figure">
-<a href="/notebook/holding/spy-vwap.svg" target="_blank" rel="noopener" aria-label="打开 VWAP 大图"><img src="/notebook/holding/spy-vwap.svg" alt="SPY在2026年8月3日的五分钟收盘价、累计VWAP与成交量。价格整体上行，各根五分钟收盘价保持在VWAP上方；标记1为纽约时间12点05分，价格756.00美元，VWAP约753.82美元。" width="1000" height="700" loading="lazy"></a>
-<figcaption>绿色价格线在橙色 VWAP 上方延续，午间回落仍未收破均价。下方同时显示成交量。<a href="/notebook/holding/spy-vwap.svg" target="_blank" rel="noopener">查看大图</a> · <a href="/notebook/holding/spy-vwap-20260803.csv">数据</a>。</figcaption>
-</figure>
-
-<span data-text-versions id="nb-a03-text-9">这一天的五分钟收盘价始终高于日内 VWAP；到①处，也就是纽约时间 12:05，价格约为 756 美元，高于约 754 美元的均价。接下来可以观察回落时能否守住 VWAP；若跌破，再看能否重新站上，以及这些变化伴随怎样的成交量<span data-text-detail>（12:00—12:05 这根五分钟 K 线的收盘价为 756.00 美元，累计 VWAP 近似值为 753.82 美元。VWAP 用常规交易时段内各根五分钟 K 线的“最高价、最低价与收盘价的平均值”乘成交量，再累计加权；它与逐笔成交计算值会有差异。图上标记 K 线结束时刻，日内累计 VWAP 每个交易日重新起算）</span>。[^vwap-data]<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>
-
-这些图让我们能够具体地说出价格处在什么位置、走势怎样变化。但当我们正亏着钱、盼着反弹时，一次转强信号也常常正好符合自己的愿望。均线开始转向、价格重新站上 VWAP，都可以成为观察线索；接下来还要看，行业情况、经营预期和当前价格下的 Risk-Reward 是否也有了相应的改善。几个由同一段价格计算出来的指标一起转强，也可能只是反映了同一次价格变化。
-
-### 重大信息与重新定价
-
-前面观察的是日常行情中的变化，遇到足以改变经营预期的新信息时，原来的价格区间却可能很快失去参照意义。Microsoft（MSFT）在 2026 年 7 月 29 日盘后公布 FY26 Q4 财报，当季收入同比增长 18%，Azure 及其他云服务收入增长 43%；下一交易日，收盘价从约 391 美元升至 451 美元，上涨约 15.5%，成交量也增至前一天的约 2.3 倍。[^msft-results]<sup>，</sup>[^msft-prices]
-
-<figure class="holding-figure">
-<img src="/notebook/holding/msft-repricing.svg" alt="MSFT在2026年7月29日盘后发布FY26 Q4财报，次日收盘价上升到451.10美元并明显放量；图中虚线保留财报前约401.7美元的上轨作对照。" width="820" height="490" loading="lazy">
-<figcaption>财报后的新价格与旧区间。虚线固定在财报前的上轨位置作对照，下方显示成交量；<a href="/notebook/holding/msft-repricing.csv">查看数据</a>。</figcaption>
-</figure>
-
-<span data-text-versions id="nb-a03-text-10">这时再因为“已经碰到旧上轨”就认定价格应当回落，便容易忽略新信息正在改变市场愿意支付的价格。即使将财报次日的大涨纳入计算，当天约 422 美元的上轨仍然低于 451 美元的收盘价。我们需要先更新对经营前景的判断，再观察新的量价关系怎样形成<span data-text-detail>（图中旧上轨约为 401.68 美元，采用截至 7 月 29 日的 20 个交易日收盘价均值，加上 2 倍总体标准差；财报发布后仍固定在原位置作对照。7 月 30 日实际更新后的上轨为 422.16 美元）</span>。FY26 Q4 的财年命名与自然季度之间的关系，留到《三张财报与经营活动》展开。<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>
-
-《指标与趋势交易》会继续展开怎样用这些量价观察形成趋势判断和进出场规则；《量化交易》则进一步讨论，怎样把规则写清楚，用历史数据检验，并计入实际交易的成本。
+<span data-text-versions id="nb-a03-text-10">这时再因为价格已经远高于财报前的交易区间，就认定它应当回落，便容易忽略新信息正在改变市场愿意支付的价格。图中虚线是财报前按近 20 个交易日收盘价及其波动画出的区间上沿，约为 401.7 美元；即使把财报次日的大涨也纳入计算，当天更新后的上沿约为 422 美元，仍然低于 451 美元的收盘价。我们需要先更新对经营前景的判断，再观察新的量价关系怎样形成<span data-text-detail>（这条上沿就是布林带上轨：取截至 7 月 29 日的 20 个交易日收盘价均值，加上 2 倍总体标准差，约为 401.68 美元，财报发布后仍固定在原位置作对照；7 月 30 日实际更新后的上轨为 422.16 美元）</span>。FY26 Q4 的财年命名与自然季度之间的关系，留到《三张财报与经营活动》展开。<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>
 
 
 ## 资金、心态与持有能力 {#nb-a03-capacity}
@@ -574,6 +420,8 @@ KDJ 先看收盘价处在最近一段高低区间的什么位置，再把它平�
 
 资金和心态上的余地，让我们更容易按判断持有或调整。至于等待多久，还要看依据怎样变化：KO 的修复与 FISV 的失利，展示了不同经营变化下的持有结果。决定继续拿着一只股票时，我们既要比较未来回报与可能损失，也要把等待时间和期间的现金需要算进去；当这些条件变了，我们也就应该重新考虑是否减仓或退出。
 
+这里看的是单独一笔持仓。手里同时有几只股票和基金时，它们常常会一起涨跌，现金也要在几项持仓之间分配；下一篇[《投资组合：集中、分散与现金》](/zh/notebook/#topic-P)把这些持仓放在一起来看。
+
 <link rel="stylesheet" href="/notebook/holding.css?v=20260926">
 <script src="/notebook/holding.js" defer></script>
 
@@ -586,23 +434,17 @@ KDJ 先看收盘价处在最近一段高低区间的什么位置，再把它平�
 [^fiserv-q2]: [Fiserv：2025 年第二季度业绩公告](https://www.sec.gov/Archives/edgar/data/798354/000079835425000161/fiq225earningsrelease.htm)，2025-07-23，2025 年全年指引及两个业务部门的有机收入增长。
 [^fiserv-q3]: [Fiserv：2025 年第三季度业绩公告](https://investors.fiserv.com/news-releases/news-release-details/fiserv-reports-third-quarter-2025-results)，2025-10-29，全年指引重设、季度有机收入与调整后每股收益。
 [^fiserv-2026]: [Fiserv：2026 年第二季度业绩公告](https://investors.fiserv.com/news-releases/news-release-details/fiserv-reports-second-quarter-2026-results)，2026-08-06，季度有机收入与调整后每股收益的同比变化。
-[^indicators]: [Fidelity：Bollinger Bands](https://www.fidelity.com/learning-center/trading-investing/technical-analysis/technical-indicator-guide/bollinger-bands)、[MACD](https://www.fidelity.com/learning-center/trading-investing/technical-analysis/technical-indicator-guide/macd)；[Moomoo：KDJ 随机指标](https://www.moomoo.com/ca/hans/support/topic3_142)，指标定义与计算对象。
-[^volume]: [Charles Schwab：How to Use Volume-Weighted Indicators in Trading](https://www.schwab.com/learn/story/how-to-use-volume-weighted-indicators-trading)，日内 VWAP 的成交量权重与计算时段。
 [^msft-results]: [Microsoft：FY26 Q4 业绩公告](https://www.microsoft.com/en-us/investor/earnings/fy-2026-q4/press-release-webcast)，2026-07-29，收入及 Azure 与其他云服务收入增长；[财报发布时间公告](https://news.microsoft.com/source/2026/07/08/microsoft-announces-quarterly-earnings-release-date-68/)，确认盘后发布。
 [^msft-prices]: [Yahoo Finance：MSFT 历史行情](https://finance.yahoo.com/quote/MSFT/history/)。2026-07-29 收盘 390.54 美元，7 月 30 日收盘 451.10 美元，变化约 15.5%；两个交易日成交量分别为 47,209,000 股、110,160,700 股。图与旧上轨的计算输入见[数据表](/notebook/holding/msft-repricing.csv)。
-[^indicator-data]: [Yahoo Finance：SPY 历史行情](https://finance.yahoo.com/quote/SPY/history/)。采用日线 OHLCV，计算起点为 2026-01-02，图中展示 7 月 13 日至 8 月 21 日结果；计算参数见各段详细版。指数均线以首个收盘价初始化，K、D 初值为 50，从首个完整九日窗口开始更新。[日线输入与指标数列](/notebook/holding/spy-daily-indicators.csv)保留计算结果。
-[^vwap-data]: 采用 Yahoo Finance 的 SPY 2026-08-03 常规交易时段五分钟 OHLCV，共 78 根 K 线；[日内输入与 VWAP 近似值](/notebook/holding/spy-vwap-20260803.csv)中的时间为纽约时间，各行标记五分钟区间的开始时刻，图示横轴标记结束时刻。
 [^settlement]: [SEC：T+1 交收实施公告](https://www.sec.gov/newsroom/press-releases/2024-62)，美国多数证券交易自 2024-05-28 起由 T+2 改为 T+1。
 [^margin]: [FINRA：Brokerage Accounts](https://www.finra.org/investors/investing/investment-accounts/brokerage-accounts)，Margin Requirements、Firm Practices、Know Before You Trade。
 
-[^spy]: [State Street：SPDR S&P 500 ETF Trust（SPY）](https://www.ssga.com/us/en/individual/etfs/state-street-spdr-sp-500-etf-trust-spy)，基金目标为跟踪 S&P 500 指数的价格与收益表现。
 
 
 ## Sources
 - [Fiserv：2026 年第二季度业绩公告](https://investors.fiserv.com/news-releases/news-release-details/fiserv-reports-second-quarter-2026-results): Fiserv：2026 年第二季度业绩公告，2026-08-06，季度有机收入与调整后每股收益的同比变化。
 - [Fiserv：2025 年第二季度业绩公告](https://www.sec.gov/Archives/edgar/data/798354/000079835425000161/fiq225earningsrelease.htm): Fiserv：2025 年第二季度业绩公告，2025-07-23，2025 年全年指引及两个业务部门的有机收入增长。
 - [Fiserv：2025 年第三季度业绩公告](https://investors.fiserv.com/news-releases/news-release-details/fiserv-reports-third-quarter-2025-results): Fiserv：2025 年第三季度业绩公告，2025-10-29，全年指引重设、季度有机收入与调整后每股收益。
-- [Yahoo Finance：SPY 历史行情](https://finance.yahoo.com/quote/SPY/history/): Yahoo Finance：SPY 历史行情。采用日线 OHLCV，计算起点为 2026-01-02，图中展示 7 月 13 日至 8 月 21 日结果；计算参数见各段详细版。指数均线以首个收盘价初始化，K、D 初值为 50，从首个完整九日窗口开始更新。日线输入与指标数列保留计算结果。
 - [Amplify：Digital Payments ETF（IPAY）](https://amplifyetfs.com/ipay/): Amplify：Digital Payments ETF（IPAY），跟踪 Nasdaq CTA Global Digital Payments Index，覆盖支付网络、基础设施与软件、处理商及解决方案公司。
 - [Coca-Cola：2023 年第三季度业绩公告](https://www.coca-colacompany.com/media-center/coca-cola-reports-third-quarter-2023-results): Coca-Cola：2023 年第三季度业绩公告，2023-10-24，季度截至 2023-09-29。采用全球销量、营业利润及全年有机收入增长指引；销量为公司披露的 unit case volume。
 - [Yahoo Finance：MSFT 历史行情](https://finance.yahoo.com/quote/MSFT/history/): Yahoo Finance：MSFT 历史行情。2026-07-29 收盘 390.54 美元，7 月 30 日收盘 451.10 美元，变化约 15.5%；两个交易日成交量分别为 47,209,000 股、110,160,700 股。图与旧上轨的计算输入见数据表。
@@ -612,13 +454,8 @@ KDJ 先看收盘价处在最近一段高低区间的什么位置，再把它平�
 - [IPAY](https://finance.yahoo.com/quote/IPAY/history/): Yahoo Finance：FISV、IPAY，观察期为 2025-01-02 至 2026-09-24，按共同有报价的交易日比较。FISV 在 2025-10-28、10-29 与 2026-09-24 的收盘价分别为 126.17、70.60 与 45.98 美元，对应单日约 −44.0% 及其后约 −34.9%；完整观察期内 FISV、IPAY 的价格变化分别约为 −77.7%、−18.1%。数列见数据表。
 - [KO](https://finance.yahoo.com/quote/KO/history/): Yahoo Finance：KO、PEP、XLP，2023-09-29 至 2023-12-29 日收盘价。KO 三个文中时点分别为 55.98、52.38、58.93 美元，其中 52.38 为 10 月 5 日收盘价。数列见数据表。
 - [XLP](https://finance.yahoo.com/quote/XLP/history/): Yahoo Finance：KO、PEP、XLP，2023-09-29 至 2023-12-29 日收盘价。KO 三个文中时点分别为 55.98、52.38、58.93 美元，其中 52.38 为 10 月 5 日收盘价。数列见数据表。
-- [State Street：SPDR S&P 500 ETF Trust（SPY）](https://www.ssga.com/us/en/individual/etfs/state-street-spdr-sp-500-etf-trust-spy): State Street：SPDR S&P 500 ETF Trust（SPY），基金目标为跟踪 S&P 500 指数的价格与收益表现。
 - [Nasdaq：Fiserv 上市与交易代码公告](https://www.nasdaqtrader.com/TraderNews.aspx?id=DTN2025-32): Nasdaq：Fiserv 上市与交易代码公告，自 2025-11-11 起使用 FISV，此前使用 FI。
-- [Charles Schwab：How to Use Volume-Weighted Indicators in Trading](https://www.schwab.com/learn/story/how-to-use-volume-weighted-indicators-trading): Charles Schwab：How to Use Volume-Weighted Indicators in Trading，日内 VWAP 的成交量权重与计算时段。
 - [Spencer Jakab：How to Tell Whether a Plunging Stock Will Keep Plunging](https://www.wsj.com/finance/stocks/how-to-tell-whether-a-plunging-stock-will-keep-plunging-bf0be3ed): Spencer Jakab：How to Tell Whether a Plunging Stock Will Keep Plunging，WSJ，2026-09-18，Missing the bounce 部分。采用 GLP-1 担忧下食品饮料股的修复案例及相对行业比较的思路。
-- [Fidelity：Bollinger Bands](https://www.fidelity.com/learning-center/trading-investing/technical-analysis/technical-indicator-guide/bollinger-bands): Fidelity：Bollinger Bands，Description、How this indicator works、Calculation。本文采用 20 个交易日均值及上下 2 倍标准差，不将指标当成情绪的直接测量或反弹保证。
-- [Moomoo：KDJ 随机指标](https://www.moomoo.com/ca/hans/support/topic3_142): Moomoo：KDJ 随机指标，简介与计算公式，采用近期高低价、收盘位置、K／D 平滑及 J 的关系。
-- [Fidelity：MACD](https://www.fidelity.com/learning-center/trading-investing/technical-analysis/technical-indicator-guide/macd): Fidelity：MACD，Description、Calculation，采用趋势、动量与 12／26／9 常见参数的说明。
 - [FINRA：Brokerage Accounts](https://www.finra.org/investors/investing/investment-accounts/brokerage-accounts): FINRA：Brokerage Accounts，Margin Requirements、Firm Practices、Know Before You Trade。采用净权益、维持保证金、券商自行提高要求及强制处置的规则；正文价格、借款和 30% 比例为教学设定。
 - [SEC：T+1 交收实施公告](https://www.sec.gov/newsroom/press-releases/2024-62): SEC：T+1 交收实施公告，2024-05-21，说明美国多数证券交易自 2024-05-28 由 T+2 转为 T+1。
 

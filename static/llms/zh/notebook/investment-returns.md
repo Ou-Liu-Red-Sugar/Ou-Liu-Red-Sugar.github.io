@@ -4,7 +4,7 @@
 
 网页 / HTML: [Agent 时代的基本面投资](https://ou-liu-red-sugar.github.io/zh/notebook/investment-returns/)
 
-语言 / Language: zh · 更新 / Revised: 2026-09-27
+语言 / Language: zh · 更新 / Revised: 2026-10-11
 
 ## 投资目标与方法 {#nb-a01-goals}
 
@@ -171,7 +171,7 @@ GEV 向电厂项目与运营商提供设备和服务；客户依约下单并付�
 | --- | --- |
 | 是什么 | 期货约定在未来按合约规则交付或结算，可涉及商品、股指、利率等对象。 |
 | 回报从哪里来 | 合约价格变化形成持仓盈亏，并通过结算影响账户资金；保证金用于履约，投入的保证金不代表最大可能损失。 |
-| 相关词条 | [股票的类型、发行与交易形式](https://ou-liu-red-sugar.github.io/zh/notebook/stock-types-issuance-trading/)；[投资组合、保证金与对冲策略](https://ou-liu-red-sugar.github.io/zh/notebook/settlement-margin-cash/) |
+| 相关词条 | [个股期货、股票永续与代币化股票](https://ou-liu-red-sugar.github.io/zh/notebook/#topic-K)；[保证金、对冲与期间现金](https://ou-liu-red-sugar.github.io/zh/notebook/settlement-margin-cash/) |
 
 #### 永续合约
 
@@ -195,7 +195,9 @@ GEV 向电厂项目与运营商提供设备和服务；客户依约下单并付�
 
 沿着刚才的业务例子，我们也能逐渐看清接下来需要学些什么。要看懂订单，就要了解客户为什么采购、企业怎样满足这些需要；要分清收入、利润和现金，就要学习它们怎样进入财务报表，以及各自反映了什么；要判断一家公司的股票是否值得以当前价格买入，还需要学习怎样比较可能的回报与损失。这些知识会帮助我们把一条条材料连成对公司的认识。
 
-这些研究最后要用到自己的资金安排中。[《投资期限与现金需要》](https://ou-liu-red-sugar.github.io/zh/notebook/investment-horizon-cash/)从一笔钱能够投入多久讲起，再看什么时候收回资金、什么时候还要另备现金。
+不过在研究企业之前，我们先要弄清自己买到的是什么，以及持有过程中会发生什么。基础部分从股票本身讲起：一股代表公司的哪一部分，股份怎样发行和流通，公司又怎样通过分红、回购和增发改变每股所得；随后认识指数与基金，再看报价和订单怎样形成实际成交。有了这些对象，我们再讨论回报怎样随时间累积，资金在什么时候需要动用，亏损和波动又怎样考验持有能力，最后把几项持仓放进同一个组合来看。
+
+此后的笔记依次进入企业经营与财务、证据与投资判断，再请 Agent 参与研究，最后把这些判断用于资产配置。保证金、对冲以及期权、期货等合约工具放在按需专题中，实际用到时再读。下一篇[《股票、公司与股价》](https://ou-liu-red-sugar.github.io/zh/notebook/stocks-company-price/)从买入一股股票讲起，看持有人实际拥有什么，股价和市值又怎样与公司经营相连。
 
 [^stocks]: [FINRA：Stocks](https://www.finra.org/investors/investing/investment-products/stocks)。
 [^gev-order]: [GE Vernova：2023年 EnBW 发电项目订单公告](https://www.gevernova.com/news/press-releases/ge-vernova-secures-two-h-class-combined-cycle-equipment-orders-hydrogen-capability)。

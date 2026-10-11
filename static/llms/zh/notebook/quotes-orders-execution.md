@@ -1,12 +1,12 @@
 # 报价、订单与实际成交
 
-从盘口和挂单读懂流动性与实际成交，再看做市商怎样管理库存，以及期货对冲中的保证金与现金需要。
+从盘口和挂单读懂流动性与实际成交，再看成交对手、交易成本，以及 T+1 交收怎样决定资金何时可用。
 
 网页 / HTML: [报价、订单与实际成交](https://ou-liu-red-sugar.github.io/zh/notebook/quotes-orders-execution/)
 
-语言 / Language: zh · 更新 / Revised: 2026-09-27
+语言 / Language: zh · 更新 / Revised: 2026-10-11
 
-我们算投资回报时，常常会先设定一个买入价格；到了真正准备交易的时候，屏幕上却会同时出现最新成交价、买价和卖价。想买的数量一多，整笔订单还可能以几个不同的价格成交。从[《复利、通胀与机会成本》](https://ou-liu-red-sugar.github.io/zh/notebook/compounding-inflation-opportunity-cost/)里的回报比较走到这里，我们还需要知道，计划中的价格怎样变成自己实际付出的金额。
+前面几篇计算持仓金额时，我们都直接用一个股价乘以股数。到了真正准备交易的时候，屏幕上却会同时出现最新成交价、买价和卖价；想买的数量一多，整笔订单还可能以几个不同的价格成交。所以在讨论回报之前，我们还需要知道，计划中的价格怎样变成自己实际付出的金额。
 
 ## 报价、盘口与流动性 {#nb-b02-quotes}
 
@@ -144,61 +144,17 @@ Bracket · 一组持仓的开仓与退出安排
 
 无论采用哪种安排，提交订单以后，还要看它执行到了哪一步。价格触及限价时，同价可能已有别人的订单排在前面，也可能只有一小部分数量成交；发出撤单请求之后，原订单在确认撤销以前也仍可能成交。因此，我们要从成交回报中确认买卖了多少、分别以什么价格成交，再查看剩余数量是继续挂着，还是已经取消。
 
-## 做市商与期货对冲 {#nb-b02-makers}
+## 成交对手、交易成本与交收 {#nb-b02-settlement}
 
-我们买到证券时，另一方也同时卖出了证券。盘口里既有其他投资者的挂单，也有专门提供买卖报价的**做市商**。像 Citadel Securities 这样的机构，就会在股票和 ETF 市场承接交易。订单经券商送出后，可以进入交易所，也可能由做市商在场外执行；我们的成交对手并不总是另一位恰好同时下单的个人投资者。[^makers]
+我们买到证券时，另一方也同时卖出了证券。盘口里既有其他投资者的挂单，也有专门提供买卖报价的**做市商**。像 Citadel Securities 这样的机构，就会在股票和 ETF 市场承接交易。订单经券商送出后，可以进入交易所，也可能由做市商在场外执行；我们的成交对手并不总是另一位恰好同时下单的个人投资者。做市商以较低的买价承接卖单、以较高的卖价承接买单，价差要弥补它持有库存期间承担的价格变化和其他成本。[^makers]
 
-做市商承接交易以后，自己的持仓也会发生变化，这些为交易准备或因交易留下的证券，就是这里所说的**库存**。假如它以 99.98 美元买入，又以 100.02 美元卖出相同数量，两个价格之间有 0.04 美元的差额。不过这两笔交易通常不会恰好同时完成；买入后价格下跌，库存损失就可能超过价差所得，交易与对冲也有成本。
+这样看，一笔交易的成本并不只有券商收取的费用。前面市价买入 300 股，成交均价是 100.04 美元；若以当时买卖报价的中点 100.00 美元作参照，这笔买入多付了 0.04 × 300 = 12 美元。这部分隐含在成交价里，来自买卖价差和逐档成交；佣金和交易规费则按账户条款另外计算。比较不同的交易安排时，我们要把两类成本合起来看。一般来说，价差窄、盘口厚的证券，成交价更接近参照价格；拆单或使用限价单可以控制价格，代价则是部分数量可能无法及时成交。
 
-当承接的买单和卖单不均衡时，做市商可以调整报价和数量，也可以用相关工具对冲留下的风险。拿 VOO 这样跟踪 S&P 500 的 ETF 来说，做市商买入一批份额后，可以卖出相应的股指期货，例如 CME 的 E-mini S&P 500 futures（ES）。期货多头的盈亏随合约价格上涨而增加，空头则相反；当 ETF 与对应股指期货同向变化时，两边的部分盈亏就能相互抵消。[^hedge]
+订单全部成交以后，这笔交易还没有完全结束。成交确定了价格和数量，证券与款项的正式交付还要经过**交收**。美国多数证券交易的标准交收周期是 T+1，也就是在交易日之后的下一个营业日完成交付。若在周五卖出这 300 股，且之后没有假日，交收就在周一完成。卖款出现在交易记录里、成为已交收资金、再转入银行，是几个可以分别确认的时点。[^settlement]
 
-沿这笔库存继续往下看，ETF 买得多了，做市商便可以增加相应的期货空头，降低大盘涨跌对组合的影响；后来把已有 ETF 卖给其他买方，是在减少多头库存，原有的期货空头也就可以相应减掉（这里以已经持有 ETF 多头、使用空头期货对冲为例。实际规模还取决于合约金额和持仓敏感度；ETF 与期货之间的基差、费用及调整时点也会影响合并结果）。
+这里的 T+1 说的是交付时间，和能否当天买卖是两回事。当天买入、当天卖出的回转交易，在美股市场可以进行；交收仍按 T+1 发生，两者并不冲突。能否马上用卖款买入别的证券，或者把钱转出账户，则要看账户类型和券商规则（例如现金账户用已交收资金买入后当日卖出，与用尚未交收的卖款买入另一只证券、并在付款资金交收前卖出，付款条件不同；可交易余额与可提款余额也分别计算。这里只说明美国通常证券交易的交收周期，其他市场按各自规则处理）。[^settlement]，[^cash-account]
 
-换成个股持仓，也可以寻找相应的期货来对冲。CME 已推出包括 TSLA、MSFT 在内的单只美股期货，它们分别以相应的股票为标的；采用股指期货时，则主要调整股票随共同市场因素变化的那部分敞口，公司自身的经营变化仍会影响结果。对冲哪一部分、配多少合约，[《投资组合、保证金与对冲策略》](https://ou-liu-red-sugar.github.io/zh/notebook/settlement-margin-cash/)会结合实际持仓继续展开。[^single]
-
-再回到报价，做市商能否方便地处理库存，也会影响它愿意以什么价格承接多少交易。相关市场里的对冲成本提高、价格变化加快时，做市商可能调整价差或减少报价数量；其他参与者又会通过竞争和新的挂单补充市场，流动性也随之变化。
-
-## 保证金与现金需要 {#nb-b02-margin}
-
-期货对冲建立以后，还要有资金支持这份持仓。**期货保证金**是为履约提供的担保，开仓时通常只占合约名义金额的一部分，而合约价格变化带来的盈亏仍按实际持仓计算。保证金占用少于名义金额，也意味着相对于投入的保证金，盈亏变化可以很大，亏损还可能超过起初缴入的金额。[^margin]
-
-融资买股也常使用“保证金”这个词，不过它涉及向券商借钱购买证券，并以账户里的资产提供担保；期货保证金则担保合约的履行，合约名义金额与保证金之间的差额不因此成为一笔借款（融资账户的净资产低于维持要求时，券商可以要求补充资金或卖出资产，也可能不事先联系客户便处置资产）。[^stock-margin]
-
-期货开仓时要满足**初始保证金**要求，持有过程中还要满足**维持保证金**要求。随着价格变化，期货持仓会按相应价格盯市结算，盈利记入账户，亏损则需要支付；账户权益不足时，就要追加资金或减少持仓（交易所和清算机构设定相应要求，券商可以提出更高要求或更早处置。具体结算时点、可用抵押品和组合抵扣方式依账户安排而定；保证金要求本身也会随市场条件调整）。建立对冲时，也就要考虑[《投资期限与现金需要》](https://ou-liu-red-sugar.github.io/zh/notebook/investment-horizon-cash/)中的问题：钱要在什么时候准备好。[^margin]
-
-回到刚才的 ETF 多头和期货空头。市场上涨时，ETF 的市值增加，期货空头却会出现亏损。两边的价值变化可以部分抵消，资金收付的时间却未必一致：ETF 的浮盈还留在资产里，期货一侧可能已经需要支付现金。
-
-ETF 多头 + 股指期货空头
-
-### 损益抵消与现金支付
-
-同一段市场上涨
-
-ETF 多头
-
-**↑** **市值上升，形成浮盈**
-
-继续持有时，这部分浮盈仍留在持仓里。
-
-若通过出售 ETF 筹集现金，还要考虑卖出与结算的时间。
-
-股指期货空头
-
-**↓** **产生亏损，需要付现**
-
-上涨造成的盯市亏损，需要按结算安排支付。
-
-届时需要账户已有现金或及时补入的资金。
-
-两端持仓的盈亏可以部分抵消，现金却未必在同一时点到位。
-
-**示意 ETF 与所用股指期货共同上涨的情形；实际抵消程度取决于两端的标的与规模。**
-
-要支付这笔钱，持仓的人可以动用预留现金、调拨资金，或按账户安排取得融资。等到出售 ETF，才会把相应市值变成出售所得。组合对市场涨跌的敏感度已经降低，途中资金仍然需要安排（示意分开观察现货市值与期货现金收付，没有假定现货浮盈能够实时用于另一个账户的保证金。实际资金需求取决于结算时间、抵押和跨账户调拨条件）。
-
-资金安排也会反过来影响交易。当承接更多库存需要占用更多资金，而对冲或融资的成本又上升时，参与者可能缩减愿意提供的数量。于是，流动性不仅体现眼前有多少挂单，也和交易者持续承接买卖的能力有关。
-
-从屏幕报价到实际成交，我们最终要确定的是自己以哪些价格取得了多少持仓，以及这些持仓接下来会占用或要求多少资金。[《投资组合、保证金与对冲策略》](https://ou-liu-red-sugar.github.io/zh/notebook/settlement-margin-cash/)会把股票、对冲工具与现金放进同一个账户，继续比较不同安排的盈亏和期间资金需要。
+从屏幕报价到交收完成，我们最终要确定的是自己以哪些价格取得了多少持仓、付出了多少成本，以及钱在什么时候真正到位。有了实际成交的金额，讨论回报才有可靠的起点。下一篇[《复利、通胀与机会成本》](https://ou-liu-red-sugar.github.io/zh/notebook/compounding-inflation-opportunity-cost/)接着看回报怎样随时间累积，又要扣掉哪些购买力的损失。
 
 [^quotes]: [Nasdaq：Why Real-Time Data Matters When Trading Stocks](https://www.nasdaq.com/articles/why-real-time-data-matters-when-trading-stocks)，2024-03-25，Last、Bid、Ask、Size 和 Trading Volume。正文数值盘口为独立构造的简化模型。
 [^orders]: [SEC Investor.gov：Types of Orders](https://www.investor.gov/introduction-investing/investing-basics/how-stock-markets-work/types-orders)，市价、限价和买卖方向的定义。
@@ -207,7 +163,5 @@ ETF 多头
 [^stop]: [SEC：Trading Basics](https://www.sec.gov/files/trading101basics.pdf)，2011-03，第 2 页，Stop 和 Stop-limit 的触发与成交区别；正文跳价路径为简化示意。
 [^linked]: [Charles Schwab：How to Use Advanced Stock Order Types](https://www.schwab.com/learn/story/how-to-use-advanced-stock-order-types)，2025-05-21，OCO、Bracket 与 Trailing stop。
 [^makers]: [Citadel Securities：Equities](https://www.citadelsecurities.com/what-we-do/equities/)，股票、ETF 与做市业务；[SEC：Market Centers — Buying and Selling Stock](https://www.sec.gov/answers/market.htm)，订单经券商送往交易所或做市商执行的说明。
-[^hedge]: [Cboe 作者 Ross Pullen：How ETF market making works](https://www.stockbrokers.org.au/industry-insights/how-etf-market-making-works)，2023-03-23，ETF 库存、股指期货对冲及库存出售后的头寸调整；采用其机制，未移用澳大利亚准入和申赎规则。[CME：E-mini S&P 500 Futures](https://www.cmegroup.com/markets/equities/sp/e-mini-sandp500.contractSpecs.html)，ES 产品身份。
-[^single]: [CME：Single Stock Futures](https://www.cmegroup.com/markets/equities/single-stock-futures)，2026-09-26 核读的产品页和 FAQ，单只美股期货已上线及 TSLA、MSFT 示例。
-[^margin]: [CME：The Benefits of Futures Margins](https://www.cmegroup.com/education/courses/understanding-the-benefits-of-futures/the-benefits-of-futures-margins)，初始与维持保证金；[CME：Money Calculations for Futures and Options](https://www.cmegroup.com/education/articles-and-reports/money-calculations-for-futures-and-options)，期货盯市盈亏的每日现金收付。
-[^stock-margin]: [FINRA：Rule 2264 — Margin Disclosure Statement](https://www.finra.org/rules-guidance/rulebooks/finra-rules/2264)，融资买入中的券商借款、抵押和账户权益要求。
+[^settlement]: [SEC：New “T+1” Settlement Cycle – What Investors Need To Know](https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins/new-t1-settlement-cycle-what-investors-need-know-investor-bulletin)，2024-03-27，What is Settlement?。这里采用美国通常证券交易的交收周期，不推广到所有市场。
+[^cash-account]: [Fidelity：About Your Account](https://www.fidelity.com/trading/faqs-about-account) 与 [Trading Restrictions](https://www.fidelity.com/trading/faqs-trading-restrictions)，现金账户已交收资金、可交易与可提款余额的不同用途。
