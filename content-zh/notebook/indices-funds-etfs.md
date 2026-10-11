@@ -225,8 +225,8 @@ VOO 的 0.02% 管理费已经包含在 0.03% 总费用率里，不能再加一�
 
 <link rel="stylesheet" href="/notebook/index-funds/ui.css?v=20260927">
 <script src="/notebook/index-funds/ui.js?v=20260927" defer></script>
-<link rel="stylesheet" href="/notebook/flow-figures.css?v=20261011-7">
-<script src="/notebook/flow-figures.js?v=20261011-7" defer></script>
+<link rel="stylesheet" href="/notebook/flow-figures.css?v=20261011-8">
+<script src="/notebook/flow-figures.js?v=20261011-8" defer></script>
 
 [^sp-method]: S&P Dow Jones Indices，[S&P U.S. Indices Methodology](https://www.spglobal.com/spdji/en/documents/methodologies/methodology-sp-us-indices.pdf)，2026 年 7 月，选样、自由流通市值加权、公司多股类及再平衡。正文只列所需条件类型。
 [^msci]: MSCI，[MSCI World Index factsheet](https://www.msci.com/documents/10199/255599/msci-world-index-usd-net.pdf)，2026-08-31，23 个发达市场的大中盘范围及覆盖比例。

@@ -120,8 +120,8 @@
 
 这里看的是单独一笔持仓。手里同时有几只股票和基金时，它们常常会一起涨跌，现金也要在几项持仓之间分配；下一篇[《投资组合：集中、分散与现金》](/zh/notebook/#topic-P)把这些持仓放在一起来看。
 
-<link rel="stylesheet" href="/notebook/flow-figures.css?v=20261011-7">
-<script src="/notebook/flow-figures.js?v=20261011-7" defer></script>
+<link rel="stylesheet" href="/notebook/flow-figures.css?v=20261011-8">
+<script src="/notebook/flow-figures.js?v=20261011-8" defer></script>
 <link rel="stylesheet" href="/notebook/holding.css?v=20260926">
 <script src="/notebook/holding.js" defer></script>
 
