@@ -763,7 +763,7 @@
 }
 
 /* Price conversion: a step chain followed by a comparison of the two prices. */
-.price-convert .ff-sub { font-size: 12px; color: var(--ff-muted); }
+.flow-figure .ff-sub { font-size: 12px; color: var(--ff-muted); }
 .price-convert .sc-track { grid-template-columns: minmax(0, 1fr) 100px minmax(0, 1fr) 100px minmax(0, 1fr); }
 .price-convert .pc-compare {
   display: grid;
@@ -989,7 +989,7 @@
 }
 .flow-figure .ff-bars .fb-name { font-size: 12.5px; color: var(--ff-text); }
 .flow-figure .ff-bars .fb-bar { position: relative; height: 18px; }
-.flow-figure .ff-bars .fb-bar i { position: absolute; top: 0; bottom: 0; left: 0; width: var(--w); border-radius: 0 4px 4px 0; background: var(--ff-share); }
+.flow-figure .ff-bars .fb-bar i { position: absolute; top: 0; bottom: 0; left: 0; width: var(--w); border-radius: 0 4px 4px 0; background: var(--c, var(--ff-share)); }
 .flow-figure .ff-bars .fb-bar i.fb-cash { background: var(--ff-cash); }
 .flow-figure .ff-bars .fb-val { font-size: 13px; font-weight: 650; text-align: right; color: var(--ff-ink); white-space: nowrap; }
 
@@ -1102,6 +1102,37 @@
 .action-flows .af-line span { position: absolute; left: 0; right: 0; bottom: 4px; font-size: 11.5px; text-align: center; white-space: nowrap; color: var(--ff-share); }
 .action-flows .af-cash span { color: var(--ff-cash-text); }
 .action-flows .af-watch { font-size: 12px; line-height: 1.45; color: var(--ff-text); }
+
+/* Weight panels: two directly labelled bar panels side by side, each scaled to its own maximum. */
+.weight-panels .wp-grid { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: 0 28px; }
+.weight-panels .wp-panel h4 { display: flex; justify-content: space-between; gap: 8px; margin: 0 0 8px; font-size: 13px; font-weight: 650; color: var(--ff-ink); }
+.weight-panels .wp-panel h4 span { font-weight: 500; color: var(--ff-muted); }
+.weight-panels .ff-bars { grid-template-columns: 100px minmax(0, 1fr) 40px; gap: 5px 8px; }
+.weight-panels .ff-bars .fb-bar { height: 14px; }
+.weight-panels .ff-bars .fb-val { font-size: 12px; }
+.weight-panels .ff-bars .fb-name { font-size: 12px; white-space: nowrap; }
+.weight-panels .ff-legend { flex-wrap: wrap; margin: 12px 0 0; }
+.weight-panels .ff-legend span::before { width: 10px; height: 10px; border-radius: 2px; background: var(--c); }
+.weight-panels .wp-rest { margin: 10px 0 0; font-size: 12px; color: var(--ff-muted); }
+
+/* Grouped bars: a row label spanning one bar per series. */
+.flow-figure .ff-bars.fb-grouped .fb-group { grid-row: span 2; align-self: center; font-size: 12.5px; font-weight: 600; color: var(--ff-ink); }
+.flow-figure .ff-bars.fb-grouped .fb-bar { height: 13px; }
+.flow-figure .ff-bars.fb-grouped .fb-val { font-size: 12px; font-weight: 600; }
+.fee-gap .ff-legend span::before { width: 10px; height: 10px; border-radius: 2px; background: var(--c); }
+.fee-gap .fg-ends { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; margin-top: 14px; padding-top: 12px; border-top: 1px dashed #cfd8cc; }
+.fee-gap .fg-ends div { font-size: 12px; color: var(--ff-muted); }
+.fee-gap .fg-ends strong { display: block; margin-top: 2px; font-size: 15px; color: var(--ff-ink); }
+
+/* Step chain with four nodes. */
+.step-chain.sc-4 .sc-track { grid-template-columns: minmax(0, 1fr) 78px minmax(0, 1fr) 78px minmax(0, 1fr) 78px minmax(0, 1fr); }
+
+/* Three-stage lanes. */
+.stage-lanes.rs-3 .rs-grid { grid-template-columns: 70px repeat(3, minmax(0, 1fr)); }
+.stage-lanes .rs-cell ul { margin: 0; padding: 0; list-style: none; text-align: left; }
+.stage-lanes .rs-cell li { margin: 0; padding-left: 12px; position: relative; font-size: 12px; line-height: 1.5; }
+.stage-lanes .rs-cell li::before { content: ""; position: absolute; left: 2px; top: .62em; width: 5px; height: 5px; border-radius: 50%; background: var(--ff-cash); }
+.stage-lanes .rs-cell.rs-list { justify-content: flex-start; }
 
 @media (max-width: 640px) {
   .flow-figure { padding: 14px 12px 12px; margin: 22px 0 26px; }
@@ -1273,6 +1304,11 @@
   .action-flows .af-watch { grid-column: 1 / -1; padding-bottom: 8px !important; font-size: 11.5px; color: var(--ff-muted); }
   .action-flows .af-party { font-size: 11.5px; }
   .action-flows .af-party span { padding: 2px 5px; }
+  .weight-panels .wp-grid { grid-template-columns: minmax(0, 1fr); gap: 16px; }
+  .weight-panels .ff-bars { grid-template-columns: 96px minmax(0, 1fr) 38px; }
+  .fee-gap .fg-ends strong { font-size: 13.5px; }
+  .stage-lanes.rs-3 .rs-grid { grid-template-columns: 62px minmax(0, 1fr) minmax(0, 1fr); }
+  .step-chain.sc-4 .sc-track { grid-template-columns: minmax(0, 1fr); }
   .flow-figure .cc-control { grid-template-columns: minmax(0, 1fr) auto; }
   .flow-figure .cc-control input[type=range] { grid-column: 1 / -1; grid-row: 2; }
   .flow-figure .cc-head { display: none; }

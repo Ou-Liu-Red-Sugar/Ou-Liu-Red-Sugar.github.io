@@ -504,7 +504,15 @@ This is reference material for the learner's current request. Use the supplied e
 
 当少数公司的权重越来越高时，它们的涨跌就会更多地影响整体表现。以跟踪 S&P 500 的 Vanguard 基金 VOO 为例，2026 年 6 月 30 日，它的前十大持股公司合计占基金净资产 37.9%；按行业观察，信息技术占 38.0%。持有的公司很多，并不意味着资金平均分布在这些公司和行业里。[^voo-sheet]
 
-<figure class="if-figure tex2jax_ignore" id="nb-v01-concentration"><span class="if-kicker">VOO · 2026 年 6 月 30 日</span><h3>持有多家公司，权重仍会集中</h3><div class="if-legend" aria-label="公司与行业颜色"><span><i style="--color:#24664f"></i>信息技术：半导体</span><span><i style="--color:#7aa88d"></i>其他信息技术</span><span><i style="--color:#b47550"></i>通信服务</span><span><i style="--color:#a6b199"></i>其他行业</span></div><a href="/notebook/index-funds/voo-concentration.svg" target="_blank" rel="noopener"><img class="if-static" src="/notebook/index-funds/voo-concentration.svg" width="800" height="560" loading="lazy" alt="VOO在2026年6月30日前十大持股公司合计37.9%，Alphabet的两个股类合并列示。"></a><div class="if-sectors"><h4>按行业观察</h4><div class="if-sector-row"><span>信息技术</span><strong>38.0%</strong><div><i style="width:38%;background:#24664f"></i></div></div><div class="if-sector-row"><span>金融</span><strong>11.8%</strong><div><i style="width:11.8%;background:#5986a1"></i></div></div><div class="if-sector-row"><span>通信服务</span><strong>9.7%</strong><div><i style="width:9.7%;background:#b47550"></i></div></div><div class="if-sector-row"><span>其他行业及其他项</span><strong>40.5%</strong><div><i style="width:40.5%;background:#a6b199"></i></div></div></div><figcaption>深绿色的 NVDA、AVGO、MU 属于半导体，和浅绿色公司同属下方的信息技术大类。持仓权重按 Vanguard 官方季度资料；公司与行业比例不能相加。<a href="https://fund-docs.vanguard.com/F0968.pdf">基金资料</a> · <a href="/notebook/index-funds/inputs.json">图表输入</a>。</figcaption></figure>
+<figure class="flow-figure weight-panels" id="nb-v01-concentration">
+<div class="ff-head"><p class="ff-title">持有多家公司，权重仍会集中</p><span class="ff-sub">VOO · 2026 年 6 月 30 日 · 占基金净资产</span></div>
+<div class="wp-grid">
+<section class="wp-panel business-exchange" aria-label="VOO 前十大持股公司在 2026 年 6 月 30 日合计占基金净资产 37.9%：NVDA 7.5%；AAPL 6.6%；GOOGL + GOOG 5.8%；MSFT 4.3%；AMZN 3.6%；AVGO 2.8%；MU 2.0%；META 1.9%；TSLA 1.8%；LLY 1.5%。Alphabet 的 GOOGL 与 GOOG 合并列示。"><h4>前十大持股公司<span>合计 37.9%</span></h4><div class="ff-bars"><span class="fb-name">NVDA</span><span class="fb-bar"><i style="--w:100.0%;--c:#24664f"></i></span><span class="fb-val">7.5%</span><span class="fb-name">AAPL</span><span class="fb-bar"><i style="--w:88.0%;--c:#7aa88d"></i></span><span class="fb-val">6.6%</span><span class="fb-name">GOOGL + GOOG</span><span class="fb-bar"><i style="--w:77.3%;--c:#b47550"></i></span><span class="fb-val">5.8%</span><span class="fb-name">MSFT</span><span class="fb-bar"><i style="--w:57.3%;--c:#7aa88d"></i></span><span class="fb-val">4.3%</span><span class="fb-name">AMZN</span><span class="fb-bar"><i style="--w:48.0%;--c:#a6b199"></i></span><span class="fb-val">3.6%</span><span class="fb-name">AVGO</span><span class="fb-bar"><i style="--w:37.3%;--c:#24664f"></i></span><span class="fb-val">2.8%</span><span class="fb-name">MU</span><span class="fb-bar"><i style="--w:26.7%;--c:#24664f"></i></span><span class="fb-val">2.0%</span><span class="fb-name">META</span><span class="fb-bar"><i style="--w:25.3%;--c:#b47550"></i></span><span class="fb-val">1.9%</span><span class="fb-name">TSLA</span><span class="fb-bar"><i style="--w:24.0%;--c:#a6b199"></i></span><span class="fb-val">1.8%</span><span class="fb-name">LLY</span><span class="fb-bar"><i style="--w:20.0%;--c:#a6b199"></i></span><span class="fb-val">1.5%</span></div><p class="wp-rest">其余持股合计 62.1%；GOOGL 与 GOOG 按 Alphabet 一家合并。</p></section>
+<section class="wp-panel business-exchange" aria-label="按行业，信息技术占 38.0%，金融 11.8%，通信服务 9.7%，其他行业及其他项 40.5%。"><h4>按行业</h4><div class="ff-bars"><span class="fb-name">信息技术</span><span class="fb-bar"><i style="--w:93.8%;--c:#24664f"></i></span><span class="fb-val">38.0%</span><span class="fb-name">金融</span><span class="fb-bar"><i style="--w:29.1%;--c:#5986a1"></i></span><span class="fb-val">11.8%</span><span class="fb-name">通信服务</span><span class="fb-bar"><i style="--w:24.0%;--c:#b47550"></i></span><span class="fb-val">9.7%</span><span class="fb-name">其他行业及其他项</span><span class="fb-bar"><i style="--w:100.0%;--c:#a6b199"></i></span><span class="fb-val">40.5%</span></div></section>
+</div>
+<p class="ff-legend"><span style="--c:#24664f">信息技术：半导体</span><span style="--c:#7aa88d">其他信息技术</span><span style="--c:#b47550">通信服务</span><span style="--c:#a6b199">其他行业</span></p>
+<figcaption>两栏各按自己的最大值绘制。公司与行业是两个观察维度，比例不能相加。持仓权重按 Vanguard 官方季度资料。<a href="https://fund-docs.vanguard.com/F0968.pdf">基金资料</a> · <a href="/notebook/index-funds/inputs.json">图表输入</a>。</figcaption>
+</figure>
 
 <span data-text-versions id="nb-v01-text-4">即使分属不同行业，这些公司仍可能依赖相近的客户、需求和资金条件，研究集中度时也要考虑这些共同影响<span data-text-detail>（公司与行业是两个观察维度，图中比例不能相加。VOO 原表将 Alphabet 的 GOOGL 与 GOOG 合并为一家公司；各行取整后相加为 37.8%，前十合计保持源表公布的 37.9%。图中为基金持仓权重，时点固定为 2026 年 6 月 30 日）</span>。<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>
 
@@ -525,6 +533,19 @@ This is reference material for the learner's current request. Use the supplied e
 \]
 
 假设某一时点，基金资产为 101 万美元、负债为 1 万美元，共有 10 万份，那么净资产就是 100 万美元，每份净值为 10 美元。持有 100 份，对应的净资产价值就是 1,000 美元。
+
+<figure class="flow-figure step-chain sc-4" id="nb-v01-nav-chain">
+<div class="ff-head"><p class="ff-title">从基金资产到一笔持仓的净资产价值</p></div>
+<div class="sc-track">
+<div class="sc-node"><strong>101 万美元</strong><small>基金资产</small></div>
+<div class="sc-link business-exchange" aria-label="基金资产 101 万美元减去负债 1 万美元，得到净资产 100 万美元。"><span>− 负债</span><span>1 万美元</span></div>
+<div class="sc-node"><strong>100 万美元</strong><small>基金净资产</small></div>
+<div class="sc-link business-exchange" aria-label="净资产 100 万美元除以总份额 10 万份，每份净值为 10 美元。"><span>÷ 总份额</span><span>10 万份</span></div>
+<div class="sc-node sc-focus"><strong>10 美元</strong><small>每份净值（NAV）</small></div>
+<div class="sc-link business-exchange" aria-label="持有 100 份，对应的净资产价值为 1,000 美元。"><span>× 持有份额</span><span>100 份</span></div>
+<div class="sc-node"><strong>1,000 美元</strong><small>这笔持仓对应的净资产</small></div>
+</div>
+</figure>
 
 持有期间，资产价格的涨跌、基金取得的收入及承担的费用都会影响净值；基金向持有人分配现金时，净值也会相应调整。例如，每份分配 0.20 美元，在其他价值不变时，净值由 10 美元降至 9.80 美元，持有人同时取得 0.20 美元现金。<span data-text-versions id="nb-v01-text-5">比较这段持有结果，就要把净值变化与收到的现金放到一起看<span data-text-detail>（NAV 有时指基金总净资产，报价页面通常展示每份 NAV，计算时需辨认分母。上述金额为同一时点的设定，现金分配例忽略同期市场变化和投资者税费）</span>。<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>
 
@@ -549,12 +570,28 @@ This is reference material for the learner's current request. Use the supplied e
 
 ETF 的申购、赎回机制把场内份额与对应资产联系起来，也会影响市价与资产价值的差距。能够直接与基金进行大额申赎的机构称为授权参与商（AP）。当差价足以覆盖成本时，AP 可以分别采取以下交易：[^etf]
 
-| 观察到的价格关系 | AP 可以采取的交易 | 对场内份额的影响 |
-|---|---|---|
-| ETF 市价高于相应资产价值 | 向基金交付规定的证券篮子，换取新 ETF 份额，再在场内卖出 | 增加份额供给 |
-| ETF 市价低于相应资产价值 | 在场内买入 ETF 份额，交回基金赎回，取得相应证券篮子 | 增加场内买入需求，赎回后减少份额 |
+<figure class="flow-figure" id="nb-v01-ap" data-ff-views>
+<div class="ff-head"><p class="ff-title">AP 怎样把份额与资产连起来</p><div class="ff-switch" role="group" aria-label="选择价格关系" hidden><button type="button" data-ff-view-choice="premium" aria-pressed="true">市价高于资产价值</button><button type="button" data-ff-view-choice="discount" aria-pressed="false">市价低于资产价值</button></div></div>
+<div class="ff-row" data-ff-only="premium">
+<div class="ff-party"><strong>场内投资者</strong><small>在交易所买卖份额</small></div>
+<div class="ff-exchange business-exchange" aria-label="ETF 市价高于相应资产价值时，AP 在场内把新份额卖给投资者，收取成交款。"><div class="ff-arrow ff-left"><span>新份额</span></div><div class="ff-arrow ff-cash ff-right"><span>成交款</span></div></div>
+<div class="ff-party ff-party-focus"><strong>AP</strong><small>授权参与商</small></div>
+<div class="ff-exchange business-exchange" aria-label="AP 向基金交付规定的证券篮子，换取新的 ETF 份额。"><div class="ff-arrow ff-right"><span>证券篮子</span></div><div class="ff-arrow ff-left"><span>新 ETF 份额</span></div></div>
+<div class="ff-party"><strong>基金</strong><small>创设或赎回份额</small></div>
+</div>
+<p class="ff-aside" data-ff-only="premium"><strong>市价高于资产价值</strong>：AP 换取新份额再卖出，场内份额供给增加，市价向资产价值回落。</p>
+<div class="ff-row" data-ff-only="discount" hidden>
+<div class="ff-party"><strong>场内投资者</strong><small>在交易所买卖份额</small></div>
+<div class="ff-exchange business-exchange" aria-label="ETF 市价低于相应资产价值时，AP 在场内向投资者买入份额，支付成交款。"><div class="ff-arrow ff-right"><span>ETF 份额</span></div><div class="ff-arrow ff-cash ff-left"><span>成交款</span></div></div>
+<div class="ff-party ff-party-focus"><strong>AP</strong><small>授权参与商</small></div>
+<div class="ff-exchange business-exchange" aria-label="AP 把买入的份额交回基金赎回，取得相应的证券篮子。"><div class="ff-arrow ff-right"><span>交回份额</span></div><div class="ff-arrow ff-left"><span>证券篮子</span></div></div>
+<div class="ff-party"><strong>基金</strong><small>创设或赎回份额</small></div>
+</div>
+<p class="ff-aside" data-ff-only="discount" hidden><strong>市价低于资产价值</strong>：AP 场内买入再赎回，增加买入需求，赎回后份额减少，市价向资产价值回升。</p>
+<figcaption>差价足以覆盖成本时，AP 才有动力这样交易。</figcaption>
+</figure>
 
-<span data-text-versions id="nb-v01-text-6">这两条路径让份额与资产可以相互转换，促使市价向对应的资产价值靠拢<span data-text-detail>（表中采用实物申赎的简化路径，实际篮子也可能包含现金，部分产品使用现金申赎。正式 NAV 通常在日终计算，盘中例子用的是同期资产价值估算；海外市场休市、交易成本和对冲条件会影响套利空间，因此价差仍可能存在）</span>。<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>
+<span data-text-versions id="nb-v01-text-6">这两条路径让份额与资产可以相互转换，促使市价向对应的资产价值靠拢<span data-text-detail>（图中采用实物申赎的简化路径，实际篮子也可能包含现金，部分产品使用现金申赎。正式 NAV 通常在日终计算，盘中例子用的是同期资产价值估算；海外市场休市、交易成本和对冲条件会影响套利空间，因此价差仍可能存在）</span>。<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>
 
 同样在交易所买卖的 ETF，也可以采用不同的管理方式。
 
@@ -594,7 +631,12 @@ VOO 的 0.02% 管理费已经包含在 0.03% 总费用率里，不能再加一�
 
 这些费用通常直接从基金资产中扣除，已经反映在净值里，我们未必会在证券账户里看到单独扣款。扣去的资金也就不能继续用于投资，因而持有时间越长，费用造成的差距越容易累积。
 
-<figure class="if-figure tex2jax_ignore"><span class="if-kicker">本金 10,000 美元 · 20 年 · 相同费用前收益</span><h3>每年留下的本金不同，长期积累也会不同</h3><a href="/notebook/index-funds/fees.svg" target="_blank" rel="noopener"><img class="if-static" src="/notebook/index-funds/fees.svg" width="1000" height="600" loading="lazy" alt="初始10000美元、费用前年收益6%，比较0.03%、0.33%和0.75%三档年度费用率的20年资金积累。"></a><div class="if-fee-grid"><div><span>年度费用率 0.03%</span><strong>31,879 美元</strong><small>20 年后</small></div><div><span>年度费用率 0.33%</span><strong>30,020 美元</strong><small>20 年后</small></div><div><span>年度费用率 0.75%</span><strong>27,588 美元</strong><small>20 年后</small></div></div><figcaption>三条线采用同样的费用前年收益 6%，每年末按资产扣除相应比例，仅比较费率的影响。图中金额不代表三只实际基金的业绩。<a href="/notebook/index-funds/calculations.csv">查看计算数据</a> · <a href="/notebook/index-funds/fund-fee-extracts.md">费表摘录</a> · <a href="/notebook/index-funds/model.py">计算方法</a>。</figcaption></figure>
+<figure class="flow-figure fee-gap" id="nb-v01-fee-gap">
+<div class="ff-head"><p class="ff-title">与年度费用率 0.03% 相比，少留下的金额</p><p class="ff-legend"><span style="--c:#5986a1">0.33%</span><span style="--c:#b47550">0.75%</span></p></div>
+<div class="ff-bars fb-grouped business-exchange" aria-label="本金 10,000 美元、费用前年收益 6% 时，年度费用率 0.33% 和 0.75% 与 0.03% 相比：第 5 年分别少 199 和 474 美元；第 10 年分别少 529 和 1,245 美元；第 15 年分别少 1,052 和 2,451 美元；第 20 年分别少 1,860 和 4,291 美元。"><span class="fb-group">第 5 年</span><span class="fb-bar"><i style="--w:4.6%;--c:#5986a1"></i></span><span class="fb-val">199</span><span class="fb-bar"><i style="--w:11.1%;--c:#b47550"></i></span><span class="fb-val">474</span><span class="fb-group">第 10 年</span><span class="fb-bar"><i style="--w:12.3%;--c:#5986a1"></i></span><span class="fb-val">529</span><span class="fb-bar"><i style="--w:29.0%;--c:#b47550"></i></span><span class="fb-val">1,245</span><span class="fb-group">第 15 年</span><span class="fb-bar"><i style="--w:24.5%;--c:#5986a1"></i></span><span class="fb-val">1,052</span><span class="fb-bar"><i style="--w:57.1%;--c:#b47550"></i></span><span class="fb-val">2,451</span><span class="fb-group">第 20 年</span><span class="fb-bar"><i style="--w:43.3%;--c:#5986a1"></i></span><span class="fb-val">1,860</span><span class="fb-bar"><i style="--w:100.0%;--c:#b47550"></i></span><span class="fb-val">4,291</span></div>
+<div class="fg-ends business-exchange" aria-label="20 年后，三档费用率分别留下 31,879、30,020 和 27,588 美元。"><div>年度费用率 0.03%<strong>31,879 美元</strong>20 年后</div><div>年度费用率 0.33%<strong>30,020 美元</strong>20 年后</div><div>年度费用率 0.75%<strong>27,588 美元</strong>20 年后</div></div>
+<figcaption>本金 10,000 美元，三档采用同样的费用前年收益 6%，每年末按资产扣除相应比例，金额单位为美元，不代表三只实际基金的业绩。<a href="/notebook/index-funds/calculations.csv">查看计算数据</a> · <a href="/notebook/index-funds/fund-fee-extracts.md">费表摘录</a> · <a href="/notebook/index-funds/model.py">计算方法</a>。</figcaption>
+</figure>
 
 在相同的费用前收益下，20 年后三档费率留下的金额相差数千美元。实际基金的持仓和费用前收益也会不同；比较主动基金时，还要看管理人的投资结果是否值得我们为此支付额外费用。
 
@@ -602,11 +644,21 @@ VOO 的 0.02% 管理费已经包含在 0.03% 总费用率里，不能再加一�
 
 持续费用之外，买入和退出时还可能发生额外成本。把费用按发生环节排列，就能看清一段完整持有过程包含哪些收费：
 
-| 环节 | 需要查看的收费 |
-|---|---|
-| 买入 | 部分场外基金份额的销售费用；ETF 交易佣金与买卖价差 |
-| 持有 | 基金年度持续费用，以及渠道可能另外收取的账户或投顾费用 |
-| 卖出、赎回 | 适用的赎回费或后端销售费；ETF 交易佣金与买卖价差 |
+<figure class="flow-figure stage-lanes rs-3" id="nb-v01-fee-stages">
+<div class="ff-head"><p class="ff-title">一段完整持有过程中的收费</p></div>
+<div class="rs-grid business-exchange" aria-label="买入时，部分场外基金份额收取销售费用，ETF 有交易佣金与买卖价差；持有时，基金承担年度持续费用，渠道还可能另收账户或投顾费用；卖出或赎回时，可能有赎回费或后端销售费，ETF 有交易佣金与买卖价差。AIVSX Class A 例：投入 10,000 美元，按最高前端销售费 5.75% 先付 575 美元，买入份额的资金为 9,425 美元；持有期间每年持续费用 0.55%，从基金资产中扣除。">
+<div class="rs-stage" style="--c:2"><strong>买入</strong></div>
+<div class="rs-stage" style="--c:3"><strong>持有</strong></div>
+<div class="rs-stage" style="--c:4"><strong>卖出、赎回</strong></div>
+<div class="rs-lane" style="--lane:2">可能的收费</div>
+<div class="rs-lane" style="--lane:3">AIVSX 例</div>
+<div class="rs-cell rs-list" style="--c:2;--lane:2"><ul><li>部分场外份额的销售费用</li><li>ETF 交易佣金与买卖价差</li></ul></div>
+<div class="rs-cell rs-list" style="--c:3;--lane:2"><ul><li>基金年度持续费用，已从净值中扣除</li><li>渠道另收的账户或投顾费用</li></ul></div>
+<div class="rs-cell rs-list" style="--c:4;--lane:2"><ul><li>适用的赎回费或后端销售费</li><li>ETF 交易佣金与买卖价差</li></ul></div>
+<div class="rs-cell rs-step rs-lock" style="--c:2;--lane:3">投入 10,000 美元<small>最高销售费 5.75%：先付 575，买入 9,425</small></div>
+<div class="rs-cell rs-step" style="--c:3;--lane:3">每年持续费用 0.55%<small>从基金资产中扣除</small></div>
+</div>
+</figure>
 
 一些场外基金份额在买入时收取销售费，持有期间还会收取持续服务费用。The Investment Company of America 的 Class A 份额（AIVSX），所列最高申购销售费为 5.75%，年度持续费用为 0.55%。若投入 10,000 美元，并适用这档最高销售费，先支付的销售费用就是 575 美元，实际买入基金份额的资金剩下 9,425 美元；持有以后，基金还会继续承担年度费用。[^aivsx]
 
@@ -618,6 +670,8 @@ VOO 的 0.02% 管理费已经包含在 0.03% 总费用率里，不能再加一�
 
 <link rel="stylesheet" href="/notebook/index-funds/ui.css?v=20260927">
 <script src="/notebook/index-funds/ui.js?v=20260927" defer></script>
+<link rel="stylesheet" href="/notebook/flow-figures.css?v=20261011-5">
+<script src="/notebook/flow-figures.js?v=20261011-5" defer></script>
 
 [^sp-method]: S&P Dow Jones Indices，[S&P U.S. Indices Methodology](https://www.spglobal.com/spdji/en/documents/methodologies/methodology-sp-us-indices.pdf)，2026 年 7 月，选样、自由流通市值加权、公司多股类及再平衡。正文只列所需条件类型。
 [^msci]: MSCI，[MSCI World Index factsheet](https://www.msci.com/documents/10199/255599/msci-world-index-usd-net.pdf)，2026-08-31，23 个发达市场的大中盘范围及覆盖比例。

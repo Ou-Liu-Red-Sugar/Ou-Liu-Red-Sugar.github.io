@@ -147,7 +147,7 @@ This is reference material for the learner's current request. Use the supplied e
 ```
 
 ## Supplied entry
-<link rel="stylesheet" href="/notebook/flow-figures.css?v=20261011-4">
+<link rel="stylesheet" href="/notebook/flow-figures.css?v=20261011-5">
 
 公司向股东返还现金，可以派发分红，也可以回购股票。以[《股票、公司与股价》](/zh/notebook/stocks-company-price/)介绍过的 Apple（AAPL）为例，公司用于回购股票的钱，比现金分红多得多。在 2026 财年第一季度，AAPL 支付了约 39 亿美元的股息及股息等价物，用于回购普通股的现金则约为 247 亿美元。两笔钱都从公司流出，影响股东的方式却有所不同。[^apple]
 
