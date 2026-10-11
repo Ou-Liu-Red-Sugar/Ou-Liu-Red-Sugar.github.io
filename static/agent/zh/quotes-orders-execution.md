@@ -221,13 +221,18 @@ This is reference material for the learner's current request. Use the supplied e
 
 以 Vanguard S&P 500 ETF（VOO）为例，读行情时，除了价格曲线，还会接触到 Last、Bid 和 Ask 这些字段。Last 是最近一笔交易的成交价格；Bid 是当前买方报出的最高买价，Ask 则是卖方报出的最低卖价。准备立即买入时，我们先看卖方愿意以什么价格卖出；准备立即卖出时，就看买方愿意出到什么价格。[^quotes]
 
-下面换成一只假设股票，把这几个字段放在一起。价格单位为美元／股，数量直接按股数显示：
+下面换成一只假设股票，把这几个字段放到同一条价格轴上：
 
-| 字段 | 显示内容 | 怎样理解 |
-|---|---:|---|
-| 最新成交 Last | 100.00 | 最近一笔交易以这个价格完成 |
-| 最优买价 Bid | 99.98，100 股 | 当前这一档买方愿意买入的价格和数量 |
-| 最优卖价 Ask | 100.02，100 股 | 当前这一档卖方愿意卖出的价格和数量 |
+<figure class="flow-figure quote-line" id="nb-b02-quote-line">
+<div class="ff-head"><p class="ff-title">Last、Bid 与 Ask 的位置（示意）</p><span class="ff-sub">价格：美元／股</span></div>
+<div class="ql-axis business-exchange" aria-label="假设股票的最新成交价 Last 为 100.00；最优买价 Bid 为 99.98，买方在这一档愿意买入 100 股；最优卖价 Ask 为 100.02，卖方在这一档愿意卖出 100 股。买卖价差为 0.04。">
+<span class="ql-spread"><span>买卖价差 0.04</span></span>
+<div class="ql-mark ql-bid" style="--x:25%"><div class="ql-top"><span class="ql-key">Bid 最优买价</span><strong>99.98</strong></div><div class="ql-bottom"><small>买方愿意买入 100 股</small></div></div>
+<div class="ql-mark ql-last" style="--x:50%"><div class="ql-top"><span class="ql-key">Last 最新成交</span><strong>100.00</strong></div></div>
+<div class="ql-mark ql-ask" style="--x:75%"><div class="ql-top"><span class="ql-key">Ask 最优卖价</span><strong>100.02</strong></div><div class="ql-bottom"><small>卖方愿意卖出 100 股</small></div></div>
+</div>
+<p class="ql-uses"><span><strong>立即卖出</strong>：先看 Bid，买方最多出到 99.98</span><span><strong>立即买入</strong>：先看 Ask，卖方最少要 100.02</span></p>
+</figure>
 
 这里的买卖价差是 0.04 美元。上一笔交易虽然发生在 100 美元，接下来愿意卖出的那 100 股却挂在 100.02 美元，所以最新成交价不能直接替我们确定下一笔买入的价格。
 
@@ -294,6 +299,22 @@ This is reference material for the learner's current request. Use the supplied e
 
 刚才的止损价固定在 95 美元。让止损线跟着有利方向的价格变化，就形成了**移动止损**。对多头持仓，若采用距价格高点 5 美元的移动止损，价格从 100 美元涨到 110 美元时，触发线便可从 95 美元上移到 105 美元；随后价格回落，这条线会留在 105 美元，等价格达到触发条件后，再执行相应订单。移动距离可以用固定金额或百分比表示；触发后怎样执行，还要看采用的移动止损类型和平台规则。[^linked]
 
+<figure class="flow-figure path-chart" id="nb-b02-trailing">
+<div class="ff-head"><p class="ff-title">移动止损：触发线只随高点上移（示意）</p><p class="ff-legend"><span>价格</span><span class="ff-key-cash">止损触发线（高点 − 5）</span></p></div>
+<div class="pc-plot business-exchange" aria-label="示意：多头持仓采用距价格高点 5 美元的移动止损。价格从 100 美元涨到 110 美元，触发线从 95 美元随高点上移到 105 美元；价格随后回落，触发线留在 105 美元，价格跌到 105 美元以下时触发。">
+<svg viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><polyline class="pc-grid" points="0,89.47 100,89.47"/><polyline class="pc-grid" points="0,63.16 100,63.16"/><polyline class="pc-grid" points="0,36.84 100,36.84"/><polyline class="pc-grid" points="0,10.53 100,10.53"/><polyline class="pc-fixed" points="0,89.47 100,89.47"/><polyline class="pc-stop" points="0,89.47 10,89.47 10,78.95 20,78.95 30,78.95 30,63.16 40,63.16 40,52.63 50,52.63 60,52.63 60,36.84 70,36.84 80,36.84 90,36.84 100,36.84"/><polyline class="pc-price" points="0,63.16 10,52.63 20,55.26 30,36.84 40,26.32 50,31.58 60,10.53 70,18.42 80,26.32 90,34.21 100,38.95"/></svg>
+<span class="pc-y" style="top:89.47%">95</span><span class="pc-y" style="top:63.16%">100</span><span class="pc-y" style="top:36.84%">105</span><span class="pc-y" style="top:10.53%">110</span>
+<span class="pc-dot" style="left:60%;top:10.53%"></span>
+<span class="pc-note" style="left:calc(60% - 34px);top:calc(10.53% - 26px)"><strong>高点 110</strong></span>
+<span class="pc-note pc-warm" style="left:calc(60% + 8px);top:calc(36.84% + 4px)">触发线停在 105</span>
+<span class="pc-dot" style="left:100%;top:38.95%;--c:var(--ff-cash)"></span>
+<span class="pc-note pc-warm" style="right:2px;top:calc(38.95% + 26px)">跌破 105：触发</span>
+<span class="pc-note" style="left:4px;top:calc(89.47% + 6px)">起初的固定止损 95</span>
+<span class="pc-x" style="left:0%">买入</span><span class="pc-x" style="left:100%">时间 →</span>
+</div>
+<figcaption>价格单位为美元／股。触发以后怎样成交，要看采用的订单类型和平台规则。</figcaption>
+</figure>
+
 买入、止盈和止损也可以在下单时一并安排。<strong>括号单（Bracket）</strong>把开仓单与后续的止盈、止损安排放在一起；开仓成交后，才启用相应数量的退出订单。两笔退出单通常采用 **OCO（One Cancels the Other）** 关联，一笔成交后，系统便按规则取消另一笔。Schwab 的 thinkorswim 就提供这类订单组合。[^linked]
 
 <figure class="trade-figure" id="nb-b02-bracket">
@@ -317,16 +338,49 @@ This is reference material for the learner's current request. Use the supplied e
 
 我们买到证券时，另一方也同时卖出了证券。盘口里既有其他投资者的挂单，也有专门提供买卖报价的**做市商**。像 Citadel Securities 这样的机构，就会在股票和 ETF 市场承接交易。订单经券商送出后，可以进入交易所，也可能由做市商在场外执行；我们的成交对手并不总是另一位恰好同时下单的个人投资者。做市商以较低的买价承接卖单、以较高的卖价承接买单，价差要弥补它持有库存期间承担的价格变化和其他成本。[^makers]
 
+<figure class="flow-figure route" id="nb-b02-routing">
+<div class="ff-head"><p class="ff-title">一笔订单可能经过的路径</p></div>
+<div class="rt-grid business-exchange" aria-label="我们的订单先交给券商；券商可以把订单送进交易所，与其他投资者的挂单成交，也可能交给做市商在场外执行，由做市商承接这笔交易。">
+<div class="ff-party"><strong>我们</strong><small>提交订单</small></div>
+<div class="rt-arrow"><span>订单</span></div>
+<div class="ff-party"><strong>券商</strong><small>选择执行场所</small></div>
+<div class="rt-fork"><em></em><i></i><i></i></div>
+<div class="rt-venues">
+<div class="ff-party"><strong>交易所</strong><small>与其他投资者或做市商的挂单成交</small></div>
+<div class="ff-party ff-party-focus"><strong>做市商</strong><small>例如 Citadel Securities，在场外承接</small></div>
+</div>
+</div>
+</figure>
+
 这样看，一笔交易的成本并不只有券商收取的费用。前面市价买入 300 股，成交均价是 100.04 美元；若以当时买卖报价的中点 100.00 美元作参照，这笔买入多付了 0.04 × 300 = 12 美元。这部分隐含在成交价里，来自买卖价差和逐档成交；佣金和交易规费则按账户条款另外计算。比较不同的交易安排时，我们要把两类成本合起来看。一般来说，价差窄、盘口厚的证券，成交价更接近参照价格；拆单或使用限价单可以控制价格，代价则是部分数量可能无法及时成交。
 
 订单全部成交以后，这笔交易还没有完全结束。成交确定了价格和数量，证券与款项的正式交付还要经过**交收**。美国多数证券交易的标准交收周期是 T+1，也就是在交易日之后的下一个营业日完成交付。若在周五卖出这 300 股，且之后没有假日，交收就在周一完成。卖款出现在交易记录里、成为已交收资金、再转入银行，是几个可以分别确认的时点。[^settlement]
+
+<figure class="flow-figure stage-lanes rs-4" id="nb-b02-settlement-days">
+<div class="ff-head"><p class="ff-title">周五卖出 300 股，T+1 交收</p></div>
+<div class="rs-grid business-exchange" aria-label="周五成交卖出 300 股，卖款记入交易记录但尚未交收；周六、周日不是营业日；下一个营业日周一完成交收，证券交付给买方，卖款成为已交收资金；之后可以申请把已交收资金转入银行，可交易余额与可提款余额按券商规则分别计算。">
+<div class="rs-stage" style="--c:2"><strong>周五 · T</strong>成交日</div>
+<div class="rs-stage" style="--c:3"><strong>周六、周日</strong>非营业日</div>
+<div class="rs-stage" style="--c:4"><strong>周一 · T+1</strong>交收日</div>
+<div class="rs-stage" style="--c:5"><strong>之后</strong></div>
+<div class="rs-lane" style="--lane:2">证券</div>
+<div class="rs-lane" style="--lane:3">卖款</div>
+<div class="rs-cell rs-step" style="--c:2;--lane:2">卖出成交<small>价格、数量确定</small></div>
+<div class="rs-cell rs-wait" style="--c:3;--lane:2 / 4">不计入交收周期</div>
+<div class="rs-cell rs-step" style="--c:4;--lane:2">交付给买方</div>
+<div class="rs-cell rs-lock" style="--c:2;--lane:3">记入交易记录<small>尚未交收</small></div>
+<div class="rs-cell rs-free" style="--c:4;--lane:3">已交收资金</div>
+<div class="rs-cell" style="--c:5;--lane:3">申请转入银行<small>按券商规则</small></div>
+</div>
+</figure>
 
 <span data-text-versions id="nb-b02-text-6">这里的 T+1 说的是交付时间，和能否当天买卖是两回事。当天买入、当天卖出的回转交易，在美股市场可以进行；交收仍按 T+1 发生，两者并不冲突。能否马上用卖款买入别的证券，或者把钱转出账户，则要看账户类型和券商规则<span data-text-detail>（例如现金账户用已交收资金买入后当日卖出，与用尚未交收的卖款买入另一只证券、并在付款资金交收前卖出，付款条件不同；可交易余额与可提款余额也分别计算。这里只说明美国通常证券交易的交收周期，其他市场按各自规则处理）</span>。[^settlement]<sup>，</sup>[^cash-account]<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>
 
 从屏幕报价到交收完成，我们最终要确定的是自己以哪些价格取得了多少持仓、付出了多少成本，以及钱在什么时候真正到位。有了实际成交的金额，讨论回报才有可靠的起点。下一篇[《复利、通胀与机会成本》](/zh/notebook/compounding-inflation-opportunity-cost/)接着看回报怎样随时间累积，又要扣掉哪些购买力的损失。
 
-<link rel="stylesheet" href="/notebook/trading.css?v=20260926-1">
+<link rel="stylesheet" href="/notebook/trading.css?v=20261011-1">
 <script src="/notebook/trading.js?v=20260926-1" defer></script>
+<link rel="stylesheet" href="/notebook/flow-figures.css?v=20261011-6">
 
 [^quotes]: [Nasdaq：Why Real-Time Data Matters When Trading Stocks](https://www.nasdaq.com/articles/why-real-time-data-matters-when-trading-stocks)，2024-03-25，Last、Bid、Ask、Size 和 Trading Volume。正文数值盘口为独立构造的简化模型。
 [^orders]: [SEC Investor.gov：Types of Orders](https://www.investor.gov/introduction-investing/investing-basics/how-stock-markets-work/types-orders)，市价、限价和买卖方向的定义。
