@@ -6,7 +6,7 @@ import unittest
 from pathlib import Path
 
 from build_notebook import compile_notebook
-from notebook_learning_plan import validate_learning_plan
+from notebook_learning_plan import compile_reading_route, validate_learning_plan
 
 
 def plan_fixture():
@@ -224,6 +224,17 @@ class LearningPlanTests(unittest.TestCase):
         self.assertIsNone(route["next"])
         self.assertEqual(route["credits"][1], {"label": "第 2 篇", "writer": "Chat 模式"})
         self.assertEqual([phase["available_count"] for phase in route["phases"]], [1, 1])
+
+    def test_credit_labels_collapse_consecutive_article_numbers(self):
+        ids = [f"NB-A0{number}" for number in range(1, 6)]
+        plan = {"sequence": ids, "phases": [], "entries": [{"id": eid, "reading_note": "衔接"} for eid in ids],
+                "reading_route": {"title": "顺序阅读", "description": "从资金进入股票。", "intro_count": 5,
+                                  "credits": [{"entry_ids": ["NB-A01", "NB-A02", "NB-A04", "NB-A05"],
+                                               "writer": "Codex GPT-6 Astra"}],
+                                  "writing_method": "Chinese-writing", "participation": "本站作者参与讨论。"}}
+        mapped = [dict(id=eid, title=eid, goal="目标", status="available", url=f"/{eid}/") for eid in ids]
+        route = compile_reading_route(plan, mapped)
+        self.assertEqual(route["credits"], [{"label": "第 1–2、4–5 篇", "writer": "Codex GPT-6 Astra"}])
 
     def test_route_rejects_missing_transitions_and_inaccurate_credit_coverage(self):
         self.add_reading_route()
