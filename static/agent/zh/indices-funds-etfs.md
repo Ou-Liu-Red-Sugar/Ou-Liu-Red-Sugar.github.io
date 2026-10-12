@@ -9,7 +9,7 @@ This is reference material for the learner's current request. Use the supplied e
 
 ## Author-supplied scope notes (reference only)
 <author_scope_notes>
-先区分持有一组股票与谁管理：可自行建立组合，也可购买基金份额。先定义指数的独立衡量作用，再讲样本、权重、漂移与定期再平衡，随后基金/NAV/ETF，禁止把一篮子股票等同基金或将所有场内基金等同ETF。S&P等权按公司季度调整；参考日与生效日可能已漂移，互动设定为即时调回目标。开篇按VOO2026-06-30基金持仓把10,000美元换算成各公司金额（忽略费用与价差），实图采用同一持仓，公司前十37.9%、IT38.0%，Alphabet合并GOOGL+GOOG，取整行合计与官方合计不同。四股票是假定同本金/成分涨跌，非历史基金表现；费率曲线是相同6%费用前收益假设、年末扣费。CGDV主动，S&P500为基准；CHAT/HUMN/OZEM均主动且主题集中，例中持仓2026-06-30。VOO0.03%、CGDV0.33%、CHAT0.75%为各日期正式费表；费用已进入净值不得再扣。AIVSX5.75%为有条件适用的最高一次性前端费，0.55%年度费已含12b-1。主文简明、细则淡色展开。来源与输入保留，不把产品例变成投资推荐。溢价例与NAV链为设定数字，不是VOO实际报价。
+先区分持有一组股票与谁管理：可自行建立组合，也可购买基金份额。先定义指数的独立衡量作用，再讲样本、权重、漂移与定期再平衡，随后基金/NAV/ETF，禁止把一篮子股票等同基金或将所有场内基金等同ETF。S&P等权按公司季度调整；参考日与生效日可能已漂移，互动设定为即时调回目标。开篇按VOO2026-06-30基金持仓把10,000美元换算成各公司金额（忽略费用与价差），实图采用同一持仓，公司前十37.9%、IT38.0%，Alphabet合并GOOGL+GOOG，取整行合计与官方合计不同。四股票是假定同本金/成分涨跌，非历史基金表现；费率曲线是相同6%费用前收益假设、年末扣费。CGDV主动，S&P500为基准；CHAT/HUMN/OZEM均主动且主题集中，例中持仓2026-06-30。VOO0.03%、CGDV0.33%、CHAT0.75%为各日期正式费表；费用已进入净值不得再扣。AIVSX5.75%为有条件适用的最高一次性前端费，0.55%年度费已含12b-1。主文简明、细则淡色展开。来源与输入保留，不把产品例变成投资推荐。SOXQ跟踪SOX：美国上市市值最大30家半导体公司，前三12%/10%/8%、其余4%上限（Nasdaq2026方法书）；调整日1,200/400美元是按上限换算的规则推算，非实际持仓。溢价例与NAV链为设定数字，不是VOO实际报价。
 </author_scope_notes>
 
 ## Shared notation and writing conventions
@@ -274,6 +274,40 @@ This is reference material for the learner's current request. Use the supplied e
         "URTH 产品资料"
       ],
       "version": "2026-09-27 核对；持仓、方法与招募书日期分别见正文"
+    },
+    {
+      "source_id": "nb-v01-sox-1",
+      "access": {
+        "kind": "selected_chapters",
+        "uri": "https://indexes.nasdaq.com/docs/Methodology_SOX.pdf"
+      },
+      "required_unit": {
+        "locator": "Nasdaq，PHLX Semiconductor Sector Index Methodology，2026 年版（变更记录最近一项于 2026-07-06 生效），成分资格、30 家选样、前三 12%／10%／8% 与其余 4% 的权重上限，以及年度重组与季度再平衡日程。",
+        "scope": "Nasdaq，PHLX Semiconductor Sector Index Methodology，2026 年版（变更记录最近一项于 2026-07-06 生效），成分资格、30 家选样、前三 12%／10%／8% 与其余 4% 的权重上限，以及年度重组与季度再平衡日程。",
+        "purpose": "核回本文采用的指数规则、基金机制、产品费用与明确设定的计算。"
+      },
+      "title": "PHLX Semiconductor Sector Index Methodology",
+      "authors": [
+        "Nasdaq"
+      ],
+      "version": "2026 年版，变更记录最近一项于 2026-07-06 生效；2026-10-12 读取"
+    },
+    {
+      "source_id": "nb-v01-soxq-1",
+      "access": {
+        "kind": "selected_chapters",
+        "uri": "https://www.sec.gov/Archives/edgar/data/1378872/000119312525325650/d54028d497k.htm"
+      },
+      "required_unit": {
+        "locator": "Invesco，SOXQ Summary Prospectus，2025-12-19，跟踪 SOX 的投资目标、至少 90% 资产投资于指数成分、集中于半导体行业及 0.19% 年度总费用率。",
+        "scope": "Invesco，SOXQ Summary Prospectus，2025-12-19，跟踪 SOX 的投资目标、至少 90% 资产投资于指数成分、集中于半导体行业及 0.19% 年度总费用率。",
+        "purpose": "核回本文采用的指数规则、基金机制、产品费用与明确设定的计算。"
+      },
+      "title": "SOXQ Summary Prospectus",
+      "authors": [
+        "Invesco"
+      ],
+      "version": "招募说明书日期 2025-12-19；2026-10-12 读取"
     },
     {
       "source_id": "nb-v01-cgdv-1",
@@ -590,17 +624,19 @@ ETF 的市场价格由买卖双方的出价决定，基金持有的资产则决�
 
 另一种做法是由管理人根据研究和判断来选择持仓，也就是主动管理。Capital Group Dividend Value ETF（CGDV）重视能够提供收入与增长机会的股票，投资目标包括争取高于美国股票平均水平的收入收益率，以及资本增值；它把 S&P 500 作为主要业绩比较基准，组合可以和指数很不一样。看到基金列出一个指数时，我们还要分清它以跟踪这个指数为投资目标，还是只拿它比较业绩。[^cgdv]
 
-投资范围也可以收窄到某个行业或主题。<span data-text-versions id="nb-v01-text-9">Roundhill 旗下的 CHAT 投资生成式 AI 与科技，涉及平台、基础设施与软件，持有 NVDA；HUMN 围绕人形机器人，持有 Tesla（TSLA）；OZEM 围绕 GLP-1 与减重产业，持有 Eli Lilly（LLY）。这三只基金都采用主动管理<span data-text-detail>（例中持仓采用发行人标注的 2026 年 6 月 30 日数据；HUMN 官网以 TSLA 的 Optimus 说明相关研发方向）</span>。[^roundhill]<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span> 把本篇提到的基金按管理方式和投资范围放在一起：
+投资范围也可以收窄到某个行业或主题，这种收窄同样可以由指数规则完成。<span data-text-versions id="nb-v01-text-11">Nasdaq 编制的 PHLX Semiconductor Sector Index（SOX）只从在美国上市的半导体公司中选出市值最大的 30 家，再按市值加权并设上限：市值前三的公司分别不超过 12%、10% 和 8%，其余每家不超过 4%<span data-text-detail>（入选公司须属于 ICB 分类中的半导体或生产技术设备子行业，超出上限的权重按市值比例分给其他成分；成分每年 9 月重组，权重在 3、6、9、12 月按季度调回，两次调整之间会随价格漂移）</span>。[^sox]<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span> <span data-text-versions id="nb-v01-text-12">Invesco PHLX Semiconductor ETF（SOXQ）以跟踪这项指数为目标<span data-text-detail>（据 2025 年 12 月 19 日的招募说明书，SOXQ 通常将至少 90% 的总资产投资于指数成分，并集中投资于半导体行业；年度总费用率为 0.19%）</span>。同样的 10,000 美元放进 SOXQ，在调整当日，市值最大的公司最多分到 1,200 美元，前三名以外的每家最多 400 美元，全部落在半导体公司上。[^soxq]<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>
+
+主题也可以交给管理人把握。<span data-text-versions id="nb-v01-text-9">Roundhill 旗下的 CHAT 投资生成式 AI 与科技，涉及平台、基础设施与软件，持有 NVDA；HUMN 围绕人形机器人，持有 Tesla（TSLA）；OZEM 围绕 GLP-1 与减重产业，持有 Eli Lilly（LLY）。这三只基金都采用主动管理<span data-text-detail>（例中持仓采用发行人标注的 2026 年 6 月 30 日数据；HUMN 官网以 TSLA 的 Optimus 说明相关研发方向）</span>。[^roundhill]<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span> 把本篇提到的基金按管理方式和投资范围放在一起：
 
 <figure class="flow-figure fund-map" id="nb-v01-fund-map">
 <div class="ff-head"><p class="ff-title">管理方式与投资范围是两个维度</p></div>
-<div class="fm-grid business-exchange" aria-label="按指数规则管理、覆盖广泛市场：VOO 跟踪 S&P 500 市值加权，RSP 跟踪 S&P 500 等权，URTH 跟踪 MSCI World。由管理人选股、覆盖广泛市场：CGDV 重视收入与增长，以 S&P 500 为业绩比较基准。由管理人选股、集中于某个主题：CHAT 生成式 AI，HUMN 人形机器人，OZEM GLP-1 与减重。按指数规则管理、集中于某个主题的基金本篇没有举例。">
+<div class="fm-grid business-exchange" aria-label="按指数规则管理、覆盖广泛市场：VOO 跟踪 S&P 500 市值加权，RSP 跟踪 S&P 500 等权，URTH 跟踪 MSCI World。由管理人选股、覆盖广泛市场：CGDV 重视收入与增长，以 S&P 500 为业绩比较基准。由管理人选股、集中于某个主题：CHAT 生成式 AI，HUMN 人形机器人，OZEM GLP-1 与减重。按指数规则管理、集中于某个主题：SOXQ 跟踪 SOX，指数由在美国上市、市值最大的 30 家半导体公司组成。">
 <span></span><div class="fm-col">按指数规则<small>被动管理</small></div><div class="fm-col">由管理人选股<small>主动管理</small></div>
 <div class="fm-row">广泛<br>市场</div>
 <div class="fm-cell"><div class="fm-fund"><b>VOO</b><span>S&P 500，市值加权</span></div><div class="fm-fund"><b>RSP</b><span>S&P 500，等权</span></div><div class="fm-fund"><b>URTH</b><span>MSCI World，多个发达市场</span></div></div>
 <div class="fm-cell"><div class="fm-fund"><b>CGDV</b><span>重视收入与增长，以 S&P 500 为比较基准</span></div></div>
 <div class="fm-row">集中<br>主题</div>
-<div class="fm-cell fm-empty">跟踪主题指数的基金<br>本篇未举例</div>
+<div class="fm-cell"><div class="fm-fund"><b>SOXQ</b><span>SOX，美国上市的 30 家半导体公司</span></div></div>
 <div class="fm-cell"><div class="fm-fund"><b>CHAT</b><span>生成式 AI，持有 NVDA</span></div><div class="fm-fund"><b>HUMN</b><span>人形机器人，持有 TSLA</span></div><div class="fm-fund"><b>OZEM</b><span>GLP-1 与减重，持有 LLY</span></div></div>
 </div>
 <figcaption>列看管理人怎样决定持仓，行看资金主要投向哪里。持仓例按发行人标注的 2026 年 6 月 30 日数据。</figcaption>
@@ -668,6 +704,8 @@ ETF 的市场价格由买卖双方的出价决定，基金持有的资产则决�
 [^rsp]: Invesco，[RSP 产品资料](https://www.invesco.com/us/financial-products/etfs/product-detail?audienceType=Investor&ticker=RSP)，跟踪 S&P 500 等权指数与季度再平衡，2026-09-27 查阅。
 [^urth]: iShares，[URTH 产品资料](https://www.ishares.com/us/products/239696/URTH)，跟踪发达市场股票指数的目标，2026-09-27 查阅。
 [^cgdv]: Capital Group，[CGDV Summary Prospectus](https://www.sec.gov/Archives/edgar/data/1870128/000005193126000736/cgdv497k.htm)，2026-08-01，投资目标、主动持仓与 0.33% 总费用率；[CGDV 产品资料](https://www.capitalgroup.com/advisor/investments/exchange-traded-funds/details/cgdv)，主要业绩比较基准为 S&P 500。
+[^sox]: Nasdaq，[PHLX Semiconductor Sector Index Methodology](https://indexes.nasdaq.com/docs/Methodology_SOX.pdf)，2026 年版（变更记录最近一项于 2026-07-06 生效），成分资格、30 家选样、前三 12%／10%／8% 与其余 4% 的权重上限，以及年度重组与季度再平衡日程，2026-10-12 查阅。
+[^soxq]: Invesco，[SOXQ Summary Prospectus](https://www.sec.gov/Archives/edgar/data/1378872/000119312525325650/d54028d497k.htm)，2025-12-19，跟踪 SOX 的投资目标、至少 90% 资产投资于指数成分、集中于半导体行业及 0.19% 年度总费用率。
 [^roundhill]: Roundhill，[CHAT](https://www.roundhillinvestments.com/etf/chat/)、[HUMN](https://www.roundhillinvestments.com/etf/humn/)、[OZEM](https://www.roundhillinvestments.com/etf/ozem/)产品页，主题与主动管理身份，2026-09-27 查阅；例中持仓采用网页标注的 2026-06-30 Top 5 Holdings，HUMN/Optimus 对应其官网业务说明。
 [^fee-rules]: SEC Investor.gov，[Mutual Fund and ETF Fees and Expenses](https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins/mutual-fund-and-etf-fees-and-expenses-investor-bulletin)，2025-07-23，持续费用、销售费用、基金资产扣费及费率表外的交易和中介成本。
 [^chat-fee]: Roundhill，[CHAT Prospectus](https://www.sec.gov/Archives/edgar/data/1924868/000199937126018651/chat-485bpos_082526.htm)，2026-08-27，管理费及年度总费用率均为 0.75%。
@@ -694,6 +732,8 @@ ETF 的市场价格由买卖双方的出价决定，基金持有的资产则决�
 - [HUMN](https://www.roundhillinvestments.com/etf/humn/): Roundhill，CHAT、HUMN、OZEM产品页，主题与主动管理身份，2026-09-27 查阅；例中持仓采用网页标注的 2026-06-30 Top 5 Holdings，HUMN/Optimus 对应其官网业务说明。
 - [OZEM](https://www.roundhillinvestments.com/etf/ozem/): Roundhill，CHAT、HUMN、OZEM产品页，主题与主动管理身份，2026-09-27 查阅；例中持仓采用网页标注的 2026-06-30 Top 5 Holdings，HUMN/Optimus 对应其官网业务说明。
 - [RSP 产品资料](https://www.invesco.com/us/financial-products/etfs/product-detail?audienceType=Investor&ticker=RSP): Invesco，RSP 产品资料，跟踪 S&P 500 等权指数与季度再平衡，2026-09-27 查阅。
+- [PHLX Semiconductor Sector Index Methodology](https://indexes.nasdaq.com/docs/Methodology_SOX.pdf): Nasdaq，PHLX Semiconductor Sector Index Methodology，2026 年版，美国上市市值最大的 30 家半导体公司；修正市值加权，前三 12%／10%／8%、其余 4% 上限；9 月年度重组，3、6、9、12 月季度再平衡。
+- [SOXQ Summary Prospectus](https://www.sec.gov/Archives/edgar/data/1378872/000119312525325650/d54028d497k.htm): Invesco，SOXQ Summary Prospectus，2025-12-19，以跟踪 SOX 为投资目标，通常至少 90% 总资产投资于指数成分，集中于半导体行业，年度总费用率 0.19%。
 - [S&P U.S. Indices Methodology](https://www.spglobal.com/spdji/en/documents/methodologies/methodology-sp-us-indices.pdf): S&P Dow Jones Indices，S&P U.S. Indices Methodology，2026 年 7 月，选样、自由流通市值加权、公司多股类及再平衡。正文只列所需条件类型。
 - [URTH 产品资料](https://www.ishares.com/us/products/239696/URTH): iShares，URTH 产品资料，跟踪发达市场股票指数的目标，2026-09-27 查阅。
 - [共同基金费用与最低投资额](https://investor.vanguard.com/investment-products/mutual-funds/fees): Vanguard，共同基金费用与最低投资额，不收前后端销售负担，持续费用及部分买入/赎回费用另列，2026-09-27 查阅。

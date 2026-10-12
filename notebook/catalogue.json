@@ -1799,6 +1799,26 @@
       ]
     },
     {
+      "source_id": "nb-v01-sox-1",
+      "title": "PHLX Semiconductor Sector Index Methodology",
+      "url": "https://indexes.nasdaq.com/docs/Methodology_SOX.pdf",
+      "body": "Nasdaq，PHLX Semiconductor Sector Index Methodology，2026 年版，美国上市市值最大的 30 家半导体公司；修正市值加权，前三 12%／10%／8%、其余 4% 上限；9 月年度重组，3、6、9、12 月季度再平衡。",
+      "version": "2026 年版，变更记录最近一项于 2026-07-06 生效；2026-10-12 读取",
+      "authors": [
+        "Nasdaq"
+      ]
+    },
+    {
+      "source_id": "nb-v01-soxq-1",
+      "title": "SOXQ Summary Prospectus",
+      "url": "https://www.sec.gov/Archives/edgar/data/1378872/000119312525325650/d54028d497k.htm",
+      "body": "Invesco，SOXQ Summary Prospectus，2025-12-19，以跟踪 SOX 为投资目标，通常至少 90% 总资产投资于指数成分，集中于半导体行业，年度总费用率 0.19%。",
+      "version": "招募说明书日期 2025-12-19；2026-10-12 读取",
+      "authors": [
+        "Invesco"
+      ]
+    },
+    {
       "source_id": "nb-v01-cgdv-1",
       "title": "CGDV Summary Prospectus",
       "url": "https://www.sec.gov/Archives/edgar/data/1870128/000005193126000736/cgdv497k.htm",

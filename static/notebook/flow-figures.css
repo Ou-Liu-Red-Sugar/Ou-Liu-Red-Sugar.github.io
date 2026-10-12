@@ -1412,7 +1412,6 @@
 .fund-map .fm-fund { display: grid; grid-template-columns: 46px minmax(0, 1fr); gap: 0 8px; align-items: baseline; }
 .fund-map .fm-fund b { font-size: 13px; font-weight: 650; color: var(--ff-share); }
 .fund-map .fm-fund span { font-size: 11.5px; line-height: 1.45; color: var(--ff-text); }
-.fund-map .fm-empty { align-content: center; border-style: dashed; background: transparent; font-size: 11.5px; line-height: 1.45; text-align: center; color: var(--ff-muted); }
 
 
 @media (max-width: 640px) {
