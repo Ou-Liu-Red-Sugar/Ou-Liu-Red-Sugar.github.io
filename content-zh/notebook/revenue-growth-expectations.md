@@ -203,7 +203,7 @@ R_{\mathrm{要求}}=\frac{PN}{Mm}.
 MRVL 的例子让我们看到，收入增长与超过预期门槛是两件事；KO 的反推又说明，所需增长会随利润率、股数和定价倍数而变化。要继续判断这些条件能否成立，我们还得看取得收入时需要增加哪些投入。下一篇《成本结构与经营杠杆》将继续讨论：收入增加以后，哪些成本随之变化，又能留下多少利润。
 
 <link rel="stylesheet" href="/notebook/business-branches.css?v=20261011">
-<link rel="stylesheet" href="/notebook/flow-figures.css?v=20261012-3">
+<link rel="stylesheet" href="/notebook/flow-figures.css?v=20261012-4">
 
 
 [^ko-growth]: [The Coca-Cola Company — Second Quarter 2025 Earnings Release](https://www.coca-colacompany.com/content/dam/corporate/us/en/media-center/Coca-Cola-2025-Q2-Earnings-Release-Full-Release-7.22.25.pdf)。PDF p1 标题与 Quarterly Performance / Revenues；PDF p3 Revenues and Volume，Consolidated 行及 rounding 注；PDF p8 Notes，unit case、unit case volume、concentrate sales、price/mix；PDF p15 Definitions；p25 Net Operating Revenues 调节表；PDF p3 Asia Pacific 行；p5 Asia Pacific 第二段。

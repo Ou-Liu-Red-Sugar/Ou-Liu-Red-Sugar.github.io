@@ -11,7 +11,7 @@
 - [指数、基金与 ETF](https://ou-liu-red-sugar.github.io/llms/zh/notebook/indices-funds-etfs.md): 从 10,000 美元买入 VOO 出发，看这笔钱怎样按指数权重分到各家公司，再认识等权与再平衡、基金净值、ETF 的场内价格、主动与主题管理以及各项费用。
 - [投资期限与现金需要](https://ou-liu-red-sugar.github.io/llms/zh/notebook/investment-horizon-cash.md): 从用钱的时间出发，按用途给资金分层，用 VOO 在 2022 年的下跌比较预留现金、被迫卖出与借钱周转。
 - [Agent 时代的基本面投资](https://ou-liu-red-sugar.github.io/llms/zh/notebook/investment-returns.md): 从一则订单公告出发，看清业务、现金与每股所得、事件计价和 Agent 辅助研究，再回到资金安排与学习路线。
-- [亏损、波动与持有能力](https://ou-liu-red-sugar.github.io/llms/zh/notebook/loss-volatility-holding-capacity.md): 从 KO 的修复与 FISV 的失利出发，结合行业比较、Risk–Reward、重新定价和资金安排，理解持有与退出。
+- [亏损、波动与持有能力](https://ou-liu-red-sugar.github.io/llms/zh/notebook/loss-volatility-holding-capacity.md): 从 FISV 财报后暴跌、又继续下跌的持有经历出发，对照 KO 的修复，结合行业比较、Risk–Reward、重新定价和资金安排，理解持有与退出。
 - [报价、订单与实际成交](https://ou-liu-red-sugar.github.io/llms/zh/notebook/quotes-orders-execution.md): 从 2015 年 8 月 24 日开盘几分钟里 IVV 的成交价出发，读懂报价、盘口与流动性，再看市价、限价和触发订单怎样决定成交，以及成交对手、交易成本和 T+1 交收。
 - [收入增长与市场预期](https://ou-liu-red-sugar.github.io/llms/zh/notebook/revenue-growth-expectations.md): 拆开销量、净价、客户和产品组合，用真实业绩与预测市场辨认增长预期，再从股价反推所需收入，交给经营证据检验。
 - [投资组合、保证金与对冲策略](https://ou-liu-red-sugar.github.io/llms/zh/notebook/settlement-margin-cash.md): 从业务与 Risk-Reward 建立组合，理解 beta 对冲的范围，由 Agent 结合市场状态比较期货、Put 与减持，再把保证金、盯市和交收接到现金安排。

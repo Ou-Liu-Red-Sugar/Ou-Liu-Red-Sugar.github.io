@@ -8,7 +8,7 @@
   "translationKey": "zh-shareholder-returns-buybacks-issuance"
 }
 
-<link rel="stylesheet" href="/notebook/flow-figures.css?v=20261012-3">
+<link rel="stylesheet" href="/notebook/flow-figures.css?v=20261012-4">
 
 [《股票、公司与股价》](/zh/notebook/stocks-company-price/)里那 100 股 Apple（AAPL），每个季度都会碰上公司向股东返还现金。在 2026 财年第一季度（截至 2025 年 12 月 27 日），AAPL 支付了约 39 亿美元的股息及股息等价物，又花了约 247 亿美元回购自己的普通股。按期初约 147.73 亿股发行在外普通股平摊，每 100 股分到约 26 美元股息，对应的回购款则约为 167 美元。[^apple]
 

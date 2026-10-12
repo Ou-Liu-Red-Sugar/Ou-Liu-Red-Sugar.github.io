@@ -1236,7 +1236,8 @@
 
 /* Scatter with a line: points placed in percent, labels in HTML. */
 .path-chart .pc-pt { position: absolute; width: 12px; height: 12px; margin: -6px 0 0 -6px; border-radius: 50%; background: var(--c, #51665a); box-shadow: 0 0 0 2px #fbfbf6; }
-.path-chart .pc-xlab { position: absolute; bottom: -20px; transform: translateX(-50%); font-size: 11px; color: var(--ff-muted); }
+.path-chart .pc-xlab { position: absolute; bottom: -20px; transform: translateX(-50%); font-size: 11px; white-space: nowrap; color: var(--ff-muted); }
+.path-chart .cb-mark { font-size: 13px; font-weight: 650; }
 .path-chart .pc-axis-x { position: absolute; left: 0; right: 0; bottom: 0; border-top: 1px solid #b9c4b8; }
 .path-chart .pc-axis-y { position: absolute; left: 0; top: 0; bottom: 0; border-left: 1px solid #b9c4b8; }
 .path-chart .pc-axis-name { position: absolute; font-size: 11px; color: var(--ff-muted); white-space: nowrap; }
@@ -1447,7 +1448,6 @@
 .rolling .pc-plot { height: 150px; margin: 6px 0 4px 42px; }
 .rolling .pc-plot.rl-last { margin-bottom: 26px; }
 .rolling .pc-y { left: -42px; width: 36px; text-align: right; white-space: nowrap; }
-.rolling .pc-xlab { white-space: nowrap; }
 .rolling .rl-under { transform: translateX(-50%); text-align: center; }
 .rolling .rl-zone { position: absolute; left: 0; right: 0; top: var(--z); bottom: 0; background: rgba(168, 116, 63, .1); }
 .rolling .rl-zero { stroke: #93a196; stroke-width: 1; }
