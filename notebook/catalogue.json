@@ -2459,7 +2459,7 @@
       "source_id": "nb-b05-prices-1",
       "title": "Yahoo Finance：SPY 历史行情",
       "url": "https://finance.yahoo.com/quote/SPY/history/",
-      "body": "Yahoo Finance：SPY 2025-01-02 至 2026-10-09 日线 OHLCV，未按分红调整。2026-01-27、03-30、06-02、10-09 收盘分别为 695.49、631.97、759.57、778.57 美元，1 月 2 日开盘 685.71 美元。指标自 2025-01-02 起算，数列见数据表。",
+      "body": "Yahoo Finance：SPY 2020-01-02 至 2026-10-09 日线 OHLCV 与分红，价格未按分红调整。2026-01-27、03-30、06-02、10-09 收盘分别为 695.49、631.97、759.57、778.57 美元；2022-01-03 开盘 476.30、收盘 477.71 美元，2022-10-12 收盘 356.56 美元，2022-12-30 收盘 382.43 美元。指标自 2020-01-02 起算，数列见数据表。",
       "version": "本篇核对日期：2026-10-12；采用期间见正文脚注",
       "authors": [
         "Yahoo Finance"
@@ -2467,9 +2467,9 @@
     },
     {
       "source_id": "nb-b05-intraday-1",
-      "title": "Yahoo Finance：SPY 行情图表（五分钟）",
+      "title": "Yahoo Finance：SPY 行情图表（五分钟与每小时）",
       "url": "https://finance.yahoo.com/chart/SPY",
-      "body": "Yahoo Finance：SPY 2026-08-04 与 2026-09-23 常规交易时段五分钟 OHLCV，各 78 根，纽约时间。日内 VWAP 以典型价近似，数列见数据表。",
+      "body": "Yahoo Finance：SPY 2026-08-04 与 2026-09-23 常规交易时段五分钟 OHLCV，各 78 根；2023-11-10 起的每小时 OHLCV，用于计算规则所用的日线 VWAP。纽约时间。",
       "version": "本篇核对日期：2026-10-12；采用期间见正文脚注",
       "authors": [
         "Yahoo Finance"
@@ -2513,6 +2513,152 @@
       "version": "本篇核对日期：2026-10-12；采用期间见正文脚注",
       "authors": [
         "Charles Schwab"
+      ]
+    },
+    {
+      "source_id": "nb-b05-kc-1",
+      "title": "thinkorswim：KeltnerChannels",
+      "url": "https://toslc.thinkorswim.com/center/reference/Tech-Indicators/studies-library/G-L/KeltnerChannels",
+      "body": "thinkorswim Learning Center：KeltnerChannels，Description 与 Input Parameters。采用移动平均线上下加减 ATR 若干倍（默认 2 倍）及其与布林带使用标准差的区别。",
+      "version": "本篇核对日期：2026-10-12；采用期间见正文脚注",
+      "authors": [
+        "Charles Schwab（thinkorswim）"
+      ]
+    },
+    {
+      "source_id": "nb-b05-squeeze-1",
+      "title": "thinkorswim：TTM_Squeeze",
+      "url": "https://toslc.thinkorswim.com/center/reference/Tech-Indicators/studies-library/T-U/TTM-Squeeze",
+      "body": "thinkorswim Learning Center：TTM_Squeeze，Description。采用“布林带落在 Keltner 通道之内”的挤压定义，以及布林带移出通道后指标关闭的说明。",
+      "version": "本篇核对日期：2026-10-12；采用期间见正文脚注",
+      "authors": [
+        "Charles Schwab（thinkorswim）"
+      ]
+    },
+    {
+      "source_id": "nb-b05-squeeze-2",
+      "title": "Charles Schwab：TTM Squeeze Indicator: Technical Signals for Traders",
+      "url": "https://www.schwab.com/learn/story/ttm-squeeze-indicator-technical-signals-traders",
+      "body": "Charles Schwab：TTM Squeeze Indicator，Connect the dots 一节。采用以布林带与 Keltner 通道的关系识别盘整、突破可能向上也可能向下的说明。",
+      "version": "本篇核对日期：2026-10-12；采用期间见正文脚注",
+      "authors": [
+        "Charles Schwab"
+      ]
+    },
+    {
+      "source_id": "nb-b05-gh-1",
+      "title": "Grinblatt & Han：Prospect Theory, Mental Accounting, and Momentum",
+      "url": "https://ideas.repec.org/a/eee/jfinec/v78y2005i2p311-339.html",
+      "body": "Mark Grinblatt、Bing Han，Journal of Financial Economics 78(2)，2005，摘要。采用持有人整体未实现盈亏（capital gains overhang）解释动量收益的结论。",
+      "version": "本篇核对日期：2026-10-12；采用期间见正文脚注",
+      "authors": [
+        "Mark Grinblatt",
+        "Bing Han"
+      ]
+    },
+    {
+      "source_id": "nb-b05-aks-1",
+      "title": "Avramov, Kaplanski & Subrahmanyam：Moving Average Distance as a Predictor of Equity Returns",
+      "url": "https://ideas.repec.org/a/wly/revfec/v39y2021i2p127-145.html",
+      "body": "Doron Avramov、Guy Kaplanski、Avanidhar Subrahmanyam，Review of Financial Economics 39(2)，2021，摘要。采用短期与长期均线距离预测股票横截面收益的结论。",
+      "version": "本篇核对日期：2026-10-12；采用期间见正文脚注",
+      "authors": [
+        "Doron Avramov",
+        "Guy Kaplanski",
+        "Avanidhar Subrahmanyam"
+      ]
+    },
+    {
+      "source_id": "nb-b05-bdh-1",
+      "title": "Ben-David & Hirshleifer：Are Investors Really Reluctant to Realize Their Losses?",
+      "url": "https://ideas.repec.org/a/oup/rfinst/v25y2012i8p2485-2532.html",
+      "body": "Itzhak Ben-David、David Hirshleifer，Review of Financial Studies 25(8)，2012，摘要。采用 1990—1996 年券商账户中卖出概率随浮盈浮亏变大而上升、回本处无明显跳升的结论。",
+      "version": "本篇核对日期：2026-10-12；采用期间见正文脚注",
+      "authors": [
+        "Itzhak Ben-David",
+        "David Hirshleifer"
+      ]
+    },
+    {
+      "source_id": "nb-b05-ghm-1",
+      "title": "Goulding, Harvey & Mazzoleni：Momentum Turning Points",
+      "url": "https://ideas.repec.org/a/eee/jfinec/v149y2023i3p378-406.html",
+      "body": "Christian L. Goulding、Campbell R. Harvey、Michele G. Mazzoleni，Journal of Financial Economics 149(3)，2023，摘要。采用快慢时间序列动量划分牛市、回调、熊市与反弹，以及混合快慢信号的中速组合取得正超额收益的结论。",
+      "version": "本篇核对日期：2026-10-12；采用期间见正文脚注",
+      "authors": [
+        "Christian L. Goulding",
+        "Campbell R. Harvey",
+        "Michele G. Mazzoleni"
+      ]
+    },
+    {
+      "source_id": "nb-b05-kl-1",
+      "title": "Kaminski & Lo：When Do Stop-Loss Rules Stop Losses?",
+      "url": "https://swopec.hhs.se/sifrwp/abs/sifrwp0063.htm",
+      "body": "Kathryn M. Kaminski、Andrew W. Lo，工作论文摘要；期刊版见 Journal of Financial Markets 18，2014。采用随机游走下简单止损规则降低预期收益、存在动量时可能增加价值的结论。",
+      "version": "本篇核对日期：2026-10-12；采用期间见正文脚注",
+      "authors": [
+        "Kathryn M. Kaminski",
+        "Andrew W. Lo"
+      ]
+    },
+    {
+      "source_id": "nb-b05-lr-1",
+      "title": "Lo & Remorov：Stop-Loss Strategies with Serial Correlation, Regime Switching, and Transaction Costs",
+      "url": "https://dspace.mit.edu/handle/1721.1/107017",
+      "body": "Andrew W. Lo、Alexander Remorov，Journal of Financial Markets 34，2017，摘要。采用美国个股样本中较紧止损因交易成本普遍不如一直持有、下行风险减少有限的结论。",
+      "version": "本篇核对日期：2026-10-12；采用期间见正文脚注",
+      "authors": [
+        "Andrew W. Lo",
+        "Alexander Remorov"
+      ]
+    },
+    {
+      "source_id": "nb-b05-neely-1",
+      "title": "Neely, Rapach, Tu & Zhou：Forecasting the Equity Risk Premium: The Role of Technical Indicators",
+      "url": "https://ideas.repec.org/a/inm/ormnsc/v60y2014i7p1772-1791.html",
+      "body": "Christopher J. Neely、David E. Rapach、Jun Tu、Guofu Zhou，Management Science 60(7)，2014，摘要。采用技术指标更擅长察觉经济周期高点附近风险溢价回落、宏观变量更擅长察觉低谷附近回升的结论。",
+      "version": "本篇核对日期：2026-10-12；采用期间见正文脚注",
+      "authors": [
+        "Christopher J. Neely",
+        "David E. Rapach",
+        "Jun Tu",
+        "Guofu Zhou"
+      ]
+    },
+    {
+      "source_id": "nb-b05-pi-1",
+      "title": "Park & Irwin：What Do We Know About the Profitability of Technical Analysis?",
+      "url": "https://ideas.repec.org/a/bla/jecsur/v21y2007i4p786-826.html",
+      "body": "Cheol-Ho Park、Scott H. Irwin，Journal of Economic Surveys 21(4)，2007，摘要。采用 95 项现代研究中 56 项结果为正，以及数据挖掘、事后选择规则和成本估计等问题的综述结论。",
+      "version": "本篇核对日期：2026-10-12；采用期间见正文脚注",
+      "authors": [
+        "Cheol-Ho Park",
+        "Scott H. Irwin"
+      ]
+    },
+    {
+      "source_id": "nb-b05-bs-1",
+      "title": "Bajgrowicz & Scaillet：Technical Trading Revisited",
+      "url": "https://ideas.repec.org/a/eee/jfinec/v106y2012i3p473-491.html",
+      "body": "Pierre Bajgrowicz、Olivier Scaillet，Journal of Financial Economics 106(3)，2012，摘要。采用 1897—2011 年道琼斯工业指数日线、事前无法选出未来最佳规则、低交易成本即抵消样本内表现的结论。",
+      "version": "本篇核对日期：2026-10-12；采用期间见正文脚注",
+      "authors": [
+        "Pierre Bajgrowicz",
+        "Olivier Scaillet"
+      ]
+    },
+    {
+      "source_id": "nb-b05-bailey-1",
+      "title": "Bailey, Borwein, López de Prado & Zhu：Pseudo-Mathematics and Financial Charlatanism",
+      "url": "https://scholarworks.wmich.edu/math_pubs/40/",
+      "body": "David H. Bailey、Jonathan M. Borwein、Marcos López de Prado、Qiji Jim Zhu，Notices of the American Mathematical Society 61(5)，2014，摘要。采用尝试的策略组合越多、回测过拟合的可能越大的结论。",
+      "version": "本篇核对日期：2026-10-12；采用期间见正文脚注",
+      "authors": [
+        "David H. Bailey",
+        "Jonathan M. Borwein",
+        "Marcos López de Prado",
+        "Qiji Jim Zhu"
       ]
     }
   ],

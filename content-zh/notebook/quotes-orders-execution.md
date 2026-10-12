@@ -192,7 +192,7 @@ IVV 持有的股票并没有跌掉五分之一，这几分钟里卖出 IVV 的�
 
 <link rel="stylesheet" href="/notebook/trading.css?v=20261012-1">
 <script src="/notebook/trading.js?v=20260926-1" defer></script>
-<link rel="stylesheet" href="/notebook/flow-figures.css?v=20261012-5">
+<link rel="stylesheet" href="/notebook/flow-figures.css?v=20261012-6">
 
 [^aug24]: SEC Division of Trading and Markets 分析与研究办公室工作人员，[Research Note: Equity Market Volatility on August 24, 2015](https://www.sec.gov/marketstructure/research/equity_market_volatility.pdf)，2015 年 12 月，PDF 第 1、3–5 页摘要（SPY 开盘与最低价、SPY 净值、开盘成交量与报价深度、市价单在 NYSE Arca 重新开盘竞价中的占比）与第 16 页（IVV 最低价及 9:43 前后恢复）。研究说明只提供数据，不对当天波动的原因作出结论。
 [^quotes]: [Nasdaq：Why Real-Time Data Matters When Trading Stocks](https://www.nasdaq.com/articles/why-real-time-data-matters-when-trading-stocks)，2024-03-25，Last、Bid、Ask、Size 和 Trading Volume。正文数值盘口为独立构造的简化模型。

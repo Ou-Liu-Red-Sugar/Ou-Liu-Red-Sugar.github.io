@@ -1483,6 +1483,37 @@
 .ic-vwap-fig .pc-plot.ic-intra { height: 150px; margin: 8px 0 24px 34px; }
 .ic-vwap-fig .pc-note { font-size: 11.5px; }
 
+/* Keltner Channels and squeeze spans on an indicator chart. */
+.ind-chart svg .ic-kc { stroke: #b0703a; stroke-width: 1.3; stroke-dasharray: 5 3; }
+.ind-chart .ic-span.ic-sq { background: rgba(168, 116, 63, .14); }
+.ind-chart .pc-note.ic-sq-lab { transform: translateX(-50%); font-size: 11.5px; color: var(--ff-cash-text); }
+
+/* Rule-condition strip: one row per condition, dark where it holds at the close. */
+.ind-chart svg .ic-cond-bg { fill: #eef1ec; stroke: none; }
+.ind-chart svg .ic-cond-on { fill: rgba(35, 105, 90, .62); stroke: none; }
+.ind-chart .ic-cond-lab { position: absolute; left: -2px; transform: translate(-100%, -50%); font-size: 10.5px; line-height: 1; white-space: nowrap; color: var(--ff-muted); }
+
+/* Sells against buy-backs: a segment from each sell to the next purchase. */
+.sells svg .sb-path { stroke: #c3cbc2; stroke-width: 1.4; }
+.sells svg .sb-save { stroke: var(--ff-share); stroke-width: 2; }
+.sells svg .sb-cost { stroke: var(--ff-cash); stroke-width: 2; }
+.sells svg .sb-open { stroke-dasharray: 4 3; }
+.sells .sb-sell { width: 9px; height: 9px; margin: -4.5px 0 0 -4.5px; background: #fbfbf6; box-shadow: inset 0 0 0 2px #51665a; }
+
+/* Angle map: indicators placed by what they observe (rows) and over how long (columns). */
+.angle-map .am-grid { display: grid; grid-template-columns: 44px repeat(3, minmax(0, 1fr)); gap: 6px; }
+.angle-map .am-col { align-self: end; padding-bottom: 4px; border-bottom: 1px solid var(--ff-rule); font-size: 12px; font-weight: 650; text-align: center; color: var(--ff-ink); }
+.angle-map .am-row { align-self: center; font-size: 12px; font-weight: 650; color: var(--ff-muted); }
+.angle-map .am-cell { min-height: 54px; padding: 7px 8px; border: 1px solid var(--ff-rule); border-radius: 7px; background: var(--ff-card); }
+.angle-map .am-cell.am-empty { border-style: dashed; background: none; }
+.angle-map .am-cell.am-used { border-color: #b9cfc4; background: #f3f8f4; }
+.angle-map .am-cell b { display: flex; flex-wrap: wrap; align-items: center; gap: 3px; font-size: 12.5px; font-weight: 650; line-height: 1.3; color: var(--ff-ink); }
+.angle-map .am-cell small { display: block; margin-top: 3px; font-size: 11px; line-height: 1.4; color: var(--ff-muted); }
+.angle-map i, .ff-head i.am-in, .ff-head i.am-out { display: inline-block; padding: 0 4px; border-radius: 3px; font-style: normal; font-size: 10.5px; font-weight: 650; line-height: 1.5; color: #fff; }
+.angle-map .am-in { background: var(--ff-share); }
+.angle-map .am-out { background: var(--ff-cash); }
+.angle-map .ff-sub i { margin: 0 2px 0 8px; }
+
 /* Signal grid: what each indicator showed on each day of one price move. */
 .sig-grid-fig .sg-grid { display: grid; grid-template-columns: 56px repeat(5, minmax(0, 1fr)); gap: 6px 6px; align-items: center; }
 .sig-grid-fig .sg-date { display: flex; flex-direction: column; align-items: center; padding-bottom: 6px; border-bottom: 2px solid var(--ff-share-bg); font-size: 12px; line-height: 1.3; }
@@ -1516,6 +1547,7 @@
 .replay .rp-sub .pc-plot.ic-sub { margin-top: 6px; }
 .replay .rp-note { min-height: 3em; margin: 4px 0 0; padding: 8px 10px; border: 1px solid var(--ff-rule); border-radius: 8px; background: var(--ff-card); font-size: 12.5px; line-height: 1.6; }
 .replay .rp-note strong { color: var(--ff-ink); }
+.replay .pc-plot.ic-main + .rp-note { margin-top: 28px; }
 
 @media (max-width: 640px) {
   .ind-chart .pc-plot { margin-left: 30px; }
@@ -1534,6 +1566,12 @@
   .sig-grid-fig .sg-date small { font-size: 11px; }
   .ic-size .mc-name small { display: inline; margin-left: 6px; }
   .replay .rp-steps { gap: 4px; }
+  .angle-map .am-grid { grid-template-columns: 34px repeat(3, minmax(0, 1fr)); gap: 4px; }
+  .angle-map .am-cell { min-height: 48px; padding: 5px 5px; }
+  .angle-map .am-cell b { font-size: 11.5px; }
+  .angle-map .am-cell small { font-size: 10px; }
+  .angle-map .am-col, .angle-map .am-row { font-size: 11px; }
+  .ind-chart .ic-cond-lab { font-size: 9.5px; }
   .replay .rp-steps button { min-width: 0; padding: 3px 7px; }
 }
 @media (max-width: 420px) {
