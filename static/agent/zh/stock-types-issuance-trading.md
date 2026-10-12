@@ -376,8 +376,8 @@ RDDT 的首次公开发行同时用了这两种安排。首次公开发行通常
 
 回到直接持有的股份，公司还会通过分红、回购和增发改变每股能分到什么。下一篇[《股东回报：分红、回购与增发》](/zh/notebook/shareholder-returns-buybacks-issuance/)从 AAPL 的分红与回购讲起。
 
-<link rel="stylesheet" href="/notebook/flow-figures.css?v=20261012-4">
-<script src="/notebook/flow-figures.js?v=20261012-4" defer></script>
+<link rel="stylesheet" href="/notebook/flow-figures.css?v=20261012-5">
+<script src="/notebook/flow-figures.js?v=20261012-5" defer></script>
 
 [^stock-types]: [Investor.gov：Stocks](https://www.investor.gov/introduction-investing/investing-basics/investment-products/stocks)，What kinds of stocks are there? 及清算顺序说明。
 [^alphabet]: [Alphabet 2025 Form 10-K](https://www.sec.gov/Archives/edgar/data/1652044/000165204426000018/goog-20251231.htm)，Item 5、Note 11、Note 12；[股份权利说明](https://www.sec.gov/Archives/edgar/data/1652044/000165204423000016/googexhibit420q42022.htm)，Voting Rights、Liquidation Rights、Conversion。

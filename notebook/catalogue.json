@@ -2444,6 +2444,76 @@
       "authors": [
         "Chubb Limited"
       ]
+    },
+    {
+      "source_id": "nb-b05-spy-1",
+      "title": "State Street：SPDR S&P 500 ETF Trust（SPY）",
+      "url": "https://www.ssga.com/us/en/individual/etfs/state-street-spdr-sp-500-etf-trust-spy",
+      "body": "State Street：SPDR S&P 500 ETF Trust（SPY）基金页，Fund Objective：扣除费用前大致对应 S&P 500 指数的价格与收益表现。",
+      "version": "本篇核对日期：2026-10-12；采用期间见正文脚注",
+      "authors": [
+        "State Street"
+      ]
+    },
+    {
+      "source_id": "nb-b05-prices-1",
+      "title": "Yahoo Finance：SPY 历史行情",
+      "url": "https://finance.yahoo.com/quote/SPY/history/",
+      "body": "Yahoo Finance：SPY 2025-01-02 至 2026-10-09 日线 OHLCV，未按分红调整。2026-01-27、03-30、06-02、10-09 收盘分别为 695.49、631.97、759.57、778.57 美元，1 月 2 日开盘 685.71 美元。指标自 2025-01-02 起算，数列见数据表。",
+      "version": "本篇核对日期：2026-10-12；采用期间见正文脚注",
+      "authors": [
+        "Yahoo Finance"
+      ]
+    },
+    {
+      "source_id": "nb-b05-intraday-1",
+      "title": "Yahoo Finance：SPY 行情图表（五分钟）",
+      "url": "https://finance.yahoo.com/chart/SPY",
+      "body": "Yahoo Finance：SPY 2026-08-04 与 2026-09-23 常规交易时段五分钟 OHLCV，各 78 根，纽约时间。日内 VWAP 以典型价近似，数列见数据表。",
+      "version": "本篇核对日期：2026-10-12；采用期间见正文脚注",
+      "authors": [
+        "Yahoo Finance"
+      ]
+    },
+    {
+      "source_id": "nb-b05-bands-1",
+      "title": "Fidelity：Bollinger Bands",
+      "url": "https://www.fidelity.com/learning-center/trading-investing/technical-analysis/technical-indicator-guide/bollinger-bands",
+      "body": "Fidelity：Bollinger Bands，Description、How this indicator works、Calculation。采用 20 日简单均值加减 2 倍标准差、带宽收窄与扩大，以及强势趋势中价格贴着轨道运行的说明。",
+      "version": "本篇核对日期：2026-10-12；采用期间见正文脚注",
+      "authors": [
+        "Fidelity"
+      ]
+    },
+    {
+      "source_id": "nb-b05-kdj-1",
+      "title": "Moomoo：KDJ 随机指标",
+      "url": "https://www.moomoo.com/ca/hans/support/topic3_142",
+      "body": "Moomoo：KDJ 随机指标，简介与计算公式。采用 RSV、K、D、J 的计算，9 日参数，D 高于 80 为超买及高位死叉的读法。",
+      "version": "本篇核对日期：2026-10-12；采用期间见正文脚注",
+      "authors": [
+        "Moomoo"
+      ]
+    },
+    {
+      "source_id": "nb-b05-macd-1",
+      "title": "Fidelity：MACD",
+      "url": "https://www.fidelity.com/learning-center/trading-investing/technical-analysis/technical-indicator-guide/macd",
+      "body": "Fidelity：MACD，Description、How this indicator works、Calculation。采用 12 日与 26 日指数均线之差、9 日信号线、交叉读法，以及区间行情中的来回信号。",
+      "version": "本篇核对日期：2026-10-12；采用期间见正文脚注",
+      "authors": [
+        "Fidelity"
+      ]
+    },
+    {
+      "source_id": "nb-b05-vwap-1",
+      "title": "Charles Schwab：How to Use Volume-Weighted Indicators in Trading",
+      "url": "https://www.schwab.com/learn/story/how-to-use-volume-weighted-indicators-trading",
+      "body": "Charles Schwab：How to Use Volume-Weighted Indicators in Trading，2025-08-04。采用 VWAP 的定义与计算、开盘起算，以及机构交易员用它衡量大额订单平均成交价的说明。",
+      "version": "本篇核对日期：2026-10-12；采用期间见正文脚注",
+      "authors": [
+        "Charles Schwab"
+      ]
     }
   ],
   "paths": []

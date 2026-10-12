@@ -1438,6 +1438,108 @@
 .order-tree .ot-loss { background: var(--ff-cash-bg); }
 .order-tree .ot-loss strong { color: var(--ff-cash-text); }
 
+/* Indicator charts: a price panel with an indicator panel below on the same date axis. */
+.ind-chart { --ic-fast: #2f7d6a; --ic-slow: #b0703a; }
+.ind-chart .pc-plot { margin: 8px 0 22px 34px; }
+.ind-chart .pc-plot.ic-main { height: 200px; margin-bottom: 6px; }
+.ind-chart .pc-plot.ic-sub { height: 84px; margin-top: 6px; }
+.ind-chart svg .ic-band { fill: rgba(35, 105, 90, .09); stroke: none; }
+.ind-chart svg .ic-edge { stroke: #a9c2b6; stroke-width: 1; }
+.ind-chart svg .ic-mid { stroke: #6f8f80; stroke-width: 1.2; stroke-dasharray: 4 3; }
+.ind-chart svg .ic-fast { stroke: var(--ic-fast); stroke-width: 1.5; }
+.ind-chart svg .ic-slow { stroke: var(--ic-slow); stroke-width: 1.5; }
+.ind-chart svg .ic-thin { stroke-width: 1.5; }
+.ind-chart svg .ic-guide { stroke: #c9d2c8; stroke-width: 1; stroke-dasharray: 2 3; }
+.ind-chart svg .ic-zero { stroke: #9aa79c; stroke-width: 1; }
+.ind-chart svg .ic-bar-up { stroke: rgba(35, 105, 90, .45); stroke-width: 1.6; stroke-linecap: butt; }
+.ind-chart svg .ic-bar-down { stroke: rgba(168, 116, 63, .5); stroke-width: 1.6; stroke-linecap: butt; }
+.ind-chart svg .ic-bar-vol { stroke: #b7c4bb; stroke-width: 1.6; stroke-linecap: butt; }
+.ind-chart svg .ic-vwap { stroke: var(--ic-slow); stroke-width: 1.6; }
+.ind-chart svg .ic-fill-up { fill: rgba(35, 105, 90, .14); stroke: none; }
+.ind-chart svg .ic-fill-down { fill: rgba(168, 116, 63, .18); stroke: none; }
+.ind-chart .ic-tag { position: absolute; left: 4px; top: 2px; font-size: 11px; line-height: 1.3; color: var(--ff-muted); background: rgba(251, 251, 246, .85); padding: 0 3px; border-radius: 3px; }
+.ind-chart .ic-tag-low { top: auto; bottom: 2px; }
+.ind-chart .ic-tag-right { left: auto; right: 4px; }
+.ind-chart .ic-tag b { font-weight: 600; }
+.ind-chart .ic-c-fast { color: var(--ic-fast); }
+.ind-chart .ic-c-slow, .ind-chart .ic-c-vwap { color: var(--ic-slow); }
+.ind-chart .ic-box { position: absolute; border: 1px solid rgba(35, 105, 90, .45); border-radius: 2px; background: rgba(35, 105, 90, .07); }
+.ind-chart .ic-span { position: absolute; top: 0; bottom: 0; left: var(--from); width: var(--w); background: rgba(35, 105, 90, .08); }
+.ind-chart .ic-vline { position: absolute; top: 0; bottom: 0; border-left: 1px dashed #c3ccc2; }
+.ind-chart .ic-evt { font-size: 12px; }
+.ind-chart .pc-xlab.ic-xl-start { transform: none; }
+.ind-chart .pc-xlab.ic-xl-end { transform: translateX(-100%); }
+.ind-chart .ic-key { display: flex; flex-wrap: wrap; gap: 4px 14px; margin: 0 0 0 34px; font-size: 11.5px; color: var(--ff-muted); }
+.ind-chart .ic-k::before { content: ""; display: inline-block; width: 16px; height: 0; margin-right: 6px; vertical-align: middle; border-top: 2px solid var(--c); }
+.ind-chart .ic-k-dash::before { border-top-style: dashed; }
+.ind-chart .ic-k-area::before { height: 9px; border: 1px solid #a9c2b6; background: rgba(35, 105, 90, .09); }
+.ind-chart .ic-good { color: var(--ff-share); }
+.ind-chart .ic-bad { color: var(--ff-cash-text); }
+.ic-vwap-fig .ic-days { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 22px; }
+.ic-vwap-fig .ic-dhead { margin: 0 0 0 34px; font-size: 12.5px; line-height: 1.45; }
+.ic-vwap-fig .ic-dhead strong { color: var(--ff-ink); font-weight: 650; }
+.ic-vwap-fig .ic-dhead span { white-space: nowrap; }
+.ic-vwap-fig .ic-dhead b { display: block; font-weight: 600; font-size: 12px; }
+.ic-vwap-fig .pc-plot.ic-intra { height: 150px; margin: 8px 0 24px 34px; }
+.ic-vwap-fig .pc-note { font-size: 11.5px; }
+
+/* Signal grid: what each indicator showed on each day of one price move. */
+.sig-grid-fig .sg-grid { display: grid; grid-template-columns: 56px repeat(5, minmax(0, 1fr)); gap: 6px 6px; align-items: center; }
+.sig-grid-fig .sg-date { display: flex; flex-direction: column; align-items: center; padding-bottom: 6px; border-bottom: 2px solid var(--ff-share-bg); font-size: 12px; line-height: 1.3; }
+.sig-grid-fig .sg-date strong { color: var(--ff-ink); font-size: 13px; }
+.sig-grid-fig .sg-date small { font-size: 12px; color: var(--ff-text); }
+.sig-grid-fig .sg-date em { font-style: normal; font-size: 11px; }
+.sig-grid-fig .sg-name { font-size: 12px; font-weight: 600; color: var(--ff-ink); }
+.sig-grid-fig .sg-cell { min-height: 26px; display: flex; align-items: center; justify-content: center; border-radius: 4px; background: #f3f5ef; }
+.sig-grid-fig .sg-chip { padding: 2px 4px; font-style: normal; font-size: 11.5px; line-height: 1.25; text-align: center; color: var(--ff-share); }
+.sig-grid-fig .sg-chip.sg-warm { color: var(--ff-cash-text); }
+.sig-grid-fig .sg-cell:has(.sg-chip) { background: var(--ff-share-bg); }
+.sig-grid-fig .sg-cell:has(.sg-warm) { background: var(--ff-cash-bg); }
+.sig-grid-fig .ic-good { color: var(--ff-share); }
+.sig-grid-fig .ic-bad { color: var(--ff-cash-text); }
+.sig-grid-fig .pc-plot.ic-path { height: 150px; margin: 8px 0 26px 34px; }
+
+/* Position size chain: three values with the account share at the end. */
+.ic-size .mc-name small { display: block; font-size: 11px; font-weight: 500; color: var(--ff-muted); }
+
+/* Replay: trades over the price path, one trade at a time; the indicator panel below has its own switch. */
+.replay .rp-steps { margin: -4px 0 4px; }
+.replay .rp-steps button { min-width: 30px; }
+.replay .rp-span { background: rgba(168, 116, 63, .14); border-left: 1px solid rgba(168, 116, 63, .5); }
+.replay .rp-span.rp-win { background: rgba(35, 105, 90, .13); border-left-color: rgba(35, 105, 90, .5); }
+.replay .rp-dot { width: 8px; height: 8px; margin: -4px 0 0 -4px; }
+.replay .rp-tag { position: absolute; top: -2px; transform: translateX(-50%); font-size: 11px; font-weight: 650; color: var(--ff-muted); }
+.replay .is-ghost { opacity: .22; }
+.replay[data-ff-view="all"] .is-ghost { opacity: 1; }
+.replay .rp-sub { margin-top: 18px; }
+.replay .rp-subswitch button { padding: 1px 8px; font-size: 11.5px; }
+.replay .rp-sub .pc-plot.ic-sub { margin-top: 6px; }
+.replay .rp-note { min-height: 3em; margin: 4px 0 0; padding: 8px 10px; border: 1px solid var(--ff-rule); border-radius: 8px; background: var(--ff-card); font-size: 12.5px; line-height: 1.6; }
+.replay .rp-note strong { color: var(--ff-ink); }
+
+@media (max-width: 640px) {
+  .ind-chart .pc-plot { margin-left: 30px; }
+  .ind-chart .pc-plot.ic-main { height: 170px; }
+  .ind-chart .pc-plot.ic-sub { height: 72px; }
+  .ind-chart .ic-key { margin-left: 0; }
+  .ind-chart svg .ic-bar-up, .ind-chart svg .ic-bar-down, .ind-chart svg .ic-bar-vol { stroke-width: 1.1; }
+  .ic-vwap-fig .ic-days { grid-template-columns: minmax(0, 1fr); }
+  .ic-vwap-fig .ic-dhead { margin-left: 30px; }
+  .ic-vwap-fig .pc-plot.ic-intra { height: 112px; margin: 6px 0 24px 30px; }
+  .sig-grid-fig .sg-grid { grid-template-columns: 44px repeat(5, minmax(0, 1fr)); gap: 5px 4px; }
+  .sig-grid-fig .pc-plot.ic-path { height: 130px; margin-left: 30px; }
+  .sig-grid-fig .sg-name { font-size: 11px; }
+  .sig-grid-fig .sg-chip { padding: 2px 2px; font-size: 10.5px; }
+  .sig-grid-fig .sg-date strong { font-size: 12px; }
+  .sig-grid-fig .sg-date small { font-size: 11px; }
+  .ic-size .mc-name small { display: inline; margin-left: 6px; }
+  .replay .rp-steps { gap: 4px; }
+  .replay .rp-steps button { min-width: 0; padding: 3px 7px; }
+}
+@media (max-width: 420px) {
+  .ind-chart .ic-m-alt { display: none; }
+}
+
 /* Rolling results: one panel per holding period; purchase date across, result up, shaded band below zero. */
 .rolling .rl-head { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 2px 12px; margin: 12px 0 0 42px; font-size: 12.5px; }
 .rolling .rl-head strong { font-weight: 650; color: var(--ff-ink); }

@@ -1222,8 +1222,13 @@
       "node": "B",
       "title": "指标与趋势交易",
       "goal": "把量价观察写成明确的趋势判断、进出场与失效规则。",
-      "status": "planned",
-      "url": null
+      "status": "available",
+      "url": "/zh/notebook/indicators-trend-trading/",
+      "reading_profile": {
+        "difficulty": "进阶",
+        "depth": "详解",
+        "note": "需结合四种指标的计算、趋势与区间的区分、订单执行与仓位公式，并逐笔核对一段完整的规则回放。"
+      }
     },
     {
       "id": "NB-B06",
@@ -1539,7 +1544,7 @@
       "status": "planned",
       "url": null
     },
-    "available_count": 12,
+    "available_count": 13,
     "intro_available_count": 11,
     "navigation": {
       "NB-A01": {
@@ -1966,6 +1971,37 @@
           "url": null
         }
       },
+      "NB-B05": {
+        "current": {
+          "id": "NB-B05",
+          "number": 55,
+          "title": "指标与趋势交易",
+          "note": "按相应工具或判断问题选读。把量价观察写成明确的趋势判断、进出场与失效规则。",
+          "status": "available",
+          "url": "/zh/notebook/indicators-trend-trading/",
+          "reading_profile": {
+            "difficulty": "进阶",
+            "depth": "详解",
+            "note": "需结合四种指标的计算、趋势与区间的区分、订单执行与仓位公式，并逐笔核对一段完整的规则回放。"
+          }
+        },
+        "previous": {
+          "id": "NB-S05",
+          "number": 54,
+          "title": "选股、基金与业绩比较",
+          "note": "按相应工具或判断问题选读。比较选股、委托管理和指数投资的费用后结果及判断依据。",
+          "status": "planned",
+          "url": null
+        },
+        "next": {
+          "id": "NB-B06",
+          "number": 56,
+          "title": "量化交易",
+          "note": "按相应工具或判断问题选读。用历史数据、成本和样本外结果检验可重复执行的交易规则。",
+          "status": "planned",
+          "url": null
+        }
+      },
       "NB-B03": {
         "current": {
           "id": "NB-B03",
@@ -2064,7 +2100,7 @@
         "id": "optional_trading",
         "title": "按需专题：趋势规则与量化检验",
         "goal": "将已有量价观察转成规则，检验成本和样本外结果。",
-        "available_count": 0,
+        "available_count": 1,
         "total": 2
       },
       {

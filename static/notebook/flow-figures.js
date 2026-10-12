@@ -51,18 +51,24 @@
 
 // View switches: show one authored view at a time; every view stays in the page source.
 // Elements marked data-ff-series stay visible as outlines when their view is not selected.
+// A switch group may sit inside another; each group shows and hides only the elements nearest to it,
+// and outlines every series it offers a choice for, including copies inside a nested group.
 (() => {
   document.querySelectorAll('[data-ff-views]').forEach(figure => {
-    const buttons = figure.querySelectorAll('[data-ff-view-choice]');
+    const own = selector => [...figure.querySelectorAll(selector)].filter(el => el.closest('[data-ff-views]') === figure);
+    const buttons = own('[data-ff-view-choice]');
+    const choices = new Set(buttons.map(button => button.dataset.ffViewChoice));
+    const series = [...figure.querySelectorAll('[data-ff-series]')].filter(el => choices.has(el.dataset.ffSeries));
     const show = view => {
-      figure.querySelectorAll('[data-ff-only]').forEach(el => { el.hidden = el.dataset.ffOnly !== view; });
-      figure.querySelectorAll('[data-ff-series]').forEach(el => el.classList.toggle('is-ghost', el.dataset.ffSeries !== view));
+      own('[data-ff-only]').forEach(el => { el.hidden = el.dataset.ffOnly !== view; });
+      series.forEach(el => el.classList.toggle('is-ghost', el.dataset.ffSeries !== view));
       buttons.forEach(button => button.setAttribute('aria-pressed', String(button.dataset.ffViewChoice === view)));
+      figure.dataset.ffView = view;
     };
     buttons.forEach(button => button.addEventListener('click', () => show(button.dataset.ffViewChoice)));
-    const pressed = [...buttons].find(button => button.getAttribute('aria-pressed') === 'true');
+    const pressed = buttons.find(button => button.getAttribute('aria-pressed') === 'true');
     if (pressed) show(pressed.dataset.ffViewChoice);
-    figure.querySelector('.ff-switch')?.removeAttribute('hidden');
+    own('.ff-switch')[0]?.removeAttribute('hidden');
     figure.classList.add('is-switching');
   });
 })();

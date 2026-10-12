@@ -8,6 +8,7 @@
 
 - [复利、通胀与机会成本](https://ou-liu-red-sugar.github.io/llms/zh/notebook/compounding-inflation-opportunity-cost.md): 从 10,000 美元十年间持有 VOO 的名义金额与购买力出发，用复利、指数与对数、年化和物价换算理解持有回报，再与同期短债比较机会成本，并引入 Sharpe。
 - [客户、产品与收费方式](https://ou-liu-red-sugar.github.io/llms/zh/notebook/customers-products-pricing.md): 从客户付款和企业交付认清一门生意，选择行业继续拆解业务，再沿上下游、具体订单与企业研报核验需求。
+- [指标与趋势交易](https://ou-liu-red-sugar.github.io/llms/zh/notebook/indicators-trend-trading.md): 沿 SPY 在 2026 年的下跌、反弹与横盘，把布林带、KDJ、MACD 与 VWAP 读作对多数参与者处境的观察，再写成进场、失效、退出与仓位规则，逐笔回放一月到十月的结果。
 - [指数、基金与 ETF](https://ou-liu-red-sugar.github.io/llms/zh/notebook/indices-funds-etfs.md): 从 10,000 美元买入 VOO 出发，看这笔钱怎样按指数权重分到各家公司，再认识等权与再平衡、基金净值、ETF 的场内价格、主动与主题管理以及各项费用。
 - [投资期限与现金需要](https://ou-liu-red-sugar.github.io/llms/zh/notebook/investment-horizon-cash.md): 从用钱的时间出发，按用途给资金分层，用 VOO 在 2022 年的下跌比较预留现金、被迫卖出与借钱周转。
 - [Agent 时代的基本面投资](https://ou-liu-red-sugar.github.io/llms/zh/notebook/investment-returns.md): 从一则订单公告出发，看清业务、现金与每股所得、事件计价和 Agent 辅助研究，再回到资金安排与学习路线。
