@@ -177,5 +177,58 @@
     "years": 20,
     "formula": "principal * ((1 + gross_annual_return) * (1 - annual_fee)) ** years",
     "timing": "annual charge at each year end; no external flows or investor taxes"
+  },
+  "allocation_example": {
+    "identity": "Explicit 10,000 USD purchase of VOO converted at the 2026-06-30 holding weights; ignores fees, cash drag and bid-ask spread",
+    "principal": 10000,
+    "formula": "principal * weight_percent / 100",
+    "top_ten_usd": 3790,
+    "other_usd": 6210,
+    "top_ten": [
+      {
+        "ticker_label": "NVDA",
+        "usd": 750
+      },
+      {
+        "ticker_label": "AAPL",
+        "usd": 660
+      },
+      {
+        "ticker_label": "GOOGL + GOOG",
+        "usd": 580
+      },
+      {
+        "ticker_label": "MSFT",
+        "usd": 430
+      },
+      {
+        "ticker_label": "AMZN",
+        "usd": 360
+      },
+      {
+        "ticker_label": "AVGO",
+        "usd": 280
+      },
+      {
+        "ticker_label": "MU",
+        "usd": 200
+      },
+      {
+        "ticker_label": "META",
+        "usd": 190
+      },
+      {
+        "ticker_label": "TSLA",
+        "usd": 180
+      },
+      {
+        "ticker_label": "LLY",
+        "usd": 150
+      }
+    ],
+    "information_technology_in_top_ten_usd": 2320,
+    "information_technology_sector_usd": 3800,
+    "equal_weight_per_company_usd": 20,
+    "equal_weight_basis": "S&P 500 Equal Weight target of about 0.2 percent per company on the rebalance date"
   }
 }

@@ -520,7 +520,7 @@ This is reference material for the learner's current request. Use the supplied e
 
 ## Supplied entry
 <link rel="stylesheet" href="/notebook/intro-interactions.css">
-<link rel="stylesheet" href="/notebook/flow-figures.css?v=20261011-15">
+<link rel="stylesheet" href="/notebook/flow-figures.css?v=20261012-1">
 
 ## 从一则订单公告读起 {#nb-a01-order}
 
@@ -780,7 +780,7 @@ GEV 的设备需求来自客户的建设计划。一般来说，电厂采购新�
 研究企业之前，基础部分先弄清我们买到的是什么、持有时会遇到什么：一股代表公司的哪一部分，股份怎样发行和流通，公司又怎样通过分红、回购和增发改变每股所得；随后认识指数与基金、报价与成交，再看回报怎样随时间累积、资金什么时候要动用、亏损和波动怎样考验持有能力，最后把几项持仓放进同一个组合。保证金、对冲以及期权、期货等合约工具放在按需专题里，实际用到时再读。下一篇[《股票、公司与股价》](/zh/notebook/stocks-company-price/)从买入一股股票讲起，看持有人实际拥有什么，股价和市值又怎样与公司经营相连。
 
 <script type="module" src="/notebook/intro-interactions.js"></script>
-<script src="/notebook/flow-figures.js?v=20261011-15" defer></script>
+<script src="/notebook/flow-figures.js?v=20261012-1" defer></script>
 
 [^stocks]: [FINRA：Stocks](https://www.finra.org/investors/investing/investment-products/stocks)。
 [^gev-order]: [GE Vernova：2023年 EnBW 发电项目订单公告](https://www.gevernova.com/news/press-releases/ge-vernova-secures-two-h-class-combined-cycle-equipment-orders-hydrogen-capability)。

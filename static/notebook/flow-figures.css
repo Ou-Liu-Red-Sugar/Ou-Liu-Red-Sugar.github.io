@@ -1200,6 +1200,8 @@
 .mini-chain .mc-step.mc-loss { color: var(--ff-cash-text); }
 .mini-chain .mc-step::after { content: ""; position: absolute; left: 4px; right: 8px; bottom: 4px; height: 2px; background: currentColor; }
 .mini-chain .mc-step::before { content: ""; position: absolute; right: 2px; bottom: 0; border: 5px solid transparent; border-left: 7px solid currentColor; border-right: 0; }
+.mini-chain .mc-val { white-space: nowrap; }
+.mini-chain .mc-val small { display: block; font-size: 11px; font-weight: 500; line-height: 1.2; color: var(--ff-muted); }
 .mini-chain .mc-note { padding-left: 10px; font-size: 12px; line-height: 1.45; color: var(--ff-muted); }
 
 /* Log map: a product of growth factors above, the matching sum of log returns below. */
@@ -1387,6 +1389,31 @@
 .price-effect .pe-bar i.pe-down { right: 50%; border-radius: 4px 0 0 4px; background: var(--ff-cash); }
 .price-effect .pe-val { font-size: 13px; font-weight: 650; line-height: 1.2; text-align: right; color: var(--ff-ink); }
 .price-effect .pe-val small { display: block; font-size: 11px; font-weight: 400; color: var(--ff-muted); }
+
+/* Allocation: a sum split into two parts, with the first part opened into its components below. */
+.alloc .al-total { display: flex; height: 38px; border-radius: 6px; overflow: hidden; }
+.alloc .al-part { display: flex; flex-direction: column; justify-content: center; min-width: 0; padding: 0 10px; font-size: 11.5px; line-height: 1.25; white-space: nowrap; }
+.alloc .al-part strong { font-size: 13px; font-weight: 650; }
+.alloc .al-open { width: var(--w); flex: none; background: var(--ff-share); color: #fff; }
+.alloc .al-rest { flex: 1; background: #e6ebe3; color: var(--ff-text); }
+.alloc .al-rest strong { color: var(--ff-ink); }
+.alloc .al-zoom { height: 18px; margin-bottom: 8px; background: var(--ff-share-bg); clip-path: polygon(0 0, var(--w) 0, 100% 100%, 0 100%); }
+.alloc .ff-bars { grid-template-columns: 104px minmax(0, 1fr) 76px; gap: 5px 10px; }
+.alloc .ff-bars .fb-bar { height: 14px; }
+.alloc .ff-legend { flex-wrap: wrap; margin: 12px 0 0; }
+.alloc .ff-legend span::before { width: 10px; height: 10px; border-radius: 2px; background: var(--c); }
+
+/* Fund map: funds placed by how holdings are chosen (columns) and how wide the investment range is (rows). */
+.fund-map .fm-grid { display: grid; grid-template-columns: 64px repeat(2, minmax(0, 1fr)); gap: 8px; }
+.fund-map .fm-col { align-self: end; padding-bottom: 5px; border-bottom: 1px solid var(--ff-rule); font-size: 12.5px; font-weight: 650; line-height: 1.35; text-align: center; color: var(--ff-ink); }
+.fund-map .fm-col small { display: block; font-size: 11px; font-weight: 400; color: var(--ff-muted); }
+.fund-map .fm-row { align-self: center; font-size: 12px; font-weight: 600; line-height: 1.4; color: var(--ff-muted); }
+.fund-map .fm-cell { display: grid; align-content: start; gap: 7px; padding: 9px 10px; border: 1px solid var(--ff-rule); border-radius: 8px; background: var(--ff-card); }
+.fund-map .fm-fund { display: grid; grid-template-columns: 46px minmax(0, 1fr); gap: 0 8px; align-items: baseline; }
+.fund-map .fm-fund b { font-size: 13px; font-weight: 650; color: var(--ff-share); }
+.fund-map .fm-fund span { font-size: 11.5px; line-height: 1.45; color: var(--ff-text); }
+.fund-map .fm-empty { align-content: center; border-style: dashed; background: transparent; font-size: 11.5px; line-height: 1.45; text-align: center; color: var(--ff-muted); }
+
 
 @media (max-width: 640px) {
   .flow-figure { padding: 14px 12px 12px; margin: 22px 0 26px; }
@@ -1661,6 +1688,13 @@
   .flow-figure .cc-lane > .cc-total { grid-area: total; justify-self: start; }
   .flow-figure .cc-lane > .cc-eps::before { display: none; }
   .flow-figure .cc-return { grid-area: ret; }
+  .alloc .al-part { padding: 0 8px; font-size: 11px; }
+  .alloc .al-part strong { font-size: 12px; }
+  .alloc .ff-bars { grid-template-columns: 92px minmax(0, 1fr) 64px; gap: 4px 8px; }
+  .fund-map .fm-grid { grid-template-columns: 40px repeat(2, minmax(0, 1fr)); gap: 6px; }
+  .fund-map .fm-cell { padding: 7px 8px; gap: 6px; }
+  .fund-map .fm-fund { grid-template-columns: minmax(0, 1fr); }
+  .fund-map .fm-col, .fund-map .fm-row { font-size: 11.5px; }
 }
 @media print {
   .flow-figure .cc-control input, .flow-figure .cc-presets { display: none; }
