@@ -1,15 +1,15 @@
 # 复利、通胀与机会成本
 
-从企业与资金的复利累积出发，用指数、对数、购买力和现实替代理解持有回报，并引入 Sharpe 比较。
+从 10,000 美元十年间持有 VOO 的名义金额与购买力出发，用复利、指数与对数、年化和物价换算理解持有回报，再与同期短债比较机会成本，并引入 Sharpe。
 
-Entry: zh-compounding-inflation-opportunity-cost | Node: NB-A04 | Language: zh | Editorial revision: 2026-10-11
+Entry: zh-compounding-inflation-opportunity-cost | Node: NB-A04 | Language: zh | Editorial revision: 2026-10-12
 
 ## Reference use
 This is reference material for the learner's current request. Use the supplied entry to teach the selected concept. Retrieve the relevant original unit when explaining a claim that depends on its assumptions, figures or rules; the reading list is a map for that work, not a prerequisite to the first lesson. Keep facts, supplied examples and inference distinct. Editorial access dates describe the author's work. The empty runtime_reading_log is an optional record field, not a requested response. Author-supplied scope notes below constrain factual use of the material; the learner's request determines the teaching task and first response.
 
 ## Author-supplied scope notes (reference only)
 <author_scope_notes>
-按三个主节讲解：复利世界与回报累积、净所得与实际购买力、机会成本与风险补偿。先用Buffett与KO长期股东所得说明经营会随时间发展，再连续讲增长因子、连续复利exp、贴现作为相同计息过程的逆向换算、对数收益、短期一阶近似与年化；不要将企业案例插入exp和ln之间。VOO 2015年底至2025年底采用含分红调整的Yahoo AdjClose，作为税前分红再投资总回报的近似；不是逐笔按券商实际成交价重建的账户。仅价格变化终值约33548.92，分红留不计息现金总额36524.96，按除息日收盘价再投39721.41；图中原调整价口径终值39746.89，分红已经计入，不能另加一次。原分配再投资回报按Yahoo调整后收盘价计算，初始10000美元至约39746.89，年化约14.797%；同期间美国CPI-U未季调236.525至324.054，期末基期购买力约29011.01。2025年10月CPI缺报，数据保持空值，图以虚线连接相邻已知月份，不把缺失点写成实测值。复利互动固定连续复利率5%；费用示例采用毛年回报8%、每年末扣费0.25%或1%、20年。短债CUSIP912797FS1的2023-06-13拍卖价格95.015222/100，2023-06-15至2024-06-13，预算10000美元可持10500面值及23.40现金，到期10523.40；同期间VOO事后结果约12443.65。Sharpe采用1994原文假设基金X/Y，预期5%/8%、标准差10%/20%、同期无风险3%，比率0.20/0.25；不要称为实际基金历史排名或擅加自然年。标准Sharpe使用同频普通超额收益；指数、对数用于跨期累积。美联储长期2%目标对应总体PCE，政策细节链接《美联储与货币政策》。正文简明，精细口径用已有详细版。
+开篇以VOO十年10,000→39,747（×3.975）→÷CPI因子1.370→29,011美元购买力链为实例，承接V01/B02的10,000美元。按三个主节讲解：复利世界与回报累积、净所得与实际购买力、机会成本与风险补偿。复利一节先讲基数，再用Buffett与KO（年度股息1994年7,500万→2022年7.04亿，约9.4倍）说明企业内部的累积，再连续讲增长因子、连续复利exp、贴现作为相同计息过程的逆向换算、对数收益、短期一阶近似与年化；不要将企业案例插入exp和ln之间。VOO 2015年底至2025年底采用含分红调整的Yahoo AdjClose，作为税前分红再投资总回报的近似；不是逐笔按券商实际成交价重建的账户。仅价格变化终值约33548.92，分红留不计息现金总额36524.96，按除息日收盘价再投39721.41；图中原调整价口径终值39746.89，分红已经计入，不能另加一次。原分配再投资回报按Yahoo调整后收盘价计算，初始10000美元至约39746.89，年化约14.797%；同期间美国CPI-U未季调236.525至324.054，期末基期购买力约29011.01。2025年10月CPI缺报，数据保持空值，图以虚线连接相邻已知月份，不把缺失点写成实测值。复利互动固定连续复利率5%；费用示例采用毛年回报8%、每年末扣费0.25%或1%、20年。短债CUSIP912797FS1的2023-06-13拍卖价格95.015222/100，2023-06-15至2024-06-13，预算10000美元可持10500面值及23.40现金，到期10523.40；同期间VOO事后结果约12443.65。Sharpe采用1994原文假设基金X/Y，预期5%/8%、标准差10%/20%、同期无风险3%，比率0.20/0.25；不要称为实际基金历史排名或擅加自然年。标准Sharpe使用同频普通超额收益；指数、对数用于跨期累积。美联储长期2%目标对应总体PCE，政策细节链接《美联储与货币政策》。正文简明，精细口径用已有详细版。
 </author_scope_notes>
 
 ## Shared notation and writing conventions
@@ -283,17 +283,25 @@ This is reference material for the learner's current request. Use the supplied e
 ```
 
 ## Supplied entry
-我们生活在一个复利世界。留在账户里的利息会进入新的本金，企业的增长建立在已有的业务规模上，物价也在上一期的水平上继续变化。许多事情都是这样，一段时间的结果，又成了下一段时间的起点。
+假如[《指数、基金与 ETF》](/zh/notebook/indices-funds-etfs/)里那 10,000 美元在 2015 年底就买入了 Vanguard S&P 500 ETF（VOO），并把每次分红继续投入，到 2025 年底约为 39,747 美元。同期美国的物价也上涨了约 37%，按 2015 年底的物价衡量，这笔钱能买到的东西约相当于 29,011 美元。[^voo-data]<sup>，</sup>[^cpi]
 
-所以讨论一笔投资赚了多少，我们还得把时间放进去。同样的盈利，一年取得和多年以后才取得，会留下不同的再投资机会，也会经历不同程度的物价变化。接下来我们就沿着一笔钱的变化，看看怎样比较不同持有期限的回报。
+<figure class="flow-figure step-chain sc-3" id="nb-a04-real-chain">
+<div class="ff-head"><p class="ff-title">VOO 这笔投资的名义金额与购买力</p><span class="ff-sub">2015 年 12 月 → 2025 年 12 月</span></div>
+<div class="sc-track">
+<div class="sc-node"><strong>10,000 美元</strong><small>2015 年底投入</small></div>
+<div class="sc-link business-exchange" aria-label="按含分红再投资口径，十年增长到约 3.975 倍，期末约 39,747 美元。"><span>× 3.975</span><span>含分红的十年回报</span></div>
+<div class="sc-node"><strong>39,747 美元</strong><small>2025 年底的名义金额</small></div>
+<div class="sc-link business-exchange" aria-label="同期 CPI-U 从 236.525 上升到 324.054，物价因子约 1.370；39,747 美元除以 1.370，按起点物价约为 29,011 美元。"><span>÷ 1.370</span><span>CPI-U 物价因子</span></div>
+<div class="sc-node sc-focus"><strong>29,011 美元</strong><small>按 2015 年底物价衡量</small></div>
+</div>
+<figcaption>物价因子为 324.054 ÷ 236.525。名义金额增加约 297%，购买力增加约 190%。</figcaption>
+</figure>
+
+从 10,000 到 39,747，再到 29,011，用的是同一种计算：每一期的结果都成为下一期的起点。资金这样累积，企业的经营和物价也是这样累积的。
 
 ## 复利世界与回报的累积 {#nb-a04-compounding}
 
-先从企业本身看这种积累。当企业把赚到的钱继续投入仍有良好回报的业务，经营基础便能随着再投资扩大；客户、产品和竞争优势的积累，也可能让盈利与现金创造能力进一步改善。随着这些成果兑现，我们对未来每股所得的预期也可能随之上调。Buffett 在 1989 年股东信里表达了以合理价格买入优秀企业的偏好，并指出时间有利于优秀的企业。[^buffett-1989]
-
-一个具体的例子是 Berkshire Hathaway（BRK.A／BRK.B）长期持有 Coca-Cola（KO）。Buffett 在 2022 年股东信里回顾，Berkshire 从 KO 收到的年度现金股息，由 1994 年的 7,500 万美元增加到了 2022 年的 7.04 亿美元。同一笔长期持股，后来每年带来的现金已经更多了。[^buffett-2022]
-
-要把各期回报接成一段持有结果，我们还得看计算的基数怎样变化。100 美元上涨 10%，变成 110 美元；下一期再上涨 10%，增加的就是 11 美元，结果变成了 121 美元。两次都是 10%，第二次增加的金额却更多，因为它已经在上一次的结果上继续增长了。用 \(1+R\) 表示一期过后的资金倍数，这两期就是连续乘上两个 \(1.1\)。
+要把各期回报接成一段持有结果，先看计算的基数怎样变化。100 美元上涨 10%，变成 110 美元；下一期再上涨 10%，增加的就是 11 美元，结果变成了 121 美元。两次都是 10%，第二次增加的金额却更多，因为它已经在上一次的结果上继续增长了。用 \(1+R\) 表示一期过后的资金倍数，这两期就是连续乘上两个 \(1.1\)。
 
 <span data-text-versions id="nb-a04-text-1">把每一期留下的结果接续下去，就是复利关系。发生亏损时也同样按变化后的基数计算：先跌 20%，100 美元剩下 80 美元；再涨 20%，就只能回到 96 美元。分红取走还是继续投入，也会改变下一期可供投资的资金；相关现金安排可以结合[《股东回报：分红、回购与增发》](/zh/notebook/shareholder-returns-buybacks-issuance/)来理解<span data-text-detail>（以下跨期计算把现金分配计入再投资结果，期间没有额外存入或取出资金。一般形式为 \(V_n=V_0\prod_{t=1}^{n}(1+R_t)\)，其中 \(R_t\) 是第 \(t\) 期普通收益率；外部追加本金另行记录）</span>。<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>
 
@@ -302,6 +310,8 @@ This is reference material for the learner's current request. Use the supplied e
 <div class="mc-row business-exchange" aria-label="两次上涨 10%：100 乘以 1.1 得到 110，增加 10；110 再乘以 1.1 得到 121，增加 11。第二次增加得更多，因为基数已经变成 110。"><span class="mc-name">两次 +10%</span><span class="mc-val">100</span><span class="mc-step">× 1.1<small>+10</small></span><span class="mc-val">110</span><span class="mc-step">× 1.1<small>+11</small></span><span class="mc-val">121</span><span class="mc-note">第二次的基数已经是 110</span></div>
 <div class="mc-row business-exchange" aria-label="先跌 20% 再涨 20%：100 乘以 0.8 得到 80，减少 20；80 再乘以 1.2 得到 96，只增加 16，没有回到 100。"><span class="mc-name">−20% 再 +20%</span><span class="mc-val">100</span><span class="mc-step mc-loss">× 0.8<small>−20</small></span><span class="mc-val">80</span><span class="mc-step">× 1.2<small>+16</small></span><span class="mc-val">96</span><span class="mc-note">上涨按 80 计算，回不到 100</span></div>
 </figure>
+
+复利也发生在企业内部。企业把赚到的钱继续投入仍有良好回报的业务，经营基础便能随着再投资扩大；客户、产品和竞争优势的积累，也可能让盈利与现金创造能力进一步改善。Buffett 在 1989 年股东信里表达了以合理价格买入优秀企业的偏好，并指出时间有利于优秀的企业。[^buffett-1989] Berkshire Hathaway（BRK.A／BRK.B）长期持有 Coca-Cola（KO），Berkshire 从 KO 收到的年度现金股息，由 1994 年的 7,500 万美元增加到了 2022 年的 7.04 亿美元；同一笔持股，后来每年带来的现金约是当初的 9.4 倍。[^buffett-2022]
 
 这种基数的变化，也能帮助我们理解指数曲线。增长速度相对当时的资金规模保持不变时，每经过同样长的一段时间，金额就会再乘上同样的倍数。我们先用一个利息留在本金里的计息账户，把这条关系延伸到连续时间：在同一利率约定下，将计息间隔不断缩短，每一小段取得的利息随即进入下一小段的本金，便逐渐接近连续复利。将恒定的连续复利率记为 \(r\)，经过 \(t\) 年后的资金就可以写为：
 
@@ -356,9 +366,7 @@ R_{\text{年化}}
 
 也就是说，先把整段对数收益按年平均，再换回普通收益口径，我们便有了比较不同持有期限的一把尺子。同样累计上涨 20%，一年取得对应年化 20%，五年取得则只相当于年化约 3.7%。
 
-再把这种年化速度放回一项真实投资。Vanguard S&P 500 ETF（VOO）跟踪 S&P 500，持有人既会经历份额价格的变化，也会收到基金分红。这里采用税前、分红再投资的口径：分红继续参与投资，新取得的份额也会带来后续回报。按 2015 年底至 2025 年底的分红调整行情估算，初始 10,000 美元在期末约为 39,747 美元，十年的复合年化约为 14.8%。[^voo]<sup>，</sup>[^voo-data]
-
-这笔结果已经包括分红。如果只用起止价格计算，原来份额的期末市值约为 33,549 美元；分红及其继续参与投资的影响，则体现在含分红的回报里。在下图的“实际路径与年化”视图中，两条线采用相同的含分红口径，从同一个起点走到同一个终点，月末路径还显示了途中各月的涨跌。[^voo-adjustment]
+开头那笔 VOO 投资，十年增长到约 3.975 倍，代入上式，复合年化约为 14.8%。这里采用税前、分红再投资的口径：VOO 跟踪 S&P 500，持有人既会经历份额价格的变化，也会收到基金分红，分红继续参与投资，新取得的份额也会带来后续回报。[^voo]<sup>，</sup>[^voo-data] 如果只用起止价格计算，原来份额的期末市值约为 33,549 美元；分红及其继续参与投资的影响，则体现在含分红的回报里。在下图的“实际路径与年化”视图中，两条线采用相同的含分红口径，从同一个起点走到同一个终点，月末路径还显示了途中各月的涨跌。[^voo-adjustment]
 
 <figure class="comp-figure" id="nb-a04-history" data-growth-demo>
 <div class="comp-controls" aria-label="选择资金观察方式"><button type="button" data-growth-view="nominal" aria-pressed="true">实际路径与年化</button><button type="button" data-growth-view="real" aria-pressed="false">金额与购买力</button></div>
@@ -374,19 +382,7 @@ R_{\text{年化}}
 
 算清账户最终留下的金额以后，我们还得看看这些钱能够买到多少东西。物价也是在上一期的水平上继续变化：若账户金额上涨了 10%，同期物价上涨了 8%，原来需要 100 美元购买的东西，如今需要 108 美元；账户中的 110 美元就只能买到原来数量的约 1.0185 倍。名义金额增加了 10%，购买力实际只增加了约 1.85%。这里按物价换算的是能够购买的数量，前面的贴现则按利率将收款金额换到同一个时点。
 
-再看前面那笔 VOO 投资。2015 年 12 月至 2025 年 12 月，美国 CPI-U 累计上涨约 37%；期末的 39,747 美元，换成起点物价衡量，购买力约相当于 29,011 美元。把[上图切换到“金额与购买力”](#nb-a04-history)，就能沿着同一段持有过程，看见账户金额与实际购买力的差别。[^cpi]
-
-<figure class="flow-figure step-chain sc-3" id="nb-a04-real-chain">
-<div class="ff-head"><p class="ff-title">VOO 这笔投资的名义金额与购买力</p><span class="ff-sub">2015 年 12 月 → 2025 年 12 月</span></div>
-<div class="sc-track">
-<div class="sc-node"><strong>10,000 美元</strong><small>2015 年底投入</small></div>
-<div class="sc-link business-exchange" aria-label="按含分红再投资口径，十年增长到约 3.975 倍，期末约 39,747 美元。"><span>× 3.975</span><span>含分红的十年回报</span></div>
-<div class="sc-node"><strong>39,747 美元</strong><small>2025 年底的名义金额</small></div>
-<div class="sc-link business-exchange" aria-label="同期 CPI-U 从 236.525 上升到 324.054，物价因子约 1.370；39,747 美元除以 1.370，按起点物价约为 29,011 美元。"><span>÷ 1.370</span><span>CPI-U 物价因子</span></div>
-<div class="sc-node sc-focus"><strong>29,011 美元</strong><small>按 2015 年底物价衡量</small></div>
-</div>
-<figcaption>物价因子为 324.054 ÷ 236.525。名义金额增加约 297%，购买力增加约 190%。</figcaption>
-</figure>
+开头的 29,011 美元就是这样换算出来的：2015 年 12 月至 2025 年 12 月，美国 CPI-U 累计上涨约 37%，期末的 39,747 美元除以物价因子 1.370，便得到按起点物价衡量的购买力；十年下来，同样的金额少买了约 27% 的东西。把[上图切换到“金额与购买力”](#nb-a04-history)，还能沿着同一段持有过程，看见账户金额与实际购买力怎样逐月拉开。[^cpi]
 
 <span data-text-versions id="nb-a04-text-7">前面的对数在这里又能派上用场。名义资金的增长因子除以物价增长因子，就是购买力的增长因子；取对数以后，这个除法就变成了两项相减。财富与物价都在累积，我们便可以比较两者增长的速度<span data-text-detail>（普通实际回报为 \((1+R)/(1+\pi)-1\)，对数口径则为 \(\ln(1+R)-\ln(1+\pi)\)。常用的 \(R-\pi\) 是小变幅近似。图中采用美国 CPI-U 全项目、未季调月指数，序列 CUUR0000SA0，基期与终期分别为 236.525、324.054；换算的是美元对应的美国消费购买力。实际消费币种和消费结构不同，比较时需相应调整）</span>。[^cpi]<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>
 
@@ -421,12 +417,7 @@ R_{\text{年化}}
 =\frac{\text{平均超额收益}}{\text{超额收益的标准差}}.
 \]
 
-回看历史时，我们用实际数据计算这两个量；比较未来时，也可以采用明确的预期与假设。William F. Sharpe 在介绍这一比率的文章里，给过一个简单对照。设同一期间的无风险收益率为 3%，两只基金的预期收益与波动如下：[^sharpe]
-
-| 原文中的假设基金 | 预期收益率 | 收益标准差 | 预期超额收益 | Sharpe |
-|---|---:|---:|---:|---:|
-| X | 5% | 10% | 2% | 0.20 |
-| Y | 8% | 20% | 5% | 0.25 |
+回看历史时，我们用实际数据计算这两个量；比较未来时，也可以采用明确的预期与假设。William F. Sharpe 在介绍这一比率的文章里，给过一个简单对照：设同一期间的无风险收益率为 3%，基金 X 的预期收益率为 5%、收益标准差为 10%，基金 Y 分别为 8% 和 20%。X 的 Sharpe 为 \((5\%-3\%)/10\%=0.20\)，Y 为 \((8\%-3\%)/20\%=0.25\)。[^sharpe]
 
 Y 的波动是 X 的两倍，预期超额收益却是 X 的 2.5 倍，因此每单位波动对应的额外收益更高。把一半资金放在 Y、一半放在无风险资产里，组合的标准差便降到 10%，和 X 相同，预期收益却为 5.5%。有了无风险资产参与组合，我们就能把两项选择调整到相同的波动水平，再比较预期收益。
 
@@ -456,7 +447,7 @@ Y 的波动是 X 的两倍，预期超额收益却是 X 的 2.5 倍，因此每�
 其中资金的取用时间，决定了一笔钱能投入多久、期间要不要准备付款。下一篇[《投资期限与现金需要》](/zh/notebook/investment-horizon-cash/)就从资金用途和付款时间讲起。
 
 <link rel="stylesheet" href="/notebook/compounding.css?v=20260926">
-<script src="/notebook/compounding.js?v=20260926-4" defer></script>
+<script src="/notebook/compounding.js?v=20261012-1" defer></script>
 <link rel="stylesheet" href="/notebook/flow-figures.css?v=20261012-2">
 
 [^buffett-1989]: Warren Buffett，[Berkshire Hathaway 1989 年股东信](https://www.berkshirehathaway.com/letters/1989.html)，Mistakes of the First Twenty-five Years：优秀企业、合理价格与时间的关系。

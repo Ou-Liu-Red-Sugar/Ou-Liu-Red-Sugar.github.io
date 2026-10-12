@@ -47,7 +47,7 @@
     figure.querySelectorAll('[data-growth-view]').forEach((button) => {
       button.addEventListener('click', () => show(button.dataset.growthView));
     });
-    document.querySelectorAll('a[href="#nb-a04-history"]').forEach((link) => {
+    document.querySelectorAll('a[href$="#nb-a04-history"]').forEach((link) => {
       link.addEventListener('click', () => show('real'));
     });
   });
