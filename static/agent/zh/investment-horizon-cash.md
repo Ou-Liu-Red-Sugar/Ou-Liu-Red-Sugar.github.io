@@ -2,14 +2,14 @@
 
 从用钱的时间出发，按用途给资金分层，用 VOO 在 2022 年的下跌比较预留现金、被迫卖出与借钱周转。
 
-Entry: zh-investment-horizon-cash | Node: NB-A02 | Language: zh | Editorial revision: 2026-10-11
+Entry: zh-investment-horizon-cash | Node: NB-A02 | Language: zh | Editorial revision: 2026-10-12
 
 ## Reference use
 This is reference material for the learner's current request. Use the supplied entry to teach the selected concept. Retrieve the relevant original unit when explaining a claim that depends on its assumptions, figures or rules; the reading list is a map for that work, not a prerequisite to the first lesson. Keep facts, supplied examples and inference distinct. Editorial access dates describe the author's work. The empty runtime_reading_log is an optional record field, not a requested response. Author-supplied scope notes below constrain factual use of the material; the learner's request determines the teaching task and first response.
 
 ## Author-supplied scope notes (reference only)
 <author_scope_notes>
-本篇用简明版建立用钱时间与投资期限的关系，详细版保留计算口径。VOO 数据采用 Yahoo Finance 调整后收盘价（含分红与拆股调整），样本 2015-12-31 至 2025-12-31，属事后数据，不作预测。主要数字：2021-12-31 至 2022-12-30 含分红约 −18.2%，10,000 美元约剩 8,183；一年持有期约 14% 亏损、最差约 −19.7%（2021-12-28 至 2022-12-28）；2020-02-19 至 03-23 约 −34%，8 月恢复；2022-01-03 高点至 10-12 低点约 −24.5%，2023-12-13 恢复；五年期在样本内全部上涨，不能推广为保证。被迫卖出比较：全部买入并在 2022 年底卖出 2,000 美元，2025 年底约 11,500；预留 2,000 现金、8,000 买入，约 12,177。借款周转为教学设定：8% 年利率，2023-12-29 还 2,160，剩约 8,177，2025 年底约 12,040；若价格停在 2022 年底水平，还款后约 6,023，比直接卖出少约 160。现金工具、债券和期权的细节分别属于按需专题；保证金约束在《亏损、波动与持有能力》继续展开。不给出具体配置比例或投资建议。
+本篇用简明版建立用钱时间与投资期限的关系，详细版保留计算口径。VOO 数据采用 Yahoo Finance 调整后收盘价（含分红与拆股调整），样本 2015-12-31 至 2025-12-31，属事后数据，不作预测。主要数字：2021-12-31 至 2022-12-30 含分红约 −18.2%，10,000 美元约剩 8,183；一年持有期约 14% 亏损（2,266 个起点中 318 个）、最差约 −20.3%（2019-03-21 至 2020-03-23，起点加一年落在周末，取其后首个交易日，即 2020 年 3 月低点）；2020-02-19 至 03-23 约 −34%，8 月恢复；2022-01-03 高点至 10-12 低点约 −24.5%，2023-12-13 恢复；五年期在样本内全部上涨，不能推广为保证。被迫卖出比较：全部买入并在 2022 年底卖出 2,000 美元，2025 年底约 11,500；预留 2,000 现金、8,000 买入，约 12,177。借款周转为教学设定：8% 年利率，2023-12-29 还 2,160，剩约 8,177，2025 年底约 12,040；若价格停在 2022 年底水平，还款后约 6,023，比直接卖出少约 160。现金工具、债券和期权的细节分别属于按需专题；保证金约束在《亏损、波动与持有能力》继续展开。不给出具体配置比例或投资建议。
 </author_scope_notes>
 
 ## Shared notation and writing conventions
@@ -128,7 +128,7 @@ This is reference material for the learner's current request. Use the supplied e
 
 一般来说，我们可以先按用钱的时间和确定程度，把手里的钱分成几层。第一层是**近期支出**，日期和金额已经比较清楚，比如几个月后的学费、房租或税款；第二层是**备用金**，用于失业、医疗、维修这类难以预料、却可能随时发生的开支；第三层是**长期资金**，要到多年以后才会用到。三层钱关心的问题各不相同：近期支出要看到期能否按时足额拿到，备用金要看能否随时取用、金额会不会大起大落，长期资金才主要比较回报，也更能承受途中的下跌。
 
-那么长期要有多长？我们还是用 VOO 的数据看一看。在 2016 年初到 2025 年底这十年里，任选一个交易日买入、持有一年，约有 14% 的情形以亏损结束，最差的一次从 2019 年 3 月 21 日买入、2020 年 3 月 23 日卖出，正好卖在新冠疫情冲击下的低点，含分红亏损约 20%。下跌也可能来得很快：2020 年 2 月 19 日到 3 月 23 日，VOO 在一个多月里下跌了约 34%，到当年 8 月才回到原来的水平；2022 年则从 1 月 3 日的高点跌到 10 月 12 日，跌幅约 25%，直到 2023 年 12 月 13 日才回到年初的高点，前后将近两年。[^voo-data]
+长期要有多长，可以先拿 VOO 的数据作参照。在 2016 年初到 2025 年底这十年里，任选一个交易日买入、持有一年，约有 14% 的情形以亏损结束，最差的一次从 2019 年 3 月 21 日买入、2020 年 3 月 23 日卖出，正好卖在新冠疫情冲击下的低点，含分红亏损约 20%。下跌也可能来得很快：2020 年 2 月 19 日到 3 月 23 日，VOO 在一个多月里下跌了约 34%，到当年 8 月才回到原来的水平；2022 年则从 1 月 3 日的高点跌到 10 月 12 日，跌幅约 25%，直到 2023 年 12 月 13 日才回到年初的高点，前后将近两年。[^voo-data]
 
 <figure class="flow-figure path-chart" id="nb-a02-drawdowns">
 <div class="ff-head"><p class="ff-title">VOO 的两次下跌与恢复</p><span class="ff-sub">调整后收盘价，美元，每周取最后一个交易日</span></div>
