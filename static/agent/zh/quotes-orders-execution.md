@@ -348,20 +348,25 @@ IVV 持有的股票并没有跌掉五分之一，这几分钟里卖出 IVV 的�
 
 买入、止盈和止损也可以在下单时一并安排。<strong>括号单（Bracket）</strong>把开仓单与后续的止盈、止损安排放在一起；开仓成交后，才启用相应数量的退出订单。两笔退出单通常采用 **OCO（One Cancels the Other）** 关联，一笔成交后，系统便按规则取消另一笔。Schwab 的 thinkorswim 就提供这类订单组合。[^linked]
 
-<figure class="trade-figure" id="nb-b02-bracket">
-<div class="trade-heading"><span class="trade-kicker">Bracket · 一组持仓的开仓与退出安排</span><h3>开仓与退出的先后</h3></div>
-<div class="trade-bracket-entry"><span>① 开仓阶段</span><strong>100 美元限价买入</strong><span>此时两张退出单尚未启用</span></div>
-<div class="trade-activation">开仓单全部成交后，进入持仓阶段</div>
-<div class="trade-pair trade-exits">
-<div class="trade-card"><span class="trade-card-label">② 同时启用 · 止盈</span><strong>110 美元限价卖出</strong><p>等待买价达到 110 美元或更高。</p></div>
-<div class="trade-card"><span class="trade-card-label">② 同时启用 · 止损</span><strong>95 美元触发市价卖出</strong><p>触发后按当时买价成交。</p></div>
+<figure class="flow-figure order-tree" id="nb-b02-bracket">
+<div class="ff-head"><p class="ff-title">开仓与退出的先后</p><span class="ff-sub">括号单 · 两张退出单以 OCO 关联</span></div>
+<div class="ot-tree business-exchange" aria-label="括号单示意：开仓单为 100 美元限价买入。开仓单未成交时，两张退出单不会送出。开仓单全部成交后，持有仓位，同时启用两张以 OCO 关联的退出单：若价格先涨到 110 美元，110 美元的止盈限价卖单成交，每股至少盈利 10 美元，止损单随之取消；若价格先跌到 95 美元，止损单触发后按市价卖出，每股约亏损 5 美元，跳价时亏得更多，止盈单随之取消。">
+<div class="ot-top">
+<div class="ot-node ot-root"><span class="ot-tag">开仓单</span><strong>100 美元限价买入</strong></div>
+<div class="ot-side"><span class="ot-side-link">未成交</span><div class="ot-node ot-muted"><strong>退出单不送出</strong><small>尚无持仓</small></div></div>
 </div>
-<p class="trade-oco"><strong>OCO</strong>：一张退出单全部成交，另一张随之取消。</p>
-<figcaption>两张退出单服务于同一笔持仓；本图按全部成交示意先后关系。</figcaption>
+<div class="ot-stem"><span>全部成交</span></div>
+<div class="ot-node ot-hold"><span class="ot-tag">持仓</span><strong>同时启用两张退出单</strong><small>两张以 OCO 关联</small></div>
+<div class="ot-fork"></div>
+<div class="ot-branches">
+<div class="ot-branch"><div class="ot-cond">价格先涨到 110</div><div class="ot-node"><span class="ot-tag">止盈</span><strong>110 美元限价卖出</strong></div><div class="ot-result ot-gain"><strong>每股至少 +10 美元</strong><small>止损单随之取消</small></div></div>
+<div class="ot-branch"><div class="ot-cond ot-cash">价格先跌到 95</div><div class="ot-node"><span class="ot-tag ot-cash">止损</span><strong>触发后按市价卖出</strong></div><div class="ot-result ot-loss"><strong>每股约 −5 美元</strong><small>跳价时亏得更多；止盈单随之取消</small></div></div>
+</div>
+</div>
+<figcaption>按开仓单和先成交的退出单都全部成交示意，不计费用。</figcaption>
 </figure>
-<!-- /B02:bracket -->
 
-<span data-text-versions id="nb-b02-text-5">图中，100 美元的买入订单成交以后，110 美元的止盈卖单与 95 美元的止损单才开始生效。前者若先完成卖出，后者就不再需要；反过来也一样。这里，括号单描述开仓与退出的先后关系，OCO 描述两笔订单之间的相互取消关系<span data-text-detail>（示意按开仓全部成交后启用退出单、一笔退出单全部成交后取消另一笔处理。部分成交后的数量调整、撤单传播和平台是否提供成交保护，需要依所用券商规则确认；独立提交两张卖单并不会自动形成 OCO）</span>。<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>
+<span data-text-versions id="nb-b02-text-5">树的主干是括号单安排的先后：开仓成交，退出单才启用；两条分支之间是 OCO 的相互取消：一张成交，另一张随之取消<span data-text-detail>（示意按开仓全部成交后启用退出单、一笔退出单全部成交后取消另一笔处理。部分成交后的数量调整、撤单传播和平台是否提供成交保护，需要依所用券商规则确认；独立提交两张卖单并不会自动形成 OCO）</span>。<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>
 
 无论采用哪种安排，提交订单以后，还要看它执行到了哪一步。价格触及限价时，同价可能已有别人的订单排在前面，也可能只有一小部分数量成交；发出撤单请求之后，原订单在确认撤销以前也仍可能成交。因此，我们要从成交回报中确认买卖了多少、分别以什么价格成交，再查看剩余数量是继续挂着，还是已经取消。
 
@@ -409,7 +414,7 @@ IVV 持有的股票并没有跌掉五分之一，这几分钟里卖出 IVV 的�
 
 有了实际成交的价格、成本和到账时间，讨论回报才有可靠的起点。下一篇[《复利、通胀与机会成本》](/zh/notebook/compounding-inflation-opportunity-cost/)接着看回报怎样随时间累积，又要扣掉哪些购买力的损失。
 
-<link rel="stylesheet" href="/notebook/trading.css?v=20261011-1">
+<link rel="stylesheet" href="/notebook/trading.css?v=20261012-1">
 <script src="/notebook/trading.js?v=20260926-1" defer></script>
 <link rel="stylesheet" href="/notebook/flow-figures.css?v=20261012-1">
 

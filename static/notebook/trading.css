@@ -76,14 +76,6 @@
 .trade-figure .trade-card-label { color: var(--trade-muted); font-size: 11px; }
 .trade-card.trade-execution { border-top: 3px solid var(--trade-buy); }
 .trade-card.trade-waiting { border-top: 3px solid var(--trade-sell); }
-.trade-bracket-entry { width: min(100%, 330px); margin: 0 auto; padding: 15px; border: 1px solid var(--trade-buy); border-radius: 5px; text-align: center; background: var(--trade-buy-tint); }
-.trade-bracket-entry strong { display: block; font-size: 18px; }
-.trade-bracket-entry span { color: var(--trade-muted); font-size: 12px; }
-.trade-activation { display: flex; align-items: center; justify-content: center; gap: 9px; margin: 13px 0; font-size: 12px; }
-.trade-activation::before { content: "↓"; color: var(--trade-buy); font-size: 20px; }
-.trade-exits { position: relative; padding-top: 15px; border-top: 1px solid var(--trade-line); }
-.trade-exits::before { content: ""; position: absolute; left: 50%; top: -14px; height: 14px; border-left: 1px solid var(--trade-line); }
-.trade-oco { margin-top: 13px !important; padding: 9px 12px; text-align: center; color: var(--trade-buy); background: var(--trade-buy-tint); font-size: 12px; }
 .trade-hedge-market { margin-bottom: 14px !important; padding-bottom: 12px; border-bottom: 1px solid var(--trade-line); font-weight: 650; font-size: 15px; }
 .trade-direction { display: flex; align-items: center; gap: 12px; margin: 8px 0 10px; }
 .trade-direction b { font-size: 33px; line-height: 1; font-weight: 500; color: var(--trade-buy); }
