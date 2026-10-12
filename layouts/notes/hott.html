@@ -1,0 +1,25 @@
+{{ define "main" }}
+<link rel="stylesheet" href="/notes/hott-intro/note.css">
+<script defer src="/notes/hott-intro/note.js"></script>
+<article class="hott-article" data-hott-article>
+  <header class="hott-header">
+    <a class="hott-back" href="/zh/notes/">数学笔记与讲义</a>
+    <p class="hott-kicker">同伦与范畴 · 第一篇</p>
+    <h1>{{ .Title }}</h1>
+    <div class="hott-actions">
+      <button type="button" data-hott-detail-toggle aria-pressed="false">显示详细补充</button>
+      <button type="button" data-hott-copy>复制本文与教学 Prompt</button>
+      <button type="button" data-hott-print>打印</button>
+    </div>
+    <p class="hott-action-status" role="status" data-hott-status></p>
+  </header>
+  <details class="hott-mobile-toc"><summary>本文目录</summary>{{ replace .TableOfContents "id=\"TableOfContents\"" "id=\"hott-mobile-contents\"" | safeHTML }}</details>
+  <div class="hott-layout">
+    <aside class="hott-toc" aria-label="本篇目录">{{ .TableOfContents }}</aside>
+    <div class="post-content hott-prose">{{ .Content }}</div>
+  </div>
+  <textarea data-hott-full-text hidden>请以《{{ .Title }}》的下列完整文本为依据，帮助我理解当前提出的问题。先根据我的问题判断需要解释哪一段；如果缺少必要信息，只问一个简短问题。沿本文的例子、定义和推导展开，保留“单叶性”“静止类型”“生象”等术语。必要时提出一道能检验当前理解的小题，根据我的回答继续讲解。区分路径、路径之间的同伦、函数的相等、类型宇宙中的路径，以及基底内的路径；互动状态只用于定位例子，不作为证明。不要一次重讲整篇。正文如下：
+
+{{ .RawContent }}</textarea>
+</article>
+{{ end }}

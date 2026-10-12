@@ -1,0 +1,22 @@
+# Contact details shown on the homepage and the about page.
+contacts:
+  - id: email
+    icon: mail
+    label: { zh: 邮件, en: Email }
+    value: ouliuredsugar@gmail.com
+    url: mailto:ouliuredsugar@gmail.com
+  - id: orcid
+    icon: globe
+    label: { zh: ORCID, en: ORCID }
+    value: 0009-0006-5593-4339
+    url: https://orcid.org/0009-0006-5593-4339
+  - id: bananaspace
+    icon: pen
+    label: { zh: 香蕉空间, en: Banana Space }
+    value: 遗忘的左伴随
+    url: https://www.bananaspace.org/wiki/%E7%94%A8%E6%88%B7:%E9%81%97%E5%BF%98%E7%9A%84%E5%B7%A6%E4%BC%B4%E9%9A%8F
+  - id: github
+    icon: arrow-up-right
+    label: { zh: GitHub, en: GitHub }
+    value: Ou-Liu-Red-Sugar
+    url: https://github.com/Ou-Liu-Red-Sugar

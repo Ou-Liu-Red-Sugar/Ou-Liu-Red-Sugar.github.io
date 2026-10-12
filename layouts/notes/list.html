@@ -1,26 +1,40 @@
 {{- define "main" -}}
 {{- $zh := eq .Lang "zh" -}}
 {{- $root := eq .RelPermalink (printf "/%s/notes/" .Lang) -}}
-<article class="ou-section-landing ou-section--notes">
-  <header class="ou-section-head">
-    <div class="ou-section-eyebrow">{{ if $zh }}中文 · 笔记与讲义{{ else }}English · notes &amp; lecture notes{{ end }}</div>
+{{- $pdfs := sort (where .Site.Data.notes_pdfs "lang" .Lang) "weight" -}}
+{{- $online := where .Site.RegularPages "Section" "notes" -}}
+<article class="section-page notes-page">
+  <header class="page-head">
+    <p class="kicker">{{ if $zh }}中文 · 讲义与讲稿{{ else }}English · lecture and seminar notes{{ end }}</p>
     <h1>{{ .Title }}</h1>
-    {{ with .Params.description }}<p class="ou-section-desc">{{ . | markdownify }}</p>{{ end }}
-  </header>
-  {{ if $root }}
-  {{ with where .Site.Data.notes_pdfs "lang" .Lang }}
-  <h2>{{ if $zh }}PDF 笔记与讲义{{ else }}PDF notes &amp; lectures{{ end }}</h2>
-  <ul class="ou-notes-pdfs">
-    {{ range sort . "weight" }}
-    <li>
-      <div class="row"><p class="t">{{ .title }}</p><span class="meta">PDF{{ with .language }} · {{ . }}{{ end }}{{ with .pages }} · {{ . }} {{ if $zh }}页{{ else }}pages{{ end }}{{ end }}{{ with .updated }} · {{ if $zh }}版本{{ else }}version{{ end }} {{ . }}{{ end }}{{ if .wip }} · {{ if $zh }}整理中{{ else }}draft{{ end }}{{ end }}</span></div>
-      <p class="d">{{ .description }}{{ with .seminar }} {{ if $zh }}课程来源：{{ else }}Based on {{ end }}<a href="{{ .url }}" rel="noopener">{{ .name }}</a>.{{ end }}</p>
-      <p class="l"><a href="{{ .pdf }}" target="_blank" rel="noopener">{{ if $zh }}在线阅读{{ else }}Read PDF{{ end }} ↗</a><a href="{{ .pdf }}" download>{{ if $zh }}下载 PDF{{ else }}Download PDF{{ end }} ↓</a>{{ with .online_ref }}{{ with site.GetPage . }}<a href="{{ .RelPermalink }}">{{ if $zh }}讲义介绍{{ else }}Online version{{ end }} →</a>{{ end }}{{ end }}</p>
-    </li>
+    {{ with .Params.description }}<p class="page-deck">{{ . | markdownify }}</p>{{ end }}
+    {{ if $root }}
+    {{ $latest := "" }}{{ range $pdfs }}{{ with .updated }}{{ if gt . $latest }}{{ $latest = . }}{{ end }}{{ end }}{{ end }}
+    <dl class="page-facts">
+      <div><dt>{{ if $zh }}PDF 讲义{{ else }}PDF notes{{ end }}</dt><dd>{{ len $pdfs }}<small>{{ if $zh }}份{{ end }}</small></dd></div>
+      {{ with $online }}<div><dt>{{ if $zh }}在线页面{{ else }}Online notes{{ end }}</dt><dd>{{ len . }}<small>{{ if $zh }}篇{{ end }}</small></dd></div>{{ end }}
+      {{ with $latest }}<div><dt>{{ if $zh }}最近更新{{ else }}Last updated{{ end }}</dt><dd class="is-text">{{ . }}</dd></div>{{ end }}
+    </dl>
     {{ end }}
-  </ul>
-  {{ end }}
-  {{ end }}
-  {{ with .Content }}<div class="post-content">{{ . }}</div>{{ end }}
+  </header>
+  {{ if $root }}{{ with $pdfs }}
+  <section aria-labelledby="notes-pdfs-title">
+    <h2 class="section-label" id="notes-pdfs-title">{{ if $zh }}PDF 讲义与讲稿{{ else }}PDF notes &amp; talks{{ end }}</h2>
+    <ol class="lecture-list">
+      {{ range $i, $pdf := . }}
+      <li class="lecture tone-{{ mod $i 4 }}">
+        <a class="lecture-cover" href="{{ .pdf }}" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"><span>{{ if $zh }}讲义 · PDF{{ else }}PDF{{ end }}</span><strong>{{ .title }}</strong></a>
+        <div>
+          <p class="lecture-meta"><span>PDF</span>{{ with .language }}<span>{{ . }}</span>{{ end }}{{ with .pages }}<span>{{ . }} {{ if $zh }}页{{ else }}pages{{ end }}</span>{{ end }}{{ with .updated }}<span>{{ if $zh }}版本{{ else }}version{{ end }} {{ . }}</span>{{ end }}{{ if .wip }}<span class="lecture-badge">{{ if $zh }}整理中{{ else }}draft{{ end }}</span>{{ end }}</p>
+          <h3><a href="{{ .pdf }}" target="_blank" rel="noopener">{{ .title }}</a></h3>
+          <p class="lecture-desc">{{ .description }}{{ with .seminar }} {{ if $zh }}课程来源：{{ else }}Based on {{ end }}<a href="{{ .url }}" rel="noopener">{{ .name }}</a>.{{ end }}</p>
+          <p class="lecture-links"><a href="{{ .pdf }}" target="_blank" rel="noopener">{{ if $zh }}在线阅读{{ else }}Read PDF{{ end }} {{ partial "notebook/icon.html" (dict "name" "arrow-up-right") }}</a><a href="{{ .pdf }}" download>{{ partial "notebook/icon.html" (dict "name" "download") }}{{ if $zh }}下载 PDF{{ else }}Download PDF{{ end }}</a>{{ with .online_ref }}{{ with site.GetPage . }}<a href="{{ .RelPermalink }}">{{ if $zh }}讲义介绍{{ else }}Online version{{ end }} {{ partial "notebook/icon.html" (dict "name" "arrow-right") }}</a>{{ end }}{{ end }}</p>
+        </div>
+      </li>
+      {{ end }}
+    </ol>
+  </section>
+  {{ end }}{{ end }}
+  {{ with .Content }}<div class="post-content section-content">{{ . }}</div>{{ end }}
 </article>
 {{- end -}}

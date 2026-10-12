@@ -1,0 +1,68 @@
+{{ $zh := .zh }}
+{{ $map := site.Data.notebook_map }}{{ $route := $map.reading_route }}
+{{ with $route }}
+{{ $done := where .steps "status" "available" }}
+{{ $first := index .steps 0 }}
+<section class="home-notebook" id="investment-notebook" aria-labelledby="home-notebook-title">
+  <div class="home-wrap">
+    <div class="hn-head">
+      <div class="hn-intro">
+        <p class="kicker">{{ if $zh }}投资学笔记{{ else }}Investment notebook · in Chinese{{ end }}</p>
+        <h2 id="home-notebook-title" lang="zh">Agent 时代的基本面投资</h2>
+        <p class="hn-lead">{{ if $zh }}{{ $map.description }}{{ else }}A Chinese notebook that starts from what money is for, shares and trading, moves on to how companies earn money and how financial statements record it, and ends with researching companies and allocating capital alongside an Agent.{{ end }}</p>
+        <div class="hn-actions">
+          <a class="btn btn-light" href="/zh/notebook/">{{ if $zh }}笔记首页{{ else }}Open the notebook{{ end }} {{ partial "notebook/icon.html" (dict "name" "arrow-right") }}</a>
+          {{ with $first }}<a class="btn btn-night" href="{{ .url }}">{{ if $zh }}从第一篇开始{{ else }}Start with article 1{{ end }}</a>{{ end }}
+          <a class="btn btn-night hn-continue" href="{{ $first.url }}" data-continue-reading hidden><small>{{ if $zh }}继续阅读{{ else }}Continue{{ end }}</small><span data-continue-title></span></a>
+        </div>
+      </div>
+      <dl class="hn-stats" aria-label="{{ if $zh }}写作进度{{ else }}Writing progress{{ end }}">
+        <div><dt>{{ if $zh }}已完成{{ else }}Published{{ end }}</dt><dd>{{ .available_count }}<small>{{ if $zh }} 篇{{ end }}</small></dd></div>
+        <div><dt>{{ if $zh }}规划{{ else }}Planned{{ end }}</dt><dd>{{ len $map.entries }}<small>{{ if $zh }} 篇{{ end }}</small></dd></div>
+        {{ with .next }}<div class="hn-next"><dt>{{ if $zh }}下一篇{{ else }}Next{{ end }}</dt><dd lang="zh">{{ .title }}</dd></div>{{ end }}
+      </dl>
+    </div>
+
+    <ol class="hn-stages" aria-label="{{ if $zh }}主线五个阶段{{ else }}Five stages of the main route{{ end }}">
+      {{ $n := 0 }}{{ $active := false }}
+      {{ range .phases }}{{ if not (hasPrefix .id "optional_") }}{{ $n = add $n 1 }}
+      {{ $pct := 0 }}{{ if gt .total 0 }}{{ $pct = div (mul .available_count 100) .total }}{{ end }}
+      {{ $state := "todo" }}{{ if and (gt .total 0) (eq .available_count .total) }}{{ $state = "done" }}{{ else if not $active }}{{ $state = "active" }}{{ $active = true }}{{ end }}
+      <li data-state="{{ $state }}">
+        <a href="/zh/notebook/reading-route/#phase-{{ .id }}">
+          <span class="hn-stage-num">{{ printf "%02d" $n }}</span>
+          <strong lang="zh">{{ .title }}</strong>
+          <span class="hn-stage-bar" aria-hidden="true"><i style="width:{{ $pct }}%"></i></span>
+          <small>{{ .available_count }} / {{ .total }}{{ if $zh }} 篇{{ end }}{{ if eq $state "done" }}{{ if $zh }} · 已完成{{ else }} · complete{{ end }}{{ else if eq $state "active" }}{{ if $zh }} · 进行中{{ else }} · in progress{{ end }}{{ end }}</small>
+        </a>
+      </li>
+      {{ end }}{{ end }}
+    </ol>
+
+    <div class="hn-latest">
+      <h3>{{ if $zh }}最近完成{{ else }}Latest articles{{ end }}</h3>
+      <ol class="hn-cards">
+        {{ range collections.Reverse (last 3 $done) }}
+        <li class="hn-card" data-article="{{ .id }}">
+          <a href="{{ .url }}">
+            <span class="hn-card-top"><span class="hn-card-num">{{ printf "%02d" (int .number) }}</span>{{ with .reading_profile }}<span class="hn-card-tag" lang="zh">{{ .difficulty }} · {{ .depth }}</span>{{ end }}<span class="nb-card-read" hidden>{{ if $zh }}已读{{ else }}Read{{ end }}</span></span>
+            <strong lang="zh">{{ .title }}</strong>
+            <span class="hn-card-note" lang="zh">{{ .note }}</span>
+          </a>
+        </li>
+        {{ end }}
+        {{ with .next }}
+        <li class="hn-card is-upcoming">
+          <div>
+            <span class="hn-card-top"><span class="hn-card-num">{{ printf "%02d" (int .number) }}</span><span class="hn-card-tag">{{ if $zh }}接下来 · 规划中{{ else }}Up next · planned{{ end }}</span></span>
+            <strong lang="zh">{{ .title }}</strong>
+            <span class="hn-card-note" lang="zh">{{ .note }}</span>
+          </div>
+        </li>
+        {{ end }}
+      </ol>
+    </div>
+    <div class="hn-credit" lang="zh">{{ partial "notebook/reading-route-credit.html" . }}</div>
+  </div>
+</section>
+{{ end }}

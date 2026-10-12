@@ -78,7 +78,7 @@ languages:
     weight: 1
     title: 刘欧 · 笔记
     params:
-      description: 刘欧的个人笔记：数学讲义与讨论班笔记、投资学笔记和 Blog。
+      description: 刘欧的个人主页：数学讲义与讨论班讲稿、和 Agent 逐篇写作的投资学笔记，以及写作与研究方法的 Blog.
   en:
     languageCode: en-US
     languageName: English
@@ -86,7 +86,7 @@ languages:
     weight: 2
     title: Ou Liu · Notes
     params:
-      description: "Ou Liu's personal notes: mathematics lecture and seminar notes, plus an investment notebook and a blog in Chinese."
+      description: Ou Liu's personal site, with lecture and seminar notes in mathematics, an investment notebook written with Agents, and a blog on writing and research methods.
 disableKinds: []
 module:
   mounts:
