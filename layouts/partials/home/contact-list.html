@@ -1,0 +1,6 @@
+{{ $zh := .zh }}
+<ul class="contact-list">
+  {{ range site.Data.profile.contacts }}
+  <li><a href="{{ .url }}"{{ if not (hasPrefix .url "mailto:") }} rel="noopener"{{ end }}>{{ partial "notebook/icon.html" (dict "name" .icon) }}<span><small>{{ if $zh }}{{ .label.zh }}{{ else }}{{ .label.en }}{{ end }}</small>{{ .value }}</span></a></li>
+  {{ end }}
+</ul>

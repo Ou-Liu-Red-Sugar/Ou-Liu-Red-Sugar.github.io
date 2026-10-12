@@ -1,8 +1,9 @@
 ---
 aliases: ["/about/"]
 title: "About"
-description: "A little about me and how the investment notebook is written."
+description: "Ou Liu's background, how the investment notebook is written, and how to get in touch."
 translationKey: "about"
+layout: about
 draft: false
 math: false
 ShowToc: false
@@ -10,28 +11,25 @@ ShowReadingTime: false
 ShowPostNavLinks: false
 ShowBreadCrumbs: false
 hideAuthor: true
+focus: ["Fundamental investing", "Family asset management", "Algebraic geometry & homotopy theory", "Writing with Agents"]
+timeline:
+  - when: "2025–2026"
+    what: "Master of Mathematics"
+    where: "University of Regensburg"
+    note: "Withdrew in June 2026"
+  - when: "2021–2025"
+    what: "BSc, Mathematics and Applied Mathematics"
+    where: "Shanxi University"
 ---
 
-I'm Ou Liu (刘欧). I currently spend most of my time on personal investing and managing family assets, with a focus on fundamental analysis.
+I'm Ou Liu (刘欧). I now work mainly on personal investing and managing family assets, with a focus on fundamental analysis.
 
-From 2021 to 2025, I studied Mathematics and Applied Mathematics at Shanxi University and earned my bachelor's degree. In 2025, I enrolled in the Master of Mathematics programme at the University of Regensburg. I withdrew in June 2026 because of severe difficulty adapting to the local climate and depression.
+My training is in mathematics. After a bachelor's degree in Mathematics and Applied Mathematics at Shanxi University, I enrolled in the Master of Mathematics programme at the University of Regensburg and withdrew in June 2026 for health reasons. During my year in Regensburg I wrote lecture and seminar notes for courses and seminars on algebraic geometry, motivic cohomology and related topics; afterwards I prepared Chinese notes on algebraic geometry, spectra, category theory and stochastic processes. All of them are collected under [Mathematics](/en/notes/).
 
-## How the investment notebook is written
+## The investment notebook
 
-I write this part of the site with ChatGPT and Codex. I set the topics, structure and writing requirements, and give feedback on drafts. ChatGPT does most of the drafting after reading the source material and planning the entries; a separate conversation handles review. Codex brings the material together, checks citations and calculations, and builds the pages, interactive figures and Agent editions.
+The notebook is written in Chinese and follows stocks and fundamental analysis as its main thread. It starts from what money is for, shares and trading, moves on to how companies earn money and how financial statements record their operations, and ends with researching companies and allocating capital alongside an Agent. Analysis starts from the business model: how a company earns revenue, which resources it needs, how competition and industry changes affect its operations, and how earnings and cash are generated. Different operating scenarios are then compared through what they imply for common shareholders and Risk-Reward. Contracts, financing, trading costs and execution are part of the analysis too.
 
-The work starts with reading. Each topic draws on textbooks, public lecture notes and research papers, alongside original material such as financial statements, contract specifications and exchange rules. Relevant sections are read and an outline agreed before drafting begins. References appear where they are used. Company cases, data and rules that change over time include the period covered and the research date.
+Agents write the articles one at a time; the models used are credited at the foot of the [notebook home page](/zh/notebook/). I set the topics, outline and writing requirements, take part in discussing the content and give feedback on drafts. Each article begins with gathering material and deciding why the topic matters and how it should unfold. That plan is then refined into paragraphs, transitions and punctuation, and detailed research, data checks and derivations follow once the first draft has taken shape. Language review and subject review are done separately, and the language reviewer makes the final edit. The method is described in [Agent 中文写作技巧](/zh/blog/agent-chinese-writing/) (in Chinese).
 
-Entries are organised by topic. Each of the five subjects has its own reading path, and company material has a separate index. The intended reader has the mathematical background of a senior undergraduate or graduate student. A typical learning entry is designed for 10–20 minutes of reading and exercises: first introduce the object and its structure, then work through concrete material. For a balance sheet, that means introducing its main sections before letting the reader choose an industry and read an actual company's accounts. For financial instruments, it also means explaining the reasons behind the terms and funding arrangements.
-
-Investment analysis starts with the business model: how a company earns revenue, which resources it needs, how competition and industry changes affect its operations, and how earnings and cash are generated. Different operating scenarios are then compared through what they imply for common shareholders and Risk-Reward. Contracts, financing, trading costs and execution are part of the analysis too.
-
-HTML makes room for things that are awkward on paper: references can open alongside the text, cases can be switched, and figures can respond to changes in their inputs. Learning entries also include a teaching prompt and an Agent edition containing the text, references, descriptions of figures and exercises. The prompt asks the Agent to read the specified sources before explaining the material.
-
-Comments and section discussions feed into later revisions. If a calculation is wrong, a reference doesn't fit, or a paragraph is hard to follow, please point it out. Additional sources and different views are welcome too. Updates involve returning to the relevant material and revising the text and its accompanying resources.
-
-## Contact
-
-- Gmail: [ouliuredsugar@gmail.com](mailto:ouliuredsugar@gmail.com)
-- Banana Space: [遗忘的左伴随](https://www.bananaspace.org/wiki/%E7%94%A8%E6%88%B7:%E9%81%97%E5%BF%98%E7%9A%84%E5%B7%A6%E4%BC%B4%E9%9A%8F)
-- ORCID: [0009-0006-5593-4339](https://orcid.org/0009-0006-5593-4339)
+Comments and section discussions feed into later revisions. If a calculation is wrong, a reference doesn't fit, or a paragraph is hard to follow, please point it out; additional sources and different views are welcome too. Revisions go back to the relevant material before the text and its accompanying resources are changed.

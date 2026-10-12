@@ -3,8 +3,8 @@
 {{ with $page.Site.Data.notebook_map.reading_route }}
 {{ $route := . }}
 {{ with index .navigation ($.entry.node_id | default "") }}
-  {{ if eq $.position "top" }}
   <link rel="stylesheet" href="{{ partial "notebook/asset.html" "/notebook/reading-route.css" }}">
+  {{ if eq $.position "top" }}
   <div class="route-position" data-route-current="{{ .current.id }}">
     <a href="/zh/notebook/reading-route/">阅读路线 <span aria-hidden="true">↗</span></a>
     <span aria-current="step">第 {{ .current.number }} 篇 · 现有正文 {{ $route.available_count }} 篇</span>

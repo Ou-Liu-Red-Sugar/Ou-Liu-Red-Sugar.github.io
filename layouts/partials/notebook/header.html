@@ -1,7 +1,7 @@
 {{ $zh := eq .Lang "zh" }}
 {{ $isAbout := eq .RelPermalink (printf "/%s/about/" .Lang) }}
 <header class="masthead">
-  <a class="masthead-brand" href="/{{ .Lang }}/" aria-label="Ou Liu · 刘欧 — {{ if $zh }}首页{{ else }}Home{{ end }}"><img src="/notebook/brand/mark.svg" width="42" height="42" alt=""><span>Ou Liu<small>刘欧 · {{ if $zh }}个人笔记{{ else }}Notes{{ end }}</small></span></a>
+  <a class="masthead-brand" href="/{{ .Lang }}/" aria-label="{{ if $zh }}刘欧 Ou Liu — 首页{{ else }}Ou Liu 刘欧 — Home{{ end }}"><img src="{{ partial "notebook/asset.html" "/notebook/brand/mark.svg" }}" width="40" height="40" alt=""><span>{{ if $zh }}<strong>刘欧</strong><small>Ou Liu · 笔记</small>{{ else }}<strong>Ou Liu</strong><small>刘欧 · Notes</small>{{ end }}</span></a>
   <nav class="masthead-nav" aria-label="{{ if $zh }}主导航{{ else }}Main navigation{{ end }}">
     <a href="/{{ .Lang }}/notes/" {{ if eq .Section "notes" }}aria-current="true"{{ end }}>{{ if $zh }}数学笔记{{ else }}Mathematics{{ end }}</a>
     <a href="/{{ .Lang }}/notebook/" {{ if eq .Section "notebook" }}aria-current="true"{{ end }}>{{ if $zh }}投资学笔记{{ else }}Investing{{ end }}</a>
@@ -15,6 +15,6 @@
     {{ if eq .Section "notebook" }}{{ $link = printf "/%s/notebook/" $other }}{{ end }}
     {{ if $isAbout }}{{ $link = printf "/%s/about/" $other }}{{ end }}
     {{ with .Params.notebookid }}{{ range where site.Data.notebook.entries "id" . }}{{ with .translation_url }}{{ $link = . }}{{ end }}{{ end }}{{ end }}
-    <a class="masthead-language" href="{{ $link }}" lang="{{ $other }}" aria-label="{{ if $zh }}English version{{ else }}中文版{{ end }}" title="{{ if $zh }}切换到英文；无译文时进入英文目录{{ else }}Switch to Chinese; unpaired entries lead to the Chinese index{{ end }}">{{ if $zh }}EN{{ else }}中{{ end }}{{ partial "notebook/icon.html" (dict "name" "arrow-up-right") }}</a>
+    <a class="masthead-language" href="{{ $link }}" lang="{{ $other }}" aria-label="{{ if $zh }}English version{{ else }}中文版{{ end }}" title="{{ if $zh }}切换到英文；无译文时进入英文目录{{ else }}Switch to Chinese; unpaired entries lead to the Chinese index{{ end }}">{{ if $zh }}EN{{ else }}中{{ end }}</a>
   </div>
 </header>

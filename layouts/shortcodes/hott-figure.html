@@ -1,0 +1,42 @@
+{{ $kind := .Get "kind" }}
+<figure class="hott-figure" id="hott-{{ $kind }}" data-hott-figure="{{ $kind }}">
+  {{ if eq $kind "matchings" }}
+  <div class="hott-matching-grid">
+    <svg viewBox="0 0 280 170" role="img" aria-label="对应 f 把 L 送到 0，把 R 送到 1。">
+      <defs><marker id="hott-match-f-arrow" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto"><path d="M1 1L7 4L1 7" fill="none" stroke="var(--hott-blue)" stroke-width="1.4"/></marker></defs>
+      <text x="140" y="20" text-anchor="middle">对应 f</text>
+      <text x="62" y="51" text-anchor="middle" class="quiet math">A</text><text x="218" y="51" text-anchor="middle" class="quiet math">B</text>
+      <g fill="none" stroke="var(--hott-blue)" stroke-width="1.8" marker-end="url(#hott-match-f-arrow)"><path d="M85 82H193"/><path d="M85 135H193"/></g>
+      <g fill="var(--hott-ink)"><circle cx="62" cy="82" r="3"/><circle cx="62" cy="135" r="3"/><circle cx="218" cy="82" r="3"/><circle cx="218" cy="135" r="3"/></g>
+      <text x="45" y="87" text-anchor="end" class="math">L</text><text x="45" y="140" text-anchor="end" class="math">R</text><text x="234" y="87" class="math">0</text><text x="234" y="140" class="math">1</text>
+    </svg>
+    <svg viewBox="0 0 280 170" role="img" aria-label="对应 g 把 L 送到 1，把 R 送到 0。">
+      <defs><marker id="hott-match-g-arrow" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto"><path d="M1 1L7 4L1 7" fill="none" stroke="var(--hott-blue)" stroke-width="1.4"/></marker></defs>
+      <text x="140" y="20" text-anchor="middle">对应 g</text>
+      <text x="62" y="51" text-anchor="middle" class="quiet math">A</text><text x="218" y="51" text-anchor="middle" class="quiet math">B</text>
+      <g fill="none" stroke="var(--hott-blue)" stroke-width="1.8" marker-end="url(#hott-match-g-arrow)"><path d="M85 82L193 135"/><path d="M85 135L193 82"/></g>
+      <g fill="var(--hott-ink)"><circle cx="62" cy="82" r="3"/><circle cx="62" cy="135" r="3"/><circle cx="218" cy="82" r="3"/><circle cx="218" cy="135" r="3"/></g>
+      <text x="45" y="87" text-anchor="end" class="math">L</text><text x="45" y="140" text-anchor="end" class="math">R</text><text x="234" y="87" class="math">0</text><text x="234" y="140" class="math">1</text>
+    </svg>
+  </div>
+  {{ else if eq $kind "roots" }}
+  <div class="hott-figure-top"><strong>圆周与平方根</strong></div>
+  <svg role="img" aria-label="左图是平方后的点 z，右图蓝点是从 1 出发连续跟踪的平方根 w，灰点是另一个根。两图均标出 1、i、−1、−i。平方使转角翻倍，因此 z 绕行一圈回到 1 时，跟踪的根只转半圈，到达 −1。"></svg>
+  <div class="hott-root-stops" role="group" aria-label="选择绕行位置">
+    <button type="button" data-root-turns="0" aria-pressed="true">起点<span>0°</span></button>
+    <button type="button" data-root-turns="0.5" aria-pressed="false">z 走半圈<span>180°</span></button>
+    <button type="button" data-root-turns="1" aria-pressed="false">z 走一圈<span>360°</span></button>
+    <button type="button" data-root-turns="2" aria-pressed="false">z 走两圈<span>720°</span></button>
+  </div>
+  <p class="hott-root-result" data-root-result role="status">z = 1，w = 1</p>
+  <figcaption>蓝点：所跟踪的根。灰点：另一个根。</figcaption>
+  {{ else if eq $kind "paths" }}
+  <div class="hott-figure-top"><strong>路径与同伦</strong><span>固定端点 a、b</span></div>
+  <svg role="img" aria-label="左侧参数 s 改变整条路径，参数 t 沿当前路径移动；右侧显示平面中的路径族，端点 a 与 b 始终不变。"></svg>
+  <div class="hott-slider-pair">
+    <label class="hott-slider">s · 在路径之间变形 <output data-path-s-value>0.25</output><input data-path-s type="range" min="0" max="1" step="0.01" value="0.25" aria-label="同伦参数 s"></label>
+    <label class="hott-slider">t · 沿当前路径移动 <output data-path-t-value>0.40</output><input data-path-t type="range" min="0" max="1" step="0.01" value="0.4" aria-label="路径参数 t"></label>
+  </div>
+  <figcaption>固定 s 得到一条路径；改变 s 时，整条路径在保持端点的条件下连续变形。</figcaption>
+  {{ end }}
+</figure>

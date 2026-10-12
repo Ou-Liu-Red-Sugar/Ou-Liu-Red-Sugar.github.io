@@ -1,0 +1,34 @@
+{{- define "main" -}}
+{{- $zh := eq .Lang "zh" -}}
+<article class="about-page">
+  <header class="about-head">
+    <div>
+      <p class="kicker">{{ if $zh }}关于{{ else }}About{{ end }}</p>
+      <h1>{{ if $zh }}刘欧<span lang="en">Ou Liu</span>{{ else }}Ou Liu<span lang="zh">刘欧</span>{{ end }}</h1>
+      {{ with .Params.focus }}<ul class="about-focus" aria-label="{{ if $zh }}关注方向{{ else }}Focus{{ end }}">{{ range . }}<li>{{ . }}</li>{{ end }}</ul>{{ end }}
+    </div>
+    <img class="about-seal" src="{{ partial "notebook/asset.html" "/notebook/brand/mark.svg" }}" width="112" height="112" alt="">
+  </header>
+  <div class="about-grid">
+    <div class="about-body post-content">{{ .Content }}</div>
+    <aside class="about-aside">
+      {{ with .Params.timeline }}
+      <section class="about-card" aria-labelledby="about-timeline">
+        <h2 id="about-timeline">{{ if $zh }}经历{{ else }}Education{{ end }}</h2>
+        <ol class="timeline">{{ range . }}<li><time>{{ .when }}</time><strong>{{ .what }}</strong><span>{{ .where }}</span>{{ with .note }}<small>{{ . }}</small>{{ end }}</li>{{ end }}</ol>
+      </section>
+      {{ end }}
+      <section class="about-card" aria-labelledby="about-contact">
+        <h2 id="about-contact">{{ if $zh }}联系{{ else }}Contact{{ end }}</h2>
+        {{ partial "home/contact-list.html" (dict "zh" $zh) }}
+      </section>
+      {{ with site.Data.publications.publications }}
+      <section class="about-card" aria-labelledby="about-papers">
+        <h2 id="about-papers">{{ if $zh }}论文{{ else }}Publications{{ end }}</h2>
+        {{ range . }}<p class="publication">{{ .authors | markdownify }}{{ $url := "" }}{{ range first 1 .links }}{{ $url = .url }}{{ end }}<a href="{{ $url }}" rel="noopener" lang="en">{{ .title }}</a><span lang="en"><em>{{ .venue }}</em>{{ with .volume }} {{ . }}{{ end }} · {{ .year }}</span></p>{{ end }}
+      </section>
+      {{ end }}
+    </aside>
+  </div>
+</article>
+{{- end -}}

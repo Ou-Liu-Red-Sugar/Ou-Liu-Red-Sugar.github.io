@@ -22,7 +22,7 @@
   {{ end }}
   <details class="route-phases">
     <summary>后续学习阶段</summary>
-    <ol>{{ range .phases }}<li><h3>{{ .title }}</h3><p>{{ .goal }}</p><span>{{ .available_count }} / {{ .total }} 篇可读</span></li>{{ end }}</ol>
+    <ol>{{ range .phases }}<li id="phase-{{ .id }}"><h3>{{ .title }}</h3><p>{{ .goal }}</p><span>{{ .available_count }} / {{ .total }} 篇可读</span></li>{{ end }}</ol>
   </details>
   {{ partial "notebook/reading-route-credit.html" . }}
 </section>

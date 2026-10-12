@@ -1,0 +1,40 @@
+{{ $zh := .zh }}{{ $lang := cond $zh "zh" "en" }}
+{{ $pdfs := sort (where site.Data.notes_pdfs "lang" $lang) "weight" }}
+{{ $others := where site.Data.notes_pdfs "lang" (cond $zh "en" "zh") }}
+{{ $online := where site.RegularPages "Section" "notes" }}
+<section class="home-section home-math" id="mathematics" aria-labelledby="home-math-title">
+  <div class="home-wrap">
+    <header class="home-head">
+      <div>
+        <p class="kicker">{{ if $zh }}数学笔记与讲义{{ else }}Mathematics{{ end }}</p>
+        <h2 id="home-math-title">{{ if $zh }}讲义与讨论班讲稿{{ else }}Lecture and seminar notes{{ end }}</h2>
+      </div>
+      <p>{{ if $zh }}代数几何、谱与稳定范畴、范畴论与模型范畴，以及连接金融市场的随机过程. 全部提供 PDF.{{ else }}Algebraic geometry, Galois covers, motivic homotopy theory, higher algebra and descent, most of them written for courses and seminars at the University of Regensburg. Every set of notes is available as a PDF.{{ end }}</p>
+      <a class="arrow-link" href="/{{ $lang }}/notes/">{{ if $zh }}全部笔记与讲义{{ else }}All notes{{ end }}{{ partial "notebook/icon.html" (dict "name" "arrow-up-right") }}</a>
+    </header>
+    <ol class="shelf">
+      {{ range $i, $pdf := $pdfs }}
+      <li class="shelf-item tone-{{ mod $i 4 }}">
+        <a class="shelf-cover" href="{{ .pdf }}" target="_blank" rel="noopener" aria-label="{{ .title }} · PDF">
+          <span class="cover-top"><span>{{ if $zh }}讲义{{ else }}Notes{{ end }}</span><span>PDF</span></span>
+          <strong>{{ .title }}</strong>
+          <span class="cover-foot">{{ $foot := slice }}{{ with .pages }}{{ $foot = $foot | append (printf "%v %s" . (cond $zh "页" "pp.")) }}{{ end }}{{ with .updated }}{{ $foot = $foot | append . }}{{ end }}{{ with .language }}{{ if not $foot }}{{ $foot = $foot | append . }}{{ end }}{{ end }}{{ delimit $foot " · " }}</span>
+          {{ if .wip }}<span class="cover-badge">{{ if $zh }}整理中{{ else }}In progress{{ end }}</span>{{ end }}
+        </a>
+        <p>{{ .description | plainify }}</p>
+        <div class="shelf-links">
+          <a href="{{ .pdf }}" target="_blank" rel="noopener">{{ if $zh }}阅读 PDF{{ else }}Read PDF{{ end }}</a>
+          {{ with .online_ref }}{{ with site.GetPage . }}<a href="{{ .RelPermalink }}">{{ if $zh }}讲义介绍{{ else }}Online version{{ end }}</a>{{ end }}{{ end }}
+        </div>
+      </li>
+      {{ end }}
+    </ol>
+    {{ if and (not $zh) $online }}
+    <div class="home-online">
+      <h3>Online notes</h3>
+      <ul>{{ range $online.ByTitle }}<li><a href="{{ .RelPermalink }}"><span>{{ .Title }}</span>{{ partial "notebook/icon.html" (dict "name" "arrow-up-right") }}</a></li>{{ end }}</ul>
+    </div>
+    {{ end }}
+    {{ with $others }}<p class="home-aside-link">{{ if $zh }}另有 {{ len . }} 份英文讲义与讨论班讲稿，见 <a href="/en/notes/" lang="en">Mathematics notes</a>.{{ else }}{{ len . }} further sets of notes are written in Chinese: <a href="/zh/notes/" lang="zh">数学笔记与讲义</a>.{{ end }}</p>{{ end }}
+  </div>
+</section>

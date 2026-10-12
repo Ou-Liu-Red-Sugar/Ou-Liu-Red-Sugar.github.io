@@ -1,0 +1,32 @@
+{{ $zh := eq .Lang "zh" }}
+<footer class="site-colophon">
+  <div class="colophon-inner">
+    <div class="colophon-id">
+      <a class="colophon-brand" href="/{{ .Lang }}/"><img src="{{ partial "notebook/asset.html" "/notebook/brand/mark.svg" }}" width="38" height="38" alt=""><span>{{ if $zh }}<strong>刘欧</strong><small>Ou Liu</small>{{ else }}<strong>Ou Liu</strong><small>刘欧</small>{{ end }}</span></a>
+      <p>{{ if $zh }}数学讲义与讨论班讲稿、投资学笔记和 Blog. 文章随写作与讨论持续修订.{{ else }}Mathematics lecture and seminar notes, an investment notebook and a blog, revised as the writing and discussion continue.{{ end }}</p>
+    </div>
+    <nav class="colophon-nav" aria-label="{{ if $zh }}页尾导航{{ else }}Footer navigation{{ end }}">
+      <div>
+        <h2>{{ if $zh }}内容{{ else }}Contents{{ end }}</h2>
+        <a href="/{{ .Lang }}/notes/">{{ if $zh }}数学笔记{{ else }}Mathematics{{ end }}</a>
+        <a href="/{{ .Lang }}/notebook/">{{ if $zh }}投资学笔记{{ else }}Investing{{ end }}</a>
+        <a href="/zh/blog/">Blog{{ if not $zh }} <span lang="zh">中文</span>{{ end }}</a>
+      </div>
+      <div>
+        <h2>{{ if $zh }}关于{{ else }}About{{ end }}</h2>
+        <a href="/{{ .Lang }}/about/">{{ if $zh }}关于我{{ else }}About me{{ end }}</a>
+        <a href="mailto:ouliuredsugar@gmail.com">{{ if $zh }}邮件{{ else }}Email{{ end }}</a>
+        <a href="https://github.com/Ou-Liu-Red-Sugar/Ou-Liu-Red-Sugar.github.io" rel="noopener">GitHub {{ partial "notebook/icon.html" (dict "name" "arrow-up-right") }}</a>
+      </div>
+      <div>
+        <h2>{{ if $zh }}给 Agent{{ else }}For Agents{{ end }}</h2>
+        <a href="/agent/{{ .Lang }}/index.md">{{ if $zh }}Agent 索引{{ else }}Agent index{{ end }}</a>
+        <a href="/llms.txt">llms.txt</a>
+      </div>
+    </nav>
+  </div>
+  <div class="colophon-base">
+    <span>© {{ now.Year }} {{ if $zh }}刘欧 Ou Liu{{ else }}Ou Liu 刘欧{{ end }}</span>
+    <a href="/{{ cond $zh "en" "zh" }}/" lang="{{ cond $zh "en" "zh" }}">{{ if $zh }}English{{ else }}中文{{ end }}</a>
+  </div>
+</footer>

@@ -6,8 +6,15 @@ const t=(a,b)=>zh?a:b;
 const searchShortcut=q('[data-search-shortcut]');
 if(searchShortcut)searchShortcut.textContent=/Mac|iPhone|iPad/.test(navigator.platform)?'⌘ K':'Ctrl K';
 
+// Small preferences survive between pages on this device only.
+const store={
+  get(key,fallback=null){try{const value=localStorage.getItem('nb.'+key);return value===null?fallback:JSON.parse(value);}catch{return fallback;}},
+  set(key,value){try{localStorage.setItem('nb.'+key,JSON.stringify(value));}catch{}}
+};
+
 // Keep the complete sentence in the source; only supplementary spans collapse.
 const textVersionControllers=new Map();
+const textVersionGroups=[];
 for(const [index,group] of qa('[data-text-versions]').entries()){
   const details=qa('[data-text-detail]',group),button=q('[data-text-version-toggle]',group);
   if(!details.length||!button)continue;
@@ -18,13 +25,67 @@ for(const [index,group] of qa('[data-text-versions]').entries()){
     expanded=value;
     details.forEach(part=>part.hidden=!expanded);
     button.setAttribute('aria-expanded',String(expanded));
-    button.textContent=expanded?t('（简明版）','(Brief)'):t('（详细版）','(Details)');
+    button.textContent=expanded?t('简明版','Brief'):t('详细版','Details');
   };
   button.addEventListener('click',()=>show(!expanded));
   details.forEach(part=>textVersionControllers.set(part,show));
+  textVersionGroups.push(show);
   show(false);
   button.hidden=false;
 }
+for(const switcher of qa('[data-detail-all]')){
+  if(!textVersionGroups.length)continue;
+  const apply=(on,remember)=>{
+    textVersionGroups.forEach(show=>show(on));
+    switcher.setAttribute('aria-pressed',String(on));
+    if(remember)store.set('details',on);
+  };
+  switcher.hidden=false;
+  switcher.addEventListener('click',()=>apply(switcher.getAttribute('aria-pressed')!=='true',true));
+  if(store.get('details',false))apply(true,false);
+}
+
+// The "More" menu closes like a menu: outside click, Escape or choosing an item.
+for(const menu of qa('.entry-more')){
+  document.addEventListener('click',event=>{if(menu.open&&!menu.contains(event.target))menu.open=false;});
+  menu.addEventListener('keydown',event=>{if(event.key==='Escape'&&menu.open){menu.open=false;q('summary',menu)?.focus();}});
+  qa('.entry-more-menu>a,.entry-more-menu>button',menu).forEach(item=>item.addEventListener('click',()=>{menu.open=false;}));
+}
+
+// Reading progress on this device: last article and articles already opened.
+const routeArticle=q('[data-route-number]');
+if(routeArticle){
+  const id=routeArticle.dataset.routeId;
+  store.set('last',{id,number:Number(routeArticle.dataset.routeNumber),title:routeArticle.dataset.routeTitle,url:location.pathname});
+  const read=store.get('read',[]);
+  if(Array.isArray(read)&&!read.includes(id))store.set('read',read.concat(id).slice(-200));
+}
+{
+  const read=new Set(store.get('read',[])||[]),last=store.get('last',null);
+  for(const card of qa('[data-article]')){
+    const isRead=read.has(card.dataset.article);
+    card.classList.toggle('is-read',isRead);
+    const badge=q('.nb-card-read',card);if(badge)badge.hidden=!isRead;
+    card.classList.toggle('is-current',!!last&&last.id===card.dataset.article);
+  }
+  for(const step of qa('.route-steps [data-route-entry]'))step.classList.toggle('is-read',read.has(step.dataset.routeEntry));
+  const resume=q('[data-continue-reading]');
+  if(resume&&last&&last.url&&last.title){
+    resume.href=last.url;
+    q('[data-continue-title]',resume).textContent=t(`第 ${last.number} 篇 · ${last.title}`,`No. ${last.number} · ${last.title}`);
+    resume.hidden=false;
+  }
+}
+
+// A link to something inside a closed disclosure opens that disclosure.
+function revealHashTarget(){
+  const target=(()=>{try{return document.getElementById(decodeURIComponent(location.hash.slice(1)));}catch{return null;}})();
+  let parent=target?.parentElement;
+  while(parent){if(parent.tagName==='DETAILS'&&!parent.open)parent.open=true;parent=parent.parentElement;}
+  if(target&&target.closest('details'))target.scrollIntoView({block:'start'});
+}
+if(location.hash)revealHashTarget();
+window.addEventListener('hashchange',revealHashTarget);
 
 // Each experiment is rendered once, then placed beside its explanation.
 // Without scripting it remains a complete, linked disclosure at the page end.
@@ -85,7 +146,7 @@ for(const body of qa('.entry-body')){
   controls.id||='reading-branches-'+(body.closest('[data-entry-id]')?.dataset.entryId||'entry');
   controls.classList.add('reading-branch-controls');controls.setAttribute('role','group');controls.setAttribute('aria-label',t('选择行业带读','Choose an industry branch'));
   if(!q('[data-select-reading-branch]',controls)){
-    const label=document.createElement('span');label.textContent=t('选择一个行业深入读：','Choose an industry to read:');controls.append(label);
+    const label=document.createElement('span');label.textContent=t('选择一个行业深入读，下一篇会接着显示同一行业：','Choose an industry; the next entry continues with the same one:');controls.append(label);
     for(const branch of branches.filter((value,index,list)=>list.findIndex(item=>item.dataset.readingBranch===value.dataset.readingBranch)===index)){
       const button=document.createElement('button');button.type='button';button.dataset.selectReadingBranch=branch.dataset.readingBranch;
       button.textContent=branch.dataset.branchLabel||({retail:t('零售 · Costco','Retail · Costco'),bank:t('银行 · JPMorgan','Banking · JPMorgan')}[branch.dataset.readingBranch])||q('h2,h3',branch)?.textContent||branch.dataset.readingBranch;
@@ -152,9 +213,10 @@ for(const body of qa('.entry-body')){
       if(note.hidden){const owner=owners.find(Boolean);if(owner)activateBranch(owner.dataset.readingBranch);}
     });
   }
-  buttons.forEach(button=>button.addEventListener('click',()=>activateBranch(button.dataset.selectReadingBranch,true)));
+  buttons.forEach(button=>button.addEventListener('click',()=>{const key=button.dataset.selectReadingBranch;activateBranch(key,true);store.set('branch',key);}));
   const target=hashElement(),initialBranch=target?.closest('[data-reading-branch]');
-  controls.hidden=false;activateBranch(target===controls?'all':branches.includes(initialBranch)?initialBranch.dataset.readingBranch:activeBranch);
+  const saved=store.get('branch',null),savedValid=saved==='all'||branches.some(branch=>branch.dataset.readingBranch===saved);
+  controls.hidden=false;activateBranch(target===controls?'all':branches.includes(initialBranch)?initialBranch.dataset.readingBranch:savedValid?saved:activeBranch);
 }
 
 // Cases are all readable until enhancement succeeds.
@@ -305,7 +367,12 @@ function wrapTables(root){
   for(const table of qa('table',root)){
     if(table.parentElement.classList.contains('notebook-table-scroll'))continue;
     const wrap=document.createElement('div');wrap.className='notebook-table-scroll';wrap.tabIndex=0;wrap.setAttribute('role','region');wrap.setAttribute('aria-label',table.caption?.textContent||t('表格，可水平滚动','Table, scroll horizontally'));
+    wrap.dataset.cols=String(table.rows[0]?.cells.length||0);
     table.before(wrap);wrap.append(table);
+    const edge=()=>{const over=wrap.scrollWidth>wrap.clientWidth+2;wrap.classList.toggle('is-scrollable',over);wrap.classList.toggle('is-scrolled-end',over&&wrap.scrollLeft+wrap.clientWidth>=wrap.scrollWidth-2);};
+    wrap.addEventListener('scroll',edge,{passive:true});
+    if(window.ResizeObserver)new ResizeObserver(edge).observe(wrap);
+    edge();
   }
 }
 qa('.entry-body').forEach(wrapTables);
@@ -466,7 +533,7 @@ async function loadIndex(){
   })();
   try{return await indexRequest;}finally{indexRequest=null;}
 }
-const kindLabel=kind=>({blog:'Blog',lecture:t('笔记与讲义','Notes & lectures'),company:t('公司资料','Company'),research:t('研究记录','Research'),reference:t('基础参考','Reference'),page:t('页面','Page')}[kind]||t('投资词条','Investment note'));
+const kindLabel=kind=>({blog:'Blog',lecture:t('笔记与讲义','Notes & lectures'),company:t('公司资料','Company'),research:t('研究记录','Research'),reference:t('基础参考','Reference'),page:t('页面','Page')}[kind]||t('投资学笔记','Investment note'));
 const subjectLabel=subject=>({markets:t('金融市场与工具','Markets & instruments'),business:t('企业经营与财务','Business & finance'),industry:t('经济与行业','Economy & industries'),portfolio:t('投资与组合','Investing & portfolios'),quant:t('数学、统计与计算','Mathematics & computation'),mathematics:t('数学','Mathematics')}[subject]||'');
 function search(){
   const terms=normalize(searchInput.value.trim()).split(/\s+/).filter(Boolean),lang=searchLang.value;

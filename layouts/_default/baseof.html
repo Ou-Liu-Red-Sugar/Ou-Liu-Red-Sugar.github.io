@@ -2,20 +2,17 @@
 <html lang="{{ .Site.Language.LanguageCode }}">
 <head>
   {{ partial "head.html" . }}
-  {{ range slice "site" "chrome" "reading" "overlays" }}<link rel="stylesheet" href="{{ partial "notebook/asset.html" (printf "/notebook/%s.css" .) }}">{{ end }}
+  {{ range slice "site" "chrome" "reading" "overlays" "ui-kit" }}<link rel="stylesheet" href="{{ partial "notebook/asset.html" (printf "/notebook/%s.css" .) }}">{{ end }}
   <script type="module" src="{{ partial "notebook/asset.html" "/notebook/site.js" }}"></script>
-  {{ if .IsHome }}<link rel="stylesheet" href="{{ partial "notebook/asset.html" "/notebook/home.css" }}"><script type="module" src="{{ partial "notebook/asset.html" "/notebook/home.js" }}"></script>{{ end }}
+  {{ if .IsHome }}<link rel="stylesheet" href="{{ partial "notebook/asset.html" "/notebook/home.css" }}">{{ end }}
   {{ if or .IsHome (eq .Section "blog") }}<link rel="stylesheet" href="{{ partial "notebook/asset.html" "/notebook/blog.css" }}">{{ end }}
+  {{ if and (not .IsHome) (ne .Section "notebook") }}<link rel="stylesheet" href="{{ partial "notebook/asset.html" "/notebook/pages.css" }}">{{ end }}
 </head>
 <body class="notebook-app {{ if and (ne .Section "notebook") (not .IsHome) }}legacy-page{{ end }}{{ if .IsHome }} is-home{{ end }}" data-lang="{{ .Lang }}">
 <a class="skip-link" href="#main">{{ if eq .Lang "zh" }}跳到正文{{ else }}Skip to content{{ end }}</a>
 {{ partial "notebook/header.html" . }}
 <main id="main" class="site-main" tabindex="-1">{{ block "main" . }}{{ end }}</main>
-<footer class="site-colophon">
-  <a class="colophon-brand" href="/{{ .Lang }}/"><img src="/notebook/brand/mark.svg" width="32" height="32" alt=""><span>Ou Liu <small>刘欧</small></span></a>
-  <p>{{ if eq .Lang "zh" }}个人主页{{ else }}Personal website{{ end }}</p>
-  <nav aria-label="{{ if eq .Lang "zh" }}页尾导航{{ else }}Footer navigation{{ end }}"><a href="/{{ .Lang }}/about/">{{ if eq .Lang "zh" }}关于{{ else }}About{{ end }}</a><a href="https://github.com/Ou-Liu-Red-Sugar/Ou-Liu-Red-Sugar.github.io">GitHub</a><a href="/agent/{{ .Lang }}/index.md">Agent index {{ partial "notebook/icon.html" (dict "name" "arrow-up-right") }}</a></nav>
-</footer>
+{{ partial "site-colophon.html" . }}
 {{ $readings := slice }}
 {{ range .Sites }}{{ range where .RegularPages "Section" "notes" }}{{ $readings = $readings | append (dict "id" (printf "lecture-%s-%s" .Lang .File.ContentBaseName) "title" .Title "summary" (.Description | plainify) "text" (.Plain | truncate 5000) "url" .RelPermalink "lang" .Lang "kind" "lecture" "subject" "mathematics") }}{{ end }}{{ end }}
 {{ range .Sites }}{{ range where .RegularPages "Section" "blog" }}{{ $readings = $readings | append (dict "id" (printf "blog-%s-%s" .Lang .File.ContentBaseName) "title" .Title "summary" (.Description | plainify) "text" (.Plain | truncate 5000) "url" .RelPermalink "lang" .Lang "kind" "blog") }}{{ end }}{{ end }}
