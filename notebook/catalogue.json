@@ -1159,6 +1159,16 @@
       ]
     },
     {
+      "source_id": "nb-b02-aug24-1",
+      "title": "Research Note: Equity Market Volatility on August 24, 2015",
+      "url": "https://www.sec.gov/marketstructure/research/equity_market_volatility.pdf",
+      "body": "SEC Division of Trading and Markets 分析与研究办公室工作人员，2015 年 12 月：8 月 24 日开盘 SPY 低 5.2%、9:35 最低低 7.8%，SPY 净值约低 8%；IVV 最低低于前日收盘 20% 以上，约 9:43 恢复；ETP 开盘报价深度较对照期降九成以上；NYSE Arca 重新开盘竞价的卖方未匹配量 94% 来自市价单。研究说明不对原因作结论。",
+      "version": "2015 年 12 月；2026-10-12 读取",
+      "authors": [
+        "SEC Division of Trading and Markets"
+      ]
+    },
+    {
       "source_id": "nb-b02-quotes-1",
       "title": "Nasdaq：Why Real-Time Data Matters When Trading Stocks",
       "url": "https://www.nasdaq.com/articles/why-real-time-data-matters-when-trading-stocks",
