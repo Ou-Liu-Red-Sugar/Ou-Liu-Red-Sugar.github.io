@@ -756,6 +756,6 @@ ETF 的市场价格由买卖双方的出价决定，基金持有的资产则决�
 
 ## Related entries
 - [股票、公司与股价](https://ou-liu-red-sugar.github.io/zh/notebook/stocks-company-price/)
-- [投资组合、保证金与对冲策略](https://ou-liu-red-sugar.github.io/zh/notebook/settlement-margin-cash/)
+- [保证金、对冲与期间现金](https://ou-liu-red-sugar.github.io/zh/notebook/settlement-margin-cash/)
 - [复利、通胀与机会成本](https://ou-liu-red-sugar.github.io/zh/notebook/compounding-inflation-opportunity-cost/)
 - [报价、订单与实际成交](https://ou-liu-red-sugar.github.io/zh/notebook/quotes-orders-execution/)

@@ -132,7 +132,7 @@
 <figcaption>年利率 8% 为设定，到期一次还本付息。</figcaption>
 </figure>
 
-<span data-text-versions id="nb-a02-text-4">用账户里的证券作抵押借款，还多了一层约束。证券跌价、账户权益低于要求时，券商可以要求补充资金，也可以出售账户中的证券，什么时候退出也就不再完全由自己决定<span data-text-detail>（这里指证券账户中的融资借款，券商可以在法规最低要求之上设定更高的维持要求，并可能不经事先通知处置证券；具体条件依账户协议而定）</span>。这种保证金约束在持仓亏损时会怎样影响持有，下一篇还会继续展开。[^margin]<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>
+<span data-text-versions id="nb-a02-text-4">用账户里的证券作抵押借款，还多了一层约束。证券跌价、账户权益低于要求时，券商可以要求补充资金，也可以出售账户中的证券，什么时候退出也就不再完全由自己决定<span data-text-detail>（这里指证券账户中的融资借款，券商可以在法规最低要求之上设定更高的维持要求，并可能不经事先通知处置证券；具体条件依账户协议而定）</span>。[^margin]<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>
 
 ## 把期限放回整体资金 {#nb-a02-plan}
 
@@ -140,7 +140,7 @@
 
 几项投资放在一起时，还要看它们的收付款能不能相互配合。几笔付款集中在相近的日期，回款却都要更晚才来，现金缺口就会一起出现；几项持仓若在同一段行情中一起下跌，靠卖出它们来凑钱也会同时变得困难。预留的现金既用来支持已经承诺的付款、应对回款延后，也给后来的调整和投资机会留下空间。
 
-钱的期限排好以后，长期持仓仍可能在途中出现亏损。下一篇[《亏损、波动与持有能力》](/zh/notebook/loss-volatility-holding-capacity/)从亏损后的回本预期讲起，看怎样按经营前景和当前价格判断是否继续持有。
+钱的期限排好以后，长期持仓仍可能在途中出现亏损。下一篇[《亏损、波动与持有能力》](/zh/notebook/loss-volatility-holding-capacity/)从亏损后的回本预期讲起，结合经营前景、当前价格以及现金和杠杆条件，看怎样判断是否继续持有。
 
 [^voo-data]: [Yahoo Finance：VOO 历史行情](https://finance.yahoo.com/quote/VOO/history/)，读取于 2026-09-26，采用调整后收盘价（含分红与拆股调整）。2021-12-31、2022-12-30、2023-12-29、2025-12-31 的调整后收盘价分别为 409.54、335.11、423.32、623.34 美元；2022 年 1 月 3 日的高点与 10 月 12 日的低点分别为 412.05、311.01 美元，2023-12-13 回到 417.41 美元；2020 年 2 月 19 日与 3 月 23 日分别为 282.47、186.45 美元，8 月 10 日回到 282.90 美元。[每日输入](/notebook/compounding/voo-daily.csv)供复算。
 [^settlement]: [SEC：New “T+1” Settlement Cycle – What Investors Need To Know](https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins/new-t1-settlement-cycle-what-investors-need-know-investor-bulletin)，2024-03-27，What is Settlement?。这里采用美国通常证券交易的交收周期，不推广到所有市场。

@@ -1,4 +1,4 @@
-# 投资组合、保证金与对冲策略
+# 保证金、对冲与期间现金
 
 从业务与 Risk-Reward 建立组合，理解 beta 对冲的范围，由 Agent 结合市场状态比较期货、Put 与减持，再把保证金、盯市和交收接到现金安排。
 
@@ -825,14 +825,28 @@ MES 则放在期货分部，需要留出履约保证金，并结算持有期间�
 
 持仓结束后，担保要求会随之解除，现金又会怎样变？先看 C 的三张 MES：假设按上一次盯市结算价平仓，暂不计平仓费，就能排除新增价格损益，单独观察担保要求解除后的余额。期货分部已有 15,000 美元，买入三张相同月份的 MES，就能结束原来的空头；此后不再需要为这笔头寸保留约 8,627 美元的初始保证金，15,000 美元现金仍在期货分部。等到划回证券分部，两边的余额会改变，合计仍是同一笔钱。
 
-再从 C 建好后的起点出发，按模型的三个观察节点看上涨过程。VOO 在第 10、20、30 日相对起点分别上涨 4%、7%、10%，MES 同幅变化；本例在每个节点先结算期货盈亏，再检查余额。下表逐步记录这几次收付与划转，金额单位为美元：
+再从 C 建好后的起点出发，按模型的三个观察节点看上涨过程。VOO 在第 10、20、30 日相对起点分别上涨 4%、7%、10%，MES 同幅变化；本例在每个节点先结算期货盈亏，再检查余额。下图沿着两个分部记录这几次盯市收付与划转：
 
-| 时点与动作 | 本段期货收付 | 本次证券转入期货 | 处理后证券现金 | 处理后期货现金 |
-|---|---:|---:|---:|---:|
-| 建好 C | — | — | 29,489 | 15,000 |
-| 第 10 日：累计上涨 4% | −4,680 | 0 | 29,489 | 10,320 |
-| 第 20 日：累计上涨 7% | −3,510 | 1,818 | 27,671 | 8,627 |
-| 第 30 日：累计上涨 10% | −3,510 | 3,510 | 24,160 | 8,627 |
+<figure class="flow-figure stage-lanes rs-4" id="nb-b03-cash-lanes">
+<div class="ff-head"><p class="ff-title">C 方案在上涨路径中的盯市结算与分部划转</p><span class="ff-sub">金额单位：美元 · 维持参考约 7,843，初始参考约 8,627</span></div>
+<div class="rs-grid business-exchange" aria-label="建好 C 时，期货现金 15,000 美元，证券现金 29,489 美元。第 10 日累计上涨 4%，期货盯市扣款 4,680 美元，剩 10,320 美元，高于维持参考 7,843 美元，无需划转，证券现金仍为 29,489 美元。第 20 日累计上涨 7%，期货盯市再扣 3,510 美元，先降到 6,809 美元，低于维持参考，从证券分部转入 1,818 美元后回到 8,627 美元，证券现金剩 27,671 美元。第 30 日累计上涨 10%，期货盯市再扣 3,510 美元，从证券分部转入 3,510 美元后回到 8,627 美元，证券现金剩 24,160 美元。">
+<div class="rs-stage" style="--c:2"><strong>建好 C</strong>起点</div>
+<div class="rs-stage" style="--c:3"><strong>第 10 日</strong>累计 +4%</div>
+<div class="rs-stage" style="--c:4"><strong>第 20 日</strong>累计 +7%</div>
+<div class="rs-stage" style="--c:5"><strong>第 30 日</strong>累计 +10%</div>
+<div class="rs-lane" style="--lane:2">期货现金</div>
+<div class="rs-lane" style="--lane:3">证券现金</div>
+<div class="rs-cell rs-step" style="--c:2;--lane:2"><strong>15,000</strong><small>初始要求 8,627</small></div>
+<div class="rs-cell rs-step" style="--c:3;--lane:2">盯市 −4,680<small>剩 <strong>10,320</strong>，未触发补款</small></div>
+<div class="rs-cell rs-step rs-lock" style="--c:4;--lane:2">盯市 −3,510 → 6,809<small>转入 +1,818，回 <strong>8,627</strong></small></div>
+<div class="rs-cell rs-step rs-lock" style="--c:5;--lane:2">盯市 −3,510 → 5,117<small>转入 +3,510，回 <strong>8,627</strong></small></div>
+<div class="rs-cell rs-step rs-start" style="--c:2;--lane:3"><strong>29,489</strong><small>留存现金</small></div>
+<div class="rs-cell rs-step" style="--c:3;--lane:3">划转 0<small>仍为 <strong>29,489</strong></small></div>
+<div class="rs-cell rs-step rs-lock" style="--c:4;--lane:3">转出 −1,818<small>剩 <strong>27,671</strong></small></div>
+<div class="rs-cell rs-step rs-free" style="--c:5;--lane:3">转出 −3,510<small>剩 <strong>24,160</strong>，高于 20,000</small></div>
+</div>
+<figcaption>每个节点先结算期货损益；期货现金低于维持参考约 7,843 美元时，从证券分部补足至初始参考约 8,627 美元。</figcaption>
+</figure>
 
 第 20 日结算后，期货现金先降到约 6,809 美元，低于约 7,843 美元的维持参考；从证券分部转入约 1,818 美元后，才恢复到初始要求。第 30 日又有一笔约 3,510 美元的盯市亏损，所以还要继续调拨。整个路径累计补入约 5,328 美元，期末总现金约为 32,787 美元。
 
@@ -840,9 +854,7 @@ MES 则放在期货分部，需要留出履约保证金，并结算持有期间�
 
 换到“先涨后跌”和“先跌后回升”，两条路径都以 VOO 下跌 5% 结束，其他股票、剩余期限和期权波动率的终点也保持相同。C 在两条路径的期末损益均约为 −4,122 美元，但先涨的路径中累计调入了约 5,328 美元，先跌的路径没有发生这项补入。终点结果相同，途中需要准备的钱仍然不同。
 
-如果要靠卖出股票补足现金，还得把交收时间算进去。若在本例报价所在的周五卖出 50 股 GOOGL，且之后没有额外假日，成交先确定约 17,190 美元价款，按通常 T+1 在下一营业日、也就是周一完成交收。卖款显示在交易记录里、成为已交收现金、再转入银行，是几个可以分别确认的时点。[^settlement]
-
-<span data-text-versions id="nb-b03-text-9">T+0 回转交易是在说当天买入后可以当天卖出；交收周期中的 T+0、T+1，则分别指交易当日、下一营业日完成交付。美股日内买卖与 T+1 交收可以同时存在，能否继续使用卖款要结合账户的付款安排<span data-text-detail>（例如现金账户用已交收资金买入后当日卖出，与再拿未交收卖款买另一只证券并在付款资金交收前卖出，存在不同的付款条件；是否还有其他已交收资金也会影响判断。美国股票、ETF 和标准股票期权的通常交易交收按 T+1，期货盯市、期权行权及永续资金费分别依合约处理。图中的初始现金按各方案所需建仓交收已经完成的共同起点记录；此处单独说明之后调仓卖款的等待）</span>。[^settlement]<sup>，</sup>[^cash-account]<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>
+<span data-text-versions id="nb-b03-text-9">如果要靠卖出股票补足现金，还得把[《报价、订单与实际成交》](/zh/notebook/quotes-orders-execution/)讲过的 T+1 交收时间算进去。若在本例报价所在的周五卖出 50 股 GOOGL，且之后没有额外假日，成交先确定约 17,190 美元价款，到周一才完成交收；这与当天买入后当天卖出的 T+0 回转交易不同，卖款何时能转入期货分部或银行，仍要结合账户的交收与付款安排<span data-text-detail>（例如现金账户用已交收资金买入后当日卖出，与再拿未交收卖款买另一只证券并在付款资金交收前卖出，存在不同的付款条件；是否还有其他已交收资金也会影响判断。美国股票、ETF 和标准股票期权的通常交易交收按 T+1，期货盯市、期权行权及永续资金费分别依合约处理。图中的初始现金按各方案所需建仓交收已经完成的共同起点记录；此处单独说明之后调仓卖款的等待）</span>。[^settlement]<sup>，</sup>[^cash-account]<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>
 
 ## 条件变化、方案取舍与基本面 {#nb-b03-decision}
 
@@ -895,7 +907,7 @@ MES 则放在期货分部，需要留出履约保证金，并结算持有期间�
 
 对本例而言，如果这一个月主要想减轻广泛市场风险、继续持有股票，并愿意支付约 1,038 美元的 Put 成本，E 就值得进一步比较：它在所列两种共同下行情景中提供了保护，在上涨路径末尾留足期货初始保证金后，还能留下约 29,901 美元现金，高于设定的 20,000 美元目标。若主要担忧 GOOGL 自身的业务兑现，B 则更直接地减少这项暴露。
 
-这些取舍都依赖对公司业务的判断。接下来的《客户、产品与收费方式》将从客户为什么付款、公司交付什么开始，展开收入背后的经营关系。
+这些工具改变的是风险暴露与期间现金安排，持有或对冲的底子仍依赖对公司业务的判断。[《客户、产品与收费方式》](/zh/notebook/customers-products-pricing/)将从客户为什么付款、公司交付什么开始，展开收入背后的经营关系。
 
 <link rel="stylesheet" href="/notebook/portfolio-hedging/ui.css?v=20261011">
 <script src="/notebook/portfolio-hedging/ui.js?v=20260926-3" defer></script>

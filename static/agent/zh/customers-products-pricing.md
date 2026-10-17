@@ -859,7 +859,7 @@ Agent 可以同时读取公司、客户和供应商的材料，再与企业研�
 ```
 
 ## Related entries
-- [投资组合、保证金与对冲策略](https://ou-liu-red-sugar.github.io/zh/notebook/settlement-margin-cash/)
+- [保证金、对冲与期间现金](https://ou-liu-red-sugar.github.io/zh/notebook/settlement-margin-cash/)
 - [Agent 时代的基本面投资](https://ou-liu-red-sugar.github.io/zh/notebook/investment-returns/)
 - [股票、公司与股价](https://ou-liu-red-sugar.github.io/zh/notebook/stocks-company-price/)
 - [股东回报：分红、回购与增发](https://ou-liu-red-sugar.github.io/zh/notebook/shareholder-returns-buybacks-issuance/)
