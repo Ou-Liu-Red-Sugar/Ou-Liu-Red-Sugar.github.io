@@ -15,7 +15,7 @@
 
 2023 年 11 月，GE Vernova（GEV）宣布取得德国能源公司 EnBW（EBK，德国）的两项燃气发电设备订单。两个项目都要替换燃煤机组，同时供电和供热；GEV 与工程合作方一起提供燃气轮机、配套发电机等设备，以及工程建设和此后十年的维护服务。[^gev-order]<sup>，</sup>[^enbw-share]
 
-假如我们正在考虑买入 GEV 的股票，这条消息意味着什么？公告写清了设备和服务的范围，却没有回答持股人更关心的问题：这笔生意要先垫入多少钱，什么时候变成利润，最后有多少能落到每一股上；市场在公告之前是否已经料到，股价里又计入了多少。基本面研究要做的，就是把一条消息放回企业的经营里去理解，再拿来和眼前的价格比较。[^stocks]
+假如我们正在考虑买入 GEV 的股票，这条消息意味着什么？公告写清了设备和服务的范围，但持股人更关心的几件事还没着落：这笔生意要先垫多少钱，什么时候能变成利润，最后又有多少落到每一股上；另外，市场在公告前是不是早就料到了，眼前的股价里已经反映了多少。基本面研究要做的，就是把一条消息放回企业的经营里去理解，再拿来和眼前的价格比较。[^stocks]
 
 下面就沿着这笔订单，依次看业务怎样运转、钱和利润怎样流向股东、消息怎样进入价格，以及 Agent 能怎样帮我们把研究持续做下去。最后再回到自己的资金，看看股票以外还有哪些选择，以及这套笔记接下来的路线。
 
@@ -91,7 +91,7 @@ GEV 的设备需求来自客户的建设计划。一般来说，电厂采购新�
 
 两种安排下，利润表都在交付时记下同样的收入和利润，订单带来的现金却走出了不同的路径。客户分期预付时，GEV 最多先垫入 30；客户在交付以后才付款，GEV 就要先垫入 80，并且垫上一年左右。所以看一项业务，既要比较收入与成本，判断它能赚多少钱，也要沿着收付款的时间，判断要先垫入多少资金、占用多久。
 
-这项业务最终能给股东留下多少，还要放回公司整体来看。其他业务的盈亏、公司的共同费用和税费，都会改变整体盈利；留下的钱，一部分用于偿还债务和再投资，一部分通过分红、回购交给股东。把这些合在一起再按股份数量折算，才得到每股所得，也才能与自己愿意付出的价格放在一起比较：[^stocks]
+这项业务最终能给股东留下多少，还要放回公司整体来看。其他业务是赚是亏、公司总部花掉多少共同费用、交了多少税，都会影响整体盈利；最后留下的钱，一部分拿去还债和再投资，一部分通过分红、回购分给股东。把这笔账合在一起、再按股份数量平摊到每一股上，算出来的才是每股所得，也才好跟我们买股时付出的价格比一比：[^stocks]
 
 <figure class="flow-figure step-chain" id="nb-a01-per-share">
 <div class="ff-head"><p class="ff-title">从一项业务到每股所得</p></div>
@@ -110,7 +110,7 @@ GEV 的设备需求来自客户的建设计划。一般来说，电厂采购新�
 
 回到开头的问题：一笔新订单会让 GEV 的股票更值钱吗？我们先要看它怎样改变经营。这笔订单是否说明客户的需求正在扩大？GEV 能否用现有产能交付，还是需要追加投入？上游供货、人工和服务成本会不会随之变化？订单金额只说明了交易的规模，能带来多少利润、要占用多少资金，还要结合这些经营条件来判断。
 
-即使订单确实改善了经营，股价也未必上涨，因为还要看市场原本怎样预期。投资者按照对未来的判断买卖股票，消息公布之前，一部分预期就已经反映在价格里了。市场早已料到这笔订单的话，公告可能只是兑现预期；订单带来了关于需求、价格或交付条件的新信息，投资者才有新的依据调整价格。财报也是这样：公司公布了好业绩，市场还会把它与此前的预期以及公司对未来的展望放在一起比较。[^earnings]
+即使订单确实改善了经营，股价也未必上涨，因为还要看市场原本怎样预期。投资者按照对未来的判断买卖股票，消息公布之前，一部分预期就已经反映在价格里了。如果市场早就猜到了这笔订单，公告出来往往只是把预期兑现；反过来，当订单透露出需求、价格或交付条件上的新变化，大家才有新的理由去调整出价。财报也是这样：公司公布了好业绩，市场还会把它与此前的预期以及公司对未来的展望放在一起比较。[^earnings]
 
 <figure class="flow-figure expect-path" id="nb-a01-expectation">
 <div class="ff-head"><p class="ff-title">订单公告前后的股价（示意）</p></div>
@@ -130,7 +130,7 @@ GEV 的设备需求来自客户的建设计划。一般来说，电厂采购新�
 <figcaption>示意图，不对应某家公司的实际股价。公告以后的价格还会受到同期其他消息的影响。</figcaption>
 </figure>
 
-所以我们会一边了解已经发生的经营结果，一边根据新材料修正对需求、竞争、盈利和资金安排的认识，再判断当前价格下的潜在回报与损失。新的经营结果和消息还会不断出现，这份判断也就需要随之更新。
+所以做研究时，我们往往是一边看已经落地的经营结果，一边借着新材料修正对需求、竞争、盈利和资金周转的判断，再去权衡按眼前的价格买进去能赚多少、可能亏多少。随着新的财报和消息不断出来，这份判断也得跟着调整。
 
 ## Agent 辅助的持续研究 {#nb-a01-agents}
 
@@ -159,7 +159,7 @@ GEV 的设备需求来自客户的建设计划。一般来说，电厂采购新�
 
 ## 主要资产与投资工具 {#nb-a01-assets}
 
-安排资金时，我们还会遇到股票以外的选择：有些钱要为近期支出留作现金，有些钱可以长期投资，基金和合约工具则会改变所承担的风险。在下面的互动表中选择一个名称，就能查看它怎样运作、回报从哪里来，以及对应的学习安排。[^asset-overview]
+安排资金时，我们还会遇到股票以外的选择：有些钱要为近期支出留作现金，有些钱可以长期投资，基金和合约工具则会改变所承担的风险。点开下面的卡片，就能看到每类工具怎么运作、靠什么赚钱，以及后面对应的篇章。[^asset-overview]
 
 <div class="asset-overview" data-asset-overview>
 <nav aria-label="主要资产与币种"><span class="asset-group-label">主要资产与币种</span>
@@ -182,47 +182,47 @@ GEV 的设备需求来自客户的建设计划。一般来说，电厂采购新�
 <div aria-live="polite">
 <section data-asset-panel="cash"><h3>现金与存款</h3><table><tbody>
 <tr><th scope="row">是什么</th><td>现金用于支付和保留可用资金；银行存款则按账户约定存放、支取或计息。</td></tr>
-<tr><th scope="row">回报从哪里来</th><td>现金本身不计息，计息存款取得利息。比较实际结果时，还要考虑费用与购买力变化。</td></tr>
+<tr><th scope="row">回报从哪里来</th><td>手头的现金本身不生息，放进计息存款才能拿到利息。算实际到手多少时，还得扣掉账户费用，并看看物价涨了多少。</td></tr>
 <tr><th scope="row">相关词条</th><td><a href="/zh/notebook/#topic-U" data-planned-entry="NB-U01">存款、货币基金与短债</a></td></tr>
 </tbody></table></section>
 <section data-asset-panel="debt"><h3>债券</h3><table><tbody>
 <tr><th scope="row">是什么</th><td>债券代表一笔按约定付息或偿还的债务，政府和企业都可以发行债券融资。</td></tr>
-<tr><th scope="row">回报从哪里来</th><td>回报包括收到的利息，以及卖出所得或到期偿还本金相对买入价的差额，还要扣除费用。收回的本金要与收益分开辨认。</td></tr>
+<tr><th scope="row">回报从哪里来</th><td>主要靠期间收到的利息，以及卖出价或到期收回的本金跟买入价之间的差额，再扣掉交易费用。注意到期拿回的本金是自己的本钱，不能算作多赚的收益。</td></tr>
 <tr><th scope="row">相关词条</th><td><a href="/zh/notebook/#topic-R" data-planned-entry="NB-R01">债券的现金流与收益</a>；<a href="/zh/notebook/#topic-R" data-planned-entry="NB-R03">信用、违约与偿债能力</a></td></tr>
 </tbody></table></section>
 <section data-asset-panel="equity"><h3>股票与非上市股权</h3><table><tbody>
 <tr><th scope="row">是什么</th><td>持有股权，就是拥有企业的一部分股份。上市股票可以在交易所买卖，非上市股权有不同的交易与退出安排。</td></tr>
-<tr><th scope="row">回报从哪里来</th><td>公司分配与股权价格变化共同影响持有结果；企业赚到的利润还可能留在公司继续经营。</td></tr>
+<tr><th scope="row">回报从哪里来</th><td>持有期间可能收到分红等分配，卖出时还会碰上股权价格的涨跌；没分掉的利润则会留在公司里继续周转和投入。</td></tr>
 <tr><th scope="row">相关词条</th><td><a href="/zh/notebook/stocks-company-price/">股票、公司与股价</a>；<a href="/zh/notebook/shareholder-returns-buybacks-issuance/">股东回报：分红、回购与增发</a></td></tr>
 </tbody></table></section>
 <section data-asset-panel="property"><h3>房地产</h3><table><tbody>
 <tr><th scope="row">是什么</th><td>投资者可以直接持有房产，取得出租或出售的所得。</td></tr>
-<tr><th scope="row">回报从哪里来</th><td>租金和买卖价差构成主要所得，维护、空置、税费和融资等因素影响最终结果。</td></tr>
+<tr><th scope="row">回报从哪里来</th><td>主要靠收租和房价涨跌赚钱，不过日常维护、房屋空置、税费和房贷利息都会扣掉一部分所得。</td></tr>
 <tr><th scope="row">相关词条</th><td><a href="/zh/notebook/#topic-X" data-planned-entry="NB-X02">房地产、租金与持有成本</a></td></tr>
 </tbody></table></section>
 <section data-asset-panel="commodity"><h3>商品与黄金</h3><table><tbody>
 <tr><th scope="row">是什么</th><td>原油、农产品等商品有生产和消费用途，黄金也用于首饰、工业和投资。</td></tr>
-<tr><th scope="row">回报从哪里来</th><td>直接持有现货主要承受价格变化，并承担相应持有成本；黄金本身不支付利息或股息。</td></tr>
+<tr><th scope="row">回报从哪里来</th><td>直接拿现货主要赚差价，同时要付仓储、保管等成本；像黄金本身是不会付利息或发股息的。</td></tr>
 <tr><th scope="row">相关词条</th><td><a href="/zh/notebook/#topic-X" data-planned-entry="NB-X01">商品、黄金与回报来源</a>；<a href="/zh/notebook/#topic-X" data-planned-entry="NB-X03">实物资产、基金与期货的持有差别</a></td></tr>
 </tbody></table></section>
 <section data-asset-panel="digital"><h3>数字资产</h3><table><tbody>
 <tr><th scope="row">是什么</th><td>比特币等原生代币与稳定币具有不同的设计。稳定币通常尝试维持与某种货币或资产的价值联系。</td></tr>
-<tr><th scope="row">回报从哪里来</th><td>现货价格变化影响持有结果；质押、借贷等额外收益需要另看具体机制。稳定币的实际价格也可能偏离它所跟踪的价值。</td></tr>
+<tr><th scope="row">回报从哪里来</th><td>直接拿现货主要看价格涨跌；如果想靠质押、借贷多拿一笔收益，还得看清背后的规则和风险。另外，稳定币的市场价格有时也会偏离它挂钩的面值。</td></tr>
 <tr><th scope="row">相关词条</th><td><a href="/zh/notebook/#topic-L" data-planned-entry="NB-L01">永续合约的价格锚定与资金费</a>；<a href="/zh/notebook/#topic-L" data-planned-entry="NB-L04">合约计价与完整持有结果</a>（相关工具）</td></tr>
 </tbody></table></section>
 <section data-asset-panel="currency"><h3>外币</h3><table><tbody>
 <tr><th scope="row">是什么</th><td>外币是相对于生活所用币种的另一种货币，也可以用于持有存款、债券等资产。</td></tr>
-<tr><th scope="row">回报从哪里来</th><td>换回生活所用货币时，汇率变化影响结果；能否取得利息等收入，取决于具体持有方式。</td></tr>
+<tr><th scope="row">回报从哪里来</th><td>将来换回平时花销的货币时，汇率涨跌会直接影响结果；持有期间能不能拿到利息，要看这笔外币是存在账户里还是买了短债等资产。</td></tr>
 <tr><th scope="row">相关词条</th><td><a href="/zh/notebook/#topic-U" data-planned-entry="NB-U01">存款、货币基金与短债</a>；<a href="/zh/notebook/compounding-inflation-opportunity-cost/">复利、通胀与机会成本</a></td></tr>
 </tbody></table></section>
 <section data-asset-panel="funds"><h3>基金与 ETF</h3><table><tbody>
 <tr><th scope="row">是什么</th><td>基金汇集资金投资资产或执行策略；ETF 是可以在交易所交易的一类基金。</td></tr>
-<tr><th scope="row">回报从哪里来</th><td>底层资产、投资策略和费用共同影响结果。判断投资风险，要看基金实际持有什么以及怎样运作。</td></tr>
+<tr><th scope="row">回报从哪里来</th><td>基金能赚多少，取决于它底层买了什么资产、按什么策略管，还要扣掉管理等费用。看它的风险，也得穿透进去看它实际拿着什么。</td></tr>
 <tr><th scope="row">相关词条</th><td><a href="/zh/notebook/indices-funds-etfs/">指数、基金与 ETF</a>；<a href="/zh/notebook/#topic-V" data-planned-entry="NB-V03">基金跟踪与投资者回报</a></td></tr>
 </tbody></table></section>
 <section data-asset-panel="reits"><h3>REITs</h3><table><tbody>
 <tr><th scope="row">是什么</th><td>REITs（房地产投资信托）提供参与经营性房地产或房地产融资的证券投资途径。</td></tr>
-<tr><th scope="row">回报从哪里来</th><td>房地产经营或相关融资的所得支持分配，证券价格也会变化；费用和融资成本影响持有人结果。</td></tr>
+<tr><th scope="row">回报从哪里来</th><td>底层房产收上来的租金或放贷利息是分红的来源，REITs 自己的二级市场价格也会涨跌；管理费和借债成本则会直接影响分到持有人手里的钱。</td></tr>
 <tr><th scope="row">相关词条</th><td><a href="/zh/notebook/#topic-X" data-planned-entry="NB-X02">房地产、租金与持有成本</a>；<a href="/zh/notebook/indices-funds-etfs/">指数、基金与 ETF</a></td></tr>
 </tbody></table></section>
 <section data-asset-panel="options"><h3>期权</h3><table><tbody>
@@ -237,12 +237,12 @@ GEV 的设备需求来自客户的建设计划。一般来说，电厂采购新�
 </tbody></table></section>
 <section data-asset-panel="perpetuals"><h3>永续合约</h3><table><tbody>
 <tr><th scope="row">是什么</th><td>永续合约通常没有固定到期日，常见设计通过资金费等安排使价格与现货保持联系。</td></tr>
-<tr><th scope="row">回报从哪里来</th><td>价格变化、资金费收付与交易费用共同影响结果；持仓需要满足保证金要求，保证金不足可能触发强制平仓。</td></tr>
+<tr><th scope="row">回报从哪里来</th><td>除了合约价格涨跌，持仓期间还要按规则收付资金费，并扣掉交易费用；另外账户得留够保证金，一旦不够就可能被强制平仓。</td></tr>
 <tr><th scope="row">相关词条</th><td><a href="/zh/notebook/#topic-L" data-planned-entry="NB-L01">永续合约的价格锚定与资金费</a></td></tr>
 </tbody></table></section>
 <section data-asset-panel="prediction"><h3>预测市场</h3><table><tbody>
-<tr><th scope="row">是什么</th><td>参与者交易按具名事件及约定条件结算的合约。</td></tr>
-<tr><th scope="row">回报从哪里来</th><td>买卖或结算所得减去投入与费用，形成持有盈亏；结果取决于合约规定的事件与判定方式。</td></tr>
+<tr><th scope="row">是什么</th><td>参与者围绕某个具体事件会不会发生来买卖合约，到期按事先写好的条件结算。</td></tr>
+<tr><th scope="row">回报从哪里来</th><td>中途卖出或到期结算拿到的钱，减去当初的本金和交易费用，就是这笔交易的盈亏；最后能不能拿到赔付，要看事件结果和合约规定的判定细则。</td></tr>
 <tr><th scope="row">相关词条</th><td><a href="/zh/notebook/#topic-H" data-planned-entry="NB-H01">事件合约与概率报价</a></td></tr>
 </tbody></table></section>
 </div></div>
