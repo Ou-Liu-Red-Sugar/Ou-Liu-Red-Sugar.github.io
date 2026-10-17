@@ -229,7 +229,7 @@ This is reference material for the learner's current request. Use the supplied e
 
 新资金接下来用在哪里，决定了每股价值之后怎样变化。投入能带来利润的业务，公司价值的增加可以超过募集到的 10,000 美元，每股价值随之上升；用得不好，增加不到 10,000 美元，每股价值就会下降。所以看到公司规模变大，还不能推定每一股也得到了同样比例的增长。
 
-<span data-text-versions id="nb-s02-text-5">Alphabet（GOOGL／GOOG）在 2026 年的融资是一个实际例子。公司披露，2026 年 6 月通过发行 Class A、Class C 股票及强制可转换优先股，合计取得约 496 亿美元净募集资金，用途包括扩充 AI 基础设施和全球算力<span data-text-detail>（这项金额是上述权益融资合计的净所得，并非全部来自普通股发行。强制可转换优先股先以优先股形式存在，再按条款转换为普通股，其分红权利与未来转股另有安排，不能直接把全部融资额换算成当期新增普通股）</span>。普通股与优先股的权利区别见[《股票的类型、发行与交易形式》](/zh/notebook/stock-types-issuance-trading/)；对没有认购的股东，这笔融资带来的是增益还是损失，同样要看发行价格，以及这笔资金投入算力以后的回报。[^alphabet-release]<sup>，</sup>[^alphabet]<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>
+<span data-text-versions id="nb-s02-text-5">Alphabet（GOOGL／GOOG）在 2026 年的融资是一个实际例子。公司披露，2026 年 6 月通过发行 Class A、Class C 股票及强制可转换优先股，合计取得约 496 亿美元净募集资金，用途包括扩充 AI 基础设施和全球算力<span data-text-detail>（这项金额是上述权益融资合计的净所得，并非全部来自普通股发行。强制可转换优先股先以优先股形式存在，再按条款转换为普通股，其分红权利与未来转股另有安排，不能直接把全部融资额换算成当期新增普通股）</span>。普通股与优先股的权利区别见[《股票的类型、发行与交易形式》](/zh/notebook/stock-types-issuance-trading/)；对没有掏钱认购的老股东来说，这笔融资究竟划算不划算，既要看新证券卖了什么价，也要看这笔钱投进算力以后能不能赚回足够的回报。[^alphabet-release]<sup>，</sup>[^alphabet]<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>
 
 <figure class="flow-figure" id="nb-s02-issuance-flow">
 <div class="ff-head"><p class="ff-title">增发：公司取得资金，认购者取得新证券</p><p class="ff-legend"><span class="ff-key-share">证券</span><span class="ff-key-cash">资金</span></p></div>
@@ -241,7 +241,7 @@ This is reference material for the learner's current request. Use the supplied e
 <p class="ff-aside"><strong>没有认购的老股东</strong>：股数不变，持股比例随普通股增加而下降；公司则多了一笔可以投入业务的资金。</p>
 </figure>
 
-<span data-text-versions id="nb-s02-text-6">公司还设立了最高 400 亿美元的 ATM 发行安排，可以按计划在市场上陆续出售新股；截至 2026 年 6 月 30 日，这个安排尚未实际售出股份<span data-text-detail>（ATM 即 at-the-market offering。公司披露，该项未来发行所得主要拟用于员工股权奖励相关的税款义务；这里采用截至 6 月底的披露状态，不将额度计入已经完成的融资，也不据此推定后续月份的执行情况）</span>。同一份报告显示，Alphabet 在 2026 年上半年没有回购 Class A 或 Class C 股票，此前的回购授权仍有约 695 亿美元可用。回购授权还在，公司却在募集新股：额度只表示允许，资金实际往哪个方向走，取决于公司当时的投入需要。[^alphabet]<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>
+<span data-text-versions id="nb-s02-text-6">公司还设立了最高 400 亿美元的 ATM 发行安排，可以按计划在市场上陆续出售新股；截至 2026 年 6 月 30 日，这个安排尚未实际售出股份<span data-text-detail>（ATM 即 at-the-market offering。公司披露，该项未来发行所得主要拟用于员工股权奖励相关的税款义务；这里采用截至 6 月底的披露状态，不将额度计入已经完成的融资，也不据此推定后续月份的执行情况）</span>。同一份报告显示，GOOGL／GOOG 在 2026 年上半年没有回购 Class A 或 Class C 股票，此前的回购授权还留着约 695 亿美元没动。明明还有大笔回购额度，公司却反过来发新股筹钱——可见授权额度只是允许公司这么做，真金白银到底往哪边走，还得看公司眼下最缺什么投入。[^alphabet]<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>
 
 ## 交易价格与每股价值 {#nb-s02-price}
 
@@ -268,7 +268,7 @@ This is reference material for the learner's current request. Use the supplied e
 
 回购价格高于价值时，卖出者拿到的现金多于他们交出的那部分公司，差额由继续持有的人承担：按 120 美元回购，约 83 股换走了 10,000 美元，这些股份按价值只值约 8,333 美元，剩下每股的价值降到约 98.18 美元。增发正好相反，低价发行把差额让给了认购者。Berkshire Hathaway（BRK.A／BRK.B）的 2012 年股东信在讨论分红与回购时，也把回购价格与公司价值的比较作为判断回购是否划算的依据。[^berkshire]
 
-回到 AAPL：上述季度披露的回购交易约 250 亿美元、约 9,300 万股，平均每股约 270 美元。这些回购对继续持有的人是否划算，就看 AAPL 每股实际值不值这个价格。回购还有另一面：这笔钱付给售股者以后，就不能再用于经营、投资或偿债。AAPL 把大量现金交还股东，Alphabet 在同一年为算力投入募集新股，资金流动的方向正好相反。[^apple]
+回到 AAPL：上述季度披露的回购交易约 250 亿美元、约 9,300 万股，平均每股约 270 美元。这些回购对继续持有的人是否划算，就看 AAPL 每股实际值不值这个价格。回购还有另一面：这笔钱付给售股者以后，就不能再用于经营、投资或偿债。AAPL 把大把现金退给股东，GOOGL／GOOG 却在同一年为了算力投入发新股筹钱，两边资金走的方向刚好相反。[^apple]
 
 ## 从公司动作看到持有结果 {#nb-s02-holding-return}
 
@@ -285,7 +285,7 @@ This is reference material for the learner's current request. Use the supplied e
 </div>
 </figure>
 
-对我们自己的投资，要把持有期间收到的现金与期末股票的价值合起来，再与原先投入比较。分红落在现金这一部分，股息到账就要计税；回购、增发和股权报酬通过股数和每股价值落在股票这一部分，要等自己卖出时才实现盈亏。
+算自己这笔投资一共赚了多少，得把持有期间收到的现金和期末手里股票的价值加在一起，再跟最初投进去的本金比。分红直接落进现金口袋，股息一到账通常就得算税；回购、增发和股权报酬则通过股数和每股价值的变化留在股价里，要等我们真正卖出股票那天，才变成落袋的盈亏。
 
 这些都是一家公司内部的资本动作。想同时持有许多家公司时，我们还可以借助指数规则和基金份额，下一篇[《指数、基金与 ETF》](/zh/notebook/indices-funds-etfs/)从这里讲起。
 

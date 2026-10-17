@@ -254,7 +254,7 @@ This is reference material for the learner's current request. Use the supplied e
 | 分配 | 参与公司决定的股息分配 | 按股份条款享有优先分配安排 |
 | 清算 | 偿还债务并完成优先股的优先分配后，取得剩余 | 排在债权人之后、普通股之前，按约定受偿 |
 
-清算一行说的是先后次序。用一组假设数字来看：公司欠债权人 60，优先股按约定可以先取得 25，剩下的才归普通股。
+表里“清算”这一行说的就是分钱的先后次序。用一组假设数字来看：公司欠债权人 60，优先股按约定可以先拿 25，排在最后的普通股拿剩下的部分；一旦可分配的财产缩水，最先拿不到钱的也是普通股。
 
 <figure class="flow-figure claim-order" id="nb-b01-claims" data-ff-views>
 <div class="ff-head"><p class="ff-title">清算时的受偿次序（示意）</p><div class="ff-switch" role="group" aria-label="选择可分配财产" hidden><button type="button" data-ff-view-choice="more" aria-pressed="true">财产 100</button><button type="button" data-ff-view-choice="less" aria-pressed="false">财产 70</button></div></div>
@@ -263,8 +263,6 @@ This is reference material for the learner's current request. Use the supplied e
 <div class="co-grid" aria-hidden="true"><span></span><div class="co-axis"><span style="--x:0%">0</span><span style="--x:60%">60</span><span style="--x:85%">85</span><span style="--x:100%">100</span></div><span></span></div>
 <figcaption>数字为假设。虚线框是按约定可以取得的金额，实心部分是实际取得的金额；前一类得到满足以后，财产才轮到下一类。</figcaption>
 </figure>
-
-可分配财产减少时，最先拿不到钱的是排在最后的普通股。
 
 <span data-text-versions id="nb-b01-text-1">公司还可以设置不同类别的股份。比如 Alphabet 的 A 类以 GOOGL 交易，每股一票；B 类不上市交易，每股十票；C 类以 GOOG 交易，通常没有投票权。这三类股份的每股股息和清算权益相同，投票能力却不同<span data-text-detail>（C 类的正式名称是 Class C capital stock，法律要求时仍有相应投票权；B 类转让通常会一比一转为 A 类，章程规定的特定转让除外）</span>。[^alphabet]<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>
 
@@ -307,11 +305,11 @@ RDDT 的首次公开发行同时用了这两种安排。首次公开发行通常
 
 ## 员工股份：授予、归属与解禁 {#nb-b01-vesting}
 
-股份也可以作为报酬发给员工，这类安排通常称为股权报酬（stock-based compensation，SBC）。员工提供服务，公司以股票或今后取得、购买股票的权利支付一部分报酬。公司用新股支付奖励时，总股数增加、原有股东的股数不变，持股比例就会下降；公司同时取得了员工的服务，这些服务又可能改善经营，所以还要把股份数量与经营变化放在一起，判断每股能分到什么。[^sbc]
+股份也可以作为报酬发给员工，这类安排通常称为股权报酬（stock-based compensation，SBC）。员工提供服务，公司以股票或今后取得、购买股票的权利支付一部分报酬。公司拿新股发奖励时，总股数变多、老股东手里的股数不变，持股比例自然会被摊薄；不过公司也换来了员工干活，如果这些投入能把业务做大，蛋糕变大的速度未必赶不上分蛋糕的人数。所以看股权报酬时，得把股数增加了多少和业务改善了多少合在一起算。[^sbc]
 
 员工期权和限制性股票单位（RSU）取得股票的方式不同。员工期权给予按约定行权价购买股票的权利，行权时员工要支付购股款；本篇所说的 RSU 则在条件满足后由公司交付股份，授予时员工还没有拿到对应的股票。[^sbc-example]
 
-从授予到能够卖出，中间还隔着几道关口。奖励可能要求员工完成一定的服务年限、达到业绩目标或满足其他条件；条件满足以后，期权还要行权，RSU 还要交付股份。已经持有股份的人，也可能在一段时间内不能出售，比如创始人、早期投资者和员工在 IPO 时约定的锁定。奖励是否已经归属，与股份能否出售，需要分别看。[^vesting-lockup]
+从授予到能够卖出，中间还隔着几道关口。奖励可能要求员工完成一定的服务年限、达到业绩目标或满足其他条件；条件满足以后，期权还要行权，RSU 还要交付股份。已经持有股份的人，也可能在一段时间内不能出售，比如创始人、早期投资者和员工在 IPO 时约定的锁定。因此，奖励是不是已经归属到员工名下，跟这些股票能不能拿到市场上卖，是两码事，得拆开看。[^vesting-lockup]
 
 <span data-text-versions id="nb-b01-text-2">RDDT 的员工 RSU 提供了一个实际例子。部分奖励既要求完成服务，也要求达到上市条件。已经满足服务条件的那部分奖励，在 IPO 注册生效、上市条件满足后进入结算，公司随后交付了股份<span data-text-detail>（RDDT 在 2024 年第二季度报告中披露了这次已经发生的结算，同时扣留部分股份用于处理相关税款；这里的上市条件满足时点是 IPO 注册生效，区别于首日交易和发行完成）</span>。这段经过说明，授予奖励、满足服务条件和实际收到股份，可以发生在不同时间。[^reddit-rsu]<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>
 
@@ -352,7 +350,7 @@ RDDT 的首次公开发行同时用了这两种安排。首次公开发行通常
 
 ## ADR 与存托安排 {#nb-b01-adr}
 
-在市场上买卖的对象，也可能是对应股票权益的存托证券。[《股票、公司与股价》](/zh/notebook/stocks-company-price/)介绍的 SKHY 就在美国市场交易，每份对应十分之一股 SK hynix（000660）韩国普通股。这层对应关系怎样维持，还要沿着托管和存托安排继续看。[^adr]<sup>，</sup>[^skhy]
+除了直接买公司发行的股票，我们在市场上买到的也可能是存托证券。[《股票、公司与股价》](/zh/notebook/stocks-company-price/)里提到的 SKHY 就在美国市场交易，每份对应十分之一股 SK hynix（000660）韩国普通股。这两边是怎么连起来的，顺着托管和存托的安排就能看明白。[^adr]<sup>，</sup>[^skhy]
 
 韩国原股进入当地托管安排，托管机构确认存入的股份后，存托银行据此发行相应的存托证券。在 SKHY 的公开存托文件中，Citibank 是存托银行，Korea Securities Depository 是韩国托管机构。投资者买入已有的 SKHY，持有的是存托证券，买款付给卖方；原股仍在托管安排中。与前面转让已有股份一样，在市场上转让已有存托凭证，也不会为 SK hynix 带来新增融资。[^skhy-terms]
 
