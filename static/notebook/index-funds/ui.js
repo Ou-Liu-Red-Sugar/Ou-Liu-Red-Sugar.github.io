@@ -1,6 +1,6 @@
 (function(root){
   'use strict';
-  const colors=['#24664f','#5986a1','#b47550','#c7cba3'];
+  const colors=['#23695a','#5986a1','#a8743f','#c7cba3'];
   const labels=['股票 A','股票 B','股票 C','股票 D'];
   const pct=x=>(x*100).toFixed(1)+'%';
   const cash=x=>Math.round(x).toLocaleString('en-US');
@@ -30,8 +30,9 @@
         row.querySelector('[data-if-value]').textContent=cash(r.total)+' 美元';
         row.querySelector('[data-if-track]').innerHTML=r.weights.map((w,i)=>`<span class="if-segment" style="width:${w*100}%;--color:${colors[i]}" title="${labels[i]}：${pct(w)}">${pct(w)}</span>`).join('');
       });
-      panel.querySelector('[data-if-cap-return]').textContent=pct(results.cap.return);
-      panel.querySelector('[data-if-equal-return]').textContent=pct(results.equal.return);
+      const signed=x=>(x>0?'+':x<0?'−':'')+pct(Math.abs(x));
+      panel.querySelector('[data-if-cap-return]').textContent=stage===0?'0.0%':signed(results.cap.return);
+      panel.querySelector('[data-if-equal-return]').textContent=stage===0?'0.0%':signed(results.equal.return);
       const text=[
         '起点：两种方式各投入 10,000 美元。市值加权按 40% / 30% / 20% / 10% 分配，等权各占 25%。',
         '两次再平衡之间：组合持有各只股票的数量保持不变，市场价格已经改变了各股在组合中的比重；等权也会偏离 25%。',

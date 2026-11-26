@@ -8,13 +8,13 @@
   "translationKey": "zh-stocks-company-price"
 }
 
-<link rel="stylesheet" href="/notebook/flow-figures.css?v=20261012-6">
+<link rel="stylesheet" href="/notebook/flow-figures.css?v=20261126">
 
 ## 100 股 AAPL 意味着什么 {#nb-s01-ownership}
 
-买入 100 股 Apple（AAPL），我们就成了这家公司的股东。AAPL 的普通股在 Nasdaq 交易，股票代表持有人在公司的股权，平时常说“买股票就是买公司的一部分”，指的就是这层关系。这一小份有多大呢？AAPL 在 2025 年 4 月中旬大约有 149.36 亿股在外普通股，100 股大概只占其中的 1.49 亿分之一。[^stock]<sup>，</sup>[^apple-shares]
+买入 100 股 Apple（AAPL），我们就成了这家公司的股东。AAPL 普通股在 Nasdaq 交易，代表持有人在公司中的股权，平时常说“买股票就是买公司的一部分”，指的正是这层关系。这一小份究竟有多大？2025 年 4 月中旬，AAPL 大约有 149.36 亿股在外普通股，100 股大概只占其中的 1.49 亿分之一。[^stock]<sup>，</sup>[^apple-shares]
 
-份额虽然小，享有的权利却和其他股东一样按股数算。AAPL 向客户卖出 iPhone、Mac 等硬件，也靠 App Store、Apple Music 等服务收钱；扣掉生产、研发、销售等各项成本费用和税款，剩下的才是公司的利润。利润可以留在公司继续经营和再投资，也可以在安排好经营和偿债所需的资金以后，以现金分红交给股东。2025 年 5 月，AAPL 每股派发 0.26 美元，符合领取条件的 100 股便收到税前 26 美元。[^apple-business]<sup>，</sup>[^apple-dividend]
+份额虽小，享有的权利却与其他股东一样按股数计算。AAPL 一边向客户卖出 iPhone、Mac 等硬件，一边靠 App Store、Apple Music 等服务收钱；扣掉生产、研发、销售等各项成本费用和税款，余下的才是公司利润。这部分利润可以留在公司继续经营和再投资，也可以在安排好经营和偿债所需的资金以后，以现金分红交给股东。2025 年 5 月，AAPL 每股派发 0.26 美元，符合领取条件的 100 股就收到税前 26 美元。[^apple-business]<sup>，</sup>[^apple-dividend]
 
 <figure class="flow-figure fan-out" id="nb-s01-holding">
 <div class="ff-head"><p class="ff-title">一笔 100 股 AAPL 的持仓</p><span class="ff-sub">2025 年 4—5 月的实际数字</span></div>
@@ -29,36 +29,50 @@
 </div>
 </figure>
 
-当然，股东惦记的不只是已经发到手里的分红。当买 AAPL 产品的人越来越多、产品一直有竞争力，生意就有机会接着往上走；反过来，一旦需求转弱、竞争变激烈，盈利也会跟着受影响。公司怎样使用赚到的钱，是继续投入业务，还是拿出更多资金回报股东，也关系到持有这些股份以后能得到什么。公司的业务、盈利能力、竞争地位和资金使用，以及由此形成的经营前景，就是我们要研究的基本面；以买入公司一部分的眼光看股票，基本面也就成了判断投资价值的出发点，[《Agent 时代的基本面投资》](/zh/notebook/investment-returns/)正是从这里讲起。
+股东看重的当然不只是已经发到手的分红。买 AAPL 产品的人越来越多、产品一直有竞争力时，生意就有机会继续往上走；反过来，一旦需求转弱、竞争加剧，盈利也会跟着承压。公司怎样使用赚到的钱——继续投入业务，还是拿出更多资金回报股东——同样关系到持有这些股份以后能得到什么。公司的业务、盈利能力、竞争地位和资金使用，以及由此形成的经营前景，合起来就是我们要研究的基本面；抱着买入公司一部分的眼光看股票，基本面自然成为判断投资价值的出发点，[《Agent 时代的基本面投资》](/zh/notebook/investment-returns/)正是从这里讲起。
 
 ## 股价、股数与市值 {#nb-s01-price}
 
-知道了自己买到的是什么，还要看取得这份股权付出了什么价格。股票可以在投资者之间转让，股价就是一股股票的交易价格。2025 年 4 月 25 日，AAPL 收于每股 209.28 美元，100 股对应 100 × 209.28 = 20,928 美元，这就是这笔持仓的市值。[^apple-price]
+弄清自己买到的是什么以后，还要看取得这份股权付出了什么价格。股票可以在投资者之间转让，股价就是一股股票的交易价格。2025 年 4 月 25 日，AAPL 收于每股 209.28 美元，100 股对应 100 × 209.28 = 20,928 美元，这就是这笔持仓的市值。[^apple-price]
 
-<span data-text-versions id="nb-s01-text-1">想了解公司全部股权的市场定价，就把前面的 149.36 亿股在外普通股乘以每股价格，估算股票市值，也就是按这个股价计算的全部普通股的总价<span data-text-detail>（这里采用 2025 年 4 月 25 日的收盘价和 4 月 18 日的 14,935,826,000 股在外普通股；股数于 5 月 2 日披露，因此本文是结合邻近时点的真实记录作事后估算）</span>。将股价与股数相乘，得到：[^apple-shares]<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>
+<span data-text-versions id="nb-s01-text-1">想看整家公司全部股权的市场定价，就把前面的 149.36 亿股在外普通股乘以每股价格，估算股票市值，也就是按这一股价折算的全部普通股总价<span data-text-detail>（这里采用 2025 年 4 月 25 日的收盘价和 4 月 18 日的 14,935,826,000 股在外普通股；股数于 5 月 2 日披露，因此本文是结合邻近时点的真实记录作事后估算）</span>。两者相乘，得到：[^apple-shares]<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>
 
 \[
 209.28\text{ 美元/股}\times149.36\text{ 亿股}\approx3.13\text{ 万亿美元}.
 \]
 
-这约 3.13 万亿美元，是全部普通股按当时股价合计值多少钱，并不表示 AAPL 账上有同样多的现金。同一个股价，乘以自己的股数得到持仓市值，乘以全部股数得到公司市值，两者之比就是前面那个 1.49 亿分之一。
+<figure class="flow-figure g1-scale-bridge" id="nb-s01-mcap-scale">
+<div class="ff-head"><p class="ff-title">同一个股价，两种尺度的市值</p><span class="ff-sub">2025 年 4 月 AAPL 实际数字</span></div>
+<div class="g1-sb-wrap business-exchange" aria-label="按 2025 年 4 月 25 日 AAPL 收盘价每股 209.28 美元计算：个人持有 100 股，持仓市值为 20,928 美元；公司全部 149.36 亿股在外普通股，总市值约为 3.13 万亿美元。两个市值相除，每股价格约去，比例等于 100 股除以 149.36 亿股，约 1.49 亿分之一。">
+<div class="g1-sb-lanes">
+<div class="g1-sb-lane"><span class="g1-sb-tag">个人持仓</span><div class="g1-sb-eq"><span class="g1-sb-chip g1-sb-price">209.28 美元/股</span><span class="g1-sb-op">×</span><span class="g1-sb-chip">100 股</span><span class="g1-sb-op">=</span><span class="g1-sb-res">20,928 美元</span></div></div>
+<div class="g1-sb-lane g1-sb-lane-all"><span class="g1-sb-tag">公司全部</span><div class="g1-sb-eq"><span class="g1-sb-chip g1-sb-price">209.28 美元/股</span><span class="g1-sb-op">×</span><span class="g1-sb-chip">149.36 亿股</span><span class="g1-sb-op">≈</span><span class="g1-sb-res">3.13 万亿美元</span></div></div>
+</div>
+<div class="g1-sb-ratio"><small>两项市值之比</small><strong>约 1.49 亿分之一</strong><span>股价约去，剩下的正是持股比例</span></div>
+</div>
+<figcaption>市值是按股价折算的全部普通股总价，不代表公司账上有同等数额的现金。</figcaption>
+</figure>
+
+这约 3.13 万亿美元，只是按当时股价给全部普通股标出的总价，并不表示 AAPL 账上躺着同样多的现金。同一个股价，乘以自己的股数得到持仓市值，乘以全部股数得到公司市值，两者一除，股价约去，剩下的正好是前面那个 1.49 亿分之一。
 
 ## 股价怎样形成 {#nb-s01-expectations}
 
-股价来自买卖双方的成交，而读到同一份财报，投资者常常会得出不同的判断。NVIDIA（NVDA）在 2024 年 5 月公布，上一财季的收入已经达到约 260 亿美元。有人认为业务和盈利还会继续增长，愿意出更高的价格；也有人对增长预期较低，愿意付出的价格就低一些。不过要判断今后的经营，单看收入还不够，还得接着了解需求来自哪里、成本和费用有多少，以及业务能否持续。[^nvda-results]
+股价来自买卖双方的成交，而读到同一份财报，投资者常常看法不一。NVIDIA（NVDA）在 2024 年 5 月公布，上一财季的收入已经达到约 260 亿美元。看好业务与盈利继续增长的人愿意出更高的价，对增长预期较谨慎的人出价就会低一些。不过判断今后的经营，单看收入还不够，还得接着了解需求来自哪里、成本和费用有多少，以及这份增长能否持续。[^nvda-results]
 
-投资者也要安排自己的资金。即使对公司经营的看法没有改变，等到一笔已经约定的付款临近，也可能需要卖出股票准备现金，[《投资期限与现金需要》](/zh/notebook/investment-horizon-cash/)会专门讨论这类安排。这些判断和资金需要，决定了每个人愿意在什么价格买入或卖出；买卖双方接受同一个价格时，就成交了一笔，市场上也就有了这一笔交易的价格。
+交易也不全由对公司的看法驱动，投资者还得安排自己的资金。即使对公司经营的看法分毫未变，等到一笔既定付款临近，也可能需要卖出股票准备现金，[《投资期限与现金需要》](/zh/notebook/investment-horizon-cash/)会专门讨论这类安排。这些判断加上各自的资金需要，决定了每个人愿意在什么价位买入或卖出；买卖双方在同一个价格上达成一致，就成交了一笔，市场上也就有了最新的成交价。
 
-所以看一家公司不能只问生意好不好，还得同时问：按今天这个价格买进去，划算吗？持有期相同、未来拿到的分红和卖出价也一样时，起初买得越贵，最后算下来的回报就越低：
+看一家公司时，不能只问生意好不好，还得同时问一句：按今天这个价格买进去，划算吗？持有期相同、未来拿到的分红和卖出价也一样时，起初买得越贵，最后落袋的回报就越低：
 
-<figure class="flow-figure" id="nb-s01-price-return">
-<div class="ff-head"><p class="ff-title">同样的未来所得，不同的买入价（示意）</p><span class="ff-sub">两年后卖出 120 美元，期间分红 4 美元</span></div>
-<div class="ff-bars business-exchange" aria-label="示意：同一只股票两年后卖出 120 美元，期间分红 4 美元，合计每股所得 124 美元。以 90 美元买入，回报约 37.8%；以 100 美元买入，回报 24%；以 110 美元买入，回报约 12.7%。">
-<span class="fb-name">90 美元买入</span><span class="fb-bar"><i style="--w:100%"></i></span><span class="fb-val">+37.8%</span>
-<span class="fb-name">100 美元买入</span><span class="fb-bar"><i style="--w:63.5%"></i></span><span class="fb-val">+24.0%</span>
-<span class="fb-name">110 美元买入</span><span class="fb-bar"><i style="--w:33.6%"></i></span><span class="fb-val">+12.7%</span>
+<figure class="flow-figure g1-return-flow" id="nb-s01-price-return">
+<div class="ff-head"><p class="ff-title">同样的未来所得，不同的买入价（示意）</p><span class="ff-sub">两年后卖出 120 美元 + 期间分红 4 美元 = 总所得 124 美元</span></div>
+<div class="business-exchange" aria-label="示意：同一只股票两年后卖出 120 美元，期间分红 4 美元，合计每股总所得 124 美元。以 90 美元买入，净赚 34 美元，总回报率约 +37.8%；以 100 美元买入，净赚 24 美元，总回报率 +24.0%；以 110 美元买入，净赚 14 美元，总回报率约 +12.7%；若买入价升到 124 美元，净赚 0 美元，总回报率降到 0.0% 的盈亏平衡线。">
+<div class="g1-rf-head" aria-hidden="true"><span>今日买入价</span><span>两年后总所得</span><span>净赚</span><span>总回报率</span></div>
+<div class="g1-rf-row"><span class="g1-rf-price">90 美元</span><span class="g1-rf-flow"><span class="g1-rf-total">120 <span class="g1-rf-div">+4</span> = <b>124</b></span></span><span class="g1-rf-gain">+34 美元</span><span class="g1-rf-ret"><span class="g1-rf-bar"><i style="--w:100%"></i></span><span class="g1-rf-pct">+37.8%</span></span></div>
+<div class="g1-rf-row"><span class="g1-rf-price">100 美元</span><span class="g1-rf-flow"><span class="g1-rf-total">120 <span class="g1-rf-div">+4</span> = <b>124</b></span></span><span class="g1-rf-gain">+24 美元</span><span class="g1-rf-ret"><span class="g1-rf-bar"><i style="--w:63.5%"></i></span><span class="g1-rf-pct">+24.0%</span></span></div>
+<div class="g1-rf-row"><span class="g1-rf-price">110 美元</span><span class="g1-rf-flow"><span class="g1-rf-total">120 <span class="g1-rf-div">+4</span> = <b>124</b></span></span><span class="g1-rf-gain">+14 美元</span><span class="g1-rf-ret"><span class="g1-rf-bar"><i style="--w:33.6%"></i></span><span class="g1-rf-pct">+12.7%</span></span></div>
+<div class="g1-rf-row g1-rf-zero"><span class="g1-rf-price">124 美元</span><span class="g1-rf-flow"><span class="g1-rf-total">120 <span class="g1-rf-div">+4</span> = <b>124</b></span></span><span class="g1-rf-gain">0 美元</span><span class="g1-rf-ret"><span class="g1-rf-zero-mark">盈亏平衡线</span><span class="g1-rf-pct">0.0%</span></span></div>
 </div>
-<figcaption>回报 = 每股所得 124 ÷ 买入价 − 1。买入价升到 124 美元，回报就降到 0。</figcaption>
+<figcaption>总回报率 =（卖出价 120 + 分红 4）÷ 买入价 − 1。浅琥珀标记为期间分红 4 美元。</figcaption>
 </figure>
 
 ## 拆股与并股 {#nb-s01-splits}
@@ -77,11 +91,11 @@
 <figcaption>浅色长条代表公司全部普通股，竖线隔出一股，深色是这位股东的持股。比例为示意，不按实际股数绘制；调整生效以后，市场交易仍会使价格变化。</figcaption>
 </figure>
 
-<span data-text-versions id="nb-s01-text-2">以一拆十为例，股东原来持有的一股会变成十股，公司总股数也会增加到原来的十倍。持股比例等于持有股数除以公司总股数，分子和分母同时乘以十，比例便保持不变。并股沿相反方向调整：股东的持股数与公司总股数同比例减少，每一股所代表的份额相应扩大<span data-text-detail>（这里比较拆股、并股的比例调整本身，市场交易仍会使价格变化；GE 并股后不足一股的部分，登记股东按方案取得现金替代，经纪商托管账户依其具体安排处理）</span>。同样的公司权益，也就换成了不同的股份计量单位。<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>
+<span data-text-versions id="nb-s01-text-2">以一拆十为例，股东原来持有的 1 股会变成 10 股，公司总股数也同步扩大到原来的十倍。持股比例等于持有股数除以公司总股数，分子和分母同时乘以十，比例自然不变。并股则沿相反方向调整：股东的持股数与公司总股数同比例减少，每一股所代表的份额相应扩大<span data-text-detail>（这里比较拆股、并股的比例调整本身，市场交易仍会使价格变化；GE 并股后不足一股的部分，登记股东按方案取得现金替代，经纪商托管账户依其具体安排处理）</span>。同样的公司权益，只是换了一套股份计量单位。<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>
 
-<span data-text-versions id="nb-s01-text-6">那为什么还要拆股呢？对每股价格比较高的股票来说，拆股以后，买入一整股所需的资金就会减少。一拆十会把这个金额降到原来的十分之一，小额资金因而更容易参与，投资者也能按较小金额买卖和调整仓位。NVDA 公布这次拆股时，就说明希望让员工和投资者更容易持有公司股票。[^nvda-split] 一般来说，拆股也有助于改善流动性，让投资者更容易买卖，并减轻较大订单对价格的冲击<span data-text-detail>（观察流动性是否改善，可以看买卖价差相对股价的大小、成交金额，或相同交易金额造成的价格影响；比较成交股数时，要先换到相同的股份计量单位）</span>。[^split-liquidity]<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>
+<span data-text-versions id="nb-s01-text-6">那为什么还要拆股呢？对每股价格较高的股票来说，拆股之后，买入一整股所需的资金就会降下来。一拆十会把这笔金额压到原来的十分之一，小额资金更容易参与，投资者也更方便按较小金额分批买卖和调整仓位。NVDA 公布这次拆股时，就说明希望让员工和投资者更容易持有公司股票。[^nvda-split] 一般而言，拆股也有助于改善流动性，让买卖更顺畅，并减轻较大订单对价格的冲击<span data-text-detail>（观察流动性是否改善，可以看买卖价差相对股价的大小、成交金额，或相同交易金额造成的价格影响；比较成交股数时，要先换到相同的股份计量单位）</span>。[^split-liquidity]<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>
 
-<span data-text-versions id="nb-s01-text-7">并股的目的又有所不同。GE 此前已经剥离了多项业务，股份数量却没有相应减少。于是公司在 2021 年实施八合一，希望让在外股数与转型后的公司规模和业务范围更加相称<span data-text-detail>（这次并股于 7 月 30 日完成，自 8 月 2 日起按调整后的股份单位交易）</span>。[^ge-reverse] 另一些公司则会在股价过低时借助并股提高每股报价，争取重新满足交易所的最低报价要求，以维持上市。[^reverse-purpose]<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>
+<span data-text-versions id="nb-s01-text-7">并股的目的又有所不同。GE 此前陆续剥离了多项业务，在外股数仍维持在早年的体量上。于是公司在 2021 年实施八合一，让在外股数与转型后的公司规模和业务范围更加相称<span data-text-detail>（这次并股于 7 月 30 日完成，自 8 月 2 日起按调整后的股份单位交易）</span>。[^ge-reverse] 另一些公司则会在股价过低时借助并股提高每股报价，争取重新满足交易所的最低报价要求，以维持上市。[^reverse-purpose]<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>
 
 ## 公司分拆 {#nb-s01-separation}
 
@@ -92,9 +106,9 @@
 <div class="sm-track">
 <div class="sm-col business-exchange" aria-label="2022 年底，这位股东只持有 GE 的股份，GE 同时经营医疗、能源和航空业务。"><span class="sm-when">2022 年底</span><div class="sm-co"><strong>GE</strong><span class="sm-biz sm-med">医疗</span><span class="sm-biz sm-energy">能源</span><span class="sm-biz sm-aero">航空</span></div></div>
 <div class="sm-arrow">2023 年 1 月 <br>GEHC 分拆</div>
-<div class="sm-col business-exchange" aria-label="2023 年 1 月医疗业务以 GE HealthCare（GEHC）分拆上市，这位股东按方案取得 GEHC 股份，同时持有经营能源和航空业务的 GE。"><span class="sm-when">分拆以后</span><div class="sm-co"><strong>GE</strong><span class="sm-biz sm-energy">能源</span><span class="sm-biz sm-aero">航空</span></div><div class="sm-co sm-new"><strong>GEHC</strong><span class="sm-biz sm-med">医疗</span></div></div>
+<div class="sm-col business-exchange" aria-label="2023 年 1 月医疗业务以 GE HealthCare（GEHC）分拆上市，这位股东按方案取得 GEHC 股份，同时持有经营能源和航空业务的 GE。"><span class="sm-when">2023 年 1 月后</span><div class="sm-co"><strong>GE</strong><span class="sm-biz sm-energy">能源</span><span class="sm-biz sm-aero">航空</span></div><div class="sm-co sm-new"><strong>GEHC</strong><span class="sm-biz sm-med">医疗</span></div></div>
 <div class="sm-arrow">2024 年 4 月 <br>GEV 分拆</div>
-<div class="sm-col business-exchange" aria-label="2024 年 4 月能源业务以 GE Vernova（GEV）分拆，这位股东按方案取得 GEV 股份；留下航空业务的公司以 GE Aerospace（GE）继续经营。此时这位股东分别持有 GE、GEHC 和 GEV 三家公司的股份。"><span class="sm-when">分拆以后</span><div class="sm-co"><strong>GE</strong><span class="sm-biz sm-aero">航空</span><small>GE Aerospace</small></div><div class="sm-co"><strong>GEHC</strong><span class="sm-biz sm-med">医疗</span></div><div class="sm-co sm-new"><strong>GEV</strong><span class="sm-biz sm-energy">能源</span></div></div>
+<div class="sm-col business-exchange" aria-label="2024 年 4 月能源业务以 GE Vernova（GEV）分拆，这位股东按方案取得 GEV 股份；留下航空业务的公司以 GE Aerospace（GE）继续经营。此时这位股东分别持有 GE、GEHC 和 GEV 三家公司的股份。"><span class="sm-when">2024 年 4 月后</span><div class="sm-co"><strong>GE</strong><span class="sm-biz sm-aero">航空</span><small>GE Aerospace</small></div><div class="sm-co"><strong>GEHC</strong><span class="sm-biz sm-med">医疗</span></div><div class="sm-co sm-new"><strong>GEV</strong><span class="sm-biz sm-energy">能源</span></div></div>
 </div>
 <figcaption>假设这位股东一直持有 GE，并保留分拆时取得的股份。</figcaption>
 </figure>
@@ -103,7 +117,7 @@
 
 ## 交易载体与对应权益 {#nb-s01-instruments}
 
-有时，同一家公司的权益还会以不同的证券形式出现在不同市场。公司的股份可以在本国市场交易，存托银行也可以以托管的境外股票为基础，发行在另一个市场交易的存托凭证；投资者持有这些凭证，就取得了与托管股份对应的权益。
+有时，同一家公司的权益还会以不同证券形式挂在不同市场。除了在本国交易所直接交易普通股，存托银行也可以依托托管的境外股票，在另一个市场发行存托凭证；买下这些凭证，持有人就取得了与底层托管股份对应的权益。
 
 <span data-text-versions id="nb-s01-text-3">在美国市场上，这类证券通常称为美国存托凭证（ADR）。以 SK hynix（韩国普通股：000660）为例，美国市场上的 SKHY 是对应其普通股的存托证券<span data-text-detail>（ADR 指存托凭证，ADS 指凭证所代表的美国存托股份额，两种称呼常通用；本文按每份 SKHY 对应十分之一股韩国普通股换算）</span>。虽然交易代码和市场不同，两者仍通过具体的股份对应关系联系在一起。[^adr]<sup>，</sup>[^skhy]<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>
 
@@ -123,6 +137,7 @@
 <span class="pc-name">SKHY 盘中价</span><span class="pc-bar"><i class="pc-base" style="--w:76.95%"></i><i class="pc-gap-part" style="--from:76.95%"></i></span><span class="pc-val">160.69 美元</span>
 <span class="pc-gap">高出 37.04 美元，<strong>约 30%</strong></span>
 </div>
+<figcaption>韩股取前次收盘价，SKHY 为美股盘中价，两地存在交易时差；该价差不代表同一时点可直接兑现的套利收益。</figcaption>
 </figure>
 
 统一股数和币种以后，SKHY 当时的盘中价格比韩国普通股前一次收盘价高出约 30%。因此，即使已经认出了同一家公司，我们也还要看看通过什么证券、在哪个市场买入，会付出怎样的价格。

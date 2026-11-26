@@ -1,43 +1,107 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 645" role="img" aria-labelledby="title desc"><title id="title">MRVL：事前门槛与后来结果</title><desc id="desc">3月5日管理层给出FY2027全年数据中心增长约40%的展望，5月26日记录两个单季门槛合约的YES价格，5月27日公司公布单季数据中心收入18.327亿美元。</desc>
-<style>text{font-family:Inter,"Microsoft YaHei","Noto Sans CJK SC",sans-serif;fill:#1e3440}.muted{fill:#607581}.small{font-size:17px}.label{font-size:20px}.headline{font-size:27px;font-weight:650}.num{font-size:24px;font-weight:650}</style>
-<rect width="1000" height="645" fill="#f8faf9" rx="16"/>
-<text x="36" y="47" class="headline" >MRVL · 事前门槛与后来结果</text>
-<text x="36" y="78" class="small muted" >合约对象：FY2027 Q1 数据中心收入 · 截至 2026-05-02 的三个月</text>
-<defs><marker id="a" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0 0L8 4L0 8" fill="none" stroke="#89a0a6" stroke-width="1.5"/></marker></defs>
-<rect x="36" y="111" width="280" height="154" rx="9" fill="#edf3f1"/>
-<text x="54" y="140" class="small muted" >2026-03-05</text>
-<text x="54" y="178" class="label" >公司全年展望</text>
-<text x="54" y="211" class="small" >FY2027 全年</text>
-<text x="54" y="242" class="small" >数据中心增长约 40%</text>
-<path d="M324 187H346" stroke="#89a0a6" stroke-width="2" marker-end="url(#a)"/>
-<rect x="360" y="111" width="280" height="154" rx="9" fill="#edf3f1"/>
-<text x="378" y="140" class="small muted" >2026-05-26</text>
-<text x="378" y="178" class="label" >财报前的市场记录</text>
-<text x="378" y="211" class="small" >单季门槛 YES 价格</text>
-<text x="378" y="242" class="small" >39.5¢ 与 18.5¢</text>
-<path d="M648 187H670" stroke="#89a0a6" stroke-width="2" marker-end="url(#a)"/>
-<rect x="684" y="111" width="280" height="154" rx="9" fill="#edf3f1"/>
-<text x="702" y="140" class="small muted" >2026-05-27</text>
-<text x="702" y="178" class="label" >公司报告结果</text>
-<text x="702" y="211" class="small" >单季收入 18.327 亿美元</text>
-<text x="702" y="242" class="small" >同比约 +27.22%</text>
-<text x="36" y="314" class="label" >单季门槛与事前价格</text>
-<text x="36" y="345" class="small muted" >YES 历史价格记录：2026-05-26 12:00:04 EDT</text>
-<text x="36" y="393" class="small muted" >严格超过的收入</text>
-<text x="295" y="393" class="small muted" >对应同比增长边界</text>
-<text x="562" y="393" class="small muted" >YES 历史价格</text>
-<text x="800" y="393" class="small muted" >后来结果</text>
-<line x1="36" x2="964" y1="408" y2="408" stroke="#dce5e3"/>
-<text x="36" y="438" class="label" >18.5 亿美元</text>
-<text x="295" y="438" class="label" >约 28.42%</text>
-<text x="562" y="438" class="label" >39.5¢</text>
-<text x="800" y="438" class="label" >No</text>
-<line x1="36" x2="964" y1="459" y2="459" stroke="#dce5e3"/>
-<text x="36" y="489" class="label" >19 亿美元</text>
-<text x="295" y="489" class="label" >约 31.89%</text>
-<text x="562" y="489" class="label" >18.5¢</text>
-<text x="800" y="489" class="label" >No</text>
-<text x="36" y="545" class="small" >同比基期：去年同季 14.406 亿美元。全年展望不能直接替代单季门槛。</text>
-<text x="36" y="578" class="small muted" >历史价格提供概率报价线索；该时点买卖两侧和深度未恢复。</text>
-<text x="36" y="614" class="small muted" >来源：MRVL 公司公告与演示；Polymarket 合约规则和 CLOB 历史记录。</text>
+<svg xmlns="http://www.w3.org/2000/svg" width="920" height="500" viewBox="0 0 920 500" role="img" aria-labelledby="title desc">
+<title id="title">MRVL：事前门槛与后来结果</title>
+<desc id="desc">2026年3月5日管理层给出FY2027全年数据中心增长约40%的展望，5月26日Polymarket单季门槛合约价格为超过18.5亿美元39.5美分、超过19亿美元18.5美分；5月27日公司公布FY2027第一季度数据中心收入18.327亿美元（同比+27.22%），较上年同季14.406亿美元明显增长，但距离18.5亿美元门槛差0.173亿美元，两项合约均结为No。</desc>
+<style>
+  text { font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", "Noto Sans SC", sans-serif; font-variant-numeric: lining-nums tabular-nums; fill: #22392f; }
+  .title { font-size: 20px; font-weight: 700; }
+  .sub { font-size: 13.5px; fill: #7a8780; }
+  .badge-txt { font-size: 11.5px; font-weight: 650; }
+  .badge-warm { fill: #8f6033; }
+  .badge-teal { fill: #23695a; }
+  .badge-inv { fill: #ffffff; }
+  .card-title { font-size: 16px; font-weight: 650; fill: #22392f; }
+  .card-body { font-size: 13.5px; fill: #3c4c44; }
+  .card-strong { font-size: 15px; font-weight: 700; fill: #23695a; }
+  .card-warm { font-size: 15px; font-weight: 700; fill: #8f6033; }
+  .sec-head { font-size: 15px; font-weight: 650; fill: #22392f; }
+  .axis-txt { font-size: 12px; fill: #7a8780; }
+  .gate-title { font-size: 13px; font-weight: 700; fill: #8f6033; }
+  .gate-sub { font-size: 12px; fill: #6b533b; }
+  .bar-txt { font-size: 13px; font-weight: 650; fill: #ffffff; }
+  .actual-txt { font-size: 13.5px; font-weight: 650; fill: #23695a; }
+  .foot { font-size: 12px; fill: #7a8780; }
+</style>
+<defs>
+  <marker id="arr" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+    <path d="M0 0.5L7.5 4L0 7.5" fill="none" stroke="#23695a" stroke-width="1.6"/>
+  </marker>
+</defs>
+
+<rect x="1" y="1" width="918" height="498" rx="12" fill="#fbfbf6" stroke="#e2e7df" stroke-width="1.5"/>
+<text x="32" y="38" class="title">MRVL · 事前门槛与后来结果</text>
+<text x="32" y="61" class="sub">合约对象：FY2027 Q1 数据中心收入（截至 2026-05-02 的三个月）· 上年同季基期 14.406 亿美元</text>
+
+<!-- Step 1: Full-year outlook -->
+<rect x="32" y="82" width="262" height="128" rx="9" fill="#fdfdfa" stroke="#e2e7df" stroke-width="1.2"/>
+<rect x="48" y="96" width="144" height="22" rx="11" fill="#f5ebdf"/>
+<text x="120" y="111" class="badge-txt badge-warm" text-anchor="middle">全年口径 · 2026-03-05</text>
+<text x="48" y="143" class="card-title">公司全年展望</text>
+<text x="48" y="168" class="card-body">FY2027 全年数据中心</text>
+<text x="48" y="193" class="card-warm">预计增长约 40%</text>
+
+<line x1="298" y1="146" x2="324" y2="146" stroke="#23695a" stroke-width="1.8" marker-end="url(#arr)"/>
+
+<!-- Step 2: Pre-earnings market record -->
+<rect x="329" y="82" width="262" height="128" rx="9" fill="#fdfdfa" stroke="#e2e7df" stroke-width="1.2"/>
+<rect x="345" y="96" width="150" height="22" rx="11" fill="#e5efe9"/>
+<text x="420" y="111" class="badge-txt badge-teal" text-anchor="middle">Q1 单季 · 2026-05-26</text>
+<text x="345" y="143" class="card-title">财报前事件报价</text>
+<text x="345" y="168" class="card-body">单季门槛 YES 历史价格</text>
+<text x="345" y="193" class="card-strong">&gt;18.5 亿 39.5¢ · &gt;19 亿 18.5¢</text>
+
+<line x1="595" y1="146" x2="621" y2="146" stroke="#23695a" stroke-width="1.8" marker-end="url(#arr)"/>
+
+<!-- Step 3: Reported result -->
+<rect x="626" y="82" width="262" height="128" rx="9" fill="#f3f8f4" stroke="#b9d0c2" stroke-width="1.4"/>
+<rect x="642" y="96" width="150" height="22" rx="11" fill="#23695a"/>
+<text x="717" y="111" class="badge-txt badge-inv" text-anchor="middle">Q1 单季 · 2026-05-27</text>
+<text x="642" y="143" class="card-title">公司公布实际结果</text>
+<text x="642" y="168" class="card-body">单季数据中心收入</text>
+<text x="642" y="193" class="card-strong">18.327 亿美元（+27.2%）</text>
+
+<!-- Bottom visual comparison: Number line from 14.0 to 19.6 (x = 58 + (v - 14.0) * 136) -->
+<line x1="32" y1="232" x2="888" y2="232" stroke="#e2e7df" stroke-width="1"/>
+<text x="32" y="260" class="sec-head">同口径单季收入标尺：实际增速可观，仍止步于两道门槛之前（亿美元）</text>
+
+<!-- Axis background track -->
+<rect x="58" y="340" width="761.6" height="26" rx="5" fill="#edf1eb"/>
+
+<!-- Base marker: 14.406 -> x = 113.2 -->
+<line x1="113.2" y1="328" x2="113.2" y2="376" stroke="#7a8780" stroke-width="1.5"/>
+<text x="113.2" y="320" class="axis-txt" text-anchor="start">基期 14.406 亿（FY26 Q1）</text>
+
+<!-- Actual growth bar: 14.406 (113.2) to 18.327 (646.5) -> width = 533.3 -->
+<rect x="113.2" y="340" width="533.3" height="26" rx="4" fill="#23695a"/>
+<text x="379.8" y="357.5" class="bar-txt" text-anchor="middle">FY2027 Q1 实际 18.327 亿（同比 +27.22%）</text>
+
+<!-- Gate 1: 18.5 -> x = 670.0 -->
+<line x1="670" y1="286" x2="670" y2="378" stroke="#a8743f" stroke-width="2" stroke-dasharray="5 3"/>
+<rect x="466" y="282" width="196" height="44" rx="6" fill="#f5ebdf" stroke="#e2cab0" stroke-width="1"/>
+<text x="654" y="300" class="gate-title" text-anchor="end">门槛一 &gt; 18.5 亿（+28.4%）</text>
+<text x="654" y="318" class="gate-sub" text-anchor="end">事前 39.5¢ → 结果 NO</text>
+
+<!-- Gate 2: 19.0 -> x = 738.0 -->
+<line x1="738" y1="286" x2="738" y2="378" stroke="#a8743f" stroke-width="2" stroke-dasharray="5 3"/>
+<rect x="746" y="282" width="154" height="44" rx="6" fill="#f5ebdf" stroke="#e2cab0" stroke-width="1"/>
+<text x="756" y="300" class="gate-title" text-anchor="start">&gt; 19.0 亿（+31.9%）</text>
+<text x="756" y="318" class="gate-sub" text-anchor="start">事前 18.5¢ → NO</text>
+
+<!-- Numeric axis ticks -->
+<line x1="58" y1="382" x2="819.6" y2="382" stroke="#cdd6cc" stroke-width="1"/>
+<text x="58" y="399" class="axis-txt" text-anchor="middle">14.0</text>
+<text x="194" y="399" class="axis-txt" text-anchor="middle">15.0</text>
+<text x="330" y="399" class="axis-txt" text-anchor="middle">16.0</text>
+<text x="466" y="399" class="axis-txt" text-anchor="middle">17.0</text>
+<text x="602" y="399" class="axis-txt" text-anchor="middle">18.0</text>
+<text x="738" y="399" class="axis-txt" text-anchor="middle">19.0</text>
+<text x="819.6" y="399" class="axis-txt" text-anchor="middle">19.6</text>
+
+<!-- Gap callout under 18.327 -->
+<circle cx="646.5" cy="366" r="4" fill="#23695a" stroke="#fbfbf6" stroke-width="1.5"/>
+<text x="647" y="423" class="actual-txt" text-anchor="end">实际 18.327 亿，距 18.5 亿门槛差 0.173 亿，两项合约均未过线</text>
+
+<!-- Footer -->
+<line x1="32" y1="440" x2="888" y2="440" stroke="#e5eae2" stroke-width="1"/>
+<text x="32" y="462" class="foot">全年约 40% 展望不能直接替代单季门槛；YES 历史价格取自 2026-05-26 12:00:04 EDT（买卖深度未恢复）。</text>
+<text x="32" y="483" class="foot">来源：MRVL 公司公告与演示；Polymarket 合约规则和 CLOB 历史记录。</text>
 </svg>

@@ -1,10 +1,81 @@
-.comp-figure{margin:28px 0;padding:18px 0;border-top:1px solid var(--rule,#d5dbcf);border-bottom:1px solid var(--rule,#d5dbcf);scroll-margin-top:24px}
-.comp-figure img{display:block;width:100%;height:auto;max-width:100%!important;min-width:0;margin:0!important}
-.comp-controls{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 18px}
-.comp-controls button{font:inherit;font-size:13px;line-height:1.5;padding:7px 14px;color:var(--accent,#365940);border:1px solid var(--rule,#d5dbcf);border-radius:4px;background:#fbfcf8;cursor:pointer}
-.comp-controls button:hover{background:#edf2e7}
-.comp-controls button[aria-pressed=true]{color:#fff;background:#365940;border-color:#365940}
-.comp-controls button:focus-visible{outline:2px solid var(--accent,#365940);outline-offset:3px}
-.comp-figure figcaption{margin:12px 0 0;line-height:1.85;font-size:13px;color:var(--muted,#647064)}
-@media(max-width:600px){.comp-controls button{padding:7px 11px}.comp-figure{padding:14px 0}.comp-figure figcaption{font-size:12px}}
-@media print{.comp-controls{display:none}.comp-figure{break-inside:avoid}}
+/* Compounding interactive chart figures — aligned with flow-figures card & button design. */
+.comp-figure {
+  margin: 28px 0 32px;
+  padding: 16px 18px 14px;
+  border: 1px solid #e2e7df;
+  border-radius: 10px;
+  background: #fbfbf6;
+  scroll-margin-top: 24px;
+  font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft Yahei", "Noto Sans SC", sans-serif;
+  font-variant-numeric: lining-nums tabular-nums;
+}
+.comp-figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-width: 100% !important;
+  min-width: 0;
+  margin: 0 !important;
+  border-radius: 6px;
+}
+.comp-controls {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  margin: 0 0 12px;
+}
+.comp-controls button {
+  font: inherit;
+  font-size: 12.5px;
+  line-height: 1.45;
+  padding: 4px 12px;
+  color: #23695a;
+  border: 1px solid #c3cfbf;
+  border-radius: 6px;
+  background: #fffefa;
+  cursor: pointer;
+  transition: background-color .15s ease, border-color .15s ease, color .15s ease;
+}
+.comp-controls button:hover {
+  background: #e5efe9;
+}
+.comp-controls button[aria-pressed=true] {
+  color: #fff;
+  background: #23695a;
+  border-color: #23695a;
+  font-weight: 600;
+}
+.comp-controls button:focus-visible {
+  outline: 2px solid #23695a;
+  outline-offset: 2px;
+}
+.comp-figure figcaption {
+  margin: 10px 0 0;
+  line-height: 1.75;
+  font-size: 12px;
+  color: #7a8780;
+}
+.comp-figure figcaption a {
+  color: #23695a;
+}
+
+@media (max-width: 640px) {
+  .comp-figure {
+    padding: 13px 12px 11px;
+    margin: 22px 0 26px;
+  }
+  .comp-controls {
+    margin-bottom: 8px;
+  }
+  .comp-controls button {
+    padding: 4px 10px;
+    font-size: 12px;
+  }
+  .comp-figure figcaption {
+    font-size: 11.5px;
+  }
+}
+@media print {
+  .comp-controls { display: none; }
+  .comp-figure { break-inside: avoid; background: #fff; }
+}

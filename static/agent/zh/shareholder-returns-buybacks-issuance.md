@@ -2,7 +2,7 @@
 
 从 100 股 AAPL 的一个季度出发，比较分红与回购怎样把同样的现金交给股东，再看增发、稀释和成交价格怎样改变继续持有者的每股价值。
 
-Entry: zh-shareholder-returns-buybacks-issuance | Node: NB-S02 | Language: zh | Editorial revision: 2026-10-11
+Entry: zh-shareholder-returns-buybacks-issuance | Node: NB-S02 | Language: zh | Editorial revision: 2026-11-26
 
 ## Reference use
 This is reference material for the learner's current request. Use the supplied entry to teach the selected concept. Retrieve the relevant original unit when explaining a claim that depends on its assumptions, figures or rules; the reading list is a map for that work, not a prerequisite to the first lesson. Keep facts, supplied examples and inference distinct. Editorial access dates describe the author's work. The empty runtime_reading_log is an optional record field, not a requested response. Author-supplied scope notes below constrain factual use of the material; the learner's request determines the teaching task and first response.
@@ -147,24 +147,25 @@ This is reference material for the learner's current request. Use the supplied e
 ```
 
 ## Supplied entry
-<link rel="stylesheet" href="/notebook/flow-figures.css?v=20261012-6">
+<link rel="stylesheet" href="/notebook/flow-figures.css?v=20261126">
 
 [《股票、公司与股价》](/zh/notebook/stocks-company-price/)里那 100 股 Apple（AAPL），每个季度都会碰上公司向股东返还现金。在 2026 财年第一季度（截至 2025 年 12 月 27 日），AAPL 支付了约 39 亿美元的股息及股息等价物，又花了约 247 亿美元回购自己的普通股。按期初约 147.73 亿股发行在外普通股平摊，每 100 股分到约 26 美元股息，对应的回购款则约为 167 美元。[^apple]
 
-<figure class="flow-figure" id="nb-s02-returns">
-<div class="ff-head"><p class="ff-title">AAPL 2026 财年第一季度返还给股东的现金</p><span class="ff-sub">按期初 147.73 亿股平摊到每 100 股</span></div>
+<figure class="flow-figure g1-returns-polish" id="nb-s02-returns">
+<div class="ff-head"><p class="ff-title">AAPL 2026 财年第一季度返还给股东的现金<span class="g1-ret-ratio">回购约为股息的 6.3 倍</span></p><span class="ff-sub">按期初 147.73 亿股平摊到每 100 股</span></div>
 <div class="ff-bars business-exchange" aria-label="AAPL 2026 财年第一季度支付股息及股息等价物约 39 亿美元，按期初股数平摊每 100 股约 26 美元；回购普通股支付约 247 亿美元，每 100 股约 167 美元。回购约为股息的 6.3 倍。">
 <span class="fb-name">股息<small>100 股约 26 美元</small></span><span class="fb-bar"><i class="fb-cash" style="--w:15.8%"></i></span><span class="fb-val">约 39 亿美元</span>
 <span class="fb-name">回购普通股<small>100 股约 167 美元</small></span><span class="fb-bar"><i class="fb-cash" style="--w:100%"></i></span><span class="fb-val">约 247 亿美元</span>
 </div>
+<div class="g1-ret-dest"><div><strong>股息去向</strong>：直接进入全体符合条件股东的账户</div><div><strong>回购去向</strong>：付给当季卖出股票的人，留守股东持股比例升约 0.48%</div></div>
 <figcaption>季度截至 2025 年 12 月 27 日，金额取自现金流量表中的实际付款；股息含股息等价物。</figcaption>
 </figure>
 
-这两笔钱去了不同的地方。26 美元股息进了我们的账户；167 美元回购款付给了这一季度卖出 AAPL 的投资者，我们没有卖股，也就没有收到。我们从回购中得到的是份额：期末发行在外的股份少了，同样 100 股所占的比例比期初高了约 0.48%。分红、回购，以及方向相反的增发，改变的都是这两样东西：现金落在谁手里，每一股占公司多少。
+这两笔钱去了不同的口袋。26 美元股息直接进了我们的账户；167 美元回购款付给了这一季度卖出 AAPL 的投资者，我们没有卖股，也就没有收到现金。留守股东从回购中拿到的是份额：期末发行在外的股份少了，同样的 100 股所占比例比期初高出约 0.48%。分红、回购，以及方向相反的增发，围绕的正是这两件事：现金落在谁手里，每一股占公司多少。
 
 ## 分红与除息 {#nb-s02-dividends-tax}
 
-<span data-text-versions id="nb-s02-text-1">分红最直观：公司按每股固定金额付出现金，股票仍留在账户里。不过这笔现金原本属于公司，付出以后，公司剩下的资产也少了同样多。所以常规现金股息除息以后，股价通常会按股息相应调整：从除息日起买入的人拿不到这一期股息，愿意付的价格也就低一些<span data-text-detail>（本文讨论普通现金股息。除息日划分这次交易是否附带本期股息权利，支付日才是公司实际付款的日期；特殊分配可能采用不同规则。除息形成的价格调整还会和当天的市场行情叠加，实际成交价不会只由股息金额决定）</span>。股息要等到支付日才实际到账，打算用这笔钱安排开支，就要以支付日为准。[^dividends]<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>
+<span data-text-versions id="nb-s02-text-1">分红最直观：公司按每股固定金额付出现金，股票仍留在账户里。不过这笔现金原本属于公司，付出以后，公司剩下的资产也少了同样多。所以常规现金股息除息以后，股价通常会按股息相应调整：从除息日起买入的人拿不到这期股息，愿意出的价格自然低一截<span data-text-detail>（本文讨论普通现金股息。除息日划分这次交易是否附带本期股息权利，支付日才是公司实际付款的日期；特殊分配可能采用不同规则。除息形成的价格调整还会和当天的市场行情叠加，实际成交价不会只由股息金额决定）</span>。股息要等到支付日才实际到账，打算用这笔钱安排开支，就要以支付日为准。[^dividends]<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>
 
 <figure class="flow-figure value-tiles" id="nb-s02-dividend-dates">
 <div class="ff-head"><p class="ff-title">除息日与支付日前后，持有人手里有什么（示意）</p></div>
@@ -178,7 +179,7 @@ This is reference material for the learner's current request. Use the supplied e
 <figcaption>数字为假设，不计税费；除息日的实际价格还会受当天行情影响。</figcaption>
 </figure>
 
-收到股息还涉及税务。以美国普通应税账户中的个人投资者为例，现金股息通常在实际收到或可以支配的年度计入收入；即使券商自动用股息买入更多股票，这笔股息一般仍需申报。暂时不需要现金、打算继续持有股票的人，就多经历了一次计税：钱从公司分出来，计入当年收入，再由自己投回股票。[^tax]
+收到股息还要考虑税务。以美国普通应税账户中的个人投资者为例，现金股息通常在实际收到或可以支配的年度计入收入；即使券商自动用股息买入更多股票，这笔股息一般仍需申报。对眼下不需要现金、打算继续持股的人来说，等于多经历了一次计税：钱先从公司分出来并计入当年收入，再由自己投回股票。[^tax]
 
 ## 回购与持股比例 {#nb-s02-buybacks}
 
@@ -227,7 +228,7 @@ This is reference material for the learner's current request. Use the supplied e
 
 增发的方向与回购相反：公司卖出新股，换回资金。还用前面那家假设的公司：如果它按每股 100 美元发行 100 股新股，收到 10,000 美元，股数变成 1,100 股，公司价值变成 110,000 美元，每股仍值 100 美元。我们没有认购，100 股所占的比例从 10% 降到约 9.1%，这就是持股比例的稀释；新股东按价值付了等额现金，每股价值并没有因此下降。
 
-新资金接下来用在哪里，决定了每股价值之后怎样变化。投入能带来利润的业务，公司价值的增加可以超过募集到的 10,000 美元，每股价值随之上升；用得不好，增加不到 10,000 美元，每股价值就会下降。所以看到公司规模变大，还不能推定每一股也得到了同样比例的增长。
+新筹来的资金投向何处，决定了每股价值此后怎样演变。投入能带来高回报的业务，公司新增价值超过募集的 10,000 美元，每股价值随之上升；用得不好，新增价值抵不上筹来的钱，每股价值就会下降。看到公司规模变大时，还不能顺手推定每一股也得到了同样比例的增长。
 
 <span data-text-versions id="nb-s02-text-5">Alphabet（GOOGL／GOOG）在 2026 年的融资是一个实际例子。公司披露，2026 年 6 月通过发行 Class A、Class C 股票及强制可转换优先股，合计取得约 496 亿美元净募集资金，用途包括扩充 AI 基础设施和全球算力<span data-text-detail>（这项金额是上述权益融资合计的净所得，并非全部来自普通股发行。强制可转换优先股先以优先股形式存在，再按条款转换为普通股，其分红权利与未来转股另有安排，不能直接把全部融资额换算成当期新增普通股）</span>。普通股与优先股的权利区别见[《股票的类型、发行与交易形式》](/zh/notebook/stock-types-issuance-trading/)；对没有掏钱认购的老股东来说，这笔融资究竟划算不划算，既要看新证券卖了什么价，也要看这笔钱投进算力以后能不能赚回足够的回报。[^alphabet-release]<sup>，</sup>[^alphabet]<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>
 
@@ -245,28 +246,29 @@ This is reference material for the learner's current request. Use the supplied e
 
 ## 交易价格与每股价值 {#nb-s02-price}
 
-前面的例子都让交易价格正好等于每股价值。市场价格却常常高于或低于公司实际值的价格，这时回购和增发就会在继续持有的股东与交易对手之间转移价值。我们仍用每股价值 100 美元的那家公司，让它用 10,000 美元回购，或者通过增发募集 10,000 美元，只改变成交价格：
+前面的算例都假设成交价正好等于每股价值。现实里，市场价格常常高于或低于内在价值，这时候回购和增发就会在继续持有的股东与交易对手之间转移价值。仍用每股价值 100 美元的这家公司，让它花 10,000 美元回购，或者通过增发募集 10,000 美元，只改变成交价格：
 
-<figure class="flow-figure price-effect" id="nb-s02-price-effect">
+<figure class="flow-figure g1-price-effect" id="nb-s02-price-effect">
 <div class="ff-head"><p class="ff-title">成交价格怎样改变继续持有者的每股价值（示意）</p><span class="ff-sub">交易前 1,000 股，每股价值 100 美元</span></div>
-<div class="pe-panels">
-<div class="pe-panel business-exchange" aria-label="回购：公司付出 10,000 美元，交易后公司价值 90,000 美元。按 80 美元回购 125 股，剩 875 股，每股价值 102.86 美元，上升约 2.9%；按 100 美元回购 100 股，每股价值仍为 100 美元；按 120 美元回购约 83 股，剩约 917 股，每股价值 98.18 美元，下降约 1.8%。">
-<p class="pe-title">回购<small>付出 10,000 美元，公司剩 90,000 美元价值</small></p>
-<div class="pe-row"><span class="pe-price">80 美元</span><span class="pe-qty">买回 125 股</span><span class="pe-bar"><i class="pe-up" style="--w:95.2%"></i></span><span class="pe-val">102.86<small>+2.9%</small></span></div>
-<div class="pe-row"><span class="pe-price">100 美元</span><span class="pe-qty">买回 100 股</span><span class="pe-bar"></span><span class="pe-val">100.00<small>不变</small></span></div>
-<div class="pe-row"><span class="pe-price">120 美元</span><span class="pe-qty">买回约 83 股</span><span class="pe-bar"><i class="pe-down" style="--w:60.6%"></i></span><span class="pe-val">98.18<small>−1.8%</small></span></div>
+<div class="g1-pe-legend business-exchange" aria-label="图例：绿色表示每股价值上升（对留守股东有利），灰色表示平价（无转移），琥珀色表示每股价值下降（对留守股东不利）。"><span class="g1-pe-k-up">对留守股东有利（每股价值上升）</span><span class="g1-pe-k-par">平价（无转移）</span><span class="g1-pe-k-down">对留守股东不利（每股价值下降）</span></div>
+<div class="g1-pe-panels">
+<div class="g1-pe-panel business-exchange" aria-label="回购：公司付出 10,000 美元，交易后公司价值 90,000 美元。按 80 美元（低于价值）回购 125 股，剩 875 股，价值由售股者流向留守股东，每股价值升至 102.86 美元（+2.9%）；按 100 美元（等于价值）回购 100 股，无价值转移，每股价值仍为 100.00 美元；按 120 美元（高于价值）回购约 83 股，剩约 917 股，价值由留守股东流向售股者，每股价值降至 98.18 美元（−1.8%）。">
+<p class="g1-pe-title">回购<small>付出 10,000 美元，公司剩 90,000 美元价值</small></p>
+<div class="g1-pe-row"><div class="g1-pe-top"><span class="g1-pe-price">80 美元</span><span class="g1-pe-rel g1-rel-below">低于价值</span><span class="g1-pe-qty">买回 125 股</span><span class="g1-pe-val">102.86<span class="g1-pe-delta g1-pe-delta-up">+2.9%</span></span></div><div class="g1-pe-bot"><span class="g1-pe-bar"><i class="g1-pe-up" style="--w:95.2%"></i></span><span class="g1-pe-xfer g1-xfer-in">售股者 → 留守股东</span></div></div>
+<div class="g1-pe-row"><div class="g1-pe-top"><span class="g1-pe-price">100 美元</span><span class="g1-pe-rel g1-rel-par">等于价值</span><span class="g1-pe-qty">买回 100 股</span><span class="g1-pe-val">100.00<span class="g1-pe-delta g1-pe-delta-par">不变</span></span></div><div class="g1-pe-bot"><span class="g1-pe-bar"><b class="g1-pe-dot"></b></span><span class="g1-pe-xfer g1-xfer-flat">无价值转移</span></div></div>
+<div class="g1-pe-row"><div class="g1-pe-top"><span class="g1-pe-price">120 美元</span><span class="g1-pe-rel g1-rel-above">高于价值</span><span class="g1-pe-qty">买回约 83 股</span><span class="g1-pe-val">98.18<span class="g1-pe-delta g1-pe-delta-down">−1.8%</span></span></div><div class="g1-pe-bot"><span class="g1-pe-bar"><i class="g1-pe-down" style="--w:60.6%"></i></span><span class="g1-pe-xfer g1-xfer-out">留守股东 → 售股者</span></div></div>
 </div>
-<div class="pe-panel business-exchange" aria-label="增发：公司收到 10,000 美元，交易后公司价值 110,000 美元。按 80 美元发行 125 股，共 1,125 股，每股价值 97.78 美元，下降约 2.2%；按 100 美元发行 100 股，每股价值仍为 100 美元；按 120 美元发行约 83 股，共约 1,083 股，每股价值 101.54 美元，上升约 1.5%。">
-<p class="pe-title">增发<small>收到 10,000 美元，公司共 110,000 美元价值</small></p>
-<div class="pe-row"><span class="pe-price">80 美元</span><span class="pe-qty">发行 125 股</span><span class="pe-bar"><i class="pe-down" style="--w:74.1%"></i></span><span class="pe-val">97.78<small>−2.2%</small></span></div>
-<div class="pe-row"><span class="pe-price">100 美元</span><span class="pe-qty">发行 100 股</span><span class="pe-bar"></span><span class="pe-val">100.00<small>不变</small></span></div>
-<div class="pe-row"><span class="pe-price">120 美元</span><span class="pe-qty">发行约 83 股</span><span class="pe-bar"><i class="pe-up" style="--w:51.3%"></i></span><span class="pe-val">101.54<small>+1.5%</small></span></div>
+<div class="g1-pe-panel business-exchange" aria-label="增发：公司收到 10,000 美元，交易后公司价值 110,000 美元。按 80 美元（低于价值）发行 125 股，共 1,125 股，价值由留守股东流向认购者，每股价值降至 97.78 美元（−2.2%）；按 100 美元（等于价值）发行 100 股，无价值转移，每股价值仍为 100.00 美元；按 120 美元（高于价值）发行约 83 股，共约 1,083 股，价值由认购者流向留守股东，每股价值升至 101.54 美元（+1.5%）。">
+<p class="g1-pe-title">增发<small>收到 10,000 美元，公司共 110,000 美元价值</small></p>
+<div class="g1-pe-row"><div class="g1-pe-top"><span class="g1-pe-price">80 美元</span><span class="g1-pe-rel g1-rel-below">低于价值</span><span class="g1-pe-qty">发行 125 股</span><span class="g1-pe-val">97.78<span class="g1-pe-delta g1-pe-delta-down">−2.2%</span></span></div><div class="g1-pe-bot"><span class="g1-pe-bar"><i class="g1-pe-down" style="--w:74.1%"></i></span><span class="g1-pe-xfer g1-xfer-out">留守股东 → 认购者</span></div></div>
+<div class="g1-pe-row"><div class="g1-pe-top"><span class="g1-pe-price">100 美元</span><span class="g1-pe-rel g1-rel-par">等于价值</span><span class="g1-pe-qty">发行 100 股</span><span class="g1-pe-val">100.00<span class="g1-pe-delta g1-pe-delta-par">不变</span></span></div><div class="g1-pe-bot"><span class="g1-pe-bar"><b class="g1-pe-dot"></b></span><span class="g1-pe-xfer g1-xfer-flat">无价值转移</span></div></div>
+<div class="g1-pe-row"><div class="g1-pe-top"><span class="g1-pe-price">120 美元</span><span class="g1-pe-rel g1-rel-above">高于价值</span><span class="g1-pe-qty">发行约 83 股</span><span class="g1-pe-val">101.54<span class="g1-pe-delta g1-pe-delta-up">+1.5%</span></span></div><div class="g1-pe-bot"><span class="g1-pe-bar"><i class="g1-pe-up" style="--w:51.3%"></i></span><span class="g1-pe-xfer g1-xfer-in">认购者 → 留守股东</span></div></div>
 </div>
 </div>
-<figcaption>交易后每股价值 = 交易后公司价值 ÷ 交易后股数，单位为美元。左列是成交价格。</figcaption>
+<figcaption>交易后每股价值 = 交易后公司价值 ÷ 交易后股数，单位为美元。右侧箭头标示价值转移方向。</figcaption>
 </figure>
 
-回购价格高于价值时，卖出者拿到的现金多于他们交出的那部分公司，差额由继续持有的人承担：按 120 美元回购，约 83 股换走了 10,000 美元，这些股份按价值只值约 8,333 美元，剩下每股的价值降到约 98.18 美元。增发正好相反，低价发行把差额让给了认购者。Berkshire Hathaway（BRK.A／BRK.B）的 2012 年股东信在讨论分红与回购时，也把回购价格与公司价值的比较作为判断回购是否划算的依据。[^berkshire]
+回购价格高于内在价值时，卖出者拿走的现金超过他们交出的那部分公司，差额由留守股东承担：按 120 美元回购，约 83 股换走 10,000 美元，可这些股份按价值只值约 8,333 美元，余下每股的价值便降到约 98.18 美元。增发正好反过来，低价发股等于把差额让给了新认购者。Berkshire Hathaway（BRK.A／BRK.B）在 2012 年股东信中讨论分红与回购时，同样把回购价格与公司价值的比较当作判断回购是否划算的依据。[^berkshire]
 
 回到 AAPL：上述季度披露的回购交易约 250 亿美元、约 9,300 万股，平均每股约 270 美元。这些回购对继续持有的人是否划算，就看 AAPL 每股实际值不值这个价格。回购还有另一面：这笔钱付给售股者以后，就不能再用于经营、投资或偿债。AAPL 把大把现金退给股东，GOOGL／GOOG 却在同一年为了算力投入发新股筹钱，两边资金走的方向刚好相反。[^apple]
 
@@ -281,7 +283,7 @@ This is reference material for the learner's current request. Use the supplied e
 <div class="af-row business-exchange" aria-label="现金分红：公司把现金付给符合条件的股东。继续持有时，要看实际到账、税务与剩余股票价值。"><span class="af-name">现金分红</span><span class="af-party"><span>公司</span></span><div class="af-x"><div class="af-line af-cash af-r"><span>现金</span></div></div><span class="af-party"><span>股东</span></span><span class="af-watch">实际到账、税务与剩余股票价值</span></div>
 <div class="af-row business-exchange" aria-label="回购：公司把现金付给售股者，收回股份。继续持有时，要看回购价格与净股数变化。"><span class="af-name">回购</span><span class="af-party"><span>公司</span></span><div class="af-x"><div class="af-line af-cash af-r"><span>现金</span></div><div class="af-line af-l"><span>股份</span></div></div><span class="af-party"><span>售股者</span></span><span class="af-watch">回购价格与净股数变化</span></div>
 <div class="af-row business-exchange" aria-label="普通股增发：认购者把资金付给公司，取得新股。继续持有时，要看发行价格、份额变化与新增资金用途。"><span class="af-name">普通股增发</span><span class="af-party"><span>公司</span></span><div class="af-x"><div class="af-line af-cash af-l"><span>资金</span></div><div class="af-line af-r"><span>新股</span></div></div><span class="af-party"><span>认购者</span></span><span class="af-watch">发行价格、份额变化与新增资金用途</span></div>
-<div class="af-row business-exchange" aria-label="股权报酬：公司以股票或相关权利支付员工的部分报酬，员工提供服务。继续持有时，要看奖励交付和其他资本动作合起来怎样影响股数。"><span class="af-name">股权报酬</span><span class="af-party"><span>公司</span></span><div class="af-x"><div class="af-line af-r"><span>股票或相关权利</span></div><div class="af-line af-l"><span>服务</span></div></div><span class="af-party"><span>员工</span></span><span class="af-watch">奖励交付和其他资本动作合起来怎样影响股数</span></div>
+<div class="af-row business-exchange" aria-label="股权报酬：公司以股票或相关权利支付员工的部分报酬，员工提供服务。继续持有时，要看奖励交付和其他资本动作合起来怎样影响股数。"><span class="af-name">股权报酬</span><span class="af-party"><span>公司</span></span><div class="af-x"><div class="af-line af-r"><span>股票或相关权利</span></div><div class="af-line af-l"><span>服务</span></div></div><span class="af-party"><span>员工</span></span><span class="af-watch">奖励交付与其他资本动作合计如何影响股数</span></div>
 </div>
 </figure>
 

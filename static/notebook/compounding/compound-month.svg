@@ -1,166 +1,34 @@
-<?xml version="1.0" encoding="utf-8" standalone="no"?>
-<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
-  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="720pt" height="410.4pt" viewBox="0 0 720 410.4" xmlns="http://www.w3.org/2000/svg" version="1.1">
- <metadata>
-  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
-   <cc:Work>
-    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
-    <dc:date>2026-09-26T13:50:34.115589</dc:date>
-    <dc:format>image/svg+xml</dc:format>
-    <dc:creator>
-     <cc:Agent>
-      <dc:title>Matplotlib v3.11.0, https://matplotlib.org/</dc:title>
-     </cc:Agent>
-    </dc:creator>
-   </cc:Work>
-  </rdf:RDF>
- </metadata>
- <defs>
-  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
- </defs>
- <g id="figure_1">
-  <g id="patch_1">
-   <path d="M 0 410.4
-L 720 410.4
-L 720 0
-L 0 0
-z
-" style="fill: #fbfcfa"/>
-  </g>
-  <g id="axes_1">
-   <g id="patch_2">
-    <path d="M 54 344.736
-L 622.8 344.736
-L 622.8 106.704
-L 54 106.704
-z
-" style="fill: #fbfcfa"/>
-   </g>
-   <g id="matplotlib.axis_1">
-    <g id="xtick_1">
-     <g id="line2d_1"/>
-     <g id="text_1">
-      <text style="font-size: 15px; font-family: 'Microsoft YaHei'; text-anchor: middle; fill: #748279" x="54" y="366.253969" transform="rotate(-0 54 366.253969)">起点</text>
-     </g>
-    </g>
-    <g id="xtick_2">
-     <g id="line2d_2"/>
-     <g id="text_2">
-      <text style="font-size: 15px; font-family: 'Microsoft YaHei'; text-anchor: middle; fill: #748279" x="332.823529" y="366.195375" transform="rotate(-0 332.823529 366.195375)">半个月</text>
-     </g>
-    </g>
-    <g id="xtick_3">
-     <g id="line2d_3"/>
-     <g id="text_3">
-      <text style="font-size: 15px; font-family: 'Microsoft YaHei'; text-anchor: middle; fill: #748279" x="611.647059" y="365.916176" transform="rotate(-0 611.647059 365.916176)">一个月</text>
-     </g>
-    </g>
-   </g>
-   <g id="matplotlib.axis_2">
-    <g id="ytick_1">
-     <g id="line2d_4">
-      <path d="M 54 333.916364
-L 622.8 333.916364
-" clip-path="url(#p56f7d639e9)" style="fill: none; stroke: #e4eae3; stroke-width: 0.8; stroke-linecap: square"/>
-     </g>
-     <g id="line2d_5"/>
-     <g id="text_4">
-      <text style="font-size: 15px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #748279" x="631.8" y="340.006452" transform="rotate(-0 631.8 340.006452)">10,000</text>
-     </g>
-    </g>
-    <g id="ytick_2">
-     <g id="line2d_6">
-      <path d="M 54 282.09023
-L 622.8 282.09023
-" clip-path="url(#p56f7d639e9)" style="fill: none; stroke: #e4eae3; stroke-width: 0.8; stroke-linecap: square"/>
-     </g>
-     <g id="line2d_7"/>
-     <g id="text_5">
-      <text style="font-size: 15px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #748279" x="631.8" y="288.180318" transform="rotate(-0 631.8 288.180318)">10,010</text>
-     </g>
-    </g>
-    <g id="ytick_3">
-     <g id="line2d_8">
-      <path d="M 54 230.264097
-L 622.8 230.264097
-" clip-path="url(#p56f7d639e9)" style="fill: none; stroke: #e4eae3; stroke-width: 0.8; stroke-linecap: square"/>
-     </g>
-     <g id="line2d_9"/>
-     <g id="text_6">
-      <text style="font-size: 15px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #748279" x="631.8" y="236.354185" transform="rotate(-0 631.8 236.354185)">10,020</text>
-     </g>
-    </g>
-    <g id="ytick_4">
-     <g id="line2d_10">
-      <path d="M 54 178.437964
-L 622.8 178.437964
-" clip-path="url(#p56f7d639e9)" style="fill: none; stroke: #e4eae3; stroke-width: 0.8; stroke-linecap: square"/>
-     </g>
-     <g id="line2d_11"/>
-     <g id="text_7">
-      <text style="font-size: 15px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #748279" x="631.8" y="184.528052" transform="rotate(-0 631.8 184.528052)">10,030</text>
-     </g>
-    </g>
-    <g id="ytick_5">
-     <g id="line2d_12">
-      <path d="M 54 126.61183
-L 622.8 126.61183
-" clip-path="url(#p56f7d639e9)" style="fill: none; stroke: #e4eae3; stroke-width: 0.8; stroke-linecap: square"/>
-     </g>
-     <g id="line2d_13"/>
-     <g id="text_8">
-      <text style="font-size: 15px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #748279" x="631.8" y="132.701918" transform="rotate(-0 631.8 132.701918)">10,040</text>
-     </g>
-    </g>
-   </g>
-   <g id="line2d_14">
-    <path d="M 54 333.916364
-L 342.117647 222.226036
-L 611.647059 117.523636
-L 611.647059 117.523636
-" clip-path="url(#p56f7d639e9)" style="fill: none; stroke: #247f67; stroke-width: 2.8; stroke-linecap: square"/>
-   </g>
-   <g id="line2d_15">
-    <path d="M 54 333.916364
-L 611.647059 117.974141
-L 611.647059 117.974141
-" clip-path="url(#p56f7d639e9)" style="fill: none; stroke-dasharray: 7.4,3.2; stroke-dashoffset: 0; stroke: #bc8a42; stroke-width: 2"/>
-   </g>
-   <g id="legend_1">
-    <g id="line2d_16">
-     <path d="M 67.5 127.427437
-L 82.5 127.427437
-L 97.5 127.427437
-" style="fill: none; stroke: #247f67; stroke-width: 2.8; stroke-linecap: square"/>
-    </g>
-    <g id="text_9">
-     <text style="font-size: 15px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #253b32" x="109.5" y="132.677437" transform="rotate(-0 109.5 132.677437)">指数累积</text>
-    </g>
-    <g id="line2d_17">
-     <path d="M 67.5 151.274801
-L 82.5 151.274801
-L 97.5 151.274801
-" style="fill: none; stroke-dasharray: 7.4,3.2; stroke-dashoffset: 0; stroke: #bc8a42; stroke-width: 2"/>
-    </g>
-    <g id="text_10">
-     <text style="font-size: 15px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #253b32" x="109.5" y="156.524801" transform="rotate(-0 109.5 156.524801)">起点处线性近似</text>
-    </g>
-   </g>
-  </g>
-  <g id="text_11">
-   <text style="font-weight: 700; font-size: 23px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #253b32" x="43.2" y="40.599706" transform="rotate(-0 43.2 40.599706)">同一增长过程，不同的观察长度</text>
-  </g>
-  <g id="text_12">
-   <text style="font-size: 15px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #6c7a71" x="43.2" y="71.336419" transform="rotate(-0 43.2 71.336419)">初始 10,000 美元  ·  连续复利率 5%  ·  观察一个月</text>
-  </g>
-  <g id="text_13">
-   <text style="font-size: 12.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #78867b" x="43.2" y="399.7296" transform="rotate(-0 43.2 399.7296)">金额：美元  ·  参数固定，用于观察时间拉长后两条路径的差额</text>
-  </g>
- </g>
- <defs>
-  <clipPath id="p56f7d639e9">
-   <rect x="54" y="106.704" width="568.8" height="238.032"/>
-  </clipPath>
- </defs>
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 380" width="720" height="380" role="img" aria-label="固定连续复利率 5%，初始 10,000 美元，观察一个月的指数累积与线性近似比较">
+  <style>
+    text { font-family: Inter, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, &quot;PingFang SC&quot;, &quot;Microsoft YaHei&quot;, &quot;Noto Sans SC&quot;, sans-serif; font-variant-numeric: lining-nums tabular-nums; }
+  </style>
+  <rect width="720" height="380" fill="#fbfbf6"/>
+  <text x="24" y="29" font-size="17.5" font-weight="700" fill="#22392f">同一增长过程，不同的观察长度</text>
+  <text x="24" y="49" font-size="12.5" fill="#7a8780">初始 10,000 美元 · 连续复利率 5% · 观察一个月</text>
+  <g><line x1="24.0" y1="72" x2="42.0" y2="72" stroke="#23695a" stroke-width="2.4" stroke-linecap="round"/><text x="48.0" y="76" font-size="12.5" fill="#3c4c44">指数累积</text><line x1="119.2" y1="72" x2="137.2" y2="72" stroke="#a8743f" stroke-width="2" stroke-dasharray="5 3.5" stroke-linecap="round"/><text x="143.2" y="76" font-size="12.5" fill="#3c4c44">起点处线性近似</text></g>
+  <line x1="68.0" y1="312.3" x2="584.0" y2="312.3" stroke="#e5eae2" stroke-width="1"/>
+  <text x="60.0" y="316.3" text-anchor="end" font-size="12" fill="#7a8780">10,000</text>
+  <line x1="68.0" y1="263.8" x2="584.0" y2="263.8" stroke="#e5eae2" stroke-width="1"/>
+  <text x="60.0" y="267.8" text-anchor="end" font-size="12" fill="#7a8780">10,010</text>
+  <line x1="68.0" y1="215.3" x2="584.0" y2="215.3" stroke="#e5eae2" stroke-width="1"/>
+  <text x="60.0" y="219.3" text-anchor="end" font-size="12" fill="#7a8780">10,020</text>
+  <line x1="68.0" y1="166.8" x2="584.0" y2="166.8" stroke="#e5eae2" stroke-width="1"/>
+  <text x="60.0" y="170.8" text-anchor="end" font-size="12" fill="#7a8780">10,030</text>
+  <line x1="68.0" y1="118.3" x2="584.0" y2="118.3" stroke="#e5eae2" stroke-width="1"/>
+  <text x="60.0" y="122.3" text-anchor="end" font-size="12" fill="#7a8780">10,040</text>
+  <line x1="68.0" y1="322.0" x2="584.0" y2="322.0" stroke="#cdd6cb" stroke-width="1"/>
+  <text x="68.0" y="342.0" text-anchor="start" font-size="12.5" fill="#7a8780">起点</text>
+  <text x="326.0" y="342.0" text-anchor="middle" font-size="12.5" fill="#7a8780">半个月</text>
+  <text x="584.0" y="342.0" text-anchor="end" font-size="12.5" fill="#7a8780">一个月</text>
+  <path d="M 68.00 312.30 L 584.00 110.17" fill="none" stroke="#a8743f" stroke-width="2" stroke-dasharray="6 4" stroke-linecap="round"/>
+  <path d="M 68.00 312.30 L 72.30 310.61 L 76.60 308.93 L 80.90 307.24 L 85.20 305.56 L 89.50 303.88 L 93.80 302.19 L 98.10 300.51 L 102.40 298.82 L 106.70 297.14 L 111.00 295.45 L 115.30 293.77 L 119.60 292.08 L 123.90 290.40 L 128.20 288.71 L 132.50 287.03 L 136.80 285.34 L 141.10 283.65 L 145.40 281.97 L 149.70 280.28 L 154.00 278.60 L 158.30 276.91 L 162.60 275.23 L 166.90 273.54 L 171.20 271.86 L 175.50 270.17 L 179.80 268.48 L 184.10 266.80 L 188.40 265.11 L 192.70 263.43 L 197.00 261.74 L 201.30 260.05 L 205.60 258.37 L 209.90 256.68 L 214.20 254.99 L 218.50 253.31 L 222.80 251.62 L 227.10 249.94 L 231.40 248.25 L 235.70 246.56 L 240.00 244.88 L 244.30 243.19 L 248.60 241.50 L 252.90 239.81 L 257.20 238.13 L 261.50 236.44 L 265.80 234.75 L 270.10 233.07 L 274.40 231.38 L 278.70 229.69 L 283.00 228.00 L 287.30 226.32 L 291.60 224.63 L 295.90 222.94 L 300.20 221.26 L 304.50 219.57 L 308.80 217.88 L 313.10 216.19 L 317.40 214.50 L 321.70 212.82 L 326.00 211.13 L 330.30 209.44 L 334.60 207.75 L 338.90 206.06 L 343.20 204.38 L 347.50 202.69 L 351.80 201.00 L 356.10 199.31 L 360.40 197.62 L 364.70 195.94 L 369.00 194.25 L 373.30 192.56 L 377.60 190.87 L 381.90 189.18 L 386.20 187.49 L 390.50 185.80 L 394.80 184.11 L 399.10 182.43 L 403.40 180.74 L 407.70 179.05 L 412.00 177.36 L 416.30 175.67 L 420.60 173.98 L 424.90 172.29 L 429.20 170.60 L 433.50 168.91 L 437.80 167.22 L 442.10 165.53 L 446.40 163.84 L 450.70 162.15 L 455.00 160.47 L 459.30 158.78 L 463.60 157.09 L 467.90 155.40 L 472.20 153.71 L 476.50 152.02 L 480.80 150.33 L 485.10 148.64 L 489.40 146.95 L 493.70 145.26 L 498.00 143.57 L 502.30 141.88 L 506.60 140.18 L 510.90 138.49 L 515.20 136.80 L 519.50 135.11 L 523.80 133.42 L 528.10 131.73 L 532.40 130.04 L 536.70 128.35 L 541.00 126.66 L 545.30 124.97 L 549.60 123.28 L 553.90 121.59 L 558.20 119.90 L 562.50 118.20 L 566.80 116.51 L 571.10 114.82 L 575.40 113.13 L 579.70 111.44 L 584.00 109.75" fill="none" stroke="#23695a" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="68.0" cy="312.30" r="3.5" fill="#fbfbf6" stroke="#23695a" stroke-width="2"/>
+  <circle cx="584.0" cy="110.17" r="4" fill="#a8743f" stroke="#fbfbf6" stroke-width="1.5"/>
+  <circle cx="584.0" cy="109.75" r="4.5" fill="#23695a" stroke="#fbfbf6" stroke-width="1.8"/>
+  <text x="596.0" y="105.7" font-size="14.5" font-weight="700" fill="#23695a">10,041.75</text>
+  <text x="596.0" y="123.7" font-size="13" font-weight="600" fill="#8f6033">10,041.67</text>
+  <rect x="594.0" y="133.7" width="114" height="22" rx="5" fill="#e5efe9"/>
+  <text x="651.0" y="148.7" text-anchor="middle" font-size="11.5" font-weight="600" fill="#23695a">差仅约 0.09 美元</text>
+  <text x="24" y="368" font-size="11.5" fill="#7a8780">单位：美元 · 曲线按 10,000·exp(0.05t) 与 10,000·(1+0.05t) 绘出</text>
 </svg>

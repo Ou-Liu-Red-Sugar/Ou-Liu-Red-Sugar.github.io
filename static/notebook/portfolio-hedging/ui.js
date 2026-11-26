@@ -25,14 +25,15 @@
   let clipIndex = 0;
   function frame(host, title, xDomain, yDomain, xLabel, yLabel, xTicks, yFormat) {
     const width = Math.max(210, Math.floor(host.clientWidth || 600));
-    const height = width < 420 ? 300 : 340;
-    const left = yLabel.includes('净值') ? 76 : 62;
-    const right = 15, top = 22, bottom = 55;
+    const height = width < 420 ? 250 : 272;
+    const left = yLabel.includes('净值') ? 76 : 58;
+    const right = 18, top = 16, bottom = 48;
     const plotWidth = width - left - right, plotHeight = height - top - bottom;
     const sx = value => left + (value - xDomain[0]) / (xDomain[1] - xDomain[0]) * plotWidth;
     const sy = value => top + plotHeight - (value - yDomain[0]) / (yDomain[1] - yDomain[0]) * plotHeight;
     const svg = svgNode('svg', { viewBox:`0 0 ${width} ${height}`, role:'img', 'aria-label':title });
     svg.append(svgNode('title', {}, title));
+    svg.append(svgNode('rect', { x:left, y:top, width:plotWidth, height:plotHeight, fill:'var(--ph-card, #fdfdfa)', stroke:'var(--ph-line, #e2e7df)', 'stroke-width':1 }));
     for (let index = 0; index <= 4; index++) {
       const value = yDomain[0] + (yDomain[1] - yDomain[0]) * index / 4;
       const y = sy(value);

@@ -8,21 +8,49 @@
   "translationKey": "zh-stock-types-issuance-trading"
 }
 
-同样买到一股 Reddit（RDDT），付出的钱却可能流向不同的人。2024 年 3 月首次公开发行时，认购公司新发的股份，钱进入公司；认购原股东出售的已有股份，钱归这些原股东；上市以后在交易所买入，钱则付给卖出的投资者。股份还分不同类别，员工手里的股份要经过授予、归属和解禁才能卖出，境外公司的股份还可以通过存托凭证在另一个市场交易。这些安排决定了我们实际买到的是什么，钱又流向了谁。[^reddit-ipo]
+<link rel="stylesheet" href="/notebook/flow-figures.css?v=20261126">
+
+同样买到一股 Reddit（RDDT），付出的钱却可能流向不同的人。2024 年 3 月首次公开发行时，认购公司新发的股份，钱进入公司；认购原股东出售的已有股份，钱归这些原股东；上市以后在交易所买入，钱则付给卖出的投资者。此外，同一家公司的股份还可能分属不同类别，员工手里的股份要经过授予、归属与解禁才能上市卖出，境外公司的股份也能通过存托凭证在另一个市场流转。这些安排决定了我们实际买到的是什么，钱又流向了谁。[^reddit-ipo]
 
 ## 股份的类型与权利 {#nb-b01-rights}
 
-买入股票之前，我们还要看买到的是哪一种股份。股东能否投票、公司怎样向这类股份分配收益、公司清算时按什么次序取得财产，都由股份的具体权利决定；同一家公司的不同股份，在这些安排上也可以不同。
+买入股票之前，先要看清买到的是哪一类股份。有没有表决权、公司怎样分配收益、清算时按什么次序受偿，都写在股份对应的权利条款里；哪怕是同一家公司发行的股票，不同类别在这些安排上也可能各有不同。
 
-先把普通股与优先股放在一起看。普通股通常让股东参与公司治理和收益分配，清算时取得偿还债务、完成优先分配以后的剩余财产；优先股则在约定的股息或清算分配上排在普通股之前。这里的“优先”有具体的比较对象，可以按三个方面区分：[^stock-types]
+先拿普通股和优先股对照。普通股一般让股东参与公司治理和收益分配，清算时在偿还债务、完成优先分配之后取得剩余财产；优先股则在约定的股息或清算分配上排在普通股之前。这里的“优先”有明确的比较对象，把两者沿着三个维度排开就很直观：[^stock-types]
 
-| 权利 | 普通股 | 优先股 |
-|---|---|---|
-| 投票 | 通常参与表决，具体票数由股份类别决定 | 通常不带一般表决权，特殊表决权按条款安排 |
-| 分配 | 参与公司决定的股息分配 | 按股份条款享有优先分配安排 |
-| 清算 | 偿还债务并完成优先股的优先分配后，取得剩余 | 排在债权人之后、普通股之前，按约定受偿 |
+<figure class="flow-figure g1-stock-rights" id="nb-b01-rights-compare">
+<div class="ff-head"><p class="ff-title">普通股与优先股的权利对照</p><p class="ff-legend"><span class="g1-key-common">普通股</span><span class="g1-key-pref">优先股</span><span class="g1-key-debt">债权人（清算参照）</span></p></div>
+<div class="g1-sr-list">
+<div class="g1-sr-row business-exchange" aria-label="投票权比较：普通股通常参与公司表决，具体票数由股份类别决定；优先股通常不带一般表决权，仅按条款在特殊情形下享有表决权。">
+<div class="g1-sr-dim">投票权<small>公司治理</small></div>
+<div class="g1-sr-pair">
+<div class="g1-sr-card g1-sr-common"><div class="g1-sr-top"><strong>普通股</strong><span class="g1-sr-pill">通常参与表决</span></div><div class="g1-sr-meter" aria-hidden="true"><i class="g1-on"></i><i class="g1-on"></i><i class="g1-on"></i><i class="g1-on"></i></div><p>参与公司表决，具体每股票数由股份类别决定</p></div>
+<div class="g1-sr-card g1-sr-pref"><div class="g1-sr-top"><strong>优先股</strong><span class="g1-sr-pill">通常无一般表决权</span></div><div class="g1-sr-meter" aria-hidden="true"><i class="g1-opt"></i><i></i><i></i><i></i></div><p>一般不带表决权，特殊表决权按具体条款安排</p></div>
+</div>
+</div>
+<div class="g1-sr-row business-exchange" aria-label="收益分配比较：优先股排在普通股之前，按股份条款享有优先分配安排；普通股排在优先股之后，参与公司决定的股息分配。">
+<div class="g1-sr-dim">收益分配<small>股息次序</small></div>
+<div class="g1-sr-queue">
+<div class="g1-sr-card g1-sr-pref"><div class="g1-sr-top"><strong>① 优先股</strong><span class="g1-sr-pill">优先分配</span></div><p>按股份条款先取得约定的优先股息</p></div>
+<div class="g1-sr-arrow" aria-hidden="true"></div>
+<div class="g1-sr-card g1-sr-common"><div class="g1-sr-top"><strong>② 普通股</strong><span class="g1-sr-pill">其后参与</span></div><p>完成优先分配后，参与公司决定的股息分配</p></div>
+</div>
+</div>
+<div class="g1-sr-row business-exchange" aria-label="清算受偿次序比较：第一位是债权人，先按债权受偿；第二位是优先股，排在债权人之后、普通股之前按约定受偿；第三位是普通股，在偿还债务并完成优先分配后取得剩余财产。">
+<div class="g1-sr-dim">清算受偿<small>财产次序</small></div>
+<div class="g1-sr-queue g1-sr-queue-3">
+<div class="g1-sr-card g1-sr-debt"><div class="g1-sr-top"><strong>① 债权人</strong><span class="g1-sr-pill">最先受偿</span></div><p>先按约定偿还债务</p></div>
+<div class="g1-sr-arrow" aria-hidden="true"></div>
+<div class="g1-sr-card g1-sr-pref"><div class="g1-sr-top"><strong>② 优先股</strong><span class="g1-sr-pill">次序居中</span></div><p>排在债权人之后、普通股之前，按约定受偿</p></div>
+<div class="g1-sr-arrow" aria-hidden="true"></div>
+<div class="g1-sr-card g1-sr-common"><div class="g1-sr-top"><strong>③ 普通股</strong><span class="g1-sr-pill">取得剩余</span></div><p>前两类受偿完成后，分得剩余财产</p></div>
+</div>
+</div>
+</div>
+<figcaption>优先股的“优先”体现在股息分配与清算受偿排在普通股之前，不体现在一般表决权上；清算时仍排在债权人之后。</figcaption>
+</figure>
 
-表里“清算”这一行说的就是分钱的先后次序。用一组假设数字来看：公司欠债权人 60，优先股按约定可以先拿 25，排在最后的普通股拿剩下的部分；一旦可分配的财产缩水，最先拿不到钱的也是普通股。
+上图最后一行画出的正是清算时分钱的先后次序。用一组假设数字来看：公司欠债权人 60，优先股按约定可以先拿 25，排在最后的普通股拿剩下的部分；一旦可分配的财产缩水，最先拿不到钱的也是普通股。
 
 <figure class="flow-figure claim-order" id="nb-b01-claims" data-ff-views>
 <div class="ff-head"><p class="ff-title">清算时的受偿次序（示意）</p><div class="ff-switch" role="group" aria-label="选择可分配财产" hidden><button type="button" data-ff-view-choice="more" aria-pressed="true">财产 100</button><button type="button" data-ff-view-choice="less" aria-pressed="false">财产 70</button></div></div>
@@ -32,21 +60,22 @@
 <figcaption>数字为假设。虚线框是按约定可以取得的金额，实心部分是实际取得的金额；前一类得到满足以后，财产才轮到下一类。</figcaption>
 </figure>
 
-<span data-text-versions id="nb-b01-text-1">公司还可以设置不同类别的股份。比如 Alphabet 的 A 类以 GOOGL 交易，每股一票；B 类不上市交易，每股十票；C 类以 GOOG 交易，通常没有投票权。这三类股份的每股股息和清算权益相同，投票能力却不同<span data-text-detail>（C 类的正式名称是 Class C capital stock，法律要求时仍有相应投票权；B 类转让通常会一比一转为 A 类，章程规定的特定转让除外）</span>。[^alphabet]<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>
+<span data-text-versions id="nb-b01-text-1">公司还可以设置不同类别的股份。比如 Alphabet 的 A 类以 GOOGL 交易，每股一票；B 类不上市交易，每股十票；C 类以 GOOG 交易，通常没有投票权。这三类股份的每股股息和清算权益相同，投票能力却悬殊<span data-text-detail>（C 类的正式名称是 Class C capital stock，法律要求时仍有相应投票权；B 类转让通常会一比一转为 A 类，章程规定的特定转让除外）</span>。[^alphabet]<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>
 
-<figure class="flow-figure" id="nb-b01-share-classes">
-<div class="ff-head"><p class="ff-title">Alphabet 的三类股份</p><span class="ff-sub">每股股息与清算权益相同</span></div>
-<div class="ff-bars business-exchange" aria-label="Alphabet 的 A 类股份以 GOOGL 交易，每股一票；B 类股份不上市交易，每股十票；C 类股份以 GOOG 交易，通常没有投票权。三类股份的每股股息和清算权益相同。">
-<span class="fb-name">A 类 · GOOGL</span><span class="fb-bar"><i style="--w:10%"></i></span><span class="fb-val">每股 1 票</span>
-<span class="fb-name">B 类 · 不上市</span><span class="fb-bar"><i style="--w:100%"></i></span><span class="fb-val">每股 10 票</span>
-<span class="fb-name">C 类 · GOOG</span><span class="fb-bar"><i style="--w:0%"></i></span><span class="fb-val">通常没有</span>
+<figure class="flow-figure g1-dual-bars" id="nb-b01-share-classes">
+<div class="ff-head"><p class="ff-title">Alphabet 的三类股份：经济权益相同，投票权悬殊</p></div>
+<div class="g1-db-grid business-exchange" aria-label="Alphabet 的三类股份对比：A 类以 GOOGL 交易，每股股息与清算权益为 1 份，投票权为每股 1 票；B 类不上市交易，每股股息与清算权益同样为 1 份，投票权为每股 10 票；C 类以 GOOG 交易，每股股息与清算权益同样为 1 份，通常没有投票权。">
+<span class="g1-db-head">股份类别</span><span class="g1-db-head">每股股息与清算权益</span><span class="g1-db-head">每股投票权</span>
+<span class="g1-db-name">A 类 · GOOGL<small>上市交易</small></span><span class="g1-db-cell" data-label="经济权益"><span class="g1-db-bar g1-db-bar-econ"><i style="--w:100%"></i></span><span class="g1-db-val g1-db-val-same">相同</span></span><span class="g1-db-cell" data-label="投票权"><span class="g1-db-bar"><i style="--w:10%"></i></span><span class="g1-db-val">1 票</span></span>
+<span class="g1-db-name">B 类 · 不上市<small>内部持有为主</small></span><span class="g1-db-cell" data-label="经济权益"><span class="g1-db-bar g1-db-bar-econ"><i style="--w:100%"></i></span><span class="g1-db-val g1-db-val-same">相同</span></span><span class="g1-db-cell" data-label="投票权"><span class="g1-db-bar"><i style="--w:100%"></i></span><span class="g1-db-val">10 票</span></span>
+<span class="g1-db-name">C 类 · GOOG<small>上市交易</small></span><span class="g1-db-cell" data-label="经济权益"><span class="g1-db-bar g1-db-bar-econ"><i style="--w:100%"></i></span><span class="g1-db-val g1-db-val-same">相同</span></span><span class="g1-db-cell" data-label="投票权"><span class="g1-db-bar g1-db-bar-zero"></span><span class="g1-db-val g1-db-val-none">通常无</span></span>
 </div>
-<figcaption>条形长度表示每股的票数。</figcaption>
+<figcaption>左栏等长基线表示三类股份的每股股息与清算权益相同；右栏条形长度表示每股投票权差异。</figcaption>
 </figure>
 
 ## 新股与旧股：发行和转手 {#nb-b01-issuance}
 
-认清了股份的权利，再看这些股份怎样到投资者手中。公司需要资金时，可以发行新股，由认购者出资，公司取得融资；原股东想出售持股时，则把已有股份转让给买方，售股款归原股东。两种交易都能让买方成为股东，钱的去向却不同。
+辨清股份附带的权利之后，再看这些股份怎样流到投资者手里。公司需要资金时可以发行新股，认购者出资，公司取得融资；原股东想出售持股时，则把已有股份转让给买方，售股款归原股东。两种交易都能让买方成为股东，钱的去向却不同。
 
 RDDT 的首次公开发行同时用了这两种安排。首次公开发行通常简称 IPO，指公司首次向公众发售股份，常与进入交易所上市交易相连。RDDT 那次发售既有公司出售的新股，也有原股东出售的已有股份，公司收不到原股东售股部分的款项；承销机构则参与组织发售、定价和配售。按股份与款项各自的流向，可以把几条路径画出来：[^reddit-ipo]
 
@@ -69,17 +98,17 @@ RDDT 的首次公开发行同时用了这两种安排。首次公开发行通常
 <figcaption>图中只列股份与款项的去向。承销机构参与组织发售、定价和配售，承销费用未列。</figcaption>
 </figure>
 
-股份开始在市场上交易以后，投资者之间还会继续转让：买方支付成交款，卖方交出已有股份，这笔钱归卖方，相应股份换了持有人。所以取得公司的一部分权益，并不表示买入款成了公司的新增资金。IPO 发行价对应的是那次发售，此后的成交价由各次买卖形成，两者可以相差很远。[^ipo-trading]
+股份上市交易以后，投资者之间还会不断换手：买方支付成交款，卖方交出已有股份，资金在买卖双方之间结清，并不会变成公司的新增资本。IPO 发行价对应的是那次公开发售，此后的成交价则由各次买卖实时形成，两者可以相差很远。[^ipo-trading]
 
 ## 员工股份：授予、归属与解禁 {#nb-b01-vesting}
 
-股份也可以作为报酬发给员工，这类安排通常称为股权报酬（stock-based compensation，SBC）。员工提供服务，公司以股票或今后取得、购买股票的权利支付一部分报酬。公司拿新股发奖励时，总股数变多、老股东手里的股数不变，持股比例自然会被摊薄；不过公司也换来了员工干活，如果这些投入能把业务做大，蛋糕变大的速度未必赶不上分蛋糕的人数。所以看股权报酬时，得把股数增加了多少和业务改善了多少合在一起算。[^sbc]
+股份也可以作为报酬发给员工，这类安排通常称为股权报酬（stock-based compensation，SBC）。员工提供服务，公司以股票或今后取得、购买股票的权利支付一部分报酬。公司拿新股发奖励时，总股数变多、老股东手里的股数不变，持股比例自然会被摊薄；不过公司也换来了员工的持续投入，如果业务因此做得更大，整体价值增长未必赶不上股数增加的速度。所以看股权报酬时，得把股数增加了多少和业务改善了多少合在一起算。[^sbc]
 
-员工期权和限制性股票单位（RSU）取得股票的方式不同。员工期权给予按约定行权价购买股票的权利，行权时员工要支付购股款；本篇所说的 RSU 则在条件满足后由公司交付股份，授予时员工还没有拿到对应的股票。[^sbc-example]
+员工期权和限制性股票单位（RSU）拿到股票的方式不一样。员工期权给予按约定行权价购买股票的权利，行权时员工要自己付购股款；本篇所说的 RSU 则在条件满足后由公司直接交付股份，刚授予时员工手里还没有对应的股票。[^sbc-example]
 
-从授予到能够卖出，中间还隔着几道关口。奖励可能要求员工完成一定的服务年限、达到业绩目标或满足其他条件；条件满足以后，期权还要行权，RSU 还要交付股份。已经持有股份的人，也可能在一段时间内不能出售，比如创始人、早期投资者和员工在 IPO 时约定的锁定。因此，奖励是不是已经归属到员工名下，跟这些股票能不能拿到市场上卖，是两码事，得拆开看。[^vesting-lockup]
+从授予到能够卖出，中间还隔着几道关口。奖励可能要求员工完成一定的服务年限、达到业绩目标或满足其他条件；条件满足以后，期权还要行权，RSU 还要交付股份。即使已经拿到股份，也可能在一段时间内不能出售，比如创始人、早期投资者和员工在 IPO 时约定的锁定。因此，奖励是不是已经归属到员工名下，跟这些股票能不能拿到市场上卖，是两码事，要拆开看。[^vesting-lockup]
 
-<span data-text-versions id="nb-b01-text-2">RDDT 的员工 RSU 提供了一个实际例子。部分奖励既要求完成服务，也要求达到上市条件。已经满足服务条件的那部分奖励，在 IPO 注册生效、上市条件满足后进入结算，公司随后交付了股份<span data-text-detail>（RDDT 在 2024 年第二季度报告中披露了这次已经发生的结算，同时扣留部分股份用于处理相关税款；这里的上市条件满足时点是 IPO 注册生效，区别于首日交易和发行完成）</span>。这段经过说明，授予奖励、满足服务条件和实际收到股份，可以发生在不同时间。[^reddit-rsu]<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>
+<span data-text-versions id="nb-b01-text-2">RDDT 的员工 RSU 提供了一个实际例子。部分奖励既要求完成服务，也要求达到上市条件。已经满足服务条件的那部分奖励，在 IPO 注册生效、上市条件满足后进入结算，公司随后交付了股份<span data-text-detail>（RDDT 在 2024 年第二季度报告中披露了这次已经发生的结算，同时扣留部分股份用于处理相关税款；这里的上市条件满足时点是 IPO 注册生效，区别于首日交易和发行完成）</span>。这段经过说明，授予奖励、满足服务条件和实际拿到股份，常常发生在不同时间。[^reddit-rsu]<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>
 
 <span data-text-versions id="nb-b01-text-3">收到股份以后，能否马上卖出还要看出售限制。RDDT 的 IPO 锁定条款允许既有期权行权和 RSU 结算，但由此取得的股份仍受锁定。这样，奖励可以继续按约定执行，出售股份却还需要等待锁定期结束，或符合相应例外<span data-text-detail>（一般锁定期限为 2024 年第二季度业绩公开后第三个交易日开市，或招股书日期后 180 日，两者取较早者；IPO 售股和某些处理税款的交易另有例外）</span>。把取得与出售这两件事分开，时间关系就清楚了：[^reddit-lockup]<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>
 
@@ -98,51 +127,50 @@ RDDT 的首次公开发行同时用了这两种安排。首次公开发行通常
 <div class="rs-cell rs-step" style="--c:4;--lane:2">上市条件满足</div>
 <div class="rs-cell rs-step" style="--c:5;--lane:2">公司交付股份<small>扣留部分处理税款</small></div>
 <div class="rs-cell rs-wait" style="--c:2 / 5;--lane:3">尚未取得股份，无从出售</div>
-<div class="rs-cell rs-lock" style="--c:5;--lane:3">已持有，仍受 IPO 锁定</div>
-<div class="rs-cell rs-free" style="--c:6;--lane:3">可以出售<small>卖不卖由持有人决定</small></div>
+<div class="rs-cell rs-lock rs-step rs-start" style="--c:5;--lane:3">已持有，仍受 IPO 锁定</div>
+<div class="rs-cell rs-free rs-step" style="--c:6;--lane:3">可以出售<small>卖不卖由持有人决定</small></div>
 </div>
 <figcaption>各阶段的宽度不代表实际时长。图中只画已经满足服务条件、在 IPO 后结算的那部分奖励。</figcaption>
 </figure>
 
-锁定期结束、相关出售限制解除，通常称为解禁。把这些安排放回市场，就能分清几种不同的变化：发行新股增加公司发行在外的股份；已有股份解禁，扩大了可以出售的范围；持有人实际卖出，才形成一笔交易。所以，解禁消息首先告诉我们哪些人的哪些股份获得了出售的机会；实际增加多少卖盘，还要看持有人是否出售、卖出多少。股价同时受买方需求和市场原有预期影响，不能单凭解禁股数推出此后的涨跌。[^lockup]
+锁定期结束、相关出售限制解除，通常称为解禁。放回市场里看，三种变化要分开：发行新股增加发行在外的总股数；已有股份解禁，扩大的是可以出售的范围；持有人真正挂单卖出，才形成实际成交。所以解禁消息首先说明哪些股份获得了卖出的机会，至于会多出多少卖盘，还要看持有人愿不愿意卖、卖出多少。股价同时受买方需求和市场原有预期影响，单看解禁股数推不出此后的涨跌。[^lockup]
 
-<figure class="flow-figure share-layers" id="nb-b01-share-layers">
+<figure class="flow-figure share-layers g1-sl-polish" id="nb-b01-share-layers">
 <div class="ff-head"><p class="ff-title">三种变化分别改变哪一层（示意）</p><p class="ff-legend"><span class="sl-key-out">发行在外</span><span class="sl-key-free">可以出售</span><span class="sl-key-sold">实际卖出</span><span class="sl-key-delta">本次变化</span></p></div>
 <div class="sl-grid">
-<div class="sl-row"><div class="sl-event">发行新股</div><div class="sl-bar business-exchange" aria-label="发行新股：发行在外的股份从 100 增加到 110，可以出售的部分和实际卖出的部分不因此改变。"><i class="sl-out" style="--w:90.91%"></i><i class="sl-delta" style="--from:90.91%;--w:9.09%"></i><i class="sl-free" style="--w:36.36%"></i></div><div class="sl-note">在外股份 <strong>+10</strong></div></div>
-<div class="sl-row"><div class="sl-event">解禁</div><div class="sl-bar business-exchange" aria-label="解禁：发行在外的股份仍为 100，可以出售的部分从 40 扩大到 70，还没有形成交易。"><i class="sl-out" style="--w:90.91%"></i><i class="sl-free" style="--w:36.36%"></i><i class="sl-delta sl-in-free" style="--from:36.36%;--w:27.27%"></i></div><div class="sl-note">可以出售 <strong>+30</strong></div></div>
-<div class="sl-row"><div class="sl-event">实际卖出</div><div class="sl-bar business-exchange" aria-label="实际卖出：可以出售的 70 中有持有人卖出 5，形成成交；发行在外的股份和可以出售的范围都不变。"><i class="sl-out" style="--w:90.91%"></i><i class="sl-free" style="--w:63.64%"></i><i class="sl-sold" style="--w:4.55%"></i></div><div class="sl-note">成交 <strong>5</strong></div></div>
+<div class="sl-row"><div class="sl-event">发行新股</div><div class="sl-bar business-exchange" aria-label="发行新股：发行在外的股份从 100 增加到 110，可以出售的部分和实际卖出的部分不因此改变。"><i class="sl-out" style="--w:90.91%"></i><i class="sl-delta" style="--from:90.91%;--w:9.09%"></i><i class="sl-free" style="--w:36.36%"></i></div><div class="sl-note">在外 100 → <strong>110</strong></div></div>
+<div class="sl-row"><div class="sl-event">解禁</div><div class="sl-bar business-exchange" aria-label="解禁：发行在外的股份仍为 100，可以出售的部分从 40 扩大到 70，还没有形成交易。"><i class="sl-out" style="--w:90.91%"></i><i class="sl-free" style="--w:36.36%"></i><i class="sl-delta sl-in-free" style="--from:36.36%;--w:27.27%"></i></div><div class="sl-note">可售 40 → <strong>70</strong></div></div>
+<div class="sl-row"><div class="sl-event">实际卖出</div><div class="sl-bar business-exchange" aria-label="实际卖出：可以出售的 70 中有持有人卖出 5，形成成交；发行在外的股份和可以出售的范围都不变。"><i class="sl-out" style="--w:90.91%"></i><i class="sl-free" style="--w:63.64%"></i><i class="sl-sold" style="--w:4.55%"></i></div><div class="sl-note">实际成交 <strong>5</strong></div></div>
 </div>
 <figcaption>数字为假设，三行各自从同一起点比较。</figcaption>
 </figure>
 
 ## ADR 与存托安排 {#nb-b01-adr}
 
-除了直接买公司发行的股票，我们在市场上买到的也可能是存托证券。[《股票、公司与股价》](/zh/notebook/stocks-company-price/)里提到的 SKHY 就在美国市场交易，每份对应十分之一股 SK hynix（000660）韩国普通股。这两边是怎么连起来的，顺着托管和存托的安排就能看明白。[^adr]<sup>，</sup>[^skhy]
+除了直接买公司发行的股票，我们在市场上买到的也可能是存托证券。[《股票、公司与股价》](/zh/notebook/stocks-company-price/)里提到的 SKHY 就在美国市场交易，每份对应十分之一股 SK hynix（000660）韩国普通股。这两边怎样连在一起，顺着托管和存托的安排就能看明白。[^adr]<sup>，</sup>[^skhy]
 
-韩国原股进入当地托管安排，托管机构确认存入的股份后，存托银行据此发行相应的存托证券。在 SKHY 的公开存托文件中，Citibank 是存托银行，Korea Securities Depository 是韩国托管机构。投资者买入已有的 SKHY，持有的是存托证券，买款付给卖方；原股仍在托管安排中。与前面转让已有股份一样，在市场上转让已有存托凭证，也不会为 SK hynix 带来新增融资。[^skhy-terms]
+韩国原股存入当地托管机构，托管方确认收妥后，存托银行据此发行相应的存托证券。在 SKHY 的公开存托文件中，Citibank 担任存托银行，Korea Securities Depository（KSD）担任韩国托管机构。投资者在美股市场买入已有的 SKHY 时，持有的是存托证券，买款付给卖方，原股仍留在托管安排中。与二级市场转让已有股份一样，市场上转让已有存托凭证也不会为 SK hynix 带来新增融资。[^skhy-terms]
 
-<figure class="flow-figure channels" id="nb-b01-adr-channels">
+<figure class="flow-figure channels g1-ch-polish" id="nb-b01-adr-channels">
 <div class="ff-head"><p class="ff-title">SKHY 的存托渠道</p></div>
 <div class="ch-grid">
 <span class="ch-corner"></span><div class="ch-party">原股一侧<small>SK hynix 普通股</small></div><div class="ch-party">托管机构<small>KSD</small></div><div class="ch-party">存托银行<small>Citibank</small></div><div class="ch-party">SKHY 持有人<small>美国市场</small></div>
-<div class="ch-row  business-exchange" aria-label="形成凭证：韩国原股存入托管，托管机构确认存入后，存托银行发行相应的 SKHY，投资者取得 SKHY。"><div class="ch-name">形成凭证</div><div class="ch-cell">存入原股</div><div class="ch-cell">确认存入</div><div class="ch-cell">发行 SKHY</div><div class="ch-cell">取得 SKHY</div></div>
-<div class="ch-row ch-cash business-exchange" aria-label="现金分红：SK hynix 派发韩元分红，款项经托管机构转到存托银行，换成美元并扣除有关税费后，分配给 SKHY 持有人。"><div class="ch-name">现金分红</div><div class="ch-cell">派发韩元分红</div><div class="ch-cell">经托管转出</div><div class="ch-cell">换成美元、扣除税费</div><div class="ch-cell">收到美元</div></div>
-<div class="ch-row ch-vote ch-back business-exchange" aria-label="投票：SKHY 持有人按通知发出投票指示，存托银行依约办理，经托管安排对相应原股表决。"><div class="ch-name">投票</div><div class="ch-cell">原股表决</div><div class="ch-cell">经托管安排</div><div class="ch-cell">依约办理</div><div class="ch-cell">发出投票指示</div></div>
-<div class="ch-row ch-back business-exchange" aria-label="注销提取：持有人交回 SKHY，存托银行注销凭证，经托管安排交付相应原股，持有人提取原股。"><div class="ch-name">注销提取</div><div class="ch-cell">提取原股</div><div class="ch-cell">交付原股</div><div class="ch-cell">注销凭证</div><div class="ch-cell">交回 SKHY</div></div>
+<div class="ch-row business-exchange" aria-label="形成凭证：韩国原股存入托管，托管机构确认存入后，存托银行发行相应的 SKHY，投资者取得 SKHY。"><div class="ch-name">形成凭证<span class="g1-ch-dir" aria-hidden="true">→</span></div><div class="ch-cell">存入原股</div><div class="ch-cell">确认存入</div><div class="ch-cell">发行 SKHY</div><div class="ch-cell">取得 SKHY</div></div>
+<div class="ch-row ch-cash business-exchange" aria-label="现金分红：SK hynix 派发韩元分红，款项经托管机构转到存托银行，换成美元并扣除有关税费后，分配给 SKHY 持有人。"><div class="ch-name">现金分红<span class="g1-ch-dir" aria-hidden="true">→</span></div><div class="ch-cell">派发韩元分红</div><div class="ch-cell">经托管转出</div><div class="ch-cell">换成美元、扣除税费</div><div class="ch-cell">收到美元</div></div>
+<div class="ch-row ch-vote ch-back business-exchange" aria-label="投票：SKHY 持有人按通知发出投票指示，存托银行依约办理，经托管安排对相应原股表决。"><div class="ch-name">投票<span class="g1-ch-dir" aria-hidden="true">←</span></div><div class="ch-cell">原股表决</div><div class="ch-cell">经托管安排</div><div class="ch-cell">依约办理</div><div class="ch-cell">发出投票指示</div></div>
+<div class="ch-row ch-back business-exchange" aria-label="注销提取：持有人交回 SKHY，存托银行注销凭证，经托管安排交付相应原股，持有人提取原股。"><div class="ch-name">注销提取<span class="g1-ch-dir" aria-hidden="true">←</span></div><div class="ch-cell">提取原股</div><div class="ch-cell">交付原股</div><div class="ch-cell">注销凭证</div><div class="ch-cell">交回 SKHY</div></div>
 </div>
-<figcaption>右箭头从原股一侧流向 SKHY 持有人，左箭头反向。</figcaption>
+<figcaption>右箭头（→）从原股一侧流向 SKHY 持有人，左箭头（←）反向。</figcaption>
 </figure>
 
 <span data-text-versions id="nb-b01-text-4">存托机构还要处理持有期间的事务。公司支付现金分红后，款项经托管与存托安排处理，再分配给存托证券持有人；公司信息和投票事项也通过这条渠道传递，持有人按通知发出投票指示，再由存托机构依约办理<span data-text-detail>（SKHY 公开存托文件规定，现金分红换成美元、扣除有关税费后分配；投票指示须及时提交，并对应整股股份。费用、汇兑和投票程序会影响持有人实际收到的现金及权利行使）</span>。[^skhy-terms]<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>
 
 <span data-text-versions id="nb-b01-text-5">存托凭证与原股之间还可以按规定转换：存入原股可以形成相应凭证，交回凭证注销则可以提取对应原股。实际办理要满足存托项目的程序，并看经纪商是否提供这项服务<span data-text-detail>（办理还涉及文件、税费、适用规则和处理时间；发行或注销费用之外，也可能有登记、通讯及汇兑成本）</span>。有了这层联系，就可以继续比较[《股票、公司与股价》](/zh/notebook/stocks-company-price/)中的两地价格：除了统一股数和币种，还要考虑买卖时点、转换条件与交易成本，两个市场显示的价差才有具体含义。[^skhy-terms]<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>
 
-认清底层是哪家公司以后，我们还要弄清实际持有的是什么。直接持有的股份由公司发行，权利按股份类别确定；SKHY 这样的存托证券由存托银行发行，分红、投票和转换都要经过存托安排。围绕同一只股票，市场上还有代币化产品、个股期货和股票永续等形式，持有人取得的权益和要准备的资金又各不相同，按需专题[《个股期货、股票永续与代币化股票》](/zh/notebook/#topic-K)会把它们放在一起比较。
+认清底层是哪家公司以后，我们还要弄清手里实际拿着什么。直接持有的股份由公司发行，权利写在股份类别里；SKHY 这样的存托证券由存托银行发行，分红、投票和转换都要经过存托渠道。围绕同一只股票，市场上还有代币化产品、个股期货和股票永续等形式，对应的权益与资金要求各不相同，按需专题[《个股期货、股票永续与代币化股票》](/zh/notebook/#topic-K)会把它们放在一起比较。
 
 回到直接持有的股份，公司还会通过分红、回购和增发改变每股能分到什么。下一篇[《股东回报：分红、回购与增发》](/zh/notebook/shareholder-returns-buybacks-issuance/)从 AAPL 的分红与回购讲起。
 
-<link rel="stylesheet" href="/notebook/flow-figures.css?v=20261012-6">
 <script src="/notebook/flow-figures.js?v=20261012-6" defer></script>
 
 [^stock-types]: [Investor.gov：Stocks](https://www.investor.gov/introduction-investing/investing-basics/investment-products/stocks)，What kinds of stocks are there? 及清算顺序说明。

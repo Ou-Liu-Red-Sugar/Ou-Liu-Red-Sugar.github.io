@@ -1,189 +1,35 @@
-<?xml version="1.0" encoding="utf-8" standalone="no"?>
-<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
-  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="720pt" height="410.4pt" viewBox="0 0 720 410.4" xmlns="http://www.w3.org/2000/svg" version="1.1">
- <metadata>
-  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
-   <cc:Work>
-    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
-    <dc:date>2026-09-26T13:50:34.275761</dc:date>
-    <dc:format>image/svg+xml</dc:format>
-    <dc:creator>
-     <cc:Agent>
-      <dc:title>Matplotlib v3.11.0, https://matplotlib.org/</dc:title>
-     </cc:Agent>
-    </dc:creator>
-   </cc:Work>
-  </rdf:RDF>
- </metadata>
- <defs>
-  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
- </defs>
- <g id="figure_1">
-  <g id="patch_1">
-   <path d="M 0 410.4
-L 720 410.4
-L 720 0
-L 0 0
-z
-" style="fill: #fbfcfa"/>
-  </g>
-  <g id="axes_1">
-   <g id="patch_2">
-    <path d="M 54 344.736
-L 622.8 344.736
-L 622.8 106.704
-L 54 106.704
-z
-" style="fill: #fbfcfa"/>
-   </g>
-   <g id="matplotlib.axis_1">
-    <g id="xtick_1">
-     <g id="line2d_1"/>
-     <g id="text_1">
-      <text style="font-size: 15px; font-family: 'Microsoft YaHei'; text-anchor: middle; fill: #748279" x="54" y="366.253969" transform="rotate(-0 54 366.253969)">起点</text>
-     </g>
-    </g>
-    <g id="xtick_2">
-     <g id="line2d_2"/>
-     <g id="text_2">
-      <text style="font-size: 15px; font-family: 'Microsoft YaHei'; text-anchor: middle; fill: #748279" x="332.823529" y="366.326625" transform="rotate(-0 332.823529 366.326625)">15 年</text>
-     </g>
-    </g>
-    <g id="xtick_3">
-     <g id="line2d_3"/>
-     <g id="text_3">
-      <text style="font-size: 15px; font-family: 'Microsoft YaHei'; text-anchor: middle; fill: #748279" x="611.647059" y="366.326625" transform="rotate(-0 611.647059 366.326625)">30 年</text>
-     </g>
-    </g>
-   </g>
-   <g id="matplotlib.axis_2">
-    <g id="ytick_1">
-     <g id="line2d_4">
-      <path d="M 54 333.916364
-L 622.8 333.916364
-" clip-path="url(#pd0e6248564)" style="fill: none; stroke: #e4eae3; stroke-width: 0.8; stroke-linecap: square"/>
-     </g>
-     <g id="line2d_5"/>
-     <g id="text_4">
-      <text style="font-size: 15px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #748279" x="631.8" y="340.006452" transform="rotate(-0 631.8 340.006452)">10,000</text>
-     </g>
-    </g>
-    <g id="ytick_2">
-     <g id="line2d_6">
-      <path d="M 54 271.764712
-L 622.8 271.764712
-" clip-path="url(#pd0e6248564)" style="fill: none; stroke: #e4eae3; stroke-width: 0.8; stroke-linecap: square"/>
-     </g>
-     <g id="line2d_7"/>
-     <g id="text_5">
-      <text style="font-size: 15px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #748279" x="631.8" y="277.8548" transform="rotate(-0 631.8 277.8548)">20,000</text>
-     </g>
-    </g>
-    <g id="ytick_3">
-     <g id="line2d_8">
-      <path d="M 54 209.61306
-L 622.8 209.61306
-" clip-path="url(#pd0e6248564)" style="fill: none; stroke: #e4eae3; stroke-width: 0.8; stroke-linecap: square"/>
-     </g>
-     <g id="line2d_9"/>
-     <g id="text_6">
-      <text style="font-size: 15px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #748279" x="631.8" y="215.703148" transform="rotate(-0 631.8 215.703148)">30,000</text>
-     </g>
-    </g>
-    <g id="ytick_4">
-     <g id="line2d_10">
-      <path d="M 54 147.461408
-L 622.8 147.461408
-" clip-path="url(#pd0e6248564)" style="fill: none; stroke: #e4eae3; stroke-width: 0.8; stroke-linecap: square"/>
-     </g>
-     <g id="line2d_11"/>
-     <g id="text_7">
-      <text style="font-size: 15px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #748279" x="631.8" y="153.551496" transform="rotate(-0 631.8 153.551496)">40,000</text>
-     </g>
-    </g>
-   </g>
-   <g id="line2d_12">
-    <path d="M 54 333.916364
-L 75.686275 330.18302
-L 97.372549 326.225421
-L 119.058824 322.030095
-L 140.745098 317.582764
-L 159.333333 313.558739
-L 177.921569 309.328398
-L 196.509804 304.881163
-L 215.098039 300.205913
-L 233.686275 295.290958
-L 252.27451 290.124007
-L 270.862745 284.692142
-L 286.352941 279.953443
-L 301.843137 275.013127
-L 317.333333 269.862617
-L 332.823529 264.492967
-L 348.313725 258.894856
-L 363.803922 253.058563
-L 379.294118 246.973953
-L 394.784314 240.630462
-L 410.27451 234.017075
-L 425.764706 227.122309
-L 441.254902 219.934193
-L 453.647059 213.964117
-L 466.039216 207.791684
-L 478.431373 201.410037
-L 490.823529 194.812082
-L 503.215686 187.99049
-L 515.607843 180.937678
-L 528 173.645811
-L 540.392157 166.106785
-L 552.784314 158.312223
-L 565.176471 150.253464
-L 577.568627 141.921552
-L 589.960784 133.307228
-L 602.352941 124.400922
-L 611.647059 117.523636
-L 611.647059 117.523636
-" clip-path="url(#pd0e6248564)" style="fill: none; stroke: #247f67; stroke-width: 2.8; stroke-linecap: square"/>
-   </g>
-   <g id="line2d_13">
-    <path d="M 54 333.916364
-L 611.647059 240.688886
-L 611.647059 240.688886
-" clip-path="url(#pd0e6248564)" style="fill: none; stroke-dasharray: 7.4,3.2; stroke-dashoffset: 0; stroke: #bc8a42; stroke-width: 2"/>
-   </g>
-   <g id="legend_1">
-    <g id="line2d_14">
-     <path d="M 67.5 127.427437
-L 82.5 127.427437
-L 97.5 127.427437
-" style="fill: none; stroke: #247f67; stroke-width: 2.8; stroke-linecap: square"/>
-    </g>
-    <g id="text_8">
-     <text style="font-size: 15px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #253b32" x="109.5" y="132.677437" transform="rotate(-0 109.5 132.677437)">指数累积</text>
-    </g>
-    <g id="line2d_15">
-     <path d="M 67.5 151.274801
-L 82.5 151.274801
-L 97.5 151.274801
-" style="fill: none; stroke-dasharray: 7.4,3.2; stroke-dashoffset: 0; stroke: #bc8a42; stroke-width: 2"/>
-    </g>
-    <g id="text_9">
-     <text style="font-size: 15px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #253b32" x="109.5" y="156.524801" transform="rotate(-0 109.5 156.524801)">起点处线性近似</text>
-    </g>
-   </g>
-  </g>
-  <g id="text_10">
-   <text style="font-weight: 700; font-size: 23px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #253b32" x="43.2" y="40.599706" transform="rotate(-0 43.2 40.599706)">同一增长过程，不同的观察长度</text>
-  </g>
-  <g id="text_11">
-   <text style="font-size: 15px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #6c7a71" x="43.2" y="71.336419" transform="rotate(-0 43.2 71.336419)">初始 10,000 美元  ·  连续复利率 5%  ·  观察三十年</text>
-  </g>
-  <g id="text_12">
-   <text style="font-size: 12.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #78867b" x="43.2" y="399.7296" transform="rotate(-0 43.2 399.7296)">金额：美元  ·  参数固定，用于观察时间拉长后两条路径的差额</text>
-  </g>
- </g>
- <defs>
-  <clipPath id="pd0e6248564">
-   <rect x="54" y="106.704" width="568.8" height="238.032"/>
-  </clipPath>
- </defs>
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 380" width="720" height="380" role="img" aria-label="固定连续复利率 5%，初始 10,000 美元，观察三十年的指数累积与线性近似比较">
+  <style>
+    text { font-family: Inter, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, &quot;PingFang SC&quot;, &quot;Microsoft YaHei&quot;, &quot;Noto Sans SC&quot;, sans-serif; font-variant-numeric: lining-nums tabular-nums; }
+  </style>
+  <rect width="720" height="380" fill="#fbfbf6"/>
+  <text x="24" y="29" font-size="17.5" font-weight="700" fill="#22392f">同一增长过程，不同的观察长度</text>
+  <text x="24" y="49" font-size="12.5" fill="#7a8780">初始 10,000 美元 · 连续复利率 5% · 观察三十年</text>
+  <g><line x1="24.0" y1="72" x2="42.0" y2="72" stroke="#23695a" stroke-width="2.4" stroke-linecap="round"/><text x="48.0" y="76" font-size="12.5" fill="#3c4c44">指数累积</text><line x1="119.2" y1="72" x2="137.2" y2="72" stroke="#a8743f" stroke-width="2" stroke-dasharray="5 3.5" stroke-linecap="round"/><text x="143.2" y="76" font-size="12.5" fill="#3c4c44">起点处线性近似</text><rect x="252.8" y="67" width="16" height="10" rx="2" fill="rgba(35,105,90,0.16)"/><text x="276.8" y="76" font-size="12.5" fill="#3c4c44">复利拉开差额</text></g>
+  <line x1="68.0" y1="310.5" x2="584.0" y2="310.5" stroke="#e5eae2" stroke-width="1"/>
+  <text x="60.0" y="314.5" text-anchor="end" font-size="12" fill="#7a8780">10,000</text>
+  <line x1="68.0" y1="252.7" x2="584.0" y2="252.7" stroke="#e5eae2" stroke-width="1"/>
+  <text x="60.0" y="256.7" text-anchor="end" font-size="12" fill="#7a8780">20,000</text>
+  <line x1="68.0" y1="195.0" x2="584.0" y2="195.0" stroke="#e5eae2" stroke-width="1"/>
+  <text x="60.0" y="199.0" text-anchor="end" font-size="12" fill="#7a8780">30,000</text>
+  <line x1="68.0" y1="137.3" x2="584.0" y2="137.3" stroke="#e5eae2" stroke-width="1"/>
+  <text x="60.0" y="141.3" text-anchor="end" font-size="12" fill="#7a8780">40,000</text>
+  <line x1="68.0" y1="322.0" x2="584.0" y2="322.0" stroke="#cdd6cb" stroke-width="1"/>
+  <text x="68.0" y="342.0" text-anchor="start" font-size="12.5" fill="#7a8780">起点</text>
+  <text x="326.0" y="342.0" text-anchor="middle" font-size="12.5" fill="#7a8780">15 年</text>
+  <text x="584.0" y="342.0" text-anchor="end" font-size="12.5" fill="#7a8780">30 年</text>
+  <path d="M 68.00 310.46 L 72.30 309.73 L 76.60 308.99 L 80.90 308.25 L 85.20 307.50 L 89.50 306.73 L 93.80 305.96 L 98.10 305.18 L 102.40 304.39 L 106.70 303.58 L 111.00 302.77 L 115.30 301.95 L 119.60 301.11 L 123.90 300.27 L 128.20 299.42 L 132.50 298.55 L 136.80 297.68 L 141.10 296.79 L 145.40 295.89 L 149.70 294.98 L 154.00 294.06 L 158.30 293.13 L 162.60 292.19 L 166.90 291.23 L 171.20 290.26 L 175.50 289.28 L 179.80 288.29 L 184.10 287.28 L 188.40 286.27 L 192.70 285.24 L 197.00 284.19 L 201.30 283.14 L 205.60 282.07 L 209.90 280.98 L 214.20 279.89 L 218.50 278.78 L 222.80 277.65 L 227.10 276.51 L 231.40 275.36 L 235.70 274.19 L 240.00 273.01 L 244.30 271.81 L 248.60 270.60 L 252.90 269.37 L 257.20 268.13 L 261.50 266.87 L 265.80 265.60 L 270.10 264.31 L 274.40 263.00 L 278.70 261.68 L 283.00 260.34 L 287.30 258.98 L 291.60 257.61 L 295.90 256.22 L 300.20 254.81 L 304.50 253.38 L 308.80 251.94 L 313.10 250.48 L 317.40 249.00 L 321.70 247.50 L 326.00 245.98 L 330.30 244.44 L 334.60 242.89 L 338.90 241.31 L 343.20 239.72 L 347.50 238.10 L 351.80 236.46 L 356.10 234.81 L 360.40 233.13 L 364.70 231.43 L 369.00 229.71 L 373.30 227.97 L 377.60 226.21 L 381.90 224.42 L 386.20 222.61 L 390.50 220.78 L 394.80 218.93 L 399.10 217.05 L 403.40 215.15 L 407.70 213.22 L 412.00 211.27 L 416.30 209.30 L 420.60 207.30 L 424.90 205.28 L 429.20 203.23 L 433.50 201.15 L 437.80 199.05 L 442.10 196.93 L 446.40 194.77 L 450.70 192.59 L 455.00 190.38 L 459.30 188.15 L 463.60 185.88 L 467.90 183.59 L 472.20 181.27 L 476.50 178.92 L 480.80 176.54 L 485.10 174.12 L 489.40 171.68 L 493.70 169.21 L 498.00 166.71 L 502.30 164.18 L 506.60 161.61 L 510.90 159.01 L 515.20 156.38 L 519.50 153.72 L 523.80 151.02 L 528.10 148.29 L 532.40 145.52 L 536.70 142.72 L 541.00 139.88 L 545.30 137.01 L 549.60 134.10 L 553.90 131.16 L 558.20 128.18 L 562.50 125.16 L 566.80 122.10 L 571.10 119.01 L 575.40 115.87 L 579.70 112.70 L 584.00 109.49 L 584.00 223.87 L 579.70 224.59 L 575.40 225.32 L 571.10 226.04 L 566.80 226.76 L 562.50 227.48 L 558.20 228.20 L 553.90 228.92 L 549.60 229.65 L 545.30 230.37 L 541.00 231.09 L 536.70 231.81 L 532.40 232.53 L 528.10 233.25 L 523.80 233.97 L 519.50 234.70 L 515.20 235.42 L 510.90 236.14 L 506.60 236.86 L 502.30 237.58 L 498.00 238.30 L 493.70 239.03 L 489.40 239.75 L 485.10 240.47 L 480.80 241.19 L 476.50 241.91 L 472.20 242.63 L 467.90 243.35 L 463.60 244.08 L 459.30 244.80 L 455.00 245.52 L 450.70 246.24 L 446.40 246.96 L 442.10 247.68 L 437.80 248.41 L 433.50 249.13 L 429.20 249.85 L 424.90 250.57 L 420.60 251.29 L 416.30 252.01 L 412.00 252.73 L 407.70 253.46 L 403.40 254.18 L 399.10 254.90 L 394.80 255.62 L 390.50 256.34 L 386.20 257.06 L 381.90 257.78 L 377.60 258.51 L 373.30 259.23 L 369.00 259.95 L 364.70 260.67 L 360.40 261.39 L 356.10 262.11 L 351.80 262.84 L 347.50 263.56 L 343.20 264.28 L 338.90 265.00 L 334.60 265.72 L 330.30 266.44 L 326.00 267.16 L 321.70 267.89 L 317.40 268.61 L 313.10 269.33 L 308.80 270.05 L 304.50 270.77 L 300.20 271.49 L 295.90 272.22 L 291.60 272.94 L 287.30 273.66 L 283.00 274.38 L 278.70 275.10 L 274.40 275.82 L 270.10 276.54 L 265.80 277.27 L 261.50 277.99 L 257.20 278.71 L 252.90 279.43 L 248.60 280.15 L 244.30 280.87 L 240.00 281.59 L 235.70 282.32 L 231.40 283.04 L 227.10 283.76 L 222.80 284.48 L 218.50 285.20 L 214.20 285.92 L 209.90 286.65 L 205.60 287.37 L 201.30 288.09 L 197.00 288.81 L 192.70 289.53 L 188.40 290.25 L 184.10 290.97 L 179.80 291.70 L 175.50 292.42 L 171.20 293.14 L 166.90 293.86 L 162.60 294.58 L 158.30 295.30 L 154.00 296.03 L 149.70 296.75 L 145.40 297.47 L 141.10 298.19 L 136.80 298.91 L 132.50 299.63 L 128.20 300.35 L 123.90 301.08 L 119.60 301.80 L 115.30 302.52 L 111.00 303.24 L 106.70 303.96 L 102.40 304.68 L 98.10 305.41 L 93.80 306.13 L 89.50 306.85 L 85.20 307.57 L 80.90 308.29 L 76.60 309.01 L 72.30 309.73 L 68.00 310.46 Z" fill="rgba(35,105,90,0.11)"/>
+  <path d="M 68.00 310.46 L 584.00 223.87" fill="none" stroke="#a8743f" stroke-width="2" stroke-dasharray="6 4" stroke-linecap="round"/>
+  <path d="M 68.00 310.46 L 72.30 309.73 L 76.60 308.99 L 80.90 308.25 L 85.20 307.50 L 89.50 306.73 L 93.80 305.96 L 98.10 305.18 L 102.40 304.39 L 106.70 303.58 L 111.00 302.77 L 115.30 301.95 L 119.60 301.11 L 123.90 300.27 L 128.20 299.42 L 132.50 298.55 L 136.80 297.68 L 141.10 296.79 L 145.40 295.89 L 149.70 294.98 L 154.00 294.06 L 158.30 293.13 L 162.60 292.19 L 166.90 291.23 L 171.20 290.26 L 175.50 289.28 L 179.80 288.29 L 184.10 287.28 L 188.40 286.27 L 192.70 285.24 L 197.00 284.19 L 201.30 283.14 L 205.60 282.07 L 209.90 280.98 L 214.20 279.89 L 218.50 278.78 L 222.80 277.65 L 227.10 276.51 L 231.40 275.36 L 235.70 274.19 L 240.00 273.01 L 244.30 271.81 L 248.60 270.60 L 252.90 269.37 L 257.20 268.13 L 261.50 266.87 L 265.80 265.60 L 270.10 264.31 L 274.40 263.00 L 278.70 261.68 L 283.00 260.34 L 287.30 258.98 L 291.60 257.61 L 295.90 256.22 L 300.20 254.81 L 304.50 253.38 L 308.80 251.94 L 313.10 250.48 L 317.40 249.00 L 321.70 247.50 L 326.00 245.98 L 330.30 244.44 L 334.60 242.89 L 338.90 241.31 L 343.20 239.72 L 347.50 238.10 L 351.80 236.46 L 356.10 234.81 L 360.40 233.13 L 364.70 231.43 L 369.00 229.71 L 373.30 227.97 L 377.60 226.21 L 381.90 224.42 L 386.20 222.61 L 390.50 220.78 L 394.80 218.93 L 399.10 217.05 L 403.40 215.15 L 407.70 213.22 L 412.00 211.27 L 416.30 209.30 L 420.60 207.30 L 424.90 205.28 L 429.20 203.23 L 433.50 201.15 L 437.80 199.05 L 442.10 196.93 L 446.40 194.77 L 450.70 192.59 L 455.00 190.38 L 459.30 188.15 L 463.60 185.88 L 467.90 183.59 L 472.20 181.27 L 476.50 178.92 L 480.80 176.54 L 485.10 174.12 L 489.40 171.68 L 493.70 169.21 L 498.00 166.71 L 502.30 164.18 L 506.60 161.61 L 510.90 159.01 L 515.20 156.38 L 519.50 153.72 L 523.80 151.02 L 528.10 148.29 L 532.40 145.52 L 536.70 142.72 L 541.00 139.88 L 545.30 137.01 L 549.60 134.10 L 553.90 131.16 L 558.20 128.18 L 562.50 125.16 L 566.80 122.10 L 571.10 119.01 L 575.40 115.87 L 579.70 112.70 L 584.00 109.49" fill="none" stroke="#23695a" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="68.0" cy="310.46" r="3.5" fill="#fbfbf6" stroke="#23695a" stroke-width="2"/>
+  <circle cx="584.0" cy="223.87" r="4" fill="#a8743f" stroke="#fbfbf6" stroke-width="1.5"/>
+  <circle cx="584.0" cy="109.49" r="4.5" fill="#23695a" stroke="#fbfbf6" stroke-width="1.8"/>
+  <text x="596.0" y="114.5" font-size="15.5" font-weight="700" fill="#23695a">44,817</text>
+  <text x="596.0" y="228.9" font-size="14.5" font-weight="650" fill="#8f6033">25,000</text>
+  <path d="M 588.0 117.5 L 594.0 117.5 L 594.0 215.9 L 588.0 215.9" fill="none" stroke="#23695a" stroke-width="1.2"/>
+  <rect x="600.0" y="148.7" width="106" height="36" rx="6" fill="#e5efe9"/>
+  <text x="653.0" y="163.7" text-anchor="middle" font-size="11" fill="#3c4c44">复利多出</text>
+  <text x="653.0" y="179.7" text-anchor="middle" font-size="13" font-weight="700" fill="#23695a">+19,817 美元</text>
+  <text x="24" y="368" font-size="11.5" fill="#7a8780">单位：美元 · 曲线按 10,000·exp(0.05t) 与 10,000·(1+0.05t) 绘出</text>
 </svg>

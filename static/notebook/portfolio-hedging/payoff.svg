@@ -1,297 +1,93 @@
-<?xml version="1.0" encoding="utf-8" standalone="no"?>
-<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
-  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="622.85625pt" height="305.556094pt" viewBox="0 0 622.85625 305.556094" xmlns="http://www.w3.org/2000/svg" version="1.1">
- <metadata>
-  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
-   <cc:Work>
-    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
-    <dc:date>2026-09-26T20:46:58.501895</dc:date>
-    <dc:format>image/svg+xml</dc:format>
-    <dc:creator>
-     <cc:Agent>
-      <dc:title>Matplotlib v3.11.0, https://matplotlib.org/</dc:title>
-     </cc:Agent>
-    </dc:creator>
-   </cc:Work>
-  </rdf:RDF>
- </metadata>
- <defs>
-  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
- </defs>
- <g id="figure_1">
-  <g id="patch_1">
-   <path d="M 0 305.556094
-L 622.85625 305.556094
-L 622.85625 0
-L 0 0
-z
-" style="fill: #fbfcf8"/>
-  </g>
-  <g id="axes_1">
-   <g id="patch_2">
-    <path d="M 53.923848 257.572676
-L 615.65625 257.572676
-L 615.65625 7.2
-L 53.923848 7.2
-z
-" style="fill: #fbfcf8"/>
-   </g>
-   <g id="matplotlib.axis_1">
-    <g id="xtick_1">
-     <g id="line2d_1">
-      <defs>
-       <path id="m3b5987afc4" d="M 0 0
-L 0 3.5
-" style="stroke: #b4bdb2; stroke-width: 0.8"/>
-      </defs>
-      <g>
-       <use xlink:href="#m3b5987afc4" x="97.134032" y="257.572676" style="fill: #b4bdb2; stroke: #b4bdb2; stroke-width: 0.8"/>
-      </g>
-     </g>
-     <g id="text_1">
-      <text style="font-size: 11px; font-family: 'Microsoft YaHei'; text-anchor: middle; fill: #3e5047" x="97.134032" y="273.504805" transform="rotate(-0 97.134032 273.504805)">550</text>
-     </g>
-    </g>
-    <g id="xtick_2">
-     <g id="line2d_2">
-      <g>
-       <use xlink:href="#m3b5987afc4" x="169.151007" y="257.572676" style="fill: #b4bdb2; stroke: #b4bdb2; stroke-width: 0.8"/>
-      </g>
-     </g>
-     <g id="text_2">
-      <text style="font-size: 11px; font-family: 'Microsoft YaHei'; text-anchor: middle; fill: #3e5047" x="169.151007" y="273.504805" transform="rotate(-0 169.151007 273.504805)">600</text>
-     </g>
-    </g>
-    <g id="xtick_3">
-     <g id="line2d_3">
-      <g>
-       <use xlink:href="#m3b5987afc4" x="241.167982" y="257.572676" style="fill: #b4bdb2; stroke: #b4bdb2; stroke-width: 0.8"/>
-      </g>
-     </g>
-     <g id="text_3">
-      <text style="font-size: 11px; font-family: 'Microsoft YaHei'; text-anchor: middle; fill: #3e5047" x="241.167982" y="273.504805" transform="rotate(-0 241.167982 273.504805)">650</text>
-     </g>
-    </g>
-    <g id="xtick_4">
-     <g id="line2d_4">
-      <g>
-       <use xlink:href="#m3b5987afc4" x="313.184956" y="257.572676" style="fill: #b4bdb2; stroke: #b4bdb2; stroke-width: 0.8"/>
-      </g>
-     </g>
-     <g id="text_4">
-      <text style="font-size: 11px; font-family: 'Microsoft YaHei'; text-anchor: middle; fill: #3e5047" x="313.184956" y="273.504805" transform="rotate(-0 313.184956 273.504805)">700</text>
-     </g>
-    </g>
-    <g id="xtick_5">
-     <g id="line2d_5">
-      <g>
-       <use xlink:href="#m3b5987afc4" x="385.201931" y="257.572676" style="fill: #b4bdb2; stroke: #b4bdb2; stroke-width: 0.8"/>
-      </g>
-     </g>
-     <g id="text_5">
-      <text style="font-size: 11px; font-family: 'Microsoft YaHei'; text-anchor: middle; fill: #3e5047" x="385.201931" y="273.504805" transform="rotate(-0 385.201931 273.504805)">750</text>
-     </g>
-    </g>
-    <g id="xtick_6">
-     <g id="line2d_6">
-      <g>
-       <use xlink:href="#m3b5987afc4" x="457.218906" y="257.572676" style="fill: #b4bdb2; stroke: #b4bdb2; stroke-width: 0.8"/>
-      </g>
-     </g>
-     <g id="text_6">
-      <text style="font-size: 11px; font-family: 'Microsoft YaHei'; text-anchor: middle; fill: #3e5047" x="457.218906" y="273.504805" transform="rotate(-0 457.218906 273.504805)">800</text>
-     </g>
-    </g>
-    <g id="xtick_7">
-     <g id="line2d_7">
-      <g>
-       <use xlink:href="#m3b5987afc4" x="529.23588" y="257.572676" style="fill: #b4bdb2; stroke: #b4bdb2; stroke-width: 0.8"/>
-      </g>
-     </g>
-     <g id="text_7">
-      <text style="font-size: 11px; font-family: 'Microsoft YaHei'; text-anchor: middle; fill: #3e5047" x="529.23588" y="273.504805" transform="rotate(-0 529.23588 273.504805)">850</text>
-     </g>
-    </g>
-    <g id="xtick_8">
-     <g id="line2d_8">
-      <g>
-       <use xlink:href="#m3b5987afc4" x="601.252855" y="257.572676" style="fill: #b4bdb2; stroke: #b4bdb2; stroke-width: 0.8"/>
-      </g>
-     </g>
-     <g id="text_8">
-      <text style="font-size: 11px; font-family: 'Microsoft YaHei'; text-anchor: middle; fill: #3e5047" x="601.252855" y="273.504805" transform="rotate(-0 601.252855 273.504805)">900</text>
-     </g>
-    </g>
-    <g id="text_9">
-     <text style="font-size: 11px; font-family: 'Microsoft YaHei'; text-anchor: middle" x="334.790049" y="295.568496" transform="rotate(-0 334.790049 295.568496)">VOO 到期价格（美元／份）</text>
-    </g>
-   </g>
-   <g id="matplotlib.axis_2">
-    <g id="ytick_1">
-     <g id="line2d_9">
-      <path d="M 53.923848 251.882388
-L 615.65625 251.882388
-" clip-path="url(#p1600ebac4a)" style="fill: none; stroke: #e1e6dd; stroke-width: 0.6; stroke-linecap: square"/>
-     </g>
-     <g id="line2d_10">
-      <defs>
-       <path id="m88a2098434" d="M 0 0
-L -3.5 0
-" style="stroke: #b4bdb2; stroke-width: 0.8"/>
-      </defs>
-      <g>
-       <use xlink:href="#m88a2098434" x="53.923848" y="251.882388" style="fill: #b4bdb2; stroke: #b4bdb2; stroke-width: 0.8"/>
-      </g>
-     </g>
-     <g id="text_10">
-      <text style="font-size: 11px; font-family: 'Microsoft YaHei'; text-anchor: end; fill: #3e5047" x="46.923848" y="256.348452" transform="rotate(-0 46.923848 256.348452)">-20</text>
-     </g>
-    </g>
-    <g id="ytick_2">
-     <g id="line2d_11">
-      <path d="M 53.923848 194.979507
-L 615.65625 194.979507
-" clip-path="url(#p1600ebac4a)" style="fill: none; stroke: #e1e6dd; stroke-width: 0.6; stroke-linecap: square"/>
-     </g>
-     <g id="line2d_12">
-      <g>
-       <use xlink:href="#m88a2098434" x="53.923848" y="194.979507" style="fill: #b4bdb2; stroke: #b4bdb2; stroke-width: 0.8"/>
-      </g>
-     </g>
-     <g id="text_11">
-      <text style="font-size: 11px; font-family: 'Microsoft YaHei'; text-anchor: end; fill: #3e5047" x="46.923848" y="199.445571" transform="rotate(-0 46.923848 199.445571)">-10</text>
-     </g>
-    </g>
-    <g id="ytick_3">
-     <g id="line2d_13">
-      <path d="M 53.923848 138.076626
-L 615.65625 138.076626
-" clip-path="url(#p1600ebac4a)" style="fill: none; stroke: #e1e6dd; stroke-width: 0.6; stroke-linecap: square"/>
-     </g>
-     <g id="line2d_14">
-      <g>
-       <use xlink:href="#m88a2098434" x="53.923848" y="138.076626" style="fill: #b4bdb2; stroke: #b4bdb2; stroke-width: 0.8"/>
-      </g>
-     </g>
-     <g id="text_12">
-      <text style="font-size: 11px; font-family: 'Microsoft YaHei'; text-anchor: end; fill: #3e5047" x="46.923848" y="142.54269" transform="rotate(-0 46.923848 142.54269)">0</text>
-     </g>
-    </g>
-    <g id="ytick_4">
-     <g id="line2d_15">
-      <path d="M 53.923848 81.173745
-L 615.65625 81.173745
-" clip-path="url(#p1600ebac4a)" style="fill: none; stroke: #e1e6dd; stroke-width: 0.6; stroke-linecap: square"/>
-     </g>
-     <g id="line2d_16">
-      <g>
-       <use xlink:href="#m88a2098434" x="53.923848" y="81.173745" style="fill: #b4bdb2; stroke: #b4bdb2; stroke-width: 0.8"/>
-      </g>
-     </g>
-     <g id="text_13">
-      <text style="font-size: 11px; font-family: 'Microsoft YaHei'; text-anchor: end; fill: #3e5047" x="46.923848" y="85.63981" transform="rotate(-0 46.923848 85.63981)">10</text>
-     </g>
-    </g>
-    <g id="ytick_5">
-     <g id="line2d_17">
-      <path d="M 53.923848 24.270864
-L 615.65625 24.270864
-" clip-path="url(#p1600ebac4a)" style="fill: none; stroke: #e1e6dd; stroke-width: 0.6; stroke-linecap: square"/>
-     </g>
-     <g id="line2d_18">
-      <g>
-       <use xlink:href="#m88a2098434" x="53.923848" y="24.270864" style="fill: #b4bdb2; stroke: #b4bdb2; stroke-width: 0.8"/>
-      </g>
-     </g>
-     <g id="text_14">
-      <text style="font-size: 11px; font-family: 'Microsoft YaHei'; text-anchor: end; fill: #3e5047" x="46.923848" y="28.736929" transform="rotate(-0 46.923848 28.736929)">20</text>
-     </g>
-    </g>
-    <g id="text_15">
-     <text style="font-size: 11px; font-family: 'Microsoft YaHei'; text-anchor: middle" x="16.476094" y="132.386338" transform="rotate(-90 16.476094 132.386338)">这部分持仓的损益（千美元）</text>
-    </g>
-   </g>
-   <g id="line2d_19">
-    <path d="M 53.923848 138.076626
-L 615.65625 138.076626
-" clip-path="url(#p1600ebac4a)" style="fill: none; stroke: #a4ada5; stroke-width: 0.8; stroke-linecap: square"/>
-   </g>
-   <g id="line2d_20">
-    <path d="M 291.579864 257.572676
-L 291.579864 7.2
-" clip-path="url(#p1600ebac4a)" style="fill: none; stroke-dasharray: 3,4; stroke-dashoffset: 0; stroke: #b7c3b9"/>
-   </g>
-   <g id="line2d_21">
-    <path d="M 53.923848 246.465222
-L 615.65625 24.543987
-L 615.65625 24.543987
-" clip-path="url(#p1600ebac4a)" style="fill: none; stroke: #9ba7a0; stroke-width: 2; stroke-linecap: square"/>
-   </g>
-   <g id="line2d_22">
-    <path d="M 53.923848 158.481988
-L 291.449974 158.481988
-L 294.827122 157.199107
-L 615.65625 30.450506
-L 615.65625 30.450506
-" clip-path="url(#p1600ebac4a)" style="fill: none; stroke: #28755d; stroke-width: 2.8; stroke-linecap: square"/>
-   </g>
-   <g id="patch_3">
-    <path d="M 53.923848 257.572676
-L 53.923848 7.2
-" style="fill: none; stroke: #d1d9cd; stroke-width: 0.8; stroke-linejoin: miter; stroke-linecap: square"/>
-   </g>
-   <g id="patch_4">
-    <path d="M 615.65625 257.572676
-L 615.65625 7.2
-" style="fill: none; stroke: #d1d9cd; stroke-width: 0.8; stroke-linejoin: miter; stroke-linecap: square"/>
-   </g>
-   <g id="patch_5">
-    <path d="M 53.923848 257.572676
-L 615.65625 257.572676
-" style="fill: none; stroke: #d1d9cd; stroke-width: 0.8; stroke-linejoin: miter; stroke-linecap: square"/>
-   </g>
-   <g id="patch_6">
-    <path d="M 53.923848 7.2
-L 615.65625 7.2
-" style="fill: none; stroke: #d1d9cd; stroke-width: 0.8; stroke-linejoin: miter; stroke-linecap: square"/>
-   </g>
-   <g id="patch_7">
-    <path d="M 136.817517 127.178478
-Q 121.297273 142.135725 105.77703 157.092971
-" style="fill: none; stroke: #6c8c78; stroke-linecap: round"/>
-   </g>
-   <g id="text_16">
-    <text style="font-size: 11px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #245440" x="75.52894" y="121.005762" transform="rotate(-0 75.52894 121.005762)">保护后的下限约 −3,586 美元</text>
-   </g>
-   <g id="text_17">
-    <text style="font-size: 10px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #69796f" x="297.341222" y="243.346956" transform="rotate(-0 297.341222 243.346956)">行权价 685</text>
-   </g>
-   <g id="legend_1">
-    <g id="line2d_23">
-     <path d="M 63.823848 22.460781
-L 74.823848 22.460781
-L 85.823848 22.460781
-" style="fill: none; stroke: #9ba7a0; stroke-width: 2; stroke-linecap: square"/>
-    </g>
-    <g id="text_18">
-     <text style="font-size: 11px; font-family: 'Microsoft YaHei'; text-anchor: start" x="94.623848" y="26.310781" transform="rotate(-0 94.623848 26.310781)">只持有 100 份 VOO</text>
-    </g>
-    <g id="line2d_24">
-     <path d="M 63.823848 39.842285
-L 74.823848 39.842285
-L 85.823848 39.842285
-" style="fill: none; stroke: #28755d; stroke-width: 2.8; stroke-linecap: square"/>
-    </g>
-    <g id="text_19">
-     <text style="font-size: 11px; font-family: 'Microsoft YaHei'; text-anchor: start" x="94.623848" y="43.692285" transform="rotate(-0 94.623848 43.692285)">100 份 VOO＋1 张 Put</text>
-    </g>
-   </g>
-  </g>
- </g>
- <defs>
-  <clipPath id="p1600ebac4a">
-   <rect x="53.923848" y="7.2" width="561.732402" height="250.372676"/>
-  </clipPath>
- </defs>
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="368" viewBox="0 0 720 368" role="img" aria-labelledby="title desc">
+<title id="title">100 份 VOO 到期损益：直接持有与加买 1 张 685 美元 Put 的比较</title>
+<desc id="desc">按 710.48 美元观察价持有 100 份 VOO，与加买 1 张行权价 685 美元、权利金 1,037 美元加 1 美元费用的保护性 Put 对比。VOO 跌破 685 美元时，加买 Put 的到期损益锁定在约 −3,586 美元下限；高于 685 美元时，两者同步上涨，加买 Put 少赚 1,038 美元权利金与费用。</desc>
+<style>
+  text { font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", "Noto Sans SC", sans-serif; font-variant-numeric: lining-nums tabular-nums; fill: #22392f; }
+  .title { font-size: 15.5px; font-weight: 700; }
+  .sub { font-size: 12px; fill: #7a8780; }
+  .legend { font-size: 12px; fill: #3c4c44; }
+  .tick { font-size: 11.5px; fill: #7a8780; }
+  .axis { font-size: 12px; font-weight: 600; fill: #3c4c44; }
+  .note-teal { font-size: 12px; font-weight: 650; fill: #23695a; }
+  .note-warm { font-size: 11.5px; font-weight: 600; fill: #8f6033; }
+  .note-muted { font-size: 11px; fill: #69796f; }
+</style>
+
+<rect x="1" y="1" width="718" height="366" rx="10" fill="#fbfbf6" stroke="#e2e7df" stroke-width="1.5"/>
+
+<!-- Header (two clean rows so title & legend never collide) -->
+<text x="24" y="28" class="title">100 份 VOO 到期损益：直接持有 vs 加买 1 张 685 美元 Put</text>
+<text x="24" y="48" class="sub">观察价 710.48 美元 · Put 权利金 1,037 美元＋1 美元费用</text>
+<line x1="436" y1="44" x2="458" y2="44" stroke="#8e9c93" stroke-width="2" stroke-dasharray="5 3"/>
+<text x="464" y="48" class="legend">只持有 100 份 VOO</text>
+<line x1="582" y1="44" x2="604" y2="44" stroke="#23695a" stroke-width="2.8"/>
+<text x="610" y="48" class="legend">VOO ＋ 1 张 Put</text>
+
+<!-- Plot area: x=[76, 684] (550..900), y=[68, 298] (+20..-20 kUSD) -->
+<rect x="76" y="68" width="608" height="230" fill="#fdfdfa" stroke="#e2e7df" stroke-width="1"/>
+
+<!-- Horizontal gridlines -->
+<line x1="76" y1="68" x2="684" y2="68" stroke="#e8ede6" stroke-width="1"/>
+<line x1="76" y1="125.5" x2="684" y2="125.5" stroke="#e8ede6" stroke-width="1"/>
+<line x1="76" y1="183" x2="684" y2="183" stroke="#9eb0a5" stroke-width="1.2"/>
+<line x1="76" y1="240.5" x2="684" y2="240.5" stroke="#e8ede6" stroke-width="1"/>
+<line x1="76" y1="298" x2="684" y2="298" stroke="#e8ede6" stroke-width="1"/>
+
+<!-- Vertical gridlines -->
+<line x1="162.9" y1="68" x2="162.9" y2="298" stroke="#eef2ec" stroke-width="1"/>
+<line x1="249.7" y1="68" x2="249.7" y2="298" stroke="#eef2ec" stroke-width="1"/>
+<line x1="336.6" y1="68" x2="336.6" y2="298" stroke="#eef2ec" stroke-width="1"/>
+<line x1="423.4" y1="68" x2="423.4" y2="298" stroke="#eef2ec" stroke-width="1"/>
+<line x1="510.3" y1="68" x2="510.3" y2="298" stroke="#eef2ec" stroke-width="1"/>
+<line x1="597.1" y1="68" x2="597.1" y2="298" stroke="#eef2ec" stroke-width="1"/>
+
+<!-- Shaded downside protection wedge (S < 674.62) -->
+<polygon points="76,203.62 292.48,203.62 76,275.28" fill="#23695a" fill-opacity="0.11"/>
+<text x="88" y="225" class="note-teal" fill-opacity="0.9">Put 抵补的下跌损失</text>
+
+<!-- Strike line K = 685 (x = 310.51) -->
+<line x1="310.5" y1="68" x2="310.5" y2="298" stroke="#a8743f" stroke-width="1.4" stroke-dasharray="4 4"/>
+<rect x="316" y="272" width="78" height="20" rx="4" fill="#f5ebdf" stroke="#e4cca9" stroke-width="0.8"/>
+<text x="355" y="286" class="note-warm" text-anchor="middle">行权价 685</text>
+
+<!-- Unhedged VOO payoff line: (550, -16.048k) -> (900, +18.952k) -->
+<line x1="76" y1="275.28" x2="684" y2="74.03" stroke="#8e9c93" stroke-width="2" stroke-dasharray="6 4"/>
+
+<!-- Hedged VOO + Put payoff line: flat -3.586k to 685, then up to (900, +17.914k) -->
+<polyline points="76,203.62 310.51,203.62 684,79.99" fill="none" stroke="#23695a" stroke-width="2.8" stroke-linejoin="round" stroke-linecap="round"/>
+
+<!-- Key points -->
+<circle cx="310.51" cy="203.62" r="4.5" fill="#23695a" stroke="#fdfdfa" stroke-width="1.6"/>
+<circle cx="354.78" cy="183" r="3.8" fill="#8e9c93" stroke="#fdfdfa" stroke-width="1.5"/>
+<text x="364" y="197" class="note-muted">观察买入价 710.48</text>
+
+<!-- Floor callout -->
+<rect x="86" y="139" width="214" height="26" rx="6" fill="#e5efe9" stroke="#b9d0c2" stroke-width="1"/>
+<text x="193" y="156" class="note-teal" text-anchor="middle">保护后到期下限：约 −3,586 美元</text>
+<path d="M193 165 Q193 185 178 199" fill="none" stroke="#23695a" stroke-width="1.3"/>
+
+<!-- Cost gap annotation on upside (around S = 815, x = 536.3) -->
+<line x1="536.3" y1="122.9" x2="536.3" y2="128.9" stroke="#a8743f" stroke-width="2.2"/>
+<path d="M536.3 131 L548 154" fill="none" stroke="#a8743f" stroke-width="1.2"/>
+<rect x="468" y="154" width="206" height="24" rx="6" fill="#f5ebdf" stroke="#e4cca9" stroke-width="1"/>
+<text x="571" y="170" class="note-warm" text-anchor="middle">上涨时少赚 1,038 美元权利金与费用</text>
+
+<!-- Y-axis ticks -->
+<text x="68" y="72" class="tick" text-anchor="end">+20</text>
+<text x="68" y="129.5" class="tick" text-anchor="end">+10</text>
+<text x="68" y="187" class="tick" text-anchor="end">0</text>
+<text x="68" y="244.5" class="tick" text-anchor="end">−10</text>
+<text x="68" y="302" class="tick" text-anchor="end">−20</text>
+<text x="22" y="183" class="axis" text-anchor="middle" transform="rotate(-90 22 183)">这部分持仓的损益（千美元）</text>
+
+<!-- X-axis ticks -->
+<text x="76" y="316" class="tick" text-anchor="middle">550</text>
+<text x="162.9" y="316" class="tick" text-anchor="middle">600</text>
+<text x="249.7" y="316" class="tick" text-anchor="middle">650</text>
+<text x="336.6" y="316" class="tick" text-anchor="middle">700</text>
+<text x="423.4" y="316" class="tick" text-anchor="middle">750</text>
+<text x="510.3" y="316" class="tick" text-anchor="middle">800</text>
+<text x="597.1" y="316" class="tick" text-anchor="middle">850</text>
+<text x="684" y="316" class="tick" text-anchor="middle">900</text>
+<text x="380" y="342" class="axis" text-anchor="middle">VOO 到期价格（美元／份）</text>
 </svg>

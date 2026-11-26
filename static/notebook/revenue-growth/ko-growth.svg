@@ -1,34 +1,72 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 590" role="img" aria-labelledby="title desc"><title id="title">KO：同一季度，几种增长观察</title><desc id="desc">2025年第二季度。报表收入同比1%，有机收入5%，价格与组合6%，浓缩液销量贡献负1%，标准箱销量负1%。指标分别比较，不相加。</desc>
-<style>text{font-family:Inter,"Microsoft YaHei","Noto Sans CJK SC",sans-serif;fill:#1e3440}.muted{fill:#607581}.small{font-size:17px}.label{font-size:20px}.headline{font-size:27px;font-weight:650}.num{font-size:24px;font-weight:650}</style>
-<rect width="1000" height="590" fill="#f8faf9" rx="16"/>
-<text x="36" y="47" class="headline" >KO · 同一季度，几种增长观察</text>
-<text x="36" y="79" class="small muted" >2025 Q2 · 公司披露的同比变化（%）</text>
-<line x1="340" y1="118" x2="340" y2="481" stroke="#e2e9e9"/>
-<text x="340" y="109" class="small muted" text-anchor="middle">-1</text>
-<line x1="405" y1="118" x2="405" y2="481" stroke="#bdcbd0"/>
-<text x="405" y="109" class="small muted" text-anchor="middle">0</text>
-<line x1="535" y1="118" x2="535" y2="481" stroke="#e2e9e9"/>
-<text x="535" y="109" class="small muted" text-anchor="middle">2</text>
-<line x1="665" y1="118" x2="665" y2="481" stroke="#e2e9e9"/>
-<text x="665" y="109" class="small muted" text-anchor="middle">4</text>
-<line x1="795" y1="118" x2="795" y2="481" stroke="#e2e9e9"/>
-<text x="795" y="109" class="small muted" text-anchor="middle">6</text>
-<text x="36" y="165" class="label" >报表净营收</text>
-<rect x="405" y="142" width="65" height="32" rx="4" fill="#235f6c"/>
-<text x="485" y="167" class="num" text-anchor="start">+1%</text>
-<text x="36" y="230" class="label" >有机净营收</text>
-<rect x="405" y="207" width="325" height="32" rx="4" fill="#408b97"/>
-<text x="745" y="232" class="num" text-anchor="start">+5%</text>
-<text x="36" y="295" class="label" >价格与组合</text>
-<rect x="405" y="272" width="390" height="32" rx="4" fill="#5b9b84"/>
-<text x="810" y="297" class="num" text-anchor="start">+6%</text>
-<text x="36" y="360" class="label" >浓缩液销量贡献</text>
-<rect x="340" y="337" width="65" height="32" rx="4" fill="#b4815a"/>
-<text x="325" y="362" class="num" text-anchor="end">−1%</text>
-<text x="36" y="425" class="label" >标准箱销量</text>
-<rect x="340" y="402" width="65" height="32" rx="4" fill="#be936f"/>
-<text x="325" y="427" class="num" text-anchor="end">−1%</text>
-<text x="36" y="508" class="small" >价格与组合包含提价以及产品、包装、渠道和地区变化。</text>
-<text x="36" y="537" class="small muted" >有机收入调整汇率及收购、剥离和结构变化；各指标分别比较，不相加。</text>
-<text x="36" y="566" class="small muted" >来源：KO 2025 Q2 Earnings Release，第 1、3、8、15、25 页。</text>
+<svg xmlns="http://www.w3.org/2000/svg" width="920" height="476" viewBox="0 0 920 476" role="img" aria-labelledby="title desc">
+<title id="title">KO：同一季度，几种增长观察</title>
+<desc id="desc">2025年第二季度。报表净营收同比+1%，有机净营收+5%，价格与组合（price/mix）+6%，浓缩液销量贡献−1%，全球标准箱销量−1%。指标分别比较，不直接相加。</desc>
+<style>
+  text { font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", "Noto Sans SC", sans-serif; font-variant-numeric: lining-nums tabular-nums; fill: #22392f; }
+  .title { font-size: 20px; font-weight: 700; }
+  .sub { font-size: 13.5px; fill: #7a8780; }
+  .grp { font-size: 12px; font-weight: 650; fill: #23695a; }
+  .grp-warm { fill: #8f6033; }
+  .tick { font-size: 12.5px; fill: #7a8780; }
+  .label { font-size: 16px; font-weight: 550; fill: #22392f; }
+  .num-pos { font-size: 17px; font-weight: 700; fill: #23695a; }
+  .num-neg { font-size: 17px; font-weight: 700; fill: #8f6033; }
+  .note { font-size: 13px; fill: #5e6d65; }
+  .foot { font-size: 12.5px; fill: #7a8780; }
+</style>
+<rect x="1" y="1" width="918" height="474" rx="12" fill="#fbfbf6" stroke="#e2e7df" stroke-width="1.5"/>
+<text x="32" y="38" class="title">KO · 同一季度，几种增长观察</text>
+<text x="32" y="61" class="sub">2025 Q2 公司披露同比变化（%）· 收入口径与量价拆分横向对照</text>
+
+<!-- Group 1 badge -->
+<rect x="32" y="80" width="66" height="22" rx="11" fill="#e5efe9"/>
+<text x="65" y="95" class="grp" text-anchor="middle">收入口径</text>
+
+<!-- Vertical gridlines: x(0%) = 380, scale = 64px per 1% -->
+<line x1="316" y1="108" x2="316" y2="386" stroke="#e5eae2" stroke-width="1"/>
+<text x="316" y="99" class="tick" text-anchor="middle">−1%</text>
+<line x1="380" y1="108" x2="380" y2="386" stroke="#9aa99f" stroke-width="1.5"/>
+<text x="380" y="99" class="tick" text-anchor="middle">0%</text>
+<line x1="508" y1="108" x2="508" y2="386" stroke="#e5eae2" stroke-width="1"/>
+<text x="508" y="99" class="tick" text-anchor="middle">+2%</text>
+<line x1="636" y1="108" x2="636" y2="386" stroke="#e5eae2" stroke-width="1"/>
+<text x="636" y="99" class="tick" text-anchor="middle">+4%</text>
+<line x1="764" y1="108" x2="764" y2="386" stroke="#e5eae2" stroke-width="1"/>
+<text x="764" y="99" class="tick" text-anchor="middle">+6%</text>
+
+<!-- Row 1: Reported Net Revenue +1% -->
+<text x="32" y="144" class="label">报表净营收</text>
+<rect x="380" y="123" width="64" height="28" rx="4" fill="#23695a"/>
+<text x="454" y="143" class="num-pos">+1%</text>
+<text x="502" y="142" class="note">（含汇率换算 −3% 等影响）</text>
+
+<!-- Row 2: Organic Revenue +5% -->
+<text x="32" y="192" class="label">有机净营收</text>
+<rect x="380" y="171" width="320" height="28" rx="4" fill="#3c8270"/>
+<text x="710" y="191" class="num-pos">+5%</text>
+
+<!-- Divider between headline revenue and volume/price drivers -->
+<line x1="32" y1="217" x2="888" y2="217" stroke="#cfd8cc" stroke-width="1" stroke-dasharray="4 4"/>
+<rect x="32" y="227" width="94" height="22" rx="11" fill="#f5ebdf"/>
+<text x="79" y="242" class="grp grp-warm" text-anchor="middle">量价与组合拆解</text>
+
+<!-- Row 3: Price/Mix +6% -->
+<text x="32" y="280" class="label">价格与组合（price/mix）</text>
+<rect x="380" y="259" width="384" height="28" rx="4" fill="#5b9c89"/>
+<text x="774" y="279" class="num-pos">+6%</text>
+
+<!-- Row 4: Concentrate Sales -1% -->
+<text x="32" y="328" class="label">浓缩液销量贡献</text>
+<rect x="316" y="307" width="64" height="28" rx="4" fill="#a8743f"/>
+<text x="306" y="327" class="num-neg" text-anchor="end">−1%</text>
+
+<!-- Row 5: Unit Case Volume -1% -->
+<text x="32" y="376" class="label">全球标准箱销量</text>
+<rect x="316" y="355" width="64" height="28" rx="4" fill="#c1905d"/>
+<text x="306" y="375" class="num-neg" text-anchor="end">−1%</text>
+
+<!-- Footer notes -->
+<line x1="32" y1="406" x2="888" y2="406" stroke="#e5eae2" stroke-width="1"/>
+<text x="32" y="431" class="note">价格与组合合并反映提价及产品、包装、渠道与地区变化；有机收入排除汇率及收购、剥离与结构调整。</text>
+<text x="32" y="454" class="foot">各指标按各自定义独立列示，不直接相加。来源：KO 2025 Q2 Earnings Release，第 1、3、8、15、25 页。</text>
 </svg>

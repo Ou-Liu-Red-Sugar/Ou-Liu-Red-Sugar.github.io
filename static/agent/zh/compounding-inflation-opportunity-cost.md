@@ -2,7 +2,7 @@
 
 从 10,000 美元十年间持有 VOO 的名义金额与购买力出发，用复利、指数与对数、年化和物价换算理解持有回报，再与同期短债比较机会成本，并引入 Sharpe。
 
-Entry: zh-compounding-inflation-opportunity-cost | Node: NB-A04 | Language: zh | Editorial revision: 2026-10-12
+Entry: zh-compounding-inflation-opportunity-cost | Node: NB-A04 | Language: zh | Editorial revision: 2026-11-26
 
 ## Reference use
 This is reference material for the learner's current request. Use the supplied entry to teach the selected concept. Retrieve the relevant original unit when explaining a claim that depends on its assumptions, figures or rules; the reading list is a map for that work, not a prerequisite to the first lesson. Keep facts, supplied examples and inference distinct. Editorial access dates describe the author's work. The empty runtime_reading_log is an optional record field, not a requested response. Author-supplied scope notes below constrain factual use of the material; the learner's request determines the teaching task and first response.
@@ -283,7 +283,7 @@ This is reference material for the learner's current request. Use the supplied e
 ```
 
 ## Supplied entry
-假如[《指数、基金与 ETF》](/zh/notebook/indices-funds-etfs/)里那 10,000 美元在 2015 年底就买入了 Vanguard S&P 500 ETF（VOO），并把每次分红继续投入，到 2025 年底约为 39,747 美元。同期美国的物价也上涨了约 37%，按 2015 年底的物价衡量，这笔钱能买到的东西约相当于 29,011 美元。[^voo-data]<sup>，</sup>[^cpi]
+假如[《指数、基金与 ETF》](/zh/notebook/indices-funds-etfs/)里那 10,000 美元在 2015 年底就买入了 Vanguard S&P 500 ETF（VOO），并把每次分红继续投入，到 2025 年底约为 39,747 美元。同一时期美国的物价也上涨了约 37%，按 2015 年底的物价折算，这笔钱能买到的东西大约相当于 29,011 美元。[^voo-data]<sup>，</sup>[^cpi]
 
 <figure class="flow-figure step-chain sc-3" id="nb-a04-real-chain">
 <div class="ff-head"><p class="ff-title">VOO 这笔投资的名义金额与购买力</p><span class="ff-sub">2015 年 12 月 → 2025 年 12 月</span></div>
@@ -297,13 +297,13 @@ This is reference material for the learner's current request. Use the supplied e
 <figcaption>物价因子为 324.054 ÷ 236.525。名义金额增加约 297%，购买力增加约 190%。</figcaption>
 </figure>
 
-从 10,000 到 39,747，再到 29,011，用的是同一种计算：每一期的结果都成为下一期的起点。资金这样累积，企业的经营和物价也是这样累积的。
+从 10,000 走到 39,747，再折回 29,011，背后用的是同一种累积逻辑：每一期的结果都成了下一期的起点。账户资金这样滚存，企业的经营和市场物价同样如此。
 
 ## 复利世界与回报的累积 {#nb-a04-compounding}
 
-要把各期回报接成一段持有结果，先看计算的基数怎样变化。100 美元上涨 10%，变成 110 美元；下一期再上涨 10%，增加的就是 11 美元，结果变成了 121 美元。两次都是 10%，第二次增加的金额却更多，因为它已经在上一次的结果上继续增长了。用 \(1+R\) 表示一期过后的资金倍数，这两期就是连续乘上两个 \(1.1\)。
+要把各期回报接成一段完整的持有结果，先得看计算的基数怎样变动。100 美元上涨 10%，变成 110 美元；下一期再涨 10%，多出来的就是 11 美元，总额变成 121 美元。两次涨幅都是 10%，第二次增加的金额却更多，因为新的一期已经是在 110 美元的基础上继续增长。用 \(1+R\) 表示一期过后的资金倍数，这两期就是连续乘上两个 \(1.1\)。
 
-<span data-text-versions id="nb-a04-text-1">把每一期留下的结果接续下去，就是复利关系。发生亏损时也同样按变化后的基数计算：先跌 20%，100 美元剩下 80 美元；再涨 20%，就只能回到 96 美元。分红取走还是继续投入，也会改变下一期可供投资的资金；相关现金安排可以结合[《股东回报：分红、回购与增发》](/zh/notebook/shareholder-returns-buybacks-issuance/)来理解<span data-text-detail>（以下跨期计算把现金分配计入再投资结果，期间没有额外存入或取出资金。一般形式为 \(V_n=V_0\prod_{t=1}^{n}(1+R_t)\)，其中 \(R_t\) 是第 \(t\) 期普通收益率；外部追加本金另行记录）</span>。<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>
+<span data-text-versions id="nb-a04-text-1">把每一期留下的结果接续下去，就是复利关系。发生亏损时也同样按变化后的基数计算：先跌 20%，100 美元剩下 80 美元；再涨 20%，也只能回到 96 美元。分红取走还是继续投入，同样会改变下一期可供投资的资金；相关现金安排可以结合[《股东回报：分红、回购与增发》](/zh/notebook/shareholder-returns-buybacks-issuance/)来理解<span data-text-detail>（以下跨期计算把现金分配计入再投资结果，期间没有额外存入或取出资金。一般形式为 \(V_n=V_0\prod_{t=1}^{n}(1+R_t)\)，其中 \(R_t\) 是第 \(t\) 期普通收益率；外部追加本金另行记录）</span>。<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>
 
 <figure class="flow-figure mini-chain" id="nb-a04-base">
 <div class="ff-head"><p class="ff-title">每一期都在上一期的结果上计算</p></div>
@@ -311,26 +311,26 @@ This is reference material for the learner's current request. Use the supplied e
 <div class="mc-row business-exchange" aria-label="先跌 20% 再涨 20%：100 乘以 0.8 得到 80，减少 20；80 再乘以 1.2 得到 96，只增加 16，没有回到 100。"><span class="mc-name">−20% 再 +20%</span><span class="mc-val">100</span><span class="mc-step mc-loss">× 0.8<small>−20</small></span><span class="mc-val">80</span><span class="mc-step">× 1.2<small>+16</small></span><span class="mc-val">96</span><span class="mc-note">上涨按 80 计算，回不到 100</span></div>
 </figure>
 
-复利也发生在企业内部。企业把赚到的钱继续投入仍有良好回报的业务，经营基础便能随着再投资扩大；客户、产品和竞争优势的积累，也可能让盈利与现金创造能力进一步改善。Buffett 在 1989 年股东信里写过，他更愿意以合理的价格买下好公司，因为时间站在好公司这一边。[^buffett-1989] Berkshire Hathaway（BRK.A／BRK.B）长期持有 Coca-Cola（KO），它从 KO 收到的年度现金股息，由 1994 年的 7,500 万美元增加到了 2022 年的 7.04 亿美元；同一笔持股，后来每年带来的现金约是当初的 9.4 倍。[^buffett-2022]
+复利也发生在企业内部。一家公司把赚到的钱继续投进仍有良好回报的业务，经营基础便会随着再投资不断扩大；客户、产品和竞争优势的日积月累，也可能让盈利与现金创造能力进一步增强。Buffett 在 1989 年股东信里写过，他更愿意以合理的价格买下好公司，因为时间站在好公司这一边。[^buffett-1989] Berkshire Hathaway（BRK.A／BRK.B）长期持有 Coca-Cola（KO），从 KO 收到的年度现金股息由 1994 年的 7,500 万美元一路增至 2022 年的 7.04 亿美元；同一笔持股，后来每年带来的现金约是当初的 9.4 倍。[^buffett-2022]
 
-这种基数的变化，也能帮助我们理解指数曲线。增长速度相对当时的资金规模保持不变时，每经过同样长的一段时间，金额就会再乘上同样的倍数。我们先用一个利息留在本金里的计息账户，把这条关系延伸到连续时间：在同一利率约定下，将计息间隔不断缩短，每一小段取得的利息随即进入下一小段的本金，便逐渐接近连续复利。将恒定的连续复利率记为 \(r\)，经过 \(t\) 年后的资金就可以写为：
+基数随结果不断放大的机制，也能帮助我们理解指数曲线。当增长速度相对当时的资金规模保持恒定时，每经过同样长的一段时间，金额就会再乘上相同的倍数。不妨先用一个利息滚入本金的计息账户，把这条关系延伸到连续时间：在同一利率约定下，把计息间隔不断切短，每一小段产生的利息立刻进入下一小段的本金，过程便逐渐接近连续复利。将恒定的连续复利率记为 \(r\)，经过 \(t\) 年后的资金就可以写为：
 
 \[
 V(t)=V(0)\exp(rt).
 \]
 
-<span data-text-versions id="nb-a04-text-2">这里的 \(\exp(rt)\) 就是 \(e^{rt}\)。它把按比例连续累积的过程写了出来，因此研究连续计息的无风险账户时，也常会用到这个形式<span data-text-detail>（每年计息 \(m\) 次时，固定名义年利率 \(r\) 的累积因子为 \((1+r/m)^{mt}\)；当 \(m\) 趋于无穷时得到 \(e^{rt}\)。若已知的是年有效收益率 \(i\)，对应的连续复利率为 \(r=\ln(1+i)\)；连续利率随时间变化时，则写为 \(\exp(\int_0^t r(s)\,ds)\)）</span>。[^compound]<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>
+<span data-text-versions id="nb-a04-text-2">这里的 \(\exp(rt)\) 就是 \(e^{rt}\)。它把按比例连续累积的过程写得非常干净，因此在研究连续计息的无风险账户时，也常常会用到这个形式<span data-text-detail>（每年计息 \(m\) 次时，固定名义年利率 \(r\) 的累积因子为 \((1+r/m)^{mt}\)；当 \(m\) 趋于无穷时得到 \(e^{rt}\)。若已知的是年有效收益率 \(i\)，对应的连续复利率为 \(r=\ln(1+i)\)；连续利率随时间变化时，则写为 \(\exp(\int_0^t r(s)\,ds)\)）</span>。[^compound]<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>
 
-<span id="nb-a04-discount">我们也可以把刚才的计算倒过来：按同一利率，将一笔未来收款折算到今天。这个逆向换算叫<strong>贴现</strong>，折回今天的金额就是<strong>现值</strong>，即 \(V(0)=V(t)\exp(-rt)\)。例如，连续复利率为 5% 时，一年后的 100 美元折到今天约为 95.12 美元。这样，收款日期不同的金额就可以先换到同一个时点，再作比较。</span>
+<span id="nb-a04-discount">把刚才的计算倒过来走，就能按同一利率将一笔未来的收款折算回今天。这种逆向换算叫作<strong>贴现</strong>，折回今天的金额就是<strong>现值</strong>，写作 \(V(0)=V(t)\exp(-rt)\)。例如连续复利率为 5% 时，一年后的 100 美元折到今天约为 95.12 美元。这样一来，收款日期不同的金额便可以先统一换到同一个时点，再放到一起比较。</span>
 
-前面的计息账户采用固定利率，真实投资的回报却常常每期都不同。要把这些回报接起来，我们就要将各期的增长因子依次相乘；自然对数恰好能把这串乘法变成加法。我们把一期增长因子的自然对数记为 \(g_t\)，也就是这一期的对数收益：
+前面的计息账户采用固定利率，而真实投资的回报常常每期各不相同。要把这些起伏不定的回报接起来，得将各期增长因子依次相乘；自然对数恰好能把这串乘法化成加法。我们把一期增长因子的自然对数记为 \(g_t\)，也就是这一期的对数收益：
 
 \[
 g_t=\ln(1+R_t),\qquad
 R_{\text{累计}}=\exp\!\left(\sum_t g_t\right)-1.
 \]
 
-<span data-text-versions id="nb-a04-text-3">这样，先将各期对数收益加起来，再用指数还原，就能得到整段的普通收益率。用每天的数据算一个月，或把几个月接成一年，都是同一个过程<span data-text-detail>（前面的两期 10%，每期对数收益为 \(\ln(1.1)\approx0.09531\)；相加后再还原，\(\exp(2\ln1.1)-1=21\%\)。对数收益为零对应金额不变，负值对应减少）</span>。<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>
+<span data-text-versions id="nb-a04-text-3">如此一来，先将各期对数收益加起来，再用指数还原，就能得到整段的普通收益率。无论是拿每天的数据算一个月，还是把几个月接成一年，走的都是同一个步骤<span data-text-detail>（前面的两期 10%，每期对数收益为 \(\ln(1.1)\approx0.09531\)；相加后再还原，\(\exp(2\ln1.1)-1=21\%\)。对数收益为零对应金额不变，负值对应减少）</span>。<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>
 
 <figure class="flow-figure log-map" id="nb-a04-log-map">
 <div class="ff-head"><p class="ff-title">取对数，把连乘换成相加</p></div>
@@ -342,7 +342,7 @@ R_{\text{累计}}=\exp\!\left(\sum_t g_t\right)-1.
 <figcaption>累计普通收益率为 1.21 − 1 = 21%。</figcaption>
 </figure>
 
-当观察时间很短、涨跌幅度也不大时，直接把涨幅相加，结果往往也很接近。把刚才的两次 10% 换成两次 1%，累计上涨就是 2.01%，与直接相加的 2% 只差一点。变化幅度小时，指数曲线局部接近直线，对数收益也接近普通收益：
+当观察时间很短、单期涨跌幅度也不大时，直接把涨幅相加，结果往往也很接近。把刚才的两次 10% 换成两次 1%，累计上涨是 2.01%，与直接相加的 2% 只差 0.01 个百分点。变化幅度小时，指数曲线局部贴近直线，对数收益也贴近普通收益：
 
 \[
 \exp(x)\approx1+x,\qquad \ln(1+R)\approx R.
@@ -350,13 +350,13 @@ R_{\text{累计}}=\exp\!\left(\sum_t g_t\right)-1.
 
 <figure class="comp-figure" data-compound-demo>
 <div class="comp-controls" aria-label="选择观察时长"><button type="button" data-horizon="month" aria-pressed="false">一个月</button><button type="button" data-horizon="ten" aria-pressed="true">十年</button><button type="button" data-horizon="thirty" aria-pressed="false">三十年</button></div>
-<a data-compound-full href="/notebook/compounding/compound-ten.svg" target="_blank" rel="noopener" aria-label="打开复利图大图"><img data-compound-image src="/notebook/compounding/compound-ten.svg" width="1000" height="570" alt="固定连续复利率5%，比较初始1万美元在十年内的指数累积与线性近似。指数结果约16487美元，线性结果15000美元。" loading="lazy"></a>
+<a data-compound-full href="/notebook/compounding/compound-ten.svg?v=20261126" target="_blank" rel="noopener" aria-label="打开复利图大图"><img data-compound-image src="/notebook/compounding/compound-ten.svg?v=20261126" width="720" height="380" alt="固定连续复利率5%，比较初始1万美元在十年内的指数累积与线性近似。指数结果约16487美元，线性结果15000美元。" loading="lazy"></a>
 <figcaption><span data-compound-caption aria-live="polite">十年后，指数累积约 16,487 美元，线性近似为 15,000 美元，相差约 1,487 美元。</span> 点击图可查看大图。</figcaption>
 </figure>
 
-<span data-text-versions id="nb-a04-text-4">先切到一个月，两条线几乎贴在一起；再把时间拉到十年、三十年，前面已经增加的金额不断参与后续增长，差距就逐渐显出来了<span data-text-detail>（图中固定连续复利率为 5%，比较 \(10000e^{0.05t}\) 与 \(10000(1+0.05t)\)。两期普通收益直接相加时，省略的是 \(R_1R_2\) 这个交叉项；一阶近似需要相应的变化量足够小）</span>。[^compound]<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>
+<span data-text-versions id="nb-a04-text-4">先切到“一个月”，两条线几乎重在一起；再把时长拉到“十年”“三十年”，前面已经增加的金额不断参与后续增长，两条线的差距就会越拉越宽<span data-text-detail>（图中固定连续复利率为 5%，比较 \(10000e^{0.05t}\) 与 \(10000(1+0.05t)\)。两期普通收益直接相加时，省略的是 \(R_1R_2\) 这个交叉项；一阶近似需要相应的变化量足够小）</span>。[^compound]<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>
 
-把一段时间的回报接起来以后，我们就可以问，它相当于每年以多快的速度增长。假如每年都按同一个比例增长，并且恰好走到实际终点，这个比例就是复合年化收益率。经过 \(T\) 年，资金从 \(V_0\) 变成 \(V_T\)，便有：
+把一段时间的回报接起来以后，我们往往还会追问：它相当于每年以多快的速度增长？假如每年都按同一个比例增长，并且恰好走到实际终点，这个比例就是复合年化收益率。经过 \(T\) 年，资金从 \(V_0\) 走到 \(V_T\)，便有：
 
 \[
 R_{\text{年化}}
@@ -364,91 +364,113 @@ R_{\text{年化}}
 =\exp\!\left(\frac{\ln(V_T/V_0)}{T}\right)-1.
 \]
 
-也就是说，先把整段对数收益按年平均，再换回普通收益口径，我们便有了比较不同持有期限的一把尺子。同样累计上涨 20%，一年取得对应年化 20%，五年取得则只相当于年化约 3.7%。
+换句话说，先把整段对数收益按年平均，再换回普通收益口径，我们就得到了一把比较不同持有期限的尺子。同样累计上涨 20%，一年做到对应年化 20%，花了五年才做到则只相当于年化约 3.7%。
 
-开头那笔 VOO 投资，十年增长到约 3.975 倍，代入上式，复合年化约为 14.8%。这里采用税前、分红再投资的口径：VOO 跟踪 S&P 500，持有人既会经历份额价格的变化，也会收到基金分红，分红继续参与投资，新取得的份额也会带来后续回报。[^voo]<sup>，</sup>[^voo-data] 如果只用起止价格计算，原来份额的期末市值约为 33,549 美元；分红及其继续参与投资的影响，则体现在含分红的回报里。在下图的“实际路径与年化”视图中，两条线采用相同的含分红口径，从同一个起点走到同一个终点，月末路径还显示了途中各月的涨跌。[^voo-adjustment]
+回到开头那笔 VOO 投资，十年增长到约 3.975 倍，代入上式，复合年化约为 14.8%。这里采用税前、分红再投资的口径：VOO 跟踪 S&P 500，持有人既经历份额价格的变化，也会收到基金分红，分红重新买入后取得的新份额同样会带来后续回报。[^voo]<sup>，</sup>[^voo-data] 如果只按起止价格计算，最初份额的期末市值约为 33,549 美元；多出来的那部分，正体现分红及其再投资的长期作用。在下图的“实际路径与年化”视图里，两条线采用相同的含分红口径，从同一个起点走到同一个终点，而月末曲线还如实留下了途中各月的起伏。[^voo-adjustment]
 
 <figure class="comp-figure" id="nb-a04-history" data-growth-demo>
 <div class="comp-controls" aria-label="选择资金观察方式"><button type="button" data-growth-view="nominal" aria-pressed="true">实际路径与年化</button><button type="button" data-growth-view="real" aria-pressed="false">金额与购买力</button></div>
-<a data-growth-full href="/notebook/compounding/voo-nominal.svg?v=20260926-4" target="_blank" rel="noopener" aria-label="打开 VOO 回报大图"><img data-growth-image src="/notebook/compounding/voo-nominal.svg?v=20260926-4" width="1000" height="570" alt="VOO从2015年底至2025年底的月末含分红再投资回报估计，与同起点同终点的等效年化路径比较；初始1万美元，期末约39747美元。" loading="lazy"></a>
-<figcaption><span data-growth-caption aria-live="polite">按含分红再投资口径估算的月末路径与等效年化路径，十年后都到达约 39,747 美元。</span> 大图：<a href="/notebook/compounding/voo-nominal.svg?v=20260926-4" target="_blank" rel="noopener">实际路径与年化</a> · <a href="/notebook/compounding/voo-real.svg?v=20260926-4" target="_blank" rel="noopener">金额与购买力</a>；<a href="/notebook/compounding/voo-growth-purchasing-power.csv">查看数据</a>。</figcaption>
+<a data-growth-full href="/notebook/compounding/voo-nominal.svg?v=20261126" target="_blank" rel="noopener" aria-label="打开 VOO 回报大图"><img data-growth-image src="/notebook/compounding/voo-nominal.svg?v=20261126" width="720" height="380" alt="VOO从2015年底至2025年底的月末含分红再投资回报估计，与同起点同终点的等效年化路径比较；初始1万美元，期末约39747美元。" loading="lazy"></a>
+<figcaption><span data-growth-caption aria-live="polite">按含分红再投资口径估算的月末路径与等效年化路径，十年后都到达约 39,747 美元。</span> 大图：<a href="/notebook/compounding/voo-nominal.svg?v=20261126" target="_blank" rel="noopener">实际路径与年化</a> · <a href="/notebook/compounding/voo-real.svg?v=20261126" target="_blank" rel="noopener">金额与购买力</a>；<a href="/notebook/compounding/voo-growth-purchasing-power.csv">查看数据</a>。</figcaption>
 </figure>
 
-<span data-text-versions id="nb-a04-text-5">例如，VOO 在 2022 年的全年含分红回报约为 −18.2%，和十年年化 14.8% 相差很大。年化概括了整段结果，实际每年怎样走，仍要沿着真实曲线看；期间需要用钱时，我们能够动用的也只能是当时的持仓价值<span data-text-detail>（图中采用 Yahoo Finance 的调整后收盘价，分红与拆股调整已包含其中，以其比例近似分红再投资总回报，不再额外加一次分红。每月取最后一个交易日，基期为 2015 年 12 月 31 日，终点为 2025 年 12 月 31 日，按十个完整年度年化。允许分数份额，不计投资者税费，基金运营费用已反映在价格中。按期间 40 次分红逐次以除息日收盘价再投，期末约 39,721 美元，与图中估计相差约 25 美元；若分红留作不计息现金，股票与现金合计约 36,525 美元）</span>。[^voo-data]<sup>，</sup>[^voo-adjustment]<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>
+<span data-text-versions id="nb-a04-text-5">比如 VOO 在 2022 年的全年含分红回报约为 −18.2%，和十年年化 14.8% 相差甚远。年化只概括了整段结果，途中究竟怎样走过来，仍要沿着真实曲线看；一旦期间需要用钱，我们能够动用的也只能是当时的实际持仓价值<span data-text-detail>（图中采用 Yahoo Finance 的调整后收盘价，分红与拆股调整已包含其中，以其比例近似分红再投资总回报，不再额外加一次分红。每月取最后一个交易日，基期为 2015 年 12 月 31 日，终点为 2025 年 12 月 31 日，按十个完整年度年化。允许分数份额，不计投资者税费，基金运营费用已反映在价格中。按期间 40 次分红逐次以除息日收盘价再投，期末约 39,721 美元，与图中估计相差约 25 美元；若分红留作不计息现金，股票与现金合计约 36,525 美元）</span>。[^voo-data]<sup>，</sup>[^voo-adjustment]<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>
 
 ## 净所得与实际购买力 {#nb-a04-purchasing-power}
 
-<span data-text-versions id="nb-a04-text-6">把收到的分红继续投入，这部分钱就又成为投资本金；持续费用则会减少以后可供投资的本金。这种差别怎样随时间累积，可以结合[《指数、基金与 ETF》](/zh/notebook/indices-funds-etfs/#nb-v01-fees)中的费用图来看<span data-text-detail>（再用一组设定比较：初始 10,000 美元，费用前年回报为 8%，每年末按资产扣费。年费率为 0.25% 时，20 年后约剩 44,334 美元；费率为 1% 时，约剩 38,122 美元，差约 6,211 美元。期末金额为 \(10000[(1+8\%)(1-f)]^{20}\)，其中 \(f\) 为年费率）</span>。[^fees]<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>
+<span data-text-versions id="nb-a04-text-6">把收到的分红继续投入，这部分钱就会并入下一期的投资本金；相反，持续费用则会逐年削减可供投资的本金。这种差别怎样随时间累积，可以对照[《指数、基金与 ETF》](/zh/notebook/indices-funds-etfs/#nb-v01-fees)中的费用图来看<span data-text-detail>（再用一组设定比较：初始 10,000 美元，费用前年回报为 8%，每年末按资产扣费。年费率为 0.25% 时，20 年后约剩 44,334 美元；费率为 1% 时，约剩 38,122 美元，差约 6,211 美元。期末金额为 \(10000[(1+8\%)(1-f)]^{20}\)，其中 \(f\) 为年费率）</span>。[^fees]<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>
 
-算清账户最终留下的金额以后，我们还得看看这些钱能够买到多少东西。物价也是在上一期的水平上继续变化：若账户金额上涨了 10%，同期物价上涨了 8%，原来需要 100 美元购买的东西，如今需要 108 美元；账户中的 110 美元就只能买到原来数量的约 1.0185 倍。名义金额增加了 10%，购买力实际只增加了约 1.85%。这里按物价换算的是能够购买的数量，前面的贴现则按利率将收款金额换到同一个时点。
+算清账户最终留下的金额以后，我们还得进一步追问：这些钱实际上能买到多少东西？物价同样是在上一期的水平上继续累积的。假设账户金额上涨 10%，同期物价上涨 8%，原来花 100 美元买到的一篮商品，如今标价涨到了 108 美元；账户里的 110 美元也就只能买到原来数量的约 1.0185 倍。名义金额增加了 10%，购买力实际只增加了约 1.85%，比直接相减得出的 2% 还要略低一些。
 
-开头的 29,011 美元就是这样换算出来的：2015 年 12 月至 2025 年 12 月，美国 CPI-U 累计上涨约 37%，期末的 39,747 美元除以物价因子 1.370，便得到按起点物价衡量的购买力；十年下来，同样的金额少买了约 27% 的东西。把[上图切换到“金额与购买力”](#nb-a04-history)，还能沿着同一段持有过程，看见账户金额与实际购买力怎样逐月拉开。[^cpi]
+<figure class="flow-figure g2-real-calc" id="nb-a04-real-ratio">
+<div class="ff-head"><p class="ff-title">名义涨 10%、物价涨 8%，实际购买力按除法换算</p><span class="ff-sub">起点均设为 100 美元 · 橙虚线为涨价后的 108 美元门槛</span></div>
+<div class="business-exchange" aria-label="起点均设为 100 美元：账户名义金额上涨 10% 变成 110 美元；同期一篮商品标价上涨 8% 变成 108 美元。用名义金额 110 除以涨价后标价 108，得到约 1.0185 倍，即实际购买力仅增加约 1.85%，按起点物价相当于 101.85 美元，低于直接相减 10% 减 8% 得到的 2% 粗略近似。">
+<div class="g2-rc-bars">
+<span class="g2-rc-label">账户名义金额<small>100 → 110</small></span><span class="g2-rc-track"><i class="g2-rc-base" style="--base:86.96%"></i><i class="g2-rc-delta" style="--base:86.96%;--delta:8.70%"></i><b class="g2-rc-ref" style="--x:86.96%"></b><b class="g2-rc-ref g2-rc-ref-cpi" style="--x:93.91%"></b></span><span class="g2-rc-val">110 美元<small>+10%</small></span>
+<span class="g2-rc-label">同篮商品标价<small>100 → 108</small></span><span class="g2-rc-track"><i class="g2-rc-base" style="--base:86.96%"></i><i class="g2-rc-delta g2-rc-cpi" style="--base:86.96%;--delta:6.96%"></i><b class="g2-rc-ref" style="--x:86.96%"></b><b class="g2-rc-ref g2-rc-ref-cpi" style="--x:93.91%"></b></span><span class="g2-rc-val">108 美元<small>+8%</small></span>
+<div class="g2-rc-scale" aria-hidden="true"><span style="--x:0%">0</span><span style="--x:86.96%">100（起点）</span></div>
+</div>
+<div class="g2-rc-eq">
+<div class="g2-rc-box"><span>期末名义金额</span><strong>110 美元</strong></div>
+<span class="g2-rc-op" aria-hidden="true">÷</span>
+<div class="g2-rc-box g2-rc-box-cpi"><span>涨价后同篮标价</span><strong>108 美元</strong></div>
+<span class="g2-rc-op g2-rc-op-eq" aria-hidden="true">=</span>
+<div class="g2-rc-box g2-rc-box-real"><span>可买数量倍数（按起点物价）</span><strong>1.0185 倍 · 101.85 美元（+1.85%）</strong></div>
+</div>
+<p class="g2-rc-note">超过物价门槛的 <strong>2 美元</strong> 要按涨价后的 <strong>108 美元</strong> 计价，因此实际增幅为 2 ÷ 108 ≈ <strong>1.85%</strong>；直接相减 10% − 8% = 2% 只是涨幅很小时的近似。</p>
+</div>
+</figure>
 
-<span data-text-versions id="nb-a04-text-7">前面的对数在这里又能派上用场。名义资金的增长因子除以物价增长因子，就是购买力的增长因子；取对数以后，这个除法就变成了两项相减。财富与物价都在累积，我们便可以比较两者增长的速度<span data-text-detail>（普通实际回报为 \((1+R)/(1+\pi)-1\)，对数口径则为 \(\ln(1+R)-\ln(1+\pi)\)。常用的 \(R-\pi\) 是小变幅近似。图中采用美国 CPI-U 全项目、未季调月指数，序列 CUUR0000SA0，基期与终期分别为 236.525、324.054；换算的是美元对应的美国消费购买力。实际消费币种和消费结构不同，比较时需相应调整）</span>。[^cpi]<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>
+这里按物价换算的是最终能够买到的商品数量，前面的贴现则按利率把收款金额换到同一个时点，两者回答的问题各不相同。
 
-<span data-text-versions id="nb-a04-text-8">美联储所说的价格稳定，也需要放在这种持续变化里理解。它追求最大就业和价格稳定，长期通胀目标为个人消费支出价格指数（PCE）年涨幅 2%。即使正通胀稳定在目标水平，物价仍会逐年上涨；通胀率降下来以后，我们也仍可能感到东西在变贵，只是涨得没有原来那么快了<span data-text-detail>（美联储的目标按总体 PCE 价格指数衡量；前面用 CPI-U 换算购买力，两者采用不同统计口径。长期目标也不等于每一年的实际通胀都会恰好达到 2%）</span>。[^fed]<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>
+开头那 29,011 美元正是这样换算出来的：2015 年 12 月至 2025 年 12 月，美国 CPI-U 累计上涨约 37%，把期末的 39,747 美元除以物价因子 1.370，便得到按起点物价衡量的购买力；十年下来，同样的金额少买了约 27% 的东西。把[上图切换到“金额与购买力”](#nb-a04-history)，还能沿着同一段持有过程，清楚看见账户金额与实际购买力怎样逐月拉开。[^cpi]
 
-为了影响需求与通胀，美联储会使用利率等政策工具，影响短期资金价格和金融条件。现金、短债能提供怎样的收益，企业和个人借款需要付出多少成本，也会随之变化。具体的决策、工具和市场预期，我们放到[《美联储与货币政策》](/zh/notebook/federal-reserve-monetary-policy/)展开。对持有资金的人来说，短期利率变化，也会改变持股、持债和保留现金之间的比较。
+<span data-text-versions id="nb-a04-text-7">前面的对数在这里又派上了用场。名义资金的增长因子除以物价增长因子，就是购买力的增长因子；取对数以后，这步除法立刻变成了两项相减。财富与物价都在持续累积，取对数便能直接比较两者增长的速度<span data-text-detail>（普通实际回报为 \((1+R)/(1+\pi)-1\)，对数口径则为 \(\ln(1+R)-\ln(1+\pi)\)。常用的 \(R-\pi\) 是小变幅近似。图中采用美国 CPI-U 全项目、未季调月指数，序列 CUUR0000SA0，基期与终期分别为 236.525、324.054；换算的是美元对应的美国消费购买力。实际消费币种和消费结构不同，比较时需相应调整）</span>。[^cpi]<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>
+
+<span data-text-versions id="nb-a04-text-8">美联储所说的价格稳定，也需要放在这种持续累积里理解。它追求最大就业和价格稳定，长期通胀目标定在个人消费支出价格指数（PCE）年涨幅 2%。哪怕正通胀稳稳停在目标附近，物价每年依然会往上走；所以通胀率降下来以后，人们常常还是觉得东西在变贵，只是涨得没有原先那么快了<span data-text-detail>（美联储的目标按总体 PCE 价格指数衡量；前面用 CPI-U 换算购买力，两者采用不同统计口径。长期目标也不等于每一年的实际通胀都会恰好达到 2%）</span>。[^fed]<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>
+
+为了影响需求与通胀，美联储会动用利率等政策工具，影响短期资金价格和金融条件。现金和短债能提供怎样的收益，企业和个人借款要付多少成本，都会随之变化。具体的决策、工具和市场预期放到[《美联储与货币政策》](/zh/notebook/federal-reserve-monetary-policy/)再展开；对持有资金的人来说，短期利率一动，持股、持债和保留现金之间的比较也会跟着改变。
 
 ## 机会成本与风险补偿 {#nb-a04-opportunity-cost}
 
-知道一笔投资留下了多少购买力以后，我们还可以把它与其他资金用途放在一起比较。先把期间要用的钱留足，再看余下的资金：继续持股、转入期限匹配的短债，或者以能够随时取用的现金形式保留，各自会得到什么？怎样按用钱的时间划分资金，[《投资期限与现金需要》](/zh/notebook/investment-horizon-cash/)会专门讨论；这里先比较同一笔钱在三种安排下的结果。
+知道一笔投资留下了多少购买力之后，我们还可以把它与其他资金用途放在一起权衡。先把期间要用的钱留足，再看余下的资金：继续持股、转入期限匹配的短债，还是以随时可取的现金留着，各自能得到什么？怎样按用钱时点划分资金，[《投资期限与现金需要》](/zh/notebook/investment-horizon-cash/)会专门讨论；这里先拿同一笔钱，直接对照三种安排的结果。
 
-我们取一笔真实发行的美国国债来看。2023 年 6 月 13 日拍卖的 52 周国债，6 月 15 日发行，2024 年 6 月 13 日到期，每 100 美元面值的拍卖价格约为 95.015 美元。这也呼应了前面的贴现：今天支付较少的金额，换取约定的到期收款。用 10,000 美元预算，可以买到 10,500 美元面值，支付约 9,976.60 美元，另留 23.40 美元现金；到期收回面值，合计就有 10,523.40 美元。[^bill]
+来看一笔真实发行的美国国债。2023 年 6 月 13 日拍卖的 52 周国债，6 月 15 日发行，2024 年 6 月 13 日到期，每 100 美元面值的拍卖价格约为 95.015 美元。这也呼应了前面的贴现：今天支付较少的金额，换取到期日约定的面值收款。用 10,000 美元预算，可以买到 10,500 美元面值，支付约 9,976.60 美元，另留 23.40 美元现金；到期收回面值，合计正好是 10,523.40 美元。[^bill]
 
-<figure class="flow-figure outcomes" id="nb-a04-outcomes">
-<div class="ff-head"><p class="ff-title">同一笔 10,000 美元的三种安排</p><span class="ff-sub">2023 年 6 月 15 日 → 2024 年 6 月 13 日</span></div>
+<figure class="flow-figure outcomes g2-outcomes" id="nb-a04-outcomes">
+<div class="ff-head"><p class="ff-title">同一笔 10,000 美元的三种安排</p><span class="ff-sub">2023 年 6 月 15 日 → 2024 年 6 月 13 日 · 虚线为 10,000 美元本金</span></div>
 <div class="oc-grid">
-<div class="oc-row business-exchange" aria-label="保留不计息现金：期末 10,000 美元；决定时已知，金额不因行情变化，可以取用。"><span class="oc-name">保留不计息现金</span><span class="oc-bar"><i class="" style="--w:80.4%;--c:#8a978e"></i></span><span class="oc-val">10,000</span><span class="oc-basis"><b>决定时已知</b>金额不因行情变化，可以取用</span></div>
-<div class="oc-row business-exchange" aria-label="持有这笔短债至到期并另留余额：期末约 10,523 美元；决定时已知，买入价、面值与到期日已经给定。"><span class="oc-name">短债持有至到期<br>另留余额</span><span class="oc-bar"><i class="" style="--w:84.6%;--c:#5986a1"></i></span><span class="oc-val">约 10,523</span><span class="oc-basis"><b>决定时已知</b>买入价 95.015、面值与到期日已经给定</span></div>
-<div class="oc-row business-exchange" aria-label="持有 VOO 并把分配再投资：期末约 12,444 美元；这是事后结果，决定时只能依据经营与价格形成预期，途中承受市场波动。"><span class="oc-name">持有 VOO<br>分配再投资</span><span class="oc-bar"><i class="oc-after" style="--w:100.0%;--c:#24664f"></i></span><span class="oc-val">约 12,444</span><span class="oc-basis"><b class="oc-unknown">事后结果</b>决定时只能依据经营与价格形成预期，途中承受市场波动</span></div>
+<div class="oc-row business-exchange" aria-label="保留不计息现金：期末 10,000 美元；决定时已知，金额不因行情变化，可以取用。"><span class="oc-name">保留不计息现金</span><span class="oc-bar"><i class="" style="--w:80.4%;--c:#8a978e"></i></span><span class="oc-val">10,000<small>+0</small></span><span class="oc-basis"><b>决定时已知</b>金额不因行情变化，可以随时取用</span></div>
+<div class="oc-row business-exchange" aria-label="持有这笔短债至到期并另留余额：期末约 10,523 美元；决定时已知，买入价、面值与到期日已经给定。"><span class="oc-name">短债持有至到期<br>另留余额</span><span class="oc-bar"><i class="" style="--w:84.6%;--c:#5986a1"></i></span><span class="oc-val">约 10,523<small class="g2-oc-pos">+523</small></span><span class="oc-basis"><b>决定时已知</b>买入价 95.015、面值与到期日已经给定</span></div>
+<div class="oc-row business-exchange" aria-label="持有 VOO 并把分配再投资：期末约 12,444 美元；这是事后结果，决定时只能依据经营与价格形成预期，途中承受市场波动。"><span class="oc-name">持有 VOO<br>分配再投资</span><span class="oc-bar"><i class="oc-after" style="--w:100.0%;--c:#23695a"></i></span><span class="oc-val">约 12,444<small class="g2-oc-pos">+2,444</small></span><span class="oc-basis"><b class="oc-unknown">事后结果</b>决定时只能依据经营与价格形成预期，途中承受市场波动</span></div>
+<div class="oc-axis" aria-hidden="true"><span style="--x:0%">0</span><span class="g2-oc-base" style="--x:80.36%">本金 10,000</span><span style="--x:100%">12,444</span></div>
 </div>
 <figcaption>短债每 100 美元面值的价格为 95.015：用 9,976.60 美元买入 10,500 美元面值，另留 23.40 美元现金。</figcaption>
 </figure>
 
-<span data-text-versions id="nb-a04-text-9">这段行情里，VOO 最后实现了较高的回报；但在 2023 年作决定时，我们能够从短债条件里确定到期收款，却还不知道 VOO 一年后的市场价格。所以衡量机会成本，得回到做决定那一刻手头真能选的条件和当时的预期。做决定时，那个原本能选、也最划算的替代方案能带来多少价值，就是眼下这个选择的机会成本<span data-text-detail>（图中短债 CUSIP 为 912797FS1，期限 364 天，按每 100 美元面值认购，留存现金不计息；不计投资者税费。VOO 按相同起止日期的调整后收盘价比例估算含分红回报，允许分数份额，采用事后数据。拍卖结果中的 5.208% Investment Rate 采用等价票息收益率口径，图中现金结果直接按价格与面值计算）</span>。[^bill]<sup>，</sup>[^voo-data]<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>
+<span data-text-versions id="nb-a04-text-9">这段行情里，VOO 事后拿到了较高的回报；可回到 2023 年作决定那一刻，我们能从短债条款里确切算出到期收款，却还不知道 VOO 一年后的市场价格。所以衡量机会成本，得回到做决定的当时，看清手头真能选的条件和当时的预期。作决定时，那个原本能选、也最划算的替代方案能带来多少价值，就是眼下这个选择的机会成本<span data-text-detail>（图中短债 CUSIP 为 912797FS1，期限 364 天，按每 100 美元面值认购，留存现金不计息；不计投资者税费。VOO 按相同起止日期的调整后收盘价比例估算含分红回报，允许分数份额，采用事后数据。拍卖结果中的 5.208% Investment Rate 采用等价票息收益率口径，图中现金结果直接按价格与面值计算）</span>。[^bill]<sup>，</sup>[^voo-data]<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>
 
-有了短债的确定收益垫底，再去买股票，我们自然希望多赚一点，好补偿持有期间的起伏和不确定性；反过来，留现金虽然利息少，胜在随时能拿出来用。把这几样放在一起权衡，才好判断多冒一点险、多等一段时间到底值不值。
+有了短债的确定收益垫底，再去买股票，我们自然期待多赚出一截，好补偿持有期间的起伏和不确定性；反过来，留现金虽然利息少，胜在随时能拿出来用。把这几样放到一起权衡，才好判断多冒一点险、多等一段时间究竟值不值。
 
-我们还可以把无风险收益作为共同参照，进一步比较风险资产的回报与波动。把每一期投资收益率减去同一期的无风险收益率，得到超额收益；再看它的平均值和标准差，便能知道平均多赚了多少，以及这些结果在各期之间起伏多大。Sharpe 比率将两者放在一起：
+我们还可以把无风险收益作为共同参照，进一步比较风险资产的回报与波动。用每一期的投资收益率减去同一期的无风险收益率，得到超额收益；再考察它的平均值和标准差，便能知道平均多赚了多少，以及各期结果起伏有多大。Sharpe 比率把这两个量放到了一起：
 
 \[
 \operatorname{Sharpe}
 =\frac{\text{平均超额收益}}{\text{超额收益的标准差}}.
 \]
 
-回看历史时，我们用实际数据计算这两个量；比较未来时，也可以采用明确的预期与假设。William F. Sharpe 在介绍这一比率的文章里，给过一个简单对照：设同一期间的无风险收益率为 3%，基金 X 的预期收益率为 5%、收益标准差为 10%，基金 Y 分别为 8% 和 20%。X 的 Sharpe 为 \((5\%-3\%)/10\%=0.20\)，Y 为 \((8\%-3\%)/20\%=0.25\)。[^sharpe]
+回看历史时，我们用实际数据计算这两个量；比较未来时，也可以代入明确的预期与假设。William F. Sharpe 在介绍这一比率的文章里，给过一个简明对照：设同一期间的无风险收益率为 3%，基金 X 的预期收益率为 5%、收益标准差为 10%，基金 Y 分别为 8% 和 20%。算下来，X 的 Sharpe 是 \((5\%-3\%)/10\%=0.20\)，Y 则是 \((8\%-3\%)/20\%=0.25\)。[^sharpe]
 
-Y 的波动是 X 的两倍，预期超额收益却是 X 的 2.5 倍，因此每单位波动对应的额外收益更高。把一半资金放在 Y、一半放在无风险资产里，组合的标准差便降到 10%，和 X 相同，预期收益却为 5.5%。有了无风险资产参与组合，我们就能把两项选择调整到相同的波动水平，再比较预期收益。
+Y 的波动是 X 的两倍，预期超额收益却是 X 的 2.5 倍，因此每承担一单位波动换来的额外收益更高。把一半资金放进 Y、一半放进无风险资产，组合的标准差会降到 10%，与 X 持平，预期收益却能达到 5.5%。引入无风险资产参与组合以后，我们就能把两项选择调到相同的波动水平，再直接比较预期收益。
 
-<figure class="flow-figure path-chart" id="nb-a04-sharpe">
-<div class="ff-head"><p class="ff-title">加入无风险资产以后的比较</p><span class="ff-sub">Sharpe 原文的假设数字</span></div>
-<div class="pc-plot business-exchange" aria-label="横轴为收益标准差，纵轴为预期收益率。无风险资产位于标准差 0、收益 3%；基金 X 位于标准差 10%、收益 5%；基金 Y 位于标准差 20%、收益 8%。从无风险资产连到 Y 的直线上，一半 Y 一半无风险资产的组合位于标准差 10%、收益 5.5%，与 X 的波动相同，预期收益更高。">
+<figure class="flow-figure path-chart g2-sharpe" id="nb-a04-sharpe">
+<div class="ff-head"><p class="ff-title">加入无风险资产以后的比较</p><span class="ff-sub">Sharpe 原文假设数字 · 纵轴自 2% 起</span></div>
+<div class="pc-plot business-exchange" aria-label="横轴为收益标准差，纵轴为预期收益率（自 2% 起）。无风险资产位于标准差 0%、收益 3%；基金 X 位于标准差 10%、收益 5%；基金 Y 位于标准差 20%、收益 8%。从无风险资产连到 Y 的直线上，一半 Y 一半无风险资产的组合位于标准差 10%、收益 5.5%，与 X 的波动相同，预期收益高出 0.5 个百分点。">
 <span class="pc-axis-x"></span><span class="pc-axis-y"></span>
-<svg viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><polyline class="pc-grid" points="0,66.67 100,66.67"/><polyline class="pc-grid" points="0,44.44 100,44.44"/><polyline class="pc-grid" points="0,11.11 100,11.11"/><polyline class="pc-line" points="0.00,66.67 100.00,5.56"/></svg>
-<span class="pc-y" style="top:66.67%">3%</span><span class="pc-y" style="top:44.44%">5%</span><span class="pc-y" style="top:11.11%">8%</span>
+<svg viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><polyline class="pc-grid" points="0,85.71 100,85.71"/><polyline class="pc-grid" points="0,57.14 100,57.14"/><polyline class="pc-grid" points="0,14.29 100,14.29"/><polyline class="g2-sh-vref" points="45.45,50.00 45.45,100.00"/><polyline class="g2-sh-gap" points="45.45,50.00 45.45,57.14"/><polyline class="pc-line" points="0.00,85.71 100.00,7.14"/><polyline class="g2-sh-leader" points="27.00,29.00 44.00,48.60"/></svg>
+<span class="pc-y" style="top:100%">2%</span><span class="pc-y" style="top:85.71%">3%</span><span class="pc-y" style="top:57.14%">5%</span><span class="pc-y" style="top:14.29%">8%</span>
 <span class="pc-xlab" style="left:0.00%">0%</span><span class="pc-xlab" style="left:45.45%">10%</span><span class="pc-xlab" style="left:90.91%">20%</span>
-<span class="pc-pt" style="left:0.00%;top:66.67%;--c:#8a978e"></span>
-<span class="pc-note" style="left:10px;top:calc(66.67% + 6px)">无风险资产</span>
-<span class="pc-pt" style="left:45.45%;top:44.44%;--c:#5986a1"></span>
-<span class="pc-note" style="left:calc(45.45% + 10px);top:calc(44.44% + 2px)"><strong>X</strong> · Sharpe 0.20</span>
-<span class="pc-pt" style="left:90.91%;top:11.11%;--c:#24664f"></span>
-<span class="pc-note" style="right:calc(9.09% + 10px);top:calc(11.11% - 26px)"><strong>Y</strong> · Sharpe 0.25</span>
-<span class="pc-pt" style="left:45.45%;top:38.89%;--c:var(--ff-cash)"></span>
-<span class="pc-note pc-warm" style="right:calc(54.55% + 12px);top:calc(38.89% - 40px)">Y 与无风险资产各半<br>波动 10%，收益 5.5%</span>
+<span class="pc-pt" style="left:0.00%;top:85.71%;--c:#8a978e"></span>
+<span class="pc-note" style="left:10px;top:calc(85.71% + 5px)">无风险资产</span>
+<span class="pc-pt" style="left:45.45%;top:57.14%;--c:#5986a1"></span>
+<span class="pc-note" style="left:calc(45.45% + 10px);top:calc(57.14% - 2px)"><strong>X</strong> · Sharpe 0.20</span>
+<span class="pc-pt" style="left:90.91%;top:14.29%;--c:#23695a"></span>
+<span class="pc-note" style="right:calc(9.09% + 10px);top:calc(14.29% - 22px)"><strong>Y</strong> · Sharpe 0.25</span>
+<span class="pc-pt" style="left:45.45%;top:50.00%;--c:var(--ff-cash)"></span>
+<span class="pc-note g2-sh-half"><strong>Y 与无风险资产各半</strong><br>波动 10%，收益 5.5%</span>
 <span class="pc-axis-name" style="right:0;bottom:6px">收益标准差 →</span>
 <span class="pc-axis-name" style="left:-30px;top:-20px">预期收益率</span>
 </div>
-<figcaption>虚线从无风险资产经过 Y，斜率就是 Y 的 Sharpe 比率 0.25。</figcaption>
+<figcaption>虚线从无风险资产经过 Y，斜率就是 Y 的 Sharpe 比率 0.25；同一 10% 波动下，半仓组合比 X 高出 0.5 个百分点。</figcaption>
 </figure>
 
-<span data-text-versions id="nb-a04-text-10">回到自己的投资，Sharpe 提供了一个比较收益与波动的角度；我们还要结合基本面前景、资金的取用时间和眼前的价格，判断是否继续持有<span data-text-detail>（标准 Sharpe 使用同频普通超额收益，不能直接把复合年化收益率或平均对数收益代入分子。原文算例采用固定的无风险收益率，因此超额收益的标准差等于基金收益标准差；半仓组合沿同一期、无交易成本的假设计算。历史样本通常使用样本均值与样本标准差，换算年度口径还需处理收益相关性）</span>。<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>
+<span data-text-versions id="nb-a04-text-10">落回到自己的投资决策上，Sharpe 提供了一个比较收益与波动的角度；要不要继续持有，还要把基本面前景、资金的取用时间和眼前的价格一并考虑进去<span data-text-detail>（标准 Sharpe 使用同频普通超额收益，不能直接把复合年化收益率或平均对数收益代入分子。原文算例采用固定的无风险收益率，因此超额收益的标准差等于基金收益标准差；半仓组合沿同一期、无交易成本的假设计算。历史样本通常使用样本均值与样本标准差，换算年度口径还需处理收益相关性）</span>。<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>
 
 其中资金的取用时间，决定了一笔钱能投入多久、期间要不要准备付款。下一篇[《投资期限与现金需要》](/zh/notebook/investment-horizon-cash/)就从资金用途和付款时间讲起。
 
-<link rel="stylesheet" href="/notebook/compounding.css?v=20260926">
-<script src="/notebook/compounding.js?v=20261012-1" defer></script>
-<link rel="stylesheet" href="/notebook/flow-figures.css?v=20261012-6">
+<link rel="stylesheet" href="/notebook/compounding.css?v=20261126">
+<script src="/notebook/compounding.js?v=20261126" defer></script>
+<link rel="stylesheet" href="/notebook/flow-figures.css?v=20261126">
 
 [^buffett-1989]: Warren Buffett，[Berkshire Hathaway 1989 年股东信](https://www.berkshirehathaway.com/letters/1989.html)，Mistakes of the First Twenty-five Years：优秀企业、合理价格与时间的关系。
 [^buffett-2022]: Warren Buffett，[2022 年股东信](https://www.berkshirehathaway.com/letters/2022ltr.pdf)，The Secret Sauce：KO 长期持股与年度现金股息。文中金额为 Berkshire 收到的年度分红，分别对应 1994 年与 2022 年。

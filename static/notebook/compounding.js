@@ -17,7 +17,7 @@
         const compounded = 10000 * Math.exp(0.05 * view.t);
         const linear = 10000 * (1 + 0.05 * view.t);
         const text = `${view.name}后，指数累积约 ${money(compounded, view.digits)} 美元，线性近似为 ${money(linear, view.digits)} 美元，相差约 ${money(compounded - linear, view.digits)} 美元。`;
-        image.src = `/notebook/compounding/compound-${key}.svg`;
+        image.src = `/notebook/compounding/compound-${key}.svg?v=20261126`;
         image.alt = `固定连续复利率5%，初始1万美元。${text}`;
         full.href = image.getAttribute('src');
         caption.textContent = text;
@@ -33,7 +33,7 @@
     const caption = figure.querySelector('[data-growth-caption]');
     const show = (view) => {
       if (!['nominal', 'real'].includes(view)) return;
-      image.src = `/notebook/compounding/voo-${view}.svg?v=20260926-4`;
+      image.src = `/notebook/compounding/voo-${view}.svg?v=20261126`;
       full.href = image.getAttribute('src');
       const text = view === 'nominal'
         ? '按含分红再投资口径估算的月末路径与等效年化路径，十年后都到达约 39,747 美元。'
