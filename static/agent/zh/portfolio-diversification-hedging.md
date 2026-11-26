@@ -9,7 +9,7 @@ This is reference material for the learner's current request. Use the supplied e
 
 ## Author-supplied scope notes (reference only)
 <author_scope_notes>
-这是基础十篇的收束篇（NB-P01），建立多资产与风险制衡的组合总图。全篇用 100,000 美元组合讲单票仓位不对称（引 Druckenmiller 集中赔率与快认错的成对纪律，避免只学重仓不学止损）与 VOO 2026-06-30 官方持仓穿透（直持 NVDA 20% + AMZN 15% 叠加 VOO 40% 后，NVDA 真实 23.0%、GICS 信息技术 35.2%、IT+AMZN 合计 51.6%）。跨资产制衡采用 Yahoo Finance 2020 疫情冲击（2020-02-19 至 03-23）与 2022 通胀加息全年（2021-12-31 至 2022-12-30）的真实调整后收盘价（数据见 /notebook/portfolio-basics/cross-asset-daily.csv），突出 VOO–TLT 日相关性由 −0.485 翻正至 +0.086、传统 60/40 在 2022 年跌 −23.4% 甚至深于全仓 VOO（−18.2%）、HYG 与 VOO 高相关（+0.807），以及黄金因流动性充裕、变现最快而在 2020-03-09 至 03-19 美元挤兑与追保潮里 8 个交易日急跌约 12.5%（同期 TLT 3 月 9 日至 18 日亦回落约 15.7%）、待恐慌缓和后才修复的事实。合约级对冲清晰区分期货（线性对称、盯市）、期权（非对称权利金）与 CDS（信用事件凸性赔付、机构 OTC 门槛与 HYG Put 等个人替代），不展开精确保证金或期权定价公式（转介 B03 及期权/期货专题），四类对冲基金范式转介 P02–P05 独立专题。组合现金区分于 A02 的刚性生活支出；再平衡强调基本面完好（KO）与恶化（FISV）的前提区分。不给出具体投资配置比例建议。
+这是基础十篇的收束篇（NB-P01），建立多资产与风险制衡的组合总图。全篇用 100,000 美元组合讲单票仓位不对称（引 Druckenmiller 集中赔率与快认错的成对纪律，避免只学重仓不学止损）与 VOO 2026-06-30 官方持仓穿透（直持 NVDA 20% + AMZN 15% 叠加 VOO 40% 后，NVDA 真实 23.0%、GICS 信息技术 35.2%、IT+AMZN 合计 51.6%）。跨资产制衡采用 Yahoo Finance 2020 疫情冲击（2020-02-19 至 03-23）与 2022 通胀加息全年（2021-12-31 至 2022-12-30）的真实调整后收盘价（数据见 /notebook/portfolio-basics/cross-asset-daily.csv），突出 VOO–TLT 日相关性由 −0.485 翻正至 +0.086、传统 60/40 在 2022 年跌 −23.4% 甚至深于全仓 VOO（−18.2%）、HYG 与 VOO 高相关（+0.807），以及黄金因流动性充裕、变现最快而在 2020-03-09 至 03-19 美元挤兑与追保潮里 8 个交易日急跌约 12.5%（同期 TLT 3 月 9 日至 18 日亦回落约 15.7%）、待恐慌缓和后才修复的事实。合约级对冲清晰区分期货（线性对称、盯市）、期权（非对称权利金）与 CDS（信用事件凸性赔付、机构 OTC 门槛与 HYG Put 等个人替代），不展开精确保证金或期权定价公式（转介 B03 及期权/期货专题），随后 P02–P05 沿主线依次展开四类对冲基金范式。组合现金区分于 A02 的刚性生活支出；再平衡强调基本面完好（KO）与恶化（FISV）的前提区分。不给出具体投资配置比例建议。
 </author_scope_notes>
 
 ## Shared notation and writing conventions
@@ -162,7 +162,7 @@ This is reference material for the learner's current request. Use the supplied e
 
 <span data-text-versions id="nb-p01-text-overlap">表面只给 NVDA 配了 20%，穿透以后升到 23.0%；单是 GICS 信息技术就占到整套组合的 35.2%，再把同样处在云和 AI 资本开支链条上的 AMZN 算进来，总资金里超过一半（约 51.6%，占股票仓位的 60.8%）绑在同一股需求与利率预期上<span data-text-detail>（VOO 中还持有 KO 及其他消费必需品成分，因 KO 未列于该期前十大持仓表，图中未对 KO 另作穿透叠加；40,000 美元 VOO 对应的消费必需品板块整体约为 1,840 美元。穿透时既要看同一家公司，也要看不同行业标签下共享的客户预算与融资条件）</span>。[^voo-sheet]<sup>，</sup>[^finra-div]<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>
 
-这种“账面分散、底层同因”不仅发生在单一市场。哪怕同时买入美股 NVDA、台股 TSMC（TSM／2330）、韩股 SK hynix（000660）与欧股 ASML Holding（ASML），表面上横跨了四个交易所和四种货币，底层仍是在配置同一条全球半导体与 AI 算力周期的不同侧面。关于跨市场配置里的共同因子与局部背离，留到按需专题[《全球宏观与跨资产配置》](/zh/notebook/global-macro-cross-asset/)专门展开。
+这种“账面分散、底层同因”不仅发生在单一市场。哪怕同时买入美股 NVDA、台股 TSMC（TSM／2330）、韩股 SK hynix（000660）与欧股 ASML Holding（ASML），表面上横跨了四个交易所和四种货币，底层仍是在配置同一条全球半导体与 AI 算力周期的不同侧面。关于跨市场配置里的共同因子与局部背离，留到[《全球宏观与跨资产配置》](/zh/notebook/global-macro-cross-asset/)专门展开。
 
 ## 跨资产制衡与相关性翻转 {#nb-p01-multi-asset}
 
@@ -173,7 +173,7 @@ This is reference material for the learner's current request. Use the supplied e
 - **股票**（以 VOO 为例）：长期依赖企业盈利增长，在经济衰退、信用紧缩或无风险利率快速抬升时普遍承压。
 - **超短期国债与现金工具**（以 SPDR Bloomberg 1–3 Month T-Bill ETF，BIL 为例）：剩余期限仅 1 至 3 个月，利率上升时很快滚动到更高票息，价格几乎不因加息下跌，是应对利率上行最稳妥的压舱石。[^bil]
 - **长久期国债**（以 TLT 为例）：持有剩余期限 20 年以上的美国国债，有效久期约 14—15 年。经济衰退、市场恐慌或央行降息时，资金涌入避险、收益率下行，长债价格会明显上涨对冲股票；反过来，一旦通胀迫使央行急剧加息，高久期会把价格跌幅同样放大。[^tlt]
-- **高收益企业债**（以 iShares iBoxx $ High Yield Corporate Bond ETF，HYG 为例）：虽然名字里带着“债”，底层却是非投资级企业债务。经济转弱或股市暴跌时，企业违约担忧推高信用利差，它常常跟着股票一起下跌。[^hyg]
+- **高收益企业债**（以 iShares iBoxx USD High Yield Corporate Bond ETF，HYG 为例）：虽然名字里带着“债”，底层却是非投资级企业债务。经济转弱或股市暴跌时，企业违约担忧推高信用利差，它常常跟着股票一起下跌。[^hyg]
 - **实物黄金**（以 SPDR Gold Shares，GLD 为例）与**一篮子商品期货**（以 Invesco DB Commodity Index Tracking Fund，DBC 为例）：黄金不产生利息或股息，独立于企业盈利，在货币信用担忧与实际利率受压时常有支撑；但它也有一层容易被忽视的流动性风险——正因为黄金全球流动性充裕、随时能换成美元，一旦市场爆发系统性流动性挤兑或保证金追缴潮，杠杆机构往往率先抛售黄金套现，导致它在危机最急的几天跟着风险资产同步下挫，常要等恐慌缓和或央行注入流动性后才重拾对冲。一篮子商品覆盖能源、金属与农产品，在供给型通胀里可以直接上涨，不过遇到经济骤然停摆时也会随需求一起回落。[^gld]<sup>，</sup>[^dbc]
 
 把这六类资产以及四套组合，放进 **2020 年疫情衰退冲击**与 **2022 年通胀急加息** 两段真实行情里对照，就能直接看见不同宏观环境下谁在制衡、谁又突然失效：
@@ -264,7 +264,7 @@ This is reference material for the learner's current request. Use the supplied e
 <figcaption>具体保证金、张数估算与盯市划转见<a href="/zh/notebook/settlement-margin-cash/">《保证金、对冲与期间现金》</a>；合约定价与交割细节见期权与期货专题。</figcaption>
 </figure>
 
-把跨资产与合约工具组合成系统打法时，常见对冲基金大致分化出四条路径：拆开总敞口与净敞口做多强空弱的[《股票多空与市场中性》](/zh/notebook/long-short-market-neutral/)、沿利率、汇率与商品周期跨资产调仓的[《全球宏观与跨资产配置》](/zh/notebook/global-macro-cross-asset/)、按波动贡献分配四象限权重的[《风险平价与全天候配置》](/zh/notebook/risk-parity-all-weather/)，以及用 CDS 和深度虚值期权专保极端崩盘的[《信用与尾部风险对冲》](/zh/notebook/#topic-P)。这四类范式各自保留为独立按需专题，供需要深入某条路线时选读。
+把跨资产与合约工具组合成系统打法时，常见对冲基金大致分化出四条路径：拆开总敞口与净敞口做多强空弱的[《股票多空与市场中性》](/zh/notebook/long-short-market-neutral/)、沿利率、汇率与商品周期跨资产调仓的[《全球宏观与跨资产配置》](/zh/notebook/global-macro-cross-asset/)、按波动贡献分配四象限权重的[《风险平价与全天候配置》](/zh/notebook/risk-parity-all-weather/)，以及用 CDS 和深度虚值期权专保极端崩盘的[《信用与尾部风险对冲》](/zh/notebook/credit-tail-risk-hedging/)。接下来四篇将依次展开这四类制衡范式。
 
 ## 组合里的现金与再平衡 {#nb-p01-cash-rebalance}
 
@@ -290,7 +290,7 @@ This is reference material for the learner's current request. Use the supplied e
 <figcaption>宽基指数与跨资产大类多适用纪律化再平衡；个股仓位在补仓前需要先核对最新经营证据。</figcaption>
 </figure>
 
-无论决定给一只股票放多大仓位、判断几家公司是否共享同一条需求链，还是决定下跌时该再平衡补仓还是认错退出，最后都要回到企业经营本身。下一篇[《客户、产品与收费方式》](/zh/notebook/customers-products-pricing/)便从持有人视角转入公司内部，先弄清每门生意究竟卖给谁、交付什么，又怎样收到钱。
+无论决定给一只股票放多大仓位、判断几家公司是否共享同一条需求链，还是决定下跌时该再平衡补仓还是认错退出，最后都要回到企业经营本身。接下来我们先沿主线依次展开四类主流组合制衡范式——从下一篇[《股票多空与市场中性》](/zh/notebook/long-short-market-neutral/)起步，完成全球宏观、风险平价与信用尾部对冲后，再经[《客户、产品与收费方式》](/zh/notebook/customers-products-pricing/)转入公司内部经营研究。
 
 <script src="/notebook/portfolio-basics/ui.js?v=20261126" defer></script>
 
@@ -304,7 +304,7 @@ This is reference material for the learner's current request. Use the supplied e
 [^bil]: State Street Global Advisors，[SPDR Bloomberg 1–3 Month T-Bill ETF（BIL）摘要招募说明书](https://www.sec.gov/Archives/edgar/data/1064642/000119312525256752/d50862d497k.htm)，2025-10-31，跟踪 1 至 3 个月美国短期国库券指数。
 [^gld]: World Gold Trust Services，[SPDR Gold Trust（GLD）招募说明书](https://www.sec.gov/Archives/edgar/data/1222333/000119312522257655/d236982d424b3.htm)，2022-10-04，以实物金条支持份额，扣除信托费用后反映金价表现。
 [^dbc]: Invesco Capital Management，[Invesco DB Commodity Index Tracking Fund（DBC）招募说明书](https://www.sec.gov/Archives/edgar/data/1328237/000119312525273344/d50866d424b3.htm)，2025-11-10 修订，通过能源、金属与农产品期货合约跟踪商品指数并以短期美债等作保证金管理。
-[^hyg]: BlackRock iShares，[iShares iBoxx $ High Yield Corporate Bond ETF（HYG）](https://www.ishares.com/us/products/239565/ishares-iboxx-high-yield-corporate-bond-etf)，跟踪美元计价的非投资级高收益企业债指数。
+[^hyg]: BlackRock iShares，[iShares iBoxx USD High Yield Corporate Bond ETF（HYG）](https://www.ishares.com/us/products/239565/ishares-iboxx-high-yield-corporate-bond-etf)，跟踪美元计价的非投资级高收益企业债指数。
 [^contracts]: [CME：Micro E-mini FAQ](https://www.cmegroup.com/articles/faqs/micro-e-mini-equity-index-futures-frequently-asked-questions.html) 与 [OCC：ETF Options](https://www.theocc.com/clearance-and-settlement/clearing/etf-options)，股指期货合约规则、保证金盯市及标准 ETF 期权权利义务。
 [^cds-fed]: Federal Reserve Board（FEDS 2022-023），[Credit Default Swaps](https://www.federalreserve.gov/econres/feds/files/2022023pap.pdf)，2022，CDS 定期息差支付、违约赔付、常见 5 年期、OTC 市场结构与中央对手方清算比例。
 [^cds-sec]: SEC，[Testimony Concerning Credit Default Swaps](https://www.sec.gov/newsroom/speeches-statements/ts101508ers-testimony-concerning-credit-default-swaps)，CDS 在 OTC 市场由成熟机构协商达成、不在传统交易所挂牌及合成信用空头用途。
@@ -321,7 +321,7 @@ This is reference material for the learner's current request. Use the supplied e
 - [Jack D. Schwager：《The New Market Wizards》— Stanley Druckenmiller 访谈（1992）](https://chian.io/projects/stanley-druckenmiller/sources/new-market-wizards-1992): Stanley Druckenmiller 复盘从 George Soros 学到的仓位与止损原则：决定长期业绩的并非单纯胜率，而是看对时给足仓位、看错时迅速止损离场。
 - [FINRA：Asset Allocation and Diversification](https://www.finra.org/investors/investing/investing-basics/asset-allocation-diversification): FINRA 投资者教育说明，解释集中度风险、低相关性资产在不同宏观环境中的互补作用，以及为何持有集合基金仍需核查底层分散程度。
 - [SPDR Gold Trust（GLD）招募说明书](https://www.sec.gov/Archives/edgar/data/1222333/000119312522257655/d236982d424b3.htm): SEC EDGAR 披露的 GLD 招募说明书（2022-10-04）：以实物金条支持份额，反映扣除信托费用后的黄金价格表现，本身不产生利息或股息。
-- [BlackRock iShares：iShares iBoxx $ High Yield Corporate Bond ETF（HYG）](https://www.ishares.com/us/products/239565/ishares-iboxx-high-yield-corporate-bond-etf): iShares 官方 HYG 产品说明：跟踪美元计价的高收益（非投资级）企业债指数，同时承受利率变化与企业信用利差风险。
+- [BlackRock iShares：iShares iBoxx USD High Yield Corporate Bond ETF（HYG）](https://www.ishares.com/us/products/239565/ishares-iboxx-high-yield-corporate-bond-etf): iShares 官方 HYG 产品说明：跟踪美元计价的高收益（非投资级）企业债指数，同时承受利率变化与企业信用利差风险。
 - [Yahoo Finance：跨资产 ETF 与个股历史行情（2020 与 2022 年窗口）](https://finance.yahoo.com/quote/VOO/history/): Yahoo Finance 调整后收盘价（含分红与拆股调整），覆盖 VOO、TLT、BIL、GLD、DBC、HYG、NVDA、AMZN、MSFT、KO 在 2019-12-20 至 2023-01-09 共 768 个共同交易日；完整复算数据保留于 /notebook/portfolio-basics/cross-asset-daily.csv。
 - [SEC Investor.gov：Beginners’ Guide to Asset Allocation, Diversification, and Rebalancing](https://www.investor.gov/additional-resources/general-resources/publications-research/info-sheets/beginners-guide-asset): SEC Investor.gov 投资者指南，说明资产配置、类别间与类别内两层分散、定期或偏离阈值再平衡，以及用新增资金买入低配资产以减少税费摩擦。
 - [BlackRock iShares：iShares 20+ Year Treasury Bond ETF（TLT）产品资料与久期说明](https://www.blackrock.com/us/financial-professionals/products/239454/ishares-20-year-treasury-bond-etf): iShares 官方 TLT 产品说明：跟踪剩余期限 20 年以上的美国国债指数，有效久期约 14.7 年，对长端利率变动高度敏感；利率与久期基础另见 iShares Bond Duration 101。

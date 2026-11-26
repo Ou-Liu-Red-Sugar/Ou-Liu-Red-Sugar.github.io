@@ -185,6 +185,109 @@ Sharpe 原文假设数字 · 纵轴自 2% 起
 
 ---
 
+# 信用与尾部风险对冲
+
+用 2008 信用冻结、2020 疫情闪崩与 2022 利率慢熊三段实测看清信用利差与恐慌波动率怎样同时冲击股债；拆解 CDS 违约赔付与深度虚值期权尾部对冲的凸性逻辑、常态保费损耗及个人账户的现实替代。
+
+网页 / HTML: [信用与尾部风险对冲](https://ou-liu-red-sugar.github.io/zh/notebook/credit-tail-risk-hedging/)
+
+语言 / Language: zh · 更新 / Revised: 2026-11-26
+
+前几篇讨论的多资产分散、股票多空、全球宏观与风险平价，主要对付常规周期里的涨跌波动。可金融市场每隔十年左右总会出现一次流动性骤然干涸、企业借不到新钱、各类风险资产一起跳水的极端冲击。**信用与尾部风险对冲**（Credit & Tail-Risk Hedging）专门盯住分布最左端的罕见崩盘：平时愿意付出一笔有限且可预期的保费或息差，换取危机爆发时不成比例的**凸性赔付**（Convexity）。
+
+不过，这种“买保险”的做法带有一道尖锐的现实权衡：真正暴赚的窗口极少，和平年份却长达五到十年。把信用利差、**信用违约互换**（CDS）与深度虚值看跌期权放进 2008、2020 与 2022 三段真实行情里对照，就能看清它什么时候雪中送炭、什么时候只会默默失血。
+
+## 信用利差与三类完全不同的危机 {#nb-p05-credit-crunch}
+
+企业债券的收益率由两部分拼成：同期限无违约美国国债收益率，加上补偿企业可能还不起钱的**信用利差**（Credit Spread）。衡量美国信用市场松紧最常用的尺子，是 ICE BofA 美国高收益债期权调整利差（ICE BofA US High Yield OAS，FRED 序列 BAMLH0A0HYM2 剥离了提前赎回条款的影响，以百分点计价）。[^zh-credit-tail-risk-hedging--fred-hyoas] 经济顺景时，违约稀少、融资宽裕，高收益债利差常压在 3% 至 4% 一带；一旦银行收紧放贷、企业续借受阻，信用利差会成倍飙升，同时把高收益债（如 iShares iBoxx USD High Yield Corporate Bond ETF，HYG）、甚至投资级企业债（如 iShares iBoxx USD Investment Grade Corporate Bond ETF，LQD）和高负债股票一起拖下水。
+
+同样是股市下跌超过 18%，**2008 金融危机**、**2020 疫情闪崩**与 **2022 加息慢熊**在信用利差和恐慌指数（VIX）上呈现出完全不同的结构：
+
+三类下跌窗口对照：信用冻结、极速闪崩与利率慢熊
+
+Yahoo Finance 2007—2022 调整后收盘价 · 利差极值参照 ICE BofA US High Yield OAS
+
+三类真实下跌窗口对照：一、2008 金融危机（2007-10-09 至 2009-03-09）：高收益债 OAS 从 2007 年 6 月低点 2.41% 飙升至 2008 年 12 月 15 日峰值 21.82%，VIX 峰值 80.86，SPY 跌 −55.2%，HYG 跌 −32.9%，LQD 最深跌 −18.2%，TLT 涨 +25.1%。二、2020 疫情闪崩（2020-02-19 至 2020-03-23，仅 23 个交易日）：HY OAS 20 个交易日由 4.18% 跳至 10.87%，VIX 收盘峰值 82.69，SPY 跌 −33.7%，HYG 跌 −21.9%，LQD 最深跌 −19.6%，TLT 涨 +14.2%。三、2022 加息慢熊（2021-12-31 至 2022-12-30）：无系统性信用冻结，VIX 全年收盘峰值仅 36.45，SPY 全年跌 −18.2%（盘段最深 −24.1%），HYG 跌 −11.0% 反浅于 LQD −17.9% 与 TLT −31.2%。
+
+**价格与 VIX 均为收盘口径，2020 年 3 月 23 日美联储宣布企业信贷便利（PMCCF／SMCCF）后信用利差迅速回落。[查看完整日频数据](https://ou-liu-red-sugar.github.io/notebook/credit-tail/credit-tail-daily.csv)。**
+
+这三张卡片解释了为何信用与尾部保护的回报高度挑“跌法”。2008 年和 2020 年 3 月，市场同时遭遇信用利差飙升（2008 年从 2.41% 冲到 21.82%、2020 年 20 个交易日内从 4.18% 冲到 10.87%）和 VIX 冲破 80，连投资级企业债 LQD 都在 2020 年 3 月盘中一度跌近两成。[^zh-credit-tail-risk-hedging--credit-data]，[^zh-credit-tail-risk-hedging--fred-hyoas] 到了 2022 年，压垮估值的推手是无风险利率飙升，企业违约没有失控，VIX 全年最高收盘只到 36.45，信用久期更短的 HYG（−11.0%）反而比 TLT（−31.2%）跌得更浅。
+
+## CDS：为企业违约与信用恶化买一份合约保险 {#nb-p05-cds}
+
+在机构信用市场上，用来直接对冲企业或一篮子发行人违约风险的标准工具是**信用违约互换**（Credit Default Swap，CDS），包括针对单一公司的单名 CDS，以及覆盖一篮子投资级或高收益企业的指数 CDS（如北美 CDX 指数）。[^zh-credit-tail-risk-hedging--cds-fed]
+
+把 CDS 拆成常态和危机两段现金流，结构很直白：
+
+CDS 信用保护的常态现金流与违约赔付链条（示意）
+
+假设 10,000,000 美元名义本金 · 5 年期高收益参考实体 · 年化息差 500 bps（5%）
+
+以 10,000,000 美元名义本金、年化息差 500 bps 的 5 年期 CDS 为例展示两段现金流：常态期间（未发生信用事件）：保护买方每季支付 125,000 美元息差（全年 500,000 美元）；若市场担忧加剧、新签息差由 500 bps 走阔至 1,200 bps，原有低息差保护合约市价大涨，买方无需等到正式违约即可平仓获利。触发信用事件后：经 ISDA 地区认定委员会裁定构成破产或到期未能付款等信用事件，通过统一拍卖确定违约债券回收率（如 40%），保护卖方向买方赔付 (100% − 40%) 乘以名义本金即 6,000,000 美元，买方以有限年化保费换取高倍凸性赔付。
+
+**简化示意未计期初标准化票息前端折溢价（upfront payment）；现实中标准企业 CDS 常用 100 bps 或 500 bps 固定票息并以期初差价找平。**
+
+CDS 赔付之所以严格依赖标准合同，是因为历史上曾出现过围绕“算不算违约”的激烈博弈。国际互换与衍生品协会（ISDA）2014 年信用衍生品定义将企业 CDS 常见触发条件归为**破产**（Bankruptcy）与**到期未能付款**（Failure to Pay）等标准事件，由地区认定委员会（Determinations Committee）投票裁定并组织统一拍卖确定回收率（为了堵塞部分市场参与者与债务人合谋制造“技术性违约”骗取 CDS 赔付的漏洞，ISDA 于 2020 年 1 月 27 日正式在多数企业 CDS 合约中生效了“窄口径信用事件”修订条款，要求到期未能付款必须直接或间接源于、或导致参考实体信用状况恶化，才能触发赔付。此外，美联储 FEDS 2022-023 显示约 62% 的交易商未平仓 CDS 名义本金经中央对手方清算，以降低类似 2008 年 AIG 那样的对手方违约链式风险）。[^zh-credit-tail-risk-hedging--isda-cds]，[^zh-credit-tail-risk-hedging--cds-fed]
+
+## 深度虚值期权：常态保费损耗与崩盘抄底现金 {#nb-p05-tail-puts}
+
+如果保护对象聚焦在股市整体崩盘而非特定企业违约，另一条机构路线是**尾部风险期权对冲**（Tail-Risk Hedging）：长期把极小一笔年度预算（常见在组合的 1% 至 3.5%）持续滚动买入深度虚值股指看跌期权（例如行权价远低于市价 20% 至 30% 的 S&P 500 Put）。
+
+这套策略在机构界长期存在分歧：支持方看重崩盘时的复利效应，反对方则把账算在常态保费损耗与慢熊路径上：
+
+- **支持方（干火药与几何复利）**：Universa Investments 首席投资官 Mark Spitznagel（顾问为 Nassim Nicholas Taleb）主张把尾部期权放进整套组合评估长期复利，而非单独核算单腿盈亏。只要用大约 3% 的预算锁住极端崩盘，其余 97% 资金就能放心留在高长期回报的股票里，不必像 60/40 或 80/20 那样在十年牛市里常年把大量资金闲置在低收益债券上；真遇 2008 或 2020 年 3 月那种闪崩，深度虚值 Put 因价格暴跌叠加隐含波动率飙升涨出十几倍，正好在市场最恐慌时送来一笔现成的**抄底现金**（dry powder）。[^zh-credit-tail-risk-hedging--universa-2020]
+- **反对方（波动率溢价与慢熊失血）**：AQR Capital Management 的 Roni Israelov（2018）与后续研究团队（2020—2022）用长周期数据指出了相反的现实约束：首先，股指看跌期权长期定价高于真实发生波动，买方持续支付**波动率风险溢价**，在 2011—2019 年那样的九年慢牛（SPY 涨 +206.6%）里，每年保费归零极难坚持；其次，期权存在**路径依赖**，遇到 2022 年那种耗时十个月、VIX 最高只有 36.45 的慢熊，深度虚值 Put 到期前往往涨不起来，保护效果既不如直接多留现金，也不如跨资产趋势策略。[^zh-credit-tail-risk-hedging--aqr-puts]，[^zh-credit-tail-risk-hedging--aqr-fastslow]，[^zh-credit-tail-risk-hedging--credit-data]
+
+在下面的推演器里切换四种典型行情（极速闪崩、深度股灾、慢熊阴跌、常态慢牛），并调节股市跌幅与年度尾部预算，直观比较三种防御结构的净值落差：
+
+尾部期权预算 vs 20% 短债缓冲（100,000 美元组合示意）
+
+教学情景设定 · 对比不同下跌速度下的防御效果与低位再平衡弹性
+
+股市年度变动 −35%
+
+年度尾部 Put 预算 3%
+
+假设 100,000 美元组合比较三种结构在四个教学情景下的表现（短债假设年息 3%）：一、极速闪崩（股市 −35%，3% Put 涨 12 倍）：100% 股票剩 65,000 美元（−35.0%），80/20 股债剩 72,600 美元（−27.4%），97% 股加 3% Put 剩 99,050 美元（−1.0%，其中期权变现 36,000 美元）。二、深度股灾（股市 −50%，3% Put 涨 18 倍）：100% 股票剩 50,000 美元，80/20 剩 60,600 美元，97/3 尾部对冲升至 102,500 美元（+2.5%）。三、慢熊阴跌（股市 −20%，3% Put 仅 1.5 倍）：100% 股票剩 80,000 美元，80/20 剩 84,600 美元（−15.4%），97/3 剩 82,100 美元（−17.9%，弱于短债缓冲）。四、常态慢牛（股市 +12%，Put 归零）：100% 股票 112,000 美元（+12.0%），80/20 为 110,200 美元（+10.2%），97/3 为 108,640 美元（+8.6%）。
+
+**2020-03 极速闪崩示意：股市急跌 −35%、VIX 爆炸，深度虚值 Put 价值假设跳升 12 倍。**  若把期权变现现金在低位再平衡回股票，后续反弹 +40% 后净值可达 138,670 美元（纯股票为 91,000 美元）。
+
+**期权赔付倍数为教学设定，真实结果高度依赖行权价选择、到期时点、隐含波动率斜率与展期执行成本；短债假设年收益 3%。**
+
+切到“慢熊阴跌（−20%）”和“常态慢牛（+12%）”，可以看到深度虚值 Put 并非在所有下跌里都占便宜。当市场温和回撤或常年慢牛时，**不花保费、还能赚正利息的短债缓冲**（80/20）反而比持续扣血的期权对冲更省心；只有遇到极速、深度的恐慌崩盘，高凸性期权才会拉开压倒性差距——前提还是投资者在连续亏掉几年保费后没有中途放弃，且真在崩盘谷底敢把期权变现的现金买回股票。
+
+## 机构 OTC 门槛与个人账户的现实替代 {#nb-p05-retail}
+
+从机制落到开户执行，信用与尾部对冲在机构与个人之间的门槛鸿沟非常明显。SEC 证词与美联储研究都明确指出，CDS 属于机构间场外（OTC）市场合约，需要签订 ISDA 主协议、满足大额名义本金与双边／清算所担保品要求，不在面向散户的股票交易所挂牌。[^zh-credit-tail-risk-hedging--cds-sec]，[^zh-credit-tail-risk-hedging--cds-fed] 即便是在交易所挂牌的深度虚值期权，散户逐月自己展期也要面对宽买卖价差、隐含波动率偏度高昂以及难以把握止盈平仓时点的摩擦。
+
+把机构工具和个人账户真正够得着的替代方案并排来看，边界非常清楚：
+
+从机构 OTC 信用保护到个人账户的现实替代地图
+
+先区分“机构专属合约”“个人阶段性工具”与“零损耗结构防御”
+
+三档工具对照：一、机构 OTC 工具（单名 CDS 与 CDX 指数）：需要 ISDA 协议、大额名义本金与担保品管理，个人通常无法直接开户交易，适合机构精确剥离企业或组合信用风险。二、个人合约替代（HYG 或 SPY 保护性 Put）：标准交易所挂牌、买方最大亏损限于权利金无追保，但长期滚动存在波动率溢价损耗与慢熊失效，更适合在重大事件或高估值脆弱窗口做阶段性保护。三、个人零损耗防御（削减高杠杆信用暴露加超短美债 BIL）：无需衍生品权限与保费损耗，在信用冻结期天然保本并保留低位加仓现金，代价是牛市让渡部分股票仓位弹性。
+
+**期权合约的详细定价、时间价值损耗与多腿价差结构，详见按需专题《期权价格与定价模型》及《备兑与期权持仓的取舍》。**
+
+对绝大多数个人投资者而言，理解信用与尾部对冲最实用的收获有三点：第一，把**信用利差**（高收益债相对国债的溢价）当成观察市场融资冷暖的晴雨表，避免在利差极窄、全市场忽视违约风险时去追逐高杠杆垃圾债或债台高筑的脆弱公司；第二，不把“常年花高价买深度虚值 Put”当成万能护身符，明白它只擅长极速恐慌闪崩、在慢牛和慢熊里都会持续扣血；第三，在日常组合里用**低杠杆结构、避开高信用风险标的以及保留超短美债现金**承担主要防御，把 HYG 或股指看跌期权留给真正有明确边界和预算的阶段性防护。[^zh-credit-tail-risk-hedging--hyg]，[^zh-credit-tail-risk-hedging--bil]
+
+从仓位与跨资产制衡，到股票多空、全球宏观、风险平价与信用尾部对冲，账户层面的风险棋盘已经排齐；无论结构如何搭配，最终承担长期复利引擎的仍是企业本身。下一篇[《客户、产品与收费方式》](https://ou-liu-red-sugar.github.io/zh/notebook/customers-products-pricing/)正式转入企业经营研究，先看清一门生意究竟卖给谁、交付什么，又怎样把钱收回来。
+
+[^zh-credit-tail-risk-hedging--credit-data]: [Yahoo Finance：SPY、HYG、LQD、TLT、BIL 与 VIX 历史行情](https://finance.yahoo.com/quote/HYG/history/)，2026-11-26 读取 2007-06-01 至 2026-01-09 共 4,683 个交易日的调整后收盘价与 VIX 收盘价。完整复算数列见[信用与尾部风险日频数据](https://ou-liu-red-sugar.github.io/notebook/credit-tail/credit-tail-daily.csv)。
+[^zh-credit-tail-risk-hedging--fred-hyoas]: ICE Data Indices / FRED，[ICE BofA US High Yield Index Option-Adjusted Spread（BAMLH0A0HYM2）](https://fred.stlouisfed.org/series/BAMLH0A0HYM2)，美国高收益企业债相对国债曲线的期权调整利差口径；全样本历史低点为 2007-06-01 的 2.41%，峰值分别为 2008-12-15 的 21.82% 与 2020-03-23 的 10.87%。
+[^zh-credit-tail-risk-hedging--cds-fed]: Federal Reserve Board（FEDS 2022-023），[Credit Default Swaps](https://www.federalreserve.gov/econres/feds/files/2022023pap.pdf)，2022，CDS 定期息差、违约赔付、约 62% 中央对手方清算比例及 OTC 市场结构。
+[^zh-credit-tail-risk-hedging--cds-sec]: SEC，[Testimony Concerning Credit Default Swaps](https://www.sec.gov/newsroom/speeches-statements/ts101508ers-testimony-concerning-credit-default-swaps)，说明 CDS 在场外市场由成熟机构协商达成、不在传统交易所挂牌。
+[^zh-credit-tail-risk-hedging--isda-cds]: ISDA，[2014 Credit Derivatives Definitions & Guidelines](https://www.isda.org/a/ur4TE/Guidelines-for-Smart-Contracts-CDS.pdf)，标准信用事件（Bankruptcy、Failure to Pay 等）、认定委员会裁定、拍卖回收率结算及 2020 年信用恶化条款修订。
+[^zh-credit-tail-risk-hedging--universa-2020]: Mark Spitznagel（Universa Investments），[2020 年 8 月公开访谈记录](https://www.cnbc.com/2020/08/17/universas-mark-spitznagel-on-the-hedge-funds-4000percent-return.html)，关于极小预算配置尾部看跌期权、在崩盘时提供抄底现金并提升组合长期复利的公开说明，2026-11-26 查阅。
+[^zh-credit-tail-risk-hedging--aqr-puts]: Roni Israelov（AQR Capital Management），[Pathetic Protection: The Elusive Benefits of Protective Puts](https://www.aqr.com/Insights/Research/White-Papers/Pathetic-Protection-The-Elusive-Benefits-of-Protective-Puts)，The Journal of Alternative Investments，2018，实证检验保护性 Put 的波动率风险溢价与路径依赖局限。
+[^zh-credit-tail-risk-hedging--aqr-fastslow]: AQR Capital Management，[Tail Risk Hedging: Contrasting Put and Trend Strategies](https://www.aqr.com/Insights/Research/White-Papers/Tail-Risk-Hedging-Contrasting-Put-and-Trend-Strategies)，2020，对比直接买入深度虚值 Put 在极速闪崩与持续慢熊中的表现差异及长期保费损耗。
+[^zh-credit-tail-risk-hedging--hyg]: BlackRock iShares，[iShares iBoxx USD High Yield Corporate Bond ETF（HYG）](https://www.ishares.com/us/products/239565/ishares-iboxx-high-yield-corporate-bond-etf)，跟踪美元计价的非投资级高收益企业债指数。
+[^zh-credit-tail-risk-hedging--bil]: State Street Global Advisors，[SPDR Bloomberg 1–3 Month T-Bill ETF（BIL）摘要招募说明书](https://www.sec.gov/Archives/edgar/data/1064642/000119312525256752/d50862d497k.htm)，2025-10-31。
+
+
+---
+
 # 客户、产品与收费方式
 
 从客户付款和企业交付认清一门生意，选择行业继续拆解业务，再沿上下游、具体订单与企业研报核验需求。
@@ -725,7 +828,7 @@ R_{\text{USD}}=(1+r_{\text{local}})(1+r_{\text{fx}})-1=r_{\text{local}}+r_{\text
 2. **区分股票判断与汇率判断**：配置海外市场时，明确自己愿不愿意顺带押注当地货币兑美元走势；只看好本地企业盈利、不看好本币汇率时，留意是否存在成本合理的汇率对冲载体（如 DXJ 与 EWJ 的差别），同时算清远期利差方向。
 3. **用低杠杆跨资产与现金应对流动性拐点**：远离靠低波动和高杠杆堆出来的拥挤套息，在组合里保留真正低相关的短债、黄金、商品或长债制衡，遇到央行政策与市场流动性骤变时，手里才有不用低位割肉的余粮。
 
-下一篇按需专题[《风险平价与全天候配置》](https://ou-liu-red-sugar.github.io/zh/notebook/risk-parity-all-weather/)将把视野从“主动择时切换宏观仓位”转向另一套机构范式——放弃预测下一阶段是衰退还是通胀，改按各类资产的波动贡献去均摊风险预算。
+下一篇[《风险平价与全天候配置》](https://ou-liu-red-sugar.github.io/zh/notebook/risk-parity-all-weather/)将把视野从“主动择时切换宏观仓位”转向另一套机构范式——放弃预测下一阶段是衰退还是通胀，改按各类资产的波动贡献去均摊风险预算。
 
 [^zh-global-macro-cross-asset--macro-data]: [Yahoo Finance：全球跨资产与五地半导体链历史行情](https://finance.yahoo.com/quote/DXJ/history/)，2026-11-26 读取 2021-12-20 至 2026-01-09 共 1,018 个美股交易日的调整后收盘价（含分红与拆股调整）及汇率收盘价。完整复算数列见[全球跨资产日频数据](https://ou-liu-red-sugar.github.io/notebook/global-macro/macro-cross-asset-daily.csv)。
 [^zh-global-macro-cross-asset--druck-losttree]: Stanley Druckenmiller，[Lost Tree Club 演讲与问答（2015 年 1 月）](https://www.danielscrivner.com/stanley-druckenmiller-rare-lost-tree-club-lecture/)，关于“向前看 18 个月”“推动大盘的是央行与流动性”及 1992 年做空英镑、做多德国马克案例的公开记录，2026-11-26 查阅。
@@ -1945,7 +2048,7 @@ REITs（房地产投资信托）提供参与经营性房地产或房地产融资
 2. **优先用宽基或行业工具做空头腿**：如果看好一家公司、只想剥离行业或大盘估值回落风险，与其直接融券做空高波动同行单股（面对高借券费与轧空），不如用行业 ETF 或股指期货（如 MES）抵销一部分共同暴露，具体保证金与盯市现金核算见[《保证金、对冲与期间现金》](https://ou-liu-red-sugar.github.io/zh/notebook/settlement-margin-cash/)。
 3. **拆解市面上的“中性”产品**：遇到标榜“低回撤、市场中性”的基金时，先核查四项指标——总敞口（Gross）开了几倍、是否做了行业与风格因子中性、历史收益里有多少来自高利率下的现金回扣，以及极端挤兑期风控怎样降杠杆。
 
-下一篇按需专题[《全球宏观与跨资产配置》](https://ou-liu-red-sugar.github.io/zh/notebook/global-macro-cross-asset/)将走出单一股票市场，看宏观基金如何在债券、外汇、商品与跨国股票之间表达判断，并辨认跨市场配置背后共享的底层风险。
+下一篇[《全球宏观与跨资产配置》](https://ou-liu-red-sugar.github.io/zh/notebook/global-macro-cross-asset/)将走出单一股票市场，看宏观基金如何在债券、外汇、商品与跨国股票之间表达判断，并辨认跨市场配置背后共享的底层风险。
 
 [^zh-long-short-market-neutral--pair-data]: [Yahoo Finance：SPY、WMT、TGT、KO、PEP 与 GME 历史行情](https://finance.yahoo.com/quote/SPY/history/)，2026-11-26 读取调整后收盘价（含分红与拆股调整）；GME 拆股前价格按 2022 年 7 月一拆四还原（2020-12-31 约 18.84 美元，2021-01-27 约 347.51 美元）。配对复算数列见[配对日频数据](https://ou-liu-red-sugar.github.io/notebook/market-neutral/pair-daily.csv)。
 [^zh-long-short-market-neutral--sec-short]: SEC Investor.gov，[Investor Bulletin: An Introduction to Short Sales](https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins-51)，2026-09-09 更新，借股卖出、分红补偿、保证金要求与无限亏损不对称性。
@@ -2195,7 +2298,7 @@ FISV 的预期与经营怎样被改写
 
 表面只给 NVDA 配了 20%，穿透以后升到 23.0%；单是 GICS 信息技术就占到整套组合的 35.2%，再把同样处在云和 AI 资本开支链条上的 AMZN 算进来，总资金里超过一半（约 51.6%，占股票仓位的 60.8%）绑在同一股需求与利率预期上（VOO 中还持有 KO 及其他消费必需品成分，因 KO 未列于该期前十大持仓表，图中未对 KO 另作穿透叠加；40,000 美元 VOO 对应的消费必需品板块整体约为 1,840 美元。穿透时既要看同一家公司，也要看不同行业标签下共享的客户预算与融资条件）。[^zh-portfolio-diversification-hedging--voo-sheet]，[^zh-portfolio-diversification-hedging--finra-div]
 
-这种“账面分散、底层同因”不仅发生在单一市场。哪怕同时买入美股 NVDA、台股 TSMC（TSM／2330）、韩股 SK hynix（000660）与欧股 ASML Holding（ASML），表面上横跨了四个交易所和四种货币，底层仍是在配置同一条全球半导体与 AI 算力周期的不同侧面。关于跨市场配置里的共同因子与局部背离，留到按需专题[《全球宏观与跨资产配置》](https://ou-liu-red-sugar.github.io/zh/notebook/global-macro-cross-asset/)专门展开。
+这种“账面分散、底层同因”不仅发生在单一市场。哪怕同时买入美股 NVDA、台股 TSMC（TSM／2330）、韩股 SK hynix（000660）与欧股 ASML Holding（ASML），表面上横跨了四个交易所和四种货币，底层仍是在配置同一条全球半导体与 AI 算力周期的不同侧面。关于跨市场配置里的共同因子与局部背离，留到[《全球宏观与跨资产配置》](https://ou-liu-red-sugar.github.io/zh/notebook/global-macro-cross-asset/)专门展开。
 
 ## 跨资产制衡与相关性翻转 {#nb-p01-multi-asset}
 
@@ -2206,7 +2309,7 @@ FISV 的预期与经营怎样被改写
 - **股票**（以 VOO 为例）：长期依赖企业盈利增长，在经济衰退、信用紧缩或无风险利率快速抬升时普遍承压。
 - **超短期国债与现金工具**（以 SPDR Bloomberg 1–3 Month T-Bill ETF，BIL 为例）：剩余期限仅 1 至 3 个月，利率上升时很快滚动到更高票息，价格几乎不因加息下跌，是应对利率上行最稳妥的压舱石。[^zh-portfolio-diversification-hedging--bil]
 - **长久期国债**（以 TLT 为例）：持有剩余期限 20 年以上的美国国债，有效久期约 14—15 年。经济衰退、市场恐慌或央行降息时，资金涌入避险、收益率下行，长债价格会明显上涨对冲股票；反过来，一旦通胀迫使央行急剧加息，高久期会把价格跌幅同样放大。[^zh-portfolio-diversification-hedging--tlt]
-- **高收益企业债**（以 iShares iBoxx $ High Yield Corporate Bond ETF，HYG 为例）：虽然名字里带着“债”，底层却是非投资级企业债务。经济转弱或股市暴跌时，企业违约担忧推高信用利差，它常常跟着股票一起下跌。[^zh-portfolio-diversification-hedging--hyg]
+- **高收益企业债**（以 iShares iBoxx USD High Yield Corporate Bond ETF，HYG 为例）：虽然名字里带着“债”，底层却是非投资级企业债务。经济转弱或股市暴跌时，企业违约担忧推高信用利差，它常常跟着股票一起下跌。[^zh-portfolio-diversification-hedging--hyg]
 - **实物黄金**（以 SPDR Gold Shares，GLD 为例）与**一篮子商品期货**（以 Invesco DB Commodity Index Tracking Fund，DBC 为例）：黄金不产生利息或股息，独立于企业盈利，在货币信用担忧与实际利率受压时常有支撑；但它也有一层容易被忽视的流动性风险——正因为黄金全球流动性充裕、随时能换成美元，一旦市场爆发系统性流动性挤兑或保证金追缴潮，杠杆机构往往率先抛售黄金套现，导致它在危机最急的几天跟着风险资产同步下挫，常要等恐慌缓和或央行注入流动性后才重拾对冲。一篮子商品覆盖能源、金属与农产品，在供给型通胀里可以直接上涨，不过遇到经济骤然停摆时也会随需求一起回落。[^zh-portfolio-diversification-hedging--gld]，[^zh-portfolio-diversification-hedging--dbc]
 
 把这六类资产以及四套组合，放进 **2020 年疫情衰退冲击**与 **2022 年通胀急加息** 两段真实行情里对照，就能直接看见不同宏观环境下谁在制衡、谁又突然失效：
@@ -2255,7 +2358,7 @@ Yahoo Finance 调整后收盘价（含分红）· 共同标尺 −40% 至 +25%
 
 **具体保证金、张数估算与盯市划转见[《保证金、对冲与期间现金》](https://ou-liu-red-sugar.github.io/zh/notebook/settlement-margin-cash/)；合约定价与交割细节见期权与期货专题。**
 
-把跨资产与合约工具组合成系统打法时，常见对冲基金大致分化出四条路径：拆开总敞口与净敞口做多强空弱的[《股票多空与市场中性》](https://ou-liu-red-sugar.github.io/zh/notebook/long-short-market-neutral/)、沿利率、汇率与商品周期跨资产调仓的[《全球宏观与跨资产配置》](https://ou-liu-red-sugar.github.io/zh/notebook/global-macro-cross-asset/)、按波动贡献分配四象限权重的[《风险平价与全天候配置》](https://ou-liu-red-sugar.github.io/zh/notebook/risk-parity-all-weather/)，以及用 CDS 和深度虚值期权专保极端崩盘的[《信用与尾部风险对冲》](https://ou-liu-red-sugar.github.io/zh/notebook/#topic-P)。这四类范式各自保留为独立按需专题，供需要深入某条路线时选读。
+把跨资产与合约工具组合成系统打法时，常见对冲基金大致分化出四条路径：拆开总敞口与净敞口做多强空弱的[《股票多空与市场中性》](https://ou-liu-red-sugar.github.io/zh/notebook/long-short-market-neutral/)、沿利率、汇率与商品周期跨资产调仓的[《全球宏观与跨资产配置》](https://ou-liu-red-sugar.github.io/zh/notebook/global-macro-cross-asset/)、按波动贡献分配四象限权重的[《风险平价与全天候配置》](https://ou-liu-red-sugar.github.io/zh/notebook/risk-parity-all-weather/)，以及用 CDS 和深度虚值期权专保极端崩盘的[《信用与尾部风险对冲》](https://ou-liu-red-sugar.github.io/zh/notebook/credit-tail-risk-hedging/)。接下来四篇将依次展开这四类制衡范式。
 
 ## 组合里的现金与再平衡 {#nb-p01-cash-rebalance}
 
@@ -2273,7 +2376,7 @@ Yahoo Finance 调整后收盘价（含分红）· 共同标尺 −40% 至 +25%
 
 **宽基指数与跨资产大类多适用纪律化再平衡；个股仓位在补仓前需要先核对最新经营证据。**
 
-无论决定给一只股票放多大仓位、判断几家公司是否共享同一条需求链，还是决定下跌时该再平衡补仓还是认错退出，最后都要回到企业经营本身。下一篇[《客户、产品与收费方式》](https://ou-liu-red-sugar.github.io/zh/notebook/customers-products-pricing/)便从持有人视角转入公司内部，先弄清每门生意究竟卖给谁、交付什么，又怎样收到钱。
+无论决定给一只股票放多大仓位、判断几家公司是否共享同一条需求链，还是决定下跌时该再平衡补仓还是认错退出，最后都要回到企业经营本身。接下来我们先沿主线依次展开四类主流组合制衡范式——从下一篇[《股票多空与市场中性》](https://ou-liu-red-sugar.github.io/zh/notebook/long-short-market-neutral/)起步，完成全球宏观、风险平价与信用尾部对冲后，再经[《客户、产品与收费方式》](https://ou-liu-red-sugar.github.io/zh/notebook/customers-products-pricing/)转入公司内部经营研究。
 
 [^zh-portfolio-diversification-hedging--voo-sheet]: Vanguard，[VOO 官方季度资料](https://fund-docs.vanguard.com/F0968.pdf)，2026-06-30，第 2 页前十大持仓（NVDA 7.5%、AMZN 3.6%）与行业权重（Information Technology 38.0%）；原始摘录见[本篇复用数据](https://ou-liu-red-sugar.github.io/notebook/index-funds/inputs.json)。
 [^zh-portfolio-diversification-hedging--sec-alloc]: SEC Investor.gov，[Beginners’ Guide to Asset Allocation, Diversification, and Rebalancing](https://www.investor.gov/additional-resources/general-resources/publications-research/info-sheets/beginners-guide-asset)，资产类别间与类别内两层分散、定期／阈值再平衡及新增资金再平衡说明，2026-11-26 查阅。
@@ -2285,7 +2388,7 @@ Yahoo Finance 调整后收盘价（含分红）· 共同标尺 −40% 至 +25%
 [^zh-portfolio-diversification-hedging--bil]: State Street Global Advisors，[SPDR Bloomberg 1–3 Month T-Bill ETF（BIL）摘要招募说明书](https://www.sec.gov/Archives/edgar/data/1064642/000119312525256752/d50862d497k.htm)，2025-10-31，跟踪 1 至 3 个月美国短期国库券指数。
 [^zh-portfolio-diversification-hedging--gld]: World Gold Trust Services，[SPDR Gold Trust（GLD）招募说明书](https://www.sec.gov/Archives/edgar/data/1222333/000119312522257655/d236982d424b3.htm)，2022-10-04，以实物金条支持份额，扣除信托费用后反映金价表现。
 [^zh-portfolio-diversification-hedging--dbc]: Invesco Capital Management，[Invesco DB Commodity Index Tracking Fund（DBC）招募说明书](https://www.sec.gov/Archives/edgar/data/1328237/000119312525273344/d50866d424b3.htm)，2025-11-10 修订，通过能源、金属与农产品期货合约跟踪商品指数并以短期美债等作保证金管理。
-[^zh-portfolio-diversification-hedging--hyg]: BlackRock iShares，[iShares iBoxx $ High Yield Corporate Bond ETF（HYG）](https://www.ishares.com/us/products/239565/ishares-iboxx-high-yield-corporate-bond-etf)，跟踪美元计价的非投资级高收益企业债指数。
+[^zh-portfolio-diversification-hedging--hyg]: BlackRock iShares，[iShares iBoxx USD High Yield Corporate Bond ETF（HYG）](https://www.ishares.com/us/products/239565/ishares-iboxx-high-yield-corporate-bond-etf)，跟踪美元计价的非投资级高收益企业债指数。
 [^zh-portfolio-diversification-hedging--contracts]: [CME：Micro E-mini FAQ](https://www.cmegroup.com/articles/faqs/micro-e-mini-equity-index-futures-frequently-asked-questions.html) 与 [OCC：ETF Options](https://www.theocc.com/clearance-and-settlement/clearing/etf-options)，股指期货合约规则、保证金盯市及标准 ETF 期权权利义务。
 [^zh-portfolio-diversification-hedging--cds-fed]: Federal Reserve Board（FEDS 2022-023），[Credit Default Swaps](https://www.federalreserve.gov/econres/feds/files/2022023pap.pdf)，2022，CDS 定期息差支付、违约赔付、常见 5 年期、OTC 市场结构与中央对手方清算比例。
 [^zh-portfolio-diversification-hedging--cds-sec]: SEC，[Testimony Concerning Credit Default Swaps](https://www.sec.gov/newsroom/speeches-statements/ts101508ers-testimony-concerning-credit-default-swaps)，CDS 在 OTC 市场由成熟机构协商达成、不在传统交易所挂牌及合成信用空头用途。
@@ -2791,7 +2894,7 @@ Yahoo Finance 调整后收盘价 · 1.8× 杠杆按 BIL + 0.50% 年化模拟融�
 2. **普通账户慎用高息融资给低波资产加杠杆**：机构靠国债期货的隐含利率接近无风险基准，个人账户若用高出基准 1%—2% 的券商融资去杠杆化持有中长期债券，在利率倒挂期很容易陷入负利差；无杠杆状态下，适当配入名义债、TIPS、黄金／商品与超短债，已经能建立较稳的四象限缓冲。
 3. **警惕极低利率起点的长久期集中度**：全天候不是永动机；当长债名义利率和实际利率都压在历史低位时，把超长期名义债与超长期 TIPS 叠上杠杆，会同时暴露于利率抬升和相关性翻正，此时保留一部分超短美债（BIL）与实物资产权重，能替组合留出关键的安全垫。
 
-下一篇按需专题[《信用与尾部风险对冲》](https://ou-liu-red-sugar.github.io/zh/notebook/#topic-P)将进入最后一条对冲范式，拆解信用利差、CDS 与深度虚值期权怎样在极端崩盘时提供凸性赔付，以及个人账户的现实替代方案。
+下一篇[《信用与尾部风险对冲》](https://ou-liu-red-sugar.github.io/zh/notebook/credit-tail-risk-hedging/)将进入最后一条对冲范式，拆解信用利差、CDS 与深度虚值期权怎样在极端崩盘时提供凸性赔付，以及个人账户的现实替代方案。
 
 [^zh-risk-parity-all-weather--qian-2005]: Edward E. Qian（PanAgora Asset Management），[Risk Parity Portfolios: Efficient Portfolios Through True Diversification](https://www.panagora.com/assets/PanAgora-Risk-Parity-Portfolios-Efficient-Portfolios-Through-True-Diversification.pdf)，2005 年 9 月，提出风险平价概念并以 1983—2004 年 Russell 1000 与 Lehman Aggregate 证明 60/40 组合 93% 的风险和 95.6% 的大额月度损失来自股票。
 [^zh-risk-parity-all-weather--bridgewater-aw]: Bridgewater Associates，[The All Weather Story](https://www.bridgewater.com/resources/all-weather-story.pdf)，2012，记录 1996 年全天候策略创立背景与增长／通胀四象限各 25% 风险预算映射。

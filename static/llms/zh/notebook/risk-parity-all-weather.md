@@ -95,7 +95,7 @@ Yahoo Finance 调整后收盘价 · 1.8× 杠杆按 BIL + 0.50% 年化模拟融�
 2. **普通账户慎用高息融资给低波资产加杠杆**：机构靠国债期货的隐含利率接近无风险基准，个人账户若用高出基准 1%—2% 的券商融资去杠杆化持有中长期债券，在利率倒挂期很容易陷入负利差；无杠杆状态下，适当配入名义债、TIPS、黄金／商品与超短债，已经能建立较稳的四象限缓冲。
 3. **警惕极低利率起点的长久期集中度**：全天候不是永动机；当长债名义利率和实际利率都压在历史低位时，把超长期名义债与超长期 TIPS 叠上杠杆，会同时暴露于利率抬升和相关性翻正，此时保留一部分超短美债（BIL）与实物资产权重，能替组合留出关键的安全垫。
 
-下一篇按需专题[《信用与尾部风险对冲》](https://ou-liu-red-sugar.github.io/zh/notebook/#topic-P)将进入最后一条对冲范式，拆解信用利差、CDS 与深度虚值期权怎样在极端崩盘时提供凸性赔付，以及个人账户的现实替代方案。
+下一篇[《信用与尾部风险对冲》](https://ou-liu-red-sugar.github.io/zh/notebook/credit-tail-risk-hedging/)将进入最后一条对冲范式，拆解信用利差、CDS 与深度虚值期权怎样在极端崩盘时提供凸性赔付，以及个人账户的现实替代方案。
 
 [^qian-2005]: Edward E. Qian（PanAgora Asset Management），[Risk Parity Portfolios: Efficient Portfolios Through True Diversification](https://www.panagora.com/assets/PanAgora-Risk-Parity-Portfolios-Efficient-Portfolios-Through-True-Diversification.pdf)，2005 年 9 月，提出风险平价概念并以 1983—2004 年 Russell 1000 与 Lehman Aggregate 证明 60/40 组合 93% 的风险和 95.6% 的大额月度损失来自股票。
 [^bridgewater-aw]: Bridgewater Associates，[The All Weather Story](https://www.bridgewater.com/resources/all-weather-story.pdf)，2012，记录 1996 年全天候策略创立背景与增长／通胀四象限各 25% 风险预算映射。

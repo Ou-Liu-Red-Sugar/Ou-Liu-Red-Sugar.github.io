@@ -1388,8 +1388,13 @@
       "node": "P",
       "title": "信用与尾部风险对冲",
       "goal": "解释 CDS 与深度虚值期权怎样对冲信用收缩与极端崩盘，比较常态保费损耗、机构门槛与个人替代工具。",
-      "status": "planned",
-      "url": null
+      "status": "available",
+      "url": "/zh/notebook/credit-tail-risk-hedging/",
+      "reading_profile": {
+        "difficulty": "进阶",
+        "depth": "详解",
+        "note": "需要结合信用利差、CDS 信用事件与拍卖回收机制、期权波动率风险溢价及路径依赖，权衡常态保费损耗与极端危机凸性赔付。"
+      }
     },
     {
       "id": "NB-L01",
@@ -1434,7 +1439,7 @@
   ],
   "reading_route": {
     "title": "从投资基础到公司研究",
-    "description": "先理解资金、股票、交易和组合，再进入客户、业务、财报、投资判断与 Agent；专题按实际用途选读。",
+    "description": "先理解资金、股票、交易、组合总图与四类风险制衡范式，再进入客户、业务、财报、投资判断与 Agent；专题按实际用途选读。",
     "steps": [
       {
         "id": "NB-A01",
@@ -1567,8 +1572,60 @@
         }
       },
       {
-        "id": "NB-D01",
+        "id": "NB-P02",
         "number": 11,
+        "title": "股票多空与市场中性",
+        "note": "拆分总敞口与净敞口，看清市场中性策略的收益来源、融券摩擦与因子踩踏风险。",
+        "status": "available",
+        "url": "/zh/notebook/long-short-market-neutral/",
+        "reading_profile": {
+          "difficulty": "进阶",
+          "depth": "详解",
+          "note": "需要同时理解多空总／净敞口、beta 与风格因子中性、卖空现金抵押与借券费结构，以及轧空与拥挤去杠杆两类尾部失效。"
+        }
+      },
+      {
+        "id": "NB-P03",
+        "number": 12,
+        "title": "全球宏观与跨资产配置",
+        "note": "沿宏观周期跨资产表达判断，并识破跨国跨品种背后的同一底层风险。",
+        "status": "available",
+        "url": "/zh/notebook/global-macro-cross-asset/",
+        "reading_profile": {
+          "difficulty": "进阶",
+          "depth": "详解",
+          "note": "需要结合利率、汇率、跨市场周收益相关性、公司跨境财报口径与流动性去杠杆机制，辨别表达载体选择、底层共因与局部背离。"
+        }
+      },
+      {
+        "id": "NB-P04",
+        "number": 13,
+        "title": "风险平价与全天候配置",
+        "note": "从资金权重转向风险贡献，理解风险平价的四象限制衡与加息边界。",
+        "status": "available",
+        "url": "/zh/notebook/risk-parity-all-weather/",
+        "reading_profile": {
+          "difficulty": "进阶",
+          "depth": "详解",
+          "note": "需要结合 Euler 风险贡献分解、增长与通胀四象限映射、TIPS 实际利率久期及杠杆融资成本公式，判断风险平价的适用条件与失效边界。"
+        }
+      },
+      {
+        "id": "NB-P05",
+        "number": 14,
+        "title": "信用与尾部风险对冲",
+        "note": "理解 CDS 与尾部期权的凸性赔付、常态损耗及个人账户替代方案。",
+        "status": "available",
+        "url": "/zh/notebook/credit-tail-risk-hedging/",
+        "reading_profile": {
+          "difficulty": "进阶",
+          "depth": "详解",
+          "note": "需要结合信用利差、CDS 信用事件与拍卖回收机制、期权波动率风险溢价及路径依赖，权衡常态保费损耗与极端危机凸性赔付。"
+        }
+      },
+      {
+        "id": "NB-D01",
+        "number": 15,
         "title": "客户、产品与收费方式",
         "note": "认清每门生意的客户、交付与收费，再沿实际关系检查需求依据。",
         "status": "available",
@@ -1581,7 +1638,7 @@
       },
       {
         "id": "NB-D02",
-        "number": 12,
+        "number": 16,
         "title": "收入增长与市场预期",
         "note": "拆开销量、净价、客户和产品组合，用真实业绩与预测市场辨认增长预期，再从股价反推所需收入，交给经营证据检验。",
         "status": "available",
@@ -1595,14 +1652,14 @@
     ],
     "next": {
       "id": "NB-D03",
-      "number": 13,
+      "number": 17,
       "title": "成本结构与经营杠杆",
       "note": "解释收入变化怎样通过成本和产能形成不同利润结果。",
       "status": "planned",
       "url": null
     },
-    "available_count": 17,
-    "intro_available_count": 12,
+    "available_count": 18,
+    "intro_available_count": 16,
     "navigation": {
       "NB-A01": {
         "current": {
@@ -1989,31 +2046,31 @@
           }
         },
         "next": {
-          "id": "NB-D01",
+          "id": "NB-P02",
           "number": 11,
-          "title": "客户、产品与收费方式",
-          "note": "认清每门生意的客户、交付与收费，再沿实际关系检查需求依据。",
+          "title": "股票多空与市场中性",
+          "note": "拆分总敞口与净敞口，看清市场中性策略的收益来源、融券摩擦与因子踩踏风险。",
           "status": "available",
-          "url": "/zh/notebook/customers-products-pricing/",
+          "url": "/zh/notebook/long-short-market-neutral/",
           "reading_profile": {
-            "difficulty": "入门",
+            "difficulty": "进阶",
             "depth": "详解",
-            "note": "从熟悉的交易进入，按所选行业解释客户、交付、收费与需求依据；无需先掌握财务模型。"
+            "note": "需要同时理解多空总／净敞口、beta 与风格因子中性、卖空现金抵押与借券费结构，以及轧空与拥挤去杠杆两类尾部失效。"
           }
         }
       },
-      "NB-D01": {
+      "NB-P02": {
         "current": {
-          "id": "NB-D01",
+          "id": "NB-P02",
           "number": 11,
-          "title": "客户、产品与收费方式",
-          "note": "认清每门生意的客户、交付与收费，再沿实际关系检查需求依据。",
+          "title": "股票多空与市场中性",
+          "note": "拆分总敞口与净敞口，看清市场中性策略的收益来源、融券摩擦与因子踩踏风险。",
           "status": "available",
-          "url": "/zh/notebook/customers-products-pricing/",
+          "url": "/zh/notebook/long-short-market-neutral/",
           "reading_profile": {
-            "difficulty": "入门",
+            "difficulty": "进阶",
             "depth": "详解",
-            "note": "从熟悉的交易进入，按所选行业解释客户、交付、收费与需求依据；无需先掌握财务模型。"
+            "note": "需要同时理解多空总／净敞口、beta 与风格因子中性、卖空现金抵押与借券费结构，以及轧空与拥挤去杠杆两类尾部失效。"
           }
         },
         "previous": {
@@ -2030,8 +2087,172 @@
           }
         },
         "next": {
-          "id": "NB-D02",
+          "id": "NB-P03",
           "number": 12,
+          "title": "全球宏观与跨资产配置",
+          "note": "沿宏观周期跨资产表达判断，并识破跨国跨品种背后的同一底层风险。",
+          "status": "available",
+          "url": "/zh/notebook/global-macro-cross-asset/",
+          "reading_profile": {
+            "difficulty": "进阶",
+            "depth": "详解",
+            "note": "需要结合利率、汇率、跨市场周收益相关性、公司跨境财报口径与流动性去杠杆机制，辨别表达载体选择、底层共因与局部背离。"
+          }
+        }
+      },
+      "NB-P03": {
+        "current": {
+          "id": "NB-P03",
+          "number": 12,
+          "title": "全球宏观与跨资产配置",
+          "note": "沿宏观周期跨资产表达判断，并识破跨国跨品种背后的同一底层风险。",
+          "status": "available",
+          "url": "/zh/notebook/global-macro-cross-asset/",
+          "reading_profile": {
+            "difficulty": "进阶",
+            "depth": "详解",
+            "note": "需要结合利率、汇率、跨市场周收益相关性、公司跨境财报口径与流动性去杠杆机制，辨别表达载体选择、底层共因与局部背离。"
+          }
+        },
+        "previous": {
+          "id": "NB-P02",
+          "number": 11,
+          "title": "股票多空与市场中性",
+          "note": "拆分总敞口与净敞口，看清市场中性策略的收益来源、融券摩擦与因子踩踏风险。",
+          "status": "available",
+          "url": "/zh/notebook/long-short-market-neutral/",
+          "reading_profile": {
+            "difficulty": "进阶",
+            "depth": "详解",
+            "note": "需要同时理解多空总／净敞口、beta 与风格因子中性、卖空现金抵押与借券费结构，以及轧空与拥挤去杠杆两类尾部失效。"
+          }
+        },
+        "next": {
+          "id": "NB-P04",
+          "number": 13,
+          "title": "风险平价与全天候配置",
+          "note": "从资金权重转向风险贡献，理解风险平价的四象限制衡与加息边界。",
+          "status": "available",
+          "url": "/zh/notebook/risk-parity-all-weather/",
+          "reading_profile": {
+            "difficulty": "进阶",
+            "depth": "详解",
+            "note": "需要结合 Euler 风险贡献分解、增长与通胀四象限映射、TIPS 实际利率久期及杠杆融资成本公式，判断风险平价的适用条件与失效边界。"
+          }
+        }
+      },
+      "NB-P04": {
+        "current": {
+          "id": "NB-P04",
+          "number": 13,
+          "title": "风险平价与全天候配置",
+          "note": "从资金权重转向风险贡献，理解风险平价的四象限制衡与加息边界。",
+          "status": "available",
+          "url": "/zh/notebook/risk-parity-all-weather/",
+          "reading_profile": {
+            "difficulty": "进阶",
+            "depth": "详解",
+            "note": "需要结合 Euler 风险贡献分解、增长与通胀四象限映射、TIPS 实际利率久期及杠杆融资成本公式，判断风险平价的适用条件与失效边界。"
+          }
+        },
+        "previous": {
+          "id": "NB-P03",
+          "number": 12,
+          "title": "全球宏观与跨资产配置",
+          "note": "沿宏观周期跨资产表达判断，并识破跨国跨品种背后的同一底层风险。",
+          "status": "available",
+          "url": "/zh/notebook/global-macro-cross-asset/",
+          "reading_profile": {
+            "difficulty": "进阶",
+            "depth": "详解",
+            "note": "需要结合利率、汇率、跨市场周收益相关性、公司跨境财报口径与流动性去杠杆机制，辨别表达载体选择、底层共因与局部背离。"
+          }
+        },
+        "next": {
+          "id": "NB-P05",
+          "number": 14,
+          "title": "信用与尾部风险对冲",
+          "note": "理解 CDS 与尾部期权的凸性赔付、常态损耗及个人账户替代方案。",
+          "status": "available",
+          "url": "/zh/notebook/credit-tail-risk-hedging/",
+          "reading_profile": {
+            "difficulty": "进阶",
+            "depth": "详解",
+            "note": "需要结合信用利差、CDS 信用事件与拍卖回收机制、期权波动率风险溢价及路径依赖，权衡常态保费损耗与极端危机凸性赔付。"
+          }
+        }
+      },
+      "NB-P05": {
+        "current": {
+          "id": "NB-P05",
+          "number": 14,
+          "title": "信用与尾部风险对冲",
+          "note": "理解 CDS 与尾部期权的凸性赔付、常态损耗及个人账户替代方案。",
+          "status": "available",
+          "url": "/zh/notebook/credit-tail-risk-hedging/",
+          "reading_profile": {
+            "difficulty": "进阶",
+            "depth": "详解",
+            "note": "需要结合信用利差、CDS 信用事件与拍卖回收机制、期权波动率风险溢价及路径依赖，权衡常态保费损耗与极端危机凸性赔付。"
+          }
+        },
+        "previous": {
+          "id": "NB-P04",
+          "number": 13,
+          "title": "风险平价与全天候配置",
+          "note": "从资金权重转向风险贡献，理解风险平价的四象限制衡与加息边界。",
+          "status": "available",
+          "url": "/zh/notebook/risk-parity-all-weather/",
+          "reading_profile": {
+            "difficulty": "进阶",
+            "depth": "详解",
+            "note": "需要结合 Euler 风险贡献分解、增长与通胀四象限映射、TIPS 实际利率久期及杠杆融资成本公式，判断风险平价的适用条件与失效边界。"
+          }
+        },
+        "next": {
+          "id": "NB-D01",
+          "number": 15,
+          "title": "客户、产品与收费方式",
+          "note": "认清每门生意的客户、交付与收费，再沿实际关系检查需求依据。",
+          "status": "available",
+          "url": "/zh/notebook/customers-products-pricing/",
+          "reading_profile": {
+            "difficulty": "入门",
+            "depth": "详解",
+            "note": "从熟悉的交易进入，按所选行业解释客户、交付、收费与需求依据；无需先掌握财务模型。"
+          }
+        }
+      },
+      "NB-D01": {
+        "current": {
+          "id": "NB-D01",
+          "number": 15,
+          "title": "客户、产品与收费方式",
+          "note": "认清每门生意的客户、交付与收费，再沿实际关系检查需求依据。",
+          "status": "available",
+          "url": "/zh/notebook/customers-products-pricing/",
+          "reading_profile": {
+            "difficulty": "入门",
+            "depth": "详解",
+            "note": "从熟悉的交易进入，按所选行业解释客户、交付、收费与需求依据；无需先掌握财务模型。"
+          }
+        },
+        "previous": {
+          "id": "NB-P05",
+          "number": 14,
+          "title": "信用与尾部风险对冲",
+          "note": "理解 CDS 与尾部期权的凸性赔付、常态损耗及个人账户替代方案。",
+          "status": "available",
+          "url": "/zh/notebook/credit-tail-risk-hedging/",
+          "reading_profile": {
+            "difficulty": "进阶",
+            "depth": "详解",
+            "note": "需要结合信用利差、CDS 信用事件与拍卖回收机制、期权波动率风险溢价及路径依赖，权衡常态保费损耗与极端危机凸性赔付。"
+          }
+        },
+        "next": {
+          "id": "NB-D02",
+          "number": 16,
           "title": "收入增长与市场预期",
           "note": "拆开销量、净价、客户和产品组合，用真实业绩与预测市场辨认增长预期，再从股价反推所需收入，交给经营证据检验。",
           "status": "available",
@@ -2046,7 +2267,7 @@
       "NB-D02": {
         "current": {
           "id": "NB-D02",
-          "number": 12,
+          "number": 16,
           "title": "收入增长与市场预期",
           "note": "拆开销量、净价、客户和产品组合，用真实业绩与预测市场辨认增长预期，再从股价反推所需收入，交给经营证据检验。",
           "status": "available",
@@ -2059,7 +2280,7 @@
         },
         "previous": {
           "id": "NB-D01",
-          "number": 11,
+          "number": 15,
           "title": "客户、产品与收费方式",
           "note": "认清每门生意的客户、交付与收费，再沿实际关系检查需求依据。",
           "status": "available",
@@ -2072,7 +2293,7 @@
         },
         "next": {
           "id": "NB-D03",
-          "number": 13,
+          "number": 17,
           "title": "成本结构与经营杠杆",
           "note": "解释收入变化怎样通过成本和产能形成不同利润结果。",
           "status": "planned",
@@ -2082,7 +2303,7 @@
       "NB-B05": {
         "current": {
           "id": "NB-B05",
-          "number": 55,
+          "number": 59,
           "title": "指标与趋势交易",
           "note": "按相应工具或判断问题选读。把量价观察写成明确的趋势判断、进出场与失效规则。",
           "status": "available",
@@ -2095,7 +2316,7 @@
         },
         "previous": {
           "id": "NB-S05",
-          "number": 54,
+          "number": 58,
           "title": "选股、基金与业绩比较",
           "note": "按相应工具或判断问题选读。比较选股、委托管理和指数投资的费用后结果及判断依据。",
           "status": "planned",
@@ -2103,7 +2324,7 @@
         },
         "next": {
           "id": "NB-B06",
-          "number": 56,
+          "number": 60,
           "title": "量化交易",
           "note": "按相应工具或判断问题选读。用历史数据、成本和样本外结果检验可重复执行的交易规则。",
           "status": "planned",
@@ -2113,7 +2334,7 @@
       "NB-B03": {
         "current": {
           "id": "NB-B03",
-          "number": 57,
+          "number": 61,
           "title": "保证金、对冲与期间现金",
           "note": "按相应工具或判断问题选读。在已有组合上比较保证金、对冲工具和期间现金需要。",
           "status": "available",
@@ -2126,7 +2347,7 @@
         },
         "previous": {
           "id": "NB-B06",
-          "number": 56,
+          "number": 60,
           "title": "量化交易",
           "note": "按相应工具或判断问题选读。用历史数据、成本和样本外结果检验可重复执行的交易规则。",
           "status": "planned",
@@ -2134,122 +2355,9 @@
         },
         "next": {
           "id": "NB-K05",
-          "number": 58,
+          "number": 62,
           "title": "个股期货、股票永续与代币化股票",
           "note": "按相应工具或判断问题选读。区分围绕同一股票形成的合约与代币化产品，辨认实际取得的权益和资金安排。",
-          "status": "planned",
-          "url": null
-        }
-      },
-      "NB-P02": {
-        "current": {
-          "id": "NB-P02",
-          "number": 69,
-          "title": "股票多空与市场中性",
-          "note": "按相应工具或判断问题选读。拆分总敞口与净敞口，看清市场中性策略的收益来源、融券摩擦与因子踩踏风险。",
-          "status": "available",
-          "url": "/zh/notebook/long-short-market-neutral/",
-          "reading_profile": {
-            "difficulty": "进阶",
-            "depth": "详解",
-            "note": "需要同时理解多空总／净敞口、beta 与风格因子中性、卖空现金抵押与借券费结构，以及轧空与拥挤去杠杆两类尾部失效。"
-          }
-        },
-        "previous": {
-          "id": "NB-G06",
-          "number": 68,
-          "title": "价差组合与策略选择",
-          "note": "按相应工具或判断问题选读。按价格判断和持有目的比较多腿期权的净结果与执行条件。",
-          "status": "planned",
-          "url": null
-        },
-        "next": {
-          "id": "NB-P03",
-          "number": 70,
-          "title": "全球宏观与跨资产配置",
-          "note": "按相应工具或判断问题选读。沿宏观周期跨资产表达判断，并识破跨国跨品种背后的同一底层风险。",
-          "status": "available",
-          "url": "/zh/notebook/global-macro-cross-asset/",
-          "reading_profile": {
-            "difficulty": "进阶",
-            "depth": "详解",
-            "note": "需要结合利率、汇率、跨市场周收益相关性、公司跨境财报口径与流动性去杠杆机制，辨别表达载体选择、底层共因与局部背离。"
-          }
-        }
-      },
-      "NB-P03": {
-        "current": {
-          "id": "NB-P03",
-          "number": 70,
-          "title": "全球宏观与跨资产配置",
-          "note": "按相应工具或判断问题选读。沿宏观周期跨资产表达判断，并识破跨国跨品种背后的同一底层风险。",
-          "status": "available",
-          "url": "/zh/notebook/global-macro-cross-asset/",
-          "reading_profile": {
-            "difficulty": "进阶",
-            "depth": "详解",
-            "note": "需要结合利率、汇率、跨市场周收益相关性、公司跨境财报口径与流动性去杠杆机制，辨别表达载体选择、底层共因与局部背离。"
-          }
-        },
-        "previous": {
-          "id": "NB-P02",
-          "number": 69,
-          "title": "股票多空与市场中性",
-          "note": "按相应工具或判断问题选读。拆分总敞口与净敞口，看清市场中性策略的收益来源、融券摩擦与因子踩踏风险。",
-          "status": "available",
-          "url": "/zh/notebook/long-short-market-neutral/",
-          "reading_profile": {
-            "difficulty": "进阶",
-            "depth": "详解",
-            "note": "需要同时理解多空总／净敞口、beta 与风格因子中性、卖空现金抵押与借券费结构，以及轧空与拥挤去杠杆两类尾部失效。"
-          }
-        },
-        "next": {
-          "id": "NB-P04",
-          "number": 71,
-          "title": "风险平价与全天候配置",
-          "note": "按相应工具或判断问题选读。从资金权重转向风险贡献，理解风险平价的四象限制衡与加息边界。",
-          "status": "available",
-          "url": "/zh/notebook/risk-parity-all-weather/",
-          "reading_profile": {
-            "difficulty": "进阶",
-            "depth": "详解",
-            "note": "需要结合 Euler 风险贡献分解、增长与通胀四象限映射、TIPS 实际利率久期及杠杆融资成本公式，判断风险平价的适用条件与失效边界。"
-          }
-        }
-      },
-      "NB-P04": {
-        "current": {
-          "id": "NB-P04",
-          "number": 71,
-          "title": "风险平价与全天候配置",
-          "note": "按相应工具或判断问题选读。从资金权重转向风险贡献，理解风险平价的四象限制衡与加息边界。",
-          "status": "available",
-          "url": "/zh/notebook/risk-parity-all-weather/",
-          "reading_profile": {
-            "difficulty": "进阶",
-            "depth": "详解",
-            "note": "需要结合 Euler 风险贡献分解、增长与通胀四象限映射、TIPS 实际利率久期及杠杆融资成本公式，判断风险平价的适用条件与失效边界。"
-          }
-        },
-        "previous": {
-          "id": "NB-P03",
-          "number": 70,
-          "title": "全球宏观与跨资产配置",
-          "note": "按相应工具或判断问题选读。沿宏观周期跨资产表达判断，并识破跨国跨品种背后的同一底层风险。",
-          "status": "available",
-          "url": "/zh/notebook/global-macro-cross-asset/",
-          "reading_profile": {
-            "difficulty": "进阶",
-            "depth": "详解",
-            "note": "需要结合利率、汇率、跨市场周收益相关性、公司跨境财报口径与流动性去杠杆机制，辨别表达载体选择、底层共因与局部背离。"
-          }
-        },
-        "next": {
-          "id": "NB-P05",
-          "number": 72,
-          "title": "信用与尾部风险对冲",
-          "note": "按相应工具或判断问题选读。理解 CDS 与尾部期权的凸性赔付、常态损耗及个人账户替代方案。",
           "status": "planned",
           "url": null
         }
@@ -2257,12 +2365,16 @@
     },
     "credits": [
       {
-        "label": "第 1–7、9、11–12 篇",
+        "label": "第 1–7、9、15–16 篇",
         "writer": "Codex GPT-6 Astra"
       },
       {
-        "label": "第 8、10 篇",
+        "label": "第 8 篇",
         "writer": "Claude"
+      },
+      {
+        "label": "第 10–14 篇",
+        "writer": "Gemini 4 Neon"
       }
     ],
     "writing_method": "Chinese-writing",
@@ -2271,9 +2383,16 @@
       {
         "id": "foundations",
         "title": "认识股票、市场与组合",
-        "goal": "从资金用途进入股票、基金和交易，再以复利、期限、亏损与组合建立持有判断。",
+        "goal": "从资金用途进入股票、基金和交易，再以复利、期限、亏损与多资产总图建立持有判断。",
         "available_count": 10,
         "total": 10
+      },
+      {
+        "id": "portfolio_paradigms",
+        "title": "组合制衡与机构配置范式",
+        "goal": "在 P01 的多资产总图之上，完整掌握股票多空与市场中性、全球宏观、风险平价及信用尾部对冲四类主流风险制衡框架。",
+        "available_count": 4,
+        "total": 4
       },
       {
         "id": "business",
@@ -2344,13 +2463,6 @@
         "goal": "补齐权利、退出、定价和多腿策略，并接回既有组合。",
         "available_count": 0,
         "total": 5
-      },
-      {
-        "id": "optional_portfolio_paradigms",
-        "title": "按需专题：多资产组合与对冲范式",
-        "goal": "分别展开股票多空与市场中性、全球宏观、风险平价及信用尾部对冲四类常见机构风险制衡框架。",
-        "available_count": 3,
-        "total": 4
       },
       {
         "id": "optional_perpetuals",

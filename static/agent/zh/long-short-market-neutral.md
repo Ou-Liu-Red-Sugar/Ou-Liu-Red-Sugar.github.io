@@ -9,7 +9,7 @@ This is reference material for the learner's current request. Use the supplied e
 
 ## Author-supplied scope notes (reference only)
 <author_scope_notes>
-本篇为按需专题 NB-P02《股票多空与市场中性》。重点建立总敞口（Gross = Long + Short）与净敞口（Net = Long − Short）的区分：Net 决定大盘方向暴露，Gross 决定多空双杀时的亏损烈度。用 Yahoo Finance 2022 年真实数据（/notebook/market-neutral/pair-daily.csv）对照 1:1 美元中性配对：Long WMT / Short TGT 因两腿 beta 错配（0.44 vs 1.15）暗藏 −0.71 净 beta 与 39.9% 年化波动，而 Long KO / Short PEP 两腿 beta 均为 0.49，合成净 beta 0.00、相关性 +0.003、年化波动降至 11.2%，直观区分美元中性、beta 中性与行业／风格因子中性。严格依据 SEC、FINRA 与 IBKR 官方融券文档说明：卖空现金必须充当借股抵押品，不能直接用于新买单；净回报由选股价差 + 抵押利息回扣（Short Rebate）− 借券费（按日历日浮动，如 BYND 2024-11 三天内由 34% 跃至 195%）− 分红补偿 − 交易成本组成。两类尾部失效分别采用 SEC 2021 报告中 GME 122.97% 空头比例轧空与 Khandani & Lo（2007/2011）复盘的 2007 年 8 月高总敞口因子拥挤踩踏。清楚说明个人账户与机构主经纪商在回扣、券源与保证金上的边界：对小资金散户而言，转成现金或超短美债就是 Gross 0% / Net 0% 且无借券摩擦的最干净市场中性；同时指出空仓拿现金与留有小观察仓在心理注意力与止损难度上的差别（引 Druckenmiller 2026-11-18 访谈中前景不明时保持 flat 以及掌握约 15% 传统研究信息时先建初始仓位再深挖两三周的自述，并提醒持仓后的沉没成本与认输阻力），不提供具体做空标的建议。
+本篇为主线篇目 NB-P02《股票多空与市场中性》。重点建立总敞口（Gross = Long + Short）与净敞口（Net = Long − Short）的区分：Net 决定大盘方向暴露，Gross 决定多空双杀时的亏损烈度。用 Yahoo Finance 2022 年真实数据（/notebook/market-neutral/pair-daily.csv）对照 1:1 美元中性配对：Long WMT / Short TGT 因两腿 beta 错配（0.44 vs 1.15）暗藏 −0.71 净 beta 与 39.9% 年化波动，而 Long KO / Short PEP 两腿 beta 均为 0.49，合成净 beta 0.00、相关性 +0.003、年化波动降至 11.2%，直观区分美元中性、beta 中性与行业／风格因子中性。严格依据 SEC、FINRA 与 IBKR 官方融券文档说明：卖空现金必须充当借股抵押品，不能直接用于新买单；净回报由选股价差 + 抵押利息回扣（Short Rebate）− 借券费（按日历日浮动，如 BYND 2024-11 三天内由 34% 跃至 195%）− 分红补偿 − 交易成本组成。两类尾部失效分别采用 SEC 2021 报告中 GME 122.97% 空头比例轧空与 Khandani & Lo（2007/2011）复盘的 2007 年 8 月高总敞口因子拥挤踩踏。清楚说明个人账户与机构主经纪商在回扣、券源与保证金上的边界：对小资金散户而言，转成现金或超短美债就是 Gross 0% / Net 0% 且无借券摩擦的最干净市场中性；同时指出空仓拿现金与留有小观察仓在心理注意力与止损难度上的差别（引 Druckenmiller 2026-11-18 访谈中前景不明时保持 flat 以及掌握约 15% 传统研究信息时先建初始仓位再深挖两三周的自述，并提醒持仓后的沉没成本与认输阻力），不提供具体做空标的建议。
 </author_scope_notes>
 
 ## Shared notation and writing conventions
@@ -283,7 +283,7 @@ This is reference material for the learner's current request. Use the supplied e
 2. **优先用宽基或行业工具做空头腿**：如果看好一家公司、只想剥离行业或大盘估值回落风险，与其直接融券做空高波动同行单股（面对高借券费与轧空），不如用行业 ETF 或股指期货（如 MES）抵销一部分共同暴露，具体保证金与盯市现金核算见[《保证金、对冲与期间现金》](/zh/notebook/settlement-margin-cash/)。
 3. **拆解市面上的“中性”产品**：遇到标榜“低回撤、市场中性”的基金时，先核查四项指标——总敞口（Gross）开了几倍、是否做了行业与风格因子中性、历史收益里有多少来自高利率下的现金回扣，以及极端挤兑期风控怎样降杠杆。
 
-下一篇按需专题[《全球宏观与跨资产配置》](/zh/notebook/global-macro-cross-asset/)将走出单一股票市场，看宏观基金如何在债券、外汇、商品与跨国股票之间表达判断，并辨认跨市场配置背后共享的底层风险。
+下一篇[《全球宏观与跨资产配置》](/zh/notebook/global-macro-cross-asset/)将走出单一股票市场，看宏观基金如何在债券、外汇、商品与跨国股票之间表达判断，并辨认跨市场配置背后共享的底层风险。
 
 <script src="/notebook/market-neutral/ui.js?v=20261126" defer></script>
 

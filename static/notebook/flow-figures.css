@@ -6494,3 +6494,216 @@
   .p04-eras .p04-epanel { padding: 8px 9px; }
   .p04-eras .p04-erow { padding: 4px 7px; font-size: 10.5px; }
 }
+
+/* =========================================================
+ * NB-P05 Credit & Tail-Risk Hedging figures
+ * ========================================================= */
+
+/* 1. Three crisis regimes comparison */
+.p05-crises .p05-cgrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+}
+.p05-crises .p05-ccard {
+  padding: 10px 11px;
+  border: 1px solid var(--ff-rule);
+  border-top: 3px solid var(--p05-c, var(--ff-cash));
+  border-radius: 8px;
+  background: var(--ff-card);
+}
+.p05-crises .p05-chead { margin-bottom: 6px; }
+.p05-crises .p05-chead strong { display: block; font-size: 12.5px; color: var(--ff-ink); }
+.p05-crises .p05-chead small { display: block; font-size: 10.5px; color: var(--ff-muted); margin-top: 1px; }
+.p05-crises .p05-cstats {
+  display: grid;
+  gap: 4px;
+  margin-bottom: 7px;
+}
+.p05-crises .p05-cstat {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 3px 6px;
+  border-radius: 4px;
+  background: #f7f7ef;
+  font-size: 11px;
+}
+.p05-crises .p05-cstat span { color: var(--ff-muted); }
+.p05-crises .p05-cstat b { color: var(--ff-ink); font-variant-numeric: tabular-nums; }
+.p05-crises .p05-cstat b.p05-neg { color: var(--ff-cash-text); }
+.p05-crises .p05-cstat b.p05-pos { color: var(--ff-share); }
+.p05-crises .p05-cverdict {
+  margin: 0;
+  padding-top: 5px;
+  border-top: 1px dashed var(--ff-rule);
+  font-size: 11px;
+  line-height: 1.42;
+  color: var(--ff-text);
+}
+
+/* 2. CDS cash flow & credit event settlement */
+.p05-cds-flow .p05-flane {
+  padding: 9px 11px;
+  border: 1px solid var(--ff-rule);
+  border-radius: 8px;
+  background: var(--ff-card);
+}
+.p05-cds-flow .p05-flane + .p05-flane { margin-top: 9px; }
+.p05-cds-flow .p05-flane.p05-fevent { border-color: #e6cdb0; background: #fdfaf5; }
+.p05-cds-flow .p05-fhead {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 6px;
+  margin-bottom: 7px;
+}
+.p05-cds-flow .p05-fhead strong { font-size: 12.5px; color: var(--ff-ink); }
+.p05-cds-flow .p05-fhead span { font-size: 10.5px; font-weight: 600; color: var(--ff-share); }
+.p05-cds-flow .p05-fevent .p05-fhead span { color: var(--ff-cash-text); }
+.p05-cds-flow .p05-fsteps {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+}
+.p05-cds-flow .p05-fbox {
+  padding: 7px 8px;
+  border: 1px solid var(--ff-rule);
+  border-radius: 6px;
+  background: rgba(255,255,255,0.85);
+  font-size: 11px;
+  line-height: 1.4;
+  color: var(--ff-text);
+}
+.p05-cds-flow .p05-fbox b { display: block; font-size: 11.5px; color: var(--ff-ink); margin-bottom: 2px; }
+.p05-cds-flow .p05-fevent .p05-fbox:last-child { border-color: var(--ff-cash); background: var(--ff-cash-bg); color: var(--ff-cash-text); }
+.p05-cds-flow .p05-fevent .p05-fbox:last-child b { color: var(--ff-cash-text); }
+
+/* 3. Interactive Tail-Risk Budget & Dry-Powder Lab */
+.p05-tail-lab .p05-presets {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 9px;
+}
+.p05-tail-lab .p05-presets button {
+  padding: 4px 10px;
+  border: 1px solid var(--ff-rule);
+  border-radius: 999px;
+  background: var(--ff-card);
+  color: var(--ff-text);
+  font-size: 11.5px;
+  font-weight: 600;
+  cursor: pointer;
+}
+.p05-tail-lab .p05-presets button[aria-pressed="true"] {
+  border-color: var(--ff-share);
+  background: var(--ff-share);
+  color: #fff;
+}
+.p05-tail-lab .p05-sliders {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+  padding: 9px 11px;
+  border: 1px solid var(--ff-rule);
+  border-radius: 8px;
+  background: var(--ff-card);
+  margin-bottom: 10px;
+}
+.p05-tail-lab .p05-srow label {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--ff-ink);
+  margin-bottom: 4px;
+}
+.p05-tail-lab .p05-srow output { font-weight: 700; color: var(--ff-share); font-variant-numeric: tabular-nums; }
+.p05-tail-lab .p05-srow input[type="range"] { width: 100%; accent-color: var(--ff-share); }
+.p05-tail-lab .p05-cards {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 9px;
+}
+.p05-tail-lab .p05-pcard {
+  padding: 9px 10px;
+  border: 1px solid var(--ff-rule);
+  border-radius: 8px;
+  background: var(--ff-card);
+  text-align: center;
+}
+.p05-tail-lab .p05-pcard.p05-phi { border-color: #c2dacb; background: #f2f8f4; }
+.p05-tail-lab .p05-pcard small { display: block; font-size: 11px; font-weight: 600; color: var(--ff-muted); }
+.p05-tail-lab .p05-pcard strong { display: block; margin-top: 3px; font-size: 17px; font-weight: 700; font-variant-numeric: tabular-nums; color: var(--ff-ink); }
+.p05-tail-lab .p05-pcard strong.p05-pos { color: var(--ff-share); }
+.p05-tail-lab .p05-pcard strong.p05-neg { color: var(--ff-cash-text); }
+.p05-tail-lab .p05-pcard span { display: block; margin-top: 2px; font-size: 11px; color: var(--ff-muted); font-variant-numeric: tabular-nums; }
+.p05-tail-lab .p05-rebound {
+  margin: 8px 0 0;
+  padding: 7px 10px;
+  border-radius: 6px;
+  border: 1px solid var(--ff-rule);
+  background: #f5f5ec;
+  font-size: 11.5px;
+  line-height: 1.45;
+  color: var(--ff-text);
+}
+.p05-tail-lab .p05-rebound strong { color: var(--ff-ink); }
+
+/* 4. Institutional OTC vs Retail replacement map */
+.p05-access .p05-agrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+}
+.p05-access .p05-acard {
+  padding: 10px 11px;
+  border: 1px solid var(--ff-rule);
+  border-top: 3px solid var(--p05-c, var(--ff-share));
+  border-radius: 8px;
+  background: var(--ff-card);
+}
+.p05-access .p05-ahead {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 4px;
+  margin-bottom: 6px;
+}
+.p05-access .p05-ahead strong { font-size: 12.5px; color: var(--ff-ink); }
+.p05-access .p05-ahead span {
+  padding: 1px 6px;
+  border-radius: 8px;
+  font-size: 10px;
+  font-weight: 700;
+  background: #eff7f2;
+  color: var(--ff-share);
+  white-space: nowrap;
+}
+.p05-access .p05-acard.p05-aotc .p05-ahead span { background: var(--ff-cash-bg); color: var(--ff-cash-text); }
+.p05-access .p05-acard dl { margin: 0; display: grid; gap: 5px; }
+.p05-access .p05-acard dt { font-size: 10px; font-weight: 700; color: var(--ff-muted); }
+.p05-access .p05-acard dd { margin: 1px 0 0; font-size: 11px; line-height: 1.4; color: var(--ff-text); }
+
+@media (max-width: 640px) {
+  .p05-crises .p05-cgrid { grid-template-columns: minmax(0, 1fr); gap: 7px; }
+  .p05-crises .p05-ccard { padding: 8px 9px; }
+  .p05-crises .p05-cstats { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 3px 6px; margin-bottom: 5px; }
+  .p05-crises .p05-cstat { font-size: 10px; padding: 2px 5px; }
+  .p05-crises .p05-cverdict { font-size: 10.5px; padding-top: 4px; }
+
+  .p05-cds-flow .p05-fsteps { grid-template-columns: minmax(0, 1fr); gap: 5px; }
+  .p05-cds-flow .p05-flane { padding: 8px 9px; }
+  .p05-cds-flow .p05-fbox { padding: 5px 7px; font-size: 10.5px; }
+
+  .p05-tail-lab .p05-presets { gap: 4px; margin-bottom: 7px; }
+  .p05-tail-lab .p05-presets button { padding: 3px 8px; font-size: 10.5px; }
+  .p05-tail-lab .p05-sliders { grid-template-columns: minmax(0, 1fr); gap: 6px; padding: 7px 9px; margin-bottom: 8px; }
+  .p05-tail-lab .p05-cards { grid-template-columns: minmax(0, 1fr); gap: 6px; }
+  .p05-tail-lab .p05-pcard { display: flex; justify-content: space-between; align-items: baseline; text-align: left; padding: 7px 9px; }
+  .p05-tail-lab .p05-pcard strong { margin-top: 0; font-size: 14.5px; }
+
+  .p05-access .p05-agrid { grid-template-columns: minmax(0, 1fr); gap: 7px; }
+  .p05-access .p05-acard { padding: 8px 9px; }
+}

@@ -2,6 +2,7 @@
 
 - [符号与单位](https://ou-liu-red-sugar.github.io/agent/zh/notation.md)
 - [复利、通胀与机会成本](https://ou-liu-red-sugar.github.io/agent/zh/compounding-inflation-opportunity-cost.md)
+- [信用与尾部风险对冲](https://ou-liu-red-sugar.github.io/agent/zh/credit-tail-risk-hedging.md)
 - [客户、产品与收费方式](https://ou-liu-red-sugar.github.io/agent/zh/customers-products-pricing.md)
 - [全球宏观与跨资产配置](https://ou-liu-red-sugar.github.io/agent/zh/global-macro-cross-asset.md)
 - [指标与趋势交易](https://ou-liu-red-sugar.github.io/agent/zh/indicators-trend-trading.md)

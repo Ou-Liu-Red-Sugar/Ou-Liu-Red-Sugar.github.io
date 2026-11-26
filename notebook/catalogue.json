@@ -2754,7 +2754,7 @@
     },
     {
       "source_id": "nb-p01-hyg",
-      "title": "BlackRock iShares：iShares iBoxx $ High Yield Corporate Bond ETF（HYG）",
+      "title": "BlackRock iShares：iShares iBoxx USD High Yield Corporate Bond ETF（HYG）",
       "url": "https://www.ishares.com/us/products/239565/ishares-iboxx-high-yield-corporate-bond-etf",
       "body": "iShares 官方 HYG 产品说明：跟踪美元计价的高收益（非投资级）企业债指数，同时承受利率变化与企业信用利差风险。",
       "version": "2026-11-26 核对",
@@ -3026,6 +3026,67 @@
       "version": "2026-11-26 核对",
       "authors": [
         "Tidal Investments LLC"
+      ]
+    },
+    {
+      "source_id": "nb-p05-credit-data",
+      "title": "Yahoo Finance：信用债、美股与 VIX 长周期历史行情（2007—2026）",
+      "url": "https://finance.yahoo.com/quote/HYG/history/",
+      "body": "Yahoo Finance 调整后收盘价（含分红与拆股调整）及 VIX 收盘价，覆盖 2007-06-01 至 2026-01-09 共 4,683 个交易日（含 SPY、HYG、LQD、TLT、BIL 与 ^VIX）；完整复算数列保留于 /notebook/credit-tail/credit-tail-daily.csv。",
+      "version": "2026-11-26 读取",
+      "authors": [
+        "Yahoo Finance"
+      ]
+    },
+    {
+      "source_id": "nb-p05-fred-hyoas",
+      "title": "ICE Data Indices / FRED（BAMLH0A0HYM2）：ICE BofA US High Yield Index Option-Adjusted Spread",
+      "url": "https://fred.stlouisfed.org/series/BAMLH0A0HYM2",
+      "body": "美国高收益企业债期权调整利差（OAS）日频基准指标：记录 2007 年 6 月低点 2.41%、2008 年 12 月 15 日历史峰值 21.82% 与 2020 年 3 月 23 日疫情峰值 10.87%（注：2026 年 4 月起 FRED 仅分发最近三年滚动窗口，历史极值按 1996 年起全样本记录引用）。",
+      "version": "2026-11-26 核对",
+      "authors": [
+        "ICE Data Indices",
+        "Federal Reserve Bank of St. Louis"
+      ]
+    },
+    {
+      "source_id": "nb-p05-isda-cds",
+      "title": "ISDA：2014 Credit Derivatives Definitions & Credit Event Guidelines",
+      "url": "https://www.isda.org/a/ur4TE/Guidelines-for-Smart-Contracts-CDS.pdf",
+      "body": "国际互换与衍生品协会（ISDA）标准信用衍生品定义：界定破产（Bankruptcy）、到期未能付款（Failure to Pay，2020 年起引入信用恶化要件以防技术性人为违约）及债务重组等信用事件，并由地区认定委员会（DC）裁定与拍卖结算。",
+      "version": "2026-11-26 核对",
+      "authors": [
+        "International Swaps and Derivatives Association"
+      ]
+    },
+    {
+      "source_id": "nb-p05-aqr-puts",
+      "title": "Roni Israelov（AQR，2018）：Pathetic Protection: The Elusive Benefits of Protective Puts",
+      "url": "https://www.aqr.com/Insights/Research/White-Papers/Pathetic-Protection-The-Elusive-Benefits-of-Protective-Puts",
+      "body": "发表于 The Journal of Alternative Investments（2018）：实证检验标普 500 保护性看跌期权策略，指出股指期权长期存在波动率风险溢价且受到期路径依赖制约，机械滚动买入看跌期权在多数环境下弱于直接降低股票仓位或分散配置。",
+      "version": "2026-11-26 核对",
+      "authors": [
+        "Roni Israelov"
+      ]
+    },
+    {
+      "source_id": "nb-p05-aqr-fastslow",
+      "title": "AQR Capital Management（2020 / 2022）：Tail Risk Hedging — Fast vs Slow Drawdowns",
+      "url": "https://www.aqr.com/Insights/Research/White-Papers/Tail-Risk-Hedging-Contrasting-Put-and-Trend-Strategies",
+      "body": "AQR 尾部对冲研究系列（含《Tail Risk Hedging: Contrasting Put and Trend Strategies》与《Should Your Portfolio Protection Work Fast or Slow?》）：对比直接买入深度虚值 Put 与跨资产趋势跟踪，指出期权在 2020 年 3 月这类极速闪崩中爆发力强，但在 2022 年这类持续缓慢下跌中因隐含波动率未暴涨而表现受限。",
+      "version": "2026-11-26 核对",
+      "authors": [
+        "AQR Capital Management"
+      ]
+    },
+    {
+      "source_id": "nb-p05-universa-2020",
+      "title": "Mark Spitznagel / Universa Investments（2020）：尾部风险对冲与复利增长公开讨论记录",
+      "url": "https://www.cnbc.com/2020/08/17/universas-mark-spitznagel-on-the-hedge-funds-4000percent-return.html",
+      "body": "Universa Investments 首席投资官 Mark Spitznagel 2020 年公开访谈与客户端信摘要：阐述将极小比例资金（示例约 3.3%）配入深度虚值尾部看跌期权，在崩盘时提供高凸性抄底现金，从而允许组合其余部分保持较高权益仓位以提升长期几何复利。",
+      "version": "2026-11-26 核对公开记录",
+      "authors": [
+        "Mark Spitznagel"
       ]
     }
   ],

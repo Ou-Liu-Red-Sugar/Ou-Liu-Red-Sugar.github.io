@@ -100,7 +100,7 @@ R_{\text{USD}}=(1+r_{\text{local}})(1+r_{\text{fx}})-1=r_{\text{local}}+r_{\text
 2. **区分股票判断与汇率判断**：配置海外市场时，明确自己愿不愿意顺带押注当地货币兑美元走势；只看好本地企业盈利、不看好本币汇率时，留意是否存在成本合理的汇率对冲载体（如 DXJ 与 EWJ 的差别），同时算清远期利差方向。
 3. **用低杠杆跨资产与现金应对流动性拐点**：远离靠低波动和高杠杆堆出来的拥挤套息，在组合里保留真正低相关的短债、黄金、商品或长债制衡，遇到央行政策与市场流动性骤变时，手里才有不用低位割肉的余粮。
 
-下一篇按需专题[《风险平价与全天候配置》](https://ou-liu-red-sugar.github.io/zh/notebook/risk-parity-all-weather/)将把视野从“主动择时切换宏观仓位”转向另一套机构范式——放弃预测下一阶段是衰退还是通胀，改按各类资产的波动贡献去均摊风险预算。
+下一篇[《风险平价与全天候配置》](https://ou-liu-red-sugar.github.io/zh/notebook/risk-parity-all-weather/)将把视野从“主动择时切换宏观仓位”转向另一套机构范式——放弃预测下一阶段是衰退还是通胀，改按各类资产的波动贡献去均摊风险预算。
 
 [^macro-data]: [Yahoo Finance：全球跨资产与五地半导体链历史行情](https://finance.yahoo.com/quote/DXJ/history/)，2026-11-26 读取 2021-12-20 至 2026-01-09 共 1,018 个美股交易日的调整后收盘价（含分红与拆股调整）及汇率收盘价。完整复算数列见[全球跨资产日频数据](https://ou-liu-red-sugar.github.io/notebook/global-macro/macro-cross-asset-daily.csv)。
 [^druck-losttree]: Stanley Druckenmiller，[Lost Tree Club 演讲与问答（2015 年 1 月）](https://www.danielscrivner.com/stanley-druckenmiller-rare-lost-tree-club-lecture/)，关于“向前看 18 个月”“推动大盘的是央行与流动性”及 1992 年做空英镑、做多德国马克案例的公开记录，2026-11-26 查阅。

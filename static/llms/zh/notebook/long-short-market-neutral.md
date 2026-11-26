@@ -115,7 +115,7 @@
 2. **优先用宽基或行业工具做空头腿**：如果看好一家公司、只想剥离行业或大盘估值回落风险，与其直接融券做空高波动同行单股（面对高借券费与轧空），不如用行业 ETF 或股指期货（如 MES）抵销一部分共同暴露，具体保证金与盯市现金核算见[《保证金、对冲与期间现金》](https://ou-liu-red-sugar.github.io/zh/notebook/settlement-margin-cash/)。
 3. **拆解市面上的“中性”产品**：遇到标榜“低回撤、市场中性”的基金时，先核查四项指标——总敞口（Gross）开了几倍、是否做了行业与风格因子中性、历史收益里有多少来自高利率下的现金回扣，以及极端挤兑期风控怎样降杠杆。
 
-下一篇按需专题[《全球宏观与跨资产配置》](https://ou-liu-red-sugar.github.io/zh/notebook/global-macro-cross-asset/)将走出单一股票市场，看宏观基金如何在债券、外汇、商品与跨国股票之间表达判断，并辨认跨市场配置背后共享的底层风险。
+下一篇[《全球宏观与跨资产配置》](https://ou-liu-red-sugar.github.io/zh/notebook/global-macro-cross-asset/)将走出单一股票市场，看宏观基金如何在债券、外汇、商品与跨国股票之间表达判断，并辨认跨市场配置背后共享的底层风险。
 
 [^pair-data]: [Yahoo Finance：SPY、WMT、TGT、KO、PEP 与 GME 历史行情](https://finance.yahoo.com/quote/SPY/history/)，2026-11-26 读取调整后收盘价（含分红与拆股调整）；GME 拆股前价格按 2022 年 7 月一拆四还原（2020-12-31 约 18.84 美元，2021-01-27 约 347.51 美元）。配对复算数列见[配对日频数据](https://ou-liu-red-sugar.github.io/notebook/market-neutral/pair-daily.csv)。
 [^sec-short]: SEC Investor.gov，[Investor Bulletin: An Introduction to Short Sales](https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins-51)，2026-09-09 更新，借股卖出、分红补偿、保证金要求与无限亏损不对称性。
