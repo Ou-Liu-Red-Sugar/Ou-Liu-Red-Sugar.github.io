@@ -110,7 +110,7 @@ Yahoo Finance 调整后收盘价（含分红）· 共同标尺 −40% 至 +25%
 
 **具体保证金、张数估算与盯市划转见[《保证金、对冲与期间现金》](https://ou-liu-red-sugar.github.io/zh/notebook/settlement-margin-cash/)；合约定价与交割细节见期权与期货专题。**
 
-把跨资产与合约工具组合成系统打法时，常见对冲基金大致分化出四条路径：拆开总敞口与净敞口做多强空弱的[《股票多空与市场中性》](https://ou-liu-red-sugar.github.io/zh/notebook/long-short-market-neutral/)、沿利率、汇率与商品周期跨资产调仓的[《全球宏观与跨资产配置》](https://ou-liu-red-sugar.github.io/zh/notebook/global-macro-cross-asset/)、按波动贡献分配四象限权重的[《风险平价与全天候配置》](https://ou-liu-red-sugar.github.io/zh/notebook/#topic-P)，以及用 CDS 和深度虚值期权专保极端崩盘的[《信用与尾部风险对冲》](https://ou-liu-red-sugar.github.io/zh/notebook/#topic-P)。这四类范式各自保留为独立按需专题，供需要深入某条路线时选读。
+把跨资产与合约工具组合成系统打法时，常见对冲基金大致分化出四条路径：拆开总敞口与净敞口做多强空弱的[《股票多空与市场中性》](https://ou-liu-red-sugar.github.io/zh/notebook/long-short-market-neutral/)、沿利率、汇率与商品周期跨资产调仓的[《全球宏观与跨资产配置》](https://ou-liu-red-sugar.github.io/zh/notebook/global-macro-cross-asset/)、按波动贡献分配四象限权重的[《风险平价与全天候配置》](https://ou-liu-red-sugar.github.io/zh/notebook/risk-parity-all-weather/)，以及用 CDS 和深度虚值期权专保极端崩盘的[《信用与尾部风险对冲》](https://ou-liu-red-sugar.github.io/zh/notebook/#topic-P)。这四类范式各自保留为独立按需专题，供需要深入某条路线时选读。
 
 ## 组合里的现金与再平衡 {#nb-p01-cash-rebalance}
 

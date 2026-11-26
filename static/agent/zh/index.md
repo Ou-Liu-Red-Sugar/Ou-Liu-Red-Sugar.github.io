@@ -13,6 +13,7 @@
 - [投资组合：分散、多资产与风险制衡](https://ou-liu-red-sugar.github.io/agent/zh/portfolio-diversification-hedging.md)
 - [报价、订单与实际成交](https://ou-liu-red-sugar.github.io/agent/zh/quotes-orders-execution.md)
 - [收入增长与市场预期](https://ou-liu-red-sugar.github.io/agent/zh/revenue-growth-expectations.md)
+- [风险平价与全天候配置](https://ou-liu-red-sugar.github.io/agent/zh/risk-parity-all-weather.md)
 - [保证金、对冲与期间现金](https://ou-liu-red-sugar.github.io/agent/zh/settlement-margin-cash.md)
 - [股东回报：分红、回购与增发](https://ou-liu-red-sugar.github.io/agent/zh/shareholder-returns-buybacks-issuance.md)
 - [股票的类型、发行与交易形式](https://ou-liu-red-sugar.github.io/agent/zh/stock-types-issuance-trading.md)

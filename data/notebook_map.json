@@ -1375,8 +1375,13 @@
       "node": "P",
       "title": "风险平价与全天候配置",
       "goal": "区分资金权重与风险贡献，理解宏观四象限等风险预算、债券杠杆及相关性翻转边界。",
-      "status": "planned",
-      "url": null
+      "status": "available",
+      "url": "/zh/notebook/risk-parity-all-weather/",
+      "reading_profile": {
+        "difficulty": "进阶",
+        "depth": "详解",
+        "note": "需要结合欧拉风险贡献分解、增长与通胀四象限映射、TIPS 实际利率久期及杠杆融资成本公式，判断风险平价的适用条件与失效边界。"
+      }
     },
     {
       "id": "NB-P05",
@@ -1596,7 +1601,7 @@
       "status": "planned",
       "url": null
     },
-    "available_count": 16,
+    "available_count": 17,
     "intro_available_count": 12,
     "navigation": {
       "NB-A01": {
@@ -2204,6 +2209,47 @@
           "number": 71,
           "title": "风险平价与全天候配置",
           "note": "按相应工具或判断问题选读。从资金权重转向风险贡献，理解风险平价的四象限制衡与加息边界。",
+          "status": "available",
+          "url": "/zh/notebook/risk-parity-all-weather/",
+          "reading_profile": {
+            "difficulty": "进阶",
+            "depth": "详解",
+            "note": "需要结合欧拉风险贡献分解、增长与通胀四象限映射、TIPS 实际利率久期及杠杆融资成本公式，判断风险平价的适用条件与失效边界。"
+          }
+        }
+      },
+      "NB-P04": {
+        "current": {
+          "id": "NB-P04",
+          "number": 71,
+          "title": "风险平价与全天候配置",
+          "note": "按相应工具或判断问题选读。从资金权重转向风险贡献，理解风险平价的四象限制衡与加息边界。",
+          "status": "available",
+          "url": "/zh/notebook/risk-parity-all-weather/",
+          "reading_profile": {
+            "difficulty": "进阶",
+            "depth": "详解",
+            "note": "需要结合欧拉风险贡献分解、增长与通胀四象限映射、TIPS 实际利率久期及杠杆融资成本公式，判断风险平价的适用条件与失效边界。"
+          }
+        },
+        "previous": {
+          "id": "NB-P03",
+          "number": 70,
+          "title": "全球宏观与跨资产配置",
+          "note": "按相应工具或判断问题选读。沿宏观周期跨资产表达判断，并识破跨国跨品种背后的同一底层风险。",
+          "status": "available",
+          "url": "/zh/notebook/global-macro-cross-asset/",
+          "reading_profile": {
+            "difficulty": "进阶",
+            "depth": "详解",
+            "note": "需要结合利率、汇率、跨市场周收益相关性、公司跨境财报口径与流动性去杠杆机制，辨别表达载体选择、底层共因与局部背离。"
+          }
+        },
+        "next": {
+          "id": "NB-P05",
+          "number": 72,
+          "title": "信用与尾部风险对冲",
+          "note": "按相应工具或判断问题选读。理解 CDS 与尾部期权的凸性赔付、常态损耗及个人账户替代方案。",
           "status": "planned",
           "url": null
         }
@@ -2303,7 +2349,7 @@
         "id": "optional_portfolio_paradigms",
         "title": "按需专题：多资产组合与对冲范式",
         "goal": "分别展开股票多空与市场中性、全球宏观、风险平价及信用尾部对冲四类常见机构风险制衡框架。",
-        "available_count": 2,
+        "available_count": 3,
         "total": 4
       },
       {

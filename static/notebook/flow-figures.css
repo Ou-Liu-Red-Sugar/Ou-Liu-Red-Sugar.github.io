@@ -6227,3 +6227,270 @@
   .p03-fx-lab .p03-fx-sliders { grid-template-columns: minmax(0, 1fr); gap: 6px; padding: 8px 10px; }
   .p03-fx-lab .p03-fx-chain { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 6px; }
 }
+
+/* =========================================================
+ * NB-P04 Risk Parity & All Weather figures
+ * ========================================================= */
+
+/* 1. Interactive Capital Weight vs Risk Contribution Lab */
+.p04-rc-lab .p04-presets {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 9px;
+}
+.p04-rc-lab .p04-presets button {
+  padding: 4px 10px;
+  border: 1px solid var(--ff-rule);
+  border-radius: 999px;
+  background: var(--ff-card);
+  color: var(--ff-text);
+  font-size: 11.5px;
+  font-weight: 600;
+  cursor: pointer;
+}
+.p04-rc-lab .p04-presets button[aria-pressed="true"] {
+  border-color: var(--ff-share);
+  background: var(--ff-share);
+  color: #fff;
+}
+.p04-rc-lab .p04-sliders {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+  padding: 9px 11px;
+  border: 1px solid var(--ff-rule);
+  border-radius: 8px;
+  background: var(--ff-card);
+  margin-bottom: 10px;
+}
+.p04-rc-lab .p04-srow label {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--ff-ink);
+  margin-bottom: 4px;
+}
+.p04-rc-lab .p04-srow output {
+  font-weight: 700;
+  color: var(--ff-share);
+  font-variant-numeric: tabular-nums;
+}
+.p04-rc-lab .p04-srow input[type="range"] { width: 100%; accent-color: var(--ff-share); }
+.p04-rc-lab .p04-bars-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 128px;
+  gap: 10px;
+  align-items: stretch;
+}
+.p04-rc-lab .p04-bars { display: grid; gap: 8px; }
+.p04-rc-lab .p04-brow {
+  padding: 8px 10px;
+  border: 1px solid var(--ff-rule);
+  border-radius: 7px;
+  background: var(--ff-card);
+}
+.p04-rc-lab .p04-bhead {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 6px;
+  margin-bottom: 5px;
+  font-size: 11.5px;
+}
+.p04-rc-lab .p04-bhead strong { color: var(--ff-ink); }
+.p04-rc-lab .p04-bhead span { color: var(--ff-muted); font-variant-numeric: tabular-nums; }
+.p04-rc-lab .p04-bhead em { font-style: normal; font-weight: 700; color: var(--ff-cash-text); }
+.p04-rc-lab .p04-bhead b { font-weight: 700; color: var(--ff-share); }
+.p04-rc-lab .p04-stack {
+  display: flex;
+  height: 14px;
+  border-radius: 4px;
+  overflow: hidden;
+  background: #edece3;
+}
+.p04-rc-lab .p04-seg-s { background: var(--ff-cash); transition: width 0.18s ease; }
+.p04-rc-lab .p04-seg-b { background: var(--ff-share); transition: width 0.18s ease; }
+.p04-rc-lab .p04-volbox {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 8px;
+  border: 1px solid #c2dacb;
+  border-radius: 8px;
+  background: #eff7f2;
+  text-align: center;
+}
+.p04-rc-lab .p04-volbox span { font-size: 11px; color: var(--ff-muted); }
+.p04-rc-lab .p04-volbox strong { margin-top: 3px; font-size: 22px; font-weight: 700; color: var(--ff-share); font-variant-numeric: tabular-nums; }
+.p04-rc-lab .p04-volbox small { margin-top: 2px; font-size: 10px; color: var(--ff-muted); line-height: 1.3; }
+.p04-rc-lab .p04-note {
+  margin: 8px 0 0;
+  padding: 7px 10px;
+  border-radius: 6px;
+  border: 1px solid var(--ff-rule);
+  background: #f5f5ec;
+  font-size: 11.5px;
+  line-height: 1.45;
+  color: var(--ff-text);
+}
+
+/* 2. Growth x Inflation 4-Quadrant All Weather Map */
+.p04-quadrants .p04-qgrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+.p04-quadrants .p04-qcard {
+  padding: 10px 11px;
+  border: 1px solid var(--ff-rule);
+  border-left: 4px solid var(--p04-c, var(--ff-share));
+  border-radius: 8px;
+  background: var(--ff-card);
+}
+.p04-quadrants .p04-qhead {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 6px;
+  margin-bottom: 5px;
+}
+.p04-quadrants .p04-qhead strong { font-size: 13px; color: var(--ff-ink); }
+.p04-quadrants .p04-qhead span {
+  padding: 1px 7px;
+  border-radius: 8px;
+  font-size: 10.5px;
+  font-weight: 700;
+  background: #eff7f2;
+  color: var(--ff-share);
+  white-space: nowrap;
+}
+.p04-quadrants .p04-qassets {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin-bottom: 5px;
+}
+.p04-quadrants .p04-qassets i {
+  font-style: normal;
+  padding: 2px 7px;
+  border-radius: 5px;
+  border: 1px solid var(--ff-rule);
+  background: #fbfbf6;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--ff-ink);
+}
+.p04-quadrants .p04-qcard p {
+  margin: 0;
+  font-size: 11.5px;
+  line-height: 1.45;
+  color: var(--ff-text);
+}
+
+/* 3. Unlevered to Levered Risk Parity Chain */
+.p04-lev-chain .p04-lsteps {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+}
+.p04-lev-chain .p04-lbox {
+  padding: 10px 11px;
+  border: 1px solid var(--ff-rule);
+  border-radius: 8px;
+  background: var(--ff-card);
+}
+.p04-lev-chain .p04-lbox.p04-lwarn { border-color: #e6cdb0; background: #fdfaf5; }
+.p04-lev-chain .p04-lstep-tag {
+  display: inline-block;
+  padding: 1px 7px;
+  border-radius: 8px;
+  font-size: 10.5px;
+  font-weight: 700;
+  background: #eff7f2;
+  color: var(--ff-share);
+  margin-bottom: 5px;
+}
+.p04-lev-chain .p04-lwarn .p04-lstep-tag { background: var(--ff-cash-bg); color: var(--ff-cash-text); }
+.p04-lev-chain .p04-lbox strong { display: block; font-size: 12.5px; color: var(--ff-ink); margin-bottom: 4px; }
+.p04-lev-chain .p04-lbox p { margin: 0; font-size: 11.5px; line-height: 1.45; color: var(--ff-text); }
+.p04-lev-chain .p04-wbar {
+  display: flex;
+  height: 12px;
+  border-radius: 4px;
+  overflow: hidden;
+  margin: 7px 0 4px;
+}
+.p04-lev-chain .p04-wbar span { display: block; height: 100%; width: var(--w); background: var(--c); }
+.p04-lev-chain .p04-wleg { font-size: 10px; color: var(--ff-muted); line-height: 1.35; }
+
+/* 4. Two-Era Stress Comparison: 2011-2020 vs 2022-2023 */
+.p04-eras .p04-ecols {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+.p04-eras .p04-epanel {
+  padding: 10px 11px;
+  border: 1px solid #c2dacb;
+  border-radius: 8px;
+  background: var(--ff-card);
+}
+.p04-eras .p04-epanel.p04-eshock { border-color: #e6cdb0; background: #fdfaf5; }
+.p04-eras .p04-ehead {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 6px;
+  margin-bottom: 6px;
+}
+.p04-eras .p04-ehead strong { font-size: 12.5px; color: var(--ff-ink); }
+.p04-eras .p04-ehead span { font-size: 10.5px; font-weight: 600; color: var(--ff-share); }
+.p04-eras .p04-eshock .p04-ehead span { color: var(--ff-cash-text); }
+.p04-eras .p04-emeta {
+  padding: 5px 8px;
+  border-radius: 5px;
+  background: #f5f5ec;
+  font-size: 10.5px;
+  color: var(--ff-muted);
+  margin-bottom: 7px;
+  line-height: 1.35;
+}
+.p04-eras .p04-elist { display: grid; gap: 5px; }
+.p04-eras .p04-erow {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto auto;
+  align-items: baseline;
+  gap: 8px;
+  padding: 5px 8px;
+  border: 1px solid var(--ff-rule);
+  border-radius: 5px;
+  background: rgba(255,255,255,0.85);
+  font-size: 11px;
+}
+.p04-eras .p04-erow span { color: var(--ff-ink); font-weight: 600; }
+.p04-eras .p04-erow em { font-style: normal; font-size: 10.5px; color: var(--ff-muted); font-variant-numeric: tabular-nums; }
+.p04-eras .p04-erow strong { font-size: 12px; font-variant-numeric: tabular-nums; color: var(--ff-share); }
+.p04-eras .p04-erow strong.p04-neg { color: var(--ff-cash-text); }
+
+@media (max-width: 640px) {
+  .p04-rc-lab .p04-presets { gap: 4px; margin-bottom: 7px; }
+  .p04-rc-lab .p04-presets button { padding: 3px 8px; font-size: 10.5px; }
+  .p04-rc-lab .p04-sliders { grid-template-columns: minmax(0, 1fr); gap: 6px; padding: 7px 9px; margin-bottom: 8px; }
+  .p04-rc-lab .p04-bars-grid { grid-template-columns: minmax(0, 1fr); gap: 8px; }
+  .p04-rc-lab .p04-volbox { flex-direction: row; justify-content: space-between; padding: 7px 10px; }
+  .p04-rc-lab .p04-volbox strong { margin-top: 0; font-size: 18px; }
+  .p04-rc-lab .p04-volbox small { display: none; }
+
+  .p04-quadrants .p04-qgrid { grid-template-columns: minmax(0, 1fr); gap: 7px; }
+  .p04-quadrants .p04-qcard { padding: 8px 10px; }
+
+  .p04-lev-chain .p04-lsteps { grid-template-columns: minmax(0, 1fr); gap: 8px; }
+  .p04-lev-chain .p04-lbox { padding: 8px 10px; }
+
+  .p04-eras .p04-ecols { grid-template-columns: minmax(0, 1fr); gap: 8px; }
+  .p04-eras .p04-epanel { padding: 8px 9px; }
+  .p04-eras .p04-erow { padding: 4px 7px; font-size: 10.5px; }
+}

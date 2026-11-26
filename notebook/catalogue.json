@@ -2955,6 +2955,78 @@
         "Andreas Schrimpf",
         "Vladyslav Sushko"
       ]
+    },
+    {
+      "source_id": "nb-p04-rp-data",
+      "title": "Yahoo Finance：风险平价跨资产长周期历史行情（2010—2026）",
+      "url": "https://finance.yahoo.com/quote/IEF/history/",
+      "body": "Yahoo Finance 调整后收盘价（含分红与拆股调整），覆盖 2010-12-20 至 2026-01-09 共 3,787 个交易日（含 SPY、IEF、TLT、TIP、GLD、DBC、BIL 及 2019-12-13 上市以来的实盘 RPAR）；完整复算数列保留于 /notebook/risk-parity/risk-parity-daily.csv。",
+      "version": "2026-11-26 读取",
+      "authors": [
+        "Yahoo Finance"
+      ]
+    },
+    {
+      "source_id": "nb-p04-qian-2005",
+      "title": "Edward Qian（PanAgora，2005）：Risk Parity Portfolios: Efficient Portfolios Through True Diversification",
+      "url": "https://www.panagora.com/assets/PanAgora-Risk-Parity-Portfolios-Efficient-Portfolios-Through-True-Diversification.pdf",
+      "body": "PanAgora 资产管理白皮书（2005 年 9 月）：正式提出“风险平价（Risk Parity）”名称，以 1983—2004 年 Russell 1000（波动 15.1%）与 Lehman Agg（波动 4.6%、相关性 +0.20）实证指出 60/40 组合 93% 的风险和超过 95% 的大额亏损来自股票。",
+      "version": "2026-11-26 核对",
+      "authors": [
+        "Edward E. Qian"
+      ]
+    },
+    {
+      "source_id": "nb-p04-bridgewater-aw",
+      "title": "Bridgewater Associates（2012）：The All Weather Story",
+      "url": "https://www.bridgewater.com/resources/all-weather-story.pdf",
+      "body": "桥水基金官方白皮书：记录 1996 年为 Ray Dalio 家族信托创立全天候（All Weather）策略的演进，按增长超／低于预期与通胀超／低于预期四个象限各分配 25% 风险预算，不依赖宏观预测实现结构制衡。",
+      "version": "2026-11-26 核对",
+      "authors": [
+        "Bridgewater Associates"
+      ]
+    },
+    {
+      "source_id": "nb-p04-aqr-2012",
+      "title": "Asness, Frazzini & Pedersen（2012）：Leverage Aversion and Risk Parity",
+      "url": "https://www.aqr.com/-/media/AQR/Documents/Insights/Journal-Article/Leverage-Aversion-and-Risk-Parity.pdf",
+      "body": "发表于 Financial Analysts Journal 68(1)（2012）：提出杠杆厌恶假说，解释不愿或不能加杠杆的投资者过度拥挤于高波动股票、压低其风险调整回报，从而让超配低波动债券并施加温和杠杆的风险平价组合在 1926—2010 年美股美债样本中获得高于 60/40 的夏普比率。",
+      "version": "2026-11-26 核对",
+      "authors": [
+        "Clifford S. Asness",
+        "Andrea Frazzini",
+        "Lasse H. Pedersen"
+      ]
+    },
+    {
+      "source_id": "nb-p04-tips-td",
+      "title": "TreasuryDirect：Treasury Inflation-Protected Securities（TIPS）官方规则说明",
+      "url": "https://treasurydirect.gov/marketable-securities/tips/",
+      "body": "美国财政部官方说明：TIPS 本金随非季调 CPI-U 通胀上调、通缩下调，固定票息率按调整后本金每半年付息，到期按调整后本金与原始面值较高者兑付。",
+      "version": "2026-11-26 核对",
+      "authors": [
+        "U.S. Department of the Treasury"
+      ]
+    },
+    {
+      "source_id": "nb-p04-tip-pros",
+      "title": "BlackRock iShares：iShares TIPS Bond ETF（TIP）摘要招募说明书",
+      "url": "https://www.sec.gov/Archives/edgar/data/1100663/000119312526081826/d191245d497k.htm",
+      "body": "SEC Form 497K（2026-02-27）：说明 TIP 跟踪剩余期限一年以上的美国通胀保护国债指数（年费率 0.18%），本金与票息挂钩 CPI，同时仍承担二级市场实际利率变动带来的久期价格风险。",
+      "version": "2026-11-26 核对",
+      "authors": [
+        "BlackRock iShares"
+      ]
+    },
+    {
+      "source_id": "nb-p04-rpar-pros",
+      "title": "Tidal Investments：RPAR Risk Parity ETF（RPAR）摘要招募说明书",
+      "url": "https://www.sec.gov/Archives/edgar/data/1742912/000199937126009444/rpar_497k-043026.htm",
+      "body": "SEC Form 497K（2026-04-30）：披露实盘风险平价 ETF 的长期目标风险分配（TIPS、全球股票、商品／黄金与美债各占 25% 风险）及资金配置（35% 长期 TIPS、25% 股票、25% 商品与黄金、15% 短债作抵押叠加 10 年与超长期美债期货杠杆），年总费率 0.52%。",
+      "version": "2026-11-26 核对",
+      "authors": [
+        "Tidal Investments LLC"
+      ]
     }
   ],
   "paths": []
