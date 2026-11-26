@@ -50,7 +50,7 @@
 
 表面只给 NVDA 配了 20%，穿透以后升到 23.0%；单是 GICS 信息技术就占到整套组合的 35.2%，再把同样处在云和 AI 资本开支链条上的 AMZN 算进来，总资金里超过一半（约 51.6%，占股票仓位的 60.8%）绑在同一股需求与利率预期上（VOO 中还持有 KO 及其他消费必需品成分，因 KO 未列于该期前十大持仓表，图中未对 KO 另作穿透叠加；40,000 美元 VOO 对应的消费必需品板块整体约为 1,840 美元。穿透时既要看同一家公司，也要看不同行业标签下共享的客户预算与融资条件）。[^voo-sheet]，[^finra-div]
 
-这种“账面分散、底层同因”不仅发生在单一市场。哪怕同时买入美股 NVDA、台股 TSMC（TSM／2330）、韩股 SK hynix（000660）与欧股 ASML Holding（ASML），表面上横跨了四个交易所和四种货币，底层仍是在配置同一条全球半导体与 AI 算力周期的不同侧面。关于跨市场配置里的共同因子与局部背离，留到按需专题[《全球宏观与跨资产配置》](https://ou-liu-red-sugar.github.io/zh/notebook/#topic-P)专门展开。
+这种“账面分散、底层同因”不仅发生在单一市场。哪怕同时买入美股 NVDA、台股 TSMC（TSM／2330）、韩股 SK hynix（000660）与欧股 ASML Holding（ASML），表面上横跨了四个交易所和四种货币，底层仍是在配置同一条全球半导体与 AI 算力周期的不同侧面。关于跨市场配置里的共同因子与局部背离，留到按需专题[《全球宏观与跨资产配置》](https://ou-liu-red-sugar.github.io/zh/notebook/global-macro-cross-asset/)专门展开。
 
 ## 跨资产制衡与相关性翻转 {#nb-p01-multi-asset}
 
@@ -110,7 +110,7 @@ Yahoo Finance 调整后收盘价（含分红）· 共同标尺 −40% 至 +25%
 
 **具体保证金、张数估算与盯市划转见[《保证金、对冲与期间现金》](https://ou-liu-red-sugar.github.io/zh/notebook/settlement-margin-cash/)；合约定价与交割细节见期权与期货专题。**
 
-把跨资产与合约工具组合成系统打法时，常见对冲基金大致分化出四条路径：拆开总敞口与净敞口做多强空弱的[《股票多空与市场中性》](https://ou-liu-red-sugar.github.io/zh/notebook/long-short-market-neutral/)、沿利率、汇率与商品周期跨资产调仓的[《全球宏观与跨资产配置》](https://ou-liu-red-sugar.github.io/zh/notebook/#topic-P)、按波动贡献分配四象限权重的[《风险平价与全天候配置》](https://ou-liu-red-sugar.github.io/zh/notebook/#topic-P)，以及用 CDS 和深度虚值期权专保极端崩盘的[《信用与尾部风险对冲》](https://ou-liu-red-sugar.github.io/zh/notebook/#topic-P)。这四类范式各自保留为独立按需专题，供需要深入某条路线时选读。
+把跨资产与合约工具组合成系统打法时，常见对冲基金大致分化出四条路径：拆开总敞口与净敞口做多强空弱的[《股票多空与市场中性》](https://ou-liu-red-sugar.github.io/zh/notebook/long-short-market-neutral/)、沿利率、汇率与商品周期跨资产调仓的[《全球宏观与跨资产配置》](https://ou-liu-red-sugar.github.io/zh/notebook/global-macro-cross-asset/)、按波动贡献分配四象限权重的[《风险平价与全天候配置》](https://ou-liu-red-sugar.github.io/zh/notebook/#topic-P)，以及用 CDS 和深度虚值期权专保极端崩盘的[《信用与尾部风险对冲》](https://ou-liu-red-sugar.github.io/zh/notebook/#topic-P)。这四类范式各自保留为独立按需专题，供需要深入某条路线时选读。
 
 ## 组合里的现金与再平衡 {#nb-p01-cash-rebalance}
 

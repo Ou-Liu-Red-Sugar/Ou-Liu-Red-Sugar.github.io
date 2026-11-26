@@ -5953,3 +5953,277 @@
   .p02-failure-modes .p02-fm-grid { grid-template-columns: minmax(0, 1fr); gap: 10px; }
   .p02-failure-modes .p02-fm-card { padding: 9px 10px; }
 }
+
+/* =========================================================
+ * NB-P03 Global Macro & Cross-Asset Allocation figures
+ * ========================================================= */
+
+/* 1. Macro expression interactive switcher */
+.p03-expr-map .p03-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 10px;
+}
+.p03-expr-map .p03-tabs button {
+  padding: 4px 10px;
+  border: 1px solid var(--ff-rule);
+  border-radius: 999px;
+  background: var(--ff-card);
+  color: var(--ff-text);
+  font-size: 11.5px;
+  font-weight: 600;
+  cursor: pointer;
+}
+.p03-expr-map .p03-tabs button[aria-pressed="true"] {
+  border-color: var(--ff-share);
+  background: var(--ff-share);
+  color: #fff;
+}
+.p03-expr-map .p03-rows {
+  display: grid;
+  gap: 6px;
+}
+.p03-expr-map .p03-row {
+  display: grid;
+  grid-template-columns: 118px minmax(0, 1fr) 64px minmax(0, 1.05fr);
+  align-items: center;
+  gap: 8px;
+  padding: 6px 10px;
+  border: 1px solid var(--ff-rule);
+  border-radius: 6px;
+  background: var(--ff-card);
+}
+.p03-expr-map .p03-rname { font-size: 12px; font-weight: 700; color: var(--ff-ink); line-height: 1.25; }
+.p03-expr-map .p03-rname small { display: block; font-size: 10px; font-weight: 500; color: var(--ff-muted); }
+.p03-expr-map .p03-track {
+  height: 11px;
+  border-radius: 4px;
+  background: #edece3;
+  overflow: hidden;
+}
+.p03-expr-map .p03-bar { display: block; height: 100%; border-radius: 4px; transition: width 0.2s ease; }
+.p03-expr-map .p03-bar.p03-pos { background: var(--ff-share); }
+.p03-expr-map .p03-bar.p03-neg { background: var(--ff-cash); }
+.p03-expr-map .p03-val { font-size: 12.5px; font-weight: 700; text-align: right; font-variant-numeric: tabular-nums; }
+.p03-expr-map .p03-val.p03-pos { color: var(--ff-share); }
+.p03-expr-map .p03-val.p03-neg { color: var(--ff-cash-text); }
+.p03-expr-map .p03-tag { font-size: 11px; color: var(--ff-muted); line-height: 1.35; }
+.p03-expr-map .p03-note {
+  margin: 8px 0 0;
+  padding: 7px 10px;
+  border-radius: 6px;
+  background: #f5f5ec;
+  border: 1px solid var(--ff-rule);
+  font-size: 11.5px;
+  line-height: 1.45;
+  color: var(--ff-text);
+}
+
+/* 2. Cross-border AI chain vs orthogonal macro legs */
+.p03-ai-chain .p03-cols {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+  gap: 12px;
+}
+.p03-ai-chain .p03-panel {
+  padding: 10px 11px;
+  border: 1px solid var(--ff-rule);
+  border-radius: 8px;
+  background: var(--ff-card);
+}
+.p03-ai-chain .p03-panel.p03-panel-warm { border-color: #e6cdb0; }
+.p03-ai-chain .p03-phead {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 6px;
+  margin-bottom: 8px;
+}
+.p03-ai-chain .p03-phead strong { font-size: 12.5px; color: var(--ff-ink); }
+.p03-ai-chain .p03-phead span { font-size: 10.5px; color: var(--ff-muted); }
+.p03-ai-chain .p03-corr-list { display: grid; gap: 5px; }
+.p03-ai-chain .p03-crow {
+  display: grid;
+  grid-template-columns: 112px minmax(0, 1fr) 44px;
+  align-items: center;
+  gap: 7px;
+  font-size: 11px;
+}
+.p03-ai-chain .p03-crow span { color: var(--ff-ink); font-weight: 600; white-space: nowrap; }
+.p03-ai-chain .p03-crow small { font-weight: 400; color: var(--ff-muted); margin-left: 3px; }
+.p03-ai-chain .p03-ctrack { height: 9px; border-radius: 4px; background: #edece3; overflow: hidden; }
+.p03-ai-chain .p03-ctrack i { display: block; height: 100%; border-radius: 4px; width: var(--w); background: var(--c); }
+.p03-ai-chain .p03-crow em { font-style: normal; font-weight: 700; text-align: right; font-variant-numeric: tabular-nums; color: var(--ff-ink); }
+.p03-ai-chain .p03-crow.p03-cwarm em { color: var(--ff-cash-text); }
+.p03-ai-chain .p03-crow.p03-ccool em { color: var(--ff-share); }
+.p03-ai-chain .p03-stress {
+  margin-top: 10px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+.p03-ai-chain .p03-sbox {
+  padding: 9px 11px;
+  border: 1px solid #e6cdb0;
+  border-radius: 8px;
+  background: #fdfaf5;
+}
+.p03-ai-chain .p03-sbox.p03-sbox-ok { border-color: #c2dacb; background: #f2f8f4; }
+.p03-ai-chain .p03-sbox-head { font-size: 12px; font-weight: 700; color: var(--ff-ink); margin-bottom: 6px; }
+.p03-ai-chain .p03-sbox-head small { display: block; font-size: 10.5px; font-weight: 500; color: var(--ff-muted); margin-top: 1px; }
+.p03-ai-chain .p03-smetrics {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 6px;
+}
+.p03-ai-chain .p03-smetrics div {
+  padding: 5px 4px;
+  border-radius: 5px;
+  background: rgba(255,255,255,0.75);
+  border: 1px solid var(--ff-rule);
+  text-align: center;
+}
+.p03-ai-chain .p03-smetrics span { display: block; font-size: 10px; color: var(--ff-muted); }
+.p03-ai-chain .p03-smetrics strong { display: block; font-size: 12.5px; font-variant-numeric: tabular-nums; color: var(--ff-cash-text); margin-top: 1px; }
+.p03-ai-chain .p03-sbox-ok .p03-smetrics strong { color: var(--ff-share); }
+
+/* 3. Local divergence 4-channel grid */
+.p03-divergence .p03-dgrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+.p03-divergence .p03-dcard {
+  padding: 10px 11px;
+  border: 1px solid var(--ff-rule);
+  border-top: 3px solid var(--p03-c, var(--ff-share));
+  border-radius: 8px;
+  background: var(--ff-card);
+}
+.p03-divergence .p03-dhead {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 6px;
+  margin-bottom: 5px;
+}
+.p03-divergence .p03-dhead strong { font-size: 13px; color: var(--ff-ink); }
+.p03-divergence .p03-dhead span {
+  padding: 1px 7px;
+  border-radius: 8px;
+  font-size: 10.5px;
+  font-weight: 650;
+  background: #f0f2ec;
+  color: var(--ff-ink);
+  white-space: nowrap;
+}
+.p03-divergence .p03-dcard p {
+  margin: 0;
+  font-size: 11.5px;
+  line-height: 1.48;
+  color: var(--ff-text);
+}
+
+/* 4. Interactive Cross-Currency Return & Hedge Decomposer */
+.p03-fx-lab .p03-fx-presets {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 9px;
+}
+.p03-fx-lab .p03-fx-presets button {
+  padding: 4px 10px;
+  border: 1px solid var(--ff-rule);
+  border-radius: 999px;
+  background: var(--ff-card);
+  color: var(--ff-text);
+  font-size: 11.5px;
+  font-weight: 600;
+  cursor: pointer;
+}
+.p03-fx-lab .p03-fx-presets button[aria-pressed="true"] {
+  border-color: var(--ff-share);
+  background: var(--ff-share);
+  color: #fff;
+}
+.p03-fx-lab .p03-fx-sliders {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+  padding: 9px 11px;
+  border: 1px solid var(--ff-rule);
+  border-radius: 8px;
+  background: var(--ff-card);
+  margin-bottom: 10px;
+}
+.p03-fx-lab .p03-fx-srow label {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--ff-ink);
+  margin-bottom: 4px;
+}
+.p03-fx-lab .p03-fx-srow output {
+  font-weight: 700;
+  color: var(--ff-share);
+  font-variant-numeric: tabular-nums;
+}
+.p03-fx-lab .p03-fx-srow.p03-fx-cur output { color: var(--ff-cash-text); }
+.p03-fx-lab .p03-fx-srow input[type="range"] { width: 100%; accent-color: var(--ff-share); }
+.p03-fx-lab .p03-fx-srow.p03-fx-cur input[type="range"] { accent-color: var(--ff-cash); }
+.p03-fx-lab .p03-fx-chain {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 8px;
+}
+.p03-fx-lab .p03-fx-box {
+  padding: 8px 8px;
+  border: 1px solid var(--ff-rule);
+  border-radius: 7px;
+  background: var(--ff-card);
+  text-align: center;
+}
+.p03-fx-lab .p03-fx-box small { display: block; font-size: 10.5px; color: var(--ff-muted); line-height: 1.3; }
+.p03-fx-lab .p03-fx-box strong { display: block; margin-top: 3px; font-size: 15px; font-weight: 700; font-variant-numeric: tabular-nums; color: var(--ff-ink); }
+.p03-fx-lab .p03-fx-box strong.p03-pos { color: var(--ff-share); }
+.p03-fx-lab .p03-fx-box strong.p03-neg { color: var(--ff-cash-text); }
+.p03-fx-lab .p03-fx-box.p03-fx-total { border-color: var(--ff-share); background: #eff7f2; }
+.p03-fx-lab .p03-fx-note {
+  margin: 8px 0 0;
+  padding: 7px 10px;
+  border-radius: 6px;
+  border: 1px solid var(--ff-rule);
+  background: #f5f5ec;
+  font-size: 11.5px;
+  line-height: 1.45;
+  color: var(--ff-text);
+}
+
+@media (max-width: 640px) {
+  .p03-expr-map .p03-tabs { gap: 4px; margin-bottom: 7px; }
+  .p03-expr-map .p03-tabs button { padding: 3px 8px; font-size: 10.5px; }
+  .p03-expr-map .p03-rows { gap: 4px; }
+  .p03-expr-map .p03-row {
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 2px 6px;
+    padding: 5px 8px;
+  }
+  .p03-expr-map .p03-rname { font-size: 11.5px; }
+  .p03-expr-map .p03-rname small { display: inline; margin-left: 5px; font-size: 10px; }
+  .p03-expr-map .p03-track { grid-column: 1 / -1; height: 8px; }
+  .p03-expr-map .p03-tag { grid-column: 1 / -1; font-size: 10px; line-height: 1.25; }
+  .p03-expr-map .p03-note { margin-top: 6px; padding: 5px 8px; font-size: 10.5px; line-height: 1.38; }
+
+  .p03-ai-chain .p03-cols { grid-template-columns: minmax(0, 1fr); gap: 8px; }
+  .p03-ai-chain .p03-panel { padding: 8px 9px; }
+  .p03-ai-chain .p03-crow { grid-template-columns: 100px minmax(0, 1fr) 42px; }
+  .p03-ai-chain .p03-stress { grid-template-columns: minmax(0, 1fr); gap: 7px; margin-top: 8px; }
+  .p03-ai-chain .p03-sbox { padding: 7px 9px; }
+
+  .p03-divergence .p03-dgrid { grid-template-columns: minmax(0, 1fr); gap: 8px; }
+
+  .p03-fx-lab .p03-fx-sliders { grid-template-columns: minmax(0, 1fr); gap: 6px; padding: 8px 10px; }
+  .p03-fx-lab .p03-fx-chain { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 6px; }
+}

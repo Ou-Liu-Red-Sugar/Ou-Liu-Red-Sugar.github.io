@@ -2872,6 +2872,89 @@
       "authors": [
         "Stanley Druckenmiller"
       ]
+    },
+    {
+      "source_id": "nb-p03-macro-data",
+      "title": "Yahoo Finance：全球跨资产与五地半导体链日频行情（2021—2026）",
+      "url": "https://finance.yahoo.com/quote/DXJ/history/",
+      "body": "Yahoo Finance 调整后收盘价（含分红与拆股调整）及外汇现货收盘价，覆盖 2021-12-20 至 2026-01-09 共 1,018 个美股交易日（非美交易所休市日按前收对齐）；包含 SPY、QQQ、TLT、BIL、GLD、DBC、DXJ、EWJ、FXY、JPY=X、KRW=X、TWD=X、EURUSD=X、NVDA、TSM、ASML、000660.KS、8035.T、ETN、EWT、EWY，完整数据保留于 /notebook/global-macro/macro-cross-asset-daily.csv。",
+      "version": "2026-11-26 读取",
+      "authors": [
+        "Yahoo Finance"
+      ]
+    },
+    {
+      "source_id": "nb-p03-dxj-pros",
+      "title": "WisdomTree：WisdomTree Japan Hedged Equity Fund（DXJ）摘要招募说明书",
+      "url": "https://www.sec.gov/Archives/edgar/data/1350487/000121465926012301/dxj926497k.htm",
+      "body": "SEC Form 497K（2026-08-01，2026-09-30 补充）：说明 DXJ 通过按月展期的一月期美元兑日元远期／期货合约对冲日元汇率波动；美元升值时预期跑赢未对冲日股，美元贬值时预期跑输。",
+      "version": "2026-11-26 核对",
+      "authors": [
+        "WisdomTree Asset Management"
+      ]
+    },
+    {
+      "source_id": "nb-p03-ewj-pros",
+      "title": "BlackRock iShares：iShares MSCI Japan ETF（EWJ）摘要招募说明书",
+      "url": "https://www.sec.gov/Archives/edgar/data/930667/000119312525336645/d48256d497k.htm",
+      "body": "SEC Form 497K（2025-12-30）：说明 EWJ 跟踪未做汇率对冲的 MSCI Japan 指数，美元持有人同时承担日本股价变动与日元兑美元汇率风险。",
+      "version": "2026-11-26 核对",
+      "authors": [
+        "BlackRock iShares"
+      ]
+    },
+    {
+      "source_id": "nb-p03-tsmc-20f",
+      "title": "TSMC：FY2025 Form 20-F 年度报告",
+      "url": "https://investor.tsmc.com/sites/ir/sec-filings/2025_20F%20Report.pdf",
+      "body": "TSMC 2025 财年 Form 20-F：披露北美客户占 2025 年净营收 75%（2023 年 68%、2024 年 70%），几乎全部销售以美元计价而报表与本地运营成本以新台币计价，按 2025 年口径美元兑新台币每贬值 1% 约令营业利润率下降 0.3 个百分点。",
+      "version": "2026-11-26 核对",
+      "authors": [
+        "Taiwan Semiconductor Manufacturing Company Limited"
+      ]
+    },
+    {
+      "source_id": "nb-p03-asml-20f",
+      "title": "ASML Holding N.V.：FY2025 Form 20-F 年度报告",
+      "url": "https://www.sec.gov/Archives/edgar/data/937966/000162828026011378/asml-20251231.htm",
+      "body": "ASML 2025 财年 Form 20-F（2026-02-25 提交）：披露 2025 年总净销售额 326.67 亿欧元（2024 年 282.63 亿欧元），其中中国大陆收入由 2024 年 101.95 亿欧元（36.1%）降至 2025 年 95.20 亿欧元（29.1%），台湾 25.5%、韩国 25.0%，并详述荷美对 EUV、特定 DUV 与量测设备的出口许可管制。",
+      "version": "2026-11-26 核对",
+      "authors": [
+        "ASML Holding N.V."
+      ]
+    },
+    {
+      "source_id": "nb-p03-skh-2024",
+      "title": "SK hynix：FY2024 及 4Q24 财务业绩公告",
+      "url": "https://news.skhynix.com/en/sk-hynix-announces-4q24-financial-results/",
+      "body": "SK hynix 官方公告（2025-01-23）：按 K-IFRS 披露 2023 财年营收 32.77 万亿韩元、营业亏损 7.73 万亿韩元（营业利润率 −24%），2024 财年在 HBM 需求拉动下营收增至 66.19 万亿韩元、营业利润扭亏至 23.47 万亿韩元（35%）。",
+      "version": "2026-11-26 核对",
+      "authors": [
+        "SK hynix Inc."
+      ]
+    },
+    {
+      "source_id": "nb-p03-skh-2025",
+      "title": "SK hynix：FY2025 财务业绩公告",
+      "url": "https://news.skhynix.com/en/sk-hynix-announces-fy25-financial-results/",
+      "body": "SK hynix 官方公告（2026-01-28）：按 K-IFRS 披露 2025 财年营收 97.15 万亿韩元、营业利润翻倍至 47.21 万亿韩元（营业利润率 49%）、净利润 42.95 万亿韩元。",
+      "version": "2026-11-26 核对",
+      "authors": [
+        "SK hynix Inc."
+      ]
+    },
+    {
+      "source_id": "nb-p03-bis-90",
+      "title": "BIS Bulletin No. 90：The market turbulence and carry trade unwind of August 2024",
+      "url": "https://www.bis.org/publications/bulletin-90-market-turbulence-and-carry-trade-unwind-august-2024.pdf",
+      "body": "国际清算银行（BIS）2024 年 8 月 27 日专报（Aquilina, Lombardi, Schrimpf & Sushko）：复盘 2024 年 7 月 31 日日本央行加息至 0.25%、8 月 2 日美国就业数据转弱与 8 月 5 日 TOPIX 单日暴跌 12%、VIX 盘外升破 60 的日元套息去杠杆链条，并给出事件前表内外日元套息交易约 40 万亿日元（约 2,500 亿美元）的中位量级估计。",
+      "version": "2026-11-26 核对",
+      "authors": [
+        "Matteo Aquilina",
+        "Marco Lombardi",
+        "Andreas Schrimpf",
+        "Vladyslav Sushko"
+      ]
     }
   ],
   "paths": []

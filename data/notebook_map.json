@@ -1362,8 +1362,13 @@
       "node": "P",
       "title": "全球宏观与跨资产配置",
       "goal": "沿增长、通胀、利率与汇率周期在多资产间选择表达工具，并识破跨国跨品种配置背后同一底层风险的伪分散。",
-      "status": "planned",
-      "url": null
+      "status": "available",
+      "url": "/zh/notebook/global-macro-cross-asset/",
+      "reading_profile": {
+        "difficulty": "进阶",
+        "depth": "详解",
+        "note": "需要结合利率、汇率、跨市场周收益相关性、公司跨境财报口径与流动性去杠杆机制，辨别表达载体选择、底层共因与局部背离。"
+      }
     },
     {
       "id": "NB-P04",
@@ -1591,7 +1596,7 @@
       "status": "planned",
       "url": null
     },
-    "available_count": 15,
+    "available_count": 16,
     "intro_available_count": 12,
     "navigation": {
       "NB-A01": {
@@ -2158,6 +2163,47 @@
           "number": 70,
           "title": "全球宏观与跨资产配置",
           "note": "按相应工具或判断问题选读。沿宏观周期跨资产表达判断，并识破跨国跨品种背后的同一底层风险。",
+          "status": "available",
+          "url": "/zh/notebook/global-macro-cross-asset/",
+          "reading_profile": {
+            "difficulty": "进阶",
+            "depth": "详解",
+            "note": "需要结合利率、汇率、跨市场周收益相关性、公司跨境财报口径与流动性去杠杆机制，辨别表达载体选择、底层共因与局部背离。"
+          }
+        }
+      },
+      "NB-P03": {
+        "current": {
+          "id": "NB-P03",
+          "number": 70,
+          "title": "全球宏观与跨资产配置",
+          "note": "按相应工具或判断问题选读。沿宏观周期跨资产表达判断，并识破跨国跨品种背后的同一底层风险。",
+          "status": "available",
+          "url": "/zh/notebook/global-macro-cross-asset/",
+          "reading_profile": {
+            "difficulty": "进阶",
+            "depth": "详解",
+            "note": "需要结合利率、汇率、跨市场周收益相关性、公司跨境财报口径与流动性去杠杆机制，辨别表达载体选择、底层共因与局部背离。"
+          }
+        },
+        "previous": {
+          "id": "NB-P02",
+          "number": 69,
+          "title": "股票多空与市场中性",
+          "note": "按相应工具或判断问题选读。拆分总敞口与净敞口，看清市场中性策略的收益来源、融券摩擦与因子踩踏风险。",
+          "status": "available",
+          "url": "/zh/notebook/long-short-market-neutral/",
+          "reading_profile": {
+            "difficulty": "进阶",
+            "depth": "详解",
+            "note": "需要同时理解多空总／净敞口、beta 与风格因子中性、卖空现金抵押与借券费结构，以及轧空与拥挤去杠杆两类尾部失效。"
+          }
+        },
+        "next": {
+          "id": "NB-P04",
+          "number": 71,
+          "title": "风险平价与全天候配置",
+          "note": "按相应工具或判断问题选读。从资金权重转向风险贡献，理解风险平价的四象限制衡与加息边界。",
           "status": "planned",
           "url": null
         }
@@ -2257,7 +2303,7 @@
         "id": "optional_portfolio_paradigms",
         "title": "按需专题：多资产组合与对冲范式",
         "goal": "分别展开股票多空与市场中性、全球宏观、风险平价及信用尾部对冲四类常见机构风险制衡框架。",
-        "available_count": 1,
+        "available_count": 2,
         "total": 4
       },
       {
