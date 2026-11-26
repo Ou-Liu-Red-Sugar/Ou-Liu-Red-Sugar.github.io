@@ -2990,7 +2990,7 @@
       "source_id": "nb-p04-aqr-2012",
       "title": "Asness, Frazzini & Pedersen（2012）：Leverage Aversion and Risk Parity",
       "url": "https://www.aqr.com/-/media/AQR/Documents/Insights/Journal-Article/Leverage-Aversion-and-Risk-Parity.pdf",
-      "body": "发表于 Financial Analysts Journal 68(1)（2012）：提出杠杆厌恶假说，解释不愿或不能加杠杆的投资者过度拥挤于高波动股票、压低其风险调整回报，从而让超配低波动债券并施加温和杠杆的风险平价组合在 1926—2010 年美股美债样本中获得高于 60/40 的夏普比率。",
+      "body": "发表于 Financial Analysts Journal 68(1)（2012）：提出杠杆厌恶假说，解释不愿或不能加杠杆的投资者过度拥挤于高波动股票、压低其风险调整回报，从而让超配低波动债券并施加温和杠杆的风险平价组合在 1926—2010 年美股美债样本中获得高于 60/40 的 Sharpe 比率。",
       "version": "2026-11-26 核对",
       "authors": [
         "Clifford S. Asness",

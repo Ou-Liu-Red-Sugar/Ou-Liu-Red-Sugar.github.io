@@ -9,7 +9,7 @@ This is reference material for the learner's current request. Use the supplied e
 
 ## Author-supplied scope notes (reference only)
 <author_scope_notes>
-本篇为按需专题 NB-P04《风险平价与全天候配置》。围绕四条主线展开：一、资金权重与风险贡献的落差：引 Edward Qian（PanAgora，2005）1983—2004 年 60/40 组合 93% 风险来自股票的经典实证，并给出欧拉波动分解公式 RC_i = w_i (Σw)_i / σ_p，配合 2011—2020 年 SPY（波动 17.2%）与 IEF（波动 5.9%）的互动风险贡献分解器（60/40 在负相关 −0.45 下股票净风险贡献达 106.0%、债券 −6.0%；切到波动倒数 25.5/74.5 后风险占比恒定 50/50，但总波动压低至 4.6%）。二、增长 × 通胀四象限与全天候制衡：依据桥水《The All Weather Story》（1996/2012）建立四个相对预期意外象限各 25% 风险预算的资产映射，并依据 TreasuryDirect 与 TIP Form 497K 辨清 TIPS 防意外通胀但仍承受实际利率久期风险（2022 年 TIP 跌 −12.3%，DBC 涨 +19.3%）。三、温和杠杆的由来：引 AQR（Asness, Frazzini & Pedersen, 2012）杠杆厌恶理论，以 2011—2020 四资产波动倒数权重（12.2% SPY / 13.2% DBC / 35.7% IEF / 38.9% TIP）和实盘 RPAR ETF（SEC Form 497K：35% TIPS / 25% 股票 / 25% 商品黄金 / 15% 短债抵押叠美债期货）说明机构为何借期货抬升低波债券敞口。四、失效边界：用 /notebook/risk-parity/risk-parity-daily.csv 对比 2011—2020 低通胀顺风十年（SPY–IEF 日相关 −0.451、BIL 年化 +0.5%）与 2022—2023 加息挤压期（2022 SPY–IEF 翻正至 +0.190、SPY–TIP +0.278，2023 BIL 升至 +4.9%），实测 2022 年 1.8× 杠杆 RP 跌 −18.8%、实盘 RPAR 跌 −22.8%（两年累计 −15.1% 与 −18.2%），且 2023 年高融资利率令杠杆版（+4.6%）反不如无杠杆版（+5.2%），最后落回个人账户的三条结构边界。不给出具体配置比例或杠杆操作建议。
+本篇为按需专题 NB-P04《风险平价与全天候配置》。围绕四条主线展开：一、资金权重与风险贡献的落差：引 Edward Qian（PanAgora，2005）1983—2004 年 60/40 组合 93% 风险来自股票的经典实证，并给出 Euler 波动分解公式 RC_i = w_i (Σw)_i / σ_p，配合 2011—2020 年 SPY（波动 17.2%）与 IEF（波动 5.9%）的互动风险贡献分解器（60/40 在负相关 −0.45 下股票净风险贡献达 106.0%、债券 −6.0%；切到波动倒数 25.5/74.5 后风险占比恒定 50/50，但总波动压低至 4.6%）。二、增长 × 通胀四象限与全天候制衡：依据桥水《The All Weather Story》（1996/2012）建立四个相对预期意外象限各 25% 风险预算的资产映射，并依据 TreasuryDirect 与 TIP Form 497K 辨清 TIPS 防意外通胀但仍承受实际利率久期风险（2022 年 TIP 跌 −12.3%，DBC 涨 +19.3%）。三、温和杠杆的由来：引 AQR（Asness, Frazzini & Pedersen, 2012）杠杆厌恶理论，以 2011—2020 四资产波动倒数权重（12.2% SPY / 13.2% DBC / 35.7% IEF / 38.9% TIP）和实盘 RPAR ETF（SEC Form 497K：35% TIPS / 25% 股票 / 25% 商品黄金 / 15% 短债抵押叠美债期货）说明机构为何借期货抬升低波债券敞口。四、失效边界：用 /notebook/risk-parity/risk-parity-daily.csv 对比 2011—2020 低通胀顺风十年（SPY–IEF 日相关 −0.451、BIL 年化 +0.5%）与 2022—2023 加息挤压期（2022 SPY–IEF 翻正至 +0.190、SPY–TIP +0.278，2023 BIL 升至 +4.9%），实测 2022 年 1.8× 杠杆 RP 跌 −18.8%、实盘 RPAR 跌 −22.8%（两年累计 −15.1% 与 −18.2%），且 2023 年高融资利率令杠杆版（+4.6%）反不如无杠杆版（+5.2%），最后落回个人账户的三条结构边界。不给出具体配置比例或杠杆操作建议。
 </author_scope_notes>
 
 ## Shared notation and writing conventions
@@ -28,7 +28,7 @@ This is reference material for the learner's current request. Use the supplied e
       },
       "required_unit": {
         "locator": "2010-12-31 至 2025-12-31 的 SPY、IEF、TLT、TIP、GLD、DBC、BIL 与 2019-12-13 起的 RPAR 调整后收盘价。",
-        "scope": "复算 2011—2020 年 60/40 风险贡献、四资产波动倒数权重、无杠杆与 1.8 倍杠杆风险平价在 2011—2020 与 2022—2023 的收益、波动、回撤及夏普。",
+        "scope": "复算 2011—2020 年 60/40 风险贡献、四资产波动倒数权重、无杠杆与 1.8 倍杠杆风险平价在 2011—2020 与 2022—2023 的收益、波动、回撤及 Sharpe。",
         "purpose": "核对本篇所有长周期对比与 2022—2023 失效边界数据。"
       },
       "title": "Yahoo Finance：风险平价跨资产长周期历史行情（2010—2026）",
@@ -106,7 +106,7 @@ This is reference material for the learner's current request. Use the supplied e
 
 2005 年 9 月，PanAgora 资产管理公司的 Edward Qian 在白皮书《Risk Parity Portfolios》里正式提出“风险平价”这一名称。他用 1983 至 2004 年美股 Russell 1000（年化波动 15.1%）与美债 Lehman Aggregate（年化波动 4.6%、相关性 +0.20）算了一笔账：在一套标准的 60/40 组合里，股票虽然只占 60% 本金，却贡献了 **93%** 的组合方差风险，债券只贡献 **7%**；统计所有月度跌幅超过 2% 的亏损月份，其中 **95.6%** 的损失来自股票。[^qian-2005]
 
-背后的算术来自欧拉波动分解（Euler decomposition）：组合总波动率 \(\sigma_p\) 可以精确拆成每一项资产的**风险贡献**之和：
+背后的算术来自 Euler 波动分解：组合总波动率 \(\sigma_p\) 可以精确拆成每一项资产的**风险贡献**之和：
 
 \[
 RC_i = w_i \frac{\partial \sigma_p}{\partial w_i} = \frac{w_i (\Sigma \mathbf{w})_i}{\sigma_p},\qquad \sum_i \frac{RC_i}{\sigma_p} = 100\%.
@@ -115,7 +115,7 @@ RC_i = w_i \frac{\partial \sigma_p}{\partial w_i} = \frac{w_i (\Sigma \mathbf{w}
 股票的波动率接近中长期国债的三倍，进到方差里要平方放大近九倍。用 2011 至 2020 年真实行情检验 SPDR S&P 500 ETF Trust（SPY，年化波动 17.2%）与 iShares 7–10 Year Treasury Bond ETF（IEF，年化波动 5.9%）的 60/40 组合，在两者的负相关性（−0.45）作用下，SPY 的净风险贡献甚至达到 **106.0%**，IEF 为 **−6.0%**（对冲掉了小部分波动）。拖动下面两个滑块，或切换三种真实预设，直接看资金权重与风险贡献的落差：
 
 <figure class="flow-figure p04-rc-lab" id="nb-p04-rc-lab" data-p04-rc>
-<div class="ff-head"><p class="ff-title">60/40 资金权重 vs 真实风险贡献（欧拉波动分解）</p><span class="ff-sub">采用 2011—2020 实测年化波动：SPY 17.2% · IEF 5.9%</span></div>
+<div class="ff-head"><p class="ff-title">60/40 资金权重 vs 真实风险贡献（Euler 波动分解）</p><span class="ff-sub">采用 2011—2020 实测年化波动：SPY 17.2% · IEF 5.9%</span></div>
 <div class="p04-presets" hidden><button type="button" data-p04-preset="60.0,0.20" aria-pressed="true">60/40 · 正相关 (+0.20)</button><button type="button" data-p04-preset="60.0,-0.45">60/40 · 2011—2020 (−0.45)</button><button type="button" data-p04-preset="25.5,-0.45">两资产风险平价 (25.5/74.5)</button><button type="button" data-p04-preset="25.5,0.19">风险平价遇 2022 (+0.19)</button></div>
 <div class="p04-sliders">
 <div class="p04-srow"><label for="nb-p04-w">股票 / 债券资金权重 <output for="nb-p04-w" data-p04-w-out>60% / 40%</output></label><input id="nb-p04-w" data-p04-w-in type="range" min="10" max="90" step="0.5" value="60" disabled></div>
@@ -129,7 +129,7 @@ RC_i = w_i \frac{\partial \sigma_p}{\partial w_i} = \frac{w_i (\Sigma \mathbf{w}
 <div class="p04-volbox"><span>组合年化波动率</span><strong data-p04-vol>11.0%</strong><small>股票 17.2% · 债券 5.9%</small></div>
 </div>
 <p class="p04-note" data-p04-note>虽然资金像是分散配置，股票仍占据 91.4% 的组合风险，组合年化波动为 11.0%。</p>
-<figcaption>采用欧拉波动分解计算；切到“两资产风险平价”后再切换相关性，可观察风险占比恒定 50/50 时，相关性翻正怎样把总波动从 4.6% 推高到 6.8%。</figcaption>
+<figcaption>采用 Euler 波动分解计算；切到“两资产风险平价”后再切换相关性，可观察风险占比恒定 50/50 时，相关性翻正怎样把总波动从 4.6% 推高到 6.8%。</figcaption>
 </figure>
 
 按波动率倒数把资金配成 **25.5% SPY ＋ 74.5% IEF** 时，两腿各自承担的独立波动（\(w_i \sigma_i\)）恰好相等，股债风险贡献在任何相关性下都维持在 **50% / 50%**。不过，光有股票和名义国债两腿，依然防不住 1970 年代或 2022 年那种通胀飙升的冲击。
@@ -173,7 +173,7 @@ RC_i = w_i \frac{\partial \sigma_p}{\partial w_i} = \frac{w_i (\Sigma \mathbf{w}
 
 把股票、名义国债、TIPS 和大宗商品按历史波动倒数配进同一个无杠杆组合，马上会碰到一个现实难题。拿 2011 至 2020 年实测波动率（SPY 17.2%、DBC 16.0%、IEF 5.9%、TIP 5.4%）来算，四资产无杠杆风险平价的资金权重会自然落成：**12.2% SPY ＋ 13.2% DBC ＋ 35.7% IEF ＋ 38.9% TIP**。近四分之三的本金压在低波动债券上，整套组合的年化波动被压缩到仅 **4.6%**，十年年化回报只有 **+4.2%**（同期 60/40 波动 9.5%、年化 +10.5%）。[^rp-data]
 
-如果一套组合波动极低、收益也跟着掉到接近定期存款，养老金和机构客户很难接受。AQR 基金的 Clifford Asness、Andrea Frazzini 与 Lasse Pedersen 在 2012 年《Financial Analysts Journal》发表的《Leverage Aversion and Risk Parity》里给出了理论解释：多数投资者因为制度限制或心理原因**厌恶杠杆**，为了追逐更高的目标收益，只能把大量本金挤进高波动股票，压低了股票的风险调整回报；相反，低波动债券虽然绝对收益不高，单位风险换来的超额回报（夏普比率）往往更高。[^aqr-2012]
+如果一套组合波动极低、收益也跟着掉到接近定期存款，养老金和机构客户很难接受。AQR 基金的 Clifford Asness、Andrea Frazzini 与 Lasse Pedersen 在 2012 年《Financial Analysts Journal》发表的《Leverage Aversion and Risk Parity》里给出了理论解释：多数投资者因为制度限制或心理原因**厌恶杠杆**，为了追逐更高的目标收益，只能把大量本金挤进高波动股票，压低了股票的风险调整回报；相反，低波动债券虽然绝对收益不高，单位风险换来的超额回报（Sharpe 比率）往往更高。[^aqr-2012]
 
 因此，机构风险平价往往采取两步走：先把四类资产按等风险配平，再对低波动的债券腿施加**温和杠杆**（常见在 1.5 至 2 倍总敞口区间），把整套组合的波动率抬回到接近 60/40 的水平。公开挂牌的 **RPAR Risk Parity ETF**（SEC Form 497K，2026 年 4 月 30 日）给出了很直观的现实样本：它的长期目标风险为 TIPS、全球股票、商品与黄金、美国国债各占 **25%**；落到资金端，则是 **35% 长期 TIPS ＋ 25% 全球股票 ＋ 25% 商品与黄金 ＋ 15% 超短美债作保证金抵押，再叠入 10 年期与超长期美债期货**，靠期货的保证金效率把美债名义敞口放大到超过 15%。[^rpar-pros]
 
@@ -190,7 +190,7 @@ RC_i = w_i \frac{\partial \sigma_p}{\partial w_i} = \frac{w_i (\Sigma \mathbf{w}
 <div class="p04-lbox">
 <span class="p04-lstep-tag">步骤二 · 温和杠杆放量</span>
 <strong>机构常用美债期货抬升债券敞口</strong>
-<p>用短债抵押叠加国债期货（如 RPAR 规则），避开高息零售融资，将组合波动抬升至接近 60/40（约 8%—10%），保留分散后的高夏普。</p>
+<p>用短债抵押叠加国债期货（如 RPAR 规则），避开高息零售融资，将组合波动抬升至接近 60/40（约 8%—10%），保留分散后的高 Sharpe。</p>
 </div>
 <div class="p04-lbox p04-lwarn">
 <span class="p04-lstep-tag">步骤三 · 融资成本门槛</span>
@@ -259,7 +259,7 @@ RC_i = w_i \frac{\partial \sigma_p}{\partial w_i} = \frac{w_i (\Sigma \mathbf{w}
 
 
 ## Sources
-- [Asness, Frazzini & Pedersen（2012）：Leverage Aversion and Risk Parity](https://www.aqr.com/-/media/AQR/Documents/Insights/Journal-Article/Leverage-Aversion-and-Risk-Parity.pdf): 发表于 Financial Analysts Journal 68(1)（2012）：提出杠杆厌恶假说，解释不愿或不能加杠杆的投资者过度拥挤于高波动股票、压低其风险调整回报，从而让超配低波动债券并施加温和杠杆的风险平价组合在 1926—2010 年美股美债样本中获得高于 60/40 的夏普比率。
+- [Asness, Frazzini & Pedersen（2012）：Leverage Aversion and Risk Parity](https://www.aqr.com/-/media/AQR/Documents/Insights/Journal-Article/Leverage-Aversion-and-Risk-Parity.pdf): 发表于 Financial Analysts Journal 68(1)（2012）：提出杠杆厌恶假说，解释不愿或不能加杠杆的投资者过度拥挤于高波动股票、压低其风险调整回报，从而让超配低波动债券并施加温和杠杆的风险平价组合在 1926—2010 年美股美债样本中获得高于 60/40 的 Sharpe 比率。
 - [Bridgewater Associates（2012）：The All Weather Story](https://www.bridgewater.com/resources/all-weather-story.pdf): 桥水基金官方白皮书：记录 1996 年为 Ray Dalio 家族信托创立全天候（All Weather）策略的演进，按增长超／低于预期与通胀超／低于预期四个象限各分配 25% 风险预算，不依赖宏观预测实现结构制衡。
 - [Edward Qian（PanAgora，2005）：Risk Parity Portfolios: Efficient Portfolios Through True Diversification](https://www.panagora.com/assets/PanAgora-Risk-Parity-Portfolios-Efficient-Portfolios-Through-True-Diversification.pdf): PanAgora 资产管理白皮书（2005 年 9 月）：正式提出“风险平价（Risk Parity）”名称，以 1983—2004 年 Russell 1000（波动 15.1%）与 Lehman Agg（波动 4.6%、相关性 +0.20）实证指出 60/40 组合 93% 的风险和超过 95% 的大额亏损来自股票。
 - [Yahoo Finance：风险平价跨资产长周期历史行情（2010—2026）](https://finance.yahoo.com/quote/IEF/history/): Yahoo Finance 调整后收盘价（含分红与拆股调整），覆盖 2010-12-20 至 2026-01-09 共 3,787 个交易日（含 SPY、IEF、TLT、TIP、GLD、DBC、BIL 及 2019-12-13 上市以来的实盘 RPAR）；完整复算数列保留于 /notebook/risk-parity/risk-parity-daily.csv。
