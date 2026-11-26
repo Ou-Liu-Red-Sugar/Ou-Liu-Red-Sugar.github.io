@@ -2781,6 +2781,87 @@
       "authors": [
         "U.S. Securities and Exchange Commission"
       ]
+    },
+    {
+      "source_id": "nb-p02-sec-short",
+      "title": "SEC Investor.gov：Investor Bulletin — An Introduction to Short Sales",
+      "url": "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins-51",
+      "body": "SEC Investor.gov 投资者公告（2026-09-09 更新）：说明卖空的借股流程、股息补偿义务（向出借人支付分红）、保证金账户要求以及理论亏损无上限的特征。",
+      "version": "2026-11-26 核对",
+      "authors": [
+        "SEC Investor.gov"
+      ]
+    },
+    {
+      "source_id": "nb-p02-finra-margin",
+      "title": "FINRA：Know What Triggers a Margin Call",
+      "url": "https://www.finra.org/investors/insights/margin-calls",
+      "body": "FINRA 投资者说明：解释券商可在任意时点提高特定股票或板块的 house 维持保证金要求，并可在未提前通知时强行处置账户证券。",
+      "version": "2026-11-26 核对",
+      "authors": [
+        "FINRA"
+      ]
+    },
+    {
+      "source_id": "nb-p02-ibkr-int",
+      "title": "Interactive Brokers FAQ：USD Debit Interest vs USD Net Short Stock Interest",
+      "url": "https://www.interactivebrokers.com/support/faq/content/difference-between-usd-debit-interest-41559475",
+      "body": "IBKR 官方说明：卖空所得现金必须作为股票出借方的抵押品，不能直接用来顶替新买单的保证金；账户账单将卖空抵押利息回扣与借券费轧差列示为 Net Short Stock Interest。",
+      "version": "2026-11-26 核对",
+      "authors": [
+        "Interactive Brokers"
+      ]
+    },
+    {
+      "source_id": "nb-p02-ibkr-fee",
+      "title": "Interactive Brokers FAQ：What is the Fee Rate?",
+      "url": "https://www.interactivebrokers.com/support/faq/content/fee-rate-28221944",
+      "body": "IBKR 官方说明：借券费率与出借方对卖空现金抵押再投资后返还的部分利息回扣（Short Sales Proceeds Interest），并指出许多零售券商不向个人账户返还这部分回扣。",
+      "version": "2026-11-26 核对",
+      "authors": [
+        "Interactive Brokers"
+      ]
+    },
+    {
+      "source_id": "nb-p02-ibkr-borrow",
+      "title": "Interactive Brokers Securities Lending Desk：The Risks of Shorting Series, Part II: Borrow Fees",
+      "url": "https://www.interactivebrokers.com/campus/traders-insight/securities/short-selling/the-risks-of-shorting-series-part-ii-borrow-fees/",
+      "body": "IBKR 融券台文章（2025-06-18）：对比普通抵押股（如 AAPL）与难借股（如 BYND，文中费率达 54%，且 2024 年 11 月曾在三天内由 34% 跃升至 195%），说明借券费按日历日浮动计收而非开仓锁定。",
+      "version": "2026-11-26 核对",
+      "authors": [
+        "Interactive Brokers Securities Lending Desk"
+      ]
+    },
+    {
+      "source_id": "nb-p02-sec-gme",
+      "title": "SEC：Staff Report on Equity and Options Market Structure Conditions in Early 2021",
+      "url": "https://www.sec.gov/files/staff-report-equity-options-market-struction-conditions-early-2021.pdf",
+      "body": "SEC 工作人员正式报告（2021 年 10 月）：记录 GameStop（GME）在 2021 年 1 月空头比例达流通股本 122.97%、卖空保证金要求及回补买盘放大的轧空机制。",
+      "version": "2026-11-26 核对",
+      "authors": [
+        "U.S. Securities and Exchange Commission"
+      ]
+    },
+    {
+      "source_id": "nb-p02-quant-2007",
+      "title": "Khandani & Lo：What Happened to the Quants in August 2007?",
+      "url": "https://econpapers.repec.org/article/eeefinmar/v_3a14_3ay_3a2011_3ai_3a1_3ap_3a1-46.htm",
+      "body": "Amir E. Khandani 与 Andrew W. Lo（2007 工作论文，Journal of Financial Markets 14(1)，2011）：实证复盘 2007 年 8 月 6—10 日多家低净敞口量化市场中性基金重挫 −5% 至 −30%、随后于 8 月 10 日大幅反弹的拥挤去杠杆链条。",
+      "version": "2026-11-26 核对",
+      "authors": [
+        "Amir E. Khandani",
+        "Andrew W. Lo"
+      ]
+    },
+    {
+      "source_id": "nb-p02-pair-data",
+      "title": "Yahoo Finance：SPY、WMT、TGT、KO、PEP 与 GME 历史行情（2020—2026）",
+      "url": "https://finance.yahoo.com/quote/SPY/history/",
+      "body": "Yahoo Finance 调整后收盘价（含分红与拆股调整），覆盖 2020-12-21 至 2026-10-14 共 1,460 个共同交易日；配对复算数据保留于 /notebook/market-neutral/pair-daily.csv。",
+      "version": "2026-11-26 读取",
+      "authors": [
+        "Yahoo Finance"
+      ]
     }
   ],
   "paths": []

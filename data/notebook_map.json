@@ -1349,8 +1349,13 @@
       "node": "P",
       "title": "股票多空与市场中性",
       "goal": "拆分总敞口与净敞口，理解市场、行业与因子中性的收益来源、融券成本及拥挤踩踏风险。",
-      "status": "planned",
-      "url": null
+      "status": "available",
+      "url": "/zh/notebook/long-short-market-neutral/",
+      "reading_profile": {
+        "difficulty": "进阶",
+        "depth": "详解",
+        "note": "需要同时理解多空总／净敞口、beta 与风格因子中性、卖空现金抵押与借券费结构，以及轧空与拥挤去杠杆两类尾部失效。"
+      }
     },
     {
       "id": "NB-P03",
@@ -1586,7 +1591,7 @@
       "status": "planned",
       "url": null
     },
-    "available_count": 14,
+    "available_count": 15,
     "intro_available_count": 12,
     "navigation": {
       "NB-A01": {
@@ -2125,6 +2130,37 @@
           "status": "planned",
           "url": null
         }
+      },
+      "NB-P02": {
+        "current": {
+          "id": "NB-P02",
+          "number": 69,
+          "title": "股票多空与市场中性",
+          "note": "按相应工具或判断问题选读。拆分总敞口与净敞口，看清市场中性策略的收益来源、融券摩擦与因子踩踏风险。",
+          "status": "available",
+          "url": "/zh/notebook/long-short-market-neutral/",
+          "reading_profile": {
+            "difficulty": "进阶",
+            "depth": "详解",
+            "note": "需要同时理解多空总／净敞口、beta 与风格因子中性、卖空现金抵押与借券费结构，以及轧空与拥挤去杠杆两类尾部失效。"
+          }
+        },
+        "previous": {
+          "id": "NB-G06",
+          "number": 68,
+          "title": "价差组合与策略选择",
+          "note": "按相应工具或判断问题选读。按价格判断和持有目的比较多腿期权的净结果与执行条件。",
+          "status": "planned",
+          "url": null
+        },
+        "next": {
+          "id": "NB-P03",
+          "number": 70,
+          "title": "全球宏观与跨资产配置",
+          "note": "按相应工具或判断问题选读。沿宏观周期跨资产表达判断，并识破跨国跨品种背后的同一底层风险。",
+          "status": "planned",
+          "url": null
+        }
       }
     },
     "credits": [
@@ -2221,7 +2257,7 @@
         "id": "optional_portfolio_paradigms",
         "title": "按需专题：多资产组合与对冲范式",
         "goal": "分别展开股票多空与市场中性、全球宏观、风险平价及信用尾部对冲四类常见机构风险制衡框架。",
-        "available_count": 0,
+        "available_count": 1,
         "total": 4
       },
       {

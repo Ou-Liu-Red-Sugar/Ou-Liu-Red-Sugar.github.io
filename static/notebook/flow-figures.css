@@ -5609,3 +5609,347 @@
   .p01-rebalance .p01-rb-top,
   .p01-rebalance .p01-rb-forks { grid-template-columns: minmax(0, 1fr); gap: 8px; }
 }
+
+/* === NB-P02: Long/Short Equity & Market Neutral (p02-*) === */
+
+/* 1. Interactive Gross vs Net exposure & crowding stress lab */
+.p02-exposure-lab .p02-presets {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 10px;
+}
+.p02-exposure-lab .p02-presets button {
+  padding: 4px 10px;
+  border: 1px solid #c3cfbf;
+  border-radius: 6px;
+  background: #fffefa;
+  color: var(--ff-share);
+  font: inherit;
+  font-size: 12px;
+  font-weight: 550;
+  cursor: pointer;
+}
+.p02-exposure-lab .p02-presets button[aria-pressed="true"] {
+  background: var(--ff-share);
+  border-color: var(--ff-share);
+  color: #fff;
+}
+.p02-exposure-lab .p02-sliders {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px 14px;
+  padding: 9px 12px;
+  border-radius: 8px;
+  background: #f1f4ec;
+  margin-bottom: 10px;
+}
+.p02-exposure-lab .p02-srow {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: center;
+  gap: 6px 10px;
+  font-size: 12.5px;
+}
+.p02-exposure-lab .p02-srow label { font-weight: 600; color: var(--ff-ink); white-space: nowrap; }
+.p02-exposure-lab .p02-srow output { font-weight: 700; color: var(--ff-share); }
+.p02-exposure-lab .p02-srow-short output { color: var(--ff-cash-text); }
+.p02-exposure-lab .p02-srow input[type="range"] { width: 100%; margin: 0; accent-color: var(--ff-share); }
+.p02-exposure-lab .p02-srow-short input[type="range"] { accent-color: var(--ff-cash); }
+.p02-exposure-lab .p02-summary {
+  display: grid;
+  grid-template-columns: minmax(0, 1.55fr) minmax(0, 1fr);
+  gap: 10px 14px;
+  align-items: center;
+  margin-bottom: 10px;
+}
+.p02-exposure-lab .p02-legs {
+  display: grid;
+  gap: 5px;
+}
+.p02-exposure-lab .p02-leg-row {
+  display: grid;
+  grid-template-columns: 44px minmax(0, 1fr);
+  align-items: center;
+  gap: 8px;
+  font-size: 11.5px;
+  color: var(--ff-muted);
+}
+.p02-exposure-lab .p02-leg-track {
+  position: relative;
+  height: 14px;
+  border-radius: 3px;
+  background: #eff2ec;
+  overflow: hidden;
+}
+.p02-exposure-lab .p02-leg-track i {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  border-radius: 3px;
+  background: var(--ff-share);
+  transition: width .16s ease;
+}
+.p02-exposure-lab .p02-leg-track i.p02-short { background: var(--ff-cash); }
+.p02-exposure-lab .p02-kpis {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+}
+.p02-exposure-lab .p02-kpi {
+  padding: 7px 9px;
+  border: 1px solid var(--ff-rule);
+  border-radius: 7px;
+  background: var(--ff-card);
+  text-align: center;
+}
+.p02-exposure-lab .p02-kpi span { display: block; font-size: 11px; color: var(--ff-muted); }
+.p02-exposure-lab .p02-kpi strong { display: block; font-size: 16px; font-weight: 700; color: var(--ff-ink); line-height: 1.25; }
+.p02-exposure-lab .p02-kpi-gross { border-color: #e4caa9; background: var(--ff-cash-bg); }
+.p02-exposure-lab .p02-kpi-gross strong { color: var(--ff-cash-text); }
+.p02-exposure-lab .p02-stress {
+  display: grid;
+  gap: 7px;
+  padding-top: 10px;
+  border-top: 1px dashed #cfd8cc;
+}
+.p02-exposure-lab .p02-st-row {
+  display: grid;
+  grid-template-columns: 168px minmax(0, 1fr) 114px;
+  align-items: center;
+  gap: 6px 12px;
+  padding: 7px 10px;
+  border: 1px solid var(--ff-rule);
+  border-radius: 7px;
+  background: var(--ff-card);
+}
+.p02-exposure-lab .p02-st-name strong { display: block; font-size: 12.5px; color: var(--ff-ink); }
+.p02-exposure-lab .p02-st-name small { display: block; font-size: 10.5px; color: var(--ff-muted); }
+.p02-exposure-lab .p02-el-track {
+  position: relative;
+  height: 15px;
+  border-radius: 4px;
+  background: #eff2ec;
+  overflow: hidden;
+}
+.p02-exposure-lab .p02-el-bar {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  border-radius: 4px;
+  transition: width .16s ease;
+}
+.p02-exposure-lab .p02-bar-neg { background: var(--ff-cash); }
+.p02-exposure-lab .p02-bar-pos { background: var(--ff-share); }
+.p02-exposure-lab .p02-st-val { text-align: right; white-space: nowrap; }
+.p02-exposure-lab .p02-st-val strong { display: block; font-size: 14px; font-weight: 700; line-height: 1.2; }
+.p02-exposure-lab .p02-st-val strong.p02-neg { color: var(--ff-cash-text); }
+.p02-exposure-lab .p02-st-val strong.p02-pos { color: var(--ff-share); }
+.p02-exposure-lab .p02-st-val strong.p02-flat { color: var(--ff-ink); }
+.p02-exposure-lab .p02-st-val small { display: block; font-size: 10.5px; color: var(--ff-muted); }
+
+/* 2. Real pair comparison: WMT/TGT vs KO/PEP (Dollar-neutral vs Beta-neutral) */
+.p02-pair-compare .p02-pc-cards {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+.p02-pair-compare .p02-pc-card {
+  padding: 11px 13px;
+  border: 1px solid var(--ff-rule);
+  border-radius: 8px;
+  background: var(--ff-card);
+}
+.p02-pair-compare .p02-pc-card.p02-pc-true {
+  border-color: #b7d2c4;
+  background: #f4f9f5;
+}
+.p02-pair-compare .p02-pc-top {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 4px 8px;
+  margin-bottom: 8px;
+}
+.p02-pair-compare .p02-pc-top strong { font-size: 14px; font-weight: 700; color: var(--ff-ink); }
+.p02-pair-compare .p02-pc-tag {
+  padding: 1px 7px;
+  border-radius: 9px;
+  font-size: 10.5px;
+  font-weight: 650;
+  background: var(--ff-cash-bg);
+  color: var(--ff-cash-text);
+}
+.p02-pair-compare .p02-pc-true .p02-pc-tag {
+  background: var(--ff-share-bg);
+  color: var(--ff-share);
+}
+.p02-pair-compare .p02-pc-bars {
+  display: grid;
+  grid-template-columns: 74px minmax(0, 1fr) 44px;
+  align-items: center;
+  gap: 6px 8px;
+  margin-bottom: 10px;
+}
+.p02-pair-compare .p02-pc-blab { font-size: 11.5px; color: var(--ff-text); white-space: nowrap; }
+.p02-pair-compare .p02-pc-btrack {
+  position: relative;
+  height: 13px;
+  border-radius: 3px;
+  background: #edf1eb;
+}
+.p02-pair-compare .p02-pc-btrack i {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: var(--w);
+  border-radius: 3px;
+  background: var(--c, var(--ff-share));
+}
+.p02-pair-compare .p02-pc-bval { font-size: 12px; font-weight: 650; text-align: right; color: var(--ff-ink); }
+.p02-pair-compare .p02-pc-stats {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 6px;
+  padding-top: 9px;
+  border-top: 1px dashed #cfd8cc;
+  text-align: center;
+}
+.p02-pair-compare .p02-pc-stats span { display: block; font-size: 10.5px; color: var(--ff-muted); }
+.p02-pair-compare .p02-pc-stats strong { display: block; margin-top: 1px; font-size: 13.5px; font-weight: 700; color: var(--ff-ink); }
+.p02-pair-compare .p02-pc-stats strong.p02-warn { color: var(--ff-cash-text); }
+.p02-pair-compare .p02-pc-stats strong.p02-ok { color: var(--ff-share); }
+.p02-pair-compare .p02-pc-note {
+  margin: 8px 0 0;
+  font-size: 11.5px;
+  line-height: 1.45;
+  color: var(--ff-text);
+}
+
+/* 3. Return bridge: Easy-to-borrow vs Hard-to-borrow */
+.p02-return-bridge .p02-rb-lane {
+  padding: 10px 12px;
+  border: 1px solid var(--ff-rule);
+  border-radius: 8px;
+  background: var(--ff-card);
+}
+.p02-return-bridge .p02-rb-lane + .p02-rb-lane { margin-top: 10px; }
+.p02-return-bridge .p02-rb-lane.p02-rb-htb { border-color: #e6cdb0; background: #fdfaf5; }
+.p02-return-bridge .p02-rb-head {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 4px 10px;
+  margin-bottom: 8px;
+}
+.p02-return-bridge .p02-rb-head strong { font-size: 13px; color: var(--ff-ink); }
+.p02-return-bridge .p02-rb-head span { font-size: 12.5px; font-weight: 700; color: var(--ff-share); }
+.p02-return-bridge .p02-rb-htb .p02-rb-head span { color: var(--ff-cash-text); }
+.p02-return-bridge .p02-rb-chain {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 6px;
+}
+.p02-return-bridge .p02-rb-step {
+  padding: 6px 6px;
+  border: 1px solid var(--ff-rule);
+  border-radius: 6px;
+  background: #fbfbf6;
+  text-align: center;
+}
+.p02-return-bridge .p02-rb-step small { display: block; font-size: 10.5px; color: var(--ff-muted); line-height: 1.3; }
+.p02-return-bridge .p02-rb-step strong { display: block; margin-top: 2px; font-size: 13px; font-weight: 700; color: var(--ff-ink); }
+.p02-return-bridge .p02-rb-step.p02-pos { border-color: #c2dacb; background: #eff7f2; }
+.p02-return-bridge .p02-rb-step.p02-pos strong { color: var(--ff-share); }
+.p02-return-bridge .p02-rb-step.p02-neg { border-color: #e6cdb0; background: var(--ff-cash-bg); }
+.p02-return-bridge .p02-rb-step.p02-neg strong { color: var(--ff-cash-text); }
+.p02-return-bridge .p02-rb-step.p02-net-ok { border-color: var(--ff-share); background: var(--ff-share); }
+.p02-return-bridge .p02-rb-step.p02-net-ok small,
+.p02-return-bridge .p02-rb-step.p02-net-ok strong { color: #fff; }
+.p02-return-bridge .p02-rb-step.p02-net-bad { border-color: var(--ff-cash); background: var(--ff-cash); }
+.p02-return-bridge .p02-rb-step.p02-net-bad small,
+.p02-return-bridge .p02-rb-step.p02-net-bad strong { color: #fff; }
+
+/* 4. Dual failure modes: Single-stock short squeeze vs Crowded factor deleveraging */
+.p02-failure-modes .p02-fm-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+.p02-failure-modes .p02-fm-card {
+  padding: 11px 12px;
+  border: 1px solid #e6cdb0;
+  border-radius: 8px;
+  background: var(--ff-card);
+}
+.p02-failure-modes .p02-fm-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 6px;
+  margin-bottom: 8px;
+}
+.p02-failure-modes .p02-fm-head strong { font-size: 13.5px; color: var(--ff-ink); }
+.p02-failure-modes .p02-fm-head span {
+  padding: 1px 7px;
+  border-radius: 8px;
+  font-size: 10.5px;
+  font-weight: 650;
+  background: var(--ff-cash-bg);
+  color: var(--ff-cash-text);
+  white-space: nowrap;
+}
+.p02-failure-modes .p02-fm-steps {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 6px;
+}
+.p02-failure-modes .p02-fm-steps li {
+  position: relative;
+  margin: 0;
+  padding: 6px 8px 6px 24px;
+  border: 1px solid var(--ff-rule);
+  border-radius: 6px;
+  background: #fbfbf6;
+  font-size: 11.5px;
+  line-height: 1.45;
+  color: var(--ff-text);
+}
+.p02-failure-modes .p02-fm-steps li b {
+  position: absolute;
+  left: 7px;
+  top: 6px;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--ff-cash-text);
+}
+.p02-failure-modes .p02-fm-steps li strong { color: var(--ff-ink); }
+.p02-failure-modes .p02-fm-steps li:last-child {
+  border-color: #e4caa9;
+  background: var(--ff-cash-bg);
+  color: var(--ff-cash-text);
+}
+
+@media (max-width: 640px) {
+  .p02-exposure-lab .p02-sliders { grid-template-columns: minmax(0, 1fr); gap: 6px; padding: 8px 10px; }
+  .p02-exposure-lab .p02-summary { grid-template-columns: minmax(0, 1fr); gap: 8px; }
+  .p02-exposure-lab .p02-st-row { grid-template-columns: minmax(0, 1fr) auto; gap: 4px 8px; padding: 7px 9px; }
+  .p02-exposure-lab .p02-el-track { grid-column: 1 / -1; height: 11px; }
+
+  .p02-pair-compare .p02-pc-cards { grid-template-columns: minmax(0, 1fr); gap: 10px; }
+  .p02-pair-compare .p02-pc-card { padding: 9px 10px; }
+
+  .p02-return-bridge .p02-rb-chain { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 5px; }
+  .p02-return-bridge .p02-rb-step.p02-net-ok,
+  .p02-return-bridge .p02-rb-step.p02-net-bad { grid-column: 1 / -1; }
+
+  .p02-failure-modes .p02-fm-grid { grid-template-columns: minmax(0, 1fr); gap: 10px; }
+  .p02-failure-modes .p02-fm-card { padding: 9px 10px; }
+}

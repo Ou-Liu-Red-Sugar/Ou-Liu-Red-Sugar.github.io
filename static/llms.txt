@@ -12,6 +12,7 @@
 - [指数、基金与 ETF](https://ou-liu-red-sugar.github.io/llms/zh/notebook/indices-funds-etfs.md): 从 10,000 美元买入 VOO 出发，看这笔钱怎样按指数权重分到各家公司，再认识等权与再平衡、基金净值、ETF 的场内价格、主动与主题管理以及各项费用。
 - [投资期限与现金需要](https://ou-liu-red-sugar.github.io/llms/zh/notebook/investment-horizon-cash.md): 从用钱的时间出发，按用途给资金分层，用 VOO 在 2022 年的下跌比较预留现金、被迫卖出与借钱周转。
 - [Agent 时代的基本面投资](https://ou-liu-red-sugar.github.io/llms/zh/notebook/investment-returns.md): 从一则订单公告出发，看清业务、现金与每股所得、事件计价和 Agent 辅助研究，再回到资金安排与学习路线。
+- [股票多空与市场中性](https://ou-liu-red-sugar.github.io/llms/zh/notebook/long-short-market-neutral.md): 拆分总敞口与净敞口，用 WMT/TGT 与 KO/PEP 实测辨别美元中性与 beta 中性，再拆解卖空利息回扣、借券费、轧空与 2007 年量化因子拥挤踩踏。
 - [亏损、波动与持有能力](https://ou-liu-red-sugar.github.io/llms/zh/notebook/loss-volatility-holding-capacity.md): 从 FISV 财报后暴跌、又继续下跌的持有经历出发，对照 KO 的修复，结合行业比较、Risk–Reward、重新定价和资金安排，理解持有与退出。
 - [投资组合：分散、多资产与风险制衡](https://ou-liu-red-sugar.github.io/llms/zh/notebook/portfolio-diversification-hedging.md): 从仓位大小与 VOO 穿透重叠出发，用 2020 与 2022 两段真实行情看清跨资产制衡与相关性翻转，再建立期货、期权与 CDS 的合约对冲地图，并落回组合现金与再平衡。
 - [报价、订单与实际成交](https://ou-liu-red-sugar.github.io/llms/zh/notebook/quotes-orders-execution.md): 从 2015 年 8 月 24 日开盘几分钟里 IVV 的成交价出发，读懂报价、盘口与流动性，再看市价、限价和触发订单怎样决定成交，以及成交对手、交易成本和 T+1 交收。
