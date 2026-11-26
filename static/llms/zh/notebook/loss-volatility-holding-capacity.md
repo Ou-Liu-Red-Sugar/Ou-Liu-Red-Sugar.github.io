@@ -163,7 +163,7 @@ FISV 的预期与经营怎样被改写
 
 除了资金缓冲，也要给情绪留出余地。频繁点开行情，每一次下探都会重新勾起回本的执念，一点反弹又容易让人临时改主意。屏幕上的报价每时每刻都在跳动，真正改变公司经营的新信息却远没有那么密集。少受一点盘面来回拉扯，反而更能照着事先想清楚的依据行事。有时候关掉软件、离开屏幕去做点别的事，少盯一会儿盘，股票反而更容易拿得住。
 
-决定是否继续持有一只股票，权衡的是从今天算起的潜在回报与可能损失，再叠加上等待的时间和期间的现金需要；这些条件变了，就不必执着于回本，可以果断减仓或退出。以上讨论针对的是单笔持仓；当手里同时握有几只股票和基金时，它们常常会同涨同跌，手里的现金也得在多项持仓之间统筹安排。下一篇[《投资组合：集中、分散与现金》](https://ou-liu-red-sugar.github.io/zh/notebook/#topic-P)会把这些持仓合在一起来看，若需要进一步了解保证金与衍生工具的实务，则可接读[《保证金、对冲与期间现金》](https://ou-liu-red-sugar.github.io/zh/notebook/settlement-margin-cash/)。
+决定是否继续持有一只股票，权衡的是从今天算起的潜在回报与可能损失，再叠加上等待的时间和期间的现金需要；这些条件变了，就不必执着于回本，可以果断减仓或退出。以上讨论针对的是单笔持仓；当手里同时握有几只股票和基金时，它们常常会同涨同跌，手里的现金也得在多项持仓之间统筹安排。下一篇[《投资组合：分散、多资产与风险制衡》](https://ou-liu-red-sugar.github.io/zh/notebook/portfolio-diversification-hedging/)会把这些持仓合在一起来看，若需要进一步了解保证金与衍生工具的实务，则可接读[《保证金、对冲与期间现金》](https://ou-liu-red-sugar.github.io/zh/notebook/settlement-margin-cash/)。
 
 [^wsj]: [Spencer Jakab：How to Tell Whether a Plunging Stock Will Keep Plunging](https://www.wsj.com/finance/stocks/how-to-tell-whether-a-plunging-stock-will-keep-plunging-bf0be3ed)，WSJ，2026-09-18，Missing the bounce 部分。采用 GLP-1 担忧下食品饮料股的修复案例及相对行业比较的思路。
 [^prices-ko]: Yahoo Finance：[KO](https://finance.yahoo.com/quote/KO/history/)、[XLP](https://finance.yahoo.com/quote/XLP/history/)，2023-09-29 至 2023-12-29 日收盘价。KO 三个文中时点分别为 55.98、52.38、58.93 美元，其中 52.38 为 10 月 5 日收盘价。KO、XLP 在该区间的价格变化分别约为 +5.3%、+4.7%。数列见[数据表](https://ou-liu-red-sugar.github.io/notebook/holding/ko-recovery.csv)。

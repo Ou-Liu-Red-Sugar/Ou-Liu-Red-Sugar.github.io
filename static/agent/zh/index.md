@@ -8,6 +8,7 @@
 - [投资期限与现金需要](https://ou-liu-red-sugar.github.io/agent/zh/investment-horizon-cash.md)
 - [Agent 时代的基本面投资](https://ou-liu-red-sugar.github.io/agent/zh/investment-returns.md)
 - [亏损、波动与持有能力](https://ou-liu-red-sugar.github.io/agent/zh/loss-volatility-holding-capacity.md)
+- [投资组合：分散、多资产与风险制衡](https://ou-liu-red-sugar.github.io/agent/zh/portfolio-diversification-hedging.md)
 - [报价、订单与实际成交](https://ou-liu-red-sugar.github.io/agent/zh/quotes-orders-execution.md)
 - [收入增长与市场预期](https://ou-liu-red-sugar.github.io/agent/zh/revenue-growth-expectations.md)
 - [保证金、对冲与期间现金](https://ou-liu-red-sugar.github.io/agent/zh/settlement-margin-cash.md)

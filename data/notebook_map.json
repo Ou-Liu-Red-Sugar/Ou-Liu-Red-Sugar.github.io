@@ -708,7 +708,7 @@
       "id": "P",
       "title": "投资组合、保证金与对冲",
       "short": "投资组合",
-      "description": "以 P01 建立组合认识，B03 补充保证金与对冲，连接公司研究与 Agent 资本配置。"
+      "description": "以 P01 建立多资产与风险制衡的组合总图，P02 至 P05 分别展开四类对冲基金制衡范式，B03 补充保证金与盯市现金实操，连接公司研究与 Agent 资本配置。"
     },
     {
       "id": "I",
@@ -850,10 +850,15 @@
     {
       "id": "NB-P01",
       "node": "P",
-      "title": "投资组合：集中、分散与现金",
-      "goal": "从各项持仓理由出发组成组合，理解仓位、集中度、共同风险与现金比例怎样决定整体结果。",
-      "status": "planned",
-      "url": null
+      "title": "投资组合：分散、多资产与风险制衡",
+      "goal": "从单票仓位、穿透重叠走向跨资产与合约级风险制衡，理解不同资产、对冲工具与现金怎样在利率和周期变化中相互制约。",
+      "status": "available",
+      "url": "/zh/notebook/portfolio-diversification-hedging/",
+      "reading_profile": {
+        "difficulty": "入门",
+        "depth": "详解",
+        "note": "从单票仓位和 VOO 穿透出发，结合两段真实宏观冲击数据建立跨资产与合约对冲的直觉，不涉及复杂回归或衍生品定价计算。"
+      }
     },
     {
       "id": "NB-D01",
@@ -1340,6 +1345,38 @@
       "url": null
     },
     {
+      "id": "NB-P02",
+      "node": "P",
+      "title": "股票多空与市场中性",
+      "goal": "拆分总敞口与净敞口，理解市场、行业与因子中性的收益来源、融券成本及拥挤踩踏风险。",
+      "status": "planned",
+      "url": null
+    },
+    {
+      "id": "NB-P03",
+      "node": "P",
+      "title": "全球宏观与跨资产配置",
+      "goal": "沿增长、通胀、利率与汇率周期在多资产间选择表达工具，并识破跨国跨品种配置背后同一底层风险的伪分散。",
+      "status": "planned",
+      "url": null
+    },
+    {
+      "id": "NB-P04",
+      "node": "P",
+      "title": "风险平价与全天候配置",
+      "goal": "区分资金权重与风险贡献，理解宏观四象限等风险预算、债券杠杆及相关性翻转边界。",
+      "status": "planned",
+      "url": null
+    },
+    {
+      "id": "NB-P05",
+      "node": "P",
+      "title": "信用与尾部风险对冲",
+      "goal": "解释 CDS 与深度虚值期权怎样对冲信用收缩与极端崩盘，比较常态保费损耗、机构门槛与个人替代工具。",
+      "status": "planned",
+      "url": null
+    },
+    {
       "id": "NB-L01",
       "node": "L",
       "title": "永续合约的价格锚定与资金费",
@@ -1504,10 +1541,15 @@
       {
         "id": "NB-P01",
         "number": 10,
-        "title": "投资组合：集中、分散与现金",
-        "note": "把几项持仓放进同一个组合，比较仓位、集中度、共同风险和现金怎样决定整体结果。",
-        "status": "planned",
-        "url": null
+        "title": "投资组合：分散、多资产与风险制衡",
+        "note": "把股票、债券、实物、现金与期货、期权、CDS 放进同一张风险棋盘，理解仓位、穿透暴露、跨资产制衡与再平衡。",
+        "status": "available",
+        "url": "/zh/notebook/portfolio-diversification-hedging/",
+        "reading_profile": {
+          "difficulty": "入门",
+          "depth": "详解",
+          "note": "从单票仓位和 VOO 穿透出发，结合两段真实宏观冲击数据建立跨资产与合约对冲的直觉，不涉及复杂回归或衍生品定价计算。"
+        }
       },
       {
         "id": "NB-D01",
@@ -1544,8 +1586,8 @@
       "status": "planned",
       "url": null
     },
-    "available_count": 13,
-    "intro_available_count": 11,
+    "available_count": 14,
+    "intro_available_count": 12,
     "navigation": {
       "NB-A01": {
         "current": {
@@ -1893,10 +1935,56 @@
         "next": {
           "id": "NB-P01",
           "number": 10,
-          "title": "投资组合：集中、分散与现金",
-          "note": "把几项持仓放进同一个组合，比较仓位、集中度、共同风险和现金怎样决定整体结果。",
-          "status": "planned",
-          "url": null
+          "title": "投资组合：分散、多资产与风险制衡",
+          "note": "把股票、债券、实物、现金与期货、期权、CDS 放进同一张风险棋盘，理解仓位、穿透暴露、跨资产制衡与再平衡。",
+          "status": "available",
+          "url": "/zh/notebook/portfolio-diversification-hedging/",
+          "reading_profile": {
+            "difficulty": "入门",
+            "depth": "详解",
+            "note": "从单票仓位和 VOO 穿透出发，结合两段真实宏观冲击数据建立跨资产与合约对冲的直觉，不涉及复杂回归或衍生品定价计算。"
+          }
+        }
+      },
+      "NB-P01": {
+        "current": {
+          "id": "NB-P01",
+          "number": 10,
+          "title": "投资组合：分散、多资产与风险制衡",
+          "note": "把股票、债券、实物、现金与期货、期权、CDS 放进同一张风险棋盘，理解仓位、穿透暴露、跨资产制衡与再平衡。",
+          "status": "available",
+          "url": "/zh/notebook/portfolio-diversification-hedging/",
+          "reading_profile": {
+            "difficulty": "入门",
+            "depth": "详解",
+            "note": "从单票仓位和 VOO 穿透出发，结合两段真实宏观冲击数据建立跨资产与合约对冲的直觉，不涉及复杂回归或衍生品定价计算。"
+          }
+        },
+        "previous": {
+          "id": "NB-A03",
+          "number": 9,
+          "title": "亏损、波动与持有能力",
+          "note": "将亏损后的判断转向经营前景、当前价格及资金和心理上的持有能力。",
+          "status": "available",
+          "url": "/zh/notebook/loss-volatility-holding-capacity/",
+          "reading_profile": {
+            "difficulty": "进阶",
+            "depth": "详解",
+            "note": "需把相对行业表现、经营预期、情景回报、重新定价及资金约束结合起来判断持有，且提供完整案例、公式和图示比较。"
+          }
+        },
+        "next": {
+          "id": "NB-D01",
+          "number": 11,
+          "title": "客户、产品与收费方式",
+          "note": "认清每门生意的客户、交付与收费，再沿实际关系检查需求依据。",
+          "status": "available",
+          "url": "/zh/notebook/customers-products-pricing/",
+          "reading_profile": {
+            "difficulty": "入门",
+            "depth": "详解",
+            "note": "从熟悉的交易进入，按所选行业解释客户、交付、收费与需求依据；无需先掌握财务模型。"
+          }
         }
       },
       "NB-D01": {
@@ -1916,10 +2004,15 @@
         "previous": {
           "id": "NB-P01",
           "number": 10,
-          "title": "投资组合：集中、分散与现金",
-          "note": "把几项持仓放进同一个组合，比较仓位、集中度、共同风险和现金怎样决定整体结果。",
-          "status": "planned",
-          "url": null
+          "title": "投资组合：分散、多资产与风险制衡",
+          "note": "把股票、债券、实物、现金与期货、期权、CDS 放进同一张风险棋盘，理解仓位、穿透暴露、跨资产制衡与再平衡。",
+          "status": "available",
+          "url": "/zh/notebook/portfolio-diversification-hedging/",
+          "reading_profile": {
+            "difficulty": "入门",
+            "depth": "详解",
+            "note": "从单票仓位和 VOO 穿透出发，结合两段真实宏观冲击数据建立跨资产与合约对冲的直觉，不涉及复杂回归或衍生品定价计算。"
+          }
         },
         "next": {
           "id": "NB-D02",
@@ -2040,7 +2133,7 @@
         "writer": "Codex GPT-6 Astra"
       },
       {
-        "label": "第 8 篇",
+        "label": "第 8、10 篇",
         "writer": "Claude"
       }
     ],
@@ -2051,7 +2144,7 @@
         "id": "foundations",
         "title": "认识股票、市场与组合",
         "goal": "从资金用途进入股票、基金和交易，再以复利、期限、亏损与组合建立持有判断。",
-        "available_count": 9,
+        "available_count": 10,
         "total": 10
       },
       {
@@ -2123,6 +2216,13 @@
         "goal": "补齐权利、退出、定价和多腿策略，并接回既有组合。",
         "available_count": 0,
         "total": 5
+      },
+      {
+        "id": "optional_portfolio_paradigms",
+        "title": "按需专题：多资产组合与对冲范式",
+        "goal": "分别展开股票多空与市场中性、全球宏观、风险平价及信用尾部对冲四类常见机构风险制衡框架。",
+        "available_count": 0,
+        "total": 4
       },
       {
         "id": "optional_perpetuals",
