@@ -35,6 +35,12 @@
       "zh": "企业经营与产业关系",
       "en": "Businesses and industry relationships",
       "desc_zh": "从客户、产品、收费与产业联系研究一门业务。"
+    },
+    {
+      "id": "topic-E",
+      "zh": "财报、资本与每股所得",
+      "en": "Financial statements, capital and per-share results",
+      "desc_zh": "沿同一经营过程读懂三张财报、现金流转、资本投入与每股结果。"
     }
   ],
   "sources": [
@@ -3087,6 +3093,56 @@
       "version": "2026-11-26 核对公开记录",
       "authors": [
         "Mark Spitznagel"
+      ]
+    },
+    {
+      "source_id": "nb-e01-sec-guide",
+      "title": "SEC：Beginners’ Guide to Financial Statements",
+      "url": "https://www.sec.gov/about/reports-publications/beginners-guide-financial-statements",
+      "body": "美国证监会官方财务报表入门指南：界定资产负债表（时点快照与恒等式 Assets = Liabilities + Shareholders’ Equity）、利润表（期间收入费用与净利润）、现金流量表（经营、投资与融资三类现金流）及股东权益变动表的分工。",
+      "version": "2026-11-26 核对",
+      "authors": [
+        "U.S. Securities and Exchange Commission"
+      ]
+    },
+    {
+      "source_id": "nb-e01-sec-deadlines",
+      "title": "SEC Final Rule 33-8644：Periodic Report Filing Deadlines（Form 10-K / 10-Q）",
+      "url": "https://www.sec.gov/files/rules/final/33-8644.pdf",
+      "body": "SEC 定期报告提交期限规则：大型加速申报人（Large Accelerated Filer）年报 Form 10-K 须在财年结束后 60 个自然日内提交，季报 Form 10-Q 须在季度结束后 40 个自然日内提交；加速申报人为 75 / 40 日，非加速申报人为 90 / 45 日。",
+      "version": "2026-11-26 核对",
+      "authors": [
+        "U.S. Securities and Exchange Commission"
+      ]
+    },
+    {
+      "source_id": "nb-e01-msft-fy26",
+      "title": "Microsoft Corporation：FY2026 Q4 及全财年业绩公告与 Form 10-K（截至 2026-06-30）",
+      "url": "https://www.sec.gov/Archives/edgar/data/789019/000119312526323632/msft-ex99_1.htm",
+      "body": "Microsoft 2026 年 7 月 29 日披露之 2026 财年（截至 2026 年 6 月 30 日）三张主表：总收入 331,839 百万美元、营业利润 155,237 百万美元、净利润 133,749 百万美元；经营现金流 182,935 百万美元、固定资产资本开支 −115,948 百万美元、投资现金流 −139,500 百万美元、融资现金流 −52,546 百万美元；期末总资产 758,376 百万美元（固定资产净值 313,076、现金及等价物 20,935）、总负债 315,989、股东权益 442,387。",
+      "version": "2026-11-26 核对 SEC EDGAR",
+      "authors": [
+        "Microsoft Corporation"
+      ]
+    },
+    {
+      "source_id": "nb-e01-ko-fy25",
+      "title": "The Coca-Cola Company：FY2025 全年业绩与 Form 10-K（截至 2025-12-31）",
+      "url": "https://www.sec.gov/Archives/edgar/data/21344/000162828026006642/a2025q4earningsreleaseex-9.htm",
+      "body": "Coca-Cola 2025 财年（截至 2025 年 12 月 31 日，Form 10-K 于 2026 年 2 月 20 日提交）三张主表：净营业收入 47,941 百万美元、营业利润 13,762 百万美元、合并净利润 13,137 百万美元（归属股东 13,107）；因支付 6,069 百万美元 fairlife 或有对价尾款，GAAP 经营现金流为 7,408 百万美元，资本开支 −2,112 百万美元，现金股息 −8,779 百万美元；期末总资产 104,816、总负债 70,541、总权益 34,275。",
+      "version": "2026-11-26 核对 SEC EDGAR",
+      "authors": [
+        "The Coca-Cola Company"
+      ]
+    },
+    {
+      "source_id": "nb-e01-nvda-fy26",
+      "title": "NVIDIA Corporation：FY2026 Form 10-K（截至 2026-01-25）",
+      "url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000021/nvda-20260125.htm",
+      "body": "NVIDIA 2026 财年年报（2026 年 2 月 25 日提交 SEC）：财年截止于每年一月最后一个周日（2026 财年截至 2026 年 1 月 25 日），展示跨自然年财年与季度编号的典型错位。",
+      "version": "2026-11-26 核对 SEC EDGAR",
+      "authors": [
+        "NVIDIA Corporation"
       ]
     }
   ],

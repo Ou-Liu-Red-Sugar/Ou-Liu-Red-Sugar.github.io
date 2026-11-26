@@ -6707,3 +6707,305 @@
   .p05-access .p05-agrid { grid-template-columns: minmax(0, 1fr); gap: 7px; }
   .p05-access .p05-acard { padding: 8px 9px; }
 }
+
+/* =========================================================
+ * NB-E01 Three Financial Statements & Business Operations
+ * ========================================================= */
+
+/* 1. Three-statement link map */
+.e01-link-map .e01-lgrid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.35fr) minmax(0, 0.9fr);
+  gap: 10px;
+  align-items: stretch;
+}
+.e01-link-map .e01-snap {
+  padding: 10px 11px;
+  border: 1px solid #c2dacb;
+  border-radius: 8px;
+  background: #f2f8f4;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.e01-link-map .e01-snap-end { border-color: var(--ff-share); background: #ebf5ef; }
+.e01-link-map .e01-badge {
+  display: inline-block;
+  align-self: flex-start;
+  padding: 1px 7px;
+  border-radius: 8px;
+  font-size: 10px;
+  font-weight: 700;
+  background: var(--ff-share);
+  color: #fff;
+  margin-bottom: 5px;
+}
+.e01-link-map .e01-badge.e01-bperiod { background: var(--ff-cash); }
+.e01-link-map .e01-snap strong { font-size: 12.5px; color: var(--ff-ink); }
+.e01-link-map .e01-snap ul {
+  margin: 6px 0 0;
+  padding-left: 15px;
+  font-size: 11px;
+  line-height: 1.45;
+  color: var(--ff-text);
+}
+.e01-link-map .e01-eq {
+  margin-top: 7px;
+  padding: 4px 6px;
+  border-radius: 5px;
+  background: rgba(255,255,255,0.85);
+  border: 1px solid #c2dacb;
+  font-size: 10.5px;
+  font-weight: 700;
+  color: var(--ff-share);
+  text-align: center;
+}
+.e01-link-map .e01-flows {
+  display: grid;
+  gap: 8px;
+}
+.e01-link-map .e01-flow {
+  padding: 9px 10px;
+  border: 1px solid #e6cdb0;
+  border-radius: 8px;
+  background: #fdfaf5;
+}
+.e01-link-map .e01-flow strong { display: block; font-size: 12.5px; color: var(--ff-ink); margin-bottom: 3px; }
+.e01-link-map .e01-flow p { margin: 0; font-size: 11px; line-height: 1.45; color: var(--ff-text); }
+.e01-link-map .e01-bridge {
+  display: block;
+  margin-top: 5px;
+  padding: 3px 7px;
+  border-radius: 4px;
+  background: var(--ff-cash-bg);
+  color: var(--ff-cash-text);
+  font-size: 10.5px;
+  font-weight: 600;
+}
+
+/* 2. Interactive 6-step 3-statement ledger lab */
+.e01-ledger .e01-steps {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin-bottom: 9px;
+}
+.e01-ledger .e01-steps button {
+  padding: 4px 9px;
+  border: 1px solid var(--ff-rule);
+  border-radius: 999px;
+  background: var(--ff-card);
+  color: var(--ff-text);
+  font-size: 11px;
+  font-weight: 600;
+  cursor: pointer;
+}
+.e01-ledger .e01-steps button[aria-pressed="true"] {
+  border-color: var(--ff-share);
+  background: var(--ff-share);
+  color: #fff;
+}
+.e01-ledger .e01-panels {
+  display: grid;
+  grid-template-columns: minmax(0, 0.92fr) minmax(0, 0.88fr) minmax(0, 1.2fr);
+  gap: 9px;
+}
+.e01-ledger .e01-card {
+  padding: 9px 10px;
+  border: 1px solid var(--ff-rule);
+  border-radius: 8px;
+  background: var(--ff-card);
+}
+.e01-ledger .e01-chead {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 6px;
+  padding-bottom: 4px;
+  border-bottom: 1px solid var(--ff-rule);
+}
+.e01-ledger .e01-chead strong { font-size: 12px; color: var(--ff-ink); }
+.e01-ledger .e01-chead span { font-size: 10px; color: var(--ff-muted); }
+.e01-ledger .e01-rows { display: grid; gap: 3px; }
+.e01-ledger .e01-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 6px;
+  padding: 2px 5px;
+  border-radius: 4px;
+  font-size: 11px;
+  transition: background-color 0.15s ease;
+}
+.e01-ledger .e01-row span { color: var(--ff-text); }
+.e01-ledger .e01-row strong { font-variant-numeric: tabular-nums; color: var(--ff-ink); font-weight: 650; }
+.e01-ledger .e01-row.e01-hi { background: #fdf0de; }
+.e01-ledger .e01-row.e01-hi strong { color: var(--ff-cash-text); }
+.e01-ledger .e01-row.e01-tot {
+  margin-top: 3px;
+  padding-top: 4px;
+  border-top: 1px dashed var(--ff-rule);
+  font-weight: 700;
+}
+.e01-ledger .e01-row.e01-tot strong { color: var(--ff-share); }
+.e01-ledger .e01-bs-cols {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+}
+.e01-ledger .e01-bs-sub {
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--ff-muted);
+  margin-bottom: 3px;
+}
+.e01-ledger .e01-note {
+  margin: 8px 0 0;
+  padding: 7px 10px;
+  border-radius: 6px;
+  border: 1px solid var(--ff-rule);
+  background: #f5f5ec;
+  font-size: 11.5px;
+  line-height: 1.45;
+  color: var(--ff-text);
+}
+
+/* 3. Real 10-K 3-statement contrast (MSFT FY26 vs KO FY25) */
+.e01-real-cf .e01-rgrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 11px;
+}
+.e01-real-cf .e01-rcard {
+  padding: 10px 11px;
+  border: 1px solid var(--ff-rule);
+  border-top: 3px solid var(--e01-c, var(--ff-share));
+  border-radius: 8px;
+  background: var(--ff-card);
+}
+.e01-real-cf .e01-rhead { margin-bottom: 7px; }
+.e01-real-cf .e01-rhead strong { display: block; font-size: 12.5px; color: var(--ff-ink); }
+.e01-real-cf .e01-rhead small { display: block; font-size: 10.5px; color: var(--ff-muted); margin-top: 1px; }
+.e01-real-cf .e01-rsec { margin-top: 6px; }
+.e01-real-cf .e01-rsec-t { font-size: 10px; font-weight: 700; color: var(--ff-muted); margin-bottom: 3px; }
+.e01-real-cf .e01-ritems { display: grid; gap: 3px; }
+.e01-real-cf .e01-ri {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 3px 6px;
+  border-radius: 4px;
+  background: #f7f7ef;
+  font-size: 11px;
+}
+.e01-real-cf .e01-ri span { color: var(--ff-text); }
+.e01-real-cf .e01-ri b { font-variant-numeric: tabular-nums; color: var(--ff-ink); }
+.e01-real-cf .e01-ri b.e01-pos { color: var(--ff-share); }
+.e01-real-cf .e01-ri b.e01-neg { color: var(--ff-cash-text); }
+.e01-real-cf .e01-rnote {
+  margin: 7px 0 0;
+  padding-top: 5px;
+  border-top: 1px dashed var(--ff-rule);
+  font-size: 11px;
+  line-height: 1.42;
+  color: var(--ff-text);
+}
+
+/* 4. Fiscal Year vs Calendar Year timeline */
+.e01-calendar .e01-taxis {
+  display: grid;
+  grid-template-columns: 102px repeat(7, minmax(0, 1fr));
+  gap: 4px;
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--ff-muted);
+  text-align: center;
+  margin-bottom: 6px;
+}
+.e01-calendar .e01-taxis span:first-child { text-align: left; }
+.e01-calendar .e01-trows { display: grid; gap: 7px; }
+.e01-calendar .e01-trow {
+  display: grid;
+  grid-template-columns: 102px minmax(0, 1fr);
+  gap: 8px;
+  align-items: center;
+  padding: 7px 9px;
+  border: 1px solid var(--ff-rule);
+  border-radius: 7px;
+  background: var(--ff-card);
+}
+.e01-calendar .e01-tname strong { display: block; font-size: 12px; color: var(--ff-ink); }
+.e01-calendar .e01-tname small { display: block; font-size: 10px; color: var(--ff-muted); }
+.e01-calendar .e01-ttrack {
+  position: relative;
+  height: 26px;
+  border-radius: 5px;
+  background: #edece3;
+  overflow: hidden;
+}
+.e01-calendar .e01-tbar {
+  position: absolute;
+  top: 2px;
+  bottom: 2px;
+  left: var(--l);
+  width: var(--w);
+  border-radius: 4px;
+  background: var(--c);
+  color: #fff;
+  font-size: 10.5px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+  padding: 0 6px;
+  box-sizing: border-box;
+}
+.e01-calendar .e01-tbar-q4 {
+  position: absolute;
+  top: 2px;
+  bottom: 2px;
+  left: var(--ql);
+  width: var(--qw);
+  border-radius: 4px;
+  background: rgba(255,255,255,0.22);
+  border: 1px solid rgba(255,255,255,0.65);
+  box-sizing: border-box;
+}
+.e01-calendar .e01-tmeta {
+  grid-column: 1 / -1;
+  font-size: 10.5px;
+  color: var(--ff-muted);
+  margin-top: -2px;
+  line-height: 1.35;
+}
+
+@media (max-width: 640px) {
+  .e01-link-map .e01-lgrid { grid-template-columns: minmax(0, 1fr); gap: 7px; }
+  .e01-link-map .e01-snap, .e01-link-map .e01-flow { padding: 8px 9px; }
+
+  .e01-ledger .e01-steps { gap: 3px; margin-bottom: 6px; }
+  .e01-ledger .e01-steps button { padding: 3px 6px; font-size: 10px; }
+  .e01-ledger .e01-panels { grid-template-columns: minmax(0, 1fr); gap: 5px; }
+  .e01-ledger .e01-card { padding: 6px 8px; }
+  .e01-ledger .e01-chead { margin-bottom: 4px; padding-bottom: 3px; }
+  .e01-ledger .e01-rows { gap: 2px; }
+  .e01-ledger .e01-row { font-size: 10px; padding: 1px 4px; }
+  .e01-ledger .e01-note { margin-top: 6px; font-size: 10px; padding: 5px 8px; line-height: 1.35; }
+
+  .e01-real-cf .e01-rgrid { grid-template-columns: minmax(0, 1fr); gap: 6px; }
+  .e01-real-cf .e01-rcard { padding: 6px 8px; }
+  .e01-real-cf .e01-rhead { margin-bottom: 4px; }
+  .e01-real-cf .e01-rhead strong, .e01-real-cf .e01-rhead small { display: inline; margin-right: 5px; }
+  .e01-real-cf .e01-rhead small { font-size: 9.5px; }
+  .e01-real-cf .e01-rsec { margin-top: 4px; }
+  .e01-real-cf .e01-rsec-t { font-size: 9.5px; margin-bottom: 2px; }
+  .e01-real-cf .e01-ritems { gap: 2px; }
+  .e01-real-cf .e01-ri { font-size: 10px; padding: 2px 5px; }
+  .e01-real-cf .e01-rnote { margin-top: 4px; padding-top: 4px; font-size: 10px; line-height: 1.32; }
+
+  .e01-calendar .e01-taxis { display: none; }
+  .e01-calendar .e01-trow { grid-template-columns: minmax(0, 1fr); gap: 4px; padding: 7px 8px; }
+  .e01-calendar .e01-tname strong, .e01-calendar .e01-tname small { display: inline; margin-right: 6px; }
+  .e01-calendar .e01-tbar { font-size: 9.5px; }
+}

@@ -899,8 +899,13 @@
       "node": "E",
       "title": "三张财报与经营活动",
       "goal": "沿同一经营过程读懂三张报表及其时间口径。",
-      "status": "planned",
-      "url": null
+      "status": "available",
+      "url": "/zh/notebook/three-financial-statements/",
+      "reading_profile": {
+        "difficulty": "入门",
+        "depth": "详解",
+        "note": "从一家简化制造厂的六笔交易建立三张报表的恒等与勾稽直觉，再对照 MSFT 与 KO 真实财报及三家公司财年错位，不涉及复杂会计准则细节。"
+      }
     },
     {
       "id": "NB-E02",
@@ -1658,7 +1663,7 @@
       "status": "planned",
       "url": null
     },
-    "available_count": 18,
+    "available_count": 19,
     "intro_available_count": 16,
     "navigation": {
       "NB-A01": {
@@ -2300,6 +2305,37 @@
           "url": null
         }
       },
+      "NB-E01": {
+        "current": {
+          "id": "NB-E01",
+          "number": 18,
+          "title": "三张财报与经营活动",
+          "note": "沿同一经营过程读懂三张报表及其时间口径。",
+          "status": "available",
+          "url": "/zh/notebook/three-financial-statements/",
+          "reading_profile": {
+            "difficulty": "入门",
+            "depth": "详解",
+            "note": "从一家简化制造厂的六笔交易建立三张报表的恒等与勾稽直觉，再对照 MSFT 与 KO 真实财报及三家公司财年错位，不涉及复杂会计准则细节。"
+          }
+        },
+        "previous": {
+          "id": "NB-D03",
+          "number": 17,
+          "title": "成本结构与经营杠杆",
+          "note": "解释收入变化怎样通过成本和产能形成不同利润结果。",
+          "status": "planned",
+          "url": null
+        },
+        "next": {
+          "id": "NB-E02",
+          "number": 19,
+          "title": "收入、回款与营运资本",
+          "note": "重建收入、应收、库存和收付款的联动，解释现金占用。",
+          "status": "planned",
+          "url": null
+        }
+      },
       "NB-B05": {
         "current": {
           "id": "NB-B05",
@@ -2398,7 +2434,7 @@
         "id": "business",
         "title": "理解企业与财务",
         "goal": "连起客户、收入、竞争、利润、投入与每股结果。",
-        "available_count": 2,
+        "available_count": 3,
         "total": 15
       },
       {

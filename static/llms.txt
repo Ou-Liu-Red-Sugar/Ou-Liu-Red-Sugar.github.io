@@ -24,6 +24,7 @@
 - [股东回报：分红、回购与增发](https://ou-liu-red-sugar.github.io/llms/zh/notebook/shareholder-returns-buybacks-issuance.md): 从 100 股 AAPL 的一个季度出发，比较分红与回购怎样把同样的现金交给股东，再看增发、稀释和成交价格怎样改变继续持有者的每股价值。
 - [股票的类型、发行与交易形式](https://ou-liu-red-sugar.github.io/llms/zh/notebook/stock-types-issuance-trading.md): 从同样一股 RDDT 的钱流向谁说起，理解股份类别与权利、新股与旧股、员工股份的归属与解禁，再看 ADR 怎样对应境外原股。
 - [股票、公司与股价](https://ou-liu-red-sugar.github.io/llms/zh/notebook/stocks-company-price.md): 从一笔 100 股 AAPL 的持仓出发，理解股权份额、分红、股价与市值，再看拆股、分拆和存托凭证怎样改变持有的形式。
+- [三张财报与经营活动](https://ou-liu-red-sugar.github.io/llms/zh/notebook/three-financial-statements.md): 区分时点快照与期间录像，借一家简化制造厂的六笔交易联动看懂利润表、资产负债表与现金流量表怎样同步改写；再以 Microsoft（MSFT）FY26 与 Coca-Cola（KO）FY25 真实财报拆解“利润不等于现金”的两种方向，并厘清财年、自然年与报告时滞。
 - [符号与单位](https://ou-liu-red-sugar.github.io/llms/zh/notebook/notation.md): 共用符号与单位 / Shared notation and units
 - [Notation and units](https://ou-liu-red-sugar.github.io/llms/en/notebook/notation.md): 共用符号与单位 / Shared notation and units
 
