@@ -6,9 +6,12 @@
 
 ## 正文 Markdown / Full-text Markdown
 
+- [资本配置、激励与每股结果](https://ou-liu-red-sugar.github.io/llms/zh/notebook/capital-allocation-incentives-per-share.md): 厘清 ROE、DuPont 三因子、ROIC（含与不含商誉）与 ROIIC 的公式边界、适用场景与失真陷阱；以 MSFT、KO、HD、MCD 与 AAPL 的 SEC 年报实证剥离杠杆幻觉，再拆解五条资金出路、回购价格纪律、管理层激励与 SBC 净股数影响，并附单屏五年资本配置推演器。
 - [复利、通胀与机会成本](https://ou-liu-red-sugar.github.io/llms/zh/notebook/compounding-inflation-opportunity-cost.md): 从 10,000 美元十年间持有 VOO 的名义金额与购买力出发，用复利、指数与对数、年化和物价换算理解持有回报，再与同期短债比较机会成本，并引入 Sharpe。
 - [信用与尾部风险对冲](https://ou-liu-red-sugar.github.io/llms/zh/notebook/credit-tail-risk-hedging.md): 用 2008 信用冻结、2020 疫情闪崩与 2022 利率慢熊三段实测看清信用利差与恐慌波动率怎样同时冲击股债；拆解 CDS 违约赔付与深度虚值期权尾部对冲的凸性逻辑、常态保费损耗及个人账户的现实替代。
 - [客户、产品与收费方式](https://ou-liu-red-sugar.github.io/llms/zh/notebook/customers-products-pricing.md): 从客户付款和企业交付认清一门生意，选择行业继续拆解业务，再沿上下游、具体订单与企业研报核验需求。
+- [债务、融资与现金低谷](https://ou-liu-red-sugar.github.io/llms/zh/notebook/debt-financing-cash-troughs.md): 拆解总债务、受限现金、净债务、账内租赁与表外刚性义务的口径差异，用 AT&T（T）FY25 对照净债务／EBITDA 与 EBIT 利息保障倍数的盲区及再融资冲击，借 12 季度现金低谷模拟器演示到期墙怎样在经营兑现前击穿流动性，再以 Microsoft（MSFT）FY26 对照 The Boeing Company（BA）FY24–FY25 呈现净现金与高杠杆面对低谷时的股东结果分叉。
+- [盈利质量与可比口径](https://ou-liu-red-sugar.github.io/llms/zh/notebook/earnings-quality-comparability.md): 厘清 GAAP 与 Non-GAAP 利润的 SEC 监管护栏及 Adjusted EBITDA、Adjusted Operating Income、Adjusted EPS 的适用边界；对照 MSFT、KO、SNOW 与 HPQ 真实调节表辨别合理剔除项与股权激励 SBC、连续重组等伪一次性项，并以现金印证、META 与 GOOGL 服务器折旧延寿及股数稀释完成盈利质量体检。
 - [全球宏观与跨资产配置](https://ou-liu-red-sugar.github.io/llms/zh/notebook/global-macro-cross-asset.md): 从宏观判断的跨资产表达出发，用 2022—2024 美日利差周期对照债券、外汇、对冲与未对冲日股及科技股的噪音差异，再穿透五地半导体—AI 算力链的共同因子与局部背离，并复盘 2024 年 8 月日元套息踩踏与流动性纪律。
 - [指标与趋势交易](https://ou-liu-red-sugar.github.io/llms/zh/notebook/indicators-trend-trading.md): 把布林带、Keltner 通道、KDJ、MACD 与 VWAP 读作对多数参与者处境的观察，按观察角度与时间尺度组合成进场慢、离场快的规则，在 2026 年与 2022 年熊市中完整回放，并与一直持有比较。
 - [指数、基金与 ETF](https://ou-liu-red-sugar.github.io/llms/zh/notebook/indices-funds-etfs.md): 从 10,000 美元买入 VOO 出发，看这笔钱怎样按指数权重分到各家公司，再认识等权与再平衡、基金净值、ETF 的场内价格、主动与主题管理以及各项费用。
@@ -17,9 +20,12 @@
 - [股票多空与市场中性](https://ou-liu-red-sugar.github.io/llms/zh/notebook/long-short-market-neutral.md): 拆分总敞口与净敞口，用 WMT/TGT 与 KO/PEP 实测辨别美元中性与 beta 中性，再拆解卖空利息回扣、借券费、轧空与 2007 年量化因子拥挤踩踏。
 - [亏损、波动与持有能力](https://ou-liu-red-sugar.github.io/llms/zh/notebook/loss-volatility-holding-capacity.md): 从 FISV 财报后暴跌、又继续下跌的持有经历出发，对照 KO 的修复，结合行业比较、Risk–Reward、重新定价和资金安排，理解持有与退出。
 - [投资组合：分散、多资产与风险制衡](https://ou-liu-red-sugar.github.io/llms/zh/notebook/portfolio-diversification-hedging.md): 从仓位大小与 VOO 穿透重叠出发，用 2020 与 2022 两段真实行情看清跨资产制衡与相关性翻转，再建立期货、期权与 CDS 的合约对冲地图，并落回组合现金与再平衡。
+- [利润、资本开支与现金](https://ou-liu-red-sugar.github.io/llms/zh/notebook/profit-capex-cash.md): 拆解资本化与费用化的会计分叉、折旧摊销的投产时滞，系统界定 EBIT、EBITDA、Owner Earnings 与自由现金流（FCF）的计算桥、适用场景与失真陷阱；借互动推演器与 KO、T、MSFT、TSMC 四家公司真实 SEC 披露，把账面利润与可分配现金的落差讲透。
 - [报价、订单与实际成交](https://ou-liu-red-sugar.github.io/llms/zh/notebook/quotes-orders-execution.md): 从 2015 年 8 月 24 日开盘几分钟里 IVV 的成交价出发，读懂报价、盘口与流动性，再看市价、限价和触发订单怎样决定成交，以及成交对手、交易成本和 T+1 交收。
+- [收入、回款与营运资本](https://ou-liu-red-sugar.github.io/llms/zh/notebook/revenue-collections-working-capital.md): 承接三表勾稽，拆解应收账款、存货、应付账款与预收／未实现收入如何组成净营运资本与现金转换周期（CCC）；借互动推演器与 NVIDIA（NVDA）、Costco（COST）、Microsoft（MSFT）等真实 FY2026 SEC 披露，对照正负营运资本在扩张与退坡时的反向现金效应。
 - [收入增长与市场预期](https://ou-liu-red-sugar.github.io/llms/zh/notebook/revenue-growth-expectations.md): 拆开销量、净价、客户和产品组合，用真实业绩与预测市场辨认增长预期，再从股价反推所需收入，交给经营证据检验。
 - [风险平价与全天候配置](https://ou-liu-red-sugar.github.io/llms/zh/notebook/risk-parity-all-weather.md): 区分资金权重与风险贡献，拆解 60/40 组合为何超九成波动仍由股票主导；建立增长与通胀四象限的等风险预算框架，解释温和债券杠杆的由来，并用 2011—2020 与 2022—2023 两段实测看清相关性翻转与融资挤压的失效边界。
+- [分部、共同成本与合并](https://ou-liu-red-sugar.github.io/llms/zh/notebook/segments-shared-costs-consolidation.md): 按 FASB ASC 280 的 CODM 口径区分财报披露分部与研究产品线，结合 Coca-Cola（KO）FY2025 与 Alphabet（GOOGL）FY2025 真实 10-K 拆解分部间内部交易抵销、总部未分配共同成本与分部改组，并通过互动合并桥与股权边界图厘清控股合并、少数股东权益、权益法与财务投资怎样改写三张表。
 - [保证金、对冲与期间现金](https://ou-liu-red-sugar.github.io/llms/zh/notebook/settlement-margin-cash.md): 从业务与 Risk-Reward 建立组合，理解 beta 对冲的范围，由 Agent 结合市场状态比较期货、Put 与减持，再把保证金、盯市和交收接到现金安排。
 - [股东回报：分红、回购与增发](https://ou-liu-red-sugar.github.io/llms/zh/notebook/shareholder-returns-buybacks-issuance.md): 从 100 股 AAPL 的一个季度出发，比较分红与回购怎样把同样的现金交给股东，再看增发、稀释和成交价格怎样改变继续持有者的每股价值。
 - [股票的类型、发行与交易形式](https://ou-liu-red-sugar.github.io/llms/zh/notebook/stock-types-issuance-trading.md): 从同样一股 RDDT 的钱流向谁说起，理解股份类别与权利、新股与旧股、员工股份的归属与解禁，再看 ADR 怎样对应境外原股。

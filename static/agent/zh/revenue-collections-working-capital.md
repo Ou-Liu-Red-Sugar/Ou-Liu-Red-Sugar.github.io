@@ -1,0 +1,437 @@
+# 收入、回款与营运资本
+
+承接三表勾稽，拆解应收账款、存货、应付账款与预收／未实现收入如何组成净营运资本与现金转换周期（CCC）；借互动推演器与 NVIDIA（NVDA）、Costco（COST）、Microsoft（MSFT）等真实 FY2026 SEC 披露，对照正负营运资本在扩张与退坡时的反向现金效应。
+
+Entry: zh-revenue-collections-working-capital | Node: NB-E02 | Language: zh | Editorial revision: 2026-11-27
+
+## Reference use
+This is reference material for the learner's current request. Use the supplied entry to teach the selected concept. Retrieve the relevant original unit when explaining a claim that depends on its assumptions, figures or rules; the reading list is a map for that work, not a prerequisite to the first lesson. Keep facts, supplied examples and inference distinct. Editorial access dates describe the author's work. The empty runtime_reading_log is an optional record field, not a requested response. Author-supplied scope notes below constrain factual use of the material; the learner's request determines the teaching task and first response.
+
+## Author-supplied scope notes (reference only)
+<author_scope_notes>
+本篇为主线篇 NB-E02《收入、回款与营运资本》，承接 NB-E01 的六笔交易三表联动与 NB-D01 的收费交付时序，拆解短期经营资产负债怎样改写经营现金流。全篇分四节：一、净营运资本与四把周转标尺：以应收账款、存货（占资）与应付账款、预收／未实现收入（供资）定义核心 NWC，讲清分母一致性（应收与预收对收入，存货与应付对营业成本）及 DSO、DIO、DPO、CCC（= DSO + DIO − DPO）与预收天数，并用现金转换时间轴图展示四项科目在间接法下的正负号。二、正负营运资本与增速的交互（互动推演器）：固定基期收入 1,000 百万美元、营业成本率 65%、变动前现金利润率 15%，以四组预设（重账期硬件 +40%、高周转零售 +40%、预收订阅软件 +40%、预收模式退坡 −25%）与五个滑块直观展示 ΔNWC 在相同 +40% 增速下怎样把 CFO 从 +96.0 拉开到 +297.1，以及退坡 −25% 时负营运资本怎样反噬抽血 −54.5。三、真实 FY2026 SEC 10-K 对照：NVIDIA（NVDA，DSO 52.0 / DIO 92.0 / DPO 47.1 / CCC +96.9 天，应收与存货扩张抽走 267 亿、CFO 102,718 低于净利 120,067）、Costco（COST，DSO 4.3 / DIO 25.9 / DPO 29.3 / 传统 CCC +0.9 天、含 3,006M 递延会员费核心 NWC −2,314M、营运资本净注入 +2,320M，并对照 WMT FY26 CCC +3.2 天）与 Microsoft（MSFT，短期未实现收入 72,965M、全年预收与经营应付合计 +14,629M 抵销应收 −12,737M；并对照纯预收样本 SNOW FY26 递延收入 3,347M 占收入 71.5%），同时借助附注排雷 MSFT 应付账款中 267 亿美元设备资本开支、Q4 集中开票季节性（Q1 FY27 回款 +17,104M）及高增速下均值与期末天数口径差。四、退坡与周期反转反噬：用 Target（TGT FY25 销售 −1.7%，存货回笼 +436M 被应付收缩 −501M 抵销）说明负营运资本退坡抽血，用 NVDA（Q1 FY26 H20 单季减值 45 亿美元、FY23 Q2 减值 13.4 亿美元致毛利率降至 43.5%，及前三大直接客户占应收 56%）说明重存货长账期反转的存货跌价与坏账双击，并自然过渡到 NB-E03《利润、资本开支与现金》。
+</author_scope_notes>
+
+## Shared notation and writing conventions
+数学期望统一写成 \mathbb{E}，条件期望用 \mathbb{E}[X\mid\mathcal{G}]，需要时注明测度 P 或 Q。保留局部变量的明确定义。金额与数量使用 K=10^3、M=10^6、B=10^9；表格标明币种、量级与期间，变更量级时同步换算数值。主文通常保留不超过三位小数，很小的数值或复算输入保留必要精度；计算使用原始数据。直接解释对象、机制与推理；保留影响结论的假设和事实来源，把编辑流程留在记录中。中文语句使用中文标点，代码、公式和原文引用保留各自格式。基础定义与推导直接讲内容，出处放在紧邻脚注；来源读取、复审和采用范围等编辑经过留在记录中。
+[Notation and units](https://ou-liu-red-sugar.github.io/agent/zh/notation.md)
+
+## Required readings and runtime protocol
+```json
+{
+  "required_readings": [
+    {
+      "source_id": "nb-e01-nvda-fy26",
+      "access": {
+        "kind": "selected_chapters",
+        "uri": "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000021/nvda-20260125.htm"
+      },
+      "required_unit": {
+        "locator": "FY2026 Form 10-K（截至 2026-01-25）三张主表、MD&A 毛利与 H20 减值说明、Note 9（应收集中度、存货与超额采购义务）。",
+        "scope": "核对 NVDA 收入 215,938、营业成本 62,475、净利润 120,067、CFO 102,718、应收 23,065→38,466（前三大直接客户占 56%）、存货 10,080→21,403、应付 6,310→9,812（百万美元），以及 Q1 FY26 H20 45 亿美元与全年 72 亿美元存货及采购准备。",
+        "purpose": "核对正 CCC 重备货硬件扩张期吞噬现金及需求骤停期存货减值的真实案例。"
+      },
+      "title": "NVIDIA Corporation：FY2026 Form 10-K（截至 2026-01-25）",
+      "authors": [
+        "NVIDIA Corporation"
+      ],
+      "version": "2026-11-26 核对 SEC EDGAR"
+    },
+    {
+      "source_id": "nb-e02-cost-fy26",
+      "access": {
+        "kind": "selected_chapters",
+        "uri": "https://www.sec.gov/Archives/edgar/data/909832/000090983226000093/cost-20260830.htm"
+      },
+      "required_unit": {
+        "locator": "FY2026 Form 10-K（52 周截至 2026-08-30）Consolidated Statements of Income、Balance Sheets 与 Cash Flows。",
+        "scope": "核对 COST 总收入 303,154（净销售 297,247 加会员费 5,907）、商品成本 264,279、净利润 9,226、CFO 15,817、应收 3,203→3,959、存货 18,116→19,324、应付 19,783→22,591、递延会员费 2,854→3,006（百万美元）。",
+        "purpose": "核对高周转零售近零 CCC 与递延会员费共同构成负净营运资本的真实案例。"
+      },
+      "title": "Costco Wholesale Corporation：FY2026 Form 10-K（截至 2026-08-30）",
+      "authors": [
+        "Costco Wholesale Corporation"
+      ],
+      "version": "2026-11-27 核对 SEC EDGAR"
+    },
+    {
+      "source_id": "nb-e02-wmt-fy26",
+      "access": {
+        "kind": "selected_chapters",
+        "uri": "https://www.sec.gov/Archives/edgar/data/104169/000010416926000055/wmt-20260131.htm"
+      },
+      "required_unit": {
+        "locator": "FY2026 Form 10-K（截至 2026-01-31）Consolidated Statements of Income、Balance Sheets 与 Cash Flows。",
+        "scope": "核对 WMT 总收入 713,163、营业成本 535,395、应收 9,975→11,172、存货 56,435→58,851、应付 58,666→63,061（百万美元）及 DSO 5.4 / DIO 39.3 / DPO 41.5 / CCC +3.2 天。",
+        "purpose": "验证高周转商超的近零 CCC 结构并非个案。"
+      },
+      "title": "Walmart Inc.：FY2026 Form 10-K（截至 2026-01-31）",
+      "authors": [
+        "Walmart Inc."
+      ],
+      "version": "2026-11-27 核对 SEC EDGAR"
+    },
+    {
+      "source_id": "nb-e01-msft-fy26",
+      "access": {
+        "kind": "selected_chapters",
+        "uri": "https://www.sec.gov/Archives/edgar/data/789019/000119312526323632/msft-ex99_1.htm"
+      },
+      "required_unit": {
+        "locator": "FY2026（截至 2026-06-30）Income Statements、Balance Sheets 与 Cash Flows Statements。",
+        "scope": "核对 MSFT 收入 331,839、营业成本 106,374、应收 69,905→80,876、存货 938→1,397、应付 27,724→42,416、短期未实现收入 64,555→72,965 及现金流调节项（应收 −12,737、应付 +5,268、未实现收入 +9,361，百万美元）。",
+        "purpose": "核对预收订阅云合同的营运资本结构与现金流调节。"
+      },
+      "title": "Microsoft Corporation：FY2026 Q4 及全财年业绩公告与 Form 10-K（截至 2026-06-30）",
+      "authors": [
+        "Microsoft Corporation"
+      ],
+      "version": "2026-11-26 核对 SEC EDGAR"
+    },
+    {
+      "source_id": "nb-e02-msft-10k-fy26",
+      "access": {
+        "kind": "selected_chapters",
+        "uri": "https://www.sec.gov/Archives/edgar/data/789019/000119312526323660/msft-20260630.htm"
+      },
+      "required_unit": {
+        "locator": "FY2026 Form 10-K Note 6（Property and Equipment 含应付账款中资本开支金额）与 Note 12（Unearned Revenue 变动表）。",
+        "scope": "核对期末应付账款中含 267 亿美元固定资产采购应付款（上年 69 亿美元），以及未实现收入年初 67,265＋新增递延 194,184−当期确认 185,737＝期末 75,712（百万美元）。",
+        "purpose": "核对机械套用 DPO 公式的附注排雷依据。"
+      },
+      "title": "Microsoft Corporation：FY2026 Form 10-K（截至 2026-06-30）",
+      "authors": [
+        "Microsoft Corporation"
+      ],
+      "version": "2026-11-27 核对 SEC EDGAR"
+    },
+    {
+      "source_id": "nb-e02-msft-q1fy27",
+      "access": {
+        "kind": "selected_chapters",
+        "uri": "https://www.sec.gov/Archives/edgar/data/789019/000119312526436133/msft-20260930.htm"
+      },
+      "required_unit": {
+        "locator": "FY2027 Q1 Form 10-Q（截至 2026-09-30）Balance Sheets 与 Cash Flows Statements。",
+        "scope": "核对期末应收账款由 80,876 回落至 62,084、单季应收回款现金流入 +17,104（百万美元），验证 Q4 集中续约开票的季节性特征。",
+        "purpose": "核对软件年末集中开票与次季回款对 DSO 的影响。"
+      },
+      "title": "Microsoft Corporation：FY2027 Q1 Form 10-Q（截至 2026-09-30）",
+      "authors": [
+        "Microsoft Corporation"
+      ],
+      "version": "2026-11-27 核对 SEC EDGAR"
+    },
+    {
+      "source_id": "nb-e02-snow-fy26",
+      "access": {
+        "kind": "selected_chapters",
+        "uri": "https://www.sec.gov/Archives/edgar/data/1640147/000162828026011631/fy2026q4earnings.htm"
+      },
+      "required_unit": {
+        "locator": "FY2026 Q4 及全财年业绩公告（截至 2026-01-31）三张主表。",
+        "scope": "核对 SNOW 收入 4,683.9、GAAP 净亏损 −1,329.0、零存货、应收 1,303.7、应付 145.6、短期递延收入 3,347.0（占全年收入 71.5%）与 CFO +1,221.9（递延收入变动 +755.2，百万美元）。",
+        "purpose": "核对纯粹预收型云软件以客户预付款托起经营现金流的案例。"
+      },
+      "title": "Snowflake Inc.：FY2026 Q4 及全财年业绩公告（EX-99.1，截至 2026-01-31）",
+      "authors": [
+        "Snowflake Inc."
+      ],
+      "version": "2026-11-27 核对 SEC EDGAR"
+    },
+    {
+      "source_id": "nb-e02-tgt-fy25",
+      "access": {
+        "kind": "selected_chapters",
+        "uri": "https://www.sec.gov/Archives/edgar/data/27419/000002741926000012/a2025q4ex-99.htm"
+      },
+      "required_unit": {
+        "locator": "FY2025 全年业绩公告（截至 2026-01-31）Statements of Operations、Financial Position 与 Cash Flows。",
+        "scope": "核对 TGT 净销售额 104,780（同比 −1.7%）、现金流存货 +436 与应付账款 −501，对比 FY2024 存货 −854 与应付 +1,008（百万美元）。",
+        "purpose": "核对负营运资本零售商在销售退坡时应付账款收缩反噬现金的真实案例。"
+      },
+      "title": "Target Corporation：FY2025 Q4 及全财年业绩公告（EX-99.1，截至 2026-01-31）",
+      "authors": [
+        "Target Corporation"
+      ],
+      "version": "2026-11-27 核对 SEC EDGAR"
+    },
+    {
+      "source_id": "nb-e02-nvda-q2fy24",
+      "access": {
+        "kind": "selected_chapters",
+        "uri": "https://www.sec.gov/Archives/edgar/data/1045810/000104581023000175/nvda-20230730.htm"
+      },
+      "required_unit": {
+        "locator": "FY2024 Q2 Form 10-Q（截至 2023-07-30）MD&A Gross Margin 与 Note 10 存货跌价对比。",
+        "scope": "核对 FY2023 Q2 因游戏芯片周期下行计提 13.4 亿美元存货及相关准备、当季 GAAP 毛利率降至 43.5% 的历史对照。",
+        "purpose": "核对重存货周期反转时存货跌价直接冲击毛利与现金流的机制。"
+      },
+      "title": "NVIDIA Corporation：FY2024 Q2 Form 10-Q（截至 2023-07-30，含 FY2023 存货跌价对比）",
+      "authors": [
+        "NVIDIA Corporation"
+      ],
+      "version": "2026-11-27 核对 SEC EDGAR"
+    }
+  ],
+  "runtime_reading_log": [],
+  "optional_readings": [],
+  "export_mode": "public"
+}
+```
+
+## Supplied entry
+<link rel="stylesheet" href="/notebook/flow-figures.css?v=20261127">
+
+[《三张财报与经营活动》](/zh/notebook/three-financial-statements/)里的装配小厂卖出了 75,000 美元零件，利润表如实记下 75,000 美元收入，银行账户当天却只进账 45,000 美元——剩下 30,000 美元变成客户欠条，仓库还压着 10,000 美元剩余原料，同时厂里也欠着供应商 40,000 美元货款没结。这三笔进出时间错开的短期资金，就是企业日常运转里的**营运资本**。
+
+把镜头拉到真实股市，两家收入增速与利润率完全相同的公司，现金命运可能截然相反：有的公司订单越爆、账上越缺钱，利润一多半都压在了仓库和客户账期里；有的公司越扩张、账户里的现金反而比净利润涨得更快，靠供应商账期或客户年付预付款替自己免费垫资。分岔口就在**净营运资本**（Net Working Capital，简称 NWC）的结构与方向。
+
+## 从赊购到回款：净营运资本与四把周转标尺 {#nb-e02-working-capital-cycle}
+
+[《客户、产品与收费方式》](/zh/notebook/customers-products-pricing/)从交易现场讲过收费与交付的先后顺序。落到资产负债表上，日常经营里的短期收付错期主要沉淀在四个科目里，正好分成“占用现金”和“借来现金”两队：
+
+- **存货**（Inventory，占用现金）：从原料入库、产线加工到成品摆上货架，商品卖出前消耗的采购与制造成本全部押在仓库里。
+- **应收账款**（Accounts Receivable，占用现金）：货已经交付、利润表已经确认收入，客户按商业账期（如 30 天或 60 天）尚未汇来的货款。
+- **应付账款**（Accounts Payable，提供现金）：原料或商品已经入库使用，按上游信用条款允许稍后结算的货款，相当于供应商提供的无息短期信用。
+- **预收／未实现收入**（Deferred / Unearned Revenue，提供现金）：客户提前付清年费、会员费或定金，公司须在未来履约期内分期确认为收入的合同负债——正如[《Agent 时代的基本面投资》](/zh/notebook/investment-returns/)里预付设备定金带来的现金先落袋。
+
+把占用现金的两项经营资产相加，减去提供现金的两项经营负债，就得到衡量主业短期资金占用的**核心净营运资本**（NWC）：
+
+\[
+\text{核心 NWC} = \text{应收账款} + \text{存货} - \text{应付账款} - \text{预收／未实现收入}.
+\]
+
+<span data-text-versions id="nb-e02-text-nwc-def">在现金流量表的间接法里，只要资产端（应收、存货）同比增加，就意味着本年多押进去一笔钱，记作经营现金流的**流出**（负号）；反之，负债端（应付、预收）增加，说明本年多借来一笔免息资金，记作经营现金流的**流入**（正号）<span data-text-detail>（会计教科书常把广义营运资本写作“流动资产 − 流动负债”。做基本面现金流分析时，一般会剔除现金、短期投资以及一年内到期的有息短债，改看“经营性净营运资本”：现金正是要解释的结果，短债属于融资安排而非经营周转。完整口径下，预付账款归入经营流动资产，应付薪酬与应计经营费用归入经营流动负债，上式抓住的是跨行业差异最大的四项主干）</span>。<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>
+
+不同公司体量相差几十倍，直接比较几十亿和几百亿的余额很难看出效率高低，所以习惯把金额换算成“天数”。这里有一条容易算错的分母规则：**应收账款与预收款**对应含毛利的售价，用全年营业收入作分母；**存货与应付账款**按成本入账，用全年营业成本作分母。为减少单一期末时点波动，通常取期初与期末余额的平均值，乘以 365 天，得到三把标准周转标尺与**现金转换周期**（Cash Conversion Cycle，简称 CCC）：
+
+\[
+\text{DSO} = \frac{\text{平均应收账款}}{\text{营业收入}} \times 365,\quad
+\text{DIO} = \frac{\text{平均存货}}{\text{营业成本}} \times 365,\quad
+\text{DPO} = \frac{\text{平均应付账款}}{\text{营业成本}} \times 365,
+\]
+
+\[
+\text{CCC} = \text{DSO} + \text{DIO} - \text{DPO}.
+\]
+
+沿着一笔货物的真实时间线读，这三个缩写一眼就通：**DIO**（Days Inventory Outstanding）是货在仓库和产线里停留的天数，**DSO**（Days Sales Outstanding）是交付后等客户打款的天数，**DPO**（Days Payable Outstanding）是供应商允许公司推迟结账的天数。前两段加起来是公司整段营业周期，扣掉供应商帮忙垫付的 DPO，剩下的 **CCC** 就是公司必须自掏腰包周转的净天数。遇到会员制或年付软件公司时，还会把**预收天数**（\(\text{平均预收／未实现收入} \div \text{营业收入} \times 365\)）摆在旁边一并衡量，才不会漏掉客户提前打来的大笔现金。
+
+<figure class="flow-figure e02-cycle-map" id="nb-e02-cycle-map-fig">
+<div class="ff-head"><p class="ff-title">一笔生意的现金转换时间轴：从采购入库到收到货款</p><span class="ff-sub">上方为现金占用期（DIO ＋ DSO）· 下方为上游账期抵减（DPO）与净缺口（CCC）</span></div>
+<div class="business-exchange" aria-label="一笔生意的现金转换时间轴与四科目现金流符号：上方现金占用期分为两段，从采购入库 t0 到交付确认收入为存货周转天数 DIO，从交付确认收入到收到客户现金为应收周转天数 DSO。下方第一段为供应商账期 DPO，在 t0 到向供应商付款之间抵减资金占用；剩余从向供应商付款到收到客户现金的窗口即现金转换周期 CCC，等于 DIO 加 DSO 减 DPO。若 DPO 叠加客户预收天数大于 DIO 加 DSO，周期转为负值，形成先收钱后付款。下方四张符号卡片给出间接法经营现金流方向：应收账款增加记现金流出、存货增加记现金流出、应付账款增加记现金流入、预收与未实现收入增加记现金流入。">
+<div class="e02-tracks">
+<div class="e02-trow e02-trow-use">
+<div class="e02-thead"><strong>资金占用轨道：货还在库里、钱还在路上</strong><span>入库 t₀ → 交付确认收入 → 收到客户现金</span></div>
+<div class="e02-segbar e02-segbar-use">
+<div class="e02-seg e02-seg-inv">存货停留 DIO<small>原料入库、加工到出库交付</small></div>
+<div class="e02-seg e02-seg-ar">应收等待 DSO<small>确认收入后等待客户按账期打款</small></div>
+</div>
+</div>
+<div class="e02-trow e02-trow-src">
+<div class="e02-thead"><strong>信用抵减与净缺口：供应商先垫一段，剩下自己扛</strong><span>入库 t₀ → 付给供应商 → 自垫资金窗口 CCC</span></div>
+<div class="e02-segbar e02-segbar-src">
+<div class="e02-seg e02-seg-ap">供应商账期 DPO<small>延期结账抵减占用</small></div>
+<div class="e02-seg e02-seg-ccc">现金转换周期 CCC ＝ DIO ＋ DSO − DPO<small>正值须自垫现金；若 DPO ＋ 客户预收更长则转为负周期</small></div>
+</div>
+</div>
+</div>
+<div class="e02-signs">
+<div class="e02-sign e02-sign-out"><strong>应收账款 ↑</strong><span>现金流出（−）</span></div>
+<div class="e02-sign e02-sign-out"><strong>存货 ↑</strong><span>现金流出（−）</span></div>
+<div class="e02-sign e02-sign-in"><strong>应付账款 ↑</strong><span>现金流入（＋）</span></div>
+<div class="e02-sign e02-sign-in"><strong>预收／未实现 ↑</strong><span>现金流入（＋）</span></div>
+</div>
+</div>
+<figcaption>周转天数越短或预收越多，同等营收规模下需要自垫的流动资金越少；四个符号卡片对应现金流量表间接法的经营资产与负债调节方向。</figcaption>
+</figure>
+
+## 正营运资本与负营运资本：增长怎样反向牵动现金 {#nb-e02-growth-cash-lab}
+
+弄清四个科目的符号后，还要抓住一条决定现金流方向的关系：进入当期现金流量表的是净营运资本的**变动额** \(\Delta\text{NWC}\)，静态存量余额本身并不会在当期触发新的现金收付。如果一家公司营收原地踏步、周转天数保持不变，哪怕账上常年压着 3 亿美元应收和存货，今年新增占用也是零，利润表赚到的现金利润会原封不动流进账户。
+
+一旦业务开始高速增长，正负营运资本的分野立刻拉开。当 **NWC 为正**（长账期、重备货）时，销售额每扩大一成，仓库里的安全库存和客户手里的未结账单都要同比放大，\(\Delta\text{NWC} > 0\) 会直接从经营现金流里扣掉一大块；如果增速足够猛、利润率又不算高，扩张甚至会把经营现金流拉成负数，出现“财报大赚、银行卡见底”的缺血局面。反过来，当 **NWC 为负**（上游账期长于存货加应收，或客户提前付清年费）时，销售额越扩张，多借来的免息负债越大，\(\Delta\text{NWC} < 0\) 反而会给经营现金流额外加钱。
+
+下面用一个统一口径的推演器把这件事算透：假设基期年收入均为 **1,000 百万美元**、营业成本占收入 **65%**、营运资本变动前的现金利润（净利润加折旧）占收入 **15%**。点击上方四个情景预设，或拖动滑块调整 DSO、DIO、DPO、预收天数与收入增速，观察同样 **+40%** 的营收增速下，经营现金流怎样从 96.0 百万美元拉开到 297.1 百万美元——也可以切到第四个预设，提前看负营运资本遇到 **−25%** 退坡时的反向抽血：
+
+<figure class="flow-figure e02-ccc-lab" id="nb-e02-ccc-lab" data-e02-ccc>
+<div class="ff-head"><p class="ff-title">互动推演器：不同商业模式在增长与退坡下的营运资本现金流</p><span class="ff-sub">单位：百万美元 · 基期收入 1,000 · 营业成本率 65% · 营运资本前现金利润率 15%</span></div>
+<div class="e02-presets" hidden><button type="button" data-e02-preset="hardware" aria-pressed="true">① 重账期硬件／制造（+40%）</button><button type="button" data-e02-preset="retail">② 高周转零售（+40%）</button><button type="button" data-e02-preset="saas">③ 预收订阅软件（+40%）</button><button type="button" data-e02-preset="downturn">④ 预收模式退坡（−25%）</button></div>
+<div class="e02-sliders">
+<div class="e02-sgroup-top">
+<div class="e02-srow"><label for="nb-e02-in-dso"><span>应收天数 DSO</span><output data-e02-dso-out>65 天</output></label><input id="nb-e02-in-dso" type="range" min="0" max="120" step="1" value="65" data-e02-dso-in disabled></div>
+<div class="e02-srow"><label for="nb-e02-in-dio"><span>存货天数 DIO</span><output data-e02-dio-out>105 天</output></label><input id="nb-e02-in-dio" type="range" min="0" max="140" step="1" value="105" data-e02-dio-in disabled></div>
+<div class="e02-srow"><label for="nb-e02-in-dpo"><span>应付天数 DPO</span><output data-e02-dpo-out>45 天</output></label><input id="nb-e02-in-dpo" type="range" min="0" max="100" step="1" value="45" data-e02-dpo-in disabled></div>
+</div>
+<div class="e02-sgroup-bot">
+<div class="e02-srow"><label for="nb-e02-in-drd"><span>客户预收天数</span><output data-e02-drd-out>0 天</output></label><input id="nb-e02-in-drd" type="range" min="0" max="180" step="2" value="0" data-e02-drd-in disabled></div>
+<div class="e02-srow"><label for="nb-e02-in-g"><span>收入年增速 g</span><output data-e02-g-out>+40%</output></label><input id="nb-e02-in-g" type="range" min="-30" max="60" step="5" value="40" data-e02-g-in disabled></div>
+</div>
+</div>
+<div class="business-exchange" aria-label="营运资本与经营现金流互动推演结果（基期收入 1,000 百万美元、营业成本率 65%、营运资本前现金利润率 15%）：预设一重账期硬件与制造（DSO 65 天、DIO 105 天、DPO 45 天、预收 0 天、收入增速 +40%），本年收入 1,400 百万美元，传统 CCC 与净资金周期均为 +125 天，变动前现金利润 210.0 百万美元，营运资本净占用 −114.0 百万美元（NWC 由 +284.9 升至 +398.9），最终 CFO 为 +96.0 百万美元（现金转换率 45.7%）。预设二高周转零售（DSO 4 天、DIO 26 天、DPO 40 天、预收 4 天、增速 +40%），传统 CCC −10 天、含预收净 −14 天，营运资本反哺 +10.0 百万美元，最终 CFO +220.0 百万美元（104.7%）。预设三预收订阅软件（DSO 60 天、DIO 0 天、DPO 30 天、预收 120 天、增速 +40%），含预收净周期 −90 天，营运资本反哺 +87.1 百万美元，最终 CFO +297.1 百万美元（141.5%）。预设四预收模式退坡（参数同预设三、收入增速 −25%），本年收入 750 百万美元，变动前现金利润 112.5 百万美元，营运资本反噬抽走 −54.5 百万美元，最终 CFO 降至 +58.0 百万美元（51.6%）。">
+<div class="e02-barbox">
+<div class="e02-brow"><span class="e02-blabel">占用（DIO＋DSO）</span><div class="e02-btrack"><div class="e02-bfill-dio" data-e02-bar-dio style="width:52.5%"></div><div class="e02-bfill-dso" data-e02-bar-dso style="width:32.5%"></div></div><span class="e02-bval" data-e02-use-days>170 天</span></div>
+<div class="e02-brow"><span class="e02-blabel">信用（DPO＋预收）</span><div class="e02-btrack"><div class="e02-bfill-dpo" data-e02-bar-dpo style="width:22.5%"></div><div class="e02-bfill-drd" data-e02-bar-drd style="width:0%"></div></div><span class="e02-bval" data-e02-src-days>45 天</span></div>
+</div>
+<div class="e02-kpis">
+<div class="e02-kcard"><small>净资金周期</small><strong class="e02-neg" data-e02-net-ccc>+125 天</strong><span data-e02-trade-ccc>传统 CCC +125 天</span></div>
+<div class="e02-kcard"><small>变动前现金利润</small><strong data-e02-pre-cf>210.0</strong><span data-e02-rev-sub>本年收入 1,400M</span></div>
+<div class="e02-kcard"><small>营运资本现金流</small><strong class="e02-neg" data-e02-wc-cf>−114.0</strong><span data-e02-nwc-sub>NWC +284.9 → +398.9</span></div>
+<div class="e02-kcard e02-khi"><small>最终经营现金流 CFO</small><strong data-e02-cfo>+96.0</strong><span data-e02-conv-sub>现金转换率 45.7%</span></div>
+</div>
+</div>
+<p class="e02-note" data-e02-note>重账期硬件／制造模式（+40% 增长）：存货备货 105 天加客户账期 65 天远高于上游 45 天账期，营收多增 400 百万美元时，营运资本直接吃掉 114.0 百万美元现金，经营现金流不到变动前现金利润的一半。</p>
+<figcaption>按各科目严格分母折算金额：NWC ＝ R × [DSO − 预收天数 ＋ 0.65 × (DIO − DPO)] ÷ 365；当年营运资本现金流为 −ΔNWC，最终 CFO ＝ 变动前现金利润 − ΔNWC。</figcaption>
+</figure>
+
+把同一套模型拉回零增速，三类模式的现金转换率都会回到 100%；把增速推高到 +40% 甚至 +60%，差别就彻底显露出来。正营运资本的公司想要高速扩张，必须有足够厚的利润率或外部融资垫背，否则账面越红火、流动性反而越紧；负营运资本的公司在扩张期自带融资引擎，用上游供应商和下游预付客户的钱撑大生意规模。
+
+## 真实 10-K 对照：NVDA、COST 与 MSFT 的三种资金结构 {#nb-e02-real-10k}
+
+把这套框架放进 2026 财年三份真实的 SEC 年报，就能看到三种商业模式在真金白银里的完整映射：全速备货交付 AI 算力系统的 **NVIDIA**（NVDA，FY2026 截至 2026 年 1 月 25 日）、靠极简选品高周转和会员费运转的 **Costco Wholesale**（COST，FY2026 截至 2026 年 8 月 30 日），以及靠企业年付订阅和云合同预收款的 **Microsoft**（MSFT，FY2026 截至 2026 年 6 月 30 日）：
+
+<figure class="flow-figure e02-real-wc" id="nb-e02-real-wc-fig">
+<div class="ff-head"><p class="ff-title">三类商业模式的真实营运资本对照（FY2026 SEC 官方原件）</p><span class="ff-sub">金额单位：百万美元 · 周转天数统一按期初期末平均余额 × 365 计算</span></div>
+<div class="e02-rgrid business-exchange" aria-label="三家真实上市公司 FY2026 营运资本与经营现金流对照（金额单位：百万美元，周转天数按平均余额乘以 365 天计算）：一、NVIDIA（NVDA，截至 2026-01-25）：收入 215,938（同比 +65.5%）、营业成本 62,475；期末应收 38,466（上年 23,065，DSO 52.0 天）、存货 21,403（上年 10,080，DIO 92.0 天）、应付 9,812（上年 6,310，DPO 47.1 天），CCC 为 +96.9 天；现金流量表中应收增 −15,399、存货增 −11,324、应付增 +3,096，三项合计净流出 −23,627，使 CFO 102,718 低于 GAAP 净利润 120,067 达 173.5 亿美元。二、Costco Wholesale（COST，截至 2026-08-30）：总收入 303,154（+10.1%，含会员费 5,907）、商品成本 264,279；期末应收 3,959（DSO 4.3 天）、存货 19,324（DIO 25.9 天）、应付 22,591（DPO 29.3 天），传统 CCC 仅 +0.9 天；计入递延会员费 3,006（3.5 天）后核心净营运资本为 −2,314（广义 −2.6 天）；现金流应付增 +2,755 远超存货增 −1,153，营运资本合计净流入 +2,320，托起 CFO 15,817（远高于净利润 9,226）。三、Microsoft（MSFT，截至 2026-06-30）：总收入 331,839（+17.8%）、营业成本 106,374；存货仅 1,397，期末应收 80,876（DSO 82.9 天，受 Q4 集中续约开票拉高），短期未实现收入 72,965（75.6 天，含长期合计 75,712）；应付账款 42,416 中含 26,700 资本开支设备应付（非经营采购账期）；现金流未实现收入增 +9,361 加经营应付增 +5,268，合计 +14,629 抵销应收增 −12,737，托起 182,935 经营现金流。">
+<div class="e02-rcard" style="--e02-c:#a8743f">
+<div>
+<div class="e02-rhead"><strong>NVIDIA（NVDA）· FY2026</strong><small>截至 2026-01-25 · 重备货硬件扩张</small></div>
+<div class="e02-pills">
+<div class="e02-pill"><span>DSO</span><b>52.0 天</b></div>
+<div class="e02-pill"><span>DIO</span><b>92.0 天</b></div>
+<div class="e02-pill"><span>DPO</span><b>47.1 天</b></div>
+</div>
+<div class="e02-ccc-tag e02-ccc-pos">CCC ＝ +96.9 天（增长显著占资）</div>
+<div class="e02-ritems">
+<div class="e02-ri"><span>收入（+65.5%）/ 成本</span><b>215,938 / 62,475</b></div>
+<div class="e02-ri"><span>期末 应收 / 存货 / 应付</span><b>38,466 / 21,403 / 9,812</b></div>
+<div class="e02-ri"><span>CF 应收＋存货＋应付</span><b class="e02-neg">−23,627</b></div>
+<div class="e02-ri"><span>GAAP 净利润 → CFO</span><b>120,067 → 102,718</b></div>
+</div>
+</div>
+<p class="e02-rnote">营收激增 854 亿美元，单是应收与存货扩张就吃掉 267 亿美元现金，应付仅补回 31 亿。</p>
+</div>
+<div class="e02-rcard" style="--e02-c:#23695a">
+<div>
+<div class="e02-rhead"><strong>Costco（COST）· FY2026</strong><small>截至 2026-08-30 · 高周转＋会员预收</small></div>
+<div class="e02-pills">
+<div class="e02-pill"><span>DSO</span><b>4.3 天</b></div>
+<div class="e02-pill"><span>DIO</span><b>25.9 天</b></div>
+<div class="e02-pill"><span>DPO</span><b>29.3 天</b></div>
+</div>
+<div class="e02-ccc-tag e02-ccc-neg">传统 CCC +0.9 天 · 含预收 −2.6 天</div>
+<div class="e02-ritems">
+<div class="e02-ri"><span>总收入（+10.1%）/ 成本</span><b>303,154 / 264,279</b></div>
+<div class="e02-ri"><span>期末 存货 / 应付 / 递延会费</span><b>19,324 / 22,591 / 3,006</b></div>
+<div class="e02-ri"><span>CF 营运资本三项合计</span><b class="e02-pos">+2,320</b></div>
+<div class="e02-ri"><span>GAAP 净利润 → CFO</span><b>9,226 → 15,817</b></div>
+</div>
+</div>
+<p class="e02-rnote">货还没给供应商结账平均就已卖空，叠加 30 亿美元预收会员费，扩张期反而多吐出现金。</p>
+</div>
+<div class="e02-rcard" style="--e02-c:#4d778f">
+<div>
+<div class="e02-rhead"><strong>Microsoft（MSFT）· FY2026</strong><small>截至 2026-06-30 · 预收云与订阅</small></div>
+<div class="e02-pills">
+<div class="e02-pill"><span>DSO</span><b>82.9 天</b></div>
+<div class="e02-pill"><span>短期预收</span><b>75.6 天</b></div>
+<div class="e02-pill"><span>存货</span><b>1,397M</b></div>
+</div>
+<div class="e02-ccc-tag e02-ccc-neg">短期未实现 72,965M · 核心负占资</div>
+<div class="e02-ritems">
+<div class="e02-ri"><span>总收入（+17.8%）/ 成本</span><b>331,839 / 106,374</b></div>
+<div class="e02-ri"><span>期末 应收 / 短期未实现</span><b>80,876 / 72,965</b></div>
+<div class="e02-ri"><span>CF 未实现＋应付 vs 应收</span><b class="e02-pos">+14,629 vs −12,737</b></div>
+<div class="e02-ri"><span>GAAP 净利润 → CFO</span><b>133,749 → 182,935</b></div>
+</div>
+</div>
+<p class="e02-rnote">客户年付预收稳住资金流；期末应付 42,416 含 26,700 数据中心设备款，不可直接算 DPO。</p>
+</div>
+</div>
+<figcaption>三家数据均取自 SEC EDGAR FY2026 官方披露。COST 现金流“营运资本三项”为存货 −1,153、应付 +2,755 与其他经营资产负债 +718 之和；MSFT 现金流量表单独列出经营性应付变动 +5,268，已剥离非现金设备应付。</figcaption>
+</figure>
+
+先看 **NVDA**：FY2026 营收飙升 **65.5%** 至 215,938 百万美元，净利润高达 120,067 百万美元，经营现金流却落在 102,718 百万美元，比净利润少了 **173.5 亿美元**。[^nvda-fy26] 翻开现金流量表里的营运资本科目，原因一目了然——为了支撑从 Hopper 到 Blackwell 整机架系统的爬坡，期末存货从 10,080 百万美元翻倍到 21,403 百万美元（DIO 达 **92.0 天**），应收账款从 23,065 百万美元跳升至 38,466 百万美元（DSO 达 **52.0 天**），而应付账款仅由 6,310 增至 9,812 百万美元（DPO **47.1 天**）。近百天的正 CCC 意味着每多做一笔硬件系统大单，NVDA 都得先向晶圆代工和封测链垫付备货、再等下游大客户回款：全年应收增加吞掉 **15,399 百万美元**、存货增加吞掉 **11,324 百万美元**，应付仅补回 **3,096 百万美元**，三项合计净抽走 **236.3 亿美元**现金。NVDA 靠超过 55% 的超高净利率消化了这笔资金占用，换成一家净利率只有 8% 的普通制造厂，同样的 +97 天周期叠加 65% 增速，经营现金流早已转负。
+
+再看另一端的 **COST**：FY2026 收入多卖了 **279 亿美元**（+10.1%），门店收银几乎现款现结，DSO 只有 **4.3 天**；仓库里精简 SKU 高频轮转，货平均只待 **25.9 天**就卖出去；供应商账期却有 **29.3 天**，期末应付账款 **22,591 百万美元**直接高出期末存货 **19,324 百万美元**达 32.7 亿美元。[^cost-fy26] 在货款到期付给供应商之前，商品平均已经变成现金进了账，再叠加年付预收的 **3,006 百万美元**递延会员费，COST 的核心净营运资本深至 **−2,314 百万美元**。整个财年下来，存货只多压了 1,153 百万美元，应付账款和其他经营负债却额外带来 3,473 百万美元流入，营运资本反向给公司送来 **+2,320 百万美元**现金。这种结构在头部商超里高度普遍：同在 FY2026，**Walmart**（WMT）总收入 713,163 百万美元，DSO 为 **5.4 天**、DIO 为 **39.3 天**、DPO 为 **41.5 天**，传统 CCC 同样只有 **+3.2 天**，期末应付账款 63,061 百万美元也盖过了期末存货 58,851 百万美元。[^wmt-fy26]
+
+<span data-text-versions id="nb-e02-text-footnotes">到了 **MSFT** 这类企业软件与云平台，实物存货几乎可以忽略（仅 1,397 百万美元），主导负营运资本的是**预收／未实现收入**。[^msft-fy26] MSFT 面向企业客户的多年度订阅合同通常在每期年初一次性开票、按履约期间分摊确认收入；FY2026 全年新增递延收入 194,184 百万美元，高于当期转入利润表的 185,737 百万美元，期末短期未实现收入达到 **72,965 百万美元**（含长期共 75,712 百万美元），在现金流量表上直接贡献 **+9,361 百万美元**现金流入。[^msft-10k-fy26] 如果想看更纯粹的预收软件样本，[《收入增长与市场预期》](/zh/notebook/revenue-growth-expectations/)分析过的 **Snowflake**（SNOW）在 FY2026 零存货、全年收入 4,683.9 百万美元，期末短期递延收入高达 **3,347.0 百万美元**（相当于全年收入的 **71.5%**）；虽然 GAAP 账面净亏损 −1,329.0 百万美元，单靠递延收入净增 **+755.2 百万美元**等调节，全年经营现金流反而高达 **+1,221.9 百万美元**。[^snow-fy26] 不过，读软件与科技大厂的营运资本时，不能把资产负债表余额机械套进公式，至少要翻开附注排掉三颗雷<span data-text-detail>（第一，**资本开支混入应付账款**：MSFT 期末应付账款高达 42,416 百万美元，直接除以营业成本 106,374 会算出失真的 145 天 DPO；翻开 FY2026 Form 10-K Note 6 才看到，其中 **267 亿美元**（占 63%）是尚未结算的服务器与数据中心固定资产采购应付款，剔除后经营性应付仅约 157 亿美元。第二，**财年末集中续约开票拉高表观 DSO**：MSFT 企业客户习惯在 6 月末第四财季集中签单开票，同时推高应收账款（80,876 百万美元）与短期未实现收入（72,965 百万美元）；紧接着在 FY2027 Q1（截至 2026-09-30），期末应收就回落至 62,084 百万美元，单季收回现金 **+17,104 百万美元**。第三，**高速增长下的期末 vs 均值口径差**：NVDA FY2026 营收同比增长 65.5%，Q4 单季已达 68,127 百万美元，用全年收入作分母除以期末余额算出的 DSO（65.0 天）和 DIO（125.0 天）会明显高于期初期末平均口径（52.0 天与 92.0 天），横纵向对比前必须锁定同一口径）</span>。[^msft-q1fy27]<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>
+
+## 退坡与周期反转：营运资本怎样从助力变成反噬 {#nb-e02-reversal-risk}
+
+前面展示的大多是顺风增长期的画面。真到行业退坡、客户砍单或周期反转时，正负两种营运资本结构会各自暴露完全不同的软肋。
+
+负营运资本在扩张期像一台免费抽水机，但这笔钱从来不属于股东——应付账款到期必须还给供应商，预收款必须靠后续服务履约消化。一旦销售额下滑、进货规模收缩，前期欠供应商的旧账单要按期照付，新采购形成的新应付却跟着变小，**应付账款净减少立刻变成真金白银的现金流出**。**Target**（TGT）的 FY2025（截至 2026 年 1 月 31 日）给出了干净的对照：全年净销售额同比小幅下滑 **−1.7%**（由 106,566 降至 104,780 百万美元），公司主动压缩存货虽然腾回了 **+436 百万美元**现金，应付账款同步收缩却流出了 **−501 百万美元**，完全吃掉了清库存收回的现金；而在上一年扩张期（FY2024），存货增加占用 −854 百万美元，应付账款扩张却带来 +1,008 百万美元，反而净赚 +154 百万美元现金。[^tgt-fy25] 预收型软件公司同理：新签和续费放缓时，利润表还能靠摊销前一年攒下的递延收入撑住几个季度，经营现金流却会因为新收预付款少于当期确认而提前失血——就像互动推演器里第四个预设演出的那样。
+
+反过来，有人顺着公式推演：既然正营运资本在增长期吞噬现金，那销量下滑时收回应收、卖光存货，岂不是会自动吐出一大笔救命现金？这个推论只有在**存货按原价卖得动、应收全额收得回**时才成立。真实周期急转直下时，两头往往同时踩雷：
+
+- **存货跌价与刚性采购承诺**：芯片、消费电子与时尚品一旦遭遇需求骤停或产品换代，高价备下的库存必须按成本与可变现净值孰低计提**存货跌价准备**（Inventory Provisions），直接砸穿当期毛利率；若前期为锁产能签下不可撤销采购协议，还要补提超额采购损失。NVDA 的年报里留着两段醒目记录：2025 年 4 月美国对 H20 芯片加征出口许可限制后，NVDA 在 FY2026 Q1 单季就对过剩 H20 存货与采购承诺计提了 **45 亿美元**准备（全年合计 **72 亿美元**，拉低全年 GAAP 毛利率 2.6 个百分点）；[^nvda-fy26] 更早的 FY2023 游戏显卡周期反转中，仅 FY2023 Q2 单季就计提了 **13.4 亿美元**存货及相关准备（全年 21.7 亿美元），把当季毛利率压低到 **43.5%**。[^nvda-q2fy24]
+- **应收集中与坏账风险**：当 B2B 账期拉长且大客户高度集中时——NVDA FY2026 期末仅前三大直接客户就占总应收账款 38,466 百万美元的 **56%**（分别为 25%、18% 与 13%）——一旦下游渠道商或云客户资金链趋紧，应收账款就面临展期甚至计提**坏账准备**（Allowance for Doubtful Accounts），利润表直接扣减利润、现金流量表同样收不到钱。[^nvda-fy26]
+
+<figure class="flow-figure e02-reversal" id="nb-e02-reversal-fig">
+<div class="ff-head"><p class="ff-title">行业退坡时，两类营运资本结构的反噬路径</p><span class="ff-sub">顺风期的资金助推器在退坡时调头 · 重存货与长账期在骤停时面临跌价与坏账双击</span></div>
+<div class="business-exchange" aria-label="行业退坡与周期反转时两类营运资本结构的反噬路径：路径一为负营运资本退坡（零售与预收软件），当销售或新签下滑时，新采购与新预收同步缩小，前期应付账款到期必须照付、旧预收继续按期摊销，导致应付账款或递延收入净减少，经营现金流比利润表更早失血，如 Target（TGT）FY2025 销售额微降 1.7%，清库存收回 436 百万美元被应付收缩流出 501 百万美元完全抵销。路径二为正营运资本与重存货反转（硬件与周期制造），当需求骤停、政策受限或大客户信用恶化时，积压存货叠加不可撤销采购协议、应收逾期拉长，被迫计提存货跌价与坏账准备，毛利与净利受创且原本预期的去库回血落空，如 NVIDIA（NVDA）Q1 FY2026 因 H20 出口限制单季计提 45 亿美元过剩存货与采购准备、FY2023 Q2 游戏下行期单季计提 13.4 亿美元令毛利率降至 43.5%。">
+<div class="e02-lane">
+<div class="e02-lhead"><strong>路径 A · 负营运资本退坡（高周转零售／预收软件）</strong><span>现金流往往先于利润表恶化</span></div>
+<div class="e02-steps">
+<div class="e02-step"><b>① 销售或新签放缓</b>门店客流下滑，或软件新签与续费低于当期确认收入。</div>
+<div class="e02-step"><b>② 旧账照付、新信用缩水</b>前期欠供应商的应付到期结清；新进货与新收年费同步变小。</div>
+<div class="e02-step e02-step-hit"><b>③ 现金反被倒抽</b>应付或预收净减直接扣减 CFO（如 TGT FY25：存货 +436M 被应付 −501M 抵销）。</div>
+</div>
+</div>
+<div class="e02-lane e02-lane-warn">
+<div class="e02-lhead"><strong>路径 B · 重存货与长账期反转（半导体／周期制造）</strong><span>跌价与坏账同时冲击利润表与现金</span></div>
+<div class="e02-steps">
+<div class="e02-step"><b>① 需求骤停或客户承压</b>下游砍单、架构换代或贸易限制打断销售，大客户账期趋紧。</div>
+<div class="e02-step"><b>② 积压叠加刚性采购协议</b>仓库高价存货滞销、不可撤销代工承诺难取消，应收逾期拉长。</div>
+<div class="e02-step e02-step-hit"><b>③ 减值砸穿毛利、回血落空</b>计提存货跌价与坏账准备（如 NVDA Q1 FY26 H20 减值 45 亿美元）。</div>
+</div>
+</div>
+</div>
+<figcaption>评估营运资本质量不能只看单年静态天数：扩张期核对是否过度占资，拐点期则须紧盯存货周转、应收增速是否快于收入，以及应付／递延收入是否开始净收缩。</figcaption>
+</figure>
+
+拆清营运资本，从利润表净利润走到经营现金流（CFO）之间的短期收付错期就落到实处了。不过，拿到 1,829 亿美元经营现金流的 MSFT 依然要在下一栏投出 1,159 亿美元买服务器和建数据中心——这类跨越多年的长期资本开支怎样通过折旧慢慢进入利润表、又怎样在当下改写股东真正可支配的自由现金流，下一篇[《利润、资本开支与现金》](/zh/notebook/profit-capex-cash/)接着拆解。
+
+<script src="/notebook/working-capital/ui.js?v=20261127" defer></script>
+
+[^nvda-fy26]: NVIDIA Corporation，[FY2026 Form 10-K](https://www.sec.gov/Archives/edgar/data/1045810/000104581026000021/nvda-20260125.htm)（2026-02-25 提交，截至 2026-01-25），三张主表、MD&A（H20 45 亿美元准备及全年 72 亿美元存货与采购准备）与 Note 9（前三大直接客户占应收余额 25%、18%、13%）。
+[^cost-fy26]: Costco Wholesale Corporation，[FY2026 Form 10-K](https://www.sec.gov/Archives/edgar/data/909832/000090983226000093/cost-20260830.htm)（2026-10-07 提交，52 周截至 2026-08-30），Consolidated Statements of Income、Balance Sheets 与 Cash Flows。
+[^wmt-fy26]: Walmart Inc.，[FY2026 Form 10-K](https://www.sec.gov/Archives/edgar/data/104169/000010416926000055/wmt-20260131.htm)（2026-03-13 提交，截至 2026-01-31），Consolidated Statements of Income、Balance Sheets 与 Cash Flows。
+[^msft-fy26]: Microsoft Corporation，[FY2026 Q4 及全财年业绩公告（EX-99.1）](https://www.sec.gov/Archives/edgar/data/789019/000119312526323632/msft-ex99_1.htm)（2026-07-29，截至 2026-06-30），Income Statements、Balance Sheets 与 Cash Flows Statements。
+[^msft-10k-fy26]: Microsoft Corporation，[FY2026 Form 10-K](https://www.sec.gov/Archives/edgar/data/789019/000119312526323660/msft-20260630.htm)（2026-07-29 提交），Note 6（应付账款中含 267 亿美元固定资产资本开支采购）与 Note 12（未实现收入全年变动表）。
+[^snow-fy26]: Snowflake Inc.，[FY2026 Q4 及全财年业绩公告（EX-99.1，截至 2026-01-31）](https://www.sec.gov/Archives/edgar/data/1640147/000162828026011631/fy2026q4earnings.htm)（2026-02-25 发布；对应经审计 Form 10-K 于 2026-03-20 提交），三张主表。
+[^msft-q1fy27]: Microsoft Corporation，[FY2027 Q1 Form 10-Q](https://www.sec.gov/Archives/edgar/data/789019/000119312526436133/msft-20260930.htm)（截至 2026-09-30），Balance Sheets 与 Cash Flows Statements（应收由 80,876 降至 62,084、单季应收现金流入 +17,104 百万美元）。
+[^tgt-fy25]: Target Corporation，[FY2025 全年业绩公告（EX-99.1，截至 2026-01-31）](https://www.sec.gov/Archives/edgar/data/27419/000002741926000012/a2025q4ex-99.htm)（2026-03-03 发布），Consolidated Statements of Operations、Financial Position 与 Cash Flows。
+[^nvda-q2fy24]: NVIDIA Corporation，[FY2024 Q2 Form 10-Q](https://www.sec.gov/Archives/edgar/data/1045810/000104581023000175/nvda-20230730.htm)（截至 2023-07-30），MD&A Gross Margin 与 Note 10（FY2023 Q2 计提 13.4 亿美元存货及相关准备、毛利率降至 43.5%）。
+
+
+## Sources
+- [Microsoft Corporation：FY2026 Q4 及全财年业绩公告与 Form 10-K（截至 2026-06-30）](https://www.sec.gov/Archives/edgar/data/789019/000119312526323632/msft-ex99_1.htm): Microsoft 2026 年 7 月 29 日披露之 2026 财年（截至 2026 年 6 月 30 日）三张主表：总收入 331,839 百万美元、营业利润 155,237 百万美元、净利润 133,749 百万美元；经营现金流 182,935 百万美元、固定资产资本开支 −115,948 百万美元、投资现金流 −139,500 百万美元、融资现金流 −52,546 百万美元；期末总资产 758,376 百万美元（固定资产净值 313,076、现金及等价物 20,935）、总负债 315,989、股东权益 442,387。
+- [NVIDIA Corporation：FY2026 Form 10-K（截至 2026-01-25）](https://www.sec.gov/Archives/edgar/data/1045810/000104581026000021/nvda-20260125.htm): NVIDIA 2026 财年年报（2026 年 2 月 25 日提交 SEC）：财年截止于每年一月最后一个周日（2026 财年截至 2026 年 1 月 25 日），展示跨自然年财年与季度编号的典型错位。
+- [Costco Wholesale Corporation：FY2026 Form 10-K（截至 2026-08-30）](https://www.sec.gov/Archives/edgar/data/909832/000090983226000093/cost-20260830.htm): Costco 2026 财年（52 周截至 2026 年 8 月 30 日，2026 年 10 月 7 日提交 SEC）经审计三张主表：总收入 303,154 百万美元（商品净销售 297,247 加会员费 5,907）、商品成本 264,279、净利润 9,226；期末应收账款净额 3,959（上年 3,203）、商品存货 19,324（上年 18,116）、应付账款 22,591（上年 19,783）、递延会员费 3,006（上年 2,854）；经营现金流 15,817 百万美元，其中存货变动 −1,153、应付账款变动 +2,755、其他经营资产负债净变动 +718。
+- [Microsoft Corporation：FY2026 Form 10-K（截至 2026-06-30）](https://www.sec.gov/Archives/edgar/data/789019/000119312526323660/msft-20260630.htm): Microsoft 2026 财年经审计年报（2026 年 7 月 29 日提交 SEC）：总收入 331,839、营业成本 106,374、期末应收账款净额 80,876（上年 69,905）、存货 1,397（上年 938）、应付账款 42,416（上年 27,724）、短期未实现收入 72,965（上年 64,555）及长期未实现收入 2,747（合计 75,712）。Note 6 披露截至 2026-06-30 尚计入应付账款的固定资产资本开支采购达 267 亿美元（上年 69 亿美元）；Note 12 披露全年新增递延收入 194,184、当期确认 185,737（百万美元）。
+- [Microsoft Corporation：FY2027 Q1 Form 10-Q（截至 2026-09-30）](https://www.sec.gov/Archives/edgar/data/789019/000119312526436133/msft-20260930.htm): Microsoft 2027 财年第一季报（截至 2026 年 9 月 30 日）：期末应收账款由 2026-06-30 的 80,876 回落至 62,084 百万美元，单季经营现金流因应收回款流入 +17,104 百万美元；Note 11 披露未实现收入当季新增递延 44,007、确认 50,156，验证企业级软件年末集中开票与次季回款的季节性结构。
+- [NVIDIA Corporation：FY2024 Q2 Form 10-Q（截至 2023-07-30，含 FY2023 存货跌价对比）](https://www.sec.gov/Archives/edgar/data/1045810/000104581023000175/nvda-20230730.htm): NVIDIA 2024 财年第二季报（回顾 FY2023 下行周期）：披露 FY2023 Q2 因游戏芯片需求骤降计提 13.4 亿美元存货及超额采购承诺准备（含存货减值 5.7 亿与超额采购义务 6.5 亿等），将当季 GAAP 毛利率拉低至 43.5%（FY2023 全年存货及相关准备合计 21.7 亿美元）。
+- [Snowflake Inc.：FY2026 Q4 及全财年业绩公告（EX-99.1，截至 2026-01-31）](https://www.sec.gov/Archives/edgar/data/1640147/000162828026011631/fy2026q4earnings.htm): Snowflake 2026 财年（截至 2026 年 1 月 31 日，2026 年 2 月 25 日发布；对应经审计 Form 10-K 于 2026 年 3 月 20 日提交）：总收入 4,683.9 百万美元（+29.2%）、营业成本 1,537.8、GAAP 净亏损 −1,329.0，零存货；期末应收账款 1,303.7（上年 922.8）、应付账款 145.6（上年 169.8）、短期递延收入 3,347.0（上年 2,580.0，占全年收入 71.5%）；全年经营现金流 +1,221.9 百万美元，其中递延收入净增贡献 +755.2 百万美元现金流入。
+- [Target Corporation：FY2025 Q4 及全财年业绩公告（EX-99.1，截至 2026-01-31）](https://www.sec.gov/Archives/edgar/data/27419/000002741926000012/a2025q4ex-99.htm): Target 2025 财年（12 个月截至 2026 年 1 月 31 日，2026 年 3 月 3 日发布）：净销售额 104,780 百万美元（同比 −1.7%，上年 106,566）；期末存货 12,304（上年 12,740）、应付账款 12,622（上年 13,053）。现金流量表显示销售退坡期存货压降收回现金 +436 百万美元，但应付账款同步收缩流出 −501 百万美元；对照上一年扩张期（FY2024）存货增加 −854 百万美元却由应付账款扩张 +1,008 百万美元反哺。
+- [Walmart Inc.：FY2026 Form 10-K（截至 2026-01-31）](https://www.sec.gov/Archives/edgar/data/104169/000010416926000055/wmt-20260131.htm): Walmart 2026 财年（截至 2026 年 1 月 31 日，2026 年 3 月 13 日提交 SEC）经审计三张主表：总收入 713,163 百万美元（商品净销售 706,413）、营业成本 535,395、归属股东净利润 21,893；期末应收账款净额 11,172（上年 9,975）、存货 58,851（上年 56,435）、应付账款 63,061（上年 58,666）；经营现金流 41,565 百万美元。
+
+## Content relations
+```json
+[
+  {
+    "from": "zh-revenue-collections-working-capital",
+    "relation": "part_of",
+    "to": "topic-E",
+    "reason": "主要 topic 归属"
+  }
+]
+```
+
+## Related entries
+- [三张财报与经营活动](https://ou-liu-red-sugar.github.io/zh/notebook/three-financial-statements/)
+- [客户、产品与收费方式](https://ou-liu-red-sugar.github.io/zh/notebook/customers-products-pricing/)
+- [收入增长与市场预期](https://ou-liu-red-sugar.github.io/zh/notebook/revenue-growth-expectations/)
+- [Agent 时代的基本面投资](https://ou-liu-red-sugar.github.io/zh/notebook/investment-returns/)

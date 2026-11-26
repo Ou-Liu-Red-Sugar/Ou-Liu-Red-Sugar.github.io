@@ -3144,6 +3144,409 @@
       "authors": [
         "NVIDIA Corporation"
       ]
+    },
+    {
+      "source_id": "nb-e02-cost-fy26",
+      "title": "Costco Wholesale Corporation：FY2026 Form 10-K（截至 2026-08-30）",
+      "url": "https://www.sec.gov/Archives/edgar/data/909832/000090983226000093/cost-20260830.htm",
+      "body": "Costco 2026 财年（52 周截至 2026 年 8 月 30 日，2026 年 10 月 7 日提交 SEC）经审计三张主表：总收入 303,154 百万美元（商品净销售 297,247 加会员费 5,907）、商品成本 264,279、净利润 9,226；期末应收账款净额 3,959（上年 3,203）、商品存货 19,324（上年 18,116）、应付账款 22,591（上年 19,783）、递延会员费 3,006（上年 2,854）；经营现金流 15,817 百万美元，其中存货变动 −1,153、应付账款变动 +2,755、其他经营资产负债净变动 +718。",
+      "version": "2026-11-27 核对 SEC EDGAR",
+      "authors": [
+        "Costco Wholesale Corporation"
+      ]
+    },
+    {
+      "source_id": "nb-e02-wmt-fy26",
+      "title": "Walmart Inc.：FY2026 Form 10-K（截至 2026-01-31）",
+      "url": "https://www.sec.gov/Archives/edgar/data/104169/000010416926000055/wmt-20260131.htm",
+      "body": "Walmart 2026 财年（截至 2026 年 1 月 31 日，2026 年 3 月 13 日提交 SEC）经审计三张主表：总收入 713,163 百万美元（商品净销售 706,413）、营业成本 535,395、归属股东净利润 21,893；期末应收账款净额 11,172（上年 9,975）、存货 58,851（上年 56,435）、应付账款 63,061（上年 58,666）；经营现金流 41,565 百万美元。",
+      "version": "2026-11-27 核对 SEC EDGAR",
+      "authors": [
+        "Walmart Inc."
+      ]
+    },
+    {
+      "source_id": "nb-e02-msft-10k-fy26",
+      "title": "Microsoft Corporation：FY2026 Form 10-K（截至 2026-06-30）",
+      "url": "https://www.sec.gov/Archives/edgar/data/789019/000119312526323660/msft-20260630.htm",
+      "body": "Microsoft 2026 财年经审计年报（2026 年 7 月 29 日提交 SEC）：总收入 331,839、营业成本 106,374、期末应收账款净额 80,876（上年 69,905）、存货 1,397（上年 938）、应付账款 42,416（上年 27,724）、短期未实现收入 72,965（上年 64,555）及长期未实现收入 2,747（合计 75,712）。Note 6 披露截至 2026-06-30 尚计入应付账款的固定资产资本开支采购达 267 亿美元（上年 69 亿美元）；Note 12 披露全年新增递延收入 194,184、当期确认 185,737（百万美元）。",
+      "version": "2026-11-27 核对 SEC EDGAR",
+      "authors": [
+        "Microsoft Corporation"
+      ]
+    },
+    {
+      "source_id": "nb-e02-msft-q1fy27",
+      "title": "Microsoft Corporation：FY2027 Q1 Form 10-Q（截至 2026-09-30）",
+      "url": "https://www.sec.gov/Archives/edgar/data/789019/000119312526436133/msft-20260930.htm",
+      "body": "Microsoft 2027 财年第一季报（截至 2026 年 9 月 30 日）：期末应收账款由 2026-06-30 的 80,876 回落至 62,084 百万美元，单季经营现金流因应收回款流入 +17,104 百万美元；Note 11 披露未实现收入当季新增递延 44,007、确认 50,156，验证企业级软件年末集中开票与次季回款的季节性结构。",
+      "version": "2026-11-27 核对 SEC EDGAR",
+      "authors": [
+        "Microsoft Corporation"
+      ]
+    },
+    {
+      "source_id": "nb-e02-snow-fy26",
+      "title": "Snowflake Inc.：FY2026 Q4 及全财年业绩公告（EX-99.1，截至 2026-01-31）",
+      "url": "https://www.sec.gov/Archives/edgar/data/1640147/000162828026011631/fy2026q4earnings.htm",
+      "body": "Snowflake 2026 财年（截至 2026 年 1 月 31 日，2026 年 2 月 25 日发布；对应经审计 Form 10-K 于 2026 年 3 月 20 日提交）：总收入 4,683.9 百万美元（+29.2%）、营业成本 1,537.8、GAAP 净亏损 −1,329.0，零存货；期末应收账款 1,303.7（上年 922.8）、应付账款 145.6（上年 169.8）、短期递延收入 3,347.0（上年 2,580.0，占全年收入 71.5%）；全年经营现金流 +1,221.9 百万美元，其中递延收入净增贡献 +755.2 百万美元现金流入。",
+      "version": "2026-11-27 核对 SEC EDGAR",
+      "authors": [
+        "Snowflake Inc."
+      ]
+    },
+    {
+      "source_id": "nb-e02-tgt-fy25",
+      "title": "Target Corporation：FY2025 Q4 及全财年业绩公告（EX-99.1，截至 2026-01-31）",
+      "url": "https://www.sec.gov/Archives/edgar/data/27419/000002741926000012/a2025q4ex-99.htm",
+      "body": "Target 2025 财年（12 个月截至 2026 年 1 月 31 日，2026 年 3 月 3 日发布）：净销售额 104,780 百万美元（同比 −1.7%，上年 106,566）；期末存货 12,304（上年 12,740）、应付账款 12,622（上年 13,053）。现金流量表显示销售退坡期存货压降收回现金 +436 百万美元，但应付账款同步收缩流出 −501 百万美元；对照上一年扩张期（FY2024）存货增加 −854 百万美元却由应付账款扩张 +1,008 百万美元反哺。",
+      "version": "2026-11-27 核对 SEC EDGAR",
+      "authors": [
+        "Target Corporation"
+      ]
+    },
+    {
+      "source_id": "nb-e02-nvda-q2fy24",
+      "title": "NVIDIA Corporation：FY2024 Q2 Form 10-Q（截至 2023-07-30，含 FY2023 存货跌价对比）",
+      "url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581023000175/nvda-20230730.htm",
+      "body": "NVIDIA 2024 财年第二季报（回顾 FY2023 下行周期）：披露 FY2023 Q2 因游戏芯片需求骤降计提 13.4 亿美元存货及超额采购承诺准备（含存货减值 5.7 亿与超额采购义务 6.5 亿等），将当季 GAAP 毛利率拉低至 43.5%（FY2023 全年存货及相关准备合计 21.7 亿美元）。",
+      "version": "2026-11-27 核对 SEC EDGAR",
+      "authors": [
+        "NVIDIA Corporation"
+      ]
+    },
+    {
+      "source_id": "nb-e03-buffett-1986",
+      "title": "Warren Buffett：1986 年 Berkshire Hathaway 股东信附录《Purchase-Price Accounting Adjustments and the “Cash Flow” Fallacy》",
+      "url": "https://www.berkshirehathaway.com/letters/1986.html",
+      "body": "1987 年 2 月 27 日发表。以收购 Scott Fetzer 的会计重估差异引出“所有者盈余”（Owner Earnings）定义：报告净利润加上折旧、折耗、摊销及其他非现金费用，减去企业为充分维持长期竞争地位与销量所需的年均资本开支及必要增量营运资本；并批驳只加回折旧摊销、不扣维持性资本开支的所谓“现金流”误区。",
+      "version": "2026-11-27 核对官网原文",
+      "authors": [
+        "Warren Buffett"
+      ]
+    },
+    {
+      "source_id": "nb-e03-buffett-2000",
+      "title": "Warren Buffett：2000 年 Berkshire Hathaway 股东信《Full and Fair Reporting》",
+      "url": "https://www.berkshirehathaway.com/2000ar/2000letter.html",
+      "body": "2001 年 2 月 28 日发表。以 FlightSafety 每年须投入与折旧相当的 2.72 亿美元更新飞行模拟器才能维持竞争地位为例说明折旧属于真实成本，并在“充分与公平披露”一节指出“References to EBITDA make us shudder — does management think the tooth fairy pays for capital expenditures?”。",
+      "version": "2026-11-27 核对官网原文",
+      "authors": [
+        "Warren Buffett"
+      ]
+    },
+    {
+      "source_id": "nb-e03-munger-2003",
+      "title": "Warren Buffett & Charlie Munger：2003 年 Berkshire Hathaway 股东大会下午场问答实录",
+      "url": "https://buffett.cnbc.com/video/2003/05/03/afternoon-session---2003-berkshire-hathaway-annual-meeting.html",
+      "body": "2003 年 5 月 3 日 CNBC Berkshire Hathaway Archive 实录。Warren Buffett 指出折旧是最糟糕的一类真实成本（“reverse float”，现金在收入到来前就已先付出去，只是延迟记账），并点名电信业曾借 EBITDA 掩盖持续资本消耗；Charlie Munger 补充每当在演示材料中看到 EBITDA 时，都应直接替换为“bullshit earnings”。",
+      "version": "2026-11-27 核对 CNBC 实录",
+      "authors": [
+        "Warren Buffett",
+        "Charlie Munger"
+      ]
+    },
+    {
+      "source_id": "nb-e03-att-10k-fy25",
+      "title": "AT&T Inc.：FY2025 Form 10-K（截至 2025-12-31）",
+      "url": "https://www.sec.gov/Archives/edgar/data/732717/000073271726000120/t-20251231.htm",
+      "body": "AT&T 2025 财年年报（2026 年 2 月 9 日提交 SEC）主表与 Note 22 附注：营业收入 125,648 百万美元、营业利润 24,162 百万美元、折旧与摊销 20,886 百万美元（EBITDA 45,048 百万美元，利润率 35.9%）、利息费用 6,804 百万美元、净利润 23,386 百万美元；经营现金流 40,284 百万美元、资本开支 20,842 百万美元（CapEx / D&A 约 1.00 倍），标准 FCF 为 19,442 百万美元；Note 22 另披露全年在融资现金流项下支付 1,181 百万美元供应商融资款（Vendor Financing）。",
+      "version": "2026-11-27 核对 SEC EDGAR",
+      "authors": [
+        "AT&T Inc."
+      ]
+    },
+    {
+      "source_id": "nb-e03-tsmc-20f-fy25",
+      "title": "Taiwan Semiconductor Manufacturing Company Limited：FY2025 Form 20-F（截至 2025-12-31）",
+      "url": "https://www.sec.gov/Archives/edgar/data/1046179/000162828026025362/tsm-20251231.htm",
+      "body": "TSMC 2025 财年 Form 20-F（2026 年 4 月 16 日提交 SEC，IFRS 口径）：净营收 3,809,054 百万新台币（约 121,423 百万美元，毛利率 59.9%）、营业利润 1,936,092 百万新台币（61,718 百万美元）、折旧与摊销 688,096 百万新台币（折旧 679,684 加摊销 8,412）、经营现金流 2,274,976 百万新台币、资本开支 1,272,411 百万新台币（期末折算 40,561 百万美元，Item 4 按加权平均汇率折算 40,895 百万美元；2026 年指引 520—560 亿美元）；期末在建工程与安装中设备（EUI/CIP）达 1,518,996 百万新台币，占自用固定资产净值 41.2%，达预定可使用状态前不计提折旧，投用后机器设备按 5 年直线法折旧。",
+      "version": "2026-11-27 核对 SEC EDGAR",
+      "authors": [
+        "Taiwan Semiconductor Manufacturing Company Limited"
+      ]
+    },
+    {
+      "source_id": "nb-e03-msft-10k-fy26",
+      "title": "Microsoft Corporation：FY2026 Form 10-K 附注与三年现金流表（截至 2026-06-30）",
+      "url": "https://www.sec.gov/Archives/edgar/data/789019/000119312526323660/msft-20260630.htm",
+      "body": "Microsoft FY2026 Form 10-K（2026 年 7 月 29 日提交 SEC）Note 1 会计政策、三年现金流量表与 Note 6 固定资产附注：FY2024 至 FY2026 固定资产资本开支依次为 44,477、64,551、115,948 百万美元，同期固定资产折旧费用为 152 亿、220 亿、343 亿美元（现金流量表折旧摊销及其他项为 20,958、29,433、38,534 百万美元）；服务器与网络设备折旧年限 2—6 年（期末原值 215,874 百万美元）、建筑与改良 5—15 年、内部使用软件 3 年；期末计入应付账款的未付固定资产采购达 267 亿美元，新数据中心建设资本承诺 346 亿美元。",
+      "version": "2026-11-27 核对 SEC EDGAR",
+      "authors": [
+        "Microsoft Corporation"
+      ]
+    },
+    {
+      "source_id": "nb-e04-fasb-asc280",
+      "title": "FASB：ASC Topic 280 Segment Reporting 与 ASU 2023-07（Improvements to Reportable Segment Disclosures）",
+      "url": "https://fasb.org/projects/recently-completed-projects/segment-reporting",
+      "body": "美国财务会计准则委员会（FASB）分部报告准则 ASC 280 及 2023 年 11 月发布的 ASU 2023-07：确立首席经营决策者（CODM）管理视角、10% 数量门槛与 75% 外部收入覆盖要求，并新增披露 CODM 职位身份及常规向 CODM 汇报的重要分部费用（significant segment expenses）。",
+      "version": "2026-11-27 核对 FASB 官网",
+      "authors": [
+        "Financial Accounting Standards Board"
+      ]
+    },
+    {
+      "source_id": "nb-e04-ko-10k-fy25",
+      "title": "The Coca-Cola Company：FY2025 Form 10-K（Item 1、Note 6 与 Note 20）",
+      "url": "https://www.sec.gov/Archives/edgar/data/21344/000162828026010047/ko-20251231.htm",
+      "body": "Coca-Cola 2025 财年年报（2026 年 2 月 20 日提交 SEC）：Item 1 披露自 2025 年 1 月 1 日起撤销 Global Ventures 分部并改组至地理大区；Note 20 披露五个经营分部加 Corporate 收入 48,950 百万美元、分部间抵销 −1,009、合并净营收 47,941，五个经营分部营业利润之和 15,578、Corporate 营业亏损 −1,816、合并营业利润 13,762，以及 Corporate 资本开支 585（占全年 2,112 的 27.7%）；Note 6 与主表披露联营企业合计收入 102,800、负债 64,339，KO 录得权益法投资收益 2,031、实收联营现金分红 993（经营现金流扣除未收现差额 −1,038），合并净利润 13,137、少数股东损益 30、归母净利润 13,107，期末少数股东权益 2,106。",
+      "version": "2026-11-27 核对 SEC EDGAR",
+      "authors": [
+        "The Coca-Cola Company"
+      ]
+    },
+    {
+      "source_id": "nb-e04-googl-10k-fy25",
+      "title": "Alphabet Inc.：FY2025 Form 10-K（Consolidated Statements、Note 3、Note 7、Note 10 与 Note 15）",
+      "url": "https://www.sec.gov/Archives/edgar/data/1652044/000165204426000018/goog-20251231.htm",
+      "body": "Alphabet 2025 财年年报（2026 年 2 月 5 日提交 SEC）：Note 15 明确 CODM 为 CEO Sundar Pichai，按 Google Services（收入 342,721、营业利润 139,404）、Google Cloud（58,705 / 13,910）与 Other Bets（1,537 / −7,515）三块披露；未分配外汇套保损益 −127 调节出合并总收入 402,836，未分配 Alphabet-level activities（主要为通用前沿 AI 共享研发及总部费用）亏损 −16,760 调节出合并营业利润 129,039；Note 3 与 Note 7 披露其他收益净额 29,787 含非上市及上市股权证券公允价值净收益 24,080（期末替代法非上市股权账面 641 亿美元）、权益法收益 281，合并净利润 132,170；Note 10 披露 Waymo 等并表子公司期末少数股东权益 34 亿美元。",
+      "version": "2026-11-27 核对 SEC EDGAR",
+      "authors": [
+        "Alphabet Inc."
+      ]
+    },
+    {
+      "source_id": "nb-e04-msft-10k-fy26",
+      "title": "Microsoft Corporation：FY2026 Form 10-K（Item 7 Other Income (Expense), Net）",
+      "url": "https://www.sec.gov/Archives/edgar/data/789019/000119312526323660/msft-20260630.htm",
+      "body": "Microsoft 2026 财年年报（2026 年 7 月 29 日提交 SEC，截至 2026 年 6 月 30 日）：Item 7 披露对 OpenAI 的股权投资按权益法（ASC 323）核算并计入营业利润下方的 Other income (expense), net，FY2026 因 OpenAI 资本重组产生稀释收益录得 65 亿美元税前净收益（拉高净利润 50 亿美元、稀释 EPS 0.67 美元），FY2025 同口径为 −48 亿美元税前净亏损（拉低净利润 36 亿美元）。",
+      "version": "2026-11-27 核对 SEC EDGAR",
+      "authors": [
+        "Microsoft Corporation"
+      ]
+    },
+    {
+      "source_id": "nb-e05-msft-10k-fy26",
+      "title": "Microsoft Corporation：FY2026 Form 10-K（Balance Sheets、Other Income、Note 10 Debt 与 Note 13 Leases）",
+      "url": "https://www.sec.gov/Archives/edgar/data/789019/000119312526323660/msft-20260630.htm",
+      "body": "Microsoft 2026 财年年报（2026 年 7 月 29 日提交 SEC，截至 2026 年 6 月 30 日）：现金及等价物 20,935 百万美元、短期投资 55,908 百万美元（合计非受限现金及短投 76,843 百万美元）；账面一年内到期长债 9,227 与长期债务 31,067（总有息债务 40,294、面值 46,136，其中 34,385 百万美元于 FY2031 后到期）；营业利润 155,237、折旧摊销及其他 38,534、利息支出 3,051、利息及股息收入 3,301；Note 13 披露账内经营租赁负债 21,925（流动 5,393 ＋ 非流动 16,532）与融资租赁负债 66,594（流动 4,290 ＋ 非流动 62,304），另有 329.1 十亿美元尚未起租数据中心等租赁承诺将于 FY2027 至 FY2033 生效；期末流通普通股 7,427 百万股（FY2025 为 7,434 百万股）。",
+      "version": "2026-11-27 核对 SEC EDGAR",
+      "authors": [
+        "Microsoft Corporation"
+      ]
+    },
+    {
+      "source_id": "nb-e05-t-10k-fy25",
+      "title": "AT&T Inc.：FY2025 Form 10-K（Consolidated Statements、Debt、Leases 与 Restricted Cash）",
+      "url": "https://www.sec.gov/Archives/edgar/data/732717/000073271726000120/t-20251231.htm",
+      "body": "AT&T 2025 财年年报（2026 年 2 月 9 日提交 SEC，截至 2025 年 12 月 31 日）：营业收入 125,648、营业利润 24,162、折旧摊销 20,886（EBITDA 45,048）、利息支出 6,804、经营现金流 40,284、资本开支 20,842（百万美元）；非受限现金及等价物 18,234（另披露受限现金 293，含流动 157 与非流动 136）；一年内到期债务 9,011 ＋ 长期债务 127,089 ＝ 总债务 136,100（含融资租赁 1,382），账面净债务 117,866，另载经营租赁负债 22,524（流动 3,581 ＋ 非流动 18,943）；2025 年 11 月续签 120 亿美元循环信贷协议与 175 亿美元延迟提款定期贷款，设季度末净债务／EBITDA 不超 3.75 倍契约；2026–2030 年到期长债分别为 8,652（加权利率 3.1%）、8,953（3.8%）、6,905（3.2%）、6,918（4.6%）、7,020（4.3%），而 2025 年新发 14,111 长债加权利率 5.0%、2026 年 2 月 5 日新发 6,500 全球债票息 5.2%。",
+      "version": "2026-11-27 核对 SEC EDGAR",
+      "authors": [
+        "AT&T Inc."
+      ]
+    },
+    {
+      "source_id": "nb-e05-ba-10k-fy25",
+      "title": "The Boeing Company：FY2025 Form 10-K（Consolidated Statements、Debt、Leases 与 Shareholders’ Equity）",
+      "url": "https://www.sec.gov/Archives/edgar/data/12927/000162828026004357/ba-20251231.htm",
+      "body": "Boeing 2025 财年年报（2026 年 1 月 30 日提交 SEC，含 2023–2025 比较数据）：2024 年营业亏损 −10,707、利息及债务费用 2,725、经营现金流 −12,080（存货占用 −12,353）、资本开支 −2,230（自由现金流 −14,310 百万美元）；2024 年 10 月 30–31 日被迫增发 129,375,000 股普通股（现金流净募资 18,200，附注扣费净额 18,181）与 5,750,000 股 6.00% A 系列强制可转优先股（清算优先权 5,750，现金流净募资 5,657，附注净额 5,651，2027 年 10 月 15 日强制转股 3,351 万至 4,022 万股），流通普通股由 2023 年末 609.5 百万股升至 2024 年末 749.2 百万股（+22.9%）与 2025 年末 784.7 百万股。2025 年末非受限现金及等价物 10,921（剔除受限现金 742）＋ 短投 18,479 ＝ 29,400，总债务 54,098（短债及一年内到期 8,461 ＋ 长债 45,637），经营租赁负债 2,267，未动用循环信贷 10,000；2026–2030 年到期债务依次为 8,351（含 5,899 利率 2.20%–2.50% 旧债）、4,403、2,739、2,508、5,274；2025 年营业利润 4,281 含一次性处置收益 9,672，经营现金流 1,065、资本开支 −2,942、利息费用 2,771。",
+      "version": "2026-11-27 核对 SEC EDGAR",
+      "authors": [
+        "The Boeing Company"
+      ]
+    },
+    {
+      "source_id": "nb-e06-sec-nongaap-cdi",
+      "title": "SEC：Non-GAAP Financial Measures — Compliance & Disclosure Interpretations（C&DI）",
+      "url": "https://www.sec.gov/rules-regulations/staff-guidance/corporation-finance-interpretations/non-gaap-financial-measures",
+      "body": "美国证监会公司金融部非 GAAP 财务指标官方合规与披露解释（最近更新 2022-12-13）：涵盖 Question 100.01（禁止剔除维持业务必需的正常、经常性现金经营费用，不规律间隔发生仍视作经常性）、100.02（跨期一致）、100.03（禁止只剔除费用不剔除收益）、100.04（禁止量身定制的确认与计量口径）、102.03（两年红线）、102.05 / 102.07（禁止每股流动性与每股自由现金流指标）、102.10(a)–(c)（同等或更高突出度与禁止完整 Non-GAAP 利润表）、102.11（税项须单列）及 103.01 / 103.02（EBIT / EBITDA 定义与须调节至 GAAP 净利润）。",
+      "version": "2026-11-27 核对 SEC.gov",
+      "authors": [
+        "U.S. Securities and Exchange Commission"
+      ]
+    },
+    {
+      "source_id": "nb-e06-sec-frm-nongaap",
+      "title": "SEC Financial Reporting Manual Topic 8：Regulation G 与 Regulation S-K Item 10(e)",
+      "url": "https://www.sec.gov/about/divisions-offices/division-corporation-finance/financial-reporting-manual/frm-topic-8",
+      "body": "SEC 财务报告手册第 8 章（依据 Final Rule 33-8176）：对照列出 Regulation G（适用于全部公开披露，要求最接近 GAAP 对照、定量调节表与反误导条款 Rule 100(b)）与 Regulation S-K Item 10(e)（适用于 10-K / 10-Q / 8-K 等申报材料，要求 GAAP 同等或更高突出度、禁止将过去或未来两年可能重复发生的项目标为非经常性、禁止在 GAAP 主表或附注表内混列 Non-GAAP 指标）。",
+      "version": "2026-11-27 核对 SEC.gov",
+      "authors": [
+        "U.S. Securities and Exchange Commission"
+      ]
+    },
+    {
+      "source_id": "nb-e06-snow-fy26",
+      "title": "Snowflake Inc.：FY2026 Q4 及全财年业绩公告（EX-99.1）与 Form 10-K（截至 2026-01-31）",
+      "url": "https://www.sec.gov/Archives/edgar/data/1640147/000162828026011631/fy2026q4earnings.htm",
+      "body": "Snowflake 2026 财年（截至 2026-01-31，2026-02-25 披露 EX-99.1，同期提交 Form 10-K）报表与 GAAP—Non-GAAP 调节表：总收入 4,683.9 M 美元，GAAP 营业亏损 −1,435.2 M、归属股东 GAAP 净亏损 −1,331.6 M（稀释 EPS −3.95 美元，反稀释加权股数 337.5 M）；加回股权激励及相关薪资税 +1,710.7 M（含 1,599.5 M SBC 与约 69.6 M 雇主薪资税）、并购无形资产摊销 +110.1 M、San Mateo 办公退租减值 +108.6 M、并购与债务发行成本等净额 +6.3 M 及扣除所得税效应 −138.2 M 后，Non-GAAP 营业利润 +489.7 M、归属股东 Non-GAAP 净利润 +465.9 M（稀释股数升至 372.3 M，稀释 EPS 1.25 美元）；经营现金流 +1,221.9 M、非 GAAP 自由现金流 +1,120.3 M，但融资现金流项下回购普通股 −873.5 M 与员工股权归属代缴净额结算税 −672.9 M 合计流出 1,546.4 M 美元。",
+      "version": "2026-11-27 核对 SEC EDGAR",
+      "authors": [
+        "Snowflake Inc."
+      ]
+    },
+    {
+      "source_id": "nb-e06-hpq-fy25",
+      "title": "HP Inc.：FY2025 与 FY2024 全财年业绩公告（EX-99.1，截至 2025-10-31）",
+      "url": "https://www.sec.gov/Archives/edgar/data/47217/000004721725000068/hp103125exhibit991q425.htm",
+      "body": "HP Inc. 2025 年 11 月 25 日披露 FY2025 业绩公告（并对照 2024-11-26 披露之 FY2024 业绩公告）：FY25 GAAP 净利润 2,529 M 美元（稀释 EPS 2.65 美元，稀释股数 953 M），Non-GAAP 净利润 2,972 M 美元（稀释 EPS 3.12 美元）；调节项含重组及其他费用 +405 M、并购无形资产摊销 +345 M、特定专利诉讼 +88 M、并购处置费 +45 M、非经营退休金贷项 −13 M 及税务调节 −427 M（Non-GAAP 有效税率 16.0%）。FY23、FY24、FY25 连续三年剔除重组及其他费用分别为 527 M、301 M、405 M 美元，且同日宣布 FY26—FY28 新转型计划，预计再发生约 650 M 美元重组费用（FY26 约 250 M）。",
+      "version": "2026-11-27 核对 SEC EDGAR",
+      "authors": [
+        "HP Inc."
+      ]
+    },
+    {
+      "source_id": "nb-e06-meta-10k-25",
+      "title": "Meta Platforms, Inc.：FY2025 Form 10-K（截至 2025-12-31）",
+      "url": "https://www.sec.gov/Archives/edgar/data/1326801/000162828026003942/meta-20251231.htm",
+      "body": "Meta Platforms 2025 财年年报 Note 1（Summary of Significant Accounting Policies — Use of Estimates）与主表：自 2025 年 1 月 1 日起将大多数服务器与网络资产预计使用年限延长至 5.5 年，2025 全年因此减少 GAAP 折旧费用 2.92 B 美元，增加 GAAP 净利润 2.59 B 美元或每股稀释收益 1.00 美元；全年收入 200,966 M、营业利润 83,276 M、净利润 60,458 M（稀释 EPS 23.49 美元）、经营现金流 115,800 M 美元。",
+      "version": "2026-11-27 核对 SEC EDGAR",
+      "authors": [
+        "Meta Platforms, Inc."
+      ]
+    },
+    {
+      "source_id": "nb-e06-googl-10k-23",
+      "title": "Alphabet Inc.：FY2023 Form 10-K（截至 2023-12-31）",
+      "url": "https://www.sec.gov/Archives/edgar/data/1652044/000165204424000022/goog-20231231.htm",
+      "body": "Alphabet 2023 财年年报（2024-01-31 提交）Note 1（Use of Estimates）与主表：自 2023 财年起将服务器预计使用年限由 4 年延至 6 年、部分网络设备由 5 年延至 6 年，2023 全年因此减少 GAAP 折旧费用 3.9 B 美元，增加 GAAP 净利润 3.0 B 美元或每股基本及稀释收益 0.24 美元；全年营业利润 84,293 M、净利润 73,795 M、经营现金流 101,746 M 美元。",
+      "version": "2026-11-27 核对 SEC EDGAR",
+      "authors": [
+        "Alphabet Inc."
+      ]
+    },
+    {
+      "source_id": "nb-e06-buffett-2015",
+      "title": "Warren Buffett：Berkshire Hathaway 2015 Shareholder Letter",
+      "url": "https://www.berkshirehathaway.com/letters/2015ltr.pdf",
+      "body": "Warren Buffett 2015 年致股东信（2016-02-27 发布）关于无形资产摊销、股权激励费用与折旧 / EBITDA 的讨论：区分收购记账形成的客户关系摊销与软件等真实耗损摊销，反驳将股权激励（Stock-based compensation）剔除出盈利的做法，并警示折旧通常是真实经济成本、不可用 EBITDA 作为重资产估值替代。",
+      "version": "2026-11-27 核对原件",
+      "authors": [
+        "Warren Buffett"
+      ]
+    },
+    {
+      "source_id": "nb-e06-sloan-1996",
+      "title": "Richard G. Sloan（1996）：Do Stock Prices Fully Reflect Information in Accruals and Cash Flows About Future Earnings?",
+      "url": "https://publications.aaahq.org/accounting-review/issue/71/3",
+      "body": "发表于 The Accounting Review（Vol. 71, No. 3, pp. 289–315）：以 1962—1991 年 40,679 个美股公司年度样本检验盈利拆解后的现金流成分与应计项成分，发现应计项驱动的盈利持续性显著低于现金流驱动的盈利，而股票市场常过度锚定账面盈利导致高应计公司次年回报落后。",
+      "version": "2026-11-27 核对原文",
+      "authors": [
+        "Richard G. Sloan"
+      ]
+    },
+    {
+      "source_id": "nb-e06-market-closes",
+      "title": "SNOW、HPQ 与 MSFT 财报次日收盘参考价（2025—2026）",
+      "url": "https://finance.yahoo.com/quote/SNOW/history/",
+      "body": "用于交互调节表市盈率落差对照的真实财报后次交易日收盘价：SNOW 2026-02-26 收盘 173.06 美元（FY26 年报 2026-02-25 盘后发布）；HPQ 2025-11-26 收盘 23.98 美元（FY25 年报 2025-11-25 盘后发布）；MSFT 2026-07-30 收盘 451.10 美元（FY26 年报 2026-07-29 盘后发布，沿用 NB-A03 核对收盘价）。",
+      "version": "2026-11-27 核对",
+      "authors": [
+        "Yahoo Finance"
+      ]
+    },
+    {
+      "source_id": "nb-e07-mauboussin-roic",
+      "title": "Michael J. Mauboussin & Dan Callahan（2022）：Return on Invested Capital: How to Calculate ROIC and Handle Common Issues",
+      "url": "https://www.morganstanley.com/content/dam/im/assets/publication/thought-leadership/consilient-observer/article_returnoninvestedcapital.pdf",
+      "body": "Morgan Stanley Counterpoint Global Insights 专题报告（2022-10-06）：系统界定 NOPAT 与经营侧／融资侧投入资本的等价核算，提出按收入约 2% 保留经营现金以剔除超额现金的经验基准，说明回购为何提升 ROE 却不改变去超额现金后的 ROIC、为何金融业应改用 ROE 而非 ROIC，并对比含商誉与不含商誉 ROIC 及三年滚动滞后 ROIIC 的计算口径。",
+      "version": "2026-11-27 核对原件 PDF",
+      "authors": [
+        "Michael J. Mauboussin",
+        "Dan Callahan"
+      ]
+    },
+    {
+      "source_id": "nb-e07-mauboussin-capalloc",
+      "title": "Michael J. Mauboussin & Dan Callahan（2025）：Capital Allocation: Results, Analysis, and Assessment",
+      "url": "https://www.morganstanley.com/content/dam/im/assets/publication/thought-leadership/consilient-observer/article_capitalallocation.pdf",
+      "body": "Morgan Stanley Counterpoint Global Insights 资本配置更新报告（2025-11-05）：覆盖 1970—2024 年美股资本来源与用途，比较内生再投资、并购、分红与回购的价值创造边界，汇总 2024 年美国上市公司 SBC 费用 3,140 亿美元与总回购 1.1 万亿美元及 FW Cook Top 250 高管长期激励指标分布（TSR 73%、利润/EPS 53%、资本效率 34%、收入 25%、现金流 16%）。",
+      "version": "2026-11-27 核对原件 PDF",
+      "authors": [
+        "Michael J. Mauboussin",
+        "Dan Callahan"
+      ]
+    },
+    {
+      "source_id": "nb-e07-mckinsey-roic",
+      "title": "McKinsey & Company：Merger valuation: Time to jettison EPS 与 Why bad multiples happen to good companies",
+      "url": "https://www.mckinsey.com/capabilities/strategy-and-corporate-finance/our-insights/merger-valuation-time-to-jettison-eps",
+      "body": "McKinsey 企业估值与资本配置研究（Tim Koller 估值框架）：区分不含商誉 ROIC（衡量原厂经营资产效率）与含商誉 ROIC（将并购溢价计入分母检验历史并购资本效率），指出商誉不再摊销后多数低回报并购仍能制造首年 EPS 增厚幻觉，唯有收购回报高于加权平均资本成本（WACC）才真正创造股东价值。",
+      "version": "2026-11-27 核对公开原文",
+      "authors": [
+        "McKinsey & Company"
+      ]
+    },
+    {
+      "source_id": "nb-e07-munger-1994",
+      "title": "Charlie Munger（1994）：A Lesson on Elementary, Worldly Wisdom As It Relates To Investment Management & Business",
+      "url": "https://www.rbcbluebay.com/globalassets/documents/whats-a-share-price-worth.pdf",
+      "body": "Charlie Munger 1994 年在南加州大学商学院演讲核心论断：长期持有股票的年化回报终将趋近于底层企业的资本回报率——若企业四十年资本回报率仅 6%，即便大幅折价买入也难逃约 6% 回报；反之若能持续数十年以 18% 复利再投资，即便买入价偏贵仍能取得可观复利结果。",
+      "version": "2026-11-27 核对引文原文",
+      "authors": [
+        "Charlie Munger"
+      ]
+    },
+    {
+      "source_id": "nb-e07-hd-fy25",
+      "title": "The Home Depot, Inc.：FY2025 Form 10-K（截至 2026-02-01）",
+      "url": "https://www.sec.gov/Archives/edgar/data/354950/000162828026019436/hd-20260201.htm",
+      "body": "Home Depot 2025 财年年报（2026 年 3 月 18 日提交 SEC）：净销售额 164,683 百万美元、营业利润 20,890、税前利润 18,602、所得税 4,446、净利润 14,156；期末总资产 105,095（上财年 96,119）、商誉 22,344（上财年 19,475）、现金 1,389（上财年 1,659）、总债务 55,772（上财年 53,383）、库存股 −95,971、股东权益 12,813（上财年 6,640）；Item 7 披露公司口径 NOPAT 15,897 与 ROIC 25.7%（FY24 为 31.3%、FY23 为 36.7%），并披露因 SRS 与 GMS 并购暂停回购（FY25 回购 0、派息 9,152、CapEx 3,679）优先减债。",
+      "version": "2026-11-27 核对 SEC EDGAR",
+      "authors": [
+        "The Home Depot, Inc."
+      ]
+    },
+    {
+      "source_id": "nb-e07-hd-def14a",
+      "title": "The Home Depot, Inc.：2026 Form DEF 14A（股东大会委托书）",
+      "url": "https://www.sec.gov/Archives/edgar/data/354950/000035495026000090/hd-20260406.htm",
+      "body": "Home Depot 2026 年高管薪酬委托书（2026 年 4 月 7 日提交 SEC）：长期绩效股（Performance Shares）由三年平均 ROIC（权重 50%）与三年平均营业利润（权重 50%）等权决定；FY2023—FY2025 考核周期三年平均 ROIC 目标 39.2%、实际达成 37.4%，营业利润实际 211.5 亿美元低于目标 228.4 亿美元，最终绩效股兑现比例折减至 70.1%。",
+      "version": "2026-11-27 核对 SEC EDGAR",
+      "authors": [
+        "The Home Depot, Inc."
+      ]
+    },
+    {
+      "source_id": "nb-e07-mcd-fy25",
+      "title": "McDonald’s Corporation：FY2025 Form 10-K（截至 2025-12-31）",
+      "url": "https://www.sec.gov/Archives/edgar/data/63908/000006390826000035/mcd-20251231.htm",
+      "body": "McDonald’s 2025 财年年报（2026 年 2 月 24 日提交 SEC）：总收入 26,885 百万美元、营业利润 12,393、税前利润 10,897、所得税 2,334、净利润 8,563；因累计库存股达 −79,316 百万美元（950.0 百万股）叠加 39,973 百万美元长期债务，期末股东权益为负值 −1,791 百万美元（2024 年末 −3,797 百万美元），令账面 ROE 数学失真，而去杠杆口径含商誉 ROIC 约 27.1%。",
+      "version": "2026-11-27 核对 SEC EDGAR",
+      "authors": [
+        "McDonald’s Corporation"
+      ]
+    },
+    {
+      "source_id": "nb-e07-aapl-fy26",
+      "title": "Apple Inc.：FY2026 Form 10-K（截至 2026-09-26）",
+      "url": "https://www.sec.gov/Archives/edgar/data/320193/000032019326000026/aapl-20260926.htm",
+      "body": "Apple 2026 财年年报（2026 年 11 月 3 日提交 SEC）：总净销售 478,834 百万美元、营业利润 158,063、净利润 132,175（稀释 EPS 8.98 美元）；期末总资产 404,548（上财年 359,241）、总债务 80,111（上财年 98,657）、现金与有价证券合计 136,935（上财年 132,420）、股东权益 112,093（上财年 73,733），账面 ROE 达 142.3%；全年现金回购 86,390、派息 15,721、CapEx 仅 9,041、股权激励费用 13,789 百万美元，期末流通股由 14,773 百万股净减至 14,532 百万股。",
+      "version": "2026-11-27 核对 SEC EDGAR",
+      "authors": [
+        "Apple Inc."
+      ]
+    },
+    {
+      "source_id": "nb-e07-msft-fy23",
+      "title": "Microsoft Corporation：FY2023 Form 10-K（截至 2023-06-30）",
+      "url": "https://www.sec.gov/Archives/edgar/data/789019/000095017023035122/msft-20230630.htm",
+      "body": "Microsoft 2023 财年年报（截至 2023-06-30）：FY2023 收入 211,915、营业利润 88,523、税前利润 89,311、所得税 16,950、净利润 72,361 百万美元；2023 年 6 月 30 日总债务 47,237（2022 年 49,781）、股东权益 206,223（2022 年 166,542）、现金及短期投资 111,262（2022 年 104,757），与 FY2026 年报联算三年滚动滞后 ROIIC（29.3%）与同期三年 ROIIC（20.1%）。",
+      "version": "2026-11-27 核对 SEC EDGAR",
+      "authors": [
+        "Microsoft Corporation"
+      ]
+    },
+    {
+      "source_id": "nb-e07-ko-fy23",
+      "title": "The Coca-Cola Company：FY2023 Form 10-K（截至 2023-12-31）",
+      "url": "https://www.sec.gov/Archives/edgar/data/21344/000002134424000009/ko-20231231.htm",
+      "body": "Coca-Cola 2023 财年年报（截至 2023-12-31）：FY2022 净营收 43,004、营业利润 10,909、税前利润 11,686、所得税 2,115 百万美元；2022 年末总债务 39,149、总权益 25,826、现金与有价证券 11,631 百万美元，与 FY2025 年报联算三年滚动 ROIIC（约 22.1%）及低再投资率现金牛特征。",
+      "version": "2026-11-27 核对 SEC EDGAR",
+      "authors": [
+        "The Coca-Cola Company"
+      ]
+    },
+    {
+      "source_id": "nb-e07-ko-def14a",
+      "title": "The Coca-Cola Company：2026 Form DEF 14A（股东大会委托书）",
+      "url": "https://www.sec.gov/Archives/edgar/data/21344/000110465926028215/ko-20260429xdef14a.htm",
+      "body": "Coca-Cola 2026 年委托书（2026 年 3 月 16 日提交 SEC）：2025—2027 周期高管绩效股单元（PSU）由净营业收入增速、EPS 增速与三年累计自由现金流（目标 358 亿美元）三项等权决定，并叠加相对总股东回报（TSR）调节系数。",
+      "version": "2026-11-27 核对 SEC EDGAR",
+      "authors": [
+        "The Coca-Cola Company"
+      ]
     }
   ],
   "paths": []
