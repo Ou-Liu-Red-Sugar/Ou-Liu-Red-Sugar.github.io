@@ -6,7 +6,7 @@
     <p>{{ .description }}</p>
   </header>
 
-  <p class="nb-volume-group-label">主线八卷</p>
+  <p class="nb-volume-group-label">主线七卷</p>
   <div class="nb-volumes">
     {{ $m := 0 }}{{ $active := false }}
     {{ range .phases }}{{ if not (hasPrefix .id "optional_") }}{{ $m = add $m 1 }}

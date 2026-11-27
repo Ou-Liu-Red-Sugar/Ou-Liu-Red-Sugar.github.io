@@ -1,39 +1,85 @@
-{{ $zh := .zh }}{{ $lang := cond $zh "zh" "en" }}
+{{ $zh := .zh }}
+{{ $idx := .index | default "02" }}
+{{ $lang := cond $zh "zh" "en" }}
 {{ $pdfs := sort (where site.Data.notes_pdfs "lang" $lang) "weight" }}
 {{ $others := where site.Data.notes_pdfs "lang" (cond $zh "en" "zh") }}
 {{ $online := where site.RegularPages "Section" "notes" }}
-<section class="home-row" id="mathematics" aria-labelledby="home-math-title">
-  <div class="home-row-label">
-    <h2 id="home-math-title">{{ if $zh }}数学讲义{{ else }}Mathematics{{ end }}</h2>
-    <p class="home-row-meta">{{ if $zh }}{{ len $pdfs }} 份中文 PDF{{ else }}{{ len $pdfs }} PDFs{{ end }}</p>
-    <div class="home-row-actions">
-      <a class="home-row-more" href="/{{ $lang }}/notes/">{{ if $zh }}全部讲义 →{{ else }}All notes →{{ end }}</a>
-      {{ with $others }}<a class="home-row-more" href="/{{ cond $zh "en" "zh" }}/notes/">{{ if $zh }}英文 {{ len . }} 份{{ else }}Chinese ({{ len . }}){{ end }}</a>{{ end }}
+{{ $hasOnline := and (not $zh) (gt (len $online) 0) }}
+<section class="home-section home-math-section home-reveal" id="mathematics" aria-labelledby="home-math-title"{{ if $hasOnline }} data-home-filter="math"{{ end }}>
+  <header class="home-sec-head">
+    <div class="home-sec-title">
+      <span class="home-sec-idx">{{ $idx }}</span>
+      <div>
+        <h2 id="home-math-title">{{ if $zh }}数学讲义{{ else }}Mathematics{{ end }}</h2>
+        <p class="home-sec-sub">{{ if $zh }}{{ len $pdfs }} 份中文 PDF 讲义 · 随机过程、代数几何、谱与范畴论{{ else }}{{ len $pdfs }} PDFs{{ if $hasOnline }} · {{ len $online }} online notes{{ end }} · Algebra, geometry &amp; homotopy theory{{ end }}</p>
+      </div>
     </div>
-  </div>
-  <div class="home-row-body">
-    <ul class="home-list">
-      {{ range $i, $pdf := $pdfs }}
-      {{ $meta := slice "PDF" }}{{ with .pages }}{{ $meta = $meta | append (printf "%v %s" . (cond $zh "页" "pp.")) }}{{ end }}{{ with .updated }}{{ $meta = $meta | append (substr . 0 4) }}{{ end }}
-      <li class="home-list-item">
-        <a href="{{ .pdf }}" target="_blank" rel="noopener">
-          <span class="hl-num">{{ printf "%02d" (add $i 1) }}</span>
-          <span class="hl-title">{{ .title }}{{ if .wip }} <em class="hl-flag">{{ if $zh }}整理中{{ else }}WIP{{ end }}</em>{{ end }}</span>
-          <span class="hl-tail">{{ delimit $meta " · " }}<span class="hl-arrow" aria-hidden="true">↗</span></span>
-        </a>
-      </li>
+    <div class="home-sec-tools">
+      {{ if $hasOnline }}
+      <div class="home-tabs" role="tablist" aria-label="Filter mathematics notes">
+        <span class="home-tab-thumb" aria-hidden="true"></span>
+        <button type="button" role="tab" id="home-math-tab-all" data-filter-tab="all" aria-selected="true" tabindex="0">All <span>{{ add (len $pdfs) (len $online) }}</span></button>
+        <button type="button" role="tab" id="home-math-tab-pdf" data-filter-tab="pdf" aria-selected="false" tabindex="-1">PDFs <span>{{ len $pdfs }}</span></button>
+        <button type="button" role="tab" id="home-math-tab-online" data-filter-tab="online" aria-selected="false" tabindex="-1">Online <span>{{ len $online }}</span></button>
+      </div>
+      {{ else }}
+      <a class="home-sec-link is-strong" href="/{{ $lang }}/notes/">{{ if $zh }}全部讲义{{ else }}All notes{{ end }}<span class="home-arrow" aria-hidden="true">→</span></a>
       {{ end }}
-      {{ if and (not $zh) $online }}
+    </div>
+  </header>
+
+  <ol class="home-math-ledger" data-filter-group="pdf">
+    {{ range $i, $pdf := $pdfs }}
+    {{ $meta := slice "PDF" }}{{ with .pages }}{{ $meta = $meta | append (printf "%v %s" . (cond $zh "页" "pp.")) }}{{ end }}{{ with .updated }}{{ $meta = $meta | append (substr . 0 4) }}{{ end }}
+    <li class="home-math-row tone-{{ mod $i 4 }}">
+      <a href="{{ .pdf }}" target="_blank" rel="noopener">
+        <span class="home-math-spine" aria-hidden="true"></span>
+        <span class="home-math-num">{{ printf "%02d" (add $i 1) }}</span>
+        <div class="home-math-main">
+          <strong class="home-math-title">{{ .title }}{{ if .wip }}<em class="home-flag">{{ if $zh }}整理中{{ else }}WIP{{ end }}</em>{{ end }}</strong>
+          {{ with .description }}<p class="home-math-desc">{{ trim . " \n\r\t" }}</p>{{ end }}
+        </div>
+        <span class="home-math-meta"><span>{{ delimit $meta " · " }}</span><span class="home-arrow" aria-hidden="true">↗</span></span>
+      </a>
+    </li>
+    {{ end }}
+  </ol>
+
+  {{ if $hasOnline }}
+  <div class="home-math-online" data-filter-group="online">
+    <p class="home-math-subhead">Online notes · HTML</p>
+    <ul class="home-online-grid">
       {{ range $j, $p := $online.ByTitle }}
-      <li class="home-list-item">
+      <li class="home-online-card">
         <a href="{{ .RelPermalink }}">
-          <span class="hl-num">{{ printf "%02d" (add (len $pdfs) (add $j 1)) }}</span>
-          <span class="hl-title">{{ .Title }}</span>
-          <span class="hl-tail">Online<span class="hl-arrow" aria-hidden="true">↗</span></span>
+          <div class="home-online-top">
+            <span class="home-online-num">{{ printf "%02d" (add (len $pdfs) (add $j 1)) }}</span>
+            {{ with .Date }}<time class="home-online-date" datetime="{{ .Format "2006-01-02" }}">{{ .Format "2006-01" }}</time>{{ end }}
+            <span class="home-arrow" aria-hidden="true">↗</span>
+          </div>
+          <strong class="home-online-title">{{ .Title }}</strong>
+          {{ if .Description }}
+          <p class="home-online-desc">{{ .Description }}</p>
+          {{ else if .Params.summary }}
+          <p class="home-online-desc">{{ .Params.summary }}</p>
+          {{ else if .Params.tags }}
+          <p class="home-online-desc">{{ delimit (first 4 .Params.tags) " · " }}</p>
+          {{ end }}
         </a>
       </li>
-      {{ end }}
       {{ end }}
     </ul>
   </div>
+  {{ end }}
+
+  <footer class="home-sec-foot">
+    {{ with $others }}
+    <p class="home-foot-note">
+      {{ if $zh }}另有 {{ len . }} 份英文课程讲义与讨论班讲稿：<a href="/en/notes/">查看英文讲义 →</a>{{ else }}Also {{ len . }} lecture notes written in Chinese: <a href="/zh/notes/">Chinese notes →</a>{{ end }}
+    </p>
+    {{ end }}
+    <nav class="home-sec-nav" aria-label="{{ if $zh }}数学讲义入口{{ else }}Mathematics links{{ end }}">
+      <a class="home-sec-link is-strong" href="/{{ $lang }}/notes/">{{ if $zh }}查看讲义详情与下载{{ else }}All notes &amp; downloads{{ end }}<span class="home-arrow" aria-hidden="true">→</span></a>
+    </nav>
+  </footer>
 </section>

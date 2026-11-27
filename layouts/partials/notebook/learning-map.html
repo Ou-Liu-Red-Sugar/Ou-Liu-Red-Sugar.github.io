@@ -1,6 +1,21 @@
 {{ $map := .Site.Data.notebook_map }}
 {{ $route := $map.reading_route }}
 {{ $nodes := dict }}{{ range $map.nodes }}{{ $nodes = merge $nodes (dict .id .) }}{{ end }}
+{{ $entryNode := dict }}{{ range $map.entries }}{{ $entryNode = merge $entryNode (dict .id .node) }}{{ end }}
+{{ $optionalIds := slice }}
+{{ $nodePhaseId := dict }}
+{{ range $route.phases }}
+  {{ $pid := .id }}
+  {{ if hasPrefix $pid "optional_" }}
+    {{ range .entry_ids }}{{ $optionalIds = $optionalIds | append . }}{{ end }}
+  {{ end }}
+  {{ range .entry_ids }}
+    {{ $nid := index $entryNode . }}
+    {{ if and $nid (not (isset $nodePhaseId $nid)) }}
+      {{ $nodePhaseId = merge $nodePhaseId (dict $nid $pid) }}
+    {{ end }}
+  {{ end }}
+{{ end }}
 {{ $relations := dict "main" "学习衔接" "knowledge" "知识支持" "economic" "经济联系" "decision" "决策用途" "research" "研究与反馈" }}
 {{ $available := where $map.entries "status" "available" }}
 {{ $first := index $route.steps 0 }}
@@ -16,6 +31,7 @@
       <div class="nb-hero-actions">
         <a class="nb-btn nb-btn-primary" href="{{ $first.url }}">从第 1 篇开始 <span aria-hidden="true">→</span></a>
         <a class="nb-btn nb-continue" href="{{ $first.url }}" data-continue-reading hidden><span class="nb-continue-label">继续阅读</span><span data-continue-title></span></a>
+        <a class="nb-btn" href="#nb-graph" data-open-graph-tab>知识图谱</a>
         <a class="nb-btn" href="/zh/notebook/reading-route/">顺序路线</a>
         <a class="nb-btn" href="/zh/notebook/notation/" data-reference="notation-zh">符号与单位</a>
       </div>
@@ -32,7 +48,7 @@
       <button type="button" role="tab" id="tab-chapters" data-nb-tab="chapters" aria-selected="true" tabindex="0">按卷次目录 <span class="nb-tab-count">{{ len $available }}/{{ len $map.entries }}</span></button>
       <button type="button" role="tab" id="tab-graph" data-nb-tab="graph" aria-selected="false" tabindex="-1">知识图谱 <span class="nb-tab-count">{{ len $map.nodes }} 节点</span></button>
     </div>
-    <span class="nb-view-note">默认展开已有正文的卷次；本设备已读篇目会自动标记</span>
+    <span class="nb-view-note">线性卷次与网状图谱双向联动；点每行右侧节点标签可直接定位到图谱</span>
   </div>
 
   <div role="tabpanel" id="panel-chapters" data-nb-panel="chapters" aria-labelledby="tab-chapters">
@@ -40,7 +56,7 @@
       <div class="nb-chapters-toolbar">
         <div class="nb-filter-group" role="group" aria-label="筛选卷次范围">
           <button type="button" class="nb-chip" data-nb-filter="all" aria-pressed="true">全部卷次</button>
-          <button type="button" class="nb-chip" data-nb-filter="main" aria-pressed="false">主线八卷</button>
+          <button type="button" class="nb-chip" data-nb-filter="main" aria-pressed="false">主线七卷</button>
           <button type="button" class="nb-chip" data-nb-filter="optional" aria-pressed="false">按需专题</button>
         </div>
         <div class="nb-toolbar-actions">
@@ -49,7 +65,7 @@
         </div>
       </div>
 
-      <p class="nb-volume-group-label" data-nb-group-label="main">主线八卷 · 从投资基础到公司研究与 Agent 配置</p>
+      <p class="nb-volume-group-label" data-nb-group-label="main">主线七卷 · 从基本面框架、估值组合到 Agent 研究实验</p>
       <div class="nb-volumes">
         {{ $m := 0 }}{{ $active := false }}
         {{ range $route.phases }}{{ if not (hasPrefix .id "optional_") }}{{ $m = add $m 1 }}
@@ -69,23 +85,26 @@
           </summary>
           <ol class="nb-vol-list">
             {{ range .steps }}
+            {{ $nid := index $entryNode .id }}{{ $nobj := index $nodes $nid }}
             {{ if eq .status "available" }}
-            <li class="nb-row" data-article="{{ .id }}">
+            <li class="nb-row has-node-jump" data-article="{{ .id }}">
               <a href="{{ .url }}">
                 <span class="nb-row-num">{{ printf "%02d" (int .number) }}</span>
                 <span class="nb-row-title">{{ .title }}</span>
                 <span class="nb-row-note">{{ .note }}</span>
                 <span class="nb-row-meta">{{ with .reading_profile }}<span class="nb-row-badge">{{ .difficulty }}·{{ .depth }}</span>{{ end }}<span class="nb-card-read" hidden>已读</span><span aria-hidden="true">↗</span></span>
               </a>
+              {{ with $nobj }}<button type="button" class="nb-node-jump" data-jump-node="{{ .id }}" title="在知识图谱中定位节点 {{ .id }} · {{ .short }}">{{ .id }} · {{ .short }}</button>{{ end }}
             </li>
             {{ else }}
-            <li class="nb-row is-planned" data-entry-id="{{ .id }}">
+            <li class="nb-row is-planned has-node-jump" data-entry-id="{{ .id }}">
               <div class="nb-row-inner">
                 <span class="nb-row-num">{{ printf "%02d" (int .number) }}</span>
                 <span class="nb-row-title">{{ .title }}</span>
                 <span class="nb-row-note">{{ .note }}</span>
                 <span class="nb-row-meta">规划中</span>
               </div>
+              {{ with $nobj }}<button type="button" class="nb-node-jump" data-jump-node="{{ .id }}" title="在知识图谱中定位节点 {{ .id }} · {{ .short }}">{{ .id }} · {{ .short }}</button>{{ end }}
             </li>
             {{ end }}
             {{ end }}
@@ -94,7 +113,7 @@
         {{ end }}{{ end }}
       </div>
 
-      <p class="nb-volume-group-label" data-nb-group-label="optional">按需专题 · 工具、合约与专项深化（在用到时插读）</p>
+      <p class="nb-volume-group-label" data-nb-group-label="optional">按需专题 · 工具、合约与机构专题（在用到时插读）</p>
       <div class="nb-volumes">
         {{ $o := 0 }}
         {{ range $route.phases }}{{ if hasPrefix .id "optional_" }}{{ $o = add $o 1 }}
@@ -114,23 +133,26 @@
           </summary>
           <ol class="nb-vol-list">
             {{ range .steps }}
+            {{ $nid := index $entryNode .id }}{{ $nobj := index $nodes $nid }}
             {{ if eq .status "available" }}
-            <li class="nb-row" data-article="{{ .id }}">
+            <li class="nb-row has-node-jump" data-article="{{ .id }}">
               <a href="{{ .url }}">
                 <span class="nb-row-num">{{ printf "%02d" (int .number) }}</span>
                 <span class="nb-row-title">{{ .title }}</span>
                 <span class="nb-row-note">{{ .note }}</span>
                 <span class="nb-row-meta">{{ with .reading_profile }}<span class="nb-row-badge">{{ .difficulty }}·{{ .depth }}</span>{{ end }}<span class="nb-card-read" hidden>已读</span><span aria-hidden="true">↗</span></span>
               </a>
+              {{ with $nobj }}<button type="button" class="nb-node-jump" data-jump-node="{{ .id }}" title="在知识图谱中定位节点 {{ .id }} · {{ .short }}">{{ .id }} · {{ .short }}</button>{{ end }}
             </li>
             {{ else }}
-            <li class="nb-row is-planned" data-entry-id="{{ .id }}">
+            <li class="nb-row is-planned has-node-jump" data-entry-id="{{ .id }}">
               <div class="nb-row-inner">
                 <span class="nb-row-num">{{ printf "%02d" (int .number) }}</span>
                 <span class="nb-row-title">{{ .title }}</span>
                 <span class="nb-row-note">{{ .note }}</span>
                 <span class="nb-row-meta">规划中</span>
               </div>
+              {{ with $nobj }}<button type="button" class="nb-node-jump" data-jump-node="{{ .id }}" title="在知识图谱中定位节点 {{ .id }} · {{ .short }}">{{ .id }} · {{ .short }}</button>{{ end }}
             </li>
             {{ end }}
             {{ end }}
@@ -145,8 +167,22 @@
     <div class="nb-tab-body nb-topics" id="nb-graph">
       <div class="learning-map-layout">
         <div class="learning-map-overview">
-          <div class="learning-map-toolbar"><button type="button" data-map-reset>全图</button><span data-map-focus-label>股票主线与相关专题</span><span class="learning-map-toolbar-note">选择主题后，相关知识向它靠近。</span></div>
-          <nav class="learning-map-graph" aria-label="投资学主题">
+          <div class="learning-map-toolbar">
+            <div class="lm-toolbar-row">
+              <button type="button" data-map-reset aria-pressed="true">全图总览</button>
+              <span class="lm-focus-label" data-map-focus-label>19 节点知识图谱 · 悬停高亮邻居，点击右侧展开篇目</span>
+            </div>
+            <div class="lm-kind-filters" role="group" aria-label="按关系类型过滤连线">
+              <button type="button" class="lm-kind-chip" data-map-kind="all" aria-pressed="true">全部关系</button>
+              <button type="button" class="lm-kind-chip" data-map-kind="main" data-kind="main" aria-pressed="false"><i></i>学习衔接</button>
+              <button type="button" class="lm-kind-chip" data-map-kind="knowledge" data-kind="knowledge" aria-pressed="false"><i></i>知识支持</button>
+              <button type="button" class="lm-kind-chip" data-map-kind="economic" data-kind="economic" aria-pressed="false"><i></i>经济联系</button>
+              <button type="button" class="lm-kind-chip" data-map-kind="decision" data-kind="decision" aria-pressed="false"><i></i>决策用途</button>
+              <button type="button" class="lm-kind-chip" data-map-kind="research" data-kind="research" aria-pressed="false"><i></i>研究与反馈</button>
+            </div>
+          </div>
+
+          <nav class="learning-map-graph" aria-label="投资学主题图谱">
             <svg class="learning-map-edges" aria-hidden="true" focusable="false"></svg>
             {{ range $map.groups }}
             <section class="learning-map-group" aria-labelledby="map-group-{{ .id }}">
@@ -154,53 +190,101 @@
               {{ range .rows }}
               <div class="learning-map-row" data-columns="{{ len . }}">
                 {{ range . }}{{ $node := index $nodes . }}{{ $items := where $map.entries "node" . }}{{ $ready := where $items "status" "available" }}
-                <a id="map-node-{{ . }}" class="learning-map-node{{ if eq . "S" }} learning-map-stock{{ end }}{{ if $ready }} has-ready{{ end }}" href="#topic-{{ . }}" data-map-node="{{ . }}" aria-controls="topic-{{ . }}"><strong>{{ $node.short }}</strong><small>{{ len $ready }} / {{ len $items }} 篇可读</small></a>
+                {{ $pct := 0 }}{{ if gt (len $items) 0 }}{{ $pct = div (mul (len $ready) 100) (len $items) }}{{ end }}
+                {{ $state := "planned" }}{{ if and (gt (len $items) 0) (eq (len $ready) (len $items)) }}{{ $state = "done" }}{{ else if gt (len $ready) 0 }}{{ $state = "active" }}{{ end }}
+                <a id="map-node-{{ . }}" class="learning-map-node{{ if eq . "S" }} learning-map-stock{{ end }}{{ if $ready }} has-ready{{ end }}" href="#topic-{{ . }}" data-map-node="{{ . }}" data-state="{{ $state }}" data-ready="{{ len $ready }}" data-total="{{ len $items }}" aria-controls="topic-{{ . }}">
+                  <span class="lm-node-top"><span class="lm-node-code">{{ . }}</span><span class="lm-node-ratio">{{ len $ready }}/{{ len $items }}</span></span>
+                  <strong>{{ $node.short }}</strong>
+                  <span class="lm-node-meter" aria-hidden="true"><i style="width:{{ $pct }}%"></i></span>
+                </a>
                 {{ end }}
               </div>
               {{ end }}
             </section>
             {{ end }}
           </nav>
+
           <div class="learning-map-inspector">
             <label for="map-relation-choice">查看关系 <select id="map-relation-choice" data-map-edge-choice><option value="">选择一条连线</option></select></label>
-            <div class="learning-map-edge-detail" data-map-edge-detail aria-live="polite"><p>选择连线，查看起点、作用与终点。</p></div>
-            <p class="learning-map-direction-note">箭头表示关系方向，不代表必修先后。</p>
+            <div class="learning-map-edge-detail" data-map-edge-detail aria-live="polite"><p>悬停或点击连线查看起点、作用与终点。</p></div>
+            <p class="learning-map-direction-note">箭头表示知识与决策传递方向，不代表强制阅读顺序。</p>
           </div>
         </div>
-        <div class="learning-map-details" aria-label="各主题的文章与联系">
+
+        <aside class="learning-map-details" aria-label="当前聚焦节点的文章与联系">
           {{ range $map.nodes }}{{ $node := . }}{{ $items := where $map.entries "node" .id }}{{ $ready := where $items "status" "available" }}
-          {{ $shown := slice }}{{ $planned := slice }}{{ range $items }}{{ if in (slice "available" "outline") .status }}{{ $shown = $shown | append . }}{{ else }}{{ $planned = $planned | append . }}{{ end }}{{ end }}
-          <section class="learning-map-panel" id="topic-{{ .id }}" data-map-panel="{{ .id }}" aria-labelledby="map-title-{{ .id }}" tabindex="-1">
-            <header class="learning-map-panel-heading"><p class="learning-map-count">{{ if $ready }}已完成 {{ len $ready }} 篇 · 共 {{ len $items }} 篇{{ else }}规划 {{ len $items }} 篇{{ end }}</p><h2 id="map-title-{{ .id }}">{{ .title }}</h2><p>{{ .description }}</p></header>
-            {{ if $shown }}
-            <ol class="learning-map-entries" aria-label="{{ .short }}的文章">
-              {{ range $shown }}
-              <li data-entry-id="{{ .id }}" data-status="{{ .status }}">
-                <a class="learning-map-entry-title" href="{{ .url }}">{{ .title }} <span aria-hidden="true">↗</span></a>
-                {{ if eq .status "available" }}{{ partial "notebook/reading-profile.html" .reading_profile }}{{ else }}<span class="learning-map-entry-state">大纲</span>{{ end }}
-                {{ $note := .goal }}{{ range where $route.steps "id" .id }}{{ $note = .note }}{{ end }}
-                {{ with $note }}<p>{{ . }}</p>{{ end }}
-              </li>
-              {{ end }}
-            </ol>
+          {{ $mainShown := slice }}{{ $optShown := slice }}{{ $planned := slice }}
+          {{ range $items }}
+            {{ if in (slice "available" "outline") .status }}
+              {{ if in $optionalIds .id }}{{ $optShown = $optShown | append . }}{{ else }}{{ $mainShown = $mainShown | append . }}{{ end }}
+            {{ else }}
+              {{ $planned = $planned | append . }}
             {{ end }}
+          {{ end }}
+          {{ $pid := index $nodePhaseId .id }}
+          <section class="learning-map-panel" id="topic-{{ .id }}" data-map-panel="{{ .id }}" aria-labelledby="map-title-{{ .id }}" tabindex="-1">
+            <header class="learning-map-panel-heading">
+              <div class="lm-panel-kicker">
+                <span class="lm-panel-code">节点 {{ .id }}</span>
+                <span class="learning-map-count">{{ if $ready }}已完成 {{ len $ready }} / {{ len $items }} 篇{{ else }}规划 {{ len $items }} 篇{{ end }}</span>
+                {{ with $pid }}<button type="button" class="lm-jump-phase" data-jump-phase="phase-{{ . }}">卷次目录 ↗</button>{{ end }}
+              </div>
+              <h2 id="map-title-{{ .id }}">{{ .title }}</h2>
+              <p>{{ .description }}</p>
+            </header>
+
+            {{ if $mainShown }}
+            <div class="lm-entry-group">
+              <p class="lm-group-label">主线可读篇目</p>
+              <ol class="learning-map-entries" aria-label="{{ .short }}的主线文章">
+                {{ range $mainShown }}
+                <li data-entry-id="{{ .id }}" data-article="{{ .id }}" data-status="{{ .status }}">
+                  <a class="learning-map-entry-title" href="{{ .url }}">{{ .title }} <span aria-hidden="true">↗</span></a>
+                  <span class="lm-entry-badges">{{ if eq .status "available" }}{{ partial "notebook/reading-profile.html" .reading_profile }}{{ else }}<span class="learning-map-entry-state">大纲</span>{{ end }}<span class="nb-card-read" hidden>已读</span></span>
+                  {{ $note := .goal }}{{ range where $route.steps "id" .id }}{{ $note = .note }}{{ end }}
+                  {{ with $note }}<p>{{ . }}</p>{{ end }}
+                </li>
+                {{ end }}
+              </ol>
+            </div>
+            {{ end }}
+
+            {{ if $optShown }}
+            <div class="lm-entry-group is-optional">
+              <p class="lm-group-label">按需拓展专题</p>
+              <ol class="learning-map-entries" aria-label="{{ .short }}的按需专题">
+                {{ range $optShown }}
+                <li data-entry-id="{{ .id }}" data-article="{{ .id }}" data-status="{{ .status }}">
+                  <a class="learning-map-entry-title" href="{{ .url }}">{{ .title }} <span aria-hidden="true">↗</span></a>
+                  <span class="lm-entry-badges">{{ if eq .status "available" }}{{ partial "notebook/reading-profile.html" .reading_profile }}{{ end }}<span class="nb-card-read" hidden>已读</span></span>
+                  {{ with .goal }}<p>{{ . }}</p>{{ end }}
+                </li>
+                {{ end }}
+              </ol>
+            </div>
+            {{ end }}
+
             {{ with $planned }}
-            <details class="learning-map-planned"{{ if not $shown }} open{{ end }}>
-              <summary>{{ if $shown }}另有 {{ len . }} 篇规划中{{ else }}{{ len . }} 篇规划中{{ end }}</summary>
-              <ol>{{ range . }}<li data-entry-id="{{ .id }}" data-status="{{ .status }}"><span>{{ .title }}</span>{{ with .goal }}<p>{{ . }}</p>{{ end }}</li>{{ end }}</ol>
+            <details class="learning-map-planned"{{ if and (not $mainShown) (not $optShown) }} open{{ end }}>
+              <summary>{{ if or $mainShown $optShown }}另有 {{ len . }} 篇规划中{{ else }}{{ len . }} 篇规划中{{ end }}</summary>
+              <ol>{{ range . }}<li data-entry-id="{{ .id }}" data-status="{{ .status }}"><span>{{ .id }} · {{ .title }}</span>{{ with .goal }}<p>{{ . }}</p>{{ end }}</li>{{ end }}</ol>
             </details>
             {{ end }}
-            <details class="learning-map-relations">
+
+            <details class="learning-map-relations" open>
               <summary>与其他主题的联系</summary>
               <ul>
                 {{ range $map.edges }}{{ if or (eq .from $node.id) (eq .to $node.id) }}{{ $from := index $nodes .from }}{{ $to := index $nodes .to }}
-                <li data-map-relation="{{ .from }}-{{ .to }}" data-kind="{{ .kind }}"><div class="learning-map-relation-title"><a href="#topic-{{ .from }}" data-map-select="{{ .from }}">{{ $from.short }}</a><span aria-hidden="true"> → </span><span class="learning-map-sr-only">指向</span><a href="#topic-{{ .to }}" data-map-select="{{ .to }}">{{ $to.short }}</a></div><p><span class="learning-map-relation-kind">{{ index $relations .kind }}</span> · {{ .label }}</p></li>
+                <li data-map-relation="{{ .from }}-{{ .to }}" data-kind="{{ .kind }}">
+                  <div class="learning-map-relation-title"><a href="#topic-{{ .from }}" data-map-select="{{ .from }}">{{ $from.id }}·{{ $from.short }}</a><span aria-hidden="true"> → </span><span class="learning-map-sr-only">指向</span><a href="#topic-{{ .to }}" data-map-select="{{ .to }}">{{ $to.id }}·{{ $to.short }}</a><span class="learning-map-relation-kind" data-kind="{{ .kind }}">{{ index $relations .kind }}</span></div>
+                  <p>{{ .label }}</p>
+                </li>
                 {{ end }}{{ end }}
               </ul>
             </details>
           </section>
           {{ end }}
-        </div>
+        </aside>
       </div>
     </div>
   </div>

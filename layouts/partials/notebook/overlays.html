@@ -35,9 +35,10 @@
 
 <div id="reference-backdrop" aria-hidden="true" hidden></div>
 <aside id="reference-panel" role="dialog" aria-labelledby="reference-title" hidden>
+  <div class="reference-sheet-handle" aria-hidden="true"><span></span></div>
   <div class="dialog-top">
-    <span class="dialog-kicker">{{ if $zh }}引用预览{{ else }}REFERENCE PREVIEW{{ end }}</span>
-    <div class="reference-controls"><button type="button" id="reference-back" disabled><span aria-hidden="true">←</span> <span>{{ if $zh }}返回{{ else }}Back{{ end }}</span></button><button type="button" class="dialog-close" id="reference-close" aria-label="{{ if $zh }}关闭引用{{ else }}Close reference{{ end }}"><svg aria-hidden="true"><use href="/notebook/brand/icons.svg#close"></use></svg></button></div>
+    <span class="dialog-kicker" id="reference-kicker">{{ if $zh }}引用预览{{ else }}REFERENCE PREVIEW{{ end }}</span>
+    <div class="reference-controls"><span class="reference-pin-badge" id="reference-pin-badge" hidden>{{ if $zh }}已固定{{ else }}Pinned{{ end }}</span><button type="button" id="reference-back" disabled><span aria-hidden="true">←</span> <span>{{ if $zh }}返回{{ else }}Back{{ end }}</span></button><button type="button" class="dialog-close" id="reference-close" aria-label="{{ if $zh }}关闭引用{{ else }}Close reference{{ end }}"><svg aria-hidden="true"><use href="/notebook/brand/icons.svg#close"></use></svg></button></div>
   </div>
   <div id="reference-content"></div>
 </aside>

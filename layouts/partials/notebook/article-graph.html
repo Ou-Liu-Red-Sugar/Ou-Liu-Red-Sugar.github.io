@@ -1,0 +1,189 @@
+{{ $page := .page }}
+{{ $e := .entry }}
+{{ if eq $page.Lang "zh" }}
+{{ $map := $page.Site.Data.notebook_map }}
+{{ $nodeId := $e.node_id | default "" }}
+{{ $matchedEntries := where $map.entries "id" $nodeId }}
+{{ if gt (len $matchedEntries) 0 }}
+{{ $curEntry := index $matchedEntries 0 }}
+{{ $curNodeId := $curEntry.node }}
+{{ $nodesById := dict }}{{ range $map.nodes }}{{ $nodesById = merge $nodesById (dict .id .) }}{{ end }}
+{{ $entriesById := dict }}{{ range $map.entries }}{{ $entriesById = merge $entriesById (dict .id .) }}{{ end }}
+{{ $curNode := index $nodesById $curNodeId }}
+{{ $kindLabels := dict "main" "学习衔接" "knowledge" "知识支持" "economic" "经济联系" "decision" "决策用途" "research" "研究与反馈" }}
+{{ $kindOrder := slice "main" "decision" "knowledge" "research" "economic" }}
+{{ $optionalIds := slice }}
+{{ with $map.reading_route }}{{ range .phases }}{{ if hasPrefix .id "optional_" }}{{ range .entry_ids }}{{ $optionalIds = $optionalIds | append . }}{{ end }}{{ end }}{{ end }}{{ end }}
+{{ $prereqMap := $map.prerequisites | default dict }}
+{{ $prereqIds := index $prereqMap $nodeId | default slice }}
+{{ $dependentIds := slice }}
+{{ range $depId, $reqList := $prereqMap }}{{ if in $reqList $nodeId }}{{ $dependentIds = $dependentIds | append $depId }}{{ end }}{{ end }}
+{{ $inEdges := slice }}{{ $outEdges := slice }}{{ $presentKinds := slice }}
+{{ range $k := $kindOrder }}
+  {{ range $map.edges }}
+    {{ if and (eq .kind $k) (eq .to $curNodeId) }}{{ $inEdges = $inEdges | append . }}{{ $presentKinds = $presentKinds | append .kind }}{{ end }}
+    {{ if and (eq .kind $k) (eq .from $curNodeId) }}{{ $outEdges = $outEdges | append . }}{{ $presentKinds = $presentKinds | append .kind }}{{ end }}
+  {{ end }}
+{{ end }}
+{{ $presentKinds = uniq $presentKinds }}
+{{ $sameEntries := where $map.entries "node" $curNodeId }}
+{{ $sameMain := slice }}{{ $sameOpt := slice }}
+{{ range $sameEntries }}
+  {{ if in $optionalIds .id }}{{ $sameOpt = $sameOpt | append . }}{{ else }}{{ $sameMain = $sameMain | append . }}{{ end }}
+{{ end }}
+<link rel="stylesheet" href="{{ partial "notebook/asset.html" "/notebook/article-graph.css" }}">
+<script type="module" src="{{ partial "notebook/asset.html" "/notebook/article-graph.js" }}"></script>
+<section class="article-graph" id="article-graph" data-article-graph data-node-id="{{ $curNodeId }}" aria-labelledby="article-graph-title">
+  <header class="ag-header">
+    <div>
+      <p class="ag-eyebrow">KNOWLEDGE GRAPH · 节点 {{ $curNode.id }}</p>
+      <h2 id="article-graph-title">本篇在知识图谱中的邻域</h2>
+    </div>
+    <a class="ag-full-link" href="/zh/notebook/#topic-{{ $curNode.id }}" data-no-preview>打开完整 19 节点图谱 <span aria-hidden="true">↗</span></a>
+  </header>
+
+  {{ if gt (len $presentKinds) 1 }}
+  <div class="ag-filters" role="group" aria-label="按关系类型筛选邻域">
+    <button type="button" class="ag-filter" data-ag-filter="all" aria-pressed="true">全部关系 <small>{{ add (len $inEdges) (len $outEdges) }}</small></button>
+    {{ range $kindOrder }}
+      {{ if in $presentKinds . }}
+      <button type="button" class="ag-filter" data-ag-filter="{{ . }}" data-kind="{{ . }}" aria-pressed="false"><i class="ag-dot" aria-hidden="true"></i>{{ index $kindLabels . }}</button>
+      {{ end }}
+    {{ end }}
+  </div>
+  {{ end }}
+
+  <div class="ag-stage" data-ag-stage>
+    <svg class="ag-connectors" data-ag-svg aria-hidden="true" focusable="false"></svg>
+
+    <div class="ag-col ag-col-in">
+      <h3 class="ag-col-title">上游输入与先修</h3>
+      {{ if gt (len $prereqIds) 0 }}
+      <div class="ag-subblock">
+        <span class="ag-sublabel">本篇先修词条</span>
+        <ul class="ag-pill-list">
+          {{ range $prereqIds }}{{ with index $entriesById . }}
+          <li>
+            {{ if and (eq .status "available") .url }}
+            <a class="ag-entry-pill is-ready" href="{{ .url }}"><span class="ag-entry-id">{{ .id }}</span>{{ .title }}</a>
+            {{ else }}
+            <span class="ag-entry-pill is-planned"><span class="ag-entry-id">{{ .id }}</span>{{ .title }}</span>
+            {{ end }}
+          </li>
+          {{ end }}{{ end }}
+        </ul>
+      </div>
+      {{ end }}
+
+      {{ if gt (len $inEdges) 0 }}
+      <ul class="ag-node-list" data-ag-side="in">
+        {{ range $idx, $edge := $inEdges }}
+        {{ $src := index $nodesById $edge.from }}
+        <li class="ag-node-card" data-ag-edge="in-{{ $idx }}" data-ag-side="in" data-kind="{{ $edge.kind }}" data-from="{{ $src.short }}" data-to="{{ $curNode.short }}" data-kind-label="{{ index $kindLabels $edge.kind }}" data-label="{{ $edge.label }}" title="{{ $src.short }} → {{ $curNode.short }}：{{ $edge.label }}" tabindex="0">
+          <span class="ag-node-code">{{ $src.id }}</span>
+          <strong class="ag-node-name">{{ $src.short }}</strong>
+          <span class="ag-kind-tag" data-kind="{{ $edge.kind }}">{{ index $kindLabels $edge.kind }}</span>
+          <a class="ag-node-jump" href="/zh/notebook/#topic-{{ $src.id }}" aria-label="在图谱中查看 {{ $src.short }}">↗</a>
+        </li>
+        {{ end }}
+      </ul>
+      <button type="button" class="ag-more-btn" data-ag-more="in" hidden></button>
+      {{ else }}
+      <p class="ag-empty">本节点为起点主题，无前置主题输入。</p>
+      {{ end }}
+    </div>
+
+    <div class="ag-col ag-col-center">
+      <div class="ag-center-card" data-ag-center>
+        <div class="ag-center-head">
+          <span class="ag-center-code">{{ $curNode.id }}</span>
+          <div>
+            <h3>{{ $curNode.title }}</h3>
+            <p>{{ $curNode.description }}</p>
+          </div>
+        </div>
+
+        {{ if gt (len $sameMain) 0 }}
+        <div class="ag-center-group">
+          <span class="ag-sublabel">同节点主线篇目</span>
+          <ol class="ag-center-entries">
+            {{ range $sameMain }}
+            {{ $isCur := eq .id $nodeId }}
+            <li class="{{ if $isCur }}is-current{{ else if eq .status "available" }}is-ready{{ else }}is-planned{{ end }}">
+              {{ if $isCur }}
+              <span class="ag-cur-item" aria-current="page"><span class="ag-entry-id">{{ .id }}</span><strong>{{ .title }}</strong><em class="ag-cur-badge">当前</em></span>
+              {{ else if and (eq .status "available") .url }}
+              <a href="{{ .url }}"><span class="ag-entry-id">{{ .id }}</span><span>{{ .title }}</span><span aria-hidden="true">↗</span></a>
+              {{ else }}
+              <span class="ag-planned-item"><span class="ag-entry-id">{{ .id }}</span><span>{{ .title }}</span><em>规划中</em></span>
+              {{ end }}
+            </li>
+            {{ end }}
+          </ol>
+        </div>
+        {{ end }}
+
+        {{ if gt (len $sameOpt) 0 }}
+        <div class="ag-center-group is-optional">
+          <span class="ag-sublabel">按需拓展专题</span>
+          <ol class="ag-center-entries">
+            {{ range $sameOpt }}
+            {{ $isCur := eq .id $nodeId }}
+            <li class="{{ if $isCur }}is-current{{ else if eq .status "available" }}is-ready{{ else }}is-planned{{ end }}">
+              {{ if $isCur }}
+              <span class="ag-cur-item" aria-current="page"><span class="ag-entry-id">{{ .id }}</span><strong>{{ .title }}</strong><em class="ag-cur-badge">当前</em></span>
+              {{ else if and (eq .status "available") .url }}
+              <a href="{{ .url }}"><span class="ag-entry-id">{{ .id }}</span><span>{{ .title }}</span><span aria-hidden="true">↗</span></a>
+              {{ else }}
+              <span class="ag-planned-item"><span class="ag-entry-id">{{ .id }}</span><span>{{ .title }}</span><em>按需规划</em></span>
+              {{ end }}
+            </li>
+            {{ end }}
+          </ol>
+        </div>
+        {{ end }}
+      </div>
+    </div>
+
+    <div class="ag-col ag-col-out">
+      <h3 class="ag-col-title">下游去向与支撑</h3>
+      {{ if gt (len $dependentIds) 0 }}
+      <div class="ag-subblock">
+        <span class="ag-sublabel">直接调用本篇的后续</span>
+        <ul class="ag-pill-list">
+          {{ range first 4 $dependentIds }}{{ with index $entriesById . }}
+          <li>
+            {{ if and (eq .status "available") .url }}
+            <a class="ag-entry-pill is-ready" href="{{ .url }}"><span class="ag-entry-id">{{ .id }}</span>{{ .title }}</a>
+            {{ else }}
+            <span class="ag-entry-pill is-planned"><span class="ag-entry-id">{{ .id }}</span>{{ .title }}</span>
+            {{ end }}
+          </li>
+          {{ end }}{{ end }}
+        </ul>
+      </div>
+      {{ end }}
+
+      {{ if gt (len $outEdges) 0 }}
+      <ul class="ag-node-list" data-ag-side="out">
+        {{ range $idx, $edge := $outEdges }}
+        {{ $dst := index $nodesById $edge.to }}
+        <li class="ag-node-card" data-ag-edge="out-{{ $idx }}" data-ag-side="out" data-kind="{{ $edge.kind }}" data-from="{{ $curNode.short }}" data-to="{{ $dst.short }}" data-kind-label="{{ index $kindLabels $edge.kind }}" data-label="{{ $edge.label }}" title="{{ $curNode.short }} → {{ $dst.short }}：{{ $edge.label }}" tabindex="0">
+          <span class="ag-node-code">{{ $dst.id }}</span>
+          <strong class="ag-node-name">{{ $dst.short }}</strong>
+          <span class="ag-kind-tag" data-kind="{{ $edge.kind }}">{{ index $kindLabels $edge.kind }}</span>
+          <a class="ag-node-jump" href="/zh/notebook/#topic-{{ $dst.id }}" aria-label="在图谱中查看 {{ $dst.short }}">↗</a>
+        </li>
+        {{ end }}
+      </ul>
+      <button type="button" class="ag-more-btn" data-ag-more="out" hidden></button>
+      {{ else }}
+      <p class="ag-empty">本节点为汇合终点，承接前面各步研究并落入实际配置。</p>
+      {{ end }}
+    </div>
+  </div>
+
+  <p class="ag-readout" data-ag-readout aria-live="polite">节点 {{ $curNode.id }} 连接 {{ len $inEdges }} 个上游主题与 {{ len $outEdges }} 个下游主题；悬停或点按相邻主题查看具体关系，点篇名可就地预览。</p>
+</section>
+{{ end }}
+{{ end }}

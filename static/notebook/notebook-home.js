@@ -1,4 +1,4 @@
-/* Investment Notebook Index: Accessible Tabs (Chapters vs Graph) + Volume Filters & Bulk Accordion */
+/* Investment Notebook Index: Accessible Tabs (Chapters <-> Graph Bidirectional Sync) + Volume Filters */
 (function () {
   "use strict";
 
@@ -28,7 +28,6 @@
       activeTab.focus({ preventScroll: true });
     }
     if (name === "graph") {
-      // Allow ResizeObserver / learning-map.js to compute exact graph geometry once visible.
       requestAnimationFrame(() => {
         window.dispatchEvent(new Event("resize"));
       });
@@ -50,6 +49,41 @@
     });
   });
 
+  // Hero "知识图谱" shortcut button
+  root.querySelectorAll("[data-open-graph-tab]").forEach((btn) => {
+    btn.addEventListener("click", (event) => {
+      event.preventDefault();
+      activateTab("graph", false);
+      history.replaceState(null, "", "#nb-graph");
+      document.getElementById("nb-graph")?.scrollIntoView({ behavior: "smooth", block: "start" });
+    });
+  });
+
+  // Bidirectional jump: Linear Chapter Row node badge -> Knowledge Graph focused on that node
+  root.addEventListener("click", (event) => {
+    const jumpNode = event.target.closest("[data-jump-node]");
+    if (jumpNode) {
+      const id = jumpNode.dataset.jumpNode;
+      activateTab("graph", false);
+      requestAnimationFrame(() => {
+        root.dispatchEvent(new CustomEvent("nb:select-node", { detail: { id } }));
+        document.getElementById("nb-graph")?.scrollIntoView({ behavior: "smooth", block: "start" });
+      });
+      return;
+    }
+    const jumpPhase = event.target.closest("[data-jump-phase]");
+    if (jumpPhase) {
+      const phaseId = jumpPhase.dataset.jumpPhase;
+      activateTab("chapters", false);
+      const target = document.getElementById(phaseId);
+      if (target) {
+        if (target.tagName === "DETAILS") target.open = true;
+        history.replaceState(null, "", `#${phaseId}`);
+        requestAnimationFrame(() => target.scrollIntoView({ behavior: "smooth", block: "start" }));
+      }
+    }
+  });
+
   // Sync browser Find-in-Page matches inside hidden="until-found" tab panels.
   panels.forEach((panel) => {
     panel.addEventListener("beforematch", () => {
@@ -57,7 +91,7 @@
     });
   });
 
-  // If user arrives directly via #topic-X hash, switch to the Knowledge Graph tab.
+  // Hash-based initial tab routing (#topic-X, #nb-graph, #phase-...)
   function syncHashToTab() {
     const hash = location.hash || "";
     if (hash.startsWith("#topic-") || hash === "#nb-graph") {
@@ -140,7 +174,6 @@
     vol.addEventListener("toggle", syncToggleAllState);
   });
 
-  // Boot initial state
   syncToggleAllState();
   syncHashToTab();
 })();

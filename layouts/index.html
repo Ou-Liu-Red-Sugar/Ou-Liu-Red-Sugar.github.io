@@ -1,52 +1,134 @@
 {{ define "main" }}
 {{ $zh := eq .Lang "zh" }}
+{{ $map := site.Data.notebook_map }}
+{{ $route := $map.reading_route }}
+{{ $done := slice }}
+{{ with $route }}{{ $done = where .steps "status" "available" }}{{ end }}
+{{ $latest := false }}{{ if gt (len $done) 0 }}{{ $latest = index (last 1 $done) 0 }}{{ end }}
+{{ $first := false }}{{ with $route }}{{ if gt (len .steps) 0 }}{{ $first = index .steps 0 }}{{ end }}{{ end }}
 {{ $posts := where (index .Sites 0).RegularPages "Section" "blog" }}
-<div class="home home-minimal">
-  <section class="home-intro" aria-labelledby="home-title">
-    <div class="home-narrow">
-      <h1 id="home-title">{{ if $zh }}刘欧 <span class="home-name-sub" lang="en">Ou Liu</span>{{ else }}Ou Liu <span class="home-name-sub" lang="zh">刘欧</span>{{ end }}</h1>
-      {{ if $zh }}
-      <p class="home-bio">本科与硕士阶段学习数学，目前做个人投资与家族资产管理，偏向基本面研究。这里放我的投资学笔记、数学讲义和少量随笔。</p>
-      {{ else }}
-      <p class="home-bio">I studied mathematics at Shanxi University and spent a year in the master's programme at the University of Regensburg. I now work on personal investing and family asset management with a focus on fundamental analysis. This site holds my mathematics notes, an investment notebook in Chinese, and occasional posts.</p>
-      {{ end }}
-      <ul class="home-links" aria-label="{{ if $zh }}链接与联系{{ else }}Links and contact{{ end }}">
-        {{ range site.Data.profile.contacts }}
-        <li><a href="{{ .url }}"{{ if not (hasPrefix .url "mailto:") }} rel="noopener"{{ end }}>{{ if $zh }}{{ .label.zh }}{{ else }}{{ .label.en }}{{ end }}</a></li>
+<div class="home-editorial">
+  <section class="home-hero home-reveal" aria-labelledby="home-title">
+    <div class="home-wrap home-hero-grid">
+      <div class="home-identity">
+        <p class="home-eyebrow">{{ if $zh }}投资研究 · 数学讲义{{ else }}Investing · Mathematics{{ end }}</p>
+        <h1 id="home-title">
+          {{ if $zh }}刘欧<span class="home-name-sub" lang="en">Ou Liu</span>{{ else }}Ou Liu<span class="home-name-sub" lang="zh">刘欧</span>{{ end }}
+        </h1>
+        {{ if $zh }}
+        <p class="home-bio">本科与硕士阶段学习数学，目前做个人投资与家族资产管理，偏向基本面研究。这里放我的投资学笔记、数学讲义和少量随笔。</p>
+        {{ else }}
+        <p class="home-bio">I studied mathematics at Shanxi University and spent a year in the master's programme at the University of Regensburg. I now work on personal investing and family asset management with a focus on fundamental analysis. This site holds my mathematics notes, an investment notebook in Chinese, and occasional posts.</p>
         {{ end }}
-        <li><a href="/{{ .Lang }}/about/">{{ if $zh }}关于 ↗{{ else }}About ↗{{ end }}</a></li>
-      </ul>
+        <ul class="home-links" aria-label="{{ if $zh }}链接与联系{{ else }}Links and contact{{ end }}">
+          {{ range site.Data.profile.contacts }}
+          <li class="home-link-item{{ if eq .id "email" }} is-email{{ end }}">
+            <a class="home-link" href="{{ .url }}"{{ if not (hasPrefix .url "mailto:") }} rel="noopener"{{ end }}>
+              <span>{{ if $zh }}{{ .label.zh }}{{ else }}{{ .label.en }}{{ end }}</span>
+              {{ if not (hasPrefix .url "mailto:") }}<span class="home-arrow" aria-hidden="true">↗</span>{{ end }}
+            </a>
+            {{ if eq .id "email" }}
+            <button type="button" class="home-copy-btn" data-copy-email="{{ .value }}" aria-label="{{ if $zh }}复制邮箱 {{ .value }}{{ else }}Copy email {{ .value }}{{ end }}" title="{{ if $zh }}复制邮箱{{ else }}Copy email{{ end }}">
+              <svg class="home-copy-ico is-copy" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+              <svg class="home-copy-ico is-done" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+              <span class="home-copy-label" aria-live="polite"></span>
+            </button>
+            {{ end }}
+          </li>
+          {{ end }}
+          <li class="home-link-item">
+            <a class="home-link is-about" href="/{{ .Lang }}/about/">
+              <span>{{ if $zh }}关于{{ else }}About{{ end }}</span>
+              <span class="home-arrow" aria-hidden="true">↗</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      {{ with $route }}
+      <aside class="home-desk" aria-label="{{ if $zh }}近期更新与阅读进度{{ else }}Latest update and progress{{ end }}">
+        <div class="home-desk-top">
+          <span class="home-desk-status"><i aria-hidden="true"></i>{{ if $zh }}最近更新{{ else }}Latest note{{ end }}</span>
+          <a class="home-desk-ratio" href="/zh/notebook/" title="{{ if $zh }}查看投资学笔记全部目录{{ else }}Open investment notebook index{{ end }}">{{ .available_count }} / {{ len $map.entries }}</a>
+        </div>
+        {{ with $latest }}
+        <a class="home-desk-feature" href="{{ .url }}" data-article="{{ .id }}">
+          <span class="home-desk-kicker">
+            <span>NO. {{ printf "%02d" (int .number) }} · {{ .id }}</span>
+            <span class="nb-card-read" hidden>{{ if $zh }}已读{{ else }}Read{{ end }}</span>
+            <span class="home-arrow" aria-hidden="true">↗</span>
+          </span>
+          <strong class="home-desk-title" lang="zh">{{ .title }}</strong>
+          {{ with .note }}<p class="home-desk-note" lang="zh">{{ . }}</p>{{ end }}
+        </a>
+        {{ end }}
+        <div class="home-desk-volumes" aria-label="{{ if $zh }}主线七卷完成进度{{ else }}Progress across seven main volumes{{ end }}">
+          {{ $activeFound := false }}
+          {{ range .phases }}{{ if not (hasPrefix .id "optional_") }}
+          {{ $pct := 0 }}{{ if gt .total 0 }}{{ $pct = div (mul .available_count 100) .total }}{{ end }}
+          {{ $state := "todo" }}{{ if and (gt .total 0) (eq .available_count .total) }}{{ $state = "done" }}{{ else if not $activeFound }}{{ $state = "active" }}{{ $activeFound = true }}{{ end }}
+          <a class="home-desk-seg" href="/zh/notebook/#phase-{{ .id }}" data-state="{{ $state }}" title="{{ .title }} · {{ .available_count }}/{{ .total }}" aria-label="{{ .title }} ({{ .available_count }} / {{ .total }})">
+            <i style="width:{{ $pct }}%"></i>
+          </a>
+          {{ end }}{{ end }}
+        </div>
+        <div class="home-desk-foot">
+          {{ with $first }}
+          <a class="home-desk-resume" href="{{ .url }}" data-continue-reading hidden>
+            <span class="home-desk-resume-tag">{{ if $zh }}继续阅读{{ else }}Resume{{ end }}</span>
+            <span class="home-desk-resume-title" data-continue-title></span>
+            <span class="home-arrow" aria-hidden="true">→</span>
+          </a>
+          {{ end }}
+          {{ with .next }}
+          <div class="home-desk-next" data-desk-next>
+            <span class="home-desk-next-tag">{{ if $zh }}下一篇{{ else }}Up next{{ end }}</span>
+            <span class="home-desk-next-title" lang="zh">{{ printf "%02d" (int .number) }} · {{ .title }}</span>
+          </div>
+          {{ end }}
+        </div>
+      </aside>
+      {{ end }}
     </div>
   </section>
 
-  <div class="home-narrow home-sections">
+  <div class="home-wrap home-flow">
     {{ if $zh }}
-    {{ partial "home/notebook-band.html" (dict "zh" $zh) }}
-    {{ partial "home/math-shelf.html" (dict "zh" $zh) }}
+    {{ partial "home/notebook-band.html" (dict "zh" $zh "index" "01") }}
+    {{ partial "home/math-shelf.html" (dict "zh" $zh "index" "02") }}
     {{ else }}
-    {{ partial "home/math-shelf.html" (dict "zh" $zh) }}
-    {{ partial "home/notebook-band.html" (dict "zh" $zh) }}
+    {{ partial "home/math-shelf.html" (dict "zh" $zh "index" "01") }}
+    {{ partial "home/notebook-band.html" (dict "zh" $zh "index" "02") }}
     {{ end }}
 
     {{ with $posts }}
-    <section class="home-row" id="blog" aria-labelledby="home-blog-title">
-      <div class="home-row-label">
-        <h2 id="home-blog-title">Blog{{ if not $zh }} <small>中文</small>{{ end }}</h2>
-        <a class="home-row-more" href="/zh/blog/">{{ if $zh }}全部 {{ len . }} 篇 →{{ else }}All {{ len . }} →{{ end }}</a>
-      </div>
-      <div class="home-row-body">
-        <ul class="home-list" lang="zh">
-          {{ range $i, $p := first 3 .ByDate.Reverse }}
-          <li class="home-list-item">
-            <a href="{{ .RelPermalink }}">
-              <span class="hl-num">{{ printf "%02d" (add $i 1) }}</span>
-              <span class="hl-title">{{ .Title }}</span>
-              <span class="hl-tail">{{ .Date.Format "2006-01-02" }}<span class="hl-arrow" aria-hidden="true">↗</span></span>
-            </a>
-          </li>
-          {{ end }}
-        </ul>
-      </div>
+    <section class="home-section home-blog-section home-reveal" id="blog" aria-labelledby="home-blog-title">
+      <header class="home-sec-head">
+        <div class="home-sec-title">
+          <span class="home-sec-idx">03</span>
+          <div>
+            <h2 id="home-blog-title">Blog{{ if not $zh }} <small>中文</small>{{ end }}</h2>
+            <p class="home-sec-sub">{{ if $zh }}写作、研究方法与 Agent 协作随笔{{ else }}Notes on writing, research workflow, and working with Agents{{ end }}</p>
+          </div>
+        </div>
+        <div class="home-sec-tools">
+          <a class="home-sec-link" href="/zh/blog/">{{ if $zh }}全部 {{ len . }} 篇{{ else }}All {{ len . }}{{ end }}<span class="home-arrow" aria-hidden="true">→</span></a>
+        </div>
+      </header>
+      <ol class="home-dispatch-list" lang="zh">
+        {{ range first 3 .ByDate.Reverse }}
+        <li class="home-dispatch-item">
+          <a href="{{ .RelPermalink }}">
+            <time class="home-dispatch-date" datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2006-01-02" }}</time>
+            <div class="home-dispatch-copy">
+              <strong class="home-dispatch-title">{{ .Title }}</strong>
+              {{ with .Description }}<p class="home-dispatch-desc">{{ . }}</p>{{ end }}
+            </div>
+            <span class="home-arrow" aria-hidden="true">↗</span>
+          </a>
+        </li>
+        {{ end }}
+      </ol>
     </section>
     {{ end }}
   </div>

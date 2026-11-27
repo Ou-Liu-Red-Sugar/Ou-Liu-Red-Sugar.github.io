@@ -1,39 +1,157 @@
 {{ $zh := .zh }}
-{{ $map := site.Data.notebook_map }}{{ $route := $map.reading_route }}
+{{ $idx := .index | default "01" }}
+{{ $map := site.Data.notebook_map }}
+{{ $route := $map.reading_route }}
 {{ with $route }}
 {{ $done := where .steps "status" "available" }}
-{{ $first := index .steps 0 }}
-<section class="home-row" id="investment-notebook" aria-labelledby="home-notebook-title">
-  <div class="home-row-label">
-    <h2 id="home-notebook-title">{{ if $zh }}投资学笔记{{ else }}Investment notebook{{ end }}</h2>
-    <p class="home-row-meta">{{ if $zh }}已写 {{ .available_count }} / {{ len $map.entries }} 篇{{ else }}{{ .available_count }} / {{ len $map.entries }} · Chinese{{ end }}</p>
-    <div class="home-row-actions">
-      <a class="home-row-more" href="/zh/notebook/">{{ if $zh }}全部目录 →{{ else }}All entries →{{ end }}</a>
-      <a class="home-row-more" href="/zh/notebook/#nb-graph">{{ if $zh }}知识图谱{{ else }}Topic graph{{ end }}</a>
-      {{ with $first }}<a class="home-row-continue" href="{{ .url }}" data-continue-reading hidden>{{ if $zh }}继续：{{ else }}Resume: {{ end }}<span data-continue-title></span></a>{{ end }}
+{{ $recent := collections.Reverse (last 4 $done) }}
+{{ $starter := first 4 $done }}
+{{ $optCount := 0 }}{{ $optReady := 0 }}
+{{ range .phases }}{{ if hasPrefix .id "optional_" }}{{ $optCount = add $optCount 1 }}{{ $optReady = add $optReady .available_count }}{{ end }}{{ end }}
+{{ $nodes := dict }}{{ range $map.nodes }}{{ $nodes = merge $nodes (dict .id .) }}{{ end }}
+{{ $defId := $map.default_node | default "S" }}
+{{ $defNode := index $nodes $defId }}
+{{ $defEntries := where $map.entries "node" $defId }}
+{{ $defReady := where $defEntries "status" "available" }}
+<section class="home-section home-nb-section home-reveal" id="investment-notebook" aria-labelledby="home-notebook-title" data-home-tabs="notebook">
+  <header class="home-sec-head">
+    <div class="home-sec-title">
+      <span class="home-sec-idx">{{ $idx }}</span>
+      <div>
+        <h2 id="home-notebook-title">{{ if $zh }}投资学笔记{{ else }}Investment notebook{{ end }}</h2>
+        <p class="home-sec-sub">{{ if $zh }}已写 {{ .available_count }} / {{ len $map.entries }} 篇 · 从股票与财报到估值组合与 Agent 研究实验{{ else }}{{ .available_count }} / {{ len $map.entries }} entries · Written in Chinese{{ end }}</p>
+      </div>
     </div>
-  </div>
-  <div class="home-row-body">
-    <ol class="home-list">
-      {{ range collections.Reverse (last 4 $done) }}
-      <li class="home-list-item" data-article="{{ .id }}">
-        <a href="{{ .url }}">
-          <span class="hl-num">{{ printf "%02d" (int .number) }}</span>
-          <span class="hl-title" lang="zh">{{ .title }}</span>
-          <span class="hl-tail"><span class="nb-card-read" hidden>{{ if $zh }}已读{{ else }}Read{{ end }}</span><span class="hl-arrow" aria-hidden="true">↗</span></span>
+    <div class="home-sec-tools">
+      <div class="home-tabs" role="tablist" aria-label="{{ if $zh }}切换投资学笔记视图{{ else }}Switch investment notebook view{{ end }}">
+        <span class="home-tab-thumb" aria-hidden="true"></span>
+        <button type="button" role="tab" id="home-nb-tab-volumes" data-home-tab="volumes" aria-controls="home-nb-panel-volumes" aria-selected="true" tabindex="0">{{ if $zh }}主线七卷{{ else }}7 Volumes{{ end }}</button>
+        <button type="button" role="tab" id="home-nb-tab-graph" data-home-tab="graph" aria-controls="home-nb-panel-graph" aria-selected="false" tabindex="-1">{{ if $zh }}知识图谱{{ else }}Topic Graph{{ end }}</button>
+        <button type="button" role="tab" id="home-nb-tab-recent" data-home-tab="recent" aria-controls="home-nb-panel-recent" aria-selected="false" tabindex="-1">{{ if $zh }}最近更新{{ else }}Recent{{ end }}</button>
+        <button type="button" role="tab" id="home-nb-tab-start" data-home-tab="start" aria-controls="home-nb-panel-start" aria-selected="false" tabindex="-1">{{ if $zh }}从头开始{{ else }}Start here{{ end }}</button>
+      </div>
+    </div>
+  </header>
+
+  <div class="home-tab-panel is-active" role="tabpanel" id="home-nb-panel-volumes" data-home-panel="volumes" aria-labelledby="home-nb-tab-volumes">
+    <ol class="home-vol-grid">
+      {{ $m := 0 }}{{ $active := false }}
+      {{ range .phases }}{{ if not (hasPrefix .id "optional_") }}{{ $m = add $m 1 }}
+      {{ $pct := 0 }}{{ if gt .total 0 }}{{ $pct = div (mul .available_count 100) .total }}{{ end }}
+      {{ $state := "todo" }}{{ if and (gt .total 0) (eq .available_count .total) }}{{ $state = "done" }}{{ else if not $active }}{{ $state = "active" }}{{ $active = true }}{{ end }}
+      <li class="home-vol-item" data-state="{{ $state }}">
+        <a href="/zh/notebook/#phase-{{ .id }}">
+          <div class="home-vol-top">
+            <span class="home-vol-num">{{ printf "%02d" $m }}</span>
+            <strong class="home-vol-title" lang="zh">{{ .title }}</strong>
+            <span class="home-vol-stat">{{ .available_count }}/{{ .total }}</span>
+          </div>
+          <span class="home-vol-bar" aria-hidden="true"><i style="width:{{ $pct }}%"></i></span>
+          <p class="home-vol-goal" lang="zh">{{ .goal }}</p>
         </a>
       </li>
-      {{ end }}
-      {{ with .next }}
-      <li class="home-list-item is-upcoming">
-        <div class="hl-static">
-          <span class="hl-num">{{ printf "%02d" (int .number) }}</span>
-          <span class="hl-title" lang="zh">{{ .title }}</span>
-          <span class="hl-tail">{{ if $zh }}下一篇{{ else }}Up next{{ end }}</span>
+      {{ end }}{{ end }}
+    </ol>
+  </div>
+
+  <div class="home-tab-panel" role="tabpanel" id="home-nb-panel-graph" data-home-panel="graph" aria-labelledby="home-nb-tab-graph" hidden>
+    <div class="home-nb-graph" data-home-graph data-default-node="{{ $defId }}">
+      <div class="home-graph-canvas" data-hg-canvas>
+        <svg class="home-graph-svg" data-hg-svg aria-hidden="true" focusable="false"></svg>
+        {{ range $map.groups }}
+        <div class="home-graph-tier">
+          <span class="home-graph-tier-label" lang="zh">{{ .title }}</span>
+          <div class="home-graph-pills">
+            {{ range .rows }}{{ range . }}
+            {{ $node := index $nodes . }}
+            {{ $items := where $map.entries "node" . }}
+            {{ $ready := where $items "status" "available" }}
+            {{ $pct := 0 }}{{ if gt (len $items) 0 }}{{ $pct = div (mul (len $ready) 100) (len $items) }}{{ end }}
+            {{ $state := "todo" }}{{ if and (gt (len $items) 0) (eq (len $ready) (len $items)) }}{{ $state = "done" }}{{ else if gt (len $ready) 0 }}{{ $state = "active" }}{{ end }}
+            <button type="button" class="home-graph-node" data-hg-node="{{ . }}" data-state="{{ $state }}" aria-pressed="{{ if eq . $defId }}true{{ else }}false{{ end }}">
+              <span class="hg-node-head"><span class="hg-code">{{ . }}</span><span class="hg-count">{{ len $ready }}/{{ len $items }}</span></span>
+              <span class="hg-short" lang="zh">{{ $node.short }}</span>
+              <span class="hg-bar" aria-hidden="true"><i style="width:{{ $pct }}%"></i></span>
+            </button>
+            {{ end }}{{ end }}
+          </div>
         </div>
+        {{ end }}
+      </div>
+
+      <aside class="home-graph-card" data-hg-card aria-live="polite">
+        <div class="hg-card-top">
+          <span class="hg-card-code" data-hg-code>节点 {{ $defNode.id }}</span>
+          <span class="hg-card-stat" data-hg-stat>{{ len $defReady }} / {{ len $defEntries }} {{ if $zh }}篇可读{{ else }}ready{{ end }}</span>
+        </div>
+        <h3 class="hg-card-title" data-hg-title lang="zh">{{ $defNode.title }}</h3>
+        <p class="hg-card-desc" data-hg-desc lang="zh">{{ $defNode.description }}</p>
+        <ul class="hg-card-entries" data-hg-entries lang="zh">
+          {{ range first 4 $defReady }}
+          <li><a href="{{ .url }}">{{ .title }} <span class="home-arrow" aria-hidden="true">↗</span></a></li>
+          {{ end }}
+        </ul>
+        <div class="hg-card-neighbors" data-hg-neighbors></div>
+        <a class="hg-card-open" data-hg-open href="/zh/notebook/#topic-{{ $defNode.id }}">
+          <span>{{ if $zh }}在完整图谱中展开{{ else }}Explore in full graph{{ end }}</span>
+          <span class="home-arrow" aria-hidden="true">→</span>
+        </a>
+      </aside>
+      <script type="application/json" data-home-graph-data>{{ dict "default_node" $defId "nodes" $map.nodes "edges" $map.edges "entries" $map.entries | jsonify | safeJS }}</script>
+    </div>
+  </div>
+
+  <div class="home-tab-panel" role="tabpanel" id="home-nb-panel-recent" data-home-panel="recent" aria-labelledby="home-nb-tab-recent" hidden>
+    <ol class="home-nb-grid">
+      {{ range $recent }}
+      <li class="home-nb-card" data-article="{{ .id }}">
+        <a href="{{ .url }}">
+          <div class="home-nb-card-top">
+            <span class="home-nb-num">{{ printf "%02d" (int .number) }}</span>
+            {{ if $zh }}{{ with .reading_profile }}<span class="home-nb-tag">{{ .difficulty }} · {{ .depth }}</span>{{ end }}{{ else }}<span class="home-nb-tag">{{ .id }}</span>{{ end }}
+            <span class="home-nb-card-right">
+              <span class="nb-card-read" hidden>{{ if $zh }}已读{{ else }}Read{{ end }}</span>
+              <span class="home-arrow" aria-hidden="true">↗</span>
+            </span>
+          </div>
+          <strong class="home-nb-title" lang="zh">{{ .title }}</strong>
+          {{ with .note }}<p class="home-nb-note" lang="zh">{{ . }}</p>{{ end }}
+        </a>
       </li>
       {{ end }}
     </ol>
   </div>
+
+  <div class="home-tab-panel" role="tabpanel" id="home-nb-panel-start" data-home-panel="start" aria-labelledby="home-nb-tab-start" hidden>
+    <ol class="home-nb-grid">
+      {{ range $starter }}
+      <li class="home-nb-card" data-article="{{ .id }}">
+        <a href="{{ .url }}">
+          <div class="home-nb-card-top">
+            <span class="home-nb-num">{{ printf "%02d" (int .number) }}</span>
+            {{ if $zh }}{{ with .reading_profile }}<span class="home-nb-tag">{{ .difficulty }} · {{ .depth }}</span>{{ end }}{{ else }}<span class="home-nb-tag">{{ .id }}</span>{{ end }}
+            <span class="home-nb-card-right">
+              <span class="nb-card-read" hidden>{{ if $zh }}已读{{ else }}Read{{ end }}</span>
+              <span class="home-arrow" aria-hidden="true">↗</span>
+            </span>
+          </div>
+          <strong class="home-nb-title" lang="zh">{{ .title }}</strong>
+          {{ with .note }}<p class="home-nb-note" lang="zh">{{ . }}</p>{{ end }}
+        </a>
+      </li>
+      {{ end }}
+    </ol>
+  </div>
+
+  <footer class="home-sec-foot">
+    <p class="home-foot-note">
+      {{ if $zh }}另含 {{ $optCount }} 个按需专题（已完成 {{ $optReady }} 篇），供工具、合约与专项查用{{ else }}Plus {{ $optCount }} optional topic modules ({{ $optReady }} published){{ end }}
+    </p>
+    <nav class="home-sec-nav" aria-label="{{ if $zh }}投资学笔记入口{{ else }}Investment notebook links{{ end }}">
+      <a class="home-sec-link is-strong" href="/zh/notebook/">{{ if $zh }}全部目录{{ else }}All entries{{ end }}<span class="home-arrow" aria-hidden="true">→</span></a>
+      <a class="home-sec-link" href="/zh/notebook/#nb-graph">{{ if $zh }}知识图谱{{ else }}Topic graph{{ end }}</a>
+      <a class="home-sec-link" href="/zh/notebook/reading-route/">{{ if $zh }}顺序路线{{ else }}Reading route{{ end }}</a>
+    </nav>
+  </footer>
 </section>
 {{ end }}

@@ -42,7 +42,7 @@
 .notebook-app #search-dialog .search-input-wrap:focus-within{border-color:var(--accent);box-shadow:0 0 0 3px #28594b0d}
 .notebook-app #search-dialog #search-query{display:block;width:100%;min-width:0;height:50px;padding:0;border:0;border-radius:0;outline:none;box-shadow:none;background:transparent;color:var(--ink);font:inherit;font-size:15px}
 .notebook-app #search-dialog #search-query::placeholder{color:var(--muted-2);opacity:1}
-.notebook-app #search-dialog #search-lang{max-width:125px;margin:0;padding:0 12px;border:1px solid var(--rule);border-radius:6px;background:var(--paper-deep);color:var(--ink-soft);font:inherit;font-size:12px;cursor:pointer}
+.notebook-app #search-dialog #search-lang{flex:none;height:52px;min-width:86px;max-width:128px;margin:0;padding:0 12px;border:1px solid var(--rule);border-radius:6px;background:var(--paper-deep);color:var(--ink-soft);font:inherit;font-size:12px;line-height:50px;cursor:pointer}
 .notebook-app #search-dialog .search-filter-row{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px;margin:18px 28px 12px}
 .notebook-app #search-dialog .search-type-filters{display:flex;align-items:center;gap:4px}
 .notebook-app #search-dialog .search-type-filters button{border:0;border-radius:4px;background:transparent;color:var(--muted);font:inherit;font-size:12px;line-height:1.4;padding:8px 10px;cursor:pointer}
@@ -81,40 +81,127 @@
 .notebook-app #teach-dialog #copy-teaching{display:inline-flex;align-items:center;justify-content:center;gap:25px;flex:none;margin-left:auto;padding:11px 18px;border:1px solid var(--accent);border-radius:5px;background:var(--accent);color:#fff;font:inherit;font-size:13px;cursor:pointer}
 .notebook-app #teach-dialog #copy-teaching:hover{background:var(--accent-deep);border-color:var(--accent-deep)}
 
-/* A pinned reference is a reading pane on desktop and a modal sheet on mobile. */
-.notebook-app #reference-backdrop{position:fixed;inset:0;background:#17261f52;backdrop-filter:blur(3px);z-index:80}
+/* Anchored desktop citation popover + touch-friendly mobile bottom sheet. */
+.notebook-app #reference-backdrop{position:fixed;inset:0;background:#17261f47;backdrop-filter:blur(3px);z-index:80}
 .notebook-app #reference-backdrop[hidden]{display:none}
-.notebook-app #reference-panel{position:fixed;display:flex;flex-direction:column;inset:88px 22px auto auto;width:min(460px,calc(100vw - 44px));max-width:none;max-height:calc(100dvh - 110px);padding:0;overflow:hidden;border:1px solid #d4dacf;border-radius:10px;background:var(--paper);color:var(--ink);box-shadow:0 14px 70px #142b2021,0 2px 10px #142b2012;z-index:81}
+.notebook-app #reference-panel{
+  position:fixed;
+  display:flex;
+  flex-direction:column;
+  inset:88px 22px auto auto;
+  width:min(460px,calc(100vw - 32px));
+  max-width:none;
+  max-height:min(540px,calc(100dvh - 110px));
+  padding:0;
+  overflow:hidden;
+  border:1px solid var(--rule-strong,#c4cac6);
+  border-radius:10px;
+  background:var(--surface,#fff);
+  color:var(--ink);
+  box-shadow:0 18px 48px rgba(17,28,23,.16),0 2px 8px rgba(17,28,23,.08);
+  z-index:81;
+  transform-origin:top center;
+  animation:refPopoverIn .16s cubic-bezier(.22,1,.36,1);
+}
+.notebook-app #reference-panel[data-placement="above"]{transform-origin:bottom center}
+.notebook-app #reference-panel.is-anchored{inset:auto}
+.notebook-app #reference-panel.is-pinned{border-color:var(--accent-line,#8fb3a7);box-shadow:0 22px 60px rgba(17,28,23,.2),0 3px 10px rgba(20,83,67,.1)}
 .notebook-app #reference-panel[hidden]{display:none}
-.notebook-app #reference-panel .dialog-top{padding:12px 18px 12px 24px;border-bottom:1px solid var(--rule);background:var(--paper-deep)}
-.notebook-app #reference-panel .reference-controls{display:flex;align-items:center;gap:10px}
-.notebook-app #reference-panel #reference-back{display:inline-flex;align-items:center;gap:6px;padding:5px 7px;border:0;border-radius:3px;background:transparent;font:inherit;font-size:11px;color:var(--accent);cursor:pointer}
+.notebook-app .reference-sheet-handle{display:none}
+.notebook-app #reference-panel .dialog-top{padding:10px 14px 10px 18px;border-bottom:1px solid var(--rule);background:var(--surface-subtle,var(--paper-deep))}
+.notebook-app #reference-panel .dialog-kicker{color:var(--accent);font-family:var(--mono,ui-monospace,monospace);font-size:10px;letter-spacing:.09em}
+.notebook-app #reference-panel .reference-controls{display:flex;align-items:center;gap:6px}
+.notebook-app #reference-panel .reference-pin-badge{display:inline-flex;align-items:center;padding:2px 7px;border-radius:999px;background:var(--accent-soft);color:var(--accent);font-size:10px;font-weight:600;letter-spacing:.02em}
+.notebook-app #reference-panel .reference-pin-badge[hidden]{display:none}
+.notebook-app #reference-panel #reference-back{display:inline-flex;align-items:center;gap:5px;padding:5px 7px;border:0;border-radius:4px;background:transparent;font:inherit;font-size:11px;color:var(--accent);cursor:pointer}
 .notebook-app #reference-panel #reference-back:hover{background:var(--accent-soft)}
 .notebook-app #reference-panel #reference-back:disabled{visibility:hidden;pointer-events:none}
-.notebook-app #reference-content{padding:25px 26px 22px;overflow:auto;overscroll-behavior:contain;scrollbar-gutter:stable;min-height:0}
-.notebook-app #reference-panel .reference-heading{margin-bottom:20px;padding:0 0 18px;border-bottom:1px solid var(--rule)}
-.notebook-app #reference-panel .reference-label{display:flex;flex-wrap:wrap;align-items:center;gap:12px;margin:0;color:var(--accent);font-size:10px;font-weight:550;line-height:1.5;letter-spacing:.09em;text-transform:uppercase}
-.notebook-app #reference-panel .reference-label span{font-weight:400;color:var(--muted);letter-spacing:0}
-.notebook-app #reference-panel h2{font-family:var(--serif);font-size:25px;font-weight:500;line-height:1.55;letter-spacing:-.025em;margin:10px 0 14px;color:var(--ink)}
+.notebook-app #reference-panel .dialog-close{width:30px;height:30px;min-width:30px;min-height:30px}
+.notebook-app #reference-panel .dialog-close svg{width:16px;height:16px}
+.notebook-app #reference-content{padding:18px 20px 18px;overflow:auto;overscroll-behavior:contain;scrollbar-gutter:stable;min-height:0}
+.notebook-app #reference-panel .reference-heading{margin-bottom:14px;padding:0 0 12px;border-bottom:1px solid var(--rule)}
+.notebook-app #reference-panel .reference-label{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:0;color:var(--accent);font-family:var(--mono,ui-monospace,monospace);font-size:10px;font-weight:600;line-height:1.5;letter-spacing:.07em;text-transform:uppercase}
+.notebook-app #reference-panel .reference-label span{font-weight:400;color:var(--muted);letter-spacing:0;text-transform:none;font-family:var(--sans)}
+.notebook-app #reference-panel h2{font-family:var(--serif);font-size:19px;font-weight:600;line-height:1.45;letter-spacing:-.015em;margin:6px 0 6px;color:var(--ink)}
 .notebook-app #reference-panel h2:focus-visible{outline:none}
-.notebook-app #reference-panel .reference-meta{font-size:11px;line-height:1.75;margin:5px 0;color:var(--muted)}
+.notebook-app #reference-panel .reference-meta{font-size:11px;line-height:1.65;margin:4px 0 0;color:var(--muted)}
+.notebook-app #reference-panel .reference-breadcrumb{display:flex;flex-wrap:wrap;align-items:center;gap:5px;font-size:11px;line-height:1.5;color:var(--muted);margin:0 0 4px}
+.notebook-app #reference-panel .reference-breadcrumb strong{color:var(--ink-soft);font-weight:600}
 .notebook-app #reference-panel .reference-location{color:var(--muted)}
-.notebook-app #reference-panel .prose{font-size:14px;line-height:1.95;color:var(--ink-soft);overflow-wrap:anywhere}
+.notebook-app #reference-panel .prose{font-size:13.5px;line-height:1.85;color:var(--ink-soft);overflow-wrap:anywhere}
 .notebook-app #reference-panel .prose>p:first-child{margin-top:0}
 .notebook-app #reference-panel .prose>p:last-child{margin-bottom:0}
-.notebook-app #reference-panel .prose h2{font-size:21px;margin-top:26px}
-.notebook-app #reference-panel .prose h3{font-size:17px;margin-top:22px;line-height:1.5}
+.notebook-app #reference-panel .prose h2{font-size:17px;margin:0 0 10px;padding:0;border:0}
+.notebook-app #reference-panel .prose h3{font-size:15px;margin:0 0 8px;line-height:1.5}
+.notebook-app #reference-panel .prose h4{font-size:14px;margin:0 0 6px;line-height:1.5}
 .notebook-app #reference-panel .prose a{color:var(--accent);text-decoration-thickness:1px;text-underline-offset:3px}
-.notebook-app #reference-panel .reference-locators{margin-top:20px;border-top:1px solid var(--rule);padding-top:12px;font-size:12px;line-height:1.8;color:var(--muted)}
+.notebook-app #reference-panel .prose figure,
+.notebook-app #reference-panel .prose .flow-figure,
+.notebook-app #reference-panel .prose .interactive-figure{margin:0;padding:12px;border:1px solid var(--rule);border-radius:6px;background:var(--paper,#fafafa)}
+.notebook-app #reference-panel .prose figure svg,
+.notebook-app #reference-panel .prose .flow-figure svg,
+.notebook-app #reference-panel .prose img{max-width:100%;height:auto;display:block}
+.notebook-app #reference-panel .prose figcaption{font-size:11.5px;line-height:1.6;color:var(--muted);margin-top:8px}
+.notebook-app #reference-panel .pinpoint-excerpt{position:relative;padding:12px 14px;border:1px solid var(--rule);border-left:3px solid var(--accent);border-radius:0 6px 6px 0;background:var(--accent-wash,#f3f7f5)}
+.notebook-app #reference-panel .pinpoint-excerpt.is-figure{padding:0;border:0;background:transparent}
+.notebook-app #reference-panel .pinpoint-excerpt.is-clipped::after{content:"";position:absolute;inset-inline:0;inset-block-end:0;height:36px;background:linear-gradient(to bottom,transparent,var(--accent-wash,#f3f7f5));pointer-events:none;border-radius:0 0 6px 0}
+.notebook-app #reference-panel .pinpoint-highlight{padding:1px 4px;border-radius:3px;background:#d6ebe2;color:var(--ink);font-weight:500}
+.notebook-app #reference-panel .pinpoint-loading{display:flex;align-items:center;gap:10px;padding:18px 4px;font-size:12.5px;color:var(--muted)}
+.notebook-app #reference-panel .pinpoint-loading::before{content:"";width:14px;height:14px;border:2px solid var(--rule-strong);border-top-color:var(--accent);border-radius:50%;animation:refSpin .7s linear infinite}
+.notebook-app #reference-panel .pinpoint-topic-list{list-style:none;margin:10px 0 0;padding:0;display:flex;flex-direction:column;gap:6px}
+.notebook-app #reference-panel .pinpoint-topic-list li{font-size:12.5px;line-height:1.55;display:flex;align-items:baseline;justify-content:space-between;gap:10px;padding-top:6px;border-top:1px solid var(--rule)}
+.notebook-app #reference-panel .pinpoint-topic-list span{color:var(--muted)}
+.notebook-app #reference-panel .reference-locators{margin-top:14px;border-top:1px solid var(--rule);padding-top:10px;font-size:12px;line-height:1.75;color:var(--muted)}
 .notebook-app #reference-panel .reference-locators summary{padding:4px 0;color:var(--accent);cursor:pointer}
-.notebook-app #reference-panel .reference-locators ul{padding-left:20px;margin:12px 0}
-.notebook-app #reference-panel .reference-open{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:17px 0 0;margin:22px 0 0;border-top:1px solid var(--rule);font-size:12px;line-height:1.6;color:var(--accent)!important;text-decoration:none}
-.notebook-app #reference-panel .reference-open:hover{color:var(--accent-deep)!important;text-decoration:underline;text-underline-offset:4px}
-.notebook-app #reference-panel .reference-open svg{width:16px;height:16px}
+.notebook-app #reference-panel .reference-locators ul{padding-left:18px;margin:8px 0}
+.notebook-app #reference-panel .reference-footer{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 0 0;margin:16px 0 0;border-top:1px solid var(--rule)}
+.notebook-app #reference-panel .reference-hint{font-size:11px;color:var(--muted-2,#7a837e)}
+.notebook-app #reference-panel .reference-open{display:inline-flex;align-items:center;justify-content:space-between;gap:8px;padding:6px 11px;margin:0;border:1px solid var(--accent-line,#8fb3a7);border-radius:5px;background:var(--accent-soft,#eaf2ef);font-size:12px;font-weight:550;line-height:1.4;color:var(--accent)!important;text-decoration:none;transition:background-color .14s ease,border-color .14s ease,color .14s ease}
+.notebook-app #reference-panel .reference-open:hover{background:var(--accent);border-color:var(--accent);color:#fff!important;text-decoration:none}
+.notebook-app #reference-panel .reference-open svg{width:14px;height:14px}
+.notebook-app #reference-panel .reference-content-single>.reference-open,
+.notebook-app #reference-content>.reference-open{display:flex;width:100%;padding:10px 12px;margin:16px 0 0}
 .notebook-app #reference-panel:has(.notation-reference){width:min(660px,calc(100vw - 44px))}
 .notebook-app #reference-panel .notation-reference{font-size:13px}
-.notebook-app #reference-panel .notebook-table-scroll{margin:15px 0;max-width:100%;overflow:auto}
+.notebook-app #reference-panel .notebook-table-scroll{margin:12px 0;max-width:100%;overflow:auto}
 .notebook-app #reference-panel .prose table{font-size:12px}
+
+/* Subtle pinpoint citation link cue + landing highlight pulse */
+.notebook-app .entry-body a.is-pinpoint-ref{
+  text-decoration-style:dotted;
+  text-decoration-color:var(--accent);
+  text-decoration-thickness:1.5px;
+  text-underline-offset:4px;
+}
+.notebook-app .entry-body a.is-pinpoint-ref::after{
+  content:"§";
+  display:inline-block;
+  margin-inline-start:2px;
+  font-family:var(--mono,ui-monospace,monospace);
+  font-size:.72em;
+  vertical-align:super;
+  line-height:0;
+  color:var(--accent);
+  opacity:.72;
+}
+.notebook-app .entry-body a.is-pinpoint-ref:hover::after{opacity:1}
+.notebook-app .entry-body [id]{scroll-margin-top:5.5rem}
+.notebook-app .pinpoint-landed{
+  border-radius:4px;
+  animation:pinpointFlash 2.6s cubic-bezier(.22,1,.36,1) both;
+}
+@keyframes refPopoverIn{
+  from{opacity:0;transform:translateY(4px) scale(.985)}
+  to{opacity:1;transform:translateY(0) scale(1)}
+}
+@keyframes refSpin{
+  to{transform:rotate(360deg)}
+}
+@keyframes pinpointFlash{
+  0%{background-color:#d4ebe1;box-shadow:0 0 0 6px #d4ebe1}
+  55%{background-color:#eaf4ef;box-shadow:0 0 0 6px #eaf4ef}
+  100%{background-color:transparent;box-shadow:0 0 0 0 transparent}
+}
 
 @media(max-width:760px){
   .notebook-app .reader-dialog{inset:auto 0 0;width:100%;max-height:92dvh;border-radius:16px 16px 0 0;border-bottom:0;box-shadow:0 -12px 70px #142b2029}
@@ -126,7 +213,7 @@
   .notebook-app #search-dialog .search-input-wrap{min-height:48px;padding:0 12px;gap:9px}
   .notebook-app #search-dialog #search-query{height:48px;font-size:16px}
   .notebook-app #search-dialog .search-input-wrap svg{width:18px;height:18px}
-  .notebook-app #search-dialog #search-lang{max-width:102px;padding:0 8px;font-size:11px}
+  .notebook-app #search-dialog #search-lang{height:48px;min-width:78px;max-width:106px;padding:0 8px;font-size:11px;line-height:46px}
   .notebook-app #search-dialog .search-filter-row{margin:15px 20px 8px;gap:7px}
   .notebook-app #search-dialog .search-type-filters button{font-size:11px;padding:9px 9px}
   .notebook-app #search-dialog #search-status{font-size:10px}
@@ -145,15 +232,38 @@
   .notebook-app #teach-dialog #copy-status:empty{display:none}
   .notebook-app #teach-dialog #copy-teaching{width:100%;padding:13px 18px}
   .notebook-app #reference-panel,
-  .notebook-app #reference-panel:has(.notation-reference){inset:auto 0 0;width:100%;max-width:100%;max-height:85dvh;border-radius:16px 16px 0 0;border-bottom:0;box-shadow:0 -12px 70px #142b2029}
-  .notebook-app #reference-panel .dialog-top{padding:13px 14px 13px 21px}
-  .notebook-app #reference-content{padding:23px 22px calc(25px + env(safe-area-inset-bottom))}
-  .notebook-app #reference-panel h2{font-size:23px}
-  .notebook-app #reference-panel .prose{font-size:15px}
+  .notebook-app #reference-panel.is-anchored,
+  .notebook-app #reference-panel:has(.notation-reference){
+    inset:auto 0 0 0!important;
+    left:0!important;
+    top:auto!important;
+    width:100%!important;
+    max-width:100%!important;
+    max-height:82dvh!important;
+    border-radius:16px 16px 0 0;
+    border-left:0;
+    border-right:0;
+    border-bottom:0;
+    box-shadow:0 -12px 60px rgba(20,43,32,.22);
+    animation:refSheetUp .2s cubic-bezier(.22,1,.36,1);
+  }
+  .notebook-app .reference-sheet-handle{display:flex;justify-content:center;padding:8px 0 2px;background:var(--surface-subtle,var(--paper-deep))}
+  .notebook-app .reference-sheet-handle span{width:36px;height:4px;border-radius:999px;background:var(--rule-strong)}
+  .notebook-app #reference-panel .dialog-top{padding:8px 14px 10px 18px}
+  .notebook-app #reference-panel .reference-hint{display:none}
+  .notebook-app #reference-content{padding:18px 20px calc(22px + env(safe-area-inset-bottom))}
+  .notebook-app #reference-panel h2{font-size:20px}
+  .notebook-app #reference-panel .prose{font-size:14.5px}
   .notebook-app #reference-panel .notation-reference{font-size:13px}
 }
+@keyframes refSheetUp{
+  from{opacity:0;transform:translateY(22px)}
+  to{opacity:1;transform:translateY(0)}
+}
 @media(prefers-reduced-motion:reduce){
-  .notebook-app #search-results>a.search-result{transition:none}
+  .notebook-app #search-results>a.search-result,
+  .notebook-app #reference-panel,
+  .notebook-app .pinpoint-landed{transition:none;animation:none}
 }
 @media print{
   .notebook-app #reference-backdrop,.notebook-app #reference-panel,.notebook-app .reader-dialog{display:none!important}
