@@ -83,7 +83,7 @@ This is reference material for the learner's current request. Use the supplied e
 
 同样卖芯片、同样背着千亿美元级晶圆厂，两家半导体龙头在 2025 财年却交出了截然相反的利润表：**Taiwan Semiconductor Manufacturing Company**（TSM）营收增长 31.6%，营业利润跃升 46.4%[^tsmc-20f]；同期 **Intel Corporation**（INTC）设计部门赚走 127.4 亿美元，自建晶圆代工部门却因产能填不满巨亏 103.2 亿美元，拖累全公司合并营业利润转负[^intc-fy25]。
 
-反差背后运转的是同一套成本力学。前文谈过[《客户、产品与收费方式》](/zh/notebook/customers-products-pricing/)、[《收入增长与市场预期》](/zh/notebook/revenue-growth-expectations/)与三张财报的勾稽，这一篇往企业内部再走一步：从采购、生产与履约开始，看同样 100 美元收入变动，怎样在不同成本结构下折出完全不同的利润振幅。
+反差背后运转的是同一套成本力学。前五篇走通了[《客户、产品与收费方式》](/zh/notebook/customers-products-pricing/)、[《收入增长与市场预期》](/zh/notebook/revenue-growth-expectations/)以及[《三张财报与经营活动》](/zh/notebook/three-financial-statements/)至[《利润、资本开支与现金》](/zh/notebook/profit-capex-cash/#nb-e03-capex-split)的现金底座，这一篇带着折旧与成本视角回到企业内部：从采购、生产与履约开始，看同样 100 美元收入变动，怎样在不同成本结构下折出完全不同的利润振幅。
 
 ## 从营业收入到营业利润：成本怎样分流 {#nb-d03-cost-split}
 
@@ -394,7 +394,7 @@ COST 走了另一条路。它主动把商品加价压到极薄，采购与门店
 
 <span data-text-versions id="nb-d03-text-cogs">财报极少直接标注变动与固定成本，利润表只列**营业成本**（COGS）与**营业费用**（OpEx），把两者简单一一对应极易看偏。晶圆厂设备折旧、航空租赁与酒店租金记在营业成本里，实质是高度刚性的固定成本；软件与消费品按销售额抽成的渠道佣金记在销售费用里，实质随收入高度联动<span data-text-detail>（折旧与摊销在营业成本和研发费用之间的具体分摊，通常可以在 Form 10-K 或 Form 20-F 的不动产厂房附注与现金流量表补充资料中查到）</span>。<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>
 
-报表没有拆解时，可以用连续几个景气波动季度的**增量营业利润率**反推成本池：营收加速时显著高于历史均值、放缓时骤降，说明固定成本占比沉重；常年紧贴历史均值，则多由变动成本主导。再配合核对资本开支与在建工程，就能分清利润率回落到底来自新产能刚落地的阶梯费用，还是竞争加剧与上游成本无法转嫁，把成本分析自然接进下一篇竞争壁垒与产业周期。
+报表没有拆解时，可以用连续几个景气波动季度的**增量营业利润率**反推成本池：营收加速时显著高于历史均值、放缓时骤降，说明固定成本占比沉重；常年紧贴历史均值，则多由变动成本主导。再配合核对资本开支与在建工程，就能分清利润率回落到底来自新产能刚落地的阶梯费用，还是竞争加剧与上游成本无法转嫁，把成本分析自然接进下一篇《竞争、定价权与替代》。
 
 [^tsmc-20f]: Taiwan Semiconductor Manufacturing Company，[FY2025 Form 20-F](https://www.sec.gov/Archives/edgar/data/1046179/000162828026025362/tsm-20251231.htm)，2026-04-16 提交，Item 5 Results of Operations（FY2023–FY2025 营收、晶圆出货量、毛利率、营业费用率与营业利润）。
 [^intc-fy25]: Intel Corporation，[Q4 & Full-Year 2025 业绩公告（Form 8-K EX-99.1）](https://www.sec.gov/Archives/edgar/data/50863/000005086326000009/q425earningsrelease.htm)，2026-01-22 提交，FY2024–FY2025 合并利润表、Intel Products 与 Intel Foundry 分部损益及期末厂房设备净值。

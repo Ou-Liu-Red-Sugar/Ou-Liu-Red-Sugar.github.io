@@ -2,7 +2,7 @@
 
 从一则订单公告出发，看清业务、现金与每股所得、事件计价和 Agent 辅助研究，再回到资金安排与学习路线。
 
-Entry: zh-investment-returns | Node: NB-A01 | Language: zh | Editorial revision: 2026-11-26
+Entry: zh-investment-returns | Node: NB-A01 | Language: zh | Editorial revision: 2026-11-27
 
 ## Reference use
 This is reference material for the learner's current request. Use the supplied entry to teach the selected concept. Retrieve the relevant original unit when explaining a claim that depends on its assumptions, figures or rules; the reading list is a map for that work, not a prerequisite to the first lesson. Keep facts, supplied examples and inference distinct. Editorial access dates describe the author's work. The empty runtime_reading_log is an optional record field, not a requested response. Author-supplied scope notes below constrain factual use of the material; the learner's request determines the teaching task and first response.
@@ -808,15 +808,15 @@ GEV 的设备需求最终来自客户的建设计划。一般而言，电厂采�
 顺着 GEV 的例子往外推，整套笔记的顺序也就清楚了：看懂订单，要了解客户为什么采购、企业怎样满足这些需要；分清收入、利润和现金，要学习它们怎样进入财务报表；判断当前股价值不值得买，还要学会比较可能的回报与损失。整套笔记按下面的主线展开：
 
 <figure class="flow-figure research-loop route-strip" id="nb-a01-route">
-<div class="ff-head"><p class="ff-title">这套笔记的主线</p><span class="ff-sub">共 77 篇，主线 43 篇</span></div>
+<div class="ff-head"><p class="ff-title">这套笔记的主线</p><span class="ff-sub">共 71 篇，主线 37 篇</span></div>
 <ol class="rl-steps">
 <li class="rs-here"><span class="rl-who rl-who-agent">10 篇</span><strong>认识股票、市场与组合</strong><small>本篇所在的起点</small></li>
-<li><span class="rl-who">15 篇</span><strong>理解企业与财务</strong><small>客户、收入、竞争、利润与投入</small></li>
-<li><span class="rl-who">6 篇</span><strong>形成证据与投资判断</strong><small>概率、定价与 Risk-Reward</small></li>
-<li><span class="rl-who">9 篇</span><strong>Agent 研究、判断与持续培养</strong><small>读材料、校准业务、前向记录</small></li>
-<li><span class="rl-who">3 篇</span><strong>Agent 资本取舍与持续配置</strong><small>研究整合与持续配置</small></li>
+<li><span class="rl-who">15 篇</span><strong>生意与财报双螺旋</strong><small>收入现金、产业壁垒与资本配置</small></li>
+<li><span class="rl-who">6 篇</span><strong>路径、估值与投资判断</strong><small>价格不进权重、折现估值与反证</small></li>
+<li><span class="rl-who">3 篇</span><strong>回到组合与资本取舍</strong><small>共同暴露、仓位替换与再平衡</small></li>
+<li><span class="rl-who">3 篇</span><strong>Agent 研究实验模块</strong><small>判断与记账分工、前向迭代</small></li>
 </ol>
-<p class="rs-optional"><strong>按需专题 34 篇</strong><span>金融条件与替代资产</span><span>基金跟踪与业绩比较</span><span>趋势规则与量化检验</span><span>保证金、对冲与股票合约</span><span>实物资产与期货</span><span>期权价格与策略</span><span>多资产组合与对冲范式</span><span>永续机制与持有结果</span><span>预测市场与经营判断</span></p>
+<p class="rs-optional"><strong>按需专题 34 篇</strong><span>机构组合与对冲范式</span><span>金融条件与替代资产</span><span>基金跟踪与业绩比较</span><span>趋势规则与量化检验</span><span>保证金、对冲与股票合约</span><span>实物资产与期货</span><span>期权价格与策略</span><span>永续机制与持有结果</span><span>预测市场与经营判断</span></p>
 <figcaption>主线按顺序读；按需专题在实际用到时再读。完整篇目见<a href="/zh/notebook/reading-route/">阅读路线</a>。</figcaption>
 </figure>
 

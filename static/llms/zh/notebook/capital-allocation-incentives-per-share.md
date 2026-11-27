@@ -148,7 +148,7 @@ ROE / ROIC / ROIIC 与五年资本配置推演器
 
 **杠杆恒等式：ROE ＝ ROIC ＋（债务 ÷ 权益）×（ROIC − 税后债务利率）。把预设切到“③ 借债拉高 ROE 但 ROIC 平庸型”后，试着拖动“财务杠杆”与“利润再投资率”，可以直观看到加杠杆只抬高 ROE、不增加一分经营现金流，而把低回报再投资率降到 0% 反而止住价值毁灭。**
 
-到这里，从三表勾稽、营运资本、盈利质量到 ROE、ROIC、ROIIC 与资本配置，财务分析这条底盘已经合拢。历史报表记录了过去每一美元资本换来的每股现金流；把这份体检转化为面向未来的竞争解释、条件估值与赔率取舍，接下来将在[《信息、预期与判断更新》](https://ou-liu-red-sugar.github.io/zh/notebook/#topic-A)与[《经营情景、条件定价与 Risk-Reward》](https://ou-liu-red-sugar.github.io/zh/notebook/#topic-F)继续展开。
+到这里，从三表勾稽、营运资本、盈利质量到 ROE、ROIC、ROIIC 与资本配置，财务分析这条底盘已经合拢。历史报表记录了过去每一美元资本换来的每股现金流；把这份体检转化为面向未来的竞争解释、条件估值与赔率取舍，接下来将在第五卷[《事实、判断与“价格不进权重”》](https://ou-liu-red-sugar.github.io/zh/notebook/#topic-A)与[《业务路径、估值与投资判断》](https://ou-liu-red-sugar.github.io/zh/notebook/#topic-F)继续展开。
 
 [^mauboussin-roic]: Michael J. Mauboussin & Dan Callahan，[Return on Invested Capital: How to Calculate ROIC and Handle Common Issues](https://www.morganstanley.com/content/dam/im/assets/publication/thought-leadership/consilient-observer/article_returnoninvestedcapital.pdf)，Morgan Stanley Counterpoint Global Insights，2022-10-06。
 [^mauboussin-capalloc]: Michael J. Mauboussin & Dan Callahan，[Capital Allocation: Results, Analysis, and Assessment](https://www.morganstanley.com/content/dam/im/assets/publication/thought-leadership/consilient-observer/article_capitalallocation.pdf)，Morgan Stanley Counterpoint Global Insights，2025-11-05。

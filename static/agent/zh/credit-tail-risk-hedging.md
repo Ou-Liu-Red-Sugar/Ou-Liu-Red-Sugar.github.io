@@ -2,7 +2,7 @@
 
 用 2008 信用冻结、2020 疫情闪崩与 2022 利率慢熊三段实测看清信用利差与恐慌波动率怎样同时冲击股债；拆解 CDS 违约赔付与深度虚值期权尾部对冲的凸性逻辑、常态保费损耗及个人账户的现实替代。
 
-Entry: zh-credit-tail-risk-hedging | Node: NB-P05 | Language: zh | Editorial revision: 2026-11-26
+Entry: zh-credit-tail-risk-hedging | Node: NB-P05 | Language: zh | Editorial revision: 2026-11-27
 
 ## Reference use
 This is reference material for the learner's current request. Use the supplied entry to teach the selected concept. Retrieve the relevant original unit when explaining a claim that depends on its assumptions, figures or rules; the reading list is a map for that work, not a prerequisite to the first lesson. Keep facts, supplied examples and inference distinct. Editorial access dates describe the author's work. The empty runtime_reading_log is an optional record field, not a requested response. Author-supplied scope notes below constrain factual use of the material; the learner's request determines the teaching task and first response.
@@ -246,7 +246,7 @@ This is reference material for the learner's current request. Use the supplied e
 
 对绝大多数个人投资者而言，理解信用与尾部对冲最实用的收获有三点：第一，把**信用利差**（高收益债相对国债的溢价）当成观察市场融资冷暖的晴雨表，避免在利差极窄、全市场忽视违约风险时去追逐高杠杆垃圾债或债台高筑的脆弱公司；第二，不把“常年花高价买深度虚值 Put”当成万能护身符，明白它只擅长极速恐慌闪崩、在慢牛和慢熊里都会持续扣血；第三，在日常组合里用**低杠杆结构、避开高信用风险标的以及保留超短美债现金**承担主要防御，把 HYG 或股指看跌期权留给真正有明确边界和预算的阶段性防护。[^hyg]<sup>，</sup>[^bil]
 
-从仓位与跨资产制衡，到股票多空、全球宏观、风险平价与信用尾部对冲，账户层面的风险棋盘已经排齐；无论结构如何搭配，最终承担长期复利引擎的仍是企业本身。下一篇[《客户、产品与收费方式》](/zh/notebook/customers-products-pricing/)正式转入企业经营研究，先看清一门生意究竟卖给谁、交付什么，又怎样把钱收回来。
+到这里，机构组合与对冲范式四篇专题（股票多空、全球宏观、风险平价与信用尾部对冲）已经完整收束。回到基本面主线可接读[《客户、产品与收费方式》](/zh/notebook/customers-products-pricing/)进入企业经营研究；需要把保证金、盯市与期权／期货实操落进账户时，可接读[《保证金、对冲与期间现金》](/zh/notebook/settlement-margin-cash/)。
 
 <script src="/notebook/credit-tail/ui.js?v=20261126" defer></script>
 

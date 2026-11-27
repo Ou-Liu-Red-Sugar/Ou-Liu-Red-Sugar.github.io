@@ -4,9 +4,9 @@
 
 网页 / HTML: [三张财报与经营活动](https://ou-liu-red-sugar.github.io/zh/notebook/three-financial-statements/)
 
-语言 / Language: zh · 更新 / Revised: 2026-11-26
+语言 / Language: zh · 更新 / Revised: 2026-11-27
 
-[《Agent 时代的基本面投资》](https://ou-liu-red-sugar.github.io/zh/notebook/investment-returns/)里的 GE Vernova（GEV）燃气轮机订单留下了一个会计问题：签单、交付确认收入、收到货款往往不在同一天；[《亏损、波动与持有能力》](https://ou-liu-red-sugar.github.io/zh/notebook/loss-volatility-holding-capacity/)里也提到，Microsoft（MSFT）在 2026 年 7 月 29 日公布的是 **FY26 Q4** 财报，为什么刚过七月就结束了“2026 财年”？
+前两篇[《客户、产品与收费方式》](https://ou-liu-red-sugar.github.io/zh/notebook/customers-products-pricing/)与[《收入增长与市场预期》](https://ou-liu-red-sugar.github.io/zh/notebook/revenue-growth-expectations/)把公司怎么收钱、收入怎样增长拆清了，下一个问题立刻落到账本上：像[《Agent 时代的基本面投资》](https://ou-liu-red-sugar.github.io/zh/notebook/investment-returns/)里的 GE Vernova（GEV）燃气轮机订单，签单、交付确认收入与收到货款往往不在同一天；[《亏损、波动与持有能力》](https://ou-liu-red-sugar.github.io/zh/notebook/loss-volatility-holding-capacity/)里提到的 Microsoft（MSFT）在 2026 年 7 月 29 日就发了 **FY26 Q4** 财报，为何刚过七月就结束了“2026 财年”？
 
 要读懂一家上市公司的全部财务数字，得把**利润表**（Income Statement）、**资产负债表**（Balance Sheet）和**现金流量表**（Cash Flow Statement）合在一起看。它们分别从权责成果、存量家底和现金流转三个机位，记录同一段经营活动。
 
@@ -92,7 +92,7 @@
 
 跨公司比较不同财年截止日的企业——比如拿 1 月末结账的 NVDA 对照 6 月末结账的 MSFT——不能直接把各自的“FY26”硬比，需要先将最近四个季度加总成同一窗口附近的 **TTM**（Trailing Twelve Months，滚动十二个月）。
 
-读财报时养成固定顺序——先核对报告期间与截止时点、再看利润表权责结果、对照现金流量表经营与投资净额、最后回到资产负债表检验现金、应收、存货、固定资产与债务的存量变化——三张报表就能拼出企业完整的资金循环。
+读财报时养成固定顺序——先核对报告期间与截止时点、再看利润表权责结果、对照现金流量表经营与投资净额、最后回到资产负债表检验现金、应收、存货、固定资产与债务的存量变化——三张报表就能拼出企业完整的资金循环。下一篇[《收入、回款与营运资本》](https://ou-liu-red-sugar.github.io/zh/notebook/revenue-collections-working-capital/)紧接着拆解应收、存货与应付怎样在短期内吞吐现金。
 
 [^sec-guide]: U.S. Securities and Exchange Commission，[Beginners’ Guide to Financial Statements](https://www.sec.gov/about/reports-publications/beginners-guide-financial-statements)，三张主表与股东权益变动表分工及会计恒等式说明，2026-11-26 查阅。
 [^msft-fy26]: Microsoft Corporation，[FY2026 Q4 及全财年业绩公告（EX-99.1，同日提交 FY2026 Form 10-K）](https://www.sec.gov/Archives/edgar/data/789019/000119312526323632/msft-ex99_1.htm)，2026-07-29，截至 2026-06-30 的利润表、资产负债表与现金流量表原件。

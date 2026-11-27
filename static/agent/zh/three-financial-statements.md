@@ -2,7 +2,7 @@
 
 区分时点快照与期间录像，借一家简化制造厂的六笔交易联动看懂利润表、资产负债表与现金流量表怎样同步改写；再以 Microsoft（MSFT）FY26 与 Coca-Cola（KO）FY25 真实财报拆解“利润不等于现金”的两种方向，并厘清财年、自然年与报告时滞。
 
-Entry: zh-three-financial-statements | Node: NB-E01 | Language: zh | Editorial revision: 2026-11-26
+Entry: zh-three-financial-statements | Node: NB-E01 | Language: zh | Editorial revision: 2026-11-27
 
 ## Reference use
 This is reference material for the learner's current request. Use the supplied entry to teach the selected concept. Retrieve the relevant original unit when explaining a claim that depends on its assumptions, figures or rules; the reading list is a map for that work, not a prerequisite to the first lesson. Keep facts, supplied examples and inference distinct. Editorial access dates describe the author's work. The empty runtime_reading_log is an optional record field, not a requested response. Author-supplied scope notes below constrain factual use of the material; the learner's request determines the teaching task and first response.
@@ -98,7 +98,7 @@ This is reference material for the learner's current request. Use the supplied e
 ## Supplied entry
 <link rel="stylesheet" href="/notebook/flow-figures.css?v=20261127b">
 
-[《Agent 时代的基本面投资》](/zh/notebook/investment-returns/)里的 GE Vernova（GEV）燃气轮机订单留下了一个会计问题：签单、交付确认收入、收到货款往往不在同一天；[《亏损、波动与持有能力》](/zh/notebook/loss-volatility-holding-capacity/)里也提到，Microsoft（MSFT）在 2026 年 7 月 29 日公布的是 **FY26 Q4** 财报，为什么刚过七月就结束了“2026 财年”？
+前两篇[《客户、产品与收费方式》](/zh/notebook/customers-products-pricing/)与[《收入增长与市场预期》](/zh/notebook/revenue-growth-expectations/)把公司怎么收钱、收入怎样增长拆清了，下一个问题立刻落到账本上：像[《Agent 时代的基本面投资》](/zh/notebook/investment-returns/)里的 GE Vernova（GEV）燃气轮机订单，签单、交付确认收入与收到货款往往不在同一天；[《亏损、波动与持有能力》](/zh/notebook/loss-volatility-holding-capacity/)里提到的 Microsoft（MSFT）在 2026 年 7 月 29 日就发了 **FY26 Q4** 财报，为何刚过七月就结束了“2026 财年”？
 
 要读懂一家上市公司的全部财务数字，得把**利润表**（Income Statement）、**资产负债表**（Balance Sheet）和**现金流量表**（Cash Flow Statement）合在一起看。它们分别从权责成果、存量家底和现金流转三个机位，记录同一段经营活动。
 
@@ -364,7 +364,7 @@ This is reference material for the learner's current request. Use the supplied e
 
 跨公司比较不同财年截止日的企业——比如拿 1 月末结账的 NVDA 对照 6 月末结账的 MSFT——不能直接把各自的“FY26”硬比，需要先将最近四个季度加总成同一窗口附近的 **TTM**（Trailing Twelve Months，滚动十二个月）。
 
-读财报时养成固定顺序——先核对报告期间与截止时点、再看利润表权责结果、对照现金流量表经营与投资净额、最后回到资产负债表检验现金、应收、存货、固定资产与债务的存量变化——三张报表就能拼出企业完整的资金循环。
+读财报时养成固定顺序——先核对报告期间与截止时点、再看利润表权责结果、对照现金流量表经营与投资净额、最后回到资产负债表检验现金、应收、存货、固定资产与债务的存量变化——三张报表就能拼出企业完整的资金循环。下一篇[《收入、回款与营运资本》](/zh/notebook/revenue-collections-working-capital/)紧接着拆解应收、存货与应付怎样在短期内吞吐现金。
 
 <script src="/notebook/three-statements/ui.js?v=20261127b" defer></script>
 

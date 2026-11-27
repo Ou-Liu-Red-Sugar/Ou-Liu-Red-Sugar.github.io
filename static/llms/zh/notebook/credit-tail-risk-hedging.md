@@ -4,7 +4,7 @@
 
 网页 / HTML: [信用与尾部风险对冲](https://ou-liu-red-sugar.github.io/zh/notebook/credit-tail-risk-hedging/)
 
-语言 / Language: zh · 更新 / Revised: 2026-11-26
+语言 / Language: zh · 更新 / Revised: 2026-11-27
 
 前几篇讨论的多资产分散、股票多空、全球宏观与风险平价，主要对付常规周期里的涨跌波动。可金融市场每隔十年左右总会出现一次流动性骤然干涸、企业借不到新钱、各类风险资产一起跳水的极端冲击。**信用与尾部风险对冲**（Credit & Tail-Risk Hedging）专门盯住分布最左端的罕见崩盘：平时愿意付出一笔有限且可预期的保费或息差，换取危机爆发时不成比例的**凸性赔付**（Convexity）。
 
@@ -85,7 +85,7 @@ CDS 赔付之所以严格依赖标准合同，是因为历史上曾出现过围�
 
 对绝大多数个人投资者而言，理解信用与尾部对冲最实用的收获有三点：第一，把**信用利差**（高收益债相对国债的溢价）当成观察市场融资冷暖的晴雨表，避免在利差极窄、全市场忽视违约风险时去追逐高杠杆垃圾债或债台高筑的脆弱公司；第二，不把“常年花高价买深度虚值 Put”当成万能护身符，明白它只擅长极速恐慌闪崩、在慢牛和慢熊里都会持续扣血；第三，在日常组合里用**低杠杆结构、避开高信用风险标的以及保留超短美债现金**承担主要防御，把 HYG 或股指看跌期权留给真正有明确边界和预算的阶段性防护。[^hyg]，[^bil]
 
-从仓位与跨资产制衡，到股票多空、全球宏观、风险平价与信用尾部对冲，账户层面的风险棋盘已经排齐；无论结构如何搭配，最终承担长期复利引擎的仍是企业本身。下一篇[《客户、产品与收费方式》](https://ou-liu-red-sugar.github.io/zh/notebook/customers-products-pricing/)正式转入企业经营研究，先看清一门生意究竟卖给谁、交付什么，又怎样把钱收回来。
+到这里，机构组合与对冲范式四篇专题（股票多空、全球宏观、风险平价与信用尾部对冲）已经完整收束。回到基本面主线可接读[《客户、产品与收费方式》](https://ou-liu-red-sugar.github.io/zh/notebook/customers-products-pricing/)进入企业经营研究；需要把保证金、盯市与期权／期货实操落进账户时，可接读[《保证金、对冲与期间现金》](https://ou-liu-red-sugar.github.io/zh/notebook/settlement-margin-cash/)。
 
 [^credit-data]: [Yahoo Finance：SPY、HYG、LQD、TLT、BIL 与 VIX 历史行情](https://finance.yahoo.com/quote/HYG/history/)，2026-11-26 读取 2007-06-01 至 2026-01-09 共 4,683 个交易日的调整后收盘价与 VIX 收盘价。完整复算数列见[信用与尾部风险日频数据](https://ou-liu-red-sugar.github.io/notebook/credit-tail/credit-tail-daily.csv)。
 [^fred-hyoas]: ICE Data Indices / FRED，[ICE BofA US High Yield Index Option-Adjusted Spread（BAMLH0A0HYM2）](https://fred.stlouisfed.org/series/BAMLH0A0HYM2)，美国高收益企业债相对国债曲线的期权调整利差口径；全样本历史低点为 2007-06-01 的 2.41%，峰值分别为 2008-12-15 的 21.82% 与 2020-03-23 的 10.87%。

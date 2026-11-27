@@ -2,7 +2,7 @@
 
 从 FISV 财报后暴跌、又继续下跌的持有经历出发，对照 KO 的修复，结合行业比较、Risk–Reward、重新定价和资金安排，理解持有与退出。
 
-Entry: zh-loss-volatility-holding-capacity | Node: NB-A03 | Language: zh | Editorial revision: 2026-11-26
+Entry: zh-loss-volatility-holding-capacity | Node: NB-A03 | Language: zh | Editorial revision: 2026-11-27
 
 ## Reference use
 This is reference material for the learner's current request. Use the supplied entry to teach the selected concept. Retrieve the relevant original unit when explaining a claim that depends on its assumptions, figures or rules; the reading list is a map for that work, not a prerequisite to the first lesson. Keep facts, supplied examples and inference distinct. Editorial access dates describe the author's work. The empty runtime_reading_log is an optional record field, not a requested response. Author-supplied scope notes below constrain factual use of the material; the learner's request determines the teaching task and first response.
@@ -399,7 +399,7 @@ This is reference material for the learner's current request. Use the supplied e
 <figcaption>财报后的新价格与旧区间。虚线固定在财报前按近 20 个交易日收盘价画出的区间上沿，下方显示成交量；<a href="/notebook/holding/msft-repricing.csv">查看数据</a>。</figcaption>
 </figure>
 
-<span data-text-versions id="nb-a03-text-10">这时候，如果只因为股价远远高出财报前的交易区间，就断定它应该回落，便忽略了新信息正在抬高市场愿意支付的价格。图中虚线是财报前按近 20 个交易日收盘价及其波动画出的区间上沿，约为 401.7 美元；哪怕把财报次日的大涨一并纳入重算，当天更新后的上沿也只有约 422 美元，依然落在 451 美元收盘价下方。面对这类跳空重估，得先更新对经营前景的判断，再去观察新的量价关系如何展开<span data-text-detail>（这条上沿就是布林带上轨：取截至 7 月 29 日的 20 个交易日收盘价均值，加上 2 倍总体标准差，约为 401.68 美元，财报发布后仍固定在原位置作对照；7 月 30 日实际更新后的上轨为 422.16 美元）</span>。至于 FY26 Q4 这种财年命名与自然季度之间的对应关系，留到《三张财报与经营活动》再展开。<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>
+<span data-text-versions id="nb-a03-text-10">这时候，如果只因为股价远远高出财报前的交易区间，就断定它应该回落，便忽略了新信息正在抬高市场愿意支付的价格。图中虚线是财报前按近 20 个交易日收盘价及其波动画出的区间上沿，约为 401.7 美元；哪怕把财报次日的大涨一并纳入重算，当天更新后的上沿也只有约 422 美元，依然落在 451 美元收盘价下方。面对这类跳空重估，得先更新对经营前景的判断，再去观察新的量价关系如何展开<span data-text-detail>（这条上沿就是布林带上轨：取截至 7 月 29 日的 20 个交易日收盘价均值，加上 2 倍总体标准差，约为 401.68 美元，财报发布后仍固定在原位置作对照；7 月 30 日实际更新后的上轨为 422.16 美元）</span>。至于 FY26 Q4 这种财年命名与自然季度之间的对应关系，留到[《三张财报与经营活动》](/zh/notebook/three-financial-statements/)再展开。<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>
 
 
 ## 资金、心态与持有能力 {#nb-a03-capacity}
@@ -426,7 +426,9 @@ This is reference material for the learner's current request. Use the supplied e
 
 除了资金缓冲，也要给情绪留出余地。频繁点开行情，每一次下探都会重新勾起回本的执念，一点反弹又容易让人临时改主意。屏幕上的报价每时每刻都在跳动，真正改变公司经营的新信息却远没有那么密集。少受一点盘面来回拉扯，反而更能照着事先想清楚的依据行事。有时候关掉软件、离开屏幕去做点别的事，少盯一会儿盘，股票反而更容易拿得住。
 
-决定是否继续持有一只股票，权衡的是从今天算起的潜在回报与可能损失，再叠加上等待的时间和期间的现金需要；这些条件变了，就不必执着于回本，可以果断减仓或退出。以上讨论针对的是单笔持仓；当手里同时握有几只股票和基金时，它们常常会同涨同跌，手里的现金也得在多项持仓之间统筹安排。下一篇[《投资组合：分散、多资产与风险制衡》](/zh/notebook/portfolio-diversification-hedging/)会把这些持仓合在一起来看，若需要进一步了解保证金与衍生工具的实务，则可接读[《保证金、对冲与期间现金》](/zh/notebook/settlement-margin-cash/)。
+决定是否继续持有一只股票，权衡的是从今天算起的潜在回报与可能损失，再叠加上等待的时间和期间的现金需要；这些条件变了，就不必执着于回本，可以果断减仓或退出。
+
+以上讨论针对的是单笔持仓；当手里同时握有几只股票和基金时，它们常常会同涨同跌，手里的现金也得在多项持仓之间统筹安排。下一篇[《投资组合：分散、多资产与风险制衡》](/zh/notebook/portfolio-diversification-hedging/)会把这些持仓合在一起来看，若需要进一步了解保证金与衍生工具的实务，则可接读按需专题[《保证金、对冲与期间现金》](/zh/notebook/settlement-margin-cash/)。
 
 <link rel="stylesheet" href="/notebook/flow-figures.css?v=20261126">
 <script src="/notebook/flow-figures.js?v=20261012-6" defer></script>

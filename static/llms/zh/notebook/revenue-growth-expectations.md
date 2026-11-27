@@ -4,7 +4,7 @@
 
 网页 / HTML: [收入增长与市场预期](https://ou-liu-red-sugar.github.io/zh/notebook/revenue-growth-expectations/)
 
-语言 / Language: zh · 更新 / Revised: 2026-11-26
+语言 / Language: zh · 更新 / Revised: 2026-11-27
 
 收入增长，可能因为卖得更多，也可能因为卖得更贵。Coca-Cola（KO）在 2025 年第二季度的净营收同比增长 1%，公司披露的全球标准箱销量却下降 1%。收入在涨、销量在跌，这时候就得把增长拆开，看看多出来的钱到底从哪儿来。[^ko-growth]
 
@@ -201,7 +201,7 @@ DBS 在这份报告里为目标价选用了 26 倍前瞻 PE；我们借用这一
 
 ## 从增长到盈利 {#nb-d02-next}
 
-MRVL 提醒我们，收入增长快和跑赢预期门槛是两码事；KO 的反推又表明，股价隐含的收入要求会随着利润率、股数与估值倍数一起浮动。要继续判断这些经营条件能不能兑现，还得翻开收入背后的账本：多赚一块钱收入，究竟要多花多少成本。下一篇《成本结构与经营杠杆》就会顺着这里往下走，拆解成本如何随规模变化，最后又能留下多少利润。
+MRVL 提醒我们，收入增长快和跑赢预期门槛是两码事；KO 的反推又表明，股价隐含的收入要求会随着利润率、股数与估值倍数一起浮动。要继续核验确认的收入有没有真正转化为利润与到账现金，需要先读懂公司的整套账本。下一篇[《三张财报与经营活动》](https://ou-liu-red-sugar.github.io/zh/notebook/three-financial-statements/)就沿同一段经营过程贯通利润表、资产负债表与现金流量表，补齐分析营运资本、资本开支与成本结构的会计底座。
 
 [^ko-growth]: [The Coca-Cola Company — Second Quarter 2025 Earnings Release](https://www.coca-colacompany.com/content/dam/corporate/us/en/media-center/Coca-Cola-2025-Q2-Earnings-Release-Full-Release-7.22.25.pdf)。PDF p1 标题与 Quarterly Performance / Revenues；PDF p3 Revenues and Volume，Consolidated 行及 rounding 注；PDF p8 Notes，unit case、unit case volume、concentrate sales、price/mix；PDF p15 Definitions；p25 Net Operating Revenues 调节表；PDF p3 Asia Pacific 行；p5 Asia Pacific 第二段。
 [^wmt]: [Walmart FY2025 Form 10-K](https://stock.walmart.com/sec-filings/all-sec-filings/content/0000104169-25-000021/wmt-20250131.htm)。Walmart U.S. Results of Operations；本轮实际阅读974–980行。

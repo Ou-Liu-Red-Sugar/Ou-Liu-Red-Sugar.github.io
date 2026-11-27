@@ -154,7 +154,7 @@ ROE / ROIC / ROIIC 与五年资本配置推演器
 
 **杠杆恒等式：ROE ＝ ROIC ＋（债务 ÷ 权益）×（ROIC − 税后债务利率）。把预设切到“③ 借债拉高 ROE 但 ROIC 平庸型”后，试着拖动“财务杠杆”与“利润再投资率”，可以直观看到加杠杆只抬高 ROE、不增加一分经营现金流，而把低回报再投资率降到 0% 反而止住价值毁灭。**
 
-到这里，从三表勾稽、营运资本、盈利质量到 ROE、ROIC、ROIIC 与资本配置，财务分析这条底盘已经合拢。历史报表记录了过去每一美元资本换来的每股现金流；把这份体检转化为面向未来的竞争解释、条件估值与赔率取舍，接下来将在[《信息、预期与判断更新》](https://ou-liu-red-sugar.github.io/zh/notebook/#topic-A)与[《经营情景、条件定价与 Risk-Reward》](https://ou-liu-red-sugar.github.io/zh/notebook/#topic-F)继续展开。
+到这里，从三表勾稽、营运资本、盈利质量到 ROE、ROIC、ROIIC 与资本配置，财务分析这条底盘已经合拢。历史报表记录了过去每一美元资本换来的每股现金流；把这份体检转化为面向未来的竞争解释、条件估值与赔率取舍，接下来将在第五卷[《事实、判断与“价格不进权重”》](https://ou-liu-red-sugar.github.io/zh/notebook/#topic-A)与[《业务路径、估值与投资判断》](https://ou-liu-red-sugar.github.io/zh/notebook/#topic-F)继续展开。
 
 [^zh-capital-allocation-incentives-per-share--mauboussin-roic]: Michael J. Mauboussin & Dan Callahan，[Return on Invested Capital: How to Calculate ROIC and Handle Common Issues](https://www.morganstanley.com/content/dam/im/assets/publication/thought-leadership/consilient-observer/article_returnoninvestedcapital.pdf)，Morgan Stanley Counterpoint Global Insights，2022-10-06。
 [^zh-capital-allocation-incentives-per-share--mauboussin-capalloc]: Michael J. Mauboussin & Dan Callahan，[Capital Allocation: Results, Analysis, and Assessment](https://www.morganstanley.com/content/dam/im/assets/publication/thought-leadership/consilient-observer/article_capitalallocation.pdf)，Morgan Stanley Counterpoint Global Insights，2025-11-05。
@@ -365,7 +365,7 @@ Sharpe 原文假设数字 · 纵轴自 2% 起
 
 同样卖芯片、同样背着千亿美元级晶圆厂，两家半导体龙头在 2025 财年却交出了截然相反的利润表：**Taiwan Semiconductor Manufacturing Company**（TSM）营收增长 31.6%，营业利润跃升 46.4%[^zh-cost-structure-operating-leverage--tsmc-20f]；同期 **Intel Corporation**（INTC）设计部门赚走 127.4 亿美元，自建晶圆代工部门却因产能填不满巨亏 103.2 亿美元，拖累全公司合并营业利润转负[^zh-cost-structure-operating-leverage--intc-fy25]。
 
-反差背后运转的是同一套成本力学。前文谈过[《客户、产品与收费方式》](https://ou-liu-red-sugar.github.io/zh/notebook/customers-products-pricing/)、[《收入增长与市场预期》](https://ou-liu-red-sugar.github.io/zh/notebook/revenue-growth-expectations/)与三张财报的勾稽，这一篇往企业内部再走一步：从采购、生产与履约开始，看同样 100 美元收入变动，怎样在不同成本结构下折出完全不同的利润振幅。
+反差背后运转的是同一套成本力学。前五篇走通了[《客户、产品与收费方式》](https://ou-liu-red-sugar.github.io/zh/notebook/customers-products-pricing/)、[《收入增长与市场预期》](https://ou-liu-red-sugar.github.io/zh/notebook/revenue-growth-expectations/)以及[《三张财报与经营活动》](https://ou-liu-red-sugar.github.io/zh/notebook/three-financial-statements/)至[《利润、资本开支与现金》](https://ou-liu-red-sugar.github.io/zh/notebook/profit-capex-cash/#nb-e03-capex-split)的现金底座，这一篇带着折旧与成本视角回到企业内部：从采购、生产与履约开始，看同样 100 美元收入变动，怎样在不同成本结构下折出完全不同的利润振幅。
 
 ## 从营业收入到营业利润：成本怎样分流 {#nb-d03-cost-split}
 
@@ -447,7 +447,7 @@ COST 走了另一条路。它主动把商品加价压到极薄，采购与门店
 
 财报极少直接标注变动与固定成本，利润表只列**营业成本**（COGS）与**营业费用**（OpEx），把两者简单一一对应极易看偏。晶圆厂设备折旧、航空租赁与酒店租金记在营业成本里，实质是高度刚性的固定成本；软件与消费品按销售额抽成的渠道佣金记在销售费用里，实质随收入高度联动（折旧与摊销在营业成本和研发费用之间的具体分摊，通常可以在 Form 10-K 或 Form 20-F 的不动产厂房附注与现金流量表补充资料中查到）。
 
-报表没有拆解时，可以用连续几个景气波动季度的**增量营业利润率**反推成本池：营收加速时显著高于历史均值、放缓时骤降，说明固定成本占比沉重；常年紧贴历史均值，则多由变动成本主导。再配合核对资本开支与在建工程，就能分清利润率回落到底来自新产能刚落地的阶梯费用，还是竞争加剧与上游成本无法转嫁，把成本分析自然接进下一篇竞争壁垒与产业周期。
+报表没有拆解时，可以用连续几个景气波动季度的**增量营业利润率**反推成本池：营收加速时显著高于历史均值、放缓时骤降，说明固定成本占比沉重；常年紧贴历史均值，则多由变动成本主导。再配合核对资本开支与在建工程，就能分清利润率回落到底来自新产能刚落地的阶梯费用，还是竞争加剧与上游成本无法转嫁，把成本分析自然接进下一篇《竞争、定价权与替代》。
 
 [^zh-cost-structure-operating-leverage--tsmc-20f]: Taiwan Semiconductor Manufacturing Company，[FY2025 Form 20-F](https://www.sec.gov/Archives/edgar/data/1046179/000162828026025362/tsm-20251231.htm)，2026-04-16 提交，Item 5 Results of Operations（FY2023–FY2025 营收、晶圆出货量、毛利率、营业费用率与营业利润）。
 [^zh-cost-structure-operating-leverage--intc-fy25]: Intel Corporation，[Q4 & Full-Year 2025 业绩公告（Form 8-K EX-99.1）](https://www.sec.gov/Archives/edgar/data/50863/000005086326000009/q425earningsrelease.htm)，2026-01-22 提交，FY2024–FY2025 合并利润表、Intel Products 与 Intel Foundry 分部损益及期末厂房设备净值。
@@ -462,7 +462,7 @@ COST 走了另一条路。它主动把商品加价压到极薄，采购与门店
 
 网页 / HTML: [信用与尾部风险对冲](https://ou-liu-red-sugar.github.io/zh/notebook/credit-tail-risk-hedging/)
 
-语言 / Language: zh · 更新 / Revised: 2026-11-26
+语言 / Language: zh · 更新 / Revised: 2026-11-27
 
 前几篇讨论的多资产分散、股票多空、全球宏观与风险平价，主要对付常规周期里的涨跌波动。可金融市场每隔十年左右总会出现一次流动性骤然干涸、企业借不到新钱、各类风险资产一起跳水的极端冲击。**信用与尾部风险对冲**（Credit & Tail-Risk Hedging）专门盯住分布最左端的罕见崩盘：平时愿意付出一笔有限且可预期的保费或息差，换取危机爆发时不成比例的**凸性赔付**（Convexity）。
 
@@ -543,7 +543,7 @@ CDS 赔付之所以严格依赖标准合同，是因为历史上曾出现过围�
 
 对绝大多数个人投资者而言，理解信用与尾部对冲最实用的收获有三点：第一，把**信用利差**（高收益债相对国债的溢价）当成观察市场融资冷暖的晴雨表，避免在利差极窄、全市场忽视违约风险时去追逐高杠杆垃圾债或债台高筑的脆弱公司；第二，不把“常年花高价买深度虚值 Put”当成万能护身符，明白它只擅长极速恐慌闪崩、在慢牛和慢熊里都会持续扣血；第三，在日常组合里用**低杠杆结构、避开高信用风险标的以及保留超短美债现金**承担主要防御，把 HYG 或股指看跌期权留给真正有明确边界和预算的阶段性防护。[^zh-credit-tail-risk-hedging--hyg]，[^zh-credit-tail-risk-hedging--bil]
 
-从仓位与跨资产制衡，到股票多空、全球宏观、风险平价与信用尾部对冲，账户层面的风险棋盘已经排齐；无论结构如何搭配，最终承担长期复利引擎的仍是企业本身。下一篇[《客户、产品与收费方式》](https://ou-liu-red-sugar.github.io/zh/notebook/customers-products-pricing/)正式转入企业经营研究，先看清一门生意究竟卖给谁、交付什么，又怎样把钱收回来。
+到这里，机构组合与对冲范式四篇专题（股票多空、全球宏观、风险平价与信用尾部对冲）已经完整收束。回到基本面主线可接读[《客户、产品与收费方式》](https://ou-liu-red-sugar.github.io/zh/notebook/customers-products-pricing/)进入企业经营研究；需要把保证金、盯市与期权／期货实操落进账户时，可接读[《保证金、对冲与期间现金》](https://ou-liu-red-sugar.github.io/zh/notebook/settlement-margin-cash/)。
 
 [^zh-credit-tail-risk-hedging--credit-data]: [Yahoo Finance：SPY、HYG、LQD、TLT、BIL 与 VIX 历史行情](https://finance.yahoo.com/quote/HYG/history/)，2026-11-26 读取 2007-06-01 至 2026-01-09 共 4,683 个交易日的调整后收盘价与 VIX 收盘价。完整复算数列见[信用与尾部风险日频数据](https://ou-liu-red-sugar.github.io/notebook/credit-tail/credit-tail-daily.csv)。
 [^zh-credit-tail-risk-hedging--fred-hyoas]: ICE Data Indices / FRED，[ICE BofA US High Yield Index Option-Adjusted Spread（BAMLH0A0HYM2）](https://fred.stlouisfed.org/series/BAMLH0A0HYM2)，美国高收益企业债相对国债曲线的期权调整利差口径；全样本历史低点为 2007-06-01 的 2.41%，峰值分别为 2008-12-15 的 21.82% 与 2020-03-23 的 10.87%。
@@ -2074,7 +2074,7 @@ VOO 含分红，美元
 
 网页 / HTML: [Agent 时代的基本面投资](https://ou-liu-red-sugar.github.io/zh/notebook/investment-returns/)
 
-语言 / Language: zh · 更新 / Revised: 2026-11-26
+语言 / Language: zh · 更新 / Revised: 2026-11-27
 
 ## 从一则订单公告读起 {#nb-a01-order}
 
@@ -2468,15 +2468,15 @@ REITs（房地产投资信托）提供参与经营性房地产或房地产融资
 
 这套笔记的主线
 
-共 77 篇，主线 43 篇
+共 71 篇，主线 37 篇
 
 1. 10 篇 **认识股票、市场与组合** 本篇所在的起点
-2. 15 篇 **理解企业与财务** 客户、收入、竞争、利润与投入
-3. 6 篇 **形成证据与投资判断** 概率、定价与 Risk-Reward
-4. 9 篇 **Agent 研究、判断与持续培养** 读材料、校准业务、前向记录
-5. 3 篇 **Agent 资本取舍与持续配置** 研究整合与持续配置
+2. 15 篇 **生意与财报双螺旋** 收入现金、产业壁垒与资本配置
+3. 6 篇 **路径、估值与投资判断** 价格不进权重、折现估值与反证
+4. 3 篇 **回到组合与资本取舍** 共同暴露、仓位替换与再平衡
+5. 3 篇 **Agent 研究实验模块** 判断与记账分工、前向迭代
 
-**按需专题 34 篇** 金融条件与替代资产 基金跟踪与业绩比较 趋势规则与量化检验 保证金、对冲与股票合约 实物资产与期货 期权价格与策略 多资产组合与对冲范式 永续机制与持有结果 预测市场与经营判断
+**按需专题 34 篇** 机构组合与对冲范式 金融条件与替代资产 基金跟踪与业绩比较 趋势规则与量化检验 保证金、对冲与股票合约 实物资产与期货 期权价格与策略 永续机制与持有结果 预测市场与经营判断
 
 **主线按顺序读；按需专题在实际用到时再读。完整篇目见[阅读路线](https://ou-liu-red-sugar.github.io/zh/notebook/reading-route/)。**
 
@@ -2633,7 +2633,7 @@ REITs（房地产投资信托）提供参与经营性房地产或房地产融资
 
 网页 / HTML: [亏损、波动与持有能力](https://ou-liu-red-sugar.github.io/zh/notebook/loss-volatility-holding-capacity/)
 
-语言 / Language: zh · 更新 / Revised: 2026-11-26
+语言 / Language: zh · 更新 / Revised: 2026-11-27
 
 2025 年 10 月 29 日，Fiserv（FISV，当时代码为 FI）公布第三季度财报并大幅下调全年指引，股价当天从 126.17 美元跌到 70.60 美元，单日跌去约 44%。一天跌掉这么多，很多人会觉得“再拿一拿总能涨回来”；可此后将近一年里，FISV 的收盘价最高也只回到 69.85 美元，到 2026 年 9 月 24 日进一步跌至 45.98 美元，比暴跌当天的收盘价又低了约 35%。[^zh-loss-volatility-holding-capacity--prices-fisv]，[^zh-loss-volatility-holding-capacity--ticker]
 
@@ -2752,7 +2752,7 @@ FISV 的预期与经营怎样被改写
 
 **财报后的新价格与旧区间。虚线固定在财报前按近 20 个交易日收盘价画出的区间上沿，下方显示成交量；[查看数据](https://ou-liu-red-sugar.github.io/notebook/holding/msft-repricing.csv)。**
 
-这时候，如果只因为股价远远高出财报前的交易区间，就断定它应该回落，便忽略了新信息正在抬高市场愿意支付的价格。图中虚线是财报前按近 20 个交易日收盘价及其波动画出的区间上沿，约为 401.7 美元；哪怕把财报次日的大涨一并纳入重算，当天更新后的上沿也只有约 422 美元，依然落在 451 美元收盘价下方。面对这类跳空重估，得先更新对经营前景的判断，再去观察新的量价关系如何展开（这条上沿就是布林带上轨：取截至 7 月 29 日的 20 个交易日收盘价均值，加上 2 倍总体标准差，约为 401.68 美元，财报发布后仍固定在原位置作对照；7 月 30 日实际更新后的上轨为 422.16 美元）。至于 FY26 Q4 这种财年命名与自然季度之间的对应关系，留到《三张财报与经营活动》再展开。
+这时候，如果只因为股价远远高出财报前的交易区间，就断定它应该回落，便忽略了新信息正在抬高市场愿意支付的价格。图中虚线是财报前按近 20 个交易日收盘价及其波动画出的区间上沿，约为 401.7 美元；哪怕把财报次日的大涨一并纳入重算，当天更新后的上沿也只有约 422 美元，依然落在 451 美元收盘价下方。面对这类跳空重估，得先更新对经营前景的判断，再去观察新的量价关系如何展开（这条上沿就是布林带上轨：取截至 7 月 29 日的 20 个交易日收盘价均值，加上 2 倍总体标准差，约为 401.68 美元，财报发布后仍固定在原位置作对照；7 月 30 日实际更新后的上轨为 422.16 美元）。至于 FY26 Q4 这种财年命名与自然季度之间的对应关系，留到[《三张财报与经营活动》](https://ou-liu-red-sugar.github.io/zh/notebook/three-financial-statements/)再展开。
 
 ## 资金、心态与持有能力 {#nb-a03-capacity}
 
@@ -2792,7 +2792,9 @@ FISV 的预期与经营怎样被改写
 
 除了资金缓冲，也要给情绪留出余地。频繁点开行情，每一次下探都会重新勾起回本的执念，一点反弹又容易让人临时改主意。屏幕上的报价每时每刻都在跳动，真正改变公司经营的新信息却远没有那么密集。少受一点盘面来回拉扯，反而更能照着事先想清楚的依据行事。有时候关掉软件、离开屏幕去做点别的事，少盯一会儿盘，股票反而更容易拿得住。
 
-决定是否继续持有一只股票，权衡的是从今天算起的潜在回报与可能损失，再叠加上等待的时间和期间的现金需要；这些条件变了，就不必执着于回本，可以果断减仓或退出。以上讨论针对的是单笔持仓；当手里同时握有几只股票和基金时，它们常常会同涨同跌，手里的现金也得在多项持仓之间统筹安排。下一篇[《投资组合：分散、多资产与风险制衡》](https://ou-liu-red-sugar.github.io/zh/notebook/portfolio-diversification-hedging/)会把这些持仓合在一起来看，若需要进一步了解保证金与衍生工具的实务，则可接读[《保证金、对冲与期间现金》](https://ou-liu-red-sugar.github.io/zh/notebook/settlement-margin-cash/)。
+决定是否继续持有一只股票，权衡的是从今天算起的潜在回报与可能损失，再叠加上等待的时间和期间的现金需要；这些条件变了，就不必执着于回本，可以果断减仓或退出。
+
+以上讨论针对的是单笔持仓；当手里同时握有几只股票和基金时，它们常常会同涨同跌，手里的现金也得在多项持仓之间统筹安排。下一篇[《投资组合：分散、多资产与风险制衡》](https://ou-liu-red-sugar.github.io/zh/notebook/portfolio-diversification-hedging/)会把这些持仓合在一起来看，若需要进一步了解保证金与衍生工具的实务，则可接读按需专题[《保证金、对冲与期间现金》](https://ou-liu-red-sugar.github.io/zh/notebook/settlement-margin-cash/)。
 
 [^zh-loss-volatility-holding-capacity--wsj]: [Spencer Jakab：How to Tell Whether a Plunging Stock Will Keep Plunging](https://www.wsj.com/finance/stocks/how-to-tell-whether-a-plunging-stock-will-keep-plunging-bf0be3ed)，WSJ，2026-09-18，Missing the bounce 部分。采用 GLP-1 担忧下食品饮料股的修复案例及相对行业比较的思路。
 [^zh-loss-volatility-holding-capacity--prices-ko]: Yahoo Finance：[KO](https://finance.yahoo.com/quote/KO/history/)、[XLP](https://finance.yahoo.com/quote/XLP/history/)，2023-09-29 至 2023-12-29 日收盘价。KO 三个文中时点分别为 55.98、52.38、58.93 美元，其中 52.38 为 10 月 5 日收盘价。KO、XLP 在该区间的价格变化分别约为 +5.3%、+4.7%。数列见[数据表](https://ou-liu-red-sugar.github.io/notebook/holding/ko-recovery.csv)。
@@ -2816,19 +2818,17 @@ FISV 的预期与经营怎样被改写
 
 网页 / HTML: [投资组合：分散、多资产与风险制衡](https://ou-liu-red-sugar.github.io/zh/notebook/portfolio-diversification-hedging/)
 
-语言 / Language: zh · 更新 / Revised: 2026-11-26
+语言 / Language: zh · 更新 / Revised: 2026-11-27
 
-[《亏损、波动与持有能力》](https://ou-liu-red-sugar.github.io/zh/notebook/loss-volatility-holding-capacity/)看的是单只股票的 Risk–Reward 与回撤。回到真实账户，我们手里常常同时拿着宽基基金、几只个股、债券和现金。占总资金 10% 的一只股票腰斩，组合净值只掉 5%；可一旦利率急升、通胀抬头或行业周期转向，让几笔重仓股一起下跌，整套账户的回撤才会考验持有能力。
+[《亏损、波动与持有能力》](https://ou-liu-red-sugar.github.io/zh/notebook/loss-volatility-holding-capacity/)看的是单只股票的 Risk–Reward 与回撤。回到真实账户，我们手里常常同时拿着宽基基金、几只个股、债券和现金：占总资金 10% 的股票腰斩，组合只掉 5%；可一旦利率急升、通胀抬头或行业周期转向，几笔重仓股一起下跌，整套账户的回撤才会考验持有能力。
 
-2022 年美联储持续加息，跟踪 S&P 500 的 Vanguard S&P 500 ETF（VOO）含分红全年跌去约 18.2%，不仅科技成长股跌得更深，连 20 年以上长期美债 ETF（iShares 20+ Year Treasury Bond ETF，TLT）也大跌约 31.2%；把六成资金放进 VOO、四成放进 TLT 的传统股债组合，全年跌了约 23.4%，回撤甚至超过单买 VOO。[^zh-portfolio-diversification-hedging--prices]，[^zh-portfolio-diversification-hedging--tlt] 只靠股票内部多买几只代码，或者套用固定不变的股债比例，都挡不住所有宏观冲击。要把整套账户搭稳，得把仓位大小、跨资产制衡与合约级对冲放在一起看。
+2022 年美联储持续加息，跟踪 S&P 500 的 Vanguard S&P 500 ETF（VOO）含分红全年跌去约 18.2%，20 年以上长期美债 ETF（iShares 20+ Year Treasury Bond ETF，TLT）同步大跌约 31.2%，传统 60/40 股债组合全年跌约 23.4%，回撤超过单买 VOO。[^zh-portfolio-diversification-hedging--prices]，[^zh-portfolio-diversification-hedging--tlt] 只靠股票内部多买几只代码，或套用固定不变的股债比例，都挡不住所有宏观冲击。把整套账户搭稳，要把仓位大小、跨资产制衡与合约级对冲放在一起看。
 
 ## 持仓理由、赔率与仓位大小 {#nb-p01-sizing}
 
-挑中一家有吸引力的公司以后，进组合前还有一道绕不开的题：给它 5%、15%、30% 还是 50% 的仓位？同一个研究判断，配在不同权重上，会给账户带来截然不同的后果。
+挑中一家有吸引力的公司以后，进组合前先要回答：给它 5%、15%、30% 还是 50% 的仓位？教科书常提醒投资者“不要把鸡蛋放在一个篮子里”[^zh-portfolio-diversification-hedging--sec-alloc]；可宏观基金经理 Stanley Druckenmiller 结合早年从 George Soros 学到的经验指出，决定长期业绩的分水岭是**看对时赚了多少、看错时亏了多少**，把资金无差别摊进几十个平庸标的反而会稀释研究价值。[^zh-portfolio-diversification-hedging--druck-wizards]，[^zh-portfolio-diversification-hedging--druck-losttree]
 
-教科书常提醒投资者“不要把鸡蛋放在一个篮子里”。[^zh-portfolio-diversification-hedging--sec-alloc] 不过，在宏观基金经理 Stanley Druckenmiller 看来，无差别地把资金摊进几十个平庸标的，同样会稀释研究价值。他在 1992 年的《The New Market Wizards》访谈里提到从 George Soros 学到的一课：决定长期业绩的分水岭，是**看对时赚了多少、看错时亏了多少**，单纯的胜率排在后面；2015 年在 Lost Tree Club 演讲时，他也主张遇到罕见的高赔率机会就集中下注，同时紧盯那个篮子，一旦逻辑证伪立刻离场。[^zh-portfolio-diversification-hedging--druck-wizards]，[^zh-portfolio-diversification-hedging--druck-losttree]
-
-高集中仓位离不了迅速认错的纪律和良好的流动性。要是只学了重仓下注，真碰上基本面恶化时又像[《亏损、波动与持有能力》](https://ou-liu-red-sugar.github.io/zh/notebook/loss-volatility-holding-capacity/)里的 Fiserv（FISV）那样等回本，仓位越重，账户越难缓过来。拖动下面的滑块，看看同一只股票在“看对涨 80%”与“看错腰斩 −50%”两种情形下，仓位大小怎样放大这种不对称：
+高集中仓位离不了迅速认错的纪律与良好流动性。要是只学了重仓下注，真碰上基本面恶化又像[《亏损、波动与持有能力》](https://ou-liu-red-sugar.github.io/zh/notebook/loss-volatility-holding-capacity/#nb-a03-fisv-reset)里的 Fiserv（FISV）那样等回本，仓位越重，账户越难缓过来。拖动下面的滑块，比较同一只股票涨 +80% 与腰斩 −50% 在不同权重下的不对称后果：
 
 单票仓位的双刃剑：拉动收益与砸坑幅度
 
@@ -2844,13 +2844,11 @@ FISV 的预期与经营怎样被改写
 
 **默认展示 30% 仓位；横条以组合净值变动 50% 为满格。仓位升至 50% 时，单票腰斩会迫使剩余半仓涨满 +50% 才能回本。**
 
-切到 5% 看看：哪怕这只股票大涨 80%，整套组合也只多了 4.0%；切到 50%，涨对了贡献 40.0%，可一旦看错腰斩，剩下的半仓就得整体大涨 50.0% 才能把总资产拉回原点。所以仓位大小既取决于赔率与把握，也受制于看错时的止损条件和组合承受力——研究透彻、有明确证伪信号的标的可以配高一些，把握尚浅或难以跟踪的标的就该控在较小权重。
+小仓位即便看对也很难拉动整体净值，重仓一旦看错则会给其余持仓留下极陡的填坑门槛。因此仓位大小同时受制于两件事：研究把握与赔率有多高，以及一旦证伪能不能及时退出。研究透彻、证伪信号清晰的标的可以配高一些，把握尚浅或难以跟踪的标的就该控在较小权重。
 
 ## 穿透重叠：代码多不等于分散 {#nb-p01-overlap}
 
-就算单只股票的仓位看着都不算太重，几笔持仓叠在一起，真实集中度也可能远高于账面数字。假设手里有一笔 100,000 美元的长期资金，按 40% VOO（40,000 美元）、20% NVIDIA（NVDA，20,000 美元）、15% Amazon（AMZN，15,000 美元）、10% Coca-Cola（KO，10,000 美元）再加 15% 美元现金（15,000 美元）配置。表面上摊在五笔资产里，横跨宽基指数、科技、消费必需品和现金，单票最高才 20%。
-
-可[《指数、基金与 ETF》](https://ou-liu-red-sugar.github.io/zh/notebook/indices-funds-etfs/)拆解过 VOO 截至 2026 年 6 月 30 日的官方持仓：VOO 里单是 NVDA 就占了 7.5%，AMZN 占 3.6%，整个信息技术行业占到 38.0%。[^zh-portfolio-diversification-hedging--voo-sheet] 把我们直持的个股和藏在 VOO 里的份额穿透合并，真实敞口马上变了模样：
+就算单只股票的账面权重都不算太重，几笔持仓叠在一起，真实集中度也可能远高于表面数字。假设手里有 100,000 美元长期资金，按 40% VOO、20% NVIDIA（NVDA）、15% Amazon（AMZN）、10% Coca-Cola（KO）加 15% 现金配置；对照[《指数、基金与 ETF》](https://ou-liu-red-sugar.github.io/zh/notebook/indices-funds-etfs/#nb-v01-concentration)拆解过的 VOO 持仓（NVDA 占 7.5%、AMZN 占 3.6%、信息技术占 38.0%），把藏在宽基里的重叠份额穿透合并，真实敞口立刻改观：[^zh-portfolio-diversification-hedging--voo-sheet]
 
 100,000 美元组合：表面配置 vs VOO 穿透后的真实敞口
 
@@ -2860,23 +2858,15 @@ FISV 的预期与经营怎样被改写
 
 **横条均按 100,000 美元总组合（满格 100%）绘制；AMZN 在 GICS 中归属可选消费，但业务上与云计算和 AI 资本开支紧密相连。穿透口径沿用 VOO 2026-06-30 官方季度资料。**
 
-表面只给 NVDA 配了 20%，穿透以后升到 23.0%；单是 GICS 信息技术就占到整套组合的 35.2%，再把同样处在云和 AI 资本开支链条上的 AMZN 算进来，总资金里超过一半（约 51.6%，占股票仓位的 60.8%）绑在同一股需求与利率预期上（VOO 中还持有 KO 及其他消费必需品成分，因 KO 未列于该期前十大持仓表，图中未对 KO 另作穿透叠加；40,000 美元 VOO 对应的消费必需品板块整体约为 1,840 美元。穿透时既要看同一家公司，也要看不同行业标签下共享的客户预算与融资条件）。[^zh-portfolio-diversification-hedging--voo-sheet]，[^zh-portfolio-diversification-hedging--finra-div]
+账面最高单票只有 20%，穿透合并后却有超过一半总资金（占股票仓位约六成）绑在同一条云与 AI 资本开支链上（VOO 中还持有 KO 及其他消费必需品成分，因 KO 未列于该期前十大持仓表，图中未对 KO 另作穿透叠加；40,000 美元 VOO 对应的消费必需品板块整体约为 1,840 美元。穿透时既要合并同一只股票，也要合并不同行业标签下共享的客户预算与融资条件）。[^zh-portfolio-diversification-hedging--voo-sheet]，[^zh-portfolio-diversification-hedging--finra-div]
 
-这种“账面分散、底层同因”不仅发生在单一市场。哪怕同时买入美股 NVDA、台股 TSMC（TSM／2330）、韩股 SK hynix（000660）与欧股 ASML Holding（ASML），表面上横跨了四个交易所和四种货币，底层仍是在配置同一条全球半导体与 AI 算力周期的不同侧面。关于跨市场配置里的共同因子与局部背离，留到[《全球宏观与跨资产配置》](https://ou-liu-red-sugar.github.io/zh/notebook/global-macro-cross-asset/)专门展开。
+这种“代码分散、底层同因”在跨市场配置里同样常见：同时买美股 NVDA、台股 TSMC（TSM）、韩股 SK hynix（000660）与欧股 ASML Holding（ASML），横跨四个交易所和四种货币，底层仍押在同一条半导体与算力资本开支周期上。关于跨市场共同因子与局部背离，可按需查阅进阶专题[《全球宏观与跨资产配置》](https://ou-liu-red-sugar.github.io/zh/notebook/global-macro-cross-asset/)。
 
 ## 跨资产制衡与相关性翻转 {#nb-p01-multi-asset}
 
-就算我们把股票仓位真正分散到科技、消费、医疗、工业和能源各个板块，只要整套组合全押在股票上，遇到利率急升、通胀失控或经济衰退这类共同冲击，大多数股票仍会一起承压。FINRA 与 SEC 的分散指南都强调，组合分散要分两层来做：既在股票内部跨行业分散，也在**不同资产类别之间**建立制衡。[^zh-portfolio-diversification-hedging--sec-alloc]，[^zh-portfolio-diversification-hedging--finra-div] Druckenmiller 在 2015 年的演讲里也谈到，他早年特意把视野从股票扩到债券、大宗商品和外汇，正是因为当股市下跌时，这些其他资产池里往往存在能够逆势上涨的工具。[^zh-portfolio-diversification-hedging--druck-losttree]
+就算股票内部已经分散到不同行业，只要资金全押在权益资产上，利率急升或经济衰退一来，多数股票仍会同步承压。SEC 与 FINRA 的指南都强调分散要分两层：股票内部跨行业，以及**跨资产类别**建立制衡；Druckenmiller 也正是在股市下跌时转向债券、商品与外汇寻找逆势工具（下方对照选取六只常见 ETF 作代理：VOO 跟踪 S&P 500 股票；BIL 跟踪 1–3 个月超短美债，利率抬升时很快滚入更高票息、几乎无久期损伤；TLT 跟踪 20 年以上长久期美债，有效久期约 14.7 年，降息避险时大涨而急加息时深跌；HYG 跟踪美元非投资级高收益企业债，背负与股票同源的企业信用风险；GLD 以实物金条支持、无票息；DBC 通过能源、金属与农产品期货跟踪一篮子商品）。[^zh-portfolio-diversification-hedging--sec-alloc]，[^zh-portfolio-diversification-hedging--finra-div]，[^zh-portfolio-diversification-hedging--druck-losttree]，[^zh-portfolio-diversification-hedging--bil]，[^zh-portfolio-diversification-hedging--tlt]，[^zh-portfolio-diversification-hedging--hyg]，[^zh-portfolio-diversification-hedging--gld]，[^zh-portfolio-diversification-hedging--dbc]
 
-要把多资产真正用出制衡效果，先得看清每类常见资产对**增长、通胀、利率和信用**这四项变量的反应方向：
-
-- **股票**（以 VOO 为例）：长期依赖企业盈利增长，在经济衰退、信用紧缩或无风险利率快速抬升时普遍承压。
-- **超短期国债与现金工具**（以 SPDR Bloomberg 1–3 Month T-Bill ETF，BIL 为例）：剩余期限仅 1 至 3 个月，利率上升时很快滚动到更高票息，价格几乎不因加息下跌，是应对利率上行最稳妥的压舱石。[^zh-portfolio-diversification-hedging--bil]
-- **长久期国债**（以 TLT 为例）：持有剩余期限 20 年以上的美国国债，有效久期约 14—15 年。经济衰退、市场恐慌或央行降息时，资金涌入避险、收益率下行，长债价格会明显上涨对冲股票；反过来，一旦通胀迫使央行急剧加息，高久期会把价格跌幅同样放大。[^zh-portfolio-diversification-hedging--tlt]
-- **高收益企业债**（以 iShares iBoxx USD High Yield Corporate Bond ETF，HYG 为例）：虽然名字里带着“债”，底层却是非投资级企业债务。经济转弱或股市暴跌时，企业违约担忧推高信用利差，它常常跟着股票一起下跌。[^zh-portfolio-diversification-hedging--hyg]
-- **实物黄金**（以 SPDR Gold Shares，GLD 为例）与**一篮子商品期货**（以 Invesco DB Commodity Index Tracking Fund，DBC 为例）：黄金不产生利息或股息，独立于企业盈利，在货币信用担忧与实际利率受压时常有支撑；但它也有一层容易被忽视的流动性风险——正因为黄金全球流动性充裕、随时能换成美元，一旦市场爆发系统性流动性挤兑或保证金追缴潮，杠杆机构往往率先抛售黄金套现，导致它在危机最急的几天跟着风险资产同步下挫，常要等恐慌缓和或央行注入流动性后才重拾对冲。一篮子商品覆盖能源、金属与农产品，在供给型通胀里可以直接上涨，不过遇到经济骤然停摆时也会随需求一起回落。[^zh-portfolio-diversification-hedging--gld]，[^zh-portfolio-diversification-hedging--dbc]
-
-把这六类资产以及四套组合，放进 **2020 年疫情衰退冲击**与 **2022 年通胀急加息** 两段真实行情里对照，就能直接看见不同宏观环境下谁在制衡、谁又突然失效：
+把六类资产与四套组合放进 **2020 年疫情衰退冲击**与 **2022 年通胀急加息**两段真实行情里并排对照，谁在制衡、谁会突然失效一目了然：
 
 两段真实宏观冲击下的跨资产表现与相关性翻转
 
@@ -2886,13 +2876,11 @@ Yahoo Finance 调整后收盘价（含分红）· 共同标尺 −40% 至 +25%
 
 **实测日收益相关性：VOO 与 TLT 由 2020 全年的 −0.485 翻正至 2022 全年的 +0.086；2022 年 VOO 与 HYG 的日相关性为 +0.807。[查看完整日频数据](https://ou-liu-red-sugar.github.io/notebook/portfolio-basics/cross-asset-daily.csv)。**
 
-把这两段行情并排来看，先能看到**相关性会随宏观状态翻转**：2020 年经济骤停、央行紧急降息时，TLT 逆势大涨 14.2%，和 VOO 的全年日相关性低至 −0.485，60/40 组合跌幅只有全仓股票的四成多；可到了 2022 年通胀推动加息，VOO 与 TLT 的相关性翻正为 +0.086，长债跌得比美股还深，60/40 反而跑输了单买 VOO（这里采用 Yahoo Finance 调整后收盘价近似含分红再投资总回报，组合收益按各段起始日固定权重、期间不再平衡计算，不计税费和交易成本；2022 年全年四套组合的最大日回撤依次为：100% VOO −24.5%、40% VOO 加 60% 科技三股 −36.4%、60/40 −27.3%、五类多资产组合 −13.8%）。同时，**名字叫债券未必对冲股票**：2022 年 HYG 与 VOO 的日相关性高达 +0.807，2020 年也跟着跌掉 21.9%，因为它背着与股票同源的企业信用风险。把短债、黄金与商品一并纳入制衡后，2022 年 BIL 的正票息（+1.4%）、GLD 的稳定（−0.8%）与 DBC 的上涨（+19.3%）共同托住了账户，让多资产组合在两类相反的危机里都没出现极端回撤。[^zh-portfolio-diversification-hedging--prices]
+两段行情并排暴露出两个容易踩空的规律。第一，**股债相关性会随宏观状态翻转**：衰退降息时 TLT 充当强力避险盾牌，到了通胀推动急加息的年份，长债与美股同步深跌，把固定 60/40 拖到全仓 VOO 以下。第二，**名字带“债”未必对冲股票**：HYG 底层是高收益企业债，两段冲击都紧跟股市同跌；真正托住 2022 年多资产组合的，是几乎无久期损伤的超短美债 BIL、稳住的黄金 GLD 与受益于通胀的商品 DBC（采用 Yahoo Finance 调整后收盘价近似含分红再投资总回报，组合收益按各段起始日固定权重、期间不再平衡计算，不计税费和交易成本；2022 年全年四套组合的最大日回撤依次为：100% VOO −24.5%、40% VOO 加 60% 科技三股 −36.4%、60/40 −27.3%、五类多资产组合 −13.8%）。[^zh-portfolio-diversification-hedging--prices]
 
-不过，单看 2020 年起止两点里 GLD 只跌 3.6%，很容易低估它在流动性危机里的脆弱性。拆开 2020 年 3 月中旬的逐日路径就会发现，在 3 月 9 日至 3 月 19 日全球美元挤兑与追保潮最猛的 8 个交易日里，GLD 从 157.81 美元急跌至 138.04 美元，单段回撤约 12.5%（同期 TLT 也在 3 月 9 日至 18 日从 139.31 美元急挫至 117.40 美元，回落约 15.7%）；直到恐慌缓和，GLD 才在 4 月 14 日修复到 162.68 美元之上。越是流动性充裕、越容易立刻变现的资产，在系统性追保潮里越容易先被拿来套现。[^zh-portfolio-diversification-hedging--prices]
+黄金同样存在一层常被忽略的**流动性挤兑边界**：正因为黄金全球流动性充裕、变现最快，系统性追保潮爆发的最初几天，杠杆机构往往率先抛售黄金和长债套现，让避险资产短线跟着风险资产一起下挫，等恐慌缓和或央行注入流动性后才重拾对冲（2020 年 3 月 9 日至 3 月 19 日美元挤兑最急的 8 个交易日里，GLD 从 157.81 美元急跌至 138.04 美元、单段回撤约 12.5%；同期 TLT 在 3 月 9 日至 18 日从 139.31 美元回落至 117.40 美元、跌约 15.7%。GLD 直到 4 月 14 日才修复至 162.68 美元之上）。至于组合整体跟着大盘晃动的幅度，可先用加权市场敏感度（beta）建立直觉；精确样本回归与对冲张数计算见按需专题[《保证金、对冲与期间现金》](https://ou-liu-red-sugar.github.io/zh/notebook/settlement-margin-cash/)。[^zh-portfolio-diversification-hedging--prices]
 
-至于组合整体跟着大盘起伏的幅度，可以用市场敏感度（beta）先建立直觉：大盘跌 10% 时，有些高波动成长股往往跌 15%，防御性股票可能只跌 5%，超短债和现金则近似为 0；整套组合的总体敏感度，大致是各持仓敏感度按仓位加权的结果。如果把高敏感度个股不断加仓，账面上哪怕留着现金，组合随大盘波动的幅度也会被悄悄推高。精确的样本回归估法、\(R^2\) 能解释多少波动以及怎样算对冲张数，我们在按需专题[《保证金、对冲与期间现金》](https://ou-liu-red-sugar.github.io/zh/notebook/settlement-margin-cash/)里展开。
-
-把刚才几类现货资产与接下来要谈的衍生合约放到同一张宏观棋盘上，就能直接对照它们各自制衡哪一类冲击：
+把现货资产与下一节的衍生合约放进同一张宏观棋盘，就能按冲击类型对照各自的制衡方向：
 
 四种宏观状态下，跨资产与合约工具的风险制衡地图
 
@@ -2904,15 +2892,7 @@ Yahoo Finance 调整后收盘价（含分红）· 共同标尺 −40% 至 +25%
 
 ## 合约级对冲：期货、期权与 CDS {#nb-p01-hedges}
 
-跨资产配置靠的是不同资产之间的相关性彼此抵销，可一旦遇上 2022 年那样的状态切换，原本负相关的资产也可能突然同向大跌。如果想跳过对历史相关性的猜测、直接按合同条款锁定反向赔付，组合里就会引入三类合约工具：
-
-- **期货**（股指期货如 MES、美债与利率期货）：对称的线性对冲。卖出股指期货可以直接压低组合的大盘暴露，卖出美债期货则能直接对冲利率上升风险，而且不存在期权那样的权利金时间损耗。它的代价落在两边：一方面会对称让渡对应方向的上行收益，另一方面需要交纳履约保证金并承受逐日盯市，一旦标的上涨，账面期货亏损会立刻从现金里扣款。[^zh-portfolio-diversification-hedging--contracts]
-- **期权**（保护性 Put、股指或债基期权）：非对称的“保险式”制衡。买入看跌期权后，标的跌破行权价以下的大幅亏损由期权赔付抵补，标的继续上涨时多头仓位仍能享受大部分收益；代价是在大多数平稳或上涨年份里，预付的权利金会随着到期临近逐渐损耗。[^zh-portfolio-diversification-hedging--contracts]
-- **CDS**（信用违约互换，Credit Default Swap）：专门对冲企业或主权的信用恶化与违约风险。在标准合约中，保护买方定期（通常按季）按名义本金向卖方支付约定的息差（spread，好比保费），一旦参考主体发生违约等约定信用事件，卖方须按约赔付；即便尚未违约，只要信用利差急剧走阔，已持有的保护合约价值也会迅速跳升。[^zh-portfolio-diversification-hedging--cds-fed]，[^zh-portfolio-diversification-hedging--cds-sec]
-
-不过，理解 CDS 的机制是一回事，个人账户里能不能直接买是另一回事。美联储研究与 SEC 证词都指出，单名 CDS 与指数 CDS 主要在场外（OTC）市场由大型银行交易商、中央对手方、对冲基金、保险公司与机构资管协商达成，不在传统股票交易所面向散户挂牌（美联储 FEDS 2022-023 引用的 2020 年国际清算银行调查显示，主要交易商未平仓 CDS 名义本金中约 62% 通过中央对手方清算；场外双边交易通常需签订标准法律协议并配套初始与变动担保品安排。常见合约期限为 1 至 10 年，以 5 年期最为普遍）。个人投资者若在组合中面临信用收缩风险，现实替代往往是买入高收益债 ETF（如 HYG）看跌期权、直接削减高杠杆标的仓位，或把风险仓位切回短期国债。[^zh-portfolio-diversification-hedging--cds-fed]，[^zh-portfolio-diversification-hedging--cds-sec]，[^zh-portfolio-diversification-hedging--hyg]
-
-把这三类合约工具沿对冲形态、常态代价、期间现金与个人可得性并排比较，选型边界就很清楚：
+跨资产制衡依赖历史相关性，一旦状态切换就可能失效。想要跳过对相关性的猜测、直接按合同条款锁定反向赔付，组合里通常会引入**期货空头**、**保护性期权**与**信用违约互换（CDS）**三类工具：[^zh-portfolio-diversification-hedging--contracts]，[^zh-portfolio-diversification-hedging--cds-fed]，[^zh-portfolio-diversification-hedging--cds-sec]
 
 三类合约对冲工具的机制、代价与门槛
 
@@ -2922,15 +2902,15 @@ Yahoo Finance 调整后收盘价（含分红）· 共同标尺 −40% 至 +25%
 
 **具体保证金、张数估算与盯市划转见[《保证金、对冲与期间现金》](https://ou-liu-red-sugar.github.io/zh/notebook/settlement-margin-cash/)；合约定价与交割细节见期权与期货专题。**
 
-把跨资产与合约工具组合成系统打法时，常见对冲基金大致分化出四条路径：拆开总敞口与净敞口做多强空弱的[《股票多空与市场中性》](https://ou-liu-red-sugar.github.io/zh/notebook/long-short-market-neutral/)、沿利率、汇率与商品周期跨资产调仓的[《全球宏观与跨资产配置》](https://ou-liu-red-sugar.github.io/zh/notebook/global-macro-cross-asset/)、按波动贡献分配四象限权重的[《风险平价与全天候配置》](https://ou-liu-red-sugar.github.io/zh/notebook/risk-parity-all-weather/)，以及用 CDS 和深度虚值期权专保极端崩盘的[《信用与尾部风险对冲》](https://ou-liu-red-sugar.github.io/zh/notebook/credit-tail-risk-hedging/)。接下来四篇将依次展开这四类制衡范式。
+三类工具的实务分界主要落在**期间现金**与**账户门槛**上。期货空头不消耗权利金，但标的上涨时逐日盯市会立刻扣减账户现金；期权买方把最大亏损锁在预先付出的权利金里，代价是平稳行情下的时间损耗；至于专门对冲违约与信用利差飙升的 CDS，主要在机构场外（OTC）市场达成，普通个人投资者往往用高收益债 ETF（如 HYG）看跌期权、降杠杆或切回超短国债作现实替代（美联储 FEDS 2022-023 引用的 2020 年国际清算银行调查显示，主要交易商未平仓 CDS 名义本金中约 62% 通过中央对手方清算；场外双边交易通常需签订标准法律协议并配套初始与变动担保品安排。常见合约期限为 1 至 10 年，以 5 年期最为普遍）。[^zh-portfolio-diversification-hedging--cds-fed]，[^zh-portfolio-diversification-hedging--cds-sec]，[^zh-portfolio-diversification-hedging--hyg]
+
+当机构把多资产与合约工具系统组合起来时，会衍生出四条经典范式：[《股票多空与市场中性》](https://ou-liu-red-sugar.github.io/zh/notebook/long-short-market-neutral/)、[《全球宏观与跨资产配置》](https://ou-liu-red-sugar.github.io/zh/notebook/global-macro-cross-asset/)、[《风险平价与全天候配置》](https://ou-liu-red-sugar.github.io/zh/notebook/risk-parity-all-weather/)与[《信用与尾部风险对冲》](https://ou-liu-red-sugar.github.io/zh/notebook/credit-tail-risk-hedging/)。这四篇收在按需进阶专题中，读者完成基础篇或后续单票估值后，可按实际需要随时选读。
 
 ## 组合里的现金与再平衡 {#nb-p01-cash-rebalance}
 
-[《投资期限与现金需要》](https://ou-liu-red-sugar.github.io/zh/notebook/investment-horizon-cash/)讨论的是怎么把近期生活支出和备用金提前划出去；哪怕已经剔除了这些刚性开支，长期投资组合内部保留一笔现金或超短国债（如 BIL），依然同时承担两项功能：一是直接把组合整体跌幅压浅，二是留出无需低位割肉就能补仓的可用资金。仍以 100,000 美元组合为例，当股票整体下跌 25% 时，保留 0%、15% 与 30% 现金分别会让总净值落在 75,000（−25.0%）、78,750（−21.25%）与 82,500 美元（−17.5%）；反过来，如果股票大涨 25%，三档组合分别来到 125,000（+25.0%）、121,250（+21.25%）与 117,500 美元（+17.5%），少赚的那一截正是为缓冲与机动性付出的机会成本。
+区别于[《投资期限与现金需要》](https://ou-liu-red-sugar.github.io/zh/notebook/investment-horizon-cash/)提前划出的生活支出与备用金，长期组合内部保留一笔现金或超短美债（如 BIL），同时承担两项功能：直接压浅下跌回撤，以及留出无需低位割肉就能补仓的机动余粮；牛市里少赚的那一截，正是为这两项功能付出的机会成本（以 100,000 美元组合为例：若股票整体跌 25%，保留 0%、15% 与 30% 现金分别使净值落在 75,000（−25.0%）、78,750（−21.25%）与 82,500 美元（−17.5%）；若股票反涨 25%，净值则分别落在 125,000（+25.0%）、121,250（+21.25%）与 117,500 美元（+17.5%））。
 
-资产开始一起涨跌以后，最初定好的比例会慢慢跑偏：涨得多的仓位自动变重，跌得多的仓位自然变轻。把权重调回既定目标的操作就是**再平衡**，我们在[《指数、基金与 ETF》](https://ou-liu-red-sugar.github.io/zh/notebook/indices-funds-etfs/#nb-v01-weights)里已经见过等权指数按季度做这件事。落到个人账户里，SEC Investor.gov 给出了两种常见做法：一种是卖出超配的盈利仓位、买入低配资产，拉回速度快，但在应税账户可能提前触发资本利得税和交易成本；另一种是用后续新增收入、定投资金或分红优先买入低配仓位，不动原有盈利持仓，可以减少卖出摩擦。[^zh-portfolio-diversification-hedging--sec-alloc]
-
-不过，给个股和主动仓位做再平衡有个前提：下跌的那笔资产，原先的持仓理由还得成立。如果是行业情绪扰动、企业经营稳健（如 2023 年秋天的 KO），逢低补足权重能帮我们用更便宜的价格拿到同样好的生意；如果经营与盈利前景已经改写（如 2025—2026 年的 FISV），机械地“跌了就补回目标权重”，反而会不断把好钱倒进变坏的仓位里。
+持仓开始涨跌后，原先定好的比例会慢慢跑偏，把权重调回目标结构的操作叫**再平衡**。[^zh-portfolio-diversification-hedging--sec-alloc] 落到个人账户里，既要权衡卖出调仓的税费与新增现金流补配的节奏，给个股补仓前更要守住一条前提——跌下去的那笔持仓，基本面理由还得站得住：
 
 再平衡的两种执行方式与一个基本面前提
 
@@ -2940,7 +2920,7 @@ Yahoo Finance 调整后收盘价（含分红）· 共同标尺 −40% 至 +25%
 
 **宽基指数与跨资产大类多适用纪律化再平衡；个股仓位在补仓前需要先核对最新经营证据。**
 
-无论决定给一只股票放多大仓位、判断几家公司是否共享同一条需求链，还是决定下跌时该再平衡补仓还是认错退出，最后都要回到企业经营本身。接下来我们先沿主线依次展开四类主流组合制衡范式——从下一篇[《股票多空与市场中性》](https://ou-liu-red-sugar.github.io/zh/notebook/long-short-market-neutral/)起步，完成全球宏观、风险平价与信用尾部对冲后，再经[《客户、产品与收费方式》](https://ou-liu-red-sugar.github.io/zh/notebook/customers-products-pricing/)转入公司内部经营研究。
+无论是给单票定仓位、排查跨公司重叠，还是决定下跌时该再平衡补仓还是认错退出，最终判断都绕不开企业经营本身。第一卷基础十篇到此收束；下一篇[《客户、产品与收费方式》](https://ou-liu-red-sugar.github.io/zh/notebook/customers-products-pricing/)正式转入公司内部，先看清一门生意卖给谁、交付什么，又怎样把钱收回来。
 
 [^zh-portfolio-diversification-hedging--voo-sheet]: Vanguard，[VOO 官方季度资料](https://fund-docs.vanguard.com/F0968.pdf)，2026-06-30，第 2 页前十大持仓（NVDA 7.5%、AMZN 3.6%）与行业权重（Information Technology 38.0%）；原始摘录见[本篇复用数据](https://ou-liu-red-sugar.github.io/notebook/index-funds/inputs.json)。
 [^zh-portfolio-diversification-hedging--sec-alloc]: SEC Investor.gov，[Beginners’ Guide to Asset Allocation, Diversification, and Rebalancing](https://www.investor.gov/additional-resources/general-resources/publications-research/info-sheets/beginners-guide-asset)，资产类别间与类别内两层分散、定期／阈值再平衡及新增资金再平衡说明，2026-11-26 查阅。
@@ -3101,7 +3081,7 @@ EBITDA 的陷阱是把年年重置的设备磨损当成不算成本。Warren Buf
 
 三者的分水岭，在于资本开支到底流向哪里。T 收入仅增 2.7%，巨额投入大多用于守住存量网络，Owner Earnings 贴着偏低的 FCF 走；而 MSFT（全年收入增 18%）与 TSM（毛利率 59.9%）的高额支出重在新建算力与先进晶圆厂。这些产能两三年后陆续转固，会带来成倍放大的折旧账单，最终回报取决于投产后的利用率与定价权。
 
-大型上市公司往往同时经营轻资产软件与重资产基建，分部资本开支与共同费用如何归集并表，由下一篇[《分部、共同成本与合并》](https://ou-liu-red-sugar.github.io/zh/notebook/segments-shared-costs-consolidation/)接手；重资本扩张叠加大额举债时的现金低谷防线见[《债务、融资与现金低谷》](https://ou-liu-red-sugar.github.io/zh/notebook/debt-financing-cash-troughs/)，Non-GAAP 口径下的 Adjusted EBITDA 修饰则留在[《盈利质量与可比口径》](https://ou-liu-red-sugar.github.io/zh/notebook/earnings-quality-comparability/)拆解。
+走通三张报表、营运资本与资本开支自由现金流后，从收入到现金的财务底座已经合拢。下一篇[《成本结构与经营杠杆》](https://ou-liu-red-sugar.github.io/zh/notebook/cost-structure-operating-leverage/)带着刚建立的折旧与利润表视角回到经营内部，拆解收入变动怎样经变动成本、固定成本与产能利用折出迥异的利润振幅；多业务分部合并、债务低谷与盈利质量清洗，则待产业与业务结构拆清后在第四卷[《分部、共同成本与合并》](https://ou-liu-red-sugar.github.io/zh/notebook/segments-shared-costs-consolidation/)至[《盈利质量与可比口径》](https://ou-liu-red-sugar.github.io/zh/notebook/earnings-quality-comparability/)接续展开。
 
 [^zh-profit-capex-cash--msft-fy26]: Microsoft Corporation，[FY2026 Q4 及全财年业绩公告（EX-99.1）](https://www.sec.gov/Archives/edgar/data/789019/000119312526323632/msft-ex99_1.htm)，2026-07-29，截至 2026-06-30 的利润表、现金流量表与分部业绩原件。
 [^zh-profit-capex-cash--msft-10k]: Microsoft Corporation，[FY2026 Form 10-K](https://www.sec.gov/Archives/edgar/data/789019/000119312526323660/msft-20260630.htm)，2026-07-29 提交 SEC，Note 1 固定资产折旧年限政策、FY24—FY26 三年现金流量表与 Note 6 Property and Equipment 附注。
@@ -3437,7 +3417,7 @@ Last、Bid 与 Ask 的位置（示意）
 
 网页 / HTML: [收入增长与市场预期](https://ou-liu-red-sugar.github.io/zh/notebook/revenue-growth-expectations/)
 
-语言 / Language: zh · 更新 / Revised: 2026-11-26
+语言 / Language: zh · 更新 / Revised: 2026-11-27
 
 收入增长，可能因为卖得更多，也可能因为卖得更贵。Coca-Cola（KO）在 2025 年第二季度的净营收同比增长 1%，公司披露的全球标准箱销量却下降 1%。收入在涨、销量在跌，这时候就得把增长拆开，看看多出来的钱到底从哪儿来。[^zh-revenue-growth-expectations--ko-growth]
 
@@ -3634,7 +3614,7 @@ DBS 在这份报告里为目标价选用了 26 倍前瞻 PE；我们借用这一
 
 ## 从增长到盈利 {#nb-d02-next}
 
-MRVL 提醒我们，收入增长快和跑赢预期门槛是两码事；KO 的反推又表明，股价隐含的收入要求会随着利润率、股数与估值倍数一起浮动。要继续判断这些经营条件能不能兑现，还得翻开收入背后的账本：多赚一块钱收入，究竟要多花多少成本。下一篇《成本结构与经营杠杆》就会顺着这里往下走，拆解成本如何随规模变化，最后又能留下多少利润。
+MRVL 提醒我们，收入增长快和跑赢预期门槛是两码事；KO 的反推又表明，股价隐含的收入要求会随着利润率、股数与估值倍数一起浮动。要继续核验确认的收入有没有真正转化为利润与到账现金，需要先读懂公司的整套账本。下一篇[《三张财报与经营活动》](https://ou-liu-red-sugar.github.io/zh/notebook/three-financial-statements/)就沿同一段经营过程贯通利润表、资产负债表与现金流量表，补齐分析营运资本、资本开支与成本结构的会计底座。
 
 [^zh-revenue-growth-expectations--ko-growth]: [The Coca-Cola Company — Second Quarter 2025 Earnings Release](https://www.coca-colacompany.com/content/dam/corporate/us/en/media-center/Coca-Cola-2025-Q2-Earnings-Release-Full-Release-7.22.25.pdf)。PDF p1 标题与 Quarterly Performance / Revenues；PDF p3 Revenues and Volume，Consolidated 行及 rounding 注；PDF p8 Notes，unit case、unit case volume、concentrate sales、price/mix；PDF p15 Definitions；p25 Net Operating Revenues 调节表；PDF p3 Asia Pacific 行；p5 Asia Pacific 第二段。
 [^zh-revenue-growth-expectations--wmt]: [Walmart FY2025 Form 10-K](https://stock.walmart.com/sec-filings/all-sec-filings/content/0000104169-25-000021/wmt-20250131.htm)。Walmart U.S. Results of Operations；本轮实际阅读974–980行。
@@ -4672,9 +4652,9 @@ GEV 分拆
 
 网页 / HTML: [三张财报与经营活动](https://ou-liu-red-sugar.github.io/zh/notebook/three-financial-statements/)
 
-语言 / Language: zh · 更新 / Revised: 2026-11-26
+语言 / Language: zh · 更新 / Revised: 2026-11-27
 
-[《Agent 时代的基本面投资》](https://ou-liu-red-sugar.github.io/zh/notebook/investment-returns/)里的 GE Vernova（GEV）燃气轮机订单留下了一个会计问题：签单、交付确认收入、收到货款往往不在同一天；[《亏损、波动与持有能力》](https://ou-liu-red-sugar.github.io/zh/notebook/loss-volatility-holding-capacity/)里也提到，Microsoft（MSFT）在 2026 年 7 月 29 日公布的是 **FY26 Q4** 财报，为什么刚过七月就结束了“2026 财年”？
+前两篇[《客户、产品与收费方式》](https://ou-liu-red-sugar.github.io/zh/notebook/customers-products-pricing/)与[《收入增长与市场预期》](https://ou-liu-red-sugar.github.io/zh/notebook/revenue-growth-expectations/)把公司怎么收钱、收入怎样增长拆清了，下一个问题立刻落到账本上：像[《Agent 时代的基本面投资》](https://ou-liu-red-sugar.github.io/zh/notebook/investment-returns/)里的 GE Vernova（GEV）燃气轮机订单，签单、交付确认收入与收到货款往往不在同一天；[《亏损、波动与持有能力》](https://ou-liu-red-sugar.github.io/zh/notebook/loss-volatility-holding-capacity/)里提到的 Microsoft（MSFT）在 2026 年 7 月 29 日就发了 **FY26 Q4** 财报，为何刚过七月就结束了“2026 财年”？
 
 要读懂一家上市公司的全部财务数字，得把**利润表**（Income Statement）、**资产负债表**（Balance Sheet）和**现金流量表**（Cash Flow Statement）合在一起看。它们分别从权责成果、存量家底和现金流转三个机位，记录同一段经营活动。
 
@@ -4760,7 +4740,7 @@ GEV 分拆
 
 跨公司比较不同财年截止日的企业——比如拿 1 月末结账的 NVDA 对照 6 月末结账的 MSFT——不能直接把各自的“FY26”硬比，需要先将最近四个季度加总成同一窗口附近的 **TTM**（Trailing Twelve Months，滚动十二个月）。
 
-读财报时养成固定顺序——先核对报告期间与截止时点、再看利润表权责结果、对照现金流量表经营与投资净额、最后回到资产负债表检验现金、应收、存货、固定资产与债务的存量变化——三张报表就能拼出企业完整的资金循环。
+读财报时养成固定顺序——先核对报告期间与截止时点、再看利润表权责结果、对照现金流量表经营与投资净额、最后回到资产负债表检验现金、应收、存货、固定资产与债务的存量变化——三张报表就能拼出企业完整的资金循环。下一篇[《收入、回款与营运资本》](https://ou-liu-red-sugar.github.io/zh/notebook/revenue-collections-working-capital/)紧接着拆解应收、存货与应付怎样在短期内吞吐现金。
 
 [^zh-three-financial-statements--sec-guide]: U.S. Securities and Exchange Commission，[Beginners’ Guide to Financial Statements](https://www.sec.gov/about/reports-publications/beginners-guide-financial-statements)，三张主表与股东权益变动表分工及会计恒等式说明，2026-11-26 查阅。
 [^zh-three-financial-statements--msft-fy26]: Microsoft Corporation，[FY2026 Q4 及全财年业绩公告（EX-99.1，同日提交 FY2026 Form 10-K）](https://www.sec.gov/Archives/edgar/data/789019/000119312526323632/msft-ex99_1.htm)，2026-07-29，截至 2026-06-30 的利润表、资产负债表与现金流量表原件。

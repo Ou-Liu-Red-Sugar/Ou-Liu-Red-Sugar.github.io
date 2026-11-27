@@ -1,6 +1,6 @@
 {
   "title": "Agent 时代的基本面投资",
-  "description": "从投资、交易与组合基础进入企业经营、条件定价和 Agent 判断培养，再用于持续资本取舍；工具专题按需选读。",
+  "description": "从资金、股票、交易与组合地基进入企业生意与财报双螺旋，再完成业务路径、分阶段折现率估值与组合取舍，最后收束于开放演化的 Agent 研究实验模块；机构对冲范式与金融合约专题按需选读。",
   "default_node": "S",
   "groups": [
     {
@@ -100,13 +100,13 @@
       "from": "E",
       "to": "F",
       "kind": "main",
-      "label": "由财务和每股结果转到买价与持有回报"
+      "label": "由清洗后的财务、融资姿态与资本配置结果转入估值与普通股所得"
     },
     {
       "from": "F",
       "to": "I",
       "kind": "main",
-      "label": "将经营和定价判断用于 Agent 的独立研究与推演"
+      "label": "将单票路径、估值与反证框架交由 Agent 研究实验验证"
     },
     {
       "from": "P",
@@ -118,13 +118,13 @@
       "from": "I",
       "to": "J",
       "kind": "main",
-      "label": "用前向证据检验 Agent 判断并积累可持续的研究"
+      "label": "用前向基本面检验与多视角复核迭代 Agent 研究方法"
     },
     {
       "from": "J",
       "to": "M",
       "kind": "main",
-      "label": "将持续研究运用于 Agent 资产配置"
+      "label": "将前向复盘经验反馈到后续组合配置与持续跟踪"
     },
     {
       "from": "A",
@@ -142,7 +142,7 @@
       "from": "A",
       "to": "M",
       "kind": "decision",
-      "label": "当前目标、可用资金与义务约束 Agent 配置方案"
+      "label": "当前资金目标、期限与付款义务约束组合配置方案"
     },
     {
       "from": "B",
@@ -472,7 +472,7 @@
       "from": "D",
       "to": "F",
       "kind": "economic",
-      "label": "需求、竞争和周期关系约束经营情景与定价判断"
+      "label": "需求、成本、竞争与周期关系约束业务路径与现金流推演"
     },
     {
       "from": "E",
@@ -514,7 +514,7 @@
       "from": "F",
       "to": "I",
       "kind": "research",
-      "label": "影响投资取舍的未知决定研究优先级和停止点"
+      "label": "影响投资取舍的敏感未知决定研究范围与复核优先级"
     },
     {
       "from": "I",
@@ -580,25 +580,25 @@
       "from": "F",
       "to": "M",
       "kind": "decision",
-      "label": "同口径的价格、情景与 Risk-Reward 支持资本比较"
+      "label": "同口径的路径价值、价格位置与替代回报直接进入账户资本取舍"
     },
     {
       "from": "P",
       "to": "M",
       "kind": "knowledge",
-      "label": "沿 P01 的组合认识深化研究整合、共同情景和资本取舍"
+      "label": "沿 P01 的组合认识深化共同经营暴露与资本取舍"
     },
     {
       "from": "I",
       "to": "M",
       "kind": "research",
-      "label": "Agent 汇集已有研究，比较持仓、候选与现金"
+      "label": "Agent 整理跨公司材料与共同暴露，辅助比较持仓、候选与现金"
     },
     {
       "from": "M",
       "to": "P",
       "kind": "decision",
-      "label": "经人工取舍的方案接回实际持有、资金安排和再平衡"
+      "label": "经人工取舍的方案接回实际持仓、风险制衡与再平衡（进阶对冲按需选读 P02–P05）"
     },
     {
       "from": "M",
@@ -700,35 +700,356 @@
     },
     {
       "id": "F",
-      "title": "经营情景、条件定价与 Risk-Reward",
+      "title": "业务路径、估值与投资判断",
       "short": "定价与判断",
-      "description": "在 A03 的回报比较基础上形成完整研究判断。"
+      "description": "从业务模型推出未来 1–3 年路径与现金流价值，以现价解读市场预期，并按前向证据与反方复核更新判断。"
     },
     {
       "id": "P",
       "title": "投资组合、保证金与对冲",
       "short": "投资组合",
-      "description": "以 P01 建立多资产与风险制衡的组合总图，P02 至 P05 分别展开四类对冲基金制衡范式，B03 补充保证金与盯市现金实操，连接公司研究与 Agent 资本配置。"
+      "description": "以 P01 建立多资产与风险制衡的组合总图作为主线地基；P02 至 P05（四类机构对冲范式）与 B03（保证金与盯市实操）归为按需进阶专题，衔接后续组合配置。"
     },
     {
       "id": "I",
-      "title": "Agent 的研究与经营判断",
+      "title": "Agent 研究与方法边界",
       "short": "Agent 研究",
-      "description": "让 Agent 从原文和业务事实形成有依据的解释、预测与取舍。"
+      "description": "界定 Agent 判断与记账工具的职责边界，诚实记录路径森林与 Market Graph 等仍在演化的实验框架。"
     },
     {
       "id": "J",
-      "title": "Agent 的持续研究与定向培养",
-      "short": "运行与培养",
-      "description": "通过前向证据检验并培养 Agent 判断，同时保留研究的接续能力。"
+      "title": "前向检验与方法演化",
+      "short": "前向检验",
+      "description": "通过事前冻结、多视角复核与前向基本面验证暴露模型盲区，持续迭代研究方法。"
     },
     {
       "id": "M",
-      "title": "Agent 资本取舍与持续配置",
-      "short": "Agent 资产配置",
-      "description": "承接 P01 的组合认识，深化研究整合、共同情景和持续资本取舍。"
+      "title": "组合配置与持续资本取舍",
+      "short": "组合配置",
+      "description": "承接 P01 的组合基础与单票估值判断，回归纯投资视角的账户比较、共同暴露权衡与持续再平衡。"
     }
   ],
+  "prerequisites": {
+    "NB-S01": [
+      "NB-A01"
+    ],
+    "NB-B01": [
+      "NB-S01"
+    ],
+    "NB-S02": [
+      "NB-S01",
+      "NB-B01"
+    ],
+    "NB-V01": [
+      "NB-S01"
+    ],
+    "NB-B02": [
+      "NB-S01",
+      "NB-V01"
+    ],
+    "NB-A04": [
+      "NB-S02",
+      "NB-V01"
+    ],
+    "NB-A02": [
+      "NB-A04",
+      "NB-B02"
+    ],
+    "NB-A03": [
+      "NB-A02",
+      "NB-A04",
+      "NB-S01"
+    ],
+    "NB-P01": [
+      "NB-A03",
+      "NB-V01"
+    ],
+    "NB-D01": [
+      "NB-S01"
+    ],
+    "NB-D02": [
+      "NB-D01"
+    ],
+    "NB-E01": [
+      "NB-D01",
+      "NB-D02"
+    ],
+    "NB-E02": [
+      "NB-E01",
+      "NB-D02"
+    ],
+    "NB-E03": [
+      "NB-E01",
+      "NB-E02"
+    ],
+    "NB-D03": [
+      "NB-D01",
+      "NB-D02",
+      "NB-E01"
+    ],
+    "NB-D04": [
+      "NB-D01",
+      "NB-D03"
+    ],
+    "NB-D05": [
+      "NB-D01",
+      "NB-D04"
+    ],
+    "NB-D06": [
+      "NB-D02",
+      "NB-D03",
+      "NB-D05",
+      "NB-E02"
+    ],
+    "NB-D07": [
+      "NB-D04",
+      "NB-D05",
+      "NB-E03"
+    ],
+    "NB-D08": [
+      "NB-D01",
+      "NB-D03",
+      "NB-E01"
+    ],
+    "NB-E04": [
+      "NB-E01",
+      "NB-E03",
+      "NB-D08"
+    ],
+    "NB-E05": [
+      "NB-E01",
+      "NB-E02",
+      "NB-E03"
+    ],
+    "NB-E06": [
+      "NB-E01",
+      "NB-E02",
+      "NB-E03",
+      "NB-E04"
+    ],
+    "NB-E07": [
+      "NB-E03",
+      "NB-E05",
+      "NB-E06",
+      "NB-S02",
+      "NB-B01"
+    ],
+    "NB-A05": [
+      "NB-A01",
+      "NB-A03",
+      "NB-P01",
+      "NB-E06"
+    ],
+    "NB-F02": [
+      "NB-A05",
+      "NB-D06",
+      "NB-D07",
+      "NB-E05"
+    ],
+    "NB-F03": [
+      "NB-E06",
+      "NB-E07",
+      "NB-D04",
+      "NB-D06",
+      "NB-F02"
+    ],
+    "NB-F04": [
+      "NB-E04",
+      "NB-E05",
+      "NB-E07",
+      "NB-F03"
+    ],
+    "NB-F05": [
+      "NB-A04",
+      "NB-A03",
+      "NB-F02",
+      "NB-F03",
+      "NB-F04"
+    ],
+    "NB-F06": [
+      "NB-F05",
+      "NB-A05"
+    ],
+    "NB-M02": [
+      "NB-F05",
+      "NB-P01"
+    ],
+    "NB-M03": [
+      "NB-M02",
+      "NB-D05",
+      "NB-F02",
+      "NB-P01"
+    ],
+    "NB-M05": [
+      "NB-M03",
+      "NB-F06"
+    ],
+    "NB-I01": [
+      "NB-A05",
+      "NB-E06",
+      "NB-F06"
+    ],
+    "NB-I02": [
+      "NB-I01",
+      "NB-D05",
+      "NB-F02",
+      "NB-M03"
+    ],
+    "NB-J03": [
+      "NB-I02",
+      "NB-F06"
+    ],
+    "NB-P02": [
+      "NB-P01"
+    ],
+    "NB-P03": [
+      "NB-P01",
+      "NB-P02"
+    ],
+    "NB-P04": [
+      "NB-P01",
+      "NB-P03"
+    ],
+    "NB-P05": [
+      "NB-P01",
+      "NB-P04"
+    ],
+    "NB-C05": [
+      "NB-A04"
+    ],
+    "NB-C01": [
+      "NB-C05",
+      "NB-B01"
+    ],
+    "NB-C02": [
+      "NB-A04",
+      "NB-D03",
+      "NB-D04"
+    ],
+    "NB-C03": [
+      "NB-A04",
+      "NB-B01"
+    ],
+    "NB-C04": [
+      "NB-C01",
+      "NB-C02",
+      "NB-C03"
+    ],
+    "NB-U01": [
+      "NB-A02",
+      "NB-A04",
+      "NB-V01"
+    ],
+    "NB-R01": [
+      "NB-A04",
+      "NB-A02"
+    ],
+    "NB-R02": [
+      "NB-R01",
+      "NB-C01"
+    ],
+    "NB-R03": [
+      "NB-R01",
+      "NB-E05"
+    ],
+    "NB-V03": [
+      "NB-V01",
+      "NB-B02",
+      "NB-A04"
+    ],
+    "NB-S05": [
+      "NB-V01",
+      "NB-V03",
+      "NB-A04",
+      "NB-A05"
+    ],
+    "NB-B05": [
+      "NB-A03",
+      "NB-B02"
+    ],
+    "NB-B06": [
+      "NB-B05",
+      "NB-A04"
+    ],
+    "NB-B03": [
+      "NB-P01",
+      "NB-B02"
+    ],
+    "NB-K05": [
+      "NB-B01",
+      "NB-B03"
+    ],
+    "NB-X01": [
+      "NB-C02",
+      "NB-C04"
+    ],
+    "NB-X02": [
+      "NB-E03",
+      "NB-C01",
+      "NB-A04"
+    ],
+    "NB-K03": [
+      "NB-K05",
+      "NB-B03",
+      "NB-C01"
+    ],
+    "NB-X03": [
+      "NB-X01",
+      "NB-X02",
+      "NB-V03",
+      "NB-K03"
+    ],
+    "NB-K04": [
+      "NB-K03",
+      "NB-B03"
+    ],
+    "NB-G01": [
+      "NB-B02",
+      "NB-B03"
+    ],
+    "NB-G03": [
+      "NB-G01",
+      "NB-B02",
+      "NB-A04"
+    ],
+    "NB-G04": [
+      "NB-G03"
+    ],
+    "NB-G05": [
+      "NB-G04",
+      "NB-B03"
+    ],
+    "NB-G06": [
+      "NB-G04",
+      "NB-G05",
+      "NB-B02"
+    ],
+    "NB-L01": [
+      "NB-K03",
+      "NB-K05",
+      "NB-B03"
+    ],
+    "NB-L03": [
+      "NB-L01",
+      "NB-B02",
+      "NB-B03"
+    ],
+    "NB-L04": [
+      "NB-L03",
+      "NB-C03"
+    ],
+    "NB-H01": [
+      "NB-A01",
+      "NB-B02",
+      "NB-A05"
+    ],
+    "NB-H04": [
+      "NB-H01",
+      "NB-D05",
+      "NB-F02",
+      "NB-I02"
+    ]
+  },
   "entries": [
     {
       "id": "NB-A01",
@@ -887,19 +1208,6 @@
       }
     },
     {
-      "id": "NB-D03",
-      "node": "D",
-      "title": "成本结构与经营杠杆",
-      "goal": "解释收入变化怎样通过成本和产能形成不同利润结果。",
-      "status": "available",
-      "url": "/zh/notebook/cost-structure-operating-leverage/",
-      "reading_profile": {
-        "difficulty": "进阶",
-        "depth": "详解",
-        "note": "承接客户收费、收入增长与三张财报，拆解变动成本、固定成本、阶梯费用与供给约束如何通过经营杠杆决定营业利润，并配单屏经营杠杆推演器与 TSM、INTC、COST 三家公司切换对照。"
-      }
-    },
-    {
       "id": "NB-E01",
       "node": "E",
       "title": "三张财报与经营活动",
@@ -936,6 +1244,19 @@
         "difficulty": "入门",
         "depth": "详解",
         "note": "从资本化与折旧的会计机制切入，系统界定 EBIT、EBITDA、Owner Earnings 与 FCF 的计算桥与适用陷阱，结合互动推演器及 KO、T、MSFT、TSMC 四家公司真实年报展开。"
+      }
+    },
+    {
+      "id": "NB-D03",
+      "node": "D",
+      "title": "成本结构与经营杠杆",
+      "goal": "解释收入变化怎样通过成本和产能形成不同利润结果。",
+      "status": "available",
+      "url": "/zh/notebook/cost-structure-operating-leverage/",
+      "reading_profile": {
+        "difficulty": "进阶",
+        "depth": "详解",
+        "note": "承接客户收费、收入增长与三张财报，拆解变动成本、固定成本、阶梯费用与供给约束如何通过经营杠杆决定营业利润，并配单屏经营杠杆推演器与 TSM、INTC、COST 三家公司切换对照。"
       }
     },
     {
@@ -1033,146 +1354,150 @@
     {
       "id": "NB-A05",
       "node": "A",
-      "title": "信息、预期与判断更新",
-      "goal": "用竞争解释和可区分证据形成判断，并说明新信息怎样改变预期。",
+      "title": "事实、判断与“价格不进权重”",
+      "goal": "区分事实、推断与判断，用共识与现价反读市场押注，同时守住权重只凭非价格证据的边界。",
       "status": "planned",
       "url": null
     },
     {
       "id": "NB-F02",
       "node": "F",
-      "title": "经营情景与概率判断",
-      "goal": "用共同成立的经营条件形成代表路径并说明概率依据。",
+      "title": "业务路径、关键驱动与余量",
+      "goal": "从业务模型长出未来 1–3 年的演化路径，对最敏感判断给出分布，并用显式余量承认未知。",
       "status": "planned",
       "url": null
     },
     {
       "id": "NB-F03",
       "node": "F",
-      "title": "盈利状态与定价参照",
-      "goal": "根据业务状态选择可解释的盈利口径和条件定价参照。",
+      "title": "价值构成、分阶段折现率与倍数反推",
+      "goal": "用资产寿命、再投资回报与分阶段折现率推出路径现金流价值，并用隐含倍数作结果核验。",
       "status": "planned",
       "url": null
     },
     {
       "id": "NB-F04",
       "node": "F",
-      "title": "企业结果与普通股所得",
-      "goal": "把业务条件结果与共同资本、债务、现金和股数汇成普通股所得。",
+      "title": "索取权桥接、融资窗口与普通股所得",
+      "goal": "把企业级路径价值经全部表内外索取权、融资姿态与净股数变化桥接到普通股每股结果。",
       "status": "planned",
       "url": null
     },
     {
       "id": "NB-F05",
       "node": "F",
-      "title": "买入价格与 Risk-Reward",
-      "goal": "把经营证据、条件定价、概率和资金安排连成完整投资判断。",
+      "title": "价格位置、Risk-Reward 与替代比较",
+      "goal": "把现价放进路径价值区间反读市场押注，并与现实替代资产比较年化回报与亏损边界。",
       "status": "planned",
       "url": null
     },
     {
       "id": "NB-F06",
       "node": "F",
-      "title": "反证、替代选择与判断更新",
-      "goal": "找到能改变投资取舍的证据、竞争解释和判断翻转条件。",
-      "status": "planned",
-      "url": null
-    },
-    {
-      "id": "NB-I01",
-      "node": "I",
-      "title": "从投资疑问到 Agent 研究任务",
-      "goal": "把候选线索和投资疑问转成有实际判断用途的 Agent 任务。",
-      "status": "planned",
-      "url": null
-    },
-    {
-      "id": "NB-I02",
-      "node": "I",
-      "title": "资料、语义与跨来源判断",
-      "goal": "读懂资料所指对象和条件，通过跨来源比较形成可追溯的采用判断。",
-      "status": "planned",
-      "url": null
-    },
-    {
-      "id": "NB-I03",
-      "node": "I",
-      "title": "上下游调查与经营假设校准",
-      "goal": "围绕具体经营疑问取得上下游证据，并据此修改需求、成本和资本假设。",
-      "status": "planned",
-      "url": null
-    },
-    {
-      "id": "NB-I04",
-      "node": "I",
-      "title": "竞争、技术与制度判断",
-      "goal": "用竞争、技术和制度证据比较经营路径及替代解释。",
-      "status": "planned",
-      "url": null
-    },
-    {
-      "id": "NB-I05",
-      "node": "I",
-      "title": "Agent 的经营判断与情景推演",
-      "goal": "由 Agent 解释材料、重建经营联系并提出有依据的情景与取舍。",
-      "status": "planned",
-      "url": null
-    },
-    {
-      "id": "NB-I06",
-      "node": "I",
-      "title": "多 Agent 分工与研究整合",
-      "goal": "用实际独立推演和关键连接重建提高研究解释与整合质量。",
-      "status": "planned",
-      "url": null
-    },
-    {
-      "id": "NB-J02",
-      "node": "J",
-      "title": "研究记录、观察清单与局部更新",
-      "goal": "让新信息命中旧判断，并保存可接续的局部更新过程。",
-      "status": "planned",
-      "url": null
-    },
-    {
-      "id": "NB-J03",
-      "node": "J",
-      "title": "Agent 判断的前向检验与定向培养",
-      "goal": "通过事前记录、新证据和重复案例检验并改进 Agent 的语义和经营判断。",
-      "status": "planned",
-      "url": null
-    },
-    {
-      "id": "NB-J04",
-      "node": "J",
-      "title": "Agent 研究的持续运行",
-      "goal": "让有效研究跨期资料继续使用，并发现失败、恢复工作和保留人的取舍。",
+      "title": "反证、多视角复核与前向更新",
+      "goal": "事前写清改主意的信号，借助挑战者与多视角核查暴露盲区，并按前向基本面事实更新与复盘。",
       "status": "planned",
       "url": null
     },
     {
       "id": "NB-M02",
       "node": "M",
-      "title": "从账户与研究到资本取舍",
-      "goal": "从当前账户和已有研究出发，统一比较持仓、候选和现金的用途。",
+      "title": "从账户目标与研究到资本取舍",
+      "goal": "从真实账户的持仓、可用现金与资金义务出发，按统一口径比较保留、加仓、替换与等待。",
       "status": "planned",
       "url": null
     },
     {
       "id": "NB-M03",
       "node": "M",
-      "title": "组合共同情景与配置方案",
-      "goal": "在共同经营条件、概率和资金约束下比较不同规模及替代配置。",
+      "title": "组合共同暴露、生态位共因与配置方案",
+      "goal": "识别跨公司共享的生态位变量与系统边界，在共同经营情景下确定仓位上限与缓冲结构。",
       "status": "planned",
       "url": null
     },
     {
       "id": "NB-M05",
       "node": "M",
-      "title": "Agent 辅助再平衡与持续配置",
-      "goal": "从新事实或资金需要完成配置复评、采用和后续检验。",
+      "title": "组合再平衡、持续跟踪与复盘",
+      "goal": "区分价格漂移与基本面变化，按新事实与资金需要执行再平衡，并建立长期决策复盘闭环。",
       "status": "planned",
       "url": null
+    },
+    {
+      "id": "NB-I01",
+      "node": "I",
+      "title": "判断交给 Agent，记账交给工具",
+      "goal": "界定 Agent 与确定性程序在基本面研究中的职责分工，用材料冻结、读数质量与自动对账兜住底线。",
+      "status": "planned",
+      "url": null
+    },
+    {
+      "id": "NB-I02",
+      "node": "I",
+      "title": "路径森林与 Market Graph：开放实验框架",
+      "goal": "以仍在演化的 `investing-forest` 为真实样本，拆解公司路径森林、生态位与全市场关系图的设计思路及当前未解难题。",
+      "status": "planned",
+      "url": null
+    },
+    {
+      "id": "NB-J03",
+      "node": "J",
+      "title": "前向检验、多视角复核与方法迭代",
+      "goal": "说明为何不靠已知答案回测证明研究能力，如何用事前冻结、多视角反方复核与前向基本面验证持续改方法。",
+      "status": "planned",
+      "url": null
+    },
+    {
+      "id": "NB-P02",
+      "node": "P",
+      "title": "股票多空与市场中性",
+      "goal": "拆分总敞口与净敞口，理解市场、行业与因子中性的收益来源、融券成本及拥挤踩踏风险。",
+      "status": "available",
+      "url": "/zh/notebook/long-short-market-neutral/",
+      "reading_profile": {
+        "difficulty": "进阶",
+        "depth": "详解",
+        "note": "需要同时理解多空总／净敞口、beta 与风格因子中性、卖空现金抵押与借券费结构，以及轧空与拥挤去杠杆两类尾部失效。"
+      }
+    },
+    {
+      "id": "NB-P03",
+      "node": "P",
+      "title": "全球宏观与跨资产配置",
+      "goal": "沿增长、通胀、利率与汇率周期在多资产间选择表达工具，并识破跨国跨品种配置背后同一底层风险的伪分散。",
+      "status": "available",
+      "url": "/zh/notebook/global-macro-cross-asset/",
+      "reading_profile": {
+        "difficulty": "进阶",
+        "depth": "详解",
+        "note": "需要结合利率、汇率、跨市场周收益相关性、公司跨境财报口径与流动性去杠杆机制，辨别表达载体选择、底层共因与局部背离。"
+      }
+    },
+    {
+      "id": "NB-P04",
+      "node": "P",
+      "title": "风险平价与全天候配置",
+      "goal": "区分资金权重与风险贡献，理解宏观四象限等风险预算、债券杠杆及相关性翻转边界。",
+      "status": "available",
+      "url": "/zh/notebook/risk-parity-all-weather/",
+      "reading_profile": {
+        "difficulty": "进阶",
+        "depth": "详解",
+        "note": "需要结合 Euler 风险贡献分解、增长与通胀四象限映射、TIPS 实际利率久期及杠杆融资成本公式，判断风险平价的适用条件与失效边界。"
+      }
+    },
+    {
+      "id": "NB-P05",
+      "node": "P",
+      "title": "信用与尾部风险对冲",
+      "goal": "解释 CDS 与深度虚值期权怎样对冲信用收缩与极端崩盘，比较常态保费损耗、机构门槛与个人替代工具。",
+      "status": "available",
+      "url": "/zh/notebook/credit-tail-risk-hedging/",
+      "reading_profile": {
+        "difficulty": "进阶",
+        "depth": "详解",
+        "note": "需要结合信用利差、CDS 信用事件与拍卖回收机制、期权波动率风险溢价及路径依赖，权衡常态保费损耗与极端危机凸性赔付。"
+      }
     },
     {
       "id": "NB-C05",
@@ -1385,58 +1710,6 @@
       "url": null
     },
     {
-      "id": "NB-P02",
-      "node": "P",
-      "title": "股票多空与市场中性",
-      "goal": "拆分总敞口与净敞口，理解市场、行业与因子中性的收益来源、融券成本及拥挤踩踏风险。",
-      "status": "available",
-      "url": "/zh/notebook/long-short-market-neutral/",
-      "reading_profile": {
-        "difficulty": "进阶",
-        "depth": "详解",
-        "note": "需要同时理解多空总／净敞口、beta 与风格因子中性、卖空现金抵押与借券费结构，以及轧空与拥挤去杠杆两类尾部失效。"
-      }
-    },
-    {
-      "id": "NB-P03",
-      "node": "P",
-      "title": "全球宏观与跨资产配置",
-      "goal": "沿增长、通胀、利率与汇率周期在多资产间选择表达工具，并识破跨国跨品种配置背后同一底层风险的伪分散。",
-      "status": "available",
-      "url": "/zh/notebook/global-macro-cross-asset/",
-      "reading_profile": {
-        "difficulty": "进阶",
-        "depth": "详解",
-        "note": "需要结合利率、汇率、跨市场周收益相关性、公司跨境财报口径与流动性去杠杆机制，辨别表达载体选择、底层共因与局部背离。"
-      }
-    },
-    {
-      "id": "NB-P04",
-      "node": "P",
-      "title": "风险平价与全天候配置",
-      "goal": "区分资金权重与风险贡献，理解宏观四象限等风险预算、债券杠杆及相关性翻转边界。",
-      "status": "available",
-      "url": "/zh/notebook/risk-parity-all-weather/",
-      "reading_profile": {
-        "difficulty": "进阶",
-        "depth": "详解",
-        "note": "需要结合 Euler 风险贡献分解、增长与通胀四象限映射、TIPS 实际利率久期及杠杆融资成本公式，判断风险平价的适用条件与失效边界。"
-      }
-    },
-    {
-      "id": "NB-P05",
-      "node": "P",
-      "title": "信用与尾部风险对冲",
-      "goal": "解释 CDS 与深度虚值期权怎样对冲信用收缩与极端崩盘，比较常态保费损耗、机构门槛与个人替代工具。",
-      "status": "available",
-      "url": "/zh/notebook/credit-tail-risk-hedging/",
-      "reading_profile": {
-        "difficulty": "进阶",
-        "depth": "详解",
-        "note": "需要结合信用利差、CDS 信用事件与拍卖回收机制、期权波动率风险溢价及路径依赖，权衡常态保费损耗与极端危机凸性赔付。"
-      }
-    },
-    {
       "id": "NB-L01",
       "node": "L",
       "title": "永续合约的价格锚定与资金费",
@@ -1479,7 +1752,7 @@
   ],
   "reading_route": {
     "title": "从投资基础到公司研究",
-    "description": "先理解资金、股票、交易、组合总图与四类风险制衡范式，再进入客户收入、七篇财报与会计基本功、成本杠杆与产业竞争、投资判断与 Agent；专题按实际用途选读。",
+    "description": "按“市场与组合地基 → 生意、收入与现金底座 → 成本竞争与产业周期 → 合并底线与资本配置 → 路径估值与组合取舍 → Agent 研究实验”推进；机构对冲范式与金融合约专题按实际需要选读。",
     "steps": [
       {
         "id": "NB-A01",
@@ -1612,60 +1885,8 @@
         }
       },
       {
-        "id": "NB-P02",
-        "number": 11,
-        "title": "股票多空与市场中性",
-        "note": "拆分总敞口与净敞口，看清市场中性策略的收益来源、融券摩擦与因子踩踏风险。",
-        "status": "available",
-        "url": "/zh/notebook/long-short-market-neutral/",
-        "reading_profile": {
-          "difficulty": "进阶",
-          "depth": "详解",
-          "note": "需要同时理解多空总／净敞口、beta 与风格因子中性、卖空现金抵押与借券费结构，以及轧空与拥挤去杠杆两类尾部失效。"
-        }
-      },
-      {
-        "id": "NB-P03",
-        "number": 12,
-        "title": "全球宏观与跨资产配置",
-        "note": "沿宏观周期跨资产表达判断，并识破跨国跨品种背后的同一底层风险。",
-        "status": "available",
-        "url": "/zh/notebook/global-macro-cross-asset/",
-        "reading_profile": {
-          "difficulty": "进阶",
-          "depth": "详解",
-          "note": "需要结合利率、汇率、跨市场周收益相关性、公司跨境财报口径与流动性去杠杆机制，辨别表达载体选择、底层共因与局部背离。"
-        }
-      },
-      {
-        "id": "NB-P04",
-        "number": 13,
-        "title": "风险平价与全天候配置",
-        "note": "从资金权重转向风险贡献，理解风险平价的四象限制衡与加息边界。",
-        "status": "available",
-        "url": "/zh/notebook/risk-parity-all-weather/",
-        "reading_profile": {
-          "difficulty": "进阶",
-          "depth": "详解",
-          "note": "需要结合 Euler 风险贡献分解、增长与通胀四象限映射、TIPS 实际利率久期及杠杆融资成本公式，判断风险平价的适用条件与失效边界。"
-        }
-      },
-      {
-        "id": "NB-P05",
-        "number": 14,
-        "title": "信用与尾部风险对冲",
-        "note": "理解 CDS 与尾部期权的凸性赔付、常态损耗及个人账户替代方案。",
-        "status": "available",
-        "url": "/zh/notebook/credit-tail-risk-hedging/",
-        "reading_profile": {
-          "difficulty": "进阶",
-          "depth": "详解",
-          "note": "需要结合信用利差、CDS 信用事件与拍卖回收机制、期权波动率风险溢价及路径依赖，权衡常态保费损耗与极端危机凸性赔付。"
-        }
-      },
-      {
         "id": "NB-D01",
-        "number": 15,
+        "number": 11,
         "title": "客户、产品与收费方式",
         "note": "认清每门生意的客户、交付与收费，再沿实际关系检查需求依据。",
         "status": "available",
@@ -1678,7 +1899,7 @@
       },
       {
         "id": "NB-D02",
-        "number": 16,
+        "number": 12,
         "title": "收入增长与市场预期",
         "note": "拆开销量、净价、客户和产品组合，用真实业绩与预测市场辨认增长预期，再从股价反推所需收入，交给经营证据检验。",
         "status": "available",
@@ -1691,7 +1912,7 @@
       },
       {
         "id": "NB-E01",
-        "number": 17,
+        "number": 13,
         "title": "三张财报与经营活动",
         "note": "沿同一经营过程读懂三张报表及其时间口径。",
         "status": "available",
@@ -1704,7 +1925,7 @@
       },
       {
         "id": "NB-E02",
-        "number": 18,
+        "number": 14,
         "title": "收入、回款与营运资本",
         "note": "重建收入、应收、库存和收付款的联动，解释现金占用。",
         "status": "available",
@@ -1717,7 +1938,7 @@
       },
       {
         "id": "NB-E03",
-        "number": 19,
+        "number": 15,
         "title": "利润、资本开支与现金",
         "note": "解释经营投入、折旧和投产时间怎样形成利润与现金的差异。",
         "status": "available",
@@ -1729,60 +1950,8 @@
         }
       },
       {
-        "id": "NB-E04",
-        "number": 20,
-        "title": "分部、共同成本与合并",
-        "note": "利用分部披露把业务判断接回公司整体，处理共同项目与内部交易。",
-        "status": "available",
-        "url": "/zh/notebook/segments-shared-costs-consolidation/",
-        "reading_profile": {
-          "difficulty": "入门",
-          "depth": "详解",
-          "note": "围绕 KO 与 GOOGL 真实 10-K 分部表与合并调节，逐层建立 CODM 分部口径、内部交易抵销、总部共同成本与三档持股并表边界的核算直觉。"
-        }
-      },
-      {
-        "id": "NB-E05",
-        "number": 21,
-        "title": "债务、融资与现金低谷",
-        "note": "判断企业在经营兑现以前能否满足付息、偿债和投入。",
-        "status": "available",
-        "url": "/zh/notebook/debt-financing-cash-troughs/",
-        "reading_profile": {
-          "difficulty": "进阶",
-          "depth": "详解",
-          "note": "综合资产负债表存量、租赁与表外承诺、两类偿债标尺及动态 12 季度现金低谷推演，并以 MSFT、T、BA 三家公司 10-K 实证检验高杠杆与净现金的股东结果分叉。"
-        }
-      },
-      {
-        "id": "NB-E06",
-        "number": 22,
-        "title": "盈利质量与可比口径",
-        "note": "在会计与调整口径变化中识别仍成立的经营趋势。",
-        "status": "available",
-        "url": "/zh/notebook/earnings-quality-comparability/",
-        "reading_profile": {
-          "difficulty": "进阶",
-          "depth": "详解",
-          "note": "围绕 SEC Non-GAAP 规则、调节项逐项审计、现金流应计项印证、折旧估计变动与反稀释股数展开，需结合三张财报联动判断盈利口径与估值落差。"
-        }
-      },
-      {
-        "id": "NB-E07",
-        "number": 23,
-        "title": "资本配置、激励与每股结果",
-        "note": "按实际经营与股东结果评价再投资、并购、回购和融资的取舍。",
-        "status": "available",
-        "url": "/zh/notebook/capital-allocation-incentives-per-share/",
-        "reading_profile": {
-          "difficulty": "进阶",
-          "depth": "详解",
-          "note": "围绕 ROE、DuPont、ROIC 与 ROIIC 建立完整的资本回报判别体系，结合五家上市公司最新 SEC 年报与委托书拆解杠杆失真、并购商誉、再投资跑道与管理层激励，并配单屏五年推演器。"
-        }
-      },
-      {
         "id": "NB-D03",
-        "number": 24,
+        "number": 16,
         "title": "成本结构与经营杠杆",
         "note": "解释收入变化怎样通过成本和产能形成不同利润结果。",
         "status": "available",
@@ -1796,14 +1965,14 @@
     ],
     "next": {
       "id": "NB-D04",
-      "number": 25,
+      "number": 17,
       "title": "竞争、定价权与替代",
       "note": "沿客户可选方案判断企业能否持续取得收入和利润。",
       "status": "planned",
       "url": null
     },
     "available_count": 26,
-    "intro_available_count": 24,
+    "intro_available_count": 16,
     "navigation": {
       "NB-A01": {
         "current": {
@@ -2190,31 +2359,31 @@
           }
         },
         "next": {
-          "id": "NB-P02",
+          "id": "NB-D01",
           "number": 11,
-          "title": "股票多空与市场中性",
-          "note": "拆分总敞口与净敞口，看清市场中性策略的收益来源、融券摩擦与因子踩踏风险。",
+          "title": "客户、产品与收费方式",
+          "note": "认清每门生意的客户、交付与收费，再沿实际关系检查需求依据。",
           "status": "available",
-          "url": "/zh/notebook/long-short-market-neutral/",
+          "url": "/zh/notebook/customers-products-pricing/",
           "reading_profile": {
-            "difficulty": "进阶",
+            "difficulty": "入门",
             "depth": "详解",
-            "note": "需要同时理解多空总／净敞口、beta 与风格因子中性、卖空现金抵押与借券费结构，以及轧空与拥挤去杠杆两类尾部失效。"
+            "note": "从熟悉的交易进入，按所选行业解释客户、交付、收费与需求依据；无需先掌握财务模型。"
           }
         }
       },
-      "NB-P02": {
+      "NB-D01": {
         "current": {
-          "id": "NB-P02",
+          "id": "NB-D01",
           "number": 11,
-          "title": "股票多空与市场中性",
-          "note": "拆分总敞口与净敞口，看清市场中性策略的收益来源、融券摩擦与因子踩踏风险。",
+          "title": "客户、产品与收费方式",
+          "note": "认清每门生意的客户、交付与收费，再沿实际关系检查需求依据。",
           "status": "available",
-          "url": "/zh/notebook/long-short-market-neutral/",
+          "url": "/zh/notebook/customers-products-pricing/",
           "reading_profile": {
-            "difficulty": "进阶",
+            "difficulty": "入门",
             "depth": "详解",
-            "note": "需要同时理解多空总／净敞口、beta 与风格因子中性、卖空现金抵押与借券费结构，以及轧空与拥挤去杠杆两类尾部失效。"
+            "note": "从熟悉的交易进入，按所选行业解释客户、交付、收费与需求依据；无需先掌握财务模型。"
           }
         },
         "previous": {
@@ -2231,172 +2400,8 @@
           }
         },
         "next": {
-          "id": "NB-P03",
-          "number": 12,
-          "title": "全球宏观与跨资产配置",
-          "note": "沿宏观周期跨资产表达判断，并识破跨国跨品种背后的同一底层风险。",
-          "status": "available",
-          "url": "/zh/notebook/global-macro-cross-asset/",
-          "reading_profile": {
-            "difficulty": "进阶",
-            "depth": "详解",
-            "note": "需要结合利率、汇率、跨市场周收益相关性、公司跨境财报口径与流动性去杠杆机制，辨别表达载体选择、底层共因与局部背离。"
-          }
-        }
-      },
-      "NB-P03": {
-        "current": {
-          "id": "NB-P03",
-          "number": 12,
-          "title": "全球宏观与跨资产配置",
-          "note": "沿宏观周期跨资产表达判断，并识破跨国跨品种背后的同一底层风险。",
-          "status": "available",
-          "url": "/zh/notebook/global-macro-cross-asset/",
-          "reading_profile": {
-            "difficulty": "进阶",
-            "depth": "详解",
-            "note": "需要结合利率、汇率、跨市场周收益相关性、公司跨境财报口径与流动性去杠杆机制，辨别表达载体选择、底层共因与局部背离。"
-          }
-        },
-        "previous": {
-          "id": "NB-P02",
-          "number": 11,
-          "title": "股票多空与市场中性",
-          "note": "拆分总敞口与净敞口，看清市场中性策略的收益来源、融券摩擦与因子踩踏风险。",
-          "status": "available",
-          "url": "/zh/notebook/long-short-market-neutral/",
-          "reading_profile": {
-            "difficulty": "进阶",
-            "depth": "详解",
-            "note": "需要同时理解多空总／净敞口、beta 与风格因子中性、卖空现金抵押与借券费结构，以及轧空与拥挤去杠杆两类尾部失效。"
-          }
-        },
-        "next": {
-          "id": "NB-P04",
-          "number": 13,
-          "title": "风险平价与全天候配置",
-          "note": "从资金权重转向风险贡献，理解风险平价的四象限制衡与加息边界。",
-          "status": "available",
-          "url": "/zh/notebook/risk-parity-all-weather/",
-          "reading_profile": {
-            "difficulty": "进阶",
-            "depth": "详解",
-            "note": "需要结合 Euler 风险贡献分解、增长与通胀四象限映射、TIPS 实际利率久期及杠杆融资成本公式，判断风险平价的适用条件与失效边界。"
-          }
-        }
-      },
-      "NB-P04": {
-        "current": {
-          "id": "NB-P04",
-          "number": 13,
-          "title": "风险平价与全天候配置",
-          "note": "从资金权重转向风险贡献，理解风险平价的四象限制衡与加息边界。",
-          "status": "available",
-          "url": "/zh/notebook/risk-parity-all-weather/",
-          "reading_profile": {
-            "difficulty": "进阶",
-            "depth": "详解",
-            "note": "需要结合 Euler 风险贡献分解、增长与通胀四象限映射、TIPS 实际利率久期及杠杆融资成本公式，判断风险平价的适用条件与失效边界。"
-          }
-        },
-        "previous": {
-          "id": "NB-P03",
-          "number": 12,
-          "title": "全球宏观与跨资产配置",
-          "note": "沿宏观周期跨资产表达判断，并识破跨国跨品种背后的同一底层风险。",
-          "status": "available",
-          "url": "/zh/notebook/global-macro-cross-asset/",
-          "reading_profile": {
-            "difficulty": "进阶",
-            "depth": "详解",
-            "note": "需要结合利率、汇率、跨市场周收益相关性、公司跨境财报口径与流动性去杠杆机制，辨别表达载体选择、底层共因与局部背离。"
-          }
-        },
-        "next": {
-          "id": "NB-P05",
-          "number": 14,
-          "title": "信用与尾部风险对冲",
-          "note": "理解 CDS 与尾部期权的凸性赔付、常态损耗及个人账户替代方案。",
-          "status": "available",
-          "url": "/zh/notebook/credit-tail-risk-hedging/",
-          "reading_profile": {
-            "difficulty": "进阶",
-            "depth": "详解",
-            "note": "需要结合信用利差、CDS 信用事件与拍卖回收机制、期权波动率风险溢价及路径依赖，权衡常态保费损耗与极端危机凸性赔付。"
-          }
-        }
-      },
-      "NB-P05": {
-        "current": {
-          "id": "NB-P05",
-          "number": 14,
-          "title": "信用与尾部风险对冲",
-          "note": "理解 CDS 与尾部期权的凸性赔付、常态损耗及个人账户替代方案。",
-          "status": "available",
-          "url": "/zh/notebook/credit-tail-risk-hedging/",
-          "reading_profile": {
-            "difficulty": "进阶",
-            "depth": "详解",
-            "note": "需要结合信用利差、CDS 信用事件与拍卖回收机制、期权波动率风险溢价及路径依赖，权衡常态保费损耗与极端危机凸性赔付。"
-          }
-        },
-        "previous": {
-          "id": "NB-P04",
-          "number": 13,
-          "title": "风险平价与全天候配置",
-          "note": "从资金权重转向风险贡献，理解风险平价的四象限制衡与加息边界。",
-          "status": "available",
-          "url": "/zh/notebook/risk-parity-all-weather/",
-          "reading_profile": {
-            "difficulty": "进阶",
-            "depth": "详解",
-            "note": "需要结合 Euler 风险贡献分解、增长与通胀四象限映射、TIPS 实际利率久期及杠杆融资成本公式，判断风险平价的适用条件与失效边界。"
-          }
-        },
-        "next": {
-          "id": "NB-D01",
-          "number": 15,
-          "title": "客户、产品与收费方式",
-          "note": "认清每门生意的客户、交付与收费，再沿实际关系检查需求依据。",
-          "status": "available",
-          "url": "/zh/notebook/customers-products-pricing/",
-          "reading_profile": {
-            "difficulty": "入门",
-            "depth": "详解",
-            "note": "从熟悉的交易进入，按所选行业解释客户、交付、收费与需求依据；无需先掌握财务模型。"
-          }
-        }
-      },
-      "NB-D01": {
-        "current": {
-          "id": "NB-D01",
-          "number": 15,
-          "title": "客户、产品与收费方式",
-          "note": "认清每门生意的客户、交付与收费，再沿实际关系检查需求依据。",
-          "status": "available",
-          "url": "/zh/notebook/customers-products-pricing/",
-          "reading_profile": {
-            "difficulty": "入门",
-            "depth": "详解",
-            "note": "从熟悉的交易进入，按所选行业解释客户、交付、收费与需求依据；无需先掌握财务模型。"
-          }
-        },
-        "previous": {
-          "id": "NB-P05",
-          "number": 14,
-          "title": "信用与尾部风险对冲",
-          "note": "理解 CDS 与尾部期权的凸性赔付、常态损耗及个人账户替代方案。",
-          "status": "available",
-          "url": "/zh/notebook/credit-tail-risk-hedging/",
-          "reading_profile": {
-            "difficulty": "进阶",
-            "depth": "详解",
-            "note": "需要结合信用利差、CDS 信用事件与拍卖回收机制、期权波动率风险溢价及路径依赖，权衡常态保费损耗与极端危机凸性赔付。"
-          }
-        },
-        "next": {
           "id": "NB-D02",
-          "number": 16,
+          "number": 12,
           "title": "收入增长与市场预期",
           "note": "拆开销量、净价、客户和产品组合，用真实业绩与预测市场辨认增长预期，再从股价反推所需收入，交给经营证据检验。",
           "status": "available",
@@ -2411,7 +2416,7 @@
       "NB-D02": {
         "current": {
           "id": "NB-D02",
-          "number": 16,
+          "number": 12,
           "title": "收入增长与市场预期",
           "note": "拆开销量、净价、客户和产品组合，用真实业绩与预测市场辨认增长预期，再从股价反推所需收入，交给经营证据检验。",
           "status": "available",
@@ -2424,7 +2429,7 @@
         },
         "previous": {
           "id": "NB-D01",
-          "number": 15,
+          "number": 11,
           "title": "客户、产品与收费方式",
           "note": "认清每门生意的客户、交付与收费，再沿实际关系检查需求依据。",
           "status": "available",
@@ -2437,7 +2442,7 @@
         },
         "next": {
           "id": "NB-E01",
-          "number": 17,
+          "number": 13,
           "title": "三张财报与经营活动",
           "note": "沿同一经营过程读懂三张报表及其时间口径。",
           "status": "available",
@@ -2452,7 +2457,7 @@
       "NB-E01": {
         "current": {
           "id": "NB-E01",
-          "number": 17,
+          "number": 13,
           "title": "三张财报与经营活动",
           "note": "沿同一经营过程读懂三张报表及其时间口径。",
           "status": "available",
@@ -2465,7 +2470,7 @@
         },
         "previous": {
           "id": "NB-D02",
-          "number": 16,
+          "number": 12,
           "title": "收入增长与市场预期",
           "note": "拆开销量、净价、客户和产品组合，用真实业绩与预测市场辨认增长预期，再从股价反推所需收入，交给经营证据检验。",
           "status": "available",
@@ -2478,7 +2483,7 @@
         },
         "next": {
           "id": "NB-E02",
-          "number": 18,
+          "number": 14,
           "title": "收入、回款与营运资本",
           "note": "重建收入、应收、库存和收付款的联动，解释现金占用。",
           "status": "available",
@@ -2493,7 +2498,7 @@
       "NB-E02": {
         "current": {
           "id": "NB-E02",
-          "number": 18,
+          "number": 14,
           "title": "收入、回款与营运资本",
           "note": "重建收入、应收、库存和收付款的联动，解释现金占用。",
           "status": "available",
@@ -2506,7 +2511,7 @@
         },
         "previous": {
           "id": "NB-E01",
-          "number": 17,
+          "number": 13,
           "title": "三张财报与经营活动",
           "note": "沿同一经营过程读懂三张报表及其时间口径。",
           "status": "available",
@@ -2519,7 +2524,7 @@
         },
         "next": {
           "id": "NB-E03",
-          "number": 19,
+          "number": 15,
           "title": "利润、资本开支与现金",
           "note": "解释经营投入、折旧和投产时间怎样形成利润与现金的差异。",
           "status": "available",
@@ -2534,7 +2539,7 @@
       "NB-E03": {
         "current": {
           "id": "NB-E03",
-          "number": 19,
+          "number": 15,
           "title": "利润、资本开支与现金",
           "note": "解释经营投入、折旧和投产时间怎样形成利润与现金的差异。",
           "status": "available",
@@ -2547,7 +2552,7 @@
         },
         "previous": {
           "id": "NB-E02",
-          "number": 18,
+          "number": 14,
           "title": "收入、回款与营运资本",
           "note": "重建收入、应收、库存和收付款的联动，解释现金占用。",
           "status": "available",
@@ -2559,172 +2564,8 @@
           }
         },
         "next": {
-          "id": "NB-E04",
-          "number": 20,
-          "title": "分部、共同成本与合并",
-          "note": "利用分部披露把业务判断接回公司整体，处理共同项目与内部交易。",
-          "status": "available",
-          "url": "/zh/notebook/segments-shared-costs-consolidation/",
-          "reading_profile": {
-            "difficulty": "入门",
-            "depth": "详解",
-            "note": "围绕 KO 与 GOOGL 真实 10-K 分部表与合并调节，逐层建立 CODM 分部口径、内部交易抵销、总部共同成本与三档持股并表边界的核算直觉。"
-          }
-        }
-      },
-      "NB-E04": {
-        "current": {
-          "id": "NB-E04",
-          "number": 20,
-          "title": "分部、共同成本与合并",
-          "note": "利用分部披露把业务判断接回公司整体，处理共同项目与内部交易。",
-          "status": "available",
-          "url": "/zh/notebook/segments-shared-costs-consolidation/",
-          "reading_profile": {
-            "difficulty": "入门",
-            "depth": "详解",
-            "note": "围绕 KO 与 GOOGL 真实 10-K 分部表与合并调节，逐层建立 CODM 分部口径、内部交易抵销、总部共同成本与三档持股并表边界的核算直觉。"
-          }
-        },
-        "previous": {
-          "id": "NB-E03",
-          "number": 19,
-          "title": "利润、资本开支与现金",
-          "note": "解释经营投入、折旧和投产时间怎样形成利润与现金的差异。",
-          "status": "available",
-          "url": "/zh/notebook/profit-capex-cash/",
-          "reading_profile": {
-            "difficulty": "入门",
-            "depth": "详解",
-            "note": "从资本化与折旧的会计机制切入，系统界定 EBIT、EBITDA、Owner Earnings 与 FCF 的计算桥与适用陷阱，结合互动推演器及 KO、T、MSFT、TSMC 四家公司真实年报展开。"
-          }
-        },
-        "next": {
-          "id": "NB-E05",
-          "number": 21,
-          "title": "债务、融资与现金低谷",
-          "note": "判断企业在经营兑现以前能否满足付息、偿债和投入。",
-          "status": "available",
-          "url": "/zh/notebook/debt-financing-cash-troughs/",
-          "reading_profile": {
-            "difficulty": "进阶",
-            "depth": "详解",
-            "note": "综合资产负债表存量、租赁与表外承诺、两类偿债标尺及动态 12 季度现金低谷推演，并以 MSFT、T、BA 三家公司 10-K 实证检验高杠杆与净现金的股东结果分叉。"
-          }
-        }
-      },
-      "NB-E05": {
-        "current": {
-          "id": "NB-E05",
-          "number": 21,
-          "title": "债务、融资与现金低谷",
-          "note": "判断企业在经营兑现以前能否满足付息、偿债和投入。",
-          "status": "available",
-          "url": "/zh/notebook/debt-financing-cash-troughs/",
-          "reading_profile": {
-            "difficulty": "进阶",
-            "depth": "详解",
-            "note": "综合资产负债表存量、租赁与表外承诺、两类偿债标尺及动态 12 季度现金低谷推演，并以 MSFT、T、BA 三家公司 10-K 实证检验高杠杆与净现金的股东结果分叉。"
-          }
-        },
-        "previous": {
-          "id": "NB-E04",
-          "number": 20,
-          "title": "分部、共同成本与合并",
-          "note": "利用分部披露把业务判断接回公司整体，处理共同项目与内部交易。",
-          "status": "available",
-          "url": "/zh/notebook/segments-shared-costs-consolidation/",
-          "reading_profile": {
-            "difficulty": "入门",
-            "depth": "详解",
-            "note": "围绕 KO 与 GOOGL 真实 10-K 分部表与合并调节，逐层建立 CODM 分部口径、内部交易抵销、总部共同成本与三档持股并表边界的核算直觉。"
-          }
-        },
-        "next": {
-          "id": "NB-E06",
-          "number": 22,
-          "title": "盈利质量与可比口径",
-          "note": "在会计与调整口径变化中识别仍成立的经营趋势。",
-          "status": "available",
-          "url": "/zh/notebook/earnings-quality-comparability/",
-          "reading_profile": {
-            "difficulty": "进阶",
-            "depth": "详解",
-            "note": "围绕 SEC Non-GAAP 规则、调节项逐项审计、现金流应计项印证、折旧估计变动与反稀释股数展开，需结合三张财报联动判断盈利口径与估值落差。"
-          }
-        }
-      },
-      "NB-E06": {
-        "current": {
-          "id": "NB-E06",
-          "number": 22,
-          "title": "盈利质量与可比口径",
-          "note": "在会计与调整口径变化中识别仍成立的经营趋势。",
-          "status": "available",
-          "url": "/zh/notebook/earnings-quality-comparability/",
-          "reading_profile": {
-            "difficulty": "进阶",
-            "depth": "详解",
-            "note": "围绕 SEC Non-GAAP 规则、调节项逐项审计、现金流应计项印证、折旧估计变动与反稀释股数展开，需结合三张财报联动判断盈利口径与估值落差。"
-          }
-        },
-        "previous": {
-          "id": "NB-E05",
-          "number": 21,
-          "title": "债务、融资与现金低谷",
-          "note": "判断企业在经营兑现以前能否满足付息、偿债和投入。",
-          "status": "available",
-          "url": "/zh/notebook/debt-financing-cash-troughs/",
-          "reading_profile": {
-            "difficulty": "进阶",
-            "depth": "详解",
-            "note": "综合资产负债表存量、租赁与表外承诺、两类偿债标尺及动态 12 季度现金低谷推演，并以 MSFT、T、BA 三家公司 10-K 实证检验高杠杆与净现金的股东结果分叉。"
-          }
-        },
-        "next": {
-          "id": "NB-E07",
-          "number": 23,
-          "title": "资本配置、激励与每股结果",
-          "note": "按实际经营与股东结果评价再投资、并购、回购和融资的取舍。",
-          "status": "available",
-          "url": "/zh/notebook/capital-allocation-incentives-per-share/",
-          "reading_profile": {
-            "difficulty": "进阶",
-            "depth": "详解",
-            "note": "围绕 ROE、DuPont、ROIC 与 ROIIC 建立完整的资本回报判别体系，结合五家上市公司最新 SEC 年报与委托书拆解杠杆失真、并购商誉、再投资跑道与管理层激励，并配单屏五年推演器。"
-          }
-        }
-      },
-      "NB-E07": {
-        "current": {
-          "id": "NB-E07",
-          "number": 23,
-          "title": "资本配置、激励与每股结果",
-          "note": "按实际经营与股东结果评价再投资、并购、回购和融资的取舍。",
-          "status": "available",
-          "url": "/zh/notebook/capital-allocation-incentives-per-share/",
-          "reading_profile": {
-            "difficulty": "进阶",
-            "depth": "详解",
-            "note": "围绕 ROE、DuPont、ROIC 与 ROIIC 建立完整的资本回报判别体系，结合五家上市公司最新 SEC 年报与委托书拆解杠杆失真、并购商誉、再投资跑道与管理层激励，并配单屏五年推演器。"
-          }
-        },
-        "previous": {
-          "id": "NB-E06",
-          "number": 22,
-          "title": "盈利质量与可比口径",
-          "note": "在会计与调整口径变化中识别仍成立的经营趋势。",
-          "status": "available",
-          "url": "/zh/notebook/earnings-quality-comparability/",
-          "reading_profile": {
-            "difficulty": "进阶",
-            "depth": "详解",
-            "note": "围绕 SEC Non-GAAP 规则、调节项逐项审计、现金流应计项印证、折旧估计变动与反稀释股数展开，需结合三张财报联动判断盈利口径与估值落差。"
-          }
-        },
-        "next": {
           "id": "NB-D03",
-          "number": 24,
+          "number": 16,
           "title": "成本结构与经营杠杆",
           "note": "解释收入变化怎样通过成本和产能形成不同利润结果。",
           "status": "available",
@@ -2739,7 +2580,7 @@
       "NB-D03": {
         "current": {
           "id": "NB-D03",
-          "number": 24,
+          "number": 16,
           "title": "成本结构与经营杠杆",
           "note": "解释收入变化怎样通过成本和产能形成不同利润结果。",
           "status": "available",
@@ -2751,8 +2592,149 @@
           }
         },
         "previous": {
-          "id": "NB-E07",
+          "id": "NB-E03",
+          "number": 15,
+          "title": "利润、资本开支与现金",
+          "note": "解释经营投入、折旧和投产时间怎样形成利润与现金的差异。",
+          "status": "available",
+          "url": "/zh/notebook/profit-capex-cash/",
+          "reading_profile": {
+            "difficulty": "入门",
+            "depth": "详解",
+            "note": "从资本化与折旧的会计机制切入，系统界定 EBIT、EBITDA、Owner Earnings 与 FCF 的计算桥与适用陷阱，结合互动推演器及 KO、T、MSFT、TSMC 四家公司真实年报展开。"
+          }
+        },
+        "next": {
+          "id": "NB-D04",
+          "number": 17,
+          "title": "竞争、定价权与替代",
+          "note": "沿客户可选方案判断企业能否持续取得收入和利润。",
+          "status": "planned",
+          "url": null
+        }
+      },
+      "NB-E04": {
+        "current": {
+          "id": "NB-E04",
+          "number": 22,
+          "title": "分部、共同成本与合并",
+          "note": "利用分部披露把业务判断接回公司整体，处理共同项目与内部交易。",
+          "status": "available",
+          "url": "/zh/notebook/segments-shared-costs-consolidation/",
+          "reading_profile": {
+            "difficulty": "入门",
+            "depth": "详解",
+            "note": "围绕 KO 与 GOOGL 真实 10-K 分部表与合并调节，逐层建立 CODM 分部口径、内部交易抵销、总部共同成本与三档持股并表边界的核算直觉。"
+          }
+        },
+        "previous": {
+          "id": "NB-D08",
+          "number": 21,
+          "title": "业务集合与共享资源",
+          "note": "划分研究业务并说明它们共享哪些客户、技术、成本和资本。",
+          "status": "planned",
+          "url": null
+        },
+        "next": {
+          "id": "NB-E05",
           "number": 23,
+          "title": "债务、融资与现金低谷",
+          "note": "判断企业在经营兑现以前能否满足付息、偿债和投入。",
+          "status": "available",
+          "url": "/zh/notebook/debt-financing-cash-troughs/",
+          "reading_profile": {
+            "difficulty": "进阶",
+            "depth": "详解",
+            "note": "综合资产负债表存量、租赁与表外承诺、两类偿债标尺及动态 12 季度现金低谷推演，并以 MSFT、T、BA 三家公司 10-K 实证检验高杠杆与净现金的股东结果分叉。"
+          }
+        }
+      },
+      "NB-E05": {
+        "current": {
+          "id": "NB-E05",
+          "number": 23,
+          "title": "债务、融资与现金低谷",
+          "note": "判断企业在经营兑现以前能否满足付息、偿债和投入。",
+          "status": "available",
+          "url": "/zh/notebook/debt-financing-cash-troughs/",
+          "reading_profile": {
+            "difficulty": "进阶",
+            "depth": "详解",
+            "note": "综合资产负债表存量、租赁与表外承诺、两类偿债标尺及动态 12 季度现金低谷推演，并以 MSFT、T、BA 三家公司 10-K 实证检验高杠杆与净现金的股东结果分叉。"
+          }
+        },
+        "previous": {
+          "id": "NB-E04",
+          "number": 22,
+          "title": "分部、共同成本与合并",
+          "note": "利用分部披露把业务判断接回公司整体，处理共同项目与内部交易。",
+          "status": "available",
+          "url": "/zh/notebook/segments-shared-costs-consolidation/",
+          "reading_profile": {
+            "difficulty": "入门",
+            "depth": "详解",
+            "note": "围绕 KO 与 GOOGL 真实 10-K 分部表与合并调节，逐层建立 CODM 分部口径、内部交易抵销、总部共同成本与三档持股并表边界的核算直觉。"
+          }
+        },
+        "next": {
+          "id": "NB-E06",
+          "number": 24,
+          "title": "盈利质量与可比口径",
+          "note": "在会计与调整口径变化中识别仍成立的经营趋势。",
+          "status": "available",
+          "url": "/zh/notebook/earnings-quality-comparability/",
+          "reading_profile": {
+            "difficulty": "进阶",
+            "depth": "详解",
+            "note": "围绕 SEC Non-GAAP 规则、调节项逐项审计、现金流应计项印证、折旧估计变动与反稀释股数展开，需结合三张财报联动判断盈利口径与估值落差。"
+          }
+        }
+      },
+      "NB-E06": {
+        "current": {
+          "id": "NB-E06",
+          "number": 24,
+          "title": "盈利质量与可比口径",
+          "note": "在会计与调整口径变化中识别仍成立的经营趋势。",
+          "status": "available",
+          "url": "/zh/notebook/earnings-quality-comparability/",
+          "reading_profile": {
+            "difficulty": "进阶",
+            "depth": "详解",
+            "note": "围绕 SEC Non-GAAP 规则、调节项逐项审计、现金流应计项印证、折旧估计变动与反稀释股数展开，需结合三张财报联动判断盈利口径与估值落差。"
+          }
+        },
+        "previous": {
+          "id": "NB-E05",
+          "number": 23,
+          "title": "债务、融资与现金低谷",
+          "note": "判断企业在经营兑现以前能否满足付息、偿债和投入。",
+          "status": "available",
+          "url": "/zh/notebook/debt-financing-cash-troughs/",
+          "reading_profile": {
+            "difficulty": "进阶",
+            "depth": "详解",
+            "note": "综合资产负债表存量、租赁与表外承诺、两类偿债标尺及动态 12 季度现金低谷推演，并以 MSFT、T、BA 三家公司 10-K 实证检验高杠杆与净现金的股东结果分叉。"
+          }
+        },
+        "next": {
+          "id": "NB-E07",
+          "number": 25,
+          "title": "资本配置、激励与每股结果",
+          "note": "按实际经营与股东结果评价再投资、并购、回购和融资的取舍。",
+          "status": "available",
+          "url": "/zh/notebook/capital-allocation-incentives-per-share/",
+          "reading_profile": {
+            "difficulty": "进阶",
+            "depth": "详解",
+            "note": "围绕 ROE、DuPont、ROIC 与 ROIIC 建立完整的资本回报判别体系，结合五家上市公司最新 SEC 年报与委托书拆解杠杆失真、并购商誉、再投资跑道与管理层激励，并配单屏五年推演器。"
+          }
+        }
+      },
+      "NB-E07": {
+        "current": {
+          "id": "NB-E07",
+          "number": 25,
           "title": "资本配置、激励与每股结果",
           "note": "按实际经营与股东结果评价再投资、并购、回购和融资的取舍。",
           "status": "available",
@@ -2763,11 +2745,178 @@
             "note": "围绕 ROE、DuPont、ROIC 与 ROIIC 建立完整的资本回报判别体系，结合五家上市公司最新 SEC 年报与委托书拆解杠杆失真、并购商誉、再投资跑道与管理层激励，并配单屏五年推演器。"
           }
         },
+        "previous": {
+          "id": "NB-E06",
+          "number": 24,
+          "title": "盈利质量与可比口径",
+          "note": "在会计与调整口径变化中识别仍成立的经营趋势。",
+          "status": "available",
+          "url": "/zh/notebook/earnings-quality-comparability/",
+          "reading_profile": {
+            "difficulty": "进阶",
+            "depth": "详解",
+            "note": "围绕 SEC Non-GAAP 规则、调节项逐项审计、现金流应计项印证、折旧估计变动与反稀释股数展开，需结合三张财报联动判断盈利口径与估值落差。"
+          }
+        },
         "next": {
-          "id": "NB-D04",
-          "number": 25,
-          "title": "竞争、定价权与替代",
-          "note": "沿客户可选方案判断企业能否持续取得收入和利润。",
+          "id": "NB-A05",
+          "number": 26,
+          "title": "事实、判断与“价格不进权重”",
+          "note": "区分事实与判断，用价格反读市场预期，并守住权重只凭非价格证据的纪律。",
+          "status": "planned",
+          "url": null
+        }
+      },
+      "NB-P02": {
+        "current": {
+          "id": "NB-P02",
+          "number": 38,
+          "title": "股票多空与市场中性",
+          "note": "按机构组合与对冲范式需要选读。拆分总敞口与净敞口，看清市场中性策略的收益来源、融券摩擦与因子踩踏风险。",
+          "status": "available",
+          "url": "/zh/notebook/long-short-market-neutral/",
+          "reading_profile": {
+            "difficulty": "进阶",
+            "depth": "详解",
+            "note": "需要同时理解多空总／净敞口、beta 与风格因子中性、卖空现金抵押与借券费结构，以及轧空与拥挤去杠杆两类尾部失效。"
+          }
+        },
+        "previous": {
+          "id": "NB-J03",
+          "number": 37,
+          "title": "前向检验、多视角复核与方法迭代",
+          "note": "用事前冻结、多视角反方复核与前向基本面检验持续迭代研究方法，避开回测幻觉。",
+          "status": "planned",
+          "url": null
+        },
+        "next": {
+          "id": "NB-P03",
+          "number": 39,
+          "title": "全球宏观与跨资产配置",
+          "note": "按机构组合与对冲范式需要选读。沿宏观周期跨资产表达判断，并识破跨国跨品种背后的同一底层风险。",
+          "status": "available",
+          "url": "/zh/notebook/global-macro-cross-asset/",
+          "reading_profile": {
+            "difficulty": "进阶",
+            "depth": "详解",
+            "note": "需要结合利率、汇率、跨市场周收益相关性、公司跨境财报口径与流动性去杠杆机制，辨别表达载体选择、底层共因与局部背离。"
+          }
+        }
+      },
+      "NB-P03": {
+        "current": {
+          "id": "NB-P03",
+          "number": 39,
+          "title": "全球宏观与跨资产配置",
+          "note": "按机构组合与对冲范式需要选读。沿宏观周期跨资产表达判断，并识破跨国跨品种背后的同一底层风险。",
+          "status": "available",
+          "url": "/zh/notebook/global-macro-cross-asset/",
+          "reading_profile": {
+            "difficulty": "进阶",
+            "depth": "详解",
+            "note": "需要结合利率、汇率、跨市场周收益相关性、公司跨境财报口径与流动性去杠杆机制，辨别表达载体选择、底层共因与局部背离。"
+          }
+        },
+        "previous": {
+          "id": "NB-P02",
+          "number": 38,
+          "title": "股票多空与市场中性",
+          "note": "按机构组合与对冲范式需要选读。拆分总敞口与净敞口，看清市场中性策略的收益来源、融券摩擦与因子踩踏风险。",
+          "status": "available",
+          "url": "/zh/notebook/long-short-market-neutral/",
+          "reading_profile": {
+            "difficulty": "进阶",
+            "depth": "详解",
+            "note": "需要同时理解多空总／净敞口、beta 与风格因子中性、卖空现金抵押与借券费结构，以及轧空与拥挤去杠杆两类尾部失效。"
+          }
+        },
+        "next": {
+          "id": "NB-P04",
+          "number": 40,
+          "title": "风险平价与全天候配置",
+          "note": "按机构组合与对冲范式需要选读。从资金权重转向风险贡献，理解风险平价的四象限制衡与加息边界。",
+          "status": "available",
+          "url": "/zh/notebook/risk-parity-all-weather/",
+          "reading_profile": {
+            "difficulty": "进阶",
+            "depth": "详解",
+            "note": "需要结合 Euler 风险贡献分解、增长与通胀四象限映射、TIPS 实际利率久期及杠杆融资成本公式，判断风险平价的适用条件与失效边界。"
+          }
+        }
+      },
+      "NB-P04": {
+        "current": {
+          "id": "NB-P04",
+          "number": 40,
+          "title": "风险平价与全天候配置",
+          "note": "按机构组合与对冲范式需要选读。从资金权重转向风险贡献，理解风险平价的四象限制衡与加息边界。",
+          "status": "available",
+          "url": "/zh/notebook/risk-parity-all-weather/",
+          "reading_profile": {
+            "difficulty": "进阶",
+            "depth": "详解",
+            "note": "需要结合 Euler 风险贡献分解、增长与通胀四象限映射、TIPS 实际利率久期及杠杆融资成本公式，判断风险平价的适用条件与失效边界。"
+          }
+        },
+        "previous": {
+          "id": "NB-P03",
+          "number": 39,
+          "title": "全球宏观与跨资产配置",
+          "note": "按机构组合与对冲范式需要选读。沿宏观周期跨资产表达判断，并识破跨国跨品种背后的同一底层风险。",
+          "status": "available",
+          "url": "/zh/notebook/global-macro-cross-asset/",
+          "reading_profile": {
+            "difficulty": "进阶",
+            "depth": "详解",
+            "note": "需要结合利率、汇率、跨市场周收益相关性、公司跨境财报口径与流动性去杠杆机制，辨别表达载体选择、底层共因与局部背离。"
+          }
+        },
+        "next": {
+          "id": "NB-P05",
+          "number": 41,
+          "title": "信用与尾部风险对冲",
+          "note": "按机构组合与对冲范式需要选读。理解 CDS 与尾部期权的凸性赔付、常态损耗及个人账户替代方案。",
+          "status": "available",
+          "url": "/zh/notebook/credit-tail-risk-hedging/",
+          "reading_profile": {
+            "difficulty": "进阶",
+            "depth": "详解",
+            "note": "需要结合信用利差、CDS 信用事件与拍卖回收机制、期权波动率风险溢价及路径依赖，权衡常态保费损耗与极端危机凸性赔付。"
+          }
+        }
+      },
+      "NB-P05": {
+        "current": {
+          "id": "NB-P05",
+          "number": 41,
+          "title": "信用与尾部风险对冲",
+          "note": "按机构组合与对冲范式需要选读。理解 CDS 与尾部期权的凸性赔付、常态损耗及个人账户替代方案。",
+          "status": "available",
+          "url": "/zh/notebook/credit-tail-risk-hedging/",
+          "reading_profile": {
+            "difficulty": "进阶",
+            "depth": "详解",
+            "note": "需要结合信用利差、CDS 信用事件与拍卖回收机制、期权波动率风险溢价及路径依赖，权衡常态保费损耗与极端危机凸性赔付。"
+          }
+        },
+        "previous": {
+          "id": "NB-P04",
+          "number": 40,
+          "title": "风险平价与全天候配置",
+          "note": "按机构组合与对冲范式需要选读。从资金权重转向风险贡献，理解风险平价的四象限制衡与加息边界。",
+          "status": "available",
+          "url": "/zh/notebook/risk-parity-all-weather/",
+          "reading_profile": {
+            "difficulty": "进阶",
+            "depth": "详解",
+            "note": "需要结合 Euler 风险贡献分解、增长与通胀四象限映射、TIPS 实际利率久期及杠杆融资成本公式，判断风险平价的适用条件与失效边界。"
+          }
+        },
+        "next": {
+          "id": "NB-C05",
+          "number": 42,
+          "title": "美联储与货币政策",
+          "note": "按相应工具或判断问题选读。解释政策决策与实施怎样改变利率、预期和金融条件。",
           "status": "planned",
           "url": null
         }
@@ -2775,7 +2924,7 @@
       "NB-B05": {
         "current": {
           "id": "NB-B05",
-          "number": 59,
+          "number": 53,
           "title": "指标与趋势交易",
           "note": "按相应工具或判断问题选读。把量价观察写成明确的趋势判断、进出场与失效规则。",
           "status": "available",
@@ -2788,7 +2937,7 @@
         },
         "previous": {
           "id": "NB-S05",
-          "number": 58,
+          "number": 52,
           "title": "选股、基金与业绩比较",
           "note": "按相应工具或判断问题选读。比较选股、委托管理和指数投资的费用后结果及判断依据。",
           "status": "planned",
@@ -2796,7 +2945,7 @@
         },
         "next": {
           "id": "NB-B06",
-          "number": 60,
+          "number": 54,
           "title": "量化交易",
           "note": "按相应工具或判断问题选读。用历史数据、成本和样本外结果检验可重复执行的交易规则。",
           "status": "planned",
@@ -2806,7 +2955,7 @@
       "NB-B03": {
         "current": {
           "id": "NB-B03",
-          "number": 61,
+          "number": 55,
           "title": "保证金、对冲与期间现金",
           "note": "按相应工具或判断问题选读。在已有组合上比较保证金、对冲工具和期间现金需要。",
           "status": "available",
@@ -2819,7 +2968,7 @@
         },
         "previous": {
           "id": "NB-B06",
-          "number": 60,
+          "number": 54,
           "title": "量化交易",
           "note": "按相应工具或判断问题选读。用历史数据、成本和样本外结果检验可重复执行的交易规则。",
           "status": "planned",
@@ -2827,7 +2976,7 @@
         },
         "next": {
           "id": "NB-K05",
-          "number": 62,
+          "number": 56,
           "title": "个股期货、股票永续与代币化股票",
           "note": "按相应工具或判断问题选读。区分围绕同一股票形成的合约与代币化产品，辨认实际取得的权益和资金安排。",
           "status": "planned",
@@ -2837,7 +2986,7 @@
     },
     "credits": [
       {
-        "label": "第 1–7、9、15–16 篇",
+        "label": "第 1–7、9、11–12 篇",
         "writer": "Codex GPT-6 Astra"
       },
       {
@@ -2845,7 +2994,7 @@
         "writer": "Claude"
       },
       {
-        "label": "第 10–14、17–24 篇",
+        "label": "第 10、13–16 篇",
         "writer": "Gemini 4 Neon"
       }
     ],
@@ -3004,84 +3153,20 @@
         "total": 10
       },
       {
-        "id": "portfolio_paradigms",
-        "title": "组合制衡与机构配置范式",
-        "goal": "在 P01 的多资产总图之上，完整掌握股票多空与市场中性、全球宏观、风险平价及信用尾部对冲四类主流风险制衡框架。",
-        "entry_ids": [
-          "NB-P02",
-          "NB-P03",
-          "NB-P04",
-          "NB-P05"
-        ],
-        "steps": [
-          {
-            "id": "NB-P02",
-            "number": 11,
-            "title": "股票多空与市场中性",
-            "note": "拆分总敞口与净敞口，看清市场中性策略的收益来源、融券摩擦与因子踩踏风险。",
-            "status": "available",
-            "url": "/zh/notebook/long-short-market-neutral/",
-            "reading_profile": {
-              "difficulty": "进阶",
-              "depth": "详解",
-              "note": "需要同时理解多空总／净敞口、beta 与风格因子中性、卖空现金抵押与借券费结构，以及轧空与拥挤去杠杆两类尾部失效。"
-            }
-          },
-          {
-            "id": "NB-P03",
-            "number": 12,
-            "title": "全球宏观与跨资产配置",
-            "note": "沿宏观周期跨资产表达判断，并识破跨国跨品种背后的同一底层风险。",
-            "status": "available",
-            "url": "/zh/notebook/global-macro-cross-asset/",
-            "reading_profile": {
-              "difficulty": "进阶",
-              "depth": "详解",
-              "note": "需要结合利率、汇率、跨市场周收益相关性、公司跨境财报口径与流动性去杠杆机制，辨别表达载体选择、底层共因与局部背离。"
-            }
-          },
-          {
-            "id": "NB-P04",
-            "number": 13,
-            "title": "风险平价与全天候配置",
-            "note": "从资金权重转向风险贡献，理解风险平价的四象限制衡与加息边界。",
-            "status": "available",
-            "url": "/zh/notebook/risk-parity-all-weather/",
-            "reading_profile": {
-              "difficulty": "进阶",
-              "depth": "详解",
-              "note": "需要结合 Euler 风险贡献分解、增长与通胀四象限映射、TIPS 实际利率久期及杠杆融资成本公式，判断风险平价的适用条件与失效边界。"
-            }
-          },
-          {
-            "id": "NB-P05",
-            "number": 14,
-            "title": "信用与尾部风险对冲",
-            "note": "理解 CDS 与尾部期权的凸性赔付、常态损耗及个人账户替代方案。",
-            "status": "available",
-            "url": "/zh/notebook/credit-tail-risk-hedging/",
-            "reading_profile": {
-              "difficulty": "进阶",
-              "depth": "详解",
-              "note": "需要结合信用利差、CDS 信用事件与拍卖回收机制、期权波动率风险溢价及路径依赖，权衡常态保费损耗与极端危机凸性赔付。"
-            }
-          }
-        ],
-        "available_count": 4,
-        "total": 4
-      },
-      {
-        "id": "business_revenue",
-        "title": "认识企业业务与收入增长",
-        "goal": "从客户、交付与收费辨认一门生意，并结合销量、净价与市场预期核验收入增长。",
+        "id": "business_cash_base",
+        "title": "认识生意、收入与现金底座",
+        "goal": "从客户、交付与收费辨认一门生意并核验收入增长，再沿同一经营过程贯通三张财报、营运资本与自由现金流。",
         "entry_ids": [
           "NB-D01",
-          "NB-D02"
+          "NB-D02",
+          "NB-E01",
+          "NB-E02",
+          "NB-E03"
         ],
         "steps": [
           {
             "id": "NB-D01",
-            "number": 15,
+            "number": 11,
             "title": "客户、产品与收费方式",
             "note": "认清每门生意的客户、交付与收费，再沿实际关系检查需求依据。",
             "status": "available",
@@ -3094,7 +3179,7 @@
           },
           {
             "id": "NB-D02",
-            "number": 16,
+            "number": 12,
             "title": "收入增长与市场预期",
             "note": "拆开销量、净价、客户和产品组合，用真实业绩与预测市场辨认增长预期，再从股价反推所需收入，交给经营证据检验。",
             "status": "available",
@@ -3104,28 +3189,10 @@
               "depth": "详解",
               "note": "从收入驱动进入期间比较、事件价格和条件反推，需要同时保持业务、利润与每股口径。"
             }
-          }
-        ],
-        "available_count": 2,
-        "total": 2
-      },
-      {
-        "id": "financial_statements",
-        "title": "财报、会计基本功与资本配置",
-        "goal": "沿同一经营过程贯通三张报表、营运资本、EBIT/EBITDA/FCF、合并口径、债务低谷、GAAP/非 GAAP 盈利质量及 ROE/ROIC/ROIIC 资本配置。",
-        "entry_ids": [
-          "NB-E01",
-          "NB-E02",
-          "NB-E03",
-          "NB-E04",
-          "NB-E05",
-          "NB-E06",
-          "NB-E07"
-        ],
-        "steps": [
+          },
           {
             "id": "NB-E01",
-            "number": 17,
+            "number": 13,
             "title": "三张财报与经营活动",
             "note": "沿同一经营过程读懂三张报表及其时间口径。",
             "status": "available",
@@ -3138,7 +3205,7 @@
           },
           {
             "id": "NB-E02",
-            "number": 18,
+            "number": 14,
             "title": "收入、回款与营运资本",
             "note": "重建收入、应收、库存和收付款的联动，解释现金占用。",
             "status": "available",
@@ -3151,7 +3218,7 @@
           },
           {
             "id": "NB-E03",
-            "number": 19,
+            "number": 15,
             "title": "利润、资本开支与现金",
             "note": "解释经营投入、折旧和投产时间怎样形成利润与现金的差异。",
             "status": "available",
@@ -3161,67 +3228,15 @@
               "depth": "详解",
               "note": "从资本化与折旧的会计机制切入，系统界定 EBIT、EBITDA、Owner Earnings 与 FCF 的计算桥与适用陷阱，结合互动推演器及 KO、T、MSFT、TSMC 四家公司真实年报展开。"
             }
-          },
-          {
-            "id": "NB-E04",
-            "number": 20,
-            "title": "分部、共同成本与合并",
-            "note": "利用分部披露把业务判断接回公司整体，处理共同项目与内部交易。",
-            "status": "available",
-            "url": "/zh/notebook/segments-shared-costs-consolidation/",
-            "reading_profile": {
-              "difficulty": "入门",
-              "depth": "详解",
-              "note": "围绕 KO 与 GOOGL 真实 10-K 分部表与合并调节，逐层建立 CODM 分部口径、内部交易抵销、总部共同成本与三档持股并表边界的核算直觉。"
-            }
-          },
-          {
-            "id": "NB-E05",
-            "number": 21,
-            "title": "债务、融资与现金低谷",
-            "note": "判断企业在经营兑现以前能否满足付息、偿债和投入。",
-            "status": "available",
-            "url": "/zh/notebook/debt-financing-cash-troughs/",
-            "reading_profile": {
-              "difficulty": "进阶",
-              "depth": "详解",
-              "note": "综合资产负债表存量、租赁与表外承诺、两类偿债标尺及动态 12 季度现金低谷推演，并以 MSFT、T、BA 三家公司 10-K 实证检验高杠杆与净现金的股东结果分叉。"
-            }
-          },
-          {
-            "id": "NB-E06",
-            "number": 22,
-            "title": "盈利质量与可比口径",
-            "note": "在会计与调整口径变化中识别仍成立的经营趋势。",
-            "status": "available",
-            "url": "/zh/notebook/earnings-quality-comparability/",
-            "reading_profile": {
-              "difficulty": "进阶",
-              "depth": "详解",
-              "note": "围绕 SEC Non-GAAP 规则、调节项逐项审计、现金流应计项印证、折旧估计变动与反稀释股数展开，需结合三张财报联动判断盈利口径与估值落差。"
-            }
-          },
-          {
-            "id": "NB-E07",
-            "number": 23,
-            "title": "资本配置、激励与每股结果",
-            "note": "按实际经营与股东结果评价再投资、并购、回购和融资的取舍。",
-            "status": "available",
-            "url": "/zh/notebook/capital-allocation-incentives-per-share/",
-            "reading_profile": {
-              "difficulty": "进阶",
-              "depth": "详解",
-              "note": "围绕 ROE、DuPont、ROIC 与 ROIIC 建立完整的资本回报判别体系，结合五家上市公司最新 SEC 年报与委托书拆解杠杆失真、并购商誉、再投资跑道与管理层激励，并配单屏五年推演器。"
-            }
           }
         ],
-        "available_count": 7,
-        "total": 7
+        "available_count": 5,
+        "total": 5
       },
       {
         "id": "business_depth",
         "title": "成本结构、竞争壁垒与产业周期",
-        "goal": "深化经营杠杆、替代竞争、上下游利润分配、库存产能周期与技术商业化。",
+        "goal": "带着现金与折旧尺子，深挖经营杠杆、替代竞争与定价权、上下游利润分配、库存产能周期、技术商业化与多业务集合。",
         "entry_ids": [
           "NB-D03",
           "NB-D04",
@@ -3233,7 +3248,7 @@
         "steps": [
           {
             "id": "NB-D03",
-            "number": 24,
+            "number": 16,
             "title": "成本结构与经营杠杆",
             "note": "解释收入变化怎样通过成本和产能形成不同利润结果。",
             "status": "available",
@@ -3246,7 +3261,7 @@
           },
           {
             "id": "NB-D04",
-            "number": 25,
+            "number": 17,
             "title": "竞争、定价权与替代",
             "note": "沿客户可选方案判断企业能否持续取得收入和利润。",
             "status": "planned",
@@ -3254,7 +3269,7 @@
           },
           {
             "id": "NB-D05",
-            "number": 26,
+            "number": 18,
             "title": "上下游分工与利润分配",
             "note": "解释需求和投入经过哪些企业，以及利润为何留在不同环节。",
             "status": "planned",
@@ -3262,7 +3277,7 @@
           },
           {
             "id": "NB-D06",
-            "number": 27,
+            "number": 19,
             "title": "需求、库存与产能周期",
             "note": "区分最终使用、采购库存与扩产时滞形成的不同增长路径。",
             "status": "planned",
@@ -3270,7 +3285,7 @@
           },
           {
             "id": "NB-D07",
-            "number": 28,
+            "number": 20,
             "title": "技术创新与商业化",
             "note": "判断技术进步经过哪些工程和客户条件才能改变经营结果。",
             "status": "planned",
@@ -3278,7 +3293,7 @@
           },
           {
             "id": "NB-D08",
-            "number": 29,
+            "number": 21,
             "title": "业务集合与共享资源",
             "note": "划分研究业务并说明它们共享哪些客户、技术、成本和资本。",
             "status": "planned",
@@ -3289,9 +3304,76 @@
         "total": 6
       },
       {
+        "id": "financial_capital",
+        "title": "合并口径、融资底线与资本配置",
+        "goal": "承接业务拆分与产业周期，完成分部合并、债务低谷与融资姿态检验、盈利质量清洗以及资本配置与每股结果评估。",
+        "entry_ids": [
+          "NB-E04",
+          "NB-E05",
+          "NB-E06",
+          "NB-E07"
+        ],
+        "steps": [
+          {
+            "id": "NB-E04",
+            "number": 22,
+            "title": "分部、共同成本与合并",
+            "note": "利用分部披露把业务判断接回公司整体，处理共同项目与内部交易。",
+            "status": "available",
+            "url": "/zh/notebook/segments-shared-costs-consolidation/",
+            "reading_profile": {
+              "difficulty": "入门",
+              "depth": "详解",
+              "note": "围绕 KO 与 GOOGL 真实 10-K 分部表与合并调节，逐层建立 CODM 分部口径、内部交易抵销、总部共同成本与三档持股并表边界的核算直觉。"
+            }
+          },
+          {
+            "id": "NB-E05",
+            "number": 23,
+            "title": "债务、融资与现金低谷",
+            "note": "判断企业在经营兑现以前能否满足付息、偿债和投入。",
+            "status": "available",
+            "url": "/zh/notebook/debt-financing-cash-troughs/",
+            "reading_profile": {
+              "difficulty": "进阶",
+              "depth": "详解",
+              "note": "综合资产负债表存量、租赁与表外承诺、两类偿债标尺及动态 12 季度现金低谷推演，并以 MSFT、T、BA 三家公司 10-K 实证检验高杠杆与净现金的股东结果分叉。"
+            }
+          },
+          {
+            "id": "NB-E06",
+            "number": 24,
+            "title": "盈利质量与可比口径",
+            "note": "在会计与调整口径变化中识别仍成立的经营趋势。",
+            "status": "available",
+            "url": "/zh/notebook/earnings-quality-comparability/",
+            "reading_profile": {
+              "difficulty": "进阶",
+              "depth": "详解",
+              "note": "围绕 SEC Non-GAAP 规则、调节项逐项审计、现金流应计项印证、折旧估计变动与反稀释股数展开，需结合三张财报联动判断盈利口径与估值落差。"
+            }
+          },
+          {
+            "id": "NB-E07",
+            "number": 25,
+            "title": "资本配置、激励与每股结果",
+            "note": "按实际经营与股东结果评价再投资、并购、回购和融资的取舍。",
+            "status": "available",
+            "url": "/zh/notebook/capital-allocation-incentives-per-share/",
+            "reading_profile": {
+              "difficulty": "进阶",
+              "depth": "详解",
+              "note": "围绕 ROE、DuPont、ROIC 与 ROIIC 建立完整的资本回报判别体系，结合五家上市公司最新 SEC 年报与委托书拆解杠杆失真、并购商誉、再投资跑道与管理层激励，并配单屏五年推演器。"
+            }
+          }
+        ],
+        "available_count": 4,
+        "total": 4
+      },
+      {
         "id": "judgment",
-        "title": "形成证据与投资判断",
-        "goal": "从竞争解释和共同经营条件形成概率、定价与 Risk-Reward。",
+        "title": "路径、估值与投资判断",
+        "goal": "守住“价格不进权重”边界，由业务模型长出未来 1–3 年路径与余量，以分阶段折现率推出价值区间并用倍数反推核对，完成单票 Risk-Reward 与反证更新。",
         "entry_ids": [
           "NB-A05",
           "NB-F02",
@@ -3303,49 +3385,49 @@
         "steps": [
           {
             "id": "NB-A05",
-            "number": 30,
-            "title": "信息、预期与判断更新",
-            "note": "用竞争解释和可区分证据形成判断，并说明新信息怎样改变预期。",
+            "number": 26,
+            "title": "事实、判断与“价格不进权重”",
+            "note": "区分事实与判断，用价格反读市场预期，并守住权重只凭非价格证据的纪律。",
             "status": "planned",
             "url": null
           },
           {
             "id": "NB-F02",
-            "number": 31,
-            "title": "经营情景与概率判断",
-            "note": "用共同成立的经营条件形成代表路径并说明概率依据。",
+            "number": 27,
+            "title": "业务路径、关键驱动与余量",
+            "note": "由业务模型长出 1–3 年演化路径、敏感判断分布与显式余量。",
             "status": "planned",
             "url": null
           },
           {
             "id": "NB-F03",
-            "number": 32,
-            "title": "盈利状态与定价参照",
-            "note": "根据业务状态选择可解释的盈利口径和条件定价参照。",
+            "number": 28,
+            "title": "价值构成、分阶段折现率与倍数反推",
+            "note": "用现金流、再投资回报与分阶段折现率推出价值区间，把倍数留作结果反推校验。",
             "status": "planned",
             "url": null
           },
           {
             "id": "NB-F04",
-            "number": 33,
-            "title": "企业结果与普通股所得",
-            "note": "把业务条件结果与共同资本、债务、现金和股数汇成普通股所得。",
+            "number": 29,
+            "title": "索取权桥接、融资窗口与普通股所得",
+            "note": "把全部表内外索取权、融资窗口与净股数变化精准桥接到普通股每股所得。",
             "status": "planned",
             "url": null
           },
           {
             "id": "NB-F05",
-            "number": 34,
-            "title": "买入价格与 Risk-Reward",
-            "note": "把经营证据、条件定价、概率和资金安排连成完整投资判断。",
+            "number": 30,
+            "title": "价格位置、Risk-Reward 与替代比较",
+            "note": "把现价放进路径价值区间反读市场预期，并与现实替代比较 Risk-Reward。",
             "status": "planned",
             "url": null
           },
           {
             "id": "NB-F06",
-            "number": 35,
-            "title": "反证、替代选择与判断更新",
-            "note": "找到能改变投资取舍的证据、竞争解释和判断翻转条件。",
+            "number": 31,
+            "title": "反证、多视角复核与前向更新",
+            "note": "事前设好改主意信号，用多视角反方复核与前向基本面事实检验并更新判断。",
             "status": "planned",
             "url": null
           }
@@ -3354,101 +3436,9 @@
         "total": 6
       },
       {
-        "id": "agent_research",
-        "title": "Agent 研究、判断与持续培养",
-        "goal": "让 Agent 读懂材料、校准业务、独立推演，并通过前向记录改进判断。",
-        "entry_ids": [
-          "NB-I01",
-          "NB-I02",
-          "NB-I03",
-          "NB-I04",
-          "NB-I05",
-          "NB-I06",
-          "NB-J02",
-          "NB-J03",
-          "NB-J04"
-        ],
-        "steps": [
-          {
-            "id": "NB-I01",
-            "number": 36,
-            "title": "从投资疑问到 Agent 研究任务",
-            "note": "把候选线索和投资疑问转成有实际判断用途的 Agent 任务。",
-            "status": "planned",
-            "url": null
-          },
-          {
-            "id": "NB-I02",
-            "number": 37,
-            "title": "资料、语义与跨来源判断",
-            "note": "读懂资料所指对象和条件，通过跨来源比较形成可追溯的采用判断。",
-            "status": "planned",
-            "url": null
-          },
-          {
-            "id": "NB-I03",
-            "number": 38,
-            "title": "上下游调查与经营假设校准",
-            "note": "围绕具体经营疑问取得上下游证据，并据此修改需求、成本和资本假设。",
-            "status": "planned",
-            "url": null
-          },
-          {
-            "id": "NB-I04",
-            "number": 39,
-            "title": "竞争、技术与制度判断",
-            "note": "用竞争、技术和制度证据比较经营路径及替代解释。",
-            "status": "planned",
-            "url": null
-          },
-          {
-            "id": "NB-I05",
-            "number": 40,
-            "title": "Agent 的经营判断与情景推演",
-            "note": "由 Agent 解释材料、重建经营联系并提出有依据的情景与取舍。",
-            "status": "planned",
-            "url": null
-          },
-          {
-            "id": "NB-I06",
-            "number": 41,
-            "title": "多 Agent 分工与研究整合",
-            "note": "用实际独立推演和关键连接重建提高研究解释与整合质量。",
-            "status": "planned",
-            "url": null
-          },
-          {
-            "id": "NB-J02",
-            "number": 42,
-            "title": "研究记录、观察清单与局部更新",
-            "note": "让新信息命中旧判断，并保存可接续的局部更新过程。",
-            "status": "planned",
-            "url": null
-          },
-          {
-            "id": "NB-J03",
-            "number": 43,
-            "title": "Agent 判断的前向检验与定向培养",
-            "note": "通过事前记录、新证据和重复案例检验并改进 Agent 的语义和经营判断。",
-            "status": "planned",
-            "url": null
-          },
-          {
-            "id": "NB-J04",
-            "number": 44,
-            "title": "Agent 研究的持续运行",
-            "note": "让有效研究跨期资料继续使用，并发现失败、恢复工作和保留人的取舍。",
-            "status": "planned",
-            "url": null
-          }
-        ],
-        "available_count": 0,
-        "total": 9
-      },
-      {
-        "id": "agent_allocation",
-        "title": "Agent 资本取舍与持续配置",
-        "goal": "在 P01 的组合基础上完成研究整合、共同情景和持续配置。",
+        "id": "portfolio_allocation",
+        "title": "从单票回到组合与资本取舍",
+        "goal": "在 P01 的组合地基与单票判断之上，回到纯投资视角的账户约束、生态位共同暴露、仓位替换与持续再平衡。",
         "entry_ids": [
           "NB-M02",
           "NB-M03",
@@ -3457,31 +3447,136 @@
         "steps": [
           {
             "id": "NB-M02",
-            "number": 45,
-            "title": "从账户与研究到资本取舍",
-            "note": "从当前账户和已有研究出发，统一比较持仓、候选和现金的用途。",
+            "number": 32,
+            "title": "从账户目标与研究到资本取舍",
+            "note": "把单票判断放回真实账户，按统一口径比较持仓、候选与现金的资本取舍。",
             "status": "planned",
             "url": null
           },
           {
             "id": "NB-M03",
-            "number": 46,
-            "title": "组合共同情景与配置方案",
-            "note": "在共同经营条件、概率和资金约束下比较不同规模及替代配置。",
+            "number": 33,
+            "title": "组合共同暴露、生态位共因与配置方案",
+            "note": "按生态位与共同系统边界合并真实暴露，在联合情景下确定仓位与缓冲。",
             "status": "planned",
             "url": null
           },
           {
             "id": "NB-M05",
-            "number": 47,
-            "title": "Agent 辅助再平衡与持续配置",
-            "note": "从新事实或资金需要完成配置复评、采用和后续检验。",
+            "number": 34,
+            "title": "组合再平衡、持续跟踪与复盘",
+            "note": "区分价格漂移与基本面变化，建立带复盘记录的组合再平衡与持续跟踪纪律。",
             "status": "planned",
             "url": null
           }
         ],
         "available_count": 0,
         "total": 3
+      },
+      {
+        "id": "agent_research",
+        "title": "Agent 基本面研究实验模块",
+        "goal": "厘清“判断交给 Agent，记账交给工具”的边界，诚实记录路径森林与 Market Graph 实验框架及前向检验方法。",
+        "entry_ids": [
+          "NB-I01",
+          "NB-I02",
+          "NB-J03"
+        ],
+        "steps": [
+          {
+            "id": "NB-I01",
+            "number": 35,
+            "title": "判断交给 Agent，记账交给工具",
+            "note": "理清 Agent 判断与确定性工具记账的分工边界，用冻结来源与自动校验守住研究底线。",
+            "status": "planned",
+            "url": null
+          },
+          {
+            "id": "NB-I02",
+            "number": 36,
+            "title": "路径森林与 Market Graph：开放实验框架",
+            "note": "解剖仍在演化的路径森林与 Market Graph 实验框架，既看设计逻辑也直面未解难题。",
+            "status": "planned",
+            "url": null
+          },
+          {
+            "id": "NB-J03",
+            "number": 37,
+            "title": "前向检验、多视角复核与方法迭代",
+            "note": "用事前冻结、多视角反方复核与前向基本面检验持续迭代研究方法，避开回测幻觉。",
+            "status": "planned",
+            "url": null
+          }
+        ],
+        "available_count": 0,
+        "total": 3
+      },
+      {
+        "id": "optional_portfolio_paradigms",
+        "title": "按需专题：机构组合与对冲范式",
+        "goal": "在 P01 的多资产总图之上，按需深入了解股票多空与市场中性、全球宏观、风险平价及信用尾部对冲四类主流机构风控框架。",
+        "entry_ids": [
+          "NB-P02",
+          "NB-P03",
+          "NB-P04",
+          "NB-P05"
+        ],
+        "steps": [
+          {
+            "id": "NB-P02",
+            "number": 38,
+            "title": "股票多空与市场中性",
+            "note": "按机构组合与对冲范式需要选读。拆分总敞口与净敞口，看清市场中性策略的收益来源、融券摩擦与因子踩踏风险。",
+            "status": "available",
+            "url": "/zh/notebook/long-short-market-neutral/",
+            "reading_profile": {
+              "difficulty": "进阶",
+              "depth": "详解",
+              "note": "需要同时理解多空总／净敞口、beta 与风格因子中性、卖空现金抵押与借券费结构，以及轧空与拥挤去杠杆两类尾部失效。"
+            }
+          },
+          {
+            "id": "NB-P03",
+            "number": 39,
+            "title": "全球宏观与跨资产配置",
+            "note": "按机构组合与对冲范式需要选读。沿宏观周期跨资产表达判断，并识破跨国跨品种背后的同一底层风险。",
+            "status": "available",
+            "url": "/zh/notebook/global-macro-cross-asset/",
+            "reading_profile": {
+              "difficulty": "进阶",
+              "depth": "详解",
+              "note": "需要结合利率、汇率、跨市场周收益相关性、公司跨境财报口径与流动性去杠杆机制，辨别表达载体选择、底层共因与局部背离。"
+            }
+          },
+          {
+            "id": "NB-P04",
+            "number": 40,
+            "title": "风险平价与全天候配置",
+            "note": "按机构组合与对冲范式需要选读。从资金权重转向风险贡献，理解风险平价的四象限制衡与加息边界。",
+            "status": "available",
+            "url": "/zh/notebook/risk-parity-all-weather/",
+            "reading_profile": {
+              "difficulty": "进阶",
+              "depth": "详解",
+              "note": "需要结合 Euler 风险贡献分解、增长与通胀四象限映射、TIPS 实际利率久期及杠杆融资成本公式，判断风险平价的适用条件与失效边界。"
+            }
+          },
+          {
+            "id": "NB-P05",
+            "number": 41,
+            "title": "信用与尾部风险对冲",
+            "note": "按机构组合与对冲范式需要选读。理解 CDS 与尾部期权的凸性赔付、常态损耗及个人账户替代方案。",
+            "status": "available",
+            "url": "/zh/notebook/credit-tail-risk-hedging/",
+            "reading_profile": {
+              "difficulty": "进阶",
+              "depth": "详解",
+              "note": "需要结合信用利差、CDS 信用事件与拍卖回收机制、期权波动率风险溢价及路径依赖，权衡常态保费损耗与极端危机凸性赔付。"
+            }
+          }
+        ],
+        "available_count": 4,
+        "total": 4
       },
       {
         "id": "optional_environment",
@@ -3501,7 +3596,7 @@
         "steps": [
           {
             "id": "NB-C05",
-            "number": 48,
+            "number": 42,
             "title": "美联储与货币政策",
             "note": "按相应工具或判断问题选读。解释政策决策与实施怎样改变利率、预期和金融条件。",
             "status": "planned",
@@ -3509,7 +3604,7 @@
           },
           {
             "id": "NB-C01",
-            "number": 49,
+            "number": 43,
             "title": "利率、信用与融资",
             "note": "按相应工具或判断问题选读。解释市场利率、信用和期限怎样改变企业与投资者的融资条件。",
             "status": "planned",
@@ -3517,7 +3612,7 @@
           },
           {
             "id": "NB-C02",
-            "number": 50,
+            "number": 44,
             "title": "通胀、需求与企业成本",
             "note": "按相应工具或判断问题选读。将价格水平变化传到客户需求、投入成本和企业利润。",
             "status": "planned",
@@ -3525,7 +3620,7 @@
           },
           {
             "id": "NB-C03",
-            "number": 51,
+            "number": 45,
             "title": "汇率与跨境投资",
             "note": "按相应工具或判断问题选读。区分投资者币种结果与企业经营的汇率暴露。",
             "status": "planned",
@@ -3533,7 +3628,7 @@
           },
           {
             "id": "NB-C04",
-            "number": 52,
+            "number": 46,
             "title": "经济变化的业务与资产传导",
             "note": "按相应工具或判断问题选读。沿共同需求和金融条件解释企业及资产表现的差异。",
             "status": "planned",
@@ -3541,7 +3636,7 @@
           },
           {
             "id": "NB-U01",
-            "number": 53,
+            "number": 47,
             "title": "存款、货币基金与短债",
             "note": "按相应工具或判断问题选读。按底层资产、付款来源和可用时间比较具体资金停放工具。",
             "status": "planned",
@@ -3549,7 +3644,7 @@
           },
           {
             "id": "NB-R01",
-            "number": 54,
+            "number": 48,
             "title": "债券的现金流与收益",
             "note": "按相应工具或判断问题选读。区分票息率、到期收益率和实际持有结果。",
             "status": "planned",
@@ -3557,7 +3652,7 @@
           },
           {
             "id": "NB-R02",
-            "number": 55,
+            "number": 49,
             "title": "利率变化与债券价格",
             "note": "按相应工具或判断问题选读。解释收益率和期限怎样改变债券市场价格及中途退出结果。",
             "status": "planned",
@@ -3565,7 +3660,7 @@
           },
           {
             "id": "NB-R03",
-            "number": 56,
+            "number": 50,
             "title": "信用、违约与偿债能力",
             "note": "按相应工具或判断问题选读。将债券约定收付与企业偿债资源、违约和回收联系起来。",
             "status": "planned",
@@ -3586,7 +3681,7 @@
         "steps": [
           {
             "id": "NB-V03",
-            "number": 57,
+            "number": 51,
             "title": "基金跟踪与投资者回报",
             "note": "按相应工具或判断问题选读。解释指数、基金净值与投资者实际回报之间的差距及来源。",
             "status": "planned",
@@ -3594,7 +3689,7 @@
           },
           {
             "id": "NB-S05",
-            "number": 58,
+            "number": 52,
             "title": "选股、基金与业绩比较",
             "note": "按相应工具或判断问题选读。比较选股、委托管理和指数投资的费用后结果及判断依据。",
             "status": "planned",
@@ -3615,7 +3710,7 @@
         "steps": [
           {
             "id": "NB-B05",
-            "number": 59,
+            "number": 53,
             "title": "指标与趋势交易",
             "note": "按相应工具或判断问题选读。把量价观察写成明确的趋势判断、进出场与失效规则。",
             "status": "available",
@@ -3628,7 +3723,7 @@
           },
           {
             "id": "NB-B06",
-            "number": 60,
+            "number": 54,
             "title": "量化交易",
             "note": "按相应工具或判断问题选读。用历史数据、成本和样本外结果检验可重复执行的交易规则。",
             "status": "planned",
@@ -3649,7 +3744,7 @@
         "steps": [
           {
             "id": "NB-B03",
-            "number": 61,
+            "number": 55,
             "title": "保证金、对冲与期间现金",
             "note": "按相应工具或判断问题选读。在已有组合上比较保证金、对冲工具和期间现金需要。",
             "status": "available",
@@ -3662,7 +3757,7 @@
           },
           {
             "id": "NB-K05",
-            "number": 62,
+            "number": 56,
             "title": "个股期货、股票永续与代币化股票",
             "note": "按相应工具或判断问题选读。区分围绕同一股票形成的合约与代币化产品，辨认实际取得的权益和资金安排。",
             "status": "planned",
@@ -3686,7 +3781,7 @@
         "steps": [
           {
             "id": "NB-X01",
-            "number": 63,
+            "number": 57,
             "title": "商品、黄金与回报来源",
             "note": "按相应工具或判断问题选读。解释商品与黄金的供需、持有动机和完整回报来源。",
             "status": "planned",
@@ -3694,7 +3789,7 @@
           },
           {
             "id": "NB-X02",
-            "number": 64,
+            "number": 58,
             "title": "房地产、租金与持有成本",
             "note": "按相应工具或判断问题选读。沿租金、投入、融资和出售重建房产投资的现金过程。",
             "status": "planned",
@@ -3702,7 +3797,7 @@
           },
           {
             "id": "NB-K03",
-            "number": 65,
+            "number": 59,
             "title": "基差、交割与展期",
             "note": "按相应工具或判断问题选读。解释期货与现货的价格联系及跨到期日持有的结果。",
             "status": "planned",
@@ -3710,7 +3805,7 @@
           },
           {
             "id": "NB-X03",
-            "number": 66,
+            "number": 60,
             "title": "实物资产、基金与期货的持有差别",
             "note": "按相应工具或判断问题选读。解释相同资产主题通过不同载体持有时的结果差异。",
             "status": "planned",
@@ -3718,7 +3813,7 @@
           },
           {
             "id": "NB-K04",
-            "number": 67,
+            "number": 61,
             "title": "基差变化与期货对冲调整",
             "note": "按相应工具或判断问题选读。在标的不完全匹配和期间条件变化时重估对冲规模与合并结果。",
             "status": "planned",
@@ -3742,7 +3837,7 @@
         "steps": [
           {
             "id": "NB-G01",
-            "number": 68,
+            "number": 62,
             "title": "期权权利、盈亏与退出",
             "note": "按相应工具或判断问题选读。沿完整交易区分期权权利、支付、净盈亏和退出义务。",
             "status": "planned",
@@ -3750,7 +3845,7 @@
           },
           {
             "id": "NB-G03",
-            "number": 69,
+            "number": 63,
             "title": "期权价格与定价模型",
             "note": "按相应工具或判断问题选读。解释市场报价、内在价值、时间价值与模型计算的关系。",
             "status": "planned",
@@ -3758,7 +3853,7 @@
           },
           {
             "id": "NB-G04",
-            "number": 70,
+            "number": 64,
             "title": "时间、波动率与期权价值",
             "note": "按相应工具或判断问题选读。理解到期前价格怎样随时间、标的与波动预期共同变化。",
             "status": "planned",
@@ -3766,7 +3861,7 @@
           },
           {
             "id": "NB-G05",
-            "number": 71,
+            "number": 65,
             "title": "备兑与期权持仓的取舍",
             "note": "按相应工具或判断问题选读。比较备兑卖出、保护性持仓与直接持股的权利、机会和成本。",
             "status": "planned",
@@ -3774,7 +3869,7 @@
           },
           {
             "id": "NB-G06",
-            "number": 72,
+            "number": 66,
             "title": "价差组合与策略选择",
             "note": "按相应工具或判断问题选读。按价格判断和持有目的比较多腿期权的净结果与执行条件。",
             "status": "planned",
@@ -3796,7 +3891,7 @@
         "steps": [
           {
             "id": "NB-L01",
-            "number": 73,
+            "number": 67,
             "title": "永续合约的价格锚定与资金费",
             "note": "按相应工具或判断问题选读。解释价格锚定机制以及多期资金费对完整持有结果的影响。",
             "status": "planned",
@@ -3804,7 +3899,7 @@
           },
           {
             "id": "NB-L03",
-            "number": 74,
+            "number": 68,
             "title": "标记价格、保证金与强平",
             "note": "按相应工具或判断问题选读。解释永续风险计价和处置规则怎样约束持有过程。",
             "status": "planned",
@@ -3812,7 +3907,7 @@
           },
           {
             "id": "NB-L04",
-            "number": 75,
+            "number": 69,
             "title": "合约计价与完整持有结果",
             "note": "按相应工具或判断问题选读。比较线性和反向合约以及不同抵押币种形成的所得和风险。",
             "status": "planned",
@@ -3833,7 +3928,7 @@
         "steps": [
           {
             "id": "NB-H01",
-            "number": 76,
+            "number": 70,
             "title": "事件合约与概率报价",
             "note": "按相应工具或判断问题选读。沿一个明确事件解释结算、交易结果与价格的概率含义。",
             "status": "planned",
@@ -3841,7 +3936,7 @@
           },
           {
             "id": "NB-H04",
-            "number": 77,
+            "number": 71,
             "title": "预测市场与经营判断",
             "note": "按相应工具或判断问题选读。用事件证据与报价更新公司经营判断，说明事件影响经过哪些条件。",
             "status": "planned",

@@ -139,7 +139,7 @@ EBITDA 的陷阱是把年年重置的设备磨损当成不算成本。Warren Buf
 
 三者的分水岭，在于资本开支到底流向哪里。T 收入仅增 2.7%，巨额投入大多用于守住存量网络，Owner Earnings 贴着偏低的 FCF 走；而 MSFT（全年收入增 18%）与 TSM（毛利率 59.9%）的高额支出重在新建算力与先进晶圆厂。这些产能两三年后陆续转固，会带来成倍放大的折旧账单，最终回报取决于投产后的利用率与定价权。
 
-大型上市公司往往同时经营轻资产软件与重资产基建，分部资本开支与共同费用如何归集并表，由下一篇[《分部、共同成本与合并》](https://ou-liu-red-sugar.github.io/zh/notebook/segments-shared-costs-consolidation/)接手；重资本扩张叠加大额举债时的现金低谷防线见[《债务、融资与现金低谷》](https://ou-liu-red-sugar.github.io/zh/notebook/debt-financing-cash-troughs/)，Non-GAAP 口径下的 Adjusted EBITDA 修饰则留在[《盈利质量与可比口径》](https://ou-liu-red-sugar.github.io/zh/notebook/earnings-quality-comparability/)拆解。
+走通三张报表、营运资本与资本开支自由现金流后，从收入到现金的财务底座已经合拢。下一篇[《成本结构与经营杠杆》](https://ou-liu-red-sugar.github.io/zh/notebook/cost-structure-operating-leverage/)带着刚建立的折旧与利润表视角回到经营内部，拆解收入变动怎样经变动成本、固定成本与产能利用折出迥异的利润振幅；多业务分部合并、债务低谷与盈利质量清洗，则待产业与业务结构拆清后在第四卷[《分部、共同成本与合并》](https://ou-liu-red-sugar.github.io/zh/notebook/segments-shared-costs-consolidation/)至[《盈利质量与可比口径》](https://ou-liu-red-sugar.github.io/zh/notebook/earnings-quality-comparability/)接续展开。
 
 [^msft-fy26]: Microsoft Corporation，[FY2026 Q4 及全财年业绩公告（EX-99.1）](https://www.sec.gov/Archives/edgar/data/789019/000119312526323632/msft-ex99_1.htm)，2026-07-29，截至 2026-06-30 的利润表、现金流量表与分部业绩原件。
 [^msft-10k]: Microsoft Corporation，[FY2026 Form 10-K](https://www.sec.gov/Archives/edgar/data/789019/000119312526323660/msft-20260630.htm)，2026-07-29 提交 SEC，Note 1 固定资产折旧年限政策、FY24—FY26 三年现金流量表与 Note 6 Property and Equipment 附注。

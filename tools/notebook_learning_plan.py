@@ -197,6 +197,11 @@ def compile_learning_map(plan, published_entries):
               ("title", "description", "default_node", "groups", "edges")}
     result["nodes"] = [dict(id=node["id"], title=node["title"], short=node["short"],
                             description=node["depth"]) for node in plan["nodes"]]
+    result["prerequisites"] = {
+        planned["id"]: list(planned["prerequisites"])
+        for planned in plan["entries"]
+        if planned.get("prerequisites")
+    }
     result["entries"] = []
     for planned in plan["entries"]:
         actual = available.get(planned["id"])
