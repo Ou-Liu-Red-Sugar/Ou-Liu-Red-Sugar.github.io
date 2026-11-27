@@ -8,6 +8,7 @@
 
 - [资本配置、激励与每股结果](https://ou-liu-red-sugar.github.io/llms/zh/notebook/capital-allocation-incentives-per-share.md): 厘清 ROE、DuPont 三因子、ROIC（含与不含商誉）与 ROIIC 的公式边界、适用场景与失真陷阱；以 MSFT、KO、HD、MCD 与 AAPL 的 SEC 年报实证剥离杠杆幻觉，再拆解五条资金出路、回购价格纪律、管理层激励与 SBC 净股数影响，并附单屏五年资本配置推演器。
 - [复利、通胀与机会成本](https://ou-liu-red-sugar.github.io/llms/zh/notebook/compounding-inflation-opportunity-cost.md): 从 10,000 美元十年间持有 VOO 的名义金额与购买力出发，用复利、指数与对数、年化和物价换算理解持有回报，再与同期短债比较机会成本，并引入 Sharpe。
+- [成本结构与经营杠杆](https://ou-liu-red-sugar.github.io/llms/zh/notebook/cost-structure-operating-leverage.md): 把收入到营业利润的转化拆成变动成本、边际贡献、固定成本与阶梯费用；以单屏经营杠杆推演器与 TSM、INTC、COST 三家最新 SEC 财报实证，对照正向产能摊薄、反向开工不足、高变动稳态，以及提价、扩量与供给端成本通胀对利润的不对称冲击。
 - [信用与尾部风险对冲](https://ou-liu-red-sugar.github.io/llms/zh/notebook/credit-tail-risk-hedging.md): 用 2008 信用冻结、2020 疫情闪崩与 2022 利率慢熊三段实测看清信用利差与恐慌波动率怎样同时冲击股债；拆解 CDS 违约赔付与深度虚值期权尾部对冲的凸性逻辑、常态保费损耗及个人账户的现实替代。
 - [客户、产品与收费方式](https://ou-liu-red-sugar.github.io/llms/zh/notebook/customers-products-pricing.md): 从客户付款和企业交付认清一门生意，选择行业继续拆解业务，再沿上下游、具体订单与企业研报核验需求。
 - [债务、融资与现金低谷](https://ou-liu-red-sugar.github.io/llms/zh/notebook/debt-financing-cash-troughs.md): 拆解总债务、受限现金、净债务、账内租赁与表外刚性义务的口径差异，用 AT&T（T）FY25 对照净债务／EBITDA 与 EBIT 利息保障倍数的盲区及再融资冲击，借 12 季度现金低谷模拟器演示到期墙怎样在经营兑现前击穿流动性，再以 Microsoft（MSFT）FY26 对照 The Boeing Company（BA）FY24–FY25 呈现净现金与高杠杆面对低谷时的股东结果分叉。

@@ -10167,3 +10167,226 @@
 @media (max-width: 640px) {
   .rel-svg-wrap { padding: 3px; }
 }
+
+/* =========================================================
+ * NB-D03 Cost Structure & Operating Leverage (.d03-*)
+ * ========================================================= */
+.d03-real-tabs .d03-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 8px;
+}
+.d03-real-tabs .d03-tab {
+  padding: 4px 11px;
+  border: 1px solid var(--ff-rule);
+  border-radius: 999px;
+  background: var(--ff-card);
+  color: var(--ff-text);
+  font-size: 11px;
+  font-weight: 600;
+  cursor: pointer;
+  line-height: 1.3;
+  transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+}
+.d03-real-tabs .d03-tab[aria-pressed="true"] {
+  border-color: var(--ff-share);
+  background: var(--ff-share);
+  color: #fff;
+}
+.d03-real-tabs [data-d03-panel][hidden] {
+  display: none;
+}
+
+.d03-lev-lab .ff-head { margin-bottom: 8px; }
+.d03-lev-lab .d03-ctrl-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 5px;
+  margin-bottom: 6px;
+}
+.d03-lev-lab .d03-ctrl-lbl {
+  font-size: 10.5px;
+  font-weight: 700;
+  color: var(--ff-muted);
+  margin-right: 2px;
+}
+.d03-lev-lab .d03-pill {
+  padding: 3px 9px;
+  border: 1px solid var(--ff-rule);
+  border-radius: 999px;
+  background: var(--ff-card);
+  color: var(--ff-text);
+  font-size: 10.5px;
+  font-weight: 600;
+  cursor: pointer;
+  line-height: 1.3;
+}
+.d03-lev-lab .d03-pill[aria-pressed="true"] {
+  border-color: var(--ff-share);
+  background: var(--ff-share);
+  color: #fff;
+}
+.d03-lev-lab .d03-pill.is-sc[aria-pressed="true"] {
+  border-color: #a8743f;
+  background: #a8743f;
+  color: #fff;
+}
+.d03-lev-lab .d03-sliders {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 7px;
+  margin-bottom: 8px;
+}
+.d03-lev-lab .d03-sbox {
+  padding: 6px 8px;
+  border: 1px solid var(--ff-rule);
+  border-radius: 7px;
+  background: var(--ff-card);
+}
+.d03-lev-lab .d03-shead {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  font-size: 10.5px;
+  color: var(--ff-text);
+  margin-bottom: 3px;
+}
+.d03-lev-lab .d03-shead b {
+  font-variant-numeric: tabular-nums;
+  color: var(--ff-ink);
+}
+.d03-lev-lab input[type="range"] {
+  width: 100%;
+  accent-color: var(--ff-share);
+  margin: 0;
+}
+.d03-lev-lab .d03-stage {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+  gap: 8px;
+  align-items: stretch;
+}
+.d03-lev-lab .d03-panel {
+  padding: 8px 10px;
+  border: 1px solid var(--ff-rule);
+  border-radius: 8px;
+  background: var(--ff-card);
+  min-width: 0;
+}
+.d03-lev-lab .d03-phead {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding-bottom: 4px;
+  margin-bottom: 6px;
+  border-bottom: 1px solid var(--ff-rule);
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--ff-ink);
+}
+.d03-lev-lab .d03-phead small {
+  font-size: 10px;
+  font-weight: 600;
+  color: var(--ff-muted);
+}
+.d03-lev-lab .d03-bars {
+  display: grid;
+  gap: 6px;
+}
+.d03-lev-lab .d03-brow-hd {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  font-size: 10.5px;
+  color: var(--ff-text);
+  margin-bottom: 2px;
+}
+.d03-lev-lab .d03-brow-hd b {
+  font-variant-numeric: tabular-nums;
+  color: var(--ff-ink);
+}
+.d03-lev-lab .d03-track {
+  height: 9px;
+  border-radius: 999px;
+  background: #ecece3;
+  overflow: hidden;
+}
+.d03-lev-lab .d03-fill {
+  height: 100%;
+  border-radius: 999px;
+  transition: width 0.16s ease;
+}
+.d03-lev-lab .d03-fill.is-rev { background: #5a6d66; }
+.d03-lev-lab .d03-fill.is-vc { background: #c58f53; }
+.d03-lev-lab .d03-fill.is-fix { background: #8f6338; }
+.d03-lev-lab .d03-fill.is-ebit { background: #23695a; }
+.d03-lev-lab .d03-fill.is-ebit.is-loss { background: #b24334; }
+
+.d03-lev-lab .d03-kpis {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 6px;
+}
+.d03-lev-lab .d03-kpi {
+  padding: 6px 8px;
+  border: 1px solid var(--ff-rule);
+  border-radius: 7px;
+  background: #fafaf6;
+}
+.d03-lev-lab .d03-kpi small {
+  display: block;
+  font-size: 9.8px;
+  color: var(--ff-muted);
+  margin-bottom: 2px;
+}
+.d03-lev-lab .d03-kpi strong {
+  display: block;
+  font-size: 12px;
+  font-variant-numeric: tabular-nums;
+  color: var(--ff-ink);
+  line-height: 1.25;
+}
+.d03-lev-lab .d03-kpi.is-gain {
+  border-color: #b7d7c9;
+  background: #eff7f3;
+}
+.d03-lev-lab .d03-kpi.is-gain strong { color: #1b5c4e; }
+.d03-lev-lab .d03-kpi.is-loss {
+  border-color: #e4b7b0;
+  background: #fdf1ef;
+}
+.d03-lev-lab .d03-kpi.is-loss strong { color: #a33325; }
+
+.d03-lev-lab .d03-note {
+  margin-top: 7px;
+  padding: 6px 9px;
+  border-left: 3px solid var(--ff-share);
+  border-radius: 5px;
+  background: #f5f7f3;
+  font-size: 10.8px;
+  line-height: 1.44;
+  color: var(--ff-text);
+}
+
+@media (max-width: 640px) {
+  .d03-real-tabs .d03-tabs { gap: 4px; margin-bottom: 6px; }
+  .d03-real-tabs .d03-tab { padding: 3px 8px; font-size: 9.8px; }
+  .d03-lev-lab .d03-ctrl-row { gap: 4px; margin-bottom: 5px; }
+  .d03-lev-lab .d03-ctrl-lbl { display: none; }
+  .d03-lev-lab .d03-pill { padding: 2px 7px; font-size: 9.5px; }
+  .d03-lev-lab .d03-sliders { grid-template-columns: minmax(0, 1fr); gap: 4px; margin-bottom: 6px; }
+  .d03-lev-lab .d03-sbox { padding: 4px 7px; }
+  .d03-lev-lab .d03-shead { font-size: 9.8px; }
+  .d03-lev-lab .d03-stage { grid-template-columns: minmax(0, 1fr); gap: 5px; }
+  .d03-lev-lab .d03-panel { padding: 6px 8px; }
+  .d03-lev-lab .d03-bars { gap: 4px; }
+  .d03-lev-lab .d03-brow-hd { font-size: 9.6px; }
+  .d03-lev-lab .d03-track { height: 7px; }
+  .d03-lev-lab .d03-kpis { gap: 4px; }
+  .d03-lev-lab .d03-kpi { padding: 4px 6px; }
+  .d03-lev-lab .d03-kpi strong { font-size: 10.8px; }
+  .d03-lev-lab .d03-note { margin-top: 5px; padding: 5px 7px; font-size: 9.8px; line-height: 1.35; }
+}

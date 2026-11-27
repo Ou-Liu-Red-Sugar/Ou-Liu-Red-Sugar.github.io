@@ -891,8 +891,13 @@
       "node": "D",
       "title": "成本结构与经营杠杆",
       "goal": "解释收入变化怎样通过成本和产能形成不同利润结果。",
-      "status": "planned",
-      "url": null
+      "status": "available",
+      "url": "/zh/notebook/cost-structure-operating-leverage/",
+      "reading_profile": {
+        "difficulty": "进阶",
+        "depth": "详解",
+        "note": "承接客户收费、收入增长与三张财报，拆解变动成本、固定成本、阶梯费用与供给约束如何通过经营杠杆决定营业利润，并配单屏经营杠杆推演器与 TSM、INTC、COST 三家公司切换对照。"
+      }
     },
     {
       "id": "NB-E01",
@@ -1474,7 +1479,7 @@
   ],
   "reading_route": {
     "title": "从投资基础到公司研究",
-    "description": "先理解资金、股票、交易、组合总图与四类风险制衡范式，再进入客户收入、七篇财报与会计基本功、产业竞争、投资判断与 Agent；专题按实际用途选读。",
+    "description": "先理解资金、股票、交易、组合总图与四类风险制衡范式，再进入客户收入、七篇财报与会计基本功、成本杠杆与产业竞争、投资判断与 Agent；专题按实际用途选读。",
     "steps": [
       {
         "id": "NB-A01",
@@ -1774,18 +1779,31 @@
           "depth": "详解",
           "note": "围绕 ROE、DuPont、ROIC 与 ROIIC 建立完整的资本回报判别体系，结合五家上市公司最新 SEC 年报与委托书拆解杠杆失真、并购商誉、再投资跑道与管理层激励，并配单屏五年推演器。"
         }
+      },
+      {
+        "id": "NB-D03",
+        "number": 24,
+        "title": "成本结构与经营杠杆",
+        "note": "解释收入变化怎样通过成本和产能形成不同利润结果。",
+        "status": "available",
+        "url": "/zh/notebook/cost-structure-operating-leverage/",
+        "reading_profile": {
+          "difficulty": "进阶",
+          "depth": "详解",
+          "note": "承接客户收费、收入增长与三张财报，拆解变动成本、固定成本、阶梯费用与供给约束如何通过经营杠杆决定营业利润，并配单屏经营杠杆推演器与 TSM、INTC、COST 三家公司切换对照。"
+        }
       }
     ],
     "next": {
-      "id": "NB-D03",
-      "number": 24,
-      "title": "成本结构与经营杠杆",
-      "note": "解释收入变化怎样通过成本和产能形成不同利润结果。",
+      "id": "NB-D04",
+      "number": 25,
+      "title": "竞争、定价权与替代",
+      "note": "沿客户可选方案判断企业能否持续取得收入和利润。",
       "status": "planned",
       "url": null
     },
-    "available_count": 25,
-    "intro_available_count": 23,
+    "available_count": 26,
+    "intro_available_count": 24,
     "navigation": {
       "NB-A01": {
         "current": {
@@ -2709,6 +2727,47 @@
           "number": 24,
           "title": "成本结构与经营杠杆",
           "note": "解释收入变化怎样通过成本和产能形成不同利润结果。",
+          "status": "available",
+          "url": "/zh/notebook/cost-structure-operating-leverage/",
+          "reading_profile": {
+            "difficulty": "进阶",
+            "depth": "详解",
+            "note": "承接客户收费、收入增长与三张财报，拆解变动成本、固定成本、阶梯费用与供给约束如何通过经营杠杆决定营业利润，并配单屏经营杠杆推演器与 TSM、INTC、COST 三家公司切换对照。"
+          }
+        }
+      },
+      "NB-D03": {
+        "current": {
+          "id": "NB-D03",
+          "number": 24,
+          "title": "成本结构与经营杠杆",
+          "note": "解释收入变化怎样通过成本和产能形成不同利润结果。",
+          "status": "available",
+          "url": "/zh/notebook/cost-structure-operating-leverage/",
+          "reading_profile": {
+            "difficulty": "进阶",
+            "depth": "详解",
+            "note": "承接客户收费、收入增长与三张财报，拆解变动成本、固定成本、阶梯费用与供给约束如何通过经营杠杆决定营业利润，并配单屏经营杠杆推演器与 TSM、INTC、COST 三家公司切换对照。"
+          }
+        },
+        "previous": {
+          "id": "NB-E07",
+          "number": 23,
+          "title": "资本配置、激励与每股结果",
+          "note": "按实际经营与股东结果评价再投资、并购、回购和融资的取舍。",
+          "status": "available",
+          "url": "/zh/notebook/capital-allocation-incentives-per-share/",
+          "reading_profile": {
+            "difficulty": "进阶",
+            "depth": "详解",
+            "note": "围绕 ROE、DuPont、ROIC 与 ROIIC 建立完整的资本回报判别体系，结合五家上市公司最新 SEC 年报与委托书拆解杠杆失真、并购商誉、再投资跑道与管理层激励，并配单屏五年推演器。"
+          }
+        },
+        "next": {
+          "id": "NB-D04",
+          "number": 25,
+          "title": "竞争、定价权与替代",
+          "note": "沿客户可选方案判断企业能否持续取得收入和利润。",
           "status": "planned",
           "url": null
         }
@@ -2786,7 +2845,7 @@
         "writer": "Claude"
       },
       {
-        "label": "第 10–14、17–23 篇",
+        "label": "第 10–14、17–24 篇",
         "writer": "Gemini 4 Neon"
       }
     ],
@@ -2825,7 +2884,7 @@
         "id": "business_depth",
         "title": "成本结构、竞争壁垒与产业周期",
         "goal": "深化经营杠杆、替代竞争、上下游利润分配、库存产能周期与技术商业化。",
-        "available_count": 0,
+        "available_count": 1,
         "total": 6
       },
       {

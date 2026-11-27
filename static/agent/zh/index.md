@@ -3,6 +3,7 @@
 - [符号与单位](https://ou-liu-red-sugar.github.io/agent/zh/notation.md)
 - [资本配置、激励与每股结果](https://ou-liu-red-sugar.github.io/agent/zh/capital-allocation-incentives-per-share.md)
 - [复利、通胀与机会成本](https://ou-liu-red-sugar.github.io/agent/zh/compounding-inflation-opportunity-cost.md)
+- [成本结构与经营杠杆](https://ou-liu-red-sugar.github.io/agent/zh/cost-structure-operating-leverage.md)
 - [信用与尾部风险对冲](https://ou-liu-red-sugar.github.io/agent/zh/credit-tail-risk-hedging.md)
 - [客户、产品与收费方式](https://ou-liu-red-sugar.github.io/agent/zh/customers-products-pricing.md)
 - [债务、融资与现金低谷](https://ou-liu-red-sugar.github.io/agent/zh/debt-financing-cash-troughs.md)

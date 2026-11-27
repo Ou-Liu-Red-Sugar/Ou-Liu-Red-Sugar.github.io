@@ -3547,6 +3547,16 @@
       "authors": [
         "The Coca-Cola Company"
       ]
+    },
+    {
+      "source_id": "nb-d03-intc-fy25",
+      "title": "Intel Corporation：Q4 & Full-Year 2025 业绩公告（Form 8-K EX-99.1，截至 2025-12-27）",
+      "url": "https://www.sec.gov/Archives/edgar/data/50863/000005086326000009/q425earningsrelease.htm",
+      "body": "Intel 2025 财年业绩公告（2026-01-22 提交 SEC）：FY2025 净收入 52,853 M 美元（FY2024 为 53,101 M）、毛利率 34.8%（FY2024 为 32.7%）、研发与管销费用合计 18,398 M（FY2024 为 22,053 M）、重组及其他费用 2,191 M（FY2024 为 6,970 M）、合并 GAAP 营业亏损 −2,214 M（FY2024 为 −11,678 M）。分部层面，FY2025 Intel Products 营业利润 +12,739 M（营业利润率 25.9%），而晶圆代工部门 Intel Foundry 收入 17,826 M、成本与费用 28,144 M、营业亏损 −10,318 M（FY2024 亏损 −13,291 M），期末不动产厂房及设备净值 105,414 M 美元。",
+      "version": "2026-11-27 核对 SEC EDGAR",
+      "authors": [
+        "Intel Corporation"
+      ]
     }
   ],
   "paths": []
