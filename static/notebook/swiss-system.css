@@ -87,6 +87,7 @@ body.notebook-app {
   position: sticky;
   top: 0;
   z-index: 40;
+  display: block;
   max-inline-size: none;
   min-block-size: 3.75rem;
   padding: 0;
@@ -101,12 +102,17 @@ body.notebook-app {
 }
 
 .notebook-app .masthead-inner {
+  inline-size: 100%;
   max-inline-size: var(--page-max);
   margin-inline: auto;
   padding: 0.625rem var(--page-pad);
   display: flex;
   align-items: center;
   gap: 1.5rem;
+}
+
+.is-home .masthead-inner {
+  max-inline-size: 920px;
 }
 
 .notebook-app .masthead-brand {
@@ -199,83 +205,44 @@ body.notebook-app {
   font-weight: 600;
 }
 
-/* Quiet light-ground Swiss colophon */
+/* Single-row quiet Swiss footer */
 .notebook-app .site-colophon {
-  margin-block-start: 5rem;
-  background: var(--paper-deep);
-  color: var(--muted);
+  margin-block-start: 4.5rem;
+  background: transparent;
+  color: var(--muted-2);
   border-block-start: 1px solid var(--rule);
-  font-size: 0.8125rem;
+  font-size: 0.78rem;
 }
 
-.notebook-app .colophon-inner {
+.notebook-app .colophon-bar {
   max-inline-size: var(--page-max);
   margin-inline: auto;
-  padding: 2.75rem var(--page-pad) 2rem;
-  display: grid;
-  grid-template-columns: minmax(0, 1.15fr) minmax(0, 1.55fr);
-  gap: 2.5rem;
+  padding: 1.25rem var(--page-pad) 1.75rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.625rem 1.5rem;
 }
 
-.notebook-app .colophon-brand {
-  color: var(--ink);
+.is-home .colophon-bar {
+  max-inline-size: 920px;
 }
 
-.notebook-app .colophon-brand img {
-  inline-size: 30px;
-  block-size: 30px;
-  border-radius: var(--radius-sm);
+.notebook-app .colophon-links {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.35rem 1.125rem;
 }
 
-.notebook-app .colophon-brand strong {
-  font-size: 1rem;
-  color: var(--ink);
-}
-
-.notebook-app .colophon-brand small {
-  color: var(--muted-2);
-  font-size: 0.6875rem;
-}
-
-.notebook-app .colophon-id p {
-  max-inline-size: 34ch;
-  margin-block-start: 0.875rem;
-  line-height: 1.7;
+.notebook-app .colophon-links a {
   color: var(--muted);
+  text-decoration: none;
+  transition: color 0.14s ease;
 }
 
-.notebook-app .colophon-nav h2 {
-  margin: 0 0 0.625rem;
-  color: var(--ink);
-  font-size: 0.75rem;
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-}
-
-.notebook-app .colophon-nav a {
-  padding: 0.25rem 0;
-  color: var(--muted);
-}
-
-.notebook-app .colophon-nav a:hover {
-  color: var(--accent);
-}
-
-.notebook-app .colophon-base {
-  max-inline-size: var(--page-max);
-  margin-inline: auto;
-  padding: 1rem var(--page-pad) 1.5rem;
-  border-block-start: 1px solid var(--rule);
-  color: var(--muted-2);
-  font-size: 0.75rem;
-}
-
-.notebook-app .colophon-base a {
-  color: var(--muted);
-}
-
-.notebook-app .colophon-base a:hover {
+.notebook-app .colophon-links a:hover {
   color: var(--ink);
 }
 
@@ -399,628 +366,268 @@ body.notebook-app {
 }
 
 /* --- HOME --- */
-.is-home .home-wrap {
-  max-inline-size: var(--page-max);
+.is-home .home-minimal {
+  background: var(--paper);
+}
+
+.is-home .home-narrow {
+  max-inline-size: 920px;
   margin-inline: auto;
   padding-inline: var(--page-pad);
 }
 
-/* Band 1: Swiss Minimal Hero */
-.is-home .home-hero {
-  background: var(--paper);
-  border-block-end: 1px solid var(--rule);
+.is-home .home-intro {
+  padding-block: 3.75rem 2.75rem;
 }
 
-.is-home .home-hero::before {
-  display: none;
-}
-
-.is-home .hero-grid {
-  display: grid;
-  grid-template-columns: minmax(0, 1.3fr) minmax(300px, 0.85fr);
-  gap: 3.5rem;
-  align-items: start;
-  padding-block: 3.75rem 3.5rem;
-}
-
-.is-home .hero-copy h1 {
-  margin: 0 0 1.25rem;
+.is-home .home-intro h1 {
+  margin: 0 0 1rem;
   font-family: var(--serif);
   font-weight: 700;
-  font-size: clamp(2.25rem, 1.4rem + 2.6vw, 3.625rem);
-  line-height: 1.14;
+  font-size: clamp(1.875rem, 1.4rem + 1.4vw, 2.5rem);
+  line-height: 1.2;
   letter-spacing: 0.01em;
   color: var(--ink);
-  text-wrap: balance;
 }
 
-.is-home .hero-copy h1 em {
-  font-style: normal;
-  color: var(--accent);
-  text-decoration: none;
+.is-home .home-name-sub {
+  margin-inline-start: 0.45rem;
+  font-family: var(--sans);
+  font-weight: 400;
+  font-size: 0.56em;
+  letter-spacing: 0.02em;
+  color: var(--muted-2);
 }
 
-.is-home[data-lang="en"] .hero-copy h1 {
-  font-family: var(--serif);
-  letter-spacing: -0.025em;
-}
-
-.is-home[data-lang="en"] .hero-copy h1 em {
-  font-style: italic;
-}
-
-.is-home .hero-lead {
+.is-home .home-bio {
   max-inline-size: 56ch;
   margin: 0;
   font-size: 0.96875rem;
-  line-height: 1.82;
-  color: var(--muted);
+  line-height: 1.8;
+  color: var(--ink-soft);
   text-wrap: pretty;
 }
 
-.is-home .hero-actions {
+.is-home .home-links {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 0.625rem;
-  margin-block-start: 1.75rem;
-}
-
-.is-home .hero-actions .arrow-link {
-  margin-inline-start: 0.5rem;
-}
-
-/* Hairline site directory ledger (no shadow card) */
-.is-home .hero-index {
-  padding: 0;
-  border: 0;
-  border-block-start: 2px solid var(--ink);
-  border-radius: 0;
-  background: transparent;
-  box-shadow: none;
-}
-
-.is-home .hero-index::before {
-  display: none;
-}
-
-.is-home .hero-index-label {
-  padding: 0.625rem 0;
-  margin: 0;
-  font-family: var(--mono);
-  font-size: 0.72rem;
-  letter-spacing: 0.1em;
-  color: var(--muted-2);
-  border-block-end: 1px solid var(--rule);
-}
-
-.is-home .hero-index > a {
-  display: grid;
-  grid-template-columns: 2rem minmax(0, 1fr) 1rem;
-  gap: 0.75rem;
-  align-items: start;
-  padding: 1rem 0.375rem;
-  border-block-start: 0;
-  border-block-end: 1px solid var(--rule);
-  transition: background-color 0.14s ease;
-}
-
-.is-home .hero-index > a:hover {
-  background: var(--surface);
-}
-
-.is-home .idx-num {
-  padding-block-start: 2px;
-  font-family: var(--mono);
-  font-style: normal;
-  font-size: 0.8125rem;
-  font-weight: 600;
-  color: var(--muted-2);
-}
-
-.is-home .idx-body strong {
-  font-family: var(--sans);
-  font-size: 1rem;
-  font-weight: 600;
-  color: var(--ink);
-}
-
-.is-home .idx-body small {
-  margin-block-start: 0.1875rem;
-  font-family: var(--mono);
-  font-size: 0.75rem;
-  color: var(--accent);
-}
-
-.is-home .idx-body span {
-  margin-block-start: 0.25rem;
-  font-size: 0.8125rem;
-  line-height: 1.55;
-  color: var(--muted);
-}
-
-/* Band 2: Light-ground Swiss Memo Investment Notebook Band */
-.is-home .home-notebook {
-  padding-block: 3.75rem 3.5rem;
-  background: var(--surface);
-  color: var(--ink);
-  border-block-end: 1px solid var(--rule);
-}
-
-.is-home .home-notebook::before {
-  display: none;
-}
-
-.is-home .home-notebook .kicker {
-  color: var(--muted);
-}
-
-.is-home .home-notebook .kicker::before {
-  background: var(--seal);
-}
-
-.is-home .hn-top {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) auto;
-  gap: 1.5rem 2.5rem;
-  align-items: end;
-  padding-block-end: 1.75rem;
-  border-block-end: 1px solid var(--rule);
-}
-
-.is-home .hn-intro h2 {
-  margin: 0;
-  font-family: var(--serif);
-  font-weight: 700;
-  font-size: clamp(1.625rem, 1.2rem + 1.4vw, 2.25rem);
-  line-height: 1.2;
-  color: var(--ink);
-  text-wrap: balance;
-}
-
-.is-home .hn-lead {
-  max-inline-size: 62ch;
-  margin: 0.625rem 0 0;
-  font-size: 0.9375rem;
-  line-height: 1.72;
-  color: var(--muted);
-}
-
-.is-home .hn-summary-bar {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  gap: 0.75rem;
-}
-
-.is-home .hn-progress-meta {
-  display: flex;
-  align-items: baseline;
-  gap: 0.5rem;
-  font-family: var(--mono);
-  font-size: 0.8125rem;
-  color: var(--muted);
-}
-
-.is-home .hn-progress-meta strong {
-  font-size: 1.625rem;
-  font-weight: 700;
-  color: var(--ink);
-  line-height: 1;
-}
-
-.is-home .hn-actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-  margin: 0;
-}
-
-.is-home .hn-continue {
-  flex-direction: row;
-  align-items: center;
-  gap: 0.4rem;
-  border-color: var(--accent);
-  color: var(--accent);
-}
-
-.is-home .hn-continue small {
-  font-size: 0.75rem;
-  color: var(--muted);
-}
-
-/* Symmetrical 4 x 2 hairline stage matrix (8 mainline volumes) */
-.is-home .hn-stages {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.35rem 1.25rem;
   list-style: none;
-  margin: 0;
+  margin: 1.25rem 0 0;
   padding: 0;
-  border-block-start: 0;
-  border-inline-start: 1px solid var(--rule);
-}
-
-.is-home .hn-stages li {
-  margin: 0;
-  border-inline-end: 1px solid var(--rule);
-  border-block-end: 1px solid var(--rule);
-}
-
-.is-home .hn-stages a {
-  display: flex;
-  flex-direction: column;
-  gap: 0.45rem;
-  block-size: 100%;
-  padding: 0.9rem 1rem;
-  color: var(--ink);
-  text-decoration: none;
-  transition: background-color 0.14s ease;
-}
-
-.is-home .hn-stages li + li a {
-  padding-inline-start: 1rem;
-  border-inline-start: 0;
-}
-
-.is-home .hn-stages a:hover {
-  background: var(--surface-subtle);
-}
-
-.is-home .hn-stage-top {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 0.5rem;
-}
-
-.is-home .hn-stage-num {
-  font-family: var(--mono);
-  font-style: normal;
-  font-size: 0.75rem;
-  font-weight: 600;
-  color: var(--muted-2);
-}
-
-.is-home .hn-stage-ratio {
-  font-family: var(--mono);
-  font-size: 0.72rem;
-  color: var(--muted);
-}
-
-.is-home .hn-stages strong {
-  font-family: var(--sans);
-  font-size: 0.875rem;
-  font-weight: 600;
-  line-height: 1.4;
-  color: var(--ink);
-}
-
-.is-home .hn-stage-bar {
-  display: block;
-  block-size: 2px;
-  border-radius: 0;
-  background: var(--rule);
-  margin-block-start: auto;
-}
-
-.is-home .hn-stage-bar i {
-  background: var(--accent);
-}
-
-.is-home .hn-stages [data-state="active"] .hn-stage-num,
-.is-home .hn-stages [data-state="active"] .hn-stage-ratio {
-  color: var(--seal);
-}
-
-.is-home .hn-stages [data-state="active"] .hn-stage-bar i {
-  background: var(--seal);
-}
-
-.is-home .hn-stages [data-state="todo"] strong {
-  color: var(--muted);
-}
-
-/* Latest entries: clean 4-row Swiss ledger */
-.is-home .hn-latest {
-  margin-block-start: 2.25rem;
-}
-
-.is-home .hn-latest-head {
-  display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  gap: 1rem;
-  margin-block-end: 0.75rem;
-}
-
-.is-home .hn-latest h3 {
-  margin: 0;
-  font-family: var(--mono);
-  font-size: 0.75rem;
-  font-weight: 600;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--muted);
-}
-
-.is-home .hn-ledger {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  border-block-start: 1px solid var(--ink);
-}
-
-.is-home .hn-ledger > li {
-  margin: 0;
-  border-block-end: 1px solid var(--rule);
-}
-
-.is-home .hn-ledger > li > a,
-.is-home .hn-ledger > li > div {
-  display: grid;
-  grid-template-columns: 2.75rem minmax(170px, 0.85fr) minmax(0, 1.35fr) auto;
-  gap: 0.75rem 1.25rem;
-  align-items: baseline;
-  padding: 0.875rem 0.5rem;
-  color: var(--ink);
-  text-decoration: none;
-  transition: background-color 0.14s ease;
-}
-
-.is-home .hn-ledger > li > a:hover {
-  background: var(--surface-subtle);
-}
-
-.is-home .hn-ledger-num {
-  font-family: var(--mono);
-  font-size: 0.8125rem;
-  font-weight: 600;
-  color: var(--accent);
-}
-
-.is-home .hn-ledger li.is-upcoming .hn-ledger-num {
-  color: var(--muted-2);
-}
-
-.is-home .hn-ledger-title {
-  font-weight: 600;
-  font-size: 0.9375rem;
-  color: var(--ink);
-}
-
-.is-home .hn-ledger li.is-upcoming .hn-ledger-title {
-  color: var(--muted);
-}
-
-.is-home .hn-ledger-note {
   font-size: 0.84375rem;
-  line-height: 1.55;
-  color: var(--muted);
 }
 
-.is-home .hn-ledger-meta {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
+.is-home .home-links li {
+  margin: 0;
+}
+
+.is-home .home-links a {
+  color: var(--muted);
+  text-decoration: none;
+  border-block-end: 1px solid transparent;
+  padding-block-end: 1px;
+  transition: color 0.14s ease, border-color 0.14s ease;
+}
+
+.is-home .home-links a:hover {
+  color: var(--ink);
+  border-block-end-color: var(--rule-strong);
+}
+
+/* Swiss 2-column hairline index rows: quiet label rail + clean content list */
+.is-home .home-sections {
+  padding-block-end: 1rem;
+}
+
+.is-home .home-row {
+  display: grid;
+  grid-template-columns: 196px minmax(0, 1fr);
+  gap: 1rem 2.75rem;
+  align-items: start;
+  padding-block: 2rem;
+  border-block-start: 1px solid var(--rule);
+}
+
+.is-home .home-row-label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  padding-block-start: 0.25rem;
+}
+
+.is-home .home-row-label h2 {
+  margin: 0;
+  font-family: var(--sans);
+  font-size: 0.9375rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  color: var(--ink);
+}
+
+.is-home .home-row-label h2 small {
+  margin-inline-start: 0.35rem;
+  font-weight: 400;
+  font-size: 0.75rem;
+  color: var(--muted-2);
+}
+
+.is-home .home-row-meta {
+  margin: 0;
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  color: var(--muted-2);
+}
+
+.is-home .home-row-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 0.875rem;
+  margin-block-start: 0.35rem;
+}
+
+.is-home .home-row-more,
+.is-home .home-row-continue {
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.is-home .home-row-more:hover,
+.is-home .home-row-continue:hover {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.is-home .home-row-continue {
+  flex-basis: 100%;
+  color: var(--ink);
+  font-size: 0.78rem;
+}
+
+.is-home .home-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.is-home .home-list-item {
+  margin: 0;
+  border-block-end: 1px solid var(--rule);
+}
+
+.is-home .home-list-item:last-child {
+  border-block-end: 0;
+}
+
+.is-home .home-list-item > a,
+.is-home .home-list-item > .hl-static {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  gap: 0.5rem 1rem;
+  align-items: baseline;
+  padding: 0.65rem 0.375rem;
+  color: var(--ink);
+  text-decoration: none;
+  transition: background-color 0.12s ease;
+}
+
+.is-home .home-list-item > a:hover {
+  background: var(--surface);
+}
+
+.is-home .hl-num {
+  min-inline-size: 1.75rem;
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--muted-2);
+}
+
+.is-home .hl-meta {
+  min-inline-size: 6.75rem;
   font-family: var(--mono);
   font-size: 0.75rem;
   color: var(--muted-2);
   white-space: nowrap;
 }
 
-.is-home .hn-ledger .nb-card-read {
-  padding: 0.0625rem 0.45rem;
-  border-radius: var(--radius-xs);
-  background: var(--accent-soft);
-  color: var(--accent);
-  font-size: 0.7rem;
-  font-weight: 600;
-}
-
-.is-home .hn-credit .route-authorship {
-  max-inline-size: none;
-  margin: 1.25rem 0 0;
-  font-size: 0.75rem;
-  line-height: 1.65;
-  color: var(--muted-2);
-}
-
-/* Band 3: Swiss Monograph Archive (Mathematics) */
-.is-home .home-section {
-  padding-block: 3.75rem 3.5rem;
-  background: var(--paper);
-  border-block-end: 1px solid var(--rule);
-}
-
-.is-home .home-head {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) auto;
-  gap: 1rem 2.5rem;
-  align-items: end;
-  margin-block-end: 2rem;
-}
-
-.is-home .home-head h2 {
-  margin: 0;
-  font-family: var(--serif);
-  font-weight: 700;
-  font-size: clamp(1.5rem, 1.15rem + 1.2vw, 2rem);
-  line-height: 1.22;
+.is-home .hl-title {
+  font-size: 0.9375rem;
+  font-weight: 500;
+  line-height: 1.5;
   color: var(--ink);
 }
 
-.is-home .home-head > p {
-  font-size: 0.875rem;
-  line-height: 1.72;
-  color: var(--muted);
+.is-home .home-list-item > a:hover .hl-title {
+  color: var(--accent);
 }
 
-.is-home .math-archive {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  border-block-start: 1px solid var(--ink);
-  border-inline-start: 1px solid var(--rule);
-}
-
-.is-home .math-archive-item {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-  margin: 0;
-  padding: 1.25rem 1.375rem;
-  background: var(--surface);
-  border-inline-end: 1px solid var(--rule);
-  border-block-end: 1px solid var(--rule);
-  transition: background-color 0.14s ease;
-}
-
-.is-home .math-archive-item:hover {
-  background: var(--surface-subtle);
-}
-
-.is-home .math-archive-meta {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 0.75rem;
+.is-home .hl-flag {
+  margin-inline-start: 0.4rem;
+  font-style: normal;
   font-family: var(--mono);
-  font-size: 0.72rem;
-  color: var(--muted-2);
-}
-
-.is-home .math-archive-badge {
-  padding: 0.0625rem 0.45rem;
-  border: 1px solid var(--rule-strong);
-  border-radius: var(--radius-xs);
   font-size: 0.6875rem;
   color: var(--seal);
 }
 
-.is-home .math-archive-title {
-  font-family: var(--serif);
-  font-size: 1.125rem;
-  font-weight: 700;
-  line-height: 1.4;
-  color: var(--ink);
-  text-decoration: none;
+.is-home .hl-tail {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  color: var(--muted-2);
+  white-space: nowrap;
 }
 
-.is-home .math-archive-title:hover {
+.is-home .hl-arrow {
+  font-size: 0.8rem;
+  color: var(--muted-2);
+}
+
+.is-home .home-list-item > a:hover .hl-arrow {
   color: var(--accent);
 }
 
-.is-home .math-archive-item p {
-  flex: 1;
-  margin: 0;
-  font-size: 0.84375rem;
-  line-height: 1.68;
+.is-home .home-list-item .nb-card-read {
+  padding: 0.0625rem 0.4rem;
+  border-radius: var(--radius-xs);
+  background: var(--accent-soft);
+  color: var(--accent);
+  font-family: var(--sans);
+  font-size: 0.6875rem;
+  font-weight: 600;
+}
+
+.is-home .home-list-item.is-upcoming .hl-title {
   color: var(--muted);
-  display: -webkit-box;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
-  line-clamp: 3;
-  overflow: clip;
+  font-weight: 400;
 }
 
-.is-home .math-archive-links {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem 1.125rem;
-  padding-block-start: 0.625rem;
-  margin-block-start: 0.375rem;
-  border-block-start: 1px solid var(--rule);
-  font-size: 0.8125rem;
-  font-weight: 500;
-}
+@media (max-width: 760px) {
+  .is-home .home-intro {
+    padding-block: 2.25rem 1.75rem;
+  }
 
-.is-home .math-archive-links a {
-  color: var(--accent);
-  text-decoration: none;
-}
-
-.is-home .math-archive-links a:hover {
-  text-decoration: underline;
-}
-
-/* Band 4: Blog & About split */
-.is-home .home-split {
-  padding-block: 3.5rem 2.5rem;
-  background: var(--paper);
-}
-
-.is-home .split-grid {
-  display: grid;
-  grid-template-columns: minmax(0, 1.5fr) minmax(280px, 0.95fr);
-  gap: 3rem;
-  align-items: start;
-}
-
-.is-home .home-about {
-  padding: 1.5rem;
-  border: 1px solid var(--rule);
-  border-block-start: 2px solid var(--ink);
-  border-radius: 0;
-  background: var(--surface);
-  box-shadow: none;
-}
-
-.is-home .home-about h2 {
-  font-size: 1.375rem;
-  letter-spacing: 0.02em;
-}
-
-@media (max-width: 960px) {
-  .is-home .hero-grid {
+  .is-home .home-row {
     grid-template-columns: 1fr;
-    gap: 2.25rem;
-    padding-block: 2.5rem;
+    gap: 0.75rem;
+    padding-block: 1.5rem;
   }
 
-  .is-home .hn-top {
-    grid-template-columns: 1fr;
-    align-items: start;
+  .is-home .home-list-item > a,
+  .is-home .home-list-item > .hl-static {
+    grid-template-columns: minmax(0, 1fr) auto;
+    padding-inline: 0;
   }
 
-  .is-home .hn-summary-bar {
-    align-items: flex-start;
-  }
-
-  .is-home .hn-stages {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .is-home .hn-ledger > li > a,
-  .is-home .hn-ledger > li > div {
-    grid-template-columns: 2.25rem minmax(0, 1fr) auto;
-  }
-
-  .is-home .hn-ledger-note {
-    grid-column: 2 / -1;
-  }
-
-  .is-home .home-head,
-  .is-home .split-grid,
-  .is-home .math-archive {
-    grid-template-columns: 1fr;
-  }
-}
-
-@media (max-width: 600px) {
-  .is-home .hn-stages {
-    grid-template-columns: 1fr;
-  }
-
-  .is-home .hn-ledger > li > a,
-  .is-home .hn-ledger > li > div {
-    grid-template-columns: 2rem minmax(0, 1fr);
-    gap: 0.25rem 0.625rem;
-  }
-
-  .is-home .hn-ledger-meta {
-    grid-column: 2;
+  .is-home .hl-meta,
+  .is-home .hl-num {
+    grid-column: 1 / -1;
+    margin-block-end: -0.25rem;
   }
 }
 

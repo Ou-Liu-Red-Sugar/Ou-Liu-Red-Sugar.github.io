@@ -3,74 +3,37 @@
 {{ with $route }}
 {{ $done := where .steps "status" "available" }}
 {{ $first := index .steps 0 }}
-<section class="home-notebook" id="investment-notebook" aria-labelledby="home-notebook-title">
-  <div class="home-wrap">
-    <div class="hn-top">
-      <div class="hn-intro">
-        <p class="kicker">{{ if $zh }}投资学笔记 · 研究体系{{ else }}Investment notebook · in Chinese{{ end }}</p>
-        <h2 id="home-notebook-title" lang="zh">Agent 时代的基本面投资</h2>
-        <p class="hn-lead">{{ if $zh }}{{ $map.description }}{{ else }}A Chinese notebook moving from funds, shares and trading to financial statements, business economics, conditional pricing and Agent-assisted capital allocation.{{ end }}</p>
-      </div>
-      <div class="hn-summary-bar">
-        <div class="hn-progress-meta" aria-label="{{ if $zh }}写作进度{{ else }}Writing progress{{ end }}">
-          <strong>{{ .available_count }}</strong>
-          <span>/ {{ len $map.entries }} {{ if $zh }}篇已完成{{ else }}published{{ end }}</span>
-        </div>
-        <div class="hn-actions">
-          <a class="btn btn-primary" href="/zh/notebook/">{{ if $zh }}全部卷次目录{{ else }}Open notebook index{{ end }} {{ partial "notebook/icon.html" (dict "name" "arrow-right") }}</a>
-          {{ with $first }}<a class="btn" href="{{ .url }}">{{ if $zh }}从第 1 篇开始{{ else }}Start at No. 1{{ end }}</a>{{ end }}
-          <a class="btn hn-continue" href="{{ $first.url }}" data-continue-reading hidden><small>{{ if $zh }}继续{{ else }}Resume{{ end }}</small><span data-continue-title></span></a>
-        </div>
-      </div>
+<section class="home-row" id="investment-notebook" aria-labelledby="home-notebook-title">
+  <div class="home-row-label">
+    <h2 id="home-notebook-title">{{ if $zh }}投资学笔记{{ else }}Investment notebook{{ end }}</h2>
+    <p class="home-row-meta">{{ if $zh }}已写 {{ .available_count }} / {{ len $map.entries }} 篇{{ else }}{{ .available_count }} / {{ len $map.entries }} · Chinese{{ end }}</p>
+    <div class="home-row-actions">
+      <a class="home-row-more" href="/zh/notebook/">{{ if $zh }}全部目录 →{{ else }}All entries →{{ end }}</a>
+      <a class="home-row-more" href="/zh/notebook/#nb-graph">{{ if $zh }}知识图谱{{ else }}Topic graph{{ end }}</a>
+      {{ with $first }}<a class="home-row-continue" href="{{ .url }}" data-continue-reading hidden>{{ if $zh }}继续：{{ else }}Resume: {{ end }}<span data-continue-title></span></a>{{ end }}
     </div>
-
-    <ol class="hn-stages" aria-label="{{ if $zh }}主线八卷进度{{ else }}Eight mainline volumes{{ end }}">
-      {{ $n := 0 }}{{ $active := false }}
-      {{ range .phases }}{{ if not (hasPrefix .id "optional_") }}{{ $n = add $n 1 }}
-      {{ $pct := 0 }}{{ if gt .total 0 }}{{ $pct = div (mul .available_count 100) .total }}{{ end }}
-      {{ $state := "todo" }}{{ if and (gt .total 0) (eq .available_count .total) }}{{ $state = "done" }}{{ else if not $active }}{{ $state = "active" }}{{ $active = true }}{{ end }}
-      <li data-state="{{ $state }}">
-        <a href="/zh/notebook/#phase-{{ .id }}">
-          <span class="hn-stage-top">
-            <span class="hn-stage-num">{{ printf "%02d" $n }}</span>
-            <span class="hn-stage-ratio">{{ .available_count }}/{{ .total }}</span>
-          </span>
-          <strong lang="zh">{{ .title }}</strong>
-          <span class="hn-stage-bar" aria-hidden="true"><i style="width:{{ $pct }}%"></i></span>
+  </div>
+  <div class="home-row-body">
+    <ol class="home-list">
+      {{ range collections.Reverse (last 4 $done) }}
+      <li class="home-list-item" data-article="{{ .id }}">
+        <a href="{{ .url }}">
+          <span class="hl-num">{{ printf "%02d" (int .number) }}</span>
+          <span class="hl-title" lang="zh">{{ .title }}</span>
+          <span class="hl-tail"><span class="nb-card-read" hidden>{{ if $zh }}已读{{ else }}Read{{ end }}</span><span class="hl-arrow" aria-hidden="true">↗</span></span>
         </a>
       </li>
-      {{ end }}{{ end }}
+      {{ end }}
+      {{ with .next }}
+      <li class="home-list-item is-upcoming">
+        <div class="hl-static">
+          <span class="hl-num">{{ printf "%02d" (int .number) }}</span>
+          <span class="hl-title" lang="zh">{{ .title }}</span>
+          <span class="hl-tail">{{ if $zh }}下一篇{{ else }}Up next{{ end }}</span>
+        </div>
+      </li>
+      {{ end }}
     </ol>
-
-    <div class="hn-latest">
-      <div class="hn-latest-head">
-        <h3>{{ if $zh }}最近更新与下一篇{{ else }}Latest &amp; Up Next{{ end }}</h3>
-        <a class="arrow-link" href="/zh/notebook/#nb-graph">{{ if $zh }}知识图谱{{ else }}Topic graph{{ end }}{{ partial "notebook/icon.html" (dict "name" "arrow-up-right") }}</a>
-      </div>
-      <ol class="hn-ledger">
-        {{ range collections.Reverse (last 3 $done) }}
-        <li data-article="{{ .id }}">
-          <a href="{{ .url }}">
-            <span class="hn-ledger-num">{{ printf "%02d" (int .number) }}</span>
-            <span class="hn-ledger-title" lang="zh">{{ .title }}</span>
-            <span class="hn-ledger-note" lang="zh">{{ .note }}</span>
-            <span class="hn-ledger-meta">{{ with .reading_profile }}<span lang="zh">{{ .difficulty }} · {{ .depth }}</span>{{ end }}<span class="nb-card-read" hidden>{{ if $zh }}已读{{ else }}Read{{ end }}</span><span aria-hidden="true">↗</span></span>
-          </a>
-        </li>
-        {{ end }}
-        {{ with .next }}
-        <li class="is-upcoming">
-          <div>
-            <span class="hn-ledger-num">{{ printf "%02d" (int .number) }}</span>
-            <span class="hn-ledger-title" lang="zh">{{ .title }}</span>
-            <span class="hn-ledger-note" lang="zh">{{ .note }}</span>
-            <span class="hn-ledger-meta">{{ if $zh }}下一篇 · 规划中{{ else }}Up next{{ end }}</span>
-          </div>
-        </li>
-        {{ end }}
-      </ol>
-    </div>
-    <div class="hn-credit" lang="zh">{{ partial "notebook/reading-route-credit.html" . }}</div>
   </div>
 </section>
 {{ end }}

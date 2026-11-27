@@ -1,70 +1,54 @@
 {{ define "main" }}
 {{ $zh := eq .Lang "zh" }}
-{{ $map := .Site.Data.notebook_map }}{{ $route := $map.reading_route }}
-{{ $pdfs := where .Site.Data.notes_pdfs "lang" .Lang }}{{ $otherPdfs := where .Site.Data.notes_pdfs "lang" (cond $zh "en" "zh") }}
-{{ $online := where .Site.RegularPages "Section" "notes" }}
 {{ $posts := where (index .Sites 0).RegularPages "Section" "blog" }}
-<div class="home">
-  <section class="home-hero" aria-labelledby="home-title">
-    <div class="home-wrap hero-grid">
-      <div class="hero-copy">
-        <p class="kicker">{{ if $zh }}刘欧 · Ou Liu{{ else }}Ou Liu · <span lang="zh">刘欧</span>{{ end }}</p>
-        {{ if $zh }}
-        <h1 id="home-title">从数学<br>到<em>基本面投资</em></h1>
-        <p class="hero-lead">我本科读数学与应用数学，之后在雷根斯堡大学读了一年数学硕士，现在主要做个人投资和家族资产管理，偏向基本面分析. 这里收录我和 Agent 一起逐篇写作的投资学笔记、数学讲义与讨论班讲稿，以及关于写作和研究方法的 Blog.</p>
-        <div class="hero-actions">
-          <a class="btn btn-primary" href="/zh/notebook/">读投资学笔记 {{ partial "notebook/icon.html" (dict "name" "arrow-right") }}</a>
-          <a class="btn" href="/zh/notes/">数学讲义</a>
-          <a class="arrow-link" href="/zh/about/">关于我{{ partial "notebook/icon.html" (dict "name" "arrow-up-right") }}</a>
-        </div>
-        {{ else }}
-        <h1 id="home-title">From mathematics<br>to <em>fundamental investing</em></h1>
-        <p class="hero-lead">I studied mathematics at Shanxi University and spent a year in the master's programme at the University of Regensburg. I now work mainly on personal investing and family asset management, with a focus on fundamental analysis. This site keeps my lecture and seminar notes, an investment notebook written article by article with Agents, and a blog on writing and research methods; the notebook and the blog are in Chinese.</p>
-        <div class="hero-actions">
-          <a class="btn btn-primary" href="/en/notes/">Mathematics notes {{ partial "notebook/icon.html" (dict "name" "arrow-right") }}</a>
-          <a class="btn" href="/zh/notebook/">Investment notebook <span lang="zh">中文</span></a>
-          <a class="arrow-link" href="/en/about/">About me{{ partial "notebook/icon.html" (dict "name" "arrow-up-right") }}</a>
-        </div>
+<div class="home home-minimal">
+  <section class="home-intro" aria-labelledby="home-title">
+    <div class="home-narrow">
+      <h1 id="home-title">{{ if $zh }}刘欧 <span class="home-name-sub" lang="en">Ou Liu</span>{{ else }}Ou Liu <span class="home-name-sub" lang="zh">刘欧</span>{{ end }}</h1>
+      {{ if $zh }}
+      <p class="home-bio">本科与硕士阶段学习数学，目前做个人投资与家族资产管理，偏向基本面研究。这里放我的投资学笔记、数学讲义和少量随笔。</p>
+      {{ else }}
+      <p class="home-bio">I studied mathematics at Shanxi University and spent a year in the master's programme at the University of Regensburg. I now work on personal investing and family asset management with a focus on fundamental analysis. This site holds my mathematics notes, an investment notebook in Chinese, and occasional posts.</p>
+      {{ end }}
+      <ul class="home-links" aria-label="{{ if $zh }}链接与联系{{ else }}Links and contact{{ end }}">
+        {{ range site.Data.profile.contacts }}
+        <li><a href="{{ .url }}"{{ if not (hasPrefix .url "mailto:") }} rel="noopener"{{ end }}>{{ if $zh }}{{ .label.zh }}{{ else }}{{ .label.en }}{{ end }}</a></li>
         {{ end }}
-      </div>
-      <nav class="hero-index" aria-label="{{ if $zh }}本站内容{{ else }}What is on this site{{ end }}">
-        <p class="hero-index-label">{{ if $zh }}本站内容{{ else }}On this site{{ end }}</p>
-        {{ $notebook := dict "url" "/zh/notebook/" "title" (cond $zh "投资学笔记" "Investment notebook") "meta" (cond $zh (printf "已完成 %d 篇 · 共规划 %d 篇" (int $route.available_count) (len $map.entries)) (printf "%d articles in Chinese · %d planned" (int $route.available_count) (len $map.entries))) "note" (cond $zh "从股票和财报读起，到 Agent 辅助研究与资产配置" "From shares and financial statements to Agent-assisted research and allocation") }}
-        {{ $math := dict "url" (printf "/%s/notes/" .Lang) "title" (cond $zh "数学笔记与讲义" "Mathematics") "meta" (cond $zh (printf "%d 份中文讲义 · 另有 %d 份英文" (len $pdfs) (len $otherPdfs)) (printf "%d PDF notes · %d online notes" (len $pdfs) (len $online))) "note" (cond $zh "代数几何、谱、范畴论与随机过程" "Algebraic geometry, homotopy theory and higher algebra") }}
-        {{ $blog := dict "url" "/zh/blog/" "title" "Blog" "meta" (cond $zh (printf "%d 篇文章" (len $posts)) (printf "%d %s · in Chinese" (len $posts) (cond (eq (len $posts) 1) "post" "posts"))) "note" (cond $zh "写作、研究与 Agent 协作" "Writing, research and working with Agents") }}
-        {{ $items := cond $zh (slice $notebook $math $blog) (slice $math $notebook $blog) }}
-        {{ range $i, $item := $items }}
-        <a href="{{ .url }}"><span class="idx-num">{{ printf "%02d" (add $i 1) }}</span><span class="idx-body"><strong>{{ .title }}</strong><small>{{ .meta }}</small><span>{{ .note }}</span></span>{{ partial "notebook/icon.html" (dict "name" "arrow-up-right") }}</a>
-        {{ end }}
-      </nav>
+        <li><a href="/{{ .Lang }}/about/">{{ if $zh }}关于 ↗{{ else }}About ↗{{ end }}</a></li>
+      </ul>
     </div>
   </section>
 
-  {{ if $zh }}
-  {{ partial "home/notebook-band.html" (dict "zh" $zh) }}
-  {{ partial "home/math-shelf.html" (dict "zh" $zh) }}
-  {{ else }}
-  {{ partial "home/math-shelf.html" (dict "zh" $zh) }}
-  {{ partial "home/notebook-band.html" (dict "zh" $zh) }}
-  {{ end }}
+  <div class="home-narrow home-sections">
+    {{ if $zh }}
+    {{ partial "home/notebook-band.html" (dict "zh" $zh) }}
+    {{ partial "home/math-shelf.html" (dict "zh" $zh) }}
+    {{ else }}
+    {{ partial "home/math-shelf.html" (dict "zh" $zh) }}
+    {{ partial "home/notebook-band.html" (dict "zh" $zh) }}
+    {{ end }}
 
-  <section class="home-split" aria-label="{{ if $zh }}Blog 与关于{{ else }}Blog and about{{ end }}">
-    <div class="home-wrap split-grid">
-      <div class="home-blog">
-        <header class="home-head is-compact">
-          <div><p class="kicker">Blog{{ if not $zh }} · in Chinese{{ end }}</p><h2>{{ if $zh }}最近文章{{ else }}Recent posts{{ end }}</h2></div>
-          <a class="arrow-link" href="/zh/blog/">{{ if $zh }}全部文章{{ else }}All posts{{ end }}{{ partial "notebook/icon.html" (dict "name" "arrow-up-right") }}</a>
-        </header>
-        {{ with $posts }}<div lang="zh">{{ partial "blog/entries.html" (first 3 .ByDate.Reverse) }}</div>{{ end }}
+    {{ with $posts }}
+    <section class="home-row" id="blog" aria-labelledby="home-blog-title">
+      <div class="home-row-label">
+        <h2 id="home-blog-title">Blog{{ if not $zh }} <small>中文</small>{{ end }}</h2>
+        <a class="home-row-more" href="/zh/blog/">{{ if $zh }}全部 {{ len . }} 篇 →{{ else }}All {{ len . }} →{{ end }}</a>
       </div>
-      <aside class="home-about" aria-labelledby="home-about-title">
-        <p class="kicker">{{ if $zh }}关于{{ else }}About{{ end }}</p>
-        <h2 id="home-about-title">{{ if $zh }}刘欧{{ else }}Ou Liu{{ end }}</h2>
-        <p>{{ if $zh }}关于页写了我的学习经历、投资学笔记的写作方式，以及评论和勘误怎样进入修订.{{ else }}The about page covers my background, how the investment notebook is written, and how comments and corrections feed into revisions.{{ end }}</p>
-        {{ partial "home/contact-list.html" (dict "zh" $zh) }}
-        <a class="arrow-link" href="/{{ .Lang }}/about/">{{ if $zh }}完整介绍{{ else }}Read more{{ end }}{{ partial "notebook/icon.html" (dict "name" "arrow-up-right") }}</a>
-      </aside>
-    </div>
-  </section>
+      <div class="home-row-body">
+        <ul class="home-list" lang="zh">
+          {{ range $i, $p := first 3 .ByDate.Reverse }}
+          <li class="home-list-item">
+            <a href="{{ .RelPermalink }}">
+              <span class="hl-num">{{ printf "%02d" (add $i 1) }}</span>
+              <span class="hl-title">{{ .Title }}</span>
+              <span class="hl-tail">{{ .Date.Format "2006-01-02" }}<span class="hl-arrow" aria-hidden="true">↗</span></span>
+            </a>
+          </li>
+          {{ end }}
+        </ul>
+      </div>
+    </section>
+    {{ end }}
+  </div>
 </div>
 {{ end }}
