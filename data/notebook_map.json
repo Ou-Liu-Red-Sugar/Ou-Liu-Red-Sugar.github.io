@@ -1474,7 +1474,7 @@
   ],
   "reading_route": {
     "title": "从投资基础到公司研究",
-    "description": "先理解资金、股票、交易、组合总图与四类风险制衡范式，再进入客户、业务、财报、投资判断与 Agent；专题按实际用途选读。",
+    "description": "先理解资金、股票、交易、组合总图与四类风险制衡范式，再进入客户收入、七篇财报与会计基本功、产业竞争、投资判断与 Agent；专题按实际用途选读。",
     "steps": [
       {
         "id": "NB-A01",
@@ -1683,18 +1683,109 @@
           "depth": "详解",
           "note": "从收入驱动进入期间比较、事件价格和条件反推，需要同时保持业务、利润与每股口径。"
         }
+      },
+      {
+        "id": "NB-E01",
+        "number": 17,
+        "title": "三张财报与经营活动",
+        "note": "沿同一经营过程读懂三张报表及其时间口径。",
+        "status": "available",
+        "url": "/zh/notebook/three-financial-statements/",
+        "reading_profile": {
+          "difficulty": "入门",
+          "depth": "详解",
+          "note": "从一家简化制造厂的六笔交易建立三张报表的恒等与勾稽直觉，再对照 MSFT 与 KO 真实财报及三家公司财年错位，不涉及复杂会计准则细节。"
+        }
+      },
+      {
+        "id": "NB-E02",
+        "number": 18,
+        "title": "收入、回款与营运资本",
+        "note": "重建收入、应收、库存和收付款的联动，解释现金占用。",
+        "status": "available",
+        "url": "/zh/notebook/revenue-collections-working-capital/",
+        "reading_profile": {
+          "difficulty": "入门",
+          "depth": "详解",
+          "note": "从日常赊购、备货与回款时序建立净营运资本与 CCC 直觉，结合互动推演器与多家 FY2026 真实 SEC 10-K 拆解扩张占资、负营运资本反哺与退坡反噬，附带关键附注排雷。"
+        }
+      },
+      {
+        "id": "NB-E03",
+        "number": 19,
+        "title": "利润、资本开支与现金",
+        "note": "解释经营投入、折旧和投产时间怎样形成利润与现金的差异。",
+        "status": "available",
+        "url": "/zh/notebook/profit-capex-cash/",
+        "reading_profile": {
+          "difficulty": "入门",
+          "depth": "详解",
+          "note": "从资本化与折旧的会计机制切入，系统界定 EBIT、EBITDA、Owner Earnings 与 FCF 的计算桥与适用陷阱，结合互动推演器及 KO、T、MSFT、TSMC 四家公司真实年报展开。"
+        }
+      },
+      {
+        "id": "NB-E04",
+        "number": 20,
+        "title": "分部、共同成本与合并",
+        "note": "利用分部披露把业务判断接回公司整体，处理共同项目与内部交易。",
+        "status": "available",
+        "url": "/zh/notebook/segments-shared-costs-consolidation/",
+        "reading_profile": {
+          "difficulty": "入门",
+          "depth": "详解",
+          "note": "围绕 KO 与 GOOGL 真实 10-K 分部表与合并调节，逐层建立 CODM 分部口径、内部交易抵销、总部共同成本与三档持股并表边界的核算直觉。"
+        }
+      },
+      {
+        "id": "NB-E05",
+        "number": 21,
+        "title": "债务、融资与现金低谷",
+        "note": "判断企业在经营兑现以前能否满足付息、偿债和投入。",
+        "status": "available",
+        "url": "/zh/notebook/debt-financing-cash-troughs/",
+        "reading_profile": {
+          "difficulty": "进阶",
+          "depth": "详解",
+          "note": "综合资产负债表存量、租赁与表外承诺、两类偿债标尺及动态 12 季度现金低谷推演，并以 MSFT、T、BA 三家公司 10-K 实证检验高杠杆与净现金的股东结果分叉。"
+        }
+      },
+      {
+        "id": "NB-E06",
+        "number": 22,
+        "title": "盈利质量与可比口径",
+        "note": "在会计与调整口径变化中识别仍成立的经营趋势。",
+        "status": "available",
+        "url": "/zh/notebook/earnings-quality-comparability/",
+        "reading_profile": {
+          "difficulty": "进阶",
+          "depth": "详解",
+          "note": "围绕 SEC Non-GAAP 规则、调节项逐项审计、现金流应计项印证、折旧估计变动与反稀释股数展开，需结合三张财报联动判断盈利口径与估值落差。"
+        }
+      },
+      {
+        "id": "NB-E07",
+        "number": 23,
+        "title": "资本配置、激励与每股结果",
+        "note": "按实际经营与股东结果评价再投资、并购、回购和融资的取舍。",
+        "status": "available",
+        "url": "/zh/notebook/capital-allocation-incentives-per-share/",
+        "reading_profile": {
+          "difficulty": "进阶",
+          "depth": "详解",
+          "note": "围绕 ROE、DuPont、ROIC 与 ROIIC 建立完整的资本回报判别体系，结合五家上市公司最新 SEC 年报与委托书拆解杠杆失真、并购商誉、再投资跑道与管理层激励，并配单屏五年推演器。"
+        }
       }
     ],
     "next": {
       "id": "NB-D03",
-      "number": 17,
+      "number": 24,
       "title": "成本结构与经营杠杆",
       "note": "解释收入变化怎样通过成本和产能形成不同利润结果。",
       "status": "planned",
       "url": null
     },
     "available_count": 25,
-    "intro_available_count": 16,
+    "intro_available_count": 23,
     "navigation": {
       "NB-A01": {
         "current": {
@@ -2327,18 +2418,23 @@
           }
         },
         "next": {
-          "id": "NB-D03",
+          "id": "NB-E01",
           "number": 17,
-          "title": "成本结构与经营杠杆",
-          "note": "解释收入变化怎样通过成本和产能形成不同利润结果。",
-          "status": "planned",
-          "url": null
+          "title": "三张财报与经营活动",
+          "note": "沿同一经营过程读懂三张报表及其时间口径。",
+          "status": "available",
+          "url": "/zh/notebook/three-financial-statements/",
+          "reading_profile": {
+            "difficulty": "入门",
+            "depth": "详解",
+            "note": "从一家简化制造厂的六笔交易建立三张报表的恒等与勾稽直觉，再对照 MSFT 与 KO 真实财报及三家公司财年错位，不涉及复杂会计准则细节。"
+          }
         }
       },
       "NB-E01": {
         "current": {
           "id": "NB-E01",
-          "number": 18,
+          "number": 17,
           "title": "三张财报与经营活动",
           "note": "沿同一经营过程读懂三张报表及其时间口径。",
           "status": "available",
@@ -2350,16 +2446,21 @@
           }
         },
         "previous": {
-          "id": "NB-D03",
-          "number": 17,
-          "title": "成本结构与经营杠杆",
-          "note": "解释收入变化怎样通过成本和产能形成不同利润结果。",
-          "status": "planned",
-          "url": null
+          "id": "NB-D02",
+          "number": 16,
+          "title": "收入增长与市场预期",
+          "note": "拆开销量、净价、客户和产品组合，用真实业绩与预测市场辨认增长预期，再从股价反推所需收入，交给经营证据检验。",
+          "status": "available",
+          "url": "/zh/notebook/revenue-growth-expectations/",
+          "reading_profile": {
+            "difficulty": "进阶",
+            "depth": "详解",
+            "note": "从收入驱动进入期间比较、事件价格和条件反推，需要同时保持业务、利润与每股口径。"
+          }
         },
         "next": {
           "id": "NB-E02",
-          "number": 19,
+          "number": 18,
           "title": "收入、回款与营运资本",
           "note": "重建收入、应收、库存和收付款的联动，解释现金占用。",
           "status": "available",
@@ -2374,7 +2475,7 @@
       "NB-E02": {
         "current": {
           "id": "NB-E02",
-          "number": 19,
+          "number": 18,
           "title": "收入、回款与营运资本",
           "note": "重建收入、应收、库存和收付款的联动，解释现金占用。",
           "status": "available",
@@ -2387,7 +2488,7 @@
         },
         "previous": {
           "id": "NB-E01",
-          "number": 18,
+          "number": 17,
           "title": "三张财报与经营活动",
           "note": "沿同一经营过程读懂三张报表及其时间口径。",
           "status": "available",
@@ -2400,7 +2501,7 @@
         },
         "next": {
           "id": "NB-E03",
-          "number": 20,
+          "number": 19,
           "title": "利润、资本开支与现金",
           "note": "解释经营投入、折旧和投产时间怎样形成利润与现金的差异。",
           "status": "available",
@@ -2415,7 +2516,7 @@
       "NB-E03": {
         "current": {
           "id": "NB-E03",
-          "number": 20,
+          "number": 19,
           "title": "利润、资本开支与现金",
           "note": "解释经营投入、折旧和投产时间怎样形成利润与现金的差异。",
           "status": "available",
@@ -2428,7 +2529,7 @@
         },
         "previous": {
           "id": "NB-E02",
-          "number": 19,
+          "number": 18,
           "title": "收入、回款与营运资本",
           "note": "重建收入、应收、库存和收付款的联动，解释现金占用。",
           "status": "available",
@@ -2440,18 +2541,23 @@
           }
         },
         "next": {
-          "id": "NB-D04",
-          "number": 21,
-          "title": "竞争、定价权与替代",
-          "note": "沿客户可选方案判断企业能否持续取得收入和利润。",
-          "status": "planned",
-          "url": null
+          "id": "NB-E04",
+          "number": 20,
+          "title": "分部、共同成本与合并",
+          "note": "利用分部披露把业务判断接回公司整体，处理共同项目与内部交易。",
+          "status": "available",
+          "url": "/zh/notebook/segments-shared-costs-consolidation/",
+          "reading_profile": {
+            "difficulty": "入门",
+            "depth": "详解",
+            "note": "围绕 KO 与 GOOGL 真实 10-K 分部表与合并调节，逐层建立 CODM 分部口径、内部交易抵销、总部共同成本与三档持股并表边界的核算直觉。"
+          }
         }
       },
       "NB-E04": {
         "current": {
           "id": "NB-E04",
-          "number": 26,
+          "number": 20,
           "title": "分部、共同成本与合并",
           "note": "利用分部披露把业务判断接回公司整体，处理共同项目与内部交易。",
           "status": "available",
@@ -2463,16 +2569,21 @@
           }
         },
         "previous": {
-          "id": "NB-D08",
-          "number": 25,
-          "title": "业务集合与共享资源",
-          "note": "划分研究业务并说明它们共享哪些客户、技术、成本和资本。",
-          "status": "planned",
-          "url": null
+          "id": "NB-E03",
+          "number": 19,
+          "title": "利润、资本开支与现金",
+          "note": "解释经营投入、折旧和投产时间怎样形成利润与现金的差异。",
+          "status": "available",
+          "url": "/zh/notebook/profit-capex-cash/",
+          "reading_profile": {
+            "difficulty": "入门",
+            "depth": "详解",
+            "note": "从资本化与折旧的会计机制切入，系统界定 EBIT、EBITDA、Owner Earnings 与 FCF 的计算桥与适用陷阱，结合互动推演器及 KO、T、MSFT、TSMC 四家公司真实年报展开。"
+          }
         },
         "next": {
           "id": "NB-E05",
-          "number": 27,
+          "number": 21,
           "title": "债务、融资与现金低谷",
           "note": "判断企业在经营兑现以前能否满足付息、偿债和投入。",
           "status": "available",
@@ -2487,7 +2598,7 @@
       "NB-E05": {
         "current": {
           "id": "NB-E05",
-          "number": 27,
+          "number": 21,
           "title": "债务、融资与现金低谷",
           "note": "判断企业在经营兑现以前能否满足付息、偿债和投入。",
           "status": "available",
@@ -2500,7 +2611,7 @@
         },
         "previous": {
           "id": "NB-E04",
-          "number": 26,
+          "number": 20,
           "title": "分部、共同成本与合并",
           "note": "利用分部披露把业务判断接回公司整体，处理共同项目与内部交易。",
           "status": "available",
@@ -2513,7 +2624,7 @@
         },
         "next": {
           "id": "NB-E06",
-          "number": 28,
+          "number": 22,
           "title": "盈利质量与可比口径",
           "note": "在会计与调整口径变化中识别仍成立的经营趋势。",
           "status": "available",
@@ -2528,7 +2639,7 @@
       "NB-E06": {
         "current": {
           "id": "NB-E06",
-          "number": 28,
+          "number": 22,
           "title": "盈利质量与可比口径",
           "note": "在会计与调整口径变化中识别仍成立的经营趋势。",
           "status": "available",
@@ -2541,7 +2652,7 @@
         },
         "previous": {
           "id": "NB-E05",
-          "number": 27,
+          "number": 21,
           "title": "债务、融资与现金低谷",
           "note": "判断企业在经营兑现以前能否满足付息、偿债和投入。",
           "status": "available",
@@ -2554,7 +2665,7 @@
         },
         "next": {
           "id": "NB-E07",
-          "number": 29,
+          "number": 23,
           "title": "资本配置、激励与每股结果",
           "note": "按实际经营与股东结果评价再投资、并购、回购和融资的取舍。",
           "status": "available",
@@ -2569,7 +2680,7 @@
       "NB-E07": {
         "current": {
           "id": "NB-E07",
-          "number": 29,
+          "number": 23,
           "title": "资本配置、激励与每股结果",
           "note": "按实际经营与股东结果评价再投资、并购、回购和融资的取舍。",
           "status": "available",
@@ -2582,7 +2693,7 @@
         },
         "previous": {
           "id": "NB-E06",
-          "number": 28,
+          "number": 22,
           "title": "盈利质量与可比口径",
           "note": "在会计与调整口径变化中识别仍成立的经营趋势。",
           "status": "available",
@@ -2594,10 +2705,10 @@
           }
         },
         "next": {
-          "id": "NB-A05",
-          "number": 30,
-          "title": "信息、预期与判断更新",
-          "note": "用竞争解释和可区分证据形成判断，并说明新信息怎样改变预期。",
+          "id": "NB-D03",
+          "number": 24,
+          "title": "成本结构与经营杠杆",
+          "note": "解释收入变化怎样通过成本和产能形成不同利润结果。",
           "status": "planned",
           "url": null
         }
@@ -2675,7 +2786,7 @@
         "writer": "Claude"
       },
       {
-        "label": "第 10–14 篇",
+        "label": "第 10–14、17–23 篇",
         "writer": "Gemini 4 Neon"
       }
     ],
@@ -2697,11 +2808,25 @@
         "total": 4
       },
       {
-        "id": "business",
-        "title": "理解企业与财务",
-        "goal": "连起客户、收入、竞争、利润、投入与每股结果。",
-        "available_count": 9,
-        "total": 15
+        "id": "business_revenue",
+        "title": "认识企业业务与收入增长",
+        "goal": "从客户、交付与收费辨认一门生意，并结合销量、净价与市场预期核验收入增长。",
+        "available_count": 2,
+        "total": 2
+      },
+      {
+        "id": "financial_statements",
+        "title": "财报、会计基本功与资本配置",
+        "goal": "沿同一经营过程贯通三张报表、营运资本、EBIT/EBITDA/FCF、合并口径、债务低谷、GAAP/非 GAAP 盈利质量及 ROE/ROIC/ROIIC 资本配置。",
+        "available_count": 7,
+        "total": 7
+      },
+      {
+        "id": "business_depth",
+        "title": "成本结构、竞争壁垒与产业周期",
+        "goal": "深化经营杠杆、替代竞争、上下游利润分配、库存产能周期与技术商业化。",
+        "available_count": 0,
+        "total": 6
       },
       {
         "id": "judgment",

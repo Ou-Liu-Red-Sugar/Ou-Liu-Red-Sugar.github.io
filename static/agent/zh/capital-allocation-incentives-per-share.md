@@ -81,7 +81,7 @@ This is reference material for the learner's current request. Use the supplied e
       },
       "required_unit": {
         "locator": "Consolidated Statement of Income、Consolidated Balance Sheet 与 Statement of Cash Flows。",
-        "scope": "核对 MCD FY2025 收入 26,885、营业利润 12,393、净利润 8,563、库存股 −79,316、长期债务 39,973 及负股东权益 −1,791（2024 年末 −3,797）百万美元。",
+        "scope": "核对 MCD FY2025 收入 26,885、营业利润 12,393、净利润 8,563、库存股 −79,316、长期债务 39,973 及负股东权益 −1,791（2024 年末 −3,797）M 美元。",
         "purpose": "核对负股东权益令 ROE 失效而 ROIC 仍可准确衡量经营回报的极端案例。"
       },
       "title": "McDonald’s Corporation：FY2025 Form 10-K（截至 2025-12-31）",
@@ -98,7 +98,7 @@ This is reference material for the learner's current request. Use the supplied e
       },
       "required_unit": {
         "locator": "Consolidated Statements of Operations、Balance Sheets、Shareholders' Equity 与 Cash Flows。",
-        "scope": "核对 AAPL FY2026 收入 478,834、净利润 132,175、股东权益 112,093（上财年 73,733，ROE 142.3%）、回购 86,390、派息 15,721、CapEx 9,041、SBC 13,789 百万美元及期末流通股由 14,773 净减至 14,532 百万股。",
+        "scope": "核对 AAPL FY2026 收入 478,834、净利润 132,175、股东权益 112,093（上财年 73,733，ROE 142.3%）、回购 86,390、派息 15,721、CapEx 9,041、SBC 13,789 M 美元及期末流通股由 14,773 净减至 14,532 M 股。",
         "purpose": "核对大额净回购真正压减股本与 MSFT 回购主要用于对冲 SBC 的差异。"
       },
       "title": "Apple Inc.：FY2026 Form 10-K（截至 2026-09-26）",
@@ -115,7 +115,7 @@ This is reference material for the learner's current request. Use the supplied e
       },
       "required_unit": {
         "locator": "FY2026（截至 2026-06-30）利润表、资产负债表与现金流量表，结合 FY2023 Form 10-K（nb-e07-msft-fy23）核对三年投入资本与 NOPAT 变化。",
-        "scope": "核对 MSFT FY2026 ROE 34.0%、含商誉 ROIC 35.2%、不含商誉 ROIC 53.1%、滞后三年 ROIIC 29.3%、同期三年 ROIIC 20.1% 及 SBC 12,405 与回购 22,271 百万美元。",
+        "scope": "核对 MSFT FY2026 ROE 34.0%、含商誉 ROIC 35.2%、不含商誉 ROIC 53.1%、滞后三年 ROIIC 29.3%、同期三年 ROIIC 20.1% 及 SBC 12,405 与回购 22,271 M 美元。",
         "purpose": "核对低杠杆高 ROIC 扩产型龙头在 AI 重资本周期中的回报演变。"
       },
       "title": "Microsoft Corporation：FY2026 Q4 及全财年业绩公告与 Form 10-K（截至 2026-06-30）",
@@ -132,7 +132,7 @@ This is reference material for the learner's current request. Use the supplied e
       },
       "required_unit": {
         "locator": "FY2025（截至 2025-12-31）三张主表，结合 FY2023 Form 10-K（nb-e07-ko-fy23）与 2026 DEF 14A（nb-e07-ko-def14a）。",
-        "scope": "核对 KO FY2025 ROE 46.0%、含商誉 ROIC 18.5%、不含商誉 ROIC 25.5%、三年 ROIIC 22.1%、CapEx 2,112 与现金分红 8,779 百万美元及 PSU 累计自由现金流指标。",
+        "scope": "核对 KO FY2025 ROE 46.0%、含商誉 ROIC 18.5%、不含商誉 ROIC 25.5%、三年 ROIIC 22.1%、CapEx 2,112 与现金分红 8,779 M 美元及 PSU 累计自由现金流指标。",
         "purpose": "核对高杠杆成熟现金牛的 ROE/ROIC 排名反转与分红型资本配置。"
       },
       "title": "The Coca-Cola Company：FY2025 全年业绩与 Form 10-K（截至 2025-12-31）",
@@ -149,27 +149,25 @@ This is reference material for the learner's current request. Use the supplied e
 ```
 
 ## Supplied entry
-<link rel="stylesheet" href="/notebook/flow-figures.css?v=20261127">
+<link rel="stylesheet" href="/notebook/flow-figures.css?v=20261127b">
 
-翻开 2025 至 2026 财年的 SEC 年报，四家常见蓝筹的账面净资产收益率（ROE）会给出令人困惑的排序：**The Coca-Cola Company**（KO）为 46.0%，高出 **Microsoft**（MSFT）的 34.0% 整整 12 个百分点；**The Home Depot**（HD）冲到 145.5%；盈利厚实的 **McDonald’s**（MCD）算出来却是 −306.5%。同一项指标下，为何卖汽水和建材的账面回报高过云计算巨头，全球餐饮龙头反而出现负值？
+翻开最新 SEC 年报，四家蓝筹的账面 ROE 给出了反直觉排序：**The Coca-Cola Company**（KO）达 46.0%，高出 **Microsoft**（MSFT）34.0% 整整 12 个百分点；**The Home Depot**（HD）冲到 145.5%；盈利稳健的 **McDonald’s**（MCD）反而是负值。卖汽水和建材为什么看起来比云计算更赚钱？
 
-在[《盈利质量与可比口径》](/zh/notebook/earnings-quality-comparability/)核实当期利润之后，判断一家公司能否长期复利，要接着追问三件事：赚来的利润动用了多少自有与借入资本，新投出去的每一美元还能赚回多少回报，以及管理层在再投资、并购、还债、分红与回购之间做的选择最终怎样改写继续持有者的每股结果。这一连串问题，要靠 **ROE**、**ROIC** 与 **ROIIC** 三个彼此分工的回报率指标逐层拆开。
+在[《盈利质量与可比口径》](/zh/notebook/earnings-quality-comparability/)核实当期利润之后，判断一家公司能否长期复利，要接着追问三件事：赚来的利润占用了多少资本，新投出去的每一美元还能赚回多少，以及管理层对自由现金流的分配最终怎样改写每股结果。这些问题，要靠 **ROE**、**ROIC** 与 **ROIIC** 逐层拆开。
 
 ## ROE 与 DuPont 三因子拆解：盈利能力还是财务杠杆 {#nb-e07-roe-dupont}
 
-**净资产收益率**（Return on Equity，简称 ROE）衡量归属于普通股股东的净利润相对于平均股东权益的产出效率。早在 1914 年，任职于 **DuPont** 的财务高管 **Donaldson Brown** 就把回报率分解为盈利厚度、周转效率与资本结构三项乘积，后世称为 **DuPont** 三因子拆解：[^mauboussin-roic]
+**净资产收益率**（Return on Equity，简称 ROE）衡量归属于普通股股东的净利润相对平均股东权益的产出效率。早在 1914 年，**DuPont** 财务高管 **Donaldson Brown** 就把它拆成了盈利厚度、周转效率与财务杠杆三项乘积：[^mauboussin-roic]
 
 \[
 \text{ROE} = \frac{\text{归母净利润}}{\text{平均股东权益}} = \underbrace{\frac{\text{净利润}}{\text{收入}}}_{\text{净利率}} \times \underbrace{\frac{\text{收入}}{\text{平均总资产}}}_{\text{资产周转率}} \times \underbrace{\frac{\text{平均总资产}}{\text{平均股东权益}}}_{\text{权益乘数（杠杆）}}.
 \]
 
-这一等式把“会赚钱”与“敢借钱”切得一清二楚。第一项**净利率**看每卖出 1 美元商品或服务留下多少利润，对应定价权与成本控制；第二项**资产周转率**看每 1 美元总资产一年能撬动多少收入，对应渠道与产能使用效率；第三项**权益乘数**等于总资产除以股东权益，直接刻画财务杠杆——债务占比越高或股东权益越薄，权益乘数越大，把同样的经营利润放大成更高的账面 ROE。
-
-把开头四家公司放进同一套 **DuPont** 拆解，账面 ROE 排名的成因随即显现：
+这一等式把“会赚钱”和“敢借钱”切了开来：**净利率**看每卖出 1 美元留下多少利润，**资产周转率**看每 1 美元总资产一年撬动多少收入，**权益乘数**（总资产 ÷ 股东权益）则直接刻画财务杠杆。负债越多或股东权益越薄，权益乘数越大，同样的经营利润也会被放大成更高的账面 ROE。把开头四家公司放进这套拆解，落差的源头立刻显现：
 
 <figure class="flow-figure e07-dupont" id="nb-e07-dupont-fig">
 <div class="ff-head"><p class="ff-title">DuPont 三因子拆解：四家公司账面 ROE 为何拉出巨大落差</p><span class="ff-sub">净利率 × 资产周转率 × 权益乘数 ＝ ROE · 均据 SEC 最新 Form 10-K 核对</span></div>
-<div class="business-exchange" aria-label="四家上市公司 DuPont 三因子拆解对照：一、Microsoft（MSFT）FY2026：净利率 40.3% 乘以资产周转率 0.48 倍再乘以权益乘数 1.75 倍，得 ROE 34.0%，高利润率驱动、杠杆偏低。二、Coca-Cola（KO）FY2025：净利率 27.3% 乘以资产周转率 0.47 倍再乘以权益乘数 3.60 倍，得 ROE 46.0%，依靠两倍于 MSFT 的财务杠杆反超账面 ROE。三、Home Depot（HD）FY2025：净利率 8.6% 乘以资产周转率 1.64 倍再乘以权益乘数 10.34 倍，得 ROE 145.5%，累计 960 亿美元库存股压薄权益造成杠杆放大。四、McDonald's（MCD）FY2025：净利率 31.9%、资产周转率 0.47 倍，但因累计 793 亿美元库存股令平均股东权益落为 −2,794 百万美元，权益乘数与 ROE 变为负值（−306.5%），指标失去解释力。">
+<div class="business-exchange" aria-label="四家上市公司 DuPont 三因子拆解对照：一、Microsoft（MSFT）FY2026：净利率 40.3% 乘以资产周转率 0.48 倍再乘以权益乘数 1.75 倍，得 ROE 34.0%，高利润率驱动、杠杆偏低。二、Coca-Cola（KO）FY2025：净利率 27.3% 乘以资产周转率 0.47 倍再乘以权益乘数 3.60 倍，得 ROE 46.0%，依靠两倍于 MSFT 的财务杠杆反超账面 ROE。三、Home Depot（HD）FY2025：净利率 8.6% 乘以资产周转率 1.64 倍再乘以权益乘数 10.34 倍，得 ROE 145.5%，累计 960 亿美元库存股压薄权益造成杠杆放大。四、McDonald's（MCD）FY2025：净利率 31.9%、资产周转率 0.47 倍，但因累计 793 亿美元库存股令平均股东权益落为 −2,794 M 美元，权益乘数与 ROE 变为负值（−306.5%），指标失去解释力。">
 <div class="e07-dhead"><span>公司 / 财年</span><span>净利率</span><span></span><span>资产周转率</span><span></span><span>权益乘数（杠杆）</span><span></span><span>账面 ROE</span></div>
 <div class="e07-drows">
 <div class="e07-drow" style="--e07-c:#23695a">
@@ -202,117 +200,192 @@ This is reference material for the learner's current request. Use the supplied e
 </div>
 </div>
 </div>
-<figcaption>各家平均总资产与平均股东权益均取期初与期末均值；KO 归母净利润 13,107 百万美元对应归母平均权益 28,513 百万美元。橙底标出权益乘数偏高或权益为负的情形。</figcaption>
+<figcaption>各家平均总资产与平均股东权益均取期初与期末均值；KO 归母净利润 13,107 M 美元对应归母平均权益 28,513 M 美元。橙底标出权益乘数偏高或权益为负的情形。</figcaption>
 </figure>
 
-先看 MSFT 与 KO。MSFT FY2026 的净利率高达 40.3%，比 KO FY2025 的 27.3% 高出 13 个百分点，两者资产周转率几乎相同（0.48 倍对 0.47 倍）。KO 的账面 ROE 之所以反超 MSFT 12 个百分点，完全因为 KO 的权益乘数达到 3.60 倍——账上背着 454.92 亿美元总债务与 −564.23 亿美元历史回购库存股，把归母股东权益压在 285 亿美元均值；而 MSFT 的权益乘数只有 1.75 倍。[^msft-fy26]<sup>，</sup>[^ko-fy25]
+<span data-text-versions id="nb-e07-text-dupont">顺着图里第三列往右看，账面 ROE 的放大机制就露了底。KO 净利率比 MSFT 低 13 个百分点，账面 ROE 却能反超，靠的是两倍于 MSFT 的财务杠杆；到了 HD、**Apple**（AAPL）乃至 MCD，多年借债回购把库存股滚成数百亿美元负项，股东权益被不断压薄甚至压负，正常利润除以极小分母，就会蹦出破百或失真的账面 ROE<span data-text-detail>（各公司 SEC 年报细项：KO FY2025 背负 454.92 亿美元总债务与 −564.23 亿美元历史库存股，归母平均权益被压在 285 亿美元；HD FY2025 收入 1,646.83 亿、净利润 141.56 亿美元，但 −959.71 亿美元库存股叠加 557.72 亿美元有息债务令平均权益仅余 97.27 亿美元，权益乘数升至 10.34 倍；AAPL FY2026 回购 863.90 亿美元，维持 4.11 倍权益乘数与 142.3% 账面 ROE；MCD FY2025 录得 85.63 亿美元净利润、营业利润率高达 46.1%，但 −793.16 亿美元库存股叠加 399.73 亿美元长期债务令股东权益落为负值［2024 年末 −37.97 亿、2025 年末 −17.91 亿美元］，分母为负使 ROE 失去经济意义）</span>。[^msft-fy26]<sup>，</sup>[^ko-fy25]<sup>，</sup>[^hd-fy25]<sup>，</sup>[^aapl-fy26]<sup>，</sup>[^mcd-fy25]<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>
 
-再往右推到极端，就会撞上 ROE 的结构性陷阱。HD 2025 财年营业收入 1,646.83 亿美元、净利润 141.56 亿美元，净利率只有 8.6%，属于典型的薄利高周转零售（资产周转率 1.64 倍）。但由于历史累计回购形成 **−959.71 亿美元**库存股，再叠加 **557.72 亿美元**有息债务，HD 的平均股东权益被压薄到只有 97.27 亿美元，权益乘数升至 **10.34 倍**，把 8.6% 的零售净利率放大成 **145.5%** 的账面 ROE。[^hd-fy25] 同样地，**Apple**（AAPL）在 2026 财年继续支出 863.90 亿美元回购股票，令权益乘数维持在 4.11 倍、账面 ROE 达到 142.3%。[^aapl-fy26] 到了 MCD 2025 财年，累计 **−793.16 亿美元**库存股叠加 399.73 亿美元长期债务，直接把股东权益压成负值（2024 年末 −37.97 亿美元，2025 年末 −17.91 亿美元）；此时公司明明赚了 85.63 亿美元净利润、营业利润率高达 46.1%，算出来的 ROE 却成了毫无经济意义的负数。[^mcd-fy25]
-
-因此，ROE 有清晰的**适用边界**。对于银行、保险等金融企业，吸收存款、发行保单与同业负债本身就是经营原料，利息收支就是主营收入和成本，同时股东权益受到巴塞尔协议等监管资本充足率的硬约束；正如 **Michael J. Mauboussin** 所言，ROE 之于金融企业，相当于 ROIC 之于实体企业。[^mauboussin-roic] 在非金融领域，ROE 适合检验低杠杆、无巨额回购扭曲的公司给股东留下的账面回报；一旦遇到跨公司比较不同负债率的企业，或者面对常年举债回购压薄净资产的成熟蓝筹，单看 ROE 就会把财务杠杆错当成护城河。
+因此，ROE 有清晰的适用范围。对银行与保险而言，存款和保单本身就是经营原料，股东权益又受监管资本充足率硬约束——正如 **Michael J. Mauboussin** 所言，ROE 之于金融业相当于 ROIC 之于实体企业。[^mauboussin-roic] 放到非金融公司，ROE 适合检验低杠杆企业；一旦遇上高负债或大额回购的蓝筹，单看它就会把杠杆错当护城河。
 
 ## ROIC：剥离财务杠杆后的生意底色 {#nb-e07-roic}
 
-要跨公司比较非金融企业的生意质地，必须把资本结构的影响从分子和分母同时剥离，算出**投入资本回报率**（Return on Invested Capital，简称 ROIC）。按照 **Michael J. Mauboussin** 与 **McKinsey** 估值框架的标准定义：[^mauboussin-roic]<sup>，</sup>[^mckinsey-roic]
+跨公司比较非金融企业的生意质地，要把资本结构的影响从分子和分母同时剥离，算出**投入资本回报率**（Return on Invested Capital，简称 ROIC）。按 **Michael J. Mauboussin** 与 **McKinsey** 的标准口径：[^mauboussin-roic]<sup>，</sup>[^mckinsey-roic]
 
 \[
 \text{ROIC} = \frac{\text{NOPAT}}{\text{平均投入资本}}, \qquad \text{NOPAT} = \text{EBIT} \times (1 - \text{有效税率}).
 \]
 
-分子 **NOPAT**（税后净营业利润）从息税前营业利润（EBIT）出发，扣除按有效税率计算的经营所得税，不计债务利息支出，也不计闲置现金的利息收入——无论一家公司全靠股东出资还是借了一半债券，只要主营业务一样，NOPAT 就完全相同。
+<span data-text-versions id="nb-e07-text-ic">分子 **NOPAT**（税后净营业利润）只算主营息税前利润扣掉经营税，不管债息也不管闲置现金的理财利息；分母**投入资本**（Invested Capital）只算真正投入经营的资金，可以从经营资产侧或债务加权益的融资侧交叉算得，两头在复式记账下完全等价，且都要把超出日常运营所需的**超额现金**扣掉<span data-text-detail>（经营侧 ＝ 净营运资本 ＋ 固定资产净值 ＋ 商誉及收购无形资产 ＋ 其他经营资产；融资侧 ＝ 全部有息债务 ＋ 含少数股东权益的总权益 − 超额现金及有价证券。一般而言，成熟公司日常运转仅需约占年收入 2% 的经营现金，账上多出的现金与短期理财不参与生产销售，理应从投入资本中扣除，否则会拉低现金充沛公司的表面 ROIC）</span>。[^mauboussin-roic]<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>
 
-分母**投入资本**（Invested Capital）衡量支撑这笔 NOPAT 真正占用了多少经营资金。借着资产负债表的复式记账恒等式，可以从左右两侧得出等价结果：**经营侧**（钱花在哪）等于净营运资本加上固定资产净值、商誉及收购无形资产和其他经营资产；**融资侧**（钱从哪来）等于全部有息债务加上股东权益（含少数股东权益），再减去超出经营所需的**超额现金及有价证券**。一般而言，成熟公司日常运转仅需约占年收入 2% 的经营现金，账上多出来的巨额现金和短期理财并不参与生产销售，理应从投入资本中扣除，否则现金充沛的公司会被拉低表面 ROIC。[^mauboussin-roic]
-
-去掉超额现金之后，ROIC 暴露出与 ROE 截然不同的性质：**股票回购本身不改变 ROIC**。如果公司花账上的超额现金回购股票，融资侧的股东权益减少，超额现金也等额减少，投入资本纹丝不动；如果公司借新债去回购股票，有息债务增加的每一美元正好抵消股东权益减少的每一美元，分子 NOPAT 又不受利息费用影响，ROIC 照样不变。那些靠借债回购把 ROE 推上 100% 的资本结构操作，放到 ROIC 下就会直接失去放大效果。
-
-拆解分母时，还要再切一刀——区分**含商誉 ROIC** 与 **不含商誉 ROIC**。[^mckinsey-roic] **商誉**是过去溢价并购留下的买价差额：把商誉留在分母里算**含商誉 ROIC**，用来给管理层历年的并购和资本配置算总账，防止公司花高价买来一堆业务后把商誉剔除、假装回报率很高；把商誉从分母中扣掉算**不含商誉 ROIC**，则用来检验原厂内生业务——比如新开一家门店、新建一条产线或扩建云机房——本身的真实资本效率。把前面四家公司放进同一套 ROIC 标尺，排序立即反转：
+扣掉超额现金后，ROIC 显现出一条与 ROE 截然不同的性质：**股票回购本身不改变 ROIC**。花超额现金回购，融资侧股东权益与超额现金等额减少，投入资本不动；举债回购，新增债务正好补上减少的权益，分子 NOPAT 又不受债息影响，ROIC 照样纹丝不动。靠借债回购把 ROE 推上 100% 的招数，放到这里立刻失去放大效果。
 
 <figure class="flow-figure e07-roic-bridge" id="nb-e07-roic-fig">
-<div class="ff-head"><p class="ff-title">投入资本双侧核算与 ROE → ROIC 真实落差对照</p><span class="ff-sub">统一融资侧口径：总债务 ＋ 总权益 − 超额现金（超出收入 2% 部分）· 均取期初期末均值</span></div>
-<div class="business-exchange" aria-label="投入资本双侧等价框架与四家公司 ROE 对比 ROIC：上方说明经营侧（净营运资本加固定资产净值加商誉及无形资产）与融资侧（总债务加总权益减超额现金）等价得到投入资本，再以 NOPAT 除以平均投入资本得 ROIC，并区分含商誉与不含商誉两套口径。下方四家公司实证：Microsoft（MSFT）FY2026 账面 ROE 34.0%，含商誉 ROIC 35.2%，不含商誉 ROIC 53.1%；Coca-Cola（KO）FY2025 账面 ROE 46.0%，剥离杠杆后含商誉 ROIC 降至 18.5%，不含商誉 25.5%，落后于 MSFT；Home Depot（HD）FY2025 账面 ROE 145.5%，含商誉 ROIC 回归 24.7%（公司 10-K 口径 25.7%），不含商誉 36.6%；McDonald's（MCD）FY2025 因负权益致 ROE 失真，而含商誉 ROIC 还原为 27.1%，不含商誉 29.7%。">
-<div class="e07-ic-top">
-<div class="e07-ic-box"><span class="e07-ic-tag">经营侧 · 钱花在哪</span><strong>经营净资产口径</strong><p>净营运资本（应收＋存货−无息经营负债）＋ 固定资产净值 ＋ 商誉与收购无形资产 ＋ 其他经营资产</p></div>
-<div class="e07-ic-box"><span class="e07-ic-tag e07-tag-cash">融资侧 · 钱从哪来</span><strong>有息资本口径</strong><p>短期及长期有息债务 ＋ 全部股东权益 − 超额现金及有价证券（保留约 2% 收入作经营现金）</p></div>
-<div class="e07-ic-box e07-ic-out"><span class="e07-ic-tag">双口径对照</span><strong>含商誉 vs 不含商誉</strong><p>含商誉看并购总账；扣商誉看原厂内生效率。</p><div class="e07-ic-eq">ROIC ＝ NOPAT ÷ 平均投入资本</div></div>
+<div class="ff-head"><p class="ff-title">跨表勾稽图：从投入资本与 NOPAT 算到 ROIC，再到账面 ROE</p><span class="ff-sub">左：利润表分子与资产负债表双侧等价分母 · 中：剥离资本结构的 ROIC · 右：叠加杠杆与回购后的账面 ROE</span></div>
+<div class="rel-svg-wrap business-exchange" aria-label="投入资本双侧勾稽与 ROIC 到 ROE 路径图：左侧上方为利润表分子税后营业利润 NOPAT（等于 EBIT 乘以 1 减有效税率，归属债权人与股东共同的税后主业盈利），左侧下方为资产负债表分母投入资本（经营侧为净营运资本加固定资产加商誉无形，与融资侧总债务加总权益减超额现金在复式记账下等价）。两条绿色曲线箭头相除汇聚至中间 ROIC（NOPAT 除以平均投入资本，剥离借债与回购影响，还原真实生意回报，ROIC 高于 WACC 才创造价值，且可区分含商誉与不含商誉两种口径）。中间再经琥珀色箭头叠加财务杠杆与回购压薄权益效应，指向右侧账面 ROE（归母净利润除以平均权益，高杠杆或负权益下易失真，更适用于银行与保险业）。">
+<svg viewBox="0 0 860 280" role="img" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <marker id="e07-arr-sage" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse">
+      <path d="M1,1.5 L9,5 L1,8.5 Z" fill="#23695a"/>
+    </marker>
+    <marker id="e07-arr-amber" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse">
+      <path d="M1,1.5 L9,5 L1,8.5 Z" fill="#a8743f"/>
+    </marker>
+  </defs>
+  <rect x="0" y="0" width="860" height="280" rx="8" fill="#fafaf6"/>
+  <rect x="18" y="16" width="268" height="92" rx="10" fill="#ffffff" stroke="#cfd3c9" stroke-width="1.2"/>
+  <text x="152" y="39" text-anchor="middle" font-size="13" font-weight="700" fill="#1d2a25">利润表分子：税后营业利润</text>
+  <line x1="32" y1="48" x2="272" y2="48" stroke="#eaede5"/>
+  <rect x="32" y="56" width="240" height="26" rx="5" fill="#e2ede7"/>
+  <text x="152" y="73.5" text-anchor="middle" font-size="12" font-weight="700" fill="#1f5c4e">NOPAT ＝ EBIT × (1 − 有效税率)</text>
+  <text x="152" y="99" text-anchor="middle" font-size="10.5" fill="#66736c">归属债权人与股东的税后主业盈利</text>
+  <rect x="18" y="122" width="268" height="142" rx="10" fill="#ffffff" stroke="#cfd3c9" stroke-width="1.2"/>
+  <text x="152" y="144" text-anchor="middle" font-size="12.5" font-weight="700" fill="#1d2a25">资产负债表分母：投入资本（双侧等价）</text>
+  <line x1="32" y1="153" x2="272" y2="153" stroke="#eaede5"/>
+  <rect x="32" y="161" width="240" height="40" rx="6" fill="#f5f7f3" stroke="#d9dfd4"/>
+  <text x="42" y="177" font-size="11" font-weight="700" fill="#1f5c4e">经营侧（钱投向哪些经营资产）</text>
+  <text x="42" y="193" font-size="10.5" fill="#4b5952">净营运资本 ＋ 固定资产 ＋ 商誉无形</text>
+  <rect x="32" y="209" width="240" height="40" rx="6" fill="#f5f7f3" stroke="#d9dfd4"/>
+  <text x="42" y="225" font-size="11" font-weight="700" fill="#2c4459">融资侧（长期资本来源）</text>
+  <text x="42" y="241" font-size="10.5" fill="#4b5952">有息债务 ＋ 总权益 − 超额现金</text>
+  <rect x="348" y="42" width="202" height="196" rx="10" fill="#ffffff" stroke="#23695a" stroke-width="1.5"/>
+  <rect x="366" y="58" width="166" height="30" rx="6" fill="#e2ede7"/>
+  <text x="449" y="78" text-anchor="middle" font-size="15" font-weight="700" fill="#1f5c4e">ROIC</text>
+  <text x="449" y="111" text-anchor="middle" font-size="12.5" font-weight="700" fill="#1d2a25">NOPAT ÷ 平均投入资本</text>
+  <line x1="366" y1="124" x2="532" y2="124" stroke="#eaede5"/>
+  <text x="449" y="148" text-anchor="middle" font-size="11.5" fill="#2e3c36">剥离借债与回购影响</text>
+  <text x="449" y="167" text-anchor="middle" font-size="11.5" fill="#2e3c36">还原真实生意回报</text>
+  <rect x="366" y="184" width="166" height="38" rx="6" fill="#eef6f2"/>
+  <text x="449" y="200" text-anchor="middle" font-size="11" font-weight="700" fill="#1f5c4e">ROIC ＞ WACC 创造价值</text>
+  <text x="449" y="215" text-anchor="middle" font-size="10" fill="#5d6b64">可分含商誉 / 不含商誉</text>
+  <rect x="640" y="42" width="202" height="196" rx="10" fill="#ffffff" stroke="#dfb98d" stroke-width="1.5"/>
+  <rect x="658" y="58" width="166" height="30" rx="6" fill="#f4e5d2"/>
+  <text x="741" y="78" text-anchor="middle" font-size="15" font-weight="700" fill="#8d5520">ROE</text>
+  <text x="741" y="111" text-anchor="middle" font-size="12.5" font-weight="700" fill="#1d2a25">归母净利润 ÷ 平均权益</text>
+  <line x1="658" y1="124" x2="824" y2="124" stroke="#eaede5"/>
+  <text x="741" y="148" text-anchor="middle" font-size="11.5" fill="#2e3c36">叠加借债与回购效应</text>
+  <text x="741" y="167" text-anchor="middle" font-size="11.5" fill="#2e3c36">易放大或压负分母</text>
+  <rect x="658" y="184" width="166" height="38" rx="6" fill="#fdf6ec"/>
+  <text x="741" y="200" text-anchor="middle" font-size="11" font-weight="700" fill="#8d5520">高杠杆／负权益下失真</text>
+  <text x="741" y="215" text-anchor="middle" font-size="10" fill="#5d6b64">更适用于银行与保险业</text>
+  <path d="M286,62 C318,62 316,114 344,114" fill="none" stroke="#23695a" stroke-width="2" marker-end="url(#e07-arr-sage)"/>
+  <path d="M286,193 C318,193 316,166 344,166" fill="none" stroke="#23695a" stroke-width="2" marker-end="url(#e07-arr-sage)"/>
+  <rect x="295" y="129" width="44" height="22" rx="4" fill="#fafaf6"/>
+  <text x="317" y="144" text-anchor="middle" font-size="11" font-weight="700" fill="#23695a">相除</text>
+  <path d="M550,146 L636,146" fill="none" stroke="#a8743f" stroke-width="2.1" marker-end="url(#e07-arr-amber)"/>
+  <text x="595" y="118" text-anchor="middle" font-size="11" font-weight="700" fill="#8d5520">＋ 财务杠杆</text>
+  <text x="595" y="135" text-anchor="middle" font-size="10.5" fill="#8d5520">与回购压薄权益</text>
+</svg>
 </div>
-<div class="e07-cmp-head"><strong>四家公司实证：剥离杠杆后的真实排名</strong><div class="e07-cmp-keys"><span class="e07-kdot e07-k-roe">账面 ROE</span><span class="e07-kdot e07-k-roic">含商誉 ROIC</span><span class="e07-kdot e07-k-exgw">不含商誉 ROIC</span></div></div>
-<div class="e07-cmp-rows">
-<div class="e07-cmp-row">
-<div class="e07-cname"><strong>MSFT · FY26</strong><small>NOPAT 1,251 亿</small></div>
-<div class="e07-cbars">
-<div class="e07-cbar-line"><span>ROE</span><div class="e07-ctrack"><div class="e07-cfill e07-cfill-roe" style="--w:56.7%"></div></div><b>34.0%</b></div>
-<div class="e07-cbar-line"><span>含商誉</span><div class="e07-ctrack"><div class="e07-cfill e07-cfill-roic" style="--w:58.7%"></div></div><b class="e07-bpos">35.2%</b></div>
-<div class="e07-cbar-line"><span>不含商誉</span><div class="e07-ctrack"><div class="e07-cfill e07-cfill-exgw" style="--w:88.5%"></div></div><b class="e07-bpos">53.1%</b></div>
-</div>
-<div class="e07-ctake">低杠杆下 ROE 与 ROIC 接近，扣 1,196 亿商誉后原厂回报 53.1%。</div>
-</div>
-<div class="e07-cmp-row">
-<div class="e07-cname"><strong>KO · FY25</strong><small>NOPAT 113 亿</small></div>
-<div class="e07-cbars">
-<div class="e07-cbar-line"><span>ROE</span><div class="e07-ctrack"><div class="e07-cfill e07-cfill-roe" style="--w:76.7%"></div></div><b class="e07-bwarn">46.0%</b></div>
-<div class="e07-cbar-line"><span>含商誉</span><div class="e07-ctrack"><div class="e07-cfill e07-cfill-roic" style="--w:30.8%"></div></div><b>18.5%</b></div>
-<div class="e07-cbar-line"><span>不含商誉</span><div class="e07-ctrack"><div class="e07-cfill e07-cfill-exgw" style="--w:42.5%"></div></div><b>25.5%</b></div>
-</div>
-<div class="e07-ctake">ROE 高于 MSFT，剥离杠杆后含商誉 ROIC 反低近一半。</div>
-</div>
-<div class="e07-cmp-row">
-<div class="e07-cname"><strong>HD · FY25</strong><small>NOPAT 159 亿</small></div>
-<div class="e07-cbars">
-<div class="e07-cbar-line"><span>ROE</span><div class="e07-ctrack"><div class="e07-cfill e07-cfill-roe" style="--w:100%"></div></div><b class="e07-bwarn">145.5%</b></div>
-<div class="e07-cbar-line"><span>含商誉</span><div class="e07-ctrack"><div class="e07-cfill e07-cfill-roic" style="--w:41.2%"></div></div><b>24.7%</b></div>
-<div class="e07-cbar-line"><span>不含商誉</span><div class="e07-ctrack"><div class="e07-cfill e07-cfill-exgw" style="--w:61.0%"></div></div><b class="e07-bpos">36.6%</b></div>
-</div>
-<div class="e07-ctake">10.3× 杠杆推高 ROE；收购 SRS 与 GMS 后含商誉 ROIC 回落至 ~25%。</div>
-</div>
-<div class="e07-cmp-row">
-<div class="e07-cname"><strong>MCD · FY25</strong><small>NOPAT 97 亿</small></div>
-<div class="e07-cbars">
-<div class="e07-cbar-line"><span>ROE</span><div class="e07-ctrack"><div class="e07-cfill e07-cfill-roe" style="--w:100%"></div></div><b class="e07-bwarn">负值失真</b></div>
-<div class="e07-cbar-line"><span>含商誉</span><div class="e07-ctrack"><div class="e07-cfill e07-cfill-roic" style="--w:45.2%"></div></div><b class="e07-bpos">27.1%</b></div>
-<div class="e07-cbar-line"><span>不含商誉</span><div class="e07-ctrack"><div class="e07-cfill e07-cfill-exgw" style="--w:49.5%"></div></div><b class="e07-bpos">29.7%</b></div>
-</div>
-<div class="e07-ctake">ROE 因负权益完全失效，ROIC 准确还原加盟商业模式约 27% 回报。</div>
-</div>
-</div>
-</div>
-<figcaption>横条满宽对应 60%（超过 60% 按满宽截断并保留准确数值）。含商誉 ROIC 与不含商誉 ROIC 均按各自 SEC 10-K 原始科目计算。</figcaption>
+<figcaption>融资侧扣除超额现金后，回购与举债置换只改变右侧 ROE 的权益分母，不改变中间 ROIC。</figcaption>
 </figure>
 
-<span data-text-versions id="nb-e07-text-roic">对比图里的数字落差，正好把 ROIC 的判别力讲透。MSFT 与 KO 的强弱排名直接反转：MSFT 账面 ROE 虽低于 KO，但剥离杠杆后含商誉 ROIC 达到 **35.2%**（扣除 1,196 亿美元商誉后达 **53.1%**），接近 KO 含商誉 ROIC（**18.5%**，不含商誉 **25.5%**）的两倍。HD 的 145.5% 账面 ROE 剥掉 10.34 倍杠杆后回到 **24.7%**（公司在 10-K 中按长期债务加权益口径披露为 **25.7%**，较 FY2023 的 36.7% 明显下降），原因正是 FY2024—FY2025 接连收购 SRS Distribution 与 GMS 推高了商誉与负债，但扣除 209 亿美元平均商誉后，原厂零售与分销 ROIC 仍有 **36.6%**。到了 MCD，负股东权益让 ROE 失去意义，ROIC 却稳稳给出 **27.1%**，还原了特许加盟体系的真实赚钱效率<span data-text-detail>（统一融资侧明细，单位百万美元：MSFT FY26 有效税率 19.40%、NOPAT 125,127，期初期末有息债务 43,151→40,294、权益 343,479→442,387、现金及短期投资 94,565→76,843，扣除收入 2% 后平均投入资本 355,087，平均商誉 119,580；KO FY25 有效税率 17.88%、NOPAT 11,301，总债务 44,522→45,492、总权益 26,372→34,275、现金及有价证券 14,571→15,806，平均投入资本 61,092，平均商誉 16,815，若再扣除 129 亿美元无期限商标则达 36.0%；HD FY25 有效税率 23.90%、NOPAT 15,897，总债务含短期商业票据 53,383→55,772、权益 6,640→12,813、期末现金 1,389 低于收入 2% 故超额现金为 0，平均投入资本 64,304；MCD FY25 有效税率 21.42%、NOPAT 9,739，不含经营租赁负债口径下平均投入资本 36,003，若将 142 亿美元经营租赁负债并入投入资本则 ROIC 约 19%–20%。另需注意两点口径边界：一、研发与品牌费用按会计准则当期费用化而非资本化，Michael J. Mauboussin 2022 年报告指出若把部分内部研发与营销视作无形资本化，高研发科技公司的表观 ROIC 会下移；二、若企业存在巨额负营运资本，如 AAPL FY26 应付账款与其他流动负债高达 1,484 亿美元、现金及有价证券 1,369 亿美元高于总债务 801 亿美元，投入资本会被压至 566 亿美元，表观 ROIC 飙升至 230% 以上，此时更宜结合自由现金流与资本开支强度综合研判）</span>。[^hd-fy25]<sup>，</sup>[^mcd-fy25]<sup>，</sup>[^mauboussin-roic]<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>
+拆解分母时还要再切一刀，区分**含商誉**与**不含商誉**两种口径。[^mckinsey-roic] **商誉**是历次溢价并购留下的买价差额：把商誉留在分母里，用来给管理层历年的并购算总账；把商誉扣掉，则用来检验新开门店、新建产线或扩建机房这类原厂内生业务的资本效率。把开头四家公司放进这套标尺，此前被杠杆与回购颠倒的排序立刻反转：
 
-算清 ROIC 之后，还要拿它和企业的**加权平均资本成本**（WACC，即债权人与股东要求的机会成本加权均值）做减法，得到**经济利润**（Economic Profit）：
+<figure class="flow-figure e07-reversal" id="nb-e07-reversal-fig">
+<div class="ff-head"><p class="ff-title">含商誉 ROIC → 账面 ROE 排名反转：四家公司 10-K 实证</p><span class="ff-sub">统一融资侧口径 · 绿条与琥珀条共享 0%–50% 刻度（HD 145.5% 以断轴标示，MCD 因负权益失效）</span></div>
+<div class="rel-svg-wrap business-exchange" aria-label="四家上市公司含商誉 ROIC 到账面 ROE 的横向排名反转对照（统一融资侧口径）：一、Microsoft（MSFT）FY2026：含商誉 ROIC 35.2%（不含商誉 53.1%），账面 ROE 34.0%，净现金低杠杆令 ROIC 居首且高于 ROE。二、Coca-Cola（KO）FY2025：含商誉 ROIC 18.5%（不含商誉 25.5%），经 3.60 倍权益乘数放大至账面 ROE 46.0%，借杠杆反超 MSFT。三、Home Depot（HD）FY2025：含商誉 ROIC 24.7%（不含商誉 36.6%），受大额历史回购压薄股东权益影响，账面 ROE 飙升至 145.5%，放大近 6 倍。四、McDonald's（MCD）FY2025：含商誉 ROIC 27.1%（不含商誉 29.7%），因累计回购压负股东权益，账面 ROE 数学失效。">
+<svg viewBox="0 0 860 270" role="img" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <marker id="e07-rev-sage" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse">
+      <path d="M1,1.5 L9,5 L1,8.5 Z" fill="#23695a"/>
+    </marker>
+    <marker id="e07-rev-amber" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse">
+      <path d="M1,1.5 L9,5 L1,8.5 Z" fill="#a8743f"/>
+    </marker>
+  </defs>
+  <rect x="0" y="0" width="860" height="270" rx="8" fill="#fafaf6"/>
+  <text x="30" y="29" font-size="11" font-weight="700" fill="#5d6b64">公司 / 财年</text>
+  <text x="214" y="29" font-size="11" font-weight="700" fill="#1f5c4e">含商誉 ROIC（剥离杠杆）</text>
+  <text x="454" y="29" font-size="11" font-weight="700" fill="#8d5520">账面 ROE（含杠杆与回购）</text>
+  <text x="752" y="29" text-anchor="middle" font-size="11" font-weight="700" fill="#5d6b64">排序反转成因</text>
+  <line x1="18" y1="39" x2="842" y2="39" stroke="#e2e5dc" stroke-width="1"/>
+  <rect x="18" y="48" width="824" height="46" rx="8" fill="#ffffff" stroke="#b3d3c4" stroke-width="1.2"/>
+  <text x="30" y="68" font-size="13" font-weight="700" fill="#1d2a25">MSFT · FY26</text>
+  <text x="30" y="85" font-size="10.5" fill="#66736c">不含商誉 53.1%</text>
+  <rect x="214" y="63" width="136" height="16" rx="8" fill="#eef2ec"/>
+  <rect x="214" y="63" width="96" height="16" rx="8" fill="#23695a"/>
+  <text x="358" y="75.5" font-size="13" font-weight="700" fill="#1f5c4e">35.2%</text>
+  <path d="M412,71 L440,71" fill="none" stroke="#23695a" stroke-width="2" marker-end="url(#e07-rev-sage)"/>
+  <rect x="454" y="63" width="136" height="16" rx="8" fill="#f5f2eb"/>
+  <rect x="454" y="63" width="92" height="16" rx="8" fill="#5a8c7e"/>
+  <text x="598" y="75.5" font-size="13" font-weight="700" fill="#2e3c36">34.0%</text>
+  <rect x="674" y="59" width="156" height="24" rx="12" fill="#e7f1ec"/>
+  <text x="752" y="75" text-anchor="middle" font-size="11" font-weight="600" fill="#1f5c4e">净现金低杠杆 · ROIC 居首</text>
+  <rect x="18" y="102" width="824" height="46" rx="8" fill="#ffffff" stroke="#d9dfd4" stroke-width="1.2"/>
+  <text x="30" y="122" font-size="13" font-weight="700" fill="#1d2a25">KO · FY25</text>
+  <text x="30" y="139" font-size="10.5" fill="#66736c">不含商誉 25.5%</text>
+  <rect x="214" y="117" width="136" height="16" rx="8" fill="#eef2ec"/>
+  <rect x="214" y="117" width="50" height="16" rx="8" fill="#23695a"/>
+  <text x="358" y="129.5" font-size="13" font-weight="700" fill="#1f5c4e">18.5%</text>
+  <path d="M412,125 L440,125" fill="none" stroke="#a8743f" stroke-width="2" marker-end="url(#e07-rev-amber)"/>
+  <rect x="454" y="117" width="136" height="16" rx="8" fill="#f5f2eb"/>
+  <rect x="454" y="117" width="125" height="16" rx="8" fill="#c48341"/>
+  <text x="598" y="129.5" font-size="13" font-weight="700" fill="#8d5520">46.0%</text>
+  <rect x="674" y="113" width="156" height="24" rx="12" fill="#f7eadb"/>
+  <text x="752" y="129" text-anchor="middle" font-size="11" font-weight="600" fill="#8d5520">3.60× 杠杆反超 MSFT</text>
+  <rect x="18" y="156" width="824" height="46" rx="8" fill="#ffffff" stroke="#e4c59e" stroke-width="1.2"/>
+  <text x="30" y="176" font-size="13" font-weight="700" fill="#1d2a25">HD · FY25</text>
+  <text x="30" y="193" font-size="10.5" fill="#66736c">不含商誉 36.6%</text>
+  <rect x="214" y="171" width="136" height="16" rx="8" fill="#eef2ec"/>
+  <rect x="214" y="171" width="67" height="16" rx="8" fill="#23695a"/>
+  <text x="358" y="183.5" font-size="13" font-weight="700" fill="#1f5c4e">24.7%</text>
+  <path d="M412,179 L440,179" fill="none" stroke="#a8743f" stroke-width="2" marker-end="url(#e07-rev-amber)"/>
+  <rect x="454" y="171" width="136" height="16" rx="8" fill="#b86b35"/>
+  <path d="M564,169 L570,189 M571,169 L577,189" fill="none" stroke="#ffffff" stroke-width="2.2"/>
+  <text x="598" y="183.5" font-size="13" font-weight="700" fill="#8d5520">145.5%</text>
+  <rect x="674" y="167" width="156" height="24" rx="12" fill="#f7eadb"/>
+  <text x="752" y="183" text-anchor="middle" font-size="11" font-weight="600" fill="#8d5520">回购压薄权益 · 放大 6×</text>
+  <rect x="18" y="210" width="824" height="46" rx="8" fill="#ffffff" stroke="#e4c59e" stroke-width="1.2"/>
+  <text x="30" y="230" font-size="13" font-weight="700" fill="#1d2a25">MCD · FY25</text>
+  <text x="30" y="247" font-size="10.5" fill="#66736c">不含商誉 29.7%</text>
+  <rect x="214" y="225" width="136" height="16" rx="8" fill="#eef2ec"/>
+  <rect x="214" y="225" width="74" height="16" rx="8" fill="#23695a"/>
+  <text x="358" y="237.5" font-size="13" font-weight="700" fill="#1f5c4e">27.1%</text>
+  <path d="M412,233 L440,233" fill="none" stroke="#a8743f" stroke-width="2" marker-end="url(#e07-rev-amber)"/>
+  <rect x="454" y="221" width="188" height="24" rx="6" fill="#fdf4f1" stroke="#c97a63" stroke-width="1.2" stroke-dasharray="4,3"/>
+  <text x="548" y="237" text-anchor="middle" font-size="11.5" font-weight="700" fill="#a1432c">负权益失效</text>
+  <rect x="674" y="221" width="156" height="24" rx="12" fill="#f9e3dc"/>
+  <text x="752" y="237" text-anchor="middle" font-size="11" font-weight="600" fill="#a1432c">回购压负权益 · ROE 失效</text>
+</svg>
+</div>
+<figcaption>跨公司比较实体企业质地时，先把资本结构剥离掉看含商誉／不含商誉 ROIC，再看杠杆与回购如何改写 ROE 排序。</figcaption>
+</figure>
+
+<span data-text-versions id="nb-e07-text-roic">图里的反转拆出两层意思：剥掉杠杆后，MSFT 的 ROIC 接近 KO 两倍，MCD 也摆脱负权益干扰、还原出特许加盟底色；HD 披露的 ROIC 从 FY2023 的 36.7% 降至 FY2025 的 **25.7%**，正因连续收购 SRS Distribution 与 GMS 垫高商誉，可扣掉商誉后原厂仍有 **36.6%**——双口径把并购账和原厂账切得清清楚楚<span data-text-detail>（统一融资侧明细，单位 M 美元：MSFT FY26 含商誉 ROIC 35.2%、不含商誉 53.1%，有效税率 19.40%、NOPAT 125,127，期初期末有息债务 43,151→40,294、权益 343,479→442,387、现金及短期投资 94,565→76,843，扣除收入 2% 后平均投入资本 355,087，平均商誉 119,580；KO FY25 含商誉 ROIC 18.5%、不含商誉 25.5%，有效税率 17.88%、NOPAT 11,301，总债务 44,522→45,492、总权益 26,372→34,275、现金及有价证券 14,571→15,806，平均投入资本 61,092，平均商誉 16,815，若再扣除 129 亿美元无期限商标则达 36.0%；HD FY25 统一口径含商誉 ROIC 24.7%、不含商誉 36.6%，有效税率 23.90%、NOPAT 15,897，总债务含短期商业票据 53,383→55,772、权益 6,640→12,813、期末现金 1,389 低于收入 2% 故超额现金为 0，平均投入资本 64,304、平均商誉约 209 亿美元；MCD FY25 含商誉 ROIC 27.1%、不含商誉 29.7%，有效税率 21.42%、NOPAT 9,739，不含经营租赁负债口径下平均投入资本 36,003，若将 142 亿美元经营租赁负债并入投入资本则 ROIC 约 19%–20%。另需注意两点口径边界：一、研发与品牌费用按会计准则当期费用化而非资本化，Michael J. Mauboussin 2022 年报告指出若把部分内部研发与营销视作无形资本化，高研发科技公司的表观 ROIC 会下移；二、若企业存在巨额负营运资本，如 AAPL FY26 应付账款与其他流动负债高达 1,484 亿美元、现金及有价证券 1,369 亿美元高于总债务 801 亿美元，投入资本会被压至 566 亿美元，表观 ROIC 飙升至 230% 以上，此时宜结合自由现金流与资本开支强度综合研判）</span>。[^hd-fy25]<sup>，</sup>[^mcd-fy25]<sup>，</sup>[^mauboussin-roic]<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>
+
+算清 ROIC 之后，还要减去企业的**加权平均资本成本**（WACC，即债权人与股东要求的机会成本加权均值），得到**经济利润**（Economic Profit）：
 
 \[
 \text{经济利润} = (\text{ROIC} - \text{WACC}) \times \text{投入资本}.
 \]
 
-**Michael J. Mauboussin** 用“一美元测试”来概括这条分界线：假设资本成本是 8%，投入 10,000 美元如果每年只能赚回 500 美元（ROIC 5% < 8%），永续折现只值 6,250 美元，增长越快毁灭的价值越多；若刚好赚回 800 美元（ROIC 8% ＝ WACC），折现刚好值 10,000 美元，扩大规模只是原地踏步；唯有赚回 1,100 美元（ROIC 11% > 8%），1 美元投入在市场上才能变成超过 1 美元的价值。[^mauboussin-roic] 由此可见，**增长本身并不自动创造价值，唯有高于资本成本的增长才创造价值**。
+**Michael J. Mauboussin** 用“一美元测试”划出红线：若资本成本 8%，投入 10,000 美元每年只赚 500 美元（ROIC 5%），折现仅值 6,250 美元，越扩张越毁灭价值；赚 800 美元只是原地踏步；唯有赚 1,100 美元（ROIC 11%），1 美元才值回超 1 美元。[^mauboussin-roic] **增长本身不创造价值，唯有回报高于资本成本的增长才创造价值**。
 
 ## ROIIC：存量护城河与未来复利跑道 {#nb-e07-roiic}
 
-ROIC 衡量的是公司历史上累计投入的全部存量资本的平均回报，而股价反映的是未来的增量现金流。一家老牌龙头过去建成的品牌或软件生态可能拥有极高的存量 ROIC，但未来新赚回来的利润投出去还能不能保持同样高的回报，需要看**增量投入资本回报率**（Return on Incremental Invested Capital，简称 ROIIC）：[^mauboussin-roic]
+ROIC 衡量的是历史存量资本的平均回报，股价定价的却是未来增量现金流。一家老牌龙头过去建成的品牌或软件生态可能回报极高，但新赚回来的利润投出去还能不能保持同样效率，要看**增量投入资本回报率**（Return on Incremental Invested Capital，简称 ROIIC）：[^mauboussin-roic]
 
 \[
 \text{ROIIC} = \frac{\Delta \text{NOPAT}}{\Delta \text{投入资本}}.
 \]
 
-实务中很少只算单年的 ROIIC。因为大额资本开支、新厂建设或一笔重磅并购会在当年立刻把分母 \(\Delta \text{投入资本}\) 垫高，而对应的新增收入与 NOPAT 往往滞后一到三年才逐步释放，单年数字极易被折旧错期和周期波动淹没。因此，**Michael J. Mauboussin** 建议采用 **3 至 5 年滚动窗口**计算 ROIIC，并常把投入资本的变动向前滞后一年（例如用第 3 年减第 0 年的 NOPAT 变动，除以第 2 年减第 −1 年的投入资本变动），以平滑大额投放的时滞。[^mauboussin-roic]<sup>，</sup>[^mauboussin-capalloc]
+<span data-text-versions id="nb-e07-text-roiic-lag">实务中很少只看单年 ROIIC。大额建厂、算力扩产或重磅并购会在当年立刻垫高分母，对应的收入与 NOPAT 往往滞后一到三年才释放，单年数字极易被折旧错期和周期噪音淹没。因此，**Michael J. Mauboussin** 建议采用 **3 至 5 年滚动窗口**，并常把投入资本的变动向前滞后一年，平滑大额投放的时滞<span data-text-detail>（例如用第 3 年减第 0 年的 NOPAT 变动，除以第 2 年减第 −1 年的投入资本变动，让先期资本开支与随后爬坡的盈利在时间上对齐）</span>。[^mauboussin-roic]<sup>，</sup>[^mauboussin-capalloc]<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>
 
-把增量回报率与利润留存比例相乘，就能接上长期复利的底层规律：
+把增量回报率与利润留存比例相乘，就接上了长期复利的底层规律：
 
 \[
 \text{内在价值长期复利增速} \approx \text{再投资率} \times \text{ROIIC}.
 \]
 
-1994 年，**Charlie Munger** 在南加州大学商学院的演讲中点明了这条规律的长期威力：长期持有一只股票，最终年化回报很难明显超过底层企业自身的资本回报率——如果一家公司四十年里资本回报率只有 6%，哪怕最初以极大折扣买入，拿满四十年的回报仍会收敛到 6% 上下；反之，如果一家企业能在二三十年里持续以 18% 的资本回报率复利运转，哪怕买入价格看起来不便宜，最终也能走出相当可观的复利结果。[^munger-1994] 不过，**Charlie Munger** 这段洞见有一个隐藏前提：企业不仅要有高存量 ROIC，还要有一条足够宽广的跑道，能把留存利润持续以高 ROIIC 投出去。
+1994 年，**Charlie Munger** 点破了这条规律的威力：长期持有一只股票，年化回报终会向企业自身的资本回报率收敛——若公司四十年只赚 6%，再便宜买进，拿满四十年仍会落回 6% 上下；若能二三十年持续按 18% 复利，买价偏贵回报依然可观。[^munger-1994] 不过这里藏着一个前提：公司既要有高存量 ROIC，还要有足够宽的跑道把新钱按高 ROIIC 投出去。
 
-对照存量 ROIC 与增量 ROIIC，就能把表面相似的高盈利企业分成三种截然不同的命运：
+对照存量 ROIC 与增量 ROIIC，表面相似的高盈利企业会分化出三种命运：
 
-- **高存量 ROIC ＋ 窄再投资跑道**（成熟现金牛）：以 KO 为例，FY2022 至 FY2025 三年间，KO 的 NOPAT 由 89.35 亿美元升至 113.01 亿美元，投入资本仅由 542.04 亿美元温和增加 107.16 亿美元至 649.20 亿美元，三年滚动 ROIIC 约 **22.1%**。[^ko-fy25]<sup>，</sup>[^ko-fy23] 浓缩液生意回报稳健，但全球饮料销量增速有限，2025 财年固定资产资本开支仅 21.12 亿美元（占收入 4.4%），根本吃不下全部利润；公司因此把 87.79 亿美元通过现金分红交还股东，让股东自己去寻找下一次复利机会。
-- **高存量 ROIC ＋ 宽再投资跑道**（复利扩产期）：看 MSFT 在 FY2023 至 FY2026 的三年扩张。NOPAT 由 717.23 亿美元跃升至 1,251.27 亿美元（三年净增 534.04 亿美元）；按滞后一年口径（FY2022→FY2025 投入资本净增 1,821.68 亿美元），三年滚动 ROIIC 达到 **29.3%**，印证了云业务与早期资本投入的高产出。[^msft-fy26]<sup>，</sup>[^msft-fy23] 但若切到同期窗口（FY2023→FY2026 投入资本净增 2,660.39 亿美元），由于 FY2026 单年 AI 服务器与数据中心资本开支猛增至 1,159.48 亿美元、产能在期末才陆续入账，同期三年 ROIIC 随之回落至 **20.1%**。这恰恰点明了市场当下盯紧 MSFT 的分歧所在：巨额 AI 投入爬坡完成后，未来几年的滚动 ROIIC 能否继续稳居资本成本之上？
-- **高存量 ROIC ＋ 低 ROIIC 陷阱**（盲目跨界扩产）：当一家存量 ROIC 高达 30% 的现金牛不甘心放慢增长，把新赚回来的现金投进回报率只有 5%（低于资本成本）的跨界并购或过剩产能时，账面收入与营业利润短期内仍会继续上涨，存量护城河的惯性也会把合并 ROIC 暂时托在高位；可只要拆开三年 ROIIC，就能提前看见新投入的资本正在持续失血。[^mckinsey-roic]
+- **高存量 ROIC ＋ 窄再投资跑道**（成熟现金牛）：KO 三年滚动 ROIIC 约 **22.1%**，浓缩液赚钱稳健，但全球销量增速有限，FY2025 资本开支仅占收入 4.4%，吃不下全部利润，因此把 87.79 亿美元以现金分红还给股东。[^ko-fy25]<sup>，</sup>[^ko-fy23]
+- **高存量 ROIC ＋ 宽再投资跑道**（复利扩产期）：MSFT 滞后三年 ROIIC 达 **29.3%**，印证了云业务的高产出；但 FY2026 单年 AI 资本开支猛增至 1,159.48 亿美元、产能尚在爬坡，同期三年 ROIIC 随之回落至 **20.1%**——市场当下的分歧，正押在这些新算力能否继续站稳资本成本之上。[^msft-fy26]<sup>，</sup>[^msft-fy23]
+- **高存量 ROIC ＋ 低 ROIIC**（价值毁灭陷阱）：若一家存量 ROIC 高达 30% 的现金牛不甘放慢增长，把新现金投进回报只有 5% 的跨界并购或过剩产能，合并收入与存量 ROIC 短期内仍会好看，拆开三年 ROIIC 却能提前看见新钱正在失血。[^mckinsey-roic]
 
-把这三个指标并排放在一张判别图谱里，各自的职责、适用场景与踩坑红线便一目了然：
+<span data-text-versions id="nb-e07-text-roiic-calc">上面两家龙头的多年投入产出，直观体现了“跑道宽度决定现金去向”的分化<span data-text-detail>（三年滚动 ROIIC 核算明细：KO FY2022→FY2025 间 NOPAT 由 89.35 亿升至 113.01 亿美元，投入资本由 542.04 亿温和增至 649.20 亿美元［净增 107.16 亿美元］，三年 ROIIC 约 22.1%，FY2025 固定资产 CapEx 为 21.12 亿美元；MSFT FY2023→FY2026 间 NOPAT 由 717.23 亿跃升至 1,251.27 亿美元［净增 534.04 亿美元］，按滞后一年口径 FY2022→FY2025 投入资本净增 1,821.68 亿美元对应 ROIIC 29.3%，按同期窗口 FY2023→FY2026 投入资本净增 2,660.39 亿美元对应 ROIIC 20.1%）</span>。<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>把 **ROE**、**ROIC** 与 **ROIIC** 并排摆进一张判别图谱，各自的职责与踩坑红线便一目了然：
 
 <figure class="flow-figure e07-metrics-map" id="nb-e07-metrics-fig">
 <div class="ff-head"><p class="ff-title">ROE、ROIC 与 ROIIC 判别图谱：定义、适用场景与失真陷阱</p><span class="ff-sub">先用 DuPont 拆清杠杆，再用 ROIC 检验存量质地，最后用滚动 ROIIC 追踪复利跑道</span></div>
@@ -347,17 +420,105 @@ ROIC 衡量的是公司历史上累计投入的全部存量资本的平均回报
 
 ## 资本配置的五条出路、回购价格与管理层激励 {#nb-e07-allocation-incentives}
 
-一家公司每年赚回经营现金流之后，摆在管理层面前的资金出路一共只有五条：**内生再投资**、**外延并购**、**偿还债务**、**现金分红**与**股票回购**。**Warren Buffett** 在 2012 年 Berkshire Hathaway 股东信里给出过清晰的排序逻辑：凡是能在现有业务里以高于资本成本的回报扩产的资金，理应优先留在账上复利；超出高回报再投资需求的多余现金，再在并购、降杠杆、分红和回购之间按风险调整后的每股长期回报择优配置。[^berkshire-2012]<sup>，</sup>[^mauboussin-capalloc]
+公司每年赚回自由现金流后，管理层手里一共只有五条出路：**内生再投资**、**外部并购**、**偿还债务**、**股票回购**与**现金分红**。**Warren Buffett** 在 2012 年 Berkshire Hathaway 股东信里给出过一条清晰排序：主业里回报高于资本成本的扩张优先留存复利，多余现金再跨这五条路径横向比价，流向风险调整后最能增厚每股长期内在价值的地方。[^berkshire-2012]<sup>，</sup>[^mauboussin-capalloc]
 
-不同出路各有成败边界。内生再投资胜在免付并购溢价，只要边际 ROIIC 站稳 WACC 之上就能直接增厚每股盈利能力；外延并购往往要支付高额溢价形成商誉，**McKinsey** 曾用实证指出，由于会计准则取消商誉摊销，只要收购标的盈利高过低息借款的税后利息，哪怕这笔交易回报低于公司 WACC、实际在毁灭股东价值，首年 EPS 照样会录得“增厚”，因此并购必须用含商誉的全价投入回报与净现值检验。[^mckinsey-roic] 当大额收购推升杠杆、侵蚀经营缓冲时，主动收缩支出偿还债务往往优于硬撑回购——例如 HD 在 2024 年 3 月收购 SRS 后立即宣布暂停股票回购，2025 财年回购支出归零、优先削减债务，同时保持 36.79 亿美元门店与供应链资本开支和 91.52 亿美元现金分红。[^hd-fy25]
+<figure class="flow-figure e07-alloc-tree" id="nb-e07-alloc-tree-fig">
+<div class="ff-head"><p class="ff-title">1 美元留存自由现金流的五条出路：创造还是毁灭每股价值</p><span class="ff-sub">每条资金去向都按风险调整后的每股长期内在价值变化判别 · 绿底增厚，橙底毁灭</span></div>
+<div class="rel-svg-wrap business-exchange" aria-label="1 美元留存自由现金流的五条资本配置出路对照：左侧起点为 1 美元留存自由现金流，经五条平滑曲线分流至右侧五张决策卡，每张卡并排给出绿底创造每股价值与橙底毁灭每股价值两类结果。一、内生再投资：ROIIC 高于 WACC 时加速复利、免付并购溢价；ROIIC 低于 WACC 时越扩越亏、持续摊薄经济利润。二、外部并购 M&A：协同明确且买价合理时含商誉全价回报站稳 WACC 之上并增厚价值；高溢价买低回报则拉低含商誉 ROIC，须警惕账面 EPS 增厚幻觉（如 HD 并购后 ROIC 回落）。三、偿还债务：高息债务或临近债墙时优先止血、守住财务弹性；过度去杠杆闲置低息现金则会放弃高确定性投资与资本结构效率。四、股票回购：买价低于每股内在价值时折价注销股本增厚股东；高估追买或仅用来抵销 SBC 摊薄则会把多付溢价转给退出者，净股数几乎未缩。五、现金分红：再投资空间耗尽时把钱还给股东、避免低效囤钱；错失高 ROIIC 扩张跑道过早承诺刚性股息则会挤占长期复利机会。">
+<svg viewBox="0 0 860 350" role="img" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <marker id="e07-al-sage" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse">
+      <path d="M1,1.5 L9,5 L1,8.5 Z" fill="#23695a"/>
+    </marker>
+  </defs>
+  <rect x="0" y="0" width="860" height="350" rx="8" fill="#fafaf6"/>
+  <text x="271" y="22" font-size="11" font-weight="700" fill="#1d2a25">五条资金出路</text>
+  <rect x="444" y="8" width="112" height="19" rx="9.5" fill="#e2ede7"/>
+  <text x="500" y="21" text-anchor="middle" font-size="10.5" font-weight="700" fill="#1f5c4e">创造每股价值</text>
+  <rect x="672" y="8" width="112" height="19" rx="9.5" fill="#f4e5d2"/>
+  <text x="728" y="21" text-anchor="middle" font-size="10.5" font-weight="700" fill="#8d5520">毁灭每股价值</text>
+  <rect x="14" y="102" width="174" height="168" rx="10" fill="#ffffff" stroke="#23695a" stroke-width="1.6"/>
+  <rect x="26" y="114" width="150" height="24" rx="5" fill="#e2ede7"/>
+  <text x="101" y="130" text-anchor="middle" font-size="11.5" font-weight="700" fill="#1f5c4e">资本配置起点</text>
+  <text x="101" y="164" text-anchor="middle" font-size="16" font-weight="700" fill="#1d2a25">1 美元留存</text>
+  <text x="101" y="186" text-anchor="middle" font-size="16" font-weight="700" fill="#1d2a25">自由现金流</text>
+  <line x1="30" y1="200" x2="172" y2="200" stroke="#eaede5"/>
+  <text x="101" y="220" text-anchor="middle" font-size="10.5" font-weight="600" fill="#1f5c4e">跨五条出路横向比价</text>
+  <text x="101" y="239" text-anchor="middle" font-size="10" fill="#5d6b64">标尺：风险调整后的</text>
+  <text x="101" y="254" text-anchor="middle" font-size="10" fill="#5d6b64">每股长期内在价值变化</text>
+  <path d="M188,150 C226,150 222,62 254,62" fill="none" stroke="#23695a" stroke-width="1.9" marker-end="url(#e07-al-sage)"/>
+  <path d="M188,168 C224,168 222,124 254,124" fill="none" stroke="#23695a" stroke-width="1.9" marker-end="url(#e07-al-sage)"/>
+  <path d="M188,186 C220,186 224,186 254,186" fill="none" stroke="#23695a" stroke-width="1.9" marker-end="url(#e07-al-sage)"/>
+  <path d="M188,204 C224,204 222,248 254,248" fill="none" stroke="#23695a" stroke-width="1.9" marker-end="url(#e07-al-sage)"/>
+  <path d="M188,222 C226,222 222,310 254,310" fill="none" stroke="#23695a" stroke-width="1.9" marker-end="url(#e07-al-sage)"/>
+  <rect x="258" y="34" width="588" height="56" rx="8" fill="#ffffff" stroke="#cfd3c9" stroke-width="1.15"/>
+  <rect x="261" y="40" width="3.5" height="44" rx="1.75" fill="#23695a"/>
+  <text x="272" y="58" font-size="12.5" font-weight="700" fill="#1d2a25">① 内生再投资</text>
+  <text x="272" y="75" font-size="10" fill="#66736c">主业扩产与研发</text>
+  <rect x="388" y="40" width="224" height="44" rx="6" fill="#e7f1ec" stroke="#b8d5c7" stroke-width="0.9"/>
+  <text x="398" y="57" font-size="10.5" font-weight="700" fill="#1f5c4e">ROIIC ＞ WACC 加速复利</text>
+  <text x="398" y="74" font-size="10" fill="#2e3c36">免付并购溢价，优先留存扩张</text>
+  <rect x="618" y="40" width="220" height="44" rx="6" fill="#f7eadb" stroke="#e3c39d" stroke-width="0.9"/>
+  <text x="628" y="57" font-size="10.5" font-weight="700" fill="#8d5520">ROIIC ＜ WACC 越扩越亏</text>
+  <text x="628" y="74" font-size="10" fill="#5d4c3e">收入上涨却持续摊薄经济利润</text>
+  <rect x="258" y="96" width="588" height="56" rx="8" fill="#ffffff" stroke="#cfd3c9" stroke-width="1.15"/>
+  <rect x="261" y="102" width="3.5" height="44" rx="1.75" fill="#3b6e8c"/>
+  <text x="272" y="120" font-size="12" font-weight="700" fill="#1d2a25">② 外部并购 M&amp;A</text>
+  <text x="272" y="137" font-size="10" fill="#66736c">全价含商誉核验</text>
+  <rect x="388" y="102" width="224" height="44" rx="6" fill="#e7f1ec" stroke="#b8d5c7" stroke-width="0.9"/>
+  <text x="398" y="119" font-size="10.5" font-weight="700" fill="#1f5c4e">协同明确、买价合理增厚</text>
+  <text x="398" y="136" font-size="10" fill="#2e3c36">含商誉全价回报站稳 WACC 之上</text>
+  <rect x="618" y="102" width="220" height="44" rx="6" fill="#f7eadb" stroke="#e3c39d" stroke-width="0.9"/>
+  <text x="628" y="119" font-size="10.5" font-weight="700" fill="#8d5520">溢价买低回报拉低含商誉 ROIC</text>
+  <text x="628" y="136" font-size="10" fill="#5d4c3e">谨防 EPS 幻觉（如 HD 并购后回落）</text>
+  <rect x="258" y="158" width="588" height="56" rx="8" fill="#ffffff" stroke="#cfd3c9" stroke-width="1.15"/>
+  <rect x="261" y="164" width="3.5" height="44" rx="1.75" fill="#5a7669"/>
+  <text x="272" y="182" font-size="12.5" font-weight="700" fill="#1d2a25">③ 偿还债务</text>
+  <text x="272" y="199" font-size="10" fill="#66736c">主动降杠杆护底</text>
+  <rect x="388" y="164" width="224" height="44" rx="6" fill="#e7f1ec" stroke="#b8d5c7" stroke-width="0.9"/>
+  <text x="398" y="181" font-size="10.5" font-weight="700" fill="#1f5c4e">高息／临近债墙优先止血</text>
+  <text x="398" y="198" font-size="10" fill="#2e3c36">守住财务弹性、化解再融资风险</text>
+  <rect x="618" y="164" width="220" height="44" rx="6" fill="#f7eadb" stroke="#e3c39d" stroke-width="0.9"/>
+  <text x="628" y="181" font-size="10.5" font-weight="700" fill="#8d5520">过度去杠杆、闲置低息现金</text>
+  <text x="628" y="198" font-size="10" fill="#5d4c3e">放弃高确定性投资与合理资本效率</text>
+  <rect x="258" y="220" width="588" height="56" rx="8" fill="#ffffff" stroke="#cfd3c9" stroke-width="1.15"/>
+  <rect x="261" y="226" width="3.5" height="44" rx="1.75" fill="#a8743f"/>
+  <text x="272" y="244" font-size="12.5" font-weight="700" fill="#1d2a25">④ 股票回购</text>
+  <text x="272" y="261" font-size="10" fill="#66736c">成交价决定盈亏</text>
+  <rect x="388" y="226" width="224" height="44" rx="6" fill="#e7f1ec" stroke="#b8d5c7" stroke-width="0.9"/>
+  <text x="398" y="243" font-size="10.5" font-weight="700" fill="#1f5c4e">买价低于内在价值增厚每股</text>
+  <text x="398" y="260" font-size="10" fill="#2e3c36">折价注销股本，抬高持有人份额</text>
+  <rect x="618" y="226" width="220" height="44" rx="6" fill="#f7eadb" stroke="#e3c39d" stroke-width="0.9"/>
+  <text x="628" y="243" font-size="10.5" font-weight="700" fill="#8d5520">高估追买或仅抵销 SBC 摊薄</text>
+  <text x="628" y="260" font-size="10" fill="#5d4c3e">多付溢价流向退出者，净股数难缩</text>
+  <rect x="258" y="282" width="588" height="56" rx="8" fill="#ffffff" stroke="#cfd3c9" stroke-width="1.15"/>
+  <rect x="261" y="288" width="3.5" height="44" rx="1.75" fill="#6d8b74"/>
+  <text x="272" y="306" font-size="12.5" font-weight="700" fill="#1d2a25">⑤ 现金分红</text>
+  <text x="272" y="323" font-size="10" fill="#66736c">刚性较高的派息</text>
+  <rect x="388" y="288" width="224" height="44" rx="6" fill="#e7f1ec" stroke="#b8d5c7" stroke-width="0.9"/>
+  <text x="398" y="305" font-size="10.5" font-weight="700" fill="#1f5c4e">再投资空间耗尽时还给股东</text>
+  <text x="398" y="322" font-size="10" fill="#2e3c36">避免低效囤钱，适合成熟现金牛</text>
+  <rect x="618" y="288" width="220" height="44" rx="6" fill="#f7eadb" stroke="#e3c39d" stroke-width="0.9"/>
+  <text x="628" y="305" font-size="10.5" font-weight="700" fill="#8d5520">错失高 ROIIC 扩张跑道</text>
+  <text x="628" y="322" font-size="10" fill="#5d4c3e">股息承诺刚性，挤占长期复利机会</text>
+</svg>
+</div>
+<figcaption>资本配置没有固定套路：高回报跑道充足时优先内生再投资，跑道收窄或负债偏高时转向降债、分红或折价回购。</figcaption>
+</figure>
 
-现金分红与股票回购同属向股东返还现金，但效果并不对称。正如[《股东回报：分红、回购与增发》](/zh/notebook/shareholder-returns-buybacks-issuance/)已经交代的，分红一旦确立便带有极强刚性（**Michael J. Mauboussin** 引用的 CFO 调研显示，超过六成财务官宁可放弃高回报项目也不愿削减既定股息），适合再投资空间有限的成熟现金牛如 KO。[^mauboussin-capalloc] 回购则更加灵活，但成败取决于成交价格：**回购本身不创造一美元经营利润，只在买入价低于每股内在价值时把退出股东让渡的折价转移给继续持有者；高估回购反而系统性地毁灭继续持有者的每股价值**。[^berkshire-2012]
+顺着树图往下查，并购与偿债藏着两处常见误判。**McKinsey** 指出，取消商誉摊销后，只要标的盈利盖过税后债息，哪怕全价回报低于 WACC、实际毁灭价值，首年 EPS 照样“增厚”。[^mckinsey-roic] 而大额并购推高杠杆后，停下回购去降债往往更守纪律——HD 2024 年 3 月收购 SRS 后即暂停回购，FY2025 回购归零，优先削债并保住 36.79 亿开支与 91.52 亿美元分红。[^hd-fy25]
 
-用一道十秒心算就能看清价格纪律的分量。假设一家公司共 10 股，经营业务值 900 美元、账上另有 100 美元超额现金，合计内在价值 1,000 美元（每股 100 美元）。管理层拿这 100 美元现金回购注销后，公司剩余内在价值均为 900 美元：如果趁市场悲观以 **75 美元**折价回购，能注销 1.333 股，剩余 8.667 股的每股内在价值立刻升至 **103.85 美元**（增厚 3.8%）；如果趁市场狂热以 **140 美元**溢价追买，只能注销 0.714 股，剩余 9.286 股的每股内在价值反降至 **96.92 美元**（净损 3.1%）。同样的 100 美元回购、同样的“减少股本”，价格一低一高，对继续持有者的结果截然相反。
+同为向股东返还现金，分红与回购的效果并不对称。正如[《股东回报：分红、回购与增发》](/zh/notebook/shareholder-returns-buybacks-issuance/)所讲，分红带有很强刚性——**Michael J. Mauboussin** 引用的调研显示，逾六成 CFO 宁可放弃高回报项目也不愿削减股息，因此更适合 KO 这类再投资空间有限的成熟现金牛。[^mauboussin-capalloc] 回购灵活得多，但本身不创造一美元经营利润，成败全看买价是否低于每股内在价值。[^berkshire-2012]
 
-<span data-text-versions id="nb-e07-text-incentives">既然资本配置如此决定长期每股结果，管理层为何常常违背这套常识？答案多半藏在代理书（Form DEF 14A）的薪酬条款里。当高管奖金主要挂钩收入规模或未扣资本成本的 Adjusted EBITDA 时，管理层天然倾向于冲规模、做并购、留着现金不放手；反之，若薪酬方案把长期绩效股直接绑定 **ROIC** 或**累计自由现金流**，激励就向长期股东靠拢得多。例如 HD 在 2026 年委托书中将高管长期绩效股的 **50%** 直接挂钩三年平均 ROIC，当 FY2023—FY2025 实际 ROIC 未达目标时，兑现比例便自动折减至 70.1%；KO 则把长期绩效股与有机营收、EPS 及三年累计自由现金流等权挂钩。[^hd-def14a]<sup>，</sup>[^ko-def14a] 看完回购与激励，还要连回[《股票的类型、发行与交易形式》](/zh/notebook/stock-types-issuance-trading/)核对 **SBC**（股权报酬）对真实股数的摊薄：许多科技公司把大额回购包装成回馈股东，实际大部分现金只是用来对冲员工新发股份。对比两家巨头 2026 财年年报就一目了然——MSFT 全年回购支出 222.71 亿美元、同期 SBC 费用 124.05 亿美元，稀释加权平均股数仅由 7,465 百万股微降至 7,453 百万股（净降 0.16%）；AAPL 同年回购高达 863.90 亿美元、远超 137.89 亿美元 SBC 费用，期末流通股才真正由 14,773 百万股缩减至 14,532 百万股（净降 1.63%），把每股利润份额切实推高<span data-text-detail>（数据依据：Michael J. Mauboussin 与 Dan Callahan 2025 年 11 月报告汇总，2024 年美国上市公司 SBC 费用合计达 3,140 亿美元，同期总回购 1.1 万亿美元，逾四分之三 CFO 承认对冲 SBC 稀释是回购的重要动因；报告转引 FW Cook 对标普 500 前 250 大企业的追踪显示，2024 年高管长期激励中采用相对或绝对 TSR 的占 73%、利润／EPS 占 53%、资本效率指标仅占 34%、收入占 25%、现金流仅占 16%。具体代理书细节：HD 2026 DEF 14A 披露 FY2023—FY2025 绩效股三年平均 ROIC 目标 39.2%、实际 37.4%，平均营业利润目标 228.4 亿美元、实际 211.5 亿美元，最终综合兑现 70.1%；KO 2026 DEF 14A 披露 2025—2027 周期 PSU 设定三年累计自由现金流目标 358 亿美元，并叠加相对同业 TSR 调节系数）</span>。[^mauboussin-capalloc]<sup>，</sup>[^msft-fy26]<sup>，</sup>[^aapl-fy26]<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>
+一道心算就能看清买价的分量：假设公司共 10 股，业务值 900 美元加 100 美元现金，每股值 100 美元。拿这 100 美元回购后，剩余业务均值 900 美元——趁悲观按 **75 美元**注销 1.333 股，剩余每股立刻升至 **103.85 美元**（+3.8%）；按 **140 美元**溢价追买，仅注销 0.714 股，剩余每股反降至 **96.92 美元**（−3.1%）。
 
-把前面的全部机制装进下面这台单屏推演器，可以直接动手检验三类典型公司（轻资产现金牛、高 ROIIC 扩产复利型、借债拉高 ROE 但 ROIC 平庸型）在不同杠杆、再投资率与 ROIIC 组合下，ROE 与 ROIC 怎样拉开落差，以及五年期每股自由现金流与内在价值怎样分化：
+### 管理层激励与 SBC 净股数核对
+
+<span data-text-versions id="nb-e07-text-incentives">既然配置决定长期每股结果，管理层为何常反着干？答案多半藏在代理书（Form DEF 14A）的薪酬条款里。奖金若挂钩收入或未扣资本成本的 Adjusted EBITDA，高管天然偏好冲规模与溢价并购；若像 HD 把 **50%** 长期绩效股绑定三年 ROIC（FY23—FY25 未达标即折减至 70.1%），或像 KO 纳入三年累计自由现金流，激励才向股东靠拢<span data-text-detail>（激励统计与委托书细节：Michael J. Mauboussin 与 Dan Callahan 2025 年 11 月报告转引 FW Cook 对 S&P 500 前 250 大企业的追踪显示，2024 年高管长期激励中采用相对或绝对 TSR 的占 73%、利润／EPS 占 53%、资本效率指标仅占 34%、收入占 25%、现金流仅占 16%。HD 2026 DEF 14A 披露 FY2023—FY2025 绩效股三年平均 ROIC 目标 39.2%、实际 37.4%，平均营业利润目标 228.4 亿、实际 211.5 亿美元，综合兑现 70.1%；KO 2026 DEF 14A 披露 2025—2027 周期 PSU 将有机营收、EPS 与三年累计自由现金流［目标 358 亿美元］等权挂钩，并叠加相对同业 TSR 调节系数）</span>。[^hd-def14a]<sup>，</sup>[^ko-def14a]<sup>，</sup>[^mauboussin-capalloc]<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>
+
+<span data-text-versions id="nb-e07-text-sbc">核对回购时，还要连回[《股票的类型、发行与交易形式》](/zh/notebook/stock-types-issuance-trading/)检查 **SBC** 摊薄。许多科技股的大额回购其实只是在对冲员工新发股份：FY2026 里，MSFT 回购 222.71 亿对照 124.05 亿美元 SBC，稀释股数仅微降 **0.16%**；同期 AAPL 回购 863.90 亿远超 137.89 亿美元 SBC，期末股本才真正净缩 **1.63%**，切实抬高每股份额<span data-text-detail>（全市场背景与精确股数：Michael J. Mauboussin 与 Dan Callahan 2025 年报告统计，2024 年美国上市公司 SBC 费用合计达 3,140 亿美元，同期总回购 1.1 万亿美元，逾四分之三 CFO 承认对冲 SBC 稀释是回购的重要动因。具体到两家公司 FY2026 年报：MSFT 稀释加权平均股数仅由 7,465 M 股微降至 7,453 M 股；AAPL 期末流通股由 14,773 M 股缩减至 14,532 M 股）</span>。[^mauboussin-capalloc]<sup>，</sup>[^msft-fy26]<sup>，</sup>[^aapl-fy26]<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>
+
+下面这台单屏推演器把杠杆、再投资率与 ROIIC 装进了同一张面板，可以切换三类典型公司并拖动滑块，直观检验 ROE 与 ROIC 如何拉开落差，以及五年期每股自由现金流与内在价值怎样分化：
 
 <figure class="flow-figure e07-roic-lab" id="nb-e07-roic-lab" data-e07-roic>
 <div class="ff-head"><p class="ff-title">ROE / ROIC / ROIIC 与五年资本配置推演器</p><span class="ff-sub">期初投入资本 100 美元/股 · 税后债务利率 4.5% · 资本成本 WACC 8.0%</span></div>
@@ -422,9 +583,9 @@ ROIC 衡量的是公司历史上累计投入的全部存量资本的平均回报
 <figcaption>杠杆恒等式：ROE ＝ ROIC ＋（债务 ÷ 权益）×（ROIC − 税后债务利率）。把预设切到“③ 借债拉高 ROE 但 ROIC 平庸型”后，试着拖动“财务杠杆”与“利润再投资率”，可以直观看到加杠杆只抬高 ROE、不增加一分经营现金流，而把低回报再投资率降到 0% 反而止住价值毁灭。</figcaption>
 </figure>
 
-到这里，从三张财报勾稽、营运资本、盈利质量到 ROE、ROIC、ROIIC 与资本配置，财务分析这条底盘已经合拢。历史报表和回报率告诉我们过去每一美元资本换来了怎样的每股现金流；把这份历史体检转化为面向未来的竞争解释、条件估值与赔率取舍，接下来将在[《信息、预期与判断更新》](/zh/notebook/#topic-A)与[《经营情景、条件定价与 Risk-Reward》](/zh/notebook/#topic-F)继续展开。
+到这里，从三表勾稽、营运资本、盈利质量到 ROE、ROIC、ROIIC 与资本配置，财务分析这条底盘已经合拢。历史报表记录了过去每一美元资本换来的每股现金流；把这份体检转化为面向未来的竞争解释、条件估值与赔率取舍，接下来将在[《信息、预期与判断更新》](/zh/notebook/#topic-A)与[《经营情景、条件定价与 Risk-Reward》](/zh/notebook/#topic-F)继续展开。
 
-<script src="/notebook/capital-allocation/ui.js?v=20261127" defer></script>
+<script src="/notebook/capital-allocation/ui.js?v=20261127b" defer></script>
 
 [^mauboussin-roic]: Michael J. Mauboussin & Dan Callahan，[Return on Invested Capital: How to Calculate ROIC and Handle Common Issues](https://www.morganstanley.com/content/dam/im/assets/publication/thought-leadership/consilient-observer/article_returnoninvestedcapital.pdf)，Morgan Stanley Counterpoint Global Insights，2022-10-06。
 [^mauboussin-capalloc]: Michael J. Mauboussin & Dan Callahan，[Capital Allocation: Results, Analysis, and Assessment](https://www.morganstanley.com/content/dam/im/assets/publication/thought-leadership/consilient-observer/article_capitalallocation.pdf)，Morgan Stanley Counterpoint Global Insights，2025-11-05。
@@ -443,18 +604,18 @@ ROIC 衡量的是公司历史上累计投入的全部存量资本的平均回报
 
 
 ## Sources
-- [The Coca-Cola Company：FY2025 全年业绩与 Form 10-K（截至 2025-12-31）](https://www.sec.gov/Archives/edgar/data/21344/000162828026006642/a2025q4earningsreleaseex-9.htm): Coca-Cola 2025 财年（截至 2025 年 12 月 31 日，Form 10-K 于 2026 年 2 月 20 日提交）三张主表：净营业收入 47,941 百万美元、营业利润 13,762 百万美元、合并净利润 13,137 百万美元（归属股东 13,107）；因支付 6,069 百万美元 fairlife 或有对价尾款，GAAP 经营现金流为 7,408 百万美元，资本开支 −2,112 百万美元，现金股息 −8,779 百万美元；期末总资产 104,816、总负债 70,541、总权益 34,275。
-- [Microsoft Corporation：FY2026 Q4 及全财年业绩公告与 Form 10-K（截至 2026-06-30）](https://www.sec.gov/Archives/edgar/data/789019/000119312526323632/msft-ex99_1.htm): Microsoft 2026 年 7 月 29 日披露之 2026 财年（截至 2026 年 6 月 30 日）三张主表：总收入 331,839 百万美元、营业利润 155,237 百万美元、净利润 133,749 百万美元；经营现金流 182,935 百万美元、固定资产资本开支 −115,948 百万美元、投资现金流 −139,500 百万美元、融资现金流 −52,546 百万美元；期末总资产 758,376 百万美元（固定资产净值 313,076、现金及等价物 20,935）、总负债 315,989、股东权益 442,387。
-- [Apple Inc.：FY2026 Form 10-K（截至 2026-09-26）](https://www.sec.gov/Archives/edgar/data/320193/000032019326000026/aapl-20260926.htm): Apple 2026 财年年报（2026 年 11 月 3 日提交 SEC）：总净销售 478,834 百万美元、营业利润 158,063、净利润 132,175（稀释 EPS 8.98 美元）；期末总资产 404,548（上财年 359,241）、总债务 80,111（上财年 98,657）、现金与有价证券合计 136,935（上财年 132,420）、股东权益 112,093（上财年 73,733），账面 ROE 达 142.3%；全年现金回购 86,390、派息 15,721、CapEx 仅 9,041、股权激励费用 13,789 百万美元，期末流通股由 14,773 百万股净减至 14,532 百万股。
+- [The Coca-Cola Company：FY2025 全年业绩与 Form 10-K（截至 2025-12-31）](https://www.sec.gov/Archives/edgar/data/21344/000162828026006642/a2025q4earningsreleaseex-9.htm): Coca-Cola 2025 财年（截至 2025 年 12 月 31 日，Form 10-K 于 2026 年 2 月 20 日提交）三张主表：净营业收入 47,941 M 美元、营业利润 13,762 M 美元、合并净利润 13,137 M 美元（归属股东 13,107）；因支付 6,069 M 美元 fairlife 或有对价尾款，GAAP 经营现金流为 7,408 M 美元，资本开支 −2,112 M 美元，现金股息 −8,779 M 美元；期末总资产 104,816、总负债 70,541、总权益 34,275。
+- [Microsoft Corporation：FY2026 Q4 及全财年业绩公告与 Form 10-K（截至 2026-06-30）](https://www.sec.gov/Archives/edgar/data/789019/000119312526323632/msft-ex99_1.htm): Microsoft 2026 年 7 月 29 日披露之 2026 财年（截至 2026 年 6 月 30 日）三张主表：总收入 331,839 M 美元、营业利润 155,237 M 美元、净利润 133,749 M 美元；经营现金流 182,935 M 美元、固定资产资本开支 −115,948 M 美元、投资现金流 −139,500 M 美元、融资现金流 −52,546 M 美元；期末总资产 758,376 M 美元（固定资产净值 313,076、现金及等价物 20,935）、总负债 315,989、股东权益 442,387。
+- [Apple Inc.：FY2026 Form 10-K（截至 2026-09-26）](https://www.sec.gov/Archives/edgar/data/320193/000032019326000026/aapl-20260926.htm): Apple 2026 财年年报（2026 年 11 月 3 日提交 SEC）：总净销售 478,834 M 美元、营业利润 158,063、净利润 132,175（稀释 EPS 8.98 美元）；期末总资产 404,548（上财年 359,241）、总债务 80,111（上财年 98,657）、现金与有价证券合计 136,935（上财年 132,420）、股东权益 112,093（上财年 73,733），账面 ROE 达 142.3%；全年现金回购 86,390、派息 15,721、CapEx 仅 9,041、股权激励费用 13,789 M 美元，期末流通股由 14,773 百万股净减至 14,532 百万股。
 - [The Home Depot, Inc.：2026 Form DEF 14A（股东大会委托书）](https://www.sec.gov/Archives/edgar/data/354950/000035495026000090/hd-20260406.htm): Home Depot 2026 年高管薪酬委托书（2026 年 4 月 7 日提交 SEC）：长期绩效股（Performance Shares）由三年平均 ROIC（权重 50%）与三年平均营业利润（权重 50%）等权决定；FY2023—FY2025 考核周期三年平均 ROIC 目标 39.2%、实际达成 37.4%，营业利润实际 211.5 亿美元低于目标 228.4 亿美元，最终绩效股兑现比例折减至 70.1%。
-- [The Home Depot, Inc.：FY2025 Form 10-K（截至 2026-02-01）](https://www.sec.gov/Archives/edgar/data/354950/000162828026019436/hd-20260201.htm): Home Depot 2025 财年年报（2026 年 3 月 18 日提交 SEC）：净销售额 164,683 百万美元、营业利润 20,890、税前利润 18,602、所得税 4,446、净利润 14,156；期末总资产 105,095（上财年 96,119）、商誉 22,344（上财年 19,475）、现金 1,389（上财年 1,659）、总债务 55,772（上财年 53,383）、库存股 −95,971、股东权益 12,813（上财年 6,640）；Item 7 披露公司口径 NOPAT 15,897 与 ROIC 25.7%（FY24 为 31.3%、FY23 为 36.7%），并披露因 SRS 与 GMS 并购暂停回购（FY25 回购 0、派息 9,152、CapEx 3,679）优先减债。
+- [The Home Depot, Inc.：FY2025 Form 10-K（截至 2026-02-01）](https://www.sec.gov/Archives/edgar/data/354950/000162828026019436/hd-20260201.htm): Home Depot 2025 财年年报（2026 年 3 月 18 日提交 SEC）：净销售额 164,683 M 美元、营业利润 20,890、税前利润 18,602、所得税 4,446、净利润 14,156；期末总资产 105,095（上财年 96,119）、商誉 22,344（上财年 19,475）、现金 1,389（上财年 1,659）、总债务 55,772（上财年 53,383）、库存股 −95,971、股东权益 12,813（上财年 6,640）；Item 7 披露公司口径 NOPAT 15,897 与 ROIC 25.7%（FY24 为 31.3%、FY23 为 36.7%），并披露因 SRS 与 GMS 并购暂停回购（FY25 回购 0、派息 9,152、CapEx 3,679）优先减债。
 - [The Coca-Cola Company：2026 Form DEF 14A（股东大会委托书）](https://www.sec.gov/Archives/edgar/data/21344/000110465926028215/ko-20260429xdef14a.htm): Coca-Cola 2026 年委托书（2026 年 3 月 16 日提交 SEC）：2025—2027 周期高管绩效股单元（PSU）由净营业收入增速、EPS 增速与三年累计自由现金流（目标 358 亿美元）三项等权决定，并叠加相对总股东回报（TSR）调节系数。
-- [The Coca-Cola Company：FY2023 Form 10-K（截至 2023-12-31）](https://www.sec.gov/Archives/edgar/data/21344/000002134424000009/ko-20231231.htm): Coca-Cola 2023 财年年报（截至 2023-12-31）：FY2022 净营收 43,004、营业利润 10,909、税前利润 11,686、所得税 2,115 百万美元；2022 年末总债务 39,149、总权益 25,826、现金与有价证券 11,631 百万美元，与 FY2025 年报联算三年滚动 ROIIC（约 22.1%）及低再投资率现金牛特征。
+- [The Coca-Cola Company：FY2023 Form 10-K（截至 2023-12-31）](https://www.sec.gov/Archives/edgar/data/21344/000002134424000009/ko-20231231.htm): Coca-Cola 2023 财年年报（截至 2023-12-31）：FY2022 净营收 43,004、营业利润 10,909、税前利润 11,686、所得税 2,115 M 美元；2022 年末总债务 39,149、总权益 25,826、现金与有价证券 11,631 M 美元，与 FY2025 年报联算三年滚动 ROIIC（约 22.1%）及低再投资率现金牛特征。
 - [Michael J. Mauboussin & Dan Callahan（2025）：Capital Allocation: Results, Analysis, and Assessment](https://www.morganstanley.com/content/dam/im/assets/publication/thought-leadership/consilient-observer/article_capitalallocation.pdf): Morgan Stanley Counterpoint Global Insights 资本配置更新报告（2025-11-05）：覆盖 1970—2024 年美股资本来源与用途，比较内生再投资、并购、分红与回购的价值创造边界，汇总 2024 年美国上市公司 SBC 费用 3,140 亿美元与总回购 1.1 万亿美元及 FW Cook Top 250 高管长期激励指标分布（TSR 73%、利润/EPS 53%、资本效率 34%、收入 25%、现金流 16%）。
 - [Michael J. Mauboussin & Dan Callahan（2022）：Return on Invested Capital: How to Calculate ROIC and Handle Common Issues](https://www.morganstanley.com/content/dam/im/assets/publication/thought-leadership/consilient-observer/article_returnoninvestedcapital.pdf): Morgan Stanley Counterpoint Global Insights 专题报告（2022-10-06）：系统界定 NOPAT 与经营侧／融资侧投入资本的等价核算，提出按收入约 2% 保留经营现金以剔除超额现金的经验基准，说明回购为何提升 ROE 却不改变去超额现金后的 ROIC、为何金融业应改用 ROE 而非 ROIC，并对比含商誉与不含商誉 ROIC 及三年滚动滞后 ROIIC 的计算口径。
-- [McDonald’s Corporation：FY2025 Form 10-K（截至 2025-12-31）](https://www.sec.gov/Archives/edgar/data/63908/000006390826000035/mcd-20251231.htm): McDonald’s 2025 财年年报（2026 年 2 月 24 日提交 SEC）：总收入 26,885 百万美元、营业利润 12,393、税前利润 10,897、所得税 2,334、净利润 8,563；因累计库存股达 −79,316 百万美元（950.0 百万股）叠加 39,973 百万美元长期债务，期末股东权益为负值 −1,791 百万美元（2024 年末 −3,797 百万美元），令账面 ROE 数学失真，而去杠杆口径含商誉 ROIC 约 27.1%。
+- [McDonald’s Corporation：FY2025 Form 10-K（截至 2025-12-31）](https://www.sec.gov/Archives/edgar/data/63908/000006390826000035/mcd-20251231.htm): McDonald’s 2025 财年年报（2026 年 2 月 24 日提交 SEC）：总收入 26,885 M 美元、营业利润 12,393、税前利润 10,897、所得税 2,334、净利润 8,563；因累计库存股达 −79,316 M 美元（950.0 百万股）叠加 39,973 M 美元长期债务，期末股东权益为负值 −1,791 M 美元（2024 年末 −3,797 M 美元），令账面 ROE 数学失真，而去杠杆口径含商誉 ROIC 约 27.1%。
 - [McKinsey & Company：Merger valuation: Time to jettison EPS 与 Why bad multiples happen to good companies](https://www.mckinsey.com/capabilities/strategy-and-corporate-finance/our-insights/merger-valuation-time-to-jettison-eps): McKinsey 企业估值与资本配置研究（Tim Koller 估值框架）：区分不含商誉 ROIC（衡量原厂经营资产效率）与含商誉 ROIC（将并购溢价计入分母检验历史并购资本效率），指出商誉不再摊销后多数低回报并购仍能制造首年 EPS 增厚幻觉，唯有收购回报高于加权平均资本成本（WACC）才真正创造股东价值。
-- [Microsoft Corporation：FY2023 Form 10-K（截至 2023-06-30）](https://www.sec.gov/Archives/edgar/data/789019/000095017023035122/msft-20230630.htm): Microsoft 2023 财年年报（截至 2023-06-30）：FY2023 收入 211,915、营业利润 88,523、税前利润 89,311、所得税 16,950、净利润 72,361 百万美元；2023 年 6 月 30 日总债务 47,237（2022 年 49,781）、股东权益 206,223（2022 年 166,542）、现金及短期投资 111,262（2022 年 104,757），与 FY2026 年报联算三年滚动滞后 ROIIC（29.3%）与同期三年 ROIIC（20.1%）。
+- [Microsoft Corporation：FY2023 Form 10-K（截至 2023-06-30）](https://www.sec.gov/Archives/edgar/data/789019/000095017023035122/msft-20230630.htm): Microsoft 2023 财年年报（截至 2023-06-30）：FY2023 收入 211,915、营业利润 88,523、税前利润 89,311、所得税 16,950、净利润 72,361 M 美元；2023 年 6 月 30 日总债务 47,237（2022 年 49,781）、股东权益 206,223（2022 年 166,542）、现金及短期投资 111,262（2022 年 104,757），与 FY2026 年报联算三年滚动滞后 ROIIC（29.3%）与同期三年 ROIIC（20.1%）。
 - [Charlie Munger（1994）：A Lesson on Elementary, Worldly Wisdom As It Relates To Investment Management & Business](https://www.rbcbluebay.com/globalassets/documents/whats-a-share-price-worth.pdf): Charlie Munger 1994 年在南加州大学商学院演讲核心论断：长期持有股票的年化回报终将趋近于底层企业的资本回报率——若企业四十年资本回报率仅 6%，即便大幅折价买入也难逃约 6% 回报；反之若能持续数十年以 18% 复利再投资，即便买入价偏贵仍能取得可观复利结果。
 - [Berkshire Hathaway：2012 年股东信](https://www.berkshirehathaway.com/letters/2012ltr.pdf): Berkshire Hathaway：2012 年股东信，Dividends 部分，讨论业务投入、收购、回购价格与股东分配的取舍；本文采用资金用途与回购价格的比较关系，不沿用其中的估值假设或历史回购门槛。
 

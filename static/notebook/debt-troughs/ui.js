@@ -46,8 +46,8 @@
       dotY: 120.9,
       dotText: "低谷 \u221283 M",
       dotAnchor: "start",
-      dotDx: 8,
-      dotDy: 14,
+      dotDx: 10,
+      dotDy: 10,
       qstrip: "撞墙季 Y2 Q2 拆解：期初 210 ＋ 息前 FCF 15 − 利息 8 − 净还本 300（到期 400 / 仅续借 100 @ 8%）＝ 期末现金 \u221283 M；Y2 Q3 仍缺 44 M。",
       note: "② 第 2 年集中债墙：经营现金流与情景 ① 逐季完全一致，只因 400 M 本金扎堆在 Y2 Q2 到期、市场仅愿续借 100 M，账户现金当季跌穿零线至 \u221283 M；无过桥额度将被迫折价增发。",
       noteRev: "② 第 2 年集中债墙（叠加 120 M 额度）：若经营尚未触发财务契约违约，提取 83 M 循环信贷即可填平 Y2 Q2–Q3 缺口（最低可用余量 +37 M），Y2 Q4 起靠主业现金流归还。",
@@ -72,7 +72,7 @@
       dotY: 158.0,
       dotText: "低谷 \u2212254 M",
       dotAnchor: "start",
-      dotDx: 8,
+      dotDx: 12,
       dotDy: 4,
       qstrip: "撞墙季 Y2 Q2 拆解：期初 128 ＋ 息前 FCF \u221220 − 利息 12（浮息跳升至 8%）− 净还本 350（到期 400 / 仅续借 50）＝ 期末现金 \u2212254 M。",
       note: "③ 高息再融资＋回款延迟：三年总息前 FCF 仍为 +465 M，但 105 M 回款推迟三个季度，叠加浮息重定价与信用收紧，现金在 Y2 Q2 跌至 \u2212254 M 并连续四季为负，经营兑现前即触发危机。",
@@ -123,9 +123,15 @@
         r.setAttribute("class", m.h > 20 ? "e05-mbar e05-mbar-wall" : "e05-mbar");
         matGroup.appendChild(r);
         var t = document.createElementNS(ns, "text");
-        t.setAttribute("x", String(m.x));
-        t.setAttribute("y", String(168 - m.h - 3));
-        t.setAttribute("text-anchor", "middle");
+        if (m.h > 20) {
+          t.setAttribute("x", String(m.x - 11));
+          t.setAttribute("y", "162");
+          t.setAttribute("text-anchor", "end");
+        } else {
+          t.setAttribute("x", String(m.x));
+          t.setAttribute("y", String(168 - m.h - 3));
+          t.setAttribute("text-anchor", "middle");
+        }
         t.setAttribute("class", "e05-mlbl");
         t.textContent = m.label;
         matGroup.appendChild(t);

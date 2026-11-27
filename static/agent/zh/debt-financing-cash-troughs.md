@@ -28,7 +28,7 @@ This is reference material for the learner's current request. Use the supplied e
       },
       "required_unit": {
         "locator": "FY2026 Form 10-K（截至 2026-06-30）Balance Sheets、Other Income (Expense), Net、Note 10 Debt 与 Note 13 Leases。",
-        "scope": "核对 MSFT 现金及短投 76,843、账面债务 40,294（面值 46,136）、融资租赁 66,594、经营租赁 21,925、未起租数据中心承诺 3,291 亿美元，以及 EBIT 155,237 与利息支出 3,051（百万美元）。",
+        "scope": "核对 MSFT 现金及短投 76,843、账面债务 40,294（面值 46,136）、融资租赁 66,594、经营租赁 21,925、未起租数据中心承诺 3,291 亿美元，以及 EBIT 155,237 与利息支出 3,051（M 美元）。",
         "purpose": "核对净现金主表与账内租赁、表外承诺之间的层级差异，以及高安全垫下的股东回报路径。"
       },
       "title": "Microsoft Corporation：FY2026 Form 10-K（Balance Sheets、Other Income、Note 10 Debt 与 Note 13 Leases）",
@@ -62,7 +62,7 @@ This is reference material for the learner's current request. Use the supplied e
       },
       "required_unit": {
         "locator": "FY2025 Form 10-K（截至 2025-12-31，含 FY2024 比较期）Consolidated Statements、Debt、Leases 与 Shareholders’ Equity 附注。",
-        "scope": "核对 BA 2024 年 CFO −12,080、CapEx −2,230（FCF −14,310）、2024 年 10 月增发普通股净募 18,200 与强制可转优先股净募 5,657、流通股由 609.5 M 增至 749.2 M 与 784.7 M；及 2025 年末非受限现金与短投 29,400（受限现金 742）、总债务 54,098、2026 年到期 8,351 与未动用循环信贷 10,000（百万美元）。",
+        "scope": "核对 BA 2024 年 CFO −12,080、CapEx −2,230（FCF −14,310）、2024 年 10 月增发普通股净募 18,200 与强制可转优先股净募 5,657、流通股由 609.5 M 增至 749.2 M 与 784.7 M；及 2025 年末非受限现金与短投 29,400（受限现金 742）、总债务 54,098、2026 年到期 8,351 与未动用循环信贷 10,000（M 美元）。",
         "purpose": "核对高杠杆企业在现金低谷被迫大幅增发摊薄普通股的真实路径。"
       },
       "title": "The Boeing Company：FY2025 Form 10-K（Consolidated Statements、Debt、Leases 与 Shareholders’ Equity）",
@@ -97,26 +97,28 @@ This is reference material for the learner's current request. Use the supplied e
 ```
 
 ## Supplied entry
-<link rel="stylesheet" href="/notebook/flow-figures.css?v=20261127">
+<link rel="stylesheet" href="/notebook/flow-figures.css?v=20261127b">
 
-在[《投资期限与现金需要》](/zh/notebook/investment-horizon-cash/)里，个人账户只要把短期要付的钱投进波动资产，就可能在下跌低点被迫卖出；换到上市公司，同样的期限错配会以更剧烈的形式出现。[《利润、资本开支与现金》](/zh/notebook/profit-capex-cash/)已经说明，建厂、扩产与备货往往先消耗现金，回报却落在后面；[《分部、共同成本与合并》](/zh/notebook/segments-shared-costs-consolidation/)则指出，债务本息和整体资金调度通常挂在公司总部层面，由全部业务共同承担。如果企业在经营现金真正兑现之前，撞上集中到期的债务、高额利息与刚性资本付款，即便长期生意还能赚钱，普通股股东也可能先遭遇大比例折价增发，甚至面临债务重组。
+在[《投资期限与现金需要》](/zh/notebook/investment-horizon-cash/)里，个人把短期要付的钱投进波动资产，就可能在低点被迫卖出；上市公司面对的期限错配往往更剧烈。[《利润、资本开支与现金》](/zh/notebook/profit-capex-cash/)已经说明，建厂、扩产与备货总是先花现金、回报落在后面；[《分部、共同成本与合并》](/zh/notebook/segments-shared-costs-consolidation/)则指出，债务本息挂在总部层面，由全部业务共同承担。
+
+一旦经营现金还没兑现，企业却先撞上集中到期的债务、高额利息与刚性资本付款，哪怕长期生意依然赚钱，普通股股东也可能在低谷被迫承受大比例折价增发，甚至面临债务重组。
 
 ## 总债务、净债务与表外刚性义务 {#nb-e05-debt-structure}
 
-衡量一家公司背负多少刚性财务负担，不能只扫资产负债表上的“长期债务”一行。真实义务按到期紧迫度和列报位置分成四层：
+衡量一家公司的真实财务负担，不能只扫资产负债表上的“长期债务”一行。刚性义务按到期紧迫度与列报位置分成四层：
 
-- **短期借款与一年内到期长期债务**（Short-Term Debt & Current Portion of Long-Term Debt）：包括商业票据、短期银行贷款，以及未来 12 个月内必须清偿或续借的长期债券本金。前者对应周转性借款，后者一旦集中放大，便会直接把偿债期限压进眼前四个季度。
-- **长期债务**（Long-Term Debt）：一年以上到期的企业债券、银团定期贷款与金融票据。资产负债表通常列示扣除未摊销折价与发行费用后的账面净额，而企业到期须按票面本金全额兑付，核对未来还款额时要回到债务附注里的到期表。
-- **租赁负债**（Operating & Finance Lease Liabilities）：自美国会计准则 ASC 842 实施以来，融资租赁与一年以上的经营租赁都需要折现确认上表。这类刚性租金义务常常被分散归入“其他流动负债”“应付及应计费用”或“其他非流动负债”，略过附注就容易低估真实杠杆。
-- **表外刚性义务**（Off-Balance-Sheet Commitments）：包括已经签约、但设备或机房尚未交付起租的长期租赁承诺、无条件采购合约（Take-or-Pay）以及对外债务担保。它们尚未进入资产负债表数字，却会按合约时间表逐步转化为未来的现金流出。
+- **短期借款与一年内到期长期债务**（Short-Term Debt & Current Portion of Long-Term Debt）：包括商业票据、短期贷款，以及未来 12 个月内到期须清偿或续借的长期债券本金，后者一旦扎堆就会把偿债压力压进眼前四季。
+- **长期债务**（Long-Term Debt）：一年以上到期的企业债与银团贷款。主表通常列示扣除折价和发行费后的账面净额，而到期须按票面本金全额兑付，核对真实还款额要回债务附注里的到期表。
+- **租赁负债**（Operating & Finance Lease Liabilities）：自美国会计准则 ASC 842 实施后，融资租赁与一年以上经营租赁均须折现上表，但常分散在“其他流动负债”“应计费用”或“其他非流动负债”里，略过附注就容易低估杠杆。
+- **表外刚性义务**（Off-Balance-Sheet Commitments）：包括已签约但机房或设备尚未交付起租的长期租赁承诺、无条件采购合约（Take-or-Pay）及对外担保，虽未进资产负债表数字，仍会按合约陆续流出真金白银。
 
-算出总债务之后，再对照手头能自由调度的现金资产，才能得到**净债务**（Net Debt）：
+摸清总债务之后，再扣掉手头能自由调度的现金资产，才是**净债务**（Net Debt）：
 
 \[
 \text{净债务} = \text{总有息债务} - \text{非受限现金及短期投资}.
 \]
 
-<span data-text-versions id="nb-e05-text-netdebt">计算减项时有一条硬边界：**受限现金**（Restricted Cash）必须剔除。托管保证金、偿债专户存款或特定项目监管资金虽被一并计入现金流量表末尾的汇总余额，企业却无法自由挪去偿还一般债务。例如，The Boeing Company（BA）截至 2025 年末的现金流量表期末口径含受限现金 11,663 百万美元，扣掉归在投资科目里的 742 百万美元受限现金后，自由现金及等价物为 10,921 百万美元；[^ba-10k] AT&T Inc.（T）同期也在附注中单独列出 293 百万美元受限现金。[^t-10k] 另一头，只看账面债券而不翻租赁附注同样会产生巨大落差：Microsoft Corporation（MSFT）截至 2026 年 6 月 30 日持有 76,843 百万美元非受限现金及短期投资，账面有息债务仅 40,294 百万美元，表面呈现 365.5 亿美元净现金；可翻开 Note 13 Leases，账内已确认 **66,594 百万美元融资租赁负债**与 **21,925 百万美元经营租赁负债**，合共 885.2 亿美元，附注末尾还列着 **3,291 亿美元**尚未起租的数据中心等长期租赁承诺<span data-text-detail>（MSFT FY2026 债务面值为 46,136 百万美元，扣减未摊销折价及发行费用 1,081、套保公允价值调整 11 与债券置换溢价摊销项 4,750 后，账面债务为 40,294 百万美元；其融资租赁负债拆列在 Other Current Liabilities 中的 4,290 与 Other Long-term Liabilities 中的 62,304，经营租赁负债拆列在 Other Current Liabilities 中的 5,393 与 Operating Lease Liabilities 中的 16,532；3,291 亿美元未起租租赁将于 FY2027 至 FY2033 陆续起租，租期 1 至 20 年。AT&T FY2025 账面总债务 136,100 百万美元已包含 1,382 百万美元融资租赁，另将 3,581 百万美元流动经营租赁列在 Accounts Payable and Accrued Liabilities 内、18,943 百万美元非流动经营租赁单独列示，293 百万美元受限现金分列于流动资产 157 与其他非流动资产 136）</span>。[^msft-10k]<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>
+算减项时有一条硬边界：**受限现金**（Restricted Cash）不能算进来。托管保证金、偿债专户存款虽会并入现金流量表期末余额，企业却无法挪去偿还一般债务——如 **The Boeing Company**（BA）与 **AT&T Inc.**（T）2025 年末便分别剔除了 7.4 亿与 2.9 亿美元。[^ba-10k]<sup>，</sup>[^t-10k] 把三家公司的四层口径并排摊开，账面与真实的落差就很清楚：
 
 <figure class="flow-figure e05-debt-stack" id="nb-e05-debt-stack-fig">
 <div class="ff-head"><p class="ff-title">债务与流动性的四层拆解：从账面净债务到表外承诺</p><span class="ff-sub">单位：亿美元 · 取自三家公司最新 SEC Form 10-K</span></div>
@@ -152,9 +154,11 @@ This is reference material for the learner's current request. Use the supplied e
 <figcaption>净债务口径在不同机构间常有差异：比较同业杠杆时，须核对双方是否统一包含融资租赁、经营租赁与短期投资，并确认均已扣除受限现金。</figcaption>
 </figure>
 
+<span data-text-versions id="nb-e05-text-netdebt">最容易看走眼的是图里第一行：**Microsoft Corporation**（MSFT）主表看似握有 365.5 亿美元净现金，可加上 Note 13 的 885.2 亿美元账内租赁后，含租口径直接翻成净债务，表外还挂着 **3,291 亿美元**未起租数据中心承诺。[^msft-10k] 同样，T 计入经营租赁也会多出两百多亿美元净债——跨公司比较杠杆，先要对齐租赁与受限现金口径<span data-text-detail>（附注核对，单位 M 美元：BA 2025 年末现金流量表期末余额 11,663，扣减归于投资科目的 742 受限现金后，自由现金及等价物为 10,921；T 同期 293 受限现金分列于流动资产 157 与其他非流动资产 136，账面总债务 136,100 已含 1,382 融资租赁，另将 3,581 流动经营租赁列在应付及应计费用内、18,943 非流动经营租赁单列。MSFT FY2026 账面现金及短投 76,843，债务面值 46,136 扣减未摊销折价及发行费 1,081、套保公允价值调整 11 与债券置换溢价摊销项 4,750 后得账面债务 40,294；66,594 融资租赁拆列在 Other Current Liabilities 4,290 与 Other Long-term Liabilities 62,304，21,925 经营租赁拆列在 Other Current Liabilities 5,393 与 Operating Lease Liabilities 16,532；3,291 亿美元未起租租赁将于 FY2027 至 FY2033 陆续起租，租期 1 至 20 年）</span>。<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>
+
 ## 两把偿债标尺：净债务／EBITDA 与 EBIT 利息保障倍数 {#nb-e05-solvency-ratios}
 
-摸清债务存量之后，下一步是把存量放回企业每年的造血能力里比较。实务中最常用的两把标尺，分别衡量“本金要还多少年”与“利息每天付不付得起”：
+摸清债务存量之后，还要放回企业每年的造血能力里比较。实务中最常用的两把标尺，分别衡量“本金要还多少年”与“利息每天付不付得起”：
 
 \[
 \text{净债务 / EBITDA} = \frac{\text{总债务} - \text{非受限现金及短期投资}}{\text{EBIT} + \text{折旧与摊销}},
@@ -164,17 +168,18 @@ This is reference material for the learner's current request. Use the supplied e
 \text{EBIT 利息保障倍数} = \frac{\text{EBIT}}{\text{利息支出}}, \qquad \text{资本开支后利息保障} = \frac{\text{EBITDA} - \text{维持性 CapEx}}{\text{利息支出}}.
 \]
 
-**净债务／EBITDA**（Net Debt / EBITDA）把净债务除以税息折旧及摊销前利润，粗略衡量“若将全部经营现金利润用于还债，大约需要几年还清本金”。因为口径标准化、且抹平了不同公司折旧年限和税率的差异，银行贷款契约（Debt Covenants）与信用评级机构普遍拿它作红线。比如 T 在 2025 年 11 月续签的 120 亿美元循环信贷协议与 175 亿美元延迟提款定期贷款，便白纸黑字写明每季末净债务／EBITDA 不得超过 **3.75 倍**。[^t-10k]
+**净债务／EBITDA**（Net Debt / EBITDA）粗略估算“把全部经营现金利润拿去还债，大概几年能还清本金”。它抹平了不同公司折旧年限和税率的差异，口径高度标准化，因此银行贷款契约（Debt Covenants）和评级机构常拿它画红线——例如 T 的银团循环信贷协议就写明，每季末净债务／EBITDA 不得超过 **3.75 倍**。[^t-10k]
 
-然而，这把标尺存在两处极易踩空的盲区。第一处出现在**高资本开支行业**：折旧虽然当期不流出现金，但通信基站、光纤网络、矿山、机队与 AI 服务器会真实损耗；当公司每年必须持续投入接近甚至超过折旧的维持性资本开支才能保住收入，账面上显得很胖的 EBITDA 远高于实际能拿来还债的自由现金流。第二处出现在**强周期行业的景气顶点**：大宗商品、航运或化工企业在涨价高点时分母 EBITDA 骤然膨胀，杠杆倍数看似回落到 1 倍出头；一旦产品跌价、盈利回落，分子债务分毫未减，净债务／EBITDA 会在几个季度内翻倍，迅速逼近契约红线。
+不过，这把标尺在两类场景下极易失真：
 
-相比之下，**EBIT 利息保障倍数**先扣除了设备与网络的当期折旧摊销，直接检验企业日常营业利润能否稳妥覆盖利息；若维持性资本开支显著高于折旧，把分子换成 **EBITDA 减去维持性 CapEx** 会更接近真实付息能力。把这两把尺子同时量在 T 的 FY2025 财报上，差异一目了然：T 全年营业利润 24,162 百万美元、折旧摊销 20,886 百万美元，加总得 EBITDA 为 **45,048 百万美元**；当年利息支出 6,804 百万美元，账面净债务 117,866 百万美元。单看净债务／EBITDA 仅 **2.62 倍**（含经营租赁 3.12 倍），距离 3.75 倍契约上限颇有余地，EBITDA 对利息的覆盖也高达 **6.62 倍**。可是一旦扣掉真实消耗——T 同年资本开支高达 **20,842 百万美元**，几乎与折旧摊销 1 比 1 相等，直接吞掉 46.3% 的 EBITDA——EBIT 利息保障倍数便骤降至 **3.55 倍**，（EBITDA − CapEx）／利息支出同样落在 **3.56 倍**，表面安全垫缩水近一半。[^t-10k]
+- **高资本开支行业**：折旧虽不流出现金，通信基站、光纤、矿山与 AI 服务器却会真实损耗。当公司每年须投入接近甚至超过折旧的维持性资本开支才能保住收入，账面很胖的 EBITDA 远高于实际能拿来还债的现金流。
+- **强周期景气顶点**：大宗商品、航运或化工在涨价高点时分母 EBITDA 骤然膨胀，杠杆倍数看似降到 1 倍出头；一旦产品跌价盈利回落，分子债务分毫未减，倍数会在几个季度内翻倍逼近契约红线。
 
-利息保障倍数还有一个容易被静态数字掩盖的动态风险：**低息旧债到期后的再融资利率跳升**（Refinancing Shock）。企业在低利率窗口发行的债券，到期前一直按旧票息记账，使当期利息显得温和；一旦集中到期并撞上无风险利率上行或信用利差走阔，新债利息会台阶式跃升。查看 T 的 FY2025 债务附注，全组合加权利率虽为 4.2%，但 2026 至 2028 年分别有 **8,652 百万美元**（加权旧息 3.1%）、**8,953 百万美元**（3.8%）与 **6,905 百万美元**（3.2%）长债到期，三年合计 245.1 亿美元低息债；而 T 在 2025 年新发 141.1 亿美元长债的加权利率已升至 **5.0%**，2026 年 2 月 5 日新发 65 亿美元全球债券的票息更达 **5.2%**。[^t-10k] 这还是投资级电信巨头在信用平稳时的重定价幅度；倘若企业评级落入高收益区间、又赶上市场恐慌（例如 ICE BofA 美国高收益债期权调整利差在 2020 年 3 月飙至 10.87%、2008 年 12 月飙至 21.82%），再融资利率跳升叠加发行额度收缩，足以在短时间内压垮原本看似安全的覆盖倍数。[^hyoas]
+相比之下，**EBIT 利息保障倍数**先扣掉当期折旧摊销，直接检验日常营业利润够不够付息；若维持性资本开支高于折旧，把分子换成 **EBITDA 减去维持性 CapEx** 会更贴近真实付息能力。把两把尺子并排量在 T 的 FY2025 财报上，盲区与利率重定价压力就会直接显现：
 
 <figure class="flow-figure e05-ratio-bridge" id="nb-e05-ratio-bridge-fig">
-<div class="ff-head"><p class="ff-title">两把偿债标尺的差距与再融资冲击：AT&amp;T（T）FY2025 实证</p><span class="ff-sub">单位：百万美元 · 数据来自 T FY2025 Form 10-K（截至 2025-12-31）</span></div>
-<div class="e05-bgrid business-exchange" aria-label="AT&amp;T（T）FY2025 偿债标尺与再融资利率对照（百万美元）：左侧展示盈利到可付息现金的收缩：EBITDA 45,048（覆盖利息 6,804 达 6.62 倍），减去折旧摊销 20,886 或几乎等额的资本开支 20,842（占 EBITDA 46.3%）后，EBIT 为 24,162、EBITDA 减 CapEx 为 24,206，利息保障倍数骤降至 3.55 倍与 3.56 倍；同期账面净债务 117,866 对应净债务／EBITDA 2.62 倍（含经营租赁 3.12 倍），低于银行信贷契约红线 3.75 倍。右侧展示 2026 至 2030 年到期债务与旧息：2026 年 8,652（3.1%）、2027 年 8,953（3.8%）、2028 年 6,905（3.2%）、2029 年 6,918（4.6%）、2030 年 7,020（4.3%），对照 2025 年新发 14,111 债券加权利率 5.0% 与 2026 年 2 月新发 6,500 债券票息 5.2%，2026 至 2028 年合计 245.1 亿美元低息旧债面临 120 至 210 个基点的重定价抬升。">
+<div class="ff-head"><p class="ff-title">两把偿债标尺的差距与再融资冲击：AT&amp;T（T）FY2025 实证</p><span class="ff-sub">单位：M 美元 · 数据来自 T FY2025 Form 10-K（截至 2025-12-31）</span></div>
+<div class="e05-bgrid business-exchange" aria-label="AT&amp;T（T）FY2025 偿债标尺与再融资利率对照（M 美元）：左侧展示盈利到可付息现金的收缩：EBITDA 45,048（覆盖利息 6,804 达 6.62 倍），减去折旧摊销 20,886 或几乎等额的资本开支 20,842（占 EBITDA 46.3%）后，EBIT 为 24,162、EBITDA 减 CapEx 为 24,206，利息保障倍数骤降至 3.55 倍与 3.56 倍；同期账面净债务 117,866 对应净债务／EBITDA 2.62 倍（含经营租赁 3.12 倍），低于银行信贷契约红线 3.75 倍。右侧展示 2026 至 2030 年到期债务与旧息：2026 年 8,652（3.1%）、2027 年 8,953（3.8%）、2028 年 6,905（3.2%）、2029 年 6,918（4.6%）、2030 年 7,020（4.3%），对照 2025 年新发 14,111 债券加权利率 5.0% 与 2026 年 2 月新发 6,500 债券票息 5.2%，2026 至 2028 年合计 245.1 亿美元低息旧债面临 120 至 210 个基点的重定价抬升。">
 <div class="e05-bcard">
 <div class="e05-bhead"><strong>EBITDA 到可付息利润的收缩</strong><span>相对利息 6,804 M</span></div>
 <div class="e05-bars">
@@ -202,19 +207,95 @@ This is reference material for the learner's current request. Use the supplied e
 <p class="e05-refi-foot">2026–2028 年共 245.1 亿美元旧债处于 3.1%–3.8% 低息区间；按 5.1% 粗估滚续，每百亿美元将新增约 1.7 亿美元年利息。</p>
 </div>
 </div>
-<figcaption>左图按 EBITDA 45,048 百万美元为满宽；右图按 2027 年到期峰值 8,953 百万美元为满宽，2030 年后另有 106,216 百万美元（加权利率 4.3%）到期。</figcaption>
+<figcaption>左图按 EBITDA 45,048 M 美元为满宽；右图按 2027 年到期峰值 8,953 M 美元为满宽，2030 年后另有 106,216 M 美元（加权利率 4.3%）到期。</figcaption>
 </figure>
+
+<span data-text-versions id="nb-e05-text-att-ratios">先看左图：单凭 EBITDA 口径，T 的杠杆（2.62 倍）离 3.75 倍红线颇有余地，付息覆盖也高达 6.62 倍。可电信网络每年须投入几乎与折旧 1 比 1 等额的资本开支，直接吃掉近一半 EBITDA；一旦把这笔真实消耗扣掉，EBIT 与扣 CapEx 后的利息保障倍数双双缩水至 **3.55 倍**左右，安全垫远没有表面那么厚<span data-text-detail>（T FY2025 Form 10-K 核对，单位 M 美元：营业利润 24,162、折旧摊销 20,886，合得 EBITDA 45,048；全年资本开支 20,842 占 EBITDA 46.3%，扣除后 EBITDA − CapEx 为 24,206，对照利息支出 6,804，EBIT 利息保障倍数为 3.55 倍、CapEx 后覆盖为 3.56 倍；账面净债务 117,866 对应净债务／EBITDA 2.62 倍，叠入 22,524 经营租赁后升至 3.12 倍；2025 年 11 月续签的 120 亿美元循环信贷与 175 亿美元延迟提款定期贷款均设定每季末 3.75 倍上限）</span>。[^t-10k]<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>
+
+<span data-text-versions id="nb-e05-text-att-refi">再看右图暴露的动态风险：**低息旧债到期后的再融资利率跳升**（Refinancing Shock）。低利率窗口发行的债券到期前一直按旧票息记账，让当期利息显得温和；一旦集中到期撞上高利率，新债利息便台阶式抬升。T 全组合旧息虽仅 4.2%，2026 至 2028 年却有 **245.1 亿美元**低息旧债待续借，对照近期 **5.0%–5.2%** 新发利率，利息负担会逐年走高<span data-text-detail>（T FY2025 债务附注到期阶梯，单位 M 美元：2026 年到期 8,652［加权旧息 3.1%］、2027 年 8,953［3.8%］、2028 年 6,905［3.2%］，三年合计 245.1 亿美元；2025 年新发 14,111 长债加权利率已升至 5.0%，2026 年 2 月 5 日新发 6,500 全球债票息达 5.2%，按 5.1% 粗估重定价，每百亿美元将新增约 1.7 亿美元年利息）</span>。[^t-10k]<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>
+
+这还只是投资级电信巨头在信用平稳时的重定价幅度。一旦企业评级落入高收益区间、又赶上市场恐慌——例如 ICE BofA 美国高收益债期权调整利差在 2020 年 3 月冲上 10.87%、2008 年 12 月飙至 21.82%——利率跳升叠加发行额度收缩，足以在短时间内击穿原本看似稳妥的覆盖倍数。[^hyoas]
 
 ## 债务到期墙、循环信贷与现金低谷 {#nb-e05-cash-trough}
 
-年度偿债比率即使看起来过关，企业依然可能在某几个季度里突然熄火。原因在于，债务本息和资本开支必须按日历准点付款，而经营现金流却可能因交付排期、备货周期或客户拖延回款集中在后半程才到账。当大额本金扎堆在同一时间窗到期——即**债务到期墙**（Maturity Wall）——又恰逢回款推迟与信用收紧导致旧债无法全额续借，公司就会在经营兑现之前撞上**现金低谷**（Cash Trough）。
+年度偿债比率即使看起来过关，企业依然可能在某几个季度里突然熄火。债务本息和资本开支按日历准点扣款，经营现金流却可能因交付排期、备货积压或客户延迟回款落在后半程。当大额本金扎堆在同一时间窗到期——即**债务到期墙**（Maturity Wall）——又碰上回款推迟与信用收紧，公司就会在经营兑现前撞上**现金低谷**（Cash Trough）。
 
-为了防范这种短期错配，上市公司通常会向银团申请**循环信贷额度**（Revolving Credit Facility），平时不提款、仅付极低的承诺费（例如 T 按信用评级支付每年 0.06% 至 0.08% 的承诺费），遇到季度资金缺口时随借随还。[^t-10k] 但循环信贷绝非无条件兜底：协议里通常捆绑了季度财务契约，一旦盈利恶化令净债务／EBITDA 突破上限，银行有权拒绝放款甚至宣布既有借款加速到期——企业越缺钱的时刻，额度反而越可能被锁死。
+为防这类短期错配，上市公司通常会向银团申请**循环信贷额度**（Revolving Credit Facility），平时不提款、只付极低承诺费（如 T 每年仅付 0.06% 至 0.08%），缺钱时随借随还。[^t-10k] 但额度并非无条件兜底：协议通常捆绑季度财务契约，一旦盈利滑坡令净债务／EBITDA 破线，银行有权拒放甚至要求加速到期——企业越缺钱，额度反而越容易被锁死。
 
-下面的 12 季度模拟器把同一家公司放进三种融资与回款环境里。三种情景下，公司期初均持有 **180 百万美元**非受限现金、背负 **800 百万美元**债务（初始年利率 4.0%，即每季利息 8 百万美元），未来三年累计息前自由现金流也**同为 +465 百万美元**，并且同样有 400 百万美元本金在三年内到期；唯一的区别，在于到期节奏、再融资条件与回款时点。点击上方按钮切换三种情景，或开启 **120 百万美元循环信贷**开关，直接观察现金曲线怎样穿过零线：
+<figure class="flow-figure e05-refi-chain" id="nb-e05-refi-chain-fig">
+<div class="ff-head"><p class="ff-title">流动性危机的四步传导链：债墙怎样一步步压向普通股</p><span class="ff-sub">上方：高杠杆叠加到期墙的顺周期失效 · 下方：净现金与梯度到期的反周期对照</span></div>
+<div class="rel-svg-wrap business-exchange" aria-label="企业流动性危机四步传导链与净现金对照：上方风险传导链：第一步现金流出撞车，低息旧债集中到期叠加备货积压或回款推迟，企业先于盈利兑现撞上现金低谷；第二步触发财务契约红线，EBITDA 回落而净债务抬升，净债务除以 EBITDA 冲破银行信贷上限（如 3.75 倍），评级紧贴或跌破投资级门槛；第三步银行冻结循环信贷，契约违约引发顺周期收紧，银行拒放款或要求加速到期，原本以为能兜底的额度在最缺钱时反而失去效用；第四步普通股被迫承压，高息续借吞噬未来利润，或被迫于低谷折价增发，如 BA 2024 年 10 月折价增发募资 238.6 亿美元令普通股本暴增 22.9%。下方绿色对照路径：净现金叠加梯度到期（如 MSFT 有 74.5% 债务锁定在 FY31 后），远离契约红线与再融资挤兑，低谷期从容投资回购、流通股数不升反降。">
+<svg viewBox="0 0 860 305" role="img" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <marker id="e05-rc-amber" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse">
+      <path d="M1,1.5 L9,5 L1,8.5 Z" fill="#a8743f"/>
+    </marker>
+    <marker id="e05-rc-red" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse">
+      <path d="M1,1.5 L9,5 L1,8.5 Z" fill="#b44c33"/>
+    </marker>
+    <marker id="e05-rc-sage" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse">
+      <path d="M1,1.5 L9,5 L1,8.5 Z" fill="#23695a"/>
+    </marker>
+  </defs>
+  <rect x="0" y="0" width="860" height="305" rx="8" fill="#fafaf6"/>
+  <text x="16" y="25" font-size="12" font-weight="700" fill="#8f3622">风险传导链 · 高杠杆撞上集中债墙与回款推迟时，危机如何层层转嫁给普通股</text>
+  <rect x="14" y="36" width="184" height="140" rx="10" fill="#ffffff" stroke="#dfb98d" stroke-width="1.3"/>
+  <rect x="26" y="46" width="160" height="24" rx="5" fill="#f4e5d2"/>
+  <text x="106" y="62" text-anchor="middle" font-size="12" font-weight="700" fill="#8d5520">① 现金流出撞车</text>
+  <text x="106" y="90" text-anchor="middle" font-size="11" fill="#2e3c36">低息旧债集中到期</text>
+  <text x="106" y="107" text-anchor="middle" font-size="11" fill="#2e3c36">＋ 备货积压／回款推迟</text>
+  <line x1="28" y1="120" x2="184" y2="120" stroke="#eaede5"/>
+  <text x="106" y="138" text-anchor="middle" font-size="10" fill="#66736c">季度现金流出远超经营流入</text>
+  <text x="106" y="155" text-anchor="middle" font-size="10" font-weight="600" fill="#8d5520">先于盈利兑现撞上现金低谷</text>
+  <rect x="230" y="40" width="184" height="140" rx="10" fill="#ffffff" stroke="#e0aa96" stroke-width="1.3"/>
+  <rect x="242" y="50" width="160" height="24" rx="5" fill="#f8e8e0"/>
+  <text x="322" y="66" text-anchor="middle" font-size="12" font-weight="700" fill="#9c4228">② 触发财务契约红线</text>
+  <text x="322" y="94" text-anchor="middle" font-size="11" fill="#2e3c36">EBITDA 回落、净债务抬升</text>
+  <text x="322" y="111" text-anchor="middle" font-size="11" font-weight="600" fill="#9c4228">净债务／EBITDA 冲破上限</text>
+  <line x1="244" y1="124" x2="400" y2="124" stroke="#eaede5"/>
+  <text x="322" y="142" text-anchor="middle" font-size="10" fill="#66736c">如银行贷款常见 3.75× 红线</text>
+  <text x="322" y="159" text-anchor="middle" font-size="10" font-weight="600" fill="#9c4228">评级紧贴或跌破投资级门槛</text>
+  <rect x="446" y="44" width="184" height="140" rx="10" fill="#ffffff" stroke="#d89a89" stroke-width="1.3"/>
+  <rect x="458" y="54" width="160" height="24" rx="5" fill="#f9e3dc"/>
+  <text x="538" y="70" text-anchor="middle" font-size="12" font-weight="700" fill="#a1432c">③ 银行冻结循环信贷</text>
+  <text x="538" y="98" text-anchor="middle" font-size="11" fill="#2e3c36">契约违约引发顺周期收紧</text>
+  <text x="538" y="115" text-anchor="middle" font-size="11" fill="#2e3c36">银行拒放款或要求加速到期</text>
+  <line x1="460" y1="128" x2="616" y2="128" stroke="#eaede5"/>
+  <text x="538" y="146" text-anchor="middle" font-size="10" fill="#66736c">原本以为能兜底的信贷额度</text>
+  <text x="538" y="163" text-anchor="middle" font-size="10" font-weight="600" fill="#a1432c">在最缺钱时反而失去效用</text>
+  <rect x="662" y="48" width="184" height="140" rx="10" fill="#fdf4f1" stroke="#b44c33" stroke-width="1.5"/>
+  <rect x="674" y="58" width="160" height="24" rx="5" fill="#b44c33"/>
+  <text x="754" y="74" text-anchor="middle" font-size="12" font-weight="700" fill="#ffffff">④ 普通股被迫承压</text>
+  <text x="754" y="102" text-anchor="middle" font-size="11" fill="#2e3c36">高息续借吞噬未来利润</text>
+  <text x="754" y="119" text-anchor="middle" font-size="11" font-weight="600" fill="#8f3622">或被迫于低谷折价增发</text>
+  <line x1="676" y1="132" x2="832" y2="132" stroke="#ead3cb"/>
+  <text x="754" y="150" text-anchor="middle" font-size="10" fill="#6e2918">如 BA 2024-10 折价增发募资</text>
+  <text x="754" y="167" text-anchor="middle" font-size="9.8" font-weight="700" fill="#a1432c">238.6 亿美元 · 股本暴增 +22.9%</text>
+  <path d="M198,106 C212,106 212,110 226,110" fill="none" stroke="#a8743f" stroke-width="2" marker-end="url(#e05-rc-amber)"/>
+  <path d="M414,110 C428,110 428,114 442,114" fill="none" stroke="#b44c33" stroke-width="2" marker-end="url(#e05-rc-red)"/>
+  <path d="M630,114 C644,114 644,118 658,118" fill="none" stroke="#b44c33" stroke-width="2" marker-end="url(#e05-rc-red)"/>
+  <line x1="14" y1="200" x2="846" y2="200" stroke="#e2e5dc" stroke-width="1.2" stroke-dasharray="5,4"/>
+  <rect x="14" y="211" width="832" height="83" rx="10" fill="#edf6f1" stroke="#b3d3c4" stroke-width="1.2"/>
+  <rect x="24" y="226" width="234" height="58" rx="7" fill="#ffffff" stroke="#b3d3c4" stroke-width="1.1"/>
+  <text x="141" y="247" text-anchor="middle" font-size="11.5" font-weight="700" fill="#1f5c4e">对照路径 · 净现金＋梯度到期</text>
+  <text x="141" y="268" text-anchor="middle" font-size="10.5" fill="#4b5952">如 MSFT：74.5% 债务锁定在 FY31 后</text>
+  <rect x="306" y="223" width="234" height="58" rx="7" fill="#ffffff" stroke="#b3d3c4" stroke-width="1.1"/>
+  <text x="423" y="244" text-anchor="middle" font-size="11.5" font-weight="700" fill="#1f5c4e">远离契约红线与再融资挤兑</text>
+  <text x="423" y="265" text-anchor="middle" font-size="10.5" fill="#4b5952">重资本周期仍有充裕现金流托底</text>
+  <rect x="588" y="220" width="248" height="58" rx="7" fill="#23695a"/>
+  <text x="712" y="241" text-anchor="middle" font-size="11.5" font-weight="700" fill="#ffffff">低谷期从容投资回购 · 股数反降</text>
+  <text x="712" y="262" text-anchor="middle" font-size="10.5" fill="#d9efe4">不仅免受稀释，还逆周期增厚每股份额</text>
+  <path d="M258,255 C278,255 282,252 302,252" fill="none" stroke="#23695a" stroke-width="2" marker-end="url(#e05-rc-sage)"/>
+  <path d="M540,252 C560,252 564,249 584,249" fill="none" stroke="#23695a" stroke-width="2" marker-end="url(#e05-rc-sage)"/>
+</svg>
+</div>
+<figcaption>债务合约按季度刚性兑付：流动性缺口一旦撞破契约红线，循环信贷会从安全垫变成顺周期加速器，最终把账单转嫁给普通股股东。</figcaption>
+</figure>
+
+下面的 12 季度模拟器把同一家公司放进三种环境：期初均持有 **180 M 美元**现金、背负 **800 M 美元**债务（初始年利率 4.0%），三年累计息前自由现金流也**同为 +465 M 美元**，到期本金同为 400 M 美元；差别只在到期节奏、再融资条件与回款时点。点击上方按钮切换情景，或叠加 **120 M 美元循环信贷**，看看现金曲线怎样跌穿零线：
 
 <figure class="flow-figure e05-trough-lab" id="nb-e05-trough-lab" data-e05-trough>
-<div class="ff-head"><p class="ff-title">企业现金低谷与债务到期墙模拟器（未来 12 个季度）</p><span class="ff-sub">单位：百万美元 · 三种情景三年总息前 FCF 同为 +465 · 教学简化模型</span></div>
+<div class="ff-head"><p class="ff-title">企业现金低谷与债务到期墙模拟器（未来 12 个季度）</p><span class="ff-sub">单位：M 美元 · 三种情景三年总息前 FCF 同为 +465 · 教学简化模型</span></div>
 <div class="e05-controls" hidden>
 <div class="e05-scens"><button type="button" data-e05-scen="ladder">① 梯度分散到期</button><button type="button" data-e05-scen="wall">② 第 2 年集中债墙</button><button type="button" data-e05-scen="shock" aria-pressed="true">③ 高息再融资＋回款延迟</button></div>
 <button type="button" class="e05-rev-btn" data-e05-revolver aria-pressed="false">叠加 120 M 循环信贷额度</button>
@@ -225,21 +306,21 @@ This is reference material for the learner's current request. Use the supplied e
 <div class="e05-kpi"><span>期末现金 / 债务</span><strong data-e05-k="end">+177 / 450 M</strong></div>
 <div class="e05-kpi"><span>流动性判定</span><strong class="e05-t-bad" data-e05-k="status">击穿零线 · 被迫稀释或违约</strong></div>
 </div>
-<div class="e05-chart-wrap business-exchange" aria-label="12 季度企业可动用现金余额轨迹对比（单位：百万美元；期初现金 180，总债务 800，三年累计息前自由现金流同为 +465，到期本金同为 400）：情景一梯度分散到期（每三季左右到期 100，前期平价续借、后期现金清偿），全程现金最低 +179（Y1 Q2），期末现金 +354、债务降至 600，完全安全；情景二第 2 年集中债墙（Y2 Q2 单季到期 400、仅续借 100 须净还本 300），尽管逐季经营现金流与情景一相同，Y2 Q2 现金仍跌破零线至 −83、Y2 Q3 为 −44，但若契约未违约可由 120 M 循环信贷过桥脱险（最低可用 +37）；情景三高息再融资叠加回款延迟（105 M 回款由 Y1 Q4–Y2 Q2 推迟至 Y3 Q1–Q3，400 M 浮息债务利率由 4% 跳至 8%，Y2 Q2 仅续借 50），现金暴跌至 −254 且连续四个季度为负，即使叠加 120 M 循环信贷仍短缺 134 并面临契约冻结，在第 3 年盈利到来前即被迫折价增发或重组。">
+<div class="e05-chart-wrap business-exchange" aria-label="12 季度企业可动用现金余额轨迹对比（单位：M 美元；期初现金 180，总债务 800，三年累计息前自由现金流同为 +465，到期本金同为 400）：情景一梯度分散到期（每三季左右到期 100，前期平价续借、后期现金清偿），全程现金最低 +179（Y1 Q2），期末现金 +354、债务降至 600，完全安全；情景二第 2 年集中债墙（Y2 Q2 单季到期 400、仅续借 100 须净还本 300），尽管逐季经营现金流与情景一相同，Y2 Q2 现金仍跌破零线至 −83、Y2 Q3 为 −44，但若契约未违约可由 120 M 循环信贷过桥脱险（最低可用 +37）；情景三高息再融资叠加回款延迟（105 M 回款由 Y1 Q4–Y2 Q2 推迟至 Y3 Q1–Q3，400 M 浮息债务利率由 4% 跳至 8%，Y2 Q2 仅续借 50），现金暴跌至 −254 且连续四个季度为负，即使叠加 120 M 循环信贷仍短缺 134 并面临契约冻结，在第 3 年盈利到来前即被迫折价增发或重组。">
 <svg class="e05-svg" viewBox="0 0 600 196" role="img" aria-hidden="true">
 <rect class="e05-danger-bg" x="40" y="102.9" width="540" height="65.1"/>
 <line class="e05-grid" x1="40" y1="37.7" x2="580" y2="37.7"/>
 <line class="e05-grid" x1="40" y1="70.3" x2="580" y2="70.3"/>
 <line class="e05-zero" x1="40" y1="102.9" x2="580" y2="102.9"/>
 <line class="e05-grid" x1="40" y1="135.4" x2="580" y2="135.4"/>
-<line class="e05-rev-line" data-e05-rev-line x1="40" y1="128.9" x2="580" y2="128.9" style="display:none"/>
-<text class="e05-rev-lbl" data-e05-rev-label x="576" y="124.5" text-anchor="end" style="display:none">120 M 循环信贷底线</text>
-<g data-e05-mats><rect x="301" y="136" width="14" height="32" rx="2" class="e05-mbar e05-mbar-wall"/><text x="308" y="133" text-anchor="middle" class="e05-mlbl">400 债墙</text></g>
+<line class="e05-rev-line" data-e05-rev-line="" x1="40" y1="128.9" x2="580" y2="128.9" style="display:none"/>
+<text class="e05-rev-lbl" data-e05-rev-label="" x="576" y="124.5" text-anchor="end" style="display:none">120 M 循环信贷底线</text>
+<g data-e05-mats=""><rect x="301" y="136" width="14" height="32" rx="2" class="e05-mbar e05-mbar-wall"/><text x="297" y="162" text-anchor="end" class="e05-mlbl">400 债墙</text></g>
 <polyline class="e05-path e05-p-ladder e05-line-dim" data-e05-line="ladder" points="44.0,63.8 88.0,63.3 132.0,64.0 176.0,62.5 220.0,59.9 264.0,57.3 308.0,55.7 352.0,47.7 396.0,59.2 440.0,46.6 484.0,32.9 528.0,41.0 572.0,26.0"/>
 <polyline class="e05-path e05-p-wall e05-line-dim" data-e05-line="wall" points="44.0,63.8 88.0,63.3 132.0,64.0 176.0,62.5 220.0,59.9 264.0,57.3 308.0,120.9 352.0,112.4 396.0,101.8 440.0,89.0 484.0,75.1 528.0,61.2 572.0,46.2"/>
 <polyline class="e05-path e05-p-shock e05-line-active" data-e05-line="shock" points="44.0,63.8 88.0,63.3 132.0,64.0 176.0,63.3 220.0,69.2 264.0,75.1 308.0,158.0 352.0,150.2 396.0,140.2 440.0,120.4 484.0,99.6 528.0,78.8 572.0,64.4"/>
-<circle class="e05-dot e05-dot-shock" data-e05-dot cx="308.0" cy="158.0" r="4.5"/>
-<text class="e05-dotlbl e05-dotlbl-shock" data-e05-dot-label x="316" y="162" text-anchor="start">低谷 −254 M</text>
+<circle class="e05-dot e05-dot-shock" data-e05-dot="" cx="308.0" cy="158.0" r="4.5"/>
+<text class="e05-dotlbl e05-dotlbl-shock" data-e05-dot-label="" x="320" y="162" text-anchor="start">低谷 −254 M</text>
 <text class="e05-axis-lbl" x="36" y="40.7" text-anchor="end">+300</text>
 <text class="e05-axis-lbl" x="36" y="73.3" text-anchor="end">+150</text>
 <text class="e05-zero-lbl" x="36" y="105.9" text-anchor="end">0</text>
@@ -259,21 +340,15 @@ This is reference material for the learner's current request. Use the supplied e
 <figcaption>浅红阴影区表示账户现金跌破零线；实线为当前所选情景，虚线保留另外两条轨迹作同口径参照。情景 ② 与 ③ 的第 3 年均能带来丰厚现金流入，却可能倒在 Y2 Q2 这一关口。</figcaption>
 </figure>
 
-沿着三条曲线对照，一条极易在估值模型里漏掉的规则浮出水面：看三年的累计利润或三年自由现金流加总，三种情景对应的都是同一家会赚钱的企业；可债务合约按季结算，从不给企业“先赊到第 3 年再补上”的宽限。情景 ① 把 400 百万美元分散成四笔 100 百万美元，现金全程高于 179 百万美元；情景 ② 逐季业务一字未改，只因债务全堆在 Y2 Q2 到期，现金便跌穿零线至 −83 百万美元，必须依靠未触及契约红线的循环信贷勉强过桥；情景 ③ 再叠加 105 百万美元客户回款推迟与浮息跳升，现金缺口瞬间扩大到 −254 百万美元，既击穿全部授信额度，又可能触发契约冻结。企业活不到盈利兑现的那一年，普通股就会在谷底被迫让出大片股权。
+三条曲线并排对照，暴露出估值模型里常被忽略的硬约束：按三年累计现金流看，三种情景是同一家赚钱的企业，可债务按季清算，从不给“先赊到第 3 年再补上”的宽限。梯度到期能守住安全垫，集中债墙只能靠未违约的循环信贷勉强过桥；一旦再叠加回款推迟与利率跳升，现金缺口在盈利兑现前就会击穿全部额度，迫使普通股在谷底让出股权。
 
 ## 净现金与高杠杆的分叉：MSFT FY26 对照 BA FY24–FY25 {#nb-e05-real-cases}
 
-把这套时间线放进两家真实上市公司的 SEC 年报，就能直观看到资产负债表结构怎样决定普通股股东的命运。这里对照两家在各自行业同样面对巨额资金支出的巨头：正在密集建设 AI 数据中心的 **Microsoft**（MSFT），以及在交付受阻与停工冲击下穿越 2024 年现金低谷的 **The Boeing Company**（BA）。
-
-先看 MSFT。FY2026（截至 2026 年 6 月 30 日），MSFT 砸下高达 **1,159.5 亿美元**固定资产资本开支，同时账面仍持有 **768.4 亿美元**非受限现金及短期投资，远高于 **402.9 亿美元**账面有息债务（净现金 365.5 亿美元）。债务到期安排同样极度平缓：461.4 亿美元债务面值中，FY2027 到期 92.5 亿美元，FY2028 至 FY2031 合计仅 25.0 亿美元，高达 **74.5%**（343.9 亿美元）锁定在 FY2031 之后。当期营业利润 1,552.4 亿美元、利息支出仅 30.5 亿美元（EBIT 利息保障倍数 **50.9 倍**），且账面现金与投资产生的利息及股息收入（33.0 亿美元）还略高于全部利息支出。即便计入 Note 13 披露的 885.2 亿美元账内租赁，含租净债务对 EBITDA（1,937.7 亿美元）的比率也仅 **0.27 倍**。这套厚实缓冲使 MSFT 在重资本投入年份照样完成 264.5 亿美元分红与 222.7 亿美元回购，期末流通普通股由 7,434 百万股微降至 **7,427 百万股**，股东份额不仅未被摊薄，还在继续增厚。[^msft-10k]<sup>，</sup>[^msft-ex]
-
-<span data-text-versions id="nb-e05-text-dilution">再看 BA。2024 年受交付放缓与停工拖累，BA 全年营业亏损扩大至 **−107.1 亿美元**，仅存货积压一项就吃掉 123.5 亿美元现金，经营现金流落至 **−120.8 亿美元**，叠加 22.3 亿美元资本开支，全年自由现金流大亏 **−143.1 亿美元**。与此同时，账面总债务高达 **538.6 亿美元**，年利息及债务费用 27.3 亿美元，信用评级紧贴投资级底线。眼看继续失血将撞上现金低谷并丢失投资级融资渠道，BA 于 2024 年 10 月末被迫在股价低谷期紧急筹集 **238.6 亿美元**权益类资金：一方面增发 **1.294 亿股**普通股（净募 182.0 亿美元），另一方面发行 **575 万股** 6.00% A 系列强制可转优先股（净募 56.6 亿美元，每年还须支付 3.45 亿美元优先股息，并将在 2027 年 10 月强制转为 3,351 万至 4,022 万股普通股）。单此一轮融资，BA 期末流通普通股便从 2023 年末的 **6.095 亿股**暴增至 2024 年末的 **7.492 亿股**，老股东持股比例一年被永久摊薄 **22.9%**；2025 年末又因并购 Spirit AeroSystems 发行库存股升至 **7.847 亿股**<span data-text-detail>（据 BA FY2025 Form 10-K Shareholders’ Equity 附注：2024 年 10 月 30 日从库存股增发 129,375,000 股普通股，扣减承销及发行费后附注净额 18,181 百万美元、现金流量表口径 18,200 百万美元；10 月 31 日发行 115,000,000 份存托股份代表 5,750,000 股 6.00% A 系列强制可转优先股，每股清算优先权 1,000 美元、合计 5,750 百万美元，附注净额 5,651 百万美元、现金流量表口径 5,657 百万美元，将于 2027 年 10 月 15 日按届时普通股均价自动以每股 5.8280 股［均价高于 171.59 美元］至 6.9940 股［均价低于 142.98 美元］的比率强制转为普通股；2025 年 12 月 8 日再从库存股发行 22,977,008 股用于换股收购 Spirit AeroSystems）</span>。[^ba-10k]<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>
-
-这场巨额权益融资帮 BA 渡过了 2024 年末的流动性悬崖，截至 2025 年末账面非受限现金及短期投资回升至 **294.0 亿美元**，另备 100 亿美元未动用循环信贷；可债务压力尚未解除——总债务仍在 **541.0 亿美元**（净债务 247.0 亿美元），2026 年迎面便是一道 **83.5 亿美元**的到期债墙（其中 59.0 亿美元是票息仅 2.20%–2.50% 的低息旧债），而 2025 年全年经营现金流仅 10.7 亿美元、扣除 29.4 亿美元资本开支后自由现金流仍为 **−18.8 亿美元**，利息费用 27.7 亿美元加上 3.45 亿美元优先股息依旧沉重。老股东虽然保住了公司存续，却把未来复苏后超过五分之一的每股收益永久分给了危机中入场的增发资金。[^ba-10k]
+把这套传导链放进真实 10-K，资产负债表如何改写普通股命运就能一眼看清。下面对照两家同样背负巨额资金压力的巨头：密集建设 AI 数据中心的 **MSFT**，与穿越 2024 年交付停工低谷的 **BA**：
 
 <figure class="flow-figure e05-case-compare" id="nb-e05-case-compare-fig">
-<div class="ff-head"><p class="ff-title">资产负债表抗压分叉：Microsoft（MSFT）FY26 vs Boeing（BA）FY24–FY25</p><span class="ff-sub">单位：百万美元 · 数据来自两家公司 SEC Form 10-K 原件</span></div>
-<div class="e05-cgrid business-exchange" aria-label="Microsoft（MSFT）FY2026 与 Boeing（BA）FY2024–FY2025 债务结构与股东结果对照（百万美元）：一、MSFT（截至 2026-06-30）：非受限现金及短投 76,843、账面债务 40,294、净现金 36,549（另含账内租赁 88,519，含租净债务／EBITDA 仅 0.27 倍，EBIT 利息保障 50.9 倍）；46,136 债务面值中 74.5%（34,385）于 FY2031 后到期；全年砸下 115,948 资本开支后仍完成派息 26,445 与回购 22,271，流通普通股由 7,434 百万股微降至 7,427 百万股。二、BA（2024 至 2025 年）：2024 年自由现金流 −14,310，2024 年 10 月被迫增发普通股净募 18,200 与 6.00% 强制可转优先股净募 5,657；流通普通股由 2023 年末 609.5 百万股激增至 2024 年末 749.2 百万股（+22.9%）与 2025 年末 784.7 百万股（2027 年还将强制再转股 33.5 至 40.2 百万股）；2025 年末非受限现金及短投 29,400（剔除受限 742）、总债务 54,098、净债务 24,698、2026 年到期债墙 8,351（含 5,899 低息旧债），2025 年自由现金流仍为 −1,877。">
+<div class="ff-head"><p class="ff-title">资产负债表抗压分叉：Microsoft（MSFT）FY26 vs Boeing（BA）FY24–FY25</p><span class="ff-sub">单位：M 美元 · 数据来自两家公司 SEC Form 10-K 原件</span></div>
+<div class="e05-cgrid business-exchange" aria-label="Microsoft（MSFT）FY2026 与 Boeing（BA）FY2024–FY2025 债务结构与股东结果对照（M 美元）：一、MSFT（截至 2026-06-30）：非受限现金及短投 76,843、账面债务 40,294、净现金 36,549（另含账内租赁 88,519，含租净债务／EBITDA 仅 0.27 倍，EBIT 利息保障 50.9 倍）；46,136 债务面值中 74.5%（34,385）于 FY2031 后到期；全年砸下 115,948 资本开支后仍完成派息 26,445 与回购 22,271，流通普通股由 7,434 M 股微降至 7,427 M 股。二、BA（2024 至 2025 年）：2024 年自由现金流 −14,310，2024 年 10 月被迫增发普通股净募 18,200 与 6.00% 强制可转优先股净募 5,657；流通普通股由 2023 年末 609.5 M 股激增至 2024 年末 749.2 M 股（+22.9%）与 2025 年末 784.7 M 股（2027 年还将强制再转股 33.5 至 40.2 M 股）；2025 年末非受限现金及短投 29,400（剔除受限 742）、总债务 54,098、净债务 24,698、2026 年到期债墙 8,351（含 5,899 低息旧债），2025 年自由现金流仍为 −1,877。">
 <div class="e05-ccard" style="--e05-c:#23695a;--e05-nbg:#edf6f1;--e05-ntxt:#22392f">
 <div class="e05-chead"><strong>Microsoft（MSFT）· FY2026</strong><small>截至 2026-06-30 · 净现金缓冲＋超长久期债务</small></div>
 <div class="e05-csec"><div class="e05-csec-t">流动性与偿债能力</div><div class="e05-citems">
@@ -304,22 +379,28 @@ This is reference material for the learner's current request. Use the supplied e
 <figcaption>对比显示：同样面对百亿美元级现金压力，净现金与长久期债务让 MSFT 得以逆周期回购，高杠杆叠加经营低谷则迫使 BA 永久稀释普通股。MSFT 仍需持续跟踪其 3,291 亿美元未起租数据中心承诺的兑现节奏。</figcaption>
 </figure>
 
-核对 BA 的 FY2025 利润表时，还有一个很容易误导偿债判断的细节：BA 2025 年账面营业利润突然由负转正至 **+4,281 百万美元**，仿佛盈利已经覆盖 2,771 百万美元利息；翻开现金流量表与附注才会发现，其中包含了一笔 **9,672 百万美元**的一次性资产处置净收益，剔除这笔不可持续的卖资产收入后，主业营业利润与自由现金流均仍为负值。[^ba-10k] 怎样把这类一次性特殊项目、非 GAAP 调整与经常性盈利拆干净，正是下一篇[《盈利质量与可比口径》](/zh/notebook/earnings-quality-comparability/)要解决的问题。
+<span data-text-versions id="nb-e05-text-msft">先看左卡的 **MSFT**。FY2026 公司砸下上千亿美元 AI 资本开支，普通股却毫无压力，靠的是三层缓冲同时发力：账面净现金叠加上千亿美元经营现金流，令利息与股息收入甚至反超全部利息支出；近四分之三债务面值锁定在 FY2031 之后，几乎没有近端债墙；即便并入 885.2 亿美元账内租赁，含租杠杆仍仅 **0.27 倍**，使公司在重投入年份照常分红回购、流通股不升反降<span data-text-detail>（MSFT FY2026 Form 10-K 与 EX-99.1 核对，单位 M 美元：经营现金流 182,935、固定资产资本开支 115,948、营业利润 155,237、EBITDA 193,771、利息支出 3,051［EBIT 利息保障 50.9 倍］、利息及股息收入 3,301；46,136 债务面值中 FY2027 到期 9,250、FY2028 至 FY2031 合计仅 2,501、FY2031 之后到期 34,385［占 74.5%］；全年派息 26,445、回购 22,271，期末流通普通股由 7,434 M 股微降至 7,427 M 股）</span>。[^msft-10k]<sup>，</sup>[^msft-ex]<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>
 
-<script src="/notebook/debt-troughs/ui.js?v=20261127" defer></script>
+<span data-text-versions id="nb-e05-text-dilution">再看右卡的 **BA**。2024 年交付受阻叠加停工，单是存货积压就消耗 123.5 亿美元现金，自由现金流大亏 **−143.1 亿美元**，评级紧贴投资级底线。为了守住投资级融资窗口，BA 于 2024 年 10 月股价低谷被迫增发普通股与强制可转优先股，募资 **238.6 亿美元**；老股东份额一年被永久摊薄 **22.9%**，次年换股并购又继续推高股本<span data-text-detail>（BA FY2025 Form 10-K 核对：2024 年营业亏损 −107.1 亿美元、经营现金流 −120.8 亿美元、资本开支 22.3 亿美元，年末总债务 538.6 亿美元、利息及债务费用 27.3 亿美元。据 Shareholders’ Equity 附注：2024 年 10 月 30 日从库存股增发 129,375,000 股普通股，扣承销及发行费后附注净额 18,181 M 美元、现金流量表口径 18,200 M 美元；10 月 31 日发行 115,000,000 份存托股份代表 5,750,000 股 6.00% A 系列强制可转优先股，每股清算优先权 1,000 美元、合计 5,750 M 美元，附注净额 5,651 M 美元、现金流量表口径 5,657 M 美元，每年须付 3.45 亿美元优先股息，并将于 2027 年 10 月 15 日按届时均价自动以每股 5.8280 股［均价高于 171.59 美元］至 6.9940 股［均价低于 142.98 美元］转为 3,351 万至 4,022 万股普通股；期末流通普通股由 2023 年末 6.095 亿股激增至 2024 年末 7.492 亿股，2025 年 12 月 8 日再发 22,977,008 股换股收购 Spirit AeroSystems，期末升至 7.847 亿股）</span>。[^ba-10k]<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>
 
-[^msft-10k]: Microsoft Corporation，[FY2026 Form 10-K](https://www.sec.gov/Archives/edgar/data/789019/000119312526323660/msft-20260630.htm)（2026-07-29 提交，截至 2026-06-30），Consolidated Balance Sheets、Other Income (Expense), Net、Note 10 Debt 与 Note 13 Leases（含 66,594 百万美元融资租赁、21,925 百万美元经营租赁及 329.1 十亿美元未起租数据中心等租赁承诺）。
-[^msft-ex]: Microsoft Corporation，[FY2026 Q4 及全财年业绩公告（EX-99.1）](https://www.sec.gov/Archives/edgar/data/789019/000119312526323632/msft-ex99_1.htm)，2026-07-29，经营现金流 182,935、固定资产资本开支 −115,948、分红 −26,445 与回购 −22,271 百万美元。
+这轮巨额融资帮 BA 跨过了 2024 年末的流动性悬崖，债务存量本身依然压在账上。2025 年主业自由现金流仍未转正，2026 年迎面又是一道 **83.5 亿美元**债墙（其中逾七成是 2.20%–2.50% 的低息旧债），每年逾 31 亿美元的利息与优先股息依旧沉重；老股东保住了公司存续，代价是把未来复苏后超过五分之一的每股收益永久分给了增发资金。[^ba-10k]
+
+读 BA 的 FY2025 利润表时，还要警惕一个误导偿债判断的细节：账面营业利润看似转正至 **+4,281 M 美元**，仿佛足以覆盖当年利息；翻开现金流量表才会发现，其中包含 **9,672 M 美元**一次性资产处置收益，剔除后主业盈利与自由现金流均仍为负值。[^ba-10k] 怎样把一次性项目、非 GAAP 调整与经常性盈利拆干净，正是下一篇[《盈利质量与可比口径》](/zh/notebook/earnings-quality-comparability/)要解决的问题。
+
+<script src="/notebook/debt-troughs/ui.js?v=20261127b" defer></script>
+
+[^msft-10k]: Microsoft Corporation，[FY2026 Form 10-K](https://www.sec.gov/Archives/edgar/data/789019/000119312526323660/msft-20260630.htm)（2026-07-29 提交，截至 2026-06-30），Consolidated Balance Sheets、Other Income (Expense), Net、Note 10 Debt 与 Note 13 Leases（含 66,594 M 美元融资租赁、21,925 M 美元经营租赁及 3,291 亿美元未起租数据中心等租赁承诺）。
+[^msft-ex]: Microsoft Corporation，[FY2026 Q4 及全财年业绩公告（EX-99.1）](https://www.sec.gov/Archives/edgar/data/789019/000119312526323632/msft-ex99_1.htm)，2026-07-29，经营现金流 182,935、固定资产资本开支 −115,948、分红 −26,445 与回购 −22,271 M 美元。
 [^t-10k]: AT&T Inc.，[FY2025 Form 10-K](https://www.sec.gov/Archives/edgar/data/732717/000073271726000120/t-20251231.htm)（2026-02-09 提交，截至 2025-12-31），Consolidated Statements、Debt（含 120 亿美元循环信贷 3.75 倍净债务／EBITDA 契约、2026–2030 年到期利率阶梯及 2025–2026 年新发债票息）、Leases 与 Restricted Cash 附注。
-[^ba-10k]: The Boeing Company，[FY2025 Form 10-K](https://www.sec.gov/Archives/edgar/data/12927/000162828026004357/ba-20251231.htm)（2026-01-30 提交，含 FY2023–FY2025 三年比较报表），Consolidated Statements、Debt（含 100 亿美元循环信贷与 2026–2030 年到期表）、Leases、Cash Flows（含 742 百万美元受限现金及 9,672 百万美元资产处置收益）与 Shareholders’ Equity（含 2024 年 10 月普通股与 6.00% A 系列强制可转优先股发行条款）。
+[^ba-10k]: The Boeing Company，[FY2025 Form 10-K](https://www.sec.gov/Archives/edgar/data/12927/000162828026004357/ba-20251231.htm)（2026-01-30 提交，含 FY2023–FY2025 三年比较报表），Consolidated Statements、Debt（含 100 亿美元循环信贷与 2026–2030 年到期表）、Leases、Cash Flows（含 742 M 美元受限现金及 9,672 M 美元资产处置收益）与 Shareholders’ Equity（含 2024 年 10 月普通股与 6.00% A 系列强制可转优先股发行条款）。
 [^hyoas]: ICE Data Indices / FRED，[ICE BofA US High Yield Index Option-Adjusted Spread（BAMLH0A0HYM2）](https://fred.stlouisfed.org/series/BAMLH0A0HYM2)，美国高收益企业债期权调整利差基准（2008 年 12 月峰值 21.82%、2020 年 3 月峰值 10.87%）。
 
 
 ## Sources
-- [Microsoft Corporation：FY2026 Q4 及全财年业绩公告与 Form 10-K（截至 2026-06-30）](https://www.sec.gov/Archives/edgar/data/789019/000119312526323632/msft-ex99_1.htm): Microsoft 2026 年 7 月 29 日披露之 2026 财年（截至 2026 年 6 月 30 日）三张主表：总收入 331,839 百万美元、营业利润 155,237 百万美元、净利润 133,749 百万美元；经营现金流 182,935 百万美元、固定资产资本开支 −115,948 百万美元、投资现金流 −139,500 百万美元、融资现金流 −52,546 百万美元；期末总资产 758,376 百万美元（固定资产净值 313,076、现金及等价物 20,935）、总负债 315,989、股东权益 442,387。
-- [The Boeing Company：FY2025 Form 10-K（Consolidated Statements、Debt、Leases 与 Shareholders’ Equity）](https://www.sec.gov/Archives/edgar/data/12927/000162828026004357/ba-20251231.htm): Boeing 2025 财年年报（2026 年 1 月 30 日提交 SEC，含 2023–2025 比较数据）：2024 年营业亏损 −10,707、利息及债务费用 2,725、经营现金流 −12,080（存货占用 −12,353）、资本开支 −2,230（自由现金流 −14,310 百万美元）；2024 年 10 月 30–31 日被迫增发 129,375,000 股普通股（现金流净募资 18,200，附注扣费净额 18,181）与 5,750,000 股 6.00% A 系列强制可转优先股（清算优先权 5,750，现金流净募资 5,657，附注净额 5,651，2027 年 10 月 15 日强制转股 3,351 万至 4,022 万股），流通普通股由 2023 年末 609.5 百万股升至 2024 年末 749.2 百万股（+22.9%）与 2025 年末 784.7 百万股。2025 年末非受限现金及等价物 10,921（剔除受限现金 742）＋ 短投 18,479 ＝ 29,400，总债务 54,098（短债及一年内到期 8,461 ＋ 长债 45,637），经营租赁负债 2,267，未动用循环信贷 10,000；2026–2030 年到期债务依次为 8,351（含 5,899 利率 2.20%–2.50% 旧债）、4,403、2,739、2,508、5,274；2025 年营业利润 4,281 含一次性处置收益 9,672，经营现金流 1,065、资本开支 −2,942、利息费用 2,771。
-- [Microsoft Corporation：FY2026 Form 10-K（Balance Sheets、Other Income、Note 10 Debt 与 Note 13 Leases）](https://www.sec.gov/Archives/edgar/data/789019/000119312526323660/msft-20260630.htm): Microsoft 2026 财年年报（2026 年 7 月 29 日提交 SEC，截至 2026 年 6 月 30 日）：现金及等价物 20,935 百万美元、短期投资 55,908 百万美元（合计非受限现金及短投 76,843 百万美元）；账面一年内到期长债 9,227 与长期债务 31,067（总有息债务 40,294、面值 46,136，其中 34,385 百万美元于 FY2031 后到期）；营业利润 155,237、折旧摊销及其他 38,534、利息支出 3,051、利息及股息收入 3,301；Note 13 披露账内经营租赁负债 21,925（流动 5,393 ＋ 非流动 16,532）与融资租赁负债 66,594（流动 4,290 ＋ 非流动 62,304），另有 329.1 十亿美元尚未起租数据中心等租赁承诺将于 FY2027 至 FY2033 生效；期末流通普通股 7,427 百万股（FY2025 为 7,434 百万股）。
-- [AT&T Inc.：FY2025 Form 10-K（Consolidated Statements、Debt、Leases 与 Restricted Cash）](https://www.sec.gov/Archives/edgar/data/732717/000073271726000120/t-20251231.htm): AT&T 2025 财年年报（2026 年 2 月 9 日提交 SEC，截至 2025 年 12 月 31 日）：营业收入 125,648、营业利润 24,162、折旧摊销 20,886（EBITDA 45,048）、利息支出 6,804、经营现金流 40,284、资本开支 20,842（百万美元）；非受限现金及等价物 18,234（另披露受限现金 293，含流动 157 与非流动 136）；一年内到期债务 9,011 ＋ 长期债务 127,089 ＝ 总债务 136,100（含融资租赁 1,382），账面净债务 117,866，另载经营租赁负债 22,524（流动 3,581 ＋ 非流动 18,943）；2025 年 11 月续签 120 亿美元循环信贷协议与 175 亿美元延迟提款定期贷款，设季度末净债务／EBITDA 不超 3.75 倍契约；2026–2030 年到期长债分别为 8,652（加权利率 3.1%）、8,953（3.8%）、6,905（3.2%）、6,918（4.6%）、7,020（4.3%），而 2025 年新发 14,111 长债加权利率 5.0%、2026 年 2 月 5 日新发 6,500 全球债票息 5.2%。
+- [Microsoft Corporation：FY2026 Q4 及全财年业绩公告与 Form 10-K（截至 2026-06-30）](https://www.sec.gov/Archives/edgar/data/789019/000119312526323632/msft-ex99_1.htm): Microsoft 2026 年 7 月 29 日披露之 2026 财年（截至 2026 年 6 月 30 日）三张主表：总收入 331,839 M 美元、营业利润 155,237 M 美元、净利润 133,749 M 美元；经营现金流 182,935 M 美元、固定资产资本开支 −115,948 M 美元、投资现金流 −139,500 M 美元、融资现金流 −52,546 M 美元；期末总资产 758,376 M 美元（固定资产净值 313,076、现金及等价物 20,935）、总负债 315,989、股东权益 442,387。
+- [The Boeing Company：FY2025 Form 10-K（Consolidated Statements、Debt、Leases 与 Shareholders’ Equity）](https://www.sec.gov/Archives/edgar/data/12927/000162828026004357/ba-20251231.htm): Boeing 2025 财年年报（2026 年 1 月 30 日提交 SEC，含 2023–2025 比较数据）：2024 年营业亏损 −10,707、利息及债务费用 2,725、经营现金流 −12,080（存货占用 −12,353）、资本开支 −2,230（自由现金流 −14,310 M 美元）；2024 年 10 月 30–31 日被迫增发 129,375,000 股普通股（现金流净募资 18,200，附注扣费净额 18,181）与 5,750,000 股 6.00% A 系列强制可转优先股（清算优先权 5,750，现金流净募资 5,657，附注净额 5,651，2027 年 10 月 15 日强制转股 3,351 万至 4,022 万股），流通普通股由 2023 年末 609.5 百万股升至 2024 年末 749.2 百万股（+22.9%）与 2025 年末 784.7 百万股。2025 年末非受限现金及等价物 10,921（剔除受限现金 742）＋ 短投 18,479 ＝ 29,400，总债务 54,098（短债及一年内到期 8,461 ＋ 长债 45,637），经营租赁负债 2,267，未动用循环信贷 10,000；2026–2030 年到期债务依次为 8,351（含 5,899 利率 2.20%–2.50% 旧债）、4,403、2,739、2,508、5,274；2025 年营业利润 4,281 含一次性处置收益 9,672，经营现金流 1,065、资本开支 −2,942、利息费用 2,771。
+- [Microsoft Corporation：FY2026 Form 10-K（Balance Sheets、Other Income、Note 10 Debt 与 Note 13 Leases）](https://www.sec.gov/Archives/edgar/data/789019/000119312526323660/msft-20260630.htm): Microsoft 2026 财年年报（2026 年 7 月 29 日提交 SEC，截至 2026 年 6 月 30 日）：现金及等价物 20,935 M 美元、短期投资 55,908 M 美元（合计非受限现金及短投 76,843 M 美元）；账面一年内到期长债 9,227 与长期债务 31,067（总有息债务 40,294、面值 46,136，其中 34,385 M 美元于 FY2031 后到期）；营业利润 155,237、折旧摊销及其他 38,534、利息支出 3,051、利息及股息收入 3,301；Note 13 披露账内经营租赁负债 21,925（流动 5,393 ＋ 非流动 16,532）与融资租赁负债 66,594（流动 4,290 ＋ 非流动 62,304），另有 3,291 亿美元尚未起租数据中心等租赁承诺将于 FY2027 至 FY2033 生效；期末流通普通股 7,427 百万股（FY2025 为 7,434 百万股）。
+- [AT&T Inc.：FY2025 Form 10-K（Consolidated Statements、Debt、Leases 与 Restricted Cash）](https://www.sec.gov/Archives/edgar/data/732717/000073271726000120/t-20251231.htm): AT&T 2025 财年年报（2026 年 2 月 9 日提交 SEC，截至 2025 年 12 月 31 日）：营业收入 125,648、营业利润 24,162、折旧摊销 20,886（EBITDA 45,048）、利息支出 6,804、经营现金流 40,284、资本开支 20,842（M 美元）；非受限现金及等价物 18,234（另披露受限现金 293，含流动 157 与非流动 136）；一年内到期债务 9,011 ＋ 长期债务 127,089 ＝ 总债务 136,100（含融资租赁 1,382），账面净债务 117,866，另载经营租赁负债 22,524（流动 3,581 ＋ 非流动 18,943）；2025 年 11 月续签 120 亿美元循环信贷协议与 175 亿美元延迟提款定期贷款，设季度末净债务／EBITDA 不超 3.75 倍契约；2026–2030 年到期长债分别为 8,652（加权利率 3.1%）、8,953（3.8%）、6,905（3.2%）、6,918（4.6%）、7,020（4.3%），而 2025 年新发 14,111 长债加权利率 5.0%、2026 年 2 月 5 日新发 6,500 全球债票息 5.2%。
 - [ICE Data Indices / FRED（BAMLH0A0HYM2）：ICE BofA US High Yield Index Option-Adjusted Spread](https://fred.stlouisfed.org/series/BAMLH0A0HYM2): 美国高收益企业债期权调整利差（OAS）日频基准指标：记录 2007 年 6 月低点 2.41%、2008 年 12 月 15 日历史峰值 21.82% 与 2020 年 3 月 23 日疫情峰值 10.87%（注：2026 年 4 月起 FRED 仅分发最近三年滚动窗口，历史极值按 1996 年起全样本记录引用）。
 
 ## Content relations

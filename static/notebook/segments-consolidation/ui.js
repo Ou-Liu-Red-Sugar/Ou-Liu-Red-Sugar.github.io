@@ -2,21 +2,21 @@
   var CASES = {
     ko: {
       name: "The Coca-Cola Company（KO）· FY2025",
-      revTitle: "收入合并桥（百万美元）",
+      revTitle: "收入合并桥（M 美元）",
       revBaseLabel: "五大分部＋Corporate 收入直接相加",
       revBase: 48950,
       revSegDetail: "EMEA 11,513 ＋ LatAm 6,334 ＋ NA 19,586 ＋ APAC 5,638 ＋ 装瓶投资 5,735 ＋ Corporate 144",
       elimLabel: "分部间内部交易抵销（Eliminations）",
       elimVal: -1009,
       officialRev: 47941,
-      opTitle: "营业利润合并桥（百万美元）",
+      opTitle: "营业利润合并桥（M 美元）",
       opBaseLabel: "五个经营分部营业利润之和",
       opBase: 15578,
       opSegDetail: "EMEA 4,298 ＋ LatAm 3,742 ＋ NA 5,070 ＋ APAC 2,042 ＋ 装瓶投资 426（内部收入与成本同步抵销）",
       corpLabel: "总部未分配共同成本（Corporate 营业亏损）",
       corpVal: -1816,
       officialOp: 13762,
-      belowTitle: "营业利润以下 → 归母净利润（百万美元）",
+      belowTitle: "营业利润以下 → 归母净利润（M 美元）",
       eqMethodLabel: "权益法投资收益（联营装瓶商等，实收现金分红 993）",
       eqMethodVal: 2031,
       eqSecLabel: "股权证券公允价值重估（本案主要归入其他项）",
@@ -31,26 +31,26 @@
       elimBtn: "扣分部间抵销 −1,009",
       corpBtn: "扣总部共同成本 −1,816",
       belowBtn: "计入权益法 +2,031 与扣 NCI −30",
-      reconciledMsg: "KO FY2025 已完整还原官方 10-K 合并报表：收入 47,941、营业利润 13,762（营业利润率 28.7%）、归母净利润 13,107 百万美元。注意权益法利润 2,031 中仅 993 收到现金分红，差额 1,038 在经营现金流中扣回。",
+      reconciledMsg: "KO FY2025 已完整还原官方 10-K 合并报表：收入 47,941、营业利润 13,762（营业利润率 28.7%）、归母净利润 13,107 M 美元。注意权益法利润 2,031 中仅 993 收到现金分红，差额 1,038 在经营现金流中扣回。",
       belowOffNote: "关闭营业外权益法与少数股东项后，漏计联营装瓶商贡献的 +2,031 权益法利润，也未扣出 −30 少数股东损益"
     },
     googl: {
       name: "Alphabet Inc.（GOOGL）· FY2025",
-      revTitle: "收入合并桥（百万美元）",
+      revTitle: "收入合并桥（M 美元）",
       revBaseLabel: "三大经营分部收入直接相加",
       revBase: 402963,
       revSegDetail: "Google Services 342,721 ＋ Google Cloud 58,705 ＋ Other Bets 1,537",
       elimLabel: "未分配外汇套期保值损益（Hedging losses）",
       elimVal: -127,
       officialRev: 402836,
-      opTitle: "营业利润合并桥（百万美元）",
+      opTitle: "营业利润合并桥（M 美元）",
       opBaseLabel: "三大经营分部营业利润之和",
       opBase: 145799,
       opSegDetail: "Google Services 139,404 ＋ Google Cloud 13,910 − Other Bets 7,515（若连 Other Bets 也忽略则高达 153,314）",
       corpLabel: "总部未分配共同成本（Alphabet-level activities）",
       corpVal: -16760,
       officialOp: 129039,
-      belowTitle: "营业利润以下 → 合并净利润（百万美元）",
+      belowTitle: "营业利润以下 → 合并净利润（M 美元）",
       eqMethodLabel: "权益法投资净收益",
       eqMethodVal: 281,
       eqSecLabel: "股权证券公允价值重估净收益（<20% 非上市／上市股权）",
@@ -65,8 +65,8 @@
       elimBtn: "扣未分配套保 −127",
       corpBtn: "扣总部共同成本 −16,760",
       belowBtn: "计入股权公允价值 +24,080 与权益法 +281",
-      reconciledMsg: "GOOGL FY2025 已完整还原官方 10-K 合并报表：收入 402,836、营业利润 129,039（营业利润率 32.0%）、净利润 132,170 百万美元。注意营业利润下方包含 +24,080 百万美元股权证券公允价值重估收益，并非搜索或云业务经营利润。",
-      belowOffNote: "剔除营业外股权投资重估（+24,080）与权益法收益（+281）后（按原税额直观对照），净利润立减 24,361 百万美元，凸显非经营性估值波动的影响"
+      reconciledMsg: "GOOGL FY2025 已完整还原官方 10-K 合并报表：收入 402,836、营业利润 129,039（营业利润率 32.0%）、净利润 132,170 M 美元。注意营业利润下方包含 +24,080 M 美元股权证券公允价值重估收益，并非搜索或云业务经营利润。",
+      belowOffNote: "剔除营业外股权投资重估（+24,080）与权益法收益（+281）后（按原税额直观对照），净利润立减 24,361 M 美元，凸显非经营性估值波动的影响"
     }
   };
 
@@ -191,10 +191,10 @@
       if (alertEl) {
         var msgs = [];
         if (revOver !== 0) {
-          msgs.push("收入高估 +" + Math.abs(revOver).toLocaleString("en-US") + " 百万美元（+" + (revOver / c.officialRev * 100).toFixed(revOver / c.officialRev < 0.005 ? 2 : 1) + "%）");
+          msgs.push("收入高估 +" + Math.abs(revOver).toLocaleString("en-US") + " M 美元（+" + (revOver / c.officialRev * 100).toFixed(revOver / c.officialRev < 0.005 ? 2 : 1) + "%）");
         }
         if (opOver !== 0) {
-          msgs.push("营业利润高估 +" + Math.abs(opOver).toLocaleString("en-US") + " 百万美元（+" + (opOver / c.officialOp * 100).toFixed(1) + "%）");
+          msgs.push("营业利润高估 +" + Math.abs(opOver).toLocaleString("en-US") + " M 美元（+" + (opOver / c.officialOp * 100).toFixed(1) + "%）");
         }
         if (!state.below) {
           msgs.push(c.belowOffNote);
@@ -243,5 +243,31 @@
     render();
   }
 
+  function initDualTabs(root) {
+    var tabsWrap = root.querySelector(".e04-dual-tabs");
+    var tabs = root.querySelectorAll("[data-e04-dual-tab]");
+    var panels = root.querySelectorAll("[data-e04-dual-panel]");
+    if (!tabs.length || !panels.length) return;
+    if (tabsWrap) tabsWrap.hidden = false;
+
+    function activate(key) {
+      tabs.forEach(function (btn) {
+        btn.setAttribute("aria-pressed", btn.getAttribute("data-e04-dual-tab") === key ? "true" : "false");
+      });
+      panels.forEach(function (panel) {
+        panel.hidden = panel.getAttribute("data-e04-dual-panel") !== key;
+      });
+    }
+
+    tabs.forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        activate(btn.getAttribute("data-e04-dual-tab"));
+      });
+    });
+
+    activate("ko");
+  }
+
+  document.querySelectorAll("[data-e04-dual-tabs]").forEach(initDualTabs);
   document.querySelectorAll("[data-e04-bridge]").forEach(initBridge);
 })();
