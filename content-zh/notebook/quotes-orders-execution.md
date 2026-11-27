@@ -8,7 +8,7 @@
   "translationKey": "zh-quotes-orders-execution"
 }
 
-[《指数、基金与 ETF》](/zh/notebook/indices-funds-etfs/)里默认那 10,000 美元按一个价格买到了 VOO；真到下单那一刻，实际成交价还要看市场上有谁愿意交易、愿意出什么价。2015 年 8 月 24 日美股开盘后的几分钟里，和 VOO 跟踪同一个指数的 iShares Core S&P 500 ETF（IVV）一度比前一个交易日的收盘价低了 20% 以上；同一时段，按成分股实时成交价计算，SPDR S&P 500 ETF Trust（SPY）的净值最多只跌了约 8%，SPY 本身的最低价也只比前一日收盘低 7.8%。到了 9:43 左右，IVV 便回到了与其他 S&P 500 产品一致的价格。[^aug24]
+[《指数、基金与 ETF》](/zh/notebook/indices-funds-etfs/#nb-v01-trading)里默认那 10,000 美元按一个价格买到了 VOO；真到下单那一刻，实际成交价取决于市场上此刻有谁愿意接手、愿意出什么价。2015 年 8 月 24 日美股开盘后几分钟里，同样跟踪 S&P 500 的 iShares Core S&P 500 ETF（IVV）成交价一度跌穿前日收盘 20% 以上，而按成分股实时价估算的 SPDR S&P 500 ETF Trust（SPY）净值最多只跌约 8%，9:43 左右 IVV 便恢复到与其他 S&P 500 产品一致的价位。[^aug24]
 
 <figure class="flow-figure" id="nb-b02-aug24">
 <div class="ff-head"><p class="ff-title">同一组股票，开盘几分钟里的最低点</p><span class="ff-sub">2015 年 8 月 24 日 · 相对前一交易日收盘</span></div>
@@ -20,13 +20,11 @@
 <figcaption>三者都对应 S&P 500 的成分股。IVV 的数值按研究说明的“超过 20%”以 20% 绘出；SPY 净值按成分股的实时成交价计算。</figcaption>
 </figure>
 
-IVV 持有的股票并没有跌掉五分之一，可这几分钟里卖出 IVV 的投资者，成交价却可能低到这个水平。<span data-text-versions id="nb-b02-text-7">SEC 工作人员的研究说明记录了当时同时出现的两个条件：开盘后成交量远高于平时，涌入的大量卖单对前一日的价格并不敏感；与此同时，ETP 在最优报价附近可见的挂单数量，比平时少了九成以上<span data-text-detail>（挂单数量按最优报价及其 19 美分以内的报价深度，与 7 月 27 日至 8 月 21 日的对照期比较；ETP 指 ETF 等交易所交易产品。研究说明只提供数据，不对当天波动的原因作出结论）</span>。[^aug24]<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span> 当想卖的数量很大、愿意接手的报价又稀少时，成交价就可能顺着买方报价一路往下走。
+成分股没有跌掉五分之一，卖出 IVV 的人却可能按这个低价成交。<span data-text-versions id="nb-b02-text-7">SEC 工作人员的研究说明记录了当时并存的两个条件：开盘后大量对前日价格不敏感的卖单涌入，与此同时，ETP 最优报价附近的可见挂单比平时少了九成以上<span data-text-detail>（挂单数量按最优报价及其 19 美分以内的报价深度，与 7 月 27 日至 8 月 21 日对照期比较；ETP 指 ETF 等交易所交易产品。研究说明仅提供数据，不对当天波动原因下结论）</span>。[^aug24]<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span> 卖盘汹涌而买方报价稀薄时，成交价就可能顺着挂单一路往下滑。
 
 ## 报价、盘口与流动性 {#nb-b02-quotes}
 
-在交易软件里打开 VOO 或 IVV 的行情，除了走势曲线，还会看到 Last、Bid 和 Ask 这几个字段。Last 是最近一笔已经完成的成交价；Bid 是当前买方报出的最高买价，Ask 则是卖方报出的最低卖价。准备立即买入时，先要看卖方愿意以什么价格卖出；准备立即卖出时，就得看买方最高愿意出到多少。[^quotes]
-
-下面换一只假设股票，把这几个字段放到同一条价格轴上：
+打开行情软件，屏幕上除了走势线，还有三个核心字段：Last 是最近一笔已完成的成交价；Bid 是当前买方报出的最高买价，Ask 是卖方报出的最低卖价。想立刻成交，买入得看 Ask，卖出得看 Bid。[^quotes]
 
 <figure class="flow-figure quote-line g2-quote-line" id="nb-b02-quote-line">
 <div class="ff-head"><p class="ff-title">Last、Bid 与 Ask 的位置（示意）</p><span class="ff-sub">价格：美元／股</span></div>
@@ -39,19 +37,13 @@ IVV 持有的股票并没有跌掉五分之一，可这几分钟里卖出 IVV �
 <p class="ql-uses"><span><strong>立即卖出</strong>：先看 Bid，买方最多出到 99.98</span><span><strong>立即买入</strong>：先看 Ask，卖方最少要 100.02</span></p>
 </figure>
 
-这里的买卖价差是 0.04 美元。虽然上一笔交易发生在 100 美元，接下来愿意卖出的那 100 股却挂在 100.02 美元，所以最新成交价替我们定不了下一笔买入的价格。8 月 24 日开盘时，IVV 前一日的收盘价同样说明不了几分钟后卖出能拿到多少。
+Last 只记录过去，定不了下一笔买卖的价格；8 月 24 日开盘前 IVV 的昨收价，同样说明不了几分钟后卖出能拿到多少。把最优档往外展开，还能看到各价位挂着的数量，合起来叫**订单簿**（盘口）。能否很快按接近眼前报价完成一定数量的买卖，衡量的是**流动性**；实际成交价偏离下单参照价的那截差距叫**滑点**——盘口越薄、下单越大，就越可能一路吃到更远档位。
 
-把报价继续展开，还能看到其他价位上的挂单，合起来称为**订单簿**，交易界面里也常把这部分叫作盘口。100.02 美元处有 100 股可卖，100.05 美元处还有 200 股，再往上往往还挂着更多卖量。这么一来，买 50 股和买 300 股面对的就已经是不同的成交过程：前者在最优一档就能全部买齐，后者还得继续吃掉后面几档的卖量。
-
-想买或想卖一定数量的证券时，能不能很快按接近眼前的报价成交，衡量的就是市场的**流动性**。一般而言，买卖价差窄、盘口附近挂着的数量厚，稍大一点的订单也容易顺畅成交；可要是碰上很薄的盘口，为了凑够数量，就得一路去吃更远档位的报价。实际成交价偏离下单时参照价格的那截差距，平时就叫**滑点**——买得比预想贵、卖得比预想便宜，都是碰上了不利的滑点。8 月 24 日开盘时 ETP 的可见挂单少了九成以上，大量卖单撞上远比平时薄的盘口，按这个机制，成交价便可能偏离到开头看到的程度。
-
-<span data-text-versions id="nb-b02-text-1">盘口本身也在不断变化。新的限价单送进来，或者原有挂单被成交、撤回，都会立刻改变眼下可交易的数量。因此读盘口时，要把价格、数量和时点放在一起看：成交量记录的是一段时间内已经成交了多少，市场深度则描述不同价位上当前可见的挂单量<span data-text-detail>（可见盘口的覆盖范围取决于行情来源；单一交易场所的深度不等于所有场所的总量，隐藏或储备数量也未必全部显示。行情延迟时，页面上的那一档还可能已经发生变化）</span>。哪怕一笔较大的限价买单正挂在簿中，增加了当时的可见买量，它之后仍可能被成交、修改或撤回，不能单凭这一档数量就断定价格一定会守在这里。[^quotes]<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>
+<span data-text-versions id="nb-b02-text-1">读盘口时要把价格、数量和时点一起看：成交量记录的是已经成交的股数，市场深度反映的是此刻各档可见挂单；即使某价位正挂着大额买单，下一秒也可能成交、修改或撤回，不能据此断定价格一定守得住<span data-text-detail>（可见盘口覆盖范围取决于行情源；单一场所深度不等于全市场总量，隐藏或储备单也未必显示，行情延迟时页面档位可能已变化）</span>。[^quotes]<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>
 
 ## 常见订单与挂单结构 {#nb-b02-orders}
 
-下单时，我们要给出自己的条件：买多少，愿意付到什么价格，以及愿意等多久。**市价单**直接按当前可执行的报价寻求成交；**限价单**则先划定价格范围，买入限价规定最高愿意支付的价格，卖出限价规定最低愿意接受的价格。[^orders]
-
-下面把买卖两侧各展开三档，并用同一标尺的深度条画出各档挂单的厚薄与本次吃掉的比例。先在厚盘口里比较市价买入 50、300、600 股的成交均价，再拿同样的 50 股对比厚盘口与薄盘口；切到限价单以后，还可以看价格上限会留下多少未成交数量。每次比较都从同一组原始挂单重新开始。
+下单时，**市价单**按当前可执行报价立刻寻求成交，**限价单**则先划定最高买价或最低卖价。[^orders] 下面把买卖两侧各展开三档，先点击上方预设比较 300 股、600 股、薄盘口与限价 100.05 的逐档结果：
 
 <figure class="trade-figure" id="nb-b02-order-book" data-trade-demo>
 <div class="trade-heading"><h3>盘口深度与逐档成交</h3><span class="trade-kicker">价格：美元 / 股 · 数量：股 · 深度条满格 = 500 股</span></div>
@@ -79,19 +71,50 @@ IVV 持有的股票并没有跌掉五分之一，可这几分钟里卖出 IVV �
 </figure>
 <!-- /B02:book -->
 
-市价买入 300 股时，订单先吃掉 100.02 美元处的 100 股，再吃掉 100.05 美元处的 200 股，总金额 30,012 美元，平均成交价落在 100.04 美元，比最优卖价高出 0.02 美元。把数量加大到 600 股，还得继续吃到 100.10 美元处的 300 股，平均成交价随之升至 100.07 美元。两笔订单下单前看到的是同一个最优卖价，最终付出的均价却不同。
+<span data-text-versions id="nb-b02-text-2">切到“限价 100.05 买 600 股”可以看到两层细节：限价只规定最高可付价格，前两档仍按 100.02 和 100.05 逐档成交（这一半直接吃掉卖盘，属于<strong>消耗流动性</strong>）；超出上限的余下 300 股则挂进盘口排队等待（这一半是在<strong>提供流动性</strong>）<span data-text-detail>（图中按价格优先逐档撮合，不计费用及期间新增或撤单；厚盘口市价买 300 股均价 100.04、总额 30,012 美元，买 600 股均价升至 100.07、总额 60,042 美元；超过三档的市价单余量结果取决于更远档位报价，不能据此推定整笔成交）</span>。[^liquidity]<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>
 
-<span data-text-versions id="nb-b02-text-2">现在仍买 600 股，但把买入限价设在 100.05 美元。前两档共 300 股满足条件，可以立刻成交；100.10 美元超过了我们的价格上限，剩余 300 股便留在盘口里继续等待。这里的限价 100.05 美元是我们愿意接受的最高价，已成交的部分仍分别按 100.02 和 100.05 美元结算<span data-text-detail>（图中按价格从优到次逐档撮合，处理过程中没有新订单或撤单，也不计费用。平均成交价等于各档成交金额之和除以已成交股数；超过所显示档位的市价订单余量，其后续结果留待更多报价，不能据这三档推定整笔成交结果）</span>。<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>
+把下单最常用的两套开关——**价格条件**和**有效时长**——摆在同一屏里，取舍立刻清楚：[^aug24]<sup>，</sup>[^time]
 
-在这个例子里，限价单刚送进去就立刻成交了一半。当买入限价已经够得着眼前的卖价，订单会直接吃掉盘口上现成的卖单，这叫消耗流动性；而价格还没谈拢、挂进盘口等别人来成交的那一半，则是在给市场提供流动性。同一笔限价单拆出来的两截，先后起到了两种相反的作用。[^liquidity]
+<figure class="flow-figure" id="nb-b02-order-matrix">
+<div class="ff-head"><p class="ff-title">下单前先定两件事：价格条件 × 有效时长</p><span class="ff-sub">成交确定性、价格控制与挂单寿命</span></div>
+<div class="business-exchange" aria-label="下单的两套开关：价格条件分为市价单（只求成交、不设价格底线，2015 年 8 月 24 日 NYSE Arca 暂停后重开竞价中卖方未匹配量 94% 来自市价单）与限价单（守住最高买价或最低卖价，可拆成 99、98、97 美元分层挂单，代价是市场未到价则不成交）；有效时长分为 Day 当日有效、GTC 跨日保留，以及 IOC 立即成交可执行部分并撤剩余、FOK 立即全部成交否则取消。">
+<svg viewBox="0 0 720 198" role="img" aria-label="价格条件与有效时长对照图" style="width:100%;height:auto;display:block">
+  <rect x="8" y="8" width="386" height="182" rx="8" fill="#ffffff" stroke="#c8d6ce" stroke-width="1.2"/>
+  <rect x="8" y="8" width="386" height="30" rx="8" fill="#eaf2ef"/>
+  <rect x="8" y="30" width="386" height="8" fill="#eaf2ef"/>
+  <text x="22" y="28" font-size="12" font-weight="700" fill="#145343">① 价格条件：要确定成交，还是要价格底线？</text>
+  <rect x="20" y="48" width="362" height="60" rx="6" fill="#fdf6f3" stroke="#e4cbc3"/>
+  <text x="32" y="68" font-size="12" font-weight="700" fill="#b83b24">市价单（Market）</text>
+  <text x="150" y="68" font-size="11" fill="#8f4a39">不设价格底线 · 优先换取成交</text>
+  <text x="32" y="88" font-size="11" fill="#46544c">盘口薄时一路滑档；2015-08-24 NYSE Arca 重开竞价中，</text>
+  <text x="32" y="102" font-size="11" fill="#46544c">卖方未匹配数量有 94% 来自市价单。</text>
+  <rect x="20" y="118" width="362" height="62" rx="6" fill="#f3f7f5" stroke="#c3d5cb"/>
+  <text x="32" y="138" font-size="12" font-weight="700" fill="#145343">限价单（Limit）</text>
+  <text x="142" y="138" font-size="11" fill="#145343">守住价格上限 / 下限 · 允许分层挂单</text>
+  <text x="32" y="158" font-size="11" fill="#46544c">可拆成 99 / 98 / 97 美元分批买 300 股；代价是价格</text>
+  <text x="32" y="172" font-size="11" fill="#46544c">回不到限价位就买不到或卖不出，持仓停在已成交部分。</text>
+  <rect x="408" y="8" width="304" height="182" rx="8" fill="#ffffff" stroke="#d5c9b8" stroke-width="1.2"/>
+  <rect x="408" y="8" width="304" height="30" rx="8" fill="#f5ebdf"/>
+  <rect x="408" y="30" width="304" height="8" fill="#f5ebdf"/>
+  <text x="422" y="28" font-size="12" font-weight="700" fill="#8f6033">② 有效时长：没成交的余量等多久？</text>
+  <text x="422" y="62" font-size="12" font-weight="700" fill="#18241e">Day</text>
+  <text x="468" y="62" font-size="11.5" fill="#46544c">当日有效，收盘后未成交自动失效</text>
+  <line x1="422" y1="74" x2="698" y2="74" stroke="#ece6dc"/>
+  <text x="422" y="96" font-size="12" font-weight="700" fill="#18241e">GTC</text>
+  <text x="468" y="96" font-size="11.5" fill="#46544c">跨交易日保留，直至成交 / 撤销 / 到期</text>
+  <line x1="422" y1="108" x2="698" y2="108" stroke="#ece6dc"/>
+  <text x="422" y="130" font-size="12" font-weight="700" fill="#18241e">IOC</text>
+  <text x="468" y="130" font-size="11.5" fill="#46544c">立刻成交可执行部分，余量马上取消</text>
+  <line x1="422" y1="142" x2="698" y2="142" stroke="#ece6dc"/>
+  <text x="422" y="164" font-size="12" font-weight="700" fill="#18241e">FOK</text>
+  <text x="468" y="164" font-size="11.5" fill="#46544c">必须立刻全部成交，否则整笔取消</text>
+</svg>
+</div>
+</figure>
 
-市价单只要求成交、不设价格底线，盘口变薄时便会一档接一档地向更差的价格滑过去。8 月 24 日，不少证券因价格波动过大被暂停交易；NYSE Arca 在暂停后重新开盘的集合竞价里，卖方未能匹配的数量有 94% 来自市价单。[^aug24] 换成限价卖单，成交价至少不会低于设定的价格，代价则是市场价格回不到那个位置就卖不出去。
+<span data-text-versions id="nb-b02-text-3">有效期只改变未成交部分的等待方式，不改变限价方向；是否覆盖盘前、盘后交易则需另看时段设置<span data-text-detail>（部分券商对 GTC 设有最长保留天数；分层挂单如在 99、98、97 美元各挂 100 股，若价格只触及 99 美元便转涨，实际持仓停在已成交的 100 股）</span>。<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>
 
-<span data-text-versions id="nb-b02-text-3">剩下的数量还可以等多久，取决于订单的有效期。Day 通常表示当日有效，当天收盘后未成交部分自动失效；GTC 则允许订单跨交易日继续保留，直到成交、撤销或达到券商规定的期限<span data-text-detail>（是否覆盖盘前、盘后交易需要另看时段设置。IOC 要求立即成交可执行部分，并取消剩余数量；FOK 则要求立即全部成交，否则不成交。它们改变的是执行条件，不改变买入限价或卖出限价的方向）</span>。[^time]<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>
-
-如果愿意等价格回落后分批买入，也可以把总数量拆成几笔不同价位的限价单。例如计划买入 300 股，分别在 99、98 和 97 美元各挂 100 股买单，就形成了常见的分层挂单结构。价格先回到 99 美元、只成交第一笔时，手里持有的是 100 股，另外 200 股仍在等待；要是市场随后转头上涨，剩下的买单没能成交，最终持仓也就停在实际买到的 100 股。
-
-已经持有股票以后，还可以预先约定条件：当价格跌到某个位置，就启动卖出订单。**止损市价单**在达到触发条件后转为市价单，**止损限价单**则转为限价单。前者触发后直接寻求按市价卖出，后者还要求卖价满足限价下限，所以哪怕两笔单子设了同一个止损触发价，接下来的成交结果也可能截然不同。[^stop]
+持仓之后，还可以预设条件触发卖出：**止损市价单**触发后转为市价单，**止损限价单**则转为限价单。哪怕触发价同样设在 95 美元，遇上跳价时两者的命运也会立刻分叉：[^stop]
 
 <figure class="trade-figure" id="nb-b02-stop-orders">
 <div class="trade-heading"><h3>触发价与成交价</h3><span class="trade-kicker">持仓卖出 · 价格单位：美元 / 股</span></div>
@@ -104,9 +127,9 @@ IVV 持有的股票并没有跌掉五分之一，可这几分钟里卖出 IVV �
 </figure>
 <!-- /B02:stop -->
 
-<span data-text-versions id="nb-b02-text-4">假设持仓价格从 100 美元回落，止损触发价定在 95 美元。当价格从 96 美元直接跳到 94 美元时，止损条件已经触发：市价单会按届时可执行的买价卖出；若止损限价单同时设有 94.50 美元的卖出下限，而眼下买方最高只出到 94 美元，这笔单子就暂时无法成交<span data-text-detail>（图中用成交价触发，触发后的买价设为 94 美元，并假定该价位的数量足以承接示意订单。实际触发基准、有效时段和平台处理方式随订单规则而定）</span>。95 美元在这里只决定何时启动，最终成交仍要看启动以后盘口上能接受哪些报价。<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span> 在 8 月 24 日那样的开盘行情里，价格跳过触发价的幅度可能远大于这里的 1 美元，止损市价单触发以后，同样按当时能找到的买价卖出。
+<span data-text-versions id="nb-b02-text-4">95 美元只决定何时启动，不保证按 95 美元成交；在 8 月 24 日那样的大幅跳空行情里，止损市价单触发后同样只能按当时盘口能接住的买价卖出<span data-text-detail>（图中假定 94 美元买量足以承接示意订单；实际触发基准、有效时段和平台处理规则依券商设定）</span>。<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>
 
-刚才的止损价固定在 95 美元。如果让止损线跟着有利方向的价格一起走，就成了**移动止损**。对多头持仓，若采用距价格高点 5 美元的移动止损，股价从 100 美元涨到 110 美元时，触发线便从 95 美元上移到 105 美元；随后价格回落，触发线会锁在 105 美元不再下调，等价格跌破这一位置再执行卖出订单。移动距离可以用固定金额或百分比表示；触发后按市价还是限价执行，仍要看采用的移动止损类型和平台规则。[^linked]
+若让止损线跟着股价新高同步上移、回落时锁住不降，就是**移动止损**（可按固定金额或百分比设置）：[^linked]
 
 <figure class="flow-figure path-chart g2-trailing" id="nb-b02-trailing">
 <div class="ff-head"><p class="ff-title">移动止损：触发线只随高点上移（示意）</p><p class="ff-legend"><span>价格</span><span class="ff-key-cash">止损触发线（高点 − 5）</span></p></div>
@@ -124,7 +147,7 @@ IVV 持有的股票并没有跌掉五分之一，可这几分钟里卖出 IVV �
 <figcaption>价格单位为美元／股。触发以后怎样成交，要看采用的订单类型和平台规则。</figcaption>
 </figure>
 
-买入、止盈和止损也能在下单时一并排好。<strong>括号单（Bracket）</strong>把开仓单与后续的止盈、止损安排绑在一起：只有开仓成交以后，系统才启用相应数量的退出订单。两张退出单通常采用 **OCO（One Cancels the Other）** 关联，其中一笔成交，另一笔便按规则自动取消。Schwab 的 thinkorswim 就提供这类组合订单。[^linked]
+想在开仓时一并排好止盈与止损，可以用**括号单（Bracket）**绑定父子顺序，并用 **OCO（One Cancels the Other）** 关联两张退出单（例如 Schwab 的 thinkorswim 提供这类组合订单）：[^linked]
 
 <figure class="flow-figure order-tree" id="nb-b02-bracket">
 <div class="ff-head"><p class="ff-title">开仓与退出的先后</p><span class="ff-sub">括号单 · 两张退出单以 OCO 关联</span></div>
@@ -144,13 +167,11 @@ IVV 持有的股票并没有跌掉五分之一，可这几分钟里卖出 IVV �
 <figcaption>按开仓单和先成交的退出单都全部成交示意，不计费用。</figcaption>
 </figure>
 
-<span data-text-versions id="nb-b02-text-5">这棵树的主干表达括号单安排的先后：开仓成交，退出单才启用；两条分支之间是 OCO 的相互取消：一张成交，另一张随之取消<span data-text-detail>（示意按开仓全部成交后启用退出单、一笔退出单全部成交后取消另一笔处理。部分成交后的数量调整、撤单传播和平台是否提供成交保护，需要依所用券商规则确认；独立提交两张卖单并不会自动形成 OCO）</span>。<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>
-
-无论采用哪种订单，提交以后都还要核对它执行到了哪一步。价格触及限价时，同价位前面可能已经排着别人的挂单，也可能只成交了一小部分；发出撤单请求后，在撤单得到确认之前，原订单依然可能成交。因此，我们要通过成交回报确认买卖了多少、分别以什么价格成交，再查看剩余数量是继续挂在盘口里，还是已经取消。
+<span data-text-versions id="nb-b02-text-5">无论用哪种订单，提交后都要以成交回报为准：同价位前面可能排着其他挂单，撤单确认前原单仍可能成交，需逐项核对已成交股数、均价和剩余挂单状态<span data-text-detail>（括号单示意按全部成交处理；部分成交后的数量调整、撤单传播和成交保护依券商规则确定，单独提交两张卖单不会自动形成 OCO）</span>。<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>
 
 ## 成交对手、交易成本与交收 {#nb-b02-settlement}
 
-我们买到证券的那一刻，另一方也同时卖出了证券。盘口里既有其他投资者的挂单，也有专门持续提供买卖报价的**做市商**。像 Citadel Securities 这样的机构，就会在股票和 ETF 市场承接交易。订单从券商送出去以后，既可能进交易所撮合，也可能交给做市商在场外承接；换句话说，接下我们这笔单子的，未必是另一个刚好同时按键的散户。做市商一边按较低的买价接下卖单，一边按较高的卖价卖给买方，中间这截买卖价差，正是用来覆盖它手里囤着股票时承担的价格波动和运营成本的。[^makers]
+订单经券商送出后，对手方未必是另一位同时按键的散户：除了进交易所撮合，也可能交给持续双边报价的**做市商**（例如 Citadel Securities）在场外承接，买卖价差用来覆盖做市商的库存波动与运营成本。[^makers]
 
 <figure class="flow-figure route" id="nb-b02-routing">
 <div class="ff-head"><p class="ff-title">一笔订单可能经过的路径</p></div>
@@ -166,9 +187,32 @@ IVV 持有的股票并没有跌掉五分之一，可这几分钟里卖出 IVV �
 </div>
 </figure>
 
-这样算下来，一笔交易的成本并不只有券商收取的费用。前面市价买入 300 股，成交均价是 100.04 美元；若以当时买卖报价的中点 100.00 美元作参照，这笔买入已经多付了 0.04 × 300 = 12 美元。这部分隐含在成交价里的成本来自买卖价差和逐档吃单，而佣金与交易规费则按账户条款另外计算。比较不同的交易安排时，两类成本要合在一起看。一般而言，价差窄、盘口厚的证券，成交价更接近参照价格；拆单或使用限价单有助于控制价格，代价则是部分数量可能无法及时成交。到了极端行情里，这种隐含成本会大得多：8 月 24 日开盘那几分钟，IVV 的成交价一度大幅低于成分股的实时价值，当时卖出的人承担了这段差额，哪怕几分钟后价格恢复，也拿不回来。
+因此，一笔交易的真实成本由两部分组成：藏在成交价里的**隐含成本**（买卖价差 + 逐档滑点），以及按账户另收的**显性成本**（佣金与规费）。回到前面市价买入 300 股的例子，拆开来看非常直观：
 
-订单全部成交，并不意味着整笔交易已经落袋完结。成交确定了价格和数量，证券与款项的正式交付还要经过**交收**。美国多数证券交易的标准交收周期是 T+1，也就是在交易日之后的下一个营业日完成交付。比如周五卖出这 300 股，只要下周一不是假日，交收就在周一完成。卖款记入交易记录、成为已交收资金、再转入银行，是三个可以分别确认的时点。[^settlement]
+<figure class="flow-figure" id="nb-b02-cost-split">
+<div class="ff-head"><p class="ff-title">真实成交成本 = 隐含价差与滑点 + 显性佣金规费</p><span class="ff-sub">沿用市价买入 300 股例 · 报价中点 100.00 美元</span></div>
+<div class="business-exchange" aria-label="以报价中点 100.00 美元为参照，市价买入 300 股成交均价为 100.04 美元，每股隐含价差与吃档成本 0.04 美元，合计 12 美元；另加按账户条款计算的佣金与交易规费，构成完整成交成本。">
+<svg viewBox="0 0 720 116" role="img" aria-label="显性与隐含交易成本拆解链" style="width:100%;height:auto;display:block">
+  <rect x="8" y="10" width="166" height="94" rx="7" fill="#ffffff" stroke="#c8d6ce"/>
+  <text x="20" y="33" font-size="11" fill="#58605c">参照基准（报价中点）</text>
+  <text x="20" y="61" font-size="18" font-weight="700" fill="#18241e">100.00 美元</text>
+  <text x="20" y="84" font-size="10.5" fill="#7a8780">Bid 99.98 / Ask 100.02 中点</text>
+  <text x="190" y="62" text-anchor="middle" font-size="16" font-weight="700" fill="#8f6033">+</text>
+  <rect x="204" y="10" width="250" height="94" rx="7" fill="#fdf6f3" stroke="#e2c2b7"/>
+  <text x="216" y="33" font-size="11" font-weight="650" fill="#b83b24">隐含成本（藏在成交价里）</text>
+  <text x="216" y="61" font-size="17" font-weight="700" fill="#b83b24">0.04 × 300 = 12 美元</text>
+  <text x="216" y="84" font-size="10.5" fill="#6b524a">半价差 0.02 + 吃档滑点 0.02（均价 100.04）</text>
+  <text x="469" y="62" text-anchor="middle" font-size="16" font-weight="700" fill="#58605c">+</text>
+  <rect x="484" y="10" width="228" height="94" rx="7" fill="#f3f7f5" stroke="#b9d0c2"/>
+  <text x="496" y="33" font-size="11" font-weight="650" fill="#145343">显性费用（账单单独列示）</text>
+  <text x="496" y="61" font-size="16" font-weight="700" fill="#145343">佣金 + 交易规费</text>
+  <text x="496" y="84" font-size="10.5" fill="#46544c">按账户条款另计；极端行情隐含成本远大</text>
+</svg>
+</div>
+<figcaption>拆单或限价单可收紧隐含成本，代价是可能漏单；2015-08-24 低位卖出 IVV 的人承担的巨大偏离，即便几分钟后价格恢复也无法追回。</figcaption>
+</figure>
+
+订单成交后，证券与资金的正式交付还要经过**交收**。美国多数证券采用 T+1 交收周期（交易日后下一个营业日），卖款记账、交收可用与转出银行是三个不同的时间节点：[^settlement]
 
 <figure class="flow-figure stage-lanes rs-4" id="nb-b02-settlement-days">
 <div class="ff-head"><p class="ff-title">周五卖出 300 股，T+1 交收</p></div>
@@ -188,9 +232,9 @@ IVV 持有的股票并没有跌掉五分之一，可这几分钟里卖出 IVV �
 </div>
 </figure>
 
-<span data-text-versions id="nb-b02-text-6">这里的 T+1 说的是交付时间，和能否当天买卖是两回事。当天买入、当天卖出的回转交易在美股市场可以进行，交收仍按 T+1 发生，两者互不冲突。至于能否马上用卖款买入别的证券，或者把钱转出账户，则要看账户类型和券商规则<span data-text-detail>（例如现金账户用已交收资金买入后当日卖出，与用尚未交收的卖款买入另一只证券、并在付款资金交收前卖出，付款条件不同；可交易余额与可提款余额也分别计算。这里只说明美国通常证券交易的交收周期，其他市场按各自规则处理）</span>。[^settlement]<sup>，</sup>[^cash-account]<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>
+<span data-text-versions id="nb-b02-text-6">T+1 管的是交收日，与美股当日买卖的回转交易互不冲突；至于能否立刻动用未交收卖款买别的股票或提现，取决于账户类型与券商规则<span data-text-detail>（现金账户用已交收资金当日买卖，与用未交收卖款买入新股并在付款交收前卖出，受不同付款限制；可交易余额与可提款余额也分别核算。本节仅指美国通常证券交易，其他市场按当地规则执行）</span>。[^settlement]<sup>，</sup>[^cash-account]<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>
 
-有了实际成交的价格、成本和资金到账时间，讨论回报才有了可靠的起点。下一篇[《复利、通胀与机会成本》](/zh/notebook/compounding-inflation-opportunity-cost/)接着看回报怎样随时间累积，又要扣掉哪些购买力的折损。
+有了实际成交价、交易成本与资金交收起点，回报计算才算脚踏实地。下一篇[《复利、通胀与机会成本》](/zh/notebook/compounding-inflation-opportunity-cost/)接着看回报怎样跨年滚动，又要扣掉哪些购买力折损。
 
 <link rel="stylesheet" href="/notebook/trading.css?v=20261126">
 <script src="/notebook/trading.js?v=20261126" defer></script>

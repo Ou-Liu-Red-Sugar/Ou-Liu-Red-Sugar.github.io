@@ -2,7 +2,7 @@
 
 从 10,000 美元买入 VOO 出发，看这笔钱怎样按指数权重分到各家公司，再认识等权与再平衡、基金净值、ETF 的场内价格、主动与主题管理以及各项费用。
 
-Entry: zh-indices-funds-etfs | Node: NB-V01 | Language: zh | Editorial revision: 2026-11-26
+Entry: zh-indices-funds-etfs | Node: NB-V01 | Language: zh | Editorial revision: 2026-11-28
 
 ## Reference use
 This is reference material for the learner's current request. Use the supplied entry to teach the selected concept. Retrieve the relevant original unit when explaining a claim that depends on its assumptions, figures or rules; the reading list is a map for that work, not a prerequisite to the first lesson. Keep facts, supplied examples and inference distinct. Editorial access dates describe the author's work. The empty runtime_reading_log is an optional record field, not a requested response. Author-supplied scope notes below constrain factual use of the material; the learner's request determines the teaching task and first response.
@@ -487,7 +487,7 @@ This is reference material for the learner's current request. Use the supplied e
 ```
 
 ## Supplied entry
-[《股票、公司与股价》](/zh/notebook/stocks-company-price/)和[《股东回报：分红、回购与增发》](/zh/notebook/shareholder-returns-buybacks-issuance/)都跟着同一笔 100 股 AAPL，钱只放在一家公司上。换一种买法，用 10,000 美元买入 Vanguard S&P 500 ETF（VOO），同一笔钱就会经过基金分到约 500 家美国公司。按 VOO 在 2026 年 6 月 30 日的持仓比例，NVIDIA（NVDA）分到约 750 美元，AAPL 约 660 美元；持仓最多的十家公司合计约 3,790 美元，其余持股合计约 6,210 美元。[^voo-sheet]
+[《股票、公司与股价》](/zh/notebook/stocks-company-price/#nb-s01-ownership)和[《股东回报：分红、回购与增发》](/zh/notebook/shareholder-returns-buybacks-issuance/#nb-s02-returns)都跟着同一笔 100 股 AAPL，资金只压在一家公司上。换一种买法，用 10,000 美元买入 Vanguard S&P 500 ETF（VOO），同一笔钱会经过基金分到约 500 家美国公司；只是按 2026 年 6 月 30 日的持仓权重，这 500 家拿到的份额悬殊得多。[^voo-sheet]
 
 <figure class="flow-figure alloc" id="nb-v01-concentration">
 <div class="ff-head"><p class="ff-title">10,000 美元买入 VOO，按持仓比例分到各公司</p><span class="ff-sub">2026 年 6 月 30 日 · 按占基金净资产比例换算</span></div>
@@ -509,31 +509,75 @@ This is reference material for the learner's current request. Use the supplied e
 <figcaption>金额为 10,000 美元乘以各公司占 VOO 净资产的比例，忽略费用和买卖价差；GOOGL 与 GOOG 按 Alphabet 一家合并。<a href="https://fund-docs.vanguard.com/F0968.pdf">基金资料</a> · <a href="/notebook/index-funds/inputs.json">图表输入</a>。</figcaption>
 </figure>
 
-这些股票并不直接躺在我们的证券账户里。我们持有的是 VOO 的基金份额，由 VOO 去持有这些公司的股票；股价涨跌和公司派发的股息先汇入基金资产，再体现在每份 VOO 上。钱虽然分散到了约 500 家公司，各家拿到的比重却悬殊得多：前十家就占去了将近四成，其中 NVDA、AAPL、MSFT、AVGO 和 MU 属于信息技术行业，合计约 2,320 美元；按行业口径统计，整只基金有 38.0% 投在信息技术上，约合 3,800 美元。
+账户里实际持有的是 VOO 基金份额，股价波动与公司派发的股息先汇入基金资产，再体现在每份 VOO 上。前十家公司就占去近四成资金，按行业统计，整只基金更有 38.0%（约 3,800 美元）落在信息技术上。<span data-text-versions id="nb-v01-text-4">即便分属不同行业，头部公司也常共享相近的客户与资本开支周期，评估分散度时要把这些共同暴露算进去<span data-text-detail>（公司与行业是两个观察维度，比例不能相加。VOO 原表将 Alphabet 的 GOOGL 与 GOOG 合并为一家公司；前十行取整相加为 37.8%，合计保留源表公布的 37.9%；NVDA、AAPL、MSFT、AVGO 与 MU 属于信息技术，合计约 2,320 美元。时点固定为 2026 年 6 月 30 日）</span>。<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>
 
-<span data-text-versions id="nb-v01-text-4">即便分属不同行业，这些头部公司也常常依赖相近的客户、需求和资金条件，评估集中度时也要把这些共同影响算进去<span data-text-detail>（公司与行业是两个观察维度，比例不能相加。VOO 原表将 Alphabet 的 GOOGL 与 GOOG 合并为一家公司；各行取整后相加为 37.8%，前十合计保持源表公布的 37.9%。图中为基金持仓权重，时点固定为 2026 年 6 月 30 日）</span>。<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>
-
-VOO 分给 NVDA 的钱多、分给其他公司的钱少，依据的是它所跟踪的指数：VOO 以取得接近 S&P 500 的回报为目标，这份持仓比例就来自 S&P 500 的选样和加权规则。[^voo-prospectus]
+VOO 把最多资金分给 NVIDIA（NVDA）、把较少资金分给其余公司，依据的是它所跟踪的指数：VOO 以取得接近 S&P 500 的回报为目标，这份比例来自 S&P 500 的选样与加权规则。[^voo-prospectus]
 
 ## 指数的定义与样本 {#nb-v01-index}
 
-股票指数用来衡量一组股票的整体表现。编制者按既定规则挑选股票、分配权重，再把它们的价格变化汇总成可以连续记录的指数点位，各只股票的涨跌便汇成了一条走势。新闻里常说 S&P 500 上涨，就是在用这项指数概括它所代表的那部分市场。
+股票指数是衡量一组股票整体表现的独立标尺，本身并不替任何人管理资金。你可以自己照着成分买一篮子股票，也可以通过基金份额去跟踪它。编制者先把市场切出范围、定好权重，再把涨跌汇总成一条连续点位。[^sp-method]<sup>，</sup>[^msci]
 
-不同指数观察的范围各有侧重。S&P 500 由 S&P Dow Jones Indices 编制，主要反映约 500 家美国大盘公司；MSCI 编制的 MSCI World 则覆盖 23 个发达市场的大盘和中盘股票，涵盖美国、日本、英国等市场。[^sp-method]<sup>，</sup>[^msci] <span data-text-versions id="nb-v01-text-1">MSCI World 的名称容易让人联想到全球股市，实际上它只覆盖发达市场，不包含新兴市场<span data-text-detail>（范围采用 2026 年 8 月 31 日官方资料，覆盖各市场约 85% 的自由流通调整后市值。市场归类依照指数的分类口径；公司被纳入哪个市场，与它在世界各地经营、取得收入的范围，是不同的观察维度）</span>。<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>
+<figure class="flow-figure" id="nb-v01-index-funnel">
+<div class="ff-head"><p class="ff-title">从股票市场到一条指数曲线：三步规则</p><span class="ff-sub">选样本 → 定权重 → 算点位</span></div>
+<div class="business-exchange" aria-label="指数编制的三个步骤：第一步划定样本池，例如 S&P 500 选取约 500 家美国大盘公司（考察规模、流动性、盈利并由委员会裁定），MSCI World 覆盖 23 个发达市场大中盘约 85% 自由流通市值、不含新兴市场；第二步按规则分配权重，分为自由流通市值加权或等权等；第三步汇总成连续指数点位，日常只看涨跌幅，同时区分价格指数与计入分红的总回报指数。">
+<svg viewBox="0 0 720 224" role="img" aria-label="指数编制三步流程：选样范围对照、权重规则与点位口径" style="width:100%;height:auto;display:block">
+  <defs>
+    <marker id="v01-arr" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto">
+      <path d="M1 1.5 L9 5 L1 8.5 Z" fill="#145343"/>
+    </marker>
+  </defs>
+  <rect x="8" y="10" width="268" height="204" rx="8" fill="#ffffff" stroke="#c8d6ce" stroke-width="1.2"/>
+  <rect x="8" y="10" width="268" height="32" rx="8" fill="#eaf2ef"/>
+  <rect x="8" y="34" width="268" height="8" fill="#eaf2ef"/>
+  <text x="22" y="31" font-size="12.5" font-weight="700" fill="#145343">① 划定样本池（买哪些公司）</text>
+  <rect x="20" y="54" width="244" height="68" rx="6" fill="#f7faf8" stroke="#d9e4dd"/>
+  <text x="32" y="73" font-size="12.5" font-weight="700" fill="#18241e">S&amp;P 500</text>
+  <text x="98" y="73" font-size="11" fill="#58605c">S&amp;P Dow Jones Indices</text>
+  <text x="32" y="92" font-size="11.5" fill="#3c4c44">约 500 家美国大盘公司</text>
+  <text x="32" y="110" font-size="11" fill="#68736d">规模 · 流动性 · 盈利 + 委员会裁定</text>
+  <rect x="20" y="132" width="244" height="68" rx="6" fill="#fbf9f5" stroke="#e5dccf"/>
+  <text x="32" y="151" font-size="12.5" font-weight="700" fill="#18241e">MSCI World</text>
+  <text x="115" y="151" font-size="11" fill="#8f6033">不含新兴市场</text>
+  <text x="32" y="170" font-size="11.5" fill="#3c4c44">23 个发达市场大中盘（美 / 日 / 英等）</text>
+  <text x="32" y="188" font-size="11" fill="#68736d">覆盖各市场约 85% 自由流通市值</text>
+  <line x1="278" y1="112" x2="306" y2="112" stroke="#145343" stroke-width="1.8" marker-end="url(#v01-arr)"/>
+  <rect x="312" y="10" width="176" height="204" rx="8" fill="#ffffff" stroke="#c8d6ce" stroke-width="1.2"/>
+  <rect x="312" y="10" width="176" height="32" rx="8" fill="#eaf2ef"/>
+  <rect x="312" y="34" width="176" height="8" fill="#eaf2ef"/>
+  <text x="326" y="31" font-size="12.5" font-weight="700" fill="#145343">② 分配权重</text>
+  <rect x="324" y="56" width="152" height="62" rx="6" fill="#f3f7f5" stroke="#b9d0c2"/>
+  <text x="336" y="76" font-size="12" font-weight="650" fill="#145343">自由流通市值加权</text>
+  <text x="336" y="95" font-size="11" fill="#46544c">公众可交易市值越大，</text>
+  <text x="336" y="110" font-size="11" fill="#46544c">对指数影响力越重</text>
+  <rect x="324" y="130" width="152" height="62" rx="6" fill="#fbf9f5" stroke="#e2d5c3"/>
+  <text x="336" y="150" font-size="12" font-weight="650" fill="#8f6033">等权规则</text>
+  <text x="336" y="169" font-size="11" fill="#46544c">按期把每家公司调回</text>
+  <text x="336" y="184" font-size="11" fill="#46544c">相同比例（如约 0.2%）</text>
+  <line x1="490" y1="112" x2="518" y2="112" stroke="#145343" stroke-width="1.8" marker-end="url(#v01-arr)"/>
+  <rect x="524" y="10" width="188" height="204" rx="8" fill="#ffffff" stroke="#c8d6ce" stroke-width="1.2"/>
+  <rect x="524" y="10" width="188" height="32" rx="8" fill="#eaf2ef"/>
+  <rect x="524" y="34" width="188" height="8" fill="#eaf2ef"/>
+  <text x="538" y="31" font-size="12.5" font-weight="700" fill="#145343">③ 汇总成点位</text>
+  <text x="538" y="68" font-size="12" font-weight="650" fill="#18241e">只看同一指数的涨跌幅</text>
+  <text x="538" y="87" font-size="11" fill="#58605c">不同指数基期和算法不同，</text>
+  <text x="538" y="103" font-size="11" fill="#58605c">点位绝对高低不代表贵贱</text>
+  <line x1="538" y1="120" x2="698" y2="120" stroke="#e2e7df"/>
+  <text x="538" y="142" font-size="12" font-weight="650" fill="#145343">比较回报要对齐口径</text>
+  <text x="538" y="162" font-size="11" fill="#46544c">· 价格指数：只记股价变化</text>
+  <text x="538" y="180" font-size="11" fill="#46544c">· 总回报指数：计入分红再投</text>
+  <text x="538" y="198" font-size="10.5" fill="#7a8780">拆股与成分变更会做除数调整</text>
+</svg>
+</div>
+<figcaption>样本范围、权重规则和回报口径三项共同决定一只指数到底在衡量什么。S&amp;P 500 并非机械截取市值前 500 家，经营格局变化时成分名单也会调整。</figcaption>
+</figure>
 
-要代表这部分市场，编制者得按规则选出参与计算的股票。拿 S&P 500 来说，它会综合考察公司所属市场、规模、可交易股份、流动性和盈利等条件，再由指数委员会作出决定，并不会直接按市值排名截取前五百家；当公司经营或市场格局发生变化时，成分名单也会随之调整。[^sp-method]
-
-<span data-text-versions id="nb-v01-text-2">指数点位把这些股票的表现连续记录下来，日常比较时我们通常看的是同一指数的变化幅度。由于不同指数各有基期和算法，单凭点位高低判断不了哪个市场更贵<span data-text-detail>（价格指数主要记录价格变化；总回报指数还将分红及其再投资计入，税前、税后口径又可能不同。拿基金回报与指数比较时，应匹配分红、币种、期间和费用口径；公司拆股、成分变更等也需依方法调整计算，避免把计量变化当成市场涨跌）</span>。[^index-math]<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>
+<span data-text-versions id="nb-v01-text-1">读指数名字时容易被字面误导：MSCI World 听起来像覆盖全球股市，实际只包含发达市场，不包含新兴市场<span data-text-detail>（范围采用 2026 年 8 月 31 日官方资料，覆盖各市场约 85% 的自由流通调整后市值。市场归类依照指数的分类口径；公司被纳入哪个市场，与它在世界各地取得收入的范围是两个维度）</span>。<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span> <span data-text-versions id="nb-v01-text-2">拿基金业绩和指数对照时，还要把分红、币种、期间和费用口径对齐<span data-text-detail>（价格指数主要记录价格变化；总回报指数还将分红及其再投资计入，税前与税后口径也可能不同；公司拆股、成分变更均依方法调整除数，避免把计量变化当成市场涨跌）</span>。[^index-math]<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>
 
 ## 市值加权、等权与再平衡 {#nb-v01-weights}
 
-选定成分之后，还要规定每只股票在计算中占多大比重，也就是权重。同样幅度的涨跌，权重越大的股票对指数的影响就越重。S&P 500 采用自由流通市值加权，可供公众投资的股份对应的市值越大，权重就越高；VOO 照这套权重持股，自由流通市值最大的 NVDA 自然分到了最多的资金。[^sp-method]
+同样一组 S&P 500 成分股，换一套权重规则，资金去向立刻大变。按自由流通市值加权，NVDA 在 VOO 里分到最多资金；换成跟踪 S&P 500 等权指数的 Invesco S&P 500 Equal Weight ETF（RSP），在每季调整当日，NVDA 和最小成分公司各分到约 0.2%（10,000 美元里各约 20 美元）。[^sp-method]<sup>，</sup>[^equal]<sup>，</sup>[^rsp]
 
-同一组公司也可以换一种分法。S&P 500 等权指数采用相同的成分，每季度把各家公司调回相同的目标权重，通常每家约占 0.2%。如果把同样的 10,000 美元投进跟踪它的 Invesco S&P 500 Equal Weight ETF（RSP），在调整当日，NVDA 和规模最小的成分公司各分到约 20 美元。[^equal]<sup>，</sup>[^rsp]
-
-这种按规则把权重调回目标的操作叫作再平衡。等权规定的是调整那一天的比例；在两次再平衡之间，股价涨跌仍会让权重逐渐偏离目标。
-
-五百只股票摊在一起不容易看清细节，我们先缩成四只股票来走一遍这个过程。两种方式同样投入 10,000 美元，市值加权的起点设为 40%、30%、20%、10%，等权则各占 25%。把下面的图从“再平衡日”切到“期间价格变化”，就能直观看到同样的涨跌怎样拉开两组权重。
+等权规定的是再平衡那一天的目标比例；两次调整之间，股价涨跌仍会让权重漂移。把 500 家缩成 4 只股票，在下图里切换三个阶段并拖动 A 的涨跌幅，就能亲眼看见同一组涨跌怎样拉开市值加权与等权的结果：
 
 <figure class="if-figure tex2jax_ignore" data-if-rebalance id="nb-v01-rebalance">
 <span class="if-kicker">同一组股票 · 两种权重规则</span>
@@ -547,26 +591,20 @@ VOO 分给 NVDA 的钱多、分给其他公司的钱少，依据的是它所跟�
 <figcaption>设定 B 下跌 10%，C 不变，D 上涨 10%；成分股数及可交易比例保持不变。四只股票用来单独观察权重机制，忽略分红、税费和交易成本。<a href="/notebook/index-funds/calculations.csv">默认情形与计算数据</a>。</figcaption>
 </figure>
 
-默认设定里，A 上涨 40%，B 下跌 10%，C 不变，D 上涨 10%。等权组合的总价值从 10,000 美元增至 11,000 美元，回报为 10%，A 的权重也从 25% 升到约 31.8%；市值加权组合起初给了 A 更多资金，同样的价格变化便带来了 14% 的回报。持有的股票完全一样，起始权重不同，最终结果也就不同。
+切到第 ③ 步可以看到两者的机制分叉：等权到期要卖出涨超目标的股票、补进落后的股票，把比例拉回原点（忽略费用，调整瞬间总资产不变，只改写后续权重）；市值加权则顺着股价涨跌自然浮动，不需要为了恢复比例而卖出赢家，当少数巨头持续走强时，资金会越来越向它们集中。
 
-到了下一次再平衡日，等权组合需要把 A 的金额从 3,500 美元减到 2,750 美元，同时补足其他低于目标的股票，才重新回到各占 25%。忽略费用，这次调整后总价值仍停在 11,000 美元，只是此后的涨跌会按新的权重影响组合。市值加权组合则无须这样调回：上涨的股票市值变大，权重随之升高，不必卖出；当少数公司的股价持续走强时，资金就会越来越向它们集中。
-
-<span data-text-versions id="nb-v01-text-3">实际的 S&P 500 等权指数在 3、6、9、12 月按季度再平衡，期间权重会随行情不断漂移。因此读等权基金的持仓表时，我们也要把披露日期和再平衡安排放在一起看<span data-text-detail>（指数按公司分配等权目标；同一家公司若有多个符合条件的股类，其合计对应一家公司的份额。实际方法的定权参考日与调整生效日存在间隔，价格在这期间也可能变化。上图为了单独展示漂移与调回，采用在指定时点立即恢复目标比例的简化设定）</span>。[^equal]<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>
-
-等权虽然压低了最大几家公司的比重，但哪个行业入选的公司多，这个行业分到的总权重依然更大，并不会自动变成行业等权。选择哪种加权规则，其实就是在决定自己的资金按什么比例分给大公司、小公司和各个行业。
+<span data-text-versions id="nb-v01-text-3">实际 S&P 500 等权指数在 3、6、9、12 月按季再平衡，读持仓表时要把披露日和调整节奏合起来看；而且等权压低的是最大几家公司的比重，哪个行业入选家数多，该行业总权重依然更大，并不会自动变成行业等权<span data-text-detail>（指数按公司分配等权目标；同一家公司若有多个符合条件的股类，合计对应一家公司的份额。实际方法的定权参考日与生效日存在间隔，价格在此期间也会漂移；上图为单独展示漂移与调回，采用即时恢复目标比例的简化设定）</span>。[^equal]<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>
 
 ## 基金份额与净值 {#nb-v01-nav}
 
-基金把投资者的资金集合起来，由基金管理人按约定目标投资；具体投向可以是股票、债券或其他资产，取决于产品规定的范围。开头那 10,000 美元买到的是 VOO 的基金份额。一份值多少钱，可以从基金拥有的资产算起：把股票、现金等资产的价值加总，扣除基金负债，得到基金净资产；再除以总份额，就是每份净值，通常记作 NAV：[^nav]
+基金把投资者的资金集合起来，按约定目标投向股票、债券或其他资产。每份基金背后对应多少净资产，用每份净值（NAV）衡量：[^nav]
 
 \[
 \text{每份净值}=\frac{\text{基金资产}-\text{基金负债}}{\text{基金总份额}}.
 \]
 
-假设一只基金在某一时点有资产 101 万美元、负债 1 万美元，共 10 万份，那么净资产就是 100 万美元，每份净值为 10 美元。按这个净值，10,000 美元对应 1,000 份：
-
 <figure class="flow-figure step-chain sc-4" id="nb-v01-nav-chain">
-<div class="ff-head"><p class="ff-title">从基金资产到一笔持仓的净资产价值</p></div>
+<div class="ff-head"><p class="ff-title">从基金资产到一笔持仓的净资产价值</p><span class="ff-sub">设定算例 · 任意时点</span></div>
 <div class="sc-track">
 <div class="sc-node"><strong>101 万美元</strong><small>基金资产</small></div>
 <div class="sc-link business-exchange" aria-label="基金资产 101 万美元减去负债 1 万美元，得到净资产 100 万美元。"><span>− 负债</span><span>1 万美元</span></div>
@@ -578,7 +616,7 @@ VOO 分给 NVDA 的钱多、分给其他公司的钱少，依据的是它所跟�
 </div>
 </figure>
 
-持有期间，资产价格的涨跌、基金取得的收入及承担的费用都会改变净值；当基金向持有人分配现金时，净值也会相应下调。比如每份分配 0.20 美元，在其他价值不变时，每份净值从 10 美元降至 9.80 美元：手里 1,000 份对应的资产价值从 10,000 美元降到 9,800 美元，同时账户收到 200 美元现金，两者加起来仍是 10,000 美元。
+资产涨跌、股息收入和持续费用都会推动净值变化；当基金把现金分给持有人时，净值也会同步下调——钱只是从基金账上搬进了你的现金账户，本身不算亏损：
 
 <figure class="flow-figure g2-nav-split" id="nb-v01-nav-dist">
 <div class="ff-head"><p class="ff-title">每份分配 0.20 美元：净值下调，合计价值不变</p><span class="ff-sub">持有 1,000 份 · 其他价值不变</span></div>
@@ -597,13 +635,52 @@ VOO 分给 NVDA 的钱多、分给其他公司的钱少，依据的是它所跟�
 <figcaption>设定同一时点、忽略同期市场涨跌与投资者税费；橙色切片示意移入现金的 200 美元（占总价值的 2%）。</figcaption>
 </figure>
 
-<span data-text-versions id="nb-v01-text-5">评估这段持有结果时，就要把净值变化与收到的现金放到一起看<span data-text-detail>（NAV 有时指基金总净资产，报价页面通常展示每份 NAV，计算时需辨认分母。上述金额为同一时点的设定，现金分配例忽略同期市场变化和投资者税费）</span>。<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>
+<span data-text-versions id="nb-v01-text-5">因此评估一段持有结果时，要把净值变化和收到的现金分配合起来算<span data-text-detail>（NAV 有时指基金总净资产，报价页面通常展示每份 NAV，计算时需辨认分母。上述两图均为同一时点的设定算例，忽略同期市场涨跌和投资者税费）</span>。<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>
 
 ## 场内买卖与场外申赎 {#nb-v01-trading}
 
-净值说明每份基金对应多少资产，但实际买入时要付多少钱，还得看份额怎样交易。交易所交易基金（ETF）的份额可以直接在交易所买卖，VOO 就属于这一类；美国常见的开放式共同基金则通过申购和赎回进出。申购共同基金时，申请交给基金或销售机构，按收到有效申请后下一次算出的净值成交，因此盘中提交申请后要等净值出来才知道价格；退出时向基金赎回份额，由基金支付对应款项。而在交易所买入 ETF 时，订单经券商送进市场，按与卖方撮合的价格成交；退出时把份额卖给其他投资者。[^fund-structure]
+净值说明每份基金值多少资产，而实际买进卖出付多少钱，取决于基金走的是哪条交易通道：场外共同基金直接向基金申赎，ETF 则在交易所挂牌撮合。[^fund-structure]
 
-ETF 的市场价格由买卖双方的出价决定，基金持有的资产决定净值，两者之间就可能出现差距：市价高于净值称为溢价，低于净值称为折价。假设某时点一份 ETF 对应的资产价值估算为 10 美元，市价却是 10.10 美元，同样的 10,000 美元按市价买到的份额就会比按净值成交少：
+<figure class="flow-figure" id="nb-v01-etf-vs-mf">
+<div class="ff-head"><p class="ff-title">两种交易通道：场外申赎 vs 场内 ETF</p><span class="ff-sub">对手方与定价时点不同</span></div>
+<div class="business-exchange" aria-label="场外开放式共同基金由投资者向基金或销售机构提交申购或赎回申请，按收到有效申请后下一次算出的日终净值成交；场内 ETF 由投资者通过券商在交易所与其他投资者实时撮合成交，成交价为市场价，相对资产价值可能出现溢价或折价，由授权参与商 AP 的大额申赎机制拉回资产价值附近。">
+<svg viewBox="0 0 720 218" role="img" aria-label="场外共同基金与场内 ETF 交易路径对照" style="width:100%;height:auto;display:block">
+  <defs>
+    <marker id="v01-arr2" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto"><path d="M1 1.5 L9 5 L1 8.5 Z" fill="#145343"/></marker>
+    <marker id="v01-arr-warm" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto"><path d="M1 1.5 L9 5 L1 8.5 Z" fill="#a8743f"/></marker>
+  </defs>
+  <rect x="8" y="8" width="704" height="94" rx="8" fill="#fbf9f5" stroke="#e4dacb" stroke-width="1.1"/>
+  <text x="20" y="28" font-size="11.5" font-weight="700" fill="#8f6033">场外共同基金 · 申购 / 赎回</text>
+  <rect x="20" y="42" width="84" height="44" rx="6" fill="#ffffff" stroke="#d5c9b8"/>
+  <text x="62" y="68" text-anchor="middle" font-size="12.5" font-weight="650" fill="#18241e">投资者</text>
+  <line x1="112" y1="54" x2="266" y2="54" stroke="#a8743f" stroke-width="1.6" marker-end="url(#v01-arr-warm)"/>
+  <text x="190" y="47" text-anchor="middle" font-size="10.5" fill="#8f6033">申购款 / 赎回申请</text>
+  <line x1="270" y1="74" x2="116" y2="74" stroke="#145343" stroke-width="1.5" marker-end="url(#v01-arr2)"/>
+  <text x="192" y="90" text-anchor="middle" font-size="10.5" fill="#58605c">按日终 NAV 确认份额或回款</text>
+  <rect x="276" y="42" width="132" height="44" rx="6" fill="#ffffff" stroke="#d5c9b8"/>
+  <text x="342" y="68" text-anchor="middle" font-size="12" font-weight="650" fill="#18241e">基金 / 销售机构</text>
+  <rect x="422" y="24" width="276" height="64" rx="6" fill="#ffffff" stroke="#e8dfd2"/>
+  <text x="436" y="49" font-size="11.5" font-weight="650" fill="#8f6033">收盘后定净值（Forward Pricing）</text>
+  <text x="436" y="70" font-size="11" fill="#58605c">盘中下单时还不知道成交价，无场内溢折价</text>
+  <rect x="8" y="114" width="704" height="96" rx="8" fill="#f3f7f5" stroke="#c3d5cb" stroke-width="1.1"/>
+  <text x="20" y="135" font-size="11.5" font-weight="700" fill="#145343">场内 ETF（如 VOO）· 二级市场撮合</text>
+  <rect x="20" y="148" width="84" height="44" rx="6" fill="#ffffff" stroke="#b9d0c2"/>
+  <text x="62" y="174" text-anchor="middle" font-size="12.5" font-weight="650" fill="#18241e">投资者</text>
+  <line x1="112" y1="160" x2="266" y2="160" stroke="#145343" stroke-width="1.6" marker-end="url(#v01-arr2)"/>
+  <text x="190" y="153" text-anchor="middle" font-size="10.5" fill="#145343">券商下单 · 买卖份额</text>
+  <line x1="270" y1="180" x2="116" y2="180" stroke="#a8743f" stroke-width="1.5" marker-end="url(#v01-arr-warm)"/>
+  <text x="192" y="196" text-anchor="middle" font-size="10.5" fill="#8f6033">按实时市价即时成交</text>
+  <rect x="276" y="148" width="132" height="44" rx="6" fill="#ffffff" stroke="#b9d0c2"/>
+  <text x="342" y="174" text-anchor="middle" font-size="12" font-weight="650" fill="#18241e">交易所对手方</text>
+  <rect x="422" y="130" width="276" height="64" rx="6" fill="#ffffff" stroke="#c8d8cf"/>
+  <text x="436" y="155" font-size="11.5" font-weight="650" fill="#145343">盘中实时报价（可能偏离 NAV）</text>
+  <text x="436" y="176" font-size="11" fill="#58605c">市价高于净值叫溢价，低于叫折价；AP 压缩价差</text>
+</svg>
+</div>
+<figcaption>并非所有场内交易基金都是 ETF；共同基金与 ETF 分别对应“向基金申赎”和“交易所撮合”两种进出路径。</figcaption>
+</figure>
+
+ETF 的市价由买卖盘撮合决定，一旦高出每份资产价值，同样的资金买到的底层资产就会变少：
 
 <figure class="flow-figure mini-chain" id="nb-v01-price-basis">
 <div class="ff-head"><p class="ff-title">同样 10,000 美元，按净值与按市价成交</p><span class="ff-sub">每份资产价值均设为 10 美元</span></div>
@@ -612,7 +689,7 @@ ETF 的市场价格由买卖双方的出价决定，基金持有的资产决定�
 <figcaption>不计佣金、销售费用和买卖价差；溢价例中的资产价值为同一时点的估算。</figcaption>
 </figure>
 
-即便底层股票价格不变，只要这 1% 的溢价之后收窄，多付出去的约 99 美元就会变成实际亏损；以折价买入则相反，同样的钱能多买到一些底层资产。ETF 的申购、赎回机制把场内份额与基金资产连在了一起，通常会压缩这类价差。能够直接与基金进行大额申赎的机构称为授权参与商（AP），当差价足以覆盖成本时，AP 可以分别采取以下交易：[^etf]
+即便底层股票纹丝不动，只要 1% 的溢价随后收窄，多付的约 99 美元就会变成真实亏损。之所以主流 ETF 的溢折价通常不大，依靠的是授权参与商（AP）的申赎套利机制——切换下方按钮，看 AP 在溢价和折价时分别怎样行动：[^etf]
 
 <figure class="flow-figure" id="nb-v01-ap" data-ff-views>
 <div class="ff-head"><p class="ff-title">AP 怎样把份额与资产连起来</p><div class="ff-switch" role="group" aria-label="选择价格关系" hidden><button type="button" data-ff-view-choice="premium" aria-pressed="true">市价高于资产价值</button><button type="button" data-ff-view-choice="discount" aria-pressed="false">市价低于资产价值</button></div></div>
@@ -635,39 +712,35 @@ ETF 的市场价格由买卖双方的出价决定，基金持有的资产决定�
 <figcaption>差价足以覆盖成本时，AP 才有动力这样交易。</figcaption>
 </figure>
 
-<span data-text-versions id="nb-v01-text-6">这两条路径让份额与资产可以相互转换，促使市价向对应的资产价值靠拢<span data-text-detail>（图中采用实物申赎的简化路径，实际篮子也可能包含现金，部分产品使用现金申赎。正式 NAV 通常在日终计算，盘中例子用的是同期资产价值估算；海外市场休市、交易成本和对冲条件会影响套利空间，因此价差仍可能存在）</span>。<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>
+<span data-text-versions id="nb-v01-text-6">两条路径打通了份额与底层资产的互换，把市价拉回净值附近<span data-text-detail>（图中采用实物申赎的简化路径，实际篮子也可能包含现金，部分产品使用现金申赎。正式 NAV 通常在日终计算，盘中例子用的是同期资产价值估算；海外市场休市、交易成本和对冲条件会影响套利空间，因此价差仍可能存在）</span>。<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>
 
 ## 指数跟踪、主动管理与主题投资 {#nb-v01-management}
 
-同样都在交易所买卖，不同 ETF 的管理方式和投资范围可以相去甚远。VOO 和 RSP 跟踪同一组公司的两种加权规则；iShares MSCI World ETF（URTH）则跟踪 MSCI World，把范围扩展到多个发达市场。其中 MSCI 负责制定和维护指数，基金管理人再按跟踪目标组织实际投资。这种主要依据指数规则调整持仓的做法称为被动管理，不过管理人仍要买卖股票、安排现金并处理相应成本。[^rsp]<sup>，</sup>[^urth]
-
-另一种做法是由管理人依靠研究和判断来选择持仓，也就是主动管理。Capital Group Dividend Value ETF（CGDV）侧重能够提供收入与增长机会的股票，投资目标包括争取高于美国股票平均水平的收入收益率，以及资本增值；它虽然把 S&P 500 列为主要业绩比较基准，实际组合却可以和指数大不相同。以后看到基金列出一个指数时，我们要先分清它是以跟踪这个指数为目标，还是只拿它作比较业绩的参照。[^cgdv]
-
-投资范围也可以收窄到某个行业或主题，这种收窄同样可以由指数规则完成。<span data-text-versions id="nb-v01-text-11">Nasdaq 编制的 PHLX Semiconductor Sector Index（SOX）只从在美国上市的半导体公司中选出市值最大的 30 家，再按市值加权并设上限：市值前三的公司分别不超过 12%、10% 和 8%，其余每家不超过 4%<span data-text-detail>（入选公司须属于 ICB 分类中的半导体或生产技术设备子行业，超出上限的权重按市值比例分给其他成分；成分每年 9 月重组，权重在 3、6、9、12 月按季度调回，两次调整之间会随价格漂移）</span>。[^sox]<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span> <span data-text-versions id="nb-v01-text-12">Invesco PHLX Semiconductor ETF（SOXQ）以跟踪这项指数为目标<span data-text-detail>（据 2025 年 12 月 19 日的招募说明书，SOXQ 通常将至少 90% 的总资产投资于指数成分，并集中投资于半导体行业；年度总费用率为 0.19%）</span>。同样的 10,000 美元放进 SOXQ，在调整当日，市值最大的公司最多分到 1,200 美元，前三名以外的每家最多 400 美元，全部落在半导体公司上。[^soxq]<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>
-
-主题同样可以交给管理人主动把握。<span data-text-versions id="nb-v01-text-9">Roundhill 旗下的 CHAT 投资生成式 AI 与科技，涉及平台、基础设施与软件，持有 NVDA；HUMN 围绕人形机器人，持有 Tesla（TSLA）；OZEM 围绕 GLP-1 与减重产业，持有 Eli Lilly（LLY）。这三只基金都采用主动管理<span data-text-detail>（例中持仓采用发行人标注的 2026 年 6 月 30 日数据；HUMN 官网以 TSLA 的 Optimus 说明相关研发方向）</span>。[^roundhill]<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span> 把本篇提到的基金按管理方式和投资范围放进同一张图里，差异会更清楚：
+ETF 说的是“在交易所交易”的形式，并不自动等于被动跟踪指数。挑一只基金时，要分开问两个问题：**谁决定买什么**（按指数规则被动跟踪，还是由管理人主动选股）和**钱投向多宽的范围**（广泛市场，还是单一行业与主题）。[^rsp]<sup>，</sup>[^urth]<sup>，</sup>[^cgdv]<sup>，</sup>[^sox]<sup>，</sup>[^soxq]<sup>，</sup>[^roundhill]
 
 <figure class="flow-figure fund-map" id="nb-v01-fund-map">
-<div class="ff-head"><p class="ff-title">管理方式与投资范围是两个维度</p></div>
+<div class="ff-head"><p class="ff-title">管理方式与投资范围是两个维度</p><span class="ff-sub">同为 ETF，规则与集中度大不相同</span></div>
 <div class="fm-grid business-exchange" aria-label="按指数规则管理、覆盖广泛市场：VOO 跟踪 S&P 500 市值加权，RSP 跟踪 S&P 500 等权，URTH 跟踪 MSCI World。由管理人选股、覆盖广泛市场：CGDV 重视收入与增长，以 S&P 500 为业绩比较基准。由管理人选股、集中于某个主题：CHAT 生成式 AI，HUMN 人形机器人，OZEM GLP-1 与减重。按指数规则管理、集中于某个主题：SOXQ 跟踪 SOX，指数由在美国上市、市值最大的 30 家半导体公司组成。">
 <span></span><div class="fm-col">按指数规则<small>被动管理</small></div><div class="fm-col">由管理人选股<small>主动管理</small></div>
 <div class="fm-row">广泛<br>市场</div>
-<div class="fm-cell"><div class="fm-fund"><b>VOO</b><span>S&P 500，市值加权</span></div><div class="fm-fund"><b>RSP</b><span>S&P 500，等权</span></div><div class="fm-fund"><b>URTH</b><span>MSCI World，多个发达市场</span></div></div>
-<div class="fm-cell"><div class="fm-fund"><b>CGDV</b><span>重视收入与增长，以 S&P 500 为比较基准</span></div></div>
+<div class="fm-cell"><div class="fm-fund"><b>VOO</b><span>S&P 500，市值加权</span></div><div class="fm-fund"><b>RSP</b><span>S&P 500，等权</span></div><div class="fm-fund"><b>URTH</b><span>MSCI World，发达市场</span></div></div>
+<div class="fm-cell"><div class="fm-fund"><b>CGDV</b><span>股息与增长主动选股，以 S&P 500 为比较基准</span></div></div>
 <div class="fm-row">集中<br>主题</div>
-<div class="fm-cell"><div class="fm-fund"><b>SOXQ</b><span>SOX，美国上市的 30 家半导体公司</span></div></div>
+<div class="fm-cell"><div class="fm-fund"><b>SOXQ</b><span>跟踪 SOX：美国上市最大 30 家半导体公司（设权重上限）</span></div></div>
 <div class="fm-cell"><div class="fm-fund"><b>CHAT</b><span>生成式 AI，持有 NVDA</span></div><div class="fm-fund"><b>HUMN</b><span>人形机器人，持有 TSLA</span></div><div class="fm-fund"><b>OZEM</b><span>GLP-1 与减重，持有 LLY</span></div></div>
 </div>
-<figcaption>列看管理人怎样决定持仓，行看资金主要投向哪里。持仓例按发行人标注的 2026 年 6 月 30 日数据。</figcaption>
+<figcaption>列看管理人怎样决定持仓，行看资金主要投向哪里。iShares MSCI World ETF（URTH）、Capital Group Dividend Value ETF（CGDV）、Invesco PHLX Semiconductor ETF（SOXQ）及 Roundhill 旗下 CHAT、HUMN、OZEM 持仓例采用 2026 年 6 月 30 日披露数据。</figcaption>
 </figure>
 
-买主题基金可以把对某个产业方向的看好直接落到持仓上，代价是资金也跟着全押在了同一条产业链上。拿 CHAT 来说，当企业纷纷加大生成式 AI 投入时，算力基础设施和软件服务往往一起受益；可一旦投入节奏放缓，上下游不同环节也会跟着一起降温。所以别看主题基金里装着好几十家公司，真遇到行业景气起落，它们常常是同涨同跌的。
+看基金文件列出某个指数时，先分清它是**跟踪目标**还是**业绩比较基准**：VOO、RSP、URTH 与 SOXQ 照规则跟踪对应指数（被动管理仍需交易股票、安排现金并控制误差）；而 CGDV 只把 S&P 500 当比较基准，实际持仓由管理人主动决定，可以和指数大不相同。
+
+<span data-text-versions id="nb-v01-text-11">行业指数本身也会靠上限规则约束集中度，例如 Nasdaq 的 PHLX Semiconductor Sector Index（SOX）从美国上市半导体公司选出市值最大的 30 家，前三名上限依次为 12%、10%、8%，其余每家不超过 4%<span data-text-detail>（入选公司须属于 ICB 分类中的半导体或生产技术设备子行业，超出上限的权重按市值比例分给其他成分；成分每年 9 月重组，权重在 3、6、9、12 月按季调回，两次调整之间会随价格漂移）</span>。<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span> <span data-text-versions id="nb-v01-text-12">跟踪 SOX 的 SOXQ 在调整当日，10,000 美元最多有 1,200 美元落到第一大公司、三名以外每家最多 400 美元，全部压在半导体行业上<span data-text-detail>（据 2025 年 12 月 19 日招募说明书，SOXQ 通常将至少 90% 总资产投向指数成分，年度总费用率 0.19%；1,200/400 美元是按指数上限换算的规则推算，非某一时点实际持仓）</span>。<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>
+
+<span data-text-versions id="nb-v01-text-9">主动主题基金（如 Roundhill 的 CHAT、HUMN 与 OZEM）能把对某条产业方向的看好直接落到持仓里，代价是风险同样压在同一条产业链上<span data-text-detail>（2026 年 6 月 30 日前五大持仓中，CHAT 持有 NVDA，HUMN 持有 Tesla（TSLA，官网以 Optimus 说明人形机器人方向），OZEM 持有 Eli Lilly（LLY））</span>。<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span> 拿 CHAT 来说，AI 资本开支扩张时算力与软件往往齐涨，投入节奏一放缓，几十家上下游成分也会一起降温——持仓家数多，并不代表分散了景气风险。
 
 ## 基金费用与投资者所得 {#nb-v01-fees}
 
-通过基金投资，我们把选股、交易和日常管理交给管理人，也要为此付费。持有期间持续发生的费用里，管理费支付给基金管理人，基金还可能承担其他运营开支；产品文件会把这些持续费用汇总为年度总费用率，按平均净资产的一定比例列示。[^fee-rules] <span data-text-versions id="nb-v01-text-10">VOO 的年度总费用率为 0.03%，其中管理费 0.02%、其他费用 0.01%；CGDV 为 0.33%，CHAT 为 0.75%<span data-text-detail>（三项费率分别取自 2026 年 4 月 28 日、2026 年 8 月 1 日和 2026 年 8 月 27 日的产品文件；CGDV 与 CHAT 的费率全部为管理费，其他费用为 0.00%）</span>。<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span> 同样把 10,000 美元放在 VOO 里，每年的持续费用约 3 美元；放进 CGDV 和 CHAT，则分别约为 33 和 75 美元，实际金额还会随基金资产价值上下变化。[^voo-prospectus]<sup>，</sup>[^cgdv]<sup>，</sup>[^chat-fee]
-
-这些费用通常直接从基金资产里扣除，已经反映在净值中，账户里一般不会出现一笔单独的扣款记录。但被扣走的资金不能再继续滚存，持有时间拉长以后，费率差造成的差距会越来越明显：
+把选股和日常管理交给基金，持续发生的管理费与运营开支会汇总成年度总费用率，直接从基金资产里扣除并反映在净值中，账户里不会出现单独扣款。<span data-text-versions id="nb-v01-text-10">VOO 年度总费用率 0.03%（10,000 美元每年约 3 美元），CGDV 为 0.33%（约 33 美元），CHAT 为 0.75%（约 75 美元）<span data-text-detail>（分别取自 2026 年 4 月 28 日、8 月 1 日与 8 月 27 日产品文件；VOO 含管理费 0.02% 与其他费用 0.01%，CGDV 与 CHAT 全部为管理费；实际扣费金额随基金净值上下变动）</span>。[^fee-rules]<sup>，</sup>[^voo-prospectus]<sup>，</sup>[^cgdv]<sup>，</sup>[^chat-fee]<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span> 被扣掉的资金无法继续滚存，时间一拉长，微小的费率差会滚出数千美元的差距：
 
 <figure class="flow-figure fee-gap" id="nb-v01-fee-gap">
 <div class="ff-head"><p class="ff-title">与年度费用率 0.03% 相比，少留下的金额</p><p class="ff-legend"><span style="--c:#5986a1">0.33%</span><span style="--c:#b47550">0.75%</span></p></div>
@@ -676,14 +749,12 @@ ETF 的市场价格由买卖双方的出价决定，基金持有的资产决定�
 <figcaption>本金 10,000 美元，三档采用同样的费用前年收益 6%，每年末按资产扣除相应比例，金额单位为美元，不代表三只实际基金的业绩。<a href="/notebook/index-funds/calculations.csv">查看计算数据</a> · <a href="/notebook/index-funds/fund-fee-extracts.md">费表摘录</a> · <a href="/notebook/index-funds/model.py">计算方法</a>。</figcaption>
 </figure>
 
-在相同的费用前收益下，20 年后三档费率留下的金额相差数千美元。当然，实际基金的持仓和费用前收益各不相同；比较主动基金时，还要看管理人交出的投资结果是否值得为此支付额外费用。
+<span data-text-versions id="nb-v01-text-7">因为基金公布的净值回报已经扣过持续费用，比较历史业绩时不要再重复减去一次费率；对比主动基金，关键看扣除费用后的结果是否值得这笔额外支出<span data-text-detail>（文中三只产品所核费用表均无当期减免使净费率低于总费率；其他产品若列有费率减免，需留意净费率及到期日。上图按 6% 费用前年收益、年末扣费 \(10000[(1+0.06)(1-f)]^{20}\) 测算，不计税费与销售费；实际基金通常按日计提）</span>。[^voo-sheet]<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>
 
-<span data-text-versions id="nb-v01-text-7">基金公布的净值回报通常已经扣除了持续费用，用这项回报作比较时，就不要再额外减去一次年度费用率<span data-text-detail>（文中三个产品所核费用表均无当期减免使净费率低于总费率。其他产品若列出费用减免，还需看净费率及其期限。图中设费用前年收益为 6%，每年末按资产扣费，计算为 \(10000[(1+0.06)(1-f)]^{20}\)，不计外部存取、投资者税费及销售收费；实际基金通常按日计提费用）</span>。[^voo-sheet]<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>
-
-除了持续费用，买入和退出环节还可能发生额外成本。按发生阶段把费用排开，就能看清一段完整持有过程包含哪些收费：
+除持有期间的持续费用外，买入和退出两个节点也可能扣费，完整持有一轮的成本结构如下：[^aivsx]
 
 <figure class="flow-figure stage-lanes rs-3" id="nb-v01-fee-stages">
-<div class="ff-head"><p class="ff-title">一段完整持有过程中的收费</p></div>
+<div class="ff-head"><p class="ff-title">一段完整持有过程中的收费</p><span class="ff-sub">以 AIVSX Class A 最高前端费为例</span></div>
 <div class="rs-grid business-exchange" aria-label="买入时，部分场外基金份额收取销售费用，ETF 有交易佣金与买卖价差；持有时，基金承担年度持续费用，渠道还可能另收账户或投顾费用；卖出或赎回时，可能有赎回费或后端销售费，ETF 有交易佣金与买卖价差。AIVSX Class A 例：投入 10,000 美元，按最高前端销售费 5.75% 先付 575 美元，买入份额的资金为 9,425 美元；持有期间每年持续费用 0.55%，从基金资产中扣除；该份额属于前端收费 Class A，常规赎回不另收后端销售费，具体按份额条款与销售安排确定。">
 <div class="rs-stage" style="--c:2"><strong>买入</strong></div>
 <div class="rs-stage" style="--c:3"><strong>持有</strong></div>
@@ -699,13 +770,9 @@ ETF 的市场价格由买卖双方的出价决定，基金持有的资产决定�
 </div>
 </figure>
 
-一些场外基金份额在买入时收取销售费，持有期间还会收取持续服务费用。The Investment Company of America 的 Class A 份额（AIVSX）所列最高申购销售费为 5.75%，年度持续费用为 0.55%。同样投入 10,000 美元，如果适用这档最高销售费，先付掉的销售费用就是 575 美元，真正买进基金份额的资金只剩 9,425 美元；持有之后，基金还会按年继续承担持续费用。[^aivsx]
+<span data-text-versions id="nb-v01-text-8">一次性销售费直接削减起投本金，年度持续费则每年按资产比例滚扣，两者发生时点与分母不同，不能简单相加；同一只基金在不同份额类别和销售渠道下的成本也可能相差很大<span data-text-detail>（The Investment Company of America Class A（AIVSX）年度持续费用 0.55% 含 0.23% 管理费、0.08% 其他费用和 0.24% 持续销售服务费 12b-1，取自产品页标注的 2026 年 3 月 1 日招募书；5.75% 为最高前端销售费，具体折扣、豁免及合并账户资格依销售安排确定，不能与 0.55% 相加称作每年 6.30%）</span>。<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span> 场外申赎本身也不必然昂贵：Vanguard 自家共同基金不收前后端销售费（少数产品另设特定买入或赎回费）；而场内 ETF 即便“免佣金”，也仍存在持续费用与买卖价差。[^vanguard-fees]<sup>，</sup>[^fee-rules]
 
-<span data-text-versions id="nb-v01-text-8">买入时的一次性收费与每年的持续费用，会在不同阶段减少可供投资的资金；同一只基金的不同份额类别和销售安排，也常对应不同成本<span data-text-detail>（这里的 0.55% 已包含 0.23% 管理费、0.08% 其他费用和 0.24% 的持续销售服务费用。费用取自 AIVSX 产品页，该页标注最近招募书日期为 2026 年 3 月 1 日。5.75% 是最高前端销售费，具体适用金额、折扣、豁免及合并账户资格按销售安排确定；0.24% 属于美国 12b-1 费用，已计入 0.55%。一次性销售费与年度持续费的计费时点、分母不同，不能相加称为每年 6.30%）</span>。<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>
-
-不过，场外申赎本身并不决定费率高低。Vanguard 自家的共同基金既不收前端也不收后端销售费，只承担各自的持续费用；少数产品另设特定买入或赎回费用。因此比较成本时，落脚点始终是具体产品、份额类别和购买渠道。场内 ETF 同样有持续费用和交易成本，“免佣金”只是免去了其中一项。[^vanguard-fees]<sup>，</sup>[^fee-rules]
-
-实际下单买入 VOO 时，还会遇上报价和订单。下一篇[《报价、订单与实际成交》](/zh/notebook/quotes-orders-execution/)接着看屏幕上的价格怎样变成实际付出的金额。
+真正下单买入 VOO 时，屏幕报价怎样变成实际成交价、买卖价差又从何而来，下一篇[《报价、订单与实际成交》](/zh/notebook/quotes-orders-execution/)接着展开。
 
 <link rel="stylesheet" href="/notebook/index-funds/ui.css?v=20261126">
 <script src="/notebook/index-funds/ui.js?v=20261126" defer></script>
