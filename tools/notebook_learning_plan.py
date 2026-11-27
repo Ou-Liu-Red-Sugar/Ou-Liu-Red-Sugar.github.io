@@ -255,6 +255,7 @@ def compile_reading_route(plan, mapped_entries):
                     runs.append([number, number])
             label = "、".join(str(a) if a == b else f"{a}–{b}" for a, b in runs)
             credits.append(dict(label=f"第 {label} 篇", writer=credit["writer"]))
+    step_map = {step["id"]: step for step in steps}
     return dict(title=route["title"], description=route["description"],
                 steps=steps[:count], next=steps[count] if count < len(steps) else None,
                 available_count=len(available), intro_available_count=sum(
@@ -262,6 +263,8 @@ def compile_reading_route(plan, mapped_entries):
                 navigation=navigation, credits=credits, writing_method=route["writing_method"],
                 participation=route["participation"],
                 phases=[dict(id=p["id"], title=p["title"], goal=p["goal"],
+                             entry_ids=list(p["entry_ids"]),
+                             steps=[step_map[e] for e in p["entry_ids"]],
                              available_count=sum(mapped[e]["status"] == "available" for e in p["entry_ids"]),
                              total=len(p["entry_ids"])) for p in plan["phases"]])
 

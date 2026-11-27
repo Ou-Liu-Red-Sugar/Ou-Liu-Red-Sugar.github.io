@@ -2,28 +2,100 @@
 <link rel="stylesheet" href="{{ partial "notebook/asset.html" "/notebook/reading-route.css" }}">
 <section class="notebook-route" id="reading-route" aria-labelledby="reading-route-title">
   <header class="route-heading">
-    <div><p class="eyebrow">顺序阅读 · 现有正文 {{ .available_count }} 篇</p><h2 id="reading-route-title">{{ .title }}</h2></div>
+    <div><p class="kicker">顺序阅读 · 已完成 {{ .available_count }} 篇</p><h2 id="reading-route-title">{{ .title }}</h2></div>
     <p>{{ .description }}</p>
   </header>
-  <ol class="route-steps" aria-label="起步阅读顺序">
-    {{ range .steps }}
-    <li data-route-entry="{{ .id }}" data-status="{{ .status }}">
-      <div class="route-step-meta"><span class="route-step-number">{{ printf "%02d" (int .number) }}</span>{{ if eq .status "available" }}{{ partial "notebook/reading-profile.html" .reading_profile }}{{ else }}<span>规划中</span>{{ end }}</div>
-      <h3>{{ if .url }}<a href="{{ .url }}">{{ .title }} <span aria-hidden="true">↗</span></a>{{ else }}{{ .title }}{{ end }}</h3>
-      <p>{{ .note }}</p>
-    </li>
-    {{ end }}
-  </ol>
-  {{ with .next }}
-  <div class="route-upcoming" data-route-entry="{{ .id }}" data-status="{{ .status }}">
-    <span class="route-upcoming-state">接下来{{ if eq .status "available" }} · {{ .reading_profile.difficulty }} · {{ .reading_profile.depth }}{{ else }} · 规划中{{ end }}</span>
-    <div><h3>{{ if .url }}<a href="{{ .url }}">{{ .title }} <span aria-hidden="true">↗</span></a>{{ else }}{{ .title }}{{ end }}</h3><p>{{ .note }}</p></div>
+
+  <p class="nb-volume-group-label">主线八卷</p>
+  <div class="nb-volumes">
+    {{ $m := 0 }}{{ $active := false }}
+    {{ range .phases }}{{ if not (hasPrefix .id "optional_") }}{{ $m = add $m 1 }}
+    {{ $pct := 0 }}{{ if gt .total 0 }}{{ $pct = div (mul .available_count 100) .total }}{{ end }}
+    {{ $state := "todo" }}{{ if and (gt .total 0) (eq .available_count .total) }}{{ $state = "done" }}{{ else if not $active }}{{ $state = "active" }}{{ $active = true }}{{ end }}
+    <details id="phase-{{ .id }}" class="nb-volume" data-state="{{ $state }}" open>
+      <summary>
+        <span class="nb-vol-num">{{ printf "%02d" $m }}</span>
+        <span class="nb-vol-head">
+          <span class="nb-vol-title">{{ .title }}</span>
+          <span class="nb-vol-goal">{{ .goal }}</span>
+        </span>
+        <span class="nb-vol-stat">
+          <span class="nb-vol-meter" aria-hidden="true"><i style="width:{{ $pct }}%"></i></span>
+          <span>{{ .available_count }} / {{ .total }} 篇</span>
+        </span>
+      </summary>
+      <ol class="nb-vol-list route-steps">
+        {{ range .steps }}
+        {{ if eq .status "available" }}
+        <li class="nb-row" data-route-entry="{{ .id }}" data-article="{{ .id }}" data-status="available">
+          <a href="{{ .url }}">
+            <span class="nb-row-num">{{ printf "%02d" (int .number) }}</span>
+            <span class="nb-row-title">{{ .title }}</span>
+            <span class="nb-row-note">{{ .note }}</span>
+            <span class="nb-row-meta">{{ with .reading_profile }}<span class="nb-row-badge">{{ .difficulty }}·{{ .depth }}</span>{{ end }}<span class="nb-card-read" hidden>已读</span><span aria-hidden="true">↗</span></span>
+          </a>
+        </li>
+        {{ else }}
+        <li class="nb-row is-planned" data-route-entry="{{ .id }}" data-status="planned">
+          <div class="nb-row-inner">
+            <span class="nb-row-num">{{ printf "%02d" (int .number) }}</span>
+            <span class="nb-row-title">{{ .title }}</span>
+            <span class="nb-row-note">{{ .note }}</span>
+            <span class="nb-row-meta">规划中</span>
+          </div>
+        </li>
+        {{ end }}
+        {{ end }}
+      </ol>
+    </details>
+    {{ end }}{{ end }}
   </div>
-  {{ end }}
-  <details class="route-phases">
-    <summary>后续学习阶段</summary>
-    <ol>{{ range .phases }}<li id="phase-{{ .id }}"><h3>{{ .title }}</h3><p>{{ .goal }}</p><span>{{ .available_count }} / {{ .total }} 篇可读</span></li>{{ end }}</ol>
-  </details>
+
+  <p class="nb-volume-group-label">按需专题</p>
+  <div class="nb-volumes">
+    {{ $o := 0 }}
+    {{ range .phases }}{{ if hasPrefix .id "optional_" }}{{ $o = add $o 1 }}
+    {{ $pct := 0 }}{{ if gt .total 0 }}{{ $pct = div (mul .available_count 100) .total }}{{ end }}
+    {{ $state := "todo" }}{{ if and (gt .total 0) (eq .available_count .total) }}{{ $state = "done" }}{{ else if gt .available_count 0 }}{{ $state = "active" }}{{ end }}
+    <details id="phase-{{ .id }}" class="nb-volume" data-state="{{ $state }}"{{ if gt .available_count 0 }} open{{ end }}>
+      <summary>
+        <span class="nb-vol-num">S{{ printf "%02d" $o }}</span>
+        <span class="nb-vol-head">
+          <span class="nb-vol-title">{{ replace .title "按需专题：" "" }}</span>
+          <span class="nb-vol-goal">{{ .goal }}</span>
+        </span>
+        <span class="nb-vol-stat">
+          <span class="nb-vol-meter" aria-hidden="true"><i style="width:{{ $pct }}%"></i></span>
+          <span>{{ .available_count }} / {{ .total }} 篇</span>
+        </span>
+      </summary>
+      <ol class="nb-vol-list route-steps">
+        {{ range .steps }}
+        {{ if eq .status "available" }}
+        <li class="nb-row" data-route-entry="{{ .id }}" data-article="{{ .id }}" data-status="available">
+          <a href="{{ .url }}">
+            <span class="nb-row-num">{{ printf "%02d" (int .number) }}</span>
+            <span class="nb-row-title">{{ .title }}</span>
+            <span class="nb-row-note">{{ .note }}</span>
+            <span class="nb-row-meta">{{ with .reading_profile }}<span class="nb-row-badge">{{ .difficulty }}·{{ .depth }}</span>{{ end }}<span class="nb-card-read" hidden>已读</span><span aria-hidden="true">↗</span></span>
+          </a>
+        </li>
+        {{ else }}
+        <li class="nb-row is-planned" data-route-entry="{{ .id }}" data-status="planned">
+          <div class="nb-row-inner">
+            <span class="nb-row-num">{{ printf "%02d" (int .number) }}</span>
+            <span class="nb-row-title">{{ .title }}</span>
+            <span class="nb-row-note">{{ .note }}</span>
+            <span class="nb-row-meta">规划中</span>
+          </div>
+        </li>
+        {{ end }}
+        {{ end }}
+      </ol>
+    </details>
+    {{ end }}{{ end }}
+  </div>
+
   {{ partial "notebook/reading-route-credit.html" . }}
 </section>
 {{ end }}

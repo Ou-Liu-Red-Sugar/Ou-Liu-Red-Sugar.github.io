@@ -2856,6 +2856,150 @@
         "id": "foundations",
         "title": "认识股票、市场与组合",
         "goal": "从资金用途进入股票、基金和交易，再以复利、期限、亏损与多资产总图建立持有判断。",
+        "entry_ids": [
+          "NB-A01",
+          "NB-S01",
+          "NB-B01",
+          "NB-S02",
+          "NB-V01",
+          "NB-B02",
+          "NB-A04",
+          "NB-A02",
+          "NB-A03",
+          "NB-P01"
+        ],
+        "steps": [
+          {
+            "id": "NB-A01",
+            "number": 1,
+            "title": "Agent 时代的基本面投资",
+            "note": "从资金用途和公司业务认识基本面投资，并了解 Agent 怎样参与持续研究。",
+            "status": "available",
+            "url": "/zh/notebook/investment-returns/",
+            "reading_profile": {
+              "difficulty": "入门",
+              "depth": "概览",
+              "note": "用单项业务建立基本面研究路径，再浏览资产与工具；主要作用是定向，不要求预先掌握财务计算。"
+            }
+          },
+          {
+            "id": "NB-S01",
+            "number": 2,
+            "title": "股票、公司与股价",
+            "note": "把股份、公司经营、每股价格与市值联系起来，再辨认股份单位和交易载体。",
+            "status": "available",
+            "url": "/zh/notebook/stocks-company-price/",
+            "reading_profile": {
+              "difficulty": "入门",
+              "depth": "详解",
+              "note": "先定义股权、价格与市值，再以真实案例解释股份单位和证券载体，读者可独立读入。"
+            }
+          },
+          {
+            "id": "NB-B01",
+            "number": 3,
+            "title": "股票的类型、发行与交易形式",
+            "note": "辨认股份权利，分清发行与转手的资金去向，并认识存托凭证怎样对应境外原股。",
+            "status": "available",
+            "url": "/zh/notebook/stock-types-issuance-trading/",
+            "reading_profile": {
+              "difficulty": "进阶",
+              "depth": "详解",
+              "note": "需同时区分股份权利、授予与出售时点，以及存托证券与原股的对应关系，正文用多个真实安排展开这些联系。"
+            }
+          },
+          {
+            "id": "NB-S02",
+            "number": 4,
+            "title": "股东回报：分红、回购与增发",
+            "note": "比较分红、回购、增发与净股数变化，追踪经营所得怎样影响每一股。",
+            "status": "available",
+            "url": "/zh/notebook/shareholder-returns-buybacks-issuance/",
+            "reading_profile": {
+              "difficulty": "入门",
+              "depth": "详解",
+              "note": "主要任务是顺着现金去向与股数变化理解分红、回购和增发，所需运算基础，具体案例和税务补充则解释得较充分。"
+            }
+          },
+          {
+            "id": "NB-V01",
+            "number": 5,
+            "title": "指数、基金与 ETF",
+            "note": "从一组股票认识指数规则、基金份额与 ETF，理解权重、管理方式和费用怎样影响结果。",
+            "status": "available",
+            "url": "/zh/notebook/indices-funds-etfs/",
+            "reading_profile": {
+              "difficulty": "入门",
+              "depth": "详解",
+              "note": "虽包含权重漂移、AP 与费用复利，但都从定义和可跟随的例子讲起；篇幅与覆盖面对应详解，不应据此把学习难度标成进阶。"
+            }
+          },
+          {
+            "id": "NB-B02",
+            "number": 6,
+            "title": "报价、订单与实际成交",
+            "note": "读懂报价与订单怎样形成实际成交，再看交易成本和交收怎样决定资金何时可用。",
+            "status": "available",
+            "url": "/zh/notebook/quotes-orders-execution/",
+            "reading_profile": {
+              "difficulty": "入门",
+              "depth": "详解",
+              "note": "从 Last、Bid、Ask 和逐档成交开始，例子可直接读懂，算术限于数量与单价；订单类型、交易成本与交收展开较全。"
+            }
+          },
+          {
+            "id": "NB-A04",
+            "number": 7,
+            "title": "复利、通胀与机会成本",
+            "note": "用复利、年化和购买力比较不同期限的结果，再考虑替代用途与风险补偿。",
+            "status": "available",
+            "url": "/zh/notebook/compounding-inflation-opportunity-cost/",
+            "reading_profile": {
+              "difficulty": "进阶",
+              "depth": "详解",
+              "note": "主线已经进入连续复利、对数收益、年化与 Sharpe 的相互换算，需要跟随公式和口径区别；难度来自计算关系，而非篇幅。"
+            }
+          },
+          {
+            "id": "NB-A02",
+            "number": 8,
+            "title": "投资期限与现金需要",
+            "note": "按资金用途和付款时间安排投资，比较市场下跌时继续持有、卖出与借款的结果。",
+            "status": "available",
+            "url": "/zh/notebook/investment-horizon-cash/",
+            "reading_profile": {
+              "difficulty": "入门",
+              "depth": "详解",
+              "note": "用一组真实的 VOO 行情和简单算术比较付款安排，从资金分层讲到被迫卖出与借钱周转，概念从头说明。"
+            }
+          },
+          {
+            "id": "NB-A03",
+            "number": 9,
+            "title": "亏损、波动与持有能力",
+            "note": "将亏损后的判断转向经营前景、当前价格及资金和心理上的持有能力。",
+            "status": "available",
+            "url": "/zh/notebook/loss-volatility-holding-capacity/",
+            "reading_profile": {
+              "difficulty": "进阶",
+              "depth": "详解",
+              "note": "需把相对行业表现、经营预期、情景回报、重新定价及资金约束结合起来判断持有，且提供完整案例、公式和图示比较。"
+            }
+          },
+          {
+            "id": "NB-P01",
+            "number": 10,
+            "title": "投资组合：分散、多资产与风险制衡",
+            "note": "把股票、债券、实物、现金与期货、期权、CDS 放进同一张风险棋盘，理解仓位、穿透暴露、跨资产制衡与再平衡。",
+            "status": "available",
+            "url": "/zh/notebook/portfolio-diversification-hedging/",
+            "reading_profile": {
+              "difficulty": "入门",
+              "depth": "详解",
+              "note": "从单票仓位和 VOO 穿透出发，结合两段真实宏观冲击数据建立跨资产与合约对冲的直觉，不涉及复杂回归或衍生品定价计算。"
+            }
+          }
+        ],
         "available_count": 10,
         "total": 10
       },
@@ -2863,6 +3007,66 @@
         "id": "portfolio_paradigms",
         "title": "组合制衡与机构配置范式",
         "goal": "在 P01 的多资产总图之上，完整掌握股票多空与市场中性、全球宏观、风险平价及信用尾部对冲四类主流风险制衡框架。",
+        "entry_ids": [
+          "NB-P02",
+          "NB-P03",
+          "NB-P04",
+          "NB-P05"
+        ],
+        "steps": [
+          {
+            "id": "NB-P02",
+            "number": 11,
+            "title": "股票多空与市场中性",
+            "note": "拆分总敞口与净敞口，看清市场中性策略的收益来源、融券摩擦与因子踩踏风险。",
+            "status": "available",
+            "url": "/zh/notebook/long-short-market-neutral/",
+            "reading_profile": {
+              "difficulty": "进阶",
+              "depth": "详解",
+              "note": "需要同时理解多空总／净敞口、beta 与风格因子中性、卖空现金抵押与借券费结构，以及轧空与拥挤去杠杆两类尾部失效。"
+            }
+          },
+          {
+            "id": "NB-P03",
+            "number": 12,
+            "title": "全球宏观与跨资产配置",
+            "note": "沿宏观周期跨资产表达判断，并识破跨国跨品种背后的同一底层风险。",
+            "status": "available",
+            "url": "/zh/notebook/global-macro-cross-asset/",
+            "reading_profile": {
+              "difficulty": "进阶",
+              "depth": "详解",
+              "note": "需要结合利率、汇率、跨市场周收益相关性、公司跨境财报口径与流动性去杠杆机制，辨别表达载体选择、底层共因与局部背离。"
+            }
+          },
+          {
+            "id": "NB-P04",
+            "number": 13,
+            "title": "风险平价与全天候配置",
+            "note": "从资金权重转向风险贡献，理解风险平价的四象限制衡与加息边界。",
+            "status": "available",
+            "url": "/zh/notebook/risk-parity-all-weather/",
+            "reading_profile": {
+              "difficulty": "进阶",
+              "depth": "详解",
+              "note": "需要结合 Euler 风险贡献分解、增长与通胀四象限映射、TIPS 实际利率久期及杠杆融资成本公式，判断风险平价的适用条件与失效边界。"
+            }
+          },
+          {
+            "id": "NB-P05",
+            "number": 14,
+            "title": "信用与尾部风险对冲",
+            "note": "理解 CDS 与尾部期权的凸性赔付、常态损耗及个人账户替代方案。",
+            "status": "available",
+            "url": "/zh/notebook/credit-tail-risk-hedging/",
+            "reading_profile": {
+              "difficulty": "进阶",
+              "depth": "详解",
+              "note": "需要结合信用利差、CDS 信用事件与拍卖回收机制、期权波动率风险溢价及路径依赖，权衡常态保费损耗与极端危机凸性赔付。"
+            }
+          }
+        ],
         "available_count": 4,
         "total": 4
       },
@@ -2870,6 +3074,38 @@
         "id": "business_revenue",
         "title": "认识企业业务与收入增长",
         "goal": "从客户、交付与收费辨认一门生意，并结合销量、净价与市场预期核验收入增长。",
+        "entry_ids": [
+          "NB-D01",
+          "NB-D02"
+        ],
+        "steps": [
+          {
+            "id": "NB-D01",
+            "number": 15,
+            "title": "客户、产品与收费方式",
+            "note": "认清每门生意的客户、交付与收费，再沿实际关系检查需求依据。",
+            "status": "available",
+            "url": "/zh/notebook/customers-products-pricing/",
+            "reading_profile": {
+              "difficulty": "入门",
+              "depth": "详解",
+              "note": "从熟悉的交易进入，按所选行业解释客户、交付、收费与需求依据；无需先掌握财务模型。"
+            }
+          },
+          {
+            "id": "NB-D02",
+            "number": 16,
+            "title": "收入增长与市场预期",
+            "note": "拆开销量、净价、客户和产品组合，用真实业绩与预测市场辨认增长预期，再从股价反推所需收入，交给经营证据检验。",
+            "status": "available",
+            "url": "/zh/notebook/revenue-growth-expectations/",
+            "reading_profile": {
+              "difficulty": "进阶",
+              "depth": "详解",
+              "note": "从收入驱动进入期间比较、事件价格和条件反推，需要同时保持业务、利润与每股口径。"
+            }
+          }
+        ],
         "available_count": 2,
         "total": 2
       },
@@ -2877,6 +3113,108 @@
         "id": "financial_statements",
         "title": "财报、会计基本功与资本配置",
         "goal": "沿同一经营过程贯通三张报表、营运资本、EBIT/EBITDA/FCF、合并口径、债务低谷、GAAP/非 GAAP 盈利质量及 ROE/ROIC/ROIIC 资本配置。",
+        "entry_ids": [
+          "NB-E01",
+          "NB-E02",
+          "NB-E03",
+          "NB-E04",
+          "NB-E05",
+          "NB-E06",
+          "NB-E07"
+        ],
+        "steps": [
+          {
+            "id": "NB-E01",
+            "number": 17,
+            "title": "三张财报与经营活动",
+            "note": "沿同一经营过程读懂三张报表及其时间口径。",
+            "status": "available",
+            "url": "/zh/notebook/three-financial-statements/",
+            "reading_profile": {
+              "difficulty": "入门",
+              "depth": "详解",
+              "note": "从一家简化制造厂的六笔交易建立三张报表的恒等与勾稽直觉，再对照 MSFT 与 KO 真实财报及三家公司财年错位，不涉及复杂会计准则细节。"
+            }
+          },
+          {
+            "id": "NB-E02",
+            "number": 18,
+            "title": "收入、回款与营运资本",
+            "note": "重建收入、应收、库存和收付款的联动，解释现金占用。",
+            "status": "available",
+            "url": "/zh/notebook/revenue-collections-working-capital/",
+            "reading_profile": {
+              "difficulty": "入门",
+              "depth": "详解",
+              "note": "从日常赊购、备货与回款时序建立净营运资本与 CCC 直觉，结合互动推演器与多家 FY2026 真实 SEC 10-K 拆解扩张占资、负营运资本反哺与退坡反噬，附带关键附注排雷。"
+            }
+          },
+          {
+            "id": "NB-E03",
+            "number": 19,
+            "title": "利润、资本开支与现金",
+            "note": "解释经营投入、折旧和投产时间怎样形成利润与现金的差异。",
+            "status": "available",
+            "url": "/zh/notebook/profit-capex-cash/",
+            "reading_profile": {
+              "difficulty": "入门",
+              "depth": "详解",
+              "note": "从资本化与折旧的会计机制切入，系统界定 EBIT、EBITDA、Owner Earnings 与 FCF 的计算桥与适用陷阱，结合互动推演器及 KO、T、MSFT、TSMC 四家公司真实年报展开。"
+            }
+          },
+          {
+            "id": "NB-E04",
+            "number": 20,
+            "title": "分部、共同成本与合并",
+            "note": "利用分部披露把业务判断接回公司整体，处理共同项目与内部交易。",
+            "status": "available",
+            "url": "/zh/notebook/segments-shared-costs-consolidation/",
+            "reading_profile": {
+              "difficulty": "入门",
+              "depth": "详解",
+              "note": "围绕 KO 与 GOOGL 真实 10-K 分部表与合并调节，逐层建立 CODM 分部口径、内部交易抵销、总部共同成本与三档持股并表边界的核算直觉。"
+            }
+          },
+          {
+            "id": "NB-E05",
+            "number": 21,
+            "title": "债务、融资与现金低谷",
+            "note": "判断企业在经营兑现以前能否满足付息、偿债和投入。",
+            "status": "available",
+            "url": "/zh/notebook/debt-financing-cash-troughs/",
+            "reading_profile": {
+              "difficulty": "进阶",
+              "depth": "详解",
+              "note": "综合资产负债表存量、租赁与表外承诺、两类偿债标尺及动态 12 季度现金低谷推演，并以 MSFT、T、BA 三家公司 10-K 实证检验高杠杆与净现金的股东结果分叉。"
+            }
+          },
+          {
+            "id": "NB-E06",
+            "number": 22,
+            "title": "盈利质量与可比口径",
+            "note": "在会计与调整口径变化中识别仍成立的经营趋势。",
+            "status": "available",
+            "url": "/zh/notebook/earnings-quality-comparability/",
+            "reading_profile": {
+              "difficulty": "进阶",
+              "depth": "详解",
+              "note": "围绕 SEC Non-GAAP 规则、调节项逐项审计、现金流应计项印证、折旧估计变动与反稀释股数展开，需结合三张财报联动判断盈利口径与估值落差。"
+            }
+          },
+          {
+            "id": "NB-E07",
+            "number": 23,
+            "title": "资本配置、激励与每股结果",
+            "note": "按实际经营与股东结果评价再投资、并购、回购和融资的取舍。",
+            "status": "available",
+            "url": "/zh/notebook/capital-allocation-incentives-per-share/",
+            "reading_profile": {
+              "difficulty": "进阶",
+              "depth": "详解",
+              "note": "围绕 ROE、DuPont、ROIC 与 ROIIC 建立完整的资本回报判别体系，结合五家上市公司最新 SEC 年报与委托书拆解杠杆失真、并购商誉、再投资跑道与管理层激励，并配单屏五年推演器。"
+            }
+          }
+        ],
         "available_count": 7,
         "total": 7
       },
@@ -2884,6 +3222,69 @@
         "id": "business_depth",
         "title": "成本结构、竞争壁垒与产业周期",
         "goal": "深化经营杠杆、替代竞争、上下游利润分配、库存产能周期与技术商业化。",
+        "entry_ids": [
+          "NB-D03",
+          "NB-D04",
+          "NB-D05",
+          "NB-D06",
+          "NB-D07",
+          "NB-D08"
+        ],
+        "steps": [
+          {
+            "id": "NB-D03",
+            "number": 24,
+            "title": "成本结构与经营杠杆",
+            "note": "解释收入变化怎样通过成本和产能形成不同利润结果。",
+            "status": "available",
+            "url": "/zh/notebook/cost-structure-operating-leverage/",
+            "reading_profile": {
+              "difficulty": "进阶",
+              "depth": "详解",
+              "note": "承接客户收费、收入增长与三张财报，拆解变动成本、固定成本、阶梯费用与供给约束如何通过经营杠杆决定营业利润，并配单屏经营杠杆推演器与 TSM、INTC、COST 三家公司切换对照。"
+            }
+          },
+          {
+            "id": "NB-D04",
+            "number": 25,
+            "title": "竞争、定价权与替代",
+            "note": "沿客户可选方案判断企业能否持续取得收入和利润。",
+            "status": "planned",
+            "url": null
+          },
+          {
+            "id": "NB-D05",
+            "number": 26,
+            "title": "上下游分工与利润分配",
+            "note": "解释需求和投入经过哪些企业，以及利润为何留在不同环节。",
+            "status": "planned",
+            "url": null
+          },
+          {
+            "id": "NB-D06",
+            "number": 27,
+            "title": "需求、库存与产能周期",
+            "note": "区分最终使用、采购库存与扩产时滞形成的不同增长路径。",
+            "status": "planned",
+            "url": null
+          },
+          {
+            "id": "NB-D07",
+            "number": 28,
+            "title": "技术创新与商业化",
+            "note": "判断技术进步经过哪些工程和客户条件才能改变经营结果。",
+            "status": "planned",
+            "url": null
+          },
+          {
+            "id": "NB-D08",
+            "number": 29,
+            "title": "业务集合与共享资源",
+            "note": "划分研究业务并说明它们共享哪些客户、技术、成本和资本。",
+            "status": "planned",
+            "url": null
+          }
+        ],
         "available_count": 1,
         "total": 6
       },
@@ -2891,6 +3292,64 @@
         "id": "judgment",
         "title": "形成证据与投资判断",
         "goal": "从竞争解释和共同经营条件形成概率、定价与 Risk-Reward。",
+        "entry_ids": [
+          "NB-A05",
+          "NB-F02",
+          "NB-F03",
+          "NB-F04",
+          "NB-F05",
+          "NB-F06"
+        ],
+        "steps": [
+          {
+            "id": "NB-A05",
+            "number": 30,
+            "title": "信息、预期与判断更新",
+            "note": "用竞争解释和可区分证据形成判断，并说明新信息怎样改变预期。",
+            "status": "planned",
+            "url": null
+          },
+          {
+            "id": "NB-F02",
+            "number": 31,
+            "title": "经营情景与概率判断",
+            "note": "用共同成立的经营条件形成代表路径并说明概率依据。",
+            "status": "planned",
+            "url": null
+          },
+          {
+            "id": "NB-F03",
+            "number": 32,
+            "title": "盈利状态与定价参照",
+            "note": "根据业务状态选择可解释的盈利口径和条件定价参照。",
+            "status": "planned",
+            "url": null
+          },
+          {
+            "id": "NB-F04",
+            "number": 33,
+            "title": "企业结果与普通股所得",
+            "note": "把业务条件结果与共同资本、债务、现金和股数汇成普通股所得。",
+            "status": "planned",
+            "url": null
+          },
+          {
+            "id": "NB-F05",
+            "number": 34,
+            "title": "买入价格与 Risk-Reward",
+            "note": "把经营证据、条件定价、概率和资金安排连成完整投资判断。",
+            "status": "planned",
+            "url": null
+          },
+          {
+            "id": "NB-F06",
+            "number": 35,
+            "title": "反证、替代选择与判断更新",
+            "note": "找到能改变投资取舍的证据、竞争解释和判断翻转条件。",
+            "status": "planned",
+            "url": null
+          }
+        ],
         "available_count": 0,
         "total": 6
       },
@@ -2898,6 +3357,91 @@
         "id": "agent_research",
         "title": "Agent 研究、判断与持续培养",
         "goal": "让 Agent 读懂材料、校准业务、独立推演，并通过前向记录改进判断。",
+        "entry_ids": [
+          "NB-I01",
+          "NB-I02",
+          "NB-I03",
+          "NB-I04",
+          "NB-I05",
+          "NB-I06",
+          "NB-J02",
+          "NB-J03",
+          "NB-J04"
+        ],
+        "steps": [
+          {
+            "id": "NB-I01",
+            "number": 36,
+            "title": "从投资疑问到 Agent 研究任务",
+            "note": "把候选线索和投资疑问转成有实际判断用途的 Agent 任务。",
+            "status": "planned",
+            "url": null
+          },
+          {
+            "id": "NB-I02",
+            "number": 37,
+            "title": "资料、语义与跨来源判断",
+            "note": "读懂资料所指对象和条件，通过跨来源比较形成可追溯的采用判断。",
+            "status": "planned",
+            "url": null
+          },
+          {
+            "id": "NB-I03",
+            "number": 38,
+            "title": "上下游调查与经营假设校准",
+            "note": "围绕具体经营疑问取得上下游证据，并据此修改需求、成本和资本假设。",
+            "status": "planned",
+            "url": null
+          },
+          {
+            "id": "NB-I04",
+            "number": 39,
+            "title": "竞争、技术与制度判断",
+            "note": "用竞争、技术和制度证据比较经营路径及替代解释。",
+            "status": "planned",
+            "url": null
+          },
+          {
+            "id": "NB-I05",
+            "number": 40,
+            "title": "Agent 的经营判断与情景推演",
+            "note": "由 Agent 解释材料、重建经营联系并提出有依据的情景与取舍。",
+            "status": "planned",
+            "url": null
+          },
+          {
+            "id": "NB-I06",
+            "number": 41,
+            "title": "多 Agent 分工与研究整合",
+            "note": "用实际独立推演和关键连接重建提高研究解释与整合质量。",
+            "status": "planned",
+            "url": null
+          },
+          {
+            "id": "NB-J02",
+            "number": 42,
+            "title": "研究记录、观察清单与局部更新",
+            "note": "让新信息命中旧判断，并保存可接续的局部更新过程。",
+            "status": "planned",
+            "url": null
+          },
+          {
+            "id": "NB-J03",
+            "number": 43,
+            "title": "Agent 判断的前向检验与定向培养",
+            "note": "通过事前记录、新证据和重复案例检验并改进 Agent 的语义和经营判断。",
+            "status": "planned",
+            "url": null
+          },
+          {
+            "id": "NB-J04",
+            "number": 44,
+            "title": "Agent 研究的持续运行",
+            "note": "让有效研究跨期资料继续使用，并发现失败、恢复工作和保留人的取舍。",
+            "status": "planned",
+            "url": null
+          }
+        ],
         "available_count": 0,
         "total": 9
       },
@@ -2905,6 +3449,37 @@
         "id": "agent_allocation",
         "title": "Agent 资本取舍与持续配置",
         "goal": "在 P01 的组合基础上完成研究整合、共同情景和持续配置。",
+        "entry_ids": [
+          "NB-M02",
+          "NB-M03",
+          "NB-M05"
+        ],
+        "steps": [
+          {
+            "id": "NB-M02",
+            "number": 45,
+            "title": "从账户与研究到资本取舍",
+            "note": "从当前账户和已有研究出发，统一比较持仓、候选和现金的用途。",
+            "status": "planned",
+            "url": null
+          },
+          {
+            "id": "NB-M03",
+            "number": 46,
+            "title": "组合共同情景与配置方案",
+            "note": "在共同经营条件、概率和资金约束下比较不同规模及替代配置。",
+            "status": "planned",
+            "url": null
+          },
+          {
+            "id": "NB-M05",
+            "number": 47,
+            "title": "Agent 辅助再平衡与持续配置",
+            "note": "从新事实或资金需要完成配置复评、采用和后续检验。",
+            "status": "planned",
+            "url": null
+          }
+        ],
         "available_count": 0,
         "total": 3
       },
@@ -2912,6 +3487,91 @@
         "id": "optional_environment",
         "title": "按需专题：金融条件与替代资产",
         "goal": "按具体问题补充政策、融资、汇率、现金工具和债券机制。",
+        "entry_ids": [
+          "NB-C05",
+          "NB-C01",
+          "NB-C02",
+          "NB-C03",
+          "NB-C04",
+          "NB-U01",
+          "NB-R01",
+          "NB-R02",
+          "NB-R03"
+        ],
+        "steps": [
+          {
+            "id": "NB-C05",
+            "number": 48,
+            "title": "美联储与货币政策",
+            "note": "按相应工具或判断问题选读。解释政策决策与实施怎样改变利率、预期和金融条件。",
+            "status": "planned",
+            "url": null
+          },
+          {
+            "id": "NB-C01",
+            "number": 49,
+            "title": "利率、信用与融资",
+            "note": "按相应工具或判断问题选读。解释市场利率、信用和期限怎样改变企业与投资者的融资条件。",
+            "status": "planned",
+            "url": null
+          },
+          {
+            "id": "NB-C02",
+            "number": 50,
+            "title": "通胀、需求与企业成本",
+            "note": "按相应工具或判断问题选读。将价格水平变化传到客户需求、投入成本和企业利润。",
+            "status": "planned",
+            "url": null
+          },
+          {
+            "id": "NB-C03",
+            "number": 51,
+            "title": "汇率与跨境投资",
+            "note": "按相应工具或判断问题选读。区分投资者币种结果与企业经营的汇率暴露。",
+            "status": "planned",
+            "url": null
+          },
+          {
+            "id": "NB-C04",
+            "number": 52,
+            "title": "经济变化的业务与资产传导",
+            "note": "按相应工具或判断问题选读。沿共同需求和金融条件解释企业及资产表现的差异。",
+            "status": "planned",
+            "url": null
+          },
+          {
+            "id": "NB-U01",
+            "number": 53,
+            "title": "存款、货币基金与短债",
+            "note": "按相应工具或判断问题选读。按底层资产、付款来源和可用时间比较具体资金停放工具。",
+            "status": "planned",
+            "url": null
+          },
+          {
+            "id": "NB-R01",
+            "number": 54,
+            "title": "债券的现金流与收益",
+            "note": "按相应工具或判断问题选读。区分票息率、到期收益率和实际持有结果。",
+            "status": "planned",
+            "url": null
+          },
+          {
+            "id": "NB-R02",
+            "number": 55,
+            "title": "利率变化与债券价格",
+            "note": "按相应工具或判断问题选读。解释收益率和期限怎样改变债券市场价格及中途退出结果。",
+            "status": "planned",
+            "url": null
+          },
+          {
+            "id": "NB-R03",
+            "number": 56,
+            "title": "信用、违约与偿债能力",
+            "note": "按相应工具或判断问题选读。将债券约定收付与企业偿债资源、违约和回收联系起来。",
+            "status": "planned",
+            "url": null
+          }
+        ],
         "available_count": 0,
         "total": 9
       },
@@ -2919,6 +3579,28 @@
         "id": "optional_funds",
         "title": "按需专题：基金跟踪与业绩比较",
         "goal": "解释基金实际偏离及主动选择的费用后结果。",
+        "entry_ids": [
+          "NB-V03",
+          "NB-S05"
+        ],
+        "steps": [
+          {
+            "id": "NB-V03",
+            "number": 57,
+            "title": "基金跟踪与投资者回报",
+            "note": "按相应工具或判断问题选读。解释指数、基金净值与投资者实际回报之间的差距及来源。",
+            "status": "planned",
+            "url": null
+          },
+          {
+            "id": "NB-S05",
+            "number": 58,
+            "title": "选股、基金与业绩比较",
+            "note": "按相应工具或判断问题选读。比较选股、委托管理和指数投资的费用后结果及判断依据。",
+            "status": "planned",
+            "url": null
+          }
+        ],
         "available_count": 0,
         "total": 2
       },
@@ -2926,6 +3608,33 @@
         "id": "optional_trading",
         "title": "按需专题：趋势规则与量化检验",
         "goal": "将已有量价观察转成规则，检验成本和样本外结果。",
+        "entry_ids": [
+          "NB-B05",
+          "NB-B06"
+        ],
+        "steps": [
+          {
+            "id": "NB-B05",
+            "number": 59,
+            "title": "指标与趋势交易",
+            "note": "按相应工具或判断问题选读。把量价观察写成明确的趋势判断、进出场与失效规则。",
+            "status": "available",
+            "url": "/zh/notebook/indicators-trend-trading/",
+            "reading_profile": {
+              "difficulty": "进阶",
+              "depth": "详解",
+              "note": "需结合多种指标的计算、观察角度与时间尺度的区分、订单执行与仓位，并逐年核对两段完整的规则回放与研究结论。"
+            }
+          },
+          {
+            "id": "NB-B06",
+            "number": 60,
+            "title": "量化交易",
+            "note": "按相应工具或判断问题选读。用历史数据、成本和样本外结果检验可重复执行的交易规则。",
+            "status": "planned",
+            "url": null
+          }
+        ],
         "available_count": 1,
         "total": 2
       },
@@ -2933,6 +3642,33 @@
         "id": "optional_leverage",
         "title": "按需专题：保证金、对冲与股票合约",
         "goal": "解释保证金借款、对冲工具和围绕股票的合约形式怎样改变资金与风险。",
+        "entry_ids": [
+          "NB-B03",
+          "NB-K05"
+        ],
+        "steps": [
+          {
+            "id": "NB-B03",
+            "number": 61,
+            "title": "保证金、对冲与期间现金",
+            "note": "按相应工具或判断问题选读。在已有组合上比较保证金、对冲工具和期间现金需要。",
+            "status": "available",
+            "url": "/zh/notebook/settlement-margin-cash/",
+            "reading_profile": {
+              "difficulty": "进阶",
+              "depth": "详解",
+              "note": "需要同时理解 beta 回归、期权和期货的保护范围、账户担保口径与现金路径，并在同一组合中比较多项方案。"
+            }
+          },
+          {
+            "id": "NB-K05",
+            "number": 62,
+            "title": "个股期货、股票永续与代币化股票",
+            "note": "按相应工具或判断问题选读。区分围绕同一股票形成的合约与代币化产品，辨认实际取得的权益和资金安排。",
+            "status": "planned",
+            "url": null
+          }
+        ],
         "available_count": 1,
         "total": 2
       },
@@ -2940,6 +3676,55 @@
         "id": "optional_futures_real",
         "title": "按需专题：实物资产与期货",
         "goal": "解释实物资产的持有结果、期货基差及动态对冲。",
+        "entry_ids": [
+          "NB-X01",
+          "NB-X02",
+          "NB-K03",
+          "NB-X03",
+          "NB-K04"
+        ],
+        "steps": [
+          {
+            "id": "NB-X01",
+            "number": 63,
+            "title": "商品、黄金与回报来源",
+            "note": "按相应工具或判断问题选读。解释商品与黄金的供需、持有动机和完整回报来源。",
+            "status": "planned",
+            "url": null
+          },
+          {
+            "id": "NB-X02",
+            "number": 64,
+            "title": "房地产、租金与持有成本",
+            "note": "按相应工具或判断问题选读。沿租金、投入、融资和出售重建房产投资的现金过程。",
+            "status": "planned",
+            "url": null
+          },
+          {
+            "id": "NB-K03",
+            "number": 65,
+            "title": "基差、交割与展期",
+            "note": "按相应工具或判断问题选读。解释期货与现货的价格联系及跨到期日持有的结果。",
+            "status": "planned",
+            "url": null
+          },
+          {
+            "id": "NB-X03",
+            "number": 66,
+            "title": "实物资产、基金与期货的持有差别",
+            "note": "按相应工具或判断问题选读。解释相同资产主题通过不同载体持有时的结果差异。",
+            "status": "planned",
+            "url": null
+          },
+          {
+            "id": "NB-K04",
+            "number": 67,
+            "title": "基差变化与期货对冲调整",
+            "note": "按相应工具或判断问题选读。在标的不完全匹配和期间条件变化时重估对冲规模与合并结果。",
+            "status": "planned",
+            "url": null
+          }
+        ],
         "available_count": 0,
         "total": 5
       },
@@ -2947,6 +3732,55 @@
         "id": "optional_options",
         "title": "按需专题：期权价格与策略",
         "goal": "补齐权利、退出、定价和多腿策略，并接回既有组合。",
+        "entry_ids": [
+          "NB-G01",
+          "NB-G03",
+          "NB-G04",
+          "NB-G05",
+          "NB-G06"
+        ],
+        "steps": [
+          {
+            "id": "NB-G01",
+            "number": 68,
+            "title": "期权权利、盈亏与退出",
+            "note": "按相应工具或判断问题选读。沿完整交易区分期权权利、支付、净盈亏和退出义务。",
+            "status": "planned",
+            "url": null
+          },
+          {
+            "id": "NB-G03",
+            "number": 69,
+            "title": "期权价格与定价模型",
+            "note": "按相应工具或判断问题选读。解释市场报价、内在价值、时间价值与模型计算的关系。",
+            "status": "planned",
+            "url": null
+          },
+          {
+            "id": "NB-G04",
+            "number": 70,
+            "title": "时间、波动率与期权价值",
+            "note": "按相应工具或判断问题选读。理解到期前价格怎样随时间、标的与波动预期共同变化。",
+            "status": "planned",
+            "url": null
+          },
+          {
+            "id": "NB-G05",
+            "number": 71,
+            "title": "备兑与期权持仓的取舍",
+            "note": "按相应工具或判断问题选读。比较备兑卖出、保护性持仓与直接持股的权利、机会和成本。",
+            "status": "planned",
+            "url": null
+          },
+          {
+            "id": "NB-G06",
+            "number": 72,
+            "title": "价差组合与策略选择",
+            "note": "按相应工具或判断问题选读。按价格判断和持有目的比较多腿期权的净结果与执行条件。",
+            "status": "planned",
+            "url": null
+          }
+        ],
         "available_count": 0,
         "total": 5
       },
@@ -2954,6 +3788,37 @@
         "id": "optional_perpetuals",
         "title": "按需专题：永续机制与持有结果",
         "goal": "解释锚定、累计资金费、风险处置和合约计价。",
+        "entry_ids": [
+          "NB-L01",
+          "NB-L03",
+          "NB-L04"
+        ],
+        "steps": [
+          {
+            "id": "NB-L01",
+            "number": 73,
+            "title": "永续合约的价格锚定与资金费",
+            "note": "按相应工具或判断问题选读。解释价格锚定机制以及多期资金费对完整持有结果的影响。",
+            "status": "planned",
+            "url": null
+          },
+          {
+            "id": "NB-L03",
+            "number": 74,
+            "title": "标记价格、保证金与强平",
+            "note": "按相应工具或判断问题选读。解释永续风险计价和处置规则怎样约束持有过程。",
+            "status": "planned",
+            "url": null
+          },
+          {
+            "id": "NB-L04",
+            "number": 75,
+            "title": "合约计价与完整持有结果",
+            "note": "按相应工具或判断问题选读。比较线性和反向合约以及不同抵押币种形成的所得和风险。",
+            "status": "planned",
+            "url": null
+          }
+        ],
         "available_count": 0,
         "total": 3
       },
@@ -2961,6 +3826,28 @@
         "id": "optional_events",
         "title": "按需专题：预测市场与经营判断",
         "goal": "从事件合约和概率报价走向经营证据与判断更新。",
+        "entry_ids": [
+          "NB-H01",
+          "NB-H04"
+        ],
+        "steps": [
+          {
+            "id": "NB-H01",
+            "number": 76,
+            "title": "事件合约与概率报价",
+            "note": "按相应工具或判断问题选读。沿一个明确事件解释结算、交易结果与价格的概率含义。",
+            "status": "planned",
+            "url": null
+          },
+          {
+            "id": "NB-H04",
+            "number": 77,
+            "title": "预测市场与经营判断",
+            "note": "按相应工具或判断问题选读。用事件证据与报价更新公司经营判断，说明事件影响经过哪些条件。",
+            "status": "planned",
+            "url": null
+          }
+        ],
         "available_count": 0,
         "total": 2
       }

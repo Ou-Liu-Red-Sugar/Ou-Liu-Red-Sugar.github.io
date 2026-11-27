@@ -111,6 +111,7 @@ function initialiseLearningMap(root, data) {
   }
   function layoutTargets() {
     const width = graph.clientWidth;
+    if (width < 120) return new Map();
     const height = width < 300 ? 1400 : width < 520 ? 1080 : width < 780 ? 850 : 700;
     canvasWidth = width; canvasHeight = height; graph.style.height = `${height}px`;
     svg.setAttribute('viewBox', `0 0 ${width} ${height}`);
@@ -183,6 +184,7 @@ function initialiseLearningMap(root, data) {
   function move(animate = true) {
     cancelAnimationFrame(frame);
     const target = layoutTargets();
+    if (!target.size) return;
     if (!positions.size || reduced.matches || !animate) { positions = target; root.dataset.mapAnimating = 'false'; render(); return; }
     const start = new Map([...positions].map(([id, point]) => [id, { ...point }]));
     const began = performance.now(), duration = 650;
