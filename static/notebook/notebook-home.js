@@ -96,7 +96,7 @@
     const hash = location.hash || "";
     if (hash.startsWith("#topic-") || hash === "#nb-graph") {
       activateTab("graph", false);
-    } else if (hash.startsWith("#phase-")) {
+    } else if (hash.startsWith("#phase-") || hash === "#nb-optional") {
       activateTab("chapters", false);
       const target = document.getElementById(hash.slice(1));
       if (target && target.tagName === "DETAILS") target.open = true;

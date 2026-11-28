@@ -1,27 +1,7 @@
-// Homepage tactile interactions: scroll-reactive masthead, sliding segmented controls,
-// one-click email copy, and desk-card reading state sync.
+// Homepage tactile interactions: sliding segmented controls,
+// one-click email copy, desk-card reading state sync, and topic graph preview.
+// (Global scroll-reactive .masthead.is-scrolled is handled in site.js.)
 const zh = document.documentElement.lang.startsWith("zh");
-
-// 1. Scroll-reactive masthead
-const masthead = document.querySelector(".masthead");
-if (masthead) {
-  let ticking = false;
-  const syncScroll = () => {
-    masthead.classList.toggle("is-scrolled", window.scrollY > 8);
-    ticking = false;
-  };
-  syncScroll();
-  window.addEventListener(
-    "scroll",
-    () => {
-      if (!ticking) {
-        ticking = true;
-        requestAnimationFrame(syncScroll);
-      }
-    },
-    { passive: true }
-  );
-}
 
 // Helper: bind sliding thumb + keyboard navigation to any .home-tabs group
 function bindSegmentedTabs(tablist, onSelect) {

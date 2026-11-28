@@ -6,8 +6,8 @@
 {{ $done := where .steps "status" "available" }}
 {{ $recent := collections.Reverse (last 4 $done) }}
 {{ $starter := first 4 $done }}
-{{ $optCount := 0 }}{{ $optReady := 0 }}
-{{ range .phases }}{{ if hasPrefix .id "optional_" }}{{ $optCount = add $optCount 1 }}{{ $optReady = add $optReady .available_count }}{{ end }}{{ end }}
+{{ $optCount := 0 }}{{ $optReady := 0 }}{{ $optTotal := 0 }}
+{{ range .phases }}{{ if hasPrefix .id "optional_" }}{{ $optCount = add $optCount 1 }}{{ $optReady = add $optReady .available_count }}{{ $optTotal = add $optTotal .total }}{{ end }}{{ end }}
 {{ $nodes := dict }}{{ range $map.nodes }}{{ $nodes = merge $nodes (dict .id .) }}{{ end }}
 {{ $defId := $map.default_node | default "S" }}
 {{ $defNode := index $nodes $defId }}
@@ -51,6 +51,20 @@
         </a>
       </li>
       {{ end }}{{ end }}
+      {{ if gt $optCount 0 }}
+      {{ $optPct := 0 }}{{ if gt $optTotal 0 }}{{ $optPct = div (mul $optReady 100) $optTotal }}{{ end }}
+      <li class="home-vol-item" data-state="optional">
+        <a href="/zh/notebook/#nb-optional">
+          <div class="home-vol-top">
+            <span class="home-vol-num">S+</span>
+            <strong class="home-vol-title" lang="zh">{{ if $zh }}按需专题（{{ $optCount }} 组）{{ else }}Optional Modules ({{ $optCount }}){{ end }}</strong>
+            <span class="home-vol-stat">{{ $optReady }}/{{ $optTotal }}</span>
+          </div>
+          <span class="home-vol-bar" aria-hidden="true"><i style="width:{{ $optPct }}%"></i></span>
+          <p class="home-vol-goal" lang="zh">{{ if $zh }}技术分析、对冲合约、期权、永续、预测市场与行业专项，用到时插读。{{ else }}Instruments, contracts, hedging, and sector modules read on demand.{{ end }}</p>
+        </a>
+      </li>
+      {{ end }}
     </ol>
   </div>
 
@@ -145,7 +159,7 @@
 
   <footer class="home-sec-foot">
     <p class="home-foot-note">
-      {{ if $zh }}另含 {{ $optCount }} 个按需专题（已完成 {{ $optReady }} 篇），供工具、合约与专项查用{{ else }}Plus {{ $optCount }} optional topic modules ({{ $optReady }} published){{ end }}
+      {{ if $zh }}主线七卷与按需专题共用同一套 {{ len $map.nodes }} 节点知识图谱，可按卷次或图谱随时切换{{ else }}All {{ len $map.nodes }} topic nodes link main volumes and optional modules in one graph{{ end }}
     </p>
     <nav class="home-sec-nav" aria-label="{{ if $zh }}投资学笔记入口{{ else }}Investment notebook links{{ end }}">
       <a class="home-sec-link is-strong" href="/zh/notebook/">{{ if $zh }}全部目录{{ else }}All entries{{ end }}<span class="home-arrow" aria-hidden="true">→</span></a>

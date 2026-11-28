@@ -37,11 +37,12 @@
 .notebook-app .article-graph {
   max-inline-size: 100%;
   margin: 2.5rem auto 1.75rem;
-  padding: 1.25rem 1.35rem 1.1rem;
-  border: 1px solid var(--rule, #e2e5e2);
-  border-top: 2px solid var(--ink, #111412);
-  border-radius: var(--radius-md, 6px);
-  background: var(--surface, #ffffff);
+  padding: 1.35rem 1.45rem 1.2rem;
+  border: 1px solid var(--rule);
+  border-top: 2.5px solid var(--accent, #145343);
+  border-radius: var(--radius-md, 10px);
+  background: var(--surface, #fffefb);
+  box-shadow: var(--shadow-card);
   scroll-margin-top: 5rem;
 }
 
@@ -126,13 +127,18 @@
 }
 
 .notebook-app .ag-filter:hover {
-  border-color: var(--rule-strong, #c4cac6);
-  color: var(--ink, #111412);
+  border-color: var(--rule-strong);
+  color: var(--ink);
+  background: #ffffff;
+}
+
+.notebook-app .ag-filter:active {
+  transform: scale(0.97);
 }
 
 .notebook-app .ag-filter[aria-pressed="true"] {
-  border-color: var(--ink, #111412);
-  background: var(--ink, #111412);
+  border-color: var(--accent, #145343);
+  background: var(--accent, #145343);
   color: #ffffff;
 }
 

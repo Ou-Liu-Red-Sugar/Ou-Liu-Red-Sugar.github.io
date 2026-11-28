@@ -278,12 +278,12 @@ function initialiseLearningMap(root, data) {
   function layoutTargets() {
     const width = graph.clientWidth;
     if (width < 120) return new Map();
-    const height = width < 360 ? 1160 : width < 520 ? 940 : width < 700 ? 740 : 600;
+    const height = width < 360 ? 1160 : width < 520 ? 940 : width < 700 ? 760 : 640;
     canvasWidth = width;
     canvasHeight = height;
     graph.style.height = `${height}px`;
     svg.setAttribute('viewBox', `0 0 ${width} ${height}`);
-    const nodeWidth = width < 480 ? 96 : width < 680 ? 108 : 118;
+    const nodeWidth = width < 480 ? 94 : width < 680 ? 106 : 116;
     const nodeHeight = 58;
     const cx = width / 2;
     const cy = height / 2;
@@ -306,14 +306,14 @@ function initialiseLearningMap(root, data) {
     }
 
     if (mode === 'overview') {
-      place(data.nodes.filter((node) => mainIds.has(node.id)), width * 0.24, height * 0.26);
-      place(data.nodes.filter((node) => !mainIds.has(node.id)), width * 0.415, height * 0.43, -0.9);
+      place(data.nodes.filter((node) => mainIds.has(node.id)), width * 0.23, height * 0.25);
+      place(data.nodes.filter((node) => !mainIds.has(node.id)), width * 0.385, height * 0.4, -0.9);
     } else {
       target.set(selected, { x: cx, y: cy, w: nodeWidth, h: nodeHeight });
       const innerCount = nearby.length > 9 ? 6 : nearby.length;
-      place(nearby.slice(0, innerCount), width * 0.27, height * 0.25);
-      place(nearby.slice(innerCount), width * 0.4, height * 0.39, -1.3);
-      place(peripheral, width * 0.44, height * 0.45, -0.8);
+      place(nearby.slice(0, innerCount), width * 0.26, height * 0.24);
+      place(nearby.slice(innerCount), width * 0.38, height * 0.37, -1.3);
+      place(peripheral, width * 0.41, height * 0.42, -0.8);
     }
 
     const points = data.nodes.map((node) => ({
@@ -343,10 +343,10 @@ function initialiseLearningMap(root, data) {
           const sx = dx > 0 ? 1 : -1;
           const sy = dy > 0 ? 1 : -1;
           const horizontalRoom =
-            a.x - (sx * ox) / 2 > a.w / 2 + 8 &&
-            a.x - (sx * ox) / 2 < width - a.w / 2 - 8 &&
-            b.x + (sx * ox) / 2 > b.w / 2 + 8 &&
-            b.x + (sx * ox) / 2 < width - b.w / 2 - 8;
+            a.x - (sx * ox) / 2 > a.w / 2 + 12 &&
+            a.x - (sx * ox) / 2 < width - a.w / 2 - 12 &&
+            b.x + (sx * ox) / 2 > b.w / 2 + 12 &&
+            b.x + (sx * ox) / 2 < width - b.w / 2 - 12;
           const horizontal = ox < oy && horizontalRoom;
           const amount = (horizontal ? ox : oy) + 0.2;
           const shareA = fixed(a) ? 0 : fixed(b) ? 1 : 0.5;
@@ -361,8 +361,8 @@ function initialiseLearningMap(root, data) {
         }
       }
       for (const point of points) {
-        point.x = Math.max(point.w / 2 + 10, Math.min(width - point.w / 2 - 10, point.x));
-        point.y = Math.max(point.h / 2 + 12, Math.min(height - point.h / 2 - 12, point.y));
+        point.x = Math.max(point.w / 2 + 14, Math.min(width - point.w / 2 - 14, point.x));
+        point.y = Math.max(point.h / 2 + 14, Math.min(height - point.h / 2 - 14, point.y));
       }
     }
 
@@ -476,7 +476,7 @@ function initialiseLearningMap(root, data) {
     if (resetBtn) resetBtn.setAttribute('aria-pressed', String(!focus));
     if (remember) {
       const hash = `#topic-${encodeURIComponent(id)}`;
-      if (location.hash !== hash) history.pushState(null, '', hash);
+      if (location.hash !== hash) history.replaceState(null, '', hash);
       if (status) status.textContent = `已聚焦节点 ${id} · ${nodes.get(id).title}，右侧文章与关系已更新。`;
     }
     prepareEdges();

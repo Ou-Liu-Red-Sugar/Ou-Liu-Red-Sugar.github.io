@@ -1118,12 +1118,32 @@ body.is-home {
 .home-vol-goal {
   margin: 0;
   font-size: 0.775rem;
-  line-height: 1.55;
+  line-height: 1.58;
   color: var(--muted);
   display: -webkit-box;
-  -webkit-line-clamp: 1;
+  -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
+}
+
+.home-vol-item[data-state="optional"] > a {
+  border-style: dashed;
+  border-color: var(--rule-strong);
+  background: rgba(255, 254, 251, 0.72);
+}
+
+.home-vol-item[data-state="optional"] .home-vol-num {
+  color: var(--accent);
+}
+
+.home-vol-item[data-state="optional"] .home-vol-stat {
+  color: var(--muted);
+}
+
+.home-vol-item[data-state="optional"] > a:hover {
+  border-style: solid;
+  border-color: var(--accent-line);
+  background: #ffffff;
 }
 
 .home-vol-item[data-state="todo"] > a {
@@ -1178,19 +1198,19 @@ body.is-home {
 }
 
 .home-graph-edge.is-dim {
-  opacity: 0.12;
+  opacity: 0.08;
 }
 
 .home-graph-edge.is-out {
   stroke: var(--accent);
-  stroke-width: 2;
-  opacity: 0.95;
+  stroke-width: 1.65;
+  opacity: 0.85;
 }
 
 .home-graph-edge.is-in {
   stroke: var(--seal);
-  stroke-width: 2;
-  opacity: 0.95;
+  stroke-width: 1.65;
+  opacity: 0.85;
 }
 
 .home-graph-tier {
@@ -1202,6 +1222,11 @@ body.is-home {
 }
 
 .home-graph-tier-label {
+  display: inline-block;
+  inline-size: fit-content;
+  padding: 0 0.4rem 0 0;
+  border-radius: 3px;
+  background: rgba(255, 254, 251, 0.92);
   font-family: var(--mono);
   font-size: 0.65rem;
   font-weight: 600;
@@ -1826,6 +1851,12 @@ body.is-home {
 
   .home-desk {
     max-inline-size: 520px;
+  }
+}
+
+@media (max-width: 760px) {
+  .is-home .masthead-inner {
+    padding-block: 0.45rem 0;
   }
 }
 

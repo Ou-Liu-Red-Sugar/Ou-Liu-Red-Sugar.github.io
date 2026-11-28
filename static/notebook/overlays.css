@@ -94,18 +94,19 @@
   max-height:min(540px,calc(100dvh - 110px));
   padding:0;
   overflow:hidden;
-  border:1px solid var(--rule-strong,#c4cac6);
-  border-radius:10px;
-  background:var(--surface,#fff);
+  isolation:isolate;
+  border:1px solid var(--rule-strong,rgba(21,24,22,.17));
+  border-radius:12px;
+  background:#fffefb;
   color:var(--ink);
-  box-shadow:0 18px 48px rgba(17,28,23,.16),0 2px 8px rgba(17,28,23,.08);
+  box-shadow:0 18px 48px rgba(21,24,22,.15),0 2px 8px rgba(21,24,22,.07);
   z-index:81;
   transform-origin:top center;
-  animation:refPopoverIn .16s cubic-bezier(.22,1,.36,1);
+  animation:refPopoverIn .11s cubic-bezier(.22,1,.36,1);
 }
 .notebook-app #reference-panel[data-placement="above"]{transform-origin:bottom center}
 .notebook-app #reference-panel.is-anchored{inset:auto}
-.notebook-app #reference-panel.is-pinned{border-color:var(--accent-line,#8fb3a7);box-shadow:0 22px 60px rgba(17,28,23,.2),0 3px 10px rgba(20,83,67,.1)}
+.notebook-app #reference-panel.is-pinned{border-color:var(--accent-line,#89afa2);box-shadow:0 22px 58px rgba(21,24,22,.18),0 3px 10px rgba(20,83,67,.1)}
 .notebook-app #reference-panel[hidden]{display:none}
 .notebook-app .reference-sheet-handle{display:none}
 .notebook-app #reference-panel .dialog-top{padding:10px 14px 10px 18px;border-bottom:1px solid var(--rule);background:var(--surface-subtle,var(--paper-deep))}
@@ -137,7 +138,7 @@
 .notebook-app #reference-panel .prose a{color:var(--accent);text-decoration-thickness:1px;text-underline-offset:3px}
 .notebook-app #reference-panel .prose figure,
 .notebook-app #reference-panel .prose .flow-figure,
-.notebook-app #reference-panel .prose .interactive-figure{margin:0;padding:12px;border:1px solid var(--rule);border-radius:6px;background:var(--paper,#fafafa)}
+.notebook-app #reference-panel .prose .interactive-figure{margin:0;padding:12px;border:1px solid var(--rule);border-radius:8px;background:var(--paper,#f7f5ef)}
 .notebook-app #reference-panel .prose figure svg,
 .notebook-app #reference-panel .prose .flow-figure svg,
 .notebook-app #reference-panel .prose img{max-width:100%;height:auto;display:block}
@@ -191,7 +192,7 @@
   animation:pinpointFlash 2.6s cubic-bezier(.22,1,.36,1) both;
 }
 @keyframes refPopoverIn{
-  from{opacity:0;transform:translateY(4px) scale(.985)}
+  from{opacity:.92;transform:translateY(3px) scale(.99)}
   to{opacity:1;transform:translateY(0) scale(1)}
 }
 @keyframes refSpin{

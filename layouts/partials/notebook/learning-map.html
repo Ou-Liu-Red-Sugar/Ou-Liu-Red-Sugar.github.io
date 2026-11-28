@@ -113,7 +113,7 @@
         {{ end }}{{ end }}
       </div>
 
-      <p class="nb-volume-group-label" data-nb-group-label="optional">按需专题 · 工具、合约与机构专题（在用到时插读）</p>
+      <p class="nb-volume-group-label" id="nb-optional" data-nb-group-label="optional">按需专题 · 工具、合约与机构专题（在用到时插读）</p>
       <div class="nb-volumes">
         {{ $o := 0 }}
         {{ range $route.phases }}{{ if hasPrefix .id "optional_" }}{{ $o = add $o 1 }}
@@ -170,7 +170,7 @@
           <div class="learning-map-toolbar">
             <div class="lm-toolbar-row">
               <button type="button" data-map-reset aria-pressed="true">全图总览</button>
-              <span class="lm-focus-label" data-map-focus-label>19 节点知识图谱 · 悬停高亮邻居，点击右侧展开篇目</span>
+              <span class="lm-focus-label" data-map-focus-label>{{ len $map.nodes }} 节点知识图谱 · 悬停高亮邻居，点击右侧展开篇目</span>
             </div>
             <div class="lm-kind-filters" role="group" aria-label="按关系类型过滤连线">
               <button type="button" class="lm-kind-chip" data-map-kind="all" aria-pressed="true">全部关系</button>
