@@ -2,14 +2,14 @@
 aliases: ["/learning/", "/en/learning/"]
 title: "随机过程与金融市场"
 slug: stochastic-processes-financial-markets
-date: 2026-09-14
+date: 2026-11-28
 description: "从测度与概率、随机过程和随机分析，走向金融市场及投资分析的中文讲义。"
 draft: false
 ShowToc: false
 categories: ["讲义"]
 ---
 
-**当前版本：2026 年 9 月 14 日 · 中文 · 236 页。**
+**当前版本：2026 年 11 月 28 日 · 中文 · 255 页。**
 
 <p class="entry-actions"><a class="primary-button" href="/learning/stochastic.pdf" target="_blank" rel="noopener">在线阅读 PDF ↗</a><a href="/learning/stochastic.pdf" download="随机过程与金融市场.pdf">下载 PDF ↓</a></p>
 
