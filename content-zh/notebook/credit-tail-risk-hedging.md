@@ -9,6 +9,7 @@
 }
 
 <link rel="stylesheet" href="/notebook/flow-figures.css?v=20261126">
+<script src="/notebook/flow-figures.js?v=20261012-6" defer></script>
 
 前几篇讨论的多资产分散、股票多空、全球宏观与风险平价，主要对付常规周期里的涨跌波动。可金融市场每隔十年左右总会出现一次流动性骤然干涸、企业借不到新钱、各类风险资产一起跳水的极端冲击。**信用与尾部风险对冲**（Credit & Tail-Risk Hedging）专门盯住分布最左端的罕见崩盘：平时愿意付出一笔有限且可预期的保费或息差，换取危机爆发时不成比例的**凸性赔付**（Convexity）。
 
@@ -20,41 +21,30 @@
 
 同样是股市下跌超过 18%，**2008 金融危机**、**2020 疫情闪崩**与 **2022 加息慢熊**在信用利差和恐慌指数（VIX）上呈现出完全不同的结构：
 
-<figure class="flow-figure p05-crises" id="nb-p05-crises">
-<div class="ff-head"><p class="ff-title">三类下跌窗口对照：信用冻结、极速闪崩与利率慢熊</p><span class="ff-sub">Yahoo Finance 2007—2022 调整后收盘价 · 利差极值参照 ICE BofA US High Yield OAS</span></div>
-<div class="p05-cgrid business-exchange" aria-label="三类真实下跌窗口对照：一、2008 金融危机（2007-10-09 至 2009-03-09）：高收益债 OAS 从 2007 年 6 月低点 2.41% 飙升至 2008 年 12 月 15 日峰值 21.82%，VIX 峰值 80.86，SPY 跌 −55.2%，HYG 跌 −32.9%，LQD 最深跌 −18.2%，TLT 涨 +25.1%。二、2020 疫情闪崩（2020-02-19 至 2020-03-23，仅 23 个交易日）：HY OAS 20 个交易日由 4.18% 跳至 10.87%，VIX 收盘峰值 82.69，SPY 跌 −33.7%，HYG 跌 −21.9%，LQD 最深跌 −19.6%，TLT 涨 +14.2%。三、2022 加息慢熊（2021-12-31 至 2022-12-30）：无系统性信用冻结，VIX 全年收盘峰值仅 36.45，SPY 全年跌 −18.2%（盘段最深 −24.1%），HYG 跌 −11.0% 反浅于 LQD −17.9% 与 TLT −31.2%。">
+<figure class="flow-figure p05-crises" id="nb-p05-crises" data-ff-views>
+<div class="ff-head"><p class="ff-title">三类下跌窗口对照：信用冻结、极速闪崩与利率慢熊</p><div class="ff-switch" role="group" aria-label="切换危机窗口" hidden><button type="button" data-ff-view-choice="c2008" aria-pressed="true">2008 金融危机</button><button type="button" data-ff-view-choice="c2020" aria-pressed="false">2020 疫情闪崩</button><button type="button" data-ff-view-choice="c2022" aria-pressed="false">2022 加息慢熊</button></div></div>
+<div data-ff-only="c2008" class="business-exchange" aria-label="2008 金融危机（2007-10-09 至 2009-03-09）：HY OAS 峰值 21.82%、VIX 峰值 80.86、SPY −55.2%、HYG −32.9%、TLT +25.1%。">
 <div class="p05-ccard" style="--p05-c:#a8743f">
 <div class="p05-chead"><strong>2008 金融危机</strong><small>2007-10-09 → 2009-03-09 · 深度信用冻结</small></div>
-<div class="p05-cstats">
-<div class="p05-cstat"><span>HY OAS 峰值</span><b class="p05-neg">21.82%</b></div>
-<div class="p05-cstat"><span>VIX 收盘峰值</span><b class="p05-neg">80.86</b></div>
-<div class="p05-cstat"><span>SPY 跌幅</span><b class="p05-neg">−55.2%</b></div>
-<div class="p05-cstat"><span>HYG / TLT</span><b>−32.9% / +25.1%</b></div>
-</div>
+<div class="p05-cstats"><div class="p05-cstat"><span>HY OAS 峰值</span><b class="p05-neg">21.82%</b></div><div class="p05-cstat"><span>VIX 收盘峰值</span><b class="p05-neg">80.86</b></div><div class="p05-cstat"><span>SPY 跌幅</span><b class="p05-neg">−55.2%</b></div><div class="p05-cstat"><span>HYG / TLT</span><b>−32.9% / +25.1%</b></div></div>
 <p class="p05-cverdict">违约激增且融资瘫痪；CDS 信用保护与尾部 Put 双双触发高倍赔付。</p>
 </div>
+</div>
+<div data-ff-only="c2020" hidden class="business-exchange" aria-label="2020 疫情闪崩（23 个交易日）：HY OAS 峰值 10.87%、VIX 峰值 82.69、SPY −33.7%、HYG −21.9%、LQD 最深 −19.6%。">
 <div class="p05-ccard" style="--p05-c:#c26d4a">
 <div class="p05-chead"><strong>2020 疫情闪崩</strong><small>2020-02-19 → 2020-03-23 · 23 日急跌</small></div>
-<div class="p05-cstats">
-<div class="p05-cstat"><span>HY OAS 峰值</span><b class="p05-neg">10.87%</b></div>
-<div class="p05-cstat"><span>VIX 收盘峰值</span><b class="p05-neg">82.69</b></div>
-<div class="p05-cstat"><span>SPY 跌幅</span><b class="p05-neg">−33.7%</b></div>
-<div class="p05-cstat"><span>HYG / LQD 最深</span><b>−21.9% / −19.6%</b></div>
-</div>
+<div class="p05-cstats"><div class="p05-cstat"><span>HY OAS 峰值</span><b class="p05-neg">10.87%</b></div><div class="p05-cstat"><span>VIX 收盘峰值</span><b class="p05-neg">82.69</b></div><div class="p05-cstat"><span>SPY 跌幅</span><b class="p05-neg">−33.7%</b></div><div class="p05-cstat"><span>HYG / LQD 最深</span><b>−21.9% / −19.6%</b></div></div>
 <p class="p05-cverdict">速度极快且波动率飙破 80；单个期权周期内尾部 Put 爆发力最强。</p>
 </div>
+</div>
+<div data-ff-only="c2022" hidden class="business-exchange" aria-label="2022 加息慢熊：无系统性信用冻结、VIX 峰值 36.45、SPY 全年 −18.2%（最深 −24.1%）、HYG −11.0%、TLT −31.2%。">
 <div class="p05-ccard" style="--p05-c:#5986a1">
 <div class="p05-chead"><strong>2022 加息慢熊</strong><small>2021-12-31 → 2022-12-30 · 利率重估</small></div>
-<div class="p05-cstats">
-<div class="p05-cstat"><span>信用状态</span><b>未爆发违约潮</b></div>
-<div class="p05-cstat"><span>VIX 收盘峰值</span><b>36.45</b></div>
-<div class="p05-cstat"><span>SPY 全年/最深</span><b class="p05-neg">−18.2% / −24.1%</b></div>
-<div class="p05-cstat"><span>HYG / TLT</span><b>−11.0% / −31.2%</b></div>
-</div>
-<p class="p05-cverdict">持续十个月慢跌、恐慌未爆表；深度虚值 Put 往往难以跑赢常态保费损耗。</p>
+<div class="p05-cstats"><div class="p05-cstat"><span>信用状态</span><b>未爆发违约潮</b></div><div class="p05-cstat"><span>VIX 收盘峰值</span><b>36.45</b></div><div class="p05-cstat"><span>SPY 全年/最深</span><b class="p05-neg">−18.2% / −24.1%</b></div><div class="p05-cstat"><span>HYG / TLT</span><b>−11.0% / −31.2%</b></div></div>
+<p class="p05-cverdict">持续十个月慢跌、恐慌未爆表；深度虚值 Put 难以跑赢常态保费损耗。</p>
 </div>
 </div>
-<figcaption>价格与 VIX 均为收盘口径，2020 年 3 月 23 日美联储宣布企业信贷便利（PMCCF／SMCCF）后信用利差迅速回落。<a href="/notebook/credit-tail/credit-tail-daily.csv">查看完整日频数据</a>。</figcaption>
+<figcaption>点击切换三类下跌窗口。利差极值参照 ICE BofA US High Yield OAS。<a href="/notebook/credit-tail/credit-tail-daily.csv">查看完整日频数据</a>。</figcaption>
 </figure>
 
 这三张卡片解释了为何信用与尾部保护的回报高度挑“跌法”。2008 年和 2020 年 3 月，市场同时遭遇信用利差飙升（2008 年从 2.41% 冲到 21.82%、2020 年 20 个交易日内从 4.18% 冲到 10.87%）和 VIX 冲破 80，连投资级企业债 LQD 都在 2020 年 3 月盘中一度跌近两成。[^credit-data]<sup>，</sup>[^fred-hyoas] 到了 2022 年，压垮估值的推手是无风险利率飙升，企业违约没有失控，VIX 全年最高收盘只到 36.45，信用久期更短的 HYG（−11.0%）反而比 TLT（−31.2%）跌得更浅。
@@ -65,27 +55,29 @@
 
 把 CDS 拆成常态和危机两段现金流，结构很直白：
 
-<figure class="flow-figure p05-cds-flow" id="nb-p05-cds-flow">
-<div class="ff-head"><p class="ff-title">CDS 信用保护的常态现金流与违约赔付链条（示意）</p><span class="ff-sub">假设 10,000,000 美元名义本金 · 5 年期高收益参考实体 · 年化息差 500 bps（5%）</span></div>
-<div class="business-exchange" aria-label="以 10,000,000 美元名义本金、年化息差 500 bps 的 5 年期 CDS 为例展示两段现金流：常态期间（未发生信用事件）：保护买方每季支付 125,000 美元息差（全年 500,000 美元）；若市场担忧加剧、新签息差由 500 bps 走阔至 1,200 bps，原有低息差保护合约市价大涨，买方无需等到正式违约即可平仓获利。触发信用事件后：经 ISDA 地区认定委员会裁定构成破产或到期未能付款等信用事件，通过统一拍卖确定违约债券回收率（如 40%），保护卖方向买方赔付 (100% − 40%) 乘以名义本金即 6,000,000 美元，买方以有限年化保费换取高倍凸性赔付。">
+<figure class="flow-figure p05-cds-flow" id="nb-p05-cds-flow" data-ff-views>
+<div class="ff-head"><p class="ff-title">CDS 信用保护：常态现金流 vs 触发违约赔付（示意）</p><div class="ff-switch" role="group" aria-label="切换阶段" hidden><button type="button" data-ff-view-choice="normal" aria-pressed="true">常态付息差</button><button type="button" data-ff-view-choice="default" aria-pressed="false">触发违约赔付</button></div></div>
+<div data-ff-only="normal" class="business-exchange" aria-label="CDS 常态期间（名义本金 1,000 万美元、年化息差 500 bps）：买方按季付 12.5 万美元息差；若恐慌推高新息差至 1,200 bps，原有合约市价跳涨，买方无需等违约即可平仓获利。">
 <div class="p05-flane">
-<div class="p05-fhead"><strong>常态期间（未发生信用事件）</strong><span>固定支出息差 · 盯市随利差重估</span></div>
+<div class="p05-fhead"><strong>常态期间（名义本金 1,000 万 · 年化 500 bps）</strong><span>固定付息差 · 盯市随利差重估</span></div>
 <div class="p05-fsteps">
-<div class="p05-fbox"><b>① 保护买方按季付息差</b>按名义本金的 5% 年化，每季向卖方支付 125,000 美元（全年 500,000 美元）。</div>
-<div class="p05-fbox"><b>② 信用利差走阔即升值</b>若市场恐慌把新签息差推高至 1,200 bps，手里的低息差保护合约市价大幅跳涨。</div>
-<div class="p05-fbox"><b>③ 无需等到违约即可平仓</b>实务中多数机构在利差急扩窗口直接转让或平仓，兑现账面盯市利润。</div>
+<div class="p05-fbox"><b>① 按季支付固定息差</b>每季向卖方支付 125,000 美元（全年 500,000 美元）。</div>
+<div class="p05-fbox"><b>② 利差走阔合约升值</b>若恐慌把新息差推高至 1,200 bps，旧保护合约市价跳涨。</div>
+<div class="p05-fbox"><b>③ 无需违约即可平仓</b>多数机构在利差急扩窗口直接转让平仓，兑现盯市利润。</div>
 </div>
 </div>
+</div>
+<div data-ff-only="default" hidden class="business-exchange" aria-label="CDS 触发违约赔付：经 ISDA 委员会裁定破产或违约，拍卖定回收率 40%，卖方赔付面值回收差额 600 万美元。">
 <div class="p05-flane p05-fevent">
-<div class="p05-fhead"><strong>触发信用事件（经 ISDA 认定委员会裁定）</strong><span>拍卖定价 · 凸性赔付差额</span></div>
+<div class="p05-fhead"><strong>触发信用事件（ISDA 裁定）</strong><span>拍卖定价 · 凸性赔付差额</span></div>
 <div class="p05-fsteps">
-<div class="p05-fbox"><b>① 裁定构成标准信用事件</b>参考实体发生破产（Bankruptcy）或到期未能付款（Failure to Pay）等条款约定事件。</div>
-<div class="p05-fbox"><b>② 统一拍卖确定回收率</b>假设违约债券在 ISDA 拍卖中的市场回收价定为面值的 40%。</div>
-<div class="p05-fbox"><b>③ 卖方赔付面值回收差额</b>保护卖方向买方支付 (100% − 40%) × 10,000,000 ＝ <b>6,000,000 美元</b>。</div>
+<div class="p05-fbox"><b>① 裁定构成信用事件</b>参考实体发生破产或到期未付款等标准条款事件。</div>
+<div class="p05-fbox"><b>② 拍卖确定回收率</b>违约债券在 ISDA 统一拍卖中定价为面值的 40%。</div>
+<div class="p05-fbox"><b>③ 赔付面值回收差额</b>卖方向买方支付 (100% − 40%) × 1,000 万 ＝ <strong>600 万美元</strong>。</div>
 </div>
 </div>
 </div>
-<figcaption>简化示意未计期初标准化票息前端折溢价（upfront payment）；现实中标准企业 CDS 常用 100 bps 或 500 bps 固定票息并以期初差价找平。</figcaption>
+<figcaption>点击切换常态与违约阶段。简化示意未计期初标准化票息前端折溢价（upfront payment）。</figcaption>
 </figure>
 
 <span data-text-versions id="nb-p05-text-cds">CDS 赔付之所以严格依赖标准合同，是因为历史上曾出现过围绕“算不算违约”的激烈博弈。国际互换与衍生品协会（ISDA）2014 年信用衍生品定义将企业 CDS 常见触发条件归为**破产**（Bankruptcy）与**到期未能付款**（Failure to Pay）等标准事件，由地区认定委员会（Determinations Committee）投票裁定并组织统一拍卖确定回收率<span data-text-detail>（为了堵塞部分市场参与者与债务人合谋制造“技术性违约”骗取 CDS 赔付的漏洞，ISDA 于 2020 年 1 月 27 日正式在多数企业 CDS 合约中生效了“窄口径信用事件”修订条款，要求到期未能付款必须直接或间接源于、或导致参考实体信用状况恶化，才能触发赔付。此外，美联储 FEDS 2022-023 显示约 62% 的交易商未平仓 CDS 名义本金经中央对手方清算，以降低类似 2008 年 AIG 那样的对手方违约链式风险）</span>。[^isda-cds]<sup>，</sup>[^cds-fed]<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>

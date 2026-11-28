@@ -9,6 +9,7 @@
 }
 
 <link rel="stylesheet" href="/notebook/flow-figures.css?v=20261127b">
+<script src="/notebook/flow-figures.js?v=20261012-6" defer></script>
 
 翻开最新 SEC 年报，四家蓝筹的账面 ROE 给出了反直觉排序：**The Coca-Cola Company**（KO）达 46.0%，高出 **Microsoft**（MSFT）34.0% 整整 12 个百分点；**The Home Depot**（HD）冲到 145.5%；盈利稳健的 **McDonald’s**（MCD）反而是负值。卖汽水和建材为什么看起来比云计算更赚钱？
 
@@ -79,135 +80,70 @@
 扣掉超额现金后，ROIC 显现出一条与 ROE 截然不同的性质：**股票回购本身不改变 ROIC**。花超额现金回购，融资侧股东权益与超额现金等额减少，投入资本不动；举债回购，新增债务正好补上减少的权益，分子 NOPAT 又不受债息影响，ROIC 照样纹丝不动。靠借债回购把 ROE 推上 100% 的招数，放到这里立刻失去放大效果。
 
 <figure class="flow-figure e07-roic-bridge" id="nb-e07-roic-fig">
-<div class="ff-head"><p class="ff-title">跨表勾稽图：从投入资本与 NOPAT 算到 ROIC，再到账面 ROE</p><span class="ff-sub">左：利润表分子与资产负债表双侧等价分母 · 中：剥离资本结构的 ROIC · 右：叠加杠杆与回购后的账面 ROE</span></div>
-<div class="rel-svg-wrap business-exchange" aria-label="投入资本双侧勾稽与 ROIC 到 ROE 路径图：左侧上方为利润表分子税后营业利润 NOPAT（等于 EBIT 乘以 1 减有效税率，归属债权人与股东共同的税后主业盈利），左侧下方为资产负债表分母投入资本（经营侧为净营运资本加固定资产加商誉无形，与融资侧总债务加总权益减超额现金在复式记账下等价）。两条绿色曲线箭头相除汇聚至中间 ROIC（NOPAT 除以平均投入资本，剥离借债与回购影响，还原真实生意回报，ROIC 高于 WACC 才创造价值，且可区分含商誉与不含商誉两种口径）。中间再经琥珀色箭头叠加财务杠杆与回购压薄权益效应，指向右侧账面 ROE（归母净利润除以平均权益，高杠杆或负权益下易失真，更适用于银行与保险业）。">
-<svg viewBox="0 0 860 280" role="img" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+<div class="ff-head"><p class="ff-title">跨表勾稽：从投入资本与 NOPAT 算到 ROIC，再叠出账面 ROE</p><span class="ff-sub">ROIC 剥离资本结构看生意底色 · ROE 叠加借债与回购杠杆</span></div>
+<div class="rel-svg-wrap business-exchange" aria-label="三步勾稽路径：分子税后营业利润 NOPAT 除以分母平均投入资本（经营侧与融资侧等价）得到 ROIC（ROIC 高于 WACC 创造价值）；再叠加借债杠杆与回购压薄权益，得到账面 ROE。">
+<svg viewBox="0 0 720 185" role="img" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
   <defs>
-    <marker id="e07-arr-sage" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse">
-      <path d="M1,1.5 L9,5 L1,8.5 Z" fill="#23695a"/>
-    </marker>
-    <marker id="e07-arr-amber" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse">
-      <path d="M1,1.5 L9,5 L1,8.5 Z" fill="#a8743f"/>
-    </marker>
+    <marker id="e07-r-s" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse"><path d="M0 1.2 L9 5 L0 8.8 z" fill="#23695a"/></marker>
+    <marker id="e07-r-a" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse"><path d="M0 1.2 L9 5 L0 8.8 z" fill="#a8743f"/></marker>
   </defs>
-  <rect x="0" y="0" width="860" height="280" rx="8" fill="#fafaf6"/>
-  <rect x="18" y="16" width="268" height="92" rx="10" fill="#ffffff" stroke="#cfd3c9" stroke-width="1.2"/>
-  <text x="152" y="39" text-anchor="middle" font-size="13" font-weight="700" fill="#1d2a25">利润表分子：税后营业利润</text>
-  <line x1="32" y1="48" x2="272" y2="48" stroke="#eaede5"/>
-  <rect x="32" y="56" width="240" height="26" rx="5" fill="#e2ede7"/>
-  <text x="152" y="73.5" text-anchor="middle" font-size="12" font-weight="700" fill="#1f5c4e">NOPAT ＝ EBIT × (1 − 有效税率)</text>
-  <text x="152" y="99" text-anchor="middle" font-size="10.5" fill="#66736c">归属债权人与股东的税后主业盈利</text>
-  <rect x="18" y="122" width="268" height="142" rx="10" fill="#ffffff" stroke="#cfd3c9" stroke-width="1.2"/>
-  <text x="152" y="144" text-anchor="middle" font-size="12.5" font-weight="700" fill="#1d2a25">资产负债表分母：投入资本（双侧等价）</text>
-  <line x1="32" y1="153" x2="272" y2="153" stroke="#eaede5"/>
-  <rect x="32" y="161" width="240" height="40" rx="6" fill="#f5f7f3" stroke="#d9dfd4"/>
-  <text x="42" y="177" font-size="11" font-weight="700" fill="#1f5c4e">经营侧（钱投向哪些经营资产）</text>
-  <text x="42" y="193" font-size="10.5" fill="#4b5952">净营运资本 ＋ 固定资产 ＋ 商誉无形</text>
-  <rect x="32" y="209" width="240" height="40" rx="6" fill="#f5f7f3" stroke="#d9dfd4"/>
-  <text x="42" y="225" font-size="11" font-weight="700" fill="#2c4459">融资侧（长期资本来源）</text>
-  <text x="42" y="241" font-size="10.5" fill="#4b5952">有息债务 ＋ 总权益 − 超额现金</text>
-  <rect x="348" y="42" width="202" height="196" rx="10" fill="#ffffff" stroke="#23695a" stroke-width="1.5"/>
-  <rect x="366" y="58" width="166" height="30" rx="6" fill="#e2ede7"/>
-  <text x="449" y="78" text-anchor="middle" font-size="15" font-weight="700" fill="#1f5c4e">ROIC</text>
-  <text x="449" y="111" text-anchor="middle" font-size="12.5" font-weight="700" fill="#1d2a25">NOPAT ÷ 平均投入资本</text>
-  <line x1="366" y1="124" x2="532" y2="124" stroke="#eaede5"/>
-  <text x="449" y="148" text-anchor="middle" font-size="11.5" fill="#2e3c36">剥离借债与回购影响</text>
-  <text x="449" y="167" text-anchor="middle" font-size="11.5" fill="#2e3c36">还原真实生意回报</text>
-  <rect x="366" y="184" width="166" height="38" rx="6" fill="#eef6f2"/>
-  <text x="449" y="200" text-anchor="middle" font-size="11" font-weight="700" fill="#1f5c4e">ROIC ＞ WACC 创造价值</text>
-  <text x="449" y="215" text-anchor="middle" font-size="10" fill="#5d6b64">可分含商誉 / 不含商誉</text>
-  <rect x="640" y="42" width="202" height="196" rx="10" fill="#ffffff" stroke="#dfb98d" stroke-width="1.5"/>
-  <rect x="658" y="58" width="166" height="30" rx="6" fill="#f4e5d2"/>
-  <text x="741" y="78" text-anchor="middle" font-size="15" font-weight="700" fill="#8d5520">ROE</text>
-  <text x="741" y="111" text-anchor="middle" font-size="12.5" font-weight="700" fill="#1d2a25">归母净利润 ÷ 平均权益</text>
-  <line x1="658" y1="124" x2="824" y2="124" stroke="#eaede5"/>
-  <text x="741" y="148" text-anchor="middle" font-size="11.5" fill="#2e3c36">叠加借债与回购效应</text>
-  <text x="741" y="167" text-anchor="middle" font-size="11.5" fill="#2e3c36">易放大或压负分母</text>
-  <rect x="658" y="184" width="166" height="38" rx="6" fill="#fdf6ec"/>
-  <text x="741" y="200" text-anchor="middle" font-size="11" font-weight="700" fill="#8d5520">高杠杆／负权益下失真</text>
-  <text x="741" y="215" text-anchor="middle" font-size="10" fill="#5d6b64">更适用于银行与保险业</text>
-  <path d="M286,62 C318,62 316,114 344,114" fill="none" stroke="#23695a" stroke-width="2" marker-end="url(#e07-arr-sage)"/>
-  <path d="M286,193 C318,193 316,166 344,166" fill="none" stroke="#23695a" stroke-width="2" marker-end="url(#e07-arr-sage)"/>
-  <rect x="295" y="129" width="44" height="22" rx="4" fill="#fafaf6"/>
-  <text x="317" y="144" text-anchor="middle" font-size="11" font-weight="700" fill="#23695a">相除</text>
-  <path d="M550,146 L636,146" fill="none" stroke="#a8743f" stroke-width="2.1" marker-end="url(#e07-arr-amber)"/>
-  <text x="595" y="118" text-anchor="middle" font-size="11" font-weight="700" fill="#8d5520">＋ 财务杠杆</text>
-  <text x="595" y="135" text-anchor="middle" font-size="10.5" fill="#8d5520">与回购压薄权益</text>
+  <rect x="16" y="20" width="212" height="66" rx="9" fill="#f3f8f4" stroke="#b9d0c2" stroke-width="1.3"/>
+  <text x="122" y="46" text-anchor="middle" font-size="13" font-weight="700" fill="#23695a">分子：NOPAT</text>
+  <text x="122" y="70" text-anchor="middle" font-size="12" fill="#3c4c44">EBIT × (1 − 有效税率)</text>
+  <rect x="16" y="100" width="212" height="66" rx="9" fill="#fbfbf6" stroke="#dfe5dc" stroke-width="1.3"/>
+  <text x="122" y="126" text-anchor="middle" font-size="13" font-weight="700" fill="#22392f">分母：投入资本</text>
+  <text x="122" y="150" text-anchor="middle" font-size="12" fill="#5e6d65">债 ＋ 权益 − 超额现金</text>
+  <line x1="228" y1="93" x2="274" y2="93" stroke="#23695a" stroke-width="2" marker-end="url(#e07-r-s)"/>
+  <text x="251" y="83" text-anchor="middle" font-size="12" font-weight="700" fill="#23695a">相除</text>
+  <rect x="280" y="34" width="176" height="118" rx="10" fill="#23695a"/>
+  <text x="368" y="66" text-anchor="middle" font-size="18" font-weight="700" fill="#ffffff">ROIC</text>
+  <text x="368" y="96" text-anchor="middle" font-size="12.5" fill="#e5efe9">剥离借债与回购</text>
+  <text x="368" y="122" text-anchor="middle" font-size="12" font-weight="700" fill="#f5e6d3">＞ WACC 创造价值</text>
+  <line x1="456" y1="93" x2="522" y2="93" stroke="#a8743f" stroke-width="2" marker-end="url(#e07-r-a)"/>
+  <text x="489" y="82" text-anchor="middle" font-size="12" font-weight="700" fill="#8f6033">＋ 杠杆</text>
+  <rect x="528" y="34" width="176" height="118" rx="10" fill="#fcf8f3" stroke="#dfb98d" stroke-width="1.4"/>
+  <text x="616" y="66" text-anchor="middle" font-size="18" font-weight="700" fill="#8f6033">账面 ROE</text>
+  <text x="616" y="96" text-anchor="middle" font-size="12.5" fill="#3c4c44">净利 ÷ 平均权益</text>
+  <text x="616" y="122" text-anchor="middle" font-size="12" fill="#b5483a">高杠杆／负权益失真</text>
 </svg>
 </div>
-<figcaption>融资侧扣除超额现金后，回购与举债置换只改变右侧 ROE 的权益分母，不改变中间 ROIC。</figcaption>
+<figcaption>经营侧（净营运资本 ＋ 固定资产 ＋ 商誉无形）与融资侧（有息债务 ＋ 权益 − 超额现金）等价；举债回购只改写右侧 ROE，不改变 ROIC。</figcaption>
 </figure>
 
 拆解分母时还要再切一刀，区分**含商誉**与**不含商誉**两种口径。[^mckinsey-roic] **商誉**是历次溢价并购留下的买价差额：把商誉留在分母里，用来给管理层历年的并购算总账；把商誉扣掉，则用来检验新开门店、新建产线或扩建机房这类原厂内生业务的资本效率。把开头四家公司放进这套标尺，此前被杠杆与回购颠倒的排序立刻反转：
 
 <figure class="flow-figure e07-reversal" id="nb-e07-reversal-fig">
-<div class="ff-head"><p class="ff-title">含商誉 ROIC → 账面 ROE 排名反转：四家公司 10-K 实证</p><span class="ff-sub">统一融资侧口径 · 绿条与琥珀条共享 0%–50% 刻度（HD 145.5% 以断轴标示，MCD 因负权益失效）</span></div>
-<div class="rel-svg-wrap business-exchange" aria-label="四家上市公司含商誉 ROIC 到账面 ROE 的横向排名反转对照（统一融资侧口径）：一、Microsoft（MSFT）FY2026：含商誉 ROIC 35.2%（不含商誉 53.1%），账面 ROE 34.0%，净现金低杠杆令 ROIC 居首且高于 ROE。二、Coca-Cola（KO）FY2025：含商誉 ROIC 18.5%（不含商誉 25.5%），经 3.60 倍权益乘数放大至账面 ROE 46.0%，借杠杆反超 MSFT。三、Home Depot（HD）FY2025：含商誉 ROIC 24.7%（不含商誉 36.6%），受大额历史回购压薄股东权益影响，账面 ROE 飙升至 145.5%，放大近 6 倍。四、McDonald's（MCD）FY2025：含商誉 ROIC 27.1%（不含商誉 29.7%），因累计回购压负股东权益，账面 ROE 数学失效。">
-<svg viewBox="0 0 860 270" role="img" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
-  <defs>
-    <marker id="e07-rev-sage" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse">
-      <path d="M1,1.5 L9,5 L1,8.5 Z" fill="#23695a"/>
-    </marker>
-    <marker id="e07-rev-amber" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse">
-      <path d="M1,1.5 L9,5 L1,8.5 Z" fill="#a8743f"/>
-    </marker>
-  </defs>
-  <rect x="0" y="0" width="860" height="270" rx="8" fill="#fafaf6"/>
-  <text x="30" y="29" font-size="11" font-weight="700" fill="#5d6b64">公司 / 财年</text>
-  <text x="214" y="29" font-size="11" font-weight="700" fill="#1f5c4e">含商誉 ROIC（剥离杠杆）</text>
-  <text x="454" y="29" font-size="11" font-weight="700" fill="#8d5520">账面 ROE（含杠杆与回购）</text>
-  <text x="752" y="29" text-anchor="middle" font-size="11" font-weight="700" fill="#5d6b64">排序反转成因</text>
-  <line x1="18" y1="39" x2="842" y2="39" stroke="#e2e5dc" stroke-width="1"/>
-  <rect x="18" y="48" width="824" height="46" rx="8" fill="#ffffff" stroke="#b3d3c4" stroke-width="1.2"/>
-  <text x="30" y="68" font-size="13" font-weight="700" fill="#1d2a25">MSFT · FY26</text>
-  <text x="30" y="85" font-size="10.5" fill="#66736c">不含商誉 53.1%</text>
-  <rect x="214" y="63" width="136" height="16" rx="8" fill="#eef2ec"/>
-  <rect x="214" y="63" width="96" height="16" rx="8" fill="#23695a"/>
-  <text x="358" y="75.5" font-size="13" font-weight="700" fill="#1f5c4e">35.2%</text>
-  <path d="M412,71 L440,71" fill="none" stroke="#23695a" stroke-width="2" marker-end="url(#e07-rev-sage)"/>
-  <rect x="454" y="63" width="136" height="16" rx="8" fill="#f5f2eb"/>
-  <rect x="454" y="63" width="92" height="16" rx="8" fill="#5a8c7e"/>
-  <text x="598" y="75.5" font-size="13" font-weight="700" fill="#2e3c36">34.0%</text>
-  <rect x="674" y="59" width="156" height="24" rx="12" fill="#e7f1ec"/>
-  <text x="752" y="75" text-anchor="middle" font-size="11" font-weight="600" fill="#1f5c4e">净现金低杠杆 · ROIC 居首</text>
-  <rect x="18" y="102" width="824" height="46" rx="8" fill="#ffffff" stroke="#d9dfd4" stroke-width="1.2"/>
-  <text x="30" y="122" font-size="13" font-weight="700" fill="#1d2a25">KO · FY25</text>
-  <text x="30" y="139" font-size="10.5" fill="#66736c">不含商誉 25.5%</text>
-  <rect x="214" y="117" width="136" height="16" rx="8" fill="#eef2ec"/>
-  <rect x="214" y="117" width="50" height="16" rx="8" fill="#23695a"/>
-  <text x="358" y="129.5" font-size="13" font-weight="700" fill="#1f5c4e">18.5%</text>
-  <path d="M412,125 L440,125" fill="none" stroke="#a8743f" stroke-width="2" marker-end="url(#e07-rev-amber)"/>
-  <rect x="454" y="117" width="136" height="16" rx="8" fill="#f5f2eb"/>
-  <rect x="454" y="117" width="125" height="16" rx="8" fill="#c48341"/>
-  <text x="598" y="129.5" font-size="13" font-weight="700" fill="#8d5520">46.0%</text>
-  <rect x="674" y="113" width="156" height="24" rx="12" fill="#f7eadb"/>
-  <text x="752" y="129" text-anchor="middle" font-size="11" font-weight="600" fill="#8d5520">3.60× 杠杆反超 MSFT</text>
-  <rect x="18" y="156" width="824" height="46" rx="8" fill="#ffffff" stroke="#e4c59e" stroke-width="1.2"/>
-  <text x="30" y="176" font-size="13" font-weight="700" fill="#1d2a25">HD · FY25</text>
-  <text x="30" y="193" font-size="10.5" fill="#66736c">不含商誉 36.6%</text>
-  <rect x="214" y="171" width="136" height="16" rx="8" fill="#eef2ec"/>
-  <rect x="214" y="171" width="67" height="16" rx="8" fill="#23695a"/>
-  <text x="358" y="183.5" font-size="13" font-weight="700" fill="#1f5c4e">24.7%</text>
-  <path d="M412,179 L440,179" fill="none" stroke="#a8743f" stroke-width="2" marker-end="url(#e07-rev-amber)"/>
-  <rect x="454" y="171" width="136" height="16" rx="8" fill="#b86b35"/>
-  <path d="M564,169 L570,189 M571,169 L577,189" fill="none" stroke="#ffffff" stroke-width="2.2"/>
-  <text x="598" y="183.5" font-size="13" font-weight="700" fill="#8d5520">145.5%</text>
-  <rect x="674" y="167" width="156" height="24" rx="12" fill="#f7eadb"/>
-  <text x="752" y="183" text-anchor="middle" font-size="11" font-weight="600" fill="#8d5520">回购压薄权益 · 放大 6×</text>
-  <rect x="18" y="210" width="824" height="46" rx="8" fill="#ffffff" stroke="#e4c59e" stroke-width="1.2"/>
-  <text x="30" y="230" font-size="13" font-weight="700" fill="#1d2a25">MCD · FY25</text>
-  <text x="30" y="247" font-size="10.5" fill="#66736c">不含商誉 29.7%</text>
-  <rect x="214" y="225" width="136" height="16" rx="8" fill="#eef2ec"/>
-  <rect x="214" y="225" width="74" height="16" rx="8" fill="#23695a"/>
-  <text x="358" y="237.5" font-size="13" font-weight="700" fill="#1f5c4e">27.1%</text>
-  <path d="M412,233 L440,233" fill="none" stroke="#a8743f" stroke-width="2" marker-end="url(#e07-rev-amber)"/>
-  <rect x="454" y="221" width="188" height="24" rx="6" fill="#fdf4f1" stroke="#c97a63" stroke-width="1.2" stroke-dasharray="4,3"/>
-  <text x="548" y="237" text-anchor="middle" font-size="11.5" font-weight="700" fill="#a1432c">负权益失效</text>
-  <rect x="674" y="221" width="156" height="24" rx="12" fill="#f9e3dc"/>
-  <text x="752" y="237" text-anchor="middle" font-size="11" font-weight="600" fill="#a1432c">回购压负权益 · ROE 失效</text>
+<div class="ff-head"><p class="ff-title">含商誉 ROIC → 账面 ROE 排名反转（四家公司 10-K 实证）</p><span class="ff-sub">绿条为含商誉 ROIC（剥离杠杆）· 琥珀条为账面 ROE（含杠杆与回购）</span></div>
+<div class="rel-svg-wrap business-exchange" aria-label="四家公司含商誉 ROIC 到账面 ROE 排名反转：MSFT ROIC 35.2% 居首而 ROE 34.0%；KO ROIC 18.5% 靠 3.6 倍杠杆放大至 ROE 46.0%；HD ROIC 24.7% 靠回购压薄权益飙至 ROE 145.5%；MCD ROIC 27.1% 因负权益令 ROE 失效。">
+<svg viewBox="0 0 720 215" role="img" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+  <text x="20" y="28" font-size="12.5" font-weight="700" fill="#5e6d65">公司</text>
+  <text x="128" y="28" font-size="12.5" font-weight="700" fill="#23695a">含商誉 ROIC</text>
+  <text x="364" y="28" font-size="12.5" font-weight="700" fill="#8f6033">账面 ROE</text>
+  <line x1="20" y1="38" x2="700" y2="38" stroke="#dfe5dc"/>
+  <text x="20" y="72" font-size="13.5" font-weight="700" fill="#22392f">MSFT FY26</text>
+  <rect x="128" y="56" width="120" height="20" rx="4" fill="#23695a"/>
+  <text x="258" y="72" font-size="13" font-weight="700" fill="#23695a">35.2%</text>
+  <rect x="364" y="56" width="116" height="20" rx="4" fill="#6b9f8c"/>
+  <text x="490" y="72" font-size="13" font-weight="700" fill="#22392f">34.0%（净现金低杠杆）</text>
+  <text x="20" y="116" font-size="13.5" font-weight="700" fill="#22392f">KO FY25</text>
+  <rect x="128" y="100" width="63" height="20" rx="4" fill="#23695a"/>
+  <text x="201" y="116" font-size="13" font-weight="700" fill="#23695a">18.5%</text>
+  <rect x="364" y="100" width="156" height="20" rx="4" fill="#a8743f"/>
+  <text x="530" y="116" font-size="13" font-weight="700" fill="#8f6033">46.0%（3.6× 杠杆反超）</text>
+  <text x="20" y="160" font-size="13.5" font-weight="700" fill="#22392f">HD FY25</text>
+  <rect x="128" y="144" width="84" height="20" rx="4" fill="#23695a"/>
+  <text x="222" y="160" font-size="13" font-weight="700" fill="#23695a">24.7%</text>
+  <rect x="364" y="144" width="170" height="20" rx="4" fill="#b5483a"/>
+  <path d="M510 142 L516 166 M518 142 L524 166" stroke="#ffffff" stroke-width="2.2"/>
+  <text x="544" y="160" font-size="13" font-weight="700" fill="#b5483a">145.5%（回购压薄）</text>
+  <text x="20" y="202" font-size="13.5" font-weight="700" fill="#22392f">MCD FY25</text>
+  <rect x="128" y="186" width="92" height="20" rx="4" fill="#23695a"/>
+  <text x="230" y="202" font-size="13" font-weight="700" fill="#23695a">27.1%</text>
+  <rect x="364" y="186" width="170" height="20" rx="4" fill="#faeae7" stroke="#b5483a" stroke-dasharray="4 3"/>
+  <text x="449" y="201" text-anchor="middle" font-size="12.5" font-weight="700" fill="#b5483a">负权益失效</text>
 </svg>
 </div>
-<figcaption>跨公司比较实体企业质地时，先把资本结构剥离掉看含商誉／不含商誉 ROIC，再看杠杆与回购如何改写 ROE 排序。</figcaption>
+<figcaption>不含商誉 ROIC：MSFT 53.1%、HD 36.6%、MCD 29.7%、KO 25.5%。比较实体公司质地须先剥离杠杆看 ROIC。</figcaption>
 </figure>
 
 <span data-text-versions id="nb-e07-text-roic">图里的反转拆出两层意思：剥掉杠杆后，MSFT 的 ROIC 接近 KO 两倍，MCD 也摆脱负权益干扰、还原出特许加盟底色；HD 披露的 ROIC 从 FY2023 的 36.7% 降至 FY2025 的 **25.7%**，正因连续收购 SRS Distribution 与 GMS 垫高商誉，可扣掉商誉后原厂仍有 **36.6%**——双口径把并购账和原厂账切得清清楚楚<span data-text-detail>（统一融资侧明细，单位 M 美元：MSFT FY26 含商誉 ROIC 35.2%、不含商誉 53.1%，有效税率 19.40%、NOPAT 125,127，期初期末有息债务 43,151→40,294、权益 343,479→442,387、现金及短期投资 94,565→76,843，扣除收入 2% 后平均投入资本 355,087，平均商誉 119,580；KO FY25 含商誉 ROIC 18.5%、不含商誉 25.5%，有效税率 17.88%、NOPAT 11,301，总债务 44,522→45,492、总权益 26,372→34,275、现金及有价证券 14,571→15,806，平均投入资本 61,092，平均商誉 16,815，若再扣除 129 亿美元无期限商标则达 36.0%；HD FY25 统一口径含商誉 ROIC 24.7%、不含商誉 36.6%，有效税率 23.90%、NOPAT 15,897，总债务含短期商业票据 53,383→55,772、权益 6,640→12,813、期末现金 1,389 低于收入 2% 故超额现金为 0，平均投入资本 64,304、平均商誉约 209 亿美元；MCD FY25 含商誉 ROIC 27.1%、不含商誉 29.7%，有效税率 21.42%、NOPAT 9,739，不含经营租赁负债口径下平均投入资本 36,003，若将 142 亿美元经营租赁负债并入投入资本则 ROIC 约 19%–20%。另需注意两点口径边界：一、研发与品牌费用按会计准则当期费用化而非资本化，Michael J. Mauboussin 2022 年报告指出若把部分内部研发与营销视作无形资本化，高研发科技公司的表观 ROIC 会下移；二、若企业存在巨额负营运资本，如 AAPL FY26 应付账款与其他流动负债高达 1,484 亿美元、现金及有价证券 1,369 亿美元高于总债务 801 亿美元，投入资本会被压至 566 亿美元，表观 ROIC 飙升至 230% 以上，此时宜结合自由现金流与资本开支强度综合研判）</span>。[^hd-fy25]<sup>，</sup>[^mcd-fy25]<sup>，</sup>[^mauboussin-roic]<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>
@@ -246,35 +182,30 @@ ROIC 衡量的是历史存量资本的平均回报，股价定价的却是未来
 
 <span data-text-versions id="nb-e07-text-roiic-calc">上面两家龙头的多年投入产出，直观体现了“跑道宽度决定现金去向”的分化<span data-text-detail>（三年滚动 ROIIC 核算明细：KO FY2022→FY2025 间 NOPAT 由 89.35 亿升至 113.01 亿美元，投入资本由 542.04 亿温和增至 649.20 亿美元［净增 107.16 亿美元］，三年 ROIIC 约 22.1%，FY2025 固定资产 CapEx 为 21.12 亿美元；MSFT FY2023→FY2026 间 NOPAT 由 717.23 亿跃升至 1,251.27 亿美元［净增 534.04 亿美元］，按滞后一年口径 FY2022→FY2025 投入资本净增 1,821.68 亿美元对应 ROIIC 29.3%，按同期窗口 FY2023→FY2026 投入资本净增 2,660.39 亿美元对应 ROIIC 20.1%）</span>。<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>把 **ROE**、**ROIC** 与 **ROIIC** 并排摆进一张判别图谱，各自的职责与踩坑红线便一目了然：
 
-<figure class="flow-figure e07-metrics-map" id="nb-e07-metrics-fig">
-<div class="ff-head"><p class="ff-title">ROE、ROIC 与 ROIIC 判别图谱：定义、适用场景与失真陷阱</p><span class="ff-sub">先用 DuPont 拆清杠杆，再用 ROIC 检验存量质地，最后用滚动 ROIIC 追踪复利跑道</span></div>
-<div class="business-exchange" aria-label="ROE、ROIC 与 ROIIC 三大指标对比：一、ROE（归母净利润除以平均股东权益，可拆为净利率乘资产周转率乘权益乘数）：最适用于银行、保险等金融企业及低杠杆公司；核心陷阱是借债与连续回购会压薄甚至压负股东权益（如 HD ROE 145.5%、MCD 负权益失真）。二、ROIC（NOPAT 除以平均投入资本，分含商誉与不含商誉）：最适用于跨公司横向比较非金融企业护城河，并与 WACC 比较检验经济利润；核心陷阱是不适用于金融业，且未扣超额现金、未考虑研发费用化或极端负营运资本（如 AAPL）时会产生偏差。三、ROIIC（NOPAT 增量除以投入资本增量，宜用 3 至 5 年滚动与滞后窗口）：最适用于区分高回报复利扩产与成熟现金牛，并预警高存量 ROIC 公司低效再投资；核心陷阱是单年数据受大额并购或 CapEx 投放时滞干扰极大（如 MSFT FY26 千亿级 AI CapEx 拉低同期 ROIIC），且不可脱离资本成本单独判断。底部公式强调长期内在价值复利增速约等于再投资率乘以 ROIIC。">
-<div class="e07-mgrid">
-<div class="e07-mcard" style="--e07-c:#a8743f">
+<figure class="flow-figure e07-metrics-map" id="nb-e07-metrics-fig" data-ff-views>
+<div class="ff-head"><p class="ff-title">ROE、ROIC 与 ROIIC 判别图谱：定义、适用场景与陷阱</p><div class="ff-switch" role="group" aria-label="切换指标" hidden><button type="button" data-ff-view-choice="roe" aria-pressed="true">ROE · 股东账面</button><button type="button" data-ff-view-choice="roic" aria-pressed="false">ROIC · 存量底色</button><button type="button" data-ff-view-choice="roiic" aria-pressed="false">ROIIC · 增量跑道</button></div></div>
+<div class="business-exchange" aria-label="ROE、ROIC 与 ROIIC 判别对照：ROE 适用金融业与低杠杆公司，警惕回购压负权益；ROIC 适用横向比实体护城河，须扣超额现金与辨商誉；ROIIC 用 3–5 年滚动窗口衡量新钱复利跑道，结合再投资率决定长期复利增速。">
+<div data-ff-only="roe" class="e07-mcard" style="--e07-c:#a8743f">
 <div class="e07-mhead"><strong>ROE · 净资产收益率</strong><small>股东账面资本的最终回报</small></div>
 <div class="e07-mformula">归母净利润 ÷ 平均股东权益</div>
 <div class="e07-mitem"><b>适用场景</b>银行、保险等以负债为经营原料的金融业；低杠杆企业的股东账面回报核验。</div>
-<div class="e07-mitem e07-mwarn"><b>核心陷阱</b>举债与持续回购会压薄甚至压负净资产，把财务杠杆伪装成经营能力。</div>
-<div class="e07-mitem"><b>本篇实证</b>HD（145.5%）、AAPL（142.3%）被杠杆与回购放大；MCD 因负权益直接失效。</div>
+<div class="e07-mitem e07-mwarn"><b>核心陷阱</b>举债与持续回购会压薄甚至压负净资产，把财务杠杆伪装成经营能力（如 HD 145.5%、MCD 负权益失效）。</div>
 </div>
-<div class="e07-mcard" style="--e07-c:#23695a">
+<div data-ff-only="roic" hidden class="e07-mcard" style="--e07-c:#23695a">
 <div class="e07-mhead"><strong>ROIC · 投入资本回报率</strong><small>剥离杠杆后的存量生意底色</small></div>
 <div class="e07-mformula">NOPAT ÷ 平均投入资本</div>
-<div class="e07-mitem"><b>适用场景</b>跨公司横向比较非金融实体护城河；对照 WACC 判定增长创造还是毁灭价值。</div>
+<div class="e07-mitem"><b>适用场景</b>跨公司横向比较非金融实体护城河；对照 WACC 判定增长创造还是毁灭价值（MSFT 35.2% vs KO 18.5%）。</div>
 <div class="e07-mitem e07-mwarn"><b>核心陷阱</b>不适用于银行保险；未剔除超额现金、忽视商誉或极端负营运资本会扭曲可比性。</div>
-<div class="e07-mitem"><b>本篇实证</b>MSFT（35.2% / 扣商誉 53.1%）显著领先 KO（18.5%）；MCD 还原至 27.1%。</div>
 </div>
-<div class="e07-mcard" style="--e07-c:#3b6e8c">
+<div data-ff-only="roiic" hidden class="e07-mcard" style="--e07-c:#3b6e8c">
 <div class="e07-mhead"><strong>ROIIC · 增量投入资本回报</strong><small>衡量新钱的边际复利跑道</small></div>
 <div class="e07-mformula">ΔNOPAT ÷ Δ投入资本（3–5 年滚动）</div>
-<div class="e07-mitem"><b>适用场景</b>区分现金牛与复利扩产机器；提前预警“高存量 ROIC ＋ 低回报新投资”的价值毁灭。</div>
-<div class="e07-mitem e07-mwarn"><b>核心陷阱</b>单年数字受并购与重资产建设时滞噪音干扰极大，必须结合 3–5 年窗口与资本成本。</div>
-<div class="e07-mitem"><b>本篇实证</b>KO 三年 ROIIC 22.1% 但再投资空间窄；MSFT 滞后三年 29.3%，同期因 AI CapEx 回落至 20.1%。</div>
+<div class="e07-mitem"><b>适用场景</b>区分现金牛与复利扩产机器（KO 22.1% 跑道窄；MSFT 滞后三年 29.3%）。</div>
+<div class="e07-mitem e07-mwarn"><b>核心陷阱</b>单年数字受并购与重资产建设时滞噪音干扰极大，必须结合 3–5 年窗口与 WACC。</div>
 </div>
+<div class="e07-mfoot">复利公式：<strong>内在价值长期复利增速 ≈ 再投资率 × ROIIC</strong>（仅当 ROIIC ＞ WACC 时，提高再投资率才增厚每股价值）</div>
 </div>
-<div class="e07-mfoot">复利公式连接：<strong>内在价值长期复利增速 ≈ 再投资率 × ROIIC</strong>（仅当 ROIIC ＞ 资本成本 WACC 时，提高再投资率才增厚每股价值）</div>
-</div>
-<figcaption>单家公司分析宜三指标联读：DuPont 看杠杆依赖度，ROIC 含／不含商誉看存量生意与并购总账，3–5 年滚动 ROIIC 看未来复利跑道。</figcaption>
+<figcaption>点击切换三把回报尺子。实务宜三指标联读：DuPont 查杠杆，ROIC 看存量质地，3–5 年滚动 ROIIC 看未来跑道。</figcaption>
 </figure>
 
 ## 资本配置的五条出路、回购价格与管理层激励 {#nb-e07-allocation-incentives}
@@ -282,84 +213,32 @@ ROIC 衡量的是历史存量资本的平均回报，股价定价的却是未来
 公司每年赚回自由现金流后，管理层手里一共只有五条出路：**内生再投资**、**外部并购**、**偿还债务**、**股票回购**与**现金分红**。**Warren Buffett** 在 2012 年 Berkshire Hathaway 股东信里给出过一条清晰排序：主业里回报高于资本成本的扩张优先留存复利，多余现金再跨这五条路径横向比价，流向风险调整后最能增厚每股长期内在价值的地方。[^berkshire-2012]<sup>，</sup>[^mauboussin-capalloc]
 
 <figure class="flow-figure e07-alloc-tree" id="nb-e07-alloc-tree-fig">
-<div class="ff-head"><p class="ff-title">1 美元留存自由现金流的五条出路：创造还是毁灭每股价值</p><span class="ff-sub">每条资金去向都按风险调整后的每股长期内在价值变化判别 · 绿底增厚，橙底毁灭</span></div>
-<div class="rel-svg-wrap business-exchange" aria-label="1 美元留存自由现金流的五条资本配置出路对照：左侧起点为 1 美元留存自由现金流，经五条平滑曲线分流至右侧五张决策卡，每张卡并排给出绿底创造每股价值与橙底毁灭每股价值两类结果。一、内生再投资：ROIIC 高于 WACC 时加速复利、免付并购溢价；ROIIC 低于 WACC 时越扩越亏、持续摊薄经济利润。二、外部并购 M&A：协同明确且买价合理时含商誉全价回报站稳 WACC 之上并增厚价值；高溢价买低回报则拉低含商誉 ROIC，须警惕账面 EPS 增厚幻觉（如 HD 并购后 ROIC 回落）。三、偿还债务：高息债务或临近债墙时优先止血、守住财务弹性；过度去杠杆闲置低息现金则会放弃高确定性投资与资本结构效率。四、股票回购：买价低于每股内在价值时折价注销股本增厚股东；高估追买或仅用来抵销 SBC 摊薄则会把多付溢价转给退出者，净股数几乎未缩。五、现金分红：再投资空间耗尽时把钱还给股东、避免低效囤钱；错失高 ROIIC 扩张跑道过早承诺刚性股息则会挤占长期复利机会。">
-<svg viewBox="0 0 860 350" role="img" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
-  <defs>
-    <marker id="e07-al-sage" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse">
-      <path d="M1,1.5 L9,5 L1,8.5 Z" fill="#23695a"/>
-    </marker>
-  </defs>
-  <rect x="0" y="0" width="860" height="350" rx="8" fill="#fafaf6"/>
-  <text x="271" y="22" font-size="11" font-weight="700" fill="#1d2a25">五条资金出路</text>
-  <rect x="444" y="8" width="112" height="19" rx="9.5" fill="#e2ede7"/>
-  <text x="500" y="21" text-anchor="middle" font-size="10.5" font-weight="700" fill="#1f5c4e">创造每股价值</text>
-  <rect x="672" y="8" width="112" height="19" rx="9.5" fill="#f4e5d2"/>
-  <text x="728" y="21" text-anchor="middle" font-size="10.5" font-weight="700" fill="#8d5520">毁灭每股价值</text>
-  <rect x="14" y="102" width="174" height="168" rx="10" fill="#ffffff" stroke="#23695a" stroke-width="1.6"/>
-  <rect x="26" y="114" width="150" height="24" rx="5" fill="#e2ede7"/>
-  <text x="101" y="130" text-anchor="middle" font-size="11.5" font-weight="700" fill="#1f5c4e">资本配置起点</text>
-  <text x="101" y="164" text-anchor="middle" font-size="16" font-weight="700" fill="#1d2a25">1 美元留存</text>
-  <text x="101" y="186" text-anchor="middle" font-size="16" font-weight="700" fill="#1d2a25">自由现金流</text>
-  <line x1="30" y1="200" x2="172" y2="200" stroke="#eaede5"/>
-  <text x="101" y="220" text-anchor="middle" font-size="10.5" font-weight="600" fill="#1f5c4e">跨五条出路横向比价</text>
-  <text x="101" y="239" text-anchor="middle" font-size="10" fill="#5d6b64">标尺：风险调整后的</text>
-  <text x="101" y="254" text-anchor="middle" font-size="10" fill="#5d6b64">每股长期内在价值变化</text>
-  <path d="M188,150 C226,150 222,62 254,62" fill="none" stroke="#23695a" stroke-width="1.9" marker-end="url(#e07-al-sage)"/>
-  <path d="M188,168 C224,168 222,124 254,124" fill="none" stroke="#23695a" stroke-width="1.9" marker-end="url(#e07-al-sage)"/>
-  <path d="M188,186 C220,186 224,186 254,186" fill="none" stroke="#23695a" stroke-width="1.9" marker-end="url(#e07-al-sage)"/>
-  <path d="M188,204 C224,204 222,248 254,248" fill="none" stroke="#23695a" stroke-width="1.9" marker-end="url(#e07-al-sage)"/>
-  <path d="M188,222 C226,222 222,310 254,310" fill="none" stroke="#23695a" stroke-width="1.9" marker-end="url(#e07-al-sage)"/>
-  <rect x="258" y="34" width="588" height="56" rx="8" fill="#ffffff" stroke="#cfd3c9" stroke-width="1.15"/>
-  <rect x="261" y="40" width="3.5" height="44" rx="1.75" fill="#23695a"/>
-  <text x="272" y="58" font-size="12.5" font-weight="700" fill="#1d2a25">① 内生再投资</text>
-  <text x="272" y="75" font-size="10" fill="#66736c">主业扩产与研发</text>
-  <rect x="388" y="40" width="224" height="44" rx="6" fill="#e7f1ec" stroke="#b8d5c7" stroke-width="0.9"/>
-  <text x="398" y="57" font-size="10.5" font-weight="700" fill="#1f5c4e">ROIIC ＞ WACC 加速复利</text>
-  <text x="398" y="74" font-size="10" fill="#2e3c36">免付并购溢价，优先留存扩张</text>
-  <rect x="618" y="40" width="220" height="44" rx="6" fill="#f7eadb" stroke="#e3c39d" stroke-width="0.9"/>
-  <text x="628" y="57" font-size="10.5" font-weight="700" fill="#8d5520">ROIIC ＜ WACC 越扩越亏</text>
-  <text x="628" y="74" font-size="10" fill="#5d4c3e">收入上涨却持续摊薄经济利润</text>
-  <rect x="258" y="96" width="588" height="56" rx="8" fill="#ffffff" stroke="#cfd3c9" stroke-width="1.15"/>
-  <rect x="261" y="102" width="3.5" height="44" rx="1.75" fill="#3b6e8c"/>
-  <text x="272" y="120" font-size="12" font-weight="700" fill="#1d2a25">② 外部并购 M&amp;A</text>
-  <text x="272" y="137" font-size="10" fill="#66736c">全价含商誉核验</text>
-  <rect x="388" y="102" width="224" height="44" rx="6" fill="#e7f1ec" stroke="#b8d5c7" stroke-width="0.9"/>
-  <text x="398" y="119" font-size="10.5" font-weight="700" fill="#1f5c4e">协同明确、买价合理增厚</text>
-  <text x="398" y="136" font-size="10" fill="#2e3c36">含商誉全价回报站稳 WACC 之上</text>
-  <rect x="618" y="102" width="220" height="44" rx="6" fill="#f7eadb" stroke="#e3c39d" stroke-width="0.9"/>
-  <text x="628" y="119" font-size="10.5" font-weight="700" fill="#8d5520">溢价买低回报拉低含商誉 ROIC</text>
-  <text x="628" y="136" font-size="10" fill="#5d4c3e">谨防 EPS 幻觉（如 HD 并购后回落）</text>
-  <rect x="258" y="158" width="588" height="56" rx="8" fill="#ffffff" stroke="#cfd3c9" stroke-width="1.15"/>
-  <rect x="261" y="164" width="3.5" height="44" rx="1.75" fill="#5a7669"/>
-  <text x="272" y="182" font-size="12.5" font-weight="700" fill="#1d2a25">③ 偿还债务</text>
-  <text x="272" y="199" font-size="10" fill="#66736c">主动降杠杆护底</text>
-  <rect x="388" y="164" width="224" height="44" rx="6" fill="#e7f1ec" stroke="#b8d5c7" stroke-width="0.9"/>
-  <text x="398" y="181" font-size="10.5" font-weight="700" fill="#1f5c4e">高息／临近债墙优先止血</text>
-  <text x="398" y="198" font-size="10" fill="#2e3c36">守住财务弹性、化解再融资风险</text>
-  <rect x="618" y="164" width="220" height="44" rx="6" fill="#f7eadb" stroke="#e3c39d" stroke-width="0.9"/>
-  <text x="628" y="181" font-size="10.5" font-weight="700" fill="#8d5520">过度去杠杆、闲置低息现金</text>
-  <text x="628" y="198" font-size="10" fill="#5d4c3e">放弃高确定性投资与合理资本效率</text>
-  <rect x="258" y="220" width="588" height="56" rx="8" fill="#ffffff" stroke="#cfd3c9" stroke-width="1.15"/>
-  <rect x="261" y="226" width="3.5" height="44" rx="1.75" fill="#a8743f"/>
-  <text x="272" y="244" font-size="12.5" font-weight="700" fill="#1d2a25">④ 股票回购</text>
-  <text x="272" y="261" font-size="10" fill="#66736c">成交价决定盈亏</text>
-  <rect x="388" y="226" width="224" height="44" rx="6" fill="#e7f1ec" stroke="#b8d5c7" stroke-width="0.9"/>
-  <text x="398" y="243" font-size="10.5" font-weight="700" fill="#1f5c4e">买价低于内在价值增厚每股</text>
-  <text x="398" y="260" font-size="10" fill="#2e3c36">折价注销股本，抬高持有人份额</text>
-  <rect x="618" y="226" width="220" height="44" rx="6" fill="#f7eadb" stroke="#e3c39d" stroke-width="0.9"/>
-  <text x="628" y="243" font-size="10.5" font-weight="700" fill="#8d5520">高估追买或仅抵销 SBC 摊薄</text>
-  <text x="628" y="260" font-size="10" fill="#5d4c3e">多付溢价流向退出者，净股数难缩</text>
-  <rect x="258" y="282" width="588" height="56" rx="8" fill="#ffffff" stroke="#cfd3c9" stroke-width="1.15"/>
-  <rect x="261" y="288" width="3.5" height="44" rx="1.75" fill="#6d8b74"/>
-  <text x="272" y="306" font-size="12.5" font-weight="700" fill="#1d2a25">⑤ 现金分红</text>
-  <text x="272" y="323" font-size="10" fill="#66736c">刚性较高的派息</text>
-  <rect x="388" y="288" width="224" height="44" rx="6" fill="#e7f1ec" stroke="#b8d5c7" stroke-width="0.9"/>
-  <text x="398" y="305" font-size="10.5" font-weight="700" fill="#1f5c4e">再投资空间耗尽时还给股东</text>
-  <text x="398" y="322" font-size="10" fill="#2e3c36">避免低效囤钱，适合成熟现金牛</text>
-  <rect x="618" y="288" width="220" height="44" rx="6" fill="#f7eadb" stroke="#e3c39d" stroke-width="0.9"/>
-  <text x="628" y="305" font-size="10.5" font-weight="700" fill="#8d5520">错失高 ROIIC 扩张跑道</text>
-  <text x="628" y="322" font-size="10" fill="#5d4c3e">股息承诺刚性，挤占长期复利机会</text>
+<div class="ff-head"><p class="ff-title">1 美元留存自由现金流的五条出路：增厚还是毁灭每股价值</p><span class="ff-sub">统一标尺：风险调整后的每股长期内在价值变化</span></div>
+<div class="rel-svg-wrap business-exchange" aria-label="留存自由现金流的五条出路增厚与毁灭条件对照：一、内生再投资：ROIIC 高于 WACC 加速复利，低于则越扩越亏；二、外部并购：全价含商誉回报超 WACC 增厚，高溢价并购拉低 ROIC；三、偿还债务：高息或近债墙优先止血，过度去杠杆浪费效率；四、股票回购：折价低于内在价值增厚，高估追买或仅抵 SBC 则转移价值；五、现金分红：跑道耗尽还钱避囤积，错失高 ROIIC 扩张则伤复利。">
+<svg viewBox="0 0 720 225" role="img" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+  <text x="20" y="26" font-size="12.5" font-weight="700" fill="#5e6d65">资金出路</text>
+  <text x="176" y="26" font-size="12.5" font-weight="700" fill="#23695a">增厚每股价值</text>
+  <text x="454" y="26" font-size="12.5" font-weight="700" fill="#b5483a">毁灭每股价值</text>
+  <line x1="20" y1="36" x2="700" y2="36" stroke="#dfe5dc"/>
+  <text x="20" y="66" font-size="13.5" font-weight="700" fill="#22392f">① 内生再投资</text>
+  <text x="176" y="66" font-size="13" fill="#23695a">ROIIC ＞ WACC · 免溢价复利</text>
+  <text x="454" y="66" font-size="13" fill="#8f6033">ROIIC ＜ WACC · 越扩越亏</text>
+  <line x1="20" y1="80" x2="700" y2="80" stroke="#eef1ec"/>
+  <text x="20" y="106" font-size="13.5" font-weight="700" fill="#22392f">② 外部并购</text>
+  <text x="176" y="106" font-size="13" fill="#23695a">含商誉全价回报超 WACC</text>
+  <text x="454" y="106" font-size="13" fill="#8f6033">溢价买低回报 · EPS 幻觉</text>
+  <line x1="20" y1="120" x2="700" y2="120" stroke="#eef1ec"/>
+  <text x="20" y="146" font-size="13.5" font-weight="700" fill="#22392f">③ 偿还债务</text>
+  <text x="176" y="146" font-size="13" fill="#23695a">高息或临近债墙优先止血</text>
+  <text x="454" y="146" font-size="13" fill="#8f6033">过度闲置低息现金失效率</text>
+  <line x1="20" y1="160" x2="700" y2="160" stroke="#eef1ec"/>
+  <text x="20" y="186" font-size="13.5" font-weight="700" fill="#22392f">④ 股票回购</text>
+  <text x="176" y="186" font-size="13" fill="#23695a">买价低于内在价值折价注销</text>
+  <text x="454" y="186" font-size="13" fill="#8f6033">高估追买或仅抵 SBC 摊薄</text>
+  <line x1="20" y1="200" x2="700" y2="200" stroke="#eef1ec"/>
+  <text x="20" y="220" font-size="13.5" font-weight="700" fill="#22392f">⑤ 现金分红</text>
+  <text x="176" y="220" font-size="13" fill="#23695a">跑道耗尽还股东、防低效囤钱</text>
+  <text x="454" y="220" font-size="13" fill="#8f6033">过早刚性派息挤占高回报扩张</text>
 </svg>
 </div>
 <figcaption>资本配置没有固定套路：高回报跑道充足时优先内生再投资，跑道收窄或负债偏高时转向降债、分红或折价回购。</figcaption>

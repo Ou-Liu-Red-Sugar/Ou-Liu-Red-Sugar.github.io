@@ -97,6 +97,7 @@ This is reference material for the learner's current request. Use the supplied e
 
 ## Supplied entry
 <link rel="stylesheet" href="/notebook/flow-figures.css?v=20261127c">
+<script src="/notebook/flow-figures.js?v=20261012-6" defer></script>
 
 把 **The Coca-Cola Company**（KO）2025 财年各分部加总部的收入直接相加，总额是 48,950 M 美元，合并利润表却只报 47,941 M 美元；再把五个经营分部营业利润加总，总额是 15,578 M 美元，合并营业利润却只剩 13,762 M 美元——收入少了 1,009 M 美元，利润少了 1,816 M 美元。[^ko-10k]
 
@@ -108,48 +109,49 @@ This is reference material for the learner's current request. Use the supplied e
 
 <span data-text-versions id="nb-e04-text-codm">因此，热门产品常常打包在同一个分部里：例如 **Alphabet**（GOOGL）的 CODM（首席执行官 **Sundar Pichai**）只在 Google Services 汇总层面看利润，Search 与 YouTube 不公开独立盈利；KO 则把浓缩液按四大区切分、单划出直营装瓶，正是两类生意的毛利率与资本密度迥异<span data-text-detail>（按 ASC 280 数量门槛，一个经营分部的收入、损益绝对值或总资产只要达到全部经营分部合计的 10% 即须单独报告，且所有可报告分部对外收入合计至少覆盖合并外部收入的 75%。自 2024 财年起陆续生效的 FASB ASU 2023-07 进一步要求年报与季报明示 CODM 职位头衔，并披露向其常规汇报的重要分部费用——GOOGL FY2025 附注 15 据此拆分了 Google Services 与 Google Cloud 各自的员工薪酬与其他成本费用）</span>。[^googl-10k]<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>
 
-<figure class="flow-figure e04-codm-map" id="nb-e04-codm-map-fig">
-<div class="ff-head"><p class="ff-title">研究视角 vs CODM 分部口径：合并切分与跨年改组</p><span class="ff-sub">左：GOOGL FY25 产品线如何归并进 CODM 分部 · 右：KO 2025 年撤销 Global Ventures 的口径变动</span></div>
-<div class="e04-cgrid business-exchange" aria-label="左侧展示 Alphabet（GOOGL）FY2025 的 CODM 分部归并逻辑：CEO Sundar Pichai 作为 CODM，将 Search（224,532 M 美元）、YouTube 广告（40,367）、Google Network（29,792）及订阅平台硬件（48,030）合并为一个经营分部 Google Services（总收入 342,721、仅披露整体营业利润 139,404），Google Cloud 单独报告（58,705 / 13,910），Waymo 与 X 等合并入 Other Bets（1,537 / −7,515），通用前沿 AI 共享研发与总部治理留在未分配的 Alphabet-level activities（−16,760）。右侧展示 Coca-Cola（KO）2025 年 1 月 1 日分部改组：撤销原 Global Ventures 分部，Costa 门店、innocent 与 doğadan 并入 EMEA，Costa 即饮与 Monster 协调费归入对应地理大区，提醒跨年对比须核对重述口径。">
+<figure class="flow-figure e04-codm-map" id="nb-e04-codm-map-fig" data-ff-views>
+<div class="ff-head"><p class="ff-title">研究视角 vs CODM 分部口径：归并切分与跨年改组</p><div class="ff-switch" role="group" aria-label="切换视角" hidden><button type="button" data-ff-view-choice="googl" aria-pressed="true">GOOGL · CODM 归并</button><button type="button" data-ff-view-choice="ko" aria-pressed="false">KO · 2025 分部改组</button></div></div>
+<div data-ff-only="googl" class="business-exchange" aria-label="Alphabet FY2025 CODM 分部归并（M 美元）：Search、Network、YouTube 与订阅硬件合并入 Google Services（收入 342,721、营业利润 139,404），Google Cloud 单列（58,705 / 13,910），Waymo 等入 Other Bets（−7,515），前沿共享 AI 研发留作 Alphabet-level 未分配（−16,760）。">
 <div class="e04-box">
-<div class="e04-bhead"><strong>GOOGL FY25 · CODM 口径归并</strong><span>CODM：Sundar Pichai</span></div>
+<div class="e04-bhead"><strong>GOOGL FY25 · CODM 口径归并（M 美元）</strong><span>CODM：Sundar Pichai</span></div>
 <div class="e04-flow-cols">
 <div>
 <div class="e04-col-lbl">投资者常拆的产品线</div>
 <div class="e04-stack">
-<div class="e04-chip"><b>Search &amp; other / Network</b>224,532 ＋ 29,792（仅披露收入）</div>
-<div class="e04-chip"><b>YouTube ads / 订阅硬件</b>40,367 ＋ 48,030（不披露独立利润）</div>
+<div class="e04-chip"><b>Search &amp; Network</b>224,532 ＋ 29,792（仅收入）</div>
+<div class="e04-chip"><b>YouTube &amp; 订阅硬件</b>40,367 ＋ 48,030（无单独利润）</div>
 <div class="e04-chip"><b>GCP ＋ Workspace</b>58,705（企业云与办公）</div>
-<div class="e04-chip"><b>Waymo / X 等孵化项</b>1,537（多个小分部汇总）</div>
-<div class="e04-chip"><b>通用前沿 AI 研发＋总部</b>多业务共享，未拆入分部</div>
+<div class="e04-chip"><b>Waymo / X · 共享 AI 研发</b>小分部汇总 ＋ 总部未分配</div>
 </div>
 </div>
 <div class="e04-mid-arrow" aria-hidden="true">→</div>
 <div>
-<div class="e04-col-lbl">10-K 披露分部（M 美元）</div>
+<div class="e04-col-lbl">10-K 披露分部</div>
 <div class="e04-stack">
-<div class="e04-chip e04-chip-seg"><b>Google Services</b>收入 342,721 · 营业利润 139,404</div>
-<div class="e04-chip e04-chip-seg"><b>Google Cloud</b>收入 58,705 · 营业利润 13,910</div>
-<div class="e04-chip e04-chip-seg"><b>Other Bets</b>收入 1,537 · 营业亏损 −7,515</div>
-<div class="e04-chip e04-chip-corp"><b>Alphabet-level activities</b>未分配共同亏损 −16,760</div>
+<div class="e04-chip e04-chip-seg"><b>Google Services</b>收入 342,721 · 利润 139,404</div>
+<div class="e04-chip e04-chip-seg"><b>Google Cloud</b>收入 58,705 · 利润 13,910</div>
+<div class="e04-chip e04-chip-seg"><b>Other Bets</b>收入 1,537 · 亏损 −7,515</div>
+<div class="e04-chip e04-chip-corp"><b>Alphabet-level</b>未分配共同亏损 −16,760</div>
 </div>
 </div>
 </div>
 </div>
+</div>
+<div data-ff-only="ko" hidden class="business-exchange" aria-label="Coca-Cola 2025 年 1 月 1 日分部改组：撤销原 Global Ventures 分部，Costa 门店、innocent 与 doğadan 并入 EMEA，Costa 即饮与 Monster 协调费归入对应地理大区，跨年对比须核对重述列。">
 <div class="e04-box">
 <div class="e04-bhead"><strong>KO 2025 分部改组</strong><span>Effective 2025-01-01</span></div>
 <div class="e04-reseg">
-<div class="e04-reseg-old"><b>旧口径（2019–2024）：单设 Global Ventures 分部</b>单独归集 Costa、innocent、doğadan 及 Monster 分销协调费。</div>
+<div class="e04-reseg-old"><b>旧口径（2019–2024）：单设 Global Ventures</b>归集 Costa、innocent、doğadan 及 Monster 分销协调费。</div>
 <div class="e04-reseg-arrow">↓ 2025 年撤销 Global Ventures，业务迁回地理大区 ↓</div>
-<div class="e04-reseg-new"><b>新口径（2025 起）：5 个经营分部</b>Costa 门店、innocent、doğadan 并入 EMEA；Costa 即饮与 Monster 协调费归入各对应地理大区；直营装瓶保留在 Bottling Investments。</div>
-<div class="e04-warn">跨年拼接分部时间序列时，必须使用最新 10-K 追溯重述后的可比列，避免把架构搬家算成业务增长。</div>
+<div class="e04-reseg-new"><b>新口径（2025 起）：5 个经营分部</b>Costa 门店、innocent 与 doğadan 并入 EMEA；其余归入对应地理大区；直营装瓶留在 Bottling Investments。</div>
+<div class="e04-warn">跨年拼接时间序列时，必须采用最新 10-K 追溯重述后的可比列，避免把架构搬家算成增长。</div>
 </div>
 </div>
 </div>
-<figcaption>数据取自 Alphabet FY2025 Form 10-K（Note 15）与 Coca-Cola FY2025 Form 10-K（Item 1 及 Note 20）。</figcaption>
+<figcaption>点击切换 GOOGL 与 KO 案例。数据取自两家 FY2025 Form 10-K（GOOGL Note 15；KO Item 1 及 Note 20）。</figcaption>
 </figure>
 
-管理视角还会带来跨年拼接陷阱：**分部改组**（re-segmentation）。如右图所示，KO 在 2025 年撤销 Global Ventures 后，新发年报已把前两年历史数字按新架构追溯重述；但如果顺手拿旧年报里的 EMEA 营收去衔接 2025 年数字，就会把业务搬家误当成区域内生加速。[^ko-10k]
+管理视角还会带来跨年拼接陷阱：**分部改组**（re-segmentation）。切到 KO 分部改组视图可见，KO 在 2025 年撤销 Global Ventures 后，新发年报已把前两年历史数字按新架构追溯重述；但如果顺手拿旧年报里的 EMEA 营收去衔接 2025 年数字，就会把业务搬家误当成区域内生加速。[^ko-10k]
 
 ## 内部交易抵销与总部共同成本 {#nb-e04-eliminations-shared}
 
@@ -162,104 +164,55 @@ This is reference material for the learner's current request. Use the supplied e
 \]
 
 <figure class="flow-figure e04-dual-compare" id="nb-e04-dual-compare-fig" data-e04-dual-tabs>
-<div class="ff-head"><p class="ff-title">从分部加总到合并利润：KO FY25 与 GOOGL FY25 真实勾稽桥</p><span class="ff-sub">切换公司查看单家完整流向 · 单位：M 美元 · 漏扣总部未分配成本均令营业利润高估约 13%</span></div>
+<div class="ff-head"><p class="ff-title">从分部加总到合并利润：漏扣总部成本高估约 13%（FY2025）</p><span class="ff-sub">切换公司查看单家勾稽桥 · 单位：M 美元</span></div>
 <div class="e04-dual-tabs" role="group" aria-label="切换公司案例" hidden><button type="button" class="e04-dual-tab" data-e04-dual-tab="ko" aria-pressed="true">Coca-Cola · FY2025</button><button type="button" class="e04-dual-tab" data-e04-dual-tab="googl" aria-pressed="false">Alphabet · FY2025</button></div>
-<div class="rel-svg-wrap business-exchange" data-e04-dual-panel="ko" aria-label="Coca-Cola（KO）FY2025 真实分部到合并利润勾稽图（单位 M 美元）：五大经营分部营业利润为 North America 5,070、EMEA 4,298、Latin America 3,742、Asia Pacific 2,042、Bottling Investments 426，直接相加得 15,578（另收入加总 48,950 扣内部抵销 1,009 得合并净营收 47,941）；经琥珀色曲线箭头扣除总部未分配费用 Corporate −1,816 后，落入合并营业利润 13,762（漏扣高估 +13.2%，且 Corporate 另承担 585 M 资本开支、占全公司 27.7%）；再经绿色曲线箭头加回联营权益法收益 +2,031、扣除净利息其他与所得税净额 −2,656、扣减少数股东损益 NCI −30，落入归母净利润 13,107（联营装瓶商 1,028 亿美元营收均在表外）。">
-<svg viewBox="0 0 860 270" role="img" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+<div class="rel-svg-wrap business-exchange" data-e04-dual-panel="ko" aria-label="KO FY2025 合并勾稽桥（M 美元）：五大经营分部营业利润相加 15,578，扣除总部未分配 −1,816 得合并营业利润 13,762（漏扣高估 +13.2%），再经联营权益法 +2,031、利息税项 −2,656 与少数股东 −30 得归母净利润 13,107。">
+<svg viewBox="0 0 720 175" role="img" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
   <defs>
-    <marker id="e04-ko-sage" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse">
-      <path d="M1,1.5 L9,5 L1,8.5 Z" fill="#23695a"/>
-    </marker>
-    <marker id="e04-ko-amber" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse">
-      <path d="M1,1.5 L9,5 L1,8.5 Z" fill="#a8743f"/>
-    </marker>
+    <marker id="e04-k-a" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse"><path d="M0 1.2 L9 5 L0 8.8 z" fill="#a8743f"/></marker>
+    <marker id="e04-k-s" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse"><path d="M0 1.2 L9 5 L0 8.8 z" fill="#23695a"/></marker>
   </defs>
-  <rect x="0" y="0" width="860" height="270" rx="8" fill="#fafaf6"/>
-  <text x="20" y="28" font-size="12.5" font-weight="700" fill="#1f5c4e">The Coca-Cola Company（KO）· FY2025 Form 10-K</text>
-  <text x="840" y="28" text-anchor="end" font-size="11" fill="#66736c">单位：M 美元 · 收入加总 48,950 − 内部抵销 1,009 ＝ 47,941</text>
-  <rect x="18" y="42" width="246" height="212" rx="10" fill="#ffffff" stroke="#cfd3c9" stroke-width="1.2"/>
-  <text x="141" y="65" text-anchor="middle" font-size="13" font-weight="700" fill="#1d2a25">五大经营分部营业利润</text>
-  <line x1="32" y1="75" x2="250" y2="75" stroke="#eaede5"/>
-  <text x="34" y="96" font-size="12" fill="#2e3c36">North America</text><text x="248" y="96" text-anchor="end" font-size="12" fill="#2e3c36">5,070</text>
-  <text x="34" y="118" font-size="12" fill="#2e3c36">EMEA</text><text x="248" y="118" text-anchor="end" font-size="12" fill="#2e3c36">4,298</text>
-  <text x="34" y="140" font-size="12" fill="#2e3c36">Latin America</text><text x="248" y="140" text-anchor="end" font-size="12" fill="#2e3c36">3,742</text>
-  <text x="34" y="162" font-size="12" fill="#2e3c36">Asia Pacific</text><text x="248" y="162" text-anchor="end" font-size="12" fill="#2e3c36">2,042</text>
-  <text x="34" y="184" font-size="12" fill="#2e3c36">Bottling Investments</text><text x="248" y="184" text-anchor="end" font-size="12" fill="#2e3c36">426</text>
-  <line x1="32" y1="196" x2="250" y2="196" stroke="#eaede5"/>
-  <rect x="28" y="206" width="226" height="30" rx="6" fill="#f5f5ec"/>
-  <text x="38" y="225.5" font-size="12.5" font-weight="700" fill="#1d2a25">五分部简单相加</text><text x="244" y="225.5" text-anchor="end" font-size="12.5" font-weight="700" fill="#1d2a25">15,578</text>
-  <rect x="334" y="54" width="216" height="188" rx="10" fill="#ffffff" stroke="#b3d3c4" stroke-width="1.3"/>
-  <text x="442" y="78" text-anchor="middle" font-size="13" font-weight="700" fill="#1d2a25">合并营业利润口径</text>
-  <line x1="348" y1="88" x2="536" y2="88" stroke="#eaede5"/>
-  <text x="350" y="110" font-size="12" fill="#5d6b64">分部利润加总</text><text x="534" y="110" text-anchor="end" font-size="12" fill="#5d6b64">15,578</text>
-  <text x="350" y="134" font-size="12" font-weight="600" fill="#8d5520">减：Corporate 总部</text><text x="534" y="134" text-anchor="end" font-size="12" font-weight="600" fill="#8d5520">−1,816</text>
-  <rect x="346" y="146" width="192" height="30" rx="6" fill="#e2ede7"/>
-  <text x="356" y="165.5" font-size="12.5" font-weight="700" fill="#1f5c4e">合并营业利润</text><text x="528" y="165.5" text-anchor="end" font-size="13" font-weight="700" fill="#1f5c4e">13,762</text>
-  <text x="442" y="198" text-anchor="middle" font-size="11" font-weight="700" fill="#8d5520">漏扣总部会高估 +13.2%</text>
-  <text x="442" y="218" text-anchor="middle" font-size="10.2" fill="#66736c">总部另担 585 M 资本开支（占 27.7%）</text>
-  <rect x="618" y="54" width="224" height="188" rx="10" fill="#ffffff" stroke="#dfb98d" stroke-width="1.3"/>
-  <text x="730" y="78" text-anchor="middle" font-size="13" font-weight="700" fill="#1d2a25">权益法与少数股东调节</text>
-  <line x1="632" y1="88" x2="828" y2="88" stroke="#eaede5"/>
-  <text x="634" y="110" font-size="12" fill="#1f5c4e">加：联营权益法收益</text><text x="826" y="110" text-anchor="end" font-size="12" font-weight="600" fill="#1f5c4e">+2,031</text>
-  <text x="634" y="132" font-size="12" fill="#5d6b64">净利息、其他与所得税</text><text x="826" y="132" text-anchor="end" font-size="12" fill="#5d6b64">−2,656</text>
-  <text x="634" y="154" font-size="12" fill="#5d6b64">减：少数股东损益 NCI</text><text x="826" y="154" text-anchor="end" font-size="12" fill="#5d6b64">−30</text>
-  <rect x="630" y="166" width="200" height="30" rx="6" fill="#f4e5d2"/>
-  <text x="640" y="185.5" font-size="12.5" font-weight="700" fill="#8d5520">归母净利润</text><text x="820" y="185.5" text-anchor="end" font-size="13" font-weight="700" fill="#8d5520">13,107</text>
-  <text x="730" y="218" text-anchor="middle" font-size="10.2" fill="#66736c">联营 1,028 亿美元营收均在表外</text>
-  <path d="M264,221 C300,221 298,152 330,152" fill="none" stroke="#a8743f" stroke-width="2.1" marker-end="url(#e04-ko-amber)"/>
-  <rect x="268" y="166" width="60" height="34" rx="4" fill="#fafaf6"/>
-  <text x="298" y="180" text-anchor="middle" font-size="10.5" font-weight="700" fill="#8d5520">扣总部</text>
-  <text x="298" y="195" text-anchor="middle" font-size="10.5" font-weight="700" fill="#8d5520">−1,816</text>
-  <path d="M550,161 C582,161 582,178 614,178" fill="none" stroke="#23695a" stroke-width="2.1" marker-end="url(#e04-ko-sage)"/>
-  <rect x="554" y="122" width="60" height="34" rx="4" fill="#fafaf6"/>
-  <text x="584" y="136" text-anchor="middle" font-size="10.5" font-weight="700" fill="#23695a">表外联营</text>
-  <text x="584" y="151" text-anchor="middle" font-size="10.5" font-weight="700" fill="#23695a">与 NCI</text>
+  <rect x="20" y="34" width="196" height="106" rx="10" fill="#fbfbf6" stroke="#dfe5dc" stroke-width="1.3"/>
+  <text x="118" y="62" text-anchor="middle" font-size="13" fill="#5e6d65">五大分部直接相加</text>
+  <text x="118" y="94" text-anchor="middle" font-size="19" font-weight="700" fill="#22392f">15,578 M</text>
+  <text x="118" y="118" text-anchor="middle" font-size="12" fill="#8f6033">漏扣总部高估 +13.2%</text>
+  <line x1="216" y1="87" x2="256" y2="87" stroke="#a8743f" stroke-width="2" marker-end="url(#e04-k-a)"/>
+  <text x="236" y="76" text-anchor="middle" font-size="12" font-weight="700" fill="#b5483a">−1,816</text>
+  <rect x="262" y="34" width="196" height="106" rx="10" fill="#23695a"/>
+  <text x="360" y="62" text-anchor="middle" font-size="13" fill="#e5efe9">合并营业利润</text>
+  <text x="360" y="94" text-anchor="middle" font-size="19" font-weight="700" fill="#ffffff">13,762 M</text>
+  <text x="360" y="118" text-anchor="middle" font-size="12" fill="#d7e8df">总部另担 585 M 资本开支</text>
+  <line x1="458" y1="87" x2="498" y2="87" stroke="#23695a" stroke-width="2" marker-end="url(#e04-k-s)"/>
+  <rect x="504" y="34" width="196" height="106" rx="10" fill="#fcf8f3" stroke="#ead9c4" stroke-width="1.3"/>
+  <text x="602" y="62" text-anchor="middle" font-size="13" font-weight="700" fill="#8f6033">归母净利润</text>
+  <text x="602" y="94" text-anchor="middle" font-size="19" font-weight="700" fill="#8f6033">13,107 M</text>
+  <text x="602" y="118" text-anchor="middle" font-size="12" fill="#5e6d65">联营 +2,031 · NCI −30</text>
 </svg>
 </div>
-<div class="rel-svg-wrap business-exchange" data-e04-dual-panel="googl" aria-label="Alphabet（GOOGL）FY2025 真实分部到合并利润勾稽图（单位 M 美元）：三大经营分部营业利润为 Google Services 139,404、Google Cloud 13,910、Other Bets −7,515，三分部净额 145,799（若仅加盈利两部则高达 153,314，高估 +18.8%；收入加总 402,963 扣未分配套保 127 得合并收入 402,836）；经琥珀色曲线箭头扣除 Alphabet-level 未分配共同成本 −16,760（主要是跨业务共享的基础 AI 研发与集团总部治理费用，2023 年仅 −9,186），落入合并营业利润 129,039（漏扣总部会高估 +13.0%）；营业利润下方叠加股权证券公允价值重估净收益 +24,080 等营业外项后，合并净利润为 132,170。" hidden>
-<svg viewBox="0 0 860 250" role="img" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+<div class="rel-svg-wrap business-exchange" data-e04-dual-panel="googl" hidden aria-label="GOOGL FY2025 合并勾稽桥（M 美元）：三大分部营业利润净额 145,799（含 Other Bets −7,515），扣除 Alphabet-level 未分配共同成本 −16,760 得合并营业利润 129,039（漏扣高估 +13.0%），加股权公允重估 +24,080 等得合并净利润 132,170。">
+<svg viewBox="0 0 720 175" role="img" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
   <defs>
-    <marker id="e04-go-sage" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse">
-      <path d="M1,1.5 L9,5 L1,8.5 Z" fill="#23695a"/>
-    </marker>
-    <marker id="e04-go-amber" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse">
-      <path d="M1,1.5 L9,5 L1,8.5 Z" fill="#a8743f"/>
-    </marker>
+    <marker id="e04-g-a" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse"><path d="M0 1.2 L9 5 L0 8.8 z" fill="#a8743f"/></marker>
+    <marker id="e04-g-s" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse"><path d="M0 1.2 L9 5 L0 8.8 z" fill="#23695a"/></marker>
   </defs>
-  <rect x="0" y="0" width="860" height="250" rx="8" fill="#fafaf6"/>
-  <text x="20" y="28" font-size="12.5" font-weight="700" fill="#2c4459">Alphabet Inc.（GOOGL）· FY2025 Form 10-K</text>
-  <text x="840" y="28" text-anchor="end" font-size="11" fill="#66736c">单位：M 美元 · 收入加总 402,963 − 未分配套保 127 ＝ 402,836</text>
-  <rect x="18" y="44" width="286" height="188" rx="10" fill="#ffffff" stroke="#cfd3c9" stroke-width="1.2"/>
-  <text x="161" y="68" text-anchor="middle" font-size="13" font-weight="700" fill="#1d2a25">三大经营分部营业利润</text>
-  <line x1="32" y1="78" x2="290" y2="78" stroke="#eaede5"/>
-  <text x="34" y="102" font-size="12" fill="#2e3c36">Google Services（搜索 / YT）</text><text x="288" y="102" text-anchor="end" font-size="12" fill="#2e3c36">139,404</text>
-  <text x="34" y="128" font-size="12" fill="#2e3c36">Google Cloud（云业务）</text><text x="288" y="128" text-anchor="end" font-size="12" fill="#2e3c36">13,910</text>
-  <text x="34" y="154" font-size="12" fill="#8d5520">Other Bets（前沿孵化）</text><text x="288" y="154" text-anchor="end" font-size="12" fill="#8d5520">−7,515</text>
-  <line x1="32" y1="168" x2="290" y2="168" stroke="#eaede5"/>
-  <rect x="28" y="178" width="266" height="30" rx="6" fill="#f5f5ec"/>
-  <text x="38" y="197.5" font-size="12" font-weight="700" fill="#1d2a25">三分部净额</text><text x="284" y="197.5" text-anchor="end" font-size="12.5" font-weight="700" fill="#1d2a25">145,799</text>
-  <text x="161" y="222" text-anchor="middle" font-size="10.2" fill="#66736c">若仅加盈利两部达 153,314（高估 +18.8%）</text>
-  <rect x="356" y="68" width="204" height="140" rx="10" fill="#fdf8f0" stroke="#e4c59e" stroke-width="1.3"/>
-  <text x="458" y="94" text-anchor="middle" font-size="13" font-weight="700" fill="#8d5520">Alphabet-level 未分配</text>
-  <rect x="376" y="106" width="164" height="34" rx="6" fill="#f4e5d2"/>
-  <text x="458" y="129" text-anchor="middle" font-size="17" font-weight="700" fill="#8d5520">−16,760</text>
-  <text x="458" y="162" text-anchor="middle" font-size="11" fill="#5d6b64">跨业务共享的基础 AI 研发</text>
-  <text x="458" y="181" text-anchor="middle" font-size="11" fill="#5d6b64">与集团总部治理费用</text>
-  <text x="458" y="198" text-anchor="middle" font-size="10" fill="#8d5520">2023 年仅 −9,186 · 两年扩近倍</text>
-  <rect x="612" y="44" width="230" height="188" rx="10" fill="#ffffff" stroke="#b3d3c4" stroke-width="1.3"/>
-  <text x="727" y="68" text-anchor="middle" font-size="13" font-weight="700" fill="#1d2a25">Alphabet 合并利润口径</text>
-  <line x1="626" y1="78" x2="828" y2="78" stroke="#eaede5"/>
-  <rect x="624" y="90" width="206" height="32" rx="6" fill="#e2ede7"/>
-  <text x="634" y="111" font-size="12.5" font-weight="700" fill="#1f5c4e">合并营业利润</text><text x="820" y="111" text-anchor="end" font-size="13.5" font-weight="700" fill="#1f5c4e">129,039</text>
-  <text x="727" y="142" text-anchor="middle" font-size="11" font-weight="700" fill="#8d5520">漏扣总部会高估 +13.0%</text>
-  <line x1="626" y1="156" x2="828" y2="156" stroke="#eaede5"/>
-  <text x="630" y="180" font-size="11.5" fill="#2e3c36">加：股权公允重估等</text><text x="824" y="180" text-anchor="end" font-size="11.5" font-weight="600" fill="#1f5c4e">+24,080</text>
-  <text x="630" y="206" font-size="12" font-weight="700" fill="#1d2a25">合并净利润（含营业外）</text><text x="824" y="206" text-anchor="end" font-size="12" font-weight="700" fill="#1d2a25">132,170</text>
-  <path d="M304,193 C330,193 328,138 352,138" fill="none" stroke="#a8743f" stroke-width="2.1" marker-end="url(#e04-go-amber)"/>
-  <path d="M560,138 C584,138 584,108 608,108" fill="none" stroke="#23695a" stroke-width="2.1" marker-end="url(#e04-go-sage)"/>
+  <rect x="20" y="34" width="196" height="106" rx="10" fill="#fbfbf6" stroke="#dfe5dc" stroke-width="1.3"/>
+  <text x="118" y="62" text-anchor="middle" font-size="13" fill="#5e6d65">三大分部净额</text>
+  <text x="118" y="94" text-anchor="middle" font-size="19" font-weight="700" fill="#22392f">145,799 M</text>
+  <text x="118" y="118" text-anchor="middle" font-size="12" fill="#8f6033">已含 Other Bets −7,515</text>
+  <line x1="216" y1="87" x2="256" y2="87" stroke="#a8743f" stroke-width="2" marker-end="url(#e04-g-a)"/>
+  <text x="236" y="76" text-anchor="middle" font-size="12" font-weight="700" fill="#b5483a">−16,760</text>
+  <rect x="262" y="34" width="196" height="106" rx="10" fill="#23695a"/>
+  <text x="360" y="62" text-anchor="middle" font-size="13" fill="#e5efe9">合并营业利润</text>
+  <text x="360" y="94" text-anchor="middle" font-size="19" font-weight="700" fill="#ffffff">129,039 M</text>
+  <text x="360" y="118" text-anchor="middle" font-size="12" fill="#d7e8df">漏扣总部高估 +13.0%</text>
+  <line x1="458" y1="87" x2="498" y2="87" stroke="#23695a" stroke-width="2" marker-end="url(#e04-g-s)"/>
+  <rect x="504" y="34" width="196" height="106" rx="10" fill="#fcf8f3" stroke="#ead9c4" stroke-width="1.3"/>
+  <text x="602" y="62" text-anchor="middle" font-size="13" font-weight="700" fill="#8f6033">合并净利润</text>
+  <text x="602" y="94" text-anchor="middle" font-size="19" font-weight="700" fill="#8f6033">132,170 M</text>
+  <text x="602" y="118" text-anchor="middle" font-size="12" fill="#5e6d65">含股权公允重估 +24,080</text>
 </svg>
 </div>
-<figcaption>点击上方标签切换两家巨头 2025 财年勾稽桥：虽然业务结构迥异，但只把经营分部加总、漏扣总部未分配费用，都会把真实营业利润凭空放大约 13%。</figcaption>
+<figcaption>点击切换两家巨头 2025 财年勾稽桥。细分大区与营业外调节项可在下方互动合并桥逐项开关核对。</figcaption>
 </figure>
 
 <span data-text-versions id="nb-e04-text-corp">对照上图，做分部加总估值（SOTP）常在三处算偏：漏扣总部费用会让 KO 与 GOOGL 营业利润双双虚高约 13%；顺手略去亏损孵化项（如 Other Bets），偏差接近两成；若再漏算 KO 近三成总部资本开支或 GOOGL 集中计提的通用 AI 研发，主业利润率与自由现金流都会失真<span data-text-detail>（KO FY2025 总部 −1,816 M 美元亏损由全球战略、平台服务、法务与重组相关的 1,915 M 美元 SG&A 和 216 M 美元其他营业费用构成，被少量收入与成本贷项部分冲抵，总部 CapEx 585 M 美元占全公司 2,112 M 美元的 27.7%；GOOGL 的 Alphabet-level 未分配亏损则从 2023 年的 −9,186、2024 年的 −10,541 扩至 2025 年的 −16,760 M 美元，主要承载全集团共享的前沿 AI 研发薪酬与算力折旧）</span>。[^ko-10k]<sup>，</sup>[^googl-10k]<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>
@@ -330,108 +283,69 @@ This is reference material for the learner's current request. Use the supplied e
 
 上面那座桥的后半段已经触及第三道关口：上市公司常持有外部企业 5% 到 80% 不等的股权，这些实体怎样装进母公司的三张表，取决于**控制权与重大影响**的会计边界。下图按三档常见门槛，对照它们的并账与现金流路径：
 
-<figure class="flow-figure e04-ownership-matrix" id="nb-e04-ownership-fig">
-<div class="ff-head"><p class="ff-title">持股边界与三表并账路径：控股合并 vs 权益法 vs 财务投资</p><span class="ff-sub">决定怎么进三张表的是控制权与重大影响，持股比例为常用推定门槛</span></div>
-<div class="rel-svg-wrap business-exchange" aria-label="三类股权投资的并账路径对照图：第一行，控股合并（＞50% 或 VIE 主受益人，ASC 810）：收入、资产与债务 100% 全额并入主表，总权益单列少数股东 NCI；利润表全额进营业利润，先算 100% 合并净利润，底端扣减少数股东损益得归母净利润；现金流量表 100% 并入经营与资本现金流，向少数股东派息记融资流出。实例：KO 控股装瓶并表扣 NCI 30 M 得归母 13,107 M、期末 NCI 2,106 M 美元，GOOGL 并表 Waymo 期末 NCI 34 亿美元。第二行，权益法投资（20%–50% 具备重大影响，ASC 323）：联营体收入与债务完全不并表，资产端仅挂一行权益法投资；利润表在营业利润下方单列一行按持股比例确认联营净利润；经营现金流只认实际收到的现金分红，未收现差额须从 CFO 扣回。实例：KO 联营营收 1,028 亿美元表外，记利润 2,031 M vs 实收分红 993 M、CFO 扣回 1,038 M 美元；MSFT–OpenAI FY26 确认 +65 亿美元税前权益法收益，上年为 −48 亿美元。第三行，财务投资（＜20% 无重大影响，ASC 321）：收入与债务完全不并表，资产端记金融投资或非上市股权；利润表不按比例分享利润，市价或同轮融资重估损益直接进营业外其他收益（OI&amp;E）；账面重估零现金流，仅收股息或出售变现时入账。实例：GOOGL 期末替代法非上市股权 641 亿美元，FY25 股权证券公允重估净收益 +24,080 M 美元。">
-<svg viewBox="0 0 860 365" role="img" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
-  <defs>
-    <marker id="e04-own-sage" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse">
-      <path d="M1,1.5 L9,5 L1,8.5 Z" fill="#23695a"/>
-    </marker>
-    <marker id="e04-own-amber" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse">
-      <path d="M1,1.5 L9,5 L1,8.5 Z" fill="#a8743f"/>
-    </marker>
-    <marker id="e04-own-slate" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse">
-      <path d="M1,1.5 L9,5 L1,8.5 Z" fill="#5986a1"/>
-    </marker>
-  </defs>
-  <rect x="0" y="0" width="860" height="365" rx="8" fill="#fafaf6"/>
-  <!-- Column Headers -->
-  <rect x="14" y="10" width="178" height="22" rx="5" fill="#eff1e8"/>
-  <text x="103" y="25" text-anchor="middle" font-size="11" font-weight="700" fill="#2e3c36">持股比例与控制实质</text>
-  <rect x="216" y="10" width="190" height="22" rx="5" fill="#eff1e8"/>
-  <text x="311" y="25" text-anchor="middle" font-size="11" font-weight="700" fill="#2e3c36">进不进合并收入与债务</text>
-  <rect x="428" y="10" width="198" height="22" rx="5" fill="#eff1e8"/>
-  <text x="527" y="25" text-anchor="middle" font-size="11" font-weight="700" fill="#2e3c36">进利润表哪一行</text>
-  <rect x="648" y="10" width="198" height="22" rx="5" fill="#eff1e8"/>
-  <text x="747" y="25" text-anchor="middle" font-size="11" font-weight="700" fill="#2e3c36">现金流怎么认</text>
-  <!-- LANE 1: >50% Consolidation (ASC 810) -->
-  <rect x="14" y="42" width="178" height="96" rx="9" fill="#ffffff" stroke="#b3d3c4" stroke-width="1.3"/>
-  <rect x="24" y="51" width="158" height="19" rx="9.5" fill="#e5efe9"/>
-  <text x="103" y="64" text-anchor="middle" font-size="10" font-weight="700" fill="#1f5c4e">＞50% 控股合并 · ASC 810</text>
-  <text x="103" y="90" text-anchor="middle" font-size="13.5" font-weight="700" fill="#1d2a25">全额并表</text>
-  <text x="103" y="109" text-anchor="middle" font-size="10.5" fill="#5d6b64">掌握控制权或 VIE 主受益人</text>
-  <text x="103" y="126" text-anchor="middle" font-size="10" font-weight="600" fill="#1f5c4e">底端剥离少数股东 NCI</text>
-  <rect x="216" y="42" width="190" height="66" rx="8" fill="#ffffff" stroke="#cfd3c9" stroke-width="1.1"/>
-  <text x="311" y="60" text-anchor="middle" font-size="11.5" font-weight="700" fill="#1f5c4e">100% 全额并入主表</text>
-  <text x="311" y="79" text-anchor="middle" font-size="10.8" fill="#2e3c36">收入、资产、债务全部并表</text>
-  <text x="311" y="96" text-anchor="middle" font-size="10.2" fill="#5d6b64">总权益下单列少数股东 NCI</text>
-  <rect x="428" y="42" width="198" height="66" rx="8" fill="#ffffff" stroke="#cfd3c9" stroke-width="1.1"/>
-  <text x="527" y="60" text-anchor="middle" font-size="11.5" font-weight="700" fill="#1f5c4e">全额进营业利润，底端扣 NCI</text>
-  <text x="527" y="79" text-anchor="middle" font-size="10.8" fill="#2e3c36">先算 100% 口径合并净利润</text>
-  <text x="527" y="96" text-anchor="middle" font-size="10.2" fill="#5d6b64">减少数股东损益得归母净利</text>
-  <rect x="648" y="42" width="198" height="66" rx="8" fill="#ffffff" stroke="#cfd3c9" stroke-width="1.1"/>
-  <text x="747" y="60" text-anchor="middle" font-size="11.5" font-weight="700" fill="#1f5c4e">100% 并入经营与资本现金流</text>
-  <text x="747" y="79" text-anchor="middle" font-size="10.8" fill="#2e3c36">子公司收付全额进现金流表</text>
-  <text x="747" y="96" text-anchor="middle" font-size="10.2" fill="#5d6b64">向少数股东派息记融资流出</text>
-  <rect x="216" y="113" width="630" height="25" rx="5" fill="#e5efe9"/>
-  <text x="226" y="129.5" font-size="10.2" fill="#1f5c4e"><tspan font-weight="700">实例：</tspan>KO 控股装瓶并表（扣 NCI 30 M 得归母 13,107 M，期末 NCI 2,106 M）· GOOGL 并表 Waymo（期末 NCI 34 亿美元）</text>
-  <path d="M192,90 C204,90 203,75 213,75" fill="none" stroke="#23695a" stroke-width="2" marker-end="url(#e04-own-sage)"/>
-  <path d="M406,75 L425,75" fill="none" stroke="#23695a" stroke-width="1.8" marker-end="url(#e04-own-sage)"/>
-  <path d="M626,75 L645,75" fill="none" stroke="#23695a" stroke-width="1.8" marker-end="url(#e04-own-sage)"/>
-  <line x1="14" y1="146" x2="846" y2="146" stroke="#e2e5dc" stroke-width="1.1" stroke-dasharray="5,4"/>
-  <!-- LANE 2: 20%-50% Equity Method (ASC 323) -->
-  <rect x="14" y="154" width="178" height="96" rx="9" fill="#ffffff" stroke="#dfb98d" stroke-width="1.3"/>
-  <rect x="24" y="163" width="158" height="19" rx="9.5" fill="#f5ebdf"/>
-  <text x="103" y="176" text-anchor="middle" font-size="10" font-weight="700" fill="#8d5520">20%–50% 权益法 · ASC 323</text>
-  <text x="103" y="202" text-anchor="middle" font-size="13.5" font-weight="700" fill="#1d2a25">单行合并</text>
-  <text x="103" y="221" text-anchor="middle" font-size="10.5" fill="#5d6b64">具备重大影响 · 无控制权</text>
-  <text x="103" y="238" text-anchor="middle" font-size="10" font-weight="600" fill="#8d5520">利润按比例 · 现金只认分红</text>
-  <rect x="216" y="154" width="190" height="66" rx="8" fill="#ffffff" stroke="#cfd3c9" stroke-width="1.1"/>
-  <text x="311" y="172" text-anchor="middle" font-size="11.5" font-weight="700" fill="#8d5520">收入与债务完全不并表</text>
-  <text x="311" y="191" text-anchor="middle" font-size="10.8" fill="#2e3c36">联营体营收与负债留在表外</text>
-  <text x="311" y="208" text-anchor="middle" font-size="10.2" fill="#5d6b64">资产端仅挂一行权益法投资</text>
-  <rect x="428" y="154" width="198" height="66" rx="8" fill="#ffffff" stroke="#cfd3c9" stroke-width="1.1"/>
-  <text x="527" y="172" text-anchor="middle" font-size="11.5" font-weight="700" fill="#8d5520">营业利润下方单列一行</text>
-  <text x="527" y="191" text-anchor="middle" font-size="10.8" fill="#2e3c36">按持股比例确认联营净利润</text>
-  <text x="527" y="208" text-anchor="middle" font-size="10.2" fill="#5d6b64">不进营业利润，直接影响净利</text>
-  <rect x="648" y="154" width="198" height="66" rx="8" fill="#ffffff" stroke="#cfd3c9" stroke-width="1.1"/>
-  <text x="747" y="172" text-anchor="middle" font-size="11.5" font-weight="700" fill="#8d5520">CFO 只认实收现金分红</text>
-  <text x="747" y="191" text-anchor="middle" font-size="10.8" fill="#2e3c36">账面收益大于实收分红时</text>
-  <text x="747" y="208" text-anchor="middle" font-size="10.2" fill="#5d6b64">未收现差额须从 CFO 扣回</text>
-  <rect x="216" y="225" width="630" height="25" rx="5" fill="#f5ebdf"/>
-  <text x="226" y="241.5" font-size="10" fill="#8d5520"><tspan font-weight="700">实例：</tspan>KO 联营 1,028 亿美元表外，收益 2,031 M vs 分红 993 M（扣回 1,038 M）· MSFT–OpenAI +65 亿（上年 −48 亿）</text>
-  <path d="M192,202 C204,202 203,187 213,187" fill="none" stroke="#a8743f" stroke-width="2" marker-end="url(#e04-own-amber)"/>
-  <path d="M406,187 L425,187" fill="none" stroke="#a8743f" stroke-width="1.8" marker-end="url(#e04-own-amber)"/>
-  <path d="M626,187 L645,187" fill="none" stroke="#a8743f" stroke-width="1.8" marker-end="url(#e04-own-amber)"/>
-  <line x1="14" y1="258" x2="846" y2="258" stroke="#e2e5dc" stroke-width="1.1" stroke-dasharray="5,4"/>
-  <!-- LANE 3: <20% Financial Investment (ASC 321) -->
-  <rect x="14" y="265" width="178" height="92" rx="9" fill="#ffffff" stroke="#b7cfde" stroke-width="1.3"/>
-  <rect x="24" y="274" width="158" height="19" rx="9.5" fill="#e8f1f6"/>
-  <text x="103" y="287" text-anchor="middle" font-size="10" font-weight="700" fill="#2c4459">＜20% 财务投资 · ASC 321</text>
-  <text x="103" y="312" text-anchor="middle" font-size="13.5" font-weight="700" fill="#1d2a25">公允重估</text>
-  <text x="103" y="330" text-anchor="middle" font-size="10.5" fill="#5d6b64">既无控制也无重大影响</text>
-  <text x="103" y="346" text-anchor="middle" font-size="10" font-weight="600" fill="#2c4459">按市价或同轮融资重估</text>
-  <rect x="216" y="265" width="190" height="64" rx="8" fill="#ffffff" stroke="#cfd3c9" stroke-width="1.1"/>
-  <text x="311" y="282" text-anchor="middle" font-size="11.5" font-weight="700" fill="#2c4459">收入与债务完全不并表</text>
-  <text x="311" y="301" text-anchor="middle" font-size="10.8" fill="#2e3c36">不并被投公司经营与负债</text>
-  <text x="311" y="318" text-anchor="middle" font-size="10.2" fill="#5d6b64">资产端记金融投资／非上市股权</text>
-  <rect x="428" y="265" width="198" height="64" rx="8" fill="#ffffff" stroke="#cfd3c9" stroke-width="1.1"/>
-  <text x="527" y="282" text-anchor="middle" font-size="11.5" font-weight="700" fill="#2c4459">重估损益进营业外 OI&amp;E</text>
-  <text x="527" y="301" text-anchor="middle" font-size="10.8" fill="#2e3c36">不按比例分享被投公司利润</text>
-  <text x="527" y="318" text-anchor="middle" font-size="10.2" fill="#5d6b64">市价或同轮融资涨跌进营业外</text>
-  <rect x="648" y="265" width="198" height="64" rx="8" fill="#ffffff" stroke="#cfd3c9" stroke-width="1.1"/>
-  <text x="747" y="282" text-anchor="middle" font-size="11.5" font-weight="700" fill="#2c4459">账面重估零现金流</text>
-  <text x="747" y="301" text-anchor="middle" font-size="10.8" fill="#2e3c36">未实现浮盈浮亏不进现金流</text>
-  <text x="747" y="318" text-anchor="middle" font-size="10.2" fill="#5d6b64">仅收股息或出售变现时入账</text>
-  <rect x="216" y="334" width="630" height="23" rx="5" fill="#e8f1f6"/>
-  <text x="226" y="349.5" font-size="10.2" fill="#2c4459"><tspan font-weight="700">实例：</tspan>GOOGL 期末替代法非上市股权 641 亿美元，FY25 股权证券公允重估净收益 +24,080 M 美元（须与主营营业利润剥离）</text>
-  <path d="M192,311 C204,311 203,297 213,297" fill="none" stroke="#5986a1" stroke-width="2" marker-end="url(#e04-own-slate)"/>
-  <path d="M406,297 L425,297" fill="none" stroke="#5986a1" stroke-width="1.8" marker-end="url(#e04-own-slate)"/>
-  <path d="M626,297 L645,297" fill="none" stroke="#5986a1" stroke-width="1.8" marker-end="url(#e04-own-slate)"/>
+<figure class="flow-figure e04-ownership-matrix" id="nb-e04-ownership-fig" data-ff-views>
+<div class="ff-head"><p class="ff-title">持股边界与三表并账路径：控制权决定怎么进表</p><div class="ff-switch" role="group" aria-label="切换并账类别" hidden><button type="button" data-ff-view-choice="ctrl" aria-pressed="true">控股合并（＞50%）</button><button type="button" data-ff-view-choice="eq" aria-pressed="false">权益法（20–50%）</button><button type="button" data-ff-view-choice="fin" aria-pressed="false">财务投资（＜20%）</button></div></div>
+<div class="rel-svg-wrap business-exchange" data-ff-only="ctrl" aria-label="控股合并（＞50% 或 VIE 主受益人，ASC 810）：资产负债表 100% 全额并入并在总权益下单列少数股东 NCI；利润表全额进营业利润、底端扣减少数股东损益得归母净利；现金流量表 100% 并入经营与资本现金流。">
+<svg viewBox="0 0 720 180" role="img" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+  <defs><marker id="e04-o-s" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse"><path d="M0 1.2 L9 5 L0 8.8 z" fill="#23695a"/></marker></defs>
+  <rect x="20" y="24" width="196" height="106" rx="10" fill="#f3f8f4" stroke="#b9d0c2" stroke-width="1.3"/>
+  <text x="118" y="54" text-anchor="middle" font-size="13" font-weight="700" fill="#23695a">资产负债表</text>
+  <text x="118" y="84" text-anchor="middle" font-size="16" font-weight="700" fill="#22392f">100% 全额并表</text>
+  <text x="118" y="110" text-anchor="middle" font-size="12" fill="#5e6d65">总权益单列少数股东 NCI</text>
+  <line x1="216" y1="77" x2="256" y2="77" stroke="#23695a" stroke-width="2" marker-end="url(#e04-o-s)"/>
+  <rect x="262" y="24" width="196" height="106" rx="10" fill="#fbfbf6" stroke="#dfe5dc" stroke-width="1.3"/>
+  <text x="360" y="54" text-anchor="middle" font-size="13" font-weight="700" fill="#22392f">利润表</text>
+  <text x="360" y="84" text-anchor="middle" font-size="16" font-weight="700" fill="#22392f">全额进营业利润</text>
+  <text x="360" y="110" text-anchor="middle" font-size="12" fill="#5e6d65">底端扣 NCI 得归母净利</text>
+  <line x1="458" y1="77" x2="498" y2="77" stroke="#23695a" stroke-width="2" marker-end="url(#e04-o-s)"/>
+  <rect x="504" y="24" width="196" height="106" rx="10" fill="#23695a"/>
+  <text x="602" y="54" text-anchor="middle" font-size="13" font-weight="700" fill="#e5efe9">现金流量表</text>
+  <text x="602" y="84" text-anchor="middle" font-size="16" font-weight="700" fill="#ffffff">100% 并入 CFO/CapEx</text>
+  <text x="602" y="110" text-anchor="middle" font-size="12" fill="#d7e8df">向少数股东派息入融资</text>
+  <text x="24" y="162" font-size="12.5" fill="#23695a">实例：KO 扣 NCI 30 M · GOOGL Waymo NCI 34 亿</text>
 </svg>
 </div>
-<figcaption>估值核对要点：控股子公司注意 EV 加回 NCI；权益法联营公司注意看分红转化率与隐含市值；财务投资重估收益须与主营营业利润剥离评估。</figcaption>
+<div class="rel-svg-wrap business-exchange" data-ff-only="eq" hidden aria-label="权益法投资（20%–50% 具重大影响，ASC 323）：资产负债表不并表收入与债务，资产端仅挂一行权益法投资；利润表在营业利润下方单行按比例确认联营净利；现金流量表只认实收分红，未收现差额须从 CFO 扣回。">
+<svg viewBox="0 0 720 180" role="img" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+  <defs><marker id="e04-o-a" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse"><path d="M0 1.2 L9 5 L0 8.8 z" fill="#a8743f"/></marker></defs>
+  <rect x="20" y="24" width="196" height="106" rx="10" fill="#fcf8f3" stroke="#ead9c4" stroke-width="1.3"/>
+  <text x="118" y="54" text-anchor="middle" font-size="13" font-weight="700" fill="#8f6033">资产负债表</text>
+  <text x="118" y="84" text-anchor="middle" font-size="16" font-weight="700" fill="#22392f">收入债务不并表</text>
+  <text x="118" y="110" text-anchor="middle" font-size="12" fill="#5e6d65">资产端单挂权益法投资</text>
+  <line x1="216" y1="77" x2="256" y2="77" stroke="#a8743f" stroke-width="2" marker-end="url(#e04-o-a)"/>
+  <rect x="262" y="24" width="196" height="106" rx="10" fill="#fbfbf6" stroke="#dfe5dc" stroke-width="1.3"/>
+  <text x="360" y="54" text-anchor="middle" font-size="13" font-weight="700" fill="#22392f">利润表</text>
+  <text x="360" y="84" text-anchor="middle" font-size="16" font-weight="700" fill="#22392f">营业利润下单行</text>
+  <text x="360" y="110" text-anchor="middle" font-size="12" fill="#5e6d65">按持股比例认联营净利</text>
+  <line x1="458" y1="77" x2="498" y2="77" stroke="#a8743f" stroke-width="2" marker-end="url(#e04-o-a)"/>
+  <rect x="504" y="24" width="196" height="106" rx="10" fill="#a8743f"/>
+  <text x="602" y="54" text-anchor="middle" font-size="13" font-weight="700" fill="#f9efe3">现金流量表</text>
+  <text x="602" y="84" text-anchor="middle" font-size="16" font-weight="700" fill="#ffffff">只认实收分红</text>
+  <text x="602" y="110" text-anchor="middle" font-size="12" fill="#f5e6d3">未收现差额从 CFO 扣回</text>
+  <text x="24" y="162" font-size="12.5" fill="#8f6033">实例：KO 联营 2,031 M vs 分红 993 M</text>
+</svg>
+</div>
+<div class="rel-svg-wrap business-exchange" data-ff-only="fin" hidden aria-label="财务投资（＜20% 无重大影响，ASC 321）：收入与债务不并表，资产端记金融投资；市价或同轮融资重估损益直接进营业外 OI&amp;E；未实现重估零现金流。">
+<svg viewBox="0 0 720 180" role="img" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+  <defs><marker id="e04-o-b" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse"><path d="M0 1.2 L9 5 L0 8.8 z" fill="#4a738c"/></marker></defs>
+  <rect x="20" y="24" width="196" height="106" rx="10" fill="#f2f6f9" stroke="#b7cfde" stroke-width="1.3"/>
+  <text x="118" y="54" text-anchor="middle" font-size="13" font-weight="700" fill="#3b5a70">资产负债表</text>
+  <text x="118" y="84" text-anchor="middle" font-size="16" font-weight="700" fill="#22392f">完全不并表</text>
+  <text x="118" y="110" text-anchor="middle" font-size="12" fill="#5e6d65">记金融投资／非上市股权</text>
+  <line x1="216" y1="77" x2="256" y2="77" stroke="#4a738c" stroke-width="2" marker-end="url(#e04-o-b)"/>
+  <rect x="262" y="24" width="196" height="106" rx="10" fill="#fbfbf6" stroke="#dfe5dc" stroke-width="1.3"/>
+  <text x="360" y="54" text-anchor="middle" font-size="13" font-weight="700" fill="#22392f">利润表</text>
+  <text x="360" y="84" text-anchor="middle" font-size="16" font-weight="700" fill="#22392f">重估进营业外</text>
+  <text x="360" y="110" text-anchor="middle" font-size="12" fill="#5e6d65">市价或同轮融资涨跌入账</text>
+  <line x1="458" y1="77" x2="498" y2="77" stroke="#4a738c" stroke-width="2" marker-end="url(#e04-o-b)"/>
+  <rect x="504" y="24" width="196" height="106" rx="10" fill="#3b5a70"/>
+  <text x="602" y="54" text-anchor="middle" font-size="13" font-weight="700" fill="#e6eff5">现金流量表</text>
+  <text x="602" y="84" text-anchor="middle" font-size="16" font-weight="700" fill="#ffffff">账面重估零现金</text>
+  <text x="602" y="110" text-anchor="middle" font-size="12" fill="#d3e3ee">仅收息或出售变现入账</text>
+  <text x="24" y="162" font-size="12.5" fill="#3b5a70">实例：GOOGL FY25 股权公允重估 +24,080 M</text>
+</svg>
+</div>
+<figcaption>点击切换三类持股并账路径（ASC 810 / 323 / 321）。估值核对时，控股留意 EV 加回 NCI，权益法留意分红转化率，财务投资须剥离重估波动。</figcaption>
 </figure>
 
 <span data-text-versions id="nb-e04-text-nci">看**控股合并**报表，常踩的坑在估值口径错配。哪怕母公司只占 60% 股权，子公司仍 **100%** 全额并表，外方份额在利润表底端和权益里作为**少数股东权益**（Noncontrolling Interests，简称 NCI）剥离。因此每股收益（EPS）只按**归母净利润**算；算企业价值（EV）倍数时，既然分母的 EBITDA 含 100% 口径，分子也须加回 NCI<span data-text-detail>（KO FY2025 合并净利润 13,137 M 美元，底端扣减少数股东损益 30 M 美元得归母净利润 13,107 M 美元；期末总权益 34,275 M 美元中，2,106 M 美元归属少数股东、32,169 M 美元归属 KO 股东。GOOGL 控股并表的 Waymo 等实体在 2025 年底形成 34 亿美元 NCI，其中 8.41 亿美元为可赎回少数股东权益）</span>。[^ko-10k]<sup>，</sup>[^googl-10k]<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>

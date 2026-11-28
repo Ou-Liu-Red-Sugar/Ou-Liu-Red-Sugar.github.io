@@ -206,7 +206,7 @@ This is reference material for the learner's current request. Use the supplied e
 
 ## 合约级对冲：期货、期权与 CDS {#nb-p01-hedges}
 
-跨资产制衡依赖历史相关性，一旦状态切换就可能失效。想要跳过对相关性的猜测、直接按合同条款锁定反向赔付，组合里通常会引入**期货空头**、**保护性期权**与**信用违约互换（CDS）**三类工具：[^contracts]<sup>，</sup>[^cds-fed]<sup>，</sup>[^cds-sec]
+跨资产制衡依赖历史相关性，一旦状态切换就可能失效。想要跳过对相关性的猜测、直接按合同条款锁定反向赔付，组合里通常会引入**期货空头**、**保护性期权**与<strong>信用违约互换（CDS）</strong>三类工具：[^contracts]<sup>，</sup>[^cds-fed]<sup>，</sup>[^cds-sec]
 
 <figure class="flow-figure p01-hedge-map" id="nb-p01-hedge-map">
 <div class="ff-head"><p class="ff-title">三类合约对冲工具的机制、代价与门槛</p><span class="ff-sub">机制归机制，个人账户执行另看准入与现金约束</span></div>

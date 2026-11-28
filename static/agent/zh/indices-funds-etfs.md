@@ -519,56 +519,26 @@ VOO 把最多资金分给 NVIDIA（NVDA）、把较少资金分给其余公司�
 
 <figure class="flow-figure" id="nb-v01-index-funnel">
 <div class="ff-head"><p class="ff-title">从股票市场到一条指数曲线：三步规则</p><span class="ff-sub">选样本 → 定权重 → 算点位</span></div>
-<div class="business-exchange" aria-label="指数编制的三个步骤：第一步划定样本池，例如 S&P 500 选取约 500 家美国大盘公司（考察规模、流动性、盈利并由委员会裁定），MSCI World 覆盖 23 个发达市场大中盘约 85% 自由流通市值、不含新兴市场；第二步按规则分配权重，分为自由流通市值加权或等权等；第三步汇总成连续指数点位，日常只看涨跌幅，同时区分价格指数与计入分红的总回报指数。">
-<svg viewBox="0 0 720 224" role="img" aria-label="指数编制三步流程：选样范围对照、权重规则与点位口径" style="width:100%;height:auto;display:block">
-  <defs>
-    <marker id="v01-arr" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto">
-      <path d="M1 1.5 L9 5 L1 8.5 Z" fill="#145343"/>
-    </marker>
-  </defs>
-  <rect x="8" y="10" width="268" height="204" rx="8" fill="#ffffff" stroke="#c8d6ce" stroke-width="1.2"/>
-  <rect x="8" y="10" width="268" height="32" rx="8" fill="#eaf2ef"/>
-  <rect x="8" y="34" width="268" height="8" fill="#eaf2ef"/>
-  <text x="22" y="31" font-size="12.5" font-weight="700" fill="#145343">① 划定样本池（买哪些公司）</text>
-  <rect x="20" y="54" width="244" height="68" rx="6" fill="#f7faf8" stroke="#d9e4dd"/>
-  <text x="32" y="73" font-size="12.5" font-weight="700" fill="#18241e">S&amp;P 500</text>
-  <text x="98" y="73" font-size="11" fill="#58605c">S&amp;P Dow Jones Indices</text>
-  <text x="32" y="92" font-size="11.5" fill="#3c4c44">约 500 家美国大盘公司</text>
-  <text x="32" y="110" font-size="11" fill="#68736d">规模 · 流动性 · 盈利 + 委员会裁定</text>
-  <rect x="20" y="132" width="244" height="68" rx="6" fill="#fbf9f5" stroke="#e5dccf"/>
-  <text x="32" y="151" font-size="12.5" font-weight="700" fill="#18241e">MSCI World</text>
-  <text x="115" y="151" font-size="11" fill="#8f6033">不含新兴市场</text>
-  <text x="32" y="170" font-size="11.5" fill="#3c4c44">23 个发达市场大中盘（美 / 日 / 英等）</text>
-  <text x="32" y="188" font-size="11" fill="#68736d">覆盖各市场约 85% 自由流通市值</text>
-  <line x1="278" y1="112" x2="306" y2="112" stroke="#145343" stroke-width="1.8" marker-end="url(#v01-arr)"/>
-  <rect x="312" y="10" width="176" height="204" rx="8" fill="#ffffff" stroke="#c8d6ce" stroke-width="1.2"/>
-  <rect x="312" y="10" width="176" height="32" rx="8" fill="#eaf2ef"/>
-  <rect x="312" y="34" width="176" height="8" fill="#eaf2ef"/>
-  <text x="326" y="31" font-size="12.5" font-weight="700" fill="#145343">② 分配权重</text>
-  <rect x="324" y="56" width="152" height="62" rx="6" fill="#f3f7f5" stroke="#b9d0c2"/>
-  <text x="336" y="76" font-size="12" font-weight="650" fill="#145343">自由流通市值加权</text>
-  <text x="336" y="95" font-size="11" fill="#46544c">公众可交易市值越大，</text>
-  <text x="336" y="110" font-size="11" fill="#46544c">对指数影响力越重</text>
-  <rect x="324" y="130" width="152" height="62" rx="6" fill="#fbf9f5" stroke="#e2d5c3"/>
-  <text x="336" y="150" font-size="12" font-weight="650" fill="#8f6033">等权规则</text>
-  <text x="336" y="169" font-size="11" fill="#46544c">按期把每家公司调回</text>
-  <text x="336" y="184" font-size="11" fill="#46544c">相同比例（如约 0.2%）</text>
-  <line x1="490" y1="112" x2="518" y2="112" stroke="#145343" stroke-width="1.8" marker-end="url(#v01-arr)"/>
-  <rect x="524" y="10" width="188" height="204" rx="8" fill="#ffffff" stroke="#c8d6ce" stroke-width="1.2"/>
-  <rect x="524" y="10" width="188" height="32" rx="8" fill="#eaf2ef"/>
-  <rect x="524" y="34" width="188" height="8" fill="#eaf2ef"/>
-  <text x="538" y="31" font-size="12.5" font-weight="700" fill="#145343">③ 汇总成点位</text>
-  <text x="538" y="68" font-size="12" font-weight="650" fill="#18241e">只看同一指数的涨跌幅</text>
-  <text x="538" y="87" font-size="11" fill="#58605c">不同指数基期和算法不同，</text>
-  <text x="538" y="103" font-size="11" fill="#58605c">点位绝对高低不代表贵贱</text>
-  <line x1="538" y1="120" x2="698" y2="120" stroke="#e2e7df"/>
-  <text x="538" y="142" font-size="12" font-weight="650" fill="#145343">比较回报要对齐口径</text>
-  <text x="538" y="162" font-size="11" fill="#46544c">· 价格指数：只记股价变化</text>
-  <text x="538" y="180" font-size="11" fill="#46544c">· 总回报指数：计入分红再投</text>
-  <text x="538" y="198" font-size="10.5" fill="#7a8780">拆股与成分变更会做除数调整</text>
+<div class="business-exchange" aria-label="指数编制三步：第一步划定样本池（如 S&amp;P 500 选约 500 家美国大盘公司，MSCI World 覆盖 23 个发达市场）；第二步按规则分配权重（自由流通市值加权或等权）；第三步汇总成点位（只看涨跌幅，并区分价格指数与含分红总回报指数）。">
+<svg viewBox="0 0 720 175" role="img" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;display:block">
+  <defs><marker id="v01-m-s" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse"><path d="M0 1.2 L9 5 L0 8.8 z" fill="#23695a"/></marker></defs>
+  <rect x="20" y="28" width="196" height="118" rx="10" fill="#f7faf8" stroke="#c8dad0" stroke-width="1.3"/>
+  <text x="118" y="58" text-anchor="middle" font-size="13.5" font-weight="700" fill="#23695a">① 划定样本池</text>
+  <text x="118" y="88" text-anchor="middle" font-size="13" font-weight="600" fill="#22392f">S&amp;P 500 · 美国大盘</text>
+  <text x="118" y="114" text-anchor="middle" font-size="12.5" fill="#8f6033">MSCI World · 23 发达市场</text>
+  <line x1="216" y1="87" x2="256" y2="87" stroke="#23695a" stroke-width="2" marker-end="url(#v01-m-s)"/>
+  <rect x="262" y="28" width="196" height="118" rx="10" fill="#fbfbf6" stroke="#dfe5dc" stroke-width="1.3"/>
+  <text x="360" y="58" text-anchor="middle" font-size="13.5" font-weight="700" fill="#22392f">② 分配权重</text>
+  <text x="360" y="88" text-anchor="middle" font-size="13" font-weight="600" fill="#23695a">自由流通市值加权</text>
+  <text x="360" y="114" text-anchor="middle" font-size="12.5" fill="#8f6033">或按期调回等权</text>
+  <line x1="458" y1="87" x2="498" y2="87" stroke="#23695a" stroke-width="2" marker-end="url(#v01-m-s)"/>
+  <rect x="504" y="28" width="196" height="118" rx="10" fill="#23695a"/>
+  <text x="602" y="58" text-anchor="middle" font-size="13.5" font-weight="700" fill="#e5efe9">③ 汇总成点位</text>
+  <text x="602" y="88" text-anchor="middle" font-size="13" font-weight="700" fill="#ffffff">只看同指数涨跌幅</text>
+  <text x="602" y="114" text-anchor="middle" font-size="12" fill="#d7e8df">区分价格 vs 总回报口径</text>
 </svg>
 </div>
-<figcaption>样本范围、权重规则和回报口径三项共同决定一只指数到底在衡量什么。S&amp;P 500 并非机械截取市值前 500 家，经营格局变化时成分名单也会调整。</figcaption>
+<figcaption>样本范围、权重规则和回报口径共同决定一只指数衡量什么。MSCI World 不含新兴市场；S&amp;P 500 由委员会按规模、流动性与盈利标准调整成分。</figcaption>
 </figure>
 
 <span data-text-versions id="nb-v01-text-1">读指数名字时容易被字面误导：MSCI World 听起来像覆盖全球股市，实际只包含发达市场，不包含新兴市场<span data-text-detail>（范围采用 2026 年 8 月 31 日官方资料，覆盖各市场约 85% 的自由流通调整后市值。市场归类依照指数的分类口径；公司被纳入哪个市场，与它在世界各地取得收入的范围是两个维度）</span>。<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span> <span data-text-versions id="nb-v01-text-2">拿基金业绩和指数对照时，还要把分红、币种、期间和费用口径对齐<span data-text-detail>（价格指数主要记录价格变化；总回报指数还将分红及其再投资计入，税前与税后口径也可能不同；公司拆股、成分变更均依方法调整除数，避免把计量变化当成市场涨跌）</span>。[^index-math]<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>
@@ -641,43 +611,39 @@ VOO 把最多资金分给 NVIDIA（NVDA）、把较少资金分给其余公司�
 
 净值说明每份基金值多少资产，而实际买进卖出付多少钱，取决于基金走的是哪条交易通道：场外共同基金直接向基金申赎，ETF 则在交易所挂牌撮合。[^fund-structure]
 
-<figure class="flow-figure" id="nb-v01-etf-vs-mf">
-<div class="ff-head"><p class="ff-title">两种交易通道：场外申赎 vs 场内 ETF</p><span class="ff-sub">对手方与定价时点不同</span></div>
-<div class="business-exchange" aria-label="场外开放式共同基金由投资者向基金或销售机构提交申购或赎回申请，按收到有效申请后下一次算出的日终净值成交；场内 ETF 由投资者通过券商在交易所与其他投资者实时撮合成交，成交价为市场价，相对资产价值可能出现溢价或折价，由授权参与商 AP 的大额申赎机制拉回资产价值附近。">
-<svg viewBox="0 0 720 218" role="img" aria-label="场外共同基金与场内 ETF 交易路径对照" style="width:100%;height:auto;display:block">
-  <defs>
-    <marker id="v01-arr2" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto"><path d="M1 1.5 L9 5 L1 8.5 Z" fill="#145343"/></marker>
-    <marker id="v01-arr-warm" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto"><path d="M1 1.5 L9 5 L1 8.5 Z" fill="#a8743f"/></marker>
-  </defs>
-  <rect x="8" y="8" width="704" height="94" rx="8" fill="#fbf9f5" stroke="#e4dacb" stroke-width="1.1"/>
-  <text x="20" y="28" font-size="11.5" font-weight="700" fill="#8f6033">场外共同基金 · 申购 / 赎回</text>
-  <rect x="20" y="42" width="84" height="44" rx="6" fill="#ffffff" stroke="#d5c9b8"/>
-  <text x="62" y="68" text-anchor="middle" font-size="12.5" font-weight="650" fill="#18241e">投资者</text>
-  <line x1="112" y1="54" x2="266" y2="54" stroke="#a8743f" stroke-width="1.6" marker-end="url(#v01-arr-warm)"/>
-  <text x="190" y="47" text-anchor="middle" font-size="10.5" fill="#8f6033">申购款 / 赎回申请</text>
-  <line x1="270" y1="74" x2="116" y2="74" stroke="#145343" stroke-width="1.5" marker-end="url(#v01-arr2)"/>
-  <text x="192" y="90" text-anchor="middle" font-size="10.5" fill="#58605c">按日终 NAV 确认份额或回款</text>
-  <rect x="276" y="42" width="132" height="44" rx="6" fill="#ffffff" stroke="#d5c9b8"/>
-  <text x="342" y="68" text-anchor="middle" font-size="12" font-weight="650" fill="#18241e">基金 / 销售机构</text>
-  <rect x="422" y="24" width="276" height="64" rx="6" fill="#ffffff" stroke="#e8dfd2"/>
-  <text x="436" y="49" font-size="11.5" font-weight="650" fill="#8f6033">收盘后定净值（Forward Pricing）</text>
-  <text x="436" y="70" font-size="11" fill="#58605c">盘中下单时还不知道成交价，无场内溢折价</text>
-  <rect x="8" y="114" width="704" height="96" rx="8" fill="#f3f7f5" stroke="#c3d5cb" stroke-width="1.1"/>
-  <text x="20" y="135" font-size="11.5" font-weight="700" fill="#145343">场内 ETF（如 VOO）· 二级市场撮合</text>
-  <rect x="20" y="148" width="84" height="44" rx="6" fill="#ffffff" stroke="#b9d0c2"/>
-  <text x="62" y="174" text-anchor="middle" font-size="12.5" font-weight="650" fill="#18241e">投资者</text>
-  <line x1="112" y1="160" x2="266" y2="160" stroke="#145343" stroke-width="1.6" marker-end="url(#v01-arr2)"/>
-  <text x="190" y="153" text-anchor="middle" font-size="10.5" fill="#145343">券商下单 · 买卖份额</text>
-  <line x1="270" y1="180" x2="116" y2="180" stroke="#a8743f" stroke-width="1.5" marker-end="url(#v01-arr-warm)"/>
-  <text x="192" y="196" text-anchor="middle" font-size="10.5" fill="#8f6033">按实时市价即时成交</text>
-  <rect x="276" y="148" width="132" height="44" rx="6" fill="#ffffff" stroke="#b9d0c2"/>
-  <text x="342" y="174" text-anchor="middle" font-size="12" font-weight="650" fill="#18241e">交易所对手方</text>
-  <rect x="422" y="130" width="276" height="64" rx="6" fill="#ffffff" stroke="#c8d8cf"/>
-  <text x="436" y="155" font-size="11.5" font-weight="650" fill="#145343">盘中实时报价（可能偏离 NAV）</text>
-  <text x="436" y="176" font-size="11" fill="#58605c">市价高于净值叫溢价，低于叫折价；AP 压缩价差</text>
+<figure class="flow-figure" id="nb-v01-etf-vs-mf" data-ff-views>
+<div class="ff-head"><p class="ff-title">两种交易通道：场外共同基金 vs 场内 ETF</p><div class="ff-switch" role="group" aria-label="切换通道" hidden><button type="button" data-ff-view-choice="mf" aria-pressed="true">场外共同基金</button><button type="button" data-ff-view-choice="etf" aria-pressed="false">场内 ETF</button></div></div>
+<div class="business-exchange" data-ff-only="mf" aria-label="场外共同基金路径：投资者向基金或销售机构提交申购或赎回申请，收盘后按日终净值 NAV 确认份额或回款，无场内溢折价。">
+<svg viewBox="0 0 720 140" role="img" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;display:block">
+  <defs><marker id="v01-mf-a" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse"><path d="M0 1.2 L9 5 L0 8.8 z" fill="#a8743f"/></marker></defs>
+  <rect x="20" y="34" width="136" height="72" rx="10" fill="#fbfbf6" stroke="#d5c9b8" stroke-width="1.3"/>
+  <text x="88" y="75" text-anchor="middle" font-size="14" font-weight="700" fill="#22392f">投资者</text>
+  <line x1="156" y1="70" x2="244" y2="70" stroke="#a8743f" stroke-width="2" marker-end="url(#v01-mf-a)"/>
+  <text x="200" y="58" text-anchor="middle" font-size="12" fill="#8f6033">申购／赎回</text>
+  <rect x="250" y="34" width="166" height="72" rx="10" fill="#fcf8f3" stroke="#ead9c4" stroke-width="1.3"/>
+  <text x="333" y="75" text-anchor="middle" font-size="13.5" font-weight="700" fill="#8f6033">基金／销售机构</text>
+  <line x1="416" y1="70" x2="462" y2="70" stroke="#a8743f" stroke-width="2" marker-end="url(#v01-mf-a)"/>
+  <rect x="468" y="24" width="232" height="92" rx="10" fill="#a8743f"/>
+  <text x="584" y="58" text-anchor="middle" font-size="13.5" font-weight="700" fill="#ffffff">收盘后按日终 NAV 成交</text>
+  <text x="584" y="88" text-anchor="middle" font-size="12" fill="#f5e6d3">无场内溢折价 · 下单时未知价</text>
 </svg>
 </div>
-<figcaption>并非所有场内交易基金都是 ETF；共同基金与 ETF 分别对应“向基金申赎”和“交易所撮合”两种进出路径。</figcaption>
+<div class="business-exchange" data-ff-only="etf" hidden aria-label="场内 ETF 路径：投资者通过券商在交易所与其他对手方实时撮合成交，按盘中市价买卖，可能偏离净值 NAV，由授权参与商 AP 压缩价差。">
+<svg viewBox="0 0 720 140" role="img" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;display:block">
+  <defs><marker id="v01-et-s" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse"><path d="M0 1.2 L9 5 L0 8.8 z" fill="#23695a"/></marker></defs>
+  <rect x="20" y="34" width="136" height="72" rx="10" fill="#f7faf8" stroke="#b9d0c2" stroke-width="1.3"/>
+  <text x="88" y="75" text-anchor="middle" font-size="14" font-weight="700" fill="#22392f">投资者</text>
+  <line x1="156" y1="70" x2="244" y2="70" stroke="#23695a" stroke-width="2" marker-end="url(#v01-et-s)"/>
+  <text x="200" y="58" text-anchor="middle" font-size="12" fill="#23695a">券商下单</text>
+  <rect x="250" y="34" width="166" height="72" rx="10" fill="#f3f8f4" stroke="#b9d0c2" stroke-width="1.3"/>
+  <text x="333" y="75" text-anchor="middle" font-size="13.5" font-weight="700" fill="#23695a">交易所对手方</text>
+  <line x1="416" y1="70" x2="462" y2="70" stroke="#23695a" stroke-width="2" marker-end="url(#v01-et-s)"/>
+  <rect x="468" y="24" width="232" height="92" rx="10" fill="#23695a"/>
+  <text x="584" y="58" text-anchor="middle" font-size="13.5" font-weight="700" fill="#ffffff">盘中实时市价即时成交</text>
+  <text x="584" y="88" text-anchor="middle" font-size="12" fill="#d7e8df">可能偏离 NAV · AP 压缩价差</text>
+</svg>
+</div>
+<figcaption>点击切换两种交易通道。并非所有场内交易基金都是 ETF；共同基金与 ETF 对应不同的对手方与定价时点。</figcaption>
 </figure>
 
 ETF 的市价由买卖盘撮合决定，一旦高出每份资产价值，同样的资金买到的底层资产就会变少：

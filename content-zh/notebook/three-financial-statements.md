@@ -9,6 +9,7 @@
 }
 
 <link rel="stylesheet" href="/notebook/flow-figures.css?v=20261127b">
+<script src="/notebook/flow-figures.js?v=20261012-6" defer></script>
 
 前两篇[《客户、产品与收费方式》](/zh/notebook/customers-products-pricing/)与[《收入增长与市场预期》](/zh/notebook/revenue-growth-expectations/)把公司怎么收钱、收入怎样增长拆清了，下一个问题立刻落到账本上：像[《Agent 时代的基本面投资》](/zh/notebook/investment-returns/)里的 GE Vernova（GEV）燃气轮机订单，签单、交付确认收入与收到货款往往不在同一天；[《亏损、波动与持有能力》](/zh/notebook/loss-volatility-holding-capacity/)里提到的 Microsoft（MSFT）在 2026 年 7 月 29 日就发了 **FY26 Q4** 财报，为何刚过七月就结束了“2026 财年”？
 
@@ -30,97 +31,42 @@
 三张表靠两条硬勾稽紧紧锁在一起：利润表的净利润减去现金分红后，滚入资产负债表的**留存收益**（股东权益）；现金流量表三栏净额加上期初现金，正好等于期末资产负债表上的**现金余额**。
 
 <figure class="flow-figure e01-link-map" id="nb-e01-link-map">
-<div class="ff-head"><p class="ff-title">三张报表的勾稽总图：从期初时点到期末时点</p><span class="ff-sub">单位：美元 · 沿用下方简化制造厂第一季度账本 · 绿色箭头连接现金，琥珀箭头连接留存收益</span></div>
-<div class="rel-svg-wrap business-exchange" aria-label="三张报表勾稽总图（简化制造厂第一季度，单位美元）：左侧为 1 月 1 日期初资产负债表（现金 0、资产合计 0、负债合计 0、股东权益合计 0），期初现金 0 以虚线箭头连入中间上方现金流量表（1 月 1 日至 3 月 31 日：经营活动 +20,000、投资活动 −60,000、融资活动 +145,000、现金净增加 +105,000、期初现金 0、期末现金 105,000）；期末现金 105,000 以绿色曲线箭头标注相等，直连右侧 3 月 31 日期末资产负债表的现金 105,000。中间下方为同一期间利润表（营业收入 75,000、减营业成本 30,000、毛利 45,000、减工资与房租 20,000、减设备折旧 3,000、营业利润 22,000、减利息与税 5,000、净利润 17,000）；净利润 17,000 以琥珀色曲线箭头标注减分红 5,000 后留存，直连右侧资产负债表的留存收益 12,000。右侧期末资产负债表资产合计 202,000（现金 105,000、应收账款 30,000、存货 10,000、设备净值 57,000），等于负债合计 90,000（应付账款 40,000、银行借款 50,000）加股东权益合计 112,000（股东投入 100,000、留存收益 12,000）。底部时间轴标示 1 月 1 日至 3 月 31 日期间由现金流量表与利润表累计。">
-<svg viewBox="0 0 860 520" role="img" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+<div class="ff-head"><p class="ff-title">三张报表的两条硬勾稽：现金流与留存收益</p><span class="ff-sub">单位：美元 · 沿用下方制造厂 Q1 账本（详细科目见下方互动账本）</span></div>
+<div class="rel-svg-wrap business-exchange" aria-label="三张报表核心勾稽图：左侧 1 月 1 日期初资产负债表现金 0；中间上方一季度现金流量表（经营 +20,000、投资 −60,000、融资 +145,000）汇出期末现金 105,000，直连右侧 3 月 31 日期末资产负债表资产端；中间下方一季度利润表（收入 75,000 到净利润 17,000）扣除分红 5,000 后留存 12,000，直连右侧期末股东权益（负债 90,000 加权益 112,000 等于总资产 202,000）。">
+<svg viewBox="0 0 720 225" role="img" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
   <defs>
-    <marker id="e01-arr-sage" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse">
-      <path d="M1,1.5 L9,5 L1,8.5 Z" fill="#23695a"/>
-    </marker>
-    <marker id="e01-arr-amber" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse">
-      <path d="M1,1.5 L9,5 L1,8.5 Z" fill="#a8743f"/>
-    </marker>
-    <marker id="e01-arr-mute" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-      <path d="M1,1.5 L9,5 L1,8.5 Z" fill="#5d6f67"/>
-    </marker>
+    <marker id="e01-m-s" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse"><path d="M0 1.2 L9 5 L0 8.8 z" fill="#23695a"/></marker>
+    <marker id="e01-m-a" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse"><path d="M0 1.2 L9 5 L0 8.8 z" fill="#a8743f"/></marker>
+    <marker id="e01-m-g" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 1.2 L9 5 L0 8.8 z" fill="#7a8780"/></marker>
   </defs>
-  <rect x="0" y="0" width="860" height="520" rx="8" fill="#fafaf6"/>
-  <rect x="14" y="102" width="174" height="154" rx="10" fill="#ffffff" stroke="#cfd3c9" stroke-width="1.2"/>
-  <text x="101" y="128" text-anchor="middle" font-size="14" font-weight="700" fill="#1d2a25">资产负债表</text>
-  <text x="101" y="146" text-anchor="middle" font-size="11.5" fill="#66736c">1 月 1 日（时点）</text>
-  <line x1="26" y1="156" x2="176" y2="156" stroke="#eaede5" stroke-width="1"/>
-  <text x="28" y="177" font-size="12.5" fill="#2e3c36">现金</text><text x="174" y="177" text-anchor="end" font-size="12.5" fill="#2e3c36">0</text>
-  <text x="28" y="199" font-size="12.5" fill="#2e3c36">资产合计</text><text x="174" y="199" text-anchor="end" font-size="12.5" fill="#2e3c36">0</text>
-  <text x="28" y="221" font-size="12.5" fill="#2e3c36">负债合计</text><text x="174" y="221" text-anchor="end" font-size="12.5" fill="#2e3c36">0</text>
-  <text x="28" y="243" font-size="12.5" fill="#2e3c36">股东权益合计</text><text x="174" y="243" text-anchor="end" font-size="12.5" fill="#2e3c36">0</text>
-  <rect x="234" y="14" width="248" height="196" rx="10" fill="#ffffff" stroke="#cfd3c9" stroke-width="1.2"/>
-  <text x="358" y="39" text-anchor="middle" font-size="14" font-weight="700" fill="#1d2a25">现金流量表</text>
-  <text x="358" y="57" text-anchor="middle" font-size="11.5" fill="#66736c">1 月 1 日至 3 月 31 日（期间）</text>
-  <line x1="246" y1="67" x2="470" y2="67" stroke="#eaede5" stroke-width="1"/>
-  <text x="250" y="88" font-size="12.5" fill="#2e3c36">经营活动（CFO）</text><text x="466" y="88" text-anchor="end" font-size="12.5" fill="#2e3c36">+20,000</text>
-  <text x="250" y="109" font-size="12.5" fill="#2e3c36">投资活动（CFI）</text><text x="466" y="109" text-anchor="end" font-size="12.5" fill="#2e3c36">−60,000</text>
-  <text x="250" y="130" font-size="12.5" fill="#2e3c36">融资活动（CFF）</text><text x="466" y="130" text-anchor="end" font-size="12.5" fill="#2e3c36">+145,000</text>
-  <line x1="246" y1="138" x2="470" y2="138" stroke="#eaede5" stroke-width="1"/>
-  <text x="250" y="155" font-size="12.5" font-weight="700" fill="#1d2a25">现金净增加</text><text x="466" y="155" text-anchor="end" font-size="12.5" font-weight="700" fill="#1d2a25">+105,000</text>
-  <text x="250" y="174" font-size="12.5" fill="#5d6b64">期初现金</text><text x="466" y="174" text-anchor="end" font-size="12.5" fill="#5d6b64">0</text>
-  <rect x="244" y="182" width="228" height="22" rx="5" fill="#e2ede7"/>
-  <text x="252" y="197" font-size="12.5" font-weight="700" fill="#1f5c4e">期末现金</text><text x="464" y="197" text-anchor="end" font-size="12.5" font-weight="700" fill="#1f5c4e">105,000</text>
-  <rect x="234" y="226" width="248" height="224" rx="10" fill="#ffffff" stroke="#cfd3c9" stroke-width="1.2"/>
-  <text x="358" y="251" text-anchor="middle" font-size="14" font-weight="700" fill="#1d2a25">利润表</text>
-  <text x="358" y="269" text-anchor="middle" font-size="11.5" fill="#66736c">同一期间（权责发生制）</text>
-  <line x1="246" y1="278" x2="470" y2="278" stroke="#eaede5" stroke-width="1"/>
-  <text x="250" y="297" font-size="12.5" fill="#2e3c36">营业收入</text><text x="466" y="297" text-anchor="end" font-size="12.5" fill="#2e3c36">75,000</text>
-  <text x="250" y="316" font-size="12.5" fill="#5d6b64">减：营业成本</text><text x="466" y="316" text-anchor="end" font-size="12.5" fill="#5d6b64">30,000</text>
-  <line x1="246" y1="323" x2="470" y2="323" stroke="#eaede5" stroke-width="1"/>
-  <text x="250" y="339" font-size="12.5" font-weight="700" fill="#1d2a25">毛利</text><text x="466" y="339" text-anchor="end" font-size="12.5" font-weight="700" fill="#1d2a25">45,000</text>
-  <text x="250" y="358" font-size="12.5" fill="#5d6b64">减：工资与房租</text><text x="466" y="358" text-anchor="end" font-size="12.5" fill="#5d6b64">20,000</text>
-  <text x="250" y="377" font-size="12.5" fill="#5d6b64">减：设备折旧</text><text x="466" y="377" text-anchor="end" font-size="12.5" fill="#5d6b64">3,000</text>
-  <line x1="246" y1="384" x2="470" y2="384" stroke="#eaede5" stroke-width="1"/>
-  <text x="250" y="400" font-size="12.5" font-weight="700" fill="#1d2a25">营业利润（EBIT）</text><text x="466" y="400" text-anchor="end" font-size="12.5" font-weight="700" fill="#1d2a25">22,000</text>
-  <text x="250" y="418" font-size="12.5" fill="#5d6b64">减：利息与所得税</text><text x="466" y="418" text-anchor="end" font-size="12.5" fill="#5d6b64">5,000</text>
-  <rect x="244" y="424" width="228" height="22" rx="5" fill="#f4e5d2"/>
-  <text x="252" y="439" font-size="12.5" font-weight="700" fill="#8d5520">净利润</text><text x="464" y="439" text-anchor="end" font-size="12.5" font-weight="700" fill="#8d5520">17,000</text>
-  <rect x="586" y="56" width="260" height="356" rx="10" fill="#ffffff" stroke="#cfd3c9" stroke-width="1.2"/>
-  <text x="716" y="81" text-anchor="middle" font-size="14" font-weight="700" fill="#1d2a25">资产负债表</text>
-  <text x="716" y="99" text-anchor="middle" font-size="11.5" fill="#66736c">3 月 31 日（时点）</text>
-  <line x1="598" y1="109" x2="834" y2="109" stroke="#eaede5" stroke-width="1"/>
-  <rect x="596" y="116" width="240" height="22" rx="5" fill="#e2ede7"/>
-  <text x="604" y="131" font-size="12.5" font-weight="700" fill="#1f5c4e">现金</text><text x="828" y="131" text-anchor="end" font-size="12.5" font-weight="700" fill="#1f5c4e">105,000</text>
-  <text x="604" y="153" font-size="12.5" fill="#2e3c36">应收账款</text><text x="828" y="153" text-anchor="end" font-size="12.5" fill="#2e3c36">30,000</text>
-  <text x="604" y="174" font-size="12.5" fill="#2e3c36">存货</text><text x="828" y="174" text-anchor="end" font-size="12.5" fill="#2e3c36">10,000</text>
-  <text x="604" y="195" font-size="12.5" fill="#2e3c36">设备净值（扣折旧）</text><text x="828" y="195" text-anchor="end" font-size="12.5" fill="#2e3c36">57,000</text>
-  <line x1="598" y1="204" x2="834" y2="204" stroke="#eaede5" stroke-width="1"/>
-  <text x="604" y="221" font-size="12.5" font-weight="700" fill="#1d2a25">资产合计</text><text x="828" y="221" text-anchor="end" font-size="12.5" font-weight="700" fill="#1d2a25">202,000</text>
-  <line x1="598" y1="232" x2="834" y2="232" stroke="#dfe3d8" stroke-width="1.2"/>
-  <text x="604" y="251" font-size="12.5" fill="#2e3c36">应付账款</text><text x="828" y="251" text-anchor="end" font-size="12.5" fill="#2e3c36">40,000</text>
-  <text x="604" y="272" font-size="12.5" fill="#2e3c36">银行借款</text><text x="828" y="272" text-anchor="end" font-size="12.5" fill="#2e3c36">50,000</text>
-  <line x1="598" y1="281" x2="834" y2="281" stroke="#eaede5" stroke-width="1"/>
-  <text x="604" y="298" font-size="12.5" font-weight="700" fill="#1d2a25">负债合计</text><text x="828" y="298" text-anchor="end" font-size="12.5" font-weight="700" fill="#1d2a25">90,000</text>
-  <line x1="598" y1="309" x2="834" y2="309" stroke="#dfe3d8" stroke-width="1.2"/>
-  <text x="604" y="328" font-size="12.5" fill="#2e3c36">股东投入</text><text x="828" y="328" text-anchor="end" font-size="12.5" fill="#2e3c36">100,000</text>
-  <rect x="596" y="336" width="240" height="22" rx="5" fill="#f4e5d2"/>
-  <text x="604" y="351" font-size="12.5" font-weight="700" fill="#8d5520">留存收益</text><text x="828" y="351" text-anchor="end" font-size="12.5" font-weight="700" fill="#8d5520">12,000</text>
-  <text x="604" y="374" font-size="12.5" font-weight="700" fill="#1d2a25">股东权益合计</text><text x="828" y="374" text-anchor="end" font-size="12.5" font-weight="700" fill="#1d2a25">112,000</text>
-  <line x1="598" y1="382" x2="834" y2="382" stroke="#eaede5" stroke-width="1"/>
-  <text x="604" y="400" font-size="12.5" font-weight="700" fill="#1d2a25">负债与股东权益合计</text><text x="828" y="400" text-anchor="end" font-size="12.5" font-weight="700" fill="#1d2a25">202,000</text>
-  <path d="M188,171 L230,171" fill="none" stroke="#5d6f67" stroke-width="1.5" stroke-dasharray="4,3" marker-end="url(#e01-arr-mute)"/>
-  <path d="M482,193 C534,193 534,127 582,127" fill="none" stroke="#23695a" stroke-width="2" marker-end="url(#e01-arr-sage)"/>
-  <rect x="514" y="143" width="38" height="20" rx="4" fill="#fafaf6"/>
-  <text x="533" y="157" text-anchor="middle" font-size="11.5" font-weight="700" fill="#23695a">相等</text>
-  <path d="M482,435 C536,435 536,347 582,347" fill="none" stroke="#a8743f" stroke-width="2" marker-end="url(#e01-arr-amber)"/>
-  <rect x="494" y="374" width="80" height="32" rx="4" fill="#fafaf6"/>
-  <text x="534" y="388" text-anchor="middle" font-size="11" font-weight="700" fill="#8d5520">减分红 5,000</text>
-  <text x="534" y="402" text-anchor="middle" font-size="11" font-weight="700" fill="#8d5520">并入留存</text>
-  <text x="410" y="473" text-anchor="middle" font-size="11.5" fill="#66736c">期间：现金流量表与利润表在这三个月里累计</text>
-  <path d="M132,487 L132,480 L692,480 L692,487" fill="none" stroke="#b6bdb4" stroke-width="1.1"/>
-  <line x1="101" y1="496" x2="716" y2="496" stroke="#8ba097" stroke-width="1.4"/>
-  <circle cx="101" cy="496" r="5" fill="#23695a"/>
-  <circle cx="716" cy="496" r="5" fill="#23695a"/>
-  <text x="101" y="514" text-anchor="middle" font-size="11.5" fill="#4b5952">1 月 1 日</text>
-  <text x="716" y="514" text-anchor="middle" font-size="11.5" fill="#4b5952">3 月 31 日</text>
+  <rect x="14" y="66" width="130" height="92" rx="10" fill="#fbfbf6" stroke="#cfd6ce" stroke-width="1.3"/>
+  <text x="79" y="96" text-anchor="middle" font-size="13" font-weight="700" fill="#22392f">期初资产负债表</text>
+  <text x="79" y="118" text-anchor="middle" font-size="12" fill="#5e6d65">1 月 1 日时点</text>
+  <text x="79" y="142" text-anchor="middle" font-size="13" font-weight="700" fill="#5e6d65">现金 0 · 权益 0</text>
+  <path d="M144 96 L186 72" fill="none" stroke="#7a8780" stroke-width="1.6" stroke-dasharray="4 3" marker-end="url(#e01-m-g)"/>
+  <rect x="192" y="18" width="230" height="86" rx="10" fill="#f3f8f4" stroke="#23695a" stroke-width="1.4"/>
+  <text x="307" y="44" text-anchor="middle" font-size="13.5" font-weight="700" fill="#23695a">现金流量表（Q1 期间）</text>
+  <text x="307" y="68" text-anchor="middle" font-size="12" fill="#3c4c44">CFO +20k · CFI −60k · CFF +145k</text>
+  <text x="307" y="92" text-anchor="middle" font-size="14" font-weight="700" fill="#23695a">期末现金 ＝ 105,000</text>
+  <rect x="192" y="122" width="230" height="86" rx="10" fill="#fcf8f3" stroke="#a8743f" stroke-width="1.4"/>
+  <text x="307" y="148" text-anchor="middle" font-size="13.5" font-weight="700" fill="#8f6033">利润表（Q1 权责期间）</text>
+  <text x="307" y="172" text-anchor="middle" font-size="12" fill="#3c4c44">收入 75,000 → EBIT 22,000</text>
+  <text x="307" y="196" text-anchor="middle" font-size="14" font-weight="700" fill="#8f6033">净利润 17,000（分红 5,000）</text>
+  <path d="M422 62 L490 62" fill="none" stroke="#23695a" stroke-width="2.2" marker-end="url(#e01-m-s)"/>
+  <text x="456" y="52" text-anchor="middle" font-size="12" font-weight="700" fill="#23695a">相等</text>
+  <path d="M422 164 L490 164" fill="none" stroke="#a8743f" stroke-width="2.2" marker-end="url(#e01-m-a)"/>
+  <text x="456" y="154" text-anchor="middle" font-size="12" font-weight="700" fill="#8f6033">留存 +12k</text>
+  <rect x="496" y="18" width="210" height="190" rx="10" fill="#ffffff" stroke="#23695a" stroke-width="1.5"/>
+  <text x="601" y="44" text-anchor="middle" font-size="13.5" font-weight="700" fill="#22392f">期末资产负债表 (3/31)</text>
+  <text x="601" y="76" text-anchor="middle" font-size="13.5" font-weight="700" fill="#23695a">现金 105,000</text>
+  <text x="601" y="100" text-anchor="middle" font-size="12.5" fill="#3c4c44">总资产 ＝ 202,000</text>
+  <line x1="518" y1="118" x2="684" y2="118" stroke="#dfe5dc" stroke-width="1.2"/>
+  <text x="601" y="144" text-anchor="middle" font-size="12.5" fill="#3c4c44">负债 90,000 ＋ 权益 112,000</text>
+  <text x="601" y="172" text-anchor="middle" font-size="13.5" font-weight="700" fill="#8f6033">含留存收益 12,000</text>
+  <text x="601" y="196" text-anchor="middle" font-size="12" fill="#5e6d65">投入 100k ＋ 留存 12k</text>
 </svg>
 </div>
-<figcaption>先看全局勾稽，下一节用可交互账本逐笔回放这六项交易；除三张主表外，上市年报另附股东权益变动表与附注追溯回购与股权激励细项。</figcaption>
+<figcaption>先抓这两条跨表硬桥，下一节的互动账本可以逐笔回放应收 30k、存货 10k、设备净值 57k、应付 40k 与借款 50k 的完整变动。</figcaption>
 </figure>
 
 ## 跟随一家简化制造厂：六笔交易同步改写三张表 {#nb-e01-walkthrough}
@@ -194,45 +140,39 @@
 
 把这套框架放进真实上市公司的 SEC 正式披露，就能看到“净利润不等于现金变动”会在两个相反方向同时出现。这里取前文反复读过的两家公司——正在全力扩建 AI 数据中心的 **Microsoft**（MSFT，2026 财年截至 2026 年 6 月 30 日），以及轻资产浓缩液模式的 **The Coca-Cola Company**（KO，2025 财年截至 2025 年 12 月 31 日）：
 
-<figure class="flow-figure e01-real-cf" id="nb-e01-real-cf">
-<div class="ff-head"><p class="ff-title">真实财报里的三表对照：MSFT FY26 vs KO FY25</p><span class="ff-sub">单位：M 美元 · 数据来自两家公司 SEC 官方披露</span></div>
-<div class="e01-rgrid business-exchange" aria-label="两家真实上市公司三表主干对照（M 美元）：一、Microsoft（MSFT）FY2026（截至 2026-06-30）：利润表总收入 331,839、营业利润 155,237、净利润 133,749（稀释 EPS 17.95 美元）；现金流量表经营现金流 +182,935（高于净利润 492 亿美元）、投资现金流 −139,500（其中固定资产资本开支 −115,948）、融资现金流 −52,546（分红 −26,445、回购 −22,271）；期末现金及等价物反由 30,242 降至 20,935，固定资产净值由 204,966 增至 313,076，总资产 758,376 等于总负债 315,989 加股东权益 442,387。二、Coca-Cola（KO）FY2025（截至 2025-12-31）：利润表净营业收入 47,941、营业利润 13,762、合并净利润 13,137（归属股东 13,107、稀释 EPS 3.04 美元）；现金流量表经营现金流 +7,408（因支付 6,069 M 美元 fairlife 或有对价尾款而低于净利润）、投资现金流 −67（固定资产资本开支仅 −2,112）、融资现金流 −8,140（现金分红 −8,779）；期末总资产 104,816 等于总负债 70,541 加总权益 34,275。">
+<figure class="flow-figure e01-real-cf" id="nb-e01-real-cf" data-ff-views>
+<div class="ff-head"><p class="ff-title">真实财报里的三表对照：重资本扩张（MSFT）vs 轻资产（KO）</p><div class="ff-switch" role="group" aria-label="切换公司" hidden><button type="button" data-ff-view-choice="msft" aria-pressed="true">MSFT · FY2026</button><button type="button" data-ff-view-choice="ko" aria-pressed="false">KO · FY2025</button></div></div>
+<div data-ff-only="msft" class="business-exchange" aria-label="Microsoft（MSFT）FY2026（M 美元）：营收 331,839、GAAP 净利润 133,749；经营现金流 CFO +182,935、投资现金流 CFI −139,500（含 CapEx −115,948）、融资现金流 CFF −52,546（派息回购 −48,716）；期末现金反降 9,307 至 20,935，固定资产净值激增 108,110 至 313,076。">
 <div class="e01-rcard" style="--e01-c:#23695a">
-<div class="e01-rhead"><strong>Microsoft（MSFT）· FY2026</strong><small>12 个月截至 2026-06-30 · 重资本扩张期</small></div>
-<div class="e01-rsec"><div class="e01-rsec-t">利润表（期间）</div><div class="e01-ritems">
-<div class="e01-ri"><span>总收入 / 营业利润</span><b>331,839 / 155,237</b></div>
-<div class="e01-ri"><span>GAAP 净利润（稀释 EPS 17.95）</span><b class="e01-pos">133,749</b></div>
+<div class="e01-rhead"><strong>Microsoft（MSFT）· FY2026</strong><small>截至 2026-06-30 · 重资本扩张期</small></div>
+<div class="e01-rsec"><div class="e01-rsec-t">利润表与现金流量表（期间）</div><div class="e01-ritems">
+<div class="e01-ri"><span>总收入 / 营业利润 / GAAP 净利润</span><b>331,839 / 155,237 / 133,749</b></div>
+<div class="e01-ri"><span>经营现金流 CFO（高出净利润 492 亿）</span><b class="e01-pos">+182,935</b></div>
+<div class="e01-ri"><span>投资 CFI（含 CapEx −115,948）/ 融资 CFF</span><b class="e01-neg">−139,500 / −52,546</b></div>
 </div></div>
-<div class="e01-rsec"><div class="e01-rsec-t">现金流量表（期间）</div><div class="e01-ritems">
-<div class="e01-ri"><span>经营现金流 CFO</span><b class="e01-pos">+182,935</b></div>
-<div class="e01-ri"><span>投资现金流 CFI（含 CapEx −115,948）</span><b class="e01-neg">−139,500</b></div>
-<div class="e01-ri"><span>融资现金流 CFF（派息＋回购 −48,716）</span><b class="e01-neg">−52,546</b></div>
-</div></div>
-<div class="e01-rsec"><div class="e01-rsec-t">资产负债表（2026-06-30 时点）</div><div class="e01-ritems">
+<div class="e01-rsec"><div class="e01-rsec-t">资产负债表落点（2026-06-30 时点）</div><div class="e01-ritems">
 <div class="e01-ri"><span>总资产 ＝ 负债 ＋ 权益</span><b>758,376 ＝ 315,989 ＋ 442,387</b></div>
-<div class="e01-ri"><span>现金及等价物 / 固定资产净值</span><b>20,935（↓9,307） / 313,076（↑108,110）</b></div>
+<div class="e01-ri"><span>期末现金 / 固定资产净值</span><b>20,935（↓9,307）/ 313,076（↑108,110）</b></div>
 </div></div>
-<p class="e01-rnote">CFO 高出净利润 492 亿美元，但 1,159 亿美元服务器与数据中心资本开支＋股东回报令期末现金反降、固定资产激增。</p>
+<p class="e01-rnote">CFO 远超净利，但 1,159 亿美元算力 CapEx 与 487 亿美元派息回购令期末现金反降、固定资产激增。</p>
 </div>
+</div>
+<div data-ff-only="ko" hidden class="business-exchange" aria-label="Coca-Cola（KO）FY2025（M 美元）：营收 47,941、合并净利润 13,137（归母 13,107）；经营现金流 CFO +7,408（因支付 6,069 M 美元 fairlife 或有对价尾款低于净利润）、投资 CFI −67（CapEx 仅 −2,112）、融资 CFF −8,140（分红 −8,779）；期末总资产 104,816 等于负债 70,541 加权益 34,275。">
 <div class="e01-rcard" style="--e01-c:#a8743f">
-<div class="e01-rhead"><strong>Coca-Cola（KO）· FY2025</strong><small>12 个月截至 2025-12-31 · 轻资产浓缩液模式</small></div>
-<div class="e01-rsec"><div class="e01-rsec-t">利润表（期间）</div><div class="e01-ritems">
-<div class="e01-ri"><span>净营业收入 / 营业利润</span><b>47,941 / 13,762</b></div>
-<div class="e01-ri"><span>合并净利润（归属股东 13,107）</span><b class="e01-pos">13,137</b></div>
+<div class="e01-rhead"><strong>Coca-Cola（KO）· FY2025</strong><small>截至 2025-12-31 · 轻资产浓缩液模式</small></div>
+<div class="e01-rsec"><div class="e01-rsec-t">利润表与现金流量表（期间）</div><div class="e01-ritems">
+<div class="e01-ri"><span>净营业收入 / 营业利润 / 合并净利润</span><b>47,941 / 13,762 / 13,137</b></div>
+<div class="e01-ri"><span>经营现金流 CFO（含 fairlife 尾款 −6,069）</span><b class="e01-pos">+7,408</b></div>
+<div class="e01-ri"><span>投资 CFI（CapEx 仅 −2,112）/ 融资 CFF</span><b class="e01-neg">−67 / −8,140</b></div>
 </div></div>
-<div class="e01-rsec"><div class="e01-rsec-t">现金流量表（期间）</div><div class="e01-ritems">
-<div class="e01-ri"><span>经营现金流 CFO（含 fairlife 尾款）</span><b class="e01-pos">+7,408</b></div>
-<div class="e01-ri"><span>投资现金流 CFI（CapEx 仅 −2,112）</span><b class="e01-neg">−67</b></div>
-<div class="e01-ri"><span>融资现金流 CFF（现金分红 −8,779）</span><b class="e01-neg">−8,140</b></div>
-</div></div>
-<div class="e01-rsec"><div class="e01-rsec-t">资产负债表（2025-12-31 时点）</div><div class="e01-ritems">
+<div class="e01-rsec"><div class="e01-rsec-t">资产负债表落点（2025-12-31 时点）</div><div class="e01-ritems">
 <div class="e01-ri"><span>总资产 ＝ 负债 ＋ 权益</span><b>104,816 ＝ 70,541 ＋ 34,275</b></div>
-<div class="e01-ri"><span>现金及等价物 / 应付及应计费用</span><b>10,270 / 14,813（↓6,899）</b></div>
+<div class="e01-ri"><span>期末现金 / 应付及应计费用</span><b>10,270 / 14,813（↓6,899）</b></div>
 </div></div>
-<p class="e01-rnote">GAAP 经营现金流比净利润低 57 亿美元，主因是在 2025 年用现金结清了前期已计提的 60.69 亿美元 fairlife 并购或有对价。</p>
+<p class="e01-rnote">GAAP 经营现金流比净利低 57 亿美元，主因是在 2025 年结清了前期已计提的 60.69 亿美元 fairlife 并购尾款。</p>
 </div>
 </div>
-<figcaption>两家公司期末现金变动另含少量汇率折算与受限现金口径差；数字均取自 SEC 官方披露原件。</figcaption>
+<figcaption>点击切换两家公司完整三表快照（单位：M 美元）。数字取自 SEC 官方 10-K，期末现金变动另含少量汇率折算与受限现金口径差。</figcaption>
 </figure>
 
 看 MSFT，利润表和经营现金流都极强，但全年砸下 **1,159 亿美元**扩建服务器与数据中心，叠加 487 亿美元派息和回购，结果账面现金及等价物反降 93 亿美元，固定资产净值则净增逾千亿。[^msft-fy26]

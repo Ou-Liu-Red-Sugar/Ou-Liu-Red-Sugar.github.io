@@ -9,6 +9,7 @@
 }
 
 <link rel="stylesheet" href="/notebook/flow-figures.css?v=20261127b">
+<script src="/notebook/flow-figures.js?v=20261012-6" defer></script>
 
 [《三张财报与经营活动》](/zh/notebook/three-financial-statements/)里的装配小厂卖出了 75,000 美元零件，利润表如实记下 75,000 美元收入，银行账户当天却只进账 45,000 美元——剩下 30,000 美元变成客户欠条，仓库压着 10,000 美元原料，厂里也欠供应商 40,000 美元货款没结。这三笔进出错期的短期资金，就是日常运转里的**营运资本**。
 
@@ -45,91 +46,48 @@
 
 把货在仓库停留的天数（DIO）和等客户打款的天数（DSO）加起来，扣掉供应商垫付的账期（DPO），剩下的**现金转换周期**（Cash Conversion Cycle，简称 CCC）就是公司要自掏腰包周转的净窗口——下面这张图把时间轴和现金流正负号连到了一起：
 
-<figure class="flow-figure e02-cycle-map" id="nb-e02-cycle-map-fig">
-<div class="ff-head"><p class="ff-title">一笔生意的现金转换时间轴与三表联动关系</p><span class="ff-sub">上方为资金占用与账期抵减（CCC ＝ DIO ＋ DSO − DPO）· 曲线箭头直指间接法经营现金流方向</span></div>
-<div class="rel-svg-wrap business-exchange" aria-label="一笔生意的现金转换时间轴与四科目现金流联动：时间轴依次经过 t0 采购入库、t1 向供应商付款、t2 交付确认收入与 t3 收到客户货款。上方现金占用期分为存货周转天数 DIO（采购到交付）与应收周转天数 DSO（交付到回款）；下方为供应商账期 DPO（采购到付款）与净缺口现金转换周期 CCC（付款到回款，等于 DIO 加 DSO 减 DPO）。四条曲线箭头连接至下方四张报表联动卡片：存货余额增加记经营现金流出（−）、应收账款增加记经营现金流出（−）、应付账款增加记经营现金流入（+）、预收与未实现收入增加记经营现金流入（+）。底部给出真实对照：NVDA FY26 周期 +96.9 天（扩产期净占现金 236 亿美元），COST FY26 传统 +0.9 天、计入递延会员费后净周期 −2.6 天。">
-<svg viewBox="0 0 860 442" role="img" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
-  <defs>
-    <marker id="e02-arr-sage" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse">
-      <path d="M1,1.5 L9,5 L1,8.5 Z" fill="#23695a"/>
-    </marker>
-    <marker id="e02-arr-amber" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse">
-      <path d="M1,1.5 L9,5 L1,8.5 Z" fill="#a8743f"/>
-    </marker>
-  </defs>
-  <rect x="0" y="0" width="860" height="442" rx="8" fill="#fafaf6"/>
-  <!-- Top Timeline Panel -->
-  <rect x="14" y="12" width="832" height="178" rx="10" fill="#ffffff" stroke="#cfd3c9" stroke-width="1.2"/>
-  <text x="30" y="34" font-size="13" font-weight="700" fill="#1d2a25">现金占用期（资产端先垫钱）与账期抵减（负债端后付钱）</text>
-  <text x="830" y="34" text-anchor="end" font-size="11.5" fill="#66736c">CCC ＝ DIO ＋ DSO − DPO</text>
-  <!-- Upper bars: DIO + DSO -->
-  <rect x="44" y="48" width="380" height="32" rx="6" fill="#f5e9da" stroke="#dfb98d" stroke-width="1"/>
-  <text x="234" y="68" text-anchor="middle" font-size="12.5" font-weight="700" fill="#8d5520">存货周转天数 DIO（备货生产，资金压在存货）</text>
-  <rect x="428" y="48" width="388" height="32" rx="6" fill="#f9efe3" stroke="#e4c59e" stroke-width="1"/>
-  <text x="622" y="68" text-anchor="middle" font-size="12.5" font-weight="700" fill="#8d5520">应收周转天数 DSO（已确认收入，货款尚未收回）</text>
-  <!-- Center Timeline Spine -->
-  <line x1="44" y1="100" x2="816" y2="100" stroke="#9aaea5" stroke-width="1.8"/>
-  <circle cx="44" cy="100" r="5.5" fill="#23695a"/>
-  <circle cx="294" cy="100" r="5.5" fill="#23695a"/>
-  <circle cx="426" cy="100" r="5.5" fill="#a8743f"/>
-  <circle cx="816" cy="100" r="5.5" fill="#23695a"/>
-  <text x="44" y="120" font-size="11" font-weight="600" fill="#2e3c36">t₀ 采购入库</text>
-  <text x="294" y="120" text-anchor="middle" font-size="11" font-weight="600" fill="#23695a">t₁ 付供应商款</text>
-  <text x="426" y="120" text-anchor="middle" font-size="11" font-weight="600" fill="#8d5520">t₂ 交付确认收入</text>
-  <text x="816" y="120" text-anchor="end" font-size="11" font-weight="600" fill="#23695a">t₃ 客户现金回款</text>
-  <!-- Lower bars: DPO + CCC -->
-  <rect x="44" y="132" width="248" height="32" rx="6" fill="#e2ede7" stroke="#9ec4b2" stroke-width="1"/>
-  <text x="168" y="152" text-anchor="middle" font-size="12" font-weight="700" fill="#1f5c4e">应付账期 DPO（上游替你垫资）</text>
-  <rect x="296" y="132" width="520" height="32" rx="6" fill="#f3dfc8" stroke="#c78e52" stroke-width="1.4"/>
-  <text x="556" y="152" text-anchor="middle" font-size="12.5" font-weight="700" fill="#8d5520">现金转换周期 CCC：付出现金到收回现金的真实垫资窗口（若预收足够大则转负）</text>
-  <!-- Curved connectors down to 4 cards -->
-  <path d="M113,164 C113,198 113,204 113,232" fill="none" stroke="#23695a" stroke-width="1.8" marker-end="url(#e02-arr-sage)"/>
-  <path d="M324,164 C324,198 324,204 324,232" fill="none" stroke="#a8743f" stroke-width="1.8" marker-end="url(#e02-arr-amber)"/>
-  <path d="M535,164 C535,198 535,204 535,232" fill="none" stroke="#a8743f" stroke-width="1.8" marker-end="url(#e02-arr-amber)"/>
-  <path d="M746,164 C746,198 746,204 746,232" fill="none" stroke="#23695a" stroke-width="1.8" stroke-dasharray="4,3" marker-end="url(#e02-arr-sage)"/>
-  <!-- 4 Statement-Linkage Cards -->
-  <rect x="14" y="236" width="198" height="132" rx="10" fill="#ffffff" stroke="#b3d3c4" stroke-width="1.2"/>
-  <text x="113" y="259" text-anchor="middle" font-size="13" font-weight="700" fill="#1d2a25">应付账款（负债）</text>
-  <text x="113" y="277" text-anchor="middle" font-size="11" fill="#66736c">已收货、暂未给供应商付款</text>
-  <line x1="26" y1="286" x2="200" y2="286" stroke="#eaede5"/>
-  <rect x="28" y="295" width="170" height="24" rx="5" fill="#e2ede7"/>
-  <text x="113" y="311" text-anchor="middle" font-size="12" font-weight="700" fill="#1f5c4e">余额 ↑ → 现金流入 (+)</text>
-  <text x="113" y="338" text-anchor="middle" font-size="10.5" fill="#5d6b64">相当于上游提供的无息借款</text>
-  <text x="113" y="354" text-anchor="middle" font-size="10.5" fill="#5d6b64">须剔除应付设备款防失真</text>
-  <rect x="225" y="236" width="198" height="132" rx="10" fill="#ffffff" stroke="#e4c59e" stroke-width="1.2"/>
-  <text x="324" y="259" text-anchor="middle" font-size="13" font-weight="700" fill="#1d2a25">存货（资产）</text>
-  <text x="324" y="277" text-anchor="middle" font-size="11" fill="#66736c">仓库备货增加</text>
-  <line x1="237" y1="286" x2="411" y2="286" stroke="#eaede5"/>
-  <rect x="239" y="295" width="170" height="24" rx="5" fill="#f4e5d2"/>
-  <text x="324" y="311" text-anchor="middle" font-size="12" font-weight="700" fill="#8d5520">余额 ↑ → 现金流出 (−)</text>
-  <text x="324" y="338" text-anchor="middle" font-size="10.5" fill="#5d6b64">还没卖成收入就先付料工费</text>
-  <text x="324" y="354" text-anchor="middle" font-size="10.5" fill="#5d6b64">滞销时再面临存货跌价</text>
-  <rect x="436" y="236" width="198" height="132" rx="10" fill="#ffffff" stroke="#e4c59e" stroke-width="1.2"/>
-  <text x="535" y="259" text-anchor="middle" font-size="13" font-weight="700" fill="#1d2a25">应收账款（资产）</text>
-  <text x="535" y="277" text-anchor="middle" font-size="11" fill="#66736c">赊销已记利润、尚未到账</text>
-  <line x1="448" y1="286" x2="622" y2="286" stroke="#eaede5"/>
-  <rect x="450" y="295" width="170" height="24" rx="5" fill="#f4e5d2"/>
-  <text x="535" y="311" text-anchor="middle" font-size="12" font-weight="700" fill="#8d5520">余额 ↑ → 现金流出 (−)</text>
-  <text x="535" y="338" text-anchor="middle" font-size="10.5" fill="#5d6b64">增长越快、赊销垫款越多</text>
-  <text x="535" y="354" text-anchor="middle" font-size="10.5" fill="#5d6b64">需核查坏账与客户集中度</text>
-  <rect x="647" y="236" width="199" height="132" rx="10" fill="#ffffff" stroke="#b3d3c4" stroke-width="1.2"/>
-  <text x="746" y="259" text-anchor="middle" font-size="13" font-weight="700" fill="#1d2a25">预收／递延收入（负债）</text>
-  <text x="746" y="277" text-anchor="middle" font-size="11" fill="#66736c">客户先付年费、分期履约</text>
-  <line x1="659" y1="286" x2="834" y2="286" stroke="#eaede5"/>
-  <rect x="661" y="295" width="170" height="24" rx="5" fill="#e2ede7"/>
-  <text x="746" y="311" text-anchor="middle" font-size="12" font-weight="700" fill="#1f5c4e">余额 ↑ → 现金流入 (+)</text>
-  <text x="746" y="338" text-anchor="middle" font-size="10.5" fill="#5d6b64">软件订阅与会员制核心现金池</text>
-  <text x="746" y="354" text-anchor="middle" font-size="10.5" fill="#5d6b64">但新签滑坡时会反向抽血</text>
-  <!-- Bottom Real Anchor Strip -->
-  <rect x="14" y="382" width="409" height="46" rx="8" fill="#fdf6ec" stroke="#e4c59e" stroke-width="1"/>
-  <text x="26" y="401" font-size="11.5" font-weight="700" fill="#8d5520">正周期扩产吞现金 · NVDA FY26</text>
-  <text x="26" y="418" font-size="10.2" fill="#5d6b64">DSO 52.0 ＋ DIO 92.0 − DPO 47.1 ＝ +96.9 天（净占现金 236 亿美元）</text>
-  <rect x="436" y="382" width="410" height="46" rx="8" fill="#eef6f2" stroke="#b3d3c4" stroke-width="1"/>
-  <text x="448" y="401" font-size="11.5" font-weight="700" fill="#1f5c4e">负周期扩张造现金 · COST FY26</text>
-  <text x="448" y="418" font-size="10.2" fill="#5d6b64">传统 +0.9 天；计入递延会员费 3.5 天后净 −2.6 天（NWC −23 亿美元）</text>
+<figure class="flow-figure e02-cycle-map" id="nb-e02-cycle-map-fig" data-ff-views>
+<div class="ff-head"><p class="ff-title">现金转换周期与四科目现金流方向</p><div class="ff-switch" role="group" aria-label="切换视角" hidden><button type="button" data-ff-view-choice="timeline" aria-pressed="true">CCC 时间轴</button><button type="button" data-ff-view-choice="impact" aria-pressed="false">四科目增减方向</button></div></div>
+<div class="rel-svg-wrap business-exchange" data-ff-only="timeline" aria-label="现金转换周期时间轴：从采购入库到交付为存货天数 DIO，交付到收款为应收天数 DSO；采购到付供应商款为应付天数 DPO，剩余付款到回款的真实垫资窗口即 CCC 等于 DIO 加 DSO 减 DPO。">
+<svg viewBox="0 0 720 190" role="img" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+  <rect x="28" y="24" width="320" height="32" rx="5" fill="#f5e9da" stroke="#dfb98d"/>
+  <text x="188" y="45" text-anchor="middle" font-size="13" font-weight="700" fill="#8f6033">存货周转天数 DIO</text>
+  <rect x="352" y="24" width="340" height="32" rx="5" fill="#faeae7" stroke="#e4c2bc"/>
+  <text x="522" y="45" text-anchor="middle" font-size="13" font-weight="700" fill="#b5483a">应收周转天数 DSO</text>
+  <line x1="28" y1="82" x2="692" y2="82" stroke="#8ba097" stroke-width="2"/>
+  <circle cx="28" cy="82" r="5" fill="#23695a"/>
+  <circle cx="236" cy="82" r="5" fill="#23695a"/>
+  <circle cx="350" cy="82" r="5" fill="#a8743f"/>
+  <circle cx="692" cy="82" r="5" fill="#23695a"/>
+  <text x="28" y="106" font-size="12" font-weight="600" fill="#22392f">t₀ 采购</text>
+  <text x="236" y="106" text-anchor="middle" font-size="12" font-weight="600" fill="#23695a">t₁ 付供应商</text>
+  <text x="350" y="106" text-anchor="middle" font-size="12" font-weight="600" fill="#8f6033">t₂ 交付确认</text>
+  <text x="692" y="106" text-anchor="end" font-size="12" font-weight="600" fill="#23695a">t₃ 客户回款</text>
+  <rect x="28" y="126" width="206" height="34" rx="5" fill="#e2ede7" stroke="#9ec4b2"/>
+  <text x="131" y="148" text-anchor="middle" font-size="12.5" font-weight="700" fill="#23695a">应付账期 DPO</text>
+  <rect x="238" y="126" width="454" height="34" rx="5" fill="#a8743f"/>
+  <text x="465" y="148" text-anchor="middle" font-size="13.5" font-weight="700" fill="#ffffff">净垫资窗口 CCC ＝ DIO ＋ DSO − DPO</text>
 </svg>
 </div>
-<figcaption>间接法经营现金流永远按“资产增加减现金、负债增加加现金”调节；同一套账期机制在扩张期与退坡期方向相反。</figcaption>
+<div class="rel-svg-wrap business-exchange" data-ff-only="impact" hidden aria-label="营运资本四科目余额上升时的间接法经营现金流方向：资产类存货与应收账款增加记现金流出，负债类应付账款与预收递延收入增加记现金流入。">
+<svg viewBox="0 0 720 185" role="img" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+  <rect x="20" y="20" width="328" height="144" rx="10" fill="#fcf8f3" stroke="#ead9c4" stroke-width="1.3"/>
+  <text x="184" y="50" text-anchor="middle" font-size="14" font-weight="700" fill="#b5483a">经营资产 ↑ ＝ 现金流出 (−)</text>
+  <line x1="42" y1="66" x2="326" y2="66" stroke="#ead9c4"/>
+  <text x="42" y="98" font-size="13.5" font-weight="700" fill="#22392f">存货增加</text>
+  <text x="326" y="98" text-anchor="end" font-size="12.5" fill="#5e6d65">先付料工费压仓库</text>
+  <text x="42" y="136" font-size="13.5" font-weight="700" fill="#22392f">应收增加</text>
+  <text x="326" y="136" text-anchor="end" font-size="12.5" fill="#5e6d65">已记收入未收现</text>
+  <rect x="372" y="20" width="328" height="144" rx="10" fill="#f3f8f4" stroke="#b9d0c2" stroke-width="1.3"/>
+  <text x="536" y="50" text-anchor="middle" font-size="14" font-weight="700" fill="#23695a">经营负债 ↑ ＝ 现金流入 (+)</text>
+  <line x1="394" y1="66" x2="678" y2="66" stroke="#c8dad0"/>
+  <text x="394" y="98" font-size="13.5" font-weight="700" fill="#22392f">应付增加</text>
+  <text x="678" y="98" text-anchor="end" font-size="12.5" fill="#5e6d65">上游提供无息账期</text>
+  <text x="394" y="136" font-size="13.5" font-weight="700" fill="#22392f">预收／递延增加</text>
+  <text x="678" y="136" text-anchor="end" font-size="12.5" fill="#5e6d65">客户先付、分期履约</text>
+</svg>
+</div>
+<figcaption>点击切换时间轴与科目现金流方向。实证对照：NVDA FY26 CCC 为 +96.9 天（扩产期净占现金 236 亿），COST FY26 含预收净 −2.6 天。</figcaption>
 </figure>
 
 ## 正营运资本与负营运资本：增长怎样反向牵动现金 {#nb-e02-growth-cash-lab}
@@ -176,65 +134,57 @@
 
 回到 FY2026 的三份 SEC 官方年报，这三种资金结构都能找到清晰映射：全速扩产 AI 算力系统的 **NVIDIA**（NVDA）、靠高周转与会员费运转的 **Costco Wholesale**（COST），以及以企业订阅预收见长的 **Microsoft**（MSFT）：
 
-<figure class="flow-figure e02-real-wc" id="nb-e02-real-wc-fig">
-<div class="ff-head"><p class="ff-title">三类商业模式的真实营运资本对照（FY2026 SEC 官方原件）</p><span class="ff-sub">金额单位：M 美元 · 周转天数统一按期初期末平均余额 × 365 计算</span></div>
-<div class="e02-rgrid business-exchange" aria-label="三家真实上市公司 FY2026 营运资本与经营现金流对照（金额单位：M 美元，周转天数按平均余额乘以 365 天计算）：一、NVIDIA（NVDA，截至 2026-01-25）：收入 215,938（同比 +65.5%）、营业成本 62,475；期末应收 38,466（上年 23,065，DSO 52.0 天）、存货 21,403（上年 10,080，DIO 92.0 天）、应付 9,812（上年 6,310，DPO 47.1 天），CCC 为 +96.9 天；现金流量表中应收增 −15,399、存货增 −11,324、应付增 +3,096，三项合计净流出 −23,627，使 CFO 102,718 低于 GAAP 净利润 120,067 达 173.5 亿美元。二、Costco Wholesale（COST，截至 2026-08-30）：总收入 303,154（+10.1%，含会员费 5,907）、商品成本 264,279；期末应收 3,959（DSO 4.3 天）、存货 19,324（DIO 25.9 天）、应付 22,591（DPO 29.3 天），传统 CCC 仅 +0.9 天；计入递延会员费 3,006（3.5 天）后核心净营运资本为 −2,314（广义 −2.6 天）；现金流应付增 +2,755 远超存货增 −1,153，营运资本合计净流入 +2,320，托起 CFO 15,817（远高于净利润 9,226）。三、Microsoft（MSFT，截至 2026-06-30）：总收入 331,839（+17.8%）、营业成本 106,374；存货仅 1,397，期末应收 80,876（DSO 82.9 天，受 Q4 集中续约开票拉高），短期未实现收入 72,965（75.6 天，含长期合计 75,712）；应付账款 42,416 中含 26,700 资本开支设备应付（非经营采购账期）；现金流未实现收入增 +9,361 加经营应付增 +5,268，合计 +14,629 抵销应收增 −12,737，托起 182,935 经营现金流。">
+<figure class="flow-figure e02-real-wc" id="nb-e02-real-wc-fig" data-ff-views>
+<div class="ff-head"><p class="ff-title">三类商业模式的真实营运资本对照（FY2026 SEC 原件）</p><div class="ff-switch" role="group" aria-label="切换公司" hidden><button type="button" data-ff-view-choice="nvda" aria-pressed="true">NVDA · 重备货</button><button type="button" data-ff-view-choice="cost" aria-pressed="false">COST · 高周转</button><button type="button" data-ff-view-choice="msft" aria-pressed="false">MSFT · 预收云</button></div></div>
+<div data-ff-only="nvda" class="business-exchange" aria-label="NVIDIA（NVDA）FY2026（M 美元）：DSO 52.0 天、DIO 92.0 天、DPO 47.1 天，CCC 为 +96.9 天；应收、存货与应付三项合计净流出 −23,627，使 CFO 102,718 低于 GAAP 净利润 120,067。">
 <div class="e02-rcard" style="--e02-c:#a8743f">
 <div>
-<div class="e02-rhead"><strong>NVIDIA（NVDA）· FY2026</strong><small>截至 2026-01-25 · 重备货硬件扩张</small></div>
-<div class="e02-pills">
-<div class="e02-pill"><span>DSO</span><b>52.0 天</b></div>
-<div class="e02-pill"><span>DIO</span><b>92.0 天</b></div>
-<div class="e02-pill"><span>DPO</span><b>47.1 天</b></div>
-</div>
-<div class="e02-ccc-tag e02-ccc-pos">CCC ＝ +96.9 天（增长显著占资）</div>
+<div class="e02-rhead"><strong>NVIDIA（NVDA）· FY2026（单位：M 美元）</strong><small>截至 2026-01-25 · 重备货硬件扩张</small></div>
+<div class="e02-pills"><div class="e02-pill"><span>DSO</span><b>52.0 天</b></div><div class="e02-pill"><span>DIO</span><b>92.0 天</b></div><div class="e02-pill"><span>DPO</span><b>47.1 天</b></div></div>
+<div class="e02-ccc-tag e02-ccc-pos">CCC ＝ +96.9 天（高速增长显著占资）</div>
 <div class="e02-ritems">
-<div class="e02-ri"><span>收入（+65.5%）/ 成本</span><b>215,938 / 62,475</b></div>
+<div class="e02-ri"><span>收入（+65.5%）/ 营业成本</span><b>215,938 / 62,475</b></div>
 <div class="e02-ri"><span>期末 应收 / 存货 / 应付</span><b>38,466 / 21,403 / 9,812</b></div>
-<div class="e02-ri"><span>CF 应收＋存货＋应付</span><b class="e02-neg">−23,627</b></div>
-<div class="e02-ri"><span>GAAP 净利润 → CFO</span><b>120,067 → 102,718</b></div>
+<div class="e02-ri"><span>CF 应收＋存货＋应付变动</span><b class="e02-neg">−23,627</b></div>
+<div class="e02-ri"><span>GAAP 净利润 → 经营现金流 CFO</span><b>120,067 → 102,718</b></div>
 </div>
 </div>
 <p class="e02-rnote">营收激增 854 亿美元，单是应收与存货扩张就吃掉 267 亿美元现金，应付仅补回 31 亿。</p>
 </div>
+</div>
+<div data-ff-only="cost" hidden class="business-exchange" aria-label="Costco（COST）FY2026（M 美元）：DSO 4.3 天、DIO 25.9 天、DPO 29.3 天，传统 CCC +0.9 天、含递延会员费 3,006 M 后净 −2.6 天；营运资本合计净流入 +2,320，托起 CFO 15,817 远高于净利润 9,226。">
 <div class="e02-rcard" style="--e02-c:#23695a">
 <div>
-<div class="e02-rhead"><strong>Costco（COST）· FY2026</strong><small>截至 2026-08-30 · 高周转＋会员预收</small></div>
-<div class="e02-pills">
-<div class="e02-pill"><span>DSO</span><b>4.3 天</b></div>
-<div class="e02-pill"><span>DIO</span><b>25.9 天</b></div>
-<div class="e02-pill"><span>DPO</span><b>29.3 天</b></div>
-</div>
+<div class="e02-rhead"><strong>Costco（COST）· FY2026（单位：M 美元）</strong><small>截至 2026-08-30 · 高周转＋会员预收</small></div>
+<div class="e02-pills"><div class="e02-pill"><span>DSO</span><b>4.3 天</b></div><div class="e02-pill"><span>DIO</span><b>25.9 天</b></div><div class="e02-pill"><span>DPO</span><b>29.3 天</b></div></div>
 <div class="e02-ccc-tag e02-ccc-neg">传统 CCC +0.9 天 · 含预收 −2.6 天</div>
 <div class="e02-ritems">
-<div class="e02-ri"><span>总收入（+10.1%）/ 成本</span><b>303,154 / 264,279</b></div>
+<div class="e02-ri"><span>总收入（+10.1%）/ 商品成本</span><b>303,154 / 264,279</b></div>
 <div class="e02-ri"><span>期末 存货 / 应付 / 递延会费</span><b>19,324 / 22,591 / 3,006</b></div>
 <div class="e02-ri"><span>CF 营运资本三项合计</span><b class="e02-pos">+2,320</b></div>
-<div class="e02-ri"><span>GAAP 净利润 → CFO</span><b>9,226 → 15,817</b></div>
+<div class="e02-ri"><span>GAAP 净利润 → 经营现金流 CFO</span><b>9,226 → 15,817</b></div>
 </div>
 </div>
 <p class="e02-rnote">货还没给供应商结账平均就已卖空，叠加 30 亿美元预收会员费，扩张期反而多吐出现金。</p>
 </div>
+</div>
+<div data-ff-only="msft" hidden class="business-exchange" aria-label="Microsoft（MSFT）FY2026（M 美元）：DSO 82.9 天、短期预收 75.6 天（72,965 M），存货仅 1,397 M；未实现收入与经营应付变动 +14,629 抵销应收 −12,737，托起 CFO 182,935。">
 <div class="e02-rcard" style="--e02-c:#4d778f">
 <div>
-<div class="e02-rhead"><strong>Microsoft（MSFT）· FY2026</strong><small>截至 2026-06-30 · 预收云与订阅</small></div>
-<div class="e02-pills">
-<div class="e02-pill"><span>DSO</span><b>82.9 天</b></div>
-<div class="e02-pill"><span>短期预收</span><b>75.6 天</b></div>
-<div class="e02-pill"><span>存货</span><b>1,397M</b></div>
-</div>
-<div class="e02-ccc-tag e02-ccc-neg">短期未实现 72,965M · 核心负占资</div>
+<div class="e02-rhead"><strong>Microsoft（MSFT）· FY2026（单位：M 美元）</strong><small>截至 2026-06-30 · 预收云与订阅</small></div>
+<div class="e02-pills"><div class="e02-pill"><span>DSO</span><b>82.9 天</b></div><div class="e02-pill"><span>短期预收</span><b>75.6 天</b></div><div class="e02-pill"><span>存货</span><b>1,397M</b></div></div>
+<div class="e02-ccc-tag e02-ccc-neg">短期未实现 72,965 M · 核心负占资</div>
 <div class="e02-ritems">
-<div class="e02-ri"><span>总收入（+17.8%）/ 成本</span><b>331,839 / 106,374</b></div>
-<div class="e02-ri"><span>期末 应收 / 短期未实现</span><b>80,876 / 72,965</b></div>
-<div class="e02-ri"><span>CF 未实现＋应付 vs 应收</span><b class="e02-pos">+14,629 vs −12,737</b></div>
-<div class="e02-ri"><span>GAAP 净利润 → CFO</span><b>133,749 → 182,935</b></div>
+<div class="e02-ri"><span>总收入（+17.8%）/ 营业成本</span><b>331,839 / 106,374</b></div>
+<div class="e02-ri"><span>期末 应收 / 短期未实现收入</span><b>80,876 / 72,965</b></div>
+<div class="e02-ri"><span>CF 未实现＋经营应付 vs 应收</span><b class="e02-pos">+14,629 vs −12,737</b></div>
+<div class="e02-ri"><span>GAAP 净利润 → 经营现金流 CFO</span><b>133,749 → 182,935</b></div>
 </div>
 </div>
 <p class="e02-rnote">客户年付预收稳住资金流；期末应付 42,416 含 26,700 数据中心设备款，不可直接算 DPO。</p>
 </div>
 </div>
-<figcaption>三家数据均取自 SEC EDGAR FY2026 官方披露。COST 现金流“营运资本三项”为存货 −1,153、应付 +2,755 与其他经营资产负债 +718 之和；MSFT 现金流量表单独列出经营性应付变动 +5,268，已剥离非现金设备应付。</figcaption>
+<figcaption>点击切换三家公司。周转天数统一按期初期末平均余额 × 365 计算；数据均取自 FY2026 SEC Form 10-K。</figcaption>
 </figure>
 
 先看 **NVDA**，高增速为何反而让经营现金流落后净利润 **173.5 亿美元**？[^nvda-fy26] 从 Hopper 向 Blackwell 整机架爬坡时，它得先向代工封测链垫付备货、再等云客户按账期回款，近百天正周期一口气抽走了 **236.3 亿美元**现金。NVDA 靠超过 55% 的净利率扛住了这笔占资；换成净利率 8% 的普通制造厂，同样增速和账期下经营现金流早已转负。
@@ -243,82 +193,47 @@
 
 到了 **MSFT** 这类企业软件与云平台，实物存货几乎可以忽略，负营运资本的主力换成了**预收／未实现收入**。[^msft-fy26] 企业多年度合同通常在年初一次性开票收款、再随服务按月滴入利润表；只要新签预收快于当期确认，递延收入就像一座水位持续抬升的蓄水池。[^msft-10k-fy26] 在[《收入增长与市场预期》](/zh/notebook/revenue-growth-expectations/)拆过的 **Snowflake**（SNOW）身上，这座蓄水池甚至能在利润表大额亏损时撑出充沛现金流：[^snow-fy26]
 
-<figure class="flow-figure e02-deferred-flow" id="nb-e02-deferred-flow-fig">
-<div class="ff-head"><p class="ff-title">订阅预收的“蓄水池”：MSFT FY2026 递延收入流转与 SNOW 对照</p><span class="ff-sub">金额单位：M 美元（MSFT Form 10-K Note 12）· 只要新签预收快于履约确认，蓄水池就持续净流入现金</span></div>
-<div class="rel-svg-wrap business-exchange" aria-label="订阅预收蓄水池机制图解：上方展示 Microsoft（MSFT）FY2026 未实现收入蓄水池变动（单位 M 美元），左侧期初递延余额 67,265 加当年新签预收 +194,184 经两条曲线箭头注入中央未实现收入蓄水池，期末余额 75,712 M 美元（含短期 72,965 M 美元），现金流量表未实现收入变动带来净增现金流 +9,361 M 美元；右侧曲线箭头表示按月履约滴入利润表 −185,737 M 美元，并标明新签大于确认时现金快于利润、新签小于确认时现金先于利润失血。底部对照栏展示 Snowflake（SNOW）FY2026：零存货、全年 GAAP 净亏损 13.3 亿美元，靠 33.5 亿美元短期递延收入（占全年收入 71.5%，当年递延收入变动净增现金 +755.2 M 美元）撑出经营现金流 +12.2 亿美元。">
-<svg viewBox="0 0 860 330" role="img" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+<figure class="flow-figure e02-deferred-flow" id="nb-e02-deferred-flow-fig" data-ff-views>
+<div class="ff-head"><p class="ff-title">订阅预收“蓄水池”：MSFT 递延流转与 SNOW 对照（FY2026）</p><div class="ff-switch" role="group" aria-label="切换样本" hidden><button type="button" data-ff-view-choice="msft" aria-pressed="true">MSFT 蓄水池</button><button type="button" data-ff-view-choice="snow" aria-pressed="false">SNOW 亏损正现</button></div></div>
+<div class="rel-svg-wrap business-exchange" data-ff-only="msft" aria-label="MSFT FY2026 未实现收入蓄水池流转（M 美元）：当年新签预收 +194,184 注入蓄水池，按月履约确认 −185,737 滴入利润表，期末递延余额由 67,265 升至 75,712，现金流量表净增现金 +9,361 M 美元。">
+<svg viewBox="0 0 720 175" role="img" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
   <defs>
-    <marker id="e02-def-arr-sage" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse">
-      <path d="M1,1.5 L9,5 L1,8.5 Z" fill="#23695a"/>
-    </marker>
-    <marker id="e02-def-arr-amber" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse">
-      <path d="M1,1.5 L9,5 L1,8.5 Z" fill="#a8743f"/>
-    </marker>
+    <marker id="e02-d-s" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse"><path d="M0 1.2 L9 5 L0 8.8 z" fill="#23695a"/></marker>
+    <marker id="e02-d-a" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse"><path d="M0 1.2 L9 5 L0 8.8 z" fill="#a8743f"/></marker>
   </defs>
-  <rect x="0" y="0" width="860" height="330" rx="8" fill="#fafaf6"/>
-  <!-- Top Header -->
-  <text x="18" y="27" font-size="12.5" font-weight="700" fill="#1d2a25">Microsoft（MSFT）FY2026 未实现收入蓄水池（Note 12）</text>
-  <text x="842" y="27" text-anchor="end" font-size="11" fill="#66736c">期末 75,712 ＝ 期初 67,265 ＋ 新签 194,184 − 确认 185,737</text>
-  <!-- Left Column: Beginning Balance + New Billings -->
-  <rect x="18" y="40" width="220" height="82" rx="10" fill="#ffffff" stroke="#cfd3c9" stroke-width="1.2"/>
-  <text x="128" y="61" text-anchor="middle" font-size="11.5" font-weight="600" fill="#5d6b64">期初递延余额（FY25 末）</text>
-  <text x="128" y="88" text-anchor="middle" font-size="17" font-weight="700" fill="#1d2a25">67,265 M 美元</text>
-  <text x="128" y="109" text-anchor="middle" font-size="10.2" fill="#66736c">上年已收款、待本年履约存量</text>
-  <rect x="18" y="136" width="220" height="106" rx="10" fill="#ffffff" stroke="#b3d3c4" stroke-width="1.3"/>
-  <text x="128" y="158" text-anchor="middle" font-size="12" font-weight="700" fill="#1f5c4e">当年新签预收（进水口）</text>
-  <rect x="34" y="168" width="188" height="28" rx="6" fill="#e2ede7"/>
-  <text x="128" y="187" text-anchor="middle" font-size="15.5" font-weight="700" fill="#1f5c4e">+194,184 M 美元</text>
-  <text x="128" y="213" text-anchor="middle" font-size="10.2" fill="#5d6b64">企业合同年初一次开票收款</text>
-  <text x="128" y="229" text-anchor="middle" font-size="10.2" font-weight="600" fill="#23695a">现金先落袋，持续抬高水位</text>
-  <!-- Left to Center Curved Bezier Arrows -->
-  <path d="M238,81 C266,81 266,104 294,104" fill="none" stroke="#8aa198" stroke-width="1.8" stroke-dasharray="4,3" marker-end="url(#e02-def-arr-sage)"/>
-  <text x="266" y="73" text-anchor="middle" font-size="10" font-weight="600" fill="#5d6b64">滚存</text>
-  <path d="M238,188 C266,188 266,166 294,166" fill="none" stroke="#23695a" stroke-width="2.3" marker-end="url(#e02-def-arr-sage)"/>
-  <text x="266" y="206" text-anchor="middle" font-size="10" font-weight="600" fill="#1f5c4e">注水</text>
-  <!-- Center Column: Reservoir Card -->
-  <rect x="298" y="40" width="264" height="202" rx="10" fill="#ffffff" stroke="#cfd3c9" stroke-width="1.2"/>
-  <rect x="299" y="41" width="262" height="31" rx="9" fill="#eef6f2"/>
-  <rect x="299" y="63" width="262" height="9" fill="#eef6f2"/>
-  <line x1="299" y1="72" x2="561" y2="72" stroke="#d2e4db" stroke-width="1"/>
-  <text x="430" y="61" text-anchor="middle" font-size="12.5" font-weight="700" fill="#1f5c4e">资产负债表 · 未实现收入蓄水池</text>
-  <!-- Visual Water Tank -->
-  <rect x="316" y="83" width="228" height="92" rx="8" fill="#f7faf8" stroke="#b3d3c4" stroke-width="1.2"/>
-  <rect x="317" y="106" width="226" height="17" fill="#d3e6dc"/>
-  <rect x="317" y="123" width="226" height="51" rx="6" fill="#e2ede7"/>
-  <rect x="317" y="123" width="226" height="10" fill="#e2ede7"/>
-  <line x1="317" y1="123" x2="543" y2="123" stroke="#6aa08b" stroke-width="1" stroke-dasharray="3,3"/>
-  <text x="430" y="100" text-anchor="middle" font-size="10.2" fill="#5d6b64">期末蓄水池余额（含短期 72,965）</text>
-  <text x="430" y="146" text-anchor="middle" font-size="20" font-weight="700" fill="#1d2a25">75,712 M 美元</text>
-  <text x="430" y="166" text-anchor="middle" font-size="10.2" font-weight="600" fill="#1f5c4e">进水快于出水 · 免息合同负债扩容</text>
-  <!-- Cash Flow Net Impact Badge -->
-  <rect x="316" y="185" width="228" height="46" rx="7" fill="#e2ede7" stroke="#9ec4b2" stroke-width="1"/>
-  <text x="430" y="203" text-anchor="middle" font-size="10" fill="#1f5c4e">现金流量表 · 未实现收入变动调节</text>
-  <text x="430" y="222" text-anchor="middle" font-size="13" font-weight="700" fill="#1f5c4e">净增现金流 +9,361 M 美元</text>
-  <!-- Center to Right Curved Bezier Arrow -->
-  <path d="M562,106 C586,93 596,93 618,106" fill="none" stroke="#a8743f" stroke-width="2.3" marker-end="url(#e02-def-arr-amber)"/>
-  <text x="590" y="86" text-anchor="middle" font-size="10" font-weight="600" fill="#8d5520">按月履约</text>
-  <!-- Right Column: Income Statement Outflow + Threshold Card -->
-  <rect x="622" y="40" width="220" height="124" rx="10" fill="#ffffff" stroke="#e4c59e" stroke-width="1.3"/>
-  <text x="732" y="63" text-anchor="middle" font-size="12" font-weight="700" fill="#8d5520">滴入利润表（出水口）</text>
-  <rect x="638" y="73" width="188" height="28" rx="6" fill="#f4e5d2"/>
-  <text x="732" y="92" text-anchor="middle" font-size="15.5" font-weight="700" fill="#8d5520">−185,737 M 美元</text>
-  <text x="732" y="119" text-anchor="middle" font-size="10.2" fill="#5d6b64">按月履约逐步确认为营业收入</text>
-  <text x="732" y="136" text-anchor="middle" font-size="10.2" fill="#5d6b64">仅释放此前已收款，不再进现</text>
-  <text x="732" y="153" text-anchor="middle" font-size="10" fill="#8d5520">确认节奏滞后于现金收款</text>
-  <rect x="622" y="176" width="220" height="66" rx="10" fill="#fdf6ec" stroke="#e4c59e" stroke-width="1.1"/>
-  <text x="732" y="196" text-anchor="middle" font-size="11" font-weight="700" fill="#8d5520">顺风与逆风分界</text>
-  <text x="732" y="214" text-anchor="middle" font-size="10.2" font-weight="600" fill="#1f5c4e">新签 ＞ 确认 → 现金快于利润</text>
-  <text x="732" y="231" text-anchor="middle" font-size="10.2" font-weight="600" fill="#8d5520">新签 ＜ 确认 → 现金先于利润失血</text>
-  <!-- Bottom Contrast Callout: SNOW FY26 -->
-  <rect x="18" y="256" width="824" height="62" rx="9" fill="#eef6f2" stroke="#b3d3c4" stroke-width="1.1"/>
-  <rect x="30" y="269" width="128" height="36" rx="6" fill="#23695a"/>
-  <text x="94" y="284" text-anchor="middle" font-size="10" fill="#e2ede7">纯预收样本对照</text>
-  <text x="94" y="299" text-anchor="middle" font-size="11.5" font-weight="700" fill="#ffffff">SNOW FY2026</text>
-  <text x="174" y="282" font-size="12" font-weight="700" fill="#1d2a25">GAAP 净亏 13.3 亿美元，靠 33.5 亿美元递延收入（占收入 71.5%）撑出 CFO +12.2 亿美元</text>
-  <text x="174" y="303" font-size="10.5" fill="#4f5f58">零存货、全年递延收入单一项净增现金 +755.2 M 美元——利润表尚在亏损，预收蓄水池已能托起强正经营现金流。</text>
+  <rect x="20" y="34" width="196" height="106" rx="10" fill="#f3f8f4" stroke="#b9d0c2" stroke-width="1.3"/>
+  <text x="118" y="62" text-anchor="middle" font-size="13" font-weight="700" fill="#23695a">进水：新签预收</text>
+  <text x="118" y="94" text-anchor="middle" font-size="18" font-weight="700" fill="#23695a">+194,184 M</text>
+  <text x="118" y="118" text-anchor="middle" font-size="12" fill="#5e6d65">年初开票、现金先落袋</text>
+  <line x1="216" y1="87" x2="256" y2="87" stroke="#23695a" stroke-width="2" marker-end="url(#e02-d-s)"/>
+  <rect x="262" y="26" width="196" height="122" rx="10" fill="#23695a"/>
+  <text x="360" y="54" text-anchor="middle" font-size="13" fill="#e5efe9">未实现收入蓄水池</text>
+  <text x="360" y="88" text-anchor="middle" font-size="19" font-weight="700" fill="#ffffff">75,712 M</text>
+  <text x="360" y="112" text-anchor="middle" font-size="12" fill="#d7e8df">期初 67,265 → 期末升</text>
+  <text x="360" y="134" text-anchor="middle" font-size="12" font-weight="700" fill="#f5e6d3">CF 净增现金 +9,361 M</text>
+  <line x1="458" y1="87" x2="498" y2="87" stroke="#a8743f" stroke-width="2" marker-end="url(#e02-d-a)"/>
+  <rect x="504" y="34" width="196" height="106" rx="10" fill="#fcf8f3" stroke="#ead9c4" stroke-width="1.3"/>
+  <text x="602" y="62" text-anchor="middle" font-size="13" font-weight="700" fill="#8f6033">出水：滴入利润表</text>
+  <text x="602" y="94" text-anchor="middle" font-size="18" font-weight="700" fill="#8f6033">−185,737 M</text>
+  <text x="602" y="118" text-anchor="middle" font-size="12" fill="#5e6d65">按月履约确认、不进现</text>
 </svg>
 </div>
-<figcaption>MSFT FY2026 未实现收入期末合计 75,712 M 美元（资产负债表短期 72,965 加长期部分），受汇率折算影响，现金流量表未实现收入变动项为 +9,361 M 美元；SNOW FY2026 收入 4,683.9 M 美元、GAAP 净亏损 −1,329.0 M 美元、短期递延收入 3,347.0 M 美元、CFO +1,221.9 M 美元。</figcaption>
+<div class="rel-svg-wrap business-exchange" data-ff-only="snow" hidden aria-label="SNOW FY2026 纯预收对照：GAAP 净亏损 −13.3 亿美元，靠 33.5 亿美元短期递延收入（当年新增现金 +755 M 美元）与非现金项撑出经营现金流 +12.2 亿美元。">
+<svg viewBox="0 0 720 180" role="img" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+  <text x="24" y="32" font-size="14" font-weight="700" fill="#22392f">SNOW FY2026：账面巨亏却有强正经营现金流</text>
+  <line x1="340" y1="50" x2="340" y2="164" stroke="#b7c3b9" stroke-width="1.4"/>
+  <text x="24" y="76" font-size="13.5" font-weight="700" fill="#b5483a">GAAP 净利润</text>
+  <rect x="194" y="58" width="146" height="24" rx="4" fill="#b5483a"/>
+  <text x="354" y="76" font-size="13.5" font-weight="700" fill="#b5483a">−13.3 亿美元</text>
+  <text x="24" y="116" font-size="13.5" font-weight="700" fill="#23695a">递延收入新增现金</text>
+  <rect x="340" y="98" width="84" height="24" rx="4" fill="#6b9f8c"/>
+  <text x="438" y="116" font-size="13.5" font-weight="700" fill="#23695a">+7.6 亿（池子 33.5 亿）</text>
+  <text x="24" y="156" font-size="13.5" font-weight="700" fill="#23695a">经营现金流 CFO</text>
+  <rect x="340" y="138" width="134" height="24" rx="4" fill="#23695a"/>
+  <text x="488" y="156" font-size="13.5" font-weight="700" fill="#23695a">+12.2 亿美元（含 SBC 加回）</text>
+</svg>
+</div>
+<figcaption>点击切换 MSFT 与 SNOW 视图。新签快于确认时现金先于利润增长；新签滑坡时蓄水池反向抽血。数据来自两家 FY2026 10-K。</figcaption>
 </figure>
 
 <span data-text-versions id="nb-e02-text-footnotes">不过读科技与软件大厂的营运资本时，不能把资产负债表余额直接塞进周转天数公式，得先翻开附注排掉三颗雷：应付账款里可能混着买服务器建数据中心的资本开支，财年末集中续约开票会暂时拉高表观 DSO，高增长公司按期末余额与均值算出的天数也会差出一大截<span data-text-detail>（第一，**资本开支混入应付账款**：MSFT FY2026 期末应付账款 42,416 M 美元中，Note 6 披露有 **267 亿美元**（占 63%）属于尚未结算的服务器与数据中心固定资产采购，直接除以营业成本会算出失真的 145 天 DPO，剔除后经营性应付仅约 157 亿美元。第二，**财年末集中续约开票**：MSFT 企业客户习惯在 6 月末第四财季集中签单开票，同时推高应收（80,876 M 美元）与短期未实现收入（72,965 M 美元）；到了 FY2027 Q1（截至 2026-09-30），期末应收便回落至 62,084 M 美元，单季收回现金 **+17,104 M 美元**。第三，**高速增长下的期末与均值口径差**：NVDA FY2026 营收增 65.5%、Q4 单季达 68,127 M 美元，拿全年收入去除期末余额算出的 DSO（65.0 天）和 DIO（125.0 天）明显高于期初期末平均口径的 52.0 天与 92.0 天，横纵向比较前应先统一口径）</span>。[^msft-q1fy27]<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>

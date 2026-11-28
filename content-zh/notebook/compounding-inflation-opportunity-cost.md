@@ -41,27 +41,23 @@
 <figure class="flow-figure" id="nb-a04-compound-discount">
 <div class="ff-head"><p class="ff-title">复利与贴现是同一条时间轴的两个方向</p><span class="ff-sub">示例：连续复利率 \(r = 5\%\)，时长 \(t = 1\) 年</span></div>
 <div class="business-exchange" aria-label="在连续复利率 5%、时长 1 年的同一时间轴上：今天 95.12 美元向后复利乘以 exp(+0.05) 得到一年后的 100.00 美元；反过来，一年后的 100.00 美元向前贴现乘以 exp(-0.05) 折回今天的现值约 95.12 美元。">
-<svg viewBox="0 0 720 132" role="img" aria-label="连续复利与贴现互为逆运算示意图" style="width:100%;height:auto;display:block">
+<svg viewBox="0 0 720 144" role="img" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;display:block">
   <defs>
-    <marker id="a04-arr-g" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto">
-      <path d="M1 1.5 L9 5 L1 8.5 Z" fill="#145343"/>
-    </marker>
-    <marker id="a04-arr-w" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto">
-      <path d="M1 1.5 L9 5 L1 8.5 Z" fill="#a8743f"/>
-    </marker>
+    <marker id="a04-arr-g" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto"><path d="M1 1.5 L9 5 L1 8.5 Z" fill="#145343"/></marker>
+    <marker id="a04-arr-w" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto"><path d="M1 1.5 L9 5 L1 8.5 Z" fill="#a8743f"/></marker>
   </defs>
-  <rect x="16" y="22" width="174" height="88" rx="8" fill="#f3f7f5" stroke="#8fb3a7" stroke-width="1.3"/>
-  <text x="103" y="47" text-anchor="middle" font-size="11.5" font-weight="650" fill="#145343">今天（现值 t = 0）</text>
-  <text x="103" y="76" text-anchor="middle" font-size="19" font-weight="700" fill="#18241e">95.12 美元</text>
-  <text x="103" y="97" text-anchor="middle" font-size="10.5" fill="#58605c">V(0)</text>
-  <path d="M 196 48 Q 360 12 522 48" fill="none" stroke="#145343" stroke-width="1.9" marker-end="url(#a04-arr-g)"/>
-  <text x="360" y="26" text-anchor="middle" font-size="12" font-weight="700" fill="#145343">复利向后滚存：× exp(+rt) = × 1.0513</text>
-  <path d="M 524 84 Q 360 120 198 84" fill="none" stroke="#a8743f" stroke-width="1.9" stroke-dasharray="5 3" marker-end="url(#a04-arr-w)"/>
-  <text x="360" y="118" text-anchor="middle" font-size="12" font-weight="700" fill="#8f6033">贴现折回今天：× exp(−rt) = × 0.9512</text>
-  <rect x="530" y="22" width="174" height="88" rx="8" fill="#fbf9f5" stroke="#d5c2a8" stroke-width="1.3"/>
-  <text x="617" y="47" text-anchor="middle" font-size="11.5" font-weight="650" fill="#8f6033">一年后（终值 t = 1）</text>
-  <text x="617" y="76" text-anchor="middle" font-size="19" font-weight="700" fill="#18241e">100.00 美元</text>
-  <text x="617" y="97" text-anchor="middle" font-size="10.5" fill="#58605c">V(1)</text>
+  <rect x="16" y="24" width="176" height="96" rx="9" fill="#f3f7f5" stroke="#8fb3a7" stroke-width="1.3"/>
+  <text x="104" y="50" text-anchor="middle" font-size="12.5" font-weight="650" fill="#145343">今天（现值 t = 0）</text>
+  <text x="104" y="82" text-anchor="middle" font-size="19" font-weight="700" fill="#18241e">95.12 美元</text>
+  <text x="104" y="106" text-anchor="middle" font-size="12" fill="#58605c">V(0)</text>
+  <path d="M 198 52 Q 360 16 520 52" fill="none" stroke="#145343" stroke-width="2" marker-end="url(#a04-arr-g)"/>
+  <text x="360" y="28" text-anchor="middle" font-size="12.5" font-weight="700" fill="#145343">复利滚存：× exp(+rt) = 1.0513</text>
+  <path d="M 522 92 Q 360 128 200 92" fill="none" stroke="#a8743f" stroke-width="2" stroke-dasharray="5 3" marker-end="url(#a04-arr-w)"/>
+  <text x="360" y="130" text-anchor="middle" font-size="12.5" font-weight="700" fill="#8f6033">贴现折回：× exp(−rt) = 0.9512</text>
+  <rect x="528" y="24" width="176" height="96" rx="9" fill="#fbf9f5" stroke="#d5c2a8" stroke-width="1.3"/>
+  <text x="616" y="50" text-anchor="middle" font-size="12.5" font-weight="650" fill="#8f6033">一年后（终值 t = 1）</text>
+  <text x="616" y="82" text-anchor="middle" font-size="19" font-weight="700" fill="#18241e">100.00 美元</text>
+  <text x="616" y="106" text-anchor="middle" font-size="12" fill="#58605c">V(1)</text>
 </svg>
 </div>
 </figure>

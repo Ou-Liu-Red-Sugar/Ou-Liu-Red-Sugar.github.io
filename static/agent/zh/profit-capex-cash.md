@@ -166,6 +166,7 @@ This is reference material for the learner's current request. Use the supplied e
 
 ## Supplied entry
 <link rel="stylesheet" href="/notebook/flow-figures.css?v=20261127b">
+<script src="/notebook/flow-figures.js?v=20261012-6" defer></script>
 
 前两篇[《三张财报与经营活动》](/zh/notebook/three-financial-statements/)与[《收入、回款与营运资本》](/zh/notebook/revenue-collections-working-capital/)留下一道悬念：Microsoft（MSFT）在 FY2026 的营业利润比上年多赚 267 亿美元，可全年自由现金流反而从 716.11 亿美元跌至 669.87 亿美元。[^msft-fy26]
 
@@ -185,16 +186,17 @@ This is reference material for the learner's current request. Use the supplied e
 
 <span data-text-versions id="nb-e03-text-accounting">除了金额错位，长期投资还有两到三年的**投产时滞**。按 US GAAP 与 IFRS 准则，建厂装机阶段的投入先挂在**在建工程**（CIP / EUI）科目，完工投用前不提折旧；一旦转固，折旧立刻按年限全额压向毛利率，哪怕新产能还在爬坡<span data-text-detail>（以 MSFT FY2026 Form 10-K Note 1 与 Note 6 为例：服务器与网络设备按 2—6 年直线法折旧，期末原值达 2,158.74 亿美元，建筑与改良按 5—15 年、内部使用软件按 3 年折旧，另有 346 亿美元数据中心在建合同承诺。TSMC 在 FY2025 Form 20-F Note 5 与 Note 15 中披露：机台按 5 年、无尘室与机电系统 10 年、主厂房 20 年直线折旧，建设期符合条件的借款利息亦资本化。此外，部分重资产企业通过融资租赁或供应商分期融资采购设备，现金流出可能落在融资现金流而非投资活动 CapEx 行，例如 AT&T FY2025 除 208.42 亿美元现金 CapEx 外，还在融资活动支付了 11.81 亿美元供应商融资款）</span>。[^msft-10k]<sup>，</sup>[^tsmc-20f]<sup>，</sup>[^att-10k]<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>
 
-<figure class="flow-figure e03-lag" id="nb-e03-lag-fig">
-<div class="ff-head"><p class="ff-title">从资本开支到折旧的四阶段时滞：MSFT 与 TSMC 实证</p><span class="ff-sub">现金在建设期先行流出 · 折旧在资产达预定可使用状态后才进入利润表</span></div>
-<div class="business-exchange" aria-label="资本开支到折旧的四阶段路径与两家公司实证：四阶段依次为建设安装期（现金大额流出、在建工程不提折旧）、投产转固期（开始计提折旧但产能爬坡中、毛利率承压）、满产收获期（产能利用率高、折旧与收入匹配、现金回流）及存量更新稳态（CapEx 贴近维持所需、利润与现金收敛）。左侧 MSFT FY2024 至 FY2026 实证显示：固定资产 CapEx 由 445 亿增至 646 亿再增至 1,159 亿美元，而同期固定资产折旧费用仅由 152 亿升至 220 亿再升至 343 亿美元，另余 267 亿美元未付设备款挂在应付账款。右侧 TSMC FY2025 Form 20-F 实证显示：全年 CapEx 12,724 亿新台币（约 409 亿美元，2026 年指引 520—560 亿美元），全年 D&A 6,881 亿新台币；期末在建工程与安装中设备高达 15,190 亿新台币，占自用固定资产净值 41.2%，完工投用前不提折旧，投用后机台按 5 年直线法折旧。">
+<figure class="flow-figure e03-lag" id="nb-e03-lag-fig" data-ff-views>
+<div class="ff-head"><p class="ff-title">从资本开支到折旧的四阶段时滞：机理与实证</p><div class="ff-switch" role="group" aria-label="切换视图" hidden><button type="button" data-ff-view-choice="stages" aria-pressed="true">四阶段时滞</button><button type="button" data-ff-view-choice="msft" aria-pressed="false">MSFT 三年爬坡</button><button type="button" data-ff-view-choice="tsm" aria-pressed="false">TSM 在建池</button></div></div>
+<div data-ff-only="stages" class="business-exchange" aria-label="资本开支到折旧的四阶段路径：建设安装期现金大额流出、在建工程折旧为零；完工转固期起提折旧但产能爬坡；满产期摊薄固定折旧；存量稳态期利润与 FCF 收敛。">
 <div class="e03-stages">
-<div class="e03-stage" style="--e03-c:#a8743f"><em>阶段 1 · 建厂装机</em><strong>在建工程（CIP）</strong><p>现金按工程进度大额流出（CapEx 飙升）；尚未达可使用状态，利润表折旧为 0。</p></div>
-<div class="e03-stage" style="--e03-c:#c06c3e"><em>阶段 2 · 完工转固</em><strong>投产起提折旧</strong><p>资产转入固定资产并开始直线折旧；初期良率与利用率爬坡，利润率往往承压。</p></div>
-<div class="e03-stage" style="--e03-c:#23695a"><em>阶段 3 · 产能释放</em><strong>满产与现金回流</strong><p>高利用率摊薄单位固定折旧，经营现金流大幅放量，检验前置投入回报率。</p></div>
-<div class="e03-stage" style="--e03-c:#5986a1"><em>阶段 4 · 存量周期</em><strong>更新替代稳态</strong><p>设备到期陆续替换，CapEx 向维持所需收敛，账面利润与 FCF 趋于接近。</p></div>
+<div class="e03-stage" style="--e03-c:#a8743f"><em>阶段 1 · 建厂装机</em><strong>在建工程（CIP）</strong><p>现金按进度流出，达可使用状态前折旧为 0。</p></div>
+<div class="e03-stage" style="--e03-c:#c06c3e"><em>阶段 2 · 完工转固</em><strong>投产起提折旧</strong><p>转固计提折旧，初期良率爬坡、利润率承压。</p></div>
+<div class="e03-stage" style="--e03-c:#23695a"><em>阶段 3 · 产能释放</em><strong>满产与回流</strong><p>高利用率摊薄折旧，检验前置投入回报率。</p></div>
+<div class="e03-stage" style="--e03-c:#5986a1"><em>阶段 4 · 存量周期</em><strong>更新替代稳态</strong><p>CapEx 向维持所需收敛，利润与 FCF 靠拢。</p></div>
 </div>
-<div class="e03-proof">
+</div>
+<div data-ff-only="msft" hidden class="business-exchange" aria-label="MSFT FY2024 至 FY2026 固定资产 CapEx 与折旧爬坡（亿美元）：CapEx 分别为 445、646、1,159；折旧费用分别为 152、220、343，滞后明显。">
 <div class="e03-pbox">
 <div class="e03-phead"><strong>Microsoft（MSFT）三年 CapEx vs 折旧爬坡</strong><span>亿美元 · FY26 10-K</span></div>
 <div class="e03-yr-rows">
@@ -202,8 +204,10 @@ This is reference material for the learner's current request. Use the supplied e
 <div class="e03-yr"><b>FY25</b><div class="e03-dual"><div class="e03-dbar"><i style="--w:55.7%;--c:#a8743f"></i></div><div class="e03-dbar"><i style="--w:19.0%;--c:#23695a"></i></div></div><div class="e03-yval"><strong>646</strong> / 折旧 220</div></div>
 <div class="e03-yr"><b>FY26</b><div class="e03-dual"><div class="e03-dbar"><i style="--w:100%;--c:#a8743f"></i></div><div class="e03-dbar"><i style="--w:29.6%;--c:#23695a"></i></div></div><div class="e03-yval"><strong>1,159</strong> / 折旧 343</div></div>
 </div>
-<div class="e03-leg">上条为固定资产 CapEx，下条为 Note 6 固定资产折旧；FY26 期末另有 267 亿美元已购设备尚在应付账款，服务器按 2—6 年折旧。</div>
+<div class="e03-leg">上条为固定资产 CapEx，下条为 Note 6 固定资产折旧；FY26 期末另有 267 亿美元已购设备尚挂在应付账款。</div>
 </div>
+</div>
+<div data-ff-only="tsm" hidden class="business-exchange" aria-label="TSMC FY2025 在建工程蓄水池（M 新台币）：全年 CapEx 1,272,411（约 409 亿美元）、D&amp;A 688,096，期末在建及安装中设备高达 1,518,996，占自用固定资产净值 41.2%。">
 <div class="e03-pbox">
 <div class="e03-phead"><strong>TSMC（TSM）在建工程蓄水池</strong><span>FY25 20-F · M 新台币</span></div>
 <div class="e03-tsm-stats">
@@ -212,11 +216,10 @@ This is reference material for the learner's current request. Use the supplied e
 <div class="e03-tsm-row"><span>期末在建及安装中设备（EUI/CIP）</span><b class="e03-neg">1,518,996</b></div>
 <div class="e03-tsm-row"><span>EUI/CIP 占自用固定资产净值</span><b class="e03-pos">41.2%</b></div>
 </div>
-<div class="e03-leg">逾四成固定资产净值尚在安装建设、未开始折旧；投用后晶圆机台按 5 年直线折旧，2026 年 CapEx 指引续增至 520—560 亿美元。</div>
+<div class="e03-leg">逾四成固定资产净值尚在安装建设、未起提折旧；投用后晶圆机台按 5 年直线折旧，2026 年 CapEx 指引 520—560 亿美元。</div>
 </div>
 </div>
-</div>
-<figcaption>数据来源：Microsoft FY2026 Form 10-K Note 1 与 Note 6；TSMC FY2025 Form 20-F Item 4、现金流量表及 Note 15。</figcaption>
+<figcaption>点击切换四阶段路径与 MSFT、TSM 实证。数据来自 MSFT FY2026 10-K 与 TSM FY2025 20-F。</figcaption>
 </figure>
 
 ## EBIT、EBITDA、Owner Earnings 与 FCF：定义、桥接与适用边界 {#nb-e03-four-rulers}
@@ -259,109 +262,49 @@ EBITDA 的陷阱是把年年重置的设备磨损当成不算成本。Warren Buf
 
 为同时避开 EBITDA 忽略设备重置、单年 FCF 又误伤主动扩张这两处盲区，Warren Buffett 在 1986 年 Berkshire Hathaway 股东信附录中提出**所有者盈余**。[^buffett-1986] 它只扣保住现有地位所需的维持投入，但财报并不分列维持与扩张两行，只能结合行业寿命与产能估算——正如他借 John Maynard Keynes 所言，宁要“模糊的正确，不要精确的错误”。
 
-<figure class="flow-figure e03-rulers" id="nb-e03-rulers-fig">
-<div class="ff-head"><p class="ff-title">从营业收入到四把盈利尺子：计算勾稽、适用场景与失真陷阱</p><span class="ff-sub">以 Microsoft（MSFT）FY2026 真实 SEC 披露为例（单位：M 美元）· 看清利润表与现金流量表在哪里分叉</span></div>
-<div class="rel-svg-wrap business-exchange" aria-label="以 Microsoft（MSFT）FY2026（单位 M 美元）演示四把盈利尺子的跨表勾稽与适用边界：左侧利润表自营业收入 331,839 减营业成本 106,374 得毛利 225,465，再减研发与三费 70,228 得营业利润 EBIT 155,237，加回现金流折旧摊销及其他 38,534 得 EBITDA 193,771。绿色曲线箭头经税费、营运资本与非现金股权激励调节，连至中间经营现金流 CFO 182,935；琥珀曲线箭头从 CFO 扣除来自投资现金流的总资本开支 CapEx 115,948，拆出先扣维持性 CapEx 的所有者盈余 Owner Earnings，以及再扣扩张性 CapEx 后的账面自由现金流 FCF 66,987（仅占 EBITDA 的 34.6%）。底部四栏对比四把尺子的核心适用场景与误用陷阱。">
-<svg viewBox="0 0 860 462" role="img" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
-  <defs>
-    <marker id="e03-arr-sage" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse">
-      <path d="M1,1.5 L9,5 L1,8.5 Z" fill="#23695a"/>
-    </marker>
-    <marker id="e03-arr-amber" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse">
-      <path d="M1,1.5 L9,5 L1,8.5 Z" fill="#a8743f"/>
-    </marker>
-  </defs>
-  <rect x="0" y="0" width="860" height="462" rx="8" fill="#fafaf6"/>
-  <!-- Left Card: Income Statement (MSFT FY26) -->
-  <rect x="14" y="14" width="266" height="270" rx="10" fill="#ffffff" stroke="#cfd3c9" stroke-width="1.2"/>
-  <text x="147" y="39" text-anchor="middle" font-size="14" font-weight="700" fill="#1d2a25">利润表路径（权责口径）</text>
-  <text x="147" y="57" text-anchor="middle" font-size="11" fill="#66736c">MSFT FY26 · 单位：M 美元</text>
-  <line x1="26" y1="67" x2="268" y2="67" stroke="#eaede5"/>
-  <text x="30" y="88" font-size="12.5" fill="#2e3c36">营业收入</text><text x="264" y="88" text-anchor="end" font-size="12.5" fill="#2e3c36">331,839</text>
-  <text x="30" y="109" font-size="12.5" fill="#5d6b64">减：营业成本（含部分折旧）</text><text x="264" y="109" text-anchor="end" font-size="12.5" fill="#5d6b64">−106,374</text>
-  <text x="30" y="130" font-size="12.5" font-weight="700" fill="#1d2a25">毛利</text><text x="264" y="130" text-anchor="end" font-size="12.5" font-weight="700" fill="#1d2a25">225,465</text>
-  <text x="30" y="151" font-size="12.5" fill="#5d6b64">减：研发、销售与管理费</text><text x="264" y="151" text-anchor="end" font-size="12.5" fill="#5d6b64">−70,228</text>
-  <rect x="24" y="162" width="246" height="26" rx="5" fill="#e2ede7"/>
-  <text x="32" y="179" font-size="12.5" font-weight="700" fill="#1f5c4e">① 营业利润 EBIT（46.8%）</text><text x="262" y="179" text-anchor="end" font-size="12.5" font-weight="700" fill="#1f5c4e">155,237</text>
-  <text x="30" y="207" font-size="12.5" fill="#5d6b64">加回：折旧摊销及其他 D&amp;A</text><text x="264" y="207" text-anchor="end" font-size="12.5" fill="#5d6b64">+38,534</text>
-  <rect x="24" y="217" width="246" height="26" rx="5" fill="#eaedf0"/>
-  <text x="32" y="234" font-size="12.5" font-weight="700" fill="#2c4459">② EBITDA（58.4%）</text><text x="262" y="234" text-anchor="end" font-size="12.5" font-weight="700" fill="#2c4459">193,771</text>
-  <text x="147" y="266" text-anchor="middle" font-size="10.5" fill="#66736c">EBITDA 未扣除真实资本开支与所得税</text>
-  <!-- Middle Card: Operating Cash Flow -->
-  <rect x="352" y="34" width="206" height="122" rx="10" fill="#ffffff" stroke="#b3d3c4" stroke-width="1.2"/>
-  <text x="455" y="58" text-anchor="middle" font-size="13.5" font-weight="700" fill="#1d2a25">经营现金流</text>
-  <text x="455" y="75" text-anchor="middle" font-size="11" fill="#66736c">现金流量表第一栏</text>
-  <line x1="364" y1="84" x2="546" y2="84" stroke="#eaede5"/>
-  <rect x="364" y="94" width="182" height="28" rx="5" fill="#e2ede7"/>
-  <text x="372" y="112" font-size="12.5" font-weight="700" fill="#1f5c4e">CFO</text><text x="538" y="112" text-anchor="end" font-size="13" font-weight="700" fill="#1f5c4e">182,935</text>
-  <text x="455" y="142" text-anchor="middle" font-size="10.5" fill="#5d6b64">已扣现金税、加回 SBC 与预收</text>
-  <!-- Middle-Bottom Card: Investing CapEx Split -->
-  <rect x="352" y="172" width="206" height="112" rx="10" fill="#fdf8f0" stroke="#e4c59e" stroke-width="1.2"/>
-  <text x="455" y="195" text-anchor="middle" font-size="13" font-weight="700" fill="#8d5520">投资现金流：总 CapEx</text>
-  <text x="455" y="216" text-anchor="middle" font-size="14" font-weight="700" fill="#8d5520">−115,948（＝ 3.01× D&amp;A）</text>
-  <line x1="364" y1="226" x2="546" y2="226" stroke="#ebd7bc"/>
-  <text x="366" y="246" font-size="11" fill="#5d6b64">• 维持性 CapEx（补旧资产损耗）</text>
-  <text x="366" y="266" font-size="11" fill="#5d6b64">• 扩张性 CapEx（新建 AI 算力）</text>
-  <!-- Right Top Card: Owner Earnings -->
-  <rect x="614" y="20" width="232" height="112" rx="10" fill="#ffffff" stroke="#b3d3c4" stroke-width="1.2"/>
-  <rect x="626" y="32" width="208" height="24" rx="5" fill="#e2ede7"/>
-  <text x="730" y="48" text-anchor="middle" font-size="11.5" font-weight="700" fill="#1f5c4e">③ Owner Earnings（所有者盈余）</text>
-  <text x="730" y="75" text-anchor="middle" font-size="12" font-weight="700" fill="#1d2a25">CFO − 维持性 CapEx</text>
-  <text x="730" y="96" text-anchor="middle" font-size="10.5" fill="#5d6b64">不惩罚高回报扩张投入，反映企业</text>
-  <text x="730" y="113" text-anchor="middle" font-size="10.5" fill="#5d6b64">稳态下真正可分给股东的现金盈余</text>
-  <!-- Right Bottom Card: Reported FCF -->
-  <rect x="614" y="152" width="232" height="132" rx="10" fill="#ffffff" stroke="#dfb98d" stroke-width="1.3"/>
-  <rect x="626" y="164" width="208" height="26" rx="5" fill="#f4e5d2"/>
-  <text x="634" y="181" font-size="12.5" font-weight="700" fill="#8d5520">④ 账面 FCF</text><text x="826" y="181" text-anchor="end" font-size="13" font-weight="700" fill="#8d5520">66,987</text>
-  <text x="730" y="210" text-anchor="middle" font-size="11" font-weight="700" fill="#1d2a25">CFO − 总 CapEx（占 EBITDA 34.6%）</text>
-  <line x1="628" y1="220" x2="832" y2="220" stroke="#eaede5"/>
-  <text x="730" y="240" text-anchor="middle" font-size="10.5" fill="#5d6b64">扩产高峰期账面 FCF 低于盈利，</text>
-  <text x="730" y="257" text-anchor="middle" font-size="10.5" fill="#5d6b64">须结合扩张回报率（ROIIC）判断</text>
-  <text x="730" y="274" text-anchor="middle" font-size="10" fill="#8d5520">对比：KO 剔除后 FCF 占 EBITDA 76.7%</text>
-  <!-- Curved Bezier Connectors -->
-  <path d="M280,230 C316,230 314,108 348,108" fill="none" stroke="#23695a" stroke-width="2" marker-end="url(#e03-arr-sage)"/>
-  <rect x="285" y="148" width="60" height="30" rx="4" fill="#fafaf6"/>
-  <text x="315" y="161" text-anchor="middle" font-size="10" font-weight="600" fill="#23695a">税／营运</text>
-  <text x="315" y="174" text-anchor="middle" font-size="10" font-weight="600" fill="#23695a">资本调节</text>
-  <path d="M558,92 C586,92 586,74 610,74" fill="none" stroke="#23695a" stroke-width="1.9" marker-end="url(#e03-arr-sage)"/>
-  <path d="M558,124 C586,124 586,178 610,178" fill="none" stroke="#a8743f" stroke-width="1.9" marker-end="url(#e03-arr-amber)"/>
-  <path d="M558,224 C586,224 586,196 610,196" fill="none" stroke="#a8743f" stroke-width="1.9" stroke-dasharray="4,3" marker-end="url(#e03-arr-amber)"/>
-  <!-- Bottom 4-Ruler Application Strip -->
-  <rect x="14" y="300" width="201" height="148" rx="8" fill="#ffffff" stroke="#b3d3c4" stroke-width="1"/>
-  <text x="26" y="321" font-size="12" font-weight="700" fill="#1f5c4e">① EBIT · 经营核心尺</text>
-  <text x="26" y="341" font-size="10.5" fill="#2e3c36">适用：比较同业经营效率，</text>
-  <text x="26" y="357" font-size="10.5" fill="#2e3c36">并作为计算 NOPAT 与 ROIC</text>
-  <text x="26" y="373" font-size="10.5" fill="#2e3c36">的直接起点。</text>
-  <line x1="26" y1="386" x2="203" y2="386" stroke="#eaede5"/>
-  <text x="26" y="405" font-size="10.5" font-weight="600" fill="#8d5520">警惕：不同公司折旧年限与</text>
-  <text x="26" y="421" font-size="10.5" fill="#5d6b64">并购无形资产摊销政策差异。</text>
-  <rect x="225" y="300" width="201" height="148" rx="8" fill="#ffffff" stroke="#cbd4dc" stroke-width="1"/>
-  <text x="237" y="321" font-size="12" font-weight="700" fill="#2c4459">② EBITDA · 资本支出前尺</text>
-  <text x="237" y="341" font-size="10.5" fill="#2e3c36">适用：轻资产并购横向对比，</text>
-  <text x="237" y="357" font-size="10.5" fill="#2e3c36">或剥离折旧年限差异看毛</text>
-  <text x="237" y="373" font-size="10.5" fill="#2e3c36">现金生成规模与短期付息。</text>
-  <line x1="237" y1="386" x2="414" y2="386" stroke="#eaede5"/>
-  <text x="237" y="405" font-size="10.5" font-weight="600" fill="#8d5520">陷阱：重资产行业绝不能把</text>
-  <text x="237" y="421" font-size="10.5" fill="#5d6b64">持续更新设备当成“无成本”。</text>
-  <rect x="436" y="300" width="201" height="148" rx="8" fill="#ffffff" stroke="#b3d3c4" stroke-width="1"/>
-  <text x="448" y="321" font-size="12" font-weight="700" fill="#1f5c4e">③ Owner Earnings · 估值尺</text>
-  <text x="448" y="341" font-size="10.5" fill="#2e3c36">适用：长期股权价值评估，</text>
-  <text x="448" y="357" font-size="10.5" fill="#2e3c36">扣除维持竞争力的必要开支</text>
-  <text x="448" y="373" font-size="10.5" fill="#2e3c36">而不误伤高回报扩张项目。</text>
-  <line x1="448" y1="386" x2="625" y2="386" stroke="#eaede5"/>
-  <text x="448" y="405" font-size="10.5" font-weight="600" fill="#8d5520">难点：财报不直接拆分维持</text>
-  <text x="448" y="421" font-size="10.5" fill="#5d6b64">与扩张 CapEx，须结合行业估。</text>
-  <rect x="647" y="300" width="199" height="148" rx="8" fill="#ffffff" stroke="#e4c59e" stroke-width="1"/>
-  <text x="659" y="321" font-size="12" font-weight="700" fill="#8d5520">④ FCF · 现金造血尺</text>
-  <text x="659" y="341" font-size="10.5" fill="#2e3c36">适用：跨三至五年检验利润</text>
-  <text x="659" y="357" font-size="10.5" fill="#2e3c36">含金量、分红回购与还债</text>
-  <text x="659" y="373" font-size="10.5" fill="#2e3c36">的真实资金底气。</text>
-  <line x1="659" y1="386" x2="834" y2="386" stroke="#eaede5"/>
-  <text x="659" y="405" font-size="10.5" font-weight="600" fill="#8d5520">局限：单年扩产高峰期会被</text>
-  <text x="659" y="421" font-size="10.5" fill="#5d6b64">人为压低，需拉长周期观察。</text>
+<figure class="flow-figure e03-rulers" id="nb-e03-rulers-fig" data-ff-views>
+<div class="ff-head"><p class="ff-title">四把盈利尺子：MSFT FY2026 勾稽落差与适用边界</p><div class="ff-switch" role="group" aria-label="切换视角" hidden><button type="button" data-ff-view-choice="bridge" aria-pressed="true">MSFT 尺子落差</button><button type="button" data-ff-view-choice="guide" aria-pressed="false">四把尺子边界</button></div></div>
+<div class="rel-svg-wrap business-exchange" data-ff-only="bridge" aria-label="Microsoft（MSFT）FY2026 四把盈利尺子对照（亿美元）：EBITDA 1,938 亿（58.4%）、营业利润 EBIT 1,552 亿（46.8%）、经营现金流 CFO 1,829 亿，扣除 1,159 亿总资本开支后，账面自由现金流 FCF 落至 670 亿，仅占 EBITDA 的 34.6%。">
+<svg viewBox="0 0 720 215" role="img" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+  <text x="24" y="30" font-size="14" font-weight="700" fill="#22392f">MSFT FY2026：EBITDA 到 FCF 缩水三分之二</text>
+  <text x="24" y="68" font-size="13.5" font-weight="700" fill="#3b5a70">EBITDA</text>
+  <rect x="132" y="50" width="388" height="22" rx="4" fill="#6b8ea6"/>
+  <text x="534" y="67" font-size="13.5" font-weight="700" fill="#3b5a70">1,938 亿（58.4%）</text>
+  <text x="24" y="106" font-size="13.5" font-weight="700" fill="#23695a">EBIT</text>
+  <rect x="132" y="88" width="310" height="22" rx="4" fill="#23695a"/>
+  <text x="456" y="105" font-size="13.5" font-weight="700" fill="#23695a">1,552 亿（扣 D&amp;A 385）</text>
+  <text x="24" y="144" font-size="13.5" font-weight="700" fill="#23695a">CFO</text>
+  <rect x="132" y="126" width="366" height="22" rx="4" fill="#4f8b77"/>
+  <text x="512" y="143" font-size="13.5" font-weight="700" fill="#23695a">1,829 亿（含预收与 SBC）</text>
+  <text x="24" y="182" font-size="13.5" font-weight="700" fill="#8f6033">账面 FCF</text>
+  <rect x="132" y="164" width="134" height="22" rx="4" fill="#a8743f"/>
+  <text x="280" y="181" font-size="13.5" font-weight="700" fill="#8f6033">670 亿（扣 CapEx 1,159 · 仅占 34.6%）</text>
 </svg>
 </div>
-<figcaption>四把尺子各有侧重，从“利润表经营效率”一路过渡到“扣除全部资本投入后的剩余现金”；同一家公司四数落差越大，越要追查资本开支属性。</figcaption>
+<div class="rel-svg-wrap business-exchange" data-ff-only="guide" hidden aria-label="四把盈利尺子的核心定位与误用红线：EBIT 比较同业经营效率，须警惕折旧年限差异；EBITDA 剥离折旧看短期偿息，重资产切忌当现金流；Owner Earnings 扣维持性 CapEx 做估值，难点在于拆分口径；FCF 检验长期造血，扩产高峰期会被压低。">
+<svg viewBox="0 0 720 205" role="img" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+  <text x="24" y="28" font-size="12.5" font-weight="700" fill="#5e6d65">盈利尺子</text>
+  <text x="196" y="28" font-size="12.5" font-weight="700" fill="#23695a">核心用途</text>
+  <text x="456" y="28" font-size="12.5" font-weight="700" fill="#b5483a">失真陷阱</text>
+  <line x1="24" y1="38" x2="696" y2="38" stroke="#dfe5dc"/>
+  <text x="24" y="68" font-size="13.5" font-weight="700" fill="#23695a">① EBIT</text>
+  <text x="196" y="68" font-size="13" fill="#22392f">比同业经营效率与 ROIC</text>
+  <text x="456" y="68" font-size="13" fill="#8f6033">受折旧年限政策影响</text>
+  <line x1="24" y1="84" x2="696" y2="84" stroke="#eef1ec"/>
+  <text x="24" y="110" font-size="13.5" font-weight="700" fill="#3b5a70">② EBITDA</text>
+  <text x="196" y="110" font-size="13" fill="#22392f">跨折旧政策看短期付息</text>
+  <text x="456" y="110" font-size="13" fill="#b5483a">忽略重资产刚性 CapEx</text>
+  <line x1="24" y1="126" x2="696" y2="126" stroke="#eef1ec"/>
+  <text x="24" y="152" font-size="13.5" font-weight="700" fill="#23695a">③ Owner Earnings</text>
+  <text x="196" y="152" font-size="13" fill="#22392f">扣维持 CapEx 做股权估值</text>
+  <text x="456" y="152" font-size="13" fill="#8f6033">财报不直接拆分维持额</text>
+  <line x1="24" y1="168" x2="696" y2="168" stroke="#eef1ec"/>
+  <text x="24" y="194" font-size="13.5" font-weight="700" fill="#8f6033">④ 账面 FCF</text>
+  <text x="196" y="194" font-size="13" fill="#22392f">3–5 年检验真金白银造血</text>
+  <text x="456" y="194" font-size="13" fill="#8f6033">扩产单年易被人为压低</text>
+</svg>
+</div>
+<figcaption>点击切换 MSFT FY2026 尺子落差与四把尺子边界。对比轻资产 KO，剔除一次性尾款后 FCF 占 EBITDA 高达 76.7%。</figcaption>
 </figure>
 
 <span data-text-versions id="nb-e03-text-rulers">跨国比较 FCF 时，还要留意会计准则对利息归类的差别：US GAAP 把实付利息计入经营现金流，美股常见的 CFO − CapEx 属于扣完债息的股权口径；采用 IFRS 的公司（如 TSMC）常将已付利息列在融资活动、已收利息列在投资活动，套用同一公式前应先核对现金流附表<span data-text-detail>（实务中另须区分两组口径：第一，严格定义下的 EBIT 为税前利润加回利息费用，当公司存在大额联营收益或公允价值重估损益时——如 KO FY2025 录得 20.31 亿美元联营收益，MSFT FY2026 录得 106.97 亿美元其他净收益——该口径会明显偏离 Operating Income，比较主业通常以 Operating Income 近似 EBIT。第二，无杠杆企业自由现金流 FCFF ＝ EBIT × (1 − 税率) ＋ D&A − CapEx − ΔNWC，供债权人与股东共享；而 CFO − CapEx 属于扣息后的股权口径。TSMC FY2025 现金流量表将已付利息 19,129 M 新台币列在融资活动、已收利息 98,955 M 新台币列在投资活动，与美股比对 FCF 须先对齐利息口径）</span>。[^tsmc-20f]<sup>，</sup>[^ko-fy25]<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>
@@ -371,71 +314,35 @@ EBITDA 的陷阱是把年年重置的设备磨损当成不算成本。Warren Buf
 现金流量表只报一行合并后的资本开支，可流出去的每一美元背后，经济含义可能截然相反。拆不开**维持性 CapEx** 与**扩张性 CapEx**，就很容易把同一份低 FCF 看反：
 
 <figure class="flow-figure e03-capex-split" id="nb-e03-capex-split-fig">
-<div class="ff-head"><p class="ff-title">同一笔资本开支的两条经济去向：维持性 CapEx 与扩张性 CapEx</p><span class="ff-sub">财报只合报一行现金流出 · 经济属性与估值后果截然相反</span></div>
-<div class="rel-svg-wrap business-exchange" aria-label="同一笔现金流出的资本开支（CapEx）拆向两条不同经济去向的流向图：左侧起点卡显示投资活动中的同一笔资本开支，现金当天全额离开账面，但会计准则只合并披露一行，不区分保旧还是建新。上方琥珀色路径为维持性 CapEx（补磨损、不增收入），仅替换老化设备、基站与厂房以守住现有销量与竞争力，典型如 AT&T（T）FY2025 CapEx / D&A 为 1.00 倍且多用于存量网络更新；右侧后果卡指出它等价于真实刚性成本，必须从 Owner Earnings 中扣除，推迟投入会导致产能老化与份额流失，拿 EBITDA 估值会系统性高估，结果表现为 Owner Earnings 与 FCF 双低。下方松绿色路径为扩张性 CapEx（建增量、争未来回报），用于新建增量产能、AI 机房与先进产线，典型如 MSFT FY2026 CapEx / D&A 达 3.01 倍与 TSMC FY2025 达 1.85 倍；右侧后果卡指出它在建设期压低账面 FCF，投产后若 ROIIC 高于资本成本则放大未来 EBIT 与现金流，但若回报不及成本，转固后折旧会反噬利润，扩产高峰期表现为 Owner Earnings 高于账面 FCF。">
-<svg viewBox="0 0 860 320" role="img" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+<div class="ff-head"><p class="ff-title">同一笔资本开支的两条去向：维持性 vs 扩张性 CapEx</p><span class="ff-sub">财报只合报一行现金流出，经济属性与估值后果截然相反</span></div>
+<div class="rel-svg-wrap business-exchange" aria-label="资本开支分叉图：财报中同一行投资现金流出按经济属性分为维持性 CapEx（补磨损守份额，等价于刚性成本，如 T CapEx/D&amp;A 为 1.00 倍）与扩张性 CapEx（建增量产能争未来回报，建设期压低 FCF，成败看 ROIIC，如 MSFT 3.01 倍与 TSMC 1.85 倍）。">
+<svg viewBox="0 0 720 190" role="img" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
   <defs>
-    <marker id="e03-sp-amber" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse">
-      <path d="M1,1.5 L9,5 L1,8.5 Z" fill="#a8743f"/>
-    </marker>
-    <marker id="e03-sp-sage" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse">
-      <path d="M1,1.5 L9,5 L1,8.5 Z" fill="#23695a"/>
-    </marker>
+    <marker id="e03-c-a" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse"><path d="M0 1.2 L9 5 L0 8.8 z" fill="#a8743f"/></marker>
+    <marker id="e03-c-s" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse"><path d="M0 1.2 L9 5 L0 8.8 z" fill="#23695a"/></marker>
   </defs>
-  <rect x="0" y="0" width="860" height="320" rx="8" fill="#fafaf6"/>
-  <!-- Left Card: Single CapEx Outflow -->
-  <rect x="14" y="58" width="216" height="204" rx="10" fill="#ffffff" stroke="#cfd3c9" stroke-width="1.2"/>
-  <rect x="26" y="72" width="192" height="26" rx="5" fill="#eaedf0"/>
-  <text x="122" y="89" text-anchor="middle" font-size="12" font-weight="700" fill="#2c4459">现金流量表 · 投资活动</text>
-  <text x="122" y="122" text-anchor="middle" font-size="13.5" font-weight="700" fill="#1d2a25">同一笔现金流出的</text>
-  <text x="122" y="143" text-anchor="middle" font-size="13.5" font-weight="700" fill="#1d2a25">资本开支（CapEx）</text>
-  <line x1="28" y1="158" x2="216" y2="158" stroke="#eaede5"/>
-  <text x="122" y="180" text-anchor="middle" font-size="11" fill="#5d6b64">财报只合并披露一行，</text>
-  <text x="122" y="198" text-anchor="middle" font-size="11" fill="#5d6b64">不区分“保旧”还是“建新”。</text>
-  <text x="122" y="224" text-anchor="middle" font-size="10.5" font-weight="600" fill="#8d5520">付款当天现金全额流出</text>
-  <text x="122" y="242" text-anchor="middle" font-size="10.5" fill="#66736c">却拆向两种相反经济结果</text>
-  <!-- Split Bezier Arrows -->
-  <path d="M230,124 C258,124 256,83 278,83" fill="none" stroke="#a8743f" stroke-width="2.1" marker-end="url(#e03-sp-amber)"/>
-  <path d="M230,196 C258,196 256,237 278,237" fill="none" stroke="#23695a" stroke-width="2.1" marker-end="url(#e03-sp-sage)"/>
-  <!-- Top Amber Lane: Maintenance CapEx -->
-  <rect x="282" y="14" width="266" height="138" rx="10" fill="#ffffff" stroke="#dfb98d" stroke-width="1.3"/>
-  <rect x="294" y="25" width="242" height="25" rx="5" fill="#f4e5d2"/>
-  <text x="303" y="42" font-size="12.5" font-weight="700" fill="#8d5520">维持性 CapEx</text>
-  <text x="527" y="42" text-anchor="end" font-size="10.5" font-weight="600" fill="#8d5520">补磨损 · 不增收入</text>
-  <text x="296" y="71" font-size="11.5" fill="#2e3c36">仅补旧产能磨损，替换老化设备与</text>
-  <text x="296" y="89" font-size="11.5" fill="#2e3c36">基站，原地守住现有销量与份额。</text>
-  <line x1="296" y1="101" x2="534" y2="101" stroke="#f0e4d4"/>
-  <text x="296" y="120" font-size="11" font-weight="700" fill="#8d5520">典型：AT&amp;T（T）FY25</text>
-  <text x="296" y="138" font-size="11" fill="#5d6b64">CapEx / D&amp;A ＝ 1.00×，多用于网络更新</text>
-  <path d="M548,83 L588,83" fill="none" stroke="#a8743f" stroke-width="2" marker-end="url(#e03-sp-amber)"/>
-  <rect x="592" y="14" width="254" height="138" rx="10" fill="#fdf8f0" stroke="#e4c59e" stroke-width="1.2"/>
-  <rect x="604" y="25" width="230" height="25" rx="5" fill="#f4e5d2"/>
-  <text x="719" y="42" text-anchor="middle" font-size="12" font-weight="700" fill="#8d5520">等价于真实刚性成本</text>
-  <text x="606" y="71" font-size="11.5" font-weight="600" fill="#1d2a25">• 必须从 Owner Earnings 扣除</text>
-  <text x="606" y="91" font-size="11" fill="#5d6b64">• 推迟投入会导致产能老化、丢份额</text>
-  <text x="606" y="110" font-size="11" fill="#5d6b64">• 直接拿 EBITDA 估值会系统性高估</text>
-  <text x="606" y="135" font-size="10.5" font-weight="600" fill="#8d5520">结果：Owner Earnings 与 FCF 双低</text>
-  <!-- Bottom Sage Lane: Growth CapEx -->
-  <rect x="282" y="168" width="266" height="138" rx="10" fill="#ffffff" stroke="#b3d3c4" stroke-width="1.3"/>
-  <rect x="294" y="179" width="242" height="25" rx="5" fill="#e2ede7"/>
-  <text x="303" y="196" font-size="12.5" font-weight="700" fill="#1f5c4e">扩张性 CapEx</text>
-  <text x="527" y="196" text-anchor="end" font-size="10.5" font-weight="600" fill="#1f5c4e">建增量 · 争未来回报</text>
-  <text x="296" y="225" font-size="11.5" fill="#2e3c36">新建增量产能、AI 机房与先进产线，</text>
-  <text x="296" y="243" font-size="11.5" fill="#2e3c36">为未来数年的需求提前锁定供给。</text>
-  <line x1="296" y1="255" x2="534" y2="255" stroke="#e4eee8"/>
-  <text x="296" y="274" font-size="11" font-weight="700" fill="#1f5c4e">典型：MSFT FY26 · TSMC FY25</text>
-  <text x="296" y="292" font-size="11" fill="#5d6b64">CapEx / D&amp;A 分别达 3.01× 与 1.85×</text>
-  <path d="M548,237 L588,237" fill="none" stroke="#23695a" stroke-width="2" marker-end="url(#e03-sp-sage)"/>
-  <rect x="592" y="168" width="254" height="138" rx="10" fill="#ffffff" stroke="#b3d3c4" stroke-width="1.2"/>
-  <rect x="604" y="179" width="230" height="25" rx="5" fill="#e2ede7"/>
-  <text x="719" y="196" text-anchor="middle" font-size="12" font-weight="700" fill="#1f5c4e">短期压低 FCF · 检验 ROIIC</text>
-  <text x="606" y="225" font-size="11.5" font-weight="600" fill="#1d2a25">• 建设期压低账面 FCF（非维持成本）</text>
-  <text x="606" y="245" font-size="11" fill="#5d6b64">• 若 ROIIC ＞ WACC：放大 EBIT 与现金流</text>
-  <text x="606" y="264" font-size="11" fill="#5d6b64">• 若回报不及成本：转固后折旧反噬利润</text>
-  <text x="606" y="289" font-size="10.5" font-weight="600" fill="#1f5c4e">结果：Owner Earnings 高于账面 FCF</text>
+  <rect x="16" y="48" width="166" height="94" rx="10" fill="#fbfbf6" stroke="#cfd6ce" stroke-width="1.4"/>
+  <text x="99" y="84" text-anchor="middle" font-size="14" font-weight="700" fill="#22392f">投资活动 CapEx</text>
+  <text x="99" y="110" text-anchor="middle" font-size="12" fill="#5e6d65">财报仅合报一行流出</text>
+  <path d="M182 78 C216 78 218 52 248 52" fill="none" stroke="#a8743f" stroke-width="2" marker-end="url(#e03-c-a)"/>
+  <path d="M182 112 C216 112 218 138 248 138" fill="none" stroke="#23695a" stroke-width="2" marker-end="url(#e03-c-s)"/>
+  <rect x="254" y="16" width="218" height="72" rx="10" fill="#fcf8f3" stroke="#ead9c4" stroke-width="1.4"/>
+  <text x="363" y="44" text-anchor="middle" font-size="13.5" font-weight="700" fill="#8f6033">维持性 CapEx（补磨损）</text>
+  <text x="363" y="68" text-anchor="middle" font-size="12" fill="#5e6d65">如 T：CapEx/D&amp;A ＝ 1.00×</text>
+  <rect x="254" y="102" width="218" height="72" rx="10" fill="#f3f8f4" stroke="#23695a" stroke-width="1.4"/>
+  <text x="363" y="130" text-anchor="middle" font-size="13.5" font-weight="700" fill="#23695a">扩张性 CapEx（建增量）</text>
+  <text x="363" y="154" text-anchor="middle" font-size="12" fill="#3c4c44">如 MSFT 3.01× · TSM 1.85×</text>
+  <line x1="472" y1="52" x2="508" y2="52" stroke="#a8743f" stroke-width="2" marker-end="url(#e03-c-a)"/>
+  <line x1="472" y1="138" x2="508" y2="138" stroke="#23695a" stroke-width="2" marker-end="url(#e03-c-s)"/>
+  <rect x="514" y="16" width="190" height="72" rx="10" fill="#faeae7" stroke="#e4c2bc" stroke-width="1.3"/>
+  <text x="609" y="44" text-anchor="middle" font-size="13" font-weight="700" fill="#b5483a">刚性重置成本</text>
+  <text x="609" y="68" text-anchor="middle" font-size="12" fill="#5e6d65">必从 Owner Earnings 扣除</text>
+  <rect x="514" y="102" width="190" height="72" rx="10" fill="#23695a"/>
+  <text x="609" y="130" text-anchor="middle" font-size="13" font-weight="700" fill="#ffffff">短期压低 FCF</text>
+  <text x="609" y="154" text-anchor="middle" font-size="12" fill="#d7e8df">成败取决于未来 ROIIC</text>
 </svg>
 </div>
-<figcaption>同一笔资本开支按用途分叉：维持性支出是刚性重置成本，扩张性支出是前置投资，最终成败取决于新产能的增量回报率（ROIIC）。</figcaption>
+<figcaption>维持性支出推迟会导致产能老化、份额流失；扩张性支出在建设期压低 FCF，若投产回报低于资本成本则折旧反噬利润。</figcaption>
 </figure>
 
 既然财报不帮我们拆分，日常研究常常交叉核对四条线索来估算维持性支出：
@@ -479,50 +386,45 @@ EBITDA 的陷阱是把年年重置的设备磨损当成不算成本。Warren Buf
 
 回到 SEC 正式年报，把 **The Coca-Cola Company**（KO）、**AT&T Inc.**（T）与 **MSFT** 并排放到统一刻度下，前文的三种背离立刻在现实账本里现形：
 
-<figure class="flow-figure e03-sec" id="nb-e03-sec-fig">
-<div class="ff-head"><p class="ff-title">真实 SEC 10-K 对照：KO FY25 vs T FY25 vs MSFT FY26</p><span class="ff-sub">单位：M 美元 · 各公司柱长均以自身 EBITDA ＝ 100% 归一化</span></div>
-<div class="e03-sgrid business-exchange" aria-label="三家美股真实 SEC 10-K 的 EBIT、EBITDA、CapEx 与 FCF 对照（M 美元）：一、Coca-Cola（KO，FY2025，轻资产成熟品牌）：收入 47,941、营业利润 13,762（利润率 28.7%）、D&A 1,050、EBITDA 14,812（30.9%）；CapEx 仅 2,112（占收入 4.4%、为 D&A 的 2.01 倍）；剔除一次性 6,069 fairlife 或有对价支付后 FCF 为 11,365（账面 GAAP FCF 5,296），正常化 FCF 占 EBITDA 高达 76.7%。二、AT&T（T，FY2025，高折旧存量更新）：收入 125,648、营业利润 24,162（19.2%）、D&A 高达 20,886、EBITDA 45,048（35.9%，表面利润率高于 KO）；CFO 40,284、CapEx 20,842（CapEx/D&A 恰为 1.00 倍）、利息费用 6,804，标准 FCF 19,442（仅占 EBITDA 43.2%），另在融资现金流支付 1,181 供应商融资款。三、Microsoft（MSFT，FY2026，重资本 AI 扩产）：收入 331,839、营业利润 155,237（46.8%）、折旧摊销及其他 38,534、EBITDA 193,771（58.4%）；CFO 182,935、CapEx 飙升至 115,948（占收入 34.9%、为 D&A 的 3.01 倍），账面 FCF 落至 66,987（仅占 EBITDA 34.6%）。">
+<figure class="flow-figure e03-sec" id="nb-e03-sec-fig" data-ff-views>
+<div class="ff-head"><p class="ff-title">真实 SEC 10-K 对照：EBITDA 到 FCF 的三种转化率</p><div class="ff-switch" role="group" aria-label="切换公司" hidden><button type="button" data-ff-view-choice="ko" aria-pressed="true">KO · 轻资产</button><button type="button" data-ff-view-choice="t" aria-pressed="false">AT&amp;T · 存量更新</button><button type="button" data-ff-view-choice="msft" aria-pressed="false">MSFT · AI 扩产</button></div></div>
+<div data-ff-only="ko" class="business-exchange" aria-label="KO FY2025（M 美元）：EBITDA 14,812、EBIT 13,762、正常化 FCF 11,365，CapEx 仅占收入 4.4%（2,112），正常 FCF / EBITDA 高达 76.7%。">
 <div class="e03-scard" style="--e03-c:#23695a">
-<div class="e03-shead"><strong>KO · FY2025</strong><span>轻资产成熟</span></div>
+<div class="e03-shead"><strong>KO · FY2025（单位：M 美元）</strong><span>轻资产成熟</span></div>
 <div class="e03-sbars">
 <div class="e03-sbar-row"><span>EBITDA</span><div class="e03-strack"><div class="e03-sfill" style="--w:100%;--c:#a8743f"></div></div><b>14,812</b></div>
 <div class="e03-sbar-row"><span>EBIT</span><div class="e03-strack"><div class="e03-sfill" style="--w:92.9%;--c:#5986a1"></div></div><b>13,762</b></div>
 <div class="e03-sbar-row"><span>正常 FCF</span><div class="e03-strack"><div class="e03-sfill" style="--w:76.7%;--c:#23695a"></div></div><b>11,365</b></div>
 </div>
-<div class="e03-smeta">
-<div class="e03-smi"><span>CapEx / 收入</span><b class="e03-pos">4.4%（2,112）</b></div>
-<div class="e03-smi"><span>正常 FCF / EBITDA</span><b class="e03-pos">76.7%</b></div>
-</div>
+<div class="e03-smeta"><div class="e03-smi"><span>CapEx / 收入</span><b class="e03-pos">4.4%（2,112）</b></div><div class="e03-smi"><span>正常 FCF / EBITDA</span><b class="e03-pos">76.7%</b></div></div>
 <p class="e03-snote">D&amp;A 仅 1,050；因一次性支付 6,069 fairlife 尾款，当年 GAAP FCF 为 5,296，剔除后转化率仍近八成。</p>
 </div>
+</div>
+<div data-ff-only="t" hidden class="business-exchange" aria-label="AT&amp;T（T）FY2025（M 美元）：EBITDA 45,048、EBIT 24,162、标准 FCF 19,442，CapEx/D&amp;A 恰为 1.00 倍（20,842），FCF / EBITDA 仅 43.2%。">
 <div class="e03-scard" style="--e03-c:#a8743f">
-<div class="e03-shead"><strong>T（AT&amp;T）· FY2025</strong><span>重资产存量更新</span></div>
+<div class="e03-shead"><strong>T（AT&amp;T）· FY2025（单位：M 美元）</strong><span>重资产存量更新</span></div>
 <div class="e03-sbars">
 <div class="e03-sbar-row"><span>EBITDA</span><div class="e03-strack"><div class="e03-sfill" style="--w:100%;--c:#a8743f"></div></div><b>45,048</b></div>
 <div class="e03-sbar-row"><span>EBIT</span><div class="e03-strack"><div class="e03-sfill" style="--w:53.6%;--c:#5986a1"></div></div><b>24,162</b></div>
 <div class="e03-sbar-row"><span>标准 FCF</span><div class="e03-strack"><div class="e03-sfill" style="--w:43.2%;--c:#22392f"></div></div><b>19,442</b></div>
 </div>
-<div class="e03-smeta">
-<div class="e03-smi"><span>CapEx / D&amp;A</span><b class="e03-neg">1.00×（20,842）</b></div>
-<div class="e03-smi"><span>FCF / EBITDA</span><b class="e03-neg">43.2%</b></div>
-</div>
+<div class="e03-smeta"><div class="e03-smi"><span>CapEx / D&amp;A</span><b class="e03-neg">1.00×（20,842）</b></div><div class="e03-smi"><span>FCF / EBITDA</span><b class="e03-neg">43.2%</b></div></div>
 <p class="e03-snote">EBITDA 利润率 35.9% 高于 KO，但 D&amp;A 占 20,886、利息占 6,804，且几乎全额重投网络维护（另付供应商融资 1,181）。</p>
 </div>
+</div>
+<div data-ff-only="msft" hidden class="business-exchange" aria-label="MSFT FY2026（M 美元）：EBITDA 193,771、EBIT 155,237、账面 FCF 66,987，CapEx 115,948 为 D&amp;A 的 3.01 倍，FCF / EBITDA 落至 34.6%。">
 <div class="e03-scard" style="--e03-c:#3c6e8c">
-<div class="e03-shead"><strong>MSFT · FY2026</strong><span>重资本 AI 扩产</span></div>
+<div class="e03-shead"><strong>MSFT · FY2026（单位：M 美元）</strong><span>重资本 AI 扩产</span></div>
 <div class="e03-sbars">
 <div class="e03-sbar-row"><span>EBITDA</span><div class="e03-strack"><div class="e03-sfill" style="--w:100%;--c:#a8743f"></div></div><b>193,771</b></div>
 <div class="e03-sbar-row"><span>EBIT</span><div class="e03-strack"><div class="e03-sfill" style="--w:80.1%;--c:#5986a1"></div></div><b>155,237</b></div>
 <div class="e03-sbar-row"><span>账面 FCF</span><div class="e03-strack"><div class="e03-sfill" style="--w:34.6%;--c:#22392f"></div></div><b>66,987</b></div>
 </div>
-<div class="e03-smeta">
-<div class="e03-smi"><span>CapEx / D&amp;A</span><b class="e03-neg">3.01×（115,948）</b></div>
-<div class="e03-smi"><span>FCF / EBITDA</span><b class="e03-neg">34.6%</b></div>
-</div>
+<div class="e03-smeta"><div class="e03-smi"><span>CapEx / D&amp;A</span><b class="e03-neg">3.01×（115,948）</b></div><div class="e03-smi"><span>FCF / EBITDA</span><b class="e03-neg">34.6%</b></div></div>
 <p class="e03-snote">CapEx 占收入 34.9%，压低当年 FCF 甚至低于 FY25（71,611）；落差源于前瞻性算力扩产，营业利润同比仍增 21%。</p>
 </div>
 </div>
-<figcaption>口径说明：三家公司 EBITDA 统一按 GAAP Operating Income ＋ 现金流量表 D&amp;A 项计算（MSFT 为 155,237 ＋ 38,534）；标准 FCF ＝ CFO − 固定资产资本开支。</figcaption>
+<figcaption>点击切换三家公司。EBITDA 按 GAAP Operating Income ＋ 现金流 D&amp;A 计算，标准 FCF ＝ CFO − 固定资产 CapEx。</figcaption>
 </figure>
 
 <span data-text-versions id="nb-e03-text-sec-kot">先对照 **KO** 与 **T**，EBITDA 的错觉一目了然。只看 EBITDA 利润率，电信巨头（35.9%）甚至高于浓缩液品牌（30.9%）；可一旦扣除刚性网络更新与高额债息，T 的现金转化率被拦腰截断，轻资产的 KO 剔除一次性尾款后仍能留下近八成自由现金流<span data-text-detail>（FY2025 年报显示，KO 收入 47,941 M 美元、D&A 仅 10.50 亿美元、CapEx 21.12 亿美元，剔除 60.69 亿美元 fairlife 或有对价尾款后，每 1 美元 EBITDA 留下 0.77 美元 FCF，2026 财年 FCF 指引进一步看至 122 亿美元。T 收入 125,648 M 美元，当年 208.42 亿美元 CapEx 几乎与 208.86 亿美元 D&A 等额，外加 68.04 亿美元利息；若将记入融资现金流的 11.81 亿美元供应商融资付款算回设备支出，真实现金结余进一步降至 182.61 亿美元）</span>。[^ko-fy25]<sup>，</sup>[^att-10k]<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>

@@ -17,64 +17,32 @@
 保险业常说的**浮存金（Float）**，既属于负债而不属于股东自有资本，又因为老保单赔付的同时源源不断有新保单续费进账，在稳健经营的险企账上呈现出类似“循环永续资金池”的特征。按照 BRK 2025 年报的定义，浮存金主体由**未付赔款及理赔费用准备金**、**未赚保费**与寿险／年金给付负债构成，再减去应收保费、应收再保险赔款及递延保单获取成本（DAC）。[^brk]
 
 <figure class="flow-figure" id="nb-n08-float-cycle">
-<div class="ff-head"><p class="ff-title">保险双引擎闭环：先收保费沉淀浮存金，承保盈亏决定这笔钱的“利率”</p><span class="ff-sub">BRK 与 CB 2025 年报实数：当综合成本率低于 100%，浮存金成本为负</span></div>
-<div class="rel-svg-wrap business-exchange" aria-label="保险双引擎现金流闭环图：投保人预缴保费后，在尚未理赔与未满保障期之间沉淀为浮存金负债池（BRK 2025 年末约 1,760 亿美元，CB 账上未付赔款 880 亿加未赚保费 263 亿美元），资金流入投资组合产生投资收益（BRK 保险投资税后 125.1 亿、CB 税前 64.7 亿）；同时右侧标明浮存金成本公式为负的税前承保利润除以平均浮存金，BRK 2025 税前承保盈利 94.6 亿美元对应约 −5.5% 负成本，若综合成本率升至 104% 则等同于按 4% 利率借入风险资金。">
-<svg viewBox="0 0 860 330" role="img" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+<div class="ff-head"><p class="ff-title">保险双引擎闭环：先收保费沉淀浮存金，承保决定资金成本（BRK 2025）</p><span class="ff-sub">承保盈利 94.6 亿 ÷ 平均浮存金 1,735 亿 ≈ 负 5.5% 资金成本</span></div>
+<div class="rel-svg-wrap business-exchange" aria-label="BRK 2025 保险双引擎闭环：投保人预缴保费沉淀为 1,760 亿美元浮存金池，一端产生 94.6 亿美元税前承保盈利（税后 72.6 亿），使浮存金成本约为 −5.5%，另一端投入资产组合产生 125.1 亿美元税后投资收益。">
+<svg viewBox="0 0 720 205" role="img" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
   <defs>
-    <marker id="n08-fc-sage" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse"><path d="M0 1.2 L9 5 L0 8.8 z" fill="#23695a"/></marker>
-    <marker id="n08-fc-amber" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse"><path d="M0 1.2 L9 5 L0 8.8 z" fill="#a8743f"/></marker>
+    <marker id="n08-m-s" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse"><path d="M0 1.2 L9 5 L0 8.8 z" fill="#23695a"/></marker>
+    <marker id="n08-m-a" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse"><path d="M0 1.2 L9 5 L0 8.8 z" fill="#a8743f"/></marker>
   </defs>
-  <rect x="14" y="14" width="528" height="302" rx="11" fill="#ffffff" stroke="#d5ddd6" stroke-width="1.3"/>
-  <rect x="14" y="14" width="528" height="36" rx="11" fill="#eff4f1"/>
-  <rect x="14" y="38" width="528" height="12" fill="#eff4f1"/>
-  <text x="30" y="37" font-size="13.5" font-weight="700" fill="#22392f">一笔保费的两条价值路径（承保端 ＋ 投资端）</text>
-  <rect x="30" y="68" width="144" height="84" rx="8" fill="#fbfbf6" stroke="#dfe5dc"/>
-  <text x="102" y="90" text-anchor="middle" font-size="12.5" font-weight="700" fill="#22392f">1. 投保人预缴</text>
-  <text x="102" y="111" text-anchor="middle" font-size="11.5" fill="#3c4c44">保单生效先收现</text>
-  <text x="102" y="131" text-anchor="middle" font-size="11" fill="#5e6d65">CB 2025 签单 548 亿</text>
-  <line x1="174" y1="110" x2="206" y2="110" stroke="#23695a" stroke-width="2" marker-end="url(#n08-fc-sage)"/>
-  <rect x="212" y="64" width="150" height="94" rx="8" fill="#f3f8f4" stroke="#23695a" stroke-width="1.5"/>
-  <text x="287" y="86" text-anchor="middle" font-size="12.5" font-weight="700" fill="#23695a">2. 浮存金负债池</text>
-  <text x="287" y="106" text-anchor="middle" font-size="11" fill="#3c4c44">未付赔款＋未赚保费</text>
-  <text x="287" y="124" text-anchor="middle" font-size="11" fill="#5e6d65">减应收保费与再保／DAC</text>
-  <text x="287" y="144" text-anchor="middle" font-size="11.5" font-weight="700" fill="#22392f">BRK 2025: 1,760 亿</text>
-  <line x1="362" y1="110" x2="394" y2="110" stroke="#a8743f" stroke-width="2" marker-end="url(#n08-fc-amber)"/>
-  <rect x="400" y="68" width="128" height="84" rx="8" fill="#fcf8f3" stroke="#ead9c4"/>
-  <text x="464" y="90" text-anchor="middle" font-size="12.5" font-weight="700" fill="#8f6033">3. 投资组合</text>
-  <text x="464" y="111" text-anchor="middle" font-size="11" fill="#3c4c44">国债／固收／股票</text>
-  <text x="464" y="131" text-anchor="middle" font-size="11" fill="#5e6d65">CB 投资资产 1,687 亿</text>
-  <line x1="287" y1="158" x2="287" y2="196" stroke="#23695a" stroke-width="1.8" marker-end="url(#n08-fc-sage)"/>
-  <text x="278" y="182" text-anchor="end" font-size="10.5" fill="#23695a">承保引擎</text>
-  <line x1="464" y1="152" x2="464" y2="196" stroke="#a8743f" stroke-width="1.8" marker-end="url(#n08-fc-amber)"/>
-  <text x="456" y="182" text-anchor="end" font-size="10.5" fill="#8f6033">投资引擎</text>
-  <rect x="30" y="202" width="266" height="98" rx="8" fill="#f7faf8" stroke="#c8dad0"/>
-  <text x="44" y="224" font-size="12" font-weight="700" fill="#23695a">引擎 A：承保利润（100% − CR）</text>
-  <text x="44" y="246" font-size="11.5" fill="#3c4c44">· BRK 2025 税前 94.6 亿（税后 72.6 亿）</text>
-  <text x="44" y="266" font-size="11.5" fill="#3c4c44">· CB 2025 财险承保利润 65.0 亿美元</text>
-  <text x="44" y="286" font-size="10.5" fill="#5e6d65">理赔与费用结清后仍留有盈余</text>
-  <rect x="308" y="202" width="220" height="98" rx="8" fill="#fcf8f3" stroke="#ead9c4"/>
-  <text x="322" y="224" font-size="12" font-weight="700" fill="#8f6033">引擎 B：净投资收益</text>
-  <text x="322" y="246" font-size="11.5" fill="#3c4c44">· BRK 税后 125.1 亿美元</text>
-  <text x="322" y="266" font-size="11.5" fill="#3c4c44">· CB 税前 64.7 亿美元</text>
-  <text x="322" y="286" font-size="10.5" fill="#5e6d65">浮存金＋股东资本共同生息</text>
-  <rect x="556" y="14" width="290" height="302" rx="11" fill="#ffffff" stroke="#d5ddd6" stroke-width="1.3"/>
-  <rect x="556" y="14" width="290" height="36" rx="11" fill="#f6eee4"/>
-  <rect x="556" y="38" width="290" height="12" fill="#f6eee4"/>
-  <text x="572" y="37" font-size="13.5" font-weight="700" fill="#22392f">浮存金成本（Cost of Float）</text>
-  <rect x="572" y="66" width="258" height="58" rx="8" fill="#fbfbf6" stroke="#dfe5dc"/>
-  <text x="701" y="90" text-anchor="middle" font-size="12" font-weight="700" fill="#22392f">成本率 = − 税前承保利润 ÷ 平均浮存金</text>
-  <text x="701" y="111" text-anchor="middle" font-size="10.5" fill="#5e6d65">（承保赚钱则成本为负；承保亏损则成本为正）</text>
-  <rect x="572" y="138" width="258" height="76" rx="8" fill="#f3f8f4" stroke="#b9d0c2"/>
-  <text x="586" y="159" font-size="12" font-weight="700" fill="#23695a">负成本杠杆（如 BRK 2025）</text>
-  <text x="586" y="180" font-size="12" fill="#3c4c44">94.6 亿 ÷ 1,735 亿 ≈ <tspan font-weight="700" fill="#23695a">−5.5% 成本</tspan></text>
-  <text x="586" y="200" font-size="11" fill="#5e6d65">客户倒贴钱让你长期代管资金做投资</text>
-  <rect x="572" y="226" width="258" height="74" rx="8" fill="#faeae7" stroke="#e4c2bc"/>
-  <text x="586" y="247" font-size="12" font-weight="700" fill="#b5483a">高息陷阱（若 CR = 104%）</text>
-  <text x="586" y="268" font-size="11.5" fill="#3c4c44">承保先亏 4%，等于高息举债去赌投资；</text>
-  <text x="586" y="286" font-size="11" fill="#5e6d65">若债市大跌或巨灾重叠，双端同时失血</text>
+  <rect x="20" y="54" width="152" height="96" rx="10" fill="#fbfbf6" stroke="#dfe5dc" stroke-width="1.3"/>
+  <text x="96" y="88" text-anchor="middle" font-size="13.5" font-weight="700" fill="#22392f">投保人预缴</text>
+  <text x="96" y="116" text-anchor="middle" font-size="12.5" fill="#5e6d65">先收保费、后赔付</text>
+  <line x1="172" y1="102" x2="212" y2="102" stroke="#23695a" stroke-width="2" marker-end="url(#n08-m-s)"/>
+  <rect x="218" y="42" width="186" height="120" rx="11" fill="#f3f8f4" stroke="#23695a" stroke-width="1.6"/>
+  <text x="311" y="74" text-anchor="middle" font-size="13.5" font-weight="700" fill="#23695a">浮存金负债池</text>
+  <text x="311" y="108" text-anchor="middle" font-size="22" font-weight="700" fill="#22392f">1,760 亿美元</text>
+  <text x="311" y="136" text-anchor="middle" font-size="12" fill="#5e6d65">未付赔款＋未赚保费</text>
+  <path d="M404 78 L458 56" fill="none" stroke="#23695a" stroke-width="2" marker-end="url(#n08-m-s)"/>
+  <path d="M404 126 L458 148" fill="none" stroke="#a8743f" stroke-width="2" marker-end="url(#n08-m-a)"/>
+  <rect x="466" y="20" width="234" height="72" rx="10" fill="#23695a"/>
+  <text x="583" y="48" text-anchor="middle" font-size="13" fill="#e5efe9">承保利润（成本 −5.5%）</text>
+  <text x="583" y="75" text-anchor="middle" font-size="17" font-weight="700" fill="#ffffff">税前 94.6 亿美元</text>
+  <rect x="466" y="112" width="234" height="72" rx="10" fill="#a8743f"/>
+  <text x="583" y="140" text-anchor="middle" font-size="13" fill="#f9efe3">保险投资收益</text>
+  <text x="583" y="167" text-anchor="middle" font-size="17" font-weight="700" fill="#ffffff">税后 125.1 亿美元</text>
 </svg>
 </div>
-<figcaption>数据来自 BRK FY2025 Form 10-K（K-35、K-40；平均浮存金取 2024 年末 1,710 亿与 2025 年末 1,760 亿均值 1,735 亿）与 CB 2025 年报。</figcaption>
+<figcaption>数据来自 BRK FY2025 Form 10-K（K-35、K-40）。平均浮存金取 2024 年末 1,710 亿与 2025 年末 1,760 亿均值 1,735 亿美元；一旦综合成本率突破 100%，浮存金成本即转正。</figcaption>
 </figure>
 
 看懂浮存金，千万不要把它误解成“白捡的无风险杠杆”。这笔钱到底便不便宜、安不安全，完全取决于**承保结果**与**留存稳定性**两条底线。<span data-text-versions id="nb-n08-float-text-1">浮存金成本由税前承保盈亏除以平均浮存金衡量；只有当综合成本率长期压在 100% 以下时，它才变成负成本资金<span data-text-detail>（以 BRK 2025 为例，税前承保盈利 94.6 亿美元除以 2024—2025 年末浮存金均值 1,735 亿美元，对应约 −5.5% 的负成本；同期 Chubb 账上未付赔款准备金 880.2 亿加未赚保费 262.8 亿支撑起 1,687 亿美元投资资产，在 85.7% 综合成本率下实现承保与投资双轮盈利。反过来，如果一家公司为冲规模乱降价、把综合成本率做到 105%，这笔浮存金就比发高收益债还贵，且随时可能因客户流失或集中理赔骤然缩水）</span>。[^cb]<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>
@@ -89,66 +57,60 @@
 
 综合成本率低于 100% 意味着承保盈利，高于 100% 则承保亏损。不过，直接拿两家公司的总综合成本率横向比高下，很容易掉进两个坑：**渠道费用结构不同**，以及**单年巨灾与往年准备金释放的噪音**。把全球商业财险龙头 Chubb（CB）与 BRK 旗下三大承保板块摆在同一张图上，差异立刻现形。[^cb]<sup>，</sup>[^brk]
 
-<figure class="flow-figure" id="nb-n08-combined-ratio">
-<div class="ff-head"><p class="ff-title">综合成本率透视镜：拆穿“天气运气”与险种费用结构（CB 与 BRK 2025）</p><span class="ff-sub">同样低于 100%，直销短尾车险、商业直保与追溯再保的赔付/费用构成截然不同</span></div>
-<div class="rel-svg-wrap business-exchange" aria-label="左右双栏图：左栏拆解 Chubb 2025 财险综合成本率 85.7%，由当年正常赔付（剔巨灾）55.3% 加巨灾赔付 6.3% 减往年准备金有利释放 2.5% 得到报告赔付率 59.1%，叠加保单获取费用率 18.6% 与行政管理费用率 8.0% 共 26.6% 费用率，距离 100% 盈亏线留出 14.3% 承保利润垫，剔除巨灾与往年释放后的当年核心综合成本率为 81.9%；右栏对比 BRK 2025 旗下三大承保板块，GEICO 直销车险综合成本率 84.7%（赔付 72.3% + 费用仅 12.4%，税前赚 68.2 亿），BH Primary 商业直保 95.8%（赔付 66.9% + 费用 28.9%，税前赚 7.9 亿），BHRG 再保险合计赚 18.5 亿（财险再保 +31.7 亿，追溯再保 −10.7 亿与年金 −7.1 亿）。">
-<svg viewBox="0 0 860 340" role="img" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
-  <rect x="14" y="14" width="424" height="312" rx="11" fill="#ffffff" stroke="#d5ddd6" stroke-width="1.3"/>
-  <rect x="14" y="14" width="424" height="36" rx="11" fill="#eff4f1"/>
-  <rect x="14" y="38" width="424" height="12" fill="#eff4f1"/>
-  <text x="30" y="37" font-size="13.5" font-weight="700" fill="#22392f">Chubb（CB）2025 财险综合成本率：85.7%</text>
-  <line x1="346" y1="62" x2="346" y2="234" stroke="#b5483a" stroke-width="1.4" stroke-dasharray="4 3"/>
-  <text x="346" y="248" text-anchor="middle" font-size="10.5" font-weight="700" fill="#b5483a">100% 盈亏线</text>
-  <text x="30" y="84" font-size="11.5" font-weight="600" fill="#3c4c44">当年正常赔付（剔巨灾）</text>
-  <rect x="166" y="70" width="100" height="18" rx="3" fill="#6b9f8c"/>
-  <text x="274" y="84" font-size="11.5" font-weight="700" fill="#22392f">55.3%</text>
-  <text x="30" y="112" font-size="11.5" fill="#b5483a">+ 巨灾赔付（Cat）</text>
-  <rect x="266" y="98" width="12" height="18" rx="3" fill="#c98878"/>
-  <text x="286" y="112" font-size="11.5" font-weight="700" fill="#b5483a">+6.3%</text>
-  <text x="30" y="140" font-size="11.5" fill="#23695a">− 往年准备金释放（PPD）</text>
-  <rect x="272" y="126" width="6" height="18" rx="2" fill="#23695a"/>
-  <text x="286" y="140" font-size="11.5" font-weight="700" fill="#23695a">−2.5%（有利）</text>
-  <line x1="30" y1="154" x2="422" y2="154" stroke="#e2e7df"/>
-  <text x="30" y="174" font-size="11.5" font-weight="700" fill="#22392f">报告赔付率（59.1%）</text>
-  <rect x="166" y="160" width="106" height="18" rx="3" fill="#23695a"/>
-  <text x="30" y="202" font-size="11.5" font-weight="600" fill="#8f6033">+ 费用率（26.6%）</text>
-  <rect x="272" y="188" width="34" height="18" rx="2" fill="#a8743f"/>
-  <rect x="306" y="188" width="14" height="18" rx="2" fill="#d4aa78"/>
-  <text x="356" y="202" font-size="10.5" fill="#8f6033">获客18.6+管8.0</text>
-  <text x="30" y="229" font-size="12" font-weight="700" fill="#23695a">合计 85.7%</text>
-  <rect x="166" y="216" width="154" height="18" rx="3" fill="#23695a"/>
-  <rect x="320" y="216" width="26" height="18" rx="3" fill="#e5efe9" stroke="#23695a" stroke-dasharray="2 2"/>
-  <text x="356" y="229" font-size="11.5" font-weight="700" fill="#23695a">赚 14.3%</text>
-  <rect x="30" y="258" width="392" height="54" rx="8" fill="#f7faf8" stroke="#c8dad0"/>
-  <text x="44" y="279" font-size="11.5" font-weight="700" fill="#23695a">核心指标：当年剔巨灾综合成本率（CAY ex-Cat）= 81.9%</text>
-  <text x="44" y="299" font-size="11" fill="#5e6d65">剥离当年飓风野火与历年准备金释放，最能检验当下定价纪律。</text>
-  <rect x="454" y="14" width="392" height="312" rx="11" fill="#ffffff" stroke="#d5ddd6" stroke-width="1.3"/>
-  <rect x="454" y="14" width="392" height="36" rx="11" fill="#f6eee4"/>
-  <rect x="454" y="38" width="392" height="12" fill="#f6eee4"/>
-  <text x="470" y="37" font-size="13.5" font-weight="700" fill="#22392f">BRK 2025：三类承保生意的成本结构反差</text>
-  <rect x="470" y="64" width="360" height="72" rx="8" fill="#f3f8f4" stroke="#b9d0c2"/>
-  <text x="484" y="85" font-size="12" font-weight="700" fill="#23695a">1. GEICO（直销车险）· 综合成本率 84.7%</text>
-  <text x="484" y="106" font-size="11.5" fill="#3c4c44">赔付 <tspan font-weight="700">72.3%</tspan> ＋ 费用仅 <tspan font-weight="700" fill="#23695a">12.4%</tspan> → 税前赚 <tspan font-weight="700" fill="#23695a">68.2 亿</tspan></text>
-  <text x="484" y="124" font-size="10.5" fill="#5e6d65">省下代理佣金，允许更高赔付率给车主让利，同时仍赚大钱</text>
-  <rect x="470" y="146" width="360" height="72" rx="8" fill="#fbfbf6" stroke="#dfe5dc"/>
-  <text x="484" y="167" font-size="12" font-weight="700" fill="#22392f">2. BH Primary（商业直保）· 综合成本率 95.8%</text>
-  <text x="484" y="188" font-size="11.5" fill="#3c4c44">赔付 <tspan font-weight="700">66.9%</tspan> ＋ 费用 <tspan font-weight="700">28.9%</tspan> → 税前赚 <tspan font-weight="700">7.9 亿</tspan></text>
-  <text x="484" y="206" font-size="10.5" fill="#5e6d65">商业险依赖经纪人渠道与核保团队，费用率天然高于直销车险</text>
-  <rect x="470" y="228" width="360" height="84" rx="8" fill="#fcf8f3" stroke="#ead9c4"/>
-  <text x="484" y="249" font-size="12" font-weight="700" fill="#8f6033">3. BHRG（再保险板块）· 税前合计赚 18.5 亿</text>
-  <text x="484" y="270" font-size="11.5" fill="#3c4c44">· 财险再保 <tspan font-weight="700" fill="#23695a">+31.7 亿</tspan> · 寿险健康再保 +3.7 亿</text>
-  <text x="484" y="290" font-size="11.5" fill="#b5483a">· 追溯再保 −10.7 亿 · 年金 −7.1 亿（账面承保亏）</text>
-  <text x="484" y="305" font-size="10.5" fill="#5e6d65">追溯再保主动承受递延摊销亏损，以换取超长久期巨额浮存金</text>
+<figure class="flow-figure" id="nb-n08-combined-ratio" data-ff-views>
+<div class="ff-head"><p class="ff-title">综合成本率透视镜：剥离巨灾与渠道费用结构（2025）</p><div class="ff-switch" role="group" aria-label="切换保险公司视图" hidden><button type="button" data-ff-view-choice="cb" aria-pressed="true">CB 85.7% 拆解</button><button type="button" data-ff-view-choice="brk" aria-pressed="false">BRK 渠道对照</button></div></div>
+<div class="rel-svg-wrap business-exchange" data-ff-only="cb" aria-label="Chubb 2025 财险综合成本率 85.7% 瀑布拆解：当年剔巨灾正常赔付 55.3%，加巨灾赔付 6.3%，减往年准备金有利释放 2.5%，得报告赔付率 59.1%；加保单获取与管理费用率 26.6%，合计 85.7%，距 100% 盈亏线留出 14.3% 承保利润。">
+<svg viewBox="0 0 720 225" role="img" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+  <line x1="566" y1="22" x2="566" y2="196" stroke="#b5483a" stroke-width="1.5" stroke-dasharray="4 3"/>
+  <text x="566" y="214" text-anchor="middle" font-size="12" font-weight="700" fill="#b5483a">100% 盈亏线</text>
+  <text x="20" y="42" font-size="13" fill="#3c4c44">当年正常赔付</text>
+  <rect x="166" y="26" width="221" height="22" rx="4" fill="#6b9f8c"/>
+  <text x="398" y="42" font-size="13" font-weight="700" fill="#22392f">55.3%</text>
+  <text x="20" y="76" font-size="13" fill="#b5483a">+ 巨灾赔付</text>
+  <rect x="387" y="60" width="25" height="22" rx="3" fill="#c98878"/>
+  <text x="424" y="76" font-size="13" font-weight="700" fill="#b5483a">+6.3%</text>
+  <text x="20" y="110" font-size="13" fill="#23695a">− 往年释放</text>
+  <rect x="402" y="94" width="10" height="22" rx="2" fill="#23695a"/>
+  <text x="424" y="110" font-size="13" font-weight="700" fill="#23695a">−2.5%（保守释放）</text>
+  <text x="20" y="144" font-size="13" fill="#8f6033">+ 费用率</text>
+  <rect x="402" y="128" width="106" height="22" rx="3" fill="#a8743f"/>
+  <text x="578" y="144" font-size="12.5" font-weight="600" fill="#8f6033">26.6%（佣金+管理）</text>
+  <text x="20" y="182" font-size="13.5" font-weight="700" fill="#23695a">合计 85.7%</text>
+  <rect x="166" y="164" width="343" height="24" rx="4" fill="#23695a"/>
+  <rect x="509" y="164" width="57" height="24" rx="4" fill="#e5efe9" stroke="#23695a" stroke-dasharray="3 2"/>
+  <text x="578" y="181" font-size="13.5" font-weight="700" fill="#23695a">赚 14.3%</text>
 </svg>
 </div>
-<figcaption>数据来自 CB 2025 Annual Report（p44、p97）与 BRK FY2025 Form 10-K（K-35–K-39）。跨公司比较赔付率前必须先对齐险种与直销／经纪渠道差异。</figcaption>
+<div class="rel-svg-wrap business-exchange" data-ff-only="brk" hidden aria-label="BRK 2025 直销车险 GEICO 与商业直保 BH Primary 综合成本率构成对照：GEICO 赔付率 72.3% 加极低直销费用率 12.4% 合计 84.7%（税前赚 68.2 亿）；BH Primary 赔付率 66.9% 加商业经纪费用率 28.9% 合计 95.8%（税前赚 7.9 亿）。">
+<svg viewBox="0 0 720 195" role="img" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+  <line x1="566" y1="22" x2="566" y2="165" stroke="#b5483a" stroke-width="1.5" stroke-dasharray="4 3"/>
+  <text x="566" y="183" text-anchor="middle" font-size="12" font-weight="700" fill="#b5483a">100%</text>
+  <rect x="166" y="16" width="14" height="12" rx="2" fill="#23695a"/>
+  <text x="188" y="27" font-size="12.5" fill="#23695a">赔付率</text>
+  <rect x="266" y="16" width="14" height="12" rx="2" fill="#a8743f"/>
+  <text x="288" y="27" font-size="12.5" fill="#8f6033">费用率</text>
+  <text x="20" y="78" font-size="13.5" font-weight="700" fill="#22392f">GEICO 直销车险</text>
+  <rect x="166" y="58" width="289" height="30" rx="4" fill="#23695a"/>
+  <rect x="457" y="58" width="50" height="30" rx="4" fill="#a8743f"/>
+  <text x="310" y="78" text-anchor="middle" font-size="13" font-weight="700" fill="#ffffff">72.3%</text>
+  <text x="482" y="78" text-anchor="middle" font-size="12" font-weight="700" fill="#ffffff">12.4%</text>
+  <text x="578" y="78" font-size="13.5" font-weight="700" fill="#23695a">84.7%（赚 68.2 亿）</text>
+  <text x="20" y="138" font-size="13.5" font-weight="700" fill="#22392f">BH Primary 商险</text>
+  <rect x="166" y="118" width="268" height="30" rx="4" fill="#23695a"/>
+  <rect x="436" y="118" width="115" height="30" rx="4" fill="#a8743f"/>
+  <text x="300" y="138" text-anchor="middle" font-size="13" font-weight="700" fill="#ffffff">66.9%</text>
+  <text x="493" y="138" text-anchor="middle" font-size="12.5" font-weight="700" fill="#ffffff">28.9%</text>
+  <text x="578" y="138" font-size="13.5" font-weight="700" fill="#8f6033">95.8%（赚 7.9 亿）</text>
+</svg>
+</div>
+<figcaption>点击切换 CB 瀑布拆解与 BRK 渠道对照。CB 当年剔巨灾核心综合成本率（CAY ex-Cat）为 81.9%。数据来自 CB 2025 年报与 BRK FY2025 10-K。</figcaption>
 </figure>
 
-对比左栏的 CB 与右栏的 GEICO，就能看清为什么不能单看赔付率：GEICO 走互联网与电话直销，把费用率死死压在 12.4%，即便赔付率高达 72.3%，综合成本率依然只有 84.7%；CB 承保复杂的跨国商业财产与责任险，必须支付经纪人佣金并养专业核保团队，费用率高达 26.6%，所以它把赔付率控制在 59.1% 才拿下 85.7% 的综合成本率。
+切换对比 CB 与 GEICO，就能看清为什么不能单看赔付率：GEICO 走互联网与电话直销，把费用率死死压在 12.4%，即便赔付率高达 72.3%，综合成本率依然只有 84.7%；CB 承保复杂的跨国商业财产与责任险，必须支付经纪人佣金并养专业核保团队，费用率高达 26.6%，所以它把赔付率控制在 59.1% 才拿下 85.7% 的综合成本率。
 
 同样，评估一家险企当下的真实定价能力，不能只看报告综合成本率，还要盯住 **当年剔除巨灾的综合成本率（Current Accident Year ex-Cat Combined Ratio，简称 CAY ex-Cat）**——比如 CB 2025 年为 81.9%。这一指标切掉了老天爷给不给面子（巨灾波动）和过去多提准备金留下的余粮（PPD 释放），直接暴露今年新签保单到底有没有定价纪律。
 
-<span data-text-versions id="nb-n08-combined-text-1">至于右栏底部 BHRG 追溯再保（Retroactive Reinsurance）连年录得账面承保亏损，背后是另一套时间价值算盘<span data-text-detail>（追溯再保承接其他保险公司过去已出险、尚未结案的巨额遗留理赔责任，如石棉与环境诉讼。会计规则要求将超出初始保费的预计赔付差额记作递延借项并逐年摊销进承保亏损，BRK 2025 年该项录得 −10.7 亿美元；BRK 明确表示，只要换回的巨额长期浮存金在未来一二十年产生的投资收益远超摊销成本，这笔交易在经济上就划算。但这套逻辑仅适用于资本极厚、投资能力强且封顶限额严密的特大型再保巨头，绝不能拿来替普通直保公司的承保亏损开脱）</span>。<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>
+<span data-text-versions id="nb-n08-combined-text-1">至于 BRK 旗下的 BHRG 追溯再保（Retroactive Reinsurance）连年录得账面承保亏损（2025 年为 −10.7 亿美元），背后是另一套时间价值算盘<span data-text-detail>（追溯再保承接其他保险公司过去已出险、尚未结案的巨额遗留理赔责任，如石棉与环境诉讼。会计规则要求将超出初始保费的预计赔付差额记作递延借项并逐年摊销进承保亏损，BRK 2025 年该项录得 −10.7 亿美元；BRK 明确表示，只要换回的巨额长期浮存金在未来一二十年产生的投资收益远超摊销成本，这笔交易在经济上就划算。但这套逻辑仅适用于资本极厚、投资能力强且封顶限额严密的特大型再保巨头，绝不能拿来替普通直保公司的承保亏损开脱）</span>。<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>
 
 ## 准备金周期：短尾看快纠错，长尾防爆雷 {#nb-n08-reserves}
 
@@ -157,55 +119,36 @@
 不同险种的理赔尾巴长短天差地别。以个人车险为主的短尾险（如 GEICO 及 Progressive，PGR 明确将全公司日历年综合成本率控制在 96% 及以下置于规模增长之前[^pgr]），修车账单几周到几个月就结清；一旦定价低估了配件通胀，两三个季度内赔付率就会立刻跳升，逼着公司马上向各州监管申请涨价。而商业责任险、医疗责任险与再保险这类长尾险，从承保到最终结案往往跨过五到十年，中途只要遭遇医疗通胀或美国陪审团高额判赔（行业称“社会通胀”），多年前算好的准备金就会大面积穿仓。
 
 <figure class="flow-figure" id="nb-n08-tail-reserves">
-<div class="ff-head"><p class="ff-title">短尾车险 vs 长尾责任险：为什么准备金估算偏差会在多年后集中引爆</p><span class="ff-sub">精算准备金的“保守释放”与“激进少提”，决定当期利润是真金还是透支</span></div>
-<div class="rel-svg-wrap business-exchange" aria-label="上下对照时间轴：上轨短尾险（如车险 GEICO 与 PGR）在出险当年至 1 年内绝大多数赔案结清，定价偏低很快在 2 到 3 个季度内暴露并可迅速提价修正，但浮存金久期短；下轨长尾险（如商业责任、医疗事故与追溯再保，CB 账上背负 880 亿美元未付赔款准备金）理赔横跨 3 至 10 年以上，受医疗通胀与陪审团高额判赔冲击，保守精算会在后续年度逐步释放冗余准备金（CB 2025 释放 2.5 个百分点），激进少提则会制造前期虚假高利润并在数年后集中补提冲击净利润。">
-<svg viewBox="0 0 860 315" role="img" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
-  <rect x="14" y="14" width="832" height="118" rx="11" fill="#ffffff" stroke="#c8dad0" stroke-width="1.3"/>
-  <rect x="14" y="14" width="142" height="118" rx="11" fill="#eff4f1"/>
-  <rect x="144" y="14" width="12" height="118" fill="#eff4f1"/>
-  <text x="85" y="54" text-anchor="middle" font-size="13.5" font-weight="700" fill="#23695a">短尾险种</text>
-  <text x="85" y="76" text-anchor="middle" font-size="11.5" font-weight="600" fill="#22392f">个人车险／家财</text>
-  <text x="85" y="98" text-anchor="middle" font-size="10.5" fill="#5e6d65">代表：GEICO ／ PGR</text>
-  <text x="176" y="42" font-size="11.5" font-weight="700" fill="#22392f">第 0–12 个月：修车与医疗账单迅速落定</text>
-  <rect x="176" y="54" width="160" height="22" rx="4" fill="#23695a"/>
-  <rect x="340" y="54" width="44" height="22" rx="4" fill="#8db39c"/>
-  <rect x="388" y="54" width="14" height="22" rx="4" fill="#d5ddd6"/>
-  <text x="256" y="69" text-anchor="middle" font-size="11" font-weight="700" fill="#ffffff">绝大部分年内结案</text>
-  <text x="414" y="69" font-size="11" fill="#5e6d65">余尾极短</text>
-  <text x="176" y="100" font-size="11.5" fill="#3c4c44">· <tspan font-weight="700" fill="#23695a">优点</tspan>：定价失误在 2–3 个季度内即暴露，可快速重定价（PGR 紧盯 ≤96% CR 纪律）。</text>
-  <text x="176" y="120" font-size="11.5" fill="#5e6d65">· <tspan font-weight="700" fill="#8f6033">代价</tspan>：每 1 美元保费沉淀的浮存金倍数较低，且价格透明、用户比价切换快。</text>
-  <rect x="14" y="146" width="832" height="156" rx="11" fill="#ffffff" stroke="#e4c2bc" stroke-width="1.3"/>
-  <rect x="14" y="146" width="142" height="156" rx="11" fill="#faeae7"/>
-  <rect x="144" y="146" width="12" height="156" fill="#faeae7"/>
-  <text x="85" y="196" text-anchor="middle" font-size="13.5" font-weight="700" fill="#b5483a">长尾险种</text>
-  <text x="85" y="218" text-anchor="middle" font-size="11.5" font-weight="600" fill="#22392f">商业责任／再保</text>
-  <text x="85" y="240" text-anchor="middle" font-size="10.5" fill="#5e6d65">CB 未付赔款 880 亿</text>
-  <text x="85" y="258" text-anchor="middle" font-size="10.5" fill="#5e6d65">BRK 追溯再保</text>
-  <text x="176" y="174" font-size="11.5" font-weight="700" fill="#22392f">第 1 年 → 第 3 年 → 第 5–10 年+：诉讼、潜伏伤病与“社会通胀”拉长赔付尾巴</text>
-  <rect x="176" y="186" width="90" height="22" rx="4" fill="#a8743f"/>
-  <rect x="270" y="186" width="140" height="22" rx="4" fill="#c98878"/>
-  <rect x="414" y="186" width="180" height="22" rx="4" fill="#b5483a"/>
-  <rect x="598" y="186" width="140" height="22" rx="4" fill="#d9a79d"/>
-  <text x="221" y="201" text-anchor="middle" font-size="10.5" font-weight="700" fill="#ffffff">第 1 年报案</text>
-  <text x="340" y="201" text-anchor="middle" font-size="10.5" font-weight="700" fill="#ffffff">第 2–4 年调查诉讼</text>
-  <text x="504" y="201" text-anchor="middle" font-size="10.5" font-weight="700" fill="#ffffff">第 5–8 年大额裁决理赔</text>
-  <text x="668" y="201" text-anchor="middle" font-size="10.5" font-weight="700" fill="#22392f">10 年+ 尾案</text>
-  <rect x="176" y="222" width="318" height="66" rx="7" fill="#f3f8f4" stroke="#b9d0c2"/>
-  <text x="190" y="242" font-size="11.5" font-weight="700" fill="#23695a">保守提取 → 往年有利释放（Favorable）</text>
-  <text x="190" y="261" font-size="11" fill="#3c4c44">前期多留安全垫，后期实际赔付低于预估；</text>
-  <text x="190" y="278" font-size="11" fill="#5e6d65">CB 连续释放：23年 −1.9% · 24年 −2.0% · 25年 −2.5%</text>
-  <rect x="508" y="222" width="322" height="66" rx="7" fill="#faeae7" stroke="#e4c2bc"/>
-  <text x="522" y="242" font-size="11.5" font-weight="700" fill="#b5483a">激进少提 → 多年后集中补提（Adverse）</text>
-  <text x="522" y="261" font-size="11" fill="#3c4c44">当年少提准备金制造虚假低 CR 与虚高利润；</text>
-  <text x="522" y="278" font-size="11" fill="#5e6d65">多年后集中补窟窿，单季抹平数年盈利甚至伤及资本</text>
+<div class="ff-head"><p class="ff-title">短尾车险 vs 长尾责任险：理赔跨度决定准备金风险何时暴露</p><span class="ff-sub">短尾一年内结清、报错快；长尾横跨五至十年，少提准备金会延迟引爆</span></div>
+<div class="rel-svg-wrap business-exchange" aria-label="短尾与长尾赔付时间轴对比：上轨短尾车险（GEICO 与 PGR）绝大多数赔案在第 1 年内结清，定价失误迅速暴露；下轨长尾商业责任与再保（CB 账上背负 880 亿未付赔款）赔付延续至第 3 年、第 5 年乃至 10 年以上，易受通胀与诉讼推高。">
+<svg viewBox="0 0 720 190" role="img" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+  <line x1="168" y1="154" x2="690" y2="154" stroke="#cbd5ce" stroke-width="1.4"/>
+  <text x="196" y="176" text-anchor="middle" font-size="12" fill="#5e6d65">第 1 年</text>
+  <text x="340" y="176" text-anchor="middle" font-size="12" fill="#5e6d65">第 2–3 年</text>
+  <text x="500" y="176" text-anchor="middle" font-size="12" fill="#5e6d65">第 4–7 年</text>
+  <text x="646" y="176" text-anchor="middle" font-size="12" fill="#5e6d65">第 8–10 年+</text>
+  <text x="20" y="54" font-size="13.5" font-weight="700" fill="#23695a">短尾车险</text>
+  <text x="20" y="74" font-size="12" fill="#5e6d65">GEICO ／ PGR</text>
+  <rect x="168" y="38" width="144" height="32" rx="5" fill="#23695a"/>
+  <rect x="316" y="38" width="38" height="32" rx="4" fill="#9bc2b0"/>
+  <text x="240" y="59" text-anchor="middle" font-size="12.5" font-weight="700" fill="#ffffff">年内绝大部分结清</text>
+  <text x="368" y="59" font-size="12.5" fill="#23695a">报错快 · 迅速重定价</text>
+  <text x="20" y="118" font-size="13.5" font-weight="700" fill="#b5483a">长尾责任／再保</text>
+  <text x="20" y="138" font-size="12" fill="#5e6d65">CB 准备金 880 亿</text>
+  <rect x="168" y="102" width="76" height="32" rx="4" fill="#a8743f"/>
+  <rect x="248" y="102" width="150" height="32" rx="4" fill="#c98878"/>
+  <rect x="402" y="102" width="174" height="32" rx="4" fill="#b5483a"/>
+  <rect x="580" y="102" width="108" height="32" rx="4" fill="#dfb0a6"/>
+  <text x="323" y="123" text-anchor="middle" font-size="12.5" font-weight="700" fill="#ffffff">诉讼与通胀拉长尾巴</text>
+  <text x="489" y="123" text-anchor="middle" font-size="12.5" font-weight="700" fill="#ffffff">准备金补提或释放区</text>
 </svg>
 </div>
-<figcaption>综合 CB 2025 年报（未付赔款 880.2 亿与三年 PPD 数据）、BRK 2025 10-K（GEICO 与追溯再保说明）及 PGR 2025 10-K（96% 综合成本率上限目标）。</figcaption>
+<figcaption>CB 2023—2025 年连续三年录得往年准备金有利释放（−1.9%、−2.0%、−2.5%）；若激进少提，则会在第 4–7 年集中补提冲击利润。</figcaption>
 </figure>
 
-正因准备金靠估算，研究长尾险企时必须追踪连续五到十年的**往年准备金开发（Prior Period Development, PPD）**记录：常年出现有利释放（如 CB 2023—2025 年分别释放 1.9%、2.0% 与 2.5%）通常说明初始提取留有安全垫；一旦一家成长飞快的险企连续在多个历史承保年度出现不利补提，往往意味着早年的“高增长＋低综合成本率”靠的是少提准备金透支未来。
+正因准备金靠估算，研究长尾险企时必须追踪连续五到十年的<strong>往年准备金开发（Prior Period Development, PPD）</strong>记录：常年出现有利释放（如 CB 2023—2025 年分别释放 1.9%、2.0% 与 2.5%）通常说明初始提取留有安全垫；一旦一家成长飞快的险企连续在多个历史承保年度出现不利补提，往往意味着早年的“高增长＋低综合成本率”靠的是少提准备金透支未来。
 
-此外，保险公司常通过购买**再保险（Reinsurance）**把极端飓风、地震或超额巨灾切分出去，降低单次事件击穿净资产的概率。但核对分出再保时要守住一条法律边界：再保险只分担风险与赔款补偿，**原保险人对投保人的法定赔付义务并未解除**；如果极端灾难同时拖垮了二三线再保对手，账单仍会原路弹回自己账上。
+此外，保险公司常通过购买<strong>再保险（Reinsurance）</strong>把极端飓风、地震或超额巨灾切分出去，降低单次事件击穿净资产的概率。但核对分出再保时要守住一条法律边界：再保险只分担风险与赔款补偿，**原保险人对投保人的法定赔付义务并未解除**；如果极端灾难同时拖垮了二三线再保对手，账单仍会原路弹回自己账上。
 
 ## 估值尺子：为何看 `P/B` 与 `ROE` 而非单年 `P/E` {#nb-n08-valuation}
 
@@ -214,52 +157,27 @@
 专业研究因此把核心尺子移回资产负债表——盯着**每股账面净资产（BVPS）的长期复利速度**与**跨周期可持续 ROE**，再对照市净率（`P/B`）。
 
 <figure class="flow-figure" id="nb-n08-pb-roe">
-<div class="ff-head"><p class="ff-title">研究一家保险公司的三道体检关：为什么估值盯 P/B 与 ROE 而非单年 P/E</p><span class="ff-sub">以 CB 2025 实数收束：承保纪律 × 投资杠杆 × 资本复利</span></div>
-<div class="rel-svg-wrap business-exchange" aria-label="三栏体检图：第一关承保纪律，核对 5 到 10 年跨周期综合成本率、当年剔巨灾核心综合成本率（CB 2025 为 81.9%）与往年准备金开发方向，单年天气好运不算护城河；第二关浮存金与投资杠杆，CB 2025 以 737.6 亿美元股东权益撬动 1,687 亿美元投资资产（约 2.29 倍），须同步排查债券久期、信用下沉与再保对手风险；第三关估值锚，因巨灾与 GAAP 股票浮盈浮亏剧烈扰动单年 EPS（BRK 2025 投资公允价值变动达 307 亿美元），保险估值核心锚定每股净资产复利（CB 2025 BVPS 188.59 美元、剔 AOCI 201.31 美元）与跨周期 ROE（15.0%／核心 ROTE 20.5%）对应的合理 P/B。">
-<svg viewBox="0 0 860 310" role="img" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
-  <rect x="14" y="14" width="268" height="282" rx="11" fill="#ffffff" stroke="#c8dad0" stroke-width="1.3"/>
-  <rect x="14" y="14" width="268" height="40" rx="11" fill="#eff4f1"/>
-  <rect x="14" y="42" width="268" height="12" fill="#eff4f1"/>
-  <text x="148" y="39" text-anchor="middle" font-size="13.5" font-weight="700" fill="#23695a">体检一：跨周期承保纪律</text>
-  <text x="28" y="80" font-size="12" font-weight="700" fill="#22392f">看 5–10 年，不看单年运气</text>
-  <text x="28" y="104" font-size="11.5" fill="#3c4c44">· 长期平均 CR 是否稳定 &lt; 95%？</text>
-  <text x="28" y="126" font-size="11.5" fill="#3c4c44">· 软市场费率下滑时愿不愿主动缩量？</text>
-  <text x="28" y="148" font-size="11.5" fill="#3c4c44">· CAY ex-Cat 与 PPD 是否长期稳健？</text>
-  <rect x="28" y="170" width="240" height="110" rx="8" fill="#f7faf8" stroke="#c8dad0"/>
-  <text x="42" y="192" font-size="11.5" font-weight="700" fill="#23695a">CB 2025 样本对照</text>
-  <text x="42" y="214" font-size="11.5" fill="#3c4c44">P&amp;C 综合成本率：<tspan font-weight="700">85.7%</tspan></text>
-  <text x="42" y="235" font-size="11.5" fill="#3c4c44">CAY 剔巨灾 CR：<tspan font-weight="700">81.9%</tspan></text>
-  <text x="42" y="256" font-size="11.5" fill="#3c4c44">往年准备金释放：<tspan font-weight="700">−2.5%（连续三年）</tspan></text>
-  <rect x="296" y="14" width="268" height="282" rx="11" fill="#ffffff" stroke="#ead9c4" stroke-width="1.3"/>
-  <rect x="296" y="14" width="268" height="40" rx="11" fill="#f6eee4"/>
-  <rect x="296" y="42" width="268" height="12" fill="#f6eee4"/>
-  <text x="430" y="39" text-anchor="middle" font-size="13.5" font-weight="700" fill="#8f6033">体检二：资产杠杆与防线</text>
-  <text x="310" y="80" font-size="12" font-weight="700" fill="#22392f">资产 ÷ 净资产 = 投资杠杆</text>
-  <text x="310" y="104" font-size="11.5" fill="#3c4c44">· 查债券信用等级与久期错配</text>
-  <text x="310" y="126" font-size="11.5" fill="#3c4c44">· 查股权仓位相对净资产的波动冲击</text>
-  <text x="310" y="148" font-size="11.5" fill="#3c4c44">· 查巨灾最大可能损失（PML）与再保</text>
-  <rect x="310" y="170" width="240" height="110" rx="8" fill="#fcf8f3" stroke="#ead9c4"/>
-  <text x="324" y="192" font-size="11.5" font-weight="700" fill="#8f6033">两种资产配置风格</text>
-  <text x="324" y="214" font-size="11.5" fill="#3c4c44">CB：1,687 亿投资 ÷ 738 亿权益</text>
-  <text x="324" y="233" font-size="11" fill="#5e6d65">（≈ 2.29× 杠杆，以高质量固收为主）</text>
-  <text x="324" y="256" font-size="11.5" fill="#3c4c44">BRK：厚资本垫支撑重仓股权与美债</text>
-  <rect x="578" y="14" width="268" height="282" rx="11" fill="#ffffff" stroke="#b9d0c2" stroke-width="1.3"/>
-  <rect x="578" y="14" width="268" height="40" rx="11" fill="#23695a"/>
-  <rect x="578" y="42" width="268" height="12" fill="#23695a"/>
-  <text x="712" y="39" text-anchor="middle" font-size="13.5" font-weight="700" fill="#ffffff">体检三：P/B 与 ROE 估值锚</text>
-  <text x="592" y="80" font-size="12" font-weight="700" fill="#b5483a">为何单年 P/E 容易失真？</text>
-  <text x="592" y="102" font-size="11" fill="#3c4c44">大巨灾、准备金补提或 GAAP 股票浮盈</text>
-  <text x="592" y="119" font-size="11" fill="#3c4c44">（BRK 2025 投资变动 307 亿）会扭曲 EPS</text>
-  <rect x="592" y="138" width="240" height="142" rx="8" fill="#f3f8f4" stroke="#b9d0c2"/>
-  <text x="606" y="160" font-size="11.5" font-weight="700" fill="#23695a">盯 BVPS 复利 ＋ 跨周期 ROE</text>
-  <text x="606" y="182" font-size="11.5" fill="#3c4c44">· CB 2025 BVPS：<tspan font-weight="700">188.59 美元 (+18%)</tspan></text>
-  <text x="606" y="203" font-size="11.5" fill="#3c4c44">· 剔 AOCI 债券波动：<tspan font-weight="700">201.31 美元</tspan></text>
-  <text x="606" y="224" font-size="11.5" fill="#3c4c44">· 报告 ROE <tspan font-weight="700">15.0%</tspan> · 核心 ROTE <tspan font-weight="700">20.5%</tspan></text>
-  <text x="606" y="249" font-size="11" fill="#5e6d65">承保真赚钱 + 高 ROE → 市场愿给</text>
-  <text x="606" y="266" font-size="11" fill="#5e6d65">高于 1× 的 P/B；反之则长期破净。</text>
+<div class="ff-head"><p class="ff-title">保险股估值路径：从承保纪律与投资杠杆落回 P/B 与 ROE（CB 2025）</p><span class="ff-sub">单年 P/E 易受巨灾与股票浮盈扰动，净资产复利与跨周期 ROE 才是硬尺子</span></div>
+<div class="rel-svg-wrap business-exchange" aria-label="保险股三步估值路径：第一步跨周期承保纪律（CB 2025 CAY 剔巨灾综合成本率 81.9%），第二步稳健投资杠杆（1,687 亿投资资产除以 738 亿股东权益约 2.29 倍），共同驱动第三步每股净资产复利与跨周期 ROE（CB 2025 BVPS 188.59 美元、剔 AOCI 201.31 美元、ROE 15.0%／核心 ROTE 20.5%）以锚定合理 P/B。">
+<svg viewBox="0 0 720 175" role="img" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+  <defs><marker id="n08-v-s" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse"><path d="M0 1.2 L9 5 L0 8.8 z" fill="#23695a"/></marker></defs>
+  <rect x="20" y="34" width="196" height="106" rx="10" fill="#f7faf8" stroke="#c8dad0" stroke-width="1.3"/>
+  <text x="118" y="64" text-anchor="middle" font-size="13" font-weight="700" fill="#23695a">1. 跨周期承保</text>
+  <text x="118" y="95" text-anchor="middle" font-size="18" font-weight="700" fill="#22392f">核心 CR 81.9%</text>
+  <text x="118" y="120" text-anchor="middle" font-size="12" fill="#5e6d65">看 5–10 年定价纪律</text>
+  <line x1="216" y1="87" x2="256" y2="87" stroke="#23695a" stroke-width="2" marker-end="url(#n08-v-s)"/>
+  <rect x="262" y="34" width="196" height="106" rx="10" fill="#fcf8f3" stroke="#ead9c4" stroke-width="1.3"/>
+  <text x="360" y="64" text-anchor="middle" font-size="13" font-weight="700" fill="#8f6033">2. 浮存金投资杠杆</text>
+  <text x="360" y="95" text-anchor="middle" font-size="18" font-weight="700" fill="#22392f">2.29× 投资资产</text>
+  <text x="360" y="120" text-anchor="middle" font-size="12" fill="#5e6d65">查久期、信用与巨灾</text>
+  <line x1="458" y1="87" x2="498" y2="87" stroke="#23695a" stroke-width="2" marker-end="url(#n08-v-s)"/>
+  <rect x="504" y="34" width="196" height="106" rx="10" fill="#23695a"/>
+  <text x="602" y="64" text-anchor="middle" font-size="13" font-weight="700" fill="#e5efe9">3. 锚定 P/B 与 ROE</text>
+  <text x="602" y="95" text-anchor="middle" font-size="18" font-weight="700" fill="#ffffff">ROE 15.0%</text>
+  <text x="602" y="120" text-anchor="middle" font-size="12" fill="#d7e8df">核心 ROTE 20.5% · 剔 AOCI</text>
 </svg>
 </div>
-<figcaption>数据来自 CB 2025 Annual Report（p4 财务摘要）与 BRK FY2025 Form 10-K（盈利汇总表）。剔除 AOCI 有助于隔离利率短期波动对持有至到期债券账面净值的影响。</figcaption>
+<figcaption>数据来自 CB 2025 Annual Report（BVPS 188.59 美元、剔 AOCI 为 201.31 美元；总投资 1,687 亿 ÷ 股东权益 738 亿 ≈ 2.29×）。</figcaption>
 </figure>
 
 <span data-text-versions id="nb-n08-val-text-1">读保险股的账面净资产时，还要额外剥离一次债券利率波动（AOCI）<span data-text-detail>（保险公司持有大量可供出售债券，市场利率上升时债券账面市值下跌，会通过其他综合收益累计额 AOCI 暂时拉低报告净资产；只要公司不必在低位被迫抛售、持有到期仍能按面值收本息，这笔账面浮亏就会随到期日临近自动回补。CB 2025 年报因此并列披露了报告 BVPS 188.59 美元与剔除 AOCI 后的 201.31 美元，同时列示剔除商誉无形资产后的有形每股净资产 126.22 美元与核心 ROTE 20.5%）</span>。<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>
@@ -269,6 +187,7 @@
 如果想把保险的资产负债表逻辑放回更广的跨行业财务框架中对照，可回到[《收入增长与市场预期》](/zh/notebook/revenue-growth-expectations/#nb-d02-fin-revenue)核对金融收入确认边界，或衔接[《三张财报与经营活动》](/zh/notebook/three-financial-statements/)继续打通现金流与资本投入分析。
 
 <link rel="stylesheet" href="/notebook/flow-figures.css?v=20261128">
+<script src="/notebook/flow-figures.js?v=20261012-6" defer></script>
 
 [^brk]: [Berkshire Hathaway Inc. FY2025 Form 10-K — Insurance Underwriting, Investment Income and Float](https://www.sec.gov/Archives/edgar/data/1067983/000119312526083899/brka-20251231.htm)。年度截至 2025-12-31；K-35–K-40：2025 年末浮存金约 1,760 亿（2024 年末 1,710 亿）、税前承保盈利 94.6 亿（GEICO 68.2 亿／84.7% CR、BH Primary 7.9 亿／95.8% CR、BHRG 18.5 亿含追溯再保 −10.7 亿）、税后保险投资收益 125.1 亿及浮存金定义。
 [^cb]: [Chubb Limited 2025 Annual Report — Financial Highlights, Combined Ratio and Balance Sheet](https://www.chubb.com/content/dam/annual-corporate-governance/2026/a-chubb-limited/chubb-limited-annual-report-2025.pdf)。2025 年度；p4、p44、p97：净签单 548.4 亿、净已赚 530.1 亿、P&C 综合成本率 85.7%（赔付 59.1%、获客 18.6%、行政 8.0%；巨灾 6.3%、PPD −2.5%、CAY ex-Cat 81.9%）、P&C 承保利润 65.0 亿、税前投资收益 64.7 亿、总投资 1,687 亿、未付赔款 880.2 亿、未赚保费 262.8 亿、股东权益 737.6 亿、BVPS 188.59（剔 AOCI 201.31）、ROE 15.0%、核心 ROTE 20.5%。

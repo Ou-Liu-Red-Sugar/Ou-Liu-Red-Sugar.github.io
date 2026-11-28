@@ -9,6 +9,7 @@
 }
 
 <link rel="stylesheet" href="/notebook/flow-figures.css?v=20261127b">
+<script src="/notebook/flow-figures.js?v=20261012-6" defer></script>
 
 2026 年 2 月 25 日，**Snowflake**（SNOW）发布 2026 财年业绩，同一份公告摆出两份相反成绩单：按美国公认会计准则（GAAP），全年净亏损 **13.32 亿美元**（每股 −3.95 美元）；按**非 GAAP**（Non-GAAP）口径，公司反而盈利 **4.66 亿美元**（每股 1.25 美元，按次日收盘 173.06 美元算约 138.3 倍市盈率）。[^snow-fy26]<sup>，</sup>[^market-closes]
 
@@ -29,37 +30,36 @@
 
 看懂监管底线后，财报和电话会里最常碰到的三类调整口径——**Adjusted EBITDA**、**Adjusted Operating Income** 与 **Adjusted EPS**——各自站在利润表的不同台阶，用途和踩坑边界一目了然：
 
-<figure class="flow-figure e06-metrics-map" id="nb-e06-metrics-map">
-<div class="ff-head"><p class="ff-title">常用盈利与调整口径流向图：从 GAAP 主干到三类 Non-GAAP 指标</p><span class="ff-sub">同一张利润表自上而下分叉 · 各指标分别对应不同比较对象与失效边界</span></div>
-<div class="e06-mflow business-exchange" aria-label="常用盈利与调整口径流向图：左侧为经审计 GAAP 主干，从营业收入依次扣除营业成本与研发销售管理费用（含折旧、摊销、股权激励 SBC 及重组等）得到 GAAP 营业利润，再扣除利息、非经营损益与所得税得到 GAAP 净利润，除以加权平均稀释股数得到 GAAP 稀释 EPS；底部注明 SEC Regulation G 与 Item 10(e) 要求从最接近的 GAAP 指标出发逐项调节且同等突出列示。右侧分出三类常见调整口径：一、EBITDA 与 Adjusted EBITDA，依据 SEC C&DI Section 103 须从 GAAP 净利润加回利息、税项、折旧与摊销（再加 SBC 或重组等须改称 Adjusted EBITDA），适合高杠杆企业短期偿息倍数与不同折旧年限的粗略横向对照，但忽略资本开支、税负与现金占用，不可替代自由现金流且禁止报每股数；二、Adjusted Operating Income（调整后营业利润），从 GAAP 营业利润剔除偶发减值、并购交割费等项目，适合剥离资本结构与税率差异横向对比主业盈利能力，但须核查是否踢除了常态 SBC 或连续重组；三、Adjusted EPS（调整后每股收益），从 GAAP 归属净利润与稀释股数出发剔除非经常或非主业项目并单列税项调节，适合普通股 P/E 估值比较与跟踪业绩指引，但同时受分子调整项与分母股数口径变动影响。">
+<figure class="flow-figure e06-metrics-map" id="nb-e06-metrics-map" data-ff-views>
+<div class="ff-head"><p class="ff-title">从 GAAP 主干到三类 Non-GAAP 口径：公式与失效边界</p><div class="ff-switch" role="group" aria-label="切换指标" hidden><button type="button" data-ff-view-choice="ebitda" aria-pressed="true">EBITDA</button><button type="button" data-ff-view-choice="ebit" aria-pressed="false">Adj. Operating Income</button><button type="button" data-ff-view-choice="eps" aria-pressed="false">Adj. EPS</button></div></div>
+<div class="e06-mflow business-exchange" aria-label="GAAP 利润表主干分叉为三类 Non-GAAP 调整口径：EBITDA 偏偿债粗测但忽略维持 CapEx，Adjusted Operating Income 横比主业盈利但防剔除常态 SBC 或连续重组，Adjusted EPS 做股权估值但受分子与稀释分母双重影响。">
 <div class="e06-spine">
 <span class="e06-badge">经审计 GAAP 主干</span>
 <div class="e06-steps">
-<div class="e06-step"><strong>营业收入（Revenue）</strong><small>减：营业成本、研发、销售、管理（含折旧摊销与 SBC）</small></div>
-<div class="e06-step"><strong>GAAP 营业利润（Operating Income）</strong><small>加减：利息收支、投资公允变动与所得税</small></div>
-<div class="e06-step"><strong>GAAP 净利润 → 稀释 EPS</strong><small>归属普通股股东净利润 ÷ 稀释加权平均股数</small></div>
+<div class="e06-step"><strong>营业收入 → GAAP 营业利润</strong><small>扣除成本与三费（含折旧、SBC 与重组）</small></div>
+<div class="e06-step"><strong>GAAP 净利润 → 稀释 EPS</strong><small>归母净利润 ÷ 稀释加权平均股数</small></div>
 </div>
-<div class="e06-rule-box">SEC 护栏：Non-GAAP 须与最接近 GAAP 同等突出，并从 GAAP 起点逐项调节。</div>
+<div class="e06-rule-box">SEC 护栏：Non-GAAP 须从 GAAP 起点逐项调节并同等突出列示。</div>
 </div>
 <div class="e06-branches">
-<div class="e06-bcard e06-warn" style="--e06-c:#a8743f">
+<div class="e06-bcard e06-warn" data-ff-only="ebitda" style="--e06-c:#a8743f">
 <div class="e06-bhead"><strong>EBITDA / Adjusted EBITDA</strong><span>偏偿债粗测 · 严防滥用</span></div>
-<p class="e06-bformula">GAAP 净利润 ＋ 利息 ＋ 税项 ＋ 折旧摊销（若另加 SBC、重组或减值，须标为 Adjusted EBITDA）</p>
-<div class="e06-bmeta"><div><b>适用场景：</b>债市契约（净债务 / EBITDA）与跨折旧政策粗看经营息税前现金缓冲。</div><div><b>失效边界：</b>无视维持性 CapEx、利息与税款；不可当自由现金流，SEC 禁止列报每股数。</div></div>
+<p class="e06-bformula">GAAP 净利润 ＋ 利息 ＋ 税项 ＋ 折旧摊销（再加 SBC 或重组须标 Adjusted）</p>
+<div class="e06-bmeta"><div><b>适用场景：</b>债市契约（净债务 / EBITDA）与跨折旧政策粗看息税前现金缓冲。</div><div><b>失效边界：</b>无视维持性 CapEx、利息与税款；不可当自由现金流，SEC 禁止列报每股数。</div></div>
 </div>
-<div class="e06-bcard" style="--e06-c:#23695a">
+<div class="e06-bcard" data-ff-only="ebit" hidden style="--e06-c:#23695a">
 <div class="e06-bhead"><strong>Adjusted Operating Income</strong><span>主业盈利横向对比</span></div>
-<p class="e06-bformula">GAAP 营业利润 ± 偶发资产减值、并购交割费等（须逐项核查是否剔除了 SBC 与重组）</p>
-<div class="e06-bmeta"><div><b>适用场景：</b>剥离资本结构与税率差异，比较同业公司核心业务经营利润率。</div><div><b>失效边界：</b>若把经常性人力成本或年年重组一并剔除，营业利润率会系统性失真。</div></div>
+<p class="e06-bformula">GAAP 营业利润 ± 偶发资产减值、并购交割费等</p>
+<div class="e06-bmeta"><div><b>适用场景：</b>剥离资本结构与税率差异，比较同业公司核心经营利润率。</div><div><b>失效边界：</b>若把经常性人力成本（SBC）或年年重组一并剔除，利润率会系统性失真。</div></div>
 </div>
-<div class="e06-bcard" style="--e06-c:#4a738c">
+<div class="e06-bcard" data-ff-only="eps" hidden style="--e06-c:#4a738c">
 <div class="e06-bhead"><strong>Adjusted EPS（Comparable EPS）</strong><span>股权估值与 P/E 参照</span></div>
-<p class="e06-bformula">（GAAP 归属净利润 ± 各项税前调节 ± 配套所得税调节）÷ 同口径稀释股数</p>
-<div class="e06-bmeta"><div><b>适用场景：</b>股权估值倍数比较、跨年追踪剔除一次性波动后的每股经常性盈利。</div><div><b>失效边界：</b>分子调整尺度与分母反稀释切换可令 P/E 出现数倍落差甚至盈亏倒转。</div></div>
+<p class="e06-bformula">（GAAP 归母净利 ± 税前调节 ± 配套税项）÷ 同口径稀释股数</p>
+<div class="e06-bmeta"><div><b>适用场景：</b>股权 P/E 比较与追踪剔除一次性波动后的经常性盈利。</div><div><b>失效边界：</b>分子调整尺度与分母反稀释切换可令 P/E 出现数倍落差甚至盈亏倒转。</div></div>
 </div>
 </div>
 </div>
-<figcaption>依据 SEC C&amp;DI Section 103（Question 103.01–103.02），标准 EBITDA 的起点是 GAAP 净利润而非营业利润；额外剔除其他项目的指标不得继续简称 EBITDA。</figcaption>
+<figcaption>点击切换三类 Non-GAAP 指标。依据 SEC C&amp;DI Section 103，标准 EBITDA 起点为 GAAP 净利润，额外剔除其他项目须改称 Adjusted EBITDA。</figcaption>
 </figure>
 
 三类口径里，**EBITDA** 在股权估值中尤其容易误导。债市契约拿它粗看短期偿债缓冲尚可理解，可厂房、基站和服务器都是提前掏现金买的，用旧后还得掏钱换新。Warren Buffett 在 2015 年股东信中提醒，折旧几乎总是真实现金成本，重资产行业的维持性资本开支常高于折旧，拿 EBITDA 估值只会把公司看便宜。[^buffett-2015]
@@ -75,97 +75,75 @@
 **第三类**是绝不能盲目剔除的“伪一次性”项，常见雷区是**股权激励费用**（SBC）与**连续重组**。不少科技公司把 SBC 整笔加回，理由是发股票不花当期现金。可 Warren Buffett 反问：“既然叫薪酬，薪酬如果不是费用，它还能是什么？”[^buffett-2015] 用股票代发工资，只是把人力开支转嫁给老股东；看 SNOW FY26，两条路都躲不开真实代价：[^snow-fy26]
 
 <figure class="flow-figure e06-sbc-loop" id="nb-e06-sbc-loop-fig">
-<div class="ff-head"><p class="ff-title">为什么“SBC 是非现金费用”只是错觉：两条路径都躲不开真实代价</p><span class="ff-sub">以 Snowflake（SNOW）FY2026 真实 SEC 披露为例 · 单位：亿美元</span></div>
-<div class="rel-svg-wrap business-exchange" aria-label="以 Snowflake（SNOW）FY2026 为例拆解股权激励 SBC 为何不是免费的非现金项目：左侧起点为公司发给员工 16.0 亿美元股票报酬（含薪资税在 Non-GAAP 中共加回 17.1 亿美元，占总收入 36.5%）。右侧分叉为两条琥珀色路径：路径一不回购，虽未动用当期银行现金，但总股本持续扩张，SNOW 转盈口径稀释股数跳升 +10.3%（由 337.5 M 增至 372.3 M 股），最终令老股东的每股自由现金流被持续摊薄；路径二花真金白银回购对冲，SNOW 当年融资现金流流出 15.5 亿美元（含回购普通股 8.74 亿美元加员工归属税净额结算 6.73 亿美元，已超过全年 11.2 亿美元自由现金流），说明这笔支出仍是真实人力现金代价，只是从经营现金流挪到了融资现金流。">
-<svg viewBox="0 0 860 280" role="img" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
-  <defs>
-    <marker id="e06-sbc-amber" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse">
-      <path d="M1,1.5 L9,5 L1,8.5 Z" fill="#a8743f"/>
-    </marker>
-  </defs>
-  <rect x="0" y="0" width="860" height="280" rx="8" fill="#fafaf6"/>
-  <rect x="16" y="44" width="218" height="192" rx="10" fill="#ffffff" stroke="#dfb98d" stroke-width="1.4"/>
-  <rect x="30" y="58" width="190" height="24" rx="5" fill="#fdf0de"/>
-  <text x="125" y="74" text-anchor="middle" font-size="11.5" font-weight="700" fill="#8d5520">起点：所谓“非现金”薪酬</text>
-  <text x="125" y="106" text-anchor="middle" font-size="12.5" font-weight="700" fill="#1d2a25">公司发给员工股票报酬</text>
-  <rect x="30" y="118" width="190" height="36" rx="6" fill="#f4e5d2"/>
-  <text x="125" y="142" text-anchor="middle" font-size="17" font-weight="700" fill="#8d5520">16.0 亿美元</text>
-  <text x="125" y="174" text-anchor="middle" font-size="11" font-weight="600" fill="#2e3c36">SNOW FY26 股票报酬</text>
-  <line x1="34" y1="186" x2="216" y2="186" stroke="#ebd7bc"/>
-  <text x="125" y="205" text-anchor="middle" font-size="10.5" fill="#5d6b64">连同薪资税加回 17.1 亿美元</text>
-  <text x="125" y="222" text-anchor="middle" font-size="10.5" fill="#5d6b64">占全年总收入 36.5%</text>
-  <path d="M234,114 C268,114 266,74 300,74" fill="none" stroke="#a8743f" stroke-width="2.2" marker-end="url(#e06-sbc-amber)"/>
-  <path d="M234,166 C268,166 266,206 300,206" fill="none" stroke="#a8743f" stroke-width="2.2" marker-end="url(#e06-sbc-amber)"/>
-  <rect x="304" y="18" width="276" height="112" rx="10" fill="#ffffff" stroke="#e4c59e" stroke-width="1.3"/>
-  <rect x="316" y="28" width="108" height="22" rx="5" fill="#fdf0de"/>
-  <text x="370" y="43" text-anchor="middle" font-size="11" font-weight="700" fill="#8d5520">路径一：不回购</text>
-  <text x="568" y="43" text-anchor="end" font-size="10.5" fill="#66736c">账面看似未花现金</text>
-  <text x="318" y="73" font-size="13" font-weight="700" fill="#1d2a25">总股本扩张</text>
-  <text x="318" y="95" font-size="12" font-weight="700" fill="#8d5520">稀释股数跳升 +10.3%</text>
-  <text x="318" y="115" font-size="10.5" fill="#5d6b64">SNOW 转盈口径：337.5 M → 372.3 M 股</text>
-  <rect x="304" y="150" width="276" height="112" rx="10" fill="#fdf8f0" stroke="#dfb98d" stroke-width="1.4"/>
-  <rect x="316" y="160" width="166" height="22" rx="5" fill="#f4e5d2"/>
-  <text x="399" y="175" text-anchor="middle" font-size="11" font-weight="700" fill="#8d5520">路径二：花真金白银回购对冲</text>
-  <text x="318" y="205" font-size="13" font-weight="700" fill="#1d2a25">融资现金流流出 15.5 亿美元</text>
-  <text x="318" y="227" font-size="11" font-weight="700" fill="#8d5520">回购 8.74 亿 ＋ 归属税净额结算 6.73 亿</text>
-  <text x="318" y="247" font-size="10.5" fill="#5d6b64">现金流出已超过全年 11.2 亿账面 FCF</text>
-  <path d="M580,74 C602,74 602,74 622,74" fill="none" stroke="#a8743f" stroke-width="2" marker-end="url(#e06-sbc-amber)"/>
-  <path d="M580,206 C602,206 602,206 622,206" fill="none" stroke="#a8743f" stroke-width="2" marker-end="url(#e06-sbc-amber)"/>
-  <rect x="626" y="18" width="218" height="112" rx="10" fill="#ffffff" stroke="#e4c59e" stroke-width="1.3"/>
-  <rect x="638" y="28" width="194" height="22" rx="5" fill="#fdf0de"/>
-  <text x="735" y="43" text-anchor="middle" font-size="11" font-weight="700" fill="#8d5520">结果：股权份额稀释</text>
-  <text x="735" y="77" text-anchor="middle" font-size="13" font-weight="700" fill="#1d2a25">每股自由现金流被摊薄</text>
-  <text x="735" y="99" text-anchor="middle" font-size="10.5" fill="#5d6b64">利润与现金被迫分给更多新股</text>
-  <text x="735" y="116" text-anchor="middle" font-size="10.5" fill="#5d6b64">老股东持股比例持续下移</text>
-  <rect x="626" y="150" width="218" height="112" rx="10" fill="#ffffff" stroke="#c88d55" stroke-width="1.4"/>
-  <rect x="638" y="160" width="194" height="22" rx="5" fill="#f4e5d2"/>
-  <text x="735" y="175" text-anchor="middle" font-size="11" font-weight="700" fill="#8d5520">结果：挪到融资端的工资</text>
-  <text x="735" y="209" text-anchor="middle" font-size="13" font-weight="700" fill="#1d2a25">仍是真实人力现金代价</text>
-  <text x="735" y="231" text-anchor="middle" font-size="10.5" fill="#5d6b64">只是从经营现金流挪到融资端</text>
-  <text x="735" y="248" text-anchor="middle" font-size="10.5" fill="#5d6b64">并未替股东省下一分钱</text>
+<div class="ff-head"><p class="ff-title">为什么“SBC 是非现金费用”只是错觉（SNOW FY2026）</p><span class="ff-sub">不回购就摊薄每股现金流，回购对冲就把工资搬进融资现金流</span></div>
+<div class="rel-svg-wrap business-exchange" aria-label="SNOW FY2026 股权激励双路径真相：发出 16.0 亿美元股票报酬（含税加回 17.1 亿、占收入 36.5%），路径一不回购则转盈稀释股数跳升 10.3%、摊薄每股 FCF；路径二回购对冲则融资端流出 15.5 亿美元（超全年 11.2 亿 FCF），实为挪到融资端的真实工资。">
+<svg viewBox="0 0 720 190" role="img" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+  <defs><marker id="e06-s-a" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse"><path d="M0 1.2 L9 5 L0 8.8 z" fill="#a8743f"/></marker></defs>
+  <rect x="16" y="42" width="176" height="106" rx="10" fill="#fcf8f3" stroke="#dfb98d" stroke-width="1.4"/>
+  <text x="104" y="72" text-anchor="middle" font-size="13" font-weight="700" fill="#8f6033">SNOW 股票报酬</text>
+  <text x="104" y="104" text-anchor="middle" font-size="20" font-weight="700" fill="#8f6033">16.0 亿美元</text>
+  <text x="104" y="130" text-anchor="middle" font-size="12" fill="#5e6d65">含税占收入 36.5%</text>
+  <path d="M192 78 C224 78 226 52 258 52" fill="none" stroke="#a8743f" stroke-width="2" marker-end="url(#e06-s-a)"/>
+  <path d="M192 112 C224 112 226 138 258 138" fill="none" stroke="#a8743f" stroke-width="2" marker-end="url(#e06-s-a)"/>
+  <rect x="264" y="16" width="212" height="72" rx="10" fill="#ffffff" stroke="#e4c59e" stroke-width="1.3"/>
+  <text x="370" y="44" text-anchor="middle" font-size="13" font-weight="700" fill="#8f6033">路径一：不回购</text>
+  <text x="370" y="68" text-anchor="middle" font-size="13" font-weight="700" fill="#22392f">稀释股数 +10.3%</text>
+  <rect x="264" y="102" width="212" height="72" rx="10" fill="#faeae7" stroke="#e4c2bc" stroke-width="1.3"/>
+  <text x="370" y="130" text-anchor="middle" font-size="13" font-weight="700" fill="#b5483a">路径二：回购对冲</text>
+  <text x="370" y="154" text-anchor="middle" font-size="13" font-weight="700" fill="#b5483a">融资流出 15.5 亿</text>
+  <line x1="476" y1="52" x2="512" y2="52" stroke="#a8743f" stroke-width="2" marker-end="url(#e06-s-a)"/>
+  <line x1="476" y1="138" x2="512" y2="138" stroke="#a8743f" stroke-width="2" marker-end="url(#e06-s-a)"/>
+  <rect x="518" y="16" width="186" height="72" rx="10" fill="#fbfbf6" stroke="#dfe5dc" stroke-width="1.3"/>
+  <text x="611" y="44" text-anchor="middle" font-size="13" font-weight="700" fill="#22392f">老股份额稀释</text>
+  <text x="611" y="68" text-anchor="middle" font-size="12" fill="#5e6d65">摊薄每股自由现金流</text>
+  <rect x="518" y="102" width="186" height="72" rx="10" fill="#b5483a"/>
+  <text x="611" y="130" text-anchor="middle" font-size="13" font-weight="700" fill="#fce8e5">挪到融资端的工资</text>
+  <text x="611" y="154" text-anchor="middle" font-size="12" fill="#ffffff">已超全年 11.2 亿 FCF</text>
 </svg>
 </div>
-<figcaption>SBC 不会凭空消失：不回购就摊薄每股现金流，回购对冲就把薪酬成本搬到融资现金流里支付。</figcaption>
+<figcaption>SNOW FY2026 融资流出 15.5 亿美元含回购 8.74 亿与员工归属税净额结算 6.73 亿；两条路径都躲不开真实人力代价。</figcaption>
 </figure>
 
 正因如此，核对[《股东回报：分红、回购与增发》](/zh/notebook/shareholder-returns-buybacks-issuance/)里的回购时，得先扣掉对冲 SBC 摊薄的部分。另一大雷区是**连续重组**（Restructuring）：十几年关厂一次可以单列，可 **HP Inc.**（HPQ）连剔三年重组费，年报当天又推未来三年新计划，[^hpq-fy25]<sup>，</sup>[^hpq-fy24] 说明它已是常态经营开支。把 MSFT、SNOW 与 HPQ 并排看，同一规则下的正反走向清清楚楚：
 
-<figure class="flow-figure e06-bridge-contrast" id="nb-e06-bridge-contrast">
-<div class="ff-head"><p class="ff-title">同套 Non-GAAP 规则下的两种相反走向：MSFT FY26 vs SNOW FY26</p><span class="ff-sub">单位：M 美元 · 数据来自两家公司 SEC 业绩公告与 HPQ 连续重组记录</span></div>
-<div class="business-exchange" aria-label="两家公司真实 GAAP 至 Non-GAAP 调节走向对比（单位：M 美元）：左侧 Microsoft（MSFT）FY2026（截至 2026-06-30）为双向克制型样本：GAAP 净利润 133,749 M，对称向下扣回 OpenAI 权益法投资净收益 −4,963 M，得到 Non-GAAP 净利润 128,786 M（反比 GAAP 低 3.7%，稀释 EPS 由 17.95 降至 17.28 美元），且 12,405 M 股权激励费用全程保留在成本中未被剔除。右侧 Snowflake（SNOW）FY2026（截至 2026-01-31）为高 SBC 激进加回样本：归属股东 GAAP 净亏损 −1,331.6 M，加回办公退租减值 +108.6 M、并购无形资产摊销 +110.1 M、其他并购重组及少数股东净项 +6.3 M，再加回高达 +1,710.7 M 的股权激励及相关薪资税（占收入 36.5%），扣减配套所得税 −138.2 M 后翻转为 Non-GAAP 归属净利润 +465.9 M（稀释 EPS 由 −3.95 翻至 +1.25 美元）；但同年融资端回购普通股 −873.5 M 加股权归属净额结算税 −672.9 M 合计流出 1,546.4 M 现金。底部附 HP Inc.（HPQ）连续重组警示条：FY23 剔除 527 M、FY24 剔除 301 M、FY25 剔除 405 M，且新宣布 FY26—FY28 预计再发生约 650 M 重组费用。">
-<div class="e06-cgrid">
+<figure class="flow-figure e06-bridge-contrast" id="nb-e06-bridge-contrast" data-ff-views>
+<div class="ff-head"><p class="ff-title">同套 Non-GAAP 规则的三种用法：克制扣回、高 SBC 洗白与连续重组</p><div class="ff-switch" role="group" aria-label="切换案例" hidden><button type="button" data-ff-view-choice="msft" aria-pressed="true">MSFT · 双向克制</button><button type="button" data-ff-view-choice="snow" aria-pressed="false">SNOW · 高 SBC 加回</button><button type="button" data-ff-view-choice="hpq" aria-pressed="false">HPQ · 连续重组</button></div></div>
+<div data-ff-only="msft" class="business-exchange" aria-label="MSFT FY2026（M 美元）：GAAP 净利润 133,749 对称向下扣回 OpenAI 投资净收益 −4,963 得 Non-GAAP 净利润 128,786（反低 3.7%），且 12,405 M 股权激励全程保留为费用。">
 <div class="e06-ccard" style="--e06-c:#23695a">
 <div>
-<div class="e06-chead"><strong>Microsoft（MSFT）· FY2026</strong><span class="e06-tag">双向克制 · 向下扣回</span></div>
+<div class="e06-chead"><strong>Microsoft（MSFT）· FY2026（M 美元）</strong><span class="e06-tag">双向克制 · 向下扣回</span></div>
 <div class="e06-brows">
 <div class="e06-brow"><span>GAAP 净利润（稀释 EPS 17.95）</span><b>133,749</b></div>
-<div class="e06-brow e06-bneg"><span>扣回：OpenAI 权益法投资净收益（税后）</span><b>−4,963</b></div>
-<div class="e06-brow"><span>股权激励费用 SBC（保留为费用，不剔除）</span><b>未加回（12,405）</b></div>
+<div class="e06-brow e06-bneg"><span>扣回：OpenAI 权益法投资净收益</span><b>−4,963</b></div>
+<div class="e06-brow"><span>股权激励费用 SBC（保留，不剔除）</span><b>未加回（12,405）</b></div>
 <div class="e06-brow e06-btot"><span>Non-GAAP 净利润（稀释 EPS 17.28）</span><b>128,786</b></div>
 </div>
 </div>
-<p class="e06-cnote">FY25 亏损时加回 +3,620 M、FY26 盈利时对称扣回 −4,963 M；Non-GAAP 利润反比 GAAP 低 3.7%，帮投资者剥离非主业投资波动。</p>
+<p class="e06-cnote">FY25 亏损时加回 +3,620 M、FY26 盈利时对称扣回 −4,963 M；Non-GAAP 反比 GAAP 低 3.7%，剥离非主业波动。</p>
 </div>
+</div>
+<div data-ff-only="snow" hidden class="business-exchange" aria-label="SNOW FY2026（M 美元）：GAAP 净亏损 −1,331.6 加回办公减值与无形摊销 +225.0 及高额 SBC 含税 +1,710.7、扣税 −138.2 后扭亏为 Non-GAAP 净利润 +465.9。">
 <div class="e06-ccard" style="--e06-c:#a8743f">
 <div>
-<div class="e06-chead"><strong>Snowflake（SNOW）· FY2026</strong><span class="e06-tag e06-twarn">高 SBC 加回 · 扭亏为盈</span></div>
+<div class="e06-chead"><strong>Snowflake（SNOW）· FY2026（M 美元）</strong><span class="e06-tag e06-twarn">高 SBC 加回 · 扭亏为盈</span></div>
 <div class="e06-brows">
 <div class="e06-brow e06-bneg"><span>GAAP 归属净亏损（EPS −3.95）</span><b>−1,331.6</b></div>
-<div class="e06-brow"><span>加回：办公退租减值 ＋ 无形摊销 ＋ 其他净项</span><b>+225.0</b></div>
-<div class="e06-brow e06-bhi"><span>加回：股权激励及相关薪资税（占收入 36.5%）</span><b>+1,710.7</b></div>
-<div class="e06-brow e06-bneg"><span>扣减：上述调节项对应所得税效应</span><b>−138.2</b></div>
+<div class="e06-brow"><span>加回：退租减值 ＋ 无形摊销 ＋ 其他</span><b>+225.0</b></div>
+<div class="e06-brow e06-bhi"><span>加回：SBC 及薪资税（占收入 36.5%）</span><b>+1,710.7</b></div>
+<div class="e06-brow e06-bneg"><span>扣减：配套所得税效应</span><b>−138.2</b></div>
 <div class="e06-brow e06-btot"><span>Non-GAAP 归属净利润（EPS +1.25）</span><b>+465.9</b></div>
 </div>
 </div>
-<p class="e06-cnote">仅靠剔除 SBC 便将巨亏洗成盈利；同年融资端回购普通股 −873.5 M ＋ 员工股权归属税 −672.9 M，已流出 1,546.4 M 现金。</p>
+<p class="e06-cnote">靠剔除 SBC 将巨亏洗成盈利；同年融资端回购 −873.5 M ＋ 股权归属税 −672.9 M 实际流出 1,546.4 M 现金。</p>
 </div>
 </div>
+<div data-ff-only="hpq" hidden class="business-exchange" aria-label="HP Inc.（HPQ）连续重组警示：FY23 剔除 527 M、FY24 剔除 301 M、FY25 剔除 405 M，且新宣布 FY26–FY28 预计再发生约 650 M 重组费。">
 <div class="e06-serial">
-<strong>HPQ 连续重组警示（伪一次性）</strong>
+<strong>HPQ 连续重组警示（把年年发生的费用标成“一次性”）</strong>
 <div class="e06-spills"><span>FY23：527 M</span><span>FY24：301 M</span><span>FY25：405 M</span><span class="e06-sfuture">FY26—FY28 计划：约 650 M</span></div>
 </div>
 </div>
-<figcaption>左侧 MSFT 展示 Non-GAAP 提升可比性的正面用法；右侧 SNOW 与底部 HPQ 分别展示 SBC 加回与连续重组如何人为抬高盈利。</figcaption>
+<figcaption>点击切换三家样本。MSFT 演示提升可比性的克制用法；SNOW 与 HPQ 展示 SBC 加回与连续重组如何抬高账面盈利。</figcaption>
 </figure>
 
 ## 互动调节审查：亲手重算独立可比利润与市盈率落差 {#nb-e06-auditor}
@@ -226,54 +204,28 @@
 **第二道体检**查**会计估计变动**。一台数据中心服务器到底能用 4 年、5.5 年还是 6 年，并没有固定物理标准，全凭管理层估计。近年来算力开支大增，**Meta Platforms**（META）与 **Alphabet**（GOOGL）等云巨头陆续拉长了服务器折旧年限：[^meta-10k-25]<sup>，</sup>[^googl-10k-23] 账面折旧一降，当期 GAAP 利润立刻变厚，可公司银行账户并没有多进一分钱。
 
 <figure class="flow-figure e06-dep-illusion" id="nb-e06-dep-illusion-fig">
-<div class="ff-head"><p class="ff-title">延长服务器折旧年限：账面利润瞬间增厚，真实现金一分未变</p><span class="ff-sub">以 Meta Platforms（META）FY25 与 Alphabet（GOOGL）FY23 Form 10-K 附注为例</span></div>
-<div class="rel-svg-wrap business-exchange" aria-label="服务器折旧年限延长对利润表与现金流量表的双向效应对比：左侧为会计估计变更（ASC 250），云厂商将服务器折旧年限从 4 年拉长至 5.5 年或 6 年，按未来适用法仅把剩余账面净值摊到更长年份、不重述上年数字。上方琥珀色路径指向利润表：折旧费用下降令 GAAP 净利润上升约 4.1% 至 4.3%，其中 META FY25 将大多数服务器和网络资产延至 5.5 年，当年折旧减少 29.2 亿美元、GAAP 净利润增加 25.9 亿美元（占全年净利 4.3%，稀释 EPS 增加 1.00 美元）；GOOGL FY23 将服务器由 4 年延至 6 年，当年折旧减少 39.0 亿美元、GAAP 净利润增加 30.0 亿美元（占全年净利 4.1%，稀释 EPS 增加 0.24 美元）。下方青绿色路径指向现金流量表：CFO 与 FCF 变动均为 0，一分钱真现金也没多出来，因为折旧在经营现金流里被完整加回，买设备的资本开支早已付出，且税务折旧按税法独立申报。">
-<svg viewBox="0 0 860 265" role="img" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+<div class="ff-head"><p class="ff-title">延长服务器折旧年限：账面利润瞬间增厚，现金流一分未变</p><span class="ff-sub">META FY25（延至 5.5 年）与 GOOGL FY23（4→6 年）10-K 附注实证</span></div>
+<div class="rel-svg-wrap business-exchange" aria-label="服务器折旧延寿双向效应：会计估计变更（未来适用法）使利润表折旧骤降、GAAP 净利润瞬增约 4.1%–4.3%（META +25.9 亿 / GOOGL +30.0 亿），但现金流量表中 CFO 与 FCF 变动均为 0。">
+<svg viewBox="0 0 720 185" role="img" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
   <defs>
-    <marker id="e06-dep-amber" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse">
-      <path d="M1,1.5 L9,5 L1,8.5 Z" fill="#a8743f"/>
-    </marker>
-    <marker id="e06-dep-sage" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse">
-      <path d="M1,1.5 L9,5 L1,8.5 Z" fill="#23695a"/>
-    </marker>
+    <marker id="e06-d-a" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse"><path d="M0 1.2 L9 5 L0 8.8 z" fill="#a8743f"/></marker>
+    <marker id="e06-d-s" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse"><path d="M0 1.2 L9 5 L0 8.8 z" fill="#23695a"/></marker>
   </defs>
-  <rect x="0" y="0" width="860" height="265" rx="8" fill="#fafaf6"/>
-  <rect x="16" y="42" width="214" height="181" rx="10" fill="#ffffff" stroke="#cfd3c9" stroke-width="1.3"/>
-  <rect x="30" y="55" width="186" height="23" rx="5" fill="#f2f2e8"/>
-  <text x="123" y="71" text-anchor="middle" font-size="11" font-weight="700" fill="#2e3c36">会计估计变更（ASC 250）</text>
-  <text x="123" y="104" text-anchor="middle" font-size="15" font-weight="700" fill="#1d2a25">改折旧年限</text>
-  <rect x="36" y="116" width="174" height="32" rx="6" fill="#fdf0de"/>
-  <text x="123" y="137" text-anchor="middle" font-size="13" font-weight="700" fill="#8d5520">服务器 4 年 → 6 年</text>
-  <text x="123" y="170" text-anchor="middle" font-size="10.5" fill="#5d6b64">未来适用法：剩余账面净值</text>
-  <text x="123" y="187" text-anchor="middle" font-size="10.5" fill="#5d6b64">分摊拉长，不重述上年数字</text>
-  <text x="123" y="208" text-anchor="middle" font-size="10.5" font-weight="600" fill="#8d5520">硬件真实损耗速度并未变慢</text>
-  <path d="M230,108 C268,108 266,77 304,77" fill="none" stroke="#a8743f" stroke-width="2.2" marker-end="url(#e06-dep-amber)"/>
-  <rect x="240" y="82" width="54" height="20" rx="4" fill="#fafaf6"/>
-  <text x="267" y="96" text-anchor="middle" font-size="10" font-weight="700" fill="#8d5520">账面效应</text>
-  <path d="M230,156 C268,156 266,199 304,199" fill="none" stroke="#23695a" stroke-width="2.2" marker-end="url(#e06-dep-sage)"/>
-  <rect x="240" y="167" width="54" height="20" rx="4" fill="#fafaf6"/>
-  <text x="267" y="181" text-anchor="middle" font-size="10" font-weight="700" fill="#1f5c4e">现金效应</text>
-  <rect x="308" y="16" width="536" height="122" rx="10" fill="#fdf8f0" stroke="#dfb98d" stroke-width="1.4"/>
-  <rect x="320" y="26" width="512" height="28" rx="6" fill="#f4e5d2"/>
-  <text x="332" y="45" font-size="13" font-weight="700" fill="#8d5520">利润表：折旧 ↓ → GAAP 净利润 ↑（+4.1%–4.3%）</text>
-  <text x="820" y="45" text-anchor="end" font-size="11" font-weight="700" fill="#8d5520">首年同比增速被垫高</text>
-  <rect x="320" y="62" width="250" height="64" rx="7" fill="#ffffff" stroke="#e4c59e" stroke-width="1"/>
-  <text x="331" y="81" font-size="11.5" font-weight="700" fill="#1d2a25">META FY25（延至 5.5 年）</text>
-  <text x="331" y="100" font-size="12" font-weight="700" fill="#8d5520">增厚 GAAP 净利 +25.9 亿美元</text>
-  <text x="331" y="117" font-size="10" fill="#5d6b64">折旧 −29.2 亿 · 占净利 4.3% · EPS +1.00</text>
-  <rect x="582" y="62" width="250" height="64" rx="7" fill="#ffffff" stroke="#e4c59e" stroke-width="1"/>
-  <text x="593" y="81" font-size="11.5" font-weight="700" fill="#1d2a25">GOOGL FY23（4 年 → 6 年）</text>
-  <text x="593" y="100" font-size="12" font-weight="700" fill="#8d5520">增厚 GAAP 净利 +30.0 亿美元</text>
-  <text x="593" y="117" font-size="10" fill="#5d6b64">折旧 −39.0 亿 · 占净利 4.1% · EPS +0.24</text>
-  <rect x="308" y="150" width="536" height="99" rx="10" fill="#f2f8f4" stroke="#b3d3c4" stroke-width="1.4"/>
-  <rect x="320" y="160" width="512" height="28" rx="6" fill="#e2ede7"/>
-  <text x="332" y="179" font-size="13" font-weight="700" fill="#1f5c4e">现金流量表：CFO 与 FCF 变动 ＝ 0</text>
-  <text x="820" y="179" text-anchor="end" font-size="11.5" font-weight="700" fill="#1f5c4e">一分钱真现金也没多出来</text>
-  <text x="324" y="209" font-size="11.5" fill="#2e3c36">• 经营现金流把折旧完整加回：折旧变少、净利变多，一加一减完全抵消</text>
-  <text x="324" y="232" font-size="11.5" fill="#5d6b64">• 买设备的 CapEx 早已付出，税务折旧按税法独立申报，实付税款与 FCF 均不变</text>
+  <rect x="16" y="40" width="184" height="104" rx="10" fill="#fbfbf6" stroke="#cfd6ce" stroke-width="1.4"/>
+  <text x="108" y="68" text-anchor="middle" font-size="12.5" fill="#5e6d65">估计变更（ASC 250）</text>
+  <text x="108" y="98" text-anchor="middle" font-size="16" font-weight="700" fill="#22392f">折旧 4 年 → 6 年</text>
+  <text x="108" y="124" text-anchor="middle" font-size="12" fill="#8f6033">不重述历史期数字</text>
+  <path d="M200 74 C236 74 238 52 272 52" fill="none" stroke="#a8743f" stroke-width="2" marker-end="url(#e06-d-a)"/>
+  <path d="M200 110 C236 110 238 134 272 134" fill="none" stroke="#23695a" stroke-width="2" marker-end="url(#e06-d-s)"/>
+  <rect x="278" y="16" width="426" height="72" rx="10" fill="#fcf8f3" stroke="#dfb98d" stroke-width="1.4"/>
+  <text x="296" y="44" font-size="14" font-weight="700" fill="#8f6033">利润表：GAAP 净利瞬增 +4.1%–4.3%</text>
+  <text x="296" y="70" font-size="12.5" fill="#3c4c44">META +25.9 亿 · GOOGL +30.0 亿</text>
+  <rect x="278" y="100" width="426" height="68" rx="10" fill="#23695a"/>
+  <text x="296" y="128" font-size="14" font-weight="700" fill="#ffffff">现金流量表：CFO 与 FCF 变动 ＝ 0</text>
+  <text x="296" y="152" font-size="12.5" fill="#d7e8df">折旧在 CFO 加回 · CapEx 已付 · 税法独立</text>
 </svg>
 </div>
-<figcaption>延长折旧年限只改变利润表的费用分摊节奏，不会增加一美元真实经营现金流或自由现金流。</figcaption>
+<figcaption>折旧延寿采用未来适用法，首年同比利润增速会被自然垫高，但硬件真实损耗与自由现金流一分未变。</figcaption>
 </figure>
 
 读到这类附注时，要穿透首年被垫高的同比增速，追问背后的经营现实：机房里的通用服务器与 AI 芯片在软件调度优化后，经济寿命到底真的拉长到了 5.5 至 6 年，还是随着芯片换代提速，几年后反而会集中爆发提前报废与减值？
@@ -282,11 +234,10 @@
 
 <span data-text-versions id="nb-e06-text-estimate">常被忽略的陷阱叫**反稀释规则**（Anti-dilution）：公司在 GAAP 亏损时，把潜在新股放进分母反而会把每股亏损除小，因此准则规定亏损期一律跳过潜在稀释股份。结果一朝转盈，这些潜伏股份会瞬间涌进分母——SNOW FY26 的股数就在转盈口径下猛跳 **10.3%**，而成熟巨头 MSFT 的基本与稀释股数几乎重合<span data-text-detail>（实务中还有三项会计细则直接影响可比性：一、依 ASC 250，折旧年限调整属于“会计估计变更”，只用未来适用法把剩余账面净值摊到拉长后的剩余年限，不追溯重述上年，因此变更首年的同比增速会被垫高；二、税务折旧按税法加速折旧表独立申报，账面延寿不改变当期实付现金税，只改变递延所得税负债；三、稀释股数计算中，期权与 RSU 通常按库存股法 Treasury Stock Method 扣减行权款可购回股数，可转债采用假设转换法 If-Converted Method，同时在分子加回税后债息并在分母加上全部可转股份。股数实证：SNOW FY26 亏损期反稀释锁在 337.5 M 股，转入 Non-GAAP 盈利后计入 23.7 M 股员工股权激励与 14.6 M 股可转债潜在转股、扣减 3.5 M 股看涨期权上限对冲 Capped Calls，跳升至 372.3 M 股，将 EPS 从 1.38 美元压低至 1.25 美元；MSFT FY26 基本股数 7,429 M 对稀释股数 7,453 M，差幅仅 0.3%）</span>。[^snow-fy26]<sup>，</sup>[^msft-fy26]<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>
 
-<figure class="flow-figure e06-quality-panel" id="nb-e06-quality-panel">
-<div class="ff-head"><p class="ff-title">GAAP 盈利质量的三道体检：现金印证、折旧估计与分母稀释</p><span class="ff-sub">均取自 SEC 官方 10-K / 业绩原件 · 同为审计后数字仍须拆解来源</span></div>
-<div class="e06-qgrid business-exchange" aria-label="GAAP 盈利质量三道体检对照图：第一栏现金印证（CFO 除以净利润）：MSFT FY26 为 1.37 倍（应计项比例 −7.1%，主由折旧与预收款支撑，再核 1,159 亿美元 CapEx）；KO FY25 报表口径为 0.56 倍，还原 6,069 M 一次性 fairlife 尾款后回升至 1.03 倍；SNOW FY26 账面净亏损 −1,329.0 M 但 CFO 达 +1,221.9 M，因加回了 1,599.5 M 非现金 SBC，且同期融资端回购与股权税流出 1,546.4 M。第二栏服务器折旧延寿（利润变厚、现金不变）：META FY25 将大多数服务器与网络资产延至 5.5 年，当年折旧减少 29.2 亿美元、净利润增加 25.9 亿美元（稀释 EPS +1.00 美元），经营现金流增加 0；GOOGL FY23 将服务器由 4 年延至 6 年，当年折旧减少 39.0 亿美元、净利润增加 30.0 亿美元（稀释 EPS +0.24 美元），经营现金流增加 0。第三栏基本与稀释股数（分母陷阱）：MSFT FY26 基本 7,429 M 与稀释 7,453 M 仅差 +0.3%（EPS 18.00 对 17.95）；SNOW FY26 亏损时反稀释锁在 337.5 M，Non-GAAP 转盈后稀释股数跳升至 372.3 M（+10.3%），令 EPS 由 1.38 压低至 1.25 美元。">
+<figure class="flow-figure e06-quality-panel" id="nb-e06-quality-panel" data-ff-views>
+<div class="ff-head"><p class="ff-title">GAAP 盈利质量的三道体检：现金、折旧与分母</p><div class="ff-switch" role="group" aria-label="切换体检项" hidden><button type="button" data-ff-view-choice="cash" aria-pressed="true">① 现金印证</button><button type="button" data-ff-view-choice="dep" aria-pressed="false">② 折旧延寿</button><button type="button" data-ff-view-choice="shares" aria-pressed="false">③ 分母稀释</button></div></div>
+<div data-ff-only="cash" class="business-exchange" aria-label="现金印证体检：MSFT CFO/净利 1.37 倍（再核 1,159 亿 CapEx）；KO 报表 0.56 倍还原 fairlife 尾款后 1.03 倍；SNOW 亏 13.3 亿靠 SBC 加回撑出 CFO +12.2 亿。">
 <div class="e06-qcard" style="--e06-c:#23695a">
-<div>
 <div class="e06-qhead"><strong>① 现金印证（CFO / 净利润）</strong><small>核对账面盈利有无现金流支撑</small></div>
 <div class="e06-qlist">
 <div class="e06-qitem"><div class="e06-qtop"><strong>MSFT FY26</strong><b>1.37 倍</b></div>应计项比例 −7.1%；仍须对照 1,159 亿美元 CapEx。</div>
@@ -294,30 +245,26 @@
 <div class="e06-qitem"><div class="e06-qtop"><strong>SNOW FY26</strong><b class="e06-qwarn">亏 13.3 亿 / CFO +12.2 亿</b></div>靠 +16.0 亿 SBC 加回撑高，融资端回购与税流出 15.5 亿。</div>
 </div>
 </div>
-<p class="e06-qfoot">既查“CFO 远低于净利”的回款隐忧，也查“SBC 加回虚胖 CFO”的假象。</p>
 </div>
+<div data-ff-only="dep" hidden class="business-exchange" aria-label="折旧延寿体检：META FY25 延至 5.5 年增厚净利 25.9 亿，GOOGL FY23 延至 6 年增厚净利 30.0 亿，CFO 均无变化。">
 <div class="e06-qcard" style="--e06-c:#a8743f">
-<div>
-<div class="e06-qhead"><strong>② 服务器折旧延寿（估计变动）</strong><small>账面利润瞬间增厚 · 现金流 +0</small></div>
+<div class="e06-qhead"><strong>② 服务器折旧延寿（估计变动）</strong><small>账面利润瞬增 · 现金流 +0</small></div>
 <div class="e06-qlist">
-<div class="e06-qitem"><div class="e06-qtop"><strong>META FY25（延至 5.5 年）</strong><b class="e06-qwarn">净利 +25.9 亿</b></div>折旧减少 29.2 亿美元，占全年净利 4.3%（EPS +1.00 美元）。</div>
-<div class="e06-qitem"><div class="e06-qtop"><strong>GOOGL FY23（4 → 6 年）</strong><b class="e06-qwarn">净利 +30.0 亿</b></div>折旧减少 39.0 亿美元，占全年净利 4.1%（EPS +0.24 美元）。</div>
+<div class="e06-qitem"><div class="e06-qtop"><strong>META FY25（延至 5.5 年）</strong><b class="e06-qwarn">净利 +25.9 亿</b></div>折旧减少 29.2 亿美元，占全年净利 4.3%（EPS +1.00）。</div>
+<div class="e06-qitem"><div class="e06-qtop"><strong>GOOGL FY23（4 → 6 年）</strong><b class="e06-qwarn">净利 +30.0 亿</b></div>折旧减少 39.0 亿美元，占全年净利 4.1%（EPS +0.24）。</div>
 </div>
 </div>
-<p class="e06-qfoot">采用未来适用法不重述历史期，延寿首年同比利润增速会被自然垫高。</p>
 </div>
+<div data-ff-only="shares" hidden class="business-exchange" aria-label="分母稀释体检：MSFT FY26 基本与稀释股数仅差 +0.3%；SNOW FY26 转盈触发 34.8 M 净稀释股（+10.3%），压低 Non-GAAP EPS。">
 <div class="e06-qcard" style="--e06-c:#4a738c">
-<div>
 <div class="e06-qhead"><strong>③ 基本股数 vs 稀释股数</strong><small>提防亏损期反稀释遮蔽真实分母</small></div>
 <div class="e06-qlist">
-<div class="e06-qitem"><div class="e06-qtop"><strong>MSFT FY26</strong><b>7,429 → 7,453 M</b></div>稀释增幅仅 +0.3%，Basic EPS 18.00 与 Diluted 17.95 几乎重合。</div>
-<div class="e06-qitem"><div class="e06-qtop"><strong>SNOW FY26</strong><b class="e06-qwarn">337.5 → 372.3 M</b></div>转盈触发 34.8 M 净稀释股（+10.3%），Non-GAAP EPS 1.38 → 1.25。</div>
+<div class="e06-qitem"><div class="e06-qtop"><strong>MSFT FY26</strong><b>7,429 → 7,453 M</b></div>稀释增幅仅 +0.3%，Basic 与 Diluted EPS 几乎重合。</div>
+<div class="e06-qitem"><div class="e06-qtop"><strong>SNOW FY26</strong><b class="e06-qwarn">337.5 → 372.3 M</b></div>转盈触发 +10.3% 稀释，Non-GAAP EPS 由 1.38 压至 1.25。</div>
 </div>
 </div>
-<p class="e06-qfoot">估值与跨年比较时统一看稀释口径，并核对期权、RSU 与可转债余额。</p>
 </div>
-</div>
-<figcaption>三道体检把分子（调节项与折旧估计）、现金流（CFO 与回购对冲）和分母（潜在稀释股数）合在一起验证。</figcaption>
+<figcaption>点击切换三道 GAAP 体检。估值与跨年比较时，须将分子调整、现金流与稀释分母合在一起核验。</figcaption>
 </figure>
 
 把利润分子、现金印证、折旧估计和股数分母校准到同一把尺子后，财报里的盈利才真正可比。接下来要追问的是：公司赚回来的真现金流向了再投资、并购、还债还是回购，管理层激励又怎样塑造这些取舍——下一篇[《资本配置、激励与每股结果》](/zh/notebook/capital-allocation-incentives-per-share/)继续展开。

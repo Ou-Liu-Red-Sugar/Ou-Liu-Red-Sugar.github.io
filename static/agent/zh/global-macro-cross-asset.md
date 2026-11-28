@@ -100,6 +100,7 @@ This is reference material for the learner's current request. Use the supplied e
 
 ## Supplied entry
 <link rel="stylesheet" href="/notebook/flow-figures.css?v=20261126">
+<script src="/notebook/flow-figures.js?v=20261012-6" defer></script>
 
 [《股票多空与市场中性》](/zh/notebook/long-short-market-neutral/)把战场留在股票内部，靠同一行业里好公司跑赢差公司赚钱。可一旦行情的主驱动变成央行加息、财政扩张、通胀反复或跨境资本改道，挑哪只个股往往不如选对**资产类别与国家市场**决定胜负。
 
@@ -189,27 +190,21 @@ This is reference material for the learner's current request. Use the supplied e
 
 五地资产在全局冲击里高度共振，在具体年份里又常走出分化。把全球宏观和跨境基本面连在一起，需要同时看清共同因子的共振与制造局部背离的四条具体传导通道：
 
-<figure class="flow-figure p03-divergence" id="nb-p03-divergence-fig">
-<div class="ff-head"><p class="ff-title">同一条全球算力链上，四条制造局部背离的传导通道</p><span class="ff-sub">共同需求与流动性管共振 · 以下四条通道管分化</span></div>
-<div class="p03-dgrid business-exchange" aria-label="四条局部背离传导通道：一、汇率折算差：2021 年底至 2024 年 7 月 10 日，日本 8035.T 日元口径涨 +82.9%，折美元仅 +30.3%；同期汇率对冲 DXJ 涨 +102.6% 而未对冲 EWJ 仅 +10.8%。二、营收与本地成本币种错配：TSMC 2025 财年 Form 20-F 披露北美客户占 75% 且几乎全以美元收款，本地运营成本以新台币计，美元兑新台币每贬值 1% 约令营业利润率下降 0.3 个百分点。三、出口管制与地缘政策：ASML 2025 Form 20-F 披露中国大陆收入占比受荷美许可收紧由 2024 年 36.1% 降至 2025 年 29.1%，2024 下半年 NVDA 持平（−0.4%）而 ASML 独自跌 −36.7%。四、库存与产能周期时滞：SK hynix 2023 年受存储去库拖累营业亏损 7.73 万亿韩元（−24%），2024 与 2025 年凭 HBM 紧缺营业利润跳至 23.47 与 47.21 万亿韩元，2025 年股价涨 +278.3%。">
-<div class="p03-dcard" style="--p03-c:#23695a">
-<div class="p03-dhead"><strong>① 汇率折算差</strong><span>账户币种视角</span></div>
-<p>2021 年底至 2024 年 7 月，日本 8035.T 以日元计大涨 <b>+82.9%</b>，折回美元仅剩 <b>+30.3%</b>；同期 DXJ 涨 +102.6% 而 EWJ 仅 +10.8%。</p>
+<figure class="flow-figure p03-divergence" id="nb-p03-divergence-fig" data-ff-views>
+<div class="ff-head"><p class="ff-title">同一条全球算力链上，四条制造局部背离的传导通道</p><div class="ff-switch" role="group" aria-label="切换通道" hidden><button type="button" data-ff-view-choice="fx" aria-pressed="true">① 汇率折算差</button><button type="button" data-ff-view-choice="cost" aria-pressed="false">② 币种错配</button><button type="button" data-ff-view-choice="geo" aria-pressed="false">③ 出口管制</button><button type="button" data-ff-view-choice="cycle" aria-pressed="false">④ 库存周期</button></div></div>
+<div data-ff-only="fx" class="business-exchange" aria-label="汇率折算差：2021 年底至 2024 年 7 月，日本 8035.T 日元涨 +82.9%，折美元仅 +30.3%；汇率对冲 DXJ +102.6% vs 未对冲 EWJ +10.8%。">
+<div class="p03-dcard" style="--p03-c:#23695a"><div class="p03-dhead"><strong>① 汇率折算差</strong><span>账户币种视角</span></div><p>2021 年底至 2024 年 7 月，日本 8035.T 以日元计大涨 <b>+82.9%</b>，折回美元仅剩 <b>+30.3%</b>；同期 DXJ 涨 +102.6% 而 EWJ 仅 +10.8%。</p></div>
 </div>
-<div class="p03-dcard" style="--p03-c:#5986a1">
-<div class="p03-dhead"><strong>② 营收与成本币种错配</strong><span>公司经营视角</span></div>
-<p>TSMC 2025 年 20-F 披露北美客户占 <b>75%</b>、几乎全以美元收款，本土晶圆厂成本以新台币计；美元兑新台币每贬 1%，营业利润率约降 <b>0.3 个百分点</b>。</p>
+<div data-ff-only="cost" hidden class="business-exchange" aria-label="营收与成本币种错配：TSMC 北美客户占 75% 以美元收款、本地成本以新台币计，美元兑新台币每贬 1% 约令营业利润率降 0.3 个百分点。">
+<div class="p03-dcard" style="--p03-c:#5986a1"><div class="p03-dhead"><strong>② 营收与成本币种错配</strong><span>公司经营视角</span></div><p>TSMC 2025 年 20-F 披露北美客户占 <b>75%</b>、几乎全以美元收款，本土晶圆厂成本以新台币计；美元兑新台币每贬 1%，营业利润率约降 <b>0.3 个百分点</b>。</p></div>
 </div>
-<div class="p03-dcard" style="--p03-c:#a8743f">
-<div class="p03-dhead"><strong>③ 出口管制与地缘政策</strong><span>制度准入视角</span></div>
-<p>荷美许可收紧下，ASML 中国大陆收入占比由 2024 年 <b>36.1%</b> 降至 2025 年 <b>29.1%</b>；2024 下半年 NVDA（−0.4%）与 TSM（+4.1%）走稳时，ASML 独自重挫 <b>−36.7%</b>。</p>
+<div data-ff-only="geo" hidden class="business-exchange" aria-label="出口管制与地缘政策：ASML 中国大陆收入占比由 36.1% 降至 29.1%，2024 下半年 NVDA 走稳时 ASML 独自重挫 −36.7%。">
+<div class="p03-dcard" style="--p03-c:#a8743f"><div class="p03-dhead"><strong>③ 出口管制与地缘政策</strong><span>制度准入视角</span></div><p>荷美许可收紧下，ASML 中国大陆收入占比由 2024 年 <b>36.1%</b> 降至 2025 年 <b>29.1%</b>；2024 下半年 NVDA（−0.4%）与 TSM（+4.1%）走稳时，ASML 独自重挫 <b>−36.7%</b>。</p></div>
 </div>
-<div class="p03-dcard" style="--p03-c:#7c679c">
-<div class="p03-dhead"><strong>④ 库存与产能周期时滞</strong><span>细分供需视角</span></div>
-<p>SK hynix 2023 年因存储去库营业亏损 <b>7.73 万亿韩元</b>（−24%），2024—2025 年靠 HBM 紧缺利润连跳至 <b>23.47</b> 与 <b>47.21 万亿韩元</b>，2025 年股价涨 <b>+278.3%</b>。</p>
+<div data-ff-only="cycle" hidden class="business-exchange" aria-label="库存与产能周期时滞：SK hynix 2023 年营业亏损 7.73 万亿韩元，2024–2025 年凭 HBM 跳至 23.47 与 47.21 万亿韩元，2025 年股价涨 +278.3%。">
+<div class="p03-dcard" style="--p03-c:#7c679c"><div class="p03-dhead"><strong>④ 库存与产能周期时滞</strong><span>细分供需视角</span></div><p>SK hynix 2023 年因存储去库营业亏损 <b>7.73 万亿韩元</b>（−24%），2024—2025 年靠 HBM 紧缺利润连跳至 <b>23.47</b> 与 <b>47.21 万亿韩元</b>，2025 年股价涨 <b>+278.3%</b>。</p></div>
 </div>
-</div>
-<figcaption>经营数字分别取自 TSMC FY2025 20-F、ASML FY2025 20-F 与 SK hynix FY2024／FY2025 官方财报公告；股价口径见本篇 CSV。</figcaption>
+<figcaption>点击切换四条背离通道。经营数字分别取自 TSMC、ASML FY2025 20-F 与 SK hynix 官方财报公告。</figcaption>
 </figure>
 
 这四条通道里，最容易在日常账户里算错的是第一条——**汇率折算并非简单加减，而是两腿相乘**。假设美元账户买入一只日本或韩国股票，当地股价涨跌记为 \(r_{\text{local}}\)，当地货币兑美元的升贬幅度记为 \(r_{\text{fx}}\)，折回美元的真实未对冲回报等于：

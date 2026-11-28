@@ -52,51 +52,47 @@
 
 行业坐标指出了检查方向，接下来拿公司财报直接核验：当初的利空担忧有没有落进报表，原先的盈利预期兑现了几分？把 KO 与 FISV 各自的财报证据摆在一起，两条分叉一目了然：[^ko-results]<sup>，</sup>[^fiserv-q2]<sup>，</sup>[^fiserv-q3]<sup>，</sup>[^fiserv-2026]
 
-<figure class="flow-figure" id="nb-a03-diagnosis-map">
-<div class="ff-head"><p class="ff-title">财报核验怎样区分“虚惊修复”与“预期改写”</p><span class="ff-sub">同一套排查路径，两类截然不同的证据</span></div>
-<div class="business-exchange" aria-label="两类下跌的财报核验对照：KO 在 2023 年 10 月 24 日三季报显示全球销量同比增长 2%、营业利润增长 6%，并将全年有机收入增长预期上调至 10% 至 11%，证伪了消费即刻缩水的担忧，年底股价与 XLP 同步修复；FISV 同期远跑输 IPAY，2025 年 10 月大幅下调全年指引且金融服务转为负增长，2026 年第二季度有机收入再降 5%、调整后每股收益再降 26%，原先的增长与盈利路径已经改变。">
-<svg viewBox="0 0 720 208" role="img" aria-label="KO 财报证伪担忧与 FISV 预期下修的两路对照" style="width:100%;height:auto;display:block">
-  <defs>
-    <marker id="a03-arr-g" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto">
-      <path d="M1 1.5 L9 5 L1 8.5 Z" fill="#145343"/>
-    </marker>
-    <marker id="a03-arr-w" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto">
-      <path d="M1 1.5 L9 5 L1 8.5 Z" fill="#b83b24"/>
-    </marker>
-  </defs>
-  <rect x="8" y="8" width="704" height="88" rx="8" fill="#f3f7f5" stroke="#c3d5cb" stroke-width="1.1"/>
-  <rect x="20" y="20" width="150" height="64" rx="6" fill="#ffffff" stroke="#b9d0c2"/>
-  <text x="32" y="42" font-size="12.5" font-weight="700" fill="#145343">KO · 2023 秋</text>
-  <text x="32" y="60" font-size="11" fill="#46544c">担忧 GLP-1 压缩销量</text>
-  <text x="32" y="75" font-size="10.5" fill="#6d7a72">股价与 XLP 大致同步</text>
-  <line x1="174" y1="52" x2="202" y2="52" stroke="#145343" stroke-width="1.6" marker-end="url(#a03-arr-g)"/>
-  <rect x="208" y="20" width="276" height="64" rx="6" fill="#ffffff" stroke="#b9d0c2"/>
-  <text x="220" y="40" font-size="11.5" font-weight="650" fill="#18241e">2023 Q3 财报（10 月 24 日）</text>
-  <text x="220" y="59" font-size="11.5" fill="#145343" font-weight="600">全球销量 +2% · 营业利润 +6%</text>
-  <text x="220" y="76" font-size="11" fill="#46544c">全年有机收入指引上调至 10%–11%</text>
-  <line x1="488" y1="52" x2="516" y2="52" stroke="#145343" stroke-width="1.6" marker-end="url(#a03-arr-g)"/>
-  <rect x="522" y="20" width="178" height="64" rx="6" fill="#eaf2ef" stroke="#8fb3a7"/>
-  <text x="534" y="42" font-size="12" font-weight="700" fill="#145343">底盘未转弱</text>
-  <text x="534" y="61" font-size="11" fill="#3c4c44">年底随板块收复失地</text>
-  <text x="534" y="77" font-size="10.5" fill="#58605c">KO +5.3% vs XLP +4.7%</text>
-  <rect x="8" y="110" width="704" height="90" rx="8" fill="#fdf6f3" stroke="#e4cbc3" stroke-width="1.1"/>
-  <rect x="20" y="122" width="150" height="66" rx="6" fill="#ffffff" stroke="#e2c2b7"/>
-  <text x="32" y="144" font-size="12.5" font-weight="700" fill="#b83b24">FISV · 2025–2026</text>
-  <text x="32" y="162" font-size="11" fill="#46544c">大幅跑输支付 ETF</text>
-  <text x="32" y="178" font-size="10.5" fill="#8f4a39">−77.7% vs IPAY −18.1%</text>
-  <line x1="174" y1="155" x2="202" y2="155" stroke="#b83b24" stroke-width="1.6" marker-end="url(#a03-arr-w)"/>
-  <rect x="208" y="122" width="276" height="66" rx="6" fill="#ffffff" stroke="#e2c2b7"/>
-  <text x="220" y="142" font-size="11.5" font-weight="650" fill="#18241e">2025 Q3 指引重设 → 2026 Q2 延续逆风</text>
-  <text x="220" y="161" font-size="11.5" fill="#b83b24" font-weight="600">25Q3 调整后 EPS −11% · 26Q2 −26%</text>
-  <text x="220" y="178" font-size="11" fill="#46544c">26Q2 有机收入同比 −5%，下修拆解见下图</text>
-  <line x1="488" y1="155" x2="516" y2="155" stroke="#b83b24" stroke-width="1.6" marker-end="url(#a03-arr-w)"/>
-  <rect x="522" y="122" width="178" height="66" rx="6" fill="#faeae6" stroke="#d9a192"/>
-  <text x="534" y="144" font-size="12" font-weight="700" fill="#b83b24">增长路径已改写</text>
-  <text x="534" y="163" font-size="11" fill="#3c4c44">公司仍在赚钱，但旧预期</text>
-  <text x="534" y="179" font-size="11" fill="#3c4c44">失效，持有依据须重写</text>
+<figure class="flow-figure" id="nb-a03-diagnosis-map" data-ff-views>
+<div class="ff-head"><p class="ff-title">财报核验怎样区分“虚惊修复”与“预期改写”</p><div class="ff-switch" role="group" aria-label="切换案例" hidden><button type="button" data-ff-view-choice="ko" aria-pressed="true">KO · 虚惊修复</button><button type="button" data-ff-view-choice="fisv" aria-pressed="false">FISV · 预期改写</button></div></div>
+<div class="business-exchange" data-ff-only="ko" aria-label="KO 2023 秋财报核验：市场担忧 GLP-1 压缩销量、股价随 XLP 下跌，但 2023 Q3 财报全球销量 +2%、营业利润 +6% 并上调全年有机指引至 10%–11%，底盘未转弱，年底收复失地。">
+<svg viewBox="0 0 720 155" role="img" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;display:block">
+  <defs><marker id="a03-k-s" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse"><path d="M0 1.2 L9 5 L0 8.8 z" fill="#23695a"/></marker></defs>
+  <rect x="20" y="28" width="196" height="98" rx="10" fill="#f7faf8" stroke="#c8dad0" stroke-width="1.3"/>
+  <text x="118" y="58" text-anchor="middle" font-size="13.5" font-weight="700" fill="#23695a">KO · 2023 秋</text>
+  <text x="118" y="86" text-anchor="middle" font-size="12.5" fill="#22392f">担忧 GLP-1 压销量</text>
+  <text x="118" y="108" text-anchor="middle" font-size="12" fill="#5e6d65">走势贴近板块 XLP</text>
+  <line x1="216" y1="77" x2="256" y2="77" stroke="#23695a" stroke-width="2" marker-end="url(#a03-k-s)"/>
+  <rect x="262" y="28" width="196" height="98" rx="10" fill="#fbfbf6" stroke="#b9d0c2" stroke-width="1.3"/>
+  <text x="360" y="58" text-anchor="middle" font-size="13" font-weight="700" fill="#22392f">2023 Q3 财报证伪</text>
+  <text x="360" y="86" text-anchor="middle" font-size="13.5" font-weight="700" fill="#23695a">销量 +2% · 利润 +6%</text>
+  <text x="360" y="108" text-anchor="middle" font-size="12" fill="#5e6d65">有机指引上调至 10%–11%</text>
+  <line x1="458" y1="77" x2="498" y2="77" stroke="#23695a" stroke-width="2" marker-end="url(#a03-k-s)"/>
+  <rect x="504" y="28" width="196" height="98" rx="10" fill="#23695a"/>
+  <text x="602" y="58" text-anchor="middle" font-size="13.5" font-weight="700" fill="#e5efe9">底盘未转弱</text>
+  <text x="602" y="86" text-anchor="middle" font-size="14" font-weight="700" fill="#ffffff">随板块收复失地</text>
+  <text x="602" y="108" text-anchor="middle" font-size="12" fill="#d7e8df">KO +5.3% vs XLP +4.7%</text>
 </svg>
 </div>
-<figcaption>当时落子做决定时看不到事后的股价曲线，手里能倚仗的，只有已披露的经营事实和对未来的审慎估计。</figcaption>
+<div class="business-exchange" data-ff-only="fisv" hidden aria-label="FISV 2025–2026 财报核验：大幅跑输支付 ETF（−77.7% vs IPAY −18.1%），随后 25Q3 指引重设、26Q2 有机收入 −5% 且调整后 EPS −26%，原有增长路径已改写。">
+<svg viewBox="0 0 720 155" role="img" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;display:block">
+  <defs><marker id="a03-f-r" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse"><path d="M0 1.2 L9 5 L0 8.8 z" fill="#b5483a"/></marker></defs>
+  <rect x="20" y="28" width="196" height="98" rx="10" fill="#faeae7" stroke="#e4c2bc" stroke-width="1.3"/>
+  <text x="118" y="58" text-anchor="middle" font-size="13.5" font-weight="700" fill="#b5483a">FISV · 2025–26</text>
+  <text x="118" y="86" text-anchor="middle" font-size="12.5" fill="#22392f">独自大跑输行业</text>
+  <text x="118" y="108" text-anchor="middle" font-size="12" fill="#b5483a">−77.7% vs IPAY −18.1%</text>
+  <line x1="216" y1="77" x2="256" y2="77" stroke="#b5483a" stroke-width="2" marker-end="url(#a03-f-r)"/>
+  <rect x="262" y="28" width="196" height="98" rx="10" fill="#fbfbf6" stroke="#e4c2bc" stroke-width="1.3"/>
+  <text x="360" y="58" text-anchor="middle" font-size="13" font-weight="700" fill="#22392f">指引下修、逆风延续</text>
+  <text x="360" y="86" text-anchor="middle" font-size="13" font-weight="700" fill="#b5483a">26Q2 调整 EPS −26%</text>
+  <text x="360" y="108" text-anchor="middle" font-size="12" fill="#5e6d65">有机收入同比 −5%</text>
+  <line x1="458" y1="77" x2="498" y2="77" stroke="#b5483a" stroke-width="2" marker-end="url(#a03-f-r)"/>
+  <rect x="504" y="28" width="196" height="98" rx="10" fill="#b5483a"/>
+  <text x="602" y="58" text-anchor="middle" font-size="13.5" font-weight="700" fill="#fce8e5">增长路径已改写</text>
+  <text x="602" y="86" text-anchor="middle" font-size="14" font-weight="700" fill="#ffffff">持有依据须重写</text>
+  <text x="602" y="108" text-anchor="middle" font-size="12" fill="#f7d6d0">旧预期失效、不靠等回本</text>
+</svg>
+</div>
+<figcaption>点击切换 KO 与 FISV 案例。落子做决定时看不到事后的股价曲线，手里能倚仗的只有已披露经营事实与审慎估计。</figcaption>
 </figure>
 
 把 FISV 在 2025 年 7 月与 10 月两次披露的关键数字排开，就能看清它的全年指引与两大业务线是如何同步下移的：
@@ -185,44 +181,28 @@
 
 <figure class="flow-figure" id="nb-a03-hold-checklist">
 <div class="ff-head"><p class="ff-title">面对浮亏时的四步持有检查</p><span class="ff-sub">按顺序回答，不靠“等回本”拍板</span></div>
-<div class="business-exchange" aria-label="面对浮亏时的四步持有检查：第一步剥离买入成本，历史价只记账、以现价作起点；第二步放回行业参照，区分同业齐跌还是独自跑输；第三步核对财报与现价 Risk-Reward，看经营预期和赔率是否仍站得住；第四步核对现金期限与杠杆缓冲，避免刚性用款或保证金线打断持有。">
-<svg viewBox="0 0 720 144" role="img" aria-label="面对浮亏的四步持有检查流程图" style="width:100%;height:auto;display:block">
-  <defs>
-    <marker id="a03-chk-arr" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6" markerHeight="6" orient="auto">
-      <path d="M1 1.5 L9 5 L1 8.5 Z" fill="#145343"/>
-    </marker>
-  </defs>
-  <rect x="6" y="10" width="160" height="122" rx="7" fill="#ffffff" stroke="#c8d6ce" stroke-width="1.2"/>
-  <text x="18" y="32" font-size="11" font-weight="700" fill="#145343" font-family="ui-monospace,monospace">01</text>
-  <text x="38" y="32" font-size="12.5" font-weight="700" fill="#18241e">忘掉买入成本</text>
-  <text x="18" y="56" font-size="11" fill="#46544c">历史成本只记账，</text>
-  <text x="18" y="73" font-size="11" fill="#46544c">现价才是往后唯一</text>
-  <text x="18" y="90" font-size="11" fill="#46544c">的起点。</text>
-  <text x="18" y="116" font-size="10" fill="#7a8780">例：FISV 三条成本线</text>
-  <line x1="168" y1="71" x2="185" y2="71" stroke="#145343" stroke-width="1.5" marker-end="url(#a03-chk-arr)"/>
-  <rect x="190" y="10" width="160" height="122" rx="7" fill="#ffffff" stroke="#c8d6ce" stroke-width="1.2"/>
-  <text x="202" y="32" font-size="11" font-weight="700" fill="#145343" font-family="ui-monospace,monospace">02</text>
-  <text x="222" y="32" font-size="12.5" font-weight="700" fill="#18241e">相对行业排雷</text>
-  <text x="202" y="56" font-size="11" fill="#46544c">板块同跌先别慌，</text>
-  <text x="202" y="73" font-size="11" fill="#46544c">持续独自跑输时，</text>
-  <text x="202" y="90" font-size="11" fill="#46544c">立刻查公司本身。</text>
-  <text x="202" y="116" font-size="10" fill="#7a8780">KO/XLP vs FISV/IPAY</text>
-  <line x1="352" y1="71" x2="369" y2="71" stroke="#145343" stroke-width="1.5" marker-end="url(#a03-chk-arr)"/>
-  <rect x="374" y="10" width="160" height="122" rx="7" fill="#f3f7f5" stroke="#8fb3a7" stroke-width="1.3"/>
-  <text x="386" y="32" font-size="11" font-weight="700" fill="#145343" font-family="ui-monospace,monospace">03</text>
-  <text x="406" y="32" font-size="12.5" font-weight="700" fill="#145343">重算 Risk–Reward</text>
-  <text x="386" y="56" font-size="11" fill="#3c4c44">核对最新财报预期，</text>
-  <text x="386" y="73" font-size="11" fill="#3c4c44">对比现价下的上行</text>
-  <text x="386" y="90" font-size="11" fill="#3c4c44">空间与下行损失。</text>
-  <text x="386" y="116" font-size="10" fill="#58605c">前提变了就果断调整</text>
-  <line x1="536" y1="71" x2="553" y2="71" stroke="#145343" stroke-width="1.5" marker-end="url(#a03-chk-arr)"/>
-  <rect x="558" y="10" width="156" height="122" rx="7" fill="#fbf9f5" stroke="#dccab2" stroke-width="1.2"/>
-  <text x="570" y="32" font-size="11" font-weight="700" fill="#8f6033" font-family="ui-monospace,monospace">04</text>
-  <text x="590" y="32" font-size="12.5" font-weight="700" fill="#18241e">守住现金与心态</text>
-  <text x="570" y="56" font-size="11" fill="#46544c">刚性付款提前留出，</text>
-  <text x="570" y="73" font-size="11" fill="#46544c">警惕杠杆追保线，</text>
-  <text x="570" y="90" font-size="11" fill="#46544c">少盯盘、按依据做。</text>
-  <text x="570" y="116" font-size="10" fill="#8f6033">撑得到预期兑现</text>
+<div class="business-exchange" aria-label="面对浮亏的四步检查：01 忘掉买入成本，以现价为起点；02 相对行业排雷，辨别板块同跌还是独自跑输；03 重算现价 Risk-Reward，前提变了就调整；04 守住现金期限与杠杆安全线。">
+<svg viewBox="0 0 720 140" role="img" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;display:block">
+  <defs><marker id="a03-ck-s" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 1.2 L9 5 L0 8.8 z" fill="#23695a"/></marker></defs>
+  <rect x="12" y="22" width="154" height="96" rx="9" fill="#ffffff" stroke="#c8d6ce" stroke-width="1.3"/>
+  <text x="89" y="52" text-anchor="middle" font-size="13" font-weight="700" fill="#23695a">01 忘掉成本</text>
+  <text x="89" y="80" text-anchor="middle" font-size="12" fill="#3c4c44">历史价只记账</text>
+  <text x="89" y="102" text-anchor="middle" font-size="12" fill="#5e6d65">现价才是起点</text>
+  <line x1="166" y1="70" x2="188" y2="70" stroke="#23695a" stroke-width="1.8" marker-end="url(#a03-ck-s)"/>
+  <rect x="194" y="22" width="154" height="96" rx="9" fill="#ffffff" stroke="#c8d6ce" stroke-width="1.3"/>
+  <text x="271" y="52" text-anchor="middle" font-size="13" font-weight="700" fill="#23695a">02 对照行业</text>
+  <text x="271" y="80" text-anchor="middle" font-size="12" fill="#3c4c44">板块同跌先稳住</text>
+  <text x="271" y="102" text-anchor="middle" font-size="12" fill="#5e6d65">独自跑输立刻查</text>
+  <line x1="348" y1="70" x2="370" y2="70" stroke="#23695a" stroke-width="1.8" marker-end="url(#a03-ck-s)"/>
+  <rect x="376" y="22" width="154" height="96" rx="9" fill="#f3f8f4" stroke="#23695a" stroke-width="1.4"/>
+  <text x="453" y="52" text-anchor="middle" font-size="13" font-weight="700" fill="#23695a">03 重算赔率</text>
+  <text x="453" y="80" text-anchor="middle" font-size="12" fill="#22392f">核对财报与预期</text>
+  <text x="453" y="102" text-anchor="middle" font-size="12" fill="#5e6d65">前提变了就调整</text>
+  <line x1="530" y1="70" x2="552" y2="70" stroke="#23695a" stroke-width="1.8" marker-end="url(#a03-ck-s)"/>
+  <rect x="558" y="22" width="150" height="96" rx="9" fill="#fcf8f3" stroke="#ead9c4" stroke-width="1.3"/>
+  <text x="633" y="52" text-anchor="middle" font-size="13" font-weight="700" fill="#8f6033">04 守住现金</text>
+  <text x="633" y="80" text-anchor="middle" font-size="12" fill="#3c4c44">避开用款与追保</text>
+  <text x="633" y="102" text-anchor="middle" font-size="12" fill="#5e6d65">撑到预期兑现</text>
 </svg>
 </div>
 </figure>

@@ -9,6 +9,7 @@
 }
 
 <link rel="stylesheet" href="/notebook/flow-figures.css?v=20261126">
+<script src="/notebook/flow-figures.js?v=20261012-6" defer></script>
 
 [《全球宏观与跨资产配置》](/zh/notebook/global-macro-cross-asset/)讲的是主动判断利率、通胀和汇率周期，再挑干净的工具顺势下注。如果一家家族信托或长期资金明确**放弃预测下一阶段是衰退还是通胀**，只想靠资产本身的结构相互抵销，走出来的就是另一条机构路线：**风险平价**（Risk Parity）与**全天候配置**（All Weather）。
 
@@ -122,9 +123,9 @@ RC_i = w_i \frac{\partial \sigma_p}{\partial w_i} = \frac{w_i (\Sigma \mathbf{w}
 
 把刚才那套按 2011—2020 波动倒数定好的四资产风险平价（无杠杆与 1.8 倍杠杆）、传统 60/40（SPY / IEF）以及实盘基金 RPAR，放进 **2011—2020 低通胀顺风十年**与 **2022—2023 加息挤压两年**对照，边界非常清楚：
 
-<figure class="flow-figure p04-eras" id="nb-p04-eras">
-<div class="ff-head"><p class="ff-title">两段真实历史对比：2011—2020 低通胀顺风 vs 2022—2023 加息挤压</p><span class="ff-sub">Yahoo Finance 调整后收盘价 · 1.8× 杠杆按 BIL + 0.50% 年化模拟融资</span></div>
-<div class="p04-ecols business-exchange" aria-label="两段真实历史对比：第一段 2011 至 2020 十年低通胀顺风期（SPY 与 IEF 日相关性 −0.451，BIL 融资基准年化仅 +0.5%）：60/40 年化 +10.5%、波动 9.5%、最大回撤 −19.1%；无杠杆四资产 RP 年化 +4.2%、波动 4.6%、最大回撤 −10.6%；1.8 倍杠杆 RP 年化 +6.7%、波动 8.3%、最大回撤 −18.5%（同期商品 DBC 十年累计大跌 −45.1%）。第二段 2022 至 2023 两年加息与高利率挤压期（2022 年 SPY 与 IEF 相关性翻正至 +0.190、SPY 与 TIP 达 +0.278，BIL 2023 年升至 +4.9%、两年累计 +6.4%）：2022 全年 60/40 跌 −16.4%、无杠杆 RP 跌 −9.8%、1.8 倍杠杆 RP 跌 −18.8%、实盘 RPAR 跌 −22.8%；2022 至 2023 两年累计 60/40 跌 −2.2%、无杠杆 RP 跌 −5.2%、1.8 倍杠杆 RP 跌 −15.1%、实盘 RPAR 跌 −18.2%。">
+<figure class="flow-figure p04-eras" id="nb-p04-eras" data-ff-views>
+<div class="ff-head"><p class="ff-title">两段真实历史对比：低通胀顺风 vs 加息挤压</p><div class="ff-switch" role="group" aria-label="切换时期" hidden><button type="button" data-ff-view-choice="tailwind" aria-pressed="true">2011–2020 顺风十年</button><button type="button" data-ff-view-choice="squeeze" aria-pressed="false">2022–2023 加息挤压</button></div></div>
+<div data-ff-only="tailwind" class="business-exchange" aria-label="2011 至 2020 十年低通胀顺风期（SPY–IEF 日相关 −0.451，BIL 年化 +0.5%）：60/40 年化 +10.5%、无杠杆 RP +4.2%、1.8 倍杠杆 RP +6.7%。">
 <div class="p04-epanel">
 <div class="p04-ehead"><strong>2011—2020 低通胀顺风十年</strong><span>低利率 · 股债负相关</span></div>
 <div class="p04-emeta">SPY–IEF 日相关 <b>−0.451</b> · BIL 融资基准年化 <b>+0.5%</b></div>
@@ -135,6 +136,8 @@ RC_i = w_i \frac{\partial \sigma_p}{\partial w_i} = \frac{w_i (\Sigma \mathbf{w}
 <div class="p04-erow"><span>同期参照：BIL 短债</span><em>几乎零利率融资环境</em><strong>年化 +0.5%</strong></div>
 </div>
 </div>
+</div>
+<div data-ff-only="squeeze" hidden class="business-exchange" aria-label="2022 至 2023 加息挤压期（2022 SPY–IEF +0.190、2023 BIL +4.9%）：两年累计 60/40 −2.2%、无杠杆 RP −5.2%、1.8 倍 RP −15.1%、实盘 RPAR −18.2%。">
 <div class="p04-epanel p04-eshock">
 <div class="p04-ehead"><strong>2022—2023 加息与融资挤压</strong><span>相关性翻正 · 融资跃升</span></div>
 <div class="p04-emeta">2022 年 SPY–IEF <b>+0.190</b> / SPY–TIP <b>+0.278</b> · 2023 BIL <b>+4.9%</b></div>
@@ -146,7 +149,7 @@ RC_i = w_i \frac{\partial \sigma_p}{\partial w_i} = \frac{w_i (\Sigma \mathbf{w}
 </div>
 </div>
 </div>
-<figcaption>四资产 RP 权重固定为 2011—2020 波动倒数（12.2% SPY / 35.7% IEF / 38.9% TIP / 13.2% DBC），逐日再平衡且不计税费与交易佣金；RPAR 为实盘净值总回报。<a href="/notebook/risk-parity/risk-parity-daily.csv">查看完整日频数据</a>。</figcaption>
+<figcaption>点击切换两个宏观时期。1.8× 杠杆按 BIL + 0.50% 年化模拟融资；RPAR 为实盘净值总回报。<a href="/notebook/risk-parity/risk-parity-daily.csv">查看完整日频数据</a>。</figcaption>
 </figure>
 
 <span data-text-versions id="nb-p04-text-2022">在 2011—2020 年，哪怕商品 DBC 十年大跌 −45.1%，无杠杆 RP 依然把最大回撤压在 −10.6%（只有 60/40 的一半出头）；到了 2022 年，无杠杆 RP 靠商品上涨（DBC +19.3%）也把全年跌幅控在 **−9.8%**，浅于 60/40 的 −16.4%。让杠杆风险平价受重伤的，是**低利率起步下的债券大跌遇上杠杆放大，再接上 2023 年接近 5% 的高融资成本**：1.8 倍杠杆 RP 在 2022 年跌 **−18.8%**，2023 年市场企稳时，扣完融资成本只拿到 **+4.6%**，反而不如无杠杆版本的 **+5.2%**；实盘自带超长期美债期货与长期 TIPS 的 RPAR 在 2022 年跌 **−22.8%**（最大回撤 −29.0%），两年累计仍亏 **−18.2%**，远逊于同期 60/40 的 −2.2%<span data-text-detail>（若把黄金 GLD 也纳入五资产风险平价，2022 年无杠杆版跌 −8.7%、1.6 倍杠杆版跌 −15.0%，2020—2025 六年受益于黄金累计大涨 +177.3%，五资产无杠杆与 1.6 倍杠杆累计回报分别达 +41.8% 与 +54.3%，仍低于同期受益于美股大牛市的 60/40 的 +71.9%。全天候瞄准的是用更低的波动和更分散的回报来源穿越未知的宏观意外，在单边股市牛市里通常会跑输纯股或 60/40）</span>。[^rp-data]<sup>，</sup>[^rpar-pros]<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>

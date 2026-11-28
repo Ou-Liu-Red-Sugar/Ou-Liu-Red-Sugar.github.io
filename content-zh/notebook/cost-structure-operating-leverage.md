@@ -9,6 +9,7 @@
 }
 
 <link rel="stylesheet" href="/notebook/flow-figures.css?v=20261127d">
+<script src="/notebook/flow-figures.js?v=20261012-6" defer></script>
 
 同样卖芯片、同样背着千亿美元级晶圆厂，两家半导体龙头在 2025 财年却交出了截然相反的利润表：**Taiwan Semiconductor Manufacturing Company**（TSM）营收增长 31.6%，营业利润跃升 46.4%[^tsmc-20f]；同期 **Intel Corporation**（INTC）设计部门赚走 127.4 亿美元，自建晶圆代工部门却因产能填不满巨亏 103.2 亿美元，拖累全公司合并营业利润转负[^intc-fy25]。
 
@@ -21,53 +22,35 @@
 <span data-text-versions id="nb-d03-text-cm">营业收入扣掉变动成本后剩下的部分叫**边际贡献**（Contribution Margin），它先用来填满企业的固定成本池。填满之前公司处于亏损区；一旦越过**盈亏平衡点**，后续每一美元边际贡献几乎直接落进营业利润<span data-text-detail>（设边际贡献率为 \(m = 1 - \text{变动成本率}\)、固定成本为 \(F\)，则盈亏平衡收入 \(S_{\text{BE}} = F / m\)。例如边际贡献率 80%、固定成本 60 M 美元的公司，收入跨过 75 M 美元后开始盈利）</span>。<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>
 
 <figure class="flow-figure" id="nb-d03-cost-split-fig">
-<div class="ff-head"><p class="ff-title">收入怎样流向营业利润：变动成本、边际贡献与盈亏平衡</p><span class="ff-sub">每 100 美元收入先扣除随量变动的支出，再用边际贡献填满固定成本池</span></div>
-<div class="rel-svg-wrap business-exchange" aria-label="收入经由变动成本与边际贡献流向固定成本和营业利润的关系图：营业收入（均价乘销量）先分流为随销量同步增减的变动成本（进货、耗材、佣金、运费）以及边际贡献（收入减变动成本）；边际贡献优先填满短期刚性的固定成本池（折旧摊销、核心研发、总部行政），未填满时形成亏损，跨过盈亏平衡线后溢出的增量贡献直接转化为营业利润 EBIT。底部公式指出经营杠杆系数 DOL 等于边际贡献除以营业利润。">
-<svg viewBox="0 0 860 310" role="img" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+<div class="ff-head"><p class="ff-title">收入怎样流向营业利润：变动成本、边际贡献与盈亏平衡</p><span class="ff-sub">先扣随量变动的支出，再用边际贡献填满固定成本池</span></div>
+<div class="rel-svg-wrap business-exchange" aria-label="收入分流示意图：营业收入先扣除随销量同步增减的变动成本，余下边际贡献优先填满短期刚性的固定成本池，跨过盈亏平衡线后的溢出部分直接转化为营业利润 EBIT。">
+<svg viewBox="0 0 720 195" role="img" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
   <defs>
-    <marker id="d03-cs-sage" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse"><path d="M0 1.2 L9 5 L0 8.8 z" fill="#23695a"/></marker>
-    <marker id="d03-cs-amber" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse"><path d="M0 1.2 L9 5 L0 8.8 z" fill="#a8743f"/></marker>
+    <marker id="d03-cs-s" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse"><path d="M0 1.2 L9 5 L0 8.8 z" fill="#23695a"/></marker>
+    <marker id="d03-cs-a" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse"><path d="M0 1.2 L9 5 L0 8.8 z" fill="#a8743f"/></marker>
   </defs>
-  <rect x="18" y="88" width="172" height="118" rx="11" fill="#ffffff" stroke="#c8c6ba" stroke-width="1.4"/>
-  <rect x="18" y="88" width="172" height="32" rx="11" fill="#eff2ee"/>
-  <rect x="18" y="108" width="172" height="12" fill="#eff2ee"/>
-  <text x="104" y="109" text-anchor="middle" font-size="13.5" font-weight="700" fill="#1d2420">营业收入（P × Q）</text>
-  <text x="104" y="143" text-anchor="middle" font-size="11.8" fill="#4b524d">客户付出的全部货款</text>
-  <text x="104" y="164" text-anchor="middle" font-size="11.5" fill="#666d68">由销量 Q 与均价 P</text>
-  <text x="104" y="182" text-anchor="middle" font-size="11.5" fill="#666d68">共同决定</text>
-  <path d="M190 124 C228 124, 232 68, 266 68" fill="none" stroke="#a8743f" stroke-width="2.2" marker-end="url(#d03-cs-amber)"/>
-  <path d="M190 168 C228 168, 232 194, 266 194" fill="none" stroke="#23695a" stroke-width="2.2" marker-end="url(#d03-cs-sage)"/>
-  <rect x="272" y="22" width="246" height="92" rx="11" fill="#ffffff" stroke="#dfb98c" stroke-width="1.5"/>
-  <rect x="272" y="22" width="246" height="30" rx="11" fill="#f4e5d2"/>
-  <rect x="272" y="40" width="246" height="12" fill="#f4e5d2"/>
-  <text x="395" y="42" text-anchor="middle" font-size="13" font-weight="700" fill="#825322">变动成本（随 Q 同步增减）</text>
-  <text x="395" y="74" text-anchor="middle" font-size="11.5" fill="#4b524d">原料进货、直接耗材、支付抽佣、配送运费</text>
-  <text x="395" y="95" text-anchor="middle" font-size="11.3" fill="#825322">多卖 1 件就多付 1 份，无法被规模摊薄</text>
-  <rect x="272" y="136" width="246" height="114" rx="11" fill="#ffffff" stroke="#9ec5b6" stroke-width="1.6"/>
-  <rect x="272" y="136" width="246" height="30" rx="11" fill="#e2ede7"/>
-  <rect x="272" y="154" width="246" height="12" fill="#e2ede7"/>
-  <text x="395" y="156" text-anchor="middle" font-size="13" font-weight="700" fill="#1b5c4e">边际贡献（收入 − 变动成本）</text>
-  <text x="395" y="188" text-anchor="middle" font-size="11.5" fill="#4b524d">先填满固定成本池：厂房折旧、研发与租金</text>
-  <line x1="292" y1="206" x2="498" y2="206" stroke="#d4d2c7" stroke-dasharray="4 3"/>
-  <text x="395" y="227" text-anchor="middle" font-size="11.5" font-weight="600" fill="#1b5c4e">盈亏平衡线：边际贡献 = 固定成本</text>
-  <path d="M518 168 C554 168, 558 106, 594 106" fill="none" stroke="#a8743f" stroke-width="2.2" marker-end="url(#d03-cs-amber)"/>
-  <rect x="534" y="122" width="44" height="18" rx="4" fill="#fafaf6"/>
-  <text x="556" y="135" text-anchor="middle" font-size="10.5" font-weight="600" fill="#825322">未填满</text>
-  <path d="M518 212 C554 212, 558 212, 594 212" fill="none" stroke="#23695a" stroke-width="2.4" marker-end="url(#d03-cs-sage)"/>
-  <text x="556" y="202" text-anchor="middle" font-size="10.5" font-weight="600" fill="#1b5c4e">跨过平衡线</text>
-  <rect x="600" y="62" width="240" height="86" rx="11" fill="#fffaf4" stroke="#dfb98c" stroke-width="1.4"/>
-  <text x="720" y="89" text-anchor="middle" font-size="13" font-weight="700" fill="#825322">固定成本池（短期刚性）</text>
-  <text x="720" y="113" text-anchor="middle" font-size="11.5" fill="#4b524d">折旧摊销、核心研发、总部行政</text>
-  <text x="720" y="133" text-anchor="middle" font-size="11.2" fill="#825322">填不满即形成亏损，销量越低拖累越重</text>
-  <rect x="600" y="168" width="240" height="86" rx="11" fill="#f0f7f3" stroke="#23695a" stroke-width="1.6"/>
-  <text x="720" y="195" text-anchor="middle" font-size="13.5" font-weight="700" fill="#1b5c4e">营业利润（EBIT）</text>
-  <text x="720" y="219" text-anchor="middle" font-size="11.5" fill="#2a443c">边际贡献 − 固定成本</text>
-  <text x="720" y="239" text-anchor="middle" font-size="11.2" fill="#1b5c4e">溢出的增量贡献直接放大为利润弹性</text>
-  <rect x="18" y="268" width="822" height="30" rx="7" fill="#f4f2e8" stroke="#dedbd0" stroke-width="1"/>
-  <text x="429" y="287" text-anchor="middle" font-size="11.5" font-weight="600" fill="#3f4641">经营杠杆系数 DOL = 边际贡献 ÷ 营业利润：固定成本占比越高、越贴近盈亏平衡线，收入每变 1% 引发的利润振幅就越陡</text>
+  <rect x="16" y="54" width="152" height="86" rx="10" fill="#fbfbf6" stroke="#cfd6ce" stroke-width="1.4"/>
+  <text x="92" y="88" text-anchor="middle" font-size="14" font-weight="700" fill="#22392f">营业收入</text>
+  <text x="92" y="114" text-anchor="middle" font-size="12.5" fill="#5e6d65">均价 P × 销量 Q</text>
+  <path d="M168 80 C200 80 202 52 232 52" fill="none" stroke="#a8743f" stroke-width="2" marker-end="url(#d03-cs-a)"/>
+  <path d="M168 114 C200 114 202 142 232 142" fill="none" stroke="#23695a" stroke-width="2" marker-end="url(#d03-cs-s)"/>
+  <rect x="238" y="18" width="204" height="68" rx="10" fill="#fcf8f3" stroke="#ead9c4" stroke-width="1.4"/>
+  <text x="340" y="46" text-anchor="middle" font-size="13.5" font-weight="700" fill="#8f6033">变动成本</text>
+  <text x="340" y="69" text-anchor="middle" font-size="12" fill="#5e6d65">原料、运费、抽佣（随 Q 变）</text>
+  <rect x="238" y="106" width="204" height="72" rx="10" fill="#f3f8f4" stroke="#23695a" stroke-width="1.5"/>
+  <text x="340" y="135" text-anchor="middle" font-size="13.5" font-weight="700" fill="#23695a">边际贡献</text>
+  <text x="340" y="160" text-anchor="middle" font-size="12" fill="#3c4c44">先填固定成本 · 盈亏平衡线</text>
+  <path d="M442 126 C472 126 474 62 504 62" fill="none" stroke="#a8743f" stroke-width="2" marker-end="url(#d03-cs-a)"/>
+  <path d="M442 154 L504 154" fill="none" stroke="#23695a" stroke-width="2.2" marker-end="url(#d03-cs-s)"/>
+  <rect x="510" y="24" width="194" height="70" rx="10" fill="#faeae7" stroke="#e4c2bc" stroke-width="1.4"/>
+  <text x="607" y="52" text-anchor="middle" font-size="13.5" font-weight="700" fill="#b5483a">固定成本池</text>
+  <text x="607" y="76" text-anchor="middle" font-size="12" fill="#5e6d65">折旧、研发 · 未填满即亏</text>
+  <rect x="510" y="114" width="194" height="66" rx="10" fill="#23695a"/>
+  <text x="607" y="142" text-anchor="middle" font-size="14" font-weight="700" fill="#ffffff">营业利润 EBIT</text>
+  <text x="607" y="164" text-anchor="middle" font-size="12" fill="#d7e8df">跨线溢出 · 放大弹性</text>
 </svg>
 </div>
-<figcaption>成本结构决定了收入变动的利润传导斜率。变动成本高时收入与成本同步伸缩，固定成本高时利润在盈亏平衡线两侧剧烈摆动。</figcaption>
+<figcaption>经营杠杆系数 DOL ＝ 边际贡献 ÷ 营业利润。固定成本占比越高、越贴近盈亏平衡线，收入每变动 1% 引发的利润振幅就越陡。</figcaption>
 </figure>
 
 <span data-text-versions id="nb-d03-text-dol">经营杠杆系数（Degree of Operating Leverage，简称 DOL）等于边际贡献除以营业利润，用来度量收入每变 1% 时利润的放大倍数。固定成本越重，分母营业利润远小于分子边际贡献，DOL 越高。更重要的是，**DOL 会随产能位置动态漂移**：收入越贴近盈亏平衡线，杠杆越陡；等收入远远甩开平衡线，利润率向边际贡献率收敛，倍数反而回落<span data-text-detail>（固定成本为零时 DOL 等于 1 倍，利润与收入同步伸缩；在单价与单位变动成本恒定的简化条件下，\(\text{DOL} = \frac{\Delta \text{EBIT} / \text{EBIT}}{\Delta Q / Q} = \frac{\text{边际贡献}}{\text{EBIT}}\)。若公司已处亏损状态，分母为负使该比值失效，此时应改看距离盈亏平衡收入的缺口）</span>。<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>
@@ -128,139 +111,72 @@
 回到真实年报，上面三条路径在 2024—2026 财年同时上演。下面用单公司标签切换三份 SEC 申报文件：前两家同处半导体晶圆制造，恰好站在盈亏平衡线的正反两侧；第三家 **Costco Wholesale Corporation**（COST）则展示了高变动成本商业模式特有的稳态纪律。
 
 <figure class="flow-figure d03-real-tabs" id="nb-d03-real-tabs-fig">
-<div class="ff-head"><p class="ff-title">真实财报中的三种成本结构：正向摊薄、反向承压与高变动稳态</p><span class="ff-sub">切换标签逐家查看完整传导链（数据均取自最新 SEC EDGAR 申报文件）</span></div>
+<div class="ff-head"><p class="ff-title">真实财报中的三种成本结构：正向摊薄、反向承压与高变动稳态</p><span class="ff-sub">切换标签逐家查看（数据取自 SEC 官方申报文件）</span></div>
 <div class="d03-tabs" role="group" aria-label="选择公司案例">
-<button type="button" class="d03-tab" data-d03-tab="tsm" aria-pressed="true">TSM · 正向杠杆（FY23→FY25）</button>
-<button type="button" class="d03-tab" data-d03-tab="intc" aria-pressed="false">INTC · 反向杠杆（FY25 分部）</button>
-<button type="button" class="d03-tab" data-d03-tab="cost" aria-pressed="false">COST · 高变动稳态（FY24→FY26）</button>
+<button type="button" class="d03-tab" data-d03-tab="tsm" aria-pressed="true">TSM · 正向杠杆</button>
+<button type="button" class="d03-tab" data-d03-tab="intc" aria-pressed="false">INTC · 反向杠杆</button>
+<button type="button" class="d03-tab" data-d03-tab="cost" aria-pressed="false">COST · 高变动稳态</button>
 </div>
-<div class="rel-svg-wrap business-exchange" data-d03-panel="tsm" aria-label="TSM FY2023 至 FY2025 正向经营杠杆传导图：营收由 2.16 万亿新台币升至 3.81 万亿（FY25 同比 +31.6%），12 英寸等效晶圆出货由 1,200 万片增至 1,502 万片且先进制程推高均价；固定折旧与研发被充分摊薄，毛利率由 54.4% 升至 59.9%、营业费用率由 11.8% 降至 9.1%，营业利润由 9,215 亿新台币跃至 19,361 亿（FY25 同比 +46.4%，营业利润率 50.8%），FY25 增量营业利润率达 67.1%。">
-<svg viewBox="0 0 860 272" role="img" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
-  <defs>
-    <marker id="d03-tsm-sage" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse"><path d="M0 1.2 L9 5 L0 8.8 z" fill="#23695a"/></marker>
-  </defs>
-  <rect x="18" y="24" width="246" height="180" rx="11" fill="#ffffff" stroke="#9ec5b6" stroke-width="1.5"/>
-  <rect x="18" y="24" width="246" height="32" rx="11" fill="#e2ede7"/>
-  <rect x="18" y="44" width="246" height="12" fill="#e2ede7"/>
-  <text x="141" y="45" text-anchor="middle" font-size="13" font-weight="700" fill="#1b5c4e">1. 量价齐升推高营收</text>
-  <text x="141" y="82" text-anchor="middle" font-size="12" fill="#4b524d">FY23：2.16 万亿新台币</text>
-  <text x="141" y="107" text-anchor="middle" font-size="12" fill="#4b524d">FY24：2.89 万亿（+33.9%）</text>
-  <text x="141" y="132" text-anchor="middle" font-size="12.5" font-weight="700" fill="#1b5c4e">FY25：3.81 万亿（+31.6%）</text>
-  <line x1="36" y1="149" x2="246" y2="149" stroke="#dcd9ce"/>
-  <text x="141" y="171" text-anchor="middle" font-size="11.2" fill="#59605b">12 英寸等效晶圆：1,200 → 1,502 万片</text>
-  <text x="141" y="191" text-anchor="middle" font-size="11.2" fill="#59605b">7nm 以下先进制程拉升单价</text>
-  <path d="M264 114 L300 114" fill="none" stroke="#23695a" stroke-width="2.3" marker-end="url(#d03-tsm-sage)"/>
-  <rect x="306" y="24" width="246" height="180" rx="11" fill="#ffffff" stroke="#c8c6ba" stroke-width="1.4"/>
-  <rect x="306" y="24" width="246" height="32" rx="11" fill="#eff2ee"/>
-  <rect x="306" y="44" width="246" height="12" fill="#eff2ee"/>
-  <text x="429" y="45" text-anchor="middle" font-size="13" font-weight="700" fill="#1d2420">2. 固定折旧与研发被摊薄</text>
-  <text x="429" y="82" text-anchor="middle" font-size="11.8" fill="#4b524d">FY25 营业成本仅增 +20.3%</text>
-  <text x="429" y="105" text-anchor="middle" font-size="11.8" fill="#1b5c4e">毛利率：54.4% → 56.1% → 59.9%</text>
-  <line x1="324" y1="124" x2="534" y2="124" stroke="#dcd9ce"/>
-  <text x="429" y="147" text-anchor="middle" font-size="11.8" fill="#4b524d">FY25 营业费用仅增 +14.8%</text>
-  <text x="429" y="170" text-anchor="middle" font-size="11.8" fill="#1b5c4e">营业费用率：11.8% → 10.4% → 9.1%</text>
-  <text x="429" y="191" text-anchor="middle" font-size="11" fill="#666d68">研发费绝对额增至 2,464 亿，占比反降</text>
-  <path d="M552 114 L588 114" fill="none" stroke="#23695a" stroke-width="2.3" marker-end="url(#d03-tsm-sage)"/>
-  <rect x="594" y="24" width="248" height="180" rx="11" fill="#f0f7f3" stroke="#23695a" stroke-width="1.6"/>
-  <rect x="594" y="24" width="248" height="32" rx="11" fill="#23695a"/>
-  <rect x="594" y="44" width="248" height="12" fill="#23695a"/>
-  <text x="718" y="45" text-anchor="middle" font-size="13" font-weight="700" fill="#ffffff">3. 营业利润大幅跑赢营收</text>
-  <text x="718" y="82" text-anchor="middle" font-size="12" fill="#2a443c">FY23：9,215 亿新台币（42.6%）</text>
-  <text x="718" y="107" text-anchor="middle" font-size="12" fill="#2a443c">FY24：13,221 亿（+43.5%，45.7%）</text>
-  <text x="718" y="133" text-anchor="middle" font-size="12.5" font-weight="700" fill="#1b5c4e">FY25：19,361 亿（+46.4%，50.8%）</text>
-  <line x1="612" y1="150" x2="824" y2="150" stroke="#b7d7c9"/>
-  <text x="718" y="174" text-anchor="middle" font-size="12" font-weight="700" fill="#1b5c4e">FY25 增量营业利润率 = 67.1%</text>
-  <text x="718" y="193" text-anchor="middle" font-size="11" fill="#2a443c">每多赚 1 元营收，0.67 元直落营业利润</text>
-  <rect x="18" y="222" width="824" height="34" rx="7" fill="#f4f2e8" stroke="#dedbd0" stroke-width="1"/>
-  <text x="430" y="243" text-anchor="middle" font-size="11.4" fill="#3f4641">口径说明：TSM FY2025 Form 20-F（按新台币列报，FY25 营收约合 1,214.2 亿美元，营业利润约合 617.2 亿美元）。</text>
+<div class="rel-svg-wrap business-exchange" data-d03-panel="tsm" aria-label="TSM FY2023 至 FY2025 正向经营杠杆：营收增至 3.81 万亿新台币（FY25 +31.6%），固定折旧与研发被充分摊薄，毛利率升至 59.9%、费用率降至 9.1%，营业利润跃至 19,361 亿（+46.4%，增量营业利润率 67.1%）。">
+<svg viewBox="0 0 720 175" role="img" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+  <defs><marker id="d03-t-s" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse"><path d="M0 1.2 L9 5 L0 8.8 z" fill="#23695a"/></marker></defs>
+  <rect x="20" y="34" width="196" height="106" rx="10" fill="#f7faf8" stroke="#c8dad0" stroke-width="1.3"/>
+  <text x="118" y="62" text-anchor="middle" font-size="13" font-weight="700" fill="#23695a">1. 营收量价齐升</text>
+  <text x="118" y="94" text-anchor="middle" font-size="17" font-weight="700" fill="#22392f">3.81 万亿台币</text>
+  <text x="118" y="118" text-anchor="middle" font-size="12" fill="#5e6d65">FY25 +31.6% · 1,502 万片</text>
+  <line x1="216" y1="87" x2="256" y2="87" stroke="#23695a" stroke-width="2" marker-end="url(#d03-t-s)"/>
+  <rect x="262" y="34" width="196" height="106" rx="10" fill="#fbfbf6" stroke="#dfe5dc" stroke-width="1.3"/>
+  <text x="360" y="62" text-anchor="middle" font-size="13" font-weight="700" fill="#22392f">2. 折旧与研发摊薄</text>
+  <text x="360" y="94" text-anchor="middle" font-size="17" font-weight="700" fill="#23695a">毛利率 59.9%</text>
+  <text x="360" y="118" text-anchor="middle" font-size="12" fill="#5e6d65">费用率 11.8% → 9.1%</text>
+  <line x1="458" y1="87" x2="498" y2="87" stroke="#23695a" stroke-width="2" marker-end="url(#d03-t-s)"/>
+  <rect x="504" y="34" width="196" height="106" rx="10" fill="#23695a"/>
+  <text x="602" y="62" text-anchor="middle" font-size="13" font-weight="700" fill="#e5efe9">3. 利润大跑赢营收</text>
+  <text x="602" y="94" text-anchor="middle" font-size="17" font-weight="700" fill="#ffffff">19,361 亿 (+46%)</text>
+  <text x="602" y="118" text-anchor="middle" font-size="12" fill="#d7e8df">增量营业利润率 67.1%</text>
 </svg>
 </div>
-<div class="rel-svg-wrap business-exchange" data-d03-panel="intc" hidden aria-label="INTC FY2025 反向经营杠杆传导图：设计部门 Intel Products 收入 491.5 亿美元、营业利润 +127.4 亿美元（25.9%）；晶圆代工部门 Intel Foundry 收入 178.3 亿美元却背负 281.4 亿美元成本费用，营业亏损 −103.2 亿美元（FY24 亏损 −132.9 亿美元）。期末厂房设备净值高达 1,054.1 亿美元、合并毛利率仅 34.8%，即便两年累计投入 91.6 亿美元重组费并在 FY25 压降研发与管销 36.6 亿美元，合并营业利润仍亏损 −22.1 亿美元。">
-<svg viewBox="0 0 860 272" role="img" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
-  <defs>
-    <marker id="d03-intc-sage" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse"><path d="M0 1.2 L9 5 L0 8.8 z" fill="#23695a"/></marker>
-    <marker id="d03-intc-amber" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse"><path d="M0 1.2 L9 5 L0 8.8 z" fill="#a8743f"/></marker>
-  </defs>
-  <rect x="18" y="20" width="256" height="86" rx="11" fill="#ffffff" stroke="#9ec5b6" stroke-width="1.5"/>
-  <rect x="18" y="20" width="256" height="28" rx="11" fill="#e2ede7"/>
-  <rect x="18" y="36" width="256" height="12" fill="#e2ede7"/>
-  <text x="146" y="39" text-anchor="middle" font-size="12.5" font-weight="700" fill="#1b5c4e">Intel Products（设计分部）</text>
-  <text x="146" y="69" text-anchor="middle" font-size="11.8" fill="#4b524d">FY25 收入 491.5 亿美元</text>
-  <text x="146" y="91" text-anchor="middle" font-size="12.5" font-weight="700" fill="#1b5c4e">营业利润 +127.4 亿美元（25.9%）</text>
-  <rect x="18" y="120" width="256" height="90" rx="11" fill="#fffaf4" stroke="#dfb98c" stroke-width="1.6"/>
-  <rect x="18" y="120" width="256" height="28" rx="11" fill="#f4e5d2"/>
-  <rect x="18" y="136" width="256" height="12" fill="#f4e5d2"/>
-  <text x="146" y="139" text-anchor="middle" font-size="12.5" font-weight="700" fill="#825322">Intel Foundry（晶圆代工分部）</text>
-  <text x="146" y="169" text-anchor="middle" font-size="11.6" fill="#4b524d">FY25 收入 178.3 亿 vs 成本费用 281.4 亿</text>
-  <text x="146" y="193" text-anchor="middle" font-size="11.4" font-weight="700" fill="#a33325">营业亏损 −103.2 亿美元（FY24 −132.9 亿）</text>
-  <path d="M274 63 C308 63, 312 88, 344 96" fill="none" stroke="#23695a" stroke-width="2.2" marker-end="url(#d03-intc-sage)"/>
-  <path d="M274 165 C308 165, 312 142, 344 134" fill="none" stroke="#a8743f" stroke-width="2.3" marker-end="url(#d03-intc-amber)"/>
-  <rect x="350" y="34" width="224" height="162" rx="11" fill="#ffffff" stroke="#c8c6ba" stroke-width="1.4"/>
-  <rect x="350" y="34" width="224" height="30" rx="11" fill="#eff2ee"/>
-  <rect x="350" y="52" width="224" height="12" fill="#eff2ee"/>
-  <text x="462" y="54" text-anchor="middle" font-size="12.5" font-weight="700" fill="#1d2420">固定资产重担压低利用率</text>
-  <text x="462" y="88" text-anchor="middle" font-size="11.5" fill="#4b524d">期末厂房设备净值 1,054.1 亿美元</text>
-  <text x="462" y="111" text-anchor="middle" font-size="11.5" fill="#4b524d">合并营收停滞在 528.5 亿美元</text>
-  <text x="462" y="134" text-anchor="middle" font-size="11.5" fill="#825322">合并毛利率仅 34.8%（对比 TSM 59.9%）</text>
-  <text x="462" y="160" text-anchor="middle" font-size="11.3" fill="#4b524d">两年累计重组费 91.6 亿美元</text>
-  <text x="462" y="181" text-anchor="middle" font-size="11.2" fill="#666d68">削减固定成本耗时且代价高昂</text>
-  <path d="M574 115 L608 115" fill="none" stroke="#a8743f" stroke-width="2.3" marker-end="url(#d03-intc-amber)"/>
-  <rect x="614" y="34" width="228" height="162" rx="11" fill="#fdf1ef" stroke="#d89c92" stroke-width="1.6"/>
-  <rect x="614" y="34" width="228" height="30" rx="11" fill="#b24334"/>
-  <rect x="614" y="52" width="228" height="12" fill="#b24334"/>
-  <text x="728" y="54" text-anchor="middle" font-size="12.5" font-weight="700" fill="#ffffff">合并营业利润仍处亏损区</text>
-  <text x="728" y="92" text-anchor="middle" font-size="11.8" fill="#5a342e">FY24 合并营业亏损：−116.8 亿美元</text>
-  <text x="728" y="119" text-anchor="middle" font-size="12.5" font-weight="700" fill="#a33325">FY25 合并营业亏损：−22.1 亿美元</text>
-  <line x1="632" y1="138" x2="824" y2="138" stroke="#e4b7b0"/>
-  <text x="728" y="161" text-anchor="middle" font-size="11.3" fill="#5a342e">FY25 压降研发与管销 36.6 亿美元</text>
-  <text x="728" y="181" text-anchor="middle" font-size="11.2" fill="#5a342e">止血靠砍费用，产能仍未填满</text>
-  <rect x="18" y="222" width="824" height="34" rx="7" fill="#f4f2e8" stroke="#dedbd0" stroke-width="1"/>
-  <text x="430" y="243" text-anchor="middle" font-size="11.4" fill="#3f4641">口径说明：INTC Q4 &amp; FY2025 业绩公告（Form 8-K EX-99.1，含内部抵销项与未分配总部费用后合计数）。</text>
+<div class="rel-svg-wrap business-exchange" data-d03-panel="intc" hidden aria-label="INTC FY2025 反向经营杠杆：设计分部赚 127.4 亿美元，但晶圆代工分部背负重资产、亏损 103.2 亿美元，期末厂房设备净值高达 1,054 亿而合并毛利率仅 34.8%，合并营业亏损 22.1 亿美元。">
+<svg viewBox="0 0 720 185" role="img" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+  <defs><marker id="d03-i-r" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse"><path d="M0 1.2 L9 5 L0 8.8 z" fill="#b5483a"/></marker></defs>
+  <rect x="20" y="20" width="200" height="64" rx="9" fill="#f3f8f4" stroke="#b9d0c2" stroke-width="1.3"/>
+  <text x="120" y="46" text-anchor="middle" font-size="12.5" font-weight="700" fill="#23695a">设计分部 Products</text>
+  <text x="120" y="70" text-anchor="middle" font-size="15" font-weight="700" fill="#23695a">盈利 +127.4 亿</text>
+  <rect x="20" y="100" width="200" height="64" rx="9" fill="#faeae7" stroke="#e4c2bc" stroke-width="1.3"/>
+  <text x="120" y="126" text-anchor="middle" font-size="12.5" font-weight="700" fill="#b5483a">代工分部 Foundry</text>
+  <text x="120" y="150" text-anchor="middle" font-size="15" font-weight="700" fill="#b5483a">亏损 −103.2 亿</text>
+  <line x1="220" y1="92" x2="262" y2="92" stroke="#b5483a" stroke-width="2" marker-end="url(#d03-i-r)"/>
+  <rect x="268" y="38" width="194" height="108" rx="10" fill="#fcf8f3" stroke="#ead9c4" stroke-width="1.3"/>
+  <text x="365" y="66" text-anchor="middle" font-size="13" font-weight="700" fill="#8f6033">重资产压低利用率</text>
+  <text x="365" y="96" text-anchor="middle" font-size="16" font-weight="700" fill="#22392f">厂房设备 1,054 亿</text>
+  <text x="365" y="122" text-anchor="middle" font-size="12" fill="#b5483a">合并毛利率仅 34.8%</text>
+  <line x1="462" y1="92" x2="500" y2="92" stroke="#b5483a" stroke-width="2" marker-end="url(#d03-i-r)"/>
+  <rect x="506" y="38" width="194" height="108" rx="10" fill="#b5483a"/>
+  <text x="603" y="66" text-anchor="middle" font-size="13" font-weight="700" fill="#fce8e5">合并仍处亏损区</text>
+  <text x="603" y="98" text-anchor="middle" font-size="18" font-weight="700" fill="#ffffff">−22.1 亿美元</text>
+  <text x="603" y="124" text-anchor="middle" font-size="12" fill="#f7d6d0">两年重组费 91.6 亿</text>
 </svg>
 </div>
-<div class="rel-svg-wrap business-exchange" data-d03-panel="cost" hidden aria-label="COST FY2024 至 FY2026 高变动成本稳态传导图：总收入由 2,544.5 亿美元增至 3,031.5 亿美元（FY26 同比 +10.1%）；商品成本稳占总收入 87.4% 至 87.2%、SG&amp;A 稳占 9.0%，营业利润由 92.9 亿美元增至 116.9 亿美元（+12.5%），营业利润率两年仅由 3.65% 微升至 3.85%，实现杠杆约 1.2 倍，而 59.1 亿美元高毛利会员费贡献了全公司 50.6% 营业利润。">
-<svg viewBox="0 0 860 272" role="img" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
-  <defs>
-    <marker id="d03-cost-sage" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse"><path d="M0 1.2 L9 5 L0 8.8 z" fill="#23695a"/></marker>
-    <marker id="d03-cost-amber" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse"><path d="M0 1.2 L9 5 L0 8.8 z" fill="#a8743f"/></marker>
-  </defs>
-  <rect x="18" y="24" width="246" height="180" rx="11" fill="#ffffff" stroke="#c8c6ba" stroke-width="1.4"/>
-  <rect x="18" y="24" width="246" height="32" rx="11" fill="#eff2ee"/>
-  <rect x="18" y="44" width="246" height="12" fill="#eff2ee"/>
-  <text x="141" y="45" text-anchor="middle" font-size="13" font-weight="700" fill="#1d2420">1. 总收入稳健扩张</text>
-  <text x="141" y="82" text-anchor="middle" font-size="12" fill="#4b524d">FY24：2,544.5 亿美元</text>
-  <text x="141" y="107" text-anchor="middle" font-size="12" fill="#4b524d">FY25：2,752.4 亿（+8.2%）</text>
-  <text x="141" y="133" text-anchor="middle" font-size="12.5" font-weight="700" fill="#1d2420">FY26：3,031.5 亿（+10.1%）</text>
-  <line x1="36" y1="150" x2="246" y2="150" stroke="#dcd9ce"/>
-  <text x="141" y="172" text-anchor="middle" font-size="11.2" fill="#59605b">其中商品净销售额：2,972.5 亿美元</text>
-  <text x="141" y="191" text-anchor="middle" font-size="11.2" font-weight="600" fill="#1b5c4e">高毛利会员费：59.1 亿美元</text>
-  <path d="M264 114 L300 114" fill="none" stroke="#a8743f" stroke-width="2.2" marker-end="url(#d03-cost-amber)"/>
-  <rect x="306" y="24" width="246" height="180" rx="11" fill="#fffaf4" stroke="#dfb98c" stroke-width="1.5"/>
-  <rect x="306" y="24" width="246" height="32" rx="11" fill="#f4e5d2"/>
-  <rect x="306" y="44" width="246" height="12" fill="#f4e5d2"/>
-  <text x="429" y="45" text-anchor="middle" font-size="13" font-weight="700" fill="#825322">2. 商品成本与费用紧贴营收</text>
-  <text x="429" y="84" text-anchor="middle" font-size="12" font-weight="600" fill="#825322">商品成本占总收入：87.4% → 87.2%</text>
-  <text x="429" y="109" text-anchor="middle" font-size="11.5" fill="#4b524d">FY26 商品进货成本 2,642.8 亿美元</text>
-  <line x1="324" y1="128" x2="534" y2="128" stroke="#e8d5bd"/>
-  <text x="429" y="152" text-anchor="middle" font-size="12" font-weight="600" fill="#825322">SG&amp;A 占总收入：9.0% → 9.0%</text>
-  <text x="429" y="176" text-anchor="middle" font-size="11.3" fill="#4b524d">多开仓、多卖货同步伴随采购与门店人工</text>
-  <text x="429" y="194" text-anchor="middle" font-size="11" fill="#825322">两年费用结构几乎纹丝不动</text>
-  <path d="M552 114 L588 114" fill="none" stroke="#23695a" stroke-width="2.2" marker-end="url(#d03-cost-sage)"/>
-  <rect x="594" y="24" width="248" height="180" rx="11" fill="#f0f7f3" stroke="#23695a" stroke-width="1.6"/>
-  <rect x="594" y="24" width="248" height="32" rx="11" fill="#23695a"/>
-  <rect x="594" y="44" width="248" height="12" fill="#23695a"/>
-  <text x="718" y="45" text-anchor="middle" font-size="13" font-weight="700" fill="#ffffff">3. 弱杠杆下的极高确定性</text>
-  <text x="718" y="82" text-anchor="middle" font-size="12" fill="#2a443c">FY24：92.9 亿美元（3.65%）</text>
-  <text x="718" y="107" text-anchor="middle" font-size="12" fill="#2a443c">FY25：103.8 亿（+11.8%，3.77%）</text>
-  <text x="718" y="133" text-anchor="middle" font-size="12.5" font-weight="700" fill="#1b5c4e">FY26：116.9 亿（+12.5%，3.85%）</text>
-  <line x1="612" y1="150" x2="824" y2="150" stroke="#b7d7c9"/>
-  <text x="718" y="174" text-anchor="middle" font-size="11.8" font-weight="700" fill="#1b5c4e">会员费贡献 50.6% 营业利润</text>
-  <text x="718" y="193" text-anchor="middle" font-size="11" fill="#2a443c">商品微利走量，低成本会员费锁住底盘</text>
-  <rect x="18" y="222" width="824" height="34" rx="7" fill="#f4f2e8" stroke="#dedbd0" stroke-width="1"/>
-  <text x="430" y="243" text-anchor="middle" font-size="11.4" fill="#3f4641">口径说明：COST FY2026 Form 10-K（截至 2026-08-30 的 52 周），利润增速与营收增速之比仅约 1.2×。</text>
+<div class="rel-svg-wrap business-exchange" data-d03-panel="cost" hidden aria-label="COST FY2024 至 FY2026 高变动稳态：总收入增至 3,031.5 亿美元（+10.1%），商品成本稳占 87.2%、SG&amp;A 稳占 9.0%，营业利润 116.9 亿（+12.5%，杠杆仅约 1.2 倍），59.1 亿会员费贡献 50.6% 营业利润。">
+<svg viewBox="0 0 720 175" role="img" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+  <defs><marker id="d03-c-a" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse"><path d="M0 1.2 L9 5 L0 8.8 z" fill="#a8743f"/></marker></defs>
+  <rect x="20" y="34" width="196" height="106" rx="10" fill="#fbfbf6" stroke="#dfe5dc" stroke-width="1.3"/>
+  <text x="118" y="62" text-anchor="middle" font-size="13" font-weight="700" fill="#22392f">1. 总收入稳增</text>
+  <text x="118" y="94" text-anchor="middle" font-size="17" font-weight="700" fill="#22392f">3,032 亿美元</text>
+  <text x="118" y="118" text-anchor="middle" font-size="12" fill="#5e6d65">FY26 +10.1% · 会费 59 亿</text>
+  <line x1="216" y1="87" x2="256" y2="87" stroke="#a8743f" stroke-width="2" marker-end="url(#d03-c-a)"/>
+  <rect x="262" y="34" width="196" height="106" rx="10" fill="#fcf8f3" stroke="#ead9c4" stroke-width="1.3"/>
+  <text x="360" y="62" text-anchor="middle" font-size="13" font-weight="700" fill="#8f6033">2. 成本紧贴营收</text>
+  <text x="360" y="94" text-anchor="middle" font-size="16" font-weight="700" fill="#8f6033">商品成本 87.2%</text>
+  <text x="360" y="118" text-anchor="middle" font-size="12" fill="#5e6d65">SG&amp;A 稳在 9.0%</text>
+  <line x1="458" y1="87" x2="498" y2="87" stroke="#a8743f" stroke-width="2" marker-end="url(#d03-c-a)"/>
+  <rect x="504" y="34" width="196" height="106" rx="10" fill="#23695a"/>
+  <text x="602" y="62" text-anchor="middle" font-size="13" font-weight="700" fill="#e5efe9">3. 弱杠杆高确定性</text>
+  <text x="602" y="94" text-anchor="middle" font-size="17" font-weight="700" fill="#ffffff">116.9 亿 (+12.5%)</text>
+  <text x="602" y="118" text-anchor="middle" font-size="12" fill="#d7e8df">利润率 3.85% · 杠杆 1.2×</text>
 </svg>
 </div>
-<figcaption>三家公司展示了同一套规律的三种断面：TSM 处在满产高杠杆甜区，INTC 暴露了产能不满时重资产的反噬，COST 则以主动压低商品加价换取跨周期稳定。</figcaption>
+<figcaption>口径说明：TSM 取自 FY2025 20-F（新台币）；INTC 取自 FY2025 8-K 业绩公告（含内部抵销及总部费用）；COST 取自 FY2026 10-K（会员费贡献 50.6% 营业利润）。</figcaption>
 </figure>
 
 把 TSM 和 INTC 放在一起读，能直接破除“高经营杠杆等于好生意”的误判。晶圆厂的光刻机折旧和研发开支不会因为砍单就暂停：TSM 先进制程满载运转，新增晶圆不断摊薄固定成本，推升利润率连年走高[^tsmc-20f]；INTC 在外部代工订单不足的情况下硬扛千亿美元厂房折旧，只能靠大额重组费强行削减研发与管销开支来止血[^intc-fy25]。
@@ -273,48 +189,41 @@ COST 走了另一条路。它主动把商品加价压到极薄，采购与门店
 
 这解释了一个经常让投资者看走眼的财报现象：一家公司订单旺盛、营收还在高速增长，某几个季度的营业利润率却突然掉头向下。此时需要立刻分辨两种截然不同的原因——究竟是老产线失去定价权、竞争恶化导致的利润率塌陷，还是新产能刚转固、新台阶尚未填满造成的短期摊薄？前者破坏长期盈利能力，后者随着新产能利用率爬升往往会在随后几个季度自动修复。
 
-<figure class="flow-figure" id="nb-d03-step-costs-fig">
-<div class="ff-head"><p class="ff-title">规模扩大与供给约束下的两道转折：阶梯固定成本与量价成本不对称弹性</p><span class="ff-sub">左图看产能触顶后的固定成本跳台阶；右图以均衡型业务为例比较 +10% 提价、扩量与原料涨价</span></div>
-<div class="rel-svg-wrap business-exchange" aria-label="左图为阶梯固定成本示意图：随着业务规模扩大，当一期产能触顶建二期新厂或扩建三期时，固定成本向上跃升台阶，跨台阶瞬间营业利润率短暂回落，直到新产能被订单填满。右图以营收 100、变动成本 50、固定成本 30、EBIT 20 的均衡型业务为例对照同等 10% 冲击：提价 +10% 因零新增变动成本令 EBIT 跃升 +50%，扩量 +10% 同步增加变动成本令 EBIT 升 +25%，供给受限致单位变动成本 +10% 则直接令 EBIT 降 −25%。">
-<svg viewBox="0 0 860 288" role="img" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
-  <rect x="18" y="18" width="404" height="252" rx="11" fill="#ffffff" stroke="#c8c6ba" stroke-width="1.4"/>
-  <rect x="18" y="18" width="404" height="32" rx="11" fill="#eff2ee"/>
-  <rect x="18" y="38" width="404" height="12" fill="#eff2ee"/>
-  <text x="220" y="39" text-anchor="middle" font-size="12.8" font-weight="700" fill="#1d2420">一、产能触顶时的阶梯固定成本</text>
-  <line x1="62" y1="214" x2="396" y2="214" stroke="#9da39e" stroke-width="1.2"/>
-  <line x1="62" y1="214" x2="62" y2="72" stroke="#9da39e" stroke-width="1.2"/>
-  <text x="55" y="84" text-anchor="end" font-size="10.2" fill="#666d68">成本</text>
-  <text x="396" y="230" text-anchor="end" font-size="10.2" fill="#666d68">业务规模／产能</text>
-  <path d="M62 192 L388 70" fill="none" stroke="#23695a" stroke-width="2" stroke-dasharray="5 4"/>
-  <text x="388" y="65" text-anchor="end" font-size="10.5" font-weight="600" fill="#1b5c4e">营业收入线</text>
-  <path d="M62 184 L172 184 L172 146 L282 146 L282 108 L386 108" fill="none" stroke="#a8743f" stroke-width="2.6"/>
-  <circle cx="172" cy="146" r="4" fill="#b24334"/>
-  <circle cx="282" cy="108" r="4" fill="#b24334"/>
-  <text x="164" y="139" text-anchor="end" font-size="10.2" font-weight="600" fill="#a33325">建二期新厂</text>
-  <text x="274" y="101" text-anchor="end" font-size="10.2" font-weight="600" fill="#a33325">扩建三期</text>
-  <text x="117" y="203" text-anchor="middle" font-size="10" fill="#825322">一期固定成本</text>
-  <text x="227" y="164" text-anchor="middle" font-size="10" fill="#825322">台阶跃升</text>
-  <rect x="44" y="238" width="352" height="22" rx="5" fill="#fff7ec"/>
-  <text x="220" y="253" text-anchor="middle" font-size="10.5" fill="#825322">每次跨台阶瞬间利润率回落，直到新产能被订单填满</text>
-  <rect x="438" y="18" width="404" height="252" rx="11" fill="#ffffff" stroke="#c8c6ba" stroke-width="1.4"/>
-  <rect x="438" y="18" width="404" height="32" rx="11" fill="#eff2ee"/>
-  <rect x="438" y="38" width="404" height="12" fill="#eff2ee"/>
-  <text x="640" y="39" text-anchor="middle" font-size="12.8" font-weight="700" fill="#1d2420">二、同等 10% 变动对营业利润的落差</text>
-  <text x="640" y="69" text-anchor="middle" font-size="10.8" fill="#59605b">基准：营收 100、变动成本 50、固定成本 30 → EBIT = 20</text>
-  <text x="460" y="100" font-size="11.8" font-weight="700" fill="#1b5c4e">提价 +10%（零新增变动成本）</text>
-  <rect x="460" y="108" width="292" height="16" rx="8" fill="#23695a"/>
-  <text x="762" y="120" font-size="12" font-weight="700" fill="#1b5c4e">+50%</text>
-  <text x="460" y="152" font-size="11.8" font-weight="700" fill="#3f5f56">扩量 +10%（变动成本同步 +10%）</text>
-  <rect x="460" y="160" width="146" height="16" rx="8" fill="#6b998c"/>
-  <text x="616" y="172" font-size="12" font-weight="700" fill="#3f5f56">+25%</text>
-  <text x="460" y="204" font-size="11.8" font-weight="700" fill="#a33325">供给受限令单位变动成本 +10%</text>
-  <rect x="460" y="212" width="146" height="16" rx="8" fill="#b24334"/>
-  <text x="616" y="224" font-size="12" font-weight="700" fill="#a33325">−25%</text>
-  <rect x="458" y="238" width="364" height="22" rx="5" fill="#f0f7f3"/>
-  <text x="640" y="253" text-anchor="middle" font-size="10.5" fill="#1b5c4e">能否顺利把上游涨价转嫁给客户，直接决定利润弹性归谁</text>
+<figure class="flow-figure" id="nb-d03-step-costs-fig" data-ff-views>
+<div class="ff-head"><p class="ff-title">扩张期两道转折：阶梯固定成本与同等 10% 冲击弹性</p><div class="ff-switch" role="group" aria-label="切换视角" hidden><button type="button" data-ff-view-choice="step" aria-pressed="true">阶梯固定成本</button><button type="button" data-ff-view-choice="shock" aria-pressed="false">同等 10% 冲击落差</button></div></div>
+<div class="rel-svg-wrap business-exchange" data-ff-only="step" aria-label="阶梯固定成本示意图：随着产能触顶建二期新厂或扩建三期，固定成本向上跃升台阶，跨台阶瞬间利润率短暂回落，直至新产能被订单填满。">
+<svg viewBox="0 0 720 195" role="img" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+  <line x1="76" y1="160" x2="670" y2="160" stroke="#9da39e" stroke-width="1.4"/>
+  <line x1="76" y1="160" x2="76" y2="24" stroke="#9da39e" stroke-width="1.4"/>
+  <text x="66" y="36" text-anchor="end" font-size="12" fill="#5e6d65">成本</text>
+  <text x="670" y="182" text-anchor="end" font-size="12" fill="#5e6d65">业务规模 ／ 产能</text>
+  <path d="M76 144 L650 30" fill="none" stroke="#23695a" stroke-width="2.2" stroke-dasharray="6 4"/>
+  <text x="650" y="24" text-anchor="end" font-size="12.5" font-weight="700" fill="#23695a">营业收入线</text>
+  <path d="M76 138 L256 138 L256 102 L452 102 L452 66 L646 66" fill="none" stroke="#a8743f" stroke-width="2.8"/>
+  <circle cx="256" cy="102" r="4.5" fill="#b5483a"/>
+  <circle cx="452" cy="66" r="4.5" fill="#b5483a"/>
+  <text x="166" y="154" text-anchor="middle" font-size="12" fill="#8f6033">一期固定成本</text>
+  <text x="246" y="94" text-anchor="end" font-size="12" font-weight="700" fill="#b5483a">建二期新厂</text>
+  <text x="442" y="58" text-anchor="end" font-size="12" font-weight="700" fill="#b5483a">扩建三期</text>
+  <text x="550" y="90" text-anchor="middle" font-size="12" fill="#5e6d65">跨台阶瞬间利润率回落</text>
 </svg>
 </div>
-<figcaption>阶梯固定成本制造的是扩张期的节奏错位，而供给约束下的成本通胀与提价能力，决定了利润率中枢的真实去向。</figcaption>
+<div class="rel-svg-wrap business-exchange" data-ff-only="shock" hidden aria-label="同等 10% 冲击对均衡型业务营业利润的落差（基准营收 100、变动 50、固定 30、EBIT 20）：提价 +10% 令 EBIT 跃升 +50%，扩量 +10% 令 EBIT 升 +25%，单位变动成本涨 10% 令 EBIT 降 −25%。">
+<svg viewBox="0 0 720 190" role="img" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+  <text x="24" y="30" font-size="13.5" font-weight="700" fill="#22392f">基准：营收 100 · 变动 50 · 固定 30 → EBIT 20</text>
+  <line x1="330" y1="48" x2="330" y2="176" stroke="#b7c3b9" stroke-width="1.4"/>
+  <text x="24" y="76" font-size="13.5" font-weight="700" fill="#23695a">提价 +10%（零新增变动）</text>
+  <rect x="330" y="58" width="280" height="24" rx="5" fill="#23695a"/>
+  <text x="624" y="76" font-size="14" font-weight="700" fill="#23695a">+50%</text>
+  <text x="24" y="120" font-size="13.5" font-weight="700" fill="#3c4c44">扩量 +10%（变动同增）</text>
+  <rect x="330" y="102" width="140" height="24" rx="5" fill="#6b9f8c"/>
+  <text x="484" y="120" font-size="14" font-weight="700" fill="#23695a">+25%</text>
+  <text x="24" y="164" font-size="13.5" font-weight="700" fill="#b5483a">单位变动成本 +10%</text>
+  <rect x="190" y="146" width="140" height="24" rx="5" fill="#b5483a"/>
+  <text x="344" y="164" font-size="14" font-weight="700" fill="#b5483a">−25%</text>
+</svg>
+</div>
+<figcaption>点击切换阶梯固定成本与量价冲击视图。阶梯固定成本制造的是扩张期节奏错位，而提价转嫁能力决定利润率中枢去向。</figcaption>
 </figure>
 
 供给约束下的量价不对称，常比产能利用率更直接地改写利润。同样带来 10% 的营收增长，**提价**几乎零新增变动成本，多收的货款全额直达利润；**扩量**则须同步付原料与履约开支，只留下边际贡献。反过来，若上游原料或人工涨价 10% 而企业缺乏转嫁能力，在推演器里切到“高变动”就能看到：变动成本占 80%、利润率 10% 的薄利生意，哪怕量价不变，营业利润也会被一口气抹掉 80%。

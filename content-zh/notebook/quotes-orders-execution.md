@@ -75,41 +75,36 @@ Last 只记录过去，定不了下一笔买卖的价格；8 月 24 日开盘前
 
 把下单最常用的两套开关——**价格条件**和**有效时长**——摆在同一屏里，取舍立刻清楚：[^aug24]<sup>，</sup>[^time]
 
-<figure class="flow-figure" id="nb-b02-order-matrix">
-<div class="ff-head"><p class="ff-title">下单前先定两件事：价格条件 × 有效时长</p><span class="ff-sub">成交确定性、价格控制与挂单寿命</span></div>
-<div class="business-exchange" aria-label="下单的两套开关：价格条件分为市价单（只求成交、不设价格底线，2015 年 8 月 24 日 NYSE Arca 暂停后重开竞价中卖方未匹配量 94% 来自市价单）与限价单（守住最高买价或最低卖价，可拆成 99、98、97 美元分层挂单，代价是市场未到价则不成交）；有效时长分为 Day 当日有效、GTC 跨日保留，以及 IOC 立即成交可执行部分并撤剩余、FOK 立即全部成交否则取消。">
-<svg viewBox="0 0 720 198" role="img" aria-label="价格条件与有效时长对照图" style="width:100%;height:auto;display:block">
-  <rect x="8" y="8" width="386" height="182" rx="8" fill="#ffffff" stroke="#c8d6ce" stroke-width="1.2"/>
-  <rect x="8" y="8" width="386" height="30" rx="8" fill="#eaf2ef"/>
-  <rect x="8" y="30" width="386" height="8" fill="#eaf2ef"/>
-  <text x="22" y="28" font-size="12" font-weight="700" fill="#145343">① 价格条件：要确定成交，还是要价格底线？</text>
-  <rect x="20" y="48" width="362" height="60" rx="6" fill="#fdf6f3" stroke="#e4cbc3"/>
-  <text x="32" y="68" font-size="12" font-weight="700" fill="#b83b24">市价单（Market）</text>
-  <text x="150" y="68" font-size="11" fill="#8f4a39">不设价格底线 · 优先换取成交</text>
-  <text x="32" y="88" font-size="11" fill="#46544c">盘口薄时一路滑档；2015-08-24 NYSE Arca 重开竞价中，</text>
-  <text x="32" y="102" font-size="11" fill="#46544c">卖方未匹配数量有 94% 来自市价单。</text>
-  <rect x="20" y="118" width="362" height="62" rx="6" fill="#f3f7f5" stroke="#c3d5cb"/>
-  <text x="32" y="138" font-size="12" font-weight="700" fill="#145343">限价单（Limit）</text>
-  <text x="142" y="138" font-size="11" fill="#145343">守住价格上限 / 下限 · 允许分层挂单</text>
-  <text x="32" y="158" font-size="11" fill="#46544c">可拆成 99 / 98 / 97 美元分批买 300 股；代价是价格</text>
-  <text x="32" y="172" font-size="11" fill="#46544c">回不到限价位就买不到或卖不出，持仓停在已成交部分。</text>
-  <rect x="408" y="8" width="304" height="182" rx="8" fill="#ffffff" stroke="#d5c9b8" stroke-width="1.2"/>
-  <rect x="408" y="8" width="304" height="30" rx="8" fill="#f5ebdf"/>
-  <rect x="408" y="30" width="304" height="8" fill="#f5ebdf"/>
-  <text x="422" y="28" font-size="12" font-weight="700" fill="#8f6033">② 有效时长：没成交的余量等多久？</text>
-  <text x="422" y="62" font-size="12" font-weight="700" fill="#18241e">Day</text>
-  <text x="468" y="62" font-size="11.5" fill="#46544c">当日有效，收盘后未成交自动失效</text>
-  <line x1="422" y1="74" x2="698" y2="74" stroke="#ece6dc"/>
-  <text x="422" y="96" font-size="12" font-weight="700" fill="#18241e">GTC</text>
-  <text x="468" y="96" font-size="11.5" fill="#46544c">跨交易日保留，直至成交 / 撤销 / 到期</text>
-  <line x1="422" y1="108" x2="698" y2="108" stroke="#ece6dc"/>
-  <text x="422" y="130" font-size="12" font-weight="700" fill="#18241e">IOC</text>
-  <text x="468" y="130" font-size="11.5" fill="#46544c">立刻成交可执行部分，余量马上取消</text>
-  <line x1="422" y1="142" x2="698" y2="142" stroke="#ece6dc"/>
-  <text x="422" y="164" font-size="12" font-weight="700" fill="#18241e">FOK</text>
-  <text x="468" y="164" font-size="11.5" fill="#46544c">必须立刻全部成交，否则整笔取消</text>
+<figure class="flow-figure" id="nb-b02-order-matrix" data-ff-views>
+<div class="ff-head"><p class="ff-title">下单前先定两件事：价格条件 × 有效时长</p><div class="ff-switch" role="group" aria-label="切换维度" hidden><button type="button" data-ff-view-choice="price" aria-pressed="true">① 价格条件</button><button type="button" data-ff-view-choice="tif" aria-pressed="false">② 有效时长</button></div></div>
+<div class="business-exchange" data-ff-only="price" aria-label="价格条件对照：市价单不设底线、优先换取成交（2015-08-24 NYSE Arca 重开竞价卖方未匹配量 94% 来自市价单）；限价单守住价格边界、允许分层挂单，代价是未到价不成交。">
+<svg viewBox="0 0 720 165" role="img" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;display:block">
+  <rect x="20" y="20" width="328" height="124" rx="10" fill="#faeae7" stroke="#e4c2bc" stroke-width="1.3"/>
+  <text x="40" y="52" font-size="14" font-weight="700" fill="#b5483a">市价单（Market）</text>
+  <text x="40" y="82" font-size="13" font-weight="600" fill="#22392f">优先确定成交 · 不设价格底线</text>
+  <text x="40" y="110" font-size="12.5" fill="#5e6d65">盘口薄时一路滑档（8/24 占 94%）</text>
+  <rect x="372" y="20" width="328" height="124" rx="10" fill="#f3f8f4" stroke="#b9d0c2" stroke-width="1.3"/>
+  <text x="392" y="52" font-size="14" font-weight="700" fill="#23695a">限价单（Limit）</text>
+  <text x="392" y="82" font-size="13" font-weight="600" fill="#22392f">守住买价上限／卖价下限</text>
+  <text x="392" y="110" font-size="12.5" fill="#5e6d65">可分层挂单，代价是未到价不成交</text>
 </svg>
 </div>
+<div class="business-exchange" data-ff-only="tif" hidden aria-label="四种有效时长：Day 当日收盘失效，GTC 跨日保留，IOC 立即成交可执行部分并撤余量，FOK 必须立即全部成交否则整笔取消。">
+<svg viewBox="0 0 720 175" role="img" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;display:block">
+  <text x="24" y="42" font-size="14" font-weight="700" fill="#23695a">Day</text>
+  <text x="116" y="42" font-size="13" fill="#22392f">当日有效，收盘后未成交自动失效</text>
+  <line x1="24" y1="56" x2="696" y2="56" stroke="#eef1ec"/>
+  <text x="24" y="84" font-size="14" font-weight="700" fill="#23695a">GTC</text>
+  <text x="116" y="84" font-size="13" fill="#22392f">跨交易日保留，直至成交、撤销或到期</text>
+  <line x1="24" y1="98" x2="696" y2="98" stroke="#eef1ec"/>
+  <text x="24" y="126" font-size="14" font-weight="700" fill="#8f6033">IOC</text>
+  <text x="116" y="126" font-size="13" fill="#22392f">立刻成交可执行部分，余量马上取消</text>
+  <line x1="24" y1="140" x2="696" y2="140" stroke="#eef1ec"/>
+  <text x="24" y="164" font-size="14" font-weight="700" fill="#b5483a">FOK</text>
+  <text x="116" y="164" font-size="13" fill="#22392f">必须立刻全部成交，否则整笔取消</text>
+</svg>
+</div>
+<figcaption>点击切换价格条件与有效时长。限价单可拆成 99 / 98 / 97 美元分层挂单控制成交价，但要接受部分或完全漏单。</figcaption>
 </figure>
 
 <span data-text-versions id="nb-b02-text-3">有效期只改变未成交部分的等待方式，不改变限价方向；是否覆盖盘前、盘后交易则需另看时段设置<span data-text-detail>（部分券商对 GTC 设有最长保留天数；分层挂单如在 99、98、97 美元各挂 100 股，若价格只触及 99 美元便转涨，实际持仓停在已成交的 100 股）</span>。<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>
@@ -147,7 +142,7 @@ Last 只记录过去，定不了下一笔买卖的价格；8 月 24 日开盘前
 <figcaption>价格单位为美元／股。触发以后怎样成交，要看采用的订单类型和平台规则。</figcaption>
 </figure>
 
-想在开仓时一并排好止盈与止损，可以用**括号单（Bracket）**绑定父子顺序，并用 **OCO（One Cancels the Other）** 关联两张退出单（例如 Schwab 的 thinkorswim 提供这类组合订单）：[^linked]
+想在开仓时一并排好止盈与止损，可以用<strong>括号单（Bracket）</strong>绑定父子顺序，并用 **OCO（One Cancels the Other）** 关联两张退出单（例如 Schwab 的 thinkorswim 提供这类组合订单）：[^linked]
 
 <figure class="flow-figure order-tree" id="nb-b02-bracket">
 <div class="ff-head"><p class="ff-title">开仓与退出的先后</p><span class="ff-sub">括号单 · 两张退出单以 OCO 关联</span></div>
@@ -190,26 +185,26 @@ Last 只记录过去，定不了下一笔买卖的价格；8 月 24 日开盘前
 因此，一笔交易的真实成本由两部分组成：藏在成交价里的**隐含成本**（买卖价差 + 逐档滑点），以及按账户另收的**显性成本**（佣金与规费）。回到前面市价买入 300 股的例子，拆开来看非常直观：
 
 <figure class="flow-figure" id="nb-b02-cost-split">
-<div class="ff-head"><p class="ff-title">真实成交成本 = 隐含价差与滑点 + 显性佣金规费</p><span class="ff-sub">沿用市价买入 300 股例 · 报价中点 100.00 美元</span></div>
-<div class="business-exchange" aria-label="以报价中点 100.00 美元为参照，市价买入 300 股成交均价为 100.04 美元，每股隐含价差与吃档成本 0.04 美元，合计 12 美元；另加按账户条款计算的佣金与交易规费，构成完整成交成本。">
-<svg viewBox="0 0 720 116" role="img" aria-label="显性与隐含交易成本拆解链" style="width:100%;height:auto;display:block">
-  <rect x="8" y="10" width="166" height="94" rx="7" fill="#ffffff" stroke="#c8d6ce"/>
-  <text x="20" y="33" font-size="11" fill="#58605c">参照基准（报价中点）</text>
-  <text x="20" y="61" font-size="18" font-weight="700" fill="#18241e">100.00 美元</text>
-  <text x="20" y="84" font-size="10.5" fill="#7a8780">Bid 99.98 / Ask 100.02 中点</text>
-  <text x="190" y="62" text-anchor="middle" font-size="16" font-weight="700" fill="#8f6033">+</text>
-  <rect x="204" y="10" width="250" height="94" rx="7" fill="#fdf6f3" stroke="#e2c2b7"/>
-  <text x="216" y="33" font-size="11" font-weight="650" fill="#b83b24">隐含成本（藏在成交价里）</text>
-  <text x="216" y="61" font-size="17" font-weight="700" fill="#b83b24">0.04 × 300 = 12 美元</text>
-  <text x="216" y="84" font-size="10.5" fill="#6b524a">半价差 0.02 + 吃档滑点 0.02（均价 100.04）</text>
-  <text x="469" y="62" text-anchor="middle" font-size="16" font-weight="700" fill="#58605c">+</text>
-  <rect x="484" y="10" width="228" height="94" rx="7" fill="#f3f7f5" stroke="#b9d0c2"/>
-  <text x="496" y="33" font-size="11" font-weight="650" fill="#145343">显性费用（账单单独列示）</text>
-  <text x="496" y="61" font-size="16" font-weight="700" fill="#145343">佣金 + 交易规费</text>
-  <text x="496" y="84" font-size="10.5" fill="#46544c">按账户条款另计；极端行情隐含成本远大</text>
+<div class="ff-head"><p class="ff-title">真实成交成本 = 隐含价差与滑点 + 显性佣金规费</p><span class="ff-sub">市价买入 300 股例 · 报价中点 100.00 美元</span></div>
+<div class="business-exchange" aria-label="报价中点 100.00 美元参照下，市价买 300 股成交均价 100.04 美元，隐含成本每股 0.04 共 12 美元，再加显性佣金与交易规费。">
+<svg viewBox="0 0 720 135" role="img" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;display:block">
+  <rect x="16" y="18" width="184" height="98" rx="9" fill="#fbfbf6" stroke="#c8d6ce" stroke-width="1.3"/>
+  <text x="108" y="46" text-anchor="middle" font-size="12" fill="#5e6d65">报价中点基准</text>
+  <text x="108" y="76" text-anchor="middle" font-size="18" font-weight="700" fill="#22392f">100.00 美元</text>
+  <text x="108" y="100" text-anchor="middle" font-size="12" fill="#5e6d65">99.98 / 100.02</text>
+  <text x="220" y="74" text-anchor="middle" font-size="18" font-weight="700" fill="#8f6033">+</text>
+  <rect x="240" y="18" width="224" height="98" rx="9" fill="#faeae7" stroke="#e4c2bc" stroke-width="1.3"/>
+  <text x="352" y="46" text-anchor="middle" font-size="12" font-weight="700" fill="#b5483a">隐含成本（藏在成交价）</text>
+  <text x="352" y="76" text-anchor="middle" font-size="17" font-weight="700" fill="#b5483a">0.04 × 300 ＝ 12 美元</text>
+  <text x="352" y="100" text-anchor="middle" font-size="12" fill="#5e6d65">半价差 0.02 ＋ 滑点 0.02</text>
+  <text x="484" y="74" text-anchor="middle" font-size="18" font-weight="700" fill="#5e6d65">+</text>
+  <rect x="504" y="18" width="200" height="98" rx="9" fill="#f3f8f4" stroke="#b9d0c2" stroke-width="1.3"/>
+  <text x="604" y="46" text-anchor="middle" font-size="12" font-weight="700" fill="#23695a">显性费用（账单列示）</text>
+  <text x="604" y="76" text-anchor="middle" font-size="16" font-weight="700" fill="#23695a">佣金 ＋ 交易规费</text>
+  <text x="604" y="100" text-anchor="middle" font-size="12" fill="#5e6d65">极端行情隐含成本远大</text>
 </svg>
 </div>
-<figcaption>拆单或限价单可收紧隐含成本，代价是可能漏单；2015-08-24 低位卖出 IVV 的人承担的巨大偏离，即便几分钟后价格恢复也无法追回。</figcaption>
+<figcaption>拆单或限价单可收紧隐含成本，代价是可能漏单；2015-08-24 低位卖出 IVV 承担的巨大偏离，即便几分钟后恢复也无法追回。</figcaption>
 </figure>
 
 订单成交后，证券与资金的正式交付还要经过**交收**。美国多数证券采用 T+1 交收周期（交易日后下一个营业日），卖款记账、交收可用与转出银行是三个不同的时间节点：[^settlement]
@@ -239,6 +234,7 @@ Last 只记录过去，定不了下一笔买卖的价格；8 月 24 日开盘前
 <link rel="stylesheet" href="/notebook/trading.css?v=20261126">
 <script src="/notebook/trading.js?v=20261126" defer></script>
 <link rel="stylesheet" href="/notebook/flow-figures.css?v=20261126">
+<script src="/notebook/flow-figures.js?v=20261012-6" defer></script>
 
 [^aug24]: SEC Division of Trading and Markets 分析与研究办公室工作人员，[Research Note: Equity Market Volatility on August 24, 2015](https://www.sec.gov/marketstructure/research/equity_market_volatility.pdf)，2015 年 12 月，PDF 第 1、3–5 页摘要（SPY 开盘与最低价、SPY 净值、开盘成交量与报价深度、市价单在 NYSE Arca 重新开盘竞价中的占比）与第 16 页（IVV 最低价及 9:43 前后恢复）。研究说明只提供数据，不对当天波动的原因作出结论。
 [^quotes]: [Nasdaq：Why Real-Time Data Matters When Trading Stocks](https://www.nasdaq.com/articles/why-real-time-data-matters-when-trading-stocks)，2024-03-25，Last、Bid、Ask、Size 和 Trading Volume。正文数值盘口为独立构造的简化模型。
