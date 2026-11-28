@@ -163,7 +163,7 @@ function initialiseLearningMap(root, data) {
       const count = filterByKind(relatedEdges(selected)).length;
       focusLabel.textContent = `节点 ${selected} · ${nodes.get(selected).short}（${count} 条联系${kindNote}）`;
     } else {
-      focusLabel.textContent = `全图 19 节点 · ${visible.length} 条关系${kindNote}`;
+      focusLabel.textContent = `全图 ${nodes.size} 节点 · ${visible.length} 条关系${kindNote}`;
     }
   }
 

@@ -11,6 +11,7 @@
 - [全球宏观与跨资产配置](https://ou-liu-red-sugar.github.io/agent/zh/global-macro-cross-asset.md)
 - [指标与趋势交易](https://ou-liu-red-sugar.github.io/agent/zh/indicators-trend-trading.md)
 - [指数、基金与 ETF](https://ou-liu-red-sugar.github.io/agent/zh/indices-funds-etfs.md)
+- [保险业：浮存金、综合成本率与准备金](https://ou-liu-red-sugar.github.io/agent/zh/industry-insurance-float.md)
 - [投资期限与现金需要](https://ou-liu-red-sugar.github.io/agent/zh/investment-horizon-cash.md)
 - [Agent 时代的基本面投资](https://ou-liu-red-sugar.github.io/agent/zh/investment-returns.md)
 - [股票多空与市场中性](https://ou-liu-red-sugar.github.io/agent/zh/long-short-market-neutral.md)

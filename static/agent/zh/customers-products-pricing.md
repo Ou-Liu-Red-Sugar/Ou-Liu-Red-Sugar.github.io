@@ -2,7 +2,7 @@
 
 从客户付款和企业交付认清一门生意，选择行业继续拆解业务，再沿上下游、具体订单与企业研报核验需求。
 
-Entry: zh-customers-products-pricing | Node: NB-D01 | Language: zh | Editorial revision: 2026-11-26
+Entry: zh-customers-products-pricing | Node: NB-D01 | Language: zh | Editorial revision: 2026-11-28
 
 ## Reference use
 This is reference material for the learner's current request. Use the supplied entry to teach the selected concept. Retrieve the relevant original unit when explaining a claim that depends on its assumptions, figures or rules; the reading list is a map for that work, not a prerequisite to the first lesson. Keep facts, supplied examples and inference distinct. Editorial access dates describe the author's work. The empty runtime_reading_log is an optional record field, not a requested response. Author-supplied scope notes below constrain factual use of the material; the learner's request determines the teaching task and first response.
@@ -159,6 +159,40 @@ This is reference material for the learner's current request. Use the supplied e
           "CMA"
         ],
         "version": "2025-07-31 报告；公布版 2025-08-01"
+      },
+      {
+        "source_id": "nb-d01-msft-fy26",
+        "access": {
+          "kind": "selected_chapters",
+          "uri": "https://www.sec.gov/Archives/edgar/data/789019/000119312526323660/msft-20260630.htm"
+        },
+        "required_unit": {
+          "locator": "FY2026 10-K Revenue by Offering, Unearned Revenue & Commercial RPO",
+          "scope": "M365 Commercial 1,020 亿美元（云收入 +17%、席位 +6%）、PBP 递延收入 579 亿与商业 RPO 6,780 亿美元。",
+          "purpose": "核对本行业分支采用的 2025/2026 财报收入拆解、收费口径与经营机制。"
+        },
+        "title": "Microsoft Corporation FY2026 Form 10-K",
+        "authors": [
+          "Microsoft Corporation"
+        ],
+        "version": "FY2026 (ended 2026-06-30)"
+      },
+      {
+        "source_id": "nb-d01-amzn-fy25",
+        "access": {
+          "kind": "selected_chapters",
+          "uri": "https://www.sec.gov/Archives/edgar/data/1018724/000101872426000004/amzn-20251231.htm"
+        },
+        "required_unit": {
+          "locator": "FY2025 10-K AWS Segment, Cash Flows CapEx & Long-Term Performance Obligations",
+          "scope": "AWS 净销售 1,287 亿、营业利润 456 亿（35.4%）、长期 RPO 2,440 亿（均期 4.1 年）及集团 CapEx 1,318 亿美元。",
+          "purpose": "核对本行业分支采用的 2025/2026 财报收入拆解、收费口径与经营机制。"
+        },
+        "title": "Amazon.com, Inc. FY2025 Form 10-K",
+        "authors": [
+          "Amazon.com, Inc."
+        ],
+        "version": "FY2025 (ended 2025-12-31)"
       }
     ],
     "platform": [
@@ -212,6 +246,23 @@ This is reference material for the learner's current request. Use the supplied e
           "Booking Holdings"
         ],
         "version": "年度截至 2025-12-31"
+      },
+      {
+        "source_id": "nb-d01-amzn-fy25",
+        "access": {
+          "kind": "selected_chapters",
+          "uri": "https://www.sec.gov/Archives/edgar/data/1018724/000101872426000004/amzn-20251231.htm"
+        },
+        "required_unit": {
+          "locator": "FY2025 10-K Note 10 Net Sales by Group & Note 1 Revenue Recognition",
+          "scope": "1P 线上自营 2,693 亿、3P 第三方卖家服务 1,722 亿与广告服务 686 亿的记账口径差异。",
+          "purpose": "核对本行业分支采用的 2025/2026 财报收入拆解、收费口径与经营机制。"
+        },
+        "title": "Amazon.com, Inc. FY2025 Form 10-K",
+        "authors": [
+          "Amazon.com, Inc."
+        ],
+        "version": "FY2025 (ended 2025-12-31)"
       }
     ],
     "semiconductor": [
@@ -316,6 +367,40 @@ This is reference material for the learner's current request. Use the supplied e
           "KGI"
         ],
         "version": "2025-10-01"
+      },
+      {
+        "source_id": "nb-d01-tsm-20f",
+        "access": {
+          "kind": "selected_chapters",
+          "uri": "https://www.sec.gov/Archives/edgar/data/1046179/000162828026025362/tsm-20251231.htm"
+        },
+        "required_unit": {
+          "locator": "FY2025 Form 20-F Revenue by Platform, Wafer Technology & Capital Expenditures",
+          "scope": "2025 营收 3.81 万亿新台币、HPC 占 58%、≤7nm 占晶圆 74%、CapEx 409 亿美元及 2026 指引 520–560 亿美元。",
+          "purpose": "核对本行业分支采用的 2025/2026 财报收入拆解、收费口径与经营机制。"
+        },
+        "title": "Taiwan Semiconductor Manufacturing Company FY2025 Form 20-F",
+        "authors": [
+          "Taiwan Semiconductor Manufacturing Company Limited"
+        ],
+        "version": "FY2025 (ended 2025-12-31)"
+      },
+      {
+        "source_id": "nb-d01-asml-20f",
+        "access": {
+          "kind": "selected_chapters",
+          "uri": "https://www.sec.gov/Archives/edgar/data/937966/000162828026011378/asml-20251231.htm"
+        },
+        "required_unit": {
+          "locator": "FY2025 Form 20-F Consolidated Statements of Operations",
+          "scope": "2025 总净销售 326.7 亿欧元：新系统 74.9% 与装机服务及现场选件 25.1%。",
+          "purpose": "核对本行业分支采用的 2025/2026 财报收入拆解、收费口径与经营机制。"
+        },
+        "title": "ASML Holding N.V. FY2025 Form 20-F",
+        "authors": [
+          "ASML Holding N.V."
+        ],
+        "version": "FY2025 (ended 2025-12-31)"
       }
     ],
     "industrial": [
@@ -439,6 +524,40 @@ This is reference material for the learner's current request. Use the supplied e
           "HCA Healthcare"
         ],
         "version": "2025 年度；URL 目录含 2024，报告正文为 2025"
+      },
+      {
+        "source_id": "nb-d01-isrg-fy25",
+        "access": {
+          "kind": "selected_chapters",
+          "uri": "https://www.sec.gov/Archives/edgar/data/1035267/000103526726000010/isrg-20251231.htm"
+        },
+        "required_unit": {
+          "locator": "FY2025 10-K Revenue Disaggregation & da Vinci System/Instruments Business",
+          "scope": "2025 总收入 100.6 亿：系统 24.7 亿（24.6%）、器械附件 60.2 亿（59.8%）、服务 15.7 亿（15.6%）。",
+          "purpose": "核对本行业分支采用的 2025/2026 财报收入拆解、收费口径与经营机制。"
+        },
+        "title": "Intuitive Surgical, Inc. FY2025 Form 10-K",
+        "authors": [
+          "Intuitive Surgical, Inc."
+        ],
+        "version": "FY2025 (ended 2025-12-31)"
+      },
+      {
+        "source_id": "nb-d01-hca-10k",
+        "access": {
+          "kind": "selected_chapters",
+          "uri": "https://www.sec.gov/Archives/edgar/data/860730/000119312526044769/hca-20251231.htm"
+        },
+        "required_unit": {
+          "locator": "FY2025 10-K Revenues by Payer & Inpatient Admissions Mix",
+          "scope": "2025 营收 756.0 亿：商业保险占 32% 住院人次却贡献 48.9% 净收入，Medicare 占 46% 人次仅贡献 32.7%。",
+          "purpose": "核对本行业分支采用的 2025/2026 财报收入拆解、收费口径与经营机制。"
+        },
+        "title": "HCA Healthcare, Inc. FY2025 Form 10-K",
+        "authors": [
+          "HCA Healthcare, Inc."
+        ],
+        "version": "FY2025 (ended 2025-12-31)"
       }
     ],
     "finance": [
@@ -526,6 +645,40 @@ This is reference material for the learner's current request. Use the supplied e
           "Chubb"
         ],
         "version": "2025 年度股东信；官方产品页读取于 2026-09-27"
+      },
+      {
+        "source_id": "nb-d01-jpm-10k",
+        "access": {
+          "kind": "selected_chapters",
+          "uri": "https://www.sec.gov/Archives/edgar/data/19617/000162828026008131/jpm-20251231.htm"
+        },
+        "required_unit": {
+          "locator": "FY2025 10-K Consolidated Income Statement & Credit Portfolio",
+          "scope": "总贷款 1.49 万亿、净利息收入 954 亿、非息收入 870 亿、总净收入 1,824 亿及信用损失拨备 142 亿美元。",
+          "purpose": "核对本行业分支采用的 2025/2026 财报收入拆解、收费口径与经营机制。"
+        },
+        "title": "JPMorgan Chase & Co. FY2025 Form 10-K",
+        "authors": [
+          "JPMorgan Chase & Co."
+        ],
+        "version": "FY2025 (ended 2025-12-31)"
+      },
+      {
+        "source_id": "nb-d02-chubb-premiums",
+        "access": {
+          "kind": "selected_chapters",
+          "uri": "https://www.chubb.com/content/dam/annual-corporate-governance/2026/a-chubb-limited/chubb-limited-annual-report-2025.pdf"
+        },
+        "required_unit": {
+          "locator": "2025 Annual Report Financial Highlights & Balance Sheet Liabilities",
+          "scope": "合并净签单保费 548.4 亿、净已赚 530.1 亿、财险综合成本率 85.7%、未付赔款准备金 880.2 亿与未赚保费 262.8 亿美元。",
+          "purpose": "核对本行业分支采用的 2025/2026 财报收入拆解、收费口径与经营机制。"
+        },
+        "title": "Chubb Limited Annual Report 2025 — Premiums; Financial Highlights",
+        "authors": [
+          "Chubb Limited"
+        ],
+        "version": "本篇核读：2026-09-27"
       }
     ],
     "energy": [
@@ -562,6 +715,57 @@ This is reference material for the learner's current request. Use the supplied e
           "Kinder Morgan"
         ],
         "version": "动态公司业务页面，读取于 2026-09-27"
+      },
+      {
+        "source_id": "nb-d01-xom-10k",
+        "access": {
+          "kind": "selected_chapters",
+          "uri": "https://www.sec.gov/Archives/edgar/data/34088/000003408826000045/xom-20251231.htm"
+        },
+        "required_unit": {
+          "locator": "FY2025 10-K Business Profile Segment Earnings & Production Prices",
+          "scope": "2025 原油均价降 14.3% 下上游盈利 213.5 亿（−15.9%）、炼化 74.2 亿（+84.1%）、化工 8.0 亿（−69.0%）。",
+          "purpose": "核对本行业分支采用的 2025/2026 财报收入拆解、收费口径与经营机制。"
+        },
+        "title": "Exxon Mobil Corporation FY2025 Form 10-K",
+        "authors": [
+          "Exxon Mobil Corporation"
+        ],
+        "version": "FY2025 (ended 2025-12-31)"
+      },
+      {
+        "source_id": "nb-d01-kmi-10k",
+        "access": {
+          "kind": "selected_chapters",
+          "uri": "https://www.sec.gov/Archives/edgar/data/1506307/000150630726000011/kmi-20251231.htm"
+        },
+        "required_unit": {
+          "locator": "FY2025 10-K Note 14 Revenue Disaggregation",
+          "scope": "总收入 169.4 亿中服务 94.9 亿与商品销售 72.6 亿分离；客户合同内 Firm Services 53.4 亿、Fee-Based 27.2 亿。",
+          "purpose": "核对本行业分支采用的 2025/2026 财报收入拆解、收费口径与经营机制。"
+        },
+        "title": "Kinder Morgan, Inc. FY2025 Form 10-K",
+        "authors": [
+          "Kinder Morgan, Inc."
+        ],
+        "version": "FY2025 (ended 2025-12-31)"
+      },
+      {
+        "source_id": "nb-d01-wic-2025",
+        "access": {
+          "kind": "selected_chapters",
+          "uri": "https://pipeline2.kindermorgan.com/Documents/WIC/RP25-1193-000_Negotiated_Rate_Agreement_Update_-_Black_Hills_2025-20250930164903.pdf"
+        },
+        "required_unit": {
+          "locator": "Clean Tariff PDF pp6–7 MDQ & Monthly Reservation Fee",
+          "scope": "28,150 Dth/d 预订容量与按月照付不议预留费条款。",
+          "purpose": "核对本行业分支采用的 2025/2026 财报收入拆解、收费口径与经营机制。"
+        },
+        "title": "Wyoming Interstate Company — Black Hills Negotiated Rate Agreement Update",
+        "authors": [
+          "Wyoming Interstate Company, L.L.C."
+        ],
+        "version": "Filed 2025-09-30 (term 2025-11-01 to 2030-10-31)"
       }
     ]
   },
@@ -572,17 +776,17 @@ This is reference material for the learner's current request. Use the supplied e
 ```
 
 ## Supplied entry
-客户掏钱，买走的可能是一双鞋、一段时间的算力，也可能是一份保单。卖商品要把货交到手上，做云服务要持续供电机房，保险公司则要在合同期内背负未来的赔付义务。研究一家公司时，先要看懂它做的究竟是哪些生意：客户买到了什么，公司为此要交付什么，钱又按什么方式来。
+客户掏钱，买走的可能是一双鞋、一段时间的算力，也可能是一份保单。卖商品要把货交到手上，做云服务要持续供电机房，保险公司则要在合同期内背负未来的赔付义务。研究一家公司时，先要看懂它做的究竟是哪些生意：客户买到了什么，公司为此要交付什么，钱又按什么方式进账。
 
-前面的笔记一直站在持有人视角看股票、成交与组合；真要决定该持有哪些公司，还得往财报背后走一步，回到真实的交易现场。客户为什么愿意花钱、订单增多到底说明需求变旺还是渠道备货，答案都在具体交易里。
+前面的笔记一直站在持有人视角看股票、成交与组合；真要决定该持有哪些公司，还得往财报背后走一步，回到真实的交易现场。客户为什么愿意花钱、订单增多到底说明需求变旺还是渠道备货，答案都在具体交易与收费结构里。
 
 ## 使用者、采购者与付款者 {#nb-d01-business}
 
-看清客户买到了什么，接着还要分清三个角色：谁在用、谁拍板买，又是谁真正买单。个人给自己买双鞋，挑款式、上脚穿和刷卡付钱都是同一个人；换成企业给员工配办公软件，每天点鼠标的人和签合同付款的公司就分开了。到了美国医疗服务里，这三个角色进一步拆开：患者接受诊疗，医生和医疗机构参与敲定方案并采购药械，账单则常由患者自付、商业保险与政府项目共同分担。
+看清客户买到了什么，接着要分清三个角色：谁在用、谁拍板买，又是谁真正买单。个人买鞋时三者合一；企业采购办公软件时，每天点鼠标的员工和签合同付款的公司已经分开；到了美国医疗市场，患者、医生／医院和保险／政府项目进一步拆成三方。
 
 <figure class="flow-figure g4-role-split" id="nb-d01-role-split">
 <div class="ff-head"><p class="ff-title">三种交易里，使用、采购与付款怎样拆开</p><span class="ff-sub">角色拆得越细，核对需求时要查的账也越多</span></div>
-<div class="g4-rs-grid business-exchange" aria-label="三种常见交易的角色拆分对照：个人买鞋时，消费者本人同时承担使用、采购决策与付款三项角色，三者合一；企业购买办公软件时，员工日常使用软件，企业负责选型采购与付款，使用和买单分开；美国医疗诊疗中，患者接受诊疗服务，医生与医疗机构参与选择方案并采购药械，费用由患者自付、商业保险与政府项目共同承担，三方进一步拆分。">
+<div class="g4-rs-grid business-exchange" aria-label="三种常见交易的角色拆分对照：个人买鞋时，消费者本人同时承担使用、采购决策与付款三项角色；企业购买办公软件时，员工日常使用，企业负责选型采购与付款；美国医疗诊疗中，患者接受诊疗，医生与医疗机构参与选方案并采购药械，费用由患者自付、商业保险与政府项目共同承担。">
 <span class="g4-rs-corner"></span>
 <div class="g4-rs-col">谁在使用<small>实际消耗或体验</small></div>
 <div class="g4-rs-col">谁决定采购<small>选型、下单或开方</small></div>
@@ -597,10 +801,10 @@ This is reference material for the learner's current request. Use the supplied e
 <div class="g4-rs-span"><strong>医生与医疗机构</strong><small>参与选方案、采购药械</small></div>
 <div class="g4-rs-span g4-rs-pay"><strong>患者＋保险／政府</strong><small>按项目或合同共同买单</small></div>
 </div>
-<figcaption>角色拆开以后，使用者满意不等于采购方马上加单，采购方签了合同也不等于付款已经落袋；下面八个行业会沿着这条线索逐一展开。</figcaption>
+<figcaption>角色拆开以后，使用者满意不等于采购方马上加单，采购方签了合同也不等于付款已经落袋；下面八个行业会沿着真实财报逐一拆解。</figcaption>
 </figure>
 
-哪怕是同一家公司，面对不同客户时，交付的东西和收费办法也常常两样。下面可以先挑一个最熟悉的行业，从具体公司读起。每个行业都会先拆这门生意怎么运转，再看怎么核实真实需求；想横向比较几种生意，随时可以切换行业或展开全部。
+哪怕是同一家公司，面对不同客户时，交付内容和赚钱位置也常常两样。下面可以先选一个熟悉的行业读起：每个分支都会拆开真实年报里的收费机制与利润来源，再指出最容易踩坑的需求核验节点；若想顺着某个行业继续深潜，可沿着专题入口延伸。
 
 <div data-reading-branch-controls hidden></div>
 
@@ -608,21 +812,77 @@ This is reference material for the learner's current request. Use the supplied e
 
 ## 消费品与零售：商品、渠道与库存 {#nb-d01-consumer-story}
 
-### 从品牌出货到消费者购买 {#nb-d01-consumer-channels}
+### 从品牌出货到会员利润引擎 {#nb-d01-consumer-channels}
 
-先看 NIKE（NKE）的一双鞋怎样送到消费者手里。NKE 主抓设计与营销，生产大多委托给独立制造商；成品既可以批发给零售客户，也可以通过自有门店和官网直接卖给顾客。走批发，零售客户先向 NKE 进货，再摆上货架卖给消费者；走直营，消费者直接把钱付给 NKE。两条路最终都把商品送到顾客手里，对 NKE 来说，直接打交道的买家和收钱的节点却不一样。[^nke]
+同样是把实物商品交到消费者手里，渠道与收费结构不同，风险和利润的落点会彻底翻转。NIKE（NKE）主抓设计与营销，生产大多委托给独立制造商，再经由批发和 NIKE Direct 两条管道出货；Walmart（WMT）则在低价走量的商品零售之上，叠加了会员年费。[^nke]<sup>，</sup>[^wmt]
 
-<figure class="business-flow"><div class="business-flow-route"><p class="business-flow-route-title">批发路径</p><div class="business-flow-grid"><div class="business-flow-node"><small>品牌方</small><strong>NIKE（NKE）</strong><p>组织产品与供货。</p></div><p class="business-flow-edge">批发：向零售客户交货并结算</p><div class="business-flow-node"><small>零售客户</small><strong>备货与销售</strong><p>持有商品并面向消费者销售。</p></div><p class="business-flow-edge">终端：消费者购买商品并付款</p><div class="business-flow-node"><small>使用与购买</small><strong>消费者</strong><p>取得所购买的商品。</p></div></div></div><div class="business-flow-route"><p class="business-flow-route-title">直营路径</p><div class="business-flow-grid"><div class="business-flow-node"><small>品牌直营</small><strong>NIKE（NKE）</strong><p>通过自有门店或网站销售。</p></div><p class="business-flow-edge">NKE 交付商品；消费者直接付款</p><div class="business-flow-node"><small>直接购买</small><strong>消费者</strong><p>向品牌购买并取得商品。</p></div></div></div><figcaption>批发路径中，NKE 的直接客户是零售商；直营时，NKE 直接面向消费者。</figcaption></figure>
+<figure class="flow-figure" id="nb-d01-consumer-flow">
+<div class="ff-head"><p class="ff-title">消费品与零售：渠道风险切分（NKE）与会员利润引擎（WMT Sam's Club）</p><span class="ff-sub">两家公司 FY2025 年报实数：同样卖实物商品，赚钱位置截然不同</span></div>
+<div class="rel-svg-wrap business-exchange" aria-label="左右双栏对比：左栏展示 NKE FY2025 品牌收入 447.1 亿美元中批发占 57.9%（258.8 亿美元）而 NIKE Direct 直营占 42.0%（187.8 亿美元），毛利率 42.7%，期末自有存货 74.9 亿美元；右栏展示 WMT 旗下 Sam's Club FY2025 净销售 902 亿美元中商品毛利 102.0 亿减运营费 101.2 亿仅剩 0.81 亿美元，而 23.23 亿美元会员及其他收入贡献了 24.04 亿美元分部营业利润的绝大部分。">
+<svg viewBox="0 0 860 330" role="img" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+  <rect x="14" y="14" width="406" height="302" rx="11" fill="#ffffff" stroke="#d5ddd6" stroke-width="1.3"/>
+  <rect x="14" y="14" width="406" height="36" rx="11" fill="#eff4f1"/>
+  <rect x="14" y="38" width="406" height="12" fill="#eff4f1"/>
+  <text x="32" y="37" font-size="13.5" font-weight="700" fill="#22392f">NKE FY2025：批发 vs 直营双轨</text>
+  <text x="402" y="37" text-anchor="end" font-size="11.5" fill="#5e6d65">品牌合计 447.1 亿美元</text>
+  <rect x="32" y="68" width="370" height="28" rx="6" fill="#eef1ec"/>
+  <rect x="32" y="68" width="214" height="28" rx="6" fill="#23695a"/>
+  <rect x="246" y="68" width="156" height="28" rx="6" fill="#a8743f"/>
+  <rect x="240" y="68" width="12" height="28" fill="#a8743f"/>
+  <text x="139" y="86" text-anchor="middle" font-size="12" font-weight="700" fill="#ffffff">批发 258.8 亿（57.9%）</text>
+  <text x="324" y="86" text-anchor="middle" font-size="12" font-weight="700" fill="#ffffff">直营 187.8 亿（42.0%）</text>
+  <rect x="32" y="112" width="178" height="118" rx="8" fill="#f7faf8" stroke="#c8dad0" stroke-width="1"/>
+  <text x="46" y="133" font-size="12.5" font-weight="700" fill="#23695a">批发（Wholesale）</text>
+  <text x="46" y="154" font-size="11.5" fill="#3c4c44">· 直接买家：零售商与渠道</text>
+  <text x="46" y="174" font-size="11.5" fill="#3c4c44">· 交货后渠道扛库存与租金</text>
+  <text x="46" y="194" font-size="11.5" fill="#3c4c44">· 品牌让出零售加价</text>
+  <text x="46" y="216" font-size="11" font-weight="600" fill="#b5483a">陷阱：渠道补货 ≠ 终端热卖</text>
+  <rect x="224" y="112" width="178" height="118" rx="8" fill="#fcf8f3" stroke="#e4d2bc" stroke-width="1"/>
+  <text x="238" y="133" font-size="12.5" font-weight="700" fill="#8f6033">直营（NIKE Direct）</text>
+  <text x="238" y="154" font-size="11.5" fill="#3c4c44">· 直接买家：终端消费者</text>
+  <text x="238" y="174" font-size="11.5" fill="#3c4c44">· 吃满零售价与会员数据</text>
+  <text x="238" y="194" font-size="11.5" fill="#3c4c44">· 自担门店、电商履约与清库</text>
+  <text x="238" y="216" font-size="11" font-weight="600" fill="#8f6033">压力：打折直接砸毛利率</text>
+  <rect x="32" y="246" width="370" height="54" rx="8" fill="#f6f7f3" stroke="#dfe5dc" stroke-width="1"/>
+  <text x="48" y="268" font-size="12" font-weight="600" fill="#22392f">集团毛利率 42.7%（较上年 −1.9 pct）</text>
+  <text x="48" y="289" font-size="11.5" fill="#5e6d65">期末自有存货 74.9 亿美元（收入降 10%，库存几乎持平）</text>
+  <rect x="440" y="14" width="406" height="302" rx="11" fill="#ffffff" stroke="#d5ddd6" stroke-width="1.3"/>
+  <rect x="440" y="14" width="406" height="36" rx="11" fill="#f6eee4"/>
+  <rect x="440" y="38" width="406" height="12" fill="#f6eee4"/>
+  <text x="458" y="37" font-size="13.5" font-weight="700" fill="#22392f">WMT Sam's Club FY2025：利润从哪来</text>
+  <text x="828" y="37" text-anchor="end" font-size="11.5" fill="#8f6033">600 家仓储会员店</text>
+  <text x="458" y="74" font-size="12" font-weight="600" fill="#3c4c44">商品净销售 902 亿美元 → 低价走量几乎打平成本</text>
+  <text x="458" y="102" font-size="11.5" fill="#5e6d65">商品毛利（11.3%）</text>
+  <rect x="582" y="88" width="168" height="20" rx="4" fill="#6b9f8c"/>
+  <text x="758" y="102" font-size="12" font-weight="700" fill="#22392f">102.0 亿</text>
+  <text x="458" y="132" font-size="11.5" fill="#5e6d65">门店运营费（11.2%）</text>
+  <rect x="582" y="118" width="166" height="20" rx="4" fill="#c98878"/>
+  <text x="758" y="132" font-size="12" font-weight="700" fill="#b5483a">−101.2 亿</text>
+  <line x1="458" y1="150" x2="826" y2="150" stroke="#e2e7df" stroke-dasharray="4 3"/>
+  <text x="458" y="172" font-size="11.5" font-weight="600" fill="#5e6d65">卖货净留存（仅 0.1%）</text>
+  <rect x="582" y="159" width="8" height="18" rx="2" fill="#7a8780"/>
+  <text x="600" y="173" font-size="12" font-weight="700" fill="#3c4c44">仅 0.81 亿美元</text>
+  <text x="458" y="206" font-size="11.5" font-weight="700" fill="#8f6033">会员及其他收入</text>
+  <rect x="582" y="192" width="176" height="22" rx="4" fill="#a8743f"/>
+  <text x="766" y="207" font-size="12.5" font-weight="700" fill="#8f6033">+23.23 亿</text>
+  <rect x="458" y="232" width="370" height="68" rx="8" fill="#f3f8f4" stroke="#b9d0c2" stroke-width="1.2"/>
+  <text x="476" y="256" font-size="13" font-weight="700" fill="#23695a">分部营业利润：24.04 亿美元（利润率 2.7%）</text>
+  <text x="476" y="276" font-size="11.5" fill="#3c4c44">会员及其他 ≈ 营业利润 97% · Club 50 / Plus 110 美元</text>
+  <text x="476" y="292" font-size="11" fill="#5e6d65">全 WMT 集团纯会员费 FY2025 达 38 亿美元，按 12 个月服务期摊销</text>
+</svg>
+</div>
+<figcaption>数据来自 NKE 与 WMT FY2025 Form 10-K。NKE Global Brand Divisions 48 M 美元未单绘；Sam's Club 会员及其他收入含会费与少量其他项目，主利润驱动机制清晰可见。</figcaption>
+</figure>
 
-顺着这两条路径往下看，谁压库存、谁干后续的活，分工也会跟着变。走批发，零售商接货后得自己囤仓、陈列，等着顾客进门；走直营，开门店、接线上订单、配送和售后就全落在 NKE 自己肩上。<span data-text-versions id="nb-d01-consumer-text-1">货交到下家以后，退货、折扣和账期怎么算，全看合同约定<span data-text-detail>（退货权、促销补贴和结算期限会影响各方最终收到多少钱，以及各自承担哪些库存和销售责任）</span>。<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>因此读销售数据时，既要看卖了多少件，更要分清这里统计的是品牌向渠道出货，还是商品真卖到了消费者手里。
+顺着左栏看 NKE，批发与直营的差别不只在“谁跟顾客打交道”。走批发时，货一交付控制权就转给零售商，后者自行承担门店租金与压货风险，品牌也相应让出一截零售毛利；走直营时，NKE 拿到全额零售价，却得自己背负门店、电商配送与打折清库的成本。<span data-text-versions id="nb-d01-consumer-text-1">发票标价还要扣除预计退货、促销折让与渠道补贴，才是品牌账上确认的净对价<span data-text-detail>（退货权、季节性折扣和账期条款既改变品牌净收入，也改变存货与回款风险在品牌方和渠道商之间的切分；NKE FY2025 集团总收入为 463.1 亿美元，除 NIKE Brand 外还包含 Converse 与公司总部项）</span>。<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>
 
-再看 Walmart（WMT），它一边卖货，一边卖会员。顾客结账带走的是一件件实物，缴会费买下的则是一段时间里的购物与配送权益。两笔消费常发生在同一次购物里，WMT 既要把商品交给顾客，也得在会员期内持续兑现服务。如果第三方商家还借它的平台开店卖货，又会多出一层商家向平台缴服务费的关系，这一点放到“互联网平台与广告”里继续拆。[^wmt]
+右栏的 WMT Sam's Club 则展示了零售业另一种收费逻辑。仓储会员店把商品毛利率压到极薄，卖货本身扣完门店费用几乎不留利润，真正撑起分部盈利的是续费稳定的年度会员费。顾客一次结账同时牵动两笔交易：带走的商品即时确认收入，缴的年费则按会员服务期逐月分摊；若第三方商家再借沃尔玛平台开店卖货，又会多出一层商家服务费，留待“互联网平台与广告”展开。
 
 ### 从订单追到实际需求 {#nb-d01-consumer-demand}
 
-回到 NKE 的批发业务，订单往上走，还要对照零售商的动销来读。经销商和门店多下单，既可能是店里卖得火、顾客回头多，也可能是前一阵库存见底、先补一批货。如果货只是从品牌仓库挪进了渠道仓库，终端货架还没动起来，那出货增长和真实消费就还没对上账。同样是卖出去，靠大幅打折清库存与按原价顺畅出货，背后反映的购买意愿也相去甚远。等到终端卖得动、零售商又连续补货，需求判断才算站稳一层。
+研究消费品牌时，最常见的误判是把**渠道进货（Sell-in）**当成**终端卖掉（Sell-through）**。经销商多下单，既可能是货架卖空后的良性补货，也可能只是提前备货；一旦货只是从品牌仓搬进渠道仓，终端并未走量，随后就会被迫给渠道贴折扣、收退货，反噬品牌毛利率。
 
-核对时，Agent 可以先查 NKE 的渠道披露，再沿着已知合作关系去读下游零售商的财报与库存变化，看渠道进了多少货、压了多少库存、实际卖出多少。研究直营业务时，直接看终端销量，并对照同品类的消费数据解释波动。若企业研报把收入增长归因于品牌热度上升，就把终端销量、渠道补货和净售价拆开一一核对，看多出来的收入到底来自哪一项。
+实操核对时，Agent 可以先把品牌方的批发收入与自有存货并排对照（例如 NKE FY2025 收入下滑 10% 而期末存货仍居高位），再沿着已知合作关系去查下游零售商的库存周转天数与同店动销。看直营和零售商时，则直接把全价销售比例、促销折扣深度与会员续费率拆开，辨认客流究竟是靠产品力拉动，还是靠让利换量。
 
 </section>
 
@@ -630,23 +890,85 @@ This is reference material for the learner's current request. Use the supplied e
 
 ## 软件与云服务：使用、许可与账单 {#nb-d01-software-story}
 
-### 从使用功能到购买服务 {#nb-d01-software-contracts}
+### 席位订阅与资源用量两条管道 {#nb-d01-software-contracts}
 
-员工每天打开办公软件干活，企业为此买单的往往是一批账号和订阅期内的云服务。采购 Microsoft（MSFT）的商业应用订阅时，企业会先划定使用范围，再选套餐、开账号；员工用这些账号工作，供应商持续维护运行、推送更新并提供支持。一家公司总共有多少员工、实际花钱开了多少账号、续约时愿不愿意为高阶功能加钱，这三件事各自独立。人手增加可能带来更多使用需要，最终落地成多少采购，还得看哪些岗位配了账号、选了哪档套餐，以及旧许可怎样衔接。[^msft]
+企业买软件和云服务，表面都是按期付钱，背后却分成两套完全不同的计量逻辑。Microsoft（MSFT）的 Microsoft 365 商业订阅按**付费席位与套餐档位**收费：员工总数、企业实际买下的许可数，以及续约时是否加购 E5 或 Copilot 高阶功能，三者彼此独立。[^msft]<sup>，</sup>[^msft-fy26]
 
-软件也可以装进客户自己的机房运行。这时客户自备硬件与运维环境，供应商交付软件使用权，再按合同提供升级和支持。<span data-text-versions id="nb-d01-software-text-1">软件使用权与后续维护服务的期限，可以在同一份协议里分别约定<span data-text-detail>（软件许可可能有期限，也可能允许客户长期使用某个版本；后续升级和支持又有各自的合同期间。同一企业协议还可能同时包含本地许可和云服务，要按客户实际取得的权利分别理解）</span>。<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>云服务则把机房和设备也接了过来，让客户直接按需使用算力与存储。
+Amazon（AMZN）的 AWS 与 Snowflake（SNOW）则按**实际消耗的底层资源**计费。云厂商先砸重金建机房、拉电力、装服务器，再按实例运行秒数、对象存储 GB-月或计算集群消耗的 Credit 逐笔算账，并常叠加长期消费承诺以换取单价折扣。[^aws]<sup>，</sup>[^amzn-fy25]
 
-Amazon（AMZN）的 AWS 就是这种交付方式：云厂商先搭好服务器、机房与电力条件，客户直接把应用跑在上面，按选用的计算、存储或数据库服务、实际用量与合同条款结算账单。<span data-text-versions id="nb-d01-software-text-2">按用量计费也常和固定套餐或消费承诺搭配使用<span data-text-detail>（按量、承诺折扣和固定套餐对应不同付款安排，不能把某一种服务的计量单位用于全部云业务。签下合同承诺、容量可用、实际使用和收款，也要按各自发生的时间观察）</span>。[^aws]<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>
+<figure class="flow-figure" id="nb-d01-software-flow">
+<div class="ff-head"><p class="ff-title">软件与云服务：席位订阅（MSFT）与资源用量（AWS／SNOW）两条计费管道</p><span class="ff-sub">前者锁账号数与续约周期，后者锁物理容量、实际消耗与长期承诺</span></div>
+<div class="rel-svg-wrap business-exchange" aria-label="上下双轨对比图：上轨为 MSFT M365 商业订阅，FY2026 收入 1,020 亿美元，商业云增 17%（席位增 6% 叠加 E5 与 Copilot 推升单价），预收年费形成 PBP 分部 579 亿美元递延收入并按月确认；下轨为 AWS 与 SNOW 资源用量模式，AWS 2025 净销售 1,287 亿美元、营业利润 456 亿美元（利润率 35.4%）、长期 RPO 2,440 亿美元（均期 4.1 年），底层依赖机房与电力 CapEx（AMZN 2025 资本开支 1,318 亿美元及 TLN 核电 PPA），客户端按秒、GB-月或 Credit 计量。">
+<svg viewBox="0 0 860 335" role="img" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <marker id="d01-sw-sage" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse"><path d="M0 1.2 L9 5 L0 8.8 z" fill="#23695a"/></marker>
+    <marker id="d01-sw-amber" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse"><path d="M0 1.2 L9 5 L0 8.8 z" fill="#a8743f"/></marker>
+  </defs>
+  <rect x="14" y="14" width="832" height="122" rx="11" fill="#ffffff" stroke="#c8dad0" stroke-width="1.3"/>
+  <rect x="14" y="14" width="128" height="122" rx="11" fill="#eff4f1"/>
+  <rect x="130" y="14" width="12" height="122" fill="#eff4f1"/>
+  <text x="78" y="54" text-anchor="middle" font-size="13.5" font-weight="700" fill="#23695a">席位订阅轨</text>
+  <text x="78" y="75" text-anchor="middle" font-size="12" font-weight="600" fill="#22392f">MSFT M365</text>
+  <text x="78" y="96" text-anchor="middle" font-size="11" fill="#5e6d65">FY2026 商业收入</text>
+  <text x="78" y="114" text-anchor="middle" font-size="13" font-weight="700" fill="#23695a">1,020 亿美元</text>
+  <rect x="162" y="28" width="204" height="94" rx="8" fill="#fbfbf6" stroke="#dfe5dc"/>
+  <text x="176" y="50" font-size="12.5" font-weight="700" fill="#22392f">1. 买许可：席位 × 档位</text>
+  <text x="176" y="71" font-size="11.5" fill="#3c4c44">· 员工数 ≠ 付费许可数</text>
+  <text x="176" y="90" font-size="11.5" fill="#3c4c44">· FY26 席位 +6%，云收入 +17%</text>
+  <text x="176" y="109" font-size="11" fill="#23695a">E5 与 Copilot 拉高每席位单价</text>
+  <line x1="366" y1="75" x2="396" y2="75" stroke="#23695a" stroke-width="2" marker-end="url(#d01-sw-sage)"/>
+  <rect x="402" y="28" width="204" height="94" rx="8" fill="#fbfbf6" stroke="#dfe5dc"/>
+  <text x="416" y="50" font-size="12.5" font-weight="700" fill="#22392f">2. 先收年费：入递延负债</text>
+  <text x="416" y="71" font-size="11.5" fill="#3c4c44">· 月单价报价，常按年预付</text>
+  <text x="416" y="90" font-size="11.5" fill="#3c4c44">· PBP 递延收入 579 亿美元</text>
+  <text x="416" y="109" font-size="11" fill="#5e6d65">全公司商业 RPO 达 6,780 亿</text>
+  <line x1="606" y1="75" x2="636" y2="75" stroke="#23695a" stroke-width="2" marker-end="url(#d01-sw-sage)"/>
+  <rect x="642" y="28" width="190" height="94" rx="8" fill="#f3f8f4" stroke="#b9d0c2"/>
+  <text x="656" y="50" font-size="12.5" font-weight="700" fill="#23695a">3. 按期确认与锁定期</text>
+  <text x="656" y="71" font-size="11.5" fill="#3c4c44">· 随服务期逐月进损益表</text>
+  <text x="656" y="90" font-size="11.5" fill="#3c4c44">· 裁员缩编未必立刻减费</text>
+  <text x="656" y="109" font-size="11" fill="#5e6d65">（MCA 7 日窗口外等续约）</text>
+  <rect x="14" y="150" width="832" height="126" rx="11" fill="#ffffff" stroke="#e4d2bc" stroke-width="1.3"/>
+  <rect x="14" y="150" width="128" height="126" rx="11" fill="#f6eee4"/>
+  <rect x="130" y="150" width="12" height="126" fill="#f6eee4"/>
+  <text x="78" y="190" text-anchor="middle" font-size="13.5" font-weight="700" fill="#8f6033">资源用量轨</text>
+  <text x="78" y="211" text-anchor="middle" font-size="12" font-weight="600" fill="#22392f">AWS ／ SNOW</text>
+  <text x="78" y="232" text-anchor="middle" font-size="11" fill="#5e6d65">AWS 2025 净销售</text>
+  <text x="78" y="250" text-anchor="middle" font-size="13" font-weight="700" fill="#8f6033">1,287 亿美元</text>
+  <text x="78" y="266" text-anchor="middle" font-size="10.5" fill="#5e6d65">营业利润率 35.4%</text>
+  <rect x="162" y="164" width="204" height="98" rx="8" fill="#fcf8f3" stroke="#ead9c4"/>
+  <text x="176" y="186" font-size="12.5" font-weight="700" fill="#8f6033">1. 重资产前置：机房＋电力</text>
+  <text x="176" y="207" font-size="11.5" fill="#3c4c44">· AMZN 2025 CapEx 1,318 亿</text>
+  <text x="176" y="226" font-size="11.5" fill="#3c4c44">· TLN 核电 PPA 分期通电</text>
+  <text x="176" y="245" font-size="11" fill="#b5483a">瓶颈：没电没卡有订单也跑不了</text>
+  <line x1="366" y1="213" x2="396" y2="213" stroke="#a8743f" stroke-width="2" marker-end="url(#d01-sw-amber)"/>
+  <rect x="402" y="164" width="204" height="98" rx="8" fill="#fbfbf6" stroke="#dfe5dc"/>
+  <text x="416" y="186" font-size="12.5" font-weight="700" fill="#22392f">2. 按资源表计量消耗</text>
+  <text x="416" y="207" font-size="11.5" fill="#3c4c44">· EC2 秒级实例 · S3 GB-月</text>
+  <text x="416" y="226" font-size="11.5" fill="#3c4c44">· SNOW 虚拟仓按 Credit 计</text>
+  <text x="416" y="245" font-size="11" fill="#5e6d65">空闲未停机同样照扣费用</text>
+  <line x1="606" y1="213" x2="636" y2="213" stroke="#a8743f" stroke-width="2" marker-end="url(#d01-sw-amber)"/>
+  <rect x="642" y="164" width="190" height="98" rx="8" fill="#fcf8f3" stroke="#ead9c4"/>
+  <text x="656" y="186" font-size="12.5" font-weight="700" fill="#8f6033">3. 承诺折扣与在手 RPO</text>
+  <text x="656" y="207" font-size="11.5" fill="#3c4c44">· Savings Plan 锁每小时保底</text>
+  <text x="656" y="226" font-size="11.5" fill="#3c4c44">· AWS 长期 RPO 2,440 亿</text>
+  <text x="656" y="245" font-size="11" fill="#5e6d65">平均剩余 4.1 年，随消耗确认</text>
+  <rect x="14" y="288" width="832" height="36" rx="8" fill="#f2f4ef" stroke="#dfe5dc"/>
+  <text x="30" y="311" font-size="11.5" fill="#3c4c44"><tspan font-weight="700" fill="#22392f">需求误判红线：</tspan>客户做架构降本（如 NFLX 把 EC2 自管库迁到 AWS Aurora）改变的是云商内部产品组合，未必等于削减云商总账单。</text>
+</svg>
+</div>
+<figcaption>数据来自 MSFT FY2026 Form 10-K、AMZN FY2025 Form 10-K 与 AWS／SNOW 官方计量文档。MSFT 商业 RPO 均期约 2.3 年；AWS 长期 RPO 覆盖原期限超 1 年的未确认合同。</figcaption>
+</figure>
 
-<figure class="business-flow"><div class="business-flow-grid"><div class="business-flow-node"><small>客户</small><strong>应用与计算任务</strong><p>运行应用、保存数据、执行计算。</p></div><p class="business-flow-edge">使用计算、存储或数据库服务</p><div class="business-flow-node"><small>云服务方</small><strong>可用容量</strong><p>准备设备、电力和运行服务。</p></div><p class="business-flow-edge">按使用和合同计费</p><div class="business-flow-node"><small>付款安排</small><strong>客户账单</strong><p>计量单位、套餐和承诺共同影响金额。</p></div></div><figcaption>客户运行应用和执行计算任务时，会使用相应资源；供应方准备设备和电力，提供服务能力。费用按所用服务及合同安排计算。</figcaption></figure>
+<span data-text-versions id="nb-d01-software-text-1">两种模式在现金流与收入确认上的时间差也各不相同<span data-text-detail>（本地软件许可与持续升级支持可在同一企业协议下分别确认；云订阅通常预收年费并先计入递延收入，随后按月摊销。在微软 MCA 账单账户下，减少席位受购买或续订后 7 日窗口约束，窗口外通常要等下一次续约才生效）</span>。<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span><span data-text-versions id="nb-d01-software-text-2">看云厂商的长期合同承诺（RPO）时，也要把签约额与实际消耗区分开<span data-text-detail>（以 AWS 一年期无预付 Compute Savings Plan 为例，客户承诺每小时最低美元消费以换取优惠费率，未用满仍须按小时保底付款，但该计划本身不预留物理容量，也不覆盖 S3 存储等其他服务；RPO 何时转成当期收入，最终仍取决于客户工作负载何时真实跑起来）</span>。<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>
 
 ### 把客户需求与供给条件接起来 {#nb-d01-software-demand}
 
-客户想省钱，未必就意味着离开原来的云厂商。Netflix（NFLX）与 AWS 工程师联合披露的案例里，NFLX 团队原来在 AWS EC2 上自行维护一批关系型数据库，后来把若干应用迁到 Aurora 托管服务，以压低许可支出与运维负担。内部服务组合换了样子，客户依然留在 AWS 账上。软件许可、人工运维和云托管各有账目，Agent 看到“客户降本”时，要分清省掉的是哪笔开销，新接手的服务又落在哪家供应商那里。[^netflix]
+听到“大客户在削减 IT 成本”，不要立刻推导出云厂商要丢单。Netflix（NFLX）与 AWS 工程师公开的案例里，NFLX 把原本部署在 AWS EC2 上自管的一批关系型数据库迁往 Aurora 托管服务，以此压缩软件许可与人工运维负担；省下来的开支有一部分来自自管环节，工作负载依然留在 AWS 账上。[^netflix]
 
-反过来，客户想加用量，AWS 也得按时备齐能跑起来的容量。拿电力来说，Talen Energy（TLN）在 2025 年公布与 AWS 扩展供电协议，约定分阶段增加供电。签下长约只是第一步，接着还要盯配套输电改造何时完工、各阶段供电何时接通。把这些节点同机房建设进度、客户上线计划摆在一起对，才能判断电力到底能不能按时托住新增算力。[^talen]
+反过来，就算客户签下巨额算力承诺，云商也要先解决物理交付瓶口。Talen Energy（TLN）在 2025 年宣布与 AMZN 扩展核电供电协议，约定供电量随输电改造分阶段爬坡，并在 2026 Q2 季报中确认修订协议已于 2026 年 4 月完成结构转换。[^talen]这类重资产供给决定着在手 RPO 究竟能多快变成可用机柜。
 
-核验云需求时，一边要看客户为什么续用或加量，一边要看云厂商能不能按期交出容量。若客户增购算力是为了向自己的下游提供付费服务，Agent 还可以继续追它的业务为何需要更多资源。英国竞争与市场管理局（CMA）在 2025 年的云市场报告里，把客户支出变化拆成了既有应用用量变动、成本优化、系统迁移和新增工作负载几类。观察云业务需求时，老应用还在不在照常续费、新开发的任务又交给了哪家云商，得拆开核对。[^cma]
+英国竞争与市场管理局（CMA）在 2025 年云市场报告里，把客户云支出变动拆成四股力量：存量应用用量起伏、成本优化、旧系统迁移与新增工作负载。[^cma]Agent 核对软件与云需求时，应顺着这四条线索分别查证：老负载是在缩减还是只是换了更高效的云产品、新增 AI 或数据任务落在了哪家云商，以及配套的机房电力与芯片上架有没有按期兑现。
 
 </section>
 
@@ -654,23 +976,73 @@ Amazon（AMZN）的 AWS 就是这种交付方式：云厂商先搭好服务器�
 
 ## 互联网平台与广告：参与者与付款关系 {#nb-d01-platform-story}
 
-### 一次交易中的不同客户 {#nb-d01-platform-participants}
+### 同一笔交易里的不同收费层 {#nb-d01-platform-participants}
 
-在 Amazon（AMZN）的第三方店铺下单时，买家花钱买走的是商家的货，商家花钱买的则是 AMZN 的平台服务。商家入驻开店，按所选销售计划和成交规则向平台缴费；若再选用平台仓储与配送，又会另付一笔履约费用。顺着这笔订单拆开，同一个页面里其实藏着两层交易：消费者为商品买单，商家为平台服务买单。[^seller]
+看互联网平台，第一道门槛是把**平台流经的交易额**和**平台自己赚到的服务费**彻底剥离。在 Amazon（AMZN）上买一件商品，若来自自营（1P），平台先买断货再转卖，账上记入全额商品价款；若来自第三方店铺（3P），货款属于商家，AMZN 只按品类佣金、FBA 履约件数与按立方英尺计量的仓储体积收服务费，商家若另投站内竞价广告，则再单计一笔广告收入。[^seller]<sup>，</sup>[^amzn-fy25]
 
-<figure class="business-flow"><div class="business-flow-grid"><div class="business-flow-node"><small>商品买家</small><strong>消费者</strong><p>向第三方商家购买商品。</p></div><p class="business-flow-edge">商品交付与商品价款</p><div class="business-flow-node"><small>商品卖家</small><strong>第三方商家</strong><p>提供商品，并选择所需平台服务。</p></div><p class="business-flow-edge">平台服务与相应费用</p><div class="business-flow-node"><small>服务提供者</small><strong>平台</strong><p>提供交易支持，以及可选的履约、广告等服务。</p></div></div><figcaption>商品交易与平台服务分别发生：买家向商家买商品，商家再按安排购买平台服务。</figcaption></figure>
+广告平台又把另一群付款者接入了流量池。Alphabet（GOOGL／GOOG）用搜索和 YouTube 聚拢用户，向广告主按点击或展示收费；当广告投放到合作方网站和应用（Google Network）或依赖终端预装分销时，平台要向合作方支付大笔流量获取成本（TAC）。此外，YouTube 会员与 Google One 属于用户直接买单的订阅服务，与广告共用基础设施却对应不同的付费对象。[^alphabet]
 
-<span data-text-versions id="nb-d01-platform-text-1">商家把货放进平台仓库时，还要看货物归谁所有、平台具体管哪几段<span data-text-detail>（由谁拥有货物、谁保管货物、谁代收货款，以及谁负责退货，各有相应安排。使用平台仓库并不能单独证明商品已被平台买下；交易额和平台收取的费用也属于不同口径）</span>。<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>研究平台收入时，得先认清每笔交易里平台到底干了什么活、向哪一方收费。
+<figure class="flow-figure" id="nb-d01-platform-flow">
+<div class="ff-head"><p class="ff-title">互联网平台与广告：货款与抽成分账（AMZN）及获客闭环（BKNG → GOOGL）</p><span class="ff-sub">2025 年报实数：先分清流水、总收入与扣完分成后的净留存</span></div>
+<div class="rel-svg-wrap business-exchange" aria-label="左右双栏图：左栏对比 AMZN 2025 三种收入口径，1P 线上自营按商品全额入账 2,693 亿美元，3P 第三方卖家服务仅按佣金与 FBA 履约仓储费入账 1,722 亿美元，广告服务单独列示 686 亿美元；右栏展示 BKNG 与 GOOGL 的广告资金链，BKNG 2025 总预订额 1,861 亿美元经 14.5% 综合抽成转化为 269.2 亿美元收入，其中 81.9 亿美元（30.4%）用于营销获客，主要投向以 Google 为首的搜索引擎；GOOGL 2025 广告总收入 2,947 亿美元（搜索 2,245 亿、YouTube 404 亿、合作网络 298 亿），需扣除 599 亿美元流量获取成本 TAC（占广告收入 20.3%）。">
+<svg viewBox="0 0 860 340" role="img" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <marker id="d01-plat-sage" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 1.2 L9 5 L0 8.8 z" fill="#23695a"/></marker>
+    <marker id="d01-plat-amber" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 1.2 L9 5 L0 8.8 z" fill="#a8743f"/></marker>
+  </defs>
+  <rect x="14" y="14" width="388" height="312" rx="11" fill="#ffffff" stroke="#d5ddd6" stroke-width="1.3"/>
+  <rect x="14" y="14" width="388" height="36" rx="11" fill="#eff4f1"/>
+  <rect x="14" y="38" width="388" height="12" fill="#eff4f1"/>
+  <text x="30" y="37" font-size="13.5" font-weight="700" fill="#22392f">AMZN 2025：同一页面，三种记账口径</text>
+  <text x="30" y="72" font-size="12" font-weight="700" fill="#22392f">1P 自营线上零售（按商品全额入账）</text>
+  <rect x="30" y="80" width="270" height="22" rx="4" fill="#6b9f8c"/>
+  <text x="310" y="96" font-size="12.5" font-weight="700" fill="#22392f">2,693 亿</text>
+  <text x="30" y="116" font-size="11" fill="#5e6d65">平台先买断存货再卖给买家，收入记商品全价</text>
+  <text x="30" y="144" font-size="12" font-weight="700" fill="#23695a">3P 第三方卖家服务（仅记佣金＋FBA）</text>
+  <rect x="30" y="152" width="173" height="22" rx="4" fill="#23695a"/>
+  <text x="213" y="168" font-size="12.5" font-weight="700" fill="#23695a">1,722 亿</text>
+  <text x="30" y="188" font-size="11" fill="#5e6d65">商品货款归卖家；平台只按佣金、履约件数与仓储体积收费</text>
+  <text x="30" y="216" font-size="12" font-weight="700" fill="#8f6033">广告服务（卖家竞价买站内流量）</text>
+  <rect x="30" y="224" width="69" height="22" rx="4" fill="#a8743f"/>
+  <text x="109" y="240" font-size="12.5" font-weight="700" fill="#8f6033">686 亿（+22.1%）</text>
+  <text x="30" y="260" font-size="11" fill="#5e6d65">按点击或展示确认，独立于 3P 佣金另行核算</text>
+  <rect x="30" y="276" width="356" height="36" rx="7" fill="#f6f7f3" stroke="#dfe5dc"/>
+  <text x="44" y="298" font-size="11" fill="#3c4c44">对比 1P 与 3P 时，3P 收入只是一截抽成，背后对应数倍 GMV。</text>
+  <rect x="418" y="14" width="428" height="312" rx="11" fill="#ffffff" stroke="#d5ddd6" stroke-width="1.3"/>
+  <rect x="418" y="14" width="428" height="36" rx="11" fill="#f6eee4"/>
+  <rect x="418" y="38" width="428" height="12" fill="#f6eee4"/>
+  <text x="434" y="37" font-size="13.5" font-weight="700" fill="#22392f">BKNG → GOOGL（2025）：广告主预算怎么漏到平台</text>
+  <rect x="434" y="64" width="184" height="74" rx="8" fill="#fcf8f3" stroke="#ead9c4"/>
+  <text x="448" y="84" font-size="12" font-weight="700" fill="#8f6033">BKNG 总预订额</text>
+  <text x="448" y="106" font-size="17" font-weight="700" fill="#22392f">1,861 亿美元</text>
+  <text x="448" y="126" font-size="11" fill="#5e6d65">商户模式 70% · 代理 30%</text>
+  <line x1="618" y1="101" x2="646" y2="101" stroke="#a8743f" stroke-width="2" marker-end="url(#d01-plat-amber)"/>
+  <rect x="652" y="64" width="178" height="74" rx="8" fill="#fcf8f3" stroke="#ead9c4"/>
+  <text x="666" y="84" font-size="12" font-weight="700" fill="#8f6033">BKNG 确认收入</text>
+  <text x="666" y="106" font-size="17" font-weight="700" fill="#22392f">269.2 亿美元</text>
+  <text x="666" y="126" font-size="11" fill="#5e6d65">综合变现率 14.5%</text>
+  <line x1="741" y1="138" x2="741" y2="164" stroke="#a8743f" stroke-width="2" marker-end="url(#d01-plat-amber)"/>
+  <text x="731" y="156" text-anchor="end" font-size="11" font-weight="600" fill="#b5483a">拿出 30.4% 做营销（81.9 亿美元）</text>
+  <rect x="434" y="170" width="396" height="86" rx="8" fill="#f3f8f4" stroke="#b9d0c2"/>
+  <text x="448" y="191" font-size="12.5" font-weight="700" fill="#23695a">GOOGL 2025 广告总收入：2,947 亿美元</text>
+  <text x="448" y="212" font-size="11.5" fill="#3c4c44">Search &amp; other 2,245 亿 · YouTube 404 亿 · Network 298 亿</text>
+  <text x="448" y="232" font-size="11.5" font-weight="600" fill="#b5483a">减：流量获取成本（TAC）599 亿美元（占广告收入 20.3%）</text>
+  <text x="448" y="248" font-size="10.5" fill="#5e6d65">另：用户订阅／平台／设备 480 亿（C 端直接买单，非广告收入）</text>
+  <rect x="434" y="268" width="396" height="44" rx="7" fill="#f6f7f3" stroke="#dfe5dc"/>
+  <text x="448" y="287" font-size="11" fill="#3c4c44"><tspan font-weight="700" fill="#22392f">跨公司交叉核验：</tspan>BKNG 退订上升会拖低投放回报，</text>
+  <text x="448" y="303" font-size="11" fill="#3c4c44">直接决定它下季度愿不愿意继续向搜索引擎加预算。</text>
+</svg>
+</div>
+<figcaption>数据来自 AMZN、BKNG 与 GOOGL 2025 Form 10-K。BKNG 营销费流向含 Google 在内的多渠道，此处展示其占收比与交叉核对路径，并非全部付给 GOOGL。</figcaption>
+</figure>
 
-广告又把另一拨付款者带进了平台。Alphabet（GOOGL／GOOG）靠搜索和 YouTube 吸引用户，广告主掏钱买的则是触达这些用户的展示、观看或互动机会，平台再按具体广告产品的投放与计量规则收费。广告也能投放到合作方的网站和应用里，由 GOOGL 的广告网络把广告主和外部广告位连起来。合作方提供了版位，自然要按约定拿走分成，所以广告主一共花出去多少钱，跟平台最后自己留下多少钱，要算成两笔账。[^alphabet]
-
-用户也可以自己掏钱，直接变成订阅客户。购买 YouTube 或 Google One 等会员时，用户按套餐与周期付款，换取内容、存储或功能的持续使用权。订阅和广告共用用户流量与底层设施，付钱的人和交付的东西却各不相同。看平台业务时，先要说明正在谈的是哪一类客户、哪一笔收费。
+<span data-text-versions id="nb-d01-platform-text-1">商家把货放进 FBA 仓库，并不代表平台买下了这批货<span data-text-detail>（AMZN 负责拣货、包装、配送与相关退换货支持，但卖家仍是法定记录卖方；商品滞销未售出时，仓储体积费依然按月发生，因此平台收费不能简单折算成统一成交抽成率。GOOGL 的 Network 广告通常按总额确认收入，合作方分成单独记入营业成本中的 TAC）</span>。<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>
 
 ### 沿广告主的生意验证需求 {#nb-d01-platform-demand}
 
-广告费付出去以后，广告主最关心的是这笔钱有没有换来生意。Booking Holdings（BKNG）在年报营销部分就把 Google 列为主要获客渠道，并拆解了点击成本、流量转成预订的效率，以及订单取消对投放回报的拖累。用户点完广告有没有下单、下单后有没有退订，直接决定 BKNG 的获客划算与否，也决定它下一阶段愿不愿意继续加预算。[^bkng]
+广告平台能不能持续加价，最终受制于广告主的获客回报（ROAS）。Booking Holdings（BKNG）在年报里明确把搜索引擎（尤其是 Google）列为主要获客渠道，同时强调点击单价、流量转化为预订的效率以及订单取消率共同决定营销投入划不划算。[^bkng]
 
-Agent 判断 GOOGL 的广告需求时，可以沿着这条已知的采买关系去读 BKNG 的营销披露，把它的广告预算变化和预订量摆在一起比；要解释旅游投放为何起伏，再回头查实际出行数据。企业研报关于获客成本、渠道竞争或广告回报的论断，同样放回这些一手材料里检验。
+右栏的数字给出了一个直接的交叉核验抓手：BKNG 每年把超过三成的收入砸进营销，换回总预订额和 14.5% 的综合抽成。Agent 评估 GOOGL 或电商站内广告的需求韧性时，不应只盯平台自己的广告增速，而应顺着采买链去读 BKNG 等核心广告主的财报——一旦广告主单客获客成本攀升、退订率抬头或开始转向直接流量，平台广告的提价空间就会先承压。
 
 </section>
 
@@ -678,23 +1050,91 @@ Agent 判断 GOOGL 的广告需求时，可以沿着这条已知的采买关系�
 
 ## 半导体与硬件：生产、交付与使用 {#nb-d01-semiconductor-story}
 
-### 计算需求与产品交付 {#nb-d01-semiconductor-production}
+### 四层产业链的分工与交付单位 {#nb-d01-semiconductor-production}
 
-NVIDIA（NVDA）交付的产品横跨数据中心、个人电脑与专业图形工作站。图形处理器（GPU）只是其中一类；数据中心客户买的是计算与互连能力，下单的对象既可能是芯片或模块，也可能是硬件、软件和配套部件打包好的整套机架系统。个人电脑端的产品则常先卖给整机厂、板卡商或分销渠道，最后才到消费者手中。签合同付钱的直接买方，和最后真正跑起算力的终端用户，常常分属两家。而无论货流向哪里，NVDA 想要按期交付，都离不开上游晶圆制造、先进封装和配套产线顺畅运转。[^nvda]
+AI 算力热潮里，大家常把云厂、芯片设计商、晶圆代工厂和光刻机厂商笼统归为“算力板块”，但它们卖的东西、面对的买方和资本密度完全不在同一层。NVIDIA（NVDA）交付的对象既可能是单颗 GPU，也可能是包含 8 颗芯片、CPU、高速互联与网络模块的整台系统或整柜方案，且大量产品先卖给整机代工（ODM）与系统集成商，再装进云厂机房。[^nvda]
 
-往上游再看一层，TSMC（TSM／2330）按客户图纸提供晶圆代工与封装服务，ASML Holding（ASML）则为晶圆厂供应光刻设备、软件和装机维护。芯片设计企业主攻研发并组织委外采购，晶圆厂钻研工艺、盖厂房买设备，设备商负责制造交付并长期维护。<span data-text-versions id="nb-d01-semiconductor-text-1">处在产业链不同位置的公司，卖的东西和面对的客户截然不同<span data-text-detail>（TSM 是在美国交易的存托证券代码，2330 是台湾上市普通股代码，二者对应同一家 TSMC。TSMC 根据客户设计和生产要求提供制造与封装服务，不直接销售自有品牌芯片）</span>。[^tsmc]<sup>，</sup>[^asml]<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>
+再往上游走，TSMC（TSM／2330）按客户图纸提供纯晶圆代工与 CoWoS 先进封装，自己承担数百亿美元的建厂与折旧；ASML Holding（ASML）则向晶圆厂交付光刻系统并赚取装机后的长期升级与维保费。<span data-text-versions id="nb-d01-semiconductor-text-1">每一层的统计单位与验收节点都不同<span data-text-detail>（TSM 为美股存托凭证代码，2330 为台湾上市普通股代码；TSMC 公开出货以 12 英寸等效晶圆汇总，不代表所有客户都按单一晶圆价结算。ASML 成熟设备满足工厂验收条件后可在交付时确认收入，新产品则常需完成现场安装与现场验收）</span>。[^tsmc]<sup>，</sup>[^tsm-20f]<sup>，</sup>[^asml]<sup>，</sup>[^asml-20f]<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>
 
-<figure class="business-flow"><div class="business-flow-route"><p class="business-flow-route-title">产品制造与交付</p><div class="business-flow-grid"><div class="business-flow-node"><small>产品与系统</small><strong>芯片设计和产品企业</strong><p>提出设计与生产要求，安排采购。</p></div><p class="business-flow-edge" data-flow-direction="both">产品企业委托并付款；服务商制造、封装并交付</p><div class="business-flow-node"><small>制造与封装</small><strong>晶圆及封装服务商</strong><p>按客户设计完成约定的生产与交付。</p></div></div></div><div class="business-flow-route"><p class="business-flow-route-title">生产设备与服务</p><div class="business-flow-grid"><div class="business-flow-node"><small>设备使用者</small><strong>晶圆制造企业</strong><p>建设和运行产线，采购所需设备与服务。</p></div><p class="business-flow-edge" data-flow-direction="both">制造企业采购并付款；供应商交付设备与服务</p><div class="business-flow-node"><small>设备供给</small><strong>设备及装机服务商</strong><p>提供设备、维护和升级等服务。</p></div></div></div><figcaption>生产委托与设备采购分属不同交易：产品企业取得制造和封装交付，制造企业则采购生产设备及相应服务。</figcaption></figure>
-
-这一串环节里，每一环都在先垫钱：NVDA 要投研发、向代工厂下生产单并备货，晶圆厂要建厂房、买设备，拿到芯片的云客户还得把机房和供电备齐、把机器装上架，算力才真正跑得起来。顺着产业链核对需求时，要把前后相接的阶段摆清楚，避免把同一笔算力需要在设计、代工和设备端重复加总。
+<figure class="flow-figure" id="nb-d01-semi-chain">
+<div class="ff-head"><p class="ff-title">半导体与硬件：一笔算力资本开支如何沿四层产业链传导</p><span class="ff-sub">2025/2026 财报实数：每层交货单位、资本密度与客户集中度完全不同</span></div>
+<div class="rel-svg-wrap business-exchange" aria-label="四级半导体产业链传导图：第一级终端云厂商（如 AMZN 2025 资本开支 1,318 亿美元），同时部署自研 Trainium 与外购 GPU；第二级芯片与机架系统设计商 NVDA（FY2026 营收 2,159 亿美元，数据中心占 89.7%，毛利率 71.1%，前两大直接客户占 36% 且大量经 ODM/集成商转交云厂）；第三级纯晶圆代工与先进封装 TSM（2025 营收 3.81 万亿新台币，HPC 占 58%，7nm 及以下先进制程占晶圆收入 74%，2025 资本开支 409 亿美元）；第四级光刻设备与装机服务商 ASML（2025 营收 326.7 亿欧元，新设备占 74.9%，装机升级服务占 25.1%）。底部提示严禁跨层重复加总，并核查旧代算力续约分流。">
+<svg viewBox="0 0 860 340" role="img" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <marker id="d01-semi-sage" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse"><path d="M0 1.2 L9 5 L0 8.8 z" fill="#23695a"/></marker>
+  </defs>
+  <rect x="14" y="16" width="186" height="248" rx="10" fill="#ffffff" stroke="#d5ddd6" stroke-width="1.3"/>
+  <rect x="14" y="16" width="186" height="44" rx="10" fill="#f2f3ef"/>
+  <rect x="14" y="48" width="186" height="12" fill="#f2f3ef"/>
+  <text x="107" y="36" text-anchor="middle" font-size="11" font-weight="600" fill="#5e6d65">终端买单方</text>
+  <text x="107" y="53" text-anchor="middle" font-size="13" font-weight="700" fill="#22392f">云厂与算力商</text>
+  <text x="28" y="84" font-size="11.5" font-weight="700" fill="#22392f">AMZN 2025 CapEx</text>
+  <text x="28" y="106" font-size="17" font-weight="700" fill="#8f6033">1,318 亿美元</text>
+  <text x="28" y="129" font-size="11" fill="#3c4c44">· 自研 Trainium 并行</text>
+  <text x="28" y="148" font-size="11" fill="#3c4c44">· 外购 NVDA GPU</text>
+  <text x="28" y="167" font-size="11" fill="#3c4c44">· 需备齐机房与供电</text>
+  <rect x="24" y="190" width="166" height="62" rx="7" fill="#fcf8f3" stroke="#ead9c4"/>
+  <text x="34" y="210" font-size="11" font-weight="700" fill="#8f6033">存量分流案例</text>
+  <text x="34" y="228" font-size="10.5" fill="#3c4c44">CRWV 新签 A100 合同</text>
+  <text x="34" y="244" font-size="10.5" fill="#3c4c44">延至 2029：旧卡照卖</text>
+  <line x1="200" y1="138" x2="224" y2="138" stroke="#23695a" stroke-width="2" marker-end="url(#d01-semi-sage)"/>
+  <rect x="230" y="16" width="192" height="248" rx="10" fill="#ffffff" stroke="#b9d0c2" stroke-width="1.4"/>
+  <rect x="230" y="16" width="192" height="44" rx="10" fill="#eff4f1"/>
+  <rect x="230" y="48" width="192" height="12" fill="#eff4f1"/>
+  <text x="326" y="36" text-anchor="middle" font-size="11" font-weight="600" fill="#23695a">设计＋机架系统</text>
+  <text x="326" y="53" text-anchor="middle" font-size="13" font-weight="700" fill="#22392f">NVIDIA（NVDA）</text>
+  <text x="244" y="84" font-size="11.5" font-weight="700" fill="#22392f">FY2026 总营收</text>
+  <text x="244" y="106" font-size="17" font-weight="700" fill="#23695a">2,159 亿美元</text>
+  <text x="244" y="129" font-size="11" fill="#3c4c44">· 数据中心占 89.7%</text>
+  <text x="244" y="148" font-size="11" fill="#3c4c44">· 综合毛利率 71.1%</text>
+  <text x="244" y="167" font-size="11" fill="#3c4c44">· 卖芯片也卖整柜系统</text>
+  <rect x="240" y="190" width="172" height="62" rx="7" fill="#faeae7" stroke="#e4c2bc"/>
+  <text x="250" y="210" font-size="11" font-weight="700" fill="#b5483a">买方与用家分离</text>
+  <text x="250" y="228" font-size="10.5" fill="#3c4c44">前 2 大直接客户占 36%</text>
+  <text x="250" y="244" font-size="10.5" fill="#3c4c44">多经 ODM/集成商转云厂</text>
+  <line x1="422" y1="138" x2="446" y2="138" stroke="#23695a" stroke-width="2" marker-end="url(#d01-semi-sage)"/>
+  <rect x="452" y="16" width="192" height="248" rx="10" fill="#ffffff" stroke="#d5ddd6" stroke-width="1.3"/>
+  <rect x="452" y="16" width="192" height="44" rx="10" fill="#eff4f1"/>
+  <rect x="452" y="48" width="192" height="12" fill="#eff4f1"/>
+  <text x="548" y="36" text-anchor="middle" font-size="11" font-weight="600" fill="#23695a">纯晶圆代工＋封装</text>
+  <text x="548" y="53" text-anchor="middle" font-size="13" font-weight="700" fill="#22392f">TSMC（TSM）</text>
+  <text x="466" y="84" font-size="11.5" font-weight="700" fill="#22392f">2025 净营收</text>
+  <text x="466" y="106" font-size="16" font-weight="700" fill="#23695a">3.81 万亿新台币</text>
+  <text x="466" y="129" font-size="11" fill="#3c4c44">· HPC 平台占 58%</text>
+  <text x="466" y="148" font-size="11" fill="#3c4c44">· ≤7nm 占晶圆 74%</text>
+  <text x="466" y="167" font-size="11" fill="#3c4c44">· CoWoS 先进封装瓶口</text>
+  <rect x="462" y="190" width="172" height="62" rx="7" fill="#f3f8f4" stroke="#c8dad0"/>
+  <text x="472" y="210" font-size="11" font-weight="700" fill="#23695a">重资本前置扩产</text>
+  <text x="472" y="228" font-size="10.5" fill="#3c4c44">2025 CapEx 409 亿美元</text>
+  <text x="472" y="244" font-size="10.5" fill="#3c4c44">2026 指引 520–560 亿</text>
+  <line x1="644" y1="138" x2="668" y2="138" stroke="#23695a" stroke-width="2" marker-end="url(#d01-semi-sage)"/>
+  <rect x="674" y="16" width="172" height="248" rx="10" fill="#ffffff" stroke="#e4d2bc" stroke-width="1.3"/>
+  <rect x="674" y="16" width="172" height="44" rx="10" fill="#f6eee4"/>
+  <rect x="674" y="48" width="172" height="12" fill="#f6eee4"/>
+  <text x="760" y="36" text-anchor="middle" font-size="11" font-weight="600" fill="#8f6033">核心光刻设备</text>
+  <text x="760" y="53" text-anchor="middle" font-size="13" font-weight="700" fill="#22392f">ASML</text>
+  <text x="688" y="84" font-size="11.5" font-weight="700" fill="#22392f">2025 总净销售</text>
+  <text x="688" y="106" font-size="16" font-weight="700" fill="#8f6033">326.7 亿欧元</text>
+  <text x="688" y="129" font-size="11" fill="#3c4c44">· 新系统占 74.9%</text>
+  <text x="688" y="148" font-size="11" fill="#3c4c44">· 装机服务占 25.1%</text>
+  <text x="688" y="167" font-size="11" fill="#3c4c44">· 交付含现场验收</text>
+  <rect x="684" y="190" width="152" height="62" rx="7" fill="#fcf8f3" stroke="#ead9c4"/>
+  <text x="694" y="210" font-size="11" font-weight="700" fill="#8f6033">两层收款节拍</text>
+  <text x="694" y="228" font-size="10.5" fill="#3c4c44">卖新机看晶圆厂扩产</text>
+  <text x="694" y="244" font-size="10.5" fill="#3c4c44">现场升级吃存量装机</text>
+  <rect x="14" y="280" width="832" height="44" rx="8" fill="#f2f4ef" stroke="#dfe5dc"/>
+  <text x="30" y="300" font-size="11.5" fill="#3c4c44"><tspan font-weight="700" fill="#22392f">核对口径提醒：</tspan>云厂 CapEx、NVDA 订单、TSMC CoWoS 产能与 ASML 交付对应同一笔算力需求的不同阶段，严禁跨层重复加总；</text>
+  <text x="30" y="316" font-size="11" fill="#5e6d65">研报上调封装或设备预测时（如 KGI 2025-10-01 TSMC 报告），需持续拿客户下单、封装开出与机房上架记录回头校准。</text>
+</svg>
+</div>
+<figcaption>数据来自 AMZN 2025 10-K、NVDA FY2026 10-K、TSM 2025 20-F 与 ASML 2025 20-F。四家公司仅作产业链层级对照，不代表彼此独占的单一合同金额。</figcaption>
+</figure>
 
 ### 从终端使用追到新增采购 {#nb-d01-semiconductor-demand}
 
-机房里已经跑着的旧设备，同样会影响新卡采购节奏。CoreWeave（CRWV）管理层在 2026 年 8 月的业绩会上提到，公司新签了一份延续至 2029 年的 A100 算力服务合同。可见旧代芯片照样能接着对外卖算力。客户业务量上来以后，既可以先挖潜现有设备、提高利用率，也可以再添置新硬件；上游供应商能不能拿到新增订单，取决于客户具体走哪条路。[^coreweave]
+沿着这张产业链往上核对需求时，有两个极易忽略的缓冲垫。第一，**旧代硬件会继续服役**。CoreWeave（CRWV）管理层在 2026 年 8 月业绩会上透露，公司新签了一份延续到 2029 年的 A100 算力合同。[^coreweave]下游算力需求抬升时，客户可以先压榨存量集群利用率，未必立刻全部转为新代芯片采购。
 
-哪怕客户决定买新卡，预算也未必全落在同一家身上。以 Amazon（AMZN）的 AWS 为例，AMZN 在 2026 年 4 月的公告里既披露了已经投用的自研 Trainium 芯片，又公布了自 2026 年起部署更多 NVDA GPU 的安排。同一家云厂商往往一边用自研芯片、一边采买外部芯片。Agent 查资料时，要先认清客户选了哪些型号、怎样切分预算，拎出跟目标公司直接相关的那一块，再去盯交货和机房上架进度。[^aws-gpu]
-
-券商研报里的产能预测，也能顺着这些采购与交付节点逐项核验。KGI 在 2025 年 10 月 1 日的 TSMC 报告中，据当时客户计划上调了先进封装的需求与产能预测，并把后续短缺判断建立在客户维持当时需求水平的前提下。读到这类预测，接下来就要逐条核对：客户是不是仍在按原计划下单，封装产能有没有如期开出来，交出去的芯片和设备有没有顺利装进机房投入使用。拿后来披露的建设、采购与交付记录回头校准，才能知道原来的需求假设站不站得住、产能预估需不需要改。[^kgi]
+第二，**同一家云厂的预算会在外购与自研间动态切分**。AMZN 在 2026 年 4 月业绩稿里既披露了自研 Trainium 芯片的规模投用，也同步公布了 2026 年起增配更多 NVDA GPU 的计划。[^aws-gpu]Agent 读到上游券商上调产能预测时（如 KGI 在 2025 年 10 月报告中基于当时客户规划上调 2026 年 CoWoS 需求并预判 2027 年紧缺）[^kgi]，要把研报里的条件假设拆成三道核验清单：终端云厂预算切给目标公司的份额有没有变、先进封装产能有没有如期开出，以及交出去的机柜有没有顺利通电上架。
 
 </section>
 
@@ -702,21 +1142,65 @@ NVIDIA（NVDA）交付的产品横跨数据中心、个人电脑与专业图形�
 
 ## 工业设备与工程服务：从安装到持续运行 {#nb-d01-industrial-story}
 
-### 同一台设备，不同阶段的生意 {#nb-d01-industrial-lifecycle}
+### 同一台设备，两段完全不同的利润生意 {#nb-d01-industrial-lifecycle}
 
-Otis Worldwide（OTIS）既卖新电梯，也为在用电梯做维保、维修和改造。盖楼期间，开发商或总承包商采购新梯，OTIS 负责制造、供货并配合现场工期安装调试；货款通常先收预付款，再随材料到场和安装里程碑分批结算。等到楼宇投用，接手操心的是业主和设施管理方：电梯能不能稳定运行，出了故障谁来修，磨损零件谁来换。[^otis]
+工业设备最容易看走眼的地方，是盯着新设备销量涨跌，却漏掉了设备装好之后长达数十年的后市场现金流。Otis Worldwide（OTIS）先向开发商和总包交付新电梯并负责现场安装，等到大楼投用，真正掏钱买维保、维修和老化改造的客户换成了业主与物业管理方——而且 OTIS 同样承接其他品牌电梯的维保。[^otis]
 
-这一阶段，客户买单的是合同期内的持续维保服务。而且 OTIS 也承接其他品牌电梯的维保，所以一台电梯当初是谁造的、后来是谁在收维保费，需要拆开看。<span data-text-versions id="nb-d01-industrial-text-1">维保合同包到什么范围，会直接改变后续工作量与收费口径<span data-text-detail>（检查、保养、故障处理和零件更换各有相应的合同约定；某项维修是否已包含在服务价内，要回到相应条款。装机设备、在保设备和付费维保设备也各有计数范围）</span>。<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>再往后用久了，业主还可能单独批一笔预算升级部件或整套系统，这类改造又要重新谈施工范围并安排停机窗口。
+大型工程服务则把设计、采购与施工捆成一纸长约。Fluor（FLR）按合同条款切分成本波动责任：**可报销合同**下客户实报合规成本加付服务费，**总价或最高限价合同**下承包商按固定封顶价交付全部工程，材料涨价或工期延误会直接穿透承包商的利润表。[^fluor]
 
-<figure class="business-flow"><div class="business-flow-grid"><div class="business-flow-node"><small>建设阶段</small><strong>新设备采购者</strong><p>购买设备、安装与调试。</p></div><p class="business-flow-edge">设备投入使用后</p><div class="business-flow-node"><small>运行阶段</small><strong>业主或管理人</strong><p>购买约定范围的维保和维修。</p></div><p class="business-flow-edge">出现升级需要时</p><div class="business-flow-node"><small>更新阶段</small><strong>改造采购者</strong><p>安排预算和停机，购买部件或系统升级。</p></div></div><figcaption>同一台设备在不同阶段可能对应不同采购者。新设备、维保和改造分别以实际合同为准。</figcaption></figure>
+<figure class="flow-figure" id="nb-d01-industrial-flow">
+<div class="ff-head"><p class="ff-title">工业设备与工程服务：后市场利润翻转（OTIS）与合同超支风险（FLR）</p><span class="ff-sub">2025 年报实数：安装决定入口，服务决定利润；合同条款决定超支由谁兜底</span></div>
+<div class="rel-svg-wrap business-exchange" aria-label="左右双栏图：左栏展示 OTIS 2025 收入与分部营业利润结构翻转，新设备收入 49.9 亿美元（占 34.6%）仅贡献分部营业利润 2.4 亿美元（占 9.2%，利润率 4.8%），而服务业务（维保维修 75.8 亿加改造 18.6 亿共 94.4 亿美元，占 65.4%）贡献分部营业利润 23.7 亿美元（占 90.8%，利润率 25.1%），覆盖约 250 万台在保电梯；右栏展示 FLR 2025 年末 255.4 亿美元在手订单的合同结构，可报销合同占 81%（207.1 亿美元，超支主要由客户承担），总价与最高限价合同占 19%（48.2 亿美元，超支吞噬承包商利润，2025 能源板块录得分部亏损 4.14 亿美元）。">
+<svg viewBox="0 0 860 325" role="img" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+  <rect x="14" y="14" width="424" height="297" rx="11" fill="#ffffff" stroke="#d5ddd6" stroke-width="1.3"/>
+  <rect x="14" y="14" width="424" height="36" rx="11" fill="#eff4f1"/>
+  <rect x="14" y="38" width="424" height="12" fill="#eff4f1"/>
+  <text x="30" y="37" font-size="13.5" font-weight="700" fill="#22392f">OTIS 2025：收入占比 vs 利润占比翻转</text>
+  <text x="30" y="74" font-size="12" font-weight="600" fill="#3c4c44">分部收入合计 144.3 亿美元</text>
+  <rect x="30" y="84" width="134" height="30" rx="5" fill="#9fb2a8"/>
+  <rect x="166" y="84" width="254" height="30" rx="5" fill="#23695a"/>
+  <text x="97" y="103" text-anchor="middle" font-size="11.5" font-weight="700" fill="#ffffff">新梯 34.6% (49.9亿)</text>
+  <text x="293" y="103" text-anchor="middle" font-size="11.5" font-weight="700" fill="#ffffff">服务 65.4% (94.4亿)</text>
+  <text x="30" y="140" font-size="12" font-weight="600" fill="#3c4c44">分部营业利润合计 26.1 亿美元</text>
+  <rect x="30" y="150" width="36" height="30" rx="5" fill="#9fb2a8"/>
+  <rect x="68" y="150" width="352" height="30" rx="5" fill="#a8743f"/>
+  <text x="244" y="169" text-anchor="middle" font-size="12" font-weight="700" fill="#ffffff">服务利润占比 90.8%（23.74 亿美元 · 利润率 25.1%）</text>
+  <text x="30" y="196" font-size="11" fill="#5e6d65">▲ 新设备仅占利润 9.2%（2.40 亿美元 · 利润率 4.8%）</text>
+  <rect x="30" y="212" width="390" height="84" rx="8" fill="#f7faf8" stroke="#c8dad0"/>
+  <text x="44" y="233" font-size="12" font-weight="700" fill="#23695a">同一台电梯的三段接力</text>
+  <text x="44" y="253" font-size="11.5" fill="#3c4c44">1. 新梯安装：向开发商/总包交付，低毛利换入场门票</text>
+  <text x="44" y="271" font-size="11.5" fill="#3c4c44">2. 持续维保：向业主收年费（约 250 万台，含他牌梯）</text>
+  <text x="44" y="289" font-size="11.5" fill="#3c4c44">3. 老化改造：2025 收入 18.6 亿，单签预算与停机窗口</text>
+  <rect x="454" y="14" width="392" height="297" rx="11" fill="#ffffff" stroke="#d5ddd6" stroke-width="1.3"/>
+  <rect x="454" y="14" width="392" height="36" rx="11" fill="#f6eee4"/>
+  <rect x="454" y="38" width="392" height="12" fill="#f6eee4"/>
+  <text x="470" y="37" font-size="13.5" font-weight="700" fill="#22392f">FLR 2025：两种工程合同的风险分担</text>
+  <text x="470" y="74" font-size="12" font-weight="600" fill="#3c4c44">年末在手订单 255.4 亿美元（营收 155.0 亿）</text>
+  <rect x="470" y="84" width="290" height="28" rx="5" fill="#23695a"/>
+  <rect x="762" y="84" width="68" height="28" rx="5" fill="#b5483a"/>
+  <text x="615" y="102" text-anchor="middle" font-size="12" font-weight="700" fill="#ffffff">可报销合同 81%（207.1 亿）</text>
+  <text x="796" y="102" text-anchor="middle" font-size="11" font-weight="700" fill="#ffffff">总价 19%</text>
+  <rect x="470" y="128" width="360" height="74" rx="8" fill="#f3f8f4" stroke="#b9d0c2"/>
+  <text x="484" y="149" font-size="12" font-weight="700" fill="#23695a">可报销（Reimbursable）</text>
+  <text x="484" y="169" font-size="11.5" fill="#3c4c44">客户按约定费率报销合规成本并付服务费；</text>
+  <text x="484" y="187" font-size="11.5" fill="#3c4c44">工期拖延或人工涨价时，超支风险主要留在业主端。</text>
+  <rect x="470" y="212" width="360" height="84" rx="8" fill="#faeae7" stroke="#e4c2bc"/>
+  <text x="484" y="233" font-size="12" font-weight="700" fill="#b5483a">总价／最高限价（Lump-Sum · 48.2 亿）</text>
+  <text x="484" y="253" font-size="11.5" fill="#3c4c44">承包商按封顶价包干全部范围，超支直接吃掉利润。</text>
+  <text x="484" y="271" font-size="11.5" fill="#3c4c44">2025 年 FLR 能源解决方案板块录得分部亏损 4.14 亿美元；</text>
+  <text x="484" y="288" font-size="11" fill="#5e6d65">盯大工程还要同步核对业主进度表（如 GEV—EnBW 推迟）。</text>
+</svg>
+</div>
+<figcaption>数据来自 OTIS 与 FLR 2025 Form 10-K。OTIS 分部营业利润合计未扣除集团总部及重组费用；FLR 在手订单按合同类型拆分。</figcaption>
+</figure>
 
-大型工程更是把设计、采购、施工与项目管理捆在一起。Fluor（FLR）按合同约定的范围交付这类服务：签可报销合同时，客户按约定报销成本并支付服务费；签总价合同时，承包商则按谈好的固定价完成约定的全部工作。<span data-text-versions id="nb-d01-industrial-text-2">两种合同结构直接改变了超支风险落在谁身上<span data-text-detail>（可报销合同仍有可报销范围、费率和履约条件；总价或最高限价合同也需连同范围变更、索赔和其他条款理解，另有混合合同。项目总投资、承包金额和承包商最终取得的收入各有范围）</span>。[^fluor]<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>比较工程订单时，单看合同总额不够，还得弄清金额覆盖了哪些活、成本波动由哪一方扛。
+左栏的利润翻转说明了工业龙头的核心估值锚：新电梯业务只赚不到 5% 的微利，真正把利润率拉到 25% 以上、贡献九成分部盈利的是装机存量池上的持续维保与改造。<span data-text-versions id="nb-d01-industrial-text-1">比较不同维保与工程合同时，必须回到具体覆盖范围<span data-text-detail>（电梯维保套餐从基础巡检到全包故障人工与大部件更换跨度极大，装机总量、在保台数和付费维保台数各有口径；工程合同除纯可报销与纯总价外，还有含范围变更、激励条款与索赔机制的混合合同，项目总投资额不等于承包商确认的收入）</span>。<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>
 
-### 订单与项目进度 {#nb-d01-industrial-demand}
+### 订单之后，紧盯履约与业主进度 {#nb-d01-industrial-demand}
 
-签下订单只是起点，项目能不能按节点推进才是后半程。签约、拿到开工通知、制造施工、交付验收与回款，每一步都标示着工程走到了哪里。GE Vernova（GEV）在 2023 年公布了一份为业主 EnBW 提供燃气轮机设备、建设与后续服务的订单；再翻开业主的 Heilbronn 项目进度页，就能顺着看到核心部件到场、启动调试和商业投运的最新时间表。<span data-text-versions id="nb-d01-industrial-text-3">把供应方早先的公告和业主后来的更新对照，立刻能发现预期投运时间已经往后挪了<span data-text-detail>（2023 年 11 月的供应方公告预计于 2026 年底投运；2026 年 9 月 27 日读取的业主项目表暂定于 2027 年下半年投入商业运行）</span>。[^gev]<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>追工业项目时，看清订单此刻卡在哪一关、后面还有几道关要过，远比只记签约总额有用。
+签下大额工程订单只是起点，项目有没有开工、关键部件何时到场，才决定收入与现金流落在哪一年。GE Vernova（GEV）在 2023 年 11 月公告拿下业主 EnBW 的两座燃气轮机电站订单时，预计于 2026 年底投运；但对照业主 EnBW 公开的 Heilbronn 项目进度表（读取于 2026 年 9 月），商业投运时间已暂定顺延至 2027 年下半年。[^gev]
 
-核对需求时，Agent 可以先查直接采购方与供应方的进度披露，确认项目有没有动工、关键设备和分包能不能按期到场；若订单来自总包，而项目资金或审批仍不明朗，就再往前追一层，查背后的业主。看维保要盯续签率和覆盖台数，看改造要盯业主预算与排期。要是研报拿订单增速直接往外推收入，就要问清订单按什么工期确认；拿装机总量往外推维保收入，也要问清其中多少台真正签了付费合约。
+Agent 追踪工业与工程需求时，不能只拿签约总额线性外推：做工程承包要同步交叉比对总包方公告与背后业主的审批、资金和工期进度，同时紧盯总价合同占比有没有抬升；看电梯、航发或工控设备，则把新机转化率、维保续签率以及业主改造排期分开核对。
 
 </section>
 
@@ -724,23 +1208,73 @@ Otis Worldwide（OTIS）既卖新电梯，也为在用电梯做维保、维修�
 
 ## 医药与医疗服务：采用、采购与支付 {#nb-d01-healthcare-story}
 
-### 一次诊疗中的不同交付 {#nb-d01-healthcare-delivery}
+### 药械供货与医院诊疗是两笔独立交易 {#nb-d01-healthcare-delivery}
 
-以美国医疗市场为例，先要把患者接受的医疗服务和医院对外的产品采购拆开。患者需要治病，医生参与定方案，医疗机构统筹医护人员与场地，并对外采购药品和器械；诊疗结束后，账单再由商业保险、政府项目和患者按约定分担。一场治疗最终把收入带给谁，取决于药械与服务各自落在哪一笔交易里。
+拆解美国医疗体系的钱从哪来，必须把**药械产品买卖**和**医院诊疗服务**彻底切开。Johnson & Johnson（JNJ）横跨高研发壁垒的创新药与医疗器械两条线，美国药品绝大部分先发给少数几家大型医药批发商，再由医院、诊所或药房用到患者身上；Intuitive Surgical（ISRG）的 da Vinci 手术机器人则跑出另一套“主机装机＋有限寿命配套器械＋年度维保”的复购账本。[^jnj]<sup>，</sup>[^isrg]
 
-Johnson & Johnson（JNJ）横跨药品与医疗器械两条线。药品常要经过医药批发商、药房或医院才用到患者身上，直接向药厂进货付款的买方和最终吃药的患者往往不是同一个人；器械则可由医院直接采购，也可经分销渠道送达，再由医护人员在诊疗中使用。器械内部还分耐用设备、植入物与一次性耗材：买一台能用多年的设备，和随手术持续消耗的耗材，补货节奏完全不同。同一场手术，可能同时牵动好几家药械厂商的交付。[^jnj]
+HCA Healthcare（HCA）经营医院与门诊网络，赚的是组织医护、床位与耗材提供诊疗服务的钱。诊疗完成即确认收入，但最终能收回多少现金，几乎完全不看医院贴出来的账单标价，而取决于对应支付方（商业保险、Medicare、Medicaid 或患者自付）的合同定价规则。[^hca]<sup>，</sup>[^hca-10k]
 
-<span data-text-versions id="nb-d01-healthcare-text-1">医院先把药和器械买回来，再用在患者诊疗上，产品买卖与医疗服务因此分属两笔不同的交付<span data-text-detail>（机构直接向药厂采购时，药厂售价与机构采购价就是同一笔交易的两端；经分销渠道采购时，则要分清各环节的买卖。药品销售的返利、折扣和退货会影响净收入；器械究竟按设备出售、租赁、耗材或服务收费，需按所选产品合同确认）</span>。<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>
+<figure class="flow-figure" id="nb-d01-healthcare-flow">
+<div class="ff-head"><p class="ff-title">医药与医疗服务：药械渠道集中度（JNJ／ISRG）与医院支付错配（HCA）</p><span class="ff-sub">2025 年报实数：药厂经三大批发商过货，医院看商业保险而非账单标价</span></div>
+<div class="rel-svg-wrap business-exchange" aria-label="左右双栏图：左栏对比 JNJ 与 ISRG 两种药械商业模式，JNJ 2025 总销售 941.9 亿美元（创新药 604.0 亿税前利润率 36.9%，器械 337.9 亿税前利润率 12.2%），其中三家大型批发商包揽了 48.4%（21.8%、15.5%、11.1%）总毛收入；ISRG 2025 总收入 100.6 亿美元中，系统装机仅占 24.6%（24.7 亿），配套器械附件占 59.8%（60.2 亿）加服务 15.6%（15.7 亿）构成 75.4% 持续性收入；右栏展示 HCA 2025 营收 756.0 亿美元的支付方错配，商业与管理式保险仅占 32% 住院人次却贡献 48.9% 净收入（369.7 亿），而 Medicare 占 46% 住院人次仅贡献 32.7% 净收入（247.1 亿），Medicaid 占 15% 人次贡献 12.7% 净收入（96.0 亿）。">
+<svg viewBox="0 0 860 340" role="img" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+  <rect x="14" y="14" width="406" height="312" rx="11" fill="#ffffff" stroke="#d5ddd6" stroke-width="1.3"/>
+  <rect x="14" y="14" width="406" height="36" rx="11" fill="#eff4f1"/>
+  <rect x="14" y="38" width="406" height="12" fill="#eff4f1"/>
+  <text x="30" y="37" font-size="13.5" font-weight="700" fill="#22392f">药械供给：高集中度分销与装机复购</text>
+  <rect x="30" y="64" width="374" height="118" rx="8" fill="#f7faf8" stroke="#c8dad0"/>
+  <text x="44" y="85" font-size="12.5" font-weight="700" fill="#23695a">JNJ 2025（总销售 941.9 亿美元）</text>
+  <text x="44" y="106" font-size="11.5" fill="#3c4c44">· 创新药 604.0 亿（EBT 率 36.9% · 研发占 19.6%）</text>
+  <text x="44" y="125" font-size="11.5" fill="#3c4c44">· 医疗器械 337.9 亿（EBT 率 12.2% · 研发占 8.4%）</text>
+  <text x="44" y="146" font-size="11.5" font-weight="700" fill="#b5483a">前三大批发商包揽 48.4% 总毛收入（21.8% / 15.5% / 11.1%）</text>
+  <text x="44" y="166" font-size="11" fill="#5e6d65">药厂标价还要扣除返利、折扣与退货，才落为净销售</text>
+  <rect x="30" y="196" width="374" height="114" rx="8" fill="#fcf8f3" stroke="#ead9c4"/>
+  <text x="44" y="217" font-size="12.5" font-weight="700" fill="#8f6033">ISRG 2025（手术机器人总收入 100.6 亿美元）</text>
+  <rect x="44" y="230" width="85" height="24" rx="4" fill="#9fb2a8"/>
+  <rect x="131" y="230" width="206" height="24" rx="4" fill="#23695a"/>
+  <rect x="339" y="230" width="52" height="24" rx="4" fill="#a8743f"/>
+  <text x="86" y="246" text-anchor="middle" font-size="10.5" font-weight="700" fill="#ffffff">系统 24.6%</text>
+  <text x="234" y="246" text-anchor="middle" font-size="11" font-weight="700" fill="#ffffff">器械附件 59.8%（60.2 亿）</text>
+  <text x="365" y="246" text-anchor="middle" font-size="10" font-weight="700" fill="#ffffff">服务</text>
+  <text x="44" y="274" font-size="11.5" fill="#3c4c44">系统 24.7 亿（卖断或按次租赁）→ 带动 75.4% 后续复购收入</text>
+  <text x="44" y="294" font-size="11" fill="#5e6d65">有限寿命器械与单次耗材随手术消耗补货，首年服务常含在系统价内</text>
+  <rect x="436" y="14" width="410" height="312" rx="11" fill="#ffffff" stroke="#d5ddd6" stroke-width="1.3"/>
+  <rect x="436" y="14" width="410" height="36" rx="11" fill="#f6eee4"/>
+  <rect x="436" y="38" width="410" height="12" fill="#f6eee4"/>
+  <text x="452" y="37" font-size="13.5" font-weight="700" fill="#22392f">HCA 2025（756 亿）：谁看病 vs 谁贡献收入</text>
+  <rect x="452" y="60" width="12" height="10" rx="2" fill="#9fb2a8"/>
+  <text x="470" y="69" font-size="11" fill="#5e6d65">住院人次占比</text>
+  <rect x="560" y="60" width="12" height="10" rx="2" fill="#23695a"/>
+  <text x="578" y="69" font-size="11" fill="#23695a">净收入占比（实际可收口径）</text>
+  <text x="452" y="100" font-size="12" font-weight="700" fill="#22392f">商业与管理式保险（定价最高）</text>
+  <rect x="452" y="108" width="144" height="15" rx="3" fill="#9fb2a8"/>
+  <text x="604" y="120" font-size="11" fill="#5e6d65">32% 人次</text>
+  <rect x="452" y="127" width="220" height="16" rx="3" fill="#23695a"/>
+  <text x="680" y="140" font-size="11.5" font-weight="700" fill="#23695a">48.9% 收入（369.7 亿）</text>
+  <text x="452" y="168" font-size="12" font-weight="700" fill="#22392f">Medicare（含管理式 · 政府老年医保）</text>
+  <rect x="452" y="176" width="207" height="15" rx="3" fill="#9fb2a8"/>
+  <text x="667" y="188" font-size="11" fill="#5e6d65">46% 人次</text>
+  <rect x="452" y="195" width="147" height="16" rx="3" fill="#a8743f"/>
+  <text x="607" y="208" font-size="11.5" font-weight="700" fill="#8f6033">32.7% 收入（247.1 亿）</text>
+  <text x="452" y="236" font-size="12" font-weight="700" fill="#22392f">Medicaid（含管理式 · 低收入项目）</text>
+  <rect x="452" y="244" width="68" height="15" rx="3" fill="#9fb2a8"/>
+  <text x="528" y="256" font-size="11" fill="#5e6d65">15% 人次</text>
+  <rect x="452" y="263" width="57" height="16" rx="3" fill="#7a8780"/>
+  <text x="517" y="276" font-size="11.5" font-weight="600" fill="#3c4c44">12.7% 收入（96.0 亿）</text>
+  <rect x="452" y="288" width="378" height="28" rx="6" fill="#f6f7f3" stroke="#dfe5dc"/>
+  <text x="464" y="306" font-size="10.5" fill="#3c4c44">另：无保险占 7% 人次；海外 2.5% 及其他 3.2% 收入。商保比例直接左右单次收入。</text>
+</svg>
+</div>
+<figcaption>数据来自 JNJ、ISRG 与 HCA 2025 Form 10-K。三家公司分别展示药品分销、机器人耗材与医院支付机制，不代表彼此间的具体采购合同。</figcaption>
+</figure>
 
-HCA Healthcare（HCA）赚的则是医疗服务的钱。患者接受住院、门诊或手术治疗，医院投入医护人力、床位与耗材，付款方涵盖政府医疗项目、商业保险和患者本人。<span data-text-versions id="nb-d01-healthcare-text-2">医院最后能收到多少钱，取决于对应项目或合同的定价规则<span data-text-detail>（相关支付可以按病例、诊断、住院日或服务项目计算；Medicare、Medicaid、商业保险和患者自付各有适用关系。医院账单标价、预计可收金额和最后收到的现金需要分别辨认）</span>。[^hca]<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>HCA 随着诊疗完成确认收入，现金真正入账却是下一步，中间还得经过核定与结算。
+<span data-text-versions id="nb-d01-healthcare-text-1">药厂的标价与净收入、医院的标价与实收之间，都隔着巨大的合同折让<span data-text-detail>（药企向批发商供货后，还须预估扣除商业保险与政府项目的返利、折扣和退货，行业称为 Gross-to-Net 扣减；ISRG 的手术系统既可直接销售，也可按固定月租或按手术次数经营租赁，且美国医院采购获 FDA 许可的第三方再制造器械并不自动触发违约；HCA 的支付规则可按病种 DRG、住院日或服务项目计费，收入确认与保险结算回款在时间上分离）</span>。<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>
 
-<figure class="business-flow" data-ff-views><div class="ff-switch" role="group" aria-label="选择关系" hidden><button type="button" data-ff-view-choice="r0" aria-pressed="true">药械采购</button><button type="button" data-ff-view-choice="r1" aria-pressed="false">诊疗与自付</button><button type="button" data-ff-view-choice="r2" aria-pressed="false">第三方支付</button></div><div class="business-flow-route" data-ff-only="r0"><p class="business-flow-route-title">直接采购药品或器械</p><div class="business-flow-grid"><div class="business-flow-node"><small>产品供给</small><strong>药品与器械企业</strong><p>直接向医疗机构供应药品或器械。</p></div><p class="business-flow-edge" data-flow-direction="both">向机构供货；机构按采购安排付款</p><div class="business-flow-node"><small>采购与采用</small><strong>医疗机构</strong><p>采购相应产品，供诊疗使用。</p></div></div></div><div class="business-flow-route" data-ff-only="r1"><p class="business-flow-route-title">诊疗与患者自付</p><div class="business-flow-grid"><div class="business-flow-node"><small>服务提供者</small><strong>医疗机构与医护团队</strong><p>组织人员、设施和所需药械。</p></div><p class="business-flow-edge" data-flow-direction="both">向患者提供诊疗；患者按安排支付自付部分</p><div class="business-flow-node"><small>接受服务</small><strong>患者</strong><p>接受诊疗，承担约定的自付费用。</p></div></div></div><div class="business-flow-route" data-ff-only="r2"><p class="business-flow-route-title">第三方支付</p><div class="business-flow-grid"><div class="business-flow-node"><small>费用支付方</small><strong>保险与政府项目</strong><p>按适用项目和合同核定费用。</p></div><p class="business-flow-edge" data-flow-direction="forward">按项目与合同向医疗机构支付</p><div class="business-flow-node"><small>服务提供者</small><strong>医疗机构</strong><p>提供相应服务，并办理结算。</p></div></div></div><figcaption>按美国医疗业务的关系示意：图中展示机构直接采购，产品也可以经分销渠道供货。诊疗与支付再按各自合同或项目安排完成。</figcaption></figure>
+### 治疗需要、产品采用与支付核对 {#nb-d01-healthcare-demand}
 
-### 治疗需要、产品采用与支付 {#nb-d01-healthcare-demand}
+研报最爱用“患病人数 × 年治疗费用”算出一个惊人的潜在市场空间，但从患者生病到收入落进公司账本，中间隔着获批上市、进院准入、医生临床采纳、渠道库存和医保／商保报销五道关卡。
 
-从患者有病要治，到某款药或器械真正用上，中间隔着准入、采用、供货与报销几道关。获批上市只说明产品拿到了入场券；医院愿不愿意采购，还要看临床路径、进院流程和医生习惯；患者能不能顺利负担，又取决于支付方给不给报销。Agent 核对时，要先锁定具体产品和市场，再沿着渠道、医院和支付方逐环查证。
-
-如果药厂直接出货给批发商，就先查批发商的进货与库存，再去核医院处方或药房配药；研究医院，则把实际诊疗量和支付方结算分开看。企业研报常爱用患病人数估算“市场空间”，读这类数字时不妨一路问下去：多少治疗需求能转成实际就诊，医院按什么条件采购，最后有多少收入真正落进目标公司的账上。
+Agent 核对医疗需求时，要按环节拆账：查药企先盯前三大批发商的出货节奏与终端处方量是否背离，避免把渠道压货误读为临床放量；查手术器械则把装机台数增长、单台手术量与配套器械库存补货分开核对；查医院则把诊疗量与支付方结构（尤其是商业保险占比变化）摆在一起看——右栏已经证明，同样新增 100 名住院患者，商保患者与政府医保患者带来的收入差距悬殊。
 
 </section>
 
@@ -748,23 +1282,79 @@ HCA Healthcare（HCA）赚的则是医疗服务的钱。患者接受住院、门
 
 ## 银行、支付与保险：资金与未来承诺 {#nb-d01-finance-story}
 
-### 账户、贷款与支付各自提供什么 {#nb-d01-finance-services}
+### 账户本金、刷卡流水与保单承诺 {#nb-d01-finance-services}
 
-往银行存钱、找银行借钱、刷卡买东西，表面都和钱打交道，背后却是几门不同的生意。拿 JPMorgan Chase（JPM）的消费银行来说，储户把钱存进账户，保留按条款随时支取的权利；借款人拿到资金，往后按期还本付息。同一个人可以既在银行存钱、又向银行借钱，但存入的本金、放出的本金，以及银行收付的利息和手续费，在账上各归各，不能混在一起。[^jpm]
+金融行业最大的阅读陷阱，是把**经手的资金规模**错当成**公司自己的收入**。在 JPMorgan Chase（JPM）的资产负债表上，储户存进来的钱是随时可能被支取的负债，放出去的 1.49 万亿美元贷款是本金资产；银行真正进损益表的是资产利息扣掉融资利息之后的净利息收入，以及投行、资管与刷卡手续费，同时还要自己扛下借款人违约带来的信用损失拨备。[^jpm]<sup>，</sup>[^jpm-10k]
 
-为撑起这些承诺，银行既要筹措资金、支付存款和融资成本，也要自己扛下借款人违约带来的信用损失。存贷款余额只能画出业务盘子的一角；看新增贷款时，还得追问借款人拿钱去干什么、靠什么现金流还款。JPM 同时经营投行、资管等其他条线，这里先借消费银行的存贷款立住基本账。
+Visa（V）则完全不向持卡人放贷，也不承担消费信贷违约风险。消费者刷卡 100 美元时，商户扣掉的手续费大头作为交换费流向了发卡行与收单机构，V 只作为支付网络收取授权、清算和结算服务费，且还要返还大额客户激励给合作银行与商户。[^visa]
 
-再看 Visa（V），它向发卡行、收单行等机构提供支付网络处理服务。消费者刷卡时，发卡行服务持卡人，收单行服务商户，支付网络负责把授权、清算和结算跑通。<span data-text-versions id="nb-d01-finance-text-1">商户刷卡被扣的手续费、收单行分给发卡行的交换费，以及 V 自己真正赚到的网络处理收入，得一笔笔分开算<span data-text-detail>（交换费通常由收单方向发卡方支付；网络收费涉及支付金额、处理笔数、跨境和增值服务等安排，并受客户激励影响。V 不提供发卡行的持卡人消费信贷，但仍有自己的结算资金责任）</span>。[^visa]<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>所以卡上刷出多大的流水，跟支付网络最后收走多少服务费，完全是两码事。
+<figure class="flow-figure" id="nb-d01-finance-flow">
+<div class="ff-head"><p class="ff-title">银行、支付与保险：为什么万亿流水和贷款本金都不是公司收入</p><span class="ff-sub">2025 年报实数对照：同样经手巨额资金，各自赚的账和背的债截然不同</span></div>
+<div class="rel-svg-wrap business-exchange" aria-label="三栏对照图：左栏银行 JPM 2025，1.49 万亿美元总贷款属资产负债表本金，利息收入 1,933 亿减利息支出 979 亿得净利息收入 954 亿，加非息收入 870 亿为总净收入 1,824 亿，需计提 142 亿信用损失拨备；中栏支付网络 Visa FY2025，约 13.9 万亿美元名义支付额属流水，网络毛收入 557.5 亿扣除 157.5 亿客户激励（28.3%）后净收入 400.0 亿美元，仅占流水的约 0.29%，刷卡交换费主要归发卡行；右栏保险 Chubb 2025，合并净签单保费 548.4 亿随保障期转为净已赚保费 530.1 亿，财险综合成本率 85.7%，资产负债表同时背负 880.2 亿美元未付赔款准备金与 262.8 亿未赚保费。">
+<svg viewBox="0 0 860 340" role="img" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+  <rect x="14" y="14" width="268" height="312" rx="11" fill="#ffffff" stroke="#d5ddd6" stroke-width="1.3"/>
+  <rect x="14" y="14" width="268" height="42" rx="11" fill="#eff4f1"/>
+  <rect x="14" y="44" width="268" height="12" fill="#eff4f1"/>
+  <text x="148" y="34" text-anchor="middle" font-size="13.5" font-weight="700" fill="#22392f">银行：JPM（2025）</text>
+  <text x="148" y="50" text-anchor="middle" font-size="11" fill="#23695a">赚存贷利差与服务费 · 扛坏账</text>
+  <rect x="28" y="70" width="240" height="54" rx="8" fill="#f6f7f3" stroke="#dfe5dc"/>
+  <text x="42" y="90" font-size="11" fill="#5e6d65">表内本金规模（非收入）</text>
+  <text x="42" y="112" font-size="16" font-weight="700" fill="#22392f">总贷款 1.49 万亿美元</text>
+  <text x="148" y="142" text-anchor="middle" font-size="11" font-weight="600" fill="#23695a">↓ 利息收入 1,933 亿 − 支出 979 亿</text>
+  <rect x="28" y="152" width="240" height="72" rx="8" fill="#f3f8f4" stroke="#b9d0c2"/>
+  <text x="42" y="173" font-size="11.5" font-weight="700" fill="#23695a">净利息收入 954 亿美元</text>
+  <text x="42" y="194" font-size="11.5" fill="#3c4c44">+ 非息收入 870 亿（投行/资管/卡费）</text>
+  <text x="42" y="214" font-size="12" font-weight="700" fill="#22392f">= 总净收入 1,824 亿美元</text>
+  <rect x="28" y="238" width="240" height="74" rx="8" fill="#faeae7" stroke="#e4c2bc"/>
+  <text x="42" y="259" font-size="11.5" font-weight="700" fill="#b5483a">背后背负的风险与准备</text>
+  <text x="42" y="279" font-size="11.5" fill="#3c4c44">信用损失拨备：142 亿美元（+33%）</text>
+  <text x="42" y="298" font-size="11" fill="#5e6d65">净核销 98.5 亿；储户保留提款权</text>
+  <rect x="296" y="14" width="268" height="312" rx="11" fill="#ffffff" stroke="#d5ddd6" stroke-width="1.3"/>
+  <rect x="296" y="14" width="268" height="42" rx="11" fill="#f6eee4"/>
+  <rect x="296" y="44" width="268" height="12" fill="#f6eee4"/>
+  <text x="430" y="34" text-anchor="middle" font-size="13.5" font-weight="700" fill="#22392f">支付网络：V（FY2025）</text>
+  <text x="430" y="50" text-anchor="middle" font-size="11" fill="#8f6033">赚过路清算费 · 不向持卡人放贷</text>
+  <rect x="310" y="70" width="240" height="54" rx="8" fill="#f6f7f3" stroke="#dfe5dc"/>
+  <text x="324" y="90" font-size="11" fill="#5e6d65">网络流经流水（非收入）</text>
+  <text x="324" y="112" font-size="16" font-weight="700" fill="#22392f">支付额 13.89 万亿美元</text>
+  <text x="430" y="142" text-anchor="middle" font-size="11" font-weight="600" fill="#8f6033">↓ 2,575 亿笔交易 · 扣发卡行交换费</text>
+  <rect x="310" y="152" width="240" height="72" rx="8" fill="#fcf8f3" stroke="#ead9c4"/>
+  <text x="324" y="173" font-size="11.5" fill="#3c4c44">网络毛收入：557.5 亿美元</text>
+  <text x="324" y="193" font-size="11.5" font-weight="600" fill="#b5483a">− 客户激励：157.5 亿（占 28.3%）</text>
+  <text x="324" y="214" font-size="12" font-weight="700" fill="#8f6033">= 净收入 400.0 亿美元</text>
+  <rect x="310" y="238" width="240" height="74" rx="8" fill="#f6f7f3" stroke="#dfe5dc"/>
+  <text x="324" y="259" font-size="11.5" font-weight="700" fill="#22392f">极细抽成，轻信用资产</text>
+  <text x="324" y="279" font-size="11.5" fill="#3c4c44">净收入仅占支付额约 0.29%</text>
+  <text x="324" y="298" font-size="11" fill="#5e6d65">大头刷卡费归发卡行与收单机构</text>
+  <rect x="578" y="14" width="268" height="312" rx="11" fill="#ffffff" stroke="#b9d0c2" stroke-width="1.3"/>
+  <rect x="578" y="14" width="268" height="42" rx="11" fill="#eff4f1"/>
+  <rect x="578" y="44" width="268" height="12" fill="#eff4f1"/>
+  <text x="712" y="34" text-anchor="middle" font-size="13.5" font-weight="700" fill="#22392f">保险：Chubb（CB · 2025）</text>
+  <text x="712" y="50" text-anchor="middle" font-size="11" fill="#23695a">先收保费做投资 · 未来依约赔付</text>
+  <rect x="592" y="70" width="240" height="54" rx="8" fill="#f6f7f3" stroke="#dfe5dc"/>
+  <text x="606" y="90" font-size="11" fill="#5e6d65">当期签单规模（跨期履约）</text>
+  <text x="606" y="112" font-size="16" font-weight="700" fill="#22392f">净签单保费 548.4 亿美元</text>
+  <text x="712" y="142" text-anchor="middle" font-size="11" font-weight="600" fill="#23695a">↓ 随保障期分摊确认收入</text>
+  <rect x="592" y="152" width="240" height="72" rx="8" fill="#f3f8f4" stroke="#b9d0c2"/>
+  <text x="606" y="173" font-size="11.5" font-weight="700" fill="#23695a">净已赚保费 530.1 亿美元</text>
+  <text x="606" y="193" font-size="11.5" fill="#3c4c44">财险综合成本率：85.7%（承保赚）</text>
+  <text x="606" y="213" font-size="11.5" fill="#8f6033">+ 税前投资收益 64.7 亿美元</text>
+  <rect x="592" y="238" width="240" height="74" rx="8" fill="#faeae7" stroke="#e4c2bc"/>
+  <text x="606" y="259" font-size="11.5" font-weight="700" fill="#b5483a">收钱后挂在账上的赔付债</text>
+  <text x="606" y="279" font-size="11.5" fill="#3c4c44">未付赔款准备金：880.2 亿美元</text>
+  <text x="606" y="298" font-size="11" fill="#5e6d65">未赚保费负债：262.8 亿美元</text>
+</svg>
+</div>
+<figcaption>数据来自 JPM、V（支付额为截至 2025-06-30 十二个月，收入截至 2025-09-30）与 CB 2025 年度报告。三类业务的本金、流水、准备金与收入须严格隔离。</figcaption>
+</figure>
 
-<figure class="business-flow" data-ff-views><div class="ff-switch" role="group" aria-label="选择业务" hidden><button type="button" data-ff-view-choice="r0" aria-pressed="true">银行</button><button type="button" data-ff-view-choice="r1" aria-pressed="false">支付网络</button><button type="button" data-ff-view-choice="r2" aria-pressed="false">保险</button></div><div class="business-flow-route" data-ff-only="r0"><p class="business-flow-route-title">银行：存款与贷款</p><div class="business-flow-grid"><div class="business-flow-node"><small>存款客户</small><strong>储户</strong><p>使用账户，保留按条款提款的权利。</p></div><p class="business-flow-edge" data-flow-direction="both">储户存入本金；银行按约办理提款</p><div class="business-flow-node"><small>账户与融资</small><strong>银行</strong><p>提供账户和贷款，负担资金成本与信用损失。</p></div><p class="business-flow-edge" data-flow-direction="both">银行发放贷款；借款人还本付息</p><div class="business-flow-node"><small>融资客户</small><strong>借款人</strong><p>使用借款，并按约偿还。</p></div></div></div><div class="business-flow-route" data-ff-only="r1"><p class="business-flow-route-title">支付网络：处理服务</p><div class="business-flow-grid"><div class="business-flow-node"><small>网络客户</small><strong>发卡、收单等机构</strong><p>为持卡人或商户服务，并使用支付网络。</p></div><p class="business-flow-edge" data-flow-direction="both">机构按约付费；网络提供处理服务</p><div class="business-flow-node"><small>网络服务方</small><strong>支付网络</strong><p>帮助完成授权、清算和结算等处理。</p></div></div></div><div class="business-flow-route" data-ff-only="r2"><p class="business-flow-route-title">保险：保费与未来责任</p><div class="business-flow-grid"><div class="business-flow-node"><small>购买保险</small><strong>投保人</strong><p>按合同购买保障并支付保费。</p></div><p class="business-flow-edge" data-flow-direction="forward">向承保公司支付保费</p><div class="business-flow-node"><small>承担责任</small><strong>承保公司</strong><p>收取保费，并承担合同约定的责任。</p></div><p class="business-flow-edge" data-flow-direction="forward">在约定情形出现时赔付或给付</p><div class="business-flow-node"><small>取得赔付或给付</small><strong>合同约定的收款方</strong><p>依保单确定相应的收款权利。</p></div></div></div><figcaption>银行分别与储户、借款人交易；支付网络和保险各有自己的客户与责任。本金、服务费与保费分别理解，保险收款方及条件由合同确定。</figcaption></figure>
+### 收取保费之后的长期赔付责任 {#nb-d01-finance-insurance}
 
-### 收取保费以后的责任 {#nb-d01-finance-insurance}
+保险的生意与利差、过路费截然不同，卖的是“先收钱、后兜底”的风险承诺。Chubb（CB）收进投保人保费后，保障义务才刚刚开始：一旦保单约定的财产损坏、营业中断或责任事故发生，公司就要依约赔付，部分责任险的理赔甚至会拖到保单到期数年之后才最终结案。[^chubb]
 
-保险卖的则是另一种承诺。Chubb（CB）涵盖财产与责任保险、寿险等类别：投保人缴保费，买下约定期间与范围的保障；一旦合同列明的事故发生，承保公司就要依约赔付。例如 CB 英国商业财产险的介绍里，同时列出了财产损坏保障与受损后的营业中断保障。即便中间经由经纪人或代理人成交，保费落袋之后，保障义务和潜在赔付责任依然挂在承保公司身上。[^chubb]
+<span data-text-versions id="nb-d01-finance-text-1">保费落袋与赔款流出之间的时间差，既造就了可用于投资的浮存金，也留下了庞大的估算负债<span data-text-detail>（资产负债表上的未付赔款及理赔费用准备金是对已发生但尚未结清赔案的精算估计；一旦未来通胀或诉讼推高实际赔付，公司必须在后续年度补提准备金，直接冲击当期利润。银行的资产负债表重定价、支付网络的客户激励博弈与保险的浮存金成本，各自构成一套独立的分析体系）</span>。<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>关于保险浮存金、综合成本率与准备金释放的完整机制，可在独立行业专题[《保险业：浮存金、综合成本率与准备金》](/zh/notebook/industry-insurance-float/)中继续深潜。
 
-不同险种的承诺跨度差别极大，收进保费与真正赔钱之间有时隔着好几年。<span data-text-versions id="nb-d01-finance-text-2">保险公司因此要提前估算后续赔付、计提负债，并备足资产与资本来兜底<span data-text-detail>（损失准备金反映对尚未支付的赔款及相关费用的估计，属于保险负债。保单的保障期间与赔付持续时间也可能不同，部分已发生事故的理赔会在保障期结束后继续）</span>。[^chubb]<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>研究保险生意，永远要把投保需求与公司履行赔付的条件放在同一张桌子上看。
-
-沿着这三类业务去查需求，Agent 追问的问题也完全不同：看银行，查客户为什么借钱、靠什么还；看支付网络，分清是真实消费变多了，还是交易换了支付渠道或路由；看保险，拆清保费变动究竟来自提价、扩保额、资产价值上升还是新保单，再看它同时带进来多大的赔付敞口。研报里写着“规模增长”时，多追问这两句，收费和风险的变化就露出来了。
+沿这三类业务核对需求时，Agent 要问出三组不同的问题：看银行，查贷款增量投向了哪类借款人、存款成本和坏账拨备有没有同步抬头；看支付网络，分清流水增长是真实消费扩大还是现金转电子化，并紧盯客户激励占毛收入的比率有没有继续走高；看保险，把新签保单、费率提价与背后同时背进来的巨灾和长尾赔付敞口放在同一张表上核对。
 
 </section>
 
@@ -772,72 +1362,121 @@ HCA Healthcare（HCA）赚的则是医疗服务的钱。患者接受住院、门
 
 ## 能源与原材料：商品、加工与输运 {#nb-d01-energy-story}
 
-### 同一批资源可以形成不同生意 {#nb-d01-energy-products}
+### 同一桶油，走出三条盈利曲线 {#nb-d01-energy-products}
 
-在油气行业，公司既可以自己采油卖资源，也可以买进原料加工成燃油和化工品。ExxonMobil（XOM）就同时横跨上游油气生产、下游炼化和化工几大板块。上游卖的是采出来的原油和天然气，下游卖的则是成品油和化工原料，两边对接的买家和用途截然不同。分析 XOM 的需求，先得拎清眼下讨论的是哪种产品、落在产业链哪一环。[^xom]
+很多投资人把整个油气板块简化成“赌油价涨跌”，但真实年报拆出来的是三门截然不同的生意。ExxonMobil（XOM）同时横跨上游开采、下游炼化与化工：上游卖资源，盈利直接跟随原油与天然气实现售价起伏；下游炼化买进原油、产出成品油，赚的是**成品与原料之间的加工价差（裂解价差）**；化工则受全球石化产能周期主导。2025 年原油均价大跌时，XOM 上游盈利收缩，下游炼化盈利却逆势跳增八成。[^xom]<sup>，</sup>[^xom-10k]
 
-资源开采需要先勘探建井，再逐年产出；加工厂则要备齐装置、买进原料、组织生产并把成品卖出去。自购自销的加工企业两头都要面对市场价格，既看原料价、又看成品价，还得算进能耗、运维和库存波动。<span data-text-versions id="nb-d01-energy-text-1">成品售价与原料成本之间的价差，能帮我们抓住加工生意的脉络，但最终盈亏还要结合实际加工成本来看<span data-text-detail>（产品收率、能源消耗、运输、检修及库存等会影响结果；商品交付的品质、地点和时间也应与合同对应。这里只说明收入与成本的关系，不用一个商品报价代替整项业务的经营结果）</span>。<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>下游买家拿到成品后，往往还要继续加工，最终流向交通、制造等终端领域。
+Kinder Morgan（KMI）则示范了第四条路径：自己不赌货价涨跌，专门向客户出租管道容量、储罐与加工处理能力（包括与 BP North America 的长期凝析油收费加工协议，以及按日预订容量的天然气管道运输协议）。[^kmi]<sup>，</sup>[^kmi-10k]<sup>，</sup>[^wic]
 
-同一批物料，也可以换一种赚法：不买货、不卖货，只收加工费或过路费。Kinder Morgan（KMI）主营管道与储运，它在业务介绍里就列出了与 BP North America 的长期凝析油加工协议——客户按约购买加工服务，KMI 提供设施与处理能力并收取服务费。[^kmi]
+<figure class="flow-figure" id="nb-d01-energy-flow">
+<div class="ff-head"><p class="ff-title">能源与原材料：同一年原油跌 14%，三种能源生意走出三条盈利曲线</p><span class="ff-sub">XOM 与 KMI 2025 Form 10-K 实数：资源价格、加工价差与管输收费完全不同</span></div>
+<div class="rel-svg-wrap business-exchange" aria-label="左右双栏图：左栏展示 XOM 2025 在自产原油销售均价下降 14.3%（76.57 降至 65.64 美元每桶）背景下三大业务盈利分化，上游开采盈利 213.5 亿美元（同比降 15.9%），炼化能源产品盈利逆势大涨 84.1% 至 74.2 亿美元（吃成品油裂解价差），化工产品盈利骤降 69.0% 至 8.0 亿美元；右栏展示 KMI 2025 总收入 169.4 亿美元中服务收入 94.9 亿与商品销售 72.6 亿的分离，其客户合同服务收入里固定照付不议 Firm Services 占 53.4 亿美元（同比增 7.8%）、按量计费 Fee-Based 占 27.2 亿美元（同比增 4.7%），与大宗商品价格脱钩。">
+<svg viewBox="0 0 860 325" role="img" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+  <rect x="14" y="14" width="424" height="297" rx="11" fill="#ffffff" stroke="#d5ddd6" stroke-width="1.3"/>
+  <rect x="14" y="14" width="424" height="36" rx="11" fill="#eff4f1"/>
+  <rect x="14" y="38" width="424" height="12" fill="#eff4f1"/>
+  <text x="30" y="37" font-size="13.5" font-weight="700" fill="#22392f">XOM 2025：一体化油企的三种盈利驱动</text>
+  <text x="30" y="70" font-size="11.5" fill="#5e6d65">背景：自产原油均价 76.57 → 65.64 美元/桶（−14.3%）</text>
+  <rect x="30" y="84" width="392" height="62" rx="8" fill="#f7faf8" stroke="#c8dad0"/>
+  <text x="44" y="105" font-size="12.5" font-weight="700" fill="#22392f">上游开采（Upstream）· 盯产量 × 原油实现价</text>
+  <rect x="44" y="116" width="214" height="18" rx="4" fill="#23695a"/>
+  <text x="268" y="130" font-size="12" font-weight="700" fill="#22392f">213.5 亿美元（−15.9%）</text>
+  <rect x="30" y="156" width="392" height="62" rx="8" fill="#fcf8f3" stroke="#ead9c4"/>
+  <text x="44" y="177" font-size="12.5" font-weight="700" fill="#8f6033">炼化成品油（Energy Products）· 盯加工裂解价差</text>
+  <rect x="44" y="188" width="110" height="18" rx="4" fill="#a8743f"/>
+  <text x="164" y="202" font-size="12" font-weight="700" fill="#23695a">74.2 亿美元（+84.1%）</text>
+  <rect x="30" y="228" width="392" height="66" rx="8" fill="#faeae7" stroke="#e4c2bc"/>
+  <text x="44" y="249" font-size="12.5" font-weight="700" fill="#b5483a">化工（Chemical Products）· 盯石化供需与周期</text>
+  <rect x="44" y="260" width="20" height="18" rx="4" fill="#b5483a"/>
+  <text x="74" y="274" font-size="12" font-weight="700" fill="#b5483a">8.0 亿美元（−69.0% · ROCE 2.7%）</text>
+  <rect x="454" y="14" width="392" height="297" rx="11" fill="#ffffff" stroke="#d5ddd6" stroke-width="1.3"/>
+  <rect x="454" y="14" width="392" height="36" rx="11" fill="#f6eee4"/>
+  <rect x="454" y="38" width="392" height="12" fill="#f6eee4"/>
+  <text x="470" y="37" font-size="13.5" font-weight="700" fill="#22392f">KMI 2025：不赌油价的管输过路费</text>
+  <text x="470" y="70" font-size="11.5" fill="#5e6d65">合并总收入 169.4 亿美元：服务 94.9 亿 · 商品销售 72.6 亿</text>
+  <rect x="470" y="84" width="360" height="68" rx="8" fill="#f3f8f4" stroke="#b9d0c2"/>
+  <text x="484" y="105" font-size="12.5" font-weight="700" fill="#23695a">固定照付不议（Firm Services · 53.4 亿，+7.8%）</text>
+  <text x="484" y="125" font-size="11.5" fill="#3c4c44">客户按日容量买断管道槽位；哪怕当月一滴不运，</text>
+  <text x="484" y="142" font-size="11.5" fill="#3c4c44">最低预留费照收不误（如 WIC 28,150 Dth/d 协议）。</text>
+  <rect x="470" y="162" width="360" height="62" rx="8" fill="#fcf8f3" stroke="#ead9c4"/>
+  <text x="484" y="183" font-size="12.5" font-weight="700" fill="#8f6033">按量收费（Fee-Based · 27.2 亿，+4.7%）</text>
+  <text x="484" y="203" font-size="11.5" fill="#3c4c44">按实际吞吐、加工或储存量收单位费（含 BP 凝析油加工），</text>
+  <text x="484" y="218" font-size="11" fill="#5e6d65">只看客户实运量，不承担货权涨跌。</text>
+  <rect x="470" y="234" width="360" height="60" rx="8" fill="#f6f7f3" stroke="#dfe5dc"/>
+  <text x="484" y="255" font-size="12" font-weight="700" fill="#22392f">商品销售（72.6 亿）为何要拆开看</text>
+  <text x="484" y="274" font-size="11" fill="#3c4c44">随油气现价大幅起伏且自带 55.3 亿销售成本，</text>
+  <text x="484" y="289" font-size="11" fill="#5e6d65">不拆开容易把商品过手流水误当成稳定过路费。</text>
+</svg>
+</div>
+<figcaption>数据来自 XOM 与 KMI 2025 Form 10-K（XOM 盈利为税后分部盈利；KMI 53.4 亿与 27.2 亿为 Note 14 客户合同拆分口径，另含租约等服务收入）。</figcaption>
+</figure>
 
-<figure class="business-flow"><div class="business-flow-route"><p class="business-flow-route-title">自购原料，再出售产品</p><div class="business-flow-grid"><div class="business-flow-node"><small>原料供给</small><strong>原料供应方</strong><p>按合同交付约定原料。</p></div><p class="business-flow-edge" data-flow-direction="both">供应方交原料；加工企业支付采购款</p><div class="business-flow-node"><small>购买与加工</small><strong>加工企业</strong><p>采购原料、组织加工，再销售产品。</p></div><p class="business-flow-edge" data-flow-direction="both">加工企业交产品；客户支付货款</p><div class="business-flow-node"><small>产品购买</small><strong>产品客户</strong><p>接收产品，用于后续加工或使用。</p></div></div></div><div class="business-flow-route"><p class="business-flow-route-title">按加工或输运服务收费</p><div class="business-flow-grid"><div class="business-flow-node"><small>服务采购</small><strong>服务客户</strong><p>购买合同约定的加工或输运等服务。</p></div><p class="business-flow-edge" data-flow-direction="both">客户支付服务费；服务商提供约定服务</p><div class="business-flow-node"><small>提供能力</small><strong>加工或输运服务商</strong><p>运行设施，按合同处理或输运物料。</p></div></div></div><figcaption>自购自销围绕原料与产品买卖；服务收费围绕加工或输运等服务。两条路径分别核对付款、交付与实际使用。</figcaption></figure>
+<span data-text-versions id="nb-d01-energy-text-1">区分自购自销加工与纯收费管输，才能对准正确的盈利变量<span data-text-detail>（假设同一批原料数量为 \(Q\)、采购单价 \(P\)，全部加工产出多种产品并售出数量 \(q_i\)、净价 \(p_i\)，则产品销售额 \(\sum q_i p_i\) 与原料成本 \(QP\) 之差还要再扣能耗、运维、检修和运输费用，才成加工利润；实务跨期分析时需用已售产品对应的原料耗用配比，不能拿当期采购额直接减。管输业务里，固定照付不议服务即便客户少运或未运仍收预留费，而 KMI 合并报表中另有 72.6 亿美元按市价结算的商品销售，分析时须与服务过路费分开）</span>。<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>
 
-收费模式一换，盯需求的重点也跟着变。卖商品要看谁愿意按现价接货；卖输运或加工服务，则要看客户订了多少容量、实际跑了多少量，以及合同按什么公式计费。<span data-text-versions id="nb-d01-energy-text-2">服务费可能挂钩预订容量、实际吞吐量，也可能按服务期间固定收取<span data-text-detail>（按容量还是实际数量付费、有无最低承诺、货物所有权由谁保留，都要以具体合同为准。一项设施的收费安排不能推广到该公司的全部业务）</span>。<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>
+### 沿提货、开工率与长约条款核需求 {#nb-d01-energy-demand}
 
-### 沿客户提货与实际用途核需求 {#nb-d01-energy-demand}
+遇到同一轮能源价格波动，不同研报常给出截然相反的盈利结论，第一步就是核清它们谈的究竟是上游开采、下游炼化还是中游管输。油价走弱压制上游实现售价，但只要成品油需求坚挺、原料变便宜反而可能撑阔炼厂裂解价差；至于中游管网，只要主干线长约到期前客户信用稳健、照付不议占比高，短期现货价起伏对服务收费的冲击就很有限。
 
-生产商拿到订单后，还要按期交付给买方；看炼化厂采购原料，则要对照它的开工率与库存。贸易商多提货，货既可能很快进入终端消费，也可能先堆在储罐里；托运人订了管道或储运容量，实际吞吐量还得看后续货物流转。Agent 通常先查直接买方或托运人的提货与开工情况，关键问题说不清时，再往下游终端多追一层。
-
-遇到同一轮行业波动，不同研报常给出相反的解释，这时候先核清它们谈的到底是哪类业务。油气需求起伏直接左右上游销售，原料与成品价差拉大或收窄影响炼化利润，而管道与加工服务更看具体线路和长约条款。把这些解释放回客户订单、提货、库存与装置开工数据里一对照，影响究竟落在哪一环就能分辨出来。
+Agent 核对能源与原材料需求时，应按业务类型切分证据：看上游核产销量、交割折溢价与开采成本曲线；看炼化与化工对照装置开工率、区域裂解价差和储罐库存，分清贸易商多提货是进了终端消费还是堆在油罐里；看管道与储运则直接核查合同中的固定预订容量、最低输送承诺和到期续约节奏。
 
 </section>
 
 ## 需求判断与证据核对 {#nb-d01-evidence}
 
-生意做法不同，核实需求要翻的账本自然不同。想确认客户是不是真下了单，得查采购合同或采用记录；想确认公司是不是把活干完了，得看实际交货与使用量；碰到收了钱还得长期运维、或者背着赔付责任的业务，更要持续跟踪合同后半程的履约情况。
+八个行业拆下来，核心工作落在一张统一的核验表上：确认客户是不是真下了单（采购合同与采用记录）、确认公司是不是按期交了活（发货、上架、履约与实际使用），以及确认收钱之后还背着哪些后半程义务（退货折让、持续运维或多年后的保险赔付）。
 
-实操时，Agent 可以把公司公告、客户材料、供应商披露和券商研报摆在一起交叉核对。先确认几份材料说的是不是同一款产品、同一个项目和同一段时间，再去区分真实需求扩大、客户提前备货、渠道补库存还是切换供应商。通常从直接客户或供应商查起，有缺口再往下一级延展；一时查不到的地方先记成待核问题，已有判断则写清依据以及什么新变化会推翻它。
+实操时，Agent 可以把目标公司年报、上下游客户披露和券商研报摆到同一张时间轴上交叉核对：先对齐产品口径、项目范围和报告期间，再去剥离真实终端扩张、渠道补库存、提前拉货或跨期并购。凡是暂时缺证据的环节先留为待核问题，已有判断则写明依赖哪条假设、什么新数据出现就会推翻它。
 
-后续资料若继续印证原判断，就沿用这套认识；一旦采购对象、交付节点或使用范围生变，就只更新受影响的那一块。研报当时的预测和后来兑现的结果分开留档，等到新订单或交货数据落地，Agent 就能沿着当初的依据逐条回查。
+摸清八类生意靠谁买单、怎样收费以后，接下来就可以追问它为什么增长。下一篇[《收入增长与市场预期》](/zh/notebook/revenue-growth-expectations/)会沿着同一套行业分支，用真实财报拆解销量、净价、留存与产品结构的变化，再把它们接到市场预期与股价反推上。
 
-摸清一门生意靠谁买单、怎样收费以后，接下来就可以追问它为什么增长。下一篇[《收入增长与市场预期》](/zh/notebook/revenue-growth-expectations/)会拆解客户数、用量、净价和产品组合的变化，再把它们接到市场预期与股价反推上。
-
-<link rel="stylesheet" href="/notebook/flow-figures.css?v=20261126">
-<link rel="stylesheet" href="/notebook/business-branches.css?v=20261126">
+<link rel="stylesheet" href="/notebook/flow-figures.css?v=20261128">
+<link rel="stylesheet" href="/notebook/business-branches.css?v=20261128">
 <script src="/notebook/flow-figures.js?v=20261012-6" defer></script>
 
-[^nke]: [NIKE FY2025 Form 10-K — Business and Revenue Recognition](https://www.sec.gov/Archives/edgar/data/320187/000032018725000047/nke-20250531.htm)。财年截至 2025-05-31；Item 1，HTML 行 143—175；Revenue Recognition，行 1952—1955；批发客户信用，行 423—426。
-[^wmt]: [Walmart FY2025 Form 10-K — Business; Membership and Other Income](https://stock.walmart.com/sec-filings/all-sec-filings/content/0000104169-25-000021/wmt-20250131.htm)。财年截至 2025-01-31；申报 2025-03-14；业务概述行 226—248；Sam’s Club 行 303—318；会员收入行 1929—1931。
-[^msft]: [Microsoft 2025 Annual Report — Microsoft 365 and Licensing Options](https://www.microsoft.com/investor/reports/ar25/index.html)。FY2025 年报；行 258—276，Microsoft 365 Commercial、Dynamics；行 392—400，Licensing Options。
-[^aws]: [AWS Product and Service Pricing](https://aws.amazon.com/pricing/)。动态官方页面，读取于 2026-09-27；How does AWS pricing work；How do you pay for AWS，行 239—254 及价格方式标题。
-[^netflix]: [Netflix consolidates relational database infrastructure on Amazon Aurora, achieving up to 75% improved performance](https://aws.amazon.com/blogs/database/netflix-consolidates-relational-database-infrastructure-on-amazon-aurora-achieving-up-to-75-improved-performance/)。2025-11-26；迁移结果截至 2025 年 10 月；Business challenge；Achieving cost-efficiency；Migration results；About the authors，行 237—276、299—316。
-[^talen]: [Talen Energy Expands Nuclear Energy Relationship with Amazon; Q2 2026 AWS PPA update](https://ir.talenenergy.com/static-files/90cce90c-e281-42c6-b686-ed6010dd8699)；[Talen Q2 2026 Form 10-Q](https://talenenergy.gcs-web.com/static-files/649bfa16-a54e-4997-914b-a8a5d2e00900)。合同公告 2025-06-11；进展披露 2026-08-05；2025 8-K 附件 99.1，PDF 第 4 页，行 55—67；2026 Q2 10-Q，PDF 第 46 页 AWS PPA 术语，行 2054—2059。
-[^seller]: [Sell on Amazon — How much does it cost to sell on Amazon?](https://sell.amazon.com/pricing/)。美国官方卖家页面，读取于 2026-09-27；Selling plans、FBA/merchant fulfillment 选项、Referral fees，行 180—258、294—308。
-[^alphabet]: [Alphabet 2025 Form 10-K — Google Services; Cost of Revenues](https://www.sec.gov/Archives/edgar/data/1652044/000165204426000018/goog-20251231.htm)。年度截至 2025-12-31；How We Make Money，行 227—239；TAC 与内容采购，行 959—976。
-[^bkng]: [Booking Holdings 2025 Form 10-K — Marketing](https://www.sec.gov/Archives/edgar/data/1075531/000107553126000009/bkng-20251231.htm)。年度截至 2025-12-31；行 855—864，performance marketing expenses and efficiency。
-[^nvda]: [NVIDIA FY2026 Form 10-K — Markets, Manufacturing and Customers](https://www.sec.gov/Archives/edgar/data/1045810/000104581026000021/nvda-20260125.htm)。财年截至 2026-01-25；行 187—207；Manufacturing 行 284—289；直接/间接客户行 1279—1288。
-[^tsmc]: [TSMC 2025 Annual Report Website — About TSMC and Shareholder Letter](https://investor.tsmc.com/static/annualReports/2025/english/index.html)。2025 年度报告；股东信行 18—24；About TSMC 行 64—77。
-[^asml]: [ASML — About the company](https://www.asml.com/en/company)。动态公司页面，读取于 2026-09-27；公司概述，行 138。
-[^coreweave]: [CoreWeave Q2 2026 Earnings Call — Corrected Transcript](https://s205.q4cdn.com/133937190/files/doc_financials/2026/q2/CRWV-US-CORRECTED-TRANSCRIPT-CoreWeave-Q2-2026-Earnings-Call-11August2026.pdf)。2026-08-11；PDF 第 8 页 A100 合同；问答中续约范围，既有文本行 576—590。
-[^aws-gpu]: [Amazon Q1 2026 Earnings Release — AI chip deployment highlights](https://s2.q4cdn.com/299287126/files/doc_earnings/2026/q1/earnings-result/AMZN-Q1-2026-Earnings-Release.pdf)。2026-04-29；PDF 第 2 页，AI chips / Trainium / NVIDIA 条目，行 35—42。
-[^kgi]: [KGI TSMC Company Update — 3Q25 preview: AI outlook has turned more promising](https://www.kgi.com.hk/en/-/media/files/kgishk/research-reports/tw-reports/tsmc_2330-tt_01102025e.pdf)。2025-10-01；PDF 第 1 页：Revise up 2026 CoWoS estimates；Early 2027 outlook；第 10 页材料使用说明。
-[^otis]: [Otis Worldwide 2025 Form 10-K — New Equipment and Service](https://www.sec.gov/Archives/edgar/data/1781335/000178133526000011/otis-20251231.htm)。年度截至 2025-12-31；Item 1，行 172—178、205—222。
-[^fluor]: [Fluor 2025 Form 10-K — Business and Types of Contracts](https://www.sec.gov/Archives/edgar/data/1124198/000112419826000007/flr-20251231.htm)。年度截至 2025-12-31；行 205—208；Types of Contracts，行 310、323—333。
-[^gev]: [GE Vernova secures two H-class combined cycle equipment orders from EnBW](https://www.gevernova.com/news/press-releases/ge-vernova-secures-two-h-class-combined-cycle-equipment-orders-hydrogen-capability)；[EnBW Heilbronn combined heat and power plant — Project phases](https://www.enbw.com/company/topics/coal-phaseout/heilbronn-combined-heat-and-power-plant/)；[EnBW Heilbronn — Projektphasen](https://www.enbw.com/unternehmen/themen/kohleausstieg/heizkraftwerk-heilbronn/)。供应方公告 2023-11-06；业主动态项目页读取于 2026-09-27；公告行 68—72；EnBW Heilbronn 页面 Project phases、Project diary，行 40—59。
-[^jnj]: [Johnson & Johnson 2025 Form 10-K — Innovative Medicine and MedTech](https://www.sec.gov/Archives/edgar/data/200406/000020040626000016/jnj-20251228.htm)。财年截至 2025-12-28；Item 1，行 214—217、225—235；收入确认既有定位见 health-finance-branches.json。
-[^hca]: [HCA Healthcare 2025 Annual Report to Shareholders — Note 1 Revenues](https://s23.q4cdn.com/949900249/files/doc_financials/2024/ar/HCA-2025-Annual-Report-to-Shareholders-FINAL.pdf)。2025 年度；URL 目录含 2024，报告正文为 2025；PDF 第 104—105 页，Note 1 Revenues，行 4898—4945。
-[^jpm]: [JPMorgan Chase 2025 Annual Report — Consumer & Community Banking](https://www.jpmorganchase.com/content/dam/jpmc/jpmorgan-chase-and-co/investor-relations/documents/annualreport-2025.pdf)。2025 年度；PDF 第 97 页/报告第 65 页，行 8140—8172。
-[^visa]: [Visa FY2025 Form 10-K — Network Model and Transaction Processing](https://www.sec.gov/Archives/edgar/data/1403161/000140316125000089/v-20250930.htm)。财年截至 2025-09-30；业务模式行 181—219；Note 1 Organization，行 1960—1961；结算资金责任沿既有 F2 短段记录复用。
-[^chubb]: [Chubb 2025 Letter to Shareholders; Commercial Property Insurance](https://about.chubb.com/stories/2025-chubb-letter-to-shareholders.html)；[Chubb Commercial Property Insurance — UK](https://www.chubb.com/uk-en/business/products/property-insurance.html)；[Chubb FY2025 Form 10-K — Unpaid losses and loss expenses, and Future policy benefits](https://www.sec.gov/Archives/edgar/data/896159/000089615926000005/R17.htm)。2025 年度股东信；官方产品页读取于 2026-09-27；股东信行 224、234—250；英国商业财产险产品页行 348—392。
-[^xom]: [ExxonMobil — Business divisions](https://corporate.exxonmobil.com/who-we-are/our-global-organization/business-divisions)。动态公司业务页面，读取于 2026-09-27；行 29—55：Upstream、Product Solutions、Low Carbon Solutions。
-[^kmi]: [Kinder Morgan — Products Pipelines; Condensate Processing Facility](https://www.kindermorgan.com/Operations/Products/Index)。动态公司业务页面，读取于 2026-09-27；Overview 行 19—21；Kinder Morgan Condensate Processing Facility 行 272—278。
-[^cma]: [CMA Cloud Infrastructure Services — Final decision report](https://assets.publishing.service.gov.uk/media/688b8891fdde2b8f73469544/final_decision_report.pdf)。2025-07-31 报告；公布版 2025-08-01；本轮 PDF 第 109 页 §§3.236—3.237 关于新增客户/负载和存量变动的区别；第 269 页 §6.70；既有本地迁移阅读见 external-sources.md E2。
+[^nke]: [NIKE FY2025 Form 10-K — Business, Operating Results and Revenue Recognition](https://www.sec.gov/Archives/edgar/data/320187/000032018725000047/nke-20250531.htm)。财年截至 2025-05-31；Consolidated Operating Results（批发 258.8 亿、Direct 187.8 亿、毛利率 42.7%、存货 74.9 亿）及 Item 1、Revenue Recognition。
+[^wmt]: [Walmart FY2025 Form 10-K — Business; Segment Operating Results](https://stock.walmart.com/sec-filings/all-sec-filings/content/0000104169-25-000021/wmt-20250131.htm)。财年截至 2025-01-31；Sam's Club 分部净销售 902 亿、毛利 102.0 亿、运营费 101.2 亿、会员及其他收入 23.23 亿与营业利润 24.04 亿；全集团纯会费 38 亿美元。
+[^msft]: [Microsoft 2025 Annual Report — Microsoft 365 and Licensing Options](https://www.microsoft.com/investor/reports/ar25/index.html)。FY2025 年报；Microsoft 365 Commercial、Dynamics 与 Licensing Options。
+[^msft-fy26]: [Microsoft FY2026 Form 10-K — Revenue Disaggregation, Unearned Revenue and Commercial RPO](https://www.sec.gov/Archives/edgar/data/789019/000119312526323660/msft-20260630.htm)。财年截至 2026-06-30；M365 Commercial 收入 1,020 亿美元（商业云 +17%、席位 +6%）、PBP 递延收入 579 亿美元与商业 RPO 6,780 亿美元。
+[^aws]: [AWS Product and Service Pricing](https://aws.amazon.com/pricing/)。动态官方页面，读取于 2026-09-27；按用量计费、Compute Savings Plan 与套餐规则。
+[^amzn-fy25]: [Amazon.com, Inc. FY2025 Form 10-K — Net Sales by Group, AWS Segment and Performance Obligations](https://www.sec.gov/Archives/edgar/data/1018724/000101872426000004/amzn-20251231.htm)。年度截至 2025-12-31；Online stores 2,693 亿、3P Seller Services 1,722 亿、Advertising 686 亿、AWS 1,287 亿（营业利润 456 亿、长期 RPO 2,440 亿）及 CapEx 1,318 亿美元。
+[^netflix]: [Netflix consolidates relational database infrastructure on Amazon Aurora, achieving up to 75% improved performance](https://aws.amazon.com/blogs/database/netflix-consolidates-relational-database-infrastructure-on-amazon-aurora-achieving-up-to-75-improved-performance/)。2025-11-26；Netflix ODS 团队由 EC2 自管数据库迁往 Aurora 托管服务。
+[^talen]: [Talen Energy Expands Nuclear Energy Relationship with Amazon; Q2 2026 AWS PPA update](https://ir.talenenergy.com/static-files/90cce90c-e281-42c6-b686-ed6010dd8699)；[Talen Q2 2026 Form 10-Q](https://talenenergy.gcs-web.com/static-files/649bfa16-a54e-4997-914b-a8a5d2e00900)。2025-06-11 扩展 PPA 公告与 2026-08-05 Q2 10-Q 确认 2026 年 4 月修订转换。
+[^seller]: [Sell on Amazon — How much does it cost to sell on Amazon?](https://sell.amazon.com/pricing/)。美国官方卖家页面，读取于 2026-09-27；销售计划、品类佣金与 FBA 履约／仓储计费。
+[^alphabet]: [Alphabet 2025 Form 10-K — Google Services; Cost of Revenues and TAC](https://www.sec.gov/Archives/edgar/data/1652044/000165204426000018/goog-20251231.htm)。年度截至 2025-12-31；Search 2,245 亿、YouTube 404 亿、Network 298 亿、订阅平台设备 480 亿及总 TAC 599 亿美元。
+[^bkng]: [Booking Holdings 2025 Form 10-K — Gross Bookings, Revenues and Marketing](https://www.sec.gov/Archives/edgar/data/1075531/000107553126000009/bkng-20251231.htm)。年度截至 2025-12-31；总预订额 1,861 亿（商户 70%）、总收入 269.2 亿（变现率 14.5%）及营销费用 81.9 亿美元。
+[^nvda]: [NVIDIA FY2026 Form 10-K — Markets, Manufacturing and Customer Concentration](https://www.sec.gov/Archives/edgar/data/1045810/000104581026000021/nvda-20260125.htm)。财年截至 2026-01-25；总营收 2,159 亿、数据中心 1,937 亿（89.7%）、毛利率 71.1%、前两大直接客户占总营收 22% 与 14% 及间接客户结构。
+[^tsmc]: [TSMC 2025 Annual Report Website — About TSMC and Shareholder Letter](https://investor.tsmc.com/static/annualReports/2025/english/index.html)。2025 年度报告；纯晶圆代工模式与先进封装服务。
+[^tsm-20f]: [TSMC FY2025 Form 20-F — Net Revenue by Platform, Technology and Capital Expenditures](https://www.sec.gov/Archives/edgar/data/1046179/000162828026025362/tsm-20251231.htm)。年度截至 2025-12-31；总净营收 3.81 万亿新台币、HPC 占 58%、≤7nm 占晶圆收入 74%（3nm 24%、5nm 36%、7nm 14%）、2025 CapEx 409 亿美元及 2026 指引 520–560 亿美元。
+[^asml]: [ASML — About the company](https://www.asml.com/en/company)。动态公司页面，读取于 2026-09-27；光刻系统、软件与服务概述。
+[^asml-20f]: [ASML Holding N.V. FY2025 Form 20-F — Consolidated Statements of Operations and Revenue Policy](https://www.sec.gov/Archives/edgar/data/937966/000162828026011378/asml-20251231.htm)。年度截至 2025-12-31；总净销售 326.7 亿欧元（新系统 244.7 亿占 74.9%，装机服务及现场选件 81.9 亿占 25.1%）及系统验收确认政策。
+[^coreweave]: [CoreWeave Q2 2026 Earnings Call — Corrected Transcript](https://s205.q4cdn.com/133937190/files/doc_financials/2026/q2/CRWV-US-CORRECTED-TRANSCRIPT-CoreWeave-Q2-2026-Earnings-Call-11August2026.pdf)。2026-08-11；新签延续至 2029 年的 A100 算力合同。
+[^aws-gpu]: [Amazon Q1 2026 Earnings Release — AI chip deployment highlights](https://s2.q4cdn.com/299287126/files/doc_earnings/2026/q1/earnings-result/AMZN-Q1-2026-Earnings-Release.pdf)。2026-04-29；AWS 自研 Trainium 与增配 NVIDIA GPU 部署并行。
+[^kgi]: [KGI TSMC Company Update — 3Q25 preview: AI outlook has turned more promising](https://www.kgi.com.hk/en/-/media/files/kgishk/research-reports/tw-reports/tsmc_2330-tt_01102025e.pdf)。2025-10-01；上调 2026 年 CoWoS 需求与产能预测及 2027 年条件展望。
+[^otis]: [Otis Worldwide 2025 Form 10-K — Segment Results, Maintenance Portfolio and Revenue Recognition](https://www.sec.gov/Archives/edgar/data/1781335/000178133526000011/otis-20251231.htm)。年度截至 2025-12-31；新设备收入 49.9 亿（营业利润 2.40 亿、利润率 4.8%），服务收入 94.4 亿（营业利润 23.74 亿、利润率 25.1%），在保梯约 250 万台。
+[^fluor]: [Fluor 2025 Form 10-K — Types of Contracts, Backlog and Segment Results](https://www.sec.gov/Archives/edgar/data/1124198/000112419826000007/flr-20251231.htm)。年度截至 2025-12-31；总收入 155.0 亿，在手订单 255.4 亿（可报销 207.1 亿占 81%，总价/最高限价 48.2 亿占 19%）及能源板块分部亏损 4.14 亿美元。
+[^gev]: [GE Vernova secures two H-class combined cycle equipment orders from EnBW](https://www.gevernova.com/news/press-releases/ge-vernova-secures-two-h-class-combined-cycle-equipment-orders-hydrogen-capability)；[EnBW Heilbronn combined heat and power plant — Project phases](https://www.enbw.com/company/topics/coal-phaseout/heilbronn-combined-heat-and-power-plant/)；[EnBW Heilbronn — Projektphasen](https://www.enbw.com/unternehmen/themen/kohleausstieg/heizkraftwerk-heilbronn/)。2023-11-06 供应方公告预计 2026 年底投运，2026-09-27 读取业主项目表暂定 2027 年下半年。
+[^jnj]: [Johnson & Johnson 2025 Form 10-K — Segment Results and Major Wholesalers](https://www.sec.gov/Archives/edgar/data/200406/000020040626000016/jnj-20251228.htm)。财年截至 2025-12-28；总销售 941.9 亿（创新药 604.0 亿 EBT 率 36.9%、器械 337.9 亿 EBT 率 12.2%），三大批发商占总毛收入 21.8%、15.5% 与 11.1%。
+[^isrg]: [Intuitive Surgical FY2025 Form 10-K — Systems, Instruments and Services](https://www.sec.gov/Archives/edgar/data/1035267/000103526726000010/isrg-20251231.htm)。年度截至 2025-12-31；总收入 100.6 亿美元（系统 24.7 亿、器械附件 60.2 亿、服务 15.7 亿）及租赁与第三方再制造器械说明。
+[^hca]: [HCA Healthcare 2025 Annual Report to Shareholders — Note 1 Revenues](https://s23.q4cdn.com/949900249/files/doc_financials/2024/ar/HCA-2025-Annual-Report-to-Shareholders-FINAL.pdf)。2025 年度；Note 1 收入确认与支付安排。
+[^hca-10k]: [HCA Healthcare FY2025 Form 10-K — Revenues by Payer and Utilization](https://www.sec.gov/Archives/edgar/data/860730/000119312526044769/hca-20251231.htm)。年度截至 2025-12-31；总营收 756.0 亿，按支付方收入与住院人次占比（商业管理式 48.9%／32%、Medicare 含管理式 32.7%／46%、Medicaid 含管理式 12.7%／15%）。
+[^jpm]: [JPMorgan Chase 2025 Annual Report — Consumer & Community Banking](https://www.jpmorganchase.com/content/dam/jpmc/jpmorgan-chase-and-co/investor-relations/documents/annualreport-2025.pdf)。2025 年度；消费与社区银行存贷款及账户业务。
+[^jpm-10k]: [JPMorgan Chase & Co. FY2025 Form 10-K — Consolidated Results and Credit Portfolio](https://www.sec.gov/Archives/edgar/data/19617/000162828026008131/jpm-20251231.htm)。年度截至 2025-12-31；总净收入 1,824 亿（净利息收入 954 亿、非息收入 870 亿）、总贷款 1.49 万亿、信用损失拨备 142 亿与净核销 98.5 亿美元。
+[^visa]: [Visa FY2025 Form 10-K — Network Model, Revenue Disaggregation and Volume](https://www.sec.gov/Archives/edgar/data/1403161/000140316125000089/v-20250930.htm)。财年截至 2025-09-30；名义支付额 13.89 万亿（截至 2025-06-30 十二个月）、处理笔数 2,575 亿笔、毛收入 557.5 亿、客户激励 157.5 亿与净收入 400.0 亿美元。
+[^chubb]: [Chubb Limited Annual Report 2025 & FY2025 Form 10-K](https://www.chubb.com/content/dam/annual-corporate-governance/2026/a-chubb-limited/chubb-limited-annual-report-2025.pdf)；[Chubb FY2025 Form 10-K — Unpaid losses](https://www.sec.gov/Archives/edgar/data/896159/000089615926000005/R17.htm)。2025 年度；合并净签单保费 548.4 亿、净已赚保费 530.1 亿、财险综合成本率 85.7%、税前投资收益 64.7 亿、未付赔款准备金 880.2 亿与未赚保费 262.8 亿美元。
+[^xom]: [ExxonMobil — Business divisions](https://corporate.exxonmobil.com/who-we-are/our-global-organization/business-divisions)。动态公司业务页面，读取于 2026-09-27；Upstream、Product Solutions 与 Low Carbon Solutions 划分。
+[^xom-10k]: [Exxon Mobil Corporation FY2025 Form 10-K — Business Profile and Segment Earnings](https://www.sec.gov/Archives/edgar/data/34088/000003408826000045/xom-20251231.htm)。年度截至 2025-12-31；上游税后盈利 213.5 亿（−15.9%）、能源产品 74.2 亿（+84.1%）、化工 8.0 亿（−69.0%）；自产原油均价 76.57→65.64 美元/桶。
+[^kmi]: [Kinder Morgan — Products Pipelines; Condensate Processing Facility](https://www.kindermorgan.com/Operations/Products/Index)。动态公司业务页面，读取于 2026-09-27；BP North America 长期凝析油收费加工协议。
+[^kmi-10k]: [Kinder Morgan, Inc. FY2025 Form 10-K — Revenue Disaggregation (Note 14)](https://www.sec.gov/Archives/edgar/data/1506307/000150630726000011/kmi-20251231.htm)。年度截至 2025-12-31；总收入 169.4 亿（服务 94.9 亿、商品销售 72.6 亿）；客户合同服务拆分为 Firm Services 53.4 亿（+7.8%）与 Fee-Based Services 27.2 亿（+4.7%）。
+[^wic]: [Wyoming Interstate Company — Black Hills Negotiated Rate Agreement Update](https://pipeline2.kindermorgan.com/Documents/WIC/RP25-1193-000_Negotiated_Rate_Agreement_Update_-_Black_Hills_2025-20250930164903.pdf)。2025-09-30 监管申报；28,150 Dth/d 预订容量与按月预留费条款。
+[^cma]: [CMA Cloud Infrastructure Services — Final decision report](https://assets.publishing.service.gov.uk/media/688b8891fdde2b8f73469544/final_decision_report.pdf)。2025-07-31 报告；第 109 页 §§3.236—3.237 关于存量用量、成本优化、系统迁移与新增负载的区分。
 
 
 ## Sources
 - [GE Vernova：2023年 EnBW 发电项目订单公告](https://www.gevernova.com/news/press-releases/ge-vernova-secures-two-h-class-combined-cycle-equipment-orders-hydrogen-capability): 本篇采用的公开资料：GE Vernova：2023年 EnBW 发电项目订单公告。具体采用范围见文章脚注与 Agent 阅读材料。
 - [Alphabet 2025 Form 10-K](https://www.sec.gov/Archives/edgar/data/1652044/000165204426000018/goog-20251231.htm): Alphabet 2025 Form 10-K，Item 5、Note 11、Note 12；股份权利说明，Voting Rights、Liquidation Rights、Conversion。
+- [Amazon.com, Inc. FY2025 Form 10-K](https://www.sec.gov/Archives/edgar/data/1018724/000101872426000004/amzn-20251231.htm): Amazon.com, Inc.
 - [ASML — About the company](https://www.asml.com/en/company): ASML 为芯片制造商提供在硅片上制造图案所用的光刻设备、软件和服务。
+- [ASML Holding N.V. FY2025 Form 20-F](https://www.sec.gov/Archives/edgar/data/937966/000162828026011378/asml-20251231.htm): ASML Holding N.V.
 - [AWS Product and Service Pricing](https://aws.amazon.com/pricing/): AWS 多数云服务采用按用量计费，也有固定套餐和承诺安排。；客户具体工作负载、所用资源和购买安排共同影响账单。
 - [Amazon Q1 2026 Earnings Release — AI chip deployment highlights](https://s2.q4cdn.com/299287126/files/doc_earnings/2026/q1/earnings-result/AMZN-Q1-2026-Earnings-Release.pdf): AWS 同时使用自研 Trainium 并公开宣布从 2026 年开始部署更多 NVIDIA GPU 的安排。；云客户增加计算服务时，采购可以落到不同类型的芯片。
 - [Booking Holdings 2025 Form 10-K — Marketing](https://www.sec.gov/Archives/edgar/data/1075531/000107553126000009/bkng-20251231.htm): BKNG 披露其效果营销主要使用搜索引擎，尤其 Google，以及联盟、比价和社交渠道。；其营销效率受点击成本、转化、取消和渠道组合等影响。
@@ -850,11 +1489,16 @@ HCA Healthcare（HCA）赚的则是医疗服务的钱。患者接受住院、门
 - [EnBW Heilbronn combined heat and power plant — Project phases](https://www.enbw.com/company/topics/coal-phaseout/heilbronn-combined-heat-and-power-plant/): Project phases；德语版同表可确认英文 Q23 排版笔误实际为 Q3/Q4
 - [EnBW Heilbronn — Projektphasen](https://www.enbw.com/unternehmen/themen/kohleausstieg/heizkraftwerk-heilbronn/): 2026-09-27 V3核验读取Projektphasen，行44，暂定Q3/Q4 2027商业投运安排。
 - [HCA Healthcare 2025 Annual Report to Shareholders — Note 1 Revenues](https://s23.q4cdn.com/949900249/files/doc_financials/2024/ar/HCA-2025-Annual-Report-to-Shareholders-FINAL.pdf): HCA 提供住院和门诊服务，多数患者合同还涉及政府项目、商业保险或管理式医疗等第三方付款者。；支付可按病例、日或服务项目等约定，服务交付、收入确认与收款需要区别。
+- [HCA Healthcare, Inc. FY2025 Form 10-K](https://www.sec.gov/Archives/edgar/data/860730/000119312526044769/hca-20251231.htm): HCA Healthcare, Inc.
+- [Intuitive Surgical, Inc. FY2025 Form 10-K](https://www.sec.gov/Archives/edgar/data/1035267/000103526726000010/isrg-20251231.htm): Intuitive Surgical, Inc.
 - [Johnson & Johnson 2025 Form 10-K — Innovative Medicine and MedTech](https://www.sec.gov/Archives/edgar/data/200406/000020040626000016/jnj-20251228.htm): JNJ 同时经营药品与医疗器械。；药品可经零售商、批发商、分销商、医院和专业人员分销；器械有对应专业用途与机构采购渠道。；临床使用者、机构买方与最终支付方需要分别识别。
 - [JPMorgan Chase 2025 Annual Report — Consumer & Community Banking](https://www.jpmorganchase.com/content/dam/jpmc/jpmorgan-chase-and-co/investor-relations/documents/annualreport-2025.pdf): JPM 的消费与社区银行服务个人和小企业，包含存款、贷款、账户和支付服务。；客户存入的本金、银行放出的贷款本金、利息及服务费用承担不同权利和义务。
+- [JPMorgan Chase & Co. FY2025 Form 10-K](https://www.sec.gov/Archives/edgar/data/19617/000162828026008131/jpm-20251231.htm): JPMorgan Chase & Co.
 - [KGI TSMC Company Update — 3Q25 preview: AI outlook has turned more promising](https://www.kgi.com.hk/en/-/media/files/kgishk/research-reports/tw-reports/tsmc_2330-tt_01102025e.pdf): 报告以当时 AI 客户计划及交易安排为依据，上调 2026 年 CoWoS 需求和产能预测。；其对 2027 年短缺的判断以客户维持当时需求水平为条件，可用来演示研报假设如何等待后续公司材料校准。
 - [Kinder Morgan — Products Pipelines; Condensate Processing Facility](https://www.kindermorgan.com/Operations/Products/Index): KMI 提供成品油等运输、储存与调和服务。；其 Galena Park 附近凝析油加工设施由与 BP North America 的长期收费协议支持。；同样处理能源商品，企业也可以通过提供加工服务取得收费。
+- [Kinder Morgan, Inc. FY2025 Form 10-K](https://www.sec.gov/Archives/edgar/data/1506307/000150630726000011/kmi-20251231.htm): Kinder Morgan, Inc.
 - [Microsoft 2025 Annual Report — Microsoft 365 and Licensing Options](https://www.microsoft.com/investor/reports/ar25/index.html): Microsoft 365 商业云、Office 本地许可和持续服务对应不同交付。；企业可以在批量许可协议下购买多份软件许可和云服务；用户数量、购买功能及使用范围需要区别。；软件保障可以提供合同期内的新版本、升级和支持权益。
+- [Microsoft Corporation FY2026 Form 10-K](https://www.sec.gov/Archives/edgar/data/789019/000119312526323660/msft-20260630.htm): Microsoft Corporation
 - [Netflix consolidates relational database infrastructure on Amazon Aurora, achieving up to 75% improved performance](https://aws.amazon.com/blogs/database/netflix-consolidates-relational-database-infrastructure-on-amazon-aurora-achieving-up-to-75-improved-performance/): Netflix ODS 团队此前在 AWS EC2 上自管 PostgreSQL 兼容数据库，随后把若干应用迁到 Aurora PostgreSQL。；案例将降低许可和维护负担、简化运行管理与成本效率联系起来；客户降本可以伴随同一云商内部的服务组合变化。
 - [NIKE FY2025 Form 10-K — Business and Revenue Recognition](https://www.sec.gov/Archives/edgar/data/320187/000032018725000047/nke-20250531.htm): NKE 设计、开发及销售商品，绝大部分产品由独立承包商制造。；自有门店和数字渠道直营与批发并存；批发交货和消费者购入是不同交易阶段。；批发与直营的控制转移、付款和退货折扣安排存在差别。
 - [NVIDIA FY2026 Form 10-K — Markets, Manufacturing and Customers](https://www.sec.gov/Archives/edgar/data/1045810/000104581026000021/nvda-20260125.htm): NVDA 的计算平台可以以机架系统、子系统、模块及相关软件服务交付。；直接采购者与实际部署使用者可以不同。；公司采用晶圆代工和合同制造，明确提到 TSMC 制造晶圆与 CoWoS 封装技术。
@@ -862,10 +1506,14 @@ HCA Healthcare（HCA）赚的则是医疗服务的钱。患者接受住院、门
 - [Sell on Amazon — How much does it cost to sell on Amazon?](https://sell.amazon.com/pricing/): 第三方商家向平台购买销售服务，可能另选平台仓储配送。；商家服务费用与消费者购买商品的价款是不同交易关系。
 - [Talen Energy Expands Nuclear Energy Relationship with Amazon; Q2 2026 AWS PPA update](https://ir.talenenergy.com/static-files/90cce90c-e281-42c6-b686-ed6010dd8699): 2025 年扩展 PPA 约定供电随时间分阶段增加。；原公告把输电改造与供电结构转换相连，后续 10-Q 确认修订 PPA 于 2026 年 4 月转换。；合同、具体供电节点和客户机房可用容量应分别核对。
 - [Talen Q2 2026 Form 10-Q](https://talenenergy.gcs-web.com/static-files/649bfa16-a54e-4997-914b-a8a5d2e00900): PDF 第 46 页 AWS PPA
+- [Taiwan Semiconductor Manufacturing Company FY2025 Form 20-F](https://www.sec.gov/Archives/edgar/data/1046179/000162828026025362/tsm-20251231.htm): TSMC
 - [TSMC 2025 Annual Report Website — About TSMC and Shareholder Letter](https://investor.tsmc.com/static/annualReports/2025/english/index.html): TSMC 以制造客户产品的纯代工模式经营，并提供先进封装等技术。；制造和封装需要公司进行相应技术及产能投入。；2330 为台湾上市股票代码，TSM 为美国存托股份交易代码。
 - [Visa FY2025 Form 10-K — Network Model and Transaction Processing](https://www.sec.gov/Archives/edgar/data/1403161/000140316125000089/v-20250930.htm): V 向支付体系参与者提供网络处理服务，本身不发卡或向持卡人授信。；交换费一般由收单方向发卡方支付，商户收单费用与 V 对机构收取的费用需区分。；网络流经金额不等同 V 的营业收入。
+- [Wyoming Interstate Company — Black Hills Negotiated Rate Agreement Update](https://pipeline2.kindermorgan.com/Documents/WIC/RP25-1193-000_Negotiated_Rate_Agreement_Update_-_Black_Hills_2025-20250930164903.pdf): Wyoming Interstate Company, L.L.C.
 - [Walmart FY2025 Form 10-K — Business; Membership and Other Income](https://stock.walmart.com/sec-filings/all-sec-filings/content/0000104169-25-000021/wmt-20250131.htm): WMT 有商品零售和会员服务，会员收费对应期间权益。；同一购物活动可以涉及商品价款与会员费两种不同收费。
 - [ExxonMobil — Business divisions](https://corporate.exxonmobil.com/who-we-are/our-global-organization/business-divisions): XOM 同时有油气生产、下游燃料及化工业务，最终服务不同用途。；从开采、加工及商品销售切面识别业务，有助于分别研究产品价格和加工关系。
+- [Exxon Mobil Corporation FY2025 Form 10-K](https://www.sec.gov/Archives/edgar/data/34088/000003408826000045/xom-20251231.htm): Exxon Mobil Corporation
+- [Chubb Limited Annual Report 2025 — Premiums; Financial Highlights](https://www.chubb.com/content/dam/annual-corporate-governance/2026/a-chubb-limited/chubb-limited-annual-report-2025.pdf): 保费定义跨页完整读取，经营增长说明读取对应段落；其他命中页只作定位上下文，不作为新增研究内容。未称304页全文已审读。
 
 ## Content relations
 ```json

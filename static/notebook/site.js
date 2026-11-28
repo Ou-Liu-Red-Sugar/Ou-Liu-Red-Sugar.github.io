@@ -102,24 +102,35 @@ for(const section of qa('.entry-experiments')){
 
 // Same-origin labs grow with their content, keeping one page scroll for reading.
 for(const frame of qa('.experiment-frame')){
+  let lastHeight=0,timer=0;
   const fit=()=>{
-    const body=frame.contentDocument?.body;
-    if(!body||!frame.getClientRects().length)return;
-    const style=frame.contentWindow.getComputedStyle(body);
-    const height=Math.ceil(body.getBoundingClientRect().height+(parseFloat(style.marginTop)||0)+(parseFloat(style.marginBottom)||0)+4);
-    if(height>4){frame.style.height=Math.max(320,height)+'px';frame.classList.add('is-fitted');}
+    timer=0;
+    const doc=frame.contentDocument;
+    const target=doc?.querySelector('main')||doc?.body;
+    if(!target||!frame.getClientRects().length)return;
+    const style=frame.contentWindow.getComputedStyle(doc.body);
+    const height=Math.ceil(target.getBoundingClientRect().height+(parseFloat(style.marginTop)||0)+(parseFloat(style.marginBottom)||0)+(parseFloat(style.paddingTop)||0)+(parseFloat(style.paddingBottom)||0)+4);
+    if(height>4){
+      const next=Math.max(320,height);
+      if(Math.abs(next-lastHeight)>1){lastHeight=next;frame.style.height=next+'px';}
+      frame.classList.add('is-fitted');
+    }
   };
+  const scheduleFit=()=>{if(timer)clearTimeout(timer);timer=setTimeout(fit,30);};
   let observer;
   const observe=()=>{
     if(new URL(frame.src,location.href).origin!==location.origin)return;
     observer?.disconnect();
-    const body=frame.contentDocument?.body;if(!body)return;
-    observer=new ResizeObserver(()=>requestAnimationFrame(fit));observer.observe(body);
-    frame.contentDocument.fonts?.ready.then(fit);fit();
+    const doc=frame.contentDocument;
+    const target=doc?.querySelector('main')||doc?.body;
+    if(!target)return;
+    const RO=frame.contentWindow?.ResizeObserver||window.ResizeObserver;
+    if(RO){observer=new RO(scheduleFit);observer.observe(target);}
+    doc.fonts?.ready.then(scheduleFit);scheduleFit();
   };
   frame.addEventListener('load',observe);
   if(frame.contentDocument?.readyState==='complete')observe();
-  frame.closest('details')?.addEventListener('toggle',fit);
+  frame.closest('details')?.addEventListener('toggle',scheduleFit);
 }
 
 // Industry branches preserve the full original text and work as normal reading

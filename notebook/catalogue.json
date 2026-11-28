@@ -41,6 +41,12 @@
       "zh": "财报、资本与每股所得",
       "en": "Financial statements, capital and per-share results",
       "desc_zh": "沿同一经营过程读懂三张财报、现金流转、资本投入与每股结果。"
+    },
+    {
+      "id": "topic-N",
+      "zh": "行业研究与商业模式深潜",
+      "en": "Industry deep dives and business mechanics",
+      "desc_zh": "按行业原生指标、资产负债表特征与周期机制，逐个深拆核心板块的分析框架。"
     }
   ],
   "sources": [
@@ -3556,6 +3562,137 @@
       "version": "2026-11-27 核对 SEC EDGAR",
       "authors": [
         "Intel Corporation"
+      ]
+    },
+    {
+      "source_id": "nb-d01-msft-fy26",
+      "title": "Microsoft Corporation FY2026 Form 10-K",
+      "url": "https://www.sec.gov/Archives/edgar/data/789019/000119312526323660/msft-20260630.htm",
+      "body": "Microsoft Corporation",
+      "version": "FY2026 (ended 2026-06-30)",
+      "authors": [
+        "Microsoft Corporation"
+      ]
+    },
+    {
+      "source_id": "nb-d01-amzn-fy25",
+      "title": "Amazon.com, Inc. FY2025 Form 10-K",
+      "url": "https://www.sec.gov/Archives/edgar/data/1018724/000101872426000004/amzn-20251231.htm",
+      "body": "Amazon.com, Inc.",
+      "version": "FY2025 (ended 2025-12-31)",
+      "authors": [
+        "Amazon.com, Inc."
+      ]
+    },
+    {
+      "source_id": "nb-d01-tsm-20f",
+      "title": "Taiwan Semiconductor Manufacturing Company FY2025 Form 20-F",
+      "url": "https://www.sec.gov/Archives/edgar/data/1046179/000162828026025362/tsm-20251231.htm",
+      "body": "TSMC",
+      "version": "FY2025 (ended 2025-12-31)",
+      "authors": [
+        "Taiwan Semiconductor Manufacturing Company Limited"
+      ]
+    },
+    {
+      "source_id": "nb-d01-asml-20f",
+      "title": "ASML Holding N.V. FY2025 Form 20-F",
+      "url": "https://www.sec.gov/Archives/edgar/data/937966/000162828026011378/asml-20251231.htm",
+      "body": "ASML Holding N.V.",
+      "version": "FY2025 (ended 2025-12-31)",
+      "authors": [
+        "ASML Holding N.V."
+      ]
+    },
+    {
+      "source_id": "nb-d01-isrg-fy25",
+      "title": "Intuitive Surgical, Inc. FY2025 Form 10-K",
+      "url": "https://www.sec.gov/Archives/edgar/data/1035267/000103526726000010/isrg-20251231.htm",
+      "body": "Intuitive Surgical, Inc.",
+      "version": "FY2025 (ended 2025-12-31)",
+      "authors": [
+        "Intuitive Surgical, Inc."
+      ]
+    },
+    {
+      "source_id": "nb-d01-hca-10k",
+      "title": "HCA Healthcare, Inc. FY2025 Form 10-K",
+      "url": "https://www.sec.gov/Archives/edgar/data/860730/000119312526044769/hca-20251231.htm",
+      "body": "HCA Healthcare, Inc.",
+      "version": "FY2025 (ended 2025-12-31)",
+      "authors": [
+        "HCA Healthcare, Inc."
+      ]
+    },
+    {
+      "source_id": "nb-d01-jpm-10k",
+      "title": "JPMorgan Chase & Co. FY2025 Form 10-K",
+      "url": "https://www.sec.gov/Archives/edgar/data/19617/000162828026008131/jpm-20251231.htm",
+      "body": "JPMorgan Chase & Co.",
+      "version": "FY2025 (ended 2025-12-31)",
+      "authors": [
+        "JPMorgan Chase & Co."
+      ]
+    },
+    {
+      "source_id": "nb-d01-xom-10k",
+      "title": "Exxon Mobil Corporation FY2025 Form 10-K",
+      "url": "https://www.sec.gov/Archives/edgar/data/34088/000003408826000045/xom-20251231.htm",
+      "body": "Exxon Mobil Corporation",
+      "version": "FY2025 (ended 2025-12-31)",
+      "authors": [
+        "Exxon Mobil Corporation"
+      ]
+    },
+    {
+      "source_id": "nb-d01-kmi-10k",
+      "title": "Kinder Morgan, Inc. FY2025 Form 10-K",
+      "url": "https://www.sec.gov/Archives/edgar/data/1506307/000150630726000011/kmi-20251231.htm",
+      "body": "Kinder Morgan, Inc.",
+      "version": "FY2025 (ended 2025-12-31)",
+      "authors": [
+        "Kinder Morgan, Inc."
+      ]
+    },
+    {
+      "source_id": "nb-d01-wic-2025",
+      "title": "Wyoming Interstate Company — Black Hills Negotiated Rate Agreement Update",
+      "url": "https://pipeline2.kindermorgan.com/Documents/WIC/RP25-1193-000_Negotiated_Rate_Agreement_Update_-_Black_Hills_2025-20250930164903.pdf",
+      "body": "Wyoming Interstate Company, L.L.C.",
+      "version": "Filed 2025-09-30 (term 2025-11-01 to 2030-10-31)",
+      "authors": [
+        "Wyoming Interstate Company, L.L.C."
+      ]
+    },
+    {
+      "source_id": "nb-d02-otis-call",
+      "title": "Otis Worldwide Corporation Q4 2025 Earnings Call — Corrected Transcript",
+      "url": "https://s203.q4cdn.com/227649559/files/doc_financials/2025/q4/4Q25-Otis-Worldwide-Corp-Earnings-Call-Transcript.pdf",
+      "body": "Otis Worldwide Corporation",
+      "version": "2026-01-28",
+      "authors": [
+        "Otis Worldwide Corporation",
+        "FactSet CallStreet"
+      ]
+    },
+    {
+      "source_id": "nb-n08-brk-10k",
+      "title": "Berkshire Hathaway Inc. FY2025 Form 10-K",
+      "url": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526083899/brka-20251231.htm",
+      "body": "Berkshire Hathaway Inc.",
+      "version": "FY2025 (ended 2025-12-31)",
+      "authors": [
+        "Berkshire Hathaway Inc."
+      ]
+    },
+    {
+      "source_id": "nb-n08-pgr-10k",
+      "title": "The Progressive Corporation FY2025 Form 10-K",
+      "url": "https://www.sec.gov/Archives/edgar/data/80661/000008066126000086/pgr-20251231.htm",
+      "body": "The Progressive Corporation",
+      "version": "FY2025 (ended 2025-12-31)",
+      "authors": [
+        "The Progressive Corporation"
       ]
     }
   ],

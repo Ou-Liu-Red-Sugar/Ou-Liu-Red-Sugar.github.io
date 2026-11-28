@@ -39,7 +39,7 @@
       <p class="ag-eyebrow">KNOWLEDGE GRAPH · 节点 {{ $curNode.id }}</p>
       <h2 id="article-graph-title">本篇在知识图谱中的邻域</h2>
     </div>
-    <a class="ag-full-link" href="/zh/notebook/#topic-{{ $curNode.id }}" data-no-preview>打开完整 19 节点图谱 <span aria-hidden="true">↗</span></a>
+    <a class="ag-full-link" href="/zh/notebook/#topic-{{ $curNode.id }}" data-no-preview>打开完整 {{ len $map.nodes }} 节点图谱 <span aria-hidden="true">↗</span></a>
   </header>
 
   {{ if gt (len $presentKinds) 1 }}

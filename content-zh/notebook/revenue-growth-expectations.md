@@ -8,19 +8,13 @@
   "translationKey": "zh-revenue-growth-expectations"
 }
 
-收入增长，可能因为卖得更多，也可能因为卖得更贵。Coca-Cola（KO）在 2025 年第二季度的净营收同比增长 1%，公司披露的全球标准箱销量却下降 1%。收入在涨、销量在跌，这时候就得把增长拆开，看看多出来的钱到底从哪儿来。[^ko-growth]
+收入增长，可能因为卖得更多，也可能因为卖得更贵。Coca-Cola（KO）在 2025 年第二季度的报表净营收同比增长 1%，全球标准箱销量却下降 1%。收入在涨、销量在跌，不把增长拆开，根本看不清多出来的钱究竟靠什么撑着。[^ko-growth]
 
-[《客户、产品与收费方式》](/zh/notebook/customers-products-pricing/)讲清了公司卖给谁、交付什么、怎样收费。这门生意的收入一旦往上走，接下来就要判断哪些增长能延续：客户会不会接着买、净价守不守得住、新品又能贡献多少。真准备买股票时，还要把自己的增长判断拿去跟公开预测对照，再反推眼前的股价需要公司交出怎样的成绩单。
+[《客户、产品与收费方式》](/zh/notebook/customers-products-pricing/)拆清了八类生意谁买单、怎么收费。收入一旦开始变化，接下来就要追问增长的质量与延续性：究竟是真实用量扩张、结构上移，还是仅仅受惠于发货时点、折扣回补或并购并表？真到买卖决策时，还要把经营拆解拿去跟公开预期门槛对表，再从眼前股价反推出公司需要交出怎样的成绩单。
 
 ## 销量、净价与产品组合 {#nb-d02-drivers}
 
-先从最直观的卖商品看起。一段时间内卖出多少件、每件实际入账多少钱，两者相乘就是销售收入。吊牌上标着 100 元的商品，扣掉促销折扣、预计退货与渠道折让以后，最终入账往往不到 100 元。这里说的净价，就是扣除这些调整后计入收入的价格；货款哪天真正到账，则另看付款条款。把第 \(i\) 类商品的销量记为 \(q_i\)，对应的平均净价记为 \(p_i\)，收入记为 \(R\)，可以写成：
-
-\[
-R=\sum_i q_i p_i.
-\]
-
-把相邻两期或上年同季摆在一起，就能把销量、同类商品净价与产品组合拆开看。哪怕每一款商品一分钱都没涨，只要高价款在总销量里的占比提高，整体平均售价照样往上走。光看到“平均客单价变贵了”，还不能一口断定公司提了价，得拆开核对究竟是同款商品涨价，还是顾客挑了更多高价款。量、价与组合彼此牵动：提价可能劝退一部分价格敏感的顾客，推新品则可能把销量和均价同时拉高。
+卖商品的收入最直观：每类商品的销量 \(q_i\) 乘以扣除折扣、退货与渠道折让后的平均净价 \(p_i\)，加总即得收入 \(R=\sum_i q_i p_i\)。把相邻两期或上年同季并列时，除了量与单品净价，还有一个经常被错当成“提价”的变量——**产品组合**。哪怕每款商品单价分文未涨，只要高价款占比上升，整体均价也会大幅跳升。
 
 <figure class="flow-figure stack-rows" id="nb-d02-mix">
 <div class="ff-head"><p class="ff-title">每款都不涨价，平均售价也能上升（示意）</p><p class="ff-legend"><span style="--c:#8db39c">A 款，每件 10 元</span><span style="--c:#24664f">B 款，每件 20 元</span></p></div>
@@ -28,10 +22,10 @@ R=\sum_i q_i p_i.
 <span class="sr-name">第一期</span><span class="sr-val">收入 <strong>1,200 元</strong><br>平均售价 12 元</span><div class="sr-bar business-exchange" aria-label="第一期卖出 100 件：A 款 80 件、B 款 20 件，收入 1,200 元，平均售价 12 元。"><i style="--w:80%;--c:#8db39c">A 80 件</i><i style="--w:20%;--c:#24664f">B 20 件</i></div>
 <span class="sr-name">第二期</span><span class="sr-val">收入 <strong>1,400 元</strong><br>平均售价 <strong>14 元，+16.7%</strong></span><div class="sr-bar business-exchange" aria-label="第二期同样卖出 100 件，每款价格不变，但 B 款增加到 40 件、A 款减少到 60 件，收入 1,400 元，平均售价 14 元，上升约 16.7%。"><i style="--w:60%;--c:#8db39c">A 60 件</i><i style="--w:40%;--c:#24664f">B 40 件</i></div>
 </div>
-<figcaption>两期都卖出 100 件，A、B 两款的价格也都没变；平均售价上升，全部来自高价商品占比的提高。</figcaption>
+<figcaption>两期都卖出 100 件，A、B 两款单价不变；平均售价跳升 16.7%，全部来自高价款占比提高。</figcaption>
 </figure>
 
-不同行业的生意形态不同，拆解增长时选用的观察单位也不一样。下面沿用前篇的八个行业，分别看收入往上走时先查什么。
+量、价与组合彼此牵动：硬提价可能劝退价格敏感顾客，推高毛利新品则可能同时拉高销量与均价。下面沿用前篇的八个行业分支，逐一用 2025/2026 年一手财报演示不同生意怎样拆增长、避陷阱。
 
 <div data-reading-branch-controls hidden></div>
 
@@ -39,9 +33,53 @@ R=\sum_i q_i p_i.
 
 ## 消费品与零售：销量与组合 {#nb-d02-consumer-story}
 
-读消费品公司的销量，先要认清这个量统计在哪个环节。KO 向装瓶伙伴等客户销售浓缩液，公司与装瓶伙伴再面向终端销售成品饮料；两种销量都能折成标准箱，变动节奏却未必同步。2025 年第二季度，KO 亚太地区的标准箱销量下降 3%，浓缩液销量却下降 5%，公司将这 2 个百分点的落差归因于浓缩液发货时点。[^ko-growth]一批浓缩液提前或错后几天发货，出货量就会落进相邻报告期，而下游货架上的成品动销未必同步变化。判断真实需求时，还得对照下游动销与渠道库存，看补货能不能接上。
+拆消费品牌与零售商的收入变化，要先核对三条分界线：**批发与直营渠道**、**上游出货与终端动销**，以及**老店可比销售与新店／会费增量**。前篇[《消费品与零售》](/zh/notebook/customers-products-pricing/#nb-d01-consumer-flow)已经拆开了 NKE 与 WMT 的收费结构，把它们拉进两期对比，差异立刻显现。[^nke]<sup>，</sup>[^ko-growth]<sup>，</sup>[^wmt]
 
-换到零售业，还要把老店增长与开新店分开算。Walmart（WMT）美国业务在 FY2025 的可比销售增长 4.8%，公司将其归因于交易次数和销量增加；新开门店贡献的增量，则另起一笔看。[^wmt]在数量之外，品类、包装和渠道结构也会左右平均售价。KO 披露的 price/mix 就把价格调整和这些组合变化合在一起，因此不能直接当成所有饮料统一涨了同样幅度的价。
+<figure class="flow-figure" id="nb-d02-consumer-bridge">
+<div class="ff-head"><p class="ff-title">消费品与零售：渠道量价分化（NKE）、发货时点差（KO）与同店拆分（WMT）</p><span class="ff-sub">2025 年财报实数：出货、动销、老店与会费各走各的账</span></div>
+<div class="rel-svg-wrap business-exchange" aria-label="左右双栏图：左栏展示 NKE FY2025 渠道与量价分化，批发收入由 277.6 亿降至 258.8 亿美元（报告 −7%、剔汇率 −6%），NIKE Direct 由 215.2 亿降至 187.8 亿美元（报告 −13%、剔汇率 −12%，其中数字业务 −20%），同期 NIKE Brand 鞋类销量降 8%、低均价再拖累约 3 个百分点；右栏展示 KO 2025 Q2 亚太地区标准箱销量 −3% 与浓缩液发货 −5% 的 2 个百分点时点落差，以及 WMT U.S. FY2025 净销售增 4.7%（4,418 亿至 4,624 亿美元）、可比销售增 4.8%（交易次数与件数拉动）及全集团纯会费由 31 亿增至 38 亿美元。">
+<svg viewBox="0 0 860 320" role="img" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+  <rect x="14" y="14" width="408" height="292" rx="11" fill="#ffffff" stroke="#d5ddd6" stroke-width="1.3"/>
+  <rect x="14" y="14" width="408" height="36" rx="11" fill="#faeae7"/>
+  <rect x="14" y="38" width="408" height="12" fill="#faeae7"/>
+  <text x="30" y="37" font-size="13.5" font-weight="700" fill="#22392f">NKE FY2025：渠道降速与折扣拖累</text>
+  <text x="30" y="74" font-size="12" font-weight="700" fill="#22392f">批发（Wholesale）</text>
+  <text x="404" y="74" text-anchor="end" font-size="12" font-weight="700" fill="#b5483a">277.6 → 258.8 亿（−7% / 剔汇率 −6%）</text>
+  <rect x="30" y="83" width="374" height="14" rx="4" fill="#eef1ec"/>
+  <rect x="30" y="83" width="348" height="14" rx="4" fill="#6b9f8c"/>
+  <text x="30" y="122" font-size="12" font-weight="700" fill="#22392f">直营（NIKE Direct）</text>
+  <text x="404" y="122" text-anchor="end" font-size="12" font-weight="700" fill="#b5483a">215.2 → 187.8 亿（−13% / 剔汇率 −12%）</text>
+  <rect x="30" y="131" width="290" height="14" rx="4" fill="#eef1ec"/>
+  <rect x="30" y="131" width="253" height="14" rx="4" fill="#b5483a"/>
+  <text x="30" y="160" font-size="11" fill="#5e6d65">其中直营数字业务同比 −20%，自有门店持平</text>
+  <rect x="30" y="178" width="374" height="112" rx="8" fill="#fcf8f3" stroke="#ead9c4"/>
+  <text x="44" y="200" font-size="12" font-weight="700" fill="#8f6033">NIKE Brand 鞋类量价拆解（公司披露）</text>
+  <text x="44" y="223" font-size="12" fill="#3c4c44">· 单位销量：<tspan font-weight="700" fill="#b5483a">−8%</tspan>（主动压缩部分经典款供给）</text>
+  <text x="44" y="245" font-size="12" fill="#3c4c44">· 每双均价：<tspan font-weight="700" fill="#b5483a">拖累约 −3 pct</tspan>（直营降价＋批发折扣退货）</text>
+  <text x="44" y="269" font-size="11" fill="#5e6d65">注：鞋类量价属产品口径，不能直接套作直营 −12% 的精确拆解。</text>
+  <rect x="438" y="14" width="408" height="292" rx="11" fill="#ffffff" stroke="#d5ddd6" stroke-width="1.3"/>
+  <rect x="438" y="14" width="408" height="36" rx="11" fill="#eff4f1"/>
+  <rect x="438" y="38" width="408" height="12" fill="#eff4f1"/>
+  <text x="454" y="37" font-size="13.5" font-weight="700" fill="#22392f">KO 发货时点差 ＆ WMT 老店／会费拆分</text>
+  <rect x="454" y="66" width="376" height="96" rx="8" fill="#f7faf8" stroke="#c8dad0"/>
+  <text x="468" y="88" font-size="12" font-weight="700" fill="#23695a">KO 2025 Q2 亚太：两个“箱数”差 2 个百分点</text>
+  <text x="468" y="112" font-size="12" fill="#3c4c44">标准箱销量（贴近下游装瓶出货）：<tspan font-weight="700" fill="#22392f">−3%</tspan></text>
+  <text x="468" y="133" font-size="12" fill="#3c4c44">浓缩液销量（KO 向装瓶厂发货）：<tspan font-weight="700" fill="#b5483a">−5%</tspan></text>
+  <text x="468" y="152" font-size="11" fill="#5e6d65">差异主因浓缩液跨季发货时点，不等于终端消费骤跌。</text>
+  <rect x="454" y="176" width="376" height="114" rx="8" fill="#fbfbf6" stroke="#dfe5dc"/>
+  <text x="468" y="198" font-size="12" font-weight="700" fill="#22392f">WMT U.S. FY2025：老店增长与会费分账</text>
+  <text x="468" y="221" font-size="12" fill="#3c4c44">· 分部净销售：4,418 → 4,624 亿美元（<tspan font-weight="700" fill="#23695a">+4.7%</tspan>）</text>
+  <text x="468" y="242" font-size="12" fill="#3c4c44">· 可比销售：<tspan font-weight="700" fill="#23695a">+4.8%</tspan>（由交易次数与件数拉动）</text>
+  <text x="468" y="263" font-size="12" fill="#3c4c44">· 全集团纯会费：31 → 38 亿美元（按 12 个月摊销）</text>
+  <text x="468" y="281" font-size="10.5" fill="#5e6d65">全销售 +4.7% 与可比 +4.8% 范围不同，不能相减倒推新店贡献。</text>
+</svg>
+</div>
+<figcaption>数据来自 NKE FY2025 10-K、KO 2025 Q2 业绩稿与 WMT FY2025 10-K。各公司口径与财政年度按原文保留。</figcaption>
+</figure>
+
+看 NKE 时，直营跌幅几乎是批发的两倍，且直营线上重挫 20%，说明终端流量承压后，品牌不得不靠直营降价和批发折扣去消化库存，进而同时拉低销量与每双净价。看 KO 亚太区，标准箱销量与浓缩液发货相差 2 个百分点，一旦只盯单季出货量，很容易把跨季发货错位当成需求断崖；而 KO 披露的 `price/mix` 把提价、包装规格与渠道组合打成一包，同样不能读成全线饮料统一涨价。
+
+看 WMT 这类零售巨头，则要把老店客流（交易次数与件数）同新店扩张分开，再把按 12 个月摊销的纯会员费单独列出——年初入会与年中入会在当年确认的会费天数不同，会员总数与当期会费收入天然存在时间错位。
 
 </section>
 
@@ -49,9 +87,48 @@ R=\sum_i q_i p_i.
 
 ## 软件与云服务：新增客户与原有客户 {#nb-d02-software-story}
 
-看软件和云服务的收入增长，要同时盯两件事：客户变多了没有，老客户花得比去年多了没有。按席位收费的软件看账号数与套餐档位，按用量计费的云平台则看实际消耗。老客户加量、缩减还是彻底停用，都会拉动或拖累收入；只有把同一批客户圈在一起跨期追踪，才能看清这几种力道抵销后留下了多少净增长。
+软件与云服务的增长来自两头：新客户买进来了没有，老客户花得比去年多了没有。按席位收费的办公软件看付费许可与套餐升级（参考前篇[席位与用量双轨图](/zh/notebook/customers-products-pricing/#nb-d01-software-flow)），按用量计费的云数据平台则看同一群老客的实际消耗扩张。[^snow]<sup>，</sup>[^msft-fy26]
 
-<span data-text-versions id="nb-d02-software-text-1">Snowflake（SNOW）截至 2025 年 7 月 31 日的净收入留存率（NRR）为 125%，意思是选定的同一批客户在后一个十二个月贡献的产品收入，比前一个十二个月多出 25%<span data-text-detail>（本次选取的是 2023 年 8 月使用平台且有容量合同的客户，比较 2023 年 8 月至 2024 年 7 月、2024 年 8 月至 2025 年 7 月两个窗口；停止使用的客户仍保留在计算中，后期收入记为零，客户合并等调整按公司方法处理）</span>。这个数字打包反映了扩用、缩减和退出的净结果，衡量的是老客收入留存。<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>同期 SNOW 披露的单季产品收入同比增长 32%，但千万不能拿 32% 减去 25%，就说剩下的 7% 来自新客户：两项指标的统计窗口、客户总体与比较分母全都不一样。[^snow]
+<figure class="flow-figure" id="nb-d02-software-bridge">
+<div class="ff-head"><p class="ff-title">软件与云服务：为什么单季收入 +32% 不能直接减 NRR 125% 算新客贡献</p><span class="ff-sub">SNOW Q2 FY2026（截至 2025-07-31）与 MSFT FY2026 实数对照</span></div>
+<div class="rel-svg-wrap business-exchange" aria-label="左右双栏图：左栏展示 SNOW Q2 FY2026 两个口径错位的指标，上框为单季全体产品收入由 829.3 M 美元增至 1,090.5 M 美元（同比 +32%，涵盖 2025 年 5 至 7 月全体新老客户），下框为净收入留存率 NRR 125%（对应 +25% 净扩用，比较的是 2023 年 8 月已在网的固定容量客户群在连续两个 12 个月窗口内的收入，流失客户保留在分母中记零），二者时间窗、客户总体与分母均不同，不能相减；右栏展示领先储备指标与席位制对照，SNOW 剩余履约义务 RPO 增 33% 至 69.3 亿美元、年消超 100 万美元大客户增 30% 至 654 家，对照 MSFT FY2026 M365 商业云增 17%（席位 +6% 加单价提升）与 Azure 增 41%。">
+<svg viewBox="0 0 860 320" role="img" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+  <rect x="14" y="14" width="446" height="292" rx="11" fill="#ffffff" stroke="#d5ddd6" stroke-width="1.3"/>
+  <rect x="14" y="14" width="446" height="36" rx="11" fill="#eff4f1"/>
+  <rect x="14" y="38" width="446" height="12" fill="#eff4f1"/>
+  <text x="30" y="37" font-size="13.5" font-weight="700" fill="#22392f">SNOW Q2 FY2026：两把尺子量的是不同人群与时间窗</text>
+  <rect x="30" y="64" width="414" height="86" rx="8" fill="#f3f8f4" stroke="#b9d0c2"/>
+  <text x="44" y="86" font-size="12.5" font-weight="700" fill="#23695a">尺子 A：单季全体产品收入同比 +32%</text>
+  <text x="44" y="108" font-size="12" fill="#22392f">829.3 M → <tspan font-weight="700">1,090.5 M 美元</tspan>（净增 +261.2 M）</text>
+  <text x="44" y="129" font-size="11" fill="#5e6d65">窗口：2025.05–07 对 2024.05–07 · 范围：全体新老客户</text>
+  <rect x="30" y="162" width="414" height="86" rx="8" fill="#fcf8f3" stroke="#ead9c4"/>
+  <text x="44" y="184" font-size="12.5" font-weight="700" fill="#8f6033">尺子 B：净收入留存率 NRR = 125%（净增 +25%）</text>
+  <text x="44" y="206" font-size="12" fill="#22392f">同一群老客后 12 个月 ÷ 前 12 个月（含扩用、缩减与停用归零）</text>
+  <text x="44" y="227" font-size="11" fill="#5e6d65">窗口：2024.08–2025.07 对 2023.08–2024.07 · 仅限 2023.08 在网客户</text>
+  <rect x="30" y="258" width="414" height="36" rx="7" fill="#faeae7" stroke="#e4c2bc"/>
+  <text x="44" y="280" font-size="11.5" font-weight="700" fill="#b5483a">严禁拿 32% − 25% = 7% 当新客贡献：窗口、群体与分母全错位</text>
+  <rect x="476" y="14" width="370" height="292" rx="11" fill="#ffffff" stroke="#d5ddd6" stroke-width="1.3"/>
+  <rect x="476" y="14" width="370" height="36" rx="11" fill="#f6eee4"/>
+  <rect x="476" y="38" width="370" height="12" fill="#f6eee4"/>
+  <text x="492" y="37" font-size="13.5" font-weight="700" fill="#22392f">配套领先指标 ＆ 席位制对照</text>
+  <rect x="492" y="64" width="338" height="106" rx="8" fill="#fbfbf6" stroke="#dfe5dc"/>
+  <text x="506" y="86" font-size="12.5" font-weight="700" fill="#22392f">SNOW 储备与大客户扩张</text>
+  <text x="506" y="109" font-size="12" fill="#3c4c44">· 在手 RPO：52.3 → <tspan font-weight="700" fill="#23695a">69.3 亿美元（+33%）</tspan></text>
+  <text x="506" y="131" font-size="12" fill="#3c4c44">· 年消超 100 万美元客户：504 → <tspan font-weight="700" fill="#23695a">654 家（+30%）</tspan></text>
+  <text x="506" y="154" font-size="11" fill="#5e6d65">总客户数升至 12,062 家；高价值客户加量撑起留存</text>
+  <rect x="492" y="184" width="338" height="110" rx="8" fill="#f7faf8" stroke="#c8dad0"/>
+  <text x="506" y="206" font-size="12.5" font-weight="700" fill="#23695a">MSFT FY2026：席位 vs 云消耗分化</text>
+  <text x="506" y="229" font-size="12" fill="#3c4c44">· M365 商业云：<tspan font-weight="700" fill="#23695a">+17%</tspan>（席位 +6% ＋ 升级提价）</text>
+  <text x="506" y="250" font-size="12" fill="#3c4c44">· Azure 及其他云：<tspan font-weight="700" fill="#8f6033">+41%</tspan>（AI 与云负载拉动）</text>
+  <text x="506" y="274" font-size="11" fill="#5e6d65">席位慢增也能靠 E5／Copilot 提 ARPU；云端看工作负载爬坡</text>
+</svg>
+</div>
+<figcaption>数据来自 SNOW Q2 FY2026 Form 10-Q 与 MSFT FY2026 Form 10-K。SNOW 32% 为公司取整值（原值算得约 31.5%）。</figcaption>
+</figure>
+
+<span data-text-versions id="nb-d02-software-text-1">Snowflake（SNOW）的净收入留存率（NRR）125%，打包反映了选定老客群体扩用、缩减与停用退出后的净扩张<span data-text-detail>（本次口径选取 2023 年 8 月在网且签有容量合同的客户，对比 2023.08–2024.07 与 2024.08–2025.07 两个 12 个月窗口；停用客户保留在群体中、后一年记零。同季 10-Q 另披露约 98% 收入来自既有容量客户，属存量结构占比，同样不能拿来替代新客增长拆解）</span>。<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>实务里最容易犯的算数错，是拿当季产品收入同比 32% 减去 25% 声称新客贡献了 7%——两把尺子的时间窗口、客户池和分母全部错位。
+
+判断软件与云增长能否延续，还要把“工作负载优化”纳入视野：同一客户给查询加速或压缩存储，可能让业务量不变而云账单收缩；反过来，像 MSFT M365 那样靠 E5 与 Copilot 升级拉高每席位单价，哪怕席位只增 6%，商业云收入依然能跑出 17% 的增速。
 
 </section>
 
@@ -59,9 +136,57 @@ R=\sum_i q_i p_i.
 
 ## 互联网平台与广告：交易与收费 {#nb-d02-platform-story}
 
-平台流量上去以后，接着要看哪些互动真正带来了收费。Alphabet（GOOGL／GOOG）2025 年报披露，Google Search & other 的付费点击次数增长 6%，平均每次点击收入增长 7%。这两个指标把广告增长拆成了量和价两头：收费点击变多了没有，单次点击平均收进来多少钱。平均单价同样夹杂着广告产品、终端设备和地区组合的影响，不能直接解读成全站广告统一提了价。[^alphabet]
+平台流量涨上去以后，要沿着收费层逐一拆解：搜索广告拆**付费点击量 × 平均单次点击收入（CPC）**，电商平台拆**成交件数与履约／广告渗透率**，再回查广告主获客账本确认这轮增长是需求变旺还是获客变贵。前篇[《互联网平台与广告》](/zh/notebook/customers-products-pricing/#nb-d01-platform-flow)已画出 AMZN、BKNG 与 GOOGL 的资金链，这里直接落到 2025 年的变动上。[^alphabet]<sup>，</sup>[^amzn-fy25]<sup>，</sup>[^bkng]
 
-广告收入能不能接着涨，最终看广告主愿不愿意继续掏预算。沿着[《客户、产品与收费方式》](/zh/notebook/customers-products-pricing/#nb-d01-platform-demand)里的采买关系，可以继续核对广告主的业务体量与投放回报。广告主加预算，可能是自家生意扩大了，也可能只是获客变贵、不得不花更多钱买回同样多的订单。把平台的点击与单价走势，同广告主的成交转化和获客成本摆在一起看，才能判断这轮增长站不站得稳。
+<figure class="flow-figure" id="nb-d02-platform-bridge">
+<div class="ff-head"><p class="ff-title">互联网平台与广告：搜索量价乘积（GOOGL）与增长质量核验（AMZN／BKNG）</p><span class="ff-sub">2025 年报实数：先拆点击量与单价，再查广告主是不是被迫“贵买同量”</span></div>
+<div class="rel-svg-wrap business-exchange" aria-label="左右双栏图：左栏展示 GOOGL 2025 Google Search & other 收入由 1,980.8 亿增至 2,245.3 亿美元（同比 +13.4%），其中点击驱动范围拆为付费点击 +6% 乘以平均 CPC +7% 约等于 +13.4%，同时列出 YouTube 广告 +11.7% 与 Google Network −1.9%；右栏对比两条健康度核验线，AMZN 3P 第三方卖家服务由 1,561 亿增至 1,722 亿美元（+10.3%，受成交件数与 FBA 履约渗透共同推动），BKNG 2025 总预订额 +12.4%、收入 +13.4%、营销费用 +12.5%（占收比稳在 30.4%），用来区分需求扩容与获客变贵。">
+<svg viewBox="0 0 860 320" role="img" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+  <rect x="14" y="14" width="414" height="292" rx="11" fill="#ffffff" stroke="#d5ddd6" stroke-width="1.3"/>
+  <rect x="14" y="14" width="414" height="36" rx="11" fill="#eff4f1"/>
+  <rect x="14" y="38" width="414" height="12" fill="#eff4f1"/>
+  <text x="30" y="37" font-size="13.5" font-weight="700" fill="#22392f">GOOGL 2025：搜索量价乘积与板块分化</text>
+  <rect x="30" y="64" width="112" height="72" rx="8" fill="#f3f8f4" stroke="#b9d0c2"/>
+  <text x="86" y="88" text-anchor="middle" font-size="11.5" fill="#5e6d65">付费点击量</text>
+  <text x="86" y="114" text-anchor="middle" font-size="20" font-weight="700" fill="#23695a">+6%</text>
+  <text x="155" y="106" text-anchor="middle" font-size="18" font-weight="700" fill="#7a8780">×</text>
+  <rect x="168" y="64" width="112" height="72" rx="8" fill="#fcf8f3" stroke="#ead9c4"/>
+  <text x="224" y="88" text-anchor="middle" font-size="11.5" fill="#5e6d65">平均 CPC</text>
+  <text x="224" y="114" text-anchor="middle" font-size="20" font-weight="700" fill="#8f6033">+7%</text>
+  <text x="293" y="106" text-anchor="middle" font-size="18" font-weight="700" fill="#7a8780">≈</text>
+  <rect x="306" y="64" width="106" height="72" rx="8" fill="#23695a"/>
+  <text x="359" y="88" text-anchor="middle" font-size="11" fill="#e5efe9">点击驱动收入</text>
+  <text x="359" y="114" text-anchor="middle" font-size="18" font-weight="700" fill="#ffffff">+13.4%</text>
+  <text x="30" y="158" font-size="11.5" fill="#3c4c44">全体 Search &amp; other：1,980.8 → <tspan font-weight="700" fill="#22392f">2,245.3 亿美元（+13.4%）</tspan></text>
+  <rect x="30" y="172" width="382" height="58" rx="8" fill="#fbfbf6" stroke="#dfe5dc"/>
+  <text x="44" y="194" font-size="11.5" fill="#3c4c44">· YouTube 广告：361.5 → 403.7 亿（<tspan font-weight="700" fill="#23695a">+11.7%</tspan>）</text>
+  <text x="44" y="216" font-size="11.5" fill="#3c4c44">· Google Network：303.6 → 297.9 亿（<tspan font-weight="700" fill="#b5483a">−1.9%</tspan>，按展示/CPM 看）</text>
+  <rect x="30" y="242" width="382" height="48" rx="7" fill="#fcf8f3" stroke="#ead9c4"/>
+  <text x="44" y="262" font-size="11" font-weight="700" fill="#8f6033">CPC +7% ≠ 全站统一涨价 7%</text>
+  <text x="44" y="279" font-size="10.5" fill="#5e6d65">它混杂了设备、地域、广告格式组合、广告主竞价与汇率变动。</text>
+  <rect x="444" y="14" width="402" height="292" rx="11" fill="#ffffff" stroke="#d5ddd6" stroke-width="1.3"/>
+  <rect x="444" y="14" width="402" height="36" rx="11" fill="#f6eee4"/>
+  <rect x="444" y="38" width="402" height="12" fill="#f6eee4"/>
+  <text x="460" y="37" font-size="13.5" font-weight="700" fill="#22392f">增长质量双核对：AMZN 3P ＆ BKNG 获客</text>
+  <rect x="460" y="64" width="370" height="92" rx="8" fill="#f7faf8" stroke="#c8dad0"/>
+  <text x="474" y="86" font-size="12" font-weight="700" fill="#23695a">AMZN 3P 卖家服务：1,561 → 1,722 亿（+10.3%）</text>
+  <text x="474" y="109" font-size="11.5" fill="#3c4c44">不只看成交件数：即使 GMV 不变，更多卖家从自发货</text>
+  <text x="474" y="128" font-size="11.5" fill="#3c4c44">转向 FBA 履约、或在库时间拉长，都会推高平台服务费。</text>
+  <text x="474" y="146" font-size="10.5" fill="#5e6d65">（广告收入 686 亿单列，同比增长 22.1%，独立核算）</text>
+  <rect x="460" y="170" width="370" height="120" rx="8" fill="#fcf8f3" stroke="#ead9c4"/>
+  <text x="474" y="192" font-size="12" font-weight="700" fill="#8f6033">BKNG 2025：广告主生意变大 vs 获客变贵</text>
+  <text x="474" y="215" font-size="12" fill="#3c4c44">总预订 <tspan font-weight="700" fill="#23695a">+12.4%</tspan> · 收入 <tspan font-weight="700" fill="#23695a">+13.4%</tspan> · 营销费 <tspan font-weight="700" fill="#8f6033">+12.5%</tspan></text>
+  <text x="474" y="238" font-size="11.5" fill="#3c4c44">· <tspan font-weight="700" fill="#23695a">良性扩张</tspan>：营销增速 ≤ 收入增速，转化稳、退订可控</text>
+  <text x="474" y="259" font-size="11.5" fill="#3c4c44">· <tspan font-weight="700" fill="#b5483a">脆弱增长</tspan>：转化跌或退订升，被迫花更多点击买回同单</text>
+  <text x="474" y="279" font-size="10.5" fill="#5e6d65">2025 年 BKNG 营销占收比稳在 30.4%，支撑投放延续性。</text>
+</svg>
+</div>
+<figcaption>数据来自 GOOGL、AMZN 与 BKNG 2025 Form 10-K。GOOGL 付费点击 +6% 与 CPC +7% 仅对应点击驱动收入范围。</figcaption>
+</figure>
+
+GOOGL 的拆解给出了一个极好的核对示范：付费点击 +6% 乘以平均 CPC +7% 约等于 +13.4%，与全体 Search & other 收入增速 13.4% 高度接近，但 CPC 变动夹杂着移动端占比、高价值行业竞价与广告格式调整，不能直接当成所有关键词统一提价；与此同时，依赖外部版位的 Google Network 反而微降 1.9%，说明不同广告位景气度可以背道而驰。
+
+把镜头切到买方 BKNG，就能辨别增长成色：如果广告主营销费用增速持续跑赢预订与收入增速，意味着平台广告的高增可能是在透支广告主利润率，往往难以为继；当营销占收比平稳、退订率可控时，广告预算扩张才站得住脚。
 
 </section>
 
@@ -69,9 +194,55 @@ R=\sum_i q_i p_i.
 
 ## 半导体与硬件：交付量与产品结构 {#nb-d02-semiconductor-story}
 
-芯片、整机系统、晶圆和光刻设备各有交付单位。拆半导体公司的收入增长，得先按产品线分开，再看交货量与平均单价；高价新一代产品的占比一提上去，就算出货总数变化不大，收入也会明显跳升。云客户对算力的需要增加以后，还可能先压榨存量设备的利用率，或在自研芯片与外购方案之间重分预算，因此终端算力变旺到某家供应商的收入兑现，中间隔着选型、排产与交付。具体产业链分工见[《客户、产品与收费方式》](/zh/notebook/customers-products-pricing/#nb-d01-semiconductor)。
+读半导体公司的收入增长，最危险的捷径是把所有产品加总成“出货台数”或“芯片颗数”。前篇[半导体四层产业链图](/zh/notebook/customers-products-pricing/#nb-d01-semi-chain)已经区分了设计、代工与设备三层，落到年度增幅上，**代际结构迁移**与**系统配套率提升**的威力远大于单纯出货量变化。[^asml-20f]<sup>，</sup>[^nvda]<sup>，</sup>[^mrvl]
 
-本篇后面会用到一组关于 Marvell（MRVL）数据中心收入的预测市场合约。这一板块涵盖用于 AI 系统、交换、服务器、存储和数据中心互连的芯片；MRVL 按终端市场单独披露该项收入，因此后面核对合约门槛时，就要对准数据中心这一条线，不能混用全公司总收入。[^mrvl]
+<figure class="flow-figure" id="nb-d02-semi-bridge">
+<div class="ff-head"><p class="ff-title">半导体与硬件：台数下降却收入大涨（ASML）与机架配套爆发（NVDA）</p><span class="ff-sub">2025/2026 年报实数：在半导体里，产品代际与结构迁移往往比总出货件数更凶猛</span></div>
+<div class="rel-svg-wrap business-exchange" aria-label="左右双栏图：左栏展示 ASML 2025 净系统销售由 217.7 亿欧元增至 244.7 亿欧元（+12.4%），但表内确认台数反而从 583 台降至 535 台（−8.2%），原因在于低价 KrF 从 152 台腰斩至 78 台（收入 19.9 亿降至 10.0 亿欧元），而高价 NXE EUV 从 42 台升至 44 台（收入由 78.6 亿跃至 104.5 亿欧元，台均收入由 187 M 升至 237 M 欧元、+26.9%），EXE High-NA EUV 从 2 台增至 4 台（4.7 亿升至 11.6 亿欧元），同期装机升级服务增 26.2% 至 81.9 亿欧元；右栏展示 NVDA FY2026 数据中心营收由 1,152 亿跃至 1,937 亿美元（+68%），其中计算芯片 Compute 增 59% 至 1,624 亿，高速网络 Networking 暴增 142% 至 314 亿美元。">
+<svg viewBox="0 0 860 330" role="img" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+  <rect x="14" y="14" width="446" height="302" rx="11" fill="#ffffff" stroke="#d5ddd6" stroke-width="1.3"/>
+  <rect x="14" y="14" width="446" height="36" rx="11" fill="#eff4f1"/>
+  <rect x="14" y="38" width="446" height="12" fill="#eff4f1"/>
+  <text x="30" y="37" font-size="13.5" font-weight="700" fill="#22392f">ASML 2025：总台数 −8.2%，净系统收入反涨 +12.4%</text>
+  <text x="30" y="70" font-size="11.5" fill="#5e6d65">确认系统总数：583 → <tspan font-weight="700" fill="#b5483a">535 台</tspan> ｜ 净系统销售：217.7 → <tspan font-weight="700" fill="#23695a">244.7 亿欧元</tspan></text>
+  <rect x="30" y="84" width="414" height="54" rx="7" fill="#f3f8f4" stroke="#b9d0c2"/>
+  <text x="44" y="105" font-size="12" font-weight="700" fill="#23695a">NXE（0.33 NA 极紫外）· 42 → 44 台（仅 +2 台）</text>
+  <text x="44" y="126" font-size="11.5" fill="#3c4c44">收入 78.6 → <tspan font-weight="700" fill="#22392f">104.5 亿欧元</tspan>（台均 187 → 237 M 欧元，+26.9%）</text>
+  <rect x="30" y="146" width="414" height="50" rx="7" fill="#fcf8f3" stroke="#ead9c4"/>
+  <text x="44" y="166" font-size="12" font-weight="700" fill="#8f6033">EXE（高数值孔径极紫外）· 2 → 4 台</text>
+  <text x="44" y="185" font-size="11.5" fill="#3c4c44">收入 4.7 → <tspan font-weight="700" fill="#22392f">11.6 亿欧元</tspan>（台均约 289 M 欧元）</text>
+  <rect x="30" y="204" width="414" height="50" rx="7" fill="#faeae7" stroke="#e4c2bc"/>
+  <text x="44" y="224" font-size="12" font-weight="700" fill="#b5483a">KrF（成熟深紫外）· 152 → 78 台（大减 74 台）</text>
+  <text x="44" y="243" font-size="11.5" fill="#3c4c44">收入 19.9 → 10.0 亿欧元（单台价值远低于极紫外，拖不动总额）</text>
+  <rect x="30" y="264" width="414" height="38" rx="7" fill="#f6f7f3" stroke="#dfe5dc"/>
+  <text x="44" y="287" font-size="11.5" fill="#3c4c44">另有<tspan font-weight="700" fill="#23695a">装机升级与服务</tspan>：64.9 → 81.9 亿欧元（<tspan font-weight="700" fill="#23695a">+26.2%</tspan>，含现场升级）</text>
+  <rect x="476" y="14" width="370" height="302" rx="11" fill="#ffffff" stroke="#d5ddd6" stroke-width="1.3"/>
+  <rect x="476" y="14" width="370" height="36" rx="11" fill="#f6eee4"/>
+  <rect x="476" y="38" width="370" height="12" fill="#f6eee4"/>
+  <text x="492" y="37" font-size="13.5" font-weight="700" fill="#22392f">NVDA FY2026：整柜化拉爆网络配套</text>
+  <text x="492" y="72" font-size="12" font-weight="700" fill="#22392f">数据中心总收入：1,152 → 1,937 亿美元（+68%）</text>
+  <text x="492" y="102" font-size="11.5" font-weight="600" fill="#23695a">计算（Compute · GPU 与整机）</text>
+  <rect x="492" y="110" width="214" height="16" rx="4" fill="#b7d2c5"/>
+  <rect x="492" y="130" width="338" height="18" rx="4" fill="#23695a"/>
+  <text x="500" y="122" font-size="10.5" fill="#22392f">FY25: 1,022 亿</text>
+  <text x="500" y="143" font-size="11" font-weight="700" fill="#ffffff">FY26: 1,624 亿（+59%）</text>
+  <text x="492" y="176" font-size="11.5" font-weight="600" fill="#8f6033">网络（Networking · NVLink／以太网）</text>
+  <rect x="492" y="184" width="54" height="16" rx="4" fill="#e5c7a7"/>
+  <rect x="492" y="204" width="132" height="18" rx="4" fill="#a8743f"/>
+  <text x="554" y="196" font-size="10.5" fill="#5e6d65">FY25: 130 亿</text>
+  <text x="632" y="217" font-size="11.5" font-weight="700" fill="#8f6033">FY26: 314 亿（+142%）</text>
+  <rect x="492" y="238" width="338" height="64" rx="8" fill="#fbfbf6" stroke="#dfe5dc"/>
+  <text x="506" y="259" font-size="11.5" font-weight="700" fill="#22392f">跨到下文 MRVL 预测市场案例的口径提醒</text>
+  <text x="506" y="279" font-size="11" fill="#3c4c44">MRVL Q1 FY2027 数据中心占总收入 76%，</text>
+  <text x="506" y="295" font-size="11" fill="#5e6d65">核对单季合约门槛时，严禁混用全公司营收或全年指引。</text>
+</svg>
+</div>
+<figcaption>数据来自 ASML 2025 年报（Note 2 含光刻及量测检测系统，不含未列出的 ArF immersion 等其余四行）、NVDA FY2026 10-K 与 MRVL Q1 FY2027 业绩稿。</figcaption>
+</figure>
+
+ASML 2025 年给出了教科书级反例：全年确认收入的系统总台数不升反降 8.2%，净系统销售额却逆势大涨 12.4%。低价成熟深紫外（KrF）少卖 74 台，只要多交付 2 台 NXE 极紫外与 2 台高数值孔径 EXE，就能轻松反转大盘。<span data-text-versions id="nb-d02-semi-text-1">同时要守住分母口径与验收时点<span data-text-detail>（ASML 2025 年 Note 2 表的 535 台含光刻及量测检测系统，纯光刻系统为 327 台，总收入 326.7 亿欧元还包含 81.9 亿装机升级与服务收入，三者不可交叉相除算均价；成熟设备与新机型的验收确认时点也会影响跨年收入归属）</span>。<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>
+
+NVDA FY2026 的数据中心爆发则展示了另一层结构杠杆：从单卡走向整柜集群后，高速网络互联（Networking）以 142% 的增速把配套比例大幅推高。紧接下文的 Marvell（MRVL）预测市场案例同样遵循这一纪律——核对数据中心板块门槛时，必须锁死终端市场口径，不与全公司收入或全年指引混谈。
 
 </section>
 
@@ -79,9 +250,55 @@ R=\sum_i q_i p_i.
 
 ## 工业设备与工程服务：订单与履约 {#nb-d02-industrial-story}
 
-工业企业新签了大单，当期收入往往不会立刻跟着起跳。设备要排产交付，工程要按里程碑施工，这一季记进报表的收入，很大一部分来自早先签下的存量订单。所以拆当期收入增长时，既要看新接了多少单，更要看手头在手订单本期干完了多少；交期稍微提前或延后几周，收入就会挪到相邻季度。
+工业与工程公司最常让新手困惑的现象，是“订单没跌、在手积压还在涨，当期收入却跌了”。原因在于新签合同、在手待履约（Backlog）与当期完工确认分属三个时间节点；只要大项目施工或现场土建延后几周，收入就会滑进下一季度。前篇[OTIS 利润翻转图](/zh/notebook/customers-products-pricing/#nb-d01-industrial-flow)已经表明九成利润藏在服务里，拆增长时自然要把新设备与服务彻底拆开。[^otis]<sup>，</sup>[^otis-call]
 
-到了维保环节，跑在楼里的存量设备才开始源源不断贡献续费收入。Otis Worldwide（OTIS）在 2025 年报中列出了维保增长的三条路径：新梯交付后转入维保、拿下其他品牌存量梯的维保合约，以及收购既有维保组合。[^otis]此外，大修与现代化改造又各自单签项目、单独计费。核对服务收入时，要对照实际签约范围与服务内容，不能拿总装机台数直接乘一个统一年费。订单与履约怎样一步步落进财务报表，留待后续《三张财报与经营活动》展开。
+<figure class="flow-figure" id="nb-d02-industrial-bridge">
+<div class="ff-head"><p class="ff-title">工业设备与工程服务：新梯订单与收入错位，服务靠存量盘与改造双推（OTIS 2025）</p><span class="ff-sub">同一家工业龙头里，新设备看履约排期，服务看在保台数转化与改造放量</span></div>
+<div class="rel-svg-wrap business-exchange" aria-label="左右双栏图：左栏展示 OTIS 2025 新设备板块三项指标为何不同步，全年新梯订单持平（0%）、年末新设备在手订单 Backlog 按固定汇率增 2%（实际汇率增 6%），但全年确认的新设备收入反而下降 7%（53.7 亿降至 49.9 亿美元），反映签单、在手积压与当期完工进度错位；右栏展示服务业务有机增长 5%（88.9 亿增至 94.4 亿美元）的双引擎，维护与维修由 72.1 亿增至 75.8 亿美元（有机 +4%，在保梯组合由约 240 万台增至约 250 万台、+4% 主靠新梯转入），现代化改造由 16.8 亿增至 18.6 亿美元（有机 +9%）。">
+<svg viewBox="0 0 860 315" role="img" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+  <rect x="14" y="14" width="406" height="287" rx="11" fill="#ffffff" stroke="#d5ddd6" stroke-width="1.3"/>
+  <rect x="14" y="14" width="406" height="36" rx="11" fill="#faeae7"/>
+  <rect x="14" y="38" width="406" height="12" fill="#faeae7"/>
+  <text x="30" y="37" font-size="13.5" font-weight="700" fill="#22392f">新设备：订单、在手 Backlog 与收入为何背离</text>
+  <rect x="30" y="66" width="374" height="56" rx="8" fill="#fbfbf6" stroke="#dfe5dc"/>
+  <text x="46" y="88" font-size="12" font-weight="700" fill="#22392f">1. 全年新签订单（New Orders）</text>
+  <text x="388" y="88" text-anchor="end" font-size="14" font-weight="700" fill="#5e6d65">持平（0%）</text>
+  <text x="46" y="109" font-size="11" fill="#5e6d65">衡量新接工程合同量，尚未转化为当期损益</text>
+  <rect x="30" y="132" width="374" height="56" rx="8" fill="#f3f8f4" stroke="#b9d0c2"/>
+  <text x="46" y="154" font-size="12" font-weight="700" fill="#23695a">2. 年末在手待履约（Backlog）</text>
+  <text x="388" y="154" text-anchor="end" font-size="13.5" font-weight="700" fill="#23695a">+2% 固定汇率 / +6% 实际</text>
+  <text x="46" y="175" font-size="11" fill="#5e6d65">留存到未来 12 个月以上排产安装的待完工存量</text>
+  <rect x="30" y="198" width="374" height="56" rx="8" fill="#faeae7" stroke="#e4c2bc"/>
+  <text x="46" y="220" font-size="12" font-weight="700" fill="#b5483a">3. 当年确认收入（53.7 → 49.9 亿）</text>
+  <text x="388" y="220" text-anchor="end" font-size="14" font-weight="700" fill="#b5483a">有机 −7%</text>
+  <text x="46" y="241" font-size="11" fill="#5e6d65">按累计发生成本进度确认；美国 Q4 执行放缓延至次年 Q1</text>
+  <text x="30" y="282" font-size="11" fill="#3c4c44">结论：拿新订单增速或全部 RPO（约 191 亿）直接外推下季收入必出错。</text>
+  <rect x="436" y="14" width="410" height="287" rx="11" fill="#ffffff" stroke="#d5ddd6" stroke-width="1.3"/>
+  <rect x="436" y="14" width="410" height="36" rx="11" fill="#eff4f1"/>
+  <rect x="436" y="38" width="410" height="12" fill="#eff4f1"/>
+  <text x="452" y="37" font-size="13.5" font-weight="700" fill="#22392f">服务业务（88.9 → 94.4 亿，有机 +5%）</text>
+  <rect x="452" y="66" width="378" height="82" rx="8" fill="#f3f8f4" stroke="#b9d0c2"/>
+  <text x="466" y="88" font-size="12.5" font-weight="700" fill="#23695a">在保电梯池：约 240 万 → 约 250 万台（+4%）</text>
+  <text x="466" y="110" font-size="11.5" fill="#3c4c44">期初在保 ＋ <tspan font-weight="700" fill="#23695a">新梯交付转入（主增量）</tspan> ＋ 夺回/收购 − 流失</text>
+  <text x="466" y="132" font-size="11" fill="#5e6d65">管理层披露 2025 年夺回合同与取消大致抵消，增量主要靠新梯转保。</text>
+  <rect x="452" y="162" width="182" height="122" rx="8" fill="#fbfbf6" stroke="#dfe5dc"/>
+  <text x="466" y="184" font-size="12" font-weight="700" fill="#22392f">维护与维修</text>
+  <text x="466" y="208" font-size="16" font-weight="700" fill="#23695a">75.8 亿美元</text>
+  <text x="466" y="229" font-size="11.5" fill="#3c4c44">2024: 72.1 亿 · 有机 +4%</text>
+  <text x="466" y="250" font-size="11" fill="#5e6d65">维保按期直线确认</text>
+  <text x="466" y="268" font-size="11" fill="#5e6d65">单次维修另按次计费</text>
+  <rect x="648" y="162" width="182" height="122" rx="8" fill="#fcf8f3" stroke="#ead9c4"/>
+  <text x="662" y="184" font-size="12" font-weight="700" fill="#8f6033">现代化改造</text>
+  <text x="662" y="208" font-size="16" font-weight="700" fill="#8f6033">18.6 亿美元</text>
+  <text x="662" y="229" font-size="11.5" fill="#3c4c44">2024: 16.8 亿 · 有机 +9%</text>
+  <text x="662" y="250" font-size="11" fill="#5e6d65">老旧梯升级提速最快</text>
+  <text x="662" y="268" font-size="11" fill="#5e6d65">按项目完工进度确认</text>
+</svg>
+</div>
+<figcaption>数据来自 OTIS 2025 Form 10-K、FY2025 业绩公告及 Q4 2025 业绩电话会。维护维修 +4% 与改造 +9% 基数不同，不可直接相加。</figcaption>
+</figure>
+
+对照左右两栏能一眼看透工业龙头的韧性来源：新梯受地产竣工周期与美国 Q4 现场执行延迟拖累下滑 7%，但 250 万台在保电梯池像复利蓄水池一样稳步托住维护维修（+4%），叠加存量楼宇进入老龄换代期带动改造提速（+9%），稳住了整体大盘。<span data-text-versions id="nb-d02-industrial-text-1">核对工业服务增长时，不能把总服务收入除以在保台数当成统一年费<span data-text-detail>（OTIS 服务收入既含按合同期直线确认的周期维保，也含单次维修与按完工成本进度确认的现代化改造；年报中的“Organic volume”排除了汇率与近 12 个月并购剥离，但仍混杂价格与工作组合，不等同于纯物理设备台数增长）</span>。<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>
 
 </section>
 
@@ -89,9 +306,65 @@ R=\sum_i q_i p_i.
 
 ## 医药与医疗服务：采用与支付 {#nb-d02-healthcare-story}
 
-药企和器械商可以顺着临床采用、销量与净价拆增长，医院服务则要按诊疗项目和支付结构来看。HCA Healthcare（HCA）2025 年收入增长 7.1%，同期折合住院人次增长 2.9%，每折合住院人次收入增长 4.0%。<span data-text-versions id="nb-d02-healthcare-text-1">这里的折合住院人次，把门诊等业务也并进了同一个业务量刻度<span data-text-detail>（公司按住院与门诊等业务的毛收入比例，将门诊活动折合到住院当量中；它不等于去重后的患者人数）</span>。[^hca]<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>
+医疗行业内部的三类生意，拆解收入增长时要换三套尺子：创新药看**新药临床爬坡能否跑赢老药专利悬崖（LOE）**，手术机器人看**手术量带动的高频耗材复购**，医院连锁则看**诊疗当量与支付方结构**（对应前篇[医疗渠道与支付错配图](/zh/notebook/customers-products-pricing/#nb-d01-healthcare-flow)）。[^jnj]<sup>，</sup>[^isrg]<sup>，</sup>[^hca]
 
-单次服务收入的变化，背后混杂着病例复杂程度、诊疗项目组合以及商保与政府支付方的比例，只看均值拆不出各自贡献。判断后续还能不能涨，还要回头核对产品或服务为什么被采用、医疗机构接不接得住新增量、支付方按什么条款报销。哪怕患者看病需求在增长，某家公司最终分走多少，仍取决于它的产品力、床位产能与同业竞争。
+<figure class="flow-figure" id="nb-d02-healthcare-bridge">
+<div class="ff-head"><p class="ff-title">医药与医疗服务：新药接力对冲专利悬崖（JNJ）、手术复购（ISRG）与医院量价（HCA）</p><span class="ff-sub">2025 年报实数：三种医疗细分生意的增长方程完全不同</span></div>
+<div class="rel-svg-wrap business-exchange" aria-label="三栏对比图：左栏展示 JNJ 2025 创新药新旧切换，重磅药 STELARA 受生物类似药冲击暴跌 41.3%（103.6 亿降至 60.8 亿美元），同时 DARZALEX 增 23.0% 至 143.5 亿、TREMFYA 增 40.5% 至 51.6 亿、CARVYKTI 增 95.9% 至 18.9 亿完成对冲；中栏展示 ISRG 2025 总收入增 20.5% 至 100.6 亿美元，由超 310 万例 da Vinci 手术（+18%）与 Ion 活检（+51%）带动系统 +26%、器械附件 +19%、服务 +20%；右栏展示 HCA 2025 营收由 706.0 亿增至 756.0 亿美元（+7.1%），拆解为折合住院人次 +2.9% 与每折合人次收入 +4.0%，且包含 Medicaid 州补充支付由 55 亿增至 62 亿美元。">
+<svg viewBox="0 0 860 325" role="img" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+  <rect x="14" y="14" width="278" height="297" rx="11" fill="#ffffff" stroke="#d5ddd6" stroke-width="1.3"/>
+  <rect x="14" y="14" width="278" height="36" rx="11" fill="#faeae7"/>
+  <rect x="14" y="38" width="278" height="12" fill="#faeae7"/>
+  <text x="28" y="37" font-size="13" font-weight="700" fill="#22392f">创新药：JNJ 专利悬崖 vs 放量</text>
+  <rect x="28" y="64" width="250" height="66" rx="8" fill="#faeae7" stroke="#e4c2bc"/>
+  <text x="40" y="84" font-size="12" font-weight="700" fill="#b5483a">专利到期拖累：STELARA</text>
+  <text x="40" y="104" font-size="14" font-weight="700" fill="#b5483a">103.6 → 60.8 亿（−41.3%）</text>
+  <text x="40" y="121" font-size="10.5" fill="#5e6d65">单年蒸发 42.8 亿美元（生物类似药冲击）</text>
+  <rect x="28" y="142" width="250" height="114" rx="8" fill="#f3f8f4" stroke="#b9d0c2"/>
+  <text x="40" y="162" font-size="12" font-weight="700" fill="#23695a">核心新药接力增长</text>
+  <text x="40" y="185" font-size="11.5" fill="#3c4c44">· DARZALEX：116.7 → <tspan font-weight="700" fill="#23695a">143.5 亿 (+23%)</tspan></text>
+  <text x="40" y="207" font-size="11.5" fill="#3c4c44">· TREMFYA：36.7 → <tspan font-weight="700" fill="#23695a">51.6 亿 (+41%)</tspan></text>
+  <text x="40" y="229" font-size="11.5" fill="#3c4c44">· CARVYKTI：9.6 → <tspan font-weight="700" fill="#23695a">18.9 亿 (+96%)</tspan></text>
+  <text x="40" y="247" font-size="10.5" fill="#5e6d65">创新药板块合计仍录得 +6.0% 增长</text>
+  <text x="28" y="284" font-size="10.5" fill="#5e6d65">看药企不能只看总增速，必拆老药衰减与新药爬坡。</text>
+  <rect x="304" y="14" width="266" height="297" rx="11" fill="#ffffff" stroke="#d5ddd6" stroke-width="1.3"/>
+  <rect x="304" y="14" width="266" height="36" rx="11" fill="#eff4f1"/>
+  <rect x="304" y="38" width="266" height="12" fill="#eff4f1"/>
+  <text x="318" y="37" font-size="13" font-weight="700" fill="#22392f">器械复购：ISRG 2025（+20.5%）</text>
+  <rect x="318" y="64" width="238" height="62" rx="8" fill="#f7faf8" stroke="#c8dad0"/>
+  <text x="330" y="84" font-size="11.5" font-weight="700" fill="#23695a">临床活动先行扩张</text>
+  <text x="330" y="103" font-size="11.5" fill="#3c4c44">da Vinci 手术 &gt;310 万例（<tspan font-weight="700">+18%</tspan>）</text>
+  <text x="330" y="119" font-size="11.5" fill="#3c4c44">Ion 肺部活检操作量（<tspan font-weight="700">+51%</tspan>）</text>
+  <rect x="318" y="138" width="238" height="118" rx="8" fill="#fbfbf6" stroke="#dfe5dc"/>
+  <text x="330" y="158" font-size="11.5" font-weight="700" fill="#22392f">三线收入同步放大（83.5 → 100.6 亿）</text>
+  <text x="330" y="182" font-size="11.5" fill="#3c4c44">· 系统装机：19.7 → 24.7 亿（<tspan font-weight="700" fill="#23695a">+26%</tspan>）</text>
+  <text x="330" y="204" font-size="11.5" fill="#3c4c44">· 器械附件：50.8 → 60.2 亿（<tspan font-weight="700" fill="#23695a">+19%</tspan>）</text>
+  <text x="330" y="226" font-size="11.5" fill="#3c4c44">· 维保服务：13.1 → 15.7 亿（<tspan font-weight="700" fill="#23695a">+20%</tspan>）</text>
+  <text x="330" y="246" font-size="10.5" fill="#5e6d65">注：医院先用库再补货，19%−18% 不算提价。</text>
+  <text x="318" y="284" font-size="10.5" fill="#5e6d65">收入含双平台合计，不可全除以 da Vinci 手术量。</text>
+  <rect x="582" y="14" width="264" height="297" rx="11" fill="#ffffff" stroke="#d5ddd6" stroke-width="1.3"/>
+  <rect x="582" y="14" width="264" height="36" rx="11" fill="#f6eee4"/>
+  <rect x="582" y="38" width="264" height="12" fill="#f6eee4"/>
+  <text x="596" y="37" font-size="13" font-weight="700" fill="#22392f">医院服务：HCA 2025（+7.1%）</text>
+  <rect x="596" y="64" width="236" height="58" rx="8" fill="#fcf8f3" stroke="#ead9c4"/>
+  <text x="608" y="85" font-size="11.5" fill="#5e6d65">集团营收：706.0 → 756.0 亿美元</text>
+  <text x="608" y="109" font-size="14" font-weight="700" fill="#8f6033">量 +2.9% × 均价 +4.0%</text>
+  <rect x="596" y="134" width="236" height="122" rx="8" fill="#fbfbf6" stroke="#dfe5dc"/>
+  <text x="608" y="155" font-size="11.5" font-weight="700" fill="#22392f">两项驱动背后的真实构成</text>
+  <text x="608" y="177" font-size="11" fill="#3c4c44">· 折合住院人次：399 → 411 万</text>
+  <text x="608" y="194" font-size="10.5" fill="#5e6d65">  （按毛收入比例折入非住院门诊）</text>
+  <text x="608" y="215" font-size="11" fill="#3c4c44">· 单次均价 +4.0%：含病例复杂度、</text>
+  <text x="608" y="232" font-size="11" fill="#3c4c44">  商保占比及 Medicaid 州补充支付</text>
+  <text x="608" y="248" font-size="11" font-weight="700" fill="#8f6033">  （55 → 62 亿美元）</text>
+  <text x="596" y="284" font-size="10.5" fill="#5e6d65">1.029×1.04−1=7.02%，与 7.1% 差来自取整。</text>
+</svg>
+</div>
+<figcaption>数据来自 JNJ、ISRG 与 HCA 2025 Form 10-K。ISRG 器械附件与系统收入涵盖 da Vinci 与 Ion 两套平台。</figcaption>
+</figure>
+
+<span data-text-versions id="nb-d02-healthcare-text-1">拆这三张账单时，每一类都有一个隐蔽的口径边界<span data-text-detail>（JNJ 创新药增速背后是 STELARA 失专利大跌 41.3% 与 DARZALEX 等新药高增的对冲；ISRG 医院会先消耗已有器械库存再按寿命补货，且器械收入覆盖 da Vinci 与 Ion 双平台，因此不能把器械增速 19% 减 da Vinci 手术增速 18% 读成 1% 提价；HCA 的折合住院人次按住院与门诊毛收入比例折算，不是去重患者人数，其同机构增速 6.6% 也与集团 7.1% 不同）</span>。<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>
+
+对医院而言，单次收入上升 4.0% 并不等于医院普涨了诊费——高复杂手术占比提升、商业保险患者比例走高，以及 Medicaid 州定向补充支付从 55 亿增至 62 亿美元，都会一起抬高单次均价。
 
 </section>
 
@@ -99,35 +372,68 @@ R=\sum_i q_i p_i.
 
 ## 银行、支付与保险：规模与收费 {#nb-d02-finance-story}
 
-比较金融业务的增长，第一步是把“业务规模”和“营业收入”分开。JPMorgan Chase（JPM）放出去的贷款本金、Visa（V）网络里流过的刷卡流水，都不能直接算作公司收入；前者要按生息资产收益扣掉资金利息成本后算净利息收入（手续费等非利息收入另看）[^jpm]，财险公司如 Chubb（CB）则要把当期签下的保费沿保障期间逐步确认为已赚保费[^chubb]。下图把这三类金融业务从规模基数到收入确认的转换路径摆在一起对照：
+比较金融业务的收入增长，第一步是沿着前篇[资金规模与收入对照图](/zh/notebook/customers-products-pricing/#nb-d01-finance-flow)的边界，把**表内本金／支付流水／签单保费**同**损益表确认收入**的转换时间差对齐。2025 年三家龙头的真实转换桥摆在一起，就能看出为什么不能拿规模增速直接预测当季收入。[^jpm]<sup>，</sup>[^visa]<sup>，</sup>[^chubb]
 
-<figure class="flow-figure g4-fin-revenue" id="nb-d02-fin-revenue">
-<div class="ff-head"><p class="ff-title">三类金融业务：从“规模基数”到“实际收入”</p><span class="ff-sub">先看规模在量什么，再看收费与期间转换</span></div>
-<div class="g4-fin-head"><span>业务</span><span>业务规模基数（非收入）</span><span>收费与确认转换</span><span>实际收入与核对口径</span></div>
-<div class="g4-fin-lanes business-exchange" aria-label="三类金融业务从规模基数到实际收入的转换路径：第一，银行（以 JPM 为例），规模基数是生息资产与存贷款余额，经过资产收益减去资金利息成本的息差转换，形成净利息收入，手续费等非利息收入另看；第二，支付网络（以 V 为例），规模基数是网络支付金额与处理笔数，其季度服务收入滞后一季、主要依据前一季度的名义支付金额计费，并扣除客户激励，形成网络服务与处理净收入，不同收费类别对应不同活动；第三，财险（以 Chubb（CB）为例），规模基数是新业务、既有业务留存及费率与承保风险规模共同形成的签单保费，签单保费主要随保障期间逐步分摊确认为已赚保费，即相应的保费收入。">
-<div class="g4-fin-lane">
-<div class="g4-fin-biz"><strong>银行</strong><small>JPM 为例</small></div>
-<div class="g4-fin-box g4-fin-base"><strong>生息资产与存贷款余额</strong><small>贷款本金本身不是收入</small></div>
-<div class="g4-fin-bridge"><b class="g4-fin-tag">息差净额</b><span>资产收益 − 资金利息成本</span></div>
-<div class="g4-fin-box g4-fin-rev"><strong>净利息收入（NII）</strong><small>已扣利息支出；手续费等非利息收入另看</small></div>
+<figure class="flow-figure" id="nb-d02-fin-revenue">
+<div class="ff-head"><p class="ff-title">三类金融业务：2025 年“规模基数”如何转换成“损益表收入”</p><span class="ff-sub">JPM、V 与 CB 2025 年报实数：先对齐期间与扣减项，再谈收入增速</span></div>
+<div class="rel-svg-wrap business-exchange" aria-label="三行金融收入转换路径图：第一行银行 JPM 2025，利息收入同比降 5.9 亿（1,939 降至 1,933 亿美元），但利息支出大降 34.5 亿（1,014 降至 979 亿美元），两相抵消后净利息收入反增 28.6 亿至 954.4 亿美元（+3.1%）；第二行支付网络 Visa FY2025，名义支付额 12.99 增至 13.89 万亿美元（+7%，截至 6 月末，滞后一季驱动服务费 175.4 亿 +9%），处理笔数 2,338 增至 2,575 亿笔（+10%，同期驱动处理费 199.9 亿 +13%），加跨境等 182.2 亿并扣除客户激励 157.5 亿（+14%）后，净收入 359.3 增至 400.0 亿美元（+11%）；第三行财险 Chubb 2025，财险净签单保费 451.4 增至 475.6 亿美元（+5.4%），随保障期间分摊后财险净已赚保费增 5.1%，例如 10 月生效年单在当年仅确认 3/12。">
+<svg viewBox="0 0 860 345" role="img" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <marker id="d02-fin-sage" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse"><path d="M0 1.2 L9 5 L0 8.8 z" fill="#23695a"/></marker>
+    <marker id="d02-fin-amber" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse"><path d="M0 1.2 L9 5 L0 8.8 z" fill="#a8743f"/></marker>
+  </defs>
+  <rect x="14" y="14" width="832" height="98" rx="10" fill="#ffffff" stroke="#c8dad0" stroke-width="1.3"/>
+  <rect x="14" y="14" width="112" height="98" rx="10" fill="#eff4f1"/>
+  <rect x="114" y="14" width="12" height="98" fill="#eff4f1"/>
+  <text x="70" y="54" text-anchor="middle" font-size="13.5" font-weight="700" fill="#23695a">银行</text>
+  <text x="70" y="76" text-anchor="middle" font-size="12" font-weight="600" fill="#22392f">JPM 2025</text>
+  <rect x="142" y="25" width="246" height="76" rx="8" fill="#fbfbf6" stroke="#dfe5dc"/>
+  <text x="156" y="46" font-size="12" font-weight="700" fill="#22392f">利息收入微降 −5.9 亿</text>
+  <text x="156" y="66" font-size="11.5" fill="#3c4c44">1,939.3 → 1,933.4 亿美元</text>
+  <text x="156" y="87" font-size="11" font-weight="700" fill="#23695a">但利息支出大降 −34.5 亿（1,014→979）</text>
+  <line x1="388" y1="63" x2="432" y2="63" stroke="#23695a" stroke-width="2" marker-end="url(#d02-fin-sage)"/>
+  <text x="410" y="54" text-anchor="middle" font-size="10.5" font-weight="600" fill="#23695a">息差净额</text>
+  <rect x="438" y="25" width="394" height="76" rx="8" fill="#f3f8f4" stroke="#b9d0c2"/>
+  <text x="454" y="48" font-size="12.5" font-weight="700" fill="#23695a">净利息收入（NII）：925.8 → 954.4 亿美元（+3.1%）</text>
+  <text x="454" y="69" font-size="11.5" fill="#3c4c44">负债端降息快于资产端，带动净额反增 +28.6 亿美元；</text>
+  <text x="454" y="88" font-size="11" fill="#5e6d65">另有非息收入 870 亿（+2%），单季计算余额 × 年化利率须折算期间。</text>
+  <rect x="14" y="124" width="832" height="104" rx="10" fill="#ffffff" stroke="#ead9c4" stroke-width="1.3"/>
+  <rect x="14" y="124" width="112" height="104" rx="10" fill="#f6eee4"/>
+  <rect x="114" y="124" width="12" height="104" fill="#f6eee4"/>
+  <text x="70" y="166" text-anchor="middle" font-size="13.5" font-weight="700" fill="#8f6033">支付网络</text>
+  <text x="70" y="188" text-anchor="middle" font-size="12" font-weight="600" fill="#22392f">V FY2025</text>
+  <rect x="142" y="135" width="246" height="82" rx="8" fill="#fbfbf6" stroke="#dfe5dc"/>
+  <text x="156" y="156" font-size="11.5" font-weight="700" fill="#22392f">支付额：12.99→13.89 万亿 (+7%)</text>
+  <text x="156" y="175" font-size="10.5" fill="#8f6033">（截至 6 月末 · 滞后一季计服务费）</text>
+  <text x="156" y="196" font-size="11.5" font-weight="700" fill="#22392f">处理笔数：2,338→2,575 亿 (+10%)</text>
+  <text x="156" y="211" font-size="10.5" fill="#5e6d65">（截至 9 月末 · 同期计处理费）</text>
+  <line x1="388" y1="176" x2="432" y2="176" stroke="#a8743f" stroke-width="2" marker-end="url(#d02-fin-amber)"/>
+  <text x="410" y="166" text-anchor="middle" font-size="10.5" font-weight="600" fill="#8f6033">扣激励</text>
+  <rect x="438" y="135" width="394" height="82" rx="8" fill="#fcf8f3" stroke="#ead9c4"/>
+  <text x="454" y="157" font-size="12.5" font-weight="700" fill="#8f6033">净收入：359.3 → 400.0 亿美元（+11%）</text>
+  <text x="454" y="178" font-size="11.5" fill="#3c4c44">服务费 175.4 亿 (+9%) ＋ 处理费 199.9 亿 (+13%) ＋ 跨境等 182.2 亿</text>
+  <text x="454" y="199" font-size="11.5" font-weight="700" fill="#b5483a">减：客户激励 137.6 → 157.5 亿美元（+14%，增速高于收入）</text>
+  <rect x="14" y="240" width="832" height="92" rx="10" fill="#ffffff" stroke="#c8dad0" stroke-width="1.3"/>
+  <rect x="14" y="240" width="112" height="92" rx="10" fill="#eff4f1"/>
+  <rect x="114" y="240" width="12" height="92" fill="#eff4f1"/>
+  <text x="70" y="278" text-anchor="middle" font-size="13.5" font-weight="700" fill="#23695a">财产保险</text>
+  <text x="70" y="300" text-anchor="middle" font-size="12" font-weight="600" fill="#22392f">CB 2025</text>
+  <rect x="142" y="251" width="246" height="70" rx="8" fill="#fbfbf6" stroke="#dfe5dc"/>
+  <text x="156" y="273" font-size="12" font-weight="700" fill="#22392f">财险净签单保费（NPW）</text>
+  <text x="156" y="294" font-size="12.5" font-weight="700" fill="#23695a">451.4 → 475.6 亿（+5.4%）</text>
+  <text x="156" y="312" font-size="10.5" fill="#5e6d65">已扣除分出再保险；含新单、续保与涨价</text>
+  <line x1="388" y1="286" x2="432" y2="286" stroke="#23695a" stroke-width="2" marker-end="url(#d02-fin-sage)"/>
+  <text x="410" y="276" text-anchor="middle" font-size="10.5" font-weight="600" fill="#23695a">按期分摊</text>
+  <rect x="438" y="251" width="394" height="70" rx="8" fill="#f3f8f4" stroke="#b9d0c2"/>
+  <text x="454" y="273" font-size="12.5" font-weight="700" fill="#23695a">财险净已赚保费（NPE）：全年 +5.1%</text>
+  <text x="454" y="294" font-size="11.5" fill="#3c4c44">示意：10 月生效 1,200 美元年单，当年仅确认 300 美元（3/12）</text>
+  <text x="454" y="311" font-size="11" fill="#5e6d65">余下 900 美元留作次年未赚保费，涨价滞后四个季度入账。</text>
+</svg>
 </div>
-<div class="g4-fin-lane">
-<div class="g4-fin-biz"><strong>支付网络</strong><small>V 为例</small></div>
-<div class="g4-fin-box g4-fin-base"><strong>支付金额与处理笔数</strong><small>卡内流经金额不是收入</small></div>
-<div class="g4-fin-bridge"><b class="g4-fin-tag g4-warm">滞后一季计费</b><span>季度服务费主要按上季名义支付金额计费，并扣客户激励</span></div>
-<div class="g4-fin-box g4-fin-rev"><strong>网络服务与处理净收入</strong><small>不同收费类别对应不同活动，先对齐期间</small></div>
-</div>
-<div class="g4-fin-lane">
-<div class="g4-fin-biz"><strong>财险</strong><small>CB 为例</small></div>
-<div class="g4-fin-box g4-fin-base"><strong>当期签单保费</strong><small>受新业务、留存、费率与风险规模影响</small></div>
-<div class="g4-fin-bridge"><b class="g4-fin-tag g4-warm">随保障期分摊</b><span>按保单保障期间逐步确认</span></div>
-<div class="g4-fin-box g4-fin-rev"><strong>已赚保费（保费收入）</strong><small>签单与确认收入对应不同时间窗</small></div>
-</div>
-</div>
-<figcaption>规模基数只反映业务盘子；真正落进损益表的收入，还要经过息差、滞后计费或保障期分摊等转换规则。</figcaption>
+<figcaption>数据来自 JPM 2025 年报、V FY2025 Form 10-K、CB 2025 年报及 2026-02-03 全年业绩公告。三类业务各守各的期间与扣减口径。</figcaption>
 </figure>
 
-正如中间一条路径标出的，业务发生与收费有时会错开一个季度。V 的季度服务收入主要依据前一季度的名义支付金额计费，并受客户激励和收费类别组合影响；把支付量增速与收入增速放在一起比较时，要先将对应的计费期间对齐，再拆解费率与业务结构的变化。[^visa]
+每一行里都藏着一个反直觉机制：银行在利率下行阶段，即便利息收入微降，只要存款与批发融资成本降得更快，净利息收入照样增长；支付网络的服务费按**上一季度**名义支付额计费，且大客户谈判拉高了客户激励（+14% 跑赢净收入 +11%），研究费率弹性时必须盯着激励占毛收入的比例；财险则因签单保费要沿 12 个月保障期逐月赚取，涨价周期里已赚保费往往滞后于签单增速。想进一步深挖保险浮存金、准备金释放与综合成本率拆解，可直接进入专题[《保险业：浮存金、综合成本率与准备金》](/zh/notebook/industry-insurance-float/#nb-n08-combined-ratio)。
 
 </section>
 
@@ -135,33 +441,120 @@ R=\sum_i q_i p_i.
 
 ## 能源与原材料：销量、售价与服务 {#nb-d02-energy-story}
 
-资源销售的收入增长，一头看卖出去多少，另一头看实际卖上了什么价。分析 ExxonMobil（XOM）时，要把上游油气开采、下游炼化和化工分开看，分别核对产销量、实际售价与产品结构。[^xom]行情软件上跳动的原油现货价只是基准参照；油品规格、交割地点和长协条款不同，公司账上真正落袋的售价也会拉开差距。
+能源板块的收入增长常出现两极画面：上游资源商辛辛苦苦把产量拉高，只要油价掉头向下，报表收入照样缩水；中游管网即便客户输送量翻倍，账单也未必跟着翻倍。结合前篇[三条能源盈利曲线](/zh/notebook/customers-products-pricing/#nb-d01-energy-flow)，把 XOM 2025 年报与 KMI 旗下管输协议并列，原因一目了然。[^xom]<sup>，</sup>[^xom-10k]<sup>，</sup>[^kmi]<sup>，</sup>[^wic]
 
-如果公司做的是加工和输运服务，目光就要转回合同计费条款。Kinder Morgan（KMI）的 Galena Park 凝析油加工设施，就与 BP North America 签有长期收费协议。[^kmi]看这类服务业务，关键在核对客户实际用了多少设施能力、合同按什么口径收费，不能简单套用国际油价涨跌幅。
+<figure class="flow-figure" id="nb-d02-energy-bridge">
+<div class="ff-head"><p class="ff-title">能源与原材料：产量大增却收入下滑（XOM）vs 用量翻倍但预留费不动（KMI WIC）</p><span class="ff-sub">2025 年实数与监管费率对照：商品价格弹性与管输固定费率的本质差异</span></div>
+<div class="rel-svg-wrap business-exchange" aria-label="左右双栏图：左栏展示 XOM 2025 合并子公司量价背离，原油日产量由 1,858 升至 1,992 千桶每日（+7.2%，含 Pioneer 全年并表影响），但自产原油销售均价由 76.57 跌至 65.64 美元每桶（−14.3%），合并销售及其他营业收入由 3,392 亿降至 3,239 亿美元，同时合并报表消除了 1,210 亿美元分部间内部转移；右栏展示 KMI 旗下 WIC 与 Black Hills 协议在同一 30 日服务月、相同 28,150 Dth/d 预订容量下的两种使用情景，日交付 10,000 Dth 时按月预留费 25,687 美元加追加费 33,750 美元小计 59,437 美元，日交付翻倍至 20,000 Dth 时预留费仍固定为 25,687 美元，追加费翻倍至 67,500 美元，两项小计 93,187 美元（仅增 56.8%）。">
+<svg viewBox="0 0 860 315" role="img" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+  <rect x="14" y="14" width="406" height="287" rx="11" fill="#ffffff" stroke="#d5ddd6" stroke-width="1.3"/>
+  <rect x="14" y="14" width="406" height="36" rx="11" fill="#faeae7"/>
+  <rect x="14" y="38" width="406" height="12" fill="#faeae7"/>
+  <text x="30" y="37" font-size="13.5" font-weight="700" fill="#22392f">XOM 2025：产量上升盖不住油价走弱</text>
+  <rect x="30" y="66" width="180" height="82" rx="8" fill="#f3f8f4" stroke="#b9d0c2"/>
+  <text x="44" y="88" font-size="11.5" fill="#5e6d65">原油日产量（千桶/日）</text>
+  <text x="44" y="114" font-size="17" font-weight="700" fill="#23695a">1,858 → 1,992</text>
+  <text x="44" y="136" font-size="12" font-weight="700" fill="#23695a">+7.2%（含 Pioneer）</text>
+  <rect x="224" y="66" width="180" height="82" rx="8" fill="#faeae7" stroke="#e4c2bc"/>
+  <text x="238" y="88" font-size="11.5" fill="#5e6d65">自产原油销售均价</text>
+  <text x="238" y="114" font-size="16" font-weight="700" fill="#b5483a">76.57 → 65.64</text>
+  <text x="238" y="136" font-size="12" font-weight="700" fill="#b5483a">−14.3%（美元/桶）</text>
+  <rect x="30" y="164" width="374" height="120" rx="8" fill="#fbfbf6" stroke="#dfe5dc"/>
+  <text x="44" y="186" font-size="12" font-weight="700" fill="#22392f">合并营收结果与内部转移消除</text>
+  <text x="44" y="210" font-size="12" fill="#3c4c44">· 合并销售及营业收入：3,392 → <tspan font-weight="700" fill="#b5483a">3,239 亿美元</tspan></text>
+  <text x="44" y="232" font-size="12" fill="#3c4c44">· 消除分部间内部转移：<tspan font-weight="700" fill="#22392f">−1,210 亿美元</tspan></text>
+  <text x="44" y="254" font-size="11" fill="#5e6d65">注：Pioneer 于 2024-05 并表，2025 为全年口径；</text>
+  <text x="44" y="271" font-size="11" fill="#5e6d65">不能把产量乘均价构造收入，且内部供油不增加外部收入。</text>
+  <rect x="436" y="14" width="410" height="287" rx="11" fill="#ffffff" stroke="#d5ddd6" stroke-width="1.3"/>
+  <rect x="436" y="14" width="410" height="36" rx="11" fill="#eff4f1"/>
+  <rect x="436" y="38" width="410" height="12" fill="#eff4f1"/>
+  <text x="452" y="37" font-size="13.5" font-weight="700" fill="#22392f">KMI WIC 协议：同一月、同容量下用量翻倍对比</text>
+  <text x="452" y="70" font-size="11.5" fill="#5e6d65">固定条件：预订 28,150 Dth/d 容量 · 完整 30 日 · 指定接收交付点</text>
+  <text x="452" y="102" font-size="12" font-weight="700" fill="#22392f">情景 A：日输 10,000 Dth（月输 30 万 Dth）</text>
+  <rect x="452" y="112" width="102" height="26" rx="4" fill="#23695a"/>
+  <rect x="556" y="112" width="134" height="26" rx="4" fill="#a8743f"/>
+  <text x="503" y="129" text-anchor="middle" font-size="11" font-weight="700" fill="#ffffff">预留 2.57 万</text>
+  <text x="623" y="129" text-anchor="middle" font-size="11" font-weight="700" fill="#ffffff">追加 3.38 万</text>
+  <text x="700" y="129" font-size="12" font-weight="700" fill="#22392f">5.94 万美元</text>
+  <text x="452" y="168" font-size="12" font-weight="700" fill="#22392f">情景 B：日输 20,000 Dth（月输 60 万 · 翻倍）</text>
+  <rect x="452" y="178" width="102" height="26" rx="4" fill="#23695a"/>
+  <rect x="556" y="178" width="210" height="26" rx="4" fill="#a8743f"/>
+  <text x="503" y="195" text-anchor="middle" font-size="11" font-weight="700" fill="#ffffff">预留 2.57 万</text>
+  <text x="661" y="195" text-anchor="middle" font-size="11" font-weight="700" fill="#ffffff">追加 6.75 万（翻倍）</text>
+  <text x="774" y="195" font-size="12" font-weight="700" fill="#23695a">9.32 万美元</text>
+  <rect x="452" y="222" width="378" height="62" rx="8" fill="#f3f8f4" stroke="#b9d0c2"/>
+  <text x="466" y="244" font-size="12" font-weight="700" fill="#23695a">运输量翻倍（+100%），两项合计仅增 +56.8%</text>
+  <text x="466" y="264" font-size="11" fill="#3c4c44">绿条预留费（0.9125 美元 × 28,150）旱涝保收，压弹性也托底；</text>
+  <text x="466" y="279" font-size="10.5" fill="#5e6d65">注：两项为监管费率下的教学情景对照，不含商品费与燃料损耗。</text>
+</svg>
+</div>
+<figcaption>数据来自 XOM 2025 Form 10-K（第 12–14 页、Note 3 与 Note 20）及 WIC—Black Hills 2025-09-30 监管费率申报。</figcaption>
+</figure>
+
+读一体化油企如 XOM 时，还要提防两道口径关：一是**并购并表**（Pioneer 于 2024 年 5 月才并入，2025 年是首个完整年度，产量 +7.2% 并非纯有机增长）；二是**内部转移消除**（2025 年集团上游供货给下游炼厂消除了 1,210 亿美元分部间收入，不能把各分部收入简单相加）。换到 KMI 这类管输合同，固定预留费垫起了稳健底盘，判断增长时应重点跟踪新管道投产、预订容量扩展与长约到期续签费率，而不是拿国际油价涨跌幅去套。
 
 </section>
 
 ## 增长的期间与比较口径 {#nb-d02-comparison}
 
-不论落到哪个行业，比较增速前都要先把期间和业务范围对齐。同比拿本期对上年同季，环比拿本期对紧邻上一期。季节性强的生意，旺季压过淡季很常见；想判断生意本身有没有扩盘，得在相同季节、同一合并范围内比。公司刚并购了一块资产，老业务原地踏步，合并报表收入照样往上跳；剥离一块资产，报表收入则会往下掉。跨国经营涉及多币种时，当地货币增速与换算成美元后的报表增速也常走岔路。
+不论落到哪个行业，比较增速前都要先把**期间、合并范围与币种**对齐。季节性强的生意要看同比而非环比；刚做完收购或剥离资产的公司，报表增速会被合并范围扭曲；跨国企业还要剥离汇率换算波动。
 
-回到开头 KO 的案例，公司在报表收入之外，另列了剔除汇率及收购、剥离与结构变化后的有机收入增长，并把变化拆成价格与组合（price/mix）和浓缩液销量两块：前者合并反映价格、产品和包装等组合变动，后者对应公司向装瓶伙伴等客户的供货量。2025 年第二季度，KO 报表净营收增长 1%，有机收入增长 5%，其中 price/mix 贡献 +6%，浓缩液销量贡献 −1%。[^ko-growth]
+回到开篇 KO 2025 年第二季度的案例：报表净营收仅增 1%，剔除 −3% 汇率拖累及结构变动后的**有机收入**实为 +5%，其中价格与组合（`price/mix`）贡献 +6%，浓缩液与标准箱销量双双小幅回落 −1%。[^ko-growth]
 
-<figure><img src="/notebook/revenue-growth/ko-growth.svg?v=20261126" alt="KO 2025年第二季度报告净营收增长1%、有机收入增长5%、price/mix增长6%，浓缩液销量和标准箱销量均下降1%；不同指标分别比较。" loading="lazy"><figcaption>KO 2025 年第二季度。报表收入、有机收入及量价指标按各自定义列示；横向比较其方向与幅度。</figcaption></figure>
+<figure><img src="/notebook/revenue-growth/ko-growth.svg?v=20261126" alt="KO 2025年第二季度报告净营收增长1%、有机收入增长5%、price/mix增长6%，浓缩液销量和标准箱销量均下降1%；不同指标分别比较。" loading="lazy"><figcaption>KO 2025 年第二季度。报表收入、有机收入及量价指标按各自定义列示；横向比较方向与幅度。</figcaption></figure>
 
-<span data-text-versions id="nb-d02-comparison-text-1">这一季里，价格与组合推高了 KO 的收入，汇率换算则拖累了报表表现<span data-text-detail>（公司将汇率影响列为 −3%；price/mix 包含产品、包装、渠道和地区组合，不能全归为提价。披露比例经过取整，各项显示值未必严格相加）</span>。接下来判断增长能不能延续，还要继续查消费者实际购买、渠道补货与产品组合，不能把这一个季度的有机增速直接外推到未来每个季度。<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>
+<span data-text-versions id="nb-d02-comparison-text-1">这一季的增长主要由价格与组合推高，汇率换算拉低了报表表象<span data-text-detail>（公司将汇率影响列为 −3%；price/mix 包含提价、包装、渠道与地区结构，不可全部归为提价；各项披露值经过取整，未必严格相加）</span>。判断这类有机增长能不能延续，仍须回查终端动销与补货节奏，不能直接线性外推。<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>
 
-订单签约、收入确认与现金到账也各有时间表。以 Snowflake（SNOW）的容量合同为例，客户签字承诺的采购额未必立刻用完；公司披露的剩余履约义务（RPO）记录了已经签约、尚未确认为收入的合同金额，而产品收入主要随客户实际消耗逐步确认。[^snow]
+除了同比与汇率，**签约、消耗与确认收入的时间错位**同样关键。拿 SNOW 的容量合同来说，客户签字承诺的多年采购额先进入剩余履约义务（RPO），后续随实际消耗才逐季确认成产品收入。[^snow]
 
-<figure class="business-flow"><div class="business-flow-grid"><div class="business-flow-node"><small>合同承诺</small><strong>客户签下容量合同</strong><p>尚未确认的合同收入进入相应履约记录。</p></div><p class="business-flow-edge">客户随后使用平台资源</p><div class="business-flow-node"><small>服务使用</small><strong>实际消耗逐步发生</strong><p>用量与时间取决于客户的业务活动。</p></div><p class="business-flow-edge">按适用条款计量与确认</p><div class="business-flow-node"><small>报告期间</small><strong>确认相应产品收入</strong><p>本期收入可以来自此前签下的合同。</p></div></div><figcaption>SNOW 容量合同的一项时间关系：签约与实际消耗可以落在不同期间。</figcaption></figure>
+<figure class="flow-figure" id="nb-d02-rpo-flow">
+<div class="ff-head"><p class="ff-title">合同签约、实际消耗与报表收入如何错开（SNOW Q2 FY2026 实例）</p><span class="ff-sub">RPO 反映账外待履约池，实际落进哪一季由客户消耗速度决定</span></div>
+<div class="rel-svg-wrap business-exchange" aria-label="SNOW 容量合同三阶段转化图：第一阶段客户签署多年期容量合同，尚未确认金额进入剩余履约义务 RPO 池（截至 2025-07-31 达 69.3 亿美元，同比 +33%）；第二阶段客户在平台上跑计算查询与存储数据，消耗节奏随工作负载和优化起伏；第三阶段随实际资源消耗逐季确认产品收入（Q2 FY2026 确认 1,090.5 M 美元，同比 +32%）。">
+<svg viewBox="0 0 860 175" role="img" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <marker id="d02-rpo-sage" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse"><path d="M0 1.2 L9 5 L0 8.8 z" fill="#23695a"/></marker>
+    <marker id="d02-rpo-amber" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse"><path d="M0 1.2 L9 5 L0 8.8 z" fill="#a8743f"/></marker>
+  </defs>
+  <rect x="14" y="18" width="246" height="138" rx="10" fill="#ffffff" stroke="#b9d0c2" stroke-width="1.3"/>
+  <rect x="14" y="18" width="246" height="32" rx="10" fill="#eff4f1"/>
+  <rect x="14" y="38" width="246" height="12" fill="#eff4f1"/>
+  <text x="137" y="39" text-anchor="middle" font-size="12.5" font-weight="700" fill="#23695a">1. 签下容量合同（RPO 池）</text>
+  <text x="137" y="76" text-anchor="middle" font-size="20" font-weight="700" fill="#22392f">69.3 亿美元</text>
+  <text x="137" y="98" text-anchor="middle" font-size="11.5" font-weight="700" fill="#23695a">同比 +33%（上年 52.3 亿）</text>
+  <text x="137" y="122" text-anchor="middle" font-size="11" fill="#5e6d65">含递延收入＋未开票不可取消合同</text>
+  <text x="137" y="140" text-anchor="middle" font-size="10.5" fill="#7a8780">（签约当刻不计入损益表收入）</text>
+  <line x1="260" y1="87" x2="300" y2="87" stroke="#23695a" stroke-width="2" marker-end="url(#d02-rpo-sage)"/>
+  <text x="280" y="77" text-anchor="middle" font-size="10.5" fill="#23695a">随使用</text>
+  <rect x="306" y="18" width="248" height="138" rx="10" fill="#ffffff" stroke="#e4d2bc" stroke-width="1.3"/>
+  <rect x="306" y="18" width="248" height="32" rx="10" fill="#f6eee4"/>
+  <rect x="306" y="38" width="248" height="12" fill="#f6eee4"/>
+  <text x="430" y="39" text-anchor="middle" font-size="12.5" font-weight="700" fill="#8f6033">2. 平台实际消耗（节奏开关）</text>
+  <text x="430" y="74" text-anchor="middle" font-size="12.5" font-weight="700" fill="#22392f">查询计算 ＋ 压缩存储</text>
+  <text x="430" y="98" text-anchor="middle" font-size="11.5" fill="#3c4c44">· 新增任务推快消耗</text>
+  <text x="430" y="118" text-anchor="middle" font-size="11.5" fill="#3c4c44">· 查询优化放慢消耗</text>
+  <text x="430" y="140" text-anchor="middle" font-size="10.5" fill="#8f6033">（超额消耗或无承诺按需另行发生）</text>
+  <line x1="554" y1="87" x2="594" y2="87" stroke="#a8743f" stroke-width="2" marker-end="url(#d02-rpo-amber)"/>
+  <text x="574" y="77" text-anchor="middle" font-size="10.5" fill="#8f6033">当季确认</text>
+  <rect x="600" y="18" width="246" height="138" rx="10" fill="#ffffff" stroke="#b9d0c2" stroke-width="1.3"/>
+  <rect x="600" y="18" width="246" height="32" rx="10" fill="#23695a"/>
+  <rect x="600" y="38" width="246" height="12" fill="#23695a"/>
+  <text x="723" y="39" text-anchor="middle" font-size="12.5" font-weight="700" fill="#ffffff">3. 当季确认产品收入</text>
+  <text x="723" y="76" text-anchor="middle" font-size="20" font-weight="700" fill="#23695a">1,090.5 M 美元</text>
+  <text x="723" y="98" text-anchor="middle" font-size="11.5" font-weight="700" fill="#23695a">同比 +32%（占总收入 95%）</text>
+  <text x="723" y="122" text-anchor="middle" font-size="11" fill="#5e6d65">大部分来自此前已签的存量合同</text>
+  <text x="723" y="140" text-anchor="middle" font-size="10.5" fill="#7a8780">（与当季现金回款分属不同日期）</text>
+</svg>
+</div>
+<figcaption>数据来自 SNOW Q2 FY2026 Form 10-Q（截至 2025-07-31）。RPO 含尚未开票的未来履约义务，不能等同于已到账现金。</figcaption>
+</figure>
 
-<span data-text-versions id="nb-d02-timing-text-1">RPO 告诉我们账外还有多少已签约收入等着确认，但它们具体落进哪几个季度，取决于客户的消耗速度<span data-text-detail>（RPO 包括递延收入，也包括未来才开票和确认的不可取消合同金额，因此不能都视为已收现；无最低购买承诺的按需安排等不计入，超出已有承诺的后续使用也未必反映在当前 RPO 中）</span>。评估签约增长能否顺利兑现成收入时，要先分清合同承诺、预计用量和当期确认额，再去核对客户是否真会加量、云商能否按期供给。这时就可以让 Agent 并行查公司、客户与供应商的材料，把时间线对齐，对照各种竞争解释。<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>
+<span data-text-versions id="nb-d02-timing-text-1">看 RPO 高增时，必须同时跟踪客户消耗速度，辨认积压合同是在加速转化还是停留在纸面承诺<span data-text-detail>（RPO 包含递延收入和未来才开票的不可取消合同额，不能等同于已收现；无最低承诺的按需用量以及超出已有承诺的未来扩用，也未必反映在当前 RPO 中）</span>。<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>
 
 ## 增长预期与事件报价 {#nb-d02-expectations}
 
-有了自己的增长判断，下一步是把它拿去跟公开预期对表。公司指引与券商研报通常给出某段期间的收入或增速区间；Prediction Market（预测市场）则直接把问题写成一道明确的是非题，比如单季收入会不会严格超过某个门槛。到期按规则判为 YES，合约支付 1 美元，否则支付 0。YES 的成交价于是直观标出了市场给出的过线把握，正好拿来校准自己的判断。[^pm]
+拆清公司真实的增长驱动后，下一步是把自己的判断拿去跟市场预期对表。公司指引与券商一致预期通常给一个宽泛区间；Prediction Market（预测市场）则直接把问题钉成一道是非题——单季某板块收入是否严格超过门槛——到期判 YES 付 1 美元、否则付 0，事前成交价于是标出了市场的过线把握。[^pm]
 
-Marvell（MRVL）为 AI 系统、服务器、存储和互连供应芯片，并按数据中心终端市场单独披露收入。有了这条清晰可核的收入口径，就能事前押注单季数字，再等财报一锤定音。Polymarket 曾上线过一组这样的门槛合约，判定 **FY2027 第一季度（截至 2026 年 5 月 2 日的三个月）MRVL 数据中心收入是否严格超过指定金额**，其中两道门槛分别是 18.5 亿美元和 19 亿美元。[^pm]上年同季该板块收入为 14.406 亿美元，换算下来，两道门槛分别要求同比增速超过约 28.4% 和 31.9%。[^mrvl-base]
+以 Marvell（MRVL）FY2027 第一季度（截至 2026 年 5 月 2 日）数据中心收入为例。Polymarket 上线了“严格超过 18.5 亿美元”与“严格超过 19 亿美元”两道门槛合约，对照上年同季基期 14.406 亿美元，分别要求同比增速超过约 28.4% 与 31.9%。[^pm]<sup>，</sup>[^mrvl-base]
 
 <figure class="flow-figure g4-pm-thresholds" id="nb-d02-pm-thresholds">
 <div class="ff-head"><p class="ff-title">MRVL FY2027 Q1 数据中心收入门槛与事前过线把握</p><span class="ff-sub">2026-05-26 财报前一日同一时刻 YES 历史价格</span></div>
@@ -193,28 +586,22 @@ Marvell（MRVL）为 AI 系统、服务器、存储和互连供应芯片，并�
 <figcaption>门槛从 18.5 亿抬高 0.5 亿到 19 亿，YES 历史价格便从 0.395 美元落到 0.185 美元；两项事件可同时成立，并非互斥区间。</figcaption>
 </figure>
 
-<span data-text-versions id="nb-d02-pm-text-1">这两个价格取自财报公布前一天的同一时刻，大致相当于市场给出了 39.5% 和 18.5% 的过线把握<span data-text-detail>（观察时点为 2026 年 5 月 26 日 16:00:04 UTC，采用官方历史价格序列；当时买卖两侧及深度没有恢复，因此不把序列点当作可以立即成交的买入价。两张合约是可同时成立的门槛事件，不是两个互斥收入区间；合约按官方原始金额判定，图中取整后的增速仅用于理解）</span>。[^pm-history]<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>
+<span data-text-versions id="nb-d02-pm-text-1">这两组价格取自财报前一日同一时刻的历史成交序列，直观标出了门槛每抬高 0.5 亿美元时市场过线把握的衰减<span data-text-detail>（观察时点为 2026-05-26 16:00:04 UTC 官方历史序列，未还原当时盘口买卖价差与深度，不视作可即时成交价；两道门槛可同时成立，并非互斥区间；结算按官方原始金额判定）</span>。[^pm-history]<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>
 
-<figure><img src="/notebook/revenue-growth/mrvl-expectations.svg?v=20261126" alt="2026年3月5日MRVL给出公司展望，5月26日记录数据中心收入门槛的预测市场事前价格，5月27日报告实际收入18.327亿美元，两项门槛均未超过。" loading="lazy"><figcaption>先记录当时的预测与报价，再与后来公布的同口径结果比较。</figcaption></figure>
+<figure><img src="/notebook/revenue-growth/mrvl-expectations.svg?v=20261126" alt="2026年3月5日MRVL给出公司展望，5月26日记录数据中心收入门槛的预测市场事前价格，5月27日报告实际收入18.327亿美元，两项门槛均未超过。" loading="lazy"><figcaption>先留档事前指引与事件报价，再与财报公布后的同口径实数对照。</figcaption></figure>
 
-5 月 27 日财报落地，MRVL 公布的数据中心收入为 18.327 亿美元，同比增长约 27.2%，距离 18.5 亿美元只差 0.173 亿美元，两项合约双双结为 NO。[^mrvl]27.2% 的同比增速并不慢，但仍落在两道事前门槛之下。下次听到“增长很快”，不妨紧接着问两句：相对哪一年的基期，又有没有越过市场眼下盯着的门槛。
-
-回头看财报前公司自己给的展望，口径一样要对齐。MRVL 在 3 月 5 日谈到的约 40% 增速，针对的是 FY2027 **全年**数据中心收入；同场给出的 24 亿美元（上下浮动 5%），则是下一季度的**全公司**收入指引。[^mrvl-outlook]前者勾勒全年路径，后者给出季度总盘子，哪一个都不能直接拿来套某一季度的数据中心门槛。<span data-text-versions id="nb-d02-pm-text-2">Agent 还要沿着客户采购、芯片交付与并购并表范围逐条查证<span data-text-detail>（这里的指引和后来实际收入都包含 Celestial AI 与 XConn 收购，本篇计算的是报告收入同比，尚未单独拆出并购贡献）</span>，形成自己的单季估算，再去和当时的事件报价对照。<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>
-
-事件合约把季度、板块和门槛钉死在一条线上；而回到股票价格本身，我们还要把视线拉长，连同增长能延续几年、每块收入能留下多少利润、股数会不会摊薄一起算进来。为此，先看收入怎样一步步走到每股盈利。
+5 月 27 日财报落地，MRVL 数据中心收入录得 18.327 亿美元（同比 +27.2%），距 18.5 亿仅差 0.173 亿美元，两张合约双双结为 NO。[^mrvl]27% 以上的增速本身并不慢，但在交易层面依然落在事前门槛之下。回看 3 月 5 日公司展望时，更要守住口径边界：管理层提到的约 40% 增速针对的是 FY2027 **全年**数据中心收入，24 亿美元（±5%）则是下一季**全公司**指引，哪一个都不能直接套用单季数据中心门槛。<span data-text-versions id="nb-d02-pm-text-2">实操复核还要把并购并表范围拆清楚<span data-text-detail>（本期指引与实际收入均已自收购日起并入 Celestial AI 与 XConn 两笔交易，此处同比为报告口径，尚未剥离并购贡献）</span>。[^mrvl-outlook]<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>
 
 ## 股价对应的增长要求 {#nb-d02-price-in}
 
-除了从生意往外推增速，还可以倒过来算：眼下这个股价，需要公司交出多少收入才撑得住？这里换回 KO，用全年数据把收入、利润和股价连成一条线。收入扣掉成本、费用、税费并计入其他损益，再把归属普通股股东的净利润除以股数，就得到每股收益（EPS）。设净利率为 \(m\)、收入为 \(R\)、股数为 \(N\)，就有 \(\mathrm{EPS}=mR/N\)。
-
-市盈率（PE）衡量股价是每股收益的多少倍；拿预计盈利作分母，就得到前瞻市盈率，使用时要写明预计的是哪一年。给定股价 \(P\)，再假设市场愿意为指定年度的每股盈利给出 \(M\) 倍估值，就能反推出这一年所需的 EPS、利润与收入：
+事件合约只锁住一个季度；买股票时，更实用的做法是把眼前的股价倒推回收入要求，看看市场究竟在押注一份怎样的经营成绩单。设股价为 \(P\)、目标年度净利率为 \(m\)、股数为 \(N\)、市场愿意给出的前瞻市盈率为 \(M\)，由 \(\mathrm{EPS}=mR/N\) 可直接反推出所需每股收益与所需收入：
 
 \[
 \mathrm{EPS}_{\mathrm{要求}}=\frac{P}{M},\qquad
 R_{\mathrm{要求}}=\frac{PN}{Mm}.
 \]
 
-先摆出实打实的基期底数。沿用公司调整后的可比口径，KO 2025 全年净营收为 480.62 亿美元，归属股东净利润为 129.58 亿美元，对应净利率约 27.0%；全年稀释加权平均股数为 43.13 亿股。[^ko-base]
+这里换回 KO 全年数据演示。按公司调整后的可比口径，2025 全年净营收 480.62 亿美元、归属股东净利润 129.58 亿美元（净利率约 27.0%）、稀释加权平均股数 43.13 亿股。[^ko-base]借用 DBS 研报采用的 26 倍前瞻 PE 并将其明确限定在 2026 全年可比盈利上，就能沿四步反推出所需的收入底线：[^dbs]
 
 <figure class="flow-figure step-chain sc-4" id="nb-d02-reverse-chain">
 <div class="ff-head"><p class="ff-title">从 KO 的股价反推 2026 年的收入要求</p><span class="ff-sub">可比口径，美元</span></div>
@@ -228,42 +615,48 @@ R_{\mathrm{要求}}=\frac{PN}{Mm}.
 <div class="sc-node sc-focus"><strong>484.6 亿</strong><small>所需净营收</small></div>
 </div>
 <p class="ff-aside business-exchange" aria-label="2025 年同口径净营收为 480.62 亿美元，所需净营收约 484.6 亿美元，需要增长约 0.8%。"><strong>与 2025 年的 480.62 亿美元相比</strong>：需要增长约 0.8%。</p>
-<figcaption>净利率按 2025 年可比口径计算：129.58 ÷ 480.62 ≈ 27.0%。股价为实际收盘价，PE、股数与净利率都是本篇设定的条件，2026 全年为本篇指定的盈利期间。</figcaption>
+<figcaption>净利率按 2025 年可比口径计算：129.58 ÷ 480.62 ≈ 27.0%。股价为实际收盘价，PE、股数与净利率均为本篇设定的条件。</figcaption>
 </figure>
 
-<span data-text-versions id="nb-d02-price-text-1">DBS 在这份报告里为目标价选用了 26 倍前瞻 PE；我们借用这一倍数，并明确把它用在 KO 2026 全年可比盈利上<span data-text-detail>（报告没有在该处完整定义其 forward PE 的盈利期间，本篇的年度安排不用于复刻报告目标价。可比收入与可比利润属于公司非 GAAP 口径，与前面的有机增长也不同；计算用 129.58／480.62 的精确比率，约 27.0% 仅用于显示。股数采用全年稀释加权平均股数，未来保持不变是本篇条件）</span>。[^dbs]<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>
-
-顺着上图走完四步：78.76 美元除以 26，得出 2026 年所需 EPS 约 3.03 美元；再乘以 43.13 亿股、除以 2025 年净利率，所需可比净营收约 **484.6 亿美元**，较 2025 年同口径只需增长约 **0.8%**。只要把其中任何一个条件换掉，比如改一个 PE 倍数，或者允许净利率和股数变动，反推出来的增长要求就会立刻跟着移动。
+<span data-text-versions id="nb-d02-price-text-1">只需改变 PE、净利率或股数中的任意一项条件，反推出来的收入增长要求就会大幅移动<span data-text-detail>（DBS 报告未在该处完整界定其 forward PE 的盈利期间，本篇限定为 2026 全年可比口径，不用于复刻报告目标价；计算采用 129.58 ÷ 480.62 的精确净利率，股数维持 2025 年稀释加权平均股数）</span>。<button type="button" class="text-version-toggle" data-text-version-toggle hidden></button></span>在下方推演器里拖动滑块就能切身体会：单凭一个 78.76 美元的股价，解不出增长率、利润率与估值倍数三个未知数。
 
 <div data-experiment-slot="nb-d02-price-lab"></div>
 
-不妨在上面的推演器里先只拉动 PE、固定其余条件：市场若只给 22 倍，KO 的收入得涨约 19.2% 才托得住 78.76 美元；若市场愿意给到 30 倍，哪怕收入比基期回落约 12.6% 也够得着。平时常说“股价里已经计入了多少增长”，很大程度上要看市场给盈利配了多少倍估值。单凭一个股价，解不出增长率、利润率与估值倍数三个未知数；反推的价值，在于把不同假设对应的经营成绩单摊到桌面上，再拿基本面证据一条条检验。
-
-算出这些收入要求后，Agent 可以倒着往下拆：客户数、用量、净价与产品组合各要走到哪一步，客户采购和公司供货撑不撑得起，净利率凭什么维持或变化。若市场公开预测给出不同增速，就逐项核对分歧出在销量、价格、汇率、并购范围还是利润率上。比较时始终守住同一公司、同一业务板块和同一期间——MRVL 的单季数据中心门槛与 KO 的全年可比收入要求，回答的各是各的账；等新财报、订单或成本数据出炉，再更新受影响的判断。
+固定净利率与股数、只把 PE 从 26 倍压到 22 倍，KO 需要增长约 19.2% 才能托住当前股价；若市场给到 30 倍，哪怕收入回落约 12.6% 也能站稳。反推的价值不在于猜出唯一市场共识，而在于把不同估值假设对应的经营成绩单摊到桌面上，交给前面拆过的销量、净价、渠道与留存证据逐条检验。
 
 ## 从增长到盈利 {#nb-d02-next}
 
-MRVL 提醒我们，收入增长快和跑赢预期门槛是两码事；KO 的反推又表明，股价隐含的收入要求会随着利润率、股数与估值倍数一起浮动。要继续核验确认的收入有没有真正转化为利润与到账现金，需要先读懂公司的整套账本。下一篇[《三张财报与经营活动》](/zh/notebook/three-financial-statements/)就沿同一段经营过程贯通利润表、资产负债表与现金流量表，补齐分析营运资本、资本开支与成本结构的会计底座。
+MRVL 提醒我们高增长不等于跑赢预期门槛，KO 反推又把增长要求绑到了净利率与股数之上。要检验账面确认的收入最终有没有变成利润与到账现金，必须打通公司的整套会计账本。下一篇[《三张财报与经营活动》](/zh/notebook/three-financial-statements/)就沿同一段经营过程贯通利润表、资产负债表与现金流量表，补齐分析营运资本、资本开支与成本结构的底座。
 
-<link rel="stylesheet" href="/notebook/business-branches.css?v=20261126">
-<link rel="stylesheet" href="/notebook/flow-figures.css?v=20261126">
+<link rel="stylesheet" href="/notebook/business-branches.css?v=20261128">
+<link rel="stylesheet" href="/notebook/flow-figures.css?v=20261128">
 
-
-[^ko-growth]: [The Coca-Cola Company — Second Quarter 2025 Earnings Release](https://www.coca-colacompany.com/content/dam/corporate/us/en/media-center/Coca-Cola-2025-Q2-Earnings-Release-Full-Release-7.22.25.pdf)。PDF p1 标题与 Quarterly Performance / Revenues；PDF p3 Revenues and Volume，Consolidated 行及 rounding 注；PDF p8 Notes，unit case、unit case volume、concentrate sales、price/mix；PDF p15 Definitions；p25 Net Operating Revenues 调节表；PDF p3 Asia Pacific 行；p5 Asia Pacific 第二段。
-[^wmt]: [Walmart FY2025 Form 10-K](https://stock.walmart.com/sec-filings/all-sec-filings/content/0000104169-25-000021/wmt-20250131.htm)。Walmart U.S. Results of Operations；本轮实际阅读974–980行。
-[^snow]: [Snowflake Inc. — Form 10-Q for the quarter ended July 31, 2025](https://d18rn0p25nwr6d.cloudfront.net/CIK-0001640147/1ced529d-f536-4668-bc46-6996092be424.pdf)。PDF p16 Note 3 Revenue；p53 Revenue comparison 三个月列；PDF p45 Net Revenue Retention Rate 全段；PDF p53 Product revenue increased 段：125% as of July 31, 2025；PDF p17 Note 3 / Remaining Performance Obligations；p47 Remaining Performance Obligations及Components of Results / Revenue。
-[^alphabet]: [Alphabet 2025 Form 10-K](https://www.sec.gov/Archives/edgar/data/1652044/000165204426000018/goog-20251231.htm)。Item 7，广告指标定义与增长表；本轮实际阅读 HTML 907–918、1108–1118 行。
-[^mrvl]: [Marvell FY2027 Q1 earnings release / 8-K Exhibit 99.1](https://investor.marvell.com/sec-filings/all-sec-filings/content/0001835632-26-000014/q127_8kx522026ex-991.htm)。Quarterly Revenue Trend (Unaudited), Revenue by End Market table (HTML table index 9, zero-based); opening acquisition paragraph。
-[^otis]: [Otis 2025 Form 10-K](https://www.sec.gov/Archives/edgar/data/1781335/000178133526000011/otis-20251231.htm)。Item 1 Service；本轮阅读205–222行。
-[^hca]: [HCA 2025 Annual Report](https://s23.q4cdn.com/949900249/files/doc_financials/2024/ar/HCA-2025-Annual-Report-to-Shareholders-FINAL.pdf)。PDF第68、71页（网络文本P67等），收入与Equivalent admissions解释。
-[^jpm]: [JPMorgan Chase 2025 Annual Report](https://www.jpmorganchase.com/content/dam/jpmc/jpmorgan-chase-and-co/investor-relations/documents/annualreport-2025.pdf)。PDF79、83、92、351页；NII及定义段。
-[^visa]: [Visa FY2025 Form 10-K](https://www.sec.gov/Archives/edgar/data/1403161/000140316125000089/v-20250930.htm)。Service/data processing revenue与operating metrics；已读1152–54、1189、1211、1240–68行。
-[^chubb]: [Chubb Limited Annual Report 2025 — Premiums; Financial Highlights](https://www.chubb.com/content/dam/annual-corporate-governance/2026/a-chubb-limited/chubb-limited-annual-report-2025.pdf)。PDF pp157–158，印刷页 F-10–F-11，Note 1 Summary of significant accounting policies / b) Premiums；PDF p97，10-K印刷页49，Financial Highlights for the Year Ended December 31, 2025，P&C net premiums written 段。
-[^xom]: [ExxonMobil — Business divisions](https://corporate.exxonmobil.com/who-we-are/our-global-organization/business-divisions)。D01已核的业务介绍；本篇按上游、产品和服务机制复用。
-[^kmi]: [Kinder Morgan — Products Pipelines](https://www.kindermorgan.com/Operations/Products/Index)。Products Pipelines，Galena Park；本轮读取网页276行。
-[^pm]: [Polymarket Gamma: MRVL FY2027 Q1 Data Center event and five markets](https://gamma-api.polymarket.com/events?slug=will-marvell-q1-data-center-revenue-be-above)。event id 483195; markets id 2256679–2256683; description/outcomes/clobTokenIds/closedTime。
-[^mrvl-base]: [Marvell FY2026 Q1 earnings release / 8-K Exhibit 99.1](https://investor.marvell.com/sec-filings/all-sec-filings/content/0001835632-25-000115/q126_8kx532025ex-991.htm)。Quarterly Revenue Trend table (HTML table index 8, zero-based)。
-[^pm-history]: [Official CLOB YES price history: Will Marvell Q1 Data Center revenue be above USD 1.85B?](https://clob.polymarket.com/prices-history?market=15444808016939390136366603813937420398362508425617427546284721604674110774890&startTs=1778716800&endTs=1779926400&fidelity=60)。history[] entries with t/p; selected t=1779811204。；[Official CLOB YES price history: Will Marvell Q1 Data Center revenue be above USD 1.9B?](https://clob.polymarket.com/prices-history?market=17371423556770029879189222365137773013648929593752442002979764677862763408752&startTs=1778716800&endTs=1779926400&fidelity=60)。history[] entries with t/p; selected t=1779811204。
-[^mrvl-outlook]: [Marvell FY26 and Q4 FY26 Financial and Business Results](https://d1io3yog0oux5.cloudfront.net/_6b3a348c4b3086f910c6504b5c8068c0/marvell/db/3735/35341/file/2026_03_05_Marvell_Q4_FY26_financial_business_results_FINAL.pdf)。PDF pp6,13,15–16 (one-based)。
-[^ko-base]: [The Coca-Cola Company — Fourth Quarter and Full Year 2025 Earnings Release](https://www.coca-colacompany.com/content/dam/corporate/us/en/media-center/Coca-Cola%20Q4%202025%20Earnings%20Release_Full%20Release_2.10.26.pdf)。PDF p10 Consolidated Statements of Income，Year Ended December 31, 2025；PDF p16 Comparable EPS 定义；PDF p22 Reconciliation，Comparable (Non-GAAP) Net operating revenues；PDF p23 Reconciliation，Comparable (Non-GAAP) Net income及Diluted net income per share；脚注3明确net income为归属公司股东净利。
-[^dbs]: [DBS US Equity Research — Coca-Cola: The world remains thirsty for Coke](https://www.dbs.com/content/article/pdf/US_clover/CocaCola.pdf)。PDF p1右上 4 May 2026；PDF p1 Key Financial Data / Share Price (USD) 78.76；表下 Closing Price as of 30 Apr 2026；PDF p1 Investment Overview，Maintain BUY段：TP86 pegged to a higher 26x fwd PE；PDF p1 12-mth Target Price (USD) 86.0。
+[^ko-growth]: [The Coca-Cola Company — Second Quarter 2025 Earnings Release](https://www.coca-colacompany.com/content/dam/corporate/us/en/media-center/Coca-Cola-2025-Q2-Earnings-Release-Full-Release-7.22.25.pdf)。PDF p1、p3、p5、p8、p15、p25；全球报表 +1%、有机 +5%（price/mix +6%、浓缩液 −1%、标准箱 −1%），亚太标准箱 −3% 与浓缩液 −5%。
+[^nke]: [NIKE FY2025 Form 10-K — Consolidated Operating Results](https://www.sec.gov/Archives/edgar/data/320187/000032018725000047/nke-20250531.htm)。财年截至 2025-05-31；批发 277.6→258.8 亿（−7%／剔汇率 −6%）、NIKE Direct 215.2→187.8 亿（−13%／剔汇率 −12%，数字 −20%）、鞋类销量 −8% 及均价拖累约 3 pct。
+[^wmt]: [Walmart FY2025 Form 10-K — Walmart U.S. Results and Membership](https://stock.walmart.com/sec-filings/all-sec-filings/content/0000104169-25-000021/wmt-20250131.htm)。财年截至 2025-01-31；Walmart U.S. 净销售 4,418→4,624 亿（+4.7%）、可比销售 +4.8% 与全集团纯会员费 31→38 亿美元。
+[^snow]: [Snowflake Inc. — Form 10-Q for the quarter ended July 31, 2025](https://d18rn0p25nwr6d.cloudfront.net/CIK-0001640147/1ced529d-f536-4668-bc46-6996092be424.pdf)。PDF p16–17、p45、p47、p53；产品收入 829.3→1,090.5 M 美元（+32%）、NRR 125%、RPO 52.3→69.3 亿（+33%）及年消超 100 万美元大客户 504→654 家。
+[^msft-fy26]: [Microsoft FY2026 Form 10-K — Segment Results](https://www.sec.gov/Archives/edgar/data/789019/000119312526323660/msft-20260630.htm)。财年截至 2026-06-30；M365 商业云 +17%（席位 +6% 及 E5/Copilot 推升单价）、Azure 及其他云 +41%。
+[^alphabet]: [Alphabet 2025 Form 10-K — Revenues and Monetization Metrics](https://www.sec.gov/Archives/edgar/data/1652044/000165204426000018/goog-20251231.htm)。年度截至 2025-12-31；Search & other 1,980.8→2,245.3 亿（+13.4%，付费点击 +6%、CPC +7%）、YouTube +11.7%、Network −1.9%。
+[^amzn-fy25]: [Amazon.com, Inc. FY2025 Form 10-K — Note 10 Net Sales by Group](https://www.sec.gov/Archives/edgar/data/1018724/000101872426000004/amzn-20251231.htm)。年度截至 2025-12-31；3P 第三方卖家服务 1,561→1,722 亿美元（+10.3%）、广告服务 686 亿（+22.1%）。
+[^bkng]: [Booking Holdings 2025 Form 10-K — Gross Bookings, Revenues and Marketing](https://www.sec.gov/Archives/edgar/data/1075531/000107553126000009/bkng-20251231.htm)。年度截至 2025-12-31；总预订 +12.4%、收入 +13.4%、营销费用 +12.5%（占收比 30.4%）。
+[^asml-20f]: [ASML Holding N.V. FY2025 Form 20-F & Annual Report Note 2](https://www.sec.gov/Archives/edgar/data/937966/000162828026011378/asml-20251231.htm)。年度截至 2025-12-31；净系统销售 217.7→244.7 亿欧元（+12.4%）、表内系统数 583→535 台（NXE 42→44 台、EXE 2→4 台、KrF 152→78 台）及装机升级服务 64.9→81.9 亿欧元（+26.2%）。
+[^nvda]: [NVIDIA FY2026 Form 10-K — Revenue by End Market](https://www.sec.gov/Archives/edgar/data/1045810/000104581026000021/nvda-20260125.htm)。财年截至 2026-01-25；数据中心 1,152→1,937 亿美元（+68%，其中 Compute +59% 至 1,624 亿、Networking +142% 至 314 亿）。
+[^mrvl]: [Marvell FY2027 Q1 earnings release / 8-K Exhibit 99.1](https://investor.marvell.com/sec-filings/all-sec-filings/content/0001835632-26-000014/q127_8kx522026ex-991.htm)。截至 2026-05-02；总收入 24.18 亿（+28%），数据中心 18.327 亿（占 76%，同比 +27.2%），含 Celestial AI 与 XConn 收购。
+[^otis]: [Otis Worldwide 2025 Form 10-K — Segment Results & Service](https://www.sec.gov/Archives/edgar/data/1781335/000178133526000011/otis-20251231.htm)。年度截至 2025-12-31；新设备 53.7→49.9 亿（有机 −7%）、维护维修 72.1→75.8 亿（有机 +4%）、改造 16.8→18.6 亿（有机 +9%）及在保梯约 250 万台。
+[^otis-call]: [Otis Reports FY2025 Results & Q4 2025 Earnings Call Transcript](https://s203.q4cdn.com/227649559/files/doc_financials/2025/q4/4Q25-Otis-Worldwide-Corp-Earnings-Call-Transcript.pdf)。2026-01-28；全年新设备订单持平、年末 Backlog 固定汇率 +2%（实际 +6%）、服务组合 +4% 主靠新梯转入及美国 Q4 执行延至 Q1 说明。
+[^jnj]: [Johnson & Johnson 2025 Form 10-K — Innovative Medicine Product Sales](https://www.sec.gov/Archives/edgar/data/200406/000020040626000016/jnj-20251228.htm)。财年截至 2025-12-28；STELARA 103.6→60.8 亿（−41.3%）、DARZALEX 116.7→143.5 亿（+23.0%）、TREMFYA 36.7→51.6 亿（+40.5%）、CARVYKTI 9.6→18.9 亿（+95.9%）。
+[^isrg]: [Intuitive Surgical FY2025 Form 10-K — Revenue & Procedures](https://www.sec.gov/Archives/edgar/data/1035267/000103526726000010/isrg-20251231.htm)。年度截至 2025-12-31；总收入 83.5→100.6 亿（+20.5%），系统 +26%、器械附件 +19%、服务 +20%；da Vinci 手术超 310 万例（+18%）、Ion 操作量 +51%。
+[^hca]: [HCA Healthcare 2025 Annual Report & Form 10-K](https://s23.q4cdn.com/949900249/files/doc_financials/2024/ar/HCA-2025-Annual-Report-to-Shareholders-FINAL.pdf)。2025 年度；集团营收 706.0→756.0 亿（+7.1%）、折合住院人次 399→411 万（+2.9%）、单次收入 +4.0% 及 Medicaid 州补充支付 55→62 亿美元。
+[^jpm]: [JPMorgan Chase 2025 Annual Report & Form 10-K](https://www.jpmorganchase.com/content/dam/jpmc/jpmorgan-chase-and-co/investor-relations/documents/annualreport-2025.pdf)。2025 年度；集团 GAAP 利息收入 1,939.3→1,933.4 亿、利息支出 1,013.5→979.0 亿、净利息收入 925.8→954.4 亿美元（+3.1%）。
+[^visa]: [Visa FY2025 Form 10-K — Operating Metrics & Revenue Disaggregation](https://www.sec.gov/Archives/edgar/data/1403161/000140316125000089/v-20250930.htm)。财年截至 2025-09-30；名义支付额 12.99→13.89 万亿（截至 6 月末，+7%）、处理笔数 2,338→2,575 亿笔（+10%）、服务费 175.4 亿（+9%）、处理费 199.9 亿（+13%）、客户激励 157.5 亿（+14%）及净收入 400.0 亿美元（+11%）。
+[^chubb]: [Chubb Limited Annual Report 2025 & FY2025 Results Release](https://www.chubb.com/content/dam/annual-corporate-governance/2026/a-chubb-limited/chubb-limited-annual-report-2025.pdf)。2025 年度；财险净签单保费 451.4→475.6 亿（+5.4%）、2026-02-03 全年业绩公告财险净已赚保费 +5.1% 及 Note 1 保费分摊确认政策。
+[^xom]: [ExxonMobil — Business divisions](https://corporate.exxonmobil.com/who-we-are/our-global-organization/business-divisions)。上游开采、下游炼化与化工业务划分。
+[^xom-10k]: [Exxon Mobil Corporation FY2025 Form 10-K — Production, Realizations & Note 3](https://www.sec.gov/Archives/edgar/data/34088/000003408826000045/xom-20251231.htm)。年度截至 2025-12-31；原油日产量 1,858→1,992 千桶/日（+7.2%）、销售均价 76.57→65.64 美元/桶（−14.3%）、合并销售及营业收入 3,392→3,239 亿及消除分部间收入 1,210 亿美元。
+[^kmi]: [Kinder Morgan — Products Pipelines](https://www.kindermorgan.com/Operations/Products/Index)。Galena Park 凝析油长期收费加工协议。
+[^wic]: [Wyoming Interstate Company — Black Hills Negotiated Rate Agreement Update](https://pipeline2.kindermorgan.com/Documents/WIC/RP25-1193-000_Negotiated_Rate_Agreement_Update_-_Black_Hills_2025-20250930164903.pdf)。2025-09-30 申报；28,150 Dth/d 容量月预留费率 0.9125 美元/Dth 与指定接收点追加费率 0.1125 美元/Dth。
+[^pm]: [Polymarket Gamma: MRVL FY2027 Q1 Data Center event and five markets](https://gamma-api.polymarket.com/events?slug=will-marvell-q1-data-center-revenue-be-above)。event id 483195；门槛合约严格超过 18.5 亿与 19 亿美元。
+[^mrvl-base]: [Marvell FY2026 Q1 earnings release / 8-K Exhibit 99.1](https://investor.marvell.com/sec-filings/all-sec-filings/content/0001835632-25-000115/q126_8kx532025ex-991.htm)。FY2026 Q1 数据中心收入 14.406 亿美元。
+[^pm-history]: [Official CLOB YES price history: MRVL Q1 Data Center > 1.85B / 1.9B](https://clob.polymarket.com/prices-history?market=15444808016939390136366603813937420398362508425617427546284721604674110774890&startTs=1778716800&endTs=1779926400&fidelity=60)。2026-05-26 16:00:04 UTC 历史序列 YES 价格 0.395 与 0.185 美元。
+[^mrvl-outlook]: [Marvell FY26 and Q4 FY26 Financial and Business Results](https://d1io3yog0oux5.cloudfront.net/_6b3a348c4b3086f910c6504b5c8068c0/marvell/db/3735/35341/file/2026_03_05_Marvell_Q4_FY26_financial_business_results_FINAL.pdf)。PDF pp6,13,15–16；FY2027 全年数据中心约 40% 增长展望与 Q1 全公司 24 亿（±5%）指引。
+[^ko-base]: [The Coca-Cola Company — Fourth Quarter and Full Year 2025 Earnings Release](https://www.coca-colacompany.com/content/dam/corporate/us/en/media-center/Coca-Cola%20Q4%202025%20Earnings%20Release_Full%20Release_2.10.26.pdf)。2025 全年可比净营收 480.62 亿、归属股东可比净利 129.58 亿、稀释加权平均股数 43.13 亿股。
+[^dbs]: [DBS US Equity Research — Coca-Cola: The world remains thirsty for Coke](https://www.dbs.com/content/article/pdf/US_clover/CocaCola.pdf)。2026-05-04 研报；2026-04-30 收盘价 78.76 美元与 26 倍前瞻 PE 参照。
